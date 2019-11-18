@@ -1,7 +1,7 @@
 ---
 title: 질문과 대답 - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: Custom Translator에 대한 질문과 대답입니다.
+description: 이 문서에는 Azure Cognitive Services 사용자 지정 변환기에 대 한 질문과 대답이 포함 되어 있습니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: 3dacfc0d8371ad9e8fa66d8bb1c5fafa59271ce0
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 97d399f4a8ec704fd90eb6c49f0835be7e9e4537
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388176"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836605"
 ---
 # <a name="custom-translator-frequently-asked-questions"></a>사용자 지정 변환기 faq (질문과 대답)
 

@@ -1,5 +1,5 @@
 ---
-title: 전체 텍스트 검색을 위해 Azure Table storage에서 콘텐츠 인덱싱
+title: Azure Table storage 콘텐츠를 검색 합니다.
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 인덱서를 사용 하 여 Azure Table storage에 저장 된 데이터를 인덱싱하는 방법을 알아봅니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: ae99145178fba8e204267546dc1cedf42df412eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e8f6c0454497b1cb1d62417e566e9662469c56d0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793746"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113006"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Azure Cognitive Search을 사용 하 여 Azure 테이블 저장소에서 테이블을 인덱싱하는 방법
 
@@ -24,7 +24,7 @@ ms.locfileid: "72793746"
 
 다음 리소스를 사용하여 Azure Table Storage 인덱서를 설정할 수 있습니다.
 
-* [Azure 포털](https://ms.portal.azure.com)
+* [Azure Portal](https://ms.portal.azure.com)
 * Azure Cognitive Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
 * Azure Cognitive Search [.NET SDK](https://aka.ms/search-sdk)
 
@@ -133,7 +133,7 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
 ## <a name="incremental-indexing-and-deletion-detection"></a>증분 인덱싱 및 삭제 감지
 일정에 따라 실행되는 테이블 인덱서를 설정한 경우 이 인덱서는 행의 `Timestamp` 값에 따라 새 행 또는 업데이트된 행만 다시 인덱싱합니다. 변경 감지 정책을 지정하지 않아도 됩니다. 증분 인덱싱이 자동으로 사용됩니다.
 
-특정 문서를 인덱스에서 제거해야 함을 나타내려면 일시 삭제 전략을 사용할 수 있습니다. 행을 삭제하는 대신, 행이 삭제됨을 나타내는 속성을 추가하고 데이터 원본에 대해 일시 삭제 감지 정책을 설정합니다. 예를 들어 다음 정책은 행이 값이 `"true"`인 속성 `IsDeleted`를 갖는 경우 삭제되는 행을 고려합니다.
+특정 문서를 인덱스에서 제거해야 함을 나타내려면 일시 삭제 전략을 사용할 수 있습니다. 행을 삭제하는 대신, 행이 삭제됨을 나타내는 속성을 추가하고 데이터 원본에 대해 일시 삭제 감지 정책을 설정합니다. 예를 들어 다음 정책은 행이 값이 `IsDeleted`인 속성 `"true"`를 갖는 경우 삭제되는 행을 고려합니다.
 
     PUT https://[service name].search.windows.net/datasources?api-version=2019-05-06
     Content-Type: application/json

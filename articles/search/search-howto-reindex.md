@@ -1,5 +1,5 @@
 ---
-title: Azure Cognitive Search 인덱스 다시 작성
+title: 검색 인덱스 다시 작성
 titleSuffix: Azure Cognitive Search
 description: 새 요소를 추가 하거나, 기존 요소나 문서를 업데이트 하거나, 전체 다시 빌드 또는 부분 증분 인덱싱에서 사용 되지 않는 문서를 삭제 하 여 Azure Cognitive Search 인덱스를 새로 고칩니다.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1301ee2494aa24720905b9e3e68edce04fb17e72
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b14c153f52e0427e289afeccdfd22d6510e4ace1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466452"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112958"
 ---
-# <a name="how-to-rebuild-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스를 다시 작성 하는 방법
+# <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
 이 문서에서는 Azure Cognitive Search 인덱스를 다시 작성 하는 방법, 다시 작성 해야 하는 상황 및 진행 중인 쿼리 요청에 대 한 재작성의 영향을 완화 하기 위한 권장 사항을 설명 합니다.
 
@@ -93,7 +93,7 @@ Azure Cognitive Search에서는 특정 필드를 삭제 하거나 다시 만들�
 
 첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 + [인덱서 개요](search-indexer-overview.md)
 + [대규모 데이터 집합 인덱싱](search-howto-large-index.md)

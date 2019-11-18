@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/08/2019
+ms.date: 11/13/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: fe8483bd6055acb0a2c741192ec80211b9969a16
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 5bfc5e6471d768b89a66610a2618bc1a44cf709d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175874"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145922"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>MSAL 예외 및 오류 처리
 
@@ -40,7 +40,7 @@ MSAL(Microsoft 인증 라이브러리)의 예외는 앱 개발자가 최종 사�
 
 오류에 대 한 전체 목록은 [Msalerror 열거형](https://github.com/AzureAD/microsoft-authentication-library-for-objc/blob/master/MSAL/src/public/MSALError.h#L128)에 나와 있습니다.
 
-오류를 생성 한 모든 MSAL이 `MSALErrorDomain` 도메인과 함께 반환 됩니다. 
+오류를 생성 한 모든 MSAL이 `MSALErrorDomain` 도메인과 함께 반환 됩니다.
 
 시스템 오류의 경우 MSAL은 시스템 API에서 원래 `NSError`을 반환 합니다. 예를 들어 네트워크 연결 부족으로 인해 토큰 획득에 실패 하는 경우 MSAL은 `NSURLErrorDomain` 도메인 및 `NSURLErrorNotConnectedToInternet` 코드와 함께 오류를 반환 합니다.
 
@@ -242,6 +242,17 @@ Swift
     application.acquireTokenSilent(with: silentParameters, completionBlock: completionBlock)
 ```
 
+## <a name="msal-for-python-error-handling"></a>Python 오류 처리에 대 한 MSAL
+
+Python 용 MSAL에서 대부분의 오류는 API 호출에서 반환 값으로 전달 됩니다. 이 오류는 Microsoft id 플랫폼의 JSON 응답을 포함 하는 사전으로 표시 됩니다.
+
+* 성공적인 응답에는 `"access_token"` 키가 포함 됩니다. 응답의 형식은 OAuth2 프로토콜에 의해 정의 됩니다. 자세한 내용은 [5.1 성공 응답](https://tools.ietf.org/html/rfc6749#section-5.1) 을 참조 하세요.
+* 오류 응답에는 `"error"` 포함 되며 일반적으로 `"error_description"`. 응답의 형식은 OAuth2 프로토콜에 의해 정의 됩니다. 자세한 내용은 [5.2 오류 응답](https://tools.ietf.org/html/rfc6749#section-5.2) 을 참조 하세요.
+
+오류가 반환 되 면 `"error_description"` 키에 사람이 읽을 수 있는 메시지가 포함 됩니다. 그러면 일반적으로 Microsoft id 플랫폼 오류 코드가 포함 됩니다. 다양 한 오류 코드에 대 한 자세한 내용은 [인증 및 권한 부여 오류 코드](https://docs.microsoft.com/azure/active-directory/develop/reference-aadsts-error-codes)를 참조 하세요.
+
+Python에 대 한 MSAL에서는 대부분의 오류는 오류 값을 반환 하 여 처리 되기 때문에 예외가 드물게 발생 합니다. `ValueError` 예외는 API 매개 변수가 잘못 된 경우와 같이 라이브러리를 사용 하는 방법에 문제가 있는 경우에만 throw 됩니다.
+
 ## <a name="net-exceptions"></a>.NET 예외
 
 예외를 처리할 때 예외 유형 자체와 `ErrorCode` 멤버를 사용하여 예외를 구별할 수 있습니다. `ErrorCode` 값은 [Msalerror](/dotnet/api/microsoft.identity.client.msalerror?view=azure-dotnet)형식의 상수입니다.
@@ -278,8 +289,8 @@ MSAL은 `Classification` 필드를 노출 합니다. 예를 들어 사용자가 
 | 분류    | 의미           | 권장 처리 |
 |-------------------|-------------------|----------------------|
 | BasicAction | 대화형 인증 흐름 중에 사용자 상호 작용을 통해 조건을 확인할 수 있습니다. | AcquireTokenInteractively ()를 호출 합니다. |
-| AdditionalAction | 상태는 대화형 인증 흐름 외부에서 시스템과의 추가 수정 조작으로 해결할 수 있습니다. | AcquireTokenInteractively ()를 호출 하 여 수정 작업을 설명 하는 메시지를 표시 합니다. 사용자가 수정 작업을 완료할 가능성이 없는 경우 응용 프로그램을 호출 하면 additional_action가 필요한 흐름을 숨기도록 선택할 수 있습니다. |
-| MessageOnly      | 지금은 조건을 확인할 수 없습니다. 대화형 인증 흐름을 시작 하면 조건을 설명 하는 메시지가 표시 됩니다. | AcquireTokenInteractively ()를 호출 하 여 조건을 설명 하는 메시지를 표시 합니다. AcquireTokenInteractively ()는 사용자가 메시지를 읽고 창을 닫은 후 UserCanceled 오류를 반환 합니다. 응용 프로그램을 호출 하면 사용자가 메시지를 효율적으로 message_only 수 있는 흐름을 숨기도록 선택할 수 있습니다.|
+| AdditionalAction | 상태는 대화형 인증 흐름 외부에서 시스템과의 추가 수정 조작으로 해결할 수 있습니다. | AcquireTokenInteractively ()를 호출 하 여 수정 작업을 설명 하는 메시지를 표시 합니다. 응용 프로그램을 호출 하면 사용자가 수정 작업을 완료할 가능성이 없는 경우 additional_action 필요한 흐름을 숨기도록 선택할 수 있습니다. |
+| MessageOnly      | 지금은 조건을 확인할 수 없습니다. 대화형 인증 흐름을 시작 하면 조건을 설명 하는 메시지가 표시 됩니다. | AcquireTokenInteractively ()를 호출 하 여 조건을 설명 하는 메시지를 표시 합니다. AcquireTokenInteractively ()는 사용자가 메시지를 읽고 창을 닫은 후 UserCanceled 오류를 반환 합니다. 응용 프로그램을 호출 하면 사용자가 메시지를 사용 하는 것이 불가능 한 경우 message_only 발생 하는 흐름을 숨기도록 선택할 수 있습니다.|
 | ConsentRequired  | 사용자 동의가 누락 되었거나 해지 되었습니다. | 사용자가 동의할 수 있도록 AcquireTokenInteractively ()를 호출 합니다. |
 | UserPasswordExpired | 사용자의 암호가 만료 되었습니다. | 사용자가 암호를 재설정할 수 있도록 AcquireTokenInteractively ()를 호출 합니다. |
 | PromptNeverFailed| 대화형 인증은 매개 변수 프롬프트를 사용 하 여 호출 되었습니다. MSAL이 브라우저 쿠키를 사용 하 고 브라우저를 표시 하지는 않습니다. 이로 인해 오류가 발생 했습니다. | 프롬프트를 표시 하지 않고 AcquireTokenInteractively ()를 호출 합니다. 없음 |
@@ -344,7 +355,6 @@ catch (MsalUiRequiredException ex) when (ex.ErrorCode == MsalError.InvalidGrantE
  }
 }
 ```
-
 
 ## <a name="javascript-errors"></a>JavaScript 오류
 
@@ -449,7 +459,7 @@ myMSALObj.acquireTokenSilent(request).then(function (response) {
 
 ### <a name="net"></a>.NET
 
-MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)으로 표시됩니다.
+MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)으로 표시됩니다.
 
 클레임 챌린지를 처리 하려면 `PublicClientApplicationBuilder` 클래스의 `.WithClaim()` 메서드를 사용 해야 합니다.
 

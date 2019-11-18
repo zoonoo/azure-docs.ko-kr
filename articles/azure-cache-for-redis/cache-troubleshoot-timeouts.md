@@ -1,25 +1,17 @@
 ---
-title: Azure Cache for Redis 시간 제한 문제 해결 | Microsoft Docs
+title: Redis 시간 초과에 대 한 Azure 캐시 문제 해결
 description: Redis 용 Azure Cache를 사용 하 여 일반적인 시간 제한 문제를 해결 하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4f577e6497e853d9b75f81b5da4f7121064a9d07
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e58b305a43cc5ad339fb87b9b8a09af04c410839
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826347"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121375"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-timeouts"></a>Redis 시간 초과에 대 한 Azure 캐시 문제 해결
 
@@ -53,7 +45,7 @@ Redis는 동기 작업에 `synctimeout` 이라는 구성 설정을 사용 하며
 | qs |67 진행 중인 작업이 서버에 전송 되었지만 아직 응답을 사용할 수 없습니다. 응답은 `Not yet sent by the server` 또는 `sent by the server but not yet processed by the client.`일 수 있습니다. |
 | qc |진행 중인 작업 중 0 개는 회신을 표시 하지만 완료 루프에서 대기 하 고 있으므로 아직 완료로 표시 되지 않았습니다. |
 | wr |활성 기록기가 있습니다 (6 개의 보내지 않은 요청이 무시 되지 않음). 바이트/activewriters |
-| in |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
+| 의 |활성 판독기가 없으며 NIC 바이트/activereaders에서 판독하는 데 사용 가능한 바이트는 0입니다. |
 
 다음 단계를 사용 하 여 가능한 근본 원인을 조사할 수 있습니다.
 

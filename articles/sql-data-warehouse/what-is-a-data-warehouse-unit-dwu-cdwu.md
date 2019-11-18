@@ -11,12 +11,12 @@ ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f3415522a6ae80723500ba2d38867322fdef0dd7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685334"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133171"
 ---
 # <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
 
@@ -107,7 +107,7 @@ SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 �
 
 1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
 2. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
+3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음 예를 참조하세요.
 
 ```sql
 SELECT  db.name [Database]
@@ -120,7 +120,7 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>데이터 웨어하우스 단위 변경
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 DWU 또는 cDWU를 변경하려면
 
@@ -128,7 +128,7 @@ DWU 또는 cDWU를 변경하려면
 
 2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **Save**를 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -204,7 +204,7 @@ DWU 변경 상태를 확인하려면:
     ;
     ```
     
-이 DMV는 작업 및 작업 상태 (IN_PROGRESS 또는 완료 됨)와 같은 SQL 풀의 다양 한 관리 작업에 대 한 정보를 반환 합니다.
+이 DMV는 작업 및 작업 상태와 같은 SQL 풀에서 다양 한 관리 작업에 대 한 정보를 반환 합니다 (IN_PROGRESS 또는 완료 됨).
 
 ## <a name="the-scaling-workflow"></a>크기 조정 워크플로
 
@@ -215,4 +215,4 @@ DWU 변경 상태를 확인하려면:
 
 ## <a name="next-steps"></a>다음 단계
 
-성능 관리에 대 한 자세한 내용은 [워크 로드 관리를 위한 리소스 클래스](resource-classes-for-workload-management.md) 및 [메모리 및 동시성 제한] 메모리-limits.md)를 참조 하세요.
+성능 관리에 대한 자세한 내용은 [워크로드 관리에 대한 리소스 클래스](resource-classes-for-workload-management.md) 및 [메모리와 동시성 제한](memory-concurrency-limits.md)을 참조하세요.

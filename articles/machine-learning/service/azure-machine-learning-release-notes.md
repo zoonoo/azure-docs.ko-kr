@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 986e146e2129d26aa6accd747c89e12462d46667
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: cf9a57b58740d1a759e00f10f6f327d605e91148
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931134"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123632"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -228,7 +228,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + `automl`의 종속성으로 psutil을 추가 하 고 amlcompute에서 conda 종속성으로 포함 된 psutil을 추가 했습니다.
     + 예측 데이터 집합에서 추론 지연 및 롤링 창 크기에 대 한 문제를 해결 했습니다. 일부 시리즈는 선형 대 수 오류를 일으킬 수 있습니다.
       + 예측 실행에서 결정 된 발견적 매개 변수에 대 한 출력을 추가 했습니다.
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
+  + **azureml-datadrift**
     + 첫 번째 섹션에 데이터 집합 수준 드리프트가 없는 경우 출력 메트릭을 만드는 동안 보호 기능이 추가 되었습니다.
   + **azureml-인-해석**
     + azureml-설명-설명-모델 패키지의 이름이 azureml로 바뀌었습니다.
@@ -280,16 +280,16 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
         experiment2 = Experiment(workspace, "Active Experiment")
         experiment1.reactivate(new_name="Previous Active Experiment")
         ```
-        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly--) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예: 
+        실험에서 정적 메서드 [목록 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment#list-workspace--experiment-name-none--view-type--activeonly---tags-none-) 은 이름 필터 및 ViewType 필터를 사용할 수 있습니다. ViewType 값은 "ACTIVE_ONLY", "ARCHIVED_ONLY" 및 "ALL"입니다. 예: 
         
         ```py
         archived_experiments = Experiment.list(workspace, view_type="ARCHIVED_ONLY")
         all_first_experiments = Experiment.list(workspace, name="First Experiment", view_type="ALL")
         ```
     + 모델 배포 및 서비스 업데이트를 위한 환경 사용을 지원 합니다.
-  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-contrib-datadrift)**
-    + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
-    + DataDriftDetector 함수 [get_output](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector#get-output-start-time--end-time--run-id-none--daily-latest-only-true-) 동작 변경 내용:
+  + **[azureml-datadrift](https://docs.microsoft.com/python/api/azureml-datadrift)**
+    + [Datadriftdetector](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 클래스의 show 특성은 선택적 인수 ' with_details '을 더 이상 지원 하지 않습니다. 표시 특성은 기능 열의 데이터 드리프트 계수 및 데이터 드리프트 기여도만 제공 합니다.
+    + DataDriftDetector 함수 [get_output]https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#get-output-start-time-none--end-time-none--run-id-none-) 동작 변경 내용:
       + 입력 매개 변수 start_time end_time는 필수 항목이 아닌 선택적 요소입니다.
       + 동일한 호출에서 특정 run_id를 사용 하는 입력 특정 start_time 및/또는 end_time는 함께 사용할 수 없으므로 값 오류 예외가 발생 합니다. 
       + 입력 특정 start_time 및/또는 end_time를 통해 예약 된 실행 결과만 반환 됩니다. 
@@ -508,7 +508,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + `Dataset.Tabular.from_delimited_files` 및 `Dataset.Tabular.from_parquet.files`에 `partition_format` 인수를 소개 합니다. 각 데이터 경로의 파티션 정보는 지정 된 형식에 따라 열로 추출 됩니다. ' {column_name} '은 (는) 문자열 열을 만들며 ' {column_name: yyyy/MM/dd/HH/MM/ss} '는 datetime 열을 만듭니다. 여기서 ' yyyy ', ' MM ', ' dd ', ' HH ', ' mm ' 및 ' ss '는 datetime 형식의 연도, 월, 일, 시간 Partition_format는 파일 경로가 끝날 때까지 첫 번째 파티션 키의 위치부터 시작 해야 합니다. 예를 들어 '.. 경로를 지정 합니다. /USA/2019/01/01/data.csv ' 파티션이 국가 및 시간별 이며, partition_format = '/{Country}/{PartitionDate: yyyy/MM/dd}/x m l '은 값이 ' USA ' 인 ' Country ' 문자열 열과 ' 2019-01-01 ' 값이 포함 된 datetime 열 ' 분할 날짜 '를 만듭니다.
     + `to_csv_files` 및 `to_parquet_files` 메서드가 `TabularDataset`에 추가 되었습니다. 이러한 메서드를 사용 하면 데이터를 지정 된 형식의 파일로 변환 하 여 `TabularDataset`와 `FileDataset` 간에 변환할 수 있습니다.
     + 모델인 ()에서 생성 된 Dockerfile을 저장할 때 기본 이미지 레지스트리에 자동으로 로그인 합니다.
-    + ' gpu_support '은 더 이상 필요 하지 않습니다. 이제 AzureML에서 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다 (사용 가능한 경우). 이후 릴리스에서 제거 될 예정입니다.
+    + ' gpu_support '은 더 이상 필요 하지 않습니다. 이제 AzureML에서 nvidia docker 확장을 자동으로 검색 하 고 사용 합니다 (사용 가능한 경우). 후속 릴리스에서 제거될 예정입니다.
     + PipelineDrafts을 만들고, 업데이트 하 고, 사용할 수 있는 지원이 추가 되었습니다.
     + 이 릴리스는 자동화 된 machine learning 로컬 실행의 실행 성능을 향상 시킵니다.
     + 사용자는 이름으로 실행 기록에서 메트릭을 쿼리할 수 있습니다.
@@ -909,7 +909,7 @@ Azure Databricks를 사용 하는 일부 고객에 게 문제가 발생 하 여 
 + **미리 보기 기능**
     + Azureml-mlflow 패키지를 통해 [Mlflow](https://mlflow.org) 1.0.0 추적과 통합 ([예: 노트북](https://aka.ms/azureml-mlflow-examples)).
     + Jupyter 노트북을 실행으로 제출 합니다. [API 참조 설명서](https://docs.microsoft.com/python/api/azureml-contrib-notebook/azureml.contrib.notebook?view=azure-ml-py)
-    + Azureml-datadrift 패키지 ([예: 노트북](https://aka.ms/azureml-datadrift-example))를 통한 [데이터 드리프트 탐지기](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift?view=azure-ml-py) 의 공개 미리 보기입니다. 데이터 드리프트는 시간이 지남에 따라 모델 정확성이 저하 되는 가장 중요 한 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공 되는 데이터가 모델에서 학습 된 데이터와 다를 때 발생 합니다. AML 데이터 드리프트 탐지기는 고객이 데이터 드리프트를 모니터링 하 고 드리프트가 검색 될 때마다 경고를 보내는 데 도움이 됩니다. 
+    + Azureml-datadrift 패키지 ([예: 노트북](https://aka.ms/azureml-datadrift-example))를 통한 [데이터 드리프트 탐지기](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector(class)) 의 공개 미리 보기입니다. 데이터 드리프트는 시간이 지남에 따라 모델 정확성이 저하 되는 가장 중요 한 이유 중 하나입니다. 프로덕션 환경에서 모델에 제공 되는 데이터가 모델에서 학습 된 데이터와 다를 때 발생 합니다. AML 데이터 드리프트 탐지기는 고객이 데이터 드리프트를 모니터링 하 고 드리프트가 검색 될 때마다 경고를 보내는 데 도움이 됩니다. 
 
 + **주요 변경 내용**
 
@@ -1079,7 +1079,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
   + 이제 피벗 변환을 사용할 수 있습니다.
     + 방법 가이드: [피벗 노트북](https://aka.ms/aml-data-prep-pivot-nb)
   + 이제 네이티브 함수에서 정규식을 사용할 수 있습니다.
-    + 예제:
+    + 예를 들면 다음과 같습니다.
       + `dflow.filter(dprep.RegEx('pattern').is_match(dflow['column_name']))`
       + `dflow.assert_value('column_name', dprep.RegEx('pattern').is_match(dprep.value))`
   + 이제 `to_upper` 를 사용 하 고 식 언어로  함수를 `to_lower`수 있습니다.
@@ -1300,7 +1300,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
   + Python 3.5.2에서 `set_column_types`를 충돌한 버그가 수정되었습니다.
   + AML 이미지를 사용하여 데이터 저장소에 연결할 때 충돌한 버그가 수정되었습니다.
 
-+ **업데이트**
++ **Updates**
   * 자습서 시작, 사례 연구 및 방법 가이드에 대한 [예제 Notebooks](https://aka.ms/aml-data-prep-notebooks)
 
 ## <a name="2018-12-04-general-availability"></a>2018-12-04: 일반 공급
@@ -1328,7 +1328,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   + 이 릴리스에서는 Azure Machine Learning에서 VM을 만들기 위한 지원을 제거합니다. 기존 클라우드 VM 또는 원격 온-프레미스 서버를 계속 연결할 수 있습니다. 
   + 또한 Batch AI에 대한 지원을 제거하며, 모든 기능은 이제 Azure Machine Learning 컴퓨팅을 통해 지원됩니다.
 
-+ **New**
++ **새로 만들기**
   + 기계 학습 파이프라인:
     + [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimator_step.estimatorstep?view=azure-ml-py)
     + [HyperDriveStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyper_drive_step.hyperdrivestep?view=azure-ml-py)
@@ -1354,7 +1354,7 @@ Azure Machine Learning 컴퓨팅은 Azure Portal 또는 CLI를 사용하여 Pyth
   * Value Count Inspector가 1000개 이상의 고유 값을 표시할 수 있음
   * 원래 데이터 흐름에 이름이 없는 경우 임의 분할이 더 이상 실패하지 않음  
 
-+ **자세한 정보**
++ **추가 정보**
   * [Azure Machine Learning Data Prep SDK](https://aka.ms/data-prep-sdk)
 
 ### <a name="docs-and-notebooks"></a>문서 및 Notebook

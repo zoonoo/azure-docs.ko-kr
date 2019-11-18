@@ -1,5 +1,5 @@
 ---
-title: 인덱서 상태 및 결과를 모니터링 하는 방법
+title: 인덱서 상태 및 결과 모니터링
 titleSuffix: Azure Cognitive Search
 description: REST API 또는 .NET SDK를 사용 하 여 Azure Portal에서 Azure Cognitive Search 인덱서의 상태, 진행률 및 결과를 모니터링 합니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c7f688c96576f660795becaf318c3b0677a24542
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 699b5a4e5a7f10c883667ca5030dd971855467f5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793794"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112986"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Azure Cognitive Search 인덱서 상태 및 결과를 모니터링 하는 방법
 

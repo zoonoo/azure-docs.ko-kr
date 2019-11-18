@@ -1,25 +1,17 @@
 ---
-title: Azure Cache for Redis 프리미엄 계층 소개 | Microsoft Docs
+title: Azure Cache for Redis 프리미엄 계층 소개
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Redis 지속성, Redis 클러스터링 및 VNET 지원을 만들고 관리하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 30f46f9f-e6ec-4c38-a8cc-f9d4444856e5
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: 6960c21091e0bc01c198e713c0c276984566ac41
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: aadcc13d2397f10ea40f06d1259c86b9a179c38b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65786073"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121661"
 ---
 # <a name="introduction-to-the-azure-cache-for-redis-premium-tier"></a>Azure Cache for Redis 프리미엄 계층 소개
 Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시는 데이터에 매우 빠르게 액세스하여 확장성과 응답성이 뛰어난 애플리케이션을 빌드하는 데 도움을 줍니다. 
@@ -64,8 +56,8 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 
 * 캐시의 마스터 노드
 * 캐시의 보조 노드
-* 캐시의 기본 및 보조 노드
-* 주, 보조 서버 또는 두 노드 캐시의 개별 분할 된 데이터베이스에 대 한 클러스터링이 포함 된 프리미엄 캐시를 사용 하는 경우 재부팅할 수 있습니다.
+* 캐시의 기본 및 보조 노드 모두
+* 클러스터링이 포함 된 프리미엄 캐시를 사용 하는 경우 캐시의 개별 분할에 대 한 기본, 보조 또는 두 노드를 모두 다시 부팅할 수 있습니다.
 
 자세한 내용은 [다시 부팅](cache-administration.md#reboot) 및 [다시 부팅 FAQ](cache-administration.md#reboot-faq)를 참조하세요.
 
@@ -74,7 +66,7 @@ Azure Cache for Redis는 분산되고 관리되는 캐시입니다. 이 캐시�
 >
 >
 
-## <a name="schedule-updates"></a>업데이트를 예약
+## <a name="schedule-updates"></a>업데이트 예약
 예약된 업데이트 기능을 사용하여 캐시 유지 관리 기간을 지정할 수 있습니다. 유지 관리 기간이 지정되면 이 기간 동안 Redis 서버 업데이트가 진행됩니다. 유지 관리 기간을 지정하려면 원하는 요일을 선택하고 각 요일의 유지 관리 기간 시작 시간을 선택합니다. 유지 관리 기간 시간은 UTC로 나타냅니다. 
 
 자세한 내용은 [업데이트 예약](cache-administration.md#schedule-updates) 및 [업데이트 예약 FAQ](cache-administration.md#schedule-updates-faq)를 참조하세요.

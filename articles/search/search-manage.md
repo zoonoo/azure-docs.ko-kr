@@ -1,5 +1,5 @@
 ---
-title: 포털의 Azure Cognitive Search에 대 한 서비스 관리
+title: 포털에서 서비스 관리
 titleSuffix: Azure Cognitive Search
 description: Azure Portal를 사용 하 여 Microsoft Azure에서 호스팅되는 클라우드 Search 서비스인 Azure Cognitive Search 서비스를 관리 합니다.
 manager: nitinme
@@ -9,19 +9,19 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 052d772c8ef885d594146d456ebb3cdcbbc0e383
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e00a810e7977e1c45c1833e0b901ff6804f7fb32
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793511"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113294"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Azure Portal의 Azure Cognitive Search에 대 한 서비스 관리
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
 > * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portal](search-manage.md)
+> * [포털](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
 Azure Cognitive Search는 사용자 지정 앱에 풍부한 검색 환경을 구축 하는 데 사용 되는 완전히 관리 되는 클라우드 기반 검색 서비스입니다. 이 문서에서는 이미 프로비전된 검색 서비스를 위한 [Azure Portal](https://portal.azure.com)에서 수행할 수 있는 서비스 관리 작업에 대해 설명합니다. 서비스 관리는 의도적으로 간단하게 작성되었으며 다음 작업으로 제한됩니다.
@@ -75,7 +75,7 @@ Microsoft의 통제 범위를 벗어나는 치명적인 장애가 발생하더�
 
 인덱서를 사용하지 않는 경우, 애플리케이션 코드를 사용하여 개체 및 데이터를 여러 서비스에 동시에 푸시합니다. 자세한 내용은 [Azure Cognitive Search의 성능 및 최적화](search-performance-optimization.md)를 참조 하세요.
 
-## <a name="backup-and-restore"></a>Backup 및 복원
+## <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
 Azure Cognitive Search는 기본 데이터 저장소 솔루션이 아니므로 셀프 서비스 백업 및 복원에 대 한 공식적인 메커니즘을 제공 하지 않습니다. 그러나이 [Azure Cognitive Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스-백업 복원** 샘플 코드를 사용 하 여 인덱스 정의와 스냅숏을 일련의 JSON 파일에 백업 하 고 필요한 경우 이러한 파일을 사용 하 여 인덱스를 복원할 수 있습니다. 이 도구는 서비스 계층 간에 인덱스를 이동할 수도 있습니다.
 
@@ -83,7 +83,7 @@ Azure Cognitive Search는 기본 데이터 저장소 솔루션이 아니므로 �
 
 <a id="scale"></a>
 
-## <a name="scale-up-or-down"></a>계층 및 성능 수준 변경
+## <a name="scale-up-or-down"></a>확장 또는 축소
 모든 검색 서비스는 최소 복제본 한 개와 파티션 한 개로 시작됩니다. [전용 리소스를 제공하는 계층](search-limits-quotas-capacity.md)에 등록한 경우 서비스 대시보드에서 **확장** 타일을 클릭하여 리소스 사용량을 조정합니다.
 
 어느 하나의 리소스를 통해 용량을 추가하면 서비스에서 자동으로 사용합니다. 추가적인 조치가 필요하지 않지만 새 리소스의 영향이 나타나기 전에 잠시 지연이 있습니다. 추가 리소스를 프로비전하는 데 15분 이상 걸릴 수 있습니다.

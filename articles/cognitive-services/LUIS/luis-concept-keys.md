@@ -1,5 +1,5 @@
 ---
-title: 제작 및 런타임 키-LUIS
+title: LUIS에서 제작 및 런타임 키를 사용 하는 방법
 titleSuffix: Azure Cognitive Services
 description: LUIS는 두 가지 키 인 제작 키를 사용 하 여 모델을 만들고 사용자 길이 발언를 사용 하 여 예측 끝점을 쿼리 하기 위한 런타임 키를 사용 합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 973a8dd56437506d907159f212164ff147ba975c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b58aa97dbb97bade87a38456c58df8f93a29946f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487490"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901691"
 ---
 # <a name="authoring-and-runtime-keys"></a>작성 및 런타임 키
 
@@ -125,7 +125,7 @@ LUIS 앱을 이동할 수 있습니다. Azure Portal 또는 Azure CLI에서 다�
 |모델 수정|
 |게시|
 |[활성 학습](luis-how-to-review-endpoint-utterances.md)의 엔드포인트 발화 검토|
-|학습|
+|교육|
 
 <a name="prediction-endpoint-runtime-key"></a>
 

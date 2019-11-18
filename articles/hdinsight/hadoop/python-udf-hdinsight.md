@@ -1,19 +1,19 @@
 ---
 title: Apache Hive 및 Apache Pig에서의 Python UDF - Azure HDInsight
 description: HDInsight에서 Azure의 Apache Hadoop 기술 스택인 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수)를 사용하는 방법에 대해 알아봅니다.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/15/2019
+ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: de738461776be7bdfd1abc45dde24dc1202d3a3c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 201bb40e5024442587f5508886da7e844f35be40
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180758"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148398"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>HDInsight의 Apache Hive 및 Apache Pig에서 Python UDF(사용자 정의 함수) 사용
 
@@ -23,27 +23,28 @@ Azure HDInsight의 Apache Hadoop에서 Apache Hive 및 Apache Pig에서 Python U
 
 Python2.7은 기본적으로 HDInsight 3.0 이상에 설치됩니다. 스트림 처리를 위해 이 버전의 Python에서 Apache Hive를 사용할 수 있습니다. 스트림 처리는 STDOUT 및 STDIN을 사용하여 Hive와 UDF 간에 데이터를 전달합니다.
 
-HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행되며 스트리밍을 사용하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
+HDInsight에는 Java로 작성된 Python 구현인 Jython도 포함되어 있습니다. Jython은 Java Virtual Machine에서 직접 실행 되며 스트리밍을 사용 하지 않습니다. Jython는 Pig와 함께 Python을 사용할 때 권장되는 Python 인터프리터입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 * **HDInsight의 Hadoop 클러스터** [Linux에서 HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * **SSH 클라이언트** 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
-* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 `abfs://` adl://에 대 한 Azure Storage 입니다.`wasb://` Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 wasbs://이 됩니다.  또한 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://`abfs://` Azure Storage에 `wasb://` 됩니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 wasbs://이 됩니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 * **저장소 구성이 변경 될 수 있습니다.**  저장소 계정 종류 `BlobStorage`를 사용 하는 경우 [저장소 구성](#storage-configuration) 을 참조 하세요.
-* (선택 사항)  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
+* 선택 사항입니다.  PowerShell 사용을 계획 하는 경우 [AZ 모듈이](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) 설치 되어 있어야 합니다.
 
 > [!NOTE]  
-> 이 문서에 사용 된 저장소 계정은 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 설정에 Azure Storage 되어 있으므로 `wasbs` 이 문서 전체에서 사용 됩니다.
+> 이 문서에 사용 된 저장소 계정은 [보안 전송](../../storage/common/storage-require-secure-transfer.md) 설정 Azure Storage 되어 있으므로이 문서 전체에서 `wasbs` 사용 됩니다.
 
-## <a name="storage-configuration"></a>스토리지 구성
-사용 된 저장소 계정이 유형 `Storage (general purpose v1)` 또는 `StorageV2 (general purpose v2)`인 경우 아무 작업도 필요 하지 않습니다.  이 문서의 프로세스는 최소한 `/tezstaging`의 출력을 생성 합니다.  기본 hadoop 구성은 `/tezstaging` `core-site.xml` for service `fs.azure.page.blob.dir` 의구성변수에포함됩니다.`HDFS`  이 구성을 수행 하면 디렉터리의 출력이 저장소 계정 종류 `BlobStorage`에 대해 지원 되지 않는 페이지 blob이 됩니다.  이 문서 `BlobStorage` 에를 사용 하려면 `fs.azure.page.blob.dir` 구성 `/tezstaging` 변수에서을 제거 합니다.  [AMBARI UI](../hdinsight-hadoop-manage-ambari.md)에서 구성에 액세스할 수 있습니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 됩니다.`Page blob is not supported for this account type.`
+## <a name="storage-configuration"></a>Storage 구성
+
+사용 된 저장소 계정이 종류 `Storage (general purpose v1)` 또는 `StorageV2 (general purpose v2)`인 경우 아무 작업도 필요 하지 않습니다.  이 문서의 프로세스는 최소한 `/tezstaging`출력을 생성 합니다.  기본 hadoop 구성은 서비스 `HDFS`에 대 한 `core-site.xml`의 `fs.azure.page.blob.dir` 구성 변수에 `/tezstaging`를 포함 합니다.  이 구성을 수행 하면 디렉터리에 대 한 출력이 `BlobStorage`저장소 계정 종류에 대해 지원 되지 않는 페이지 blob이 됩니다.  이 문서에 대 한 `BlobStorage`를 사용 하려면 `fs.azure.page.blob.dir` 구성 변수에서 `/tezstaging`를 제거 합니다.  [AMBARI UI](../hdinsight-hadoop-manage-ambari.md)에서 구성에 액세스할 수 있습니다.  그렇지 않으면 다음과 같은 오류 메시지가 표시 됩니다. `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > 이 문서의 단계에서는 다음과 같이 가정합니다.  
 >
 > * 로컬 개발 환경에서 Python 스크립트를 만듭니다.
-> * `scp` 명령을 사용 하거나 제공 된 PowerShell 스크립트를 사용 하 여 HDInsight에 스크립트를 업로드 합니다.
+> * `scp` 명령 또는 제공 된 PowerShell 스크립트를 사용 하 여 HDInsight에 스크립트를 업로드 합니다.
 >
 > [Azure Cloud Shell (bash)](https://docs.microsoft.com/azure/cloud-shell/overview) 를 사용 하 여 HDInsight에서 작업 하려는 경우 다음을 수행 해야 합니다.
 >
@@ -99,13 +100,14 @@ while True:
 1. STDIN에서 데이터 줄을 읽습니다.
 2. `string.strip(line, "\n ")`를 사용하여 후행 줄 바꿈 문자를 제거합니다.
 3. 스트림 처리를 할 때 모든 값과 각 값 사이의 탭 문자가 한 줄에 포함됩니다. 따라서 `string.split(line, "\t")` 를 사용하여 각 탭의 입력을 분할하여 필드만 반환할 수 있습니다.
-4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예를 들어, `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`을 입력합니다.
+4. 처리가 완료되면 출력을 단일 행(각 필드 사이에 탭 포함)으로 STDOUT에 작성해야 합니다. 예: `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. `while` 루프는 `line`이 읽히지 않을 때까지 반복됩니다.
 
 스크립트 출력은 `devicemake` 및 `devicemodel`의 입력 값과 연결된 값의 해시를 연결합니다.
 
 ### <a name="upload-file-shell"></a>파일 업로드 (셸)
-아래 명령에서를 실제 사용자 `sshuser` 이름 (다른 경우)으로 바꿉니다.  실제 `mycluster` 클러스터 이름으로 대체 합니다.  작업 디렉터리에 파일이 있는 위치를 확인 합니다.
+
+아래 명령에서 `sshuser`를 실제 사용자 이름 (다른 경우)으로 바꿉니다.  `mycluster`를 실제 클러스터 이름으로 바꿉니다.  작업 디렉터리에 파일이 있는 위치를 확인 합니다.
 
 1. `scp` 를 사용하여 파일을 HDInsight 클러스터에 복사합니다. 를 편집 하 고 아래 명령을 입력 합니다.
 
@@ -146,7 +148,7 @@ while True:
    ORDER BY clientid LIMIT 50;
    ```
 
-3. 마지막 줄을 입력하면 작업이 시작됩니다. 작업이 완료되면 다음 예제와 유사한 출력을 반환합니다.
+3. 마지막 줄을 입력한 후 작업을 시작해야 합니다. 작업이 완료되면 다음 예제와 유사한 출력을 반환합니다.
 
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
         100041    RIM 9650    d476f3687700442549a83fac4560c51c
@@ -162,7 +164,7 @@ while True:
 
 ### <a name="upload-file-powershell"></a>파일 업로드 (PowerShell)
 
-PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리가가 있는 위치 `hiveudf.py` 인지 확인 합니다.  다음 PowerShell 스크립트를 사용 하 여 `hiveudf.py` 스크립트를 사용 하는 Hive 쿼리를 실행 합니다.
+PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리가 `hiveudf.py` 위치에 있는지 확인 합니다.  다음 PowerShell 스크립트를 사용 하 여 `hiveudf.py` 스크립트를 사용 하는 Hive 쿼리를 실행 합니다.
 
 ```PowerShell
 # Login to your Azure subscription
@@ -172,6 +174,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToStreamingFile = ".\hiveudf.py"
@@ -202,9 +207,7 @@ Set-AzStorageBlobContent `
 > [!NOTE]  
 > 파일 업로드에 대한 자세한 내용은 [HDInsight에서 Apache Hadoop 작업용 데이터 업로드](../hdinsight-upload-data.md) 문서를 참조하세요.
 
-
 #### <a name="use-hive-udf"></a>Hive UDF 사용
-
 
 ```PowerShell
 # Script should stop on failures
@@ -217,6 +220,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Get cluster info
 $clusterName = Read-Host -Prompt "Enter the HDInsight cluster name"
@@ -281,7 +287,6 @@ Get-AzHDInsightJobOutput `
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
     100042    Apple iPhone 4.2.x    375ad9a0ddc4351536804f1d5d0ea9b9
 
-
 ## <a name="pigpython"></a>Apache Pig UDF
 
 `GENERATE` 문을 통해 Python 스크립트를 Pig의 UDF로 사용할 수 있습니다. Jython 또는 C Python을 사용하여 스크립트를 실행할 수 있습니다.
@@ -295,7 +300,7 @@ Python 인터프리터를 지정하려면 Python 스크립트를 참조할 때 `
 * **C Python 사용**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
-> Jython을 사용 하는 경우 pig_jython 파일에 대 한 경로는 로컬 경로 또는 WASBS://경로 중 하나일 수 있습니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
+> Jython을 사용 하는 경우 pig_jython 파일의 경로는 로컬 경로 또는 WASBS://경로일 수 있습니다. 그러나 C Python을 사용할 경우에는 Pig 작업을 제출하는 데 사용하는 노드의 로컬 파일 시스템에 있는 파일을 참조해야 합니다.
 
 등록하기 전이라면 두 경우에 대한 이 예제의 Pig Latin은 다음과 같이 모두 동일합니다.
 
@@ -308,7 +313,7 @@ DUMP DETAILS;
 
 다음은 이 예제에서 수행하는 작업입니다.
 
-1. 첫 번째 줄은 `LOGS`에 `sample.log` 샘플 데이터 파일을 로드합니다. 각 레코드를 `chararray`로도 정의합니다.
+1. 첫 번째 줄은 `sample.log`에 `LOGS` 샘플 데이터 파일을 로드합니다. 각 레코드를 `chararray`로도 정의합니다.
 2. 다음 줄에서는 모든 Null 값을 필터링하여 `LOG`에 작업 결과를 저장합니다.
 3. 그런 다음 `LOG`의 레코드에 대해 반복하고 `GENERATE`를 사용하여 `create_structure` 메서드를 호출합니다. 이 메서드는 `myfuncs`로 로드된 Python/Jython 스크립트에 포함되어 있습니다. `LINE`은 현재 레코드를 함수에 전달하는 데 사용됩니다.
 4. 마지막으로 출력은 `DUMP` 명령을 사용하여 STDOUT로 덤프됩니다. 이 명령은 작업이 완료된 후 결과를 표시합니다.
@@ -332,7 +337,7 @@ def create_structure(input):
     return date, time, classname, level, detail
 ```
 
-Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `LINE` 입력이 chararray로 정의되었습니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
+Pig 라틴어 예제에서 입력에 대 한 일관 된 스키마가 없기 때문에 `LINE` 입력은 chararray로 정의 됩니다. Python 스크립트는 데이터를 출력에 대한 일관된 스키마로 변환합니다.
 
 1. `@outputSchema` 문은 Pig에 반환되는 데이터의 형식을 정의합니다. 이 경우 Pig 데이터 형식은 **데이터 모음**입니다. 모음에는 모두 chararray(문자열)인 다음과 같은 필드가 포함됩니다.
 
@@ -352,11 +357,9 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
 데이터가 Pig로 반환되면 `@outputSchema` 문에 정의된 것과 일관된 스키마를 포함합니다.
 
-
-
 ### <a name="upload-file-shell"></a>파일 업로드 (셸)
 
-아래 명령에서를 실제 사용자 `sshuser` 이름 (다른 경우)으로 바꿉니다.  실제 `mycluster` 클러스터 이름으로 대체 합니다.  작업 디렉터리에 파일이 있는 위치를 확인 합니다.
+아래 명령에서 `sshuser`를 실제 사용자 이름 (다른 경우)으로 바꿉니다.  `mycluster`를 실제 클러스터 이름으로 바꿉니다.  작업 디렉터리에 파일이 있는 위치를 확인 합니다.
 
 1. `scp` 를 사용하여 파일을 HDInsight 클러스터에 복사합니다. 를 편집 하 고 아래 명령을 입력 합니다.
 
@@ -376,7 +379,6 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
     hdfs dfs -put pigudf.py /pigudf.py
     ```
 
-
 ### <a name="use-pig-udf-shell"></a>Pig UDF 사용 (shell)
 
 1. Pig에 연결 하려면 열려 있는 SSH 세션에서 다음 명령을 사용 합니다.
@@ -389,7 +391,7 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
    ```pig
    Register wasbs:///pigudf.py using jython as myfuncs;
-   LOGS = LOAD 'wasb:///example/data/sample.log' as (LINE:chararray);
+   LOGS = LOAD 'wasbs:///example/data/sample.log' as (LINE:chararray);
    LOG = FILTER LOGS by LINE is not null;
    DETAILS = foreach LOG generate myfuncs.create_structure(LINE);
    DUMP DETAILS;
@@ -429,10 +431,9 @@ Pig Latin 예제에서는 입력에 대한 일관된 스키마가 없으므로 `
 
     이 작업이 완료되면 이전에 Jython을 사용하여 스크립트를 실행한 때와 같은 출력이 표시됩니다.
 
-
 ### <a name="upload-file-powershell"></a>파일 업로드 (PowerShell)
 
-PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리가가 있는 위치 `pigudf.py` 인지 확인 합니다.  다음 PowerShell 스크립트를 사용 하 여 `pigudf.py` 스크립트를 사용 하는 Hive 쿼리를 실행 합니다.
+PowerShell을 사용하여 Hive 쿼리를 원격으로 실행할 수도 있습니다. 작업 디렉터리가 `pigudf.py` 위치에 있는지 확인 합니다.  다음 PowerShell 스크립트를 사용 하 여 `pigudf.py` 스크립트를 사용 하는 Hive 쿼리를 실행 합니다.
 
 ```PowerShell
 # Login to your Azure subscription
@@ -442,6 +443,9 @@ if(-not($sub))
 {
     Connect-AzAccount
 }
+
+# If you have multiple subscriptions, set the one to use
+# Select-AzSubscription -SubscriptionId "<SUBSCRIPTIONID>"
 
 # Revise file path as needed
 $pathToJythonFile = ".\pigudf.py"
@@ -567,7 +571,7 @@ Get-AzHDInsightJobOutput `
 
 ### <a name="powershell-scripts"></a>PowerShell 스크립트
 
-이 예제를 실행하는 데 사용된 두 가지 예제 PowerShell 스크립트는 작업의 오류 출력을 표시하는 주석 처리된 줄을 포함합니다. 작업의 필요한 출력이 표시되지 않으면 다음 줄의 주석 처리를 제거하고 오류 정보가 문제를 나타내는지 확인합니다.
+이 예제를 실행하는 데 사용된 두 가지 예제 PowerShell 스크립트는 작업의 오류 출력을 표시하는 주석 처리된 줄을 포함합니다. 작업에 대 한 예상 출력이 표시 되지 않는 경우 다음 줄의 주석 처리를 제거 하 고 오류 정보가 문제를 표시 하는지 확인 합니다.
 
 [!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=135-139)]
 
@@ -585,5 +589,4 @@ Get-AzHDInsightJobOutput `
 Pig 및 Hive를 사용하고 MapReduce 사용에 대해 배우는 다른 방법은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hdinsight-use-mapreduce.md)

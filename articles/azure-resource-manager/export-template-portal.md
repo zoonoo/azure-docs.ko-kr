@@ -1,17 +1,14 @@
 ---
-title: 리소스 관리자 템플릿 내보내기-Azure Portal
+title: Azure Portal에서 템플릿 내보내기
 description: Azure Portal를 사용 하 여 구독의 리소스에서 Azure Resource Manager 템플릿을 내보냅니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0605e24590fa2d702a1385429a7808a7e1226809
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 6e05a8bff27e56bc5942a7c16ab63921c489f44c
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532353"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149858"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Azure Portal에서 템플릿에 대 한 단일 및 다중 리소스 내보내기
 

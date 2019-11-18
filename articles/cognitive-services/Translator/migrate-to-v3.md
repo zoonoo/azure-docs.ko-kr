@@ -1,7 +1,7 @@
 ---
 title: V3으로 마이그레이션 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Translator Text API의 V2에서 V3으로 마이그레이션하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Cognitive Services Translator Text API의 V2에서 v 2로 마이그레이션하는 데 도움이 되는 단계를 제공 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 9ce9dc330ec1b0c32ce045437fadb5d8c191529e
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: eb43d549d3e0cd449c865d533fc8701c4c3912fd
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595235"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837319"
 ---
 # <a name="translator-text-api-v2-to-v3-migration"></a>Translator Text API V2에서 V3으로 마이그레이션
 
@@ -61,11 +61,11 @@ Microsoft Translator 팀은 Translator Text API의 버전 3(V3)을 릴리스했�
 
 Microsoft Translator Text 번역 V2는 XML 형식으로 데이터를 허용하고 반환했습니다. V3에서 API를 사용하여 보내고 받은 모든 데이터는 JSON 형식입니다. XML은 V3에서 더 이상 허용되거나 반환되지 않습니다.
 
-이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 애플리케이션의 여러 측면에 영향을 줍니다. 예를 들어 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
+이 변경 내용은 V2 텍스트 번역 API에 대해 작성된 애플리케이션의 여러 측면에 영향을 줍니다. 예를 들어: 언어 API는 텍스트 번역, 음역 및 두 개의 사전 메서드에 대한 언어 정보를 반환합니다. 한 번의 호출에서 모든 메서드에 대한 모든 언어 정보를 요청하거나 개별적으로 요청할 수 있습니다.
 
 언어 메서드에는 인증이 필요하지 않습니다. 다음 링크를 클릭하여 JSON에서 V3에 대한 모든 언어 정보를 확인할 수 있습니다.
 
-[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation 사전, 음역](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
+[https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation사전, 음역](https://api.cognitive.microsofttranslator.com/languages?api-version=3.0&scope=translation,dictionary,transliteration)
 
 ## <a name="authentication-key"></a>인증 키
 
@@ -86,7 +86,7 @@ Microsoft Translator V3는 V2와 동일한 방식으로 공백을 포함한 문�
 
 ## <a name="v3-end-points"></a>V3 엔드포인트
 
-Global
+전역
 
 * api.cognitive.microsofttranslator.com
 
@@ -118,8 +118,8 @@ V3 텍스트 API를 포함한 신경망 번역은 표준 범주(SMT, 음성, 텍
 
 | |엔드포인트|    GDPR 프로세서 규정 준수|  Translator Hub 사용| Custom Translator(미리 보기) 사용|
 |:-----|:-----|:-----|:-----|:-----|
-|Translator Text API 버전 2| api.microsofttranslator.com|    아니요  |예    |아니요|
-|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    아니요| 예|
+|Translator Text API 버전 2| api.microsofttranslator.com|    아니오  |예    |아니오|
+|Translator Text API 버전 3| api.cognitive.microsofttranslator.com|  예|    아니오| 예|
 
 **Translator Text API 버전 3**
 * 일반적으로 사용할 수 있으며 완전히 지원됩니다.

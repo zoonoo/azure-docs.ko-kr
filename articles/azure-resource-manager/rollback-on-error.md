@@ -1,17 +1,14 @@
 ---
-title: 성공적인 Azure 배포에 대 한 오류 발생 시 롤백
+title: 성공적인 배포에 대 한 오류 발생 시 롤백
 description: 실패 한 배포가 성공적인 배포로 롤백해야 하도록 지정 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 035b684bb9f5fbc10eb13e642c3fd5945b85c561
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0978d2547e23a9ac6f920c76be3e877ec236d9ed
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71975447"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150336"
 ---
 # <a name="rollback-on-error-to-successful-deployment"></a>성공적인 배포에 대 한 오류 발생 시 롤백
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Application Gateway 사용자 지정 오류 페이지 만들기
-description: 이 문서는 Application Gateway 사용자 지정 오류 페이지를 작성하는 방법을 보여 줍니다.
+description: 이 문서는 Application Gateway 사용자 지정 오류 페이지를 작성하는 방법을 보여 줍니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 2/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: abfe33ff679bef125d9bf5b78e1790a1a4c64863
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff11f686287498fe12b31d15a630178bb12035ad
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60832037"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129871"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Application Gateway 사용자 지정 오류 페이지 만들기
 

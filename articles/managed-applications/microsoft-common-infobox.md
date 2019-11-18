@@ -13,21 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 67ae05c2ec7b36d76e49f26d5765bbc68b952292
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 3a72aaaa15b55b2f0fbc0a227c36a4b2f624d43b
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331680"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151316"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI 요소
+
 정보 상자를 추가하는 컨트롤입니다. 이 상자에는 사용자가 입력하는 값을 파악하는 데 도움이 되는 중요한 텍스트나 경고가 포함됩니다. 상자를 자세한 정보를 제공하는 URI에 연결할 수도 있습니다.
 
 ## <a name="ui-sample"></a>UI 샘플
+
 ![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
 
 
 ## <a name="schema"></a>스키마
+
 ```json
 {
   "name": "text1",
@@ -41,17 +44,18 @@ ms.locfileid: "72331680"
 }
 ```
 
-## <a name="remarks"></a>설명
-
-* `icon`의 경우 **없음**, **정보**, **경고** 또는 **오류**를 사용합니다.
-* `uri` 속성은 선택 사항입니다.
-
 ## <a name="sample-output"></a>샘플 출력
 
 ```json
 "Nullam eros mi, mollis in sollicitudin non, tincidunt sed enim. Sed et felis metus, rhoncus ornare nibh. Ut at magna leo."
 ```
 
+## <a name="remarks"></a>설명
+
+* `icon`의 경우 **없음**, **정보**, **경고** 또는 **오류**를 사용합니다.
+* `uri` 속성은 선택 사항입니다.
+
 ## <a name="next-steps"></a>다음 단계
+
 * UI 정의 만들기에 대한 소개는 [CreateUiDefinition 시작](create-uidefinition-overview.md)을 참조하세요.
 * UI 요소의 공용 속성에 대한 설명은 [CreateUiDefinition 요소](create-uidefinition-elements.md)를 참조하세요.

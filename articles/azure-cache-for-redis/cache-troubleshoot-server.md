@@ -1,25 +1,17 @@
 ---
-title: Redis 서버 쪽 문제에 대 한 Azure Cache 문제 해결 | Microsoft Docs
+title: Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결
 description: Redis 용 Azure Cache를 사용 하 여 일반적인 서버 쪽 문제를 해결 하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: yegu
-ms.openlocfilehash: 4310c31f2a59ae30b7317d043dc6d92b93fee050
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 22cb4beb3411c617882972e1b91c5f538019fae4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819608"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122566"
 ---
 # <a name="troubleshoot-azure-cache-for-redis-server-side-issues"></a>Redis 서버 쪽 문제에 대 한 Azure 캐시 문제 해결
 
@@ -41,7 +33,7 @@ ms.locfileid: "72819608"
 - 캐시는 최대 용량에 가까운 데이터로 채워집니다.
 - Redis가 높은 메모리 조각화를 표시 합니다. 이러한 조각화는 Redis가 작은 개체에 최적화 되어 있으므로 큰 개체를 저장 하 여 발생 하는 경우가 가장 많습니다.
 
-Redis는이 문제를 식별 하는 데 도움이 되는 [INFO](https://redis.io/commands/info) 명령을 통해 "used_memory" 및 "used_memory_rss" 이라는 두 가지 통계를 노출 합니다. 포털을 사용 하 여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor) 수 있습니다.
+Redis는이 문제를 식별 하는 데 도움이 될 수 있는 [INFO](https://redis.io/commands/info) 명령을 통해 "used_memory" 및 "used_memory_rss"의 두 가지 통계를 노출 합니다. 포털을 사용 하 여 [이러한 메트릭을 볼](cache-how-to-monitor.md#view-metrics-with-azure-monitor) 수 있습니다.
 
 메모리 사용을 정상 상태로 유지 하기 위해 수행할 수 있는 몇 가지 변경 사항이 있습니다.
 

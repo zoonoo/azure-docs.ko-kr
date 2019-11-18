@@ -1,24 +1,17 @@
 ---
-title: Azure Cache for Redis에서 redis-cli를 사용하는 방법 | Microsoft Docs
+title: Redis 용 Azure Cache에서 redis를 사용 하는 방법
 description: Azure Cache for Redis에서 redis-cli를 사용하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: yegu
-ms.openlocfilehash: 318d02f5da816ae8fe2fe199b9c87b3748d5d1fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 510110a201e943b8ffce07fc7d0de1361264ae62
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133031"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122726"
 ---
 # <a name="how-to-use-the-redis-command-line-tool-with-azure-cache-for-redis"></a>Azure Cache for Redis에서 Redis 명령줄 도구를 사용하는 방법
 
@@ -57,7 +50,7 @@ Azure Cache for Redis를 사용하면 기본적으로 SSL 포트(6380)만 사용
 
     stunnel 로그 창 메뉴에서 **구성** > **구성 편집** 클릭하여 현재 구성 파일을 엽니다.
 
-    **서비스 정의** 섹션 아래에서 *redis-cli.exe*에 대해 다음 항목을 추가합니다. `yourcachename` 대신 실제 캐시 이름을 삽입합니다. 
+    *서비스 정의* 섹션 아래에서 **redis-cli.exe**에 대해 다음 항목을 추가합니다. `yourcachename` 대신 실제 캐시 이름을 삽입합니다. 
 
     ```
     [redis-cli]

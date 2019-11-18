@@ -1,5 +1,5 @@
 ---
-title: 보강 파이프라인에서 이미지의 텍스트 처리 및 추출
+title: 이미지에서 텍스트 추출
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 파이프라인에서 이미지의 텍스트 및 기타 정보를 처리 하 고 추출 합니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5006bf5bc7eafd464861a3570654539386c5f837
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f81bcd84dfb07958f3205f779937b8beac74166f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787749"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113845"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>AI 보강 시나리오에서 이미지의 정보를 처리 하 고 추출 하는 방법
 
@@ -213,10 +213,10 @@ merged_text 필드가 있으므로 인덱서 정의에서 검색 가능한 필�
         }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 + [인덱서 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 + [이미지 기술 분석](cognitive-search-skill-image-analysis.md)
 + [OCR 기술](cognitive-search-skill-ocr.md)
 + [텍스트 병합 기술](cognitive-search-skill-textmerger.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

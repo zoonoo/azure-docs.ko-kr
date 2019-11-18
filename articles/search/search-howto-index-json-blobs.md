@@ -1,5 +1,5 @@
 ---
-title: 전체 텍스트 검색을 위해 Azure Blob 인덱서에서 JSON blob을 인덱싱합니다.
+title: JSON blob 검색
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search Blob 인덱서를 사용 하 여 텍스트 콘텐츠에 대 한 Azure JSON blob을 탐색 합니다. 인덱서는 Azure Blob Storage와 같은 선택된 데이터 원본에 대해 데이터 수집을 자동화합니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 81e652b90831af0e1e20e716842b4e79f5606d05
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889861"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112734"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -112,7 +112,7 @@ REST API를 사용 하면 Cognitive Search Azure의 모든 인덱서에 공통 �
 
 + [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 작업 순서에 따라이 순서로 개체를 만들고 호출 해야 합니다. 포털 워크플로와 달리 코드 접근 방식에서는 **인덱서 만들기** 요청을 통해 보낸 JSON 문서를 수락 하기 위해 사용 가능한 인덱스가 필요 합니다.
 
@@ -284,7 +284,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
 
 | parsingMode | 설명 |
 |-------------|-------------|
-| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
+| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이 값이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고, 배열의 각 요소가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 |`jsonLines` | Blob이 새 줄로 구분 된 여러 JSON 엔터티로 구성 된 경우이 모드를 선택 하 고 각 엔터티가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 

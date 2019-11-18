@@ -1,7 +1,7 @@
 ---
 title: 오프 라인 평가를 수행 하는 방법-Personalizer
 titleSuffix: Azure Cognitive Services
-description: 오프라인 평가를 통해 학습 루프를 분석하는 방법 알아보기
+description: 이 문서에서는 오프 라인 평가를 사용 하 여 앱의 효율성을 측정 하 고 학습 루프를 분석 하는 방법을 보여 줍니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 9d7336fb933ee5e9781d15214fa3e59446aa5b6a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2aec0db2d1f9865188f2749a0eeb765a14d04ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490707"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73952987"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>오프 라인 평가를 사용 하 여 학습 루프 분석
 
@@ -26,7 +26,7 @@ ms.locfileid: "73490707"
 자세한 내용은 [오프라인 평가](concepts-offline-evaluation.md)를 참조하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * 구성 된 Personalizer 루프
 * Personalizer 루프에는 대표적인 양의 데이터가 있어야 합니다. 개략적인는 의미 있는 평가 결과를 위해 로그에 5만 개 이상의 이벤트를 권장 합니다. 필요에 따라 이전에 내보낸 _학습 정책_ 파일을 동일한 평가에서 비교하고 테스트할 수 있습니다.

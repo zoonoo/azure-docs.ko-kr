@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/15/2019
 ms.author: dapine
-ms.openlocfilehash: efb2fd8fd6b77a27130b834c2b192c1e88eec97c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578394"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132614"
 ---
 # <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
 
@@ -33,9 +33,9 @@ ms.locfileid: "73578394"
 | 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.3.0 |
 | 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.3.0 |
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
@@ -151,7 +151,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 ```
 
 > [!IMPORTANT]
-> `latest` 태그는 `en-US` 로캘 및 `jessarus` 음성을 끌어오기 합니다. 추가 로캘은 [음성 텍스트 로캘을](#speech-to-text-locales)참조 하세요.
+> `latest` 태그는 `en-US` 로캘을 끌어옵니다. 추가 로캘은 [음성 텍스트 로캘을](#speech-to-text-locales)참조 하세요.
 
 #### <a name="speech-to-text-locales"></a>음성 텍스트 로캘
 
@@ -167,7 +167,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 2.0.0-amd64-en-us-preview
 ```
 
-2\.0.0 버전의 **음성 텍스트** 컨테이너에서 지원 되는 모든 로캘에서는 [음성 텍스트 언어 지원](language-support.md#speech-to-text) 테이블의 **컨테이너 지원** 열을 참조 하세요.
+**음성-텍스트** 컨테이너의 지원 되는 모든 로캘에 대해 [음성 텍스트 이미지 태그](../containers/container-image-tags.md#speech-to-text)를 참조 하세요.
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
 
@@ -209,7 +209,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 1.3.0-amd64-en-us-jessarus-preview
 ```
 
-**텍스트 음성 변환** 컨테이너의 1.3.0 버전에 지원 되는 모든 로캘 및 해당 음성에 대 한 자세한 내용은 [표준 음성 언어 지원](language-support.md#standard-voices) 표의 **컨테이너 지원** 열을 참조 하세요.
+지원 되는 모든 로캘과 **텍스트 음성 변환** 컨테이너의 해당 음성에 대해 [텍스트 음성 변환 이미지 태그](../containers/container-image-tags.md#text-to-speech)를 참조 하세요.
 
 > [!IMPORTANT]
 > *표준 텍스트 음성 변환* HTTP POST를 생성 하는 경우 [SSML (Speech 합성 Markup Language)](speech-synthesis-markup.md) 메시지에는 `name` 특성이 있는 `voice` 요소가 필요 합니다. 값은 해당 컨테이너 로캘 및 음성 ( ["짧은 이름"](language-support.md#standard-voices)이 라고도 함)입니다. 예를 들어 `latest` 태그는 `en-US-JessaRUS`의 음성 이름을 갖습니다.
@@ -273,7 +273,7 @@ ApiKey={API_KEY}
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -335,7 +335,7 @@ Docker run 명령의 `ModelId` 매개 변수에 대 한 인수로 사용할 **�
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |

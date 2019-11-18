@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
-ms.date: 10/25/2019
-ms.openlocfilehash: 5ac741579562b41678c4aeb59bb5ebb425d8405c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.date: 11/13/2019
+ms.openlocfilehash: c5d0c517e7a3d4c011d66925b8db0c4d09dd34ca
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932099"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123583"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -79,7 +79,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 >
 > 기본 저장소 계정은 작업 영역을 만들 때 자동으로 프로 비전 됩니다.
 >
-> 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
+> 기본이 아닌 저장소 계정의 경우 [`Workspace.create()` 함수의](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) `storage_account` 매개 변수를 사용 하 여 AZURE 리소스 ID로 사용자 지정 저장소 계정을 지정할 수 있습니다.
 
 ## <a name="use-a-key-vault-instance-with-your-workspace"></a>작업 영역에서 key vault 인스턴스 사용
 
@@ -196,13 +196,13 @@ Machine Learning 컴퓨팅 클러스터를 만들려면 다음을 수행 합니�
 
 1. 가상 네트워크를 사용 하도록이 계산 리소스를 구성 하려면 다음을 수행 합니다.
 
-    가. __네트워크 구성__의 경우 __고급__을 선택 합니다.
+    a. __네트워크 구성__의 경우 __고급__을 선택 합니다.
 
-    나. __리소스 그룹__ 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
+    b. __리소스 그룹__ 드롭다운 목록에서 가상 네트워크가 포함 된 리소스 그룹을 선택 합니다.
 
     c. __가상 네트워크__ 드롭다운 목록에서 서브넷이 포함 된 가상 네트워크를 선택 합니다.
 
-    ㄹ. __서브넷__ 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
+    d. __서브넷__ 드롭다운 목록에서 사용할 서브넷을 선택 합니다.
 
    ![Machine Learning 컴퓨팅에 대 한 가상 네트워크 설정](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
 
@@ -244,8 +244,18 @@ except ComputeTargetException:
 
 만들기 프로세스가 완료 되 면 실험에서 클러스터를 사용 하 여 모델을 학습 합니다. 자세한 내용은 [학습의 컴퓨팅 대상 선택 및 사용](how-to-set-up-training-targets.md)을 참조하세요.
 
-<a id="vmorhdi"></a>
+## <a name="use-azure-databricks"></a>Azure Databricks 사용
 
+작업 영역을 사용 하 여 가상 네트워크에서 Azure Azure Databricks를 사용 하려면 다음 요구 사항을 충족 해야 합니다.
+
+> [!div class="checklist"]
+> * 가상 네트워크는 Azure Machine Learning 작업 영역과 동일한 구독 및 지역에 있어야 합니다.
+> * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Databricks 클러스터와 동일한 가상 네트워크에 있어야 합니다.
+> * Azure Databricks에서 사용 하는 __databricks__ 및 __databricks-공용__ 서브넷 외에도 가상 네트워크에 대해 만들어진 __기본__ 서브넷이 필요 합니다.
+
+가상 네트워크에서 Azure Databricks를 사용 하는 방법에 대 한 자세한 내용은 [Azure Virtual Network에서 Azure Databricks 배포](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-inject.html)를 참조 하세요.
+
+<a id="vmorhdi"></a>
 
 ## <a name="use-a-virtual-machine-or-hdinsight-cluster"></a>가상 머신 또는 HDInsight 클러스터 사용
 

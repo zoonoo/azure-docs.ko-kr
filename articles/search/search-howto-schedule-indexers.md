@@ -1,5 +1,5 @@
 ---
-title: 인덱서를 예약 하는 방법
+title: 인덱서 실행 예약
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 인덱서를 예약 하 여 콘텐츠를 주기적으로 또는 특정 시간에 인덱싱합니다.
 author: HeidiSteen
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e9d4f49bd0aec1a04b4839b2084a81fb538f7890
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72326413d463d449d339b1f3fd241ba2c27b4b6b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793688"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112952"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 예약 하는 방법
 

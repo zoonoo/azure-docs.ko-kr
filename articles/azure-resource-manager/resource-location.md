@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 템플릿 리소스 위치
+title: 템플릿 리소스 위치
 description: Azure Resource Manager 템플릿에서 리소스 위치를 설정 하는 방법을 설명 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: tomfitz
-ms.openlocfilehash: 6af5d82766533ef7bbacab04381db9a37502923e
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 1e711b2cfeb42c33dbfa68b1fbdabd42cbd46d10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70294205"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150630"
 ---
 # <a name="set-resource-location-in-resource-manager-template"></a>리소스 관리자 템플릿에서 리소스 위치 설정
 
@@ -41,7 +38,7 @@ az provider show \
 
 ## <a name="use-location-parameter"></a>Location 매개 변수 사용
 
-템플릿을 배포할 때 유연성을 허용 하려면 매개 변수를 사용 하 여 리소스의 위치를 지정 합니다. 매개 변수의 기본값을로 `resourceGroup().location`설정 합니다.
+템플릿을 배포할 때 유연성을 허용 하려면 매개 변수를 사용 하 여 리소스의 위치를 지정 합니다. 매개 변수의 기본값을 `resourceGroup().location`설정 합니다.
 
 다음 예제에서는 매개 변수로 지정된 위치에 배포되는 스토리지 계정을 보여줍니다.
 

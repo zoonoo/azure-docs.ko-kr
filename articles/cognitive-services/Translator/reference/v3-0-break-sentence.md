@@ -1,7 +1,7 @@
 ---
 title: Translator Text API BreakSentence 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API BreakSentence 메서드를 사용합니다.
+description: Translator Text API 사이 문장의 메서드는 텍스트 부분에서 문장 경계의 위치를 식별 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: 184677589b3aa777ec556215455f8018e0d71f3f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b4eb083b0f98112274a5d00631af8662ff5c063a
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934049"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835877"
 ---
 # <a name="translator-text-api-30-breaksentence"></a>Translator Text API 3.0: BreakSentence
 
@@ -35,7 +35,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">쿼리 매개 변수</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>api-version</td>
     <td>*필수 쿼리 매개 변수*입니다.<br/>클라이언트에서 요청한 API 버전입니다. 값은 `3.0`이어야 합니다.</td>
@@ -45,7 +45,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
     <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트의 언어를 식별하는 언어 태그입니다. 코드를 지정하지 않으면 자동 언어 검색이 적용됩니다.</td>
   </tr>
   <tr>
-    <td>스크립트(script)</td>
+    <td>script</td>
     <td>*선택적 쿼리 매개 변수*입니다.<br/>입력 텍스트에서 사용되는 스크립트를 식별하는 스크립트 태그입니다. 스크립트를 지정하지 않으면 언어의 기본 스크립트가 가정됩니다.</td>
   </tr>
 </table> 
@@ -54,7 +54,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
@@ -83,7 +83,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 ]
 ```
 
-다음과 같은 제한 사항이 적용됩니다.
+다음 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 10,000자를 초과할 수 없습니다.
@@ -122,7 +122,7 @@ https://api.cognitive.microsofttranslator.com/breaksentence?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>X-RequestId</td>
     <td>요청을 식별하기 위해 서비스에서 생성한 값입니다. 문제 해결을 위해 사용됩니다.</td>

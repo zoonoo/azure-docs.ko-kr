@@ -1,5 +1,5 @@
 ---
-title: '예: Bing Entity Search API을 사용 하 여 사용자 지정 인식 기술 만들기'
+title: Bing Entity Search API 사용 하는 사용자 지정 기술 예제
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 인덱싱 파이프라인에 매핑된 사용자 지정 기술에서 Bing Entity Search 서비스를 사용 하는 방법을 보여 줍니다.
 manager: nitinme
@@ -8,18 +8,18 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 1f134ac360b6c5bd04c0e141da52b6dad950e208
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2994c55b39d30ff16a0ca135e93a116784feb201
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466825"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113808"
 ---
 # <a name="example-create-a-custom-skill-using-the-bing-entity-search-api"></a>예: Bing Entity Search API을 사용 하 여 사용자 지정 기술 만들기
 
 이 예제에서는 web API 사용자 지정 기술을 만드는 방법에 대해 알아봅니다. 이 스킬은 위치, 공개, 조직 및 조직에 대 한 설명을 반환 합니다. 이 예제에서는 [Azure 함수](https://azure.microsoft.com/services/functions/) 를 사용 하 여 사용자 지정 기술 인터페이스를 구현 하도록 [Bing Entity Search API](https://azure.microsoft.com/services/cognitive-services/bing-entity-search-api/) 를 래핑합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 익숙하지 않은 경우 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 문서를 참조 하세요.
 
@@ -27,7 +27,7 @@ ms.locfileid: "73466825"
 
 + Azure 개발 워크 로드를 포함 하 여 [Visual Studio 2019](https://www.visualstudio.com/vs/) 이상 버전을 설치 합니다.
 
-## <a name="create-an-azure-function"></a>Azure Function 만들기
+## <a name="create-an-azure-function"></a>Azure 함수 만들기
 
 이 예제에서는 Azure 함수를 사용 하 여 web API를 호스트 하지만 반드시 필요한 것은 아닙니다.  [인식 기술에 대한 인터페이스 요구 사항](cognitive-search-custom-skill-interface.md)을 충족하기만 하면, 사용하는 방식은 중요하지 않습니다. 그러나 Azure Functions를 사용하면 사용자 지정 기술을 쉽게 만들 수 있습니다.
 
@@ -347,7 +347,7 @@ POST https://localhost:7071/api/EntitySearch
 }
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 다음 예제와 유사한 응답이 표시됩니다.
 
 ```json
@@ -476,10 +476,10 @@ POST https://[your-entity-search-app-name].azurewebsites.net/api/EntitySearch?co
 ```
 
 ## <a name="next-steps"></a>다음 단계
-축하합니다. 첫 번째 사용자 지정 기술을 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
+축하합니다! 첫 번째 사용자 지정 기술을 만들었습니다. 이제 동일한 패턴을 따라 고유한 사용자 지정 기능을 추가할 수 있습니다. 자세한 내용을 보려면 다음 링크를 클릭 하십시오.
 
 + [전원 기술: 사용자 지정 기술의 리포지토리입니다.](https://github.com/Azure-Samples/azure-search-power-skills)
 + [AI 보강 파이프라인에 사용자 지정 기술 추가](cognitive-search-custom-skill-interface.md)
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
-+ [기능 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

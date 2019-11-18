@@ -1,7 +1,7 @@
 ---
 title: 이미지 썸네일 크기 조정 및 자르기 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: Bing Search API에서 제공 하는 축소판 그림의 크기를 조정 하 고 잘라내는 방법에 대해 알아봅니다.
+description: Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,16 +11,16 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: ecc6eb86e7115143fa63b44f9191b1fe8d3703b8
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881806"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110629"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>썸네일 이미지 크기 조정 및 자르기
 
-Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예:
+Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 이미지에 대 한 Url이 포함 되어 있습니다 .이 Url은 크기 조정 및 자르기와 쿼리 매개 변수를 포함할 수 있습니다. 예를 들어:
 
 `https://<host>/th?id=AMMS_92772df988...&w=110&h=73&rs=1&qlt=80&cdv=1&pid=16.1`
 
@@ -31,13 +31,13 @@ Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 �
 
 ## <a name="resize-a-thumbnail"></a>축소판 그림 크기 조정 
 
-미리 보기의 크기를 조정 하기 위해 Bing에서는 미리 보기의 `w` URL에 (width `h` ) 또는 (height) 쿼리 매개 변수만 지정 하는 것이 좋습니다. 높이나 너비만 지정 하면 이미지의 원래 측면을 유지 관리할 수 있습니다. 너비와 높이를 픽셀 단위로 지정합니다. 
+미리 보기의 크기를 조정 하기 위해 Bing에서는 미리 보기의 URL에 `w` (너비) 또는 `h` (높이) 쿼리 매개 변수만 지정 하는 것이 좋습니다. 높이나 너비만 지정 하면 이미지의 원래 측면을 유지 관리할 수 있습니다. 너비와 높이를 픽셀 단위로 지정합니다. 
 
 예를 들어 원래 축소판 그림이 480x620 인 경우:
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=480&h=620`
 
-크기를 줄이려면 `w` 매개 변수를 새 값 (예 `336`: `h` )으로 설정 하 고 매개 변수를 제거 합니다.
+크기를 줄이려면 `w` 매개 변수를 새 값 (예: `336`)으로 설정 하 고 `h` 매개 변수를 제거 합니다.
 
 `https://<host>/th?id=JN.5l3yzwy%2f%2fHj59U6XhssIQ&pid=Api&w=336`
 
@@ -57,30 +57,30 @@ Bing Search API의 일부 답변에는 Bing에서 제공 하는 미리 보기 �
 
 ## <a name="request-different-thumbnail-sizes"></a>다른 축소판 그림 크기 요청
 
-다른 축소판 이미지 크기를 요청 하려면 `id` 및 매개 변수를 제외 하 고 `pid` 미리 보기의 URL에서 모든 쿼리 매개 변수를 제거 합니다. 그런 다음 원하는 이미지 `&w` 크기 (픽셀) `&h` 를 포함 하는 (너비) 또는 (height) 쿼리 매개 변수 중 하나만 추가 합니다. Bing은 이미지의 원래의 가로 세로 비율을 유지 합니다. 
+다른 축소판 이미지 크기를 요청 하려면 `id` 및 `pid` 매개 변수를 제외 하 고 미리 보기의 URL에서 모든 쿼리 매개 변수를 제거 합니다. 그런 다음 원하는 이미지 크기 (픽셀)를 사용 하 여 `&w` (width) 또는 `&h` (height) 쿼리 매개 변수를 추가 합니다. Bing은 이미지의 원래의 가로 세로 비율을 유지 합니다. 
 
 위의 URL로 지정 된 이미지의 너비를 165 픽셀로 늘리려면 다음 URL을 사용 합니다.
 
 `https://<host>/th?id=AMMS_92772df988...&w=165&pid=16.1`
 
-이미지의 원래 크기 보다 큰 이미지를 요청 하는 경우 Bing에서 필요에 따라 이미지 주위에 흰색 여백을 추가 합니다. 예를 들어 이미지의 원래 크기가 474x316이 고를 500로 설정 `&w` 하는 경우 Bing은 500x333 이미지를 반환 합니다. 이 이미지는 위쪽 및 아래쪽 가장자리를 따라 8.5 픽셀의 흰색 안쪽 여백이 있고 왼쪽 및 오른쪽 가장자리에는 13 픽셀의 안쪽 여백이 있습니다.
+이미지의 원래 크기 보다 큰 이미지를 요청 하는 경우 Bing에서 필요에 따라 이미지 주위에 흰색 여백을 추가 합니다. 예를 들어 이미지의 원래 크기가 474x316이 고 `&w`를 500로 설정 하는 경우 Bing은 500x333 이미지를 반환 합니다. 이 이미지는 위쪽 및 아래쪽 가장자리를 따라 8.5 픽셀의 흰색 안쪽 여백이 있고 왼쪽 및 오른쪽 가장자리에는 13 픽셀의 안쪽 여백이 있습니다.
 
 요청한 크기가 이미지의 원래 크기 보다 큰 경우 Bing에서 흰색 안쪽 여백을 추가 하지 않도록 하려면 `&p` 쿼리 매개 변수를 0으로 설정 합니다. 예를 들어 위의 URL에 `&p=0` 매개 변수를 포함 하는 경우 Bing은 500x333 이미지 대신 474x316 이미지를 반환 합니다.
 
 `https://<host>/th?id=AMMS_92772df988...&w=500&p=0&pid=16.1`
 
-`&w` 및`&h` 쿼리 매개 변수를 모두 지정 하는 경우 Bing은 이미지의 가로 세로 비율을 유지 하 고 필요에 따라 흰색 안쪽 여백을 추가 합니다. 예를 들어 이미지의 원래 크기가 474x316이 고 width 및 height 매개 변수를 200 x 200 (`&w=200&h=200`)로 설정 하는 경우 Bing은 위쪽 및 아래쪽에 33 픽셀의 흰색 채움 문자가 포함 된 이미지를 반환 합니다. 쿼리 매개 변수를 `&p` 포함 하는 경우 Bing은 200x134 이미지를 반환 합니다.
+`&w` 및 `&h` 쿼리 매개 변수를 모두 지정 하는 경우 Bing은 이미지의 가로 세로 비율을 유지 하 고 필요에 따라 흰색 안쪽 여백을 추가 합니다. 예를 들어 이미지의 원래 크기가 474x316이 고 width 및 height 매개 변수를 200 x 200 (`&w=200&h=200`)로 설정 하는 경우 Bing은 위쪽 및 아래쪽에 33 픽셀의 흰색 채움 문자가 포함 된 이미지를 반환 합니다. `&p` 쿼리 매개 변수를 포함 하는 경우 Bing은 200x134 이미지를 반환 합니다.
 
 ## <a name="crop-a-thumbnail"></a>축소판 그림 자르기 
 
 이미지를 자르려면 `c` (자르기) 쿼리 매개 변수를 포함 합니다. 다음 값을 사용할 수 있습니다.
   
-- `4`&mdash; 블라인드 비율  
-- `7`&mdash; 스마트 비율  
+- `4` &mdash; 블라인드 비율  
+- `7` &mdash; 스마트 비율  
 
 ### <a name="smart-ratio-cropping"></a>스마트 비율 자르기
 
-`c` 매개 변수를로 `7`설정 하 여 스마트 비율 자르기를 요청 하는 경우 Bing에서는 이미지의 가로 세로 비율을 유지 하면서 관심 영역 중심의 이미지를 바깥쪽으로 자릅니다. 관심 영역은 가장 중요한 부분이 포함된 것으로 Bing이 판단하는 이미지 영역입니다. 다음은 관심 영역 예제입니다.  
+`c` 매개 변수를 `7`으로 설정 하 여 스마트 비율 자르기를 요청 하는 경우 Bing은 관심 영역 중심의 이미지를 바깥쪽으로 자르고 이미지의 가로 세로 비율을 유지 합니다. 관심 영역은 가장 중요한 부분이 포함된 것으로 Bing이 판단하는 이미지 영역입니다. 다음은 관심 영역 예제입니다.  
   
 ![관심 영역](./media/resize-crop/bing-resize-crop-regionofinterest.png)
 
@@ -103,10 +103,10 @@ Bing에서 원하는 이미지의 영역을 확인할 수 없는 경우에는이
 
 ### <a name="blind-ratio-cropping"></a>블라인드 비율 자르기
 
-`c` 매개 변수를로 `4`설정 하 여 블라인드 비율 자르기를 요청 하는 경우 Bing은 다음 규칙을 사용 하 여 이미지를 자릅니다.  
+`c` 매개 변수를 `4`)로 설정 하 여 블라인드 비율 자르기를 요청 하는 경우 Bing은 다음 규칙을 사용 하 여 이미지를 자릅니다.  
   
-- 인 `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`경우 이미지를 왼쪽 위 모서리에서 측정 하 고 아래쪽에서 자릅니다.  
-- 이면 `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`이미지는 가운데에서 측정 되 고 왼쪽과 오른쪽으로 잘립니다.  
+- `(Original Image Width / Original Image Height) < (Requested Image Width / Requested Image Height)`경우 이미지가 왼쪽 위 모서리에서 측정 되 고 아래쪽으로 잘립니다.  
+- `(Original Image Width / Original Image Height) > (Requested Image Width / Requested Image Height)`경우 가운데에서 이미지를 측정 하 여 왼쪽과 오른쪽으로 자릅니다.  
 
 다음은 225x300 세로 이미지를 보여 줍니다.  
   

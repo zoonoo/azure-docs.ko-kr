@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 50728363ffd02e189b4bc0dacebd684a7f13091e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b4439df5ced1f76b4cb69feadf862638ab223d56
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030705"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123310"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -87,7 +87,7 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 SDK를 통해 또는 Azure Machine Learning Studio를 사용 하 여 TabularDatasets를 만들 수 있습니다. 데이터의 열에서 타임 스탬프를 지정 하거나 데이터를 저장 하는 경로 패턴을 지정 하 여 시계열 특성을 사용할 수 있습니다. 이 사양에서는 시간을 기준으로 쉽고 효율적인 필터링을 수행할 수 있습니다.
 
-`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header--promoteheadersbehavior-all-files-have-same-headers--3---partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
+`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
 
 ```Python
 # create a TabularDataset from multiple paths in datastore

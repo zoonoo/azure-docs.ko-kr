@@ -1,48 +1,45 @@
 ---
-title: Azure Resource Manager를 사용 하 여 배포 기록 | Microsoft Docs
+title: 배포 기록
 description: 포털, PowerShell, Azure CLI 및 REST API를 사용하여 Azure Resource Manager 배포 작업을 확인하는 방법을 설명합니다.
 tags: top-support-issue
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.author: tomfitz
-ms.openlocfilehash: 58d22e3fcae5c30e5d7dcc39b317afeef4a693ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8daf7191bb22f7c7057f6ef6b220a18868872cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65605948"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149574"
 ---
 # <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 배포 기록 보기
 
-Azure Resource Manager를 사용 하면 배포 기록 보기 및 과거 배포에서 특정 작업으로 검토할 수 있습니다. 배포 된 리소스를 참조 하 고 모든 오류에 대 한 정보를 얻을 수 있습니다.
+Azure Resource Manager를 사용 하 여 배포 기록을 확인 하 고 이전 배포에서 특정 작업을 검토할 수 있습니다. 배포 된 리소스를 확인 하 고 오류에 대 한 정보를 가져올 수 있습니다.
 
 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="portal"></a>포털
 
-배포 기록에서 배포에 대 한 정보를 가져오려면.
+배포 기록에서 배포에 대 한 세부 정보를 가져옵니다.
 
 1. 검사 하려는 리소스 그룹을 선택 합니다.
 
-1. 아래의 링크를 선택 **배포**합니다.
+1. **배포**아래에서 링크를 선택 합니다.
 
    ![배포 기록 선택](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
 1. 배포 기록에서 배포 중 하나를 선택 합니다.
 
-   ![배포를 선택 합니다.](./media/resource-manager-deployment-operations/select-details.png)
+   ![배포 선택](./media/resource-manager-deployment-operations/select-details.png)
 
-1. 배포 된 리소스 목록을 포함 하 여 배포의 요약이 표시 됩니다.
+1. 배포 된 리소스 목록을 포함 하 여 배포 요약이 표시 됩니다.
 
     ![배포 요약](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. 배포에 사용 된 템플릿을 보려면 **템플릿**합니다. 다시 사용 하도록 템플릿을 다운로드할 수 있습니다.
+1. 배포에 사용 되는 템플릿을 보려면 **템플릿**을 선택 합니다. 템플릿을 다운로드 하 여 다시 사용할 수 있습니다.
 
     ![템플릿 표시](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. 배포가 실패 하는 경우 오류 메시지가 표시 됩니다. 자세한 오류 메시지를 선택 합니다.
+1. 배포에 실패 한 경우 오류 메시지가 표시 됩니다. 자세한 내용을 보려면 오류 메시지를 선택 하십시오.
 
     ![실패 한 배포 보기](./media/resource-manager-deployment-operations/show-error.png)
 
@@ -50,17 +47,17 @@ Azure Resource Manager를 사용 하면 배포 기록 보기 및 과거 배포�
 
     ![오류 세부 정보 보기](./media/resource-manager-deployment-operations/show-details.png)
 
-1. 상관 관계 ID 관련된 이벤트를 추적 하는 데 사용 되 고 기술 지원을 받을 배포 문제를 해결할 때 유용할 수 있습니다.
+1. 상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다.
 
     ![상관 관계 ID 가져오기](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. 선택 실패 한 단계에 대 한 자세한 내용은 **작업 세부 정보**합니다.
+1. 실패 한 단계에 대 한 자세한 내용을 보려면 **작업 세부 정보**를 선택 합니다.
 
     ![배포 작업 선택](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. 배포의 해당 단계에 대 한 세부 정보 표시 됩니다.
+1. 배포 단계에 대 한 세부 정보가 표시 됩니다.
 
-    ![작업 세부 정보를 표시 합니다.](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![작업 세부 정보 표시](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -78,7 +75,7 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-상관 관계 ID 관련된 이벤트를 추적 하는 데 사용 되 고 기술 지원을 받을 배포 문제를 해결할 때 유용할 수 있습니다. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
+상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -124,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 특정 작업에 집중할 수 trackingId는 다음 단계에서 사용 합니다.
+작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 다음 단계에서 trackingId를 사용 하 여 특정 작업에 초점을 맞출 수 있습니다.
 
 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
@@ -140,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 배포 하는 동안 사용할 수 있습니다 **DeploymentDebugLogLevel** 매개 변수를 요청 및/또는 응답 기록 됩니다 지정 합니다.
+Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 배포 하는 동안 **Deploymentdebugloglevel** 매개 변수를 사용 하 여 요청 및/또는 응답이 기록 되도록 지정할 수 있습니다.
 
 로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 
@@ -152,13 +149,13 @@ Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-배포의 전반적인 상태를 사용 합니다 **azure 그룹 배포 표시** 명령입니다.
+배포의 전반적인 상태를 가져오려면 **azure group deployment show** 명령을 사용 합니다.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-상관 관계 ID 관련된 이벤트를 추적 하는 데 사용 되 고 기술 지원을 받을 배포 문제를 해결할 때 유용할 수 있습니다.
+상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -170,9 +167,9 @@ az group deployment show -g ExampleGroup -n ExampleDeployment --query properties
 az group deployment operation list -g ExampleGroup -n ExampleDeployment
 ```
 
-## <a name="rest"></a>REST (영문)
+## <a name="rest"></a>REST(영문)
 
-배포에 대 한 정보를 사용 합니다 [템플릿 배포에 대 한 정보를 가져올](https://docs.microsoft.com/rest/api/resources/deployments) 작업 합니다.
+배포에 대 한 정보를 가져오려면 [템플릿 배포에 대 한 정보 가져오기](https://docs.microsoft.com/rest/api/resources/deployments) 작업을 사용 합니다.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -195,7 +192,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 }
 ```
 
-배포에 대 한 정보를 가져오려면 [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments)합니다. 
+배포에 대 한 정보를 가져오려면 [모든 템플릿 배포 작업 나열](https://docs.microsoft.com/rest/api/resources/deployments)을 사용 합니다. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

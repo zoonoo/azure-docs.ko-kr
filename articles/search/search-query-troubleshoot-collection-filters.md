@@ -1,7 +1,7 @@
 ---
 title: OData 컬렉션 필터 문제 해결
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 OData 컬렉션 필터 오류 문제 해결
+description: Azure Cognitive Search 쿼리에서 OData 컬렉션 필터 오류를 해결 하는 방법에 대해 알아봅니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 0af2525a15618c6bfd9022b4388c547209ee957b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e82fa00226c964d5ba774cdf06f5b0f3898bdc55
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793182"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113085"
 ---
 # <a name="troubleshooting-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 문제 해결
 
@@ -64,7 +64,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 문자열 컬렉션에 대 한 람다 식 내에서 사용할 수 있는 비교 연산자는 `eq` 하 고 `ne`합니다.
 
 > [!NOTE]
-> Azure Cognitive Search는 람다 식의 내부 또는 외부에 있는지 여부에 관계 없이 문자열에 대 한 `lt`/`le`/`gt`/연산자를 지원 하지 않습니다.
+> Azure Cognitive Search는 람다 식의 내부 또는 외부에 있는지 여부에 관계 없이 문자열에 대 한 `lt`/`le`/`gt`/연산자를 지원 하지 않습니다.`ge`
 
 `any` 본문은 같은지 여부만 테스트할 수 있지만 `all` 본문은 같지 않은지 테스트할 수 있습니다.
 
@@ -171,10 +171,10 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
     이 식은 허용 되지만 조건이 겹치면 유용 하지 않습니다.
     - `ratings/any(r: r ne 5 or r gt 7)`
-  - `eq`, `lt`, `le`, `gt`또는 `ge`를 포함 하는 간단한 비교 식을 `and`/`or`와 결합할 수 있습니다. 다음은 그 예입니다.
+  - `eq`, `lt`, `le`, `gt`또는 `ge`를 포함 하는 간단한 비교 식을 `and`/`or`와 결합할 수 있습니다. 예를 들어:
     - `ratings/any(r: r gt 2 and r le 5)`
     - `ratings/any(r: r le 5 or r gt 7)`
-  - `and` (접속사)와 결합 된 비교 식은 `or`를 사용 하 여 추가로 결합할 수 있습니다. 이 형식은 부울 논리에서 Dnf ([분리 Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form))로 알려져 있습니다. 다음은 그 예입니다.
+  - `and` (접속사)와 결합 된 비교 식은 `or`를 사용 하 여 추가로 결합할 수 있습니다. 이 형식은 부울 논리에서 Dnf ([분리 Normal form](https://en.wikipedia.org/wiki/Disjunctive_normal_form))로 알려져 있습니다. 예를 들어:
     - `ratings/any(r: (r gt 2 and r le 5) or (r gt 7 and r lt 10))`
 - `all`에 대 한 규칙:
   - 단순 같음 식은 다른 식과 유용한 결합할 수 없습니다. 예를 들어이 식은 다음과 같이 사용할 수 있습니다.
@@ -185,10 +185,10 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
     이 식은 허용 되지만 조건이 겹치면 유용 하지 않습니다.
     - `ratings/all(r: r eq 5 and r le 7)`
-  - `ne`, `lt`, `le`, `gt`또는 `ge`를 포함 하는 간단한 비교 식을 `and`/`or`와 결합할 수 있습니다. 다음은 그 예입니다.
+  - `ne`, `lt`, `le`, `gt`또는 `ge`를 포함 하는 간단한 비교 식을 `and`/`or`와 결합할 수 있습니다. 예를 들어:
     - `ratings/all(r: r gt 2 and r le 5)`
     - `ratings/all(r: r le 5 or r gt 7)`
-  - `or` (disjunctions)과 결합 된 비교 식은 `and`를 사용 하 여 추가로 결합할 수 있습니다. 이 형식은 부울 논리에서 "[결합 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (my.cnf)로 알려져 있습니다. 다음은 그 예입니다.
+  - `or` (disjunctions)과 결합 된 비교 식은 `and`를 사용 하 여 추가로 결합할 수 있습니다. 이 형식은 부울 논리에서 "[결합 Normal form](https://en.wikipedia.org/wiki/Conjunctive_normal_form)" (my.cnf)로 알려져 있습니다. 예를 들어:
     - `ratings/all(r: (r le 2 or gt 5) and (r lt 7 or r ge 10))`
 
 <a name="bkmk_complex"></a>

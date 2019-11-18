@@ -1,7 +1,7 @@
 ---
 title: Lucene 쿼리 구문
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에 사용 되는 전체 Lucene 구문에 대 한 참조입니다.
+description: 와일드 카드, 유사 항목 검색, RegEx 및 기타 고급 쿼리 구문에 대 한 Azure Cognitive Search에 사용 되는 전체 Lucene 쿼리 구문에 대 한 참조입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1b94a1bbab810345ab222be9e7aba2fef0f52549
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 0bb8474b30c05e21a62ded1fa2cb8a6df8e4e321
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786278"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112175"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 Lucene 쿼리 구문
 
@@ -32,7 +32,7 @@ ms.locfileid: "72786278"
 
 ## <a name="how-to-invoke-full-parsing"></a>전체 구문 분석을 호출하는 방법
 
-`queryType` 검색 매개 변수를 설정하여 사용할 파서를 지정합니다. 유효한 값에는 기본값이 `simple`인 `simple|full`과 Lucene용 `full`이 포함됩니다. 
+`queryType` 검색 매개 변수를 설정하여 사용할 파서를 지정합니다. 유효한 값에는 기본값이 `simple|full`인 `simple`과 Lucene용 `full`이 포함됩니다. 
 
 <a name="bkmk_example"></a> 
 
@@ -71,7 +71,7 @@ POST /indexes/hotels/docs/search?api-version=2019-05-06
 
 예를 들어, Lucene 전체 구문의 경우, 유사 항목 검색 및 근접 검색에 물결표(~)를 사용합니다. 따옴표로 묶은 구 다음에 ~를 배치하면 근접 검색을 호출합니다. 용어 끝에 ~를 배치하면 유사 항목 검색을 호출합니다.
 
-"business~analyst"와 같은 용어 내에서 해당 문자는 연산자로 평가되지 않습니다. 이 경우 쿼리가 단어 또는 구 쿼리라고 가정할 경우 [어휘 분석](search-lucene-query-architecture.md#stage-2-lexical-analysis)을 사용한 [전체 텍스트 검색](search-lucene-query-architecture.md)은 ~를 제거하고 용어 "business~analyst"를 business OR analyst의 두 용어로 분할합니다.
+"business~analyst"와 같은 용어 내에서 해당 문자는 연산자로 평가되지 않습니다. 이 경우 쿼리가 단어 또는 구 쿼리라고 가정할 경우 [어휘 분석](search-lucene-query-architecture.md)을 사용한 [전체 텍스트 검색](search-lucene-query-architecture.md#stage-2-lexical-analysis)은 ~를 제거하고 용어 "business~analyst"를 business OR analyst의 두 용어로 분할합니다.
 
 위의 예제는 물결표(~)이지만 모든 연산자에 동일한 원칙이 적용됩니다.
 
@@ -114,7 +114,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 
 `searchMode=any`를 사용하는 경우 더 많은 결과를 포함하여 쿼리 재현율을 높이고, 기본적으로 -는 "OR NOT"으로 해석됩니다. 예를 들어, `wifi -luxury`는 용어 *wifi*를 포함하는 문서 또는 용어 *luxury*를 포함하지 않는 문서를 검색합니다.
 
-`searchMode=all`을 사용하는 경우 더 적은 수의 결과를 포함하여 쿼리 정확도를 높이고, 기본적으로 -는 "AND NOT"으로 해석됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 `luxury`를 포함하지 않는 문서를 검색합니다. 이러한 동작이 - 연산자의 좀 더 간단한 동작일 것입니다. 따라서 재현율이 아니라 정확도에 따라 최적화하려고 *하며* 사용자가 검색에서 `-` 연산자를 자주 사용하는 경우 `searchMode=any`보다 `searchMode=all`을 선택하는 것이 좋습니다.
+`searchMode=all`을 사용하는 경우 더 적은 수의 결과를 포함하여 쿼리 정확도를 높이고, 기본적으로 -는 "AND NOT"으로 해석됩니다. 예를 들어 `wifi -luxury`는 용어 `wifi`를 포함하고 용어 `luxury`를 포함하지 않는 문서를 검색합니다. 이러한 동작이 - 연산자의 좀 더 간단한 동작일 것입니다. 따라서 재현율이 아니라 정확도에 따라 최적화하려고 `searchMode=all`하며`searchMode=any` 사용자가 검색에서 *연산자를 자주 사용하는 경우*보다 `-`을 선택하는 것이 좋습니다.
 
 ##  <a name="bkmk_querysizelimits"></a> 쿼리 크기 제한  
  Azure Cognitive Search에 보낼 수 있는 쿼리 크기에는 제한이 있습니다. 특히, 최대 1024개 절(AND, OR 등으로 구분된 식)을 사용할 수 있습니다. 또한 한 쿼리의 개별 용어 크기도 약 32KB로 제한됩니다. 애플리케이션이 검색 쿼리를 프로그래밍 방식으로 생성하는 경우 쿼리가 제한 없는 크기로 생성되지 않도록 디자인하는 것이 좋습니다.  
@@ -151,7 +151,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 ##  <a name="bkmk_termboost"></a> 용어 상승  
  용어 상승은 해당 용어가 포함되지 않은 문서와 상대적으로, 상승된 용어가 포함된 경우 문서에 더 높은 순위를 매기는 것을 의미합니다. 이것은 평가 프로필은 특정 용어가 아닌 특정 필드를 상승시킨다는 점에서 평가 프로필과는 다릅니다.  
 
-다음 예제는 차이점을 설명하는 데 도움이 됩니다. [musicstoreindex 예제](index-add-scoring-profiles.md#bkmk_ex)에서 *genre*와 같이 특정 필드에서 일치 항목을 상승시키는 점수 매기기 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, `rock^2 electronic`은 genre 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 *rock*이라는 검색어가 포함된 문서는 *electronic*이라는 다른 검색어보다 높은 순위로 매겨집니다.  
+다음 예제는 차이점을 설명하는 데 도움이 됩니다. *musicstoreindex 예제*에서 [genre](index-add-scoring-profiles.md#bkmk_ex)와 같이 특정 필드에서 일치 항목을 상승시키는 점수 매기기 프로필을 고려해 보세요. 용어 상승은 일부 검색어를 다른 것보다 높게 더 상승시키는 데 사용될 수 있습니다. 예를 들어, `rock^2 electronic`은 genre 필드에 검색어가 있는 문서를 인덱스의 다른 검색 가능 필드보다 높게 상승시킵니다. 또한, 용어 상승 값(2)의 결과로 *rock*이라는 검색어가 포함된 문서는 *electronic*이라는 다른 검색어보다 높은 순위로 매겨집니다.  
 
  용어를 상승시키려면 검색하려는 용어 끝 부분에 상승 계수(숫자)와 함께 캐럿("^") 기호를 사용합니다. 또한 구를 상승시킬 수도 있습니다. 상승 계수가 높을수록 해당 용어는 다른 검색어에 비해 더 관련성이 높아집니다. 기본적으로, 상승 계수는 1입니다. 상승 계수는 양수여야 하지만, 1 미만일 수도 있습니다(예: 0.20).  
 
@@ -169,7 +169,7 @@ NOT 연산자는 느낌표 또는 빼기 기호입니다. 예를 들어, `wifi !
 >  검색의 첫 문자로 * 또는 ? 기호를 사용할 수 없습니다.  
 >  와일드카드 검색 쿼리에서는 텍스트 분석이 수행되지 않습니다. 쿼리 타임 때 와일드카드 쿼리 용어는 검색 인덱스의 분석된 용어와 비교 후 확장됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고 항목:  
 
 + [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
 + [필터 및 정렬을 위한 OData 식 구문](query-odata-filter-orderby-syntax.md)   

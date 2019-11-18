@@ -1,7 +1,7 @@
 ---
 title: 문자 수 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Translator Text API에서 문자 수를 계산하는 방법
+description: 이 문서에서는 Azure Cognitive Services Translator Text API에서 문자 수를 계산 하 여 콘텐츠를 수집 방법을 이해할 수 있도록 하는 방법을 설명 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: e3a16d9272e75f9a94f5381c1681c036d177e0f6
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: cb70b8624ac0d909511032622948f14f8764b153
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595997"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888152"
 ---
 # <a name="how-the-translator-text-api-counts-characters"></a>Translator Text API에서 문자 수를 계산하는 방법
 
@@ -26,14 +26,14 @@ Translator Text API는 입력된 텍스트의 모든 유니코드 코드 포인�
 * 요청 본문에서 Translator Text API로 전달되는 텍스트
    * `Text`: 번역, 변환 및 사전 조회 메서드를 사용하는 경우
    * `Text` 및 `Translation`: 사전 예제 메서드를 사용하는 경우
-* 모두 태그: 요청 본문의 텍스트 필드 내 HTML, XML 태그 등. 요청을 빌드하는 데 사용되는 JSON 표기법(예: “텍스트:”)은 계산되지 않습니다.
+* 모든 태그: 요청 본문의 텍스트 필드 내에서 HTML, XML 태그 등입니다. 요청을 빌드하는 데 사용되는 JSON 표기법(예: “텍스트:”)은 계산되지 않습니다.
 * 개별 문자
 * 문장 부호
 * 공백, 탭, 태그 및 모든 종류의 공백 문자
 * 유니코드에 정의된 모든 코드 포인트
 * 이전에 동일한 텍스트를 번역한 경우라도 반복되는 번역
 
-중국어 및 일본어 간지와 같은 표의 문자를 기반으로 하는 스크립트의 경우 Translator Text API는 유니코드 코드 포인트의 수를 표의 문자당 한 자로 계산합니다. 예외: 유니코드 서로게이트는 두 문자로 계산됩니다.
+중국어 및 일본어 간지와 같은 표의 문자를 기반으로 하는 스크립트의 경우 Translator Text API는 유니코드 코드 포인트의 수를 표의 문자당 한 자로 계산합니다. 예외: 유니코드 서로게이트 수는 두 문자로 계산 됩니다.
 
 요청, 단어, 바이트 또는 문장의 수는 문자 수와 관련이 없습니다.
 

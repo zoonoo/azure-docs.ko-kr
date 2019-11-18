@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: angle
-ms.openlocfilehash: d3b3f90be7dda28db9a27aa96282acee61e6c8fc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500945"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837389"
 ---
-# <a name="disclosure-design-guidelines"></a>공개 디자인 지침
+# <a name="disclosure-design-guidelines"></a>디자인 지침 공개
 음성 환경의 가상 특성에 대해 투명 하 게 하 여 고객과 신뢰를 구축 하 고 유지 관리 하는 방법을 알아보세요.
 
 ## <a name="what-is-disclosure"></a>공개 란?
@@ -76,7 +76,7 @@ ms.locfileid: "73500945"
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [투명도 메모](https://aka.ms/neural-tts-transparency-note)
+* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [제어 개요](concepts-gating-overview.md)
 

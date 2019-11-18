@@ -1,25 +1,17 @@
 ---
-title: Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다. | Microsoft Docs
+title: Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다.
 description: Redis 용 Azure Cache와 통신할 때 응용 프로그램에서 TLS 1.0 및 1.1을 제거 하는 방법에 대해 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 638ce4b07201453d0bb00d3610cb695b72b6d698
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806770"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121586"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다.
 
@@ -96,7 +88,7 @@ PhpRedis는 PHP 버전에서 TLS를 지원 하지 않습니다.
 
 Redis-py는 기본적으로 TLS 1.2를 사용 합니다.
 
-### <a name="go"></a>이동
+### <a name="go"></a>GO
 
 Redigo은 기본적으로 TLS 1.2를 사용 합니다.
 

@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72333205"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111847"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -31,6 +31,7 @@ GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다
 
 - 북유럽
 - 서유럽
+- 영국 남부
 - 미국 동부
 - 미국 동부 2
 - 미국 중부
@@ -141,14 +142,14 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
     - **문제 유형**: **데이터 마이그레이션**을 선택합니다.
     - **범주**: **지역 내에서 (RA-) GZRS로 마이그레이션을**선택 합니다.
     - **제목**: 설명 제목을 입력 합니다 (예: **(RA-) GZRS 계정 마이그레이션)** .
-    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어, \_ @ no__t-3 지역의 [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다. " 또는 "\_ @ no__t-1 영역에 있는 [LRS, RA-GRS]에서 RA로 마이그레이션해야 합니다."
+    - **세부 정보**: **세부** 정보 상자에 추가 세부 정보를 입력 합니다. 예를 들어 \_\_ 지역의 [LRS, GRS]에서 GZRS로 마이그레이션해야 합니다. " 또는 "\_\_ 지역의 [LRS, RA-GRS]에서 RA-GZRS로 마이그레이션해야 합니다."
 5. **다음**을 선택합니다.
 6. **연락처 정보** 블레이드에서 연락처 정보가 올바른지 확인합니다.
 7. **만들기**를 선택합니다.
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

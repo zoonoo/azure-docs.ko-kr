@@ -1,7 +1,7 @@
 ---
 title: OData 필터 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리의 필터 구문에 대 한 OData 언어 참조입니다.
+description: Azure Cognitive Search 쿼리에서 필터 식을 만드는 데 사용 되는 전체 구문 및 OData 언어 참조입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ba1f5e8f2369d3222b3c31738e252a20b6de8906
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b966e9cfa3ef40666dbbd62135f8f964e5eb2023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793365"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113209"
 ---
 # <a name="odata-filter-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $filter 구문
 
@@ -108,7 +108,7 @@ Azure Cognitive Search에 보낼 수 있는 필터 식의 크기 및 복잡성�
 > [!TIP]
 > 함수 호출이 단일 절로 계산 되기 때문에 같음 비교의 긴 분해 대신 [`search.in` 함수를](search-query-odata-search-in-function.md) 사용 하면 필터 절 제한을 피할 수 있습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 4 이상 등급의 기본 요금이 $200 미만인 모든 호텔을 찾습니다.
 
@@ -174,7 +174,7 @@ Azure Cognitive Search에 보낼 수 있는 필터 식의 크기 및 복잡성�
 
     $filter=Rooms/any(room: room/Tags/any(tag: search.in(tag, 'heated towel racks,hairdryer included', ','))
 
-"waterfront" 단어를 포함하는 문서를 찾습니다. 이 필터 쿼리는 `search=waterfront`를 사용한 [검색 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)과 동일합니다.
+"waterfront" 단어를 포함하는 문서를 찾습니다. 이 필터 쿼리는 [를 사용한 ](https://docs.microsoft.com/rest/api/searchservice/search-documents)검색 요청`search=waterfront`과 동일합니다.
 
     $filter=search.ismatchscoring('waterfront')
 

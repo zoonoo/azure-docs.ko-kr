@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5539d290ea182e24a50a103a762f011202ebf33a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572953"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120010"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -20,22 +20,22 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 
 ## <a name="azure-data-sources"></a>Azure 데이터 원본
 
-|데이터 원본  |메모리 내  |직접 연결  |
+|데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
-|Azure SQL Data Warehouse     |   예      |   예       |
-|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니요      |
-|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니요      |
-|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니요        |
-|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아니요      |
-|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니요       |
-|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니요       |
+|Azure SQL 데이터 웨어하우스     |   예      |   예       |
+|Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니오      |
+|Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니오      |
+|Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니오        |
+|Azure Data Lake Store(Gen1)<sup>[1](#tab1400a)</sup>, <sup>[4](#gen2)</sup>      |   예       |    아니오      |
+|Azure HDInsight HDFS<sup>[1](#tab1400a)</sup>     |     예     |   아니오       |
+|Azure HDInsight Spark<sup>[1](#tab1400a)</sup>, <sup>[3](#databricks)</sup>     |   예       |   아니오       |
 ||||
 
 <a name="tab1400a">1</a> - 테이블 형식 1400 이상 모델에만 해당됩니다.   
 <a name="azsqlmanaged">2</a> - Azure SQL Database Managed Instance가 지원됩니다. 관리 되는 인스턴스는 개인 IP 주소를 사용 하 여 Azure VNet 내에서 실행 되므로 인스턴스에서 공용 끝점을 사용 하도록 설정 해야 합니다. 사용 하도록 설정 하지 않으면 온-프레미스 데이터 게이트웨이가 필요 합니다.    
 <a name="databricks">3</a> - Spark 커넥터를 사용하는 Azure Databricks는 현재 지원되지 않습니다.   
-<a name="gen2">4</a> - ADLS Gen2는 현재 지원되지 않습니다.
+<a name="gen2">4</a> -ADLS Gen2 connector는 현재 지원 되지 않지만 ADLS Gen2 데이터 원본에 Blob Storage 커넥터를 사용할 수 있습니다.
 
 
 **공급자**   
@@ -43,14 +43,14 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 
 ## <a name="other-data-sources"></a>기타 데이터 원본
 
-온-프레미스 데이터 원본 및 Azure AS 서버에 연결하려면 온-프레미스 게이트웨이가 필요합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
+Azure Analysis Services 서버에서 온-프레미스 데이터 원본에 연결 하려면 온-프레미스 게이트웨이가 필요 합니다. 게이트웨이를 사용하는 경우 64비트 공급자는 필수입니다.
 
 ### <a name="in-memory-and-directquery"></a>메모리 내 및 DirectQuery
 
 |데이터 원본 | 메모리 내 공급자 | DirectQuery 공급자 |
 |  --- | --- | --- |
-| SQL Server |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | SQL Server용 .NET Framework 데이터 공급자 |
-| SQL Server 데이터 웨어하우스 |SQL Server Native Client 11.0, Microsoft OLE DB Provider for SQL Server, .NET Framework Data Provider for SQL Server | SQL Server용 .NET Framework 데이터 공급자 |
+| SQL Server |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (권장), SQL Server Native Client 11.0, .NET Framework Data Provider SQL Server | .NET Framework Data Provider for SQL Server |
+| SQL Server 데이터 웨어하우스 |Microsoft OLE DB Driver for SQL Server MSOLEDBSQL (권장), SQL Server Native Client 11.0, .NET Framework Data Provider SQL Server | .NET Framework Data Provider for SQL Server |
 | Oracle | Oracle에 대 한 OLE DB 공급자, .NET 용 Oracle Data Provider |.NET용 Oracle Data Provider |
 | Teradata |Teradata용 OLE DB Provider, .NET용 Teradata Data Provider |.NET용 Teradata Data Provider |
 | | | |
@@ -80,7 +80,7 @@ Azure 데이터 원본에 연결된 메모리 내 모델 및 DirectQuery 모델�
 |Salesforce 보고서<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
-|SharePoint 목록<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
+|SharePoint List<sup>[1](#tab1400b)</sup>, <sup>[2](#filesSP)</sup>     |   
 |Sybase 데이터베이스     |  
 |TXT 파일  |
 |XML 테이블<sup>[1](#tab1400b)</sup>    |  

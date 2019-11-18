@@ -1,5 +1,5 @@
 ---
-title: 검색 인덱싱을 위한 Azure SQL 가상 머신 VM 연결
+title: 검색 인덱싱을 위한 Azure SQL VM 연결
 titleSuffix: Azure Cognitive Search
 description: 암호화 된 연결을 사용 하도록 설정 하 고 Azure Cognitive Search의 인덱서에서 Azure VM (가상 머신)에서 SQL Server에 대 한 연결을 허용 하도록 방화벽을 구성 합니다.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 57bea41d95b8859af55be777b17189861a445a12
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 426ec57b3dbce884e55ef7a11ccca32ed295d70d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792138"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111898"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-server-on-an-azure-vm"></a>Azure VM에서 Azure Cognitive Search 인덱서에 SQL Server에 대 한 연결 구성
 
-[인덱서를 사용 하 여 azure Cognitive Search에 Azure SQL Database를 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)하는 방법에 설명 된 대로 azure Cognitive Search에서 **azure vm의 SQL Server** 에 대 한 인덱서 만들기 (또는 짧은 **vm SQL Azure** )는 azure에서 지원 되지만 몇 가지 먼저 처리 하기 위한 보안 관련 필수 구성 요소입니다. 
+[인덱서를 사용 하 여 azure Cognitive Search에 Azure SQL Database를 연결](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#faq)하는 방법에 설명 된 대로 azure Cognitive Search에서 **azure vm의 SQL Server** 에 대 한 인덱서 만들기 (또는 짧은 **vm SQL Azure** )는 azure에서 지원 되지만, 먼저 주의 해야 할 몇 가지 보안 관련 전제 조건이 있습니다. 
 
 Azure Cognitive Search에서 VM의 SQL Server에 연결 하는 것은 공용 인터넷 연결입니다. 이러한 연결에 대해 일반적으로 따를 수 있는 모든 보안 조치는 여기에도 적용됩니다.
 

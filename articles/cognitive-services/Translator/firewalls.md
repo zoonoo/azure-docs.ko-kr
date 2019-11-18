@@ -1,7 +1,7 @@
 ---
 title: 방화벽 뒤에서 변환 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Translator Text API를 사용하여 IP 방화벽 뒤에서 변환합니다.
+description: Azure Cognitive Services Translator Text API는 도메인 이름 또는 IP 필터링을 사용 하 여 방화벽 뒤에서 변환할 수 있습니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: 3d5c775d24c89d126962b6c4bccb4d5a572801ac
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: cd7904fedd3ab3f64315cb6f98d99b8fd12254f6
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69906776"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837398"
 ---
 # <a name="how-to-translate-behind-ip-firewalls-with-the-translator-text-api"></a>Translator Text API를 사용하여 IP 방화벽 뒤에서 변환하는 방법
 

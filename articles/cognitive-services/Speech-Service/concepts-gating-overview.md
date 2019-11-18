@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: shlo
-ms.openlocfilehash: c0a097c17a24c68f7ebe4ec06a01b9ab7d9943b0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 73e6e4e69a245485ca473f048bbeafef21dbbf37
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500909"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836781"
 ---
 # <a name="custom-neural-voice-gating-overview"></a>사용자 지정 신경망 제어 개요
 
@@ -28,7 +28,7 @@ Microsoft는 책임이 있는 AI 디자인에 대 한 Microsoft의 일환으로 
 ### <a name="guidance-for-deploying-custom-neural-voice"></a>사용자 지정 신경망 배포에 대 한 지침
 
 - [책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md): 연구를 기반으로 하는 최고 권장 사항
-- [신경망 음성 변환](https://aka.ms/neural-tts-transparency-note)에 대 한 투명 정보:이 기능을 사용 하려면 기술에 대해 알아야 할 사항
+- [음성 인재에 대 한 공개](https://aka.ms/disclosure-voice-talent): 음성 인재에 대해 알고 있어야 하는 기술에 대해 알고 있어야 합니다.
 - [공개 디자인](concepts-disclosure-guidelines.md): 사용자에 게 가상 음성이 사용 되는 시기를 알 수 있도록 환경을 디자인 하는 방법 및 서비스를 신뢰 합니다.
 
 ### <a name="why-custom-neural-voice-is-a-gated-technology"></a>사용자 지정 신경망이 제어 되는 기술
@@ -41,11 +41,11 @@ Microsoft는 책임이 있는 AI 디자인에 대 한 Microsoft의 일환으로 
 
 사용자 지정 신경망 서비스에 대 한 액세스는이 제어 된 미리 보기 중에 제한 된 수의 고객을 지원 하기 위한 자격 기준, 심사 프로세스 및 가용성에 따라 Microsoft의 유일한 판단을 받습니다.
 
-응용 프로그램 프로세스의 일환으로, 신경망을 만들기 전에 voice 인재에서 명시적으로 작성 된 사용 권한을 얻으려면 신경망을 커밋해야 합니다. 여기에는 [신경망](https://aka.ms/neural-tts-transparency-note)을 공유 하는 작업이 포함 됩니다. 또한 음성 글꼴을 배포할 때 구현은 서비스의 [가상 특성](concepts-disclosure-guidelines.md) 을 사용자에 게 공개 하 고, 서비스 약관에 Microsoft 가상 음성 서비스에 대 한 특성을 제공 하 고, 피드백 채널을 지 원하는 것에 동의 해야 합니다. 이렇게 하면 서비스 사용자가 문제를 보고 하 고 세부 정보를 Microsoft와 공유할 수 있습니다. 사용 약관에 대 한 자세한 내용은 [여기](https://aka.ms/neural-tts-transparency-note)를 참조 하세요.
+응용 프로그램 프로세스의 일부로 음성 [인재에 대 한 공개](https://aka.ms/disclosure-voice-talent)공유를 포함 하 여 음성 글꼴을 만들기 전에 음성 인재에서 명시적으로 작성 된 권한을 얻으려면 커밋해야 합니다. 또한 음성 글꼴을 배포할 때 구현은 서비스의 [가상 특성](concepts-disclosure-guidelines.md) 을 사용자에 게 공개 하 고, 서비스 약관에 Microsoft 가상 음성 서비스에 대 한 특성을 제공 하 고, 피드백 채널을 지 원하는 것에 동의 해야 합니다. 이렇게 하면 서비스 사용자가 문제를 보고 하 고 세부 정보를 Microsoft와 공유할 수 있습니다. 사용 약관에 대 한 자세한 내용은 [여기](https://aka.ms/custom-neural-code-of-conduct)를 참조 하세요.
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [투명도 메모](https://aka.ms/neural-tts-transparency-note)
+* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [공개 방법](concepts-disclosure-guidelines.md)
 

@@ -1,7 +1,7 @@
 ---
 title: OData 검색. 점수 함수 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리의 OData 검색. 점수 함수
+description: Azure Cognitive Search 쿼리에서 검색. 점수 함수를 사용 하는 방법에 대 한 구문 및 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 500ac4f3a44d54e367ddc4ee5efc9514d603cab6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2439d4f03184f8dbb85b229b3908dff95013b4bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793265"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113128"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData `search.score` 함수
 
@@ -32,9 +32,9 @@ ms.locfileid: "72793265"
 
 ## <a name="syntax"></a>구문
 
-**$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. 함수 `search.score`는 매개 변수를 사용하지 않습니다. **$Orderby** 매개 변수의 다른 절과 마찬가지로 `asc` 또는 `desc` 정렬 순서 지정자와 함께 사용할 수 있습니다. 정렬 기준 목록에서 아무 곳에 나 나타날 수 있습니다.
+`search.score`$orderby**에서** 에 대한 구문은 `search.score()`입니다. 함수 `search.score`는 매개 변수를 사용하지 않습니다. **$Orderby** 매개 변수의 다른 절과 마찬가지로 `asc` 또는 `desc` 정렬 순서 지정자와 함께 사용할 수 있습니다. 정렬 기준 목록에서 아무 곳에 나 나타날 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 `search.score` 및 `rating`를 기준으로 내림차순으로 호텔을 정렬 한 다음, 동일한 등급이 있는 두 호텔 사이에 가장 가까운 것이 먼저 표시 되도록 지정 된 좌표에서 거리로 오름차순으로 정렬 합니다.
 

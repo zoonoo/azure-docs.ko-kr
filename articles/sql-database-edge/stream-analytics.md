@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 1b6b3f4e4be9d056bc53fac2eb2f1f3fcd768085
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3ed84e06f693925ed8b484070616e223929e401
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514993"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108752"
 ---
 # <a name="using-sql-database-dac-package-and-stream-analytics-job-with-sql-database-edge"></a>SQL Database DAC 패키지 및 Stream Analytics 작업을 SQL Database Edge와 함께 사용
 
@@ -37,7 +37,7 @@ Azure SQL Database Edge는 *모듈 쌍의 desired 속성* 옵션을 통해 IoT E
 |필드 | 설명 |
 |------|-------------|
 | SQLPackage | SQL Database DAC 패키지를 포함 하는 * .zip 파일의 URI를 Azure Blob Storage 합니다.
-| ASAJobInfo | GLOBAL.ASA에 지 작업의 URI를 Azure Blob Storage 합니다. 이 작업을 게시 하는 방법에 대 한 자세한 내용은 [SQL Database edge에 대 한 주문형 edge 작업 게시]()를 참조 하세요.
+| ASAJobInfo | GLOBAL.ASA에 지 작업의 URI를 Azure Blob Storage 합니다. 이 작업을 게시 하는 방법에 대 한 자세한 내용은 [SQL Database edge에 대 한 주문형 edge 작업 게시](/azure/sql-database-edge/stream-analytics#using-streaming-jobs-with-sql-database-edge)를 참조 하세요.
 
 ## <a name="using-sql-database-dac-packages-with-sql-database-edge"></a>SQL Database Edge에서 SQL Database DAC 패키지 사용
 
@@ -75,7 +75,7 @@ SQL Database Edge에서 SQL Database DAC 패키지 (* .dacpac)를 사용 하려�
             }
         ```
 
-    7. **Save**를 클릭합니다.
+    7. **저장**을 클릭합니다.
 
     8. **모듈 설정** 페이지에서 *다음*을 클릭 합니다.
 
@@ -104,7 +104,7 @@ Azure SQL Database Edge에는 stream analytics 런타임의 네이티브 구현�
     |서버 이름 | SQL 인스턴스의 이름 (또는 IP 주소)과 포트 번호 정보입니다. SQL Database Edge 배포의 경우 **tcp:., 1433을** 서버 이름으로 사용할 수 있습니다.|
     |사용자 이름 | 위에서 언급 된 데이터베이스에 대 한 데이터 판독기 및 데이터 기록기 액세스 권한이 있는 SQL 로그인 계정입니다.|
     |암호 | 위에서 언급 한 SQL 로그인 계정의 암호입니다.|
-    |테이블 | 스트리밍 작업에 대해 출력 되는 테이블의 이름입니다.|
+    |Table | 스트리밍 작업에 대해 출력 되는 테이블의 이름입니다.|
     |분할 상속| 이 SQL 출력 구성 옵션을 사용 하면 이전 쿼리 단계 또는 입력의 파티션 구성표를 상속할 수 있습니다. 이 기능을 사용 하도록 설정 하면 디스크 기반 테이블에 기록 하 고 작업에 대 한 완전 한 병렬 토폴로지를 사용 하 여 더 나은 처리량을 볼 수 있습니다.|
     |Batch 크기| 일괄 처리 크기는 모든 bulk insert 트랜잭션과 함께 전송 되는 최대 레코드 수입니다.|
 
@@ -166,7 +166,7 @@ Azure SQL Database Edge에는 stream analytics 런타임의 네이티브 구현�
         }
     ```
 
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **모듈 설정** 페이지에서 *다음*을 클릭 합니다.
 

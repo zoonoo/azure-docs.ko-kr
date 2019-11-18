@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 795ca6f1ee45f11fe44f9c14efda1d3463dc9e7c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 753d962cbefd38ec991fb9e63805760fe07a8f2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076824"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123880"
 ---
 # <a name="prepay-for-azure-database-for-postgresql-compute-resources-with-reserved-capacity"></a>예약 된 용량의 Azure Database for PostgreSQL 계산 리소스에 대 한 선불
 
@@ -20,7 +20,7 @@ ms.locfileid: "74076824"
 특정 Azure Database for PostgreSQL 서버에 예약을 할당할 필요가 없습니다. 이미 실행 중인 Azure Database for PostgreSQL 또는 새로 배포 된는 예약 된 가격 책정의 혜택을 자동으로 받게 됩니다. 예약을 구매 하면 1 년 동안 계산 비용을 미리 지불 하 게 됩니다. 예약을 구매 하는 즉시 예약 특성과 일치 하는 Azure database for PostgreSQL 계산 요금은 더 이상 종 량 제 요금으로 청구 되지 않습니다. 예약은 PostgreSQL 데이터베이스 서버와 관련 된 소프트웨어, 네트워킹 또는 저장소 요금을 포함 하지 않습니다. 예약 기간이 끝나면 청구 혜택이 만료 되 고 Azure Database for PostgreSQL는 종 량 제 가격으로 청구 됩니다. 예약은 자동 갱신되지 않습니다. 가격 책정 정보는 [Azure Database for PostgreSQL 예약 된 용량 제공](https://azure.microsoft.com/pricing/details/postgresql/)을 참조 하세요. </br>
 
 > [!IMPORTANT]
-> 예약 된 용량 가격은 Azure Database for PostgreSQL [단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 배포에만 사용할 수 있으며, [hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus-preview) 배포에 대해서는 사용할 수 없습니다.
+> 예약 된 용량 가격은 Azure Database for PostgreSQL [단일 서버](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) 배포에만 사용할 수 있으며, [hyperscale Citus](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---hyperscale-citus) 배포에 대해서는 사용할 수 없습니다.
 
 [Azure Portal](https://portal.azure.com/)에서 Azure Database for PostgreSQL 예약 된 용량을 구매할 수 있습니다. 예약 된 용량을 구입 하려면:
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: e721a7818c5f2fcea23263b296912edf164036b2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927809"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128770"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -74,7 +74,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 - **센서** 센서 센서 센서는 값을 기록 하는 실제 센서에 해당 합니다. / 센서는 일반적으로 장치 ID를 사용 하 여 장치에 연결 됩니다.  
 
 
-|        장치 모드   |  제안   |
+|        장치 모델   |  제안   |
 | ------- | -------             |
 |     유형 (노드, 게이트웨이)        |          별 1개      |
 |          제조업체            |         별 2개     |

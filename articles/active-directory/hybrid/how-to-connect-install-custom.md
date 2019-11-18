@@ -10,16 +10,16 @@ ms.assetid: 6d42fb79-d9cf-48da-8445-f482c4c536af
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 11/14/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2711127c7bdf58e61f2d688c51e0e639d00cda5
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 80b90a22a793c15104bba3eb91e88f851158e13f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73883066"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74106952"
 ---
 # <a name="custom-installation-of-azure-ad-connect"></a>Azure AD Connect의 사용자 지정 설치
 설치에 더 많은 옵션이 필요한 경우 Azure AD Connect **사용자 지정 설정** 을 사용합니다. 여러 포리스트가 있는 경우 또한 빠른 설치에서 다루지 않는 선택적 기능을 구성하려는 경우에 사용합니다. [**빠른 설치**](how-to-connect-install-express.md) 옵션이 배포 또는 토폴로지 옵션을 충족하지 않는 경우에 사용합니다.
@@ -87,7 +87,9 @@ Active Directory 도메인 서비스에 연결하려면 Azure AD Connect에 충�
 ![연결 디렉터리](./media/how-to-connect-install-custom/connectdir02.png)
 
 #### <a name="enterprise-admin-and-domain-admin-accounts-not-supported"></a>엔터프라이즈 관리자 및 도메인 관리자 계정이 지원 되지 않음
-빌드 1.4. # # #. #은 더 이상 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS 커넥터 계정으로 사용할 수 없습니다.  **기존 계정 사용**을 지정 하는 경우 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력 하려고 하면 오류가 표시 됩니다.
+빌드 1.4.18.0에서 엔터프라이즈 관리자 또는 도메인 관리자 계정을 AD DS 커넥터 계정으로 사용 하는 것은 더 이상 지원 되지 않습니다.  **기존 계정 사용**을 지정 하는 경우 엔터프라이즈 관리자 또는 도메인 관리자 계정을 입력 하려고 하면 다음과 같은 오류가 표시 됩니다.
+
+  **"AD 포리스트 계정에 엔터프라이즈 또는 도메인 관리자 계정을 사용 하는 것은 허용 되지 않습니다.  계정을 만들거나 올바른 권한이 있는 동기화 계정을 지정 Azure AD Connect 합니다.  자세한 내용은 &lt;&gt;**
 
 ### <a name="azure-ad-sign-in-configuration"></a>Azure AD 로그인 구성
 이 페이지를 사용하면 온-프레미스 AD DS에 있는 UPN 도메인을 검토하고 이는 Azure AD에서 확인됩니다. 또한 이 페이지를 사용하면 userPrincipalName에 사용할 특성을 구성할 수 있습니다.
@@ -123,7 +125,7 @@ Azure AD Connect 버전 1.1.524.0 미만에서 OU 기반 필터링을 사용하�
 #### <a name="select-how-users-should-be-identified-in-your-on-premises-directories"></a>온-프레미스 디렉터리에서 사용자를 식별하는 방법 선택
 포리스트 기능 간에 일치를 사용하여 AD DS 포리스트의 사용자가 Azure AD에서 표현되는 방법을 정의할 수 있습니다. 사용자는 포리스트 전반에 걸쳐 한번만 표시할 수 있거나 활성화된 계정과 비활성화된 계정의 조합으로 이루어집니다. 사용자가 일부 포리스트 내에서 연락처로 표시될 수 있습니다.
 
-![고유한](./media/how-to-connect-install-custom/unique2.png)
+![고유](./media/how-to-connect-install-custom/unique2.png)
 
 | 설정 | 설명 |
 | --- | --- |
@@ -285,7 +287,7 @@ AD FS를 설치하려는 서버를 입력합니다. 용량 계획 요구 사항�
 
 웹 애플리케이션 서버가 AD FS 서버에 보안 연결을 설정할 수 있도록 자격 증명을 입력하라는 메시지가 표시됩니다. 이러한 자격 증명에서 로컬 관리자는 AD FS 서버에 있어야 합니다.
 
-![Proxy](./media/how-to-connect-install-custom/adfs4.png)
+![Proxy (프록시)](./media/how-to-connect-install-custom/adfs4.png)
 
 ### <a name="specify-the-service-account-for-the-ad-fs-service"></a>AD FS 서비스에 대한 서비스 계정 지정
 AD FS 서비스가 Active Directory에서 사용자를 인증하고 사용자 정보를 검색하는데 도메인 서비스 계정이 필요합니다. 두 종류의 서비스 계정을 지원할 수 있습니다.

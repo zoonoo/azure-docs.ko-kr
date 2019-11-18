@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2019
 ms.author: atsenthi
-ms.openlocfilehash: 25aaad02cf8c90c67e87d49553a02cacf033281f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: a9e2a2c20a8de4bed3876f431566b293cbfa4ef5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819484"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109666"
 ---
 # <a name="change-cluster-from-certificate-thumbprint-to-common-name"></a>인증서 지문에서 일반 이름으로 클러스터 변경
 두 인증서가 동일한 지문을 사용하면 안 됩니다. 이렇게 될 경우 클러스터 인증서가 롤오버되거나 관리에 어려움이 발생합니다. 그러나 여러 인증서가 동일한 일반 이름 또는 제목을 사용하는 것은 가능합니다.  배포된 클러스터를 인증서 지문에서 인증서 일반 이름으로 전환하면 인증서 관리 방법이 훨씬 간단해집니다. 이 문서에서는 인증서 지문 대신 인증서 일반 이름을 사용하도록 실행 중인 Service Fabric 클러스터를 업데이트하는 방법을 설명합니다.
@@ -189,7 +189,7 @@ Update-AzVmss -ResourceGroupName $VmssResourceGroupName -Verbose `
         ...
     ```
 
-자세한 내용은 인증서 지 [문의 클러스터를 일반 이름으로 변경을](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn) 참조 하세요.
+자세한 내용은 [지문 대신 인증서 일반 이름을 사용 하는 Service Fabric 클러스터 배포를](https://docs.microsoft.com/azure/service-fabric/service-fabric-create-cluster-using-cert-cn) 참조 하세요.
 
 ## <a name="deploy-the-updated-template"></a>업데이트된 템플릿 배포
 변경 후 업데이트된 템플릿을 다시 배포합니다.

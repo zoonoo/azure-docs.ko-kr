@@ -1,18 +1,15 @@
 ---
 title: 지역 간 안전 배포-Azure 배포 관리자
 description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 6cbbd2aef1911bdfe64e781a7cad64a64722192d
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532305"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147198"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -115,7 +112,7 @@ Id는 롤아웃과 동일한 위치에 있어야 합니다.
 
 자세한 내용은 [serviceTopologies 템플릿 참조](/azure/templates/Microsoft.DeploymentManager/serviceTopologies)를 참조하세요.
 
-### <a name="services"></a>Services
+### <a name="services"></a>서비스
 
 다음 예제에서는 서비스 리소스의 일반 형식을 보여 줍니다. 각 서비스에서 서비스 배포에 사용할 위치 및 Azure 구독 ID를 제공합니다. 여러 지역에 배포하려면 각 지역의 서비스를 정의합니다. 서비스는 서비스 토폴로지에 따라 다릅니다.
 

@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: d9b7a433dd7392e83719f09815f736dbd85f9c7f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0a28292ac95dca7b46d9f82c32b9881c18d74b87
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582902"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123536"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
 
@@ -38,7 +38,7 @@ Azure Monitor와 관련 된 비용을 이해 하려면 [사용량 및 예상 비
 
 ## <a name="monitoring-data-from-azure-machine-learning"></a>Azure Machine Learning에서 데이터 모니터링
 
-Azure Machine Learning는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data-from-Azure-resources)에 설명 되어 있습니다. Azure Machine Learning에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md) 를 참조 하세요.
+Azure Machine Learning는 다른 Azure 리소스와 동일한 종류의 모니터링 데이터를 수집 하며, [azure 리소스의 데이터 모니터링](/azure/azure-monitor/insights/monitor-azure-resource#monitoring-data)에 설명 되어 있습니다. Azure Machine Learning에서 만든 로그 및 메트릭에 대 한 자세한 내용은 [Azure Machine Learning 모니터링 데이터 참조](monitor-resource-reference.md) 를 참조 하세요.
 
 ## <a name="analyzing-metric-data"></a>메트릭 데이터 분석
 
@@ -68,7 +68,7 @@ Azure Machine Learning에 대 한 모든 메트릭은 네임 스페이스 **Mach
 | 할당량 사용률 비율 | 집계 유형: 평균, 연산자: 보다 큼, 임계값: 90| 할당량 사용률 백분율이 90% 보다 큰 경우 |
 | 사용할 수 없는 노드 | 집계 유형: 합계, 연산자: 보다 큼, 임계값: 0 | 사용할 수 없는 노드가 하나 이상 있는 경우 |
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 > [!IMPORTANT]
 > __Azure Machine Learning에 대 한 메트릭은 구성할 필요가 없으며__, 자동으로 수집 되 고 모니터링 및 경고를 위해 메트릭 탐색기에서 사용할 수 있습니다.
@@ -100,7 +100,7 @@ Azure Monitor Log Analytics를 사용 하려면 진단 구성을 만들고 __Log
 
 Azure Monitor 로그의 데이터는 테이블에 저장 되 고 각 테이블에는 고유한 속성 집합이 있습니다. Azure Machine Learning은 다음 테이블에 데이터를 저장 합니다.
 
-| 테이블 | 설명 |
+| Table | 설명 |
 |:---|:---|
 | AmlComputeClusterEvent | Azure Machine Learning 계산 클러스터의 이벤트입니다. |
 | AmlComputeClusterNodeEvent | Azure Machine Learning 계산 클러스터 내의 노드에서 발생 한 이벤트입니다. |
@@ -131,7 +131,7 @@ Azure Machine Learning 리소스를 모니터링 하는 데 사용할 수 있는
     | project  TimeGenerated , ClusterId , EventType , ExecutionState , ToolType
     ```
 
-+ VM 크기가 Standard_D1_V2 인 클러스터의 경우 지난 5 일간 클러스터 이벤트를 가져옵니다.
++ VM 크기가 Standard_D1_V2 된 클러스터의 최근 5 일 동안 클러스터 이벤트를 가져옵니다.
 
     ```Kusto
     AmlComputeClusterEvent

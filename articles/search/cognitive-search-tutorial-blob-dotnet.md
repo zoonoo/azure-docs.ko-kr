@@ -1,21 +1,21 @@
 ---
-title: 'C# 자습서: AI 보강 파이프라인에서 Cognitive Services API 호출'
+title: '자습서: .NET을 C# 사용 하 여 기술 만들기'
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 보강 인덱싱 파이프라인의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 안내합니다.
+description: Azure Cognitive Search 보강 인덱싱 파이프라인에서 데이터 추출, 자연어 및 이미지 AI 처리를 보여 주는 예제 코드를 단계별로 실행 합니다.
 manager: nitinme
 author: MarkHeff
 ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7a8146f524a6e6f9abed2440c98a83aa3878f0c7
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790217"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111739"
 ---
-# <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-indexing-pipeline"></a>C# 자습서: Azure Cognitive Search 인덱싱 파이프라인에서 Cognitive Services API 호출
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>자습서: 및 .NET SDK를 사용 하 C# 여 AI 보강 파이프라인 만들기
 
 이 자습서에서는 *인지 기술*을 사용하여 Azure Cognitive Search에서 데이터 보강을 프로그래밍하는 메커니즘을 알아봅니다. 기술은 Cognitive Services의 NLP(자연어 처리) 및 이미지 분석 기능에 의해 지원됩니다. 기술 세트 컴퍼지션 및 구성을 통해 이미지 또는 스캔한 문서 파일의 텍스트 및 텍스트 표현을 추출할 수 있습니다. 언어, 엔터티, 핵심 문구 등을 검색할 수도 있습니다. 최종적으로 AI 지원 인덱싱 파이프라인을 통해 검색 인덱스에 풍부한 추가 콘텐츠가 생성됩니다.
 
@@ -35,15 +35,15 @@ ms.locfileid: "72790217"
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때는 청구 가능 Cognitive Services 리소스를 연결해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에서는 다음과 같은 서비스, 도구 및 데이터가 사용됩니다. 
 
-+ 샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 스토리지 계정이 Azure Cognitive Search와 동일한 지역에 있는지 확인합니다.
++ 샘플 데이터를 저장하기 위한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 스토리지 계정이 Azure Cognitive Search와 동일한 지역에 있는지 확인합니다.
 
 + [샘플 데이터](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)는 여러 종류의 작은 파일 세트로 구성됩니다. 
 
@@ -69,7 +69,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동한 후 **Blobs**를 클릭하고 **+ 컨테이너**를 클릭합니다.
 
-1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다. 이 자습서에서는 컨테이너 이름이 "basic-demo-data-pr"이라고 가정합니다.
+1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값 중 하나에 대한 공용 액세스 수준을 설정할 수 있습니다. 이 자습서에서는 컨테이너 이름이 "basic-demo-data-pr"이라고 가정합니다.
 
 1. 컨테이너가 만들어지면 해당 컨테이너를 열고 명령 모음에서 **업로드**를 선택하여 [샘플 데이터](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 업로드합니다.
 
@@ -97,7 +97,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 Visual Studio의 패키지 관리자 콘솔을 사용하여 `Microsoft.Azure.Search` NuGet 패키지를 설치합니다. 패키지 관리자 콘솔을 열려면 **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 차례로 선택합니다. 명령을 실행하려면 [Microsoft.Azure.Search NuGet 패키지 페이지](https://www.nuget.org/packages/Microsoft.Azure.Search)로 이동하여 버전 9를 선택하고 패키지 관리자 명령을 복사합니다. 패키지 관리자 콘솔에서 이 명령을 실행합니다.
 
-`Microsoft.Extensions.Configuration.Json` NuGet 패키지를 Visual Studio에 설치하려면 **도구** > **NuGet 패키지 관리자** > **솔루션용 NuGet 패키지 관리...** 를 차례로 선택합니다. [찾아보기]를 선택하고 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 검색합니다. 이 NuGet 패키지가 검색되면 해당 패키지를 선택하고, 프로젝트를 선택하고, 안정적인 최신 버전인지 확인한 다음, [설치]를 선택합니다.
+Visual Studio에서 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 설치 하려면 **도구** > **nuget 패키지 관리자** > **솔루션에 대 한 nuget 패키지 관리**...를 선택 합니다. 찾아보기를 선택 하 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를 검색 합니다. 이 NuGet 패키지가 검색되면 해당 패키지를 선택하고, 프로젝트를 선택하고, 안정적인 최신 버전인지 확인한 다음, [설치]를 선택합니다.
 
 ## <a name="add-azure-cognitive-search-service-information"></a>Azure Cognitive Search 서비스 정보 추가
 
@@ -164,9 +164,9 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 
 ## <a name="create-a-data-source"></a>데이터 소스 만들기
 
-`DataSource.AzureBlobStorage`를 호출하여 새 `DataSource` 인스턴스를 만듭니다. `DataSource.AzureBlobStorage`에서는 데이터 원본 이름, 연결 문자열 및 Blob 컨테이너 이름을 지정해야 합니다.
+`DataSource`를 호출하여 새 `DataSource.AzureBlobStorage` 인스턴스를 만듭니다. `DataSource.AzureBlobStorage`에서는 데이터 원본 이름, 연결 문자열 및 Blob 컨테이너 이름을 지정해야 합니다.
 
-이 자습서에서 사용되지는 않지만 일시 삭제 열의 값에 따라 삭제된 Blob을 식별하는 데 사용되는 일시 삭제 정책도 정의됩니다. 다음 정책에서는 값이 `true`인 `IsDeleted` 메타데이터 속성이 있는 경우 Blob이 삭제되는 것으로 간주합니다.
+이 자습서에서 사용되지는 않지만 일시 삭제 열의 값에 따라 삭제된 Blob을 식별하는 데 사용되는 일시 삭제 정책도 정의됩니다. 다음 정책에서는 값이 `IsDeleted`인 `true` 메타데이터 속성이 있는 경우 Blob이 삭제되는 것으로 간주합니다.
 
 ```csharp
 DataSource dataSource = DataSource.AzureBlobStorage(
@@ -573,7 +573,7 @@ catch (Exception e)
 
 또한 ```"dataToExtract"```는 ```"contentAndMetadata"```으로 설정되어 있습니다. 이 명령문은 다른 파일 형식의 콘텐츠 및 각 파일과 관련된 메타데이터를 자동으로 추출하도록 인덱서에 지시합니다.
 
-콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 `imageAction`을 설정할 수 있습니다. OCR 기술 및 텍스트 병합 기술과 함께 ```"generateNormalizedImages"``` 구성으로 설정된 ```"imageAction"```은 이미지에서 텍스트(예: 트래픽 중지 기호에서 "중지"라는 단어)를 추출하여 콘텐츠 필드의 일부로 포함시키도록 인덱서에 지시합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
+콘텐츠가 추출되면 데이터 원본에서 찾은 이미지의 텍스트를 추출하도록 `imageAction`을 설정할 수 있습니다. OCR 기술 및 텍스트 병합 기술과 함께 ```"imageAction"``` 구성으로 설정된 ```"generateNormalizedImages"```은 이미지에서 텍스트(예: 트래픽 중지 기호에서 "중지"라는 단어)를 추출하여 콘텐츠 필드의 일부로 포함시키도록 인덱서에 지시합니다. 이 동작은 문서에 포함된 이미지(예: PDF 내 이미지)뿐 아니라 JPG 파일 같은 데이터 원본의 이미지에도 적용됩니다.
 
 ## <a name="check-indexer-status"></a>인덱서 상태 확인
 
@@ -646,7 +646,7 @@ private static SearchIndexClient CreateSearchIndexClient(IConfigurationRoot conf
 
 출력은 각 필드의 이름, 형식 및 특성이 포함된 인덱스 스키마입니다.
 
-`organizations`처럼 단일 필드의 모든 콘텐츠를 반환하도록 `"*"`에 대한 두 번째 쿼리를 제출합니다.
+`"*"`처럼 단일 필드의 모든 콘텐츠를 반환하도록 `organizations`에 대한 두 번째 쿼리를 제출합니다.
 
 ```csharp
 SearchParameters parameters =
@@ -696,4 +696,4 @@ catch (Exception e)
 사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)

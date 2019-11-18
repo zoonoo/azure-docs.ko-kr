@@ -1,7 +1,7 @@
 ---
 title: 새로운 기능-Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
-description: 이 문서는 Language Understanding에 대 한 뉴스를 포함 합니다.
+description: 이 문서는 Azure Cognitive Services Language Understanding API 대 한 뉴스로 정기적으로 업데이트 됩니다.
 author: diberry
 manager: nitinme
 ms.custom: experiment-luis-0519
@@ -9,18 +9,18 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 0788df1c05d70c01d4de7f7a6ba62a476252f75a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498941"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953374"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
-서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지 하려면이 페이지에 책갈피를 설정 합니다.  
+서비스의 새로운 기능에 대해 알아봅니다. 이러한 항목에는 릴리스 정보, 비디오, 블로그 게시물 및 다른 유형의 정보가 포함 됩니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.  
 
 ## <a name="release-notes"></a>릴리스 정보 
 
@@ -31,11 +31,13 @@ ms.locfileid: "73498941"
     * . Lu ([Ludown](https://github.com/microsoft/botbuilder-tools/tree/master/packages/Ludown)) 형식을 사용 하 여 앱을 가져오고 내보낼 수 있습니다. 이를 통해 효과적인 CI/CD 프로세스를 마련 수 있습니다. 
 * 언어 확장
     * 공개 미리 보기로 제공 되는 [아랍어 및 힌디어](luis-language-support.md) .
-* Fakes.prebuild 라고 하겠습니다 모델
+* 미리 작성된 모델
     * [미리 빌드된 도메인](luis-reference-prebuilt-domains.md) 은 이제 GA (일반 공급)로 제공 됩니다.
     * 일본어 [미리](luis-reference-prebuilt-entities.md#japanese-entity-support) 작성 된 엔터티-나이, 통화, 숫자, 백분율은 V3에서 지원 되지 않습니다.
     * 미리 작성 된 이탈리아어의 미리 작성 된 [엔터티](luis-reference-prebuilt-entities.md#italian-entity-support) -나이, 통화, 차원, 숫자, 백분율 해상도가 V2에서 변경 되었습니다.
-* 복잡 한 모델을 작성 하 고 디버그할 수 있도록 [preview.luis.ai 포털](https://preview.luis.ai) 에서 사용자 환경을 개선 합니다. 개선 된 레이블 환경
+* 복잡 한 모델을 작성 하 고 디버그할 수 있도록 [preview.luis.ai 포털](https://preview.luis.ai) 에서 사용자 환경을 개선 합니다. 개선 된 레이블 환경 Preview 포털 자습서를 사용해 보세요.
+    * [의도만](tutorial-intents-only.md)
+    * [없습니다 machine-학습 한 엔터티](tutorial-machine-learned-entity.md) 
 * 언어를 보다 잘 이해 하는 고급 기능을 사용 하 여 [정교한 언어 모델을 작성](luis-concept-entity-types.md) 합니다. 
 * 모델 수준에서 기계 학습 기능을 정의 하 고 엔터티를 의도 및 기타 엔터티에 대 한 기능으로 사용 하는 등 다른 모델에 대 한 신호로 모델을 사용할 수 있게 합니다.
 * 새로운 확장 된 [제한](luis-boundaries.md) -구 목록 및 총 구에 대 한 최대 및 새로운 모델, 기능 제한
@@ -88,4 +90,4 @@ ms.locfileid: "73498941"
 
 ## <a name="service-updates"></a>서비스 업데이트
 
-[Cognitive Services에 대 한 Azure 업데이트 공지](https://azure.microsoft.com/updates/?product=cognitive-services)
+[Cognitive Services에 대한 Azure 업데이트 공지](https://azure.microsoft.com/updates/?product=cognitive-services)

@@ -1,25 +1,17 @@
 ---
-title: 프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법 | Microsoft Docs
+title: 프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 description: 프리미엄 계층 Azure Cache for Redis 인스턴스에 대한 Redis 클러스터링을 만들고 관리하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 62208eec-52ae-4713-b077-62659fd844ab
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/13/2018
 ms.author: yegu
-ms.openlocfilehash: d81647e8d09d8f10827e8eb6038363db73395c1e
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 1f0c97d6c0854254026e194ffd5030976fc506b2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596915"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122166"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 클러스터링을 구성하는 방법에 대해 설명합니다.
@@ -38,20 +30,20 @@ Azure Cache for Redis는 [Redis에서 구현된](https://redis.io/topics/cluster
 
 Azure에서 Redis 클러스터는 주/복제본 모델로 제공됩니다. 이 경우 각 분할에는 Azure Cache for Redis 서비스에서 관리하는 복제가 있는 주/복제 쌍이 있습니다. 
 
-## <a name="clustering"></a>클러스터링
+## <a name="clustering"></a>Clustering
 클러스터링은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에서 사용하도록 설정합니다. 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
 클러스터링은 **Redis 클러스터** 블레이드에 구성됩니다.
 
-![클러스터링][redis-cache-clustering]
+![Clustering][redis-cache-clustering]
 
 클러스터에서 최대 10개의 분할된 데이터베이스를 사용할 수 있습니다. **사용**을 클릭하고 슬라이더를 밀거나 **분할 개수**에 1에서 10 사이의 숫자를 입력하고 **확인**을 클릭합니다.
 
 각각의 분할된 데이터베이스는 Azure에서 관리하는 주/복제본 캐시 쌍이며, 캐시의 총 크기는 분할된 데이텁베이스 수에 가격 책정 계층에서 선택한 캐시 크기를 곱하여 산출합니다. 
 
-![클러스터링][redis-cache-clustering-selected]
+![Clustering][redis-cache-clustering-selected]
 
 일단 캐시가 생성되면 이 캐시에 연결하여 클러스터되지 않은 캐시처럼 사용할 수 있으며, Redis에서 캐시 분할 데이터베이스 전체에 데이터를 배포합니다. 진단이 [사용](cache-how-to-monitor.md#enable-cache-diagnostics)으로 설정되면 메트릭이 각 분할별로 개별적으로 캡처되며 Azure Cache for Redis 블레이드에 [표시](cache-how-to-monitor.md)됩니다. 
 
@@ -111,20 +103,20 @@ Azure Cache for Redis 클러스터링에 대해 자주 묻는 질문과 대답�
 ### <a name="how-are-keys-distributed-in-a-cluster"></a>클러스터에서 키를 분산하는 방법
 Redis 단위당 [키 배포 모델](https://redis.io/topics/cluster-spec#keys-distribution-model) 설명서: 키 공간은 16384 슬롯으로 분할됩니다. 각 키는 이러한 슬롯 중 하나에 해시되고 할당되며 클러스터의 노드에 분산됩니다. 키의 어느 부분이 해시되는지 구성하여 여러 키가 해시 태그를 사용하여 동일한 분할에 위치하도록 합니다.
 
-* 해시 태그가 있는 키 - 키의 모든 부분이 `{` 및 `}`로 묶인 경우 키의 해당 부분에만 키의 해시 슬롯을 결정하는 용도로 해시됩니다. 예를 들어 다음 3개의 키는 동일한 분할에 위치합니다. 이름의 `key` 부분이 해시되기 때문에 `{key}1`, `{key}2` 및 `{key}3`입니다. 키 해시 태그 사양의 전체 목록은 [키 해시 태그](https://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
+* 해시 태그가 있는 키 - 키의 모든 부분이 `{` 및 `}`로 묶인 경우 키의 해당 부분에만 키의 해시 슬롯을 결정하는 용도로 해시됩니다. 예를 들어 다음 3개의 키는 동일한 분할에 위치합니다. 이름의 `{key}1` 부분이 해시되기 때문에 `{key}2`, `{key}3` 및 `key`입니다. 키 해시 태그 사양의 전체 목록은 [키 해시 태그](https://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
 * 해시 태그 없는 키 - 전체 키 이름은 해시하는 데 사용됩니다. 그러면 캐시의 분할에 통계적으로 균일하게 배포됩니다.
 
 최상의 성능 및 처리량의 경우 키를 고르게 분산하는 것이 좋습니다. 해시 태그로 키를 사용하는 경우 키가 균등하게 분산되도록 하는 것은 애플리케이션이 담당합니다.
 
 자세한 내용은 [키 배포 모델](https://redis.io/topics/cluster-spec#keys-distribution-model), [Redis 클러스터 데이터 분할](https://redis.io/topics/cluster-tutorial#redis-cluster-data-sharding) 및 [키 해시 태그](https://redis.io/topics/cluster-spec#keys-hash-tags)를 참조하세요.
 
-StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베이스에서 키를 클러스터링하고 찾아서 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 부분을 참조하세요.
+StackExchange.Redis 클라이언트를 통해 동일한 분할된 데이터베이스에서 키를 클러스터링하고 찾아서 작업하는 샘플 코드의 경우 [Hello World](https://github.com/rustd/RedisSamples/blob/master/HelloWorld/Clustering.cs) 샘플의 [clustering.cs](https://github.com/rustd/RedisSamples/tree/master/HelloWorld) 부분을 참조하세요.
 
 ### <a name="what-is-the-largest-cache-size-i-can-create"></a>만들 수 있는 최대 캐시 크기는?
 최대 프리미엄 캐시 크기는 120 GB입니다. 최대 10 개의 분할를 만들 수 있습니다. 최대 크기는 1.2 TB입니다. 더 큰 크기가 필요한 경우 [추가 요청](mailto:wapteams@microsoft.com?subject=Redis%20Cache%20quota%20increase)이 가능합니다. 자세한 내용은 [Azure Cache for Redis 가격](https://azure.microsoft.com/pricing/details/cache/)을 참조하세요.
 
 ### <a name="do-all-redis-clients-support-clustering"></a>모든 Redis 클라이언트가 클러스터링을 지원하나요?
-모든 클라이언트가 Redis 클러스터링을 지 원하는 것은 아닙니다. 사용 중인 라이브러리에 대 한 설명서를 확인 하 여 클러스터링을 지 원하는 라이브러리와 버전을 사용 하 고 있는지 확인 하세요. Redis는 최신 버전에서 클러스터링을 지 원하는 라이브러리 중 하나입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial)의 [클러스터 작업](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster) 섹션을 참조하세요. 
+모든 클라이언트가 Redis 클러스터링을 지 원하는 것은 아닙니다. 사용 중인 라이브러리에 대 한 설명서를 확인 하 여 클러스터링을 지 원하는 라이브러리와 버전을 사용 하 고 있는지 확인 하세요. Redis는 최신 버전에서 클러스터링을 지 원하는 라이브러리 중 하나입니다. 다른 클라이언트에 대한 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)의 [클러스터 작업](https://redis.io/topics/cluster-tutorial) 섹션을 참조하세요. 
 
 Redis 클러스터링 프로토콜을 사용 하 여 각 클라이언트는 클러스터링 모드에서 각 분할 영역에 직접 연결 해야 하며 ' 이동 ' na ' 다른 슬롯 '과 같은 새 오류 응답을 정의 합니다. 클러스터 모드 캐시를 사용 하 여 클러스터링을 지원 하지 않는 클라이언트를 사용 하려고 하면 [이동 된 리디렉션 예외가](https://redis.io/topics/cluster-spec#moved-redirection)많이 발생 하거나, 크로스 슬롯 다중 키 요청을 수행 하는 경우에만 응용 프로그램을 중단할 수 있습니다.
 
@@ -137,7 +129,7 @@ Redis 클러스터링 프로토콜을 사용 하 여 각 클라이언트는 클�
 클러스터링을 사용하지 않는 캐시에 연결할 때와 동일한 [엔드포인트](cache-configure.md#properties), [포트](cache-configure.md#properties) 및 [키](cache-configure.md#access-keys)를 사용하여 캐시에 연결할 수 있습니다. Redis가 백엔드에서 클러스터링을 관리하므로 클라이언트에서의 관리가 필요하지 않습니다.
 
 ### <a name="can-i-directly-connect-to-the-individual-shards-of-my-cache"></a>내 케시의 분할된 데이터베이스에 직접 연결할 수 있나요?
-클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](https://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial)([https://redis.io](https://redis.io))의 [클러스터 작업](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)을 참조하세요.
+클러스터링 프로토콜에 따르면 클라이언트는 올바른 분할된 데이터베이스 연결을 설정해야 합니다. 따라서 클라이언트는 이 작업을 올바르게 수행해야 합니다. 즉 각각의 분할된 데이터베이스는 캐시 인스턴스로 통칭되는 주/복제본 캐시로 구성됩니다. GitHub에서 Redis 리포지토리의 [불안정한](https://redis.io/download) 분기에서 redis-cli 유틸리티를 사용하여 이러한 캐시 인스턴스에 연결할 수 있습니다. 이 버전에는 `-c` 스위치로 시작한 경우 기본 지원을 구현합니다. 자세한 내용은 [Redis 클러스터 자습서](https://redis.io/topics/cluster-tutorial#playing-with-the-cluster)([https://redis.io](https://redis.io))의 [클러스터 작업](https://redis.io/topics/cluster-tutorial)을 참조하세요.
 
 비 SSL은 다음 명령을 사용합니다.
 

@@ -1,18 +1,18 @@
 ---
 title: 응용 프로그램 게이트웨이의 작동 원리
-description: 이 문서에서는 응용 프로그램 게이트웨이의 작동 방식에 대 한 정보를 제공 합니다.
+description: 이 문서에서는 응용 프로그램 게이트웨이에서 들어오는 요청을 수락 하 고 백 엔드로 라우팅하는 방법에 대 한 정보를 제공 합니다.
 services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 02/20/2019
+ms.date: 11/16/2019
 ms.author: absha
-ms.openlocfilehash: 5cb7473b309e1aefe6237671fac73c042b33f2cf
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: d9d7ae3bc321f1f000fac1a875589df352077f33
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326864"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129814"
 ---
 # <a name="how-an-application-gateway-works"></a>응용 프로그램 게이트웨이의 작동 원리
 

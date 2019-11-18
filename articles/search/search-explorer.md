@@ -1,5 +1,5 @@
 ---
-title: 검색 탐색기 도구를 사용 하 여 Azure Portal에서 데이터 쿼리
+title: Azure Portal의 검색 탐색기 쿼리 도구
 titleSuffix: Azure Cognitive Search
 description: 검색 탐색기는 Azure Portal에 기본 제공 되며, Azure Cognitive Search에서 콘텐츠를 탐색 하 고 쿼리 유효성을 검사 하는 데 유용 합니다. 용어 또는 문구 검색 문자열 또는 고급 구문을 포함 하는 정규화 된 검색 식을 입력 합니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0bb50bd50c58b85f1d5de100c34d00d114a9ed77
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ff2986c4e90cb997df250d647bdfbd068d70e51f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792955"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112103"
 ---
 # <a name="use-search-explorer-in-the-azure-portal-for-querying-documents-in-azure-cognitive-search"></a>Azure Portal에서 검색 탐색기를 사용 하 여 Azure에서 문서를 쿼리 Cognitive Search 
 

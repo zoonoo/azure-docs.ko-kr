@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 11/14/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 63045bf1b836215b00b9b7c1b46dd208152fa772
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5751ed33673ca859ba1aed54cfc7c2e7ecc8e495
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74101240"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74124161"
 ---
 Azure ultra disks는 Azure IaaS Vm (가상 머신)에 대 한 높은 처리량, 높은 IOPS 및 일관 된 짧은 대기 시간 디스크 저장소를 제공 합니다. 이 새 제품은 당사의 기존 디스크 제품과 동일한 가용성 수준에서 최상의 성능을 제공합니다. 울트라 디스크의 주요 장점 중 하나는 Vm을 다시 시작할 필요 없이 워크 로드와 함께 SSD의 성능을 동적으로 변경 하는 기능입니다. Ultra disks는 SAP HANA, 최상위 계층 데이터베이스 및 트랜잭션 집약적인 워크 로드와 같은 데이터를 많이 사용 하는 워크 로드에 적합 합니다.
 
@@ -67,6 +67,75 @@ $vmSize = "Standard_E64s_v3"
 디스크 sku를 **UltraSSD_LRS**설정 하 고 디스크 용량, IOPS, 가용성 영역 및 처리량을 MBps 단위로 설정 하 여 울트라 디스크를 만듭니다.
 
 VM을 프로비전한 후 데이터 디스크를 분할 및 포맷하고 워크로드용 데이터 디스크를 구성할 수 있습니다.
+
+
+## <a name="deploy-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 배포
+
+이 섹션에서는 데이터 디스크로 ultra 디스크를 사용 하는 가상 컴퓨터를 배포 하는 방법을 설명 합니다. 가상 컴퓨터를 배포 하는 방법을 잘 알고 있다고 가정 합니다. 그렇지 않은 경우 빠른 시작 [: Azure Portal에서 Windows 가상 컴퓨터 만들기](../articles/virtual-machines/windows/quick-create-portal.md)를 참조 하세요.
+
+- [Azure Portal](https://portal.azure.com/) 에 로그인 하 고 가상 머신 (VM) 배포로 이동 합니다.
+- [지원 되는 VM 크기 및 지역을](#ga-scope-and-limitations)선택 해야 합니다.
+- **가용성 옵션**에서 **가용성 영역** 을 선택 합니다.
+- 선택한 항목을 선택 하 여 나머지 항목을 입력 합니다.
+- **디스크**를 선택합니다.
+
+![create-ultra-disk-enabled-vm](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk-enabled-vm.png)
+
+- 디스크 블레이드에서 **Ultra Disk 호환성 사용**에 대해 **예** 를 선택 합니다.
+- **새 디스크 만들기 및 연결** 을 선택 하 여 지금 울트라 디스크를 연결 합니다.
+
+![enable-and-attach-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/enable-and-attach-ultra-disk.png)
+
+- **새 디스크 만들기** 블레이드에서 이름을 입력 하 고 **크기 변경**을 선택 합니다.
+- **계정 유형을** **Ultra Disk**로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)** , **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- 블레이드에서 **확인을** 선택 합니다.
+- VM 배포를 계속 하면 다른 VM을 배포할 때와 동일 하 게 유지 됩니다.
+
+![create-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/create-ultra-disk.png)
+
+## <a name="attach-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 연결
+
+또는 ultra disks를 사용할 수 있는 지역/가용성 영역에 기존 VM이 있는 경우 새 VM을 만들지 않고도 ultra disks를 사용할 수 있습니다. 기존 VM에서 ultra disks를 사용 하도록 설정 하 고 데이터 디스크에 연결 합니다.
+
+- VM으로 이동 하 여 **디스크**를 선택 합니다.
+- **편집**을 선택합니다.
+
+![options-selector-ultra-disks](media/virtual-machines-disks-getting-started-ultra-ssd/options-selector-ultra-disks.png)
+
+- **Ultra Disk 호환성 사용**에 대해 **예** 를 선택 합니다.
+
+![ultra-options-yes-enable](media/virtual-machines-disks-getting-started-ultra-ssd/ultra-options-yes-enable.png)
+
+- **저장**을 선택합니다.
+- **데이터 디스크 추가** 를 선택한 다음 **이름** 드롭다운 목록에서 **디스크 만들기**를 선택 합니다.
+
+![create-and-attach-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/create-and-attach-new-ultra-disk.png)
+
+- 새 디스크의 이름을 입력 한 다음 **크기 변경**을 선택 합니다.
+- **계정 유형을** **Ultra Disk**로 변경 합니다.
+- **사용자 지정 디스크 크기 (GiB)** , **디스크 IOPS**및 **디스크 처리량** 을 원하는 값으로 변경 합니다.
+- **확인을** 선택 하 고 **만들기**를 선택 합니다.
+
+![making-a-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/making-a-new-ultra-disk.png)
+
+- 디스크의 블레이드에 반환 되 면 **저장**을 선택 합니다.
+
+![saving-and-attaching-new-ultra-disk](media/virtual-machines-disks-getting-started-ultra-ssd/saving-and-attaching-new-ultra-disk.png)
+
+### <a name="adjust-the-performance-of-an-ultra-disk-using-the-azure-portal"></a>Azure Portal를 사용 하 여 ultra disk 성능 조정
+
+Ultra disks는 성능을 조정할 수 있는 고유한 기능을 제공 합니다. 디스크 자체의 Azure Portal에서 이러한 조정을 수행할 수 있습니다.
+
+- VM으로 이동 하 여 **디스크**를 선택 합니다.
+- 성능을 수정할 ultra disk를 선택 합니다.
+
+![selecting-ultra-disk-to-modify](media/virtual-machines-disks-getting-started-ultra-ssd/selecting-ultra-disk-to-modify.png)
+
+- **구성** 을 선택한 다음 수정 합니다.
+- **저장**을 선택합니다.
+
+![configuring-ultra-disk-performance-and-size](media/virtual-machines-disks-getting-started-ultra-ssd/configuring-ultra-disk-performance-and-size.png)
 
 ## <a name="deploy-an-ultra-disk-using-cli"></a>CLI를 사용 하 여 ultra disk 배포
 

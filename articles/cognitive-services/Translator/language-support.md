@@ -1,7 +1,7 @@
 ---
 title: 언어 지원 - Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Translator Text API에서 지원하는 자연 언어 목록입니다.
+description: Translator Text API는 NMT (신경망 변환)를 사용 하 여 텍스트를 텍스트로 변환 하기 위한 다음 언어를 지원 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: cb0552612d95500e01edd91aff36406d4c2282bd
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5e96ced1bd87a0ed8be19bf4e07f7b0d9b319aad
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909972"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837324"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -23,17 +23,17 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 
 [기계 번역 작동 방식에 대해 자세히 알아보기](https://www.microsoft.com/translator/mt.aspx)
 
-## <a name="translation"></a>이동
+## <a name="translation"></a>번역
 
 **V2 Translator API**
 
 > [!NOTE]
 > V2는 2018 년 4 월 30 일부 터 더 이상 사용 되지 않습니다. V3에 독점적으로 제공 되는 새로운 기능을 활용 하려면 응용 프로그램을 V3로 마이그레이션 하세요.
 
-* 통계 전용: 이 언어에 사용할 수 있는 인공신경망 시스템이 없습니다.
-* 사용할 수 있는 인공신경망: 인공신경망 시스템을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
-* 기본 인공신경망: 인공신경망은 기본 번역 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
-* 인공신경망 전용: 인공신경망 번역만 사용할 수 있습니다.
+* 통계 전용:이 언어에 사용할 수 있는 신경망이 없습니다.
+* 사용 가능한 신경망: 신경망을 사용할 수 있습니다. `category=generalnn` 매개 변수를 사용하여 인공신경망 시스템에 액세스합니다.
+* 신경망: 신경망은 기본 변환 시스템입니다. `category=smt` 매개 변수를 사용하여 Microsoft Translator Hub를 통해 통계 시스템에 액세스할 수 있습니다.
+* 신경망: 신경망만 사용할 수 있습니다.
 
 **V3 Translator API** V3 Translator API는 기본적으로 인공신경망 기반이며, 통계 시스템은 인공신경망 시스템이 없는 경우에만 사용할 수 있습니다.
 
@@ -49,7 +49,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |불가리아어| `bg`    |사용 가능한 인공신경망|  신경|
 |광둥어(번체)|   `yue`   |통계 전용|  통계|
 |카탈로니아어|   `ca`    |통계 전용|  통계|
-|중국어(간체)|    `zh-Hans`   |기본 인공신경망 |신경|
+|중국어 간체|    `zh-Hans`   |기본 인공신경망 |신경|
 |중국어 번체|   `zh-Hant`   |기본 인공신경망 |신경|
 |크로아티아어|  `hr`    |사용 가능한 인공신경망|  신경|
 |체코어| `cs`    |사용 가능한 인공신경망|  신경|
@@ -78,7 +78,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |한국어 |`ko`   |사용 가능한 인공신경망|  신경|
 |라트비아어|   `lv`    |사용 가능한 인공신경망|  신경|
 |리투아니아어|    `lt`    |사용 가능한 인공신경망|  신경|
-|말라가시어|  `mg`    |통계 전용|  통계|
+|마다가스카르어|  `mg`    |통계 전용|  통계|
 |말레이어| `ms`    |통계 전용   |통계|
 |몰타어|   `mt`    |통계 전용|  통계|
 |노르웨이어| `nb`    |사용 가능한 인공신경망|  신경|
@@ -115,10 +115,10 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | 아랍어 | `ar` | 아랍어 `Arab` | <--> | 라틴어 `Latn` |
 |벵골어  | `bn` | 벵골어 `Beng` | <--> | 라틴어 `Latn` |
-| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
-| 중국어(간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
-| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
-| 중국어(번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
+| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 라틴어 `Latn` |
+| 중국어 (간체) | `zh-Hans` | 중국어 간체 `Hans`| <--> | 중국어 번체 `Hant`|
+| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 라틴어 `Latn` |
+| 중국어 (번체) | `zh-Hant` | 중국어 번체 `Hant`| <--> | 중국어 간체 `Hans` |
 | 구자라트어 | `gu`  | 구자라트어 `Gujr` | --> | 라틴어 `Latn` |
 | 히브리어 | `he` | 히브리어 `Hebr` | <--> | 라틴어 `Latn` |
 | 힌디어 | `hi` | 데바나가리어 `Deva` | <--> | 라틴어 `Latn` |
@@ -146,7 +146,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
 | 카탈로니아어      | `ca`          |
-| 중국어(간체)      | `zh-Hans`          |
+| 중국어 간체      | `zh-Hans`          |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
 | 덴마크어      | `da`          |
@@ -191,7 +191,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 베트남어      | `vi`          |
 | 웨일스어      | `cy`          |
 
-## <a name="detect"></a>검색
+## <a name="detect"></a>감지
 
 Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 검색 합니다.
 
@@ -212,7 +212,7 @@ Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 �
 | 벵골어      | `bn`          |
 | 보스니아어(라틴 문자)      | `bs`          |
 | 불가리아어      | `bg`          |
-| 중국어(간체)      | `zh-Hans`          |
+| 중국어 간체      | `zh-Hans`          |
 |중국어 번체|   `zh-Hant`   |
 | 크로아티아어      | `hr`          |
 | 체코어      | `cs`          |
@@ -236,7 +236,7 @@ Translator Text API는 번역 및 음에 사용할 수 있는 모든 언어를 �
 | 한국어      | `ko`          |
 | 라트비아어      | `lv`          |
 | 리투아니아어      | `lt`          |
-|말라가시어|  `mg`    |
+|마다가스카르어|  `mg`    |
 | 노르웨이어      | `nb`          |
 | 페르시아어      | `fa`          |
 | 폴란드어      | `pl`          |

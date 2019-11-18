@@ -1,5 +1,5 @@
 ---
-title: '방법: 텍스트 음성 변환에 사용할 소스 언어 지정-음성 서비스'
+title: 음성 텍스트에 대 한 소스 언어를 지정 하는 방법
 titleSuffix: Azure Cognitive Services
 description: Speech SDK를 사용 하면 음성을 텍스트로 변환할 때 원본 언어를 지정할 수 있습니다. 이 문서에서는 FromConfig 및 SourceLanguageConfig 메서드를 사용 하 여 음성 서비스에서 소스 언어를 인식 하 고 사용자 지정 모델 대상을 제공 하는 방법을 설명 합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 3c2503d2f341b4cdf90f7f7690fed897412a9614
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 94b8fb026b61b52e8096cf54e1db30a6c260c04b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500865"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109961"
 ---
 # <a name="specify-source-language-for-speech-to-text"></a>음성 텍스트에 대 한 소스 언어 지정
 
@@ -174,7 +174,7 @@ speechConfig.endpointId = @"The Endpoint ID for your custom model.";
 
 ::: zone-end
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 * 음성 텍스트에 대해 지원 되는 언어 및 로캘 목록은 [언어 지원](language-support.md)을 참조 하세요.
 

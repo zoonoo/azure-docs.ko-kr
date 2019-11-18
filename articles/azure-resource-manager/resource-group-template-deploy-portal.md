@@ -1,17 +1,14 @@
 ---
-title: Azure Portal을 사용하여 Azure 리소스 배포 | Microsoft Docs
+title: Azure Portal를 사용 하 여 리소스 배포
 description: Azure Portal 및 Azure 리소스 관리를 사용 하 여 구독의 리소스 그룹에 리소스를 배포 합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.author: tomfitz
-ms.openlocfilehash: 197bd14c425d80a814f370a2050c085b1eef143d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 6a8842a9fbda11bf48d45152c167d7b072f38119
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579029"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150761"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-portal"></a>리소스 관리자 템플릿과 Azure 포털로 리소스 배포
 
@@ -98,7 +95,7 @@ Azure Portal를 사용 하 여 Azure 리소스를 배포 하는 작업은 일반
 
 1. **GitHub 빠른 시작 템플릿 로드**에서 **101-저장소-계정 만들기**를 입력 하거나 선택 합니다.
 
-    다음 두 가지 옵션을 사용할 수 있습니다.
+    두 가지가 있습니다.
 
     - **템플릿 선택**: 템플릿 배포
     - **템플릿 편집**: 빠른 시작 템플릿을 배포 하기 전에 편집 합니다.

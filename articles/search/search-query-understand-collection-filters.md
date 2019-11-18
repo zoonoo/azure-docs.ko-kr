@@ -1,7 +1,7 @@
 ---
 title: OData 컬렉션 필터 이해
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 OData 컬렉션 필터가 작동 하는 방식을 이해 합니다.
+description: 컬렉션에 고유한 제한 사항 및 동작을 포함 하 여 Azure Cognitive Search 쿼리에서 OData 컬렉션 필터를 사용 하는 방법에 대해 알아봅니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 9a57e1d16b13d822b6f5b541a7f838b0dd3a69ad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: f6e8ed5baef9b8594bb1fe03942e831fd8264a56
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794386"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113061"
 ---
 # <a name="understanding-odata-collection-filters-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData 컬렉션 필터 이해
 
@@ -87,7 +87,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 | `Rooms/Type` 용어 | 문서 Id |
 | --- | --- |
 | deluxe | 1, 2 |
-| Standard | 1 |
+| 표준 | 1 |
 
 전체 텍스트 검색을 위해 `Rooms/Description`를 저장 하는 방법:
 
@@ -99,11 +99,11 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 | 큰 | 1 |
 | 모텔 | 2 |
 | 대화방 | 1, 2 |
-| Standard | 1 |
+| 표준 | 1 |
 | tcp/ip | 1 |
-| 보기 | 1 |
+| view | 1 |
 
-위의 필터와는 달리, 기본적으로 "대화방에 ' Deluxe '와 같은 `Type` 있고 **같은 방에** `BaseRate` 100 미만으로 표시 되는 문서 일치"는 "Deluxe `Rooms/Description`" 라는 용어를 포함 하는 "`Rooms/Type` 일치 문서"를 의미 합니다. 에는 "city view" 라는 구가 있습니다. 후자의 경우에는 필드의 상관 관계를 지정할 수 있는 개별 대화방의 개념이 없습니다.
+위의 필터와는 달리, 기본적으로 "대화방에 ' Deluxe ' `Type`가 있는 것과 같은 공간이 있고 **같은 방에** `BaseRate` 100 미만으로" 일치 하는 문서 "가 있는 경우 검색 쿼리는" Deluxe "라는 용어를 포함 하 고 `Rooms/Description`에" city 보기 "라는 구가 포함 된" 일치 `Rooms/Type` 문서 "를 의미 합니다. 후자의 경우에는 필드의 상관 관계를 지정할 수 있는 개별 대화방의 개념이 없습니다.
 
 > [!NOTE]
 > Azure Cognitive Search에 추가 된 상관 관계 검색에 대 한 지원을 보려면 [이 사용자 음성 항목](https://feedback.azure.com/forums/263029-azure-search/suggestions/37735060-support-correlated-search-on-complex-collections)에 대해 투표 하세요.
@@ -138,7 +138,7 @@ Azure Cognitive Search에서 컬렉션 필드를 [필터링](query-odata-filter-
 
 `seasons` 필드의 값은 다음과 같이 **반전 된 인덱스**라는 구조에 저장 됩니다.
 
-| 조건 | 문서 Id |
+| 용어 | 문서 Id |
 | --- | --- |
 | 스프링 | 1, 2 |
 | 절약 | 1 |

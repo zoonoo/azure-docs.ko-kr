@@ -1,5 +1,5 @@
 ---
-title: 일괄 처리 테스트 - LUIS
+title: 일괄 처리 테스트를 수행 하는 방법-LUIS
 titleSuffix: Azure Cognitive Services
 description: LUIS(Language Understanding) 일괄 테스트 집합을 사용하여 잘못된 의도 및 엔터티가 있는 발화를 찾습니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: a99b2e7097f2abf36f184368b3b4fdaba8f2730b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bfef7eae7158a05b09a3534e8fb44335333d8cf1
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467417"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904346"
 ---
 # <a name="batch-testing-with-a-set-of-example-utterances"></a>예제 발화 집합으로 일괄 테스트
 
@@ -54,7 +54,7 @@ ms.locfileid: "73467417"
 
 다운로드 가능한 데이터 세트는 일괄 테스트용으로 업로드된 파일과 동일합니다.
 
-|시스템 상태|의미|
+|State|의미|
 |--|--|
 |![테스트 성공 녹색 원 아이콘](./media/luis-how-to-batch-test/batch-test-result-green.png)|모든 발화가 성공했습니다.|
 |![테스트 실패 빨간색 x 아이콘](./media/luis-how-to-batch-test/batch-test-result-red.png)|하나 이상의 발화 의도가 예측과 일치하지 않습니다.|
@@ -66,7 +66,7 @@ ms.locfileid: "73467417"
 
 일괄 테스트 결과를 검토하려면 **결과 보기**를 선택합니다.
 
-![일괄 테스트 결과](./media/luis-how-to-batch-test/run-test-results.png)
+![일괄 처리 테스트 결과](./media/luis-how-to-batch-test/run-test-results.png)
 
 <a name="filter-chart-results-by-intent-or-entity"></a>  
 
@@ -104,7 +104,7 @@ ms.locfileid: "73467417"
 
 테스트에서 LUIS 앱이 올바른 의도와 엔터티를 인식하지 못하는 것으로 나타나면 추가 발화에 레이블을 지정하거나 기능을 추가하여 LUIS 앱의 성능을 개선할 수 있습니다. 
 
-* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endpoint-utterances.md) 
+* [LUIS로 제안된 음성에 레이블 지정](luis-how-to-review-endpoint-utterances.md) 
 * [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 
 * [이 자습서를 통해 일괄 테스트 이해](luis-tutorial-batch-testing.md)
 * [일괄 테스트 개념 알아보기](luis-concept-batch-test.md).

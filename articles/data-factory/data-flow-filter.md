@@ -7,18 +7,18 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 77587d007d9bfcdc1461201f676c79880bd89d6b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1daff431fc217c08f3bc3c5aeb3b4711691909c0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676167"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132528"
 ---
 # <a name="filter-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 필터 변환
 
 필터 변환은 조건에 따라 행 필터링을 허용 합니다. 출력 스트림에는 필터링 조건과 일치 하는 모든 행이 포함 됩니다. 필터 변환은 SQL의 WHERE 절과 유사 합니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 데이터 흐름 식 작성기를 사용 하 여 필터 조건에 대 한 식을 입력 합니다. 식 작성기를 열려면 파란색 상자를 클릭 합니다. 필터 조건은 부울 유형 이어야 합니다. 식을 만드는 방법에 대 한 자세한 내용은 [식 작성기](concepts-data-flow-expression-builder.md) 설명서를 참조 하세요.
 
@@ -35,9 +35,9 @@ ms.locfileid: "73676167"
     ) ~> <filterTransformationName>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
-아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `FilterBefore1960` 이라는 조건부 분할 변환입니다. 필터 조건은 `year <= 1960`식입니다.
+아래 예제는 들어오는 스트림 `CleanData`를 사용 하는 `FilterBefore1960` 라는 필터 변환입니다. 필터 조건은 `year <= 1960`식입니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

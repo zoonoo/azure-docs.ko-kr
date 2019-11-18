@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 명령 만들기 (미리 보기)'
+title: '빠른 시작: 사용자 지정 명령 만들기 (미리 보기)-음성 서비스'
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 호스트 된 사용자 지정 명령 응용 프로그램을 만들고 테스트 합니다.
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: bfe871ce6f7cd2fbd6ada4b825e41ebdf5ac3f12
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500985"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111373"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>빠른 시작: 사용자 지정 명령 만들기 (미리 보기)
 
 이 문서에서는 호스트 된 사용자 지정 명령 응용 프로그램을 만들고 테스트 하는 방법을 배웁니다.
 응용 프로그램은 "tv 켜기"와 같은 utterance을 인식 하 고 간단한 메시지 "확인, tv 켜기"를 사용 하 여 응답 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 음성 구독. [음성 서비스를 무료로 사용해 보세요](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -31,7 +31,7 @@ ms.locfileid: "73500985"
 
 - LUIS ( [Language Understanding](https://www.luis.ai/home) ) 제작 키:
   1. 웹 브라우저를 열고 [Azure Portal](https://portal.azure.com) 로 이동 합니다.
-  1. 리소스 만들기를 선택 합니다.
+  1. 리소스 만들기 선택
   1. [Language Understanding](https://aka.ms/sc-luis-all) 를 검색 하 고 선택 합니다.
   1. 만들기 옵션에서 제작을 선택 합니다.
   1. 리소스를 배포한 후 리소스로 이동 하 여 빠른 시작 또는 키 섹션에서 키를 복사 합니다.
@@ -58,7 +58,7 @@ ms.locfileid: "73500985"
 1. 새 **프로젝트를 선택 하** 여 새 프로젝트 만들기
 
    > [!div class="mx-imgBorder"]
-   > 새 프로젝트](media/custom-speech-commands/create-new-project.png) ![만듭니다.
+   > ![새 프로젝트 만들기](media/custom-speech-commands/create-new-project.png)
 
 1. 프로젝트 이름 및 언어를 입력 하 고 **다음** 을 선택 하 여 계속 진행 합니다.
 1. LUIS authoring key 입력
@@ -81,7 +81,7 @@ ms.locfileid: "73500985"
 | 그룹            | 설명                                                                                                                 |
 | ---------------- | --------------------------------------------------------------------------------------------------------------------------- |
 | 샘플 문장 | 예 길이 발언 사용자가이 명령을 트리거할 수 있습니다.                                                                 |
-| 매개 변수       | 명령을 완료 하는 데 필요한 정보                                                                                |
+| parameters       | 명령을 완료 하는 데 필요한 정보                                                                                |
 | 완료 규칙 | 명령을 수행 하기 위해 수행할 작업입니다. 예를 들어 사용자에 게 응답 하거나 다른 웹 서비스와 통신 하는 경우 |
 | 고급 규칙   | 보다 구체적인 또는 복잡 한 상황을 처리 하는 추가 규칙                                                              |
 
@@ -106,9 +106,9 @@ turn on the tv
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | 규칙 이름  | "ConfirmationResponse"                 | 규칙의 용도를 설명 하는 이름입니다.          |
 | 조건 | 없음                                   | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
-| 작업    | SpeechResponse "확인, TV 켜기" | 규칙 조건이 참인 경우 수행할 동작입니다. |
+| 동작    | SpeechResponse "확인, TV 켜기" | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
-## <a name="try-it-out"></a>사용해보십시오
+## <a name="try-it-out"></a>체험
 
 테스트 채팅 패널을 사용 하 여 동작을 테스트 합니다.
 

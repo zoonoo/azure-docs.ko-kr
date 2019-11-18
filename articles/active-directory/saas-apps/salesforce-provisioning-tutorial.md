@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f095c962f08ab0207ffc51d1c898570d9be7ea9a
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047229"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120541"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
@@ -55,7 +55,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 ## <a name="enable-automated-user-provisioning"></a>자동 사용자 프로비전 사용
 
-이 섹션에서는 사용자의 Azure AD를 Salesforce의 사용자 계정 프로비전 API에 연결하고, Azure AD의 사용자 및 그룹 할당을 기반으로 Salesforce에서 할당된 사용자 계정을 만들고 업데이트하고 비활성화하도록 프로비전 서비스를 구성하는 방법을 안내합니다.
+이 섹션에서는 Azure AD를 [salesforce의 사용자 계정 프로 비전 API-v40](https://developer.salesforce.com/docs/atlas.en-us.208.0.api.meta/api/implementation_considerations.htm)에 연결 하 고, azure ad의 사용자 및 그룹 할당을 기반으로 salesforce에서 할당 된 사용자 계정을 만들고, 업데이트 하 고 비활성화 하도록 프로 비전 서비스를 구성 하는 방법을 안내 합니다.
 
 > [!Tip]
 > [Azure Portal](https://portal.azure.com)에 제공된 지침에 따라 Salesforce에 SAML 기반 Single Sign-On을 사용하도록 선택할 수도 있습니다. Single Sign-On은 자동 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
@@ -120,7 +120,16 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="common-issues"></a>일반적인 문제
-* Salesforce로 프로 비전 하기 위한 기본 특성 매핑에는 사용자 역할을 Salesforce에 프로 비전 하는 SingleAppRoleAssignments 식이 포함 됩니다. 특성 매핑이 하나의 역할 프로 비전만 지원 하므로 사용자에 게 응용 프로그램에서 여러 역할을 할당 하지 않았는지 확인 합니다. 
+* Salesforce에 대 한 액세스 권한을 부여 하는 데 문제가 있는 경우 다음을 확인 합니다.
+    * 사용 된 자격 증명에는 Salesforce에 대 한 관리자 액세스 권한이 있습니다.
+    * 사용 중인 Salesforce 버전은 웹 액세스 (예: 개발자, 엔터프라이즈, 샌드박스 및 Salesforce의 무제한 버전)를 지원 합니다.
+    * 사용자에 대해 Web API 액세스를 사용할 수 있습니다.
+* Azure AD 프로 비전 서비스는 사용자에 대 한 언어, 로캘 및 표준 시간대 프로 비전을 지원 합니다. 이러한 특성은 기본 특성 매핑에 있지만 기본 원본 특성은 없습니다. 기본 원본 특성을 선택 하 고 원본 특성이 SalesForce에 필요한 형식 인지 확인 합니다. 예를 들어 영어 (미국)에 대 한 localeSidKey는 en_US 됩니다. 적절 한 localeSidKey 형식을 확인 하려면 [여기](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) 에 제공 된 지침을 검토 하세요. LanguageLocaleKey 형식은 [여기](https://help.salesforce.com/articleView?id=faq_getstart_what_languages_does.htm&type=5)에서 찾을 수 있습니다. 형식이 올바른지 확인 하는 것 외에도 [여기](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5)에 설명 된 대로 사용자에 대해 언어가 사용 하도록 설정 되었는지 확인 해야 할 수 있습니다. 
+* **SalesforceLicenseLimitExceeded:** 이 사용자에 대해 사용할 수 있는 라이선스가 없어서 대상 응용 프로그램에서 사용자를 만들 수 없습니다. 대상 응용 프로그램에 대 한 추가 라이선스를 구입 하거나, 사용자 할당 및 특성 매핑 구성을 검토 하 여 올바른 사용자가 올바른 특성으로 할당 되었는지 확인 합니다.
+* **SalesforceDuplicateUserName:** 다른 Salesforce.com 테 넌 트에서 중복 된 ' Username ' Salesforce.com를 포함 하므로 사용자를 프로 비전 할 수 없습니다.  Salesforce.com에서 ' Username ' 특성의 값은 모든 Salesforce.com 테 넌 트에서 고유 해야 합니다.  기본적으로 Azure Active Directory 사용자의 userPrincipalName은 Salesforce.com에서 ' Username '이 됩니다.   두 가지 옵션이 있습니다.  한 가지 옵션은 다른 테 넌 트도 관리 하는 경우 다른 Salesforce.com 테 넌 트에서 중복 된 ' Username '이 있는 사용자를 찾고 이름을 바꾸는 것입니다.  다른 옵션은 디렉터리가 통합 된 Salesforce.com 테 넌 트에 대 한 Azure Active Directory 사용자의 액세스 권한을 제거 하는 것입니다. 다음 동기화 시도 시이 작업을 다시 시도 합니다. 
+* **SalesforceRequiredFieldMissing:** Salesforce를 사용 하려면 사용자에 게 특정 특성을 제공 하 여 사용자를 했습니다 만들거나 업데이트 해야 합니다. 이 사용자에 게 필요한 특성 중 하나가 없습니다. Salesforce로 프로 비전 하려는 모든 사용자에 게 전자 메일 및 별칭과 같은 특성이 채워져 있는지 확인 합니다. [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 사용 하 여 이러한 특성이 없는 사용자의 범위를 지정할 수 있습니다. 
+* Salesforce로 프로 비전 하는 기본 특성 매핑에는 SingleAppRoleAssignments 식이 포함 되어 Azure AD의 appRoleAssignments를 Salesforce의 ProfileName에 매핑합니다. 특성 매핑이 하나의 역할 프로 비전만 지원 하므로 사용자에 게 Azure AD에서 여러 앱 역할 할당이 없는지 확인 합니다. 
+
 
 ## <a name="additional-resources"></a>추가 리소스
 

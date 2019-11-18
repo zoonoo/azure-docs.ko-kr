@@ -1,5 +1,5 @@
 ---
-title: AI 보강 파이프라인의 참조 입력 및 출력
+title: 기술력과의 참조 입력 및 출력
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 파이프라인에서 기술의 입력 및 출력에 있는 주석을 참조 하는 방법 및 주석 구문에 대해 설명 합니다.
 manager: nitinme
@@ -8,24 +8,24 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: fe81ccb5324d75212763e20ac2514ade9ce50496
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787769"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113859"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Azure Cognitive Search 기술에서 주석을 참조 하는 방법
 
 이 문서에서는 다양한 시나리오를 설명하는 예제를 사용하여 기술 정의에서 주석을 참조하는 방법을 알아 봅니다. 문서의 콘텐츠는 기술 집합을 통해 흐르기 때문에 주석으로 보강됩니다. 주석은 다운스트림 추가 보강을 위한 입력으로 사용되거나 인덱스에서 출력 필드에 매핑될 수 있습니다. 
  
-이 문서의 예제는 문서 해독 단계의 일부로서 [Azure Blob 인덱서](search-howto-indexing-azure-blob-storage.md)에서 자동으로 생성한 *콘텐츠* 필드에 기반을 둡니다. Blob 컨테이너에서 문서를 참조할 때는 *콘텐츠* 필드가 *문서*의 일부인 `"/document/content"`과 같은 형식을 사용합니다. 
+이 문서의 예제는 문서 해독 단계의 일부로서 *Azure Blob 인덱서*에서 자동으로 생성한 [콘텐츠](search-howto-indexing-azure-blob-storage.md) 필드에 기반을 둡니다. Blob 컨테이너에서 문서를 참조할 때는 `"/document/content"`콘텐츠*필드가*문서*의 일부인* 과 같은 형식을 사용합니다. 
 
 ## <a name="background-concepts"></a>배경 개념
 
 구문을 검토를 하기 전에 이 문서의 뒷부분에 제공되는 예제를 보다 잘 이해하려면 몇 가지 중요한 개념을 다시 확인하겠습니다.
 
-| 조건 | 설명 |
+| 용어 | 설명 |
 |------|-------------|
 | 보강된 문서 | 보강된 문서는 문서와 관련된 모든 주석을 유지하기 위해 파이프라인에서 만들고 사용하는 내부 구조입니다. 보강된 문서를 주석의 트리라고 생각합니다. 일반적으로 이전 주석에서 만든 주석은 자식 주석이 됩니다.<p/>보강된 문서는 기술 집항 실행 동안에만 존재합니다. 콘텐츠가 검색 인덱스에 매핑되면 보강된 문서는 더 이상 필요 없습니다. 보강된 문서와 직접 상호 작용하지 않더라도 기술 집합을 만들 경우 문서의 심적 모델을 보유하는 것이 유용합니다. |
 | 보강 컨텍스트 | 요소가 보강된 점에서 보강이 일어난 컨텍스트입니다. 기본적으로 보강 컨텍스트는 `"/document"` 수준에서 개별 문서에 범위가 지정됩니다. 기술을 실행할 때 해당 기술의 출력은 [정의된 컨텍스트의 속성](#example-2)이 됩니다.|
@@ -120,8 +120,8 @@ Azure Blob storage에서 엔터티 인식을 사용 하 여 추출할 사용자�
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 + [사용자 지정 기술을 보강 파이프라인으로 통합하는 방법](cognitive-search-custom-skill-interface.md)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

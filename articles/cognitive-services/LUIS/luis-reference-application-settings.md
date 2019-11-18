@@ -1,7 +1,7 @@
 ---
 title: 응용 프로그램 설정-LUIS
 titleSuffix: Azure Cognitive Services
-description: 응용 프로그램에 대 한 언어 이해 앱 설정 이해
+description: Azure Cognitive Services 언어 이해 앱에 대 한 응용 프로그램 설정은 앱 및 포털에 저장 됩니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,23 +9,23 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 6d516590b90efd937789fa0847b707d2521f6459
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: bae4f09b539e26ca8c0d4ce97999776dc0911601
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932589"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961781"
 ---
-# <a name="application-settings"></a>응용 프로그램 설정
+# <a name="application-settings"></a>애플리케이션 설정
 
 이러한 응용 프로그램 설정은 [내보낸](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) 앱에 저장 되 고 REST api를 사용 하 여 [업데이트](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) 됩니다. 앱 버전 설정을 변경 하면 앱 학습 상태를 학습 되지 않음으로 다시 설정 합니다.
 
-|설정|기본값|참고|
+|설정|기본값|참고 사항|
 |--|--|--|
-|NormalizePunctuation|True|문장 부호를 제거 합니다.|
-|NormalizeDiacritics|True|분음 부호를 제거 합니다.|
+|NormalizePunctuation|true|문장 부호를 제거 합니다.|
+|NormalizeDiacritics|true|분음 부호를 제거 합니다.|
 
 ## <a name="diacritics-normalization"></a>분음 부호 정규화 
 
@@ -46,7 +46,7 @@ ms.locfileid: "68932589"
 
 ### <a name="language-support-for-diacritics"></a>분음 부호에 대 한 언어 지원
 
-#### <a name="brazilian-portuguese-pt-br-diacritics"></a>포르투갈어 `pt-br` (브라질) 분음 부호
+#### <a name="brazilian-portuguese-pt-br-diacritics"></a>포르투갈어 (브라질) `pt-br` 분음 부호
 
 |분음 부호가 false로 설정 됩니다.|분음 부호를 true로 설정|
 |-|-|
@@ -142,7 +142,7 @@ ms.locfileid: "68932589"
 
 ## <a name="punctuation-normalization"></a>문장 부호 정규화
 
-`settings` 매개 변수에서 LUIS JSON 앱 파일에 대 한 문장 부호에 대 한 utterance 정규화를 설정 합니다.
+`settings` 매개 변수에서 LUIS JSON 앱 파일에 문장 부호에 대 한 utterance 정규화를 설정 합니다.
 
 ```JSON
 "settings": [
@@ -150,16 +150,16 @@ ms.locfileid: "68932589"
 ] 
 ```
 
-다음 길이 발언 분음 부호가 길이 발언에 미치는 영향을 보여 줍니다.
+다음 길이 발언에서는 문장 부호가 길이 발언에 미치는 영향을 보여 줍니다.
 
-|분음 부호가 False로 설정 된|분음 부호가 True로 설정 된|
+|문장 부호가 False로 설정 된|문장 부호가 True로 설정 된|
 |--|--|
 |`Hmm..... I will take the cappuccino`|`Hmm I will take the cappuccino`|
 |||
 
 ### <a name="punctuation-removed"></a>문장 부호 제거 됨
 
-이 true로 설정 된 `NormalizePunctuation` 경우 다음 문장 부호가 제거 됩니다.
+다음 문장 부호는 `NormalizePunctuation` true로 설정 되어 제거 됩니다.
 
 |문장 부호|
 |--|

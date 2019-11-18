@@ -11,12 +11,12 @@ ms.author: clauren
 ms.reviewer: jmartens
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: dab79f1d63a20e12f148766db5fcc3fc313a1f3a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1dc66ae0f69c19524b32b55c654f7c8fd2d32762
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076903"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123217"
 ---
 # <a name="troubleshooting-azure-machine-learning-azure-kubernetes-service-and-azure-container-instances-deployment"></a>Azure Kubernetes Service 및 Azure Container Instances 배포 Azure Machine Learning 문제 해결
 
@@ -56,7 +56,7 @@ Azure Machine Learning에서 모델을 배포 하는 경우 시스템에서 많�
 
 문제가 발생할 경우 가장 먼저 할 일은 배포 작업을 개별 단계로 분리하여(이전 설명 참조) 문제를 격리하는 것입니다.
 
-[Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none-) API, 및 [Deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none-) api를 사용 하는 경우이 두 함수 는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
+[Webservice.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-workspace--name--model-paths--image-config--deployment-config-none--deployment-target-none--overwrite-false-) API, 및 [Deploy_from_model()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#deploy-from-model-workspace--name--models--image-config--deployment-config-none--deployment-target-none--overwrite-false-) api를 사용 하는 경우이 두 함수 는 위의 단계를 단일 작업으로 수행 하므로 배포를 작업으로 나누는 것이 유용 합니다. 일반적으로 이러한 Api는 편리 하지만 아래 API 호출로 바꿔서 문제를 해결 하는 데 도움이 됩니다.
 
 1. 모델을 등록합니다. 다음은 샘플 코드입니다.
 
@@ -267,7 +267,7 @@ print(Model.get_model_path(model_name='my-best-model'))
 
 ## <a name="function-fails-runinput_data"></a>함수 실패: run(input_data)
 
-서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+서비스가 성공적으로 배포되었지만 채점 엔드포인트에 데이터를 게시할 때 크래시가 발생하는 경우 오류를 catch하는 명령문을 `run(input_data)` 함수에 추가하면 구체적인 오류 메시지가 반환됩니다. 예를 들어:
 
 ```python
 def run(input_data):

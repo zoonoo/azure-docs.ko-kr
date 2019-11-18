@@ -1,18 +1,18 @@
 ---
 title: 잘못 된 게이트웨이 오류 문제 해결-Azure 애플리케이션 게이트웨이
-description: Application Gateway 502 오류를 해결하는 방법을 알아봅니다
+description: 'Application Gateway 서버 오류 문제를 해결 하는 방법 알아보기: 502-웹 서버가 게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못 된 응답을 받았습니다.'
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: baf1eccdd6fe910bd98e8b39ef29b7bd8e88a7d5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 17bed17b536f6e88fc821fd83e09a1d6ea218bc3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048149"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74130478"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Application Gateway의 잘못된 게이트웨이 오류 문제 해결
 
@@ -111,7 +111,7 @@ DhcpOptions            : {
 | 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | Host |프로브에 보낼 호스트 이름입니다. 응용 프로그램 게이트웨이에서 다중 사이트를 구성한 경우에만 적용할 수 있습니다. VM 호스트 이름과 다릅니다. |
-| Path |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\>://\<host\>:\<port\>\<path\>로 전송됩니다. |
+| 경로 |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. 프로브는 \<protocol\>://\<host\>:\<port\>\<path\>로 전송됩니다. |
 | 간격 |프로브 간격(초). 연속된 두 프로브 사이의 시간 간격입니다. |
 | 시간 제한 |프로브 시간 제한(초) 이 시간 제한 기간 내에 올바른 응답을 받지 못하면 프로브는 실패로 표시 됩니다. |
 | 비정상 임계값 |프로브 재시도 횟수. 연속된 프로브 실패 횟수가 비정상 임계값에 도달하면 백 엔드 서버가 표시됩니다. |

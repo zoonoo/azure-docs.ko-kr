@@ -1,7 +1,7 @@
 ---
 title: OData 비교 연산자 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 OData 비교 연산자, eq, ne, gt, lt, ge 및 le.
+description: Azure Cognitive Search 쿼리에서 OData 비교 연산자 (eq, ne, gt, lt, ge 및 le)를 사용 하기 위한 구문 및 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 068e2ec822f0a292ac83b3e48049830eb77b49f6
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 62c8c93e07326e776cbe089042abc481544794bc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793380"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113212"
 ---
 # <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Azure Cognitive Search `eq`, `ne`, `gt`, `lt`, `ge`및 `le`의 OData 비교 연산자
 
@@ -81,13 +81,13 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 | --- | --- | --- |
 | `Edm.Double` | `Edm.Double` | 비교는 [`NaN`에 대 한 특수 규칙의](#special-case-nan) 영향을 받습니다. |
 | `Edm.Double` | `Edm.Int64` | 상수가 `Edm.Double`변환 되어 크기가 큰 값의 전체 자릿수가 손실 됩니다. |
-| `Edm.Double` | `Edm.Int32` | n/a |
+| `Edm.Double` | `Edm.Int32` | 해당 없음 |
 | `Edm.Int64` | `Edm.Double` | `NaN`, `-INF`또는 `INF`에 대 한 비교는 허용 되지 않습니다. |
-| `Edm.Int64` | `Edm.Int64` | n/a |
+| `Edm.Int64` | `Edm.Int64` | 해당 없음 |
 | `Edm.Int64` | `Edm.Int32` | 상수는 비교 전 `Edm.Int64`로 변환 됩니다. |
 | `Edm.Int32` | `Edm.Double` | `NaN`, `-INF`또는 `INF`에 대 한 비교는 허용 되지 않습니다. |
-| `Edm.Int32` | `Edm.Int64` | n/a |
-| `Edm.Int32` | `Edm.Int32` | n/a |
+| `Edm.Int32` | `Edm.Int64` | 해당 없음 |
+| `Edm.Int32` | `Edm.Int32` | 해당 없음 |
 
 `Edm.Int64` 형식의 필드를 `NaN`와 비교 하는 것과 같이 허용 되지 않는 비교의 경우 Azure Cognitive Search REST API는 "HTTP 400: 잘못 된 요청" 오류를 반환 합니다.
 
@@ -132,7 +132,7 @@ comparison_operator ::= 'gt' | 'lt' | 'ge' | 'le' | 'eq' | 'ne'
 
 `eq` 및 `ne` 연산자를 사용 하 여 정확 하 게 일치 하는 필터에서 문자열을 비교할 수 있습니다. 이러한 비교는 대/소문자를 구분 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 `Rating` 필드가 3에서 5 사이 (포함) 인 문서를 찾습니다.
 

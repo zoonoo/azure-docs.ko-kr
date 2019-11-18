@@ -1,5 +1,5 @@
 ---
-title: 'REST 자습서: JSON Blob의 반정형 데이터 인덱싱'
+title: '자습서: JSON blob의 반 strutured 데이터 인덱싱'
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search REST API 및 Postman을 사용하여 반정형 Azure JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 569289a2d750f96423bd03ac82cb9e33f893ee15
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d8d3204c8a5ace17ae47a17d4c4ffec2ec7977f2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794284"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112243"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 자습서: Azure Cognitive Search에서 반정형 데이터(JSON Blob) 인덱싱 및 검색
+# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 자습서: Azure에서 반 구조화 된 데이터 (JSON blob) 인덱싱 및 검색 Cognitive Search
 
 Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
 
@@ -27,13 +27,13 @@ Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexe
 > * 컨테이너를 읽고 Azure Blob Storage에서 검색 가능한 콘텐츠를 추출하기 위한 인덱서 구성 및 실행
 > * 방금 만든 인덱스 검색
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
 
 [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
 
-샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+샘플 데이터를 저장하기 위한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 요청을 Azure Cognitive Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다.
 
@@ -269,7 +269,7 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스**
 
 ### <a name="user-defined-metadata-search"></a>사용자 정의 메타데이터 검색
 
-이전과 마찬가지로 전체 텍스트 검색, 시스템 속성 또는 사용자 정의 메타데이터 등 여러 가지 방법으로 데이터를 쿼리할 수 ​​있습니다. 시스템 속성 및 사용자 정의 메타데이터는 대상 인덱스를 만드는 동안 **retrievable**로 표시되어 있는 경우에만 `$select` 매개 변수로 검색할 수 있습니다. 인덱스의 매개 변수를 만든 후에는 변경할 수 없습니다. 그러나 매개 변수를 더 추가할 수는 있습니다.
+이전과 마찬가지로 전체 텍스트 검색, 시스템 속성 또는 사용자 정의 메타데이터 등 여러 가지 방법으로 데이터를 쿼리할 수 ​​있습니다. 시스템 속성 및 사용자 정의 메타데이터는 대상 인덱스를 만드는 동안 `$select`retrievable**로 표시되어 있는 경우에만**  매개 변수로 검색할 수 있습니다. 인덱스의 매개 변수를 만든 후에는 변경할 수 없습니다. 그러나 매개 변수를 더 추가할 수는 있습니다.
 
 기본 쿼리의 예로 `$select=Gender,metadata_storage_size`를 들 수 있으며 이는 반환 값을 두 매개 변수로 제한합니다.
 
@@ -279,7 +279,7 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스**
 
   ![반구조화된 검색](media/search-semi-structured-data/metadatashort.png)
 
-직접 몇 가지 쿼리를 더 실험해 보고 싶다면 자유롭게 수행해 봅니다. 논리 연산자(and, or) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수 있습니다. 문자열 비교는 대/소문자를 구분합니다.
+직접 몇 가지 쿼리를 더 실험해 보고 싶다면 자유롭게 수행해 봅니다. 논리 연산자(and, or) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수 있습니다. 문자열 비교 대/소문자를 구분 하지 않습니다.
 
 `$filter` 매개 변수는 인덱스를 만들 때 필터링 가능으로 표시된 메타데이터에서만 작동합니다.
 

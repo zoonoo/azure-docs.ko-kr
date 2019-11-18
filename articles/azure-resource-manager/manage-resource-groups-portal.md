@@ -1,19 +1,16 @@
 ---
 title: 리소스 그룹 관리-Azure Portal
 description: Azure Portal를 사용 하 여 Azure Resource Manager를 통해 리소스 그룹을 관리할 수 있습니다. 리소스 그룹을 만들고, 나열 하 고, 삭제 하는 방법을 보여 줍니다.
-services: azure-resource-manager,azure-portal
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: jgao
-ms.openlocfilehash: b0fac4f618f742a13633473f00dbd24ff8411c44
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: e3402f496371fe89c832dc22c8288a1b94378c82
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528547"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74147165"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Resource Manager 리소스 그룹 관리
 
@@ -36,7 +33,7 @@ ms.locfileid: "72528547"
 
 ## <a name="create-resource-groups"></a>리소스 그룹 만들기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 그룹** 선택
 
     ![리소스 그룹 추가](./media/manage-resource-groups-portal/manage-resource-groups-add-group.png)
@@ -56,7 +53,7 @@ ms.locfileid: "72528547"
 
 ## <a name="list-resource-groups"></a>리소스 그룹 나열
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 리소스 그룹을 나열 하려면 **리소스 그룹** 을 선택 합니다.
 
     ![리소스 그룹 찾아보기](./media/manage-resource-groups-portal/manage-resource-groups-list-groups.png)
@@ -65,7 +62,7 @@ ms.locfileid: "72528547"
 
 ## <a name="open-resource-groups"></a>리소스 그룹 열기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **리소스 그룹**을 선택합니다.
 3. 열려는 리소스 그룹을 선택 합니다.
 

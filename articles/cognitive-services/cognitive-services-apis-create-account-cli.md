@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 8ca994b0b4abb27eef284eedf5a76571fe19699d
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: d715252f16a34f2261c108ebd3ff5d1f6f3424d8
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595314"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73887924"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "72595314"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -84,32 +84,32 @@ az group create \
 > [!NOTE]
 > 아래 Cognitive Services 대부분은 서비스를 시도 하는 데 사용할 수 있는 무료 계층이 있습니다. 무료 계층을 사용 하려면 리소스의 sku로 `F0`를 사용 합니다.
 
-### <a name="vision"></a>시각
+### <a name="vision"></a>비전
 
 | 서비스                    | 종류                      |
 |----------------------------|---------------------------|
-| Computer Vision API            | `ComputerVision`          |
+| Computer Vision            | `ComputerVision`          |
 | Custom Vision-예측 | `CustomVision.Prediction` |
 | Custom Vision 교육   | `CustomVision.Training`   |
 | Face API                   | `Face`                    |
 | Form Recognizer            | `FormRecognizer`          |
 | Ink Recognizer             | `InkRecognizer`           |
 
-### <a name="search"></a>Search
+### <a name="search"></a>검색
 
 | 서비스            | 종류                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
-| Bing Entity Search | `Bing.EntitySearch`   |
+| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
+| Bing 엔터티 검색 | `Bing.EntitySearch`   |
 | Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
+| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>Speech
+### <a name="speech"></a>음성 명령
 
 | 서비스            | 종류                 |
 |--------------------|----------------------|
-| 음성 서비스    | `SpeechServices`     |
+| Speech Services    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
 ### <a name="language"></a>언어
@@ -119,10 +119,10 @@ az group create \
 | 양식 이해 | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
+| 텍스트 분석     | `TextAnalytics`     |
 | 텍스트 번역   | `TextTranslation`   |
 
-### <a name="decision"></a>결정
+### <a name="decision"></a>의사 결정
 
 | 서비스           | 종류               |
 |-------------------|--------------------|
@@ -179,7 +179,7 @@ az login
 
 ## <a name="get-current-quota-usage-for-your-resource"></a>리소스의 현재 할당량 사용량을 가져옵니다.
 
-[Az cognitiveservices account account list-usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 명령을 사용 하 여 인지 서비스 리소스에 대 한 사용 현황을 가져옵니다.
+[Az cognitiveservices account account list-usage](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) 명령을 사용 하 여 인지 서비스 리소스에 대 한 사용 현황을 가져옵니다.
 
 ```azurecli-interactive
 az cognitiveservices account list-usage \
@@ -198,7 +198,7 @@ Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스
 az group delete --name storage-resource-group
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 * [Azure Cognitive Services에 대한 요청 인증](authentication.md)
 * [Azure Cognitive Services 이란?](Welcome.md)

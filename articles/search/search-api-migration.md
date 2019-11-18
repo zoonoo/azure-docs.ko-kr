@@ -1,5 +1,5 @@
 ---
-title: 최신 Azure Cognitive Search service REST API 버전으로 업그레이드
+title: 업그레이드 REST API 버전
 titleSuffix: Azure Cognitive Search
 description: API 버전의 차이점을 검토 하 고 기존 코드를 최신 Azure Cognitive Search service REST API 버전으로 마이그레이션하는 데 필요한 작업에 대해 알아봅니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a9bffb41cce030b7a63e600e5ffaf65130261b4c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: edb45eebc2c4eacc2f30d13988943f097a7190fa
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72791168"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112159"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>최신 Azure Cognitive Search service REST API 버전으로 업그레이드
 
@@ -66,7 +66,7 @@ API 버전 2019-05-06 및 2019-05-06-미리 보기부터 데이터 원본 API는
 
 * 인식할 수 없는 속성이 API 응답에 반환되는 경우 코드가 실패합니다. 기본적으로 애플리케이션은 이해하지 못하는 속성을 무시합니다.
 
-* 코드는 API 요청을 보관하고 새 API 버전으로 다시 전송하려 합니다. 예를 들어 애플리케이션이 검색 API에서 반환된 연속 토큰을 보관하는 경우 이런 현상이 발생할 수 있습니다(자세한 내용은 [검색 API 참조](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)의 `@search.nextPageParameters`를 참조).
+* 코드는 API 요청을 보관하고 새 API 버전으로 다시 전송하려 합니다. 예를 들어 애플리케이션이 검색 API에서 반환된 연속 토큰을 보관하는 경우 이런 현상이 발생할 수 있습니다(자세한 내용은 `@search.nextPageParameters`검색 API 참조[의 ](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)를 참조).
 
 이러한 경우에 해당하는 경우 코드를 적절하게 변경해야 합니다. 그렇지 않으면 버전 2019-05-06의 [새 기능](#WhatsNew) 을 사용 하 여 시작 하지 않는 한 변경 하지 않아도 됩니다.
 

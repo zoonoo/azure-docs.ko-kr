@@ -1,7 +1,7 @@
 ---
 title: 사람이 레이블 지정 된 음성 지침-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 인식 정확도를 개선하려는 경우, 특히 단어가 삭제되거나 잘못 대체되었을때 발생하는 문제들의 경우, 오디오 데이터와 함께 인간 레이블의 기록을 사용하기를 원할 것입니다. 인간 레이블의 기록은 무엇인가요? 간단하게, 오디오 파일의 단어 단위로, 말 그대로 기록한 것입니다.
+description: 단어를 삭제 하거나 잘못 대체 하는 경우와 같이 음성 인식 정확도를 향상 시키기 위해 오디오 데이터와 함께 사람이 레이블 지정 된 기능을 사용할 수 있습니다. 사람이 레이블 지정 된 음성으로 오디오 파일의 단어 단위로 단어를 표시 합니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: e629152372dae0b03386f76fd5506ae901dff12f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802484"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075808"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>인간 레이블의 기록을 만드는 방법
 
@@ -29,8 +29,8 @@ ms.locfileid: "70802484"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution | 참고 |
-|---------------------|--------------|-------|
+| 피할 문자 | 대체 문자 | 참고 사항 |
+| ------------------- | ------------ | ----- |
 | "Hello world" | "Hello world" | 적절한 ASCII 문자를 사용하여 여는 따옴표 및 닫는 따옴표가 대체되었습니다. |
 | John’s day | John's day | 아포스트로피가 적절한 ASCII 문자를 사용하여 대체되었습니다. |
 | it was good—no, it was great! | it was good--no, it was great! | em 대시는 하이픈 두 개를 사용하여 대체되었습니다. |
@@ -39,44 +39,44 @@ ms.locfileid: "70802484"
 
 텍스트 정규화는 모델을 학습시킬 때 사용되는 일관된 형식으로 단어를 변환하는 것입니다. 일부 정규화 규칙은 텍스트에 자동으로 적용됩니다, 그러나 인간 레이블 기록 데이터를 준비할 때 다음 지침을 사용하는 것이 좋습니다.
 
-* 단어에서 약어를 삭제합니다.
-* 단어에서 비표준 숫자 문자열(예: 회계 용어)을 제거합니다.
-* 알파벳이 아닌 문자 또는 혼합된 영숫자는 발음으로 기록되어야 합니다.
-* 단어로 발음되는 약어(예: "radar", "laser", "RAM" 또는 "NATO")는 편집하지 않습니다.
-* 각 문자를 공백으로 구분하여 별도의 문자로 발음하는 약어를 작성합니다.
+- 단어에서 약어를 삭제합니다.
+- 단어에서 비표준 숫자 문자열(예: 회계 용어)을 제거합니다.
+- 알파벳이 아닌 문자 또는 혼합된 영숫자는 발음으로 기록되어야 합니다.
+- 단어로 발음되는 약어(예: "radar", "laser", "RAM" 또는 "NATO")는 편집하지 않습니다.
+- 각 문자를 공백으로 구분하여 별도의 문자로 발음하는 약어를 작성합니다.
 
 기록에서 수행해야 하는 정규화의 몇 가지 예는 다음과 같습니다.
 
-| 원래 텍스트 | 정규화한 텍스트 |
-|---------------|--------------------------|
-| Dr. Bruce Banner | Doctor Bruce Banner |
-| James Bond, 007 | James Bond, double oh seven |
-| Ke$ha | Kesha |
-| How long is the 2x4 | How long is the two by four |
+| 원래 텍스트               | 정규화한 텍스트              |
+| --------------------------- | ------------------------------------- |
+| Dr. Bruce 배너            | Doctor Bruce Banner                   |
+| James Bond, 007             | James Bond, double oh seven           |
+| Ke$ha                       | Kesha                                 |
+| How long is the 2x4         | How long is the two by four           |
 | The meeting goes from 1-3pm | The meeting goes from one to three pm |
-| My blood type is O+ | My blood type is O positive |
-| Water is H20 | Water is H 2 O |
-| Play OU812 by Van Halen | Play O U 8 1 2 by Van Halen |
-| UTF-8 with BOM | U T F 8 with BOM |
+| My blood type is O+         | My blood type is O positive           |
+| Water is H20                | Water is H 2 O                        |
+| Play OU812 by Van Halen     | Play O U 8 1 2 by Van Halen           |
+| UTF-8 with BOM              | U T F 8 with BOM                      |
 
 다음 정규화 규칙이 기록에 자동으로 적용됩니다.
 
-* 소문자를 사용 합니다.
-* 단어 내에서 아포스트로피를 제외한 모든 문장 부호를 제거 합니다.
-* 숫자를 달러 양과 같은 단어/음성 형식으로 확장 합니다.
+- 소문자를 사용 합니다.
+- 단어 내에서 아포스트로피를 제외한 모든 문장 부호를 제거 합니다.
+- 숫자를 달러 양과 같은 단어/음성 형식으로 확장 합니다.
 
 기록에서 자동으로 수행되는 정규화의 몇 가지 예는 다음과 같습니다.
 
-| 원래 텍스트 | 정규화한 텍스트 |
-|---------------|--------------------------|
-| “Holy cow!” said Batman. | holy cow said batman |
+| 원래 텍스트                          | 정규화한 텍스트          |
+| -------------------------------------- | --------------------------------- |
+| “Holy cow!” said Batman.               | holy cow said batman              |
 | “What?” said Batman's sidekick, Robin. | what said batman's sidekick robin |
-| Go get -em! | go get em |
-| I'm double-jointed | I'm double jointed |
-| 104 Elm Street | one oh four Elm street |
-| Tune to 102.7 | tune to one oh two point seven |
-| Pi is about 3.14 | pi is about three point one four |
-It costs $3.14| it costs three fourteen |
+| Go get -em!                            | go get em                         |
+| I'm double-jointed                     | I'm double jointed                |
+| 104 Elm Street                         | one oh four Elm street            |
+| Tune to 102.7                          | tune to one oh two point seven    |
+| Pi is about 3.14                       | pi is about three point one four  |
+| It 비용은 3.14 \$                        | it costs three fourteen           |
 
 ## <a name="mandarin-chinese-zh-cn"></a>북경어 중국어 (zh-cn-CN)
 
@@ -84,43 +84,43 @@ It costs $3.14| it costs three fourteen |
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | Substitution | 참고 |
-|---------------------|--------------|-------|
+| 피할 문자 | 대체 문자   | 참고 사항 |
+| ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표가 적절한 문자로 대체되었습니다. |
-| 需要什么帮助? | 需要什么帮助？ | 물음표가 적절한 문자로 대체되었습니다. |
+| 需要什么帮助? | 需要什么帮助？| 물음표가 적절한 문자로 대체되었습니다. |
 
 ### <a name="text-normalization-for-mandarin-chinese"></a>북경어 중국어의 텍스트 정규화
 
 텍스트 정규화는 모델을 학습시킬 때 사용되는 일관된 형식으로 단어를 변환하는 것입니다. 일부 정규화 규칙은 텍스트에 자동으로 적용됩니다, 그러나 인간 레이블 기록 데이터를 준비할 때 다음 지침을 사용하는 것이 좋습니다.
 
-* 단어에서 약어를 삭제합니다.
-* 숫자 문자열은 음성 형식으로 기록합니다.
+- 단어에서 약어를 삭제합니다.
+- 숫자 문자열은 음성 형식으로 기록합니다.
 
 기록에서 수행해야 하는 정규화의 몇 가지 예는 다음과 같습니다.
 
 | 원래 텍스트 | 정규화한 텍스트 |
-|---------------|--------------------------|
-| 我今年21 | 我今年二十一 |
-| 3号楼504 | 三号 楼 五 零 四 |
+| ------------- | ------------------------ |
+| 我今年 21 | 我今年二十一 |
+| 3 号楼 504 | 三号 楼 五 零 四 |
 
 다음 정규화 규칙이 기록에 자동으로 적용됩니다.
 
-* 모든 문장 부호 제거
-* 숫자를 음성으로 확장 양식
-* 전자 문자를 반자 문자로 변환합니다.
-* 모든 영어 단어에 대문자를 사용합니다.
+- 모든 문장 부호 제거
+- 숫자를 음성으로 확장 양식
+- 전자 문자를 반자 문자로 변환합니다.
+- 모든 영어 단어에 대문자 사용
 
 기록에서 자동으로 수행되는 정규화의 몇 가지 예는 다음과 같습니다.
 
 | 원래 텍스트 | 정규화한 텍스트 |
-|---------------|--------------------------|
+| ------------- | ------------------------ |
 | 3.1415 | 三 点 一 四 一 五 |
-| ￥3.5 | 三 元 五 角 |
-| w f y z |W F Y Z |
-| 1992年8月8日 | 一 九 九 二 年 八 月 八 日 |
+| ¥3.5 | 三 元 五 角 |
+| w f y z | W F Y Z |
+| 1992 年 8 月 8 日 | 一 九 九 二 年 八 月 八 日 |
 | 你吃饭了吗? | 你 吃饭 了 吗 |
-| 下午5:00的航班 | 下午 五点 的 航班 |
-| 我今年21岁 | 我 今年 二十 一 岁 |
+| 下午 5:00 的航班 | 下午 五点 的 航班 |
+| 我今年 21 岁 | 我 今年 二十 一 岁 |
 
 ## <a name="german-de-de-and-other-languages"></a>독일어 (de) 및 기타 언어
 
@@ -130,42 +130,42 @@ It costs $3.14| it costs three fourteen |
 
 텍스트 정규화는 모델을 학습시킬 때 사용되는 일관된 형식으로 단어를 변환하는 것입니다. 일부 정규화 규칙은 텍스트에 자동으로 적용됩니다, 그러나 인간 레이블 기록 데이터를 준비할 때 다음 지침을 사용하는 것이 좋습니다.
 
-*   "."이 아니라 ","로 소수점을 작성합니다.
-*   시간 구분은 "."이 아니라 ":" 기호로 작성합니다(예: 12:00 Uhr).
-*   "ca."와 같은 약어는 대체되지 않습니다. 약어가 아닌 전체 음성 형식을 사용하는 것이 좋습니다.
-*   네 개의 기본 수학 연산자(+, -, \* 및 /)를 제거합니다. 다음으로 대체하는 것이 좋습니다: "plus", "minus", "mal", "geteilt".
-*   비교 연산자 (=, < 및 >)가 제거 됩니다. "gleich", "kleiner als" 및 "grösser als"로 바꾸는 것이 좋습니다.
-*   문서 형식으로 3/4 등의 분수를 작성합니다(예: 3/4 대신 "drei viertel").
-*   "€" 기호를 대체하여 문서 형식의 "Euro"를 사용합니다.
+- "."이 아니라 ","로 소수점을 작성합니다.
+- ":"이 아닌 ":"으로 시간 구분 기호를 작성 합니다. (예: 12:00 Uhr).
+- "ca."와 같은 약어는 대체되지 않습니다. 약어가 아닌 전체 음성 형식을 사용하는 것이 좋습니다.
+- 네 개의 기본 수학 연산자(+, -, \* 및 /)를 제거합니다. 다음으로 대체하는 것이 좋습니다: "plus", "minus", "mal", "geteilt".
+- 비교 연산자 (=, < 및 >)가 제거 됩니다. "gleich", "kleiner als" 및 "grösser als"로 바꾸는 것이 좋습니다.
+- 문서 형식으로 3/4 등의 분수를 작성합니다(예: 3/4 대신 "drei viertel").
+- "€" 기호를 대체하여 문서 형식의 "Euro"를 사용합니다.
 
 기록에서 수행해야 하는 정규화의 몇 가지 예는 다음과 같습니다.
 
-| 원래 텍스트 | 사용자 정규화한 텍스트 | 시스템 정규화한 텍스트 |
-|---------------|-------------------------------|---------------------------------|
-| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
-| {12.45} | {12,45} | zwölf komma vier fünf |
-| 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier |
+| 원래 텍스트    | 사용자 정규화한 텍스트 | 시스템 정규화한 텍스트       |
+| ---------------- | ----------------------------- | ------------------------------------- |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr              | es ist zwölf uhr drei und zwanzig uhr |
+| {12.45}          | {12,45}                       | zwölf komma vier fünf                 |
+| 2 + 3 - 4        | 2 plus 3 minus 4              | zwei plus drei minus vier             |
 
 다음 정규화 규칙이 기록에 자동으로 적용됩니다.
 
-* 모든 텍스트에 소문자를 사용 합니다.
-* 다양한 유형의 따옴표를 포함하여 모든 문장 부호를 제거합니다("test", 'test', "test„ 및 «test»는 좋습니다).
-* 다음과 같은 특수 문자를 사용한 행을 무시합니다: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
-* 달러 또는 유로 금액을 포함 하 여 숫자를 음성으로 확장 합니다.
-* a, o와 u에 대해서만 움라우트를 수락합니다. 나머지는 "th"로 대체하거나 삭제합니다.
+- 모든 텍스트에 소문자를 사용 합니다.
+- 다양한 유형의 따옴표를 포함하여 모든 문장 부호를 제거합니다("test", 'test', "test„ 및 «test»는 좋습니다).
+- 다음과 같은 특수 문자를 사용한 행을 무시합니다: ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬.
+- 달러 또는 유로 금액을 포함 하 여 숫자를 음성으로 확장 합니다.
+- a, o와 u에 대해서만 움라우트를 수락합니다. 나머지는 "th"로 대체하거나 삭제합니다.
 
 기록에서 자동으로 수행되는 정규화의 몇 가지 예는 다음과 같습니다.
 
-| 원래 텍스트 | 정규화한 텍스트 |
-|---------------|--------------------------|
-| Frankfurter Ring | frankfurter ring |
-| ¡Eine Frage! | eine frage |
-| wir, haben | wir haben |
+| 원래 텍스트    | 정규화한 텍스트 |
+| ---------------- | ------------------------ |
+| Frankfurter Ring | frankfurter ring         |
+| ¡Eine Frage!     | eine frage               |
+| wir, haben       | wir haben                |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
-* [데이터 검사](how-to-custom-speech-inspect-data.md)
-* [데이터 평가](how-to-custom-speech-evaluate-data.md)
-* [모델 학습](how-to-custom-speech-train-model.md)
-* [모델 배포](how-to-custom-speech-deploy-model.md)
+- [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
+- [데이터 검사](how-to-custom-speech-inspect-data.md)
+- [데이터 평가](how-to-custom-speech-evaluate-data.md)
+- [모델 학습](how-to-custom-speech-train-model.md)
+- [모델 배포](how-to-custom-speech-deploy-model.md)

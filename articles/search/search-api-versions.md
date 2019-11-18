@@ -1,5 +1,5 @@
 ---
-title: .NET SDK 및 REST Api에 대 한 API 버전 관리
+title: .NET 및 REST에 대 한 API 버전 관리
 titleSuffix: Azure Cognitive Search
 description: .NET SDK의 Azure Cognitive Search REST Api 및 클라이언트 라이브러리에 대 한 버전 정책입니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a976655d0f634c7026f008d64516a629947e90c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 03dbb679c25ea692d2c52f80b9493889e367823d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793071"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112154"
 ---
 # <a name="api-versions-in-azure-cognitive-search"></a>Azure Cognitive Search의 API 버전
 
@@ -30,7 +30,7 @@ SDK 업데이트와 동일한 규칙이 적용됩니다. Azure Cognitive Search 
 다음은 Azure Cognitive Search에 대 한 모든 프로그래밍 인터페이스의 현재 버전에 대 한 스냅숏입니다.
 
 
-| 인터페이스 | 가장 최근의 주 버전 | 상태 |
+| 인터페이스 | 가장 최근의 주 버전 | 가동 상태 |
 | --- | --- | --- |
 | [.NET SDK](https://aka.ms/search-sdk) |9.0 |일반 공급, 릴리스 2019 년 5 월 |
 | [.NET SDK 미리 보기](https://aka.ms/search-sdk-preview) |8.0-미리 보기 |Preview, 4 월 2019 릴리스 |

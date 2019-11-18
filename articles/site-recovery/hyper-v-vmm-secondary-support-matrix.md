@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/06/2019
 ms.author: raynew
-ms.openlocfilehash: 76b34e11bba00105792ac5163c5163184c185e09
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 1126a85ed22ee17879767a93ca75dc76dd04b747
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039616"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132951"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Hyper-V VM을 보조 사이트로 재해 복구하기 위한 지원 매트릭스
 
@@ -20,9 +20,6 @@ ms.locfileid: "74039616"
 
 > [!NOTE]
 > Hyper-V 호스트를 VMM 클라우드에서 관리하는 경우에만 보조 사이트에 복제할 수 있습니다.
-
-> [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](site-to-site-deprecation.md) 것이 좋습니다.
 
 
 ## <a name="host-servers"></a>호스트 서버

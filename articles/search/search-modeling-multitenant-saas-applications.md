@@ -1,5 +1,5 @@
 ---
-title: 한 서비스에서 콘텐츠 격리에 대 한 배포할지에 모델링
+title: 배포할지에 및 콘텐츠 격리
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search을 사용 하는 동안 다중 테 넌 트 SaaS 응용 프로그램의 일반적인 디자인 패턴에 대해 알아봅니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0332443997fbc58781f99e3b4e6d9776dd23926b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d37abd1b5d212c3d920cb68b6236029b2112ae24
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793525"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113265"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>다중 테 넌 트 SaaS 응용 프로그램 및 Azure Cognitive Search에 대 한 디자인 패턴
 다중 테넌트 애플리케이션은 다른 테넌트의 데이터를 보거나 공유할 수 없는 임의 개수의 테넌트에 동일한 서비스와 기능을 제공하는 애플리케이션입니다. 이 문서에서는 Azure Cognitive Search로 빌드된 다중 테 넌 트 응용 프로그램의 테 넌 트 격리 전략에 대해 설명 합니다
@@ -37,7 +37,7 @@ Azure Cognitive Search를 사용 하는 경우 하나는 *검색 서비스*를 �
 ### <a name="service-and-index-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 및 인덱스 제한
 Azure Cognitive Search에는 몇 가지 다른 [가격 책정 계층이](https://azure.microsoft.com/pricing/details/search/) 있으며 각 계층에는 서로 다른 [제한과 할당량이](search-limits-quotas-capacity.md)있습니다. 서비스 수준에서 적용되는 제한도 있고, 인덱스 수준에서 적용되는 제한도 있고, 파티션 수준에서 적용되는 제한도 있습니다.
 
-|  | Basic | Standard1 | Standard2 | Standard3 | Standard3 HD |
+|  | 기본 | Standard1 | Standard2 | Standard3 | Standard3 HD |
 | --- | --- | --- | --- | --- | --- |
 | 서비스당 최대 복제본 |3 |12 |12 |12 |12 |
 | 서비스당 최대 파티션 |1 |12 |12 |12 |3 |
@@ -125,7 +125,7 @@ Azure Cognitive Search 다중 테 넌 트 시나리오를 모델링 하기 위�
 > 
 
 ## <a name="next-steps"></a>다음 단계
-Azure Cognitive Search는 많은 응용 프로그램에 적합 합니다. 다중 테 넌 트 응용 프로그램에 대 한 다양 한 디자인 패턴을 평가할 때 [다양 한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한을](search-limits-quotas-capacity.md) 고려 하 여 응용 프로그램 워크 로드 및 모든 규모의 아키텍처에 맞게 Azure Cognitive Search를 가장 잘 조정 .
+Azure Cognitive Search는 많은 응용 프로그램에 적합 합니다. 다중 테 넌 트 응용 프로그램에 대 한 다양 한 디자인 패턴을 평가할 때 [다양 한 가격 책정 계층](https://azure.microsoft.com/pricing/details/search/) 및 해당 [서비스 제한을](search-limits-quotas-capacity.md) 고려 하 여 모든 규모의 응용 프로그램 워크 로드 및 아키텍처에 맞게 Azure Cognitive Search를 적절 하 게 조정 합니다.
 
 Azure Cognitive Search 및 다중 테 넌 트 시나리오에 대 한 질문은 azuresearch_contact@microsoft.com으로 전달 될 수 있습니다.
 

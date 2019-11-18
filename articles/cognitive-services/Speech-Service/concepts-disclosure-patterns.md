@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: fde4a73dd4a95028f23563fb6a8ae36c0142fd39
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500941"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836991"
 ---
-# <a name="disclosure-design-patterns"></a>공개 디자인 패턴
+# <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경을 위한 올바른 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정 했으므로 잠재적 디자인 패턴을 살펴보는 것이&#39;좋습니다.&#39;
 ## <a name="overview"></a>개요
 가상 음성 환경에 적용할 수 있는 공개 디자인 패턴의 스펙트럼이 있습니다. 공개 평가 결과가 ' 높은 공개 ' 인 경우 [**명시적 공개**](#explicit-disclosure)를 사용 하는 것이 좋습니다 .이는 가상 음성의 원본을 완전히 전달 하는 것을 의미 합니다. [**암시적 공개**](#implicit-disclosure) 에는 필요한 공개 수준이 높음 또는 낮음 인지 여부에 관계 없이 음성 환경을 활용 하는 큐 및 상호 작용 패턴이 포함 됩니다.
@@ -247,11 +247,11 @@ Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리
 
 ## <a name="reference-docs"></a>참조 문서
 
-* [투명도 메모](https://aka.ms/neural-tts-transparency-note)
+* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)
 * [가상 음성 기술의 책임이 있는 배포에 대 한 지침](concepts-guidelines-responsible-deployment-synthetic.md)
 * [제어 개요](concepts-gating-overview.md)
 * [공개 방법](concepts-disclosure-guidelines.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [투명도 메모](https://aka.ms/neural-tts-transparency-note)
+* [음성 인재 공개](https://aka.ms/disclosure-voice-talent)

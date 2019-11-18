@@ -9,12 +9,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: mamccrea
-ms.openlocfilehash: 932031f545ccc75cb12f368f5c7894c1b5e454cd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 80ec9b2bbf10d8f500e7f9e0369faca3b9663633
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091681"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129393"
 ---
 # <a name="connect-to-data-sources-from-azure-databricks"></a>Azure Databricks에서 데이터 원본에 연결
 
@@ -43,7 +43,7 @@ ms.locfileid: "74091681"
 
     이 링크는 Azure Databricks에서 [Azure Cosmos DB Spark 커넥터](https://github.com/Azure/azure-cosmosdb-spark)를 사용하여 Azure Cosmos DB의 데이터에 액세스하는 방법에 대한 지침을 제공합니다.
 
-- [Azure Event Hubs](/azure/databricks/data/data-sources/azure/eventhubs-connector)
+- [Azure Event Hubs](/azure/event-hubs/event-hubs-spark-connector)
 
     이 링크는 Azure Databricks에서 [Azure Event Hubs Spark 커넥터](https://github.com/Azure/azure-event-hubs-spark)를 사용하여 Azure Event Hubs의 데이터에 액세스하는 방법에 대한 지침을 제공합니다.
 

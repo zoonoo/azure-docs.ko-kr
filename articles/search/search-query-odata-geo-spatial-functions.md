@@ -1,7 +1,7 @@
 ---
 title: OData 지역 공간 함수 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 OData 지역 공간 함수, geo distance 및 geo.
+description: Azure Cognitive Search 쿼리에서 OData 지역 공간 함수 사용에 대 한 구문 및 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,18 +19,18 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 09034423e16c652cf6994b38f8d92574abc0ce55
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 902996c1813931638012c78f81bd65c400bee7a1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793328"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113167"
 ---
 # <a name="odata-geo-spatial-functions-in-azure-cognitive-search---geodistance-and-geointersects"></a>Azure Cognitive Search의 OData 지역 공간 함수-`geo.distance` 및 `geo.intersects`
 
 Azure Cognitive Search는 `geo.distance` 및 `geo.intersects` 함수를 통해 [OData 필터 식](query-odata-filter-orderby-syntax.md) 의 지리적 공간 쿼리를 지원 합니다. `geo.distance` 함수는 두 요소 사이의 거리를 킬로미터 단위로 반환 합니다. 하나는 필드 또는 범위 변수가 되 고 하나는 필터의 일부로 전달 되는 상수입니다. `geo.intersects` 함수는 지정 된 점이 지정 된 다각형 내에 있는 경우 `true`을 반환 합니다. 여기서 지점은 필드 또는 범위 변수이 고 polygon은 필터의 일부로 전달 되는 상수로 지정 됩니다.
 
-[ **$Orderby** 매개 변수](search-query-odata-orderby.md) 에서 `geo.distance` 함수를 사용 하 여 지정 된 지점 으로부터의 거리를 기준으로 검색 결과를 정렬할 수도 있습니다. **$orderby**에서 `geo.distance`에 대한 구문은 **$filter**에 있을 때와 같습니다. **$Orderby**에서 `geo.distance`를 사용 하는 경우이 필드가 적용 되는 필드는 `Edm.GeographyPoint` 형식 이어야 하며 **정렬할**수 있어야 합니다.
+[ **$Orderby** 매개 변수](search-query-odata-orderby.md) 에서 `geo.distance` 함수를 사용 하 여 지정 된 지점 으로부터의 거리를 기준으로 검색 결과를 정렬할 수도 있습니다. `geo.distance`$orderby**에서** 에 대한 구문은 **$filter**에 있을 때와 같습니다. **$Orderby**에서 `geo.distance`를 사용 하는 경우이 필드가 적용 되는 필드는 `Edm.GeographyPoint` 형식 이어야 하며 **정렬할**수 있어야 합니다.
 
 > [!NOTE]
 > **$Orderby** 매개 변수에서 `geo.distance`를 사용 하는 경우 함수에 전달 하는 필드는 단일 지리적 지점만 포함 해야 합니다. 즉, `Edm.GeographyPoint` 형식 이어야 하며 `Collection(Edm.GeographyPoint)`하지 않아야 합니다. Azure Cognitive Search에서는 컬렉션 필드를 기준으로 정렬할 수 없습니다.
@@ -69,7 +69,7 @@ lon_lat_list ::= lon_lat(',' lon_lat)*
 > [!NOTE]
 > 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-### <a name="geodistance"></a>지역 거리
+### <a name="geodistance"></a>geo.distance
 
 `geo.distance` 함수는 `Edm.GeographyPoint` 형식의 매개 변수 두 개를 사용 하 여 킬로미터의 거리에 해당 하는 `Edm.Double` 값을 반환 합니다. 이는 일반적으로 미터 단위로 거리를 반환 하는 OData 지역 공간 작업을 지 원하는 다른 서비스와 다릅니다.
 
@@ -80,9 +80,9 @@ Geography point 상수는 `geography'POINT(<longitude> <latitude>)'`형식입니
 > [!NOTE]
 > 필터에 `geo.distance`를 사용 하는 경우 `lt`, `le`, `gt`또는 `ge`를 사용 하 여 함수에서 반환 된 거리와 상수를 비교 해야 합니다. 연산자 `eq` 및 `ne`는 거리를 비교할 때 사용할 수 없습니다. 예를 들어 `geo.distance`의 올바른 사용법은 `$filter=geo.distance(location, geography'POINT(-122.131577 47.678581)') le 5`입니다.
 
-### <a name="geointersects"></a>지역 교차
+### <a name="geointersects"></a>geo.intersects
 
-`geo.intersects` 함수는 `Edm.GeographyPoint` 및 상수 `Edm.GeographyPolygon` 형식의 변수를 사용 하 고, 점이 다각형의 범위 내에 있는 경우 -- `true` `Edm.Boolean`을 반환 합니다.
+`geo.intersects` 함수는 `Edm.GeographyPoint` 및 상수 `Edm.GeographyPolygon` 형식의 변수를 사용 하 고, 점이 다각형의 범위 내에 있는 경우  -- `true` `Edm.Boolean`을 반환 합니다.`false`
 
 다각형은 경계 링을 정의 하는 일련의 점으로 저장 되는 2 차원 표면입니다 (아래 [예제](#examples) 참조). 다각형은 닫혀야 합니다. 즉, 첫 번째 점과 마지막 점 세트가 같아야 합니다. [다각형의 점은 시계 반대 방향 순서여야 합니다](https://docs.microsoft.com/rest/api/searchservice/supported-data-types#Anchor_1).
 
@@ -99,7 +99,7 @@ Azure Cognitive Search의 다른 모든 비 컬렉션 필드와 마찬가지로 
 - 필터에서 `null` 필드를 `geo.distance` 하면 `null`됩니다. 이는 `null` null이 아닌 값과 비교 하 여 `false`으로 계산 되기 때문에 문서가 일치 하지 않는 것을 의미 합니다.
 - **$Orderby**를 사용 하 여 결과를 정렬 하는 경우 `null` 필드 `geo.distance` 하면 가능한 최대 거리가 발생 합니다. 이러한 필드를 사용 하는 문서는 정렬 방향을 사용 하는 경우 (기본값), 방향이 `desc`될 때 다른 모든 항목 보다 더 높은 순서로 정렬 됩니다 `asc`.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="filter-examples"></a>필터 예제
 

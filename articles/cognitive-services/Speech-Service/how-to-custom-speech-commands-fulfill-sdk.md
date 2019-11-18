@@ -1,5 +1,5 @@
 ---
-title: '방법: 음성 SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 수행 (미리 보기)'
+title: Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령을 수행 하는 방법
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 Speech SDK를 사용 하 여 클라이언트에서 사용자 지정 명령 활동을 처리 합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: a986da74a668075457e28a9a37b6a11fd04a84e4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2da8ef2c29bd6afdaf49e000bf964d119f1e99f1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500887"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110081"
 ---
 # <a name="how-to-fulfill-commands-on-the-client-with-the-speech-sdk-preview"></a>방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)
 
@@ -26,15 +26,15 @@ ms.locfileid: "73500887"
 - 사용자 지정 명령 응용 프로그램에서 사용자 지정 JSON 페이로드 정의 및 보내기
 - C# UWP Speech SDK 클라이언트 응용 프로그램에서 사용자 지정 JSON 페이로드 콘텐츠 수신 및 시각화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
 - Speech Services에 대 한 Azure 구독 키
-   - [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
+  - [무료로 다운로드](get-started.md) 하거나 [Azure Portal](https://portal.azure.com) 에서 만드세요.
 - 이전에 만든 사용자 지정 명령 앱
-   - [빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
+  - [빠른 시작: 매개 변수를 사용 하 여 사용자 지정 명령 만들기 (미리 보기)](./quickstart-custom-speech-commands-create-parameters.md)
 - 음성 SDK 사용 클라이언트 응용 프로그램
-   - [빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결](./quickstart-custom-speech-commands-speech-sdk.md)
+  - [빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결](./quickstart-custom-speech-commands-speech-sdk.md)
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠르게 시작
 
@@ -45,14 +45,15 @@ ms.locfileid: "73500887"
 1. [Speech Studio](https://speech.microsoft.com/) 에서 이전에 만든 사용자 지정 명령 응용 프로그램 열기
 1. **완료 규칙** 섹션에서 사용자에 게 다시 응답 하는 이전에 만든 규칙이 있는지 확인 합니다.
 1. 클라이언트에 직접 페이로드를 보내려면 작업 보내기 작업을 사용 하 여 새 규칙을 만듭니다.
+
    > [!div class="mx-imgBorder"]
    > ![보내기 작업 완료 규칙](media/custom-speech-commands/fulfill-sdk-completion-rule.png)
 
-   | 설정    | 제안 값                                  | 설명                                        |
-   | ---------- | ------------------------------------------------ | -------------------------------------------------- |
-   | 규칙 이름  | UpdateDeviceState                                | 규칙의 용도를 설명 하는 이름입니다.          |
-   | 조건 | 필수 매개 변수-`OnOff` 및 `SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
-   | 작업    | `SendActivity` (아래 참조)                        | 규칙 조건이 참인 경우 수행할 동작입니다. |
+   | 설정 | 제안 값 | 설명 |
+   | ------- | --------------- | ----------- |
+   | 규칙 이름 | UpdateDeviceState | 규칙의 용도를 설명 하는 이름입니다. |
+   | 조건 | 필수 매개 변수-`OnOff` 및 `SubjectDevice` | 규칙을 실행할 수 있는 시기를 결정 하는 조건 |
+   | 동작 | `SendActivity` (아래 참조) | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
    > [!div class="mx-imgBorder"]
    > ![전송 작업 페이로드](media/custom-speech-commands/fulfill-sdk-send-activity-action.png)
@@ -130,7 +131,7 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 };
 ```
 
-## <a name="try-it-out"></a>사용해보십시오
+## <a name="try-it-out"></a>체험
 
 1. 애플리케이션 시작
 1. 마이크 사용을 선택 합니다.
@@ -139,6 +140,6 @@ connector.ActivityReceived += async (sender, activityReceivedEventArgs) =>
 1. Tv의 시각적 상태가 "켜기"로 변경 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
 > [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
-

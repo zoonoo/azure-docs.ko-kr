@@ -1,5 +1,5 @@
 ---
-title: 크로스-프레미스 Azure 연결에 대한 VPN 디바이스 정보 | Microsoft Docs
+title: 'Azure VPN Gateway: 연결에 대 한 VPN 장치 정보'
 description: 이 문서에서는 S2S VPN Gateway 크로스-프레미스 연결에 대한 VPN 디바이스 및 IPsec 매개 변수에 대해 설명합니다. 구성 지침과 샘플에 대한 링크를 제공합니다.
 services: vpn-gateway
 author: yushwang
@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: c945fa7e2e8eccb12cc105610adee3d25a5e5316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58278e241df3d9242c1cb3ad5d6e931c9c4ca701
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495790"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150920"
 ---
 # <a name="about-vpn-devices-and-ipsecike-parameters-for-site-to-site-vpn-gateway-connections"></a>사이트 간 VPN Gateway 연결에 대한 VPN 디바이스 및 IPsec/IKE 매개 변수 정보
 
@@ -41,12 +41,12 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | Allied Telesis     |AR 시리즈 VPN 라우터 |AR 시리즈 5.4.7 이상               | [구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router) |[구성 가이드](https://www.alliedtelesis.com/documents/how-to/configure/site-to-site-vpn-between-azure-and-ar-series-router)|
 | Barracuda Networks, Inc. |Barracuda CloudGen 방화벽 |정책 기반: 5.4.3<br>경로 기반: 6.2.0 |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462887/how-to-configure-an-ikev1-ipsec-site-to-site-vpn-to-the-static-microsoft-azure-vpn-gateway/) |[구성 가이드](https://campus.barracuda.com/product/cloudgenfirewall/doc/79462889/how-to-configure-bgp-over-ikev2-ipsec-site-to-site-vpn-to-an-azure-vpn-gateway/) |
 | Check Point |Security Gateway |R80.10 |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |[구성 가이드](https://supportcenter.checkpoint.com/supportcenter/portal?eventSubmit_doGoviewsolutiondetails=&solutionid=sk101275) |
-| 시스코              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
-| 시스코 |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
-| 시스코 | CSR | 경로 기반: IOS-XE 16.10 | (테스트 되지 않음) | [구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
-| 시스코 |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
-| 시스코 |Meraki |해당 없음 |호환되지 않음 |호환되지 않음 |
-| 시스코 | vEdge (Viptela OS) | 18.4.0 (활성/수동 모드)<br><br>19.2 (활성/활성 모드) | 호환되지 않음 |  [수동 구성 (활성/수동)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[클라우드 Onramp 구성 (활성/활성)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
+| Cisco              |ASA       |8.3<br>8.4+(IKEv2*) |지원됨 |[구성 가이드*](https://www.cisco.com/c/en/us/support/docs/security/adaptive-security-appliance-asa-software/214109-configure-asa-ipsec-vti-connection-to-az.html) |
+| Cisco |ASR |정책 기반: IOS 15.1<br>경로 기반: IOS 15.2 |지원됨 |지원됨 |
+| Cisco | CSR | 경로 기반: IOS-XE 16.10 | (테스트 되지 않음) | [구성 스크립트](vpn-gateway-download-vpndevicescript.md) |
+| Cisco |ISR |정책 기반: IOS 15.0<br>경로 기반*: IOS 15.1 |지원됨 |지원됨 |
+| Cisco |Meraki |해당 없음 |호환되지 않음 |호환되지 않음 |
+| Cisco | vEdge (Viptela OS) | 18.4.0 (활성/수동 모드)<br><br>19.2 (활성/활성 모드) | 호환되지 않음 |  [수동 구성 (활성/수동)](https://community.cisco.com/t5/networking-documents/how-to-configure-ipsec-vpn-connection-between-cisco-vedge-and/ta-p/3841454)<br><br>[클라우드 Onramp 구성 (활성/활성)](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/Network-Optimization-and-High-Availability/Network-Optimization-High-Availability-book/b_Network-Optimization-and-HA_chapter_00.html) |
 | Citrix |NetScaler MPX, SDX, VPX |10.1 이상 |[구성 가이드](https://docs.citrix.com/en-us/netscaler/11-1/system/cloudbridge-connector-introduction/cloudbridge-connector-azure.html) |호환되지 않음 |
 | F5 |BIG-IP 시리즈 |12.0 |[구성 가이드](https://devcentral.f5.com/articles/connecting-to-windows-azure-with-the-big-ip) |[구성 가이드](https://devcentral.f5.com/articles/big-ip-to-azure-dynamic-ipsec-tunneling) |
 | Fortinet |FortiGate |FortiOS 5.6 | (테스트 되지 않음) |[구성 가이드](https://docs.fortinet.com/document/fortigate/5.6.0/cookbook/255100/ipsec-vpn-to-azure) |
@@ -64,16 +64,16 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | ShareTech | 차세대 UTM(NU 시리즈) | 9.0.1.3 | 호환되지 않음 | [구성 가이드](http://www.sharetech.com.tw/images/file/Solution/NU_UTM/S2S_VPN_with_Azure_Route_Based_en.pdf) |
 | SonicWall |TZ 시리즈, NSA 시리즈<br>SuperMassive 시리즈<br>E-클래스 NSA 시리즈 |SonicOS 5.8.x<br>SonicOS 5.9.x<br>SonicOS 6.x |호환되지 않음 |[구성 가이드](https://www.sonicwall.com/support/knowledge-base/170505320011694) |
 | Sophos | XG 차세대 방화벽 | XG v17 | (테스트 되지 않음) | [구성 가이드](https://community.sophos.com/kb/127546)<br><br>[구성 가이드 - 다중 SA](https://community.sophos.com/kb/en-us/133154) |
-| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM 1.1.5/VpnPlusServer-1.2.0 | (테스트 되지 않음) | [구성 가이드](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
+| Synology | MR2200ac <br>RT2600ac <br>RT1900ac | SRM1.1.5/VpnPlusServer-1.2.0 | (테스트 되지 않음) | [구성 가이드](https://www.synology.com/en-global/knowledgebase/SRM/tutorial/VPN/How_to_set_up_Site_to_Site_VPN_between_Synology_Router_and_MS_Azure) |
 | Ubiquiti | EdgeRouter | EdgeOS v1.10 | (테스트 되지 않음) | [IKEv2/IPsec을 통한 BGP](https://help.ubnt.com/hc/en-us/articles/115012374708)<br><br>[IKEv2/IPsec을 통한 VTI](https://help.ubnt.com/hc/en-us/articles/115012305347)
 | WatchGuard |모두 |Fireware XTM<br> 정책 기반: v11.11.x<br>경로 기반: v11.12.x |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA2F00000000LI7KAM&lang=en_US) |[구성 가이드](http://watchguardsupport.force.com/publicKB?type=KBArticle&SFDCID=kA22A000000XZogSAG&lang=en_US)|
-| Zyxel |ZyWALL USG 시리즈<br>ZyWALL ATP 시리즈<br>ZyWALL VPN 시리즈 | ZLD v 4.32 + | (테스트 되지 않음) | [IKEv2/IPsec을 통한 VTI](https://businessforum.zyxel.com/discussion/2648/)<br><br>[IKEv2/IPsec을 통한 BGP](https://businessforum.zyxel.com/discussion/2650/)|
+| Zyxel |ZyWALL USG 시리즈<br>ZyWALL ATP 시리즈<br>ZyWALL VPN 시리즈 | ZLD v4.32+ | (테스트 되지 않음) | [IKEv2/IPsec을 통한 VTI](https://businessforum.zyxel.com/discussion/2648/)<br><br>[IKEv2/IPsec을 통한 BGP](https://businessforum.zyxel.com/discussion/2650/)|
 
 > [!NOTE]
 >
 > (*)Cisco ASA 버전 8.4+ IKEv2 지원은 "UsePolicyBasedTrafficSelectors" 옵션과 함께 사용자 지정 IPsec/IKE 정책을 사용하여 Azure VPN Gateway에 연결할 수 있습니다. 이 [방법 문서](vpn-gateway-connect-multiple-policybased-rm-ps.md)를 참조하세요.
 >
-> (\*\*)ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
+> (**)ISR 7200 시리즈 라우터는 정책 기반 VPN만을 지원합니다.
 
 ## <a name="configscripts"></a>Azure에서 VPN 디바이스 구성 스크립트 다운로드
 
@@ -142,7 +142,7 @@ VPN 디바이스를 구성하려면 적절한 디바이스 제품군에 해당�
 | 암호화 및 해싱 알고리즘 |1. AES256, SHA256<br>2. AES256, SHA1<br>3. AES128, SHA1<br>4. 3DES, SHA1 |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | SA 수명(시간)            |3,600초  |27,000초                               |
 | SA 수명(바이트)           |102,400,000 KB | -                                           |
-| PFS(Perfect Forward Secrecy) |아니요             |[RouteBased QM SA 제품](#RouteBasedOffers) |
+| PFS(Perfect Forward Secrecy) |아니오             |[RouteBased QM SA 제품](#RouteBasedOffers) |
 | 작동하지 않는 피어 검색(DPD)     |지원되지 않음  |지원됨                                    |
 
 

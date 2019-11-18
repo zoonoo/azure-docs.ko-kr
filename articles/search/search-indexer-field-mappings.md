@@ -1,5 +1,5 @@
 ---
-title: 인덱서를 사용 하 여 자동화 된 인덱싱에 대 한 필드 매핑
+title: 인덱서의 필드 매핑
 titleSuffix: Azure Cognitive Search
 description: 필드 이름과 데이터 표현의 차이를 고려 하 여 인덱서에 필드 매핑을 구성 합니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cc863ee3dc7f2dc8049fcd22189acac94a855352
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 72623787cdb27c568fe2b4ec075010674a3996ef
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786966"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123998"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Azure Cognitive Search 인덱서를 사용 하 여 필드 매핑 및 변환
 
@@ -78,7 +78,7 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-the-net-sdk"></a>.NET SDK를 사용 하 여 필드 매핑
 
-`SourceFieldName` 및 `TargetFieldName`속성과 선택적 `MappingFunction` 참조를 포함 하는 [Fieldmapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 합니다.
+속성과 [ 및 ](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) 선택적 `SourceFieldName` 참조를 포함 하는 `TargetFieldName`fieldmapping`MappingFunction` 클래스를 사용 하 여 .net SDK에서 필드 매핑을 정의 합니다.
 
 인덱서를 생성할 때 또는 나중에 `Indexer.FieldMappings` 속성을 직접 설정 하 여 필드 매핑을 지정할 수 있습니다.
 
@@ -175,15 +175,18 @@ Azure Cognitive Search는 두 개의 다른 Base64 인코딩을 지원 합니다
 
 #### <a name="base64-encoding-options"></a>base64 인코딩 옵션
 
-Azure Cognitive Search는 두 가지 다른 Base64 인코딩, 즉 **HTTPSERVERUTILITY url 토큰**및 **패딩 없이 url 안전 base64 인코딩을**지원 합니다. 인덱싱을 수행 하는 동안 base64로 인코딩된 문자열은 나중에 동일한 인코딩 옵션을 사용 하 여 디코딩해야 합니다. 그렇지 않으면 결과가 원본과 일치 하지 않습니다.
+Azure Cognitive Search는 URL 안전 base64 인코딩 및 일반 base64 인코딩을 지원 합니다. 인덱싱을 수행 하는 동안 base64로 인코딩된 문자열은 나중에 동일한 인코딩 옵션을 사용 하 여 디코딩해야 합니다. 그렇지 않으면 결과가 원본과 일치 하지 않습니다.
 
-인코딩 및 디코딩에 대 한 `useHttpServerUtilityUrlTokenEncode` 또는 `useHttpServerUtilityUrlTokenDecode` 매개 변수가 각각 `true`로 설정 된 경우 `base64Encode`는 `base64Decode` [HttpServerUtility](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) 와 같이 [동작 합니다.](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx)
+인코딩 및 디코딩에 대 한 `useHttpServerUtilityUrlTokenEncode` 또는  `useHttpServerUtilityUrlTokenDecode`매개 변수가 각각 `true`로 설정 된 경우는`base64Encode` HttpServerUtility[와 같은 ](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)동작 및 `base64Decode` HttpServerUtility. UrlTokenDecode[ 같은 ](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx) 동작을 수행합니다.
 
-전체 .NET Framework (즉, .NET Core 또는 다른 프레임 워크를 사용 하 여)를 사용 하지 않는 경우 Azure Cognitive Search 동작을 에뮬레이트하는 키 값을 생성 하려면 `useHttpServerUtilityUrlTokenEncode`를 설정 하 고 `useHttpServerUtilityUrlTokenDecode`를 `false`으로 설정 해야 합니다. 사용 하는 라이브러리에 따라 base64 인코딩 및 디코딩 함수는 Azure Cognitive Search에서 사용 하는 것과 다를 수 있습니다.
+> [!WARNING]
+> 키 값을 생성 하는 데 `base64Encode`를 사용 하는 경우 `useHttpServerUtilityUrlTokenEncode`을 true로 설정 해야 합니다. 키 값에는 URL 안전 base64 인코딩만 사용할 수 있습니다. 키 값의 문자에 대 한 전체 제한 사항 집합에 대 한 [Azure &#40;&#41; Cognitive Search 명명 규칙](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 을 참조 하세요.
+
+Azure Cognitive Search의 .NET 라이브러리는 기본 제공 인코딩을 제공 하는 전체 .NET Framework를 가정 합니다. `useHttpServerUtilityUrlTokenEncode` 및 `useHttpServerUtilityUrlTokenDecode` 옵션은 이러한 기본 제공 기능을 활용 합니다. .NET Core 또는 다른 프레임 워크를 사용 하는 경우 `false` 하 고 프레임 워크의 인코딩 및 디코딩 함수를 직접 호출 하는 옵션을 설정 하는 것이 좋습니다.
 
 다음 표에서는 문자열 `00>00?00`의 서로 다른 base64 인코딩을 비교합니다. base64 함수에 필요한 추가 처리를 판단하려면(있는 경우) `00>00?00` 문자열에서 라이브러리 인코딩 함수를 적용하고 출력을 `MDA-MDA_MDA` 예상 출력과 비교합니다.
 
-| Encoding | Base64 인코딩 출력 | 라이브러리 인코딩 후 추가 처리 | 라이브러리 인코딩 전 추가 처리 |
+| 인코딩 | Base64 인코딩 출력 | 라이브러리 인코딩 후 추가 처리 | 라이브러리 인코딩 전 추가 처리 |
 | --- | --- | --- | --- |
 | Base64(패딩 있음) | `MDA+MDA/MDA=` | URL 지원 문자 사용 및 패딩 제거 | 표준 base64 문자 사용 및 패딩 추가 |
 | Base64(패딩 없음) | `MDA+MDA/MDA` | URL 지원 문자 사용 | 표준 base64 문자 사용 |

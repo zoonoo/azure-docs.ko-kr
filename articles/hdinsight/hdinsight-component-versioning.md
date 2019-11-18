@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 06/07/2019
-ms.openlocfilehash: e6c9bd18a6ea5975269b96653e47eaf1da462676
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/13/2019
+ms.openlocfilehash: a5632f4b7ca264f6fdeb88dc7f7cf843c73ddf54
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935443"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123407"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -22,7 +22,7 @@ Enterprise Security Package뿐만 아니라 Microsoft Azure HDInsight의 [Apache
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>각 HDInsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소
 
-Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 각 버전을 선택하면 특정 버전의 HDP 배포 및 배포에 포함된 구성 요소 집합이 만들어집니다. 2017년 4월 4일을 기준으로 Azure HDInsight에서 사용하는 기본 클러스터 버전은 3.6이지만 HDP 2.6을 기반으로 합니다.
+Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 2017 4 월 4 일을 기준으로 Azure HDInsight에서 사용 하는 기본 클러스터 버전은 3.6입니다.
 
 HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 나열되어 있습니다. 
 
@@ -64,20 +64,20 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
 ## <a name="supported-hdinsight-versions"></a>지원되는 HDInsight 버전
 
-다음 표에서는 HDInsight 버전을 보여줍니다. 각 HDInsight 버전에 해당하는 HDP 버전은 제품 출시 날짜와 함께 나열되어 있습니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다.
+다음 표에서는 HDInsight 버전을 보여줍니다. 알려진 경우 지원 만료 날짜와 사용 중지 날짜도 나와 있습니다.
 
 ### <a name="available-versions"></a>사용 가능한 버전
 
 다음 표에는 PowerShell 및 .NET SDK와 같은 다른 배포 메서드를 비롯하여 Azure Portal에서 사용할 수 있는 HDInsight 버전이 나열되어 있습니다.
 
-| HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 | 
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |HDP 3.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |yes |yes |
-| HDInsight 3.6 |HDP 2.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | 2020 년 6 월 30 일 |2020 년 12 월 31 일 |yes |yes |
+| HDInsight 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에서 사용 가능 | 
+| --- | --- | --- | --- | --- | --- | --- |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |예 |예 |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | 2020 년 6 월 30 일 |2020 년 12 월 31 일 |예 |예 |
 
 
 > [!NOTE]  
-> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.
+> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell `Version`New-AzHDInsightCluster[ 명령의 ](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.
 >
 
 ### <a name="retired-versions"></a>사용 중지된 버전
@@ -86,15 +86,15 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
 | HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 | 
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016년 9월 30일 |2017년 9월 5일 |2018년 6월 28일 |yes |아닙니다. |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016년 3월 29일 |2016년 12월 29일 |2018년 1월 9일 |yes |아닙니다. |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |yes |아닙니다. |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015년 12월 2일 |2016년 6월 27일 |2017년 7월 31일 |yes |아닙니다. |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |2015년 2월 18일 |2016년 3월 1일 |2017년 4월 1일 |yes |아닙니다. |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |yes |아닙니다. |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |yes |아닙니다. |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |yes |아닙니다. |
-| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아닙니다. |아닙니다. |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016년 9월 30일 |2017년 9월 5일 |2018년 6월 28일 |예 |아니오 |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016년 3월 29일 |2016년 12월 29일 |2018년 1월 9일 |예 |아니오 |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |예 |아니오 |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015년 12월 2일 |2016년 6월 27일 |2017년 7월 31일 |예 |아니오 |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |2015년 2월 18일 |2016년 3월 1일 |2017년 4월 1일 |예 |아니오 |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |예 |아니오 |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |예 |아니오 |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |예 |아니오 |
+| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아니오 |아니오 |
 
 > [!NOTE]  
 > 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 버전 2.1 이상에 배포됩니다. HDInsight 버전 1.6 클러스터에서는 사용할 수 없습니다.

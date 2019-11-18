@@ -1,7 +1,7 @@
 ---
 title: 요청 제한 - Bing Web Search API
 titleSuffix: Azure Cognitive Services
-description: 요청 제한 및 Bing Web Search API를 사용하는 경우에 대해 자세히 알아보세요.
+description: 서비스 및 구독 유형에 따라 만들 수 있는 QPS(초당 쿼리 수)가 결정됩니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5afd9e1c0ae829bb5703c34fa40c8e57fa1e18c3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5d97cac09291c5ca734eeafe329f08361a712579
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66390086"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111378"
 ---
 # <a name="throttling-requests-to-the-bing-web-search-api"></a>Bing Web Search API에 대한 요청 제한
 

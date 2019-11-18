@@ -1,19 +1,19 @@
 ---
 title: PowerShell을 사용 하 여 v2 사용자 지정 규칙 구성
 titleSuffix: Azure Web Application Firewall
-description: Azure PowerShell를 사용 하 여 WAF v2 사용자 지정 규칙을 구성 하는 방법을 알아봅니다.
+description: Azure PowerShell를 사용 하 여 WAF v2 사용자 지정 규칙을 구성 하는 방법을 알아봅니다. 방화벽을 통과 하는 각 요청에 대해 평가 된 고유의 규칙을 만들 수 있습니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 48f45629b82e63dfc3f098b68e1be2523a3a0e5c
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1641b74e3b9e59253b2674b22dfd8cd1b6ca2c2c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075394"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133050"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사용자 지정 규칙을 사용 하 여 Application Gateway에서 웹 응용 프로그램 방화벽 v2 구성
 

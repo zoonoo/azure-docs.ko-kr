@@ -1,25 +1,18 @@
 ---
-title: Azure Resource Manager를 사용하여 Azure Cache for Redis 프로비전 | Microsoft Docs
+title: Azure Resource Manager를 사용 하 여 Redis 용 Azure Cache 프로 비전
 description: Azure Resource Manager 템플릿을 사용하여 Azure Cache for Redis를 배포합니다.
 services: app-service
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ce6f5372-7038-4655-b1c5-108f7c148282
 ms.service: cache
-ms.workload: web
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 5bdad61df732f0aeb1a758aacb5844204387e19b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f215cb79adc02da857f7aa93d8933bd12c06818a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66132786"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121792"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-template"></a>템플릿을 사용하여 Azure Cache for Redis 만들기
 
@@ -29,7 +22,7 @@ ms.locfileid: "66132786"
 
 현재 진단 설정은 구독에 대한 동일한 지역의 모든 캐시에서 공유됩니다. 지역의 캐시 하나를 업데이트하면 해당 지역의 다른 모든 캐시에 영향을 줍니다.
 
-템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하십시오. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
+템플릿을 만드는 더 자세한 내용은 [Azure 리소스 관리자 템플릿 작성하기](../azure-resource-manager/resource-group-authoring-templates.md)를 참조하세요. 캐시 리소스 종류의 JSON 구문 및 속성에 대해 알아보려면 [Microsoft.Cache 리소스 종류](/azure/templates/microsoft.cache/allversions)를 참조하세요.
 
 전체 템플릿은 [Azure Cache for Redis 템플릿](https://github.com/Azure/azure-quickstart-templates/blob/master/101-redis-cache/azuredeploy.json)을 참조하세요.
 
@@ -38,7 +31,7 @@ ms.locfileid: "66132786"
 > 
 > * [클러스터링이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-cluster-diagnostics/)
 > * [데이터 지속성이 있는 프리미엄 Azure Cache for Redis 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-persistence/)
-> * [가상 네트워크에 배포 된 프리미엄 Redis 캐시 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
+> * [Virtual Network에 배포 된 프리미엄 Redis Cache 만들기](https://azure.microsoft.com/resources/templates/201-redis-premium-vnet/)
 > 
 > 최신 템플릿을 확인하려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/documentation/templates/) 및 `Azure Cache for Redis`에 대한 검색을 참조하세요.
 > 
@@ -51,7 +44,7 @@ ms.locfileid: "66132786"
 
 [![Azure에 배포](./media/cache-redis-cache-arm-provision/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-redis-cache%2Fazuredeploy.json)
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 Azure 리소스 관리자와 함께 템플릿을 배포할 때 지정하고자 하는 값으로 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함 된 매개 변수라는 섹션을 포함합니다.
 배포하는 프로젝트에 따라 또는 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의해야 합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다. 
 

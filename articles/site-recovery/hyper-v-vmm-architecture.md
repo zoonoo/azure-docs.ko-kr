@@ -7,19 +7,17 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: raynew
-ms.openlocfilehash: f7fa5d7ef68613301c30e26d21f69a80559dbcb9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3e81e353d2912f56a932ce118a0424e45e758df7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74030006"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133005"
 ---
 # <a name="architecture---hyper-v-replication-to-a-secondary-site"></a>아키텍처 - 보조 사이트로 Hyper-V 복제
 
 이 문서에서는 Azure Portal에서 [Azure Site Recovery](site-recovery-overview.md) 서비스를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드의 온-프레미스 Hyper-V VM(가상 머신)을 보조 VMM 사이트로 복제할 때 사용되는 구성 요소 및 프로세스를 설명합니다.
-
-> [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](site-to-site-deprecation.md) 것이 좋습니다.
+a
 
 ## <a name="architectural-components"></a>아키텍처 구성 요소
 

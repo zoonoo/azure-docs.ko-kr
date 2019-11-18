@@ -8,22 +8,22 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 11/14/2019
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: b8ed0a04d2d13556f38873ef5f346d49ba4d1845
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ddb7cd06934c85243717dd2a34dc99bae582b6fa
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673743"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122977"
 ---
 # <a name="run-an-ssis-package-with-the-execute-ssis-package-activity-in-azure-data-factory"></a>Azure Data Factory에서 SSIS 패키지 실행 작업을 사용하여 SSIS 패키지 실행
 이 문서에서는 SSIS 패키지 실행 작업을 사용 하 여 Azure Data Factory 파이프라인에서 SSIS (SQL Server Integration Services) 패키지를 실행 하는 방법을 설명 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -57,7 +57,7 @@ ms.locfileid: "73673743"
 
     Key vault 연결 된 서비스를 만들거나 편집할 때 기존 주요 자격 증명 모음을 선택 하거나 편집 하거나 새 자격 증명 모음을 만들 수 있습니다. 아직 수행 하지 않은 경우 키 자격 증명 모음에 대 한 Data Factory 관리 id 액세스 권한을 부여 해야 합니다. `<Key vault linked service name>/<secret name>/<secret version>`형식으로 암호를 직접 입력할 수도 있습니다. 패키지에서 32 비트 런타임을 실행 해야 하는 경우 **32 비트 런타임** 확인란을 선택 합니다.
 
-   **패키지 위치**에서 **SSISDB**, **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택 합니다. Azure SQL Database 서버 또는 관리 되는 인스턴스에서 호스팅되는 SSIS 카탈로그 (SSISDB)를 사용 하 여 Azure-SSIS IR 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **ssisdb** 를 선택 하는 경우 배포 된 패키지를 실행할 패키지를 지정 합니다. SSISDB로 전환 합니다. 
+   **패키지 위치**에서 **SSISDB**, **파일 시스템 (패키지)** , **파일 시스템 (프로젝트)** 또는 **포함 된 패키지**를 선택 합니다. Azure SQL Database 서버 또는 관리 되는 인스턴스에서 호스팅되는 SSIS 카탈로그 (SSISDB)를 사용 하 여 Azure-SSIS IR 프로 비전 된 경우 자동으로 선택 되는 패키지 위치로 **ssisdb** 를 선택 하는 경우 배포 된 패키지를 실행할 패키지를 지정 합니다. SSISDB로 전환 합니다. 
 
     Azure-SSIS IR 실행 중이 고 **수동 항목** 확인란의 선택을 취소 한 경우 SSISDB에서 기존 폴더, 프로젝트, 패키지 또는 환경을 찾아서 선택 합니다. 새로 추가 된 폴더, 프로젝트, 패키지 또는 환경을 검색 및 선택에 사용할 수 있도록 SSISDB에서 페치 하려면 **새로 고침** 을 선택 합니다. 패키지 실행을 위한 환경을 찾아보거나 선택 하려면 해당 환경을 SSISDB 아래의 동일한 폴더에서 참조로 추가 하도록 프로젝트를 미리 구성 해야 합니다. 자세한 내용은 [SSIS 환경 만들기 및 매핑](https://docs.microsoft.com/sql/integration-services/create-and-map-a-server-environment?view=sql-server-2014)을 참조 하세요.
 
@@ -82,6 +82,10 @@ ms.locfileid: "73673743"
    그런 다음 프로젝트, 패키지 또는 구성 파일에 액세스 하기 위한 자격 증명을 지정 합니다. 이전에 패키지 실행 자격 증명의 값을 입력 한 경우 (이전 참조) **패키지 실행 자격 증명과 동일** 확인란을 선택 하 여 다시 사용할 수 있습니다. 그렇지 않으면 **도메인**, **사용자 이름**및 **암호** 상자에 패키지 액세스 자격 증명 값을 입력 합니다. 예를 들어 Azure Files에서 프로젝트, 패키지 또는 구성을 저장 하는 경우 도메인이 `Azure`되 고 사용자 이름은 `<storage account name>`되며 암호는 `<storage account key>`됩니다. 
 
    또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). 이러한 자격 증명은 패키지 실행 태스크의 패키지 및 자식 패키지에 액세스 하는 데 사용 됩니다. 여기에는 패키지에 지정 된 구성 뿐만 아니라 자체 경로 또는 동일한 프로젝트도 포함 됩니다. 
+
+   패키지 위치로 **포함 된 패키지** 를 선택 하는 경우 패키지를 끌어서 놓아 파일 폴더에서 제공 된 상자에 패키지를 실행 하거나 **업로드** 합니다. 패키지가 자동으로 압축 되 고 활동 페이로드에 포함 됩니다. 포함 된 후 나중에 편집을 위해 패키지를 **다운로드할** 수 있습니다. 또한 여러 작업에서 사용할 수 있는 파이프라인 매개 변수에 할당 하 여 포함 된 패키지를 **매개 변수화** 할 수 있습니다. 따라서 파이프라인 페이로드의 크기를 최적화 합니다. 포함 된 패키지를 모두 암호화 하지 않고 패키지 실행 태스크를 사용 하는 경우 **패키지 실행 태스크** 확인란이 자동으로 선택 되 고 해당 파일 시스템 참조가 포함 된 관련 자식 패키지도 자동으로 추가 됩니다. 패키지 실행 태스크의 사용을 검색할 수 없는 경우 수동으로 **패키지 실행 태스크** 확인란을 선택 하 고 해당 자식 패키지를 포함 하는 파일 시스템 참조를 사용 하 여 관련 자식 패키지를 추가 해야 합니다. 자식 패키지가 SQL Server 참조를 사용 하는 경우 Azure-SSIS IR에서 SQL Server에 액세스할 수 있는지 확인 하세요.  자식 패키지에 대 한 프로젝트 참조 사용은 현재 지원 되지 않습니다.
+   
+   ![설정 탭의 속성 설정 - 수동](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-settings5.png)
    
    SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptAllWithPassword** 또는 **EncryptSensitiveWithPassword** 보호 수준을 사용한 경우 **암호화 암호** 상자에 암호 값을 입력 합니다. 또는 키 자격 증명 모음에 저장 된 암호를 해당 값으로 사용할 수 있습니다 (이전 참조). **EncryptSensitiveWithUserKey** 보호 수준을 사용한 경우 구성 파일 또는 **SSIS 매개 변수**, **연결 관리자**또는 **속성 재정의** 탭에서 중요 한 값을 다시 입력 합니다 (뒷부분 참조). 
 
@@ -111,7 +115,7 @@ ms.locfileid: "73673743"
 
    ![연결 관리자 탭의 속성 설정](media/how-to-invoke-ssis-package-ssis-activity/ssis-activity-connection-managers.png)
 
-1. SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당 합니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 예를 들어 사용자 변수의 값을 재정의 하려면 `\Package.Variables[User::<variable name>].Value` 형식으로 해당 경로를 입력 합니다. 
+1. SSIS 패키지 실행 작업의 **속성 재정의** 탭에서 선택한 패키지의 기존 속성 경로를 하나씩 입력 하 여 수동으로 값을 할당 합니다. 패키지 실행이 성공적으로 실행 되 고 올바르게 입력 되었는지 확인 합니다. 예를 들어 사용자 변수의 값을 재정의 하려면 `\Package.Variables[User::<variable name>].Value`형식으로 해당 경로를 입력 합니다. 
    
    SQL Server Data Tools를 통해 패키지를 만들 때 **EncryptSensitiveWithUserKey** 보호 수준을 사용 하는 경우 패키지 위치로 **파일 시스템 (패키지)** 또는 **파일 시스템 (프로젝트)** 을 선택한 경우에도 다시 입력 해야 합니다. 구성 파일 또는이 탭에서 값을 할당 하는 중요 한 속성 
    
@@ -281,7 +285,7 @@ ms.locfileid: "73673743"
    }
    ```
 
-   파일 시스템, 파일 공유 또는 Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지 또는 로그 위치 속성에 대 한 값을 입력 합니다.
+   파일 시스템, 파일 공유 또는 Azure Files에 저장 된 패키지를 실행 하려면 다음과 같이 패키지 및 로그 위치 속성에 대 한 값을 입력 합니다.
 
    ```json
    {
@@ -353,6 +357,31 @@ ms.locfileid: "73673743"
                                    "value": "MyAccountKey"
                                }
                            }
+                       }
+                   }
+               }
+           }
+       }
+   }
+   ```
+
+   포함 된 패키지를 실행 하려면 다음과 같이 package location 속성에 대 한 값을 입력 합니다.
+
+   ```json
+   {
+       {
+           {
+               {
+                   "packageLocation": {
+                       "type": "InlinePackage",
+                       "typeProperties": {
+                           "packagePassword": {
+                               "type": "SecureString",
+                               "value": "MyEncryptionPassword"
+                           },
+                           "packageName": "MyPackage.dtsx",
+                           "packageContent":"My compressed/uncompressed package content",
+                           "packageLastModifiedDate": "YYYY-MM-DDTHH:MM:SSZ UTC-/+HH:MM"
                        }
                    }
                }

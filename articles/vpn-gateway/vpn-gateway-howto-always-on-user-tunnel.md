@@ -1,5 +1,6 @@
 ---
-title: VPN gateway에 대 한 Always On VPN 사용자 터널 구성
+title: Always On VPN 사용자 터널 구성
+titleSuffix: Azure VPN Gateway
 description: 이 문서에서는 VPN gateway에 대 한 Always On VPN 사용자 터널을 구성 하는 방법을 설명 합니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: 9aa1f951add5b79eab12f4957be05a42bbdd4434
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 099ed3c3c0ac2abe034388849385a45b44b32b34
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299916"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145958"
 ---
 # <a name="configure-an-always-on-vpn-user-tunnel"></a>Always On VPN 사용자 터널 구성
 
@@ -30,11 +31,11 @@ Always On VPN 연결에는 다음 두 가지 유형의 터널 중 하나가 포�
 
 다음 섹션에서는 VPN gateway와 사용자 터널을 구성 합니다.
 
-## <a name="step-1-configure-a-vpn-gateway"></a>1단계: VPN Gateway 구성
+## <a name="step-1-configure-a-vpn-gateway"></a>1 단계: VPN gateway 구성
 
 이 [지점 및 사이트](vpn-gateway-howto-point-to-site-resource-manager-portal.md) 간 문서의 지침에 따라 IKEv2 및 인증서 기반 인증을 사용 하도록 VPN gateway를 구성 합니다.
 
-## <a name="step-2-configure-a-user-tunnel"></a>2단계: 사용자 터널 구성
+## <a name="step-2-configure-a-user-tunnel"></a>2 단계: 사용자 터널 구성
 
 1. 이 [지점 및 사이트 간 VPN 클라이언트](point-to-site-how-to-vpn-client-install-azure-cert.md) 문서에 표시 된 대로 Windows 10 클라이언트에 클라이언트 인증서를 설치 합니다. 인증서가 현재 사용자 저장소에 있어야 합니다.
 

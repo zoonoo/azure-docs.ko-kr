@@ -1,5 +1,5 @@
 ---
-title: 검색 서비스를 프로 비전 하는 동안 가격 책정 계층 또는 SKU 선택
+title: 가격 책정 계층 또는 SKU 선택
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search는 무료, 기본 및 표준의 Sku로 프로 비전 할 수 있으며, Standard는 다양 한 리소스 구성 및 용량 수준에서 사용할 수 있습니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 249ce8e51ff61bac5d418d9e173ec2caed24e0e5
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9caadddf281c6df29f6e36057c7b28abcef0e1c4
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794263"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112516"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -80,9 +80,9 @@ Azure Cognitive Search을 기반으로 하는 솔루션은 다음과 같은 방�
 
 | 작업(Operation) | 청구 영향 |
 |-----------|----------------|
-| 문서 크랙, 텍스트 추출 | 체험판 |
+| 문서 크랙, 텍스트 추출 | 무료 |
 | 문서 크랙, 이미지 추출 | 문서에서 추출 된 이미지의 수에 따라 요금이 청구 됩니다. [인덱서 구성](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)에서 **imageaction** 은 이미지 추출을 트리거하는 매개 변수입니다. **Imageaction** 이 "none" (기본값)으로 설정 된 경우 이미지 추출에 대 한 요금이 청구 되지 않습니다. 이미지 추출 율은 Azure Cognitive Search에 대 한 [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/search/) 페이지에 설명 되어 있습니다.|
-| [기본 제공 인식 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
+| [기본 제공 인지 기술](cognitive-search-predefined-skills.md) | Cognitive Services를 직접 사용 하 여 작업을 수행한 것과 동일한 요금으로 청구 됩니다. |
 | 사용자 지정 기술 | 사용자 지정 기술은 사용자가 제공 하는 기능입니다. 사용자 지정 기술 사용 비용은 사용자 지정 코드가 다른 요금제 서비스를 호출 하는지 여부에 따라 전적으로 달라 집니다. |
 
 <a name="search-units"></a>

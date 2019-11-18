@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
-description: 정책이 언제 적용되고 어떤 영향이 있는지 설명함으로써 Azure Policy가 조직의 리소스에 대한 규칙을 설정하기 위해 리소스 정책 정의가 어떻게 사용되는지 설명합니다.
+description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50edf2941aeb24d800752eec1e93f69abf4211ea
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 6288a7d013256c39e83ee433e867d15f67c81e57
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960008"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132828"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -20,7 +20,7 @@ ms.locfileid: "73960008"
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
 - 모드
-- 매개 변수
+- parameters
 - 표시 이름
 - 설명
 - 정책 규칙
@@ -63,7 +63,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>모드
 
 **모드** 는 정책이 Azure Resource Manager 속성을 대상으로 하는지 아니면 리소스 공급자 속성을 대상으로 하는지에 따라 구성 됩니다.
 
@@ -394,7 +394,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 수정 된 정책 규칙을 사용 하는 경우 `if()`은 3 자 미만의 값에 대 한 `substring()` 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
-### <a name="effect"></a>결과
+### <a name="effect"></a>영향
 
 Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
@@ -490,7 +490,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예:
+사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어:
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

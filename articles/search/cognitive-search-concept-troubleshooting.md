@@ -1,5 +1,5 @@
 ---
-title: AI 보강에 대 한 문제 해결 팁
+title: AI 보강 디자인에 대 한 팁
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search에서 AI 보강 파이프라인 설정에 대 한 팁과 문제 해결.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 485dd47e035f03a8e20ded4c8a424f1658f5246a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3fef5db90c3ae63a8fa48835646e09f9dfe6f023
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787711"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113835"
 ---
-# <a name="troubleshooting-tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대 한 문제 해결 팁
+# <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search AI 보강에 대 한 팁
 
 이 문서에는 Azure Cognitive Search에서 AI 보강 기능을 시작할 때 계속 진행 하는 데 도움이 되는 팁과 요령 목록이 포함 되어 있습니다. 
 
@@ -103,10 +103,10 @@ https://docs.microsoft.com/azure/search/search-howto-indexing-azure-blob-storage
 [병렬 인덱싱](search-howto-large-index.md)의 경우 여러 컨테이너에 데이터를 또는 동일한 컨테이너 내부에 여러 가상 폴더를 저장합니다. 그런 다음, 여러 데이터 원본 및 인덱서 쌍을 만듭니다. 모든 인덱서는 동일한 기술 집합을 사용하며 동일한 대상 검색 인덱스에 쓸 수 있으므로 검색 앱이 이 분할을 알 필요가 없습니다.
 자세한 내용은 [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)을 참조합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 + [빠른 시작: 포털에서 AI 보강 파이프라인 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: AI 보강 REST Api 학습](cognitive-search-tutorial-blob.md)
 + [데이터 원본 자격 증명 지정](search-howto-indexing-azure-blob-storage.md#how-to-specify-credentials)
 + [큰 데이터 세트 인덱싱](search-howto-indexing-azure-blob-storage.md#indexing-large-datasets)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [인덱스에 보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

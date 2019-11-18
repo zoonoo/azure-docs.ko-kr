@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: cab67a9a50d8e9d91897c170ef2cb0884f169c64
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 5cdd65d5509d8f46f095d91c509a1fda288517c4
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606668"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132426"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
 
@@ -38,7 +38,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 | MySQL 패치     | 자동  | 고객이 관리 |
 | 고가용성 | HA (고가용성) 모델은 노드 수준의 중단이 발생 한 경우에 대 한 기본 제공 장애 조치 (failover) 메커니즘을 기반으로 합니다. 이 경우 서비스는 새 인스턴스를 자동으로 만들고이 인스턴스에 저장소를 연결 합니다. | 고객은 고가용성을 설계, 구현, 테스트 및 유지 관리 합니다. 기능에는 always on 장애 조치 (failover) 클러스터링, always on 그룹 복제, 로그 전달 또는 트랜잭션 복제가 포함 될 수 있습니다.|
 | 영역 중복 | 현재 지원되지 않음 | Azure Vm은 서로 다른 가용성 영역에서 실행 되도록 설정할 수 있습니다. 온-프레미스 솔루션의 경우 고객은 자체 보조 데이터 센터를 만들고 관리 하 고 유지 관리 해야 합니다.|
-| 하이브리드 시나리오 | [입력 데이터 복제](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)를 사용 하 여 외부 MySQL 서버에서 Azure Database for MySQL 서비스로 데이터를 동기화 할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](https://docs.microsoft.com/azure/postgresql/concepts-read-replicas) 기능을 사용 하면 Azure Database for MySQL 마스터 서버에서 최대 5 개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다.| 고객이 관리
+| 하이브리드 시나리오 | [입력 데이터 복제](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)를 사용 하 여 외부 MySQL 서버에서 Azure Database for MySQL 서비스로 데이터를 동기화 할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) 기능을 사용 하면 Azure Database for MySQL 마스터 서버에서 최대 5 개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다.| 고객이 관리
 | 백업 및 복원 | 에서 자동으로 [서버 백업을](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) 만들고 로컬 중복 또는 지역 중복 인 사용자 구성 저장소에 저장 합니다. 이 서비스는 전체, 차등 및 트랜잭션 로그 백업을 수행 합니다. | 고객이 관리 |
 | 데이터베이스 작업 모니터링 | 는 데이터베이스 작업에 대해 [경고를 설정](https://docs.microsoft.com/azure/mysql/concepts-monitoring) 하 고 임계값에 도달 하는 데 사용할 수 있는 기능을 고객에 게 제공 합니다. | 고객이 관리 |
 | 고급 위협 보호 | [고급 위협 방지 기능](https://docs.microsoft.com/azure/mysql/howto-database-threat-protection-portal)을 제공 합니다. 이 보호는 비정상적인 활동을 감지 하 여 데이터베이스에 액세스 하거나 악용 하려는 잠재적으로 유해한 시도를 감지 합니다. | 고객은 스스로이 보호를 구축 해야 합니다.

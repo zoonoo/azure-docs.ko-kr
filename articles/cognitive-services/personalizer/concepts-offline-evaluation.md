@@ -1,7 +1,7 @@
 ---
 title: 오프 라인 평가 방법 사용-Personalizer
 titleSuffix: Azure Cognitive Services
-description: 이 C# 빠른 시작에서는 Personalizer 서비스를 사용하여 피드백 루프를 만듭니다.
+description: 이 문서에서는 오프 라인 평가를 사용 하 여 앱의 효율성을 측정 하 고 학습 루프를 분석 하는 방법을 설명 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 6b7414d67a5c5b068c675ef7b57391b8990a7a16
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72515579"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953085"
 ---
 # <a name="offline-evaluation"></a>오프라인 평가
 
@@ -98,4 +98,5 @@ Personalizer는 사용자의 동작(및 이에 따라 보상)을 소급하여 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Personalizer @no__t 구성](how-to-settings.md)-1[오프 라인 평가 실행](how-to-offline-evaluation.md) [Personalizer 작동 방법](how-personalizer-works.md) 이해
+[Personalizer 구성](how-to-settings.md)
+[ 오프 라인 평가 실행](how-to-offline-evaluation.md) [작동 방법 이해](how-personalizer-works.md)

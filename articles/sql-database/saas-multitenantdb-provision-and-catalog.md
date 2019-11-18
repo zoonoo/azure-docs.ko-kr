@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: billgib,andrela,stein
 ms.date: 09/24/2018
-ms.openlocfilehash: cae0b2730a9426b183dc330a18a76122ac87cc66
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ea18ee23d845b2d16209b23de14dc3cd70aaa59
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817936"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133140"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>공유 다중 테넌트 Azure SQL 데이터베이스를 사용하여 SaaS 애플리케이션에 새 테넌트를 프로비전하고 카탈로그로 만들기
 
@@ -63,11 +63,11 @@ ms.locfileid: "73817936"
 - 데이터베이스의 서비스 계층 또는 버전.
 - 데이터베이스 스키마의 버전.
 - 테넌트 이름 및 해당 SLA(서비스 수준 약정).
-- 애플리케이션 관리, 고객 지원 또는 devops 프로세스를 사용하도록 설정하기 위한 정보.  
+- 애플리케이션 관리, 고객 지원 또는 devops 프로세스를 사용하도록 설정하기 위한 정보.
 
-카탈로그를 사용하여 테넌트 간 보고, 스키마 관리, 분석용 데이터 추출을 지원할 수도 있습니다. 
+카탈로그를 사용하여 테넌트 간 보고, 스키마 관리, 분석용 데이터 추출을 지원할 수도 있습니다.
 
-### <a name="elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리 
+### <a name="elastic-database-client-library"></a>Elastic Database 클라이언트 라이브러리
 
 Wingtip에서 카탈로그는 *tenantcatalog* 데이터베이스에서 구현됩니다. *tenantcatalog*는 [EDCL(Elastic Database 클라이언트 라이브러리)](sql-database-elastic-database-client-library.md)의 분할 관리 기능을 사용하여 생성됩니다. 라이브러리는 애플리케이션에서 데이터베이스에 저장된 기반 *분할 맵*을 생성, 관리 및 사용할 수 있게 해줍니다. 분할 맵은 분할된 데이터베이스인 해당 분할을 통해 테넌트 키를 상호 참조합니다.
 
@@ -108,7 +108,7 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 - 테넌트를 다른 테넌트와 공유하는 기존 데이터베이스에 프로비전.
 - 테넌트를 자체 데이터베이스에 프로비전.
 
-그런 다음 테넌트 데이터가 초기화되고 카탈로그 분할 맵에 등록됩니다. 샘플 앱에서 여러 테넌트를 포함하는 데이터베이스는 *tenants1* 또는 *tenants2*와 같은 제네릭 이름이 지정됩니다. 단일 테넌트를 포함하는 데이터베이스에는 테넌트의 이름이 지정됩니다. 샘플에 사용 되는 특정 명명 규칙은 패턴에서 중요한 부분이 아닙니다. 카탈로그를 사용하면 데이터베이스에 아무 이름이나 할당할 수 있기 때문입니다.  
+그런 다음 테넌트 데이터가 초기화되고 카탈로그 분할 맵에 등록됩니다. 샘플 앱에서 여러 테넌트를 포함하는 데이터베이스는 *tenants1* 또는 *tenants2*와 같은 제네릭 이름이 지정됩니다. 단일 테넌트를 포함하는 데이터베이스에는 테넌트의 이름이 지정됩니다. 샘플에 사용 되는 특정 명명 규칙은 패턴에서 중요한 부분이 아닙니다. 카탈로그를 사용하면 데이터베이스에 아무 이름이나 할당할 수 있기 때문입니다.
 
 <a name="goto_1_tutorial"/>
 
@@ -122,17 +122,17 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 > * 다중 테넌트 및 단일 테넌트 데이터베이스에 테넌트 일괄 처리 프로 비전
 > * 카탈로그에 데이터베이스 및 테넌트 매핑 등록
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>선행 조건
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
 - Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
-- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어 있어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
+- Wingtip Tickets SaaS 다중 테넌트 데이터베이스 앱이 배포되어야 합니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS 다중 테넌트 데이터베이스 애플리케이션 배포 및 탐색](saas-multitenantdb-get-started-deploy.md)을 참조하세요.
 
 - Wingtip 스크립트 및 소스 코드를 가져옵니다.
     - Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플리케이션 소스 코드는 [WingtipTicketsSaaS-MultitenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) GitHub 리포지토리에서 확인할 수 있습니다.
-    - Wingtip 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요. 
+    - Wingtip 스크립트를 다운로드하고 차단을 해제하는 단계는 [일반 지침](saas-tenancy-wingtip-app-guidance-tips.md)을 참조하세요.
 
 ## <a name="provision-a-tenant-into-a-database-shared-with-other-tenants"></a>다른 테넌트와 *공유하는* 데이터베이스에 테넌트 프로비전
 
@@ -144,8 +144,8 @@ SaaS 애플리케이션에서 이러한 변경 내용은 테넌트 데이터베�
 
 - **새 테넌트 키 계산**: 테넌트 이름에서 테넌트 키를 만드는 데에는 해시 함수가 사용됩니다.
 - **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
-- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.  
-- **카탈로그에 테넌트 등록**: 새 테넌트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다. 
+- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
+- **카탈로그에 테넌트 등록**: 새 테넌트 키와 기존 tenants1 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
 - **테넌트의 이름을 카탈로그 확장 테이블에 추가**: 카탈로그의 테넌트 테이블에 장소 이름이 추가됩니다.  이 추가는 추가적인 애플리케이션 관련 데이터를 지원하도록 카탈로그 데이터베이스를 확장하는 방법입니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Bushwillow Blues* 이벤트 페이지가 열립니다.
 
@@ -168,11 +168,11 @@ Wingtip 앱이 공유 데이터베이스에 새 테넌트를 프로비전하는 
 
 4. 스크립트 실행이 중단점에서 중지된 후 **F11**을 눌러 한 단계씩 코드를 실행합니다.
 
-   ![debug](media/saas-multitenantdb-provision-and-catalog/debug.png)
+   ![디버그](media/saas-multitenantdb-provision-and-catalog/debug.png)
 
 5. **디버그** 메뉴 옵션(**F10** 및 **F11** 키)을 사용하여 스크립트 실행을 추적하면서 피호출 함수로 이동합니다.
 
-PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
+PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 [PowerShell 스크립트 사용 및 디버깅 관련 팁](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)을 참조하세요.
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>테넌트를 *자체* 데이터베이스에 프로비전
 
@@ -184,7 +184,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 - **테넌트 키의 존재 여부 확인**:카탈로그를 확인하여 키가 아직 등록되지 않았는지 확인합니다.
 - **새 테넌트 데이터베이스 만들기**: Resource Manager 템플릿을 사용해 *basetenantdb*를 복사하여 데이터베이스를 만듭니다.  새 데이터베이스 이름은 테넌트 이름을 기반으로 합니다.
 - **데이터베이스를 카탈로그에 추가**: 새 테넌트 데이터베이스가 카탈로그에 하나의 분할된 데이터베이스로 등록됩니다.
-- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.  
+- **기본 테넌트 데이터베이스에서 테넌트 초기화**: 새 테넌트 정보를 추가하도록 테넌트 데이터베이스가 업데이트됩니다.
 - **카탈로그에 테넌트 등록**: 새 테넌트 키와 *sequoiasoccer* 데이터베이스 간의 매핑이 카탈로그에 추가됩니다.
 - **테넌트 이름이 카탈로그에 추가됨**: 장소 이름이 카탈로그의 테넌트 확장 테이블에 추가됩니다.
 - **새 테넌트에 대한 이벤트 페이지 열기**: 브라우저에 *Sequoia Soccer* 이벤트 페이지가 열립니다.
@@ -217,7 +217,7 @@ PowerShell 스크립트를 디버깅하는 방법에 대한 자세한 내용은 
 
 2. **F5**를 누르고 스크립트를 실행합니다.
 
-### <a name="verify-the-deployed-set-of-tenants"></a>배포된 테넌트 집합 확인 
+### <a name="verify-the-deployed-set-of-tenants"></a>배포된 테넌트 집합 확인
 
 이 단계에서는 공유 데이터베이스에 혼합 테넌트가 배포되었고, 테넌트가 자체 데이터베이스에 배포되었습니다. Azure Portal을 사용하여 생성된 데이터베이스를 검사할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 SQL 서버 목록으로 이동하여 **tenants1-mt-\<USER\>** 서버를 엽니다.  **SQL 데이터베이스** 목록에 공유 데이터베이스 **tenants1** 및 자체 데이터베이스에 있는 테넌트의 데이터베이스가 표시될 것입니다.
 
@@ -227,7 +227,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 
 #### <a name="using-wingtip-tickets-events-hub-page"></a>Wingtip 티켓 이벤트 허브 페이지 사용
 
-브라우저에서 이벤트 허브 페이지 열기(http:events.wingtip-mt.\<USER\>.trafficmanager.net)  
+브라우저에서 이벤트 허브 페이지 열기(http:events.wingtip-mt.\<USER\>.trafficmanager.net)
 
 #### <a name="using-catalog-database"></a>카탈로그 데이터베이스 사용
 
@@ -245,7 +245,7 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 3. *TenantsExtended* 보기를 마우스 오른쪽 단추로 클릭하고 **상위 1000개 행 선택**을 선택합니다. 테넌트 이름과 다른 테넌트의 데이터베이스 간 매핑을 확인합니다.
 
     ![SSMS의 ExtendedTenants 보기](media/saas-multitenantdb-provision-and-catalog/extendedtenantsview.png)
-      
+
 ## <a name="other-provisioning-patterns"></a>기타 프로비전 패턴
 
 이 섹션에서는 다른 흥미로운 프로비전 패턴을 설명합니다.
@@ -263,13 +263,13 @@ Azure Portal은 테넌트 데이터베이스를 표시하지만 공유 데이터
 ## <a name="additional-resources"></a>추가 리소스
 
 <!-- - Additional [tutorials that build upon the Wingtip SaaS application](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
-- [Elastic Database 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)
-- [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://msdn.microsoft.com/powershell/scripting/core-powershell/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [탄력적 데이터베이스 클라이언트 라이브러리](sql-database-elastic-database-client-library.md)
+- [Windows PowerShell ISE에서 스크립트를 디버그하는 방법](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서 학습한 방법은 다음과 같습니다.
 
 > [!div class="checklist"]
 > * 새로운 단일 테넌트를 공유 다중 테넌트 데이터베이스 및 자체 데이터베이스에 프로비전

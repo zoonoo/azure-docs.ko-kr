@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 00805d6284c166d0ec03b9fe88482377a9488314
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 75995eeb3f8255cb4c60d5be267f9c343edfea89
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084858"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111861"
 ---
 # <a name="process-change-feed-in-azure-blob-storage-preview"></a>Azure Blob Storage에서 변경 피드 처리 (미리 보기)
 
@@ -36,9 +36,9 @@ ms.locfileid: "74084858"
 
 ## <a name="connect-to-the-storage-account"></a>스토리지 계정에 연결
 
-[Cloudstorageaccount. TryParse](/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.tryparse) 메서드를 호출 하 여 연결 문자열을 구문 분석 합니다. 
+[Cloudstorageaccount. TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse) 메서드를 호출 하 여 연결 문자열을 구문 분석 합니다. 
 
-그런 다음 [CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.cloudstorageaccount.createcloudblobclient?view=azure-dotnet) 메서드를 호출 하 여 저장소 계정에서 Blob Storage 나타내는 개체를 만듭니다.
+그런 다음 [CreateCloudBlobClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient) 메서드를 호출 하 여 저장소 계정에서 Blob Storage 나타내는 개체를 만듭니다.
 
 ```cs
 public bool GetBlobClient(ref CloudBlobClient cloudBlobClient, string storageConnectionString)

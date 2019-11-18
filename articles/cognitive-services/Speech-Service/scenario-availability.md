@@ -1,7 +1,7 @@
 ---
 title: 시나리오 가용성-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech 서비스의 지역에 대한 참조입니다.
+description: 음성 SDK는 다양 한 프로그래밍 언어 및 환경에서 다양 한 시나리오를 제공 합니다. 모든 시나리오를 모든 프로그래밍 언어 또는 모든 환경에서 아직 사용할 수 있는 것은 아닙니다. 각 시나리오의 가용성은 아래에 나와 있습니다.
 services: cognitive-services
 author: chrisbasoglu
 manager: xdh
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 6ec31df7cef8391728eae7845f64f55bb1c6466a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491350"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075769"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
-음성 서비스 SDK는 다양 한 프로그래밍 언어 및 환경에서 다양 한 시나리오를 제공 합니다.  모든 시나리오를 현재 모든 프로그래밍 언어 또는 모든 환경에서 사용할 수 있는 것은 아닙니다.  각 시나리오의 가용성은 아래에 나와 있습니다.
+음성 SDK는 다양 한 프로그래밍 언어 및 환경에서 다양 한 시나리오를 제공 합니다. 모든 시나리오를 모든 프로그래밍 언어 또는 모든 환경에서 아직 사용할 수 있는 것은 아닙니다. 각 시나리오의 가용성은 아래에 나와 있습니다.
 
 - **SR (음성 인식), 구 목록, 의도, 번역 및 온-프레미스 컨테이너**
   - 화살표 링크가 있는 모든 프로그래밍 언어/환경 <img src="media/index/link.jpg" height="15" width="15"></img> [여기](https://aka.ms/csspeech)에서 빠른 시작 표를 참조 하세요.
@@ -33,7 +33,7 @@ ms.locfileid: "73491350"
   - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.
 - **KWS (Keyword 발견)**
   - C++/Swindows & Linux
-  - C#/Swindows & Linux
+  - C#/Windows & Linux
   - Python/Windows & Linux
   - Java/Windows & Linux & Android (음성 장치 SDK)
   - KWS (Keyword 발견) 기능은 모든 마이크 종류에 사용할 수 있지만, 공식 KWS 지원은 현재 Azure Kinect 진한 하드웨어 또는 음성 장치 SDK에 있는 마이크 배열로 제한 되어 있습니다.

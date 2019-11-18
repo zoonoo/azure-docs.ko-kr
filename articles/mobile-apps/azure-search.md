@@ -7,15 +7,15 @@ ms.service: vs-appcenter
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: emalani
-ms.openlocfilehash: 1e3e198c38215ceacbe43961bf93ab906e5ccc09
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 335df16e6a6436485521611aee0f0a62edca8a3b
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73846254"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123458"
 ---
 # <a name="ai-powered-cloud-service-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하는 AI 지원 클라우드 서비스
-[Azure Cognitive Search](https://azure.microsoft.com/services/search/) 는 웹, 모바일 및 엔터프라이즈 응용 프로그램에 있는 개인, 다른 유형의 콘텐츠에 대해 풍부한 검색 환경을 추가 하기 위한 개발자 api 및 도구를 제공 하는 서비스를 제공 하는 서비스 클라우드 솔루션입니다. 사용자 지정 코드는 데이터 수집(인덱싱)을 호출하여 인덱스를 만들고 로드합니다. 다른 쪽에서는 애플리케이션 코드가 쿼리 요청을 발행하고 응답을 처리합니다. 검색 환경은 Azure Cognitive Search의 기능을 사용 하 여 클라이언트에서 정의 되 고, 서비스에 만들고 소유 하 고 저장 하는 지속형 인덱스에 대해 쿼리를 실행 합니다.
+[Azure Cognitive Search](https://azure.microsoft.com/services/search/) 는 웹, 모바일 및 엔터프라이즈 응용 프로그램에 있는 개인, 다른 유형의 콘텐츠에 대해 풍부한 검색 환경을 추가 하기 위한 개발자 api 및 도구를 제공 하는 서비스를 제공 하는 서비스 클라우드 솔루션입니다. 사용자 지정 코드는 데이터 수집(인덱싱)을 호출하여 인덱스를 만들고 로드합니다. 다른 쪽에서는 애플리케이션 코드가 쿼리 요청을 발행하고 응답을 처리합니다. 검색 환경은 Azure Cognitive Search의 기능을 사용하여 클라이언트에 정의되며, 서비스에서 만들고, 소유하고, 저장하는 지속형 인덱스에 대한 쿼리를 실행합니다.
 
 ## <a name="azure-cognitive-search-features"></a>Azure Cognitive Search 기능
 - 전체 텍스트 검색, 단순 쿼리 구문 및 lucene 쿼리 구문을 사용 하 여 **자유 형식 텍스트 검색**
@@ -33,7 +33,7 @@ Azure Cognitive Search [기능](/azure/search/search-what-is-azure-search#featur
 - [Azure Portal](https://portal.azure.com) 
 - [설명서](/azure/search/)
 - [개발자 가이드](https://azure.microsoft.com/resources/iot-developers-guide/)
-- [Azure Cognitive Search를 사용 하는 방법](/azure/search/search-what-is-azure-search#how-to-use-azure-search)
+- [Azure Cognitive Search를 사용 하는 방법](/azure/search/search-what-is-azure-search#how-to-use-azure-cognitive-search)
 - [빠른 시작](/azure/search/search-create-service-portal)
 
   

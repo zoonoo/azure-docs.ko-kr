@@ -1,7 +1,7 @@
 ---
 title: Bing Entity Search API로 검색 요청 보내기
 titleSuffix: Azure cognitive Services
-description: Bing Entity Search API로 검색 요청을 보내는 방법 알아보기
+description: Bing Entity Search API는 Bing에 검색 쿼리를 보내고 엔터티 및 장소가 포함된 결과를 가져옵니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: 0788b220f2612170fdea974a8bb27e8374a0b3be
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f68429a75ddb141c9e42babde3faa9f93fe949cc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879216"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072677"
 ---
 # <a name="sending-search-requests-to-the-bing-entity-search-api"></a>Bing Entity Search API로 검색 요청 보내기
 
@@ -62,11 +62,11 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Bing API 중 하나를 처음으로 호출하는 경우 클라이언트 ID 헤더를 포함하지 마세요. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
+Bing API 중 하나를 처음으로 호출한 경우 클라이언트 ID 헤더를 포함하지 마십시오. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
 
 ## <a name="the-response"></a>응답
 
-다음은 이전 쿼리에 대한 응답을 보여 줍니다. 또한 이 예제는 Bing 관련 응답 헤더를 보여줍니다. 응답 개체에 대한 정보는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse)를 참조하세요.
+다음은 이전 쿼리에 대한 응답을 보여줍니다. 또한 이 예제는 Bing 관련 응답 헤더를 보여줍니다. 응답 개체에 대한 정보는 [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#searchresponse)를 참조하세요.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 

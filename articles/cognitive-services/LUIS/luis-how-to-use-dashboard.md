@@ -1,7 +1,7 @@
 ---
 title: 대시보드-Language Understanding-LUIS
 titleSuffix: Azure Cognitive Services
-description: 시각화 된 보고 도구인 분석 대시보드를 사용 하 여 의도를 수정 합니다.
+description: 학습 된 앱의 대시보드를 사용 하 여 의도 및 엔터티를 수정 합니다. 대시보드는 전체 앱 정보를 표시 하 고 수정 해야 하는 의도를 강조 표시 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 22e187bba3782e485685354c203a6273d5bcc618
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: d9ae126753f55349f9bf3eefd20bc4d222866af1
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735045"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888207"
 ---
 # <a name="how-to-use-the-dashboard-to-improve-your-app"></a>대시보드를 사용 하 여 앱을 개선 하는 방법
 
@@ -30,10 +30,10 @@ ms.locfileid: "70735045"
 
 대시보드에서 해결 된 세 가지 문제는 다음과 같습니다.
 
-|문제점|차트 색|설명|
+|문제|차트 색|설명|
 |--|--|--|
 |데이터 불균형|-|이는 예 길이 발언의 수량이 현저 하 게 다를 때 발생 합니다. 모든 의도에는 _거의_ 동일한 수의 예 길이 발언 (없음)를 포함 해야 합니다. 앱에서 길이 발언의 총 수량에 대해 10%-15%만 있어야 합니다.<br><br> 데이터의 균형이 맞지 않지만 의도 정확도가 특정 임계값을 초과 하는 경우 이러한 불균형은 문제로 보고 되지 않습니다.<br><br>**이 문제부터 시작 하 여 다른 문제의 근본 원인일 수 있습니다.**|
-|명확 하지 않은 예측|주황|이는 [부정적인 샘플링](luis-how-to-train.md#train-with-all-data) 또는 더 많은 예제 길이 발언가 의도에 추가 되었기 때문에 다음 학습에 대해 전환할 수 있을 만큼의 최고 도와 다음 의도의 점수가 가까이 있을 때 발생 합니다. |
+|명확 하지 않은 예측|주황색|이는 [부정적인 샘플링](luis-how-to-train.md#train-with-all-data) 또는 더 많은 예제 길이 발언가 의도에 추가 되었기 때문에 다음 학습에 대해 전환할 수 있을 만큼의 최고 도와 다음 의도의 점수가 가까이 있을 때 발생 합니다. |
 |잘못 된 예측|빨강|이는 utterance 예제에서 레이블이 지정 된 의도 (의 의도)에 대해 예측 하지 않을 때 발생 합니다.|
 
 올바른 예측은 파란색으로 표시 됩니다.
@@ -100,7 +100,7 @@ ms.locfileid: "70735045"
 
 > [!Tip]
 > **길이 발언 (number)** 설정으로 **길이 발언** 에 대 한 페이지의 세 번째 섹션을 사용 하 여 더 많은 길이 발언를 필요로 하는 의도에 대 한 빠른 시각적 가이드를 참조 하세요.  
-    ![' 길이 발언 (number) '를 사용 하 여 데이터 불균형의 의도를 찾습니다.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
+    ' 길이 발언 (number) '를 사용 하 여 데이터 불균형의 의도를 찾을 ![.](./media/luis-how-to-use-dashboard/predictions-per-intent-number-of-utterances.png)
 
 ### <a name="review-incorrect-predictions"></a>잘못 된 예측 검토
 
@@ -154,7 +154,7 @@ ms.locfileid: "70735045"
 
 필터를 사용 하 여 특정 문제에 대 한 의도를 찾을 수 있습니다.
 
-|Filter|제안 된 비율|용도|
+|Filter|제안 된 비율|목적|
 |--|--|--|
 |가장 문제가 있는 의도|-|**여기부터 시작** -이 의도에서 길이 발언를 수정 하면 앱이 다른 픽스 보다 더 향상 됩니다.|
 |아래에서 올바른 예측|60%|이 값은 선택 된 의도에서 올바르지만 정확도 점수가 임계값 보다 길이 발언 비율입니다. |

@@ -1,18 +1,15 @@
 ---
-title: 요청 한도 및 제한 - Azure Resource Manager
+title: 요청 제한 및 제한
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/26/2019
-ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 7d53e5749385499113d0dc5261398561d82347a0
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: b47943d69d209f5a0406c293b5a24c6ac0ad0c10
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72965558"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150479"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -28,13 +25,13 @@ ms.locfileid: "72965558"
 
 시간당 기본 제한 제한은 다음 표에 나와 있습니다.
 
-| 범위 | 운영 | 제한 |
+| 범위 | 작업 | 제한 |
 | ----- | ---------- | ------- |
-| Subscription | 나타납니다 | 12000 |
-| Subscription | 되며 | 15000 |
-| Subscription | 쓰므로 | 1200 |
-| 테넌트 | 나타납니다 | 12000 |
-| 테넌트 | 쓰므로 | 1200 |
+| 구독 | reads | 12000 |
+| 구독 | 되며 | 15000 |
+| 구독 | writes | 1200 |
+| 테넌트 | reads | 12000 |
+| 테넌트 | writes | 1200 |
 
 이러한 제한의 범위는 요청을 하는 보안 주체(사용자 또는 애플리케이션) 및 구독 ID나 테넌트 ID의 범위로 설정됩니다. 둘 이상의 보안 주체가 요청을 하는 경우 구독 또는 테넌트 전체에 적용되는 제한이 시간당 12,000개/1,200개보다 커집니다.
 

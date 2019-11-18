@@ -1,7 +1,7 @@
 ---
 title: OData order by 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 order by 구문을 위한 OData 언어 참조입니다.
+description: Azure Cognitive Search 쿼리에서 order by를 사용 하는 방법에 대 한 구문 및 언어 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: e3ca19b5696b9a7ad9b68b180313753a5c9de912
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 99ec639b88f3334530243242aadfa0ab52a40df0
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793295"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113155"
 ---
 # <a name="odata-orderby-syntax-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData $orderby 구문
 
@@ -56,11 +56,11 @@ sortable_function ::= geo_distance_call | 'search.score()'
 
 여러 정렬 기준을 지정할 수 있습니다. 식의 순서는 최종 정렬 순서를 결정합니다. 예를 들어 점수를 기준으로 내림차순으로 정렬 하 고 그 다음에 등급을 정렬 하려면 구문을 `$orderby=search.score() desc,Rating desc`합니다.
 
-**$orderby**에서 `geo.distance`에 대한 구문은 **$filter**에 있을 때와 같습니다. **$orderby**에서 `geo.distance`를 사용하는 경우 적용되는 필드는 `Edm.GeographyPoint` 형식이어야 하고 `sortable`이어야 합니다.
+`geo.distance`$orderby**에서** 에 대한 구문은 **$filter**에 있을 때와 같습니다. `geo.distance`$orderby**에서** 를 사용하는 경우 적용되는 필드는 `Edm.GeographyPoint` 형식이어야 하고 `sortable`이어야 합니다.
 
-**$orderby**에서 `search.score`에 대한 구문은 `search.score()`입니다. `search.score` 함수는 매개 변수를 사용 하지 않습니다.
+`search.score`$orderby**에서** 에 대한 구문은 `search.score()`입니다. `search.score` 함수는 매개 변수를 사용 하지 않습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 호텔을 기본 요금의 오름차순으로 정렬합니다.
 

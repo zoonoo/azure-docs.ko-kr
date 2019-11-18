@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 881c41ea7a28e64d2840f4a92bd64fab5dbd12ba
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961521"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123837"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -21,7 +21,7 @@ ms.locfileid: "73961521"
 
 ## <a name="deployment-method-support"></a>배포 방법 지원 여부
 
-**배포웹사이트를** |  **지원**
+**배포** |  **지원**
 --- | ---
 **Azure Portal** | 지원됩니다.
 **PowerShell** | 지원됩니다. [자세히 알아보기](azure-to-azure-powershell.md)
@@ -47,7 +47,7 @@ ms.locfileid: "73961521"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 아메리카 | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 북부, 노르웨이 동부, 노르웨이 서 부
+Europe | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 북부, 노르웨이 동부, 노르웨이 서 부
 아시아 | 인도 남부, 인도 중부, 인도 서 부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국 남부, 아랍에미리트 중부, 아랍에미리트 북부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부 
@@ -73,7 +73,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 --- | --- | ---
 범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
 Premium Storage | 지원되지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
-가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.
+가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 서브넷 하나 이상에 대 한 액세스를 허용 하는지 확인 합니다.
 
 
 ## <a name="replicated-machine-operating-systems"></a>복제된 컴퓨터 운영 체제

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c4c8f123eb8c32362219f21dc70d137f2cc9b4b1
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74078818"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74119975"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -281,7 +281,7 @@ B2C 테 넌 트에서 사용자를 검색 하려면 다음과 같은 방법을 �
 
 * 사용자의 **개체 ID**를 참조 합니다.
 * `signInNames` 속성의 로그인 식별자를 참조 합니다.
-* 유효한 OData 매개 변수 (예: givenName, 성, displayName 등)를 참조 합니다.
+* 유효한 OData 매개 변수를 참조 합니다. 예: ' givenName ', ' 성 ', ' displayName ' 등
 
 다음 명령 중 하나를 실행 하 여 사용자를 검색 합니다.
 
@@ -290,7 +290,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-예:
+예를 들어:
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -332,7 +332,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 예:
+출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 예를 들어:
 
 ```json
 {

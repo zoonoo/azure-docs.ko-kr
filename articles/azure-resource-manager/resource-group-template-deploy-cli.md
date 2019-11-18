@@ -1,17 +1,14 @@
 ---
-title: Azure CLI 및 템플릿으로 리소스 배포 | Microsoft Docs
+title: Azure CLI 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure CLI를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.author: tomfitz
-ms.openlocfilehash: e2f1747b8ae98ce53ce570422044a2f172c1a526
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c31a139e40953bf3b652af2172cd5c51578c45cc
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73834470"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149736"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>리소스 관리자 템플릿과 Azure CLI로 리소스 배포
 
@@ -98,11 +95,11 @@ az group deployment create --resource-group examplegroup \
   --parameters storageAccountType=Standard_GRS
 ```
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
-### <a name="inline-parameters"></a>인라인 매개 변수
+### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
 인라인 매개 변수를 전달하려면 `parameters`에 값을 제공합니다. 예를 들어 Bash 셸에서 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
 
@@ -113,7 +110,7 @@ az group deployment create \
   --parameters exampleString='inline string' exampleArray='("value1", "value2")'
 ```
 
-Windows 명령 프롬프트 (CMD) 또는 PowerShell을 사용 하 여 Azure CLI를 사용 하는 경우 `exampleArray="['value1','value2']"` 형식으로 배열을 전달 합니다.
+Windows 명령 프롬프트 (CMD) 또는 PowerShell을 사용 하 여 Azure CLI를 사용 하는 경우 배열을 `exampleArray="['value1','value2']"`형식으로 전달 합니다.
 
 파일의 콘텐츠를 가져와서 해당 콘텐츠를 인라인 매개 변수로 제공할 수도 있습니다.
 
@@ -124,7 +121,7 @@ az group deployment create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어, [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
+파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어 [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
 
 arrayContent.json 형식은 다음과 같습니다.
 
@@ -153,7 +150,7 @@ az group deployment create \
 
 ## <a name="handle-extended-json-format"></a>확장 JSON 형식 처리
 
-여러 줄 문자열 또는 주석을 사용 하 여 템플릿을 배포 하려면 `--handle-extended-json-format` 스위치를 사용 해야 합니다.  예:
+여러 줄 문자열 또는 주석을 사용 하 여 템플릿을 배포 하려면 `--handle-extended-json-format` 스위치를 사용 해야 합니다.  예를 들어:
 
 ```json
 {

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 812daaf42a987e9dd63bbc39b60c517d8f0cc761
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882487"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111764"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -98,8 +98,8 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 
 - 컨테이너 (파일 시스템)
 - Storage 계정
-- Resource group
-- Subscription
+- 리소스 그룹
+- 구독
 
 역할을 확인 하 고 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
@@ -305,16 +305,9 @@ URL은이 명령의 출력에 표시 됩니다. 그런 다음 스크립트에서
 /usr/bin/keyctl new_session
 ```
 
-## <a name="use-azcopy-in-storage-explorer"></a>Storage 탐색기에서 AzCopy 사용
+## <a name="use-azcopy-in-azure-storage-explorer"></a>Azure Storage 탐색기에서 AzCopy 사용
 
-AzCopy의 성능 이점을 활용 하려는 경우 명령줄이 아닌 Storage 탐색기를 사용 하 여 파일과 상호 작용 하려면 Storage 탐색기에서 AzCopy를 사용 하도록 설정 하는 것이 좋습니다.
-
-Storage 탐색기에서 **Preview** 를 선택 하**여 향상 된 Blob 업로드 및 다운로드를 위해 AzCopy를 사용**-> 합니다.
-
-![Azure Storage 탐색기에서 전송 엔진으로 AzCopy 사용](media/storage-use-azcopy-v10/enable-azcopy-storage-explorer.jpg)
-
-> [!NOTE]
-> 저장소 계정에서 계층적 네임 스페이스를 사용 하도록 설정한 경우이 설정을 사용 하도록 설정할 필요가 없습니다. Storage 탐색기는 계층 네임 스페이스가 있는 저장소 계정에서 자동으로 AzCopy를 사용 하기 때문입니다.  
+[Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) AzCopy를 사용 하 여 모든 데이터 전송 작업을 수행 합니다. AzCopy의 성능 이점을 활용 하려는 경우에는 [Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용할 수 있지만 명령줄이 아닌 그래픽 사용자 인터페이스를 사용 하 여 파일을 조작 하는 것이 좋습니다.
 
 Storage 탐색기는 계정 키를 사용 하 여 작업을 수행 하므로 Storage 탐색기에 로그인 한 후에는 추가 권한 부여 자격 증명을 제공할 필요가 없습니다.
 

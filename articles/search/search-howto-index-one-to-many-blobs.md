@@ -1,7 +1,7 @@
 ---
-title: 전체 텍스트 검색을 위해 Azure Blob 인덱서에서 하나의 blob을 여러 검색 인덱스 문서로 인덱싱합니다.
+title: 여러 문서를 포함 하는 인덱스 blob
 titleSuffix: Azure Cognitive Search
-description: Azure Congitive Search Blob 인덱서를 사용 하 여 텍스트 콘텐츠에 대 한 Azure blob을 탐색 합니다. 각 blob은 하나 이상의 검색 인덱스 문서를 생성할 수 있습니다.
+description: Azure Congitive Search Blob 인덱서를 사용 하 여 Azure blob에서 텍스트 콘텐츠를 탐색 합니다. 여기서 각 Blob은 하나 이상의 검색 인덱스 문서를 생성할 수 있습니다.
 manager: nitinme
 author: arv100kri
 ms.author: arjagann
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 127354e55a81e379825b41759f2b6150ba554a12
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1840bda0ecc9462a5d8f796b616d728d0bb412f7
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818538"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112272"
 ---
 # <a name="indexing-blobs-to-produce-multiple-search-documents"></a>여러 검색 문서를 생성 하는 blob 인덱싱
 기본적으로 blob 인덱서는 blob의 내용을 단일 검색 문서로 처리 합니다. 특정 **parsingMode** 값은 개별 blob이 여러 검색 문서를 발생 시킬 수 있는 시나리오를 지원 합니다. 인덱서가 blob에서 둘 이상의 검색 문서를 추출할 수 있는 다양 한 유형의 **parsingMode** 는 다음과 같습니다.
@@ -31,7 +31,7 @@ Azure Cognitive Search 인덱스에 표시 되는 각 문서는 문서 키로 �
 
 기본적으로 키 인덱스 필드에 대 한 명시적 필드 매핑이 지정 되지 않은 경우 `base64Encode` 필드 매핑 함수를 사용 하 여 `AzureSearch_DocumentKey`에 매핑됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 다음 필드를 사용 하 여 인덱스 정의가 있다고 가정 합니다.
 + `id`
 + `temperature`
@@ -40,12 +40,12 @@ Azure Cognitive Search 인덱스에 표시 되는 각 문서는 문서 키로 �
 
 그리고 blob 컨테이너에는 다음 구조의 blob이 있습니다.
 
-_Blob1.txt_
+_Blob1.json_
 
     { "temperature": 100, "pressure": 100, "timestamp": "2019-02-13T00:00:00Z" }
     { "temperature" : 33, "pressure" : 30, "timestamp": "2019-02-14T00:00:00Z" }
 
-_Blob2_
+_Blob2.json_
 
     { "temperature": 1, "pressure": 1, "timestamp": "2018-01-12T00:00:00Z" }
     { "temperature" : 120, "pressure" : 3, "timestamp": "2013-05-11T00:00:00Z" }
@@ -71,13 +71,13 @@ _Blob2_
 
 이전 예제와 동일한 인덱스 정의를 가정 하 고 blob 컨테이너에 다음 구조의 blob이 있다고 가정 합니다.
 
-_Blob1.txt_
+_Blob1.json_
 
     recordid, temperature, pressure, timestamp
     1, 100, 100,"2019-02-13T00:00:00Z" 
     2, 33, 30,"2019-02-14T00:00:00Z" 
 
-_Blob2_
+_Blob2.json_
 
     recordid, temperature, pressure, timestamp
     1, 1, 1,"2018-01-12T00:00:00Z" 

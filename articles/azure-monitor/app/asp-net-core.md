@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 8a87335dba237e8088275706f7dcc2eb7f34831a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8f39556fcffea5f254e5362dbb1b55762f60c9b3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887555"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131944"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -41,7 +41,7 @@ ms.locfileid: "73887555"
 
 ## <a name="enable-application-insights-server-side-telemetry-visual-studio"></a>서버 쪽 원격 분석 Application Insights 사용 (Visual Studio)
 
-1. Visual Studio에서 새 프로젝트를 엽니다.
+1. Visual Studio에서 프로젝트를 엽니다.
 
     > [!TIP]
     > 원할 경우 프로젝트에 대 한 소스 제어를 설정 하 여 Application Insights에서 수행 하는 모든 변경 내용을 추적할 수 있습니다. 소스 제어를 사용 하도록 설정 하려면 **파일** > **소스 제어에 추가**를 선택 합니다.
@@ -107,7 +107,7 @@ ms.locfileid: "73887555"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예:
+    예를 들어:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -249,7 +249,7 @@ public void ConfigureServices(IServiceCollection services)
 
 ### <a name="adding-telemetry-processors"></a>원격 분석 프로세서 추가
 
-`IServiceCollection`에서 `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 `TelemetryConfiguration`에 사용자 지정 원격 분석 프로세서를 추가할 수 있습니다. [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor)에서 원격 분석 프로세서를 사용 합니다. 다음 예제를 사용 합니다.
+`IServiceCollection`에서 `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 `TelemetryConfiguration`에 사용자 지정 원격 분석 프로세서를 추가할 수 있습니다. [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer)에서 원격 분석 프로세서를 사용 합니다. 다음 예제를 사용 합니다.
 
 ```csharp
 public void ConfigureServices(IServiceCollection services)

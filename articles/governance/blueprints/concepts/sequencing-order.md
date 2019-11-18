@@ -1,14 +1,14 @@
 ---
 title: 배포 순서 이해
-description: 청사진 정의가 거치는 수명 주기와 각 단계에 대 한 세부 정보를 알아보세요.
+description: 청사진을 할당 하는 동안 청사진 아티팩트가 배포 되는 기본 순서와 배포 순서를 사용자 지정 하는 방법에 대해 알아봅니다.
 ms.date: 08/22/2019
 ms.topic: conceptual
-ms.openlocfilehash: 87eff48f977f0308fea563090a44ff0b301909a9
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 51026862c989f15acf6d3e21702cfcfc8b2b27b0
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960446"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128827"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Azure Blueprint의 배포 순서 이해
 

@@ -1,17 +1,14 @@
 ---
-title: Azure Resource Manager 매개 변수 파일 만들기
+title: 매개 변수 파일 만들기
 description: Azure Resource Manager 템플릿을 배포 하는 동안 값을 전달 하기 위한 매개 변수 파일 만들기
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-ms.openlocfilehash: 4305213d272172cb89bfdd207b6c8106af3f4939
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 7333e33af90ff7883b53a24bacdc63b42bf107ee
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983943"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149457"
 ---
 # <a name="create-resource-manager-parameter-file"></a>리소스 관리자 매개 변수 파일 만들기
 
@@ -200,7 +197,7 @@ ms.locfileid: "70983943"
 
 ## <a name="parameter-name-conflicts"></a>매개 변수 이름 충돌
 
-템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate**인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다. 배포 명령에 사용 되지 않는 매개 변수 이름을 사용 하 여 이러한 혼동을 피할 수 있습니다.
+템플릿에 PowerShell 명령의 매개 변수 중 하나와 이름이 같은 매개 변수가 포함되어 있으면 PowerShell에서 접미사가 **FromTemplate**인 템플릿에서 매개 변수를 제공합니다. 예를 들어 템플릿의 **ResourceGroupName** 매개 변수는 **New-AzResourceGroupDeployment** cmdlet의 [ResourceGroupName](/powershell/module/az.resources/new-azresourcegroupdeployment) 매개 변수와 충돌합니다. **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다. 배포 명령에 사용 되지 않는 매개 변수 이름을 사용 하 여 이러한 혼동을 피할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

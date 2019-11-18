@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 383cade6e8bb5f66aa240564912056ec345a1ee6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500172"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904217"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -30,7 +30,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| language |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
@@ -76,7 +76,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 ## <a name="tokenization"></a>토큰화
 기계 학습을 수행하기 위해 LUIS는 문화권에 따라 발화를 [토큰](luis-glossary.md#token)으로 구분합니다.
 
-|language|  모든 공백 또는 특수 문자 | 문자 수준|복합 단어|[토큰화된 엔터티가 반환됨](luis-concept-data-extraction.md#tokenized-entity-returned)
+|언어|  모든 공백 또는 특수 문자 | 문자 수준|복합 단어|[토큰화된 엔터티가 반환됨](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
 |중국어||✔||✔|
 |네덜란드어|||✔|✔|
@@ -96,10 +96,10 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|문화권|버전|목적|
+|Culture|버전|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우 `Ich fahre einen kranken wagen`됩니다. `kranken` 및 `wagen`를 다른 엔터티로 독립적으로 표시할 수 있습니다.|
-|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우에는 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen`은 단일 엔터티로 표시 됩니다. |
+|독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우에는 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>토크 버전 간 마이그레이션
 <!--
@@ -206,4 +206,4 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 
 토큰화는 앱 수준에서 발생 합니다. 버전 수준 토큰화는 지원 되지 않습니다. 
 
-버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md#import-an-app-from-file). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다. 
+버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다. 

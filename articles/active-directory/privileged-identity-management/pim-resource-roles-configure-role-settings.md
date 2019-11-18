@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a302e723aa898a62bc43ecb38343bcf026dc769e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74022931"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74144264"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -48,11 +48,19 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
 
     ![몇 가지 할당 및 활성화 설정을 나열 하는 역할 설정 세부 정보 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
 
-1. **편집** 을 선택 하 여 역할 설정 창을 엽니다.
+1. **편집** 을 선택 하 여 **역할 설정** 창을 엽니다. 첫 번째 탭에서는 Privileged Identity Management에서 역할 활성화에 대 한 구성을 업데이트할 수 있습니다.
 
-    ![할당 및 활성화 설정 업데이트 옵션을 사용 하 여 역할 설정 페이지 편집](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![활성화 탭이 열려 있는 역할 설정 편집 페이지](./media/pim-resource-roles-configure-role-settings/role-settings-activation-tab.png)
 
-    각 역할에 대한 역할 설정 페이지에서 몇 가지 설정을 구성할 수 있습니다.
+1. **할당 탭 또는** 페이지 맨 아래에 있는 **다음: 할당** 단추를 선택 하 여 할당 설정 탭을 엽니다. 이러한 설정은 Privileged Identity Management 인터페이스 내에서 수행 되는 역할 할당을 제어 합니다.
+
+    ![역할 설정 페이지의 역할 할당 탭](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
+
+1. **알림** 탭 또는 페이지 맨 아래에 있는 **다음: 활성화** 단추를 사용 하 여이 역할에 대 한 알림 설정 탭으로 이동할 수 있습니다. 이러한 설정은이 역할과 관련 된 모든 전자 메일 알림을 제어 합니다.
+
+    ![역할 설정 페이지의 역할 알림 탭](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
+
+1. 언제 든 지 **업데이트** 단추를 선택 하 여 역할 설정을 업데이트 합니다.
 
 ## <a name="assignment-duration"></a>할당 기간
 

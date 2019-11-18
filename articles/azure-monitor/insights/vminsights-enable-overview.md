@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/29/2019
-ms.openlocfilehash: 7e3dad5405289ee2d1f4ec8f7a586da70db9d56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 40282fdb192037d63bff8b0037f09b8b27cf3b1e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162249"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109186"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-overview"></a>VM용 Azure Monitor 사용 (미리 보기) 개요
 
@@ -25,7 +25,7 @@ VM용 Azure Monitor을 설정 하려면:
 * PowerShell을 사용하여 지정된 구독 또는 리소스 그룹에 걸친 둘 이상의 Azure VM 또는 가상 머신 확장 집합을 사용하도록 설정합니다.
 * VM용 Azure Monitor 사용 하 여 회사 네트워크 또는 다른 클라우드 환경에서 호스트 되는 Vm 또는 물리적 컴퓨터를 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 시작하기 전에 다음 섹션의 정보를 이해해야 합니다. 
 
@@ -37,25 +37,23 @@ VM용 Azure Monitor을 설정 하려면:
 VM용 Azure Monitor는 다음 지역에서 Log Analytics 작업 영역을 지원 합니다.
 
 - 미국 중서부
-- 미국 서 부<sup>1</sup>
-- 미국 서 부 2<sup>1</sup>
-- 미국 중부 중부<sup>1</sup>
+- 미국 서부
+- 미국 서부 2
+- 미국 중남부
 - 미국 동부
-- 동부 미국<sup>1</sup>
-- 미국 중부<sup>1</sup>
-- 미국 중 북부<sup>1</sup>
+- 미국 동부2
+- 미국 중부
+- 미국 중북부
 - 캐나다 중부
 - 영국 남부
-- 북아메리카 유럽<sup>1</sup>
-- 서유럽
-- 동아시아<sup>1</sup>
+- 유럽 북부
+- 유럽 서부
+- 아시아 동부
 - 동남아시아
-- 인도 중부<sup>1</sup>
-- 일본 동부<sup>1</sup>
-- 오스트레일리아 동부<sup>1</sup>
-- 오스트레일리아 남동쪽<sup>1</sup>
-
-<sup>1</sup> 이 지역은 현재 VM용 Azure Monitor의 상태 기능을 지원하지 않습니다
+- 인도 중부
+- 일본 동부
+- 오스트레일리아 동부
+- 오스트레일리아 남동부
 
 >[!NOTE]
 >모든 지역에서 Azure Vm을 배포할 수 있습니다. 이러한 Vm은 Log Analytics 작업 영역에서 지원 되는 지역으로 제한 되지 않습니다.
@@ -83,29 +81,25 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 다음 표에는 VM용 Azure Monitor에서 지 원하는 Windows 및 Linux 운영 체제가 나와 있습니다. 이 섹션의 뒷부분에는 주요 Linux OS 릴리스와 지원 되는 커널 버전에 대 한 전체 목록이 나와 있습니다.
 
-|OS 버전 |성능 중심 |지도 |보건 |
-|-----------|------------|-----|-------|
-|Windows Server 2019 | X | X | X |
-|Windows Server 2016 1803 | X | X | X |
-|Windows Server 2016 | X | X | X |
-|Windows Server 2012 R2 | X | X | X |
-|Windows Server 2012 | X | X | |
-|Windows Server 2008 R2 | X | X|  |
-|Windows 10 1803 | X | X | |
-|Windows 8.1 | X | X | |
-|Windows 8 | X | X | |
-|Windows 7 SP1 | X | X | |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| X |
-|Ubuntu 18.04, 16.04 | X | X | X |
-|CentOS Linux 7, 6 | X | X | X |
-|SLES(SUSE Linux Enterprise Server) 12 | X | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | | X |
+|OS 버전 |성능 |지도 |
+|-----------|------------|-----|
+|Windows Server 2019 | X | X |
+|Windows Server 2016 1803 | X | X |
+|Windows Server 2016 | X | X |
+|Windows Server 2012 R2 | X | X |
+|Windows Server 2012 | X | X |
+|Windows Server 2008 R2 | X | X|
+|Windows 10 1803 | X | X |
+|Windows 8.1 | X | X |
+|Windows 8 | X | X |
+|Windows 7 SP1 | X | X |
+|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
+|Ubuntu 18.04, 16.04 | X | X |
+|CentOS Linux 7, 6 | X | X |
+|SLES(SUSE Linux Enterprise Server) 12 | X | X |
+|Debian 9.4, 8 | X<sup>1</sup> | |
 
 <sup>1</sup> VM용 Azure Monitor의 성능 기능은 Azure Monitor에서만 사용할 수 있습니다. Azure VM의 왼쪽 창에서 직접 사용할 수 없습니다.
-
->[!NOTE]
->VM용 Azure Monitor의 상태 기능은 Azure VM에서 [중첩 된 가상화](../../virtual-machines/windows/nested-virtualization.md) 를 지원 하지 않습니다.
->
 
 >[!NOTE]
 >Linux 운영 체제에서 다음을 수행 합니다.
@@ -134,8 +128,8 @@ Log Analytics 작업 영역에서 Azure Policy, Azure PowerShell 또는 Azure Re
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| 6.10 | 2.6.32 커널을-754.3.5<br>2.6.32 커널을-696.30.1 |
-| 6.9 | 2.6.32 커널을-696.30.1<br>2.6.32 커널을-696.18.7 |
+| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
+| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
 
 #### <a name="ubuntu-server"></a>Ubuntu Server
 
@@ -174,13 +168,13 @@ VM용 Azure Monitor 맵 기능은 Microsoft 종속성 에이전트에서 해당 
 
 | 연결된 원본 | 지원됨 | 설명 |
 |:--|:--|:--|
-| Windows 에이전트 | yes | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| Linux 에이전트 | yes | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
-| System Center Operations Manager 관리 그룹 | 아닙니다. | |
+| Windows 에이전트 | 예 | [Windows에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 windows 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| Linux 에이전트 | 예 | Linux [에 대 한 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md)와 함께 linux 에이전트에는 종속성 에이전트가 필요 합니다. 자세한 내용은 [지원 되는 운영 체제](#supported-operating-systems)를 참조 하세요. |
+| System Center Operations Manager 관리 그룹 | 아니오 | |
 
 다음 위치에서 종속성 에이전트를 다운로드할 수 있습니다.
 
-| File | OS | 버전 | SHA-256 |
+| 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.9.2 | 6DFF19B9690E42CA190E3B69137C77904B657FA02895033EAA4C3A6A41DA5C6A |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.9.1 | 1CB447EF30FC042FE7499A686638F3F9B4F449692FB9D80096820F8024BE4D7C |
@@ -195,7 +189,7 @@ Log Analytics 작업 영역에 대한 액세스를 제어하는 방법에 대한
 
 이 표에 설명 된 방법 중 하나를 사용 하 여 VM용 Azure Monitor를 사용 하도록 설정 합니다.
 
-| 배포 상태 | 방법 | 설명 |
+| 배포 상태 | 메서드 | 설명 |
 |------------------|--------|-------------|
 | 단일 Azure VM 또는 가상 머신 확장 집합 | [VM에서 사용](vminsights-enable-single-vm.md) | VM 또는 가상 머신 확장 집합에서 직접 **Insights (미리 보기)** 를 선택 하 여 단일 Azure vm을 사용 하도록 설정할 수 있습니다. |
 | 여러 Azure Vm 또는 가상 머신 확장 집합 | [Azure Policy 통해 사용](vminsights-enable-at-scale-policy.md) | Azure Policy 및 사용 가능한 정책 정의를 사용 하 여 여러 Azure Vm을 사용 하도록 설정할 수 있습니다. |
@@ -266,4 +260,4 @@ Microsoft는 Azure Monitor 서비스를 사용하여 사용 현황 및 성능 �
 
 ## <a name="next-steps"></a>다음 단계
 
-상태 기능을 사용하는 방법을 알아보려면 [VM용 Azure Monitor 상태 보기](vminsights-health.md)를 참조하세요. 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.
+성능 모니터링 기능을 사용 하는 방법에 대 한 자세한 내용은 [VM용 Azure Monitor 성능 보기](vminsights-performance.md)를 참조 하세요. 검색된 애플리케이션 종속성을 보려면 [VM용 Azure Monitor 맵 보기](vminsights-maps.md)를 참조하세요.

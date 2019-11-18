@@ -1,7 +1,7 @@
 ---
 title: Microsoft Translator Hub 작업 영역 및 프로젝트를 마이그레이션하려면? - Custom Translator
 titleSuffix: Azure Cognitive Services
-description: 허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션합니다.
+description: 이 문서에서는 Azure Cognitive Services 사용자 지정 변환기로 허브 작업 영역 및 프로젝트를 마이그레이션하는 방법을 설명 합니다.
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 9c97eaef30a08123605ed4c01810745e312d6aa0
-ms.sourcegitcommit: 9a4296c56beca63430fcc8f92e453b2ab068cc62
+ms.openlocfilehash: 7ea7b48e1fc36399a0ca173f9068faf8b88849d5
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/20/2019
-ms.locfileid: "72675510"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73836587"
 ---
 # <a name="migrate-hub-workspace-and-projects-to-custom-translator"></a>허브 작업 영역 및 프로젝트를 Custom Translator로 마이그레이션
 
@@ -84,7 +84,7 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 
     b. 모든 성공적인 학습: 이 옵션을 선택하면 성공적인 학습 및 관련된 문서가 모두 마이그레이션됩니다.
 
-    다. Custom Translator의 대상 작업 영역 ID를 입력합니다.
+    c. Custom Translator의 대상 작업 영역 ID를 입력합니다.
 
     ![허브에서 마이그레이션하는 방법](media/how-to/how-to-migrate-from-hub-screen.png)
 
@@ -134,10 +134,10 @@ Custom Translator 설정 페이지에서 대상 작업 영역 ID를 찾을 수 �
 |:-----|:----:|:----:|
 |사용자 지정 기능 상태   | 일반 공급  | 일반 공급 |
 | Text API 버전  | V2    | V3  |
-| SMT 사용자 지정 | yes   | 아닙니다. |
-| NMT 사용자 지정 | 아닙니다.    | yes |
-| 새로운 통합 Speech Service 사용자 지정 | 아닙니다.    | yes |
-| 추적이 없음 | yes | yes |
+| SMT 사용자 지정 | 예   | 아니오 |
+| NMT 사용자 지정 | 아니오    | 예 |
+| 새로운 통합 Speech Service 사용자 지정 | 아니오    | 예 |
+| 추적 없음 | 예 | 예 |
 
 ## <a name="new-languages"></a>새 언어
 

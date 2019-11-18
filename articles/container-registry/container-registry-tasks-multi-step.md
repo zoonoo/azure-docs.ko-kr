@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 03/28/2019
 ms.author: danlep
-ms.openlocfilehash: 27321dbcdeae3a830b6ddf5ea70cbaa098d7e4e3
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 06bdcc1cd4f9bfcb1a77140d70435545fbe01079
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931503"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148776"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>ACR 작업에서 다단계 작성, 테스트 및 패치 작업 실행
 
@@ -84,7 +84,7 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
 
-여러 시나리오에 대 한 전체 다단계 작업 YAML 파일 및 Dockerfiles에 대 한 [작업 예][task-examples] 를 참조 하세요.
+여러 시나리오에 대 한 다단계 작업 YAML 파일 및 Dockerfiles의 [작업 예](container-registry-tasks-samples.md) 를 참조 하세요.
 
 ## <a name="run-a-sample-task"></a>샘플 작업 실행
 
@@ -155,7 +155,7 @@ Git 커밋 또는 기본 이미지 업데이트 시의 자동화된 작성 작�
 다단계 작업 참조 및 예제는 아래 문서에서 확인할 수 있습니다.
 
 * [작업 참조](container-registry-tasks-reference-yaml.md) - 작업 단계 유형, 해당 속성 및 사용법을 확인할 수 있습니다.
-* [작업][task-examples] 예-여러 시나리오에 대 한 `task.yaml` 파일은 간단 하 고 복잡 합니다.
+* [작업](container-registry-tasks-samples.md) 예-몇 가지 시나리오에 대 한 `task.yaml` 및 Docker 파일의 예는 간단 하 고 복잡 합니다.
 * [Cmd 리포지토리](https://github.com/AzureCR/cmd) - ACR 작업에 대한 명령인 컨테이너의 컬렉션입니다.
 
 <!-- IMAGES -->

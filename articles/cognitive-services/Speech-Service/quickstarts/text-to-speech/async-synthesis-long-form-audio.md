@@ -10,18 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2c1e6ef84a472ccec5116b12e18ad80c92b68960
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681877"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73930572"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>빠른 시작: Python의 긴 형식 오디오에 대 한 비동기 합성 (미리 보기)
 
 이 빠른 시작에서는 긴 오디오 API를 사용 하 여 비동기적으로 텍스트를 음성으로 변환 하 고 서비스에서 제공 하는 URI에서 오디오 출력을 검색 합니다. 이 REST API는 1만 문자 또는 50 단락 보다 큰 텍스트 파일을 합성 된 음성으로 변환 해야 하는 콘텐츠 공급자에 게 적합 합니다. 자세한 내용은 [긴 오디오 API](../../long-audio-api.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+> [!NOTE]
+> 긴 형식의 오디오에 대 한 비동기 합성은 [사용자 지정 신경망](../../how-to-custom-voice.md#custom-neural-voices)에만 사용할 수 있습니다.
+
+## <a name="prerequisites"></a>선행 조건
 
 이 빠른 시작에는 다음이 필요합니다.
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 54b158528a67dfe77f33f41f3bb4b4570eb4c508
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802209"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120327"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "72802209"
 - G Suite 대상 특성 이름이 [여기](/azure/active-directory/manage-apps/customize-application-attributes)에 정의 된 것과 일치 하도록 업데이트 되었습니다.
 - 기본 특성 매핑을 업데이트 했습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -86,13 +86,13 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
     ![새 도메인 추가][21]
 
-    다. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
+    c. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
 
     ![사용자의 도메인 이름을 입력합니다.][22]
 
     d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google을 사용 하 여 도메인을 확인 하는 방법에 대 한 포괄적인 지침은 [사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)을 참조 하세요.
 
-    ㅁ. G Suite에 추가 하려는 추가 도메인에 대해 위의 단계를 반복 합니다.
+    e. G Suite에 추가 하려는 추가 도메인에 대해 위의 단계를 반복 합니다.
 
 5. 다음으로 G Suite에서 사용자 프로 비전을 관리 하는 데 사용할 관리자 계정을 결정 합니다. **관리자 역할**로 이동 합니다.
 
@@ -131,7 +131,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Azure AD에서 G Suite에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -157,11 +157,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
 7. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 G Suite 계정에 팀 관리자 권한이 있는지 확인합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
 
-8. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
+8. **알림 이메일** 필드에 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![알림 이메일](common/provisioning-notification-email.png)
 
-8. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+8. **저장**을 클릭합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 G Suite에 동기화를**선택 합니다.
 
@@ -183,15 +183,15 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
 14. G Suite에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![프로 비전 상태 전환 설정](common/provisioning-toggle-on.png)
+    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
 15. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 G Suite에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 16. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-    ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 팔 로우 하 여 G Suite의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
@@ -199,6 +199,12 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 > [!NOTE]
 > G Suite에 대 한 사용자 프로 비전을 자동화 하는 다른 유용한 옵션은 [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en)를 사용 하는 것입니다. 이 옵션은 온-프레미스 Active Directory id를 G Suite에 프로 비전 합니다.
+
+## <a name="common-issues"></a>일반적인 문제
+* G Suite를 사용 하려면 프로 비전 된 모든 사용자가 확인 된 도메인에 있어야 합니다. 프로 비전 하려는 모든 사용자에 게 G Suite의 확인 된 도메인에서 UPN이 있는지 확인 합니다. 확인 되지 않은 도메인의 사용자가 프로 비전 범위에 있는 경우 [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 에 "GoogleAppsInvalidDomain"와 같은 오류가 표시 됩니다. 이러한 오류를 방지 하 고 확인 되지 않은 도메인의 사용자가 범위 지정 [필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 사용 하 여 범위를 벗어나지 않도록 할 수 있습니다.
+    * 대상 특성: userPrincipalName
+    * 연산자: REGEX 일치 또는 REGEX 일치 하지 않음
+    * 값:. *@domain.com
 
 ## <a name="additional-resources"></a>추가 리소스
 

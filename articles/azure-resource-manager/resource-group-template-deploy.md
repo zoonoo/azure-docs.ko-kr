@@ -1,17 +1,14 @@
 ---
-title: PowerShell 및 템플릿으로 리소스 배포 | Microsoft Docs
+title: PowerShell 및 템플릿을 사용 하 여 리소스 배포
 description: Azure Resource Manager 및 Azure PowerShell를 사용 하 여 Azure에 리소스를 배포 합니다. 리소스는 Resource Manager 템플릿에 정의됩니다.
-author: tfitzmac
-ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: tomfitz
-ms.openlocfilehash: 0634b069c79495ad6de536b27ebd9981eeb36128
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e726d1154fca1dbcce244783bf987bea6610cf98
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837087"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150715"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-powershell"></a>리소스 관리자 템플릿과 Azure PowerShell로 리소스 배포
 
@@ -39,7 +36,7 @@ New-AzDeployment -Location <location> -TemplateFile <path-to-template>
 
 이 문서의 예제에서는 리소스 그룹 배포를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 배포할 템플릿이 필요 합니다. 아직 없는 경우 Azure 빠른 시작 템플릿 리포지토리에서 [예제 템플릿을](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) 다운로드 하 고 저장 합니다. 이 문서에 사용된 로컬 파일 이름은 **c:\MyTemplates\azuredeploy.json**입니다.
 
@@ -101,7 +98,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName `
 
 매개 변수 값을 전달하려면 인라인 매개 변수 또는 매개 변수 파일을 사용할 수 있습니다.
 
-### <a name="inline-parameters"></a>인라인 매개 변수
+### <a name="inline-parameters"></a>인라인 매개 변수입니다.
 
 인라인 매개 변수를 전달하려면 `New-AzResourceGroupDeployment` 명령을 사용하여 매개 변수 이름을 제공합니다. 예를 들어, 문자열 및 배열을 템플릿에 전달하려면 다음을 사용합니다.
 
@@ -123,7 +120,7 @@ New-AzResourceGroupDeployment -ResourceGroupName testgroup `
   -exampleArray $arrayParam
 ```
 
-파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어, [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
+파일에서 매개 변수 값을 가져오면 구성 값을 제공해야 하는 경우에 유용합니다. 예를 들어 [Linux 가상 머신에 대한 Cloud-Init 값](../virtual-machines/linux/using-cloud-init.md)을 제공할 수 있습니다.
 
 개체의 배열을 전달 해야 하는 경우 PowerShell에서 해시 테이블을 만들고 배열에 추가 합니다. 배포 하는 동안 해당 배열을 매개 변수로 전달 합니다.
 

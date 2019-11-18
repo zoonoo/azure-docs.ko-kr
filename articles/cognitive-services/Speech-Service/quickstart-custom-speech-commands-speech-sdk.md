@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결'
+title: '빠른 시작: 음성 SDK를 사용 하 여 사용자 지정 명령 앱에 연결-음성 서비스'
 titleSuffix: Azure Cognitive Services
 description: 이 문서에서는 사용자 지정 명령을 사용 하 여 음성 SDK 클라이언트 응용 프로그램을 만듭니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 5f395d37e0133a081a6fcb2e03821a97e4012316
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 890d2200a8047bc12c99eed97277e11776806def
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500973"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111166"
 ---
 # <a name="quickstart-connect-to-a-custom-commands-application-with-the-speech-sdk-preview"></a>빠른 시작: 음성 SDK (미리 보기)를 사용 하 여 사용자 지정 명령 응용 프로그램에 연결
 
@@ -26,7 +26,7 @@ ms.locfileid: "73500973"
 - 사용자 지정 명령 응용 프로그램 게시 및 응용 프로그램 식별자 가져오기 (앱 id)
 - 음성 SDK를 사용 하 여 클라이언트 앱을 만들어 사용자 지정 명령 응용 프로그램과 통신할 수 있도록 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 문서를 완료 하려면 사용자 지정 명령 응용 프로그램이 필요 합니다. 사용자 지정 명령 응용 프로그램을 아직 만들지 않은 경우 이러한 이전 빠른 시작에서 수행할 수 있습니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "73500973"
 
 1. [이전에 만든 사용자 지정 명령 응용 프로그램](./quickstart-custom-speech-commands-create-new.md) 을 열고 **게시** 를 선택 합니다.
 
-   > [!div class="mx-imgBorder"]
+   > [!div class="mx-imgBorder"] 
    > 응용 프로그램](media/custom-speech-commands/fulfill-sdk-publish-application.png) ![게시
 
 1. 나중에 사용 하기 위해 게시 알림에서 앱 id를 복사 합니다.
@@ -320,7 +320,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
    ```csharp
    //
-   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities, 
+   // This code sets up handlers for events relied on by `DialogServiceConnector` to communicate its activities,
    // speech recognition results, and other information.
    //
    // ActivityReceived is the main way your client will receive messages, audio, and events
@@ -377,7 +377,7 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 1. `MainPage` 클래스에서 `ListenButton_ButtonClicked` 메서드의 본문에 다음 코드 조각을 추가 합니다.
 
    ```csharp
-   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and 
+   // This code sets up `DialogServiceConnector` to listen, since you already established the configuration and
    // registered the event handlers.
    if (connector == null)
    {
@@ -404,18 +404,18 @@ XAML 코드를 추가 하 여 응용 프로그램의 사용자 인터페이스�
 
 1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 오류 없이 컴파일됩니다.
 
-1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 나타납니다.
+1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 애플리케이션을 시작합니다. **helloworld** 창이 표시됩니다.
 
    ![C#의 샘플 UWP 가상 길잡이 애플리케이션 - 빠른 시작](media/sdk/qs-voice-assistant-uwp-helloworld-window.png)
 
-1. **마이크 사용**을 선택 합니다. 액세스 권한 요청이 팝업 되 면 **예**를 선택 합니다.
+1. **마이크 사용**을 선택합니다. 액세스 권한 요청이 팝업 되 면 **예**를 선택 합니다.
 
    ![마이크 액세스 권한 요청](media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
 1. 대화를 선택 하 고 장치 마이크에 **대해**영어 문구 또는 문장을 말합니다. 음성은 Direct Line Speech 채널로 전송되어 텍스트로 전사되고 창에 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
+
 > [!div class="nextstepaction"]
 > [방법: 음성 SDK를 사용 하 여 클라이언트에서 명령 수행 (미리 보기)](./how-to-custom-speech-commands-fulfill-sdk.md)
 > [방법: 사용자 지정 명령 매개 변수에 유효성 검사 추가 (미리 보기)](./how-to-custom-speech-commands-validations.md)
-

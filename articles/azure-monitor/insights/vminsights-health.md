@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
-ms.date: 10/15/2019
-ms.openlocfilehash: e19ba55e48c537974ad4136d40505514b92d387d
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.date: 11/14/2019
+ms.openlocfilehash: 5fd5295e52f0fef5e1432fdb2f81d2ba0e1717e8
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162284"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109773"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines"></a>Azure virtual machines의 상태 이해
 
@@ -24,60 +24,64 @@ Azure VM 및 기본 OS의 전반적인 상태 보기는 VM에서 직접 또는 A
 
 이 문서에서는 VM용 Azure Monitor 상태 기능에서 검색 되는 상태 문제를 신속 하 게 평가, 조사 및 해결 하는 방법을 보여 줍니다.
 
-VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor 사용하도록 설정](vminsights-enable-overview.md)을 참조하세요.
+VM용 Azure Monitor를 구성하는 방법에 대한 자세한 내용은 [VM용 Azure Monitor를 사용하도록 설정](vminsights-enable-overview.md)을 참조하세요.
+
+>[!NOTE]
+>최근에 공개 미리 보기 고객 으로부터 받은 피드백에 따라 상태 기능에 대 한 [변경을 발표](https://azure.microsoft.com/updates/updates-to-azure-monitor-for-virtual-machines-preview-before-general-availability-release/
+) 했습니다. 변경 되는 내용 수를 고려 하 여 새 고객을 위한 상태 기능 제공을 중지할 예정입니다. 기존 고객은 상태 기능을 계속 사용할 수 있습니다. 자세한 내용은 [일반적인 가용성 FAQ](vminsights-ga-release-faq.md)를 참조 하세요. 
 
 ## <a name="monitoring-configuration-details"></a>모니터링 구성 세부 정보
 
 이 섹션에서는 Azure Windows 및 Linux Vm을 모니터링 하는 기본 상태에 대해 간략하게 설명 합니다. 모든 상태 조건은 비정상 상태를 검색할 때 경고를 보내도록 미리 구성 되어 있습니다.
 
-| 모니터 이름 | 빈도 (분) | Lookback 기간 (분) | 연산자 | 임계값 | 경고 상태 | 심각도 | 작업 범주 | 
+| 모니터 이름 | 빈도 (분) | Lookback 기간 (분) | 연산자 | 임계값 | 경고 상태 | severity | 작업 범주 | 
 |--------------|-----------|----------|----------|-----------|----------------|----------|-------------------|
-| 논리 디스크 온라인 | 5 | 15 | <> | 1 (true) | 위험 | Sev1 | Linux | 
-| 논리적 디스크에서 사용 가능한 공간 | 5 | 15 | < | 200 MB (경고)<br> 100 MB (위험) | 경고 | Sev1<br> Sev2 | Linux | 
-| 논리적 디스크에서 사용 가능한 inode 비율 | 5 | 15 | < | 5% | 위험 | Sev1 | Linux | 
-| 논리적 디스크에서 사용 가능한 공간 비율 | 5 | 15 | < | 5% | 위험 | Sev1 | Linux | 
-| 네트워크 어댑터 상태 | 5 | 15 | <> | 1 (true) | 경고 | Sev2 | Linux | 
-| 운영 체제의 사용 가능한 메모리 (Mb) | 5 | 10 | < | 2.5 M B | 위험 | Sev1 | Linux | 
-| Disk Avg. Disk sec/Read | 5 | 25 | > | 0.05 초 | 위험 | Sev1 | Linux | 
-| Disk Avg. Disk sec/Transfer | 5 | 25 | > | 0.05 초 | 위험 | Sev1 | Linux | 
-| Disk Avg. Disk sec/Write | 5 | 25 | > | 0.05 초 | 위험 | Sev1 | Linux | 
-| 디스크 상태 | 5 | 25 | <> | 1 (true) | 위험 | Sev1 | Linux | 
-| 운영 체제 총 프로세서 시간 비율 | 5 | 10 | >= | 95% | 위험 | Sev1 | Linux | 
-| 총 CPU 사용 백분율 | 5 | 10 | >= | 95% | 위험 | Sev1 | Windows | 
-| 파일 시스템 오류 또는 손상 | 60 | 60 | <> | 4 | 위험 | Sev1 | Windows | 
-| 읽기당 평균 논리적 디스크 시간(초) | 1 | 15 | > | 0.04 s | 경고 | Sev2 | Windows | 
-| 전송당 평균 논리적 디스크 시간(초) | 1 | 15 | > | 0.04 s | 경고 | Sev2 | Windows | 
-| 평균 논리 디스크 쓰기 시간 (초) (논리 디스크) | 1 | 15 | > | 0.04 s | 경고 | Sev2 | Windows | 
-| 현재 디스크 큐 길이(논리 디스크) | 5 | 60 | >= | 32 | 경고 | Sev2 | Windows | 
-| 논리 디스크 사용 가능 공간 (MB) | 15 | 60 | > | 500 MB 경고<br> 300 심각 | 위험 | Sev1<br> Sev2 | Windows | 
-| 논리 디스크 사용 가능한 공간 (%) | 15 | 60 | > | 10% 경고<br> 5% 위험 | 위험 | Sev1<br> Sev2 | Windows |
-| 논리적 디스크의 유휴 시간 비율 | 15 | 360 | <= | 20% | 경고 | Sev2 | Windows | 
-| 읽기에 사용된 대역폭 비율 | 5 | 60 | >= | 60% | 경고 | Sev2 | Windows | 
-| 총 사용된 대역폭 비율 | 5 | 60 | >= | 75% | 경고 | Sev2 | Windows | 
-| 쓰기에 사용된 대역폭 비율 | 5 | 60 | >= | 60% | 경고 | Sev2 | Windows | 
-| DHCP 클라이언트 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| DNS 클라이언트 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| Windows 이벤트 로그 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| Windows 방화벽 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| RPC 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| 서버 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| Windows 원격 관리 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 위험 | Sev1 | Windows | 
-| 메모리의 사용 가능 메가바이트 | 5 | 10 | < | 100MB | 위험 | Sev1 | Windows | 
-| 사용 가능한 시스템 페이지 테이블 항목 | 5 | 10 | <= | 5,000 | 위험 | Sev1 | Windows | 
-| 초당 메모리 페이지 수 | 5 | 10 | >= | 5000/초 | 경고 | Sev1 | Windows | 
-| 사용 중인 커밋된 메모리 비율 | 5 | 10 | > | 80% | 위험 | Sev1 | Windows | 
-| 전송당 평균 디스크 시간(초) | 1 | 15 | > | 0.04 s | 경고 | Sev2 | Windows | 
-| 평균 디스크 쓰기 시간 (초) | 1 | 15 | > | 0.04 s | 경고 | Sev2 | Windows | 
-| 현재 디스크 큐 길이 | 5 | 60 | >= | 32 | 경고 | Sev2 | Windows | 
-| 디스크의 유휴 시간 비율 | 5 | 60 | >= | 20% | 경고 | Sev2 | Windows | 
+| 논리 디스크 온라인 | 5 | 15 | <> | 1 (true) | 심각 | Sev1 | Linux | 
+| 논리적 디스크에서 사용 가능한 공간 | 5 | 15 | < | 200 MB (경고)<br> 100 MB (위험) | Warning | Sev1<br> Sev2 | Linux | 
+| 논리적 디스크에서 사용 가능한 inode 비율 | 5 | 15 | < | 5% | 심각 | Sev1 | Linux | 
+| 논리적 디스크에서 사용 가능한 공간 비율 | 5 | 15 | < | 5% | 심각 | Sev1 | Linux | 
+| 네트워크 어댑터 상태 | 5 | 15 | <> | 1 (true) | Warning | Sev2 | Linux | 
+| 운영 체제의 사용 가능한 메모리 (Mb) | 5 | 10 | < | 2.5 M B | 심각 | Sev1 | Linux | 
+| Disk Avg. Disk sec/Read | 5 | 25 | > | 0.05 초 | 심각 | Sev1 | Linux | 
+| Disk Avg. Disk sec/Transfer | 5 | 25 | > | 0.05 초 | 심각 | Sev1 | Linux | 
+| Disk Avg. Disk sec/Write | 5 | 25 | > | 0.05 초 | 심각 | Sev1 | Linux | 
+| 디스크 상태 | 5 | 25 | <> | 1 (true) | 심각 | Sev1 | Linux | 
+| 운영 체제 총 프로세서 시간 비율 | 5 | 10 | >= | 95% | 심각 | Sev1 | Linux | 
+| 총 CPU 사용 백분율 | 5 | 10 | >= | 95% | 심각 | Sev1 | Windows | 
+| 파일 시스템 오류 또는 손상 | 60 | 60 | <> | 4 | 심각 | Sev1 | Windows | 
+| 읽기당 평균 논리적 디스크 시간(초) | 1 | 15 | > | 0.04 s | Warning | Sev2 | Windows | 
+| 전송당 평균 논리적 디스크 시간(초) | 1 | 15 | > | 0.04 s | Warning | Sev2 | Windows | 
+| 평균 논리 디스크 쓰기 시간 (초) (논리 디스크) | 1 | 15 | > | 0.04 s | Warning | Sev2 | Windows | 
+| 현재 디스크 큐 길이(논리 디스크) | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| 논리 디스크 사용 가능 공간 (MB) | 15 | 60 | > | 500 MB 경고<br> 300 심각 | 심각 | Sev1<br> Sev2 | Windows | 
+| 논리 디스크 사용 가능한 공간 (%) | 15 | 60 | > | 10% 경고<br> 5% 위험 | 심각 | Sev1<br> Sev2 | Windows |
+| 논리적 디스크의 유휴 시간 비율 | 15 | 360 | <= | 20% | Warning | Sev2 | Windows | 
+| 읽기에 사용된 대역폭 비율 | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| 총 사용된 대역폭 비율 | 5 | 60 | >= | 75% | Warning | Sev2 | Windows | 
+| 쓰기에 사용된 대역폭 비율 | 5 | 60 | >= | 60% | Warning | Sev2 | Windows | 
+| DHCP 클라이언트 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| DNS 클라이언트 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| Windows 이벤트 로그 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| Windows 방화벽 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| RPC 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| 서버 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| Windows 원격 관리 서비스 상태 | 5 | 12 | <> | 4 (실행 중) | 심각 | Sev1 | Windows | 
+| 메모리의 사용 가능 메가바이트 | 5 | 10 | < | 100 MB | 심각 | Sev1 | Windows | 
+| 사용 가능한 시스템 페이지 테이블 항목 | 5 | 10 | <= | 5,000 | 심각 | Sev1 | Windows | 
+| 초당 메모리 페이지 수 | 5 | 10 | >= | 5000/초 | Warning | Sev1 | Windows | 
+| 사용 중인 커밋된 메모리 비율 | 5 | 10 | > | 80% | 심각 | Sev1 | Windows | 
+| 전송당 평균 디스크 시간(초) | 1 | 15 | > | 0.04 s | Warning | Sev2 | Windows | 
+| 평균 디스크 쓰기 시간 (초) | 1 | 15 | > | 0.04 s | Warning | Sev2 | Windows | 
+| 현재 디스크 큐 길이 | 5 | 60 | >= | 32 | Warning | Sev2 | Windows | 
+| 디스크의 유휴 시간 비율 | 5 | 60 | >= | 20% | Warning | Sev2 | Windows | 
 
 >[!NOTE]
 >Lookback 지속 시간은 최근 5 분 동안 발생 하는 것과 같은 메트릭 값을 확인 하는 빈도를 나타냅니다.  
 
 >[!NOTE]
->빈도는 1 분 간격으로 조건을 충족 하는지 여부를 메트릭 경고에서 확인 하는 빈도를 나타냅니다.  상태 조건이 실행 되는 속도 이며 lookback는 상태 기준이 평가 되는 기간입니다. 예를 들어 상태 조건은 **CPU 사용률이** 5 분 미만인 95%를 초과 하 고 15 분 동안 95% 보다 크게 유지 되는 경우 (3 회 연속 평가 주기) 상태가 위험으로 업데이트 됨을 평가 하는 것입니다. 심각도가 아직 없는 경우
+>빈도는 1 분 간격으로 조건을 충족 하는지 여부를 메트릭 경고에서 확인 하는 빈도를 나타냅니다.  상태 조건이 실행 되는 속도 이며 lookback는 상태 기준이 평가 되는 기간입니다. 예를 들어 상태 조건은 **CPU 사용률이** 5 분인 95%를 초과 하 고 15 분 동안 95% 보다 크게 유지 되는 경우 (3 회 연속 평가 주기), 상태가 아직 없는 경우 위험 심각도로 업데이트 됨을 평가 합니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다.
 
@@ -101,9 +105,9 @@ Azure VM의 상태를 보려면 VM의 왼쪽 창에서 **Insights (미리 보기
 
 |아이콘 |성능 상태 |의미 |
 |-----|-------------|---------------|
-| |정상 |VM이 정의 된 상태 상태에 있습니다. 이 상태는 검색 된 문제가 없으며 VM이 정상적으로 작동 하 고 있음을 나타냅니다. 부모 롤업 모니터를 사용 하 여 상태를 롤업 하 고 자식의 최고 케이스 또는 최악의 상태를 반영 합니다.|
-| |위험 |상태는 정의 된 상태 상태에 있지 않으며, 하나 이상의 중요 한 문제가 검색 되었음을 나타냅니다. 정상적인 기능을 복원 하려면 이러한 문제를 해결 해야 합니다. 부모 롤업 모니터를 사용 하 여 상태는 상태를 롤업 하 고 자식의 최고 케이스 또는 최악의 상태를 반영 합니다.|
-| |경고 |상태는 정의 된 상태 조건에 대해 두 임계값 사이에 있습니다. 여기서 하나는 경고 상태를 나타내고 다른 하나는 위험 상태 (3 가지 상태 임계값을 구성할 수 있음)를 표시 하거나, 중요 하지 않은 문제가 발생할 경우 중요 한 문제가 발생할 수 있습니다. 않았기. 부모 롤업 모니터를 사용 하는 경우 하나 이상의 자식이 경고 상태 이면 부모는 경고 상태를 반영 합니다. 한 자식이 위험 상태이 고 다른 자식이 경고 상태에 있으면 부모 롤업이 상태를 위험으로 표시 합니다.|
+| |Healthy |VM이 정의 된 상태 상태에 있습니다. 이 상태는 검색 된 문제가 없으며 VM이 정상적으로 작동 하 고 있음을 나타냅니다. 부모 롤업 모니터를 사용 하 여 상태를 롤업 하 고 자식의 최고 케이스 또는 최악의 상태를 반영 합니다.|
+| |심각 |상태는 정의 된 상태 상태에 있지 않으며, 하나 이상의 중요 한 문제가 검색 되었음을 나타냅니다. 정상적인 기능을 복원 하려면 이러한 문제를 해결 해야 합니다. 부모 롤업 모니터를 사용 하 여 상태는 상태를 롤업 하 고 자식의 최고 케이스 또는 최악의 상태를 반영 합니다.|
+| |Warning |상태는 정의 된 상태 조건에 대해 두 임계값 사이에 있습니다. 여기서 하나는 경고 상태를 나타내고 다른 하나는 위험 상태 (3 가지 상태 임계값을 구성할 수 있음)를 표시 하거나, 중요 하지 않은 문제가 발생할 경우 중요 한 문제가 발생할 수 있습니다. 않았기. 부모 롤업 모니터를 사용 하는 경우 하나 이상의 자식이 경고 상태 이면 부모는 경고 상태를 반영 합니다. 한 자식이 위험 상태이 고 다른 자식이 경고 상태에 있으면 부모 롤업이 상태를 위험으로 표시 합니다.|
 | |알 수 없음 |여러 가지 이유로 상태를 계산할 수 없습니다. 다음 섹션에서는 추가 세부 정보 및 가능한 해결 방법을 제공 합니다. |
 
 알 수 없는 상태는 다음과 같은 문제로 인해 발생할 수 있습니다.
@@ -111,7 +115,7 @@ Azure VM의 상태를 보려면 VM의 왼쪽 창에서 **Insights (미리 보기
 - 에이전트가 다시 구성 되었으며 VM용 Azure Monitor 사용 하도록 설정 된 경우 지정 된 작업 영역에 더 이상 보고 하지 않습니다. 작업 영역에 보고 하도록 에이전트를 구성 하려면 [작업 영역 추가 또는 제거](../platform/agent-manage.md#adding-or-removing-a-workspace)를 참조 하세요.
 - VM이 삭제 되었습니다.
 - VM용 Azure Monitor 연결 된 작업 영역이 삭제 되었습니다. 프리미어 지원 혜택이 있는 경우 작업 영역을 복구할 수 있습니다. [프리미어](https://premier.microsoft.com/) 로 이동 하 여 지원 요청을 엽니다.
-- 솔루션 종속성이 삭제 되었습니다. Log Analytics 작업 영역에서 servicemap InfrastructureInsights 솔루션을 다시 사용 하도록 설정 하려면 [Azure Resource Manager 템플릿을](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution)사용 하 여 servicemap 솔루션을 다시 설치 합니다. InfastructureInsights 솔루션을 다시 설치 하려면 전자 메일 vminsights@microsoft.com 합니다. 
+- 솔루션 종속성이 삭제 되었습니다. Log Analytics 작업 영역에서 servicemap InfrastructureInsights 솔루션을 다시 사용 하도록 설정 하려면 [Azure Resource Manager 템플릿을](vminsights-enable-at-scale-powershell.md#install-the-servicemap-solution)사용 하 여 servicemap 솔루션을 다시 설치 합니다. InfastructureInsights 솔루션을 다시 설치 하려면 전자 메일 vminsights@microsoft.com합니다. 
 - VM이 종료 되었습니다.
 - Azure VM 서비스를 사용할 수 없거나 유지 관리가 수행 되 고 있습니다.
 - 작업 영역 [일일 데이터 또는 보존 한도](../platform/manage-cost-storage.md) 에 도달 했습니다.
@@ -298,11 +302,11 @@ VM용 Azure Monitor 상태는 [Azure 경고](../../azure-monitor/platform/alerts
 
 |열 |설명 |
 |-------|------------|
-|Subscription |Azure 구독을 선택합니다. 선택한 구독의 경고만 보기에 포함됩니다. |
+|구독 |Azure 구독을 선택합니다. 선택한 구독의 경고만 보기에 포함됩니다. |
 |리소스 그룹 |단일 리소스 그룹을 선택합니다. 선택한 리소스 그룹의 대상이 있는 경고만 보기에 포함됩니다. |
-|리소스 종류 |리소스 종류를 하나 이상 선택합니다. 기본적으로 대상 **가상 머신**의 경고만 선택되고 이 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
+|리소스 형식 |리소스 종류를 하나 이상 선택합니다. 기본적으로 대상 **가상 머신**의 경고만 선택되고 이 보기에 포함됩니다. 이 열은 리소스 그룹을 지정한 후에만 사용할 수 있습니다. |
 |리소스 |리소스를 선택합니다. 해당 리소스가 대상으로 지정된 경고만 보기에 포함됩니다. 이 열은 리소스 종류가 지정 된 후에만 사용할 수 있습니다. |
-|심각도 |경고 심각도를 선택하거나 심각도에 상관없이 모든 경고를 포함하려면 **모두**를 선택합니다. |
+|severity |경고 심각도를 선택하거나 심각도에 상관없이 모든 경고를 포함하려면 **모두**를 선택합니다. |
 |조건 모니터링 |경고가 더 이상 활성 상태가 아닌 경우 시스템에 의해 발생 하거나 해결 된 경우 경고를 필터링 하려면 모니터 조건을 선택 합니다. 또는 **모두를 선택 하** 여 모든 조건의 경고를 포함 합니다. |
 |경고 상태 |모든 상태에 대 한 경고를 포함 하려면 경고 상태, **새로 만들기**, **승인**, **닫힘**또는 **모두** 를 선택 합니다. |
 |서비스 모니터링 |한 서비스를 선택하거나 모든 서비스를 포함하려면 **모두**를 선택합니다. 이 기능에는 VM Insights의 경고만 지원 됩니다.|
@@ -321,7 +325,7 @@ VM용 Azure Monitor 상태는 [Azure 경고](../../azure-monitor/platform/alerts
 하나 또는 여러 경고를 선택한 다음 왼쪽 위 모서리의 **모든 경고** 페이지에서 **상태 변경** 을 선택 하 여 경고 상태를 변경할 수 있습니다. **경고 상태 변경** 창에서 상태 중 하나를 선택 하 고, **설명** 필드에 변경 내용에 대 한 설명을 추가한 다음, **확인** 을 선택 하 여 변경 내용을 커밋합니다. 정보가 확인 되 고 변경 내용이 적용 되 면 메뉴의 **알림** 에서 진행 상황을 추적 합니다.
 
 ### <a name="configure-alerts"></a>경고 구성
-Azure Portal에서 특정 경고 관리 작업을 관리할 수 없습니다. 이러한 작업은 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)를 사용 하 여 수행 해야 합니다. 특히 다음과 같은 혜택이 있습니다.
+Azure Portal에서 특정 경고 관리 작업을 관리할 수 없습니다. 이러한 작업은 [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)를 사용 하 여 수행 해야 합니다. 구체적으로 살펴보면 다음과 같습니다.
 
 - 상태 조건에 대 한 경고 사용 또는 사용 안 함
 - 상태 조건 경고에 대 한 알림 설정

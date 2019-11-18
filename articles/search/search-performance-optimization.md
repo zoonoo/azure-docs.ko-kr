@@ -1,5 +1,5 @@
 ---
-title: 성능 최적화를 위한 배포 전략 및 모범 사례
+title: 배포 및 성능 최적화
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search 성능을 조정 하 고 최적 규모를 구성 하는 방법 및 모범 사례를 알아봅니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 15557a437732ee15c3c6dada7b2d9fe1d397dc5a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4ff6779843546bd41423c140ef40de6a7e24b026
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793415"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113255"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-cognitive-search"></a>Azure Cognitive Search의 성능 최적화를 위한 배포 전략 및 모범 사례
 

@@ -1,7 +1,7 @@
 ---
 title: Bing Custom Search 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: Bing Custom Search API 엔드포인트에 대한 요약입니다.
+description: 관심이 있는 항목에 대 한 맞춤형 검색 환경을 만듭니다. 사용자는 관심 있는 콘텐츠에 맞게 조정 된 검색 결과를 볼 수 있습니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: e3b544d8d655b653383cc999de233e2163433d85
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 03ec22caedd4e317b9e1fe781dc3d983febc7a6d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405067"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072780"
 ---
 # <a name="custom-search"></a>사용자 지정 검색
 Bing Custom Search를 사용하면 관심 있는 토픽에 대한 맞춤형 검색 경험을 만들 수 있습니다. 사용자는 관련 없는 콘텐츠가 포함된 검색 결과를 페이징할 필요 없이 관심 있는 콘텐츠에 맞게 조정된 검색 결과를 보게 됩니다.
@@ -58,7 +58,7 @@ https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/images/search
 Custom Search 인스턴스 구성에 대한 자세한 내용은 [사용자 지정 검색 환경 구성](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/define-your-custom-view)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 엔드포인트는 결과를 JSON 응답 개체로 반환합니다.  모든 엔드포인트는 경도, 위도 및 검색 반경으로 특정 언어 및/또는 위치를 반환하는 쿼리를 지원합니다.
+**Bing** API는 해당 유형에 따라 결과를 반환하는 검색 작업을 지원합니다. 모든 검색 끝점은 결과를 JSON 응답 개체로 반환 합니다.  모든 끝점은 경도, 위도 및 검색 반지름을 기준으로 특정 언어 및/또는 위치를 반환 하는 쿼리를 지원 합니다.
 
 각 엔드포인트에서 지원하는 매개 변수에 대한 자세한 내용은 각 유형에 대한 참조 페이지를 참조하세요.
 Custom Search API를 사용하는 기본 요청의 예는 [Custom Search 빠른 시작](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)을 참조하세요.

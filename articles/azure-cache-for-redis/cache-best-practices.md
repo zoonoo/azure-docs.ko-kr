@@ -1,25 +1,17 @@
 ---
 title: Redis 용 Azure 캐시에 대 한 모범 사례
 description: 다음 모범 사례를 수행 하 여 Redis에 대 한 Azure Cache를 효과적으로 사용 하는 방법을 알아봅니다.
-services: cache
-documentationcenter: na
 author: joncole
-manager: jhubbard
-editor: tysonn
-ms.assetid: 3e4905e3-89e3-47f7-8cfb-12caf1c6e50e
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 06/21/2019
 ms.author: joncole
-ms.openlocfilehash: 29e5a81c438a7aa834fc002b916739a952c9a270
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 136c29245c63b2f2feed79a10a09fb57a379736f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72785863"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122385"
 ---
 # <a name="best-practices-for-azure-cache-for-redis"></a>Redis 용 Azure 캐시에 대 한 모범 사례 
 이러한 모범 사례를 따르면 Azure Cache for Redis 인스턴스에 대 한 성능 및 비용 효율적 사용을 최대화할 수 있습니다.
@@ -55,11 +47,11 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
  * **키에 만료 값을 설정 합니다.**  그러면 메모리가 부족할 때까지 대기 하는 대신 사전에 키가 제거 됩니다.  메모리가 부족 하 여 제거가 시작 되 면 서버에 대 한 추가 부하가 발생할 수 있습니다.  자세한 내용은 [만료](https://redis.io/commands/expire) 및 [ExpireAt](https://redis.io/commands/expireat) 명령에 대 한 설명서를 참조 하세요.
  
 ## <a name="client-library-specific-guidance"></a>클라이언트 라이브러리 관련 지침
- * [StackExchange (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
+ * [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
  * [Java-어떤 클라이언트를 사용 해야 하나요?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
  * [(Java)](https://gist.github.com/warrenzhu25/181ccac7fa70411f7eb72aff23aa8a6a#file-azure-redis-lettuce-best-practices-md)
  * [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
- * [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
+ * [Node.JS](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
  * [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
  * [Asp.Net 세션 상태 공급자](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
@@ -67,7 +59,7 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
 ## <a name="when-is-it-safe-to-retry"></a>언제 다시 시도 해도 되나요?
 아쉽게도 답은 없습니다.  각 응용 프로그램은 다시 시도할 수 있는 작업과 수행할 수 없는 작업을 결정 해야 합니다.  각 작업에는 서로 다른 요구 사항과 키 간 종속성이 있습니다.  다음은 고려할 수 있는 몇 가지 사항입니다.
 
- * Redis에서 실행 하도록 요청한 명령을 성공적으로 실행 한 경우에도 클라이언트 쪽 오류를 가져올 수 있습니다.  다음은 그 예입니다.
+ * Redis에서 실행 하도록 요청한 명령을 성공적으로 실행 한 경우에도 클라이언트 쪽 오류를 가져올 수 있습니다.  예를 들어:
      - 시간 제한은 클라이언트 쪽 개념입니다.  작업이 서버에 도달 하면 클라이언트가 대기 상태를 제공 하는 경우에도 서버에서 명령을 실행 합니다.  
      - 소켓 연결에서 오류가 발생 하는 경우 작업이 서버에서 실제로 실행 되었는지 여부를 알 수 없습니다.  예를 들어 서버에서 요청을 처리 한 후 클라이언트에서 응답을 받기 전에 연결 오류가 발생할 수 있습니다.
  *  실수로 동일한 작업을 두 번 실행 하는 경우 응용 프로그램이 어떻게 반응 하나요?  예를 들어 정수를 한 번이 아니라 두 번 증가 시키는 경우는 어떻게 되나요?  응용 프로그램이 여러 위치에서 동일한 키에 쓰고 있나요?  내 재시도 논리가 내 앱의 다른 부분에 의해 설정 된 값을 덮어쓰는 경우는 어떻게 되나요?
@@ -89,10 +81,10 @@ Redis server 인스턴스 내의 메모리 사용량과 관련 된 몇 가지 �
  
 ### <a name="redis-benchmark-examples"></a>Redis 벤치 마크 예제
 **사전 테스트 설정**: 아래 나열 된 대기 시간 및 처리량 테스트 명령에 필요한 데이터를 사용 하 여 캐시 인스턴스를 준비 합니다.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-t 집합-n 10-d 1024 
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t SET -n 10 -d 1024 
 
 **대기 시간 테스트**: 1k 페이로드를 사용 하 여 GET 요청을 테스트 합니다.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-d 1024-P 50-c 4
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t GET -d 1024 -P 50 -c 4
 
 **처리량을 테스트 하려면:** 그러면 1k 페이로드에서 파이프라인 GET 요청을 사용 합니다.
-> redis-benchmark.exe-h yourcache.redis.cache.windows.net-a 해당 Accesskey-t GET-n 100만-d 1024-P 50-c 50
+> redis-benchmark.exe -h yourcache.redis.cache.windows.net -a yourAccesskey -t  GET -n 1000000 -d 1024 -P 50  -c 50

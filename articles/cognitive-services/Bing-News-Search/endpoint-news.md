@@ -1,7 +1,7 @@
 ---
 title: Bing News Search 엔드포인트
 titleSuffix: Azure Cognitive Services
-description: News Search API 엔드포인트에 대한 요약 정보입니다.
+description: 이 문서에서는 News search API 끝점에 대 한 요약을 제공 합니다. 뉴스, 인기 뉴스 및 추세 뉴스.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 82e37e8fa47b467e7c2fe98f801482675809a266
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: dc7d16fe809e3e324f384b0d9e088dd7e6ab261c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423773"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111492"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Bing News Search API 엔드포인트
 
@@ -39,7 +39,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/news/search
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-범주별 상위 뉴스 항목을 반환합니다. `category=business`, `category=sports` 또는 `category=entertainment`를 사용하여 상위 비즈니스, 스포츠 또는 엔터테인먼트 기사를 구체적으로 요청할 수 있습니다.  `category` 매개 변수는 `/news` URL에만 사용할 수 있습니다. 범주를 지정하기 위한 몇 가지 공식적인 요구 사항이 있습니다. 자세한 내용은 [쿼리 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters) 설명서의 `category`를 참조하세요. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성은 [지원 되는 국가/지역 및 시장을](language-support.md#supported-markets-for-news-endpoint)참조 하세요.
+범주별 상위 뉴스 항목을 반환합니다. `category=business`, `category=sports` 또는 `category=entertainment`를 사용하여 상위 비즈니스, 스포츠 또는 엔터테인먼트 기사를 구체적으로 요청할 수 있습니다.  `category` 매개 변수는 `/news` URL 에서만 사용할 수 있습니다. 범주를 지정하기 위한 몇 가지 공식적인 요구 사항이 있습니다. 자세한 내용은 `category`쿼리 매개 변수[ 설명서의 ](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters)를 참조하세요. 검색어를 인코딩하고 `q=""` 매개 변수에 추가하여 URL에 따라 쿼리를 전송합니다. 가용성은 [지원 되는 국가/지역 및 시장을](language-support.md#supported-markets-for-news-endpoint)참조 하세요.
 
 ### <a name="trending-news-topics"></a>최신 뉴스 토픽 
 

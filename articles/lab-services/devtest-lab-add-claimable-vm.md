@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: fdffa3862f45b99c2c3f2ed41934e09247808ca7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7ad10a1763b4882aa3bb6aec7447f57ebaf07369
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311835"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123707"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
-클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로([사용자 지정 이미지](devtest-lab-create-template.md), [수식](devtest-lab-manage-formulas.md) 또는 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)를 *기반*으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
+클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로(*사용자 지정 이미지*, [수식](devtest-lab-create-template.md) 또는 [Marketplace 이미지](devtest-lab-manage-formulas.md)를 [기반](devtest-lab-configure-marketplace-images.md)으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 클레임할 수 있는 VM을 추가하는 단계
 1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "60311835"
 1. **가상 머신** 페이지의 **기본 설정** 탭에서 다음 작업을 수행합니다.
     1. **가상 머신 이름** 텍스트 상자에서 VM에 대한 이름을 입력합니다. 텍스트 상자에는 자동 생성된 고유 이름이 미리 채워져 있습니다. 이 이름은 뒤에 고유한 3자리 숫자가 붙는 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 컴퓨터를 만들 때마다 컴퓨터 이름을 생각하고 입력하는 시간이 절약됩니다. 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 이름으로 재정의할 수 있습니다. VM에 대해 자동으로 채워진 이름을 재정의하려면 **가상 머신 이름** 텍스트 상자에 이름을 입력합니다.
     2. 가상 머신에서 관리자 권한이 부여된 **사용자 이름**을 입력합니다. 컴퓨터에 대한 **사용자 이름**은 자동으로 생성된 고유한 이름으로 미리 채워집니다. 이 이름은 이메일 주소 내의 사용자 이름에 해당합니다. 이 기능을 사용하면 새 컴퓨터를 만들 때마다 사용자 이름을 결정하는 시간이 절약됩니다. 다시 이 자동으로 채워진 필드를 재정의하려는 경우 선택한 사용자 이름으로 재정의할 수 있습니다. 사용자 이름에 대해 자동으로 채워진 값을 재정의하려면 **사용자 이름** 텍스트 상자에 값을 입력합니다. 이 사용자에게 가상 머신에서 **관리자** 권한이 부여됩니다.
-    3. 랩에서 첫 번째 VM을 만드는 경우 사용자에 대한 **암호**를 입력합니다. 랩과 연결 된 Azure 키 자격 증명 모음에 이 암호를 기본 암호로 저장하려면 **기본 암호로 저장**을 선택합니다. 기본 암호는 **VmPassword**라는 키 자격 증명 모음에 저장됩니다. 랩에서 후속 VM을 만들려는 경우 **암호**에 대해 **VmPassword**가 자동으로 선택됩니다. 값을 재정의하려면 **저장된 비밀 사용** 확인란을 선택 취소하고 암호를 입력합니다.
+    3. 랩에서 첫 번째 VM을 만드는 경우 사용자에 대한 **암호**를 입력합니다. 랩과 연결 된 Azure 키 자격 증명 모음에 이 암호를 기본 암호로 저장하려면 **기본 암호로 저장**을 선택합니다. 기본 암호는 **VmPassword**라는 이름으로 키 자격 증명 모음에 저장됩니다. 랩에서 후속 VM을 만들려는 경우 **암호**에 대해 **VmPassword**가 자동으로 선택됩니다. 값을 재정의하려면 **저장된 비밀 사용** 확인란을 선택 취소하고 암호를 입력합니다.
 
         먼저 키 자격 증명 모음에 비밀을 저장한 다음, 랩에서 VM을 만드는 동안 사용할 수 있습니다. 자세한 내용은 [키 자격 증명 모음에 비밀 저장](devtest-lab-store-secrets-in-key-vault.md)을 참조하세요. 키 자격 증명 모음에 저장된 암호를 사용하려면 **저장된 비밀 사용**을 선택하고 비밀(암호)에 해당하는 키 값을 지정합니다.
     4. **기타 옵션** 섹션에서 **크기 변경**을 선택합니다. 만드는 VM의 프로세서 코어 수, RAM 크기 및 하드 드라이브 크기를 지정하는 미리 정의된 항목 중 하나를 선택합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "60311835"
   ![클레임할 수 있는 임의의 VM을 요청합니다.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-사용자가 VM을 클레임한 후에는 사용자의 "내 가상 머신" 목록으로 이동되고 더 이상 다른 사용자가 클레임할 수 없습니다.
+사용자가 VM을 클레임 한 후 DevTest Labs는 컴퓨터를 시작 하 고 랩 사용자의 "내 가상 머신" 목록으로 이동 합니다. 즉, 랩 사용자는 이제이 mahcine에 대 한 소유자 privilegdes를 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간 및 클레임 이벤트 중 수행 되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 요청 된 후에는 더 이상 클레임 할 수 있는 풀에서 컴퓨터를 사용할 수 없습니다.  
 
 ## <a name="unclaim-a-vm"></a>VM 클레임 취소
 
@@ -86,7 +86,7 @@ ms.locfileid: "60311835"
 
   ![VM의 관리 창에서 VM 클레임을 취소합니다.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-사용자가 VM 클레임을 취소하면 해당 특정 랩 VM에 대한 권한이 더 이상 없습니다.
+사용자가 VM에 대 한 클레임을 해제 하면 해당 랩 VM에 대 한 소유자 권한이 더 이상 없으며, 풀에 retured 된 상태에서 다른 랩 사용자가이를 요구할 수 있습니다. 
 
 ### <a name="transferring-the-data-disk"></a>데이터 디스크 전송
 클레임할 수 있는 VM에 연결된 데이터 디스크가 있고 사용자가 그에 대한 클레임을 취소하면 데이터 디스크기 VM에 유지됩니다. 그런 다음 또 다른 사용자가 해당 VM을 클레임하면 이 새로운 사용자가 VM은 물론 데이터 디스크를 클레임합니다.

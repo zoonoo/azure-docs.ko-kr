@@ -1,5 +1,5 @@
 ---
-title: 음성 도우미에 대 한 질문과 대답
+title: 음성 도우미 faq (질문과 대답)
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 명령 (미리 보기) 또는 직접 선 음성 채널을 사용 하 여 음성 도우미에 대해 가장 인기 있는 질문에 대 한 답변을 받으세요.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: eccf2a7a1b9c7ea7a21cd5d0cf0f60728284c05d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8480299c2c889a243150028ac9651f4b62656aec
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579662"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110350"
 ---
-# <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미: 질문과 대답
+# <a name="voice-assistants-frequently-asked-questions"></a>음성 도우미 faq (질문과 대답)
 
 이 문서에서 질문에 대 한 답변을 찾을 수 없는 경우 [다른 지원 옵션](support.md)을 확인 하세요.
 
@@ -35,9 +35,9 @@ ms.locfileid: "73579662"
 
 **A:** 사용자 지정 명령 (미리 보기) 응용 프로그램 또는 기본 봇 프레임 워크 봇을 만들기 시작 하는 가장 좋은 방법입니다.
 
-* [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-new.md)
-* [기본 봇 프레임 워크 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
-* [직접 선 음성 채널에 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
+- [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-new.md)
+- [기본 봇 프레임 워크 봇 만들기](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
+- [직접 선 음성 채널에 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 
 ## <a name="debugging"></a>디버그
 
@@ -47,14 +47,13 @@ ms.locfileid: "73579662"
 
 직접 라인 음성의 최신 버전은 장치에서 봇에 연결 하는 프로세스를 간소화 합니다. 채널 등록 페이지에서 위쪽의 드롭다운은 직접 선 음성 채널 등록과 음성 리소스를 연결 합니다. 연결 된 후에는 구독에 연결 된 봇에 연결 하는 `DialogServiceConnector`을 구성 하는 `BotFrameworkConfig::FromSubscription` 팩터리 메서드가 v 1.8 Speech SDK에 포함 되어 있습니다.
 
-클라이언트 응용 프로그램을 v 1.7에서 v 1.8으로 마이그레이션하는 경우에는 사용 했던 이전 암호와 같이 해당 채널 비밀 매개 변수에 대해 null이 아닌 비어 있지 않은 값을 사용 하 여 작업을 계속할 수 `DialogServiceConfig::FromBotSecret`. 최신 채널 등록과 연결 된 음성 구독을 사용 하는 경우에만 무시 됩니다. 이 값은 null이 아니어야 하 고 비어 있지 *않아야* 합니다 .이는 서비스 측 연결이 관련 되기 전에 장치에서 확인 되기 때문입니다.
-
+클라이언트 응용 프로그램을 v 1.7에서 v 1.8으로 마이그레이션하는 경우에는 사용 했던 이전 암호와 같이 해당 채널 비밀 매개 변수에 대해 null이 아닌 비어 있지 않은 값을 사용 하 여 작업을 계속할 수 `DialogServiceConfig::FromBotSecret`. 최신 채널 등록과 연결 된 음성 구독을 사용 하는 경우에만 무시 됩니다. 이 값은 null이 아니어야 하 고 비어 있지 _않아야_ 합니다 .이는 서비스 측 연결이 관련 되기 전에 장치에서 확인 되기 때문입니다.
 
 자세한 가이드는 채널 등록을 안내 하는 [자습서 섹션](tutorial-voice-enable-your-bot-speech-sdk.md#register-the-direct-line-speech-channel) 을 참조 하세요.
 
 **Q: 연결할 때 401 오류가 발생 하 고 아무 작업도 수행 되지 않습니다. 음성 구독 키가 유효함을 알고 있습니다. 무슨 일이죠?**
 
-**A:** Azure Portal에서 구독을 관리 하는 경우 **Cognitive Services** 리소스가 *아닌* **음성** 리소스 (CognitiveServicesSpeechServices, "speech")를 사용 하 고 있는지 확인 하세요. CognitiveServicesAllInOne, "All Cognitive Services"). 음성 [도우미에 대 한 음성 서비스 지역 지원](regions.md#voice-assistants)도 확인 하세요.
+**A:** Azure Portal에서 구독을 관리 하는 경우 **Cognitive Services** 리소스가 _아닌_ **음성** 리소스 (CognitiveServicesSpeechServices, "speech")를 사용 하 고 있는지 확인 하세요. CognitiveServicesAllInOne, "All Cognitive Services"). 음성 [도우미에 대 한 음성 서비스 지역 지원](regions.md#voice-assistants)도 확인 하세요.
 
 ![직접 라인 음성에 대 한 올바른 구독](media/voice-assistants/faq-supported-subscription.png "호환 되는 음성 구독의 예")
 
@@ -62,8 +61,8 @@ ms.locfileid: "73579662"
 
 **A:** 이 오류는 길잡이와 음성 도우미 서비스 간의 통신 문제가 있음을 나타냅니다.
 
-* 사용자 지정 명령 (미리 보기)의 경우 사용자 지정 명령 (미리 보기) 응용 프로그램이 게시 되었는지 확인 합니다.
-* 직접 라인 음성의 경우 [직접 선 음성 채널에 봇을 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)하 고, 사용자의 봇에 [스트리밍 프로토콜 지원](https://aka.ms/botframework/addstreamingprotocolsupport) (관련 웹 소켓 지원 포함)을 추가한 다음, 해당 봇이 들어오는 요청에 응답 하 고 있는지 확인 합니다. 채널에서.
+- 사용자 지정 명령 (미리 보기)의 경우 사용자 지정 명령 (미리 보기) 응용 프로그램이 게시 되었는지 확인 합니다.
+- 직접 라인 음성의 경우 [직접 선 음성 채널에 봇을 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)하 고, 사용자의 봇에 [스트리밍 프로토콜 지원](https://aka.ms/botframework/addstreamingprotocolsupport) (관련 웹 소켓 지원 포함)을 추가한 다음, 해당 봇이 들어오는 요청에 응답 하 고 있는지 확인 합니다. 채널에서.
 
 **Q:이 코드는 여전히 작동 하지 않으며 `DialogServiceConnector`를 사용 하는 경우 다른 오류가 발생 합니다. 제가 뭘 해야 하나요?**
 
@@ -71,5 +70,5 @@ ms.locfileid: "73579662"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [문제 해결](troubleshooting.md)
-* [릴리스 정보](releasenotes.md)
+- [문제 해결](troubleshooting.md)
+- [릴리스 정보](releasenotes.md)

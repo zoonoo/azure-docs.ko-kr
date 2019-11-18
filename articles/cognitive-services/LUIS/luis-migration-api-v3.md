@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 7c2866441c7439008fad27ced9b9b1dddea848ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: bb2255a9a68a499ff3e77c1fbd35081a2474cf1d
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492822"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961947"
 ---
 # <a name="prediction-endpoint-changes-for-v3"></a>V3에 대 한 예측 끝점 변경
 
@@ -73,7 +73,7 @@ Bot Framework의 V 4.7이 릴리스될 때까지 V2 API 예측 끝점을 계속 
 
 ## <a name="v2-api-deprecation"></a>V2 API 사용 중단 
 
-V2 예측 API는 V3 preview, 6 월 8 일, 2020 이후 최소 9 개월 동안 사용 되지 않습니다. 
+V2 예측 API는 V3 preview 이후 최소 9 개월 동안 (6 월 8 일, 2020)에는 사용 되지 않습니다. 
 
 ## <a name="endpoint-url-changes"></a>끝점 URL 변경 
 
@@ -85,10 +85,10 @@ V3 끝점 HTTP 호출의 형식이 변경 되었습니다.
 
 |예측 API 버전|방법이|URL|
 |--|--|--|
-|V3|GET|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{앱 ID}</b>/slots/<b>{슬롯-이름}</b>/predict? query =<b>{query}</b>|
-|V3|POST|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{응용 프로그램 ID}</b>/slots/<b>{슬롯-이름}</b>/예측|
-|V2|GET|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{APP id}</b>/versions/<b>{VERSION-id}</b>/predict? query =<b>{query}</b>|
-|V2|POST|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b><b>v 3.0</b>/apps/<b>{앱 id}</b>/versions/<b>{버전 id}</b>/예측|
+|V3|가져오기|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{앱 ID}</b>/slots/<b>{슬롯-이름}</b>/predict? query =<b>{query}</b>|
+|V3|올리기|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{응용 프로그램 ID}</b>/slots/<b>{슬롯-이름}</b>/예측|
+|V2|가져오기|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b>/<b>v 3.0</b>/apps/<b>{APP id}</b>/versions/<b>{VERSION-id}</b>/predict? query =<b>{query}</b>|
+|V2|올리기|https://<b>{REGION}</b>. api.cognitive.microsoft.com/luis/<b>예측</b><b>v 3.0</b>/apps/<b>{앱 id}</b>/versions/<b>{버전 id}</b>/예측|
 
 |`SLOT-NAME` 유효한 값|
 |--|
@@ -103,10 +103,10 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 
 |매개 변수 이름|형식|버전|기본값|목적|
 |--|--|--|--|--|
-|`log`|부울|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 False입니다.| 
+|`log`|boolean|V2 & V3|false|로그 파일에 쿼리를 저장 합니다. 기본값은 False입니다.| 
 |`query`|string|V3만|기본값 없음-GET 요청에 필요 합니다.|V 2 **에서**예측할 utterance은 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수에 전달 됩니다.|
-|`show-all-intents`|부울|V3만|false|**예측과** 개체의 해당 점수를 사용 하 여 모든 의도를 반환 합니다. 의도는 부모 `intents` 개체에서 개체로 반환 됩니다. 이렇게 하면 배열에서 의도를 찾을 필요 없이 프로그래밍 방식으로 액세스할 수 있습니다. `prediction.intents.give`. V 2에서는 배열에이 반환 되었습니다. |
-|`verbose`|부울|V2 & V3|false|V 2 **에서**true로 설정 하면 예측 된 모든 것이 반환 됩니다. 모든 예측 의도를 필요로 하는 경우 `show-all-intents`의 V3 매개 변수를 사용 합니다.<br><br>**V3에서**이 매개 변수는 엔터티 예측의 엔터티 메타 데이터 정보만 제공 합니다.  |
+|`show-all-intents`|boolean|V3만|false|**예측과** 개체의 해당 점수를 사용 하 여 모든 의도를 반환 합니다. 의도는 부모 `intents` 개체에서 개체로 반환 됩니다. 이렇게 하면 배열에서 의도를 찾을 필요 없이 프로그래밍 방식으로 액세스할 수 있습니다. `prediction.intents.give`. V 2에서는 배열에이 반환 되었습니다. |
+|`verbose`|boolean|V2 & V3|false|V 2 **에서**true로 설정 하면 예측 된 모든 것이 반환 됩니다. 모든 예측 의도를 필요로 하는 경우 `show-all-intents`의 V3 매개 변수를 사용 합니다.<br><br>**V3에서**이 매개 변수는 엔터티 예측의 엔터티 메타 데이터 정보만 제공 합니다.  |
 |`timezoneOffset`|string|V2|-|DatetimeV2 엔터티에 적용 되는 표준 시간대입니다.|
 |`datetimeReference`|string|V3|-|DatetimeV2 엔터티에 적용 되는 [표준 시간대](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity) 입니다. V 2에서 `timezoneOffset`를 바꿉니다.|
 
@@ -130,8 +130,8 @@ V3 API에는 다른 쿼리 문자열 매개 변수가 있습니다.
 |`dynamicLists`|array|V3만|필요하지 않습니다.|[동적 목록을](#dynamic-lists-passed-in-at-prediction-time) 사용 하면 이미 LUIS 앱에 있는 기존의 학습 및 게시 된 목록 엔터티를 확장할 수 있습니다.|
 |`externalEntities`|array|V3만|필요하지 않습니다.|[외부 엔터티](#external-entities-passed-in-at-prediction-time) 를 통해 LUIS 앱은 런타임 중에 엔터티를 식별 하 고 레이블을 지정 하는 기능을 기존 엔터티에 대 한 기능으로 사용할 수 있습니다. |
 |`options.datetimeReference`|string|V3만|기본값 없음|[DatetimeV2 오프셋](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)을 확인 하는 데 사용 됩니다. DatetimeReference의 형식은 [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601)입니다.|
-|`options.preferExternalEntities`|부울|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
-|`query`|string|V3만|필수입니다.|V 2 **에서**예측할 utterance은 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수에 전달 됩니다.|
+|`options.preferExternalEntities`|boolean|V3만|false|사용자의 [외부 엔터티 (기존 엔터티와 이름이 같은)](#override-existing-model-predictions) 를 사용 하거나 모델의 기존 엔터티를 예측에 사용 하는지 여부를 지정 합니다. |
+|`query`|string|V3만|필수 요소.|V 2 **에서**예측할 utterance은 `q` 매개 변수입니다. <br><br>**V3에서**기능은 `query` 매개 변수에 전달 됩니다.|
 
 
 
@@ -408,7 +408,7 @@ V3에서 다음과 같이 `verbose` 플래그를 사용 하 여 엔터티 메타
 
 
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 _선택적_ `resolution` 속성은 예측 응답에서를 반환 하 여 외부 엔터티와 연결 된 메타 데이터를 전달한 다음 응답에서 다시 받을 수 있도록 합니다. 
 

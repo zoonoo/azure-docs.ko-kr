@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 06/28/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 360fa750da054f9b126a8694f3dd2ce4b0b417b7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8e497d18e39a199f34ff76b11b0e6c2c213f35fb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240312"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129841"
 ---
 # <a name="deploy-a-linux-hybrid-runbook-worker"></a>Linux Hybrid Runbook Worker 배포
 
@@ -54,7 +54,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 |Python-ctypes | Python 2.x가 필요 합니다. |
 |PAM | 플러그형 인증 모듈|
 | **선택적 패키지** | **설명** | **최소 버전**|
-| PowerShell Core | PowerShell Runbook을 실행하려면 PowerShell을 설치해야 합니다. 설치하는 방법에 대해 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/setup/installing-powershell-core-on-linux)를 참조하세요.  | 6.0.0 |
+| PowerShell Core | PowerShell Runbook을 실행하려면 PowerShell을 설치해야 합니다. 설치하는 방법에 대해 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.  | 6.0.0 |
 
 ### <a name="installation"></a>설치
 
@@ -86,7 +86,7 @@ Linux Hybrid Runbook Worker에 대한 최소 요구 사항은 다음과 같습�
 1. 명령이 완료되면 Azure Portal의 **Hybrid Worker 그룹** 페이지는 새 그룹 및 멤버 수를 표시합니다. 기존 그룹인 경우 멤버 수가 증가합니다. **Hybrid Worker 그룹** 페이지의 목록에서 그룹을 선택하고 **Hybrid Worker** 타일을 선택합니다. **Hybrid Worker** 페이지에서 나열된 그룹의 각 멤버를 확인합니다.
 
 > [!NOTE]
-> Azure VM에 대 한 Linux 용 Azure Monitor 가상 머신 확장을 사용 하는 경우 자동 업그레이드 `autoUpgradeMinorVersion` 버전에서 Hybrid Runbook Worker 문제를 일으킬 수 있으므로 false로 설정 하는 것이 좋습니다. 확장을 수동으로 업그레이드 하는 방법을 알아보려면 [Azure CLI 배포 ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)를 참조 하세요.
+> Azure VM에 대 한 Linux 용 Azure Monitor 가상 머신 확장을 사용 하는 경우 자동 업그레이드 버전에서 Hybrid Runbook Worker 문제가 발생할 수 있으므로 `autoUpgradeMinorVersion`을 false로 설정 하는 것이 좋습니다. 확장을 수동으로 업그레이드 하는 방법을 알아보려면 [Azure CLI 배포 ](../virtual-machines/extensions/oms-linux.md#azure-cli-deployment)를 참조 하세요.
 
 ## <a name="turning-off-signature-validation"></a>서명 유효성 검사 끄기
 
@@ -106,7 +106,7 @@ Linux Hybrid Runbook Worker는 Azure Automation에서 Runbook 유형의 전체 �
 * PowerShell
 
   > [!NOTE]
-  > PowerShell Runbook은 Linux 컴퓨터에 PowerShell Core를 설치해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/setup/installing-powershell-core-on-linux)를 참조하세요.
+  > PowerShell Runbook은 Linux 컴퓨터에 PowerShell Core를 설치해야 합니다. 설치하는 방법을 알아보려면 [Linux에 PowerShell Core 설치](/powershell/scripting/install/installing-powershell-core-on-linux)를 참조하세요.
 
 다음의 Runbook 유형은 Linux Hybrid Worker에서 작동하지 않습니다.
 

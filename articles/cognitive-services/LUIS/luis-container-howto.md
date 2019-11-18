@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/08/2019
 ms.author: dapine
-ms.openlocfilehash: 98f5c672e9da50f294df6da7d5abcb23b10fc1ba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a47e363e2b51b271c8103ac426362a61fc332601
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487001"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73901898"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>LUIS docker 컨테이너 설치 및 실행
  
@@ -26,9 +26,9 @@ LUIS (Language Understanding) 컨테이너는 학습 또는 게시 된 Language 
 
 [![Cognitive Services에 대한 컨테이너 데모](./media/luis-container-how-to/luis-containers-demo-video-still.png)](https://aka.ms/luis-container-demo)
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합니다.
 
@@ -36,7 +36,7 @@ LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합�
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br>|
 |Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다.| 
-|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md#export-app-for-containers) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결 된 청구 키 청구 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. [Authoring api](#authoring-apis-for-package-file)에서 LUIS 패키지 된 앱을 가져오는 경우에는 _제작 키_도 필요 합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}** :이 키는 클라우드의 LUIS 서비스에서 패키지 된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드 하는 데 사용 됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}** :이 ID는 앱을 선택 하는 데 사용 됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}** :이 키는 컨테이너를 시작 하는 데 사용 됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}** : 개요 페이지에 제공 된 끝점입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
+|Azure `Cognitive Services` 리소스 및 LUIS [패키지 된 앱](luis-how-to-start-new-app.md) 파일 |컨테이너를 사용하려면 다음이 있어야 합니다.<br><br>* _Cognitive Services_ Azure 리소스 및 연결 된 청구 키 청구 끝점 URI입니다. 두 값은 모두 리소스의 개요 및 키 페이지에서 사용할 수 있으며 컨테이너를 시작 하는 데 필요 합니다. <br>* 연결된 앱 ID와 함께 컨테이너에 대한 탑재된 입력으로 패키징된 학습된 또는 게시된 앱 LUIS 포털 또는 제작 Api에서 패키지 파일을 가져올 수 있습니다. [Authoring api](#authoring-apis-for-package-file)에서 LUIS 패키지 된 앱을 가져오는 경우에는 _제작 키_도 필요 합니다.<br><br>이러한 요구 사항은 아래 변수에 대한 명령줄 인수를 전달하는데 사용됩니다.<br><br>**{AUTHORING_KEY}** :이 키는 클라우드의 LUIS 서비스에서 패키지 된 앱을 가져오고 쿼리 로그를 클라우드에 다시 업로드 하는 데 사용 됩니다. 형식은 `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`입니다.<br><br>**{APP_ID}** :이 ID는 앱을 선택 하는 데 사용 됩니다. 형식은 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`입니다.<br><br>**{API_KEY}** :이 키는 컨테이너를 시작 하는 데 사용 됩니다. 두 위치에서 엔드포인트 키를 찾을 수 있습니다. 첫 번째는 _Cognitive Services_ 리소스의 키 목록 내의 Azure Portal입니다. 엔드포인트 키는 키와 엔드포인트 설정 페이지에서 LUIS 포털을 사용할 수도 있습니다. 시작 키를 사용하지 마세요.<br><br>**{ENDPOINT_URI}** : 개요 페이지에 제공 된 끝점입니다.<br><br>[작성 키 및 엔드포인트 키](luis-boundaries.md#key-limits)는 용도가 서로 다릅니다. 서로 교환하여 사용하지 마세요. |
 
 [!INCLUDE [Gathering required container parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -55,7 +55,7 @@ LUIS 컨테이너를 실행 하려면 다음 필수 구성 요소를 확인 합�
 
 이 컨테이너는 설정에 대한 최소 및 권장 값을 지원합니다.
 
-|컨테이너| 최소 | 권장 | TP<br>(최소, 최대)|
+|컨테이너| 최소 | 권장 | TPS<br>(최소, 최대)|
 |-----------|---------|-------------|--|
 |LUIS|1 코어, 2gb 메모리|1 코어, 4gb 메모리|20, 40|
 
@@ -198,9 +198,9 @@ Ocp-Apim-Subscription-Key: {AUTHORING_KEY}
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. [ 및 ](#gathering-required-parameters) 값을 가져오는 방법에 대한 자세한 내용은 `{ENDPOINT_URI}`필수 매개 변수 수집`{API_KEY}`을 참조 하세요.
 
-`docker run` 명령의 [예](luis-container-configuration.md#example-docker-run-commands) 를 사용할 수 있습니다.
+[명령의 ](luis-container-configuration.md#example-docker-run-commands)예`docker run`를 사용할 수 있습니다.
 
 ```console
 docker run --rm -it -p 5000:5000 ^
@@ -245,7 +245,7 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
-# <a name="v3-prediction-endpointtabv3"></a>[V3 예측 끝점](#tab/v3)
+# <a name="v3-prediction-endpointtabv3"></a>[V3 예측 엔드포인트](#tab/v3)
 
 |패키지 유형|HTTP 동사|라우팅|쿼리 매개 변수|
 |--|--|--|--|
@@ -257,11 +257,11 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 |쿼리 매개 변수|형식|목적|
 |--|--|--|
 |`query`|string|사용자의 발화입니다.|
-|`verbose`|부울|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
-|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 false입니다.|
-|`show-all-intents`|부울|모든 의도를 반환할지 아니면 상위 점수 매기기 의도만 반환할지를 나타내는 부울 값입니다. 기본값은 false입니다.|
+|`verbose`|boolean|예측 된 모델에 대 한 모든 메타 데이터를 반환할지 여부를 나타내는 부울 값입니다. 기본값은 false입니다.|
+|`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 false입니다.|
+|`show-all-intents`|boolean|모든 의도를 반환할지 아니면 상위 점수 매기기 의도만 반환할지를 나타내는 부울 값입니다. 기본값은 false입니다.|
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2 예측 끝점](#tab/v2)
+# <a name="v2-prediction-endpointtabv2"></a>[V2 예측 엔드포인트](#tab/v2)
 
 |패키지 유형|HTTP 동사|라우팅|쿼리 매개 변수|
 |--|--|--|--|
@@ -274,9 +274,9 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 |--|--|--|
 |`q`|string|사용자의 발화입니다.|
 |`timezoneOffset`|number|timezoneOffset으로 미리 작성된 엔터티 datetimeV2에서 사용하는 [표준 시간대를 변경](luis-concept-data-alteration.md#change-time-zone-of-prebuilt-datetimev2-entity)할 수 있습니다.|
-|`verbose`|부울|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
-|`staging`|부울|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
-|`log`|부울|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
+|`verbose`|boolean|True로 설정하는 경우 모든 의도 및 점수를 반환합니다. 기본값은 False이며, 최상위 의도만 반환합니다.|
+|`staging`|boolean|True로 설정하면 스테이징 환경 결과에서 쿼리를 반환합니다. |
+|`log`|boolean|[활성 학습](luis-how-to-review-endpoint-utterances.md)에 대해 나중에 사용할 수 있는 로그 쿼리입니다. 기본값은 True입니다.|
 
 ***
 
@@ -284,7 +284,7 @@ API의 V2 및 [V3](luis-migration-api-v3.md) 버전은 모두 컨테이너에서
 
 게시된 앱에 대한 컨테이너를 쿼리하는 CURL 명령 예입니다.
 
-# <a name="v3-prediction-endpointtabv3"></a>[V3 예측 끝점](#tab/v3)
+# <a name="v3-prediction-endpointtabv3"></a>[V3 예측 엔드포인트](#tab/v3)
 
 슬롯에서 모델을 쿼리하려면 다음 API를 사용 합니다.
 
@@ -310,7 +310,7 @@ curl -G \
 "http://localhost:5000/luis/prediction/v3.0/apps/{APP_ID}/versions/{APP_VERSION}/predict"
 ```
 
-# <a name="v2-prediction-endpointtabv2"></a>[V2 예측 끝점](#tab/v2)
+# <a name="v2-prediction-endpointtabv2"></a>[V2 예측 엔드포인트](#tab/v2)
 
 슬롯에서 모델을 쿼리하려면 다음 API를 사용 합니다.
 
@@ -392,7 +392,7 @@ LUIS 컨테이너는 Azure 계정의 _Cognitive Services_ 리소스를 사용 �
 * 구성 설정에 대 한 [컨테이너 구성](luis-container-configuration.md) 을 검토 합니다.
 * 알려진 기능 제한에 대 한 [LUIS 컨테이너 제한 사항](luis-container-limitations.md) 을 참조 하세요.
 * LUIS 기능과 관련된 문제를 해결하려면 [문제 해결](troubleshooting.md)을 참조하세요.
-* 추가적인 [Cognitive Services 컨테이너](../cognitive-services-container-support.md) 사용
+* 더 많은 [Cognitive Services 컨테이너](../cognitive-services-container-support.md)를 사용합니다.
 
 <!-- Links - external -->
 [download-published-package]: https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/apps-packagepublishedapplicationasgzip

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 9dc26e50e1c0f43e816e422f0fee91a246ea04a9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8e91a475c7fd7f207c8b38d3da8abe7affd668b2
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487607"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74013510"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>LUIS에서 엔터티 및 해당 용도
 
@@ -35,7 +35,7 @@ ms.locfileid: "73487607"
 
 다음 3 길이 발언을 고려 합니다.
 
-|발언|추출 된 데이터|설명|
+|발화|추출 된 데이터|설명|
 |--|--|--|
 |`Help`|-|추출할 항목이 없습니다.|
 |`Send Bob a present`|Bob, 있음|Bob은 작업을 완료 하는 데 매우 중요 합니다. 이 경우에는 충분 한 정보를 제공 하거나 봇에서 추가 작업을 수행 하는 것이 무엇 인지 명확 하 게 파악할 수 있습니다.|
@@ -53,7 +53,7 @@ ms.locfileid: "73487607"
 
 엔터티는 발화에서 가져오려는 데이터입니다. 이름, 날짜, 제품 이름 또는 모든 단어 그룹이 될 수 있습니다. 
 
-|발언|엔터티|Data|
+|발화|엔터티|data|
 |--|--|--|
 |Buy 3 tickets to New York|미리 빌드된 숫자<br>Location.Destination|3<br>뉴욕|
 |Buy a ticket from New York to London on March 5|Location.Origin<br>Location.Destination<br>미리 빌드된 datetimeV2|뉴욕<br>런던<br>March 5, 2018|
@@ -91,11 +91,11 @@ ms.locfileid: "73487607"
 
 |엔터티 형식|목적|
 |--|--|
-|[**컴퓨터-학습**](#composite-entity)|엔터티 형식에 관계 없이 엔터티의 부모 그룹입니다. 컴퓨터에서 배운 엔터티는 utterance의 컨텍스트에서 학습 합니다. 이렇게 하면 예 길이 발언에서 배치의 변형이 중요 합니다. |
-|[**목록**](#list-entity)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
-|[**Pattern.any**](#patternany-entity)|엔터티의 끝을 확인하기 어려운 엔터티 |
-|[**미리 빌드됨**](#prebuilt-entity)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
-|[**정규식**](#regular-expression-entity)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|
+|[**컴퓨터-학습**](tutorial-machine-learned-entity.md)|엔터티 형식에 관계 없이 엔터티의 부모 그룹입니다. 컴퓨터에서 배운 엔터티는 utterance의 컨텍스트에서 학습 합니다. 이렇게 하면 예 길이 발언에서 배치의 변형이 중요 합니다. |
+|[**목록**](reference-entity-list.md)|**정확히 일치**하는 텍스트를 사용 하 여 추출 된 항목 및 해당 동의어의 목록입니다.|
+|[**Pattern.any**](reference-entity-pattern-any.md)|엔터티의 끝을 확인하기 어려운 엔터티 |
+|[**미리 빌드됨**](luis-reference-prebuilt-entities.md)|URL, 전자 메일 등의 특정 종류의 데이터를 추출 하도록 이미 학습 되었습니다. 이러한 미리 빌드된 엔터티 중 일부는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트에 정의되어 있습니다. 특정 문화권이나 엔터티가 현재 지원되지 않은 경우 프로젝트에 적용됩니다.|
+|[**정규식**](reference-entity-regular-expression.md)|**정확히 일치**하는 텍스트를 위해 정규식을 사용 합니다.|
 
 ### <a name="entity-role-defines-context"></a>엔터티 역할이 컨텍스트를 정의 합니다.
 

@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7fb436ef8d915898bc8f36dd10766e71f63e4a59
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575566"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132219"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 수집 및 Python 응용 프로그램의 로깅을 지원 합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 모니터링 데이터를 Azure Monitor으로 전송 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
 - Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/)를 사용 하지만, 이전 버전은 사소한 변경 내용으로 작업할 가능성이 높습니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Azure Monitor에서 Application Insights 리소스 만들기
 
@@ -42,7 +42,7 @@ Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분�
    | ------------- |:-------------|:-----|
    | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹의 이름입니다. |
-   | **위치**: | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
+   | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
 
 1. **만들기**를 선택합니다.
 
@@ -109,7 +109,6 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     tracer = Tracer(
         exporter=AzureExporter(
             connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000'),
-        ),
         sampler=ProbabilitySampler(1.0),
     )
 
@@ -215,7 +214,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     # TODO: replace the all-zero GUID with your instrumentation key.
     exporter = metrics_exporter.new_metrics_exporter(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
-    )
+
     view_manager.register_exporter(exporter)
 
     def prompt():
@@ -297,30 +296,6 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 4. 내보내기가 로그 데이터를 Azure Monitor으로 보냅니다. `traces`에서 데이터를 찾을 수 있습니다.
 
 5. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)을 참조 하세요.
-
-## <a name="start-monitoring-in-the-azure-portal"></a>Azure Portal에서 모니터링 시작
-
-1. 이제 Azure Portal에서 Application Insights **개요** 창을 다시 열어 현재 실행 중인 응용 프로그램에 대 한 세부 정보를 볼 수 있습니다. **라이브 메트릭 스트림**를 선택 합니다.
-
-   ![빨간색 상자에서 "라이브 메트릭 스트림"이 선택 된 개요 창의 스크린샷](./media/opencensus-python/0005-overview-live-metrics-stream.png)
-
-2. **개요** 창으로 돌아갑니다. 종속성 관계의 시각적 레이아웃에 대 한 **응용 프로그램 맵** 을 선택 하 고 응용 프로그램 구성 요소 간의 타이밍을 호출 합니다.
-
-   ![기본 응용 프로그램 맵의 스크린샷](./media/opencensus-python/0007-application-map.png)
-
-   단일 메서드 호출만 추적 하기 때문에 응용 프로그램 맵은 흥미롭습니다. 하지만 응용 프로그램 맵을 확장 하 여 훨씬 더 분산 된 응용 프로그램을 시각화할 수 있습니다.
-
-   ![애플리케이션 맵](media/opencensus-python/application-map.png)
-
-3. 성능 **조사** 를 선택 하 여 성능을 자세히 분석 하 고 성능 저하의 근본 원인을 확인 합니다.
-
-   ![성능 세부 정보 스크린샷](./media/opencensus-python/0008-performance.png)
-
-4. 트랜잭션 세부 정보에 대 한 종단 간 환경을 열려면 **샘플**을 선택 하 고 오른쪽 창에 표시 되는 샘플 중 하나를 선택 합니다. 
-
-   샘플 앱은 단일 이벤트를 표시 하지만 좀 더 복잡 한 응용 프로그램을 사용 하면 종단 간 트랜잭션을 개별 이벤트의 호출 스택 수준까지 탐색할 수 있습니다.
-
-   ![종단 간 트랜잭션 인터페이스의 스크린샷](./media/opencensus-python/0009-end-to-end-transaction.png)
 
 ## <a name="view-your-data-with-queries"></a>쿼리를 사용 하 여 데이터 보기
 

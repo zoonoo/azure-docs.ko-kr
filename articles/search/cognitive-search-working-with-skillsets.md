@@ -1,5 +1,5 @@
 ---
-title: 기술력과 사용
+title: 기술 개념 및 워크플로
 titleSuffix: Azure Cognitive Search
 description: 기술력과는 Azure Cognitive Search에서 AI 보강 파이프라인을 작성 하는 위치입니다. 기술 컴퍼지션에 대 한 중요 한 개념 및 세부 정보를 알아보세요.
 manager: nitinme
@@ -8,14 +8,14 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8fa20608f09b4e3006dad685d2fc52bcc9207b5a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890155"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113652"
 ---
-# <a name="working-with-skillsets-in-azure-cognitive-search"></a>Azure Cognitive Search에서 기술력과 사용
+# <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 개념 및 컴퍼지션
 
 이 문서는 보강 파이프라인이 작동 하는 방식을 심층적으로 이해 해야 하 고 AI 보강 프로세스를 개념적으로 이해 하 고 있다고 가정 하는 개발자를 위한 것입니다. 이러한 개념을 처음 접하는 경우 다음으로 시작 합니다.
 + [Azure Cognitive Search의 AI 보강](cognitive-search-concept-intro.md)
@@ -44,7 +44,7 @@ ms.locfileid: "73890155"
 |데이터 원본 \ 구문 분석 모드|기본값|JSON, JSON 줄 & CSV|
 |---|---|---|
 |Blob Storage|/문서/내용<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL -|/document/{column1}<br>/document/{column2}<br>…|해당 없음 |
+|SQL|/document/{column1}<br>/document/{column2}<br>…|해당 없음 |
 |Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|해당 없음|
 
  기술이 실행 되 면 보강 트리에 새 노드를 추가 합니다. 이러한 새 노드는 다운스트림 기술에 대 한 입력으로 사용 하거나, 기술 자료 저장소로 프로젝션 하거나, 인덱스 필드에 매핑할 수 있습니다. 강화은 변경할 수 없습니다. 만든 후에는 노드를 편집할 수 없습니다. 기술력과가 더 복잡 하므로 보강 트리가 필요 하지만 보강 트리의 모든 노드가 인덱스나 기술 자료 저장소로 만들어야 하는 것은 아닙니다. 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.

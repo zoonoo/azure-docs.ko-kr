@@ -4,18 +4,18 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/23/2019
-ms.openlocfilehash: b9f84385e49fcf5f101b7ce642b0a82e3a4b9388
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: fb3795ff807a87e9bac4d95400f5e446c68d1e4d
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800001"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73897526"
 ---
 ## <a name="authenticate-with-azure-active-directory"></a>Azure Active Directory를 사용하여 인증
 
 > [!IMPORTANT]
 > 1. 현재 Computer Vision API, Face API, 텍스트 분석 API, 몰입 형 판독기, 폼 인식기, 변칙 탐지기 및 모든 Bing 서비스 (Bing Custom Search를 제외 하 고 Azure Active Directory (AAD)를 사용 하 여 **인증을 지원** 합니다.
-> 2. AAD 인증은 항상 Azure 리소스의 사용자 지정 하위 도메인 이름과 함께 사용 해야 합니다. [지역 끝점](https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) 은 AAD 인증을 지원 하지 않습니다.
+> 2. AAD 인증은 항상 Azure 리소스의 사용자 지정 하위 도메인 이름과 함께 사용 해야 합니다. [지역 끝점](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-custom-subdomains#is-there-a-list-of-regional-endpoints) 은 AAD 인증을 지원 하지 않습니다.
 
 이전 섹션에서는 단일 서비스 또는 다중 서비스 구독 키 중 하나를 사용 하 여 Azure Cognitive Services에 대해 인증 하는 방법을 살펴보았습니다. 이러한 키는 개발을 시작할 수 있는 빠르고 쉬운 경로를 제공 하지만, 역할 기반 액세스 제어를 요구 하는 보다 복잡 한 시나리오에서는 간단 합니다. AAD (Azure Active Directory를 사용 하 여 인증 하는 데 필요한 사항을 살펴보겠습니다.
 

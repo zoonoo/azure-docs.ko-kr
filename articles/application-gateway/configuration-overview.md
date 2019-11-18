@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/1/2019
+ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: d67a14b1cbd3fb352ee1c4b271945ab347ee7fed
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389966"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108731"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -20,19 +20,19 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 ![Application Gateway 구성 요소 흐름 차트](./media/configuration-overview/configuration-overview1.png)
 
-이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 `http://acme.com/*` 및 `http://fabrikam.com/*`에 대 한 다중 사이트 수신기입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 종단 간 SSL(Secure Sockets Layer) (SSL) 종료를 포함 하는 기본 수신기입니다.
+이 이미지는 세 개의 수신기가 있는 응용 프로그램을 보여 줍니다. 처음 두 개는 각각 `http://acme.com/*` 및 `http://fabrikam.com/*`에 대 한 다중 사이트 수신기입니다. 둘 다 포트 80에서 수신 합니다. 세 번째는 종단 간 SSL(Secure Sockets Layer) (SSL) 종료를 포함 하는 기본 수신기입니다.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
 Application gateway는 가상 네트워크의 전용 배포입니다. 가상 네트워크 내에는 application gateway에 대 한 전용 서브넷이 필요 합니다. 특정 응용 프로그램 게이트웨이 배포의 인스턴스를 서브넷에 여러 개 포함할 수 있습니다. 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수도 있습니다. 그러나 응용 프로그램 게이트웨이 서브넷에 다른 리소스를 배포할 수 없습니다.
 
 > [!NOTE]
-> 동일한 서브넷에서 Standard_v2 및 Standard Azure 애플리케이션 게이트웨이를 혼합할 수 없습니다.
+> 동일한 서브넷에서 Standard_v2와 표준 Azure 애플리케이션 게이트웨이를 혼합할 수 없습니다.
 
 #### <a name="size-of-the-subnet"></a>서브넷 크기
 
@@ -42,7 +42,7 @@ Application Gateway는 인스턴스당 1 개의 개인 IP 주소를 사용 하 �
 
 27 개의 응용 프로그램 게이트웨이 인스턴스와 개인 프런트 엔드 IP의 IP 주소가 있는 서브넷을 고려 합니다. 이 경우에는 33 IP 주소가 필요 합니다. 응용 프로그램 게이트웨이 인스턴스의 경우 27, 개인 프런트 엔드의 경우 1, 내부 사용의 경우 5입니다. 따라서/26 서브넷 크기 이상이 필요 합니다.
 
-최소/28의 서브넷 크기를 사용 하는 것이 좋습니다. 이 크기는 11 개의 사용 가능한 IP 주소를 제공 합니다. 응용 프로그램 로드에 10 개 이상의 IP 주소가 필요한 경우/27 또는/26 서브넷 크기를 고려 합니다.
+최소/28의 서브넷 크기를 사용 하는 것이 좋습니다. 이 크기는 11 개의 사용 가능한 IP 주소를 제공 합니다. 응용 프로그램 로드에 10 개 이상의 Application Gateway 인스턴스가 필요한 경우/27 또는/26 서브넷 크기를 고려 합니다.
 
 #### <a name="network-security-groups-on-the-application-gateway-subnet"></a>Application Gateway 서브넷의 네트워크 보안 그룹
 
@@ -61,7 +61,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 
 이 시나리오에서는 Application Gateway 서브넷에 NSGs를 사용 합니다. 이 우선 순위에 따라 서브넷에 다음과 같은 제한 사항을 적용 합니다.
 
-1. 원본 IP/IP 범위와 전체 Application Gateway 서브넷 또는 구성 된 특정 개인 프런트 엔드 IP에서 들어오는 트래픽을 허용 합니다. NSG는 공용 IP에서 작동 하지 않습니다.
+1. 원본 IP 또는 IP 범위 및 대상에서 전체 Application Gateway 서브넷 또는 구성 된 특정 개인 프런트 엔드 IP로 들어오는 트래픽을 허용 합니다. NSG는 공용 IP에서 작동 하지 않습니다.
 2. 모든 원본에서 Application Gateway v1 SKU에 대 한 포트 65503-65534, [백 엔드 상태 통신용](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics)v2 sku에 대 한 포트 65200-65535에 대 한 들어오는 요청을 허용 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다. 이러한 포트는 Azure 인증서에 의해 보호 (잠김) 됩니다. 적절 한 인증서가 없는 경우 외부 엔터티는 해당 끝점에 대 한 변경 내용을 초기화할 수 없습니다.
 3. [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)에서 들어오는 Azure Load Balancer 프로브 (*azureloadbalancer* 태그) 및 인바운드 가상 네트워크 트래픽 (*VirtualNetwork* 태그)을 허용 합니다.
 4. 모든 수신 트래픽 거부 규칙을 사용 하 여 차단 합니다.
@@ -83,13 +83,13 @@ V2 SKU의 경우 Application Gateway 서브넷에서 UDRs가 지원 되지 않�
 
 공용 IP 주소, 개인 IP 주소 또는 둘 다를 갖도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 클라이언트에서 인터넷 연결 VIP (가상 IP)를 통해 인터넷을 통해 액세스 해야 하는 백 엔드를 호스트 하는 경우 공용 IP가 필요 합니다. 
 
-공용 IP는 인터넷에 노출 되지 않은 내부 끝점에 필요 하지 않습니다. *내부 부하 분산 장치* (ilb) 끝점 이라고 합니다. 응용 프로그램 게이트웨이 ILB는 인터넷에 노출 되지 않는 내부 lob (기간 업무) 응용 프로그램에 유용 합니다. 또한 인터넷에 노출 되지 않지만 라운드 로빈 부하 분산, 세션 유지 또는 SSL 종료를 필요로 하는 보안 경계 내에 있는 다중 계층 응용 프로그램의 서비스 및 계층에 유용 합니다.
+공용 IP는 인터넷에 노출 되지 않은 내부 끝점에 필요 하지 않습니다. 이를 ilb ( *내부 부하 분산 장치* ) 끝점 또는 개인 프런트 엔드 IP 라고 합니다. 응용 프로그램 게이트웨이 ILB는 인터넷에 노출 되지 않는 내부 lob (기간 업무) 응용 프로그램에 유용 합니다. 또한 인터넷에 노출 되지 않지만 라운드 로빈 부하 분산, 세션 유지 또는 SSL 종료를 필요로 하는 보안 경계 내에 있는 다중 계층 응용 프로그램의 서비스 및 계층에 유용 합니다.
 
 공용 IP 주소 1 개 또는 개인 IP 주소 1 개만 지원 됩니다. 응용 프로그램 게이트웨이를 만들 때 프런트 엔드 IP를 선택 합니다.
 
-- 공용 IP의 경우 새 공용 IP 주소를 만들거나 application gateway와 동일한 위치에 있는 기존 공용 IP를 사용할 수 있습니다. 새 공용 IP를 만드는 경우에는 선택 하는 IP 주소 유형 (정적 또는 동적)을 나중에 변경할 수 없습니다. 자세한 내용은 [고정 및 동적 공용 IP 주소](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)를 참조 하세요.
+- 공용 IP의 경우 새 공용 IP 주소를 만들거나 application gateway와 동일한 위치에 있는 기존 공용 IP를 사용할 수 있습니다. 자세한 내용은 [고정 및 동적 공용 IP 주소](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#static-versus-dynamic-public-ip-address)를 참조 하세요.
 
-- 개인 IP의 경우 응용 프로그램 게이트웨이가 생성 되는 서브넷의 개인 IP 주소를 지정할 수 있습니다. 하나를 지정 하지 않으면 임의 IP 주소가 서브넷에서 자동으로 선택 됩니다. 자세한 내용은 [내부 부하 분산 장치를 사용 하 여 응용 프로그램 게이트웨이 만들기](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)를 참조 하세요.
+- 개인 IP의 경우 응용 프로그램 게이트웨이가 생성 되는 서브넷의 개인 IP 주소를 지정할 수 있습니다. 하나를 지정 하지 않으면 임의 IP 주소가 서브넷에서 자동으로 선택 됩니다. 선택한 IP 주소 유형 (정적 또는 동적)은 나중에 변경할 수 없습니다. 자세한 내용은 [내부 부하 분산 장치를 사용 하 여 응용 프로그램 게이트웨이 만들기](https://docs.microsoft.com/azure/application-gateway/application-gateway-ilb-arm)를 참조 하세요.
 
 프런트 엔드 ip 주소는 프런트 엔드 IP에서 들어오는 요청을 확인 하는 *수신기*에 연결 됩니다.
 
@@ -97,19 +97,19 @@ V2 SKU의 경우 Application Gateway 서브넷에서 UDRs가 지원 되지 않�
 
 수신기는 포트, 프로토콜, 호스트 및 IP 주소를 사용 하 여 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 수신기를 구성할 때 게이트웨이의 들어오는 요청에서 해당 값과 일치 하는 값을 입력 해야 합니다.
 
-Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만드는 경우 수신기의 프로토콜 및 포트를 선택 하 여 기본 수신기도 만듭니다. 수신기에서 HTTP2 지원을 사용할지 여부를 선택할 수 있습니다. 응용 프로그램 게이트웨이를 만든 후에는 해당 기본 수신기 (*appGatewayHttpListener*/*appGatewayHttpsListener*)의 설정을 편집 하거나 새 수신기를 만들 수 있습니다.
+Azure Portal를 사용 하 여 응용 프로그램 게이트웨이를 만드는 경우 수신기의 프로토콜 및 포트를 선택 하 여 기본 수신기도 만듭니다. 수신기에서 HTTP2 지원을 사용할지 여부를 선택할 수 있습니다. 응용 프로그램 게이트웨이를 만든 후에는 해당 기본 수신기 (*appGatewayHttpListener*)의 설정을 편집 하거나 새 수신기를 만들 수 있습니다.
 
 ### <a name="listener-type"></a>수신기 형식
 
 새 수신기를 만들 때 [ *기본* *사이트와 다중 사이트*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#types-of-listeners)중에서 선택할 수 있습니다.
 
-- 응용 프로그램 게이트웨이 뒤에 단일 사이트를 호스트 하는 경우 기본을 선택 합니다. [기본 수신기를 사용 하 여 응용 프로그램 게이트웨이를 만드는 방법을](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)알아봅니다.
+- 모든 도메인에 대 한 모든 요청을 수락 하 여 백 엔드 풀에 전달 하려는 경우 기본을 선택 합니다. [기본 수신기를 사용 하 여 응용 프로그램 게이트웨이를 만드는 방법을](https://docs.microsoft.com/azure/application-gateway/quick-create-portal)알아봅니다.
 
-- 동일한 응용 프로그램 게이트웨이 인스턴스에서 둘 이상의 웹 응용 프로그램 또는 동일한 부모 도메인의 여러 하위 도메인을 구성 하는 경우 다중 사이트 수신기를 선택 합니다. 다중 사이트 수신기의 경우 호스트 이름도 입력 해야 합니다. Application Gateway HTTP 1.1 호스트 헤더를 사용 하 여 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트 하기 때문입니다.
+- *호스트* 헤더 또는 호스트 이름에 따라 다른 백 엔드 풀에 요청을 전달 하려면 다중 사이트 수신기를 선택 합니다. 여기서 들어오는 요청과 일치 하는 호스트 이름을 지정 해야 합니다. Application Gateway HTTP 1.1 호스트 헤더를 사용 하 여 동일한 공용 IP 주소 및 포트에서 둘 이상의 웹 사이트를 호스트 하기 때문입니다.
 
 #### <a name="order-of-processing-listeners"></a>처리 수신기 순서
 
-V1 SKU의 경우 수신기는 나열 된 순서 대로 처리 됩니다. 기본 수신기가 들어오는 요청과 일치 하는 경우 수신기는 해당 요청을 먼저 처리 합니다. 따라서 트래픽이 올바른 백 엔드로 라우팅되도록 하기 위해 기본 수신기 이전에 다중 사이트 수신기를 구성 해야 합니다.
+V1 SKU의 경우 요청은 규칙의 순서와 수신기의 형식에 따라 일치 합니다. 기본 수신기를 사용 하는 규칙이 먼저 순서 대로 들어오면 먼저 처리 되 고 해당 포트 및 IP 조합에 대 한 모든 요청을 허용 합니다. 이를 방지 하려면 먼저 다중 사이트 수신기를 사용 하 여 규칙을 구성 하 고 기본 수신기를 사용 하 여 규칙을 목록에서 마지막으로 푸시합니다.
 
 V2 SKU의 경우 다중 사이트 수신기가 기본 수신기 보다 먼저 처리 됩니다.
 
@@ -165,7 +165,7 @@ WebSocket 지원은 기본적으로 사용 하도록 설정 되어 있습니다.
 
 백 엔드 서버 팜에 대 한 SSL 인증서 관리를 중앙 집중화 하 고 암호화 암호 해독 오버 헤드를 줄일 수 있습니다. 또한 중앙 집중식 SSL 처리를 통해 보안 요구 사항에 적합 한 중앙 SSL 정책을 지정할 수 있습니다. *기본*, *미리 정의*됨 또는 *사용자 지정* SSL 정책을 선택할 수 있습니다.
 
-Ssl 프로토콜 버전을 제어 하는 SSL 정책을 구성 합니다. TLS 1.0, TLS 1.1 및 TLS 1.2를 거부 하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 기본적으로 SSL 2.0 및 3.0은 사용 하지 않도록 설정 되며 구성할 수 없습니다. 자세한 내용은 [APPLICATION GATEWAY SSL 정책 개요](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)를 참조 하세요.
+Ssl 프로토콜 버전을 제어 하는 SSL 정책을 구성 합니다. Tls 1.0, TLS 1.1 및 TLS 1.2의 TLS 핸드셰이크에 최소 프로토콜 버전을 사용 하도록 응용 프로그램 게이트웨이를 구성할 수 있습니다. 기본적으로 SSL 2.0 및 3.0은 사용 하지 않도록 설정 되며 구성할 수 없습니다. 자세한 내용은 [APPLICATION GATEWAY SSL 정책 개요](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview)를 참조 하세요.
 
 수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 수신 된 요청을 백 엔드로 라우팅하는 방법을 결정 합니다.
 
@@ -204,15 +204,11 @@ V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우�
 
 기본 규칙의 경우 하나의 백 엔드 HTTP 설정만 허용 됩니다. 연결 된 수신기에 대 한 모든 요청은이 HTTP 설정을 사용 하 여 해당 백 엔드 대상으로 전달 됩니다.
 
-각 규칙에 대 한 백 엔드 HTTP 설정을 추가 합니다. 요청은이 설정에 지정 된 포트 번호, 프로토콜 및 기타 정보를 사용 하 여 application gateway에서 백 엔드 대상으로 라우팅됩니다.
-
-기본 규칙의 경우 하나의 백 엔드 HTTP 설정만 허용 됩니다. 연결 된 수신기에 대 한 모든 요청은이 HTTP 설정을 사용 하 여 해당 백 엔드 대상으로 전달 됩니다.
-
 경로 기반 규칙의 경우 각 URL 경로에 해당 하는 여러 백 엔드 HTTP 설정을 추가 합니다. 이 설정에서 URL 경로와 일치 하는 요청은 각 URL 경로에 해당 하는 HTTP 설정을 사용 하 여 해당 백 엔드 대상으로 전달 됩니다. 또한 기본 HTTP 설정을 추가 합니다. 이 규칙의 모든 URL 경로와 일치 하지 않는 요청은 기본 HTTP 설정을 사용 하 여 기본 백 엔드 풀로 전달 됩니다.
 
 ### <a name="redirection-setting"></a>리디렉션 설정
 
-기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들어 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
+기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
 
 리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](https://docs.microsoft.com/azure/application-gateway/redirect-overview)를 참조 하세요.
 
@@ -245,10 +241,10 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 #### <a name="rewrite-the-http-header-setting"></a>HTTP 헤더 설정 다시 작성
 
-이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. PowerShell을 통해서만이 기능을 구성할 수 있습니다. Azure Portal 및 CLI 지원은 아직 사용할 수 없습니다. 자세한 내용은
+이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. 자세한 내용은
 
  - [HTTP 헤더 재작성 개요](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [HTTP 헤더 재작성 구성](https://docs.microsoft.com/azure/application-gateway/add-http-header-rewrite-rule-powershell#specify-the-http-header-rewrite-rule-configuration)
+ - [HTTP 헤더 재작성 구성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
 
 ## <a name="http-settings"></a>HTTP 설정
 
@@ -260,7 +256,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 ### <a name="connection-draining"></a>연결 드레이닝
 
-연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 백 엔드 풀의 모든 등록 취소 인스턴스가 새 요청을 수신 하지 않도록 합니다. 한편, 기존 요청은 구성 된 시간 제한 내에 완료할 수 있습니다. 연결 드레이닝은 API 호출을 통해 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다. 상태 프로브에 의해 *비정상* 으로 보고 된 백 엔드 인스턴스에도 적용 됩니다.
+연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 백 엔드 풀의 모든 등록 취소 인스턴스가 새 요청을 수신 하지 않도록 합니다. 한편, 기존 요청은 구성 된 시간 제한 내에 완료할 수 있습니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
 
 ### <a name="protocol"></a>프로토콜
 
@@ -268,13 +264,13 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
 수신기에서 HTTPS와 결합 된이 설정은 [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)을 지원 합니다. 이를 통해 백 엔드에 암호화 된 중요 한 데이터를 안전 하 게 전송할 수 있습니다. 종단 간 SSL을 사용 하도록 설정 된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용 하는 인증서를 사용 하 여 구성 해야 합니다.
 
-### <a name="port"></a>Port
+### <a name="port"></a>포트
 
 이 설정은 백 엔드 서버가 application gateway의 트래픽을 수신 대기 하는 포트를 지정 합니다. 1에서 65535 사이의 포트를 구성할 수 있습니다.
 
 ### <a name="request-timeout"></a>요청 시간 초과
 
-이 설정은 application gateway가 "연결 시간이 초과 되었습니다." 오류 메시지를 반환 하기 전에 백 엔드 풀에서 응답을 받기 위해 대기 하는 시간 (초)입니다.
+이 설정은 application gateway가 백 엔드 서버에서 응답을 받기 위해 대기 하는 시간 (초)입니다.
 
 ### <a name="override-back-end-path"></a>백 엔드 경로 재정의
 
@@ -291,17 +287,17 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
   | 원래 요청           | 경로 규칙       | 백 엔드 경로 재정의 | 백 엔드에 전달 된 요청 |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
-  | /pathrule/home/            | pathrule      | 설명은/override            | /override/home/              |
-  | /pathrule/home/secondhome/ | pathrule      | 설명은/override            | /override/home/secondhome/   |
-  | /home/                     | pathrule      | 설명은/override            | /override/home/              |
-  | /home/secondhome/          | pathrule      | 설명은/override            | /override/home/secondhome/   |
+  | /pathrule/home/            | /pathrule*      | 설명은/override            | /override/home/              |
+  | /pathrule/home/secondhome/ | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
+  | /home/                     | /pathrule*      | 설명은/override            | /override/home/              |
+  | /home/secondhome/          | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
   | /pathrule/home/            | /pathrule/home* | 설명은/override            | 설명은/override                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | 설명은/override            | /override/secondhome/        |
   | pathrule                 | pathrule      | 설명은/override            | 설명은/override                   |
 
 ### <a name="use-for-app-service"></a>App service에 사용
 
-Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하는 UI 바로 가기입니다. **백 엔드 주소에서 호스트 이름을 선택**하 고 새 사용자 지정 프로브를 만듭니다. 자세한 내용은이 문서의 [백 엔드 주소 설정에서 호스트 이름 선택](#pick) 섹션을 참조 하세요. 새 프로브가 만들어지고 프로브 헤더는 백 엔드 구성원의 주소에서 선택 됩니다.
+Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하는 UI 전용 바로 가기입니다. **백 엔드 주소에서 호스트 이름을 선택**하 고 아직 없는 경우 새 사용자 지정 프로브를 만듭니다. 자세한 내용은이 문서의 [백 엔드 주소 설정에서 호스트 이름 선택](#pick) 섹션을 참조 하세요. 새 프로브가 만들어지고 프로브 헤더는 백 엔드 구성원의 주소에서 선택 됩니다.
 
 ### <a name="use-custom-probe"></a>사용자 지정 프로브 사용
 
@@ -310,26 +306,26 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 > [!NOTE]
 > 해당 HTTP 설정이 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
 
-### <a id="pick"/> @ no__t-1 백 엔드 주소에서 호스트 이름을 선택 합니다.
+### 백 엔드 주소에서 호스트 이름 선택 <a id="pick"/></a>
 
 이 기능은 요청의 *호스트* 헤더를 백 엔드 풀의 호스트 이름으로 동적으로 설정 합니다. IP 주소 또는 FQDN을 사용 합니다.
 
-이 기능을 사용 하면 백 엔드의 도메인 이름이 application gateway의 DNS 이름과 다를 수 있으며 백 엔드는 특정 호스트 헤더 또는 서버 이름 표시 (SNI) 확장을 사용 하 여 올바른 끝점을 확인 합니다.
+이 기능을 사용 하면 백 엔드의 도메인 이름이 application gateway의 DNS 이름과 다를 수 있으며 백 엔드는 특정 호스트 헤더를 사용 하 여 올바른 끝점을 확인 합니다.
 
 예를 들어, 다중 테 넌 트 서비스는 백 엔드입니다. App service는 단일 IP 주소를 사용 하 여 공유 공간을 사용 하는 다중 테 넌 트 서비스입니다. 따라서 앱 서비스는 사용자 지정 도메인 설정에서 구성 된 호스트 이름을 통해서만 액세스할 수 있습니다.
 
-기본적으로 사용자 지정 도메인 이름은 *예: azurewebsites입니다.<i> </i> net*. App service에 명시적으로 등록 되지 않은 호스트 이름 또는 응용 프로그램 게이트웨이의 FQDN을 통해 응용 프로그램 게이트웨이를 사용 하 여 app service에 액세스 하려면 원래 요청에서 app service의 호스트 이름으로 호스트 이름을 재정의 합니다. 이렇게 하려면 **백 엔드 주소에서 호스트 이름 선택** 설정을 사용 하도록 설정 합니다.
+기본적으로 사용자 지정 도메인 이름은 *example.azurewebsites.net*입니다. App service에 명시적으로 등록 되지 않은 호스트 이름 또는 응용 프로그램 게이트웨이의 FQDN을 통해 응용 프로그램 게이트웨이를 사용 하 여 app service에 액세스 하려면 원래 요청에서 app service의 호스트 이름으로 호스트 이름을 재정의 합니다. 이렇게 하려면 **백 엔드 주소에서 호스트 이름 선택** 설정을 사용 하도록 설정 합니다.
 
 기존 사용자 지정 DNS 이름을 app service에 매핑한 사용자 지정 도메인의 경우이 설정을 사용 하도록 설정할 필요가 없습니다.
 
 > [!NOTE]
-> 이 설정은 전용 배포 인 PowerApps의 App Service Environment에는 필요 하지 않습니다.
+> 전용 배포 인 App Service Environment에는이 설정이 필요 하지 않습니다.
 
 ### <a name="host-name-override"></a>호스트 이름 재정의
 
 이 기능은 응용 프로그램 게이트웨이에서 들어오는 요청의 *호스트* 헤더를 지정한 호스트 이름으로 바꿉니다.
 
-예를 들어, **호스트 이름** 설정에 appgw.eastus.cloudapp.net/path1 *<i></i>* *를 지정 하는 경우<i></i>원래* 요청 *https<i></i>://* www.contoso.com/path1 요청이 백 엔드 서버로 전달 됩니다.
+예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에 전달 되 면 원래 요청 * https://appgw.eastus.cloudapp.azure.com/path1 * https://www.contoso.com/path1로 변경 됩니다.
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 
@@ -342,7 +338,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 Application gateway는 기본적으로 백 엔드에서 모든 리소스의 상태를 모니터링 합니다. 하지만 상태 모니터링에 대 한 제어를 강화 하기 위해 각 백 엔드 HTTP 설정에 대 한 사용자 지정 프로브를 만드는 것이 좋습니다. 사용자 지정 프로브를 구성 하는 방법에 대 한 자세한 내용은 [사용자 지정 상태 프로브 설정](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings)을 참조 하세요.
 
 > [!NOTE]
-> 사용자 지정 상태 프로브를 만든 후에는 백 엔드 HTTP 설정에 연결 해야 합니다. 해당 HTTP 설정이 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
+> 사용자 지정 상태 프로브를 만든 후에는 백 엔드 HTTP 설정에 연결 해야 합니다. 해당 HTTP 설정이 규칙을 사용 하 여 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

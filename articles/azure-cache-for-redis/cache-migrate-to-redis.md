@@ -1,25 +1,17 @@
 ---
-title: Redis로 Managed Cache Service 애플리케이션 마이그레이션 - Azure | Microsoft Docs
+title: Managed Cache Service 응용 프로그램을 Redis로 마이그레이션-Azure
 description: Managed Cache Service 및 In-Role Cache 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 방법을 알아봅니다.
-services: cache
-documentationcenter: na
 author: yegu-ms
-manager: jhubbard
-editor: tysonn
-ms.assetid: 041f077b-8c8e-4d7c-a3fc-89d334ed70d6
 ms.service: cache
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: cache
-ms.workload: tbd
+ms.topic: conceptual
 ms.date: 05/30/2017
 ms.author: yegu
-ms.openlocfilehash: 05638e17c2f41806a5c8aa3e0c3020eae82bdb60
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9596b8cb771f114cb09c5d6c6ae33b4fc4a8cada
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315963"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122693"
 ---
 # <a name="migrate-from-managed-cache-service-to-azure-cache-for-redis"></a>Managed Cache Service에서 Azure Cache for Redis로 마이그레이션
 Azure Managed Cache Service를 사용하는 애플리케이션을 Azure Cache for Redis로 마이그레이션하는 작업은 캐싱 애플리케이션에서 사용하는 Managed Cache Service 기능에 따라 애플리케이션을 최소한으로 변경하면서 수행할 수 있습니다. API가 정확히 동일하지 않고 유사하며 캐시에 액세스하는 데 Managed Cache Service를 사용하는 기존 코드의 대부분은 변경을 최소화하면서 다시 사용할 수 있습니다. 이 문서에서는 Azure Cache for Redis를 사용하도록 Managed Cache Service 애플리케이션을 마이그레이션하는 데 필요한 구성과 애플리케이션을 변경하는 방법 및 Azure Cache for Redis의 일부 기능을 Managed Cache Service 캐시의 기능을 구현하는 데 사용할 수 있는 방법을 보여 줍니다.
@@ -130,7 +122,7 @@ Managed Cache Service에서 캐시에 대한 연결은 `DataCacheFactory` 및 `D
 using StackExchange.Redis
 ```
 
-이 네임스페이스가 확인되지 않으면 [빠른 시작: .NET 애플리케이션에서 Azure Cache for Redis 사용](cache-dotnet-how-to-use-azure-redis-cache.md)에서 설명한 대로 StackExchange.Redis NuGet 패키지를 추가했는지 확인합니다.
+이 네임 스페이스가 확인 되지 않는 경우 [빠른 시작: .net 응용 프로그램을 사용 하 여 Redis 용 Azure Cache 사용](cache-dotnet-how-to-use-azure-redis-cache.md)에 설명 된 대로 Redis NuGet 패키지를 추가 했는지 확인 합니다.
 
 > [!NOTE]
 > StackExchange.Redis 클라이언트를 사용하려면 .NET Framework 4 이상이 필요합니다.
@@ -175,9 +167,9 @@ StackExchange.Redis 클라이언트는 캐시의 항목에 액세스하고 저�
 
 `StringSet` 및 `StringGet`는 Managed Cache Service `Put` 및 `Get`와 유사합니다. 이러한 결과를 가져오는 한 가지 주요 차이점은 캐시에 .NET 개체를 설정하고 가져오기 전에 먼저 직렬화해야 한다는 것입니다. 
 
-`StringGet` 호출 시 개체가 있으면 반환되고 없으면 null이 반환됩니다. 이 경우에는 원하는 데이터 소스에서 값을 검색하여 이후에 사용할 수 있게 캐시에 저장할 수 있습니다. 이런 패턴을 캐시 배제 패턴이라고 합니다.
+`StringGet`호출 시 개체가 있으면 반환되고 없으면 null이 반환됩니다. 이 경우에는 원하는 데이터 소스에서 값을 검색하여 이후에 사용할 수 있게 캐시에 저장할 수 있습니다. 이런 패턴을 캐시 배제 패턴이라고 합니다.
 
-캐시에서 항목의 만료를 지정하려면 `StringSet`의 `TimeSpan` 매개 변수를 사용합니다.
+캐시에서 항목의 만료를 지정하려면 `TimeSpan`의 `StringSet` 매개 변수를 사용합니다.
 
 ```csharp
 cache.StringSet("key1", "value1", TimeSpan.FromMinutes(90));

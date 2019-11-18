@@ -1,7 +1,7 @@
 ---
 title: OData search.in 함수 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리의 OData search.in 함수.
+description: Azure Cognitive Search 쿼리에서 search.in 함수를 사용 하는 방법에 대 한 구문 및 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f641e50554e720d273735fd20032e60444cb198a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b43c46599cbacaf40bc9583e364d088fa27a3ac9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793291"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113112"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>Azure Cognitive Search의 OData `search.in` 함수
 
@@ -61,7 +61,7 @@ search_in_call ::=
 > [!NOTE]
 > 전체 EBNF [Azure Cognitive Search에 대 한 OData 식 구문 참조](search-query-odata-syntax-reference.md) 를 참조 하세요.
 
-`search.in` 함수는 지정 된 문자열 필드 또는 범위 변수가 지정 된 값 목록 중 하 나와 같은지 여부를 테스트 합니다. 변수와 목록의 각 값이 같은지 여부는 대/소문자를 구분 하는 방식으로 `eq` 연산자와 동일한 방식으로 결정 됩니다. 따라서 `search.in(myfield, 'a, b, c')`과 같은 식은 `search.in`이 훨씬 더 나은 성능을 제공한다는 점을 제외하고 `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`와 같습니다.
+`search.in` 함수는 지정 된 문자열 필드 또는 범위 변수가 지정 된 값 목록 중 하 나와 같은지 여부를 테스트 합니다. 변수와 목록의 각 값이 같은지 여부는 대/소문자를 구분 하는 방식으로 `eq` 연산자와 동일한 방식으로 결정 됩니다. 따라서 `search.in(myfield, 'a, b, c')`과 같은 식은 `myfield eq 'a' or myfield eq 'b' or myfield eq 'c'`이 훨씬 더 나은 성능을 제공한다는 점을 제외하고 `search.in`와 같습니다.
 
 `search.in` 함수에는 두 가지 오버 로드가 있습니다.
 
@@ -70,7 +70,7 @@ search_in_call ::=
 
 매개 변수는 다음 표에 정의 되어 있습니다.
 
-| 매개 변수 이름 | Type | 설명 |
+| 매개 변수 이름 | 형식 | 설명 |
 | --- | --- | --- |
 | `variable` | `Edm.String` | `any` 또는 `all` 식 내에서 `search.in` 사용 되는 경우 문자열 필드 참조 (또는 문자열 컬렉션 필드의 범위 변수)입니다. |
 | `valueList` | `Edm.String` | `variable` 매개 변수와 비교할 구분 된 값 목록을 포함 하는 문자열입니다. `delimiters` 매개 변수를 지정 하지 않으면 기본 구분 기호는 공백과 쉼표입니다. |
@@ -82,7 +82,7 @@ search_in_call ::=
 
 `search.in`을 사용하는 경우 두 번째 매개 변수에 수십만 개 값 목록이 포함되어 있을 때 1초 미만의 응답 시간을 기대할 수 있습니다. 최대 요청 크기로 제한 되더라도 `search.in`에 전달할 수 있는 항목 수에 대 한 명시적 제한은 없습니다. 그러나 값 수가 증가함에 따라 대기 시간도 증가합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 이름이 ' 해상 보기 motel ' 또는 ' 예산 호텔 '과 같은 모든 호텔을 찾습니다. 구에는 기본 구분 기호인 공백이 포함 됩니다. 세 번째 문자열 매개 변수로 작은따옴표에 대체 구분 기호를 지정할 수 있습니다.  
 

@@ -1,5 +1,5 @@
 ---
-title: 검색 인덱스에서 다국어 콘텐츠에 대 한 언어 필터
+title: 검색 인덱스의 언어로 필터링
 titleSuffix: Azure Cognitive Search
 description: 다중 언어 검색을 지원 하 고 언어별 필드에 쿼리 실행 범위를 지정 하는 필터 조건입니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 2762ce42f0d3f5829682e0910c452746a65ef2f3
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dbf32610e54df4ff009d4cb0a0b080babb4ec73
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792882"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112071"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Azure Cognitive Search에서 언어를 기준으로 필터링 하는 방법 
 
@@ -21,7 +21,7 @@ ms.locfileid: "72792882"
 
 요청에 대한 쿼리 매개 변수는 검색 작업 범위를 지정하고 전달하려는 검색 환경과 호환되는 콘텐츠를 제공하지 않는 필드의 결과를 잘라내는 데 사용됩니다.
 
-| parameters | 용도 |
+| parameters | 목적 |
 |-----------|--------------|
 | **searchFields** | 전체 텍스트 검색을 명명된 필드 목록으로 제한합니다. |
 | **$select** | 지정하는 필드만 포함하도록 응답을 잘라냅니다. 기본적으로 검색 가능한 모든 필드가 반환됩니다. **$select** 매개 변수를 통해 반환할 필드를 선택할 수 있습니다. |
@@ -60,7 +60,7 @@ parameters =
 > [!Note]
 > 쿼리에 $filter 인수가 없지만 이 사용 사례는 필터 개념과 밀접한 관련이 있으므로 필터링 시나리오로 제시합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 + [Azure Cognitive Search의 필터](search-filters.md)
 + [언어 분석기](https://docs.microsoft.com/rest/api/searchservice/language-support)

@@ -1,19 +1,19 @@
 ---
-title: 범주 계층 구조에서 패싯 탐색을 구현 하는 방법
+title: 패싯 탐색 범주 계층 구조 추가
 titleSuffix: Azure Cognitive Search
-description: Microsoft Azure의 클라우드 호스트 검색 서비스인 Azure Cognitive Search와 통합 된 응용 프로그램에 패싯 탐색을 추가 합니다.
+description: Azure Cognitive Search와 통합 되는 검색 응용 프로그램에서 자체 지향 필터링에 패싯 탐색을 추가 합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d10a049f7a4c7da7a75054acd442269adc74b948
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 927f57ae3ca90f5701791022b68c4bf0d91d4e7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496530"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112075"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Azure Cognitive Search에서 패싯 탐색을 구현 하는 방법
 

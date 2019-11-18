@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: e00feed416eb3e06b703a2ef4fe040f0c815716e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3039276a49e7bb41660d114e78ca047a3f77f279
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464311"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109944"
 ---
 # <a name="about-the-speech-sdk-audio-input-stream-api"></a>음성 SDK 오디오 입력 스트림 API 정보
 
-음성 SDK의 **오디오 입력 스트림** API는 마이크 또는 입력 파일 API를 사용하는 대신 오디오 스트림을 인식기로 스트리밍하는 방법을 제공합니다.
+음성 SDK의 **오디오 입력 스트림** API는 마이크나 입력 파일 api를 사용 하는 대신 인식기로 오디오를 스트리밍하는 방법을 제공 합니다.
 
 다음 단계는 오디오 입력 스트림을 사용할 때 필요합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "73464311"
 
   오디오 형식을 만들기 위한 SDK의 해당 코드는 다음과 같습니다.
 
-  ```
+  ```csharp
   byte channels = 1;
   byte bitsPerSample = 16;
   int samplesPerSecond = 16000;
@@ -40,7 +40,7 @@ ms.locfileid: "73464311"
 
 - `PullAudioInputStreamCallback`에서 파생된 고유한 오디오 입력 스트림 클래스를 만듭니다. `Read()` 및 `Close()` 멤버를 구현합니다. 정확한 함수 시그니처는 언어에 따라 다르지만 코드는 다음 코드 샘플과 유사합니다.
 
-  ```
+  ```csharp
    public class ContosoAudioStream : PullAudioInputStreamCallback {
       ContosoConfig config;
 
@@ -59,9 +59,9 @@ ms.locfileid: "73464311"
    };
   ```
 
-- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예:
+- 오디오 형식 및 입력 스트림을 기반으로 오디오 구성을 만듭니다. 인식기를 만들 때 일반 음성 구성과 오디오 입력 구성을 둘 다 전달합니다. 예를 들어:
 
-  ```
+  ```csharp
   var audioConfig = AudioConfig.FromStreamInput(new ContosoAudioStream(config), audioFormat);
 
   var speechConfig = SpeechConfig.FromSubscription(...);
@@ -75,5 +75,5 @@ ms.locfileid: "73464311"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

@@ -1,5 +1,5 @@
 ---
-title: '방법: 음성 텍스트에 자동 언어 검색 사용-음성 서비스'
+title: 음성 텍스트에 자동 언어 검색을 사용 하는 방법
 titleSuffix: Azure Cognitive Services
 description: Speech SDK는 음성 텍스트에 대 한 자동 언어 검색을 지원 합니다. 이 기능을 사용 하는 경우 제공 된 오디오가 제공 된 언어 목록과 비교 되며 가장 가능성이 높은 항목이 결정 됩니다. 그러면 반환 된 값을 사용 하 여 음성 텍스트에 사용 되는 언어 모델을 선택할 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.author: qiohu
-ms.openlocfilehash: e156704d3ad54c3437f921fae536a497e1d94868
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a72f477e64c856c545801533c131c397de627c00
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500877"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110171"
 ---
 # <a name="automatic-language-detection-for-speech-to-text"></a>음성 텍스트에 대 한 자동 언어 검색
 
@@ -30,7 +30,7 @@ ms.locfileid: "73500877"
 
 자동 언어 검색에는 현재 검색 당 두 가지 언어의 서비스 쪽 제한이 있습니다. `AudoDetectSourceLanguageConfig` 개체를 생성할 때이 제한을 염두에 두십시오. 아래 샘플에서는 `AutoDetectSourceLanguageConfig`만든 다음이를 사용 하 여 `SpeechRecognizer`을 생성 합니다.
 
->[!TIP]
+> [!TIP]
 > 음성 텍스트를 수행할 때 사용할 사용자 지정 모델을 지정할 수도 있습니다. 자세한 내용은 [자동 언어 검색에 사용자 지정 모델 사용](#use-a-custom-model-for-automatic-language-detection)을 참조 하세요.
 
 다음 코드 조각은 앱에서 자동 언어 검색을 사용 하는 방법을 보여 줍니다.
@@ -80,4 +80,4 @@ AutoDetectSourceLanguageConfig autoDetectSourceLanguageConfig = AutoDetectSource
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech SDK 참조 설명서](speech-sdk.md)
+- [Speech SDK 참조 설명서](speech-sdk.md)

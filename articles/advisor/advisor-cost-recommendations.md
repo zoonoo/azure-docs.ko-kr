@@ -3,25 +3,25 @@ title: Azure Advisor를 사용하여 서비스 비용 절감 | Microsoft Docs
 description: Azure Advisor를 사용하여 Azure 배포 비용을 최적화합니다.
 services: advisor
 documentationcenter: NA
-author: kasparks
+author: saket-ms
 ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
-ms.author: kasparks
-ms.openlocfilehash: 78429001b855e3347e72fbb0f0d4d3171731a8e2
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.author: sagupt
+ms.openlocfilehash: cae16430ce933b8d071696377b22f10c15b5eae5
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703042"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74145398"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Azure Advisor를 사용하여 서비스 비용 절감
 
-Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure 사용을 최적화하고 줄이는 데 도움을 줍니다. Advisor 대시보드의 **비용** 탭에서 비용 관련 권장 지침을 얻을 수 있습니다.
+Advisor는 유휴 및 사용 미달 리소스를 식별하여 전체적인 Azure 사용을 최적화하고 줄이는 데 도움을 줍니다. Advisor 대시보드의 **비용** 탭에서 비용 권장 사항을 가져올 수 있습니다.
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>사용량이 낮은 인스턴스의 크기를 조정하거나 종료하여 가상 머신 소비 최적화 
 
-특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor 고급 평가 모델은 최대 CPU 사용률에 대 한 최대 값이 3% 미만이 고 네트워크 사용률이 7 일 동안 2% 미만인 경우 가상 머신을 종료 하는 것으로 간주 합니다. 현재 부하가 사용자가 연결 되지 않은 워크 로드를 사용 하지 않는 경우 현재 부하가 80%의 사용률을 초과 하지 않도록 현재 부하를 더 작은 SKU (동일한 SKU 제품군 내) 또는 더 작은 수의 인스턴스에 맞출 수 있는 경우 가상 컴퓨터의 크기가 적절 하 게 고려 됩니다. 사용자 지향 작업을 하는 경우 40% 초과 여기에서 워크 로드의 유형은 워크 로드의 CPU 사용률 특성을 분석 하 여 결정 됩니다.
+특정 애플리케이션 시나리오에서는 기본적으로 사용률이 낮을 수 있으나 가상 머신의 크기와 수를 관리하여 비용을 절감할 수도 있습니다. Advisor 고급 평가 모델은 최대 CPU 사용률에 대 한 최대 값이 3% 미만이 고 네트워크 사용률이 7 일 동안 2% 미만인 경우 가상 머신을 종료 하는 것으로 간주 합니다. 가상 컴퓨터는 현재 부하가 사용자 지향 작업을 수행할 때 40%를 초과 하지 않을 때 현재 부하가 80%의 사용률을 초과 하지 않도록 하는 작은 SKU (동일한 SKU 제품군 내) 또는 더 작은 수의 인스턴스로 현재 부하를 수용할 수 있는 경우 올바른 크기를 고려 합니다. 여기에서 워크 로드의 유형은 워크 로드의 CPU 사용률 특성을 분석 하 여 결정 됩니다.
 
 권장 되는 작업은 권장 되는 리소스와 관련 하 여 종료 하거나 크기를 조정 하는 것입니다. Advisor에서는 권장 되는 작업 (크기 조정 또는 종료)에 대 한 예상 비용 절감 액을 보여 줍니다. 또한 크기 조정 권장 작업의 경우 Advisor는 현재 및 대상 SKU 정보를 제공 합니다. 
 
@@ -66,3 +66,4 @@ Advisor 권장 사항에 대한 자세한 내용은 다음을 참조하세요.
 * [Advisor 성능 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 고가용성 권장 사항](advisor-cost-recommendations.md)
 * [Advisor 보안 권장 사항](advisor-cost-recommendations.md)
+* [Advisor 작동의 뛰어난 권장 사항](advisor-operational-excellence-recommendations.md)

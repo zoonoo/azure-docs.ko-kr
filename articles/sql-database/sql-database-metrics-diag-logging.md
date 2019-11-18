@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 05/21/2019
-ms.openlocfilehash: d51acaff89c2a8589b6b524c112c11f9c4f18220
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/15/2019
+ms.openlocfilehash: ab3667d79827e9548338b5beda00c9992f100deb
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821766"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132408"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -41,7 +41,7 @@ ms.locfileid: "73821766"
 
 다음 방법 중 하나를 사용하여 메트릭 및 진단 원격 분석 로깅을 사용하도록 설정하고 관리할 수 있습니다.
 
-- Azure portal
+- Azure 포털
 - PowerShell
 - Azure CLI
 - Azure Monitor REST API
@@ -63,15 +63,16 @@ Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음�
 
 | 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :------------------- | ----- | ----- |
-| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP를 포함 합니다. 저장소 백분율입니다. | 예 | 아니요 |
+| [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP를 포함 합니다. 저장소 백분율입니다. | 예 | 아니오 |
+| [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | 예 | 아니오 |
 | [QueryStoreRuntimeStatistics](#query-store-runtime-statistics): CPU 사용량 및 쿼리 기간 통계와 같은 쿼리 런타임 통계에 대 한 정보를 포함 합니다. | 예 | 예 |
 | [Querystorewaitstatistics](#query-store-wait-statistics): CPU, 로그 및 잠금과 같은 쿼리 대기 통계 (쿼리가 대기 하는 시간)에 대 한 정보를 포함 합니다. | 예 | 예 |
 | [오류](#errors-dataset): 데이터베이스의 SQL 오류에 대 한 정보를 포함 합니다. | 예 | 예 |
-| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니요 |
-| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | 예 | 아니요 |
-| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니요 |
-| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니요 |
-| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | 예 | 아니요 |
+| [DatabaseWaitStatistics](#database-wait-statistics-dataset): 대기 형식에 따라 데이터베이스가 대기하는 데 사용된 시간에 대한 정보를 포함합니다. | 예 | 아니오 |
+| [시간 제한](#time-outs-dataset): 데이터베이스의 제한 시간에 대 한 정보를 포함 합니다. | 예 | 아니오 |
+| [블록](#blockings-dataset): 데이터베이스의 차단 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니오 |
+| [교착 상태](#deadlocks-dataset): 데이터베이스의 교착 상태 이벤트에 대 한 정보를 포함 합니다. | 예 | 아니오 |
+| 자동 [튜닝](#automatic-tuning-dataset): 데이터베이스에 대 한 자동 조정 권장 사항에 대 한 정보를 포함 합니다. | 예 | 아니오 |
 | [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대 한 Intelligent Insights를 포함 합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | 예 | 예 |
 
 > [!IMPORTANT]
@@ -80,7 +81,7 @@ Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음�
 > [!NOTE]
 > 보안 감사 및 SQLSecurityAuditEvents 로그는 화면에 표시 되지만 데이터베이스 진단 설정에서 사용 하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure 포털
 
 Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 데이터베이스의 **진단 설정** 메뉴를 사용 하 여 진단 원격 분석의 스트리밍을 구성할 수 있습니다. 또한 데이터베이스 컨테이너 (탄력적 풀 및 관리 되는 인스턴스)에 대해 진단 원격 분석을 별도로 구성할 수도 있습니다. 진단 원격 분석 Azure Storage, Azure Event Hubs 및 Azure Monitor 로그를 스트리밍하려면 다음 대상을 설정할 수 있습니다.
 
@@ -210,7 +211,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정할 수 있습니다.
 
@@ -419,15 +420,25 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ### <a name="basic-metrics-for-elastic-pools"></a>탄력적 풀에 대 한 기본 메트릭
 
-|**리소스**|**metrics**|
+|**Resource**|**Metrics**(메트릭)|
 |---|---|
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, 스토리지 용량 한도, XTP 스토리지 백분율을 포함합니다. |
 
 ### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL Database에 대 한 기본 메트릭
 
-|**리소스**|**metrics**|
+|**Resource**|**Metrics**(메트릭)|
 |---|---|
 |Azure SQL 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율, 교착 상태를 포함합니다. |
+
+## <a name="advanced-metrics"></a>고급 메트릭
+
+고급 메트릭에 대 한 자세한 내용은 다음 표를 참조 하세요.
+
+|**메트릭**|**메트릭 표시 이름**|**설명**|
+|---|---|---|
+|tempdb_data_size| Tempdb 데이터 파일 크기 (Kb) |Tempdb 데이터 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다. |
+|tempdb_log_size| Tempdb 로그 파일 크기 (Kb) |Tempdb 로그 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다. |
+|tempdb_log_used_percent| Tempdb 백분율 로그가 사용 됨 |Tempdb 백분율 로그가 사용 되었습니다. 데이터 웨어하우스에는 적용 되지 않습니다. 이 메트릭은 DTU 기반 구매 모델에 대해 vCore 구매 모델 또는 100 DTU 이상을 사용 하는 데이터베이스에서 사용할 수 있습니다. |
 
 ## <a name="basic-logs"></a>기본 로그
 
@@ -569,7 +580,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |Message|일반 텍스트의 오류 메시지 |
 |user_defined_b|오류 사용자 정의 비트 |
 |error_number_d|오류 코드 |
-|심각도|오류의 심각도 |
+|severity|오류의 심각도 |
 |state_d|오류 상태 |
 |query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우) |
 |query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우) |

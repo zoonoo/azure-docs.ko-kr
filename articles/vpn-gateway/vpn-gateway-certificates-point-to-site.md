@@ -1,5 +1,6 @@
 ---
-title: '지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기: PowerShell: Azure | Microsoft Docs'
+title: 'P2S에 대 한 인증서 생성 및 내보내기: PowerShell'
+titleSuffix: Azure VPN Gateway
 description: Windows 10 또는 Windows Server 2016의 PowerShell을 사용하여 자체 서명된 루트 인증서를 만들고, 공개 키를 내보내고, 클라이언트 인증서를 생성합니다.
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: cherylmc
-ms.openlocfilehash: 8f7d4f71853e1640146a38fb39384c20ca9553eb
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: f28e76e9dcaf1331fd26a2321cd4deca1027e693
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285752"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74151367"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-using-powershell"></a>PowerShell을 사용하여 지점 및 사이트 간 연결에 대한 인증서 생성 및 내보내기
 

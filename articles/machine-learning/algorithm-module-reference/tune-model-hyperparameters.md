@@ -1,5 +1,5 @@
 ---
-title: 모델 하이퍼 매개 변수 조정
+title: 모델 하이퍼 매개 변수 튜닝
 titleSuffix: Azure Machine Learning service
 description: Azure Machine Learning 서비스에서 모델 하이퍼 매개 변수 조정 모듈을 사용 하 여 모델에 대 한 매개 변수 스윕을 수행 하 여 최적의 매개 변수 설정을 결정 하는 방법에 대해 알아봅니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: fd796297bafeb437b55eca7f38cbd7ae55e19b93
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 834907528e4062de583197cf91e98372b96451d7
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716726"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131232"
 ---
-# <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 조정
+# <a name="tune-model-hyperparameters"></a>모델 하이퍼 매개 변수 튜닝
 
 이 문서에서는 Azure Machine Learning designer (미리 보기)에서 모델 하이퍼 매개 변수 조정 모듈을 사용 하는 방법을 설명 합니다. 목표는 machine learning 모델에 대 한 최적의 하이퍼 매개 변수를 결정 하는 것입니다. 모듈은 다양 한 설정 조합을 사용 하 여 여러 모델을 작성 하 고 테스트 합니다. 모든 모델에 대 한 메트릭을 비교 하 여 설정의 조합을 가져옵니다. 
 
@@ -69,7 +69,7 @@ ms.locfileid: "73716726"
 
 8.  **순위**에 대해 모델 순위를 지정 하는 데 사용할 단일 메트릭을 선택 합니다.
 
-    매개 변수 비우기를 실행 하는 경우 모듈은 모델 유형에 대해 적용 가능한 모든 메트릭을 계산 하 여 **스윕 결과** 보고서에서 반환 합니다. 모듈은 회귀 및 분류 모델에 대해 별도의 메트릭을 사용 합니다.
+    매개 변수 비우기를 실행 하는 경우 모듈은 모델 유형에 대해 적용 가능한 모든 메트릭을 계산 하 고 **스윕 결과** 보고서에서 반환 합니다. 모듈은 회귀 및 분류 모델에 대해 별도의 메트릭을 사용 합니다.
 
     그러나 선택 하는 메트릭은 모델의 순위를 지정 하는 방법을 결정 합니다. 선택한 메트릭에 따라 순위가 매겨진 최상위 모델만 점수 매기기에 사용할 학습 된 모델로 출력 됩니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "73716726"
 + 튜닝 프로세스를 반복할 필요 없이 다른 파이프라인에서 점수 매기기에 모델을 사용 하려면 모델 출력을 마우스 오른쪽 단추로 클릭 하 고 **학습 된 모델로 저장**을 선택 합니다. 
 
 
-## <a name="technical-notes"></a>기술 참고 사항
+## <a name="technical-notes"></a>기술 정보
 
 이 섹션에는 구현 세부 정보 및 팁이 포함 되어 있습니다.
 

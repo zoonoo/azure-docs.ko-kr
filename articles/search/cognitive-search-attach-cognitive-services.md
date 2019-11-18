@@ -1,5 +1,5 @@
 ---
-title: 기술에 Cognitive Services 리소스 연결
+title: 기술에 Cognitive Services 연결
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 AI 보강 파이프라인에 Cognitive Services 일대일 구독을 연결 하는 방법에 대 한 지침입니다.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 11ca5f71cb0d08a4bebf72407035a9557c794f9f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d65b9b60ce93656c9acdc76c77291114468d345a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72788022"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113937"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Azure의 기술에 Cognitive Services 리소스 연결 Cognitive Search 
 
-AI 알고리즘은 Azure Cognitive Search의 콘텐츠 변환에 사용 되는 [보강 파이프라인](cognitive-search-concept-intro.md) 을 구동 합니다. 이러한 알고리즘은 이미지 분석과 OCR (광학 문자 인식 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) )을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) , 엔터티 인식, 키 구 추출 및 기타 강화를 비롯 한 Azure Cognitive Services 리소스를 기반으로 합니다. . 문서 보강 목적으로 Azure Cognitive Search에서 사용 되는 알고리즘은 *기술*내에서 래핑됩니다. *기술*에 배치 되 고 인덱싱 중에 *인덱서가* 참조 됩니다.
+AI 알고리즘은 Azure Cognitive Search의 콘텐츠 변환에 사용 되는 [보강 파이프라인](cognitive-search-concept-intro.md) 을 구동 합니다. 이러한 알고리즘은 이미지 분석과 OCR (광학 문자 인식 [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) )을 위한 [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) , 엔터티 인식, 핵심 문구 추출 및 기타 강화를 포함 하 여 Azure Cognitive Services 리소스를 기반으로 합니다. 문서 보강 목적으로 Azure Cognitive Search에서 사용 되는 알고리즘은 *기술*내에서 래핑됩니다. *기술*에 배치 되 고 인덱싱 중에 *인덱서가* 참조 됩니다.
 
 제한 된 수의 문서를 무료로 보강할 수 있습니다. 또는 *기술* 에 청구 가능한 Cognitive Services 리소스를 더 크고 더 잦은 워크 로드에 연결할 수 있습니다. 이 문서에서는 Azure Cognitive Search [인덱싱을](search-what-is-an-index.md)수행 하는 동안 청구 가능한 Cognitive Services 리소스를 연결 하 여 문서를 보강 하는 방법을 알아봅니다.
 
@@ -160,6 +160,6 @@ Content-Type: application/json
 
 ## <a name="next-steps"></a>다음 단계
 + [Azure Cognitive Search 가격 책정 페이지](https://azure.microsoft.com/pricing/details/search/)
-+ [기능을 정의하는 방법](cognitive-search-defining-skillset.md)
++ [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [기술 집합 만들기(REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
 + [보강 필드를 매핑하는 방법](cognitive-search-output-field-mapping.md)

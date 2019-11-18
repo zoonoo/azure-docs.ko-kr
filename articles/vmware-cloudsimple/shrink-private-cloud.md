@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1ae2f87a3719853f4a91cb8ba801be6d578597d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 602dca105e91c55c591388a833a36e71f951da8b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825676"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108600"
 ---
 # <a name="shrink-a-cloudsimple-private-cloud"></a>CloudSimple 사설 클라우드 축소
 
@@ -24,7 +24,8 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 사설 클라우드의 축소에 대해 다음 조건을 충족 해야 합니다.  사설 클라우드를 만들 때 만든 관리 클러스터 (첫 번째 클러스터)를 삭제할 수 없습니다.
 
 * VSphere 클러스터에는 3 개의 노드가 있어야 합니다.  노드가 세 개만 있는 클러스터는 축소할 수 없습니다.
-* 사용 된 총 저장소는 클러스터 축소 후 총 용량을 초과 하면 안 됩니다. 
+* 사용 된 총 저장소는 클러스터 축소 후 총 용량을 초과 하면 안 됩니다.
+* DRS (분산 리소스 스케줄러) 규칙이 가상 머신의 vMotion을 방지 하는지 확인 합니다.  규칙이 있는 경우 규칙을 사용 하지 않도록 설정 하거나 삭제 합니다.  DRS 규칙은 선호도 규칙을 호스트 하는 가상 머신을 포함 합니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -55,7 +56,8 @@ CloudSimple은 사설 클라우드를 동적으로 축소 하는 유연성을 �
 사설 클라우드의 축소를 시작 합니다.  작업의 진행률을 모니터링할 수 있습니다.  축소 프로세스는 데이터에 따라 몇 시간이 걸릴 수 있으며이는 vSAN에서 resynced 해야 합니다.
 
 > [!NOTE]
-> 데이터 센터에서 마지막 또는 유일한 클러스터를 삭제 하 여 사설 클라우드를 축소 하는 경우에는 데이터 센터가 삭제 되지 않습니다.  
+> 1. 데이터 센터에서 마지막 또는 유일한 클러스터를 삭제 하 여 사설 클라우드를 축소 하는 경우에는 데이터 센터가 삭제 되지 않습니다.
+> 2. DRS 규칙 위반이 발생 하면 노드가 클러스터에서 제거 되 고 작업 설명에 노드 제거로 인해 클러스터의 DRS 규칙이 위반 되는 것으로 표시 됩니다.    
 
 
 ## <a name="next-steps"></a>다음 단계

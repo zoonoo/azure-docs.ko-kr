@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 4c16953d3c708516edbe0b3c13b091dc3181b187
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 75d1f2b6facd438e329555d8595fe159565dbb74
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73465069"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837362"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -147,13 +147,13 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |--|--|
 |timex|[ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601) 뒤에 오는 TIMEX 형식으로 표현된 시간, 날짜 또는 날짜 범위와 TimeML 언어를 사용하는 주석에 대한 TIMEX3 특성입니다. 이 주석은 [TIMEX 지침](http://www.timeml.org/tempeval2/tempeval2-trial/guidelines/timex3guidelines-072009.pdf)에 설명됩니다.|
 |type|하위 형식으로, `datetime`, `date`, `time`, `daterange`, `timerange`, `datetimerange`, `duration`, `set`항목 중 하나일 수 있습니다.|
-|값|**선택** yyyy:MM:dd(날짜), HH:mm:ss(시간) yyyy:MM:dd HH:mm:ss(날짜/시간) 형식의 날짜/시간 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
+|value|**선택** Yyyy-MM-dd (date), HH: mm: ss (time) yyyy-mm-dd HH: MM: ss (datetime) 형식의 datetime 개체입니다. `type`이 `duration`인 경우 값은 초(기간)입니다. <br/> `type`이 `datetime` 또는 `date`, `time` 또는 기간인 경우에만 사용됩니다.|
 
 ## <a name="valid-date-values"></a>유효한 날짜 값
 
 **datetimeV2**는 다음 범위 사이의 날짜를 지원합니다.
 
-| Min | max |
+| 최소 | 최대 |
 |----------|-------------|
 | 1900년 1월 1일   | 2099년 12월 31일 |
 
@@ -681,7 +681,7 @@ LUIS 앱에서 `datetime`을 `datetimeV2`로 바꾸려면 다음 단계를 완�
 
 ## <a name="next-steps"></a>다음 단계
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 [dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다. 
 

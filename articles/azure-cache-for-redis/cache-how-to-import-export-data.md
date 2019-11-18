@@ -1,25 +1,17 @@
 ---
-title: Azure Cache for Redis에서 데이터 가져오기 및 내보내기 | Microsoft Docs
+title: Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 description: 프리미엄 Azure Cache for Redis 인스턴스를 사용하여 Blob 스토리지에서 데이터를 가져오고 내보내는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 4a68ac38-87af-4075-adab-569d37d7cc9e
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: fda366f631e392379bd52b4bba728d0373f3e75e
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e4265cf3f9c211a19fe05bc18cf47a273165c3c3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756648"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122768"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다. 
@@ -136,7 +128,7 @@ Azure Cache for Redis는 RDB 버전 7을 통해 RDB 가져오기를 지원합니
 
 * 내보내기 한 계층보다 낮은 `databases` 제한을 가진 가격 책정 계층으로 가져오기할 때:
   * 모든 가격 책정 계층에 대해 기본값이 16개인 `databases`을 사용하는 경우 데이터 손실은 전혀 없습니다.
-  * 들여오기하는 계층의 대한 제한내에 포함되는 `databases`의 사용자 지정 수를 사용하는 경우, 데이터 손실은 전혀 없습니다.
+  * 들여오기하는 계층의 대한 제한내에 포함되는 `databases` 의 사용자 지정 수를 사용하는 경우, 데이터 손실은 전혀 없습니다.
   * 내보낸 데이타가 새 계층의 제한을 초과하는 데이타베이스의 데이타를 포함한 경우, 더 높은 데이타베이스의 데이타는 들여오기되지 않습니다.
 
 ### <a name="how-is-importexport-different-from-redis-persistence"></a>Import/Export가 Redis 지속성과 어떻게 다른가요?

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: rajanaki
-ms.openlocfilehash: 4a1b5f804986d2bda85980d01cdaaa130d86b50d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0363911574a076b13cb72591fb2564364e096c76
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039744"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132946"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>보조 사이트로 Hyper-V VM에 대한 DR 훈련 실행
 
@@ -20,10 +20,6 @@ ms.locfileid: "74039744"
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 System Center VMM(Virtual Machine Manager) 클라우드에서 관리되는 Hyper-V VM에 대한 DR(재해 복구) 훈련을 보조 온-프레미스 사이트에 실행하는 방법을 설명합니다.
 
 데이터 손실 또는 가동 중지 없이 복제 전략의 유효성을 검사하고 DR 훈련을 수행하기 위해 테스트 장애 조치(failover)를 실행합니다. 테스트 장애 조치(failover)는 진행 중인 복제 또는 프로덕션 환경에 영향을 주지 않습니다. 
-
-> [!WARNING]
-> SCVMM 구성을 고려 하는 ASR 지원은 곧 사용 되지 않을 예정 이므로 계속 하기 전에 사용 [중단 세부 정보를 읽는](site-to-site-deprecation.md) 것이 좋습니다.
-
 
 ## <a name="how-do-test-failovers-work"></a>장애 조치(failover) 작업은 어떻게 수행되나요?
 
@@ -49,7 +45,7 @@ ms.locfileid: "74039744"
 
 | **옵션** | **세부 정보** | |
 | --- | --- | --- |
-| **없음** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않고 네트워크에 연결되지 않습니다.<br/><br/> 생성된 후에 컴퓨터를 VM 네트워크에 연결할 수 있습니다.| |
+| **None** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않고 네트워크에 연결되지 않습니다.<br/><br/> 생성된 후에 컴퓨터를 VM 네트워크에 연결할 수 있습니다.| |
 | **기존 항목 사용** | 복제본 VM이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.<br/><br/>프로덕션 네트워크에서 격리된 VM 네트워크를 만듭니다.<br/><br/>권장되는 VLAN 기반 네트워크를 사용하는 경우 이 목적을 위해 VMM에서 별도의 논리 네트워크(프로덕션에 사용되지 않음)를 만드는 것이 좋습니다. 이 논리 네트워크는 테스트 장애 조치(failover)에 대한 VM 네트워크를 만드는 데 사용됩니다.<br/><br/>논리 네트워크는 가상 머신을 호스트하는 모든 Hyper-V 서버에 있는 하나 이상의 네트워크 어댑터에 연결해야 합니다.<br/><br/>VLAN 논리 네트워크의 경우 논리 네트워크에 추가한 네트워크 사이트는 격리되어야 합니다.<br/><br/>Windows 네트워크 가상화 기반의 논리 네트워크를 사용한다면 Azure Site Recovery가 격리된 VM 네트워크를 자동으로 생성합니다. | |
 | **네트워크 만들기** | 임시 테스트 네트워크가 **논리 네트워크**에서 지정한 설정 및 관련 네트워크 사이트를 기반으로 자동 생성됩니다.<br/><br/> 장애 조치(failover)에서 VM이 생성되었는지 확인합니다.<br/><br/> 복구 계획에서 VM 네트워크를 두 개 이상 사용할 경우 이 옵션을 사용해야 합니다.<br/><br/> Windows 네트워크 가상화 네트워크를 사용하는 경우 이 옵션을 사용하여 복제 가상 머신의 네트워크에서 동일한 설정(서브넷 및 IP 주소 풀)으로 VM 네트워크를 자동으로 만들 수 있습니다. 테스트 장애 조치 완료 후 이러한 VM 네트워크는 자동으로 정리됩니다.<br/><br/> 복제본 가상 머신이 있는 호스트에 테스트 VM이 만들어집니다. 클라우드에 추가되지 않습니다.|
 
@@ -123,7 +119,7 @@ VM 네트워크가 Windows 네트워크 가상화를 사용하여 VMM에서 구�
 
 이 절차는 복구 계획에 대한 테스트 장애 조치를 실행하는 방법을 설명합니다. 또는 **Virtual Machines** 탭에서 단일 가상 머신에 대한 장애 조치를 실행할 수 있습니다.
 
-1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)**  > **Test 장애 조치(Failover)** 에서 의견이나 질문을 게시합니다.
+1. **복구 계획** > *recoveryplan_name*을 선택합니다. **장애 조치(Failover)**  >  **Test 장애 조치(Failover)** 에서 의견이나 질문을 게시합니다.
 2. **테스트 장애 조치** 블레이드에서 테스트 장애 조치(failover) 후에 복제 VM을 네트워크에 연결할 방법을 지정합니다.
 3. **작업** 탭에서 장애 조치 진행 상황을 추적합니다.
 4. 장애 조치(failover)가 완료되면 VM이 정상적으로 시작되는지 확인합니다.

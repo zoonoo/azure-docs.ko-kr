@@ -1,5 +1,5 @@
 ---
-title: 점수 매기기 프로필을 추가 하 여 검색 결과에서 관련 문서 향상
+title: 점수 매기기 프로필을 사용 하 여 검색 순위 높임
 titleSuffix: Azure Cognitive Search
 description: 점수 매기기 프로필을 추가 하 여 Azure Cognitive Search 결과의 검색 순위 점수를 향상 합니다.
 manager: nitinme
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 2b92f8031a0d35696447f8ab796d24c504d57457
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790116"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113612"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
@@ -234,7 +234,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |특성|설명|  
 |---------------|-----------------|  
-|`Name`|필수 사항입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
+|`Name`|필수 요소. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
 |`Text`|Weights 속성을 포함합니다.|  
 |`Weights`|선택 사항입니다. 필드 이름 및 상대적 가중치를 지정하는 이름-값 쌍입니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다. 최댓값은 int32.MaxValue입니다.<br /><br /> 해당하는 가중치 없이 필드 이름을 지정할 수 있습니다. 가중치는 다른 필드를 기준으로 특정 필드의 중요도를 나타내는 데 사용됩니다.|  
 |`Functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
@@ -275,7 +275,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  다음 표에 여러 예제가 나와 있습니다.  
 
-|기간|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1일|"P1D"|  
 |2일 12시간|"P2DT12H"|  
@@ -284,7 +284,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  더 많은 예제를 보려면 [XML 스키마: Datatypes(W3.org 웹 사이트)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)를 참조하세요.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고 항목:  
  [Azure COGNITIVE SEARCH REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [인덱스 &#40;Azure Cognitive Search&#41; REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

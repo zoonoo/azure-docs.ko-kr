@@ -1,7 +1,7 @@
 ---
 title: 텍스트 분석 API 호출
 titleSuffix: Azure Cognitive Services
-description: 텍스트 분석 REST API를 호출하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Cognitive Services Text Analytics REST API 및 Postman을 호출 하는 방법을 설명 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: 14d3864f654dac42566441b3729de0cf88482295
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5697ae4c8864e0b9c4cbfc9e1e1048e1c3d60f77
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68697854"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837206"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>텍스트 분석 REST API를 호출하는 방법
 
@@ -26,9 +26,9 @@ ms.locfileid: "68697854"
 다시 말하지만 Text Analytics는 상태 비저장 서비스이므로 관리할 데이터 자산이 없습니다. 텍스트는 업로드되고, 수신된 후 분석됩니다. 그러면 결과가 호출 애플리케이션에 즉시 반환됩니다.
 
 > [!Tip]
-> 1번 호출하여 API의 작동 방식을 보려는 경우 [API 문서 페이지](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)에서 사용할 수 있는 기본 제공 **API 테스트 콘솔**에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 
+> 1번 호출하여 API의 작동 방식을 보려는 경우 **API 문서 페이지**에서 사용할 수 있는 기본 제공 [API 테스트 콘솔](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6)에서 POST 요청을 보낼 수 있습니다. 설치할 필요는 없으며, 액세스 키 및 JSON 문서를 요청에 붙여 넣기만 하면 됩니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [cognitive-services-text-analytics-signup-requirements](../../../../includes/cognitive-services-text-analytics-signup-requirements.md)]
 
@@ -40,11 +40,11 @@ ms.locfileid: "68697854"
 
 현재 모든 Text Analytics석 작업(감정, 핵심 구, 언어 감지 및 엔터티 식별)을위 해 동일한 문서를 제출할 수 있습니다. (스키마는 추후에 분석별로 달라질 수 있습니다.)
 
-| 요소 | 유효한 값 | 필수 여부 | 사용법 |
+| 요소 | 유효한 값 | 필수 여부 | 사용 |
 |---------|--------------|-----------|-------|
 |`id` |데이터 형식은 문자열이지만 실제로 문서 ID는 정수인 경우가 많습니다. | 필수 | 시스템은 사용자가 제공하는 ID를 사용하여 출력을 구성합니다. 언어 코드, 핵심 구 및 감정 점수가 요청의 각 ID에 대해 생성됩니다.|
 |`text` | 최대 5120 자의 비구조적 원시 텍스트입니다. | 필수 | 언어 감지의 경우 텍스트를 어떤 언어로도 나타낼 수 있습니다. 감정 분석, 핵심 구 추출 및 엔터티 식별의 경우 텍스트는 [지원되는 언어](../text-analytics-supported-languages.md)로 작성되어야 합니다. |
-|`language` | [지원되는 언어](../text-analytics-supported-languages.md)의 2자리 [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) 코드 | 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
+|`language` | [지원되는 언어](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)의 2자리 [ISO 639-1](../text-analytics-supported-languages.md) 코드 | 다름 | 감정 분석, 핵심 구 추출 및 엔터티 연결의 경우 필수. 언어 감지의 경우 옵션 제외해도 오류는 발생하지 않지만 분석 효과가 약해집니다. 언어 코드는 사용자가 제공한 `text`와 일치해야 합니다. |
 
 제한에 대한 자세한 내용은 [Text Analytics 개요 > 데이터 제한](../overview.md#data-limits)을 참조하세요. 
 
@@ -91,7 +91,7 @@ ms.locfileid: "68697854"
 
    Postman에서 응답은 아래의 다음 창에 단일 JSON 문서로 표시되며, 각 문서 ID 항목이 요청에 제공됩니다.
 
-## <a name="see-also"></a>참고자료 
+## <a name="see-also"></a>참고 항목: 
 
  [Text Analytics 개요](../overview.md)  
  [FAQ(질문과 대답)](../text-analytics-resource-faq.md)

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: 9ac1c5cb25d6b2ad396c2caed74942988a723a0e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824250"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111869"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -37,15 +37,15 @@ Azure Machine Learning를 사용 하 여 AKS에 배포 된 모델에 대 한 입
 + 전자 메일로 데이터 드리프트에 경고를 보냅니다.
 
 > [!Note]
-> 이 서비스는 (미리 보기)에 있으며 구성 옵션에서 제한 됩니다. 세부 정보 및 업데이트는 [API 설명서](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/?view=azure-ml-py) 및 [릴리스 정보](azure-machine-learning-release-notes.md) 를 참조 하세요. 
+> 이 서비스는 (미리 보기)에 있으며 구성 옵션에서 제한 됩니다. 세부 정보 및 업데이트는 [API 설명서](https://docs.microsoft.com/python/api/azureml-datadrift/) 및 [릴리스 정보](azure-machine-learning-release-notes.md) 를 참조 하세요. 
 
 ### <a name="how-data-drift-is-monitored-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 드리프트를 모니터링 하는 방법
 
 Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집합 또는 배포를 통해 모니터링 됩니다. 데이터 드리프트를 모니터링 하기 위해 기본 데이터 집합 (일반적으로 모델에 대 한 학습 데이터 집합)이 지정 됩니다. 두 번째 데이터 집합 (일반적으로 배포에서 수집 된 입력 데이터 모델)은 기준선 데이터 집합에 대해 테스트 됩니다. 데이터 집합은 모두 프로 파일링 되 고 데이터 드리프트 모니터링 서비스에 입력 됩니다. 기계 학습 모델을 학습 하 여 두 데이터 집합 간의 차이를 검색 합니다. 모델의 성능은 두 데이터 집합 간의 드리프트 크기를 측정 하는 드리프트 계수로 변환 됩니다. [모델 interpretability](how-to-machine-learning-interpretability.md)를 사용 하 여 드리프트 계수에 영향을 주는 기능을 계산 합니다. 데이터 집합 프로필에서 각 기능에 대 한 통계 정보를 추적 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Python용 Azure Machine Learning SDK가 설치되었습니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침에 따라 다음 작업을 수행합니다.
 
@@ -98,7 +98,7 @@ print('Details of Datadrift Object:\n{}'.format(datadrift))
 
 ## <a name="submit-a-datadriftdetector-run"></a>DataDriftDetector 실행 제출
 
-`DataDriftDetector` 개체가 구성 되 면 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector%28class%29?view=azure-ml-py#run-target-date--services--compute-target-name-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 `drift_threshold` 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#metrics) 지정 된 `drift_threshold`위에 있으면 전자 메일이 전송 됩니다.
+`DataDriftDetector` 개체가 구성 되 면 모델에 대해 지정 된 날짜에 [데이터 드리프트 실행](https://docs.microsoft.com/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector#run-target-date--services-none--compute-target-none--create-compute-target-false--feature-list-none--drift-threshold-none-) 을 제출할 수 있습니다. 실행의 일부로 `drift_threshold` 매개 변수를 설정 하 여 DataDriftDetector 경고를 사용 하도록 설정 합니다. [Datadrift_coefficient](#visualize-drift-metrics) 지정 된 `drift_threshold`위에 있으면 전자 메일이 전송 됩니다.
 
 ```python
 # adhoc run today

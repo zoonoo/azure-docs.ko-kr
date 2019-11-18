@@ -1,7 +1,7 @@
 ---
 title: Translator Text API Translate 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API Translate 메서드를 사용합니다.
+description: Azure Cognitive Services Translator Text API 변환 방법에서 텍스트를 변환 하는 데 사용할 매개 변수, 헤더 및 본문 메시지를 이해 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: b809171549a8f3cbbbb6ccad1553608598afa345
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b4daa04a4dbf87006147fb0d44d7b128a6d8ecf4
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161710"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835779"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3.0: Translate
 
@@ -42,18 +42,18 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>from</td>
-    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <code>translation</code> 범위를 통해 <a href="./v3-0-languages.md">지원되는 언어</a>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 <code>from</code> 매개 변수를 사용 해야 합니다.</td>
+    <td><em>선택적 매개 변수</em>입니다.<br/>입력 텍스트의 언어를 지정합니다. <a href="./v3-0-languages.md"> 범위를 통해 </a>지원되는 언어<code>translation</code>를 조회하여 번역할 수 있는 원본 언어를 찾습니다. <code>from</code> 매개 변수를 지정하지 않으면 자동 언어 검색에 따라 원본 언어가 결정됩니다. <br/><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/dynamic-dictionary">동적 사전</a> 기능을 사용 하는 경우 인코딩이 대신 <code>from</code> 매개 변수를 사용 해야 합니다.</td>
   </tr>
   <tr>
     <td>to</td>
-    <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <code>translation</code> 범위에 포함된 <a href="./v3-0-languages.md">지원되는 언어</a> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
+    <td><em>필수 매개 변수</em>입니다.<br/>출력 텍스트의 언어를 지정합니다. 대상 언어는 <a href="./v3-0-languages.md"> 범위에 포함된 </a>지원되는 언어<code>translation</code> 중 하나여야 합니다. 예를 들어, 독일어로 번역하려면 <code>to=de</code>를 사용합니다.<br/>쿼리 문자열의 매개 변수를 반복하여 동시에 여러 언어로 번역할 수도 있습니다. 예를 들어, 독일어 및 이탈리아어로 번역하려면 <code>to=de&to=it</code>를 사용합니다.</td>
   </tr>
   <tr>
     <td>textType</td>
     <td><em>선택적 매개 변수</em>입니다.<br/>번역되는 텍스트가 일반 텍스트인지 또는 HTML 인지를 정의합니다. 모든 HTML은 올바른 형식이 완전한 요소여야 합니다. 가능한 값은 <code>plain</code>(기본값) 또는 <code>html</code>입니다.</td>
   </tr>
   <tr>
-    <td>category</td>
+    <td>카테고리</td>
     <td><em>선택적 매개 변수</em>입니다.<br/>번역의 범주(도메인)를 지정하는 문자열입니다. 이 매개 변수를 사용하여 <a href="../customization.md">Custom Translator</a>로 작성된 사용자 지정 시스템의 번역을 가져옵니다. 사용자 지정 변환기 <a href="https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/how-to-create-project#view-project-details">프로젝트 세부 정보의</a> 범주 ID를이 매개 변수에 추가 하 여 배포 된 사용자 지정 시스템을 사용 합니다. 기본값은 <code>general</code>입니다.</td>
   </tr>
   <tr>
@@ -94,14 +94,14 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 요청 헤더에는 다음이 포함됩니다.
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">헤더</th>
   <th>설명</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
   </tr>
   <tr>
-    <td>콘텐츠 형식</td>
+    <td>Content-Type</td>
     <td><em>필수 요청 헤더</em><br/>페이로드의 콘텐츠 형식을 지정합니다.<br/> 허용 되는 값은 <code>application/json; charset=UTF-8</code>입니다.</td>
   </tr>
   <tr>
@@ -110,7 +110,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td><em>옵션</em>.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
+    <td><em>선택 사항</em>입니다.<br/>요청을 고유하게 식별하는 클라이언트 생성 ID입니다. <code>ClientTraceId</code>라는 쿼리 매개 변수를 사용하는 쿼리 문자열에서 추적 ID를 포함하는 경우 이 헤더를 생략할 수 있습니다.</td>
   </tr>
 </table> 
 
@@ -172,7 +172,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 ## <a name="response-headers"></a>응답 헤더
 
 <table width="100%">
-  <th width="20%">headers</th>
+  <th width="20%">헤더</th>
   <th>설명</th>
     <tr>
     <td>X-RequestId</td>
@@ -193,7 +193,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
   <th>설명</th>
   <tr>
     <td>200</td>
-    <td>성공.</td>
+    <td>명령 실행 성공</td>
   </tr>
   <tr>
     <td>400</td>
@@ -227,7 +227,7 @@ JSON 응답 예제는 [예제](#examples) 섹션에 제공됩니다.
 
 오류가 발생하는 경우 요청은 JSON 오류 응답도 반환합니다. 오류 코드는 오류를 더 범주화하도록 뒤에 3자리 숫자가 오는 3자리 HTTP 상태 코드로 결합된 6자리 숫자입니다. 일반적인 오류 코드는 [v3 Translator Text API 참조 페이지](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors)에서 확인할 수 있습니다. 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="translate-a-single-input"></a>단일 입력 번역
 
@@ -354,10 +354,10 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>실행력</th>
+  <th>작업</th>
   <tr>
     <td><code>NoAction</code></td>
-    <td>기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
+    <td>이는 기본 동작입니다. 욕설이 원본에서 대상으로 전달됩니다.<br/><br/>
     <strong>예제 원본(일본어)</strong>: 彼はジャッカスです。<br/>
     <strong>예제 번역(영어)</strong>: He is a jackass.
     </td>
@@ -381,7 +381,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-versio
   </tr>
 </table> 
 
-다음은 그 예입니다.
+예를 들어:
 
 ```curl
 curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"

@@ -1,14 +1,14 @@
 ---
 title: Azure 청사진 함수
-description: Azure 청사진 정의 및 할당에 사용 하는 함수에 대해 설명 합니다.
+description: Azure 청사진 정의 및 할당의 청사진 아티팩트와 함께 사용할 수 있는 함수에 대해 설명 합니다.
 ms.date: 04/15/2019
 ms.topic: reference
-ms.openlocfilehash: 5f4948b55b8889094570574647b7a35ce08f5c12
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 92539da02ddbe22f943454aff54dae4ccb5af3ce
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960299"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128766"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Azure 청사진과 함께 사용 하는 함수
 
@@ -137,7 +137,7 @@ Azure Blueprint 함수는 문자열 에서만 작동 한다는 점에서 Azure R
 
 `concat(parameters('organizationName'), '-vm')`
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 `parameters(parameterName)`
 
@@ -196,7 +196,7 @@ Azure Blueprint 함수는 청사진 매개 변수 에서만 작동 한다는 점
 }
 ```
 
-## <a name="resourcegroup"></a>resourceGroup
+## <a name="resourcegroup"></a>리소스 그룹
 
 `resourceGroup()`
 
@@ -320,7 +320,7 @@ Azure Blueprint 함수는 Azure Resource Manager 템플릿 함수와 다릅니�
 }
 ```
 
-## <a name="subscription"></a>(구독당)
+## <a name="subscription"></a>구독(subscription)
 
 `subscription()`
 

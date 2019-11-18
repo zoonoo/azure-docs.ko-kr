@@ -8,33 +8,30 @@ ms.topic: conceptual
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: c4669809f1efa1f69081da17bf5ccbeddc39a716
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f48c8712a2f4fbd69db7de5247e3293ad57ae1e6
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077140"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112830"
 ---
 # <a name="change-feed-support-in-azure-blob-storage-preview"></a>Azure Blob Storage의 변경 피드 지원 (미리 보기)
 
 변경 피드의 목적은 저장소 계정의 blob 및 blob 메타 데이터에 발생 하는 모든 변경 내용에 대 한 트랜잭션 로그를 제공 하는 것입니다. 변경 피드는 이러한 변경 내용에 대 한 **순서**, **보장**, **내구성**, 변경 **불가능**, **읽기 전용** 로그를 제공 합니다. 클라이언트 응용 프로그램은 스트리밍 또는 일괄 처리 모드에서 언제 든 지 이러한 로그를 읽을 수 있습니다. 변경 피드를 사용 하면 Blob Storage 계정에서 발생 하는 변경 이벤트를 저렴 한 비용으로 처리 하는 효율적이 고 확장 가능한 솔루션을 빌드할 수 있습니다.
 
-> [!NOTE]
-> 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요.
-
 변경 피드는 저장소 계정의 특수 컨테이너에 [blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs) 으로 표준 [blob 가격 책정](https://azure.microsoft.com/pricing/details/storage/blobs/) 비용으로 저장 됩니다. 요구 사항에 따라 이러한 파일의 보존 기간을 제어할 수 있습니다 (현재 릴리스의 [조건](#conditions) 참조). 변경 이벤트는 [Apache Avro](https://avro.apache.org/docs/1.8.2/spec.html) 형식 사양의 레코드로 변경 피드에 추가 됩니다. 인라인 스키마를 사용 하 여 풍부한 데이터 구조를 제공 하는 간단 하 고 빠른 이진 형식입니다. 이 형식은 Hadoop 에코시스템, Stream Analytics 및 Azure Data Factory에서 널리 사용됩니다.
 
-이러한 로그는 증분 방식으로 또는 전체에서 처리할 수 있습니다. 원하는 수의 클라이언트 응용 프로그램은 변경 피드를 독립적으로 개별적으로 읽을 수 있습니다. [Apache 드릴](https://drill.apache.org/docs/querying-avro-files/) 또는 [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) 와 같은 분석 응용 프로그램은 로그를 Avro 파일로 직접 사용할 수 있으며,이를 통해 높은 대역폭을 사용 하 여 사용자 지정 응용 프로그램을 작성 하지 않고도 로그를 처리할 수 있습니다.
+이러한 로그는 증분 방식으로 또는 전체에서 처리할 수 있습니다. 원하는 수의 클라이언트 응용 프로그램은 변경 피드를 독립적으로 개별적으로 읽을 수 있습니다. [Apache 드릴](https://drill.apache.org/docs/querying-avro-files/) 또는 [Apache Spark](https://spark.apache.org/docs/latest/sql-data-sources-avro.html) 와 같은 분석 응용 프로그램은 로그를 Avro 파일로 직접 사용할 수 있으므로, 높은 대역폭을 사용 하 고 사용자 지정 응용 프로그램을 작성 하지 않고도 처리할 수 있습니다.
 
 변경 피드 지원은 변경 된 개체를 기반으로 데이터를 처리 하는 시나리오에 적합 합니다. 예를 들어 응용 프로그램에서 다음을 수행할 수 있습니다.
 
-  - 보조 인덱스를 업데이트 하 고, 캐시, 검색 엔진 또는 기타 콘텐츠 관리 시나리오와 동기화 합니다.
+  - 보조 인덱스를 업데이트 하 고, 캐시, 검색 엔진 또는 기타 모든 콘텐츠 관리 시나리오와 동기화 합니다.
   
   - 스트리밍 방식 또는 일괄 처리 모드에서 개체에 발생 하는 변경 내용을 기반으로 비즈니스 분석 정보 및 메트릭을 추출 합니다.
   
   - 엔터프라이즈 데이터 관리에 대 한 보안, 규정 준수 또는 인텔리전스를 위해 일정 기간 동안 개체에 대 한 변경 내용을 저장, 감사 및 분석 합니다.
 
-  - 재해 관리 또는 규정 준수를 위해 계정에서 개체 상태를 백업, 미러링 또는 복제 하는 솔루션을 빌드합니다.
+  - 재해 관리 또는 규정 준수를 위해 계정의 개체 상태를 백업, 미러링 또는 복제 하는 솔루션을 빌드 하세요.
 
   - 변경 이벤트에 반응 하거나 만들어지거나 변경 된 개체를 기반으로 실행을 예약 하는 연결 된 응용 프로그램 파이프라인을 빌드합니다.
 
@@ -54,6 +51,9 @@ ms.locfileid: "74077140"
 - 변경 피드는 계정에서 발생 하는 모든 사용 가능한 이벤트의 *모든* 변경 내용을 캡처합니다. 클라이언트 응용 프로그램은 필요에 따라 이벤트 유형을 필터링 할 수 있습니다. 현재 릴리스의 [조건을](#conditions) 참조 하세요.
 
 - GPv2 및 Blob 저장소 계정만 변경 피드를 사용 하도록 설정할 수 있습니다. GPv1 저장소 계정, Premium BlockBlobStorage 계정 및 계층적 네임 스페이스 사용 계정은 현재 지원 되지 않습니다.
+
+> [!IMPORTANT]
+> 변경 피드는 공개 미리 보기 상태 이며 **westcentralus** 및 **westus2** 지역에서 사용할 수 있습니다. 이 문서의 [조건](#conditions) 섹션을 참조 하세요. 미리 보기에 등록 하려면이 문서의 [구독 등록](#register) 단원을 참조 하세요. 저장소 계정에서 변경 피드를 사용 하도록 설정 하려면 먼저 구독을 등록 해야 합니다.
 
 ### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
@@ -246,7 +246,7 @@ $blobchangefeed/idx/segments/2019/02/23/0110/meta.json                  BlockBlo
 
 - 세그먼트가 나타내는 시간은 15 분 범위의 **근사치** 입니다. 따라서 지정 된 시간 내에 모든 레코드의 소비를 보장 하려면 연속 된 이전 및 다음 시간 세그먼트를 사용 합니다.
 
-- 각 세그먼트의 `chunkFilePaths`수는 다를 수 있습니다. 이는 로그 스트림의 내부 분할으로 인해 게시 처리량을 관리 하기 때문입니다. 각 `chunkFilePath`의 로그 파일은 상호 배타적인 blob을 포함 하도록 보장 되며, 반복 하는 동안 blob 당 수정 순서를 위반 하지 않고 병렬로 사용 하 고 처리할 수 있습니다.
+- 각 세그먼트의 `chunkFilePaths`수는 다를 수 있습니다. 이는 로그 스트림의 내부 분할으로 인해 게시 처리량을 관리 하기 때문입니다. 각 `chunkFilePath`의 로그 파일에는 상호 배타적인 blob이 포함 될 수 있으며, 반복 하는 동안 blob 당 수정 순서를 위반 하지 않고 병렬로 사용 하 고 처리할 수 있습니다.
 
 - 세그먼트가 `Publishing` 상태로 시작 됩니다. 세그먼트에 대 한 레코드를 추가 하는 작업이 완료 되 면 `Finalized`됩니다. `$blobchangefeed/meta/Segments.json` 파일의 `LastConsumable` 속성 날짜 이후 날짜가 지정 된 모든 세그먼트의 로그 파일은 응용 프로그램에서 사용 하지 않아야 합니다. `$blobchangefeed/meta/Segments.json` 파일의 `LastConsumable`속성 예는 다음과 같습니다.
 
@@ -302,7 +302,16 @@ az provider register --namespace 'Microsoft.Storage'
 - 로그 파일의 `url` 속성은 항상 비어 있습니다.
 - Segment. json 파일의 `LastConsumable` 속성에는 변경 피드가 마무리 하는 첫 번째 세그먼트가 나열 되지 않습니다. 이 문제는 첫 번째 세그먼트가 완료 된 후에만 발생 합니다. 첫 번째 시간 이후의 모든 후속 세그먼트는 `LastConsumable` 속성에서 정확 하 게 캡처됩니다.
 
+## <a name="faq"></a>FAQ
+
+### <a name="what-is-the-difference-between-change-feed-and-storage-analytics-logging"></a>변경 피드와 스토리지 분석 로깅 간의 차이점은 무엇 인가요?
+변경 피드는 성공적인 blob 만들기, 수정 및 삭제 이벤트만 변경 피드 로그에 기록 되기 때문에 응용 프로그램 개발에 최적화 되어 있습니다. 분석 로깅은 읽기 및 나열 작업을 포함 하 여 모든 작업에 대해 성공한 모든 요청 및 실패 한 요청을 기록 합니다. 변경 피드를 활용 하면 트랜잭션 과도 한 계정에서 로그 노이즈를 필터링 하는 것에 대해 걱정할 필요가 없으며 blob 변경 이벤트에만 집중할 수 있습니다.
+
+### <a name="should-i-use-change-feed-or-storage-events"></a>변경 피드 또는 저장소 이벤트를 사용 해야 하나요?
+변경 피드와 [Blob storage 이벤트](storage-blob-event-overview.md) 는 모두 유사 하 게 사용 될 수 있습니다. 주요 차이점은 이벤트 레코드의 대기 시간, 순서 지정 및 저장소입니다. 변경 피드는 blob 변경 작업의 순서를 보장 하면서 몇 분 마다 대량으로 변경 피드 로그에 레코드를 씁니다. 저장소 이벤트는 실시간으로 푸시되 며 순서가 지정 되지 않을 수 있습니다. 변경 피드 이벤트는 저장소 계정 내에 저장 되는 반면, 저장소 이벤트는 명시적으로 저장 하지 않는 한 이벤트 처리기에서 사용 되는 지속적으로 저장소 계정에 저장 됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 - .NET 클라이언트 응용 프로그램을 사용 하 여 변경 피드를 읽는 방법의 예제를 참조 하세요. [Azure Blob Storage에서 변경 피드 로그 처리를](storage-blob-change-feed-how-to.md)참조 하세요.
 - 실시간으로 이벤트에 반응 하는 방법에 대해 알아봅니다. [Blob Storage 이벤트에 대 한 응답을](storage-blob-event-overview.md) 참조 하세요.
+- 모든 요청에 대해 성공한 작업과 실패 한 작업에 대 한 자세한 로깅 정보에 대해 자세히 알아보세요. [Azure Storage 분석 로깅](../common/storage-analytics-logging.md) 을 참조 하세요.

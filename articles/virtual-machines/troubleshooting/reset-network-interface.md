@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: afb8335d3206a76b8f9bc47733e9816126e80af0
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 1c49c6221e9b310a1b14a4e06a296befc7f6da4d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058458"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111731"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -50,7 +50,7 @@ ms.locfileid: "71058458"
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
-2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행 합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
 
     ```powershell
     #Set the variables 
@@ -68,7 +68,7 @@ ms.locfileid: "71058458"
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
 
     #Add/Change static IP. This process will not change MAC address
-    Get-AzVM -ServiceName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
+    Get-AzVM -ResourceGroupName $ResourceGroup -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP | Update-AzVM
     ```
 3. 컴퓨터에 RDP를 시도합니다.  성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "71058458"
 #### <a name="use-azure-powershell"></a>Azure PowerShell 사용
 
 1. 먼저 [최신 Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)을 설치했는지 확인합니다.
-2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행 합니다.
+2. 관리자 권한 Azure PowerShell 세션(관리자 권한으로 실행)을 엽니다. 다음 명령을 실행합니다.
 
     ```powershell
     #Set the variables 
@@ -109,7 +109,7 @@ ms.locfileid: "71058458"
     Test-AzureStaticVNetIP –VNetName $VNET –IPAddress  $IP
     
     #Add/Change static IP. This process will not change MAC address
-    Get-AzureVM -ServiceName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
+    Get-AzureVM -ResourceGroupName $CloudService -Name $VM | Set-AzureStaticVNetIP -IPAddress $IP |Update-AzureVM
     ```
 3. 컴퓨터에 RDP를 시도합니다. 성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다. 
 
@@ -120,7 +120,7 @@ ms.locfileid: "71058458"
 2.  **보기** > **숨겨진 디바이스 표시**를 선택합니다.
 3.  **네트워크 어댑터**를 선택합니다. 
 4.  “Microsoft Hyper-V 네트워크 어댑터”로 명명된 어댑터를 확인합니다.
-5.  사용할 수 없는 어댑터는 회색으로 표시된 것을 볼 수 있습니다. 어댑터를 마우스 오른쪽 단추로 클릭하고 [제거]를 선택합니다.
+5.  사용할 수 없는 어댑터가 회색으로 표시 될 수 있습니다. 어댑터를 마우스 오른쪽 단추로 클릭 한 다음 제거를 선택 합니다.
 
     ![NIC 이미지](media/reset-network-interface/nicpage.png)
 

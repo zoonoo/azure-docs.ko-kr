@@ -1,5 +1,5 @@
 ---
-title: 보강 내용 기반 변경 내용 추적의 증분 인덱싱 (미리 보기) 설정
+title: 증분 인덱싱 추가 (미리 보기)
 titleSuffix: Azure Cognitive Search
 description: 인지 기술에서 제어 되는 처리에 대해 변경 내용 추적을 사용 하도록 설정 하 고 보강 콘텐츠의 상태를 유지 합니다. 이 기능은 현재 공개 미리 보기로 제공됩니다.
 author: vkurpad
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 74631ee3167c65e59fbd05f53fe5327d1b532dba
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719931"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112581"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Azure Cognitive Search에서 보강 문서의 증분 인덱싱을 설정 하는 방법
 

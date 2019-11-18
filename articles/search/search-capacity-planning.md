@@ -1,5 +1,5 @@
 ---
-title: 파티션 및 복제본을 확장 하 여 쿼리 및 인덱스 워크 로드에 대 한 용량 추가
+title: 쿼리 및 인덱스 워크 로드에 대 한 용량 조정
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search의 파티션 및 복제본 컴퓨터 리소스를 조정 합니다. 여기서 각 리소스는 청구 가능한 검색 단위로 가격이 책정 됩니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8613ddc668df338c4f96a9d37f32120718513925
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792495"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112136"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>파티션 및 복제본을 확장 하 여 Azure Cognitive Search의 쿼리 및 인덱스 작업에 대 한 용량 추가
 
@@ -89,10 +89,10 @@ Azure Cognitive Search에서 서비스는 처음에 하나의 파티션과 하�
 | **복제본 1개.** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
-| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
-| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
-| **복제본 12개** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
+| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 없음 |
+| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 없음 |
+| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |해당 없음 |
+| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |해당 없음 |해당 없음 |
 
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 

@@ -1,7 +1,7 @@
 ---
 title: 음성 SDK-음성 서비스를 사용 하 여 앱 개발
 titleSuffix: Azure Cognitive Services
-description: Speech SDK를 사용하여 앱을 만드는 방법을 알아봅니다.
+description: 지원 되는 플랫폼에서 Speech SDK를 사용 하는 응용 프로그램을 배포 하는 방법을 알아봅니다.
 services: cognitive-services
 author: jhakulin
 manager: nitinme
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: jhakulin
 ms.custom: seodec18
-ms.openlocfilehash: 166ae00085f07ef24d746b60947a31e7680a0f00
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0bcfd40510352abc9e64782255d3c8349b8ad87e
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491000"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072411"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -39,15 +39,15 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| Name | 함수
-|:-----|:----|
-| `Microsoft.CognitiveServices.Speech.core.dll` | 네이티브 및 관리된 배포에 필요한 핵심 SDK
-| `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요
+| 이름 | 함수 |
+| :--- | :------- |
+| `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
+| `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |
 
->[!NOTE]
+> [!NOTE]
 > 릴리스 1.3.0 부터는 (이전 릴리스에서 제공 된) 파일 `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` 더 이상 필요 하지 않습니다. 이제 기능이 핵심 SDK에 통합 되었습니다.
 
->[!NOTE]
+> [!NOTE]
 > Windows Forms 앱 (.NET Framework) C# 프로젝트의 경우 라이브러리가 프로젝트의 배포 설정에 포함 되어 있는지 확인 합니다. `Properties -> Publish Section`에서이를 확인할 수 있습니다. `Application Files` 단추를 클릭 하 고 스크롤 다운 목록에서 해당 라이브러리를 찾습니다. 값이 `Included`로 설정 되었는지 확인 합니다. 프로젝트를 게시/배포할 때 Visual Studio에 파일이 포함 됩니다.
 
 ## <a name="linux"></a>Linux
@@ -56,9 +56,9 @@ Speech SDK는 현재 Ubuntu 16.04, Ubuntu 18.04 및 Debian 9 배포를 지원 �
 네이티브 애플리케이션의 경우 Speech SDK 라이브러리 `libMicrosoft.CognitiveServices.Speech.core.so`를 전달해야 합니다.
 애플리케이션과 일치하는 버전(x86, x64)을 선택해야 합니다. Linux 버전에 따라 다음 종속성을 포함해야 할 수도 있습니다.
 
-* GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
-* OpenSSL 라이브러리 (`libssl.so.1.0.0` 또는 `libssl.so.1.0.2`)
-* ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
+- GNU C 라이브러리의 공유 라이브러리(POSIX Threads Programming 라이브러리, `libpthreads` 포함)
+- OpenSSL 라이브러리 (`libssl.so.1.0.0` 또는 `libssl.so.1.0.2`)
+- ALSA 애플리케이션의 공유 라이브러리(`libasound.so.2`)
 
 Ubuntu에는 GNU C 라이브러리가 기본적으로 이미 설치되어 있습니다. 마지막 세 가지는 다음 명령을 사용하여 설치할 수 있습니다.
 
@@ -76,5 +76,5 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-* [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
+- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)

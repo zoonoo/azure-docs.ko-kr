@@ -1,5 +1,5 @@
 ---
-title: .NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법
+title: .NET에서 Azure Cognitive Search 사용
 titleSuffix: Azure Cognitive Search
 description: 및 .NET SDK를 사용 하 여 C# .net 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법을 알아봅니다. 코드 기반 작업에는 서비스에 연결, 콘텐츠 인덱싱 및 인덱스 쿼리가 포함됩니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e1903b3b33e1dde5178fadbc37feee191a2eaacd
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 54fcd1fb936b5dd41715798408b604106a24bcf9
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792129"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112584"
 ---
 # <a name="how-to-use-azure-cognitive-search-from-a-net-application"></a>.NET 응용 프로그램에서 Azure Cognitive Search를 사용 하는 방법
 
@@ -31,7 +31,7 @@ SDK의 다른 NuGet 패키지는 다음과 같습니다.
   - `Microsoft.Azure.Search.Service`: .NET에서 자동화를 개발 하 여 Azure Cognitive Search 인덱스, 동의어 맵, 인덱서, 데이터 원본 또는 기타 서비스 수준 리소스를 관리 하는 경우이 패키지를 사용 합니다. 인덱스에서 문서를 쿼리하거나 업데이트하기만 하면 되는 경우에는 대신 `Microsoft.Azure.Search.Data` 패키지를 사용합니다. Azure Cognitive Search의 모든 기능이 필요 하면 `Microsoft.Azure.Search` 패키지를 대신 사용 하세요.
   - `Microsoft.Azure.Search.Common`: Azure Cognitive Search .NET 라이브러리에 필요한 공용 형식입니다. 응용 프로그램에서이 패키지를 직접 사용할 필요는 없습니다. 종속성 으로만 사용 됩니다.
 
-다양한 클라이언트 라이브러리가 `Index`, `Field`, `Document` 등의 클래스뿐만 아니라 `SearchServiceClient` 및 `SearchIndexClient` 클래스의 `Indexes.Create` 및 `Documents.Search` 등을 정의합니다. 이러한 클래스는 다음과 같은 네임 스페이스에 구성됩니다.
+다양한 클라이언트 라이브러리가 `Index`, `Field`, `Document` 등의 클래스뿐만 아니라 `Indexes.Create` 및 `Documents.Search` 클래스의 `SearchServiceClient` 및 `SearchIndexClient` 등을 정의합니다. 이러한 클래스는 다음과 같은 네임 스페이스에 구성됩니다.
 
 * [Microsoft.Azure.Search](https://docs.microsoft.com/dotnet/api/microsoft.azure.search)
 * [Microsoft.Azure.Search.Models](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models)
@@ -100,7 +100,7 @@ static void Main(string[] args)
 > 
 >
 
-단계별로 연습해보겠습니다. 먼저 새로운 `SearchServiceClient`을(를) 만들어야 합니다. 이 개체를 통해 인덱스를 관리할 수 있습니다. 하나를 구성 하려면 Azure Cognitive Search 서비스 이름과 관리 API 키를 제공 해야 합니다. [샘플 애플리케이션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)의 `appsettings.json` 파일에 이 정보를 입력할 수 있습니다.
+단계별로 연습해보겠습니다. 먼저 새로운 `SearchServiceClient`을(를) 만들어야 합니다. 이 개체를 통해 인덱스를 관리할 수 있습니다. 하나를 구성 하려면 Azure Cognitive Search 서비스 이름과 관리 API 키를 제공 해야 합니다. `appsettings.json`샘플 애플리케이션[의 ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 파일에 이 정보를 입력할 수 있습니다.
 
 ```csharp
 private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot configuration)
@@ -114,7 +114,7 @@ private static SearchServiceClient CreateSearchServiceClient(IConfigurationRoot 
 ```
 
 > [!NOTE]
-> 잘못된 키(예, 관리 키가 필요한 쿼리 키)를 제공하는 경우, `SearchServiceClient`은(는) `Indexes.Create`와(과) 같은 작업 메서드를 처음 호출하면 "사용할 수 없음"이라는 오류 메시지와 함께 `CloudException`을(를) 발생시킵니다. 이 경우 API 키를 다시 확인하십시오.
+> 잘못된 키(예, 관리 키가 필요한 쿼리 키)를 제공하는 경우, `SearchServiceClient`은(는) `CloudException`와(과) 같은 작업 메서드를 처음 호출하면 "사용할 수 없음"이라는 오류 메시지와 함께 `Indexes.Create`을(를) 발생시킵니다. 이 경우 API 키를 다시 확인하십시오.
 > 
 > 
 
@@ -128,14 +128,14 @@ Console.WriteLine("{0}", "Creating index...\n");
 CreateIndex(indexName, serviceClient);
 ```
 
-그런 다음 인덱스를 채워야 합니다. 인덱스를 채우려면 `SearchIndexClient`가 필요 합니다. 두 가지 방법 즉, 키를 생성하거나 `SearchServiceClient`에서 `Indexes.GetClient`을(를) 호출하여 키를 얻을 수 있습니다. 편의를 위해 후자를 사용합니다.
+그런 다음 인덱스를 채워야 합니다. 인덱스를 채우려면 `SearchIndexClient`가 필요 합니다. 두 가지 방법 즉, 키를 생성하거나 `Indexes.GetClient`에서 `SearchServiceClient`을(를) 호출하여 키를 얻을 수 있습니다. 편의를 위해 후자를 사용합니다.
 
 ```csharp
 ISearchIndexClient indexClient = serviceClient.Indexes.GetClient(indexName);
 ```
 
 > [!NOTE]
-> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리 될 수 있습니다. `Indexes.GetClient`는 추가 `SearchCredentials`를 제공 하는 문제를 저장 하므로 인덱스를 채우는 데 편리 합니다. 이는 새 `SearchIndexClient`에 `SearchServiceClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행 하는 응용 프로그램 부분에서는 쿼리 키를 전달 하 여 관리자 키 대신 데이터를 읽을 수 있도록 하는 `SearchIndexClient`를 직접 만드는 것이 좋습니다. 이는 최소 권한의 원칙와 일치하고 애플리케이션을 더욱 안전하게 하는데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [여기](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)에서 확인할 수 있습니다.
+> 일반적인 검색 응용 프로그램에서 인덱스 관리 및 채우기는 검색 쿼리와는 별도의 구성 요소에 의해 처리 될 수 있습니다. `Indexes.GetClient`는 추가 `SearchCredentials`를 제공 하는 문제를 저장 하므로 인덱스를 채우는 데 편리 합니다. 이는 새 `SearchServiceClient`에 `SearchIndexClient`을(를) 만드는 데 사용하는 관리 키를 눌러 수행됩니다. 그러나 쿼리를 실행 하는 응용 프로그램 부분에서는 쿼리 키를 전달 하 여 관리자 키 대신 데이터를 읽을 수 있도록 하는 `SearchIndexClient`를 직접 만드는 것이 좋습니다. 이는 최소 권한의 원칙와 일치하고 애플리케이션을 더욱 안전하게 하는데 도움이 됩니다. 관리 키와 쿼리 키에 대한 자세한 내용은 [여기](https://docs.microsoft.com/rest/api/searchservice/#authentication-and-authorization)에서 확인할 수 있습니다.
 > 
 > 
 
@@ -167,7 +167,7 @@ private static SearchIndexClient CreateSearchIndexClient(string indexName, IConf
 }
 ```
 
-이번에는 인덱스에 대해 쓰기 액세스 권한이 필요하지 않으므로 쿼리 키를 사용합니다. [샘플 애플리케이션](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo)의 `appsettings.json` 파일에 이 정보를 입력할 수 있습니다.
+이번에는 인덱스에 대해 쓰기 액세스 권한이 필요하지 않으므로 쿼리 키를 사용합니다. `appsettings.json`샘플 애플리케이션[의 ](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowTo) 파일에 이 정보를 입력할 수 있습니다.
 
 유효한 서비스 이름 및 API 키를 사용 하 여이 응용 프로그램을 실행 하는 경우 출력은 다음 예제와 같이 표시 됩니다. (일부 콘솔 출력은 "..."로 대체 되었습니다. 설명을 위한 것입니다.
 
@@ -232,11 +232,11 @@ private static void DeleteIndexIfExists(string indexName, SearchServiceClient se
 이 메서드는 주어진 `SearchServiceClient` 을(를) 사용하여 인덱스가 존재하는지 확인하고 존재하면 이를 삭제합니다.
 
 > [!NOTE]
-> 이 문서의 예제 코드는 편의를 위해 Azure Cognitive Search .NET SDK의 동기 메서드를 사용 합니다. 확장성과 응답성이 유지하기 위해 사용 중인 애플리케이션에서 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, 위의 메서드의 경우 `Exists` 및 `Delete` 대신`ExistsAsync` 및 `DeleteAsync`을(를) 사용할 수 있습니다.
+> 이 문서의 예제 코드는 편의를 위해 Azure Cognitive Search .NET SDK의 동기 메서드를 사용 합니다. 확장성과 응답성이 유지하기 위해 사용 중인 애플리케이션에서 비동기 메서드를 사용하는 것이 좋습니다. 예를 들어, 위의 메서드의 경우 `ExistsAsync` 및 `DeleteAsync` 대신`Exists` 및 `Delete`을(를) 사용할 수 있습니다.
 > 
 > 
 
-그 다음 `Main`이(가) 이 메서드를 호출하여 새 "호텔" 인덱스를 만듭니다.
+그 다음 `Main` 이(가) 이 메서드를 호출하여 새 "호텔" 인덱스를 만듭니다.
 
 ```csharp
 private static void CreateIndex(string indexName, SearchServiceClient serviceClient)
@@ -251,10 +251,10 @@ private static void CreateIndex(string indexName, SearchServiceClient serviceCli
 }
 ```
 
-이 메서드는 새 인덱스의 스키마를 정의하는 `Field` 개체 목록과 함께 새 `Index` 개체를 만듭니다. 각 필드에는 이름, 데이터 유형, 그리고 검색 동작을 정의하는 몇 가지 특성이 있습니다. `FieldBuilder` 클래스는 리플렉션을 사용하여 지정된 `Hotel` 모델 클래스의 public 속성 및 특성을 검사하고 인덱스에 대한 `Field` 개체 목록을 만듭니다. `Hotel` 클래스에 대해서는 이후에 좀 더 자세히 알아보겠습니다.
+이 메서드는 새 인덱스의 스키마를 정의하는 `Index` 개체 목록과 함께 새 `Field` 개체를 만듭니다. 각 필드에는 이름, 데이터 유형, 그리고 검색 동작을 정의하는 몇 가지 특성이 있습니다. `FieldBuilder` 클래스는 리플렉션을 사용하여 지정된 `Field` 모델 클래스의 public 속성 및 특성을 검사하고 인덱스에 대한 `Hotel` 개체 목록을 만듭니다. `Hotel` 클래스에 대해서는 이후에 좀 더 자세히 알아보겠습니다.
 
 > [!NOTE]
-> 필요한 경우 `FieldBuilder`를 사용하는 대신, `Field` 개체 목록을 항상 직접 만들 수 있습니다. 예를 들어 모델 클래스를 사용하지 않으려고 하거나, 특성을 추가하여 수정하지 않으려는 기존 모델 클래스를 사용해야 할 수 있습니다.
+> 필요한 경우 `Field`를 사용하는 대신, `FieldBuilder` 개체 목록을 항상 직접 만들 수 있습니다. 예를 들어 모델 클래스를 사용하지 않으려고 하거나, 특성을 추가하여 수정하지 않으려는 기존 모델 클래스를 사용해야 할 수 있습니다.
 >
 > 
 
@@ -382,7 +382,7 @@ private static void UploadDocuments(ISearchIndexClient indexClient)
 두 번째 부분은 문서를 포함하는 `IndexBatch`를 만듭니다. 배치를 만들 때 배치에 적용할 작업을 지정합니다. 이 경우에는 `IndexBatch.Upload`를 호출하여 지정합니다. 그런 다음 `Documents.Index` 방법으로 일괄 처리를 Azure Cognitive Search 인덱스에 업로드 합니다.
 
 > [!NOTE]
-> 이 예에서는 문서를 업로드하는 것입니다. 변경 사항을 기존 문서에 병합하거나 문서를 삭제하려면 `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` 또는 `IndexBatch.Delete`를 호출하여 배치를 만듭니다. `IndexAction` 개체의 컬렉션을 사용 하는 `IndexBatch.New`를 호출 하 여 여러 작업을 단일 일괄 처리로 혼합할 수도 있습니다. 각 개체는 Azure Cognitive Search에서 문서에 대해 특정 작업을 수행 하도록 지시 합니다. `IndexAction.Merge`, `IndexAction.Upload` 등을 비롯한 해당 메서드를 호출하여 각 `IndexAction`과 자체 작업을 만들 수 있습니다.
+> 이 예에서는 문서를 업로드하는 것입니다. 변경 사항을 기존 문서에 병합하거나 문서를 삭제하려면 `IndexBatch.Merge`, `IndexBatch.MergeOrUpload` 또는 `IndexBatch.Delete`를 호출하여 배치를 만듭니다. `IndexAction` 개체의 컬렉션을 사용 하는 `IndexBatch.New`를 호출 하 여 여러 작업을 단일 일괄 처리로 혼합할 수도 있습니다. 각 개체는 Azure Cognitive Search에서 문서에 대해 특정 작업을 수행 하도록 지시 합니다. `IndexAction`, `IndexAction.Merge` 등을 비롯한 해당 메서드를 호출하여 각 `IndexAction.Upload`과 자체 작업을 만들 수 있습니다.
 > 
 > 
 
@@ -464,7 +464,7 @@ public partial class Hotel
 
 두 번째 주목할 점은 각 속성이 `IsFilterable`, `IsSearchable`, `Key`, `Analyzer`등의 특성으로 데코레이팅 된다는 것입니다. 이러한 특성은 [Azure Cognitive Search 인덱스의 해당 필드 특성](https://docs.microsoft.com/rest/api/searchservice/create-index#request)에 직접 매핑됩니다. `FieldBuilder` 클래스는 이러한 속성을 사용 하 여 인덱스에 대 한 필드 정의를 생성 합니다.
 
-`Hotel` 클래스에 대 한 세 번째 중요 한 사항은 공용 속성의 데이터 형식입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `Edm.String` 유형인 `category` 필드에 매핑됩니다. `bool?`, `Edm.Boolean`, `DateTimeOffset?`및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 형식 매핑에 대 한 특정 규칙은 [Azure Cognitive Search .NET SDK 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)의 `Documents.Get` 메서드로 문서화 됩니다. `FieldBuilder` 클래스는 사용자를 위해 이러한 매핑을 처리하는 역할을 하지만 serialization 문제를 해결해야 하는 경우에도 알아두면 도움이 될 수 있습니다.
+`Hotel` 클래스에 대 한 세 번째 중요 한 사항은 공용 속성의 데이터 형식입니다. 이러한 속성의 .NET 유형은 인덱스 정의의 동등한 필드 유형에 매핑합니다. 예를 들어, `Category` 문자열 속성은 `category` 유형인 `Edm.String` 필드에 매핑됩니다. `bool?`, `Edm.Boolean`, `DateTimeOffset?`및 `Edm.DateTimeOffset` 사이에는 유사한 유형 매핑이 있습니다. 형식 매핑에 대 한 특정 규칙은 [Azure Cognitive Search .NET SDK 참조](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.get)의 `Documents.Get` 메서드로 문서화 됩니다. `FieldBuilder` 클래스는 사용자를 위해 이러한 매핑을 처리하는 역할을 하지만 serialization 문제를 해결해야 하는 경우에도 알아두면 도움이 될 수 있습니다.
 
 `SmokingAllowed` 속성을 확인 하는 데 문제가 있나요?
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: aae502b350f2cf2e98849b2b6e25543516a0c547
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961831"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122930"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조인 변환
 
@@ -48,7 +48,7 @@ Full outer join은 양쪽의 모든 열과 행을 일치 하지 않는 열에 �
 1. **조인 유형** 선택
 1. 조인 조건에 대해 일치 시킬 키 열을 선택 합니다. 기본적으로 데이터 흐름은 각 스트림의 한 열이 같은지 검색 합니다. 계산 된 값을 통해 비교 하려면 열 드롭다운을 마우스로 가리키고 **계산 열**을 선택 합니다.
 
-![조인 변환](media/data-flow/join.png "조인")
+![조인 변환](media/data-flow/join.png "Join")
 
 ## <a name="optimizing-join-performance"></a>조인 성능 최적화
 
@@ -105,7 +105,7 @@ TripData, TripFare
 
 ### <a name="cross-join-example"></a>크로스 조인 예제
 
-아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `CartesianProduct` 라는 조인 변환입니다. 이 변환은 두 개의 스트림을 사용 하 고 해당 행의 데카르트 곱을 반환 합니다. 조인 조건은 전체 데카르트 곱을 출력 하므로 `true()` 됩니다. `cross`의 `joinType`입니다. `broadcast` `'left'`값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
+아래 예제는 왼쪽 스트림 `TripData` 및 오른쪽 스트림 `TripFare`을 사용 하는 `CartesianProduct` 라는 조인 변환입니다. 이 변환은 두 개의 스트림을 사용 하 고 해당 행의 데카르트 곱을 반환 합니다. 조인 조건은 전체 데카르트 곱을 출력 하므로 `true()` 됩니다. `joinType`이 `cross`인 경우 `broadcast` `'left'`값을 가질 수 있도록 왼쪽 스트림에만 브로드캐스팅을 사용 하도록 설정 하 고 있습니다.
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

@@ -1,5 +1,5 @@
 ---
-title: 인덱싱 중 데이터 원본 탐색에 대 한 인덱서
+title: 가져오는 동안 데이터를 크롤링하는 인덱서
 titleSuffix: Azure Cognitive Search
 description: Azure SQL database, Azure Cosmos DB 또는 Azure storage를 탐색 하 여 검색 가능한 데이터를 추출 하 고 Azure Cognitive Search 인덱스를 채웁니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5e5d43909dc0e65c12c053515ba534ce5cfa121f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1fd667e14501355f2567712d13b10dd7fbc7ee19
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793653"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112699"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -41,7 +41,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 <a name="supported-data-sources"></a>
 
-## <a name="supported-data-sources"></a>지원된 데이터 원본
+## <a name="supported-data-sources"></a>지원되는 데이터 원본
 
 인덱서는 Azure에서 데이터 저장소를 크롤링합니다.
 

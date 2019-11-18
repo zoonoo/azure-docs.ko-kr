@@ -1,25 +1,18 @@
 ---
-title: Azure CLI Azure Cache for Redis 샘플 | Microsoft Docs
+title: Redis 샘플에 대 한 Azure Cache Azure CLI
 description: Azure Cache for Redis용 Azure CLI 샘플입니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 8d2de145-50c0-4f76-bf8f-fdf679f03698
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
 ms.devlang: azurecli
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/14/2017
 ms.author: yegu
-ms.openlocfilehash: eea74e8f1291901fea3c77b70ba3c636f40bd132
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2b16b531639c826e0051ff45540fd583fd3869e5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60829755"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121216"
 ---
 # <a name="azure-cli-samples-for-azure-cache-for-redis"></a>Azure Cache for Redis용 Azure CLI 샘플
 

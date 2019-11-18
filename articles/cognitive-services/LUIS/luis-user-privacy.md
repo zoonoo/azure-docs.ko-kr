@@ -1,7 +1,7 @@
 ---
 title: 데이터 내보내기 & 삭제-LUIS
 titleSuffix: Azure Cognitive Services
-description: 고객 데이터를 삭제 하 여 개인 정보 보호 및 규정 준수를 확인 합니다.
+description: 데이터 보기, 내보내기 및 삭제를 완전히 제어할 수 있습니다. 고객 데이터를 삭제 하 여 개인 정보 보호 및 규정 준수를 확인 합니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/02/2019
 ms.author: diberry
-ms.openlocfilehash: e234f88d6e735f33be253cacb373baef63c605c0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 061f019fe36e4d5495a41fc81e56d9673ad595fc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559994"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953450"
 ---
 # <a name="export-and-delete-your-customer-data-in-language-understanding-luis-in-cognitive-services"></a>Cognitive Services의 LUIS(Language Understanding)에서 고객 데이터 내보내기 및 삭제
 
@@ -37,7 +37,7 @@ LUIS(Language Understanding Intelligent Service)는 서비스 작동을 위해 �
 ## <a name="deleting-customer-data"></a>고객 데이터 삭제
 LUIS 사용자는 LUIS 웹 포털 또는 LUIS 제작 (프로그래밍 방식) Api를 통해 사용자 콘텐츠를 삭제 하는 모든 권한을 가집니다. 다음 표에는 두 작업에 도움이 되는 링크가 나와 있습니다.
 
-| | **사용자 계정** | **응용 프로그램** | **예제 Utterance** | **최종 사용자 쿼리** |
+| | **사용자 계정** | **애플리케이션** | **예제 Utterance** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
 | **포털** | [링크](luis-concept-data-storage.md#delete-an-account) | [링크](luis-how-to-start-new-app.md#delete-app) | [링크](luis-concept-data-storage.md#utterances-in-an-intent) | [활성 학습 길이 발언](luis-how-to-review-endpoint-utterances.md#disable-active-learning)<br>[기록 길이 발언](luis-concept-data-storage.md#disable-logging-utterances) |
 | **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c4c) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c39) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0b) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) |
@@ -46,7 +46,7 @@ LUIS 사용자는 LUIS 웹 포털 또는 LUIS 제작 (프로그래밍 방식) Ap
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 LUIS 사용자에 게는 포털에서 데이터를 볼 수 있는 모든 권한이 있지만 LUIS 작성 (프로그래밍 방식) Api를 통해 내보내야 합니다. 다음 표에서는 LUIS Authoring (프로그래밍 방식) Api를 통해 데이터 내보내기를 지 원하는 링크를 보여 줍니다.
 
-| | **사용자 계정** | **응용 프로그램** | **발언** | **최종 사용자 쿼리** |
+| | **사용자 계정** | **애플리케이션** | **발언** | **최종 사용자 쿼리** |
 | --- | --- | --- | --- | --- |
 | **API** | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c48) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) | [링크](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36) |
 

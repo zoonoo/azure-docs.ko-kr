@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: da84f72c1ccf85e1f3d0f003a5aca961118c0a0e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 78fb06c7ecd20d8ed2af40bcc294f2fb1b166d96
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472917"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120635"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
-응용 프로그램 개발이 컨테이너 기반 접근 방식으로 이동 하면 리소스를 오케스트레이션 하 고 관리 해야 하는 것이 중요 합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
+컨테이너 기반 방식으로 응용 프로그램을 개발함에 따라 리소스 관리와 오케스트레이션이 중요합니다. Kubernetes는 내결함성 애플리케이션 워크로드를 안정적으로 예약할 수 있는 기능을 제공하는 선도적인 플랫폼입니다. AKS(Azure Kubernetes Service)는 관리되는 Kubernetes 제품으로, 컨테이너 기반 애플리케이션을 더 간편하게 배포하고 관리할 수 있습니다.
 
-이 문서에서는 *클러스터 마스터*, *노드* 및 *노드 풀*과 같은 Kubernetes 핵심 인프라 구성 요소를 소개합니다. 리소스를 *네임스페이스*로 그룹화하는 방법과 함께 *Pod*, *배포* 및 *집합*과 같은 워크로드 리소스도 소개합니다.
+이 문서에서는 *제어 평면*, *노드*, *노드 풀*등의 핵심 Kubernetes 인프라 구성 요소를 소개 합니다. 리소스를 *네임스페이스*로 그룹화하는 방법과 함께 *Pod*, *배포* 및 *집합*과 같은 워크로드 리소스도 소개합니다.
 
 ## <a name="what-is-kubernetes"></a>Kubernetes란?
 
@@ -28,33 +28,33 @@ Kubernetes에서 이러한 애플리케이션 구성 요소의 가용성을 오�
 
 오픈 플랫폼인 Kubernetes를 사용하면 기본 설정 프로그래밍 언어, OS, 라이브러리 또는 메시지 버스를 사용하여 애플리케이션을 빌드할 수 있습니다. 기존의 CI/CD(지속적인 통합 및 지속적인 업데이트) 도구는 Kubernetes와 통합되어 릴리스를 예약하고 배포할 수 있습니다.
 
-AKS(Azure Kubernetes Service)는 업그레이드 조정을 포함하여 배포 및 핵심 관리 작업의 복잡성을 줄여 주는 관리되는 Kubernetes 서비스를 제공합니다. AKS 클러스터 마스터는 Azure 플랫폼에서 관리하며, 애플리케이션을 실행하는 AKS 노드에 대해서만 비용을 지불합니다. AKS은 오픈 소스 Azure Kubernetes 서비스 엔진 ([AKS][aks-engine])을 기반으로 빌드됩니다.
+AKS(Azure Kubernetes Service)는 업그레이드 조정을 포함하여 배포 및 핵심 관리 작업의 복잡성을 줄여 주는 관리되는 Kubernetes 서비스를 제공합니다. AKS 제어 평면은 Azure 플랫폼에서 관리 하며 응용 프로그램을 실행 하는 AKS 노드에 대해서만 비용을 지불 합니다. AKS은 오픈 소스 Azure Kubernetes 서비스 엔진 ([AKS][aks-engine])을 기반으로 빌드됩니다.
 
 ## <a name="kubernetes-cluster-architecture"></a>Kubernetes 클러스터 아키텍처
 
 Kubernetes 클러스터는 다음 두 가지 구성 요소로 구분됩니다.
 
-- *클러스터 마스터* 노드에서 Kubernetes 핵심 서비스와 애플리케이션 워크로드 오케스트레이션을 제공합니다.
+- *제어 평면* 노드는 응용 프로그램 워크 로드의 핵심 Kubernetes 서비스 및 오케스트레이션을 제공 합니다.
 - *노드*에서 애플리케이션 워크로드를 실행합니다.
 
-![Kubernetes 클러스터 마스터 및 노드 구성 요소](media/concepts-clusters-workloads/cluster-master-and-nodes.png)
+![Kubernetes 제어 평면 및 노드 구성 요소](media/concepts-clusters-workloads/control-plane-and-nodes.png)
 
-## <a name="cluster-master"></a>클러스터 마스터
+## <a name="control-plane"></a>제어 평면
 
-AKS 클러스터를 만들면 클러스터 마스터가 자동으로 만들어지고 구성됩니다. 이 클러스터 마스터는 사용자로부터 추상화된 관리되는 Azure 리소스로 제공됩니다. 클러스터 마스터에 대 한 비용은 없으며 AKS 클러스터의 일부인 노드만 있습니다.
+AKS 클러스터를 만들면 컨트롤 평면이 자동으로 만들어지고 구성 됩니다. 이 컨트롤 평면은 사용자 로부터 추상화 된 관리 되는 Azure 리소스로 제공 됩니다. 제어 평면에 대 한 비용은 없으며 AKS 클러스터의 일부인 노드만 있습니다.
 
-클러스터 마스터에 포함된 핵심 Kubernetes 구성 요소는 다음과 같습니다.
+제어 평면에는 다음과 같은 핵심 Kubernetes 구성 요소가 포함 됩니다.
 
 - *kube-apiserver* - API 서버는 기본 Kubernetes API를 공개하는 방법입니다. 이 구성 요소는 `kubectl` 또는 Kubernetes 대시보드와 같은 관리 도구에 대한 상호 작용을 제공합니다.
 - *etcd* - 고가용성 *etcd*는 Kubernetes 클러스터 및 구성의 상태를 유지 관리하기 위해 Kubernetes 내에 있는 키 값 저장소입니다.
 - *kube-scheduler* - 애플리케이션을 만들거나 확장할 때 스케줄러는 워크로드를 실행할 수 있는 노드를 결정하고 시작합니다.
 - *kube-controller-manager* - 컨트롤러 관리자는 Pod 복제 및 노드 작업 처리와 같은 작업을 수행하는 다수의 작은 컨트롤러를 감독합니다.
 
-AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 클러스터 마스터를 제공 합니다. 노드의 개수 및 크기를 정의 하 고 Azure 플랫폼은 클러스터 마스터와 노드 간에 보안 통신을 구성 합니다. 클러스터 마스터와의 상호 작용은 `kubectl` 또는 Kubernetes 대시보드와 같은 Kubernetes API를 통해 수행됩니다.
+AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면을 제공 합니다. 노드의 개수 및 크기를 정의 하 고 Azure 플랫폼은 제어 평면과 노드 간에 보안 통신을 구성 합니다. 제어 평면과의 상호 작용은 `kubectl` 또는 Kubernetes 대시보드와 같은 Kubernetes Api를 통해 발생 합니다.
 
-이 관리 되는 클러스터 마스터는 항상 사용 가능한 *etcd* 스토어와 같은 구성 요소를 구성할 필요가 없음을 의미 합니다. 또한 클러스터 마스터에 직접 액세스할 수 없습니다. Kubernetes로의 업그레이드는 Azure CLI 또는 Azure Portal을 통해 오케스트레이션되며, 클러스터 마스터, 다음으로 노드를 업그레이드합니다. 가능한 문제를 해결하기 위해 Azure Monitor 로그를 통해 클러스터 마스터 로그를 검토할 수 있습니다.
+이 관리 되는 제어 평면은 항상 사용 가능한 *etcd* 스토어와 같은 구성 요소를 구성할 필요가 없음을 의미 합니다. 또한 제어 평면에 직접 액세스할 수 없습니다. Kubernetes에 대 한 업그레이드는 Azure CLI 또는 Azure Portal를 통해 오케스트레이션 됩니다 .이는 제어 평면과 노드를 업그레이드 합니다. 가능한 문제를 해결 하기 위해 Azure Monitor 로그를 통해 제어 평면 로그를 검토할 수 있습니다.
 
-특정 방식으로 클러스터 마스터를 구성 하거나 직접 액세스 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다.
+특정 방식으로 제어 평면을 구성 하거나 직접 액세스 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다.
 
 관련 모범 사례는 [AKS에서 클러스터 보안 및 업그레이드에 대 한 모범 사례][operator-best-practices-cluster-security]를 참조 하세요.
 
@@ -62,7 +62,7 @@ AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 클러스터 �
 
 애플리케이션과 지원 서비스를 실행하려면 Kubernetes *노드*가 필요합니다. AKS 클러스터에는 하나 이상의 노드가 있습니다. 이 노드는 Kubernetes 노드 구성 요소 및 컨테이너 런타임을 실행하는 Azure VM(가상 머신)입니다.
 
-- `kubelet`은 클러스터 마스터의 오케스트레이션 요청을 처리하고 요청된 컨테이너를 실행하도록 예약하는 Kubernetes 에이전트입니다.
+- `kubelet`은 제어 평면의 오케스트레이션 요청을 처리 하 고 요청 된 컨테이너의 실행 일정을 예약 하는 Kubernetes 에이전트입니다.
 - 가상 네트워킹은 각 노드의 *kube-proxy*에서 처리됩니다. 프록시는 네트워크 트래픽을 라우팅하고 서비스와 Pod에 대한 IP 주소 지정을 관리합니다.
 - *컨테이너 런타임*은 컨테이너화된 애플리케이션을 실행하고 가상 네트워크 및 스토리지와 같은 추가 리소스와 상호 작용할 수 있게 하는 구성 요소입니다. AKS에서 Moby는 컨테이너 런타임으로 사용 됩니다.
 
@@ -70,9 +70,9 @@ AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 클러스터 �
 
 노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 스토리지(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 스토리지가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 요구에 맞게 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
 
-AKS에서 클러스터의 노드에 대 한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019을 기반으로 합니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 사용자가 수행할 수 있는 수동 구성은 없습니다. 에이전트 노드는 표준 가상 머신으로 청구 되므로 사용 중인 VM 크기에 [대 한 모든][reservation-discounts]할인이 자동으로 적용 됩니다.
+AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019 기반입니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 진행해야 하는 구성은 없습니다. 에이전트 노드는 표준 가상 머신으로 청구 되므로 사용 중인 VM 크기에 대 한 모든 할인([Azure 예약][reservation-discounts] 포함)이 자동으로 적용 됩니다.
 
-다른 호스트 OS, container runtime을 사용 하거나 사용자 지정 패키지를 포함 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어, Moby 이외의 컨테이너 런타임을 사용 하려는 경우 `aks-engine`를 사용 하 여 현재 요구를 충족 하는 Kubernetes 클러스터를 구성 하 고 배포할 수 있습니다.
+다른 호스트 OS, container runtime을 사용 하거나 사용자 지정 패키지를 포함 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 모비(Moby) 이외의 컨테이너 런타임을 사용하려면 `aks-engine`을 사용하여 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 
@@ -87,7 +87,7 @@ kubectl describe node [NODE_NAME]
 노드 성능 및 기능을 유지 관리 하기 위해 리소스는 AKS 별로 각 노드에 예약 됩니다. 노드가 리소스에서 더 크게 증가 함에 따라 관리를 필요로 하는 pod의 사용자 배포로 인해 리소스 예약이 증가 합니다.
 
 >[!NOTE]
-> OMS와 같은 추가 기능을 사용 하면 추가 노드 리소스가 사용 됩니다.
+> OMS (Container Insights)와 같은 AKS 추가 기능을 사용 하면 추가 노드 리소스가 사용 됩니다.
 
 - **Cpu** 예약 cpu는 추가 기능 실행으로 인해 할당 가능한 cpu를 줄일 수 있는 노드 형식 및 클러스터 구성에 따라 달라 집니다.
 
@@ -95,16 +95,24 @@ kubectl describe node [NODE_NAME]
 |---|---|---|---|---|---|---|---|
 |Kube-예약 (millicores)|60|100|140|180|260|420|740|
 
-- **메모리** 에 대 한 메모리 예약이 프로그레시브 속도로 이어집니다.
-  - 처음 4gb 메모리의 25%
-  - 다음 4gb 메모리의 20% (최대 8gb)
-  - 다음 8gb 메모리의 10% (최대 16gb)
-  - 다음 112 g b 메모리의 6% (최대 128 GB)
-  - 128 GB 이상의 메모리 중 2%
+- **메모리** -예약 된 메모리는 두 값의 합계를 포함 합니다.
 
-이러한 예약은 애플리케이션에 사용 가능한 CPU 및 메모리 양이 노드 자체에 포함된 양보다 적게 표시될 수 있음을 의미합니다. 실행하는 애플리케이션 수로 인해 리소스 제약 조건이 있는 경우 이러한 예약을 통해 핵심 Kubernetes 구성 요소에 사용 가능한 CPU 및 메모리를 유지할 수 있습니다. 리소스 예약은 변경할 수 없습니다.
+1. 컨테이너 만들기 및 종료를 관리 하기 위해 kubelet 데몬이 모든 Kubernetes agent 노드에 설치 됩니다. 기본적으로 AKS에서이 디먼은 다음 제거 규칙을 포함 합니다. 메모리. 750Mi < 사용할 수 있습니다. 즉, 항상 노드에 750 Mi를 항상 할당 해야 함을 의미 합니다.  호스트가 사용 가능한 메모리의 임계값 보다 낮은 경우 kubelet는 실행 중인 pod 중 하나를 종료 하 여 호스트 컴퓨터에서 메모리를 확보 하 고 보호 합니다.
 
-기본 노드 OS에는 자체 핵심 기능을 완료하는 데 필요한 소량의 CPU 및 메모리 리소스도 필요합니다.
+2. 두 번째 값은 kubelet 데몬이 제대로 작동 하기 위해 예약 된 메모리의 점진적 비율이 됩니다 (kube-reserved).
+    - 처음 4gb 메모리의 25%
+    - 다음 4gb 메모리의 20% (최대 8gb)
+    - 다음 8gb 메모리의 10% (최대 16gb)
+    - 다음 112 g b 메모리의 6% (최대 128 GB)
+    - 128 GB 이상의 메모리 중 2%
+
+Kubernetes 및 에이전트 노드를 정상 상태로 유지 하기 위해 정의 된 이러한 두 규칙의 결과로 할당 된 CPU 및 메모리의 양은 노드 자체가 제공할 수 있는 것 보다 작은 것으로 나타납니다. 위에서 정의한 리소스 예약은 변경할 수 없습니다.
+
+예를 들어 노드가 7GB를 제공 하는 경우 할당 되지 않은 메모리의 34%를 보고 합니다.
+
+`750Mi + (0.25*4) + (0.20*3) = 0.786GB + 1 GB + 0.6GB = 2.386GB / 7GB = 34% reserved`
+
+Kubernetes에 대 한 예약 외에도, 기본 노드 OS는 OS 함수를 유지 관리 하기 위해 CPU 및 메모리 리소스의 양을 예약 합니다.
 
 관련 모범 사례는 [AKS의 기본 scheduler 기능에 대 한 모범 사례][operator-best-practices-scheduler]를 참조 하세요.
 
@@ -121,9 +129,9 @@ AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용�
 
 ### <a name="node-selectors"></a>노드 선택기
 
-여러 노드 풀을 포함 하는 AKS 클러스터에서 지정 된 리소스에 사용할 노드 풀을 Kubernetes Scheduler에 알려야 할 수 있습니다. 예를 들어 수신 컨트롤러는 Windows Server 노드에서 실행 되지 않습니다 (현재 AKS의 미리 보기 상태). 노드 선택기를 사용 하 여 pod가 예약 되어야 하는 위치를 제어 하기 위해 노드 OS와 같은 다양 한 매개 변수를 정의할 수 있습니다.
+AKS 클러스터에서 여러 노드 풀을 포함하는 경우 지정된 리소스에 대해 사용할 노드 풀을 Kubernetes 스케줄러에게 알려주어야 할 수 있습니다. 예를 들어, 수신 컨트롤러는 Windows Server 노드에서 실행하지 않아야 합니다(현재 AKS에서 미리 보기). 노드 선택기를 사용하면 노드 OS와 같은 다양한 매개 변수를 정의하여 pod 예약 제어를 할 수 있습니다.
 
-다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용 하 여 LINUX 노드에서 NGINX 인스턴스를 예약 합니다.
+다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용하여 Linux 노드 상의 NGINX 인스턴스를 예약합니다.
 
 ```yaml
 kind: Pod
@@ -156,11 +164,11 @@ Pod는 논리적인 리소스이지만, 컨테이너는 애플리케이션 워�
 
 Pod, 사용된 컨테이너 이미지 또는 연결된 스토리지의 구성을 변경하도록 배포를 업데이트할 수 있습니다. 배포 컨트롤러는 지정된 수의 복제본을 내보내거나 종료하고, 새 배포 정의에서 복제본을 만든 후에 배포의 모든 복제본이 업데이트될 때까지 프로세스를 계속 수행합니다.
 
-AKS의 상태 비저장 애플리케이션 대부분은 개별 Pod를 예약하는 것이 아니라 배포 모델을 사용해야 합니다. Kubernetes는 배포의 상태를 모니터링하여 필요한 수의 복제본이 클러스터 내에서 실행되는지 확인할 수 있습니다. 개별 pod 일정을 예약 하는 경우에는 문제가 발생 하는 경우 pod가 다시 시작 되지 않으며 현재 노드에 문제가 발생 한 경우 정상 노드에서 다시 예약 되지 않습니다.
+AKS의 상태 비저장 애플리케이션 대부분은 개별 Pod를 예약하는 것이 아니라 배포 모델을 사용해야 합니다. Kubernetes는 배포의 상태를 모니터링하여 필요한 수의 복제본이 클러스터 내에서 실행되도록 할 수 있습니다. 개별 pod를 예약만 하는 경우, 문제가 발생하면 pod가 다시 시작되지 않고, 현재 노드에 문제가 발생할 경우 정상 노드에서 재예약이 되지 않습니다.
 
 애플리케이션에서 관리 결정을 위해 인스턴스의 쿼럼을 항상 사용할 수 있어야 하는 경우 업데이트 프로세스에서 해당 기능을 중단하지 않도록 합니다. *Pod 중단 예산*은 업데이트 또는 노드 업그레이드 중에 중단할 수 있는 배포의 복제본 수를 정의하는 데 사용할 수 있습니다. 예를 들어 배포에 *5*개의 복제본이 있는 경우 한 번에 하나의 복제본만 삭제/다시 예약되도록 포드 중단을 *4*로 정의할 수 있습니다. Pod 리소스 제한과 마찬가지로 항상 최소 개수의 복제본이 존재하도록 요구하는 애플리케이션에 Pod 중단 예산을 정의하는 것이 가장 좋습니다.
 
-배포는 일반적으로 `kubectl create` 또는 `kubectl apply`를 사용하여 만들어지고 관리됩니다. 배포를 만들려면 매니페스트 파일을 YAML(YAML Ain't Markup Language) 형식으로 정의합니다. 다음 예제에서는 NGINX 웹 서버의 기본 배포를 만듭니다. 배포에서 *3*개의 복제본을 만들고 해당 *80* 포트가 컨테이너에서 열리도록 지정합니다. CPU 및 메모리에 대한 리소스 요청 및 제한도 정의됩니다.
+배포는 일반적으로 `kubectl create` 또는 `kubectl apply`를 사용하여 만들고 관리합니다. 배포를 만들려면 매니페스트 파일을 YAML(YAML Ain't Markup Language) 형식으로 정의합니다. 다음 예제에서는 NGINX 웹 서버의 기본 배포를 만듭니다. 배포에서 *3*개의 복제본을 만들고 해당 *80*번 포트가 컨테이너에서 열리도록 지정합니다. CPU 및 메모리에 대한 리소스 요청 및 제한도 정의됩니다.
 
 ```yaml
 apiVersion: apps/v1
@@ -235,7 +243,7 @@ StatefulSet과 마찬가지로 DaemonSet은 `kind: DaemonSet`을 사용하여 YA
 자세한 내용은 [Kubernetes DaemonSets][kubernetes-daemonset]를 참조 하세요.
 
 > [!NOTE]
-> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용 하는 경우 DaemonSets는 가상 노드에 pod를 만들지 않습니다.
+> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용하는 경우, Daemonset는 해당 가상 노드에 pod를 생성하지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 

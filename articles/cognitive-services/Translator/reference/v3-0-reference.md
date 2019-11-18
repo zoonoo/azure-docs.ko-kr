@@ -1,21 +1,21 @@
 ---
 title: Translator Text API V3.0 참조
 titleSuffix: Azure Cognitive Services
-description: Translator Text API V3.0에 대한 참조 문서입니다.
+description: Translator Text API V3.0에 대한 참조 문서입니다. Translator Text API 버전 3은 최신 JSON 기반 Web API를 제공합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 03/29/2018
+ms.date: 11/14/2019
 ms.author: swmachan
-ms.openlocfilehash: a441ca83230a1c715aadda79683964aaab6d6213
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 172bf452cc5197db95e0e1e55c7c687971194899
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72252979"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123045"
 ---
 # <a name="translator-text-api-v30"></a>Translator Text API v3.0
 
@@ -45,28 +45,28 @@ Microsoft Translator Text API에 대한 요청은 대부분 요청이 시작된 
 |:--|:--|:--|
 |Azure|Global (비 지역)|   api.cognitive.microsofttranslator.com|
 |Azure|미국|   api-nam.cognitive.microsofttranslator.com|
-|Azure|유럽|  api-eur.cognitive.microsofttranslator.com|
+|Azure|Europe|  api-eur.cognitive.microsofttranslator.com|
 |Azure|아시아 태평양|    api-apc.cognitive.microsofttranslator.com|
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 Azure Cognitive Services에서 Translator Text API 또는 [Cognitive Services 다중 서비스](https://azure.microsoft.com/pricing/details/cognitive-services/) 를 구독 하 고 구독 키 (Azure Portal에서 사용 가능)를 사용 하 여 인증 합니다. 
 
 구독을 인증하는 데 사용할 수 있는 헤더는 세 개가 있습니다. 다음 표에서는 각를 사용 하는 방법을 설명 합니다.
 
-|headers|설명|
+|헤더|설명|
 |:----|:----|
 |Ocp-Apim-Subscription-Key|*비밀 키를 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 Translator Text API 구독에 대한 Azure 비밀 키입니다.|
 |권한 부여|*인증 토큰을 전달하는 경우 Cognitive Services 구독에 사용합니다*.<br/>값은 전달자 토큰인 `Bearer <token>`입니다.|
 |Ocp-Apim-Subscription-Region|*다중 서비스 비밀 키를 전달 하는 경우 Cognitive Services 다중 서비스 구독과 함께 사용 합니다.*<br/>값은 다중 서비스 구독의 지역입니다. 다중 서비스 구독을 사용 하지 않는 경우이 값은 선택 사항입니다.|
 
 ###  <a name="secret-key"></a>비밀 키
-첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. @No__t-0 헤더를 요청에 추가 합니다.
+첫 번째 옵션은 `Ocp-Apim-Subscription-Key` 헤더를 사용하여 인증하는 것입니다. 요청에 `Ocp-Apim-Subscription-Key: <YOUR_SECRET_KEY>` 헤더를 추가 합니다.
 
 ### <a name="authorization-token"></a>권한 부여 토큰
 또는 액세스 토큰에 대한 비밀 키를 교환할 수 있습니다. 이 토큰은 각 요청에 `Authorization` 헤더로 포함됩니다. 인증 토큰을 받으려면 다음 URL에 대해 `POST` 요청을 수행합니다.
 
-| Environment     | 인증 서비스 URL                                |
+| 환경     | 인증 서비스 URL                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
@@ -98,7 +98,7 @@ Authorization: Bearer <Base64-access_token>
 
 다중 서비스 텍스트 API 구독에는 지역이 필요 합니다. 선택한 지역은 다중 서비스 구독 키를 사용 하는 경우 텍스트 번역에 사용할 수 있는 유일한 지역 이며 Azure Portal를 통해 다중 서비스 구독에 등록할 때 선택한 것과 동일한 지역 이어야 합니다.
 
-사용 가능한 지역은 `australiaeast` `brazilsouth`입니다. `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, @no__t, `eastus`, `eastus2`, `francecentral`, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, @no__t t-21, 2
+사용 가능한 지역은 `australiaeast`, `brazilsouth`, `canadacentral`, `centralindia`, `centralus`, `centraluseuap`, `eastasia`, `eastus`, `eastus2`, `francecentral`, `japaneast`, `japanwest`, `koreacentral`, `northcentralus`, `northeurope`, `southcentralus`, `southeastasia`, `uksouth`, `westcentralus`, `westeurope`, `westus`, `westus2`, `southafricanorth`입니다.
 
 `Subscription-Key` 매개 변수를 사용한 쿼리 문자열에 비밀 키를 전달하는 경우 `Subscription-Region` 쿼리 매개 변수를 사용하여 지역을 지정해야 합니다.
 
@@ -165,3 +165,21 @@ Authorization: Bearer <Base64-access_token>
 | 500000| 예기치 않은 오류가 발생했습니다. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 | 503000| 서비스를 일시적으로 사용할 수 없습니다. 다시 시도하세요. 이 오류가 계속 발생하는 경우 오류의 날짜/시간, 응답 헤더 X-RequestId의 요청 식별자 및 요청 헤더 X-ClientTraceId의 클라이언트 식별자를 사용하여 보고합니다.|
 
+## <a name="metrics"></a>메트릭 
+메트릭을 사용 하면 아래 스크린샷에 표시 된 것 처럼 메트릭 섹션의 Azure Portal에서 변환기 사용 및 가용성 정보를 볼 수 있습니다. 자세한 내용은 [데이터 및 플랫폼 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform-metrics)을 참조 하세요.
+
+![번역기 메트릭](../media/translatormetrics.png)
+
+다음 표에서는 번역 API 호출을 모니터링 하는 데 사용 되는 방법에 대 한 설명과 함께 사용 가능한 메트릭을 보여 줍니다.
+
+| 메트릭 | 설명 |
+|:----|:-----|
+| TotalCalls| 총 API 호출 수.|
+| TotalTokenCalls| 인증 토큰을 사용 하 여 토큰 서비스를 통한 총 API 호출 수입니다.|
+| SuccessfulCalls| 성공한 호출 수입니다.|
+| TotalErrors| 오류 응답이 있는 호출 수입니다.|
+| BlockedCalls| 요금 또는 할당량 한도를 초과한 호출 수입니다.|
+| ServerErrors| 서버 내부 오류 (5XX)를 사용 하는 호출 수입니다.|
+| ClientErrors| 클라이언트 쪽 오류 (4XX)를 사용 하는 호출 수입니다.|
+| 대기 시간| 요청을 완료 하는 데 걸린 시간 (밀리초)입니다.|
+| CharactersTranslated| 들어오는 텍스트 요청에 있는 문자의 총 수입니다.|

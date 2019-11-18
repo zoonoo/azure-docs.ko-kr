@@ -1,7 +1,7 @@
 ---
 title: Bing Video Search API를 사용 하 여 비디오 검색
 titleSuffix: Azure Cognitive Services
-description: Bing Video Search API에 검색 쿼리를 전송하는 데 관해 알아봅니다.
+description: Bing Video Search APIfinds 웹에서 관련 비디오를 찾고 반환 하며 웹에서 지능형 및 집중 된 비디오 검색을 위한 여러 기능을 제공 합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: e3314efe0ea0367eb852fd17aadece17026ff4bb
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72512409"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111428"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Bing Video Search API를 사용한 비디오 검색
 
@@ -37,7 +37,7 @@ Host: api.cognitive.microsoft.com
 
 모든 요청은 서버에서 이뤄져야 합니다.
 
-Bing API 중 하나를 처음 호출하는 경우 클라이언트 ID 헤더를 포함하면 안 됩니다. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
+Bing API 중 하나를 처음으로 호출한 경우 클라이언트 ID 헤더를 포함하지 마십시오. 이전에 Bing API를 호출했고 Bing이 사용자 및 디바이스 조합에 대한 클라이언트 ID를 반환한 경우 클라이언트 ID만 포함하세요.
 
 특정 도메인에서 비디오를 가져오려면 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 사용합니다.
 
@@ -128,7 +128,7 @@ Bing Video Search API에서 반환되는 비디오 썸네일의 전체 또는 �
 특정 도메인에서 비디오를 가져오려면 쿼리 문자열에 [site:](https://msdn.microsoft.com/library/ff795613.aspx) 쿼리 연산자를 포함합니다.
 
 > [!NOTE]
-> `site:` 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch) 설정에 관계 없이 응답에 성인 콘텐츠가 포함될 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 콘텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
+> `site:` 연산자를 사용하는 경우 쿼리에 따라 [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch) 설정에 관계 없이 응답에 성인 콘텐츠가 포함될 가능성이 있습니다. 사이트의 콘텐츠를 알고 있고 시나리오가 성인 컨텐츠를 지원하는 경우에만 `site:`를 사용해야 합니다.
 
 다음 예제에서는 해상도가 720p 이상이며 지난 달에 Bing에서 검색된 무료 비디오를 ContosoSailing.com에서 가져오는 방법을 보여줍니다.
 

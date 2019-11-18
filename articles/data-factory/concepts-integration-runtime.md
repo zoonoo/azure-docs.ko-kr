@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: abnarain
-ms.openlocfilehash: 7475d660fd2fa64ce69e7c23e0bad518fffddd26
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2b90d95d41bb30226d870a74a47327d6492bbd1e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681503"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122933"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
@@ -40,7 +40,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
@@ -78,6 +78,9 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 
 > [!NOTE] 
 > 자체 호스팅 integration runtime을 사용 하 여 SAP Hana, MySQL 등 자신의 드라이버를 사용 해야 하는 데이터 저장소를 지원할 수 있습니다.  자세한 내용은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조 하세요.
+
+> [!NOTE] 
+> JRE (Java Runtime Environment)는 자체 호스트 IR의 종속성입니다. JRE가 동일한 호스트에 설치 되어 있는지 확인 하세요.
 
 ### <a name="self-hosted-ir-network-environment"></a>자체 호스팅 IR 네트워크 환경
 퍼블릭 클라우드 환경에서 직접 시야를 가지고 있지 않은 프라이빗 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
@@ -172,5 +175,5 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 다음 문서를 참조하세요.
 
 - [Azure 통합 런타임 만들기](create-azure-integration-runtime.md)
-- [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
+- [자체 호스팅된 통합 런타임](create-self-hosted-integration-runtime.md)
 - [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 

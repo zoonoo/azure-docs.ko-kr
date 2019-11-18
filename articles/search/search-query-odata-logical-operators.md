@@ -1,7 +1,7 @@
 ---
 title: OData 논리 연산자 참조
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search 쿼리에서 OData 논리 연산자, and, or 및 not
+description: Azure Cognitive Search 쿼리에서 OData 논리 연산자, and, or 및 not을 사용 하는 방법에 대 한 구문 및 참조 설명서입니다.
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 4e016047d66e49f17c08d4b92a1c865f4b63e39b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2d3952f7d2adc26892cbebcd962f2ea25b86de7d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793314"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113193"
 ---
 # <a name="odata-logical-operators-in-azure-cognitive-search---and-or-not"></a>Azure Cognitive Search의 OData 논리 연산자-`and`, `or`, `not`
 
@@ -89,7 +89,7 @@ logical_expression ::=
 
 부울 필드 `b` 필터 식에 자체적으로 표시 되는 경우에는 `b eq true`작성 된 것 처럼 동작 하므로 `b` `null`경우 식은 `false`로 계산 됩니다. 마찬가지로 `not b`는 `not (b eq true)`처럼 동작 하므로 `true`로 평가 됩니다. 이러한 방식으로 `null` 필드는 `false`와 동일 하 게 동작 합니다. 위의 표에 나와 있는 것 처럼 `and` 및 `or`를 사용 하 여 다른 식과 결합 될 때 동작 하는 방법이 일치 합니다. 이 경우에도 `false` (`b eq false`)에 대 한 직접 비교는 `false`으로 평가 됩니다. 즉, `null`은 부울 식에서 처럼 동작 하는 경우에도 `false`와 같지 않습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 `rating` 필드가 3에서 5 사이 (포함) 인 문서를 찾습니다.
 

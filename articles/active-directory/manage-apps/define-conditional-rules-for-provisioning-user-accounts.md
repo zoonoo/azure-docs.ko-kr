@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 82360dacd68de512bc12ff5d39ddbd3a21578aa7
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "70812676"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120125"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -83,11 +83,11 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
    b. **NOT EQUALS** 평가된 특성이 입력 문자열 값과 정확히 일치하면(대소문자 구분) "true"를 반환합니다.
 
-   다. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
+   c. **IS TRUE** 평가된 특성이 부울 값 true를 포함하면 "true"를 반환합니다.
 
    d. **IS FALSE** 평가된 특성이 부울 값 false를 포함하면 "true"를 반환합니다.
 
-   ㅁ. **IS NULL** 평가된 특성이 비어 있으면 "true"를 반환합니다.
+   e. **IS NULL** 평가된 특성이 비어 있으면 "true"를 반환합니다.
 
    f. **IS NOT NULL** 평가된 특성이 비어 있지 않으면 "true"를 반환합니다.
 
@@ -111,7 +111,15 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 > 새 범위 지정 필터를 저장하면 애플리케이션의 새로운 전체 동기화가 트리거되며 여기서 원본 시스템의 모든 사용자를 새 범위 지정 필터에 대해 다시 평가합니다. 애플리케이션의 사용자가 프로비전 범위에서 이전에 평가되었으나 범위를 벗어난 경우 해당 계정은 사용되지 않거나 애플리케이션에서 프로비전 해제됩니다. 이 기본 동작을 재정의 하려면 범위를 [벗어나는 사용자 계정에 대 한 삭제 건너뛰기](skip-out-of-scope-deletions.md)를 참조 하세요.
 
 
-## <a name="related-articles"></a>관련 문서
+## <a name="common-scoping-filters"></a>공통 범위 지정 필터
+| 대상 특성| 연산자 | 값 | 설명|
+|----|----|----|----|
+|userPrincipalName|REGEX 일치|.\*@domain.com |도메인 @domain.com 있는 userPrincipal의 모든 사용자는 프로 비전 범위에 포함 됩니다.|
+|userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인 @domain.com 있는 userPrincipal의 모든 사용자는 프로 비전 범위를 벗어났습니다.|
+|department|같거나|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
+|workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
+
+## <a name="related-articles"></a>관련된 문서
 * [SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 자동화](user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](customize-application-attributes.md)
 * [특성 매핑을 위한 식 작성](functions-for-customizing-application-data.md)

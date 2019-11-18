@@ -1,7 +1,7 @@
 ---
 title: 대화 내용 이란? (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 대화 기록은 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 (diarization 라고도 함)와 결합 하 여 실시간 및/또는 비동기 기록을 제공 하는 음성-텍스트 솔루션입니다. 대화창. 대화 기록을 통해 청각 장애인을 위한 참가자와 같은 모든 사용자에 대 한 대화가 포함 됩니다.
+description: 대화 기록은 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 (diarization 라고도 함)와 결합 하 여 실시간 및/또는 비동기 기록을 제공 하는 음성-텍스트 솔루션입니다. 대화창.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: f4b7591d5ddb138db0abbdb673cadc6afd71f315
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608070"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075839"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 내용 (미리 보기) 이란 무엇 인가요?
 

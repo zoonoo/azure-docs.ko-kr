@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 232ade55350ad1ac85612cf8c69117c19cb20d0c
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 788ffd9e7036996f6ac1bc7fcbc33137aca40ee2
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927788"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132032"
 ---
 # <a name="imagery-partner-integration"></a>이미지 파트너 통합
 
@@ -42,7 +42,7 @@ Api에는 Swagger 기술 설명서가 포함 되어 있습니다. [Swagger](http
 
 ## <a name="authentication"></a>인증
 
-FarmBeats는 Microsoft Azure [Active Directory]((https://docs.microsoft.com/azure/app-service/overview-authentication-authorization))를 활용 합니다. 인증 Azure App Service는 기본 제공 인증 및 권한 부여를 지원 합니다. 
+FarmBeats는 Microsoft Azure [Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 활용 합니다. Azure App Service는 기본 제공 인증 및 권한 부여를 지원 합니다. 
 
 에 대 한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/app-service/overview-authentication-authorization)를 참조 하세요.   
 
@@ -84,9 +84,9 @@ FarmBeats Data hub에 대 한 API 호출을 만들 때 지정 해야 하는 가�
 
 **머리글** | **설명 및 예제**
 --- | ---
-콘텐츠 형식  | FarmBeats 데이터 허브 API 형식의 요청 형식 (Content-type: application/<format>)은 json입니다. Content-type: application/json
+Content-Type  | FarmBeats 데이터 허브 API 형식의 요청 형식 (Content-type: application/<format>)은 json입니다. Content-type: application/json
 권한 부여 | API 호출을 수행 하는 데 필요한 액세스 토큰을 지정 합니다. 권한 부여: 전달자 < 액세스-토큰 >
-수락  | 응답 형식입니다. FarmBeats Data hubs Api의 경우 json Accept 형식은 application/json입니다.
+허용  | 응답 형식입니다. FarmBeats Data hubs Api의 경우 json Accept 형식은 application/json입니다.
 
 
 ## <a name="api-requests"></a>API 요청

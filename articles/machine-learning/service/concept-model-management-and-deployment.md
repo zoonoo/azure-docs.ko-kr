@@ -1,7 +1,7 @@
 ---
-title: 'MLOps: ML 모델 관리, 배포 & 모니터링'
+title: 'MLOps: ML 모델 관리'
 titleSuffix: Azure Machine Learning
-description: MLOps에 대해 Azure Machine Learning를 사용 하는 방법에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. Azure Machine Learning을 사용하여 학습한 모델을 로컬 머신 또는 다른 원본에서 배포할 수 있습니다.
+description: 'MLOps (Azure Machine Learning를 사용한 모델 관리에 대해 알아봅니다. 모델을 배포, 관리 및 모니터링 하 여 지속적으로 개선 합니다. '
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,14 +11,14 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0d0e567198fd25243b89245d54bbed5a658cc663
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716607"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123610"
 ---
-# <a name="mlops-manage-deploy-and-monitor-models-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
+# <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
 이 문서에서는 Azure Machine Learning 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 하 여 Machine Learning 솔루션의 품질과 일관성을 향상 시킵니다. 
 

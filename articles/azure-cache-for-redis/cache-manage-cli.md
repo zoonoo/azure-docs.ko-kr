@@ -1,25 +1,17 @@
 ---
-title: Azure 클래식 CLI를 사용하여 Azure Cache for Redis 관리 | Microsoft Docs
+title: Azure 클래식 CLI를 사용 하 여 Azure Cache for Redis 관리
 description: 모든 플랫폼에 Azure 클래식 CLI를 설치하고, 이를 사용하여 Azure 계정에 연결하고, 이 클래식 CLI에서 Cache for Redis를 만들고 관리하는 방법을 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 964ff245-859d-4bc1-bccf-62e4b3c1169f
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/23/2017
 ms.author: yegu
-ms.openlocfilehash: 3b4756635ae0ab0d282975a6376e60da5f148917
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: e2b1ed693ea57e3414d465a57a5ba2b1203f67c5
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755416"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121889"
 ---
 # <a name="how-to-create-and-manage-azure-cache-for-redis-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 Azure Cache for Redis를 만들고 관리하는 방법
 > [!div class="op_single_selector"]
@@ -33,7 +25,7 @@ Azure 클래식 CLI를 사용하면 어떤 플랫폼에서나 Azure 인프라를
 > [!NOTE]
 > 최신 Azure CLI 샘플 스크립트는 [Azure CLI Azure Cache for Redis 샘플](cli-samples.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들고 관리하려면 다음 단계를 완료해야 합니다.
 
 * Azure 계정이 있어야 합니다. 계정이 없는 경우 몇 분 만에 [무료 계정](https://azure.microsoft.com/pricing/free-trial/) 을 만들 수 있습니다.
@@ -44,12 +36,12 @@ Azure 클래식 CLI를 사용하여 Azure Cache for Redis 인스턴스를 만들
 ## <a name="azure-cache-for-redis-properties"></a>Azure Cache for Redis 속성
 Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용되는 속성은 다음과 같습니다.
 
-| 자산 | Switch | 설명 |
+| 속성 | Switch | 설명 |
 | --- | --- | --- |
-| 이름 |-n, --name |Azure Cache for Redis의 이름입니다. |
+| name |-n, --name |Azure Cache for Redis의 이름입니다. |
 | 리소스 그룹 |-g, --resource-group |리소스 그룹의 이름입니다. |
 | location |-l, --location |캐시를 만드는 위치입니다. |
-| size |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
+| 크기 |-z, --size |Azure Cache for Redis의 크기입니다. 유효한 값: [C0, C1, C2, C3, C4, C5, C6, P1, P2, P3, P4] |
 | sku |-x, --sku |Redis SKU입니다. 다음 중 하나여야 합니다. [기본, 표준, 프리미엄] |
 | EnableNonSslPort |-e, --enable-non-ssl-port |Azure Cache for Redis의 EnableNonSslPort 속성입니다. 캐시에 대해 비 SSL 포트를 사용하도록 설정하려는 경우 이 플래그를 추가합니다. |
 | Redis 구성 |-c, --redis-configuration |Redis 구성입니다. 구성 키 및 값의 JSON 형식 문자열을 여기에 입력합니다. 형식:"{"":"","":""}" |
@@ -57,10 +49,10 @@ Azure Cache for Redis 인스턴스를 만들고 업데이트하는 경우 사용
 | 분할된 데이터베이스 수 |-r, --shard-count |클러스터링을 사용하는 프리미엄 클러스터 캐시에서 만드는 분할된 데이터베이스 수입니다. |
 | Virtual Network |-v, --virtual-network |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
 | 키 유형 |-t, --key-type |갱신하는 키의 유형입니다. 유효한 값: [주, 보조] |
-| StaticIP |-p,--고정 ip \<static-ip \> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
-| 서브넷 |t,--subnet \<subnet \> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
-| VirtualNetwork |-v,--virtual-network \<virtual-network \> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
-| Subscription |-s, --subscription |구독 식별자입니다. |
+| StaticIP |-p, --static-ip \<static-ip\> |VNET에서 캐시를 호스팅하는 경우 서브넷에서 캐시에 대한 고유 IP 주소를 지정합니다. 제공되지 않으면 하나의 IP 주소가 서브넷에서 자동으로 선택됩니다. |
+| 서브넷 |t, --subnet \<subnet\> |VNET에서 캐시를 호스팅하는 경우에 캐시를 배포할 서브넷의 이름을 지정합니다. |
+| VirtualNetwork |-v, --virtual-network \<virtual-network\> |VNET에서 캐시를 호스팅하는 경우 Azure Cache for Redis를 배포하는 가상 네트워크의 정확한 ARM 리소스 ID를 지정합니다. 형식 예: /subscriptions/{subid}/resourceGroups/{resourceGroupName}/Microsoft.ClassicNetwork/VirtualNetworks/vnet1 |
+| 구독 |-s, --subscription |구독 식별자입니다. |
 
 ## <a name="see-all-azure-cache-for-redis-commands"></a>모든 Azure Cache for Redis 명령 보기
 Azure Cache for Redis 명령 및 해당 매개 변수를 모두 보려면 `azure rediscache -h` 명령을 사용합니다.
@@ -227,7 +219,7 @@ Azure Cache for Redis를 삭제하려면 다음 명령을 사용합니다.
 
     azure rediscache renew-key [--name <name> --resource-group <resource-group> --key-type <key-type>]
 
-`key-type`에 대해 `Primary` 또는 `Secondary`를 지정합니다.
+`Primary`에 대해 `Secondary` 또는 `key-type`를 지정합니다.
 
 이 명령에 대한 자세한 내용은 `azure rediscache renew-key -h` 명령을 실행합니다.
 

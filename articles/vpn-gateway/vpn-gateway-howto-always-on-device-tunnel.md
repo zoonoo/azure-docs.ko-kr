@@ -1,5 +1,6 @@
 ---
-title: VPN Gateway에 대 한 Always On VPN 터널 구성
+title: Always On VPN 터널 구성
+titleSuffix: Azure VPN Gateway
 description: VPN Gateway에 대 한 Always On VPN 터널을 구성 하는 단계
 services: vpn-gateway
 author: cherylmc
@@ -7,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: cherylmc
-ms.openlocfilehash: bc2ec2b952b4f0c6e61fc4953559fa882edfff09
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: f22b29cfcaf1d4c4ce28b2b0557d70b281b6891f
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841133"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74146389"
 ---
 # <a name="configure-an-always-on-vpn-device-tunnel"></a>Always On VPN 디바이스 터널 구성
 

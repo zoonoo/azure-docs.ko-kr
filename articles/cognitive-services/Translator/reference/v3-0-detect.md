@@ -1,7 +1,7 @@
 ---
 title: Translator Text API 검색 메서드
 titleSuffix: Azure Cognitive Services
-description: Translator Text API 검색 메서드를 사용합니다.
+description: Azure Cognitive Services Translator Text API 검색 방법을 사용 하 여 텍스트 조각의 언어를 식별 합니다.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: ba73b75e30639dd3f5cf5523124c926ea3442fa1
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 370f3b14c12fc05f181d6497b7069bbf1cf3c9cc
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932030"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837289"
 ---
 # <a name="translator-text-api-30-detect"></a>Translator Text API 3.0: 검색
 
@@ -46,7 +46,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 <table width="100%">
   <th width="20%">헤더</th>
-  <th>Description</th>
+  <th>설명</th>
   <tr>
     <td>인증 헤더</td>
     <td><em>필수 요청 헤더</em><br/><a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">인증에 사용할 수 있는 옵션</a>을 참조하세요.</td>
@@ -75,7 +75,7 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 ]
 ```
 
-다음과 같은 제한 사항이 적용됩니다.
+다음 제한 사항이 적용됩니다.
 
 * 배열에는 최대 100개 요소가 있을 수 있습니다.
 * 배열 요소의 텍스트 값은 공백을 포함하여 10,000자를 초과할 수 없습니다.

@@ -1,7 +1,7 @@
 ---
 title: Speech SDK 로깅-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: Speech SDK에서 로깅을 사용 하도록 설정 합니다.
+description: 음성 SDK에서 로깅을 사용 하도록 설정 하는 방법에C++대해 C#알아봅니다 (,, Python, 목표-C, Java).
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,21 +10,21 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: amishu
-ms.openlocfilehash: 31ff21e33860f75d91d01e80e3ee77bd7192f780
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 58f6c97ac819947f84735bc0bc4c125b43db58dc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559482"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075792"
 ---
 # <a name="enable-logging-in-the-speech-sdk"></a>Speech SDK에서 로깅 사용
 
-파일에 로깅은 음성 SDK의 선택적 기능입니다. 개발 로깅은 음성 SDK의 핵심 구성 요소에서 추가 정보와 진단을 제공 합니다. 음성 구성 개체의 속성 `Speech_LogFilename` 을 로그 파일의 위치 및 이름으로 설정 하 여이 기능을 사용 하도록 설정할 수 있습니다. 이 구성에서 인식기를 만든 후에는 로깅이 전체적으로 활성화 되며 나중에 비활성화할 수 없습니다. 실행 중인 로깅 세션 중에는 로그 파일의 이름을 변경할 수 없습니다.
+파일에 로깅은 Speech SDK를 위한 선택적 기능입니다. 개발 중 로깅은 Speech SDK의 핵심 구성 요소에서 진단 정보 및 추가 정보를 제공합니다. 음성 구성 개체의 `Speech_LogFilename` 속성을 로그 파일의 이름과 위치로 설정하여 활성화할 수 있습니다. 로깅은 해당 구성에서 인식기가 생성될 때 전역적으로 활성화되고 나중에 비활성화할 수 없습니다. 로깅 세션을 실행하는 동안 로그 파일의 이름은 변경할 수 없습니다.
 
 > [!NOTE]
 > 음성 SDK 버전은 JavaScript를 제외 하 고 지원 되는 모든 Speech SDK 프로그래밍 언어로 1.4.0 되므로 로깅을 사용할 수 있습니다.
 
-## <a name="sample"></a>예제
+## <a name="sample"></a>샘플
 
 로그 파일 이름은 구성 개체에 지정됩니다. `SpeechConfig`를 예로 들어 `config` 라는 인스턴스를 만들었다고 가정합니다.
 

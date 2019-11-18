@@ -1,21 +1,19 @@
 ---
-title: 인증서로 애플리케이션 게이트웨이 만들기 - Azure CLI | Microsoft Docs
+title: CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션
+titleSuffix: Azure Application Gateway
 description: Azure CLI를 사용하여 애플리케이션 게이트웨이를 만들고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
-manager: jpconnock
-editor: tysonn
 ms.service: application-gateway
 ms.topic: article
-ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: 1a5479cb54e15c0e740d800c8ee248a67e5ec5fc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66133891"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108763"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -28,13 +26,13 @@ Azure CLI를 사용하여 SSL 종료를 위한 인증서로 [애플리케이션 
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
@@ -64,7 +62,7 @@ az group create --name myResourceGroupAG --location eastus
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-[az network vnet create](/cli/azure/network/vnet)를 사용하여 *myVNet*이라는 가상 네트워크와 *myAGSubnet*이라는 서브넷을 만듭니다. 그런 후 [az network vnet subnet create](/cli/azure/network/vnet/subnet)를 사용하여 백 엔드 서버에 필요한 *myBackendSubnet*이라는 서브넷을 추가할 수 있습니다. [az network public-ip create](/cli/azure/network/public-ip)를 사용하여 *myAGPublicIPAddress*라는 IP 주소를 만듭니다.
+*az network vnet create*를 사용하여 *myVNet*이라는 가상 네트워크와 [myAGSubnet](/cli/azure/network/vnet)이라는 서브넷을 만듭니다. 그런 후 *az network vnet subnet create*를 사용하여 백 엔드 서버에 필요한 [myBackendSubnet](/cli/azure/network/vnet/subnet)이라는 서브넷을 추가할 수 있습니다. *az network public-ip create*를 사용하여 [myAGPublicIPAddress](/cli/azure/network/public-ip)라는 IP 주소를 만듭니다.
 
 ```azurecli-interactive
 az network vnet create \
@@ -161,7 +159,7 @@ az network application-gateway redirect-config create \
 
 ### <a name="add-the-routing-rule"></a>라우팅 규칙 추가
 
-[az network application-gateway rule create](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)를 사용하여 애플리케이션 게이트웨이에 리디렉션 구성을 포함하는 *rule2*라는 라우팅 규칙을 추가합니다.
+*az network application-gateway rule create*를 사용하여 애플리케이션 게이트웨이에 리디렉션 구성을 포함하는 [rule2](/cli/azure/network/application-gateway/rule#az-network-application-gateway-rule-create)라는 라우팅 규칙을 추가합니다.
 
 ```azurecli-interactive
 az network application-gateway rule create \
@@ -226,13 +224,13 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
 
 

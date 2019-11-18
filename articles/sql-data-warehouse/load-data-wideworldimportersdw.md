@@ -11,12 +11,12 @@ ms.date: 07/17/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 5272d9aa77f78d0cef316f9f227f9e269ab7e186
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: f58623ec179965c8f8f165805cb181f8c102e746
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839892"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132368"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>자습서: Azure SQL Data Warehouse에 데이터 로드
 
@@ -41,17 +41,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
-[Azure 포털](https://portal.azure.com/)에 로그인합니다.
+[Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-a-blank-sql-data-warehouse"></a>빈 SQL Data Warehouse 만들기
 
-Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집합으로 만들어집니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
+정의된 [컴퓨팅 리소스](memory-concurrency-limits.md)의 세트를 사용하여 Azure SQL Data Warehouse가 생성됩니다. 데이터베이스는 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 및 [Azure SQL 논리 서버](../sql-database/sql-database-features.md)에서 만들어집니다. 
 
 빈 SQL Data Warehouse를 만들려면 다음 단계를 수행 합니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 
-2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기**페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
+2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고 **새로 만들기** 페이지의 **추천**에서 **SQL Data Warehouse**를 선택합니다.
 
     ![데이터 웨어하우스 만들기](media/load-data-wideworldimportersdw/create-empty-data-warehouse.png)
 
@@ -73,7 +73,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
     | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. | 
     | **서버 관리자 로그인** | 모든 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요.|
     | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
-    | **위치**: | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
+    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |
 
     ![데이터베이스 서버 만들기](media/load-data-wideworldimportersdw/create-database-server.png)
 
@@ -81,12 +81,12 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
 6. **성능 계층** 을 클릭 하 여 데이터 웨어하우스의 Gen1 또는 Gen2를 지정 하 고 데이터 웨어하우스 단위 수를 지정 합니다. 
 
-7. 이 자습서에서는 **Gen1** 서비스 계층을 선택 합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  위아래로 이동하면서 작동 방식을 확인하세요. 
+7. 이 자습서에서는 **Gen1** 서비스 계층을 선택 합니다. 기본적으로 슬라이더는 **DW400**으로 설정되어 있습니다.  오른쪽 왼쪽으로 이동하면서 작동 방식을 확인하세요. 
 
     ![성능 구성](media/load-data-wideworldimportersdw/configure-performance.png)
 
 8. **적용**을 클릭합니다.
-9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본 포트를 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
+9. SQL Data Warehouse 페이지에서 빈 데이터베이스에 대해 **데이터 정렬**을 선택합니다. 이 자습서에서는 기본값을 사용합니다. 데이터 정렬에 대한 자세한 내용은 [데이터 정렬](/sql/t-sql/statements/collations)을 참조하세요.
 
 11. 이제 SQL Database 양식을 완료했으므로 **만들기**를 클릭하여 데이터베이스를 프로비전합니다. 프로비전하는 데 몇 분이 걸립니다. 
 
@@ -94,7 +94,7 @@ Azure SQL Data Warehouse 정의 된 [compute 리소스] 메모리-limits.md) 집
 
 12. 도구 모음에서 **알림**을 클릭하여 배포 프로세스를 모니터링합니다.
     
-     ![알림](media/load-data-wideworldimportersdw/notification.png)
+     ![알림(notification)](media/load-data-wideworldimportersdw/notification.png)
 
 ## <a name="create-a-server-level-firewall-rule"></a>서버 수준 방화벽 규칙 만들기
 
@@ -120,22 +120,22 @@ SQL Data Warehouse 서비스는 외부 애플리케이션 및 도구가 서버 �
 
 4.  현재 IP 주소를 새 방화벽 규칙에 추가하려면 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 방화벽 규칙은 단일 IP 주소 또는 IP 주소의 범위에 1433 포트를 열 수 있습니다.
 
-5. **Save**를 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
+5. **저장**을 클릭합니다. 논리 서버의 1433 포트를 여는 현재 IP 주소에 서버 수준 방화벽 규칙이 생성됩니다.
 
 6. **확인**을 클릭한 후 **방화벽 설정** 페이지를 닫습니다.
 
 이제 이 IP 주소를 사용하여 SQL 서버 및 해당 데이터 웨어하우스에 연결할 수 있습니다. SQL Server Management Studio 또는 원하는 다른 도구에서 연결이 제대로 작동합니다. 연결할 때 이전에 만든 serveradmin 계정을 사용합니다.  
 
 > [!IMPORTANT]
-> SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **꺼짐**을 클릭한 다음 **저장**을 클릭하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
+> SQL Database 방화벽을 통한 액세스는 기본적으로 모든 Azure 서비스에 대해 사용됩니다. 이 페이지에서 **해제**를 클릭한 다음 **저장**을 클릭하여 모든 Azure 서비스에 대한 방화벽을 사용하지 않도록 설정합니다.
 
 ## <a name="get-the-fully-qualified-server-name"></a>정규화된 서버 이름 확인
 
 Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 나중에 서버에 연결할 때 이 정규화된 이름을 사용합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 클릭합니다. 
-3. 데이터베이스의 경우 Azure Portal의 **개요** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
+3. 데이터베이스의 경우 Azure Portal의 **Essentials** 창에서 **서버 이름**을 찾고 복사합니다. 이 예제에서 정규화된 이름은 mynewserver-20171113.database.windows.net입니다. 
 
     ![연결 정보](media/load-data-wideworldimportersdw/find-server-name.png)  
 
@@ -151,13 +151,13 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
     | ------------ | --------------- | ----------- | 
     | 서버 유형 | 데이터베이스 엔진 | 이 값은 필수입니다. |
     | 서버 이름 | 정규화된 서버 이름 | 예를 들어 **sample-svr.database.windows.net**은 정규화된 서버 이름입니다. |
-    | 인증 | SQL Server 인증 | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
+    | 인증 | SQL Server 인증(SQL Server Authentication) | SQL 인증은 이 자습서에서 구성되어 있는 유일한 인증 유형입니다. |
     | 로그인 | 서버 관리자 계정 | 서버를 만들 때 지정한 계정입니다. |
     | 암호 | 서버 관리자 계정의 암호 | 서버를 만들 때 지정한 암호입니다. |
 
     ![서버 연결](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. **Connect**를 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
+4. **연결**을 클릭합니다. SSMS에서 개체 탐색기 창이 열립니다. 
 
 5. 개체 탐색기에서 **데이터베이스**를 확장합니다. 그런 후 **시스템 데이터베이스** 및 **master**를 확장하여 master 데이터베이스의 개체를 표시합니다.  **Sampledw** 를 확장 하 여 새 데이터베이스의 개체를 봅니다.
 
@@ -208,7 +208,7 @@ Azure Portal에서 SQL 서버의 정규화된 서버 이름을 확인합니다. 
 
 2. 정규화된 서버 이름을 입력하고, **LoaderRC60**을 로그인으로 입력합니다.  LoaderRC60에 대한 암호를 입력합니다.
 
-3. **Connect**를 클릭합니다.
+3. **연결**을 클릭합니다.
 
 4. 연결이 준비되면 개체 탐색기에서 2개의 서버 연결이 표시됩니다. 하나는 ServerAdmin 권한으로 연결되고, 다른 하나는 LoaderRC60 권한으로 연결되었습니다.
 

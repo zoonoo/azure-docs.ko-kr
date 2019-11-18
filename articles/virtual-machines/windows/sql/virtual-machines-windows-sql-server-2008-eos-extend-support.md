@@ -14,12 +14,12 @@ ms.date: 04/08/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: d1b3961b61d45718e726b31ec406445b202a0adf
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6b2546226d31334592034cfe0455fc32644a3900
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034183"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132765"
 ---
 # <a name="extend-support-for-sql-server-2008-and-sql-server-2008-r2-with-azure"></a>Azure를 사용 하 여 SQL Server 2008 및 SQL Server 2008 R2 지원 확장
 
@@ -64,7 +64,7 @@ SQL Server 복구를 보장 하기 위해 앱에 일관 된 Azure Site Recovery 
 
 Azure VM에서 EOS SQL Server에 대 한 재해 복구 솔루션은 다음과 같습니다.
 
-- **SQL Server 백업**: Azure Backup를 사용 하 여, 랜 섬 웨어, 실수로 인 한 삭제 및 손상 으로부터 EOS SQL Server을 보호 합니다. 이 솔루션은 현재 EOS SQL Server 미리 보기로 제공 되며 Windows 2008 R2 s p 1에서 실행 되는 SQL Server 2008 및 2008 R2를 지원 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#support-for-sql-server-2008-and-sql-server-2008-r2)를 참조 하세요.
+- **SQL Server 백업**: Azure Backup를 사용 하 여, 랜 섬 웨어, 실수로 인 한 삭제 및 손상 으로부터 EOS SQL Server을 보호 합니다. 이 솔루션은 현재 EOS SQL Server 미리 보기로 제공 되며 Windows 2008 R2 s p 1에서 실행 되는 SQL Server 2008 및 2008 R2를 지원 합니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-sql-database#scenario-support)를 참조 하세요.
 - **로그 전달**: RTO를 줄이기 위해 연속 복원을 사용 하 여 다른 영역 또는 Azure 지역에 로그 전달 복제본을 만들 수 있습니다. 로그 전달을 수동으로 구성 해야 합니다.
 - **Azure Site Recovery**: Azure Site Recovery 복제를 통해 영역 및 지역 간에 VM을 복제할 수 있습니다. 재해 발생 시 복구를 보장 하기 위해 SQL Server에는 앱 일치 스냅숏이 필요 합니다. Azure Site Recovery는 최소 1 시간 RPO와 EOS SQL Server 재해 복구를 위한 2 시간 (+ SQL Server 복구 시간) RTO를 제공 합니다.
 

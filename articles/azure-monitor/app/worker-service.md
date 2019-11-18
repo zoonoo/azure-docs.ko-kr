@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cijothomas
 ms.author: cithomas
 ms.date: 09/15/2019
-ms.openlocfilehash: a599a7cbb1ceff165d7bde77ba4bf797d66b5026
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 5f812d5fe1b25358a0bf09ebf879569ae29b33f3
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048240"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131893"
 ---
 # <a name="application-insights-for-worker-service-applications-non-http-applications"></a>Worker 서비스 응용 프로그램에 대 한 Application Insights (HTTP가 아닌 응용 프로그램)
 
@@ -127,7 +127,7 @@ Application Insights는 메시징, 백그라운드 작업, 콘솔 응용 프로�
 또는 다음 환경 변수 중 하나에서 계측 키를 지정 합니다.
 `APPINSIGHTS_INSTRUMENTATIONKEY` 또는 `ApplicationInsights:InstrumentationKey`
 
-예: `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
+예를 들면 다음과 같습니다. `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 또는 `SET APPINSIGHTS_INSTRUMENTATIONKEY=putinstrumentationkeyhere`
 
 일반적으로 `APPINSIGHTS_INSTRUMENTATIONKEY`는 Web Apps 웹 작업으로 배포 된 응용 프로그램에 대 한 계측 키를 지정 합니다.
@@ -406,7 +406,7 @@ Application Insights SDK for Worker 서비스는 고정 비율과 적응 샘플�
 
 ### <a name="adding-telemetry-processors"></a>원격 분석 프로세서 추가
 
-`IServiceCollection`에서 `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 `TelemetryConfiguration`에 사용자 지정 원격 분석 프로세서를 추가할 수 있습니다. [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#filtering-itelemetryprocessor) 에서 원격 분석 프로세서를 사용 하 여 Application Insights 서비스로 보내는 원격 분석에서 포함 되거나 제외 된 항목을 더 직접적으로 제어할 수 있습니다. 다음 예제를 사용 합니다.
+`IServiceCollection`에서 `AddApplicationInsightsTelemetryProcessor` 확장 메서드를 사용 하 여 `TelemetryConfiguration`에 사용자 지정 원격 분석 프로세서를 추가할 수 있습니다. [고급 필터링 시나리오](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#itelemetryprocessor-and-itelemetryinitializer) 에서 원격 분석 프로세서를 사용 하 여 Application Insights 서비스로 보내는 원격 분석에서 포함 되거나 제외 된 항목을 더 직접적으로 제어할 수 있습니다. 다음 예제를 사용 합니다.
 
 ```csharp
     public void ConfigureServices(IServiceCollection services)

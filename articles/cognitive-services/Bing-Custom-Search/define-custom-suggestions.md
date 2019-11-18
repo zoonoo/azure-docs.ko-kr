@@ -1,7 +1,7 @@
 ---
 title: Custom Autosuggest 제안 정의 - Bing Custom Search
 titleSuffix: Azure Cognitive Services
-description: 사용자 지정 제안으로 Custom Autosuggest를 구성하는 방법을 설명합니다.
+description: Custom Autosuggest는 검색 환경과 관련된 검색 쿼리 제안 문자열 목록을 반환합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: b08eb49b0c4f9655326d2ab09ce39210205e28a9
-ms.sourcegitcommit: 9dc7517db9c5817a3acd52d789547f2e3efff848
+ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68405112"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072797"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Custom Autosuggest 환경 구성
 
@@ -83,7 +83,7 @@ GET https://api.cognitive.microsoft.com/bingcustomsearch/v7.0/Suggestions
 
 각 제안에는 `displayText` 및 `query` 필드가 포함됩니다. `displayText` 필드에는 검색 상자의 드롭다운 목록을 채우는 데 사용하는 제안된 쿼리 문자열이 포함됩니다.
 
-사용자가 드롭다운 목록에서 제안된 쿼리 문자열을 선택하는 경우 [Bing Custom Search API](overview.md)를 호출할 때 `query` 필드의 쿼리 문자열을 사용합니다.
+사용자가 드롭다운 목록에서 제안된 쿼리 문자열을 선택하는 경우 `query`Bing Custom Search API[를 호출할 때 ](overview.md) 필드의 쿼리 문자열을 사용합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
