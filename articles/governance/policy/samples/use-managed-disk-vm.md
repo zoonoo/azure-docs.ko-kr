@@ -1,17 +1,14 @@
 ---
 title: 샘플 - 관리 디스크를 사용하여 VM 만들기
 description: 이 샘플 정책 정의에서는 가상 머신이 관리 디스크를 사용해야 합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/23/2019
-ms.author: dacoulte
-ms.openlocfilehash: 8aada6149fc0c4eacd3c304db15657e6ffa164c1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.topic: sample
+ms.openlocfilehash: 0ad21e255e771cd94c6f2eb794e20dc9b67f49d5
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981291"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74069778"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>샘플 - 관리 디스크를 사용하여 VM 만들기
 

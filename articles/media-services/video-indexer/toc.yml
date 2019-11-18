@@ -15,10 +15,6 @@
   items:
     - name: Video Indexer API 사용
       href: video-indexer-use-apis.md
-- name: 샘플
-  items:
-    - name: 라이브 스트림 분석
-      href: live-stream-analysis.md
 - name: 개념
   items:
     - name: 개요
@@ -29,6 +25,8 @@
       href: manage-multiple-tenants.md
     - name: 언어 식별 모델
       href: language-identification-model.md
+    - name: 라이브 스트림 분석
+      href: live-stream-analysis.md
     - name: 콘텐츠 모델 사용자 지정
       items:
         - name: 개요
