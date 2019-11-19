@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 10/18/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2ed488f5f4380c44772d63d208e2c7a68934aca8
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7bafcb1508cdb01c4fe27a9d02db63c4f00efd74
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757649"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172530"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성
 
@@ -88,7 +88,11 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 Azure Portal의 *기본* 창에 있는 필드를 완성하여 Azure AD DS 인스턴스를 만듭니다.
 
 1. 이전 사항을 고려하여 관리되는 도메인의 **DNS 도메인 이름**을 입력합니다.
-1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다.
+1. 관리되는 도메인을 만들어야 하는 Azure **위치**를 선택합니다. 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 배포됩니다.
+
+    가용성 영역은 Azure 지역 내의 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다.
+
+    Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없습니다. Azure 플랫폼은 리소스의 영역 배포를 자동으로 처리합니다. 자세한 내용을 보고 지역 가용성을 확인하려면 [Azure에서 가용성 영역이란?][availability-zones]을 참조하세요.
 
     ![Azure AD Domain Services 인스턴스에 대한 기본 설정 구성](./media/tutorial-create-instance-advanced/basics-window.png)
 
@@ -167,7 +171,7 @@ Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그
 
     ![성공적으로 프로비저닝된 Domain Services 상태](./media/tutorial-create-instance-advanced/successfully-provisioned.png)
 
-프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 디렉터리에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션은 언제든지 삭제되지 않아야 합니다.
+관리되는 도메인이 Auzre AD 테넌트와 연결되어 있습니다. 프로비저닝 프로세스 중에 Azure AD DS는 *도메인 컨트롤러 서비스* 및 *AzureActiveDirectoryDomainControllerServices*라는 두 개의 엔터프라이즈 애플리케이션을 Azure AD 테넌트에 만듭니다. 이러한 Enterprise 애플리케이션은 관리되는 도메인을 제공하는 데 필요합니다. 이러한 애플리케이션을 삭제하지 마세요.
 
 ## <a name="update-dns-settings-for-the-azure-virtual-network"></a>Azure 가상 네트워크에 대한 DNS 설정 업데이트
 
@@ -238,6 +242,7 @@ Azure AD DS가 성공적으로 배포되면 이제 연결된 다른 VM과 애플
 [on-prem-sync]: tutorial-configure-password-hash-sync.md
 [configure-sspr]: ../active-directory/authentication/quickstart-sspr.md
 [password-hash-sync-process]: ../active-directory/hybrid/how-to-connect-password-hash-synchronization.md#password-hash-sync-process-for-azure-ad-domain-services
+[availability-zones]: ../availability-zones/az-overview.md
 
 <!-- EXTERNAL LINKS -->
 [naming-prefix]: /windows-server/identity/ad-ds/plan/selecting-the-forest-root-domain#selecting-a-prefix

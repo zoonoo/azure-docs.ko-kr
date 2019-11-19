@@ -3326,7 +3326,7 @@ Amazon S3에서 데이터를 복사하는 경우 복사 활동의 **source type*
 
 | 시나리오 | 연결된 서비스 정의의 호스트 | 데이터 세트 정의의 folderPath |
 | --- | --- | --- |
-| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더: <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
+| 데이터 관리 게이트웨이 컴퓨터의 로컬 폴더: <br/><br/>예: D:\\\* 또는 D:\folder\subfolder\\\* |D:\\\\(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/> localhost(데이터 관리 게이트웨이 버전 2.0 미만) |.\\\\ 또는 folder\\\\subfolder(데이터 관리 게이트웨이 버전 2.0 이상) <br/><br/>D:\\\\ 또는 D:\\\\folder\\\\subfolder(게이트웨이 버전 2.0 미만) |
 | 원격 공유 폴더: <br/><br/>예: \\\\myserver\\share\\\* 또는 \\\\myserver\\share\\folder\\subfolder\\\* |\\\\\\\\myserver\\\\share |.\\\\ 또는 folder\\\\subfolder |
 
 

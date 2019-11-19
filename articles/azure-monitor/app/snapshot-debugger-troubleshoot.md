@@ -1,26 +1,22 @@
 ---
-title: Azure Application Insights 스냅숏 디버거를 사용 하 여 문제 해결 | Microsoft Docs
-description: 이 문서에서는 문제 해결 단계 및 개발자가 사용 하도록 설정 하거나 Application Insights 스냅숏 디버거를 사용 하 여 문제가 발생 하는 데 유용한 정보를 제공 합니다.
-services: application-insights
-documentationcenter: ''
-author: brahmnes
-manager: carmonm
-ms.service: application-insights
-ms.workload: tbd
-ms.tgt_pltfrm: ibiza
+title: Azure 애플리케이션 Insights 스냅숏 디버거 관련 된 문제 해결 | Microsoft Docs
+description: 이 문서에서는 Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 사용 하는 데 문제가 있는 개발자를 위한 문제 해결 단계 및 정보를 제공 합니다.
+ms.service: azure-monitor
+ms.subservice: application-insights
 ms.topic: conceptual
-ms.reviewer: mbullwin
-ms.date: 03/07/2019
+author: brahmnes
 ms.author: mbullwin
-ms.openlocfilehash: 25ccf20fc78a9ec00d4dfe23a60e824e96d12945
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.date: 03/07/2019
+ms.reviewer: mbullwin
+ms.openlocfilehash: ec70f202a496ec368a483278994c7c5ccb24f40b
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67444540"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72899820"
 ---
-# <a id="troubleshooting"></a> Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 스냅숏 보기 문제 해결
-응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 해도 예외에 대 한 스냅숏이 표시 되지 않는 경우에 문제를 해결 하려면 다음이 지침을 사용할 수 있습니다. 스냅숏이 생성 되지 않습니다 하는 여러 가지 이유가 있을 수 있습니다. 몇 가지 일반적인 원인은 스냅숏 상태 검사를 실행할 수 있습니다.
+# <a id="troubleshooting"></a>Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
+응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅숏이 생성 되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
 
 ## <a name="use-the-snapshot-health-check"></a>스냅샷 상태 확인 사용
 몇 가지 일반적인 문제로 인해 [디버그 스냅샷 열기]가 표시되지 않습니다. 오래된 스냅샷 수집기를 사용했거나(예: 일일 업로드 제한에 도달), 스냅샷을 업로드하는 데 시간이 오래 걸렸을 수도 있습니다. [스냅샷 상태 확인]을 사용하여 일반적인 문제를 해결합니다.
@@ -39,13 +35,13 @@ ms.locfileid: "67444540"
 
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
 
-## <a name="preview-versions-of-net-core"></a>미리 보기 버전의.NET Core
-.NET Core의 미리 보기 버전을 사용 하 여 응용 프로그램 및 스냅숏 디버거를 통해 사용 하도록 설정 된 경우는 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 포털의 다음 스냅숏 디버거 시작할 수 없습니다. 지침을 따르세요 [다른 환경에 대해 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 포함 하려면 먼저 합니다 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) 응용프로그램을사용하여NuGet패키지***또한*** 를 통해 사용 하도록 설정 하는 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)합니다.
+## <a name="preview-versions-of-net-core"></a>.NET Core 미리 보기 버전
+응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 사용 하도록 설정 [](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) [하는 것 외에도 응용 프로그램과 함께 다른 환경에 대 한 스냅숏 디버거 사용의 지침을 따릅니다. Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
-스냅숏 디버거를 통해 활성화 된 경우는 [포털의 Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), 응용 프로그램은 이미 실행 되 고 최신 NuGet 패키지를 합니다. 스냅숏 디버거를 포함 하 여 활성화 된 경우는 [Microsoft.ApplicationInsights.SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 최신 버전을 사용 하는 되도록 사용 하 여 Visual Studio의 NuGet 패키지 관리자 Microsoft.ApplicationInsights.SnapshotCollector 합니다. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167 에 있습니다.
+[포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. Microsoft.applicationinsights.snapshotcollector NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 NuGet 패키지 관리자를 사용 하 여 최신 버전의를 사용 하 고 있는지 확인 합니다 [.](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) Microsoft.applicationinsights.snapshotcollector. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167에 있습니다.
 
 ## <a name="check-the-uploader-logs"></a>업로더 로그 확인
 
@@ -174,7 +170,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 애플리케이션이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
 
-이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_ (업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
+이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 `ExceptionDuringConnect`"Uploader failed to start." _(업로드를 시작하지 못했습니다.)라는_  오류 다음에 발생합니다.
 
 이러한 오류를 해결하려면 `ShadowCopyFolder` 구성을 통해 섀도 복사본 폴더를 수동으로 지정하면 됩니다. ApplicationInsights.config를 사용하는 예:
 
@@ -223,4 +219,4 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 ## <a name="edit-network-proxy-or-firewall-rules"></a>네트워크 프록시 또는 방화벽 규칙 편집
 
-애플리케이션에서 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 애플리케이션이 스냅샷 디버거 서비스와 통신할 수 있도록 규칙을 편집해야 할 수 있습니다. [스냅숏 디버거에서 사용하는 IP 주소 및 포트 목록](../../azure-monitor/app/ip-addresses.md#snapshot-debugger)이 있습니다.
+애플리케이션에서 프록시 또는 방화벽을 통해 인터넷에 연결하는 경우 애플리케이션이 스냅샷 디버거 서비스와 통신할 수 있도록 규칙을 편집해야 할 수 있습니다. [스냅샷 디버거에서 사용하는 IP 주소 및 포트 목록](../../azure-monitor/app/ip-addresses.md#snapshot-debugger)이 있습니다.

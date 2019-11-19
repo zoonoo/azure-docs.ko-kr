@@ -137,8 +137,6 @@
       href: functions-networking-options.md
     - name: IP 주소
       href: ip-addresses.md
-    - name: Kubernetes의 Functions
-      href: functions-kubernetes-keda.md
 - name: 방법 가이드
   items:
     - name: 개발
@@ -228,6 +226,9 @@
           href: deployment-zip-push.md
         - name: 패키지에서 실행
           href: run-functions-from-deployment-package.md
+        - name: Kubernetes의 Functions
+          href: functions-kubernetes-keda.md
+          displayName: keda
         - name: 리소스 배포 자동화
           href: functions-infrastructure-as-code.md
         - name: 온-프레미스 함수

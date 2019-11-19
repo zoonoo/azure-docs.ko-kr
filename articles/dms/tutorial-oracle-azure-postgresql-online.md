@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 09/10/2019
-ms.openlocfilehash: 8944a5adbe1b9e129b4a95c64aaa7a75fb96ac82
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1ac5e4dd28f7565f546c700a4bbb0076fd793bb7
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845560"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73163423"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS를 사용하여 Oracle을 Azure Database for PostgreSQL로 온라인 마이그레이션(미리 보기)
 
@@ -172,7 +172,7 @@ ora2pg를 사용하여 Oracle에서 Azure Database for PostgreSQL로 마이그�
 
 대부분의 고객은 평가 보고서를 검토하고 자동 및 수동 변환 작업을 고려하는 데 상당한 시간을 할애합니다.
 
-평가 보고서를 만들기 위해 ora2pg를 구성하고 실행하려면 [Oracle에서 Azure Database for PostgreSQL로 마이그레이션 설명서](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)의 **사전 마이그레이션: 평가** 섹션을 참조하세요. 샘플 ora2pg 평가 보고서는 [여기](http://ora2pg.darold.net/report.html)서 참조할 수 있습니다.
+평가 보고서를 만들기 위해 ora2pg를 구성하고 실행하려면 [Oracle에서 Azure Database for PostgreSQL로 마이그레이션 설명서](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)의 사전 마이그레이션: 평가** 섹션을 참조하세요. 샘플 ora2pg 평가 보고서는 [여기](http://ora2pg.darold.net/report.html)서 참조할 수 있습니다.
 
 ## <a name="export-the-oracle-schema"></a>Oracle 스키마 내보내기
 
@@ -190,7 +190,7 @@ psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d 
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
 ```
 
-스키마를 변환하기 위해 ora2pg를 구성하고 실행하려면 [Oracle에서 Azure Database for PostgreSQL로 마이그레이션 설명서](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)의 **마이그레이션: 스키마 및 데이터** 섹션을 참조하세요.
+스키마를 변환하기 위해 ora2pg를 구성하고 실행하려면 [Oracle에서 Azure Database for PostgreSQL로 마이그레이션 설명서](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)의 마이그레이션: 스키마 및 데이터** 섹션을 참조하세요.
 
 ## <a name="set-up-the-schema-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL에서 스키마 설정
 
@@ -243,8 +243,8 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
     | ------------- | ------------- | ------------- |
     | HR | targetHR.public | public.countries.country_id |
     | HR | targetHR.trgthr | trgthr.countries.country_id |
-    | HR | targetHR.TARGETHR | “TARGETHR”.”COUNTRIES”.”COUNTRY_ID” |
-    | HR | targetHR.HR | “HR”.”COUNTRIES”.”COUNTRY_ID” |
+    | HR | targetHR.TARGETHR | "TARGETHR"."COUNTRIES"."COUNTRY_ID" |
+    | HR | targetHR.HR | "HR"."COUNTRIES"."COUNTRY_ID" |
     | HR | targetHR.Hr | *대/소문자를 혼합하여 매핑할 수 없음 |
 
     *대상 PostgreSQL에서 대/소문자 혼합 스키마와 테이블 이름을 생성하려면 [dmsfeedback@microsoft.com](mailto:dmsfeedback@microsoft.com)에 문의하세요. 대상 PostgreSQL에서 대/소문자 혼합 스키마를 설정하는 스크립트를 제공받을 수 있습니다.
@@ -320,7 +320,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
 ## <a name="upload-oracle-oci-driver"></a>Oracle OCI 드라이버를 업로드 합니다.
 
-1. **저장**을 선택한 다음, **OCI 드라이버 설치** 화면에서 Oracle 계정에 로그인하고, [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)에서 **instantclient-basiclite-windows.x64-12.2.0.1.0.zip**(37,128,586바이트)(SHA1 체크섬: 8650828) 드라이버를 다운로드합니다.
+1. **저장**을 선택한 다음, **OCI 드라이버 설치** 화면에서 Oracle 계정에 로그인하고, [여기](https://www.oracle.com/technetwork/topics/winx64soft-089540.html#ic_winx64_inst)에서 instantclient-basiclite-windows.x64-12.2.0.1.0.zip(37,128,586바이트)(SHA1 체크섬: 8650828) 드라이버를 다운로드합니다.
 2. 드라이버를 공유 폴더에 다운로드합니다.
 
    폴더가 최소 읽기 전용 액세스 권한으로 지정한 사용자 이름과 공유되는지 확인합니다. Azure Database Migration Service는 사용자가 지정한 사용자 이름을 가장하여 OCI 드라이버를 Azure에 업로드하기 위해 공유에 액세스하여 이를 읽습니다.
