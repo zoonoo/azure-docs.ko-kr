@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/1/2019
+ms.date: 11/15/2019
 ms.author: raiye
-ms.openlocfilehash: 22e833a1d555057c7e6a2ce46e7a1bb136260851
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fd4936357035d8163130064bd6f0600c9d2b08bb
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888301"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74150002"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
+
+## <a name="november-2019-guest-os"></a>2019 년 11 월 게스트 OS
+
+>[!NOTE]
+>11월 게스트 OS는 자동 업데이트용으로 구성된 클라우드 서비스 VM으로 롤아웃 중입니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음과 같은 패치가 11월 게스트 OS에 포함됩니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  2.92  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525233]  |  Windows 보안   |  2.92  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  3.79  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525253]  |  Windows 보안   |  3.79  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525106]  |  Internet Explorer   |  4.72  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525250]  |  Windows 보안   |  4.72  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4525236]  |  최신 누적 업데이트   |  5.37  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4523205]  |  최신 누적 업데이트   |  6.13  |  2019 년 11 월 12 일  |
+|  Rel 19-11   |  [4519976]  |  비보안   |  2.92  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520007]  |  비보안   |  3.79  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521857]  |  ServicingStackUpdate   |  3.79  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4520005]  |  비보안   |  4.72  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521864]  |  ServicingStackUpdate   |  4.72  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521858]  |  ServicingStackUpdate   |  5.37  |  Oct 8, 2019  |
+|  Rel 19-11   |  [4521862]  |  ServicingStackUpdate   |  6.13  |  Oct 8, 2019  |
+
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525233]: https://support.microsoft.com/kb/4525233
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525253]: https://support.microsoft.com/kb/4525253
+[4525106]: https://support.microsoft.com/kb/4525106
+[4525250]: https://support.microsoft.com/kb/4525250
+[4525236]: https://support.microsoft.com/kb/4525236
+[4523205]: https://support.microsoft.com/kb/4523205
+[4519976]: https://support.microsoft.com/kb/4519976
+[4520007]: https://support.microsoft.com/kb/4520007
+[4521857]: https://support.microsoft.com/kb/4521857
+[4520005]: https://support.microsoft.com/kb/4520005
+[4521864]: https://support.microsoft.com/kb/4521864
+[4521858]: https://support.microsoft.com/kb/4521858
+[4521862]: https://support.microsoft.com/kb/4521862
+
 
 ## <a name="october-2019-guest-os"></a>2019 년 10 월 게스트 OS
 
@@ -1208,7 +1248,7 @@ ms.locfileid: "73888301"
 | MS15-075 |[3072633] |OLE의 취약성으로 인한 권한 상승 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 | MS15-076 |[3067505] |Windows 원격 프로시저 호출의 취약성으로 인한 권한 상승 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 | MS15-077 |[3077657] |ATM Font Driver의 취약성으로 인한 권한 상승 |4.22, 3.29, 2.41 |2015년 7월 14일 |
-| 해당 없음 |[3057154] |DES 암호화 사용을 제한하는 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
+| NA |[3057154] |DES 암호화 사용을 제한하는 업데이트 |4.22, 3.29, 2.41 |2015년 7월 14일 |
 
 ## <a name="june-2015-guest-os"></a>2015년 6월 게스트 OS
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
@@ -1241,7 +1281,7 @@ ms.locfileid: "73888301"
 | MS15-040 |[3045711] |ADFS의 취약성으로 인한 정보 공개 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 | MS15-041 |[3048010] |.NET Framework의 취약성으로 인한 정보 공개 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 | MS15-042 |[3047234] |Windows Hyper-V에서 취약성으로 인한 서비스 거부 문제점 |4.20, 3.27, 2.39 |2015년 4월 17일 |
-| 해당 없음 |[3045755] |PKU2U 인증을 향상시키는 업데이트 |4.20, 3.27, 2.39 |2015년 4월 17일 |
+| NA |[3045755] |PKU2U 인증을 향상시키는 업데이트 |4.20, 3.27, 2.39 |2015년 4월 17일 |
 
 ## <a name="april-2015-guest-os"></a>2015년 4월 게스트 OS
 | 공지 ID | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
