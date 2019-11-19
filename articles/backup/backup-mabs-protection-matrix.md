@@ -1,19 +1,14 @@
 ---
 title: Azure Backup Server에서 백업할 수 있는 항목
 description: 이 문서에서는 Azure Backup Server에서 보호하는 모든 워크로드, 데이터 형식 및 설치 프로그램을 나열하는 지원 매트릭스를 제공합니다.
-author: dcurwin
-ms.service: backup
-keywords: ''
 ms.date: 11/13/2018
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: 37f284f9a3dfe06e4d306b8d56a63d4b18d6cc2e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b375dd5869da85f09a58c77742b7246c5c25c605
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012098"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172284"
 ---
 # <a name="azure-backup-server-protection-matrix"></a>Azure Backup Server 보호 매트릭스
 
@@ -28,8 +23,8 @@ ms.locfileid: "74012098"
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8.1|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |클라이언트 컴퓨터(64비트 및 32비트)|Windows 8|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|윈도우 7|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
-|클라이언트 컴퓨터(64비트 및 32비트)|윈도우 7|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
+|클라이언트 컴퓨터(64비트 및 32비트)|Windows 7|VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)|V3, V2|볼륨, 공유, 폴더, 파일, 중복 제거된 볼륨<br /><br />보호된 볼륨은 NTFS여야 합니다. FAT 및 FAT32는 지원되지 않습니다.<br /><br />볼륨은 1GB 이상이어야 합니다. Azure Backup Server는 VSS (볼륨 섀도 복사본 서비스)를 사용 하 여 데이터 스냅숏을 생성 하며, 스냅숏은 볼륨이 1gb 이상인 경우에만 작동 합니다.|
 |Servers (64 비트)|Windows Server 2019|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /><br />VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /><br />물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3 <br />Nano 서버 아님|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구, 중복 제거된 볼륨|
 |서버(32비트 및 64비트)|Windows Server 2016|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /><br />VMWare의 Windows 가상 머신(VMWare의 Windows 가상 머신에서 실행되는 워크로드를 보호)<br /><br />물리적 서버<br /><br />온-프레미스 Hyper-V 가상 머신<br /> <br /> Azure Stack|V3, V2<br />Nano 서버 아님|볼륨, 공유, 폴더, 파일, 시스템 상태/완전 복구, 중복 제거된 볼륨|
 |서버(32비트 및 64비트)|Windows Server 2012 R2 - Datacenter 및 Standard|Azure 가상 컴퓨터(워크로드가 Azure 가상 컴퓨터로 실행 중인 경우)<br /> <br /> Azure Stack|V3, V2|볼륨, 공유, 폴더, 파일<br /><br />Windows Server 2012 중복 제거 된 볼륨을 보호 하려면 Azure Backup Server Windows Server 2012 R2 이상에서 실행 중 이어야 합니다.|

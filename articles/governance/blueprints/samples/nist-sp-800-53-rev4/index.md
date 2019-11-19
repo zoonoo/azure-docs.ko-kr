@@ -1,14 +1,14 @@
 ---
 title: NIST SP 800-53 R4 청사진 샘플 - 개요
 description: NIST SP 800-53 R4 청사진 샘플의 개요입니다. 이 청사진 샘플은 고객이 특정 NIST SP 800-53 R4 컨트롤을 평가하는 데 도움이 됩니다.
-ms.date: 06/24/2019
+ms.date: 11/18/2019
 ms.topic: sample
-ms.openlocfilehash: c1a1a64d3c5eed3da5d9b3d3b5443e92f2996e08
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 0057fa1ba0a71465ed9b8add865f807c6665c921
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037285"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184365"
 ---
 # <a name="overview-of-the-nist-sp-800-53-r4-blueprint-sample"></a>NIST SP 800-53 R4 청사진 샘플의 개요
 

@@ -1,19 +1,15 @@
 ---
-title: FAQ-Azure Backup를 사용 하 여 Azure Vm 백업
+title: FAQ-Azure Vm 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure Vm을 백업 하는 방법에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: ad5e715de2f3467d4530759cbb2acec0358e5597
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 30036d6cf241e1ac840b2be67ca78fbda6c60061
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747272"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172569"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>질문과 대답-Azure Vm 백업
 

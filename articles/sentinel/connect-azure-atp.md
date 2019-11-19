@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 764fb4c22bcce5fc5b045e68dc512243e783020e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: fb8f4de3b3b24d1eba372600c817627771ef0ef6
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261838"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158882"
 ---
 # <a name="connect-data-from-azure-advanced-threat-protection-atp"></a>Azure ATP (Advanced Threat Protection)에서 데이터 연결
 
@@ -29,10 +29,10 @@ ms.locfileid: "71261838"
 
 한 번의 클릭으로 [Azure Advanced Threat Protection](https://docs.microsoft.com/azure-advanced-threat-protection/what-is-atp) 에서 azure 센티널로 로그를 스트리밍할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
-- Azure ATP의 미리 보기 고객 이어야 합니다.
+- Azure ATP의 미리 보기 고객 이어야 하 고 Azure ATP와 Microsoft Cloud App Security 간의 통합을 사용 하도록 설정 해야 합니다. 자세한 내용은 [Azure Advanced Protection 통합](https://docs.microsoft.com/cloud-app-security/aatp-integration)을 참조 하세요.
 
 ## <a name="connect-to-azure-atp"></a>Azure ATP에 연결
 
@@ -44,7 +44,7 @@ Azure ATP가 배포 되 고 데이터를 수집 의심 스러운 경고를 Azure
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Azure Advanced Threat Protection (미리 보기)** 타일을 클릭 합니다.
 
-1. Azure ATP의 경고가 Azure 센티널에서 자동으로 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기** 에서 **사용** 을 선택 하 여 연결 된 보안 서비스에 생성 된 경고에서 인시던트를 자동으로 생성 하는 기본 분석 규칙을 사용 하도록 설정 합니다. 그런 다음 **분석** 및 **활성 규칙**에서이 규칙을 편집할 수 있습니다.
+1. Azure ATP의 경고가 Azure 센티널에서 자동으로 인시던트를 자동으로 생성할지 여부를 선택할 수 있습니다. **인시던트 만들기**에서 **사용**을 선택하여 연결된 보안 서비스에서 생성된 경고에서 인시던트가 자동으로 생성되는 기본 분석 규칙을 사용하도록 설정합니다. 그런 다음, **Analytics** 및 **활성 규칙**에서 이 규칙을 편집할 수 있습니다.
 
 1. **연결**을 클릭합니다.
 

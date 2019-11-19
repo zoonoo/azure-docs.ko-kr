@@ -1,18 +1,14 @@
 ---
 title: Azure 파일 공유 백업 및 복원
 description: 이 문서에서는 Azure 파일 공유를 백업 및 복원하는 방법과 관리 작업에 대해 설명합니다.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 6f1a793432fa6403639726dbe4340bae6804fb9f
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 59dd46c42cdf94f06709d95f68cfb8d8693b9cce
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091085"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173088"
 ---
 # <a name="back-up-and-restore-azure-file-shares"></a>Azure 파일 공유 백업 및 복원
 
@@ -47,7 +43,7 @@ Azure 파일 공유를 위한 백업은 미리 보기로 제공됩니다. 범용
 
 ## <a name="configuring-backup-for-an-azure-file-share"></a>Azure 파일 공유를 위한 백업 구성
 
-이 자습서에서는 이미 Azure 파일 공유를 설정한 것으로 가정합니다. Azure 파일 공유를 백업하려면:
+이 문서에서는 이미 Azure 파일 공유를 설정한 것으로 가정합니다. Azure 파일 공유를 백업하려면:
 
 1. 파일 공유와 동일한 지역에 Recovery Services 자격 증명 모음을 만듭니다. 자격 증명 모음이 이미 있는 경우 자격 증명 모음의 개요 페이지를 열고 **Backup**을 클릭합니다.
 

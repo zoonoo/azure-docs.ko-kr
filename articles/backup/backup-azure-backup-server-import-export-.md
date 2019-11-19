@@ -1,19 +1,15 @@
 ---
-title: Azure Backup - DPM 및 Azure Backup Server에 대한 오프라인 백업
+title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 MABS (Azure Backup Server의 오프 라인 백업 워크플로에 대해 설명 합니다.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: 0763cbd4345dca39f37b77a0f3d991a7d77e30c4
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074298"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173241"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
 
@@ -108,7 +104,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터에 전송되는 SATA 드라이브를 준비하는 데 사용됩니다. 이 유틸리티는 다음 경로에서 Recovery Services 에이전트의 설치 디렉터리에서 사용할 수 있습니다.
 
-*\\Microsoft Azure Recovery Services 에이전트\\유틸리티\\*
+    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
 
 1. 디렉터리로 이동하고 준비할 SATA 드라이브가 연결될 복사 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 복사 컴퓨터를 기준으로 다음 사항을 확인합니다.
 

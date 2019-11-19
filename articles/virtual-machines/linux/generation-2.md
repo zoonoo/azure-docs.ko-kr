@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: lahugh
-ms.openlocfilehash: 7747d1b5e2b18ddf02403ad21fe875c498e43820
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 02ab7cdcbf0f150157eb44ef5e28e8284621b813
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036041"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173966"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -91,7 +91,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 | OS 디스크 > 2tb                    | :x:                | :heavy_check_mark: |
 | 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark: | :heavy_check_mark: |
 | 가상 머신 확장 집합 지원 | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | :heavy_check_mark: |
 | 백업/복원                    | :heavy_check_mark: | :heavy_check_mark: |
 | 공유 이미지 갤러리              | :heavy_check_mark: | :heavy_check_mark: |
 | Azure Disk Encryption             | :heavy_check_mark: | :x:                |

@@ -1,20 +1,14 @@
 ---
-title: 'Azure Backup: Azure VM 백업에서 파일 및 폴더 복구'
+title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파일 및 폴더를 복구 하는 방법에 대해 알아봅니다.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: 항목 수준 복구, Azure 백업에서 파일 복구, Azure VM에서 파일 복원
-ms.service: backup
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: dacurwin
-ms.openlocfilehash: 07ec5b76756b462e03e9349edd2daff96933588c
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 3fff957e542a039fcc5121f13c062f710f9292c9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091639"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172856"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 

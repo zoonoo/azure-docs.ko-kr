@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/08/2019
 ms.author: b-juche
-ms.openlocfilehash: 4cd3bc7e4f95869d3efd2d92a7cdf1addc7ce5b2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953107"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173590"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -32,11 +32,17 @@ ms.locfileid: "73953107"
 
     ![탑재 명령 SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)
     
-NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스템을 탑재 합니다.  
+    NFSv 4.1을 사용 하는 경우 다음 명령을 사용 하 여 파일 시스템을 탑재 합니다. `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
 
-`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+3. Azure VM이 시작 되거나 다시 부팅 될 때 NFS 볼륨이 자동으로 탑재 되도록 하려면 호스트의 `/etc/fstab` 파일에 항목을 추가 합니다. 
+
+    예: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
+
+    * `$ANFIP`은 볼륨 속성 블레이드에서 찾은 Azure NetApp Files 볼륨의 IP 주소입니다.
+    * `$FILEPATH`은 Azure NetApp Files 볼륨의 내보내기 경로입니다.
+    * `$MOUNTPOINT`는 NFS 내보내기를 탑재 하는 데 사용 되는 Linux 호스트에 생성 되는 디렉터리입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure NetApp Files에 대 한 NFSv 4.1 기본 도메인 구성](azure-netapp-files-configure-nfsv41-domain.md)
-* Azure VM을 시작 하거나 다시 부팅할 때 NFS 볼륨을 자동으로 탑재 하는 방법에 대 한 [Nfs faq](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs) 를 참조 하세요.
+* [NFS Faq](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#nfs-faqs)

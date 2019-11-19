@@ -1,19 +1,14 @@
 ---
-title: Azure Backup에 대 한 Azure Monitor 로그 데이터 모델
+title: Azure Monitor logs 데이터 모델
 description: 이 문서에서는 Azure Backup 데이터의 Azure Monitor Log Analytics 데이터 모델 세부 정보에 대해 알아봅니다.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.author: dacurwin
-ms.openlocfilehash: 283dc4c1ad4bc683833da3d689d842fa84079a00
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 055a36fb2aa8e9048089a338f57555242e8eb754
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074943"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173022"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Azure Backup 데이터용 Log Analytics 데이터 모델
 

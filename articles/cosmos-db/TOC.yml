@@ -672,6 +672,8 @@
               href: mongodb-readpreference.md
             - name: TTL(Time To Live) - MongoDB
               href: mongodb-time-to-live.md
+            - name: 스트림 변경
+              href: mongodb-change-streams.md
             - name: 데이터 인덱싱 관리
               href: mongodb-indexing.md
             - name: Spring 데이터 저장 및 관리

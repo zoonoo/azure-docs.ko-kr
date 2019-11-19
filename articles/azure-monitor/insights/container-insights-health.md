@@ -10,20 +10,26 @@ ms.assetid: ''
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 11/14/2019
+ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: e369067a3ff61ffefe1758f6fa8b4acdce4bb2e2
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134438"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173628"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 상태 이해
 
 컨테이너에 대 한 Azure Monitor를 사용 하 여 관리 인프라 구성 요소 및 컨테이너에 대 한 Azure Monitor에서 지 원하는 모든 Kubernetes 클러스터에서 실행 되는 모든 노드의 상태를 모니터링 하 고 보고 합니다. 이 환경은 클러스터 상태에 대해 계산 되 고 보고 된 클러스터 상태 [를 넘어](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)확장 됩니다. 이제 클러스터에 있는 하나 이상의 노드가 리소스 제한 인지 또는 큐 레이트 메트릭을 기반으로 하는 클러스터에서 실행 중인 응용 프로그램에 영향을 줄 수 있는 노드 또는 pod를 사용할 수 없는지 파악할 수 있습니다. 
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [컨테이너의 Azure Monitor](container-insights-onboard.md)등록을 참조 하세요.
+
+>[!NOTE]
+>AKS 엔진 클러스터를 지원 하려면 다음을 충족 하는지 확인 합니다.
+>- 최신 버전의 [투구 클라이언트](https://helm.sh/docs/using_helm/)를 사용 하 고 있습니다.
+>- 컨테이너 화 된 에이전트 버전은 *microsoft/oms: ciprod11012019*입니다. 에이전트를 업그레이드 하려면 [Kubernetes 클러스터에서 에이전트 업그레이드](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster)를 참조 하세요.
+>
 
 ## <a name="overview"></a>개요
 

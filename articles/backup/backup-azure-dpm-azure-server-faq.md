@@ -1,19 +1,15 @@
 ---
-title: Azure Backup Server 및 DPM (Data Protection Manager) FAQ
-description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)와 DPM에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
+title: Azure Backup Server 및 DPM FAQ
+description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 및 DPM (Data Protection Manager)에 대 한 일반적인 질문에 대 한 답변을 검색 합니다.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/05/2019
-ms.author: dacurwin
-ms.openlocfilehash: 940ac4d94bf39583fad828545a45cbb033908f15
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 35957a1e8a3d6c3d9be06d9d44dbcd47efa0e6ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091651"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173152"
 ---
 # <a name="azure-backup-server-and-dpm---faq"></a>Azure Backup Server 및 DPM-FAQ
 

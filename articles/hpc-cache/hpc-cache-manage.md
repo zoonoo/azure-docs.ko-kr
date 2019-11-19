@@ -4,14 +4,14 @@ description: Azure Portal를 사용 하 여 Azure HPC 캐시를 관리 하 고 �
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 11/18/2019
 ms.author: rohogue
-ms.openlocfilehash: 62b54bfe120acdde1fd22c4a0d04165ea7243b50
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cd5ad151c977838fea30f52c7d4a93b4663c8ff
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582193"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166735"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Azure Portal에서 캐시 관리
 
@@ -19,7 +19,7 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 
 개요 페이지를 열려면 Azure Portal에서 캐시 리소스를 선택 합니다. 예를 들어 **모든 리소스** 페이지를 로드 하 고 캐시 이름을 클릭 합니다.
 
-![Azure HPC 캐시 인스턴스의 개요 페이지 스크린샷](media/hpc-cache-overview.png) <!-- placeholder is identical to hpc-cache-new-overview.png; replace with better image (showing graphs, full sidebar) when available -->
+![Azure HPC 캐시 인스턴스의 개요 페이지 스크린샷](media/hpc-cache-overview.png)
 
 페이지 맨 위에 있는 단추를 통해 캐시를 관리할 수 있습니다.
 
@@ -37,15 +37,17 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 > [!NOTE]
 > 플러시 프로세스 중에 캐시는 클라이언트 요청을 처리할 수 없습니다. 작업이 완료 된 후에 캐시 액세스가 일시 중단 되 고 다시 시작 됩니다.
 
+![플러시가 강조 표시 된 위쪽 단추의 스크린샷 및 플러시 작업을 설명 하 고 ' 계속 할까요? ' 라는 팝업 메시지가 표시 됩니다. 예 (기본값) 및 아니요 단추](media/hpc-cache-flush.png)
+
 캐시 플러시 작업을 시작 하면 캐시에서 클라이언트 요청 수락이 중지 되 고 개요 페이지의 캐시 상태가 **플러시하**로 변경 됩니다.
 
-캐시의 데이터는 적절 한 저장소 대상에 저장 됩니다. 최근 캐시에 쓰여진 데이터 양에 따라 몇 분 정도 걸릴 수도 있고 몇 시간이 걸릴 수도 있습니다.
+캐시의 데이터는 적절 한 저장소 대상에 저장 됩니다. 플러시된 데이터 양에 따라 프로세스는 몇 분 정도 걸릴 수 있습니다.
 
 모든 데이터가 저장소 대상에 저장 되 고 나면 캐시가 자동으로 클라이언트 요청을 다시 가져오기 시작 합니다. 캐시 상태가 **정상**으로 돌아갑니다.
 
 ## <a name="upgrade-cache-software"></a>캐시 소프트웨어 업그레이드
 
-새 소프트웨어 버전을 사용할 수 있는 경우 **업그레이드** 단추가 활성화 됩니다. 또한 페이지 맨 위에 소프트웨어 업데이트에 대 한 메시지가 표시 될 수도 있습니다.
+새 소프트웨어 버전을 사용할 수 있는 경우 **업그레이드** 단추가 활성화 됩니다. 또한 페이지 맨 위에 소프트웨어 업데이트에 대 한 메시지가 표시 됩니다.
 
 ![업그레이드 단추가 활성화 된 단추 위쪽 행의 스크린샷](media/hpc-cache-upgrade-button.png)
 
@@ -53,7 +55,7 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 
 소프트웨어 업데이트에는 몇 시간이 걸릴 수 있습니다. 높은 처리량으로 구성 된 캐시는 최대 처리량 값이 적은 캐시 보다 업그레이드 하는 데 더 많은 시간이 걸립니다.
 
-소프트웨어 업그레이드를 사용할 수 있는 경우 며칠 동안 수동으로 적용 해야 합니다. 종료 날짜는 업그레이드 메시지에 나열 됩니다. 이 시간 동안 업그레이드 하지 않으면 Azure에서 자동으로 캐시에 업데이트를 적용 합니다. 자동 업그레이드 타이밍은 구성할 수 없습니다. 캐시 성능에 영향을 염려 하는 경우 기간이 만료 되기 전에 소프트웨어를 직접 업그레이드 해야 합니다.
+소프트웨어 업그레이드를 사용할 수 있는 경우 일주일 또는 수동으로 적용 해야 합니다. 종료 날짜는 업그레이드 메시지에 나열 됩니다. 이 시간 동안 업그레이드 하지 않으면 Azure에서 자동으로 캐시에 업데이트를 적용 합니다. 자동 업그레이드 타이밍은 구성할 수 없습니다. 캐시 성능 영향에 대해 염려 하는 경우 기간이 만료 되기 전에 소프트웨어를 직접 업그레이드 해야 합니다.
 
 **업그레이드** 단추를 클릭 하 여 소프트웨어 업데이트를 시작 합니다. 작업이 완료 될 때까지 캐시 상태가 **업그레이드** 중으로 변경 됩니다.
 

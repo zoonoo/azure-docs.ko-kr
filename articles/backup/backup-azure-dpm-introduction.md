@@ -1,19 +1,14 @@
 ---
-title: Azure에 워크로드를 백업하도록 DPM 서버 준비
+title: 작업을 백업 하도록 DPM 서버 준비
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure에 대 한 System Center Data Protection Manager (DPM) 백업을 준비 하는 방법에 대해 알아봅니다.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5c89dc8b5c8ee420c94d61763770cd37e763f2df
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: c7b662c07caecb7871ec9f8be89ffc76b8f7f5fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747506"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173145"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>System Center DPM을 사용하여 Azure에 워크로드를 백업하도록 준비
 
@@ -102,7 +97,7 @@ Vault에서 DPM 서버를 등록하는 경우 자격 증명 모음의 자격 증
 
 다음과 같이 자격 증명 모음의 자격 증명 파일을 로컬 컴퓨터에 다운로드합니다.
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. DPM 서버를 등록하려는 자격 증명 모음을 엽니다.
 3. **설정**에서 **속성**을 클릭합니다.
 

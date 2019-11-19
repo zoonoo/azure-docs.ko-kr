@@ -1,22 +1,22 @@
 ---
-title: Azure Application Gateway의 HTTP 헤더 다시 쓰기
+title: HTTP 헤더를 다시 작성 & Azure 애플리케이션 게이트웨이 만들기
 description: 이 문서에서는 Azure PowerShell을 사용하여 Azure Application Gateway를 만들고 HTTP 헤더를 다시 쓰는 방법에 대한 정보를 제공합니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 4/30/2019
+ms.date: 11/19/2019
 ms.author: absha
-ms.openlocfilehash: ba74bb8970949a15425a66f7cd4475749fd183df
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2663c049245a7025b5948a64fc5008bb9e7dee90
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64947102"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173727"
 ---
 # <a name="create-an-application-gateway-and-rewrite-http-headers"></a>애플리케이션 게이트웨이를 만들고 HTTP 헤더 다시 쓰기
 
-새 [자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)를 만들 때 Azure PowerShell을 사용하여 [HTTP 요청 및 응답 헤더를 다시 쓰는 규칙](rewrite-http-headers.md)을 구성할 수 있습니다.
+새 [자동 크기 조정 및 영역 중복 애플리케이션 게이트웨이 SKU](rewrite-http-headers.md)를 만들 때 Azure PowerShell을 사용하여 [HTTP 요청 및 응답 헤더를 다시 쓰는 규칙](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)을 구성할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -30,11 +30,11 @@ ms.locfileid: "64947102"
 > * Application Gateway 만들기
 > * 애플리케이션 게이트웨이 테스트
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-이 문서에서는 Azure PowerShell을 로컬로 실행 해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
+이 문서에서는 Azure PowerShell를 로컬로 실행 해야 합니다. Az 모듈 버전 1.0.0 이상을 설치해야 합니다. `Import-Module Az`를 실행한 후 `Get-Module Az`를 실행하여 버전을 찾습니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요. PowerShell 버전을 확인한 후 `Login-AzAccount`를 실행하여 Azure와의 연결을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
@@ -113,7 +113,7 @@ Http 헤더를 다시 쓰는 데 필요한 새 개체를 구성합니다.
 - **ResponseHeaderConfiguration**:이 개체는 다시 쓰려는 응답 헤더 필드와 원본 헤더를 다시 써야 하는 새 값을 지정하는 데 사용합니다.
 - **ActionSet**: 이 개체는 위에 지정된 요청 및 응답 헤더의 구성을 포함합니다. 
 - **RewriteRule**: 이 개체는 위에 지정된 모든 *actionSets*를 포함합니다. 
-- **RewriteRuleSet**: 이 개체는 모든 *rewriteRules*를 포함하며 요청 회람 규칙인 기본 또는 경로 기반에 연결해야 합니다.
+- **RewriteRuleSet**: 이 개체는 모든 *rewriteRules*를 포함하며 요청 라우팅 규칙인 기본 또는 경로 기반에 연결해야 합니다.
 
    ```azurepowershell
    $requestHeaderConfiguration = New-AzApplicationGatewayRewriteRuleHeaderConfiguration -HeaderName "X-isThroughProxy" -HeaderValue "True"

@@ -1,18 +1,14 @@
 ---
-title: Azure Backup 기능에 대 한 일반적인 질문에 대 한 답변
+title: 일반적인 질문에 대한 답변
 description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: efd2959547e13872bfa73a0a8e4b9fda62ea5728
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: f95a4e7e9084c304838b01bdfaceee261d8151cf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074312"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173222"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -96,6 +92,8 @@ Windows Storage Server 2012 R2 64비트 | Standard, Workgroup, Essential | 최�
 Windows Storage Server 2012 64비트 | Standard, Workgroup | 최신 서비스 팩/업데이트를 포함합니다.
 Windows Server 2008 R2 SP1 64비트 | Standard, Enterprise, Datacenter, Foundation | 최신 업데이트를 포함합니다.
 Windows Server 2008 64비트 | Standard, Enterprise, Datacenter | 최신 업데이트를 포함합니다.
+
+Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
 
 Azure VM Linux 백업의 경우 Azure Backup은 Core OS Linux 및 32비트 운영 체제를 제외한 [Azure 인증 배포 목록](../virtual-machines/linux/endorsed-distros.md)을 지원합니다. VM에서 VM 에이전트를 사용할 수 있고 Python에 대한 지원이 있는 한 다른 Bring-Your-Own Linux 배포가 작동할 수 있습니다.
 

@@ -7,31 +7,31 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 7d0fec56791c0d3e7ae60d78da83cf286532b9ab
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 13f86f0156299619d8bf8d92eb92bbcf8b4cb76c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124007"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173807"
 ---
 # <a name="monitor-azure-data-explorer-ingestion-operations-using-diagnostic-logs-preview"></a>진단 로그를 사용 하 여 Azure 데이터 탐색기 수집 작업 모니터링 (미리 보기)
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음 데이터베이스에 대 한 쿼리를 실행할 수 있도록 데이터를 데이터베이스의 테이블에 수집 (로드) 합니다. [Azure Monitor 진단 로그](/azure/azure-monitor/platform/diagnostic-logs-overview) 는 Azure 리소스의 작동에 대 한 데이터를 제공 합니다. Azure 데이터 탐색기는 수집 성공 및 실패에 대 한 정보를 얻기 위해 진단 로그를 사용 합니다. 작업 로그를 Azure Storage, 이벤트 허브 또는 Log Analytics로 내보내 수집 상태를 모니터링할 수 있습니다. 추가 분석을 위해 Azure Storage 및 Azure Event Hub의 로그를 Azure 데이터 탐색기 클러스터의 테이블로 라우팅할 수 있습니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음 데이터베이스에 대 한 쿼리를 실행할 수 있도록 데이터를 데이터베이스의 테이블에 수집 (로드) 합니다. [Azure Monitor 진단 로그](/azure/azure-monitor/platform/diagnostic-logs-overview) 는 Azure 리소스의 작동에 대 한 데이터를 제공 합니다. Azure 데이터 탐색기는 수집 성공 및 실패에 대 한 정보를 얻기 위해 진단 로그를 사용 합니다. 작업 로그를 Azure Storage, 이벤트 허브 또는 Log Analytics로 내보내 수집 상태를 모니터링할 수 있습니다. 추가 분석을 위해 Azure Storage 및 Azure Event Hub의 로그를 Azure 데이터 탐색기 클러스터의 테이블로 라우팅할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독이 없는 경우 [무료 azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [클러스터 및 데이터베이스](create-cluster-database-portal.md)를 만듭니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
+## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
 
 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="set-up-diagnostic-logs-for-an-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 대 한 진단 로그 설정
 
 진단 로그를 사용 하 여 다음 로그 데이터의 컬렉션을 구성할 수 있습니다.
-* 성공적인 수집 작업: 이러한 로그에는 수집 작업을 성공적으로 완료 하는 방법에 대 한 정보가 있습니다.
-* 수집 작업 실패: 이러한 로그는 오류 정보를 포함 하 여 실패 한 수집 작업에 대 한 자세한 정보를 포함 합니다. 
+* 수집 작업 성공: 이러한 로그에 수집 작업을 성공적으로 완료 하는 방법에 대 한 정보가 있습니다.
+* 실패 한 수집 작업: 이러한 로그는 오류 정보를 포함 하 여 실패 한 수집 작업에 대 한 자세한 정보를 포함 합니다. 
 
 그런 다음 데이터는 사용자의 사양에 따라 저장소 계정에 보관, 이벤트 허브로 스트리밍 또는 Log Analytics으로 전송 됩니다.
 
@@ -51,7 +51,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 
     1. 진단 설정의 **이름을** 선택 합니다.
     1. 하나 이상의 대상 (저장소 계정, 이벤트 허브 또는 Log Analytics)을 선택 합니다.
-    1. 수집할 `SucceededIngestion` 로그를 선택 합니다. 또는 `FailedIngestion`.
+    1. 수집할 로그: `SucceededIngestion` 또는 `FailedIngestion`를 선택 합니다.
     1. 수집할 [메트릭](using-metrics.md) (선택 사항)을 선택 합니다.   
     1. **저장** 을 선택 하 여 새 진단 로그 설정 및 메트릭을 저장 합니다.
     1. Azure Portal에서 진단 로그 활성화를 요청 하는 **새 지원 요청** 을 만듭니다.
@@ -68,16 +68,16 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 
 |이름               |설명
 |---                |---
-|Time               |보고서의 시간
+|실시간               |보고서의 시간
 |resourceId         |Azure Resource Manager 리소스 ID
-|operationName      |작업의 이름입니다. MICROSOFT. KUSTO/클러스터/수집/작업 '
-|operationVersion   |스키마 버전: '1.0' 
-|category           |작업의 범주입니다. `SucceededIngestion` 또는 `FailedIngestion`입니다. [작업 성공](#successful-ingestion-operation-log) 또는 [실패 한 작업](#failed-ingestion-operation-log)에 대 한 속성이 다릅니다.
-|속성         |작업에 대 한 자세한 정보입니다.
+|operationName      |작업 이름: ' MICROSOFT. KUSTO/클러스터/수집/작업 '
+|operationVersion   |스키마 버전: ' 1.0 ' 
+|카테고리           |작업의 범주입니다. `SucceededIngestion` 또는 `FailedIngestion`입니다. [작업 성공](#successful-ingestion-operation-log) 또는 [실패 한 작업](#failed-ingestion-operation-log)에 대 한 속성이 다릅니다.
+|properties         |작업에 대 한 자세한 정보입니다.
 
 #### <a name="successful-ingestion-operation-log"></a>수집 작업 로그가 성공 했습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -105,14 +105,14 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 |succeededOn        |수집 완료 시간
 |operationId        |Azure 데이터 탐색기 수집 작업 ID
 |database           |대상 데이터베이스의 이름입니다.
-|table              |대상 테이블의 이름입니다.
-|ingestionSourceId  |수집 데이터 원본의 ID
+|테이블              |대상 테이블의 이름입니다.
+|IngestionSourceId  |수집 데이터 원본의 ID
 |IngestionSourcePath|수집 데이터 원본 또는 blob URI의 경로입니다.
-|rootActivityId     |작업 ID
+|RootActivityId     |활동 ID
 
 #### <a name="failed-ingestion-operation-log"></a>수집 작업 로그가 실패 했습니다.
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -146,16 +146,18 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 |FailedOn           |수집 완료 시간
 |operationId        |Azure 데이터 탐색기 수집 작업 ID
 |database           |대상 데이터베이스의 이름입니다.
-|table              |대상 테이블의 이름입니다.
-|ingestionSourceId  |수집 데이터 원본의 ID
+|테이블              |대상 테이블의 이름입니다.
+|IngestionSourceId  |수집 데이터 원본의 ID
 |IngestionSourcePath|수집 데이터 원본 또는 blob URI의 경로입니다.
-|rootActivityId     |작업 ID
-|details 정보            |오류 및 오류 메시지에 대 한 자세한 설명
+|RootActivityId     |활동 ID
+|세부 정보            |오류 및 오류 메시지에 대 한 자세한 설명
 |errorCode          |오류 코드 
 |FailureStatus      |`Permanent` 또는 `Transient`입니다. 일시적인 오류를 다시 시도 하면 성공할 수 있습니다.
-|originatesFromUpdatePolicy|업데이트가 업데이트 정책에서 발생 하는 경우 True입니다.
-|shouldRetry        |다시 시도 하는 경우 True
+|OriginatesFromUpdatePolicy|업데이트가 업데이트 정책에서 발생 하는 경우 True입니다.
+|ShouldRetry        |다시 시도 하는 경우 True
 
 ## <a name="next-steps"></a>다음 단계
 
-[메트릭을 사용 하 여 클러스터 상태 모니터링](using-metrics.md)
+* [자습서: Azure 데이터 탐색기에서 모니터링 데이터 수집 및 쿼리](ingest-data-no-code.md)
+* [메트릭을 사용 하 여 클러스터 상태 모니터링](using-metrics.md)
+

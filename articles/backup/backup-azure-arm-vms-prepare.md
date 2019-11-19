@@ -1,19 +1,14 @@
 ---
-title: Azure Backup을 사용하여 Recovery Services 자격 증명 모음의 Azure VM 백업
+title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure Vm을 백업 하는 방법을 설명 합니다.
-service: backup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 2ef8e7e77481c0df6e85545d16c3859949184d2f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: dc47aa2b4da08a0fc2c9a91b4d547a0d19e1869a
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968532"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173354"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -34,7 +29,7 @@ ms.locfileid: "72968532"
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-* Azure VM 백업 아키텍처를 [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) 합니다.
+* Azure VM 백업 아키텍처를 [검토](backup-architecture.md#architecture-built-in-azure-vm-backup) 합니다.
 * Azure VM 백업 및 백업 확장에 대해 [자세히 알아봅니다](backup-azure-vms-introduction.md).
 * 백업을 구성 하기 전에 [지원 매트릭스를 검토](backup-support-matrix-iaas.md) 합니다.
 
@@ -47,7 +42,7 @@ ms.locfileid: "72968532"
 
  자격 증명 모음은 백업과 시간 경과에 따라 생성된 복구 지점을 저장하고 백업된 머신과 연결된 백업 정책을 저장합니다. 다음과 같이 자격 증명 모음을 만듭니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. 검색에 **Recovery Services**을 입력 합니다. **서비스**에서 **Recovery Services 자격 증명 모음**을 클릭 합니다.
 
      ![Recovery Services 자격 증명 모음 검색](./media/backup-azure-arm-vms-prepare/browse-to-rs-vaults-updated.png) <br/>
@@ -60,7 +55,7 @@ ms.locfileid: "72968532"
     * 이름은 Azure 구독에 대해 고유해야 합니다.
     * 2~50자를 포함할 수 있습니다.
     * 문자로 시작해야 하며, 문자, 숫자, 하이픈만 사용할 수 있습니다.
-5. 자격 증명 모음을 만들어야 하는 Azure 구독, 리소스 그룹 및 지역을 선택 합니다. 그런 다음, **만들기**를 클릭합니다.
+5. 자격 증명 모음을 만들어야 하는 Azure 구독, 리소스 그룹 및 지역을 선택 합니다. 그런 후 **만들기**으로 이동하십시오.
     * 자격 증명 모음을 만드는 데 시간이 걸릴 수 있습니다.
     * 포털의 오른쪽 위 영역에 있는 상태 알림을 모니터링합니다.
 
@@ -177,8 +172,8 @@ ms.locfileid: "72968532"
 Completed | 진행 중 | 진행 중
 Completed | 생략 | Completed
 Completed | Completed | Completed
-Completed | 실패 | 완료 되었지만 경고 발생
-실패 | 실패 | 실패
+Completed | Failed | 완료 되었지만 경고 발생
+Failed | Failed | Failed
 
 이제이 기능을 사용 하는 경우 동일한 VM에 대해 두 개의 백업이 병렬로 실행 될 수 있지만 두 단계 (스냅숏, 자격 증명 모음에 데이터 전송)는 하나의 하위 작업만 실행할 수 있습니다. 따라서 진행 중인 백업 작업이 발생 하 여 다음 날의 백업이 실패 하는 경우이 분리 기능이 사용 되지 않습니다. 이후 날의 백업은 이전 날짜의 백업 작업이 진행 중일 경우 **자격 증명 모음으로 데이터를 전송** 하는 동안 스냅숏이 완료 될 수 있습니다.
 자격 증명 모음에 생성 된 증분 복구 지점은 자격 증명 모음에서 만든 마지막 복구 지점부터 모든 변동 (code)을 캡처합니다. 사용자에 게는 비용에 영향을 주지 않습니다.
@@ -191,7 +186,7 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 
 **VM** | **세부 정보**
 --- | ---
-**Windows** | 1. 에이전트 MSI 파일을 [다운로드 하 여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 합니다.<br/><br/> 2. 컴퓨터에 대 한 관리자 권한으로를 설치 합니다.<br/><br/> 3. 설치를 확인 합니다. VM의 *C:\windowsazure\\oms* 에서 **waappagent.exe** > **속성**을 마우스 오른쪽 단추로 클릭 합니다. **세부 정보** 탭에서 **제품 버전** 을 2.6.1198.718 이상 이상으로 설정 해야 합니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 한 후 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)하십시오.
+**Windows** | 1. 에이전트 MSI 파일을 [다운로드 하 여 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) 합니다.<br/><br/> 2. 컴퓨터에 대 한 관리자 권한으로를 설치 합니다.<br/><br/> 3. 설치를 확인 합니다. VM의 >  **c:\windowsazure\\pupv\\pupv\\pupv\ppv\pv** **세부 정보** 탭에서 **제품 버전** 을 2.6.1198.718 이상 이상으로 설정 해야 합니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 한 후 [에이전트를 다시 설치](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)하십시오.
 **Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여를 설치 합니다. 이는 Azure Linux 에이전트를 설치 하 고 업그레이드 하는 데 선호 되는 방법입니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 하 고 이진 파일을 업데이트 합니다.
 
 ### <a name="explicitly-allow-outbound-access"></a>아웃 바운드 액세스를 명시적으로 허용
@@ -199,11 +194,11 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 VM에서 실행 되는 백업 확장에는 Azure 공용 IP 주소에 대 한 아웃 바운드 액세스가 필요 합니다.
 
 * 일반적으로 Azure Backup와 통신 하기 위해 Azure VM에 대 한 아웃 바운드 네트워크 액세스를 명시적으로 허용 하지 않아도 됩니다.
-* Vm을 연결 하는 데 문제가 발생 하거나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 경우 백업 확장이 백업에 대 한 AZURE 공용 IP 주소와 통신할 수 있도록 명시적으로 액세스를 허용 해야 합니다. 교통. 액세스 방법은 다음 표에 요약 되어 있습니다.
+* Vm에 연결 하는 데 문제가 발생 하거나 연결을 시도할 때 **ExtensionSnapshotFailedNoNetwork** 오류가 표시 되는 경우 백업 확장이 백업 트래픽에 대해 AZURE 공용 IP 주소와 통신할 수 있도록 명시적으로 액세스를 허용 해야 합니다. 액세스 방법은 다음 표에 요약 되어 있습니다.
 
-**옵션** | **작업** | **세부 정보**
+**옵션** | **동작** | **세부 정보**
 --- | --- | ---
-**NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용 합니다.<br/><br/> 모든 주소 범위를 허용 하 고 관리 하는 대신 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)를 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그는 액세스 관리를 간소화 하며 추가 비용이 발생 하지 않습니다.
+**NSG 규칙 설정** | [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다.<br/><br/> 모든 주소 범위를 허용 하 고 관리 하는 대신 [서비스 태그](backup-azure-arm-vms-prepare.md#set-up-an-nsg-rule-to-allow-outbound-access-to-azure)를 사용 하 여 Azure Backup 서비스에 대 한 액세스를 허용 하는 규칙을 추가할 수 있습니다. | [서비스 태그](../virtual-network/security-overview.md#service-tags)에 대해 자세히 알아보세요.<br/><br/> 서비스 태그는 액세스 관리를 간소화 하며 추가 비용이 발생 하지 않습니다.
 **프록시 배포** | 트래픽 라우팅을 위해 HTTP 프록시 서버를 배포합니다. | 스토리지뿐만 아니라 Azure 전체에 대한 액세스를 제공합니다.<br/><br/> 스토리지 URL에 대한 세분화된 제어가 허용됩니다.<br/><br/> VM에 대한 인터넷 액세스의 단일 지점입니다.<br/><br/> 프록시에 대한 추가 비용이 없습니다.
 **Azure Firewall 설정** | Azure Backup 서비스에 대한 FQDN 태그를 사용하여 VM에서 Azure Firewall을 통해 트래픽을 허용합니다. | VNet 서브넷에 Azure 방화벽이 설정 되어 있는 경우 간단 하 게 사용할 수 있습니다.<br/><br/> 사용자 고유의 FQDN 태그를 만들거나 태그에서 fqdn을 수정할 수 없습니다.<br/><br/> Azure Vm에 관리 디스크가 있는 경우 방화벽에서 추가 포트 (8443)를 열어야 할 수도 있습니다.
 

@@ -1,18 +1,14 @@
 ---
 title: Azure Backup Server를 사용하여 VMware VM 백업
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 VMware vCenter/ESXi 서버에서 실행 되는 VMware Vm을 백업 하는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.author: dacurwin
-ms.openlocfilehash: df41907ee10b54ab3bfaeb548e085617f7d79084
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: d1c8ec249e010d75bbe96f5c70072f41b9738370
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903223"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173364"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Azure Backup Server를 사용하여 VMware VM 백업
 
@@ -231,7 +227,7 @@ Azure Backup Server에 vCenter Server를 추가합니다.
 
     ![자격 증명 지정](./media/backup-azure-backup-server-vmware/identify-creds.png)
 
-6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그런 후 **다음**을 클릭합니다.
+6. **추가**를 클릭하여 VMware 서버를 서버 목록에 추가합니다. 그리고 **다음**을 클릭합니다.
 
     ![VMWare 서버 및 자격 증명 추가](./media/backup-azure-backup-server-vmware/add-vmware-server-credentials.png)
 
@@ -259,14 +255,14 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
 1. **보호 그룹 형식 선택** 페이지에서 **서버**를 선택하고 **다음**을 클릭합니다. **그룹 구성원 선택** 페이지가 나타납니다.
 
-1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그런 후 **다음**을 클릭합니다.
+1. **그룹 구성원 선택**에서 백업 하려는 vm (또는 vm 폴더)을 선택 합니다. 그리고 **다음**을 클릭합니다.
 
     - 폴더를 선택하면 해당 폴더 내의 VM 또는 폴더도 백업되도록 선택됩니다. 백업하지 않으려는 폴더 또는 VM을 선택 취소할 수 있습니다.
 1. VM 또는 폴더가 이미 백업 중인 경우에는 선택할 수 없습니다. 이렇게 하면 VM에 대해 중복 복구 지점이 생성 되지 않습니다.
 
     ![그룹 구성원 선택](./media/backup-azure-backup-server-vmware/server-add-selected-members.png)
 
-1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그런 후 **다음**을 클릭합니다.
+1. **데이터 보호 방법 선택** 페이지에서 보호 그룹의 이름과 보호 설정을 입력합니다. Azure에 백업하려면 단기 보호를 **디스크**로 설정하고 온라인 보호를 사용하도록 설정합니다. 그리고 **다음**을 클릭합니다.
 
     ![데이터 보호 방법 선택](./media/backup-azure-backup-server-vmware/name-protection-group.png)
 
@@ -297,17 +293,17 @@ vCenter 서버에서 관리하지 않는 ESXi 호스트가 여러 개 있거나 
 
     ![복제본 만들기 방법 선택](./media/backup-azure-backup-server-vmware/replica-creation.png)
 
-1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그런 후 **다음**을 클릭합니다.
+1. **일관성 확인 옵션**에서 일관성 확인을 자동화할 방법 및 시기를 선택합니다. 그리고 **다음**을 클릭합니다.
       - 복제 데이터가 일관성을 잃은 경우 또는 설정된 일정에 따라 일관성 확인을 실행할 수 있습니다.
       - 자동 일관성 확인을 구성하지 않으려면 수동 검사를 실행할 수 있습니다. 이 작업을 수행하려면 보호 그룹을 마우스 오른쪽 단추로 클릭하고 > **일관성 확인 수행**을 클릭합니다.
 
-1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그런 후 **다음**을 클릭합니다.
+1. **온라인 보호 데이터 지정** 페이지에서 백업할 VM 또는 VM 폴더를 선택합니다. 구성원을 개별적으로 선택하거나 **모두 선택**을 클릭하여 모든 구성원을 선택할 수 있습니다. 그리고 **다음**을 클릭합니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-server-vmware/select-data-to-protect.png)
 
 1. **온라인 백업 예약 지정** 페이지에서 로컬 스토리지의 데이터를 Azure로 백업할 빈도를 지정합니다.
 
-    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그런 후 **다음**을 클릭합니다.
+    - 일정에 따라 데이터에 대한 클라우드 복구 지점이 생성됩니다. 그리고 **다음**을 클릭합니다.
     - 복구 지점이 생성되면 Azure에서 Recovery Services 자격 증명 모음으로 전송됩니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-server-vmware/online-backup-schedule.png)

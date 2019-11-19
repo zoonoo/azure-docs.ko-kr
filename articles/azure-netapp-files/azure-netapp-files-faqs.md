@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298478"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173601"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -105,14 +105,7 @@ Azure NetApp Files는 볼륨 성능 메트릭을 제공 합니다. Azure NetApp 
 
 VM 시작 또는 다시 부팅 시 NFS 볼륨이 자동으로 탑재 되도록 하려면 호스트의 `/etc/fstab` 파일에 항목을 추가 합니다. 
 
-예: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
-
-- $ANFIP  
-    볼륨 속성 블레이드에서 찾은 Azure NetApp Files 볼륨의 IP 주소
-- $FILEPATH  
-    Azure NetApp Files 볼륨의 내보내기 경로
-- $MOUNTPOINT  
-    NFS 내보내기를 탑재 하는 데 사용 되는 Linux 호스트에서 만든 디렉터리
+자세한 내용은 [Windows 또는 Linux 가상 머신에 대 한 볼륨 탑재 또는 분리](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) 를 참조 하세요.  
 
 ### <a name="why-does-the-df-command-on-nfs-client-not-show-the-provisioned-volume-size"></a>NFS 클라이언트의 DF 명령이 프로 비전 된 볼륨 크기를 표시 하지 않는 이유는 무엇 인가요?
 
@@ -123,7 +116,7 @@ DF에서 보고 되는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 �
 Azure NetApp Files은 NFSv3 및 NFSv 4.1을 지원 합니다. NFS 버전 중 하나를 사용 하 여 볼륨을 만들 수 있습니다. 
 
 > [!IMPORTANT] 
-> NFSv 4.1 기능에 액세스 하려면 허용 목록가 필요 합니다.  허용 목록를 요청 하려면 <anffeedback@microsoft.com>에 요청을 제출 합니다. 
+> NFSv4.1 기능에 액세스하려면 허용 목록이 필요합니다.  허용 목록를 요청하려면 <anffeedback@microsoft.com>에 요청을 제출합니다. 
 
 
 ### <a name="how-do-i-enable-root-squashing"></a>루트 squash 병합를 사용 하도록 설정 어떻게 할까요??
@@ -144,7 +137,7 @@ Root squash 병합는 현재 지원 되지 않습니다.
 
 [AD (Azure Active Directory) 도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/overview) 와 [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) 이 둘 다 지원 됩니다. Azure NetApp Files에서 기존 Active Directory 도메인 컨트롤러를 사용할 수 있습니다. 도메인 컨트롤러는 Azure에서 가상 머신으로 또는 Express 경로 또는 S2S VPN을 통해 온-프레미스에 상주할 수 있습니다. Azure NetApp Files은 현재 [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) 에 대 한 AD 조인을 지원 하지 않습니다.
 
-Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로는 0 @no__t 됩니다.
+Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로가 `OU=AADDC Computers` 됩니다.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>지원 되는 Windows Server Active Directory 버전은 무엇 인가요?
 

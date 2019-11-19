@@ -1,19 +1,14 @@
 ---
-title: Azure Backup Server를 사용하여 Azure에 워크로드 백업
+title: Azure Backup Server를 사용 하 여 워크 로드 백업
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 워크 로드를 보호 하 고 백업 하기 위해 환경을 준비 하는 방법을 알아봅니다.
-ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 5b1e417ecd41f93d7919b67ebdd3faf32521d8a4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7379992eeb441372a9140621f9d90b337ad0d2e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012924"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172983"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -290,11 +285,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용됨 |허용됨 |허용됨 |허용됨 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
+| 연결됨 |Active |허용함 |허용함 |허용함 |허용함 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용됨 |허용됨 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
+| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
@@ -335,8 +330,6 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
    > [!NOTE]
    >
    > SQL 인스턴스를 업그레이드하는 동안 종료하지 마십시오. 종료하면 SQL reporting 인스턴스가 제거되므로 MABS 다시 업그레이드 시도가 실패합니다.
-
-
 
    > [!IMPORTANT]
    >

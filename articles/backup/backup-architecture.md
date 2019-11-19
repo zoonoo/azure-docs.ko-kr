@@ -1,18 +1,14 @@
 ---
-title: Azure Backup 아키텍처
+title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: dacurwin
-ms.openlocfilehash: d914c2988b5f28940021de24dcfe1183c68b15cc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: ae7b0c2b81bd3d393b7e749e077a6f5fa0379562
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074358"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173517"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -96,7 +92,7 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 다음 표에는 다양 한 유형의 백업에 대해 지원 되는 기능이 요약 되어 있습니다.
 
-**기능** | **온-프레미스 Windows Server 컴퓨터 (직접)** | **Azure VM** | **DPM/MABS를 사용 하는 컴퓨터 또는 앱**
+**기능** | **파일 및 폴더에 대 한 직접 백업 (MARS 에이전트 사용)** | **Azure VM 백업** | **DPM/MABS를 사용 하는 컴퓨터 또는 앱**
 --- | --- | --- | ---
 자격 증명 모음에 백업 | ![예][green] | ![예][green] | ![예][green]
 DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
@@ -106,7 +102,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 
 ![테이블 키](./media/backup-architecture/table-key.png)
 
-## <a name="architecture-direct-backup-of-azure-vms"></a>아키텍처: Azure Vm의 직접 백업
+## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 
 1. Azure VM에 대 한 백업을 사용 하도록 설정 하면 지정한 일정에 따라 백업이 실행 됩니다.
 1. 첫 번째 백업 중에 VM이 실행 되는 경우 백업 확장이 VM에 설치 됩니다.

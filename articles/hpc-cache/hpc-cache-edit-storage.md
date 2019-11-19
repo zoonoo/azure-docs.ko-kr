@@ -6,14 +6,14 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: rohogue
-ms.openlocfilehash: 757fbc166687110b9061ab95e96b0182e0ad3774
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 115e75c0149a35104d9c3696710bf8231a98743d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622769"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168526"
 ---
-# <a name="edit-storage-targets"></a>저장소 대상 편집
+# <a name="edit-storage-targets"></a>스토리지 대상 편집
 
 저장소 대상을 편집 하 여 일부 속성을 수정할 수 있습니다. 다른 유형의 저장소에 대해 서로 다른 속성을 편집할 수 있습니다.
 
@@ -47,7 +47,7 @@ NFS 저장소 대상의 경우 여러 속성을 업데이트할 수 있습니다
 
 ## <a name="update-an-azure-blob-storage-target"></a>Azure Blob 저장소 대상 업데이트
 
-Blob 저장소 대상의 세부 정보 페이지를 사용 하 여 가상 네임 스페이스 경로를 수정할 수 있습니다. 
+Blob 저장소 대상의 세부 정보 페이지를 사용 하 여 가상 네임 스페이스 경로를 수정할 수 있습니다.
 
 ![blob 저장소 대상에 대 한 편집 페이지의 스크린샷](media/hpc-cache-edit-storage-blob.png)
 

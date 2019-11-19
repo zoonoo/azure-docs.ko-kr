@@ -8,12 +8,12 @@ author: cijothomas
 ms.author: cithomas
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cb7b9047e1036a2ab4bfd94cca88589dcdcd0ca3
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cef8a06fb7e4cfb713d6531f23df9ae9c5836b68
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899561"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173620"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
@@ -120,9 +120,9 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 각 채널의 구성 가능한 설정에 대 한 전체 목록은 다음을 참조 하세요.
 
-* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
+* [InMemoryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/Microsoft.ApplicationInsights/Channel/InMemoryChannel.cs)
 
-* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
+* [ServerTelemetryChannel](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/BASE/src/ServerTelemetryChannel/ServerTelemetryChannel.cs)
 
 `ServerTelemetryChannel`에 대해 가장 일반적으로 사용 되는 설정은 다음과 같습니다.
 
@@ -138,7 +138,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 동기 플러시를 수행 해야 하는 경우 `InMemoryChannel`를 사용 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 채널은 원격 분석 배달을 보장 하나요? 그렇지 않은 경우 원격 분석이 손실 될 수 있는 시나리오는 무엇입니까?
 

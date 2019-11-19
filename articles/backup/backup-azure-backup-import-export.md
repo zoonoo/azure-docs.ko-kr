@@ -1,19 +1,15 @@
 ---
-title: Azure Backup Import/Export 서비스를 사용 하 여 오프 라인 백업
+title: Import/Export 서비스를 사용한 초기값 오프 라인 백업
 description: Azure Backup이 Azure Import/Export 서비스를 사용하여 네트워크를 통해 데이터를 보내는 방법에 대해 알아봅니다. 이 문서에서는 Azure 가져오기 내보내기 서비스를 사용한 초기 백업 데이터의 오프라인 시드 작업을 설명합니다.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.author: dacurwin
-ms.openlocfilehash: 15a5a67209552134969c01220e8412d0c9dace15
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 331d5528c8f124f4d43142ff7be4daa3169b0381
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968513"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173297"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프라인 백업 워크플로
 
@@ -40,13 +36,13 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 > * MARS(Microsoft Azure Recovery Services) 에이전트(다른 이름: Azure Backup 에이전트)를 사용하여 파일 및 폴더 백업
 > * SC DPM(System Center Data Protection Manager)을 사용하여 모든 워크로드 및 파일의 백업
 > * Microsoft Azure Backup Server를 사용하여 모든 워크로드 및 파일의 백업
-
+ 
    > [!NOTE]
    > 오프라인 백업은 Azure Backup 에이전트를 사용하여 수행된 시스템 상태 백업에 대해 지원되지 않습니다.
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 MARS 에이전트](https://aka.ms/azurebackup_agent)를 사용한 오프라인 파일 및 폴더 백업에만 적용됩니다. System Center DPM 또는 Azure Backup Server를 사용하여 워크로드에 대한 오프라인 백업을 수행하려면 [이 문서](backup-azure-backup-server-import-export-.md)를 참조하세요.
@@ -109,7 +105,7 @@ Azure Backup 오프라인 시드 프로세스는 디스크를 사용하여 초�
 
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터에 전송되는 SATA 드라이브를 준비합니다. 이 유틸리티는 Azure Backup 에이전트 설치 디렉터리(다음 경로)에서 사용할 수 있습니다.
 
-   *\Microsoft Azure Recovery Services Agent\Utils\\*
+    *\Microsoft Azure Recovery Services Agent\Utils\\*
 
 1. 디렉터리로 이동하고 SATA 드라이브가 연결된 다른 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 연결된 SATA 드라이브가 있는 컴퓨터에서 다음을 확인합니다.
 
