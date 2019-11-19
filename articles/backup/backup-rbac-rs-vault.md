@@ -1,19 +1,15 @@
 ---
-title: Azure 역할 기반 액세스 제어를 사용하여 백업 관리
+title: 역할 기반 Access Control를 사용 하 여 백업 관리
 description: 역할 기반 Access Control을 사용하여 Recovery Services 자격 증명 모음의 백업 관리 작업에 대한 액세스를 관리합니다.
 ms.reviewer: utraghuv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8ba28829d3ee18b441227e537cb0a7ca97fb7638
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: afb8067f2547e3a26a505bb5ec8063dd340e8500
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074047"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172196"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>역할 기반 Access Control을 사용하여 Azure Backup 복구 지점 관리
 

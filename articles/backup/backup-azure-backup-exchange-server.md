@@ -1,19 +1,15 @@
 ---
-title: System Center DPM을 통해 Azure Backup에 Exchange 서버 백업
+title: System Center DPM을 통해 Exchange server 백업
 description: System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버를 백업하는 방법을 알아봅니다.
 ms.reviewer: kasinh
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 21f38105913e03adfbf400e82d3572e6e5084538
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: b2231fcadc3e0cb591302ba47572627ae3a17e58
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968497"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173272"
 ---
 # <a name="back-up-an-exchange-server-to-azure-backup-with-system-center-2012-r2-dpm"></a>System Center 2012 R2 DPM을 사용하여 Azure Backup에 Exchange 서버 백업
 
@@ -28,7 +24,7 @@ Azure Backup을 사용하여 DPM 서버를 성공적으로 등록하려면 Syste
 >
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 계속하기 전에 워크로드를 보호하기 위하여 Microsoft Azure Backup 사용을 위한 [필수 구성 요소](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 를 모두 충족하는지 확인합니다. 이러한 필수 구성 요소는 다음과 같습니다.
 
@@ -66,7 +62,7 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 
    * 디스크를 사용하여 단기 보호를 하려고 합니다.
    * 온라인 보호를 사용하려고 합니다.
-6. **다음**을 누릅니다.
+6. **다음**을 클릭합니다.
 7. Exchange Server 데이터베이스의 무결성을 확인하려는 경우 **Eseutil 실행하여 데이터 무결성 확인** 옵션을 선택합니다.
 
     이 옵션을 선택한 후에 Exchange 서버에서 **eseutil** 명령을 실행하여 생성되는 I/O 트래픽을 방지하기 위해 백업 일관성 확인 작업이 DPM 서버에서 실행됩니다.
@@ -76,7 +72,7 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
    > ![eseutil 오류](./media/backup-azure-backup-exchange-server/eseutil-error.png)
    >
    >
-8. **다음**을 누릅니다.
+8. **다음**을 클릭합니다.
 9. **복사 Backup**에 대한 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
@@ -87,10 +83,10 @@ Exchange 서버에서 DPM 보호 에이전트를 설치하려면 다음 이 단�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. DPM 서버가 초기 복제 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 다음은 그 예입니다.
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 다음은 그 예입니다.
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

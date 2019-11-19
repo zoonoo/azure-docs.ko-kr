@@ -2,18 +2,14 @@
 title: Azure 인스턴트 복원 기능
 description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure 인스턴트 복원 기능 및 FAQ
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1faa8efc5cbb39f94a390a0cf32dd2cd1ef0793c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c87dc98ddd1d5799f3363d7574063ef752fd8239
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012103"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172338"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 

@@ -4,27 +4,25 @@ description: 에이전트 없는 방식으로 컴퓨터 종속성을 사용 하 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/23/2019
+ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: e9f9e812d5463f0a503b100780f9b988e43f748d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d0e002f0f1e620c108b23790dfc81574bee23795
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720258"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158427"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
-
-> [!NOTE]
-> Azure Migrate 포털에이 기능이 아직 표시 되지 않으면에서 중단 합니다. 다음 주에 표시 됩니다.
 
 이 문서에서는 Azure Migrate: 서버 평가에서 에이전트 없는 종속성 매핑을 설정 하는 방법을 설명 합니다. 이 기능은 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 VMware 컴퓨터의 미리 보기에서 사용할 수 있습니다. 
 
 > [!IMPORTANT]
 > 에이전트 없는 종속성 시각화는 현재 Azure Migrate 어플라이언스를 사용 하 여 검색 된 Azure VMware Vm에 대해 미리 보기로 제공 됩니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="about-dependency-mapping"></a>종속성 매핑 정보 
+## <a name="about-dependency-mapping"></a>종속성 매핑 정보
 
 종속성 매핑은 평가 하 고 마이그레이션하려는 컴퓨터 간의 종속성을 시각화 하는 데 도움이 됩니다. 신뢰 수준이 높은 컴퓨터를 평가 하려는 경우 일반적으로 종속성 매핑을 사용 합니다.
 
@@ -46,7 +44,7 @@ ms.locfileid: "73720258"
 ## <a name="current-limitations"></a>현재 제한 사항
 
 - 에이전트 없는 종속성 시각화는 현재 VMware Vm에만 사용할 수 있습니다.
-- 지금은 종속성 분석 보기에서 그룹의 서버를 추가 하거나 제거할 수 없습니다. 
+- 지금은 종속성 분석 보기에서 그룹의 서버를 추가 하거나 제거할 수 없습니다.
 - 서버 그룹에 대 한 종속성 맵을 현재 사용할 수 없습니다.
 - 현재 종속성 데이터를 테이블 형식으로 다운로드할 수 없습니다.
 
@@ -60,12 +58,12 @@ ms.locfileid: "73720258"
 
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
- 
+
 에이전트 없는 종속성 시각화에 대해 지원 되는 운영 체제는 다음과 같습니다.
 
 **형식** | **지원되는 운영 체제**
---- | --- 
-**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 비트) 
+--- | ---
+**Windows** | Microsoft Windows Server 2016 <br/> Microsoft Windows Server 2012 R2 <br/> Microsoft Windows Server 2012 <br/> Microsoft Windows Server 2008 R2 (64 비트)
 **Linux** | Red Hat Enterprise Linux 7, 6, 5 <br/> Ubuntu Linux 14.04, 16.04 <br/> Debian 7, 8 <br/> Oracle Linux 6, 7 <br/> CentOS 5, 6, 7  
 
 
@@ -74,7 +72,7 @@ ms.locfileid: "73720258"
 서버 평가가 검색을 위해 VM에 액세스할 수 있도록 필요한 권한이 있는 사용자 계정을 설정 합니다. 하나의 사용자 계정을 지정할 수 있습니다.
 
 - **Windows vm에 대 한 필수 권한**: 사용자 계정에 ' 게스트 ' 액세스 권한이 필요 합니다.
-- **Linux vm에 대 한 필수 권한**: 계정에 루트 권한이 필요 합니다. 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 두 가지 기능 (CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE)이 필요 합니다.
+- **Linux vm에 대 한 필수 권한**: 계정에 루트 권한이 필요 합니다. 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 두 가지 기능 (CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE이 필요 합니다.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>사용자 계정을 어플라이언스에 추가 합니다.
 
@@ -84,10 +82,10 @@ ms.locfileid: "73720258"
 
 1. 어플라이언스 관리 앱을 엽니다. **VCenter 세부 정보 제공** 패널로 이동 합니다.
 2. **Vm에 대 한 응용 프로그램 및 종속성 검색** 섹션에서 **자격 증명 추가** 를 클릭 합니다.
-3. **운영 체제**를 선택 합니다. 
+3. **운영 체제**를 선택 합니다.
 4. 계정에 대 한 친숙 한 이름을 입력 합니다.
 5. **사용자 이름** 및 **암호** 를 제공 합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 7. **저장 및 검색 시작을**클릭 합니다.
 
     ![VM 사용자 계정 추가](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -113,8 +111,8 @@ ms.locfileid: "73720258"
 2. 종속성 맵을 보려는 컴퓨터를 검색 합니다.
 3. **종속성** 열에서 **종속성 보기** 를 클릭 합니다.
 4. **기간 드롭다운을** 사용 하 여 맵을 보려는 기간을 변경 합니다.
-5. **클라이언트** 그룹을 확장 하 여 선택한 컴퓨터에 종속 된 컴퓨터를 나열 합니다. 
-6. **포트** 그룹을 확장 하 여 선택한 컴퓨터에서 종속성이 있는 컴퓨터를 나열 합니다. 
+5. **클라이언트** 그룹을 확장 하 여 선택한 컴퓨터에 종속 된 컴퓨터를 나열 합니다.
+6. **포트** 그룹을 확장 하 여 선택한 컴퓨터에서 종속성이 있는 컴퓨터를 나열 합니다.
 7. 종속 컴퓨터의 지도 보기로 이동 하려면 컴퓨터 이름을 클릭 한 다음 **서버 맵 로드** 를 클릭 합니다.
 
     ![서버 포트 그룹 및 서버 맵 로드를 확장 합니다.](./media/how-to-create-group-machine-dependencies-agentless/load-server-map.png)

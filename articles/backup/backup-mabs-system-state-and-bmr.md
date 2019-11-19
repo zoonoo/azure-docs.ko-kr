@@ -1,19 +1,14 @@
 ---
-title: 운영 체제 미 설치 복원 & 시스템 상태 보호-Azure Backup Server
+title: 시스템 상태 및 완전 복구 보호
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
-author: dcurwin
-manager: carmonm
-keywords: ''
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.author: dacurwin
-ms.openlocfilehash: 50f534a5a682cd9e4f6aeb040b897e7aae48dddd
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969025"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172257"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 
@@ -33,7 +28,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아닙니다.|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니오|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|

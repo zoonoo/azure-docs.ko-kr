@@ -1,19 +1,14 @@
 ---
 title: Microsoft Azure Backup Server의 새로운 기능
 description: Microsoft Azure Backup Server에서는 VM, 파일 및 폴더, 워크로드 등을 보호하기 위한 향상된 백업 기능을 제공합니다. Azure Backup Server V3을 설치하거나 이 버전으로 업그레이드하는 방법을 알아봅니다.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: dacurwin
-ms.openlocfilehash: 086856865efba2d1b5e1b8e359ab1e4616aabec9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 564b11ebf14652166733c226485dfab94e69dfbb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091559"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172230"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server"></a>Microsoft Azure Backup Server의 새로운 기능
 

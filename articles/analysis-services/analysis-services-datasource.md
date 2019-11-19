@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 038773b41d84a7b2b4f845a8bf70e9eed849bc80
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: c92baf5c97597a0161f402cc458e90bb3e637d6c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120010"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170654"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -23,7 +23,7 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
-|Azure SQL 데이터 웨어하우스     |   예      |   예       |
+|Azure SQL Data Warehouse     |   예      |   예       |
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니오      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니오      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니오        |
@@ -91,7 +91,7 @@ Azure Analysis Services 서버에서 온-프레미스 데이터 원본에 연결
 
 ## <a name="specifying-a-different-provider"></a>다른 공급자 지정
 
-특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. SQLOLEDB 이외의 네이티브 공급자를 사용하는 경우 **공급자 'SQLNCLI11.1'이 등록되지 않았습니다.** 라는 오류 메시지가 표시될 수 있습니다. 또는 온-프레미스 데이터 원본에 연결 하는 DirectQuery 모델이 있고 네이티브 공급자를 사용 하는 경우, **OLE DB 행 집합을 만드는 동안 오류 메시지가 표시 될 수 있습니다. ' LIMIT ' 근처의 구문이 잘못 되었습니다**.
+특정 데이터 원본에 연결할 때 Azure Analysis Service의 데이터 모델은 서로 다른 데이터 공급자가 필요할 수 있습니다. 경우에 따라 SQL Server Native Client(SQLNCLI11)와 같은 네이티브 공급자를 사용하여 데이터 원본에 연결하는 테이블 형식 모델은 오류를 반환할 수 있습니다. MSOLEDBSQL 이외의 네이티브 공급자를 사용 하는 경우 **' sqlncli 11.1 ' 공급자가 등록 되지 않은**오류 메시지가 표시 될 수 있습니다. 또는 온-프레미스 데이터 원본에 연결 하는 DirectQuery 모델이 있고 네이티브 공급자를 사용 하는 경우, **OLE DB 행 집합을 만드는 동안 오류 메시지가 표시 될 수 있습니다. ' LIMIT ' 근처의 구문이 잘못 되었습니다**.
 
 온-프레미스 SQL Server Analysis Services 테이블 형식 모델을 Azure Analysis Services로 마이그레이션하는 경우 공급자를 변경해야 할 수도 있습니다.
 

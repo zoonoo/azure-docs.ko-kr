@@ -1,18 +1,14 @@
 ---
-title: Microsoft Azure Backup Recovery Services 자격 증명 모음 삭제
+title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 MARS (Microsoft Azure Backup Recovery Services) 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: 469d6532449df8327389b8117904b078d9340e5b
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747580"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173183"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -62,7 +58,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
         ![백업 중지 창](./media/backup-azure-delete-vault/stop-backup-item.png)
 
-    - **백업 데이터 삭제** 창이 나타나면 백업 항목의 이름을 입력 하 고 (이 필드는 대/소문자를 구분 함) 드롭다운 메뉴에서 이유를 선택 합니다. 설명 (있는 경우)을 입력 합니다. 그런 다음 **삭제**를 선택 합니다.
+    - **백업 데이터 삭제** 창이 나타나면 백업 항목의 이름을 입력 하 고 (이 필드는 대/소문자를 구분 함) 드롭다운 메뉴에서 이유를 선택 합니다. 설명 (있는 경우)을 입력 합니다. 그런 다음, **삭제**를 선택합니다.
 
          ![백업 데이터 삭제 창](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 

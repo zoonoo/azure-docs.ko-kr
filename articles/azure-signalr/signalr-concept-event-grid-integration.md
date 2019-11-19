@@ -1,19 +1,19 @@
 ---
 title: Azure SignalR Service 이벤트에 대응
-description: Azure Event Grid를 사용 하 여 Azure SignalR Service 이벤트를 구독 합니다.
+description: Azure Event Grid를 사용 하 여 Azure SignalR Service 이벤트를 구독 합니다. 이러한 이벤트는 다른 다운스트림 서비스를 트리거할 수 있습니다.
 services: azure-signalr,event-grid
 author: chenyl
 ms.author: chenyl
 ms.reviewer: zhshang
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.topic: conceptual
 ms.service: signalr
-ms.openlocfilehash: a3d0669a1a89f2fc5aaca0a96e00b731d2d40830
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: a8e25907b40b910f2b91884d355b6ac85eeaa250
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68296825"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158201"
 ---
 # <a name="reacting-to-azure-signalr-service-events"></a>Azure SignalR Service 이벤트에 대응
 
@@ -29,7 +29,7 @@ Azure SignalR Service 이벤트는 클라이언트 연결이 서버를 사용 �
 ## <a name="available-azure-signalr-service-events"></a>사용 가능한 Azure SignalR 서비스 이벤트
 Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Azure SignalR Service 이벤트 구독은 다음과 같은 두 가지 유형의 이벤트를 지원 합니다.  
 
-|이벤트 이름|Description|
+|이벤트 이름|설명|
 |----------|-----------|
 |`Microsoft.SignalRService.ClientConnectionConnected`|클라이언트 연결이 연결 될 때 발생 합니다.|
 |`Microsoft.SignalRService.ClientConnectionDisconnected`|클라이언트 연결의 연결이 끊어질 때 발생 합니다.|
@@ -63,5 +63,5 @@ Azure SignalR Service 이벤트는 데이터의 변경 내용에 응답 하는 �
 Event Grid에 대해 자세히 알아보고 Azure SignalR 서비스 이벤트를 사용해 보세요.
 
 > [!div class="nextstepaction"]
-> [Azure SignalR Service](./signalr-howto-event-grid-integration.md)
-> [에 대 한](../event-grid/overview.md) 샘플 Event Grid 통합 해 보세요 Event Grid
+> [Azure SignalR Service
+> 와 통합 Event Grid 샘플을 사용해 보세요](./signalr-howto-event-grid-integration.md) [Event Grid](../event-grid/overview.md)

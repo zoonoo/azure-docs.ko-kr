@@ -1,17 +1,17 @@
 ---
-title: Azure Functions 및 Azure SignalR 서비스를 사용 하 여 실시간 앱 빌드
-description: 서버 리스 응용 프로그램에서 Azure SignalR Service를 사용 하는 방법에 대 한 개요입니다.
+title: Azure SignalR Service & 실시간 앱 Azure Functions 빌드
+description: 다음 예제를 통해 Azure SignalR Service를 사용 하 여 실시간 서버 리스 웹 응용 프로그램을 개발 하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 6a71647d452597c84e0df1beb6e9c6c3932d171b
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: cbb1fcf320a78f11045bf9627ffcc438af3e388a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68639916"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157613"
 ---
 # <a name="build-real-time-apps-with-azure-functions-and-azure-signalr-service"></a>Azure Functions 및 Azure SignalR 서비스를 사용 하 여 실시간 앱 빌드
 
@@ -27,7 +27,7 @@ Azure Functions를 사용 하면 클라우드에서 이벤트가 발생할 때�
 * HTTP 및 웹후크 요청
 * 주기적 타이머
 * 다음과 같은 Azure 서비스의 이벤트:
-    - 이벤트 표
+    - Event Grid
     - Event Hubs
     - Service Bus
     - Cosmos DB 변경 피드

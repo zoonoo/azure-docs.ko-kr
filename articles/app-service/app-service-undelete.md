@@ -6,16 +6,23 @@ ms.author: byvinyal
 ms.date: 9/23/2019
 ms.topic: article
 ms.service: app-service
-ms.openlocfilehash: 7dc3934f486b205febd5be3c0b484dfd2c97bb8f
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 6a3a62053a488f95e22cae13ef9d0714a7b5dd05
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755539"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173734"
 ---
 # <a name="restore-deleted-app-service-app-using-powershell"></a>PowerShell을 사용 하 여 삭제 된 App Service 앱 복원
 
 Azure App Service에서 앱을 실수로 삭제 한 경우 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/?view=azps-2.6.0&viewFallbackFrom=azps-2.2.0)의 명령을 사용 하 여 복원할 수 있습니다.
+
+## <a name="re-register-app-service-resource-provider"></a>App Service 리소스 공급자를 다시 등록 합니다.
+일부 고객에 게는 삭제 된 앱 목록을 검색 하는 데 실패 하는 문제가 발생할 수 있습니다. 이 문제를 해결 하려면 다음 명령을 실행 합니다.
+
+```powershell
+ Register-AzResourceProvider -ProviderNamespace "Microsoft.Web"
+```
 
 ## <a name="list-deleted-apps"></a>삭제된 앱 나열
 
@@ -24,7 +31,7 @@ Azure App Service에서 앱을 실수로 삭제 한 경우 [Az PowerShell 모듈
 삭제 된 특정 앱에 대 한 자세한 내용은 다음을 사용할 수 있습니다.
 
 ```powershell
-Get-AzDeletedWebApp -Name <your_deleted_app>
+Get-AzDeletedWebApp -Name <your_deleted_app> -Location <your_deleted_app_location> 
 ```
 
 세부 정보에는 다음이 포함 됩니다.

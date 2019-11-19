@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: b2514eaaf70d13d3be63963f24ea7be99c4fbcce
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: fc397088e46f0d2b623080f3deed24c386e7d8b4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582278"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168489"
 ---
 # <a name="azure-hpc-cache-data-ingest---manual-copy-method"></a>Azure HPC 캐시 데이터 수집-수동 복사 방법
 
 이 문서에서는 Azure HPC 캐시에서 사용할 수 있도록 Blob storage 컨테이너에 데이터를 수동으로 복사 하는 방법에 대 한 자세한 지침을 제공 합니다. 다중 스레드 병렬 작업을 사용 하 여 복사 속도를 최적화 합니다.
 
-Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 azure [Hpc 캐시로 Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
+Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
 
 ## <a name="simple-copy-example"></a>단순 복사 예
 

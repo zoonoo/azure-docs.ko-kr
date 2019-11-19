@@ -10,16 +10,16 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 0f34aad4a8590c71f926d12d201f9a614afaa127
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
+ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114930"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74153565"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Video Indexer 사용 하 여 라이브 스트림 분석
 
-Azure Media Services Video Indexer는 비디오 및 오디오 파일에서 상세 정보를 오프 라인으로 추출 하기 위해 설계 된 Azure 서비스입니다. 이는 미리 만든 지정 된 미디어 파일을 분석 하기 위한 것입니다. 그러나 일부 사용 사례의 경우 사용 중인 운영 및 기타 사용 사례의 잠금을 해제 하려면 가능한 빨리 라이브 피드의 미디어 정보를 얻는 것이 중요 합니다. 예를 들어 라이브 스트림에서 이러한 풍부한 메타 데이터를 사용 하 여 TV 프로덕션을 자동화할 수 있습니다. 예를 들어 [Endemol](https://customers.microsoft.com/story/esg-media-telecommunications-azure)은 매스컴의 저널리스트가 콘텐츠를 기반으로 notification services를 빌드하기 위해 실시간 피드를 검색 하는 것을 말합니다.
+Azure Media Services Video Indexer는 비디오 및 오디오 파일에서 상세 정보를 오프 라인으로 추출 하기 위해 설계 된 Azure 서비스입니다. 이는 미리 만든 지정 된 미디어 파일을 분석 하기 위한 것입니다. 그러나 일부 사용 사례의 경우 사용 중인 운영 및 기타 사용 사례의 잠금을 해제 하려면 가능한 빨리 라이브 피드의 미디어 정보를 얻는 것이 중요 합니다. 예를 들어 라이브 스트림에서 이러한 풍부한 메타 데이터를 사용 하 여 TV 프로덕션을 자동화할 수 있습니다.
 
 이 문서에서 설명 하는 솔루션을 통해 고객은 실시간 피드에서 거의 실시간 해상도로 Video Indexer을 사용할 수 있습니다. 인덱싱 지연에는이 솔루션을 사용 하는 데 4 분 정도 걸릴 수 있습니다 .이 솔루션은 인덱싱되는 데이터의 청크, 입력 해상도, 콘텐츠 형식 및이 프로세스에 사용 되는 계산의 양에 따라 달라 집니다.
 

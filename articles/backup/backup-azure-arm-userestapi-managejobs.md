@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: REST API를 사용하여 백업 작업 관리'
+title: REST API를 사용 하 여 백업 작업 관리
 description: 이 문서에서는 REST API를 사용 하 여 Azure Backup 백업 및 복원 작업을 추적 하 고 관리 하는 방법에 대해 알아봅니다.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM 백업; Azure VM 복원;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2018
-ms.author: dacurwin
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38
-ms.openlocfilehash: 5fe0255a8f304061dc970907c651261832fee614
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 628569c547aa776ec2fbb7ec7e32edad7c1fe7dd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929093"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173403"
 ---
 # <a name="track-backup-and-restore-jobs-using-rest-api"></a>REST API를 사용하여 백업 및 복원 작업 추적
 
@@ -51,7 +45,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 ### <a name="response"></a>response
 
-|이름  |에  |설명  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     | [JobResource](https://docs.microsoft.com/rest/api/backup/jobdetails/get#jobresource)        | 확인        |
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 225fcd475d488cedb8bd210fe2fa9371849314ac
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 27042809b0f60e1e4141d50d20acff1893c71fde
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615510"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158253"
 ---
 # <a name="transfer-data-with-azcopy-and-file-storage"></a>AzCopy 및 file storage를 사용 하 여 데이터 전송 
 
@@ -22,7 +22,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 ## <a name="create-file-shares"></a>파일 공유 만들기
 
-[Azcopy 만들기](storage-ref-azcopy-make.md) 명령을 사용 하 여 파일 공유를 만들 수 있습니다. 이 섹션의 예제에서는 `myfileshare` 이라는 파일 공유를 만듭니다.
+[Azcopy 만들기](storage-ref-azcopy-make.md) 명령을 사용 하 여 파일 공유를 만들 수 있습니다. 이 섹션의 예제에서는 `myfileshare`라는 파일 공유를 만듭니다.
 
 > [!TIP]
 > 이 단원의 예제에서는 경로 인수를 작은따옴표 (' ')로 묶습니다. Windows 명령 셸 (cmd.exe)을 제외한 모든 명령 셸에서 작은따옴표를 사용 합니다. Windows 명령 셸 (cmd.exe)을 사용 하는 경우 작은따옴표 (' ') 대신 경로 인수를 큰따옴표 ("")로 묶습니다.
@@ -47,7 +47,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 > * 특정 파일 업로드
 
 > [!NOTE]
-> AzCopy는 파일의 md5 해시 코드를 자동으로 계산 하 고 저장 하지 않습니다. AzCopy는이 작업을 수행 하려면 각 복사 명령에 `--put-md5` 플래그를 추가 합니다. 이렇게 하면 파일이 다운로드 될 때 AzCopy는 다운로드 된 데이터에 대 한 MD5 해시를 계산 하 고 파일의 `Content-md5` 속성에 저장 된 MD5 해시가 계산 된 해시와 일치 하는지 확인 합니다.
+> AzCopy는 파일의 md5 해시 코드를 자동으로 계산 하 고 저장 하지 않습니다. AzCopy는이 작업을 수행 하려면 각 copy 명령에 `--put-md5` 플래그를 추가 합니다. 이렇게 하면 파일이 다운로드 될 때 AzCopy는 다운로드 된 데이터에 대 한 MD5 해시를 계산 하 고 파일의 `Content-md5` 속성에 저장 된 MD5 해시가 계산 된 해시와 일치 하는지 확인 합니다.
 
 자세한 참조 문서는 [azcopy copy](storage-ref-azcopy-copy.md)를 참조 하세요.
 
@@ -61,7 +61,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 | **구문** | `azcopy copy '<local-file-path>' 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-name>?<SAS-token>'` |
 | **예제** | `azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D'` |
 
-파일 경로 또는 파일 이름 어디에 나 와일드 카드 기호 (*)를 사용 하 여 파일을 업로드할 수도 있습니다. 예: `'C:\myDirectory\*.txt'` 또는 `C:\my*\*.txt`.
+파일 경로 또는 파일 이름 어디에 나 와일드 카드 기호 (*)를 사용 하 여 파일을 업로드할 수도 있습니다. 예: `'C:\myDirectory\*.txt'`또는 `C:\my*\*.txt`.
 
 ### <a name="upload-a-directory"></a>디렉터리 업로드
 
@@ -120,7 +120,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 `--exclude-pattern` 옵션을 사용 하 여 파일을 제외할 수도 있습니다. 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
-`--include-pattern` 및 `--exclude-pattern` 옵션은 파일 이름에만 적용 되 고 경로에는 적용 되지 않습니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려면 `–recursive` 옵션을 사용 하 여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`을 사용 하 고 `*.txt`를 지정 하 여 모든 텍스트 파일을 가져옵니다.
+`--include-pattern` 및 `--exclude-pattern` 옵션은 파일 이름에만 적용 되 고 경로에는 적용 되지 않습니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려면 `–recursive` 옵션을 사용 하 여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`를 사용 하 고 `*.txt`를 지정 하 여 모든 텍스트 파일을 가져옵니다.
 
 ## <a name="download-files"></a>파일 다운로드
 
@@ -146,18 +146,17 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 |    |     |
 |--------|-----------|
-| **구문** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>?<SAS-token>' '<local-file-path>'` |
+| **구문** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<file-path>?<SAS-token>' '<local-file-path>'` |
 | **예제** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myTextFile.txt?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory\myTextFile.txt'` |
 
 ### <a name="download-a-directory"></a>디렉터리 다운로드
 
 |    |     |
 |--------|-----------|
-| **구문** | ' azcopy copy "https://< 저장소-이름 >./< 파일-이름 >/< 디렉터리-경로 >? < SAS-토큰 >" 
-"< 로컬 디렉터리 경로 >"--recursive ' |
-| **예제** | `azcopy copy "https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D" "C:\myDirectory"  --recursive` |
+| **구문** | `azcopy copy 'https://<storage-account-name>.file.core.windows.net/<file-share-name>/<directory-path>?<SAS-token>' '<local-directory-path>' --recursive`|
+| **예제** | `azcopy copy 'https://mystorageaccount.file.core.windows.net/myfileshare/myFileShareDirectory?sv=2018-03-28&ss=bjqt&srs=sco&sp=rjklhjup&se=2019-05-10T04:37:48Z&st=2019-05-09T20:37:48Z&spr=https&sig=%2FSOVEFfsKDqRry4bk3qz1vAQFwY5DDzp2%2B%2F3Eykf%2FJLs%3D' 'C:\myDirectory'  --recursive` |
 
-이 예에서는 다운로드 한 모든 파일을 포함 하는 `C:\myDirectory\myFileShareDirectory` 이라는 디렉터리를 생성 합니다.
+이 예에서는 다운로드 한 모든 파일을 포함 하는 `C:\myDirectory\myFileShareDirectory` 라는 디렉터리를 생성 합니다.
 
 ### <a name="download-the-contents-of-a-directory"></a>디렉터리의 콘텐츠 다운로드
 
@@ -199,7 +198,7 @@ AzCopy는 blob 또는 파일을 저장소 계정에 복사 하는 데 사용할 
 
 `--exclude-pattern` 옵션을 사용 하 여 파일을 제외할 수도 있습니다. 자세히 알아보려면 [azcopy copy](storage-ref-azcopy-copy.md) 참조 문서를 참조 하세요.
 
-`--include-pattern` 및 `--exclude-pattern` 옵션은 파일 이름에만 적용 되 고 경로에는 적용 되지 않습니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려면 `–recursive` 옵션을 사용 하 여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`을 사용 하 고 `*.txt`를 지정 하 여 모든 텍스트 파일을 가져옵니다.
+`--include-pattern` 및 `--exclude-pattern` 옵션은 파일 이름에만 적용 되 고 경로에는 적용 되지 않습니다.  디렉터리 트리에 있는 모든 텍스트 파일을 복사 하려면 `–recursive` 옵션을 사용 하 여 전체 디렉터리 트리를 가져온 다음 `–include-pattern`를 사용 하 고 `*.txt`를 지정 하 여 모든 텍스트 파일을 가져옵니다.
 
 ## <a name="copy-files-between-storage-accounts"></a>저장소 계정 간에 파일 복사
 

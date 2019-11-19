@@ -1,19 +1,15 @@
 ---
-title: Azure Backup 모니터링 경고 FAQ
+title: 경고 및 보고서 모니터링 FAQ
 description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Backup 보고서에 대 한 일반적인 질문에 대 한 대답을 검색 합니다.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: dc0225092d23371ca97dfedd48a2d3ffcf85a9be
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747389"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172920"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 

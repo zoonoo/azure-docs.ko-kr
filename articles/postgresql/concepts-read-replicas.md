@@ -5,17 +5,17 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.openlocfilehash: e276340041e69101190645caad9dbf6de57abd95
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 11/17/2019
+ms.openlocfilehash: 5d3d752f549fe336f584fa3534b61cb5a009c3bd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996505"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158811"
 ---
 # <a name="read-replicas-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 복제본 읽기
 
-읽기 복제본 기능을 사용하면 Azure Database for PostgreSQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 최대 5개의 복제본으로 마스터 서버에서 복제할 수 있습니다. 복제본은 PostgreSQL 엔진 기본 복제 기술을 사용하여 비동기식으로 업데이트 됩니다.
+읽기 복제본 기능을 사용하면 Azure Database for PostgreSQL 서버에서 읽기 전용 서버로 데이터를 복제할 수 있습니다. 마스터 서버에서 최대 5개의 복제본으로 복제할 수 있습니다. 복제본은 PostgreSQL 엔진 기본 복제 기술을 사용하여 비동기식으로 업데이트 됩니다.
 
 복제본은 일반 Azure Database for PostgreSQL 서버와 비슷한 방식으로 관리하는 새로운 서버입니다. 읽기 복제본의 경우, vCore 및 스토리지에 프로비저닝된 컴퓨팅에 대한 비용이 GB/월 단위로 청구됩니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "70996505"
 
 [Azure Database for PostgreSQL 지역](https://azure.microsoft.com/global-infrastructure/services/?products=postgresql)에 마스터 서버를 둘 수 있습니다. 마스터 서버는 쌍을 이루는 지역 또는 유니버설 복제본 지역에 복제본이 있을 수 있습니다. 아래 그림은 마스터 영역에 따라 사용할 수 있는 복제본 영역을 보여 줍니다.
 
-[![복제본 영역 읽기](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![읽기 복제본 영역](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>유니버설 복제본 영역
 마스터 서버가 있는 위치에 관계 없이 항상 다음 지역에서 읽기 복제본을 만들 수 있습니다. 다음은 범용 복제본 지역입니다.
@@ -50,9 +50,9 @@ ms.locfileid: "70996505"
 
 다음 사항을 고려해 야 합니다. 
 
-* 사용 가능한 지역: Azure Database for PostgreSQL는 미국 서 부 2, 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
+* 지역별 가용성: Azure Database for PostgreSQL는 미국 서 부 2, 프랑스 중부, 아랍에미리트 북부 및 독일 중부에서 사용할 수 있습니다. 그러나 쌍을 이루는 지역에는 사용할 수 없습니다.
     
-* 단방향 쌍: 일부 Azure 지역은 한 방향 으로만 쌍으로 연결 됩니다. 이러한 지역에는 인도 서 부, 브라질 남부가 포함 됩니다. 
+* 단방향 쌍: 일부 Azure 지역은 한 방향 으로만 쌍을 이룹니다. 이러한 지역에는 인도 서 부, 브라질 남부가 포함 됩니다. 
    즉, 인도 서 부의 마스터 서버는 남부 인도에서 복제본을 만들 수 있습니다. 그러나 인도 남부의 마스터 서버는 인도 서 부에서 복제본을 만들 수 없습니다. 이는 인도 서 부의 보조 지역이 남부 인도 이지만 남부 인도의 보조 지역은 인도 서 부가 아니기 때문입니다.
 
 
@@ -72,7 +72,7 @@ ms.locfileid: "70996505"
 
 복제본은 마스터 서버에서 해당 관리자 계정을 상속합니다. 마스터 서버의 모든 사용자 계정은 읽기 복제본으로 복제됩니다. 마스터 서버에서 사용 가능한 사용자 계정을 사용해야만 읽기 복제본에 연결할 수 있습니다.
 
-일반 Azure Database for PostgreSQL 서버에서처럼 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. **myreplica**라는 서버에 관리자 사용자 이름이 **myadmin**인 경우, 다음 psql을 사용하여 복제본에 연결할 수 있습니다.
+일반 Azure Database for PostgreSQL 서버에서처럼 같이 해당 호스트 이름 및 유효한 사용자 계정을 사용하여 복제본에 연결할 수 있습니다. **myreplica**라는 서버에 관리자 사용자 이름이 **myadmin**인 경우, 다음 psql을 사용하여 복제본에 연결할 수 있습니다.
 
 ```
 psql -h myreplica.postgres.database.azure.com -U myadmin@myreplica -d postgres
@@ -146,7 +146,7 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 이 섹션에서는 읽기 복제본 기능의 고려 사항에 대한 요약이 제공됩니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>선행 조건
 읽기 복제본을 만들기 전에, 마스터 서버에서 `azure.replication_support` 매개 변수를 **REPLICA**로 설정해야 합니다. 이 매개 변수가 변경되면, 서버를 다시 시작해야 변경 사항이 적용됩니다. `azure.replication_support` 매개 변수는 범용 및 메모리 최적화 계층에만 적용됩니다.
 
 ### <a name="new-replicas"></a>새 복제본
@@ -160,10 +160,12 @@ AS total_log_delay_in_bytes from pg_stat_replication;
 
 PostgreSQL에서는 읽기 복제본의 `max_connections` 매개 변수 값이 마스터 값보다 크거나 같아야 합니다. 그렇지 않으면 해당 복제본이 시작되지 않습니다. Azure Database for PostgreSQL에서 `max_connections` 매개 변수 값은 SKU에 기반합니다. 자세한 내용은 [Azure Database for PostgreSQL의 제한](concepts-limits.md)을 참조하세요. 
 
-서버 값을 업데이트하려고 해도 한도를 지키지 않으면 오류가 발생합니다.
+위에서 설명한 서버 값을 업데이트 하려고 하지만 한도를 따르지 않는 경우 오류가 표시 됩니다.
+
+복제본을 만들 때 또는 나중에 마스터 서버에서 복제본으로의 방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정이 상속 되지 않습니다.
 
 ### <a name="max_prepared_transactions"></a>max_prepared_transactions
-[PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 읽기 복제본의 `max_prepared_transactions` 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. 마스터에서 변경 `max_prepared_transactions` 하려면 먼저 복제본에서 변경 하십시오.
+[PostgreSQL](https://www.postgresql.org/docs/current/runtime-config-resource.html#GUC-MAX-PREPARED-TRANSACTIONS) 에는 읽기 복제본의 `max_prepared_transactions` 매개 변수 값이 마스터 값 보다 크거나 같아야 합니다. 그렇지 않으면 복제본이 시작 되지 않습니다. 마스터의 `max_prepared_transactions` 변경 하려면 먼저 복제본에서 변경 하십시오.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 마스터 서버와 읽기 복제본 간의 복제를 중지하면 복제본이 다시 시작되어 변경 내용이 적용됩니다. 중지된 복제본은 읽기와 쓰기를 모두 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.

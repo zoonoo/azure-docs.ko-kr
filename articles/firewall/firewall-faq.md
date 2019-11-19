@@ -1,18 +1,18 @@
 ---
 title: Azure Firewall FAQ
-description: Azure Firewall에 대한 FAQ
+description: Azure 방화벽에 대 한 FAQ입니다. Azure Virtual Network 리소스를 보호하는 관리형 클라우드 기반 네트워크 보안 서비스입니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 10/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f64e9717a1e6391c15ee5207c7566114f2bf9f8f
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 418fafdec9bd44fa3682e33cc53bbca9c716dcf2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596772"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167042"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -30,7 +30,7 @@ Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 �
 * 아웃바운드 SNAT 지원
 * 인바운드 DNAT 지원
 * Azure 구독 및 VNET 전반에 걸쳐 애플리케이션 및 네트워크 연결 정책을 중앙에서 만들고 적용하고 기록
-* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합됨
+* 로깅 및 분석을 위한 Azure Monitor와 완전히 통합
 
 ## <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Azure Firewall의 일반적인 배포 모델은 무엇입니까?
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-다음은 그 예입니다.
+예:
 
 ```azurepowershell
 # Stop an existing firewall
@@ -139,7 +139,7 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
 
-아닙니다. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>응용 프로그램 규칙 대상 FQDN에서 와일드 카드를 사용 하는 방법
 
@@ -162,7 +162,7 @@ Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
 
-아닙니다. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>방화벽 처리량을 늘리려면 어떻게 해야 하나요?
 
@@ -174,4 +174,4 @@ Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale o
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
 
-아닙니다. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.
+아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.

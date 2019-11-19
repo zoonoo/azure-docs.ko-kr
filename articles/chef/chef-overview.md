@@ -1,19 +1,15 @@
 ---
 title: Azure로 Chef 사용하기
 description: Azure 인프라를 구성하고 테스트하기 위한 Chef 사용 소개
-ms.service: virtual-machines-linux
 keywords: azure, chef, devops, 가상 머신, 개요, 자동화
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 5c4e20177c1b334a34f7ce9328dfaa7bd8c66d3d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60656577"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158001"
 ---
 # <a name="using-chef-with-azure"></a>Azure로 Chef 사용하기
 [Chef](https://www.chef.io)는 Azure에서 가상 머신 인프라를 코드로 변환하는 강력한 자동화 플랫폼입니다. Chef는 크기에 관계 없이 네트워크를 통해 인프라를 구성하고 배포하고 관리하는 방법을 자동화합니다.

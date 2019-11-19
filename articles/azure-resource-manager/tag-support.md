@@ -2,13 +2,13 @@
 title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 10/27/2019
-ms.openlocfilehash: c0f36568bbbf824285cfaa3385d2225e0a989639
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 11/18/2019
+ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149220"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173542"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -1364,14 +1364,12 @@ ms.locfileid: "74149220"
 > [!div class="mx-tableFixed"]
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | 예 | 예 |
-> | netAppAccounts/backupPolicies | 예 | 예 |
-> | netAppAccounts/capacityPools | 예 | 예 |
-> | netAppAccounts/capacityPools/볼륨 | 예 | 예 |
-> | netAppAccounts/capacityPools/볼륨/백업 | 아니오 | 아니오 |
-> | netAppAccounts/capacityPools/볼륨/mountTargets | 예 | 예 |
-> | netAppAccounts/capacityPools/볼륨/스냅숏 | 예 | 예 |
-> | netAppAccounts/자격 증명 모음 | 아니오 | 아니오 |
+> | netAppAccounts | 예 | 아니오 |
+> | netAppAccounts/capacityPools | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨 | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨/mountTargets | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨/스냅숏 | 예 | 아니오 |
+
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1771,7 +1769,7 @@ ms.locfileid: "74149220"
 > | containerGroups | 예 | 예 |
 > | gateways | 예 | 예 |
 > | networks | 예 | 예 |
-> | 비밀 | 예 | 예 |
+> | secrets | 예 | 예 |
 > | volumes | 예 | 예 |
 
 ## <a name="microsoftservices"></a>Microsoft 서비스

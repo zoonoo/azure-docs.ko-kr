@@ -6,18 +6,18 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 3e5937a036763fab57f9e37494ace33e8452b1f2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4f8863d706d623d613ac156cf202c3b7b12f2ae0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582263"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168433"
 ---
 # <a name="azure-hpc-cache-data-ingest---msrsync-method"></a>Azure HPC 캐시 데이터 수집-msrsync 메서드
 
-이 문서에서는 ``msrsync`` 유틸리티를 사용 하 여 Azure HPC 캐시에서 사용할 Azure Blob storage 컨테이너에 데이터를 복사 하는 방법에 대 한 자세한 지침을 제공 합니다.
+이 문서에서는 ``msrsync`` 유틸리티를 사용 하 여 azure HPC 캐시에서 사용할 Azure Blob storage 컨테이너에 데이터를 복사 하는 방법에 대 한 자세한 지침을 제공 합니다.
 
-Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 azure [Hpc 캐시로 Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
+Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 한 자세한 내용은 [Azure blob storage로 데이터 이동](hpc-cache-ingest.md)을 참조 하세요.
 
 ``msrsync`` 도구를 사용 하 여 Azure HPC 캐시의 백 엔드 저장소 대상으로 데이터를 이동할 수 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 https://github.com/jbd/msrsync에서 사용할 수 있습니다.
 
@@ -27,7 +27,7 @@ Azure HPC 캐시의 Blob 저장소로 데이터를 이동 하는 방법에 대 �
 
 ``msrsync``는 로컬 볼륨 간에만 쓸 수 있습니다. 원본 및 대상은 명령을 실행 하는 데 사용 되는 워크스테이션에서 로컬 탑재로 액세스할 수 있어야 합니다.
 
-다음 지침에 따라 ``msrsync``을 사용 하 여 azure HPC 캐시로 Azure Blob storage를 채웁니다.
+``msrsync``를 사용 하 여 azure HPC 캐시로 Azure Blob storage를 채우려면 다음 지침을 따르세요.
 
 1. ``msrsync`` 및 해당 필수 구성 요소 설치 (``rsync`` 및 Python 2.6 이상)
 1. 복사할 파일 및 디렉터리의 총 수를 결정합니다.

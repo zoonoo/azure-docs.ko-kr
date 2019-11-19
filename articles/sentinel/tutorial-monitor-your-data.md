@@ -12,20 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 3f5e01a0ceebac092084e339994161763a11c49b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: c5f4bd079fa215e3fbd4241f603aa29d19f7aad7
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240418"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158858"
 ---
-# <a name="tutorial-monitor-your-data"></a>자습서: 데이터 파이프라인을
+# <a name="tutorial-monitor-your-data"></a>자습서: 데이터 모니터링
 
 
 
- [데이터 원본을](quickstart-onboard.md) azure 센티널에 연결한 후에는 사용자 지정 대시보드를 만드는 다양 한 기능을 제공 하는 Azure Monitor 통합 문서와 azure 센티널 통합을 사용 하 여 데이터를 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure 센티널을 사용 하면 데이터에 대 한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결 하는 즉시 데이터를 신속 하 게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공 됩니다.
+ [데이터 원본](quickstart-onboard.md) 를 azure 센티널에 연결한 후에는 사용자 지정 대시보드를 만들 때 다양 한 기능을 제공 하는 Azure Monitor 통합 문서와 azure 센티널 통합을 사용 하 여 데이터를 모니터링할 수 있습니다. 통합 문서가 Azure 센티널에 다르게 표시 되는 반면 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 확인 하는 것이 유용할 수 있습니다. Azure Sentinel을 사용하면 데이터에 대한 사용자 지정 통합 문서를 만들 수 있으며 데이터 원본을 연결하는 즉시 데이터를 신속하게 파악할 수 있는 기본 제공 통합 문서 템플릿도 제공됩니다.
 
 
 이 자습서는 Azure 센티널의 데이터를 모니터링 하는 데 도움이 됩니다.
@@ -33,7 +33,7 @@ ms.locfileid: "71240418"
 > * 기본 제공 통합 문서 사용
 > * 새 통합 문서 만들기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 - Azure 센티널 작업 영역의 리소스 그룹에 대해 적어도 통합 문서 판독기 또는 통합 문서 참가자 권한이 있어야 합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "71240418"
 ## <a name="use-built-in-workbooks"></a>기본 제공 통합 문서 사용
 
 1. **통합** 문서로 이동한 다음 **템플릿** 을 선택 하 여 Azure 센티널 기본 제공 통합 문서의 전체 목록을 표시 합니다. 연결 된 데이터 형식과 관련 된 항목을 확인 하기 위해, 관련 데이터를 Azure 센티널에 이미 스트리밍하는 경우 각 통합 문서의 **필수 데이터 형식** 필드에는 녹색 확인 표시 옆의 데이터 형식이 나열 됩니다.
-  ![통합 문서로 이동](./media/tutorial-monitor-data/access-workbooks.png)
+  통합 문서로 이동 ![](./media/tutorial-monitor-data/access-workbooks.png)
 1. **통합 문서 보기** 를 클릭 하 여 데이터를 채운 템플릿을 확인 합니다.
   
 1. 통합 문서를 편집 하려면 **저장**을 선택한 다음 템플릿에 대 한 json 파일을 저장할 위치를 선택 합니다. 
@@ -62,7 +62,7 @@ ms.locfileid: "71240418"
 ## <a name="create-new-workbook"></a>새 통합 문서 만들기
 
 1. **통합 문서로 이동한** 다음 **통합 문서 추가** 를 선택 하 여 처음부터 새 통합 문서를 만듭니다.
-  ![통합 문서로 이동](./media/tutorial-monitor-data/create-workbook.png)
+  통합 문서로 이동 ![](./media/tutorial-monitor-data/create-workbook.png)
 
 1. 통합 문서를 편집 하려면 **편집**을 선택한 다음 필요에 따라 텍스트, 쿼리 및 매개 변수를 추가 합니다. 통합 문서를 사용자 지정 하는 방법에 대 한 자세한 내용은 [Azure Monitor 통합 문서를 사용 하 여 대화형 보고서를 만드는](../azure-monitor/app/usage-workbooks.md)방법을 참조 하세요. 
 
@@ -72,7 +72,7 @@ ms.locfileid: "71240418"
 
 1. 조직의 다른 사용자가 통합 문서를 사용할 수 있도록 하려면 저장에서 **공유 보고서** **를** 선택 합니다. 이 통합 문서를 사용할 수 있도록 하려면 **내 보고서**를 선택 합니다.
 
-1. 작업 영역의 통합 문서 간을 전환 하려면 모든 통합 문서의 위쪽 창에서 통합](./media/tutorial-monitor-data/switch.png)문서 **열기** ![를 선택할 수 있습니다. 오른쪽에 열리는 창에서 통합 문서 간을 전환 합니다.
+1. 작업 영역의 통합 문서 간을 전환 하려면 모든 통합 문서의 위쪽 창에서 **열기** ![통합 문서](./media/tutorial-monitor-data/switch.png)를 선택 하면 됩니다. 오른쪽에 열리는 창에서 통합 문서 간을 전환 합니다.
 
    ![통합 문서 전환](./media/tutorial-monitor-data/switch-workbooks.png)
 
@@ -81,10 +81,7 @@ ms.locfileid: "71240418"
 
 Azure 센티널 템플릿에서 만든 통합 문서를 삭제할 수 있습니다. 
 
-사용자 지정 통합 문서를 삭제 하려면:
-1.  **통합 문서 보기**를 선택 합니다.
-2.  위쪽에서 **열기** 를 선택 합니다.
-3.  통합 문서를 나열 하는 테이블에서 삭제 하려는 통합 문서에 대 한 줄에서 줄의 끝에 있는 점 세 개 (...)를 선택 합니다. 메뉴를 열고 **삭제**를 선택 합니다. 그러면 저장 된 통합 문서가 제거 됩니다.
+사용자 지정 통합 문서를 삭제 하려면 통합 문서 페이지에서 삭제 하려는 저장 된 통합 문서를 선택 하 고 **삭제**를 선택 합니다. 그러면 저장 된 통합 문서가 제거 됩니다.
 
 > [!NOTE]
 > 이렇게 하면 리소스 뿐만 아니라 템플릿에 대 한 모든 변경 내용이 제거 됩니다. 원본 템플릿은 사용 가능한 상태로 유지 됩니다.

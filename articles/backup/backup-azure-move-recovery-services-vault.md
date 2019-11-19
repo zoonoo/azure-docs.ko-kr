@@ -2,18 +2,14 @@
 title: 자격 증명 모음 Azure Backup Recovery Services 이동 하는 방법
 description: Azure 구독 및 리소스 그룹에서 recovery services 자격 증명 모음을 이동 하는 방법에 대 한 지침입니다.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: fb98ba8c393d28e7cdfb0b53cdd9ba11c171726f
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7d0a6c47fa08774161d3a2b7507cdfecaf8c7197
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969148"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172882"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Azure 구독 및 리소스 그룹 간에 Recovery Services 자격 증명 모음 이동
 
@@ -48,7 +44,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 복구 서비스 자격 증명 모음 및 연결된 해당 리소스를 다른 리소스 그룹으로 이동하려면
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Recovery Services 자격 증명 모음**의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
    ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)
@@ -77,7 +73,7 @@ Recovery Services 자격 증명 모음에 대 한 리소스 이동은 오스트�
 
 Recovery Services 자격 증명 모음 및 연결된 해당 리소스를 다른 구독으로 이동할 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Recovery Services 자격 증명 모음의 목록을 열고 이동하려는 자격 증명 모음을 선택합니다. 자격 증명 모음 대시보드가 열리면 다음 이미지에 표시된 것처럼 나타납니다.
 
     ![복구 서비스 자격 증명 모음 열기](./media/backup-azure-move-recovery-services/open-recover-service-vault.png)

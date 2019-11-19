@@ -1,18 +1,18 @@
 ---
 title: Azure 방화벽 로그 분석 샘플
-description: Azure 방화벽 로그 분석 샘플
+description: Azure Monitor 로그를 사용 하 여 Azure 방화벽을 분석할 수 있습니다. 샘플 파일은 Azure Monitor의 뷰 디자이너에서 빌드됩니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: a4ab1263abac67714357594e5bd87a4b910953b1
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 714054b8e538b2fb1bfb3fb4f2293636802f3bc4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033990"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168896"
 ---
 # <a name="azure-firewall-log-analytics-samples"></a>Azure 방화벽 로그 분석 샘플
 
@@ -30,7 +30,7 @@ ms.locfileid: "71033990"
 2. **일반** 아래에서 **뷰 디자이너**를 엽니다.
 3. **가져오기**를 클릭합니다.
 4. 이전에 다운로드한 **AzureFirewall.omsview** 파일을 찾아 선택합니다.
-5. **Save**을 클릭합니다.
+5. **저장**을 클릭합니다.
 
 애플리케이션 규칙 로그 데이터에 대한 뷰는 다음과 같이 표시됩니다.
 
@@ -168,4 +168,4 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure 방화벽 모니터링 및 진단에 대 한 자세한 내용은 [자습서: Azure 방화벽 로그 및 메트릭을](tutorial-diagnostics.md)모니터링 합니다.
+Azure Firewall 모니터링 및 진단에 대한 자세한 내용은 [자습서: Azure Firewall 로그 및 메트릭 모니터링](tutorial-diagnostics.md)을 참조하세요.

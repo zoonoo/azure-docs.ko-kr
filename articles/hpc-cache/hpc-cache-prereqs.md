@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: rohogue
-ms.openlocfilehash: ca7a12f45f8d907ee65df85e349883e4c14af47a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 406b77a428ec725a3d8d070bd60fcd4440a5cb92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582143"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166474"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -48,7 +48,9 @@ Azure HPC 캐시에는 다음과 같은 품질의 전용 서브넷이 필요 합
 * Azure Blob storage 끝점 및 기타 내부 리소스에 액세스 하려면 Azure 기반 DNS 서버가 필요 합니다.
 * 온-프레미스 저장소에 액세스 하려면 저장소 호스트 이름을 확인할 수 있는 사용자 지정 DNS 서버를 구성 해야 합니다.
 
-Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기본 Azure 제공 DNS 서버를 사용할 수 있습니다. 그러나 다른 리소스에 액세스 해야 하는 경우에는 사용자 지정 DNS 서버를 만들고 Azure DNS 서버에 대 한 모든 Azure 관련 확인 요청을 전달 하도록 구성 해야 합니다. (단순 DNS 서버를 사용 하 여 사용 가능한 모든 캐시 탑재 지점의 클라이언트 연결 부하를 분산할 수도 있습니다.)
+Blob 저장소에만 액세스 해야 하는 경우에는 캐시에 대 한 기본 Azure 제공 DNS 서버를 사용할 수 있습니다. 그러나 다른 리소스에 액세스 해야 하는 경우에는 사용자 지정 DNS 서버를 만들고 Azure DNS 서버에 대 한 모든 Azure 관련 확인 요청을 전달 하도록 구성 해야 합니다.
+
+또한 단순 DNS 서버를 사용 하 여 사용 가능한 모든 캐시 탑재 지점의 클라이언트 연결 부하를 분산할 수 있습니다.
 
 Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances)의 azure virtual NETWORK 및 DNS 서버 구성에 대해 자세히 알아보세요.
 
@@ -58,7 +60,9 @@ Azure 가상 네트워크 [의 리소스에 대 한 이름 확인](https://docs.
 
 * 캐시 인스턴스는 가상 Nic (네트워크 인터페이스)를 만들 수 있어야 합니다. 캐시를 만드는 사용자에 게는 Nic를 만들기 위해 구독에서 충분 한 권한이 있어야 합니다.
 
-* Blob storage를 사용 하는 경우 Azure HPC 캐시는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공할 수 있습니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자 라는 두 개의 역할이 필요 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
+* Blob storage를 사용 하는 경우 Azure HPC 캐시는 저장소 계정에 액세스 하기 위한 권한 부여가 필요 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 Blob 저장소에 대 한 캐시 액세스를 제공 합니다. 저장소 계정 참가자 및 저장소 Blob 데이터 참가자 라는 두 개의 역할이 필요 합니다.
+
+  [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 지침에 따라 역할을 추가 합니다.
 
 ## <a name="storage-infrastructure"></a>저장소 인프라
 
@@ -88,7 +92,7 @@ NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼
 캐시와 동일한 위치에 있는 저장소 계정을 사용 하는 것이 좋습니다.
 <!-- clarify location - same region or same resource group or same virtual network? -->
 
-또한 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 설명에 따라 액세스 역할 저장소 계정 참가자 및 저장소 Blob 데이터 참가자를 캐시에 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
+또한 위의 [권한](#permissions)에서 설명한 대로 Azure storage 계정에 대 한 캐시 응용 프로그램 액세스 권한을 부여 해야 합니다. [저장소 대상 추가](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) 의 절차에 따라 캐시에 필요한 액세스 역할을 제공 합니다. 저장소 계정 소유자가 아닌 경우 소유자가이 단계를 수행 하도록 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

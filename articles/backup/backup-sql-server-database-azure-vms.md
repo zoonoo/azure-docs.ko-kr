@@ -1,19 +1,15 @@
 ---
-title: Azure Vm에서 SQL Server 데이터베이스 백업 | Microsoft Docs
+title: Azure VM의 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure Backup를 사용 하 여 Azure virtual machines에서 SQL Server 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: a6752ffcf434b81c3013a2bd43c784bc92a8c1fe
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 3d6875d8c466400da79e1b749d11914b3bf77d86
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747164"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172113"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -29,7 +25,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 > * 데이터베이스를 검색 하 고 백업을 설정 합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 

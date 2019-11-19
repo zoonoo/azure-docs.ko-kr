@@ -1,18 +1,14 @@
 ---
-title: Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
+title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f0e4540f3f5ab3fdbb5953cbf100c5fdc2b2542a
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73621995"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172713"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 

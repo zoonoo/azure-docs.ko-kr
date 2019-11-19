@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d4c08802b9a19398e7968901974cad86d9d946a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120327"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167870"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "74120327"
 > [!NOTE]
 > G Suite 커넥터는 최근 2019 년 10 월에 업데이트 되었습니다. G Suite 커넥터에 대 한 변경 내용은 다음과 같습니다.
 - 추가 G Suite 사용자 및 그룹 특성에 대 한 지원이 추가 되었습니다. 
-- G Suite 대상 특성 이름이 [여기](/azure/active-directory/manage-apps/customize-application-attributes)에 정의 된 것과 일치 하도록 업데이트 되었습니다.
+- G Suite 대상 특성 이름이 [여기](https://developers.google.com/admin-sdk/directory)에 정의 된 것과 일치 하도록 업데이트 되었습니다.
 - 기본 특성 매핑을 업데이트 했습니다.
 
 ## <a name="prerequisites"></a>선행 조건
@@ -129,6 +129,9 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 > [!TIP]
 > G [Suite single sign-on 자습서](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-tutorial)에 제공 된 지침에 따라 g SUITE에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On은 자동 사용자 프로비전과 별개로 구성할 수 있습니다. 하지만 이 두 가지 기능은 서로 보완적입니다.
 
+> [!NOTE]
+> G Suite의 디렉터리 API 끝점에 대 한 자세한 내용은 [디렉터리 api](https://developers.google.com/admin-sdk/directory)를 참조 하세요.
+
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Azure AD에서 G Suite에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
@@ -196,15 +199,6 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 팔 로우 하 여 G Suite의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
-
-> [!NOTE]
-> G Suite에 대 한 사용자 프로 비전을 자동화 하는 다른 유용한 옵션은 [Google Cloud Directory Sync](https://support.google.com/a/answer/106368?hl=en)를 사용 하는 것입니다. 이 옵션은 온-프레미스 Active Directory id를 G Suite에 프로 비전 합니다.
-
-## <a name="common-issues"></a>일반적인 문제
-* G Suite를 사용 하려면 프로 비전 된 모든 사용자가 확인 된 도메인에 있어야 합니다. 프로 비전 하려는 모든 사용자에 게 G Suite의 확인 된 도메인에서 UPN이 있는지 확인 합니다. 확인 되지 않은 도메인의 사용자가 프로 비전 범위에 있는 경우 [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) 에 "GoogleAppsInvalidDomain"와 같은 오류가 표시 됩니다. 이러한 오류를 방지 하 고 확인 되지 않은 도메인의 사용자가 범위 지정 [필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 사용 하 여 범위를 벗어나지 않도록 할 수 있습니다.
-    * 대상 특성: userPrincipalName
-    * 연산자: REGEX 일치 또는 REGEX 일치 하지 않음
-    * 값:. *@domain.com
 
 ## <a name="additional-resources"></a>추가 리소스
 

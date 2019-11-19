@@ -1,25 +1,20 @@
 ---
-title: Azure Backup 및 PowerShell을 사용 하 여 Azure Files 백업 및 복원
+title: PowerShell을 사용 하 여 Azure Files 백업 및 복원
 description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 백업 하 고 복원 하는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.reviewer: pullabhk
-ms.openlocfilehash: 4642549dcdd455c97ea3e8fd8a8b5440779b923c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 18c7340d1cb782ba41c472156259170f37139a74
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903623"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173487"
 ---
 # <a name="back-up-and-restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 백업 및 복원
 
 이 문서에서는 Azure PowerShell를 사용 하 여 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 사용 하 여 Azure Files 파일 공유를 백업 하 고 복구 하는 방법을 설명 합니다.
 
-이 자습서에서는 다음을 수행하는 방법을 설명합니다.
+이 문서에서는 다음 작업을 수행하는 방법을 설명합니다.
 
 > [!div class="checklist"]
 >

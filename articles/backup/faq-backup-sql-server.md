@@ -1,19 +1,15 @@
 ---
-title: FAQ-Azure Vm에서 SQL Server 데이터베이스 백업-Azure Backup
+title: FAQ-Azure Vm에서 SQL Server 데이터베이스 백업
 description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베이스를 백업 하는 방법에 대 한 일반적인 질문과 대답을 찾습니다.
 ms.reviewer: vijayts
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.author: dacurwin
-ms.openlocfilehash: d9272aa4a46a5835558be8c695b62ec0770e3827
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074054"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172027"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 

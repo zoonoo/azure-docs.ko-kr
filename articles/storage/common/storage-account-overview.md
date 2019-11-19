@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 308809a9b78de9d3c0e77ed6028e62c42ff4e1c5
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: f1b2bdcecac0aade21c6c770b2495a1e15ba9bc5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882580"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74174020"
 ---
 # <a name="azure-storage-account-overview"></a>Azure Storage 계정 개요
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 HTTP 또는 HTTPS를 통해 전 세계 어디에서 나 액세스할 수 있는 Azure Storage 데이터에 대 한 고유한 네임 스페이스를 제공 합니다. Azure storage 계정의 데이터는 지속적이 고 항상 사용 가능 하며 안전 하며 대규모 확장 가능 합니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
 Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](storage-quickstart-create-account.md)를 참조하세요.
 
@@ -30,6 +30,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 스토리지 계정은 다음 Azure Storage 서비스를 지원합니다.
 
 - Blob(모든 유형: 블록, 추가, 페이지)
+- Data Lake Gen2
 - 파일
 - 디스크
 - 큐
@@ -58,7 +59,7 @@ Azure Storage 계정을 만드는 방법은 [스토리지 계정 만들기](stor
 
 * 애플리케이션이 트랜잭션이 많거나 상당한 지역 복제 대역폭을 사용하지만 대용량이 필요하지는 않습니다. 이 경우 범용 v1이 가장 경제적인 선택이 될 수 있습니다.
 
-* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 또는 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
+* 2014-02-14 이전 버전인 [Storage 서비스 REST API](https://msdn.microsoft.com/library/azure/dd894041.aspx) 나, 4.x 미만인 클라이언트 라이브러리를 사용하며 애플리케이션을 업그레이드할 수 없습니다.
 
 ### <a name="blockblobstorage-accounts"></a>BlockBlobStorage 계정
 

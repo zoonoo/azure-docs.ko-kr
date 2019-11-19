@@ -1,17 +1,17 @@
 ---
-title: Azure SignalR Service에 대해 여러 인스턴스를 사용 하 여 크기를 조정 하는 방법
+title: 여러 인스턴스를 사용 하 여 크기 조정-Azure SignalR Service
 description: 많은 크기 조정 시나리오에서 고객은 여러 인스턴스를 프로 비전 하 고이를 함께 사용 하 여 대규모 배포를 만들도록 구성 해야 하는 경우가 많습니다. 예를 들어 분할에는 여러 인스턴스가 지원 되어야 합니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 1e31bc4133cced793d793c07d2e0ee3df29efddb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672327"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158167"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>여러 인스턴스를 사용 하 여 SignalR 서비스를 확장 하는 방법
 최신 SignalR 서비스 SDK는 SignalR 서비스 인스턴스에 대 한 여러 끝점을 지원 합니다. 이 기능을 사용 하 여 동시 연결의 크기를 조정 하거나 지역 간 메시징에 사용할 수 있습니다.

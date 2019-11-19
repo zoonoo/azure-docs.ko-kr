@@ -1,17 +1,17 @@
 ---
 title: Azure SignalR Service 내부 기능
-description: Azure SignalR Service 내부 기능에 대한 개요입니다.
+description: Azure SignalR 서비스 내부, 아키텍처, 연결 및 데이터 전송 방법에 대해 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: cbcdfccfdca1dbed3b766b3f50295b1d355b3478
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 62afa5ee6993aa1bb3c7b5926e5320ab1fa510a2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401767"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157604"
 ---
 # <a name="azure-signalr-service-internals"></a>Azure SignalR Service 내부 기능
 

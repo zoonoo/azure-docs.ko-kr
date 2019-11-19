@@ -1,19 +1,14 @@
 ---
 title: Azure Stack에서 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 Azure Stack에 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
-ms.reviewer: adigan
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.author: dacurwin
-ms.openlocfilehash: c15f3f899b856cb715406bf0e2f95914cd58cca0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 06d64be4f09c6fb6ed9dee34a0c7ba0b1bd785e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091664"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172504"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Azure Stack에서 SharePoint 팜 백업
 

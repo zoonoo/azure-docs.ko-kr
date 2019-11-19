@@ -1,20 +1,20 @@
 ---
 title: Azure 방화벽 로그 및 메트릭 개요
-description: 이 문서는 Azure 방화벽 진단 로그 및 메트릭에 대 한 개요입니다.
+description: 방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: fea00358fc21cf6f57673e14ebd0feafe532b620
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f233b1a60202b440abf34edd1c56eebaecba18e2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876551"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166994"
 ---
-# <a name="azure-firewall-logs-and-metrics"></a>Azure 방화벽 로그 및 메트릭
+# <a name="azure-firewall-logs-and-metrics"></a>Azure Firewall 로그 및 메트릭
 
 방화벽 로그를 사용하여 Azure Firewall을 모니터링할 수 있습니다. 또한 Azure Firewall 리소스에서 작업을 감사하려면 활동 로그를 사용할 수 있습니다.
 
@@ -75,9 +75,9 @@ ms.locfileid: "69876551"
 
 로그 저장에는 세 가지 옵션이 있습니다.
 
-* **스토리지 계정**: 로그를 장기간 스토리지하고 필요할 때 검토하는 경우에 가장 적합합니다.
-* **Event Hubs**: 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
-* **Azure Monitor 로그**: Azure Monitor 로그는 일반적으로 애플리케이션을 실시간으로 모니터링하거나 추세를 파악하는 데 가장 적합합니다.
+* **Storage 계정** - 로그를 장기간 저장하고 필요할 때 검토하는 경우에 가장 적합합니다.
+* **이벤트 허브** - 다른 SEIM(보안 정보 및 이벤트 관리) 도구와 통합하여 리소스에 대한 알림을 얻을 수 있는 좋은 옵션입니다.
+* **Azure Monitor 로그**: Azure Monitor 로그는 응용 프로그램의 일반적인 실시간 모니터링 또는 추세를 확인 하는 데 가장 적합 합니다.
 
 ## <a name="activity-logs"></a>활동 로그
 
@@ -85,7 +85,7 @@ ms.locfileid: "69876551"
 
    [Azure 활동 로그](../azure-resource-manager/resource-group-audit.md) (이전의 작업 로그 및 감사 로그)를 사용 하 여 azure 구독에 제출 된 모든 작업을 볼 수 있습니다.
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>메트릭
 
 Azure Monitor 메트릭은 특정 시간에 시스템의 일부 측면을 설명 하는 숫자 값입니다. 메트릭은 1 분 마다 수집 되며 자주 샘플링 될 수 있으므로 경고에 유용 합니다. 비교적 간단한 논리를 사용 하 여 경고를 신속 하 게 발생 시킬 수 있습니다.
 
@@ -108,7 +108,7 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
     단위:%
 
    이 메트릭에는 두 개의 차원이 있습니다.
-  - **상태**: 가능한 값은 *정상*, *성능 저하*, *비정상*입니다.
+  - **상태**: 가능한 값은 *정상*, *저하*됨, *비정상*입니다.
   - **이유**: 방화벽의 해당 상태에 대 한 이유를 나타냅니다. 예를 들어 방화벽 상태가 저하 됨 또는 비정상 인 경우 *SNAT 포트* 를 나타낼 수 있습니다.
 
 
@@ -124,6 +124,6 @@ Azure 방화벽에 사용할 수 있는 메트릭은 다음과 같습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure 방화벽 로그 및 메트릭을 모니터링 하는 방법에 대 한 [자세한 내용은 자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.
+- Azure Firewall 로그 및 메트릭을 모니터링하는 방법은 [자습서: Azure Firewall 로그 모니터링](tutorial-diagnostics.md)을 참조하세요.
 
 - Azure Monitor의 메트릭에 대 한 자세한 내용은 [Azure Monitor의 메트릭](../azure-monitor/platform/data-platform-metrics.md)을 참조 하세요.

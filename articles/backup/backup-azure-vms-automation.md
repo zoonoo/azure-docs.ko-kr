@@ -1,18 +1,14 @@
 ---
-title: PowerShell을 사용 하 여 Azure Backup를 사용 하 여 Azure Vm 백업 및 복구
+title: PowerShell을 사용 하 여 Azure Vm 백업 및 복구
 description: PowerShell과 함께 Azure Backup를 사용 하 여 Azure Vm을 백업 및 복구 하는 방법을 설명 합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 91e71e2ab4c028e44f667133237cefb2263ae49a
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 7afa791c4a98ca5e40c0ee3983ba8650268c00ee
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969069"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172541"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>PowerShell을 사용 하 여 Azure Vm 백업 및 복원
 
@@ -21,6 +17,7 @@ ms.locfileid: "72969069"
 이 문서에서는 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * Recovery Services 자격 증명 모음을 만들고 자격 증명 모음 컨텍스트를 설정합니다.
 > * 백업 정책 정의
 > * 여러 가상 머신을 보호하기 위해 백업 정책 적용
@@ -29,7 +26,7 @@ ms.locfileid: "72969069"
 ## <a name="before-you-start"></a>시작하기 전에
 
 * Recovery Services 자격 증명 모음에 대해 [자세히 알아보세요](backup-azure-recovery-services-vault-overview.md) .
-* Azure VM 백업에 대 한 아키텍처를 [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) 하 고, 백업 프로세스 [에 대해 알아보고](backup-azure-vms-introduction.md) , 지원, 제한 사항 및 필수 구성 요소를 [검토](backup-support-matrix-iaas.md) 합니다.
+* Azure VM 백업에 대 한 아키텍처를 [검토](backup-architecture.md#architecture-built-in-azure-vm-backup) 하 고, 백업 프로세스 [에 대해 알아보고](backup-azure-vms-introduction.md) , 지원, 제한 사항 및 필수 구성 요소를 [검토](backup-support-matrix-iaas.md) 합니다.
 * Recovery Services에 대 한 PowerShell 개체 계층 구조를 검토 합니다.
 
 ## <a name="recovery-services-object-hierarchy"></a>Recovery Services 개체 계층 구조
@@ -152,7 +149,7 @@ $targetVault = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" 
 $targetVault.ID
 ```
 
-or
+또는
 
 ```powershell
 $targetVaultID = Get-AzRecoveryServicesVault -ResourceGroupName "Contoso-docs-rg" -Name "testvault" | select -ExpandProperty ID
@@ -666,7 +663,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
    * **Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM** - Azure AD를 포함하며 BEK 및 KEK를 사용하여 암호화된 관리형 VM의 경우에는 복원된 관리 디스크를 연결합니다. 자세한 내용은 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
-   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek만 해당)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek만 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/암호를 사용할 수 없는** 경우 복원의 절차를 사용 하 여 key vault에 비밀 [ Azure Backup 복구 지점에서 암호화 되지 않은 가상 컴퓨터](backup-azure-restore-key-secret.md). 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
+   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek만 해당)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek만 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/암호를 사용할 수 없는** 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 사용 하 여 key vault에 비밀을 복원 합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl을 가져올 수 있습니다.
 
      아래 스크립트는 원본 키 자격 증명 모음/비밀을 사용할 수 없을 때만 실행하면 됩니다.  
 
@@ -680,7 +677,7 @@ New-AzResourceGroupDeployment -Name ExampleDeployment ResourceGroupName ExampleR
 
      OS 디스크에서 암호화 세부 정보가 설정되고 비밀이 사용 가능해진 후에 복원된 관리 디스크를 연결하려면 [PowerShell을 사용하여 Windows VM에 데이터 디스크 연결](../virtual-machines/windows/attach-disk-ps.md)을 참조하세요.
 
-   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek 및 KEK)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek & KEK를 사용 하 여 암호화 됨)의 경우, 원본 키 **자격 증명 모음/키/암호를 사용할 수 없는** 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 컴퓨터를 복원](backup-azure-restore-key-secret.md)합니다. 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
+   * **AZURE ad가 없는 관리 되 고 암호화 된 vm (bek 및 KEK)** -azure ad가 없는 관리 되 고 암호화 된 VM (bek & KEK를 사용 하 여 암호화 됨)의 경우 원본 키 **자격 증명 모음/키/암호를 사용할 수** 없는 경우 [Azure Backup 복구 지점에서 암호화 되지 않은 가상 머신 복원](backup-azure-restore-key-secret.md)의 절차를 사용 하 여 키 및 비밀을 key vault에 복원 그런 후에 다음 스크립트를 실행하여 복원된 OS 디스크에서 암호화 세부 정보를 설정합니다. 데이터 디스크의 경우에는 이 단계를 수행하지 않아도 됩니다. 복원된 키 자격 증명 모음에서 $dekurl 및 $kekurl을 가져올 수 있습니다.
 
    아래 스크립트는 원본 키 자격 증명 모음/키/비밀을 사용할 수 없을 때만 실행하면 됩니다.
 

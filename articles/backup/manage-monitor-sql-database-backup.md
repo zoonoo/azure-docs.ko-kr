@@ -1,18 +1,14 @@
 ---
-title: Azure VM에서 SQL Server Db 관리 및 모니터링-Azure Backup
+title: Azure VM에서 SQL Server Db 관리 및 모니터링
 description: 이 문서에서는 Azure VM에서 실행 되는 SQL Server 데이터베이스를 관리 하 고 모니터링 하는 방법을 설명 합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.author: dacurwin
-ms.openlocfilehash: 1aba8777a5b0f5851922e292004a74d74065eabf
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 4daf068e97a08d1a611ef64cb64569cacd5d7420
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090538"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172152"
 ---
 # <a name="manage-and-monitor-backed-up-sql-server-databases"></a>백업한 SQL Server 데이터베이스 관리 및 모니터링
 

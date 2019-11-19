@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: REST API를 사용하여 백업 정책 만들기'
+title: REST API를 사용 하 여 백업 정책 만들기
 description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일정 및 보존)을 만들고 관리 하는 방법에 대해 설명 합니다.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: REST API; Azure VM 백업; Azure VM 복원;
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/21/2018
-ms.author: dacurwin
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 7d44f99a9f2a5bfb3d3a04fe5355f7b1dc13c404
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747600"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173429"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
@@ -50,10 +44,10 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|Name  |필수  |형식  |설명  |
+|이름  |필수  |형식  |설명  |
 |---------|---------|---------|---------|
-|properties     |   True      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
-|tags     |         | Object        |  리소스 태그       |
+|properties     |   true      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|태그     |         | Object        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)를 참조하세요.
 
@@ -152,13 +146,13 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 > [!IMPORTANT]
 > 일정 및 보존에 대한 시간 형식은 날짜/시간만 지원하고 시간 형식만 따로 지원하지 않습니다.
 
-## <a name="responses"></a>응답
+## <a name="responses"></a>Responses
 
 백업 정책 만들기/업데이트는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|Name  |형식  |설명  |
+|이름  |형식  |설명  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |

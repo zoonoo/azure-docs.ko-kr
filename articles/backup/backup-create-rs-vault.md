@@ -1,20 +1,15 @@
 ---
-title: 'Azure Backup: Recovery Services 자격 증명 모음 만들기'
+title: Recovery Services 자격 증명 모음 만들기
 description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recovery Services 자격 증명 모음을 만드는 방법에 대해 알아봅니다.
 ms.reviewer: sogup
-author: dcurwin
-manager: carmonm
-keywords: Recovery Services 자격 증명 모음 Azure VM 백업 Azure VM 복원
-ms.service: backup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: dacurwin
-ms.openlocfilehash: 30e2f8812b14f27b57ef22e30aea89f19fa56e58
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074872"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172420"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 

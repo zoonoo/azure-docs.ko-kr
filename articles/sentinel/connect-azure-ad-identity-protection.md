@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/17/2019
 ms.author: rkarlin
-ms.openlocfilehash: 5dae8c4da46c750f69057f33d593f5bb7396a99e
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 5d73ce12d509b2ccc534e19a27124980f3b60044
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72882248"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158892"
 ---
 # <a name="connect-data-from-azure-ad-identity-protection"></a>Azure AD ID 보호에서 데이터 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "72882248"
 [Azure AD ID 보호](https://docs.microsoft.com/azure/information-protection/reports-aip) 에서 azure 센티널로 로그를 스트리밍하 여 대시보드를 보고, 사용자 지정 경고를 만들고, 조사를 개선할 수 있습니다. Azure Active Directory Identity Protection 위험 사용자, 위험 검색 및 취약성에 대 한 통합 보기를 제공 하며, 위험을 즉시 수정 하 고 향후 이벤트를 자동 수정 하도록 정책을 설정할 수 있습니다. 이 서비스는 고객 id를 보호 하는 Microsoft의 경험을 바탕으로 구축 되었으며 하루에 130억 대 이상의 로그에서 발생 하는 신호의 정확성을 향상 시킵니다. 
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - [Azure Active Directory Premium P1 또는 P2 라이선스가](https://azure.microsoft.com/pricing/details/active-directory/) 있어야 합니다.
 - 전역 관리자 또는 보안 관리자 권한이 있는 사용자
@@ -46,7 +46,7 @@ Azure AD ID 보호 배포 되 고 데이터를 가져오는 경우 경고 데이
 2. **연결** 을 클릭 하 여 Azure 센티널로 Azure AD ID 보호 이벤트 스트리밍을 시작 합니다.
 
 
-6. Azure AD ID 보호 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **IdentityProtectionLogs_CL**를 검색 합니다.
+6. Azure AD ID 보호 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Securityalert**를 검색 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Azure AD ID 보호를 Azure 센티널에 연결 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.

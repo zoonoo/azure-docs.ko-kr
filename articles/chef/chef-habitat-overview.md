@@ -2,18 +2,14 @@
 title: Habitat 사용하여 Azure에 애플리케이션 배포
 description: 애플리케이션을 Azure 가상 머신 및 컨테이너에 일관되게 배포하는 방법을 알아봅니다
 keywords: azure, chef, devops, 가상 머신, 개요, 자동화, habitat
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: 2bdcd4c504822a2e60156b0ac565465e0cf23a85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: de444836c04d1d37a19a006ce4eafdcae867ca5a
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60388814"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158065"
 ---
 # <a name="use-habitat-to-deploy-your-application-to-azure"></a>Habitat 사용하여 Azure에 애플리케이션 배포
 [Habitat](https://www.habitat.sh/)는 애플리케이션 및 해당 자동화를 배포 단위로 번들하는 애플리케이션 패키징 및 런타임 시스템입니다. 이렇게 하면 최고의 애플리케이션 이식성이 생성되므로 애플리케이션을 다시 작성하거나 패키지하지 않고 컨테이너, 가상 머신, 완전 복구 또는 PaaS에 배포할 수 있습니다.

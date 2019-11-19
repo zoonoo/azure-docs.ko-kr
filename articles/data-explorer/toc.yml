@@ -21,7 +21,7 @@
           href: end-to-end-csharp.md
         - name: Python
           href: end-to-end-python.md
-    - name: 코드를 사용하지 않고 데이터 수집
+    - name: 모니터링 데이터 수집 및 쿼리
       href: ingest-data-no-code.md
     - name: Power BI에서 데이터 시각화
       href: visualize-power-bi.md

@@ -5,20 +5,20 @@ services: signalr
 author: chenyl
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 06/12/2019
+ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: 100c7120889f88c1bab3418822835e8d4ece9826
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839287"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158205"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Azure SignalR Service에서 Event Grid로 이벤트를 보내는 방법
 
 Azure Event Grid는 pub-sub 모델을 사용 하 여 균일 한 이벤트 소비를 제공 하는 완전히 관리 되는 이벤트 라우팅 서비스입니다. 이 가이드에서는 Azure CLI를 사용 하 여 Azure SignalR 서비스를 만들고, 연결 이벤트를 구독 하 고, 이벤트를 수신 하는 샘플 웹 응용 프로그램을 배포 합니다. 마지막으로 샘플 응용 프로그램에서 연결 하 고 연결을 끊고 이벤트 페이로드를 볼 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][azure-account] 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -141,7 +141,7 @@ az eventgrid event-subscription create \
 
 ## <a name="trigger-registry-events"></a>레지스트리 이벤트 트리거
 
-서비스 모드로 `Serverless Mode` 전환 하 고 SignalR 서비스에 대 한 클라이언트 연결을 설정 합니다. 서버를 사용 하지 않는 [샘플](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) 을 참조로 사용할 수 있습니다.
+서비스 모드로 전환 하 여 SignalR 서비스에 대 한 클라이언트 연결을 `Serverless Mode` 하 고 설정 합니다. 서버를 사용 하지 않는 [샘플](https://github.com/aspnet/AzureSignalR-samples/tree/master/samples/Serverless) 을 참조로 사용할 수 있습니다.
 
 ```bash
 git clone git@github.com:aspnet/AzureSignalR-samples.git
@@ -162,7 +162,7 @@ dotnet run
 
 ## <a name="view-registry-events"></a>레지스트리 이벤트 보기
 
-이제 클라이언트가 SignalR 서비스에 연결 되었습니다. Event Grid Viewer 웹 앱으로 이동 하면 `ClientConnectionConnected` 이벤트가 표시 됩니다. 클라이언트를 종료 하면 `ClientConnectionDisconnected` 이벤트도 표시 됩니다.
+이제 클라이언트가 SignalR 서비스에 연결 되었습니다. Event Grid Viewer 웹 앱으로 이동 하면 `ClientConnectionConnected` 이벤트가 표시 됩니다. 클라이언트를 종료 하는 경우 `ClientConnectionDisconnected` 이벤트도 표시 됩니다.
 
 <!-- LINKS - External -->
 [azure-account]: https://azure.microsoft.com/free/?WT.mc_id=A261C142F

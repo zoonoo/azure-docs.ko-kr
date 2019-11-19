@@ -1,22 +1,22 @@
 ---
 title: Azure 방화벽 위협 인텔리전스 기반 필터링
-description: Azure 방화벽 위협 인텔리전스 필터링에 대해 알아보기
+description: 방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: f6a60d7c29fc7e482e32233aa86d65a801e3f55c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c291dbe9c1eb37e68174a2353e296a376c7d0896
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582245"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168664"
 ---
 # <a name="azure-firewall-threat-intelligence-based-filtering"></a>Azure 방화벽 위협 인텔리전스 기반 필터링
 
-방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence) Microsoft 위협 인텔리전스를 구동 하 고 Azure Security Center를 비롯 한 여러 서비스에서 사용 됩니다.
+방화벽에서 알려진 악성 IP 주소 및 도메인과 주고받는 트래픽을 경고하고 거부할 수 있도록 하기 위해 위협 인텔리전스 기반 필터링을 사용하도록 설정할 수 있습니다. IP 주소 및 도메인은 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/en-us/security/operations/intelligence)는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
 
 ![방화벽 위협 인텔리전스](media/threat-intel/firewall-threat.png)
 

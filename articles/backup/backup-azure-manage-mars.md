@@ -1,21 +1,17 @@
 ---
-title: 에이전트 백업 Microsoft Azure Recovery Services & 모니터 관리
-description: Azure Backup 서비스를 사용 하 여 Microsoft Azure Recovery Services 에이전트 백업을 관리 하 고 모니터링 하는 방법을 알아봅니다.
+title: MARS 에이전트 백업 관리 및 모니터링
+description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업을 관리 하 고 모니터링 하는 방법에 대해 알아봅니다.
 ms.reviewer: srinathv
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.author: dacurwin
-ms.openlocfilehash: 756fd720b468681b8ea31dc867cfdb6e44c0bb0a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: edb672f97f467378176bf6cdf04fe8e22cc5e51b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075004"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173077"
 ---
-# <a name="manage-microsoft-azure-recovery-services-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 Microsoft Azure Recovery Services 에이전트 백업 관리
+# <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
 이 문서에서는 Microsoft Azure Recovery Services 에이전트를 사용 하 여 백업 되는 파일 및 폴더를 관리 하는 방법을 설명 합니다.
 

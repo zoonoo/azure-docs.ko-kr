@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c016ce349acdfff6145286d9fc07e08db4ed9516
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 5a188349e15c5e4c486d37daed9f8b611a325dcf
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882823"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167320"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -93,7 +93,8 @@ Windows 10 도메인 가입 장치가 테 넌 트에 [등록 된 azure](overview
 - 이 레지스트리 키 (HKLM\SOFTWARE\Policies\Microsoft\Windows\WorkplaceJoin, "BlockAADWorkplaceJoin" = dword: 00000001)를 추가 하 여 도메인 가입 장치가 Azure AD에 등록 되지 않도록 할 수 있습니다.
 - Windows 10 1803에서 비즈니스용 Windows Hello가 구성 된 경우 사용자는 이중 상태 정리 후 비즈니스용 Windows Hello를 다시 설정 해야 합니다. 이 문제는 KB4512509로 해결 되었습니다.
 
-
+> [!NOTE]
+> Azure AD 등록 장치는 Intune에서 관리 되는 경우 자동으로 제거 되지 않습니다.
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>하이브리드 Azure AD 조인에 대 한 제어 된 유효성 검사 검토
 

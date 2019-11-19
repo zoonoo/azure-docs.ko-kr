@@ -8,20 +8,20 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/07/2018
 ms.author: babanisa
-ms.openlocfilehash: 0195ce82396a7b05335242a38a2881e1b2d1afb3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61436601"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170241"
 ---
-# <a name="use-cloudevents-schema-with-event-grid"></a>Event Grid에서 CloudEvents 스키마 사용
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
 
-[기본 이벤트 스키마](event-schema.md) 외에, Azure Event Grid는 기본적으로 [CloudEvents JSON 스키마](https://github.com/cloudevents/spec/blob/master/json-format.md)의 이벤트를 지원합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/master/spec.md)입니다.
+[기본 이벤트 스키마](event-schema.md)외에도 Azure Event Grid는 [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩의](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)JSON 구현에서 이벤트를 기본적으로 지원 합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. 현재, 버전 0.1로 제공됩니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://github.com/cloudevents/spec/blob/master/community/contributors.md)을 통해 Microsoft를 포함한 여러 [협력자](https://www.cncf.io/)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 
@@ -37,45 +37,31 @@ CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니
 
 ``` JSON
 {
-    "cloudEventsVersion" : "0.1",
-    "eventType" : "Microsoft.Storage.BlobCreated",
-    "eventTypeVersion" : "",
-    "source" : "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}#blobServices/default/containers/{storage-container}/blobs/{new-file}",
-    "eventID" : "173d9985-401e-0075-2497-de268c06ff25",
-    "eventTime" : "2018-04-28T02:18:47.1281675Z",
-    "data" : {
-      "api": "PutBlockList",
-      "clientRequestId": "6d79dbfb-0e37-4fc4-981f-442c9ca65760",
-      "requestId": "831e1650-001e-001b-66ab-eeb76e000000",
-      "eTag": "0x8D4BCC2E4835CD0",
-      "contentType": "application/octet-stream",
-      "contentLength": 524288,
-      "blobType": "BlockBlob",
-      "url": "https://oc2d2817345i60006.blob.core.windows.net/oc2d2817345i200097container/oc2d2817345i20002296blob",
-      "sequencer": "00000000000004420000000000028963",
-      "storageDiagnostics": {
-        "batchId": "b68529f3-68cd-4744-baa4-3c0498ec19f0"
-      }
+    "specversion": "1.0",
+    "type": "Microsoft.Storage.BlobCreated",  
+    "source": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.Storage/storageAccounts/{storage-account}",
+    "id": "9aeb0fdf-c01e-0131-0922-9eb54906e209",
+    "time": "2019-11-18T15:13:39.4589254Z",
+    "subject": "blobServices/default/containers/{storage-container}/blobs/{new-file}",
+    "dataschema": "#",
+    "data": {
+        "api": "PutBlockList",
+        "clientRequestId": "4c5dd7fb-2c48-4a27-bb30-5361b5de920a",
+        "requestId": "9aeb0fdf-c01e-0131-0922-9eb549000000",
+        "eTag": "0x8D76C39E4407333",
+        "contentType": "image/png",
+        "contentLength": 30699,
+        "blobType": "BlockBlob",
+        "url": "https://gridtesting.blob.core.windows.net/testcontainer/{new-file}",
+        "sequencer": "000000000000000000000000000099240000000000c41c18",
+        "storageDiagnostics": {
+            "batchId": "681fe319-3006-00a8-0022-9e7cde000000"
+        }
     }
 }
 ```
 
-CloudEvents v0.1에서는 다음과 같은 속성을 사용할 수 있습니다.
-
-| CloudEvents        | Type     | 예제 JSON 값             | 설명                                                        | Event Grid 매핑
-|--------------------|----------|--------------------------------|--------------------------------------------------------------------|-------------------------
-| eventType          | String   | "com.example.someevent"          | 발생한 이벤트 유형                                   | eventType
-| eventTypeVersion   | String   | "1.0"                            | eventType 버전(선택 사항)                            | dataVersion
-| cloudEventsVersion | String   | "0.1"                            | 이벤트가 사용하여 CloudEvents 사양 버전        | *통과*
-| source             | URI      | "/mycontext"                     | 이벤트 생산자를 설명합니다.                                       | topic#subject
-| eventID            | String   | "1234-1234-1234"                 | 이벤트의 ID                                                    | id
-| eventTime          | 타임 스탬프| "2018-04-05T17:31:00Z"           | 이벤트가 발생한 때의 타임스탬프(선택 사항)                    | eventTime
-| schemaURL          | URI      | "https:\//myschema.com"           | 데이터 특성이 준수하는 스키마에 대한 링크(선택 사항) | *사용되지 않음*
-| contentType        | String   | "application/json"               | 데이터 인코딩 형식을 설명합니다(선택 사항).                       | *사용되지 않음*
-| 확장         | 지도      | { "extA": "vA", "extB", "vB" }  | 추가 메타데이터(선택 사항)                                 | *사용되지 않음*
-| 데이터               | Object   | { "objA": "vA", "objB", "vB" }  | 이벤트 페이로드(선택 사항)                                       | 데이터
-
-자세한 내용은 [CloudEvents 사양](https://github.com/cloudevents/spec/blob/master/spec.md#context-attributes)을 참조하세요.
+사용 가능한 필드, 해당 형식 및 CloudEvents v 0.1의 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
 
 `content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 
@@ -154,7 +140,7 @@ New-AzureRmEventGridSubscription `
   -DeliverySchema CloudEventV01Schema
 ```
 
-현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마용으로 구성된 이벤트 구독은 각 이벤트를 개별적으로 수신합니다. 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
+ 현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

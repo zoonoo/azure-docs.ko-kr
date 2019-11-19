@@ -1,19 +1,15 @@
 ---
-title: Azure의 데이터를 Windows server로 복원-Azure Backup
+title: Azure의 데이터를 Windows server로 복원
 description: 이 문서에서는 Microsoft Azure Recovery Services (MARS) 에이전트를 사용 하 여 Azure에 저장 된 데이터를 Windows server 또는 Windows 컴퓨터에 복원 하는 방법에 대해 알아봅니다.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.author: dacurwin
-ms.openlocfilehash: 4d9ab47d83caadda9046481c15dfb6af18aee146
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4d663739f25762723fc3a8f566c4b5ef3f957338
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012188"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172779"
 ---
 # <a name="restore-files-to-windows-by-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 Windows에 파일 복원
 

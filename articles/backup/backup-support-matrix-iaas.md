@@ -1,18 +1,14 @@
 ---
-title: Azure VM Backup의 Azure Backup 지원 매트릭스
+title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: f699315855dc27fd70fdb60574414ef87037671f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 8f84d7fefd2affc3a3c47227ab6f2a2d0b325f4e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953260"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172085"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -28,7 +24,7 @@ ms.locfileid: "73953260"
 
 다음은 Azure Backup 서비스를 사용하여 Azure VM을 백업 및 복원하는 방법입니다.
 
-**시나리오** | **Backup** | **에이전트** |**Restore**
+**시나리오** | **Backup** | **에이전트** |**복원**
 --- | --- | --- | ---
 Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
 Azure Vm의 직접 백업 (Windows에만 해당)  | 특정 파일/폴더/볼륨을 백업 합니다. | [Azure Recovery Services 에이전트](backup-azure-file-folder-backup-faq.md)를 설치 합니다.<br/><br/> 파일/폴더 수준에서 VM을 백업하려면 Azure VM 에이전트에 대한 백업 확장과 함께 MARS 에이전트를 실행할 수 있습니다. | 특정 폴더/파일을 복원합니다.
@@ -65,6 +61,8 @@ VM의 백업 정책 수정 | 지원됩니다.<br/><br/> 새 정책의 일정 및
 Azure VM 에이전트 확장을 사용하는 백업 | -Windows 10 클라이언트 (64 비트만 해당) <br/><br/>-Windows Server 2019 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2016 (Datacenter/Datacenter Core/Standard) <br/><br/> -Windows Server 2012 R2 (Datacenter/Standard) <br/><br/> -Windows Server 2008 R2 (RTM 및 SP1 Standard)
 MARS 에이전트를 사용하여 백업 | [지원되는](backup-support-matrix-mars-agent.md#support-for-direct-backups) 운영 체제
 DPM/MABS를 사용 하 여 백업 | [MABS](backup-mabs-protection-matrix.md) 및 [DPM](https://docs.microsoft.com/system-center/dpm/dpm-protection-matrix?view=sc-dpm-1807)을 사용하는 백업이 지원되는 운영 체제
+
+Azure Backup은 32비트 운영 체제를 지원하지 않습니다.
 
 ## <a name="support-for-linux-backup"></a>Linux 백업 지원
 
@@ -109,7 +107,7 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64이 고, 앱
 
 ## <a name="support-for-file-level-restore"></a>파일 수준 복원에 대한 지원
 
-**Restore** | **지원됨**
+**복원** | **지원됨**
 --- | ---
 운영 체제에서 파일 복원 | 백업된 VM과 동일한(또는 호환되는) OS가 있는 모든 컴퓨터에서 파일을 복원할 수 있습니다. [호환 되는 OS 표](backup-azure-restore-files-from-vm.md#system-requirements)를 참조 하세요.
 클래식 VM에서 파일 복원 | 지원되지 않습니다.
@@ -123,7 +121,7 @@ LVM/RAID 배열을 사용하여 Linux VM에서 파일 복원 | 동일한 VM에�
 
 다음 표에는 vm 디스크 추가 또는 교체와 같은 VM 관리 작업을 수행 하는 동안 백업에 대 한 지원이 요약 되어 있습니다.
 
-**Restore** | **지원됨**
+**복원** | **지원됨**
 --- | ---
 구독/지역/영역에서의 복원 | 지원되지 않습니다.
 기존 VM에 복원 | 디스크 바꾸기 옵션을 사용합니다.
@@ -138,7 +136,7 @@ VM이 Managed Disks로 마이그레이션되기 전에 VM을 복원 지점으로
 
 ## <a name="vm-compute-support"></a>VM 컴퓨팅 지원
 
-**Compute** | **지원**
+**계산** | **지원**
 --- | ---
 VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든 Azure VM<br/><br/> [자세한 정보](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 [가용성 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/availability#availability-sets)의 VM 백업 | 지원됩니다.<br/><br/> VM을 신속 하 게 만드는 옵션을 사용 하 여 사용 가능한 집합에서 VM을 복원할 수 없습니다. 대신 VM을 복원 하는 경우 디스크를 복원 하 고이를 사용 하 여 VM을 배포 하거나 디스크를 복원 하 여 기존 디스크를 교체 하는 데 사용 합니다.

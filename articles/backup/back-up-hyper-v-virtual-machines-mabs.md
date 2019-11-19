@@ -1,18 +1,14 @@
 ---
-title: Azure Backup Server를 사용 하 여 Hyper-v 가상 컴퓨터 백업
-description: 이 문서에는 Microsoft Azure Backup 서버를 사용 하 여 가상 컴퓨터를 백업 및 복구 하는 절차가 포함 되어 있습니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
+title: MABS를 사용 하 여 Hyper-v 가상 머신 백업
+description: 이 문서에는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 가상 컴퓨터를 백업 및 복구 하는 절차가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: dacurwin
-ms.openlocfilehash: f15606c83c221e4591a2a1f6a71fc7141bdf3daf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3bca1b46a867c2967dfcebe4bc8477d5f9c9447d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074958"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173527"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Hyper-v 가상 컴퓨터 백업
 

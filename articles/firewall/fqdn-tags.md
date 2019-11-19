@@ -1,18 +1,18 @@
 ---
 title: Azure Firewall의 FQDN 태그 개요
-description: Azure Firewall의 FQDN 태그에 대해 자세히 알아보기
+description: FQDN 태그는 잘 알려진 Microsoft 서비스와 연결된 FQDN(정규화된 도메인 이름) 그룹을 나타냅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/23/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: d78f67b96776fa3fb1d13fbf7b385e41ca3aa59a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 6396f8292a4c54f7fce237439f37c3e8156d59e8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665554"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169045"
 ---
 # <a name="fqdn-tags-overview"></a>FQDN 태그 개요
 

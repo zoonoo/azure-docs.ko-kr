@@ -27,6 +27,8 @@
           href: custom-event-quickstart-powershell.md
         - name: 포털
           href: custom-event-quickstart-portal.md
+    - name: 이벤트 처리기로서의 Azure Functions
+      href: custom-event-to-function.md
     - name: 이벤트 처리기인 Queue storage
       href: custom-event-to-queue-storage.md
     - name: 이벤트 처리기인 Event Hubs
@@ -111,6 +113,8 @@
       href: post-to-custom-topic.md
     - name: HTTP 엔드포인트에서 이벤트 받기
       href: receive-events.md
+    - name: AAD를 사용한 보안 WebHook
+      href: secure-webhook-delivery.md
     - name: 배달 못한 편지 및 다시 시도
       href: manage-event-delivery.md
     - name: 이벤트 필터링

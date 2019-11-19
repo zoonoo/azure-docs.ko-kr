@@ -1,18 +1,18 @@
 ---
 title: 템플릿을 사용하여 Azure Firewall 배포
-description: 템플릿을 사용하여 Azure Firewall 배포
+description: 템플릿을 사용 하 여 Azure 방화벽을 배포 합니다. 만든 네트워크에 3 개의 서브넷이 있는 VNet이 하나 있습니다. 2 코어 Windows Server 가상 머신이 배포 됩니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 7/9/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: c0a6cda54a58e3cc03ba31e221fb57fc725dd779
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b9e82998283bf44eede88148a12d88aae521b1ca
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839382"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169193"
 ---
 # <a name="deploy-azure-firewall-using-a-template"></a>템플릿을 사용하여 Azure Firewall 배포
 
@@ -29,7 +29,7 @@ Azure Firewall에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure
 
 ## <a name="use-the-template-to-deploy-azure-firewall"></a>템플릿을 사용하여 Azure Firewall 배포
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 **템플릿을 사용하여 Azure Firewall을 설치 및 배포하려면**
 

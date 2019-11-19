@@ -1,17 +1,17 @@
 ---
 title: Azure SignalR Service 클라이언트를 인증 하기 위한 가이드
-description: 이 가이드에서는 Azure SignalR Service 클라이언트를 인증 하는 방법을 알아봅니다.
+description: 사용자 고유의 인증을 구현 하 고 e2e 예제에 따라 Azure SignalR Service와 통합 하는 방법에 대해 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 7660e1405598676599cab30467d22ac979438deb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cc955adffbe7df5809f9c4c860877ad22df3e99b
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66128284"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158272"
 ---
 # <a name="azure-signalr-service-authentication"></a>Azure SignalR Service 인증
 
@@ -40,7 +40,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서를 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
@@ -54,13 +54,13 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 1. 웹 브라우저를 열고 `https://github.com`으로 이동한 후 계정에 로그인합니다.
 
-2. 사용자 계정의 경우, **설정** > **개발자 설정**으로 이동한 후 **새 애플리케이션 등록** 또는 *OAuth 앱* 아래의 **새 OAuth 앱**을 클릭합니다.
+2. 사용자 계정의 경우, **설정** > **개발자 설정**으로 이동한 후 **새 애플리케이션 등록** 또는 **OAuth 앱** 아래의 *새 OAuth 앱*을 클릭합니다.
 
 3. 새 OAuth 앱에 대해 다음 설정을 사용한 후 **애플리케이션 등록**을 클릭합니다.
 
     | 설정 이름 | 제안 값 | 설명 |
     | ------------ | --------------- | ----------- |
-    | 응용 프로그램 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
+    | 애플리케이션 이름 | *Azure SignalR Chat* | GitHub 사용자는 인증하는 앱을 인식하고 신뢰할 수 있어야 합니다.   |
     | 홈페이지 URL | `http://localhost:5000/home` | |
     | 애플리케이션 설명 | *GitHub 인증에서 Azure SignalR Service를 사용하는 대화방 샘플* | 애플리케이션 사용자가 사용 중인 인증 컨텍스트를 이해하는 데 도움이 되는 애플리케이션에 대한 유용한 설명입니다. |
     | 권한 부여 호출 URL | `http://localhost:5000/signin-github` | 이 설정은 OAuth 애플리케이션에 대한 가장 중요한 설정입니다. GitHub가 성공적인 인증 후에 사용자를 반환하는 콜백 URL입니다. 이 자습서에서는 *AspNet.Security.OAuth.GitHub* 패키지에 대한 기본 콜백 URL인 */signin-github*를 사용해야 합니다.  |
@@ -377,7 +377,7 @@ GitHub를 통해 제공되는 OAuth 인증 API에 대한 자세한 내용은 [�
 
 ## <a name="deploy-the-app-to-azure"></a>Azure에 앱 배포
 
-이 섹션에서는 사용할지 Azure 명령줄 인터페이스 (CLI)에서 Azure Cloud Shell에서 새 웹 앱을 만드는 [Azure App Service](https://docs.microsoft.com/azure/app-service/) Azure에서 ASP.NET 응용 프로그램을 호스팅합니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
+이 섹션에서는 Azure Cloud Shell의 Azure CLI (명령줄 인터페이스)를 사용 하 여 Azure에서 ASP.NET 응용 프로그램을 호스트 하는 [Azure App Service](https://docs.microsoft.com/azure/app-service/) 새 웹 앱을 만듭니다. 이 웹앱은 로컬 Git 배포를 사용하도록 구성됩니다. 또한 SignalR 연결 문자열, GitHub OAuth 앱 암호 및 배포 사용자로도 구성됩니다.
 
 이 섹션의 단계에서는 Azure CLI에 대해 *signalr* 확장을 사용합니다. 다음 명령을 실행하여 Azure CLI용 *signalr* 확장을 설치합니다.
 
@@ -412,7 +412,7 @@ az webapp create --name $WebAppName --resource-group $ResourceGroupName \
     --plan $WebAppPlan
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | -------------------- | --------------- |
 | ResourceGroupName | 이 리소스 그룹 이름은 이전 자습서에서 제안된 것입니다. 모든 자습서 리소스를 그룹화된 상태로 유지하는 것이 좋습니다. 이전 자습서에서 사용한 것과 동일한 리소스 그룹을 사용합니다. |
 | WebAppPlan | 새로운 고유한 App Service 계획 이름을 입력합니다. |
@@ -460,7 +460,7 @@ az webapp config appsettings set --name $WebAppName \
     --settings "GitHubClientSecret=$GitHubClientSecret"
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | -------------------- | --------------- |
 | GitHubClientId | GitHub OAuth 앱에 대한 비밀 클라이언트 ID를 이 변수에 할당합니다. |
 | GitHubClientSecret | GitHub OAuth 앱에 대한 비밀 암호를 이 변수에 할당합니다. |
@@ -495,7 +495,7 @@ az webapp deployment source config-local-git --name $WebAppName \
     --query [url] -o tsv
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | -------------------- | --------------- |
 | DeploymentUserName | 새 배포 사용자 이름을 선택합니다. |
 | DeploymentUserPassword | 새 배포 사용자의 암호를 선택합니다. |
@@ -556,7 +556,7 @@ az webapp deployment source config-local-git --name $WebAppName \
 
 다음 자습서를 계속 진행하려는 경우 이 빠른 시작에서 만든 리소스를 그대로 두었다가 다음 자습서에서 다시 사용할 수 있습니다.
 
-그렇지 않고, 빠른 시작 샘플 애플리케이션 사용이 끝나면 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
+또는, 빠른 시작 샘플 애플리케이션 사용을 마친 경우 이 빠른 시작에서 만든 Azure 리소스를 삭제하여 요금이 청구되는 것을 방지할 수 있습니다.
 
 > [!IMPORTANT]
 > 리소스 그룹 삭제는 취소할 수 없으며 해당 리소스 그룹 및 해당 그룹 안에 있는 모든 리소스는 영구적으로 삭제됩니다. 잘못된 리소스 그룹 또는 리소스를 자동으로 삭제하지 않도록 해야 합니다. 유지하려는 리소스가 포함된 기존 리소스 그룹 내에 이 샘플을 호스트하기 위한 리소스를 만든 경우 리소스 그룹을 삭제하는 대신, 해당 블레이드에서 각 리소스를 개별적으로 삭제할 수 있습니다.

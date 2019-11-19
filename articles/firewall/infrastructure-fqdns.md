@@ -1,18 +1,18 @@
 ---
 title: Azure Firewall의 인프라 FQDN
-description: Azure Firewall의 인프라 FQDN에 대해 자세히 알아보기
+description: Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 09/20/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 5b134058e1924bae030338411226a9a6aff46557
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: d4de81bad1ddda2f5b54f47c1be78925ad4cdbf3
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130196"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168975"
 ---
 # <a name="infrastructure-fqdns"></a>인프라 FQDN
 

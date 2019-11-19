@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a66b7389df64a776cdecb45c41de56d7d258e4
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606372"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169312"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -36,12 +36,13 @@ Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Ev
 
 |제목  |설명  |
 |---------|---------|
+| [빠른 시작: 함수를 사용 하 여 이벤트 처리](custom-event-to-function.md) | 처리를 위해 사용자 지정 이벤트를 함수로 보냅니다. |
 | [Azure Functions의 Event Grid 트리거](../azure-functions/functions-bindings-event-grid.md) | Functions에서 Event Grid 트리거 사용 개요. |
 | [자습서: Event Grid를 사용하여 업로드된 이미지 크기 자동 조정](resize-images-on-storage-blob-upload-event.md) | 사용자가 웹앱을 통해 이미지를 스토리지 계정에 업로드합니다. 스토리지 BLOB이 만들어지면 Event Grid는 이벤트를 함수 앱에 보내고, 그곳에서 업로드된 이미지를 크기 조정합니다. |
 | [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
-## <a name="event-hubs"></a>Event Hubs(영문)
+## <a name="event-hubs"></a>Event Hubs
 
 솔루션이 이벤트를 처리할 수 있는 속도보다 더 빠르게 이벤트를 가져오는 경우 Event Hubs를 사용하세요. 애플리케이션이 자체 일정에 따라 Event Hubs의 이벤트를 처리합니다. 들어오는 이벤트를 처리하도록 이벤트 처리 규모를 확장할 수 있습니다.
 
@@ -72,10 +73,15 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 | [자습서: Logic Apps를 사용하여 Azure IoT Hub 이벤트에 대한 이메일 알림 보내기](publish-iot-hub-events-to-logic-apps.md) | 논리 앱은 사용자의 IoT Hub에 디바이스가 추가될 때마다 알림 이메일을 보냅니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
-## <a name="service-bus-queue"></a>Service Bus 큐 
+## <a name="service-bus"></a>Service Bus
+
+### <a name="service-bus-queues"></a>Service Bus 큐
+
 엔터프라이즈 응용 프로그램에서 버퍼링 또는 명령 & 제어 시나리오에서 사용 하기 위해 Event Grid의 이벤트를 Service Bus 큐에 직접 라우팅할 수 있습니다.
 
-### <a name="using-cli-to-add-a-service-bus-handler"></a>CLI를 사용 하 여 Service Bus 처리기 추가
+Azure Portal에서 이벤트 구독을 만드는 동안 "Service Bus 큐"를 끝점 유형으로 선택 하 고 "선택 및 끝점"을 클릭 하 여 Service Bus 큐를 선택 합니다.
+
+#### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>CLI를 사용 하 여 Service Bus 큐 처리기 추가
 
 Azure CLI의 경우 다음 예제에서는 event grid 토픽을 구독 하 고 Service Bus 큐에 연결 합니다.
 
@@ -89,6 +95,28 @@ az eventgrid event-subscription create \
     --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
     --endpoint-type servicebusqueue \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
+```
+
+### <a name="service-bus-topics"></a>Service Bus 토픽
+
+Service Bus 항목을 사용 하 여 Azure 시스템 이벤트를 처리 하기 위해 Event Grid의 이벤트를 Service Bus 항목으로 직접 라우트 하거나 명령 & 메시징 시나리오를 제어할 수 있습니다.
+
+Azure Portal에서 이벤트 구독을 만드는 동안 "Service Bus 토픽"을 끝점 유형으로 선택 하 고 "선택 및 끝점"을 클릭 하 여 Service Bus 항목을 선택 합니다.
+
+#### <a name="using-cli-to-add-a-service-bus-topic-handler"></a>CLI를 사용 하 여 Service Bus 토픽 처리기 추가
+
+Azure CLI의 경우 다음 예제에서는 event grid 토픽을 구독 하 고 Service Bus 큐에 연결 합니다.
+
+```azurecli-interactive
+# If you haven't already installed the extension, do it now.
+# This extension is required for preview features.
+az extension add --name eventgrid
+
+az eventgrid event-subscription create \
+    --name <my-event-subscription> \
+    --source-resource-id /subscriptions/{SubID}/resourceGroups/{RG}/providers/Microsoft.EventGrid/topics/topic1 \
+    --endpoint-type servicebustopic \
+    --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/topics/topic1
 ```
 
 ## <a name="queue-storage"></a>Queue Storage

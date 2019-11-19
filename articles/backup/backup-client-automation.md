@@ -1,19 +1,14 @@
 ---
 title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 데 PowerShell을 사용 하는 방법에 대해 알아봅니다.
-ms.reviewer: shivamg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.author: dacurwin
-ms.openlocfilehash: bf79957bec4b330ca9acce3f8b92aab1a0944440
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6285b7fc6493090ab0bead5f00124a6eaa02dc7e
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074869"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172439"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 

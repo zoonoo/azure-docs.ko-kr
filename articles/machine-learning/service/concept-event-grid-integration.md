@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: andyxu
 author: gogowings
 ms.date: 11/04/2019
-ms.openlocfilehash: 888d294634078d2fe7737426f6cf025ae9948b0a
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 2fe2d07b29b8799712d59cdf21aeb3ce989ca3b2
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73609347"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158467"
 ---
 # <a name="consume-azure-machine-learning-events-preview"></a>Azure Machine Learning 이벤트 사용 (미리 보기)
 
@@ -81,7 +81,7 @@ Azure Event Grid는 __로 시작__ 하 고 일치 항목으로 __끝나는__ 주
 Machine Learning 이벤트를 처리 하는 응용 프로그램은 다음과 같은 몇 가지 권장 방법을 따라야 합니다.
 
 > [!div class="checklist"]
-> * 동일한 이벤트 처리기로 이벤트를 라우팅하도록 여러 구독이 구성될 수 있으므로, 이벤트가 특정 원본에서 온 것이라고 가정하지 않고 메시지의 토픽을 확인하여 예상하는 스토리지 계정에서 왔음을 확실히 아는 것이 중요합니다.
+> * 이벤트를 동일한 이벤트 처리기로 라우팅하는 여러 구독을 구성할 수 있으므로 이벤트를 특정 원본에서 가져온 것으로 가정 하지 않는 것이 중요 하며, 메시지의 항목을 확인 하 여 예상 되는 기계 학습 작업 영역에서 온 것인지 확인 해야 합니다.
 > * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 > * 메시지가 잘못된 순서로 오거나 조금 늦게 도착할 수도 있으므로 etag 필드를 사용하여 개체에 대한 정보가 아직 최신 상태인지 여부를 확인합니다.  또한 sequencer 필드를 사용하여 특정 개체에 대한 이벤트 순서를 파악합니다.
 > * 이해할 수 없는 필드는 무시합니다. 이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.

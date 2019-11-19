@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4932089b7315f2756f3760b252c7257868f640fa
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 26744791dd3abe732f56f69ca05dd7c781755e9b
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74066044"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167981"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure Multi-Factor Authentication 구성 설정
 
@@ -371,7 +371,7 @@ Azure Multi-Factor Authentication의 _신뢰할 수 있는 IP_ 기능은 관리�
 | 메서드 | 설명 |
 |:--- |:--- |
 | 휴대폰에 전화 걸기 |자동 음성 전화를 겁니다. 사용자가 전화를 받고 휴대폰 키패드에서 #을 눌러 인증합니다. 이 전화 번호는 온-프레미스 Active Directory와 동기화되지 않습니다. |
-| 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 이때 양방향 SMS로 구성된 사용자는 _휴대폰에 전화 걸기_ 인증으로 자동 전환됩니다.|
+| 휴대폰에 문자 메시지 전송 |확인 코드를 포함하는 문자 메시지를 보냅니다. 로그인 인터페이스에 이 확인 코드를 입력하라는 메시지가 표시됩니다. 이 프로세스를 단방향 SMS라고 합니다. 양방향 SMS는 사용자가 특정 코드를 다시 문자로 보내야 함을 의미합니다. 양방향 SMS는 2018년 11월 14일 이후 사용되지 않으며 지원되지 않습니다. 관리자는 이전에 양방향 SMS를 사용한 사용자에 게 다른 방법을 사용 하도록 설정 해야 합니다.|
 | 모바일 앱을 통한 알림 |휴대폰이나 등록된 디바이스로 푸시 알림을 보냅니다. 사용자는 알림을 보고 **확인**을 선택하여 인증을 완료합니다. [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 | 모바일 앱 또는 하드웨어 토큰의 확인 코드 |Microsoft Authenticator 앱은 30초마다 새로운 OATH 확인 코드를 생성합니다. 사용자는 로그인 인터페이스에 확인 코드를 입력합니다. [Windows Phone](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6), [Android](https://go.microsoft.com/fwlink/?Linkid=825072) 및 [iOS](https://go.microsoft.com/fwlink/?Linkid=825073) 장치의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다. |
 

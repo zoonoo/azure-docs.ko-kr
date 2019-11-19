@@ -1,18 +1,14 @@
 ---
 title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: e22c4c24e83be0f89b306eed0eb1d80bdd9387e1
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747207"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172483"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -67,7 +63,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
   - 기본적으로 Azure Backup은 전체 VSS 백업을 만듭니다. [자세히 알아봅니다](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - Azure Backup VSS 복사 백업을 사용 하도록 설정을 변경 하려면 명령 프롬프트에서 다음 레지스트리 키를 설정 합니다.
 
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent"/v USEVSSCOPYBACKUP/t REG_SZ/d TRUE/f**
+    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
 
 - **Linux vm:** Linux Vm의 앱 일치 스냅숏을 사용 하려면 Linux 사전 스크립트 및 사후 스크립트 프레임 워크를 사용 하 여 일관성을 유지 하기 위해 고유한 사용자 지정 스크립트를 작성 합니다.
 

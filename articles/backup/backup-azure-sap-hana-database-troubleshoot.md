@@ -1,25 +1,20 @@
 ---
-title: SAP HANA 데이터베이스 백업 오류 문제 해결-Azure Backup
+title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004d10b794c6eca2e078e437880f44d91ca30acb
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: cbffa7415f315fd396e57afa355d2415c4612eb5
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72968446"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172759"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
 이 문서에서는 Azure virtual machines의 SAP HANA 데이터베이스 백업에 대 한 문제 해결 정보를 제공 합니다. 다음 섹션에서는 SAP HANA 백업에서 일반적인 오류를 진단 하는 데 필요한 중요 한 개념 데이터에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [필수 구성](backup-azure-sap-hana-database.md#prerequisites)요소의 일부로 HANA가 설치 된 가상 머신에서 preregistration 스크립트가 실행 되었는지 확인 합니다.
 
@@ -48,11 +43,11 @@ Preregistration 스크립트에서 수행 하는 작업은 다음과 같습니�
 
 데이터베이스를 백업 하도록 선택한 후에는 Azure Backup 서비스가 데이터베이스 수준에서 backInt 매개 변수를 구성 합니다.
 
-- [catalog_backup_using_backint: true]
-- [enable_accumulated_catalog_backup: false]
-- [parallel_data_backup_backint_channels: 1]
-- [log_backup_timeout_s: 900)]
-- [backint_response_timeout: 7200]
+- [catalog_backup_using_backint:true]
+- [enable_accumulated_catalog_backup:false]
+- [parallel_data_backup_backint_channels:1]
+- [log_backup_timeout_s:900)]
+- [backint_response_timeout:7200]
 
 > [!NOTE]
 > 이러한 매개 변수가 호스트 수준에 표시 *되지* 않는지 확인 합니다. 호스트 수준 매개 변수는 이러한 매개 변수를 재정의 하므로 예기치 않은 동작이 발생할 수 있습니다.

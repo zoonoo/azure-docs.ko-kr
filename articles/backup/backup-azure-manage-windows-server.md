@@ -1,18 +1,14 @@
 ---
 title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.author: dacurwin
-ms.openlocfilehash: 9e5103fad517e695198602a182574de964a9c504
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091133"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173037"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 

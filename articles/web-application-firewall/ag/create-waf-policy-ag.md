@@ -5,14 +5,14 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/26/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 31a5ad92942b40e42b66e404df2d09cd8158f7a2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606475"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171215"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
 
@@ -26,7 +26,7 @@ WAF 정책을 수신기와 연결 하면 단일 WAF 뒤에 여러 사이트가 �
 Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의 수신기에 다른 정책을 적용 하면 수신기의 정책이 적용 되지만, 수신기의 정책이 할당 된 수신기에 대해서만 적용 됩니다. Application Gateway 정책은 특정 정책이 할당 되지 않은 다른 모든 수신기에도 적용 됩니다. 
 
    > [!NOTE]
-   > 사이트당 및 URI 별 WAF 정책은 공개 미리 보기로 제공 됩니다. 즉,이 기능은 Microsoft의 추가 사용 약관에 따라 결정 됩니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+   > 사이트별 및 URI별 WAF 정책은 공개 미리 보기로 제공됩니다. 즉, 이 기능은 Microsoft의 추가 사용 약관을 따릅니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 모든 새 웹 응용 프로그램 방화벽의 WAF 설정 (사용자 지정 규칙, 관리 되는 rulset 구성, 제외 등)은 WAF 정책 내에 살고 있습니다. 기존 WAF가 있는 경우 이러한 설정은 WAF 구성에 여전히 있을 수 있습니다. 새 WAF 정책으로 이동 하는 방법에 대 한 단계는이 문서의 뒷부분에 있는 waf [구성으로 Waf 구성 마이그레이션](#migrate) 을 참조 하세요. 
 
@@ -52,7 +52,7 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
 
    > [!NOTE]
    > 이미 정책을 보유 하 고 있는 Application Gateway (또는 수신기)에 정책을 할당 하는 경우 원래 정책을 덮어쓰고 새 정책으로 대체 합니다.
-4. **검토 + 만들기**를 선택한 다음 **만들기**를 선택 합니다.
+4. **검토 + 만들기**를 선택한 다음, **만들기**를 선택합니다.
 
    ![WAF 정책 기본 사항](../media/create-waf-policy-ag/waf-policy-basics.png)
 
@@ -64,13 +64,13 @@ WAF 정책을 만들 때 기본적으로 *검색* 모드에 있습니다. 검색
 
 Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되어 있습니다. 규칙 그룹 내에서 개별 규칙을 사용 하지 않도록 설정 하려면 해당 규칙 그룹 내의 규칙을 확장 하 고, 규칙 번호 앞의 확인란을 선택 하 고, 위의 탭에서 **사용 안 함** 을 선택 합니다.
 
-![관리 규칙](../media/create-waf-policy-ag/managed-rules.png)
+[관리 되는 규칙을 ![](../media/create-waf-policy-ag/managed-rules.png)](../media/create-waf-policy-ag/managed-rules-lrg.png#lightbox)
 
 ## <a name="custom-rules"></a>사용자 지정 규칙
 
 사용자 지정 규칙을 만들려면 **사용자** 지정 규칙 탭에서 **사용자 지정 규칙 추가** 를 선택 합니다. 그러면 사용자 지정 규칙 구성 페이지가 열립니다. 다음 스크린샷에서는 쿼리 문자열에 *blockme*텍스트가 포함 된 경우 요청을 차단 하도록 구성 된 예제 사용자 지정 규칙을 보여 줍니다.
 
-![사용자 지정 규칙 편집](../media/create-waf-policy-ag/edit-custom-rule.png)
+[사용자 지정 규칙을 편집 ![](../media/create-waf-policy-ag/edit-custom-rule.png)](../media/create-waf-policy-ag/edit-custom-rule-lrg.png#lightbox)
 
 ## <a name="migrate"></a>Waf 구성을 WAF 정책으로 마이그레이션
 
@@ -82,7 +82,7 @@ Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되�
 
 포털에서이를 살펴보면 WAF가 있는 상태를 확인할 수 있습니다. WAF 설정이 표시 되 고 Application Gateway 보기에서 변경할 수 있는 경우 WAF는 상태 1입니다.
 
-![WAF 구성](../media/create-waf-policy-ag/waf-configure.png)
+[![WAF 구성](../media/create-waf-policy-ag/waf-configure.png)](../media/create-waf-policy-ag/waf-configure-lrg.png#lightbox)
 
 **웹 응용 프로그램 방화벽** 을 선택 하 고 연결 된 정책을 표시 하는 경우 waf는 상태 2 또는 상태 3입니다. 정책으로 이동한 후 사용자 지정 규칙 및 연결 된 응용 프로그램 게이트웨이 **만** 표시 되 면 사용자 지정 규칙만 정책입니다.
 
@@ -98,9 +98,9 @@ Azure 관리 되는 OWASP 규칙은 기본적으로 사용 하도록 설정 되�
 
 사용자 지정 규칙만 WAF 정책에 대 한 편집은 사용 하지 않도록 설정 됩니다. 규칙 사용 안 함, 제외 추가 등 WAF 설정을 편집 하려면 새 최상위 방화벽 정책 리소스로 마이그레이션해야 합니다.
 
-이렇게 하려면 *웹 응용 프로그램 방화벽 정책을* 만들고 선택한 Application Gateway 및 수신기에 연결 합니다. 이 새 정책은 현재 WAF 구성의 경우와 동일 **해야** 합니다. 즉, 모든 사용자 지정 규칙, 제외, 사용 하지 않는 규칙 등은 사용자가 만드는 새 정책에 복사 해야 합니다. Application Gateway 연결 된 정책이 있으면 WAF 규칙 및 설정을 계속 해 서 변경할 수 있습니다. 
+이렇게 하려면 *웹 응용 프로그램 방화벽 정책을* 만들고 선택한 Application Gateway 및 수신기에 연결 합니다. 이 새 정책은 현재 WAF 구성의 경우와 동일 **해야** 합니다. 즉, 모든 사용자 지정 규칙, 제외, 사용 하지 않는 규칙 등은 사용자가 만드는 새 정책에 복사 해야 합니다. Application Gateway 연결 된 정책이 있으면 WAF 규칙 및 설정을 계속 해 서 변경할 수 있습니다. Azure PowerShell를 사용 하 여이 작업을 수행할 수도 있습니다. 자세한 내용은 [WAF 정책을 기존 Application Gateway에 연결](associate-waf-policy-existing-gateway.md)을 참조 하세요.
 
-Azure PowerShell를 사용 하 여이 작업을 수행할 수도 있습니다. 자세한 내용은 [WAF 정책을 기존 Application Gateway에 연결](associate-waf-policy-existing-gateway.md)을 참조 하세요.
+필요에 따라 마이그레이션 스크립트를 사용 하 여 WAF 정책으로 마이그레이션할 수 있습니다. 자세한 내용은 [Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 마이그레이션](migrate-policy.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

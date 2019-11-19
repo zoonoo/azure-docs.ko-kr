@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3518404b76625e2557aaefdc6ab5ad7353683984
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823318"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158301"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -57,7 +57,7 @@ Managed Instance에서 도입 된 몇 가지 PaaS 제한 사항이 있으며 SQL
   - `FILE`, `TAPE`및 백업 장치는 지원 되지 않습니다.
 - 대부분의 일반 `WITH` 옵션이 지원 됩니다.
   - `COPY_ONLY`은 필수입니다.
-  - `FILE_SNAPSHOT`은 지원되지 않습니다.
+  - `FILE_SNAPSHOT`는 지원되지 않습니다.
   - 테이프 옵션: `REWIND`, `NOREWIND`, `UNLOAD`및 `NOUNLOAD`은 지원 되지 않습니다.
   - 로그 관련 옵션: `NORECOVERY`, `STANDBY`및 `NO_TRUNCATE` 지원 되지 않습니다.
 
@@ -95,7 +95,7 @@ Azure Blob Storage에 대한 감사에서 `CREATE AUDIT` 구문의 주요 차이
 - `.xel` 파일이 배치 되는 Azure Blob 저장소 컨테이너의 URL을 지정 하는 데 사용할 수 있는 `TO URL` 새 구문이 제공 됩니다.
 - 관리 되는 인스턴스에서 Windows 파일 공유에 액세스할 수 없으므로 구문 `TO FILE` 지원 되지 않습니다.
 
-자세한 내용은 다음을 참조하세요. 
+자세한 내용은 
 
 - [CREATE SERVER AUDIT](/sql/t-sql/statements/create-server-audit-transact-sql) 
 - [ALTER SERVER AUDIT](/sql/t-sql/statements/alter-server-audit-transact-sql)
@@ -128,8 +128,8 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 관리 되는 인스턴스는 파일에 액세스할 수 없으므로 암호화 공급자를 만들 수 없습니다.
 
-- `CREATE CRYPTOGRAPHIC PROVIDER`은 지원되지 않습니다. [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql)를 참조하세요.
-- `ALTER CRYPTOGRAPHIC PROVIDER`은 지원되지 않습니다. [ALTER CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)를 참조하세요.
+- `CREATE CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [CREATE CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/create-cryptographic-provider-transact-sql)를 참조하세요.
+- `ALTER CRYPTOGRAPHIC PROVIDER`는 지원되지 않습니다. [ALTER CRYPTOGRAPHIC PROVIDER](/sql/t-sql/statements/alter-cryptographic-provider-transact-sql)를 참조하세요.
 
 ### <a name="logins-and-users"></a>로그인 및 사용자
 
@@ -184,12 +184,12 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 - [서비스 마스터 키 백업은](/sql/t-sql/statements/backup-service-master-key-transact-sql) 지원 되지 않습니다 (SQL Database 서비스에서 관리).
 - [서비스 마스터 키 복원은](/sql/t-sql/statements/restore-service-master-key-transact-sql) 지원 되지 않습니다 (SQL Database 서비스에서 관리).
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="buffer-pool-extension"></a>버퍼 풀 확장
 
 - [버퍼 풀 확장](/sql/database-engine/configure-windows/buffer-pool-extension) 은 지원 되지 않습니다.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`은 지원되지 않습니다. [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`는 지원되지 않습니다. [ALTER SERVER CONFIGURATION](/sql/t-sql/statements/alter-server-configuration-transact-sql)을 참조하세요.
 
 ### <a name="collation"></a>Collation
 
@@ -208,7 +208,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 데이터베이스 미러링은 지원되지 않습니다.
 
 - `ALTER DATABASE SET PARTNER` 및 `SET WITNESS` 옵션은 지원되지 않습니다.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`은 지원되지 않습니다.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`는 지원되지 않습니다.
 
 자세한 내용은 [ALTER DATABASE SET PARTNER 및 SET WITNESS](/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) 및 [CREATE ENDPOINT … FOR DATABASE_MIRRORING](/sql/t-sql/statements/create-endpoint-transact-sql)을 참조하세요.
 
@@ -332,7 +332,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 관리 되는 인스턴스는 파일 공유 및 Windows 폴더에 액세스할 수 없으므로 다음과 같은 제약 조건이 적용 됩니다.
 
 - `CREATE ASSEMBLY FROM BINARY`만 지원됩니다. [CREATE ASSEM 여 FROM BINARY를](/sql/t-sql/statements/create-assembly-transact-sql)참조 하세요. 
-- `CREATE ASSEMBLY FROM FILE`은 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
+- `CREATE ASSEMBLY FROM FILE`는 지원되지 않습니다. [CREATE ASSEMBLY FROM FILE](/sql/t-sql/statements/create-assembly-transact-sql)을 참조하세요.
 - `ALTER ASSEMBLY`는 파일을 참조할 수 없습니다. [ALTER ASSEMBLY](/sql/t-sql/statements/alter-assembly-transact-sql)를 참조하세요.
 
 ### <a name="database-mail-db_mail"></a>데이터베이스 메일 (db_mail)
@@ -366,7 +366,7 @@ MSDTC 및 [탄력적 트랜잭션은](sql-database-elastic-transactions-overview
 
 - Filestream 데이터는 지원 되지 않습니다.
 - 데이터베이스에는 `FILESTREAM` 데이터가 있는 파일 그룹이 포함 될 수 없습니다.
-- `FILETABLE`은 지원되지 않습니다.
+- `FILETABLE`는 지원되지 않습니다.
 - 테이블에 `FILESTREAM` 형식을 사용할 수 없습니다.
 - 지원되지 않는 함수는 다음과 같습니다.
   - `GetPathLocator()`
@@ -500,8 +500,8 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
   - `filestream_access_level`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts`은 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
-- `xp_cmdshell`은 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
+- `sp_execute_external_scripts`는 지원되지 않습니다. [sp_execute_external_scripts](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples)를 참조하세요.
+- `xp_cmdshell`는 지원되지 않습니다. [xp_cmdshell](/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql)을 참조하세요.
 - `sp_addextendedproc` 및 `sp_dropextendedproc`를 포함 하는 `Extended stored procedures` 지원 되지 않습니다. [확장 저장 프로시저](/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)를 참조 하세요.
 - `sp_attach_db`, `sp_attach_single_file_db` 및 `sp_detach_db`는 지원되지 않습니다. [sp_attach_db](/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) 및 [sp_detach_db](/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql)를 참조하세요.
 
@@ -515,7 +515,7 @@ Restore 문에 대 한 자세한 내용은 [restore 문](/sql/t-sql/statements/r
 - `SYS.SERVERS`는 "name" 및 "data_source" 속성의 `myinstance.domain.database.windows.net`와 같이 전체 DNS "연결 가능" 이름을 반환 합니다. [SYS.SERVERS](/sql/relational-databases/system-catalog-views/sys-servers-transact-sql)를 참조하세요.
 - SQL Server에 대해 존재 하는 서비스 개념이 관리 되는 인스턴스에 적용 되지 않기 때문에 `@@SERVICENAME` NULL을 반환 합니다. [@@SERVICENAME](/sql/t-sql/functions/servicename-transact-sql)을 참조하세요.
 - `SUSER_ID`가 지원됩니다. Azure AD 로그인이 sys. syslogins에 없으면 NULL을 반환 합니다. [SUSER_ID](/sql/t-sql/functions/suser-id-transact-sql)를 참조하세요. 
-- `SUSER_SID`은 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
+- `SUSER_SID`는 지원되지 않습니다. 잘못 된 데이터가 반환 됩니다 .이는 알려진 문제입니다. [SUSER_SID](/sql/t-sql/functions/suser-sid-transact-sql)를 참조하세요. 
 
 ## <a name="Environment"></a>환경 제약 조건
 
@@ -564,16 +564,6 @@ SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제�
 진행 중인 `RESTORE` 문, 데이터 마이그레이션 서비스 마이그레이션 프로세스 및 기본 제공 시점 복원은 복원 프로세스가 완료 될 때까지 서비스 계층 업데이트 또는 기존 인스턴스의 크기 조정 및 새 인스턴스 만들기를 차단 합니다. 복원 프로세스는 복원 프로세스가 실행 되는 동일한 서브넷의 관리 되는 인스턴스 및 인스턴스 풀에서 이러한 작업을 차단 합니다. 인스턴스 풀의 인스턴스는 영향을 받지 않습니다. 서비스 계층 작업을 만들거나 변경 하면 실패 하거나 시간이 초과 되지 않습니다. 복원 프로세스가 완료 되거나 취소 되 면 계속 됩니다.
 
 **해결 방법**: 복원 프로세스가 완료 될 때까지 기다리거나, 만들기 또는 업데이트 서비스 계층 작업의 우선 순위가 더 높은 경우 복원 프로세스를 취소 합니다.
-
-### <a name="missing-validations-in-restore-process"></a>복원 프로세스에서 유효성 검사가 누락 되었습니다.
-
-**날짜:** 9 월 2019
-
-`RESTORE` 문과 기본 제공 시점 복원은 복원 된 데이터베이스에서 일부 nessecary 검사를 수행 하지 않습니다.
-- **DBCC CHECKDB** - `RESTORE` 문은 복원 된 데이터베이스에서 `DBCC CHECKDB` 수행 하지 않습니다. 원본 데이터베이스가 손상 되었거나 Azure blob Storage에 복사 되는 동안 백업 파일이 손상 된 경우 자동 백업이 수행 되지 않으며 Azure 지원에서 고객에 게 연락 합니다. 
-- 기본 제공 시간 복원 프로세스는 중요 비즈니스용 인스턴스에서 자동화 된 백업 [에 메모리 내 OLTP 개체가](sql-database-in-memory.md#in-memory-oltp)포함 되어 있는지 확인 하지 않습니다. 
-
-**해결 방법**: 백업 작업을 수행 하기 전에 원본 데이터베이스에서 `DBCC CHECKDB`를 실행 하 고, 관리 되는 인스턴스에서 복원할 수 있는 잠재적 손상을 방지 하기 위해 백업에서 `WITH CHECKSUM` 옵션을 사용 해야 합니다. 범용 계층에서 복원 하는 경우 원본 데이터베이스에 [메모리 내 OLTP 개체가](sql-database-in-memory.md#in-memory-oltp) 포함 되어 있지 않은지 확인 합니다.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>장애 조치 (failover) 후 중요 비즈니스용 서비스 계층의 Resource Governor를 다시 구성 해야 할 수 있음
 

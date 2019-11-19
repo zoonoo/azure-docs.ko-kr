@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77309a73f3c5641aa8a7667015ed02808e376348
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 27530b143e46acad4152e8333836cbe9c79fab17
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032886"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168086"
 ---
 # <a name="eliminate-bad-passwords-in-your-organization"></a>조직에서 잘못된 암호 제거
 
@@ -39,7 +39,7 @@ Azure AD의 테 넌 트에 있는 모든 사용자에 대해 새 암호를 변�
 > [!NOTE]
 > 사이버은 또한 공격에 비슷한 전략을 사용 합니다. 따라서 Microsoft는이 목록의 콘텐츠를 공개적으로 게시 하지 않습니다.
 
-## <a name="custom-banned-password-list"></a>사용자 지정 금지된 암호 목록
+## <a name="custom-banned-password-list"></a>사용자 지정 금지 암호 목록
 
 일부 조직에서는 Microsoft가 사용자 지정 금지 된 암호 목록을 호출 하는 사용자 지정을 전역 금지 된 암호 목록 위에 추가 하 여 보안을 더욱 향상 시킬 수 있습니다. 이 목록에 추가 된 용어는 주로 다음과 같은 조직적 특정 조건에 초점을 맞춘 것을 권장 합니다.
 
@@ -98,7 +98,7 @@ Azure AD 암호 보호는 Azure AD에서 볼 수 있는 실제 보안 원격 분
 
 사용자 암호에 금지된 암호가 포함되어 있더라도 전체 암호의 보안 수준이 충분히 높으면 해당 암호를 사용할 수 있습니다. 암호를 새로 구성하면 다음 단계가 진행되어 암호의 전반적인 보안 수준을 평가함으로써 암호를 수락할지 아니면 거부할지가 결정됩니다.
 
-### <a name="step-1-normalization"></a>1단계: 표준화
+### <a name="step-1-normalization"></a>1 단계: 정규화
 
 먼저 새 암호에 대해 정규화 프로세스가 진행됩니다. 이 기법을 사용 하면 적은 수의 금지 된 암호를 잠재적으로 취약 한 암호 집합에 매핑할 수 있습니다.
 
@@ -108,12 +108,12 @@ Azure AD 암호 보호는 Azure AD에서 볼 수 있는 실제 보안 원격 분
 | --- | --- |
 | '0'  | 'o' |
 | '1'  | 'l' |
-| '$'  | ' |
-| '\@'  | ' a' |
+| '$'  | 's' |
+| '\@'  | 'a' |
 
 예: "blank"라는 암호가 금지된 상태에서 사용자가 암호를 "Bl@nK"로 변경하려 한다고 가정해 보겠습니다. "Bl@nk"는 구체적으로 금지되어 있지는 않지만 정규화 프로세스에서는 이 암호를 금지된 암호인 "blank"로 변환합니다.
 
-### <a name="step-2-check-if-password-is-considered-banned"></a>2단계: 암호가 금지된 항목으로 간주되는지 확인
+### <a name="step-2-check-if-password-is-considered-banned"></a>2 단계: 암호가 금지 된 것으로 간주 되는지 확인
 
 #### <a name="fuzzy-matching-behavior"></a>유사 일치 동작
 
@@ -164,7 +164,7 @@ Azure AD 암호 보호는 Azure AD에서 볼 수 있는 실제 보안 원격 분
 | 온-프레미스 Windows Server Active Directory에서 동기화된 사용자 | Azure AD Premium P1 또는 P2 | Azure AD Premium P1 또는 P2 |
 
 > [!NOTE]
-> 온-프레미스 Windows Server Active Directory Azure Active Directory에 동기화 되지 않은 사용자는 동기화 된 사용자에 대 한 기존 라이선스에 따라 Azure AD 암호 보호의 이점도 사용할 수 있습니다.
+> 온-프레미스 Windows Server Active Directory Azure Active Directory와 동기화 되지 않은 사용자는 동기화 된 사용자에 대 한 기존 라이선스를 기반으로 하는 Azure AD 암호 보호의 이점을 누릴 수 있습니다.
 
 비용을 비롯한 추가 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 

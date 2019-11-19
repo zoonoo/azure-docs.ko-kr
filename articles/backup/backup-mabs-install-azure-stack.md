@@ -1,20 +1,14 @@
 ---
-title: Azure Stack에 Azure Backup Server 설치 | Microsoft Docs
+title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 Azure Stack에서 작업을 보호 하거나 백업 하는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.author: dacurwin
-ms.openlocfilehash: 7716fba7a16b393143ffb9c97e7203e15bc07d82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012947"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172388"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -223,7 +217,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
     ![Azure Backup 서버 - 시작 및 필수 조건 확인](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-7.png)
 
-    환경에 필요한 구성 요소가 모두 준비되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음**을 누릅니다.  
+    환경에 필요한 구성 요소가 모두 준비되면 컴퓨터가 요구 사항을 만족한다는 것을 나타내는 메시지가 표시됩니다. **다음**을 클릭합니다.  
 
     ![Azure Backup Server - 필수 조건 확인 통과](./media/backup-mabs-install-azure-stack/mabs-install-wizard-pre-check-passed-8.png)
 
@@ -332,11 +326,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용됨 |허용됨 |허용됨 |허용됨 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
+| 연결됨 |Active |허용함 |허용함 |허용함 |허용함 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용됨 |허용됨 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
+| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구

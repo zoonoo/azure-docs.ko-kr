@@ -1,18 +1,14 @@
 ---
-title: Microsoft Azure Recovery Services 에이전트에 대 한 지원 매트릭스
+title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
-author: dcurwin
-ms.service: backup
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.author: dacurwin
-manager: carmonm
-ms.openlocfilehash: a4372a66caaa8af807980a2f58f344cbf8fb1be9
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090544"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172047"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -54,7 +50,7 @@ Location | 캐시 폴더는 백업 중인 컴퓨터에 로컬로 저장 되어 �
 
 ## <a name="networking-and-access-support"></a>네트워킹 및 액세스 지원
 
-### <a name="url-access"></a>URL 액세스
+### <a name="url-and-ip-access"></a>URL 및 IP 액세스
 
 MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 
@@ -63,6 +59,11 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 - *.WindowsAzure.com
 - *.MicrosoftOnline.com
 - *.Windows.net
+
+그리고 다음 IP 주소에 대해 다음을 수행 합니다.
+
+- 20.190.128.0/18
+- 40.126.0.0/18
 
 ### <a name="throttling-support"></a>제한 지원
 
@@ -76,7 +77,12 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 >[!NOTE]
 > MARS 에이전트는 Windows Server Core Sku를 지원 하지 않습니다.
 
-MARS 에이전트를 사용 하 여 온-프레미스 컴퓨터 및 Azure Vm에서 실행 되는 일부 운영 체제에서 Azure로 직접 백업할 수 있습니다. 운영 체제는 64 비트 여야 하며, 최신 서비스 팩 및 업데이트를 실행 해야 합니다. 다음 표에는 이러한 운영 체제가 요약 되어 있습니다.
+MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영 체제에서 Azure로 직접 백업할 수 있습니다.
+
+1. 온-프레미스 Windows Server
+2. Windows가 실행되는 Azure VM
+
+운영 체제는 64 비트 여야 하며, 최신 서비스 팩 및 업데이트를 실행 해야 합니다. 다음 표에는 이러한 운영 체제가 요약 되어 있습니다.
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
@@ -128,7 +134,7 @@ OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니�
 읽기 전용 볼륨| 지원되지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
 오프라인 볼륨| 지원되지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
 네트워크 공유| 지원되지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
-BitLocker로 보호 된 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
+BitLocker 잠김 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
 파일 시스템 id| 지원되지 않음 |NTFS만 지원 됩니다.
 이동식 미디어| 지원되지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
 중복 제거된 드라이브 | 지원됨 | Azure Backup에서 중복 제거된 데이터를 일반 데이터로 변환합니다. 이는 데이터를 최적화, 암호화, 저장 및 자격 증명 모음으로 전송 합니다.

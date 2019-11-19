@@ -1,18 +1,14 @@
 ---
-title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백업 Microsoft Docs
+title: Azure에 SAP HANA 데이터베이스 백업
 description: 이 자습서에서는 Azure Backup 서비스를 사용 하 여 Azure에 SAP HANA 데이터베이스를 백업 하는 방법을 설명 합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: dacurwin
-ms.openlocfilehash: 8d99ff6f2d8a21a501631a3a062be6b05130c05b
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 519e47c6b6793c638e64c4e4bcc4fafdb678c9fb
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931811"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172737"
 ---
 # <a name="back-up-an-sap-hana-database-to-azure"></a>Azure에 SAP HANA 데이터베이스 백업
 
@@ -43,7 +39,7 @@ ms.locfileid: "72931811"
   - 새 정책을 만들려면 자격 증명 모음에서 **정책** > **백업 정책** >  **+** **Azure VM에서 > SAP HANA**추가를 클릭 하 고 정책 설정을 지정 합니다.
   - 다른 정책을 할당 하려면 데이터베이스를 실행 하는 VM의 속성에서 현재 정책 이름을 클릭 합니다. 그런 다음 **백업 정책** 페이지에서 백업에 사용할 다른 정책을 선택할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 백업을 구성 하기 전에 다음을 수행 해야 합니다.
 
@@ -154,7 +150,7 @@ ms.locfileid: "72931811"
 10. 백업 정책 정의를 완료 한 후 **확인**을 클릭 합니다.
 
 
-## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
+## <a name="run-an-on-demand-backup"></a>주문형 백업 실행
 
 백업은 정책 일정에 따라 실행 됩니다. 다음과 같이 요청 시 백업을 실행할 수 있습니다.
 
@@ -171,12 +167,12 @@ Azure Backup를 사용 하 여 백업 되는 데이터베이스의 로컬 백업
 1. 데이터베이스에 대 한 전체 또는 로그 백업이 완료 될 때까지 기다립니다. SAP HANA Studio에서 상태를 확인 합니다.
 2. 로그 백업을 사용 하지 않도록 설정 하 고, 관련 데이터베이스에 대 한 백업 카탈로그를 파일 시스템으로 설정 합니다.
 3. 이렇게 하려면 **systemdb** > **구성** >  > **데이터베이스 선택** **필터 (로그)** 를 차례로 선택 합니다.
-4. **Enable_auto_log_backup** 을 **No**로 설정 합니다.
+4. **Enable_auto_log_backup** 를 **아니요**로 설정 합니다.
 5. **Log_backup_using_backint** 을 **False**로 설정 합니다.
 6. 데이터베이스의 임시 전체 백업을 수행 합니다.
 7. 전체 백업 및 카탈로그 백업이 완료 될 때까지 기다립니다.
 8. 이전 설정을 Azure에 대 한 설정을 다시 되돌립니다.
-    - **Enable_auto_log_backup** 을 **예**로 설정 합니다.
+    - **Enable_auto_log_backup** 를 **예**로 설정 합니다.
     - **Log_backup_using_backint** 를 **True**로 설정 합니다.
 
 

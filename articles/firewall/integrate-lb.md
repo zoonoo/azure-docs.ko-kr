@@ -1,24 +1,24 @@
 ---
 title: Azure 표준 Load Balancer에 Azure Firewall 통합
-description: Azure 표준 Load Balancer에 Azure Firewall을 통합하는 방법 알아보기
+description: Azure 표준 Load Balancer(공용 또는 내부)를 사용하여 가상 네트워크에 Azure Firewall을 통합할 수 있습니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 4/1/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: 7ee92a7508918635849caafab4632bbba81ee628
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60193778"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167066"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 Azure Firewall 통합
 
 Azure 표준 Load Balancer(공용 또는 내부)를 사용하여 가상 네트워크에 Azure Firewall을 통합할 수 있습니다. 
 
-것이 좋습니다 Azure 방화벽을 사용 하 여 내부 부하 분산 장치를 통합 하는 훨씬 간단 하 게 디자인 이라고 합니다. 이미 배포 된 곳에 보관 하려는 경우에 공용 부하 분산 장치를 사용할 수 있습니다. 그러나 공용 부하 분산 장치 시나리오에서 기능에 영향을 줄 수 있는 비대칭 라우팅 문제에 주의해야 합니다.
+기본 디자인은 Azure 방화벽과 내부 부하 분산 장치를 통합 하는 것입니다 .이는 훨씬 간단한 디자인입니다. 이미 배포 된 부하 분산 장치를 보유 하 고 있는 경우 공용 부하 분산 장치를 사용할 수 있습니다. 그러나 공용 부하 분산 장치 시나리오에서 기능에 영향을 줄 수 있는 비대칭 라우팅 문제에 주의해야 합니다.
 
 Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](../load-balancer/load-balancer-overview.md)를 참조하세요.
 
@@ -32,7 +32,7 @@ Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](../l
 
 ### <a name="fix-the-routing-issue"></a>라우팅 문제 해결
 
-Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallSubnet에 있는 방화벽의 개인 IP 주소를 통해 패킷을 전달하는 서브넷의 기본 경로를 만드는 것입니다. 자세한 내용은 [자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성](tutorial-firewall-deploy-portal.md#create-a-default-route)을 참조하세요.
+Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallSubnet에 있는 방화벽의 개인 IP 주소를 통해 패킷을 전달하는 서브넷의 기본 경로를 만드는 것입니다. 자세한 내용은 [자습서: Azure Portal 사용 하 여 Azure 방화벽 배포 및 구성](tutorial-firewall-deploy-portal.md#create-a-default-route)을 참조 하세요.
 
 부하 분산 장치 시나리오에 방화벽을 도입하는 경우 인터넷 트래픽이 방화벽의 공용 IP 주소를 통해 들어오도록 할 수 있습니다. 여기에서 방화벽은 해당 방화벽 규칙을 적용하고, 패킷을 부하 분산 장치의 공용 IP 주소로 NAT합니다. 여기서 문제가 발생합니다. 패킷은 방화벽의 공용 IP 주소에 도착하지만 개인 IP 주소(기본 경로 사용)를 통해 방화벽으로 돌아갑니다.
 이 문제를 방지하려면 방화벽의 공용 IP 주소에 대해 추가 호스트 경로를 만듭니다. 방화벽의 공용 IP 주소로 이동하는 패킷은 인터넷을 통해 라우팅됩니다. 이 경우 방화벽의 개인 IP 주소로의 기본 경로가 사용되지 않게 됩니다.

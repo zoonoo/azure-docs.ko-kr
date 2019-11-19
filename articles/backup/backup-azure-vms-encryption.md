@@ -1,19 +1,14 @@
 ---
-title: Azure Backup를 사용 하 여 암호화 된 Azure Vm 백업 및 복원
+title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
-ms.reviewer: geg
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.author: dacurwin
-ms.openlocfilehash: 004f15a1af11e3ed27f792e245888671b94fbb1a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c4bc413e70d8e19f8006580c0631641651dcaf92
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074922"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172533"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -21,7 +16,7 @@ ms.locfileid: "74074922"
 
 시작 하기 전에 Azure Backup Azure Vm과 상호 작용 하는 방법에 대해 자세히 알아보려면 다음 리소스를 검토 합니다.
 
-- Azure VM 백업 아키텍처를 [검토](backup-architecture.md#architecture-direct-backup-of-azure-vms) 합니다.
+- Azure VM 백업 아키텍처를 [검토](backup-architecture.md#architecture-built-in-azure-vm-backup) 합니다.
 - [자세한 정보](backup-azure-vms-introduction.md) Azure VM 백업 및 Azure Backup 확장.
 
 ## <a name="encryption-support"></a>암호화 지원

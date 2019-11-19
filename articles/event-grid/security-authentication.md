@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: 8fe85685a41e05b5132157453a6dcbc81c2399af
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825763"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169571"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -102,6 +102,11 @@ HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락 
 
 ### <a name="event-delivery-security"></a>이벤트 전달 보안
 
+#### <a name="azure-ad"></a>Azure AD
+
+Azure Active Directory를 사용 하 여 끝점에 이벤트를 게시할 Event Grid를 인증 하 고 권한을 부여 하 여 webhook 끝점의 보안을 유지할 수 있습니다. Azure Active Directory 응용 프로그램을 만들고 응용 프로그램에서 Event Grid 권한을 부여 하는 역할 및 서비스 주체를 만들고 Azure AD 응용 프로그램을 사용 하도록 이벤트 구독을 구성 해야 합니다. [Event Grid를 사용 하 여 AAD를 구성 하는 방법을 알아봅니다](secure-webhook-delivery.md).
+
+#### <a name="query-parameters"></a>쿼리 매개 변수
 이벤트 구독을 만들 때 Webhook URL에 쿼리 매개 변수를 추가하여 Webhook 엔드포인트를 보호할 수 있습니다. 해당 쿼리 매개 변수 중 하나를 [액세스 토큰](https://en.wikipedia.org/wiki/Access_token)과 같은 비밀로 설정합니다. 웹후크는 이 비밀을 사용하여 이벤트가 유효한 사용 권한이 있는 Event Grid에서 제공된다고 인식할 수 있습니다. Event Grid는 Webhook에 모든 이벤트 전달에서 해당 쿼리 매개 변수를 포함합니다.
 
 이벤트 구독을 편집할 때 [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) 매개 변수가 Azure [CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)에 사용되지 않는 한 쿼리 매개 변수는 표시되거나 반환되지 않습니다.

@@ -1,17 +1,17 @@
 ---
-title: Azure Functions SignalR 서비스 응용 프로그램 개발 및 구성
+title: Azure Functions 앱 개발 & 구성-Azure SignalR
 description: Azure Functions 및 Azure SignalR 서비스를 사용 하 여 서버 리스 실시간 응용 프로그램을 개발 하 고 구성 하는 방법에 대 한 세부 정보
 author: anthonychu
 ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: be77704f562a1e05485e6f3704dff265635b1dc2
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882301"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157645"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용 하 여 개발 및 구성 Azure Functions
 
@@ -38,7 +38,7 @@ Azure Functions 및 Azure SignalR 서비스를 사용 하 여 빌드한 서버 �
 
 클라이언트 응용 프로그램에는 Azure SignalR Service에 연결 하는 데 유효한 액세스 토큰이 필요 합니다. 액세스 토큰은 지정 된 사용자 ID에 대해 익명 이거나 인증 될 수 있습니다. 서버를 사용 하지 않는 SignalR 서비스 응용 프로그램에는 토큰 및 기타 연결 정보 (예: SignalR Service 끝점 URL)를 가져오기 위해 "negotiate" 라는 HTTP 끝점이 필요 합니다.
 
-HTTP로 트리거된 Azure 함수 및 *SignalRConnectionInfo* 입력 바인딩을 사용 하 여 연결 정보 개체를 생성 합니다. 함수는로 `/negotiate`끝나는 HTTP 경로를 포함 해야 합니다.
+HTTP로 트리거된 Azure 함수 및 *SignalRConnectionInfo* 입력 바인딩을 사용 하 여 연결 정보 개체를 생성 합니다. 함수는 `/negotiate`로 끝나는 HTTP 경로를 포함 해야 합니다.
 
 Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRConnectionInfo* 입력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)를 참조 하세요.
 
@@ -67,7 +67,7 @@ SignalR Service에 연결 하려면 클라이언트는 다음 단계로 구성 �
 1. 올바른 연결 정보를 얻기 위해 위에서 설명한 *negotiate* HTTP 끝점에 대 한 요청을 수행 합니다.
 1. *Negotiate* 끝점에서 가져온 서비스 끝점 URL 및 액세스 토큰을 사용 하 여 SignalR service에 연결 합니다.
 
-SignalR 클라이언트 Sdk는 협상 핸드셰이크를 수행 하는 데 필요한 논리를 이미 포함 하 고 있습니다. Negotiate 끝점의 URL을 제외 `negotiate` 하 고 세그먼트를 SDK의 `HubConnectionBuilder`에 전달 합니다. JavaScript의 예제는 다음과 같습니다.
+SignalR 클라이언트 Sdk는 협상 핸드셰이크를 수행 하는 데 필요한 논리를 이미 포함 하 고 있습니다. `negotiate` 세그먼트를 제외 하 고 negotiate 끝점의 URL을 SDK의 `HubConnectionBuilder`에 전달 합니다. JavaScript의 예제는 다음과 같습니다.
 
 ```javascript
 const connection = new signalR.HubConnectionBuilder()
@@ -75,7 +75,7 @@ const connection = new signalR.HubConnectionBuilder()
   .build()
 ```
 
-규칙에 따라 SDK에서 자동으로 `/negotiate` URL에 추가 하 고이를 사용 하 여 협상을 시작 합니다.
+규칙에 따라 SDK는 URL에 `/negotiate`을 자동으로 추가 하 고이를 사용 하 여 협상을 시작 합니다.
 
 > [!NOTE]
 > 브라우저에서 JavaScript/TypeScript SDK를 사용 하는 경우 함수 앱에서 [CORS (원본 간 리소스 공유)를 사용 하도록 설정](#enabling-cors) 해야 합니다.
@@ -102,12 +102,12 @@ JavaScript/TypeScript 클라이언트는 협상 함수에 대해 HTTP 요청을 
 
 #### <a name="localhost"></a>호스트
 
-로컬 컴퓨터에서 함수 앱을 실행 하는 경우 CORS에 섹션을 `Host` 추가 하 여 CORS를 사용 하도록 설정할 수 있습니다. 섹션에서 `Host` 다음 두 가지 속성을 추가 합니다.
+로컬 컴퓨터에서 함수 앱을 실행 하는 경우 CORS에 `Host` 섹션을 추가 하 *여 CORS* 를 사용 하도록 설정할 수 있습니다. `Host` 섹션에서 다음 두 가지 속성을 추가 합니다.
 
 * `CORS`-클라이언트 응용 프로그램의 원본인 기준 URL을 입력 합니다.
-* `CORSCredentials`-"withcredentials `true` " 요청을 허용 하도록 설정 합니다.
+* `CORSCredentials`-"withCredentials" 요청을 허용 하도록 `true`로 설정 합니다.
 
-예제:
+예:
 
 ```json
 {
@@ -167,9 +167,9 @@ Azure Functions에는 Facebook, Twitter, Microsoft 계정, Google, Azure Active 
 
 Azure Portal의 함수 앱 *플랫폼 기능* 탭에서 *인증/권한 부여* 설정 창을 엽니다. 사용자가 선택한 id 공급자를 사용 하 여 인증을 구성 하려면 [App Service 인증](../app-service/overview-authentication-authorization.md) 에 대 한 설명서를 따르세요.
 
-구성 된 인증 된 HTTP 요청에는 `x-ms-client-principal-name` 각각 `x-ms-client-principal-id` 인증 된 id의 사용자 이름 및 사용자 ID를 포함 하는 및 헤더가 포함 됩니다.
+구성 된 인증 된 HTTP 요청에는 인증 된 id의 사용자 이름 및 사용자 ID를 포함 하는 `x-ms-client-principal-name` 및 `x-ms-client-principal-id` 헤더가 포함 됩니다.
 
-*SignalRConnectionInfo* binding 구성에서 이러한 헤더를 사용 하 여 인증 된 연결을 만들 수 있습니다. 헤더를 `x-ms-client-principal-id` 사용 하 C# 는 예제 negotiate 함수는 다음과 같습니다.
+*SignalRConnectionInfo* binding 구성에서 이러한 헤더를 사용 하 여 인증 된 연결을 만들 수 있습니다. `x-ms-client-principal-id` 헤더를 사용 C# 하는 negotiate 함수 예제는 다음과 같습니다.
 
 ```csharp
 [FunctionName("negotiate")]
@@ -184,7 +184,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-그런 다음 SignalR 메시지의 속성을 `UserId` 설정 하 여 해당 사용자에 게 메시지를 보낼 수 있습니다.
+그런 다음 SignalR 메시지의 `UserId` 속성을 설정 하 여 해당 사용자에 게 메시지를 보낼 수 있습니다.
 
 ```csharp
 [FunctionName("SendMessage")]

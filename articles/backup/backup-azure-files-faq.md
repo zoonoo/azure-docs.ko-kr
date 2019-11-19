@@ -1,18 +1,14 @@
 ---
 title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 07/29/2019
-ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: 9cb5d3ae02cb0d4a6e293207a736dced56ed8538
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747465"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173103"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -109,7 +105,7 @@ Azure 파일 공유가 삭제되면 삭제될 백업 목록이 표시되고 확�
 
 진행 중인 복원 작업이 취소되면 복원 프로세스가 중지되고 취소 전에 모든 파일이 복원되면 롤백 없이 구성된 대상(원래 또는 대체 위치)에 남아 있습니다.
 
-## <a name="manage-backup"></a>Backup 관리
+## <a name="manage-backup"></a>백업 관리
 
 ### <a name="can-i-use-powershell-to-configuremanagerestore-backups-of-azure-file-shares"></a>PowerShell을 사용하여 Azure 파일 공유에 대한 백업을 구성/관리/복원할 수 있나요?
 
@@ -127,9 +123,9 @@ Azure 파일 공유 백업은 최대 180일의 보존 기간이 적용된 정책
 
 파일 공유에 대한 새 정책이 적용되면 새 정책의 일정 및 보존 기간을 따릅니다. 보존 기간을 늘리면 기존 복구 지점이 새 정책에 따라 유지되도록 표시됩니다. 보존 기간을 줄이면 다음 정리 작업에서 정리(prune) 표시되고 삭제됩니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="next-steps"></a>다음 단계
 
-이 정보는 Azure 파일 백업에 대한 내용일 뿐이며, Azure Backup의 다른 영역에 대한 자세한 내용은 다음 Backup FAQ를 참조하세요.
+Azure Backup의 다른 영역에 대한 자세한 내용은 다음 백업 FAQ를 참조하세요.
 
 - [Recovery Services 자격 증명 모음 FAQ](backup-azure-backup-faq.md)
 - [Azure VM 백업 FAQ](backup-azure-vm-backup-faq.md)

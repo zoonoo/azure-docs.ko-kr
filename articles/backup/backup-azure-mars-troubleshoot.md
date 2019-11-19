@@ -2,18 +2,14 @@
 title: Azure Backup 에이전트 문제 해결
 description: 이 문서에서는 Azure Backup 에이전트의 설치 및 등록 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.reviewer: saurse
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: dacurwin
-ms.openlocfilehash: abd4e91b8fd3332191b58acf38daed06d03801be
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4f1d93a6ba36821832c945db2e5cc19bf7e9d232
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012832"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172946"
 ---
 # <a name="troubleshoot-the-microsoft-azure-recovery-services-mars-agent"></a>MARS (Microsoft Azure Recovery Services) 에이전트 문제 해결
 
@@ -46,7 +42,7 @@ Microsoft Azure Recovery Services (MARS) 에이전트 문제 해결을 시작 �
 | 원인 | 권장 작업 |
 | ---     | ---    |
 | **자격 증명 모음 자격 증명이 유효 하지 않음** <br/> <br/> 자격 증명 모음 파일이 손상 되었거나 만료 되었을 수 있습니다. (예를 들어 등록 하는 동안 48 시간 이상 다운로드 되었을 수 있습니다.)| Azure Portal Recovery Services 자격 증명 모음에서 새 자격 증명을 다운로드 합니다. [MARS 에이전트 다운로드](https://docs.microsoft.com/azure/backup/backup-configure-vault#download-the-mars-agent) 섹션의 6 단계를 참조 하세요. 그런 후에 다음 단계를 적절 하 게 수행 합니다. <ul><li> MARS를 이미 설치 하 고 등록 한 경우 Microsoft Azure Backup 에이전트 MMC 콘솔을 열고 **작업** 창에서 **서버 등록** 을 선택 하 여 새 자격 증명을 사용 하 여 등록을 완료 합니다. <br/> <li> 새 설치에 실패 하는 경우 새 자격 증명을 사용 하 여 다시 설치 해 봅니다.</ul> **참고**: 여러 자격 증명 모음 파일을 다운로드 한 경우 최신 파일만 다음 48 시간 동안 유효 합니다. 새 자격 증명 모음 자격 증명 파일을 다운로드 하는 것이 좋습니다.
-| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>or <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행 합니다.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URL**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.
+| **프록시 서버/방화벽이 등록을 차단 하 고 있습니다.** <br/>or <br/>**인터넷 연결 없음** <br/><br/> 컴퓨터 또는 프록시 서버가 인터넷 연결을 제한 하 고 필요한 Url에 대 한 액세스를 보장 하지 않는 경우 등록에 실패 합니다.| 다음 단계를 수행 합니다.<br/> <ul><li> IT 팀과 협력 하 여 시스템이 인터넷에 연결 되어 있는지 확인 합니다.<li> 프록시 서버가 없는 경우 에이전트를 등록할 때 프록시 옵션이 선택 되어 있지 않은지 확인 합니다. [프록시 설정을 확인](#verifying-proxy-settings-for-windows)하세요.<li> 방화벽/프록시 서버를 사용 하는 경우에는 네트워킹 팀과 협력 하 여 이러한 Url 및 IP 주소에 액세스할 수 있는지 확인 합니다.<br/> <br> **URLs**<br> `www.msftncsi.com` <br> .Microsoft.com <br> .WindowsAzure.com <br> .microsoftonline.com <br> .windows.net <br>**IP 주소**<br>  20.190.128.0/18 <br>  40.126.0.0/18 <br/></ul></ul>위의 문제 해결 단계를 완료 한 후 다시 등록 해 보세요.
 | **바이러스 백신 소프트웨어가 등록을 차단 하 고 있습니다.** | 서버에 바이러스 백신 소프트웨어가 설치 되어 있는 경우 다음과 같은 파일 및 폴더에 대 한 바이러스 백신 검사에 필요한 제외 규칙을 추가 합니다. <br/><ul> <li> CBengine.exe <li> CSC.exe<li> 스크래치 폴더입니다. 기본 위치는 C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch. <li> C:\Program Files\Microsoft Azure Recovery Services의 bin 폴더.
 
 ### <a name="additional-recommendations"></a>추가 권장 사항

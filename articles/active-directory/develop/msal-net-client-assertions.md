@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 11/18/2019
 ms.author: jmprieur
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf11ac8dc39dcb1d70b932dbe870687f5446a52
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802843"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168134"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
+
 기밀 클라이언트 응용 프로그램은 id를 증명 하기 위해 Azure AD와 암호를 교환 합니다. 비밀은 다음과 같을 수 있습니다.
 - 클라이언트 암호 (응용 프로그램 암호)입니다.
 - 표준 클레임을 포함 하는 서명 된 어설션을 빌드하는 데 사용 되는 인증서입니다.
@@ -37,6 +38,9 @@ MSAL.NET에는 기밀 클라이언트 앱에 자격 증명 또는 어설션을 �
 - `.WithCertificate()`
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
+
+> [!NOTE]
+> `WithClientAssertion()` API를 사용 하 여 기밀 클라이언트에 대 한 토큰을 가져올 수 있지만,이는 더 고급이 고 일반적이 지 않은 매우 구체적인 시나리오를 처리 하도록 설계 되었으므로 기본적으로 사용 하지 않는 것이 좋습니다. `.WithCertificate()` API를 사용 하면 MSAL.NET에서이를 처리할 수 있습니다. 이 api는 필요한 경우 인증 요청을 사용자 지정 하는 기능을 제공 하지만 `.WithCertificate()`에 의해 생성 된 기본 어설션은 대부분의 인증 시나리오에서 충분 합니다. MSAL.NET가 내부적으로 서명 작업을 수행 하지 못하는 일부 시나리오에서는이 API를 해결 방법으로 사용할 수도 있습니다.
 
 ### <a name="signed-assertions"></a>서명 된 어설션
 
@@ -51,7 +55,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD에서 필요한 클레임은 다음과 같습니다.
 
-클레임 유형 | Value | 설명
+클레임 형식 | 값 | 설명
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
 exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.
@@ -66,9 +70,9 @@ sub | ClientID | "Sub" (주체) 클레임은 JWT의 주체를 식별 합니다. 
 private static IDictionary<string, string> GetClaims()
 {
       //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
-      string aud = "https://login.microsoftonline.com/72f988bf-86f1-41af-hd4m-2d7cd011db47/v2.0";
+      string aud = $"https://login.microsoftonline.com/{tenantId}/v2.0";
 
-      string ConfidentialClientID = "61dab2ba-145d-4b1b-8569-bf4b9aed5dhb" //client id
+      string ConfidentialClientID = "00000000-0000-0000-0000-000000000000" //client id
       const uint JwtToAadLifetimeInSeconds = 60 * 10; // Ten minutes
       DateTime validFrom = DateTime.UtcNow;
       var nbf = ConvertToTimeT(validFrom);
@@ -105,11 +109,11 @@ string Encode(byte[] arg)
     return s;
 }
 
-string GetAssertion()
+string GetSignedClientAssertion()
 {
     //Signing with SHA-256
     string rsaSha256Signature = "http://www.w3.org/2001/04/xmldsig-more#rsa-sha256";
-    X509Certificate2 certificate = ReadCertificate(config.CertificateName);
+     X509Certificate2 certificate = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
 
     //Create RSACryptoServiceProvider
     var x509Key = new X509AsymmetricSecurityKey(certificate);
@@ -129,9 +133,55 @@ string GetAssertion()
     string token = Encode(Encoding.UTF8.GetBytes(JObject.FromObject(header).ToString())) + "." + Encode(Encoding.UTF8.GetBytes(JObject.FromObject(GetClaims())));
 
     string signature = Encode(rsa.SignData(Encoding.UTF8.GetBytes(token), new SHA256Cng()));
-    string SignedAssertion = string.Concat(token, ".", signature);
-    return SignedAssertion;
+    string signedClientAssertion = string.Concat(token, ".", signature);
+    return signedClientAssertion;
 }
+```
+
+### <a name="alternative-method"></a>대체 방법
+
+Jsonwebtoken은를 사용 하 여 어설션을 만들 수도 있습니다. [system.identitymodel.](https://www.nuget.org/packages/Microsoft.IdentityModel.JsonWebTokens/) 코드는 아래 예제에 표시 된 것 처럼 더 세련 됩니다.
+
+```CSharp
+        string GetSignedClientAssertion()
+        {
+            var cert = new X509Certificate2("Certificate.pfx", "Password", X509KeyStorageFlags.EphemeralKeySet);
+
+            //aud = https://login.microsoftonline.com/ + Tenant ID + /v2.0
+            string aud = $"https://login.microsoftonline.com/{tenantID}/v2.0";
+
+            // client_id
+            string confidentialClientID = "00000000-0000-0000-0000-000000000000";
+
+            // no need to add exp, nbf as JsonWebTokenHandler will add them by default.
+            var claims = new Dictionary<string, object>()
+            {
+                { "aud", aud },
+                { "iss", confidentialClientID },
+                { "jti", Guid.NewGuid().ToString() },
+                { "sub", confidentialClientID }
+            };
+
+            var securityTokenDescriptor = new SecurityTokenDescriptor
+            {
+                Claims = claims,
+                SigningCredentials = new X509SigningCredentials(cert)
+            };
+
+            var handler = new JsonWebTokenHandler();
+            var signedClientAssertion = handler.CreateToken(securityTokenDescriptor);
+        }
+```
+
+서명 된 클라이언트 어설션이 있으면 아래와 같이 MSAL api와 함께 사용할 수 있습니다.
+
+```CSharp
+            string signedClientAssertion = GetSignedClientAssertion();
+
+            var confidentialApp = ConfidentialClientApplicationBuilder
+                .Create(ConfidentialClientID)
+                .WithClientAssertion(signedClientAssertion)
+                .Build();
 ```
 
 ### <a name="withclientclaims"></a>WithClientClaims

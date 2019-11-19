@@ -4,15 +4,15 @@ description: Istio를 설치 및 사용하여 AKS(Azure Kubernetes Service) 클�
 author: paulbouwer
 ms.service: container-service
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 245ac3b1fd88b8d2430e9ddefef3562efd16e6d1
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2768c2d4cef68dcf25e25c047aaa69653af5e0b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885391"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170858"
 ---
 # <a name="install-and-use-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio 설치 및 사용
 
@@ -21,9 +21,9 @@ ms.locfileid: "73885391"
 이 문서에서는 Istio를 설치하는 방법을 보여줍니다. Istio `istioctl` 클라이언트 이진 파일은 클라이언트 컴퓨터에 설치 되 고 Istio 구성 요소는 AKS의 Kubernetes 클러스터에 설치 됩니다.
 
 > [!NOTE]
-> 이러한 지침은 Istio 버전 `1.3.2`를 참조 하 고 최소한의 투구 버전 `2.14.2`를 사용 합니다.
+> 다음 지침은 Istio 버전 `1.4.0`를 참조 합니다.
 >
-> Istio `1.3.x` 릴리스는 `1.13`, `1.14`, `1.15`Kubernetes 버전에 대해 Istio 팀에서 테스트 했습니다. [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
+> Istio `1.4.x` 릴리스는 `1.13`, `1.14`, `1.15`Kubernetes 버전에 대해 Istio 팀에서 테스트 했습니다. [GitHub][istio-github-releases]에서 추가 istio 버전, [istio News][istio-release-notes] 의 각 릴리스에 대 한 정보 및 [istio 일반 FAQ][istio-faq]에서 지원 되는 Kubernetes 버전을 찾을 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -38,11 +38,9 @@ ms.locfileid: "73885391"
 
 이 문서에 설명 된 단계에서는 AKS 클러스터 (RBAC를 사용 하 여 Kubernetes `1.13` 이상)를 만들고 클러스터와 `kubectl` 연결을 설정 했다고 가정 합니다. 이러한 항목에 대 한 도움이 필요한 경우 [AKS 빠른][aks-quickstart]시작을 참조 하세요.
 
-이러한 지침을 따르고 Istio를 설치 하려면 [투구][helm] 가 필요 합니다. 클러스터에 제대로 설치 되 고 구성 된 안정적인 최신 버전을 설치 하는 것이 좋습니다. 투구 설치와 관련 하 여 도움이 필요한 경우 [AKS 투구 설치 지침][helm-install]을 참조 하세요. 모든 Istio pod Linux 노드에서 실행 되도록 예약 되어야 합니다.
+AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사항을 이해 하려면 [Istio 성능 및 확장성](https://istio.io/docs/concepts/performance-and-scalability/) 설명서를 확인 해야 합니다. 코어 및 메모리 요구 사항은 특정 워크 로드에 따라 달라 집니다. 설치에 사용할 적절 한 수의 노드 및 VM 크기를 선택 합니다.
 
-AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사항을 이해 하려면 [Istio 성능 및 확장성](https://istio.io/docs/concepts/performance-and-scalability/) 설명서를 참조 하세요. 코어 및 메모리 요구 사항은 특정 워크 로드에 따라 달라 집니다. 설치에 사용할 적절 한 수의 노드 및 VM 크기를 선택 합니다.
-
-이 문서에서는 몇 단계로 Istio 설치 지침을 구분합니다. 최종 결과는 공식 Istio 설치 [지침][istio-install-helm]과 동일한 구조에서 동일 합니다.
+이 문서에서는 몇 단계로 Istio 설치 지침을 구분합니다. 최종 결과는 공식 Istio 설치 [지침][istio-install-istioctl]과 동일한 구조에서 동일 합니다.
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -62,65 +60,15 @@ AKS 클러스터에서 Istio를 실행 하기 위한 추가 리소스 요구 사
 
 ::: zone-end
 
-## <a name="add-the-istio-helm-chart-repository"></a>Istio 투구 차트 리포지토리 추가
-
-Istio 릴리스에 대 한 Istio 투구 차트 리포지토리를 추가 합니다. `helm repo update`를 실행 하 여 차트 리포지토리의 로컬 정보를 업데이트 해야 합니다.
-
-```azurecli
-helm repo add istio.io https://storage.googleapis.com/istio-release/releases/$ISTIO_VERSION/charts/
-helm repo update
-```
-
-## <a name="install-the-istio-crds-on-aks"></a>AKS에 Istio CRDs를 설치 합니다.
-
-Istio는 [사용자 지정 리소스 정의 (CRDs)][kubernetes-crd] 를 사용 하 여 런타임 구성을 관리 합니다. Istio 구성 요소에 대 한 종속성이 있기 때문에 Istio CRDs를 먼저 설치 해야 합니다. 투구 및 `istio-init` 차트를 사용 하 여 AKS 클러스터의 `istio-system` 네임 스페이스에 Istio CRDs를 설치 합니다.
-
-```azurecli
-helm install istio.io/istio-init --name istio-init --namespace istio-system
-```
-
-[작업][kubernetes-jobs] 은 `istio-init` 투구 차트의 일부로 배포 되어 crds를 설치 합니다. 이러한 작업은 클러스터 환경에 따라 완료 하는 데 .20s 미만이 소요 됩니다. 다음과 같이 작업이 성공적으로 완료 되었는지 확인할 수 있습니다.
-
-```azurecli
-kubectl get jobs -n istio-system
-```
-
-다음 예제 출력에서는 성공적으로 완료 된 작업을 보여 줍니다.
-
-```console
-NAME                      COMPLETIONS   DURATION   AGE
-istio-init-crd-10-1.3.2   1/1           14s        14s
-istio-init-crd-11-1.3.2   1/1           12s        14s
-istio-init-crd-12-1.3.2   1/1           14s        14s
-```
-
-이제 작업이 성공적으로 완료 되었음을 확인 했으므로 올바른 Istio CRDs 수가 설치 되어 있는지 확인 합니다. 다음 명령을 실행 하 여 모든 23 Istio CRDs가 설치 되었는지 확인할 수 있습니다. 이 명령은 `23`수를 반환 해야 합니다.
-
-::: zone pivot="client-operating-system-linux"
-
-[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio/install-check-crd-count-bash.md)]
-
-::: zone-end
-
-::: zone pivot="client-operating-system-macos"
-
-[!INCLUDE [Bash - check CRD count](includes/servicemesh/istio/install-check-crd-count-bash.md)]
-
-::: zone-end
-
-::: zone pivot="client-operating-system-windows"
-
-[!INCLUDE [PowerShell - check CRD count](includes/servicemesh/istio/install-check-crd-count-powershell.md)]
-
-::: zone-end
-
-이 시점에 도달한 경우에는 Istio CRDs가 성공적으로 설치 되었음을 의미 합니다. 이제 다음 섹션으로 이동 하 여 [AKS에 Istio 구성 요소를 설치](#install-the-istio-components-on-aks)합니다.
-
 ## <a name="install-the-istio-components-on-aks"></a>AKS에 Istio 구성 요소를 설치 합니다.
 
 [Grafana][grafana] 및 [Kiali][kiali] 를 설치 하는 과정을 istio 설치의 일부로 설치 합니다. Grafana는 분석 및 모니터링 대시보드를 제공 하 고 Kiali는 서비스 메시 관찰성 대시보드를 제공 합니다. 설치 프로그램에서 이러한 각 구성 요소에는 [암호로][kubernetes-secrets]제공 되어야 하는 자격 증명이 필요 합니다.
 
-Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 암호를 만들어야 합니다. 
+Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 암호를 만들어야 합니다. 이러한 암호는 Istio에서 사용 되는 `istio-system` 네임 스페이스에 설치 해야 하므로 네임 스페이스를 만들어야 합니다. `kubectl create`를 통해 네임 스페이스를 만들 때 `--save-config` 옵션을 사용 하 여 Istio 설치 관리자가 나중에이 개체에 대해 `kubectl apply`를 실행할 수 있도록 해야 합니다.
+
+```console
+kubectl create namespace istio-system --save-config
+```
 
 ::: zone pivot="client-operating-system-linux"
 
@@ -142,45 +90,149 @@ Istio 구성 요소를 설치 하기 전에 Grafana 및 Kiali 모두에 대 한 
 
 ### <a name="install-istio-components"></a>Istio 구성 요소 설치
 
-이제 AKS 클러스터에 Grafana 및 Kiali 비밀을 성공적으로 만들었으므로 Istio 구성 요소를 설치 해야 합니다. 투구 및 `istio` 차트를 사용 하 여 AKS 클러스터의 `istio-system` 네임 스페이스에 Istio 구성 요소를 설치 합니다. 
+이제 AKS 클러스터에 Grafana 및 Kiali 비밀을 성공적으로 만들었으므로 Istio 구성 요소를 설치 해야 합니다. 
+
+Istio에 대 한 [투구][helm] 설치 접근 방식은 나중에 사용 되지 않습니다. Istio에 대 한 새로운 설치 방법은 `istioctl` 클라이언트 이진, [istio 구성 프로필][istio-configuration-profiles]및 새 [istio 제어 평면 사양 및 api][istio-control-plane]를 활용 합니다. 이 새로운 방법은 Istio를 설치 하기 위해 사용 하는 것입니다.
 
 > [!NOTE]
-> **설치 옵션**
-> 
-> 설치의 일부로 다음 옵션을 사용 하 고 있습니다.
-> - `global.controlPlaneSecurityEnabled=true`-컨트롤 평면에 대해 상호 TLS 사용
-> - `global.mtls.enabled=true`-모든 서비스와 서비스 간 통신에서 mtls가 필요 합니다.
-> - `grafana.enabled=true`-분석 및 모니터링 대시보드에 Grafana 배포를 사용 하도록 설정
-> - `grafana.security.enabled=true`-Grafana에 대 한 인증 사용
-> - `tracing.enabled=true`-추적에 Jaeger 배포를 사용 하도록 설정
-> - `kiali.enabled=true`-서비스 메시 관찰성 대시보드에 대해 Kiali 배포를 사용 하도록 설정
->
-> **노드 선택기**
->
 > Istio는 현재 Linux 노드에서 실행 되도록 예약 되어야 합니다. 클러스터에 Windows Server 노드가 있는 경우 Istio pod Linux 노드에서 실행 되도록 예약 되어 있는지 확인 해야 합니다. [노드 선택기][kubernetes-node-selectors] 를 사용 하 여 pod이 올바른 노드에 예약 되었는지 확인 합니다.
 
 > [!CAUTION]
 > [SDS (비밀 검색 서비스)][istio-feature-sds] 및 [istio cni][istio-feature-cni] Istio 기능은 현재 [알파][istio-feature-stages]에 있으므로 이러한 기능을 사용 하도록 설정 하기 전에 고려해 야 합니다. 또한 [Service Account Token Volume 프로젝션][kubernetes-feature-sa-projected-volume] Kubernetes 기능 (SDS에 대 한 요구 사항)이 현재 AKS 버전에서 사용 하도록 설정 되어 있지 않습니다.
 
-::: zone pivot="client-operating-system-linux"
+다음 콘텐츠를 사용 하 여 `istio.aks.yaml` 라는 파일을 만듭니다. 이 파일은 Istio를 구성 하기 위한 [istio 제어 평면 사양][istio-control-plane] 세부 정보를 포함 합니다.
 
-[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio/install-components-bash.md)]
+```yaml
+apiVersion: install.istio.io/v1alpha2
+kind: IstioControlPlane
+spec:
+  # Use the default profile as the base
+  # More details at: https://istio.io/docs/setup/additional-setup/config-profiles/
+  profile: default
+  values:
+    global:
+      # Ensure that the Istio pods are only scheduled to run on Linux nodes
+      defaultNodeSelector:
+        beta.kubernetes.io/os: linux
+      # Enable mutual TLS for the control plane
+      controlPlaneSecurityEnabled: true
+      mtls:
+        # Require all service to service communication to have mtls
+        enabled: false
+    grafana:
+      # Enable Grafana deployment for analytics and monitoring dashboards
+      enabled: true
+      security:
+        # Enable authentication for Grafana
+        enabled: true
+    kiali:
+      # Enable the Kiali deployment for a service mesh observability dashboard
+      enabled: true
+    tracing:
+      # Enable the Jaeger deployment for tracing
+      enabled: true
+```
 
-::: zone-end
+다음과 같이 `istioctl apply` 명령과 위의 `istio.aks.yaml` Istio 제어 평면 사양 파일을 사용 하 여 istio를 설치 합니다.
 
-::: zone pivot="client-operating-system-macos"
+```console
+istioctl manifest apply -f istio.aks.yaml
+```
 
-[!INCLUDE [Bash - install Istio components](includes/servicemesh/istio/install-components-bash.md)]
+설치 관리자는 다양 한 [Crds][kubernetes-crd] 를 배포한 다음 종속성을 관리 하 여이 istio 구성에 대해 정의 된 관련 개체를 모두 설치 합니다. 다음 출력 코드 조각과 유사한 내용이 표시 되어야 합니다.
 
-::: zone-end
+```console
+Applying manifests for these components:
+- Tracing
+- EgressGateway
+- NodeAgent
+- Grafana
+- Policy
+- Citadel
+- CertManager
+- IngressGateway
+- Injector
+- Prometheus
+- PrometheusOperator
+- Kiali
+- Telemetry
+- Galley
+- Cni
+- Pilot
+- Base
+- CoreDNS
+NodeAgent is waiting on a prerequisite...
+Telemetry is waiting on a prerequisite...
+Galley is waiting on a prerequisite...
+Cni is waiting on a prerequisite...
+Grafana is waiting on a prerequisite...
+Policy is waiting on a prerequisite...
+Citadel is waiting on a prerequisite...
+EgressGateway is waiting on a prerequisite...
+Tracing is waiting on a prerequisite...
+Kiali is waiting on a prerequisite...
+PrometheusOperator is waiting on a prerequisite...
+IngressGateway is waiting on a prerequisite...
+Prometheus is waiting on a prerequisite...
+CertManager is waiting on a prerequisite...
+Injector is waiting on a prerequisite...
+Pilot is waiting on a prerequisite...
+Applying manifest for component Base
+Waiting for CRDs to be applied.
+CRDs applied.
+Finished applying manifest for component Base
+Prerequisite for Tracing has completed, proceeding with install.
+Prerequisite for Injector has completed, proceeding with install.
+Prerequisite for Telemetry has completed, proceeding with install.
+Prerequisite for Policy has completed, proceeding with install.
+Prerequisite for PrometheusOperator has completed, proceeding with install.
+Prerequisite for NodeAgent has completed, proceeding with install.
+Prerequisite for IngressGateway has completed, proceeding with install.
+Prerequisite for Kiali has completed, proceeding with install.
+Prerequisite for EgressGateway has completed, proceeding with install.
+Prerequisite for Galley has completed, proceeding with install.
+Prerequisite for Grafana has completed, proceeding with install.
+Prerequisite for Cni has completed, proceeding with install.
+Prerequisite for Citadel has completed, proceeding with install.
+Applying manifest for component Tracing
+Prerequisite for Prometheus has completed, proceeding with install.
+Prerequisite for Pilot has completed, proceeding with install.
+Prerequisite for CertManager has completed, proceeding with install.
+Applying manifest for component Kiali
+Applying manifest for component Prometheus
+Applying manifest for component IngressGateway
+Applying manifest for component Policy
+Applying manifest for component Telemetry
+Applying manifest for component Citadel
+Applying manifest for component Galley
+Applying manifest for component Pilot
+Applying manifest for component Injector
+Applying manifest for component Grafana
+Finished applying manifest for component Kiali
+Finished applying manifest for component Tracing
+Finished applying manifest for component Prometheus
+Finished applying manifest for component Citadel
+Finished applying manifest for component Policy
+Finished applying manifest for component IngressGateway
+Finished applying manifest for component Injector
+Finished applying manifest for component Galley
+Finished applying manifest for component Pilot
+Finished applying manifest for component Grafana
+Finished applying manifest for component Telemetry
 
-::: zone pivot="client-operating-system-windows"
+Component IngressGateway installed successfully:
+================================================
 
-[!INCLUDE [PowerShell - install Istio components](includes/servicemesh/istio/install-components-powershell.md)]
+serviceaccount/istio-ingressgateway-service-account created
+deployment.apps/istio-ingressgateway created
+gateway.networking.istio.io/ingressgateway created
+sidecar.networking.istio.io/default created
+poddisruptionbudget.policy/ingressgateway created
+horizontalpodautoscaler.autoscaling/istio-ingressgateway created
+service/istio-ingressgateway created
 
-::: zone-end
-
-`istio` 투구 차트는 많은 수의 개체를 배포 합니다. 위의 `helm install` 명령 출력에서 목록을 볼 수 있습니다. Istio 구성 요소의 배포는 클러스터 환경에 따라 완료 하는 데 2 분이 소요 됩니다.
+...
+```
 
 이제 AKS 클러스터에 Istio를 배포 했습니다. Istio를 성공적으로 배포 하기 위해 다음 섹션으로 이동 하 여 [istio 설치의 유효성을 검사](#validate-the-istio-installation)해 보겠습니다.
 
@@ -203,22 +255,22 @@ kubectl get svc --namespace istio-system --output wide
 `istio-ingressgateway`에서 `<pending>`의 외부 IP를 표시하는 경우 Azure 네트워킹에서 IP 주소가 할당될 때까지 몇 분이 걸립니다.
 
 ```console
-NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                                                                                                                      AGE   SELECTOR
-grafana                  ClusterIP      10.0.164.244   <none>           3000/TCP                                                                                                                                     53s   app=grafana
-istio-citadel            ClusterIP      10.0.49.16     <none>           8060/TCP,15014/TCP                                                                                                                           53s   istio=citadel
-istio-galley             ClusterIP      10.0.175.173   <none>           443/TCP,15014/TCP,9901/TCP                                                                                                                   53s   istio=galley
-istio-ingressgateway     LoadBalancer   10.0.226.151   20.188.221.111   15020:31128/TCP,80:31380/TCP,443:31390/TCP,31400:31400/TCP,15029:30817/TCP,15030:30436/TCP,15031:32485/TCP,15032:30980/TCP,15443:30124/TCP   53s   app=istio-ingressgateway,istio=ingressgateway,release=istio
-istio-pilot              ClusterIP      10.0.102.158   <none>           15010/TCP,15011/TCP,8080/TCP,15014/TCP                                                                                                       53s   istio=pilot
-istio-policy             ClusterIP      10.0.234.53    <none>           9091/TCP,15004/TCP,15014/TCP                                                                                                                 53s   istio-mixer-type=policy,istio=mixer
-istio-sidecar-injector   ClusterIP      10.0.216.8     <none>           443/TCP,15014/TCP                                                                                                                            53s   istio=sidecar-injector
-istio-telemetry          ClusterIP      10.0.154.215   <none>           9091/TCP,15004/TCP,15014/TCP,42422/TCP                                                                                                       53s   istio-mixer-type=telemetry,istio=mixer
-jaeger-agent             ClusterIP      None           <none>           5775/UDP,6831/UDP,6832/UDP                                                                                                                   52s   app=jaeger
-jaeger-collector         ClusterIP      10.0.26.109    <none>           14267/TCP,14268/TCP                                                                                                                          52s   app=jaeger
-jaeger-query             ClusterIP      10.0.70.55     <none>           16686/TCP                                                                                                                                    52s   app=jaeger
-kiali                    ClusterIP      10.0.36.206    <none>           20001/TCP                                                                                                                                    53s   app=kiali
-prometheus               ClusterIP      10.0.236.99    <none>           9090/TCP                                                                                                                                     53s   app=prometheus
-tracing                  ClusterIP      10.0.83.152    <none>           80/TCP                                                                                                                                       52s   app=jaeger
-zipkin                   ClusterIP      10.0.25.86     <none>           9411/TCP                                                                                                                                     52s   app=jaeger
+NAME                     TYPE           CLUSTER-IP     EXTERNAL-IP      PORT(S)                                                                                                                      AGE   SELECTOR
+grafana                  ClusterIP      10.0.116.147   <none>           3000/TCP                                                                                                                     92s   app=grafana
+istio-citadel            ClusterIP      10.0.248.152   <none>           8060/TCP,15014/TCP                                                                                                           94s   app=citadel
+istio-galley             ClusterIP      10.0.50.100    <none>           443/TCP,15014/TCP,9901/TCP,15019/TCP                                                                                         93s   istio=galley
+istio-ingressgateway     LoadBalancer   10.0.36.213    20.188.221.111   15020:30369/TCP,80:31368/TCP,443:30045/TCP,15029:32011/TCP,15030:31212/TCP,15031:32411/TCP,15032:30009/TCP,15443:30010/TCP   93s   app=istio-ingressgateway
+istio-pilot              ClusterIP      10.0.23.222    <none>           15010/TCP,15011/TCP,8080/TCP,15014/TCP                                                                                       93s   istio=pilot
+istio-policy             ClusterIP      10.0.59.250    <none>           9091/TCP,15004/TCP,15014/TCP                                                                                                 93s   istio-mixer-type=policy,istio=mixer
+istio-sidecar-injector   ClusterIP      10.0.123.219   <none>           443/TCP                                                                                                                      93s   istio=sidecar-injector
+istio-telemetry          ClusterIP      10.0.216.9     <none>           9091/TCP,15004/TCP,15014/TCP,42422/TCP                                                                                       89s   istio-mixer-type=telemetry,istio=mixer
+jaeger-agent             ClusterIP      None           <none>           5775/UDP,6831/UDP,6832/UDP                                                                                                   96s   app=jaeger
+jaeger-collector         ClusterIP      10.0.221.24    <none>           14267/TCP,14268/TCP,14250/TCP                                                                                                95s   app=jaeger
+jaeger-query             ClusterIP      10.0.46.154    <none>           16686/TCP                                                                                                                    95s   app=jaeger
+kiali                    ClusterIP      10.0.174.97    <none>           20001/TCP                                                                                                                    94s   app=kiali
+prometheus               ClusterIP      10.0.245.226   <none>           9090/TCP                                                                                                                     94s   app=prometheus
+tracing                  ClusterIP      10.0.249.95    <none>           9411/TCP                                                                                                                     95s   app=jaeger
+zipkin                   ClusterIP      10.0.154.89    <none>           9411/TCP                                                                                                                     94s   app=jaeger
 ```
 
 다음으로 필요한 Pod가 만들어졌는지 확인합니다. [Kubectl get pod][kubectl-get] 명령을 사용 하 여 `istio-system` 네임 스페이스를 다시 쿼리 합니다.
@@ -235,24 +287,21 @@ kubectl get pods --namespace istio-system
 - `kiali` 추가 기능 서비스 메시 대시보드 pod
 
 ```console
-NAME                                     READY   STATUS      RESTARTS   AGE
-grafana-7c48555456-msl7b                 1/1     Running     0          88s
-istio-citadel-566fc66db7-m8wgl           1/1     Running     0          87s
-istio-galley-5746db8d56-pl5gg            1/1     Running     0          88s
-istio-ingressgateway-6c94f7c9bf-f5lt5    1/1     Running     0          88s
-istio-init-crd-10-1.3.2-xw9g2            0/1     Completed   0          92m
-istio-init-crd-11-1.3.2-54rz8            0/1     Completed   0          92m
-istio-init-crd-12-1.3.2-789qj            0/1     Completed   0          92m
-istio-pilot-6748968b6d-rvdfx             2/2     Running     0          87s
-istio-policy-7576bbbcf7-2stft            2/2     Running     0          87s
-istio-sidecar-injector-76d79d494-7jk9n   1/1     Running     0          87s
-istio-telemetry-74b7bf676d-tfrcl         2/2     Running     0          88s
-istio-tracing-655d9588bc-d2htg           1/1     Running     0          86s
-kiali-65d55bcfb8-tqrfk                   1/1     Running     0          88s
-prometheus-846f9849bd-br8kp              1/1     Running     0          87s
+NAME                                          READY   STATUS    RESTARTS   AGE
+grafana-6bc97ff99-k9sk4                       1/1     Running   0          92s
+istio-citadel-6b5c754454-tb8nf                1/1     Running   0          94s
+istio-galley-7d6d78d7c5-zshsd                 2/2     Running   0          94s
+istio-ingressgateway-85869c5cc7-x5d76         1/1     Running   0          95s
+istio-pilot-787d6995b5-n5vrj                  2/2     Running   0          94s
+istio-policy-6cf4fbc8dc-sdsg5                 2/2     Running   2          94s
+istio-sidecar-injector-5d5b978668-wrz2s       1/1     Running   0          94s
+istio-telemetry-5498db684-6kdnw               2/2     Running   1          94s
+istio-tracing-78548677bc-74tx6                1/1     Running   0          96s
+kiali-59b7fd7f68-92zrh                        1/1     Running   0          95s
+prometheus-7c7cf9dbd6-rjxcv                   1/1     Running   0          94s
 ```
 
-Pod 3 개의 `istio-init-crd-*` `Completed` 상태가 있어야 합니다. 이러한 pod는 이전 단계에서 CRDs를 만든 작업을 실행 해야 했습니다. 다른 모든 pod는 `Running`상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
+모든 pod는 `Running`상태를 표시 해야 합니다. Pod에서 상태가 표시되지 않는 경우 상태가 표시될 때까지 1~2분 정도 걸릴 수 있습니다. Pod에서 문제를 보고 하는 경우 [kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 출력 및 상태를 검토 합니다.
 
 ## <a name="accessing-the-add-ons"></a>추가 항목 액세스
 
@@ -309,33 +358,31 @@ istioctl dashboard envoy <pod-name>.<namespace>
 
 ### <a name="remove-istio-components-and-namespace"></a>Istio 구성 요소 및 네임 스페이스 제거
 
-AKS 클러스터에서 Istio를 제거 하려면 다음 명령을 사용 합니다. `helm delete` 명령을 통해 `istio` 및 `istio-init` 차트가 제거 되 고 `kubectl delete namespace` 명령이 `istio-system` 네임 스페이스를 제거 합니다.
+AKS 클러스터에서 Istio를 제거 하려면 `istio.aks.yaml` Istio 제어 평면 사양 파일과 함께 `istioctl manifest generate` 명령을 사용 합니다. 그러면 설치 된 모든 구성 요소와 `istio-system` 네임 스페이스를 제거 하기 위해 `kubectl delete`에 파이프 하는 배포 된 매니페스트가 생성 됩니다.
 
-```azurecli
-helm delete --purge istio
-helm delete --purge istio-init
-kubectl delete namespace istio-system
+```console
+istioctl manifest generate -f istio.aks.yaml | kubectl delete -f -
 ```
 
 ### <a name="remove-istio-crds-and-secrets"></a>Istio CRDs 및 비밀 제거
 
-위의 명령은 Istio 구성 요소와 네임 스페이스를 모두 삭제 하지만 Istio CRDs 및 비밀이 계속 남아 있습니다. 
+위의 명령은 Istio 구성 요소와 네임 스페이스를 모두 삭제 하지만 Istio 비밀이 생성 된 상태로 남아 있습니다. 
 
 ::: zone pivot="client-operating-system-linux"
 
-[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-bash.md)]
+[!INCLUDE [Bash - remove Istio secrets](includes/servicemesh/istio/uninstall-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [Bash - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-bash.md)]
+[!INCLUDE [Bash - remove Istio secrets](includes/servicemesh/istio/uninstall-bash.md)]
 
 ::: zone-end
 
 ::: zone pivot="client-operating-system-windows"
 
-[!INCLUDE [PowerShell - remove Istio CRDs and secrets](includes/servicemesh/istio/uninstall-powershell.md)]
+[!INCLUDE [PowerShell - remove Istio secrets](includes/servicemesh/istio/uninstall-powershell.md)]
 
 ::: zone-end
 
@@ -346,10 +393,9 @@ kubectl delete namespace istio-system
 > [!div class="nextstepaction"]
 > [AKS Istio 인텔리전트 라우팅 시나리오][istio-scenario-routing]
 
-Istio에 대한 자세한 설치 및 구성 옵션을 탐색하려면 다음 공식 Istio 문서를 참조하세요.
+Istio에 대 한 추가 설치 및 구성 옵션을 살펴보려면 다음 공식 Istio 지침을 참조 하세요.
 
-- [Istio-투구 설치 가이드][istio-install-helm]
-- [Istio-투구 설치 옵션][istio-install-helm-options]
+- [Istio-설치 가이드][istio-installation-guides]
 
 다음을 사용 하 여 추가 시나리오를 따를 수도 있습니다.
 
@@ -368,9 +414,11 @@ Application Insights 및 Istio를 사용 하 여 AKS 응용 프로그램을 모�
 [istio-github]: https://github.com/istio/istio
 [istio-github-releases]: https://github.com/istio/istio/releases
 [istio-release-notes]: https://istio.io/news/
+[istio-installation-guides]: https://istio.io/docs/setup/install/
 [istio-install-download]: https://istio.io/docs/setup/kubernetes/download-release/
-[istio-install-helm]: https://istio.io/docs/setup/install/helm/
-[istio-install-helm-options]: https://istio.io/docs/reference/config/installation-options/
+[istio-install-istioctl]: https://istio.io/docs/setup/install/istioctl/
+[istio-configuration-profiles]: https://istio.io/docs/setup/additional-setup/config-profiles/
+[istio-control-plane]: https://istio.io/docs/reference/config/istio.operator.v1alpha12.pb/#IstioControlPlane
 [istio-bookinfo-example]: https://istio.io/docs/examples/bookinfo/
 
 [istio-feature-stages]: https://istio.io/about/feature-stages/
@@ -381,7 +429,6 @@ Application Insights 및 Istio를 사용 하 여 AKS 응용 프로그램을 모�
 
 [kubernetes-feature-sa-projected-volume]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/#service-account-token-volume-projection
 [kubernetes-crd]: https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/#customresourcedefinitions
-[kubernetes-jobs]: https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/
 [kubernetes-secrets]: https://kubernetes.io/docs/concepts/configuration/secret/
 [kubernetes-node-selectors]: https://docs.microsoft.com/azure/aks/concepts-clusters-workloads#node-selectors
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
@@ -399,4 +446,3 @@ Application Insights 및 Istio를 사용 하 여 AKS 응용 프로그램을 모�
 <!-- LINKS - internal -->
 [aks-quickstart]: ./kubernetes-walkthrough.md
 [istio-scenario-routing]: ./servicemesh-istio-scenario-routing.md
-[helm-install]: ./kubernetes-helm.md

@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e993ad17a07ff741ff33073304ed774dcf30203d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2dcc2d6fc252f288f15e2583012798b4d0e9cee6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961651"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74169432"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성
 
@@ -52,11 +52,11 @@ ms.locfileid: "73961651"
 
     | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | 설명 |
     |:--|:--|:--|:--|
-    | **식별자 (엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 응용 프로그램을 고유 하 게 식별 합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. *이 값은 애플리케이션에서 보낸 **AuthnRequest**(SAML 요청)에서 **Issuer**(발급자) 요소로 찾을 수 있습니다.* |
+    | **식별자 (엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 응용 프로그램을 고유 하 게 식별 합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. ' Https://<subdomain>contoso.com ' 패턴을 사용 하는 URL을 입력 합니다. *이 값은 응용 프로그램에서 보낸 **AuthnRequest** (SAML 요청)의 **발급자** 요소로 찾을 수* 있습니다. |
     | **회신 URL** | 필수 | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용 하 여 여러 회신 Url을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대 한 추가 회신 Url이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 Url (로컬 호스트 및 공용 Url)을 지정할 수 있습니다. |
     | **로그온 URL** | 필수 | 지정하지 않음 | 사용자가 이 URL을 열면 서비스 공급자가 Azure AD를 리디렉션하여 사용자를 인증하고 로그온하도록 합니다. Azure AD는 URL을 사용하여 Office 365 또는 Azure AD 액세스 패널에서 애플리케이션을 시작합니다. 비어 있는 경우 Azure AD는 사용자가 Office 365, Azure AD 액세스 패널 또는 Azure AD SSO URL에서 응용 프로그램을 시작할 때 IdP 시작 로그온을 수행 합니다.|
-    | **릴레이 상태** | 옵션 | 옵션 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
-    | **로그아웃 URL** | 옵션 | 옵션 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
+    | **릴레이 상태** | 선택 사항 | 선택 사항 | 인증이 완료되면 사용자를 리디렉션할 위치를 애플리케이션에 지정합니다. 일반적으로 이 값은 애플리케이션에 대한 올바른 URL입니다. 그러나 일부 애플리케이션에서는 이 필드를 다르게 사용합니다. 자세한 내용은 애플리케이션 공급 업체에 요청하세요.
+    | **로그아웃 URL** | 선택 사항 | 선택 사항 | SAML 로그아웃 응답을 애플리케이션에 다시 보내는 데 사용됩니다.
 
 자세한 내용은 [Single SIGN-ON SAML 프로토콜](../develop/single-sign-on-saml-protocol.md)을 참조 하세요.
 

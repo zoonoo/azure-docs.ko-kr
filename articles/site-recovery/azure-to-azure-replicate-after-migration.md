@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: cd15b562c3707a28b54bc59166d54871120909e2
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 874c282ff878126297dc46ca0e7a4c19910e40a1
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084946"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159119"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Azure로 마이그레이션한 후 Azure VM에 대해 재해 복구 설정 
 
@@ -30,7 +30,7 @@ ms.locfileid: "74084946"
 
 각 Azure VM에는 [AZURE vm 에이전트가](../virtual-machines/extensions/agent-windows.md) 설치 되어 있어야 합니다. Azure Vm을 복제 하기 위해 Site Recovery는 에이전트에 확장을 설치 합니다.
 
-- 컴퓨터에서 9.7.0.0 이상 버전의 Site Recovery 모바일 서비스를 실행 하는 경우 Azure VM 에이전트는 Windows Vm의 모바일 서비스에 의해 자동으로 설치 됩니다. 이전 버전의 모바일 서비스에서는 에이전트를 수동으로 설치 해야 합니다.
+- 컴퓨터에서 9.7.0.0 이상 버전의 Site Recovery 모바일 서비스를 실행 하는 경우 Azure VM 에이전트는 Windows Vm의 모바일 서비스에 의해 자동으로 설치 됩니다. 이전 버전의 모바일 서비스에서는 에이전트를 수동으로 설치 합니다.
 - Linux Vm의 경우 Azure VM 에이전트를 수동으로 설치 해야 합니다. 마이그레이션된 컴퓨터에 설치된 모바일 서비스가 v9.6 또는 이전 버전인 경우에만 Azure VM 에이전트를 설치해야 합니다.
 
 

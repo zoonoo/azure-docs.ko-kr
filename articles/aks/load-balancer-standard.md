@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c2d652b31c264d7b17fcf303564c327d09d416f9
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ef826239bc916b4ccf25785f92397286017d00f7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929130"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171396"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
-AKS (Azure Kubernetes Service)에서 응용 프로그램에 대 한 액세스를 제공 하기 위해 Azure Load Balancer를 만들고 사용할 수 있습니다. AKS에서 실행 중인 부하 분산 장치는 내부 또는 외부 부하 분산 장치로 사용할 수 있습니다. 내부 부하 분산 장치는 AKS 클러스터와 동일한 가상 네트워크에서 실행 되는 응용 프로그램에만 Kubernetes 서비스에 액세스할 수 있도록 합니다. 외부 부하 분산 장치는 수신에 대 한 공용 Ip를 하나 이상 수신 하 고 공용 Ip를 사용 하 여 외부에서 Kubernetes 서비스에 액세스할 수 있도록 합니다.
+AKS (Azure Kubernetes Service)에서 `LoadBalancer` 형식의 Kubernetes services를 통해 응용 프로그램에 대 한 액세스를 제공 하려면 Azure Load Balancer를 사용할 수 있습니다. AKS에서 실행 중인 부하 분산 장치는 내부 또는 외부 부하 분산 장치로 사용할 수 있습니다. 내부 부하 분산 장치는 AKS 클러스터와 동일한 가상 네트워크에서 실행 되는 응용 프로그램에만 Kubernetes 서비스에 액세스할 수 있도록 합니다. 외부 부하 분산 장치는 수신에 대 한 공용 Ip를 하나 이상 수신 하 고 공용 Ip를 사용 하 여 외부에서 Kubernetes 서비스에 액세스할 수 있도록 합니다.
 
 Azure Load Balancer는 ‘기본’ 및 ‘표준’이라는 두 SKU에서 사용할 수 있습니다. 기본적으로 *표준* SKU는 AKS 클러스터를 만들 때 사용 됩니다. *표준* SKU 부하 분산 장치를 사용 하면 더 큰 백 엔드 풀 크기 및 가용성 영역 같은 추가 기능 및 기능이 제공 됩니다. 사용할 *것을 선택* 하기 전에 *표준* 부하 분산 장치 간의 차이점을 이해 하는 것이 중요 합니다. AKS 클러스터를 만든 후에는 해당 클러스터에 대 한 부하 분산 장치 SKU를 변경할 수 없습니다. *기본* 및 *표준* sku에 대 한 자세한 내용은 [Azure 부하 분산 장치 SKU 비교][azure-lb-comparison]를 참조 하세요.
 
@@ -29,9 +29,18 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
+
 이 문서에서는 *표준* SKU AZURE LOAD BALANCER 있는 AKS 클러스터가 있다고 가정 합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
 기존 서브넷 또는 리소스 그룹을 사용 하는 경우 AKS 클러스터 서비스 주체에도 네트워크 리소스를 관리할 수 있는 권한이 있어야 합니다. 일반적으로 위임 된 리소스의 서비스 사용자에 게 *네트워크 참가자* 역할을 할당 합니다. 사용 권한에 대 한 자세한 내용은 [DELEGATE AKS access to Other Azure resources를][aks-sp]참조 하세요.
+
+### <a name="moving-from-a-basic-sku-load-balancer-to-standard-sku"></a>기본 SKU Load Balancer에서 표준 SKU로 이동
+
+기본 SKU Load Balancer를 사용 하는 기존 클러스터가 있는 경우, 표준 SKU Load Balancer를 사용 하 여 클러스터를 사용 하도록 마이그레이션할 때 유의 해야 할 중요 한 동작 차이점이 있습니다.
+
+예를 들어 클러스터를 마이그레이션하기 위한 파란색/녹색 배포를 수행 하는 것이 일반적인 방법입니다. 클러스터의 `load-balancer-sku` 유형은 클러스터 만들기 시간에만 정의할 수 있습니다. 그러나 *기본 sku* 부하 분산 장치 *는 표준 sku ip 주소가 필요 하므로* *표준 sku* 부하 분산 장치와 호환 되지 않는 *기본 sku* ip 주소를 사용 합니다. Load Balancer Sku 업그레이드로 클러스터를 마이그레이션하는 경우 호환 되는 IP 주소 SKU를 사용 하는 새 IP 주소가 필요 합니다.
+
+클러스터를 마이그레이션하는 방법에 대 한 자세한 내용은 [마이그레이션 고려 사항에](acs-aks-migration.md) 대 한 설명서를 참조 하 여 마이그레이션할 때 고려해 야 할 중요 항목의 목록을 확인 하세요. AKS에서 표준 SKU 부하 분산 장치를 사용 하는 경우 아래 제한 사항에 유의 해야 하는 중요 한 동작이 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 
@@ -41,9 +50,10 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
     * 사용자 고유의 공용 Ip를 제공 합니다.
     * 사용자 고유의 공용 IP 접두사를 제공 합니다.
     * AKS 클러스터가 AKS 클러스터로 만든 것과 동일한 리소스 그룹에 여러 *표준* SKU 공용 ip를 만들 수 있도록 허용 하는 숫자를 100까지 지정 합니다 .이는 일반적으로 처음에 *MC_* 으로 명명 됩니다. AKS는 *표준* SKU 부하 분산 장치에 공용 IP를 할당 합니다. 공용 ip, 공용 IP 접두사 또는 Ip 수가 지정 되지 않은 경우 기본적으로 하나의 공용 IP가 AKS 클러스터와 동일한 리소스 그룹에 자동으로 만들어집니다. 또한 공용 주소를 허용 하 고 IP 생성을 차단을 하는 Azure Policy를 만들지 않도록 해야 합니다.
-* 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 1.13 이상을 사용 해야 합니다.
+* 부하 분산 장치에 대 한 *표준* SKU를 사용 하는 경우 Kubernetes 버전 *1.13 이상을*사용 해야 합니다.
 * 부하 분산 장치 SKU를 정의 하는 것은 AKS 클러스터를 만들 때만 수행할 수 있습니다. AKS 클러스터를 만든 후에는 부하 분산 장치 SKU를 변경할 수 없습니다.
-* 단일 클러스터에서 하나의 부하 분산 장치 SKU만 사용할 수 있습니다.
+* 단일 클러스터에서 한 가지 유형의 부하 분산 장치 SKU (기본 또는 표준)만 사용할 수 있습니다.
+* *표준* SKU 부하 분산 장치는 *표준* Sku IP 주소만 지원 합니다.
 
 ## <a name="configure-the-load-balancer-to-be-internal"></a>부하 분산 장치를 내부로 구성
 

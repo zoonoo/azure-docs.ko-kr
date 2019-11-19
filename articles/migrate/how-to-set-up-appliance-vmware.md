@@ -4,14 +4,14 @@ description: Azure Migrate Server 평가/마이그레이션을 사용 하 여 VM
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 77bf9a0f73519aa979da49614475daf70f582a9e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
-ms.translationtype: MT
+ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467132"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158607"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -48,11 +48,12 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 어플라이언스 버전 1.0.0.5의 경우 생성 된 해시가 이러한 설정과 일치 해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 설정과 일치 해야 합니다.
 
   **알고리즘** | **해시 값**
   --- | ---
-  MD5 | ddfdf21c64af02a222ed517ce300c977
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
@@ -78,7 +79,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 
 어플라이언스를 처음으로 설정합니다.
 
-1. vSphere Client 콘솔에서 VM > **Open Console**을 마우스 오른쪽 단추로 클릭합니다.
+1. vSphere 클라이언트 콘솔에서 VM을 마우스 오른쪽 단추로 클릭하고 **콘솔 열기**를 클릭합니다.
 2. 어플라이언스에 대한 언어, 표준 시간대 및 암호를 제공합니다.
 3. VM에 연결할 수 있는 모든 컴퓨터에서 브라우저를 열고 어플라이언스 웹 앱의 URL ( **https://*어플라이언스 이름 또는 IP 주소*: 44368**)을 엽니다.
 
@@ -104,12 +105,12 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. 성공적으로 로그인하면 웹앱으로 돌아갑니다.
 2. Azure Migrate 프로젝트가 만들어진 구독을 선택합니다. 그런 다음, 해당 프로젝트를 선택합니다.
 3. 어플라이언스의 이름을 지정합니다. 이름은 14자 이하의 영숫자여야 합니다.
-4. **등록**을 클릭합니다.
+4. **Register**를 클릭합니다.
 
 
 ## <a name="start-continuous-discovery-by-providing-vcenter-server-and-vm-credential"></a>vCenter Server 및 VM 자격 증명을 제공 하 여 연속 검색 시작
 
-어플라이언스는 Vm의 구성 및 성능 데이터를 검색 하기 위해 vCenter Server에 연결 해야 합니다.
+어플라이언스는 VM의 구성 및 성능 데이터를 검색하기 위해 vCenter Server에 연결해야 합니다.
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
@@ -117,20 +118,20 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
-응용 프로그램, 역할 및 기능을 검색 하 고 Vm의 종속성을 시각화 하는 데 VMware Vm에 대 한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows Vm에 대해 하나의 자격 증명과 Linux Vm에 대 한 자격 증명을 추가할 수 있습니다. 필요한 액세스 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions) .
+애플리케이션, 역할 및 기능을 검색하고 VM의 종속성을 시각화하는 경우 VMware VM에 대한 액세스 권한이 있는 VM 자격 증명을 제공할 수 있습니다. Windows VM용 자격 증명과 Linux VM용 자격 증명을 각각 1개씩 추가할 수 있습니다. 필요한 액세스 권한에 대해 [자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#assessment-vcenter-server-permissions).
 
 > [!NOTE]
-> 이 입력은 선택 사항이 며 응용 프로그램 검색 및 에이전트 없는 종속성 시각화를 사용 하도록 설정 하는 데 필요 합니다.
+> 이 입력은 선택 사항이며 애플리케이션 검색 및 에이전트 없는 종속성 시각화를 사용하도록 설정하는 데 필요합니다.
 
-1. **Vm에 대 한 응용 프로그램 및 종속성 검색**에서 **자격 증명 추가**를 클릭 합니다.
-2. **운영 체제**를 선택 합니다.
-3. 자격 증명에 대 한 친숙 한 이름을 제공 합니다.
-4. **사용자 이름** 및 **암호**에서 vm에 대 한 게스트 액세스 권한이 있는 계정을 지정 합니다.
+1. **VM에서 애플리케이션 및 종속성 검색** 에서 **자격 증명 추가**를 클릭합니다.
+2. **운영 체제**를 선택합니다.
+3. 자격 증명의 이름을 제공합니다.
+4. **사용자 이름** 및 **암호**에서 VM에 대해 게스트 액세스 권한이 있는 계정을 지정합니다.
 5. **추가**를 클릭합니다.
 
-VCenter Server 및 VM 자격 증명 (선택 사항)을 지정한 후에는 **검색 저장 및 시작** 을 클릭 하 여 온-프레미스 환경의 검색을 시작 합니다.
+vCenter Server 및 VM 자격 증명(선택 사항)을 지정한 후에는 **저장 및 검색 시작**을 클릭하여 온-프레미스 환경의 검색을 시작합니다.
 
-검색된 VM의 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다. 설치 된 응용 프로그램, 역할 및 기능을 검색 하는 데 다소 시간이 소요 되는 경우 기간은 검색 되는 Vm의 수에 따라 달라 집니다. 500 Vm의 경우 응용 프로그램 인벤토리가 Azure Migrate 포털에 표시 되는 데 약 1 시간이 걸립니다.
+검색된 VM의 메타데이터가 포털에 표시되는 데 약 15분이 걸립니다. 설치된 애플리케이션, 역할 및 기능을 검색하는 데 다소 시간이 소요되며, 기간은 검색되는 VM의 수에 따라 달라집니다. VM이 500개 있는 경우 애플리케이션 인벤토리가 Azure Migrate 포털에 표시되는 데 약 1시간이 걸립니다.
 
 ## <a name="next-steps"></a>다음 단계
 

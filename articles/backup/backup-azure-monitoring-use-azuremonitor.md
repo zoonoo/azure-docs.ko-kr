@@ -1,21 +1,15 @@
 ---
-title: 'Azure Backup: Azure Monitor를 사용 하 여 Azure Backup 모니터링'
+title: Azure Monitor를 사용 하 여 Azure Backup 모니터링
 description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용 하 여 사용자 지정 경고를 만듭니다.
-ms.reviewer: pullabhk
-author: dcurwin
-manager: carmonm
-keywords: Log Analytics; Azure Backup; 알립니다 진단 설정; 작업 그룹
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: e8f162b9dc84b863c54d92313307ef4abca76ebb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 65bab1a6d6d424c90b38a3bdf99b6bf5bd8ded09
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074233"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172902"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 

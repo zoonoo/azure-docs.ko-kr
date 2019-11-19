@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 12/15/2015
 ms.author: saurabh
-ms.openlocfilehash: d43859de71b6e41d5df444716b5504ca6b78400b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 09aaa998bf011561bd73ad87eda6a2e211ffaa72
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073150"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158951"
 ---
 # <a name="use-powershell-to-enable-azure-diagnostics-in-a-virtual-machine-running-windows"></a>PowerShell을 사용하여 Windows를 실행하는 가상 머신에서 Azure Diagnostics를 사용하도록 설정
 
@@ -71,9 +71,9 @@ cmdlet은 *PublicSettings*를 반환하며, 여기에는 진단 구성이 포함
 
 클래식 배포 모델을 통해 만든 기존 VM에서 진단 확장을 사용하도록 설정하려면, 우선 [Get-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurevm) cmdlet을 사용하여 VM 구성을 가져옵니다. 그런 다음 [Set-AzureVMDiagnosticsExtension](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmdiagnosticsextension) cmdlet을 사용하여 진단 확장을 포함하도록 VM 구성을 업데이트합니다. 마지막으로 [Update-AzureVM](https://docs.microsoft.com/powershell/module/servicemanagement/azure/update-azurevm)을 사용하여 VM에 업데이트된 구성을 적용합니다.
 
-    $VM = Get-AzVM -ServiceName $Service_Name -Name $VM_Name
-    $VM_Update = Set-AzVMDiagnosticsExtension -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
-    Update-AzVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
+    $VM = Get-AzureVM -ServiceName $Service_Name -Name $VM_Name
+    $VM_Update = Set-AzureVMDiagnosticsExtension  -DiagnosticsConfigurationPath $Config_Path -VM $VM -StorageContext $Storage_Context
+    Update-AzureVM -ServiceName $Service_Name -Name $VM_Name -VM $VM_Update.VM
 
 ## <a name="sample-diagnostics-configuration"></a>샘플 진단 구성
 위의 스크립트를 통해 진단 공용 구성에 다음과 같은 XML을 사용할 수 있습니다. 이 샘플 구성은 Windows 이벤트 로그의 애플리케이션, 보안 및 시스템 채널 오류 및 진단 인프라 로그의 오류와 함께 다양한 성능 카운터를 스토리지 계정으로 전송합니다.

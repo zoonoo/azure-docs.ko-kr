@@ -4,19 +4,19 @@ description: 온-프레미스 Azure AD 암호 보호 FAQ
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/01/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c2e737360d6b1eeb8df28a95b8c36d4cca80ee4
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 473fe43bb4cf18c61f30d9b7e057da888dc6da62
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "71268636"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167910"
 ---
 # <a name="azure-ad-password-protection-on-premises---frequently-asked-questions"></a>Azure AD 암호 보호 온-프레미스 - 질문과 대답
 
@@ -95,13 +95,13 @@ FRS(DFSR에 대한 선행 기술)는 대부분의 알려진 문제를 포함하�
 
 **Q: 특정 프록시 서버를 사용하도록 DC 에이전트를 구성하는 방법이 있나요?**
 
-아닙니다. 프록시 서버는 상태 비저장 서버이므로 어떤 프록시 서버를 사용하는지는 중요하지 않습니다.
+아니요. 프록시 서버는 상태 비저장 서버이므로 어떤 프록시 서버를 사용하는지는 중요하지 않습니다.
 
 **Q: Azure AD 암호 보호 프록시 서비스를 Azure AD Connect와 같은 다른 서비스와 함께 배포 하는 것이 정상 인가요?**
 
 예. Azure AD 암호 보호 프록시 서비스와 Azure AD Connect는 서로 직접적으로 충돌하지 않습니다.
 
-아쉽게도 Azure AD 암호 보호 프록시 소프트웨어에 의해 설치 된 Microsoft Azure AD Connect 에이전트 업데이트 서비스와 Azure Active에서 설치 된 서비스의 버전 사이에 비 호환성이 있습니다. [ 디렉터리 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) 소프트웨어. 이러한 비 호환성으로 인해 에이전트 업데이트 서비스에서 소프트웨어 업데이트를 위해 Azure에 연결 하지 못할 수 있습니다. Azure AD 암호 보호 프록시를 설치 하 고 동일한 컴퓨터에 Azure Active Directory 응용 프로그램 프록시 하는 것은 권장 되지 않습니다.
+아쉽게도 Azure AD 암호 보호 프록시 소프트웨어에 의해 설치 되는 Microsoft Azure AD Connect Agent 업데이트 서비스와 [Azure Active Directory 응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy) 소프트웨어에 의해 설치 되는 서비스 버전 사이에 비 호환성이 있습니다. 이러한 비 호환성으로 인해 에이전트 업데이트 서비스에서 소프트웨어 업데이트를 위해 Azure에 연결 하지 못할 수 있습니다. Azure AD 암호 보호 프록시를 설치 하 고 동일한 컴퓨터에 Azure Active Directory 응용 프로그램 프록시 하는 것은 권장 되지 않습니다.
 
 **Q: DC 에이전트와 프록시를 설치 하 고 등록 해야 하는 순서는 무엇입니까?**
 
@@ -117,13 +117,13 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 **Q: 내 도메인의 일부 Dc에서 Azure AD 암호 보호를 테스트 하려고 합니다. 사용자 암호를 변경 하 여 특정 Dc를 사용할 수 있나요?**
 
-아닙니다. Windows 클라이언트 OS는 사용자가 암호를 변경할 때 사용되는 도메인 컨트롤러를 제어합니다. 도메인 컨트롤러는 Active Directory 사이트 및 서브넷 할당, 환경 특정 네트워크 구성 등의 요소에 따라 선택 됩니다. Azure AD 암호 보호는 이러한 요인을 제어 하지 않으며 사용자 암호를 변경 하기 위해 선택한 도메인 컨트롤러에 영향을 주지 않습니다.
+아니요. Windows 클라이언트 OS는 사용자가 암호를 변경할 때 사용되는 도메인 컨트롤러를 제어합니다. 도메인 컨트롤러는 Active Directory 사이트 및 서브넷 할당, 환경 특정 네트워크 구성 등의 요소에 따라 선택 됩니다. Azure AD 암호 보호는 이러한 요인을 제어 하지 않으며 사용자 암호를 변경 하기 위해 선택한 도메인 컨트롤러에 영향을 주지 않습니다.
 
 부분적으로 이러한 목표에 도달하는 한 가지 방법은 지정된 Active Directory 사이트의 모든 도메인 컨트롤러에서 Azure AD 암호 보호를 배포하는 것입니다. 이 방법은 해당 사이트에 할당된 Windows 클라이언트와 해당 클라이언트에 로그인하고 암호를 변경하는 사용자를 적절히 검사합니다.
 
 **Q: PDC (주 도메인 컨트롤러)에만 Azure AD 암호 보호 DC 에이전트 서비스를 설치 하는 경우 도메인의 다른 모든 도메인 컨트롤러도 보호 되나요?**
 
-아닙니다. 지정된 비 PDC 도메인 컨트롤러에서 사용자 암호가 변경되면 일반 텍스트 암호가 PDC로 절대 전송되지 않습니다(이 생각은 일반적인 오해임). 지정된 DC에서 새 암호가 수락되면 해당 DC는 해당 암호를 사용하여 암호의 다양한 인증-프로토콜 관련 해시를 만든 후 해당 해시를 디렉터리에 유지합니다. 일반 텍스트 암호는 유지되지 않습니다. 그런 후에 업데이트된 해시가 PDC로 복제됩니다. 경우에 따라 네트워크 토폴로지 및 Active Directory 사이트 디자인과 같은 다양한 요인에 따라 PDC에서 직접 변경될 수 있습니다. (이전 질문을 참조하세요.)
+아니요. 지정된 비 PDC 도메인 컨트롤러에서 사용자 암호가 변경되면 일반 텍스트 암호가 PDC로 절대 전송되지 않습니다(이 생각은 일반적인 오해임). 지정된 DC에서 새 암호가 수락되면 해당 DC는 해당 암호를 사용하여 암호의 다양한 인증-프로토콜 관련 해시를 만든 후 해당 해시를 디렉터리에 유지합니다. 일반 텍스트 암호는 유지되지 않습니다. 그런 후에 업데이트된 해시가 PDC로 복제됩니다. 경우에 따라 네트워크 토폴로지 및 Active Directory 사이트 디자인과 같은 다양한 요인에 따라 PDC에서 직접 변경될 수 있습니다. (이전 질문을 참조하세요.)
 
 요약하자면, PDC에서 Azure AD 암호 보호 DC 에이전트 서비스를 배포하려면 도메인에서 100%의 기능 보안 검사에 도달해야 합니다. PDC에만 기능을 배포하면 도메인의 다른 DC는 Azure AD 암호 보호 보안 이점을 얻을 수 없습니다.
 
@@ -133,7 +133,7 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 **Q: System Center Operations Manager 관리 팩은 Azure AD 암호 보호에 사용할 수 있나요?**
 
-아닙니다.
+아니요.
 
 **Q: 정책을 감사 모드로 구성 했더라도 Azure AD에서 여전히 약한 암호를 거부 하는 이유는 무엇 인가요?**
 
@@ -141,7 +141,7 @@ Azure AD 암호 보호 DC 에이전트 서비스는 기존의 정상적인 Activ
 
 **Q: Azure AD 암호 보호에서 암호를 거부 하는 경우 내 사용자는 기존 Windows 오류 메시지를 볼 수 있습니다. 사용자가 정말로 무엇이 발생 했는지 알 수 있도록이 오류 메시지를 사용자 지정할 수 있나요?**
 
-아닙니다. 도메인 컨트롤러에서 암호를 거부 하는 경우 사용자에 게 표시 되는 오류 메시지는 도메인 컨트롤러가 아니라 클라이언트 컴퓨터에서 제어 합니다. 이 동작은 암호가 기본 Active Directory 암호 정책에 의해 거부 되거나 Azure AD 암호 보호와 같은 암호 필터 기반 솔루션에 의해 거부 되는지 여부에 따라 수행 됩니다.
+아니요. 도메인 컨트롤러에서 암호를 거부 하는 경우 사용자에 게 표시 되는 오류 메시지는 도메인 컨트롤러가 아니라 클라이언트 컴퓨터에서 제어 합니다. 이 동작은 암호가 기본 Active Directory 암호 정책에 의해 거부 되거나 Azure AD 암호 보호와 같은 암호 필터 기반 솔루션에 의해 거부 되는지 여부에 따라 수행 됩니다.
 
 ## <a name="additional-content"></a>추가 콘텐츠
 

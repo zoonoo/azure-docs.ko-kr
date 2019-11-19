@@ -2,27 +2,23 @@
 title: Azure Portal에서 Chef 클라이언트 설치
 description: Azure Portal에서 Chef 클라이언트를 배포 및 구성하는 방법 알아보기
 keywords: azure, chef, devops, client, install, portal
-ms.service: virtual-machines-linux
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 05/15/2018
 ms.topic: article
-ms.openlocfilehash: cf7afb50006fb273b4d685f9e4259be1cb60fe4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8707c2fe39fb794381af298c24d27704b1ec255
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60563838"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158268"
 ---
 # <a name="install-the-chef-client-from-the-azure-portal"></a>Azure Portal에서 Chef 클라이언트 설치
 Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 확장을 추가할 수 있습니다. 이 문서에서는 새 Linux 가상 머신을 사용하여 해당 프로세스를 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Chef**: 활성 Chef 계정이 없는 경우 [호스트된 Chef의 평가판](https://manage.chef.io/signup)에 등록합니다. 이 문서의 지침을 따르려면 Chef 계정에서 다음 값이 필요합니다.
+- **Chef**: 활성 Chef 계정이 없는 경우 [호스트된 Chef의 체험 평가판](https://manage.chef.io/signup)에 등록합니다. 이 문서의 지침을 따르려면 Chef 계정에서 다음 값이 필요합니다.
   - organization_validation 키
   - rb
   - run_list
@@ -38,7 +34,7 @@ Azure Portal에서 Linux 또는 Windows 머신에 직접 Chef 클라이언트 �
 
     ![Azure Portal에 새 가상 머신을 추가합니다.](./media/chef-extension-portal/add-vm.png)
 
-1. **계산** 탭에서 원하는 운영 체제를 선택합니다. 이 데모에서는 **Ubuntu Server**가 선택됩니다.
+1. **컴퓨팅** 탭에서 원하는 운영 체제를 선택합니다. 이 데모에서는 **Ubuntu Server**가 선택됩니다.
 
 1. **Ubuntu Server** 탭에서 **Ubuntu Server 16.04 LTS**를 선택합니다.
 

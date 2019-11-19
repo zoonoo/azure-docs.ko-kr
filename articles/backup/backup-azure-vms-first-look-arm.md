@@ -1,18 +1,14 @@
 ---
-title: Azure Backup를 사용 하 여 VM 설정에서 Azure VM 백업
+title: VM 설정에서 Azure VM 백업
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 단일 Azure VM 또는 여러 Azure vm을 백업 하는 방법에 대해 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.author: dacurwin
-ms.openlocfilehash: 232c027ef60a031df53f2439586a0ae459ab67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 02cdab727adc29be99f52b262cb94de4fc4fe8f8
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747244"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172509"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>VM 설정에서 Azure VM 백업
 
@@ -35,7 +31,7 @@ Azure VM을 백업하기 위해 Azure Backup은 컴퓨터에서 실행되는 VM 
 
 ## <a name="back-up-from-azure-vm-settings"></a>Azure VM 설정에서 백업
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스**를 클릭하고 필터에 **가상 머신**을 입력한 후 **가상 머신**을 클릭합니다.
 3. VM 목록에서 백업하려는 VM을 선택합니다.
 4. VM 메뉴에서 **백업**을 클릭합니다.

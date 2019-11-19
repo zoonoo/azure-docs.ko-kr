@@ -2,14 +2,14 @@
 author: paulbouwer
 ms.service: container-service
 ms.topic: include
-ms.date: 10/09/2019
+ms.date: 11/15/2019
 ms.author: pabouwer
-ms.openlocfilehash: 06479b4396ab26c280cc6246d774bc30b5ea1c76
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: d812baa15380b7824deaed081d2857fbc6e0b1b6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530395"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170876"
 ---
 ## <a name="download-and-install-the-istio-istioctl-client-binary"></a>Istio istio 클라이언트 이진 파일을 다운로드 하 여 설치 합니다.
 
@@ -17,12 +17,12 @@ MacOS의 bash 기반 셸에서 `curl`를 사용 하 여 Istio 릴리스를 다�
 
 ```bash
 # Specify the Istio version that will be leveraged throughout these instructions
-ISTIO_VERSION=1.3.2
+ISTIO_VERSION=1.4.0
 
 curl -sL "https://github.com/istio/istio/releases/download/$ISTIO_VERSION/istio-$ISTIO_VERSION-osx.tar.gz" | tar xz
 ```
 
-@No__t_0 클라이언트 이진 파일은 클라이언트 컴퓨터에서 실행 되며 Istio 서비스 메시와 상호 작용할 수 있습니다. 다음 명령을 사용 하 여 MacOS의 bash 기반 셸에서 Istio `istioctl` 클라이언트 이진을 설치 합니다. 이 명령을 사용하여 `istioctl` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
+`istioctl` 클라이언트 이진 파일은 클라이언트 컴퓨터에서 실행 되며 Istio 서비스 메시와 상호 작용할 수 있습니다. 다음 명령을 사용 하 여 MacOS의 bash 기반 셸에서 Istio `istioctl` 클라이언트 이진을 설치 합니다. 이 명령을 사용하여 `istioctl` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
 
 ```bash
 cd istio-$ISTIO_VERSION

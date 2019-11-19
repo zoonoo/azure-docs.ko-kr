@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0a73f5257bf763633052aab89f92ea0e5d5c000
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927109"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167806"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -148,7 +148,7 @@ Microsoft id 플랫폼에서 **응용 프로그램 개체** 는 응용 프로그
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>웹 앱이 Azure AD에 로그인을 위임 하 고 토큰을 가져오는 방법
 
 브라우저를 통해 사용자 인증이 수행 됩니다. Openid connect 프로토콜은 표준 HTTP 프로토콜 메시지를 사용 합니다.
-- 웹 앱은 Azure AD를 사용 하기 위해 HTTP 202 (리디렉션)을 브라우저로 보냅니다.
+- 웹 앱은 Azure AD를 사용 하기 위해 HTTP 302 (리디렉션)을 브라우저로 보냅니다.
 - 사용자가 인증 되 면 Azure AD는 브라우저를 통해 리디렉션을 사용 하 여 웹 앱에 토큰을 보냅니다.
 - 리디렉션은 웹 앱에서 리디렉션 URI 형식으로 제공 됩니다. 이 리디렉션 URI는 Azure AD 응용 프로그램 개체에 등록 됩니다. 응용 프로그램을 여러 Url에 배포할 수 있기 때문에 여러 리디렉션 Uri가 있을 수 있습니다. 따라서 웹 앱은 사용할 리디렉션 URi도 지정 해야 합니다.
 - Azure AD는 웹 앱에서 보낸 리디렉션 URI가 앱에 대해 등록 된 리디렉션 uri 중 하나 인지 확인 합니다.
@@ -159,7 +159,7 @@ Microsoft id 플랫폼에서 **응용 프로그램 개체** 는 응용 프로그
 
 데스크톱 및 모바일 응용 프로그램은 인증을 위해 포함 된 웹 컨트롤 또는 시스템 브라우저를 사용할 수 있습니다. 다음 다이어그램에서는 데스크톱 또는 모바일 앱이 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 액세스 토큰을 획득 하 고 web Api를 호출 하는 방법을 보여 줍니다.
 
-![데스크톱 앱이 표시 되는 방식](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+![데스크톱 앱이 표시 되는 방식](media/authentication-scenarios/desktop-app-how-it-appears-to-be.png)
 
 MSAL은 브라우저를 사용 하 여 토큰을 가져오고 웹 앱과 마찬가지로 Azure AD에 대 한 인증을 위임 합니다.
 

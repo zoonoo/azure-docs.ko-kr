@@ -1,18 +1,14 @@
 ---
 title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.author: dacurwin
-ms.openlocfilehash: 5adcf252fed4ac94ae4261886b24eb087424bdbe
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 2c33c71e579cc6fa5d01ba086fb1a9a4fc9c142c
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72533136"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74172078"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -49,8 +45,8 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 --- | --- | --- | ---
 **MARS 에이전트를 사용한 Windows 머신 직접 백업** | 파일, 폴더, 시스템 상태 | Recovery Services 자격 증명 모음에 백업 합니다. | 하루에 세 번 백업<br/><br/> 앱 인식 백업 없음<br/><br/> 파일, 폴더, 볼륨 복원
 **MARS 에이전트를 사용한 Linux 머신 직접 백업** | 백업이 지원 되지 않음
-**DPM에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업합니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
-**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업합니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
+**DPM에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | 로컬 DPM 스토리지에 백업됩니다. 그런 다음, DPM에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
+**MABS에 백업** | 파일, 폴더, 볼륨, 시스템 상태, 앱 데이터 | MABS 로컬 스토리지에 백업됩니다. 그런 다음, MABS에서 자격 증명 모음에 백업합니다. | 앱 인식 스냅샷<br/><br/> 백업 및 복구에 대 한 전체 세분성<br/><br/> Vm에 대해 지원 되는 Linux (Hyper-v/VMware)<br/><br/> Oracle은 지원 되지 않습니다.
 
 ## <a name="azure-vm-backup-support"></a>Azure VM 백업 지원
 
@@ -116,10 +112,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![yes][green] | ![yes][green]
-**Azure VM** | ![yes][green] | ![yes][green]
-**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
-**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
+**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
+**Azure VM** | ![예][green] | ![예][green]
+**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
+**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -130,16 +126,16 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![yes][green]
+**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![예][green]
 **VM 확장을 사용 하 여 Azure Vm 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![yes][green] | ![yes][green]
+**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![예][green] | ![예][green]
 
 ## <a name="retention-limits"></a>보존 제한
 
 **설정** | **제한**
 --- | ---
 **보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9999
-**복구 지점에 대 한 최대 만료 시간** | 무제한
+**복구 지점에 대 한 최대 만료 시간** | 제한 없음
 **DPM/MABS에 대 한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 작업에 대해 한 시간에 한 번
 **자격 증명 모음에 대 한 최대 백업 빈도** | **MARS를 실행 하는 온-프레미스 Windows 컴퓨터 또는 Azure vm:** 하루 3 개<br/><br/> **DPM/MABS:** 하루에 2 개<br/><br/> **AZURE VM 백업:** 하루에 하나씩
 **복구 지점 보존** | 매일, 매주, 매월, 매년
