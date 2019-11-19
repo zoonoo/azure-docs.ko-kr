@@ -34,7 +34,7 @@ ms.locfileid: "73500787"
 
 설치하려면 다음 단계를 수행하세요.
 
-1. https://editor.swagger.io 로 이동합니다.
+1. [https://editor.swagger.io](https://editor.swagger.io ) 로 이동합니다.
 1. **파일**을 클릭한 다음, **URL 가져오기**를 클릭합니다.
 1. Speech Services 구독 지역을 포함한 Swagger URL(예: `https://<your-region>.cris.ai/docs/v2.0/swagger`)을 입력합니다.
 1. **클라이언트 생성**을 클릭하고 **Python**을 선택합니다.
