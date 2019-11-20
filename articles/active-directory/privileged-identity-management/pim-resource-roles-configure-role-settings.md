@@ -15,12 +15,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abb6c2212549c3d92f9c1dbc42c31f838a704af2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 8c9acc1487fcbf8398b7a556c63f97963b264451
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144264"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74182734"
 ---
 # <a name="configure-azure-resource-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure 리소스 역할 설정 구성
 
@@ -57,6 +57,9 @@ Azure 리소스 역할 설정을 구성 하는 경우 Azure Active Directory (Az
     ![역할 설정 페이지의 역할 할당 탭](./media/pim-resource-roles-configure-role-settings/role-settings-assignment-tab.png)
 
 1. **알림** 탭 또는 페이지 맨 아래에 있는 **다음: 활성화** 단추를 사용 하 여이 역할에 대 한 알림 설정 탭으로 이동할 수 있습니다. 이러한 설정은이 역할과 관련 된 모든 전자 메일 알림을 제어 합니다.
+
+    > [!NOTE]
+    > 이 알림 UI는 현재 Azure 지역 및 구독 간에 롤오버 되 고 있습니다. 이러한 세부적인 알림을 구성할 수 없는 경우 하루 또는 두 번 다시 확인 하세요.
 
     ![역할 설정 페이지의 역할 알림 탭](./media/pim-resource-roles-configure-role-settings/role-settings-notification-tab.png)
 

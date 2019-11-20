@@ -1,5 +1,5 @@
 ---
-title: Virtual Network 구성 파일에서 DNS 설정 지정 | Microsoft Docs
+title: Azure VNet 구성 파일에서 DNS 설정 지정
 description: 클래식 배포 모델에서 가상 네트워크 구성 파일을 사용하여 가상 네트워크에서 DNS 서버 설정을 변경하는 방법
 services: virtual-network
 documentationcenter: na
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: c15d73673c19383deabe15ef30026990dfd138b9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: db8b1817bb14d293632d16fe02792dbb85766559
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059085"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196648"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>가상 네트워크 구성 파일에서 DNS 설정 지정
-네트워크 구성 파일에는 DNS (Domain Name System) 설정을 지정 하는 데 사용할 수 있는 두 가지 요소가 있습니다. **Dnsservers** 및 **DnsServerRef**. **DnsServers** 요소에 해당 IP 주소 및 참조 이름를 지정하여 DNS 서버 목록을 추가할 수 있습니다. 그런 다음 **DnsServerRef** 요소를 사용하여 가상 네트워크 내의 다른 네트워크 사이트에 대해 사용될 DnsServers 요소의 DNS 서버 항목을 지정할 수 있습니다.
+네트워크 구성 파일에는 도메인 이름 시스템(DNS) 설정 지정에 사용할 수 있는 두 요소 **DnsServers** 및 **DnsServerRef**가 있습니다. **DnsServers** 요소에 해당 IP 주소 및 참조 이름를 지정하여 DNS 서버 목록을 추가할 수 있습니다. 그런 다음 **DnsServerRef** 요소를 사용하여 가상 네트워크 내의 다른 네트워크 사이트에 대해 사용될 DnsServers 요소의 DNS 서버 항목을 지정할 수 있습니다.
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 

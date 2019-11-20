@@ -1,6 +1,7 @@
 ---
-title: Media Services 엔터티의 필터링, 순서 지정 및 페이징-Azure | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 엔터티의 필터링, 순서 지정, 페이징에 대해 설명합니다.
+title: Media Services 엔터티의 필터링, 순서 지정 및 페이징
+titleSuffix: Azure Media Services
+description: Azure Media Services 엔터티의 필터링, 순서 지정 및 페이징에 대해 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,12 +13,12 @@ ms.topic: article
 ms.date: 10/11/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d13ff3944e53f103c03a92e03d217b0066bc97df
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 22b8c4e2454d6130ebcaf85346b767c843fbc1f0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693318"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186240"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Media Services 엔터티의 필터링, 순서 지정 및 페이징
 
@@ -25,7 +26,7 @@ ms.locfileid: "72693318"
 
 ## <a name="considerations"></a>고려 사항
 
-* @No__t_0 형식의 엔터티 속성은 항상 UTC 형식입니다.
+* `Datetime` 형식의 엔터티 속성은 항상 UTC 형식입니다.
 * 쿼리 문자열의 공백은 요청을 보내기 전에 URL로 인코딩해야 합니다.
 
 ## <a name="comparison-operators"></a>비교 연산자
@@ -41,12 +42,12 @@ ms.locfileid: "72693318"
 
 - `gt`: 필드가 상수 값 *보다 큰지* 여부를 테스트 합니다.
 - `lt`: 필드가 상수 값 *보다 작지* 않은지 테스트 합니다.
-- `ge`: 필드가 상수 *보다 크거나 같은지* 여부를 테스트 합니다. 값
+- `ge`: 필드가 상수 값 *보다 크거나 같은지* 여부를 테스트 합니다.
 - `le`: 필드가 상수 값 *보다 작거나 같은지* 여부를 테스트 합니다.
 
-## <a name="filter"></a>필터링
+## <a name="filter"></a>Filter
 
-@No__t_0를 사용 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
+`$filter`를 사용 하 여 원하는 개체만 찾도록 OData 필터 매개 변수를 제공 합니다.
 
 다음 REST 예제는 자산의 `alternateId` 값을 필터링 합니다.
 
@@ -59,17 +60,17 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 ```csharp
 var odataQuery = new ODataQuery<Asset>("properties/created lt 2018-05-11T17:39:08.387Z");
 var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGroup, CustomerAccountName, odataQuery);
-```    
+```
 
 ## <a name="order-by"></a>정렬 기준
 
-지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 하려면 `$orderby`을 사용 합니다. 다음은 그 예입니다.    
+지정 된 매개 변수를 사용 하 여 반환 된 개체를 정렬 하려면 `$orderby`을 사용 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.  
 
 ```
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc`을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`.
+결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc`을 공백으로 구분 하 여 추가 합니다. 예를 들어 `$orderby properties/created desc`을 참조하십시오.
 
 ## <a name="skip-token"></a>토큰 건너뛰기
 
@@ -77,14 +78,14 @@ GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000
 
 Media Services v3에서는 페이지 크기를 구성할 수 없습니다. 페이지 크기는 엔터티의 유형에 따라 달라 집니다. 자세한 내용은 다음에 나오는 개별 섹션을 참조 하세요.
 
-컬렉션을 페이징 하는 동안 엔터티를 만들거나 삭제 하면 변경 내용이 반환 된 결과에 반영 됩니다 (해당 변경 내용이 다운로드 되지 않은 컬렉션 부분에 있는 경우). 
+컬렉션을 페이징 하는 동안 엔터티를 만들거나 삭제 하는 경우 변경 내용은 반환 된 결과에 반영 됩니다 (해당 변경 내용이 다운로드 되지 않은 컬렉션 부분에 있는 경우).
 
 > [!TIP]
 > 항상 `nextLink`를 사용 하 여 컬렉션을 열거 하 고 특정 페이지 크기에 종속 되지 않아야 합니다.
 >
-> @No__t_0 값은 엔터티 페이지가 둘 이상 있는 경우에만 표시 됩니다.
+> `nextLink` 값은 엔터티 페이지가 둘 이상 있는 경우에만 표시 됩니다.
 
-@No__t_0를 사용 하는 다음 예제를 참조 하세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
+`$skiptoken`를 사용 하는 다음 예제를 참조 하세요. *amstestaccount*를 해당하는 계정 이름으로 바꾸고 *api-version* 값을 최신 버전으로 설정합니다.
 
 다음과 같은 자산 목록을 요청 하는 경우
 
@@ -155,27 +156,27 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 다음 표에서는 필터링 및 순서 지정 옵션을 다른 엔터티에 적용할 수 있는 방법을 보여 줍니다.
 
-|엔터티 이름|속성 이름|필터링|주문하기|
+|엔터티 이름|속성 이름|Filter|주문|
 |---|---|---|---|
-|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|이름|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
+|[Assets](https://docs.microsoft.com/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` 및 `desc`|
 ||properties.alternateId |`eq`||
 ||properties.assetId |`eq`||
 ||properties.created| `eq`, `gt`, `lt`| `asc` 및 `desc`|
-|[콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[콘텐츠 키 정책](https://docs.microsoft.com/rest/api/media/contentkeypolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.description    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`||
 ||properties.lastModified|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.policyId|`eq`, `ne`||
-|[작업](https://docs.microsoft.com/rest/api/media/jobs)| 이름  | `eq`            | `asc` 및 `desc`|
+|[작업](https://docs.microsoft.com/rest/api/media/jobs)| name  | `eq`            | `asc` 및 `desc`|
 ||properties.state        | `eq`, `ne`        |                         |
 ||properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 ||properties.lastModified | `gt`, `ge`, `lt`, `le` | `asc` 및 `desc`| 
-|[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[스트리밍 로케이터](https://docs.microsoft.com/rest/api/media/streaminglocators)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.endTime    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
-|[스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)|이름|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
+|[스트리밍 정책](https://docs.microsoft.com/rest/api/media/streamingpolicies)|name|`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
 ||properties.created    |`eq`, `ne`, `ge`, `le`, `gt`, `lt`|`asc` 및 `desc`|
-|[변환을](https://docs.microsoft.com/rest/api/media/transforms)| 이름 | `eq`            | `asc` 및 `desc`|
+|[변환을](https://docs.microsoft.com/rest/api/media/transforms)| name | `eq`            | `asc` 및 `desc`|
 || properties.created      | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 || properties.lastModified | `gt`, `ge`, `lt`, `le`| `asc` 및 `desc`|
 

@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 자동차 가격 예측 (회귀)'
+title: '디자이너: 자동차 가격 예측 (고급) 예제'
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 하는 방법을 알아봅니다.
+description: 여러 ML 회귀 모델을 비교 하 여 Azure Machine Learning 디자이너의 기술 기능에 따라 자동차 가격을 예측 &.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: d73f6d67afff13696de78d026ff65228fd68fb28
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5eb701af90125e2654d6f908b28512aba3ad37aa
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647946"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196076"
 ---
-# <a name="sample-2---regression-predict-price-and-compare-algorithms"></a>샘플 2-회귀: 가격 예측 및 비교 알고리즘
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 여러 회귀 모델을 비교 하 여 자동차 가격 예측 & 학습
+
+**Designer (미리 보기) 샘플 2**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 샘플은 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 합니다. 사용자 고유의 기계 학습 문제를 다룰 수 있도록이 파이프라인에서 선택한 항목에 대 한 근거를 제공 합니다.
@@ -28,7 +31,7 @@ ms.locfileid: "73647946"
 
 [파이프라인의 ![그래프](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

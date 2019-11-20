@@ -1,18 +1,18 @@
 ---
-title: Azure PowerShell를 사용 하 여 여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포
+title: PowerShell을 사용 하 여 여러 공용 IP 주소를 사용 하 여 Azure 방화벽 배포
 description: 이 문서에서는 Azure PowerShell를 사용 하 여 여러 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포 하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: ba2736ae69d0bf7feff5f852da2446bfa7a722a6
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: ad54b60d8f15e36636f887015d97967740123669
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325243"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195875"
 ---
 # <a name="deploy-an-azure-firewall-with-multiple-public-ip-addresses-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 여러 공용 IP 주소를 사용 하는 Azure 방화벽 배포
 
@@ -21,7 +21,7 @@ ms.locfileid: "68325243"
 - **DNAT** - 여러 표준 포트 인스턴스를 백 엔드 서버로 변환할 수 있습니다. 예를 들어 공용 IP 주소가 2개인 경우 두 IP 주소 모두에 대해 TCP 포트 3389(RDP)를 변환할 수 있습니다.
 - **SNAT** - 아웃바운드 SNAT 연결에 추가 포트를 사용할 수 있기 때문에 SNAT 포트가 고갈될 가능성이 줄어듭니다. 이때 Azure Firewall은 연결에 사용할 원본 공용 IP 주소를 임의로 선택합니다. 네트워크에 다운스트림 필터링이 있는 경우, 방화벽과 연결된 모든 공용 IP 주소를 허용해야 합니다.
  
-여러 공용 IP 주소를 포함 하는 Azure 방화벽은 Azure Portal, Azure PowerShell, Azure CLI, REST 및 템플릿을 통해 사용할 수 있습니다. 최대 100 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
+여러 공용 IP 주소를 사용하는 Azure Firewall은 Azure Portal, Azure PowerShell, Azure CLI, REST 및 템플릿을 통해 사용할 수 있습니다. 최대 100 공용 IP 주소를 사용 하 여 Azure 방화벽을 배포할 수 있습니다.
 
 다음 Azure PowerShell 예제에서는 Azure 방화벽에 대 한 공용 IP 주소를 구성, 추가 및 제거할 수 있는 방법을 보여 줍니다.
 

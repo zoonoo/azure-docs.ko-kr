@@ -1,17 +1,17 @@
 ---
-title: Azure Migrate Server 평가를 사용 하 여 물리적 서버 평가를 위한 어플라이언스 설정
-description: Azure Migrate Server 평가를 사용 하 여 물리적 서버를 평가 하기 위해 어플라이언스를 설정 하는 방법을 설명 합니다.
+title: 물리적 서버에 대 한 Azure Migrate 어플라이언스 설정
+description: 물리적 서버 평가를 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/11/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 1e67c36753239940b15e3cb47b5b75820ea43689
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: ade2a76c168002e573a6504e31769b83f0c6eb37
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158351"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185899"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 

@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 0196e6fb4b2cd52fd66a26e07e8d4ce71983bc16
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013202"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186668"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>항상 사용 가능한 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소)
 
@@ -29,8 +29,8 @@ ZRS는 블록 blob, 디스크가 아닌 페이지 blob, 표준 파일 공유, �
 범용 v2 계정의 경우 ZRS는 일반적으로 다음 지역에서 사용할 수 있습니다.
 
 - 동남아시아
-- 서유럽
 - 북유럽
+- 서유럽
 - 프랑스 중부
 - 일본 동부
 - 영국 남부

@@ -1,17 +1,17 @@
 ---
 title: Azure Migrate에 대 한 일반적인 질문
-description: Azure Migrate에 대 한 일반적인 질문과 대답을 다룹니다.
+description: Azure Migrate 서비스에 대 한 일반적인 질문에 대 한 답변을 받으세요.
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/22/2019
+ms.date: 11/19/2019
 ms.author: snehaa
-ms.openlocfilehash: 1663e1d418610bcfa2ada28770944bfc8cbf908f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480063"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185772"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 

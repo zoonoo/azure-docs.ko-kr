@@ -1,11 +1,11 @@
 ---
-title: Azure virtual network에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell
+title: IPv6 이중 스택 응용 프로그램 배포-표준 Load Balancer-PowerShell
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 azure Powershell을 사용 하 여 Azure virtual network에서 표준 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여줍니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: c924e59a50994827eb2e9be40caa7021c7e4ac3c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b1506c40d83e1483980c368db1659c9470b9a46a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174476"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185466"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-in-azure---powershell-preview"></a>Azure에서 IPv6 이중 스택 응용 프로그램 배포-PowerShell (미리 보기)
 
@@ -31,7 +31,7 @@ ms.locfileid: "72174476"
 
 PowerShell을 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에는 Azure PowerShell 모듈 버전 6.9.0 이상이 필요 합니다. 설치되어 있는 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzAccount`를 실행하여 Azure와 연결해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 Azure에서 이중 스택 응용 프로그램을 배포 하기 전에 다음 Azure PowerShell를 사용 하 여이 미리 보기 기능에 대 한 구독을 구성 해야 합니다.
 
 다음과 같이 등록 합니다.
@@ -121,7 +121,7 @@ $frontendIPv6 = New-AzLoadBalancerFrontendIpConfig `
 
 ### <a name="configure-back-end-address-pool"></a>백 엔드 주소 풀 구성
 
-[New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결됩니다. 다음 예제에서는 IPV4 및 IPv6 NIC 구성을 모두 사용 하 여 Vm을 포함 하는 *dsLbBackEndPool_v4* 및 *dsLbBackEndPool_v6* 라는 백 엔드 주소 풀을 만듭니다.
+[New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig)를 사용하여 백 엔드 주소 풀을 만듭니다. VM은 나머지 단계에서 이 백 엔드 풀에 연결됩니다. 다음 예제에서는 *dsLbBackEndPool_v4* 이라는 백 엔드 주소 풀을 만들고 IPV4 및 IPv6 NIC 구성을 모두 사용 하 여 vm을 포함 하도록 *dsLbBackEndPool_v6* 합니다.
 
 ```azurepowershell-interactive
 $backendPoolv4 = New-AzLoadBalancerBackendAddressPoolConfig `
@@ -135,7 +135,7 @@ $backendPoolv6 = New-AzLoadBalancerBackendAddressPoolConfig `
 
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 정상 Vm만 트래픽을 수신할 수 있도록 하려면 상태 프로브를 선택적으로 정의할 수 있습니다. 기본 부하 분산 장치는 IPv4 프로브를 사용 하 여 Vm의 IPv4 및 IPv6 끝점 모두에 대 한 상태를 평가 합니다. 표준 부하 분산 장치에는 명시적 IPv6 상태 프로브에 대 한 지원이 포함 됩니다.
 
-[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 및 *dsLBrule_v6* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 분산 합니다.
+[Add-AzLoadBalancerRuleConfig](/powershell/module/az.network/add-azloadbalancerruleconfig)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 *dsLBrule_v6* 및 분산 합니다.
 
 ```azurepowershell-interactive
 $lbrule_v4 = New-AzLoadBalancerRuleConfig `
@@ -323,7 +323,7 @@ $VM2 = New-AzVM -ResourceGroupName $rg.ResourceGroupName  -Location $rg.Location
 ```
 
 ## <a name="determine-ip-addresses-of-the-ipv4-and-ipv6-endpoints"></a>IPv4 및 IPv6 끝점의 IP 주소 확인
-@No__t-0으로이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한 `get-AzpublicIpAddress`을 사용 하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다.
+`get-AzNetworkInterface`를 사용 하 여이 배포에 사용 되는 IP를 요약 하려면 리소스 그룹의 모든 네트워크 인터페이스 개체를 가져옵니다. 또한 `get-AzpublicIpAddress`를 사용 하 여 IPv4 및 IPv6 끝점의 Load Balancer 프런트 엔드 주소를 가져옵니다.
 
 ```azurepowershell-interactive
 $rgName= "dsRG1"

@@ -8,12 +8,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.custom: Understand-apache-spark-code-concepts
 ms.date: 10/15/2019
-ms.openlocfilehash: 4ed23beae6edb13efabf034c1e87b9cb76048f82
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 3d15afc26c876c6e4d2d7244e26f0b13ced59a58
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73648468"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184753"
 ---
 # <a name="understand-apache-spark-code-for-u-sql-developers"></a>U SQL 개발자를 위한 Apache Spark 코드 이해
 
@@ -128,7 +128,7 @@ U-SQL의 유형 시스템은 .NET 유형 시스템을 기반으로 하며 Spark�
 |`SQL.MAP<K,V>`   |`MapType(keyType, valueType, valueContainsNull)` |`scala.collection.Map` | `MapType(keyType, valueType, valueContainsNull=True)`|
 |`SQL.ARRAY<T>`   |`ArrayType(elementType, containsNull)` |`scala.collection.Seq` | `ArrayType(elementType, containsNull=True)`|
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
 - [org .sql. types](https://spark.apache.org/docs/latest/api/scala/index.html#org.apache.spark.sql.types.package)
 - [Spark SQL 및 데이터 프레임 형식](https://spark.apache.org/docs/latest/sql-reference.html#data-types)
@@ -143,13 +143,13 @@ Spark에서 NULL은 값을 알 수 없음을 나타냅니다. Spark NULL 값은 
 
 이 동작은 `null` 값이 다른 값과 다른 의미 체계 C# 를 따르는 U-SQL과는 다릅니다.  
 
-따라서 `WHERE column_name = NULL`를 사용 하는 SparkSQL `SELECT` 문은 `column_name`에 NULL 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 `column_name`가 `null`로 설정 된 행을 반환 합니다. 마찬가지로 `WHERE column_name != NULL`를 사용 하는 Spark `SELECT` 문은 `column_name`에 null이 아닌 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 null이 아닌 행을 반환 합니다. 따라서 U-SQL null 검사 의미 체계가 필요한 경우에는 [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull)을 [사용 하 고 각각에](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) 해당 하는 DSL을 사용 해야 합니다.
+따라서 `WHERE column_name = NULL`를 사용 하는 SparkSQL `SELECT` 문은 `column_name`에 NULL 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 `column_name`가 `null`로 설정 된 행을 반환 합니다. 마찬가지로 `WHERE column_name != NULL`를 사용 하는 Spark `SELECT` 문은 `column_name`에 null이 아닌 값이 있어도 0 행을 반환 하지만, U n-SQL에서는 null이 아닌 행을 반환 합니다. 따라서 U-SQL null 검사 의미 체계가 필요한 경우에는 각각 [isnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnull) 및 [isnotnull](https://spark.apache.org/docs/2.3.0/api/sql/index.html#isnotnull) 을 사용 해야 합니다 (또는 그에 상응 하는 DSL).
 
 ## <a name="transform-u-sql-catalog-objects"></a>Transform U SQL catalog 개체
 
 한 가지 중요 한 차이점은 U-SQL 스크립트가 해당 카탈로그 개체를 사용할 수 있다는 것입니다 .이 중 상당수에는 직접 Spark가 없는 것입니다.
 
-Spark는 Hive 메타 저장소 개념, 주로 데이터베이스 및 테이블에 대 한 지원을 제공 하므로, U-SQL 데이터베이스 및 스키마를 Hive 데이터베이스에 매핑할 수 있으며, U-sql 테이블을 Spark 테이블에 매핑할 수 있습니다 ( [u sql 테이블에 저장 된 데이터 이동](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)참조). 그러나 뷰를 지원 하지 않습니다. Tvf (테이블 반환 함수), 저장 프로시저, U-SQL 어셈블리, 외부 데이터 원본 등
+Spark는 Hive 메타 저장소 개념에 대 한 지원을 제공 합니다. 주로 데이터베이스 및 테이블을 통해, U-sql 데이터베이스 및 스키마를 Hive 데이터베이스에 매핑할 수 있으며, U-sql 테이블을 Spark 테이블에 매핑할 수 있습니다. ( [u-sql 테이블에 저장 된 데이터 이동](understand-spark-data-formats.md#move-data-stored-in-u-sql-tables)은 참조 하지만 뷰, tvf (테이블 반환 함수), 저장 프로시저, t-sql 어셈블리, 외부 데이터 원본 등은 지원 하지 않습니다.
 
 보기, Tvf, 저장 프로시저, 어셈블리 등의 U-SQL 코드 개체는 Spark의 코드 함수 및 라이브러리를 통해 모델링 되 고 호스트 언어의 함수 및 절차 추상화 메커니즘을 사용 하 여 참조 될 수 있습니다 (예: 가져오기를 통해). Python 모듈 또는 Scala 함수 참조).
 

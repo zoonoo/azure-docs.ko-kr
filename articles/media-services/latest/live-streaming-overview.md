@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 8d7db428d7f71383abf5425d7cc1ddbbab3b7a52
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e3d0f4ba178ef2cf44b9c5c3dd5b8c212f1c133
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037862"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186159"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -63,7 +63,7 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 Media Services와 함께 클라우드 인코딩을 사용 하는 경우 온-프레미스 라이브 인코더를 구성 하 여 단일 비트 전송률 비디오를 라이브 이벤트 (최대 32Mbps 집계)에서 라이브 이벤트 (RTMP 또는 조각화 된 MP4 입력 프로토콜 사용)로 전송 합니다. 라이브 이벤트는 들어오는 단일 비트 전송률 스트림을 다양 한 해상도에서 [여러 비트 전송률 비디오 스트림으로](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming) 코드 변환 하 여 제공 하는 기능을 개선 하 고 MPEG-2, HLS (Apple HTTP 라이브 스트리밍) 및 Microsoft 부드러운 스트리밍 같은 산업 표준 프로토콜을 통해 재생 장치로 배달 될 수 있도록 합니다. 
 
-### <a name="live-transcription"></a>라이브 기록
+### <a name="live-transcription-preview"></a>라이브 기록 (미리 보기)
 
 라이브 기록은 통과 또는 라이브 인코딩의 라이브 이벤트와 함께 사용할 수 있는 기능입니다. 자세한 내용은 [라이브](live-transcription.md)기록을 참조 하세요. 이 기능을 사용 하는 경우 서비스는 Cognitive Services의 [음성 텍스트](../../cognitive-services/speech-service/speech-to-text.md) 기능을 사용 하 여 들어오는 오디오의 음성 단어를 텍스트로 높여줄 합니다. 그런 다음이 텍스트는 MPEG-2 및 HLS 프로토콜의 비디오 및 오디오와 함께 배달할 수 있게 됩니다.
 

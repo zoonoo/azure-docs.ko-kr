@@ -1,17 +1,18 @@
 ---
-title: Azure Migrate에서 평가 도구 추가 | Microsoft Docs
-description: Azure Migrate 허브에 평가 도구를 추가 하는 방법을 설명 합니다.
+title: Azure Migrate에서 평가 도구 추가
+description: Azure Migrate에서 평가 도구를 추가 하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/04/2019
+ms.manager: carmonm
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 8d13222ec05fc97fa591ac67d636a1f8c5c88845
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 64af78abd8f82b41d4a03fbb56c96e3038cef5a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715862"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185905"
 ---
 # <a name="add-assessment-tools"></a>평가 도구 추가
 

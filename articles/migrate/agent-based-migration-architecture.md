@@ -1,17 +1,17 @@
 ---
-title: Azure Migrate Server 마이그레이션의 에이전트 기반 마이그레이션 아키텍처
+title: Azure Migrate 서버 마이그레이션의 에이전트 기반 마이그레이션
 description: Azure Migrate Server Migration을 사용 하 여 에이전트 기반 VMware VM 마이그레이션에 대 한 개요를 제공 합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: f5ad3aa0fc51f47942750d3745ffef1d6e4a087d
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a8477b4c10ccbc76f36eed4d64ac12e8bb648a28
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232588"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186093"
 ---
 # <a name="agent-based-migration-architecture"></a>에이전트 기반 마이그레이션 아키텍처
 
@@ -49,7 +49,7 @@ Azure Migrate Server 마이그레이션은 온-프레미스 및 공용 클라우
 
 다음 메서드를 사용하여 Mobility 서비스를 설치할 수 있습니다.
 
-- **푸시 설치**: 컴퓨터에 대 한 보호를 사용 하도록 설정 하면 프로세스 서버에서 모바일 서비스를 설치 합니다. 
+- **강제 설치**: 컴퓨터에 대 한 보호를 사용 하도록 설정 하면 프로세스 서버에서 모바일 서비스를 설치 합니다. 
 - **수동으로 설치**: UI 또는 명령 프롬프트를 통해 각 컴퓨터에 모바일 서비스를 수동으로 설치할 수 있습니다.
 
 모바일 서비스는 복제 어플라이언스 및 복제 된 컴퓨터와 통신 합니다. 복제 어플라이언스, 프로세스 서버 또는 복제 중인 컴퓨터에서 바이러스 백신 소프트웨어가 실행 되 고 있는 경우 검색에서 다음 폴더를 제외 해야 합니다.
@@ -75,7 +75,7 @@ Azure Migrate Server 마이그레이션은 온-프레미스 및 공용 클라우
 
 ## <a name="ports"></a>포트
 
-**장치** | **연결**
+**디바이스** | **연결**
 --- | --- 
 VM | Vm에서 실행 되는 모바일 서비스는 복제 관리를 위해 HTTPS 443 인바운드 포트에서 온-프레미스 복제 어플라이언스와 통신 합니다.<br/><br/> Vm은 복제 데이터를 HTTPS 9443 인바운드 포트에서 프로세스 서버 (기본적으로 복제 어플라이언스에서 실행)로 전송 합니다. 이 포트는 수정할 수 있습니다.
 복제 어플라이언스 | 복제 어플라이언스는 HTTPS 443 아웃 바운드 포트를 통해 Azure를 사용 하 여 복제를 오케스트레이션 합니다.
@@ -111,14 +111,14 @@ VMware Vm을 복제 하는 경우 VMware에 대 한 [Site Recovery Deployment Pl
 --- | --- | --- | --- 
 4개 vCPU(2개 소켓 * 2코어 \@ 2.5GHz), 8GB 메모리 | 300GB | 250GB 이하 | 최대 85 대의 컴퓨터 
 8개 vCPU(2개 소켓 * 4코어 \@ 2.5GHz), 12GB 메모리 | 600GB | 251GB~1TB    | 86-150 컴퓨터.
-12 개 vcpus (2 개 소켓 * \@ 6 코어 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
+12 개 vCPUs (2 개 소켓 * 6 코어 \@ 2.5 g h z), 24gb 메모리 | 1TB | 1-2TB | 151-225 컴퓨터.
 
 ## <a name="control-upload-throughput"></a>업로드 처리량 제어
 
 
  Azure에 복제하는 VMware 트래픽이 특정 프로세스 서버를 통과합니다. 프로세스 서버로 실행 되는 컴퓨터에서 대역폭을 조정 하 여 업로드 처리량을 제한할 수 있습니다. 다음 레지스트리 키를 사용 하 여 대역폭에 영향을 줄 수 있습니다.
 
-- HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM 레지스트리 값은 디스크의 데이터 전송 (초기 또는 델타 복제)에 사용 되는 스레드 수를 지정 합니다. 값이 높을수록 복제에 사용되는 네트워크 대역폭이 증가합니다. 기본값은 4입니다. 최대값은 32입니다. 트래픽을 모니터링하여 값을 최적화합니다.
+- HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\Windows Azure Backup\Replication\UploadThreadsPerVM 레지스트리 값은 디스크의 데이터 전송 (초기 또는 델타 복제)에 사용 되는 스레드 수를 지정 합니다. 값이 높을수록 복제에 사용되는 네트워크 대역폭이 증가합니다. 기본값은 4입니다. 최대값은 32입니다. 트래픽을 모니터링하여 값을 최적화합니다.
 - 또한 다음과 같이 프로세스 서버 컴퓨터에서 대역폭을 제한할 수 있습니다.
 
     1. 프로세스 서버 컴퓨터에서 Azure Backup MMC 스냅인을 엽니다. 바탕 화면 또는 C:\Program Files\Microsoft Azure Recovery Services Agent\bin. 폴더에 바로 가기가 있습니다. 

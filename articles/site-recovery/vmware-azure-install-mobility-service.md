@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f1a96302d180f3b4b179f42013232f3b48d4e2b0
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: a2f4bdb96b8d1ecb23ddcec844726439ec46fff2
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016358"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186445"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>모바일 에이전트의 강제 설치를 위한 원본 컴퓨터 준비
 
@@ -24,7 +24,7 @@ ms.locfileid: "69016358"
 1. 머신과 프로세스 서버 간에 네트워크가 연결되어 있는지 확인합니다. 별도의 프로세스 서버를 설정하지 않은 경우에는 기본적으로 구성 서버에서 실행 중입니다.
 1. 프로세스 서버가 컴퓨터에 액세스하는 데 사용할 수 있는 계정을 작성합니다. 계정에는 관리자 권한(로컬 또는 도메인)이 있어야 합니다. 강제 설치 및 에이전트 업데이트의 경우에만 이 계정을 사용합니다.
 2. 도메인 계정을 사용하지 않는 경우 다음과 같이 로컬 컴퓨터에서 원격 사용자 액세스 제어를 사용하지 않도록 설정합니다.
-    - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키에서 새 DWORD **LocalAccountTokenFilterPolicy**를 추가합니다. 값을 **1**로 설정합니다.
+    - HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System 레지스트리 키에서 새 DWORD: **LocalAccountTokenFilterPolicy**를 추가합니다. 값을 **1**로 설정합니다.
     -  명령 프롬프트에서 이렇게 하려면 다음 명령을 실행합니다.  
    `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
 3. 보호하려는 머신의 Windows 방화벽에서 **방화벽을 통해 앱 또는 기능 허용**을 선택합니다. **파일 및 프린터 공유**와 **WMI(Windows Management Instrumentation)** 를 사용하도록 설정합니다. 도메인에 속하는 컴퓨터의 경우 GPO(그룹 정책 개체)를 사용하여 방화벽 설정을 구성할 수 있습니다.
@@ -32,7 +32,7 @@ ms.locfileid: "69016358"
    ![방화벽 설정](./media/vmware-azure-install-mobility-service/mobility1.png)
 
 4. CSPSConfigtool에서 만든 계정을 추가합니다. 이 작업을 수행하려면 구성 서버에 로그인합니다.
-5. **cspsconfigtool.exe**를 엽니다. 바탕 화면에서 바로 가기로 사용할 수 있으며, %ProgramData%\home\svsystems\bin 폴더에 있습니다.
+5. **cspsconfigtool.exe**를 엽니다. 바탕 화면 및%ProgramData%\ASR\home\svsystems\bin 폴더에서 바로 가기로 사용할 수 있습니다.
 6. **계정 관리** 탭에서 **계정 추가**를 선택합니다.
 7. 만든 계정을 추가합니다.
 8. 컴퓨터에서 복제를 사용할 때 사용할 자격 증명을 입력합니다.

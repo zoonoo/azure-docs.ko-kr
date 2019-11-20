@@ -1,11 +1,11 @@
 ---
-title: 네트워크 보안 그룹 이벤트 및 규칙 카운터 Azure 진단 로그
+title: 네트워크 보안 그룹에 대한 진단 로깅
 titlesuffix: Azure Virtual Network
 description: Azure 네트워크 보안 그룹에 대한 이벤트 및 규칙 카운터 진단 로그를 활성화하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: 047c92f1c50409e6a1716f0ef2f774464bd12a0a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 55fc18a718d0c69ba90a86ff6aea00d32a8f465b
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972775"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196742"
 ---
 # <a name="diagnostic-logging-for-a-network-security-group"></a>네트워크 보안 그룹에 대한 진단 로깅
 
@@ -57,7 +57,7 @@ NSG(네트워크 보안 그룹)는 가상 네트워크 서브넷, 네트워크 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 또는 컴퓨터에서 PowerShell을 실행합니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우에는 `Connect-AzAccount`을 실행 하 여 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 해야 합니다.
+[Azure Cloud Shell](https://shell.azure.com/powershell) 뒤에 오는 명령을 실행하거나 컴퓨터에서 PowerShell을 실행하여 실행할 수 있습니다. Azure Cloud Shell은 무료 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 컴퓨터에서 PowerShell을 실행 하는 경우에는 Azure PowerShell 모듈 버전 1.0.0 이상이 필요 합니다. 컴퓨터에서 `Get-Module -ListAvailable Az`을 실행하여 설치된 버전을 확인합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. PowerShell을 로컬로 실행 하는 경우에는 `Connect-AzAccount`를 실행 하 여 [필요한 권한이](virtual-network-network-interface.md#permissions)있는 계정으로 Azure에 로그인 해야 합니다.
 
 진단 로깅을 활성화하려면 기존 NSG의 ID가 필요합니다. 기존 NSG가 없는 경우 [AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup)를 사용 하 여 만들 수 있습니다.
 
@@ -88,7 +88,7 @@ Set-AzDiagnosticSetting `
   -Enabled $true
 ```
 
-둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 *NetworkSecurityGroupEvent* 또는 *NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에 `-Categories` 옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
+둘 다가 아닌 하나의 범주에 대해 데이터를 기록하려는 경우 `-Categories`NetworkSecurityGroupEvent*또는*NetworkSecurityGroupRuleCounter*가 뒤에 오는 이전 명령에*  옵션을 추가합니다. Log Analytics 작업 영역이 아닌 다른 [대상](#log-destinations)에 기록하려면 Azure [Storage 계정](../azure-monitor/platform/archive-diagnostic-logs.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 또는 [이벤트 허브](../azure-monitor/platform/resource-logs-stream-event-hubs.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에 대한 적절한 매개 변수를 사용합니다.
 
 로그를 보고 분석합니다. 자세한 내용은 [로그 보기 및 분석](#view-and-analyze-logs)을 참조하세요.
 
@@ -199,7 +199,7 @@ JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 ## <a name="view-and-analyze-logs"></a>로그 보기 및 분석
 
 진단 로그 데이터를 보는 방법을 알아보려면 [Azure 진단 로그 개요](../azure-monitor/platform/resource-logs-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)를 참조하세요. 다음으로 진단 데이터를 보내는 경우:
-- **Azure Monitor 로그**: 향상된 인사이트에 대해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
+- **Azure Monitor 로그**: 향상 된 정보를 위해 [네트워크 보안 그룹 분석](../azure-monitor/insights/azure-networking-analytics.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-network-security-group-analytics-solution-in-azure-monitor
 ) 솔루션을 사용할 수 있습니다. 솔루션은 가상 머신에서 네트워크 인터페이스의 MAC 주소당 트래픽을 허용하거나 거부하는 NSG 규칙에 대한 시각화를 제공합니다.
 - **Azure Storage 계정**: PT1H.json 파일에 데이터가 기록됩니다. 다음을 찾을 수 있습니다.
   - 다음 경로에서 이벤트 로그: `insights-logs-networksecuritygroupevent/resourceId=/SUBSCRIPTIONS/[ID]/RESOURCEGROUPS/[RESOURCE-GROUP-NAME-FOR-NSG]/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/[NSG NAME]/y=[YEAR]/m=[MONTH/d=[DAY]/h=[HOUR]/m=[MINUTE]`

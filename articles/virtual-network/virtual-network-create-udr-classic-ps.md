@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Network에서 라우팅 제어 - PowerShell - 클래식 | Microsoft Docs
+title: Azure VNet에서 라우팅 제어-PowerShell-클래식
 description: PowerShell을 사용하여 VNet에서 라우팅을 제어하는 방법 알아보기 | 클래식
 services: virtual-network
 documentationcenter: na
@@ -15,14 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/02/2016
 ms.author: genli
-ms.openlocfilehash: f2f2c17740bd94629209c2bffb82689ecc931fc8
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 4170418b4f53277a8f4306fe2835286c8ac99dee
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058763"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186349"
 ---
-# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>PowerShell 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
+# <a name="control-routing-and-use-virtual-appliances-classic-using-powershell"></a>PowerShell을 사용하여 라우팅 제어 및 가상 어플라이언스(클래식) 사용
 
 > [!div class="op_single_selector"]
 > * [PowerShell](tutorial-create-route-table-powershell.md)
@@ -33,7 +33,7 @@ ms.locfileid: "71058763"
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
 > [!IMPORTANT]
-> Azure 리소스로 작업하기 전에 Azure에는 현재 Azure Resource Manager 및 클래식이라는 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](../azure-resource-manager/resource-manager-deployment-model.md) 를 이해해야 합니다. 이 문서의 윗부분에 있는 옵션을 선택하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다.
+> Azure 리소스로 작업하기 전에 Azure에는 현재 Azure Resource Manager와 클래식 모드의 두 가지 배포 모델이 있다는 것을 이해해야 합니다. Azure 리소스로 작업하기 전에 [배포 모델 및 도구](../azure-resource-manager/resource-manager-deployment-model.md) 를 이해해야 합니다. 이 문서의 윗부분에 있는 옵션을 선택하여 다양한 도구에 대한 설명서를 볼 수 있습니다. 이 문서에서는 클래식 배포 모델에 대해 설명합니다.
 > 
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]

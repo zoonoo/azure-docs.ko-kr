@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: juliako
-ms.openlocfilehash: 645d40e51b69272f1883f5ad1fb73c425f7b4b8f
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d2ed1d5e0cf0e42c3f916ab33f860039b5d5f781
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019356"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196471"
 ---
 # <a name="migrate-from-azure-media-encoder-to-media-encoder-standard"></a>Azure Media Encoder에서 Media Encoder Standard로 마이그레이션
 
 이 문서에서는 2019 년 11 월 30 일에 사용이 중지 되는 기존 AME (Azure Media Encoder) 미디어 프로세서에서 Media Encoder Standard 미디어 프로세서로 마이그레이션하는 단계를 설명 합니다.  
 
-AME을 사용 하 여 파일을 인코딩할 때 고객은 일반적으로와 `H264 Adaptive Bitrate MP4 Set 1080p`같은 명명 된 사전 설정 문자열을 사용 했습니다. 마이그레이션하기 위해 코드를 업데이트 하 여 AME 대신 **Media Encoder Standard** 미디어 프로세서를 사용 하 고와 같은 `H264 Multiple Bitrate 1080p`해당 [시스템 사전 설정](media-services-mes-presets-overview.md) 중 하나를 사용 하도록 업데이트 해야 합니다. 
+AME으로 파일을 인코딩할 때 고객은 일반적으로 `H264 Adaptive Bitrate MP4 Set 1080p`와 같은 명명 된 사전 설정 문자열을 사용 했습니다. 마이그레이션하기 위해 코드를 업데이트 하 여 AME 대신 **Media Encoder Standard** 미디어 프로세서를 사용 하 고 `H264 Multiple Bitrate 1080p`와 같은 해당 [시스템 기본 설정](media-services-mes-presets-overview.md) 중 하나를 사용 하도록 업데이트 해야 합니다. 
 
 ## <a name="migrating-to-media-encoder-standard"></a>Media Encoder Standard로 마이그레이션
 
@@ -58,7 +58,7 @@ IMediaProcessor processor = GetLatestMediaProcessorByName("Media Encoder Standar
 // In this case " H264 Multiple Bitrate 1080p" preset is used. 
 ITask task = job.Tasks.AddNew("My encoding task", 
     processor, 
-    " H264 Multiple Bitrate 1080p", 
+    "H264 Multiple Bitrate 1080p", 
     TaskOptions.None); 
 ```
 

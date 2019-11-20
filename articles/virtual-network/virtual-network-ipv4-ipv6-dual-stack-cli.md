@@ -1,11 +1,11 @@
 ---
-title: Azure에서 기본 Load Balancer를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포-CLI
+title: IPv6 이중 스택 응용 프로그램 배포-기본 Load Balancer-CLI
 titlesuffix: Azure Virtual Network
 description: 이 문서에서는 Azure CLI를 사용 하 여 Azure 가상 네트워크에서 IPv6 이중 스택 응용 프로그램을 배포 하는 방법을 보여 줍니다.
 services: virtual-network
 documentationcenter: na
 author: KumudD
-manager: twooley
+manager: mtillman
 ms.service: virtual-network
 ms.devlang: na
 ms.topic: article
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/08/2019
 ms.author: kumud
-ms.openlocfilehash: d4ca26606eb8be5b9092f40b70b57b9d5d85385c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b8440efa08e47685d21b0222861f749e8bdffbc9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72804008"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186391"
 ---
 # <a name="deploy-an-ipv6-dual-stack-application-using-basic-load-balancer---cli-preview"></a>Basic Load Balancer-CLI (미리 보기)를 사용 하 여 IPv6 이중 스택 응용 프로그램 배포
 
@@ -35,7 +35,7 @@ Azure 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/free/?
 
 Azure CLI를 로컬로 설치 하 고 사용 하도록 결정 한 경우이 빠른 시작을 사용 하려면 Azure CLI 버전 2.0.49 이상을 사용 해야 합니다. 설치된 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드 정보는 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 Azure virtual network에 대 한 IPv6 기능을 사용 하려면 다음과 같이 Azure CLI를 사용 하 여 구독을 구성 해야 합니다.
 
 ```azurecli
@@ -115,7 +115,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-DsLbFrontEnd_v4 라는 프런트 엔드 풀을 포함 하는 [라는 프런트](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 엔드 풀을 포함 하는 기본 **LOAD BALANCER를 만들고** IPv4 공용 IP 주소 **와 연결 된 dsLbBackEndPool_v4 라는 백 엔드 풀을 만듭니다.** 이전 단계에서 만든 dsPublicIP_v4입니다. 
+[은 네트워크 lb 생성 ](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest)**DsLbFrontEnd_v4** 라는 프런트 엔드 풀 을 포함 하는 **dsLB**라는 프런트 엔드 풀을 포함 하는 기본 Load Balancer를 만들고 IPv4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 라는 백 엔드 풀을 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
 
 ```azurecli
 az network lb create \
@@ -143,7 +143,7 @@ az network lb frontend-ip create \
 
 ### <a name="configure-ipv6-back-end-address-pool"></a>IPv6 백 엔드 주소 풀 구성
 
-[Az network lb address pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create)를 사용 하 여 IPv6 백 엔드 주소 풀을 만듭니다. 다음 예제에서는 IPv6 NIC 구성을 사용 하 여 Vm을 포함 하는 *dsLbBackEndPool_v6* 라는 백 엔드 주소 풀을 만듭니다.
+[Az network lb address pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool?view=azure-cli-latest#az-network-lb-address-pool-create)를 사용 하 여 IPv6 백 엔드 주소 풀을 만듭니다. 다음 예제에서는 IPv6 NIC 구성을 사용 하 여 Vm을 포함 하도록 *dsLbBackEndPool_v6* 라는 백 엔드 주소 풀을 만듭니다.
 
 ```azurecli
 az network lb address-pool create \
@@ -156,7 +156,7 @@ az network lb address-pool create \
 
 부하 분산 장치 규칙은 VM으로 트래픽이 분산되는 방법을 정의하는 데 사용됩니다. 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. 
 
-[az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 및 *dsLBrule_v6* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 분산 합니다.
+[az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest#az-network-lb-rule-create)를 사용하여 부하 분산 장치 규칙을 만듭니다. 다음 예제에서는 *dsLBrule_v4* 이라는 부하 분산 장치 규칙을 만들고 *TCP* 포트 *80* 의 트래픽을 IPv4 및 IPv6 프런트 엔드 IP 구성으로 *dsLBrule_v6* 및 분산 합니다.
 
 ```azurecli
 az network lb rule create \
@@ -270,7 +270,7 @@ az network nsg rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 *dsSubNET_v4* 및 *dsSubNET_v6*서브넷을 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
+[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create)를 사용하여 가상 네트워크를 만듭니다. 다음 예제에서는 서브넷 *dsSubNET_v4* 및 *dsSubNET_v6*를 사용 하 여 *dsvnet* 이라는 가상 네트워크를 만듭니다.
 
 ```azurecli
 # Create the virtual network

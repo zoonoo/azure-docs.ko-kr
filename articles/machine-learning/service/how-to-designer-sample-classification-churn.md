@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 분류, 변동 예측'
+title: '디자이너: 예측 변동 예'
 titleSuffix: Azure Machine Learning
-description: 이 디자이너 (preview) 샘플 파이프라인에서는 CRM (고객 관계 관리)에 대 한 일반 작업 인 변동의 이진 분류자 예측을 보여 줍니다.
+description: 이 분류 예제에 따라 Azure Machine Learning designer를 사용 하 여 향상 된 의사 결정 트리에서 변동 & 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: sgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: a09060e16b877df4412b785edbb60930cb4122bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 5cf61d3446f960b65eb85538be9ea020671cced2
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647185"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196034"
 ---
-# <a name="sample-5---classification-predict-churn"></a>샘플 5-분류: 변동 예측
+# <a name="use-boosted-decision-tree-to-predict-churn-with-azure-machine-learning-designer"></a>승격 된 의사 결정 트리를 사용 하 여 Azure Machine Learning 디자이너에서 변동 예측
+
+**Designer (미리 보기) 샘플 5**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 복잡 한 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다.
@@ -30,13 +33,13 @@ ms.locfileid: "73647185"
 
 ![파이프라인 그래프](./media/how-to-ui-sample-classification-predict-churn/pipeline-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
 4. 샘플 5를 클릭 하 여 엽니다. 
 
-## <a name="data"></a>Data
+## <a name="data"></a>data
 
 이 파이프라인에 대 한 데이터는 KDD 컵 2009입니다. 5만 행 및 230 기능 열이 있습니다. 이 작업은 이러한 기능을 사용 하는 고객을 위한 변동, 욕구 및 업 판매를 예측 하는 것입니다. 데이터 및 작업에 대 한 자세한 내용은 [Kdd 웹 사이트](https://www.kdd.org/kdd-cup/view/kdd-cup-2009)를 참조 하세요.
 

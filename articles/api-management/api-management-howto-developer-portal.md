@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 6bf8c8690977ef1036c853d8c1c01a3a366b50df
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011491"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74180683"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -117,7 +117,7 @@ ms.locfileid: "74011491"
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다. 어떻게 해야 하나요?
 
-대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예:
+대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```XML
 <cors>
@@ -142,6 +142,14 @@ ms.locfileid: "74011491"
     </expose-headers>
 </cors>
 ```
+
+> [!NOTE]
+> 
+> API가 헤더를 통해 구독 키 인증을 사용 하는 것이 아니라 제품 범위에 CORS 정책을 적용 하면 콘솔은 작동 하지 않습니다.
+>
+> 브라우저는 HTTP 요청 옵션을 자동으로 실행 합니다 .이 요청은 구독 키가 있는 헤더를 포함 하지 않습니다. 누락 된 구독 키 API Management로 인해 옵션 호출을 제품에 연결할 수 없으므로 CORS 정책을 적용할 수 없습니다.
+>
+> 해결 방법으로, 쿼리 매개 변수에서 구독 키를 전달할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

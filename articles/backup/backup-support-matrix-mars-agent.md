@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6e37951dd00b999f59a1b3c08a6852cbc1929630
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 43f11bb73578187bd851f58cb6311c95b8648d08
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172047"
+ms.locfileid: "74194995"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -65,6 +65,8 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 - 20.190.128.0/18
 - 40.126.0.0/18
 
+위에 나열 된 모든 Url 및 IP 주소에 대 한 액세스는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
+
 ### <a name="throttling-support"></a>제한 지원
 
 **기능** | **세부 정보**
@@ -110,7 +112,7 @@ Windows Server 2012 이상 |54,400GB
 Windows Server 2008 R2 SP1 |1700 GB
 Windows Server 2008 SP2| 1700 GB
 Windows 8 이상| 54,400GB
-Windows 7| 1700 GB
+윈도우 7| 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 

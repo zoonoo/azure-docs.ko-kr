@@ -1,5 +1,5 @@
 ---
-title: Azure Front 도어를 사용 하 여 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답 구성
+title: Azure Front 도어를 사용 하 여 WAF에 대 한 사용자 지정 응답 구성
 description: WAF (웹 응용 프로그램 방화벽)에서 요청을 차단할 때 사용자 지정 응답 코드와 메시지를 구성 하는 방법에 대해 알아봅니다.
 services: web-application-firewall
 author: vhorne
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: ae3099373bbaece57c2896eb0fb4e7d59d817f25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 215d4058937ad5fded6bef7a36e873b52a1b5ae9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517151"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185337"
 ---
 # <a name="configure-a-custom-response-for-azure-web-application-firewall"></a>Azure 웹 응용 프로그램 방화벽에 대 한 사용자 지정 응답 구성
 

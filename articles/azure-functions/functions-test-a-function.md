@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 250d470e2450820f57720e0e1a6d274291cf162c
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: 3c826cd32b38676bcbfe1bec79f580e17a509145
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809636"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195965"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -35,16 +35,16 @@ ms.locfileid: "72809636"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
 1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 *Functions*로 지정합니다.
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 *HttpTrigger*로 지정합니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 *TimerTrigger*로 지정합니다.
-4. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트**를 클릭하여 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 *Functions.Test*로 지정합니다. 
+4. Visual Studio에서 [파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트](https://xunit.github.io/docs/getting-started-dotnet-core)를 클릭하여 **xUnit 테스트 앱을 만들고** 이름을 *Functions.Test*로 지정합니다. 
 5. Nuget을 사용 하 여 AspNetCore 테스트 앱에서 참조를 추가 합니다 [.](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. *Functions.Test* 앱에서 [*Functions* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)합니다.
+6. [Functions.Test*앱에서*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)Functions *앱을 참조*합니다.
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
 
@@ -118,7 +118,7 @@ namespace Functions.Tests
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
-그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 namespace Functions.Tests
@@ -132,7 +132,7 @@ namespace Functions.Tests
 ```
 이 열거형은 테스트에서 사용하는 로거 형식을 지정합니다. 
 
-그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -203,7 +203,7 @@ namespace Functions.Tests
 
 - **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
-그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -220,7 +220,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string()
         {
             var request = TestFactory.CreateHttpRequest("name", "Bill");
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal("Hello, Bill", response.Value);
         }
 
@@ -229,7 +229,7 @@ namespace Functions.Tests
         public async void Http_trigger_should_return_known_string_from_member_data(string queryStringKey, string queryStringValue)
         {
             var request = TestFactory.CreateHttpRequest(queryStringKey, queryStringValue);
-            var response = (OkObjectResult)await HttpFunction.Run(request, logger);
+            var response = (OkObjectResult)await HttpTrigger.Run(request, logger);
             Assert.Equal($"Hello, {queryStringValue}", response.Value);
         }
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 이 클래스에 구현된 멤버는 다음과 같습니다.
 
-- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 `name=Bill` 쿼리 문자열 값을 사용 하 여 요청을 만들고 필요한 응답이 반환 되는지 확인 합니다.
+- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 `name=Bill`의 쿼리 문자열 값이 포함 된 요청을 만들고 예상 응답이 반환 되는지 확인 합니다.
 
 - **Http_trigger_should_return_string_from_member_data**:이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
 
-- **Timer_should_log_message**:이 테스트는 `ListLogger`의 인스턴스를 만들어 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+- **Timer_should_log_message**:이 테스트는 `ListLogger` 인스턴스를 만들어 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
 테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
 
@@ -270,7 +270,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설정
+### <a name="setup"></a>설치
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 

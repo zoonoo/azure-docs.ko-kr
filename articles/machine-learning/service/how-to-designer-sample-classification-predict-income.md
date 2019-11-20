@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 분류, 수입 예측'
+title: 'Designer: 분류, 수익 예측 예제'
 titleSuffix: Azure Machine Learning
-description: 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다.
+description: 이 예제에 따라 코드를 작성 하지 않고 Azure Machine Learning designer를 사용 하 여 수입을 예측 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 383cbc11955598505730a4613c50536afac75f95
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 527db89be85cc5b095d33ba89c776a077119f08a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647973"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196061"
 ---
-# <a name="sample-3---classification-with-feature-selection-income-prediction"></a>샘플 3-기능 선택이 포함 된 분류: 수입 예측
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>기능 선택을 사용 하 여 Azure Machine Learning 디자이너와 수입을 예측 & 분류자 빌드
+
+**Designer (미리 보기) 샘플 3**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다. 이 샘플은 성인용 인구 조사 수입 (> = 50K 또는 < = 50K)을 예측 하는 **2 클래스 승격 된 의사 결정 트리** 를 학습 합니다.
@@ -28,7 +31,7 @@ ms.locfileid: "73647973"
 
 ![파이프라인 그래프](media/how-to-ui-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
@@ -36,7 +39,7 @@ ms.locfileid: "73647973"
 
 
 
-## <a name="data"></a>Data
+## <a name="data"></a>data
 
 데이터 집합에는 14 개의 기능과 레이블 열이 포함 되어 있습니다. 숫자 및 범주를 비롯 한 여러 가지 유형의 기능이 있습니다. 다음 다이어그램에서는 데이터 집합의 발췌를 보여 줍니다. ![데이터](media/how-to-ui-sample-classification-predict-income/data.png)
 

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6b51581b5a8f94419dba60eee72669a3e1261b24
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151582"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185712"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -29,6 +29,16 @@ ms.locfileid: "74151582"
 이 문서의 오류 정보는 오류를 해결 하는 데 도움이 될 수 있으므로 인덱싱을 계속할 수 있습니다.
 
 경고는 인덱싱을 중지 하지 않지만 예기치 않은 결과가 발생할 수 있는 조건을 표시 합니다. 작업 수행 여부는 데이터와 시나리오에 따라 달라 집니다.
+
+API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
+
+| 속성 | 설명 | 예 |
+| --- | --- | --- |
+| key | 오류 또는 경고의 영향을 받는 문서의 문서 id입니다. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e myOutputFieldName KnowledgeStore. myTableName |
+| message | 오류 또는 경고에 대 한 개략적인 설명입니다. | 웹 Api 요청이 실패 했으므로 기술을 실행할 수 없습니다. |
+| 세부 정보 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
+| documentationLink | 문제를 디버그 하 고 해결 하기 위한 자세한 정보가 포함 된 관련 설명서에 대 한 링크입니다. 이 링크는 종종이 페이지에서 아래 섹션 중 하나를 가리킵니다. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
 
@@ -73,8 +83,6 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
-| 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
 | 일시적인 연결 문제 | 일시적인 오류가 발생 했습니다. 나중에 다시 시도하세요. | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 | 잠재적 제품 버그 | 예기치 않은 오류가 발생했습니다. | 이것은 알 수 없는 오류 클래스를 나타내며 제품 버그가 있음을 의미할 수 있습니다. 도움을 받으려면 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오. |
 | 실행 중에 기술에 오류가 발생 했습니다. | (병합 기술) 하나 이상의 오프셋 값이 잘못 되었으며 구문 분석할 수 없습니다. 항목이 텍스트 끝에 삽입 되었습니다. | 오류 메시지의 정보를 사용 하 여 문제를 해결할 수 있습니다. 이러한 종류의 오류는 해결할 조치가 필요 합니다. |
@@ -96,6 +104,8 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 ### <a name="built-in-cognitive-service-skills"></a>기본 제공 인식 서비스 기술
 언어 검색, 엔터티 인식 또는 OCR과 같은 여러 가지 내장 인식 기술이 인식 서비스 API 끝점에 의해 지원 됩니다. 이러한 끝점에 일시적인 문제가 있어 요청 시간이 초과 되는 경우가 있습니다. 일시적인 문제의 경우 대기를 제외 하 고 다시 시도 하는 경우를 제외 하 고는 해결 방법이 없습니다. 이를 완화 하려면 [일정에 따라 실행](search-howto-schedule-indexers.md)되도록 인덱서를 설정 하는 것이 좋습니다. 예약 된 인덱싱이 중단 된 위치에서 선택 합니다. 일시적인 문제를 해결 하는 것으로 가정 하면 인덱싱 및 인식 기술 처리는 다음에 예약 된 실행을 계속할 수 있습니다.
+
+기본 제공 인식 기술에 대 한 동일한 문서에서이 오류가 계속 표시 되는 경우 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하 여 지원을 받으세요.
 
 ### <a name="custom-skills"></a>사용자 지정 기술
 만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. 사용자 지정 기술 정의에 `timeout` 값을 명시적으로 설정 하지 않은 경우 기본 `timeout` 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 사용자 지정 기술 정의에 더 높은 `timeout` 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
@@ -132,8 +142,8 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 | 이유 | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
-| 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드에 너무 많은 용어가 있습니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
-| 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 문서가 너무 커서 인덱싱할 수 없습니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
+| 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
+| 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
 | 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.

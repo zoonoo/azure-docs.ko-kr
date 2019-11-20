@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 예측 가격 (회귀)'
+title: '디자이너: 자동차 가격 예측 (기본) 예제'
 titleSuffix: Azure Machine Learning
-description: 한 줄의 코드를 작성 하지 않고도 자동차의 가격을 예측 하는 기계 학습 모델을 빌드하는 방법을 알아봅니다.
+description: Azure Machine Learning designer를 사용 하 여 한 줄의 코드를 작성 하지 않고도 자동차의 가격을 예측 하는 ML 회귀 모델을 작성 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 0cdf2d0b632368a5a5bc24e092783c979f7c26bc
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: ab922733133856409e7c91ee7b216fdc5a341c06
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647164"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196134"
 ---
-# <a name="sample-1---regression-predict-price"></a>샘플 1-회귀: 예측 가격
+# <a name="use-regression-to-predict-car-prices-with-azure-machine-learning-designer"></a>회귀를 사용 하 Azure Machine Learning 디자이너로 자동차 가격 예측
+
+**Designer (미리 보기) 샘플 1**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 machine learning 회귀 모델을 빌드하는 방법에 대해 알아봅니다.
@@ -35,7 +38,7 @@ ms.locfileid: "73647164"
 
 ![파이프라인 그래프](media/how-to-ui-sample-regression-predict-automobile-price-basic/overall-graph.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 

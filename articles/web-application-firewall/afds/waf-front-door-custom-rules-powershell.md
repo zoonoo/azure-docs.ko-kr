@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 규칙 및 기본 Ruse Set를 사용 하 여 WAF (웹 응용 프로그램 방화벽) 정책 구성-Azure PowerShell
+title: Azure Front 문에 대 한 기본 규칙 집합 & WAF 사용자 지정 규칙 구성
 description: WAF 정책을 구성 하는 방법에 대 한 자세한 내용은 기존 전방 도어 끝점에 대 한 사용자 지정 및 관리 되는 규칙으로 구성 됩니다.
 services: web-application-firewall
 author: vhorne
@@ -7,21 +7,21 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: victorh
-ms.openlocfilehash: fec1ed5d51c4afe43df513b54595b4ce1e2f4bbb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 493ed1a31a23366a90b80d3ab510218c8dce0e9c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512549"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186643"
 ---
 # <a name="configure-a-web-application-firewall-policy-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 정책 구성
 
 Azure WAF (웹 응용 프로그램 방화벽) 정책은 요청이 전방 문에 도착할 때 필요한 검사를 정의 합니다.
 이 문서에서는 일부 사용자 지정 규칙 및 Azure 관리 기본 규칙 집합 사용으로 구성 된 WAF 정책을 구성 하는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 속도 제한 정책 설정을 시작 하기 전에 PowerShell 환경을 설정 하 고 전면 도어 프로필을 만듭니다.
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Migrate Server 평가를 사용 하 여 평가를 만드는 모범 사례
-description: Azure Migrate Server 평가를 사용 하 여 평가를 만드는 방법에 대 한 팁을 제공 합니다.
+title: Azure Migrate Server 평가의 평가 모범 사례
+description: Azure Migrate Server 평가를 사용 하 여 평가를 만들기 위한 팁입니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: e235116ab77159a0e2e9c66ad09cdb86ce6da1e9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: de6953b6648613595bc9975b17941b3a453a6d60
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185974"
 ---
 # <a name="best-practices-for-creating-assessments"></a>평가 만들기에 대 한 모범 사례
 
@@ -28,7 +28,7 @@ Azure Migrate Server 평가를 사용 하 여 만든 평가는 데이터의 특�
 **성능 기반** | 수집 된 성능 데이터를 기반으로 권장 사항을 만드는 평가 | VM 크기 권장 사항은 CPU 및 메모리 사용률 데이터를 기반으로 합니다.<br/><br/> 디스크 유형 권장 사항 (표준 HDD/SSD 또는 프리미엄 관리 디스크)은 온-프레미스 디스크의 IOPS 및 처리량을 기반으로 합니다.
 **온-프레미스 인 경우** | 권장 사항을 적용 하기 위해 성능 데이터를 사용 하지 않는 평가 | VM 크기 권장 사항은 온-프레미스 VM 크기를 기반으로 합니다.<br/><br> 권장 디스크 유형은 평가의 저장소 유형 설정에서 선택한 항목을 기반으로 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 예를 들어 4 개 코어를 사용 하는 온-프레미스 VM의 사용률은 20%이 고 메모리는 8gb 이며 10% 사용률 이면 평가는 다음과 같습니다.
 
 - **성능 기반 평가**:

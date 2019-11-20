@@ -1,5 +1,5 @@
 ---
-title: 문제 해결 - Azure Front Door Service 구성 관련 문제 해결 | Microsoft Docs
+title: Azure Front 도어 서비스 구성 문제 해결
 description: 이 자습서에서는 Front Door에 발생할 수 있는 일반적인 문제 몇 가지를 자체적으로 해결하는 방법을 알아보세요.
 services: frontdoor
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: sharadag
-ms.openlocfilehash: 420d7afe0d825da9149f2cb2ae1540a2805b357c
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: c0d6303620b92368e422b54beab4f9c346d022a5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68335886"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184570"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>일반적인 라우팅 문제 해결
 이 문서에서는 Azure Front Door Service 구성에서 발생할 수 있는 몇 가지 일반적인 라우팅 문제를 해결하는 방법을 설명합니다. 

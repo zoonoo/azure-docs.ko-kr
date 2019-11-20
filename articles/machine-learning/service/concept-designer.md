@@ -6,59 +6,69 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.author: sgilley
-author: sdgilley
-ms.date: 11/04/2019
-ms.openlocfilehash: ee97322e58fe7ab3a1474f55c6294822b8ce90da
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: peterlu
+author: peterclu
+ms.date: 11/12/2019
+ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517866"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196163"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너 (미리 보기) 란? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Azure Machine Learning designer를 사용 하면 코드를 작성 하지 않고도 데이터를 준비 하 고, 학습, 테스트, 배포, 관리 및 추적할 수 있습니다.
+Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이터 집합](#datasets) 및 [모듈](#module) 을 시각적으로 연결 하 여 기계 학습 모델을 만들 수 있습니다. 디자이너를 시작 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md) 을 참조 하세요.
 
-모델을 생성 하기 위해 [데이터 집합](#datasets) 및 [모듈](#module) 을 시각적으로 연결 하는 데 필요한 프로그래밍은 없습니다.
+![Azure Machine Learning 디자이너 예](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
-디자이너는 Azure Machine Learning [작업 영역](concept-workspace.md) 을 사용 하 여 다음 작업을 수행 합니다.
+디자이너는 Azure Machine Learning [작업 영역](concept-workspace.md) 을 사용 하 여 다음과 같은 공유 리소스를 구성 합니다.
 
-+ 작업 영역에서 [파이프라인](#pipeline) 을 만들고, 편집 하 고, 실행 합니다.
-+ [데이터 집합](#datasets)에 액세스 합니다.
-+ 작업 영역의 [계산 리소스](#compute) 를 사용 하 여 파이프라인을 실행 합니다. 
-+ [모델](concept-azure-machine-learning-architecture.md#models)을 등록 합니다.
-+ 파이프라인을 REST 끝점으로 [게시](#publish) 합니다.
-+ 모델을 파이프라인 끝점 (일괄 처리 유추의 경우) 또는 작업 영역의 계산 리소스에 대 한 실시간 끝점으로 [배포](#deployment) 합니다.
++ [파이프라인](#pipeline)
++ [데이터 세트](#datasets)
++ [계산 리소스](#compute)
++ [등록 된 모델](concept-azure-machine-learning-architecture.md#models)
++ [게시 된 파이프라인](#publish)
++ [실시간 끝점](#deploy)
 
-![디자이너 개요](media/ui-concept-visual-interface/overview.png)
+## <a name="model-training-and-deployment"></a>모델 학습 및 배포
 
-## <a name="workflow"></a>워크플로
-
-디자이너는 모델을 신속 하 게 빌드, 테스트 및 반복할 수 있는 대화형 시각적 캔버스를 제공 합니다. 
+디자이너는 기계 학습 모델을 빌드, 테스트 및 배포 하기 위한 시각적 캔버스를 제공 합니다. 디자이너를 사용 하 여 다음을 수행할 수 있습니다.
 
 + [데이터 집합](#datasets) 및 [모듈](#module) 을 캔버스로 끌어서 놓습니다.
-+ 모듈을 함께 연결 하 여 [파이프라인](#pipeline)을 구성 합니다.
-+ Machine Learning 서비스 작업 영역의 계산 리소스를 사용 하 여 파이프라인을 실행 합니다.
-+ 파이프라인을 편집 하 고 다시 실행 하 여 모델 디자인을 반복 합니다.
-+ 준비가 되 면 **학습 파이프라인** 을 **유추 파이프라인**으로 변환 합니다.
-+ Python 코드를 생성 하지 않고 다시 전송 하려면 파이프라인을 REST 끝점으로 [게시](#publish) 합니다.
-+ 다른 사용자가 모델에 액세스할 수 있도록 유추 파이프라인을 파이프라인 끝점 또는 실시간 끝점으로 [배포](#deployment) 합니다.
++ 모듈을 함께 연결 하 여 [파이프라인 초안](#pipeline-draft)을 만듭니다.
++ Azure Machine Learning 작업 영역에서 계산 리소스를 사용 하 여 [파이프라인 실행](#pipeline-run) 을 제출 합니다.
++ **학습 파이프라인** 을 **유추 파이프라인**으로 변환 합니다.
++ 다른 매개 변수 및 데이터 집합을 사용 하 여 새 파이프라인 실행을 제출 하려면 REST **파이프라인 끝점** 에 파이프라인을 [게시](#publish) 합니다.
+    + 단일 파이프라인을 다시 사용 하 여 매개 변수 및 데이터 집합을 변경 하는 동안 여러 모델을 학습 하는 **교육 파이프라인** 을 게시 합니다.
+    + 이전에 학습 된 모델을 사용 하 여 새 데이터에 대 한 예측을 만들려면 **일괄 처리 유추 파이프라인** 을 게시 합니다.
++ 실시간 **유추 파이프라인** 을 실시간 끝점에 [배포](#deploy) 하 여 새 데이터에 대 한 예측을 실시간으로 만듭니다.
+
+![디자이너의 학습, 일괄 처리 유추 및 실시간 유추를 위한 워크플로 다이어그램](media/ui-concept-visual-interface/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>파이프라인
 
-처음부터 ML [파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines) 을 만들거나 기존 샘플 파이프라인을 템플릿으로 사용 합니다. 파이프라인을 실행할 때마다 아티팩트는 작업 영역에 저장 됩니다. 파이프라인 실행은 [실험](concept-azure-machine-learning-architecture.md#experiments)으로 그룹화 됩니다.
+[파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines) 은 함께 연결 하는 데이터 집합 및 분석 모듈로 구성 됩니다. 파이프라인은 여러 가지 용도로 사용 됩니다. 단일 모델을 학습 하는 파이프라인이 나 여러 모델을 학습 하는 파이프라인을 만들 수 있습니다. 실시간 또는 일괄 처리로 예측을 수행 하는 파이프라인을 만들거나 데이터를 정리 하는 파이프라인을 만들 수 있습니다. 파이프라인을 사용 하 여 작업을 다시 사용 하 고 프로젝트를 구성할 수 있습니다.
 
-파이프라인은 모델을 생성 하기 위해 함께 연결 하는 데이터 집합 및 분석 모듈로 구성 됩니다. 특히 유효한 파이프라인에는 다음과 같은 특징이 있습니다.
+### <a name="pipeline-draft"></a>파이프라인 초안
 
-* 데이터 집합은 모듈에만 연결 될 수 있습니다.
-* 모듈은 데이터 집합 또는 다른 모듈에 연결 될 수 있습니다.
+디자이너에서 파이프라인을 편집 하면 진행률이 **파이프라인 초안**으로 저장 됩니다. 언제 든 지 모듈을 추가 또는 제거 하 고 계산 대상을 구성 하 고 매개 변수를 만들어 파이프라인 초안을 편집할 수 있습니다.
+
+유효한 파이프라인에는 다음과 같은 특징이 있습니다.
+
+* 데이터 집합은 모듈에만 연결할 수 있습니다.
+* 모듈은 데이터 집합 또는 다른 모듈에만 연결할 수 있습니다.
 * 모듈에 대 한 모든 입력 포트는 데이터 흐름에 대 한 일부 연결을 포함 해야 합니다.
 * 각 모듈에 필요한 모든 매개 변수를 설정 해야 합니다.
 
+파이프라인 초안을 실행할 준비가 되 면 파이프라인 실행을 제출 합니다.
 
-디자이너를 시작 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md)을 참조 하세요.
+### <a name="pipeline-run"></a>파이프라인 실행
+
+파이프라인을 실행할 때마다 파이프라인의 구성과 그 결과가 파이프라인 **실행**으로 작업 영역에 저장 됩니다. 파이프라인 실행으로 돌아가서 문제 해결 또는 감사 목적을 검사할 수 있습니다. 파이프라인 실행을 **복제** 하 여 편집할 새 파이프라인 초안을 만듭니다.
+
+파이프라인 실행은 [실험](concept-azure-machine-learning-architecture.md#experiments) 으로 그룹화 되어 실행 기록을 구성 합니다. 모든 파이프라인 실행에 대 한 실험을 설정할 수 있습니다. 
 
 ## <a name="datasets"></a>데이터 세트
 
@@ -68,7 +78,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 디자이너에는 데이터 수신 기능부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양 한 모듈이 있습니다.
 
-모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다.
+모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다. 디자이너에서 개별 모듈에 대 한 계산 리소스를 설정할 수 있습니다. 
 
 ![모듈 속성](media/ui-concept-visual-interface/properties.png)
 
@@ -85,21 +95,24 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 계산 대상은 Machine Learning [작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
 
-## <a name="publish"></a>게시
+## <a name="deploy"></a>배포
 
-파이프라인이 준비 되 면 REST 끝점으로 게시할 수 있습니다. [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) 를 생성 한 Python 코드 없이 제출할 수 있습니다.
+실시간 추론를 수행 하려면 파이프라인을 **실시간 끝점**으로 배포 해야 합니다. 실시간 끝점은 외부 응용 프로그램과 점수 매기기 모델 간의 인터페이스를 만듭니다. 실시간 끝점에 대 한 호출은 응용 프로그램에 대 한 예측 결과를 실시간으로 반환 합니다. 실시간 끝점에 대 한 호출을 수행 하려면 끝점을 배포할 때 생성 된 API 키를 전달 합니다. 끝점은 웹 프로그래밍 프로젝트용으로 널리 사용 되는 다른 아키텍처를 기반으로 합니다.
 
-또한 PublishedPipeline를 사용 하 여 다른 PipelineParameter 값 및 입력으로 파이프라인을 다시 제출할 수 있습니다.
-
-## <a name="deployment"></a>배포
-
-예측 모델이 준비 되 면 디자이너에서 바로 파이프라인 끝점 또는 실시간 끝점으로 배포 합니다.
-
-파이프라인 끝점은 다양 한 PipelineParameter 값을 사용 하 여 실행 되는 파이프라인을 제출할 수 있는 PublishedPipeline 및 일괄 처리 유추를 위한 입력입니다.
-
-실시간 끝점은 응용 프로그램과 점수 매기기 모델 간의 인터페이스를 제공 합니다. 외부 응용 프로그램은 실제 시간에 점수 매기기 모델과 통신할 수 있습니다. 실시간 끝점에 대 한 호출은 외부 응용 프로그램에 예측 결과를 반환 합니다. 실시간 끝점에 대 한 호출을 수행 하려면 끝점을 배포할 때 생성 된 API 키를 전달 합니다. 끝점은 웹 프로그래밍 프로젝트용으로 널리 사용 되는 다른 아키텍처를 기반으로 합니다.
+실시간 끝점은 Azure Kubernetes Service 클러스터에 배포 해야 합니다.
 
 모델을 배포 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 machine learning 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조 하세요.
+
+## <a name="publish"></a>게시
+
+파이프라인을 **파이프라인 끝점**에 게시할 수도 있습니다. 실시간 끝점과 마찬가지로, 파이프라인 끝점을 사용 하 여 REST 호출을 통해 외부 응용 프로그램에서 새 파이프라인 실행을 제출할 수 있습니다. 그러나 파이프라인 끝점을 사용 하 여 실시간으로 데이터를 보내거나 받을 수 없습니다.
+
+게시 된 파이프라인은 유연 하며 모델을 학습 또는 다시 학습 하 고, batch 추론를 수행 하 고, 새 데이터를 처리 하는 등의 작업을 수행 하는 데 사용할 수 있습니다. 여러 파이프라인을 단일 파이프라인 끝점에 게시 하 고 실행할 파이프라인 버전을 지정할 수 있습니다.
+
+게시 된 파이프라인은 각 모듈에 대해 파이프라인 초안에서 정의한 계산 리소스에서 실행 됩니다.
+
+디자이너에서 SDK와 동일한 [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) 개체를 만듭니다.
+
 
 ## <a name="moving-from-the-visual-interface-to-the-designer"></a>시각적 인터페이스에서 디자이너로 이동
 

@@ -7,18 +7,19 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: alzam
-ms.openlocfilehash: 3f407ecfcbfdff72b79bfe6b5bc3e6b7606b1cf0
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 1b506f8439deabd110daaefab36442140e20d0d4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174630"
+ms.locfileid: "74185365"
 ---
 # <a name="enable-multi-factor-authentication-mfa-for-vpn-users"></a>VPN 사용자에 대해 Multi-Factor Authentication (MFA) 사용
 
 액세스 권한을 부여 하기 전에 사용자에 게 두 번째 단계 인증을 요구 하는 메시지가 표시 되도록 Azure AD 테 넌 트의 사용자에 대해 MFA를 사용 하도록 설정할 수 있습니다.
 
-> [! 필수 구성 요소] "테 넌 트 구성" 문서에 설명 된 대로 Azure AD 테 넌 트를 구성 했습니다.
+> [!NOTE]
+> 필수 조건: "테 넌 트 구성" 문서에 설명 된 대로 Azure AD 테 넌 트를 구성 했습니다.
 >
 
 ### <a name="tenant"></a>1. Azure Portal 로그인 하 여 **Azure Active Directory** , **모든 사용자** 로 이동 하 고 **Multi-Factor Authentication** 를 클릭 합니다.

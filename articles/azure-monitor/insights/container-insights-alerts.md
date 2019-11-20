@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: c71893ec9eae844fb213114f6a3805815ff5894f
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555454"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195012"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 성능 문제에 대 한 경고를 설정 하는 방법
 컨테이너 Azure Monitor Azure Container Instances에 배포 된 컨테이너 작업 부하 또는 AKS (Azure Kubernetes Service)에 호스트 된 관리 되는 Kubernetes 클러스터에 대 한 성능을 모니터링 합니다.
@@ -102,7 +102,7 @@ KubeNodeInventory
 | summarize AggregatedValue = avg(UsagePercent) by bin(TimeGenerated, trendBinSize), ClusterName
 ```
 >[!IMPORTANT]
->다음 쿼리에서는 \<your-cluster-name > 및 \<your 컨트롤러 이름 > 자리 표시자 값을 사용 하 여 클러스터와 컨트롤러를 나타냅니다. 경고를 설정할 때 사용자 환경에 특정 한 값으로 대체 합니다.
+>다음 쿼리에서는-cluster 이름 > \<자리 표시자 값을 사용 하 고-controller-name > \<하 여 클러스터 및 컨트롤러를 나타냅니다. 경고를 설정할 때 사용자 환경에 특정 한 값으로 대체 합니다.
 
 다음 쿼리는 컨트롤러에 있는 모든 컨테이너의 평균 CPU 사용률을 1 분 마다 컨트롤러에 있는 모든 컨테이너 인스턴스의 평균 CPU 사용률으로 계산 합니다. 측정값은 컨테이너에 대해 설정 된 한도의 백분율입니다.
 
@@ -284,12 +284,12 @@ InsightsMetrics
 >컨테이너 리소스 사용률에 대 한 경고 규칙을 만들기 위해 다음 절차에서는 [로그 경고에 대 한 api 기본 설정 전환](../platform/alerts-log-api-switch.md)에 설명 된 대로 새 로그 경고 API로 전환 해야 합니다.
 >
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **모니터** 를 선택 합니다. **정보**아래에서 **컨테이너**를 선택 합니다.
 3. 모니터링 되는 **클러스터** 탭의 목록에서 클러스터를 선택 합니다.
 4. **모니터링**아래의 왼쪽 창에서 **로그** 를 선택 하 여 Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용 하 여 Azure Log Analytics 쿼리를 작성 하 고 실행 합니다.
 5. **로그** 페이지에서 **+ 새 경고 규칙**을 선택 합니다.
-6. **조건** 섹션에서 사용자 지정 로그 검색이 미리 정의 된 사용자 지정 로그 조건 **> 정의 되지 않은 \<logic 될 때마다** 를 선택 합니다. **사용자 지정 로그 검색** 신호 유형은 Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 때문에 자동으로 선택 됩니다.  
+6. **조건** 섹션에서 **사용자 지정 로그 검색이** 미리 정의 된 사용자 지정 로그 조건 > 정의 되지 않은 \<정의 된 경우를 선택 합니다. **사용자 지정 로그 검색** 신호 유형은 Azure Monitor 로그 페이지에서 직접 경고 규칙을 만들기 때문에 자동으로 선택 됩니다.  
 7. 이전에 제공 된 [쿼리](#resource-utilization-log-search-queries) 중 하나를 **검색 쿼리** 필드에 붙여넣습니다.
 8. 다음과 같이 경고를 구성 합니다.
 
@@ -308,4 +308,4 @@ InsightsMetrics
 ## <a name="next-steps"></a>다음 단계
 
 - [로그 쿼리 예](container-insights-log-search.md#search-logs-to-analyze-data) 를 확인 하 여 미리 정의 된 쿼리 및 예제를 확인 하거나 사용자 지정 하 여 클러스터에 대 한 경고, 시각화 또는 분석을 평가 하거나 사용자 지정 합니다.
-- Azure Monitor 및 AKS 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 [Azure Kubernetes Service Health 보기](container-insights-analyze.md)를 참조 하세요.
+- Azure Monitor 및 Kubernetes 클러스터의 다른 측면을 모니터링 하는 방법에 대 한 자세한 내용은 [Kubernetes cluster performance](container-insights-analyze.md) 및 [view Kubernetes cluster health](container-insights-health.md)를 참조 하세요.

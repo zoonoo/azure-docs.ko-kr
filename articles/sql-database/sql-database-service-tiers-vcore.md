@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/04/2019
-ms.openlocfilehash: b9de02bf0836727ac88b78194641238621e87a79
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1bdd14841fc1c537046ee8dc3d0d6dc63b88ea25
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821054"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196523"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 
@@ -32,7 +32,7 @@ VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및
 ||**범용**|**업무상 중요**|**대규모**|
 |---|---|---|---|
 |적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
-|Storage|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB – 8TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
+|스토리지|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB – 8TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
 |I/o 처리량 (근사치)|**단일 데이터베이스 및 탄력적 풀**: vcore 당 500 iops 최대 4만 최대 iops입니다.<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|최대 32만의 vCore 당 5000 IOPS 최대 IOPS|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
 |가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](sql-database-read-scale-out.md)|
 |Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
@@ -95,7 +95,7 @@ Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용�
 ### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
 
 
-|하드웨어 세대  |Compute  |메모리  |
+|하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|
 |Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
 |5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
@@ -134,7 +134,7 @@ Azure Portal에서 만들 때 SQL database 또는 풀에 대 한 하드웨어 �
 
 ### <a name="hardware-availability"></a>하드웨어 가용성
 
-#### <a name="gen4gen5"></a>Gen4/Gen5
+#### <a name="gen4gen5-1"></a>Gen4/Gen5
 
 새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다. 
 

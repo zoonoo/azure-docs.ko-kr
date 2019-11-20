@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: ninarn, carlrab
 ms.date: 08/06/2019
-ms.openlocfilehash: 1b3ee75d1b24cab8211337cf1cdbd053327e16b8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ba309b864056b10fe6540e85ffbc4c013af00455
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823824"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186465"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>탄력적 풀이 여러 Azure SQL 데이터베이스를 관리하고 크기를 조정하는 데 도움을 주는 방식
 
@@ -48,7 +48,7 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 
 풀은 특정 사용 패턴을 사용하여 많은 수의 데이터베이스에 적합합니다. 주어진 데이터 베이스에 대해, 이 패턴은 상대적으로 사용률 급증이 드물고 평균 사용률이 낮음으로 규정됩니다.
 
-풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 애플리케이션 사용 패턴에 따라 S3 데이터베이스 두 개 만큼 절감이 가능합니다.
+풀에 더 많은 데이터베이스를 추가할수록 절감이 커집니다. 애플리케이션 사용 패턴에 따라 S3 데이터베이스 두 개만큼 절감이 가능합니다.
 
 다음 섹션에서는 데이터베이스의 특정 컬렉션이 풀에 있는 것이 이득이 될 수 있는지 평가하는 방법을 이해할 수 있습니다. 예제에서는 표준 풀을 사용하지만 기본 및 프리미엄 풀에도 동일한 원칙이 적용됩니다.
 
@@ -117,9 +117,9 @@ SaaS 개발자는 여러 데이터베이스로 구성된 대규모 데이터 계
 1. 다음 수식에 따라 풀에 필요한 eDTU 또는 vCore를 예측합니다.
 
    DTU 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 DTU 사용률* >,<br>  
-   < *동시 최고 DB의 수* X *DB당 최고 DTU 사용률* )
+   <*동시 최고 DB의 수* X *DB당 최고 DTU 사용률*)
 
-   vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률*>,<br>  
+   vCore 기반 구매 모델의 경우: MAX(<*총 DB 수* X *DB당 평균 vCore 사용률* >,<br>  
    < *동시 최고 DB의 수* X *DB당 최고 vCore 사용률* )
 
 2. 풀에서 모든 데이터베이스에 필요한 바이트 수를 추가하여 풀에 필요한 스토리지 공간을 예측합니다. 그런 다음 이 스토리지의 양을 제공하는 eDTU 풀 크기를 결정합니다.
@@ -177,7 +177,7 @@ Azure Portal에서 두 가지 방법으로 탄력적 풀을 만들 수 있습니
 
 Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사용률을 모니터링할 수 있습니다. 탄력적 풀에 일련의 내용을 변경하는 동시에 모든 변경 내용을 전송할 수도 있습니다. 이러한 변경 내용에는 데이터베이스 추가 또는 제거, 탄력적 풀 설정 변경, 데이터베이스 설정 변경이 포함됩니다.
 
-탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음 내용이 포함됩니다.
+탄력적 풀 모니터링을 시작하려면 포털에서 탄력적 풀을 찾아서 엽니다. 먼저 탄력적 풀의 상태에 대한 개요를 제공하는 화면이 나타납니다. 다음을 포함합니다.
 
 - 탄력적 풀의 리소스 사용을 보여주는 모니터링 차트
 - 사용 가능한 경우 탄력적 풀에 대한 최근 경고 및 권장 사항
@@ -226,3 +226,4 @@ Azure Portal에서 탄력적 풀 및 해당 풀 내의 데이터베이스의 사
 - 비디오는 [Azure SQL Database 탄력적 기능에 대한 Microsoft Virtual Academy 비디오 과정](https://mva.microsoft.com/training-courses/elastic-database-capabilities-with-azure-sql-db-16554)을 참조하세요.
 - 탄력적 풀을 사용한 SaaS 애플리케이션의 디자인 패턴에 대해 자세히 알아보려면 [Azure SQL Database를 사용한 다중 테넌트 SaaS 애플리케이션 디자인 패턴](sql-database-design-patterns-multi-tenancy-saas-applications.md)을 참조하세요.
 - 탄력적 풀을 사용하는 SaaS 자습서의 경우 [Wingtip SaaS 애플리케이션 소개](sql-database-wtp-overview.md)를 참조하세요.
+- 여러 데이터베이스가 포함 된 탄력적 풀의 리소스 관리에 대해 알아보려면 [조밀한 탄력적 풀의 리소스 관리](sql-database-elastic-pool-resource-management.md)를 참조 하세요.

@@ -3,12 +3,12 @@ title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
 ms.date: 11/18/2019
-ms.openlocfilehash: aa8736310a5c18a1f94d3920a4f88632212c7af4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
-ms.translationtype: MT
+ms.openlocfilehash: 2799784ad449304a7790ad5f83d8ed1c94dd3547
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173542"
+ms.locfileid: "74194991"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
@@ -191,7 +191,7 @@ ms.locfileid: "74173542"
 > | agents | 아니오 | 아니오 |
 > | anonymousapiusers | 아니오 | 아니오 |
 > | 구성 | 아니오 | 아니오 |
-> | logs | 아니오 | 아니오 |
+> | 로그 | 아니오 | 아니오 |
 > | reports | 아니오 | 아니오 |
 > | servicehealthmetrics | 아니오 | 아니오 |
 > | services | 아니오 | 아니오 |
@@ -203,7 +203,7 @@ ms.locfileid: "74173542"
 > | ------------- | ----------- | ----------- |
 > | 구성 | 아니오 | 아니오 |
 > | generateRecommendations | 아니오 | 아니오 |
-> | 메타데이터 | 아니오 | 아니오 |
+> | metadata | 아니오 | 아니오 |
 > | 동영상 추천 기능 | 아니오 | 아니오 |
 > | suppressions | 아니오 | 아니오 |
 
@@ -1607,7 +1607,7 @@ ms.locfileid: "74173542"
 > | childResources | 아니오 | 아니오 |
 > | events | 아니오 | 아니오 |
 > | impactedResources | 아니오 | 아니오 |
-> | 메타데이터 | 아니오 | 아니오 |
+> | metadata | 아니오 | 아니오 |
 > | 알림 | 아니오 | 아니오 |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
@@ -1818,7 +1818,7 @@ ms.locfileid: "74173542"
 > | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | managedInstances | 예 | 예 |
-> | managedInstances/databases | 예 ( [아래 참고](#sqlnote)참조) | 예 |
+> | managedInstances/databases | 아니오 | 아니오 |
 > | managedInstances/databases/backupShortTermRetentionPolicies | 아니오 | 아니오 |
 > | managedInstances/databases/schemas/tables/columns/sensitivityLabels | 아니오 | 아니오 |
 > | managedInstances/databases/vulnerabilityAssessments | 아니오 | 아니오 |

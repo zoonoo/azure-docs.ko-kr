@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e040533acdd8979b7b43358c74d1b729dafa2c66
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111847"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186608"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -29,6 +29,7 @@ GZRS 저장소 계정을 사용 하 여 가용성 영역을 사용할 수 없게
 
 GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다.
 
+- 동남아시아
 - 북유럽
 - 서유럽
 - 영국 남부

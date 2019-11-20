@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 신용 위험 예측 (비용 구분)'
+title: '디자이너: 신용 위험 예측 예제'
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 디자이너 (미리 보기)를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. 사용자 지정 Python 스크립트를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
+description: Azure Machine Learning designer를 사용 하 여 분류자를 빌드하고 사용자 지정 Python 스크립트를 사용 하 여 신용 위험을 예측 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,17 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 7af0ee31c7d7e5dae4a38db7f6c74ff3e5f964bb
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
-ms.translationtype: MT
+ms.openlocfilehash: 0bf69683fc5afe24e0e7977b05892c3c10b0cd46
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647980"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196083"
 ---
-# <a name="sample-4---classification-with-custom-python-script-predict-credit-risk"></a>샘플 4-사용자 지정 Python 스크립트를 사용 하 여 분류: 신용 위험 예측
+# <a name="build-a-classifier--use-python-scripts-to-predict-credit-risk-using-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 신용 위험을 예측 하는 Python 스크립트를 사용 하 & 분류자 빌드
+
+**Designer (미리 보기) 샘플 4**
+
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 이 문서에서는 디자이너 (미리 보기)를 사용 하 여 복잡 한 기계 학습 파이프라인을 빌드하는 방법을 보여 줍니다. Python 스크립트를 사용 하 여 사용자 지정 논리를 구현 하 고 여러 모델을 비교 하 여 가장 적합 한 옵션을 선택 하는 방법을 배웁니다.
@@ -28,13 +31,13 @@ ms.locfileid: "73647980"
 
 [파이프라인의 ![그래프](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
 4. Sample 4를 클릭 하 여 엽니다.
 
-## <a name="data"></a>Data
+## <a name="data"></a>data
 
 이 샘플에서는 UC Irvine 리포지토리에서 독일어 신용 카드 데이터 집합을 사용 합니다. 20 개의 기능과 레이블이 있는 1000 샘플이 포함 되어 있습니다. 각 샘플은 사람을 나타냅니다. 20 개의 기능에는 숫자 및 범주 기능이 포함 됩니다. 데이터 집합에 대 한 자세한 내용은 [UCI 웹 사이트](https://archive.ics.uci.edu/ml/datasets/Statlog+%28German+Credit+Data%29)를 참조 하세요. 마지막 열은 신용 위험을 나타내며 두 개의 가능한 값, 즉 높은 신용 위험 = 2, 낮은 신용 위험 = 1만 포함 하는 레이블입니다.
 

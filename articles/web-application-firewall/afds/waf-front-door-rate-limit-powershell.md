@@ -1,5 +1,5 @@
 ---
-title: 전면 도어-Azure PowerShell에 대 한 웹 응용 프로그램 방화벽 요금 제한 규칙 구성
+title: 전방 도어에 대해 WAF rate limit rule 구성-Azure PowerShell
 description: 기존 전방 도어 끝점에 대 한 요율 제한 규칙을 구성 하는 방법에 대해 알아봅니다.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,20 +7,20 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: ce9ace445d87479da4047da205b59e79402ece07
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73517138"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186617"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 요금 제한 규칙 구성
 Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit 규칙은 1 분 동안 단일 클라이언트 IP에서 허용 되는 요청 수를 제어 합니다.
 이 문서에서는 Azure PowerShell를 사용 하 여 단일 클라이언트에서 */promo 모션* 을 포함 하는 웹 응용 프로그램에 대 한 단일 클라이언트에서 허용 되는 요청 수를 제어 하는 waf rate limit 규칙을 구성 하는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 속도 제한 정책 설정을 시작 하기 전에 PowerShell 환경을 설정 하 고 전면 도어 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 

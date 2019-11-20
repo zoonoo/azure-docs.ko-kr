@@ -1,19 +1,18 @@
 ---
-title: VMware 평가 및 마이그레이션에 대 한 Azure Migrate 지원 매트릭스
-description: Azure Migrate 서비스를 사용 하 여 VMware Vm을 Azure로 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
-services: backup
+title: Azure Migrate에서 VMware 평가 및 마이그레이션에 대 한 지원
+description: Azure Migrate에서 VMware VM 평가/마이그레이션에 대 한 지원에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 4b07252aed2205917f6b43e3e09a2877663e5bab
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 135680a9b0b6c8b5520958c884d99a83f1f87c88
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838906"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196272"
 ---
 # <a name="support-matrix-for-vmware-assessment-and-migration"></a>VMware 평가 및 마이그레이션 지원 매트릭스
 
@@ -24,10 +23,10 @@ ms.locfileid: "73838906"
 
 이 표에는 VMware Vm에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보**
+**배포** | **세부 정보**
 --- | ---
 **온-프레미스 VMware Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-vmware.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-vmware-assessment.md) 합니다.
-**VMware VM 마이그레이션** | 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하거나 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세한 정보](server-migrate-overview.md)
+**VMware VM 마이그레이션** | 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션하거나 에이전트 기반 마이그레이션을 사용할 수 있습니다. [자세히 알아보기](server-migrate-overview.md)
 
 
 ## <a name="azure-migrate-projects"></a>Azure Migrate 프로젝트
@@ -36,7 +35,7 @@ ms.locfileid: "73838906"
 --- | ---
 **Azure 사용 권한** | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 **VMware 제한 사항**  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다. Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-**지리** | 지원 되는 지역을 [검토](migrate-support-matrix.md#supported-geographies) 합니다.
+**지리** | 지원되는 지역을 [검토](migrate-support-matrix.md#supported-geographies)합니다.
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
@@ -45,7 +44,7 @@ Azure Government | 미국 정부 버지니아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
 브라질 | 브라질 남부
 캐나다 | 캐나다 중부 또는 캐나다 동부
-유럽 | 북유럽 또는 유럽 서부
+Europe | 북유럽 또는 유럽 서부
 프랑스 | 프랑스 중부
 인도 | 인도 중부 또는 인도 남부
 일본 |  일본 동부 또는 일본 서 부
@@ -79,7 +78,13 @@ Azure Migrate: 서버 평가에서 앱, 역할 및 기능을 검색할 수 있�
 
 ## <a name="assessment-vcenter-server-permissions"></a>평가-vCenter Server 권한
 
-평가의 경우 vCenter Server에 대 한 읽기 전용 계정이 필요 합니다.
+평가 및 에이전트 없는 마이그레이션을 위해 VM을 검색하려면 Azure Migrate에서 vCenter Server에 액세스해야 합니다.
+
+- 응용 프로그램을 검색 하거나 에이전트 없는 방식으로 종속성을 시각화할 계획인 경우 **게스트 작업** > **가상 컴퓨터** 에 대해 사용 하도록 설정 된 권한과 함께 읽기 전용 액세스 권한이 있는 vCenter Server 계정을 만듭니다.
+
+  ![vCenter Server 계정 권한](./media/tutorial-prepare-vmware/vcenter-server-permissions.png)
+
+- 응용 프로그램 검색 및 에이전트 없는 종속성 시각화를 수행 하지 않으려는 경우 vCenter Server에 대 한 읽기 전용 계정을 설정 합니다.
 
 ## <a name="assessment-appliance-requirements"></a>평가-어플라이언스 요구 사항
 
@@ -138,7 +143,7 @@ vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메
     - 또한 인터넷에 연결되지 않은 머신이 있으면 해당 머신에 Log Analytics 게이트웨이를 다운로드하여 설치해야 합니다.
 
 ## <a name="migration---limitations"></a>마이그레이션-제한 사항
-복제를 위해 한 번에 최대 10 개의 Vm을 선택할 수 있습니다. 더 많은 컴퓨터를 마이그레이션하려는 경우 10 그룹으로 복제 합니다. VMware 에이전트 없는 마이그레이션의 경우 최대 100 복제를 동시에 실행할 수 있습니다.
+복제를 위해 한 번에 최대 10 개의 Vm을 선택할 수 있습니다. 더 많은 컴퓨터를 마이그레이션하려는 경우 10 그룹으로 복제 합니다. VMware 에이전트리스 마이그레이션의 경우 최대 100개의 복제를 동시에 실행할 수 있습니다.
 
 ## <a name="agentless-migration-vmware-server-requirements"></a>에이전트 없는 마이그레이션-VMware 서버 요구 사항
 
@@ -151,7 +156,7 @@ VMware vSphere | 버전 5.5, 6.0, 6.5 또는 6.7
 
 ## <a name="agentless-migration-vcenter-server-permissions"></a>에이전트 없는 마이그레이션-vCenter Server 권한
 
-**권한** | **세부 정보**
+**Permissions** | **세부 정보**
 --- | ---
 Datastore.Browse | VM 로그 파일을 검색 하 여 스냅숏 만들기 및 삭제 문제를 해결할 수 있습니다.
 Datastore.LowLevelFileOperations | 데이터 저장소 브라우저에서 읽기/쓰기/삭제/이름 바꾸기 작업을 허용 하 여 스냅숏 생성 및 삭제 문제를 해결 합니다.
@@ -168,7 +173,7 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **지원** | **세부 정보**
 --- | ---
 **지원되는 운영 체제** | Azure에서 지원 되는 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 에이전트 없는 마이그레이션을 사용 하 여 마이그레이션할 수 있습니다.
-**Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다.
+**Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다.
 **Linux 부팅** | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다.
 **UEFI 부팅** | UEFI 부팅이 포함 된 Vm은 마이그레이션을 지원 하지 않습니다.
 **디스크 크기** | 2TB OS 디스크 데이터 디스크의 경우 4tb
@@ -182,7 +187,7 @@ VirtualMachine.SnapshotManagement.* | 복제에 대 한 VM 스냅숏 만들기 �
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원되지 않습니다. VM에서 저장소 vMotion를 사용 하는 경우 복제가 작동 하지 않습니다.
 **팀 Nic** | 지원되지 않습니다.
-**Ipv6)** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
 **대상 디스크** | Vm은 Azure에서 관리 되는 디스크 (표준 HDD, 프리미엄 SSD)로만 마이그레이션할 수 있습니다.
 **동시 복제** | vCenter Server 당 Vm 100 더 많은 경우 100의 일괄 처리로 마이그레이션합니다.
 
@@ -268,7 +273,7 @@ TLS | TLS 1.2를 사용 하도록 설정 해야 합니다.
 MySQL | MySQL을 어플라이언스에 설치 해야 합니다.<br/> MySQL을 설치해야 합니다. 수동으로 설치 하거나 어플라이언스를 배포 하는 동안 설치할 수 Site Recovery.
 다른 앱 | 복제 어플라이언스에서 다른 앱을 실행 하지 마세요.
 Windows Server 역할 | 다음 역할을 사용하지 않도록 설정함: <br> - Active Directory Domain Services <br>- 인터넷 정보 서비스 <br> - Hyper-V
-그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세한 정보](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
+그룹 정책 | 다음 그룹 정책을 사용하지 않도록 설정함: <br> - 명령 프롬프트에 대한 액세스 방지 <br> - 레지스트리 편집 도구에 대한 액세스 방지 <br> - 파일 첨부를 위한 트러스트 논리 <br> - 스크립트 실행 켜기 <br> [자세히 알아보기](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)
 IIS | - 기존의 기본 웹 사이트 없음 <br> - 포트 443에서 수신 대기하는 기존의 웹 사이트/애플리케이션 없음 <br>- [익명 인증](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) 사용 <br> - [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) 설정 사용
 **네트워크 설정** |
 IP 주소 유형 | 정적
@@ -324,11 +329,11 @@ Azure Migrate에서 다운로드 및 설치 | 어플라이언스를 설치할 �
 **독립 디스크** | 지원됩니다.
 **통과 디스크** | 지원됩니다.
 **NFS** | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다.
-iSCSI 대상 | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
+**iSCSI 대상** | ISCSI 대상을 사용 하는 Vm은 에이전트 없는 마이그레이션에 대해 지원 되지 않습니다.
 **다중 경로 IO** | 지원되지 않습니다.
 **저장소 vMotion** | 지원됨
 **팀 Nic** | 지원되지 않습니다.
-**Ipv6)** | 지원되지 않습니다.
+**IPv6** | 지원되지 않습니다.
 
 
 

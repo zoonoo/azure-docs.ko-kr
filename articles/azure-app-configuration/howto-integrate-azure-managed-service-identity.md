@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: b0c6e39aebe7864ab132805b78aa7be2d61c5160
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035541"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185135"
 ---
-# <a name="integrate-with-azure-managed-identities"></a>Azure 관리 ID와 통합
+# <a name="integrate-with-azure-managed-identities"></a>Azure Managed Identities와 통합
 
-Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하면 클라우드 애플리케이션에 대한 비밀 관리를 간소화할 수 있습니다. 관리 ID를 사용하면 실행되는 Azure 컴퓨팅 서비스에 대해 만들어진 서비스 주체를 사용하도록 코드를 설정할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
+Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하면 클라우드 애플리케이션에 대한 비밀 관리를 간소화할 수 있습니다. 관리 되는 id를 사용 하 여 실행 되는 Azure 서비스에 대해 생성 된 서비스 주체를 사용 하도록 코드를 설정할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
 
-Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라이브러리에는 MSI(관리 서비스 ID) 지원이 기본적으로 제공됩니다. MSI는 사용할 필요가 없지만 사용하는 경우 비밀이 포함된 액세스 토큰이 필요하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
+Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 기본적으로 제공 되는 관리 id 지원이 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
 
-이 자습서에서는 MSI를 활용하여 App Configuration에 액세스하는 방법을 보여줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
+이 자습서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
-또한이 자습서에서는 선택적으로 MSI를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 이렇게 하면 Key Vault에 저장 된 암호 및 앱 구성의 구성 값에 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
+또한이 자습서에서는 선택적으로 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 이렇게 하면 Key Vault에 저장 된 암호 및 앱 구성의 구성 값에 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
@@ -39,7 +39,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 > * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -64,7 +64,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
 
 ## <a name="grant-access-to-app-configuration"></a>App Configuration에 대한 액세스 권한 부여
 
-1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **모든 리소스** 를 선택 하 고 빠른 시작에서 만든 앱 구성 저장소를 선택 합니다.
 
 1. **액세스 제어(IAM)** 를 선택합니다.
 
@@ -106,7 +106,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
             .UseStartup<Startup>();
     ```
 
-1. 앱 구성 값을 사용 하 고 Key Vault 참조를 사용 하려면 아래와 같이 *Program.cs*를 열고 `CreateWebHostBuilder` 메서드를 업데이트 합니다. 그러면 `AzureServiceTokenProvider`을 사용 하 여 새 `KeyVaultClient`이 생성 되 고이 참조가 `UseAzureKeyVault` 메서드에 대 한 호출에 전달 됩니다.
+1. 앱 구성 값과 Key Vault 참조를 사용 하려면 아래와 같이 *Program.cs*를 열고 `CreateWebHostBuilder` 메서드를 업데이트 합니다. 이렇게 하면 `AzureServiceTokenProvider`를 사용 하 여 새 `KeyVaultClient` 만들어지고 `UseAzureKeyVault` 메서드에 대 한 호출에이 참조가 전달 됩니다.
 
     ```csharp
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -122,7 +122,7 @@ Azure App Configuration과 .NET Core, .NET 및 Java Spring 클라이언트 라�
                 .UseStartup<Startup>();
     ```
 
-    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 Key Vault에 인증 하 고 값을 검색 하도록 구성 된 `KeyVaultClient`을 사용 합니다.
+    이제 다른 앱 구성 키와 마찬가지로 Key Vault 참조에 액세스할 수 있습니다. 구성 공급자는 Key Vault에 인증 하도록 구성 된 `KeyVaultClient`를 사용 하 여 값을 검색 합니다.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -151,7 +151,7 @@ Kudu 빌드 서버를 사용하여 앱에 로컬 Git 배포를 사용하도록 �
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-대신 Git 지원 앱을 만들려면 `--deployment-local-git` 매개 변수를 사용하여 Cloud Shell에서 [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)를 실행합니다.
+대신 Git 지원 앱을 만들려면 [ 매개 변수를 사용하여 Cloud Shell에서 `az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create)`--deployment-local-git`를 실행합니다.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
@@ -203,7 +203,7 @@ http://<app_name>.azurewebsites.net
 
 ## <a name="use-managed-identity-in-other-languages"></a>다른 언어의 관리형 ID 사용
 
-.NET Framework 및 Java Spring 용 App Configuration 공급자에는 관리형 ID에 대한 지원 기능이 내장되어 있습니다. 이러한 경우 공급자를 구성할 때 앱 구성 저장소의 전체 연결 문자열 대신 해당 URL 엔드포인트를 사용합니다. 예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱의 경우 *App.config* 파일에 다음 설정을 지정합니다.
+.NET Framework 및 Java Spring 용 App Configuration 공급자에는 관리형 ID에 대한 지원 기능이 내장되어 있습니다. 이러한 경우 공급자를 구성할 때 전체 연결 문자열 대신 앱 구성 저장소의 URL 끝점을 사용 합니다. 예를 들어 빠른 시작에서 만든 .NET Framework 콘솔 앱의 경우 *App.config* 파일에 다음 설정을 지정합니다.
 
 ```xml
     <configSections>
@@ -228,6 +228,7 @@ http://<app_name>.azurewebsites.net
 [!INCLUDE [azure-app-configuration-cleanup](../../includes/azure-app-configuration-cleanup.md)]
 
 ## <a name="next-steps"></a>다음 단계
+이 자습서에서는 앱 구성에 대 한 액세스를 간소화 하 고 앱에 대 한 자격 증명 관리를 개선 하기 위해 Azure 관리 id를 추가 했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [CLI 샘플](./cli-samples.md)

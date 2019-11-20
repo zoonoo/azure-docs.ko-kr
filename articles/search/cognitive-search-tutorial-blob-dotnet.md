@@ -8,12 +8,12 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 84b98b637236213cdd5b87c6b0a38d87c110c21b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: beea911c9bb938458d8bd12e091e6c908ebb1566
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111739"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185686"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-c-and-the-net-sdk"></a>자습서: 및 .NET SDK를 사용 하 C# 여 AI 보강 파이프라인 만들기
 
@@ -103,7 +103,7 @@ Visual Studio에서 `Microsoft.Extensions.Configuration.Json` NuGet 패키지를
 
 Azure Cognitive Search 서비스에 연결하려면 검색 서비스 정보를 프로젝트에 추가해야 합니다. 솔루션 탐색기에서 마우스 오른쪽 단추로 프로젝트를 클릭하고, **추가** > **새 항목...** 을 차례로 선택합니다. 파일 이름을 `appsettings.json`으로 지정하고 **추가**를 선택합니다. 
 
-이 파일은 출력 디렉터리에 포함되어야 합니다. 이렇게 하려면 마우스 오른쪽 단추로 `appsettings.json`을 클릭하고 **속성**을 선택합니다. **출력 디렉터리로 복사**의 값을 **최신 복사본**으로 변경합니다.
+이 파일은 출력 디렉터리에 포함되어야 합니다. 이렇게 하려면 마우스 오른쪽 단추로 `appsettings.json`을 클릭하고 **속성**을 선택합니다. **출력 디렉터리로 복사** 의 값을 변경 된 **내용만 복사**로 변경 합니다.
 
 아래 JSON을 새 JSON 파일에 복사합니다.
 

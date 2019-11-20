@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
-ms.openlocfilehash: 4766d48a748fedd82532f2ac49223ab0460b9ef7
-ms.sourcegitcommit: fa41a56357de487b10e54711fbbdbd4a373fa67c
-ms.translationtype: HT
+ms.openlocfilehash: 89d0254fc758834c437f347e6ecb7bcafc1fe467
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74153565"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185989"
 ---
 # <a name="live-stream-analysis-with-video-indexer"></a>Video Indexer 사용 하 여 라이브 스트림 분석
 
@@ -27,7 +27,7 @@ Azure Media Services Video Indexer는 비디오 및 오디오 파일에서 상�
 
 *그림 1-라이브 스트림에 Video Indexer 메타 데이터를 표시 하는 샘플 플레이어*
 
-현재 [스트림 분석 솔루션](https://github.com/Azure-Samples/media-services-dotnet-functions-integration/blob/master/media-functions-for-logic-app/LiveStreamAnalysis.md) 은 Azure Functions 및 두 개의 Logic Apps를 사용 하 여 Video Indexer를 사용 하 여 Azure Media Services 라이브 채널에서 라이브 프로그램을 처리 하 고 거의 실시간으로 생성 된 스트림을 보여 주는 Azure Media Player 결과를 표시 합니다.
+현재 [스트림 분석 솔루션](https://aka.ms/livestreamanalysis) 은 Azure Functions 및 두 개의 Logic Apps를 사용 하 여 Video Indexer를 사용 하 여 Azure Media Services 라이브 채널에서 라이브 프로그램을 처리 하 고 거의 실시간으로 생성 된 스트림을 보여 주는 Azure Media Player 결과를 표시 합니다.
 
 상위 수준에서는 두 개의 주요 단계로 구성 됩니다. 첫 번째 단계는 60 초 마다 실행 되 고, 지난 60 초의 하위 클립을 가져와, 자산을 만들고 Video Indexer를 통해 인덱싱합니다. 그런 다음 인덱싱이 완료 되 면 두 번째 단계가 호출 됩니다. 캡처한 정보는 처리 되어 Azure Cosmos DB 전송 되 고 인덱스는 삭제 됩니다.
 

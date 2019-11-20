@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3283cfe9455ba29679d7c741941aa8863c47b1c0
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 636fd5fd17838c729cdbc9e2a322c1f991d93948
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158301"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186435"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>관리 되는 인스턴스 T-sql의 차이점, 제한 사항 및 알려진 문제
 
@@ -276,7 +276,7 @@ Azure Key Vault 및 `SHARED ACCESS SIGNATURE` ID만 지원됩니다. Windows 사
 
 - SQL Server 에이전트 활성화 및 비활성화는 현재 관리 되는 인스턴스에서 지원 되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
 - SQL Server 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 관리 되는 인스턴스에서 지원 되지 않습니다. 
-- 작업
+- 에서
   - T-SQL 작업 단계가 지원됩니다.
   - 다음 복제 작업이 지원됩니다.
     - 트랜잭션 로그 판독기
@@ -572,14 +572,6 @@ SQL Server/Managed Instance [사용자가 비어 있지 않은 파일을 삭제�
 사용자 작업에 할당 된 리소스를 제한할 수 있도록 하는 [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) 기능은 장애 조치 (failover) 또는 사용자가 시작한 서비스 계층 변경 (예: 최대 vcore 또는 max 인스턴스의 변경) 후에 일부 사용자 작업을 잘못 분류 하는 것일 수 있습니다. 저장소 크기).
 
 **해결 방법**: [Resource Governor](/sql/relational-databases/resource-governor/resource-governor)를 사용 하는 경우 인스턴스가 시작 될 때 sql 태스크를 실행 하는 sql 에이전트 작업의 일부로 정기적으로 또는 `ALTER RESOURCE GOVERNOR RECONFIGURE`를 실행 합니다.
-
-### <a name="cannot-authenticate-to-external-mail-servers-using-secure-connection-ssl"></a>보안 연결 (SSL)을 사용 하 여 외부 메일 서버에 인증할 수 없습니다.
-
-**날짜:** 8 월 2019
-
-[보안 연결 (SSL)을 사용 하 여 구성](/sql/relational-databases/database-mail/configure-database-mail) 된 데이터베이스 메일은 Azure 외부의 일부 전자 메일 서버에서 인증할 수 없습니다. 이 문제는 곧 해결 될 보안 구성 문제입니다.
-
-**해결 방법:** 문제가 해결 될 때까지 데이터베이스 메일 구성에서 임시 연결 (SSL)을 제거 합니다. 
 
 ### <a name="cross-database-service-broker-dialogs-must-be-re-initialized-after-service-tier-upgrade"></a>서비스 계층 업그레이드 후 데이터베이스 간 Service Broker 대화 상자를 다시 초기화 해야 함
 

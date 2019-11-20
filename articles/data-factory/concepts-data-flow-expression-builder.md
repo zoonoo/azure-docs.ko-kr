@@ -5,13 +5,13 @@ author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.date: 11/17/2019
+ms.openlocfilehash: 3664a7c311e15ce3aa61fc71f98a46e3f2618143
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388044"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184698"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>데이터 흐름 식 작성기 매핑
 
@@ -45,11 +45,11 @@ ms.locfileid: "72388044"
 
 ![식 작성기](media/data-flow/exp5.png "식 데이터 미리 보기")
 
-## <a name="comments"></a>의견
+## <a name="comments"></a>설명
 
 한 줄 및 여러 줄 주석 구문을 사용하여 식에 주석을 추가합니다.
 
-![설명](media/data-flow/comments.png "의견")
+![설명](media/data-flow/comments.png "설명")
 
 ## <a name="regular-expressions"></a>정규식
 
@@ -77,6 +77,40 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 특수 문자 또는 공백을 포함 하는 열 이름이 있는 경우 이름을 중괄호로 묶습니다.
 * ```{[dbo].this_is my complex name$$$}```
+
+## <a name="keyboard-shortcuts"></a>바로 가기 키
+
+* ```Ctrl-K Ctrl-C```: 주석 전체 줄
+* ```Ctrl-K Ctrl-U```: 주석 처리 제거
+* ```F1```: 편집기 도움말 명령 제공
+* ```Alt-Down Arrow```: 현재 줄 아래로 이동
+* ```Alt-Up Arrow```: 현재 줄 위로 이동
+* ```Cntrl-Space```: 컨텍스트 도움말 표시
+
+## <a name="manual-comments"></a>수동 설명
+
+* ```/* This is my comment */```
+
+* ```/* This is a```
+*   ```multi-line comment */```
+   
+* ```// This is a single line comment```
+
+식의 맨 위에 주석을 넣으면 변환 텍스트 상자에 다음과 같이 표시 되어 변환 식을 문서화할 수 있습니다.
+
+![설명](media/data-flow/comments2.png "설명")
+
+## <a name="convert-to-dates-or-timestamps"></a>날짜 또는 타임 스탬프로 변환
+
+```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+
+타임 스탬프 출력에 문자열 리터럴을 포함 하려면 toString () 내에서 변환을 래핑해야 합니다.
+
+## <a name="handling-column-names-with-special-characters"></a>특수 문자를 사용 하 여 열 이름 처리
+
+특수 문자 또는 공백을 포함 하는 열 이름이 있는 경우 이름을 중괄호로 묶습니다.
+
+```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>다음 단계
 

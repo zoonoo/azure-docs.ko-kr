@@ -5,16 +5,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 12/26/2018
+ms.date: 11/18/2019
 author: sivethe
 ms.author: sivethe
 ms.custom: seodec18
-ms.openlocfilehash: 3955b84df401e5832668fa091274caea9af2466e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: be3fd42f33fd66fe2bf5a773eafafba5d6982706
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876615"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184791"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 Node.js Mongoose 애플리케이션 연결
 
@@ -22,7 +22,7 @@ ms.locfileid: "69876615"
 
 Cosmos DB는 전역적으로 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Cosmos DB의 핵심인 글로벌 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -61,21 +61,25 @@ Cosmos 계정을 만들겠습니다. 사용하려는 계정이 이미 있는 경
 
 1. index.js 파일의 종속성을 가져옵니다.
     ```JavaScript
-    var mongoose = require('mongoose');
-    var env = require('dotenv').load();    //Use the .env file to load the variables
+   var mongoose = require('mongoose');
+   var env = require('dotenv').config();   //Use the .env file to load the variables
     ```
 
 1. Cosmos DB 연결 문자열과 Cosmos DB 이름을 ```.env``` 파일에 추가합니다. 자리 표시자 {cosmos} 및 {dbname}을 (를) 중괄호 기호 없이 고유한 Cosmos 계정 이름 및 데이터베이스 이름으로 바꿉니다.
 
     ```JavaScript
-    COSMOSDB_CONNSTR=mongodb://{cosmos-account-name}.documents.azure.com:10255/{dbname}
-    COSMODDB_USER=cosmos-account-name
-    COSMOSDB_PASSWORD=cosmos-secret
+   # You can get the following connection details from the Azure portal. You can find the details on the Connection string pane of your Azure Cosmos account.
+
+   COSMODDB_USER = "<Azure Cosmos account's user name>"
+   COSMOSDB_PASSWORD = "<Azure Cosmos account passowrd>"
+   COSMOSDB_DBNAME = "<Azure Cosmos database name>"
+   COSMOSDB_HOST= "<Azure Cosmos Host name>"
+   COSMOSDB_PORT=10255
     ```
 
 1. index.js의 끝에 다음 코드를 추가하여 Mongoose 프레임워크로 Cosmos DB에 연결합니다.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+   mongoose.connect("mongodb://"+process.env.COSMOSDB_HOST+":"+process.env.COSMOSDB_PORT+"/"+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb", {
       auth: {
         user: process.env.COSMODDB_USER,
         password: process.env.COSMOSDB_PASSWORD
@@ -214,7 +218,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
     const commonModel = mongoose.model('Common', new mongoose.Schema({}, baseConfig));
     ```
 
-1. 이제 ‘Family’ 모델을 정의합니다. 이 예제에서는 ```mongoose.model``` 대신 ```commonModel.discriminator```를 사용합니다. 또한 mongoose 스키마에 기본 구성을 추가합니다. 따라서 이 예제의 discriminatorKey는 ```FamilyType```입니다.
+1. 이제 ‘Family’ 모델을 정의합니다. 이 예제에서는 ```commonModel.discriminator``` 대신 ```mongoose.model```를 사용합니다. 또한 mongoose 스키마에 기본 구성을 추가합니다. 따라서 이 예제의 discriminatorKey는 ```FamilyType```입니다.
 
     ```JavaScript
     const Family_common = commonModel.discriminator('FamilyType', new     mongoose.Schema({
@@ -309,7 +313,7 @@ Mongoose는 사용자가 만드는 각 모델에 대한 새 컬렉션을 만듭�
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Cosmos DB의 API for MongoDB와 함께 [Studio 3T를 사용](mongodb-mongochef.md)하는 방법을 알아봅니다.
-- Azure Cosmos DB의 API for MongoDB와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
+- Azure Cosmos DB의 MongoDB API와 함께 [Robo 3T를 사용](mongodb-robomongo.md)하는 방법을 알아봅니다.
 - Azure Cosmos DB의 API for MongoDB를 사용하여 MongoDB [샘플](mongodb-samples.md)을 살펴봅니다.
 
 [alldata]: ./media/mongodb-mongoose/mongo-collections-alldata.png

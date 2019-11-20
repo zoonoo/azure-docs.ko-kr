@@ -6,15 +6,15 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 10/10/2019
+ms.date: 11/18/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 32ff975aa200e51e6a555f892a53b0ab9c73a84e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300935"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186029"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
@@ -25,7 +25,7 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.
  
-* 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 RTMP 또는 부드러운 스트리밍(조각난 MP4) 형식의 하나로 Media Services를 통해 라이브 인코딩을 수행할 수 있는 LiveEvent에 전송합니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
+* 온-프레미스 라이브 인코더는 RTMP 또는 부드러운 스트리밍 (조각화 된 MP4) 형식 중 하나로 Media Services를 사용 하 여 라이브 인코딩을 수행 하도록 설정 된 라이브 이벤트에 단일 비트 전송률 스트림을 보냅니다. 그러면 라이브 이벤트에서 들어오는 단일 비트 전송률 스트림을 다중 비트 전송률(적응) 비디오 스트림으로 라이브 인코딩합니다.
 
 Media Services를 사용하는 라이브 인코딩에 대한 자세한 내용은 [Media Services v3을 사용하는 라이브 스트리밍](live-streaming-overview.md)을 참조하세요.
 
@@ -49,6 +49,9 @@ Media Services는 RTMP이 출력으로 포함된 다음 라이브 인코더 중 
 - Tricaster Mini HD-4
 - VMIX
 - xStream
+- [Ffmpeg](https://www.ffmpeg.org)
+- [GoPro](https://gopro.com/help/articles/block/getting-started-with-live-streaming) 영웅 7 및 영웅 8
+- [Restream.io](https://restream.io/)
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>조각난 MP4를 출력하는 라이브 인코더
 
@@ -60,9 +63,11 @@ Media Services는 다중 비트 전송률 부드러운 스트리밍(조각난 MP
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
 - Media Excel Hero Live 및 Hero 4K(UHD/HEVC)
+- [Ffmpeg](https://www.ffmpeg.org)
 
 > [!TIP]
 >  라이브 이벤트를 여러 언어로 스트리밍하는 경우 (예: 하나의 영어 오디오 트랙 및 하나의 스페인어 오디오 트랙) 라이브 피드를 통과 라이브 이벤트로 보내도록 구성 된 미디어 Excel 라이브 인코더를 사용 하 여이를 수행할 수 있습니다.
+
 
 ## <a name="configuring-on-premises-live-encoder-settings"></a>온-프레미스 라이브 인코더 설정 구성
 

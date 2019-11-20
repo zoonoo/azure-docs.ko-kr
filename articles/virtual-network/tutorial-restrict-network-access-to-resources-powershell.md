@@ -1,10 +1,10 @@
 ---
-title: PaaS 리소스에 대한 네트워크 액세스 제한 - Azure PowerShell | Microsoft Docs
+title: PaaS 리소스에 대 한 네트워크 액세스 제한-Azure PowerShell
 description: 이 문서에서는 Azure PowerShell을 사용하여 가상 네트워크 서비스 엔드포인트를 통해 Azure Storage 및 Azure SQL Database와 같은 Azure 리소스에 대한 네트워크 액세스를 제한하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
+manager: mtillman
 editor: ''
 tags: azure-resource-manager
 Customer intent: I want only resources in a virtual network subnet to access an Azure PaaS resource, such as an Azure Storage account.
@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/14/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: b76256ef70b85df0c504427179518d175f08b645
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1d0cf65bb39dbda2b7451c50629ff8949c5507cb
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66727666"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185533"
 ---
 # <a name="restrict-network-access-to-paas-resources-with-virtual-network-service-endpoints-using-powershell"></a>PowerShell을 사용하는 가상 네트워크 서비스 엔드포인트로 PaaS 리소스에 대한 네트워크 액세스 제한
 
@@ -37,7 +37,7 @@ ms.locfileid: "66727666"
 * 서브넷에서 리소스에 대한 액세스 확인
 * 서브넷 및 인터넷에서 리소스에 대한 액세스가 거부되는지 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -61,7 +61,7 @@ $virtualNetwork = New-AzVirtualNetwork `
   -AddressPrefix 10.0.0.0/16
 ```
 
-사용 하 여 서브넷 구성을 만듭니다 [새로 만들기-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)합니다. 다음 예제에서는 *Public*이라는 서브넷에 대한 서브넷 구성을 만듭니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig)를 사용 하 여 서브넷 구성을 만듭니다. 다음 예제에서는 *Public*이라는 서브넷에 대한 서브넷 구성을 만듭니다.
 
 ```azurepowershell-interactive
 $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
@@ -70,7 +70,7 @@ $subnetConfigPublic = Add-AzVirtualNetworkSubnetConfig `
   -VirtualNetwork $virtualNetwork
 ```
 
-가상 네트워크에 서브넷 구성을 작성 하 여 가상 네트워크에 서브넷을 만듭니다 [집합 AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork):
+[AzVirtualNetwork](/powershell/module/az.network/Set-azVirtualNetwork)를 사용 하 여 가상 네트워크에 서브넷 구성을 작성 하 여 가상 네트워크에 서브넷을 만듭니다.
 
 ```azurepowershell-interactive
 $virtualNetwork | Set-AzVirtualNetwork
@@ -78,7 +78,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="enable-a-service-endpoint"></a>서비스 엔드포인트 사용
 
-서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. 서비스 끝점 지원 서비스를 사용할 수 있는 사용 하 여 Azure 위치에서 볼 [Get AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)합니다. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 엔드포인트 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
+서비스 엔드포인트를 지원하는 서비스에 대해서만 서비스 엔드포인트를 사용하도록 설정할 수 있습니다. [AzVirtualNetworkAvailableEndpointService](/powershell/module/az.network/get-azvirtualnetworkavailableendpointservice)를 사용 하 여 Azure 위치에서 사용할 수 있는 서비스 끝점 사용 서비스를 확인 하세요. 다음 예제에서는 *eastus* 지역에서 사용할 수 있는 서비스 엔드포인트 지원 서비스 목록을 반환합니다. 반환되는 서비스 목록은 시간이 지나면서 서비스 엔드포인트를 사용할 수 있는 Azure 서비스가 증가함에 따라 확장됩니다.
 
 ```azurepowershell-interactive
 Get-AzVirtualNetworkAvailableEndpointService -Location eastus | Select Name
@@ -98,7 +98,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ## <a name="restrict-network-access-for-a-subnet"></a>서브넷에 대한 네트워크 액세스 제한
 
-네트워크 보안 그룹 보안 규칙을 만듭니다 [새로 만들기-AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)합니다. 다음 규칙을 사용하면 Azure Storage 서비스에 지정된 공용 IP 주소에 대한 아웃바운드 액세스가 허용됩니다. 
+[AzNetworkSecurityRuleConfig](/powershell/module/az.network/new-aznetworksecurityruleconfig)를 사용 하 여 네트워크 보안 그룹 보안 규칙을 만듭니다. 다음 규칙을 사용하면 Azure Storage 서비스에 지정된 공용 IP 주소에 대한 아웃바운드 액세스가 허용됩니다. 
 
 ```azurepowershell-interactive
 $rule1 = New-AzNetworkSecurityRuleConfig `
@@ -153,7 +153,7 @@ $nsg = New-AzNetworkSecurityGroup `
   -SecurityRules $rule1,$rule2,$rule3
 ```
 
-네트워크 보안 그룹을 연결 합니다 *개인* 사용 하 여 서브넷 [집합 AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 가상 네트워크에 서브넷 구성을 작성 합니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *프라이빗* 서브넷에 연결합니다.
+[AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) 를 사용 하 여 *개인* 서브넷에 네트워크 보안 그룹을 연결 하 고 가상 네트워크에 서브넷 구성을 씁니다. 다음 예제에서는 *myNsgPrivate* 네트워크 보안 그룹을 *프라이빗* 서브넷에 연결합니다.
 
 ```azurepowershell-interactive
 Set-AzVirtualNetworkSubnetConfig `
@@ -172,7 +172,7 @@ $virtualNetwork | Set-AzVirtualNetwork
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-사용 하 여 Azure storage 계정을 만듭니다 [새로 만들기-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)합니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
+[AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount)를 사용 하 여 Azure storage 계정을 만듭니다. `<replace-with-your-unique-storage-account-name>`을 모든 Azure 위치에서 고유한 이름으로 바꿉니다. 이름은 3~24자 사이여야 하고 숫자와 소문자만 사용할 수 있습니다.
 
 ```azurepowershell-interactive
 $storageAcctName = '<replace-with-your-unique-storage-account-name>'
@@ -185,7 +185,7 @@ New-AzStorageAccount `
   -Kind StorageV2
 ```
 
-저장소 계정을 만든 후 저장소 계정 키를 사용 하 여 변수를 검색할 [Get AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey):
+저장소 계정을 만든 후 [AzStorageAccountKey](/powershell/module/az.storage/get-azstorageaccountkey)를 사용 하 여 저장소 계정에 대 한 키를 변수로 검색 합니다.
 
 ```azurepowershell-interactive
 $storageAcctKey = (Get-AzStorageAccountKey `
@@ -197,19 +197,19 @@ $storageAcctKey = (Get-AzStorageAccountKey `
 
 ### <a name="create-a-file-share-in-the-storage-account"></a>스토리지 계정에 파일 공유 만들기
 
-저장소 계정 컨텍스트 만들기 및 사용 하 여 키 [새로 만들기-AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext)합니다. 이 컨텍스트는 스토리지 계정 이름 및 계정 키를 캡슐화합니다.
+[AzStorageContext](/powershell/module/az.storage/new-AzStoragecontext)를 사용 하 여 저장소 계정 및 키에 대 한 컨텍스트를 만듭니다. 이 컨텍스트는 스토리지 계정 이름 및 계정 키를 캡슐화합니다.
 
 ```azurepowershell-interactive
 $storageContext = New-AzStorageContext $storageAcctName $storageAcctKey
 ```
 
-사용 하 여 파일 공유를 만듭니다 [새로 만들기-AzStorageShare](/powershell/module/az.storage/new-azstorageshare):
+[AzStorageShare](/powershell/module/az.storage/new-azstorageshare)를 사용 하 여 파일 공유를 만듭니다.
 
-$share = New-AzStorageShare my-file-share -Context $storageContext
+$share = AzStorageShare-컨텍스트 $storageContext
 
 ### <a name="deny-all-network-access-to-a-storage-account"></a>스토리지 계정에 대한 모든 네트워크 액세스 거부
 
-기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대 한 액세스를 제한 하려면 기본 동작을 변경 *Deny* 사용 하 여 [업데이트 AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
+기본적으로 스토리지 계정은 네트워크에 있는 클라이언트의 네트워크 연결을 허용합니다. 선택한 네트워크에 대 한 액세스를 제한 하려면 기본 작업을 [AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)로 *거부* 로 변경 합니다. 네트워크 액세스가 거부되면 네트워크에서 스토리지 계정에 액세스할 수 없습니다.
 
 ```azurepowershell-interactive
 Update-AzStorageAccountNetworkRuleSet  `
@@ -220,7 +220,7 @@ Update-AzStorageAccountNetworkRuleSet  `
 
 ### <a name="enable-network-access-from-a-subnet"></a>서브넷에서 네트워크 액세스 사용
 
-사용 하 여 만든된 가상 네트워크를 검색할 [Get AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) 비공개 서브넷 개체를 사용 하 여 변수에 검색 [Get AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig):
+[AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) 를 사용 하 여 만든 가상 네트워크를 검색 한 다음 [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig)를 사용 하 여 전용 서브넷 개체를 변수로 검색 합니다.
 
 ```azurepowershell-interactive
 $privateSubnet = Get-AzVirtualNetwork `
@@ -230,7 +230,7 @@ $privateSubnet = Get-AzVirtualNetwork `
   -Name "Private"
 ```
 
-저장소 계정에 네트워크 액세스를 허용 합니다 *사설* 서브넷 [추가 AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig)합니다.
+[AzStorageAccountNetworkRule](/powershell/module/az.network/add-aznetworksecurityruleconfig)를 사용 하 여 *개인* 서브넷에서 저장소 계정에 대 한 네트워크 액세스를 허용 합니다.
 
 ```azurepowershell-interactive
 Add-AzStorageAccountNetworkRule `
@@ -245,7 +245,7 @@ Add-AzStorageAccountNetworkRule `
 
 ### <a name="create-the-first-virtual-machine"></a>첫 번째 가상 머신 만들기
 
-가상 컴퓨터를 만들 합니다 *공개* 사용 하 여 서브넷 [New-azvm](/powershell/module/az.compute/new-azvm)합니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 입력하는 값은 VM에 대한 사용자 이름과 암호로 구성됩니다. `-AsJob` 옵션은 백그라운드에서 VM을 만들므로 다음 단계를 계속 진행할 수 있습니다.
+[New-azvm](/powershell/module/az.compute/new-azvm)를 사용 하 여 *공용* 서브넷에서 가상 머신을 만듭니다. 다음 명령을 실행하면 자격 증명을 묻는 메시지가 표시됩니다. 입력하는 값은 VM에 대한 사용자 이름과 암호로 구성됩니다. `-AsJob` 옵션은 백그라운드에서 VM을 만들므로 다음 단계를 계속 진행할 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -267,7 +267,7 @@ Id     Name            PSJobTypeName   State         HasMoreData     Location   
 
 ### <a name="create-the-second-virtual-machine"></a>두 번째 가상 머신 만들기
 
-*Private* 서브넷에 가상 머신을 만듭니다.
+*프라이빗* 서브넷에 가상 머신을 만듭니다.
 
 ```azurepowershell-interactive
 New-AzVm `
@@ -323,7 +323,7 @@ VM에 다른 공용 IP 주소에 대한 아웃바운드 연결이 없는지 확�
 ping bing.com
 ```
 
-*Private* 서브넷과 연결된 네트워크 보안 그룹이 Azure Storage 서비스에 지정된 주소 이외의 공용 IP 주소에 대한 아웃바운드 액세스를 허용하지 않으므로 응답이 수신되지 않습니다.
+*프라이빗* 서브넷과 연결된 네트워크 보안 그룹이 Azure Storage 서비스에 지정된 주소 이외의 공용 IP 주소에 대한 아웃바운드 액세스를 허용하지 않으므로 응답이 수신되지 않습니다.
 
 *myVmPrivate* VM에 대한 원격 데스크톱 세션을 닫습니다.
 
@@ -364,7 +364,7 @@ Get-AzStorageFile `
   -Context $storageContext
 ```
 
-액세스 거부 되 고 수신 하는 *Get AzStorageFile: 원격 서버에서 오류를 반환했습니다. (403) 사용 권한 없음 HTTP 상태 코드: 403 - HTTP 오류 메시지: 이 요청은 이 작업을 수행할 권한이 없습니다.* 오류가 수신됩니다. 사용자 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *프라이빗* 서브넷에 없기 때문입니다.
+액세스가 거부 되 고 AzStorageFile이 수신 됩니다. *원격 서버에서 오류를 반환 했습니다. (403) 사용할 수 없음. HTTP 상태 코드: 403-HTTP 오류 메시지:이 요청은이 작업을 수행할 수 있는 권한이 없습니다* .이 작업은 컴퓨터가 *MyVirtualNetwork* 가상 네트워크의 *개인* 서브넷에 없기 때문에 발생 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

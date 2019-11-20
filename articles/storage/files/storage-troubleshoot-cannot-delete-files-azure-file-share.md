@@ -4,15 +4,18 @@ description: Azure 파일 공유에서 파일을 삭제 하지 못한 문제를 
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/25/2019
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: b535578328e7ca77f1071187b6ac761bc7076ac1
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+services: storage
+tags: ''
+ms.openlocfilehash: d3a3763a8964810626bcdc47da230a9ee406f1f8
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73065978"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196473"
 ---
 # <a name="azure-file-share--failed-to-delete-files-from-azure-file-share"></a>Azure 파일 공유 – Azure 파일 공유에서 파일을 삭제 하지 못했습니다.
 
@@ -33,11 +36,11 @@ Azure 파일 공유에서 파일을 삭제 하지 못하는 경우 다음과 같
 
 파일 공유가 탑재 되는 컴퓨터에서 파일에 대해 허용 되는 동시 열린 핸들의 상한에 도달 하면 오류 1816이 발생 합니다. 자세한 내용은 [Azure Storage 성능 및 확장성 검사 목록](https://docs.microsoft.com/azure/storage/blobs/storage-performance-checklist)을 참조 하세요.
 
-## <a name="resolution"></a>해상도
+## <a name="resolution"></a>해결 방법
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄입니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>사전 요구 사항
 
 ### <a name="install-the-latest-azure-powershell-module"></a>최신 Azure PowerShell 모듈 설치
 
@@ -69,7 +72,7 @@ $Context = New-AzStorageContext -StorageAccountName "StorageAccountName" -Storag
 
 ## <a name="example-result"></a>예제 결과:
 
-|HandleId|path|clientIp|clientPort|OpenTime|LastReconnectTime|FileId|ParentId|SessionId|
+|HandleId|경로|ClientIp|ClientPort|OpenTime|LastReconnectTime|FileId|ParentId|SessionId|
 |---|---|---|---|---|---|---|---|---|
 |259101229083|---|10.222.10.123|62758|2019-10-05|12:16:50Z|0|0|9507758546259807489|
 |259101229131|---|10.222.10.123|62758|2019-10-05|12:36:20Z|0|0|9507758546259807489|

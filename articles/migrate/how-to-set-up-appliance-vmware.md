@@ -1,17 +1,17 @@
 ---
-title: VMware Vm에 대 한 Azure Migrate 서버 평가/마이그레이션에 대 한 어플라이언스 설정 | Microsoft Docs
-description: Azure Migrate Server 평가/마이그레이션을 사용 하 여 VMware Vm의 검색, 평가 및 에이전트 없는 마이그레이션을 위해 어플라이언스를 설정 하는 방법을 설명 합니다.
+title: VMware에 대 한 Azure Migrate 어플라이언스 설정
+description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: raynew
-ms.openlocfilehash: 086d5bf2e0e2bd1e4c1db5960d402a8e1b129e94
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
-ms.translationtype: HT
+ms.openlocfilehash: 1489d29f854b02cf493493fe022c73dc050e2615
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158607"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185867"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 

@@ -1,18 +1,18 @@
 ---
-title: Hyper-v 평가 및 마이그레이션에 대 한 Azure Migrate 지원 매트릭스
-description: Azure Migrate 서비스를 사용 하 여 Hyper-v 평가 및 마이그레이션에 대 한 설정 및 제한 사항을 요약 합니다.
+title: Azure Migrate에서 Hyper-v 평가/마이그레이션 지원
+description: Azure Migrate를 사용 하 여 Hyper-v 평가/마이그레이션 지원에 대해 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: dd100e2390cdd2731df498379e376bde4cf2b87d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6562d3f15d080a3bbc54a9985c12eae5908a9980
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498705"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186650"
 ---
 # <a name="support-matrix-for-hyper-v-assessment-and-migration"></a>Hyper-V 평가 및 마이그레이션 지원 매트릭스
 
@@ -24,7 +24,7 @@ ms.locfileid: "73498705"
 
 이 표에는 Hyper-v Vm에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보***
+**배포** | **세부 정보***
 --- | ---
 **온-프레미스 Hyper-v Vm 평가** | 첫 번째 평가를 [설정](tutorial-prepare-hyper-v.md) 합니다.<br/><br/> 대규모 평가를 [실행](scale-hyper-v-assessment.md) 합니다.
 **Hyper-V VM을 Azure로 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-hyper-v.md) 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "73498705"
 --- | ---
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다. Azure 구독에 여러 프로젝트를 포함할 수 있습니다. 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
-Geography | 지원 되는 지역을 [검토](migrate-support-matrix.md#supported-geographies) 합니다.
+Geography | 지원되는 지역을 [검토](migrate-support-matrix.md#supported-geographies)합니다.
 
 
 ## <a name="assessment-hyper-v-host-requirements"></a>평가-Hyper-v 호스트 요구 사항
@@ -43,7 +43,7 @@ Geography | 지원 되는 지역을 [검토](migrate-support-matrix.md#supported
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **호스트 배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. <br/> 또는 관리자 권한을 할당 하지 않으려는 경우 로컬 또는 도메인 사용자 계정을 만들고 이러한 그룹에 사용자를 추가 합니다. 원격 관리 사용자, Hyper-v 관리자 및 성능 모니터 사용자입니다. |
+| **Permissions**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. <br/> 또는 관리자 권한을 할당 하지 않으려는 경우 로컬 또는 도메인 사용자 계정을 만들고 이러한 그룹에 사용자를 추가 합니다. 원격 관리 사용자, Hyper-v 관리자 및 성능 모니터 사용자입니다. |
 | **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2.<br/> Windows Server 2012를 실행하는 Hyper-V 호스트에 있는 VM은 평가할 수 없습니다. |
 | **PowerShell 원격 작업**   | 각 호스트에서를 사용 하도록 설정 해야 합니다. |
 | **Hyper-v 복제본**       | Hyper-v 복제본을 사용 하는 경우 (또는 VM 식별자가 같은 vm이 여러 개 있는 경우) Azure Migrate를 사용 하 여 원래 vm과 복제 된 Vm을 모두 검색 하는 경우 Azure Migrate에서 생성 된 평가가 정확 하지 않을 수 있습니다. |
@@ -112,7 +112,7 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **호스트 배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. |
+| **Permissions**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. |
 | **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2. |
 
 ## <a name="migration-hyper-v-vm-requirements"></a>마이그레이션-Hyper-v VM 요구 사항
@@ -120,9 +120,9 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 | **지원**                  | **세부 정보**               
 | :----------------------------- | :------------------- |
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
-| **권한**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
+| **Permissions**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
 | **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
-| **Azure에 대 한 필수 변경 내용** | 일부 Vm은 Azure에서 실행할 수 있도록 변경 해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> -Red Hat Enterprise Linux 6.5 +, 7.0 이상<br/> -CentOS 6.5 이상, 7.0 이상</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> -Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
+| **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. Azure Migrate는 다음 운영 체제에 대해 이러한 변경을 자동으로 수행 합니다.<br/> - Red Hat Enterprise Linux 6.5+, 7.0+<br/> - CentOS 6.5+, 7.0+</br> -SUSE Linux Enterprise Server 12 SP1 이상<br/> - Ubuntu 14.04LTS, 16.04LTS, 18.04LTS<br/> -Debian 7, 8<br/><br/> 다른 운영 체제의 경우 마이그레이션하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
 | **UEFI 부팅**                  | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.
   |
@@ -131,10 +131,10 @@ https://download.microsoft.com/download/* | Microsoft 다운로드 사이트에�
 | **암호화 된 디스크/볼륨**    | 마이그레이션에 지원 되지 않습니다. |
 | **RDM/통과 디스크**      | 마이그레이션에 지원 되지 않습니다. |
 | **공유 디스크** | 공유 디스크를 사용 하는 Vm은 마이그레이션을 지원 하지 않습니다.
-| **용**                        | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다. |
+| **NFS**                        | Vm에 볼륨으로 탑재 된 NFS 볼륨이 복제 되지 않습니다. |
 | **ISCSI**                      | ISCSI 대상을 사용 하는 Vm은 마이그레이션을 지원 하지 않습니다.
 | **대상 디스크**                | 관리 디스크를 사용 하 여 Azure Vm으로 마이그레이션할 수 있습니다. |
-| **Ipv6)** | 지원되지 않습니다.
+| **IPv6** | 지원되지 않습니다.
 | **NIC 팀** | 지원되지 않습니다.
 | **Azure Site Recovery** | Azure Site Recovery를 사용 하 여 복제에 대해 VM을 사용 하도록 설정한 경우 Azure Migrate 서버 마이그레이션을 사용 하 여 복제할 수 없습니다.
 

@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/09/2018
+ms.date: 11/19/2019
 ms.author: genli
-ms.openlocfilehash: d1c10fa8267131f13d3148ace6c97218a18fd494
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076916"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184342"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -27,6 +27,8 @@ ms.locfileid: "74076916"
 이 페이지에서는 일반적인 Azure Load Balancer 질문에 대한 문제 해결 정보를 제공합니다. Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 다음과 같습니다. 
 - Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다. 
 - Load Balancer 뒤의 VM이 구성된 포트의 트래픽에 응답하지 않습니다.
+
+백 엔드 Vm에 대 한 외부 클라이언트가 부하 분산 장치를 통과 하면 클라이언트의 IP 주소가 통신에 사용 됩니다. 클라이언트의 IP 주소가 NSG 허용 목록에 추가 되어 있는지 확인 합니다. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>증상: Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다.
 백 엔드 서버가 Load Balancer 집합에 참여하려면 프로브 검사를 통과해야 합니다. 상태 프로브에 대한 자세한 내용은 [Load Balancer 프로브 이해](load-balancer-custom-probe-overview.md)를 참조하세요. 
@@ -96,18 +98,20 @@ VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 
 1. 백 엔드 VM에 로그인합니다. 
 2. 명령 프롬프트를 열고 다음 명령을 실행하여 데이터 포트에서 수신 대기하는 애플리케이션이 있는지 확인합니다.   netstat -an 
 3. 포트 상태가 “LISTENING” 상태로 표시되지 않으면 해당 수신기 포트를 구성합니다. 
-4. 포트가 Listening으로 표시되어 있는 경우 해당 포트의 대상 애플리케이션에 문제가 있는지 확인합니다. 
+4. 포트가 Listening으로 표시되어 있는 경우 해당 포트의 대상 애플리케이션에 문제가 있는지 확인합니다.
 
 ### <a name="cause-2-network-security-group-is-blocking-the-port-on-the-load-balancer-backend-pool-vm"></a>원인 2: 네트워크 보안 그룹이 Load Balancer 백 엔드 풀 VM에서 포트를 차단하고 있습니다.  
 
 서브넷 또는 VM에 구성된 하나 이상의 네트워크 보안 그룹이 원본 IP 또는 포트를 차단하는 경우 VM이 응답할 수 없습니다.
 
-* 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md)를 참조하세요.
-* 네트워크 보안 그룹 목록에서 다음을 확인합니다.
+공용 부하 분산 장치의 경우 클라이언트와 부하 분산 장치 백 엔드 Vm 간의 통신에 인터넷 클라이언트의 IP 주소가 사용 됩니다. 백 엔드 VM의 네트워크 보안 그룹에서 클라이언트의 IP 주소를 사용할 수 있는지 확인 합니다.
+
+1. 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md) 를 참조 하세요.
+1. 네트워크 보안 그룹 목록에서 다음을 확인합니다.
     - 데이터 포트에서 들어오거나 나가는 트래픽에 간섭이 있습니다. 
-    - VM 또는 서브넷의 NIC에 대해 Load Balancer 프로브 및 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙(네트워크 보안 그룹은 프로브 포트에 해당하는 168.63.129.16의 부하 분산 장치 IP를 허용해야 함). 
-* 규칙에 의해 트래픽이 차단되는 경우 해당 규칙을 제거한 후 데이터 트래픽을 허용하도록 다시 구성합니다.  
-* VM이 상태 프로브에 응답하기 시작했는지 테스트합니다.
+    - VM 또는 서브넷의 NIC에 대해 Load Balancer 프로브 및 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙(네트워크 보안 그룹은 프로브 포트에 해당하는 168.63.129.16의 부하 분산 장치 IP를 허용해야 함).
+1. 규칙에 의해 트래픽이 차단되는 경우 해당 규칙을 제거한 후 데이터 트래픽을 허용하도록 다시 구성합니다.  
+1. VM이 상태 프로브에 응답하기 시작했는지 테스트합니다.
 
 ### <a name="cause-3-accessing-the-load-balancer-from-the-same-vm-and-network-interface"></a>원인 3: 동일한 VM 및 네트워크 인터페이스에서 Load Balancer에 액세스 
 

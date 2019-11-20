@@ -1,25 +1,23 @@
 ---
-title: 물리적 서버 평가 및 마이그레이션에 대 한 Azure Migrate 지원 매트릭스
-description: Azure Migrate 서비스를 사용 하 여 물리적 서버 평가 및 마이그레이션에 대 한 설정 및 제한 사항을 요약 합니다.
+title: Azure Migrate를 사용 하 여 물리적 서버 평가/마이그레이션 지원
+description: Azure Migrate를 사용 하 여 물리적 서버 평가/마이그레이션에 대 한 지원을 요약 합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 55ada93e6a77dd7e31640988bad95034f77c90dd
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: b5b5da6282b1df6c70fd58dcf8c417250de81b73
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091884"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196346"
 ---
 # <a name="support-matrix-for-physical-server-assessment-and-migration"></a>물리적 서버 평가 및 마이그레이션을 위한 지원 매트릭스
 
 [Azure Migrate 서비스](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 온-프레미스 물리적 서버를 평가 하 고 마이그레이션하기 위한 지원 설정 및 제한 사항을 요약 합니다.
 
-> [!NOTE]
-> Azure Migrate 포털에 표시 되지 않는 기능을 여기에서 설명 하는 경우에는 중단 합니다. 다음 주에 표시 됩니다.
 
 
 ## <a name="physical-server-scenarios"></a>물리적 서버 시나리오
@@ -47,7 +45,7 @@ ms.locfileid: "74091884"
   오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
   브라질 | 브라질 남부
   캐나다 | 캐나다 중부 또는 캐나다 동부
-  유럽 | 북유럽 또는 유럽 서부
+  Europe | 북유럽 또는 유럽 서부
   프랑스 | 프랑스 중부
   인도 | 인도 중부 또는 인도 남부
   일본 |  일본 동부 또는 일본 서 부

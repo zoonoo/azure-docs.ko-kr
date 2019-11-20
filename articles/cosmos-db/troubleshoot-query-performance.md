@@ -8,12 +8,12 @@ ms.date: 07/10/2019
 ms.author: girobins
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: d0dd9a371c4912cae0e74b214c673c629fc1ff55
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: fd8e80c7cd7cb71e4e0418d970cf2f328f1a3d79
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515807"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184724"
 ---
 # <a name="troubleshoot-query-performance-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 쿼리 성능 문제 해결
 이 문서에서는 Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법을 설명 합니다. Azure Cosmos DB 쿼리에 대 한 최적의 성능을 얻으려면 아래 문제 해결 단계를 수행 합니다. 
@@ -26,29 +26,29 @@ ms.locfileid: "69515807"
 
 ## <a name="log-the-executed-sql-query"></a>실행 된 SQL 쿼리 기록 
 
-실행 된 SQL 쿼리를 저장소 계정 또는 진단 로그 테이블에 기록할 수 있습니다. [진단 로그를 통해 SQL 쿼리 로그](logging.md#turn-on-logging-in-the-azure-portal) 를 사용 하 여 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 로그를 확인 하 고 더 높은 RUs를 사용 하는 쿼리를 찾을 수 있습니다. 나중에 작업 id를 사용 하 여 QueryRuntimeStatistics의 실제 쿼리를 일치 시킬 수 있습니다. 이 쿼리는 보안 목적 및 쿼리 매개 변수 이름에 대해 난독 처리 되며 where 절의 해당 값은 실제 이름 및 값과 다릅니다. 저장소 계정에 대 한 로깅을 사용 하 여 실행 된 쿼리의 장기 보존을 유지할 수 있습니다.  
+실행 된 SQL 쿼리를 저장소 계정 또는 진단 로그 테이블에 기록할 수 있습니다. [진단 로그를 통해 SQL 쿼리 로그](monitor-cosmos-db.md#diagnostic-settings) 를 사용 하 여 선택한 저장소 계정에 난독 처리 된 쿼리를 기록할 수 있습니다. 이를 통해 로그를 확인 하 고 더 높은 RUs를 사용 하는 쿼리를 찾을 수 있습니다. 나중에 작업 ID를 사용 하 여 QueryRuntimeStatistics의 실제 쿼리를 일치 시킬 수 있습니다. 이 쿼리는 보안 목적 및 쿼리 매개 변수 이름에 대해 난독 처리 되며 where 절의 해당 값은 실제 이름 및 값과 다릅니다. 저장소 계정에 대 한 로깅을 사용 하 여 실행 된 쿼리의 장기 보존을 유지할 수 있습니다.  
 
 ## <a name="log-query-metrics"></a>로그 쿼리 메트릭
 
-느리거나 `QueryMetrics` 비용이 많이 드는 쿼리 문제를 해결 하려면를 사용 합니다. 
+`QueryMetrics`를 사용 하 여 느리거나 비용이 많이 드는 쿼리 문제를 해결할 수 있습니다. 
 
-  * 응답 `FeedOptions.PopulateQueryMetrics = true` 에를 `QueryMetrics` 포함 하도록 설정 합니다.
-  * `QueryMetrics`클래스에는의 `.ToString()` `QueryMetrics`문자열 표현을 가져오기 위해 호출할 수 있는 오버 로드 된 함수가 있습니다. 
+  * 응답에 `QueryMetrics`를 포함 하도록 `FeedOptions.PopulateQueryMetrics = true` 설정 합니다.
+  * `QueryMetrics` 클래스에는 `QueryMetrics`의 문자열 표현을 가져오기 위해 호출할 수 있는 오버 로드 된 `.ToString()` 함수가 있습니다. 
   * 메트릭을 활용 하 여 다음과 같은 정보를 얻을 수 있습니다. 
   
       * 쿼리 파이프라인의 특정 구성 요소를 완료 하는 데 비정상적으로 오랜 시간이 소요 되었는지 여부 (수백 밀리초 이상). 
 
-          * 를 확인 `TotalExecutionTime`합니다.
-          * `TotalExecutionTime` 쿼리의이 종단 간 실행 시간 보다 낮으면 클라이언트 쪽 또는 네트워크에서 시간이 소요 됩니다. 클라이언트 및 Azure 지역이 배치 된를 다시 한 번 확인 합니다.
+          * `TotalExecutionTime`를 확인 합니다.
+          * 쿼리의 `TotalExecutionTime`가 종단 간 실행 시간 보다 낮으면 클라이언트 쪽 또는 네트워크에서 시간이 소요 됩니다. 클라이언트 및 Azure 지역이 배치 된를 다시 한 번 확인 합니다.
       
       * 분석 된 문서에 가양성이 있는지 여부 (출력 문서 수가 검색 된 문서 수보다 훨씬 작은 경우).  
 
-          * 를 확인 `Index Utilization`합니다.
-          * `Index Utilization`= (반환 된 문서 수/로드 된 문서 수)
+          * `Index Utilization`를 확인 합니다.
+          * `Index Utilization` = (반환 된 문서 수/로드 된 문서 수)
           * 반환 된 문서 수가 로드 된 수보다 훨씬 작은 경우 거짓 긍정이 분석 됩니다.
           * 더 좁은 필터를 사용 하 여 검색 되는 문서 수를 제한 합니다.  
 
-      * 개별 라운드 트립 fared (의 `Partition Execution Timeline` `QueryMetrics`문자열 표현에서 참조). 
+      * 개별 왕복 fared (`QueryMetrics`문자열 표현의 `Partition Execution Timeline` 참조). 
       * 쿼리가 높은 요청 요금을 소비 했는지 여부입니다. 
 
 자세한 내용은 [SQL 쿼리 실행 메트릭을 가져오는 방법](profile-sql-api-query.md) 문서를 참조 하세요.
@@ -56,9 +56,9 @@ ms.locfileid: "69515807"
 ## <a name="tune-query-feed-options-parameters"></a>쿼리 피드 옵션 매개 변수 조정 
 요청의 [피드 옵션](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.feedoptions?view=azure-dotnet) 매개 변수를 통해 쿼리 성능을 조정할 수 있습니다. 아래 옵션을 설정해 봅니다.
 
-  * 을 `MaxDegreeOfParallelism` 먼저-1로 설정한 다음 다른 값에 대해 성능을 비교 합니다. 
-  * 을 `MaxBufferedItemCount` 먼저-1로 설정한 다음 다른 값에 대해 성능을 비교 합니다. 
-  * \- `MaxItemCount` 1로 설정 합니다.
+  * 먼저 `MaxDegreeOfParallelism`를-1로 설정한 다음 다른 값에 대해 성능을 비교 합니다. 
+  * 먼저 `MaxBufferedItemCount`를-1로 설정한 다음 다른 값에 대해 성능을 비교 합니다. 
+  * `MaxItemCount`를-1로 설정 합니다.
 
 다른 값의 성능을 비교할 때 2, 4, 8, 16 등의 값을 사용해 보세요.
  
@@ -117,7 +117,7 @@ ms.locfileid: "69515807"
   * 가능한 경우 파티션 키에서 필터를 사용하는 쿼리를 작성합니다.
   * 성능 쿼리를 얻기 위해 필터에서 위쪽/아래쪽 호출을 수행 하지 않습니다. 대신 삽입 시 값의 대/소문자를 표준화 합니다. 각 값에 대해 원하는 대/소문자를 사용 하 여 값을 삽입 하거나 원래 값과 원하는 대/소문자를 사용 하 여 값을 삽입 합니다. 
 
-    예를 들어:
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
     
     ```sql
 
@@ -147,20 +147,20 @@ ms.locfileid: "69515807"
 
 자세한 내용은 [인덱싱 정책을 관리 하는 방법](how-to-manage-indexing-policy.md) 문서를 참조 하세요.
 
-## <a name="spatial-data-check-ordering-of-points"></a>공간 데이터: 지점의 순서 확인
+## <a name="spatial-data-check-ordering-of-points"></a>공간 데이터: 점의 순서 확인
 다각형 내의 점을 시계 반대 방향 순서로 지정해야 합니다. 시계 방향 순서로 지정된 다각형은 내부 영역의 반전을 나타냅니다.
 
 ## <a name="optimize-join-expressions"></a>조인 식 최적화
-`JOIN`식은 많은 교차곱으로 확장 될 수 있습니다. 가능 하면 더 좁은 필터를 통해 더 작은 검색 공간에 대해 쿼리 합니다.
+`JOIN` 식은 많은 교차곱으로 확장 될 수 있습니다. 가능 하면 더 좁은 필터를 통해 더 작은 검색 공간에 대해 쿼리 합니다.
 
-다중값 하위 쿼리는 `JOIN` `WHERE` 절의 모든 교차 조인이 아니라 각 select-many 식 다음에 조건자를 푸시하여 식을 최적화할 수 있습니다. 자세한 예제는 [조인 식 최적화](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) 문서를 참조 하세요.
+다중 값 하위 쿼리는 `WHERE` 절의 모든 크로스 조인이 아니라 각 select-many 식 뒤에 조건자를 푸시하여 `JOIN` 식을 최적화할 수 있습니다. 자세한 예제는 [조인 식 최적화](https://docs.microsoft.com/azure/cosmos-db/sql-query-subquery#optimize-join-expressions) 문서를 참조 하세요.
 
 ## <a name="optimize-order-by-expressions"></a>ORDER BY 식 최적화 
-`ORDER BY`필드가 스파스 이거나 인덱스 정책에 포함 되지 않은 경우 쿼리 성능이 저하 될 수 있습니다.
+필드가 스파스 이거나 인덱스 정책에 포함 되지 않은 경우 쿼리 성능이 저하 될 수 있습니다. `ORDER BY`
 
   * 시간과 같은 스파스 필드의 경우 필터를 사용 하 여 검색 공간을 최대한 줄입니다. 
   * 단일 속성 `ORDER BY`의 경우 인덱스 정책에 속성을 포함 합니다. 
-  * 여러 속성 `ORDER BY` 식의 경우 정렬할 필드에 [복합 인덱스](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) 를 정의 합니다.  
+  * 여러 속성 `ORDER BY` 식의 경우 정렬할 필드에 대해 [복합 인덱스](https://docs.microsoft.com/azure/cosmos-db/index-policy#composite-indexes) 를 정의 합니다.  
 
 ## <a name="many-large-documents-being-loaded-and-processed"></a>많은 문서를 로드 하 고 처리 하 고 있습니다.
 쿼리에 필요한 시간 및 RUs는 응답의 크기에 따라 달라 지는 것이 아니라 쿼리 처리 파이프라인에서 수행 하는 작업에 종속 됩니다. 시간 및 RUs는 전체 쿼리 처리 파이프라인에서 수행 되는 작업량에 비례하여 증가 합니다. 규모가 많은 문서에 대해 더 많은 작업이 수행 되므로 많은 시간과 RUs가 많은 문서를 로드 하 고 처리 해야 합니다.

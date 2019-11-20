@@ -1,5 +1,5 @@
 ---
-title: Azure SDK를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법
+title: Azure Sdk를 사용 하 여 azure VM에서 관리 되는 id 사용-Azure AD
 description: Azure 리소스에 대한 관리 ID가 있는 Azure VM으로 Azure SDK를 사용하기 위한 코드 샘플입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5c66bb2b4e9af6f4b79b0ead98b8d18fc56cb467
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 422b4c63a86904721fc6910193ffa63a8fe46f0a
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809193"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184163"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Azure SDK를 사용하여 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 이 문서에서는 Azure 리소스에 대한 관리 ID에 해당하는 Azure SDK 지원을 사용하는 방법을 보여주는 SDK 샘플 목록을 제공합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,8 +41,8 @@ ms.locfileid: "72809193"
 | .NET            | [Azure 리소스에 대한 관리 ID를 사용하여 Windows VM에서 Azure Resource Manager 템플릿 배포](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet) |
 | .NET Core       | [Azure 리소스에 대한 관리 ID를 사용하여 Linux VM에서 Azure 서비스 호출](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/) |
 | Node.js         | [Azure 리소스에 대한 관리 ID를 사용하는 리소스 관리](https://azure.microsoft.com/resources/samples/resources-node-manage-resources-with-msi/) |
-| 파이썬          | [Azure 리소스에 대한 관리 ID를 사용하여 VM 내부에서 간단하게 인증](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
-| 루비            | [Azure 리소스에 대한 관리 ID를 사용하는 VM에서 리소스 관리](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
+| Python          | [Azure 리소스에 대한 관리 ID를 사용하여 VM 내부에서 간단하게 인증](https://azure.microsoft.com/resources/samples/resource-manager-python-manage-resources-with-msi/) |
+| Ruby            | [Azure 리소스에 대한 관리 ID를 사용하는 VM에서 리소스 관리](https://github.com/Azure-Samples/resources-ruby-manage-resources-with-msi/) |
 
 ## <a name="next-steps"></a>다음 단계
 

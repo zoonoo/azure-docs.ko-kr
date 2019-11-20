@@ -1,6 +1,7 @@
 ---
-title: Azure Media Services로 비디오 및 오디오 파일 분석 | Microsoft Docs
-description: Azure Media Services를 사용할 때 AudioAnalyzerPreset 및 VideoAnalyzerPreset를 사용 하 여 오디오 및 비디오 콘텐츠를 분석할 수 있습니다.
+title: 비디오 및 오디오 파일 분석
+titleSuffix: Azure Media Services
+description: Azure Media Services에서 AudioAnalyzerPreset 및 VideoAnalyzerPreset를 사용 하 여 오디오 및 비디오 콘텐츠를 분석 하는 방법을 알아봅니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,18 +12,18 @@ ms.workload: ''
 ms.topic: article
 ms.date: 09/21/2019
 ms.author: juliako
-ms.openlocfilehash: bc4be8eaafe805e5d9a985b005efe80bc4af1d21
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 23d546d6adcdb91b4ef4702b81fe77536fe9f3d3
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177987"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186269"
 ---
-# <a name="analyzing-video-and-audio-files"></a>비디오 및 오디오 파일 분석
+# <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Azure Media Services를 사용 하 여 비디오 및 오디오 파일 분석
 
-Azure Media Services v3를 사용 하면 Media Services v3 분석기 사전 설정 (이 문서에 설명)을 통해 비디오 및 오디오 Video Indexer 파일에서 정보를 추출할 수 있습니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer 및 Media Services 분석기 미리 설정을 사용하려는 경우를 이해하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인하세요.
+Azure Media Services v3를 사용 하면 Video Indexer를 통해 비디오 및 오디오 파일에서 정보를 추출할 수 있습니다. 이 문서에서는 이러한 정보를 추출 하는 데 사용 되는 Media Services v3 분석기 사전 설정을 설명 합니다. 더 자세한 인사이트가 필요하면 Video Indexer를 직접 사용해 보세요. Video Indexer와 Media Services analyzer 기본 설정을 사용 하는 경우를 이해 하려면 [비교 문서](../video-indexer/compare-video-indexer-with-media-services-presets.md)를 확인 하세요.
 
-Media Services v3 사전 설정을 사용하여 콘텐츠를 분석하려면 **Transform**을 만들고 다음 사전 설정 중 하나를 사용하는 **Job**을 제출합니다. [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. 다음 문서에서는 **VideoAnalyzerPreset**을 사용하는 방법을 설명합니다. [자습서: Azure Media Services를 통해 비디오 분석](analyze-videos-tutorial-with-api.md).
+Media Services v3 사전 설정을 사용 하 여 콘텐츠를 분석 하려면 **변환을** 만들고 이러한 사전 설정 중 하나를 사용 하는 **작업** 을 제출 합니다. [VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset) 또는 **AudioAnalyzerPreset**. **VideoAnalyzerPreset**를 사용 하는 방법을 보여 주는 자습서는 [Azure Media Services으로 비디오 분석](analyze-videos-tutorial-with-api.md)을 참조 하세요.
 
 > [!NOTE]
 > 비디오 또는 오디오 분석기 사전 설정을 사용할 때는 Azure Portal을 통해 S3 미디어 예약 10단위를 갖도록 계정을 설정합니다. 자세한 내용은 [미디어 처리 크기 조정](media-reserved-units-cli-how-to.md)을 참조하세요.
@@ -33,32 +34,32 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 |**미리 설정 이름**|**시나리오**|**세부 정보**|
 |---|---|---|
-|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원되는 언어는 영어('en-US' 및 'en-GB'), 스페인어('es-ES' 및 'es-MX'), 프랑스어('fr-FR'), 이탈리아어('it-IT'), 일본어('ja-JP'), 포르투갈어('pt-BR'), 중국어('zh-CN'), 독일어('de-DE'), 아라비아어('ar-EG'), 러시아어('ru-RU'), 힌디어('hi-IN') 및 한국어('ko-KR')입니다.<br/><br/> 언어가 지정되지 않았거나 Null로 설정된 경우 자동 언어 검색이 첫 번째 검색된 언어를 선택하고 파일의 지속시간 동안 선택된 언어로 처리합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 현재 첫 번째 언어가 검색된 후 언어 간에 동적으로 전환하는 기능은 지원되지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 감지가 언어를 찾지 못하면 전사가 영어로 폴백됩니다.|
+|[AudioAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#audioanalyzerpreset)|오디오 분석|사전 설정은 음성 기록을 포함하여 미리 정의된 AI 기반 분석 작업 세트를 적용합니다. 현재 사전 설정은 단일 언어 음성을 포함하는 단일 오디오 트랙을 사용하여 콘텐츠를 처리하도록 지원합니다. BCP-47 형식의 ‘language tag-region’을 사용하여 입력에서 오디오 페이로드의 언어를 지정할 수 있습니다. 지원 되는 언어는 영어 (' en-us ' 및 ' en-us '), 스페인어 (' es ' 및 ' es-mx '), 프랑스어 (' fr-fr '), 이탈리아어 (' it '), 일본어 (' ja-jp '), 포르투갈어 (' pt-BR '), 중국어 (' zh-cn '), 독일어 (' de-de '), 아랍어 (' ar-예 ' 및 ' ar-SY '), 러시아어 (' '), 힌디어 (' hi ') 및 한국어 (' ko-KR ').<br/><br/> 언어가 지정 되지 않았거나 null로 설정 된 경우 자동 언어 검색은 검색 된 첫 번째 언어를 선택 하 고 파일 기간 동안 선택한 언어를 계속 합니다. 자동 언어 감지 기능은 현재 영어, 중국어, 프랑스어, 독일어, 이탈리아어, 일본어, 스페인어, 러시아어 및 포르투갈어를 지원합니다. 첫 번째 언어가 검색 된 후 언어 간의 동적 전환을 지원 하지 않습니다. 자동 언어 검색 기능은 분명히 구별할 수 있는 음성이 포함된 오디오 녹음에 가장 적합합니다. 자동 언어 검색에서 언어를 찾지 못하는 경우에는 해당 내용은 영어로 대체 됩니다.|
 |[VideoAnalyzerPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#videoanalyzerpreset)|오디오 및 비디오 분석|오디오 및 비디오 모두에서 통찰력(풍부한 메타데이터)을 추출하고 JSON 형식 파일을 출력합니다. 비디오 파일을 처리할 때 오디오 통찰력만 추출할지 여부를 지정할 수 있습니다. 자세한 내용은 [비디오 분석](analyze-videos-tutorial-with-api.md)을 참조하세요.|
-|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 모든 얼굴 검색|비디오를 분석 하 여 모든 얼굴을 검색 하기 위해 사용할 설정을 설명 합니다.|
+|[FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset)|비디오에 있는 얼굴 감지|비디오를 분석 하 여 있는 모든 얼굴을 검색할 때 사용할 설정을 설명 합니다.|
 
 ### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
 
 미리 설정을 사용하면 오디오 또는 비디오 파일에서 여러 오디오 인사이트를 추출할 수 있습니다. 출력에는 오디오 대본의 VTT 파일과 JSON 파일(모든 인사이트 포함)이 포함됩니다. 이 사전 설정은 입력 파일의 언어를 [BCP47](https://tools.ietf.org/html/bcp47) 문자열의 형태로 지정하는 속성을 허용합니다. 오디오 인사이트는 다음 정보를 포함합니다.
 
-* 오디오 전사 – 타임 스탬프가 있는 음성의 대본입니다. 여러 언어 지원
-* 화자 인덱싱 – 화자와 해당 음성의 매핑입니다.
-* 음성 감정 분석 - 오디오 전사에 대해 수행한 감정 분석 결과입니다.
-* 키워드 – 오디오 전사에서 추출한 키워드입니다.
+* **오디오 녹음**: 타임 스탬프가 있는 음성의 기록입니다. 여러 언어가 지원 됩니다.
+* **스피커 인덱싱**: 스피커와 해당 하는 음성 단어의 매핑입니다.
+* **Speech 감정 analysis**: 오디오 녹음에 대해 수행 된 감정 분석의 출력입니다.
+* **키워드**: 오디오 녹음에서 추출 되는 키워드입니다.
 
 ### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
 미리 설정을 사용하면 비디오 파일에서 여러 오디오 및 비디오 인사이트를 추출할 수 있습니다. 출력에는 JSON 파일(모든 인사이트 포함), 비디오 대본의 VTT 파일 및 썸네일 컬렉션이 포함됩니다. 이 사전 설정은 [BCP47](https://tools.ietf.org/html/bcp47) 문자열(비디오의 언어를 나타냄)을 속성으로 수락합니다. 비디오 인사이트에는 앞서 언급한 모든 오디오 인사이트와 다음과 같은 추가 항목이 포함됩니다.
 
-* 얼굴 추적 - 비디오에 얼굴이 있는 시간입니다. 얼굴마다 얼굴 ID와 해당 썸네일 컬렉션이 있습니다.
-* 시각적 텍스트 - 광학 문자 인식을 통해 감지된 텍스트입니다. 텍스트에는 타임스탬프가 지정되며 키워드(오디오 대본과 함께)를 추출하는 데 사용되기도 합니다.
-* 키 프레임 – 비디오에서 추출한 키 프레임 컬렉션입니다.
-* 시각적 콘텐츠 조정 – 본질적으로 성인용 또는 선정적이라는 플래그가 지정된 비디오의 일부분입니다.
-* 주석 – 미리 정의된 개체 모델을 기반으로 비디오에 주석을 추가한 결과입니다.
+* **얼굴 추적**: 비디오가 비디오에 표시 되는 시간입니다. 각 면에는 얼굴 ID와 해당 축소판 그림 컬렉션이 있습니다.
+* **시각적 텍스트**: 광학 문자 인식을 통해 검색 되는 텍스트입니다. 텍스트는 타임 스탬프가 있으며 오디오 성적 외에도 키워드를 추출 하는 데 사용 됩니다.
+* **키 프레임**: 비디오에서 추출한 키 프레임의 컬렉션입니다.
+* **시각적 콘텐츠 중재**: 성인 또는 외설으로 플래그가 지정 된 비디오 부분입니다.
+* **주석**: 미리 정의 된 개체 모델을 기반으로 비디오에 주석을 달고 생성 된 결과
 
-##  <a name="insightsjson-elements"></a>insights.json 요소
+## <a name="insightsjson-elements"></a>insights.json 요소
 
-비디오 또는 오디오에서 찾은 모든 인사이트가 포함된 JSON 파일(insights.json)이 출력에 포함됩니다. json에는 다음 요소가 포함될 수 있습니다.
+출력에는 비디오 또는 오디오에서 발견 된 모든 정보를 포함 하는 JSON 파일 (정보)이 포함 됩니다. JSON에는 다음 요소가 포함 될 수 있습니다.
 
 ### <a name="transcript"></a>대본
 
@@ -67,7 +68,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |id|줄 ID입니다.|
 |text|자체 대본입니다.|
 |language|대본 언어입니다. 각 줄마다 다른 언어가 사용될 수 있는 대본을 지원하기 위한 요소입니다.|
-|인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본인 경우 인스턴스는 하나만 있습니다.|
+|인스턴스|이 줄이 나타나는 시간 범위 목록입니다. 인스턴스가 대본이면 인스턴스는 하나만 있습니다.|
 
 예:
 
@@ -146,16 +147,16 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |이름|설명|
 |---|---|
 |id|얼굴 ID입니다.|
-|name|얼굴 이름입니다. ‘Unknown #0’, 확인된 유명인 또는 고객 교육을 받은 사람일 수 있습니다.|
+|name|얼굴 이름입니다. ' 알 수 없는 #0 ', 식별 된 유명인 또는 고객이 학습 한 사용자 일 수 있습니다.|
 |신뢰도|얼굴 인식 신뢰도입니다.|
 |description|유명인에 대한 설명입니다. |
 |thumbnailId|얼굴 썸네일의 ID입니다.|
-|knownPersonId|알려진 사람인 경우 내부 ID입니다.|
-|referenceId|Bing 유명인인 경우 Bing ID입니다.|
+|knownPersonId|내부 ID (알려진 사용자 인 경우)입니다.|
+|referenceId|Bing ID (Bing 유명인 인 경우)입니다.|
 |referenceType|현재는 그냥 Bing입니다.|
-|title|유명인인 경우 직함(예: "Microsoft CEO")입니다.|
-|imageUrl|유명인인 경우 이미지 URL입니다.|
-|인스턴스|지정된 시간 범위 내에 얼굴이 나타난 인스턴스입니다. 인스턴스마다 thumbnailsId가 있습니다. |
+|title|제목 (예: "유명인")입니다 (예: "Microsoft CEO").|
+|imageUrl|유명인 경우 이미지 URL입니다.|
+|인스턴스|지정 된 시간 범위 내에서 얼굴이 나타난 인스턴스입니다. 인스턴스마다 thumbnailsId가 있습니다. |
 
 ```json
 "faces": [{
@@ -250,7 +251,7 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |CorrespondenceCount|동영상의 해당 항목 수입니다.|
 |WordCount|화자별 단어 수입니다.|
 |SpeakerNumberOfFragments|비디오에서 화자가 있는 조각의 양입니다.|
-|SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 가장 긴 단독 발언 내에 화자의 침묵이 있으면 포함됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.| 
+|SpeakerLongestMonolog|화자의 가장 긴 단독 발언입니다. 스피커가 monolog 내에 silences 경우 포함 됩니다. 단독 발언의 시작과 끝 부분에 있는 침묵은 제거됩니다.|
 |SpeakerTalkToListenRatio|화자의 단독 발언에 소요된 시간(그 사이 침묵 제외)을 비디오의 총 시간으로 나눈 값을 기반으로 계산됩니다. 시간은 소수점 이하 세 자리에서 반올림됩니다.|
 
 
@@ -299,7 +300,6 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 |name|레이블 이름(예: '컴퓨터', 'TV')입니다.|
 |language|레이블 이름 언어(번역된 경우)입니다. BCP-47|
 |인스턴스|레이블이 나타나는 시간 범위 목록(레이블은 여러 번 나타날 수 있음)입니다. 인스턴스마다 신뢰도 필드가 있습니다. |
-
 
 ```json
 "labels": [
@@ -399,9 +399,9 @@ Media Services에서 현재 지원하는 기본 제공 분석기 미리 설정�
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐츠가 있는 것으로 확인된 시간 범위가 포함됩니다. visualContentModeration이 비어있는 경우에는 식별된 성인 콘텐츠가 없는 것입니다.
+visualContentModeration 블록에는 Video Indexer에서 잠재적 성인 콘텐츠가 있는 것으로 확인된 시간 범위가 포함됩니다. VisualContentModeration가 비어 있는 경우 식별 된 성인 콘텐츠가 없습니다.
 
-성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 콘텐츠를 사람이 검토하도록 요청을 제출할 수 있으며 이 경우 IsAdult 특성에 사람이 검토한 결과가 포함됩니다.
+성인 또는 외설 콘텐츠가 포함된 것으로 확인된 비디오는 프라이빗 보기만 가능합니다. 사용자는 콘텐츠에 대 한 사람 검토 요청을 제출할 수 있으며,이 경우 `IsAdult` 특성에는 사용자 리뷰의 결과가 포함 됩니다.
 
 |이름|설명|
 |---|---|

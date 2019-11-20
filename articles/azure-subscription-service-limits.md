@@ -6,16 +6,16 @@ author: rothja
 manager: jeffreyg
 tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
-ms.service: billing
+ms.service: azure-policy
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: f9fe540611b1b773867e1f92439e13df91ad4bd3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: b6ce20196b6ffdcd6699611998260dc981cc4f44
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818342"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185036"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
@@ -61,7 +61,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure SignalR 서비스](#azure-signalr-service-limits)
+* [Azure SignalR Service](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -89,22 +89,22 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
   * [Azure Front Door Service](#azure-front-door-service-limits)
   * [Azure Firewall](#azure-firewall-limits)
   * [ExpressRoute](#expressroute-limits)
-  * [Load Balancer](#load-balancer)
+  * [부하 분산 장치](#load-balancer)
   * [Network Watcher](#network-watcher-limits)
   * [공용 IP 주소](#publicip-address)
-  * [개인 링크](#private-link-limits)
+  * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
-  * [가상 WAN](#virtual-wan-limits)
+  * [Virtual WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
 * [Scheduler](#scheduler-limits)
 * [Service Bus](#service-bus-limits)
-* [Site Recovery](#site-recovery-limits)
+* [사이트 복구](#site-recovery-limits)
 * [SQL Database](#sql-database-limits)
 * [SQL Data Warehouse](#sql-data-warehouse-limits)
-* [스토리지](#storage-limits)
+* [저장소](#storage-limits)
 * [StorSimple 시스템](#storsimple-system-limits)
 * [Stream Analytics](#stream-analytics-limits)
 * [구독](#subscription-limits)
@@ -402,7 +402,7 @@ SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
 SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 - [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 - [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Azure Cloud Services의 크기](cloud-services/cloud-services-sizes-specs.md)

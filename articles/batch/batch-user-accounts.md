@@ -11,15 +11,15 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 05/22/2017
+ms.date: 11/18/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: 820e979c41ddc1c1cf14456ed77a4a55e353ab12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 866f2e5e1ba9df9e8e63b77250d6c94635bbc009
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094273"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74194964"
 ---
 > [!NOTE] 
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 
@@ -59,8 +59,8 @@ Azure Batch에서는 태스크 실행을 위해 다음과 같은 두 가지 유�
 
 사용자 계정의 권한 상승 수준은 태스크가 관리자 액세스 권한으로 실행되는지 여부를 나타냅니다. 자동 사용자 계정 및 명명된 사용자 계정 모두 관리자 권한 액세스로 실행될 수 있습니다. 권한 상승 수준의 두 가지 옵션은 다음과 같습니다.
 
-- **NonAdmin:** 작업이 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin**입니다.
-- **Admin:** 작업이 관리자 액세스 권한이 있는 사용자로 실행되고 전체 관리자 권한으로 작동됩니다. 
+- **NonAdmin:** 태스크가 관리자 액세스 권한이 없는 표준 사용자로 실행됩니다. Batch 사용자 계정에 대한 기본 권한 상승 수준은 항상 **NonAdmin**입니다.
+- **Admin:** 태스크가 관리자 액세스 권한이 있는 사용자로 실행되고 모든 관리자 권한으로 작동됩니다. 
 
 ## <a name="auto-user-accounts"></a>자동 사용자 계정
 
@@ -280,7 +280,7 @@ users = [
     batchmodels.UserAccount(
         name='pool-nonadmin',
         password='******',
-        elevation_level=batchmodels.ElevationLevel.nonadmin)
+        elevation_level=batchmodels.ElevationLevel.non_admin)
 ]
 pool = batchmodels.PoolAddParameter(
     id=pool_id,
@@ -329,7 +329,7 @@ task.UserIdentity = new UserIdentity(AdminUserAccountName);
 | 코드에서 사용되는 원본...                      | 업데이트 대상...                                                                                                                       |
 |-------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|
 | `run_elevated=True`                       | `user_identity=user` <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.admin))`                |
-| `run_elevated=False`                      | `user_identity=user` <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.nonadmin))`             |
+| `run_elevated=False`                      | `user_identity=user` <br />`user = batchmodels.UserIdentity(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`auto_user=batchmodels.AutoUserSpecification(`<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`elevation_level=batchmodels.ElevationLevel.non_admin))`             |
 | `run_elevated`가 지정되지 않음 | 업데이트 필요 없음                                                                                                                                  |
 
 

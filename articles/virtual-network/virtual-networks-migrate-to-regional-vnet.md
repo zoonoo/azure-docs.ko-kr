@@ -1,5 +1,5 @@
 ---
-title: 선호도 그룹에서 지역으로 Azure Virtual Network(클래식) 마이그레이션 | Microsoft Docs
+title: 선호도 그룹에서 지역으로 Azure virtual network (클래식) 마이그레이션
 description: 선호도 그룹에서 지역으로 가상 네트워크(클래식)를 마이그레이션하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: d33d9ec4eadeaa3a082103f1ad699e2fc3010e3b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 57e6c551e1377425dab5509a886a0454b9410a32
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058390"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196708"
 ---
 # <a name="migrate-a-virtual-network-classic-from-an-affinity-group-to-a-region"></a>선호도 그룹에서 지역으로 가상 네트워크(클래식) 마이그레이션
 
 > [!IMPORTANT]
-> Azure에는 리소스를 만들고 사용하기 위한 [Resource Manager 및 클래식](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
+> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 클래식 배포 모델 사용에 대해 설명합니다. 새로운 배포는 대부분 Resource Manager 배포 모델을 사용하는 것이 좋습니다.
 
 선호도 그룹을 사용하면 동일한 선호도 그룹 내에서 만든 리소스가 서로 가까이 있는 서버에서 물리적으로 호스트되도록 할 수 있으며, 이러한 리소스는 더욱 빠르게 통신할 수 있습니다. 과거에는 선호도 그룹이 가상 네트워크(클래식)를 만들기 위한 요구 사항이었습니다. 동시에 가상 네트워크(클래식)를 관리한 네트워크 관리자 서비스는 실제 서버 집합 또는 배율 단위 내에서만 작동할 수 있었습니다. 아키텍처 개선을 통해 네트워크 관리 범위가 하위 지역까지 증가했습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "71058390"
 ## <a name="edit-the-network-configuration-file"></a>네트워크 구성 파일 편집
 
 1. 네트워크 구성 파일을 내보냅니다. PowerShell 또는 Azure CLI(명령줄 인터페이스) 1.0을 사용하여 네트워크 구성 파일을 내보내는 방법을 알아보려면 [네트워크 구성 파일을 사용하여 가상 네트워크 구성](virtual-networks-using-network-configuration-file.md#export)을 참조하세요.
-2. 네트워크 구성 파일을 편집하여 **AffinityGroup**을 **Location**으로 바꿉니다. **Location**에 Azure [지역](https://azure.microsoft.com/regions)을 지정합니다.
+2. 네트워크 구성 파일을 편집하여 **AffinityGroup**을 **Location**으로 바꿉니다. [Location](https://azure.microsoft.com/regions)에 Azure **지역**을 지정합니다.
    
    > [!NOTE]
    > **Location**은 가상 네트워크(클래식)와 연결된 선호도 그룹에 대해 지정한 지역입니다. 예를 들어 가상 네트워크가 미국 서부에 위치한 선호도 그룹과 연결된 경우 마이그레이션할 때 **Location**이 미국 서부를 가리켜야 합니다. 
@@ -50,9 +50,9 @@ ms.locfileid: "71058390"
    
     네트워크 구성 파일에서 값을 고유한 값으로 바꿔 다음 줄을 편집합니다. 
    
-    **이전 값:** \<VirtualNetworkSitename = "VNetUSWest 부" AffinityGroup = "Vnetuswest"\> 
+    **이전 값:** \<VirtualNetworkSitename="VNetUSWest" AffinityGroup="VNetDemoAG"\> 
    
-    **새 값:** \<VirtualNetworkSitename = "VNetUSWest" Location = "미국 서 부"\>
+    **새 값:** \<VirtualNetworkSitename="VNetUSWest" 위치 = "미국 서부"\>
 3. 변경 내용을 저장하고 Azure에 네트워크 구성을 [가져옵니다](virtual-networks-using-network-configuration-file.md#import) .
 
 > [!NOTE]

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13a24ebd8aca3cebab7898689b00e590298a8d1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144732"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195462"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Azure Active Directory로 SCIM 사용자 프로 비전 (Azure AD)
 
@@ -66,7 +66,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -84,7 +84,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |externalId |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
 | objectId |id |
@@ -1306,6 +1306,24 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 ## <a name="step-5-publish-your-application-to-the-azure-ad-application-gallery"></a>5 단계: Azure AD 응용 프로그램 갤러리에 응용 프로그램 게시
 
 둘 이상의 테 넌 트에서 사용 되는 응용 프로그램을 빌드하는 경우 Azure AD 응용 프로그램 갤러리에서 사용할 수 있도록 설정할 수 있습니다. 이렇게 하면 조직이 응용 프로그램을 쉽게 검색 하 고 프로 비전을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시 하 고 다른 사용자가 프로 비전을 사용할 수 있도록 하는 것이 쉽습니다. [여기](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)서 단계를 확인하세요. Microsoft는 사용자와 협력 하 여 응용 프로그램을 갤러리에 통합 하 고, 끝점을 테스트 하 고, 고객이 사용할 수 있도록 온 보 딩 [설명서](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list) 를 출시 합니다. 
+
+
+### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>응용 프로그램 갤러리에서 커넥터 프로 비전에 대 한 권한 부여
+SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정의 되어 있지 않습니다. 기존 업계 표준의 사용을 기반으로 합니다. Azure AD 프로 비전 클라이언트는 갤러리의 응용 프로그램에 대 한 두 가지 권한 부여 방법을 지원 합니다. 
+
+**OAuth 인증 코드 부여 흐름:** 프로 비전 서비스는 [인증 코드 부여](https://tools.ietf.org/html/rfc6749#page-24)를 지원 합니다. 갤러리에서 앱 게시 요청을 제출 하 고 나면 팀에서 다음 정보를 수집 하는 작업을 수행 합니다.
+*  권한 부여 URL: 사용자 에이전트 리디렉션을 통해 리소스 소유자 로부터 인증을 얻기 위해 클라이언트에서 사용 하는 URL입니다. 사용자는 액세스 권한을 부여 하기 위해이 URL로 리디렉션됩니다. 
+*  토큰 교환 URL: 일반적으로 클라이언트 인증을 사용 하 여 액세스 토큰에 대 한 권한 부여를 교환 하기 위해 클라이언트에서 사용 하는 URL입니다.
+*  클라이언트 ID: 권한 부여 서버는 클라이언트에서 제공 하는 등록 정보를 나타내는 고유한 문자열인 클라이언트 식별자 인 등록 된 클라이언트를 발급 합니다.  클라이언트 식별자가 비밀이 아닙니다. 리소스 소유자에 게 노출 되며 클라이언트 인증에 단독으로 사용 하면 **안** 됩니다.  
+*  클라이언트 암호: 클라이언트 암호는 권한 부여 서버에서 생성 하는 암호입니다. 권한 부여 서버에만 알려진 고유한 값 이어야 합니다. 
+
+모범 사례 (권장 되지만 필수는 아님):
+* 여러 리디렉션 Url을 지원 합니다. 관리자는 "portal.azure.com" 및 "aad.portal.azure.com" 모두에서 프로 비전을 구성할 수 있습니다. 여러 리디렉션 Url을 지원 하기 때문에 사용자가 두 포털에서 액세스 권한을 부여할 수 있습니다.
+* 가동 중지 시간 없이 원활한 비밀 갱신을 보장 하기 위해 여러 비밀을 지원 합니다. 
+
+**수명이 긴 OAuth 전달자 토큰:** 응용 프로그램에서 OAuth 인증 코드 부여 흐름을 지원 하지 않는 경우 관리자가 프로 비전 통합을 설정 하는 데 사용할 수 있는 수명이 긴 OAuth 전달자 토큰을 생성할 수도 있습니다. 토큰은 영구적 이거나 토큰이 만료 될 때 프로 비전 작업이 [격리](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status) 됩니다. 이 토큰의 크기는 1KB 미만 이어야 합니다.  
+
+추가 인증 및 권한 부여 방법에 대 한 자세한 내용은 [UserVoice](https://aka.ms/appprovisioningfeaturerequest)에서 알려주세요.
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Azure AD 프로 비전 서비스에서 사용 하는 IP 주소를 사용 하 여 SCIM 요청 만들기
 

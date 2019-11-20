@@ -1,17 +1,17 @@
 ---
-title: Azure Migrate에서 처음으로 평가/마이그레이션 도구를 추가 합니다. | Microsoft Docs
+title: Azure Migrate에서 평가/마이그레이션 도구 추가
 description: Azure Migrate 프로젝트를 만들고 평가/마이그레이션 도구를 추가 하는 방법을 설명 합니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 11/06/2019
+ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: a4e66175b20552e632702cb2ba46d0ae6c0956d4
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 319d97d96bd054aed90079777e2ff83d0e308e5e
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720248"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185946"
 ---
 # <a name="add-an-assessmentmigration-tool-for-the-first-time"></a>처음으로 평가/마이그레이션 도구에 추가
 
@@ -46,7 +46,7 @@ Azure 구독에 새 Azure Migrate 프로젝트를 설정 하 고 도구를 추�
    **지리** | **저장소 위치 영역**
     --- | ---
     아시아   | 동남 아시아 또는 동아시아
-    유럽 | 북유럽 또는 유럽 서부
+    Europe | 북유럽 또는 유럽 서부
     일본  | 일본 동부 또는 일본 서 부
     영국 | 영국 남부 또는 영국 서부
     미국 | 미국 중부 또는 미국 서 부 2

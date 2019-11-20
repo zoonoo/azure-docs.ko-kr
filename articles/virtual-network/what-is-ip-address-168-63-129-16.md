@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/15/2019
 ms.author: genli
-ms.openlocfilehash: 0ea8a8ec1a92a7dbc01dddc175f7116825ba00f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: e061d503254ba7aa7735a97a060fc63f96b3fb61
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067773"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196663"
 ---
 # <a name="what-is-ip-address-1686312916"></a>IP 주소 168.63.129.16
 
@@ -35,6 +35,7 @@ IP 주소 168.63.129.16은 Azure 플랫폼 리소스에 대한 통신 채널을 
 ## <a name="scope-of-ip-address-1686312916"></a>IP 주소 168.63.129.16의 범위
 
 공용 IP 주소 168.63.129.16은 모든 지역 및 모든 국가 클라우드에서 사용 됩니다. 이 특수 공용 IP 주소는 Microsoft에서 소유 하며 변경 되지 않습니다. 기본 네트워크 보안 그룹 규칙을 통해 허용됩니다. 인바운드 및 아웃 바운드 방향의 로컬 방화벽 정책에서이 IP 주소를 허용 하는 것이 좋습니다. 이 IP 주소에서는 내부 Azure 플랫폼만이 메시지 원본을 제공할 수 있으므로, 이 특수 IP 주소와 리소스 간의 통신은 안전합니다. 이 주소가 차단되면 여러 시나리오에서 예기치 않은 동작이 발생할 수 있습니다.
+WireServer: 80, 443 및 32526와의 통신을 허용 하려면 최소한 다음 포트를 열어야 합니다.
 
 [Azure Load Balancer 상태 프로브](../load-balancer/load-balancer-custom-probe-overview.md) 는이 IP 주소에서 시작 됩니다. 이 IP 주소를 차단 하는 경우 프로브는 실패 합니다.
 

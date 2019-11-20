@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: e0dedb13bf7365e011eb3403fb7ec110a4290ec9
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9fbde84c499ba5b086ce812de63602c626b416b0
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012888"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74179322"
 ---
 # <a name="create-an-application-gateway-with-an-internal-load-balancer-ilb"></a>ILB(내부 부하 분산 장치)를 사용하여 Application Gateway 만들기
 
@@ -259,8 +259,6 @@ Get-AzureApplicationGateway : ResourceNotFound: The gateway does not exist.
 ## <a name="next-steps"></a>다음 단계
 
 SSL 오프로드를 구성하려는 경우 [SSL 오프로드에 대해 애플리케이션 게이트웨이 구성](application-gateway-ssl.md)을 참조하세요.
-
-ILB에서 사용되도록 애플리케이션 게이트웨이를 구성하려면 [ILB(내부 부하 분산 장치)를 사용하여 애플리케이션 게이트웨이 만들기](application-gateway-ilb.md)를 참조하세요.
 
 보다 자세한 내용을 원한다면 일반적 부하 분산 옵션을 참조:
 

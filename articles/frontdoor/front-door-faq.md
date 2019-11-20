@@ -1,5 +1,5 @@
 ---
-title: Azure Front 도어 서비스-Front 문에 대 한 faq (질문과 대답) | Microsoft Docs
+title: Azure Front 도어 서비스-질문과 대답
 description: 이 페이지에서는 Azure Front 도어 서비스에 대해 자주 묻는 질문에 대 한 답변을 제공 합니다.
 services: frontdoor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: 4001b3ed8d7a92d8a751486ab4fd3a097d032373
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809726"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184651"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 질문과 대답
 
@@ -124,7 +124,7 @@ Azure Front 도어 서비스는 전역적으로 분산 된 다중 테 넌 트 �
 
 참고-사용자 지정 SSL 인증서 업데이트는 전역적으로 배포 하는 데 30 분 정도 걸립니다.
 
-## <a name="configuration"></a>구성
+## <a name="configuration"></a>Configuration
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 
@@ -134,7 +134,7 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 
 [Azure Front 도어 서비스에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
 
-## <a name="performance"></a>성능 중심
+## <a name="performance"></a>성능
 
 ### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>Azure Front 도어 서비스는 고가용성 및 확장성을 어떻게 지원 하나요?
 
@@ -213,5 +213,5 @@ Azure Front 도어 서비스에 감사 로그를 사용할 수 있습니다. 포
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
-- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
+- [Front Door 작동 방식](front-door-routing-architecture.md)에 대해 알아보세요.

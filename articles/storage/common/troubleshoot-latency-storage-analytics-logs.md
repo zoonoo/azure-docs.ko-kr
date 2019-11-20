@@ -4,15 +4,18 @@ description: Azure Storage 분석 로그를 사용 하 여 대기 시간 문제�
 author: v-miegge
 ms.topic: troubleshooting
 ms.author: kartup
+manager: dcscontentpm
 ms.date: 10/21/2019
 ms.service: storage
 ms.subservice: common
-ms.openlocfilehash: f8ec8e3f27e74f442f314d4c812908888598244c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+services: storage
+tags: ''
+ms.openlocfilehash: 2197a149235c0dca98a24a57549538b2a4cbb1c8
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73180629"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196517"
 ---
 # <a name="troubleshoot-latency-using-storage-analytics-logs"></a>스토리지 분석 로그를 사용 하 여 대기 시간 문제 해결
 
@@ -96,10 +99,10 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    |   |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장 사항|
    |---|---|---|---|
-   |GetBlob|yes|아닙니다.|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
-   |GetBlob|아닙니다.|yes|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
-   |PutBlob|yes|아닙니다.|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
-   |PutBlob|아닙니다.|yes|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
+   |GetBlob|예|아니오|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
+   |GetBlob|아니오|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
+   |PutBlob|예|아니오|[**Put 작업:** RequestStatus = Success](#put-operation-requeststatus--success)|
+   |PutBlob|아니오|예|[**Put 작업:** RequestStatus = (SAS) NetworkError](#put-operation-requeststatus--sasnetworkerror)|
 
 ## <a name="status-results"></a>상태 결과
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec7730dc1143586eb4c5c05fd475b8412546b7a6
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
-ms.translationtype: MT
+ms.openlocfilehash: f593d5ea621ad450eb82388416534e40df36e2d5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809263"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184187"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Azure Active Directory 디바이스 관리 FAQ
 
@@ -82,14 +82,14 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
       하이브리드 Azure AD에 가입 된 Windows 10 및 Windows Server 2016/2019 장치를 다시 등록 하려면 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. [https://slack.botframework.com](`dsregcmd.exe /debug /leave`) 을 입력합니다.
+      1. `dsregcmd.exe /debug /leave` 을 입력합니다.
       1. 로그아웃했다가 다시 로그인하여 디바이스를 Azure AD에 다시 등록하는 예약된 작업을 트리거합니다. 
 
       하이브리드 Azure AD에 가입 된 하위 수준 Windows OS 버전의 경우 다음 단계를 수행 합니다.
 
       1. 관리자 권한으로 명령 프롬프트를 엽니다.
-      1. [https://slack.botframework.com](`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"`) 을 입력합니다.
-      1. [https://slack.botframework.com](`"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"`) 을 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /l"` 을 입력합니다.
+      1. `"%programFiles%\Microsoft Workplace Join\autoworkplace.exe /j"` 을 입력합니다.
 
       Azure AD 조인 장치 Windows 10 장치에 대해 다음 단계를 수행 합니다.
 
@@ -119,7 +119,7 @@ Azure Portal에서 **모든 디바이스** 보기를 사용하세요. PowerShell
 
 ### <a name="q-does-windows-10-device-registration-in-azure-ad-support-tpms-in-fips-mode"></a>Q: Azure AD의 Windows 10 장치 등록이 FIPS 모드에서 Tpm을 지원 하나요?
 
-**A:** 아니요, 모든 장치 상태에 대해 Windows 10에 대 한 현재 장치 등록-하이브리드 Azure AD 조인, Azure AD 조인 및 Azure AD 등록-FIPS 모드의 Tpm을 지원 하지 않습니다. 성공적으로 Azure AD에 가입 하거나 등록 하려면 해당 장치의 Tpm에 대해 FIPS 모드를 해제 해야 합니다.
+**A:** Windows 10 장치 등록은 FIPS 규격 TPM 2.0에 대해서만 지원 되 고 TPM 1.2에는 지원 되지 않습니다. 장치에 FIPS 규격 TPM 1.2가 있는 경우 Azure AD 조인 또는 하이브리드 Azure AD 조인을 계속 하기 전에 사용 하지 않도록 설정 해야 합니다. TPM은 TPM 제조업체에 따라 달라 지므로 TPM에서 FIPS 모드를 사용 하지 않도록 설정 하는 도구는 제공 하지 않습니다. 하드웨어 OEM에 지원을 문의 하세요. 
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: VM(클래식)에 대한 개인 IP 주소 구성 - Azure 클래식 CLI
+title: Vm에 대 한 개인 IP 주소 구성 (클래식)-CLI
 titlesuffix: Azure Virtual Network
 description: Azure 클래식 CLI(명령줄 인터페이스)를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/15/2016
 ms.author: genli
-ms.openlocfilehash: 64342c6dcf4c9a052442a6f4b0afb7a56994f496
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 9deaf4b1d80ad4e55e7c971998e8b1f5ea562257
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059233"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196575"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-classic-using-the-azure-classic-cli"></a>Azure 클래식 CLI를 사용하여 가상 머신(클래식)에 대한 개인 IP 주소 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "71059233"
 ## <a name="how-to-specify-a-static-private-ip-address-when-creating-a-vm"></a>VM을 만들 때 정적 개인 IP 주소를 지정하는 방법
 위의 시나리오를 기반으로 *TestService*라는 새 클라우드 서비스에 *DNS01*이라는 VM을 만들려면 다음 단계를 수행합니다.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](/cli/azure/install-cli-version-1.0)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](/cli/azure/install-cli-version-1.0) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
 2. **azure service create** 명령을 실행하여 클라우드 서비스를 만듭니다.
    
         azure service create TestService --location uscentral
