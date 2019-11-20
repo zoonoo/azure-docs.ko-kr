@@ -1,22 +1,19 @@
 ---
-title: Azure에서 Terraform으로 허브 및 스포크 하이브리드 네트워크 토폴로지 만들기
+title: 자습서 - Terraform을 사용하여 Azure에서 허브 및 스포크 하이브리드 네트워크 토폴로지 만들기
 description: Terraform을 사용하여 Azure에서 전체 하이브리드 네트워크 참조 아키텍처를 만드는 방법을 설명하는 자습서
-services: terraform
-ms.service: azure
-keywords: Terraform, 허브 및 스포크, 네트워크, 하이브리드 네트워크, DevOps, 가상 머신, Azure, VNet 피어링, 네트워크 가상 어플라이언스
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 5c2a61dd9da6d233a4b1410042f2125a1c300758
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 8d85163e746f1d2d0713a9a4f247a2061e0029b8
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173446"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969405"
 ---
-# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-with-terraform-in-azure"></a>자습서: Azure에서 Terraform으로 허브 및 스포크 하이브리드 네트워크 토폴로지 만들기
+# <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 및 스포크 하이브리드 네트워크 토폴로지 만들기
 
 이 자습서 시리즈에서는 Terraform을 사용하여 Azure에서 [허브 및 스포크 네트워크 토폴로지](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)를 구현하는 방법을 보여줍니다. 
 

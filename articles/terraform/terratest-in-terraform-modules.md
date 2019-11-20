@@ -1,22 +1,19 @@
 ---
-title: Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
+title: 자습서 - Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
 description: Terratest를 사용하여 Terraform 모듈을 테스트하는 방법을 알아보세요.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 스토리지 계정, azure, terratest, 단위 테스트, 통합 테스트
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 637bb01bff625989e392d5d711ebd5cdef5c0e09
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: bdb76fe2f87806c02a861ea84361b61a3e94b554
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169637"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969208"
 ---
-# <a name="test-terraform-modules-in-azure-by-using-terratest"></a>Terratest를 사용하여 Azure에서 Terraform 모듈 테스트
+# <a name="tutorial-test-terraform-modules-in-azure-using-terratest"></a>자습서: Terratest를 사용한 Azure 내 Terraform 모듈 테스트
 
 > [!NOTE]
 > 이 문서의 샘플 코드는 버전 0.12 이상에서 작동하지 않습니다.
@@ -40,7 +37,7 @@ Terraform 모듈을 만들 때는 품질 보증을 구현해야 합니다. 아�
 
 - **Go 프로그래밍 언어**: 모든 테스트 사례가 [Go](https://golang.org/dl/)로 작성됩니다.
 - **dep**: [dep](https://github.com/golang/dep#installation)는 Go의 종속성 관리 도구입니다.
-- **Azure CLI**: [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)는 Azure 리소스를 관리하는 데 사용할 수 있는 명령줄 도구입니다. (Terraform은 서비스 주체 또는 [Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html)를 통해 Azure를 인증하도록 지원합니다.)
+- **Azure CLI**: [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)는 Azure 리소스를 관리하는 데 사용할 수 있는 명령줄 도구입니다. (Terraform은 서비스 주체 또는 [Azure CLI](https://www.terraform.io/docs/providers/azurerm/authenticating_via_azure_cli.html)를 통해 Azure를 인증하도록 지원합니다.)
 - **mage**: [mage 실행 파일](https://github.com/magefile/mage/releases)을 사용하여 Terratest 사례의 실행을 간소화하는 방법을 보여 줍니다. 
 
 ## <a name="create-a-static-webpage-module"></a>정적 웹 페이지 모듈 만들기
@@ -91,7 +88,7 @@ variable "html_path" {
 
 ```hcl
 output "homepage_url" {
-  value = "${azurerm_storage_blob.homepage.url}"
+  value = azurerm_storage_blob.homepage.url
 }
 ```
 
@@ -106,30 +103,30 @@ output "homepage_url" {
 ```hcl
 resource "azurerm_resource_group" "main" {
   name     = "${var.website_name}-staging-rg"
-  location = "${var.location}"
+  location = var.location
 }
 
 resource "azurerm_storage_account" "main" {
   name                     = "${lower(replace(var.website_name, "/[[:^alnum:]]/", ""))}data001"
-  resource_group_name      = "${azurerm_resource_group.main.name}"
-  location                 = "${azurerm_resource_group.main.location}"
+  resource_group_name      = azurerm_resource_group.main.name
+  location                 = azurerm_resource_group.main.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
 }
 
 resource "azurerm_storage_container" "main" {
   name                  = "wwwroot"
-  resource_group_name   = "${azurerm_resource_group.main.name}"
-  storage_account_name  = "${azurerm_storage_account.main.name}"
+  resource_group_name   = azurerm_resource_group.main.name
+  storage_account_name  = azurerm_storage_account.main.name
   container_access_type = "blob"
 }
 
 resource "azurerm_storage_blob" "homepage" {
   name                   = "index.html"
-  resource_group_name    = "${azurerm_resource_group.main.name}"
-  storage_account_name   = "${azurerm_storage_account.main.name}"
-  storage_container_name = "${azurerm_storage_container.main.name}"
-  source                 = "${var.html_path}"
+  resource_group_name    = azurerm_resource_group.main.name
+  storage_account_name   = azurerm_storage_account.main.name
+  storage_container_name = azurerm_storage_container.main.name
+  source                 = var.html_path
   type                   = "block"
   content_type           = "text/html"
 }
@@ -173,7 +170,7 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
   html_path    = "empty.html"
 }
 ```
@@ -226,7 +223,7 @@ func TestUT_StorageAccountName(t *testing.T) {
         // Terraform init and plan only
         tfPlanOutput := "terraform.tfplan"
         terraform.Init(t, tfOptions)
-        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions.Vars, "plan", "-out="+tfPlanOutput)...)
+        terraform.RunTerraformCommand(t, tfOptions, terraform.FormatArgs(tfOptions, "plan", "-out="+tfPlanOutput)...)
 
         // Read and parse the plan output
         f, err := os.Open(path.Join(tfOptions.TerraformDir, tfPlanOutput))
@@ -317,11 +314,11 @@ variable "website_name" {
 module "staticwebpage" {
   source       = "../../"
   location     = "West US"
-  website_name = "${var.website_name}"
+  website_name = var.website_name
 }
 
 output "homepage" {
-  value = "${module.staticwebpage.homepage_url}"
+  value = module.staticwebpage.homepage_url
 }
 ```
 
@@ -395,8 +392,7 @@ GoPath/src/staticwebpage/test$ go test
 통합 테스트는 단위 테스트보다 훨씬 더 오래 걸립니다 (하나의 통합 사례에 대해 2분, 5개의 단위 사례에 대해 1분). 그러나 시나리오에서 단위 테스트 또는 통합 테스트 중에서 어느 것을 사용할지는 사용자의 결정에 달려 있습니다. 일반적으로 Terraform HCL 함수를 사용하여 복잡한 논리에 대한 단위 테스트를 사용하는 것을 선호합니다. 일반적으로 사용자의 엔드투엔드 관점에서 통합 테스트를 사용합니다.
 
 ## <a name="use-mage-to-simplify-running-terratest-cases"></a>mage를 사용하여 Terratest 사례 실행 단순화 
-
-Azure Cloud Shell에서 테스트 사례를 실행하는 것은 쉬운 작업이 아닙니다. 다른 디렉터리로 이동하여 다른 명령을 실행해야 합니다. Cloud Shell을 사용하지 않도록 프로젝트에 빌드 시스템을 도입합니다. 이 섹션에서는 작업에 Go 빌드 시스템인 mage를 사용합니다.
+Azure Cloud Shell에서 테스트 사례를 실행하려면 다양한 디렉터리에서 다른 명령을 실행해야 합니다. 이 프로세스를 보다 효율적으로 수행하기 위해 프로젝트에 빌드 시스템을 도입했습니다. 이 섹션에서는 작업에 Go 빌드 시스템인 mage를 사용합니다.
 
 mage에서 요구되는 유일한 것은 프로젝트의 루트 디렉터리에 있는 `magefile.go`(다음 예에서 `(+)`로 표시됨)입니다.
 
@@ -522,5 +518,5 @@ mage에서는 Go 패키지 시스템을 사용하여 단계를 공유할 수도 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Terratest에 대한 자세한 내용은 [Terratest GitHub 페이지](https://github.com/gruntwork-io/terratest)를 참조하세요.
-* mage에 대한 자세한 내용은 [mage GitHub 페이지](https://github.com/magefile/mage) 및 [mage 웹 사이트](https://magefile.org/)를 참조하세요.
+> [!div class="nextstepaction"] 
+> [Terratest GitHub 페이지](https://github.com/gruntwork-io/terratest).

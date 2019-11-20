@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 345b22be-d87e-45a4-b4c0-70a67eaf9bfd
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfafa1157619e151f97fcf9c8a410a0644354b80
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 259635613855e4d7687cf569c94bbd3dd04027fe
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097390"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160616"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-personal-portal"></a>자습서: Mimecast Personal Portal과 Azure Active Directory 통합
 
@@ -253,7 +254,7 @@ Azure AD 사용자가 Mimecast Personal Portal에 로그인하게 하려면 Mime
 
 2. **디렉터리 \> 내부**로 이동합니다.
    
-    ![디렉터리](./media/mimecast-personal-portal-tutorial/ic795003.png "디렉터리")
+    ![Directories](./media/mimecast-personal-portal-tutorial/ic795003.png "디렉터리")
 
 3. **새 도메인에 등록**을 클릭합니다.
    

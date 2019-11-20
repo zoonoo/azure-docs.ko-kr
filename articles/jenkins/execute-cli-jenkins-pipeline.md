@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 6/7/2017
-ms.openlocfilehash: 5728a9ab70c5b7db10a123d6964b498e70f96588
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/23/2019
+ms.openlocfilehash: 3da18bf50c82a32a9cec70555ac0d051e7660184
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66162203"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882129"
 ---
 # <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Jenkins 및 Azure CLI를 사용해 Azure App Service에 배포
 Azure에 Java 웹앱을 배포하기 위해 [Jenkins 파이프라인](https://jenkins.io/doc/book/pipeline/)에서 Azure CLI를 사용할 수 있습니다. 이 자습서에서는 Azure VM에서 CI/CD 파이프라인을 만들며 다음 방법이 포함됩니다.
@@ -174,7 +174,7 @@ WAR 파일이 웹앱에 성공적으로 배포되었는지 확인하려면 웹 �
 ## <a name="deploy-to-azure-web-app-on-linux"></a>Linux에서 Azure Web App에 배포
 이제 Jenkins 파이프라인에서 Azure CLI를 사용하는 방법을 배웠으므로 Linux에서 Azure Web App에 배포하도록 스크립트를 수정할 수 있습니다.
 
-Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 방법을 지원합니다. 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화 하는 Dockerfile을 제공해야 합니다. 그러면 플러그 인이 이미지를 빌드하고 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
+Linux에서 Web App은 Docker를 사용하여 배포를 수행하는 다양한 방법을 지원합니다. 배포하려면 서비스 런타임에 웹앱을 Docker 이미지로 패키지화 하는 Dockerfile을 제공해야 합니다. 그런 다음, 플러그 인이 이미지를 빌드하여 Docker 레지스트리에 푸시하고 이미지를 웹앱에 배포합니다.
 
 * Linux에서 실행되는 Azure Web App을 만들려면 [이 단계](../app-service/containers/quickstart-nodejs.md)를 따르세요.
 * 이 [문서](https://docs.docker.com/engine/installation/linux/ubuntu/)의 지침에 따라 Jenkins 인스턴스에 Docker를 설치합니다.

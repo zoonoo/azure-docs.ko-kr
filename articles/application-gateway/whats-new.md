@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: overview
 ms.date: 4/30/2019
 ms.author: victorh
-ms.openlocfilehash: 5ae7aa2dfbab5ff62f9ce56bc3a790294e369529
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b2e7b9f28c84b769fe64be82f91418cc2a7d634f
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686833"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044384"
 ---
 # <a name="whats-new-in-azure-application-gateway"></a>Azure Application Gateway의 새로운 소식
 
@@ -27,6 +27,7 @@ Azure Application Gateway는 지속적으로 업데이트됩니다. 최신 개�
 
 |기능  |설명  |추가된 날짜  |
 |---------|---------|---------|
+|프로브 향상 |Application Gateway v2 SKU의 사용자 지정 프로브 향상을 통해 [프로브 구성](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#create-probe-for-application-gateway-v2-sku)을 간소화하고, [주문형 백 엔드 상태 테스트](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal#test-backend-health-with-the-probe)를 용이하게 하고, 백 엔드 상태 문제를 해결하는 데 도움이 되도록 [추가 진단 정보](https://docs.microsoft.com/azure/application-gateway/application-gateway-backend-health-troubleshooting#error-messages)를 추가했습니다.  |2019년 10월 |
 |추가 메트릭 |Applicaiton Gateway v2 SKU를 모니터링하는 데 도움이 되도록 [타이밍 관련 메트릭](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#timing-metrics), 백 엔드 응답 상태, 받은 바이트 수, 보낸 바이트 수, 클라이언트 TLS 프로토콜, 현재 컴퓨팅 단위 등의 새 메트릭을 추가했습니다. [Application Gateway V2 SKU에서 지원하는 메트릭](https://docs.microsoft.com/azure/application-gateway/application-gateway-metrics#metrics-supported-by-application-gateway-v2-sku)을 참조하세요. |2019년 8월 |
 |WAF 사용자 지정 규칙 |Application Gateway WAF_v2는 이제 사용자 지정 규칙 만들기를 지원합니다. [Application Gateway 사용자 지정 규칙](custom-waf-rules-overview.md)을 참조하세요. |2019년 6월 |
 |자동 크기 조정, 영역 중복, 정적 VIP 지원 GA |자동 크기 조정, 영역 중복, 성능 향상, 정적 VIP, Key Vault, 헤더 다시 쓰기를 지원하는 v2 SKU의 일반 가용성. [Application Gateway 자동 크기 조정 설명서](application-gateway-autoscaling-zone-redundant.md)를 참조하세요. |2019년 4월 |

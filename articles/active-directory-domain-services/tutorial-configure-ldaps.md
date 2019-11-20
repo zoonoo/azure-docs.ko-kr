@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2eaae9093614f1512dcd75d23c98bca871bf2850
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 5422298bf782944f10b60e98b5f251d8088f36ed
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70193337"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172751"
 ---
 # <a name="tutorial-configure-secure-ldap-for-an-azure-active-directory-domain-services-managed-domain"></a>자습서: Azure Active Directory Domain Services 관리되는 도메인에 대한 보안 LDAP 구성
 
@@ -68,7 +68,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * **키 사용** - 인증서를 *디지털 서명* 및 *키 암호화*에 맞게 구성해야 합니다.
 * **인증서 용도** - 인증서는 SSL 서버 인증에 대해 유효해야 합니다.
 
-이 자습서에서는 PowerShell을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *contoso.com*)으로 바꿉니다.
+이 자습서에서는 [New-SelfSignedCertificate][New-SelfSignedCertificate] cmdlet을 사용하여 보안 LDAP용 자체 서명된 인증서를 만들어 보겠습니다. PowerShell 창을 **관리자** 권한으로 열고 다음 명령을 실행합니다. *$dnsName* 변수를 사용자 고유의 관리되는 도메인에서 사용하는 DNS 이름(예: *contoso.com*)으로 바꿉니다.
 
 ```powershell
 # Define your own DNS name used by your Azure AD DS managed domain
@@ -176,7 +176,7 @@ Thumbprint                                Subject
 
 프라이빗 키가 포함된 디지털 인증서를 만들어 내보내고 클라이언트 컴퓨터에서 연결을 신뢰하도록 설정했으면 이제 Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정합니다. Azure AD DS 관리형 도메인에서 보안 LDAP를 사용하도록 설정하려면 다음 구성 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 **리소스 검색** 상자에서 *domain services*를 검색합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **리소스 검색** 상자에 *도메인 서비스*를 입력합니다. 검색 결과에서 **Azure AD Domain Services**를 선택합니다.
 
     ![Azure Portal에서 Azure AD DS 관리형 도메인 검색 및 선택](./media/tutorial-configure-ldaps/search-for-domain-services.png)
 
@@ -207,7 +207,7 @@ Azure AD DS 관리형 도메인에 대한 인터넷을 통한 보안 LDAP 액세
 지정된 IP 주소 세트에서 636 TCP 포트를 통한 인바운드 보안 LDAP 액세스를 허용하는 규칙을 만들어 보겠습니다. 우선 순위가 낮은 기본 *DenyAll* 규칙은 인터넷의 다른 모든 인바운드 트래픽에 적용되므로 지정된 주소만 보안 LDAP를 사용하여 Azure AD DS 관리형 도메인에 연결할 수 있습니다.
 
 1. Azure Portal의 왼쪽 탐색 영역에서 *리소스 그룹*을 선택합니다.
-1. 리소스 그룹(예: *myResourceGroup*), 네트워크 보안 그룹(예: *AADDS-contoso.com-NSG*)을 차례로 선택합니다.
+1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, 네트워크 보안 그룹(*aaads-nsg*)을 선택합니다.
 1. 기존 인바운드 및 아웃바운드 보안 규칙의 목록이 표시됩니다. 네트워크 보안 그룹 창의 왼쪽에서 **보안 > 인바운드 보안 규칙**을 차례로 선택합니다.
 1. **추가**를 선택한 다음, *636* *TCP* 포트를 허용하는 규칙을 만듭니다. 보안을 강화하려면 *IP 주소*로 원본을 선택한 다음, 조직에 대한 사용자 고유의 유효한 IP 주소 또는 범위를 지정합니다.
 
@@ -297,3 +297,4 @@ Azure AD DS 관리형 도메인에 저장된 개체를 확인하려면 다음을
 <!-- EXTERNAL LINKS -->
 [rsat]: /windows-server/remote/remote-server-administration-tools
 [ldap-query-basics]: /windows/desktop/ad/creating-a-query-filter
+[New-SelfSignedCertificate]: /powershell/module/pkiclient/new-selfsignedcertificate

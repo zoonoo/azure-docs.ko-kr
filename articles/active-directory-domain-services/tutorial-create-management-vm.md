@@ -7,14 +7,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/14/2019
+ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: e7c3ccb553010b84a30ccdad875ea0362112d830
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69618793"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73172339"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -101,7 +101,7 @@ Azure AD DS 관리되는 도메인은 온-프레미스 AD DS 환경과 동일한
 
 Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 단계를 수행합니다.
 
-1. VM에 로그인하면 **서버 관리자**가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택합니다.
+1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
 1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
 1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
@@ -131,13 +131,15 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 
 1. Azure AD DS 관리되는 도메인에 속한 사용자와 그룹을 확인하려면 **AADDC Users** 컨테이너를 선택합니다. Azure AD 테넌트의 사용자 계정과 그룹이 이 컨테이너에 나열됩니다.
 
-    다음 출력 예에는 이름이 *contosoadmin*인 사용자 계정과 *AAD DC Administrators* 그룹이 이 컨테이너에 표시됩니다.
+    다음 출력 예에는 이름이 *Contoso Admin*인 사용자 계정과 *AAD DC Administrators*에 대한 그룹이 이 컨테이너에 표시됩니다.
 
     ![Active Directory 관리 센터에서 Azure AD DS 도메인 사용자 목록 보기](./media/tutorial-create-management-vm/list-azure-ad-users.png)
 
 1. Azure AD DS 관리되는 도메인에 조인된 컴퓨터를 확인하려면 **AADDC Computers** 컨테이너를 선택합니다. 현재 가상 머신에 대한 항목(예: *myVM*)이 나열됩니다. Azure AD DS 관리되는 도메인에 조인된 모든 컴퓨터의 컴퓨터 계정은 이 *AADDC Computers* 컨테이너에 저장됩니다.
 
-사용자 계정 암호 재설정 또는 그룹 멤버 자격 관리와 같은 일반적인 Active Directory 관리 센터 작업을 사용할 수 있습니다. 또한 관리 도구의 일부로 설치된 *Windows PowerShell용 Active Directory 모듈*을 사용하여 Azure AD DS 관리되는 도메인에서 일반적인 작업을 관리할 수도 있습니다.
+사용자 계정 암호 재설정 또는 그룹 멤버 자격 관리와 같은 일반적인 Active Directory 관리 센터 작업을 사용할 수 있습니다. 이러한 작업은 Azure AD DS 관리형 도메인에서 직접 만든 사용자 및 그룹에 대해서만 작동합니다. ID 정보는 Azure AD*에서* Azure AD DS로만 동기화됩니다. Azure AD DS에서 Azure AD로 다시 쓸 수는 없습니다. Azure AD에서 동기화된 사용자의 암호 또는 관리 그룹 멤버 자격을 변경하고 해당 변경 내용을 다시 동기화할 수 없습니다.
+
+또한 관리 도구의 일부로 설치된 *Windows PowerShell용 Active Directory 모듈*을 사용하여 Azure AD DS 관리되는 도메인에서 일반적인 작업을 관리할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

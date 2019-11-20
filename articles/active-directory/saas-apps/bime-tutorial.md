@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: bdcf0729-c880-4c95-b739-0f6345b17dd8
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 52a34c688b7d8e12dac1d76b3e03fb1b50583c6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f792798e724387b6917c23d1bde0c2c68fa8a270
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67106271"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157676"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bime"></a>자습서: Bime와 Azure Active Directory 통합
 
@@ -140,7 +141,7 @@ Bime에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 
 3. 계정 구성 페이지에서 다음 단계를 수행합니다.
   
-    ![Single Sign-On 구성](./media/bime-tutorial/ic775559.png "Single Sign-On 구성")
+    ![Single Sign-On 구성](./media/bime-tutorial/ic775559.png "Configure Single Sign-On")
 
     a. **SAML 인증 사용**을 선택합니다.
 

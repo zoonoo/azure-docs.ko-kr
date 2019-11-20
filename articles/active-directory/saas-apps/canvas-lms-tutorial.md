@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bfed291c-a33e-410d-b919-5b965a631d45
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d96d1addf1028c2651ed837f3dab66f12d5d5fcc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ab998b6d9aec663123f0bd2428e4c6f1767f1846
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105856"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158742"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-canvas"></a>자습서: Canvas와 Azure Active Directory 통합
 
@@ -136,7 +137,7 @@ Canvas에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 2. **코스 \> 관리된 계정 \> Microsoft**로 이동합니다.
 
-    ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+    ![캔버스](./media/canvas-lms-tutorial/ic775990.png "캔버스")
 
 3. 왼쪽 탐색 창에서 **인증**을 선택한 다음 **새 SAML Config 추가**를 클릭합니다.
 
@@ -223,7 +224,7 @@ Azure AD 사용자가 Canvas에 로그인할 수 있도록 하려면 Canvas로 �
 
 2. **코스 \> 관리된 계정 \> Microsoft**로 이동합니다.
 
-   ![Canvas](./media/canvas-lms-tutorial/ic775990.png "Canvas")
+   ![캔버스](./media/canvas-lms-tutorial/ic775990.png "캔버스")
 
 3. **사용자**를 클릭합니다.
 
