@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1d7d2ad6adefb83c3c313063a9e630458ccebc5
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851760"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73175049"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -30,7 +30,7 @@ ms.locfileid: "68851760"
 - 사용자가 필요한 조직 자산에 액세스할 수 있습니다. 
 - IT 직원은 조직을 보호하는 데 필요한 컨트롤을 얻습니다.
 
-디바이스 ID 관리는 [디바이스 기반 조건부 액세스](../conditional-access/require-managed-devices.md)에 대한 기반입니다. 디바이스 기반 조건부 액세스 정책을 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
+디바이스 ID 관리는 [디바이스 기반의 조건부 액세스](../conditional-access/require-managed-devices.md)에 대한 기반입니다. 디바이스 기반의 조건부 액세스 정책을 사용할 경우 관리 디바이스를 통해서만 환경의 리소스에 액세스하도록 할 수 있습니다.
 
 ## <a name="getting-devices-in-azure-ad"></a>Azure AD에서 디바이스 가져오기
 
@@ -94,4 +94,4 @@ Azure AD의 디바이스 ID 관리를 사용하면 다음과 같은 작업을 �
 - [Azure AD 조인 디바이스](concept-azure-ad-join.md)에 대한 자세한 정보
 - [하이브리드 Azure AD 조인 디바이스](concept-azure-ad-join-hybrid.md)에 대한 자세한 정보
 - Azure Portal에서 디바이스 ID를 관리하는 방법에 대한 개요를 보려면 [Azure Portal을 사용하여 디바이스 ID 관리](device-management-azure-portal.md)를 참조하세요.
-- 디바이스 기반 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 구성](../conditional-access/require-managed-devices.md)을 참조하세요.
+- 디바이스 기반의 조건부 액세스에 대한 자세한 내용은 [Azure Active Directory 디바이스 기반 조건부 액세스 정책 구성](../conditional-access/require-managed-devices.md)을 참조하세요.

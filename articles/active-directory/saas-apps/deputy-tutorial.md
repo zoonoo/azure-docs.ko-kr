@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 5665c3ac-5689-4201-80fe-fcc677d4430d
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e8b61bc01e729472c140253f8f936b6ec0dd1b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a0b52a56f51e4dcf5f27eddcd68ff17973df21c0
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67104241"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159227"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-deputy"></a>자습서: Deputy와 Azure Active Directory 통합
 
@@ -258,7 +259,7 @@ Azure AD 사용자가 Deputy에 로그인할 수 있도록 하려면 Deputy로 �
 
 3. **구성원 추가** 단추를 클릭하고 **단일 구성원 추가**를 클릭합니다.
    
-    ![피플 추가](./media/deputy-tutorial/tutorial_deputy_002.png "피플 추가")
+    ![피플 추가](./media/deputy-tutorial/tutorial_deputy_002.png "구성원 추가")
 
 4. 다음 단계를 수행하고 **저장 및 초대**를 클릭합니다.
    

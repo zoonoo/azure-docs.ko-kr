@@ -4,8 +4,8 @@ description: Linux의 Azure App Service에 대해 알아봅니다.
 keywords: azure app service, linux, oss
 services: app-service
 documentationcenter: ''
-author: msangapu
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
 ms.service: app-service
@@ -15,29 +15,20 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 7c00946ed9de88df43a4435c23ebef27b5c64e5c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
+ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071317"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72819690"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
-[Azure App Service](../overview.md)는 웹 사이트와 웹 애플리케이션 호스팅을 위해 최적화된 완전 관리형 컴퓨팅 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다. [언어](#languages) 섹션에는 현재 지원되는 애플리케이션 스택이 나와 있습니다.
+[Azure App Service](../overview.md)는 웹 사이트와 웹 애플리케이션 호스팅을 위해 최적화된 완전 관리형 컴퓨팅 플랫폼입니다. 고객은 지원되는 애플리케이션 스택에 대해 Linux의 App Service를 사용하여 Linux에서 웹앱을 호스트할 수 있습니다.
 
 ## <a name="languages"></a>언어
 
-Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
-
-| 언어 | 지원되는 버전 |
-|---|---|
-| Node.js | 4.4, 4.5, 4.8, 6.2, 6.6, 6.9, 6.10, 6.11, 8.0, 8.1, 8.2, 8.8, 8.9, 8.11, 8.12, 9.4, 10.1, 10.10, 10.14 |
-| Java * | Tomcat 8.5, 9.0, Java SE, WildFly 14(모두 JRE 8 실행) |
-| PHP | 5.6, 7.0, 7.2, 7.3 |
-| Python | 2.7, 3.6, 3.7 |
-| .NET Core | 1.0, 1.1, 2.0, 2.1, 2.2 |
-| Ruby | 2.3, 2.4, 2.5, 2.6 |
+Linux의 App Service는 개발자의 생산성을 향상시키기 위해 수많은 기본 제공 이미지를 지원합니다. 언어에는 다음이 포함됩니다. Node.js, Java(JRE 8 & JRE 11), PHP, Python, .NET Core 및 Ruby. [`az webapp list-runtimes --linux`](https://docs.microsoft.com/cli/azure/webapp?view=azure-cli-latest#az-webapp-list-runtimes)를 실행하여 최신 언어 및 지원되는 버전을 확인합니다. 애플리케이션에 필요한 런타임이 기본 제공 이미지에 지원되지 않는 경우 [자체 Docker 이미지를 빌드](tutorial-custom-docker-image.md)하여 Web App for Containers에 배포하는 방법에 대한 지침이 있습니다.
 
 ## <a name="deployments"></a>배포
 

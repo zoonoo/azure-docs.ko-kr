@@ -13,21 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: javascript
 ms.topic: quickstart
-ms.date: 09/24/2018
+ms.date: 10/25/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20c62d379006382d4208e4b111202581bc75454f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c239b88a67e1be19e3a95130839ab6fd4598fe77
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68380762"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73150054"
 ---
 # <a name="quickstart-build-an-angularjs-single-page-app-for-sign-in-and-sign-out-with-azure-active-directory"></a>빠른 시작: Azure Active Directory로 로그인하고 로그아웃하기 위해 AngularJS 단일 페이지 앱 빌드
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
+
+> [!IMPORTANT]
+> [Microsoft ID 플랫폼](v2-overview.md)은 Azure AD(Azure Active Directory) 개발자 플랫폼의 발전된 형태입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph와 같은 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다.
+> 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하기 위해 *[Microsoft ID 플랫폼 엔드포인트](azure-ad-endpoint-comparison.md)* 를 사용할 수 있습니다.
+> 이 빠른 시작은 이전의 Azure AD v1.0 엔드포인트에 대한 것입니다. 새 프로젝트에는 v2.0 엔드포인트를 사용하는 것이 좋습니다. 자세한 내용은 [이 JavaScript SPA 자습서](tutorial-v2-javascript-spa.md)와 *Microsoft ID 플랫폼 엔드포인트*를 설명하는 [이 문서](active-directory-v2-limitations.md)를 참조하세요.
 
 Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순하고 간편하게 로그인, 로그아웃 및 보안 OAuth API 호출을 추가할 수 있습니다. 또한 앱에서 Windows Server Active Directory 계정으로 사용자를 인증하고 Azure AD를 통해 보호되는 Web API(예: Office 365 API) 또는 Azure API를 사용할 수 있습니다.
 
@@ -45,9 +50,6 @@ Azure AD(Azure Active Directory)를 사용하면 단일 페이지 앱에 단순�
 1. Azure AD에 앱을 등록합니다.
 2. ADAL을 설치하고 단일 페이지 앱을 구성합니다.
 3. ADAL을 사용하여 단일 페이지 앱에서 페이지 보안을 지원합니다.
-
-> [!NOTE]
-> 회사 및 학교 계정 외에 개인 계정의 로그인도 사용하도록 설정하기 위해 *[Microsoft ID 플랫폼 엔드포인트](azure-ad-endpoint-comparison.md)* 를 사용할 수 있습니다. 자세한 내용은 [이 JavaScript SPA 자습서](tutorial-v2-javascript-spa.md)와 *Microsoft ID 플랫폼 엔드포인트*를 설명하는 [이 문서](active-directory-v2-limitations.md)를 참조하세요. 
 
 ## <a name="prerequisites"></a>필수 조건
 

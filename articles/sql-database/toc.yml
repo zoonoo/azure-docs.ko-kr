@@ -278,6 +278,8 @@
                   href: sql-database-xevent-code-ring-buffer.md
         - name: 하이퍼스케일 성능 진단
           href: sql-database-hyperscale-performance-diagnostics.md
+        - name: 조밀한 탄력적 풀의 리소스 관리
+          href: sql-database-elastic-pool-resource-management.md
     - name: 확장성
       items:
         - name: 확장성 설명서

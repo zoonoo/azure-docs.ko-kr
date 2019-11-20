@@ -15,18 +15,18 @@ ms.workload: identity
 ms.date: 09/24/2019
 ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dce3fea1427632f37d826b79016e3aa3e22dad5f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b515a7954d82cdd377cec72fa8525fbd9691351d
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264163"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73149503"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
-이 빠른 시작에는 네이티브 iOS 또는 macOS 애플리케이션이 개인, 회사 및 학교 계정에 로그인을 처리하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다.
+이 빠른 시작에는 네이티브 iOS 또는 macOS 애플리케이션이 Microsoft ID 플랫폼을 사용하여 개인, 회사 및 학교 계정에 로그인하고, 액세스 토큰을 가져오고, Microsoft Graph API를 호출할 수 있는 방법을 보여주는 코드 샘플이 포함되어 있습니다.
 
 이 빠른 시작은 iOS 및 macOS 앱 모두에 적용됩니다. 일부 단계는 iOS 앱에만 필요합니다. 이러한 단계를 iOS 전용이라고 합니다.
 

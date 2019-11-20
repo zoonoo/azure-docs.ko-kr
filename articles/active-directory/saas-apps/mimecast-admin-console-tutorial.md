@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 81c50614-f49b-4bbc-97d5-3cf77154305f
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/27/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bbbd73d1856ba5d3dc19873c56fce622b272939
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9edadd6462052f82f92c05c1678f845ece856cfb
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097333"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160659"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mimecast-admin-console"></a>자습서: Mimecast 관리 콘솔과 Azure Active Directory 통합
 
@@ -135,7 +136,7 @@ Mimecast 관리 콘솔에서 Azure AD Single Sign-On을 구성하려면 다음 �
 
 2. **서비스 \> 애플리케이션**으로 이동합니다.
 
-    ![서비스](./media/mimecast-admin-console-tutorial/ic794998.png "서비스")
+    ![서비스](./media/mimecast-admin-console-tutorial/ic794998.png "Services")
 
 3. **인증 프로필**을 클릭합니다.
 
@@ -233,7 +234,7 @@ Azure AD 사용자가 Mimecast 관리 콘솔에 로그인하려면 Mimecast 관�
 
 2. **디렉터리 \> 내부**로 이동합니다.
    
-    ![디렉터리](./media/mimecast-admin-console-tutorial/ic795003.png "디렉터리")
+    ![Directories](./media/mimecast-admin-console-tutorial/ic795003.png "디렉터리")
 
 3. **새 도메인에 등록**을 클릭합니다.
    

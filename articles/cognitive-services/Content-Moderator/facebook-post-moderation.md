@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: bd2ed09294ad122b7e8af045f01d3c6f63fcc510
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564933"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936001"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | -------------------- |-------------|
     | cm:TeamId   | Content Moderator 팀 ID  | 
     | cm:SubscriptionKey | Content Moderator 구독 키 - [자격 증명](review-tool-user-guide/credentials.md) 참조 |
-    | cm:Region | Content Moderator 지역 이름(공백 없이) |
+    | cm:Region | Content Moderator 지역 이름(공백 없이) 이는 Azure 리소스의 **개요** 탭에 있는 **위치** 필드에서 찾을 수 있습니다.|
     | cm:ImageWorkflow | 이미지에서 실행할 워크플로의 이름 |
     | cm:TextWorkflow | 텍스트에서 실행할 워크플로의 이름 |
     | cm:CallbackEndpoint | 이 가이드의 뒷부분에서 만드는 CMListener 함수 앱에 대한 Url |

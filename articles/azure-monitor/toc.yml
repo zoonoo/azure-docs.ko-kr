@@ -798,12 +798,14 @@
               items:
                 - name: 모니터링 사용 개요
                   href: insights/container-insights-onboard.md
-                - name: 새 클러스터에 대해 활성화
+                - name: 새 AKS 클러스터에 대해 활성화
                   href: insights/container-insights-enable-new-cluster.md
-                - name: 기존 클러스터에 대해 활성화
+                - name: 기존 AKS 클러스터에 대해 활성화
                   href: insights/container-insights-enable-existing-clusters.md
                 - name: 하이브리드 클러스터에 대해 활성화
                   href: insights/container-insights-hybrid-setup.md
+                - name: Azure Red Hat OpenShift에 대해 활성화
+                  href: insights/container-insights-azure-redhat-setup.md
                 - name: 지역 매핑
                   href: insights/container-insights-region-mapping.md
             - name: 성능 모니터링

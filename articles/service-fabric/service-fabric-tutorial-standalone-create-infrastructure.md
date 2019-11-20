@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 05/11/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 69508628356a5f33073311e4d062d66875509192
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: 048051a612793cbe82f82fbde482ed470ad3758c
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66302469"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73177833"
 ---
 # <a name="tutorial-create-aws-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: AWS 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
@@ -82,7 +82,7 @@ Service Fabric은 클러스터의 호스트 사이에 많은 포트가 열려 �
 
 이러한 포트를 전 세계에 여는 것을 방지하려면 대신 동일 보안 그룹의 호스트에 대해서만 포트를 엽니다. 보안 그룹 ID를 기록해 둡니다. 예를 들어 **sg-c4fb1eba**입니다.  그런 다음, **편집**을 선택합니다.
 
-다음으로, 서비스 종속성에 대한 보안 그룹에 규칙 4개를 추가한 다음, Service Fabric에 대한 규칙 3개를 더 추가합니다. 첫 번째 규칙은 기본 연결 확인에 대한 ICMP 트래픽을 허용하는 것입니다. 다른 규칙은 SMB 및 원격 레지스트리를 사용하도록 설정하는 데 필요한 포트를 엽니다.
+다음으로, 서비스 종속성에 대한 보안 그룹에 규칙 4개를 추가한 다음, Service Fabric에 대한 규칙 3개를 더 추가합니다. 첫 번째 규칙은 기본 연결 확인에 대한 ICMP 트래픽을 허용하는 것입니다. 다른 규칙은 원격 레지스트리를 사용하도록 설정하는 데 필요한 포트를 엽니다.
 
 첫 번째 규칙의 경우 **규칙 추가**를 선택한 다음, 드롭다운 메뉴에서 **모든 ICMP-IPv4**를 선택합니다. 사용자 지정 옆의 입력란을 선택하고 위에서 사용자 보안 그룹 ID를 입력합니다.
 
@@ -118,30 +118,18 @@ Service Fabric에 대한 마지막 두 개의 규칙의 경우 전 세계에 열
 ping 172.31.20.163
 ```
 
-출력이 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128`과 같은 경우 인스턴스 간의 연결이 4차례 반복됩니다.  다음 명령으로 SMB 공유가 작동하는지 유효성을 검사합니다.
-
-```
-net use * \\172.31.20.163\c$
-```
-
-출력으로 `Drive Z: is now connected to \\172.31.20.163\c$.`을 반환해야 합니다.
+출력이 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128`과 같은 경우 인스턴스 간의 연결이 4차례 반복됩니다.  
 
 ## <a name="prep-instances-for-service-fabric"></a>Service Fabric에 대한 인스턴스 준비
 
-처음부터 이를 만들 경우 몇 가지 추가 단계를 수행해야 합니다.  즉, 원격 레지스트리가 실행 중인지 유효성을 검사하고, SMB를 사용하고, SMB 및 원격 레지스트리에 대한 필수 포트를 열어 두어야 합니다.
+처음부터 이를 만들 경우 몇 가지 추가 단계를 수행해야 합니다.  즉, 원격 레지스트리가 실행 중인지 유효성을 검사하고 필수 포트를 열어야 합니다.
 
 더 쉽게 하려면 사용자 데이터 스크립트를 사용하여 인스턴스를 부트스트랩할 때 이 모든 작업을 포합합니다.
-
-SMB를 사용하려면 사용한 PowerShell 명령입니다.
-
-```powershell
-netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
-```
 
 방화벽에서 포트를 열려면 여기에 PowerShell 명령이 있습니다.
 
 ```powershell
-New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
+New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
 ```
 
 ## <a name="next-steps"></a>다음 단계

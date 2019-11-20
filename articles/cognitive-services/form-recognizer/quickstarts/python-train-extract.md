@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 5739827f1f6cf65cfe5c4aa8303c9f37eb569854
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ec1baa8797935b76963025f82d6c7df43a2a7d5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264411"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931550"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -114,7 +114,7 @@ Azure Blob 컨테이너에 있는 문서를 사용하여 Form Recognizer 모델�
 
 다음으로, 문서를 분석하여 키-값 쌍 및 테이블을 추출합니다. 뒤에 나오는 Python 스크립트를 실행하여 **모델 - 분석** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
+1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `<path to your form>`을 양식의 파일 경로(예: C:\temp\file.pdf)로 바꿉니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Test** 폴더에 있는 파일을 사용할 수 있습니다.
 1. `<modelID>`를 이전 섹션에서 받은 모델 ID로 바꿉니다.
 1. `<file type>`을 파일 형식으로 바꿉니다. 지원되는 형식은 `application/pdf`, `image/jpeg`, `image/png`입니다.

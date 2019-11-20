@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Migrate 설명서
-summary: Azure Migrate를 사용하여 Azure 클라우드로 마이그레이션합니다. Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브를 제공합니다. 이 허브는 Azure Migrate 도구와 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.
+summary: Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브의 도구를 제공합니다.
 metadata:
   title: Azure Migrate 설명서
-  description: Azure Migrate를 사용하여 Azure 클라우드로 마이그레이션합니다. Azure Migrate는 온-프레미스 워크로드를 Azure로 검색, 평가 및 마이그레이션하기 위한 중앙 허브를 제공합니다. 이 허브는 Azure Migrate 도구와 ISV(독립 소프트웨어 공급업체)의 통합 도구를 제공합니다.
+  description: Azure Migrate를 사용하여 온-프레미스 워크로드를 Azure로 마이그레이션합니다.
   ms.service: azure-migrate
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: e49bfdefe08b3a8f4598e809fd44b57f3f93de67
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001145"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74185845"
 landingContent:
 - title: Azure Migrate 정보
   linkLists:
@@ -35,6 +35,10 @@ landingContent:
       url: ./tutorial-prepare-vmware.md
     - text: 서버 평가를 사용하여 Hyper-V VM 평가
       url: ./tutorial-prepare-hyper-v.md
+    - text: 서버 평가를 사용하여 물리적 서버 평가
+      url: ./tutorial-prepare-physical.md
+    - text: 가져온 데이터를 사용하여 서버 평가
+      url: tutorial-assess-import.md
     - text: 서버 마이그레이션을 사용하여 VMware VM 마이그레이션
       url: ./server-migrate-overview.md
     - text: 서버 마이그레이션을 사용하여 Hyper-V VM 마이그레이션
@@ -52,13 +56,19 @@ landingContent:
     - text: Azure Migrate 지원 매트릭스 검토
       url: migrate-support-matrix.md
     - text: VMware 지원 매트릭스 검토
-      url: migrate-support-matrix-vmware.md
+      url: ./migrate-support-matrix-vmware.md
     - text: Hyper-V 지원 매트릭스 검토
-      url: migrate-support-matrix-hyper-v.md
+      url: ./migrate-support-matrix-hyper-v.md
+    - text: 물리적 서버 지원 매트릭스 검토
+      url: ./migrate-support-matrix-physical.md
 - title: 관리
   linkLists:
   - linkListType: how-to-guide
     links:
+    - text: 평가 도구 추가
+      url: ./how-to-assess.md
+    - text: 애플리케이션 인벤토리 검색
+      url: ./how-to-discover-applications.md
     - text: 마이그레이션 도구 추가
       url: ./how-to-migrate.md
     - text: VMware 평가 크기 조정
@@ -71,9 +81,9 @@ landingContent:
   linkLists:
   - linkListType: learn
     links:
-    - text: VMware 에이전트 기반 마이그레이션 아키텍처
+    - text: VMware/물리적 에이전트 기반 마이그레이션에 대해 알아보기
       url: ./agent-based-migration-architecture.md
-    - text: Hyper-V 마이그레이션 아키텍처
+    - text: Hyper-V 마이그레이션에 대해 알아보기
       url: ./hyper-v-migration-architecture.md
     - text: 평가에 대한 자세한 정보
       url: ./concepts-assessment-calculation.md

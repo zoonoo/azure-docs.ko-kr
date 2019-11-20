@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: e14fc310-bac4-4f09-99ef-87e5c77288b6
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/24/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e9904ba14e8d5a518807eda371ba655963b33bd4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 71d2fe97a4af07f48038ffd88de648247b56bb80
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091022"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-citrix-sharefile"></a>자습서: Citrix ShareFile과 Azure Active Directory 통합
 
@@ -155,7 +156,7 @@ Citrix ShareFile에서 Azure AD Single Sign-on을 구성하려면 다음 단계�
 
 4. **기본 설정**의 **Single Sign-on/SAML 2.0 구성** 대화 상자 페이지에서 다음 단계를 수행 합니다.
    
-    ![Single Sign-On](./media/sharefile-tutorial/ic773628.png "Single Sign-On")
+    ![Single Sign-On](./media/sharefile-tutorial/ic773628.png "SSO(Single sign-on)")
    
     a. **SAML 사용**을 클릭합니다.
     

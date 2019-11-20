@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: bd398225-8bd8-4697-9a44-af6e6679113a
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/17/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13ab9752391519f38e843b9d625164e655348d28
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 89ea2c45e16dfeb63801f70fa4480c0d865a890f
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67091790"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160079"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sap-cloud-platform"></a>자습서: SAP Cloud Platform과 Azure Active Directory 통합
 
@@ -160,7 +161,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 3. 트러스트 관리 섹션의 **로컬 서비스 공급자** 아래에서 다음 단계를 수행합니다.
 
-    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic793931.png "신뢰 관리")
+    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic793931.png "트러스트 관리")
    
     a. **편집**을 클릭합니다.
 
@@ -178,7 +179,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 4. **로컬 서비스 공급자** 설정을 저장한 후 다음을 수행하여 회신 URL을 가져옵니다.
    
-    ![메타 데이터 가져오기](./media/sap-hana-cloud-platform-tutorial/ic793930.png "메타 데이터 가져오기")
+    ![메타데이터 가져오기](./media/sap-hana-cloud-platform-tutorial/ic793930.png "메타데이터 가져오기")
 
     a. **메타데이터 가져오기**를 클릭하여 SAP Cloud Platform 메타데이터 파일을 다운로드합니다.
 
@@ -188,7 +189,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 5. **신뢰할 수 있는 ID 공급자** 탭을 클릭한 다음 **신뢰할 수 있는 ID 공급자 추가**를 클릭합니다.
    
-    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic790802.png "신뢰 관리")
+    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic790802.png "트러스트 관리")
    
     >[!NOTE]
     >신뢰할 수 있는 ID 공급자 목록을 관리하려면, 로컬 서비스 공급자 섹션에서 사용자 할당 구성 형식을 선택해야 합니다. 기본 구성 유형으로 SAP ID 서비스에 대한 편집할 수 없는 암시적 트러스트가 있습니다. 없음의 경우 신뢰 설정이 필요 없습니다.
@@ -197,7 +198,7 @@ SAP Cloud Platform에서 Azure AD Single Sign-On을 구성하려면 다음 단�
 
 6. **일반** 탭을 클릭한 다음 **찾아보기**를 클릭하여 다운로드한 메타데이터 파일을 업로드합니다.
     
-    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic793932.png "신뢰 관리")
+    ![신뢰 관리](./media/sap-hana-cloud-platform-tutorial/ic793932.png "트러스트 관리")
     
     >[!NOTE]
     >메타데이터 파일을 업로드하면 **Single Sign-On URL**, **단일 로그아웃 URL** 및 **서명 인증서**의 값이 자동으로 채워집니다.

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 28acce3e-22a0-4a37-8b66-6e518d777350
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88f42a849d5c483feb9325072fd65769839672e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7b34e6087f3a6e7f3cc0f46c53d4fe903838d210
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105373"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73158608"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>자습서: Clarizen과 Azure Active Directory 통합
 
@@ -136,11 +137,11 @@ Clarizen에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. **전역 설정** 탭을 클릭합니다. 그런 다음 **페더레이션 인증** 옆에 있는 **편집**을 클릭합니다.
 
-    ![“전역 설정” 탭](./media/clarizen-tutorial/tutorial_clarizen_002.png "전역 설정")
+    !["글로벌 설정" 탭](./media/clarizen-tutorial/tutorial_clarizen_002.png "전역 설정")
 
 1. **페더레이션 인증** 대화 상자에서 다음 단계를 수행합니다.
 
-    ![“페더레이션 인증” 대화 상자](./media/clarizen-tutorial/tutorial_clarizen_003.png "페더레이션 인증")
+    !["페더레이션 인증" 대화 상자](./media/clarizen-tutorial/tutorial_clarizen_003.png "페더레이션 인증")
 
     a. **페더레이션 인증 사용**을 선택합니다.
 
@@ -217,7 +218,7 @@ Azure AD 사용자가 Clarizen에 로그인할 수 있도록 하려면 사용자
 
 2. **피플**을 클릭합니다.
 
-    !["피플" 클릭](./media/clarizen-tutorial/create_aaduser_001.png "피플")
+    !["피플" 클릭](./media/clarizen-tutorial/create_aaduser_001.png "사람")
 
 3. **사용자 초대**를 클릭합니다.
 

@@ -1,22 +1,19 @@
 ---
-title: Azure에서 Terraform으로 허브 및 스포크 네트워크 유효성 검사
+title: 자습서 - Terraform을 사용하여 Azure에서 허브 및 스포크 네트워크 유효성 검사
 description: 모든 가상 네트워크가 서로 연결된 상태에서 허브 및 스포크 네트워크 토폴로지의 유효성을 검사하는 자습서입니다.
-services: terraform
-ms.service: azure
-keywords: Terraform, 허브 및 스포크, 네트워크, 하이브리드 네트워크, DevOps, 가상 머신, azure,  vnet 피어링,
-author: VaijanathB
-manager: jeconnoc
-ms.author: vaangadi
+ms.service: terraform
+author: tomarchermsft
+ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e35af0fcf4a8f1f8f0446be44fe5b0bb6eeec693
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169743"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969329"
 ---
-# <a name="tutorial-validate-a-hub-and-spoke-network-with-terraform-in-azure"></a>자습서: Azure에서 Terraform으로 허브 및 스포크 네트워크 유효성 검사
+# <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 및 스포크 네트워크 유효성 검사
 
 이 문서에서는 이 시리즈의 이전 문서에서 만든 terraform 파일을 실행한다. 결과는 데모 가상 네트워크 간의 연결에 대한 유효성 검사입니다.
 
@@ -39,7 +36,7 @@ ms.locfileid: "71169743"
 
 ## <a name="verify-your-configuration"></a>구성 확인
 
-[필수 구성 요소](#prerequisites)를 완료한 후, 적절한 구성 파일이 있는지 확인합니다.
+[필수 구성 요소](#prerequisites)를 완료한 후 적절한 구성 파일이 있는지 확인합니다.
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 

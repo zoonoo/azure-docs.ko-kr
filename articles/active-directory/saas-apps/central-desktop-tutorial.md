@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: b805d485-93db-49b4-807a-18d446c7090e
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/12/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58fcd21c7e6e3f2336d3e809584451dc38f6276b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fda8e928b530001faeae34c364dfed91d7620f0a
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67105728"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73157505"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-central-desktop"></a>자습서: Central Desktop와 Azure Active Directory 통합
 
@@ -144,7 +145,7 @@ Central Desktop에서 Azure AD Single Sign-On을 구성하려면 다음 단계�
 
 3. **Single Sign On 설정** 페이지에서 다음 단계를 수행합니다.
 
-    ![Single Sign-On 설정](./media/central-desktop-tutorial/ic769564.png "Single Sign-On 설정")
+    ![Single Sign-On 설정](./media/central-desktop-tutorial/ic769564.png "Single Sign On 설정")
 
     a. **SAML v2 Single Sign-On 사용**을 선택합니다.
 
@@ -236,7 +237,7 @@ Azure AD 사용자가 로그인할 수 있도록 Central Desktop 애플리케이
 
 3. **새 멤버의 메일 주소** 상자에 프로비전할 Azure AD 계정을 입력한 후, **다음**을 선택합니다.
 
-    ![새 멤버의 메일 주소](./media/central-desktop-tutorial/ic781052.png "새 멤버의 메일 주소")
+    ![새 멤버의 이메일 주소](./media/central-desktop-tutorial/ic781052.png "새 멤버의 이메일 주소")
 
 4. **내부 멤버 추가**를 선택합니다.
 

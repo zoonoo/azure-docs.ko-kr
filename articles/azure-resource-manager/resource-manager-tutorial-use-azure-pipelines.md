@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/15/2019
+ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b176e97a546335f597d4cf424d7feb4f5fa0f775
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597246"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052189"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -223,7 +223,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 리소스 그룹을 엽니다. 이름은 파이프라인 YAML 파일에서 지정한 이름입니다.  스토리지 계정이 하나 만들어진 것이 보입니다.  스토리지 계정 이름은 **store**로 시작합니다.
 1. 스토리지 계정 이름을 선택하여 엽니다.
-1. **속성**을 선택합니다. **SKU**는 **Standard_LRS**입니다.
+1. **속성**을 선택합니다. **복제**는 **LRS(로컬 중복 스토리지)** 입니다.
 
     ![Azure Resource Manager Azure DevOps Azure Pipelines 포털 확인](./media/resource-manager-tutorial-use-azure-pipelines/azure-resource-manager-devops-pipelines-portal-verification.png)
 
@@ -250,7 +250,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
 
     원격 리포지토리의 마스터 분기가 업데이트되었으므로 파이프라인이 다시 실행됩니다.
 
-변경 내용을 확인하려면 스토리지 계정의 SKU를 확인하면 됩니다.  [배포 확인](#verify-the-deployment)을 참조하세요.
+변경 내용을 확인하려면 스토리지 계정의 복제 속성을 확인하면 됩니다.  [배포 확인](#verify-the-deployment)을 참조하세요.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

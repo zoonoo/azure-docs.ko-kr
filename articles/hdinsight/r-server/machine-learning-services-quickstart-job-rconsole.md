@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: R 콘솔을 사용하여 ML Services에서 R 스크립트 실행 - Azure HDInsight'
+title: '빠른 시작: ML Services 및 R 콘솔의 R 스크립트 - Azure HDInsight'
 description: 빠른 시작에서 R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트를 실행합니다.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: hrasheed
 ms.custom: mvc
-ms.openlocfilehash: 44bc90a4c556108b4b6874a2d1297a6467413824
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: af41a7569dedc9a56f67be8ae791d7185e0c7489
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736357"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241607"
 ---
 # <a name="quickstart-execute-an-r-script-on-an-ml-services-cluster-in-azure-hdinsight-using-r-console"></a>빠른 시작: R 콘솔을 사용하여 Azure HDInsight의 ML Services 클러스터에서 R 스크립트 실행
 

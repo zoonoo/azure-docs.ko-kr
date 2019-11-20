@@ -974,21 +974,19 @@
       items:
         - name: 백업에서 데이터 복원
           href: how-to-backup-and-restore.md
-    - name: 로깅
+    - name: 모니터
       items:
-        - name: 진단 로깅
-          href: logging.md
+        - name: Cosmos DB 모니터링
+          href: monitor-cosmos-db.md
+        - name: Cosmos용 Azure Monitor(미리 보기)
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+        - name: Cosmos DB 계정에서 메트릭 보기
+          href: use-metrics.md
         - name: Logic Apps를 통한 애플리케이션 로깅
           href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
           maintainContext: true
-    - name: 메트릭으로 모니터링
-      items:
-        - name: Cosmos DB 계정에서 메트릭 보기
-          href: use-metrics.md
-        - name: Azure Monitor에서 메트릭 보기
-          href: cosmos-db-azure-monitor-metrics.md
-        - name: 모니터 SLA
-          href: monitor-accounts.md
+        - name: 데이터 참조 모니터링
+          href: monitor-cosmos-db-reference.md
     - name: 로컬에서 개발
       items:
         - name: 에뮬레이터 사용

@@ -17,8 +17,8 @@
           href: quickstart-dotnet-core-app.md
         - name: .NET Framework
           href: quickstart-dotnet-app.md
-        - name: .NET Core의 Azure 함수
-          href: quickstart-azure-function-csharp.md
+        - name: .NET Core의 Azure Functions
+          href: quickstart-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-java-spring-app.md
     - name: 기능 관리
@@ -37,6 +37,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: .NET Framework에서 동적 구성을 사용하도록 설정
       href: enable-dynamic-configuration-dotnet.md
+    - name: Azure Functions에서 동적 구성을 사용하도록 설정
+      href: enable-dynamic-configuration-azure-functions-csharp.md
     - name: .NET Core 앱에서 기능 플래그 사용
       href: use-feature-flags-dotnet-core.md
     - name: Spring Boot 앱에서 기능 플래그 사용
@@ -67,7 +69,7 @@
           href: concept-disaster-recovery.md
 - name: 방법 가이드
   items:
-    - name: Azure 관리형 서비스 ID와 통합
+    - name: Azure 관리 ID와 통합
       href: howto-integrate-azure-managed-service-identity.md
     - name: 구성 데이터 가져오기 또는 내보내기
       href: howto-import-export-data.md

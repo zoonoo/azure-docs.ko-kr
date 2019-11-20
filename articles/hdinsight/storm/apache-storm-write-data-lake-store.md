@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Apache Storm에서 Storage/Data Lake Storage에 쓰기 - Azure HDInsight
+title: '자습서: Storage에 대한 HDInsight Apache Storm - Azure/Data Lake'
 description: 자습서 - Apache Storm을 사용하여 Azure HDInsight용 HDFS 호환 스토리지에 쓰는 방법을 알아봅니다.
 ms.service: hdinsight
 author: hrasheed-msft
@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/24/2019
-ms.openlocfilehash: b6114a764d0834b7bcfe4b95d34fae6a03a8a40e
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 579163180f6c7ba19927ca66d20bd92d1b2de52e
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181028"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241200"
 ---
 # <a name="tutorial-write-to-apache-hadoop-hdfs-from-apache-storm-on-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Storm에서 Apache Hadoop HDFS에 쓰기
 

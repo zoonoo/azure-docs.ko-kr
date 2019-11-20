@@ -125,6 +125,8 @@
       href: serial-console-power-options.md
     - name: 일반적인 직렬 콘솔 오류
       href: serial-console-errors.md
+    - name: 직렬 콘솔 grub 사전 예방적 구성
+      href: serial-console-grub-proactive-configuration.md
 - name: 스토리지 리소스 삭제 시 오류
   href: storage-resource-deletion-errors.md
 - name: 클래식 스토리지 리소스 삭제 시 오류

@@ -8,20 +8,20 @@ ms.topic: include
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 710bb8cba7fbbe4bc9b9fdc52b0767c96f97fe72
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c97c8231265cf87f52333a56d21d6fb13180c554
+ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182822"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72808861"
 ---
 ## <a name="create-base-resources"></a>기본 리소스 만들기
 
-메시지 라우팅을 구성하려면 먼저 IoT 허브, 스토리지 계정 및 Service Bus 큐를 만들어야 합니다. 이러한 리소스는 이 자습서의 1부에 제공되는 4가지 문서 중 하나를 사용하여 만들 수 있습니다(Azure CLI, Azure PowerShell, Azure Portal 또는 Azure Resource Manager 템플릿).
+메시지 라우팅을 구성하려면 먼저 IoT 허브, 스토리지 계정 및 Service Bus 큐를 만들어야 합니다. 이러한 리소스는 이 자습서의 1부에 제공되는 4가지 문서 중 하나인 Azure Portal, Azure Resource Manager 템플릿, Azure CLI 또는 Azure PowerShell을 사용하여 만들 수 있습니다.
 
 모든 리소스에 대해 동일한 리소스 그룹 및 위치를 사용합니다. 그런 다음, 마지막에 리소스 그룹을 삭제하여 모든 내용을 한 번에 삭제할 수 있습니다.
 
-다음 섹션은 수행할 단계를 설명합니다.
+아래는 다음 섹션에서 수행할 단계의 요약입니다. 
 
 1. [리소스 그룹](../articles/azure-resource-manager/resource-group-overview.md)을 만듭니다.
 

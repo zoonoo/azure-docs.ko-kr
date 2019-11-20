@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Resource Manager를 사용하여 Apache Hadoop 클러스터 만들기 - Azure HDInsight'
+title: '빠른 시작: Apache Hadoop 및 Resource Manager - Azure HDInsight'
 description: 이 빠른 시작에서는 Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터를 만듭니다.
 keywords: Hadoop 시작, Hadoop Linux, Hadoop 빠른 시작, Hive 시작, Hive 빠른 시작
 ms.service: hdinsight
@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 06/12/2019
-ms.openlocfilehash: 6c4ff1df0ec56339721b3cdab9bb62b0ee8ba94f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b554fcd4d4175aeac88df14eebbbaf4a8ba49f4c
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067682"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73044795"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-resource-manager-template"></a>빠른 시작: Azure HDInsight에서 Resource Manager 템플릿을 사용하여 Apache Hadoop 클러스터 만들기
 
@@ -50,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     > [!NOTE]  
     > 사용자가 제공하는 값은 고유해야 하며 명명 지침을 따라야 합니다. 템플릿은 유효성 검사를 수행하지 않습니다. 사용자가 제공하는 값이 이미 사용 중이거나 지침을 준수하지 않는 경우 템플릿을 제출한 후 오류가 발생합니다.  
 
-    ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Azure Portal과 리소스 그룹 관리자 템플릿을 사용하여 HDInsight에 Hadoop 클러스터 배포")
+    ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/apache-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png "Azure Portal 및 리소스 그룹 관리자 템플릿을 사용하여 HDInsight에 Hadoop 클러스터 배포")
 
 3. **위에 명시된 사용 약관에 동의함**을 선택한 다음, **구매**를 선택합니다. 배포가 진행 중이라는 알림이 표시됩니다.  클러스터를 만들려면 20분 정도가 걸립니다.
 

@@ -1,21 +1,21 @@
 ### YamlMime:Landing
 title: Azure Site Recovery 설명서
-summary: 온-프레미스 머신 및 워크로드를 Azure로, Azure VM을 보조 Azure 지역으로 재해 복구하는 데 Azure Site Recovery를 사용합니다. Azure로의 복제를 통해 중단이 발생할 때 장애 조치(failover)를 오케스트레이션하고 Azure의 워크로드 및 앱에 계속 액세스할 수 있습니다. 기본 위치를 다시 사용할 수 있게 되면 필요에 따라 장애 복구(failback)할 수 있습니다.
+summary: 온-프레미스 워크로드 및 Azure VM의 재해 복구에 Azure Site Recovery를 사용합니다.
 metadata:
   title: Azure Site Recovery 설명서
-  description: 온-프레미스 머신 및 워크로드를 Azure로, Azure VM을 보조 Azure 지역으로 재해 복구하는 데 Azure Site Recovery를 사용합니다. Azure로의 복제를 통해 중단이 발생할 때 장애 조치(failover)를 오케스트레이션하고 Azure의 워크로드 및 앱에 계속 액세스할 수 있습니다. 기본 위치를 다시 사용할 수 있게 되면 필요에 따라 장애 복구(failback)할 수 있습니다.
+  description: 온-프레미스 워크로드 및 Azure VM에 대한 Azure의 재해 복구 기능을 설정합니다.
   ms.service: site-recovery
   ms.topic: landing-page
   ms.collection: collection
   author: rayne-wiselman
   ms.author: raynew
-  ms.date: 10/07/2019
-  ms.openlocfilehash: 0d4405e447c7624e4d6cc714209ffc86451a74bd
-  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.date: 11/19/2019
+  ms.openlocfilehash: ccbc4c92a6d0db9d5baf8a226ba79405a2b824ff
+  ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/07/2019
-  ms.locfileid: "72001101"
+  ms.lasthandoff: 11/19/2019
+  ms.locfileid: "74186595"
 landingContent:
 - title: Site Recovery란?
   linkLists:

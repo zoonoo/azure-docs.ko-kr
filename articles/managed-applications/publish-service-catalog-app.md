@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.date: 10/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 62d8de4f36ab110f7bd871c9de0e5d843516970c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: f248fe125873b4ed1e930e56865e4e403bcceea6
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529004"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053832"
 ---
 # <a name="create-and-publish-a-managed-application-definition"></a>관리되는 애플리케이션 정의 만들기 및 게시
 
@@ -87,7 +87,7 @@ mainTemplate.json 파일을 저장합니다.
 
 ## <a name="defining-your-create-experience-using-createuidefinitionjson"></a>CreateUiDefinition.json을 사용하여 만들기 환경 정의
 
-게시자는 관리형 애플리케이션을 만드는 사용자를 위한 인터페이스를 생성하는 **createUiDefinition.json** 파일을 사용하여 만들기 환경을 정의합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소]\(create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
+게시자는 관리형 애플리케이션을 만드는 사용자를 위한 인터페이스를 생성하는 **createUiDefinition.json** 파일을 사용하여 만들기 환경을 정의합니다. 사용자는 드롭다운, 텍스트 상자 및 암호 상자를 포함한 [컨트롤 요소](create-uidefinition-elements.md)를 사용하여 각 매개 변수에 대한 입력을 제공하는 방법을 정의합니다.
 
 이름이 **createUiDefinition.json**인 파일을 만듭니다(이 이름은 대/소문자를 구분함).
 

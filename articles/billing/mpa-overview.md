@@ -8,20 +8,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/13/2019
+ms.date: 10/24/2019
 ms.author: banders
-ms.openlocfilehash: 9c6c28ef296f3b1346fd82641d8c557a500273d8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 6bb0f3ea1b4e3bf17ed3bf26b838da8f2a694673
+ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376691"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72898556"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
 
 청구 계정은 Azure를 사용하기 위해 가입할 때 생성됩니다. 청구 계정을 사용하여 청구서, 결제를 관리하고 비용을 추적할 수 있습니다. 여러 청구 계정에 액세스할 수 있습니다. 예를 들어 개인 프로젝트를 위해 Azure에 가입한 경우가 있을 수 있습니다. 조직의 기업계약, Microsoft 고객 계약 또는 Microsoft 파트너 계약을 통해 Azure에 액세스할 수도 있습니다. 이러한 각 시나리오의 경우 별도의 청구 계정을 가질 수 있습니다.
 
-이 문서는 Microsoft 파트너 계약에 대한 청구 계정에 적용됩니다. 이러한 계정은 새 상거래 환경에서 고객에 대한 청구를 관리하기 위해 CSP(클라우드 솔루션 공급자)에 대해 만들어집니다. 새 환경은 MCA(Microsoft 고객 계약)를 수락하고 Azure 플랜이 있는 고객을 한 명 이상 보유한 파트너에만 사용할 수 있습니다. [Microsoft 파트너 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-partner-agreement).
+이 문서는 Microsoft 파트너 계약에 대한 청구 계정에 적용됩니다. 이러한 계정은 새 상거래 환경에서 고객에 대한 청구를 관리하기 위해 CSP(클라우드 솔루션 공급자)에 대해 만들어집니다. 새 환경은 Microsoft 고객 계약을 수락하고 Azure 플랜이 있는 고객을 한 명 이상 보유한 파트너에만 사용할 수 있습니다. [Microsoft 파트너 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-partner-agreement). [Azure 플랜](https://azure.microsoft.com/pricing/purchase-options/microsoft-customer-agreement/)에서는 Microsoft 고객 계약에 따라 고객이 Azure 서비스를 종량제 요금으로 이용할 수 있습니다.
 
 ## <a name="your-billing-account"></a>청구 계정
 
@@ -35,7 +35,7 @@ Microsoft 파트너 계약에 대한 청구 계정에는 비즈니스에서 수�
 
 ## <a name="billing-profiles"></a>청구 프로필
 
-청구 프로필을 사용하여 통화에 대한 청구서를 관리할 수 있습니다. 월초에 사용자 계정에서 각 청구 프로필의 월별 청구서가 생성됩니다. 청구서에는 이전 달의 모든 Azure 구독 및 기타 구매에 대한 청구 프로필의 통화 요금이 포함됩니다. 
+청구 프로필을 사용하여 통화에 대한 청구서를 관리할 수 있습니다. 월초에 사용자 계정에서 각 청구 프로필의 월별 청구서가 생성됩니다. 청구서에는 이전 달의 모든 Azure 구독 및 기타 구매에 대한 청구 프로필의 통화 요금이 포함됩니다.
 
 Azure Portal에서 청구서를 보고 사용량 파일 및 가격표와 같은 관련 문서를 다운로드할 수 있습니다. 자세한 내용은 [Microsoft 파트너 계약 청구서 다운로드](billing-download-azure-invoice.md)를 참조하세요.
 
@@ -45,11 +45,11 @@ Azure Portal에서 청구서를 보고 사용량 파일 및 가격표와 같은 
 
 ## <a name="customers"></a>고객
 
-Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 고객을 보고 관리할 수 있습니다. 이러한 고객에 대한 Azure 구독을 만들고 관리하는 것 뿐만 아니라 요금 및 트랜잭션도 볼 수 있습니다. 
+Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 고객을 보고 관리할 수 있습니다. 이러한 고객에 대한 Azure 구독을 만들고 관리하는 것 뿐만 아니라 요금 및 트랜잭션도 볼 수 있습니다.
 
 ### <a name="enable-policy-to-give-visibility-into-cost"></a>정책을 활성화하여 비용에 대한 가시성 제공
 
-고객 조직의 사용자가 Azure 사용량에 대한 종량제 요금으로 비용을 보고 분석할 수 있는지 여부를 제어하는 정책을 적용합니다. 기본적으로 이 정책은 해제되어 있으며 사용자가 비용을 볼 수 없습니다. 이 기능이 활성화되면 구독에 대한 적절한 [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스 권한이 있는 사용자는 구독에 대한 비용을 보고 분석할 수 있습니다. 
+고객 조직의 사용자가 Azure 사용량에 대한 종량제 요금으로 비용을 보고 분석할 수 있는지 여부를 제어하는 정책을 적용합니다. 기본적으로 이 정책은 해제되어 있으며 사용자가 비용을 볼 수 없습니다. 이 기능이 활성화되면 구독에 대한 적절한 [Azure RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 액세스 권한이 있는 사용자는 구독에 대한 비용을 보고 분석할 수 있습니다.
 
 정책을 켜려면 다음을 수행합니다.
 
@@ -60,7 +60,7 @@ Microsoft 고객 계약을 수락하고 Azure Portal에 Azure 플랜이 있는 �
    ![Azure Portal 검색을 보여 주는 스크린샷](./media/mpa-overview/search-cmb.png)
 
 1. 왼쪽에서 **고객**을 선택한 다음, 목록에서 고객을 선택합니다.
-   
+
    ![고객 선택을 보여 주는 스크린샷](./media/mpa-overview/mpa-customers.png)
 
 1. 왼쪽에서 **정책**을 선택합니다.

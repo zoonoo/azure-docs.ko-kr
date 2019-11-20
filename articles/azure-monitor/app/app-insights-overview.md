@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/03/2019
 ms.custom: mvc
-ms.openlocfilehash: 58c63c229510b476ea19a9650c8eed0fc2d72ac2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 089b37761c11c02e34c35eb378c64862bc4fbc98
+ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677825"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73064148"
 ---
 # <a name="what-is-application-insights"></a>Application Insights란?
 [Azure Monitor](../overview.md)의 기능인 Application Insights는 여러 플랫폼의 웹 개발자를 위한 확장 가능한 APM(애플리케이션 성능 관리) 서비스입니다. 이를 사용하여 라이브 웹 애플리케이션을 모니터링합니다. 성능 이상을 자동으로 감지합니다. 사용자가 문제를 진단하고 앱을 사용하여 실제로 수행할 작업을 이해할 수 있도록 돕는 강력한 분석 도구를 포함합니다.  성능 및 가용성을 지속적으로 향상시킬 수 있도록 설계되었습니다. .NET, Node.js 및 Java EE, 호스트된 온-프레미스, 하이브리드 또는 퍼블릭 클라우드를 포함하여 다양한 플랫폼에서 앱과 함께 작동합니다. DevOps 프로세스와 통합되며, 다양한 개발 도구와의 연결 지점을 갖고 있습니다. Visual Studio App Center를 통합하여 모바일 앱에서 원격 분석을 모니터링하고 분석할 수 있습니다.
@@ -106,6 +106,7 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
   * [.NET 콘솔 애플리케이션](../../azure-monitor/app/console.md)
   * [Java](../../azure-monitor/app/java-get-started.md)
   * [Node.JS](../../azure-monitor/app/nodejs.md)
+  * [Python(미리 보기)](../../azure-monitor/app/opencensus-python.md)
   * [기타 플랫폼](../../azure-monitor/app/platforms.md)
 * 페이지 보기, AJAX 및 기타 클라이언트 쪽 원격 분석에 대해 **[웹 페이지를 계측](../../azure-monitor/app/javascript.md)** 합니다.
 * Visual Studio App Center와 통합하여 **[모바일 앱 사용을 분석](../../azure-monitor/learn/mobile-center-quickstart.md)** 합니다.
@@ -124,6 +125,8 @@ Application Insights는 Microsoft Azure에서 호스트되는 다양한 서비�
 * [ASP.NET Core](../../azure-monitor/app/asp-net-core.md)
 * [Java](../../azure-monitor/app/java-get-started.md)
 * [Node.JS](../../azure-monitor/app/nodejs.md)
+* [Python(미리 보기)](../../azure-monitor/app/opencensus-python.md)
+
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 * 질문 및 문제:

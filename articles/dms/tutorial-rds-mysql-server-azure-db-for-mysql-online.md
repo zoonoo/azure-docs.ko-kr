@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 09/21/2019
-ms.openlocfilehash: 9bd620ef9664e921aa88792017585b02e44387f8
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/28/2019
+ms.openlocfilehash: 2df76c5906037fc5ce35e0c3a6558b0240c4b2be
+ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172698"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73043299"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS을 사용하여 RDS MySQL을 Azure Database for MySQL로 온라인 마이그레이션
 
@@ -58,9 +58,6 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 * Azure Resource Manager 배포 모델을 사용하여 Azure Database Migration Service에 대한 Azure VNet(Virtual Network)을 만듭니다. 그러면 [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용하여 온-프레미스 원본 서버에 사이트 간 연결이 제공됩니다. VNet을 만드는 방법에 대한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/) 참조하세요. 특히 단계별 세부 정보를 제공하는 빠른 시작 문서를 참조하세요.
 * VNet 네트워크 보안 그룹 규칙이 Azure Database Migration Service에 대한 다음 인바운드 통신 포트를 차단하지 않는지 확인합니다. 443, 53, 9354, 445 및 12000 Azure VNet NSG 트래픽 필터링에 대한 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) 문서를 참조하세요.
 * 데이터베이스 엔진 액세스를 허용하도록 [Windows 방화벽](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access)(또는 Linux 방화벽)을 구성합니다. MySQL 서버의 경우 연결을 위해 포트 3306을 허용합니다.
-* Azure Database Migration Service가 원본 MySQL Server에 액세스할 수 있도록 Windows 방화벽을 엽니다(기본 TCP 포트는 3306).
-* 원본 데이터베이스 앞에 방화벽 어플라이언스를 사용하는 경우, Azure Database Migration Service가 마이그레이션을 위해 원본 데이터베이스에 액세스할 수 있게 허용하는 방화벽 규칙을 추가해야 합니다.
-* Azure Database Migration Service가 대상 데이터베이스에 액세스할 수 있도록 Azure Database for MySQL 서버에 대한 서버 수준 [방화벽 규칙](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure)을 만듭니다. Azure Database Migration Service에 사용되는 VNet의 서브넷 범위를 입력합니다.
 
 > [!NOTE]
 > Azure Database for MySQL은 InnoDB 테이블만 지원합니다. MyISAM 테이블을 InnoDB로 변환하는 방법은 [MyISAM에서 InnoDB로 테이블 변환](https://dev.mysql.com/doc/refman/5.7/en/converting-tables-to-innodb.html) 문서를 참조하세요.
@@ -72,6 +69,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
     * binlog_format = row
     * binlog_checksum = NONE
 3. 새 매개 변수 그룹을 저장합니다.
+4. 새 매개 변수 그룹을 RDS MySQL 인스턴스와 연결합니다. 다시 부팅이 필요할 수 있습니다.
 
 ## <a name="migrate-the-schema"></a>스키마 마이그레이션
 

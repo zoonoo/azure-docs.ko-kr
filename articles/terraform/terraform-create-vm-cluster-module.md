@@ -1,22 +1,19 @@
 ---
-title: Terraform 모듈을 사용하여 Azure에서 VM 클러스터 만들기
+title: 자습서 - 모듈 레지스트리를 사용하여 Terraform으로 Azure VM 클러스터 만들기
 description: Terraform 모듈을 사용하여 Azure에서 Windows 가상 머신 클러스터를 만드는 방법 알아보기
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 가상 컴퓨터, 네트워크, 모듈
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: 6279b5c9022b448aea9b33a94fc1b2b35b6d23de
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: ba99f9cdc20448398b339041aeab41fb75495e5d
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169860"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72969488"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>모듈 레지스트리를 사용하여 Terraform으로 VM 클러스터 만들기
+# <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>자습서: 모듈 레지스트리를 사용하여 Terraform으로 Azure VM 클러스터 만들기
 
 이 문서에서는 Terraform [Azure 컴퓨팅 모듈](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2)로 소형 VM 클러스터를 만드는 과정을 안내합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다. 
 
@@ -63,7 +60,7 @@ module mycompute {
     remote_port = "3389"
     nb_instances = 2
     public_ip_dns = ["unique_dns_name"]
-    vnet_subnet_id = "${module.network.vnet_subnets[0]}"
+    vnet_subnet_id = module.network.vnet_subnets[0]
 }
 
 module "network" {
@@ -73,15 +70,15 @@ module "network" {
 }
 
 output "vm_public_name" {
-    value = "${module.mycompute.public_ip_dns_name}"
+    value = module.mycompute.public_ip_dns_name
 }
 
 output "vm_public_ip" {
-    value = "${module.mycompute.public_ip_address}"
+    value = module.mycompute.public_ip_address
 }
 
 output "vm_private_ips" {
-    value = "${module.mycompute.network_interface_private_ip}"
+    value = module.mycompute.network_interface_private_ip
 }
 ```
 
@@ -104,5 +101,5 @@ output "vm_private_ips" {
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Terraform 모듈](https://registry.terraform.io/modules/Azure) 목록 찾아보기
-- [Terraform으로 가상 머신 확장 집합](terraform-create-vm-scaleset-network-disks-hcl.md) 만들기
+> [!div class="nextstepaction"] 
+> [Azure Terraform 모듈 목록 찾아보기](https://registry.terraform.io/modules/Azure)

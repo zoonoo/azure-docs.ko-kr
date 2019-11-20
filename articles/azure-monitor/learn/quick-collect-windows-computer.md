@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor를 사용하여 하이브리드 Windows 컴퓨터에서 데이터 수집 | Microsoft Docs
+title: Azure Monitor를 사용하여 하이브리드 Windows 컴퓨터에서 데이터 수집
 description: 이 빠른 시작에서는 Azure 외부에서 실행되는 Windows 컴퓨터용 Log Analytics 에이전트를 배포하고 Azure Monitor Logs를 사용하여 데이터를 수집하도록 설정하는 방법을 알아봅니다.
 services: azure-monitor
 documentationcenter: azure-monitor
@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 08/22/2019
 ms.author: magoedte
 ms.custom: mvc, seo-javascript-october2019
-ms.openlocfilehash: 1b8888c2c8aaedce181d19c015206323ccf2b0ba
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 26919a64313df823dddad5dcfca6de5d08dcd993
+ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677259"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73199036"
 ---
 # <a name="collect-data-from-a-windows-computer-in-a-hybrid-environment-with-azure-monitor"></a>Azure Monitor를 사용하여 하이브리드 환경에서 Windows 컴퓨터의 데이터 수집
 

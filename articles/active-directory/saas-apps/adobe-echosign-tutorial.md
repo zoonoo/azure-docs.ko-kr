@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: f9385723-8fe7-4340-8afb-1508dac3e92b
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bcb27e24e9b53b734a24304a63c8fd91d5e94f5d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 788c1292b844088f171479b40fc566ff5cfc8a57
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67107342"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73154031"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-adobe-sign"></a>자습서: Adobe Sign과 Azure Active Directory 통합
 
@@ -151,7 +152,7 @@ Adobe Sign에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
 1. SAML 메뉴에서 **계정 설정** > **SAML 설정**을 선택합니다.
    
-    ![Adobe Sign SAML 설정 페이지의 스크린샷](./media/adobe-echosign-tutorial/ic789520.png "계정")
+    ![Adobe Sign SAML 설정 페이지의 스크린샷](./media/adobe-echosign-tutorial/ic789520.png "계좌")
 
 1. **SAML 설정** 섹션에서 다음 단계를 수행합니다.
   
@@ -237,7 +238,7 @@ Azure AD 사용자가 Adobe Sign에 로그인할 수 있도록 하려면 Adobe S
 
 2. 상단 메뉴에서 **계정**을 선택합니다. 그런 다음, 왼쪽 창에서 **사용자 및 그룹** > **새 사용자 만들기**를 선택합니다.
    
-    ![계정, 사용자 및 그룹, 새 사용자 만들기가 강조 표시된 Adobe Sign 회사 사이트의 스크린샷](./media/adobe-echosign-tutorial/ic789524.png "계정")
+    ![계정, 사용자 및 그룹, 새 사용자 만들기가 강조 표시된 Adobe Sign 회사 사이트의 스크린샷](./media/adobe-echosign-tutorial/ic789524.png "계좌")
    
 3. **새 사용자 만들기** 섹션에서 다음 단계를 수행합니다.
    

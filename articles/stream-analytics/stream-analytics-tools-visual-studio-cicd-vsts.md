@@ -1,5 +1,5 @@
 ---
-title: Azure DevOps를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
+title: CI/CD 및 Azure DevOps를 사용하여 Azure Stream Analytics 작업 배포
 description: 이 문서에서는 Azure DevOps Services를 사용하여 CI/CD로 Stream Analytics 작업을 배포하는 방법을 설명합니다.
 services: stream-analytics
 author: su-jie
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 9e05e4eab8bd3c307334b62df00dc03e56ce60ad
-ms.sourcegitcommit: 90c6b63552f6b7f8efac7f5c375e77526841a678
+ms.openlocfilehash: 7810cf9950d919469c4b47053a878518726f4393
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2019
-ms.locfileid: "56727590"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72925077"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>자습서: Azure Pipelines를 사용하여 CI/CD를 통해 Azure Stream Analytics 작업 배포
 이 자습서에서는 Azure Pipelines를 사용하여 Azure Stream Analytics 작업의 연속 통합 및 배포를 설정하는 방법을 설명합니다. 
@@ -117,7 +117,7 @@ Azure Pipelines 릴리스 파이프라인에서는 애플리케이션 패키지�
     
     |**설정**  |**제안 값**  |
     |---------|---------|
-    |구독  |  구독을 선택합니다.   |
+    |Subscription  |  구독을 선택합니다.   |
     |작업  |  리소스 그룹을 만들기 또는 업데이트   |
     |리소스 그룹  |  리소스 그룹 이름을 입력합니다.   |
     |템플릿  | [솔루션 경로]\bin\Debug\Deploy\\[프로젝트 이름].JobTemplate.json   |

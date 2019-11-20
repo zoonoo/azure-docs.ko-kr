@@ -20,8 +20,10 @@
       href: internet-analyzer-scorecard.md
 - name: 리소스
   items:
-    - name: 인터넷 분석기 FAQ
+    - name: Internet Analyzer FAQ
       href: internet-analyzer-faq.md
+    - name: Internet Analyzer CLI 참조
+      href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: 블로그

@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 1068d364-11f3-43b5-bd6d-26f00ecd5baa
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e12b5984eb2fe4e54ffec7d6b4a2a6da202c70e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4dc91d51d49ac1a317b88835e4d2e51773216020
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67097797"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159502"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lucidchart"></a>자습서: Lucidchart와 Azure Active Directory 통합
 
@@ -150,7 +151,7 @@ Lucidchart에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수
 
     d. **신규 사용자를 자동으로 팀에 추가**를 선택한 다음 **변경 내용 저장**을 클릭합니다.
 
-    ![변경 내용 저장](./media/lucidchart-tutorial/ic791195.png "변경 내용 저장")
+    ![Save Changes](./media/lucidchart-tutorial/ic791195.png "변경 내용 저장")
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 

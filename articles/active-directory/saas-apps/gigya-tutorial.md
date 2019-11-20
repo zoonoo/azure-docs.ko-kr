@@ -8,18 +8,19 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 2c7d200b-9242-44a5-ac8a-ab3214a78e41
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/18/2019
 ms.author: jeedes
-ms.openlocfilehash: 4c9925e11325c87598f90af1b677246eca805e6b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe4f730826f99a5cd0ce15d0763ea28d3ff0a7f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67101701"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159188"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-gigya"></a>자습서: Gigya와 Azure Active Directory 통합
 
@@ -131,7 +132,7 @@ Gigya에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행�
 
 2. **설정 \> SAML 로그인**으로 이동한 다음 **추가** 단추를 클릭합니다.
    
-    ![SAML 로그인](./media/gigya-tutorial/ic789532.png "SAML 로그인")
+    ![SAML 로그인](./media/gigya-tutorial/ic789532.png "공용")
 
 3. **SAML 로그인** 섹션에서 다음 단계를 수행합니다.
    

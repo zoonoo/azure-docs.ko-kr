@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 06/15/2018
+ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 1be70d3eb74d3a8f0eddb1e5c22e4234987276b3
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d0c837ac376f9d496baaf1ed67d0ec80c996804a
+ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073681"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73176825"
 ---
 # <a name="publish-multiple-versions-of-your-api"></a>여러 버전의 API 게시 
 
@@ -94,11 +94,10 @@ Azure API Management에서는 호출자가 원하는 API 버전을 지정하도�
 ## <a name="browse-the-developer-portal-to-see-the-version"></a>개발자 포털을 검색하여 버전 확인
 
 1. 상단 메뉴에서 **개발자 포털**을 선택합니다.
-2. **API**를 선택합니다. **데모 회의 API**에 **원본** 및 **v1** 버전이 표시됩니다.
-3. **v1**을 선택합니다.
-4. 목록에서 첫 번째 작업의 **요청 URL**을 확인합니다. API URL 경로에 **v1**이 포함되어 있습니다.
-
-    ![API 상황에 맞는 메뉴 - 버전 추가](media/api-management-getstarted-publish-versions/developer_portal.png)
+2. **API**를 선택하고 **데모 회의 API**를 클릭합니다.
+3. API 이름 옆에 여러 버전이 있는 드롭다운이 표시됩니다.
+4. **v1**을 선택합니다.
+5. 목록에서 첫 번째 작업의 **요청 URL**을 확인합니다. API URL 경로에 **v1**이 포함되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

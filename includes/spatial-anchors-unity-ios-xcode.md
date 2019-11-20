@@ -4,12 +4,12 @@ ms.service: azure-spatial-anchors
 ms.topic: include
 ms.date: 1/29/2019
 ms.author: rgarcia
-ms.openlocfilehash: d8b6b1bfcbceb1168d0f74c73e72bd42b41bb2ec
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b052772bbfe9d69e430d9f722d8db56b48db7610
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562515"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933500"
 ---
 **빌드**를 선택합니다. 열리는 대화 상자에서 Xcode 프로젝트를 내보낼 폴더를 선택합니다.
 
@@ -33,7 +33,7 @@ open ./Unity-iPhone.xcworkspace
 ```
 
 > [!NOTE]
-> `.xcworkspace` 파일 대신 `.xcodeproj` 파일을 열면 `library not found for -lPods-Unity-iPhone` 오류가 발생할 수 있습니다. 
+> macOS Catalina(10.15)로 업그레이드한 후 CocoaPod 문제가 발생하는 경우 [여기에](../articles/spatial-anchors/quickstarts/get-started-unity-ios.md#cocoapods-issues-on-macos-catalina-1015) 문제 해결 단계를 참조하세요.
 
 루트 **Unity-iPhone** 노드를 선택하여 프로젝트 설정을 살펴본 다음, **일반** 탭을 선택합니다.
 
@@ -50,3 +50,6 @@ iOS 디바이스를 Mac에 연결하고 **활성 스키마**를 iOS 디바이스
 **빌드를 선택한 다음, 현재 스키마를 실행**합니다.
 
 ![배포 및 실행](./media/spatial-anchors-unity/deploy-run.png)
+
+> [!NOTE]
+> `.xcworkspace` 파일 대신 `.xcodeproj` 파일을 열면 `library not found for -lPods-Unity-iPhone` 오류가 발생할 수 있습니다.

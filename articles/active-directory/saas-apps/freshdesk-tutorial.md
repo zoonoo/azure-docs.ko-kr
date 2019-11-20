@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: c2a3e5aa-7b5a-4fe4-9285-45dbe6e8efcc
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ed903e71a019d0bdb1b62503913bd696e9d8a8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: add43f081ca6059651725cd6f817d4cce127b74b
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67102052"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73155767"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-freshdesk"></a>자습서: FreshDesk와 Azure Active Directory 통합
 
@@ -118,7 +119,7 @@ FreshDesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 6. 위의 이미지와 같이 SAML 토큰 특성을 구성하기 위해 **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 **편집 아이콘**을 사용하여 클레임을 편집하거나 **새 클레임 추가**를 사용하여 클레임을 추가하고, 다음 단계를 수행합니다.
     
-    | 이름 | 원본 특성 |
+    | Name | 원본 특성 |
     | ---------------| --------------- |
     | 고유한 사용자 ID | user.mail |
 
@@ -169,7 +170,7 @@ FreshDesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 2. **설정 아이콘**을 선택하고 **보안** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
+    ![Single Sign-On](./media/freshdesk-tutorial/IC776770.png "Single Sign On")
   
     a. **SSO(Single Sign On)** 의 경우 **On**을 선택합니다.
 

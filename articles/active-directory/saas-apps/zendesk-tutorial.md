@@ -8,6 +8,7 @@ manager: daveba
 ms.reviewer: barbkess
 ms.assetid: 9d7c91e5-78f5-4016-862f-0f3242b00680
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4d161295f236c711e8efbe23deb3c8ba5cad985
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 30a57258dfe112c1b2d03bc43738c92272a156f9
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67086298"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73160851"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zendesk"></a>자습서: Zendesk와 Azure Active Directory 통합
 
@@ -177,7 +178,7 @@ Zendesk에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 
     ![보안](././media/zendesk-tutorial/ic773089.png "보안")
 
-    ![Single Sign-On](././media/zendesk-tutorial/ic773090.png "Single Sign-On")
+    ![Single Sign-On](././media/zendesk-tutorial/ic773090.png "SSO(Single sign-on)")
 
     a. **관리자 및 에이전트** 탭을 클릭합니다.
 

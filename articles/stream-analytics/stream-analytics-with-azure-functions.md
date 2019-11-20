@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 | Microsoft Docs'
+title: Azure Stream Analytics 작업에서 Azure Functions 실행
 description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 5aa2616bfbfd4b31d3e5e5aeee71da8fd511faed
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1ea454f82232fdae17544efc2f0bdfd4601c497e
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67066748"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72934208"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -31,7 +31,7 @@ Stream Analytics는 HTTP 트리거를 통해 Functions를 호출합니다. Funct
 > * Azure Function 만들기
 > * Azure Cache for Redis에서 결과 확인
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="configure-a-stream-analytics-job-to-run-a-function"></a>Stream Analytics 작업을 구성하여 함수 실행 
 
@@ -149,7 +149,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    |---|---|
    |출력 별칭| 작업 쿼리에서 출력을 참조하기 위해 사용하는 친숙한 이름입니다. |
    |가져오기 옵션| 현재 구독에서 함수를 사용하거나 함수가 다른 구독에 있는 경우 설정을 수동으로 제공할 수 있습니다. |
-   |Function App| Functions 앱의 이름입니다. |
+   |함수 앱| Functions 앱의 이름입니다. |
    |함수| Functions 앱의 이름(run.csx 함수 이름)입니다.|
    |최대 일괄 처리 크기|함수로 전송되는 각 출력 일괄 처리의 최대 크기(바이트)를 설정합니다. 기본적으로 이 값은 256KB(262,144바이트)로 설정됩니다.|
    |최대 일괄 처리 수|함수로 전송되는 각 일괄 처리에서 최대 이벤트 수를 지정합니다. 기본값은 100입니다. 이 속성은 선택 사항입니다.|

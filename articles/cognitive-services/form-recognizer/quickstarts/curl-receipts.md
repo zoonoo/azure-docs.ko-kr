@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/01/2019
 ms.author: pafarley
-ms.openlocfilehash: badd674030ec014f2e70050c3c45599a26b17882
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c533949cf0ce69ddc5237dd893dd75e43447c4a9
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073823"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931595"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>빠른 시작: cURL과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 영수증 분석을 시작하기 위해, 아래 cURL 명령을 사용하여 **Analyze Receipt** API를 호출합니다. 명령을 실행하기 전에 다음과 같이 변경합니다.
 
-1. `<Endpoint>`를 Form Recognizer 구독 키에서 얻은 엔드포인트로 바꿉니다. Form Recognizer 리소스 **개요** 탭에서 찾을 수 있습니다.
+1. `<Endpoint>`를 Form Recognizer 구독에서 얻은 엔드포인트로 바꿉니다.
 1. `<your receipt URL>`을 영수증 이미지의 URL 주소로 바꿉니다.
 1. `<subscription key>`를 이전 단계에서 복사한 구독 키로 바꿉니다.
 

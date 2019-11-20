@@ -1,5 +1,6 @@
 ---
-title: Azure AD v2.0 ASP.NET 웹 서버 시작 | Microsoft Docs
+title: Azure AD v2.0 ASP.NET 웹 서버 시작
+titleSuffix: Microsoft identity platform
 description: 기존 웹 브라우저 기반 애플리케이션 및 OpenID Connect 표준을 사용하여 ASP.NET 솔루션에서 Microsoft 로그인을 구현합니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 08/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1ce7197a195b37787d1a43a44efd8438154e9f9
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: b66d2a9a958afd536dcffeca211a3fc56cf09ef8
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113640"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72803709"
 ---
 # <a name="add-sign-in-to-microsoft-to-an-aspnet-web-app"></a>Microsoft에 로그인을 ASP.NET 웹앱에 추가
 
@@ -269,7 +270,7 @@ Visual Studio에서 로그인 단추를 추가하고 인증 후 사용자 정보
 
 <!--start-collapse-->
 > ### <a name="more-information"></a>자세한 정보
-> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 더 많은 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "브랜딩 지침")을 참조하세요.
+> 이 페이지는 SVG 형식으로 검은색 배경의 로그인 단추를 추가합니다.<br/>![Microsoft로 로그인](media/active-directory-develop-guidedsetup-aspnetwebapp-use/aspnetsigninbuttonsample.png)<br/> 추가 로그인 단추는 [브랜딩 지침](https://docs.microsoft.com/azure/active-directory/develop/active-directory-branding-guidelines "B브랜딩 지침")으로 이동하세요.
 <!--end-collapse-->
 
 ## <a name="add-a-controller-to-display-users-claims"></a>사용자의 클레임을 표시하는 컨트롤러 추가
@@ -410,7 +411,7 @@ Visual Studio에서 애플리케이션을 테스트하려면 F5 키를 눌러 �
 >  > - 애플리케이션 개발자가 **관리자 동의**가 필요한 추가 권한을 추가합니다.
 >  > - 또는 사용자가 자신을 대신하여 회사 데이터에 액세스하는 앱에 동의할 수 없는 테넌트가 **엔터프라이즈 애플리케이션 -> 사용자 설정**에 구성되어 있습니다.
 >
-> 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/en-us/azure/active-directory/develop/v2-permissions-and-consent)를 참조하세요.
+> 자세한 내용은 [Microsoft ID 플랫폼 엔드포인트의 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)를 참조하세요.
 <!--end-collapse-->
 
 #### <a name="view-application-results"></a>애플리케이션 결과 보기

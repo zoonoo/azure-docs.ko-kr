@@ -1,5 +1,6 @@
 ---
-title: Azure AD v2.0 JavaScript SPA(단일 페이지 애플리케이션) 단계별 설정 | Microsoft Docs
+title: Azure AD v2.0 JavaScript SPA(단일 페이지 애플리케이션) 단계별 설정
+titleSuffix: Microsoft identity platform
 description: Azure Active Directory v2.0 엔드포인트를 통해 액세스 토큰을 요구하는 API를 JavaScript SPA 애플리케이션에서 호출하는 방법입니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,12 +17,12 @@ ms.date: 03/20/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61790954393923bbf330ad3a534d1d33d1a44bbc
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: fc03e6f1610fe6cef9ce72c981f6f800da8a9951
+ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70983488"
+ms.lasthandoff: 10/23/2019
+ms.locfileid: "72802519"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-api-from-a-javascript-single-page-application-spa"></a>JavaScript SPA(단일 페이지 애플리케이션)에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -263,7 +264,7 @@ ms.locfileid: "70983488"
 
 사용자가 **로그인** 단추를 처음 선택하면 `signIn` 메서드에서 `loginPopup`을 호출하여 사용자를 로그인합니다. 이 메서드는 *Microsoft ID 플랫폼 엔드포인트*가 있는 팝업 창을 열어 사용자의 자격 증명을 묻고 유효성을 검사합니다. 성공적으로 로그인하면 사용자가 원래 *index.html* 페이지로 다시 리디렉션됩니다. `msal.js`에서 토큰을 받고 처리하며, 토큰에 포함된 정보가 캐시됩니다. 이 토큰은 *ID 토큰*이라고 하며 사용자 표시 이름과 같은 사용자에 대한 기본 정보를 포함합니다. 이 토큰에서 제공하는 데이터를 어떤 용도로든 사용할 계획이면 백 엔드 서버에서 이 토큰의 유효성을 검사하여 토큰이 애플리케이션의 유효한 사용자에게 발급되었음을 보장하는지 확인해야 합니다.
 
-이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 애플리케이션 샘플을 살펴보세요. 이 샘플에서는 ASP.NET Web API를 토큰 유효성 검사에 사용합니다.
+이 가이드에서 생성하는 SPA는 `acquireTokenSilent` 및/또는 `acquireTokenPopup`를 호출하여 사용자 프로필 정보에 대해 Microsoft Graph API를 쿼리하는 데 사용하는 *액세스 토큰*을 가져옵니다. ID 토큰의 유효성을 검사하는 샘플이 필요한 경우 GitHub에서 [이](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "GitHub active-directory-javascript-singlepageapp-dotnet-webapi-v2 샘플") 샘플 애플리케이션을 살펴보세요. 이 샘플에서는 ASP.NET Web API를 토큰 유효성 검사에 사용합니다.
 
 #### <a name="getting-a-user-token-interactively"></a>대화형으로 사용자 토큰 가져오기
 

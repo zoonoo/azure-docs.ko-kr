@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1db69cfbf86cf9f33b84273b9e4da6696897467d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 0ba96dd2fcfb995afa6e3b1302a2c8b075abfd90
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377305"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-dynatrace"></a>자습서: Dynatrace와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -48,7 +48,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Dynatrace는 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
 > [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+> 이 애플리케이션의 식별자는 고정 문자열 값입니다. 하나의 테넌트에는 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-dynatrace-from-the-gallery"></a>갤러리에서 Dynatrace 추가
 
@@ -68,10 +68,10 @@ Dynatrace의 Azure AD 통합을 구성하려면 갤러리의 Dynatrace를 관리
 Dynatrace에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Dynatrace SSO 구성](#configure-dynatrace-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Dynatrace 테스트 사용자 만들기](#create-dynatrace-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Dynatrace에 만듭니다.
+    * **[Dynatrace 테스트 사용자 만들기](#create-dynatrace-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Dynatrace에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -84,15 +84,25 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1.  **기본 SAML 구성** 섹션에서 애플리케이션은  **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는  **저장** 단추를 클릭하여 구성을 저장해야 합니다.
+1. **기본 SAML 구성** 섹션에서 애플리케이션은 **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **추가 URL 설정**을 클릭하고 다음 단계를 완료하여 **SP** 시작 모드에서 애플리케이션을 구성합니다.
 
     **로그온 URL** 텍스트 상자에 `https://sso.dynatrace.com/` URL을 입력합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾습니다. **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/metadataxml.png)
+
+1. **SAML 서명 인증서** 섹션에서 **편집** 단추를 선택하여 **SAML 서명 인증서** 대화 상자를 엽니다. 다음 단계를 완료합니다.
+
+    ![SAML 서명 인증서 편집](common/edit-certificate.png)
+
+    a. **서명 옵션** 설정이 미리 채워져 있습니다. 조직에 따라 설정을 검토하세요.
+
+    b. **저장**을 클릭합니다.
+
+    ![Communifire 서명 옵션](./media/dynatrace-tutorial/tutorial-dynatrace-signing-option.png)
 
 1. **Dynatrace 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
@@ -125,18 +135,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     ![사용자 추가 링크](common/add-assign-user.png)
 
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-dynatrace-sso"></a>Dynatrace SSO 구성
 
-**Dynatrace** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [Dynatrace 지원 팀](https://www.dynatrace.com/services-support/)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**Dynatrace** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML** 파일과 적절히 복사한 URL을 [Dynatrace 지원 팀](https://www.dynatrace.com/services-support/)으로 보내야 합니다. 해당 팀에서 SAML SSO 연결이 양쪽에 제대로 설정되도록 구성합니다.
 
 ### <a name="create-dynatrace-test-user"></a>Dynatrace 테스트 사용자 만들기
 
-이 섹션에서는 Dynatrace에서 Britta Simon이라는 사용자를 만듭니다. Dynatrace는 Just-In-Time 사용자 프로비저닝을 지원하면, 이는 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Dynatrace에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
+이 섹션에서는 Dynatrace에서 B.Simon이라는 사용자를 만듭니다. Dynatrace는 Just-In-Time 사용자 프로비저닝을 지원하면, 이는 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Dynatrace에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -144,11 +154,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 Dynatrace 사용해보기](https://aad.portal.azure.com/)
-

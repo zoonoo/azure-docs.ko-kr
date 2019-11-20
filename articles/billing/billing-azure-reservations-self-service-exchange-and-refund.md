@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 828bc3784a118a81adc4391b1bf222c00ee2025a
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "69543010"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73052167"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -44,7 +44,7 @@ US Government 기업계약 고객은 셀프 서비스 교환 및 취소 기능�
 
 ### <a name="enterprise-agreement-customers"></a>기업계약 고객
 
-원래 구매 시 현금 약정 금액을 사용한 경우에는 교환 및 환불을 위해 현금 약정 금액에 액수가 추가됩니다. 원래 구매 이후 초과분 청구서가 있으면 현금 약정 금액이 사용되도록 재개하여 재평가됩니다. 예약을 사용하여 구매한 현금 약정 금액 기간이 더 이상 활성 상태가 아니면, 현재 기업 계약 현금 약정 금액 기간에 크레딧이 추가됩니다.
+원래 구매 시 현금 약정 금액을 사용한 경우에는 교환 및 환불을 위해 현금 약정 금액에 액수가 추가됩니다. 원래 구매 이후 초과분 청구서가 있으면 현금 약정 금액이 사용되도록 재개하여 재평가됩니다. 예약을 사용하여 구매한 현금 약정 금액 기간이 더 이상 활성 상태가 아니면, 현재 기업 계약 현금 약정 금액 기간에 크레딧이 추가됩니다. 크레딧은 환불 날짜로부터 90일 동안 유효합니다. 사용하지 않은 크레딧은 90일 종료 시 만료됩니다.
 
 원래 구매가 초과분으로 이루어진 경우에는 Microsoft가 크레딧 메모를 발급합니다.
 

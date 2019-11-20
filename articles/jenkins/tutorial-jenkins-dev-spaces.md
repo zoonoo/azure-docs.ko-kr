@@ -1,22 +1,20 @@
 ---
-title: Azure Kubenetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용
+title: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용
 description: 지속적인 통합 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하는 방법을 알아봅니다.
 author: tomarchermsft
 ms.author: tarcher
 ms.service: jenkins
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/31/2019
-ms.openlocfilehash: 3d5e8ba8a29481a6f37ffd10f577d354fc5fbf0a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/23/2019
+ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161486"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72881875"
 ---
-<!-- GMinchAQ, 06/18/19 -->
-
-# <a name="tutorial-using-the-azure-dev-spaces-plugin-for-jenkins-with-azure-kubenetes-service"></a>자습서: Azure Kubenetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
+# <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
 Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필요 없이 AKS(Azure Kubernetes Service)에서 실행되는 마이크로서비스 애플리케이션을 테스트하고 반복적으로 개발할 수 있습니다. Jenkins용 Azure Dev Spaces 플러그 인을 사용하면 CI/CD(지속적인 통합 및 업데이트) 파이프라인에서 Dev Spaces를 사용할 수 있습니다.
 

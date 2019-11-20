@@ -4,14 +4,35 @@ ms.service: spatial-anchors
 ms.topic: include
 ms.date: 1/30/2019
 ms.author: rgarcia
-ms.openlocfilehash: 1007533df077c58d9e4d57f9e86b035730ea917f
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: ec8fb6efab126dcf5556a9abfdf58d1fd69d4212
+ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69903933"
+ms.lasthandoff: 10/24/2019
+ms.locfileid: "72882330"
 ---
-## <a name="set-up-your-device-in-unity"></a>Unity에서 디바이스 설정
+## <a name="androidtabandroid"></a>[Android](#tab/Android)
+
+Java Android 샘플은 디바이스 간 공유를 지원합니다.
+Android Studio의 샘플 폴더에서 `SharedActivity.java` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="iostabios"></a>[iOS](#tab/iOS)
+
+Objective-C iOS 샘플은 디바이스 간 공유를 지원합니다.
+샘플 폴더에서 `SharedDemoViewController.m` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `SharingAnchorsServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="xamarintabxamarin"></a>[Xamarin](#tab/Xamarin)
+
+Xamarin Android와 iOS 샘플 모두 디바이스 간 공유를 지원합니다.
+샘플 폴더에서 `AccountDetails.cs` 파일을 엽니다. 이전 단계에서 가져온 URL(ASP.NET 웹앱 Azure 배포에서)을 `SharedActivity.java` 파일의 `AnchorSharingServiceUrl`에 대한 값으로 입력합니다. URL의 `index.html`을 `api/anchors`로 바꿉니다. `https://<app_name>.azurewebsites.net/api/anchors`와 비슷한 형식이어야 합니다.
+
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
+
+## <a name="unitytabunity"></a>[Unity](#tab/Unity)
 
 [!INCLUDE [Open Unity Project](spatial-anchors-open-unity-project.md)]
 
@@ -45,10 +66,7 @@ Android 디바이스에 로그인하고, USB 케이블을 사용하여 디바이
 
 **프로젝트 내보내기**에는 확인 표시가 없어야 합니다. **빌드 및 실행**을 선택합니다. `.apk` 파일을 저장하라는 메시지가 나타납니다. 아무 이름을 선택해도 됩니다.
 
-앱이 시작되면 **데모 선택** 대화 상자에서 왼쪽 또는 오른쪽 화살표를 사용하여 **LocalShare** 옵션을 선택하고 **이동!** 을 누릅니다. 앱의 지침을 따르세요. **앵커 만들기 및 공유** 또는 **공유 앵커 찾기**를 선택할 수 있습니다.
-
-첫 번째 시나리오를 사용하면 나중에 동일한 디바이스 또는 다른 디바이스에서 찾을 수 있는 앵커를 만들 수 있습니다.
-두 번째 시나리오를 사용하면, 동일한 디바이스나 다른 디바이스에서 앱을 이미 실행한 경우, 이전에 공유된 앵커를 찾을 수 있습니다. 시나리오를 선택하면 수행할 작업에 대한 추가 지침이 앱에서 제공됩니다. 예를 들어, 환경 정보를 수집하려면 디바이스를 이동하라는 메시지가 표시됩니다. 나중에, 앵커를 전세계에 배치하고, 저장될 때까지 기다리는 등의 작업을 수행합니다.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 ### <a name="deploy-to-an-ios-device"></a>iOS 디바이스에 배포
 
@@ -58,9 +76,6 @@ Android 디바이스에 로그인하고, USB 케이블을 사용하여 디바이
 
 [!INCLUDE [Configure Xcode](spatial-anchors-unity-ios-xcode.md)]
 
-앱이 시작되면 **데모 선택** 대화 상자에서 왼쪽 또는 오른쪽 화살표를 사용하여 **LocalShare** 옵션을 선택하고 **이동!** 을 누릅니다. 앱의 지침을 따르세요. **앵커 만들기 및 공유** 또는 **공유 앵커 찾기**를 선택할 수 있습니다.
-
-첫 번째 시나리오를 사용하면 나중에 동일한 디바이스 또는 다른 디바이스에서 찾을 수 있는 앵커를 만들 수 있습니다.
-두 번째 시나리오를 사용하면, 동일한 디바이스나 다른 디바이스에서 앱을 이미 실행한 경우, 이전에 공유된 앵커를 찾을 수 있습니다. 시나리오를 선택하면 수행할 작업에 대한 추가 지침이 앱에서 제공됩니다. 예를 들어, 환경 정보를 수집하려면 디바이스를 이동하라는 메시지가 표시됩니다. 나중에, 앵커를 전세계에 배치하고, 저장될 때까지 기다리는 등의 작업을 수행합니다.
+[!INCLUDE [Run shared sample](spatial-anchors-run-sample.md)]
 
 Xcode에서 **중지**를 선택하여 앱을 중지합니다.

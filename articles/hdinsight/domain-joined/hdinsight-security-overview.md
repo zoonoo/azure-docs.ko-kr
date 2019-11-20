@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: e1863cc54759f6cc2266073629093d4923260525
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
+ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240412"
+ms.lasthandoff: 10/29/2019
+ms.locfileid: "73053729"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -60,6 +60,10 @@ Apache Ranger 및 Ambari 감사 로그와 ssh 액세스 로그에 액세스하�
 
 HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure Data Lake Storage Gen1/Gen2)는 둘 다 투명한 서버 쪽 [저장 데이터 암호화](../../storage/common/storage-service-encryption.md)를 지원합니다. 보안 HDInsight 클러스터는 미사용 데이터의 이 서버 쪽 암호화 기능에서 원활하게 작동합니다.
 
+### <a name="compliance"></a>규정 준수
+
+Azure 규정 준수 제안은 Microsoft에서 생성한 계약 수정, 자체 평가, 고객 지침 문서뿐만 아니라 독립적인 타사 감사 업체에서 생성한 공식 인증, 증명, 유효성 검사, 권한 부여 및 평가도 포함한 다양한 유형의 보증을 기반으로 합니다. HDInsight 규정 준수 정보는 [Microsoft Trust Center](https://www.microsoft.com/trust-center) 및 [Microsoft Azure 규정 준수 개요](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조하세요.
+
 ## <a name="shared-responsibility-model"></a>공동 책임 모델
 
 다음 이미지에는 각 시스템에서 사용할 수 있는 주요 시스템 보안 영역과 보안 솔루션이 요약되어 있습니다. 또한 고객이 담당하는 보안 영역과 서비스 공급자인 HDInsight에서 담당하는 영역을 강조합니다.
@@ -73,7 +77,7 @@ HDInsight 클러스터용 데이터 저장소(Azure Blob 스토리지 및 Azure 
 | 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | 고객 |
 |  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | 고객 |
 |  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | 고객 |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) [Azure 가상 네트워크 서비스 끝점](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
+|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
 |  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | 고객 |
 |  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | 고객 |
 | 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | 고객 |

@@ -5,12 +5,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: c2d3119283b5b75eeca6b0e0737f62eee00e81c6
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 14740e780f6143f19f843891c16b25df761d0b4f
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72237405"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72931270"
 ---
 Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가지 링크와 리소스가 포함된 환영 이메일을 받을 수 있습니다. 해당 메시지의 “Azure Portal” 링크를 사용하여 Azure Portal을 열고 Form Recognizer 리소스를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
 
@@ -25,4 +25,4 @@ Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가
 > [!IMPORTANT]
 > 일반적으로 Azure Portal에서 Cognitive Service 리소스를 만들 때는 다중 서비스 구독 키(여러 Cognitive Service에서 사용) 또는 단일 서비스 구독 키(특정 Cognitive Service에서만 사용)를 만들 수 있는 옵션이 제공됩니다. 그러나 Form Recognizer는 미리 보기 릴리스이므로 다중 서비스 구독에 포함되지 않으며 환영 이메일에 제공된 링크를 사용하지 않으면 단일 서비스 구독을 만들 수 없습니다.
 
-Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 그런 다음, **키** 탭을 선택하여 구독 키를 봅니다. 두 키 중 하나에서 리소스에 대한 앱 액세스 권한을 부여합니다. **키 1**의 값을 복사합니다.
+Form Recognizer 리소스의 배포가 완료되면 포털의 **모든 리소스** 목록에서 해당 리소스를 찾아 선택합니다. 그런 다음, **빠른 시작** 탭을 선택하여 구독 데이터를 봅니다. **Key1** 및 **엔드포인트**의 값을 임시 위치에 저장합니다. 다음 단계에서 사용합니다.

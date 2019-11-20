@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Stream Analytics JavaScript 사용자 정의 함수 | Microsoft Docs '
+title: Azure Stream Analytics JavaScript 사용자 정의 함수
 description: 이 자습서에서는 JavaScript 사용자 정의 함수로 고급 쿼리 메커니즘을 수행합니다.
 services: stream-analytics
 author: rodrigoamicrosoft
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.reviewer: mamccrea
 ms.custom: mvc
 ms.date: 04/01/2018
-ms.openlocfilehash: c7414ee159303465d6698ce9c47d04ba37c0c46e
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 9ddf8a2a11cb863a0016726074c5279bfde96959
+ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67329374"
+ms.lasthandoff: 10/28/2019
+ms.locfileid: "72990234"
 ---
 # <a name="tutorial-azure-stream-analytics-javascript-user-defined-functions"></a>자습서: Azure Stream Analytics JavaScript 사용자 정의 함수
  
@@ -27,7 +27,7 @@ Azure Stream Analytics에서는 JavaScript로 작성된 사용자 정의 함수�
 > * 포털에 함수 추가
 > * 함수를 실행하는 쿼리 정의
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="javascript-user-defined-functions"></a>JavaScript 사용자 정의 함수
 JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비저장, 계산 전용 스칼라 함수를 지원합니다. 함수의 반환 값은 스칼라(단일) 값만 될 수 있습니다. JavaScript 사용자 정의 함수를 작업에 추가한 후 기본 제공 스칼라 함수처럼 쿼리의 아무 곳에서나 함수를 사용할 수 있습니다.
@@ -70,6 +70,9 @@ JavaScript 사용자 정의 함수는 외부 연결이 필요 없는 상태 비�
 
 6.  **저장**을 선택합니다. 함수가 함수의 목록에 나타납니다.
 7.  새 **hex2Int** 함수를 선택하고 함수 정의를 확인합니다. 모든 함수는 함수 별칭에 **UDF** 접두사가 추가됩니다. Stream Analytics 쿼리에서 함수를 호출할 때 *접두사를 포함*해야 합니다. 이 경우 **UDF.hex2Int**를 호출합니다.
+
+## <a name="testing-javascript-udfs"></a>JavaScript UDF 테스트 
+모든 브라우저에서 JavaScript UDF 논리를 테스트하고 디버깅할 수 있습니다. 이러한 사용자 정의 함수의 논리 디버깅 및 테스트는 현재 Stream Analytics 포털에서 지원되지 않습니다. 이 함수가 예상대로 작동하면 위에서 설명한 대로 Stream Analytics 작업에 추가한 다음, 쿼리에서 직접 호출할 수 있습니다.
 
 ## <a name="call-a-javascript-user-defined-function-in-a-query"></a>쿼리에서 JavaScript 사용자 정의 함수 호출
 
@@ -125,7 +128,6 @@ JavaScript 언어는 대/소문자를 구분하며 JavaScript 코드에서 개�
 
 ## <a name="troubleshooting"></a>문제 해결
 JavaScript 런타임 오류는 치명적인 것으로 간주되고 활동 로그를 통해 표시됩니다. Azure Portal에서 로그를 검색하려면 작업으로 이동하고 **활동 로그**를 선택합니다.
-
 
 ## <a name="other-javascript-user-defined-function-patterns"></a>기타 JavaScript 사용자 정의 함수 패턴
 

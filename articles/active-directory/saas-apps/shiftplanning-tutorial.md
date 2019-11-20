@@ -8,6 +8,7 @@ manager: mtillman
 ms.reviewer: barbkess
 ms.assetid: 6aa771e9-31c6-48d1-8dde-024bebc06943
 ms.service: active-directory
+ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6bd02bcd52808af43c2254304c56fee76903c73
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
+ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090969"
+ms.lasthandoff: 10/30/2019
+ms.locfileid: "73159983"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>자습서: Azure Active Directory와 Humanity 통합
 
@@ -218,7 +219,7 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
 3. **Staff**를 클릭합니다.
 
-    ![직원](./media/shiftplanning-tutorial/ic786623.png "직원")
+    ![직원](./media/shiftplanning-tutorial/ic786623.png "Staff")
 
 4. **작업** 아래에서 **직원 추가**를 클릭합니다.
 

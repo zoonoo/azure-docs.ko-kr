@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석 '
+title: '자습서: Power BI를 사용하여 Azure HDInsight Apache Spark 데이터 분석'
 description: 자습서 - Microsoft Power BI를 사용하여 Apache Spark 데이터 저장 HDInsight 클러스터 시각화
 author: hrasheed-msft
 ms.author: hrasheed
@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035698"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73241366"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
@@ -134,15 +134,15 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 1. 데이터 세트 및 보고서를 게시하려는 작업 영역을 선택한 다음, **선택**을 클릭합니다. 다음 이미지에서 기본 **내 작업 영역**이 선택됩니다.
 
-    ![데이터 세트 및 보고서를 게시하려는 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 세트 및 보고서를 게시하려는 작업 영역 선택") 
+    ![데이터 세트 및 보고서를 게시할 작업 영역 선택](./media/apache-spark-use-bi-tools/apache-spark-bi-select-workspace.png "데이터 세트 및 보고서를 게시할 작업 영역 선택") 
 
 1. 게시에 성공한 후 **Power BI에서 'BuildingTemperature.pbix' 열기**를 클릭합니다.
 
-    ![게시 성공, 클릭하여 자격 증명 입력](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "게시 성공, 클릭하여 자격 증명 입력") 
+    ![자격 증명 입력을 클릭하여 성공 게시](./media/apache-spark-use-bi-tools/apache-spark-bi-publish-success.png "자격 증명 입력을 클릭하여 성공 게시") 
 
 1. Power BI 서비스에서 **자격 증명 입력**을 클릭합니다.
 
-    ![Power BI 서비스에서 자격 증명 입력](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Power BI 서비스에서 자격 증명 입력")
+    ![Power BI 서비스에 자격 증명 입력](./media/apache-spark-use-bi-tools/apache-spark-bi-enter-credentials.png "Power BI 서비스에 자격 증명 입력")
 
 1. **자격 증명 편집**을 클릭합니다.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 07/03/2019
+ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: b118a509f72af2146abf854b881fa34d8de302a1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3c4f1c641865fa8aa1d01d370063c03bbc0680c
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564917"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72936043"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 전자 상거래 제품 이미지 조정
 
@@ -65,7 +65,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!code-csharp[define API keys and endpoint URIs](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=21-29)]
 
-`___Key` 필드를 구독 키의 값으로 업데이트해야 하며(나중에 `CustomVisionKey` 얻음) 올바른 지역 식별자가 포함되도록 `___Uri` 필드를 변경해야 할 수도 있습니다. `ReviewUri` 필드의 `YOURTEAMID` 부분에 이전에 작성한 검토 팀의 ID를 입력합니다. `CustomVisionUri` 필드의 마지막 부분은 나중에 입력합니다.
+`___Key` 필드를 구독 키의 값으로 업데이트해야 하고 `___Uri` 필드를 올바른 엔드포인트 URL로 변경해야 합니다(나중에 Custom Vision 키 및 엔드포인트를 가져옴). 각 Azure 리소스의 **빠른 시작** 탭에서 이러한 값을 찾을 수 있습니다. `ReviewUri` 필드의 `YOURTEAMID` 부분에 이전에 작성한 검토 팀의 ID를 입력합니다. `CustomVisionUri` 필드의 마지막 부분은 나중에 입력합니다.
+
+[!INCLUDE [subdomains note](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="primary-method-calls"></a>기본 메서드 호출
 
