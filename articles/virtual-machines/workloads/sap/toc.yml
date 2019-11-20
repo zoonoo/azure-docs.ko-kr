@@ -198,6 +198,8 @@
               href: sap-high-availability-installation-wsfc-shared-disk.md
             - name: (A)SCS 인스턴스에 SOFS 파일 공유를 사용하는 Windows
               href: sap-high-availability-installation-wsfc-file-share.md
+            - name: Azure NetApp Files(SMB)로 Windows에 SAP NetWeaver HA 설치하기
+              href: high-availability-guide-windows-netapp-files-smb.md
             - name: (A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux
               href: high-availability-guide-suse.md
             - name: Azure NetApp Files를 사용하는 (A)SCS 인스턴스에 NFS를 사용하는 SUSE Linux

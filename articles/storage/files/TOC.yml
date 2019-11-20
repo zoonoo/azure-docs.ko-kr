@@ -183,6 +183,8 @@
           href: storage-sync-files-troubleshoot.md
         - name: Azure Files 삭제 문제 해결
           href: storage-troubleshoot-cannot-delete-files-azure-file-share.md
+        - name: 삭제된 스토리지 계정 복구
+          href: storage-how-to-recover-deleted-account.md
 - name: 참고 자료
   items:
     - name: Azure PowerShell
