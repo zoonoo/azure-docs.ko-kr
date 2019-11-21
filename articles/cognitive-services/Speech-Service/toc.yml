@@ -468,6 +468,8 @@
   items:
     - name: 지원
       href: support.md
+    - name: 영역
+      href: regions.md
     - name: 가격 책정 및 제한
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/'
     - name: 규정 준수

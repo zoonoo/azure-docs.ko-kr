@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Resource Graph 개요
+    - name: Azure Resource Graph란?
       displayName: 'Resource Manager, query language, rbac, permissions'
       href: overview.md
 - name: 빠른 시작
