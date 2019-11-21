@@ -1,6 +1,6 @@
 ---
-title: 인증 앱에 대 한 보안 정보 (미리 보기) 설정-Azure AD
-description: Microsoft Authenticator 앱을 사용하여 본인 여부를 확인하도록 보안 정보를 설정하는 방법입니다.
+title: Set up the Microsoft Authenticator app as your authentication method - Azure AD
+description: How to set up your Security info to verify your identity using the Microsoft Authenticator app as your authentication method.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19f44f4df9e3c17c376830c6a404a21e8a5d67b2
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 761c9d3ed4cb49a7dc95ea98ce6f884930185643
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805075"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233203"
 ---
-# <a name="set-up-security-info-preview-to-use-an-authenticator-app"></a>인증 앱을 사용하도록 보안 정보(미리 보기) 설정
+# <a name="set-up-the-microsoft-authenticator-app-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up the Microsoft Authenticator app as your authentication method from the Security info (preview) page
 
 다음 단계에 따라 2단계 인증 및 암호 재설정 메서드를 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "73805075"
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 >[!Note]
->인증 앱 옵션이 보이지 않는 경우 사용자의 조직에서 인증을 위해 인증 앱을 사용하도록 허용하지 않았을 가능성이 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 추가 도움을 받아야 합니다.
+>인증 앱 옵션이 보이지 않는 경우 사용자의 조직에서 인증을 위해 인증 앱을 사용하도록 허용하지 않았을 가능성이 있습니다. 이 경우 다른 메서드를 선택하거나 관리자에게 도움을 요청해야 합니다.
 
 ## <a name="set-up-the-microsoft-authenticator-app-from-the-security-info-page"></a>보안 정보 페이지에서 Microsoft Authenticator 앱 설정
 
@@ -59,7 +59,7 @@ ms.locfileid: "73805075"
    >
    > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
 
-5. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지에 남아 있습니다.
+5. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지를 열어 둡니다.
 
     ![인증 앱 설정 페이지](media/security-info/securityinfo-myprofile-setupauthapp.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "73805075"
 
 8. 6단계에서 회사 또는 학교 계정이 만들어지면 모바일 디바이스에 표시된 Microsoft Authenticator 앱 QR 코드 판독기를 사용하여 제공된 코드를 검사합니다.
 
-    인증자 앱에서 사용자의 추가 정보 없이 회사 또는 학교 계정을 성공적으로 추가해야 합니다. 하지만 QR 코드 판독기에서 코드를 읽을 수 없으면 **QR 코드를 스캔할 수 없습니까?** 링크를 선택하고, Microsoft Authenticator 앱에 코드와 URL을 수동으로 입력하면 됩니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
+    인증 앱은 추가 정보 없이도 회사 또는 학교 계정을 성공적으로 추가해야 합니다. 하지만 QR 코드 판독기에서 코드를 읽을 수 없으면 **QR 코드를 스캔할 수 없습니까?** 링크를 선택하고, Microsoft Authenticator 앱에 코드와 URL을 수동으로 입력하면 됩니다. 코드를 수동으로 추가하는 방법에 대한 자세한 내용은 [수동으로 앱에 계정 추가](user-help-auth-app-add-account-manual.md)를 참조하세요.
 
 9. 컴퓨터의 **QR 코드 스캔** 페이지에서 **다음**을 선택합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "73805075"
 
      ![앱과 계정 연결에 대한 성공 알림](media/security-info/securityinfo-myprofile-successauthapp.png)
 
-     2단계 인증 또는 암호 재설정을 사용할 때 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
+     2단계 인증 또는 암호 재설정을 사용하면 기본적으로 Microsoft Authenticator 앱을 사용하여 사용자의 ID를 확인하도록 보안 정보가 업데이트됩니다.
 
 ## <a name="delete-your-authenticator-app-from-your-security-info-methods"></a>보안 정보 메서드에서 Authenticator 앱 삭제
 
@@ -113,15 +113,15 @@ ms.locfileid: "73805075"
 
 2단계 인증을 사용하거나 암호 재설정을 요청하기 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 메서드로 인증 앱을 사용하려면 **보안 정보** 페이지에서 설정하면 됩니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 메서드를 변경하려면
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
-    ![기본 로그인 방법의 변경 링크](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
+    ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-changedefaultauthapp.png)
 
 2. 사용 가능한 메서드 드롭다운 목록에서 **Microsoft Authenticator-알림**을 선택합니다. Microsoft Authenticator 앱을 사용하지 않으려면 **인증 앱 또는 하드웨어 토큰** 옵션을 선택합니다.
 
-    ![기본 로그인 방법 선택](media/security-info/securityinfo-myprofile-defaultauthapp.png)
+    ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-defaultauthapp.png)
 
 3. **확인**을 선택합니다.
 
@@ -135,18 +135,18 @@ ms.locfileid: "73805075"
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
+- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
 
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 
-- **보안 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
+- **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 
     >[!Note]
     >이러한 옵션 중 일부가 누락된 경우 사용자의 조직에서 해당 방법을 허용하지 않았을 가능성이 있습니다. 이 경우 사용 가능한 방법을 선택하거나 관리자에게 문의하여 자세한 도움을 받아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [2 단계 인증 또는 보안 정보를 사용 하 여 로그인](security-info-setup-signin.md) 문서의 단계를 수행 하 여 Microsoft Authenticator 앱을 사용 하 여 로그인 합니다.
+- Sign-in using the Microsoft Authenticator app, following steps in the [Sign in using two-step verification or security info](security-info-setup-signin.md) article.
 
 - 분실했거나 잊어버린 경우 [암호 재설정 포털](https://passwordreset.microsoftonline.com/)에서 암호를 다시 설정하거나 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md) 문서의 단계를 수행합니다.
 

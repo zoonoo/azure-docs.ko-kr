@@ -1,9 +1,9 @@
 ---
 title: Azure Load Balancer 문제 해결
-description: Azure Load Balancer의 알려진 문제를 해결 하는 방법을 알아봅니다.
+description: Learn how to troubleshoot known issues with Azure Load Balancer.
 services: load-balancer
 documentationcenter: na
-author: chadmath
+author: asudbring
 manager: dcscontentpm
 ms.custom: seodoc18
 ms.service: load-balancer
@@ -12,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
-ms.author: genli
-ms.openlocfilehash: b6647c1b850b7678944edbc899f0727f8e10db08
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.author: allensu
+ms.openlocfilehash: eab86b3643dde2a6e854d73c38b5267c65fb7e3e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184342"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214755"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
 
@@ -28,7 +28,7 @@ ms.locfileid: "74184342"
 - Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다. 
 - Load Balancer 뒤의 VM이 구성된 포트의 트래픽에 응답하지 않습니다.
 
-백 엔드 Vm에 대 한 외부 클라이언트가 부하 분산 장치를 통과 하면 클라이언트의 IP 주소가 통신에 사용 됩니다. 클라이언트의 IP 주소가 NSG 허용 목록에 추가 되어 있는지 확인 합니다. 
+When the external clients to the backend VMs go through the load balancer, the IP address of the clients will be used for the communication. Make sure the IP address of the clients are added into the NSG allow list. 
 
 ## <a name="symptom-vms-behind-the-load-balancer-are-not-responding-to-health-probes"></a>증상: Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다.
 백 엔드 서버가 Load Balancer 집합에 참여하려면 프로브 검사를 통과해야 합니다. 상태 프로브에 대한 자세한 내용은 [Load Balancer 프로브 이해](load-balancer-custom-probe-overview.md)를 참조하세요. 
@@ -78,7 +78,7 @@ VM의 방화벽이 프로브 포트를 차단하고 있거나 서브넷 또는 V
     - 동일한 VNet에서 대상 백 엔드 풀 VM 및 다른 테스트 VM에 대해 동시 Netsh 추적을 실행합니다. 이제 얼마 동안 PsPing 테스트를 실행하고 일부 네트워크 추적을 수집한 후 테스트를 중지합니다. 
     - 네트워크 캡처를 분석하고 ping 쿼리와 관련해서 들어오고 나가는 패킷이 둘다 있는지 확인합니다. 
         - 백 엔드 풀 VM에서 들어오는 패킷이 확인되지 않으면 트래픽을 차단하는 네트워크 보안 그룹 또는 UDR 구성 오류가 있는 것일 수 있습니다. 
-        - 백 엔드 풀 VM에서 나가는 패킷이 관찰 되지 않는 경우 관련 되지 않은 문제 (예: 프로브 포트를 차단 하는 응용 프로그램)에 대해 VM을 확인 해야 합니다. 
+        - If no outgoing packets are observed on the backend pool VM, the VM needs to be checked for any unrelated issues (for example, Application blocking the probe port). 
     - 프로브 패킷이 부하 분산 장치에 도달하기 전에 강제로 다른 대상으로 전달되는지 확인합니다(UDR 설정을 통해). 이로 인해 트래픽이 백엔드 VM에 절대 도달하지 못할 수 있습니다. 
 * 프로브 형식을 변경하고(예: HTTP에서 TCP로) 네트워크 보안 그룹 ACL의 해당 포트 및 방화벽이 프로브 응답 구성에 문제가 있는지 평가하도록 구성합니다. 상태 프로브 구성에 대한 자세한 내용은 [엔드포인트 부하 분산 장치 상태 프로브 구성](https://blogs.msdn.microsoft.com/mast/2016/01/26/endpoint-load-balancing-heath-probe-configuration-details/)을 참조하세요.
 
@@ -104,9 +104,9 @@ VM이 데이터 트래픽에 응답하지 않을 경우 대상 포트가 참여 
 
 서브넷 또는 VM에 구성된 하나 이상의 네트워크 보안 그룹이 원본 IP 또는 포트를 차단하는 경우 VM이 응답할 수 없습니다.
 
-공용 부하 분산 장치의 경우 클라이언트와 부하 분산 장치 백 엔드 Vm 간의 통신에 인터넷 클라이언트의 IP 주소가 사용 됩니다. 백 엔드 VM의 네트워크 보안 그룹에서 클라이언트의 IP 주소를 사용할 수 있는지 확인 합니다.
+For the public load balancer, the IP address of the Internet clients will be used for communication between the clients and the load balancer backend VMs. Make sure the IP address of the clients are allowed in the backend VM's network security group.
 
-1. 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. 자세한 내용은 [네트워크 보안 그룹 관리](../virtual-network/manage-network-security-group.md) 를 참조 하세요.
+1. 백 엔드 VM에 구성된 네트워크 보안 그룹을 나열합니다. For more information, see [Manage network security groups](../virtual-network/manage-network-security-group.md)
 1. 네트워크 보안 그룹 목록에서 다음을 확인합니다.
     - 데이터 포트에서 들어오거나 나가는 트래픽에 간섭이 있습니다. 
     - VM 또는 서브넷의 NIC에 대해 Load Balancer 프로브 및 트래픽을 허용하는 기본 규칙보다 우선 순위가 더 높은 **모두 거부** 네트워크 보안 그룹 규칙(네트워크 보안 그룹은 프로브 포트에 해당하는 168.63.129.16의 부하 분산 장치 IP를 허용해야 함).

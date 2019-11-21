@@ -1,18 +1,18 @@
 ---
-title: Azure DNS 영역 및 레코드 보호
-description: Microsoft Azure DNS에서 DNS 영역 및 레코드 집합을 보호하는 방법
+title: Protecting DNS Zones and Records - Azure DNS
+description: In this learning path, get started protecting DNS zones and record sets in Microsoft Azure DNS.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
-ms.author: victorh
-ms.openlocfilehash: 9340a43eb88b4be03c0f0ccc0d07a32f22a9001c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: b84ba055dd8214ae18e76004671e3922e6f3b878
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66121428"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211454"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -160,7 +160,7 @@ azure role create -inputfile <file path>
 
 RBAC 외에도 Azure Resource Manager는 리소스를 잠그는 기능과 같은 다른 유형의 보안 관리 기능을 지원합니다. 특정 사용자와 그룹의 작업을 관리할 수 있는 RBAC 규칙의 경우 리소스 잠금이 리소스에 적용되며 모든 사용자와 역할에 대해 유효합니다. 자세한 내용은 [Azure 리소스 관리자를 사용하여 리소스 잠그기](../azure-resource-manager/resource-group-lock-resources.md)를 참조하세요.
 
-리소스 잠금에는 두 가지 유형이 있습니다. **CanNotDelete** 및 **ReadOnly** 이러한 잠금은 DNS 영역 또는 개별 레코드 집합에 적용할 수 있습니다.  다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
+There are two types of resource lock: **CanNotDelete** and **ReadOnly**. 이러한 잠금은 DNS 영역 또는 개별 레코드 집합에 적용할 수 있습니다.  다음 섹션에서는 몇 가지 일반적인 시나리오와 리소스 잠금을 사용하여 지원하는 방법에 대해 설명합니다.
 
 ### <a name="protecting-against-all-changes"></a>모든 변경으로부터 보호
 

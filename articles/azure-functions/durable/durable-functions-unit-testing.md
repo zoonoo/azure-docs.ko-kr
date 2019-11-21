@@ -1,27 +1,23 @@
 ---
 title: Azure Durable Functions 단위 테스트
 description: Durable Functions를 단위 테스트하는 방법을 알아봅니다.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/03/2019
-ms.author: glenga
-ms.openlocfilehash: 95c6afcb2f7e864da4b9b43235326a17bed785fa
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 86733f8b5b80799bad3e52c643ed27465dfc7641
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614530"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231219"
 ---
 # <a name="durable-functions-unit-testing"></a>Durable Functions 단위 테스트
 
-단위 테스트는 최신 소프트웨어 개발 방법의 중요한 부분입니다. 단위 테스트는 비즈니스 논리 동작을 확인하고 향후 중요하지 않은 변경 내용을 도입하지 못하게 방지합니다. Durable Functions는 복잡성이 쉽게 증가할 수 있으므로 단위 테스트를 도입하면 변경 내용을 방지하는 데 도움이 됩니다. 다음 섹션에서는 세 가지 함수 형식 오케스트레이션 클라이언트, orchestrator 및 작업 함수를 단위 테스트 하는 방법을 설명 합니다.
+단위 테스트는 최신 소프트웨어 개발 방법의 중요한 부분입니다. 단위 테스트는 비즈니스 논리 동작을 확인하고 향후 중요하지 않은 변경 내용을 도입하지 못하게 방지합니다. Durable Functions는 복잡성이 쉽게 증가할 수 있으므로 단위 테스트를 도입하면 변경 내용을 방지하는 데 도움이 됩니다. The following sections explain how to unit test the three function types - Orchestration client, orchestrator, and activity functions.
 
 > [!NOTE]
-> 이 문서에서는 Durable Functions 1.x를 대상으로 하는 Durable Functions 앱에 대 한 단위 테스트에 대 한 지침을 제공 합니다. Durable Functions 2.x에 도입 된 변경 내용을 고려 하도록 아직 업데이트 되지 않았습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> This article provides guidance for unit testing for Durable Functions apps targeting Durable Functions 1.x. It has not yet been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 예제를 살펴보려면 다음과 같은 개념과 프레임워크에 대한 지식이 필요합니다.
 
@@ -35,7 +31,7 @@ ms.locfileid: "73614530"
 
 ## <a name="base-classes-for-mocking"></a>모의 동작에 대한 기본 클래스
 
-Mock는 Durable Functions 1.x의 세 가지 추상 클래스를 통해 지원 됩니다.
+Mocking is supported via three abstract classes in Durable Functions 1.x:
 
 * `DurableOrchestrationClientBase`
 
@@ -43,9 +39,9 @@ Mock는 Durable Functions 1.x의 세 가지 추상 클래스를 통해 지원 �
 
 * `DurableActivityContextBase`
 
-이러한 클래스는 오케스트레이션 클라이언트, Orchestrator 및 작업 메서드를 정의 하는 `DurableOrchestrationClient`, `DurableOrchestrationContext`및 `DurableActivityContext`에 대 한 기본 클래스입니다. 모의 동작은 기본 클래스 메서드에 대한 예상 동작을 설명하므로 단위 테스트로 비즈니스 논리를 확인할 수 있습니다. 오케스트레이션 클라이언트 및 오케스트레이터에서 비즈니스 논리를 단위 테스트하는 2단계 워크플로가 있습니다.
+These classes are base classes for `DurableOrchestrationClient`, `DurableOrchestrationContext`, and `DurableActivityContext` that define Orchestration Client, Orchestrator, and Activity methods. 모의 동작은 기본 클래스 메서드에 대한 예상 동작을 설명하므로 단위 테스트로 비즈니스 논리를 확인할 수 있습니다. 오케스트레이션 클라이언트 및 오케스트레이터에서 비즈니스 논리를 단위 테스트하는 2단계 워크플로가 있습니다.
 
-1. 오케스트레이션 클라이언트 및 오 케 스트레이 터 함수 서명을 정의할 때 구체적인 구현 대신 기본 클래스를 사용 합니다.
+1. Use the base classes instead of the concrete implementation when defining orchestration client and orchestrator function signatures.
 2. 단위 테스트에서 모의 기본 클래스 동작을 만들어서 비즈니스 논리를 확인합니다.
 
 자세한 내용은 오케스트레이션 클라이언트 바인딩 및 오케스트레이터 트리거 바인딩을 사용하는 함수를 테스트하는 방법에 대한 다음 그래프를 참조하세요.
@@ -56,9 +52,9 @@ Mock는 Durable Functions 1.x의 세 가지 추상 클래스를 통해 지원 �
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-단위 테스트 작업에서는 응답 페이로드에 제공되는 `Retry-After` 헤더의 값을 확인합니다. 따라서 단위 테스트는 예측 가능한 동작을 보장 하기 위해 일부 `DurableOrchestrationClientBase` 메서드를 mock 합니다.
+단위 테스트 작업에서는 응답 페이로드에 제공되는 `Retry-After` 헤더의 값을 확인합니다. So the unit test will mock some of `DurableOrchestrationClientBase` methods to ensure predictable behavior.
 
-먼저 `DurableOrchestrationClientBase`기본 클래스의 mock가 필요 합니다. 모의은 `DurableOrchestrationClientBase`를 구현 하는 새 클래스 일 수 있습니다. 그러나 [moq](https://github.com/moq/moq4) 같은 모의 프레임워크를 사용하면 프로세스가 간단해집니다.
+First, a mock of the base class is required, `DurableOrchestrationClientBase`. The mock can be a new class that implements `DurableOrchestrationClientBase`. 그러나 [moq](https://github.com/moq/moq4) 같은 모의 프레임워크를 사용하면 프로세스가 간단해집니다.
 
 ```csharp
     // Mock DurableOrchestrationClientBase
@@ -176,7 +172,7 @@ Mock는 Durable Functions 1.x의 세 가지 추상 클래스를 통해 지원 �
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
-그리고 단위 테스트에서 출력의 형식을 확인합니다. 단위 테스트는 매개 변수 형식 직접 또는 모의 `DurableActivityContextBase` 클래스를 사용할 수 있습니다.
+그리고 단위 테스트에서 출력의 형식을 확인합니다. The unit tests can use the parameter types directly or mock `DurableActivityContextBase` class:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceActivityTests.cs)]
 

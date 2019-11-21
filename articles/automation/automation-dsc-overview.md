@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 5ed18f8a8bbd8bd323dec54ca3f700c7ce168dde
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231641"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Azure Automation 상태 구성 개요
 
@@ -37,17 +37,17 @@ Azure 포털 또는 PowerShell에서 DSC 구성, 리소스 및 대상 노드를 
 
 ![Azure Automation 페이지의 스크린샷](./media/automation-dsc-overview/azure-automation-blade.png)
 
-### <a name="import-reporting-data-into-azure-monitor-logs"></a>Azure Monitor 로그로 보고 데이터 가져오기
+### <a name="import-reporting-data-into-azure-monitor-logs"></a>Import reporting data into Azure Monitor logs
 
-Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. 상태 구성 상태 데이터를 Log Analytics 작업 영역으로 전송 하는 방법에 대 한 자세한 내용은 [Azure Automation 상태 구성 보고 데이터를 Azure Monitor 로그로 전달](automation-dsc-diagnostics.md)을 참조 하세요.
+Azure Automation 상태 구성으로 관리되는 노드는 상세한 보고 상태 데이터를 기본 제공 끌어오기 서버에 보냅니다. 이 데이터를 Log Analytics 작업 영역으로 보내려면 Azure Automation 상태 구성을 구성할 수 있습니다. To learn how to send State Configuration status data to your Log Analytics workspace, see [Forward Azure Automation State Configuration reporting data to Azure Monitor logs](automation-dsc-diagnostics.md).
 
 ## <a name="prerequisites"></a>전제 조건
 
-DSC (Azure Automation 상태 구성)를 사용 하는 경우 다음 요구 사항을 고려 하세요.
+Please consider the following requirements when using Azure Automation State Configuration (DSC).
 
-### <a name="operating-system-requirements"></a>운영 체제 요구 사항
+### <a name="operating-system-requirements"></a>Operating System Requirements
 
-Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같습니다.
+For nodes running Windows, the following versions are supported:
 
 - Windows Server 2019
 - Windows Server 2016
@@ -58,40 +58,40 @@ Windows를 실행 하는 노드의 경우 지원 되는 버전은 다음과 같�
 - Windows 8.1
 - Windows 7
 
-[Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) 독립 실행형 제품 Sku는 필요한 상태 구성 구현을 포함 하지 않으므로 PowerShell DSC 또는 Azure Automation 상태 구성으로 관리할 수 없습니다.
+The [Microsoft Hyper-V Server](/windows-server/virtualization/hyper-v/hyper-v-server-2016) standalone product sku does not contain an implementation of Desired State Configuraion so it cannot be managed by PowerShell DSC or Azure Automation State Configuration.
 
-Linux를 실행 하는 노드의 경우 다음 distros/버전이 지원 됩니다.
+For nodes running Linux, the following distros/versions are supported:
 
-DSC Linux 확장은 [지원 되는 Linux 배포판](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)에 나열 된 모든 linux 배포를 지원 합니다.
+The DSC Linux extension supports all the Linux distributions listed under [Supported Linux Distributions](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
-### <a name="dsc-requirements"></a>DSC 요구 사항
+### <a name="dsc-requirements"></a>DSC requirements
 
-Azure에서 실행 되는 모든 Windows 노드의 경우, 온 보 딩 중에 [WMF 5.1](https://docs.microsoft.com/powershell/wmf/setup/install-configure) 이 설치 됩니다.  Windows Server 2012 및 Windows 7을 실행 하는 노드의 경우 [WinRM이 사용](https://docs.microsoft.com/powershell/dsc/troubleshooting/troubleshooting#winrm-dependency)됩니다.
+For all Windows nodes running in Azure, [WMF 5.1](https://docs.microsoft.com/powershell/scripting/wmf/setup/install-configure) will be installed during onboarding.  For nodes running Windows Server 2012 and Windows 7, [WinRM will be enabled](https://docs.microsoft.com/powershell/scripting/dsc/troubleshooting/troubleshooting#winrm-dependency).
 
-Azure에서 실행 되는 모든 Linux 노드의 경우 온 보 딩 중에 [linux 용 POWERSHELL DSC](https://github.com/Microsoft/PowerShell-DSC-for-Linux) 가 설치 됩니다.
+For all Linux nodes running in Azure, [PowerShell DSC for Linux](https://github.com/Microsoft/PowerShell-DSC-for-Linux) will be installed during onboarding.
 
-### <a name="network-planning"></a>개인 네트워크 구성
+### <a name="network-planning"></a>Configure private networks
 
-노드가 개인 네트워크 내에 있는 경우 상태 구성 (DSC)에서 Automation과 통신 하는 데 다음 포트 및 Url이 필요 합니다.
+If your nodes are located within a private network, the following port and URLs are required for State Configuration (DSC) to communicate with Automation:
 
 * 포트: 아웃바운드 인터넷 액세스에는 443 TCP 포트만 필요합니다.
 * 글로벌 URL: *.azure-automation.net
 * US Gov 버지니아의 전역 URL: *.azure-automation.us
 * 에이전트 서비스: https://\<workspaceId\>.agentsvc.azure-automation.net
 
-이는 관리 되는 노드가 Azure Automation와 통신할 수 있도록 네트워크 연결을 제공 합니다.
-[WaitFor * 리소스](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource)와 같이 노드 간에 통신 하는 DSC 리소스를 사용 하는 경우에는 노드 간 트래픽만 허용 해야 합니다.
-이러한 네트워크 요구 사항을 이해 하려면 각 DSC 리소스에 대 한 설명서를 참조 하세요.
+This provides network connectivity for the managed node to communicate with Azure Automation.
+If you are using DSC resources that communicate between nodes, such as the [WaitFor* resources](https://docs.microsoft.com/powershell/scripting/dsc/reference/resources/windows/waitForAllResource), you will also need to allow traffic between nodes.
+See the documentation for each DSC resource to understand those network requirements.
 
-#### <a name="proxy-support"></a>프록시 지원
+#### <a name="proxy-support"></a>Proxy Support
 
-DSC 에이전트에 대 한 프록시 지원은 Windows 버전 1809 이상에서 사용할 수 있습니다.
-이 옵션을 구성 하려면 노드를 등록 하는 데 사용 되는 [메타 구성 스크립트](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) 에서 **Proxyurl** 및 **ProxyCredential** 의 값을 설정 합니다.
-프록시는 이전 버전의 Windows 용 DSC에서 사용할 수 없습니다.
+Proxy support for the DSC agent is available in Windows version 1809 and later.
+To configure this option, set the value for **ProxyURL** and **ProxyCredential** in the [metaconfiguration script](automation-dsc-onboarding.md#generating-dsc-metaconfigurations) used to register nodes.
+Proxy is not available in DSC for previous versions of Windows.
 
-Linux 노드의 경우 DSC 에이전트는 프록시를 지원 하 고 http_proxy 변수를 활용 하 여 url을 결정 합니다.
+For Linux nodes, the DSC agent supports proxy and will utilize the http_proxy variable to determine the url.
 
-#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure 상태 구성 네트워크 범위 및 네임 스페이스
+#### <a name="azure-state-configuration-network-ranges-and-namespace"></a>Azure State Configuration network ranges and namespace
 
 예외를 정의할 때 나열된 주소를 사용하는 것이 좋습니다. IP 주소의 경우 [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 다운로드할 수 있습니다. 이 파일은 매주 업데이트되고 현재 배포된 범위와 향후 예정된 IP 범위 변경 내용을 포함합니다.
 

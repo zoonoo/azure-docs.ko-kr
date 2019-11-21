@@ -1,75 +1,72 @@
 ---
-title: Azure Functions의 네트워킹에 대 한 질문과 대답
-description: Azure Functions에서 네트워킹에 대 한 가장 일반적인 질문과 시나리오에 대 한 답변입니다.
-services: functions
+title: Frequently asked questions about networking in Azure Functions
+description: Answers to some of the most common questions and scenarios for networking with Azure Functions.
 author: alexkarcher-msft
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: troubleshooting
 ms.date: 4/11/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: 6f363003dc24509bd0b80922d9e34560250cc7ed
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 4534e20a1156f1d3550d247dfd15d9dc538e9d80
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779299"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226826"
 ---
-# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Azure Functions의 네트워킹에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-networking-in-azure-functions"></a>Frequently asked questions about networking in Azure Functions
 
-이 문서에서는 Azure Functions의 네트워킹에 대 한 질문과 대답을 나열 합니다. 보다 포괄적인 개요는 [함수 네트워킹 옵션](functions-networking-options.md)을 참조 하세요.
+This article lists frequently asked questions about networking in Azure Functions. For a more comprehensive overview, see [Functions networking options](functions-networking-options.md).
 
-## <a name="how-do-i-set-a-static-ip-in-functions"></a>함수에서 고정 IP를 설정 어떻게 할까요??
+## <a name="how-do-i-set-a-static-ip-in-functions"></a>How do I set a static IP in Functions?
 
-함수를 App Service Environment에 배포 하는 것은 현재 함수에 고정 인바운드 및 아웃 바운드 IP를 사용할 수 있는 유일한 방법입니다. App Service Environment 사용에 대 한 자세한 내용은 App Service Environment를 사용 하 [여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)문서로 시작 합니다.
+Deploying a function in an App Service Environment is currently the only way to have a static inbound and outbound IP for your function. For details on using an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-do-i-restrict-internet-access-to-my-function"></a>내 함수에 대 한 인터넷 액세스를 제한 어떻게 할까요??
+## <a name="how-do-i-restrict-internet-access-to-my-function"></a>How do I restrict internet access to my function?
 
-다음과 같은 몇 가지 방법으로 인터넷 액세스를 제한할 수 있습니다.
+You can restrict internet access in a couple of ways:
 
-* [IP 제한](../app-service/app-service-ip-restrictions.md): IP 범위에 따라 함수 앱에 대 한 인바운드 트래픽을 제한 합니다.
-    * IP 제한에서 [서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md)을 구성할 수도 있습니다 .이는 특정 가상 네트워크에서 인바운드 트래픽만 허용 하도록 함수를 제한 하는 것입니다.
-* 모든 HTTP 트리거를 제거 합니다. 일부 응용 프로그램의 경우 단순히 HTTP 트리거를 방지 하 고 다른 이벤트 소스를 사용 하 여 함수를 트리거하는 것 만으로도 충분 합니다.
+* [IP restrictions](../app-service/app-service-ip-restrictions.md): Restrict inbound traffic to your function app by IP range.
+    * Under IP restrictions, you are also able to configure [Service Endpoints](../virtual-network/virtual-network-service-endpoints-overview.md), which restrict your Function to only accept inbound traffic from a particular virtual network.
+* Removal of all HTTP triggers. For some applications, it's enough to simply avoid HTTP triggers and use any other event source to trigger your function.
 
-Azure Portal 편집기는 실행 중인 함수에 직접 액세스 해야 한다는 점에 유의 하세요. Azure Portal를 통해 코드를 변경 하면 포털에서 IP 허용 목록을 검색 하는 데 사용 하는 장치가 필요 합니다. 그러나 여전히 네트워크 제한이 적용 된 플랫폼 기능 탭에서 모든 항목을 사용할 수 있습니다.
+Keep in mind that the Azure portal editor requires direct access to your running function. Any code changes through the Azure portal will require the device you're using to browse the portal to have its IP whitelisted. But you can still use anything under the platform features tab with network restrictions in place.
 
-## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>내 함수 앱을 가상 네트워크로 제한 어떻게 할까요??
+## <a name="how-do-i-restrict-my-function-app-to-a-virtual-network"></a>How do I restrict my function app to a virtual network?
 
-[서비스 끝점](./functions-networking-options.md#private-site-access)을 사용 하 여 함수 앱에 대 한 **인바운드** 트래픽을 가상 네트워크로 제한할 수 있습니다. 이 구성을 통해 함수 앱에서 인터넷에 대 한 아웃 바운드 호출을 수행할 수 있습니다.
+You are able to restrict **inbound** traffic for a function app to a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). This configuration still allows the function app to make outbound calls to the internet.
 
-모든 트래픽이 가상 네트워크를 통해 이동 하도록 하는 유일한 방법은 내부적으로 부하가 분산 된 App Service Environment를 사용 하는 것입니다. 이 옵션은 가상 네트워크 내의 전용 인프라에 사이트를 배포 하 고 가상 네트워크를 통해 모든 트리거와 트래픽을 보냅니다. 
+The only way to totally restrict a function such that all traffic flows through a virtual network is to use an internally load-balanced App Service Environment. This option deploys your site on a dedicated infrastructure inside a virtual network and sends all triggers and traffic through the virtual network. 
 
-App Service Environment 사용에 대 한 자세한 내용은 App Service Environment를 사용 하 [여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)문서로 시작 합니다.
+For details on using an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>함수 앱에서 가상 네트워크의 리소스에 액세스 하려면 어떻게 해야 하나요?
+## <a name="how-can-i-access-resources-in-a-virtual-network-from-a-function-app"></a>How can I access resources in a virtual network from a function app?
 
-가상 네트워크 통합을 사용 하 여 실행 중인 함수에서 가상 네트워크의 리소스에 액세스할 수 있습니다. 자세한 내용은 [가상 네트워크 통합](functions-networking-options.md#virtual-network-integration)을 참조 하세요.
+You can access resources in a virtual network from a running function by using virtual network integration. For more information, see [Virtual network integration](functions-networking-options.md#virtual-network-integration).
 
-## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>서비스 끝점에 의해 보호 되는 리소스에 액세스 어떻게 할까요??
+## <a name="how-do-i-access-resources-protected-by-service-endpoints"></a>How do I access resources protected by service endpoints?
 
-가상 네트워크 통합을 사용 하면 실행 중인 함수에서 서비스 끝점 보안 리소스에 액세스할 수 있습니다. 자세한 내용은 [가상 네트워크 통합](functions-networking-options.md#virtual-network-integration)을 참조 하세요.
+By using virtual network integration you can access service-endpoint-secured resources from a running function. For more information, see [virtual network integration](functions-networking-options.md#virtual-network-integration).
 
-## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>가상 네트워크의 리소스에서 함수를 트리거하는 방법
+## <a name="how-can-i-trigger-a-function-from-a-resource-in-a-virtual-network"></a>How can I trigger a function from a resource in a virtual network?
 
-[서비스 끝점](./functions-networking-options.md#private-site-access)을 사용 하 여 가상 네트워크에서 HTTP 트리거를 호출 하도록 허용할 수 있습니다. 
+You are able to allow HTTP triggers to be called from a virtual network using [Service Endpoints](./functions-networking-options.md#private-site-access). 
 
-함수 앱을 App Service Environment에 배포 하 여 가상 네트워크의 리소스에서 함수를 트리거할 수도 있습니다. App Service Environment 사용에 대 한 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](../app-service/environment/create-ilb-ase.md)을 참조 하세요.
+You can also trigger a function from a resource in a virtual network by deploying your function app to an App Service Environment. For details on using an App Service Environment, see [Create and use an internal load balancer with an App Service Environment](../app-service/environment/create-ilb-ase.md).
 
-Premium 및 App Service 요금제는 가상 네트워크에서 HTTP 트리거를 지원 하지만 App Service 환경 에서만 가상 네트워크를 통해 다른 모든 기능 트리거 형식을 지원 합니다.
+The Premium and App Service plan support HTTP triggers from a virtual network, but only an App Service environment support all other function trigger types through a virtual network.
 
-## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>가상 네트워크에서 함수 앱을 배포 하려면 어떻게 해야 하나요?
+## <a name="how-can-i-deploy-my-function-app-in-a-virtual-network"></a>How can I deploy my function app in a virtual network?
 
-가상 네트워크 내에 있는 함수 앱을 만드는 유일한 방법은 App Service Environment에 배포 하는 것입니다. App Service Environment에서 내부 부하 분산 장치를 사용 하는 방법에 대 한 자세한 내용은 [App Service Environment를 사용 하 여 내부 부하 분산 장치 만들기 및 사용](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase)문서부터 시작 합니다.
+Deploying to an App Service Environment is the only way to create a function app that's wholly inside a virtual network. For details on using an internal load balancer with an App Service Environment, start with the article [Create and use an internal load balancer with an App Service Environment](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
 
-가상 네트워크 리소스에 대 한 단방향 액세스 또는 더 낮은 포괄적인 네트워크 격리를 필요로 하는 시나리오의 경우 [네트워킹 개요 기능](functions-networking-options.md)을 참조 하세요.
+For scenarios where you need only one-way access to virtual network resources, or less comprehensive network isolation, see the [Functions networking overview](functions-networking-options.md).
 
 ## <a name="next-steps"></a>다음 단계
 
-네트워킹 및 기능에 대 한 자세한 내용은 다음을 확인 하세요. 
+To learn more about networking and functions: 
 
-* [Virtual network 통합 시작에 대 한 자습서를 따르세요.](./functions-create-vnet.md)
-* [에서 네트워킹 옵션에 대해 자세히 알아보세요 Azure Functions](./functions-networking-options.md)
-* [App Service 및 함수와의 가상 네트워크 통합에 대해 자세히 알아보기](../app-service/web-sites-integrate-with-vnet.md)
-* [Azure의 가상 네트워크에 대 한 자세한 정보](../virtual-network/virtual-networks-overview.md)
-* [추가 네트워킹 기능을 사용 하 고 App Service 환경 제어](../app-service/environment/intro.md)
+* [Follow the tutorial about getting started with virtual network integration](./functions-create-vnet.md)
+* [Learn more about the networking options in Azure Functions](./functions-networking-options.md)
+* [Learn more about virtual network integration with App Service and Functions](../app-service/web-sites-integrate-with-vnet.md)
+* [Learn more about virtual networks in Azure](../virtual-network/virtual-networks-overview.md)
+* [Enable more networking features and control with App Service Environments](../app-service/environment/intro.md)

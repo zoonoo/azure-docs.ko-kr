@@ -1,58 +1,53 @@
 ---
-title: KEDA를 사용 하 여 Kubernetes에서 Azure Functions
-description: Kubernetes 기반 이벤트 기반 자동 크기 조정을 사용 하 여 클라우드 또는 온-프레미스에서 Kubernetes의 Azure Functions를 실행 하는 방법에 대해 알아봅니다.
-services: functions
-documentationcenter: na
+title: Azure Functions on Kubernetes with KEDA
+description: Understand how to run Azure Functions in Kubernetes in the cloud or on-premises using KEDA, Kubernetes-based event driven autoscaling.
 author: jeffhollan
-manager: jeconnoc
-keywords: azure 함수, 함수, 이벤트 처리, 동적 계산, 서버를 사용 하지 않는 아키텍처, kubernetes
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: 0b77946b24bcc2e329a5c4480e9bd5ef055ef82b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab851f3156f09a808833c0b31f8c5ce2b7dd5138
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173678"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230496"
 ---
-# <a name="azure-functions-on-kubernetes-with-keda"></a>KEDA를 사용 하 여 Kubernetes에서 Azure Functions
+# <a name="azure-functions-on-kubernetes-with-keda"></a>Azure Functions on Kubernetes with KEDA
 
-Azure Functions 런타임은 원하는 위치와 방법을 호스팅할 수 있는 유연성을 제공 합니다.  [Keda](https://keda.sh) (Kubernetes 기반 이벤트 기반 자동 크기 조정)는 Azure Functions 런타임과 도구를 사용 하 여 Kubernetes에서 이벤트 중심 크기 조정을 제공 합니다.
+The Azure Functions runtime provides flexibility in hosting where and how you want.  [KEDA](https://keda.sh) (Kubernetes-based Event Driven Autoscaling) pairs seamlessly with the Azure Functions runtime and tooling to provide event driven scale in Kubernetes.
 
-## <a name="how-kubernetes-based-functions-work"></a>Kubernetes 기반 함수의 작동 방식
+## <a name="how-kubernetes-based-functions-work"></a>How Kubernetes-based functions work
 
-Azure Functions 서비스는 런타임 및 크기 조정 컨트롤러의 두 가지 주요 구성 요소로 구성 됩니다.  함수 런타임은 코드를 실행 하 고 실행 합니다.  런타임에는 함수 실행을 트리거, 로그 및 관리 하는 방법에 대 한 논리가 포함 되어 있습니다.  Azure Functions 런타임은 *어디서 나*실행할 수 있습니다.  다른 구성 요소는 크기 조정 컨트롤러입니다.  크기 조정 컨트롤러는 함수를 대상으로 하는 이벤트의 비율을 모니터링 하 고 앱을 실행 하는 인스턴스 수를 사전에 확장 합니다.  자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
+The Azure Functions service is made up of two key components: a runtime and a scale controller.  The Functions runtime runs and executes your code.  The runtime includes logic on how to trigger, log, and manage function executions.  The Azure Functions runtime can run *anywhere*.  The other component is a scale controller.  The scale controller monitors the rate of events that are targeting your function, and proactively scales the number of instances running your app.  자세한 내용은 [Azure Functions 크기 조정 및 호스팅](functions-scale.md)을 참조하세요.
 
-Kubernetes 기반 함수는 KEDA를 통해 이벤트 기반 크기 조정을 사용 하 여 [Docker 컨테이너](functions-create-function-linux-custom-image.md) 에서 함수 런타임을 제공 합니다.  KEDA는 이벤트가 발생 하지 않는 경우 0 개 인스턴스 및 최대 *n* 개의 인스턴스로 확장할 수 있습니다. Kubernetes autoscaler (수평 Pod Autoscaler)에 대 한 사용자 지정 메트릭을 노출 하 여이를 수행 합니다.  KEDA에서 함수 컨테이너를 사용 하면 Kubernetes 클러스터에서 서버를 사용 하지 않는 함수 기능을 복제할 수 있습니다.  서버 리스 인프라의 [AKS (Azure Kubernetes Services) 가상 노드](../aks/virtual-nodes-cli.md) 기능을 사용 하 여 이러한 함수를 배포할 수도 있습니다.
+Kubernetes-based Functions provides the Functions runtime in a [Docker container](functions-create-function-linux-custom-image.md) with event-driven scaling through KEDA.  KEDA can scale down to 0 instances (when no events are occurring) and up to *n* instances. It does this by exposing custom metrics for the Kubernetes autoscaler (Horizontal Pod Autoscaler).  Using Functions containers with KEDA makes it possible to replicate serverless function capabilities in any Kubernetes cluster.  These functions can also be deployed using [Azure Kubernetes Services (AKS) virtual nodes](../aks/virtual-nodes-cli.md) feature for serverless infrastructure.
 
-## <a name="managing-keda-and-functions-in-kubernetes"></a>Kubernetes에서 KEDA 및 함수 관리
+## <a name="managing-keda-and-functions-in-kubernetes"></a>Managing KEDA and functions in Kubernetes
 
-Kubernetes 클러스터에서 함수를 실행 하려면 KEDA 구성 요소를 설치 해야 합니다. [Azure Functions Core Tools](functions-run-local.md)를 사용 하 여이 구성 요소를 설치할 수 있습니다.
+To run Functions on your Kubernetes cluster, you must install the KEDA component. You can install this component using [Azure Functions Core Tools](functions-run-local.md).
 
-### <a name="installing-with-the-azure-functions-core-tools"></a>Azure Functions Core Tools를 사용 하 여 설치
+### <a name="installing-with-the-azure-functions-core-tools"></a>Installing with the Azure Functions Core Tools
 
-기본적으로 핵심 도구는 각각 이벤트 기반 및 HTTP 크기 조정을 지 원하는 KEDA 및 오시리스 구성 요소를 모두 설치 합니다.  설치는 현재 컨텍스트에서 실행 중인 `kubectl`를 사용 합니다.
+By default, Core Tools installs both KEDA and Osiris components, which support event-driven and HTTP scaling, respectively.  The installation uses `kubectl` running in the current context.
 
-다음 설치 명령을 실행 하 여 클러스터에 KEDA를 설치 합니다.
+Install KEDA in your cluster by running the following install command:
 
 ```cli
 func kubernetes install --namespace keda
 ```
 
-## <a name="deploying-a-function-app-to-kubernetes"></a>Kubernetes에 함수 앱 배포
+## <a name="deploying-a-function-app-to-kubernetes"></a>Deploying a function app to Kubernetes
 
-Kubernetes를 실행 하는 모든 함수 앱을 KEDA를 실행 하는 클러스터에 배포할 수 있습니다.  함수는 Docker 컨테이너에서 실행 되므로 프로젝트에 `Dockerfile`필요 합니다.  아직 없는 경우 함수 프로젝트의 루트에서 다음 명령을 실행 하 여 Dockerfile을 추가할 수 있습니다.
+You can deploy any function app to a Kubernetes cluster running KEDA.  Since your functions run in a Docker container, your project needs a `Dockerfile`.  If it doesn't already have one, you can add a Dockerfile by running the following command at the root of your Functions project:
 
 ```cli
 func init --docker-only
 ```
 
-이미지를 빌드하고 함수를 Kubernetes에 배포 하려면 다음 명령을 실행 합니다.
+To build an image and deploy your functions to Kubernetes, run the following command:
 
 > [!NOTE]
-> 핵심 도구는 docker CLI를 활용 하 여 이미지를 빌드하고 게시 합니다. Docker를 이미 설치 하 고 `docker login`를 사용 하 여 계정에 연결 해야 합니다.
+> The core tools will leverage the docker CLI to build and publish the image. Be sure to have docker installed already and connected to your account with `docker login`.
 
 ```cli
 func kubernetes deploy --name <name-of-function-deployment> --registry <container-registry-username>
@@ -60,15 +55,15 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > `<name-of-function-deployment>`은 함수 앱 이름으로 바꿉니다.
 
-그러면 `local.settings.json` 파일에서 가져온 환경 변수를 포함 하는 Kubernetes `Deployment` 리소스, `ScaledObject` 리소스 및 `Secrets`만들어집니다.
+This creates a Kubernetes `Deployment` resource, a `ScaledObject` resource, and `Secrets`, which includes environment variables imported from your `local.settings.json` file.
 
-### <a name="deploying-a-function-app-from-a-private-registry"></a>개인 레지스트리에서 함수 앱 배포
+### <a name="deploying-a-function-app-from-a-private-registry"></a>Deploying a function app from a private registry
 
-위의 흐름은 개인 레지스트리 에서도 작동 합니다.  개인 레지스트리에서 컨테이너 이미지를 끌어오는 경우 `func kubernetes deploy`를 실행할 때 개인 레지스트리 자격 증명을 포함 하는 Kubernetes 암호를 참조 하는 `--pull-secret` 플래그를 포함 합니다.
+The above flow works for private registries as well.  If you are pulling your container image from a private registry, include the `--pull-secret` flag that references the Kubernetes secret holding the private registry credentials when running `func kubernetes deploy`.
 
-## <a name="removing-a-function-app-from-kubernetes"></a>Kubernetes에서 함수 앱 제거
+## <a name="removing-a-function-app-from-kubernetes"></a>Removing a function app from Kubernetes
 
-배포한 후에는 생성 된 `Secrets` 연결 된 `Deployment``ScaledObject`제거 하 여 함수를 제거할 수 있습니다.
+After deploying you can remove a function by removing the associated `Deployment`, `ScaledObject`, an `Secrets` created.
 
 ```cli
 kubectl delete deploy <name-of-function-deployment>
@@ -76,31 +71,31 @@ kubectl delete ScaledObject <name-of-function-deployment>
 kubectl delete secret <name-of-function-deployment>
 ```
 
-## <a name="uninstalling-keda-from-kubernetes"></a>Kubernetes에서 KEDA 제거
+## <a name="uninstalling-keda-from-kubernetes"></a>Uninstalling KEDA from Kubernetes
 
-다음 핵심 도구 명령을 실행 하 여 Kubernetes 클러스터에서 KEDA를 제거할 수 있습니다.
+You can run the following core tools command to remove KEDA from a Kubernetes cluster:
 
 ```cli
 func kubernetes remove --namespace keda
 ```
 
-## <a name="supported-triggers-in-keda"></a>KEDA에서 지원 되는 트리거
+## <a name="supported-triggers-in-keda"></a>Supported triggers in KEDA
 
-KEDA는 다음 Azure Function 트리거를 지원 합니다.
+KEDA has support for the following Azure Function triggers:
 
-* [Azure Storage 큐](functions-bindings-storage-queue.md)
-* [Azure Service Bus 큐](functions-bindings-service-bus.md)
-* [Azure 이벤트/IoT 허브](functions-bindings-event-hubs.md)
+* [Azure Storage Queues](functions-bindings-storage-queue.md)
+* [Azure Service Bus Queues](functions-bindings-service-bus.md)
+* [Azure Event / IoT Hubs](functions-bindings-event-hubs.md)
 * [Apache Kafka](https://github.com/azure/azure-functions-kafka-extension)
-* [RabbitMQ 큐](https://github.com/azure/azure-functions-rabbitmq-extension)
+* [RabbitMQ Queue](https://github.com/azure/azure-functions-rabbitmq-extension)
 
-### <a name="http-trigger-support"></a>HTTP 트리거 지원
+### <a name="http-trigger-support"></a>HTTP Trigger support
 
-HTTP 트리거를 노출 하는 Azure Functions를 사용할 수 있지만 KEDA는 직접 관리 하지 않습니다.  Azure Functions Core Tools은 HTTP 끝점을 0에서 1로 확장할 수 있도록 하는 관련 프로젝트인 오시리스를 설치 합니다.  1에서 *n* 으로의 크기 조정은 기존 Kubernetes 크기 조정 정책에 의존 합니다.
+You can use Azure Functions that expose HTTP triggers, but KEDA doesn't directly manage them.  The Azure Functions Core Tools will install a related project, Osiris, that enables scaling HTTP endpoints from 0 to 1.  Scaling from 1 to *n* would rely on the traditional Kubernetes scaling policies.
 
 ## <a name="next-steps"></a>다음 단계
 자세한 내용은 다음 리소스를 참조하세요.
 
-* [사용자 지정 이미지를 사용 하 여 함수 만들기](functions-create-function-linux-custom-image.md)
+* [Create a function using a custom image](functions-create-function-linux-custom-image.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-develop-local.md)
-* [Azure 함수 소비 계획의 작동 원리](functions-scale.md)
+* [How the Azure Function consumption plan works](functions-scale.md)

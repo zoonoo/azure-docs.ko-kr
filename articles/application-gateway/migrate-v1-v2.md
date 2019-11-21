@@ -1,80 +1,80 @@
 ---
-title: V1에서 v2로 마이그레이션-Azure 애플리케이션 게이트웨이
-description: 이 문서에서는 v1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽을 마이그레이션하는 방법을 보여 줍니다.
+title: Migrate from v1 to v2 - Azure Application Gateway
+description: This article shows you how to migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 75d041f8ef0d6593a5ff1c696777b68c5f513bf5
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74047634"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231736"
 ---
-# <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
+# <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>Migrate Azure Application Gateway and Web Application Firewall from v1 to v2
 
-이제 [Azure 애플리케이션 게이트웨이 및 WAF (웹 응용 프로그램 방화벽) v2](application-gateway-autoscaling-zone-redundant.md) 를 사용할 수 있으며 자동 크기 조정 및 가용성 영역 중복성과 같은 추가 기능을 제공 합니다. 그러나 기존 v1 게이트웨이는 v2로 자동 업그레이드되지 않습니다. V1에서 v 2로 마이그레이션하려면이 문서의 단계를 따르세요.
+[Azure Application Gateway and Web Application Firewall (WAF) v2](application-gateway-autoscaling-zone-redundant.md) is now available, offering additional features such as autoscaling and availability-zone redundancy. 그러나 기존 v1 게이트웨이는 v2로 자동 업그레이드되지 않습니다. If you want to migrate from v1 to v2, follow the steps in this article.
 
-마이그레이션에는 두 단계가 있습니다.
+There are two stages in a migration:
 
-1. 구성 마이그레이션
-2. 클라이언트 트래픽 마이그레이션
+1. Migrate the configuration
+2. Migrate the client traffic
 
-이 문서에서는 구성 마이그레이션을 다룹니다. 클라이언트 트래픽 마이그레이션은 특정 환경에 따라 달라 집니다. 그러나 일부 고급 일반 권장 사항이 [제공 됩니다](#migrate-client-traffic).
+This article covers configuration migration. Client traffic migration varies depending on your specific environment. However, some high-level, general recommendations [are provided](#migrate-client-traffic).
 
 ## <a name="migration-overview"></a>마이그레이션 개요
 
-다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
+An Azure PowerShell script is available that does the following:
 
-* 지정 하는 가상 네트워크 서브넷에 새 Standard_v2 또는 WAF_v2 게이트웨이를 만듭니다.
-* V1 Standard 또는 WAF 게이트웨이와 연결 된 구성을 새로 만든 Standard_V2 또는 WAF_V2 게이트웨이에 원활 하 게 복사 합니다.
+* Creates a new Standard_v2 or WAF_v2 gateway in a virtual network subnet that you specify.
+* Seamlessly copies the configuration associated with the v1 Standard or WAF gateway to the newly created Standard_V2 or WAF_V2 gateway.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* 새 v2 게이트웨이에는 새 공용 및 개인 IP 주소가 있습니다. 기존 v1 게이트웨이와 연결 된 IP 주소를 원활 하 게 v2로 이동할 수 없습니다. 그러나 새 v2 게이트웨이에 기존 (할당 되지 않은) 공용 또는 개인 IP 주소를 할당할 수 있습니다.
-* 가상 네트워크 내에서 v1 게이트웨이가 있는 다른 서브넷에 대 한 IP 주소 공간을 제공 해야 합니다. 이 스크립트는 이미 v1 게이트웨이가 있는 기존 서브넷에서 v2 게이트웨이를 만들 수 없습니다. 그러나 기존 서브넷에 이미 v2 게이트웨이가 있는 경우에도 계속 작동할 수 있으며, 충분 한 IP 주소 공간이 있을 수 있습니다.
-* SSL 구성을 마이그레이션하려면 v1 게이트웨이에서 사용 되는 모든 SSL 인증서를 지정 해야 합니다.
-* V1 게이트웨이에 대해 FIPS 모드를 사용 하도록 설정한 경우 새 v2 게이트웨이로 마이그레이션되지 않습니다. V 2에서는 FIPS 모드가 지원 되지 않습니다.
-* v2는 i p v 6을 지원 하지 않으므로 IPv6 사용 v1 게이트웨이는 마이그레이션되지 않습니다. 스크립트를 실행 하는 경우 완료 되지 않을 수 있습니다.
-* V1 게이트웨이에 개인 IP 주소만 있는 경우 스크립트는 새 v2 게이트웨이에 대 한 공용 IP 주소 및 개인 IP 주소를 만듭니다. 현재 v2 게이트웨이는 개인 IP 주소만 지원 하지 않습니다.
+* The new v2 gateway has new public and private IP addresses. It isn't possible to move the IP addresses associated with the existing v1 gateway seamlessly to v2. However, you can allocate an existing (unallocated) public or private IP address to the new v2 gateway.
+* You must provide an IP address space for another subnet within your virtual network where your v1 gateway is located. The script can't create the v2 gateway in any existing subnets that already have a v1 gateway. However, if the existing subnet already has a v2 gateway, that may still work provided there's enough IP address space.
+* To  migrate an SSL configuration, you must specify all the SSL certs used in your v1 gateway.
+* If you have FIPS mode enabled for your V1 gateway, it won’t be migrated to your new v2 gateway. FIPS mode isn't supported in v2.
+* v2 doesn't support IPv6, so IPv6 enabled v1 gateways aren't migrated. If you run the script, it may not complete.
+* If the v1 gateway has only a private IP address, the script creates a public IP address and a private IP address for the new v2 gateway. v2 gateways currently don't support only private IP addresses.
 
-## <a name="download-the-script"></a>스크립트 다운로드
+## <a name="download-the-script"></a>Download the script
 
-[PowerShell 갤러리](https://www.powershellgallery.com/packages/AzureAppGWMigration)에서 마이그레이션 스크립트를 다운로드 합니다.
+Download the migration script from the  [PowerShell Gallery](https://www.powershellgallery.com/packages/AzureAppGWMigration).
 
-## <a name="use-the-script"></a>스크립트 사용
+## <a name="use-the-script"></a>Use the script
 
-로컬 PowerShell 환경 설정 및 기본 설정에 따라 다음과 같은 두 가지 옵션을 사용할 수 있습니다.
+There are two options for you depending on your local PowerShell environment setup and preferences:
 
-* Azure Az 모듈이 설치 되어 있지 않거나 Azure Az 모듈을 제거 하지 않는 경우 가장 좋은 방법은 `Install-Script` 옵션을 사용 하 여 스크립트를 실행 하는 것입니다.
-* Azure Az modules를 유지 해야 하는 경우에는 스크립트를 다운로드 하 여 직접 실행 하는 것이 가장 좋습니다.
+* If you don’t have the Azure Az modules installed, or don’t mind uninstalling the Azure Az modules, the best option is to use the `Install-Script` option to run the script.
+* If you need to keep the Azure Az modules, your best bet is to download the script and run it directly.
 
-Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule -Name az`를 실행 합니다. 설치 된 Az 모듈이 표시 되지 않는 경우 `Install-Script` 메서드를 사용할 수 있습니다.
+To determine if you have the Azure Az modules installed, run `Get-InstalledModule -Name az`. If you don't see any installed Az modules, then you can use the `Install-Script` method.
 
-### <a name="install-using-the-install-script-method"></a>Install-Script 메서드를 사용 하 여 설치
+### <a name="install-using-the-install-script-method"></a>Install using the Install-Script method
 
-이 옵션을 사용 하려면 컴퓨터에 Azure Az 모듈이 설치 되어 있지 않아야 합니다. 설치 된 경우 다음 명령에서 오류를 표시 합니다. Azure Az modules를 제거 하거나 다른 옵션을 사용 하 여 스크립트를 수동으로 다운로드 하 여 실행할 수 있습니다.
+To use this option, you must not have the Azure Az modules installed on your computer. If they're installed, the following command displays an error. You can either uninstall the Azure Az modules, or use the other option to download the script manually and run it.
   
 다음 명령을 사용하여 스크립트를 실행합니다.
 
 `Install-Script -Name AzureAppGWMigration`
 
-또한이 명령은 필요한 Az modules을 설치 합니다.  
+This command also installs the required Az modules.  
 
-### <a name="install-using-the-script-directly"></a>스크립트를 사용 하 여 직접 설치
+### <a name="install-using-the-script-directly"></a>Install using the script directly
 
-일부 Azure Az 모듈이 설치 되어 있고 제거할 수 없는 경우 (또는 제거 하지 않으려는 경우) 스크립트 다운로드 링크의 **수동 다운로드** 탭을 사용 하 여 스크립트를 수동으로 다운로드할 수 있습니다. 이 스크립트는 원시 nupkg 파일로 다운로드 됩니다. 이 nupkg 파일에서 스크립트를 설치 하려면 [수동 패키지 다운로드](https://docs.microsoft.com/powershell/gallery/how-to/working-with-packages/manual-download)를 참조 하세요.
+If you do have some Azure Az modules installed and can't uninstall them (or don't want to uninstall them), you can manually download the script using the **Manual Download** tab in the script download link. The script is downloaded as a raw nupkg file. To install the script from this nupkg file, see [Manual Package Download](/powershell/scripting/gallery/how-to/working-with-packages/manual-download).
 
 스크립트를 실행하려면
 
-1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
+1. Use `Connect-AzAccount` to connect to Azure.
 
-1. `Import-Module Az`를 사용 하 여 Az 모듈을 가져옵니다.
+1. Use `Import-Module Az` to import the Az modules.
 
-1. `Get-Help AzureAppGWMigration.ps1`를 실행 하 여 필요한 매개 변수를 검사 합니다.
+1. Run `Get-Help AzureAppGWMigration.ps1` to examine the required parameters:
 
    ```
    AzureAppGwMigration.ps1
@@ -88,21 +88,21 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
     -validateMigration -enableAutoScale
    ```
 
-   스크립트에 대 한 매개 변수:
-   * **resourceId: [String]: 필수** -기존 표준 V1 또는 waf v1 게이트웨이에 대 한 AZURE 리소스 ID입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고 응용 프로그램 게이트웨이 또는 WAF 리소스를 선택한 다음 게이트웨이에 대 한 **속성** 링크를 클릭 합니다. 리소스 ID는 해당 페이지에 있습니다.
+   Parameters for the script:
+   * **resourceId: [String]: Required** - This is the Azure Resource ID for your existing Standard v1 or WAF v1 gateway. To find this string value,  navigate to the Azure portal, select your application gateway or WAF resource, and click the **Properties** link for the gateway. The Resource ID is located on that page.
 
-     다음 Azure PowerShell 명령을 실행 하 여 리소스 ID를 가져올 수도 있습니다.
+     You can also run the following Azure PowerShell commands to get the Resource ID:
 
      ```azurepowershell
      $appgw = Get-AzApplicationGateway -Name <v1 gateway name> -ResourceGroupName <resource group Name> 
      $appgw.Id
      ```
 
-   * **subnetAddressRange: [String]: 필수** -새 v2 게이트웨이를 포함 하는 새 서브넷에 할당 했거나 할당 하려고 하는 IP 주소 공간입니다. CIDR 표기법으로 지정 해야 합니다. 예: 10.0.0.0/24. 이 서브넷을 미리 만들 필요는 없습니다. 스크립트가 존재 하지 않는 경우 만듭니다.
-   * **appgwName: [String]: 선택 사항**입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 접미사 *_v2* 추가 된 상태로 사용 됩니다.
-   * **Sslcertificates: [PSApplicationGatewaySslCertificate]: 선택 사항**입니다.  V1 게이트웨이의 SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성 된 각 SSL 인증서에 대해 여기에 표시 된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
+   * **subnetAddressRange: [String]:  Required** - This is the IP address space that you've allocated (or want to allocate) for a new subnet that contains your new v2 gateway. This must be specified in the CIDR notation. For example: 10.0.0.0/24. You don't need to create this subnet in advance. The script creates it for you if it doesn't exist.
+   * **appgwName: [String]: Optional**. This is a string you specify to use as the name for the new Standard_v2 or WAF_v2 gateway. If this parameter isn't supplied, the name of your existing v1 gateway will be used with the suffix *_v2* appended.
+   * **sslCertificates: [PSApplicationGatewaySslCertificate]: Optional**.  A comma-separated list of PSApplicationGatewaySslCertificate objects that you create to represent the SSL certs from your v1 gateway must be uploaded to the new v2 gateway. For each of your SSL certs configured for your Standard v1 or WAF v1 gateway, you can create a new PSApplicationGatewaySslCertificate object via the `New-AzApplicationGatewaySslCertificate` command shown here. You need the path to your SSL Cert file and the password.
 
-       이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성 된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기를 설정 하는 경우이 매개 변수를 지정 해야 합니다.
+       This parameter is only optional if you don’t have HTTPS listeners configured for your v1 gateway or WAF. If you have at least one HTTPS listener setup, you must specify this parameter.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,16 +114,16 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
         -Password $password
       ```
 
-      이전 예제의 `$mySslCert1, $mySslCert2` (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
-   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항**입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.  
+      You can pass in `$mySslCert1, $mySslCert2` (comma-separated) in the previous example as values for this parameter in the script.
+   * **trustedRootCertificates: [PSApplicationGatewayTrustedRootCertificate]: Optional**. A comma-separated list of PSApplicationGatewayTrustedRootCertificate objects that you create to represent the [Trusted Root certificates](ssl-overview.md) for authentication of your backend instances from your v2 gateway.  
 
-      PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
-   * **privateIpAddress: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
-    * **publicIpResourceId: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
-   * **validateMigration: [switch]: 선택 사항**입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
-   * **Enableautoscale 크기 조정: [스위치]: 선택 사항**입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
+      To create a list of PSApplicationGatewayTrustedRootCertificate objects, see [New-AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0).
+   * **privateIpAddress: [String]: Optional**. A specific private IP address that you want to associate to your new v2 gateway.  This must be from the same VNet that you allocate for your new v2 gateway. If this isn't specified, the script allocates a private IP address for your v2 gateway.
+    * **publicIpResourceId: [String]: Optional**. The resourceId of a public IP address (standard SKU) resource in your subscription that you want to allocate to the new v2 gateway. If this isn't specified, the script allocates a new public IP in the same resource group. The name is the v2 gateway’s name with *-IP* appended.
+   * **validateMigration: [switch]: Optional**. Use this parameter if you want the script to do some basic configuration comparison validations after the v2 gateway creation and the configuration copy. By default, no validation is done.
+   * **enableAutoScale: [switch]: Optional**. Use this parameter if you want the script to enable AutoScaling on the new v2 gateway after it's created. By default, AutoScaling is disabled. You can always manually enable it later on the newly created v2 gateway.
 
-1. 적절 한 매개 변수를 사용 하 여 스크립트를 실행 합니다. 완료 하는 데 5 ~ 7 분 정도 걸릴 수 있습니다.
+1. Run the script using the appropriate parameters. It may take five to seven minutes to finish.
 
     **예제**
 
@@ -139,59 +139,59 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
       -validateMigration -enableAutoScale
    ```
 
-## <a name="migrate-client-traffic"></a>클라이언트 트래픽 마이그레이션
+## <a name="migrate-client-traffic"></a>Migrate client traffic
 
-먼저 v1 게이트웨이에서 마이그레이션된 정확한 구성을 사용 하 여 스크립트가 새 v2 게이트웨이를 성공적으로 만들었는지 확인 합니다. Azure Portal에서이를 확인할 수 있습니다.
+First, double check that the script successfully created a new v2 gateway with the exact configuration migrated over from your v1 gateway. You can verify this from the Azure portal.
 
-또한 v2 게이트웨이를 통해 적은 양의 트래픽을 수동 테스트로 보냅니다.
+Also, send a small amount of traffic through the v2 gateway as a manual test.
   
-현재 application gateway (Standard)가 클라이언트 트래픽을 수신 하 고 각각에 대 한 권장 사항을 확인할 수 있는 몇 가지 시나리오는 다음과 같습니다.
+Here are a few scenarios where your current application gateway (Standard) may receive client traffic, and our recommendations for each one:
 
-* **표준 v1 또는 WAF v1 게이트웨이와 연결 된 프런트 엔드 IP 주소 (A 레코드 사용)를 가리키는 사용자 지정 DNS 영역 (예: contoso.com)** 입니다.
+* **A custom DNS zone (for example, contoso.com) that points to the frontend IP address (using an A record) associated with your Standard v1 or WAF v1 gateway**.
 
-    Standard_v2 application gateway와 연결 된 프런트 엔드 IP 또는 DNS 레이블을 가리키도록 DNS 레코드를 업데이트할 수 있습니다. DNS 레코드에 구성 된 TTL에 따라 모든 클라이언트 트래픽이 새 v2 게이트웨이로 마이그레이션될 때까지 시간이 걸릴 수 있습니다.
-* **V1 게이트웨이와 연결 된 dns 레이블 (예: CNAME 레코드를 사용 하는 *myappgw.eastus.cloudapp.azure.com* )을 가리키는 사용자 지정 dns 영역 (예: contoso.com)** 입니다.
+    You can update your DNS record to point to the frontend IP or DNS label associated with your Standard_v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
+* **A custom DNS zone (for example, contoso.com) that points to the DNS label (for example: *myappgw.eastus.cloudapp.azure.com* using a CNAME record) associated with your v1 gateway**.
 
-   다음과 같은 두 가지 옵션을 선택할 수 있습니다.
+   You have two choices:
 
-  * 응용 프로그램 게이트웨이에서 공용 IP 주소를 사용 하는 경우 Traffic Manager 프로필을 사용 하 여 제어 된 세부적인 마이그레이션을 수행 하 여 트래픽 (가중치가 적용 된 트래픽 라우팅 방법)을 새 v2 게이트웨이로 증분 라우팅할 수 있습니다.
+  * If you use public IP addresses on your application gateway, you can do a controlled, granular migration using a Traffic Manager profile to incrementally route traffic (weighted traffic routing method) to the new v2 gateway.
 
-    [Traffic Manager 프로필](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method)에 v1 및 v2 응용 프로그램 게이트웨이의 DNS 레이블을 추가 하 고 사용자 지정 DNS 레코드 (예: `www.contoso.com`)를 Traffic Manager 도메인 (예: contoso.trafficmanager.net)에 추가 하 여이 작업을 수행할 수 있습니다.
-  * 또는 새 v2 application gateway의 DNS 레이블을 가리키도록 사용자 지정 도메인 DNS 레코드를 업데이트할 수 있습니다. DNS 레코드에 구성 된 TTL에 따라 모든 클라이언트 트래픽이 새 v2 게이트웨이로 마이그레이션될 때까지 시간이 걸릴 수 있습니다.
-* **클라이언트는 application gateway의 프런트 엔드 IP 주소에 연결**합니다.
+    You can do this by adding the DNS labels of both the v1 and v2 application gateways to the [Traffic Manager profile](../traffic-manager/traffic-manager-routing-methods.md#weighted-traffic-routing-method), and CNAMEing your custom DNS record (for example, `www.contoso.com`) to the Traffic Manager domain (for example, contoso.trafficmanager.net).
+  * Or, you can update your custom domain DNS record to point to the DNS label of the new v2 application gateway. Depending on the TTL configured on your DNS record, it may take a while for all your client traffic to migrate to your new v2 gateway.
+* **Your clients connect to the frontend IP address of your application gateway**.
 
-   새로 만든 v2 application gateway와 연결 된 IP 주소를 사용 하도록 클라이언트를 업데이트 합니다. IP 주소를 직접 사용 하지 않는 것이 좋습니다. 사용자 지정 DNS 영역 (예: contoso.com)에 CNAME 할 수 있는 응용 프로그램 게이트웨이와 연결 된 DNS 이름 레이블 (예: yourgateway.eastus.cloudapp.azure.com)을 사용 하는 것이 좋습니다.
+   Update your clients to use the IP address(es) associated with the newly created v2 application gateway. We recommend that you don't use IP addresses directly. Consider using the DNS name label (for example, yourgateway.eastus.cloudapp.azure.com) associated with your application gateway that you can CNAME to your own custom DNS zone (for example, contoso.com).
 
 ## <a name="common-questions"></a>일반적인 질문
 
-### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>V1에서 v 2로 구성을 마이그레이션하기 위한 Azure PowerShell 스크립트에 제한이 있나요?
+### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>Are there any limitations with the Azure PowerShell script to migrate the configuration from v1 to v2?
 
-예. [주의 사항/제한 사항](#caveatslimitations)을 참조 하세요.
+예. See [Caveats/Limitations](#caveatslimitations).
 
-### <a name="is-this-article-and-the-azure-powershell-script-applicable-for-application-gateway-waf-product-as-well"></a>이 문서와 Azure PowerShell 스크립트는 Application Gateway WAF 제품에도 적용 되나요? 
+### <a name="is-this-article-and-the-azure-powershell-script-applicable-for-application-gateway-waf-product-as-well"></a>Is this article and the Azure PowerShell script applicable for Application Gateway WAF product as well? 
 
 예.
 
-### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>또한 Azure PowerShell 스크립트는 v1 게이트웨이의 트래픽을 새로 만든 v2 게이트웨이로 전환 하나요?
+### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>Does the Azure PowerShell script also switch over the traffic from my v1 gateway to the newly created v2 gateway?
 
-아니요. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
+아닙니다. The Azure PowerShell script only migrates the configuration. Actual traffic migration is your responsibility and in your control.
 
-### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell 스크립트에서 만든 새 v2 게이트웨이가 현재 내 v1 게이트웨이에서 제공 되는 모든 트래픽을 처리 하기 위해 적절 하 게 크기를 조정 하나요?
+### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Is the new v2 gateway created by the Azure PowerShell script sized appropriately to handle all of the traffic that is currently served by my v1 gateway?
 
-Azure PowerShell 스크립트는 기존 v1 게이트웨이의 트래픽을 처리할 수 있는 적절 한 크기의 새 v2 게이트웨이를 만듭니다. 자동 크기 조정은 기본적으로 사용 하지 않도록 설정 되어 있지만 스크립트를 실행할 때 자동 크기 조정을 사용 하도록 설정할 수 있습니다.
+The Azure PowerShell script creates a new v2 gateway with an appropriate size to handle the traffic on your existing v1 gateway. Autoscaling is disabled by default, but you can enable AutoScaling when you run the script.
 
-### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Azure storage에 로그를 전송 하도록 v1 gateway를 구성 했습니다. 스크립트가 v2에 대해이 구성도 복제 하나요?
+### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>I configured my v1 gateway  to send logs to Azure storage. Does the script replicate this configuration for v2 as well?
 
-아니요. 이 스크립트는 v2에 대해이 구성을 복제 하지 않습니다. 로그 구성은 마이그레이션된 v2 게이트웨이에 별도로 추가 해야 합니다.
+아닙니다. The script doesn't  replicate this configuration for v2. You must add the log configuration separately to the migrated v2 gateway.
 
-### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>이 스크립트는 Azure KeyVault에 업로드 된 인증서를 지원 하나요?
+### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>Does this script support certificates uploaded to Azure KeyVault ?
 
-아니요. 현재 스크립트는 KeyVault의 인증서를 지원 하지 않습니다. 그러나이는 이후 버전에서 고려 됩니다.
+아닙니다. Currently the script does not support certificates in KeyVault. However, this is being considered for a future version.
 
-### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
+### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>I ran into some issues with using this script. How can I get help?
   
-appgwmigrationsup@microsoft.com에 전자 메일을 보내거나 Azure 지원으로 지원 사례를 열거나 둘 다 수행할 수 있습니다.
+You can send an email to appgwmigrationsup@microsoft.com, open a support case with Azure Support, or do both.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Application Gateway v2에 대해 알아보기](application-gateway-autoscaling-zone-redundant.md)
+[Learn about Application Gateway v2](application-gateway-autoscaling-zone-redundant.md)

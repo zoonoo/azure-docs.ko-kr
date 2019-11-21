@@ -1,47 +1,44 @@
 ---
-title: Durable Functions의 HTTP 기능-Azure Functions
-description: Azure Functions Durable Functions 확장의 통합 HTTP 기능에 대해 알아봅니다.
+title: HTTP features in Durable Functions - Azure Functions
+description: Learn about the integrated HTTP features in the Durable Functions extension for Azure Functions.
 author: cgillum
-manager: gwallace
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 3fcb777969f7d29b0e8698156dbdd0724f16f0b5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177371"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232881"
 ---
-# <a name="http-features"></a>HTTP 기능
+# <a name="http-features"></a>HTTP Features
 
-Durable Functions에는 지 속성 오케스트레이션 및 엔터티를 HTTP 워크플로에 쉽게 통합할 수 있는 몇 가지 기능이 있습니다. 이 문서에서는 이러한 기능 중 일부에 대해 자세히 설명 합니다.
+Durable Functions has several features that make it easy to incorporate durable orchestrations and entities into HTTP workflows. This article goes into detail about some of those features.
 
-## <a name="exposing-http-apis"></a>HTTP Api 노출
+## <a name="exposing-http-apis"></a>Exposing HTTP APIs
 
-HTTP 요청을 사용 하 여 오케스트레이션 및 엔터티를 호출 하 고 관리할 수 있습니다. Durable Functions 확장 프로그램은 기본 제공 HTTP Api를 노출 합니다. 또한 HTTP 트리거 함수 내에서 오케스트레이션 및 엔터티와 상호 작용 하기 위한 Api를 제공 합니다.
+Orchestrations and entities can be invoked and managed using HTTP requests. The Durable Functions extension exposes built-in HTTP APIs. It also provides APIs for interacting with orchestrations and entities from within HTTP-triggered functions.
 
-### <a name="built-in-http-apis"></a>기본 제공 HTTP Api
+### <a name="built-in-http-apis"></a>Built-in HTTP APIs
 
-Durable Functions 확장 프로그램은 HTTP Api 집합을 Azure Functions 호스트에 자동으로 추가 합니다. 이러한 Api를 사용 하면 코드를 작성 하지 않고도 오케스트레이션 및 엔터티를 조작 하 고 관리할 수 있습니다.
+The Durable Functions extension automatically adds a set of HTTP APIs to the Azure Functions host. With these APIs, you can interact with and manage orchestrations and entities without writing any code.
 
-지원 되는 기본 제공 HTTP Api는 다음과 같습니다.
+The following built-in HTTP APIs are supported.
 
-* [새 오케스트레이션 시작](durable-functions-http-api.md#start-orchestration)
-* [오케스트레이션 인스턴스 쿼리](durable-functions-http-api.md#get-instance-status)
-* [오케스트레이션 인스턴스 종료](durable-functions-http-api.md#terminate-instance)
-* [오케스트레이션에 외부 이벤트 보내기](durable-functions-http-api.md#raise-event)
-* [오케스트레이션 기록 제거](durable-functions-http-api.md#purge-single-instance-history)
-* [엔터티에 작업 이벤트 보내기](durable-functions-http-api.md#signal-entity)
-* [엔터티 상태 쿼리](durable-functions-http-api.md#query-entity)
+* [Start new orchestration](durable-functions-http-api.md#start-orchestration)
+* [Query orchestration instance](durable-functions-http-api.md#get-instance-status)
+* [Terminate orchestration instance](durable-functions-http-api.md#terminate-instance)
+* [Send an external event to an orchestration](durable-functions-http-api.md#raise-event)
+* [Purge orchestration history](durable-functions-http-api.md#purge-single-instance-history)
+* [Send an operation event to an entity](durable-functions-http-api.md#signal-entity)
+* [Query the state of an entity](durable-functions-http-api.md#query-entity)
 
-Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api에 대 한 자세한 설명은 [HTTP api 문서](durable-functions-http-api.md) 를 참조 하세요.
+See the [HTTP APIs article](durable-functions-http-api.md) for a full description of all the built-in HTTP APIs exposed by the Durable Functions extension.
 
 ### <a name="http-api-url-discovery"></a>HTTP API URL 검색
 
-[오케스트레이션 클라이언트 바인딩은](durable-functions-bindings.md#orchestration-client) 편리한 HTTP 응답 페이로드를 생성할 수 있는 api를 노출 합니다. 예를 들어 특정 오케스트레이션 인스턴스에 대 한 관리 Api에 대 한 링크가 포함 된 응답을 만들 수 있습니다. 다음 예에서는 새 오케스트레이션 인스턴스에이 API를 사용 하는 방법을 보여 주는 HTTP 트리거 함수를 보여 줍니다.
+The [orchestration client binding](durable-functions-bindings.md#orchestration-client) exposes APIs that can generate convenient HTTP response payloads. For example, it can create a response containing links to management APIs for a specific orchestration instance. The following examples show an HTTP-trigger function that demonstrates how to use this API for a new orchestration instance:
 
 #### <a name="precompiled-c"></a>미리 컴파일된 C#
 
@@ -51,7 +48,7 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/HttpStart/run.csx)]
 
-#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript (함수 2.0 이상만)
+#### <a name="javascript-with-functions-20-or-later-only"></a>JavaScript with Functions 2.0 or later only
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
@@ -59,13 +56,13 @@ Durable Functions 확장에 의해 노출 되는 모든 기본 제공 HTTP Api�
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
-이전에 표시 된 HTTP 트리거 함수를 사용 하 여 orchestrator 함수를 시작 하려면 모든 HTTP 클라이언트를 사용 해야 합니다. 다음 말아 명령은 `DoWork` 이라는 오 케 스트레이 터 함수를 시작 합니다.
+Starting an orchestrator function by using the HTTP-trigger functions shown previously can be done using any HTTP client. The following cURL command starts an orchestrator function named `DoWork`:
 
 ```bash
 curl -X POST https://localhost:7071/orchestrators/DoWork -H "Content-Length: 0" -i
 ```
 
-다음은 ID로 `abc123`이 있는 오케스트레이션에 대 한 예제 응답입니다. 명확 하 게 하기 위해 일부 세부 정보가 제거 되었습니다.
+Next is an example response for an orchestration that has `abc123` as its ID. Some details have been removed for clarity.
 
 ```http
 HTTP/1.1 202 Accepted
@@ -82,42 +79,42 @@ Retry-After: 10
 }
 ```
 
-이전 예제에서 `Uri`으로 끝나는 각 필드는 기본 제공 HTTP API에 해당 합니다. 이러한 Api를 사용 하 여 대상 오케스트레이션 인스턴스를 관리할 수 있습니다.
+In the previous example, each of the fields ending in `Uri` corresponds to a built-in HTTP API. You can use these APIs to manage the target orchestration instance.
 
 > [!NOTE]
-> Webhook Url의 형식은 실행 중인 Azure Functions 호스트의 버전에 따라 다릅니다. 이전 예제는 Azure Functions 2.0 호스트를 위한 것입니다.
+> The format of the webhook URLs depends on which version of the Azure Functions host you are running. The previous example is for the Azure Functions 2.0 host.
 
-모든 기본 제공 HTTP Api에 대 한 설명은 [HTTP api 참조](durable-functions-http-api.md)를 참조 하세요.
+For a description of all built-in HTTP APIs, see the [HTTP API reference](durable-functions-http-api.md).
 
 ### <a name="async-operation-tracking"></a>비동기 작업 추적
 
-앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. 이 패턴을 *폴링 소비자 패턴이*라고도 합니다. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
+앞에서 언급한 HTTP 응답은 Durable Functions를 사용하여 장기 실행 HTTP 비동기 API를 구현하는 데 도움이 되도록 설계되었습니다. This pattern is sometimes referred to as the *polling consumer pattern*. 클라이언트/서버 흐름은 다음과 같이 작동합니다.
 
-1. 클라이언트는 orchestrator 함수와 같은 장기 실행 프로세스를 시작 하기 위해 HTTP 요청을 발급 합니다.
-1. 대상 HTTP 트리거는 "statusQueryGetUri" 값을 가진 Location 헤더를 사용 하 여 HTTP 202 응답을 반환 합니다.
-1. 클라이언트는 Location 헤더의 URL을 폴링합니다. 클라이언트는 위치 헤더를 사용 하 여 HTTP 202 응답을 계속 표시 합니다.
-1. 인스턴스가 완료 되거나 실패 하면 Location 헤더의 끝점에서 HTTP 200을 반환 합니다.
+1. The client issues an HTTP request to start a long-running process like an orchestrator function.
+1. The target HTTP trigger returns an HTTP 202 response with a Location header that has the value "statusQueryGetUri".
+1. The client polls the URL in the Location header. The client continues to see HTTP 202 responses with a Location header.
+1. When the instance finishes or fails, the endpoint in the Location header returns HTTP 200.
 
-이 프로토콜을 사용 하면 HTTP 끝점을 폴링하고 Location 헤더를 따를 수 있는 외부 클라이언트 또는 서비스를 사용 하 여 장기 실행 프로세스를 조정할 수 있습니다. 이 패턴의 클라이언트 및 서버 구현은 모두 Durable Functions HTTP Api에 기본 제공 됩니다.
-
-> [!NOTE]
-> 기본적으로 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)에서 제공하는 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 지원합니다. 이 기능을 사용하면 Logic Apps 워크플로의 일부로 장기 실행 지속성 함수를 포함할 수 있습니다. 비동기 HTTP 패턴에 대 한 Logic Apps 지원에 대 한 자세한 내용은 [Azure Logic Apps 워크플로 작업 및 트리거 설명서](../../logic-apps/logic-apps-workflow-actions-triggers.md)에서 확인할 수 있습니다.
+This protocol allows coordination of long-running processes with external clients or services that can poll an HTTP endpoint and follow the Location header. Both the client and server implementations of this pattern are built into the Durable Functions HTTP APIs.
 
 > [!NOTE]
-> 오케스트레이션과의 상호 작용은 HTTP로 트리거되는 함수 뿐만 아니라 모든 함수 형식에서 수행할 수 있습니다.
-
-클라이언트 Api를 사용 하 여 오케스트레이션 및 엔터티를 관리 하는 방법에 대 한 자세한 내용은 [인스턴스 관리 문서](durable-functions-instance-management.md)를 참조 하세요.
-
-## <a name="consuming-http-apis"></a>HTTP Api 사용
-
-[Orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md)에 설명 된 대로 오 케 스트레이 터 함수는 i/o를 직접 수행할 수 없습니다. 대신 일반적으로 i/o 작업을 수행 하는 [작업 함수](durable-functions-types-features-overview.md#activity-functions) 를 호출 합니다.
-
-Durable Functions 2.0부터 오케스트레이션은 [오케스트레이션 트리거 바인딩을](durable-functions-bindings.md#orchestration-trigger)사용 하 여 HTTP api를 기본적으로 사용할 수 있습니다.
+> 기본적으로 [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)에서 제공하는 모든 HTTP 기반 작업은 표준 비동기 작업 패턴을 지원합니다. 이 기능을 사용하면 Logic Apps 워크플로의 일부로 장기 실행 지속성 함수를 포함할 수 있습니다. You can find more details on Logic Apps support for asynchronous HTTP patterns in the [Azure Logic Apps workflow actions and triggers documentation](../../logic-apps/logic-apps-workflow-actions-triggers.md).
 
 > [!NOTE]
-> Orchestrator 함수에서 직접 HTTP 끝점을 호출 하는 기능은 JavaScript에서 아직 사용할 수 없습니다.
+> Interactions with orchestrations can be done from any function type, not just HTTP-triggered functions.
 
-다음 예제 코드에서는 **CallHttpAsync** .net C# API를 사용 하 여 아웃 바운드 HTTP 요청을 만드는 오 케 스트레이 터 함수를 보여 줍니다.
+For more information on how to manage orchestrations and entities using client APIs, see the [Instance management article](durable-functions-instance-management.md).
+
+## <a name="consuming-http-apis"></a>Consuming HTTP APIs
+
+As described in the [orchestrator function code constraints](durable-functions-code-constraints.md), orchestrator functions can't do I/O directly. Instead, they typically call [activity functions](durable-functions-types-features-overview.md#activity-functions) that do I/O operations.
+
+Starting with Durable Functions 2.0, orchestrations can natively consume HTTP APIs by using the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger).
+
+> [!NOTE]
+> The ability to call HTTP endpoints directly from orchestrator functions is not yet available in JavaScript.
+
+The following example code shows a C# orchestrator function making an outbound HTTP request using the **CallHttpAsync** .NET API:
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -137,26 +134,26 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
-"Call HTTP" 작업을 사용 하 여 orchestrator 함수에서 다음 작업을 수행할 수 있습니다.
+By using the "call HTTP" action, you can do the following actions in your orchestrator functions:
 
-* 오케스트레이션 함수에서 직접 HTTP Api를 호출 하 고 나중에 설명 하는 몇 가지 제한 사항이 있습니다.
-* 클라이언트 쪽 HTTP 202 상태 폴링 패턴을 자동으로 지원 합니다.
-* [Azure 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 다른 azure 끝점에 대 한 권한 있는 HTTP 호출을 만듭니다.
+* Call HTTP APIs directly from orchestration functions, with some limitations that are mentioned later.
+* Automatically support client-side HTTP 202 status polling patterns.
+* Use [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md) to make authorized HTTP calls to other Azure endpoints.
 
-Orchestrator 함수에서 직접 HTTP Api를 사용 하는 기능은 특정 한 일반적인 시나리오 집합의 편의를 위해 작성 되었습니다. 활동 함수를 사용 하 여 이러한 모든 기능을 직접 구현할 수 있습니다. 대부분의 경우 작업 함수는 더 많은 유연성을 제공할 수 있습니다.
+The ability to consume HTTP APIs directly from orchestrator functions is intended as a convenience for a certain set of common scenarios. You can implement all of these features yourself using activity functions. In many cases, activity functions might give you more flexibility.
 
-### <a name="http-202-handling"></a>HTTP 202 처리
+### <a name="http-202-handling"></a>HTTP 202 handling
 
-"Call HTTP" API는 폴링 소비자 패턴의 클라이언트 쪽을 자동으로 구현할 수 있습니다. 호출 된 API가 Location 헤더를 사용 하 여 HTTP 202 응답을 반환 하는 경우 오 케 스트레이 터 함수는 202 이외의 응답을 받을 때까지 위치 리소스를 자동으로 폴링합니다. 이 응답은 오 케 스트레이 터 함수 코드에 반환 되는 응답입니다.
+The "call HTTP" API can automatically implement the client side of the polling consumer pattern. If a called API returns an HTTP 202 response with a Location header, the orchestrator function automatically polls the Location resource until receiving a response other than 202. This response will be the response returned to the orchestrator function code.
 
 > [!NOTE]
-> 또한 오 케 스트레이 터 함수는 [비동기 작업 추적](#async-operation-tracking)에 설명 된 대로 서버 쪽 폴링 소비자 패턴을 기본적으로 지원 합니다. 이 지원은 한 함수 앱의 오케스트레이션이 다른 함수 앱의 오 케 스트레이 터 함수를 쉽게 조정할 수 있음을 의미 합니다. 이는 [하위 오케스트레이션](durable-functions-sub-orchestrations.md) 개념과 유사 하지만 앱 간 통신을 지원 합니다. 이 지원은 마이크로 서비스 스타일 앱 개발에 특히 유용 합니다.
+> Orchestrator functions also natively support the server-side polling consumer pattern, as described in [Async operation tracking](#async-operation-tracking). This support means that orchestrations in one function app can easily coordinate the orchestrator functions in other function apps. This is similar to the [sub-orchestration](durable-functions-sub-orchestrations.md) concept, but with support for cross-app communication. This support is particularly useful for microservice-style app development.
 
 ### <a name="managed-identities"></a>관리 ID
 
-Durable Functions은 권한 부여를 위해 Azure Active Directory (Azure AD) 토큰을 허용 하는 Api에 대 한 호출을 기본적으로 지원 합니다. 이 지원에서는 [Azure 관리 id](../../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하 여 이러한 토큰을 가져옵니다.
+Durable Functions natively supports calls to APIs that accept Azure Active Directory (Azure AD) tokens for authorization. This support uses [Azure managed identities](../../active-directory/managed-identities-azure-resources/overview.md) to acquire these tokens.
 
-다음 코드는 .NET orchestrator 함수의 예제입니다. 이 함수는 [REST API Azure Resource Manager 가상](https://docs.microsoft.com/rest/api/compute/virtualmachines)컴퓨터를 사용 하 여 가상 컴퓨터를 다시 시작 하도록 인증 된 호출을 수행 합니다.
+The following code is an example of a .NET orchestrator function. The function makes authenticated calls to restart a virtual machine by using the Azure Resource Manager [virtual machines REST API](https://docs.microsoft.com/rest/api/compute/virtualmachines).
 
 ```csharp
 [FunctionName("RestartVm")]
@@ -181,41 +178,41 @@ public static async Task RunOrchestrator(
 }
 ```
 
-이전 예제에서 `tokenSource` 매개 변수는 [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md)에 대 한 Azure AD 토큰을 얻도록 구성 됩니다. 토큰은 리소스 URI `https://management.core.windows.net`으로 식별 됩니다. 이 예제에서는 현재 함수 앱이 로컬로 실행 되 고 있거나 관리 id를 사용 하 여 함수 앱으로 배포 된 것으로 가정 합니다. 로컬 id 또는 관리 id는 지정 된 리소스 그룹의 Vm을 관리할 수 있는 권한을 가진 것으로 간주 됩니다 `myRG`.
+In the previous example, the `tokenSource` parameter is configured to acquire Azure AD tokens for [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md). The tokens are identified by the resource URI `https://management.core.windows.net`. The example assumes that the current function app either is running locally or was deployed as a function app with a managed identity. The local identity or the managed identity is assumed to have permission to manage VMs in the specified resource group `myRG`.
 
-런타임에 구성 된 토큰 소스는 OAuth 2.0 액세스 토큰을 자동으로 반환 합니다. 그런 다음 소스는 들어오는 요청의 권한 부여 헤더에 토큰을 전달자 토큰으로 추가 합니다. 이 모델은 다음 이유로 인해 HTTP 요청에 권한 부여 헤더를 수동으로 추가 하는 것 보다 향상 되었습니다.
+At runtime, the configured token source automatically returns an OAuth 2.0 access token. The source then adds the token as a bearer token to the Authorization header of the outgoing request. This model is an improvement over manually adding authorization headers to HTTP requests for the following reasons:
 
-* 토큰 새로 고침이 자동으로 처리 됩니다. 만료 된 토큰에 대해 걱정 하지 않아도 됩니다.
-* 토큰은 내구성이 있는 오케스트레이션 상태에 저장 되지 않습니다.
-* 토큰 획득을 관리 하기 위해 코드를 작성할 필요가 없습니다.
+* Token refresh is handled automatically. You don't need to worry about expired tokens.
+* Tokens are never stored in the durable orchestration state.
+* You don't need to write any code to manage token acquisition.
 
-[미리 컴파일된 C# RestartVMs 샘플](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs)에서 더 완전 한 예제를 찾을 수 있습니다.
+You can find a more complete example in the [precompiled C# RestartVMs sample](https://github.com/Azure/azure-functions-durable-extension/blob/v2/samples/v2/precompiled/RestartVMs.cs).
 
-관리 id는 Azure 리소스 관리로 제한 되지 않습니다. 관리 id를 사용 하 여 Microsoft 및 파트너의 웹 앱에서 Azure 서비스를 비롯 한 Azure AD 전달자 토큰을 허용 하는 모든 API에 액세스할 수 있습니다. 파트너의 웹 앱은 다른 함수 앱 일 수도 있습니다. Azure AD로 인증을 지 원하는 Microsoft의 Azure 서비스 목록은 [AZURE ad 인증을 지 원하는 azure 서비스](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조 하세요.
+Managed identities aren't limited to Azure resource management. You can use managed identities to access any API that accepts Azure AD bearer tokens, including Azure services from Microsoft and web apps from partners. A partner's web app can even be another function app. For a list of Azure services from Microsoft that support authentication with Azure AD, see [Azure services that support Azure AD authentication](../../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication).
 
 ### <a name="limitations"></a>제한 사항
 
-HTTP Api 호출에 대 한 기본 제공 지원은 편리한 기능입니다. 일부 시나리오에는 적합 하지 않습니다.
+The built-in support for calling HTTP APIs is a convenience feature. It's not appropriate for all scenarios.
 
-오 케 스트레이 터 함수에서 보낸 HTTP 요청 및 응답은 큐 메시지로 직렬화 되 고 지속 됩니다. 이러한 큐 동작을 통해 HTTP 호출은 [안정적이 고 오케스트레이션 재생에 안전](durable-functions-orchestrations.md#reliability)합니다. 그러나 큐 동작에는 다음과 같은 제한 사항도 있습니다.
+HTTP requests sent by orchestrator functions and their responses are serialized and persistent as queue messages. This queueing behavior ensures HTTP calls are [reliable and safe for orchestration replay](durable-functions-orchestrations.md#reliability). However, the queuing behavior also has limitations:
 
-* 각 HTTP 요청에는 네이티브 HTTP 클라이언트와 비교할 때 추가 대기 시간이 포함 됩니다.
-* 큐 메시지에 포함할 수 없는 큰 요청 또는 응답 메시지는 오케스트레이션 성능을 크게 저하 시킬 수 있습니다. 메시지 페이로드를 blob 저장소로 오프 로드 하는 오버 헤드로 인해 성능이 저하 될 수 있습니다.
-* 스트리밍, 청크 분할 및 이진 페이로드는 지원 되지 않습니다.
-* HTTP 클라이언트의 동작을 사용자 지정 하는 기능이 제한 됩니다.
+* Each HTTP request involves additional latency when compared to a native HTTP client.
+* Large request or response messages that can't fit into a queue message can significantly degrade orchestration performance. The overhead of offloading message payloads to blob storage can cause potential performance degradation.
+* Streaming, chunked, and binary payloads aren't supported.
+* The ability to customize the behavior of the HTTP client is limited.
 
-이러한 제한 사항으로 인해 사용 사례에 영향을 줄 수 있는 경우에는 대신 작업 함수와 언어별 HTTP 클라이언트 라이브러리를 사용 하 여 아웃 바운드 HTTP 호출을 수행 하는 것이 좋습니다.
+If any of these limitations might affect your use case, consider instead using activity functions and language-specific HTTP client libraries to make outbound HTTP calls.
 
 > [!NOTE]
-> .NET 개발자 인 경우이 기능이 기본 제공 .NET **HttpRequestMessage** 및 **HttpResponseMessage** 형식 대신 **DurableHttpRequest** 및 **DurableHttpResponse** 형식을 사용 하는 이유를 궁금할 수 있습니다.
+> If you are a .NET developer, you might wonder why this feature uses the **DurableHttpRequest** and **DurableHttpResponse** types instead of the built-in .NET **HttpRequestMessage** and **HttpResponseMessage** types.
 >
-> 이 디자인 선택은 의도적인 것입니다. 주된 이유는 사용자 지정 형식을 사용 하 여 사용자가 내부 HTTP 클라이언트의 지원 되는 동작에 대해 잘못 된 가정을 하지 못하도록 하는 것입니다. Durable Functions 관련 형식만 API 디자인을 간소화할 수 있습니다. 또한 [관리 id 통합](#managed-identities) 및 [폴링 소비자 패턴과](#http-202-handling)같은 특수 기능을 보다 쉽게 사용할 수 있습니다. 
+> 이 디자인 선택은 의도적입니다. The primary reason is that custom types help ensure users don't make incorrect assumptions about the supported behaviors of the internal HTTP client. Types specific to Durable Functions also make it possible to simplify API design. They also can more easily make available special features like [managed identity integration](#managed-identities) and the [polling consumer pattern](#http-202-handling). 
 
-### <a name="extensibility-net-only"></a>확장성 (.NET만 해당)
+### <a name="extensibility-net-only"></a>Extensibility (.NET only)
 
-[Azure Functions .net 종속성 주입](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection)을 사용 하 여 오케스트레이션의 내부 HTTP 클라이언트 동작을 사용자 지정할 수 있습니다. 이 기능은 작은 동작 변경을 수행 하는 데 유용할 수 있습니다. 모의 개체를 삽입 하 여 HTTP 클라이언트를 단위 테스트 하는 데에도 유용할 수 있습니다.
+Customizing the behavior of the orchestration's internal HTTP client is possible using [Azure Functions .NET dependency injection](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). This ability can be useful for making small behavioral changes. It can also be useful for unit testing the HTTP client by injecting mock objects.
 
-다음 예제에서는 종속성 주입을 사용 하 여 외부 HTTP 끝점을 호출 하는 오 케 스트레이 터 함수에 대해 SSL 인증서 유효성 검사를 사용 하지 않도록
+The following example demonstrates using dependency injection to disable SSL certificate validation for orchestrator functions that call external HTTP endpoints.
 
 ```csharp
 public class Startup : FunctionsStartup
@@ -246,4 +243,4 @@ public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFact
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [지 속성 엔터티에 대해 알아보기](durable-functions-entities.md)
+> [Learn about durable entities](durable-functions-entities.md)

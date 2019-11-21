@@ -1,21 +1,15 @@
 ---
 title: Azure Portal을 사용하는 Durable Functions 만들기
 description: Azure Functions, 포털 개발을 위한 Durable Functions 확장을 설치하는 방법에 대해 알아봅니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/23/2018
-ms.author: glenga
 ms.reviewer: azfuncdf
-ms.openlocfilehash: 238969b320608c08491c3d3e85870d57f41c1589
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: eaa241eff6e1c359045a0ea3d8871fde6c60a059
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231476"
 ---
 # <a name="create-durable-functions-using-the-azure-portal"></a>Azure Portal을 사용하는 Durable Functions 만들기
 
@@ -23,7 +17,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * 에서 지 속성 함수를 개발 하 C#는 경우에는 대신 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 고려해 야 합니다.
+> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
@@ -64,7 +58,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수+ 옆의**  단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -82,7 +76,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-1. `Hello`Durable Functions 활동**템플릿을 사용하여**라는 이름의 세 번째 함수를 만듭니다.
+1. **Durable Functions 활동** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
@@ -118,7 +112,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
         }
     ```
 
-1. 상태가 `statusQueryGetUri`완료됨**으로 변경될 때까지**  엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
+1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
 
     ```json
     {

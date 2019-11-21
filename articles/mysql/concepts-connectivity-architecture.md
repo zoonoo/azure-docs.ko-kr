@@ -1,32 +1,32 @@
 ---
-title: Azure Database for MySQL의 연결 아키텍처
-description: Azure Database for MySQL 서버에 대 한 연결 아키텍처를 설명 합니다.
+title: Connectivity architecture in Azure Database for MySQL
+description: Describes the connectivity architecture for your Azure Database for MySQL server.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/22/2019
-ms.openlocfilehash: 664d3d4333f8c34a8c5dc6648da2beccc4d7a6a2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498443"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213148"
 ---
-# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL의 연결 아키텍처
-이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MySQL 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MySQL 연결 아키텍처에 대해 설명 합니다.
+# <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Connectivity architecture in Azure Database for MySQL
+This article explains the Azure Database for MySQL connectivity architecture as well as how the traffic is directed to your Azure Database for MySQL instance from clients both within and outside Azure.
 
 ## <a name="connectivity-architecture"></a>연결 아키텍처
-들어오는 연결을 클러스터에 있는 서버의 실제 위치로 라우팅하는 게이트웨이를 통해 Azure Database for MySQL에 대 한 연결이 설정 됩니다. 다음 다이어그램은 트래픽 흐름을 보여 줍니다.
+Connection to your Azure Database for MySQL is established through a gateway that is responsible for routing incoming connections to the physical location of your server in our clusters. The following diagram illustrates the traffic flow.
 
-![연결 아키텍처 개요](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+![Overview of the connectivity architecture](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
 
-클라이언트는 데이터베이스에 연결할 때 게이트웨이에 연결 되는 연결 문자열을 가져옵니다. 이 게이트웨이에는 3306 포트를 수신 하는 공용 IP 주소가 있습니다. 데이터베이스 클러스터 내에서 트래픽이 적절 한 Azure Database for MySQL 전달 됩니다. 따라서 회사 네트워크에서와 같이 서버에 연결 하려면 클라이언트 쪽 방화벽을 열어 아웃 바운드 트래픽이 게이트웨이에 도달할 수 있도록 해야 합니다. 아래에서 지역별 게이트웨이에서 사용 하는 IP 주소의 전체 목록을 찾을 수 있습니다.
+As client connect to the database, they get a connection string which connects to the gateway. This gateway has a public IP address that listens to port 3306. Inside the database cluster, traffic is forwarded to appropriate Azure Database for MySQL. Therefore, in order to connect to your server, such as from corporate networks, it is necessary to open up the client side firewall to allow outbound traffic to be able to reach our gateways. Below you can find a complete list of the IP addresses used by our gateways per region.
 
-## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>게이트웨이 IP 주소 Azure Database for MySQL
-다음 표에서는 모든 데이터 영역에 대 한 Azure Database for MySQL 게이트웨이의 기본 및 보조 Ip를 나열 합니다. 주 IP 주소는 게이트웨이의 현재 IP 주소이 고 두 번째 IP 주소는 주 복제본의 오류가 발생 하는 경우 장애 조치 (failover) IP 주소입니다. 앞서 언급 했 듯이, 고객은 두 IP 주소에 대 한 아웃 바운드를 허용 해야 합니다. 두 번째 IP 주소는 연결을 허용 하기 위해 Azure Database for MySQL에 의해 활성화 될 때까지 서비스에서 수신 하지 않습니다.
+## <a name="azure-database-for-mysql-gateway-ip-addresses"></a>Azure Database for MySQL gateway IP addresses
+The following table lists the primary and secondary IPs of the Azure Database for MySQL gateway for all data regions. The primary IP address is the current IP address of the gateway and the second IP address is a failover IP address in case of failure of the primary. As mentioned, customers should allow outbound to both the IP addresses. The second IP address does not listen in on any services until it is activated by Azure Database for MySQL to accept connections.
 
-| **영역 이름** | **기본 IP 주소** | **보조 IP 주소** |
+| **Region Name** | **Primary IP Address** | **Secondary IP Address** |
 |:----------------|:-------------|:------------------------|
 | 오스트레일리아 동부 | 13.75.149.87 | 40.79.161.1 |
 | 오스트레일리아 동남부 | 191.239.192.109 | 13.73.109.251 |
@@ -65,10 +65,17 @@ ms.locfileid: "73498443"
 ||||
 
 > [!NOTE]
-> *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
+> *East US 2* has also a tertiary IP address of `52.167.104.0`.
+
+## <a name="connection-redirection"></a>Connection redirection
+
+Azure Database for MySQL supports an additional connection policy, **redirection**, that helps to reduce network latency between client applications and MySQL servers. With this feature, after the initial TCP session is established to the Azure Database for MySQL server, the server returns the backend address of the node hosting the MySQL server to the client. Thereafter, all subsequent packets flow directly to the server, bypassing the gateway. As packets flow directly to the server, latency and throughput have improved performance.
+
+This feature is supported in Azure Database for MySQL servers with engine versions 5.6, 5.7, and 8.0.
+
+Preview support for redirection is available in the [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) extension, developed by Microsoft, and is available on [PECL](https://pecl.php.net/package/mysqlnd_azure). See the [configuring redirection](./howto-redirection.md) article for more information on how to use redirection in your applications. 
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal을 사용한 MySQL용 Azure Database 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-portal.md)
-* [Azure CLI를 사용 하 여 Azure Database for MySQL 방화벽 규칙 만들기 및 관리](./howto-manage-firewall-using-cli.md)
-
+* [Create and manage Azure Database for MySQL firewall rules using Azure CLI](./howto-manage-firewall-using-cli.md)

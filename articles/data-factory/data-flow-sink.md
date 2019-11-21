@@ -1,117 +1,119 @@
 ---
-title: Azure Data Factory의 데이터 흐름 매핑 기능에서 싱크 변환을 설정 합니다.
-description: 매핑 데이터 흐름에서 싱크 변환을 설정 하는 방법에 대해 알아봅니다.
+title: Set up a sink transformation in the mapping data flow feature
+description: Learn how to set up a sink transformation in the mapping data flow.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: fa6a2fd853673493c93dbe65f889468c8e0c8617
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082943"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217922"
 ---
-# <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
+# <a name="sink-transformation-for-a-data-flow"></a>Sink transformation for a data flow
 
-데이터 흐름을 변환한 후에는 데이터를 대상 데이터 집합으로 싱크할 수 있습니다. 싱크 변환에서 대상 출력 데이터에 대 한 데이터 집합 정의를 선택 합니다. 데이터 흐름에 필요한 만큼 싱크 변환을 수행할 수 있습니다.
+After you transform your data flow, you can sink the data into a destination dataset. In the sink transformation, choose a dataset definition for the destination output data. You can have as many sink transformations as your data flow requires.
 
-들어오는 데이터의 스키마 드리프트 및 변경 내용을 고려 하려면 출력 데이터 집합에 정의 된 스키마가 없는 폴더에 출력 데이터를 싱크 합니다. 원본에서 **스키마 드리프트 허용** 을 선택 하 여 원본에서 열 변경을 수행할 수도 있습니다. 그런 다음 싱크의 모든 필드를 자동으로 매핑합니다.
+To account for schema drift and changes in incoming data, sink the output data to a folder without a defined schema in the output dataset. You can also account for column changes in your sources by selecting **Allow schema drift** in the source. Then automap all fields in the sink.
 
-![자동 매핑 옵션을 포함 하는 싱크 탭의 옵션](media/data-flow/sink1.png "싱크 1")
+![Options on the Sink tab, including the Auto Map option](media/data-flow/sink1.png "sink 1")
 
-들어오는 모든 필드를 싱크 하려면 **자동 지도**를 설정 합니다. 대상에 싱크로 필드를 선택 하거나 대상의 필드 이름을 변경 하려면 **자동 지도**를 해제 합니다. 그런 다음 **매핑** 탭을 열어 출력 필드를 매핑합니다.
+To sink all incoming fields, turn on **Auto Map**. To choose the fields to sink to the destination, or to change the names of the fields at the destination, turn off **Auto Map**. Then open the **Mapping** tab to map output fields.
 
-![매핑 탭의 옵션](media/data-flow/sink2.png "싱크 2")
+![Options on the Mapping tab](media/data-flow/sink2.png "sink 2")
 
 ## <a name="output"></a>출력 
-Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된 데이터를 폴더에 출력 합니다. Spark는 싱크 변환에서 사용 하는 파티션 구성표를 기반으로 분할 된 출력 데이터 파일을 생성 합니다. 
+For Azure Blob storage or Data Lake Storage sink types, output the transformed data into a folder. Spark generates partitioned output data files based on the partitioning scheme that the sink transformation uses. 
 
-**최적화** 탭에서 파티션 구성표를 설정할 수 있습니다. Data Factory 하 여 출력을 단일 파일로 병합 하려면 **단일 파티션**을 선택 합니다. 분할 된 폴더를 유지 관리 하거나 만들려면 **키 분할** 을 사용 하 고 분할 된 폴더 구조에 사용할 키를 설정 합니다.
+You can set the partitioning scheme from the **Optimize** tab. If you want Data Factory to merge your output into a single file, select **Single partition**. If you wish to maintain or create partitioned folders, use **Key partitioning** and set the keys you wish to use for partitioned folder structures.
 
-![최적화 탭의 옵션](media/data-flow/opt001.png "싱크 옵션")
+![Options on the Optimize tab](media/data-flow/opt001.png "sink options")
 
-## <a name="field-mapping"></a>필드 매핑
-싱크 변환의 **매핑** 탭에서 왼쪽의 들어오는 열을 오른쪽의 대상에 매핑할 수 있습니다. 데이터 흐름을 파일로 싱크할 때 Data Factory는 항상 폴더에 새 파일을 씁니다. 데이터베이스 데이터 집합에 매핑할 때 삽입, 업데이트, upsert 또는 삭제에 대 한 데이터베이스 테이블 작업 옵션을 선택 합니다.
+## <a name="field-mapping"></a>Field mapping
+On the **Mapping** tab of your sink transformation, you can map the incoming columns on the left to the destinations on the right. When you sink data flows to files, Data Factory will always write new files to a folder. When you map to a database dataset, you will choose database table operation options to insert, update, upsert, or delete.
 
-![매핑 탭](media/data-flow/sink2.png "Sinks")
+![The Mapping tab](media/data-flow/sink2.png "Sinks")
 
-매핑 테이블에서 여러 열을 연결 하거나 여러 열을 연결 하거나 여러 행을 동일한 열 이름에 매핑할 수 있습니다.
+In the mapping table, you can multiselect to link multiple columns, delink multiple columns, or map multiple rows to the same column name.
 
-들어오는 필드 집합을 대상에 항상 매핑하고 유연한 스키마 정의를 완전히 수락 하려면 **스키마 드리프트 허용**을 선택 합니다.
+To always map the incoming set of fields to a target as they are and to fully accept flexible schema definitions, select **Allow schema drift**.
 
-![매핑 탭-데이터 집합의 열에 매핑되는 필드 표시](media/data-flow/multi1.png "여러 옵션")
+![The Mapping tab, showing fields mapped to columns in the dataset](media/data-flow/multi1.png "multiple options")
 
-열 매핑을 다시 설정 하려면 **다시 매핑**을 선택 합니다.
+To reset your column mappings, select **Re-map**.
 
-![싱크 탭](media/data-flow/sink1.png "싱크 1")
+![The Sink tab](media/data-flow/sink1.png "Sink One")
 
-스키마가 변경 된 경우 싱크에 실패 하려면 **스키마 유효성 검사** 를 선택 합니다.
+Select **Validate schema** to fail the sink if the schema changes.
 
-대상 폴더에 대상 파일을 쓰기 전에 싱크 폴더의 내용을 자르려면 **폴더 지우기** 를 선택 합니다.
+Select **Clear the folder** to truncate the contents of the sink folder before writing the destination files in that target folder.
 
-## <a name="fixed-mapping-vs-rule-based-mapping"></a>매핑 및 규칙 기반 매핑의 고정
-자동 매핑을 해제할 때 열 기반 매핑 (고정 매핑) 또는 규칙 기반 매핑을 추가 하는 옵션이 있습니다. 규칙 기반 매핑을 사용 하면 패턴 일치를 사용 하는 식을 작성할 수 있습니다. 고정 매핑은 논리적 및 물리적 열 이름을 매핑합니다.
+## <a name="fixed-mapping-vs-rule-based-mapping"></a>Fixed mapping vs. rule-based mapping
+When you turn off auto-mapping, you will have the option to add either column-based mapping (fixed mapping) or rule-based mapping. Rule-based mapping will allow you to write expressions with pattern matching while fixed mapping will map logical and physical column names.
 
-![규칙 기반 매핑](media/data-flow/rules4.png "규칙 기반 매핑")
+![Rule-based Mapping](media/data-flow/rules4.png "Rule-based mapping")
 
-규칙 기반 매핑을 선택 하면 ADF는 들어오는 패턴 규칙과 일치 하는 일치 하는 식을 평가 하 고 보내는 필드 이름을 정의 합니다. 필드 및 규칙 기반 매핑의 모든 조합을 추가할 수 있습니다. 그런 다음 원본에서 들어오는 메타 데이터를 기반으로 ADF에 의해 런타임에 필드 이름이 생성 됩니다. 디버그 중에 생성 된 필드의 이름과 데이터 미리 보기 창을 사용 하 여 볼 수 있습니다.
+When you choose rule-based mapping, you are instructing ADF to evaluate your matching expression to match incoming pattern rules and define the outgoing field names. You may add any combination of both field and rule-based mappings. Field names are then generated at runtime by ADF based on incoming metadata from the source. You can view the names of the generated fields during debug and using the data preview pane.
 
-패턴 일치에 대 한 세부 정보는 [열 패턴 설명서](concepts-data-flow-column-pattern.md)에 있습니다.
+Details on pattern matching are at [Column Pattern documentation](concepts-data-flow-column-pattern.md).
 
-행을 확장 하 고 "이름 일치:" 옆에 정규식을 입력 하 여 규칙 기반 일치를 사용할 때 정규식 패턴을 입력할 수도 있습니다.
+You can also enter regular expression patterns when using rule based matching by expanding the row and entering a regular expression next to "Name Matches:".
 
-![Regex 매핑](media/data-flow/scdt1g4.png "Regex 매핑")
+![Regex Mapping](media/data-flow/scdt1g4.png "Regex mapping")
 
-규칙 기반 매핑과 고정 매핑의 기본 일반적인 예는 들어오는 모든 필드를 대상의 동일한 이름에 매핑하는 경우입니다. 고정 매핑의 경우 테이블의 각 개별 열을 나열 합니다. 규칙 기반 매핑의 경우 ```true()```를 사용 하는 모든 필드를 ```$$```표시 되는 동일한 들어오는 필드 이름에 매핑하는 단일 규칙이 있습니다.
+A very basic common example for a rule-based mapping vs. fixed mapping is the case where you want to map all incoming fields to the same name in your target. In the case of fixed mappings, you would list each individual column in the table. For rule-based mapping, you would have a single rule that maps all fields using ```true()``` to the same incoming field name represented by ```$$```.
 
-### <a name="sink-association-with-dataset"></a>데이터 집합과 싱크 연결
+### <a name="sink-association-with-dataset"></a>Sink association with dataset
 
-싱크에 대해 선택 하는 데이터 집합에는 데이터 집합 정의에 정의 된 스키마가 있을 수도 있고 없을 수도 있습니다. 스키마가 정의 되어 있지 않으면 스키마 드리프트를 허용 해야 합니다. 고정 매핑을 정의 하면 논리적-물리적 이름 매핑이 싱크 변환에 유지 됩니다. 데이터 집합의 스키마 정의를 변경 하면 싱크 매핑이 중단 될 수 있습니다. 이를 방지 하려면 규칙 기반 매핑을 사용 합니다. 규칙 기반 매핑은 일반화 됩니다. 즉, 데이터 집합의 스키마를 변경 해도 매핑이 중단 되지 않습니다.
+The dataset that you select for your sink may or may not have a schema defined in the dataset definition. If it does not have a defined schema, then you must allow schema drift. When you defined a fixed mapping, the logical-to-physical name mapping will persist in the sink transformation. If you change the schema definition of the dataset, then you will potentially break your sink mapping. To avoid this, use rule-based mapping. Rule-based mappings are generalized, meaning that schema changes on your dataset will not break the mapping.
 
 ## <a name="file-name-options"></a>파일 이름 옵션
 
-파일 이름 지정 설정: 
+Set up file naming: 
 
-   * **기본값**: SPARK에서 파트 기본값을 기준으로 파일의 이름을 지정할 수 있습니다.
-   * **패턴**: 출력 파일의 패턴을 입력 합니다. 예를 들어 **대출 [n]** 은 loans1, loans2 등을 만듭니다.
-   * **파티션당**: 파티션당 하나의 파일 이름을 입력 합니다.
-   * **열의 데이터로**출력: 출력 파일을 열의 값으로 설정 합니다.
-   * **단일 파일로 출력**:이 옵션을 사용 하면 ADF가 분할 된 출력 파일을 단일 명명 된 파일로 결합 합니다. 이 옵션을 사용 하려면 데이터 집합이 폴더 이름으로 확인 되어야 합니다. 또한이 병합 작업은 노드 크기에 따라 실패할 수 있습니다.
+   * **Default**: Allow Spark to name files based on PART defaults.
+   * **Pattern**: Enter a pattern for your output files. For example, **loans[n]** will create loans1.csv, loans2.csv, and so on.
+   * **Per partition**: Enter one file name per partition.
+   * **As data in column**: Set the output file to the value of a column.
+   * **Output to a single file**: With this option, ADF will combine the partitioned output files into a single named file. To use this option, your dataset should resolve to a folder name. Also, please be aware that this merge operation can possibly fail based upon node size.
 
 > [!NOTE]
-> 파일 작업은 데이터 흐름 실행 작업을 실행 하는 경우에만 시작 됩니다. 데이터 흐름 디버그 모드에서 시작 되지 않습니다.
+> File operations start only when you're running the Execute Data Flow activity. They don't start in Data Flow Debug mode.
 
 ## <a name="database-options"></a>데이터베이스 옵션
 
-데이터베이스 설정 선택:
+Choose database settings:
 
-![SQL 싱크 옵션을 표시 하는 설정 탭](media/data-flow/alter-row2.png "SQL 옵션")
+![The Settings tab, showing SQL sink options](media/data-flow/alter-row2.png "SQL Options")
 
-* **업데이트 방법**: 기본값은 삽입을 허용 하는 것입니다. 원본에서 새 행 삽입을 중지 하려면 **삽입 허용** 을 선택 취소 합니다. 행을 업데이트, upsert 또는 삭제 하려면 먼저 해당 작업에 대 한 태그 행에 alter row 변환을 추가 합니다. 
-* **테이블 다시**만들기: 데이터 흐름이 끝나기 전에 대상 테이블을 삭제 하거나 만듭니다.
-* **테이블 자르기**: 데이터 흐름이 끝나기 전에 대상 테이블에서 모든 행을 제거 합니다.
-* **일괄 처리 크기**: 청크를 청크로 쓸 수 있는 숫자를 입력 합니다. 대량 데이터 로드에이 옵션을 사용 합니다. 
-* **준비 사용**: Azure 데이터 웨어하우스를 싱크 데이터 집합으로 로드할 때 PolyBase를 사용 합니다.
-* **사전 및 사후 sql 스크립트**: 데이터를 싱크 데이터베이스에 기록 하기 전 (전처리) 및 이후 (사후 처리) 데이터를 실행 하는 여러 줄의 sql 스크립트를 입력 합니다.
+* **Update method**: The default is to allow inserts. Clear **Allow insert** if you want to stop inserting new rows from your source. To update, upsert, or delete rows, first add an alter-row transformation to tag rows for those actions. 
+* **Recreate table**: Drop or create your target table before the data flow finishes.
+* **Truncate table**: Remove all rows from your target table before the data flow finishes.
+* **Batch size**: Enter a number to bucket writes into chunks. Use this option for large data loads. 
+* **Enable staging**: Use PolyBase when you load Azure Data Warehouse as your sink dataset.
+* **Pre and Post SQL scripts**: Enter multi-line SQL scripts that will execute before (pre-processing) and after (post-processing) data is written to your Sink database
 
-![사전 및 사후 SQL 처리 스크립트](media/data-flow/prepost1.png "SQL 처리 스크립트")
-
-> [!NOTE]
-> 데이터 흐름에서 Data Factory를 지시 하 여 대상 데이터베이스에 새 테이블 정의를 만들 수 있습니다. 테이블 정의를 만들려면 새 테이블 이름이 있는 싱크 변환의 데이터 집합을 설정 합니다. SQL 데이터 집합의 테이블 이름 아래에서 **편집** 을 선택 하 고 새 테이블 이름을 입력 합니다. 그런 다음 싱크 변환에서 **schema 드리프트**를 사용 하도록 설정 합니다. **가져오기 스키마** 를 **없음**으로 설정 합니다.
-
-![테이블 이름을 편집할 위치를 보여 주는 SQL 데이터 집합 설정](media/data-flow/dataset2.png "SQL 스키마")
+![pre and post SQL processing scripts](media/data-flow/prepost1.png "SQL processing scripts")
 
 > [!NOTE]
-> 데이터베이스 싱크에서 행을 업데이트 하거나 삭제 하는 경우 키 열을 설정 해야 합니다. 이 설정을 사용 하면 변경 행 변환이 DML (데이터 이동 라이브러리)의 고유 행을 확인할 수 있습니다.
+> In Data Flow, you can direct Data Factory to create a new table definition in your target database. To create the table definition, set a dataset in the sink transformation that has a new table name. In the SQL dataset, below the table name, select **Edit** and enter a new table name. Then, in the sink transformation, turn on **Allow schema drift**. Set **Import schema** to **None**.
 
-### <a name="cosmosdb-specific-settings"></a>CosmosDB 특정 설정
+![SQL dataset settings, showing where to edit the table name](media/data-flow/dataset2.png "SQL Schema")
 
-CosmosDB에서 데이터를 방문 하는 경우 다음과 같은 추가 옵션을 고려해 야 합니다.
+> [!NOTE]
+> When you update or delete rows in your database sink, you must set the key column. This setting allows the alter-row transformation to determine the unique row in the data movement library (DML).
 
-* 파티션 키: 필수 필드입니다. 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예: ```/movies/title```
-* 처리량:이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
+### <a name="cosmosdb-specific-settings"></a>CosmosDB specific settings
+
+When landing data in CosmosDB, you will need to consider these additional options:
+
+* Partition Key: This is a required field. Enter a string that represents the partition key for your collection. 예: ```/movies/title```
+* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow. Minimum is 400.
 
 ## <a name="next-steps"></a>다음 단계
-이제 데이터 흐름을 만들었으므로 [파이프라인에 데이터 흐름 활동](concepts-data-flow-overview.md)을 추가 합니다.
+Now that you've created your data flow, add a [Data Flow activity to your pipeline](concepts-data-flow-overview.md).

@@ -8,12 +8,12 @@ ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b9b1be699190f6dc6f4771411c22f376d51637ec
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a2836f40b55a71e080288fce7e48275747962c16
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477461"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231526"
 ---
 # <a name="troubleshoot-errors-with-shared-resources"></a>공유 리소스 오류 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "67477461"
 
 ## <a name="modules"></a>모듈
 
-### <a name="module-stuck-importing"></a>시나리오: 모듈이 가져오기 상태에서 중단됨
+### <a name="module-stuck-importing"></a>시나리오: 모듈이 가져오기 상태에서 중단
 
 #### <a name="issue"></a>문제
 
@@ -29,9 +29,9 @@ Azure Automation에서 모듈을 가져오거나 업데이트할 때 모듈이 *
 
 #### <a name="cause"></a>원인
 
-PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이 프로세스는 모듈 가져오기가 제대로 수행되지 않을 가능성이 있습니다. 이 문제가 발생하는 경우 가져오는 모듈이 일시적인 상태에서 중단될 수 있습니다. 이 프로세스에 대한 자세한 내용은 [PowerShell 모듈 가져오기]( /powershell/developer/module/importing-a-powershell-module#the-importing-process)를 참조하세요.
+PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이 프로세스는 모듈 가져오기가 제대로 수행되지 않을 가능성이 있습니다. 이 문제가 발생하는 경우 가져오는 모듈이 일시적인 상태에서 중단될 수 있습니다. 이 프로세스에 대한 자세한 내용은 [PowerShell 모듈 가져오기](/powershell/scripting/developer/module/importing-a-powershell-module#the-importing-process)를 참조하세요.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 이 문제를 해결하려면 [Remove-AzureRmAutomationModule](/powershell/module/azurerm.automation/remove-azurermautomationmodule) cmdlet을 사용하여 **가져오기** 상태에서 중단된 모듈을 제거해야 합니다. 그 후 모듈 가져오기를 다시 시도할 수 있습니다.
 
@@ -39,11 +39,11 @@ PowerShell 모듈 가져오기는 복잡한 다단계 프로세스입니다. 이
 Remove-AzureRmAutomationModule -Name ModuleName -ResourceGroupName ExampleResourceGroup -AutomationAccountName ExampleAutomationAccount -Force
 ```
 
-### <a name="update-azure-modules-importing"></a>시나리오: AzureRM 모듈을 업데이트 한 후 가져올 붙어
+### <a name="update-azure-modules-importing"></a>Scenario: AzureRM modules are stuck importing after trying to update them
 
 #### <a name="issue"></a>문제
 
-AzureRM 모듈을 업데이트 한 후 계정에 배너가 다음 메시지와 함께 유지 됩니다.
+A banner with the following message stays in your account after trying to update your AzureRM modules:
 
 ```error
 Azure modules are being updated
@@ -51,11 +51,11 @@ Azure modules are being updated
 
 #### <a name="cause"></a>원인
 
-0부터 시작 하는 숫자 이름의 리소스 그룹에 있는 Automation 계정에는 AzureRM 모듈을 업데이트 하는 알려진된 문제가 있습니다.
+There is a known issue with updating the AzureRM modules in an Automation Account that is in a resource group with a numeric name that starts with 0.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
-Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 리소스 그룹에 이어야 합니다. 0부터 시작 하는 숫자 이름의 리소스 그룹에 AzureRM 모듈을 업데이트할 수 없는 합니다.
+To update your Azure modules in your Automation Account, it must be in a resource group that has an alphanumeric name. Resource groups with numeric names starting with 0 are unable to update AzureRM modules at this time.
 
 ### <a name="module-fails-to-import"></a>시나리오: 모듈이 가져오기를 실패하거나 가져오기를 실행한 후 cmdlet을 실행할 수 없음
 
@@ -72,7 +72,7 @@ Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 
 * 모듈 폴더에 종속성이 없습니다.
 * `New-AzureRmAutomationModule` cmdlet을 사용하여 모듈을 업로드하고 있는데 전체 스토리지 경로를 지정하지 않았거나 공개적으로 액세스 가능한 URL을 사용하여 모듈을 로드하지 않았습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
@@ -80,7 +80,7 @@ Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 
 * .Psd1 파일을 열고 모듈에 종속성이 있는지 확인합니다. 종속성이 있으면 이러한 모듈을 Automation 계정에 업로드합니다.
 * 모듈 폴더에 참조되는 .dll이 있는지 확인합니다.
 
-### <a name="all-modules-suspended"></a>시나리오: 모듈을 업데이트할 때 Update-AzureModule.ps1이 일시 중단됨
+### <a name="all-modules-suspended"></a>Scenario: Update-AzureModule.ps1 suspends when updating modules
 
 #### <a name="issue"></a>문제
 
@@ -90,7 +90,7 @@ Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 
 
 `Update-AzureModule.ps1` 스크립트를 사용하면 동시에 업데이트되는 모듈 수를 결정하는 기본 설정이 10입니다. 동시에 너무 많은 모듈을 업데이트하면 업데이트 프로세스에서 오류가 발생할 가능성이 높습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 모든 AzureRM 모듈이 반드시 동일한 Automation 계정에 있어야 하는 경우는 흔치 않습니다. 필요한 AzureRM 모듈만 가져오는 것이 좋습니다.
 
@@ -118,7 +118,7 @@ Automation 계정에서 Azure 모듈 업데이트에 영숫자 이름을 가진 
 
 ## <a name="run-as-accounts"></a>실행 계정
 
-### <a name="unable-create-update"></a>시나리오: 실행 계정을 만들거나 업데이트할 수 없음
+### <a name="unable-create-update"></a>Scenario: You're unable to create or update a Run As account
 
 #### <a name="issue"></a>문제
 
@@ -132,17 +132,17 @@ You do not have permissions to create…
 
 실행 계정을 만들거나 업데이트해야 하는 권한이 없거나 리소스 그룹 수준에서 리소스가 잠겨 있습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 실행 계정을 만들거나 업데이트하려면 실행 계정에서 사용된 다양한 리소스에 대해 적절한 권한이 있어야 합니다. 실행 계정을 만들거나 업데이트하는 데 필요한 권한에 대해 알아보려면 [실행 계정 권한](../manage-runas-account.md#permissions)을 참조하세요.
 
 문제의 원인이 잠금인 경우 잠금을 제거해도 되는지 확인합니다. 그런 다음, 잠긴 리소스로 이동하여 잠금을 마우스 오른쪽 단추로 클릭하고, **삭제**를 선택하여 잠금을 제거합니다.
 
-### <a name="iphelper"></a>시나리오: 경우에 "명명 된 'GetPerAdapterInfo' DLL에서 'iplpapi.dll' 진입점을 찾을 수 없습니다." 오류를 수신 하는 runbook을 실행 합니다.
+### <a name="iphelper"></a>Scenario: You receive the error "Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'" when executing a runbook.
 
 #### <a name="issue"></a>문제
 
-Runbook을 실행할 때 다음 예외가 발생 합니다.
+When executing a runbook you receive the following exception:
 
 ```error
 Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
@@ -150,11 +150,11 @@ Unable to find an entry point named 'GetPerAdapterInfo' in DLL 'iplpapi.dll'
 
 #### <a name="cause"></a>원인
 
-이 오류는 잘못 구성 된 원인일 가능성이 [실행 계정](../manage-runas-account.md)합니다.
+This error is most likely caused by an incorrectly configured [Run As Account](../manage-runas-account.md).
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
-있는지 확인 하 [실행 계정](../manage-runas-account.md) 올바르게 구성 되어 있습니다. 올바르게 구성 되 면 Azure를 사용 하 여 인증 하도록 runbook의 적절 한 코드를 했는지 확인 합니다. 다음 예제에서는 실행 계정을 사용 하 여 runbook에서 Azure로 인증 하는 코드의 조각을 보여 줍니다.
+Make sure your [Run As Account](../manage-runas-account.md) is properly configured. Once it is configured correctly, ensure you have the proper code in your runbook to authenticate with Azure. The following example shows a snippet of code to authenticate to Azure in a runbook using a Run As Account.
 
 ```powershell
 $connection = Get-AutomationConnection -Name AzureRunAsConnection

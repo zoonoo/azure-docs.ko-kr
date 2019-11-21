@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/06/2018
-ms.openlocfilehash: 103e09a0e2b9dd409fa2ddaff1c5311ef9936d22
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/19/2019
+ms.openlocfilehash: 6b5d48a1d198b62af853a6334de41bad01b3c98c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422169"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232546"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -35,30 +35,23 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 
-InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 계층](concepts-service-tiers.md)에 연결됩니다.
+The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
 
-|**가격 책정 계층**| **계산 세대**|**vCore**|**InnoDB 버퍼 풀(MB)**| **최대 연결**|
-|---|---|---|---|--|
-|Basic| 4세대| 1| 960| 50|
-|Basic| 4세대| 2| 2560| 100|
-|Basic| 5세대| 1| 960| 50|
-|Basic| 5세대| 2| 2560| 100|
-|범용| 4세대| 2| 3584| 300|
-|범용| 4세대| 4| 7680| 625|
-|범용| 4세대| 8| 15360| 1250|
-|범용| 4세대| 16| 31232| 2500|
-|범용| 4세대| 32| 62976| 5,000|
-|범용| 5세대| 2| 3584| 300|
-|범용| 5세대| 4| 7680| 625|
-|범용| 5세대| 8| 15360| 1250|
-|범용| 5세대| 16| 31232| 2500|
-|범용| 5세대| 32| 62976| 5,000|
-|범용| 5세대| 64| 125952| 10000|
-|메모리 최적화| 5세대| 2| 7168| 600|
-|메모리 최적화| 5세대| 4| 15360| 1250|
-|메모리 최적화| 5세대| 8| 30720| 2500|
-|메모리 최적화| 5세대| 16| 62464| 5,000|
-|메모리 최적화| 5세대| 32| 125952| 10000|
+|**가격 책정 계층**|**vCore**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|:---|---:|---:|---:|
+|Basic| 1| 960| |
+|Basic| 2| 2560| |
+|일반적인 용도| 2| 3584| 7168|
+|일반적인 용도| 4| 7680| 15360|
+|일반적인 용도| 8| 15360| 30720|
+|일반적인 용도| 16| 31232| 62464|
+|일반적인 용도| 32| 62976| 125952|
+|일반적인 용도| 64| 125952| 251904|
+|메모리에 최적화| 2| 7168| 14336|
+|메모리에 최적화| 4| 15360| 30720|
+|메모리에 최적화| 8| 30720| 61440|
+|메모리에 최적화| 16| 62464| 124928|
+|메모리에 최적화| 32| 125952| 251904|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 

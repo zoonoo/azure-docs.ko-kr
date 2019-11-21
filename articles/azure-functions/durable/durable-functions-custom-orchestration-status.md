@@ -1,20 +1,15 @@
 ---
 title: 지속성 함수의 사용자 지정 오케스트레이션 상태 - Azure
 description: 지속성 함수의 사용자 지정 오케스트레이션 상태를 구성하고 사용하는 방법을 알아봅니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d3b3ee1fabf59ae3b87185c4c9eb2f85aa8acd91
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 22242a40a29a1a014a7ab88ed705c7ca3e5ba288
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614929"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232961"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>지속성 함수의 사용자 지정 오케스트레이션 상태(Azure Functions)
 
@@ -23,7 +18,7 @@ ms.locfileid: "73614929"
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
 > [!NOTE]
-> 다음 샘플에서는 및 JavaScript에서 C# 사용자 지정 상태 기능을 사용 하는 방법을 보여 줍니다. 예제 C# 는 2.x Durable Functions 용으로 작성 되었으며 Durable Functions 1.x와 호환 되지 않습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ### <a name="visualize-progress"></a>진행률 시각화
 
@@ -56,7 +51,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -117,7 +112,7 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -191,7 +186,7 @@ public static void Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -256,7 +251,7 @@ public static async Task<bool> Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -302,7 +297,7 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -338,9 +333,9 @@ GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 > [!WARNING]
-> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용 하는 것이 좋습니다.
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. We recommend you use external storage if you need a larger payload.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [지 속성 타이머에 대해 알아보기](durable-functions-timers.md)
+> [Learn about durable timers](durable-functions-timers.md)

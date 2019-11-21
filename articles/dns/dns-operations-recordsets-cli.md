@@ -3,7 +3,7 @@ title: Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 관리 | Microsof
 description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다.
 services: dns
 documentationcenter: na
-author: vhorne
+author: asudbring
 manager: jeconnoc
 ms.assetid: 5356a3a5-8dec-44ac-9709-0c2b707f6cb5
 ms.service: dns
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 05/15/2018
-ms.author: victorh
-ms.openlocfilehash: 4864a46b91b4e243ce6a2ae3d9d36df28fe74d8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: allensu
+ms.openlocfilehash: a0316710f78afc8810f5f65e108638b08fae3da2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61293357"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211627"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -42,7 +42,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등의 레코드 형식임). 도움말을 보려면 `az network dns record-set --help`을 참조하세요.
+DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt, etc.) For help, see `az network dns record-set --help`.
 
 레코드를 만드는 경우 리소스 그룹 이름, 영역 이름, 레코드 집합 이름, 레코드 유형 및 만드는 레코드의 세부 정보를 지정해야 합니다. 레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다.
 

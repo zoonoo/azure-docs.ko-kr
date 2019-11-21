@@ -1,6 +1,6 @@
 ---
-title: 내 앱 포털에서 앱 액세스 및 사용-Azure Active Directory | Microsoft Docs
-description: 내 앱 포털에 액세스 하는 방법을 알아봅니다.
+title: Locate & use apps on the My Apps portal - Azure AD
+description: Learn how to find the My Apps portal and then how to access your organization's cloud-based apps.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 901067e198616dba390e0e1162ec26a0b11768f1
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "68383144"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233188"
 ---
-# <a name="access-and-use-apps-on-the-my-apps-portal"></a>내 앱 포털에서 앱 액세스 및 사용
+# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>Locate and use your organization's cloud-based apps on the My Apps portal
 
 웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
@@ -31,135 +31,135 @@ ms.locfileid: "68383144"
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
-다음 웹 브라우저 중 하나에서 **내 앱** 포털에 액세스할 수 있습니다.
+You can get to the **My Apps** portal from any of the following web browsers:
 
 - Google Chrome
 
-- Mozilla Firefox, 버전 26.0 이상
+- Mozilla Firefox, version 26.0 or later
 
 - Microsoft Edge
 
-- Internet Explorer 버전 11 (제한 된 지원)
+- Internet Explorer, version 11 (limited support)
 
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>내 앱 보안 로그인 확장을 다운로드 하 여 설치 합니다.
+## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Download and install the My Apps Secure Sign-in Extension
 
-메시지가 표시 되 면 내 앱 보안 로그인 확장을 다운로드 하 여 설치 합니다. 이 확장은 Single Sign-On 프로세스를 사용 해야 하는 조직의 클라우드 앱을 시작 하는 데 도움이 됩니다. 조직에서 Single Sign-On를 이미 설정한 경우에는 확장이 자동으로 설치 되며이 섹션을 건너뛸 수 있습니다.
+Download and install the My Apps Secure Sign-in Extension, if you're prompted. This extension helps you start any of your organization's cloud apps that require you to use a single sign-on process. If your organization has already set you up for single sign-on, the extension is installed automatically and you can skip this section.
 
-이 확장을 통해 다음과 같은 작업을 할 수 있습니다.
+This extension helps you:
 
-- 로그인 페이지에서 앱에 직접 로그인 합니다.
+- Sign in directly to apps from the sign-in page.
 
-- **빠른 검색** 기능을 사용 하 여 앱을 시작 합니다.
+- Start any apps using the **Quick search** feature.
 
-- **최근** 사용한 섹션에서 사용한 마지막 앱을 확인 하세요.
+- See the last apps you used in the **Recently Used** section.
 
-- [응용 프로그램 프록시](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)를 사용 하 여 원격으로 내부 회사 url을 사용 합니다.
+- Use internal company URLs while remote with [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started).
 
-### <a name="to-download-and-install-the-extension"></a>확장을 다운로드 하 고 설치 하려면
+### <a name="to-download-and-install-the-extension"></a>To download and install the extension
 
-사용 중인 브라우저에 따라 확장을 다운로드 하 여 설치 합니다.
+Download and install the extension, based on the browser you're using:
 
-- **Google Chrome.** Chrome 웹 스토어에서 [내 앱 보안 로그인 확장](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) 기능으로 이동한 후 **chrome에 추가**를 선택 합니다.
+- **Google Chrome.** From the Chrome Web Store, go to the [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) feature, and then select **Add to Chrome**.
 
-- **Mozilla Firefox** **Firefox 추가 기능** 페이지에서 [내 앱 보안 로그인 확장](https://addons.mozilla.org/firefox/addon/access-panel-extension/) 기능으로 이동한 후 **firefox에 추가**를 선택 합니다.
+- **Mozilla Firefox** From the **Firefox Add-ons** page, go to the [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) feature, and then select **Add to Firefox**.
 
-- **Microsoft Edge** Microsoft Store에서 [내 앱 보안 로그인 확장](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) 기능으로 이동한 후 **가져오기**를 선택 합니다.
+- **Microsoft Edge** From the Microsoft Store, go to the [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) feature, and then select **Get**.
 
-사용자가 로그인 하 고 확장을 사용자 지정할 수 있도록 **주소** 표시줄의 오른쪽에 아이콘이 추가 됩니다.
+An icon is added to the right of your **Address** bar, letting you sign-in and customize the extension.
 
-#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>확장을 사용 하 여 내 앱 포털을 변경 하려면
-**최근에 사용한** 섹션에서 볼 앱 수를 선택 하 고 조직의 내부 url을 리디렉션할 수 있도록 허용할지 여부를 결정할 수 있습니다.
+#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>To change your My Apps portal using the extension
+You can choose how many apps to view in the **Recently Used** section and decide whether to allow your organization's internal URLs to redirect.
 
-1. 새 **내 앱 보안 로그인 확장** 아이콘 ![Extension 아이콘을 선택 하 고 **주소** 표시줄의 오른쪽에 ](media/my-apps-portal/my-apps-portal-extension-icon.png) 한 다음 **로그인을 선택 하 여 시작**합니다.
+1. Select the new **My Apps Secure Sign-in Extension** icon ![Extension icon](media/my-apps-portal/my-apps-portal-extension-icon.png) to the right of your **Address** bar, and then select **Sign in to get started**.
 
-2. **설정** 아이콘 ![Settings 아이콘 ](media/my-apps-portal/my-apps-portal-extension-settings-icon.png)을 마우스 오른쪽 단추로 클릭 한 다음 **설정**을 선택 합니다.
+2. Right-click the **Settings** icon ![Settings icon](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), and then select **Settings**.
 
-3. **설정** 상자에서 포털에 표시 하려는 최근 앱 수를 선택 하 고, 원격으로 사용할 수 있도록 조직의 내부 url을 리디렉션할 수 있도록 허용할지 여부를 선택 합니다.
+3. In the **Settings** box, select the number of recent apps you want to see on the portal, and whether to allow your organization's internal URLs to redirect so you can use them remotely.
 
-    ![사용 가능한 사용자 지정을 보여 주는 확장의 설정 페이지](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
+    ![Settings page of the extension, showing the available customizations](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>장치에서 내 앱 포털 액세스 및 사용
-컴퓨터, Intune에서 관리 되는 브라우저 또는 iOS 또는 Android 모바일 장치에서 내 앱 포털에 액세스 하 여 사용할 수 있습니다.
+## <a name="access-and-use-the-my-apps-portal-by-device"></a>Access and use the My Apps portal by device
+You can access and use the My Apps portal on your computer, from an Intune-managed browser, or from an iOS or Android mobile device.
 
-![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page.png)
+![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>컴퓨터에서 My Apps 포털 액세스 및 사용
-조직의 클라우드 기반 앱에 액세스 하 여 사용할 수 있는 권한이 있는 경우 **내 앱** 포털을 통해 가져올 수 있습니다.
+### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Access and use the My Apps portal on your computer
+If you have permission to access and use your organization's cloud-based apps, you can get to them through the **My Apps** portal.
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
+3. From the **Apps** page, select the app you want to start using.
 
-    앱에 대 한 새 페이지가 열립니다. 여기에서 로그인 하거나 (필요한 경우) 앱 사용을 시작할 수 있습니다.
+    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Intune 관리 브라우저에서 My Apps 포털 액세스 및 사용
+### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Access and use the My Apps portal on an Intune-managed browser
 
-IOS 및 Android 장치의 Intune Managed Browser에서 조직의 앱을 보고 사용 합니다.
+View and use your organization's apps from an Intune Managed Browser on your iOS and Android devices.
 
-1. 모바일 장치에서 [Apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)에서 Intune Managed Browser 앱을 다운로드 하 여 설치 합니다.
+1. On your mobile device, download and install the Intune Managed Browser app from the [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) and the [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
-2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com 으로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Open the Intune Managed Browser app, go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
+3. From the **Apps** page, select the app you want to start using.
 
-    앱에 대 한 새 페이지가 열립니다. 여기에서 로그인 하거나 (필요한 경우) 앱 사용을 시작할 수 있습니다.
+    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>IOS 장치에서 내 앱 포털 액세스 및 사용
+### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Access and use the My Apps portal on an iOS device
 
-IOS 버전 7 이상을 실행 하는 iPhone 또는 iPad 장치에서 **내 앱** 포털을 보고 사용 합니다. IOS 장치에서 조직의 앱에 액세스 하기 위해 [My apps 모바일 앱](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) 을 설치할 수도 있습니다. 
+View and use the **My Apps** portal from an iPhone or iPad device, running iOS version 7 or later. You can also install the [My Apps mobile app](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) to access your organization's apps on your iOS devices. 
 
-1. 모바일 장치에서 Safari와 같은 웹 브라우저 앱을 시작 합니다.
+1. On your mobile device, start a web browser app, such as Safari.
 
-2. @No__t_0로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
+3. From the **Apps** page, select the app you want to start using.
 
-    앱에 대 한 새 페이지가 열립니다. 여기에서 로그인 하거나 (필요한 경우) 앱 사용을 시작할 수 있습니다.
+    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Android 장치에서 My Apps 포털 액세스 및 사용
+### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Access and use the My Apps portal on an Android device
 
-Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
+View and use the **My Apps** portal on an Android device.
 
-1. 모바일 장치에서 Google Chrome 등의 웹 브라우저 앱을 시작 합니다.
+1. On your mobile device, start a web browser app, such as Google Chrome.
 
-2. @No__t_0로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
+3. From the **Apps** page, select the app you want to start using.
 
-    앱에 대 한 새 페이지가 열립니다. 여기에서 로그인 하거나 (필요한 경우) 앱 사용을 시작할 수 있습니다.
+    A new page opens for the app, where you can sign-in (if necessary) or begin using the app.
 
-## <a name="add-a-new-app-to-the-my-apps-portal"></a>내 앱 포털에 새 앱 추가
+## <a name="add-a-new-app-to-the-my-apps-portal"></a>Add a new app to the My Apps portal
 
-관리자가 사용자에 게 권한을 부여 하면 **앱** 페이지에 새 앱을 추가할 수 있습니다.
+If your administrator has given you permission, you can add a new app to the **Apps** page.
 
-1. **앱** 페이지에서 **앱 추가**를 선택 합니다.
+1. From the **Apps** page, select **Add App**.
 
-    **앱 추가** 페이지가 나타납니다.
+    The **Add apps** page appears.
 
-    ![앱 추가 페이지, 내 앱 포털](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+    ![Add apps page, in the My Apps portal](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
-2. 제공 된 목록에서 추가 하려는 앱을 선택 하 고 **추가**를 선택 합니다.
+2. Select the app you want to add from the provided list, and then select **Add**.
 
-3. **앱이 앱 페이지의** 목록에 추가 됩니다.
+3. The app is added to the list on the **Apps** page.
 
-    일부 앱은 추가 하기 전에 관리자 승인이 필요할 수 있습니다. 이 경우 관리자가 앱을 승인할 때까지 앱이 **앱 페이지에** 추가 되지 않습니다.
+    Some apps might require administrator approval before being added. In this situation, the app isn't added to the **Apps** page until the administrator approves it.
 
 ## <a name="next-steps"></a>다음 단계
 
-**앱** 페이지로 이동 하 고 나면 다음을 수행할 수 있습니다.
+After you get to the **Apps** page, you can:
 
-- [프로필 정보 변경](my-apps-portal-end-user-update-profile.md)
+- [Change your profile information](my-apps-portal-end-user-update-profile.md)
 
-- [그룹 관련 정보 보기 및 업데이트](my-apps-portal-end-user-groups.md)
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md)
 
 - [내 액세스 검토 수행](my-apps-portal-end-user-access-reviews.md)

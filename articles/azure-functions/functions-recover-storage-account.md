@@ -1,22 +1,16 @@
 ---
 title: Azure Functions 런타임에 연결할 수 없는 문제를 해결하는 방법을 설명합니다.
 description: 잘못된 스토리지 계정 문제를 해결하는 방법에 대해 알아봅니다.
-services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
-ms.service: azure-functions
-ms.workload: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: d5959acc7719e2b02d529bca8261bc09d5b93634
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 212f10bd33479e5a9f7244d5b2090c0324f937c2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085323"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226771"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
@@ -62,10 +56,10 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 [이 문서에서 이러한 애플리케이션 설정에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/azure-functions/functions-app-settings)
 
-### <a name="guidance"></a>지침
+### <a name="guidance"></a>인도
 
 * 이러한 설정에 대해서는 "슬롯 설정"을 선택하지 않습니다. 배포 슬롯을 교환하면 함수가 손상됩니다.
-* 이러한 설정은 자동 배포의 일부로 수정 하지 마십시오.
+* Do not modify these settings as part of automated deployments.
 * 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함하지 않는 자동화된 배포를 사용하는 경우 나중에 설정을 추가하더라도 앱이 작동하지 않습니다.
 
 ## <a name="storage-account-credentials-invalid"></a>스토리지 계정 자격 증명이 잘못됨
@@ -91,7 +85,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 이제 함수 앱이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
 
-* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
+* [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)  
   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.

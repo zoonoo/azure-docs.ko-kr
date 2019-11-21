@@ -69,6 +69,8 @@
       href: ddos-protection-overview.md
     - name: 서브넷 확장
       href: subnet-extension.md
+    - name: 서브넷 위임
+      href: subnet-delegation-overview.md
     - name: 백 엔드 연결 상호 운용성
       items:
         - name: 접두사 및 테스트 설정

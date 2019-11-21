@@ -1,20 +1,16 @@
 ---
 title: 지속성 함수의 진단 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 문제를 진단하는 방법을 알아봅니다.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 333ddbc15e3ff62b1cd46383c4e3be75fb3dbb88
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 4cb832f8fe11ac2581e97d9cdcc777eaff702ee9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614947"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231465"
 ---
 # <a name="diagnostics-in-durable-functions-in-azure"></a>Azure의 지속성 함수에서 진단
 
@@ -24,15 +20,15 @@ ms.locfileid: "73614947"
 
 Azure Functions에서 진단 및 모니터링을 수행하려면 [Application Insights](../../azure-monitor/app/app-insights-overview.md)를 사용하는 것이 좋습니다. 지속성 함수에도 동일하게 적용됩니다. 함수 앱에서 Application Insights를 활용하는 방법에 대한 개요는 [Azure Functions 모니터링](../functions-monitoring.md)을 참조하세요.
 
-또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. 이러한 추적 이벤트는 Azure Portal에서 [Application Insights 분석](../../azure-monitor/app/analytics.md) 도구를 사용 하 여 검색 하 고 쿼리할 수 있습니다.
+또한 Azure Functions 지속성 확장은 오케스트레이션의 엔드투엔드 실행을 추적할 수 있는 *추적 이벤트*를 내보냅니다. These tracking events can be found and queried using the [Application Insights Analytics](../../azure-monitor/app/analytics.md) tool in the Azure portal.
 
 ### <a name="tracking-data"></a>추적 데이터
 
 오케스트레이션 인스턴스의 각 수명 주기 이벤트는 추적 이벤트를 Application Insights의 **traces** 컬렉션에 기록합니다. 이 이벤트에는 여러 필드가 있는 **customDimensions** 페이로드가 포함됩니다.  모든 필드 이름 앞에 `prop__`가 추가됩니다.
 
 * **hubName**: 오케스트레이션이 실행 중인 작업 허브의 이름입니다.
-* **appName**: 함수 앱의 이름입니다. 이 필드는 동일한 Application Insights 인스턴스를 공유 하는 여러 함수 앱이 있는 경우에 유용 합니다.
-* **slotName**: 현재 함수 앱이 실행 중인 [배포 슬롯](../functions-deployment-slots.md)입니다. 이 필드는 배포 슬롯을 활용 하 여 오케스트레이션 버전을 사용할 때 유용 합니다.
+* **appName**: 함수 앱의 이름입니다. This field is useful when you have multiple function apps sharing the same Application Insights instance.
+* **slotName**: 현재 함수 앱이 실행 중인 [배포 슬롯](../functions-deployment-slots.md)입니다. This field is useful when you leverage deployment slots to version your orchestrations.
 * **functionName**: 오케스트레이터 또는 작업 함수의 이름입니다.
 * **functionType**: **Orchestrator** 또는 **Activity**와 같은 함수 유형입니다.
 * **instanceId**: 오케스트레이션 인스턴스의 고유 ID입니다.
@@ -43,14 +39,14 @@ Azure Functions에서 진단 및 모니터링을 수행하려면 [Application In
   * **수신 대기 중**: 오케스트레이터에서 외부 이벤트 알림을 수신 대기 중입니다.
   * **완료됨**: 함수가 성공적으로 완료되었습니다.
   * **실패**: 함수가 오류로 인해 실패했습니다.
-* **reason**: 추적 이벤트와 관련된 추가 데이터입니다. 예를 들어 인스턴스에서 외부 이벤트 알림을 기다리고 있는 경우 이 필드는 대기 중인 이벤트의 이름을 나타냅니다. 함수가 실패 한 경우이 필드는 오류 세부 정보를 포함 합니다.
+* **reason**: 추적 이벤트와 관련된 추가 데이터입니다. 예를 들어 인스턴스에서 외부 이벤트 알림을 기다리고 있는 경우 이 필드는 대기 중인 이벤트의 이름을 나타냅니다. If a function has failed, this field will contain the error details.
 * **isReplay**: 재생된 실행에 대한 추적 이벤트인지를 나타내는 부울 값입니다.
-* **extensionVersion**: 지속성 작업 확장의 버전입니다. 버전 정보는 확장에서 가능한 버그를 보고할 때 특히 중요 한 데이터입니다. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다.
+* **extensionVersion**: 지속성 작업 확장의 버전입니다. The version information is especially important data when reporting possible bugs in the extension. 장기 실행 인스턴스는 실행되는 동안 업데이트가 발생하는 경우 여러 버전을 보고할 수 있습니다.
 * **sequenceNumber**: 이벤트에 대한 실행 시퀀스 번호. 타임스탬프와 결합하면 이벤트를 실행 시간 기준으로 정렬하는 데 도움이 됩니다. *인스턴스가 실행 중인 동안 호스트가 다시 시작되면 이 번호가 0으로 다시 설정되므로, 항상 가장 먼저 타임스탬프를 기준으로 정렬한 후 sequenceNumber를 기준으로 정렬해야 합니다.*
 
-Application Insights로 내보내지는 추적 데이터의 자세한 정도는 `host.json` 파일의 `logger` (함수 1.x) 또는 `logging` (함수 2.0) 섹션에서 구성할 수 있습니다.
+The verbosity of tracking data emitted to Application Insights can be configured in the `logger` (Functions 1.x) or `logging` (Functions 2.0) section of the `host.json` file.
 
-#### <a name="functions-10"></a>함수 1.0
+#### <a name="functions-10"></a>Functions 1.0
 
 ```json
 {
@@ -64,7 +60,7 @@ Application Insights로 내보내지는 추적 데이터의 자세한 정도는 
 }
 ```
 
-#### <a name="functions-20"></a>함수 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -78,9 +74,9 @@ Application Insights로 내보내지는 추적 데이터의 자세한 정도는 
 
 기본적으로 모든 재생되지 않는 추적 이벤트를 내보냅니다. 예외 상황에서만 추적 이벤트를 내보내는 경우 `Host.Triggers.DurableTask`를 `"Warning"` 또는 `"Error"`로 설정하여 데이터의 양을 줄일 수 있습니다.
 
-자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 다음에 표시된 대로 `LogReplayEvents` 아래의 `true` 파일에서 `host.json`를 `durableTask`로 설정할 수 있습니다.
+자세한 오케스트레이션 재생 이벤트를 내보내도록 설정하려면 다음에 표시된 대로 `durableTask` 아래의 `host.json` 파일에서 `LogReplayEvents`를 `true`로 설정할 수 있습니다.
 
-#### <a name="functions-10"></a>함수 1.0
+#### <a name="functions-10"></a>Functions 1.0
 
 ```json
 {
@@ -90,7 +86,7 @@ Application Insights로 내보내지는 추적 데이터의 자세한 정도는 
 }
 ```
 
-#### <a name="functions-20"></a>함수 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```javascript
 {
@@ -193,7 +189,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -209,7 +205,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-결과 로그 데이터는 다음 예제 출력과 유사 하 게 표시 됩니다.
+The resulting log data is going to look something like the following example output:
 
 ```txt
 Calling F1.
@@ -264,7 +260,7 @@ public static async Task Run(
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -280,7 +276,7 @@ module.exports = df.orchestrator(function*(context){
 });
 ```
 
-Durable Functions 2.0부터 .NET orchestrator 함수는 재생 중에 로그 문을 자동으로 필터링 하는 `ILogger`을 만드는 옵션도 있습니다. 이 자동 필터링은 `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` API를 사용 하 여 수행 됩니다.
+Starting in Durable Functions 2.0, .NET orchestrator functions also have the option to create an `ILogger` that automatically filters out log statements during replay. This automatic filtering is done using the `IDurableOrchestrationContext.CreateReplaySafeLogger(ILogger)` API.
 
 ```csharp
 [FunctionName("FunctionChain")]
@@ -299,7 +295,7 @@ public static async Task Run(
 }
 ```
 
-앞에서 언급 한 변경 내용으로 로그 출력은 다음과 같습니다.
+With the previously mentioned changes, the log output is as follows:
 
 ```txt
 Calling F1.
@@ -309,7 +305,7 @@ Done!
 ```
 
 > [!NOTE]
-> 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
 ## <a name="custom-status"></a>사용자 지정 상태
 
@@ -332,9 +328,9 @@ public static async Task SetStatusTest([OrchestrationTrigger] IDurableOrchestrat
 ```
 
 > [!NOTE]
-> 이전 C# 예제는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous C# example is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -373,23 +369,23 @@ GET /admin/extensions/DurableTaskExtension/instances/instance123
 > [!WARNING]
 > 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 스토리지를 사용하면 됩니다.
 
-## <a name="debugging"></a>디버그
+## <a name="debugging"></a>디버깅
 
 Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 로컬에서 실행하는지 여부와 관계 없이 동일한 지원이 지속성 함수에 전달됩니다. 그러나 디버그할 때 고려해야 할 몇 가지 동작이 있습니다.
 
-* **재생**: 오 케 스트레이 터 함수는 새 입력을 받을 때 정기적으로 [재생](durable-functions-orchestrations.md#reliability) 됩니다. 이 동작은 오 케 스트레이 터 함수의 단일 *논리적* 실행으로 인해 특히 함수 코드의 초기에 설정 된 경우 동일한 중단점에 여러 번 도달할 수 있음을 의미 합니다.
-* 대기: 오 케 스트레이 터 함수에서 `await` 발생할 때마다 지 속성 작업 프레임 워크 디스패처로 제어를 다시 생성 **합니다.** 특정 `await` 처음으로 발생 한 경우 연결 된 작업이 다시 시작 *되지* 않습니다. 작업이 다시 시작 되지 않기 때문에 (Visual Studio에서 F10) 대기 *를 단계별로 실행할* 수 없습니다. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
-* **메시징 시간 제한**: Durable Functions는 내부적으로 큐 메시지를 사용 하 여 orchestrator, activity 및 entity 함수의 실행을 구동 합니다. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
-* **중지 및 시작**: 지 속성 함수의 메시지는 디버그 세션 간에 유지 됩니다. 지 속성 함수를 실행 하는 동안 디버깅을 중지 하 고 로컬 호스트 프로세스를 종료 하면 이후 디버그 세션에서 해당 함수가 자동으로 다시 실행 될 수 있습니다. 이 동작은 예상과는 혼동 될 수 있습니다. 이 동작을 방지 하는 한 가지 방법은 디버그 세션 간의 [내부 저장소 큐](durable-functions-perf-and-scale.md#internal-queue-triggers) 에서 모든 메시지를 지우는 것입니다.
+* **Replay**: Orchestrator functions regularly [replay](durable-functions-orchestrations.md#reliability) when new inputs are received. This behavior means a single *logical* execution of an orchestrator function can result in hitting the same breakpoint multiple times, especially if it is set early in the function code.
+* **Await**: Whenever an `await` is encountered in an orchestrator function, it yields control back to the Durable Task Framework dispatcher. If it is the first time a particular `await` has been encountered, the associated task is *never* resumed. Because the task never resumes, stepping *over* the await (F10 in Visual Studio) is not possible. 작업이 재생되는 경우에만 단계별 실행이 작동합니다.
+* **Messaging timeouts**: Durable Functions internally uses queue messages to drive execution of orchestrator, activity, and entity functions. 다중 VM 환경에서 오랜 시간 동안 디버그하는 경우 다른 VM에서 메시지를 선택하여 중복 실행이 발생할 수 있습니다. 이 동작은 일반 큐 트리거 함수에도 적용되지만, 큐가 구현 세부 정보이므로 이 컨텍스트에서 지시하는 것이 중요합니다.
+* **Stopping and starting**: Messages in Durable functions persist between debug sessions. If you stop debugging and terminate the local host process while a durable function is executing, that function may re-execute automatically in a future debug session. This behavior can be confusing when not expected. Clearing all messages from the [internal storage queues](durable-functions-perf-and-scale.md#internal-queue-triggers) between debug sessions is one technique to avoid this behavior.
 
 > [!TIP]
-> 오 케 스트레이 터 함수에서 중단점을 설정할 때 재생 되지 않는 실행 에서만 중단 하려는 경우 `IsReplaying` `false`경우에만 중단 되는 조건부 중단점을 설정할 수 있습니다.
+> When setting breakpoints in orchestrator functions, if you want to only break on non-replay execution, you can set a conditional breakpoint that breaks only if `IsReplaying` is `false`.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
-기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. 이 동작은 [Microsoft Azure Storage 탐색기](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer)와 같은 도구를 사용 하 여 오케스트레이션의 상태를 검사할 수 있음을 의미 합니다.
+기본적으로 지속성 함수는 Azure Storage에 상태를 저장합니다. This behavior means you can inspect the state of your orchestrations using tools such as [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
 
-![Azure Storage 탐색기 스크린 샷](./media/durable-functions-diagnostics/storage-explorer.png)
+![Azure Storage Explorer screenshot](./media/durable-functions-diagnostics/storage-explorer.png)
 
 이 도구는 오케스트레이션의 상태를 정확히 표시하기 때문에 디버깅에 유용합니다. 또한 큐의 메시지를 검사하여 보류 중인 작업(경우에 따라 중지)을 파악할 수도 있습니다.
 
@@ -399,4 +395,4 @@ Azure Functions는 디버깅 함수 코드를 직접 지원하며, Azure 또는 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Azure Functions 모니터링에 대 한 자세한 정보](../functions-monitoring.md)
+> [Learn more about monitoring in Azure Functions](../functions-monitoring.md)

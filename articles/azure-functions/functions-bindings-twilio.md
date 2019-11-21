@@ -1,22 +1,17 @@
 ---
 title: Azure Functions Twilio 바인딩
 description: Azure Functions와 함께 Twilio 바인딩을 사용하는 방법을 배웁니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 32f987caed915aff8c581b974dec7689fc90b007
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114365"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230955"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -394,18 +389,18 @@ public static CreateMessageOptions Run(
 
 전체 예제는 [C# 예제](#c-example)를 참조하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일 및 `TwilioSms` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-| v1 function.json 속성 | v2 function.json 속성 | 특성 속성 |Description|
+| v1 function.json 속성 | v2 function.json 속성 | 특성 속성 |설명|
 |---------|---------|---------|----------------------|
 |**type**|**type**| `twilioSms`로 설정해야 합니다.|
 |**direction**|**direction**| `out`로 설정해야 합니다.|
 |**name**|**name**| Twilio SMS 텍스트 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**accountSid**|**accountSidSetting**| **AccountSidSetting**| 이 값은 Twilio 계정 Sid(예: TwilioAccountSid)가 포함된 앱 설정의 이름으로 설정해야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAccountSid"입니다. |
 |**authToken**|**authTokenSetting**|**AuthTokenSetting**| 이 값은 Twilio 인증 토큰(예: TwilioAccountAuthToken)이 포함된 앱 설정의 이름으로 설정해야 합니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsTwilioAuthToken"입니다. |
-|**to**| 해당 없음 - 코드에서 지정 | **수행할 작업**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
+|**to**| 해당 없음 - 코드에서 지정 | **To**| 이 값은 SMS 텍스트 메시지가 전송된 전화 번호로 설정됩니다.|
 |**from**|**from** | **From**| 이 값은 SMS 텍스트 메시지를 보낸 전화 번호로 설정됩니다.|
 |**body**|**body** | **본문**| 이 값은 함수에 대한 코드에서 동적으로 설정할 필요가 없는 경우에 SMS 텍스트 메시지를 하드 코딩하는 데 사용할 수 있습니다. |  
 

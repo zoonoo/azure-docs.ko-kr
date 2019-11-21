@@ -1,144 +1,144 @@
 ---
-title: 'K-클러스터링: 모듈 참조'
+title: 'K-Means Clustering: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 K-의미 클러스터링 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
+description: Learn how to use the K-Means Clustering module in the Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 4634519f55582a3184472d28acfd98fa849be86a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 135b425ca87a309bc171e252d8ff04b2027a3c50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497768"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213908"
 ---
-# <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
+# <a name="module-k-means-clustering"></a>Module: K-Means Clustering
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)에서 *k-의미 클러스터링* 모듈을 사용 하 여 학습 되지 않은 k 의미 클러스터링 모델을 만드는 방법을 설명 합니다. 
+This article describes how to use the *K-Means Clustering* module in Azure Machine Learning designer (preview) to create an untrained K-means clustering model. 
  
-K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니다. 다음과 같은 다양 한 기계 학습 작업에 알고리즘을 사용할 수 있습니다. 
+K-means is one of the simplest and the best known *unsupervised* learning algorithms. You can use the algorithm for a variety of machine learning tasks, such as: 
 
-* [비정상 데이터 검색](https://msdn.microsoft.com/magazine/jj891054.aspx)
-* 텍스트 문서 클러스터링.
-* 다른 분류 또는 회귀 방법을 사용 하기 전에 데이터 집합 분석 
+* [Detecting abnormal data](https://msdn.microsoft.com/magazine/jj891054.aspx).
+* Clustering text documents.
+* Analyzing datasets before you use other classification or regression methods. 
 
-클러스터링 모델을 만들려면 다음을 수행 합니다.
+To create a clustering model, you:
 
-* 이 모듈을 파이프라인에 추가 합니다.
-* 데이터 집합을 연결 합니다.
-* 매개 변수를 설정 합니다 (예: 원하는 클러스터 수, 클러스터를 만드는 데 사용할 거리 메트릭 등). 
+* Add this module to your pipeline.
+* Connect a dataset.
+* Set parameters, such as the number of clusters you expect, the distance metric to use in creating the clusters, and so forth. 
   
-모듈 하이퍼 매개 변수를 구성한 후 학습 된 모델을 [클러스터링 학습 모델](train-clustering-model.md)에 연결 합니다. K-알고리즘은 자율 learning 메서드 이므로 레이블 열은 선택 사항입니다. 
+After you've configured the module hyperparameters, you connect the untrained model to the [Train Clustering Model](train-clustering-model.md). Because the K-means algorithm is an unsupervised learning method, a label column is optional. 
 
-+ 데이터에 레이블이 포함 되어 있으면 레이블 값을 사용 하 여 클러스터를 선택 하 고 모델을 최적화할 수 있습니다. 
++ If your data includes a label, you can use the label values to guide selection of the clusters and optimize the model. 
 
-+ 데이터에 레이블이 없는 경우 알고리즘은 데이터에만 기반 하 여 가능한 범주를 나타내는 클러스터를 만듭니다.  
++ If your data has no label, the algorithm creates clusters representing possible categories, based solely on the data.  
 
-##  <a name="understand-k-means-clustering"></a>K 이해-클러스터링 의미
+##  <a name="understand-k-means-clustering"></a>Understand K-means clustering
  
-일반적으로 클러스터링은 반복 기법을 사용 하 여 데이터 집합의 사례를 유사한 특성을 가진 클러스터로 그룹화 합니다. 이러한 그룹화는 데이터를 탐색 하 고, 데이터의 비정상 상태를 식별 하 고, 궁극적으로 예측을 수행 하는 데 유용 합니다. 클러스터링 모델을 통해 검색 또는 간단한 관찰으로 인해 논리적으로 파생 되지 않는 데이터 집합의 관계를 식별할 수도 있습니다. 이러한 이유로 클러스터링은 종종 기계 학습 작업의 초기 단계에서 데이터를 탐색 하 고 예기치 않은 상관 관계를 검색 하는 데 사용 됩니다.  
+In general, clustering uses iterative techniques to group cases in a dataset into clusters that possess similar characteristics. These groupings are useful for exploring data, identifying anomalies in the data, and eventually for making predictions. Clustering models can also help you identify relationships in a dataset that you might not logically derive by browsing or simple observation. For these reasons, clustering is often used in the early phases of machine learning tasks, to explore the data and discover unexpected correlations.  
   
- K-수단 메서드를 사용 하 여 클러스터링 모델을 구성 하는 경우 모델에 원하는 *중심* 수를 나타내는 대상 숫자 *K* 를 지정 해야 합니다. 중심는 각 클러스터를 대표 하는 지점입니다. K는 클러스터 내 제곱합을 최소화 하 여 들어오는 각 데이터 요소를 클러스터 중 하나에 할당 합니다. 
+ When you configure a clustering model by using the K-means method, you must specify a target number *k* that indicates the number of *centroids* you want in the model. The centroid is a point that's representative of each cluster. The K-means algorithm assigns each incoming data point to one of the clusters by minimizing the within-cluster sum of squares. 
  
-학습 데이터를 처리할 때 K는 임의로 선택 된 중심의 초기 집합으로 시작 합니다. 중심는 클러스터의 시작 지점으로 사용 되며 로이드의 알고리즘을 적용 하 여 해당 위치를 반복적으로 구체화 합니다. K는 다음 조건 중 하나 이상을 충족 하는 경우에서 클러스터의 빌드 및 구체화를 중지 합니다.  
+When it processes the training data, the K-means algorithm begins with an initial set of randomly chosen centroids. Centroids serve as starting points for the clusters, and they apply Lloyd's algorithm to iteratively refine their locations. The K-means algorithm stops building and refining clusters when it meets one or more of these conditions:  
   
--   중심 안정화 됩니다. 즉, 개별 점에 대 한 클러스터 할당은 더 이상 변경 되지 않으며 알고리즘은 솔루션에서 수렴 됩니다.  
+-   The centroids stabilize, meaning that the cluster assignments for individual points no longer change and the algorithm has converged on a solution.  
   
--   알고리즘이 지정 된 반복 횟수 만큼 실행 되었습니다.  
+-   The algorithm completed running the specified number of iterations.  
   
- 학습 단계를 완료 한 후에는 [데이터를 클러스터에 할당](assign-data-to-clusters.md) 모듈을 사용 하 여 K 수단 알고리즘을 사용 하 여 찾은 클러스터 중 하나에 새 사례를 할당 합니다. 새 사례와 각 클러스터의 중심 간 거리를 계산 하 여 클러스터 할당을 수행 합니다. 각각의 새 사례는 가장 가까운 중심로 클러스터에 할당 됩니다.  
+ After you've completed the training phase, you use the [Assign Data to Clusters](assign-data-to-clusters.md) module to assign new cases to one of the clusters that you found by using the K-means algorithm. You perform cluster assignment by computing the distance between the new case and the centroid of each cluster. Each new case is assigned to the cluster with the nearest centroid.  
 
-## <a name="configure-the-k-means-clustering-module"></a>K 의미의 클러스터링 모듈 구성
+## <a name="configure-the-k-means-clustering-module"></a>Configure the K-Means Clustering module
   
-1.  **K-를 사용** 하 여 클러스터링 모듈을 파이프라인에 추가 합니다.  
+1.  Add the **K-Means Clustering** module to your pipeline.  
   
-2.  모델을 학습 하는 방법을 지정 하려면 **강사 모드 만들기** 옵션을 선택 합니다.  
+2.  To specify how you want the model to be trained, select the **Create trainer mode** option.  
   
-    -   **단일 매개 변수**: 클러스터링 모델에서 사용 하려는 정확한 매개 변수를 알고 있는 경우 특정 값 집합을 인수로 제공할 수 있습니다.  
+    -   **Single Parameter**: If you know the exact parameters you want to use in the clustering model, you can provide a specific set of values as arguments.  
   
-3.  **중심 수**에 대해 알고리즘을 시작 하려는 클러스터의 수를 입력 합니다.  
+3.  For **Number of centroids**, type the number of clusters you want the algorithm to begin with.  
   
-     모델은 정확 하 게이 수의 클러스터를 생성 하는 것이 보장 되지 않습니다. 알고리즘은이 데이터 요소 수로 시작 하 고 최적의 구성을 찾기 위해 반복 됩니다.  
+     The model isn't guaranteed to produce exactly this number of clusters. The algorithm starts with this number of data points and iterates to find the optimal configuration.  
   
-4.  속성 **초기화** 는 초기 클러스터 구성을 정의 하는 데 사용 되는 알고리즘을 지정 하는 데 사용 됩니다.  
+4.  The properties **Initialization** is used to specify the algorithm that's used to define the initial cluster configuration.  
   
-    -   **처음 N**: 일부 초기 데이터 요소 수가 데이터 집합에서 선택 되 고 초기 수단으로 사용 됩니다. 
+    -   **First N**: Some initial number of data points are chosen from the dataset and used as the initial means. 
     
-         이 메서드를 *Forgy 메서드*라고도 합니다.  
+         This method is also called the *Forgy method*.  
   
-    -   **Random**: 알고리즘은 임의로 클러스터에 데이터 요소를 배치 하 고 클러스터의 임의로 할당 된 지점에 대 한 중심 초기 평균을 계산 합니다. 
+    -   **Random**: The algorithm randomly places a data point in a cluster and then computes the initial mean to be the centroid of the cluster's randomly assigned points. 
 
-         이 메서드를 *임의 파티션* 메서드 라고도 합니다.  
+         This method is also called the *random partition* method.  
   
-    -   **K-+ +** : 클러스터를 초기화 하는 기본 방법입니다.  
+    -   **K-Means++** : This is the default method for initializing clusters.  
   
-         Arthur 및 Sergei Vassilvitskii에서 2007에 의해에 제안 된 **+ +** 알고리즘은 표준 k를 사용 하는 알고리즘에의 한 클러스터링을 방지 합니다. **K-** 초기 클러스터 센터를 선택 하는 다른 방법을 사용 하 여 표준 K에 대 한 향상 된 기능을 의미 합니다.  
+         The **K-means++** algorithm was proposed in 2007 by David Arthur and Sergei Vassilvitskii to avoid poor clustering by the standard K-means algorithm. **K-means++** improves upon standard K-means by using a different method for choosing the initial cluster centers.  
   
     
-5.  **난수 초기값**의 경우 필요에 따라 클러스터 초기화의 초기값으로 사용할 값을 입력 합니다. 이 값은 클러스터 선택에 상당한 영향을 미칠 수 있습니다.  
+5.  For **Random number seed**, optionally type a value to use as the seed for the cluster initialization. This value can have a significant effect on cluster selection.  
   
-6.  **메트릭에**대해 클러스터 벡터 간 거리를 측정 하는 데 사용할 함수를 선택 하거나 새 데이터 요소와 임의로 선택한 중심 사이에 사용할 함수를 선택 합니다. Azure Machine Learning는 다음과 같은 클러스터 거리 메트릭을 지원 합니다.  
+6.  For **Metric**, choose the function to use for measuring the distance between cluster vectors, or between new data points and the randomly chosen centroid. Azure Machine Learning supports the following cluster distance metrics:  
   
-    -   **유클리드**: 유클리드 distance는 클러스터링을 의미 하는 클러스터링에 대 한 클러스터 분산 측정으로 일반적으로 사용 됩니다. 이 메트릭은 지점과 중심 사이의 평균 거리를 최소화 하기 때문에 선호 됩니다.
+    -   **Euclidean**: The Euclidean distance is commonly used as a measure of cluster scatter for K-means clustering. This metric is preferred because it minimizes the mean distance between points and the centroids.
   
-7.  **반복**의 경우 중심 선택 항목을 마무리 하기 전에 알고리즘이 학습 데이터를 반복 해야 하는 횟수를 입력 합니다.  
+7.  For **Iterations**, type the number of times the algorithm should iterate over the training data before it finalizes the selection of centroids.  
   
-     이 매개 변수를 조정 하 여 학습 시간에 대 한 정확도를 균형 있게 조정할 수 있습니다.  
+     You can adjust this parameter to balance accuracy against training time.  
   
-8.  **레이블 할당 모드**의 경우 레이블 열 (데이터 집합에 있는 경우)을 처리 해야 하는 방법을 지정 하는 옵션을 선택 합니다.  
+8.  For **Assign label mode**, choose an option that specifies how a label column, if it's present in the dataset, should be handled.  
   
-     K-클러스터링은 자율 machine learning 메서드 이므로 레이블은 선택 사항입니다. 그러나 데이터 집합에 이미 레이블 열이 있는 경우 해당 값을 사용 하 여 클러스터 선택을 안내 하거나 값을 무시 하도록 지정할 수 있습니다.  
+     Because K-means clustering is an unsupervised machine learning method, labels are optional. However, if your dataset already has a label column, you can use those values to guide the selection of the clusters, or you can specify that the values be ignored.  
   
-    -   **레이블 열 무시**: 레이블 열의 값은 무시 되 고 모델을 작성 하는 데 사용 되지 않습니다.
+    -   **Ignore label column**: The values in the label column are ignored and are not used in building the model.
   
-    -   **누락 값 채우기**: 레이블 열 값은 클러스터를 작성 하는 데 도움이 되는 기능으로 사용 됩니다. 행에 레이블이 없는 경우 값은 다른 기능을 사용 하 여 귀속 됩니다.  
+    -   **Fill missing values**: The label column values are used as features to help build the clusters. If any rows are missing a label, the value is imputed by using other features.  
   
-    -   **가장 가까운 위치에서 가운데 맞춤**: 레이블 열 값은 현재 중심 가장 가까운 지점의 레이블을 사용 하 여 예측 된 레이블 값으로 대체 됩니다.  
+    -   **Overwrite from closest to center**: The label column values are replaced with predicted label values, using the label of the point that is closest to the current centroid.  
 
-8.  학습 전에 기능을 정규화 하려면 **기능 정규화** 옵션을 선택 합니다.
+8.  Select the **Normalize features** option if you want to normalize features before training.
   
-     학습 전에 정규화를 적용 하는 경우 데이터 요소는 MinMaxNormalizer에 의해 `[0,1]`으로 정규화 됩니다.
+     If you apply normalization, before training, the data points are normalized to `[0,1]` by MinMaxNormalizer.
 
-10. 모델을 학습 합니다.  
+10. Train the model.  
   
-    -   담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우에는 태그가 지정 된 데이터 집합을 추가 하 고 [클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용 하 여 모델을 학습 합니다.  
+    -   If you set **Create trainer mode** to **Single Parameter**, add a tagged dataset and train the model by using the [Train Clustering Model](train-clustering-model.md) module.  
   
 ### <a name="results"></a>결과
 
-모델을 구성 하 고 학습 한 후 점수를 생성 하는 데 사용할 수 있는 모델을 사용할 수 있습니다. 그러나 여러 가지 방법으로 모델을 학습 하 고 여러 가지 방법으로 결과를 보고 사용할 수 있습니다. 
+After you've finished configuring and training the model, you have a model that you can use to generate scores. However, there are multiple ways to train the model, and multiple ways to view and use the results: 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>작업 영역에서 모델의 스냅숏 캡처
+#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>Capture a snapshot of the model in your workspace
 
-[클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용한 경우:
+If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. **클러스터링 모델 학습** 모듈을 마우스 오른쪽 단추로 클릭 합니다.
+1. Right-click the **Train Clustering Model** module.
 
-2. **학습 된 모델**을 선택 하 고 **학습 된 모델로 저장**을 선택 합니다.
+2. Select **Trained model**, and then select **Save as Trained Model**.
 
-저장 된 모델은 모델을 저장할 때의 학습 데이터를 나타냅니다. 나중에 파이프라인에서 사용 되는 학습 데이터를 업데이트 하는 경우 저장 된 모델은 업데이트 되지 않습니다. 
+The saved model represents the training data at the time you saved the model. If you later update the training data used in the pipeline, it doesn't update the saved model. 
 
-#### <a name="see-the-clustering-result-dataset"></a>클러스터링 결과 데이터 집합을 참조 하세요. 
+#### <a name="see-the-clustering-result-dataset"></a>See the clustering result dataset 
 
-[클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용한 경우:
+If you used the [Train Clustering Model](train-clustering-model.md) module:
 
-1. **클러스터링 모델 학습** 모듈을 마우스 오른쪽 단추로 클릭 합니다.
+1. Right-click the **Train Clustering Model** module.
 
-2. **결과 데이터 집합**을 선택 하 고 **시각화**를 선택 합니다.
+2. Select **Results dataset**, and then select **Visualize**.
 
-### <a name="tips-for-generating-the-best-clustering-model"></a>최상의 클러스터링 모델을 생성 하기 위한 팁  
+### <a name="tips-for-generating-the-best-clustering-model"></a>Tips for generating the best clustering model  
 
-클러스터링 중에 사용 되는 *시드* 프로세스가 모델에 크게 영향을 줄 수 있다는 것을 알 수 있습니다. 시드는 지점의 초기 배치가 잠재적 중심을 의미 합니다.
+It is known that the *seeding* process that's used during clustering can significantly affect the model. Seeding means the initial placement of points into potential centroids.
  
-예를 들어 데이터 집합에 많은 이상 값이 포함 되 고 클러스터 시드를 위해 이상 값이 선택 되지 않은 경우 다른 데이터 요소가 해당 클러스터에 적합 하지 않으며 클러스터가 singleton 일 수 있습니다. 즉, 점이 하나만 있을 수 있습니다.  
+For example, if the dataset contains many outliers, and an outlier is chosen to seed the clusters, no other data points would fit well with that cluster, and the cluster could be a singleton. That is, it might have only one point.  
   
-다음 두 가지 방법으로이 문제를 방지할 수 있습니다.  
+You can avoid this problem in a couple of ways:  
   
--   중심 수를 변경 하 고 여러 초기값을 시도 합니다.  
+-   Change the number of centroids and try multiple seed values.  
   
--   여러 모델을 만들거나, 메트릭을 변경 하거나, 더 많은 반복 합니다.  
+-   Create multiple models, varying the metric or iterating more.  
   
-일반적으로 클러스터링 모델을 사용 하면 지정 된 구성으로 인해 로컬로 최적화 된 클러스터 집합이 생성 될 수 있습니다. 즉, 모델에 의해 반환 되는 클러스터 집합은 현재 데이터 요소에만 해당 하 고 다른 데이터에는 일반화할 수 없습니다. 다른 초기 구성을 사용 하는 경우에는 K 메서드를 사용 하는 경우에 따라 다른 구성이 있을 수 있습니다. 
+In general, with clustering models, it's possible that any given configuration will result in a locally optimized set of clusters. In other words, the set of clusters that's returned by the model suits only the current data points and isn't generalizable to other data. If you use a different initial configuration, the K-means method might find a different, superior, configuration. 

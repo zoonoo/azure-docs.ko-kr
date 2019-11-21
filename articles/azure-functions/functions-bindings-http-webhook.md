@@ -1,21 +1,16 @@
 ---
 title: Azure Functions HTTP 트리거 및 바인딩
 description: Azure Functions에서 HTTP 트리거 및 바인딩을 사용하는 방법에 대해 설명합니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처, HTTP, API, REST
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 7cce1c9ee6ca5e01b91afd5284ca9abf84d0b56f
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158095"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231182"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -51,7 +46,7 @@ HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습�
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 [ 매개 변수를 찾는 ](functions-dotnet-class-library.md)C# 함수`name`를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
+다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -73,7 +68,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -200,7 +195,7 @@ module.exports = function(context, req) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -284,7 +279,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 }
 ```
 
-#### <a name="read-parameter-from-the-query-string"></a>쿼리 문자열에서 매개 변수를 읽습니다.
+#### <a name="read-parameter-from-the-query-string"></a>Read parameter from the query string
 
 이 예제에서는 쿼리 문자열에서 ```id```라는 매개 변수를 읽고 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 
 
@@ -323,7 +318,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-body-from-a-post-request"></a>POST 요청에서 본문 읽기
+#### <a name="read-body-from-a-post-request"></a>Read body from a POST request
 
 이 예제에서는 POST 요청의 본문을 ```String```으로 읽고, 이 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다.
 
@@ -359,9 +354,9 @@ public HttpResponseMessage run(
     }
 ```
 
-#### <a name="read-parameter-from-a-route"></a>경로에서 매개 변수 읽기
+#### <a name="read-parameter-from-a-route"></a>Read parameter from a route
 
-이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. T
+이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 조
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -397,7 +392,7 @@ public HttpResponseMessage run(
 }
 ```
 
-#### <a name="read-pojo-body-from-a-post-request"></a>POST 요청에서 POJO 본문을 읽습니다.
+#### <a name="read-pojo-body-from-a-post-request"></a>Read POJO body from a POST request
 
 다음은 이 예제에서 참조되는 ```ToDoItem``` 클래스의 코드입니다.
 
@@ -429,7 +424,7 @@ public class ToDoItem {
 
 ```
 
-이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```body``` 클래스의 ```HttpMessageResponse.Builder``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
+이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```HttpMessageResponse.Builder``` 클래스의 ```body``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -465,13 +460,13 @@ public HttpResponseMessage run(
 
 ## <a name="trigger---attributes"></a>트리거 - 특성
 
-클래스 라이브러리 및 Java에서는 함수를 구성 하는 데 `HttpTrigger` 특성을 사용할 수 있습니다. [ C# ](functions-dotnet-class-library.md)
+In [C# class libraries](functions-dotnet-class-library.md) and Java, the `HttpTrigger` attribute is available to configure the function.
 
-특성 생성자 매개 변수, webhook 형식 및 경로 템플릿에서 권한 부여 수준 및 허용 되는 HTTP 메서드를 설정할 수 있습니다. 이러한 설정에 대한 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
+You can set the authorization level and allowable HTTP methods in attribute constructor parameters, webhook type, and a route template. 이러한 설정에 대한 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-이 예제에서는 [Httptrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용 하는 방법을 보여 줍니다.
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) attribute.
 
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
@@ -482,23 +477,23 @@ public static Task<IActionResult> Run(
 }
 ```
 
-전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
+For a complete example, see the [trigger example](#trigger---example).
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-스크립트에서 C# 특성을 지원 하지 않습니다.
+Attributes are not supported by C# Script.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-JavaScript에서는 특성을 지원 하지 않습니다.
+Attributes are not supported by JavaScript.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Python에서 특성을 지원 하지 않습니다.
+Attributes are not supported by Python.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-이 예제에서는 [Httptrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) 특성을 사용 하는 방법을 보여 줍니다.
+This example demonstrates how to use the [HttpTrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) attribute.
 
 ```java
 @FunctionName("HttpTriggerJava")
@@ -512,7 +507,7 @@ public HttpResponseMessage<String> HttpTrigger(
 }
 ```
 
-전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
+For a complete example, see the [trigger example](#trigger---example).
 
 ---
 
@@ -522,9 +517,9 @@ public HttpResponseMessage<String> HttpTrigger(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-| **type** | 해당 없음| 필수 - `httpTrigger`로 설정해야 합니다. |
-| **direction** | 해당 없음| 필수 - `in`로 설정해야 합니다. |
-| **name** | 해당 없음| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. |
+| **type** | n/a| 필수 - `httpTrigger`으로 설정해야 합니다. |
+| **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |
+| **name** | n/a| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 권한 부여 수준은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [권한 부여 키](#authorization-keys)에 대한 섹션을 참조하세요. |
 | **methods** |**메서드** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
 | **route** | **Route** | 경로 템플릿을 정의하여 함수에서 응답할 요청 URL을 제어합니다. 값을 제공하지 않을 경우 기본값은 `<functionname>`입니다. 자세한 내용은 [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
@@ -532,7 +527,7 @@ public HttpResponseMessage<String> HttpTrigger(
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-트리거 입력 형식은 `HttpRequest` 또는 사용자 지정 형식으로 선언 됩니다. `HttpRequest`를 선택하면 요청 개체에 대한 모든 권한을 갖게 됩니다. 사용자 지정 형식의 경우 런타임은 JSON 요청 본문의 구문을 분석하여 개체 속성을 설정하려고 합니다.
+The trigger input type is declared as either `HttpRequest` or a custom type. `HttpRequest`를 선택하면 요청 개체에 대한 모든 권한을 갖게 됩니다. 사용자 지정 형식의 경우 런타임은 JSON 요청 본문의 구문을 분석하여 개체 속성을 설정하려고 합니다.
 
 ### <a name="customize-the-http-endpoint"></a>HTTP 엔드포인트 사용자 지정
 
@@ -585,7 +580,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
 매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
 
@@ -605,9 +600,9 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-노드에서 함수 런타임은 `context` 개체의 요청 본문을 제공 합니다. 자세한 내용은 [JavaScript 트리거 예제](#trigger---example)를 참조하세요.
+In Node, the Functions runtime provides the request body from the `context` object. 자세한 내용은 [JavaScript 트리거 예제](#trigger---example)를 참조하세요.
 
-다음 예제에서는 `context.bindingData`에서 경로 매개 변수를 읽는 방법을 보여 줍니다.
+The following example shows how to read route parameters from `context.bindingData`.
 
 ```javascript
 module.exports = function (context, req) {
@@ -626,9 +621,9 @@ module.exports = function (context, req) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-함수 실행 컨텍스트는 `func.HttpRequest`로 선언 된 매개 변수를 통해 노출 됩니다. 이 인스턴스를 사용 하면 함수에서 데이터 경로 매개 변수, 쿼리 문자열 값 및 HTTP 응답을 반환할 수 있는 메서드를 액세스할 수 있습니다.
+The function execution context is exposed via a parameter declared as `func.HttpRequest`. This instance allows a function to access data route parameters, query string values and methods that allow you to return HTTP responses.
 
-정의 된 경로 매개 변수는 `route_params` 메서드를 호출 하 여 함수에 사용할 수 있습니다.
+Once defined, the route parameters are available to the function by calling the `route_params` method.
 
 ```python
 import logging
@@ -646,9 +641,9 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-함수 실행 컨텍스트는 `HttpTrigger` 특성에 선언 된 속성입니다. 특성을 사용 하 여 경로 매개 변수, 권한 부여 수준, HTTP 동사 및 들어오는 요청 인스턴스를 정의할 수 있습니다.
+The function execution context is properties as declared in the `HttpTrigger` attribute. The attribute allows you to define route parameters, authorization levels, HTTP verbs and the incoming request instance.
 
-경로 매개 변수는 `HttpTrigger` 특성을 통해 정의 됩니다.
+Route parameters are defined via the `HttpTrigger` attribute.
 
 ```java
 package com.function;
@@ -675,7 +670,7 @@ public class HttpTriggerJava {
 
 ---
 
-기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. `http.routePrefix`host.json[ 파일에서 ](functions-host-json.md) 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
+기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
 
 ```json
 {
@@ -693,7 +688,7 @@ public class HttpTriggerJava {
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;
@@ -723,9 +718,9 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
 
-인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
+Information regarding authenticated clients is available as a [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal). 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
 ```csharp
 using System.Net;
@@ -759,15 +754,15 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-[HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
+The authenticated user is available via [HTTP Headers](../app-service/app-service-authentication-how-to.md#access-user-claims).
 
 ---
 
@@ -799,7 +794,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ![포털에서 함수 키를 관리합니다.](./media/functions-bindings-http-webhook/manage-function-keys.png)
 
-[키 관리 api](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용 하 여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
+You may obtain function keys programmatically by using [Key management APIs](https://github.com/Azure/azure-functions-host/wiki/Key-management-API).
 
 ### <a name="api-key-authorization"></a>API 키 권한 부여
 
@@ -812,7 +807,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 키를 요구하지 않는 익명 요청을 허용할 수 있습니다. 마스터 키를 사용하도록 요구할 수도 있습니다. 바인딩 JSON에서 `authLevel` 속성을 사용하여 기본 권한 수준을 변경합니다. 자세한 내용은 [트리거 - 구성](#trigger---configuration)을 참조하세요.
 
 > [!NOTE]
-> 함수를 로컬로 실행할 때는 지정된 권한 부여 수준 설정에 관계없이 권한 부여가 사용하지 않도록 설정됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. [컨테이너에서 로컬로 실행 하](functions-create-function-linux-custom-image.md#run-the-image-locally)는 경우에도 키가 필요 합니다.
+> 함수를 로컬로 실행할 때는 지정된 권한 부여 수준 설정에 관계없이 권한 부여가 사용하지 않도록 설정됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. Keys are still required when running [locally in a container](functions-create-function-linux-custom-image.md#run-the-image-locally).
 
 
 ### <a name="secure-an-http-endpoint-in-production"></a>프로덕션 환경에서 HTTP 엔드포인트 보호
@@ -853,7 +848,7 @@ Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 �
 
 ## <a name="trigger---limits"></a>트리거 - 제한
 
-HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 `httpRuntime`Web.config 파일[의 ](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) 요소에 의해 지정됩니다.
+HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
 
 HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으면 게이트웨이가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#timeout)을 참조하세요.
 
@@ -865,10 +860,10 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
-| **type** |`http`으로 설정해야 합니다. |
-| **direction** | `out`으로 설정해야 합니다. |
+| **type** |`http`로 설정해야 합니다. |
+| **direction** | `out`로 설정해야 합니다. |
 | **name** | 응답에 대한 함수 코드에 사용되는 변수 이름이거나 반환 값을 사용하는 `$return`입니다. |
 
 ## <a name="output---usage"></a>출력 - 사용
@@ -904,13 +899,13 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
-| customHeaders|없음|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 콘텐츠 형식 스니핑을 방지 하기 위해 `X-Content-Type-Options` 헤더를 응답에 추가 합니다. |
-|dynamicThrottlesEnabled|true<sup>\*</sup>|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.<br/><sup>\*</sup> 소비 계획의 기본값은 `true`입니다. 전용 계획의 기본값은 `false`입니다.|
-|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>속성</th><th>설명</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>미리 로드</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
-|maxConcurrentRequests|100<sup>\*</sup>|병렬로 실행 되는 최대 http 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스(메모리/cpu/소켓)를 사용하는 http 함수가 있으면 동시성이 너무 높은 문제가 발생할 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup> 소비 계획의 기본값은 100입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
-|maxOutstandingRequests|200<sup>\*</sup>|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다. <br/>소비 계획의 <sup>\*</sup>\The 기본값은 200입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
+| customHeaders|없음|Allows you to set custom headers in the HTTP response. The previous example adds the `X-Content-Type-Options` header to the response to avoid content type sniffing. |
+|dynamicThrottlesEnabled|true<sup>\*</sup>|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.<br/><sup>\*</sup>The default in a consumption plan is `true`. The default in a dedicated plan is `false`.|
+|hsts|not enabled|When `isEnabled` is set to `true`, the [HTTP Strict Transport Security (HSTS) behavior of .NET Core](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) is enforced, as defined in the [`HstsOptions` class](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0). The above example also sets the [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) property to 10 days. Supported properties of `hsts` are: <table><tr><th>자산</th><th>설명</th></tr><tr><td>excludedHosts</td><td>A string array of host names for which the HSTS header isn't added.</td></tr><tr><td>includeSubDomains</td><td>Boolean value that indicates whether the includeSubDomain parameter of the Strict-Transport-Security header is enabled.</td></tr><tr><td>maxAge</td><td>String that defines the max-age parameter of the Strict-Transport-Security header.</td></tr><tr><td>preload</td><td>Boolean that indicates whether the preload parameter of the Strict-Transport-Security header is enabled.</td></tr></table>|
+|maxConcurrentRequests|100<sup>\*</sup>|The maximum number of http functions that are executed in parallel. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스(메모리/cpu/소켓)를 사용하는 http 함수가 있으면 동시성이 너무 높은 문제가 발생할 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup>The default for a consumption plan is 100. The default for a dedicated plan is unbounded (`-1`).|
+|maxOutstandingRequests|200<sup>\*</sup>|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다. <br/><sup>\*</sup>\The default for a consumption plan is 200. The default for a dedicated plan is unbounded (`-1`).|
 |routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |
 
 

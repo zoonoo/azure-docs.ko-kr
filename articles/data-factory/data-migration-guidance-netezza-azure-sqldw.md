@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션
-description: Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터를 마이그레이션합니다.
+title: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure
+description: Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,199 +12,199 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: c5b36a04501b417af4e4527968a082da8a061804
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675797"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217670"
 ---
-# <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
+# <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Use Azure Data Factory to migrate data from an on-premises Netezza server to Azure 
 
-Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 대규모로 데이터를 마이그레이션하는 데 성능과 강력 하 고 비용 효율적인 메커니즘을 제공 합니다. 
+Azure Data Factory provides a performant, robust, and cost-effective mechanism to migrate data at scale from an on-premises Netezza server to your Azure storage account or Azure SQL Data Warehouse database. 
 
-이 문서에서는 데이터 엔지니어와 개발자에 대 한 다음 정보를 제공 합니다.
+This article provides the following information for data engineers and developers:
 
 > [!div class="checklist"]
-> * 성능 
-> * 복원 력
+> * 성능 중심 
+> * Copy resilience
 > * 네트워크 보안
-> * 개략적인 솔루션 아키텍처 
-> * 구현 모범 사례  
+> * High-level solution architecture 
+> * Implementation best practices  
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
-Azure Data Factory은 다양 한 수준에서 병렬 처리를 허용 하는 서버 리스 아키텍처를 제공 합니다. 개발자 라면 파이프라인을 빌드하여 네트워크와 데이터베이스 대역폭을 모두 사용 하 여 사용자 환경에 대 한 데이터 이동 처리량을 최대화할 수 있습니다.
+Azure Data Factory offers a serverless architecture that allows parallelism at various levels. If you're a developer, this means you can build pipelines to fully use both network and database bandwidth to maximize data movement throughput for your environment.
 
-![성능 다이어그램](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
+![Performance diagram](media/data-migration-guidance-netezza-azure-sqldw/performance.png)
 
-위의 다이어그램은 다음과 같이 해석할 수 있습니다.
+The preceding diagram can be interpreted as follows:
 
-- 단일 복사 작업은 확장 가능한 계산 리소스를 활용할 수 있습니다. Azure Integration Runtime를 사용 하는 경우 서버를 사용 하지 않는 방식으로 각 복사 작업에 대해 [최대 256 DIUs를](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) 지정할 수 있습니다. 자체 호스팅 통합 런타임 (자체 호스팅 IR)을 사용 하면 컴퓨터를 수동으로 확장 하거나 여러 컴퓨터로 확장할 수 있습니다 ([최대 4 개 노드](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)). 단일 복사 작업은 모든 노드에 파티션을 배포 합니다. 
+- A single copy activity can take advantage of scalable compute resources. When you use Azure Integration Runtime, you can specify [up to 256 DIUs](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#data-integration-units) for each copy activity in a serverless manner. With a self-hosted integration runtime (self-hosted IR), you can manually scale up the machine or scale out to multiple machines ([up to four nodes](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)), and a single copy activity distributes its partition across all nodes. 
 
-- 단일 복사 작업은 여러 스레드를 사용 하 여 데이터 저장소에서 읽고 씁니다. 
+- A single copy activity reads from and writes to the data store by using multiple threads. 
 
-- Azure Data Factory 제어 흐름은 동시에 여러 복사 작업을 시작할 수 있습니다. 예를 들어 [For each 루프](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity)를 사용 하 여 시작할 수 있습니다. 
+- Azure Data Factory control flow can start multiple copy activities in parallel. For example, it can start them by using a [For Each loop](https://docs.microsoft.com/azure/data-factory/control-flow-for-each-activity). 
 
-자세한 내용은 [복사 작업 성능 및 확장성 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)를 참조 하세요.
+For more information, see [Copy activity performance and scalability guide](https://docs.microsoft.com/azure/data-factory/copy-activity-performance).
 
 ## <a name="resilience"></a>복원력
 
-단일 복사 작업 실행 내에서 Azure Data Factory는 기본 제공 재시도 메커니즘을 사용 하 여 데이터 저장소나 기본 네트워크에서 특정 수준의 일시적인 오류를 처리할 수 있습니다.
+Within a single copy activity run, Azure Data Factory has a built-in retry mechanism, which enables it to handle a certain level of transient failures in the data stores or in the underlying network.
 
-Azure Data Factory 복사 작업을 사용 하 여 원본 및 싱크 데이터 저장소 간에 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 두 가지 방법이 있습니다. 호환 되지 않는 데이터 행을 건너뛰어 복사 작업을 중단 하 고 실패 하거나 나머지 데이터를 계속 복사할 수 있습니다. 또한 실패의 원인을 알아보려면 Azure Blob 저장소 또는 Azure Data Lake Store에서 호환 되지 않는 행을 기록 하 고, 데이터 원본에서 데이터를 수정 하 고, 복사 작업을 다시 시도할 수 있습니다.
+With Azure Data Factory copy activity, when you copy data between source and sink data stores, you have two ways to handle incompatible rows. You can either abort and fail the copy activity or continue to copy the rest of the data by skipping the incompatible data rows. In addition, to learn the cause of the failure, you can log the incompatible rows in Azure Blob storage or Azure Data Lake Store, fix the data on the data source, and retry the copy activity.
 
 ## <a name="network-security"></a>네트워크 보안 
 
-기본적으로 Azure Data Factory는 HTTPS (하이퍼텍스트 전송 프로토콜 보안)를 통해 암호화 된 연결을 사용 하 여 온-프레미스 Netezza 서버에서 Azure storage 계정 또는 Azure SQL Data Warehouse 데이터베이스로 데이터를 전송 합니다. HTTPS는 전송 중인 데이터 암호화를 제공 하며 도청 및 메시지 가로채기 (man-in-the-middle) 공격을 방지 합니다.
+By default, Azure Data Factory transfers data from the on-premises Netezza server to an Azure storage account or Azure SQL Data Warehouse database by using an encrypted connection over Hypertext Transfer Protocol Secure (HTTPS). HTTPS provides data encryption in transit and prevents eavesdropping and man-in-the-middle attacks.
 
-또는 공용 인터넷을 통해 데이터를 전송 하지 않으려는 경우 Azure Express 경로를 통해 개인 피어 링 링크를 통해 데이터를 전송 하 여 더 높은 수준의 보안을 달성할 수 있습니다. 
+Alternatively, if you don't want data to be transferred over the public internet, you can help achieve higher security by transferring data over a private peering link via Azure Express Route. 
 
-다음 섹션에서는 더 높은 수준의 보안을 구현 하는 방법을 설명 합니다.
+The next section discusses how to achieve higher security.
 
 ## <a name="solution-architecture"></a>솔루션 아키텍처
 
-이 섹션에서는 데이터를 마이그레이션하는 두 가지 방법을 설명 합니다.
+This section discusses two ways to migrate your data.
 
-### <a name="migrate-data-over-the-public-internet"></a>공용 인터넷을 통해 데이터 마이그레이션
+### <a name="migrate-data-over-the-public-internet"></a>Migrate data over the public internet
 
-![공용 인터넷을 통해 데이터 마이그레이션](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
+![Migrate data over the public internet](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-public-network.png)
 
-위의 다이어그램은 다음과 같이 해석할 수 있습니다.
+The preceding diagram can be interpreted as follows:
 
-- 이 아키텍처에서는 공용 인터넷을 통해 HTTPS를 사용 하 여 데이터를 안전 하 게 전송 합니다.
+- In this architecture, you transfer data securely by using HTTPS over the public internet.
 
-- 이 아키텍처를 구현 하려면 회사 방화벽 뒤에 있는 Windows 컴퓨터에 Azure Data Factory integration runtime (자체 호스팅)을 설치 해야 합니다. 이 통합 런타임에서 Netezza 서버에 직접 액세스할 수 있는지 확인 합니다. 네트워크 및 데이터 저장소 대역폭을 완벽 하 게 사용 하 여 데이터를 복사 하려면 수동으로 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다.
+- To achieve this architecture, you need to install the Azure Data Factory integration runtime (self-hosted) on a Windows machine behind a corporate firewall. Make sure that this integration runtime can directly access the Netezza server. To fully use your network and data stores bandwidth to copy data, you can manually scale up your machine or scale out to multiple machines.
 
-- 이 아키텍처를 사용 하 여 초기 스냅숏 데이터와 델타 데이터를 모두 마이그레이션할 수 있습니다.
+- By using this architecture, you can migrate both initial snapshot data and delta data.
 
-### <a name="migrate-data-over-a-private-network"></a>개인 네트워크를 통해 데이터 마이그레이션 
+### <a name="migrate-data-over-a-private-network"></a>Migrate data over a private network 
 
-![개인 네트워크를 통해 데이터 마이그레이션](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
+![Migrate data over a private network](media/data-migration-guidance-netezza-azure-sqldw/solution-architecture-private-network.png)
 
-위의 다이어그램은 다음과 같이 해석할 수 있습니다.
+The preceding diagram can be interpreted as follows:
 
-- 이 아키텍처에서는 Azure Express 경로를 통해 개인 피어 링 링크를 통해 데이터를 마이그레이션하고 공용 인터넷을 통해 데이터를 트래버스 하지 않습니다. 
+- In this architecture, you migrate data over a private peering link via Azure Express Route, and data never traverses over the public internet. 
 
-- 이 아키텍처를 구현 하려면 Azure 가상 네트워크 내에서 Windows VM (가상 머신)에 Azure Data Factory integration runtime (자체 호스팅)을 설치 해야 합니다. 네트워크 및 데이터 저장소 대역폭을 완벽 하 게 사용 하 여 데이터를 복사 하려면 수동으로 VM을 확장 하거나 여러 Vm으로 확장할 수 있습니다.
+- To achieve this architecture, you need to install the Azure Data Factory integration runtime (self-hosted) on a Windows virtual machine (VM) within your Azure virtual network. To fully use your network and data stores bandwidth to copy data, you can manually scale up your VM or scale out to multiple VMs.
 
-- 이 아키텍처를 사용 하 여 초기 스냅숏 데이터와 델타 데이터를 모두 마이그레이션할 수 있습니다.
+- By using this architecture, you can migrate both initial snapshot data and delta data.
 
-## <a name="implement-best-practices"></a>모범 사례 구현 
+## <a name="implement-best-practices"></a>Implement best practices 
 
-### <a name="manage-authentication-and-credentials"></a>인증 및 자격 증명 관리 
+### <a name="manage-authentication-and-credentials"></a>Manage authentication and credentials 
 
-- Netezza에 인증 하기 위해 [연결 문자열을 통해 ODBC 인증](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties)을 사용할 수 있습니다. 
+- To authenticate to Netezza, you can use [ODBC authentication via connection string](https://docs.microsoft.com/azure/data-factory/connector-netezza#linked-service-properties). 
 
-- Azure Blob storage에 인증 하려면: 
+- To authenticate to Azure Blob storage: 
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity)사용 하는 것이 좋습니다. Azure Active Directory (Azure AD)에서 자동으로 관리 되는 Azure Data Factory id를 기반으로 구축 된 관리 되는 id를 사용 하면 연결 된 서비스 정의에 자격 증명을 제공 하지 않고도 파이프라인을 구성할 수 있습니다.  
+   - We highly recommend using [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#managed-identity). Built on top of an automatically managed Azure Data Factory identity in Azure Active Directory (Azure AD), managed identities allows you to configure pipelines without having to supply credentials in the Linked Service definition.  
 
-   - 또는 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), [공유 액세스 서명](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication)또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication)를 사용 하 여 Azure Blob storage에 인증할 수 있습니다. 
+   - Alternatively, you can authenticate to Azure Blob storage by using [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#service-principal-authentication), a [shared access signature](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#shared-access-signature-authentication), or a [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage#account-key-authentication). 
 
-- Azure Data Lake Storage Gen2에 인증 하려면: 
+- To authenticate to Azure Data Lake Storage Gen2: 
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity)사용 하는 것이 좋습니다.
+   - We highly recommend using [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#managed-identity).
    
-   - [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) 또는 [저장소 계정 키](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication)를 사용할 수도 있습니다. 
+   - You can also use [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) or a [storage account key](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
 
-- Azure SQL Data Warehouse에 인증 하려면:
+- To authenticate to Azure SQL Data Warehouse:
 
-   - [Azure 리소스에 관리 되는 id를](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity)사용 하는 것이 좋습니다.
+   - We highly recommend using [managed identities for Azure resources](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
    
-   - 또한 [서비스 주체](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) 또는 [SQL 인증](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication)을 사용할 수 있습니다.
+   - You can also use [service principal](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#service-principal-authentication) or [SQL authentication](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#sql-authentication).
 
-- Azure 리소스에 관리 되는 id를 사용 하지 않는 경우 [Azure Key Vault에 자격 증명을 저장 하는](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) 것이 좋습니다. Azure Data Factory 연결 된 서비스를 수정할 필요 없이 중앙에서 키를 중앙에서 관리 하 고 회전할 수 있습니다. [CI/CD에 대 한 모범 사례](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd)중 하나 이기도 합니다. 
+- When you're not using managed identities for Azure resources, we highly recommend [storing the credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault) to make it easier to centrally manage and rotate keys without having to modify Azure Data Factory linked services. This is also one of the [best practices for CI/CD](https://docs.microsoft.com/azure/data-factory/continuous-integration-deployment#best-practices-for-cicd). 
 
-### <a name="migrate-initial-snapshot-data"></a>초기 스냅숏 데이터 마이그레이션 
+### <a name="migrate-initial-snapshot-data"></a>Migrate initial snapshot data 
 
-작은 테이블 (즉, 볼륨이 100 GB 미만 이거나 2 시간 내에 Azure로 마이그레이션할 수 있는 테이블)의 경우 각 복사 작업에서 테이블당 데이터를 로드 하도록 할 수 있습니다. 처리량을 높이기 위해 여러 Azure Data Factory 복사 작업을 실행 하 여 별도의 테이블을 동시에 로드할 수 있습니다. 
+For small tables (that is, tables with a volume of less than 100 GB or that can be migrated to Azure within two hours), you can make each copy job load data per table. For greater throughput, you can run multiple Azure Data Factory copy jobs to load separate tables concurrently. 
 
-각 복사 작업 내에서 병렬 쿼리를 실행 하 고 파티션 별로 데이터를 복사 하려면 다음 데이터 파티션 옵션 중 하나를 사용 하 여 [`parallelCopies` 속성 설정을](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) 사용 하 여 병렬 처리 수준에 도달할 수도 있습니다.
+Within each copy job, to run parallel queries and copy data by partitions, you can also reach some level of parallelism by using the [`parallelCopies` property setting](https://docs.microsoft.com/azure/data-factory/copy-activity-performance#parallel-copy) with either of the following data partition options:
 
-- 효율성을 높이기 위해 데이터 조각에서 시작 하는 것이 좋습니다.  `parallelCopies` 설정의 값이 Netezza 서버에 있는 테이블의 전체 데이터 조각 파티션 수보다 적은지 확인 합니다.  
+- For help achieve greater efficiency, we encourage you to start from a data slice.  Make sure that the value in the `parallelCopies` setting is less than the total number of data-slice partitions in your table on the Netezza server.  
 
-- 각 데이터 조각 파티션의 볼륨이 여전히 큰 경우 (예: 10gb 이상) 동적 범위 파티션으로 전환 하는 것이 좋습니다. 이 옵션을 사용 하면 파티션 열, 상한 및 하 한을 기준으로 각 파티션의 파티션 수와 볼륨을 보다 유연 하 게 정의할 수 있습니다.
+- If the volume of each data-slice partition is still large (for example, 10 GB or greater), we encourage you to switch to a dynamic range partition. This option gives you greater flexibility to define the number of partitions and the volume of each partition by partition column, upper bound and lower bound.
 
-규모가 큰 테이블 (즉, 볼륨이 100 GB 이상인 테이블이 나 2 시간 내에 Azure로 *마이그레이션할 수 없는* 테이블)의 경우 사용자 지정 쿼리를 통해 데이터를 분할 한 다음 각 복사 작업을 한 번에 하나의 파티션으로 복사 하는 것이 좋습니다. 처리량을 높이기 위해 여러 Azure Data Factory 복사 작업을 동시에 실행할 수 있습니다. 사용자 지정 쿼리를 통해 파티션 하나를 로드 하는 각 복사 작업 대상의 경우 데이터 조각 또는 동적 범위를 통해 병렬 처리를 사용 하도록 설정 하 여 처리량을 늘릴 수 있습니다. 
+For larger tables (that is, tables with a volume of 100 GB or greater or that *can't* be migrated to Azure within two hours), we recommend that you partition the data by custom query and then make each copy-job copy one partition at a time. For better throughput, you can run multiple Azure Data Factory copy jobs concurrently. For each copy-job target of loading one partition by custom query, you can increase throughput by enabling parallelism via either data slice or dynamic range. 
 
-네트워크 또는 데이터 저장소의 일시적인 문제로 인해 복사 작업이 실패 하는 경우 실패 한 복사 작업을 다시 실행 하 여 테이블에서 특정 파티션을 다시 로드할 수 있습니다. 다른 파티션을 로드 하는 다른 복사 작업은 영향을 받지 않습니다.
+If any copy job fails because of a network or data store transient issue, you can rerun the failed copy job to reload that specific partition from the table. Other copy jobs that load other partitions aren't affected.
 
-Azure SQL Data Warehouse 데이터베이스에 데이터를 로드 하는 경우 Azure Blob storage를 사용 하 여 복사 작업 내에서 PolyBase를 스테이징으로 사용 하도록 설정 하는 것이 좋습니다.
+When you load data into an Azure SQL Data Warehouse database, we suggest that you enable PolyBase within the copy job with Azure Blob storage as staging.
 
-### <a name="migrate-delta-data"></a>델타 데이터 마이그레이션 
+### <a name="migrate-delta-data"></a>Migrate delta data 
 
-테이블에서 새 행 또는 업데이트 된 행을 식별 하려면 스키마 내에서 타임 스탬프 열 또는 증분 키를 사용 합니다. 그런 다음, 최신 값을 외부 테이블에 상위 워터 마크로 저장 한 다음이를 사용 하 여 다음에 데이터를 로드할 때 델타 데이터를 필터링 할 수 있습니다. 
+To identify the new or updated rows from your table, use a timestamp column or an incrementing key within the schema. You can then store the latest value as a high watermark in an external table and then use it to filter the delta data the next time you load data. 
 
-각 테이블은 다른 워터 마크 열을 사용 하 여 새 행 또는 업데이트 된 행을 식별할 수 있습니다. 외부 컨트롤 테이블을 만드는 것이 좋습니다. 테이블에서 각 행은 특정 워터 마크 열 이름 및 상위 워터 마크 값을 사용 하 여 Netezza 서버에 있는 하나의 테이블을 나타냅니다. 
+Each table can use a different watermark column to identify its new or updated rows. We suggest that you create an external control table. In the table, each row represents one table on the Netezza server with its specific watermark column name and high watermark value. 
 
-### <a name="configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 구성
+### <a name="configure-a-self-hosted-integration-runtime"></a>Configure a self-hosted integration runtime
 
-Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서버가 회사 방화벽 뒤에 있든, 가상 네트워크 환경 내에서 온-프레미스에 있든 상관 없이 Windows 컴퓨터 또는 VM에 자체 호스팅 IR을 설치 해야 합니다. 데이터를 이동 합니다. 자체 호스팅 IR을 설치 하는 경우 다음과 같은 방법을 사용 하는 것이 좋습니다.
+If you're migrating data from the Netezza server to Azure, whether the server is on-premises behind your corporation firewall or within a virtual network environment, you need to install a self-hosted IR on a Windows machine or VM, which is the engine that's used to move data. As you're installing the self-hosted IR, we recommend the following approach:
 
-- 각 Windows 컴퓨터 또는 VM에 대해 32 vCPU 및 128 GB 메모리의 구성으로 시작 합니다. 데이터 마이그레이션 중에 IR 컴퓨터의 CPU 및 메모리 사용량을 계속 모니터링 하 여 성능 향상을 위해 컴퓨터를 추가로 확장 하거나 컴퓨터를 축소 하 여 비용을 절감할 수 있는지 여부를 확인할 수 있습니다.
+- For each Windows machine or VM, start with a configuration of 32 vCPU and 128-GB memory. You can keep monitoring the CPU and memory usage of the IR machine during the data migration to see whether you need to further scale up the machine for better performance or scale down the machine to save cost.
 
-- 단일 자체 호스팅 IR을 사용 하 여 최대 4 개의 노드를 연결 하 여 규모를 확장할 수도 있습니다. 자체 호스팅 IR에 대해 실행 되는 단일 복사 작업은 모든 VM 노드를 자동으로 적용 하 여 데이터를 병렬로 복사 합니다. 고가용성을 위해 데이터 마이그레이션 중 단일 실패 지점을 방지 하기 위해 네 개의 VM 노드로 시작 합니다.
+- You can also scale out by associating up to four nodes with a single self-hosted IR. A single copy job that's running against a self-hosted IR automatically applies all VM nodes to copy the data in parallel. For high availability, start with four VM nodes to avoid a single point of failure during the data migration.
 
-### <a name="limit-your-partitions"></a>파티션 제한
+### <a name="limit-your-partitions"></a>Limit your partitions
 
-모범 사례로, 대표적인 샘플 데이터 집합을 사용 하 여 개념 증명 (POC)을 수행 하 여 각 복사 작업에 적절 한 파티션 크기를 결정할 수 있습니다. 2 시간 내에 각 파티션을 Azure로 로드 하는 것이 좋습니다.  
+As a best practice, conduct a performance proof of concept (POC) with a representative sample dataset, so that you can determine an appropriate partition size for each copy activity. We suggest that you load each partition to Azure within two hours.  
 
-테이블을 복사 하려면 단일 자체 호스팅 IR 컴퓨터를 사용 하는 단일 복사 작업으로 시작 합니다. 테이블의 데이터 조각 파티션 수에 따라 `parallelCopies` 설정을 점차적으로 늘립니다. 복사 작업에서 발생 하는 처리량에 따라 2 시간 내에 전체 테이블을 Azure에 로드할 수 있는지 여부를 확인 합니다. 
+To copy a table, start with a single copy activity with a single, self-hosted IR machine. Gradually increase the `parallelCopies` setting based on the number of data-slice partitions in your table. See whether the entire table can be loaded to Azure within two hours, according to the throughput that results from the copy job. 
 
-2 시간 내에 Azure에 로드할 수 없는 경우 자체 호스팅 IR 노드 및 데이터 저장소의 용량이 완전히 사용 되지 않으면 네트워크 제한 또는 데이터 저장소의 대역폭 제한에 도달할 때까지 동시 복사 작업의 수를 점진적으로 증가 시킵니다. server 
+If it can't be loaded to Azure within two hours, and the capacity of the self-hosted IR node and the data store are not fully used, gradually increase the number of concurrent copy activities until you reach the limit of your network or the bandwidth limit of the data stores. 
 
-자체 호스팅 IR 컴퓨터의 CPU 및 메모리 사용량을 계속 모니터링 하 고, CPU 및 메모리가 모두 사용 되는 것이 확인 되 면 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다. 
+Keep monitoring the CPU and memory usage on the self-hosted IR machine, and be ready to scale up the machine or scale out to multiple machines when you see that the CPU and memory are fully used. 
 
-Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생할 경우 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 줄이거나 네트워크 및 데이터의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 정보가. 
+When you encounter throttling errors, as reported by Azure Data Factory copy activity, either reduce the concurrency or `parallelCopies` setting in Azure Data Factory, or consider increasing the bandwidth or I/O operations per second (IOPS) limits of the network and data stores. 
 
 
-### <a name="estimate-your-pricing"></a>가격 책정 예측 
+### <a name="estimate-your-pricing"></a>Estimate your pricing 
 
-온-프레미스 Netezza 서버에서 Azure SQL Data Warehouse 데이터베이스로 데이터를 마이그레이션하기 위해 생성 되는 다음 파이프라인을 고려 합니다.
+Consider the following pipeline, which is constructed to migrate data from the on-premises Netezza server to an Azure SQL Data Warehouse database:
 
-![가격 책정 파이프라인](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
+![The pricing pipeline](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
-다음 문이 참인 것으로 가정 하겠습니다. 
+Let's assume that the following statements are true: 
 
-- 총 데이터 볼륨은 50 TB입니다. 
+- The total data volume is 50 terabytes (TB). 
 
-- 첫 번째 솔루션 아키텍처를 사용 하 여 데이터를 마이그레이션하는 중입니다 (Netezza 서버가 온-프레미스이 고 방화벽 뒤에 있습니다).
+- We're migrating data by using first-solution architecture (the Netezza server is on-premises, behind the firewall).
 
-- 50-TB 볼륨은 500 파티션으로 나뉘어 있으며 각 복사 작업은 하나의 파티션을 이동 합니다.
+- The 50-TB volume is divided into 500 partitions, and each copy activity moves one partition.
 
-- 각 복사 작업은 4 대의 컴퓨터에 대해 하나의 자체 호스팅 IR로 구성 되며 MBps (초당 20mb)의 처리량을 달성 합니다. 복사 작업 내에서 `parallelCopies` 4로 설정 되 고 테이블에서 데이터를 로드 하는 각 스레드가 5 MBps 처리량을 달성 합니다.
+- Each copy activity is configured with one self-hosted IR against four machines and achieves a throughput of 20 megabytes per second (MBps). (Within copy activity, `parallelCopies` is set to 4, and each thread to load data from the table achieves a 5-MBps throughput.)
 
-- ForEach 동시성은 3으로 설정 되 고 집계 처리량은 60 MBps입니다.
+- The ForEach concurrency is set to 3, and the aggregate throughput is 60 MBps.
 
-- 마이그레이션을 완료 하는 데는 총 243 시간이 소요 됩니다.
+- In total, it takes 243 hours to complete the migration.
 
-앞의 가정에 따라 예상 가격은 다음과 같습니다. 
+Based on the preceding assumptions, here's the estimated price: 
 
-![가격 책정 테이블](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
+![The pricing table](media/data-migration-guidance-netezza-azure-sqldw/pricing-table.png)
 
 > [!NOTE]
-> 위의 표에 표시 된 가격은 가상의 경우입니다. 실제 가격은 사용자 환경의 실제 처리량에 따라 달라 집니다. 자체 호스팅 IR이 설치 된 Windows 컴퓨터의 가격은 포함 되지 않습니다. 
+> The pricing shown in the preceding table is hypothetical. Your actual pricing depends on the actual throughput in your environment. The price for the  Windows machine (with the self-hosted IR installed) is not included. 
 
 ### <a name="additional-references"></a>추가 참조
 
-자세한 내용은 다음 문서 및 가이드를 참조 하세요.
+For more information, see the following articles and guides:
 
-- [Azure Data Factory를 사용 하 여 온-프레미스 관계형 데이터 웨어하우스 데이터베이스에서 Azure로 데이터 마이그레이션](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
-- [Netezza 커넥터](https://docs.microsoft.com/azure/data-factory/connector-netezza)
-- [ODBC 커넥터](https://docs.microsoft.com/azure/data-factory/connector-odbc)
-- [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Migrate data from an on-premises relational Data Warehouse database to Azure by using Azure Data Factory](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Netezza connector](https://docs.microsoft.com/azure/data-factory/connector-netezza)
+- [ODBC connector](https://docs.microsoft.com/azure/data-factory/connector-odbc)
+- [Azure Blob storage connector](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Azure SQL Data Warehouse 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
-- [복사 작업 성능 조정 가이드](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
+- [Copy activity performance tuning guide](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [자체 호스팅 통합 런타임 만들기 및 구성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
-- [자체 호스팅 통합 런타임 HA 및 확장성](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
-- [데이터 이동 보안 고려 사항](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
-- [Azure Key Vault에 자격 증명 저장](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
-- [한 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
-- [여러 테이블에서 증분 방식으로 데이터 복사](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
-- [가격 책정 페이지 Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
+- [Self-hosted integration runtime HA and scalability](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)
+- [Data movement security considerations](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
+- [Store credentials in Azure Key Vault](https://docs.microsoft.com/azure/data-factory/store-credentials-in-key-vault)
+- [Copy data incrementally from one table](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-portal)
+- [Copy data incrementally from multiple tables](https://docs.microsoft.com/azure/data-factory/tutorial-incremental-copy-multiple-tables-portal)
+- [Azure Data Factory pricing page](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Data Factory를 사용 하 여 여러 컨테이너의 파일 복사](solution-template-copy-files-multiple-containers.md)
+- [Copy files from multiple containers by using Azure Data Factory](solution-template-copy-files-multiple-containers.md)

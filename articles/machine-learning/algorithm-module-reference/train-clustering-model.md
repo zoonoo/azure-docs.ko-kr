@@ -1,63 +1,61 @@
 ---
-title: '클러스터링 모델 학습: 모듈 참조'
+title: 'Train Clustering Model: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 클러스터링 모델 학습 모듈을 사용 하 여 클러스터링 모델을 학습 하는 방법에 대해 알아봅니다.
+description: Learn how to use the Train Clustering Model module in Azure Machine Learning to train clustering models.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: 1b26fc251aeb527041b1e648f19f9dd67f7701b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 57cf5bab2afe58ed802ef5ec03c316f1ebec6673
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490396"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232584"
 ---
 # <a name="train-clustering-model"></a>클러스터링 모델 학습
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+This article describes a module in Azure Machine Learning designer (preview).
 
-이 모듈을 사용 하 여 클러스터링 모델을 학습 합니다.
+Use this module to train a clustering model.
 
-이 모듈은 이미 [K-](k-means-clustering.md) 를 사용 하 여 클러스터링 모듈을 사용 하 여 구성한 학습 되지 않은 클러스터링 모델을 사용 하 고 레이블이 지정 되거나 레이블이 지정 되지 않은 데이터 집합을 사용 하 여 모델을 학습 합니다. 이 모듈은 예측에 사용할 수 있는 학습 된 모델 및 학습 데이터의 각 사례에 대 한 클러스터 할당 집합을 만듭니다.
+The module takes an untrained clustering model that you have already configured using the [K-Means Clustering](k-means-clustering.md) module, and trains the model using a labeled or unlabeled data set. The module creates both a trained model that you can use for prediction, and a set of cluster assignments for each case in the training data.
 
 > [!NOTE]
-> 클러스터링 모델은 기계 학습 모델 학습을 위한 일반 모듈인 [모델 학습](train-model.md) 모듈을 사용 하 여 학습 없습니다. [모델 학습](train-model.md) 은 감독 된 학습 알고리즘 에서만 작동 하기 때문입니다. K-를 사용 하는 경우 및 다른 클러스터링 알고리즘은 자율 learning을 허용 합니다. 즉, 알고리즘은 레이블이 없는 데이터에서 학습할 수 있습니다.  
+> A clustering model cannnot be trained using the [Train Model](train-model.md) module, which is the generic module for training machine learning models. That is because [Train Model](train-model.md) works only with supervised learning algorithms. K-means and other clustering algorithms allow unsupervised learning, meaning that the algorithm can learn from unlabeled data.  
   
-## <a name="how-to-use-train-clustering-model"></a>클러스터링 학습 모델을 사용 하는 방법  
+## <a name="how-to-use-train-clustering-model"></a>How to use Train Clustering Model  
 
-1.  디자이너에서 파이프라인에 **클러스터링 모델 학습** 모듈을 추가 합니다. **학습** 범주에서 모듈 **Machine Learning**모듈 아래에 있는 모듈을 찾을 수 있습니다.  
+1.  Add the **Train Clustering Model** module to your pipeline in the designer. You can find the module under **Machine Learning Modules**, in the **Train** category.  
   
-2. [K 의미](k-means-clustering.md) 클러스터링 모듈 또는 호환 클러스터링 모델을 만들고 클러스터링 모델의 매개 변수를 설정 하는 다른 사용자 지정 모듈을 추가 합니다.  
+2. Add the [K-Means Clustering](k-means-clustering.md) module, or another custom module that creates a compatible clustering model, and set the parameters of the clustering model.  
     
-3.  학습 **클러스터링 모델**의 오른쪽 입력에 학습 데이터 집합을 연결 합니다.
+3.  Attach a training dataset to the right-hand input of **Train Clustering Model**.
   
-5.  **열 집합**에서 클러스터를 작성 하는 데 사용할 데이터 집합의 열을 선택 합니다. 올바른 기능을 제공 하는 열을 선택 해야 합니다. 예를 들어 Id 또는 고유한 값이 있는 다른 열을 사용 하거나 모든 값이 같은 열을 사용 하지 마십시오.
+5.  In **Column Set**, select the columns from the dataset to use in building clusters. Be sure to select columns that make good features: for example, avoid using IDs or other columns that have unique values, or columns that have all the same values.
 
-    레이블을 사용할 수 있는 경우 해당 레이블을 기능으로 사용 하거나 그대로 둘 수 있습니다.  
+    If a label is available, you can either use it as a feature, or leave it out.  
   
-6. 새 클러스터 레이블과 함께 학습 데이터를 출력 하려면 옵션을 선택 하 고, **추가를 확인 하거나 결과에 대해서만 선택 취소**합니다.
+6. Select the option, **Check for append or uncheck for result only**, if you want to output the training data together with the new cluster label.
 
-    이 옵션의 선택을 취소 하면 클러스터 할당만 출력 됩니다. 
+    If you deselect this option, only the cluster assignments are output. 
 
-7. 파이프라인을 실행 하거나 **클러스터링 모델 학습** 모듈을 클릭 하 고 **선택 된 실행**을 선택 합니다.  
+7. Run the pipeline, or click the **Train Clustering Model** module and select **Run Selected**.  
   
 ### <a name="results"></a>결과
 
-학습을 완료 한 후:
+After training has completed:
 
 
-+  데이터 집합의 값을 보려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **결과 데이터 집합**을 선택한 다음 **시각화**를 클릭 합니다.
++  To view the values in the dataset, right-click the module, select **Result datasets**, and click **Visualize**.
 
-+ 나중에 다시 사용 하기 위해 학습 된 모델을 저장 하려면 모듈을 마우스 오른쪽 단추로 클릭 하 고 **학습 된 모델**을 선택한 다음 **학습 된 모델로 저장**을 클릭 합니다.
++ To save the trained model for later reuse, right-click the module, select **Trained model**, and click **Save As Trained Model**.
 
-+ 모델에서 점수를 생성 하려면 [클러스터에 데이터 할당](assign-data-to-clusters.md)을 사용 합니다.
-
-
++ To generate scores from the model, use [Assign Data to Clusters](assign-data-to-clusters.md).
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

@@ -1,23 +1,23 @@
 ---
-title: Azure의 역방향 DNS 개요 | Microsoft Docs
-description: 역방향 DNS 작동 방법 및 Azure에서 사용하는 방법을 알아봅니다.
+title: Overview of reverse DNS in Azure - Azure DNS
+description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
 services: dns
 documentationcenter: na
-author: vhorne
-manager: jeconnoc
+author: asudbring
+manager: KumuD
 ms.service: dns
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: victorh
-ms.openlocfilehash: 9d3a62ec1c9ede1f25f2b53f800642a792b3aa28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 2788cc3957e9822e61c10f5f06a29802e225bcbf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60192985"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74211025"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Azure의 역방향 DNS 및 지원 개요
 
@@ -33,7 +33,7 @@ ms.locfileid: "60192985"
 
 역방향 DNS 레코드는 'ARPA' 영역이라는 특수한 DNS 영역에서 호스팅됩니다.  이러한 영역은 'contoso.com'과 같은 일반적인 계층 구조 호스팅 도메인과 병렬로 별도의 DNS 계층 구조를 형성합니다.
 
-예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  역방향 조회는 영역 '6.4.64.in-addr.arpa'에서 '100'으로 명명된 'PTR' 레코드를 사용하여 별도로 구현됩니다(해당 IP 주소는 ARPA 영역에서 반전됨).  이 PTR 레코드가 올바르게 구성된 경우 이름 'www.contoso.com'을 가리킵니다.
+예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
 
 조직에 IP 주소 블록이 할당되면 해당 ARPA 영역을 관리할 권한도 획득하게 됩니다. Azure에 사용되는 IP 주소 블록에 해당되는 ARPA 영역은 Microsoft에서 호스트 및 관리합니다. ISP는 사용자 고유의 IP 주소에 대한 ARPA 영역을 호스트하거나 사용자가 Azure DNS와 같은 선택한 DNS 서비스에서 ARPA 영역을 호스트하도록 할 수 있습니다.
 

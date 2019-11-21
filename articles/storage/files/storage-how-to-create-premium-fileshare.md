@@ -1,43 +1,43 @@
 ---
-title: 프리미엄 Azure 파일 공유 만들기
-description: 이 문서에서는 프리미엄 Azure 파일 공유를 만드는 방법에 대해 알아봅니다.
+title: Create a premium Azure file share
+description: In this article, you learn how to create a premium Azure file share.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 795f18365c4b4846d18eddf3212059040bf9e319
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260226"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209544"
 ---
-# <a name="how-to-create-an-premium-azure-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
-프리미엄 파일 공유는 SSD (반도체 디스크) 저장소 미디어에 제공 되며, 호스팅 데이터베이스 및 HPC (고성능 컴퓨팅)를 포함 한 IO 집약적 작업에 유용 합니다. 프리미엄 파일 공유는 FileStorage 계정 이라고 하는 특수 한 용도의 저장소 계정 종류에서 호스팅됩니다. 프리미엄 파일 공유는 높은 성능 및 엔터프라이즈급 응용 프로그램을 위한 것으로, 일관성 낮은 대기 시간, 높은 IOPS 및 높은 처리량의 공유를 제공 합니다.
+# <a name="how-to-create-an-premium-azure-file-share"></a>How to create an premium Azure file share
+Premium file shares are offered on solid-state disk (SSD) storage media and are useful for IO-intensive workloads, including hosting databases and high-performance computing (HPC). Premium file shares are hosted in a special purpose storage account kind, called a FileStorage account. Premium file shares are designed for high performance and enterprise scale applications, providing consistent low latency, high IOPS, and high throughput shares.
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/), Azure PowerShell 및 Azure CLI를 사용 하 여이 새 계정 유형을 만드는 방법을 보여 줍니다.
+This article shows you how to create this new account type using [Azure portal](https://portal.azure.com/), Azure PowerShell, and Azure CLI.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-프리미엄 Azure 파일 공유를 포함 하 여 Azure 리소스에 액세스 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+To access Azure resources including premium Azure file shares, you'll need an Azure subscription. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Azure Portal를 사용 하 여 프리미엄 파일 공유 만들기
+## <a name="create-a-premium-file-share-using-the-azure-portal"></a>Create a premium file share using the Azure portal
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure portal](https://portal.azure.com/)에 로그인합니다.
 
-### <a name="create-a-filestorage-storage-account"></a>Filestorage 저장소 계정 만들기
+### <a name="create-a-filestorage-storage-account"></a>Create a filestorage storage account
 
-이제 저장소 계정을 만들 준비가 되었습니다.
+Now you're ready to create your storage account.
 
-모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. 이 문서에서는 새 리소스 그룹을 만드는 방법을 보여 줍니다.
+모든 스토리지 계정은 Azure 리소스 그룹에 속해야 합니다. 리소스 그룹은 Azure 리소스를 그룹화하기 위한 논리적 컨테이너입니다. 스토리지 계정을 만들 때 새 리소스 그룹을 만들거나 기존 리소스 그룹을 사용할 수 있는 옵션이 있습니다. This article shows how to create a new resource group.
 
-1. Azure Portal의 왼쪽 메뉴에서 **저장소 계정** 을 선택 합니다.
+1. In the Azure portal, select **Storage Accounts** on the left menu.
 
-    ![Azure Portal 기본 페이지 저장소 계정 선택](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+    ![Azure portal main page select storage account](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
 
 1. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 1. 스토리지 계정을 만들 구독을 선택합니다.
@@ -45,47 +45,47 @@ ms.locfileid: "71260226"
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 1. 스토리지 계정의 위치를 선택하거나 기본 위치를 사용합니다.
-1. **성능을** 위해 **프리미엄**을 선택 합니다.
-1. **계정 종류** 를 선택 하 고 **FileStorage**를 선택 합니다.
-1. **복제** 를 기본값인 **LRS (로컬 중복 저장소)** 로 설정 된 상태로 둡니다.
+1. For **Performance** select **Premium**.
+1. Select **Account kind** and choose **FileStorage**.
+1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)** .
 
-    ![프리미엄 파일 공유에 대 한 저장소 계정을 만드는 방법](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
+    ![How to create a storage account for a premium file share](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. **검토 + 만들기**를 선택하여 스토리지 계정 설정을 검토하고 계정을 만듭니다.
 1. **만들기**를 선택합니다.
 
-저장소 계정 리소스를 만든 후으로 이동 합니다.
+Once your storage account resource has been created, navigate to it.
 
 ### <a name="create-a-premium-file-share"></a>프리미엄 파일 공유 만들기
 
-1. 저장소 계정에 대 한 왼쪽 메뉴에서 **파일 서비스** 섹션으로 스크롤한 다음 **파일**을 선택 합니다.
-1. **파일 공유** 를 선택 하 여 프리미엄 파일 공유를 만듭니다.
-1. 파일 공유에 대 한 이름 및 원하는 할당량을 입력 한 다음 **만들기**를 선택 합니다.
+1. In the left menu for the storage account, scroll to the **File service** section, then select **Files**.
+1. Select **File share** to create a premium file share.
+1. Enter a name and a desired quota for your file share, then select **Create**.
 
 > [!NOTE]
-> 프로 비전 된 공유 크기는 공유 할당량으로 지정 되며, 프로 비전 된 크기에 따라 파일 공유가 청구 됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/) 를 참조 하세요.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
    ![프리미엄 파일 공유 만들기](media/storage-how-to-create-premium-fileshare/create-premium-file-share.png)
 
 ### <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서 만든 리소스를 정리 하려면 리소스 그룹을 삭제 하기만 하면 됩니다. 리소스 그룹을 삭제 하면 연결 된 저장소 계정 뿐만 아니라 리소스 그룹과 연결 된 다른 리소스도 삭제 됩니다.
+If you would like to clean up the resources created in this article, you can simply delete the resource group. Deleting the resource group also deletes the associated storage account as well as any other resources associated with the resource group.
 
-## <a name="create-a-premium-file-share-using-powershell"></a>PowerShell을 사용 하 여 프리미엄 파일 공유 만들기
+## <a name="create-a-premium-file-share-using-powershell"></a>Create a premium file share using PowerShell
 
 ### <a name="create-an-account-using-powershell"></a>PowerShell을 사용하여 계정 만들기
 
-먼저 [PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget) 모듈의 최신 버전을 설치합니다.
+먼저 [PowerShellGet](/powershell/scripting/gallery/installing-psget) 모듈의 최신 버전을 설치합니다.
 
 그런 다음, powershell 모듈을 업그레이드하고, Azure 구독에 로그인하고, 리소스 그룹을 만든 다음, 스토리지 계정을 만듭니다.
 
-### <a name="upgrade-your-powershell-module"></a>PowerShell 모듈 업그레이드
+### <a name="upgrade-your-powershell-module"></a>Upgrade your PowerShell module
 
-PowerShell을 사용 하 여에서 프리미엄 파일 공유와 상호 작용 하려면 Az. Storage 모듈 버전 1.4.0 또는 최신 Az. Storage 모듈을 설치 해야 합니다.
+To interact with a premium file share from with PowerShell, you'll need to install an Az.Storage module version 1.4.0, or the latest Az.Storage module.
 
 관리자 권한으로 PowerShell 세션을 열어 시작합니다.
 
-Az. Storage 모듈을 설치 합니다.
+Install the Az.Storage module:
 
 ```powershell
 Install-Module Az.Storage -Repository PSGallery -AllowClobber -Force
@@ -111,9 +111,9 @@ $location = "westus2"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>FileStorage 저장소 계정 만들기
+### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
 
-PowerShell에서 filestorage 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령을 사용 합니다.
+To create a filestorage storage account from PowerShell, use the [New-AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) command:
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -121,10 +121,10 @@ $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fil
 
 ### <a name="create-a-premium-file-share"></a>프리미엄 파일 공유 만들기
 
-이제 FileStorage 계정을 만들었으므로 프리미엄 파일 공유를 만들 수 있습니다. [AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet을 사용 하 여 하나를 만듭니다.
+Now that you have a FileStorage account, you can create a premium file share. Use the [New-AzStorageShare](/powershell/module/az.storage/New-AzStorageShare) cmdlet to create one.
 
 > [!NOTE]
-> 프로 비전 된 공유 크기는 공유 할당량으로 지정 되며, 프로 비전 된 크기에 따라 파일 공유가 청구 됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/) 를 참조 하세요.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
 ```powershell
 New-AzStorageShare `
@@ -140,11 +140,11 @@ New-AzStorageShare `
 Remove-AzResourceGroup -Name $resourceGroup
 ```
 
-## <a name="create-a-premium-file-share-using-azure-cli"></a>Azure CLI를 사용 하 여 프리미엄 파일 공유 만들기
+## <a name="create-a-premium-file-share-using-azure-cli"></a>Create a premium file share using Azure CLI
 
 Azure Cloud Shell을 시작하려면 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-CLI의 로컬 설치에 로그인 하려면 먼저 최신 버전이 있는지 확인 하 고 login 명령을 실행 합니다.
+If you want to log into your local installation of the CLI, first make sure you have the latest version, then run the login command:
 
 ```cli
 az login
@@ -160,9 +160,9 @@ az group create `
     --location westus2
 ```
 
-### <a name="create-a-filestorage-storage-account"></a>FileStorage 저장소 계정 만들기
+### <a name="create-a-filestorage-storage-account"></a>Create a FileStorage storage account
 
-Azure CLI에서 FileStorage 저장소 계정을 만들려면 [az storage account create](/cli/azure/storage/account) 명령을 사용 합니다.
+To create a FileStorage storage account from the Azure CLI, use the [az storage account create](/cli/azure/storage/account) command.
 
 ```azurecli-interactive
 az storage account create `
@@ -175,7 +175,7 @@ az storage account create `
 
 ### <a name="get-the-storage-account-key"></a>스토리지 계정 키 가져오기
 
-저장소 계정 키는 저장소 계정의 리소스에 대 한 액세스를 제어 합니다 .이 문서에서는 프리미엄 파일 공유를 만들기 위해 키를 사용 합니다. 키는 스토리지 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다.
+Storage account keys control access to resources in a storage account, in this article, we use the key in order to create a premium file share. 키는 스토리지 계정을 만들 때 자동으로 만들어집니다. [az storage account keys list](/cli/azure/storage/account/keys) 명령을 사용하여 스토리지 계정에 대한 스토리지 계정 키를 가져올 수 있습니다.
 
 ```azurecli-interactive 
 STORAGEKEY=$(az storage account keys list \
@@ -186,10 +186,10 @@ STORAGEKEY=$(az storage account keys list \
 
 ### <a name="create-a-premium-file-share"></a>프리미엄 파일 공유 만들기
 
-이제 filestorage 계정을 만들었으므로 프리미엄 파일 공유를 만들 수 있습니다. [Az storage share create](/cli/azure/storage/share) 명령을 사용 하 여 하나를 만듭니다.
+Now that you have a filestorage account, you can create a premium file share. Use the [az storage share create](/cli/azure/storage/share) command to create one.
 
 > [!NOTE]
-> 프로 비전 된 공유 크기는 공유 할당량으로 지정 되며, 프로 비전 된 크기에 따라 파일 공유가 청구 됩니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/files/) 를 참조 하세요.
+> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size, refer to the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/) for more details.
 
 ```azurecli-interactive
 az storage share create \
@@ -208,7 +208,7 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 프리미엄 파일 공유를 만들었습니다. 이 계정에서 제공 하는 성능에 대해 알아보려면 계획 가이드의 성능 계층 섹션을 계속 진행 합니다.
+In this article, you've created a premium file share. To learn about the performance this account offers, continue to the performance tier section of the planning guide.
 
 > [!div class="nextstepaction"]
-> [파일 공유 성능 계층](storage-files-planning.md#file-share-performance-tiers)
+> [File share performance tiers](storage-files-planning.md#file-share-performance-tiers)

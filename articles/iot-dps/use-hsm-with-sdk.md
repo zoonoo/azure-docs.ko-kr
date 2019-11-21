@@ -1,5 +1,5 @@
 ---
-title: Azure 방법 - Azure에서 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
+title: Use different attestation mechanisms with the Azure IoT Hub Device Provisioning Service Client SDK
 description: Azure 방법 - Azure에서 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 author: robinsh
 ms.author: robinsh
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: fd974ad81a641afb1c93fffb0a12a147c55b3a73
-ms.sourcegitcommit: acffa72239413c62662febd4e39ebcb6c6c0dd00
+ms.openlocfilehash: 0cde591d2ec8c6f2f51c83b3f263c188c8cf2605
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68951887"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228279"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
 
-이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. 프로 비전 서비스는 두 가지 유형의 증명 메커니즘에 대 한 인증을 지원 합니다. X.509 및 신뢰할 수 있는 플랫폼 모듈 (TPM).
+이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. The provisioning service supports authentication for two types of attestation mechanisms: X.509 and Trusted Platform Module (TPM).
 
 ## <a name="prerequisites"></a>전제 조건
 
@@ -27,19 +27,19 @@ ms.locfileid: "68951887"
 
 디바이스 제조자는 먼저 지원되는 형식 중 하나를 기반으로 하는 증명 메커니즘을 선택해야 합니다. 현재 [C용 Device Provisioning 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client)는 다음과 같은 증명 메커니즘을 지원합니다. 
 
-- [TPM (신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 디바이스뿐만 아니라 대부분의 Windows 기반 디바이스 플랫폼에 대해 설정된 표준입니다. 디바이스 제조자는 디바이스에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
+- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 디바이스뿐만 아니라 대부분의 Windows 기반 디바이스 플랫폼에 대해 설정된 표준입니다. 디바이스 제조자는 디바이스에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서는 [HSM (하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신의 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 디바이스 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
+- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 디바이스 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
 
 자세한 내용은 IoT Hub Device Provisioning 서비스 [보안 개념](concepts-security.md) 및 [자동 프로비전 개념](/azure/iot-dps/concepts-auto-provisioning)을 참조하세요.
 
 ## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>지원되는 증명 메커니즘에 인증을 사용하도록 설정
 
-Azure Portal 등록 하려면 먼저 실제 장치 또는 시뮬레이터에 대해 SDK 인증 모드 (x.509 또는 TPM)를 사용 하도록 설정 해야 합니다. 먼저 azure-iot-sdk-c의 루트 폴더로 이동합니다. 그 후 선택한 인증 모드에 따라 지정된 명령을 실행합니다.
+The SDK authentication mode (X.509 or TPM) must be enabled for the physical device or simulator before they can be enrolled in the Azure portal. 먼저 azure-iot-sdk-c의 루트 폴더로 이동합니다. 그 후 선택한 인증 모드에 따라 지정된 명령을 실행합니다.
 
-### <a name="use-x509-with-simulator"></a>시뮬레이터에서 x.509 사용
+### <a name="use-x509-with-simulator"></a>Use X.509 with simulator
 
-프로 비전 서비스는 장치를 인증 하기 위해 **x.509** 인증서를 생성 하는 장치 생성 (Id 컴퍼지션 엔진) 에뮬레이터와 함께 제공 됩니다. **X.509** 인증을 사용 하도록 설정 하려면 다음 명령을 실행 합니다. 
+The provisioning service ships with a Device Identity Composition Engine (DICE) emulator that generates an **X.509** certificate for authenticating the device. To enable **X.509** authentication, run the following command: 
 
 ```
 cmake -Ddps_auth_type=x509 ..
@@ -47,9 +47,9 @@ cmake -Ddps_auth_type=x509 ..
 
 DICE가 포함된 하드웨어에 대한 자세한 내용은 [여기](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)에 있습니다.
 
-### <a name="use-x509-with-hardware"></a>하드웨어와 함께 x.509 사용
+### <a name="use-x509-with-hardware"></a>Use X.509 with hardware
 
-프로 비전 서비스는 다른 하드웨어에서 **X. x.509** 와 함께 사용할 수 있습니다. 하드웨어와 SDK 간의 인터페이스는 연결을 설정하는 데 필요합니다. 인터페이스에 대한 정보는 HSM 제조업체에 문의하세요.
+The provisioning service can be used with **X.509** on other hardware. 하드웨어와 SDK 간의 인터페이스는 연결을 설정하는 데 필요합니다. 인터페이스에 대한 정보는 HSM 제조업체에 문의하세요.
 
 ### <a name="use-tpm"></a>TPM 사용
 
@@ -148,8 +148,8 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
 2. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
-   - **X.509 개별 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 블레이드에서 요구 하는 대로 리프 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
-   - **X.509 그룹 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 그룹 이름과 인증 이름을 입력 하 고, 블레이드에서 요구 하는 대로 CA/중간 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
+   - **X.509 Individual Enrollment**: On the provisioning service summary blade, select **Manage enrollments**. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. Select **X.509** as the identity attestation *Mechanism*, upload the leaf certificate as required by the blade. 완료되면 **저장** 단추를 클릭합니다. 
+   - **X.509 Group Enrollment**: On the provisioning service  summary blade, select **Manage enrollments**. **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. Select **X.509** as the identity attestation *Mechanism*, enter a group name and certification name, upload the CA/Intermediate certificate as required by the blade. 완료되면 **저장** 단추를 클릭합니다. 
 
 ## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>사용자 지정 증명 메커니즘을 사용하여 디바이스에 대한 인증을 사용하도록 설정(선택 사항)
 
@@ -181,7 +181,7 @@ TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용
 
 ## <a name="connecting-to-iot-hub-after-provisioning"></a>프로비전 후 IoT Hub에 연결
 
-프로 비전 서비스를 사용 하 여 장치를 프로 비전 하면이 API는 지정 된 인증 모드 (**x.509** 또는 TPM)를 사용 하 여 IoT Hub에 연결 합니다. 
+Once the device has been provisioned with the provisioning service, this API uses the specified authentication mode (**X.509** or TPM) to connect with IoT Hub: 
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```

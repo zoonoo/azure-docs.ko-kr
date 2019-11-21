@@ -1,22 +1,22 @@
 ---
 author: mdgattuso
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 04/29/2019
 ms.author: magattus
-ms.openlocfilehash: 0c989aa32c4f4defc9d22a2e510d85d7583ed1c8
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: f5cef027dfa38bfb68f24c990047719e540ff0a1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67182591"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224427"
 ---
 | 리소스 | 기본 제한 |
 | --- | --- |
-| Azure Content Delivery Network 프로필 |25 |
-| 프로필 당 Content Delivery Network 끝점 |25 |
+| Azure Content Delivery Network profiles |25 |
+| Content Delivery Network endpoints per profile |25 |
 | 엔드포인트당 사용자 지정 도메인 |25 |
 
-Content Delivery Network 구독은 하나 이상의 Content Delivery Network 프로필을 포함할 수 있습니다. Content Delivery Network 프로필은 하나 이상의 Content Delivery Network 끝점을 포함할 수 있습니다. 여러 프로필을 사용 하 여 인터넷 도메인, 웹 응용 프로그램 또는 다른 조건으로 Content Delivery Network 끝점을 구성할 수 있습니다. 
+A Content Delivery Network subscription can contain one or more Content Delivery Network profiles. A Content Delivery Network profile can contain one or more Content Delivery Network endpoints. You might want to use multiple profiles to organize your Content Delivery Network endpoints by internet domain, web application, or some other criteria. 
 
 

@@ -1,6 +1,6 @@
 ---
-title: 내 앱 포털-Azure AD에서 액세스 검토를 수행 합니다.
-description: 조직의 앱 및 그룹에 대 한 보안 액세스를 확인 하 고 관리 하는 방법을 알아봅니다.
+title: Manage your organization's access to apps & groups - Azure AD
+description: Learn how to perform an access review to manage security access for your organization's apps and groups from the My Apps portal.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf803027aac7c62ea500d1af104ae3234fadf8b5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 232f4b6fde84b7e1cd706b62e0ba9a0998b4171e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73804038"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231832"
 ---
-# <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행 합니다.
+# <a name="perform-an-access-review-from-the-my-apps-portal"></a>Perform an access review from the My Apps portal
 
 웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
@@ -31,51 +31,51 @@ ms.locfileid: "73804038"
 
 ## <a name="manage-access-reviews"></a>액세스 검토 관리
 
-관리자가 사용자에 게 액세스 검토를 수행할 수 있는 권한을 부여 받은 경우 **내 앱** 포털 페이지의 **액세스 검토** 타일에서 그룹 또는 앱 액세스를 관리할 수 있습니다.
+If your administrator has given you permission to perform your own access reviews, you can manage your groups or apps access from the **Access reviews** tile on the **My Apps** portal page.
 
 >[!Note]
->**액세스 검토** 타일이 표시 되지 않으면 액세스 검토를 수행할 수 있는 권한이 없거나 승인을 기다리는 보류 중인 검토가 없음을 의미 합니다. 타일에 대 한 액세스 권한이 있다고 생각 되 면 지원 센터에 문의 하세요.
+>If you don't see the **Access reviews** tile it either means that you don't have permission to perform access reviews, or that you don't have any pending reviews waiting for your approval. If you think you should have access to the tile, contact your Help desk for assistance.
 
-### <a name="to-perform-your-access-reviews"></a>액세스 검토를 수행 하려면
+### <a name="to-perform-your-access-reviews"></a>To perform your access reviews
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Open your web browser and go to https://myapps.microsoft.com, or use the link provided by your organization. For example, you might be directed to a customized page for your organization, such as https://myapps.microsoft.com/contoso.com.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    The **Apps** page appears, showing all the cloud-based apps owned by your organization and available for you to use.
 
-    ![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
+    ![Apps page in the My Apps portal](media/my-apps-portal/my-apps-portal-apps-page-access-review-tile.png)
 
-3. **액세스 검토** 타일을 선택 하 여 승인을 기다리는 액세스 검토 목록을 표시 합니다.
+3. Select the **Access reviews** tile to see a list of access reviews waiting for your approval.
 
-    ![조직에 대 한 액세스 검토가 보류 중인 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
+    ![Access reviews page with pending access reviews for the organization](media/my-apps-portal/my-apps-portal-access-reviews-page.png)
 
-4. **검토 시작** 을 선택 하 여 액세스 검토를 시작 합니다.
+4. Select **Begin review** to start your access review.
 
-5. 액세스를 검토 하 고 여전히 필요한 지 여부를 확인 합니다.
+5. Review your access and determine whether it's still necessary.
 
-    ![검토 세부 정보를 표시 하는 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
+    ![Access review page, showing the review details](media/my-apps-portal/my-apps-portal-perform-access-reviews-page.png)
 
     >[!Note]
-    >관리자이 고 그룹 및 앱에 대 한 조직의 액세스를 검토할 수 있는 경우 다른 페이지가 표시 됩니다. 조직의 그룹 또는 앱을 검토 하는 방법에 대 한 자세한 내용은 [AZURE AD 액세스 검토에서 그룹 또는 응용 프로그램](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review)에 대 한 액세스 검토를 참조 하세요.
+    >If you're an administrator, and allowed to review your organization's access to groups and apps, you'll see a different page. For more information about reviewing groups or apps for your organization, see [Review access to groups or applications in Azure AD Access Reviews](https://docs.microsoft.com/azure/active-directory/governance/perform-access-review).
 
-6. 액세스를 유지 하려면 **예** 를 선택 하 고, 액세스를 제거 하려면 **아니요** 를 선택 합니다.
+6. Select **Yes** to keep your access or **No** to remove your access.
 
-    **예**를 선택 하는 경우 **이유** 상자에 근거를 지정 해야 할 수 있습니다.
+    If you select **Yes**, you might need to specify a justification in the **Reason** box.
 
-    ![예제 텍스트를 사용 하 여 이유 상자를 표시 하는 액세스 검토 페이지](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
+    ![Access review page, showing the Reason box with sample text](media/my-apps-portal/my-apps-portal-perform-access-reviews-reason-box.png)
 
 7. **제출**을 선택합니다.
 
-    액세스 검토가 완료 되 고 **내 앱** 포털로 돌아갑니다.
+    Your access review is complete and you return to the **My Apps** portal.
 
     >[!Note]
-    >액세스 검토 기간이 종료 될 때까지 언제 든 지 액세스를 변경할 수 있습니다. 앱 또는 그룹에 대 한 액세스 권한을 제거 하는 경우 즉시 제거 되지 않습니다. 제거는 액세스 검토 기간이 끝나거나 관리자가 검토를 닫을 때 발생 합니다.
+    >You can change your access at any time until your access review period ends. If you remove your access to an app or group, it's not removed immediately. The removal happens when the access review period ends or when an administrator closes the review.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [내 앱 포털에서 앱에 액세스 하 고 앱을 사용](my-apps-portal-end-user-access.md)합니다.
+- [Access and use apps on the My Apps portal](my-apps-portal-end-user-access.md).
 
-- [프로필 정보를 변경](my-apps-portal-end-user-update-profile.md)합니다.
+- [Change your profile information](my-apps-portal-end-user-update-profile.md).
 
-- [그룹 관련 정보를 보고 업데이트](my-apps-portal-end-user-groups.md)합니다.
+- [View and update your groups-related information](my-apps-portal-end-user-groups.md).

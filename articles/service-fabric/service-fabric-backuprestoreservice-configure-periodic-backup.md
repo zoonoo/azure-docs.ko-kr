@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/01/2019
 ms.author: hrushib
-ms.openlocfilehash: b1b36ed5197aeb056c70200a49e09cc777d66d0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e0c40c005c27130d422e0dacaae29461b65b7df7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66237349"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232507"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Azure Service Fabric의 정기 백업 구성 이해
 
@@ -27,7 +27,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 
 1. **백업 정책 만들기**: 이 단계에서는 요구 사항에 따라 하나 이상의 백업 정책이 만들어집니다.
 
-2. **백업 활성화**: 이 단계에서는 **1단계**에서 만든 백업 정책을 필요한 엔터티, _애플리케이션_, _서비스_ 또는 _파티션_과 연결합니다.
+2. **백업을 사용하도록 설정**: 이 단계에서는 **1단계**에서 만들 백업 정책을 필요한 엔터티, _애플리케이션_, _서비스_ 또는 _파티션_과 연결합니다.
 
 ## <a name="create-backup-policy"></a>Backup 정책 만들기
 
@@ -54,7 +54,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
         ```
 
     2. **시간 기반 백업 일정**: 하루 또는 일주일의 특정 시간에 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 일정 빈도 유형은 매일이거나 매주일 수 있습니다.
-        1. **_매일_ 시간 기반 백업 일정**: 하루 중 특정 시간에 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 이것을 지정하려면 `ScheduleFrequencyType`을 _매일_로 설정하고 `RunTimes`을 하루 중 원하는 시간 목록(ISO8601 형식)으로 설정합니다. 시간과 함께 지정된 날짜는 무시됩니다. 예를 들어 `0001-01-01T18:00:00`은 매일 _오후 6시_를 나타내며 날짜 부분인 _0001-01-01_은 무시됩니다. 아래 예제는 매일 _오전 9시_와 _오후 6시_에 매일 백업을 트리거하는 구성을 보여줍니다.
+        1. **_매일_ 시간 기반 백업 일정**: 하루의 특정 시간에 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 이것을 지정하려면 `ScheduleFrequencyType`을 _매일_로 설정하고 `RunTimes`을 하루 중 원하는 시간 목록(ISO8601 형식)으로 설정합니다. 시간과 함께 지정된 날짜는 무시됩니다. 예를 들어 `0001-01-01T18:00:00`은 매일 _오후 6시_를 나타내며 날짜 부분인 _0001-01-01_은 무시됩니다. 아래 예제는 매일 _오전 9시_와 _오후 6시_에 매일 백업을 트리거하는 구성을 보여줍니다.
 
             ```json
             {
@@ -67,7 +67,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
             }
             ```
 
-        2. **_매주_ 시간 기반 백업 일정**: 하루 중 특정 시간에 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 이것을 지정하려면 `ScheduleFrequencyType`을 _매주_로 설정하고 `RunDays`는 백업을 트리거해야 하는 일주일 요일 목록으로 설정하고 `RunTimes`는 하루 중 원하는 시간 목록(ISO8601 형식)으로 설정합니다. 시간과 함께 지정된 날짜는 무시됩니다. 정기적인 백업을 트리거할 요일을 나열합니다. 아래 예제는 월요일부터 금요일까지 _오전 9시_와 _오후 6시_에 매일 백업을 트리거하는 구성을 보여줍니다.
+        2. **_매주_ 시간 기반 백업 일정**: 한 주의 특정 시간에 데이터를 백업해야 하는 경우 이 일정 유형을 사용해야 합니다. 이것을 지정하려면 `ScheduleFrequencyType`을 _매주_로 설정하고 `RunDays`는 백업을 트리거해야 하는 일주일 요일 목록으로 설정하고 `RunTimes`는 하루 중 원하는 시간 목록(ISO8601 형식)으로 설정합니다. 시간과 함께 지정된 날짜는 무시됩니다. 정기적인 백업을 트리거할 요일을 나열합니다. 아래 예제는 월요일부터 금요일까지 _오전 9시_와 _오후 6시_에 매일 백업을 트리거하는 구성을 보여줍니다.
 
             ```json
             {
@@ -88,7 +88,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
             ```
 
 * **백업 스토리지**: 백업을 업로드할 위치를 지정합니다. 스토리지는 Azure Blob 스토리지 또는 파일 공유일 수 있습니다.
-    1. **Azure blob 저장소**: 생성된 백업을 Azure에 저장할 필요가 있는 경우 스토리지 유형을 선택해야 합니다. 독립 실행형(_standalone_) 스토리지와 Azure 기반(_Azure-based_) 클러스터 모두 이 스토리지 유형을 사용할 수 있습니다. 이 스토리지 유형에 대한 설명에는 연결 문자열과 백업을 업로드해야 하는 컨테이너 이름이 필요합니다. 지정된 이름의 컨테이너를 사용할 수 없으면 백업 업로드 중에 만들어집니다.
+    1. **Azure Blob 스토리지**: 생성된 백업을 Azure에 저장할 필요가 있는 경우 스토리지 유형을 선택해야 합니다. 독립 실행형(_standalone_) 스토리지와 Azure 기반(_Azure-based_) 클러스터 모두 이 스토리지 유형을 사용할 수 있습니다. 이 스토리지 유형에 대한 설명에는 연결 문자열과 백업을 업로드해야 하는 컨테이너 이름이 필요합니다. 지정된 이름의 컨테이너를 사용할 수 없으면 백업 업로드 중에 만들어집니다.
         ```json
         {
             "StorageKind": "AzureBlobStore",
@@ -98,7 +98,7 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
         }
         ```
 
-    2. **파일 공유**: 데이터 백업을 온-프레미스에 저장해야 하는 경우 _독립 실행형_ 클러스터에 대해 이 스토리지 유형을 선택해야 합니다. 이 스토리지 유형에 대한 설명에는 백업을 업로드해야 하는 파일 공유 경로가 필요합니다. 파일 공유에 대한 액세스는 다음 옵션 중 하나를 사용하여 구성할 수 있습니다.
+    2. **File share**: This storage type should be selected for _standalone_ clusters when the need is to store data backup on-premises. 이 스토리지 유형에 대한 설명에는 백업을 업로드해야 하는 파일 공유 경로가 필요합니다. 파일 공유에 대한 액세스는 다음 옵션 중 하나를 사용하여 구성할 수 있습니다.
         1. Windows 통합 인증의 경우, 파일 공유에 대한 액세스가 Service Fabric 클러스터에 속하는 모든 컴퓨터에 제공됩니다. 이 경우 다음 필드를 설정하여 파일 공유 기반 백업 스토리지를 구성합니다.
 
             ```json
@@ -127,8 +127,8 @@ Reliable Stateful 서비스 또는 Reliable Actors에 대한 주기적인 백업
 > 스토리지 안정성이 백업 데이터의 안정성 요구 사항을 충족하거나 초과하는지 확인해야 합니다.
 >
 
-* **보존 정책**: 구성된 스토리지에 백업을 보존할 정책을 지정합니다. 기본 보존 정책만 지원됩니다.
-    1. **기본 보존 정책**: 이 보존 정책은 더 이상 필요하지 않은 백업 파일을 제거하여 최적의 스토리지 사용률을 보장합니다. `RetentionDuration`은 백업을 스토리지에 보존해야 하는 시간 범위를 설정하도록 지정할 수 있습니다. `MinimumNumberOfBackups`는 `RetentionDuration`와 관계 없이 항상 지정된 수의 백업이 보존되도록 지정할 수 있는 선택적 매개 변수입니다. 아래 예제에서는 _10_일 동안 백업을 보존하는 구성을 보여 주며 백업 수가 _20_ 미만으로 떨어지는 것을 허용하지 않습니다.
+* **Retention Policy**: Specifies the policy to retain backups in the configured storage. 기본 보존 정책만 지원됩니다.
+    1. **Basic Retention Policy**: This retention policy allows to ensure optimal storage utilization by removing backup files which are no more required. `RetentionDuration`은 백업을 스토리지에 보존해야 하는 시간 범위를 설정하도록 지정할 수 있습니다. `MinimumNumberOfBackups`는 `RetentionDuration`와 관계 없이 항상 지정된 수의 백업이 보존되도록 지정할 수 있는 선택적 매개 변수입니다. 아래 예제에서는 _10_일 동안 백업을 보존하는 구성을 보여 주며 백업 수가 _20_ 미만으로 떨어지는 것을 허용하지 않습니다.
 
         ```json
         {
@@ -147,7 +147,7 @@ Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계�
 ### <a name="overriding-backup-policy"></a>백업 정책 재정의
 높은 빈도의 일정으로 데이터를 백업해야 하거나 다른 스토리지 계정 또는 파일 공유에 백업을 보관해야 하는 경우, 특정 서비스를 제외하고 애플리케이션의 모든 서비스에 대해 백업 일정이 동일한 데이터 백업이 필요한 시나리오가 있을 수 있습니다. 백업 복원 서비스는 서비스 및 파티션 범위에서 전파된 정책을 재정의하는 기능을 제공합니다. 백업 정책이 서비스 또는 파티션에 연결되면 전파된 백업 정책이 있는 경우 이 정책을 재정의합니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 이 예제에서는 _MyApp_A_와 _MyApp_B_라는 두 개의 애플리케이션을 사용한 설치를 사용합니다. _MyApp_A_ 애플리케이션은 _SvcA1_ & _SvcA3_라는 두 개의 Reliable Stateful 서비스와 _ActorA2_라는 Reliable Actor 서비스를 포함합니다. _SvcA1_은 세 개의 파티션을 포함하지만 _ActorA2_와 _SvcA3_은 각각 두 개의 파티션을 포함합니다.  _MyApp_B_ 애플리케이션은 _SvcB1_, _SvcB2_, _SvcB3_라는 세 개의 Reliable Stateful 서비스를 포함합니다. _SvcB1_과 _SvcB2_는 각각 두 개의 파티션을 포함하고 _SvcB3_은 세 개의 파티션을 포함합니다.
 
@@ -242,13 +242,13 @@ Service Fabric에서 애플리케이션, 서비스 및 파티션 간의 관계�
 
 다음은 지원되는 변형에 대한 간략한 정보입니다.
 
-- [애플리케이션 백업 목록 가져오기](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): 지정된 Service Fabric 애플리케이션에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Application Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist)(응용 프로그램 백업 목록 가져오기): 지정된 Service Fabric 응용 프로그램에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
 
-- [서비스 백업 목록 가져오기](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): 지정된 Service Fabric 서비스에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Service Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist)(서비스 백업 목록 가져오기): 지정된 Service Fabric 서비스에 속하는 모든 파티션에 사용 가능한 백업 목록을 반환합니다.
  
-- [파티션 백업 목록 가져오기](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): 지정된 파티션에 사용 가능한 백업 목록을 반환합니다.
+- [Get Partition Backup List](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist)(파티션 백업 목록 가져오기): 지정된 파티션에 사용 가능한 백업 목록을 반환합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [백업 복원 REST API 참조](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)
 
-[0]: ./media/service-fabric-backuprestoreservice/BackupPolicyAssociationExample.png
+[0]: ./media/service-fabric-backuprestoreservice/backup-policy-association-example.png

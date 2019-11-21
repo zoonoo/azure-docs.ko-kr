@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432071"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231490"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -65,7 +65,7 @@ configuration TestConfig {
 ```
 
 > [!NOTE]
-> DSC 리소스를 제공 하는 여러 모듈을 가져와야 하는 고급 시나리오에서는 각 모듈이 구성에서 고유한 `Import-DscResource` 줄을 사용 하는지 확인 합니다.
+> In more advanced scenarios where you require multiple modules to be imported that provide DSC Resources, make sure each module has a unique `Import-DscResource` line in your configuration.
 
 `Import-AzureRmAutomationDscConfiguration` cmdlet을 호출하여 구성을 Automation 계정에 업로드합니다.
 
@@ -134,16 +134,16 @@ Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAcc
 기본적으로 DSC 노드에서는 30분마다 노드 구성이 준수되는지 확인합니다.
 준수 확인 간격을 변경하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaConfig)을 참조하세요.
 
-## <a name="working-with-partial-configurations"></a>부분 구성 작업
+## <a name="working-with-partial-configurations"></a>Working with Partial Configurations
 
-Azure Automation 상태 구성은 [부분 구성](/powershell/dsc/pull-server/partialconfigs)의 사용을 지원 합니다.
-이 시나리오에서 DSC는 여러 구성을 독립적으로 관리 하도록 구성 되 고 각 구성은 Azure Automation에서 검색 됩니다.
-그러나 automation 계정 마다 하나의 구성만 노드에 할당할 수 있습니다.
-즉, 노드에 대 한 두 가지 구성을 사용 하는 경우 두 개의 automation 계정이 필요 합니다.
+Azure Automation State Configuration supports usage of [partial configurations](/powershell/scripting/dsc/pull-server/partialconfigs).
+In this scenario, DSC is configured to manage multiple configurations independently, and each configuration is retrieved from Azure Automation.
+However, only one configuration can be assigned to a node per automation account.
+This means if you are using two configurations for a node you will require two automation accounts.
 
-끌어오기 서비스에서 부분 구성을 등록 하는 방법에 대 한 자세한 내용은 [부분 구성](https://docs.microsoft.com/powershell/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode)설명서를 참조 하십시오.
+For details about how to register a partial configuration from pull service, see the documentation for [partial configurations](https://docs.microsoft.com/powershell/scripting/dsc/pull-server/partialconfigs#partial-configurations-in-pull-mode).
 
-팀에서 구성을 사용 하 여 공동으로 서버를 공동 관리 하는 방법에 대 한 자세한 내용은 [CI/CD 파이프라인에서 DSC의 역할 이해](/powershell/dsc/overview/authoringadvanced)를 참조 하세요.
+For more information about how teams can work together to collaboratively manage servers using configuration as code see [Understanding DSC's role in a CI/CD Pipeline](/powershell/scripting/dsc/overview/authoringadvanced).
 
 ## <a name="check-the-compliance-status-of-a-managed-node"></a>관리되는 노드에 대한 준수 상태 확인
 
@@ -160,26 +160,26 @@ $reports = Get-AzureRmAutomationDscNodeReport -ResourceGroupName 'MyResourceGrou
 $reports[0]
 ```
 
-## <a name="removing-nodes-from-service"></a>서비스에서 노드 제거
+## <a name="removing-nodes-from-service"></a>Removing nodes from service
 
-Azure Automation 상태 구성에 노드를 추가 하는 경우 로컬 Configuration Manager의 설정은 서비스에 등록 하 고, 끌어오기 구성 및 필요한 모듈을 구성 하 여 컴퓨터를 구성 합니다.
-서비스에서 노드를 제거 하도록 선택 하는 경우 Azure Portal 또는 Az cmdlet 중 하나를 사용 하 여이 작업을 수행할 수 있습니다.
+When you add a node to Azure Automation State Configuration, the settings in Local Configuration Manager are set to register with the service and pull configurations and required modules to configure the machine.
+If you choose to remove the node from the service, you can do so using either the Azure portal or the Az cmdlets.
 
 > [!NOTE]
-> 서비스에서 노드의 등록을 취소 하면 노드가 서비스에 더 이상 연결 되지 않도록 로컬 Configuration Manager 설정만 설정 합니다.
-> 현재 노드에 적용 되는 구성에는 영향을 주지 않습니다.
-> 현재 구성을 제거 하려면 [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 을 사용 하거나 로컬 구성 파일을 삭제 합니다 (Linux 노드의 유일한 옵션).
+> Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service.
+> This does not effect the configuration that is currently applied to the node.
+> To remove the current configuration, use the [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) or delete the local configuration file (this is the only option for Linux nodes).
 
 ### <a name="azure-portal"></a>Azure Portal
 
-Azure Automation에서 목차의 **상태 구성 (DSC)** 을 클릭 합니다.
-그런 다음 **노드** 를 클릭 하 여 서비스에 등록 된 노드 목록을 표시 합니다.
-제거 하려는 노드의 이름을 클릭 합니다.
-열리는 노드 보기에서 **등록 취소**를 클릭 합니다.
+From Azure Automation, click on **State configuration (DSC)** in the table of contents.
+Next click **Nodes** to view the list of nodes that are registered with the service.
+Click on the name of the node you wish to remove.
+In the Node view that opens, click **Unregister**.
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 Azure Automation 상태 구성 서비스에서 노드를 등록 취소 하려면 cmdlet [AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0)에 대 한 설명서를 따르세요.
+To unregister a node from Azure Automation State Configuration service using PowerShell, follow the documentation for the cmdlet [Unregister-AzAutomationDscNode](https://docs.microsoft.com/powershell/module/az.automation/unregister-azautomationdscnode?view=azps-2.0.0).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,71 +1,71 @@
 ---
-title: '조인 데이터: 모듈 참조'
+title: 'Join Data: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 조인 데이터 조인 모듈을 사용 하 여 데이터 집합을 병합 하는 방법에 대해 알아봅니다.
+description: Learn how to use the join Join Data module in Azure Machine Learning to merge datasets.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
-ms.date: 06/01/2019
-ms.openlocfilehash: 587490284b2886764c137a01e0eb4b3c9c755d41
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: b07bde671be73af2a351353d9794907972a022e7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495086"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232616"
 ---
 # <a name="join-data"></a>데이터 조인
 
-이 문서에서는 데이터베이스 스타일 조인 작업을 사용 하 여 두 데이터 집합을 병합 하는 Azure Machine Learning 디자이너 (미리 보기)의 **데이터 조인** 모듈을 사용 하는 방법을 설명 합니다.  
+This article describes how to use the **Join Data** module in Azure Machine Learning designer (preview) to merge two datasets using a database-style join operation.  
 
-## <a name="how-to-configure-join-data"></a>조인 데이터를 구성 하는 방법
+## <a name="how-to-configure-join-data"></a>How to configure Join Data
 
-두 데이터 집합에 대 한 조인을 수행 하려면 키 열과 연결 되어야 합니다. 여러 열을 사용 하는 복합 키도 지원 됩니다. 
+To perform a join on two datasets, they should be related by a key column. Composite keys using multiple columns are also supported. 
 
-1. 결합할 데이터 집합을 추가한 다음 **조인 데이터** 모듈을 파이프라인으로 끌어 옵니다. 
+1. Add the datasets you want to combine, and then drag the **Join Data** module into your pipeline. 
 
-    **데이터 변환** 범주의 **조작**에서 모듈을 찾을 수 있습니다.
+    You can find the module in the **Data Transformation** category, under **Manipulation**.
 
-1. 데이터 집합을 **조인 데이터** 모듈에 연결 합니다. 
+1. Connect the datasets to the **Join Data** module. 
  
-1. **열 선택기 시작** 을 선택 하 여 키 열을 선택 합니다. 왼쪽 및 오른쪽 입력 모두에 대해 열을 선택 해야 합니다.
+1. Select **Launch column selector** to choose key column(s). Remember to choose columns for both the left and right inputs.
 
-    단일 키의 경우:
+    For a single key:
 
-    두 입력에 대해 단일 키 열을 선택 합니다.
+    Select a single key column for both inputs.
     
-    복합 키의 경우:
+    For a composite key:
 
-    왼쪽 입력과 오른쪽 입력에서 동일한 순서로 모든 키 열을 선택 합니다. **데이터 조인** 모듈은 모든 키 열이 일치 하는 경우 테이블에 조인 합니다. 열 순서가 원래 테이블과 동일 하지 않은 경우 **선택 영역에서 중복 항목 허용 및 열 순서 유지** 옵션을 선택 합니다. 
+    Select all the key columns from left input and right input in the same order. The **Join Data** module will join the tables when all key columns match. Check the option **Allow duplicates and preserve column order in selection** if the column order isn't the same as the original table. 
 
     ![열 선택기](media/module/join-data-column-selector.png)
 
 
-1. 텍스트 열 조인에 대/소문자 구분을 유지 하려면 **대/소문자** 구분 옵션을 선택 합니다. 
+1. Select the **Match case** option if you want to preserve case sensitivity on a text column join. 
    
-1. **조인 유형** 드롭다운 목록을 사용 하 여 데이터 집합을 결합 하는 방법을 지정 합니다.  
+1. Use the **Join type** dropdown list to specify how the datasets should be combined.  
   
-    * **Inner join**: *내부* 조인은 가장 일반적인 조인 작업입니다. 키 열의 값이 일치 하는 경우에만 결합 된 행을 반환 합니다.  
+    * **Inner Join**: An *inner join* is the most common join operation. It returns the combined rows only when the values of the key columns match.  
   
-    * **Left Outer join**: 왼쪽 *우선 외부 조인은* 왼쪽 테이블의 모든 행에 대해 조인 된 행을 반환 합니다. 왼쪽 테이블의 행이 오른쪽 테이블에 일치 하는 행이 없으면 반환 된 행에는 오른쪽 테이블에서 제공 되는 모든 열에 대 한 누락 값이 포함 됩니다. 누락 값에 대 한 대체 값을 지정할 수도 있습니다.  
+    * **Left Outer Join**: A *left outer join* returns joined rows for all rows from the left table. When a row in the left table has no matching rows in the right table, the returned row contains missing values for all columns that come from the right table. You can also specify a replacement value for missing values.  
   
-    * **Full Outer join**: *완전 외부* 조인은 왼쪽 테이블 (**table1**) 및 오른쪽 테이블 (**table2**)의 모든 행을 반환 합니다.  
+    * **Full Outer Join**: A *full outer join* returns all rows from the left table (**table1**) and from the right table (**table2**).  
   
-         서로 일치 하는 행이 없는 테이블의 각 행에 대해 결과에는 누락 된 값을 포함 하는 행이 포함 됩니다.  
+         For each of the rows in either table that have no matching rows in the other, the result includes a row containing missing values.  
   
-    * **왼쪽 반 조인**: *왼쪽 세미 조인은* 키 열의 값이 일치 하는 경우 왼쪽 테이블의 값만 반환 합니다.  
+    * **Left Semi-Join**: A *left semi-join* returns only the values from the left table when the values of the key columns match.  
 
-1. **조인 된 테이블에서 오른쪽 키 열 유지**옵션에 대해 다음을 수행 합니다.
+1. For the option **Keep right key columns in joined table**:
 
-    * 두 입력 테이블에서 키를 보려면이 옵션을 선택 합니다.
-    * 왼쪽 입력에서 키 열만 반환 하려면 선택 취소 합니다.
+    * Select this option to view the keys from both input tables.
+    * Deselect to only return the key columns from the left input.
 
-1. 파이프라인을 실행 하거나 데이터 조인 모듈을 선택 하 고 선택 된 **실행** 을 선택 하 여 조인을 수행 합니다.
+1. Run the pipeline, or select the Join Data module and selected **Run Selected** to perform the join.
 
-1. 결과를 보려면 **데이터 조인** > **결과 데이터 집합** 을 마우스 오른쪽 단추로 클릭 > **시각화**를 클릭 합니다.
+1. To view the results, right-click the **Join Data** > **Results dataset** > **Visualize**.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

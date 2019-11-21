@@ -1,129 +1,128 @@
 ---
-title: '모델 평가: 모듈 참조'
+title: 'Evaluate Model: Module Reference'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning에서 모델 평가 모듈을 사용 하 여 학습 된 모델의 정확도를 측정 하는 방법에 대해 알아봅니다.
+description: Learn how to use the Evaluate Model module in Azure Machine Learning to measure the accuracy of a trained model.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 05/06/2019
-ms.openlocfilehash: ddc6a35d5959a2d1f85c151a6f229223db9ba566
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/19/2019
+ms.openlocfilehash: 192aae4da4d9b07804f473ec6e98615f46e2ee86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497912"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74214578"
 ---
-# <a name="evaluate-model-module"></a>모델 평가 모듈
+# <a name="evaluate-model-module"></a>Evaluate Model module
 
-이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
+This article describes a module in Azure Machine Learning designer (preview).
 
-이 모듈을 사용 하 여 학습 된 모델의 정확도를 측정 합니다. 모델에서 생성 된 점수가 포함 된 데이터 집합을 제공 하 고 **모델 평가** 모듈은 산업 표준 평가 메트릭 집합을 계산 합니다.
+Use this module to measure the accuracy of a trained model. You provide a dataset containing scores generated from a model, and the **Evaluate Model** module computes a set of industry-standard evaluation metrics.
   
- **평가 모델** 에서 반환 되는 메트릭은 평가 하는 모델 유형에 따라 달라 집니다.  
+ The metrics returned by **Evaluate Model** depend on the type of model that you are evaluating:  
   
--   **분류 모델**    
--   **회귀 모델**    
-
+-   **Classification Models**    
+-   **Regression Models**    
 
 
 > [!TIP]
-> 모델 평가를 처음 접하는 경우 EdX에서 [기계 학습 과정](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) 의 일부로 Stephen Elston에 의해 비디오 시리즈를 권장 합니다. 
+> If you are new to model evaluation, we recommend the video series by Dr. Stephen Elston, as part of the [machine learning course](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) from EdX. 
 
 
-**모델 평가** 모듈을 사용 하는 방법에는 세 가지가 있습니다.
+There are three ways to use the **Evaluate Model** module:
 
-+ 학습 데이터에 대 한 점수를 생성 하 고 이러한 점수에 따라 모델을 평가 합니다.
-+ 모델에 점수를 생성 하지만 이러한 점수를 예약 된 테스트 집합의 점수와 비교 합니다.
-+ 동일한 데이터 집합을 사용 하 여 서로 다른 두 개의 관련 모델에 대 한 점수를 비교 합니다.
++ Generate scores over your training data, and evaluate the model based on these scores
++ Generate scores on the model, but compare those scores to scores on a reserved testing set
++ Compare scores for two different but related models, using the same set of data
 
-## <a name="use-the-training-data"></a>학습 데이터 사용
+## <a name="use-the-training-data"></a>Use the training data
 
-모델을 평가 하려면 입력 열 및 점수 집합을 포함 하는 데이터 집합을 연결 해야 합니다.  다른 데이터를 사용할 수 없는 경우 원래 데이터 집합을 사용할 수 있습니다.
+To evaluate a model, you must connect a dataset that contains a set of input columns and scores.  If no other data is available, you can use your original dataset.
 
-1. [점수 매기기 모델](./score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 입력에 연결 합니다. 
-2. **모델 평가** 모듈을 클릭 하 고 파이프라인을 실행 하 여 평가 점수를 생성 합니다.
+1. Connect the **Scored dataset** output of the [Score Model](./score-model.md) to the input of **Evaluate Model**. 
+2. Click **Evaluate Model** module, and run the pipeline to generate the evaluation scores.
 
-## <a name="use-testing-data"></a>테스트 데이터 사용
+## <a name="use-testing-data"></a>Use testing data
 
-기계 학습에서 일반적인 시나리오는 [분할](./split-data.md) 모듈 또는 [파티션 및 샘플](./partition-and-sample.md) 모듈을 사용 하 여 원래 데이터 집합을 학습 및 테스트 데이터 집합으로 분리 하는 것입니다. 
+A common scenario in machine learning is to separate your original data set into training and testing datasets, using the [Split](./split-data.md) module, or the [Partition and Sample](./partition-and-sample.md) module. 
 
-1. [점수 매기기 모델](score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 입력에 연결 합니다. 
-2. 테스트 데이터를 포함 하는 분할 데이터 모듈의 출력을 **모델 평가**의 오른쪽 입력에 연결 합니다.
-2. **모델 평가** 모듈을 클릭 하 고 **선택 된 실행** 을 선택 하 여 평가 점수를 생성 합니다.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Split Data module that contains the testing data to the right-hand input of **Evaluate Model**.
+2. Click **Evaluate Model** module, and select **Run selected** to generate the evaluation scores.
 
-## <a name="compare-scores-from-two-models"></a>두 모델의 점수 비교
+## <a name="compare-scores-from-two-models"></a>Compare scores from two models
 
-두 번째 점수 집합을 연결 하 여 모델을 **평가할**수도 있습니다.  점수는 동일한 데이터에 대 한 다른 모델의 결과 집합 또는 알려진 결과가 있는 공유 평가 집합 일 수 있습니다.
+You can also connect a second set of scores to **Evaluate Model**.  The scores might be a shared evaluation set that has known results, or a set of results from a different model for the same data.
 
-이 기능은 동일한 데이터에서 서로 다른 두 모델의 결과를 쉽게 비교할 수 있기 때문에 유용 합니다. 또는 서로 다른 매개 변수를 사용 하 여 동일한 데이터에 대해 두 개의 다른 실행에서 점수를 비교할 수 있습니다.
+This feature is useful because you can easily compare results from two different models on the same data. Or, you might compare scores from two different runs over the same data with different parameters.
 
-1. [점수 매기기 모델](score-model.md) 의 **점수가 매겨진 데이터 집합** 출력을 **모델 평가**의 입력에 연결 합니다. 
-2. 모델 점수 매기기 모듈의 출력을 **모델 평가**의 오른쪽 입력에 연결 합니다.
-3. **모델 평가**를 마우스 오른쪽 단추로 클릭 하 고 **선택 된 실행** 을 선택 하 여 평가 점수를 생성 합니다.
+1. Connect the **Scored dataset** output of the [Score Model](score-model.md) to the input of **Evaluate Model**. 
+2. Connect the output of the Score Model module for the second model to the right-hand input of **Evaluate Model**.
+3. Right-click **Evaluate Model**, and select **Run selected** to generate the evaluation scores.
 
 ## <a name="results"></a>결과
 
-**모델 평가**를 실행 한 후 모듈을 마우스 오른쪽 단추로 클릭 하 고 **평가 결과** 를 선택 하 여 결과를 확인 합니다. 다음과 같은 기능이 가능합니다.
+After you run **Evaluate Model**, right-click the module and select **Evaluation results** to see the results. 다음과 같은 기능이 가능합니다.
 
-+ 다른 도구를 사용 하 여 쉽게 분석할 수 있도록 결과를 데이터 집합으로 저장
-+ 디자이너에서 시각화를 생성 합니다.
++ Save the results as a dataset, for easier analysis with other tools
++ Generate a visualization in the designer
 
-**모델 평가**의 두 입력에 데이터 집합을 연결 하는 경우 결과에는 두 데이터 집합 또는 두 모델 모두에 대 한 메트릭이 포함 됩니다.
-왼쪽 포트에 연결 된 모델이 나 데이터가 먼저 보고서에 표시 된 다음 데이터 집합에 대 한 메트릭 또는 올바른 포트에 연결 된 모델이 표시 됩니다.  
+If you connect datasets to both inputs of **Evaluate Model**, the results will contain metrics for both set of data, or both models.
+The model or data attached to the left port is presented first in the report, followed by the metrics for the dataset, or model attached on the right port.  
 
-예를 들어 다음 이미지는 동일한 데이터를 기반으로 하지만 다른 매개 변수를 사용 하는 두 클러스터링 모델의 결과 비교를 나타냅니다.  
+For example, the following image represents a comparison of results from two clustering models that were built on the same data, but with different parameters.  
 
 ![AML&#95;Comparing2Models](media/module/aml-comparing2models.png "AML_Comparing2Models")  
 
-이는 클러스터링 모델 이므로 평가 결과는 두 회귀 모델의 점수를 비교 하거나 두 개의 분류 모델을 비교 하는 경우와 다릅니다. 그러나 전체 프레젠테이션은 동일 합니다. 
+Because this is a clustering model, the evaluation results are different than if you compared scores from two regression models, or compared two classification models. However, the overall presentation is the same. 
 
 ## <a name="metrics"></a>메트릭
 
-이 섹션에서는 **모델 평가**에서 사용 하도록 지원 되는 특정 유형의 모델에 대해 반환 되는 메트릭에 대해 설명 합니다.
+This section describes the metrics returned for the specific types of models supported for use with **Evaluate Model**:
 
-+ [분류 모델](#bkmk_classification)
-+ [회귀 모델](#bkmk_regression)
++ [classification models](#bkmk_classification)
++ [regression models](#bkmk_regression)
 
-###  <a name="bkmk_classification"></a>분류 모델에 대 한 메트릭
+###  <a name="bkmk_classification"></a> Metrics for classification models
 
-분류 모델을 평가할 때 다음과 같은 메트릭이 보고 됩니다. 모델을 비교 하는 경우 평가를 위해 선택한 메트릭으로 순위가 매겨집니다.  
+The following metrics are reported when evaluating classification models. If you compare models, they are ranked by the metric you select for evaluation.  
   
--   **정확도** 는 전체 사례에 대 한 실제 결과의 비율로 분류 모델의 적합도를 측정 합니다.  
+-   **Accuracy** measures the goodness of a classification model as the proportion of true results to total cases.  
   
--   **전체 자릿수** 는 모든 긍정 결과에 대 한 실제 결과의 비율입니다.  
+-   **Precision** is the proportion of true results over all positive results.  
   
--   **회수** 는 모델에서 반환 하는 모든 올바른 결과의 비율입니다.  
+-   **Recall** is the fraction of all correct results returned by the model.  
   
--   **F-점수** 는 전체 자릿수의 가중치가 적용 된 평균으로 계산 되며, 0과 1 사이의 값이 가장 좋습니다. 여기서 이상적인 F 점수 값은 1입니다.  
+-   **F-score** is computed as the weighted average of precision and recall between 0 and 1, where the ideal F-score value is 1.  
   
--   **Cc** 는 y 축에서 진정한 긍정을 사용 하 여 그린 곡선 아래의 면적을 측정 하 고 x 축에는 가양성을 측정 합니다. 이 메트릭은 여러 유형의 모델을 비교할 수 있는 단일 숫자를 제공 하기 때문에 유용 합니다.  
+-   **AUC** measures the area under the curve plotted with true positives on the y axis and false positives on the x axis. This metric is useful because it provides a single number that lets you compare models of different types.  
   
-- **평균 로그 손실은** 잘못 된 결과에 대 한 패널티를 표현 하는 데 사용 되는 단일 점수입니다. 두 확률 분포 (true)와 모델에 있는 분포의 차이로 계산 됩니다.  
+- **Average log loss** is a single score used to express the penalty for wrong results. It is calculated as the difference between two probability distributions – the true one, and the one in the model.  
   
-- **학습 로그 손실은** 임의 예측을 통해 분류자의 장점을 나타내는 단일 점수입니다. 로그 손실은 출력의 확률을 레이블의 알려진 값 (그라운드 참)과 비교 하 여 모델의 불확실성을 측정 합니다. 전체적으로 모델에 대 한 로그 손실을 최소화 하려고 합니다.
+- **Training log loss** is a single score that represents the advantage of the classifier over a random prediction. The log loss measures the uncertainty of your model by comparing the probabilities it outputs to the known values (ground truth) in the labels. You want to minimize log loss for the model as a whole.
 
-##  <a name="bkmk_regression"></a>회귀 모델에 대 한 메트릭
+##  <a name="bkmk_regression"></a> Metrics for regression models
  
-회귀 모델에 대해 반환 되는 메트릭은 일반적으로 오류 양을 예측 하도록 설계 되었습니다.  관찰 된 값과 예측 값의 차이가 적으면 모델은 데이터 웰에 맞게 고려 됩니다. 그러나 잔차의 패턴을 살펴보면 (한 예측 지점과 해당 하는 실제 값 간의 차이) 모델의 잠재적 바이어스에 대해 많은 정보를 확인할 수 있습니다.  
+The metrics returned for regression models are designed to estimate the amount of error.  A model is considered to fit the data well if the difference between observed and predicted values is small. However, looking at the pattern of the residuals (the difference between any one predicted point and its corresponding actual value) can tell you a lot about potential bias in the model.  
   
- 회귀 모델 평가에 대해 다음과 같은 메트릭이 보고 됩니다. 모델을 비교할 때 평가를 위해 선택한 메트릭으로 순위가 매겨집니다.  
+ The following metrics are reported for evaluating regression models. When you compare models, they are ranked by the metric you select for evaluation.  
   
-- **MAE (절대 평균 오차)** 는 실제 결과에 대 한 예측의 종료 방법을 측정 합니다. 따라서 점수가 낮을수록 좋습니다.  
+- **Mean absolute error (MAE)** measures how close the predictions are to the actual outcomes; thus, a lower score is better.  
   
-- **RMSE (제곱 평균 제곱 오차)** 는 모델에서 오류를 요약 하는 단일 값을 만듭니다. 메트릭은 차이를 제곱 하 여 오버 예측과 예측에서의 차이를 무시 합니다.  
+- **Root mean squared error (RMSE)** creates a single value that summarizes the error in the model. By squaring the difference, the metric disregards the difference between over-prediction and under-prediction.  
   
-- **상대 절대 오차 (RAE)** 는 예상 값과 실제 값의 상대적 절대 차이입니다. 평균 차이는 산술 평균으로 나뉩니다.  
+- **Relative absolute error (RAE)** is the relative absolute difference between expected and actual values; relative because the mean difference is divided by the arithmetic mean.  
   
-- **RSE (상대 제곱 오차** ) 마찬가지로 실제 값의 총 제곱 오차로 나누어 예측 값의 총 제곱 오차를 표준화 합니다.  
+- **Relative squared error (RSE)** similarly normalizes the total squared error of the predicted values by dividing by the total squared error of the actual values.  
   
-- **평균 0 개의 오류 (MZOE)** 는 예측이 올바른지 여부를 나타냅니다.  즉, `x!=y`때 `ZeroOneLoss(x,y) = 1` 합니다. 그렇지 않으면 `0`합니다.
+- **Mean Zero One Error (MZOE)** indicates whether the prediction was correct or not.  In other words: `ZeroOneLoss(x,y) = 1` when `x!=y`; otherwise `0`.
   
-- 일반적으로 R<sup>2</sup>라고도 하는 **결정 계수**는 모델의 예측 능력을 0에서 1 사이의 값으로 나타냅니다. 0은 모델이 무작위로 사용 됨을 의미 합니다 (아무 것도 설명 하지 않음). 1은 완벽 한 일치를 의미 합니다. 그러나 낮은 값은 완전히 정상이 고 높은 값은 주의 대상이 될 수 있으므로 R<sup>2</sup> 값을 해석 하는 데 주의를 기울여야 합니다.
+- **Coefficient of determination**, often referred to as R<sup>2</sup>, represents the predictive power of the model as a value between 0 and 1. Zero means the model is random (explains nothing); 1 means there is a perfect fit. However, caution should be used in interpreting  R<sup>2</sup> values, as low values can be entirely normal and high values can be suspect.
   
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 
+See the [set of modules available](module-reference.md) to Azure Machine Learning. 

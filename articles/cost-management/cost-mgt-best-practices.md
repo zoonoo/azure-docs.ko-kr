@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 7c562e6f0a1358d16b9abef08a5e582e4ff84472
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8662de2195696c94f27e31289d5b5f7ea97b507d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002035"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74219124"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -48,7 +48,7 @@ Azure Cost Management에는 지출을 계획, 분석 및 절약하여 클라우�
 
 이러한 질문에 대한 답변은 가장 적합한 제품을 선택하는 데 도움이 됩니다. 답변에 따라 사용할 인프라와 Azure 효율성을 극대화하는 방법이 결정됩니다.
 
-#### <a name="visibility"></a>표시 여부
+#### <a name="visibility"></a>표시 유형
 
 구조가 잘 갖추어져 있는 경우, Cost Management를 사용하면 Azure 비용이나 기타 지출 비용에 대한 정보를 알리는 데 도움이 됩니다. Azure에는 비용이 *어디에* 지출되는 지에 대한 인사이트를 제공하도록 설계된 서비스가 있습니다. 이러한 도구를 활용해보십시오. 이러한 도구를 사용하면 사용이 저조한 리소스를 찾아서 낭비를 없애고 비용을 절약할 수 있는 기회를 최대화하는 데 도움이 됩니다.
 
@@ -87,7 +87,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 #### <a name="freehttpsazuremicrosoftcomfree"></a>[Free](https://azure.microsoft.com/free/)
 
-- 12개월 동안 평가판 서비스
+- 12개월 평가판 서비스
 - $200 크레딧으로 30일 간 서비스 체험하기
 - 25개 이상의 서비스 항상 무료
 
@@ -95,7 +95,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 - 최소 요금이나 약정 없음
 - 경쟁력 있는 가격
-- 사용한 만큼만 요금 지불
+- 사용한 양에 따른 요금 지불
 - 언제든지 취소 가능
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -107,7 +107,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 인프라를 배포하기 전에, 솔루션 비용을 평가합니다. 평가를 수행하면 워크로드에 대한 조직의 예산을 미리 작성하는 데 도움이 됩니다. 그런 다음, 시간 경과에 따른 예산을 사용하여 초기 예측의 유효성을 벤치마킹할 수 있습니다. 또한 배포한 솔루션의 실제 비용과 비교할 수도 있습니다.
 
-### <a name="azure-pricing-calculator"></a>Azure 요금 계산기
+### <a name="azure-pricing-calculator"></a>Azure 가격 계산기
 
 Azure 가격 계산기를 사용하면 Azure 서비스의 다양한 조합을 시도하여 비용 견적을 확인할 수 있습니다. Azure에서 다양한 방법을 사용하여 솔루션을 구현할 수 있으며, 각 솔루션은 전체 지출에 영향을 미칠 수 있습니다. 클라우드 배포에 필요한 모든 인프라 요구 사항을 미리 고려하면 도구를 가장 효과적으로 사용하는 데 도움이 됩니다. Azure에 대한 예상 지출 견적을 구할 수 있습니다.
 

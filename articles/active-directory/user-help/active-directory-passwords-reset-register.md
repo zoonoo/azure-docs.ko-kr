@@ -1,6 +1,6 @@
 ---
-title: 등록 하 여 고유한 암호 재설정-Azure AD
-description: 관리자 도움 없이 자신의 암호를 재설정할 수 있도록 Azure AD 셀프 서비스 암호 재설정에 대 한 인증 데이터를 등록 합니다.
+title: Register authentication info to reset your own password - Azure AD
+description: Register your authentication method information for Azure AD self-service password reset, so you can reset your own password without administrator help.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.date: 01/11/2018
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 796702b2189dcfb001f72913e4a01c0ae01462ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
-ms.translationtype: MT
+ms.openlocfilehash: 01cae72ac4752d5d1f6135312d578eb1a277ccd9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820444"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231907"
 ---
-# <a name="register-to-reset-your-own-password"></a>등록 하 여 자신의 암호를 재설정 합니다.
+# <a name="register-your-authentication-method-info-to-reset-your-own-password"></a>Register your authentication method info to reset your own password
 
 > [!IMPORTANT]
 > 로그인할 수 없어서 여기에 있나요? 그렇다면 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조하세요.
@@ -50,7 +50,7 @@ ms.locfileid: "73820444"
 
  다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-| 오류 사례| 어떤 오류가 표시되나요?| 해결 방법 |
+| 오류 사례| 어떤 오류가 표시되나요?| 솔루션 |
 | --- | --- | --- |
 | 내 사용자 ID를 입력한 후에 "관리자에게 문의하세요" 페이지가 보입니다. | 관리자에게 문의하세요. <br> <br> Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다. <br> <br> IT 직원에게 추가 지원을 요청하세요. | IT 직원이 온-프레미스 환경에서 암호를 관리하고 **계정 링크에 액세스할 수 없음**에서 암호를 재설정할 수 없기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 다시 설정하려면 도움말에 대해 IT 직원에게 직접 문의합니다. 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려주세요.|
 | 내 사용자 ID를 입력한 후에 "계정은 암호 재설정에 사용할 수 없습니다." 오류가 발생합니다. | 암호 재설정을 위해 계정을 사용할 수 없습니다. <br> <br> 죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다. <br> <br> 원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | IT 직원이 **계정에 액세스할 수 없음** 링크에서 조직에 대해 암호 재설정을 사용하도록 설정하지 않았거나 기능을 사용하도록 허가하지 않았기 때문에 이 메시지가 표시됩니다. <br> <br> 암호를 재설정하려면 **관리자에게 문의하세요.** 링크를 선택합니다. 회사의 IT 직원에게 전자 메일이 전송됩니다. 이 전자 메일은 이 기능을 활성화할 수 있도록 암호를 재설정하길 원한다는 것을 해당 IT 직원에게 알려줍니다. |

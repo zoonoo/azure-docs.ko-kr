@@ -1,6 +1,6 @@
 ---
-title: 'Azure AD Connect: msExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies | Microsoft Docs'
-description: 이 항목에서는 msExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies 특성의 특성 동작에 대해 설명 합니다.
+title: 'Azure AD Connect: msExchUserHoldPolicies and cloudMsExchUserHoldPolicies | Microsoft Docs'
+description: This topic describes attribute behavior of the msExchUserHoldPolicies and cloudMsExchUserHoldPolicies attributes
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -14,61 +14,61 @@ ms.date: 08/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d371ba2a09dda933bf14208a00535b757afea85
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: f4c637a01825616334cda8faa594efd08f29de8d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014335"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213084"
 ---
-# <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect-msExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies
-다음 참조 문서에서는 Exchange에서 사용 되는 이러한 특성과 기본 동기화 규칙을 편집 하는 적절 한 방법을 설명 합니다.
+# <a name="azure-ad-connect---msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>Azure AD Connect - msExchUserHoldPolicies and cloudMsExchUserHoldPolicies
+The following reference document describes these attributes used by Exchange and the proper way to edit the default sync rules.
 
-## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>MsExchUserHoldPolicies 및 cloudMsExchUserHoldPolicies 이란?
-Exchange 서버에 사용할 수 있는 두 가지 유형의 [보류가](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) 있습니다. 소송 보유 및 내부 보유. 소송 보류를 사용 하는 경우 모든 사서함 모든 항목이 보류 중으로 배치 됩니다.  내부 보류는 내부 eDiscovery 도구를 사용 하 여 정의한 검색 쿼리 조건을 충족 하는 항목만 보존 하는 데 사용 됩니다.
+## <a name="what-are-msexchuserholdpolicies-and-cloudmsexchuserholdpolicies"></a>What are msExchUserHoldPolicies and cloudMsExchUserHoldPolicies?
+There are two types of [holds](https://docs.microsoft.com/Exchange/policy-and-compliance/holds/holds?view=exchserver-2019) available for an Exchange Server: Litigation Hold and In-Place Hold. When Litigation Hold is enabled, all mailbox all items are placed on hold.  An In-Place Hold is used to preserve only those items that meet the criteria of a search query that you defined by using the In-Place eDiscovery tool.
 
-MsExchUserHoldPolcies 및 cloudMsExchUserHoldPolicies 특성을 사용 하면 온-프레미스 AD 및 Azure AD에서 온-프레미스 Exchange를 사용 하는지 아니면 Exchange 온라인에서 사용 되는지에 따라 보유 중인 사용자를 확인할 수 있습니다.
+The MsExchUserHoldPolcies and cloudMsExchUserHoldPolicies attributes allow on-premises AD and Azure AD to determine which users are under a hold depending on whether they are using on-premises Exchange or Exchange on-line.
 
-## <a name="msexchuserholdpolicies-synchronization-flow"></a>msExchUserHoldPolicies 동기화 흐름
-기본적으로 MsExchUserHoldPolcies는 메타 버스의 msExchUserHoldPolicies 특성에 직접 Azure AD Connect 하 여 Azure AD의 msExchUserHoldPolices 특성으로 동기화 됩니다.
+## <a name="msexchuserholdpolicies-synchronization-flow"></a>msExchUserHoldPolicies synchronization flow
+By default MsExchUserHoldPolcies is synchronized by Azure AD Connect directly to the msExchUserHoldPolicies attribute in the metaverse and then to the msExchUserHoldPolices attribute in Azure AD
 
-다음 표에서는 흐름에 대해 설명 합니다.
+The following tables describe the flow:
 
-온-프레미스 Active Directory에서 인바운드:
+Inbound from on-premises Active Directory:
 
-|Active Directory 특성|특성 이름|흐름 형식|메타 버스 특성|동기화 규칙|
+|Active Directory attribute|특성 이름|흐름 형식|Metaverse attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
-|온-프레미스 Active Directory|msExchUserHoldPolicies|직접|msExchUserHoldPolices|In from AD-User Exchange|
+|온-프레미스 Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolices|In from AD - User Exchange|
 
-Azure AD로 아웃 바운드:
+Outbound to Azure AD:
 
-|메타 버스 특성|특성 이름|흐름 형식|Azure AD 특성|동기화 규칙|
+|Metaverse attribute|특성 이름|흐름 형식|Azure AD attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
-|Azure Active Directory|msExchUserHoldPolicies|직접|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
+|Azure Active Directory|msExchUserHoldPolicies|Direct|msExchUserHoldPolicies|Out to AAD – UserExchangeOnline|
 
-## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>cloudMsExchUserHoldPolicies 동기화 흐름
-기본적으로 cloudMsExchUserHoldPolicies는 메타 버스의 cloudMsExchUserHoldPolicies 특성에 직접 Azure AD Connect에 의해 동기화 됩니다. 그런 다음 msExchUserHoldPolices가 메타 버스에서 null이 아닌 경우의 특성이 Active Directory로 이동 합니다.
+## <a name="cloudmsexchuserholdpolicies-synchronization-flow"></a>cloudMsExchUserHoldPolicies synchronization flow
+By default cloudMsExchUserHoldPolicies is synchronized by Azure AD Connect directly to the cloudMsExchUserHoldPolicies attribute in the metaverse. Then, if msExchUserHoldPolices is not null in the metaverse, the attribute in flowed out to Active Directory.
 
-다음 표에서는 흐름에 대해 설명 합니다.
+The following tables describe the flow:
 
-Azure AD에서 인바운드:
+Inbound from Azure AD:
 
-|Active Directory 특성|특성 이름|흐름 형식|메타 버스 특성|동기화 규칙|
+|Active Directory attribute|특성 이름|흐름 형식|Metaverse attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
-|온-프레미스 Active Directory|cloudMsExchUserHoldPolicies|직접|cloudMsExchUserHoldPolicies|AAD에서 사용자 교환|
+|온-프레미스 Active Directory|cloudMsExchUserHoldPolicies|Direct|cloudMsExchUserHoldPolicies|In from AAD - User Exchange|
 
-온-프레미스로 아웃 바운드 Active Directory:
+Outbound to on-premises Active Directory:
 
-|메타 버스 특성|특성 이름|흐름 형식|Azure AD 특성|동기화 규칙|
+|Metaverse attribute|특성 이름|흐름 형식|Azure AD attribute|Sync Rule|
 |-----|-----|-----|-----|-----|
-|Azure Active Directory|cloudMsExchUserHoldPolicies|IF (NOT NULL)|msExchUserHoldPolicies|Out to AD – UserExchangeOnline|
+|Azure Active Directory|cloudMsExchUserHoldPolicies|IF(NOT NULL)|msExchUserHoldPolicies|Out to AD – UserExchangeOnline|
 
-## <a name="information-on-the-attribute-behavior"></a>특성 동작에 대 한 정보
-MsExchangeUserHoldPolicies은 단일 기관 특성입니다.  단일 기관 특성은 온-프레미스 디렉터리 또는 클라우드 디렉터리의 개체 (이 경우 사용자 개체)에서 설정할 수 있습니다.  권한 시작 규칙의 시작은 특성이 온-프레미스에서 동기화 되는 경우 Azure AD에서이 특성을 업데이트 하는 것을 허용 하지 않습니다.
+## <a name="information-on-the-attribute-behavior"></a>Information on the attribute behavior
+The msExchangeUserHoldPolicies is a single authority attribute.  A single authority attribute can be set on an object (in this case, user object) in the on-premises directory or in the cloud directory.  The Start of Authority rules dictate, that if the attribute is synchronized from on-premises, then Azure AD will not be allowed to update this attribute.
 
-사용자가 클라우드의 사용자 개체에 대 한 보류 정책을 설정할 수 있도록 하려면 cloudMSExchangeUserHoldPolicies 특성이 사용 됩니다. 이 특성은 Azure AD에서 위에 설명 된 규칙을 기반으로 msExchangeUserHoldPolicies를 직접 설정할 수 없기 때문에 사용 됩니다.  MsExchangeUserHoldPolicies이 null이 아닌 경우이 특성은 온-프레미스 디렉터리에 다시 동기화 하 고 msExchangeUserHoldPolicies의 현재 값을 바꿉니다.
+To allow users to set a hold policy on a user object in the cloud, the cloudMSExchangeUserHoldPolicies attribute is used. This attribute is used because Azure AD cannot set msExchangeUserHoldPolicies directly based on the rules explained above.  This attribute will then synchronize back to the on-premises directory if, the msExchangeUserHoldPolicies is not null and replace the current value of msExchangeUserHoldPolicies.
 
-특정 상황에서는 예를 들어 온-프레미스와 Azure에서 모두 동시에 변경 된 경우 몇 가지 문제가 발생할 수 있습니다.  
+Under certain circumstances, for instance, if both were changed on-premises and in Azure at the same time, this could cause some issues.  
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory와 온-프레미스 ID 통합](whatis-hybrid-identity.md)에 대해 자세히 알아봅니다.

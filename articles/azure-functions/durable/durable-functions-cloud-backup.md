@@ -1,20 +1,15 @@
 ---
 title: 지속성 함수의 팬아웃/팬인 시나리오 - Azure
 description: Azure Functions의 지속성 함수 확장에서 팬아웃/팬인 시나리오를 구현하는 방법을 알아봅니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: e2f1042fe1210fe51ae79b1152e51191e7fb066a
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: a87a4edd544c2f7d8ff9c6415df2f2dda125f2bf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615021"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232993"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>지속성 함수의 팬아웃/팬인 시나리오 - 클라우드 백업 예제
 
@@ -28,9 +23,9 @@ ms.locfileid: "73615021"
 
 이 샘플에서 함수는 지정한 디렉터리 아래의 모든 파일을 Blob Storage에 재귀적으로 업로드합니다. 또한 업로드된 총 바이트 수를 계산합니다.
 
-모든 작업을 처리하는 단일 함수를 작성할 수 있습니다. 실행 시의 주요 문제는 **확장성**입니다. 단일 함수 실행은 단일 VM에서만 실행될 수 있으므로 처리량은 해당 단일 VM의 처리량으로 제한됩니다. 또 하나의 문제는 **안정성**입니다. 중간에 오류가 발생 하거나 전체 프로세스가 5 분 이상 소요 되 면 백업이 부분적으로 완료 된 상태로 실패할 수 있습니다. 그러면 다시 시작해야 합니다.
+모든 작업을 처리하는 단일 함수를 작성할 수 있습니다. 실행 시의 주요 문제는 **확장성**입니다. 단일 함수 실행은 단일 VM에서만 실행될 수 있으므로 처리량은 해당 단일 VM의 처리량으로 제한됩니다. 또 하나의 문제는 **안정성**입니다. If there's a failure midway through, or if the entire process takes more than 5 minutes, the backup could fail in a partially completed state. 그러면 다시 시작해야 합니다.
 
-더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob Storage에 업로드합니다. 이 방법은 처리량과 안정성 측면에서 더 효과적 이지만 큐를 프로 비전 하 고 관리 해야 합니다. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정**과 관련하여 상당한 복잡성이 도입된다는 것입니다.
+더 강력한 방법은 다음 두 가지 일반 함수를 작성하는 것입니다. 하나는 파일을 열거하고 큐에 파일 이름을 추가하며, 다른 하나는 파일을 큐에서 읽고 Blob Storage에 업로드합니다. This approach is better in terms of throughput and reliability, but it requires you to provision and manage a queue. 더 중요한 것은 업로드된 총 바이트 수의 보고와 같이 더 많은 작업을 수행하려는 경우 **상태 관리** 및 **조정**과 관련하여 상당한 복잡성이 도입된다는 것입니다.
 
 지속성 함수 방법은 언급된 모든 이점을 매우 낮은 오버헤드로 제공합니다.
 
@@ -42,7 +37,7 @@ ms.locfileid: "73615021"
 * `E2_GetFileList`
 * `E2_CopyFileToBlob`
 
-다음 섹션에서는 C# 스크립팅에 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+The following sections explain the configuration and code that is used for C# scripting. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 ## <a name="the-cloud-backup-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>클라우드 백업 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
@@ -56,7 +51,7 @@ ms.locfileid: "73615021"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_BackupSiteContent/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_BackupSiteContent/index.js)]
 
@@ -68,16 +63,16 @@ ms.locfileid: "73615021"
 4. 모든 업로드가 완료될 때까지 기다립니다.
 5. Azure Blob Storage에 업로드된 총 바이트 수를 반환합니다.
 
-`await Task.WhenAll(tasks);`(C#) 및 `yield context.df.Task.all(tasks);`(JavaScript) 줄을 확인합니다. `E2_CopyFileToBlob` 함수에 대 한 개별 호출은 모두 대기 *되지 않으므로* 병렬로 실행 될 수 있습니다. 이 작업 배열을 `Task.WhenAll`(C#) 또는 `context.df.Task.all`(JavaScript)에 전달하면 ‘모든 복사 작업이 완료될 때까지’ 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리) 또는 JavaScript의 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, Durable Functions 확장은 엔드투엔드 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
+`await Task.WhenAll(tasks);`(C#) 및 `yield context.df.Task.all(tasks);`(JavaScript) 줄을 확인합니다. All the individual calls to the `E2_CopyFileToBlob` function were *not* awaited, which allows them to run in parallel. 이 작업 배열을 `Task.WhenAll`(C#) 또는 `context.df.Task.all`(JavaScript)에 전달하면 ‘모든 복사 작업이 완료될 때까지’ 완료되지 않는 작업을 다시 가져옵니다. .NET의 TPL(작업 병렬 라이브러리) 또는 JavaScript의 [`Promise.all`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/all)에 익숙하다면 이러한 작업은 새로운 것이 아닙니다. 차이점은 이러한 작업이 여러 VM에서 동시에 실행될 수 있으며, Durable Functions 확장은 엔드투엔드 실행이 프로세스 재활용에 탄력적으로 수행되도록 보장한다는 것입니다.
 
 > [!NOTE]
-> 작업은 개념상 JavaScript 프라미스와 비슷하지만 오케스트레이터 함수는 `context.df.Task.all` 및 `context.df.Task.any` 대신 `Promise.all` 및 `Promise.race`를 사용하여 작업 병렬 처리를 관리해야 합니다.
+> 작업은 개념상 JavaScript 프라미스와 비슷하지만 오케스트레이터 함수는 `Promise.all` 및 `Promise.race` 대신 `context.df.Task.all` 및 `context.df.Task.any`를 사용하여 작업 병렬 처리를 관리해야 합니다.
 
 `Task.WhenAll`에서 기다린 후(또는 `context.df.Task.all`에서 일시 중단된 후) 모든 함수 호출이 완료되고 값을 다시 반환했습니다. `E2_CopyFileToBlob`을 호출할 때마다 업로드된 바이트 수가 반환되므로 총 바이트 수를 계산하는 것은 이러한 반환 값을 모두 추가하는 문제입니다.
 
 ## <a name="helper-activity-functions"></a>도우미 작업 함수
 
-도우미 작업 함수는 다른 샘플과 마찬가지로 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수일 뿐입니다. 예를 들어 *에 대한* function.json`E2_GetFileList` 파일은 다음과 같습니다.
+도우미 작업 함수는 다른 샘플과 마찬가지로 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수일 뿐입니다. 예를 들어 `E2_GetFileList`에 대한 *function.json* 파일은 다음과 같습니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/function.json)]
 
@@ -87,7 +82,7 @@ ms.locfileid: "73615021"
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_GetFileList/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_GetFileList/index.js)]
 
@@ -96,17 +91,17 @@ ms.locfileid: "73615021"
 > [!NOTE]
 > 오케스트레이터 함수에 이 코드를 직접 배치할 수 없는 이유가 궁금할 수도 있습니다. 그렇게 할 수도 있지만, 로컬 파일 시스템 액세스를 포함하여 I/O 작업을 수행하지 않아야 하는 오케스트레이터 함수의 기본 규칙 중 하나가 손상될 수 있습니다.
 
-*에 대한* function.json`E2_CopyFileToBlob` 파일도 마찬가지로 다음과 같이 간단합니다.
+`E2_CopyFileToBlob`에 대한 *function.json* 파일도 마찬가지로 다음과 같이 간단합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/function.json)]
 
-C# 구현도 간단 합니다. Azure Functions 바인딩의 고급 기능 중 일부(즉 `Binder` 매개 변수 사용)를 사용하는 경우가 있지만 이 연습의 목적에 대한 자세한 내용은 걱정할 필요가 없습니다.
+The C# implementation is also straightforward. Azure Functions 바인딩의 고급 기능 중 일부(즉 `Binder` 매개 변수 사용)를 사용하는 경우가 있지만 이 연습의 목적에 대한 자세한 내용은 걱정할 필요가 없습니다.
 
 ### <a name="c"></a>C#
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E2_CopyFileToBlob/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 JavaScript 구현은 Azure Functions의 `Binder` 기능에 액세스할 수 없으므로 [Node용 Azure Storage SDK](https://github.com/Azure/azure-storage-node)를 대신 사용합니다.
 
@@ -130,7 +125,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> 호출하는 `HttpStart` 함수는 JSON 형식의 콘텐츠에서만 작동합니다. 이러한 이유로 `Content-Type: application/json` 헤더가 필요하며 디렉터리 경로는 JSON 문자열로 인코딩됩니다. 또한 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `host.json` 접두사를 제거하는 항목이 `api/` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
+> 호출하는 `HttpStart` 함수는 JSON 형식의 콘텐츠에서만 작동합니다. 이러한 이유로 `Content-Type: application/json` 헤더가 필요하며 디렉터리 경로는 JSON 문자열로 인코딩됩니다. 또한 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `api/` 접두사를 제거하는 항목이 `host.json` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
 
 이 HTTP 요청은 `E2_BackupSiteContent` 오케스트레이터를 트리거하고 `D:\home\LogFiles` 문자열을 매개 변수로 전달합니다. 응답에서는 이 백업 작업의 상태를 가져오는 링크를 제공합니다.
 
@@ -175,7 +170,7 @@ Content-Type: application/json; charset=utf-8
 다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
 
 > [!NOTE]
-> 아래 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet 패키지를 설치 해야 합니다.
+> You will need to install the `Microsoft.Azure.WebJobs.Extensions.Storage` NuGet package to run the sample code below.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/BackupSiteContent.cs)]
 

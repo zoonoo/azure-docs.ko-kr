@@ -9,29 +9,29 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3d9c6c9b73f8887d4fdb85da277b2e27d8f5221c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243559"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231712"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
-Azure Automation 상태 구성을 사용 하는 두 가지 방법, 즉 Azure와 Windows PowerShell에서 DSC (필요한 상태 구성) 구성을 컴파일할 수 있습니다. 다음 테이블에서는 각각의 특징을 기반으로 어떤 방법을 언제 사용할지 결정하도록 합니다.
+You can compile Desired State Configuration (DSC) configurations in two ways with Azure Automation State Configuration: in Azure and in Windows PowerShell. 다음 테이블에서는 각각의 특징을 기반으로 어떤 방법을 언제 사용할지 결정하도록 합니다.
 
-- Azure 상태 구성 컴파일 서비스
-  - 대화형 사용자 인터페이스를 사용 하는 초보자 방법
+- Azure State Configuration compilation service
+  - Beginner method with interactive user interface
    - 작업 상태를 쉽게 추적
 
 - Windows PowerShell
-  - 로컬 워크스테이션 또는 빌드 서비스의 Windows PowerShell에서 호출
-  - 개발 테스트 파이프라인과 통합
-  - 복잡 한 매개 변수 값 제공
-  - 규모에 맞게 노드 및 비 노드 데이터 작업
-  - 뛰어난 성능 향상
+  - Call from Windows PowerShell on local workstation or build service
+  - Integrate with development test pipeline
+  - Provide complex parameter values
+  - Work with node and non-node data at scale
+  - Significant performance improvement
 
-## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Azure 상태 구성에서 DSC 구성 컴파일
+## <a name="compiling-a-dsc-configuration-in-azure-state-configuration"></a>Compiling a DSC Configuration in Azure State Configuration
 
 ### <a name="portal"></a>포털
 
@@ -122,22 +122,22 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래의 [자격 증명 자산](#credential-assets)을 참조하세요.
 
-### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>복합 리소스를 포함 하는 Azure Automation에서 구성 컴파일
+### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Compiling configurations in Azure Automation that contain Composite Resources
 
-**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. [복합 리소스: DSC 구성을 리소스로 사용](/powershell/scripting/dsc/resources/authoringresourcecomposite)에서 **복합 리소스**에 대해 자세히 알아보세요.
+**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. **복합 리소스**에 대해 자세히 알아보려면 [복합 리소스: DSC 구성을 리소스로 사용](/powershell/scripting/dsc/resources/authoringresourcecomposite)을 참조하세요.
 
 > [!NOTE]
-> **복합 리소스** 를 포함 하는 구성이 올바르게 컴파일되도록 하려면 먼저 복합 리소스가 의존 하는 DSC 리소스를에서 Azure Automation로 먼저 가져와야 합니다.
+> In order for configurations containing **Composite Resources** to compile correctly, you must first ensure that any DSC Resources that the composite relies on are first imported in to Azure Automation.
 
-DSC **복합 리소스** 추가는 Azure Automation에 PowerShell 모듈을 추가 하는 것과는 다릅니다.
-이 프로세스에 대 한 단계별 지침은 [Azure Automation의 모듈 관리](/azure/automation/shared-resources/modules)문서에 설명 되어 있습니다.
+Adding a DSC **Composite Resource** is no different than adding any PowerShell module to Azure Automation.
+The step by step instruction for this process is documented in the article [Manage Modules in Azure Automation](/azure/automation/shared-resources/modules).
 
-### <a name="managing-configurationdata-when-compiling-configuration-in-azure-automation"></a>Azure Automation에서 구성을 컴파일할 때 ConfigurationData 관리
+### <a name="managing-configurationdata-when-compiling-configuration-in-azure-automation"></a>Managing ConfigurationData when compiling configuration in Azure Automation
 
 **ConfigurationData** 를 사용하면 PowerShell DSC를 사용하는 동안 구조적 구성을 환경별 구성과 구분할 수 있습니다. [PowerShell DSC의 "위치"에서 "대상" 분리](https://blogs.msdn.com/b/powershell/archive/2014/01/09/continuous-deployment-using-dsc-with-minimal-change.aspx) 를 참조하여 **ConfigurationData**에 대해 자세히 알아봅니다.
 
 > [!NOTE]
-> Azure PowerShell를 사용 하 여 Azure Automation 상태 구성에서 컴파일할 때 **ConfigurationData** 를 사용할 수 있지만 Azure Portal는 사용할 수 없습니다.
+> You can use **ConfigurationData** when compiling in Azure Automation State Configuration using Azure PowerShell but not in the Azure portal.
 
 다음 예제 DSC 구성은 **$ConfigurationData** 및 **$AllNodes** 키워드를 통해 **ConfigurationData**를 사용합니다. 또한 다음과 같이 예를 들어 [**xWebAdministration** 모듈](https://www.powershellgallery.com/packages/xWebAdministration/)이 필요합니다.
 
@@ -160,7 +160,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Windows PowerShell을 사용 하 여 이전 DSC 구성을 컴파일할 수 있습니다. 다음 스크립트는 Azure Automation 상태 구성 끌어오기 서비스에 두 개의 노드 구성을 추가 합니다. **ConfigurationDataSample.MyVM1** 및 **ConfigurationDataSample.MyVM3**.
+You can compile the preceding DSC configuration with Windows PowerShell. The following script adds two node configurations to the Azure Automation State Configuration Pull Service: **ConfigurationDataSample.MyVM1** and **ConfigurationDataSample.MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -187,9 +187,9 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
 ```
 
-### <a name="working-with-assets-in-azure-automation-during-compilation"></a>컴파일하는 동안 Azure Automation의 자산 작업
+### <a name="working-with-assets-in-azure-automation-during-compilation"></a>Working with Assets in Azure Automation during compilation
 
-자산 참조는 Azure Automation 상태 구성 및 Runbook에서 동일합니다. 자세한 내용은 다음 항목을 참조하세요.
+자산 참조는 Azure Automation 상태 구성 및 Runbook에서 동일합니다. 자세한 내용은
 
 - [인증서](automation-certificates.md)
 - [연결](automation-connections.md)
@@ -202,7 +202,7 @@ Azure Automation에서 DSC 구성은 `Get-AutomationPSCredential` cmdlet를 사�
 
 자격 증명을 노드 구성(MOF 구성 문서)에서 안전하게 유지하려면 노드 구성 MOF 파일에 자격 증명을 암호화해야 합니다. 그러나 현재 PowerShell DSC가 노드 구성 MOF을 생성하는 동안 자격 증명을 일반 텍스트로 출력해도 되는지 알아야 합니다. PowerShell DSC은 Azure Automation이 컴파일 작업을 통해 생성된 후에 전체 MOF 파일을 암호화한다는 것을 모르기 때문입니다.
 
-구성 데이터를 사용 하 여 생성 된 노드 구성 Mof에서 일반 텍스트로 자격 증명이 출력 되도록 PowerShell DSC에 지시할 수 있습니다. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 **ConfigurationData**를 통해 `PSDscAllowPlainTextPassword = $true`을 전달해야 합니다.
+You can tell PowerShell DSC that it is okay for credentials to be outputted in plain text in the generated node configuration MOFs using Configuration Data. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 **ConfigurationData**를 통해 `PSDscAllowPlainTextPassword = $true`을 전달해야 합니다.
 
 다음 예제에서는 Automation 자격 증명 자산을 사용하는 DSC 구성을 보여줍니다.
 
@@ -224,7 +224,7 @@ Configuration CredentialSample
 }
 ```
 
-PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 다음 두 개의 노드 구성을 추가합니다. **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**.
+PowerShell로 이전 DSC 구성을 컴파일할 수 있습니다. 다음 PowerShell은 Azure Automation 상태 구성 끌어오기 서버에 **CredentialSample.MyVM1** 및 **CredentialSample.MyVM2**라는 두 개의 노드 구성을 추가합니다.
 
 ```powershell
 $ConfigData = @{
@@ -246,14 +246,14 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> 컴파일이 완료되면 다음과 같은 오류 메시지가 나타날 수 있습니다. **'Microsoft.PowerShell.Management' 스냅인을 이미 가져왔으므로 'Microsoft.PowerShell.Management' 모듈을 가져오지 못했습니다.** 이 경고는 무시해도 됩니다.
+> 컴파일이 완료되면 오류 메시지 **'Microsoft.PowerShell.Management' 스냅인을 이미 가져왔으므로 'Microsoft.PowerShell.Management' 모듈을 가져오지 못했습니다.** 가 표시될 수 있습니다. 이 경고는 무시해도 됩니다.
 
-## <a name="compiling-configurations-in-windows-powershell-and-publishing-to-azure-automation"></a>Windows PowerShell에서 구성 컴파일 및 Azure Automation에 게시
+## <a name="compiling-configurations-in-windows-powershell-and-publishing-to-azure-automation"></a>Compiling configurations in Windows PowerShell and publishing to Azure Automation
 
 Azure 외부에서 컴파일한 노드 구성(MOF)을 가져올 수도 있습니다.
-여기에는 개발자 워크스테이션 또는 [Azure DevOps](https://dev.azure.com)와 같은 서비스에서 컴파일을 포함 합니다.
-성능 및 안정성을 포함 하 여이 접근 방법에는 여러 가지 이점이 있습니다.
-Windows PowerShell에서 컴파일하면 구성 콘텐츠를 서명 하는 옵션도 제공 됩니다.
+This includes compiling from a developer workstation or in a service such as [Azure DevOps](https://dev.azure.com).
+There are multiple advantages to this approach including performance and reliability.
+Compiling in Windows PowerShell also provides the option to sign configuration content.
 서명된 노드 구성은 DSC 에이전트에 의해 관리되는 노드에서 로컬로 확인되어 인증된 출처에서 가져온 노드에 구성을 적용할 수 있습니다.
 
 > [!NOTE]
@@ -261,12 +261,12 @@ Windows PowerShell에서 컴파일하면 구성 콘텐츠를 서명 하는 옵�
 
 노드 구성에 서명하는 방법에 대한 자세한 내용은 [WMF 5.1의 향상된 기능 - 구성 및 모듈에 서명하는 방법](/powershell/scripting/wmf/whats-new/dsc-improvements#dsc-module-and-configuration-signing-validations)을 참조하세요.
 
-### <a name="compiling-a-configuration-in-windows-powershell"></a>Windows PowerShell에서 구성 컴파일
+### <a name="compiling-a-configuration-in-windows-powershell"></a>Compiling a configuration in Windows PowerShell
 
-Windows PowerShell에서 DSC 구성을 컴파일하는 프로세스는 PowerShell DSC 설명서에서 [구성 작성, 컴파일 및 적용](/powershell/dsc/configurations/write-compile-apply-configuration#compile-the-configuration)에 포함 되어 있습니다.
-이는 개발자 워크스테이션 또는 [Azure DevOps](https://dev.azure.com)와 같은 빌드 서비스 내에서 실행할 수 있습니다.
+The process to compile DSC configurations in Windows PowerShell is included in the PowerShell DSC documentation [Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration#compile-the-configuration).
+This can be executed from a developer workstation or within a build service such as [Azure DevOps](https://dev.azure.com).
 
-그런 다음 구성을 컴파일하여 생성 된 MOF 파일을 Azure State 구성 서비스로 직접 가져올 수 있습니다.
+The MOF file or files produced by compiling the configuration can then be imported directly in to the Azure State Configuration service.
 
 ### <a name="importing-a-node-configuration-in-the-azure-portal"></a>Azure Portal에서 노드 구성 가져오기
 
@@ -279,7 +279,7 @@ Windows PowerShell에서 DSC 구성을 컴파일하는 프로세스는 PowerShel
 1. **구성 이름** 텍스트 상자에 이름을 입력합니다. 이 이름은 노드 구성이 컴파일된 구성 이름과 일치해야 합니다.
 1. **확인**을 클릭합니다.
 
-### <a name="importing-a-node-configuration-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 노드 구성 가져오기
+### <a name="importing-a-node-configuration-with-azure-powershell"></a>Importing a node configuration with Azure PowerShell
 
 [Import-AzureRmAutomationDscNodeConfiguration](/powershell/module/azurerm.automation/import-azurermautomationdscnodeconfiguration) cmdlet을 사용하여 노드 구성을 Automation 계정으로 가져올 수 있습니다.
 

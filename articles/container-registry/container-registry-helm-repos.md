@@ -8,16 +8,16 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: iainfou
-ms.openlocfilehash: 2135a3a5a8f14cf6c2e7fd2984d9b221e2445c1d
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3f0aed1c97acc5dd5c9a9abe1f9171fd3886d83b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68309505"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212563"
 ---
 # <a name="use-azure-container-registry-as-a-helm-repository-for-your-application-charts"></a>애플리케이션 차트용 Helm 리포지토리로 Azure Container Registry 사용
 
-Kubernetes에 대 한 응용 프로그램을 신속 하 게 관리 하 고 배포 하기 위해 [오픈 소스 투구 패키지 관리자][helm]를 사용할 수 있습니다. Helm 사용 시 애플리케이션은 Helm 차트 리포지토리에 저장되는 *차트*로 정의됩니다. 이러한 차트는 구성 및 종속성을 정의하며, 애플리케이션의 전체 수명 주기에 걸쳐 차트의 버전을 관리할 수 있습니다. Helm 차트 리포지토리용 호스트로 Azure Container Registry를 사용할 수 있습니다.
+To quickly manage and deploy applications for Kubernetes, you can use the [open-source Helm package manager][helm]. Helm 사용 시 애플리케이션은 Helm 차트 리포지토리에 저장되는 *차트*로 정의됩니다. 이러한 차트는 구성 및 종속성을 정의하며, 애플리케이션의 전체 수명 주기에 걸쳐 차트의 버전을 관리할 수 있습니다. Helm 차트 리포지토리용 호스트로 Azure Container Registry를 사용할 수 있습니다.
 
 Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 기타 Azure 서비스와 통합할 수 있는 프라이빗 보안 Helm 차트 리포지토리가 제공됩니다. Azure Container Registry의 Helm 차트 리포지토리에는 차트를 배포한 응용 프로그램과 가까운 위치에 보관하고 중복성을 유지하기 위한 지역 복제 기능이 포함되어 있습니다. 차트는 모든 Azure Container Registry 기준 가격에서 사용 가능하며, 차트에서 사용한 스토리지 양만큼만 요금을 결제하면 됩니다.
 
@@ -26,12 +26,12 @@ Azure Container Registry를 사용하는 경우 빌드 파이프라인 또는 �
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소를 갖춰야 합니다.
 
 - **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-- **Helm 클라이언트 버전 2.11.0(RC 버전 아님) 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. 필요한 경우 [Azure Kubernetes 서비스 클러스터를 만들][aks-quickstart]수 있습니다. 투구 설치 및 업그레이드 방법에 대 한 자세한 내용은 [투구 설치][helm-install]를 참조 하세요.
+- **Helm 클라이언트 버전 2.11.0(RC 버전 아님) 이상** - `helm version`을 실행하여 현재 버전을 찾습니다. Kubernetes 클러스터 내에서 Helm 서버(Tiller)도 초기화해야 합니다. If needed, you can [create an Azure Kubernetes Service cluster][aks-quickstart]. For more information on how to install and upgrade Helm, see [Installing Helm][helm-install].
 - **Azure CLI 버전 2.0.46 이상** - `az --version`을 실행하여 버전을 확인합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 ## <a name="add-a-repository-to-helm-client"></a>Helm 클라이언트에 리포지토리 추가
@@ -46,13 +46,13 @@ Azure Container Registry를 Helm 차트 리포지토리로 추가하려면 Azure
 az login
 ```
 
-[Az configure][az-configure] 명령을 사용 하 여 Azure Container Registry 이름으로 Azure CLI 기본값을 구성 합니다. 다음 예제에서는 `<acrName>`을 실제 레지스트리의 이름으로 바꿉니다.
+Configure the Azure CLI defaults with the name of your Azure Container Registry using the [az configure][az-configure] command. 다음 예제에서는 `<acrName>`을 실제 레지스트리의 이름으로 바꿉니다.
 
 ```azurecli
 az configure --defaults acr=<acrName>
 ```
 
-이제 [az acr 투구 리포지토리 add][az-acr-helm-repo-add] 명령을 사용 하 여 투구 클라이언트에 Azure Container Registry 투구 차트 리포지토리를 추가 합니다. 이 명령은 Helm 클라이언트에 사용되는 Azure Container Registry용 인증 토큰을 가져옵니다. 인증 토큰은 1시간 동안 유효합니다. `docker login`과 마찬가지로 이 명령도 이후 CLI 세션에서 실행하여 Azure Container Registry Helm 차트 리포지토리에 Helm 클라이언트를 인증할 수 있습니다.
+Now add your Azure Container Registry Helm chart repository to your Helm client using the [az acr helm repo add][az-acr-helm-repo-add] command. 이 명령은 Helm 클라이언트에 사용되는 Azure Container Registry용 인증 토큰을 가져옵니다. 인증 토큰은 1시간 동안 유효합니다. `docker login`과 마찬가지로 이 명령도 이후 CLI 세션에서 실행하여 Azure Container Registry Helm 차트 리포지토리에 Helm 클라이언트를 인증할 수 있습니다.
 
 ```azurecli
 az acr helm repo add
@@ -60,7 +60,7 @@ az acr helm repo add
 
 ## <a name="add-a-chart-to-the-repository"></a>리포지토리에 차트 추가
 
-이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 애플리케이션 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 프라이빗 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. 사용자 고유의 투구 차트를 작성 하는 방법에 대 한 자세한 내용은 [투구 차트 개발][develop-helm-charts]을 참조 하세요.
+이 문서에서는 공용 Helm *stable* 리포지토리에서 기존 Helm 차트를 가져옵니다. *stable* 리포지토리는 일반적인 애플리케이션 차트를 포함하는 큐레이팅된 공용 리포지토리입니다. 패키지 유지 관리자는 Docker Hub에서 일반 컨테이너 이미지용으로 공용 레지스트리를 제공하는 것과 같은 방식으로 *stable* 리포지토리에 차트를 제출할 수 있습니다. 공용 *stable* 리포지토리에서 다운로드한 차트는 프라이빗 Azure Container Registry 리포지토리로 푸시할 수 있습니다. 대부분의 시나리오에서는 개발하는 애플리케이션용으로 차트를 직접 작성하여 업로드합니다. For more information on how to build your own Helm charts, see [developing Helm charts][develop-helm-charts].
 
 먼저 *~/acr-helm*에 디렉터리를 만든 다음 기존 *stable/wordpress* 차트를 다운로드합니다.
 
@@ -69,7 +69,7 @@ mkdir ~/acr-helm && cd ~/acr-helm
 helm fetch stable/wordpress
 ```
 
-다운로드한 차트 목록을 표시한 다음 파일 이름에 포함된 Wordpress 버전을 확인합니다. `helm fetch stable/wordpress` 명령은 특정 버전을 지정하지 않았으므로 *최신* 버전을 가져왔습니다. 모든 투구 차트는 [SemVer 2][semver2] 표준을 따르는 파일 이름에 버전 번호를 포함 합니다. 다음 예제 출력에서는 Wordpress 차트는 버전 *2.1.10*입니다.
+다운로드한 차트 목록을 표시한 다음 파일 이름에 포함된 Wordpress 버전을 확인합니다. `helm fetch stable/wordpress` 명령은 특정 버전을 지정하지 않았으므로 *최신* 버전을 가져왔습니다. All Helm charts include a version number in the filename that follows the [SemVer 2][semver2] standard. 다음 예제 출력에서는 Wordpress 차트는 버전 *2.1.10*입니다.
 
 ```
 $ ls
@@ -77,7 +77,7 @@ $ ls
 wordpress-2.1.10.tgz
 ```
 
-이제 Azure CLI [az acr 투구 push][az-acr-helm-push] 명령을 사용 하 여 Azure Container Registry에서 투구 차트 리포지토리로 차트를 푸시합니다. 이전 단계에서 다운로드한 Helm 차트의 이름을 *wordpress-2.1.10.tgz*와 같이 지정합니다.
+Now push the chart to your Helm chart repository in Azure Container Registry using the Azure CLI [az acr helm push][az-acr-helm-push] command. 이전 단계에서 다운로드한 Helm 차트의 이름을 *wordpress-2.1.10.tgz*와 같이 지정합니다.
 
 ```azurecli
 az acr helm push wordpress-2.1.10.tgz
@@ -116,7 +116,7 @@ NAME                CHART VERSION   APP VERSION DESCRIPTION
 helmdocs/wordpress  2.1.10          4.9.8       Web publishing platform for building blogs and websites.
 ```
 
-[Az acr 투구 list][az-acr-helm-list]를 사용 하 여 Azure CLI 차트를 나열할 수도 있습니다.
+You can also list the charts with the Azure CLI, using [az acr helm list][az-acr-helm-list]:
 
 ```azurecli
 az acr helm list
@@ -158,7 +158,7 @@ version: 2.1.10
 [...]
 ```
 
-Azure CLI [az acr 투구 show][az-acr-helm-show] 명령을 사용 하 여 차트에 대 한 정보를 표시할 수도 있습니다. 이 명령을 사용하는 경우에도 마찬가지로 차트의 *최신* 버전이 기본적으로 반환됩니다. `--version`을 추가하면 *2.1.10* 등의 특정 차트 버전을 나열할 수 있습니다.
+You can also show the information for a chart with the Azure CLI [az acr helm show][az-acr-helm-show] command. 이 명령을 사용하는 경우에도 마찬가지로 차트의 *최신* 버전이 기본적으로 반환됩니다. `--version`을 추가하면 *2.1.10* 등의 특정 차트 버전을 나열할 수 있습니다.
 
 ```azurecli
 az acr helm show wordpress
@@ -173,7 +173,7 @@ helm install <acrName>/wordpress
 ```
 
 > [!TIP]
-> Azure Container Registry Helm 차트 리포지토리로 푸시한 후 나중에 새 CLI 세션으로 돌아오는 경우 로컬 Helm 클라이언트에 업데이트된 인증 토큰이 필요합니다. 새 인증 토큰을 얻으려면 [az acr 투구 리포지토리 add][az-acr-helm-repo-add] 명령을 사용 합니다.
+> Azure Container Registry Helm 차트 리포지토리로 푸시한 후 나중에 새 CLI 세션으로 돌아오는 경우 로컬 Helm 클라이언트에 업데이트된 인증 토큰이 필요합니다. To obtain a new authentication token, use the [az acr helm repo add][az-acr-helm-repo-add] command.
 
 설치 프로세스 중에는 다음 단계가 완료됩니다.
 
@@ -201,7 +201,7 @@ irreverent-jaguar-mariadb-0                   0/1    Pending  0         1s
 
 ## <a name="delete-a-helm-chart-from-the-repository"></a>리포지토리에서 Helm 차트 삭제
 
-리포지토리에서 차트를 삭제 하려면 [az acr 투구 delete][az-acr-helm-delete] 명령을 사용 합니다. 차트 이름(예: *wordpress*)과 삭제할 버전(예: *2.1.10*)을 지정합니다.
+To delete a chart from the repository, use the [az acr helm delete][az-acr-helm-delete] command. 차트 이름(예: *wordpress*)과 삭제할 버전(예: *2.1.10*)을 지정합니다.
 
 ```azurecli
 az acr helm delete wordpress --version 2.1.10
@@ -209,7 +209,7 @@ az acr helm delete wordpress --version 2.1.10
 
 이름을 지정한 차트의 모든 버전을 삭제하려는 경우 `--version` 매개 변수를 제거합니다.
 
-차트는 `helm search <acrName>`에서 계속 반환됩니다. 여기서도 Helm 클라이언트는 리포지토리에서 사용 가능한 차트 목록을 자동으로 업데이트하지 않습니다. 투구 클라이언트 리포지토리 인덱스를 업데이트 하려면 [az acr 투구 리포지토리 add][az-acr-helm-repo-add] 명령을 다시 사용 합니다.
+차트는 `helm search <acrName>`에서 계속 반환됩니다. 여기서도 Helm 클라이언트는 리포지토리에서 사용 가능한 차트 목록을 자동으로 업데이트하지 않습니다. To update the Helm client repo index, use the [az acr helm repo add][az-acr-helm-repo-add] command again:
 
 ```azurecli
 az acr helm repo add
@@ -217,16 +217,16 @@ az acr helm repo add
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 공용 *stable* 리포지토리의 기존 Helm 차트를 사용했습니다. 투구 차트를 만들고 배포 하는 방법에 대 한 자세한 내용은 [투구 차트 개발][develop-helm-charts]을 참조 하세요.
+이 문서에서는 공용 *stable* 리포지토리의 기존 Helm 차트를 사용했습니다. For more information on how to create and deploy Helm charts, see [Developing Helm charts][develop-helm-charts].
 
-Helm 차트는 컨테이너 빌드 프로세스의 일부로 사용할 수 있습니다. 자세한 내용은 [Azure Container Registry 작업 사용][acr-tasks]을 참조 하세요.
+Helm 차트는 컨테이너 빌드 프로세스의 일부로 사용할 수 있습니다. For more information, see [use Azure Container Registry Tasks][acr-tasks].
 
-Azure Container Registry를 사용 하 고 관리 하는 방법에 대 한 자세한 내용은 [모범 사례][acr-bestpractices]를 참조 하세요.
+For more information on how to use and manage Azure Container Registry, see the [best practices][acr-bestpractices].
 
 <!-- LINKS - external -->
 [helm]: https://helm.sh/
 [helm-install]: https://docs.helm.sh/using_helm/#installing-helm
-[develop-helm-charts]: https://docs.helm.sh/developing_charts/
+[develop-helm-charts]: https://helm.sh/docs/topics/charts/
 [semver2]: https://semver.org/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

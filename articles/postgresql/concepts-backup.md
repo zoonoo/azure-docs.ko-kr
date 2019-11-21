@@ -1,29 +1,29 @@
 ---
-title: Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
-description: Azure Database for PostgreSQL 서버-단일 서버를 자동 백업 하 고 복원 하는 방법에 대해 알아봅니다.
+title: Backup and restore in Azure Database for PostgreSQL - Single Server
+description: Learn about automatic backups and restoring your Azure Database for PostgreSQL server - Single Server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 695c2da9313f768b3d176176ed677c63b5ad858e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: cbd434f2f9e1217a3a481a28988f4e1d855ba08b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143724"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209650"
 ---
-# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 백업 및 복원-단일 서버
+# <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Backup and restore in Azure Database for PostgreSQL - Single Server
 
 Azure Database for PostgreSQL은 자동으로 서버 백업을 만들어 사용자가 로컬로 구성한 중복 스토리지 또는 지역 중복 스토리지에 저장합니다. 백업을 사용하여 특정 시점의 서버를 복원할 수 있습니다. 백업 및 복원은 실수로 인한 손상이나 삭제로부터 데이터를 보호하므로 비즈니스 연속성 전략의 필수적인 부분입니다.
 
 ## <a name="backups"></a>Backup
 
-Azure Database for PostgreSQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4 TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16tb, 최대 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+Azure Database for PostgreSQL takes backups of the data files and the transaction log. Depending on the supported maximum storage size, we either take full and differential backups (4 TB max storage servers) or snapshot backups (up to 16 TB max storage servers). 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-### <a name="backup-frequency"></a>백업 빈도
+### <a name="backup-frequency"></a>Backup 주기
 
-일반적으로 전체 백업은 매주 실행 되 고 차등 백업은 최대 4 TB의 저장소를 지 원하는 서버에 대해 매일 두 번 발생 합니다. 스냅숏 백업은 최대 16TB의 저장소를 지 원하는 서버에서 하루에 한 번 이상 발생 합니다. 두 경우 모두에서 트랜잭션 로그 백업은 5 분 마다 발생 합니다. 서버를 만든 후 즉시 전체 백업의 첫 번째 스냅숏이 예약 됩니다. 초기 전체 백업은 복원 된 대량 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅숏이 instantanious 서버는 최대 16tb의 저장소를 지 원하는 서버를 만든 시간으로 다시 복원할 수 있습니다.
+Generally, full backups occur weekly, differential backups occur twice a day for servers with a max supported storage of 4 TB. Snapshot backups happen at least once a day for servers that support up to 16 TB of storage. Transaction log backups in both cases occur every five minutes. The first snapshot of full backup is scheduled immediately after a server is created. The initial full backup can take longer on a large restored server. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. As snapshots are instantanious, servers with support up to 16 TB of storage can be restored all the way back to the create time.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
@@ -52,7 +52,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 > [!IMPORTANT]
 > 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
 
-### <a name="point-in-time-restore"></a>지정 시간 복원
+### <a name="point-in-time-restore"></a>특정 시점 복원
 
 백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 컴퓨팅 세대, vCore 수, 스토리지 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
 
@@ -62,7 +62,7 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 ### <a name="geo-restore"></a>지역 복원
 
-지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 최대 16tb의 저장소를 지 원하는 서버의 경우 16 TB 서버를 지 원하는 지역 에서만 지역 백업을 복원할 수 있습니다. 지원 되는 지역 목록에 대 한 [Azure Database for MySQL 가격 책정 계층](concepts-pricing-tiers.md) 을 검토 합니다.
+지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. Servers that support up to 4 TB of storage can be restored to the geo-paired region, or to any region that supports up to 16 TB of storage. For servers that support up to 16 TB of storage, geo-backups can be restored in any region that support 16 TB servers as well. Review [Azure Database for PostgeSQL pricing tiers](concepts-pricing-tiers.md) for the list of supported regions.
 
 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 애플리케이션을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
 
@@ -79,6 +79,6 @@ Azure Database for PostgreSQL에서 복원을 수행하면 원래 서버의 백�
 
 ## <a name="next-steps"></a>다음 단계
 
--  [Azure Portal](howto-restore-server-portal.md)를 사용 하 여 복원 하는 방법을 알아봅니다.
--  [Azure CLI](howto-restore-server-cli.md)를 사용 하 여 복원 하는 방법을 알아봅니다.
+- Learn how to restore using [the Azure portal](howto-restore-server-portal.md).
+- Learn how to restore using [the Azure CLI](howto-restore-server-cli.md).
 - 비즈니스 연속성에 대한 자세한 내용은  [비즈니스 연속성 개요](concepts-business-continuity.md)를 참조하세요.

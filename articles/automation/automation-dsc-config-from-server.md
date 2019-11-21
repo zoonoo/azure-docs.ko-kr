@@ -1,7 +1,7 @@
 ---
-title: 기존 서버에서 구성 만들기-Azure Automation
-description: Azure Automation 위해 기존 서버에서 구성을 만드는 방법에 대해 알아봅니다.
-keywords: dsc, powershell, 구성, 설정
+title: Create configurations from existing servers - Azure Automation
+description: Learn how to create configurations from existing servers for Azure Automation.
+keywords: dsc,powershell,configuration,setup
 services: automation
 ms.service: automation
 ms.subservice: dsc
@@ -10,41 +10,41 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: b8c39ba6c12d43da1b2311ae4d7d85dd13946f25
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 35f967e946854c3ca097db379015a7ee0bbe2f3d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559472"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231681"
 ---
-# <a name="create-configurations-from-existing-servers"></a>기존 서버에서 구성 만들기
+# <a name="create-configurations-from-existing-servers"></a>Create configurations from existing servers
 
-> 적용 대상: Windows PowerShell 5.1
+> Applies To: Windows PowerShell 5.1
 
-기존 서버에서 구성을 만드는 작업은 어려울 수 있습니다.
-*모든* 설정이 필요 하지 않을 수도 있습니다.
-그러면 구성이 성공적으로 적용 되려면 설정을 적용 해야 하는 순서를 알아야 합니다.
+Creating configurations from existing servers can be a challenging task.
+You might not want *all* settings, just those that you care about.
+Even then you need to know in what order the settings must be applied in order for the configuration to apply successfully.
 
 > [!NOTE]
-> 이 문서는 오픈 소스 커뮤니티에서 유지 관리 하는 솔루션을 의미 합니다.
-> 지원은 Microsoft가 아닌 GitHub 공동 작업의 형태로만 사용할 수 있습니다.
+> This article refers to a solution that is maintained by the Open Source community.
+> Support is only available in the form of GitHub collaboration, not from Microsoft.
 
-## <a name="community-project-reversedsc"></a>커뮤니티 프로젝트: ReverseDSC
+## <a name="community-project-reversedsc"></a>Community project: ReverseDSC
 
-[ReverseDSC](https://github.com/microsoft/reversedsc) 라는 커뮤니티에서 유지 관리 하는 솔루션은이 영역에서 SharePoint를 시작 하기 위해 만들어졌습니다.
+A community maintained solution named [ReverseDSC](https://github.com/microsoft/reversedsc) has been created to work in this area starting SharePoint.
 
-솔루션은 [SharePointDSC 리소스](https://github.com/powershell/sharepointdsc) 를 빌드하고 확장 하 여 기존 SharePoint 서버에서 [정보 수집](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) 을 오케스트레이션 합니다.
-최신 버전에는 포함할 정보의 수준을 결정 하는 여러 [추출 모드가](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) 있습니다.
+The solution builds on the [SharePointDSC resource](https://github.com/powershell/sharepointdsc) and extends it to orchestrate [gathering information](https://github.com/Microsoft/sharepointDSC.reverse#how-to-use) from existing SharePoint servers.
+The latest version has multiple [extraction modes](https://github.com/Microsoft/SharePointDSC.Reverse/wiki/Extraction-Modes) to determine what level of information to include.
 
-솔루션을 사용한 결과 SharePointDSC 구성 스크립트와 함께 사용할 [구성 데이터](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) 를 생성 합니다.
+The result of using the solution is generating [Configuration Data](https://github.com/Microsoft/sharepointDSC.reverse#configuration-data) to be used with SharePointDSC configuration scripts.
 
-데이터 파일을 생성 한 후에는 [DSC 구성 스크립트](/powershell/dsc/overview/overview) 와 함께 사용 하 여 mof 파일을 생성 하 고 [Azure Automation에 mof 파일을 업로드할](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation)수 있습니다.
-그런 다음 [온-프레미스](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) 또는 [Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) 에서 서버를 등록 하 여 구성을 가져옵니다.
+Once the data files have been generated, you can use them with [DSC Configuration scripts](/powershell/scripting/dsc/overview/overview) to generate MOF files and [upload the MOF files to Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+Then register your servers from either [on-premises](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) or [in Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) to pull configurations.
 
-ReverseDSC을 체험 하려면 [PowerShell 갤러리](https://www.powershellgallery.com/packages/ReverseDSC/) 방문 하 여 솔루션을 다운로드 하거나 "프로젝트 사이트"를 클릭 하 여 [설명서](https://github.com/Microsoft/sharepointDSC.reverse)를 확인 하세요.
+To try out ReverseDSC, visit the [PowerShell Gallery](https://www.powershellgallery.com/packages/ReverseDSC/) and download the solution or click "Project Site" to view the [documentation](https://github.com/Microsoft/sharepointDSC.reverse).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Windows PowerShell 필요한 상태 구성 개요](/powershell/dsc/overview/overview)
-- [DSC 리소스](/powershell/dsc/resources/resources)
-- [로컬 Configuration Manager 구성](/powershell/dsc/managing-nodes/metaconfig)
+- [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)
+- [DSC Resources](/powershell/scripting/dsc/resources/resources)
+- [Configuring The Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaconfig)

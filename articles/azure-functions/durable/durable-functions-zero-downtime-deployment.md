@@ -1,75 +1,72 @@
 ---
-title: Durable Functions에 대 한 가동 중지 시간이 0 인 배포
-description: 가동 중지 시간이 0 인 배포에 대해 Durable Functions 오케스트레이션을 사용 하도록 설정 하는 방법을 알아봅니다.
-services: functions
+title: Zero-downtime deployment for Durable Functions
+description: Learn how to enable your Durable Functions orchestration for zero-downtime deployments.
 author: tsushi
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: azfuncdf
-ms.openlocfilehash: af19f8cdcc26d1459bc024f00b963f04bd8d763b
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 8e12d58c0077084c181d111b0b017665b74b9157
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904052"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231266"
 ---
-# <a name="zero-downtime-deployment-for-durable-functions"></a>Durable Functions에 대 한 가동 중지 시간이 0 인 배포
+# <a name="zero-downtime-deployment-for-durable-functions"></a>Zero-downtime deployment for Durable Functions
 
-Durable Functions의 [안정적인 실행 모델](durable-functions-checkpointing-and-replay.md) 을 사용 하려면 오케스트레이션이 결정적 이어야 합니다. 그러면 업데이트를 배포할 때 고려해 야 할 추가 과제가 생성 됩니다. 배포에 작업 함수 서명 또는 orchestrator 논리에 대 한 변경 내용이 포함 된 경우 진행 중인 오케스트레이션 인스턴스가 실패 합니다. 이 상황은 시간이 나 작업일을 나타낼 수 있는 장기 실행 오케스트레이션의 인스턴스에 대 한 문제입니다.
+The [reliable execution model](durable-functions-checkpointing-and-replay.md) of Durable Functions requires that orchestrations be deterministic, which creates an additional challenge to consider when you deploy updates. When a deployment contains changes to activity function signatures or orchestrator logic, in-flight orchestration instances fail. This situation is especially a problem for instances of long-running orchestrations, which might represent hours or days of work.
 
-이러한 오류가 발생 하지 않도록 하려면 다음 두 가지 옵션을 사용할 수 있습니다. 
-- 실행 중인 모든 오케스트레이션 인스턴스가 완료 될 때까지 배포를 지연 합니다.
-- 실행 중인 오케스트레이션 인스턴스에서 기존 버전의 함수를 사용 하는지 확인 합니다. 
+To prevent these failures from happening, you have two options: 
+- Delay your deployment until all running orchestration instances have completed.
+- Make sure that any running orchestration instances use the existing versions of your functions. 
 
 > [!NOTE]
-> 이 문서에서는 Durable Functions 1.x를 대상으로 하는 함수 앱에 대 한 지침을 제공 합니다. Durable Functions 2.x에 도입 된 변경 내용을 고려 하 여 업데이트 되지 않았습니다. 확장 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md)을 참조 하세요.
+> This article provides guidance for functions apps that target Durable Functions 1.x. It hasn't been updated to account for changes introduced in Durable Functions 2.x. For more information about the differences between extension versions, see [Durable Functions versions](durable-functions-versions.md).
 
-다음 차트에서는 Durable Functions에 대 한 가동 중지 시간이 0 인 배포를 구현 하는 세 가지 주요 전략을 비교 합니다. 
+The following chart compares the three main strategies to achieve a zero-downtime deployment for Durable Functions: 
 
 | 전략 |  사용하는 경우 | 장점 | 단점 |
 | -------- | ------------ | ---- | ---- |
-| [버전 관리](#versioning) |  자주 발생 하지 않는 응용 프로그램은 크게 변경 되지 않습니다 [.](durable-functions-versioning.md) | 간단히 구현할 수 있습니다. |  메모리의 함수 앱 크기와 함수 수를 늘립니다.<br/>코드 중복. |
-| [슬롯으로 상태 검사](#status-check-with-slot) | 장기 실행 오케스트레이션이 24 시간 이상 지속 되지 않거나 자주 겹치는 오케스트레이션이 없는 시스템입니다. | 간단한 코드 베이스입니다.<br/>추가 함수 앱 관리가 필요 하지 않습니다. | 추가 저장소 계정 또는 작업 허브 관리가 필요 합니다.<br/>오케스트레이션이 실행 되지 않는 기간이 필요 합니다. |
-| [응용 프로그램 라우팅](#application-routing) | 오케스트레이션이 실행 되지 않는 시간 (예: 오케스트레이션이 24 시간 이상 이거나 자주 겹치는 오케스트레이션이 있는 기간)이 없는 시스템 | 지속적으로 변경 되는 오케스트레이션을 지속적으로 실행 하는 새 버전의 시스템을 처리 합니다. | 지능형 응용 프로그램 라우터가 필요 합니다.<br/>구독에서 허용 하는 함수 앱의 수를 최대로 설정할 수 있습니다. 기본값은 100입니다. |
+| [버전 관리](#versioning) |  Applications that don't experience frequent [breaking changes.](durable-functions-versioning.md) | Simple to implement. |  Increased function app size in memory and number of functions.<br/>Code duplication. |
+| [Status check with slot](#status-check-with-slot) | A system that doesn't have long-running orchestrations lasting more than 24 hours or frequently overlapping orchestrations. | Simple code base.<br/>Doesn't require additional function app management. | Requires additional storage account or task hub management.<br/>Requires periods of time when no orchestrations are running. |
+| [Application routing](#application-routing) | A system that doesn't have periods of time when orchestrations aren't running, such as those time periods with orchestrations that last more than 24 hours or with frequently overlapping orchestrations. | Handles new versions of systems with continually running orchestrations that have breaking changes. | Requires an intelligent application router.<br/>Could max out the number of function apps allowed by your subscription. 기본값은 100입니다. |
 
 ## <a name="versioning"></a>버전 관리
 
-함수의 새 버전을 정의 하 고 함수 앱에 이전 버전을 그대로 둡니다. 다이어그램에서 볼 수 있듯이 함수의 버전은 이름에 포함 됩니다. 이전 버전의 함수는 유지 되므로 진행 중인 오케스트레이션 인스턴스는 계속 해 서 참조할 수 있습니다. 한편, 새 오케스트레이션 인스턴스에 대 한 요청은 오케스트레이션 클라이언트 함수가 앱 설정에서 참조할 수 있는 최신 버전을 호출 합니다.
+Define new versions of your functions and leave the old versions in your function app. As you can see in the diagram, a function's version becomes part of its name. Because previous versions of functions are preserved, in-flight orchestration instances can continue to reference them. Meanwhile, requests for new orchestration instances call for the latest version, which your orchestration client function can reference from an app setting.
 
-![버전 관리 전략](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
+![Versioning strategy](media/durable-functions-zero-downtime-deployment/versioning-strategy.png)
 
-이 전략에서는 모든 함수를 복사 하 고 다른 함수에 대 한 참조를 업데이트 해야 합니다. 스크립트를 작성 하 여 더 쉽게 만들 수 있습니다. 마이그레이션 스크립트를 사용 하는 [샘플 프로젝트](https://github.com/TsuyoshiUshio/DurableVersioning) 는 다음과 같습니다.
+In this strategy, every function must be copied, and its references to other functions must be updated. You can make it easier by writing a script. Here's a [sample project](https://github.com/TsuyoshiUshio/DurableVersioning) with a migration script.
 
 >[!NOTE]
->이 전략은 배포 중 가동 중지 시간을 방지 하기 위해 배포 슬롯을 사용 합니다. 새 배포 슬롯을 만들고 사용 하는 방법에 대 한 자세한 내용은 [Azure Functions 배포 슬롯](../functions-deployment-slots.md)을 참조 하세요.
+>This strategy uses deployment slots to avoid downtime during deployment. For more detailed information about how to create and use new deployment slots, see [Azure Functions deployment slots](../functions-deployment-slots.md).
 
-## <a name="status-check-with-slot"></a>슬롯으로 상태 검사
+## <a name="status-check-with-slot"></a>Status check with slot
 
-프로덕션 슬롯에서 현재 버전의 함수 앱이 실행 되는 동안 새 버전의 함수 앱을 스테이징 슬롯에 배포 합니다. 프로덕션 및 스테이징 슬롯을 교환 하기 전에 실행 중인 오케스트레이션 인스턴스가 있는지 확인 하십시오. 모든 오케스트레이션 인스턴스를 완료 한 후에는 교환을 수행할 수 있습니다. 이 전략은 비행 중인 오케스트레이션 인스턴스가 없을 때 예측 가능한 기간이 있는 경우에 작동 합니다. 오케스트레이션이 장기 실행 되지 않고 오케스트레이션 실행이 자주 겹치지 않는 경우에 가장 적합 한 방법입니다.
+While the current version of your function app is running in your production slot, deploy the new version of your function app to your staging slot. Before you swap your production and staging slots, check to see if there are any running orchestration instances. After all orchestration instances are complete, you can do the swap. This strategy works when you have predictable periods when no orchestration instances are in flight. This is the best approach when your orchestrations aren't long-running and when your orchestration executions don't frequently overlap.
 
-### <a name="function-app-configuration"></a>함수 앱 구성
+### <a name="function-app-configuration"></a>Function app configuration
 
-이 시나리오를 설정 하려면 다음 절차를 따르십시오.
+Use the following procedure to set up this scenario.
 
-1. 스테이징 및 프로덕션을 위해 함수 앱에 [배포 슬롯을 추가](../functions-deployment-slots.md#add-a-slot) 합니다.
+1. [Add deployment slots](../functions-deployment-slots.md#add-a-slot) to your function app for staging and production.
 
-1. 각 슬롯에 대해 [Azurewebjobsstorage 응용 프로그램 설정을](../functions-app-settings.md#azurewebjobsstorage) 공유 저장소 계정의 연결 문자열로 설정 합니다. 이 저장소 계정 연결 문자열은 Azure Functions 런타임에 사용 됩니다. 이 계정은 Azure Functions 런타임에 사용 되며 함수의 키를 관리 합니다.
+1. For each slot, set the [AzureWebJobsStorage application setting](../functions-app-settings.md#azurewebjobsstorage) to the connection string of a shared storage account. This storage account connection string is used by the Azure Functions runtime. This account is used by the Azure Functions runtime and manages the function's keys.
 
-1. 각 슬롯에 대해 `DurableManagementStorage`와 같은 새 앱 설정을 만듭니다. 해당 값을 다른 저장소 계정의 연결 문자열로 설정 합니다. 이러한 저장소 계정은 [안정적으로 실행](durable-functions-checkpointing-and-replay.md)하기 위해 Durable Functions 확장에서 사용 됩니다. 각 슬롯에 별도의 저장소 계정을 사용 합니다. 이 설정을 배포 슬롯 설정으로 표시 하지 마세요.
+1. For each slot, create a new app setting, for example, `DurableManagementStorage`. Set its value to the connection string of different storage accounts. These storage accounts are used by the Durable Functions extension for [reliable execution](durable-functions-checkpointing-and-replay.md). Use a separate storage account for each slot. Don't mark this setting as a deployment slot setting.
 
-1. 함수 앱의 [microsoft.azure.webjobs.extensions.durabletask 섹션](durable-functions-bindings.md#hostjson-settings)에서 3 단계에서 만든 앱 설정의 이름으로 `azureStorageConnectionStringName`를 지정 합니다.
+1. In your function app's [host.json file's durableTask section](durable-functions-bindings.md#hostjson-settings), specify `azureStorageConnectionStringName` as the name of the app setting you created in step 3.
 
-다음 다이어그램에서는 배포 슬롯과 저장소 계정의 설명 된 구성을 보여 줍니다. 이 잠재적 배포 전 시나리오에서 함수 앱의 버전 2는 프로덕션 슬롯에서 실행 되는 반면 버전 1은 스테이징 슬롯에 남아 있습니다.
+The following diagram shows the described configuration of deployment slots and storage accounts. In this potential predeployment scenario, version 2 of a function app is running in the production slot, while version 1 remains in the staging slot.
 
-![배포 슬롯 및 저장소 계정](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
+![Deployment slots and storage accounts](media/durable-functions-zero-downtime-deployment/deployment-slot.png)
 
-### <a name="hostjson-examples"></a>host. json 예
+### <a name="hostjson-examples"></a>host.json examples
 
-다음 JSON 조각은 *호스트 json* 파일에 있는 연결 문자열 설정의 예입니다.
+The following JSON fragments are examples of the connection string setting in the *host.json* file.
 
-#### <a name="functions-20"></a>함수 2.0
+#### <a name="functions-20"></a>Functions 2.0
 
 ```json
 {
@@ -92,9 +89,9 @@ Durable Functions의 [안정적인 실행 모델](durable-functions-checkpointin
 }
 ```
 
-### <a name="cicd-pipeline-configuration"></a>CI/CD 파이프라인 구성
+### <a name="cicd-pipeline-configuration"></a>CI/CD pipeline configuration
 
-함수 앱에 보류 중이거나 실행 중인 오케스트레이션 인스턴스가 없는 경우에만 배포 하도록 CI/CD 파이프라인을 구성 합니다. Azure Pipelines를 사용 하는 경우 다음 예제와 같이 이러한 조건을 확인 하는 함수를 만들 수 있습니다.
+Configure your CI/CD pipeline to deploy only when your function app has no pending or running orchestration instances. When you're using Azure Pipelines, you can create a function that checks for these conditions, as in the following example:
 
 ```csharp
 [FunctionName("StatusCheck")]
@@ -113,68 +110,68 @@ public static async Task<IActionResult> StatusCheck(
 }
 ```
 
-다음으로, 오케스트레이션이 실행 되 고 있지 않을 때까지 대기 하도록 준비 게이트를 구성 합니다. 자세한 내용은 [게이트를 사용 하 여 배포 제어 릴리스](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) 를 참조 하세요.
+Next, configure the staging gate to wait until no orchestrations are running. For more information, see [Release deployment control using gates](/azure/devops/pipelines/release/approvals/gates?view=azure-devops)
 
-![배포 게이트](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
+![Deployment gate](media/durable-functions-zero-downtime-deployment/deployment-gate.png)
 
-Azure Pipelines는 배포를 시작 하기 전에 함수 앱에서 오케스트레이션 인스턴스를 실행 하는지 확인 합니다.
+Azure Pipelines checks your function app for running orchestration instances before your deployment starts.
 
-![배포 게이트 (실행 중)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
+![Deployment gate (running)](media/durable-functions-zero-downtime-deployment/deployment-gate-2.png)
 
-이제 새 버전의 함수 앱을 스테이징 슬롯에 배포 해야 합니다.
+Now the new version of your function app should be deployed to the staging slot.
 
-![스테이징 슬롯](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
+![Staging slot](media/durable-functions-zero-downtime-deployment/deployment-slot-2.png)
 
-마지막으로 슬롯을 교환 합니다. 
+Finally, swap slots. 
 
-배포 슬롯 설정으로 표시 되지 않은 응용 프로그램 설정도 교환 되므로 버전 2 앱은 저장소 계정 A에 대 한 참조를 유지 합니다. 오케스트레이션 상태는 저장소 계정에서 추적 되므로 버전 2 앱에서 실행 되는 오케스트레이션은 중단 없이 새 슬롯에서 계속 실행 됩니다.
+Application settings that aren't marked as deployment slot settings are also swapped, so the version 2 app keeps its reference to storage account A. Because orchestration state is tracked in the storage account, any orchestrations running on the version 2 app continue to run in the new slot without interruption.
 
 ![배포 슬롯](media/durable-functions-zero-downtime-deployment/deployment-slot-3.png)
 
-두 슬롯에 동일한 저장소 계정을 사용 하려면 작업 허브의 이름을 변경할 수 있습니다. 이 경우 슬롯의 상태와 앱의 HubName 설정을 관리 해야 합니다. 자세히 알아보려면 [Durable Functions의 작업 허브](durable-functions-task-hubs.md)를 참조 하세요.
+To use the same storage account for both slots, you can change the names of your task hubs. In this case, you need to manage the state of your slots and your app's HubName settings. To learn more, see [Task hubs in Durable Functions](durable-functions-task-hubs.md).
 
-## <a name="application-routing"></a>응용 프로그램 라우팅
+## <a name="application-routing"></a>Application routing
 
-이 전략은 가장 복잡 합니다. 그러나 오케스트레이션 실행 사이에 시간이 없는 함수 앱에도 사용할 수 있습니다.
+This strategy is the most complex. However, it can be used for function apps that don't have time between running orchestrations.
 
-이 전략의 경우 Durable Functions 앞에 *응용 프로그램 라우터* 를 만들어야 합니다. Durable Functions를 사용 하 여이 라우터를 구현할 수 있습니다. 라우터는 다음과 같은 역할을 합니다.
+For this strategy, you must create an *application router* in front of your Durable Functions. This router can be implemented with Durable Functions. The router has the responsibility to:
 
-* 함수 앱을 배포 합니다.
-* Durable Functions 버전을 관리 합니다. 
-* 오케스트레이션 요청을 함수 앱에 라우팅합니다.
+* Deploy the function app.
+* Manage the version of Durable Functions. 
+* Route orchestration requests to function apps.
 
-오케스트레이션 요청이 처음 수신 될 때 라우터는 다음 작업을 수행 합니다.
+The first time an orchestration request is received, the router does the following tasks:
 
-1. Azure에서 새 함수 앱을 만듭니다.
-2. 함수 앱의 코드를 Azure의 새 함수 앱에 배포 합니다.
-3. 오케스트레이션 요청을 새 앱으로 전달 합니다.
+1. Creates a new function app in Azure.
+2. Deploys your function app's code to the new function app in Azure.
+3. Forwards the orchestration request to the new app.
 
-라우터는 Azure의 함수 앱에 배포 되는 앱 코드 버전의 상태를 관리 합니다.
+The router manages the state of which version of your app's code is deployed to which function app in Azure.
 
-![응용 프로그램 라우팅 (첫 번째 시간)](media/durable-functions-zero-downtime-deployment/application-routing.png)
+![Application routing (first time)](media/durable-functions-zero-downtime-deployment/application-routing.png)
 
-라우터는 요청과 함께 전송 된 버전에 따라 적절 한 함수 앱에 배포 및 오케스트레이션 요청을 보냅니다. 패치 버전을 무시 합니다.
+The router directs deployment and orchestration requests to the appropriate function app based on the version sent with the request. It ignores the patch version.
 
-주요 변경 내용 없이 새 버전의 앱을 배포 하는 경우 패치 버전을 증가 시킬 수 있습니다. 라우터는 기존 함수 앱에 배포 되 고 동일한 함수 앱에 라우팅되는 코드의 이전 버전 및 새 버전에 대 한 요청을 보냅니다.
+When you deploy a new version of your app without a breaking change, you can increment the patch version. The router deploys to your existing function app and sends requests for the old and new versions of the code, which are routed to the same function app.
 
-![응용 프로그램 라우팅 (주요 변경 내용 없음)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
+![Application routing (no breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-2.png)
 
-주요 변경 내용으로 새 버전의 앱을 배포할 때 주 버전 또는 부 버전을 증가 시킬 수 있습니다. 그런 다음 응용 프로그램 라우터는 Azure에서 새로운 함수 앱을 만들어 배포 하 고 앱의 새 버전에 대 한 요청을 라우팅합니다. 다음 다이어그램에서는 1.0.1 버전의 앱에서 오케스트레이션을 실행 하는 것은 계속 실행 되지만 1.1.0 버전에 대 한 요청은 새 함수 앱으로 라우팅됩니다.
+When you deploy a new version of your app with a breaking change, you can increment the major or minor version. Then the application router creates a new function app in Azure, deploys to it, and routes requests for the new version of your app to it. In the following diagram, running orchestrations on the 1.0.1 version of the app keep running, but requests for the 1.1.0 version are routed to the new function app.
 
-![응용 프로그램 라우팅 (주요 변경)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
+![Application routing (breaking change)](media/durable-functions-zero-downtime-deployment/application-routing-3.png)
 
-라우터는 1.0.1 버전에서 오케스트레이션의 상태를 모니터링 하 고 모든 오케스트레이션이 완료 된 후에 앱을 제거 합니다. 
+The router monitors the status of orchestrations on the 1.0.1 version and removes apps after all orchestrations are finished. 
 
-### <a name="tracking-store-settings"></a>추적 저장소 설정
+### <a name="tracking-store-settings"></a>Tracking store settings
 
-각 함수 앱은 별도의 저장소 계정으로 별도의 일정 큐를 사용 해야 합니다. 모든 버전의 응용 프로그램에서 모든 오케스트레이션 인스턴스를 쿼리하려면 함수 앱에서 인스턴스 및 기록 테이블을 공유할 수 있습니다. 동일한 값을 사용 하도록 `trackingStoreConnectionStringName` 및 `trackingStoreNamePrefix` 설정을 구성 하 여 [호스트 json 설정](durable-functions-bindings.md#host-json) 파일에서 테이블을 공유할 수 있습니다.
+Each function app should use separate scheduling queues, possibly in separate storage accounts. If you want to query all orchestrations instances across all versions of your application, you can share instance and history tables across your function apps. You can share tables by configuring the `trackingStoreConnectionStringName` and `trackingStoreNamePrefix` settings in the [host.json settings](durable-functions-bindings.md#host-json) file so that they all use the same values.
 
-자세한 내용은 [Azure에서 Durable Functions 인스턴스 관리](durable-functions-instance-management.md)를 참조 하세요.
+For more information, see [Manage instances in Durable Functions in Azure](durable-functions-instance-management.md).
 
-![추적 저장소 설정](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
+![Tracking store settings](media/durable-functions-zero-downtime-deployment/tracking-store-settings.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [버전 관리 Durable Functions](durable-functions-versioning.md)
+> [Versioning Durable Functions](durable-functions-versioning.md)
 

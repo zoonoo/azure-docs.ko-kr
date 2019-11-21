@@ -1,6 +1,6 @@
 ---
-title: Azure Data Factory를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
-description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 로드 합니다.
+title: Incrementally copy new files based on time partitioned file name
+description: Create an Azure data factory and then use the Copy Data tool to incrementally load new files only based on time partitioned file name.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -12,17 +12,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 273aaaa2ac51f75edfad6da03d6720f58b7c3c47
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683455"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74217443"
 ---
-# <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
+# <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>Incrementally copy new files based on time partitioned file name by using the Copy Data tool
 
-이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. 그런 다음 데이터 복사 도구를 사용 하 여 Azure Blob storage에서 Azure blob storage로의 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사 하는 파이프라인을 만듭니다. 
+이 자습서에서는 Azure Portal을 사용하여 데이터 팩터리를 만듭니다. Then, you use the Copy Data tool to create a pipeline that incrementally copies new files based on time partitioned file name from Azure Blob storage to Azure Blob storage. 
 
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
@@ -30,29 +31,29 @@ ms.locfileid: "73683455"
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* **Azure storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
+* **Azure storage account**: Use Blob storage as the _source_  and _sink_ data store. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
-### <a name="create-two-containers-in-blob-storage"></a>Blob 저장소에 두 개의 컨테이너 만들기
+### <a name="create-two-containers-in-blob-storage"></a>Create two containers in Blob storage
 
-이러한 단계를 수행 하 여 자습서에 대 한 Blob 저장소를 준비 합니다.
+Prepare your Blob storage for the tutorial by performing these steps.
 
-1. **Source**라는 컨테이너를 만듭니다.  컨테이너에서 **2019/02/26/14** 로 폴더 경로를 만듭니다. 빈 텍스트 파일을 만들고 파일 이름을 **file1 .txt**로 합니다. 저장소 계정에서 폴더 경로 **원본/2019/02/26/14** 로 file1을 업로드 합니다.  [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
+1. Create a container named **source**.  Create a folder path as **2019/02/26/14** in your container. Create an empty text file, and name it as **file1.txt**. Upload the file1.txt to the folder path **source/2019/02/26/14** in your storage account.  [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
     
     ![파일 업로드](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/upload-file.png)
     
     > [!NOTE]
-    > UTC 시간으로 폴더 이름을 조정 하세요.  예를 들어 현재 UTC 시간이 26 일, 2019에서 2:03 PM 인 경우 **원본/{Year}/{Month}/{Day}/{Hour}/** 의 규칙으로 폴더 경로를 **source/2019/02/26/14/** 로 만들 수 있습니다.
+    > Please adjust the folder name with your UTC time.  For example, if the current UTC time is 2:03 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/14/** by the rule of **source/{Year}/{Month}/{Day}/{Hour}/** .
 
-2. **Destination**이라는 컨테이너를 만듭니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
+2. Create a container named **destination**. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
@@ -88,73 +89,73 @@ ms.locfileid: "73683455"
 
 ## <a name="use-the-copy-data-tool-to-create-a-pipeline"></a>데이터 복사 도구를 사용하여 파이프라인 만들기
 
-1. **시작** 하기 페이지에서 **데이터 복사** 제목을 선택 하 여 데이터 복사 도구를 시작 합니다. 
+1. On the **Let's get started** page, select the **Copy Data** title to launch the Copy Data tool. 
 
    ![데이터 복사 도구 타일](./media/doc-common-process/get-started-page.png)
    
-2. **속성** 페이지에서 다음 단계를 수행 합니다.
+2. On the **Properties** page, take the following steps:
 
-    a. **작업 이름**아래에서 **DeltaCopyFromBlobPipeline**을 입력 합니다.
+    a. Under **Task name**, enter **DeltaCopyFromBlobPipeline**.
 
-    b. **작업 흐름 또는 작업 일정**에서 **일정에 따라 정기적으로 실행**을 선택 합니다.
+    b. Under **Task cadence or Task schedule**, select **Run regularly on schedule**.
 
-    c. **트리거 유형**에서 **연속 창**을 선택 합니다.
+    다. Under **Trigger type**, select **Tumbling Window**.
     
-    ㄹ. **되풀이**에서 **1 시간**을 입력 합니다. 
+    d. Under **Recurrence**, enter **1 Hour(s)** . 
     
-    e. **다음**을 선택합니다. 
+    ㅁ. **다음**을 선택합니다. 
     
     Data Factory UI에서 지정한 작업 이름이 있는 파이프라인을 만듭니다. 
 
     ![속성 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png)
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    a. **+ 새 연결 만들기**를 클릭 하 여 연결을 추가 합니다.
+    a. Click  **+ Create new connection**, to add a connection.
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
     
-    b. 갤러리에서 **Azure Blob Storage** 을 선택 하 고 **계속**을 클릭 합니다.
+    b. Select **Azure Blob Storage** from the gallery, and then click **Continue**.
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
-    c. **새 연결 된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 하 고 **마침**을 클릭 합니다.
+    다. On the **New Linked Service** page, select your storage account from the **Storage account name** list, and then click **Finish**.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
-    ㄹ. 새로 만든 연결 된 서비스를 선택 하 고 **다음**을 클릭 합니다. 
+    d. Select the newly created linked service, then click **Next**. 
     
    ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-linkedservice.png)
 4. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 수행합니다.
     
-    a. **원본** 컨테이너를 찾아 선택한 다음 선택을 선택 **합니다.**
+    a. Browse and select the **source** container, then select **Choose**.
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
     
-    b. **파일 로드 동작**에서 **증분 로드: 시간 분할 된 폴더/파일 이름**을 선택 합니다.
+    b. Under **File loading behavior**, select **Incremental load: time-partitioned folder/file names**.
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    c. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 형식으로 변경 합니다.
+    다. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/** , and change the format as followings:
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
-    ㄹ. **이진 복사** 를 선택 하 고 **다음**을 클릭 합니다.
+    d. Check **Binary copy** and click **Next**.
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/check-binary-copy.png)     
-5. **대상 데이터 저장소** 페이지에서 데이터 원본 저장소와 동일한 저장소 계정인 **azureblobstorage**를 선택 하 고 **다음**을 클릭 합니다.
+5. On the **Destination data store** page, select the **AzureBlobStorage**, which is the same storage account as data source store, and then click **Next**.
 
     ![대상 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png) 
-6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 수행 합니다.
+6. On the **Choose the output file or folder** page, do the following steps:
     
-    a. **대상** 폴더를 찾아서 선택 하 **고 선택을 클릭 합니다**.
+    a. Browse and select the **destination** folder, then click **Choose**.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
-    b. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 형식으로 변경 합니다.
+    b. Write the dynamic folder path as **source/{year}/{month}/{day}/{hour}/** , and change the format as followings:
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. **다음**을 누릅니다.
+    다. **다음**을 누릅니다.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. **설정** 페이지에서 **다음**을 선택합니다. 
@@ -165,38 +166,38 @@ ms.locfileid: "73683455"
     ![요약 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/summary-page.png)
     
 9. **배포 페이지**에서 **모니터**를 선택하여 파이프라인(작업)을 모니터링합니다.
-    ![배포 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
+    ![Deployment page](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/deployment-page.png)
     
-10. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다.  파이프라인 실행이 자동으로 트리거될 때까지 대기 해야 합니다 (약 1 시간 후).  **작업** 열은 실행 될 때 작업 실행 세부 정보를 보고 파이프라인을 다시 실행할 수 있는 링크를 포함 합니다. **새로 고침** 을 선택 하 여 목록을 새로 고치고 **작업** 열에서 **활동 실행 보기** 링크를 선택 합니다. 
+10. 왼쪽의 **모니터** 탭이 자동으로 선택됩니다.  You need wait for the pipeline run when it is triggered automatically (about after one hour).  When it runs, the **Actions** column includes links to view activity run details and to rerun the pipeline. Select **Refresh** to refresh the list, and select the **View Activity Runs** link in the **Actions** column. 
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs1.png)
-11. 파이프라인에는 하나의 활동(복사 활동)만 있으므로 하나의 항목만 표시됩니다. 원본 **/2019/02/26/14/** to **destination/2019/02/26/14** /에서 동일한 파일 이름으로 복사 된 원본 파일 (file1 .txt)을 볼 수 있습니다.  
+11. 파이프라인에는 하나의 활동(복사 활동)만 있으므로 하나의 항목만 표시됩니다. You can see the source file (file1.txt) has been copied from  **source/2019/02/26/14/**  to **destination/2019/02/26/14/** with the same file name.  
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Azure Storage 탐색기 (https://storageexplorer.com/)를 사용 하 여 파일을 검사 하 여 동일한를 확인할 수도 있습니다.
+    You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files.
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
-12. 새 이름이 **file2 .txt**인 다른 빈 텍스트 파일을 만듭니다. 저장소 계정에서 파일 경로 **원본/2019/02/26/15** 폴더에 file2 파일을 업로드 합니다.   [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
+12. Create another empty text file with the new name as **file2.txt**. Upload the file2.txt file to the folder path **source/2019/02/26/15** in your storage account.   [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs4.png)
     
     > [!NOTE]
-    > 새 폴더 경로를 만들어야 하는 것을 알 수 있습니다. UTC 시간으로 폴더 이름을 조정 하세요.  예를 들어 현재 UTC 시간이 26 일, 2019에서 3:20 PM 이면 **{Year}/{Month}/{Day}/{Hour}/** 규칙에 따라 **source/2019/02/26/15/** 로 폴더 경로를 만들 수 있습니다.
+    > You might be aware that a new folder path is required to be created. Please adjust the folder name with your UTC time.  For example, if the current UTC time is 3:20 PM on Feb 26th, 2019, you can create the folder path as **source/2019/02/26/15/** by the rule of **{Year}/{Month}/{Day}/{Hour}/** .
     
-13. **파이프라인 실행** 보기로 돌아가려면 **모든 파이프라인 실행**을 선택 하 고 한 시간 후에 자동으로 동일한 파이프라인이 트리거될 때까지 기다립니다.  
+13. To go back to the **Pipeline Runs** view, select **All Pipelines Runs**, and wait for the same pipeline being triggered again automatically after another one hour.  
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs5.png)
 
-14. 두 번째 파이프라인 실행에 대해 **작업 실행 보기** 를 선택 하 고, 동일한 작업을 수행 하 여 세부 정보를 검토 합니다.  
+14. Select **View Activity Run** for the second pipeline run when it comes, and do the same to review details.  
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs6.png)
     
-    소스 파일 (file2 .txt)이 **원본/2019/02/26/15/** 에서 대상/i n t/02/ **26/15** /로 복사 되었으므로 동일한 파일 이름을 사용 하는 것을 볼 수 있습니다.
+    You can see the source file (file2.txt) has been copied from  **source/2019/02/26/15/**  to **destination/2019/02/26/15/** with the same file name.
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Azure Storage 탐색기 (https://storageexplorer.com/)를 사용 하 여 동일한를 확인할 수도 있습니다. **대상** 컨테이너에서 파일을 검색 하려면
+    You can also verify the same by using Azure Storage Explorer (https://storageexplorer.com/) to scan the files in **destination** container
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

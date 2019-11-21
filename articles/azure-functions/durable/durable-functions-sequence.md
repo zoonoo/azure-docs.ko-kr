@@ -1,20 +1,16 @@
 ---
 title: 지속성 함수의 함수 체이닝 - Azure
 description: 일련의 함수를 실행하는 지속성 함수 샘플을 실행하는 방법에 대해 알아봅니다.
-services: functions
 author: cgillum
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 133169c659328fa4f713eb4b75bc460dee7a3f76
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: e8c314b6288bc26ad48fd210e866b2b67e433e17
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614683"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231334"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>지속성 함수의 함수 체이닝 - Hello 시퀀스 샘플
 
@@ -31,10 +27,10 @@ ms.locfileid: "73614683"
 * `E1_HelloSequence`: 시퀀스에서 `E1_SayHello`를 여러 번 호출하는 오케스트레이터 함수입니다. `E1_SayHello` 호출의 출력을 저장하고 결과를 기록합니다.
 * `E1_SayHello`: 문자열 앞에 "Hello"가 추가되는 작업 함수입니다.
 
-다음 섹션에서는 스크립팅 및 JavaScript에 C# 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+The following sections explain the configuration and code that is used for C# scripting and JavaScript. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 > [!NOTE]
-> JavaScript Durable Functions는 함수 2.0 런타임에만 사용할 수 있습니다.
+> JavaScript Durable Functions are available for the Functions 2.0 runtime only.
 
 ## <a name="e1_hellosequence"></a>E1_HelloSequence
 
@@ -47,7 +43,7 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 중요한 것은 `orchestrationTrigger` 바인딩 형식입니다. 오케스트레이터 함수는 모두 이 트리거 형식을 사용해야 합니다.
 
 > [!WARNING]
-> 오케스트레이터 함수의 "I/O 없음" 규칙을 준수하려면 `orchestrationTrigger` 트리거 바인딩을 사용할 때 입력 또는 출력 바인딩을 사용하지 마세요.  다른 입력 또는 출력 바인딩이 필요하면 오케스트레이터에서 호출하는 `activityTrigger` 함수의 컨텍스트에서 대신 사용해야 합니다. 자세한 내용은 [orchestrator 함수 코드 제약 조건](durable-functions-code-constraints.md) 문서를 참조 하세요.
+> 오케스트레이터 함수의 "I/O 없음" 규칙을 준수하려면 `orchestrationTrigger` 트리거 바인딩을 사용할 때 입력 또는 출력 바인딩을 사용하지 마세요.  다른 입력 또는 출력 바인딩이 필요하면 오케스트레이터에서 호출하는 `activityTrigger` 함수의 컨텍스트에서 대신 사용해야 합니다. For more information, see the [orchestrator function code constraints](durable-functions-code-constraints.md) article.
 
 ### <a name="c-script-visual-studio-code-and-azure-portal-sample-code"></a>C# 스크립트(Visual Studio Code 및 Azure Portal 샘플 코드)
 
@@ -55,29 +51,29 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_HelloSequence/run.csx)]
 
-모든 C# 오케스트레이션 함수에는 `DurableOrchestrationContext` 어셈블리에 있는 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 유형 매개 변수가 있어야 합니다. C# 스크립트를 사용하는 경우 `#r` 표기법을 사용하여 어셈블리를 참조할 수 있습니다. 이 컨텍스트 개체를 사용 하면 `CallActivityAsync` 메서드를 사용 하 여 다른 *작업* 함수를 호출 하 고 입력 매개 변수를 전달할 수 있습니다.
+모든 C# 오케스트레이션 함수에는 `Microsoft.Azure.WebJobs.Extensions.DurableTask` 어셈블리에 있는 `DurableOrchestrationContext` 유형 매개 변수가 있어야 합니다. C# 스크립트를 사용하는 경우 `#r` 표기법을 사용하여 어셈블리를 참조할 수 있습니다. This context object lets you call other *activity* functions and pass input parameters using its `CallActivityAsync` method.
 
 코드에서는 여러 매개 변수 값을 사용하여 `E1_SayHello`을 순서대로 세 번 호출합니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
 
-### <a name="javascript"></a>JavaScript
+### <a name="javascript"></a>Javascript
 
 소스 코드는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_HelloSequence/index.js)]
 
-모든 JavaScript 오케스트레이션 함수는 [`durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함해야 합니다. JavaScript에 Durable Functions를 쓸 수 있도록 하는 라이브러리입니다. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
+모든 JavaScript 오케스트레이션 함수는 [`durable-functions` 모듈](https://www.npmjs.com/package/durable-functions)을 포함해야 합니다. It's a library that enables you to write Durable Functions in JavaScript. 오케스트레이션 함수 및 다른 JavaScript 함수 사이에는 다음과 같은 세 가지 중요한 차이점이 있습니다.
 
 1. 함수가 [생성기 함수](https://docs.microsoft.com/scripting/javascript/advanced/iterators-and-generators-javascript)입니다.
 2. 함수가 `durable-functions` 모듈의 `orchestrator` 호출에 래핑됩니다(여기서는 `df`).
 3. 동기 함수여야 합니다. '오케스트레이터' 메서드가 'context.done' 호출을 처리하므로 함수는 단순히 '반환'만 하면 됩니다.
 
-`context` 개체는 다른 `df`작업*함수를 호출하고 해당* 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `callActivity` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
+`context` 개체는 다른 *작업* 함수를 호출하고 해당 `callActivity` 메서드를 사용하여 입력 매개 변수를 전달할 수 있는 `df` 개체를 포함합니다. 코드는 다른 매개 변수 값을 사용하여 `E1_SayHello`를 순차적으로 3번 호출하고, `yield`를 사용하여 비동기 작업 함수 호출이 반환될 때까지 실행을 대기해야 함을 나타냅니다. 각 호출의 반환 값은 함수의 끝에서 반환되는 `outputs` 목록에 추가됩니다.
 
 ## <a name="e1_sayhello"></a>E1_SayHello
 
 ### <a name="functionjson-file"></a>function.json 파일
 
-*작업 함수에 대한*function.json`E1_SayHello` 파일은 `E1_HelloSequence` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `orchestrationTrigger`의 것과 비슷합니다.
+`E1_SayHello` 작업 함수에 대한 *function.json* 파일은 `orchestrationTrigger` 바인딩 형식 대신 `activityTrigger` 바인딩 형식을 사용한다는 점을 제외하고는 `E1_HelloSequence`의 것과 비슷합니다.
 
 [!code-json[Main](~/samples-durable-functions/samples/csx/E1_SayHello/function.json)]
 
@@ -90,13 +86,13 @@ Visual Studio Code 또는 Azure Portal을 사용하여 개발하는 경우 오�
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E1_SayHello/run.csx)]
 
-이 함수에는 `CallActivityAsync<T>`에 대 한 orchestrator 함수의 호출로 전달 된 입력을 가져오는 데 사용 하는 `DurableActivityContext`형식의 매개 변수가 있습니다.
+This function has a parameter of type `DurableActivityContext`, which it uses to get the input that was passed to it by the orchestrator function's call to `CallActivityAsync<T>`.
 
 ### <a name="javascript"></a>JavaScript
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E1_SayHello/index.js)]
 
-JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `context.bindings` 바인딩 이름(이 경우 `activityTrigger`) 아래의 `context.bindings.name` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
+JavaScript 오케스트레이션 함수와 달리, 작업 함수는 특별한 설정이 필요 없습니다. 오케스트레이터 함수에 의해 전달되는 입력은 `activityTrigger` 바인딩 이름(이 경우 `context.bindings.name`) 아래의 `context.bindings` 개체에 있습니다. 바인딩 이름은 내보낸 함수의 매개 변수로 설정되고 직접 액세스될 수 있습니다. 샘플 코드는 이 작업을 수행합니다.
 
 ## <a name="run-the-sample"></a>샘플 실행
 
@@ -107,7 +103,7 @@ POST http://{host}/orchestrators/E1_HelloSequence
 ```
 
 > [!NOTE]
-> 이전 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `host.json` 접두사를 제거하는 항목이 `api/` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
+> 이전 HTTP 코드 조각에서는 모든 HTTP 트리거 함수 URL에서 기본 `api/` 접두사를 제거하는 항목이 `host.json` 파일에 있다고 가정합니다. 샘플의 `host.json` 파일에서 이 구성에 대한 변경 내용을 찾을 수 있습니다.
 
 예를 들어 "myfunctionapp"이라는 함수 앱에서 샘플을 실행하는 경우 "{host}"를 "myfunctionapp.azurewebsites.net"으로 바꿉니다.
 
@@ -143,7 +139,7 @@ Content-Type: application/json; charset=utf-8
 > [!NOTE]
 > 오케스트레이터 함수를 시작한 HTTP POST 엔드포인트는 샘플 앱에서 "HttpStart"라는 HTTP 트리거 함수로 구현됩니다. `queueTrigger`, `eventHubTrigger` 또는 `timerTrigger`와 같은 다른 트리거 형식에 대해 비슷한 시작 논리를 구현할 수 있습니다.
 
-함수 실행 로그를 검토합니다. [오케스트레이션 안정성](durable-functions-orchestrations.md#reliability) 항목에 설명 된 재생 동작으로 인해 `E1_HelloSequence` 함수를 여러 번 시작 하 고 완료 했습니다. 반면에 이러한 함수 실행이 재생되지 않으므로 `E1_SayHello`는 3회만 실행되었습니다.
+함수 실행 로그를 검토합니다. The `E1_HelloSequence` function started and completed multiple times due to the replay behavior described in the [orchestration reliability](durable-functions-orchestrations.md#reliability) topic. 반면에 이러한 함수 실행이 재생되지 않으므로 `E1_SayHello`는 3회만 실행되었습니다.
 
 ## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
 

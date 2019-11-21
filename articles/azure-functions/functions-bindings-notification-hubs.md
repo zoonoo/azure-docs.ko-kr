@@ -1,21 +1,16 @@
 ---
 title: Azure Functions에 대한 Notification Hubs 바인딩
 description: Azure Functions에서 Azure 알림 허브 바인딩을 사용하는 방법을 파악합니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: cde565fbafec7f1209d0c65d6f3ebc121f38e6f5
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 8bc7f879a2c2e8b1e0e2d82216241704a466ad60
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991387"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231133"
 ---
 # <a name="notification-hubs-output-binding-for-azure-functions"></a>Azure Functions에 대한 Notification Hubs 출력 바인딩
 
@@ -26,7 +21,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google은 [FCM (Firebase Cloud Messaging)를 위해 GCM (Google Cloud Messaging)을 사용 하지 않습니다](https://developers.google.com/cloud-messaging/faq). 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM를 사용 하 여 알림을 보내려면 함수에서 직접 [FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 를 사용 하거나 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)사용 합니다.
+> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 

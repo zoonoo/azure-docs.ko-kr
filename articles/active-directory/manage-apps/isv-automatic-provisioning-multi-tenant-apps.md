@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory 다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
-description: 자동화 된 프로 비전을 사용 하도록 설정 하는 독립 소프트웨어 공급 업체를 위한 가이드
+title: Enable automatic user provisioning for multi-tenant applications - Azure AD
+description: A guide for independent software vendors for enabling automated provisioning
 services: active-directory
 documentationcenter: azure
 author: BarbaraSelden
@@ -15,108 +15,108 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429457"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232308"
 ---
-# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
+# <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Enable automatic user provisioning for your multi-tenant application
 
-자동 사용자 프로 비전은 software as (software as a service) 응용 프로그램과 같은 대상 시스템에서 사용자 id의 생성, 유지 관리 및 제거를 자동화 하는 프로세스입니다.
+Automatic user provisioning is the process of automating the creation, maintenance, and removal of user identities in target systems like your software-as-a-service applications.
 
-## <a name="why-enable-automatic-user-provisioning"></a>자동 사용자 프로비저닝을 사용 해야 하는 이유
+## <a name="why-enable-automatic-user-provisioning"></a>Why enable automatic user provisioning?
 
-사용자의 첫 번째 로그인에서 사용자를 프로 비전 해야 하기 전에 사용자 레코드가 응용 프로그램에 있어야 하는 응용 프로그램입니다. 서비스 공급자와 고객에 게 누릴 수 있는 이점이 있습니다.
+Applications that require that a user record is present in the application before a user’s first sign in require user provisioning. There are benefits to you as a service provider, and benefits to your customers.
 
-### <a name="benefits-to-you-as-the-service-provider"></a>서비스 공급자의 혜택
+### <a name="benefits-to-you-as-the-service-provider"></a>Benefits to you as the service provider
 
-* Microsoft id 플랫폼을 사용 하 여 응용 프로그램의 보안을 강화 합니다.
+* Increase the security of your application by using the Microsoft identity platform.
 
-* 응용 프로그램을 도입 하기 위해 실제 및 인식 되는 고객의 노력을 줄입니다.
+* Reduce actual and perceived customer effort to adopt your application.
 
-* SCIM (도메인 간 Id 관리) 기반 프로 비전을 위해 시스템을 사용 하 여 자동 사용자 프로 비전을 위해 여러 id 공급자 (IdPs)와 통합 하는 비용을 줄입니다.
+* Reduce your costs in integrating with multiple identity providers (IdPs) for automatic user provisioning by using System for Cross-Domain Identity Management (SCIM)-based provisioning.
 
-* 고객이 사용자 프로 비전 문제를 해결 하는 데 도움이 되는 풍부한 로그를 제공 하 여 지원 비용을 줄입니다.
+* Reduce support costs by providing rich logs to help customers troubleshoot user provisioning issues.
 
-* [AZURE AD 앱 갤러리](https://azuremarketplace.microsoft.com/marketplace/apps)에서 응용 프로그램의 표시 여부를 높입니다.
+* Increase the visibility of your application in the [Azure AD app gallery](https://azuremarketplace.microsoft.com/marketplace/apps).
 
-* 앱 자습서 페이지에서 우선 순위가 지정 된 목록을 가져옵니다.
+* Get a prioritized listing in the App Tutorials page.
 
-### <a name="benefits-to-your-customers"></a>고객에 대 한 혜택
+### <a name="benefits-to-your-customers"></a>Benefits to your customers
 
-* 응용 프로그램에 대 한 액세스 권한을 자동으로 제거 하 여 역할을 변경 하거나 응용 프로그램에 대 한 구성을 유지 하 여 보안을 강화 합니다.
+* Increase security by automatically removing access to your application for users who change roles or leave the organization to your application.
 
-* 수동 프로 비전과 관련 된 인적 오류 및 반복적인 작업을 방지 하 여 응용 프로그램에 대 한 사용자 관리를 간소화 합니다.
+* Simplify user management for your application by avoiding human error and repetitive work associated with manual provisioning.
 
-* 사용자 지정 개발 된 프로 비전 솔루션을 호스트 하 고 유지 관리 하는 비용을 줄입니다.
+* Reduce the costs of hosting and maintaining custom-developed provisioning solutions.
 
-## <a name="choose-a-provisioning-method"></a>프로비저닝 방법 선택
+## <a name="choose-a-provisioning-method"></a>Choose a provisioning method
 
-Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 사용할 수 있도록 여러 통합 경로를 제공 합니다.
+Azure AD provides several integration paths to enable automatic user provisioning for your application.
 
-* [AZURE Ad 프로 비전 서비스](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 는 azure ad에서 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 (아웃 바운드 프로 비전) 및 응용 프로그램에서 azure ad로 (인바운드 프로 비전)를 관리 합니다. 서비스는 응용 프로그램에서 제공 하는 SCIM (도메인 간 Id 관리) 사용자 관리 API 끝점에 대 한 시스템에 연결 합니다.
+* The [Azure AD Provisioning Service](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) manages the provisioning and deprovisioning of users from Azure AD to your application (outbound provisioning) and from your application to Azure AD (inbound provisioning). The service connects to the System for Cross-Domain Identity Management (SCIM) user management API endpoints provided by your application.
 
-* [Microsoft Graph](https://docs.microsoft.com/graph/)사용 하는 경우 응용 프로그램은 Microsoft Graph API를 쿼리하여 Azure AD에서 응용 프로그램에 대 한 사용자 및 그룹의 인바운드 및 아웃 바운드 프로 비전을 관리 합니다.
+* When using the [Microsoft Graph](https://docs.microsoft.com/graph/), your application manages inbound and outbound provisioning of users and groups from Azure AD to your application by querying the Microsoft Graph API.
 
-* 응용 프로그램에서 페더레이션에 SAML를 사용 하는 경우에는 SAML JIT (Security Assertion Markup Language Just-in-time) 사용자 프로 비전을 사용 하도록 설정할 수 있습니다. SAML 토큰에 전송 된 클레임 정보를 사용 하 여 사용자를 프로 비전 합니다.
+* The Security Assertion Markup Language Just in Time (SAML JIT) user provisioning can be enabled if your application is using SAML for federation. It uses claims information sent in the SAML token to provision users.
 
-응용 프로그램에 사용할 통합 옵션을 확인 하려면 상위 수준 비교 표를 참조 하 고 각 옵션에 대 한 자세한 정보를 확인 하십시오.
+To help determine which integration option to use for your application, refer to the high-level comparison table, and then see the more detailed information on each option.
 
-| 자동 프로비저닝을 사용 하도록 설정 또는 향상 된 기능| Azure AD 프로 비전 서비스 (SCIM 2.0)| Microsoft Graph API (OData v 4.0)| SAML JIT |
+| Capabilities enabled or enhanced by Automatic Provisioning| Azure AD Provisioning Service (SCIM 2.0)| Microsoft Graph API (OData v4.0)| SAML JIT |
 |---|---|---|---|
-| Azure AD의 사용자 및 그룹 관리| √| √| 사용자만 |
-| 온-프레미스 Active Directory에서 동기화 된 사용자 및 그룹 관리| √| √| 사용자만 해당 * |
-| O365 데이터 (팀, SharePoint, 전자 메일, 일정, 문서 등)에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터에 액세스| X +| √| X |
-| 비즈니스 규칙에 따라 사용자 만들기, 읽기 및 업데이트| √| √| √ |
-| 비즈니스 규칙에 따라 사용자 삭제| √| √| X |
-| Azure Portal의 모든 응용 프로그램에 대 한 자동 사용자 프로 비전 관리| √| X| √ |
-| 여러 id 공급자 지원| √| X| √ |
-| 게스트 계정 지원 (B2B)| √| √| √ |
-| 엔터프라이즈가 아닌 계정 지원 (B2C)| X| √| √ |
+| User and group management in Azure AD| √| √| User only |
+| Manage users and groups synced from on-premises Active Directory| √*| √*| User only* |
+| Access data beyond users and groups during provisioning Access to O365 data (Teams, SharePoint, Email, Calendar, Documents, etc.)| X+| √| X |
+| Create, read, and update users based on business rules| √| √| √ |
+| Delete users based on business rules| √| √| X |
+| Manage automatic user provisioning for all applications from the Azure portal| √| X| √ |
+| Support multiple identity providers| √| X| √ |
+| Support guest accounts (B2B)| √| √| √ |
+| Support non-enterprise accounts (B2C)| X| √| √ |
 
-<sup>*</sup> – Ad에서 Azure ad로 사용자를 동기화 하려면 설치 프로그램을 Azure AD Connect 해야 합니다.  
-<sup>+</sup >– 프로 비전에 scim을 사용 하는 경우 다른 용도로 MIcrosoft Graph와 응용 프로그램을 통합 하는 것을 배제 하지 않습니다.
+<sup>*</sup> – Azure AD Connect setup is required to sync users from AD to Azure AD.  
+<sup>+</sup >– Using SCIM for provisioning does not preclude you from integrating your application with MIcrosoft Graph for other purposes.
 
-## <a name="azure-ad-provisioning-service-scim"></a>Azure AD 프로 비전 서비스 (SCIM)
+## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning Service (SCIM)
 
-Azure AD 프로 비전 서비스는 다양 한 id 공급자 (IdPs) 및 응용 프로그램 (예: 여유 시간, G Suite, Dropbox)에서 지원 되는 프로 비전을 위한 산업 표준인 [Scim](https://aka.ms/SCIMOverview)을 사용 합니다. Scim 호환 IdP SCIM 끝점에 연결할 수 있으므로 Azure AD 외에 IdPs를 지원 하려는 경우 Azure AD 프로 비전 서비스를 사용 하는 것이 좋습니다. 간단한/User 끝점을 빌드하면 사용자의 동기화 엔진을 유지 관리할 필요 없이 프로 비전을 사용 하도록 설정할 수 있습니다. 
+The Azure AD provisioning services uses [SCIM](https://aka.ms/SCIMOverview), an industry standard for provisioning supported by many identity providers (IdPs) as well as applications (e.g. Slack, G Suite, Dropbox). We recommend you use the Azure AD provisioning service if you want to support IdPs in addition to Azure AD, as any SCIM-compliant IdP can connect to your SCIM endpoint. Building a simple /User endpoint, you can enable provisioning without having to maintain your own sync engine. 
 
-Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 내용은 다음을 참조 하세요. 
+For more information on how the Azure AD Provisioning Service users SCIM, see: 
 
-* [SCIM 표준에 대 한 자세한 정보](https://aka.ms/SCIMOverview)
+* [Learn more about the SCIM standard](https://aka.ms/SCIMOverview)
 
-* [도메인 간 Id 관리 (SCIM)에 시스템을 사용 하 여 Azure Active Directory에서 응용 프로그램으로 사용자 및 그룹 자동으로 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
-* [Azure AD SCIM 구현 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Understand the Azure AD SCIM implementation](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
-## <a name="microsoft-graph-for-provisioning"></a>프로 비전을 위한 Microsoft Graph
+## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph for Provisioning
 
-프로 비전에 Microsoft Graph를 사용 하는 경우 Graph에서 사용할 수 있는 모든 리치 사용자 데이터에 액세스할 수 있습니다. 사용자 및 그룹의 세부 정보 외에도 사용자의 역할, 관리자 및 부하 직원, 소유 및 등록 된 장치, [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0)에서 사용할 수 있는 수백 개의 기타 데이터 부분과 같은 추가 정보를 가져올 수 있습니다. 
+When you use Microsoft Graph for provisioning, you have access to all the rich user data available in Graph. In addition to the details of users and groups, you can also fetch additional information like the user’s roles, manager and direct reports, owned and registered devices, and hundreds of other data pieces available in the [Microsoft Graph](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0). 
 
-1500만 개 이상의 조직 및 fortune 500 회사의 90%는 Office 365, Microsoft Azure, Enterprise Mobility Suite 또는 Microsoft 365와 같은 Microsoft 클라우드 서비스를 구독 하는 동안 Azure AD를 사용 합니다. Microsoft Graph를 사용 하 여 직원 온 보 딩 (종료), 프로필 유지 관리 등의 관리 워크플로와 앱을 통합할 수 있습니다. 
+More than 15 million organizations, and 90% of fortune 500 companies use Azure AD while subscribing to Microsoft cloud services like Office 365, Microsoft Azure, Enterprise Mobility Suite, or Microsoft 365. You can use Microsoft Graph to integrate your app with administrative workflows, such as employee onboarding (and termination), profile maintenance, and more. 
 
-프로 비전에 Microsoft Graph를 사용 하는 방법에 대해 자세히 알아보세요.
+Learn more about using Microsoft Graph for provisioning:
 
-* [Microsoft Graph 홈페이지](https://developer.microsoft.com/graph)
+* [Microsoft Graph Home page](https://developer.microsoft.com/graph)
 
 * [Microsoft Graph 개요](https://docs.microsoft.com/graph/overview)
 
-* [Microsoft Graph Auth 개요](https://docs.microsoft.com/graph/auth/)
+* [Microsoft Graph Auth Overview](https://docs.microsoft.com/graph/auth/)
 
-* [Microsoft Graph 시작](https://developer.microsoft.com/graph/get-started)
+* [Getting started with Microsoft Graph](https://developer.microsoft.com/graph/get-started)
 
-## <a name="using-saml-jit-for-provisioning"></a>프로 비전에 SAML JIT 사용
+## <a name="using-saml-jit-for-provisioning"></a>Using SAML JIT for provisioning
 
-응용 프로그램에 처음 로그인 할 때만 사용자를 프로 비전 하려는 경우 사용자를 자동으로 프로 비전 해제 하지 않아도 되는 경우 SAML JIT는 옵션입니다. 응용 프로그램은 saml JIT를 사용 하는 페더레이션 프로토콜로 SAML 2.0을 지원 해야 합니다.
+If you want to provision users only upon first sign in to your application, and do not need to automatically deprovision users, SAML JIT is an option. Your application must support SAML 2.0 as a federation protocol to use SAML JIT.
 
-SAML JIT는 SAML 토큰의 클레임 정보를 사용 하 여 응용 프로그램에서 사용자 정보를 만들고 업데이트 합니다. 고객은 필요에 따라 Azure AD 응용 프로그램에서 이러한 필수 클레임을 구성할 수 있습니다. 경우에 따라 고객이이 기능을 사용할 수 있도록 응용 프로그램 쪽에서 JIT 프로 비전을 사용 하도록 설정 해야 합니다. SAML JIT는 사용자를 만들고 업데이트 하는 데 유용 하지만 응용 프로그램에서 사용자를 삭제 하거나 비활성화할 수 없습니다.
+SAML JIT uses the claims information in the SAML token to create and update user information in the application. Customers can configure these required claims in the Azure AD application as needed. Sometimes the JIT provisioning needs to be enabled from the application side so that customer can use this feature. SAML JIT is useful for creating and updating users, but it can't delete or deactivate the users in the application.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [응용 프로그램에 Single Sign-on 사용](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [Enable Single Sign-on for your application](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
 
-* Microsoft의 사이트에 대 한 설명서를 만들려면 [응용 프로그램 목록과](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) 파트너를 Microsoft에 제출 하세요.
+* [Submit your application listing](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) and partner with Microsoft to create documentation on Microsoft’s site.
 
-* [Microsoft 파트너 네트워크 (무료)에 참여 하 고 시장 출시 계획을 만듭니다](https://partner.microsoft.com/en-us/explore/commercial).
+* [Join the Microsoft Partner Network (free) and create your go to market plan](https://partner.microsoft.com/en-us/explore/commercial).

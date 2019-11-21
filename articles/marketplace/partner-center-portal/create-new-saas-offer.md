@@ -1,50 +1,50 @@
 ---
-title: 상업적 Marketplace에서 새 SaaS 제품 만들기
-description: Microsoft 파트너 센터에서 상용 Marketplace 포털을 사용 하 여 Azure Marketplace, AppSource 또는 CSP (클라우드 솔루션 공급자) 프로그램을 통해 나열 하거나 판매 하기 위해 새 SaaS (Software as a Service) 제품을 만드는 방법입니다.
+title: Create a new SaaS offer in the Commercial Marketplace
+description: How to create a new Software as a Service (SaaS) offer for listing or selling in the Azure Marketplace, AppSource, or through the Cloud Solution Provider (CSP) program using the Commercial Marketplace portal on Microsoft Partner Center.
 author: ChJenk
 manager: evansma
 ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: a6694d094d185ad70cce8c546e12f48afb69f1ae
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.date: 11/19/2019
+ms.openlocfilehash: 12372c1f00e994382338adf9bd078018ba702da1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076954"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213354"
 ---
-# <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
+# <a name="create-a-new-saas-offer"></a>Create a new SaaS offer
 
-SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트너 센터 계정을 만들고](./create-account.md) **개요** 탭을 선택 하 여 [상용 마켓플레이스 대시보드](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)를 열어야 합니다.
+To begin creating Software as a Service (SaaS) offers, ensure that you first [Create a Partner Center account](./create-account.md) and open the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/offers), with the **Overview** tab selected.
 
-![파트너 센터의 상용 마켓플레이스 대시보드](./media/new-offer-overview.png)
+![Commercial Marketplace dashboard on Partner Center](./media/new-offer-overview.png)
 
 >[!Note]
-> 제품이 게시 되 면 파트너 센터에서 만든 제품에 대 한 편집 내용은 시스템 에서만 업데이트 되 고 다시 게시 된 후에도 저장 됩니다. 변경을 수행한 후 게시에 대 한 제품을 제출 했는지 확인 하세요.
+> Once an offer has been published, edits to the offer made in Partner Center will only be updated in the system and store fronts after re-publishing. Please ensure that you submit the offer for publication after you make changes.
 
-\+ **새 제품** 을 선택 합니다. 단추를 클릭 한 다음, 서비스 메뉴 항목 **으로 소프트웨어** 를 선택 합니다. 
+Select the + **New offer…** button, then select the **Software as a Service** menu item. 
 
-다른 제품 유형을 선택 하면 이전 [Cloud 파트너 포털](https://cloudpartner.azure.com/)으로 리디렉션될 수 있습니다. 현재는 파트너 센터의 상용 Marketplace 포털에서 SaaS 및 Dynamics 365 제공만 사용할 수 있습니다.
+If you select another offer type, you may be redirected to the older [Cloud Partner Portal](https://cloudpartner.azure.com/). Only SaaS and Dynamics 365 offers are available in the Commercial Marketplace portal on Partner Center at this time.
 
-![파트너 센터에서 제안 창 만들기](./media/new-offer-click.png)
+![Create offer window on Partner Center](./media/new-offer-click.png)
 
-**새 제품** 대화 상자가 표시 됩니다. 
+The **New offer** dialog box is displayed. 
 
-![새 제품 대화 상자](./media/new-offer-popup.png)
+![New offer dialog box](./media/new-offer-popup.png)
 
-## <a name="offer-id-and-alias"></a>제품 ID 및 별칭
+## <a name="offer-id-and-alias"></a>Offer ID and alias
 
-- **제품 ID**: 계정의 각 제품에 대 한 고유 식별자입니다. 이 ID는 marketplace 제품 및 Azure Resource Manager 템플릿 (해당 하는 경우)에 대 한 URL 주소의 고객에 게 표시 됩니다. 제품 ID는 소문자, 영숫자 (하이픈 및 밑줄을 포함 하 고 공백 없음) 이어야 합니다. 이는 50 자로 제한 되며, *만들기*를 선택한 후에는 변경할 수 없습니다.  
-예: 테스트-제품-1
-<br>결과 URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+- **Offer ID**: Unique identifier for each offer in your account. This ID will be visible to customers in the URL address for the marketplace offer and Azure Resource Manager templates (if applicable). Offer ID must be lowercase, alphanumeric (including hyphens and underscores, but no whitespace). This is limited to 50 characters and can't be changed after you select *Create*.  
+Example: test-offer-1
+<br>Resulting in the URL: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **제품 별칭**: 파트너 센터 포털 내에서 제품을 참조 하는 데 사용 되는 이름입니다. 이 이름은 marketplace에서 사용 되지 않으며 고객에 게 표시 되는 *제품 이름* 및 기타 값과 다릅니다. *만들기*를 선택한 후에는이 값을 변경할 수 없습니다.
+- **Offer alias**: The name used to refer to the offer within the Partner Center portal. This name won't be used in the marketplace and is different than the *Offer Name* and other values that will be shown to customers. This value can't be changed after you select *Create*.
 
-<br>예: 테스트 제안 1&#8482;
+<br>Example: Test Offer 1&#8482;
 
-**만들기**를 선택합니다.  이 제품에 대 한 **제품 개요** 페이지가 생성 됩니다.  
+**만들기**를 선택합니다.  An **Offer overview** page is created for this offer.  
 
 <!---
 ![Offer overview on Partner Center](./media/commercial-marketplace-offer-overview.png)
@@ -52,167 +52,167 @@ SaaS (Software as a Service) 제품을 만들기 시작 하려면 먼저 [파트
 
 ## <a name="offer-overview"></a>제품 개요
 
-**제품 개요** 페이지에는 다음이 포함 됩니다. 
+The **Offer overview** page includes: 
 
-- **게시 상태** 는이 제품을 게시 하는 데 필요한 단계를 시각적으로 표시 하 고 각 단계를 완료 하는 데 걸리는 시간을 표시 합니다. 불완전 한 게시 단계 아이콘은 회색으로 표시 됩니다. 
+- The **Publishing status** displays a visual representation of the steps required to publish this offer and how long each step will take to complete. Incomplete publishing step icons will be greyed out. 
 
-- **제안 개요** 메뉴에는이 제품에 대 한 작업을 수행 하기 위한 링크 목록이 포함 되어 있습니다. 이 작업 목록은 제품에 대해 선택한 내용에 따라 변경 됩니다.  
-    - 제안이 초안 삭제 초안이 면 
-    - 제품이 실시간 판매 중지 제품 인 경우 
-    - 제품이 미리 보기 상태 이면 라이브로 전환 합니다. 
-    - 게시자 로그 아웃을 완료 하지 않은 경우 게시 취소
+- The **Offer overview** menu contains a list of links for performing operations on this offer. This list of operations will change based on the selection you make for your offer.  
+    - If the offer is a draft - Delete draft 
+    - If the offer is live - Stop sell offer 
+    - If the offer is in preview - Go-live 
+    - If you haven't completed publisher sign out - Cancel publish
 
-## <a name="offer-setup"></a>제품 설정
+## <a name="offer-setup"></a>Offer setup
 
-**제품 설정** 탭에서 다음 정보를 요청 합니다. 이러한 필드를 완료 한 후 **저장** 을 선택 합니다.
+The **Offer setup** tab asks for the following information. Select **Save** after completing these fields.
 
-- **Microsoft를 통해 판매 하 시겠습니까?** (예/아니요)
-    - **예**, microsoft를 대신 하 여 microsoft 호스팅 marketplace 트랜잭션을 사용 하 여 제품을 판매 하 고 싶습니다. 디스크나 
-    - **아니요**. 마켓플레이스을 통해 제품을 나열 하 고 Microsoft와는 독립적으로 통화 트랜잭션을 처리 하는 것이 좋습니다.    
+- **Would you like to sell through Microsoft?** (Yes/No)
+    - **Yes**, you would like to sell your offer through Microsoft, with Microsoft hosting marketplace transactions on your behalf; or 
+    - **No**, you would prefer to just list your offer through the marketplaces, processing any monetary transactions independently of Microsoft.    
 
 ### <a name="sell-through-microsoft"></a>Microsoft를 통해 판매
 
-Microsoft를 통해 판매 되는 고객 검색 및 취득은 Microsoft에서 사용자를 대신 하 여 marketplace 트랜잭션을 호스트 하 고 Microsoft의 전 세계적으로 사용 가능한 상거래 기능을 활용할 수 있도록 하는 것입니다.
+Selling through Microsoft provides better customer discovery and acquisition, allows Microsoft to host marketplace transactions on your behalf, and takes advantage of Microsoft's globally available commerce capabilities.
 
-#### <a name="saas-offer-requirements"></a>SaaS 제품 요구 사항
+#### <a name="saas-offer-requirements"></a>SaaS offer requirements
 
-파트너 센터에서 상업적 Marketplace를 사용 하 여 SaaS (Software as a Service) 제품을 나열 하려면 다음 조건을 충족 해야 합니다.
+In order to list Software as a Service (SaaS) offers with Commercial Marketplace on Partner Center, the following criteria must be met:
 
-- 사용자 제품은 id 관리 및 인증을 위해 [Azure Active Directory (AZURE AD)](https://azure.microsoft.com/services/active-directory/) 를 사용 해야 합니다.
-- 제품에서 SaaS 처리 [api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) 를 사용 하 여 Azure Marketplace와 통합 해야 합니다.
-- 더 광범위 한 요구 사항은 [SaaS 제품 게시 가이드](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)를 참조 하세요.
+- Your offer must use [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) for identity management and authentication.
+- Your offer must use [SaaS Fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) to integrate with the Azure Marketplace.
+- For more extensive requirements, see the [SaaS Offer Publishing Guide](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-#### <a name="saas-pricing-and-billing-options"></a>SaaS 가격 및 청구 옵션
-SaaS 솔루션을 게시자의 Azure 구독에서 실행 하는 경우 고객이 지불 하는 라이선스 요금은 소프트웨어를 배포 하는 인프라 비용을 포함 합니다. Azure 인프라 사용은 사용자, 파트너, 직접 관리 및 청구 됩니다. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. 게시자는 Azure 인프라 사용 요금을 소프트웨어 라이선스 가격으로 번들 해야 합니다. 
+#### <a name="saas-pricing-and-billing-options"></a>SaaS pricing and billing options
+With SaaS solutions running in the publisher's Azure subscription, license fees paid by customers include the cost of the infrastructure upon which the software is deployed. Azure infrastructure usage is managed and billed to you, the partner, directly. 실제 인프라 사용 요금은 고객에게 표시되지 않습니다. Publishers should bundle Azure infrastructure usage fees into their software license pricing. 
 
-SaaS는 요금제 청구 서비스를 사용 하 여 정액 요금, 사용자 당 요금 또는 소비 요금을 기준으로 월별 또는 연간 요금 청구를 지원 합니다. Microsoft의 상용 marketplace는 에이전시 모델에서 작동 합니다. 즉, 게시자가 가격을 설정 하 고, Microsoft 청구서 고객을 원천 하 고, Microsoft는 고객 요금을 지불 하는 동시에 게시자에 게 수익을
+SaaS offers support monthly or annual billing based on a flat fee, per user, or consumption charges using the metered billing service. Microsoft's commercial marketplace operates on an agency model, whereby publishers set prices, Microsoft bills customers, and Microsoft pays revenue to the publisher while withholding an agency fee.
 
-다음 표에서는 에이전시 모델을 보여 주기 위해 비용 및 지급의 분할 예를 보여 줍니다.
+The following table shows an example break down of costs and payouts to demonstrate the agency model.
 
-|**라이선스 비용**|**$100/월**|
+|**Your license cost**|**$100 per month**|
 |:---|:---|
 |Azure 사용량 비용(D1/1개 코어)|고객이 아닌 게시자에게 직접 청구됩니다.|
-|Microsoft에서 청구 하는 고객|월 $100.00 (게시자는 라이선스 요금으로 발생 하거나 통과 한 인프라 비용을 고려해 야 함)|
+|Customer is billed by Microsoft|$100.00 per month (Publisher must account for any incurred or pass-through infrastructure costs in the license fee)|
 
-|**Microsoft에 청구되는 요금**|**$100/월**|
+|**Microsoft에 청구되는 요금**|**$100 per month**|
 |:---|:---|
-|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>*Microsoft는 공인 SaaS 앱에 대 한 *라이선스 비용의 90%를 지불* 합니다.|매월 $80.00 <br>월 90.00 *$* *|
+|Microsoft는 라이선스 비용의 80%를 지불합니다. <br>**For qualified SaaS apps, Microsoft pays 90% of your license cost*|매월 $80.00 <br>*$* 90.00 per month*|
 
-- 이 예제에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 고객에 게 $100.00를 청구 하 고 게시자에 게 $80.00을 지불 합니다.
-- **줄어든 Marketplace 서비스 요금** 으로 한정 된 파트너는 2019 년 5 월 2020 일까 야 년 5 월부터 SaaS 제품에 대 한 트랜잭션 요금이 감소 하는 것을 볼 수 있습니다. 이 시나리오에서 Microsoft는 귀하의 소프트웨어 라이선스에 대해 $100.00를 청구 하 고 게시자에 게 $90.00을 지불 합니다.
-
-> [!NOTE]
-> **Marketplace 서비스 요금 절감**: 상업적 marketplace에 게시 한 특정 SaaS 제품의 경우 Microsoft는 Microsoft 게시자 계약에 설명 된 대로 20%에서 Marketplace 서비스 요금을 10%까지 줄일 수 있습니다. 제안을 받으려면 Microsoft에서 하나 이상의 제품을 IP 공동 판매 준비 또는 IP 공동 판매 우선 순위로 지정 해야 합니다.  해당 월에 대해이 감소 한 Marketplace 서비스 요금을 받으려면 각 월이 끝날 때까지 영업일 (5) 이상 이어야 합니다.  낮은 Marketplace 서비스 요금은 Vm, 관리 되는 앱 또는 상용 Marketplace를 통해 제공 되는 기타 제품에는 적용 되지 않습니다.  줄어든 Marketplace 서비스 요금은 2020 년 5 월 1 일부 터 2019 년 6 월 30 일 사이 Microsoft에서 수집한 라이선스 요금에 대 한 한정 된 제품에만 제공 됩니다.  이 시간 후에 Marketplace 서비스 요금은 일반적인 금액으로 반환 됩니다. 
-
-### <a name="list-through-microsoft"></a>Microsoft의 목록
-
-Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. Microsoft가 아닌 제품을 나열 하도록 선택 하는 것은 Microsoft가 소프트웨어 라이선스 트랜잭션에 직접 참여 하지 않는다는 것을 의미 합니다. 연결 된 트랜잭션 요금은 없으며 게시자는 고객 으로부터 수집 된 소프트웨어 라이선스 수수료의 100%를 유지 합니다. 그러나 게시자는 주문 처리, 계량, 청구, 청구, 지불 및 수집을 비롯 하 여 소프트웨어 라이선스 트랜잭션의 모든 측면을 지원 해야 합니다. 
-
-- **잠재 고객이이 목록 제공 서비스와 상호 작용 하 게 하려면 어떻게 해야 하나요?**
-
-##### <a name="get-it-now-free"></a>지금 받기 (무료)
-앱에 액세스할 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 무료로 제공 합니다.  예: `https://contoso.com/saas-app`
-
-##### <a name="free-trial-listing"></a>무료 평가판 (목록)
-[AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예를 들어 `https://contoso.com/trial/saas-app`을 참조하십시오. 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
+- In this example, Microsoft bills $100.00 to the customer for your software license and pays out $80.00 to the publisher.
+- Partners who have qualified for the **Reduced Marketplace Service Fee** will see a reduced transaction fee on the SaaS offers from May 2019 until June 2020. In this scenario, Microsoft bills $100.00 for your software license and pays out $90.00 to the publisher.
 
 > [!NOTE]
-> 평가판 링크를 통해 응용 프로그램에서 수신 하는 토큰은 Azure AD를 통해 사용자 정보를 가져와서 앱에서 계정 만들기를 자동화 하는 데만 사용할 수 있습니다. 이 토큰을 사용 하는 인증에는 MSA (Microsoft 계정)가 지원 되지 않습니다.
+> **Reduced Marketplace Service Fee**: For certain SaaS offers that you have published on our Commercial Marketplace, Microsoft will reduce its Marketplace Service Fee from 20% (as described in the Microsoft Publisher Agreement) to 10%. In order for your offer to qualify, at least one of your offers must have been designated by Microsoft as being either IP co-sell ready or IP co-sell prioritized.  Eligibility must be met at least five (5) business days before the end of each calendar month in order to receive this reduced Marketplace Service Fee for the month.  The Reduced Marketplace Service Fee does not apply to VMs, Managed Apps or any other products made available through our Commercial Marketplace.  The Reduced Marketplace Service Fee will only be available to qualified offers for license charges collected by Microsoft between May 1, 2019 and June 30, 2020.  After this time, the Marketplace Service Fee will return to its normal amount. 
+
+### <a name="list-through-microsoft"></a>List through Microsoft
+
+Promote your business with Microsoft by creating a marketplace listing. Selecting to list your offer only and not transact through Microsoft means that Microsoft doesn't participate directly in software license transactions. There is no associated transaction fee and the publisher keeps 100% of any software licensing fees collected from the customer. However, the publisher is responsible for supporting all aspects of the software license transaction, including but not limited to: order fulfillment, metering, billing, invoicing, payment, and collection. 
+
+- **How do you want potential customers to interact with this listing offer?**
+
+##### <a name="get-it-now-free"></a>Get it now (free)
+List your offer to customers for free by providing a valid URL (beginning with *http* or *https*) where they can access your app.  예: `https://contoso.com/saas-app`
+
+##### <a name="free-trial-listing"></a>Free trial (listing)
+List your offer to customers with a link to a free trial by providing a valid URL (beginning with *http* or *https*), where they can get a trial through [one-click authentication by using Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials).  예: `https://contoso.com/trial/saas-app`. Offer listing free trials are created, managed, and configured by your service and do not have subscriptions managed by Microsoft.
+
+> [!NOTE]
+> The tokens your application will receive through your trial link can only be used to obtain user information through Azure AD to automate account creation in your app. Microsoft Accounts (MSA) are not supported for authentication using this token.
 
 ##### <a name="contact-me"></a>연락처
-CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보를 수집 합니다. 고객에 게 정보를 공유할 수 있는 권한을 요청 하는 메시지가 표시 됩니다. 제품을 찾은 제품 이름, ID 및 marketplace 원본과 함께 이러한 고객 세부 정보는 구성 된 CRM 시스템으로 전송 됩니다. CRM을 구성 하는 방법에 대 한 자세한 내용은 [연결 리드 management](#connect-lead-management)를 참조 하세요. 
+Collect customer contact information by connecting your Customer Relationship Management (CRM) system. The customer will be asked for permission to share their information. These customer details, along with the offer name, ID, and marketplace source where they found your offer, will be sent to the CRM system that you've configured. For more information about configuring your CRM, see [Connect lead management](#connect-lead-management). 
 
-## <a name="example-marketplace-offer-listing"></a>Marketplace 제품 목록 예
+## <a name="example-marketplace-offer-listing"></a>Example marketplace offer listing
 
-![노트를 사용 하는 예제 marketplace 제품 목록](./media/marketplace-offer.svg)
+![Example marketplace offer listing with notes](./media/marketplace-offer.svg)
 
 ## <a name="enable-a-test-drive"></a>시험 사용을 사용하도록 설정
 
-시험 사용한 고객에 게 제품을 고객에 게 제공 하는 좋은 방법은 ' 구매 전 시도 '를 선택 하 여 변환 및 높은 우량 잠재 고객을 생성 하는 옵션을 제공 하는 것입니다. [테스트 드라이브에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
+A test drive is a great way to showcase your offer to potential customers by giving them the option to 'try before you buy', resulting in increased conversion and the generation of highly qualified leads. [Learn more about test drives.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **테스트 드라이브 사용** (확인란)
+- **Enable a test drive** (checkbox)
 
-테스트 드라이브를 사용 하도록 설정 하면 고객이 고정 기간 동안 제품을 사용해 볼 수 있도록 시연 환경을 구성 하 라는 메시지가 표시 됩니다. 
+By enabling test drive, you will be asked to configure a demonstration environment for customers to try your offer for a fixed period of time. 
 
-### <a name="type-of-test-drive"></a>테스트 드라이브의 유형입니다.
+### <a name="type-of-test-drive"></a>Type of test drive
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용 합니다.
-- **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft는 회사 중앙 엔터프라이즈 리소스 계획 시스템 (재무, 운영, 공급망, CRM 등)에 대해 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스트 하 고 유지 관리 합니다.  
-- **[Dynamics 365 For Customer engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft는 고객 참여 시스템 (판매, 서비스, 프로젝트 서비스, 현장 서비스 등)에 대해 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스팅하고 유지 관리 합니다.  
-- **[운영에 대 한 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft는 재무 및 운영 enterprise 리소스 계획 시스템 (재무, 운영, 제조, 공급망 등)에 대 한 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스트 하 고 유지 관리 합니다. 
-- **[논리 앱](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : 모든 복합 솔루션 아키텍처를 포괄 하는 배포 템플릿입니다. 모든 사용자 지정 제품은이 유형의 테스트 드라이브를 사용 해야 합니다.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : 사용자 지정 작성 된 대시보드에 대 한 포함 링크입니다. 대화형 Power BI 시각적 개체를 시연 하려는 제품은이 유형의 테스트 드라이브를 사용 해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : A deployment template that contains all the Azure resources that comprise your solution. Products that fit this scenario use only Azure resources.
+- **[Dynamics 365 for Business Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Business Central enterprise resource planning system (finance, operations, supply chain, CRM, etc.).  
+- **[Dynamics 365 for Customer Engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Customer Engagement system (sales, service, project service, field service, etc.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft hosts and maintains the test drive service (including provisioning and deployment) for a Finance and Operations enterprise resource planning system (finance, operations, manufacturing, supply chain, etc.). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : A deployment template encompassing all complex solution architectures. Any custom products should use this type of Test Drive.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : An embedded link to a custom-built dashboard. Products that want to demonstrate an interactive Power BI visual should use this type of Test Drive. 포함된 Power BI URL만 업로드하면 됩니다.
 
-#### <a name="additional-test-drive-resources"></a>추가 테스트 드라이브 리소스
-- [테스트 드라이브 기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
-- [테스트 드라이브 마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
-- [시험 드라이브 개요 1 호출기](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
+#### <a name="additional-test-drive-resources"></a>Additional test drive resources
+- [Test Drive Technical Best Practices](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Test Drive Marketing Best Practices](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
+- [Test Drive Overview One Pager](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
 
-## <a name="connect-lead-management"></a>리드 관리 연결
+## <a name="connect-lead-management"></a>Connect lead management
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
-#### <a name="additional-lead-management-resources"></a>추가 리드 관리 리소스
-- [리드 관리 Faq](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
-- [일반적인 리드 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
-- [리드 관리 개요 1 호출기](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
+#### <a name="additional-lead-management-resources"></a>Additional lead management resources
+- [잠재 고객 관리 FAQ](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
+- [일반적인 잠재 고객 구성 오류](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#common-lead-configuration-errors-during-publishing-on-cloud-partner-portal)
+- [Lead Management Overview One Pager](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf)
 
-다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
+Remember to **Save** before moving on to the next section!
 
-## <a name="properties"></a>속성
-**속성** 탭에서는 마켓플레이스에서 제품을 그룹화 하는 데 사용 되는 범주와 산업, 제품을 지 원하는 법적 계약 및 앱 버전을 정의 하 라는 메시지가 표시 됩니다. 
+## <a name="properties"></a>properties
+The **Properties** tab asks you to define the categories and industries used to group your offer on the marketplaces, the legal contracts supporting your offer, and your app version. 
 
-이러한 필드를 완료 한 후 **저장** 을 선택 합니다. 
+Select **Save** after completing these fields. 
 
-### <a name="category"></a>Category
-제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 하세요. 
+### <a name="category"></a>범주
+Select a minimum of one (1) and a maximum of three (3) categories used for grouping your offer into the appropriate marketplace search areas. Please call out how your offer supports these categories in the offer description. 
 
 ### <a name="industry"></a>산업
 
 [!INCLUDE [Industry Taxonomy](./includes/industry-taxonomy.md)]
 
 ### <a name="app-version"></a>앱 버전
-제품의 버전 번호를 식별 하기 위해 AppSource marketplace에서 사용 되는 선택적 필드입니다. 
+This is an optional field used in the AppSource marketplace to identify the version number of your offer. 
 
 ### <a name="standard-contract"></a>표준 계약
 
-- **표준 계약을 사용 하나요?**
+- **Use Standard Contract?**
 
-고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft에서는 marketplace에서 트랜잭션을 용이 하 게 하기 위해 표준 계약 템플릿을 제공 합니다. 
+To simplify the procurement process for customers and reduce legal complexity for software vendors, Microsoft offers a Standard Contract template in order to help facilitate a transaction in the marketplace. 
 
-Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다. 
+Rather than crafting custom terms and conditions, Azure Marketplace publishers can choose to offer their software under the Standard Contract, which customers only need to vet and accept once. 
 
-표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178에서 찾을 수 있습니다.
+The Standard Contract can be found here: https://go.microsoft.com/fwlink/?linkid=2041178.
 
-#### <a name="terms-of-use"></a>사용 약관
+#### <a name="terms-of-use"></a>사용 조건
 
-사용 조건이 표준 계약과 다른 경우 귀하의 법적 사용 약관을 여기에 입력 하도록 선택할 수 있습니다. 일반 텍스트로 입력 하거나 사용 조건에 연결 하는 단일 URL로 입력할 수 있습니다.
+If your license terms are different from the Standard Contract, you can elect to enter your own legal terms of use here. These can be entered as plain text or as a single URL linking to your license terms.
 
 고객은 이러한 사용 약관에 동의해야 앱을 사용할 수 있습니다. 
 
-다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
+Remember to **Save** before moving on to the next section!
 
-## <a name="offer-listing"></a>제품 목록
+## <a name="offer-listing"></a>Offer listing
 
-제품 목록 탭에는 제품을 사용할 수 있는 언어 (및 시장)가 표시 되 고 현재 영어 (미국)만 사용할 수 있는 위치입니다. 또한이 페이지에는 언어별 목록과 추가 된 날짜/시간의 상태가 표시 됩니다. 각 언어/시장에 대해 마켓플레이스 세부 정보 (제품 이름, 설명, 검색어 등)를 정의 해야 합니다.
+The Offer listing tab displays the languages (and markets) where your offer is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
 > [!NOTE]
-> 제품 설명, 문서, 스크린샷, 사용 약관 및 개인 정보 취급 방침 등 제품 목록 콘텐츠는 영어로 시작 하지 않아도 됩니다. "이 응용 프로그램은 [영어가 아닌 언어] 에서만 사용할 수 있습니다. 또한 제품 목록 콘텐츠에 사용 되는 것 이외의 언어로 콘텐츠를 제공 하는 *데 유용한 링크 URL* 을 제공 하는 것도 허용 됩니다.
+> Offer listing content (such as offer description, documents, screenshots, terms of use and privacy policy) is not required to be in English as long as the offer description begins with the phrase, "This application is available only in [non-English language]." It is also acceptable to provide a *Useful Link URL* to offer content in a language other than the one used in the Offer listing content.
 
 ### <a name="offer-listings"></a>제품 목록
 
-제품 및 마케팅 자산에 대 한 설명을 포함 하 여 marketplace에 표시 되는 세부 정보를 제공 합니다.
+Provide details to be displayed in the marketplace, including descriptions of your offer and marketing assets.
 
-- **이름** (필수): 여기에 정의 된 이름은 선택한 marketplace에서 제품의 제목으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다.  이는 상표 수 있습니다.  이는 사용자가 상표 및 저작권 기호인 경우를 제외 하 고는이 모 지를 포함 해서는 안 되며 50 자로 제한 되어야 합니다.
-- **요약** (필수): marketplace 목록 검색 결과에 사용할 제품에 대 한 간단한 설명을 제공 합니다. 이 필드에는 최대 100 자의 텍스트를 입력할 수 있습니다.
-- **설명** (필수): marketplace 목록에 표시 되는 제품에 대 한 설명을 제공 합니다. 가치 제안, 주요 이점, 범주 또는 업계 연결, 앱 내 구매 기회, 필요한 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
-이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)문서를 참조 하세요.
-- **검색 키워드**: 고객이 marketplace에서 제품을 찾는 데 사용할 수 있는 최대 3 개의 검색 키워드를 입력 합니다.
-- **시작 지침** (필수): 잠재적 고객에 대해 앱 사용을 구성 하 고 시작 하는 방법을 설명 합니다.  이 빠른 시작에는 보다 자세한 온라인 설명서에 대 한 링크가 포함 될 수 있습니다. 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 
+- **Name** (required): The name defined here will appear as the title of your offer listing on the marketplace(s) you have chosen. The name is prepopulated based on your previous **New offer** entry.  This may be trademarked.  This must not contain emojis (unless they are the trademark and copyright symbols) and must be limited to 50 characters.
+- **Summary** (required): Provide a short description of your offer to be used in marketplace listing(s) search results. Up to 100 characters of text can be entered in this field.
+- **Description** (required): Provide a description of your offer to be displayed in the marketplace listing(s) overview. Consider including a value proposition, key benefits, any category or industry associations, in-app purchase opportunities, any required disclosures, and a link to learn more.
+Up to 3,000 characters of text can be entered in this field. For additional tips, see the article [Write a great app description](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
+- **Search keywords**: Enter up to three search keywords that customers can use to find your offer in the marketplace(s).
+- **Getting started instructions** (required): Explain how to configure and start using your app for potential customers.  This quickstart can contain links to more detailed online documentation. Up to 3,000 characters of text can be entered in this field. 
 
 #### <a name="description"></a>**설명**
 
-이 이름은 반드시 입력해야 합니다. 설명에 포함할 항목: 
+This is a required field. Items to include in the description: 
 
 * 설명의 처음 몇 문장에서 제품의 가치 제안을 명확하게 설명합니다.  
 * 처음 몇 문장은 검색 엔진 결과에 표시될 수 있다는 점에 유의하세요.  
@@ -223,23 +223,23 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
 
 * 제품에 대한 설명입니다. 
 * 제품의 혜택을 받는 사용자 유형 
-* 고객이 요구 하거나 제품의 문제를 해결 합니다. 
+* Customer needs or pain that the product addresses. 
 
-제품 설명을 더 많이 활용 하려면 HTML 태그를 사용 하 여 설명의 서식을 지정할 수 있습니다. 
+To make your offer description more engaging you can use HTML tags to format the description. 
 
-1. 단락을 만들려면 텍스트 begging에 `<p>`을 추가 하 고 끝에 `</p>`를 추가 합니다.
+1. If you want to create paragraphs, add `<p>` at the begging of the text and add `</p>` at the end.
 
     **예제**: 
 
-    첫 번째 단락을 `<p>` 합니다. `</p>` <br>
-    `<p>`이 두 번째 단락입니다. `</p>` <br>
+    `<p>` This is my first paragraph. `</p>` <br>
+    `<p>` This is my second paragraph. `</p>` <br>
 
-    위는 다음과 같습니다.
+    The above would look like this:
 
-    <p> 첫 번째 단락입니다. </p>
-    <p> 이는 두 번째 단락입니다. </p>
+    <p> This is my first paragraph. </p>
+    <p> This is my second paragraph. </p>
 
-1. **항목의 글머리 기호 목록을**추가 하려면 아래 `<li>` 태그 안에 텍스트를 입력 합니다. `<ul>` 및 `</ul>` 태그 내에서 더 많은 글머리 기호 항목 (`<li>` 태그와 `</li>` 태그 사이에 있는 항목)을 복사 하 여 붙여 넣을 수 있습니다. `<ul></ul>`을 추가 했는지 확인 합니다. 
+1. If you want to add a **bulleted list of items**, place your text within the `<li>` tags below. You can copy and paste more bulleted items (items between the `<li>` and `</li>` tags) within the `<ul>` and `</ul>` tags. Make sure you add the `<ul></ul>`. 
 
     **예제**:
 
@@ -251,236 +251,236 @@ Azure Marketplace 게시자는 사용자 지정 약관을 만드는 대신 표�
     </ul> 
     ```
 
-    위는 다음과 같습니다.
+    The above would look like this:
     <ul> 
-        <li>여기에 텍스트 추가</li> 
-        <li> 여기에 텍스트 추가 </li> 
-        <li> 여기에 텍스트 추가 </li> 
+        <li>add text here</li> 
+        <li> add text here </li> 
+        <li> add text here </li> 
     </ul> 
 
-1. 내용을 **굵게** 표시 하려면 굵게 표시할 텍스트의 시작 부분에 `<b>`을 추가 하 고 굵게 표시할 텍스트의 끝에 `</b>`을 추가 합니다. 
+1. To **bold** content, add `<b>` at the beginning of the text you want to bold and add `</b>` at the end of the text you want to bold. 
 
-    **예**: `<b>` 무료 평가판 `</b>`
+    **Example**: `<b>` FREE TRIAL `</b>`
     
-    위의 방법으로 인해 storefront의 제품 설명에서 무료 평가판 이라는 단어가 굵게 표시 됩니다. 
+    The above would cause the words FREE TRIAL to be bolded in the description of the offer in the storefront. 
 
-    **무료 평가판**
+    **FREE TRIAL**
 
-1. 콘텐츠 사이에 **줄 바꿈을** 추가 하려면 새 줄에서 시작 하려는 콘텐츠 앞에 `<br>`를 추가 합니다. 공백을 두고 콘텐츠가 새 줄에서 시작 되도록 하려면 내용 앞에 `<br><br>`를 추가 합니다. 
-
-    **예제**:
-
-    텍스트 줄입니다. `<br>` 새 줄에서 시작 하는 텍스트 줄입니다. `<br><br>` 아래 두 줄을 시작 하는 줄입니다. 
-
-    위는 다음과 같습니다.
-
-    텍스트 줄입니다. <br> 새 줄에서 시작 하는 텍스트 줄입니다. <br><br> 아래 두 줄을 시작 하는 줄입니다. 
-
-1. **텍스트의 크기를 늘리려면**먼저 텍스트를 표시할 크기를 선택 합니다. 아래 예제를 사용 합니다. 텍스트의 크기를 선택한 후 해당 `<H*></H*>` 태그를 텍스트의 시작 부분 및 끝 부분에 추가 합니다. 
+1. To add **line breaks** between your content, add `<br>` before the content that you want to start on a new line. If you want to leave a space and make sure content starts on a new line, add `<br><br>` before the content. 
 
     **예제**:
 
-    `<h1>`제목 1`</h1>` <br>
-    `<h2>`제목 2`</h2>` <br>
-    제목 3 `<h3>``</h3>` <br>
-    `<h4>`제목 4`</h4>` <br>
-    `<h5>`제목 5`</h5>` <br>
-    `<h6>`제목 6`</h6>` 
+    This is a text line. `<br>` This is a text line that will start in a new line. `<br><br>` This is a line that will start two lines below. 
 
-    위는 다음과 같습니다.
+    The above would look like this:
 
-    ![샘플 제목](./media/heading.png)
+    This is a text line. <br> This is a text line that will start in a new line. <br><br> This is a line that will start two lines below. 
+
+1. If you want to **increase the size of the text**, first choose how big you want the text to be. Use the below examples. After you have selected the size of the text, add the corresponding `<H*></H*>` tags to the beginning and ending of the text. 
+
+    **예제**:
+
+    `<h1>`This is heading 1`</h1>` <br>
+    `<h2>`This is heading 2`</h2>` <br>
+    `<h3>`This is heading 3`</h3>` <br>
+    `<h4>`This is heading 4`</h4>` <br>
+    `<h5>`This is heading 5`</h5>` <br>
+    `<h6>`This is heading 6`</h6>` 
+
+    The above would look like this:
+
+    ![Sample headings](./media/heading.png)
 
 #### <a name="links"></a>링크
 
-- **개인 정보 취급 방침** (필수): 조직의 개인 정보 취급 방침에 대 한 링크입니다. 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 해야 합니다.
-- **Csp 프로그램 마케팅 자료** (선택 사항): 제품을 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) 프로그램으로 확장 하도록 선택 하는 경우 마케팅 자료에 대 한 링크를 제공 해야 합니다. CSP는 CSP 파트너가 제품을 번들, 시장 및 재판매 수 있도록 하 여 제품을 더 광범위 한 범위의 고객으로 확장 합니다. 이러한 대리점은 제품 마케팅에 대 한 자료에 액세스 해야 합니다. 자세한 내용은 [출시 전 서비스](https://partner.microsoft.com/reach-customers/gtm)를 참조 하세요.
-- **유용한 링크** (선택 사항): **제목** 및 **URL**을 제공 하 여 나열 된 앱 또는 관련 서비스에 대 한 선택적 보조 온라인 문서입니다. **+ URL 추가**를 클릭 하 여 유용한 링크를 더 추가 합니다.
+- **Privacy Policy** (required): Link to your organization's privacy policy. You are responsible for ensuring your app complies with privacy laws and regulations, and for providing a valid privacy policy
+- **CSP Program Marketing Materials** (optional): You must provide a link to marketing materials if you choose to extend your offer to the [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) program. CSP extends your offer to a broader range of qualified customers by enabling CSP partners to bundle, market, and resell your offer. These resellers will need access to materials for marketing your offer. For more information, see [Go-To-Market Services](https://partner.microsoft.com/reach-customers/gtm).
+- **Useful Links** (optional): Optional supplemental online documents about your app or related services listed by providing a **Title**  and  **URL**. Add additional useful links by clicking  **+ Add a URL**.
 
 #### <a name="contact-information"></a>연락처 정보
 
-- **연락처**: 각 고객 연락처에 대해 직원 **이름** , **전화 번호**및 **전자 메일** 주소를 제공 합니다.  이는 공개적으로 표시 *되지* 않습니다. 지원 **URL** 은 **지원 담당자** 그룹에도 필요 합니다.  이 정보 *는* 공개적으로 표시 됩니다.
+- **Contacts**: For each customer contact, provide an employee  **Name** ,  **Phone number**, and  **Email**  address.  (These *will not* be displayed publicly). A **Support URL**  is also required for the  **Support Contact**  group.  (This information *will* be displayed publicly).
 
-**지원 담당자** (필수): 일반 지원 질문의 경우
+**Support contact** (required): For general support questions.
 
-**엔지니어링 연락처** (필수): 기술 관련 질문입니다.
+**Engineering contact** (required): For technical questions.
 
-**채널 관리자 연락처** (필수): CSP 프로그램과 관련 된 재판매인 질문의 경우
+**Channel Manager contact** (required): For reseller questions related to the CSP program.
 
-#### <a name="files-and-images"></a>파일 및 이미지
+#### <a name="files-and-images"></a>Files and Images
 
-- **문서** (필수): 제품에 대 한 관련 마케팅 문서를 PDF 형식으로 추가 하 여 제품에 대 한 최소 1 개 (1) 및 최대 3 개의 문서를 제공 합니다.
-- **이미지** (선택 사항): 제품 로고 이미지가 marketplace 전체에 나타날 수 있으며, 크기는 작음: 48 x 48 픽셀 _(필수),_ 보통: 90 x 90 픽셀, 큼: 216 x 216 픽셀 _( 필수),_ 와이드: 255 x 115 픽셀 및 주인공: 815 x 290 픽셀 모든 이미지는에 있어야 합니다. PNG 형식입니다.
-- **스크린샷** (필수): 제품을 보여 주는 스크린샷 추가 최대 5 개 (5)의 스크린샷에 추가 될 수 있으며 1280 x 720 픽셀에 크기를 지정 해야 합니다. 모든 이미지는에 있어야 합니다. PNG 형식입니다.
-- **비디오** (선택 사항): 제품을 보여 주는 비디오에 대 한 링크를 추가 합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 비디오의 미리 보기 이미지를 입력 해야 합니다 .이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정 됩니다. 제품 당 최대 4 개의 비디오를 표시할 수 있습니다.
+- **Documents** (required): Add related marketing documents for your offer, in PDF format, providing a minimum of one (1) and maximum of three (3) documents per offer.
+- **Images** (optional): There are multiple places where your offer's logo images may appear throughout the marketplace(s), requiring the following sizes -- Small: 48 x 48 pixels _(required),_ Medium: 90 x 90 pixels, Large: 216 x 216 pixels _(required),_ Wide: 255 x 115 pixels, and Hero: 815 x 290 pixels. All images must be in .PNG format.
+- **Screenshots** (required): Add screenshots demonstrating your offer. A maximum of five (5) screenshots may be added and should be sized at 1280 x 720 pixels. All images must be in .PNG format.
+- **Videos** (optional): Add links to videos demonstrating your offer. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. You will also need to enter a thumbnail image of the video, sized to 1280 x 720 pixels in PNG format. You can display a maximum of four videos per offer.
 
-다음 섹션으로 이동 하기 전에 **저장** 해야 합니다.
+Remember to **Save** before moving on to the next section!
 
-#### <a name="additional-marketplace-listing-resources"></a>리소스를 나열 하는 추가 마켓플레이스
+#### <a name="additional-marketplace-listing-resources"></a>Additional marketplace listing resources
 
-- [Marketplace 제품 목록에 대 한 모범 사례](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
+- [Best practices for marketplace offer listings](https://docs.microsoft.com/azure/marketplace/gtm-offer-listing-best-practices)
 
 ## <a name="preview"></a>미리 보기
 
-**미리 보기** 탭에서는 제품을 광범위 한 marketplace 대상에 게시 하기 전에 제품을 릴리스할 수 있는 제한 된 **미리 보기 대상을** 정의할 수 있습니다.
+The **Preview** tab enables you to define a limited **Preview Audience** for releasing your offer prior to publishing your offer live to the broader marketplace audience.
 
 > [!IMPORTANT]
-> 미리 보기에서 제품을 확인 한 후 제품이 marketplace 공용 대상 그룹에 live 게시 되기 전에 **라이브 전환** 을 선택 해야 합니다.
+> You must select **Go live** before your offer will be published live to the marketplace public audience after checking your offer in Preview.
 
-- **미리 보기 대상 정의: 선택적 설명과 함께 단일 AAD/MSA 계정 전자 메일을 줄 단위로 추가 합니다.**
+- **Define a Preview Audience: Add a single AAD/MSA account email per line, along with an optional description.**
 
-Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 기존 Microsoft 계정 (MSA) 또는 Azure Active Directory 계정에 대해 수동으로 최대 10 개의 전자 메일 주소를 추가 하거나 20 (20)을 추가 합니다. 이러한 계정을 추가 하 여 marketplace에 게시 하기 전에 제품에 대 한 미리 보기 액세스를 허용 하는 대상 그룹을 정의 합니다. 제품이 이미 라이브 상태인 경우 제품에 대 한 변경 내용 또는 업데이트를 테스트 하기 위한 미리 보기 대상을 정의할 수 있습니다.
+Add up to ten (10) email addresses manually, or twenty (20) if uploading a CSV file, for existing Microsoft Account (MSA) or Azure Active Directory accounts to help with validating your offer before publishing live. By adding these accounts, you are defining an audience that will be allowed preview access to your offer before it is published to the marketplace(s). If your offer is already live, you may still define a preview audience for testing any changes or updates to your offer.
 
 > [!NOTE]
-> 미리 보기 대상 사용자는 개인 대상과 다릅니다. 미리 보기 대상 그룹은 마켓플레이스에 라이브 게시 _되기 전에_ 제품에 대 한 액세스를 허용 합니다. 계획을 만들어 개인 사용자만 사용할 수 있도록 설정할 수도 있습니다. **계획 목록** 탭에서 **비공개 요금제** 인 개인 사용자를 정의할 수 있습니다. 그런 다음 Azure 테 넌 트 Id를 사용 하 여 최대 2만 고객의 개인 사용자를 정의할 수 있습니다.
+> The preview audience differs from a private audience. A preview audience is allowed access to your offer _prior_ to being published live in the marketplaces. You may also choose to create a plan and make it available only to a private audience. In the **plan listing** tab, you can define a private audience with the **This is a private plan** checkbox. You can then define a private audience of up to 20,000 customers using Azure Tenant IDs.
 
-## <a name="technical-configuration"></a>기술 구성
+## <a name="technical-configuration"></a>Technical configuration
 
-**기술 구성** 탭에서는 제품에 연결 하는 데 사용 되는 기술 세부 정보 (URL 경로, webhook, 테 넌 트 id 및 앱 id)를 정의 합니다. 이 연결을 통해 최종 고객을 위해 제품을 프로 비전 할 수 있습니다. 수집 된 필드의 사용을 설명 하는 다이어그램은 SaaS 처리 [api](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2)에 대 한 설명서에서 확인할 수 있습니다.
+The **Technical configuration** tab defines the technical details (URL path, webhook, tenant ID, and app ID) used to connect to your offer. This connection enables us to provision your offer for the end customer if they choose to acquire it. Diagrams describing the usage of the collected fields are available in documentation for [SaaS fulfillment APIs](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **방문 페이지 url** (필수): marketplace에서 제품을 확보 한 후 고객이 게 될 사이트 Url을 정의 합니다. 이 URL은 고객이 페이지로 라우팅되는 경우 토큰을 수신 하는 끝점입니다. 이 토큰은 처리 Api에서 해결을 사용 하 여 프로 비전 세부 정보를 교환할 수 있습니다. 이러한 세부 정보 및 수집 하는 다른 항목은 등록을 완료 하 고 구매를 활성화 하는 사용자 환경에서 빌드된 고객 대화형 웹 페이지의 일부로 사용할 수 있습니다.
+- **Landing page URL** (required): Define the site URL that customers will land on after acquiring your offer from the marketplace. This URL will be the endpoint that receives a token when a customer is routed to the page. That token can be exchanged for provisioning details using resolve in the fulfillment APIs. Those details and any others you collect can be used as part of a customer-interactive web page built in your experience to complete registration and activate their purchase.
 
-- **연결 webhook** (필수): Microsoft에서 고객을 대신 하 여 사용자에 게 보내야 하는 모든 비동기 이벤트의 경우 (예: SaaS 구독이 유효 하지 않음) 연결 webhook를 제공 해야 합니다. 웹 후크 시스템이 아직 없는 경우 가장 간단한 구성은 게시 되는 모든 이벤트를 수신 대기 하 고 적절 하 게 처리 하는 HTTP 끝점 논리 앱을 보유 하는 것입니다 (예: https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
+- **Connection webhook** (required): For all asynchronous events that Microsoft needs to send to you on behalf of the customer (example: SaaS Subscription has gone invalid), we require you to provide a connection webhook. If you don't already have a webhook system in place, the simplest configuration is to have an HTTP Endpoint Logic App that will listen for any events being posted to it and then handle them appropriately (e.g. https:\//prod-1westus.logic.azure.com:443/work). 자세한 내용은 [Logic Apps의 HTTP 엔드포인트를 통해 워크플로 호출, 트리거 또는 중첩](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint)을 참조하세요.
 
-- **AZURE ad 테 넌 트 ID** (필수): Azure Portal 내에서는 두 서비스 간의 연결에 대 한 유효성을 검사할 수 있도록 [AD (Azure Active Directory) 앱을 만들어야](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 합니다. [테 넌 트 ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)를 찾으려면 Azure Active Directory로 이동 하 여 **속성**을 선택한 다음 나열 된 **디렉터리 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다.
+- **Azure AD tenant ID** (required): Inside Azure portal, we require that you [create an Azure Active Directory (AD) app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) so that we can validate the connection between our two services is behind an authenticated communication. To find the [tenant ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), go to your Azure Active Directory and select **Properties**, then look for the **Directory ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **AZURE AD 앱 id** (필수): [응용 프로그램 id](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 및 인증 키도 필요 합니다. 이러한 값을 얻으려면 Azure Active Directory로 이동 하 여 **앱 등록**을 선택한 다음 나열 된 **응용 프로그램 ID** 번호 (예: 50c464d3-4930-494c-963c-1e951d15360e)를 확인 합니다. 인증 키를 찾으려면 **설정** 으로 이동 하 고 **키**를 선택 합니다. 설명 및 기간을 제공 하 고 숫자 값이 제공 됩니다.
+- **Azure AD app ID** (required): You also need your [application ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) and an authentication key. To get those values, go to your Azure Active Directory and select **App registrations**, then look for the **Application ID** number listed (e.g. 50c464d3-4930-494c-963c-1e951d15360e). To find the authentication key, go to **Settings** and select **Keys**. You will need to provide a description and duration and will then be provided a number value.
 
- Azure 응용 프로그램 ID가 게시자 ID와 연결 되어 있으므로 모든 제품에서 동일한 응용 프로그램 ID를 사용 해야 합니다.
+ Note that the Azure application ID is associated to your publisher ID, so make sure that the same application ID is used in all your offers.
 
-## <a name="plan-overview"></a>계획 개요
+## <a name="plan-overview"></a>Plan overview
 
-**계획 개요** 탭에서는 동일한 제품 내에서 다양 한 계획 옵션을 제공할 수 있습니다. 이러한 계획 (Sku 라고도 함)은 버전, 수익 화 또는 서비스 계층의 측면에서 다를 수 있습니다. Marketplace에서 제품을 판매 하려면 계획을 하나 이상 설정 해야 합니다.
+The **Plan overview** tab enables you to provide a variety of plan options within the same offer. These plans (sometimes referred to as SKUs) could differ in terms of version, monetization, or tiers of service. You must set up at least one plan in order to sell your offer in the marketplace.
 
-일단 만들어지면 계획 이름, Id, 가격 책정 모델, 가용성 (공용 또는 개인), 현재 게시 상태 및 사용 가능한 모든 동작이 표시 됩니다.
+Once created, you will see your plan names, IDs, pricing models, availability (Public or Private), current publishing status, and any available actions.
 
-**계획 개요** 에서 사용할 수 있는 **작업** 은 계획의 현재 상태에 따라 달라 지 며 다음을 포함할 수 있습니다.
+**Actions** available in the **Plan overview** vary depending on the current status of your plan and may include:
 
-- 계획 상태가 **초안** -초안 삭제 인 경우
-- 계획 상태가 **라이브** -계획 판매 중지 또는 개인 대상 사용자 동기화 인 경우
+- If the plan status is **Draft** - Delete draft
+- If the plan status is **Live** - Stop sell plan or Sync private audience
 
-**새 계획 만들기** (Microsoft를 통해 판매를 선택 하는 사용자에 대 한 계획 중 하나)
+**Create new plan** (minimum of one plan for those who select to sell through Microsoft)
 
-- **계획 ID:** 이 제안의 각 계획에 대 한 고유한 계획 ID를 만듭니다. 이 ID는 제품 URL 및 Azure Resource Manager 템플릿 (해당 하는 경우)의 고객에 게 표시 됩니다. 소문자, 영숫자, 대시 또는 밑줄만 사용 합니다. 이 계획 ID에는 최대 50 자까지 사용할 수 있습니다. 만들기를 선택한 후에는 ID를 수정할 수 없습니다.
-- **계획 이름:** 제품 내에서 선택할 계획을 결정할 때 고객에 게이 이름이 표시 됩니다. 이 제안의 각 계획에 대 한 고유한 제안 이름을 만듭니다. 계획 이름은 동일한 제품에 포함 될 수 있는 소프트웨어 요금제를 구분 하는 데 사용 됩니다 (예: 제품 이름: Windows Server; 요금제: Windows Server 2016, Windows Server 2019).
+- **Plan ID:** Create a unique plan ID for each plan in this offer. This ID will be visible to customers in the product URL and Azure Resource Manager templates (if applicable). Use only lowercase, alphanumeric characters, dashes or underscores. A maximum of 50 characters are allowed for this plan ID. Note that the ID cannot be modified after selecting create.
+- **Plan name:** Customers will see this name when deciding which plan to select within your offer. Create a unique offer name for each plan in this offer. The plan name is used to differentiate software plans that may be a part of the same offer (E.g. Offer name: Windows Server; plans: Windows Server 2016, Windows Server 2019).
 
-### <a name="plan-listing"></a>계획 목록
+### <a name="plan-listing"></a>Plan listing
 
-**계획 목록** 탭에는 요금제를 사용할 수 있는 언어 (및 시장)가 표시 됩니다. 현재 영어 (미국)는 사용할 수 있는 유일한 위치입니다. 또한이 페이지에는 언어별 목록과 추가 된 날짜/시간의 상태가 표시 됩니다. 각 언어/시장에 대해 마켓플레이스 세부 정보 (제품 이름, 설명, 검색어 등)를 정의 해야 합니다.
+The **plan listing** tab displays the languages (and markets) where your plan is available, currently English (United States) is the only location available. Additionally, this page displays the status of the language-specific listing and the date/time that it was added. You will need to define the marketplace details (offer name, description, search terms, etc.) for each language / market.
 
-#### <a name="plan-listing-details"></a>계획 목록 세부 정보
+#### <a name="plan-listing-details"></a>Plan listing details
 
-계획 언어 중 하나를 선택 하면 **이름** 및 설명 등의 **계획 목록** 정보가 표시 됩니다 **.**
+Selecting one of the plan languages will display the **plan listing** information, including **Name** and **Description.**
 
-- **이름**: 미리 보기 **새 요금제** 항목을 기준으로 미리 채워져 있으며 marketplace에 표시 되는 제품의 "소프트웨어 계획" 제목으로 표시 됩니다.
-- **설명:** 이 설명에서는이 소프트웨어 계획의 고유한 정의와 제품 내 다른 소프트웨어 요금제의 차이점을 설명할 수 있는 기회를 제공 합니다. 최대 500 자까지 포함할 수 있습니다.
+- **Name**: Pre-populated based on your preview **New plan** entry and will appear as the title of your offer's "Software plan" displayed in the marketplace.
+- **Description:** This description is an opportunity to explain what makes this software plan unique and any differences from other software plans within your offer. May contain up to 500 characters.
 
-이러한 필드를 완료 한 후 **저장** 을 선택 합니다.
+Select **Save** after completing these fields.
 
-#### <a name="plan-pricing-and-availability"></a>가격 책정 및 가용성 계획
+#### <a name="plan-pricing-and-availability"></a>Plan pricing and availability
 
-**가격 책정 및 가용성** 탭에서는이 요금제를 사용할 수 있는 시장, 원하는 수익 화 모델, 가격 및 청구 기간을 구성할 수 있습니다. 또한 계획이 모든 사용자에 게 표시 되도록 할지 아니면 특정 고객 에게만 표시 되도록 할지를 지정할 수 있습니다 (개인 사용자).
+The **Pricing and availability** tab enables you to configure the markets that this plan will be available in, the desired monetization model, price, and billing term. In addition, you can indicate whether to make the plan visible to everyone or only to specific customers (a private audience).
 
-##### <a name="enabling-free-trials"></a>무료 평가판 사용
+##### <a name="enabling-free-trials"></a>Enabling Free Trials
 
-상업적 marketplace를 통한 SaaS 제품을 사용 하면 Microsoft를 통해 판매 하는 경우 1 개월 무료 평가판을 제공할 수 있습니다. 요금제 요금제를 제외한 모든 청구 모델 및 용어의 경우 무료 평가판이 지원 됩니다. 이 옵션을 사용 하면 고객은 한 달의 무료 액세스를 통해 낮은 장벽을 입력할 수 있습니다.  제품 내에서 요금제에 대 한 무료 평가판을 사용 하도록 선택 하는 경우 고객은 초기 1 개월 기간이 끝나기 전에 유료 구독으로 변환할 수 없습니다.  이 기간 동안 제품을 구매 하는 고객은 무료 평가판을 사용할 수 있는 지원 되는 요금제를 사용해 보고 둘 사이를 변환할 수 있습니다.  유료 구독으로의 변환은 해당 기간이 끝날 때 자동으로 수행 됩니다.
-
->[!Note]
->고객이 무료 평가판을 사용 하지 않고 요금제로 전환 하도록 선택 하는 경우에는 변환이 수행 되지만 무료 평가판은 즉시 손실 됩니다.  또한 고객이 요금제에 대 한 요금을 지불 하 고 나면 무료 평가판을 지 원하는 SKU로 변환 되는 경우에도 더 이상 동일한 구독에서 더 이상 무료 평가판을 얻을 수 없습니다.
-
-제품의 각 요금제에 대해 무료 평가판을 구성 하는 기능을 사용할 수 있습니다. 각 제품에 대 한 가격 책정 및 가용성으로 이동 하 여 1 개월 평가판을 허용 하는 확인란을 선택 하면 됩니다.
-
-![1 개월 무료 평가판 확인란](./media/free-trial-enable.png)
+SaaS offers through the commercial marketplace enable you to provide a one-month free trial when selling through Microsoft. For all billing models and terms except metered plans, free trials are supported. This option allows customers to have a low-barrier to entry through one month of free access.  If you choose to enable a free trial for plans within your offer, the customer will not be able to convert to a paid subscription before the end of the initial one month period.  During this time, customers purchasing your offer can try out any of the supported plans that have the free trial enabled and convert between them.  The conversion to a paid subscription is done automatically at the end of the term.
 
 >[!Note]
->불가능 제안을 무료 평가판으로 게시 한 후에는 해당 계획에 대해 사용 하지 않도록 설정할 수 없습니다. 첫 번째 게시에 대해이 설정이 올바른지 확인 하 여 계획을 다시 만들 필요가 없도록 합니다.
+>If the customer chooses to convert to a plan without free trials, the conversion will happen, but the free trial will be lost immediately.  Also, once a customer starts paying for a plan, they can no longer get free trial on the same subscription again, even if they convert to a SKU that does support free trials.
 
-현재 무료 평가판에 참여 하는 고객 구독에 대 한 정보를 얻으려면 true 또는 false로 표시 되는 `isFreeTrial`새 API 속성을 사용 합니다. 자세한 내용은 [SaaS Get SUBSCRIPTION API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) 를 참조 하세요.
+The ability to configure a free trial is available for each plan in your offer. Simply navigate to the Pricing and Availability for each offer and check the box to allow a one-month trial.
+
+![One month free trial checkbox](./media/free-trial-enable.png)
 
 >[!Note]
->Marketplace 계량 서비스를 활용 하는 요금제에 대 한 무료 평가판은 지원 되지 않습니다.
+>Once your transactable offer has been published with a free trial it cannot be disabled for that plan. Make sure this setting is correct for the first publish to avoid having to re-create the plan.
+
+To obtain information on customer subscriptions currently participating in a free trial, use the new API property `isFreeTrial`, which will be marked as true or false. See the [SaaS Get Subscription API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) for more information.
+
+>[!Note]
+>Free trials are not supported for plans that leverage the marketplace metering service.
 
 #### <a name="markets"></a>시장
 
-- **시장 편집** (선택 사항)
+- **Edit markets** (optional)
 
-모든 요금제는 하나 이상의 시장에서 사용할 수 있어야 합니다. 이 요금제를 사용할 수 있도록 하려는 시장 위치에 대 한 확인란을 선택 합니다. "세금 송금" 국가를 선택 하는 데 사용 되는 검색 상자와 단추를 사용 하 여 Microsoft 송금 판매 및 세금을 대신 사용 합니다.
+Every plan must be available in at least one market. Select the checkbox for any market location where you would like to make this plan available. A search box and button for selecting "Tax Remitted" countries, in which Microsoft remits sales and use tax on your behalf, are included to help.
 
-요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 검토 해야 합니다. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
+If you have already set prices for your plan in United States Dollars (USD) and add another market location, the price for the new market will be calculated according to the current exchange rates. You should always review the price for each market before publishing. Pricing can be reviewed by using the "Export prices (xlsx)" link after saving your changes.
 
 #### <a name="pricing"></a>가격
 
-- **가격 책정 모델**: 고정 요금 또는 좌석 기반
+- **Pricing model**: Flat rate or Seat based
 
-**기본 요율:** 월별 또는 연간 가격의 단일 가격 가격으로 제품에 대 한 액세스를 사용 하도록 설정 합니다. 이를 사이트 기반 가격 책정이 라고도 합니다. 이 가격 책정 모델을 사용 하는 경우 필요에 따라 표준 단위에 따라 고객에 게 요금을 청구 하기 위해 marketplace 계량 서비스 API를 사용 하는 요금제 요금제를 정의할 수 있습니다.  요금제 요금 청구에 대 한 자세한 내용은 [marketplace 계량 서비스를 사용 하 여 요금제 요금제](./saas-metered-billing.md)를 참조 하세요.
+**Flat rate:** Enable access to your offer with a single monthly or annual price flat rate price. This is sometimes referred to as site-based pricing. With this pricing model, you can optionally define metered plans that use the marketplace metering service API to charge customers according to non-standard units.  For more information on metered billing, see [metered billing using the marketplace metering service](./saas-metered-billing.md).
 
-**사용자 당:** 제품에 액세스 하는 사용자 수 또는 사용자 수를 기준으로 가격으로 제품에 대 한 액세스를 사용 하도록 설정 합니다. 이 사용자 기반 모델을 사용 하면 가격에 따라 허용 되는 사용자의 최소 및 최대 수를 설정할 수 있습니다. 이러한 방식으로 여러 계획을 구성 하 여 사용자 수를 기준으로 다양 한 가격을 구성할 수 있습니다.  이러한 필드는 선택 사항입니다. 이를 선택 하지 않은 경우 사용자 수는 제한이 없는 것으로 해석 됩니다 (최소 1, 시스템에서 지원할 수 있는 최대). 이러한 필드는 계획에 대 한 업데이트의 일부로 편집할 수 있습니다.
+**Per user:** Enable access to your offer with the price based on the number of users accessing the offer or occupying seats. This user-based model enables you to set the minimum and maximum number of users allowed based on the price. This way, different price points can be configured based on the number of users by configuring multiple plans.  이러한 필드는 선택 사항입니다. If left unselected, the number of users will be interpreted as not having a limit (min of 1 and max of as many as the system can support). These fields may be edited as part of an update to your plan.
 
-게시 된 후에는 청구 가격 책정 모델을 변경할 수 없습니다. 또한 동일한 제품에 대 한 모든 요금제는 동일한 가격 책정 모델을 공유 해야 합니다.
+Once published, the billing pricing model choice cannot be changed. In addition, all plans for the same offer must share the same pricing model.
 
-- **청구 기간**: 월별 또는 연간
+- **Billing term**: Monthly or Annual
 
-고객이 나열 된 가격을 지불 해야 하는 빈도를 선택 합니다. 하나 이상의 월별 또는 연간 가격을 제공 해야 하며, 그렇지 않으면 두 옵션을 모두 고객이 사용할 수 있습니다.
+Select the frequency that customers must pay the price listed. At least one Monthly or Annual price must be provided, or both options can be made available to customers.
 
-- **가격**: 월 당 usd 또는 연간 usd
+- **Price**: USD per month or USD per year
 
-현지 통화 (USD = 미국 달러)로 설정 된 가격은 설치 중 사용 가능한 현재 환율을 사용 하 여 선택한 모든 시장의 현지 통화로 변환 됩니다. 가격 책정 스프레드시트를 내보내고 각 시장에서 가격을 검토 하 여 게시 하기 전에 이러한 가격의 유효성을 검사 합니다. 개별 시장에서 사용자 지정 가격을 설정 하려면 가격 책정 스프레드시트를 수정 하 고 가져오세요. 이 가격을 확인 하 고 이러한 설정을 소유할 책임이 있습니다.
-*\*가격 책정 데이터를 내보낼 수 있도록 가격 책정 변경 내용을 먼저 저장 해야 합니다.*
+Prices set in local currency (USD = United States Dollar) are converted into the local currency of all selected markets using the current exchange rates available during setup. Validate these prices before publishing by exporting the pricing spreadsheet and reviewing the price in each market. If you would like to set custom prices in an individual market, modify and import the pricing spreadsheet. You are responsible for validating this pricing and own these settings.
+*\*You must first save your pricing changes to enable export of pricing data.*
 
-계획이 게시 된 후 변경 될 수 있는 사항에 대 한 몇 가지 제한 사항이 있으므로 게시 하기 전에 가격을 신중 하 게 검토 합니다.
+Review your prices carefully before publishing, as there are some restrictions on what can change after a plan is published:
 
-- 계획이 게시 된 후에는 가격 책정 모델을 변경할 수 없습니다.
-- 요금제에 대 한 청구 기간이 게시 된 후에는 나중에 제거할 수 없습니다.
-- 요금제의 시장 가격은 게시 된 후에는 나중에 변경할 수 없습니다.
+- Once a plan is published, the pricing model can't be changed.
+- Once a billing term is published for a plan, it can't be removed later.
+- Once a price for a market in your plan is published, it can't be changed later.
 
-### <a name="plan-audience"></a>대상 계획
+### <a name="plan-audience"></a>Plan Audience
 
-모든 사용자 또는 선택한 특정 대상에 게 표시 되도록 각 계획을 구성 하는 옵션이 있습니다. Azure AD 테 넌 트 Id를 사용 하 여이 제한 된 대상 그룹의 멤버 자격을 할당할 수 있습니다.
+You have the option to configure each plan to be visible to everyone or to only a specific audience of your choosing. You can assign membership in this restricted audience using Azure AD tenant IDs.
 
-#### <a name="privacy"></a>개인 정보 보호
+#### <a name="privacy"></a>개인 정보
 
-- **이 계획은 개인 계획입니다** (선택 사항).
+- **This is a private plan** (Optional checkbox)
 
-계획을 비공개로 설정 하 고 선택한 제한 된 대상 그룹에만 표시 하려면이 확인란을 선택 합니다. 비공개 계획으로 게시 한 후에는 대상 그룹을 업데이트 하거나 계획을 모든 사용자가 사용할 수 있도록 선택할 수 있습니다. 모든 사용자에 게 표시 되는 계획을 게시 한 후에는 모든 사용자에 게 계속 표시 되어야 합니다. (요금제를 개인 계획으로 다시 구성할 수 없습니다.)
+Check this box to make your plan private and visible only to the restricted audience of your choosing. Once published as a private plan, you can update the audience or choose to make the plan available to everyone. Once a plan is published as visible to everyone, it must remain visible to everyone. (The plan cannot be configured as a private plan again).
 
-- **제한 된 대상 그룹 (테 넌 트 Id)**
+- **Restricted Audience (Tenant IDs)**
 
-이 비공개 요금제에 대 한 액세스 권한이 있는 대상 그룹을 할당 합니다. 지정 된 각 테 넌 트 ID에 대 한 설명을 포함 하는 옵션과 함께 테 넌 트 Id를 사용 하 여 액세스 권한을 할당 합니다. .Csv 스프레드시트 파일을 가져오는 경우 최대 10 개의 테 넌 트 Id를 추가 하거나 2만 고객 테 넌 트 Id를 추가할 수 있습니다.
+Assign the audience that will have access to this private plan. Access is assigned using tenant IDs with the option to include a description of each tenant ID assigned. A maximum of 10 tenant IDs can be added, or 20,000 customers tenant IDs if importing a .csv spreadsheet file.
 
-테 넌 트는 ID가 GUID (GUID (Globally Unique Identifier)로 표시 되 고, 리소스를 식별 하는 데 사용 되는 128 비트 정수) 인 조직의 표현입니다. 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. 테 넌 트를 확인 하려면 응용 프로그램을 관리 하는 데 사용 하려는 계정으로 Azure Portal에 로그인 합니다. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. [https://www.whatismytenantid.com](https://www.whatismytenantid.com)에서 도메인 이름 URL을 사용 하 여 조직의 테 넌 트 ID를 조회할 수도 있습니다.
+A tenant is a representation of an organization, with an ID represented as a GUID (Globally Unique Identifier, a 128-bit integer number used to identify resources). 조직 또는 앱 개발자가 Microsoft와의 관계를 만들 때(예: Azure, Microsoft Intune 또는 Microsoft 365에 등록) 조직 또는 앱 개발자가 받는 Azure AD의 전용 인스턴스입니다. 각 Azure AD 테넌트는 서로 전혀 다르고 다른 Azure AD 테넌트와 별개입니다. To check the tenant, sign in to the Azure portal with the account you want to use to manage your application. 테넌트가 있으면 자동으로 로그인되고 계정 이름 바로 아래에 테넌트 이름이 표시됩니다. Azure Portal의 오른쪽 위에 있는 사용자의 계정 이름을 가리켜 사용자의 이름, 이메일, 디렉터리/테넌트 ID(GUID) 및 사용자의 도메인을 표시합니다. 계정이 여러 테넌트와 연결되어 있으면, 계정 이름을 선택하여 테넌트 간에 전환할 수 있는 메뉴를 열 수 있습니다. 각 테넌트가 자기만의 ID를 가지고 있습니다. You can also look up your organization's tenant ID using a domain name URL at:  [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
-SaaS 제공이 테 넌 트 Id를 사용 하 여 개인 사용자를 정의 하는 동안 다른 제품 유형은 Azure 구독 Id (Guid로도 표시 됨)를 사용할 수 있습니다.
+While SaaS offers use tenant IDs to define a private audience, other offer types may use Azure Subscription IDs (which are also represented as GUIDs).
 
 > [!NOTE]
-> 비공개 사용자 (또는 제한 된 대상)는 미리 보기 대상과 다릅니다. **[미리 보기](#preview)** 탭에서 미리 보기 대상 그룹을 정의할 수 있습니다. 제품을 marketplace에 게시 하기 *전에* 미리 보기 대상 사용자가 제품에 대 한 액세스를 허용 합니다. 개인 대상 지정은 특정 계획에만 적용 되지만 미리 보기 대상은 모든 요금제를 볼 수 있지만 (비공개 또는 아님) 계획을 테스트 하 고 유효성을 검사 하는 동안에는 제한 된 미리 보기 기간 동안만 볼 수 있습니다.
+> The private audience (or restricted audience) differs from a preview audience. In the **[Preview](#preview)** tab, you can define a preview audience. A preview audience is allowed access to your offer *prior* to the offer being published live in the marketplace. While the private audience designation only applies to a specific plan, the preview audience can view all plans (private or not), but only during the limited preview period while the plan is tested and validated.
 
-## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Marketplace 제품 내 계획의 예제 목록
+## <a name="example-list-of-plans-within-a-marketplace-offer"></a>Example list of plans within a marketplace offer
 
-![노트와 함께 나열 된 마켓플레이스 계획 예제](./media/marketplace-plan.svg)
+![Example marketplace plan listing with notes](./media/marketplace-plan.svg)
 
 ## <a name="test-drive"></a>시험 사용
 
 [!INCLUDE [Test drive content](./includes/commercial-marketplace-test-drive.md)]
 
-## <a name="cloud-solution-provider-csp-reseller-audience"></a>CSP (클라우드 솔루션 공급자) 대리점 대상
+## <a name="cloud-solution-provider-csp-reseller-audience"></a>Cloud Solution Provider (CSP) Reseller Audience
 
-CSP 프로그램에서 제품을 사용할 수 있도록 리더로 선택 클라우드 솔루션 공급자는 고객에 게 번들로 제공 되는 솔루션의 일부로 제품을 판매할 수 있습니다. 자세한 내용은 [CSP (클라우드 솔루션 공급자)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers.md)를 참조 하세요.
+Electing to make your offer available in the CSP program enables Cloud Solution Providers to sell your product as part of a bundled solution to their customers. For more information, see [Cloud Solution Providers](https://go.microsoft.com/fwlink/?linkid=2111109).
 
 ## <a name="publish"></a>게시
 
-제품의 필수 섹션을 모두 완료 한 후에는 포털의 오른쪽 위 모서리에서 **게시** 를 선택 합니다. **검토 및 게시** 페이지로 다시 이동 됩니다.
+Once you have completed all the required sections of the offer, select **publish** in the top-right corner of the portal. You will be re-directed to the **Review and publish** page.
 
-#### <a name="submit-offer-to-preview"></a>미리 보기로 제품 제출
+#### <a name="submit-offer-to-preview"></a>Submit offer to preview
 
-이 제품을 처음으로 게시 하는 경우 다음을 수행할 수 있습니다.
+If this is your first time publishing this offer, you can:
 
-- 제품의 각 섹션에 대 한 완료 상태를 확인 합니다.
-    - *시작 되지 않음* -섹션이 작업 되지 않아 완료 해야 함을 의미 합니다.
-    - *불완전* -섹션에 수정 해야 하거나 더 많은 정보를 제공 해야 하는 오류가 있음을 의미 합니다. 섹션으로 돌아가서 업데이트 하세요.
-    - *완료* -섹션이 완료 되었고 필요한 모든 데이터가 제공 되었으며 오류가 없음을 의미 합니다. 제품의 모든 섹션은 제품을 제출 하기 전에 완전 한 상태 여야 합니다.
-- 앱을 이해 하는 데 도움이 되는 보조 노트 뿐만 아니라 앱이 올바르게 테스트 되었는지 확인 하기 위해 인증 팀에 테스트 지침을 제공 합니다.
-- **제출**을 선택 하 여 게시에 대 한 제품을 제출 합니다. 제품의 미리 보기 버전을 검토 하 고 승인할 수 있는 시기를 알려 주는 전자 메일을 보내 드리겠습니다. 파트너 센터로 돌아가서 제품을 공개 (또는 개인 제품의 경우 비공개 사용자에 게 공개)에 게시 하려면 [ **라이브]** 를 선택 해야 합니다.
+- See the completion status for each section of the offer.
+    - *Not started* - means the section has not been touched and needs to be completed.
+    - *Incomplete* - means the section has errors that need to be fixed or requires more information to be provided. Please go back to the section(s) and update it.
+    - *Complete* - means the section is complete, all required data has been provided and there are no errors. All sections of the offer must be in a complete state before you can submit the offer.
+- Provide testing instructions to the certification team to ensure that your app is tested correctly, in addition to any supplementary notes helpful for understanding your app.
+- Submit the offer for publishing by selecting **Submit**. We will send you an email to let you know when a preview version of the offer is available for you to review and approve. You must return to Partner Center and select **Go-live** for the offer to publish your offer to the public (or if a private offer, to the private audience).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [상업적 Marketplace에서 기존 제품 업데이트](./update-existing-offer.md)
+- [상업용 Marketplace에서 기존 제품 업데이트](./update-existing-offer.md)
