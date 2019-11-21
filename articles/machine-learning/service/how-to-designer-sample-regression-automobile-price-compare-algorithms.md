@@ -1,7 +1,7 @@
 ---
-title: '디자이너: 자동차 가격 예측 (고급) 예제'
+title: 'Designer: Predict car prices (advanced) example'
 titleSuffix: Azure Machine Learning
-description: 여러 ML 회귀 모델을 비교 하 여 Azure Machine Learning 디자이너의 기술 기능에 따라 자동차 가격을 예측 &.
+description: Build & compare multiple ML regression models to predict an automobile's price  based on technical features with Azure Machine Learning designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,79 +10,79 @@ author: xiaoharper
 ms.author: zhanxia
 ms.reviewer: peterlu
 ms.date: 11/04/2019
-ms.openlocfilehash: 5eb701af90125e2654d6f908b28512aba3ad37aa
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: 60baf2229b6c704f951e6cc54949109d5e403bc0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196076"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225037"
 ---
-# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 여러 회귀 모델을 비교 하 여 자동차 가격 예측 & 학습
+# <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Train & compare multiple regression models to predict car prices with Azure Machine Learning designer
 
-**Designer (미리 보기) 샘플 2**
+**Designer (preview) sample 2**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 파이프라인을 빌드하는 방법에 대해 알아봅니다. 이 샘플은 여러 회귀 모델을 학습 하 고 비교 하 여 기술 기능에 따라 자동차 가격을 예측 합니다. 사용자 고유의 기계 학습 문제를 다룰 수 있도록이 파이프라인에서 선택한 항목에 대 한 근거를 제공 합니다.
+Learn how to build a  machine learning pipeline without writing a single line of code using the designer (preview). This sample trains and compares multiple regression models to predict a car's price based on its technical features. We'll provide the rationale for the choices made in this pipeline so you can tackle your own machine learning problems.
 
-기계 학습을 시작 하는 경우이 파이프라인의 [기본 버전](how-to-designer-sample-regression-automobile-price-basic.md) 을 살펴보세요.
+If you're just getting started with machine learning, take a look at the [basic version](how-to-designer-sample-regression-automobile-price-basic.md) of this pipeline.
 
-이 파이프라인에 대 한 완료 된 그래프는 다음과 같습니다.
+Here's the completed graph for this pipeline:
 
-[파이프라인의 ![그래프](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-ui-sample-classification-predict-credit-risk-cost-sensitive/graph.png#lightbox)
+[![Graph of the pipeline](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png)](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/graph.png#lightbox)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. 샘플 2를 클릭 하 여 엽니다. 
+4. Click sample 2 to open it. 
 
-## <a name="pipeline-summary"></a>파이프라인 요약
+## <a name="pipeline-summary"></a>Pipeline summary
 
-다음 단계를 사용 하 여 machine learning 파이프라인을 빌드합니다.
+Use following steps to build the machine learning pipeline:
 
-1. 데이터를 가져옵니다.
-1. 데이터를 미리 처리 합니다.
-1. 모델을 학습 합니다.
-1. 모델을 테스트, 평가 및 비교 합니다.
+1. Get the data.
+1. Pre-process the data.
+1. Train the model.
+1. Test, evaluate, and compare the models.
 
 ## <a name="get-the-data"></a>데이터 가져오기
 
-이 샘플에서는 UCI Machine Learning 리포지토리의 **자동차 가격 데이터 (원시)** 데이터 집합을 사용 합니다. 이 데이터 집합에는 제조업체, 모델, 가격, 차량 기능 (예: 실린더 수), MPG 및 보험 위험 점수를 비롯 하 여 자동차에 대 한 정보가 포함 된 26 개의 열이 포함 되어 있습니다.
+This sample uses the **Automobile price data (Raw)** dataset, which is from the UCI Machine Learning Repository. This dataset contains 26 columns that contain information about automobiles, including make, model, price, vehicle features (like the number of cylinders), MPG, and an insurance risk score.
 
-## <a name="pre-process-the-data"></a>데이터를 미리 처리 합니다.
+## <a name="pre-process-the-data"></a>Pre-process the data
 
-기본 데이터 준비 태스크에는 데이터 정리, 통합, 변환, 감소, 분할 또는 양자화이 포함 됩니다. 디자이너에서 이러한 작업을 수행 하는 모듈과 왼쪽 패널의 **데이터 변환** 그룹에서 기타 데이터 전처리 태스크를 찾을 수 있습니다.
+The main data preparation tasks include data cleaning, integration, transformation, reduction, and discretization or quantization. In the designer, you can find modules to perform these operations and other data pre-processing tasks in the **Data Transformation** group in the left panel.
 
-**데이터 집합에서 열 선택** 모듈을 사용 하 여 누락 값이 많은 정규화 된 패를 제외할 수 있습니다. 그런 다음 누락 된 **데이터 정리** 를 사용 하 여 누락 된 값이 있는 행을 제거 합니다. 이렇게 하면 명확한 학습 데이터 집합을 만들 수 있습니다.
+Use the **Select Columns in Dataset** module to exclude normalized-losses that have many missing values. We then use **Clean Missing Data** to remove the rows that have missing values. This helps to create a clean set of training data.
 
-![데이터 사전 처리](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
+![데이터 사전 처리](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/data-processing.png)
 
-## <a name="train-the-model"></a>모델 학습
+## <a name="train-the-model"></a>모델 교육
 
-기계 학습 문제는 다양 합니다. 일반적인 기계 학습 작업에는 분류, 클러스터링, 회귀 및 추천 시스템이 포함 되며, 각각에는 다른 알고리즘이 필요할 수 있습니다. 알고리즘 선택은 종종 사용 사례의 요구 사항에 따라 달라 집니다. 알고리즘을 선택한 후 보다 정확한 모델을 학습 하려면 해당 매개 변수를 조정 해야 합니다. 그런 다음 정확도, intelligibility 및 효율성과 같은 메트릭에 기반 하 여 모든 모델을 평가 해야 합니다.
+Machine learning problems vary. Common machine learning tasks include classification, clustering, regression, and recommender systems, each of which might require a different algorithm. Your choice of algorithm often depends on the requirements of the use case. After you pick an algorithm, you need to tune its parameters to train a more accurate model. You then need to evaluate all models based on metrics like accuracy, intelligibility, and efficiency.
 
-이 파이프라인의 목표는 자동차 가격을 예측 하는 것이 고, 레이블 열 (price)에 실제 숫자가 포함 되어 있기 때문에 회귀 모델을 선택 하는 것이 좋습니다. 기능 수가 상대적으로 작으며 (100 미만) 이러한 기능이 스파스가 아닌 경우 의사 결정 경계는 비선형 일 가능성이 높습니다.
+Because the goal of this pipeline is to predict automobile prices, and because the label column (price) contains real numbers, a regression model is a good choice. Considering that the number of features is relatively small (less than 100) and these features aren't sparse, the decision boundary is likely to be nonlinear.
 
-다양 한 알고리즘의 성능을 비교 하기 위해 모델을 작성 하는 데 사용할 수 있는 두 가지 비선형 알고리즘, **의사 결정 트리 회귀** 및 **의사 결정 포리스트 회귀**를 사용 합니다. 두 알고리즘 모두 변경할 수 있는 매개 변수를 갖지만이 샘플은이 파이프라인에 대 한 기본값을 사용 합니다.
+To compare the performance of different algorithms, we use two nonlinear algorithms, **Boosted Decision Tree Regression** and **Decision Forest Regression**, to build models. Both algorithms have parameters that you can change, but this sample uses the default values for this pipeline.
 
-**데이터 분할** 모듈을 사용 하 여 학습 데이터 집합에 원래 데이터의 70%가 포함 되 고 테스트 데이터 집합에 원래 데이터의 30%가 포함 되도록 입력 데이터를 임의로 나눌 수 있습니다.
+Use the **Split Data** module to randomly divide the input data so that the training dataset contains 70% of the original data and the testing dataset contains 30% of the original data.
 
-## <a name="test-evaluate-and-compare-the-models"></a>모델 테스트, 평가 및 비교
+## <a name="test-evaluate-and-compare-the-models"></a>Test, evaluate, and compare the models
 
-이전 섹션에 설명 된 대로 두 가지 임의로 선택 된 데이터 집합을 사용 하 여 모델을 학습 한 다음 테스트 합니다. 데이터 집합을 분할 하 고 다른 데이터 집합을 사용 하 여 모델을 학습 하 고 테스트 하 여 모델을 보다 목표로 계산 합니다.
+You use two different sets of randomly chosen data to train and then test the model, as described in the previous section. Split the dataset and use different datasets to train and test the model to make the evaluation of the model more objective.
 
-모델을 학습 한 후 **모델 점수 매기기** 및 **모델 평가** 모듈을 사용 하 여 예측 결과를 생성 하 고 모델을 평가 합니다. **모델 점수 매기기** 는 학습 된 모델을 사용 하 여 테스트 데이터 집합에 대 한 예측을 생성 합니다. 그런 다음 점수를 전달 하 여 계산 메트릭을 생성 하는 **모델을 평가** 합니다.
+After the model is trained, use the **Score Model** and **Evaluate Model** modules to generate predicted results and evaluate the models. **Score Model** generates predictions for the test dataset by using the trained model. Then pass the scores to **Evaluate Model** to generate evaluation metrics.
 
 
 
 결과는 다음과 같습니다.
 
-![결과 비교](media/how-to-ui-sample-regression-predict-automobile-price-compare-algorithms/result.png)
+![결과 비교](media/how-to-designer-sample-regression-predict-automobile-price-compare-algorithms/result.png)
 
-이러한 결과는 **승격 된 의사 결정 트리 회귀** 로 작성 된 모델에 **의사 결정 포리스트 회귀**를 기반으로 작성 된 모델 보다 낮은 근본 평균 오차 오류가 있음을 보여 줍니다.
+These results show that the model built with **Boosted Decision Tree Regression** has a lower root mean squared error than the model built on **Decision Forest Regression**.
 
-두 알고리즘 모두 학습 데이터 집합에서 보이지 않는 테스트 데이터 집합 보다 낮은 오류가 발생 합니다.
+Both algorithms have a lower error on the training dataset than on the unseen testing dataset.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -90,11 +90,11 @@ ms.locfileid: "74196076"
 
 ## <a name="next-steps"></a>다음 단계
 
-디자이너에 사용할 수 있는 다른 샘플을 탐색 합니다.
+Explore the other samples available for the designer:
 
-- [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
-- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
-- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
-- [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)
-- [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)
+- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
+- [Sample 3 - Classification with feature selection: Income Prediction](how-to-designer-sample-classification-predict-income.md)
+- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
+- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
+- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)

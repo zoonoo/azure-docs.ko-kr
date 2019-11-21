@@ -1,170 +1,168 @@
 ---
-title: Azure 가상 네트워크와 Azure Functions 통합
-description: Azure 가상 네트워크에 함수를 연결 하는 방법을 보여 주는 단계별 자습서입니다.
+title: Integrate Azure Functions with an Azure virtual network
+description: A step-by-step tutorial that shows you how to connect a function to an Azure virtual network
 author: alexkarcher-msft
-manager: gwallace
-ms.service: azure-functions
 ms.topic: article
 ms.date: 5/03/2019
 ms.author: alkarche
 ms.reviewer: glenga
-ms.openlocfilehash: bc6c87a28078d25a212a681206258d6d369f2867
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 12815d3ca0136cec8af294118ff192a4f31df6a0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575535"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227093"
 ---
-# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>자습서: Azure virtual network와 함수 통합
+# <a name="tutorial-integrate-functions-with-an-azure-virtual-network"></a>Tutorial: integrate Functions with an Azure virtual network
 
-이 자습서에서는 Azure Functions를 사용 하 여 Azure 가상 네트워크의 리소스에 연결 하는 방법을 보여 줍니다. 가상 네트워크에서 WordPress를 실행 하는 VM과 인터넷 모두에 액세스할 수 있는 기능을 만듭니다.
+This tutorial shows you how to use Azure Functions to connect to resources in an Azure virtual network. you'll create a function that has access to both the internet and to a VM running WordPress in virtual network.
 
 > [!div class="checklist"]
-> * 프리미엄 계획에서 함수 앱 만들기
-> * 가상 네트워크의 VM에 WordPress 사이트 배포
-> * 가상 네트워크에 함수 앱 연결
-> * WordPress 리소스에 액세스 하는 함수 프록시 만들기
-> * 가상 네트워크 내에서 WordPress 파일 요청
+> * Create a function app in the Premium plan
+> * Deploy a WordPress site to VM in a virtual network
+> * Connect the function app to the virtual network
+> * Create a function proxy to access WordPress resources
+> * Request a WordPress file from inside the virtual network
 
 ## <a name="topology"></a>토폴로지
 
-다음 다이어그램은 사용자가 만드는 솔루션의 아키텍처를 보여 줍니다.
+The following diagram shows the architecture of the solution that you create:
 
- ![가상 네트워크 통합을 위한 UI](./media/functions-create-vnet/topology.png)
+ ![UI for virtual network integration](./media/functions-create-vnet/topology.png)
 
-프리미엄 계획에서 실행 되는 함수는 VNet 통합 기능을 포함 하는 Azure App Service의 웹 앱과 동일한 호스팅 기능을 제공 합니다. 문제 해결 및 고급 구성을 포함 하 여 VNet 통합에 대 한 자세한 내용은 [Azure 가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md)을 참조 하세요.
+Functions running in the Premium plan have the same hosting capabilities as web apps in Azure App Service, which includes the VNet Integration feature. To learn more about VNet Integration, including troubleshooting and advanced configuration, see [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 자습서에서는 IP 주소 지정 및 서브넷 지정을 이해 하는 것이 중요 합니다. [주소 지정 및 서브넷 지정의 기본 사항을 설명 하는이 문서](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics)부터 시작할 수 있습니다. 온라인에서 많은 문서와 비디오를 사용할 수 있습니다.
+For this tutorial, it's important that you understand IP addressing and subnetting. You can start with [this article that covers the basics of addressing and subnetting](https://support.microsoft.com/help/164015/understanding-tcp-ip-addressing-and-subnetting-basics). Many more articles and videos are available online.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-function-app-in-a-premium-plan"></a>프리미엄 계획에서 함수 앱 만들기
+## <a name="create-a-function-app-in-a-premium-plan"></a>Create a function app in a Premium plan
 
-먼저 [프리미엄 계획]에서 함수 앱을 만듭니다. 이 계획은 가상 네트워크 통합을 지 원하는 동시에 서버 리스 규모를 제공 합니다.
+First, you create a function app in the [Premium plan]. This plan provides serverless scale while supporting virtual network integration.
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]  
 
-오른쪽 위 모서리에 있는 고정 아이콘을 선택 하 여 함수 앱을 대시보드에 고정할 수 있습니다. 고정을 사용 하면 VM을 만든 후이 함수 앱으로 쉽게 돌아갈 수 있습니다.
+You can pin the function app to the dashboard by selecting the pin icon in the upper right-hand corner. Pinning makes it easier to return to this function app after you create your VM.
 
-## <a name="create-a-vm-inside-a-virtual-network"></a>가상 네트워크 내에 VM 만들기
+## <a name="create-a-vm-inside-a-virtual-network"></a>Create a VM inside a virtual network
 
-다음으로 가상 네트워크 내에서 WordPress를 실행 하는 미리 구성 된 VM을 만듭니다 ([WORDPRESS LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). WordPress VM은 저렴 하 고 편리 하므로 사용 됩니다. 이 시나리오는 REST Api, App Service 환경 및 기타 Azure 서비스와 같은 가상 네트워크의 모든 리소스에 대해 작동 합니다. 
+Next, create a preconfigured VM that runs WordPress inside a virtual network ([WordPress LEMP7 Max Performance](https://jetware.io/appliances/jetware/wordpress4_lemp7-170526/profile?us=azure) by Jetware). A WordPress VM is used because of its low cost and convenience. This same scenario works with any resource in a virtual network, such as REST APIs, App Service Environments, and other Azure services. 
 
-1. 포털의 왼쪽 탐색 창에서 **+ 리소스 만들기** 를 선택 하 고 검색 필드에 `WordPress LEMP7 Max Performance`를 입력 한 다음 enter 키를 누릅니다.
+1. In the portal, choose **+ Create a resource** on the left navigation pane, in the search field type `WordPress LEMP7 Max Performance`, and press Enter.
 
-1. 검색 결과에서 **Wordpress LEMP 최대 성능** 을 선택 합니다. **소프트웨어 요금제** 로 **Wordpress Lemp Max Performance** 의 소프트웨어 요금제를 선택 하 고 **만들기**를 선택 합니다.
+1. Choose **Wordpress LEMP Max Performance** in the search results. Select a software plan of **Wordpress LEMP Max Performance for CentOS** as the **Software Plan** and select **Create**.
 
-1. **기본 사항** 탭에서 이미지 아래 표에 지정 된 대로 VM 설정을 사용 합니다.
+1. In the **Basics** tab, use the VM settings as specified in the table below the image:
 
-    ![VM을 만들기 위한 기본 사항 탭](./media/functions-create-vnet/create-vm-1.png)
-
-    | 설정      | 제안 값  | 설명      |
-    | ------------ | ---------------- | ---------------- |
-    | **구독** | 사용자의 구독 | 리소스가 생성 되는 구독입니다. | 
-    | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | `myResourceGroup`또는 함수 앱을 사용 하 여 만든 리소스 그룹을 선택 합니다. 함수 앱, WordPress VM 및 호스팅 계획에 동일한 리소스 그룹을 사용 하면이 자습서를 완료 하면 리소스를 더 쉽게 정리할 수 있습니다. |
-    | **가상 머신 이름** | VNET-Wordpress | VM 이름은 리소스 그룹에서 고유 해야 합니다. |
-    | **[국가별](https://azure.microsoft.com/regions/)** | (유럽) 서유럽 | 가까운 지역 또는 VM에 액세스 하는 함수 근처의 지역을 선택 합니다. |
-    | **크기** | B1s | **크기 변경** 을 선택한 다음 1 개의 vcpu 및 1gb의 메모리를 포함 하는 B1s 표준 이미지를 선택 합니다. |
-    | **인증 유형** | 암호 | 암호 인증을 사용 하려면 **사용자 이름**, 보안 **암호**및 **암호 확인**도 지정 해야 합니다. 이 자습서에서는 문제를 해결 해야 하는 경우가 아니면 VM에 로그인 할 필요가 없습니다. |
-
-1. **네트워킹** 탭을 선택 하 고 가상 네트워크 구성에서 **새로 만들기**를 선택 합니다.
-
-1. **가상 네트워크 만들기**에서 이미지 아래 표의 설정을 사용 합니다.
-
-    ![VM 만들기의 네트워킹 탭](./media/functions-create-vnet/create-vm-2.png)
+    ![Basics tab for creating a VM](./media/functions-create-vnet/create-vm-1.png)
 
     | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
-    | **이름** | MyResourceGroup-vnet | 가상 네트워크에 대해 생성 된 기본 이름을 사용할 수 있습니다. |
-    | **주소 범위** | 10.10.0.0/16 | 가상 네트워크의 단일 주소 범위를 사용 합니다. |
-    | **서브넷 이름** | 자습서-Net | 서브넷의 이름입니다. |
-    | **주소 범위** (서브넷) | 10.10.1.0/24   | 서브넷 크기는 서브넷에 추가할 수 있는 인터페이스 수를 정의 합니다. 이 서브넷은 WordPress 사이트에서 사용 됩니다.  `/24` 서브넷은 254 호스트 주소를 제공 합니다. |
+    | **구독** | 사용자의 구독 | The subscription under which your resources are created. | 
+    | **[Resource group](../azure-resource-manager/resource-group-overview.md)**  | myResourceGroup | Choose `myResourceGroup`, or the resource group you created with your function app. Using the same resource group for the function app, WordPress VM, and hosting plan makes it easier to clean up resources when you are done with this tutorial. |
+    | **가상 머신 이름** | VNET-Wordpress | The VM name needs to be unique in the resource group |
+    | **[Region](https://azure.microsoft.com/regions/)** | (유럽) 서유럽 | Choose a region near you or near the functions that access the VM. |
+    | **크기** | B1s | Choose **Change size** and then select the B1s standard image, which has 1 vCPU and 1 GB of memory. |
+    | **인증 유형** | 암호 | To use password authentication, you must also specify a **Username**, a secure **Password**, and then **Confirm password**. For this tutorial, you won't need to sign in to the VM unless you need to troubleshoot. |
 
-1. **확인** 을 선택 하 여 가상 네트워크를 만듭니다.
+1. Choose the **Networking** tab and under Configure virtual networks select **Create new**.
 
-1. **네트워킹** 탭으로 돌아가서 **공용 IP**에 대해 **없음** 을 선택 합니다.
+1. In **Create virtual network**, use the settings in the table below the image:
 
-1. **관리** 탭을 선택한 다음, **진단 저장소 계정**에서 함수 앱을 사용 하 여 만든 저장소 계정을 선택 합니다.
-
-1. **검토 + 만들기**를 선택합니다. 유효성 검사가 완료 된 후 **만들기**를 선택 합니다. VM 만들기 프로세스는 몇 분 정도 걸립니다. 만든 VM은 가상 네트워크에만 액세스할 수 있습니다.
-
-1. VM을 만든 후 **리소스로 이동** 을 선택 하 여 새 VM에 대 한 페이지를 표시 한 다음 **설정**아래에서 **네트워킹** 을 선택 합니다.
-
-1. **공용 IP**가 없는지 확인 합니다. 함수 앱에서 VM에 연결 하는 데 사용 하는 **개인 IP**를 기록해 둡니다.
-
-    ![VM의 네트워킹 설정](./media/functions-create-vnet/vm-networking.png)
-
-이제 가상 네트워크 내에 완전히 배포 된 WordPress 사이트가 있습니다. 이 사이트는 공용 인터넷에서 액세스할 수 없습니다.
-
-## <a name="connect-your-function-app-to-the-virtual-network"></a>가상 네트워크에 함수 앱 연결
-
-가상 네트워크의 VM에서 실행 되는 WordPress 사이트를 사용 하 여 이제 함수 앱을 해당 가상 네트워크에 연결할 수 있습니다.
-
-1. 새 함수 앱에서 **플랫폼 기능** > **네트워킹**을 선택 합니다.
-
-    ![함수 앱에서 네트워킹 선택](./media/functions-create-vnet/networking-0.png)
-
-1. **VNet 통합**에서 **구성 하려면 여기를 클릭**하세요 .를 선택 합니다.
-
-    ![네트워크 기능 구성 상태](./media/functions-create-vnet/Networking-1.png)
-
-1. 가상 네트워크 통합 페이지에서 **VNet 추가 (미리 보기)** 를 선택 합니다.
-
-    ![VNet 통합 미리 보기 추가](./media/functions-create-vnet/networking-2.png)
-
-1. **네트워크 기능 상태**에서 이미지 아래 표의 설정을 사용 합니다.
-
-    ![함수 앱 가상 네트워크 정의](./media/functions-create-vnet/networking-3.png)
+    ![Networking tab of create VM](./media/functions-create-vnet/create-vm-2.png)
 
     | 설정      | 제안 값  | 설명      |
     | ------------ | ---------------- | ---------------- |
-    | **Virtual Network** | MyResourceGroup-vnet | 이 가상 네트워크는 이전에 만든 가상 네트워크입니다. |
-    | **서브넷** | 새 서브넷 만들기 | 사용할 함수 앱에 대 한 가상 네트워크의 서브넷을 만듭니다. 빈 서브넷을 사용 하도록 VNet 통합을 구성 해야 합니다. 함수에서 VM과 다른 서브넷을 사용 하는 것은 중요 하지 않습니다. 가상 네트워크는 두 서브넷 간에 트래픽을 자동으로 라우팅합니다. |
-    | **서브넷 이름** | 함수-Net | 새 서브넷의 이름입니다. |
-    | **Virtual network 주소 블록** | 10.10.0.0/16 | WordPress 사이트에서 사용 하는 것과 동일한 주소 블록을 선택 합니다. 하나의 주소 블록만 정의 해야 합니다. |
-    | **주소 범위** | 10.10.2.0/24   | 서브넷 크기는 프리미엄 계획 함수 앱이 확장할 수 있는 총 인스턴스 수를 제한 합니다. 이 예제에서는 254 사용 가능한 호스트 주소를 사용 하는 `/24` 서브넷을 사용 합니다. 이 서브넷은 과도 하 게 프로 비전 되었지만 계산 하기 쉽습니다. |
+    | **Name** | myResourceGroup-vnet | You can use the default name generated for your virtual network. |
+    | **주소 범위** | 10.10.0.0/16 | Use a single address range for the virtual network. |
+    | **서브넷 이름** | Tutorial-Net | Name of the subnet. |
+    | **Address range** (subnet) | 10.10.1.0/24   | The subnet size defines how many interfaces can be added to the subnet. This subnet is used by the WordPress site.  A `/24` subnet provides 254 host addresses. |
 
-1. **확인** 을 선택 하 여 서브넷을 추가 합니다. VNet 통합 및 네트워크 기능 상태 페이지를 닫아 함수 앱 페이지로 돌아갑니다.
+1. Select **OK** to create the virtual network.
 
-이제 함수 앱은 WordPress 사이트를 실행 하는 가상 네트워크에 액세스할 수 있습니다. 다음으로 [Azure Functions 프록시](functions-proxies.md) 를 사용 하 여 WordPress 사이트에서 파일을 반환 합니다.
+1. Back in the **Networking** tab, choose **None** for **Public IP**.
 
-## <a name="create-a-proxy-to-access-vm-resources"></a>VM 리소스에 액세스 하는 프록시 만들기
+1. Choose the **Management** tab, then in **Diagnostics storage account**, choose the Storage account you created with your function app.
 
-VNet 통합을 사용 하도록 설정 하면 함수 앱에서 프록시를 만들어 가상 네트워크에서 실행 중인 VM에 요청을 전달할 수 있습니다.
+1. **검토 + 만들기**를 선택합니다. After validation completes, select **Create**. The VM create process takes a few minutes. The created VM can only access the virtual network.
 
-1. 함수 앱에서 **프록시** >  **+** 을 선택한 다음 이미지 아래의 표에 있는 프록시 설정을 사용 합니다.
+1. After the VM is created, choose **Go to resource** to view the page for your new VM, then choose **Networking** under **Settings**.
 
-    ![프록시 설정 정의](./media/functions-create-vnet/create-proxy.png)
+1. Verify that there's no **Public IP**. Make a note the **Private IP**, which you use to connect to the VM from your function app.
+
+    ![Networking settings in the VM](./media/functions-create-vnet/vm-networking.png)
+
+You now have a WordPress site deployed entirely within your virtual network. This site isn't accessible from the public internet.
+
+## <a name="connect-your-function-app-to-the-virtual-network"></a>Connect your function app to the virtual network
+
+With a WordPress site running in a VM in a virtual network, you can now connect your function app to that virtual network.
+
+1. In your new function app, select **Platform features** > **Networking**.
+
+    ![Choose networking in the function app](./media/functions-create-vnet/networking-0.png)
+
+1. Under **VNet Integration**, select **Click here to configure**.
+
+    ![Status for configuring a network feature](./media/functions-create-vnet/Networking-1.png)
+
+1. On the virtual network integration page, select **Add VNet (preview)** .
+
+    ![Add the VNet Integration preview](./media/functions-create-vnet/networking-2.png)
+
+1. In **Network Feature Status**, use the settings in the table below the image:
+
+    ![Define the function app virtual network](./media/functions-create-vnet/networking-3.png)
+
+    | 설정      | 제안 값  | 설명      |
+    | ------------ | ---------------- | ---------------- |
+    | **Virtual Network** | MyResourceGroup-vnet | This virtual network is the one you created earlier. |
+    | **서브넷** | Create New Subnet | Create a subnet in the virtual network for your function app to use. VNet Integration must be configured to use an empty subnet. It doesn't matter that your functions use a different subnet than your VM. The virtual network automatically routes traffic between the two subnets. |
+    | **서브넷 이름** | Function-Net | 새 서브넷의 이름입니다. |
+    | **Virtual network address block** | 10.10.0.0/16 | Choose the same address block used by the WordPress site. You should only have one address block defined. |
+    | **주소 범위** | 10.10.2.0/24   | The subnet size restricts the total number of instances that your Premium plan function app can scale out to. This example uses a `/24` subnet with 254 available host addresses. This subnet is over-provisioned, but easy to calculate. |
+
+1. Select **OK** to add the subnet. Close the VNet Integration and Network Feature Status pages to return to your function app page.
+
+The function app can now access the virtual network where the WordPress site is running. Next, you use [Azure Functions Proxies](functions-proxies.md) to return a file from the WordPress site.
+
+## <a name="create-a-proxy-to-access-vm-resources"></a>Create a proxy to access VM resources
+
+With VNet Integration enabled, you can create a proxy in your function app to forward requests to the VM running in the virtual network.
+
+1. In your function app, select  **Proxies** >  **+** , then use the proxy settings in the table below the image:
+
+    ![Define the proxy settings](./media/functions-create-vnet/create-proxy.png)
 
     | 설정  | 제안 값  | 설명      |
     | -------- | ---------------- | ---------------- |
-    | **이름** | 염색 | 이름은 임의의 값일 수 있습니다. 프록시를 식별 하는 데 사용 됩니다. |
-    | **경로 템플릿** | /플랜트 | VM 리소스에 매핑되는 경로입니다. |
-    | **백 엔드 URL** | http://< YOUR_VM_IP >/wp-content/themes/twentyseventeen/assets/images/header.jpg | `<YOUR_VM_IP>`를 앞에서 만든 WordPress VM의 IP 주소로 바꿉니다. 이 매핑은 사이트에서 단일 파일을 반환 합니다. |
+    | **Name** | Plant | The name can be any value. It's used to identify the proxy. |
+    | **Route Template** | /plant | Route that maps to a VM resource. |
+    | **Backend URL** | http://<YOUR_VM_IP>/wp-content/themes/twentyseventeen/assets/images/header.jpg | Replace `<YOUR_VM_IP>` with the IP address of your WordPress VM that you created earlier. This mapping returns a single file from the site. |
 
-1. **만들기** 를 선택 하 여 함수 앱에 프록시를 추가 합니다.
+1. Select **Create** to add the proxy to your function app.
 
-## <a name="try-it-out"></a>사용해보십시오
+## <a name="try-it-out"></a>사용해 보기
 
-1. 브라우저에서 **백 엔드 url**로 사용한 url에 액세스를 시도 합니다. 예상 대로 요청 시간이 초과 됩니다. WordPress 사이트는 인터넷이 아닌 가상 네트워크에만 연결 되므로 시간 초과가 발생 합니다.
+1. In your browser, try to access the URL you used as the **Backend URL**. As expected, the request times out. A timeout occurs because your WordPress site is connected only to your virtual network and not the internet.
 
-1. 새 프록시에서 **프록시 URL** 값을 복사 하 여 브라우저의 주소 표시줄에 붙여 넣습니다. 반환 된 이미지는 가상 네트워크 내에서 실행 되는 WordPress 사이트에서 가져온 것입니다.
+1. Copy the **Proxy URL** value from your new proxy and paste it into the address bar of your browser. The returned image is from the WordPress site running inside your virtual network.
 
-    ![WordPress 사이트에서 반환 된 공장 이미지 파일](./media/functions-create-vnet/plant.png)
+    ![Plant image file returned from the WordPress site](./media/functions-create-vnet/plant.png)
 
-함수 앱은 인터넷 및 가상 네트워크에 연결 되어 있습니다. 프록시는 공용 인터넷을 통해 요청을 받은 다음 해당 요청을 연결 된 가상 네트워크로 전달 하는 간단한 HTTP 프록시로 작동 합니다. 그러면 프록시가 인터넷을 통해 공개적으로 응답을 다시 릴레이 합니다.
+Your function app is connected to both the internet and your virtual network. The proxy is receiving a request over the public internet, and then acting as a simple HTTP proxy to forward that request to the connected virtual network. The proxy then relays the response back to you publicly over the internet.
 
 [!INCLUDE [clean-up-section-portal](../../includes/clean-up-section-portal.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서 WordPress 사이트는 함수 앱에서 프록시를 사용 하 여 호출 되는 API 역할을 합니다. 이 시나리오는 쉽게 설정 하 고 시각화할 수 있으므로 좋은 자습서를 만듭니다. 가상 네트워크 내에 배포 된 다른 API를 사용할 수 있습니다. 가상 네트워크 내에 배포 된 Api를 호출 하는 코드를 사용 하 여 함수를 만들었을 수도 있습니다. 보다 현실적인 시나리오는 데이터 클라이언트 Api를 사용 하 여 가상 네트워크에 배포 된 SQL Server 인스턴스를 호출 하는 함수입니다.
+In this tutorial, the WordPress site serves as an API that is called by using a proxy in the function app. This scenario makes a good tutorial because it's easy to set up and visualize. You could use any other API deployed within a virtual network. You could also have created a function with code that calls APIs deployed within the virtual network. A more realistic scenario is a function that uses data client APIs to call a SQL Server instance deployed in the virtual network.
 
-프리미엄 계획에서 실행 되는 함수는 PremiumV2 계획의 web apps와 동일한 기본 App Service 인프라를 공유 합니다. [Azure App Service의 웹 앱](../app-service/overview.md) 에 대 한 모든 설명서는 프리미엄 계획 기능에 적용 됩니다.
+Functions running in a Premium plan share the same underlying App Service infrastructure as web apps on PremiumV2 plans. All the documentation for [web apps in Azure App Service](../app-service/overview.md) applies to your Premium plan functions.
 
 > [!div class="nextstepaction"]
-> [기능의 네트워킹 옵션에 대 한 자세한 정보](./functions-networking-options.md)
+> [Learn more about the networking options in Functions](./functions-networking-options.md)
 
-[프리미엄 계획]: functions-scale.md#premium-plan
+[Premium plan]: functions-scale.md#premium-plan

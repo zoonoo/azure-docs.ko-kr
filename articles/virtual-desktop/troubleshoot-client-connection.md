@@ -1,85 +1,85 @@
 ---
-title: 원격 데스크톱 Windows 가상 데스크톱 문제 해결-Azure
-description: Windows 가상 데스크톱 테 넌 트 환경에서 클라이언트 연결을 설정할 때 발생 하는 문제를 해결 하는 방법입니다.
+title: Troubleshoot Remote Desktop Windows Virtual Desktop - Azure
+description: How to resolve issues when you set up client connections in a Windows Virtual Desktop tenant environment.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 3aae74a4fed499674f015ed0adb59016877583f3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9fcc65768db3029461a5823034336bc883379292
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607381"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227680"
 ---
 # <a name="remote-desktop-client-connections"></a>원격 데스크톱 클라이언트 연결
 
-이 문서를 사용 하 여 Windows 가상 데스크톱 클라이언트 연결 문제를 해결할 수 있습니다.
+Use this article to resolve issues with Windows Virtual Desktop client connections.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
-## <a name="you-cant-open-a-web-client"></a>웹 클라이언트를 열 수 없습니다.
+## <a name="you-cant-open-a-web-client"></a>You can't open a web client
 
-다른 웹 사이트를 열어 인터넷 연결이 있는지 확인 합니다. 예를 들면 [www.Bing.com](https://www.bing.com)입니다.
+Confirm there's internet connectivity by opening another web site; for example, [www.Bing.com](https://www.bing.com).
 
-**Nslookup** 을 사용 하 여 DNS에서 FQDN을 확인할 수 있는지 확인 합니다.
+Use **nslookup** to confirm DNS can resolve the FQDN:
 
 ```cmd
 nslookup rdweb.wvd.microsoft.com
 ```
 
-Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트와 같은 다른 클라이언트를 사용 하 여 연결을 시도 하 고 웹 클라이언트를 열 수 있는지 확인 합니다.
+Try connecting with another client, like Remote Desktop client for Windows 7 or Windows 10, and check to see if you can open the web client.
 
-### <a name="error-opening-another-site-fails"></a>오류: 다른 사이트를 열지 못했습니다.
+### <a name="error-opening-another-site-fails"></a>Error: Opening another site fails
 
-**원인:** 네트워크 문제 및/또는 중단.
+**Cause:** Network issues and/or outages.
 
-**해결 방법:** 네트워크 지원에 문의 하십시오.
+**Fix:** Contact network support.
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>오류: Nslookup에서 이름을 확인할 수 없습니다.
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error: Nslookup cannot resolve the name
 
-**원인:** 네트워크 문제 및/또는 중단.
+**Cause:** Network issues and/or outages.
 
-**해결 방법:** 네트워크 지원에 문의
+**Fix:** Contact network support
 
-### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>오류: 연결할 수 없지만 다른 클라이언트는 연결할 수 있습니다.
+### <a name="error-you-cant-connect-but-other-clients-can-connect"></a>Error: You can't connect but other clients can connect
 
-**원인:** 브라우저가 예상 대로 작동 하지 않고 작동을 중지 했습니다.
+**Cause:** The browser isn't behaving as expected and stopped working.
 
-**해결 방법:** 브라우저 문제를 해결 하려면 다음 지침을 따르세요.
+**Fix:** Follow these instructions to troubleshoot the browser.
 
-1. 브라우저를 다시 시작 합니다.
-2. 브라우저 쿠키를 지웁니다. [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)참조 하세요.
-3. 브라우저 캐시를 지웁니다. [브라우저에 대 한 브라우저 캐시 지우기를](https://binged.it/2RKyfdU)참조 하세요.
-4. 비공개 모드에서 브라우저를 엽니다.
+1. Restart the browser.
+2. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+3. 브라우저 캐시를 지웁니다. See [clear browser cache for your browser](https://binged.it/2RKyfdU).
+4. Open browser in Private mode.
 
-## <a name="web-client-stops-responding-or-disconnects"></a>웹 클라이언트가 응답을 중지 하거나 연결을 끊습니다.
+## <a name="web-client-stops-responding-or-disconnects"></a>Web client stops responding or disconnects
 
-다른 브라우저 또는 클라이언트를 사용 하 여 연결 해 보세요.
+Try connecting using another browser or client.
 
-### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>오류: 다른 브라우저 및 클라이언트도 오작동 하거나 열지 못했습니다.
+### <a name="error-other-browsers-and-clients-also-malfunction-or-fail-to-open"></a>Error: Other browsers and clients also malfunction or fail to open
 
-**원인:** 네트워크 및/또는 운영 체제 문제 또는 중단
+**Cause:** Network and/or operation system issues or outages
 
-**해결 방법:** 지원 팀에 문의 하세요.
+**Fix:** Contact support teams.
 
-## <a name="web-client-keeps-prompting-for-credentials"></a>웹 클라이언트는 자격 증명을 묻는 메시지를 표시 합니다.
+## <a name="web-client-keeps-prompting-for-credentials"></a>Web client keeps prompting for credentials
 
-웹 클라이언트에서 자격 증명을 입력 하 라는 메시지가 표시 되 면 다음 지침을 따르세요.
+If the Web client keeps prompting for credentials, follow these instructions.
 
-1. 웹 클라이언트 URL이 올바른지 확인 합니다.
-2. URL에 연결 된 Windows 가상 데스크톱 환경에 대 한 자격 증명이 있는지 확인 합니다.
-3. 브라우저 쿠키를 지웁니다. [Internet Explorer에서 쿠키 파일을 삭제 하는 방법을](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer)참조 하세요.
-4. 브라우저 캐시를 지웁니다. [브라우저에 대 한 브라우저 캐시 지우기를](https://binged.it/2RKyfdU)참조 하세요.
-5. 비공개 모드에서 브라우저를 엽니다.
+1. Confirm web client URL is correct.
+2. Confirm that credentials are for the Windows Virtual Desktop environment tied to the URL.
+3. Clear browser cookies. See [How to delete cookie files in Internet Explorer](https://support.microsoft.com/help/278835/how-to-delete-cookie-files-in-internet-explorer).
+4. 브라우저 캐시를 지웁니다. See [Clear browser cache for your browser](https://binged.it/2RKyfdU).
+5. Open browser in Private mode.
 
-## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Windows 7 또는 Windows 10 용 원격 데스크톱 클라이언트가 응답을 중지 하거나 열 수 없습니다.
+## <a name="remote-desktop-client-for-windows-7-or-windows-10-stops-responding-or-cannot-be-opened"></a>Remote Desktop client for Windows 7 or Windows 10 stops responding or cannot be opened
 
-다음 PowerShell cmdlet을 사용 하 여 대역 외 (OOB) 클라이언트 레지스트리를 정리 합니다.
+Use the following PowerShell cmdlets to clean up out-of-band (OOB) client registries.
 
 ```PowerShell
 Remove-ItemProperty 'HKCU:\Software\Microsoft\Terminal Server Client\Default' - Name FeedURLs
@@ -91,38 +91,38 @@ Remove-Item 'HKCU:\Software\Microsoft\RdClientRadc' -Recurse
 Remove-Item C:\Users\pavithir\AppData\Roaming\RdClientRadc\* -Recurse
 ```
 
-**%AppData%\RdClientRadc** 으로 이동 하 여 모든 콘텐츠를 삭제 합니다.
+Navigate to **%AppData%\RdClientRadc** and delete all content.
 
-Windows 7 및 Windows 10 용 원격 데스크톱 클라이언트를 제거 하 고 다시 설치 합니다.
+Uninstall and reinstall Remote Desktop client for Windows 7 and Windows 10.
 
-## <a name="troubleshooting-end-user-connectivity"></a>최종 사용자 연결 문제 해결
+## <a name="troubleshooting-end-user-connectivity"></a>Troubleshooting end-user connectivity
 
-사용자가 피드 및 로컬 리소스에 액세스할 수 있지만 원격 리소스에 액세스 하지 못하도록 하는 구성, 가용성 또는 성능 문제가 있는 경우도 있습니다. 이러한 경우 사용자는 다음과 유사한 메시지를 가져옵니다.
+Sometimes users can access their feed and local resources, but still have configuration, availability, or performance issues that prevent them from accessing remote resources. In these cases, the user gets messages similar to these:
 
-![원격 데스크톱 연결 오류 메시지입니다.](media/eb76b666808bddb611448dfb621152ce.png)
+![Remote Desktop Connection error message.](media/eb76b666808bddb611448dfb621152ce.png)
 
-![게이트웨이 오류 메시지에 연결할 수 없습니다.](media/a8fbb9910d4672147335550affe58481.png)
+![Can't connect to the gateway error message.](media/a8fbb9910d4672147335550affe58481.png)
 
-클라이언트 연결 오류 코드에 대 한 일반적인 문제 해결 지침을 따릅니다.
+Follow these general troubleshooting instructions for client connection error codes.
 
-1. 문제가 발생 한 사용자 이름 및 시간을 확인 합니다.
-2. **PowerShell** 을 열고 문제가 보고 된 Windows 가상 데스크톱 테 넌 트에 대 한 연결을 설정 합니다.
-3. RdsTenant를 사용 하 여 올바른 테 넌 트에 대 한 연결을 확인 **합니다.**
-4. **Get RdsHostPool** 및 **RdsSessionHost** cmdlet을 사용 하 여 올바른 호스트 풀에서 문제 해결을 수행 하 고 있는지 확인 합니다.
-5. 아래 명령을 실행 하 여 지정 된 기간 동안 연결 유형의 실패 한 모든 활동 목록을 가져옵니다.
+1. Confirm user name and time when issue was experienced.
+2. Open **PowerShell** and establish connection to the Windows Virtual Desktop tenant where the issue was reported.
+3. Confirm connection to the correct tenant with **Get-RdsTenant.**
+4. Using **Get-RdsHostPool** and **Get-RdsSessionHost** cmdlets, confirm that troubleshooting is being done on the correct host pool.
+5. Execute the command below to get a list of all failed activities of type connection for the specified time window:
 
     ```PowerShell
      Get-RdsDiagnosticActivities -TenantName <TenantName> -username <UPN> -StartTime
      "11/21/2018 1:07:03 PM" -EndTime "11/21/2018 1:27:03 PM" -Outcome Failure -ActivityType Connection
     ```
 
-6. 이전 cmdlet 출력의 **활동** id를 사용 하 여 아래 명령을 실행 합니다.
+6. Using the **ActivityId** from the previous cmdlet output, run the command below:
 
     ```PowerShell
-    (Get-RdsDiagnosticActivities -TenantName $tenant -ActivityId <ActivityId> -Detailed).Errors
+    (Get-RdsDiagnosticActivities -TenantName <TenantName> -ActivityId <ActivityId> -Detailed).Errors
     ```
 
-7. 명령은 다음과 같은 출력을 생성 합니다. **Errorcodesymbolic** 된 및 **ErrorMessage** 를 사용 하 여 근본 원인을 해결 합니다.
+7. The command produces output similar to the output shown below. Use **ErrorCodeSymbolic** and **ErrorMessage** to troubleshoot the root cause.
 
     ```PowerShell
     ErrorSource       : <Source>
@@ -135,47 +135,47 @@ Windows 7 및 Windows 10 용 원격 데스크톱 클라이언트를 제거 하 �
     Time              : <Timestampt>
     ```
 
-### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>오류: O_ADD_USER_TO_GROUP_FAILED/사용자 = ≤ username ≥을 GROUP = Remote Desktop Users에 추가 하지 못했습니다. 이유: ERROR_NO_SUCH_MEMBER
+### <a name="error-o_add_user_to_group_failed--failed-to-add-user--username-to-group--remote-desktop-users-reason-win32error_no_such_member"></a>Error: O_ADD_USER_TO_GROUP_FAILED / Failed to add user = ≤username≥ to group = Remote Desktop Users. Reason: Win32.ERROR_NO_SUCH_MEMBER
 
-**원인:** VM이 사용자 개체가 인 도메인에 가입 되어 있지 않습니다.
+**Cause:** VM has not been joined to the domain where user object is.
 
-**해결 방법:** VM을 올바른 도메인에 추가 합니다. [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal)을 참조 하세요.
+**Fix:** Add VM to the correct domain. See [Join a Windows Server virtual machine to a managed domain](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-admin-guide-join-windows-vm-portal).
 
-### <a name="error-nslookup-cannot-resolve-the-name"></a>오류: Nslookup에서 이름을 확인할 수 없습니다.
+### <a name="error-nslookup-cannot-resolve-the-name"></a>Error: Nslookup cannot resolve the name
 
-**원인:** 네트워크 문제 또는 중단.
+**Cause:** Network issues or outages.
 
-**해결 방법:** 네트워크 지원에 문의
+**Fix:** Contact network support
 
-### <a name="error-connectionfailedclientprotocolerror"></a>오류: ConnectionFailedClientProtocolError
+### <a name="error-connectionfailedclientprotocolerror"></a>Error: ConnectionFailedClientProtocolError
 
-**원인:** 사용자가 연결 하려고 하는 Vm은 도메인에 가입 되지 않습니다.
+**Cause:** VMs that user is attempting to connect to are not domain joined.
 
-**해결 방법:** 호스트 풀의 일부인 모든 Vm을 도메인 컨트롤러에 가입 시킵니다.
+**Fix:** Join all VMs that are part of a host pool to the domain controller.
 
-### <a name="error-connectionfailedusersidinformationmismatch"></a>오류: ConnectionFailedUserSIDInformationMismatch
-**원인:** 사용자가 원격 로그인을 사용 하도록 설정 하려고 할 때 사용자의 AD (Azure Active Directory) 토큰에서 SID가 도메인 컨트롤러에서 반환 된 SID와 일치 하지 않습니다. 이 오류는 일반적으로 Windows Server AD에서 원본으로 사용 하는 사용자로 Azure Active Directory Domain Services (Azure AD DS) 환경에 로그인을 시도할 때 발생 합니다.
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Error: ConnectionFailedUserSIDInformationMismatch
+**Cause:** The SID from the user's Azure Active Directory (AD) token doesn't match the SID returned by the domain controller when attempting to enable the user for remote sign in. This error typically happens when attempting to sign in to an Azure Active Directory Domain Services (Azure AD DS) environment with a user originally sourced from a Windows Server AD.
 
-**해결 방법:** 지금은이 시나리오를 지원 하지 않습니다. Azure Active Directory에서 소스인 사용자만 Azure AD DS에 연결 된 Windows 가상 데스크톱 Vm에 로그인 할 수 있습니다.
+**Fix:** This scenario isn't supported at this time. Only users sourced from Azure Active Directory can sign in to Windows Virtual Desktop VMs connected to Azure AD DS.
 
-## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>사용자가 연결 되어 있지만 아무것도 표시 되지 않습니다 (피드 없음).
+## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>User connects but nothing is displayed (no feed)
 
-사용자가 원격 데스크톱 클라이언트를 시작 하 고 인증할 수 있지만 웹 검색 피드에 아이콘이 표시 되지 않습니다.
+A user can start Remote Desktop clients and is able to authenticate, however the user doesn't see any icons in the web discovery feed.
 
-다음 명령줄을 사용 하 여 문제를 보고 하는 사용자가 응용 프로그램 그룹에 할당 되었는지 확인 합니다.
+Confirm that the user reporting the issues has been assigned to application groups by using this command line:
 
 ```PowerShell
 Get-RdsAppGroupUser <tenantname> <hostpoolname> <appgroupname>
 ```
 
-사용자가 올바른 자격 증명으로 로그인 하 고 있는지 확인 합니다.
+Confirm that the user is logging in with the correct credentials.
 
-웹 클라이언트를 사용 하는 경우 캐시 된 자격 증명 문제가 없는지 확인 합니다.
+If the web client is being used, confirm that there are no cached credentials issues.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Windows 가상 데스크톱 및 에스컬레이션 트랙 문제 해결에 대 한 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md)을 참조 하세요.
-- Windows 가상 데스크톱 환경에서 테 넌 트 및 호스트 풀을 만드는 동안 발생 하는 문제를 해결 하려면 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)를 참조 하세요.
-- Windows 가상 데스크톱에서 VM (가상 컴퓨터)을 구성 하는 동안 발생 하는 문제를 해결 하려면 [세션 호스트 가상 컴퓨터 구성](troubleshoot-vm-configuration.md)을 참조 하세요.
-- Windows 가상 데스크톱과 함께 PowerShell을 사용할 때 발생 하는 문제를 해결 하려면 [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하세요.
-- 문제 해결 자습서를 진행 하려면 [자습서: 템플릿 배포 리소스 관리자 문제 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot)을 참조 하세요.
+- For an overview on troubleshooting Windows Virtual Desktop and the escalation tracks, see [Troubleshooting overview, feedback, and support](troubleshoot-set-up-overview.md).
+- To troubleshoot issues while creating a tenant and host pool in a Windows Virtual Desktop environment, see [Tenant and host pool creation](troubleshoot-set-up-issues.md).
+- To troubleshoot issues while configuring a virtual machine (VM) in Windows Virtual Desktop, see [Session host virtual machine configuration](troubleshoot-vm-configuration.md).
+- To troubleshoot issues when using PowerShell with Windows Virtual Desktop, see [Windows Virtual Desktop PowerShell](troubleshoot-powershell.md).
+- To go through a troubleshoot tutorial, see [Tutorial: Troubleshoot Resource Manager template deployments](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot).

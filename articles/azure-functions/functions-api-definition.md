@@ -1,20 +1,16 @@
 ---
-title: Azure Functions의 OpenAPI 메타데이터 | Microsoft Docs
+title: OpenAPI metadata in Azure Functions
 description: Azure Functions에서 OpenAPI 지원 개요
-services: functions
 author: alexkarcher-msft
-manager: jeconnoc
-ms.assetid: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: 00dedd069914384a1883a54bfb433857286fb49c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a80079574dc29c54de89f5275c65637b205742d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097568"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227409"
 ---
 # <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Azure Functions에서 OpenAPI 2.0 메타데이터 지원(미리 보기)
 Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함수 앱 내에 OpenAPI 2.0 정의를 작성하는 데 사용할 수 있는 미리 보기 기능입니다. 그런 다음 함수 앱을 사용하여 해당 파일을 호스팅할 수 있습니다.
@@ -44,7 +40,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="templates"></a>사용 가능한 템플릿
 
-|이름| 설명 |
+|name| 설명 |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 
@@ -54,7 +50,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 |Swagger.json|포털 UI|Function.json|
 |:----|:-----|:-----|
-|[Host](https://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정** > **App Service 설정** > **개요** > **URL**|*없음*
+|[호스트](https://swagger.io/specification/#fixed-fields-15)|**함수 앱 설정** > **App Service 설정** > **개요** > **URL**|*없음*
 |[경로](https://swagger.io/specification/#paths-object-29)|**통합** > **선택한 HTTP 메서드**|바인딩: 경로
 |[경로 항목](https://swagger.io/specification/#path-item-object-32)|**통합** > **경로 템플릿**|바인딩: 메서드
 |[보안](https://swagger.io/specification/#security-scheme-object-112)|**키**|*없음*|

@@ -1,20 +1,15 @@
 ---
 title: 지속성 함수의 모니터 - Azure
 description: Azure Functions의 지속성 함수 확장을 사용하여 상태 모니터를 구현하는 방법을 알아봅니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb4602ac0431e09208953122f13b30124ab77f5
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9c8edf5e8fb32160280a1ce9bff827c2e3fa14f8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614760"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232852"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
@@ -55,11 +50,11 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_SendGoodWeatherAlert`가 true를 반환하면 `E3_GetIsClear`를 호출합니다.
+* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
 * `E3_GetIsClear`: 특정 위치의 현재 기상 조건을 확인하는 작업 함수입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
-다음 섹션에서는 스크립팅 및 JavaScript에 C# 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+The following sections explain the configuration and code that is used for C# scripting and JavaScript. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
 
 ## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>날씨 모니터링 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
 
@@ -73,24 +68,24 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 *MonitorRequest*를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-6. `CurrentUtcDateTime` (.NET) 또는 `currentUtcDateTime` (JavaScript)가 모니터의 만료 시간을 전달 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
+6. Continues running until the `CurrentUtcDateTime` (.NET) or `currentUtcDateTime` (JavaScript) passes the monitor's expiration time, or an SMS alert is sent.
 
 **MonitorRequests**를 여러 개 보내면 오케스트레이터 인스턴스를 동시에 여러 개 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
 ## <a name="strongly-typed-data-transfer-net-only"></a>강력한 형식의 데이터 전송(.NET만 해당)
 
-Orchestrator에는 여러 데이터 조각이 필요 하므로 [공유 POCO 개체](../functions-reference-csharp.md#reusing-csx-code) 는 및 C# C# 스크립트에서 강력한 형식의 데이터 전송에 사용 됩니다.  
+The orchestrator requires multiple pieces of data, so [shared POCO objects](../functions-reference-csharp.md#reusing-csx-code) are used for strongly-typed data transfer in C# and C# script:  
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
@@ -109,7 +104,7 @@ JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
@@ -123,7 +118,7 @@ SMS 메시지를 보내는 코드는 다음과 같습니다.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
 
-### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 

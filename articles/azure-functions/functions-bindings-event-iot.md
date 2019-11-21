@@ -1,31 +1,26 @@
 ---
-title: Azure Functions에 대 한 Azure IoT Hub 바인딩
-description: Azure Functions에서 IoT Hub 바인딩을 사용 하는 방법을 이해 합니다.
-services: functions
-documentationcenter: na
+title: Azure IoT Hub bindings for Azure Functions
+description: Understand how to use IoT Hub bindings in Azure Functions.
 author: craigshoemaker
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: d8b749a294da379e99e61072ff7a3415c508d2ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 93a8dc600e8fadb16df8e82fbe02a1b186191d12
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097638"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227263"
 ---
-# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure Functions에 대 한 Azure IoT Hub 바인딩
+# <a name="azure-iot-hub-bindings-for-azure-functions"></a>Azure IoT Hub bindings for Azure Functions
 
-이 문서에서는 IoT Hub에 대 한 Azure Functions 바인딩을 사용 하는 방법을 설명 합니다. IoT Hub 지원은 [Azure Event Hubs 바인딩을](functions-bindings-event-hubs.md)기반으로 합니다.
+This article explains how to work with Azure Functions bindings for IoT Hub. The IoT Hub support is based on the [Azure Event Hubs Binding](functions-bindings-event-hubs.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
-Azure Functions 버전 1.x의 경우 IoT Hub 바인딩은 [ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet 패키지 (버전 2.x)에서 제공 됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 리포지토리에 있습니다.
+For Azure Functions version 1.x, the IoT Hub bindings are provided in the [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.ServiceBus) NuGet package, version 2.x. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/v2.x/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
@@ -36,7 +31,7 @@ Functions 2.x의 경우 [Microsoft.Azure.WebJobs.Extensions.EventHubs](https://w
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 > [!IMPORTANT]
-> 다음 코드 샘플에서는 이벤트 허브 API를 사용 하지만 지정 된 구문은 IoT Hub 함수에 적용 됩니다.
+> While the following code samples use the Event Hub API, the given syntax is applicable for IoT Hub functions.
 
 [!INCLUDE [functions-bindings-event-hubs](../../includes/functions-bindings-event-hubs.md)]
 

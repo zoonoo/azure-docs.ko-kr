@@ -1,30 +1,31 @@
 ---
-title: Azure Data Factory에서 공유 자체 호스팅 통합 런타임 만들기
+title: Create a shared self-hosted integration runtime with PowerShell
 description: Azure Data Factory에서 자체 호스팅 통합 런타임 공유를 만들어 여러 데이터 팩터리가 통합 런타임에 액세스할 수 있도록 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
-author: nabhishek
-manager: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: fcda60863f78dd338bbfc64c1679561262c554a9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+author: nabhishek
+manager: anansub
+ms.custom: seo-lt-2019
+ms.date: 10/31/2018
+ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73677049"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218238"
 ---
-# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 공유 자체 호스팅 통합 런타임 만들기
+# <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Create a shared self-hosted integration runtime in Azure Data Factory
 
-이 가이드에서는 Azure Data Factory에서 공유 자체 호스팅 통합 런타임을 만드는 방법을 보여 줍니다. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다.
+This guide shows you how to create a shared self-hosted integration runtime in Azure Data Factory. 그런 다음, 다른 데이터 팩터리에서 자체 호스팅 통합 런타임 공유를 사용할 수 있습니다.
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR 만들기
+## <a name="create-a-shared-self-hosted-ir-using-azure-data-factory-ui"></a>Create a shared self-hosted IR using Azure Data Factory UI
 
-Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR을 만들려면 다음 단계를 수행 하면 됩니다.
+To create a shared self-hosted IR using Azure Data Factory UI, you can take following steps:
 
 1. 공유할 자체 호스팅 IR에서 연결된 IR을 만들려면 데이터 팩터리에 대한 권한을 부여합니다.
       
@@ -42,16 +43,16 @@ Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR을 만들
       
     ![이름 및 리소스 ID 입력용 상자](media/create-self-hosted-integration-runtime/6_create-linkedIR_3.png)
 
-## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR 만들기
+## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Create a shared self-hosted IR using Azure PowerShell
 
-Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다. 
-1. 데이터 팩터리를 만듭니다. 
+To create a shared self-hosted IR using Azure PowerShell, you can take following steps: 
+1. 데이터 팩터리 만들기 
 1. 자체 호스팅 통합 런타임을 만듭니다.
 1. 다른 데이터 팩터리와 자체 호스팅 통합 런타임을 공유합니다.
 1. 연결된 통합 런타임을 만듭니다.
 1. 공유를 취소합니다.
 
-### <a name="prerequisites"></a>필수 조건 
+### <a name="prerequisites"></a>전제 조건 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -62,7 +63,7 @@ Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 �
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
 
-### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. Windows PowerShell ISE(통합 스크립팅 환경)를 시작합니다.
 
@@ -99,7 +100,7 @@ Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 �
     > [!NOTE]  
     > 이 단계는 선택 사항입니다. 데이터 팩터리가 이미 있는 경우 이 단계를 건너뜁니다. 
 
-    [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) 명령을 사용 하 여 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 을 만듭니다. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
+    Create an [Azure resource group](../azure-resource-manager/resource-group-overview.md) by using the [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup) command. 리소스 그룹은 Azure 리소스가 그룹으로 배포되고 관리되는 논리 컨테이너입니다. 다음 예제는 WestEurope 위치에 `myResourceGroup`이라는 리소스 그룹을 만듭니다. 
 
     ```powershell
     New-AzResourceGroup -Location $DataFactoryLocation -Name $ResourceGroupName

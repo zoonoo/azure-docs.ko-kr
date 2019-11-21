@@ -1,5 +1,5 @@
 ---
-title: Azure Dev Spaces에서 개인 투구 리포지토리를 사용 하는 방법
+title: How to use a private Helm repository in Azure Dev Spaces
 titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
@@ -7,38 +7,38 @@ author: zr-msft
 ms.author: zarhoads
 ms.date: 08/22/2019
 ms.topic: conceptual
-description: Azure Dev 공간에서 개인 투구 리포지토리를 사용 합니다.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너, 투구
+description: Use a private Helm repository in an Azure Dev Space.
+keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers, Helm
 manager: gwallace
-ms.openlocfilehash: d0f2cb739a502d614ac329eef1fc57b2fb15cb38
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
-ms.translationtype: MT
+ms.openlocfilehash: 23c96dade4d8917fae64337a9584fb9c6d410b68
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70014517"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229067"
 ---
-# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Azure Dev Spaces에서 개인 투구 리포지토리 사용
+# <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Use a private Helm repository in Azure Dev Spaces
 
-[투구][helm] 는 Kuberentes 패키지 관리자입니다. 투구는 [차트][helm-chart] 형식을 사용 하 여 종속성을 패키지 합니다. 투구 차트는 공개 또는 비공개 일 수 있는 리포지토리에 저장 됩니다. Azure Dev Spaces는 응용 프로그램을 실행할 때 공용 리포지토리에서 투구 차트를 검색 합니다. 투구 리포지토리가 개인 이거나 액세스할 수 Azure Dev Spaces 없는 경우 해당 리포지토리의 차트를 응용 프로그램에 직접 추가할 수 있습니다. 차트를 직접 추가 하면 개인 투구 리포지토리에 액세스할 필요 없이 응용 프로그램을 실행할 Azure Dev Spaces 있습니다.
+[Helm][helm] is a package manager for Kuberentes. Helm uses a [chart][helm-chart] format to package dependencies. Helm charts are stored in a repository, which can be public or private. Azure Dev Spaces only retrieves Helm charts from public repositories when running your application. In cases where the Helm repository is private or Azure Dev Spaces can't access it, you can add a chart from that repository directly to your application. Adding the chart directly lets Azure Dev Spaces run your application without having to access the private Helm repository.
 
-## <a name="add-the-private-helm-repository-to-your-local-machine"></a>로컬 컴퓨터에 개인 투구 리포지토리 추가
+## <a name="add-the-private-helm-repository-to-your-local-machine"></a>Add the private Helm repository to your local machine
 
-[투구 리포지토리 추가][helm-repo-add] 및 [투구 리포지토리 업데이트][helm-repo-update] 를 사용 하 여 로컬 컴퓨터에서 개인 투구 리포지토리에 액세스할 수 있습니다.
+Use [helm repo add][helm-repo-add] and [helm repo update][helm-repo-update] to access the private Helm repository from your local machine.
 
 ```cmd
 helm repo add privateRepoName http://example.com/helm/v1/repo --username user --password 5tr0ng_P@ssw0rd!
 helm repo update
 ```
 
-## <a name="add-the-chart-to-your-application"></a>응용 프로그램에 차트 추가
+## <a name="add-the-chart-to-your-application"></a>Add the chart to your application
 
-프로젝트 디렉터리로 이동 하 고를 실행 `azds prep`합니다.
+Navigate to your project's directory and run `azds prep`.
 
 ```cmd
 azds prep --public
 ```
 
-응용 프로그램의 차트 디렉터리에 차트를 사용 하 여 [요구 사항 .yaml][helm-requirements] 파일을 만듭니다. 예를 들어 응용 프로그램 이름이 *app1*인 경우 *차트/app1/요구 사항을 만듭니다. yaml*.
+Create a [requirements.yaml][helm-requirements] file with your chart in your application's chart directory. For example, if your application is named *app1*, you would create *charts/app1/requirements.yaml*.
 
 ```yaml
 dependencies:
@@ -47,19 +47,19 @@ dependencies:
       repository:  http://example.com/helm/v1/repo
 ```
 
-응용 프로그램의 차트 디렉터리로 이동 하 고 [투구 종속성 업데이트][helm-dependency-update] 를 사용 하 여 응용 프로그램에 대 한 투구 종속성을 업데이트 하 고 개인 리포지토리에서 차트를 다운로드 합니다.
+Navigate to your application's chart directory and use [helm dependency update][helm-dependency-update] to update the Helm dependencies for your application and download the chart from the private repository.
 
 ```cmd
 helm dependency update
 ```
 
-*Tgz* 파일이 있는 *차트* 하위 디렉터리가 응용 프로그램의 차트 디렉터리에 추가 되었는지 확인 합니다. 예: *차트/app1/차트/mychart-0.1.0. tgz*.
+Verify a *charts* subdirectory with a *tgz* file has been added to your application's chart directory. For example, *charts/app1/charts/mychart-0.1.0.tgz*.
 
-개인 투구 리포지토리의 차트가 다운로드 되어 프로젝트에 추가 되었습니다. Dev 공간에서이 종속성을 업데이트 하지 않도록 *요구 사항 .yaml* 파일을 제거 합니다.
+The chart from your private Helm repository has been downloaded and added to your project. Remove the *requirements.yaml* file so that Dev Spaces won't try to update this dependency.
 
 ## <a name="run-your-application"></a>애플리케이션 실행
 
-프로젝트의 루트 디렉터리로 이동 하 고를 실행 `azds up` 하 여 개발 공간에서 응용 프로그램이 성공적으로 실행 되는지 확인 합니다.
+Navigate to the root directory of your project and run `azds up` to verify your application successfully runs in your dev space.
 
 ```cmd
 $ azds up
@@ -76,11 +76,11 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 
 ## <a name="next-steps"></a>다음 단계
 
-[투구 및 작동 방식][helm]에 대해 자세히 알아보세요.
+Learn more about [Helm and how it works][helm].
 
 [helm]: https://docs.helm.sh
-[helm-chart]: https://helm.sh/docs/developing_charts/
-[helm-dependency-update]: https://helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://helm.sh/docs/helm/#helm-repo-update
-[helm-requirements]: https://helm.sh/docs/developing_charts/#chart-dependencies
+[helm-chart]: https://helm.sh/docs/topics/charts/
+[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
+[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
+[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

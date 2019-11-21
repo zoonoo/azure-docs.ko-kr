@@ -1,44 +1,44 @@
 ---
-title: Azure 애플리케이션 Insights 에이전트 상세 지침 | Microsoft Docs
-description: Application Insights 에이전트를 시작 하는 방법에 대 한 자세한 지침입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
+title: Azure Application Insights Agent detailed instructions | Microsoft Docs
+description: Detailed instructions for getting started with Application Insights Agent. Monitor website performance without redeploying the website. Works with ASP.NET web apps hosted on-premises, in VMs, or on Azure.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 8a9ae2364b51c0c201f2efffb3a7433594f76c49
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899633"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230261"
 ---
-# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
+# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights Agent (formerly named Status Monitor v2): Detailed instructions
 
-이 문서에서는 PowerShell 갤러리에 등록 하 고 ApplicationMonitor 모듈을 다운로드 하는 방법을 설명 합니다.
-시작 하는 데 필요한 가장 일반적인 매개 변수는 포함 되어 있습니다.
-인터넷에 액세스할 수 없는 경우에도 수동 다운로드 지침을 제공 했습니다.
+This article describes how to onboard to the PowerShell Gallery and download the ApplicationMonitor module.
+Included are the most common parameters that you'll need to get started.
+We've also provided manual download instructions in case you don't have internet access.
 
-## <a name="get-an-instrumentation-key"></a>계측 키 가져오기
+## <a name="get-an-instrumentation-key"></a>Get an instrumentation key
 
-시작 하려면 계측 키가 필요 합니다. 자세한 내용은 [Application Insights 리소스 만들기](create-new-resource.md#copy-the-instrumentation-key)를 참조 하세요.
+To get started, you need an instrumentation key. For more information, see [Create an Application Insights resource](create-new-resource.md#copy-the-instrumentation-key).
 
-## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>관리자 권한으로 실행 정책으로 PowerShell 실행
+## <a name="run-powershell-as-admin-with-an-elevated-execution-policy"></a>Run PowerShell as Admin with an elevated execution policy
 
-### <a name="run-as-admin"></a>관리자 권한으로 실행
+### <a name="run-as-admin"></a>Run as Admin
 
-PowerShell에서 컴퓨터를 변경 하려면 관리자 수준의 권한이 필요 합니다.
-### <a name="execution-policy"></a>실행 정책
-- 설명: 기본적으로 PowerShell 스크립트를 실행 하는 것은 사용 되지 않습니다. 현재 범위에만 RemoteSigned 스크립트를 허용 하는 것이 좋습니다.
-- 참조: [실행 정책](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) 및 [set-executionpolicy](
+PowerShell needs Administrator-level permissions to make changes to your computer.
+### <a name="execution-policy"></a>Execution policy
+- Description: By default, running PowerShell scripts is disabled. We recommend allowing RemoteSigned scripts for only the Current scope.
+- Reference: [About Execution Policies](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) and [Set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-)정보를 참조 하세요.
-- 명령: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
-- 선택적 매개 변수:
-    - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 확인 메시지를 무시 합니다.
+).
+- Command: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
+- Optional parameter:
+    - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Bypasses the confirmation prompt.
 
-**예제 오류**
+**Example errors**
 
 ```
 Install-Module : The 'Install-Module' command was found in the module 'PowerShellGet', but the module could not be
@@ -52,8 +52,8 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## <a name="prerequisites-for-powershell"></a>PowerShell용 필수 구성 요소
 
-`$PSVersionTable` 명령을 실행 하 여 PowerShell의 인스턴스를 감사 합니다.
-이 명령은 다음과 같은 출력을 생성 합니다.
+Audit your instance of PowerShell by running the `$PSVersionTable` command.
+This command produces the following output:
 
 
 ```
@@ -69,27 +69,27 @@ PSRemotingProtocolVersion      2.3
 SerializationVersion           1.1.0.1
 ```
 
-이러한 지침은 Windows 10을 실행 하는 컴퓨터에서 작성 및 테스트 되었으며 위에 나열 된 버전입니다.
+These instructions were written and tested on a computer running Windows 10 and the versions listed above.
 
-## <a name="prerequisites-for-powershell-gallery"></a>PowerShell 갤러리에 대 한 필수 구성 요소
+## <a name="prerequisites-for-powershell-gallery"></a>Prerequisites for PowerShell Gallery
 
-이러한 단계는 PowerShell 갤러리에서 모듈을 다운로드 하도록 서버를 준비 합니다.
+These steps will prepare your server to download modules from PowerShell Gallery.
 
 > [!NOTE] 
-> PowerShell 갤러리은 Windows 10, Windows Server 2016 및 PowerShell 6에서 지원 됩니다.
-> 이전 버전에 대 한 자세한 내용은 [PowerShellGet 설치](https://docs.microsoft.com/powershell/gallery/installing-psget)를 참조 하세요.
+> PowerShell Gallery is supported on Windows 10, Windows Server 2016, and PowerShell 6.
+> For information about earlier versions, see [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
 
 
-1. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
-2. NuGet 패키지 공급자를 설치 합니다.
-    - 설명: PowerShell 갤러리와 같은 NuGet 기반 리포지토리와 상호 작용 하려면이 공급자가 필요 합니다.
-    - 참조: [install-packageprovider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
-    - 명령: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
-    - 선택적 매개 변수:
-        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 확인 메시지를 무시 합니다.
+1. Run PowerShell as Admin with an elevated execution policy.
+2. Install the NuGet package provider.
+    - Description: You need this provider to interact with NuGet-based repositories like PowerShell Gallery.
+    - Reference: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Command: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
+    - Optional parameters:
+        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Specifies a proxy server for the request.
+        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Bypasses the confirmation prompt.
     
-    NuGet이 설정 되지 않은 경우이 메시지가 표시 됩니다.
+    You'll receive this prompt if NuGet isn't set up:
         
         NuGet provider is required to continue
         PowerShellGet requires NuGet provider version '2.8.5.201' or newer to interact with NuGet-based repositories. The NuGet
@@ -99,14 +99,14 @@ SerializationVersion           1.1.0.1
          the NuGet provider now?
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     
-3. PowerShell 갤러리를 신뢰할 수 있는 리포지토리로 구성 합니다.
-    - 설명: 기본적으로 PowerShell 갤러리는 신뢰할 수 없는 리포지토리입니다.
-    - 참조: [set-psrepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
-    - 명령: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
-    - 선택적 매개 변수:
-        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 요청에 대 한 프록시 서버를 지정 합니다.
+3. Configure PowerShell Gallery as a trusted repository.
+    - Description: By default, PowerShell Gallery is an untrusted repository.
+    - Reference: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Command: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
+    - Optional parameter:
+        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Specifies a proxy server for the request.
 
-    PowerShell 갤러리 신뢰할 수 없는 경우이 메시지가 표시 됩니다.
+    You'll receive this prompt if PowerShell Gallery isn't trusted:
 
         Untrusted repository
         You are installing the modules from an untrusted repository. If you trust this repository, change its
@@ -114,17 +114,17 @@ SerializationVersion           1.1.0.1
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    `Get-PSRepository` 명령을 실행 하 여이 변경 내용을 확인 하 고 모든 PSRepositories 감사를 수행할 수 있습니다.
+    You can confirm this change and audit all PSRepositories by running the `Get-PSRepository` command.
 
-4. 최신 버전의 PowerShellGet을 설치 합니다.
-    - 설명:이 모듈에는 PowerShell 갤러리에서 다른 모듈을 가져오는 데 사용 되는 도구가 포함 되어 있습니다. 버전 1.0.0.1은 Windows 10 및 Windows Server와 함께 제공 됩니다. 버전 1.6.0 이상이 필요 합니다. 설치 된 버전을 확인 하려면 `Get-Command -Module PowerShellGet` 명령을 실행 합니다.
-    - 참조: [PowerShellGet을 설치](https://docs.microsoft.com/powershell/gallery/installing-psget)합니다.
-    - 명령: `Install-Module -Name PowerShellGet`.
-    - 선택적 매개 변수:
-        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. "이미 설치 됨" 경고를 무시 하 고 최신 버전을 설치 합니다.
+4. Install the newest version of PowerShellGet.
+    - Description: This module contains the tooling used to get other modules from PowerShell Gallery. Version 1.0.0.1 ships with Windows 10 and Windows Server. Version 1.6.0 or higher is required. To determine which version is installed, run the `Get-Command -Module PowerShellGet` command.
+    - Reference: [Installing PowerShellGet](/powershell/scripting/gallery/installing-psget).
+    - Command: `Install-Module -Name PowerShellGet`.
+    - Optional parameters:
+        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Specifies a proxy server for the request.
+        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Bypasses the "already installed" warning and installs the latest version.
 
-    최신 버전의 PowerShellGet을 사용 하지 않는 경우이 오류가 표시 됩니다.
+    You'll receive this error if you're not using the newest version of PowerShellGet:
     
         Install-Module : A parameter cannot be found that matches parameter name 'AllowPrerelease'.
         At line:1 char:20
@@ -133,42 +133,42 @@ SerializationVersion           1.1.0.1
             CategoryInfo          : InvalidArgument: (:) [Install-Module], ParameterBindingException
             FullyQualifiedErrorId : NamedParameterNotFound,Install-Module
     
-5. PowerShell을 다시 시작 합니다. 현재 세션에서는 새 버전을 로드할 수 없습니다. 새 PowerShell 세션에서 PowerShellGet의 최신 버전을 로드 합니다.
+5. Restart PowerShell. You can't load the new version in the current session. New PowerShell sessions will load the latest version of PowerShellGet.
 
-## <a name="download-and-install-the-module-via-powershell-gallery"></a>PowerShell 갤러리를 통해 모듈 다운로드 및 설치
+## <a name="download-and-install-the-module-via-powershell-gallery"></a>Download and install the module via PowerShell Gallery
 
-이러한 단계를 수행 하면 PowerShell 갤러리에서 Az. ApplicationMonitor 모듈이 다운로드 됩니다.
+These steps will download the Az.ApplicationMonitor module from PowerShell Gallery.
 
-1. PowerShell 갤러리에 대 한 모든 필수 조건이 충족 되는지 확인 합니다.
-2. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
-3. Az. ApplicationMonitor 모듈을 설치 합니다.
-    - 참조: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
-    - 명령: `Install-Module -Name Az.ApplicationMonitor`.
-    - 선택적 매개 변수:
-        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-AllowPrerelease`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 알파 및 베타 릴리스를 설치할 수 있습니다.
-        - `-AcceptLicense`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. "라이선스 수락" 프롬프트를 무시 합니다.
-        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. "신뢰할 수 없는 리포지토리" 경고를 무시 합니다.
+1. Ensure that all prerequisites for PowerShell Gallery are met.
+2. Run PowerShell as Admin with an elevated execution policy.
+3. Install the Az.ApplicationMonitor module.
+    - Reference: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+    - Command: `Install-Module -Name Az.ApplicationMonitor`.
+    - Optional parameters:
+        - `-Proxy`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Specifies a proxy server for the request.
+        - `-AllowPrerelease`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Allows installation of alpha and beta releases.
+        - `-AcceptLicense`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Bypasses the "Accept License" prompt
+        - `-Force`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. Bypasses the "Untrusted Repository" warning.
 
-## <a name="download-and-install-the-module-manually-offline-option"></a>수동으로 모듈 다운로드 및 설치 (오프 라인 옵션)
+## <a name="download-and-install-the-module-manually-offline-option"></a>Download and install the module manually (offline option)
 
-어떤 이유로 든 PowerShell 모듈에 연결할 수 없는 경우에는 Az. ApplicationMonitor 모듈을 수동으로 다운로드 하 여 설치할 수 있습니다.
+If for any reason you can't connect to the PowerShell module, you can manually download and install the Az.ApplicationMonitor module.
 
-### <a name="manually-download-the-latest-nupkg-file"></a>최신 nupkg 파일 수동으로 다운로드
+### <a name="manually-download-the-latest-nupkg-file"></a>Manually download the latest nupkg file
 
 1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor 로 이동합니다.
-2. **버전 기록** 테이블에서 파일의 최신 버전을 선택 합니다.
-3. **설치 옵션**아래에서 **수동 다운로드**를 선택 합니다.
+2. Select the latest version of the file in the **Version History** table.
+3. Under **Installation Options**, select **Manual Download**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>옵션 1: PowerShell 모듈 디렉터리에 설치
-Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 PowerShell 모듈을 PowerShell 디렉터리에 설치 합니다.
-자세한 내용은 [PowerShell 모듈 설치](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)를 참조 하세요.
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>Option 1: Install into a PowerShell modules directory
+Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
+For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
 
-#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Expand-Archive (v 1.0.1.0)를 사용 하 여 zip 파일로 nupkg 압축 풀기
+#### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Unzip nupkg as a zip file by using Expand-Archive (v1.0.1.0)
 
-- 설명: 기본 버전의 1.0.1.0 (v)에서 nupkg 파일의 압축을 풀 수 없습니다. .Zip 확장명을 사용 하 여 파일의 이름을 바꿉니다.
-- 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6)합니다.
+- Description: The base version of Microsoft.PowerShell.Archive (v1.0.1.0) can't unzip nupkg files. Rename the file with the .zip extension.
+- Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - 명령:
 
     ```
@@ -179,10 +179,10 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
     Expand-Archive -LiteralPath $pathToZip -DestinationPath $pathInstalledModule
     ```
 
-#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>확장-보관을 사용 하 여 nupkg 압축 풀기 (v 1.1.0.0)
+#### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Unzip nupkg by using Expand-Archive (v1.1.0.0)
 
-- 설명: 확장을 변경 하지 않고 nupkg 파일의 압축을 푸는 데 현재 버전의 Expand-Archive를 사용 합니다.
-- 참조: [확장-보관](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) 및 [Microsoft. PowerShell](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Description: Use a current version of Expand-Archive to unzip nupkg files without changing the extension.
+- Reference: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) and [Microsoft.PowerShell.Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - 명령:
 
     ```
@@ -191,37 +191,37 @@ Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 Po
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>옵션 2: 수동으로 nupkg 압축 풀기 및 가져오기
-Powershell 세션에서 검색할 수 있도록 수동으로 다운로드 한 PowerShell 모듈을 PowerShell 디렉터리에 설치 합니다.
-자세한 내용은 [PowerShell 모듈 설치](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module)를 참조 하세요.
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>Option 2: Unzip and import nupkg manually
+Install the manually downloaded PowerShell module into a PowerShell directory so it will be discoverable by PowerShell sessions.
+For more information, see [Installing a PowerShell Module](/powershell/scripting/developer/module/installing-a-powershell-module).
 
-다른 디렉터리에 모듈을 설치 하는 [경우 import-module을 사용 하](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6)여 수동으로 모듈을 가져옵니다.
+If you're installing the module into any other directory, manually import the module by using [Import-Module](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/import-module?view=powershell-6).
 
 > [!IMPORTANT] 
-> Dll은 상대 경로를 통해 설치 됩니다.
-> 원하는 런타임 디렉터리에 패키지의 내용을 저장 하 고 액세스 권한이 읽기를 허용 하지만 쓰기를 허용 하지 않는지 확인 합니다.
+> DLLs will install via relative paths.
+> Store the contents of the package in your intended runtime directory and confirm that access permissions allow read but not write.
 
-1. 확장을 ".zip"으로 변경 하 고 원하는 설치 디렉터리로 패키지의 내용을 추출 합니다.
-2. Az psd1의 파일 경로를 찾습니다.
-3. 관리자 권한으로 실행 정책을 통해 PowerShell을 관리자 권한으로 실행 합니다.
-4. `Import-Module Az.ApplicationMonitor.psd1` 명령을 사용 하 여 모듈을 로드 합니다.
+1. Change the extension to ".zip" and extract the contents of the package into your intended installation directory.
+2. Find the file path of Az.ApplicationMonitor.psd1.
+3. Run PowerShell as Admin with an elevated execution policy.
+4. Load the module by using the `Import-Module Az.ApplicationMonitor.psd1` command.
     
 
-## <a name="route-traffic-through-a-proxy"></a>프록시를 통해 트래픽 라우팅
+## <a name="route-traffic-through-a-proxy"></a>Route traffic through a proxy
 
-개인 인트라넷에서 컴퓨터를 모니터링 하는 경우 프록시를 통해 HTTP 트래픽을 라우트 해야 합니다.
+When you monitor a computer on your private intranet, you'll need to route HTTP traffic through a proxy.
 
-다운로드 하 고 설치 하는 PowerShell 명령은 PowerShell 갤러리에서 `-Proxy` 매개 변수를 지원 합니다.
-설치 스크립트를 작성 하는 경우 위의 지침을 검토 합니다.
+The PowerShell commands to download and install Az.ApplicationMonitor from the PowerShell Gallery support a `-Proxy` parameter.
+Review the preceding instructions when you write your installation scripts.
 
-Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 합니다. Web.config 파일에서 앱에 대 한 프록시 설정을 구성 하는 것이 좋습니다. 자세한 내용은 [APPLICATION INSIGHTS FAQ: 프록시 통과](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)를 참조 하세요.
+The Application Insights SDK will need to send your app's telemetry to Microsoft. We recommend that you configure proxy settings for your app in your web.config file. For more information, see [Application Insights FAQ: Proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>모니터링 사용
 
-`Enable-ApplicationInsightsMonitoring` 명령을 사용 하 여 모니터링을 사용 하도록 설정 합니다.
+Use the `Enable-ApplicationInsightsMonitoring` command to enable monitoring.
 
-이 cmdlet을 사용 하는 방법에 대 한 자세한 설명은 [API 참조](status-monitor-v2-api-enable-monitoring.md) 를 참조 하세요.
+See the [API reference](status-monitor-v2-api-enable-monitoring.md) for a detailed description of how to use this cmdlet.
 
 
 
@@ -229,17 +229,17 @@ Application Insights SDK는 앱의 원격 분석을 Microsoft로 전송 해야 �
 
  원격 분석 보기:
 
-- [메트릭을 탐색](../../azure-monitor/app/metrics-explorer.md) 하 여 성능 및 사용량을 모니터링 합니다.
-- [이벤트와 로그를 검색](../../azure-monitor/app/diagnostic-search.md) 하 여 문제를 진단 합니다.
-- 고급 쿼리를 위해 [분석을 사용](../../azure-monitor/app/analytics.md) 합니다.
-- [대시보드를 만듭니다](../../azure-monitor/app/overview-dashboard.md).
+- [Explore metrics](../../azure-monitor/app/metrics-explorer.md) to monitor performance and usage.
+- [Search events and logs](../../azure-monitor/app/diagnostic-search.md) to diagnose problems.
+- [Use Analytics](../../azure-monitor/app/analytics.md) for more advanced queries.
+- [Create dashboards](../../azure-monitor/app/overview-dashboard.md).
 
  원격 분석 더 추가:
 
-- [웹 테스트를 만들어](monitor-web-app-availability.md) 사이트가 라이브 상태로 유지 되는지 확인 합니다.
-- 웹 [클라이언트 원격 분석을 추가](../../azure-monitor/app/javascript.md) 하 여 웹 페이지 코드에서 예외를 확인 하 고 추적 호출을 사용 하도록 설정 합니다.
-- 추적 및 로그 호출을 삽입할 수 있도록 [APPLICATION INSIGHTS SDK를 코드에 추가](../../azure-monitor/app/asp-net.md) 합니다.
+- [Create web tests](monitor-web-app-availability.md) to make sure your site stays live.
+- [Add web client telemetry](../../azure-monitor/app/javascript.md) to see exceptions from web page code and to enable trace calls.
+- [Add the Application Insights SDK to your code](../../azure-monitor/app/asp-net.md) so you can insert trace and log calls.
 
-Application Insights 에이전트를 사용 하 여 더 많은 작업 수행:
+Do more with Application Insights Agent:
 
-- 가이드를 사용 하 여 Application Insights 에이전트 [문제를 해결할](status-monitor-v2-troubleshoot.md) 수 있습니다.
+- Use our guide to [troubleshoot](status-monitor-v2-troubleshoot.md) Application Insights Agent.

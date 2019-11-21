@@ -1,21 +1,16 @@
 ---
 title: Azure Functions 테스트
 description: Visual Studio의 C# 함수 및 VS Code의 JavaScript 함수에 대한 자동화된 테스트 만들기
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure Functions, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처, 테스트
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 3c826cd32b38676bcbfe1bec79f580e17a509145
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
-ms.translationtype: HT
+ms.openlocfilehash: c60cd631e703f929eaae56138a2acd3687121924
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195965"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226585"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Azure Functions에서 코드를 테스트하기 위한 전략
 
@@ -35,16 +30,16 @@ ms.locfileid: "74195965"
 
 ![Visual Studio의 C#을 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-visual-studio-xunit.png)
 
-### <a name="setup"></a>설치
+### <a name="setup"></a>설정
 
 환경을 설정하려면 함수 및 테스트 앱을 만듭니다. 다음 단계에서는 테스트를 지원하는 데 필요한 앱 및 함수를 만들 수 있습니다.
 
 1. [새 Functions 앱을 만들고](./functions-create-first-azure-function.md) 이름을 *Functions*로 지정합니다.
 2. [템플릿에서 HTTP 함수를 만들고](./functions-create-first-azure-function.md) 이름을 *HttpTrigger*로 지정합니다.
 3. [템플릿에서 타이머 함수를 만들고](./functions-create-scheduled-function.md) 이름을 *TimerTrigger*로 지정합니다.
-4. Visual Studio에서 [파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트](https://xunit.github.io/docs/getting-started-dotnet-core)를 클릭하여 **xUnit 테스트 앱을 만들고** 이름을 *Functions.Test*로 지정합니다. 
-5. Nuget을 사용 하 여 AspNetCore 테스트 앱에서 참조를 추가 합니다 [.](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
-6. [Functions.Test*앱에서*](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)Functions *앱을 참조*합니다.
+4. Visual Studio에서 **파일 > 새로 만들기 > 프로젝트 > Visual C# > .NET Core > xUnit 테스트 프로젝트**를 클릭하여 [xUnit 테스트 앱을 만들고](https://xunit.github.io/docs/getting-started-dotnet-core) 이름을 *Functions.Test*로 지정합니다. 
+5. Use Nuget to add a references from the test app [Microsoft.AspNetCore.Mvc](https://www.nuget.org/packages/Microsoft.AspNetCore.Mvc/)
+6. *Functions.Test* 앱에서 [*Functions* 앱을 참조](https://docs.microsoft.com/visualstudio/ide/managing-references-in-a-project?view=vs-2017)합니다.
 
 ### <a name="create-test-classes"></a>테스트 클래스 만들기
 
@@ -54,7 +49,7 @@ ms.locfileid: "74195965"
 
 `ListLogger` 클래스는 `ILogger` 인터페이스를 구현하고 테스트 중에 평가를 위해 내부 메시지 목록에 포함하는 데 사용됩니다.
 
-NullScope.cs *응용 프로그램을* **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 합니다.
+**Right-click** on the *Functions.Test* application and select **Add > Class**, name it **NullScope.cs** and enter the following code:
 
 ```csharp
 using System;
@@ -72,7 +67,7 @@ namespace Functions.Tests
 }
 ```
 
-그런 다음, ListLogger.cs 응용 프로그램을 **마우스 오른쪽 단추로 클릭** 하 고 **추가 > 클래스**를 선택 하 고 이름을 로 입력 한 후 다음 코드를 입력 *합니다.*
+Next, **right-click** on the *Functions.Test* application and select **Add > Class**, name it **ListLogger.cs** and enter the following code:
 
 ```csharp
 using Microsoft.Extensions.Logging;
@@ -110,15 +105,15 @@ namespace Functions.Tests
 
 `ListLogger` 클래스는 `ILogger` 인터페이스에서 계약된 대로 다음 멤버를 구현합니다.
 
-- **Beginscope**: 범위는 로깅에 컨텍스트를 추가 합니다. 이 경우 테스트는 `NullScope` 클래스의 정적 인스턴스를 가리키며 테스트가 작동할 수 있도록 합니다.
+- **BeginScope**: Scopes add context to your logging. In this case, the test just points to the static instance on the `NullScope` class to allow the test to function.
 
-- **IsEnabled**: `false`의 기본값이 제공 됩니다.
+- **IsEnabled**: A default value of `false` is provided.
 
-- **로그**:이 메서드는 제공 된 `formatter` 함수를 사용 하 여 메시지의 서식을 지정한 다음 결과 텍스트를 `Logs` 컬렉션에 추가 합니다.
+- **Log**: This method uses the provided `formatter` function to format the message and then adds the resulting text to the `Logs` collection.
 
 `Logs` 컬렉션은 `List<string>`의 인스턴스이고 생성자에서 초기화됩니다.
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **LoggerTypes.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 namespace Functions.Tests
@@ -132,7 +127,7 @@ namespace Functions.Tests
 ```
 이 열거형은 테스트에서 사용하는 로거 형식을 지정합니다. 
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **TestFactory.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Http;
@@ -195,15 +190,15 @@ namespace Functions.Tests
 ```
 `TestFactory` 클래스는 다음 멤버를 구현합니다.
 
-- **데이터**:이 속성은 예제 데이터의 [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) 컬렉션을 반환 합니다. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
+- **Data**: This property returns an [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) collection of sample data. 키 값 쌍은 쿼리 문자열로 전달되는 값을 나타냅니다.
 
-- **CreateDictionary**:이 메서드는 키/값 쌍을 인수로 수락 하 고 쿼리 문자열 값을 나타내는 `QueryCollection`를 만드는 데 사용 되는 새 `Dictionary`을 반환 합니다.
+- **CreateDictionary**: This method accepts a key/value pair as arguments and returns a new `Dictionary` used to create `QueryCollection` to represent query string values.
 
-- **CreateHttpRequest**:이 메서드는 지정 된 쿼리 문자열 매개 변수를 사용 하 여 초기화 된 HTTP 요청을 만듭니다.
+- **CreateHttpRequest**: This method creates an HTTP request initialized with the given query string parameters.
 
-- **Createlogger**:로 거 형식을 기반으로 하는이 메서드는 테스트에 사용 되는로 거 클래스를 반환 합니다. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
+- **CreateLogger**: Based on the logger type, this method returns a logger class used for testing. `ListLogger`는 테스트에서 평가에 사용할 수 있는 기록된 메시지를 추적합니다.
 
-그런 다음, **Functions.Test** 애플리케이션을 *마우스 오른쪽 단추로 클릭*하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
+그런 다음, *Functions.Test* 애플리케이션을 **마우스 오른쪽 단추로 클릭**하고, **추가 > 클래스**를 선택하고, 이름을 **FunctionsTests.cs**로 지정하고, 다음 코드를 입력합니다.
 
 ```csharp
 using Microsoft.AspNetCore.Mvc;
@@ -246,13 +241,13 @@ namespace Functions.Tests
 ```
 이 클래스에 구현된 멤버는 다음과 같습니다.
 
-- **Http_trigger_should_return_known_string**:이 테스트는 Http 함수에 `name=Bill`의 쿼리 문자열 값이 포함 된 요청을 만들고 예상 응답이 반환 되는지 확인 합니다.
+- **Http_trigger_should_return_known_string**: This test creates a request with the query string values of `name=Bill` to an HTTP function and checks that the expected response is returned.
 
-- **Http_trigger_should_return_string_from_member_data**:이 테스트는 xunit 특성을 사용 하 여 Http 함수에 샘플 데이터를 제공 합니다.
+- **Http_trigger_should_return_string_from_member_data**: This test uses xUnit attributes to provide sample data to the HTTP function.
 
-- **Timer_should_log_message**:이 테스트는 `ListLogger` 인스턴스를 만들어 타이머 함수에 전달 합니다. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
+- **Timer_should_log_message**: This test creates an instance of `ListLogger` and passes it to a timer functions. 함수가 실행되면 로그를 확인하여 예상 메시지가 있는지 확인합니다.
 
-테스트에서 응용 프로그램 설정에 액세스 하려는 경우 [GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables)를 사용할 수 있습니다.
+If you want to access application settings in your tests, you can use [System.Environment.GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
 ### <a name="run-tests"></a>테스트 실행
 
@@ -270,7 +265,7 @@ namespace Functions.Tests
 
 ![VS Code의 JavaScript를 사용하여 Azure Functions 테스트](./media/functions-test-a-function/azure-functions-test-vs-code-jest.png)
 
-### <a name="setup"></a>설치
+### <a name="setup"></a>설정
 
 환경을 설정하려면 `npm init`를 실행하여 빈 폴더에서 새 Node.js 앱을 초기화합니다.
 
@@ -310,7 +305,7 @@ module.exports = {
 };
 ```
 
-이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. 테스트 도구는 단순히 함수를 직접 호출 하 여 결과를 테스트 하는 것 이므로 NCRONTAB 식과 같은 타이머 구성은 필요 하지 않습니다.
+이 모듈은 가짜 타이머 인스턴스인 is를 나타내는 `IsPastDue` 속성을 구현합니다. Timer configurations like NCRONTAB expressions are not required here as the test harness is simply calling the function directly to test the outcome.
 
 그런 다음, VS Code Functions 확장을 사용하여 [새 JavaScript HTTP 함수를 만들고](/azure/javascript/tutorial-vscode-serverless-node-01) 이름을 *HttpTrigger*로 지정합니다. 함수가 만들어지면 **index.test.js**라는 동일한 폴더에 새 파일을 추가하고 다음 코드를 추가합니다.
 

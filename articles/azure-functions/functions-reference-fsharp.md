@@ -1,23 +1,17 @@
 ---
-title: Azure Functions F# 개발자 참조 | Microsoft Docs
+title: Azure Functions F# developer reference
 description: F# 스크립트를 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
-services: functions
-documentationcenter: fsharp
 author: sylvanc
-manager: jbronsk
-keywords: Azure Functions, 함수, 이벤트 처리, 웹후크, 동적 계산, 서버리스 아키텍처, F#
 ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
-ms.service: azure-functions
-ms.devlang: fsharp
 ms.topic: reference
 ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 23e9ffa5c86674cb34951f29573e033b4a904941
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cf080b841e5fb3bbf3b36a2629a619f77fe52ddd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442223"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226744"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Azure Functions F# 개발자 참조
 
@@ -54,10 +48,10 @@ FunctionsProject
 
 함수 앱을 구성하는 데 사용할 수 있는 공유 [host.json](functions-host-json.md) 파일이 있습니다. 각 함수에는 자체 코드 파일(.fsx)과 바인딩 구성 파일(function.json)이 있습니다.
 
-Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
+Functions 런타임의 [버전 2.x](functions-versions.md)에 필요한 바인딩 확장은 `extensions.csproj` 파일에 정의되어 있고 실제 라이브러리 파일은 `bin` 폴더에 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](./functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 등록이 알아서 수행됩니다.
 
 ## <a name="binding-to-arguments"></a>인수에 바인딩
-각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 예를 들면 다음과 같습니다.
+각 바인딩은 [Azure Functions 트리거 및 바인딩 개발자 참조](functions-triggers-bindings.md)에 설명된 대로 일부 인수 집합을 지원합니다. 예를 들어 Blob 트리거가 지원하는 인수 바인딩 중 하나는 F# 레코드를 사용하여 표현될 수 있는 POCO입니다. 다음은 그 예입니다.
 
 ```fsharp
 type Item = { Id: string }
@@ -71,7 +65,7 @@ let Run(blob: string, output: byref<Item>) =
 
 위의 예에서 `blob`은 입력 인수이며 `output`은 출력 인수입니다. 여기서는 `output`에 `byref<>`를 사용합니다(`[<Out>]` 주석을 추가할 필요 없음). `byref<>` 형식을 사용하면 인수가 참조하는 레코드 또는 개체를 함수를 통해 변경할 수 있습니다.
 
-F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]` 은 레코드 속성에 대한 setter를 생성합니다. 예를 들면 다음과 같습니다.
+F# 레코드를 입력 형식으로 사용한 경우, Azure Functions 프레임워크에서 필드를 적절하게 설정하려면 레코드를 함수로 전달하기 전에 레코드 정의를 `[<CLIMutable>]` 로 표시해야 합니다. 내부적으로 `[<CLIMutable>]` 은 레코드 속성에 대한 setter를 생성합니다. 다음은 그 예입니다.
 
 ```fsharp
 [<CLIMutable>]
@@ -83,7 +77,7 @@ let Run(req: TestObject, log: ILogger) =
     { req with Greeting = sprintf "Hello, %s" req.SenderName }
 ```
 
-F# 클래스는 들어오고 나가는 인수 모두에 대해서도 사용할 수 있습니다. 클래스의 경우 일반적으로 속성은 getter 및 setter가 필요합니다. 예를 들면 다음과 같습니다.
+F# 클래스는 들어오고 나가는 인수 모두에 대해서도 사용할 수 있습니다. 클래스의 경우 일반적으로 속성은 getter 및 setter가 필요합니다. 다음은 그 예입니다.
 
 ```fsharp
 type Item() =
@@ -96,7 +90,7 @@ let Run(input: string, item: byref<Item>) =
 ```
 
 ## <a name="logging"></a>로깅
-출력을 F#의 [스트리밍 로그](../app-service/troubleshoot-diagnostic-logs.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 예를 들면 다음과 같습니다.
+출력을 F#의 [스트리밍 로그](../app-service/troubleshoot-diagnostic-logs.md)에 기록하려면 함수에 [ILogger](https://docs.microsoft.com/dotnet/api/microsoft.extensions.logging.ilogger) 형식의 인수를 사용해야 합니다. 일관성을 위해 이 인수의 이름을 `log`로 지정하는 것이 좋습니다. 다음은 그 예입니다.
 
 ```fsharp
 let Run(blob: string, output: byref<string>, log: ILogger) =
@@ -147,7 +141,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `System.Net.Http`
 * `System.Threading.Tasks`
 * `Microsoft.Azure.WebJobs`
-* `Microsoft.Azure.WebJobs.Host`.
+* `Microsoft.Azure.WebJobs.Host`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
 
 ## <a name="referencing-external-assemblies"></a>외부 어셈블리 참조
 마찬가지로 프레임워크 어셈블리 참조는 `#r "AssemblyName"` 지시문을 사용하여 추가할 수 있습니다.
@@ -175,7 +169,7 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.Azure.WebJobs.Host`
 * `Microsoft.Azure.WebJobs.Extensions`
 * `System.Web.Http`
-* `System.Net.Http.Formatting`.
+* `System.Net.Http.Formatting`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
 
 또한 다음 어셈블리는 특수한 경우이며 simplename으로 참조할 수 있습니다(예: `#r "AssemblyName"`).
 
@@ -183,12 +177,12 @@ let Run(req: HttpRequestMessage, log: ILogger) =
 * `Microsoft.WindowsAzure.Storage`
 * `Microsoft.ServiceBus`
 * `Microsoft.AspNet.WebHooks.Receivers`
-* `Microsoft.AspNEt.WebHooks.Common`.
+* `Microsoft.AspNEt.WebHooks.Common`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
 
 프라이빗 어셈블리를 참조해야 하는 경우 어셈블리 파일을 함수에 상대적인 `bin` 폴더에 업로드하고 파일 이름(예: `#r "MyAssembly.dll"`)을 사용하여 참조할 수 있습니다. 함수 폴더에 파일을 업로드하는 방법에 대한 내용은 패키지 관리에 대한 다음 섹션을 참조하세요.
 
 ## <a name="editor-prelude"></a>Editor Prelude
-F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 예를 들면 다음과 같습니다.
+F# 컴파일러 서비스를 지원하는 편집기는 Azure Functions에 자동으로 포함되는 네임스페이스 및 어셈블리를 인식하지 않습니다. 따라서 편집기가 사용 중인 어셈블리를 찾고 네임스페이스를 명시적으로 여는 데 도움이 되는 Prelude를 포함하는 것이 유용할 수 있습니다. 다음은 그 예입니다.
 
 ```fsharp
 #if !COMPILED
@@ -264,7 +258,7 @@ let Run(timer: TimerInfo, log: ILogger) =
 ```
 
 ## <a name="reusing-fsx-code"></a>.fsx 코드 다시 사용
-`#load` 지시문을 사용하면 다른 `.fsx` 파일의 코드를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
+`#load` 지시문을 사용하면 다른 `.fsx` 파일의 코드를 사용할 수 있습니다. 다음은 그 예입니다.
 
 `run.fsx`
 

@@ -1,6 +1,6 @@
 ---
-title: 셀프 서비스 암호 재설정 배포 계획-Azure Active Directory
-description: Azure AD 셀프 서비스 암호 재설정의 성공적인 구현 전략
+title: Self-service password reset deployment plan - Azure Active Directory
+description: Strategy for successful implementation of Azure AD self-service password reset
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,239 +11,239 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b648d6f914b5e3004ea3b62019bbec33e5a4871d
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: fb79c6dd0358d0360c320cd67a46779b183ef21e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081527"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208509"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정 배포
 
 > [!NOTE]
-> 이 가이드에서는 셀프 서비스 암호 재설정 및 배포 방법에 대해 설명 합니다. 계정으로 다시 이동 하는 셀프 서비스 암호 재설정 도구를 찾고 있는 경우 [https://aka.ms/sspr](https://aka.ms/sspr)으로 이동 합니다. 
+> This guide explains self-service password reset and how to deploy it. If you are looking for the self service password reset tool to get back into your account, go to [https://aka.ms/sspr](https://aka.ms/sspr). 
 
-SSPR (셀프 서비스 암호 재설정)는 직원 들이 IT 직원에 게 문의 하지 않고도 암호를 재설정할 수 있도록 하는 Azure Active Directory 기능입니다. 직원은 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 직원은 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다.
+Self-service password reset (SSPR) is an Azure Active Directory feature that enables employees to reset their passwords without needing to contact IT staff. Employees must register for or be registered for self-service password reset before using the service. During registration, the employee chooses one or more authentication methods enabled by their organization.
 
-SSPR를 사용 하면 직원 들이 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
+SSPR enables employees to quickly get unblocked and continue working no matter where they are or the time of day. By allowing users to unblock themselves, your organization can reduce the non-productive time and high support costs for most common password-related issues.
 
-조직의 다른 응용 프로그램이 나 서비스와 함께 SSPR를 배포 하 여 사용자가 신속 하 게 등록할 수 있도록 지원 합니다. 이 작업을 수행 하면 많은 양의 로그인이 생성 되 고 등록이 구동 됩니다.
+Help users get registered quickly by deploying SSPR alongside another application or service in your organization. This action will generate a large volume of sign-ins and will drive registration.
 
-SSPR를 배포 하기 전에 조직에서는 시간에 따라 발생 하는 암호 재설정 관련 기술 지원팀 호출 수와 각 호출의 평균 비용을 결정 해야 할 수 있습니다. 이 데이터 게시 배포를 사용 하 여 SSPR가 조직에 가져오는 가치를 표시할 수 있습니다.  
+Before deploying SSPR, organizations may want to determine how many password reset related help desk calls happen over time and the average cost of each call. They can use this data post deployment to show the value SSPR is bringing to your organization.  
 
-## <a name="how-sspr-works"></a>SSPR 작동 방식
+## <a name="how-sspr-works"></a>How SSPR works
 
-1. 사용자가 암호를 재설정 하려고 하면 이전에 등록 된 인증 방법이 나 해당 id를 증명 하는 방법을 확인 해야 합니다.
-1. 그런 다음 사용자가 새 암호를 입력 합니다.
-   1. 클라우드 전용 사용자의 경우 새 암호는 Azure Active Directory에 저장 됩니다. 자세한 내용은 [SSPR 작동 방법](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work)문서를 참조 하세요.
-   1. 하이브리드 사용자의 경우 암호는 Azure AD Connect 서비스를 통해 온-프레미스 Active Directory에 다시 기록 됩니다. 자세한 내용은 [비밀 번호 쓰기 저장 이란?](concept-sspr-writeback.md#how-password-writeback-works)문서를 참조 하세요.
+1. When a user attempts to reset a password, they must verify their previously registered authentication method or methods to prove their identity.
+1. Then the user enters a new password.
+   1. For cloud-only users, the new password is stored in Azure Active Directory. For more information, see the article [How SSPR works](concept-sspr-howitworks.md#how-does-the-password-reset-portal-work).
+   1. For hybrid users, the password is written back to the on-premises Active Directory via the Azure AD Connect service. For more information, see the article [What is password writeback](concept-sspr-writeback.md#how-password-writeback-works).
 
-## <a name="licensing-considerations"></a>라이선스 고려 사항
+## <a name="licensing-considerations"></a>Licensing considerations
 
-사용이 허가 된 Azure Active Directory는 각 사용자가 사용 하는 기능에 대 한 적절 한 라이선스를 보유 해야 한다는 의미입니다.
+Azure Active Directory is licensed per-user meaning each user has to have an appropriate license for the features they utilize.
 
-라이선스에 대 한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/) 에서 찾을 수 있습니다.
+More information about licensing can be found on the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory/)
 
-## <a name="enable-combined-registration-for-sspr-and-mfa"></a>SSPR 및 MFA에 대해 결합 된 등록 사용
+## <a name="enable-combined-registration-for-sspr-and-mfa"></a>Enable combined registration for SSPR and MFA
 
-조직에서 SSPR 및 multi-factor authentication에 대해 결합 된 등록 환경을 사용 하도록 설정 하는 것이 좋습니다. 이러한 결합 된 등록 환경을 사용 하도록 설정 하는 경우 사용자는 두 기능을 모두 사용 하도록 등록 정보를 한 번만 선택 해야 합니다.
+Microsoft recommends that organizations enable the combined registration experience for SSPR and multi-factor authentication. When you enable this combined registration experience, users need only select their registration information once to enable both features.
 
-![결합 된 보안 정보 등록](./media/howto-sspr-deployment/combined-security-info.png)
+![Combined security information registration](./media/howto-sspr-deployment/combined-security-info.png)
 
-결합 된 등록 환경에서는 조직에서 SSPR 및 Azure Multi-Factor Authentication를 모두 사용할 수 있도록 요구 하지 않습니다. 결합 된 등록 환경에서는 기존의 개별 구성 요소와 비교 하 여 더 나은 사용자 환경을 제공 합니다. 결합 된 등록 및 사용 방법에 대 한 자세한 내용은 [결합 된 보안 정보 등록 (미리 보기)](concept-registration-mfa-sspr-combined.md) 문서에서 찾을 수 있습니다.
+The combined registration experience does not require organizations to enable both SSPR and Azure Multi-Factor Authentication to use. The combined registration experience provides organizations a better user experience compared to the traditional individual components. More information about combined registration, and how to enable, can be found in the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md)
 
-## <a name="plan-the-configuration"></a>구성 계획
+## <a name="plan-the-configuration"></a>Plan the configuration
 
-권장 값과 함께 SSPR를 사용 하도록 설정 하려면 다음 설정이 필요 합니다.
+The following settings are required to enable SSPR along with recommended values.
 
-| 영역 | 설정 | 값 |
+| 영역 | 설정 | Value |
 | --- | --- | --- |
-| **SSPR 속성** | 셀프 서비스 암호 재설정 사용 | 파일럿 **/프로덕션용** 으로 **선택한** 그룹 |
-| **인증 방법** | 등록 하는 데 필요한 인증 방법 | 다시 설정 하는 데 필요한 것 보다 항상 1 개 이상 |
-|   | 다시 설정 하는 데 필요한 인증 방법 | 1개 또는 2개 |
-| **등록** | 로그인 시 사용자가 등록하도록 요구 | 예 |
-|   | 사용자가 인증 정보를 다시 확인 하도록 요청 하기 전 까지의 일 수 | 90 – 180 일 |
-| **알림** | 사용자에게 암호 재설정에 대해 알림 | 예 |
-|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | 예 |
-| **사용자 지정** | 기술 지원팀 링크 사용자 지정 | 예 |
-|   | 사용자 지정 기술 지원팀 전자 메일 또는 URL | 지원 사이트 또는 메일 주소 |
-| **온-프레미스 통합** | 온-프레미스 AD에 암호 다시 쓰기 | 예 |
-|   | 사용자가 암호를 재설정 하지 않고 계정의 잠금을 해제할 수 있도록 허용 | 예 |
+| **SSPR Properties** | Self-service password reset enabled | **Selected** group for pilot / **All** for production |
+| **인증 방법** | Authentication methods required to register | Always 1 more than required for reset |
+|   | Authentication methods required to reset | One or two |
+| **등록** | 로그인 시 사용자가 등록하도록 요구 | yes |
+|   | Number of days before users are asked to re-confirm their authentication information | 90 – 180 days |
+| **Notifications** | 사용자에게 암호 재설정에 대해 알림 | yes |
+|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | yes |
+| **사용자 지정** | Customize helpdesk link | yes |
+|   | Custom helpdesk email or URL | Support site or email address |
+| **온-프레미스 통합** | Write back passwords to on-premises AD | yes |
+|   | Allow users to unlock account without resetting password | yes |
 
-### <a name="sspr-properties-recommendations"></a>SSPR 속성 권장 사항
+### <a name="sspr-properties-recommendations"></a>SSPR properties recommendations
 
-셀프 서비스 암호 재설정을 사용 하도록 설정 하는 경우 파일럿 중에 사용할 보안 그룹을 선택 합니다.
+When enabling Self-service password reset, choose a security group to be used during the pilot.
 
-보다 광범위 하 게 서비스를 시작 하려는 경우 All 옵션을 사용 하 여 조직의 모든 사용자에 게 SSPR를 적용 하는 것이 좋습니다. 모두로 설정할 수 없는 경우 Azure ad에 동기화 된 적절 한 Azure AD 보안 그룹 또는 AD 그룹을 선택 합니다.
+When you plan to launch the service more broadly, we recommend using the All option to enforce SSPR for everyone in the organization. If you cannot set to all, select the appropriate Azure AD Security group or AD group synced to Azure AD.
 
 ### <a name="authentication-methods"></a>인증 방법
 
-다시 설정 하는 데 필요한 수 이상으로 등록 하는 데 필요한 인증 방법을 설정 합니다. 다중을 허용 하면 사용자가 유연 하 게 다시 설정 해야 할 수 있습니다.
+Set Authentication methods required to register to at least one more than the number required to reset. Allowing multiple gives users flexibility when they need to reset.
 
-조직에 적합 한 수준으로 **다시 설정 하는 데 필요한 방법의 수** 를 설정 합니다. 하나는 최소한의 마찰을 필요로 하 고 두 개는 보안 상태를 높일 수 있습니다.
+Set **Number of methods required to reset** to a level appropriate to your organization. One requires the least friction, while two may increase your security posture.
 
-SSPR 및 미리 정의 된 보안 질문에 사용할 수 있는 인증 방법에 대 한 자세한 내용 및 사용자 지정 된 보안 질문을 만드는 방법에 대 한 자세한 내용은 [인증 방법](concept-authentication-methods.md) 을 참조 하세요.
+See [What are authentication methods](concept-authentication-methods.md) for detailed information on which authentication methods are available for SSPR, pre-defined security questions, and how to create customized security questions.
 
 ### <a name="registration-settings"></a>등록 설정
 
-**사용자가 로그인 할 때 등록 해야** 함을 **예**로 설정 합니다. 이 설정은 사용자가 로그인 할 때 강제로 등록 하 여 모든 사용자를 보호 하는 것을 의미 합니다.
+Set **Require users to register when signing in** to **Yes**. This setting means that the users are forced to register when signing in, ensuring that all users are protected.
 
-조직에서 더 짧은 시간 프레임에 대 한 비즈니스 요구 사항이 없는 경우 사용자가 **90** ~ **180** 일 사이에 **인증 정보를 다시 확인 하도록 요청 하기 전까지 남은 일 수** 를 설정 합니다.
+Set **Number of days before users are asked to re-confirm their authentication information** to between **90** and **180** days, unless your organization has a business need for a shorter time frame.
 
-### <a name="notifications-settings"></a>알림 설정
+### <a name="notifications-settings"></a>Notifications settings
 
-**사용자에 게 암호 재설정에 대 한 알림** 및 **다른 관리자가 자신의 암호를 예로 재설정 하면 모든 관리자** 에 게 알림을 구성 합니다. 둘 다에 대해 **예** 를 선택 하면 사용자가 암호를 재설정 하 고 관리자가 암호를 변경 하는 경우 모든 관리자가 인식 하도록 하 여 보안이 강화 됩니다. 사용자 또는 관리자가 이러한 알림을 수신 하 고 변경 내용을 시작 하지 않은 경우 잠재적인 보안 위반을 즉시 보고할 수 있습니다.
+Configure both the **Notify users on password resets** and the **Notify all admins when other admins reset their password** to **Yes**. Selecting **Yes** on both increases security by ensuring that users are aware when their password has been reset, and that all admins are aware when an admin changes a password. If users or admins receive such a notification and they have not initiated the change, they can immediately report a potential security breach.
 
 ### <a name="customization"></a>사용자 지정
 
-문제를 경험 하는 사용자가 신속 하 게 도움을 받을 수 있도록 **기술 지원팀 전자 메일 또는 URL** 을 사용자 지정 하는 것이 중요 합니다. 이 옵션을 일반 기술 지원팀 전자 메일 주소나 사용자에 게 친숙 한 웹 페이지로 설정 합니다.
+It’s critical to customize the **helpdesk email or URL** to ensure users who experience problems can quickly get help. Set this option to a common helpdesk email address or web page that your users are familiar with.
 
 ### <a name="on-premises-integration"></a>온-프레미스 통합
 
-하이브리드 환경이 있는 경우 **온-프레미스 AD에 암호 쓰기** 를 **예**로 설정 해야 합니다. 또한 더 많은 유연성을 제공 하므로 사용자가 암호를 다시 설정 하지 않고 계정을 잠금 해제 하도록 허용을 예로 설정 합니다.
+If you have a hybrid environment, ensure that **Write back passwords to on-premises AD** is set to **Yes**. Also set the Allow users to unlock account without resetting password to Yes, as it gives them more flexibility.
 
-### <a name="changingresetting-passwords-of-administrators"></a>관리자의 암호 변경/다시 설정
+### <a name="changingresetting-passwords-of-administrators"></a>Changing/Resetting passwords of administrators
 
-관리자 계정은 관리자 권한으로 특별 한 계정입니다. 보안을 유지 하기 위해 관리자의 암호 변경에는 다음과 같은 제한 사항이 적용 됩니다.
+Administrator accounts are special accounts with elevated permissions. To secure them, the following restrictions apply to changing passwords of administrators:
 
-- 온-프레미스 엔터프라이즈 관리자 또는 도메인 관리자는 SSPR를 통해 암호를 다시 설정할 수 없습니다. 자신의 온-프레미스 환경 에서만 암호를 변경할 수 있습니다. 따라서 온-프레미스 AD 관리자 계정을 Azure AD에 동기화 하지 않는 것이 좋습니다.
-- 관리자는 암호를 다시 설정 하는 방법으로 질문 & 본인 확인 질문을 사용할 수 없습니다.
+- On-premises enterprise administrators or domain administrators cannot reset their password through SSPR. They can only change their password in their on-premises environment. Thus, we recommend not syncing on-prem AD admin accounts to Azure AD.
+- An administrator cannot use secret Questions & Answers as a method to reset password.
 
-### <a name="environments-with-multiple-identity-management-systems"></a>여러 id 관리 시스템을 사용 하는 환경
+### <a name="environments-with-multiple-identity-management-systems"></a>Environments with multiple identity management systems
 
-Oracle AM, SiteMinder 또는 기타 시스템과 같은 온-프레미스 id 관리자와 같은 여러 id 관리 시스템이 환경 내에 있는 경우 Active Directory에 기록 된 암호는 다음과 같은 도구를 사용 하 여 다른 시스템과 동기화 해야 할 수 있습니다. Microsoft Identity Manager (MIM)를 사용 하는 PCNS (암호 변경 알림 서비스) 더 복잡 한이 시나리오에 대 한 정보를 찾으려면 [도메인 컨트롤러에 MIM 암호 변경 알림 서비스 배포](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller)문서를 참조 하세요.
+If there are multiple identity management systems within an environment such as on-premises identity managers like Oracle AM, SiteMinder, or other systems, then passwords written to Active Directory may need to be synchronized to the other systems using a tool like the Password Change Notification Service (PCNS) with Microsoft Identity Manager (MIM). To find information on this more complex scenario, see the article [Deploy the MIM Password Change Notification Service on a domain controller](https://docs.microsoft.com/microsoft-identity-manager/deploying-mim-password-change-notification-service-on-domain-controller).
 
-## <a name="plan-deployment-and-support-for-sspr"></a>SSPR에 대 한 배포 및 지원 계획
+## <a name="plan-deployment-and-support-for-sspr"></a>Plan deployment and support for SSPR
 
-### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
+### <a name="engage-the-right-stakeholders"></a>Engage the right stakeholders
 
-기술 프로젝트에 오류가 발생 하는 경우 일반적으로 영향, 결과 및 책임에 대 한 예상치가 일치 하지 않기 때문입니다. 이러한 문제를 방지 하려면 올바른 관련자에 게 참여 하 고, 관련자의 프로젝트 입력 및 책임을 문서화 하 여 프로젝트의 관련자 역할을 잘 이해 해야 합니다.
+When technology projects fail, they typically do so due to mismatched expectations on impact, outcomes, and responsibilities. To avoid these pitfalls, ensure that you are engaging the right stakeholders, and that stakeholder roles in the project are well understood by documenting the stakeholders and their project input and accountability.
 
-### <a name="communications-plan"></a>통신 계획
+### <a name="communications-plan"></a>Communications plan
 
-통신은 모든 새 서비스의 성공에 중요 합니다. 사용자와 서비스를 사용 하는 방법 및 사용자가 정상적으로 작동 하지 않는 경우 도움을 받을 수 있는 작업을 사전에 전달 합니다. [Microsoft 다운로드 센터에서 셀프 서비스 암호 재설정 롤아웃 자료](https://www.microsoft.com/download/details.aspx?id=56768) 를 검토 하 여 최종 사용자 통신 전략을 계획 하는 방법에 대 한 아이디어를 확인 합니다.
+Communication is critical to the success of any new service. Proactively communicate with your users how to use the service and what they can do to get help if something doesn’t work as expected. Review the [Self-service password reset rollout materials on the Microsoft download center](https://www.microsoft.com/download/details.aspx?id=56768) for ideas on how to plan your end-user communication strategy.
 
-### <a name="testing-plan"></a>테스트 계획
+### <a name="testing-plan"></a>Testing plan
 
-배포가 예상 대로 작동 하는지 확인 하려면 구현 유효성을 검사 하는 데 사용할 테스트 사례 집합을 계획 해야 합니다. 다음 표에서는 정책에 따라 조직의 예상 결과를 문서화 하는 데 사용할 수 있는 몇 가지 유용한 테스트 시나리오를 제공 합니다.
+To ensure that your deployment works as expected, you should plan out a set of test cases you will use to validate the implementation. The following table includes some useful test scenarios you can use to document your organizations expected results based on your policies.
 
 | 비즈니스 사례 | 예상된 결과 |
 | --- | --- |
-| SSPR 포털은 회사 네트워크 내에서 액세스할 수 있습니다. | 조직에서 결정 |
-| SSPR 포털은 회사 네트워크 외부에서 액세스할 수 있습니다. | 조직에서 결정 |
-| 사용자가 암호 재설정을 사용 하도록 설정 되지 않은 경우 브라우저에서 사용자 암호 다시 설정 | 사용자가 암호 재설정 흐름에 액세스할 수 없습니다. |
-| 사용자가 암호 재설정에 등록 하지 않은 경우 브라우저에서 사용자 암호 다시 설정 | 사용자가 암호 재설정 흐름에 액세스할 수 없습니다. |
-| 암호 재설정 등록이 적용 될 때 사용자 로그인 | 사용자에 게 보안 정보를 등록 하 라는 메시지가 표시 됨 |
-| 암호 재설정 등록이 완료 되 면 사용자 로그인 | 사용자에 게 보안 정보를 등록 하 라는 메시지가 표시 되지 않음 |
-| 사용자에 게 라이선스가 없으면 SSPR 포털에 액세스할 수 있습니다. | 액세스 가능 |
-| 사용자가 등록 한 후 Windows 10 AADJ 또는 H + AADJ 장치 잠금 화면에서 사용자 암호 다시 설정 | 사용자가 암호를 재설정할 수 있음 |
-| SSPR 등록 및 사용 현황 데이터는 거의 실시간으로 관리자에 게 제공 됩니다. | 감사 로그를 통해 사용할 수 있습니다. |
+| SSPR portal is accessible from within the corporate network | Determined by your organization |
+| SSPR portal is accessible from outside the corporate network | Determined by your organization |
+| Reset user password from browser when user is not enabled for password reset | User is not able to access the password reset flow |
+| Reset user password from browser when user has not registered for password reset | User is not able to access the password reset flow |
+| User signs in when password reset registration is enforced | User is prompted to register security information |
+| User signs in when password reset registration has been completed | User is not prompted to register security information |
+| SSPR portal is accessible when the user does not have a license | Is accessible |
+| Reset user password from Windows 10 Azure AD joined or hybrid Azure AD joined device lock screen after user has registered | User can reset password |
+| SSPR registration and usage data are available to administrators in near real time | Is available via audit logs |
 
 ### <a name="support-plan"></a>지원 계획
 
-SSPR는 일반적으로 사용자 문제를 만들지 않지만, 발생할 수 있는 문제를 해결 하기 위해 지원 담당자가 준비 하는 것이 중요 합니다.
+While SSPR does not typically create user issues, it is important to have support staff prepared to deal with issues that may arise.
 
-관리자는 Azure AD 포털을 통해 최종 사용자의 암호를 변경 하거나 다시 설정할 수 있지만 셀프 서비스 지원 프로세스를 통해 문제를 해결 하는 것이 좋습니다.
+While an administrator can change or reset the password for end users through the Azure AD portal, it is better to help resolve the issue via a self-service support process.
 
-이 문서의 작업 가이드 섹션에서 지원 사례 목록과 가능한 원인을 만들고 해결 가이드를 만듭니다.
+In the operational guide section of this document, create a list of support cases and their likely causes, and create a guide for resolution.
 
 ### <a name="auditing-and-reporting"></a>감사 및 보고
 
 배포 후에 여러 조직에서는 SSPR(셀프 서비스 암호 다시 설정)을 실제로 사용하는 방법 및 경우를 알아보려고 합니다. Azure AD(Azure Active Directory)에서 제공하는 보고 기능은 미리 작성된 보고서를 사용하여 질문에 대답하도록 도와줍니다.
 
-등록 및 암호 재설정에 대 한 감사 로그는 30 일 동안 사용할 수 있습니다. 따라서 회사 내의 보안 감사에 더 긴 보존이 필요한 경우 로그를 내보내고 [Azure 센티널](../../sentinel/connect-azure-active-directory.md), Splunk 또는 arcsight와 같은 siem 도구로 사용 해야 합니다.
+Audit logs for registration and password reset are available for 30 days. Therefore, if security auditing within a corporation requires longer retention, the logs need to be exported and consumed into a SIEM tool such as [Azure Sentinel](../../sentinel/connect-azure-active-directory.md), Splunk, or ArcSight.
 
-아래와 같은 테이블에서 백업 일정, 시스템 및 담당 파티를 문서화 합니다. 별도의 감사 및 보고 백업이 필요 하지 않을 수도 있지만 문제를 복구할 수 있는 별도의 백업이 있어야 합니다.
+In a table, like the one below, document the backup schedule, the system, and the responsible parties. You may not need separate auditing and reporting backups, but you should have a separate backup from which you can recover from an issue.
 
-|   | 다운로드 빈도 | 대상 시스템 | 책임 당사자 |
+|   | Frequency of download | Target system | 책임 당사자 |
 | --- | --- | --- | --- |
-| 백업 감사 |   |   |   |
-| 백업 보고 |   |   |   |
-| 재해 복구 백업 |   |   |   |
+| Auditing backup |   |   |   |
+| Reporting backup |   |   |   |
+| Disaster recovery backup |   |   |   |
 
 ## <a name="implementation"></a>구현
 
-구현은 다음 세 단계로 수행 됩니다.
+Implementation occurs in three stages:
 
-- 사용자 및 라이선스 구성
-- 등록 및 셀프 서비스에 대 한 Azure AD SSPR 구성
-- 비밀 번호 쓰기 저장에 대 한 Azure AD Connect 구성
+- Configure users and licenses
+- Configure Azure AD SSPR for registration and self-service
+- Configure Azure AD Connect for password writeback
 
-### <a name="communicate-the-change"></a>변경 내용 전달
+### <a name="communicate-the-change"></a>Communicate the change
 
-계획 단계에서 개발한 통신 계획의 구현을 시작 합니다.
+Begin implementation of the communications plan that you developed in the planning phase.
 
-### <a name="ensure-groups-are-created-and-populated"></a>그룹이 만들어지고 채워지는지 확인 합니다.
+### <a name="ensure-groups-are-created-and-populated"></a>Ensure groups are created and populated
 
-계획 암호 인증 방법 섹션을 참조 하 고 파일럿 또는 프로덕션 구현에 대 한 그룹을 사용할 수 있는지 확인 하 고 적절 한 모든 사용자를 그룹에 추가 합니다.
+Reference the Planning password authentication methods section and ensure the group(s) for the pilot or production implementation are available, and all appropriate users are added to the groups.
 
-### <a name="apply-licenses"></a>라이선스 적용
+### <a name="apply-licenses"></a>Apply licenses
 
-구현할 그룹에는 Azure AD premium 라이선스가 할당 되어 있어야 합니다. 그룹에 직접 라이선스를 할당 하거나, PowerShell 또는 그룹 기반 라이선스를 통해와 같은 기존 라이선스 정책을 사용할 수 있습니다.
+The groups you are going to implement must have the Azure AD premium license assigned to them. You can assign licenses directly to the group, or you can use existing license policies such as through PowerShell or Group-Based Licensing.
 
-사용자 그룹에 라이선스를 할당 하는 방법에 대 한 정보는 [Azure Active Directory에서 그룹 멤버 자격을 통해 사용자에 게 라이선스 할당](../users-groups-roles/licensing-groups-assign.md)문서에서 찾을 수 있습니다.
+Information about assigning licenses to groups of users can be found in the article, [Assign licenses to users by group membership in Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
 
-### <a name="configure-sspr"></a>SSPR 구성
+### <a name="configure-sspr"></a>Configure SSPR
 
-#### <a name="enable-groups-for-sspr"></a>SSPR에 대 한 그룹 사용
+#### <a name="enable-groups-for-sspr"></a>Enable groups for SSPR
 
-1. 관리자 계정으로 Azure Portal에 액세스 합니다.
-1. 모든 서비스를 선택 하 고 필터 상자에 Azure Active Directory를 입력 한 다음 Azure Active Directory를 선택 합니다.
-1. Active Directory 블레이드에서 암호 재설정을 선택 합니다.
-1. 속성 창에서 선택 됨을 선택 합니다. 모든 사용자를 사용 하도록 설정 하려면 모두를 선택 합니다.
-1. 기본 암호 재설정 정책 블레이드에서 첫 번째 그룹의 이름을 입력 하 고 선택 하 고 화면 맨 아래에 있는 선택을 클릭 한 다음 화면 위쪽에서 저장을 선택 합니다.
-1. 각 그룹에 대해이 프로세스를 반복 합니다.
+1. Access the Azure portal with an administrator account.
+1. Select All Services, and in the Filter box, type Azure Active Directory, and then select Azure Active Directory.
+1. On the Active Directory blade, select Password reset.
+1. In the properties pane, select Selected. If you want all users enabled, Select All.
+1. In the Default password reset policy blade, type the name of the first group, select it, and then click Select at the bottom of the screen, and select Save at the top of the screen.
+1. Repeat this process for each group.
 
-#### <a name="configure-the-authentication-methods"></a>인증 방법 구성
+#### <a name="configure-the-authentication-methods"></a>Configure the authentication methods
 
-이 문서의 계획 암호 인증 방법 섹션에서 계획을 참조 합니다.
+Reference your planning from the Planning Password Authentication Methods section of this document.
 
-1. 등록을 선택 하 고 로그인 할 때 사용자가 등록 하도록 요구 하 고 예를 선택한 다음 만료 전 일 수를 설정 하 고 저장을 선택 합니다.
-1. 알림을 선택 하 고 계획 별로 구성한 후 저장을 선택 합니다.
-1. 사용자 지정을 선택 하 고 계획 별로 구성한 후 저장을 선택 합니다.
-1. 온-프레미스 통합을 선택 하 고 계획 별로 구성한 다음, 저장을 선택 합니다.
+1. Select Registration, under Require user to register when signing in, select Yes, and then set the number of days before expiration, and then select Save.
+1. Select Notification, and configure per your plan, and then select Save.
+1. Select Customization, and configure per your plan, and then select Save.
+1. Select On-premises integration, and configure per your plan, and then select Save.
 
-### <a name="enable-sspr-in-windows"></a>Windows에서 SSPR 사용
+### <a name="enable-sspr-in-windows"></a>Enable SSPR in Windows
 
-Azure AD 조인 또는 하이브리드 Azure AD 조인 된 버전 1803 이상을 실행 하는 windows 10 장치는 Windows 로그인 화면에서 암호를 다시 설정할 수 있습니다. 이 기능을 구성 하는 데 필요한 정보 및 단계는 [로그인 화면에서 AZURE AD 암호 재설정](tutorial-sspr-windows.md) 문서에서 찾을 수 있습니다.
+Windows 10 devices running version 1803 or higher that are either Azure AD joined or hybrid Azure AD joined can reset their passwords at the Windows login screen. Information and steps to configure this capability can be found in the article [Azure AD password reset from the login screen](tutorial-sspr-windows.md)
 
 ### <a name="configure-password-writeback"></a>비밀번호 쓰기 저장 구성
 
-조직에 대해 비밀 번호 쓰기 저장을 구성 하 [는 단계는 방법: 비밀 번호 쓰기 저장 구성](howto-sspr-writeback.md)문서에서 찾을 수 있습니다.
+Steps to configure password writeback for your organization can be found in the article [How-to: Configure password writeback](howto-sspr-writeback.md).
 
-## <a name="manage-sspr"></a>SSPR 관리
+## <a name="manage-sspr"></a>Manage SSPR
 
-셀프 서비스 암호 재설정과 관련 된 기능을 관리 하는 데 필요한 역할
+Required roles to manage features associated with self-service password reset.
 
-| 비즈니스 역할/가상 사용자 | Azure AD 역할 (필요한 경우) |
+| Business role/persona | Azure AD Role (if necessary) |
 | :---: | :---: |
-| 수준 1 기술 지원팀 | 암호 관리자 |
-| 수준 2 기술 지원팀 | 사용자 관리자 |
-| SSPR 관리자 | 전역 관리자 |
+| Level 1 Helpdesk | 암호 관리자 |
+| Level 2 Helpdesk | 사용자 관리자 |
+| SSPR Administrator | 전역 관리자 |
 
-### <a name="support-scenarios"></a>지원 시나리오
+### <a name="support-scenarios"></a>Support scenarios
 
-지원 팀의 성공 여부를 설정 하기 위해 사용자가 받은 질문에 따라 FAQ를 만들 수 있습니다. 다음 표에는 일반적인 지원 시나리오가 나와 있습니다.
+To enable your support team success, you can create an FAQ based on questions you receive from your users. The following table contains common support scenarios.
 
 | 시나리오 | 설명 |
 | --- | --- |
-| 사용자에 게 사용 가능한 등록 된 인증 방법이 없습니다. | 사용자가 자신의 암호를 재설정 하려고 하지만 등록 한 인증 방법이 없습니다 (예: 집에서 휴대폰을 사용 하 고 전자 메일에 액세스할 수 없음). |
-| 사용자가 사무실 또는 휴대폰에서 텍스트 또는 통화를 받지 않습니다. | 사용자가 텍스트 또는 호출을 통해 id를 확인 하려고 하지만 텍스트/호출을 받지 않습니다. |
-| 사용자가 암호 재설정 포털에 액세스할 수 없습니다. | 사용자가 암호를 재설정 하려고 하지만 암호 재설정에 사용할 수 없으므로 암호를 업데이트 하기 위해 페이지에 액세스할 수 없습니다. |
-| 사용자가 새 암호를 설정할 수 없음 | 사용자가 암호 다시 설정 흐름 중에 확인을 완료 하지만 새 암호를 설정할 수는 없습니다. |
-| 사용자가 Windows 10 장치에서 암호 재설정 링크를 표시 하지 않음 | 사용자가 Windows 10 잠금 화면에서 암호를 재설정 하려고 하지만 장치가 Azure AD에 가입 되어 있지 않거나 Intune 장치 정책이 사용 하도록 설정 되어 있지 않습니다. |
+| User does not have any registered authentication methods available | A user is trying to reset their password but does not have any of the authentication methods that they registered available (Example: they left their cell phone at home and can’t access email) |
+| User is not receiving a text or call on their office or mobile phone | A user is trying to verify their identity via text or call but is not receiving a text/call. |
+| User cannot access the password reset portal | A user wants to reset their password but is not enabled for password reset and therefore cannot access the page to update passwords. |
+| User cannot set a new password | A user completes verification during the password reset flow but cannot set a new password. |
+| User does not see a Reset Password link on a Windows 10 device | A user is trying to reset password from the Windows 10 lock screen, but the device is either not joined to Azure AD, or the Intune device policy is not enabled |
 
-추가 문제 해결을 위해 다음과 같은 정보를 포함할 수도 있습니다.
+You may also want to include information such as the following for additional troubleshooting.
 
-- SSPR에 대해 사용 하도록 설정 된 그룹입니다.
-- 구성 된 인증 방법입니다.
-- 회사 네트워크의 또는와 관련 된 액세스 정책입니다.
-- 일반적인 시나리오에 대 한 문제 해결 단계
+- Which groups are enabled for SSPR.
+- Which authentication methods are configured.
+- The access policies related to on or of the corporate network.
+- Troubleshooting steps for common scenarios.
 
-또한 가장 일반적인 SSPR 시나리오에 대 한 일반적인 문제 해결 단계를 이해 하기 위해 셀프 서비스 암호 재설정 문제 해결에 대 한 온라인 설명서를 참조할 수 있습니다.
+You can also refer to our online documentation on troubleshooting self-service password reset to understand general troubleshooting steps for the most common SSPR scenarios.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD 암호 보호 구현 고려](concept-password-ban-bad.md)
+- [Consider implementing Azure AD password protection](concept-password-ban-bad.md)
 
-- [Azure AD 스마트 잠금 구현 고려](howto-password-smart-lockout.md)
+- [Consider implementing Azure AD Smart Lockout](howto-password-smart-lockout.md)

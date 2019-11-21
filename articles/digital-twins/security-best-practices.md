@@ -1,19 +1,19 @@
 ---
-title: 보안 모범 사례 이해-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins 및 사물 인터넷에 대 한 보안 모범 사례에 대해 알아봅니다.
+title: Understand security best practices - Azure Digital Twins | Microsoft Docs
+description: Learn about security best practices for Azure Digital Twins and the Internet of Things.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 9f3f98863f9a7cd0e6328ddc75b1154ee933fe0b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/19/2019
+ms.openlocfilehash: f5c0f6d9f6f7f35722f3df5f35dc1da945f21b9a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009248"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229046"
 ---
 # <a name="azure-digital-twins-security-best-practices"></a>Azure Digital Twins 보안 모범 사례
 
@@ -27,7 +27,7 @@ Azure Digital Twins는 Azure AD(Azure Active Directory)를 비롯하여 Azure Io
 > IoT 영역에 대해 최대 보안을 보장하려면 추가 보안 리소스를 검토합니다. 디바이스 공급 업체를 포함해야 합니다.
 
 > [!TIP]
-> Iot [에 대 한 Azure Security Center](https://docs.microsoft.com/azure/asc-for-iot/) 를 사용 하 여 iot 보안 위협 및 취약점을 쉽게 검색할 수 있습니다.
+> Use [Azure Security Center for IoT](https://docs.microsoft.com/azure/asc-for-iot/) to help detect IoT security threats and vulnerabilities.
 
 ## <a name="iot-security-best-practices"></a>IoT 보안 모범 사례
 
@@ -38,8 +38,8 @@ IoT 디바이스를 안전하게 보호하기 위한 몇 가지 주요 사례는
 > * IoT 영역 내에서 각 디바이스, 센서 및 개인의 역할을 제한합니다. 보안이 침해된 경우에는 영향을 최소화합니다.
 > * 디바이스 IP 주소 필터링 및 포트 제한의 잠재적 사용을 고려합니다.
 > * 성능 향상을 위해 I/O 및 디바이스 대역폭을 제한합니다. 속도 제한으로 서비스 거부 공격을 방지하여 보안을 향상시킬 수 있습니다.
-> * 디바이스 펌웨어를 최신 상태로 유지합니다.
-> * 장치, 네트워크 및 게이트웨이 보안 모범 사례를 정기적으로 감사 하 고 검토 합니다.
+> * Keep device firmware, operating system, and software up to date.
+> * Periodically audit and review device, software, network, and gateway security best practices as they continue to improve and evolve.
 
 IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다음과 같습니다.
 
@@ -47,17 +47,20 @@ IoT 영역을 안전하게 보호하기 위한 몇 가지 주요 사례는 다�
 > * 저장, 보관 또는 영구 데이터를 암호화합니다.
 > * 암호 또는 키를 주기적으로 변경하거나 새로 고쳐야 합니다.
 > * 역할에 따라 액세스 및 사용 권한을 신중하게 제한합니다. 아래의 [역할 기반 액세스 제어 모범 사례](#role-based-access-control-best-practices) 섹션을 참조하세요.
-> * 각 네트워크의 장치가 다른 네트워크와 격리 되도록 분할 된 네트워크 토폴로지를 고려 합니다.
-> * 강력한 암호화를 사용합니다. 긴 암호가 필요하고, 보안 프로토콜 및 2단계 인증을 사용합니다.
+> * Consider a divided network topology so that devices on each network are isolated from the others.
+> * 강력한 암호화를 사용합니다. Require long passwords, use secure protocols, and [multi-factor authentication](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-howitworks).
 
 IoT 리소스를 [모니터링](./how-to-configure-monitoring.md)하여 일반적인 작업 범위를 벗어나는 이상값, 위협 또는 리소스 매개 변수를 감시합니다. Azure Analytics를 사용하여 모니터링을 관리합니다.
+
+> [!IMPORTANT]
+> Read Azure [IoT security best practices](../iot-fundamentals/iot-security-best-practices.md) to begin a comprehensive IoT security strategy.
 
 > [!NOTE]
 > 이벤트 처리 및 모니터링에 대한 자세한 내용은 [Azure Digital Twins를 사용하여 이벤트 및 메시지 라우팅](./concepts-events-routing.md)을 참조하세요.
 
 ## <a name="azure-active-directory-best-practices"></a>Azure Active Directory 모범 사례
 
-Azure Digital Twins는 Azure Active Directory를 사용하여 사용자를 인증하고 애플리케이션을 보호합니다. Azure Active Directory는 다양한 최신 아키텍처의 인증을 지원합니다. 모두 OAuth 2.0 또는 OpenID Connect와 같은 업계 표준 프로토콜을 기반으로 합니다. Azure Active Directory의 IoT 영역을 보호하는 몇 가지 주요 사례는 다음과 같습니다.
+Azure Digital Twins uses [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/) to authenticate users and protect applications. Azure Active Directory는 다양한 최신 아키텍처의 인증을 지원합니다. 모두 OAuth 2.0 또는 OpenID Connect와 같은 업계 표준 프로토콜을 기반으로 합니다. Azure Active Directory의 IoT 영역을 보호하는 몇 가지 주요 사례는 다음과 같습니다.
 
 > [!div class="checklist"]
 > * Azure Active Directory 앱 비밀 및 키를 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)와 같은 보안 위치에 저장합니다.

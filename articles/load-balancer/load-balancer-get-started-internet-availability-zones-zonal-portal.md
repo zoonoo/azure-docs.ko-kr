@@ -1,6 +1,6 @@
 ---
 title: 영역별 프런트 엔드가 있는 Load Balancer 만들기 - Azure Portal
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure Portal을 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/26/2018
 ms.author: allensu
-ms.openlocfilehash: 9a260c267febb3dc851fe0a8ca8a8e351124116b
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 82a773b279780bc4eb784fa107d6b15bd0ff2672
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275146"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225335"
 ---
 #  <a name="create-a-standard-load-balancer-with-zonal-frontend-using-azure-portal"></a>Azure Portal을 사용하여 영역별 프런트 엔드가 있는 표준 Load Balancer 만들기
 
@@ -32,7 +32,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인 
 
-Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-load-balancer-with-zonal-frontend-ip-address"></a>영역별 프런트 엔드 IP 주소가 있는 부하 분산 장치 만들기
 
@@ -53,7 +53,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-- [Standard Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
+- [표준 Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.
 
 
 

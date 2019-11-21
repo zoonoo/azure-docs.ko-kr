@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service SDK에 제공된 도구를 사용하여 개발 간소화
+title: Use Azure IoT Hub Device Provisioning Service SDKs tools
 description: 이 문서에서는 개발을 위한 Azure IoT Hub Device Provisioning Service SDK에서 제공되는 도구를 검토합니다.
 author: robinsh
 ms.author: robinsh
@@ -7,12 +7,12 @@ ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 4fd4913776a7d21405f62a28d452bd50cd22f046
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f5bdf81dedfcf803b8c53a5b0a29cfb823989873
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882998"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229665"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>SDK에서 제공된 도구를 사용하여 프로비전할 개발을 간소화하는 방법
 IoT Hub Device Provisioning 서비스는 안전하고 확장 가능한 방식으로 Just-In-Time 무인 [자동 프로비전](concepts-auto-provisioning.md)을 사용하여 프로비전 프로세스를 간소화합니다.  X.509 인증서 또는 TPM(신뢰할 수 있는 플랫폼 모듈)의 형식인 보안 증명이 필요합니다.  Microsoft는 [다른 보안 하드웨어 파트너](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)와도 협력하여 IoT 배포를 보호하는 경우에 신뢰성을 향상시킵니다. 하드웨어 보안 요구 사항을 이해하는 것은 개발자에게 매우 어려울 수 있습니다. 개발자가 프로비전 서비스와 통신하는 클라이언트를 작성하는 편의 계층을 사용할 수 있도록 일련의 Azure IoT Provisioning SDK가 제공됩니다. 또한 SDK에서는 개발에서 보안 증명을 간소화하기 위한 도구 집합뿐만 아니라 일반적인 시나리오에 대한 샘플을 제공합니다.
@@ -37,7 +37,7 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
         * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell 또는 Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
-    * DICE(Device Identity Composition Engine) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 디바이스 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 디바이스 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
+    * DICE(디바이스 ID 컴퍼지션 엔진) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 디바이스 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 디바이스 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
 
 ### <a name="using-x509-certificate-generator-with-dice-emulator"></a>DICE 에뮬레이터와 함께 X.509 인증서 생성기 사용
 SDK는 [Java SDK](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-tools/provisioning-x509-cert-generator)에 위치하는 DICE 에뮬레이터와 함께 X.509 인증서 생성기를 제공합니다.  이 생성자는 플랫폼 간에 작동합니다.  다른 언어로 개발을 위해 생성된 인증서를 사용할 수 있습니다.

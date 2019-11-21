@@ -7,19 +7,19 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 91dc386641c758c42f64afff387d0463d1445f1d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d847b78ba9623f3543a3cb1e45b5187605deb550
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969068"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229777"
 ---
 # <a name="understanding-cloudyn-cost-management-reports"></a>Cloudyn 비용 관리 보고서 이해
 
-이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관됩니다. 이 아티클을 읽으면 모든 배용 관리 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
+이 문서는 Cloudyn 비용 관리 보고서의 기본 구조와 기능에 대한 이해를 도와줍니다. 대부분의 Cloudyn 보고서는 직관적이며 모양과 느낌이 일관적입니다. 이 아티클을 읽으면 모든 배용 관리 보고서를 사용할 수 있습니다. 다양한 보고서에서 제공하는 여러 가지 표준 기능을 사용하여 보고서를 간편하게 탐색할 수 있습니다. 보고서를 사용자 지정할 수 있으며, 결과를 계산하고 표시하는 여러 옵션 중에 선택할 수 있습니다.
 
 ## <a name="report-fields-and-options"></a>보고서 필드 및 옵션
 
@@ -66,14 +66,14 @@ ms.locfileid: "65969068"
     ![그룹화할 수 있는 태그의 두 번째 예제 목록](./media/understanding-cost-reports/groups-tags02.png)
 
     비용 할당 보고서에서 태그 기반 그룹 범주의 그룹에 다음 항목이 포함될 수 있습니다.
-      - 태그들
+      - 태그
       - 리소스 그룹 태그
       - Cloudyn 비용 엔터티 태그
       - 비용 할당 목적에 대한 구독 태그 범주
 
    다음과 같은 예가 있습니다.
    - 비용 센터
-   - department
+   - 부서
    - 애플리케이션
    - Environment
    - 비용 코드
@@ -85,7 +85,7 @@ ms.locfileid: "65969068"
        - 일회성 요금
        - 지원
        - 사용 비용
-     - **Customer**
+     - **고객**
        - 특정 고객, 여러 고객 또는 모든 고객을 선택합니다.
      - **계정 이름**
        - 계정 또는 구독 이름입니다. Azure에서는 Azure 구독의 이름입니다.
@@ -105,7 +105,7 @@ ms.locfileid: "65969068"
        - 사용 중인 리소스의 종류입니다.
      - **하위 유형**
        - 하위 유형을 선택합니다.
-     - **연산**
+     - **작업**
        - 작업을 선택하거나 **모두 표시**를 선택합니다.
      - **가격 모델**
        - 전부 선불
@@ -146,9 +146,9 @@ ms.locfileid: "65969068"
     선택한 날짜 범위 내에서 시간 해상도를 선택하려면 [해상도]를 사용합니다. 시간 해상도는 보고서에 단위를 표시하는 방식을 결정하며 다음과 같이 표시할 수 있습니다.
     - 매일
     - 매주
-    - 매월
+    - 월간
     - 매분기
-    - 매년
+    - 연간
 
 9. **할당 규칙**
 
@@ -172,7 +172,7 @@ ms.locfileid: "65969068"
 
     보고서에서 차트 색을 설정하려면 [여러 색]을 사용합니다.
 
-14. **actions**
+14. **Actions**
 
     보고서를 저장하거나 내보내거나 예약하려면 [작업]을 사용합니다.
 
@@ -191,7 +191,7 @@ ms.locfileid: "65969068"
 
 ### <a name="save-a-report-to-cloud-provider-storage"></a>클라우드 공급자 스토리지에 보고서 저장
 
-클라우드 서비스 공급자에 보고서를 저장하기 위해 스토리지 계정을 미리 구성해야 합니다. 보고서를 보면서 **작업**을 클릭한 다음, **보고서 예약**을 선택합니다. 보고서 이름을 지정한 다음, 고유한 URL을 추가하거나 자동으로 생성된 URL을 사용합니다. **스토리지에 저장**을 선택한 다음, 스토리지 계정을 선택하거나 새 계정을 추가합니다. 보고서 파일 이름에 추가할 접두사를 입력합니다. CSV 또는 JSON 파일 형식을 선택 하 고 보고서를 저장 합니다.
+클라우드 서비스 공급자에 보고서를 저장하기 위해 스토리지 계정을 미리 구성해야 합니다. 보고서를 보면서 **작업**을 클릭한 다음, **보고서 예약**을 선택합니다. 보고서 이름을 지정한 다음, 고유한 URL을 추가하거나 자동으로 생성된 URL을 사용합니다. **스토리지에 저장**을 선택한 다음, 스토리지 계정을 선택하거나 새 계정을 추가합니다. 보고서 파일 이름에 추가할 접두사를 입력합니다. Select a CSV or JSON file format and then save the report.
 
 ### <a name="schedule-a-report"></a>보고서 예약
 

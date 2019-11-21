@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication-Azure Active Directory에 대 한 보안 지침
+title: Security guidance for Azure Multi-Factor Authentication - Azure Active Directory
 description: 이 문서에서는 Azure 계정으로 Azure MFA를 사용하는 지침을 제공합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 436b7899b1a9d4f9cab1ca2581ff9b5b162de8ac
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2756d39a93751271c8c7bf2a51108b9fe5b09b1e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60357973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208444"
 ---
 # <a name="security-guidance-for-using-azure-multi-factor-authentication-with-azure-ad-accounts"></a>Azure AD 계정으로 Azure Multi-Factor Authentication을 사용하기 위한 보안 지침
 
@@ -31,7 +31,7 @@ ms.locfileid: "60357973"
 
 ### <a name="licenses"></a>라이선스
 
-![사용자에 게 라이선스를 적용, 사용 하도록 설정, 알림](./media/multi-factor-authentication-security-best-practices/ems.png)
+![Apply licenses to users, enable, notify](./media/multi-factor-authentication-security-best-practices/ems.png)
 
 Azure AD Premium 또는 Enterprise Mobility + Security 라이선스가 있는 경우 Azure MFA가 이미 있는 것입니다. 2단계 인증 기능을 조직의 모든 사용자에게 확장하기 위해 추가로 아무 것도 필요하지 않습니다. 사용자에게 라이선스를 할당해야 하며 그러면 MFA를 사용할 수 있습니다.
 
@@ -43,7 +43,7 @@ Multi-factor Authentication을 설정할 때 고려해야 할 사항은 다음�
 
 ### <a name="multi-factor-auth-provider"></a>Multi-Factor Auth 공급자
 
-![Multi-factor Authentication 공급자](./media/multi-factor-authentication-security-best-practices/authprovider.png)
+![Multi-Factor Authentication Provider](./media/multi-factor-authentication-security-best-practices/authprovider.png)
 
 Azure MFA를 포함하는 라이선스가 없는 경우 [MFA Auth 공급자를 만들](concept-mfa-authprovider.md) 수 있습니다.
 
@@ -52,7 +52,7 @@ Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 �
 * Multi-Factor Auth 공급자를 만드는 데 Azure AD 디렉터리가 필요하지는 않지만 더 많은 기능을 사용할 수 있습니다. Azure AD 디렉터리와 Auth 공급자를 연결하면 다음과 같은 기능을 사용할 수 있게 됩니다.
   * 2단계 인증을 모든 사용자에게 확장합니다.
   * 관리 포털, 사용자 지정 인사말, 보고서 등의 글로벌 관리자 추가 기능을 제공합니다.
-* 온-프레미스 Active Directory 환경을 Azure AD 디렉터리와 동기화하는 경우 DirSync 또는 AAD Sync가 필요합니다. Active Directory의 온-프레미스 인스턴스와 동기화되지 않은 Azure AD 디렉터리를 사용하는 경우에는 DirSync 또는 AAD 동기화가 필요하지 않습니다.
+* If you synchronize your on-premises Active Directory environment with an Azure AD directory, you need DirSync or Azure AD Sync. If you use an Azure AD directory that is not synchronized with an on-premises instance of Active Directory, you do not need DirSync or Azure AD Sync.
 * 귀사에 가장 적합한 소비 모델을 선택 니다. 사용 모델을 선택한 후에는 변경할 수 없습니다. 두 모델은 다음과 같습니다.
   * 인증 기준: 각 인증에 대한 요금을 청구합니다. 특정 사용자가 아닌 특정 앱에 액세스하는 사용자에 대한 2단계 인증을 하려는 경우 이 모델을 사용합니다.
   * 활성화된 사용자 당: Azure MFA에 대해 사용하도록 설정한 각 사용자에 대한 요금을 청구합니다. 일부 사용자가 Azure AD Premium 또는 Enterprise Mobility Suite 라이선스를 갖고 일부 사용자가 라이선스를 갖지 않은 경우 이 모델을 사용합니다.
@@ -68,7 +68,7 @@ Auth 공급자를 만드는 경우 디렉터리를 선택하고 다음 세부 �
 
 회사가 자체 인프라를 이용하여 MFA를 사용하도록 결정한 경우 [Azure Multi-Factor Authentication 서버 온-프레미스를 배포](howto-mfaserver-deploy.md)해야 합니다. MFA 서버 구성 요소는 다음 다이어그램에 나와 있습니다.
 
-![기본 MFA 서버 구성 요소](./media/multi-factor-authentication-security-best-practices/server.png) \*기본적으로 설치 되지 \** 설치 되지만 기본적으로 사용 안 함
+![The default MFA Server components](./media/multi-factor-authentication-security-best-practices/server.png) \*Not installed by default \**Installed but not enabled by default
 
 Azure Multi-Factor Authentication Server는 페더레이션을 사용하여 클라우드 리소스 및 온-프레미스 리소스의 보안을 유지할 수 있습니다. AD FS를 보유하고 이를 Azure AD 테넌트와 페더레이션해야 합니다.
 Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사항은 다음과 같습니다.
@@ -96,7 +96,7 @@ Multi-Factor Authentication 서버를 설정할 때 고려해야 할 세부 사�
 * 특정 고급 아키텍처 디자인은 클라이언트와 2단계 인증을 사용하는 경우 인증 위치에 따라 조직의 사용자 이름과 암호 및 앱 암호를 조합하여 사용할 필요가 있습니다. 온-프레미스 인프라에 대해 인증하는 클라이언트의 경우 조직의 사용자 이름과 암호를 사용합니다. Azure AD에 대해 인증하는 클라이언트의 경우 앱 암호를 사용합니다.
 * 기본적으로 사용자가 앱 암호를 만들 수 없습니다. 사용자가 앱 암호를 만들 수 있도록 해야 할 경우 **사용자가 브라우저에 기반하지 않는 애플리케이션에 로그인하기 위해 앱 암호를 만들 수 있음** 옵션을 선택합니다.
 
-## <a name="additional-considerations"></a>기타 고려 사항
+## <a name="additional-considerations"></a>추가 고려 사항
 
 온-프레미스로 배포할 각 구성 요소에 대한 추가 고려 사항 및 지침을 보려면 다음 목록을 사용하세요.
 

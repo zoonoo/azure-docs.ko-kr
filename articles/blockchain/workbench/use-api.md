@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench REST API 사용
-description: Azure Blockchain 워크 벤치 미리 보기를 사용 하는 방법에 대 한 시나리오 REST API
+description: Scenarios for how to use the Azure Blockchain Workbench Preview REST API
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
@@ -10,16 +10,16 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 457c09aa2b235f30bd1f995c90429bdf9acb85ba
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328866"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222313"
 ---
-# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Azure Blockchain 워크 벤치 미리 보기 사용 REST API
+# <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Using the Azure Blockchain Workbench Preview REST API
 
-Azure Blockchain 워크 벤치 미리 보기 REST API 개발자 및 정보 근로자에 게 블록 체인 응용 프로그램에 대 한 다양 한 통합을 구축 하는 방법을 제공 합니다. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
+Azure Blockchain Workbench Preview REST API provides developers and information workers a way to build rich integrations to blockchain applications. 이 문서에서는 Workbench REST API의 여러 가지 핵심 메서드를 안내합니다. 예를 들어 개발자가 사용자 지정 블록체인 클라이언트를 만들려고 한다고 가정합니다. 이 블록체인 클라이언트를 통해 로그인된 사용자는 할당된 블록체인 애플리케이션을 보고 상호 작용할 수 있습니다. 이 클라이언트에서는 사용자가 계약 인스턴스를 살펴보고 스마트 계약에 대한 작업을 수행할 수 있습니다. 클라이언트는 로그인한 사용자의 컨텍스트에서 Workbench REST API를 사용하여 다음 작업을 수행합니다.
 
 * 애플리케이션 나열
 * 애플리케이션에 대한 워크플로 나열
@@ -28,6 +28,19 @@ Azure Blockchain 워크 벤치 미리 보기 REST API 개발자 및 정보 근�
 * 계약에 대한 작업 실행
 
 시나리오에서 사용되는 예제 블록체인 애플리케이션은 [GitHub에서 다운로드](https://github.com/Azure-Samples/blockchain)할 수 있습니다.
+
+## <a name="blockchain-workbench-api-endpoint"></a>Blockchain Workbench API endpoint
+
+Blockchain Workbench APIs are accessed through an endpoint for your deployment. To get the API endpoint URL for your deployment:
+
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. In the left-hand navigation pane, select **Resource groups**.
+1. Choose the resource group name your deployed Blockchain Workbench.
+1. 목록을 형식 기준으로 사전순으로 정렬하려면 **형식** 열 제목을 선택합니다.
+1. 형식이 **App Service**인 리소스가 두 개 있습니다. Select the resource of type **App Service** *with* the "-api" suffix.
+1. In the App Service **Overview**, copy the **URL** value, which represents the API endpoint URL to your deployed Blockchain Workbench.
+
+    ![App service API endpoint URL](media/use-api/app-service-api.png)
 
 ## <a name="list-applications"></a>애플리케이션 나열
 

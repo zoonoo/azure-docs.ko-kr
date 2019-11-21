@@ -1,47 +1,45 @@
 ---
-title: 같은 입력에 대 한 Azure Functions 디자인
-description: Idempotent 될 Azure Functions 빌드
+title: Designing Azure Functions for identical input
+description: Building Azure Functions to be idempotent
 author: craigshoemaker
 ms.author: cshoe
 ms.date: 9/12/2019
 ms.topic: article
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 39e785a1ca7a158ddb90a3e6ba914582c405612a
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 15af60ac5a862e6fb20e65ba6fbb92482420b7c0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226868"
 ---
-# <a name="designing-azure-functions-for-identical-input"></a>같은 입력에 대 한 Azure Functions 디자인
+# <a name="designing-azure-functions-for-identical-input"></a>Designing Azure Functions for identical input
 
-이벤트 기반 및 메시지 기반 아키텍처의 현실에서는 데이터 무결성과 시스템 안정성을 유지 하면서 동일한 요청을 수락 해야 한다는 것을 규정 합니다.
+The reality of event-driven and message-based architecture dictates the need to accept identical requests while preserving data integrity and system stability.
 
-이를 보여 주기 위해 엘리베이터 호출 단추를 살펴보겠습니다. 단추를 누르면 조명이 표시 되 고 엘리베이터가 바닥에 전송 됩니다. 잠시 후 다른 사람이 로비에 참여 합니다. 이 사용자가 웃는 하 고 두 번째는 두 번째로 켜 집니다. 엘리베이터를 호출 하는 명령이 idempotent 라는 메시지가 표시 되 면 자신에 게 다시 웃는 얼굴을 chuckle.
+To illustrate, consider an elevator call button. As you press the button, it lights up and an elevator is sent to your floor. A few moments later, someone else joins you in the lobby. This person smiles at you and presses the illuminated button a second time. You smile back and chuckle to yourself as you're reminded that the command to call an elevator is idempotent.
 
-두 번째, 세 번째 또는 네 번째 시간으로 엘리베이터 호출 단추를 누르면 최종 결과에 영향을 주지 않습니다. 단추를 누르면 횟수에 관계 없이 엘리베이터가 바닥에 전송 됩니다. 엘리베이터와 같은 Idempotent 시스템은 동일한 명령이 실행 되는 횟수에 관계 없이 동일한 결과를 생성 합니다.
+Pressing an elevator call button a second, third, or fourth time has no bearing on the final result. When you press the button, regardless of the number of times, the elevator is sent to your floor. Idempotent systems, like the elevator, result in the same outcome no matter how many times identical commands are issued.
 
-응용 프로그램을 빌드하는 경우 다음 시나리오를 고려 하세요.
+When it comes to building applications, consider the following scenarios:
 
-- 재고 제어 응용 프로그램이 동일한 제품을 두 번 이상 삭제 하려고 하면 어떻게 되나요?
-- 동일한 사람에 대 한 직원 레코드를 만드는 요청이 둘 이상이 면 인적 자원 응용 프로그램이 어떻게 작동 하나요?
-- 은행 앱이 동일한 출금를 만들도록 100 요청을 가져오는 경우 비용은 어디에 있나요?
+- What happens if your inventory control application tries to delete the same product more than once?
+- How does your human resource application behave if there is more than one request to create an employee record for the same person?
+- Where does the money go if your banking app gets 100 requests to make the same withdrawal?
 
-함수에 대 한 요청이 동일한 명령을 받을 수 있는 많은 컨텍스트가 있습니다. 일부 상황에는 다음이 포함 됩니다.
+There are many contexts where requests to a function may receive identical commands. Some situations include:
 
-- 동일한 요청을 여러 번 보내는 재시도 정책
-- 응용 프로그램에 재생 된 캐시 된 명령
-- 여러 동일한 요청을 보내는 응용 프로그램 오류
+- Retry policies sending the same request many times
+- Cached commands replayed to the application
+- Application errors sending multiple identical requests
 
-데이터 무결성 및 시스템 상태를 보호 하기 위해 idempotent 응용 프로그램은 다음 동작을 포함할 수 있는 논리를 포함 합니다.
+To protect data integrity and system health, an idempotent application contains logic that may contain the following behaviors:
 
-- 삭제 실행을 시도 하기 전에 데이터가 있는지 확인 하는 중
-- 만들기 작업을 실행 하기 전에 데이터가 이미 있는지 확인 하는 중
-- 데이터의 최종 일관성을 만드는 논리 조정
-- 동시성 제어
-- 중복 검색
-- 데이터 새로 고침 유효성 검사
-- 입력 데이터를 확인 하기 위한 가드 논리
+- Verifying of the existence of data before trying to execute a delete
+- Checking to see if data already exists before trying to execute a create action
+- Reconciling logic that creates eventual consistency in data
+- Concurrency controls
+- Duplication detection
+- Data freshness validation
+- Guard logic to verify input data
 
-궁극적으로 멱 등 성는 지정 된 작업이 가능 하 고 한 번만 실행 되도록 하 여 달성할 수 있습니다.
+Ultimately idempotency is achieved by ensuring a given action is possible and is only executed once.

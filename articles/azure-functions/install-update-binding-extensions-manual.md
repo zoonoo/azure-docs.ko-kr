@@ -1,21 +1,14 @@
 ---
 title: Azure Functions 바인딩 확장 수동 설치 또는 업데이트
 description: 배포된 함수 앱용으로 Azure Functions 바인딩 확장을 설치하거나 업데이트하는 방법에 대해 알아봅니다.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Azure 함수, 함수, 바인딩 확장, 업데이트, azure functions, functions, binding extensions, NuGet, updates
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/26/2018
-ms.author: glenga
-ms.openlocfilehash: 7686a9b2df6df6b54851e9c9957186f76be3fafd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 49e8e2ce7eb0267d5a4e6fc0f5566dffaed82661
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085064"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226516"
 ---
 # <a name="manually-install-or-update-azure-functions-binding-extensions-from-the-portal"></a>포털에서 Azure Functions 바인딩 확장 수동 설치 또는 업데이트
 

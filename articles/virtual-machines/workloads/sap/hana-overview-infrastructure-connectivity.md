@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4fa0fe072fe98d565ad9d6f947540b7e1b039732
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 36f0b78f563bb4dda76f192259541d1c2b1fa060
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101151"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224682"
 ---
 # <a name="sap-hana-large-instances-deployment"></a>SAP HANA(대규모 인스턴스) 배포 
 
@@ -36,7 +36,7 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 - 모든 Azure 배포 지역의 경우:
     - Azure 가상 네트워크를 HANA 대규모 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위
     - HANA 대규모 인스턴스 서버 IP 풀에 사용되는 /24 CIDR 블록
-    - [Global Reach express](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 경로를 사용 하 여 온-프레미스에서 Hana 대량 인스턴스 단위나 다른 AZURE 지역의 Hana large instance 단위 간 라우팅을 사용할 수 있도록 설정 하려면 다른/29 IP 주소 범위를 예약 해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
+    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
 - HANA 대규모 인스턴스에 연결하는 모든 Azure 가상 네트워크의 가상 네트워크 주소 공간 특성에 사용된 IP 주소 범위 값
 - 각 HANA 대규모 인스턴스 시스템에 대한 데이터:
   - 원하는 호스트 이름 - 정규화된 도메인 이름이 이상적.

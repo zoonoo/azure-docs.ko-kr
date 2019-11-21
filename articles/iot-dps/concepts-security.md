@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service의 보안 개념 | Microsoft Docs
+title: Azure IoT Hub Device Provisioning Service - Security concepts
 description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 보안 프로비전 개념 설명
 author: nberdy
 ms.author: nberdy
@@ -7,13 +7,12 @@ ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: briz
-ms.openlocfilehash: e35330874c647eba2cddde694563c8a1d9e83df5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60775120"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228820"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -79,7 +78,7 @@ X.509 인증서를 증명 메커니즘으로 사용하면 프로덕션의 크기
 
 리프 인증서 또는 최종 엔터티 인증서는 인증서 보유자를 식별합니다. 인증서 체인에는 루트 인증서와 0개 이상의 중간 인증서가 있습니다. 리프 인증서는 다른 인증서에 서명하는 데 사용되지 않습니다. 디바이스를 프로비전 서비스에 고유하게 식별하며, 때로는 디바이스 인증서라고도 합니다. 인증하는 동안 디바이스는 이 인증서와 관련된 프라이빗 키를 사용하여 서비스의 소유 챌린지 증명에 응답합니다.
 
-리프 인증서 사용을 [개별 등록](./concepts-service.md#individual-enrollment) 항목 요구 사항이는 **주체 이름** 개별 등록 항목의 등록 ID로 설정 되어야 합니다. 리프 인증서를 사용는 [등록 그룹](./concepts-service.md#enrollment-group) 항목이 있어야 합니다 **주체 이름** 에 표시 됩니다는 원하는 장치 ID로 설정 합니다 **등록 레코드** 에 대 한 등록 그룹의 인증 된 장치입니다.
+Leaf certificates used with an [Individual enrollment](./concepts-service.md#individual-enrollment) entry have a requirement that the **Subject Name** must be set to the registration ID of the Individual Enrollment entry. Leaf certificates used with an [Enrollment group](./concepts-service.md#enrollment-group) entry should have the **Subject Name** set to the desired device ID which will be shown in the **Registration Records** for the authenticated device in the enrollment group.
 
 자세한 내용은 [X.509 CA 인증서로 서명된 디바이스 인증](/azure/iot-hub/iot-hub-x509ca-overview#authenticating-devices-signed-with-x509-ca-certificates)을 참조하세요.
 

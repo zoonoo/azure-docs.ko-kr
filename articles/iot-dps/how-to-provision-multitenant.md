@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub Device Provisioning Service에서 다중 테넌트를 지원하기 위해 디바이스를 프로비전하는 방법 | Microsoft Docs
+title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
 description: 디바이스 프로비저닝 서비스 인스턴스를 사용하여 다중 테넌트를 지원하기 위해 디바이스를 프로비저닝하는 방법
 author: wesmc7777
 ms.author: wesmc
@@ -7,21 +7,20 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 84e1f57175d772ad281c18b67fa1be484c0cac69
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6d9755c076763a72d54abb66cfdf01b0ac7ffb9d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66116113"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228786"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>다중 테넌트를 지원하기 위해 장치를 프로비전하는 방법 
 
 프로비저닝 서비스에 정의된 할당 정책은 다양한 할당 시나리오를 지원합니다. 가장 일반적인 두 가지 시나리오는 다음과 같습니다.
 
-* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 디바이스를 이동하면서, 각 위치에 가장 가까운 IoT 허브로 디바이스를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
+* **지리적 위치/지리적 대기 시간**: 여러 위치 간에 디바이스를 이동하면서, 각 위치에 가장 가까운 IoT Hub로 디바이스를 프로비전하여 네트워크 대기 시간이 짧아집니다. 이 시나리오에서는 지역에 걸쳐 있는 IoT Hub 그룹이 등록을 위해 선택됩니다. 이러한 등록에 대해 **최저 대기 시간** 할당 정책이 선택되었습니다. 이 정책에 따라 Device Provisioning Service는 디바이스 대기 시간을 평가하고 IoT Hub 그룹 중에서 가장 가까운 IoT Hub를 확인합니다. 
 
-* **다중 테넌트**: IoT 솔루션 내에서 사용되는 디바이스를 특정 IoT 허브 또는 IoT 허브 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 디바이스가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 디바이스를 IoT Hub에 할당하도록 요구할 수 있습니다.
+* **다중 테넌시**: IoT 솔루션 내에서 사용되는 디바이스를 특정 IoT Hub 또는 IoT Hub 그룹에 할당해야 할 수 있습니다. 이 솔루션은 특정 테넌트의 모든 디바이스가 특정 IoT Hub 그룹과 통신하도록 요구할 수 있습니다. 일부 경우에는 테넌트가 자신의 IoT Hub를 소유하고 디바이스를 IoT Hub에 할당하도록 요구할 수 있습니다.
 
 이러한 두 시나리오를 결합하는 것이 일반적입니다. 예를 들어 다중 테넌트 IoT 솔루션은 일반적으로 지역에 분산된 IoT Hub 그룹을 사용하여 테넌트 디바이스를 할당합니다. 이러한 테넌트 디바이스는 해당 그룹에서 지리적 위치에 따라 대기 시간이 가장 낮은 IoT Hub에 할당될 수 있습니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "66116113"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 
@@ -94,7 +93,7 @@ ms.locfileid: "66116113"
 
     **그룹 이름**: **contoso-us-devices**를 입력합니다.
 
-    **증명 유형**: **대칭 키**를 선택합니다.
+    **증명 형식**: **대칭 키**를 선택합니다.
 
     **키 자동 생성**: 이 확인란은 이미 선택되어 있습니다.
 
@@ -105,9 +104,9 @@ ms.locfileid: "66116113"
 
 4. **등록 그룹 추가**에서 **새IoT Hub 연결**을 클릭하여 두 지역별 허브를 연결합니다.
 
-    **구독**: 여러 구독이 있는 경우 지역별 IoT 허브를 만든 구독을 선택합니다.
+    **구독**: 여러 구독이 있는 경우 지역별 IoT Hub를 만든 구독을 선택합니다.
 
-    **IoT 허브**: 직접 만든 지역별 허브 중 하나를 선택합니다.
+    **IoT Hub**: 직접 만든 부서 허브 중 하나를 선택합니다.
 
     **액세스 정책**: **iothubowner**를 선택합니다.
 
@@ -134,7 +133,7 @@ ms.locfileid: "66116113"
 
     **--admin-username**: 고유한 관리 사용자 이름을 사용합니다.
 
-    **--admin-password**: 고유한 관리자 암호를 사용합니다.
+    **--admin-password**: 고유한 관리 사용자 암호를 사용합니다.
 
     ```azurecli-interactive
     az vm create \
@@ -155,7 +154,7 @@ ms.locfileid: "66116113"
 
     **--admin-username**: 고유한 관리 사용자 이름을 사용합니다.
 
-    **--admin-password**: 고유한 관리자 암호를 사용합니다.
+    **--admin-password**: 고유한 관리 사용자 암호를 사용합니다.
 
     ```azurecli-interactive
     az vm create \
@@ -420,8 +419,8 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 ## <a name="next-steps"></a>다음 단계
 
-- 자세한 Reprovisioning에 알아보려면 [개념을 다시 프로 비전 된 IoT 허브 장치](concepts-device-reprovision.md) 
-- 자세한 프로 비전 해제에 알아보려면 [이전에 자동으로 프로 비전 된 장치를 프로 비전 해제 하는 방법](how-to-unprovision-devices.md) 
+- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
+- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
 
 
 

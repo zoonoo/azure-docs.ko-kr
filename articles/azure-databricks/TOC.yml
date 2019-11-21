@@ -1717,7 +1717,9 @@
       href: 'https://azure.microsoft.com/roadmap/?category=analytics'
     - name: 가격
       href: 'https://azure.microsoft.com/pricing/details/databricks/'
-    - name: 스택 오버플로
+    - name: 질문하기 - MSDN 포럼
+      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDatabricks'
+    - name: 질문하기 - 스택 오버플로
       href: 'https://stackoverflow.com/questions/tagged/azure-databricks'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/regions/services/'

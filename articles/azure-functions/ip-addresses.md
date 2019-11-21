@@ -1,20 +1,14 @@
 ---
 title: Azure Functions의 IP 주소
 description: 함수 앱의 인바운드 및 아웃바운드 IP 주소를 찾는 방법과 변경되는 원인을 알아봅니다.
-services: functions
-documentationcenter: ''
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 12/03/2018
-ms.author: glenga
-ms.openlocfilehash: d8b6a342dd32d430f7a40a1e0a0a17a482a0816d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 327d616c36bcbbb1562349afffd529efb2b5d27f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469045"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230336"
 ---
 # <a name="ip-addresses-in-azure-functions"></a>Azure Functions의 IP 주소
 
@@ -31,7 +25,7 @@ IP 주소는 개별 함수가 아니라 함수 앱과 연결됩니다. 들어오
 
 각 함수 앱에는 하나의 인바운드 IP 주소가 있습니다. 해당 IP 주소를 찾으려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **플랫폼 기능**을 선택합니다.
 4. **속성**을 선택합니다. 그러면 **가상 IP 주소** 아래에 인바운드 IP 주소가 표시됩니다.
@@ -84,7 +78,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 }
 ```
 
- 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 **다운로드 센터 페이지**의 [세부 정보](https://www.microsoft.com/en-us/download/details.aspx?id=56519) 섹션을 펼쳐보세요.
+ 이 파일이 업데이트되는 시기와 IP 주소가 변경되는 시기에 대한 내용은 [다운로드 센터 페이지](https://www.microsoft.com/en-us/download/details.aspx?id=56519)의 **세부 정보** 섹션을 펼쳐보세요.
 
 ## <a name="inbound-ip-address-changes"></a>인바운드 IP 주소 변경
 
@@ -121,7 +115,7 @@ az webapp show --resource-group <group_name> --name <app_name> --query possibleO
 
 함수 앱이 App Service Environment에서 실행되는지 확인하려면 다음을 수행합니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 함수 앱으로 이동합니다.
 3. **개요** 탭을 선택합니다.
 4. App Service 계획 계층이 **App Service 계획/가격 책정 계층** 아래에 표시됩니다. App Service Environment 가격 책정 계층은 **격리**입니다.

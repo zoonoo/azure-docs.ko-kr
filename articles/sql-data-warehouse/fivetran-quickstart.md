@@ -1,5 +1,5 @@
 ---
-title: Fivetran 빠른 시작
+title: Fivetran quickstart
 description: Fivetran 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -11,12 +11,12 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 250df3e106ae65cafc84a412c155e3a27c535c79
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 715f891484458f3bf3febc6807c3490b88062d50
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686109"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229102"
 ---
 # <a name="get-started-quickly-with-fivetran-and-sql-data-warehouse"></a>Fivetran 및 SQL Data Warehouse로 빠른 시작
 
@@ -71,7 +71,7 @@ ms.locfileid: "73686109"
     EXEC sp_addrolemember '<resource_class_name>', 'fivetran';
     ```
 
-    자세한 내용은 [메모리 및 동시성 제한] 메모리-limits.md) 및 [리소스 클래스](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)를 참조 하세요.
+    자세한 내용은 [메모리 및 동시성 한도](memory-concurrency-limits.md) 및 [리소스 클래스](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md#ways-to-allocate-more-memory)를 참조하세요.
 
 
 ## <a name="sign-in-to-fivetran"></a>Fivetran에 로그인
@@ -81,5 +81,5 @@ Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용�
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* 사용자 (사용자 이름은 **fivetran\@이어야 합니다.**  여기서 사용자 이름은 Azure 호스트 URI: * ***.**
+* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
 * Password.

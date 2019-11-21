@@ -1,29 +1,29 @@
 ---
-title: Azure에서 개인 끝점에 대 한 네트워크 정책 사용 안 함
-description: 개인 끝점에 대 한 네트워크 정책을 사용 하지 않도록 설정 하는 방법을 알아봅니다.
+title: Disable network policies for private endpoints in Azure
+description: Learn how to disable network policies for private endpoints.
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: 3eec2d208e97cc33c318e4a45ae85074fbc2583c
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.author: allensu
+ms.openlocfilehash: ef9dafd97b3d9889714a321ad00d98a87c3665d6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73101609"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224817"
 ---
-# <a name="disable-network-policies-for-private-endpoints"></a>전용 끝점에 대 한 네트워크 정책 사용 안 함
+# <a name="disable-network-policies-for-private-endpoints"></a>Disable network policies for private endpoints
 
-NSG (네트워크 보안 그룹)와 같은 네트워크 정책은 전용 끝점에 대해 지원 되지 않습니다. 지정 된 서브넷에 개인 끝점을 배포 하기 위해 해당 서브넷에 명시적 사용 안 함 설정이 필요 합니다. 이 설정은 개인 끝점에만 적용 됩니다. 서브넷의 다른 리소스에 대 한 액세스는 NSG (네트워크 보안 그룹) 보안 규칙 정의를 기반으로 제어 됩니다. 
+Network policies like network security groups (NSG) are not supported for private endpoints. In order to deploy a Private Endpoint on a given subnet, an explicit disable setting is required on that subnet. This setting is only applicable for the Private Endpoint. For other resources in the subnet, access is controlled based on Network Security Groups (NSG) security rules definition. 
  
-포털을 사용 하 여 개인 끝점을 만들 때이 설정은 만들기 프로세스의 일부로 자동으로 사용 하지 않도록 설정 됩니다. 다른 클라이언트를 사용 하는 배포에는이 설정을 변경 하는 추가 단계가 필요 합니다. Cloud shell을 사용 하 여 Azure PowerShell Azure CLI의 로컬 설치 또는 Azure Portal에서 설정을 사용 하지 않도록 설정 하거나 Azure Resource Manager 템플릿을 사용할 수 있습니다.  
+When using the portal to create a private endpoint, this setting is automatically disabled as part of the create process. Deployment using other clients requires an additional step to change this setting. You can disable the setting using cloud shell from the Azure portal, or local installations of Azure PowerShell, Azure CLI, or use Azure Resource Manager templates.  
  
-다음 예에서는 *Myresourcegroup*이라는 리소스 그룹에서 호스트 되는 *기본* 서브넷을 사용 하 여 *myVirtualNetwork* 이라는 가상 네트워크에 대 한 `PrivateEndpointNetworkPolicies`를 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+The following examples describe how to disable `PrivateEndpointNetworkPolicies` for a virtual network named *myVirtualNetwork* with a *default* subnet hosted in a resource group named *myResourceGroup*.
 
 ## <a name="using-azure-powershell"></a>Azure PowerShell 사용
-이 섹션에서는 Azure PowerShell를 사용 하 여 서브넷 개인 끝점 정책을 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+This section describes how to disable subnet private endpoint policies using Azure PowerShell.
 
 ```azurepowershell
 $virtualNetwork= Get-AzVirtualNetwork `
@@ -35,7 +35,7 @@ $virtualNetwork= Get-AzVirtualNetwork `
 $virtualNetwork | Set-AzVirtualNetwork 
 ```
 ## <a name="using-azure-cli"></a>Azure CLI 사용
-이 섹션에서는 Azure CLI를 사용 하 여 서브넷 개인 끝점 정책을 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+This section describes how to disable subnet private endpoint policies using Azure CLI.
 ```azurecli
 az network vnet subnet update \ 
   --name default \ 
@@ -44,7 +44,7 @@ az network vnet subnet update \
   --disable-private-endpoint-network-policies true
 ```
 ## <a name="using-a-template"></a>템플릿 사용
-이 섹션에서는 Azure Resource Manager 템플릿을 사용 하 여 서브넷 개인 끝점 정책을 사용 하지 않도록 설정 하는 방법을 설명 합니다.
+This section describes how to disable subnet private endpoint policies using Azure Resource Manager Template.
 ```json
 { 
           "name": "myVirtualNetwork", 
@@ -70,5 +70,5 @@ az network vnet subnet update \
 } 
 ```
 ## <a name="next-steps"></a>다음 단계
-- [Azure 개인 끝점](private-endpoint-overview.md) 에 대 한 자세한 정보
+- Learn more about [Azure private endpoint](private-endpoint-overview.md)
  

@@ -1,18 +1,14 @@
 ---
 title: Azure Functions에서 지원되는 언어
 description: 어떤 언어가 지원되는 언어(GA)이고 어떤 언어가 실험적 또는 미리 보기인지 알아봅니다.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 08/02/2018
-ms.author: glenga
-ms.openlocfilehash: eac67c43915edb0aed273df40e7b08ca846062bf
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 3b61dd83e481d42dd15f089247d016c6b71ff0de
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802462"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230279"
 ---
 # <a name="supported-languages-in-azure-functions"></a>Azure Functions에서 지원되는 언어
 
@@ -26,7 +22,7 @@ ms.locfileid: "72802462"
 * **미리 보기** - 아직 지원되지 않지만 향후 GA 상태가 될 예정입니다.
 * **실험적** - 지원되지 않으며 향후 중단될 수 있습니다. 최종 미리 보기 또는 GA 상태가 보장되지 않습니다.
 
-## <a name="languages-by-runtime-version"></a>런타임 버전별 언어 
+## <a name="languages-by-runtime-version"></a>Languages by runtime version 
 
 [두 가지 버전의 Azure Functions 런타임](functions-versions.md)을 사용할 수 있습니다. 다음 표는 각 런타임 버전에서 지원되는 언어를 나타냅니다.
 
@@ -42,16 +38,16 @@ ms.locfileid: "72802462"
 
 ### <a name="language-extensibility"></a>언어 확장성
 
-버전 2.x부터 런타임은 [언어 확장성](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility)을 제공 하도록 설계 되었습니다. 2\.x 런타임의 JavaScript 및 Java 언어는 이 확장성을 사용하여 빌드됩니다.
+Starting with version 2.x, the runtime is designed to offer [language extensibility](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Language-Extensibility). 2\.x 런타임의 JavaScript 및 Java 언어는 이 확장성을 사용하여 빌드됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-지원 되는 언어로 함수를 개발 하는 방법에 대해 자세히 알아보려면 다음 리소스를 참조 하세요.
+To learn more about how to develop functions in the supported languages, see the following resources:
 
-+ [C#클래스 라이브러리 개발자 참조](functions-dotnet-class-library.md)
-+ [C#스크립트 개발자 참조](functions-reference-csharp.md)
-+ [Java 개발자 참조](functions-reference-java.md)
-+ [JavaScript 개발자 참조](functions-reference-node.md)
-+ [PowerShell 개발자 참조](functions-reference-powershell.md)
-+ [Python 개발자 참조](functions-reference-python.md)
-+ [TypeScript 개발자 참조](functions-reference-node.md#typescript)
++ [C# class library developer reference](functions-dotnet-class-library.md)
++ [C# script developer reference](functions-reference-csharp.md)
++ [Java developer reference](functions-reference-java.md)
++ [JavaScript developer reference](functions-reference-node.md)
++ [PowerShell developer reference](functions-reference-powershell.md)
++ [Python developer reference](functions-reference-python.md)
++ [TypeScript developer reference](functions-reference-node.md#typescript)

@@ -1,22 +1,17 @@
 ---
 title: Azure Functions의 Azure Event Hubs 바인딩
 description: Azure Functions에서 Azure Event Hubs 바인딩을 사용하는 방법을 이해합니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
 ms.assetid: daf81798-7acc-419a-bc32-b5a41c6db56b
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2017
 ms.author: cshoe
-ms.openlocfilehash: bc75ad08716a001ae0cfd934dbc8d5da668dc1c3
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2e76853a7b1bf2e6dfda84ffa1454074c266d2c1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70086649"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227270"
 ---
 # <a name="azure-event-hubs-bindings-for-azure-functions"></a>Azure Functions의 Azure Event Hubs 바인딩
 

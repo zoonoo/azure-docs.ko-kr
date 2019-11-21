@@ -1,50 +1,46 @@
 ---
-title: Visual Studio를 사용하여 Azure Functions 개발 | Microsoft Docs
-description: Visual Studio 2019 용 Azure Functions 도구를 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
+title: Visual Studio를 사용하여 Azure Functions 개발
+description: Learn how to develop and test Azure Functions by using Azure Functions Tools for Visual Studio 2019.
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: glenga
-ms.openlocfilehash: ebc900735dfbb25206c4b22e3d20da62d85c61df
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 04074579b3eb34175a6d29897bbd38b95ae3a596
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773153"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230651"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Visual Studio를 사용하여 Azure Functions 개발  
 
-Visual Studio를 사용 하면 클래스 라이브러리 함수를 개발 C# , 테스트 및 Azure에 배포할 수 있습니다. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
+Visual Studio lets you develop, test, and deploy C# class library functions to Azure. Azure Functions를 처음으로 접하는 경우라면 [Azure Functions 소개](functions-overview.md)에서 자세한 내용을 확인할 수 있습니다.
 
-Visual Studio는 함수를 개발할 때 다음과 같은 이점을 제공 합니다. 
+Visual Studio provides the following benefits when develop your functions: 
 
 * 로컬 개발 컴퓨터에서 함수를 편집, 빌드 및 실행합니다. 
-* Azure Functions 프로젝트를 Azure에 직접 게시 하 고 필요에 따라 Azure 리소스를 만듭니다. 
-* 특성 C# 을 사용 하 여 함수 바인딩을 C# 코드에서 직접 선언 합니다.
+* Publish your Azure Functions project directly to Azure, and create Azure resources as needed. 
+* Use C# attributes to declare function bindings directly in the C# code.
 * 미리 컴파일된 C# 함수를 개발하고 배포합니다. 미리 컴파일된 함수는 C# 스크립트 기반 함수보다 더 뛰어난 콜드 부팅 성능을 제공합니다. 
 * Visual Studio 개발의 모든 이점을 누리면서 C#에서 함수를 코딩합니다. 
 
-이 문서에서는 Visual Studio를 사용 하 여 클래스 라이브러리 함수 C# 를 개발 하 고 Azure에 게시 하는 방법에 대 한 세부 정보를 제공 합니다. 이 문서를 읽으려면 먼저 [Visual Studio용 Functions 빠른 시작](functions-create-your-first-function-visual-studio.md)을 완료해야 합니다. 
+This article provides details about how to use Visual Studio to develop C# class library functions and publish them to Azure. 이 문서를 읽으려면 먼저 [Visual Studio용 Functions 빠른 시작](functions-create-your-first-function-visual-studio.md)을 완료해야 합니다. 
 
-별도로 언급 하지 않는 한, 표시 되는 프로시저와 예제는 Visual Studio 2019에 대 한 것입니다. 
+Unless otherwise noted, procedures and examples shown are for Visual Studio 2019. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
-Azure Functions 도구는 visual Studio 2017부터 Visual Studio의 Azure 개발 워크 로드에 포함 되어 있습니다. Visual Studio 설치에 **Azure 개발** 워크 로드가 포함 되어 있는지 확인 합니다.
+Azure Functions Tools is included in the Azure development workload of Visual Studio starting with Visual Studio 2017. Make sure you include the **Azure development** workload in your Visual Studio installation.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-Azure Storage 계정과 같이 필요한 다른 리소스는 게시 프로세스 중에 구독에서 생성 됩니다.
+Other resources that you need, such as an Azure Storage account, are created in your subscription during the publishing process.
 
 > [!NOTE]
-> Visual Studio 2017에서 Azure 개발 워크 로드는 Azure Functions 도구를 별도의 확장으로 설치 합니다. Visual Studio 2017를 업데이트할 때 [최신 버전](#check-your-tools-version) 의 Azure Functions 도구를 사용 하 고 있는지도 확인 합니다. 다음 섹션에서는 Visual Studio 2017에서 Azure Functions 도구 확장을 확인 하 고 필요한 경우 업데이트 하는 방법을 보여 줍니다. 
+> In Visual Studio 2017, the Azure development workload installs the Azure Functions Tools as a separate extension. When you update your Visual Studio 2017, also make sure that you are using the [most recent version](#check-your-tools-version) of the Azure Functions tools. The following sections show you how to check and (if needed) update your Azure Functions Tools extension in Visual Studio 2017. 
 >
-> Visual Studio 2019을 사용 하는 경우이 섹션을 건너 뛰 세요.
+> Please skip these section when using Visual Studio 2019.
 
-### <a name="check-your-tools-version"></a>Visual Studio 2017에서 도구 버전 확인
+### <a name="check-your-tools-version"></a>Check your tools version in Visual Studio 2017
 
 1. **도구** 메뉴에서 **확장 및 업데이트**를 선택합니다. **설치됨** > **도구**를 확장하고 **Azure Functions 및 웹 작업 도구**를 선택합니다.
 
@@ -54,7 +50,7 @@ Azure Storage 계정과 같이 필요한 다른 리소스는 게시 프로세스
 
 1. 최신 버전이 아닌 경우 다음 섹션에 표시된 대로 Visual Studio에서 도구를 업데이트합니다.
 
-### <a name="update-your-tools-in-visual-studio-2017"></a>Visual Studio 2017에서 도구 업데이트
+### <a name="update-your-tools-in-visual-studio-2017"></a>Update your tools in Visual Studio 2017
 
 1. **확장명 및 업데이트** 대화 상자에서 **업데이트** > **Visual Studio Marketplace**를 확장하고, **Azure Functions 및 웹 작업 도구**를 선택하고 **업데이트**를 선택합니다.
 
@@ -67,7 +63,7 @@ Azure Storage 계정과 같이 필요한 다른 리소스는 게시 프로세스
 1. 업데이트가 완료되면 **닫기**를 선택하고 Visual Studio를 다시 시작합니다.
 
 > [!NOTE]  
-Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio의 일부로 업데이트 됩니다.  
+In Visual Studio 2019 and later, the Azure Functions tools extension is updated as part of Visual Studio.  
 
 ## <a name="create-an-azure-functions-project"></a>Azure Functions 프로젝트 만들기
 
@@ -75,9 +71,9 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 프로젝트 템플릿은 C# 프로젝트를 만들고, `Microsoft.NET.Sdk.Functions` NuGet 패키지를 설치하고, 대상 프레임워크를 설정합니다. 새 프로젝트에는 다음 파일이 포함됩니다.
 
-* **host.json**: Functions 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
+* **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬 및 Azure에서 실행할 때 모두 적용됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
 
-* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. 이러한 설정은 Azure에서 실행 하는 경우에는 사용 되지 않습니다. 자세한 내용은 [로컬 설정 파일](#local-settings-file)을 참조 하세요.
+* **local.settings.json**: 함수를 로컬로 실행할 때 사용되는 설정을 유지합니다. These settings aren't used when running in Azure. For more information, see [Local settings file](#local-settings-file).
 
     >[!IMPORTANT]
     >local.settings.json 파일에 비밀이 포함될 수 있으므로 프로젝트 원본 제어에서 해당 파일을 제외해야 합니다. 이 파일에 대한 **출력 디렉터리로 복사** 설정은 항상 **변경된 내용만 복사**여야 합니다. 
@@ -86,19 +82,19 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 [!INCLUDE [functions-local-settings-file](../../includes/functions-local-settings-file.md)]
 
-프로젝트를 게시할 때 로컬 설정 json의 설정이 자동으로 업로드 되지 않습니다. 이러한 설정이 Azure의 함수 앱에도 존재 하는지 확인 하려면 프로젝트를 게시 한 후에 이러한 설정을 업로드 해야 합니다. 자세히 알아보려면 [함수 앱 설정](#function-app-settings)을 참조 하세요.
+Settings in local.settings.json aren't uploaded automatically when you publish the project. To make sure that these settings also exist in your function app in Azure, you must upload them after you publish your project. To learn more, see [Function app settings](#function-app-settings).
 
 **ConnectionStrings**의 값은 절대 게시되지 않습니다.
 
-이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. 자세한 내용은 [환경 변수](functions-dotnet-class-library.md#environment-variables)를 참조 하세요.
+이 함수 앱 설정 값은 코드에서 환경 변수로 읽을 수도 있습니다. For more information, see [Environment variables](functions-dotnet-class-library.md#environment-variables).
 
 ## <a name="configure-the-project-for-local-development"></a>로컬 개발에 대한 프로젝트 구성
 
-함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 함수 앱은 프로젝트에 필요한 **AzureWebJobsStorage** 연결 설정에 [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수도 있습니다. 에뮬레이터를 사용하려면 **AzureWebJobsStorage** 값을 `UseDevelopmentStorage=true`로 설정합니다. 배포 하기 전에이 설정을 실제 저장소 계정 연결 문자열로 변경 합니다.
+함수 런타임에서 Azure Storage 계정을 내부적으로 사용합니다. HTTP 및 웹후크 이외의 모든 트리거 형식을 위해 **Values.AzureWebJobsStorage** 키를 유효한 Azure Storage 계정 연결 문자열에 설정해야 합니다. 함수 앱은 프로젝트에 필요한 **AzureWebJobsStorage** 연결 설정에 [Azure Storage 에뮬레이터](../storage/common/storage-use-emulator.md)를 사용할 수도 있습니다. 에뮬레이터를 사용하려면 **AzureWebJobsStorage** 값을 `UseDevelopmentStorage=true`로 설정합니다. Change this setting to an actual storage account connection string before deployment.
 
 스토리지 계정 연결 문자열을 설정하려면 다음을 수행합니다.
 
-1. Visual Studio에서 **클라우드 탐색기**열고 저장소 계정**저장소**계정 **을 확장** > 한 다음 **속성** 탭에서 **기본 연결 문자열** 값을 복사 합니다.
+1. In Visual Studio, open **Cloud Explorer**, expand **Storage Account** > **Your Storage Account**, then in the **Properties** tab copy the **Primary Connection String** value.
 
 2. 사용자 프로젝트에서 local.settings.json 파일을 열고 **AzureWebJobsStorage** 키의 값을 복사한 연결 문자열로 설정합니다.
 
@@ -106,7 +102,7 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 ## <a name="add-a-function-to-your-project"></a>프로젝트에 함수 추가
 
-클래스 C# 라이브러리 함수에서 함수에 사용 되는 바인딩은 코드에서 특성을 적용 하 여 정의 됩니다. 제공 된 템플릿에서 함수 트리거를 만들 때 트리거 특성이 적용 됩니다. 
+In C# class library functions, the bindings used by the function are defined by applying attributes in the code. When you create your function triggers from the provided templates, the trigger attributes are applied for you. 
 
 1. **솔루션 탐색기**에서 프로젝트 노드를 마우스 오른쪽 단추로 클릭하고 **추가** > **새 항목**을 차례로 선택합니다. **Azure Function**을 선택하고 클래스에 사용할 **이름**을 입력하고 **추가**를 클릭합니다.
 
@@ -148,7 +144,7 @@ Visual Studio 2019 이상에서 Azure Functions 도구 확장은 Visual Studio�
 
 트리거와 마찬가지로 입력 및 출력 바인딩이 바인딩 특성으로 함수에 추가됩니다. 다음과 같이 함수에 바인딩을 추가합니다.
 
-1. [로컬 개발에 대 한 프로젝트를 구성](#configure-the-project-for-local-development)했는지 확인 합니다.
+1. Make sure you've [configured the project for local development](#configure-the-project-for-local-development).
 
 2. 특정 바인딩에 대한 적절한 NuGet 확장 패키지를 추가합니다. 자세한 내용은 트리거 및 바인딩 문서의 [Visual Studio를 사용하여 로컬 C# 개발](./functions-bindings-register.md#local-csharp)을 참조하세요. 바인딩에 대한 참조 문서에 바인딩 전용 NuGet 패키지 요구 사항이 있습니다. 예를 들어 [Event Hubs 바인딩 참조 문서](functions-bindings-event-hubs.md)에서 Event Hubs 트리거에 대한 패키지 요구 사항을 찾습니다.
 
@@ -190,18 +186,18 @@ Azure Functions 핵심 도구 사용에 대한 자세한 내용은 [Azure Functi
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 
-Visual Studio에서 게시 하는 경우 다음 두 가지 배포 방법 중 하나가 사용 됩니다.
+When publishing from Visual Studio, one of two deployment methods are used:
 
-* [웹 배포](functions-deployment-technologies.md#web-deploy-msdeploy): Windows 앱을 패키지 하 고 모든 IIS 서버에 배포 합니다.
-* [패키지 실행을 사용 하는 Zip 배포](functions-deployment-technologies.md#zip-deploy): Azure Functions 배포에 권장 됩니다.
+* [Web Deploy](functions-deployment-technologies.md#web-deploy-msdeploy): packages and deploys Windows apps to any IIS server.
+* [Zip Deploy with Run-From-Package enabled](functions-deployment-technologies.md#zip-deploy): recommended for Azure Functions deployments.
 
-다음 단계를 사용 하 여 프로젝트를 Azure의 함수 앱에 게시 합니다.
+Use the following steps to publish your project to a function app in Azure.
 
 [!INCLUDE [Publish the project to Azure](../../includes/functions-vstools-publish.md)]
 
 ## <a name="function-app-settings"></a>함수 앱 설정
 
-local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. 이러한 설정은 프로젝트를 게시할 때 자동으로 업로드 되지 않습니다.
+local.settings.json에서 추가한 모든 설정을 Azure의 함수 앱에도 추가해야 합니다. These settings aren't uploaded automatically when you publish the project.
 
 Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방법은 프로젝트를 성공적으로 게시한 후에 표시되는 **애플리케이션 설정 관리...** 링크를 사용하는 것입니다.
 
@@ -214,7 +210,7 @@ Azure에서 함수 앱에 필요한 설정을 업로드하는 가장 쉬운 방�
 **로컬**은 local.settings.json 파일의 설정 값을 나타내며 **원격**은 Azure에서 함수 앱의 현재 설정입니다.  **설정 추가**를 선택하여 새로운 앱 설정을 만듭니다. **로컬 값 삽입** 링크를 사용하여 **원격** 필드에 설정 값을 복사합니다. **확인**을 선택하면 보류 중인 변경 내용이 로컬 설정 파일 및 함수 앱에 기록됩니다.
 
 > [!NOTE]
-> 기본적으로, 로컬 파일은 소스 제어에 체크 인 되지 않습니다. 즉, 소스 제어에서 로컬 함수 프로젝트를 복제 하는 경우 프로젝트에는 로컬 설정 json 파일이 없습니다. 이 경우 **응용 프로그램 설정** 대화 상자가 정상적으로 작동 하도록 프로젝트 루트에서 로컬 설정 json 파일을 수동으로 만들어야 합니다. 
+> By default, the local.settings.json file is not checked into source control. This means that when you clone a local Functions project from source control, the project doesn't have a local.settings.json file. In this case, you need to manually create the local.settings.json file in the project root so that the **Application Settings** dialog works as expected. 
 
 또한 다음 다른 방법 중 하나로 애플리케이션 설정을 관리할 수도 있습니다.
 

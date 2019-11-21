@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: b83368b913bf1303b49e3a56e3a15248af222cbe
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c0651dd006585e4ed5b8b888d6e55974c5c45a1d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002062"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230080"
 ---
 # <a name="view-key-cost-metrics-with-dashboards"></a>대시보드를 사용하여 주요 비용 메트릭 보기
 
@@ -64,7 +64,7 @@ Cloudyn의 대시보드에서는 개요 수준의 보고서를 확인할 수 있
 
 1. 대시보드에서 **대시보드 설정**을 클릭합니다. [대시보드 설정] 상자가 표시됩니다.  
     ![사용자 지정 대시보드에 대한 대시보드 설정](./media/dashboards/dashboard-options.png)
-2. [대시보드 설정] 상자에서 화살표 기호를 클릭한 다음, **Public**(공용)을 클릭합니다. [Public Dashboard]\(공용 대시보드) 확인 대화 상자가 표시됩니다.
+2. [대시보드 설정] 상자에서 화살표 기호를 클릭한 다음, **Public**(공용)을 클릭합니다. [Public Dashboard] \(공용 대시보드) 확인 대화 상자가 표시됩니다.
 3. **예**를 클릭합니다. 이제 대시보드를 다른 사람이 볼 수 있습니다.
 
 ## <a name="delete-a-custom-dashboard-report"></a>사용자 지정 대시보드 보고서의 삭제

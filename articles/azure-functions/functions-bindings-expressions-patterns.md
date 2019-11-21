@@ -1,24 +1,20 @@
 ---
-title: 바인딩 식 및 패턴 Azure Functions
-description: 일반적인 패턴을 기반으로 다양 한 Azure Functions 바인딩 식을 만드는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
+title: Azure Functions bindings expressions and patterns
+description: Learn to create different Azure Functions binding expressions based on common patterns.
 author: craigshoemaker
-manager: gwallace
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: db6f4f938b1555091dc51e310d4d31f96f93200c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f00637ff2c8cf39b683056b041fe0e991276a065
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097348"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227218"
 ---
-# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
+# <a name="azure-functions-binding-expression-patterns"></a>Azure Functions binding expression patterns
 
-[트리거와 바인딩의](./functions-triggers-bindings.md) 가장 강력한 기능 중 하나는 *바인딩 식*입니다. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
+One of the most powerful features of [triggers and bindings](./functions-triggers-bindings.md) is *binding expressions*. *function.json* 파일에서 그리고 함수 매개 변수 및 코드에서 다양한 원본의 값을 확인하는 식을 사용할 수 있습니다.
 
 대부분의 식은 중괄호로 래핑하여 식별됩니다. 예를 들어 큐 트리거 함수에서 `{queueTrigger}`는 큐 메시지 텍스트를 확인합니다. blob 출력 바인딩에 대한 `path` 속성이 `container/{queueTrigger}`이고 함수가 큐 메시지 `HelloWorld`에 의해 트리거되는 경우 `HelloWorld`라는 blob이 만들어집니다.
 
@@ -71,7 +67,7 @@ public static void Run(
 }
 ```
 
-## <a name="trigger-file-name"></a>트리거 파일 이름
+## <a name="trigger-file-name"></a>Trigger file name
 
 Blob 트리거에 대한 `path`는 다른 바인딩 및 함수 코드에서 blob 트리거의 이름을 참조할 수 있도록 하는 패턴일 수 있습니다. 또한 패턴은 함수 호출을 트리거할 수 있는 blob을 지정하는 필터링 조건을 포함할 수 있습니다.
 
@@ -173,7 +169,7 @@ public static void Run(
 
 각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue.md#trigger---message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
-## <a name="json-payloads"></a>JSON 페이로드
+## <a name="json-payloads"></a>JSON payloads
 
 트리거 페이로드가 JSON인 경우 같은 함수 및 함수 코드의 다른 바인딩에 대한 구성에서 해당 속성을 참조할 수 있습니다.
 
@@ -204,7 +200,7 @@ public static void Run(
 }
 ```
 
-이렇게 하려면 C# 및 F#에서 다음 예제와 같이 deserialize할 필드를 정의하는 클래스가 필요합니다.
+이렇게 하려면 C# 및 F#에서 다음 예제와 같이 역직렬화할 필드를 정의하는 클래스가 필요합니다.
 
 ```csharp
 using System.Net;
@@ -311,4 +307,4 @@ C# 및 기타 .NET 언어에서는 *function.json* 및 특성의 바인딩과 �
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure Function 반환 값 사용](./functions-bindings-return-value.md)
+> [Using the Azure Function return value](./functions-bindings-return-value.md)

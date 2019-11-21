@@ -1,5 +1,5 @@
 ---
-title: Azure 디바이스 프로비전 서비스 SDK를 사용하여 디바이스 등록 관리 | Microsoft Docs
+title: Manage device enrollments using Azure DPS SDKs
 description: IoT Hub Device Provisioning 서비스에서 서비스 SDK를 사용하여 디바이스 등록을 관리하는 방법
 author: robinsh
 ms.author: robinsh
@@ -7,25 +7,25 @@ ms.date: 04/04/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 438cb579180458fcdeb75516a7c98b3ab2886366
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 75a24fd6b8cafe03ae8090e6f8bf71a27459c7eb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883372"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228811"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Azure Device Provisioning Service SDK로 디바이스 등록을 관리하는 방법
 *디바이스 등록*은 특정 시점에 Device Provisioning Service에 등록할 수 있는 단일 디바이스 또는 디바이스 그룹의 레코드를 만듭니다. 등록 레코드에는 원하는 IoT Hub를 포함하여 해당 등록의 일부로 해당 디바이스에 대한 초기 원하는 구성을 포함합니다. 이 문서에서는 Azure IoT 프로비전 서비스 SDK를 사용하여 프로그래밍 방식으로 프로비전 서비스에 대한 디바이스 등록을 관리하는 방법을 보여줍니다.  SDK는 Azure IoT SDK와 같은 리포지토리의 GitHub에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * 디바이스 프로비전 서비스 인스턴스의 연결 문자열 가져오기
 * 사용되는 [증명 메커니즘](concepts-security.md#attestation-mechanism)에 대한 디바이스 보안 아티팩트를 가져옵니다.
     * [**TPM(신뢰할 수 있는 플랫폼 모듈)** ](/azure/iot-dps/concepts-security#trusted-platform-module):
-        * 개별 등록: 물리적 디바이스 또는 TPM 시뮬레이터의 등록 ID 및 TPM 인증 키.
+        * 개별 등록: 물리적 디바이스 또는 TPM 시뮬레이터의 등록 ID 및 TPM 인증 키
         * 등록 그룹은 TPM 증명에 적용되지 않습니다.
     * [**X.509**](/azure/iot-dps/concepts-security):
-        * 개별 등록: 물리적 디바이스 또는 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 에뮬레이터의 [리프 인증서](/azure/iot-dps/concepts-security).
-        * 등록 그룹: 물리적 디바이스에서 디바이스 인증서를 생성하는 데 사용하는 [CA/루트 인증서](/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](/azure/iot-dps/concepts-security#intermediate-certificate).  SDK DICE 에뮬레이터에서 생성할 수도 있습니다.
+        * 개별 등록: 물리적 디바이스 또는 SDK [DICE](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) 에뮬레이터의 [리프 인증서](/azure/iot-dps/concepts-security)
+        * 등록 그룹: 물리적 디바이스에서 디바이스 인증서를 생성하는 데 사용하는 [CA/루트 인증서](/azure/iot-dps/concepts-security#root-certificate) 또는 [중간 인증서](/azure/iot-dps/concepts-security#intermediate-certificate)  SDK DICE 에뮬레이터에서 생성할 수도 있습니다.
 * 정확한 API 호출은 언어 차이로 인해 달라질 수 있습니다. 자세한 내용은 GitHub에 제공하는 샘플을 검토하세요.
    * [Java 프로비전 서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/provisioning/provisioning-samples)
    * [Node.js 프로비전 서비스 클라이언트 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service/samples)
@@ -62,7 +62,7 @@ ms.locfileid: "68883372"
 * **개별 등록**:
     1. 서비스 SDK API ```getIndividualEnrollment```을 통해 우선 프로비전 서비스에서 최신 등록을 가져옵니다.
     2. 필요에 따라 최신 등록의 매개 변수를 수정합니다. 
-    3. 최신 등록을 사용하면서 서비스 SDK API ```createOrUpdateIndividualEnrollment```를 호출하여 등록 항목을 업데이트합니다.
+    3. 최신 등록을 사용하면서 서비스 SDK API ```createOrUpdateIndividualEnrollment```을 호출하여 등록 항목을 업데이트합니다.
 * **그룹 등록**:
     1. 서비스 SDK API ```getEnrollmentGroup```을 통해 우선 프로비전 서비스에서 최신 등록을 가져옵니다.
     2. 필요에 따라 최신 등록의 매개 변수를 수정합니다.

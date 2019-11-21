@@ -1,6 +1,6 @@
 ---
-title: Azure AD 자격 관리에서 요청 프로세스 및 전자 메일 알림-Azure Active Directory
-description: 액세스 패키지에 대 한 요청 프로세스와 Azure Active Directory 자격 관리에서 전자 메일 알림이 전송 되는 시기에 대해 알아봅니다.
+title: Request process and email notifications in Azure AD entitlement management - Azure Active Directory
+description: Learn about the request process for an access package and when email notifications are sent in Azure Active Directory entitlement management.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,121 +12,147 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 10/30/2019
+ms.date: 11/11/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e34d2c69cc808552a3b0c604804f3cd2597b379b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: f336e9f2bdf1553a72bdc35fecc1b0b735fad274
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199973"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74206874"
 ---
-# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 요청 프로세스 및 전자 메일 알림
+# <a name="request-process-and-email-notifications-in-azure-ad-entitlement-management"></a>Request process and email notifications in Azure AD entitlement management
 
-사용자가 액세스 패키지에 요청을 제출 하면 프로세스가 해당 액세스 요청을 전달 하기 시작 합니다. Azure AD 자격 관리는 프로세스 중에 키 이벤트가 발생 하는 경우 승인자 및 요청자에 게 전자 메일 알림을 보냅니다. 이 문서에서는 요청 프로세스 및 전송 되는 전자 메일 알림을 설명 합니다.
+When a user submits a request to an access package, a process begins to deliver that access request. Azure AD entitlement management sends email notifications to approvers and requestors when key events occur during the process. This article describes the request process and the email notifications that are sent.
 
-## <a name="request-process"></a>요청 프로세스
+## <a name="request-process"></a>Request process
 
-액세스 패키지에 액세스 해야 하는 사용자가 액세스 요청을 제출할 수 있습니다. 정책의 구성에 따라 요청에 승인이 필요할 수 있습니다. 요청이 승인 되 면 프로세스에서 액세스 패키지의 각 리소스에 대 한 사용자 액세스 권한을 할당 하기 시작 합니다. 다음 다이어그램에서는 프로세스의 개요와 다양 한 상태를 보여 줍니다.
+A user that needs access to an access package can submit an access request. Depending on the configuration of the policy, the request might require an approval. When a request is approved, a process begins to assign the user access to each resource in the access package. The following diagram shows an overview of the process and the different states:
 
-![승인 프로세스 다이어그램](./media/entitlement-management-process/request-process.png)
+![Approval process diagram](./media/entitlement-management-process/request-process.png)
 
 | 상태 | 설명 |
 | --- | --- |
-| 보내는 | 사용자가 요청을 제출 합니다. |
-| 승인 보류 중 | 액세스 패키지에 대 한 정책에 승인이 필요한 경우 요청이 승인 보류 중으로 이동 합니다. |
-| 만료됨 | 승인 요청 시간 제한 내에서 요청을 승인 하는 승인자가 없으면 요청이 만료 됩니다. 다시 시도 하려면 사용자가 자신의 요청을 다시 제출 해야 합니다. |
-| 거부 | 승인자가 요청을 거부 합니다. |
-| 승인됨 | 승인자가 요청을 승인 합니다. |
-| 배달 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 **되지** 않았습니다. 외부 사용자 인 경우에는 사용자가 아직 리소스 디렉터리에 액세스 하 여 동의 확인 프롬프트를 수락 하지 않았을 수 있습니다. |
-| 배달됨 | 액세스 패키지의 모든 리소스에 대 한 액세스 권한이 사용자에 게 할당 되었습니다. |
-| 액세스 확장 | 정책에서 확장이 허용 되 면 사용자가 할당을 확장 한 것입니다. |
-| 액세스가 만료 됨 | 액세스 패키지에 대 한 사용자의 액세스가 만료 되었습니다. 액세스를 다시 받으려면 사용자가 요청을 제출 해야 합니다. |
+| Submitted | User submits a request. |
+| 승인 보류 중 | If the policy for an access package requires approval, a request moves to pending approval. |
+| 만료됨 | If no approvers approve a request within the approval request timeout, the request expires. To try again, the user will have to resubmit their request. |
+| Denied | Approver denies a request. |
+| 승인됨 | Approver approves a request. |
+| 배달 | User has **not** been assigned access to all the resources in the access package. If this is an external user, the user may not have accessed the resource directory yet. They also may not have accepted the consent prompt. |
+| 배달됨 | User has been assigned access to all the resources in the access package. |
+| Access extended | If extensions are allowed in the policy, the user extended the assignment. |
+| Access expired | User's access to the access package has expired. To get access again, the user will have to submit a request. |
 
 ## <a name="email-notifications"></a>전자 메일 알림
 
-승인자 인 경우 액세스 요청을 승인 해야 하 고 액세스 요청이 완료 되 면 전자 메일 알림을 보냅니다. 요청자는 요청 상태를 나타내는 전자 메일 알림을 받게 됩니다.
+If you're an approver, you're sent email notifications when you need to approve an access request. You also receive notifications when an access request has been completed. You're also sent email notifications that indicate the status of your request if you're a requestor.
 
-다음 다이어그램에서는 이러한 전자 메일 알림이 승인자 또는 요청자에 게 전송 되는 시기를 보여 줍니다. [전자 메일 알림 표](entitlement-management-process.md#email-notifications-table) 를 참조 하 여 다이어그램에 표시 된 전자 메일 알림에 해당 하는 숫자를 찾습니다.
+The following diagrams show when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
-### <a name="primary-approvers-and-alternate-approvers"></a>기본 승인자 및 대체 승인자
-다음 다이어그램에서는 기본 승인자 및 대체 승인자의 경험과 요청 프로세스 중에 수신 하는 전자 메일 알림을 보여 줍니다.
+### <a name="first-approvers-and-alternate-approvers"></a>First approvers and alternate approvers
+The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
 
-![기본 및 대체 승인자 프로세스 흐름](./media/entitlement-management-process/primary-approvers-and-alternate-with-escalation-flow.png)
+![First and alternate approvers process flow](./media/entitlement-management-process/first-approvers-and-alternate-with-escalation-flow.png)
 
 ### <a name="requestors"></a>요청자
-다음 다이어그램에서는 요청 과정에서 받은 요청자 및 전자 메일 알림의 환경을 보여 줍니다.
+The following diagram shows the experience of requestors and the email notifications they receive during the request process:
 
-![요청자 프로세스 흐름](./media/entitlement-management-process/requestor-approval-and-expiration-request-flow.png)
+![Requestor process flow](./media/entitlement-management-process/requestor-approval-request-flow.png)
 
-### <a name="email-notifications-table"></a>전자 메일 알림 테이블
-다음 표에서는 이러한 각 전자 메일 알림에 대 한 자세한 정보를 제공 합니다. 이러한 전자 메일을 관리 하기 위해 규칙을 사용할 수 있습니다. 예를 들어 Outlook에서 제목에이 테이블의 단어가 포함 된 경우 메일을 폴더로 이동 하는 규칙을 만들 수 있습니다.
+### <a name="2-stage-approval"></a>2-stage approval
+The following diagram shows the experience of stage-1 and stage-2 approvers and the email notifications they receive during the request process:
 
-| # | 전자 메일 제목 | 전송 될 때 | 보낸 사람 |
+![2-stage approval process flow](./media/entitlement-management-process/2stage-approval-with-request-timeout-flow.png)
+
+### <a name="email-notifications-table"></a>Email notifications table
+The following table provides more detail about each of these email notifications. To manage these emails, you can use rules. For example, in Outlook, you can create rules to move the emails to a folder if the subject contains words from this table:
+
+| # | 전자 메일 제목 | When sent | Sent to |
 | --- | --- | --- | --- |
-| 1 | 작업 필요: *[date]* 로 전달 된 요청을 승인 하거나 거부 합니다. | 이 전자 메일은 작업을 수행할 수 있도록 요청이 에스컬레이션 된 후 1 단계 대체 승인자에 게 전송 됩니다. | 1 단계 대체 승인자 |
-| 2 | 작업 필요: *[date]* 의 요청을 승인 또는 거부 합니다. | 에스컬레이션을 사용 하지 않도록 설정한 경우 작업을 수행 하려면이 전자 메일을 1 단계 기본 승인자에 게 보냅니다. | 1 단계 기본 승인자 |
-| 3 | 미리 알림: [ *요청자]* 에 대해 *[date]* 요청을 승인 하거나 거부 합니다. | 이 미리 알림 전자 메일은 단계 1 기본 승인자에 게 전송 됩니다. 에스컬레이션을 사용 하지 않도록 설정 하는 경우 작업을 수행 하려면 아직 작업을 수행 하지 않은 경우에만 수행 합니다. | 1 단계 기본 승인자 |
-| 4 | [ *Date]* 의 *[time]* 에 의해 요청을 승인 하거나 거부 합니다. | 이 전자 메일은 작업을 수행 하기 위해 1 단계 기본 승인자 (에스컬레이션을 사용 하도록 설정 된 경우)로 전송 됩니다. | 1 단계 기본 승인자 |
-| 5 | 작업 필요 미리 알림: *[요청자]* 에 대해 *[date]* 요청을 승인 하거나 거부 합니다. | 이 미리 알림 메일은 단계 1 기본 승인자에 게 전송 됩니다. 에스컬레이션을 사용 하도록 설정한 경우 작업을 수행 하려면 아직 작업을 수행 하지 않은 경우에만 작업을 수행 합니다. | 1 단계 기본 승인자 |
-| 6 | *[Access_package]* 에 대 한 요청이 만료 되었습니다. | 이 전자 메일은 요청이 만료 된 후 단일 단계 또는 여러 단계 요청에 대 한 단계 1 기본 승인자 및/또는 1 단계 대체 승인자에 게 전송 됩니다. | 1 단계 기본 승인자, 1 단계 대체 승인자 |
-| 7 | [ *요청자]* 에 대해 승인 된 요청 *[access_package]* | 요청이 완료 되 면이 메일은 1 단계 기본 승인자 및/또는 1 단계 대체 승인자에 게 전송 됩니다. | 1 단계 기본 승인자, 1 단계 대체 승인자 |
-| 8 | [ *요청자]* 에 대해 승인 된 요청 *[access_package]* | 이 전자 메일은 단계 1이 승인 된 경우에만 2 단계 요청에 대 한 1 단계 기본 승인자 및/또는 1 단계 대체 승인자에 게 전송 됩니다. | 1 단계 기본 승인자, 1 단계 대체 승인자 |
-| 9 | 요청 거부 *[access_package]* | 요청이 거부 된 경우에만이 전자 메일을 요청자에 게 보냅니다. | 요청 |
-| 10 | *[Access_package]* 에 대 한 요청이 만료 되었습니다. | 이 전자 메일은 요청이 만료 된 후 1 단계 또는 여러 단계 요청에 대 한 단계 1의 끝에서 요청자에 게 전송 됩니다. | 요청 |
-| 18 | 이제 *[access_package]* 에 액세스할 수 있습니다. | 이 전자 메일은 최종 사용자에 게 액세스 권한을 사용 하 여 시작 하기 위해 전송 됩니다. | 요청 |
-| 19 | [ *Date]* 로 *[access_package]* 에 대 한 액세스 확장 | 이 전자 메일은 액세스 권한이 만료 되기 전에 최종 사용자에 게 전송 됩니다. | 요청 |
-| 20 | *[Access_package]* 에 대 한 액세스가 종료 되었습니다. | 이 전자 메일은 액세스 권한이 만료 된 후 최종 사용자에 게 전송 됩니다. | 요청 |
+| 1 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to Stage-1 alternate approvers (after the request has been escalated) to take action. | Stage-1 alternate approvers |
+| 2 | Action required: Approve or deny request by *[date]* | This email will be sent to the first approver, if escalation is disabled, to take action. | First approver |
+| 3 | Reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is disabled. The email asks them to take action if they haven't. | First approver |
+| 4 | Approve or deny the request by *[time]* on *[date]* | This email will be sent to the first approver (if escalation is enabled) to take action. | First approver |
+| 5 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the first approver, if escalation is enabled. The email asks them to take action if they haven't. | First approver |
+| 6 | Request has expired for *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers after the request has expired. | First approver, stage-1 alternate approvers |
+| 7 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers upon request completion. | First approver, stage-1 alternate approvers |
+| 8 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the first approver and stage-1 alternate approvers of a 2-stage request when the stage-1 request is approved. | First approver, stage-1 alternate approvers |
+| 9 | Request denied to *[access_package]* | This email will be sent to the requestor when their request is denied | Requestor |
+| 10 | Your request has expired for *[access_package]* | This email will be sent to the requestor at the end of a single or 2-stage request. The email notifies the requestor that the request expired. | Requestor |
+| 11 | Action required: Approve or deny request by *[date]* | This email will be sent to the second approver, if escalation is disabled, to take action. | Second approver |
+| 12 | Action required reminder: Approve or deny the request by *[date]* | This reminder email will be sent to the second approver, if escalation is disabled. The notification asks them to take action if they haven't yet. | Second approver |
+| 13 | Action required: Approve or deny the request by *[date]* for *[requestor]* | This email will be sent to second approver, if escalation is enabled, to take action. | Second approver |
+| 14 | Action required reminder: Approve or deny the request by *[date]* for *[requestor]* | This reminder email will be sent to the second approver, if escalation is enabled. The notification asks them to take action if they haven't yet. | Second approver |
+| 15 | Action required: Approve or deny forwarded request by *[date]* | This email will be sent to stage-2 alternate approvers, if escalation is enabled, to take action. | Stage-2 alternate approvers |
+| 16 | Request approved for *[requestor]* to *[access_package]* | This email will be sent to the second approver and stage-2 alternate approvers upon approving the request. | Second approver, Stage-2 alternate approvers |
+| 17 | A request has expired for *[access_package]* | This email will be sent to the second approver or alternate approvers, after the request expires. | Second approver, stage-2 alternate approvers |
+| 18 | You now have access to *[access_package]* | This email will be sent to the end users to start using their access. | Requestor |
+| 19 | Extend access for *[access_package]* by *[date]* | This email will be sent to the end users before their access expires. | Requestor |
+| 20 | Access has ended for *[access_package]* | This email will be sent to the end users after their access expires. | Requestor |
 
-### <a name="access-request-emails"></a>액세스 요청 전자 메일
+### <a name="access-request-emails"></a>Access request emails
 
-요청 자가 승인을 요구 하도록 구성 된 액세스 패키지에 대 한 액세스 요청을 제출 하는 경우 정책에 추가 된 모든 승인자는 요청에 대 한 세부 정보와 함께 전자 메일 알림을 받게 됩니다. 세부 정보에는 요청자의 이름, 조직, 액세스 시작 및 종료 날짜 (제공 된 경우), 비즈니스 근거, 요청이 제출 된 시간 및 요청이 만료 되는 시간 등이 포함 됩니다.
+When a requestor submits an access request for an access package configured to require approval, all approvers added to the policy will receive an email notification with details of the request. The details in the email include: requestor's name organization, and business justification; and the requested access start and end date (if provided). The details will also include when the request was submitted and when the request will expire.
 
-전자 메일에는 클릭 하 여 Myaccess로 이동 하 여 액세스 요청을 승인 또는 거부 하는 링크 승인자가 포함 됩니다. 요청자에 게 액세스 요청을 제출 하면 승인자에 게 전송 되는 샘플 메일 알림은 다음과 같습니다.
+The email includes a link approvers can click on to go to My Access to approve or deny the access request. Here is a sample email notification that is sent to the first approver or second approver (if 2-stage approval is enabled) to complete an access request:
 
-![패키지 전자 메일에 액세스 하는 요청 승인](./media/entitlement-management-shared/approver-request-email.png)
+![Approve request to access package email](./media/entitlement-management-shared/approver-request-email.png)
 
-또한 기본 승인자는 작업을 수행 하 고 요청에 대 한 결정을 내리는 미리 알림이 포함 된 전자 메일 알림을 보냅니다. 다음은 작업을 수행 하도록 알리기 위해 기본 승인자가 받는 알림의 샘플 전자 메일입니다.
+Approvers can also receive a reminder email. The email asks the approver to make a decision on the request. Here is a sample email notification the approver receives to remind them to take action:
 
-![미리 알림 액세스 요청 전자 메일](./media/entitlement-management-process/approver-access-request-reminder-email.png)
+![Reminder access request email](./media/entitlement-management-process/approver-access-request-reminder-email.png)
 
-### <a name="alternate-approver-request-emails"></a>대체 승인자 요청 전자 메일
+### <a name="alternate-approvers-request-emails"></a>Alternate approvers request emails
 
-대체 승인자에 대 한 전달이 사용 하도록 설정 되어 있으면 전달 정책에 따라 요청이 아직 보류 중인 경우 요청이 전달 됩니다. 대체 승인자가 요청을 승인 하거나 거부 하는 알림 전자 메일을 받게 됩니다. 다음은 대체 승인자가 받는 알림의 샘플 전자 메일입니다.
+If the alternate approvers setting is enabled and the request is still pending, it will be forwarded. Alternate approvers will receive an email to approve or deny the request. You can enable alternate approvers in stage-1 and stage-2. Here is a sample email of the notification the alternate approvers receive:
 
-![대체 승인자 요청 전자 메일](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
+![Alternate approvers request email](./media/entitlement-management-process/alternate-approver-email-fwd-request.png)
 
-두 가지 모두 기본 승인자와 대체 승인자가 요청을 승인 하거나 거부할 수 있습니다.
+Both the approver and the alternate approvers can approve or deny the request.
 
-### <a name="approved-or-denied-emails"></a>승인 또는 거부 된 전자 메일
+### <a name="approved-or-denied-emails"></a>Approved or denied emails
 
-액세스 요청이 승인 되 고 액세스할 수 있는 경우 또는 액세스 요청이 거부 된 경우 요청자에 게 알립니다. 승인자가 요청자에 의해 전송 된 액세스 요청을 받으면 액세스 요청을 승인 하거나 거부할 수 있습니다. 승인자는 의사 결정을 위해 비즈니스 근거를 추가 해야 합니다. 다음은 요청이 승인 된 후 기본 또는 대체 승인자에 게 전송 되는 샘플 전자 메일입니다.
+ When an approver receives an access request submitted by a requestor, they can approve or deny the access request. The approver needs to add a business justification for their decision. Here is a sample email sent to the approvers and alternate approvers after a request is approved:
 
-![액세스 요청 전자 메일 검토](./media/entitlement-management-process/approver-request-email-approved.png)
+![Approved request to access package email](./media/entitlement-management-process/approver-request-email-approved.png)
 
-액세스 요청이 승인 되 고 해당 액세스 권한이 프로 비전 되 면 요청자에 게 액세스 패키지에 대 한 액세스 권한이 있는 전자 메일 알림이 전송 됩니다. 액세스 패키지에 대 한 액세스 권한이 부여 된 경우 요청자에 게 전송 되는 샘플 메일 알림은 다음과 같습니다.
+When an access request is approved, and their access is provisioned, an email notification is sent to the requestor that they now have access to the access package. Here is a sample email notification that is sent to a requestor when they're granted access to an access package:
 
-![만료 된 액세스 요청 전자 메일](./media/entitlement-management-process/requestor-email-approved.png)
+![Approved requestor access request email](./media/entitlement-management-process/requestor-email-approved.png)
 
-액세스 요청이 거부 되 면 요청자에 게 전자 메일 알림이 전송 됩니다. 액세스 요청이 거부 된 경우 요청자에 게 전송 되는 샘플 메일 알림은 다음과 같습니다.
+When an access request is denied, an email notification is sent to the requestor. Here is a sample email notification that is sent to a requestor when their access request is denied:
 
-![요청자 요청 거부 된 전자 메일](./media/entitlement-management-process/requestor-email-denied.png)
+![Requestor request denied email](./media/entitlement-management-process/requestor-email-denied.png)
 
-### <a name="expired-access-request-emails"></a>만료 된 액세스 요청 전자 메일
+### <a name="2-stage-approval-access-request-emails"></a>2-stage approval access request emails
 
-승인자가 요청을 승인 하거나 거부 하지 않은 경우 액세스 요청이 만료 될 수 있습니다. 
+If 2-stage approval is enabled, at least two approvers must approve the request, one from each stage, before the requestor can receive access.
 
-요청이 구성 된 만료 날짜에 도달 하 여 만료 되 면 승인자가 더 이상 승인 하거나 거부할 수 없습니다. 다음은 모든 기본 승인자와 대체 승인자에 게 전송 된 알림의 샘플 전자 메일입니다.
+During stage-1, the first approver will receive the access request email and make a decision. If they approve the request, all first approvers and alternate approvers in stage-1 (if escalation is enabled) will receive notification that stage-1 is complete. Here is a sample email of the notification that is sent when stage-1 is complete:
 
- ![승인자 만료 된 액세스 요청 전자 메일](./media/entitlement-management-process/approver-request-email-expired.png)
+![2-stage access request email](./media/entitlement-management-process/approver-request-email-2stage.png)
 
- 또한 전자 메일 알림은 요청자에 게 전송 되어 액세스 요청이 만료 되었음을 알리고 액세스 요청을 다시 제출 해야 한다는 것을 알립니다. 액세스 요청이 만료 된 경우 요청자에 게 전송 되는 샘플 메일 알림은 다음과 같습니다.
+After the first or alternate approvers approve the request in stage-1, stage-2 begins. During stage-2, the second approver will receive the access request notification email. After the second approver or alternate approvers in stage-2 (if escalation is enabled) decide to approve or deny the request, notification emails are sent to the first and second approvers, and all alternate approvers in stage-1 and stage-2, as well as the requestor.
 
-![요청자 만료 된 액세스 요청 전자 메일](./media/entitlement-management-process/requestor-email-request-expired.png)
+### <a name="expired-access-request-emails"></a>Expired access request emails
+
+Access requests could expire if no approver has approved or denied the request. 
+
+When the request reaches its configured expiration date and expires, it can no longer be approved or denied by the approvers. Here is a sample email of the notification sent to all of the first, second (if 2-stage approval is enabled), and alternate approvers:
+
+![Approvers expired access request email](./media/entitlement-management-process/approver-request-email-expired.png)
+
+An email notification is also sent to the requestor, notifying them that their access request has expired, and that they need to resubmit the access request. The following diagram shows the experience of the requestor and the email notifications they receive when they request to extend access:
+
+![Requestor extend access process flow](./media/entitlement-management-process/requestor-expiration-request-flow.png) 
+
+Here is a sample email notification that is sent to a requestor when their access request has expired:
+
+![Requestor expired access request email](./media/entitlement-management-process/requestor-email-request-expired.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [액세스 패키지에 대 한 액세스 요청](entitlement-management-request-access.md)
-- [액세스 요청 승인 또는 거부](entitlement-management-request-approve.md)
+- [Request access to an access package](entitlement-management-request-access.md)
+- [Approve or deny access requests](entitlement-management-request-approve.md)

@@ -1,32 +1,27 @@
 ---
 title: 지속성 함수의 바인딩 - Azure
 description: Azure Functions의 Durable Functions 확장에 트리거 및 바인딩을 사용하는 방법입니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-keywords: ''
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: d7e77907e2d394d2a4c1679ec50af8d4f72fa6f1
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 40b5f0f17cbb6867a6ef293a485d728141a012ef
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615043"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233033"
 ---
 # <a name="bindings-for-durable-functions-azure-functions"></a>지속성 함수의 바인딩(Azure Functions)
 
 [지속성 함수](durable-functions-overview.md) 확장은 오케스트레이터 및 작업 함수의 실행을 제어하는 새로운 두 가지 트리거 바인딩을 도입하고 있습니다. 또한 지속성 함수 런타임에 대한 클라이언트 역할을 하는 출력 바인딩도 도입하고 있습니다.
 
-## <a name="orchestration-trigger"></a>오케스트레이션 트리거
+## <a name="orchestration-trigger"></a>Orchestration trigger
 
-오케스트레이션 트리거를 사용 하 여 [영 속](durable-functions-types-features-overview.md#orchestrator-functions)오 케 스트레이 터 함수를 제작할 수 있습니다. 이 트리거는 새 오케스트레이터 함수 인스턴스를 시작하고 작업을 "대기 중인" 기존의 오케스트레이터 함수 인스턴스를 다시 시작할 수 있도록 지원합니다.
+The orchestration trigger enables you to author [durable orchestrator functions](durable-functions-types-features-overview.md#orchestrator-functions). 이 트리거는 새 오케스트레이터 함수 인스턴스를 시작하고 작업을 "대기 중인" 기존의 오케스트레이터 함수 인스턴스를 다시 시작할 수 있도록 지원합니다.
 
 Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레이션 트리거는 [OrchestrationTriggerAttribute](https://docs.microsoft.com/dotnet/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.OrchestrationTriggerAttribute?view=azure-dotnet) .NET 특성을 사용하여 구성됩니다.
 
-스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 `bindings`function.json*파일의* 배열에 있는 다음 JSON 개체에서 정의됩니다.
+스크립팅 언어(예: JavaScript 또는 C# 스크립팅)에서 오케스트레이터 함수를 작성하는 경우 오케스트레이션 트리거는 *function.json* 파일의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -37,7 +32,7 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 }
 ```
 
-* `orchestration`는이 orchestrator 함수의 새 인스턴스를 시작 하려는 경우 클라이언트에서 사용 해야 하는 오케스트레이션의 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `orchestration` is the name of the orchestration that clients must use when they want to start new instances of this orchestrator function. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 일련의 큐를 폴링합니다. 이러한 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -51,7 +46,7 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 * **반환 값** - 반환 값은 JSON으로 직렬화되고 Azure Table Storage의 오케스트레이션 기록 테이블에 유지됩니다. 이러한 반환 값은 나중에 설명할 오케스트레이션 클라이언트 바인딩을 통해 쿼리할 수 있습니다.
 
 > [!WARNING]
-> 오케스트레이터 함수는 오케스트레이션 트리거 바인딩 이외의 입력 또는 출력 바인딩을 절대로 사용하면 안됩니다. 이렇게 하면 그러한 바인딩에서 단일 스레딩 및 I/O 규칙을 따르지 않을 수 있으므로 지속성 작업 확장에서 문제가 발생할 수 있습니다. 다른 바인딩을 사용 하려면 Orchestrator 함수에서 호출 된 작업 함수에 추가 합니다.
+> 오케스트레이터 함수는 오케스트레이션 트리거 바인딩 이외의 입력 또는 출력 바인딩을 절대로 사용하면 안됩니다. 이렇게 하면 그러한 바인딩에서 단일 스레딩 및 I/O 규칙을 따르지 않을 수 있으므로 지속성 작업 확장에서 문제가 발생할 수 있습니다. If you'd like to use other bindings, add them to an Activity function called from your Orchestrator function.
 
 > [!WARNING]
 > JavaScript 오케스트레이터 함수는 `async`로 선언되지 않아야 합니다.
@@ -60,12 +55,12 @@ Azure Functions에 Visual Studio 도구를 사용하는 경우 오케스트레�
 
 오케스트레이션 트리거 바인딩은 입력과 출력을 모두 지원합니다. 다음은 입력 및 출력 처리에 대해 알고 있어야 할 몇 가지 사항입니다.
 
-* **입력** -.net 오케스트레이션 함수는 매개 변수 형식으로 `DurableOrchestrationContext`만 지원 합니다. 함수 시그니처에서 직접적인 역직렬화 입력은 지원되지 않습니다. 코드는 `GetInput<T>` (.NET) 또는 `getInput` (JavaScript) 메서드를 사용 하 여 orchestrator 함수 입력을 가져와야 합니다. 이러한 입력은 JSON 직렬화 가능 형식이어야 합니다.
+* **inputs** - .NET orchestration functions support only `DurableOrchestrationContext` as a parameter type. 함수 시그니처에서 직접적인 역직렬화 입력은 지원되지 않습니다. Code must use the `GetInput<T>` (.NET) or `getInput` (JavaScript) method to fetch orchestrator function inputs. 이러한 입력은 JSON 직렬화 가능 형식이어야 합니다.
 * **출력** - 오케스트레이션 트리거는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. .NET 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음 예제 코드에서는 가장 간단한 "Hello World" orchestrator 함수를 보여 줍니다.
+The following example code shows what the simplest "Hello World" orchestrator function might look like:
 
 #### <a name="c"></a>C#
 
@@ -78,9 +73,9 @@ public static string Run([OrchestrationTrigger] IDurableOrchestrationContext con
 }
 ```
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -92,7 +87,7 @@ module.exports = df.orchestrator(function*(context) {
 ```
 
 > [!NOTE]
-> JavaScript의 `context` 개체는 DurableOrchestrationContext을 나타내지 않지만 [전체 함수 컨텍스트입니다](../functions-reference-node.md#context-object). `context` 개체의 `df` 속성을 통해 오케스트레이션 메서드에 액세스할 수 있습니다.
+> The `context` object in JavaScript does not represent the DurableOrchestrationContext, but the [function context as a whole](../functions-reference-node.md#context-object). `context` 개체의 `df` 속성을 통해 오케스트레이션 메서드에 액세스할 수 있습니다.
 
 > [!NOTE]
 > JavaScript 오케스트레이터는 `return`을 사용해야 합니다. `durable-functions` 라이브러리는 `context.done` 메서드 호출을 처리합니다.
@@ -113,9 +108,9 @@ public static async Task<string> Run(
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 const df = require("durable-functions");
@@ -127,13 +122,13 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-## <a name="activity-trigger"></a>작업 트리거
+## <a name="activity-trigger"></a>Activity trigger
 
-작업 트리거를 사용 하면 [작업 함수](durable-functions-types-features-overview.md#activity-functions)라고 하는 orchestrator 함수에 의해 호출 되는 함수를 작성할 수 있습니다.
+The activity trigger enables you to author functions that are called by orchestrator functions, known as [activity functions](durable-functions-types-features-overview.md#activity-functions).
 
-Visual Studio를 사용 하는 경우 `ActivityTriggerAttribute` .NET 특성을 사용 하 여 작업 트리거를 구성 합니다.
+If you're using Visual Studio, the activity trigger is configured using the `ActivityTriggerAttribute` .NET attribute.
 
-개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 `bindings`function.json*의*  배열에 있는 다음 JSON 개체에서 정의됩니다.
+개발을 위해 VS Code 또는 Azure Portal을 사용하는 경우 작업 트리거는 *function.json*의 `bindings` 배열에 있는 다음 JSON 개체에서 정의됩니다.
 
 ```json
 {
@@ -144,7 +139,7 @@ Visual Studio를 사용 하는 경우 `ActivityTriggerAttribute` .NET 특성을 
 }
 ```
 
-* `activity`은 작업의 이름입니다. 이 값은 오 케 스트레이 터 함수가이 작업 함수를 호출 하는 데 사용 하는 이름입니다. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
+* `activity`은 작업의 이름입니다. This value is the name that orchestrator functions use to invoke this activity function. 이 속성은 선택 사항입니다. 지정하지 않으면 함수의 이름이 사용됩니다.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 큐를 폴링합니다. 이 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
@@ -164,13 +159,13 @@ Visual Studio를 사용 하는 경우 `ActivityTriggerAttribute` .NET 특성을 
 
 작업 트리거 바인딩은 오케스트레이션 트리거와 마찬가지로 입력과 출력을 모두 지원합니다. 다음은 입력 및 출력 처리에 대해 알고 있어야 할 몇 가지 사항입니다.
 
-* **입력** -.net 작업 함수는 기본적으로 `DurableActivityContext`를 매개 변수 형식으로 사용 합니다. 또는 JSON 직렬화 가능 매개 변수 형식으로 선언될 수 있습니다. `DurableActivityContext`를 사용 하는 경우 `GetInput<T>`를 호출 하 여 작업 함수 입력을 페치 및 deserialize 할 수 있습니다.
+* **inputs** - .NET activity functions natively use `DurableActivityContext` as a parameter type. 또는 JSON 직렬화 가능 매개 변수 형식으로 선언될 수 있습니다. When you use `DurableActivityContext`, you can call `GetInput<T>` to fetch and deserialize the activity function input.
 * **출력** - 작업 함수는 입력뿐만 아니라 출력 값도 지원합니다. 함수의 반환 값은 출력 값을 할당하는 데 사용되며 JSON 직렬화 가능해야 합니다. .NET 함수에서 `Task` 또는 `void`를 반환하면 `null` 값이 출력으로 저장됩니다.
 * **메타데이터** - .NET 활동 함수는 `string instanceId` 매개 변수에 바인딩하여 부모 오케스트레이션의 인스턴스 ID를 가져올 수 있습니다.
 
 ### <a name="trigger-sample"></a>트리거 샘플
 
-다음 예제 코드에서는 간단한 "Hello World" 작업 함수를 보여 줍니다.
+The following example code shows what a simple "Hello World" activity function might look like:
 
 #### <a name="c"></a>C#
 
@@ -184,7 +179,7 @@ public static string SayHello([ActivityTrigger] IDurableActivityContext helloCon
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableActivityContext`대신 `DurableActivityContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableActivityContext` instead of `IDurableActivityContext`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 .NET `ActivityTriggerAttribute` 바인딩의 기본 매개 변수 형식은 `IDurableActivityContext`입니다. 그러나 .NET 작업 트리거는 JSON 직렬화 가능 형식(기본 형식 포함)에 대한 직접 바인딩도 지원하므로 동일한 함수를 다음과 같이 단순화할 수 있습니다.
 
@@ -196,7 +191,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-#### <a name="javascript-functions-20-only"></a>JavaScript (함수 2.0에만 해당)
+#### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
 ```javascript
 module.exports = async function(context) {
@@ -213,9 +208,9 @@ module.exports = async function(context, name) {
 ```
 
 
-### <a name="using-input-and-output-bindings"></a>입력 및 출력 바인딩 사용
+### <a name="using-input-and-output-bindings"></a>Using input and output bindings
 
-활동 트리거 바인딩과 함께 일반 입력 및 출력 바인딩을 사용할 수 있습니다. 예를 들어 작업 바인딩에 대 한 입력을 가져오고 EventHub 출력 바인딩을 사용 하 여 EventHub로 메시지를 보낼 수 있습니다.
+You can use regular input and output bindings in addition to the activity trigger binding. For example, you can take the input to your activity binding, and send a message to an EventHub using the EventHub output binding:
 
 ```json
 {
@@ -244,7 +239,7 @@ module.exports = async function (context) {
 
 ## <a name="orchestration-client"></a>오케스트레이션 클라이언트
 
-Orchestration 클라이언트 바인딩을 사용 하면 orchestrator 기능과 상호 작용 하는 함수를 작성할 수 있습니다. 이러한 함수를 [클라이언트 함수](durable-functions-types-features-overview.md#client-functions)라고도 합니다. 예를 들어 오케스트레이션 인스턴스에서 다음과 같은 방법으로 작동할 수 있습니다.
+The orchestration client binding enables you to write functions that interact with orchestrator functions. These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions). 예를 들어 오케스트레이션 인스턴스에서 다음과 같은 방법으로 작동할 수 있습니다.
 
 * 인스턴스를 시작합니다.
 * 해당 상태를 쿼리합니다.
@@ -252,9 +247,9 @@ Orchestration 클라이언트 바인딩을 사용 하면 orchestrator 기능과 
 * 실행하는 동안 이벤트를 보냅니다.
 * 인스턴스 기록을 제거합니다.
 
-Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 `OrchestrationClientAttribute` .NET 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다. Durable Functions 2.0부터 `DurableClientAttribute` .NET 특성을 사용 하 여 오케스트레이션 클라이언트에 바인딩할 수 있습니다.
+If you're using Visual Studio, you can bind to the orchestration client by using the `OrchestrationClientAttribute` .NET attribute for Durable Functions 1.0. Starting in the Durable Functions 2.0, you can bind to the orchestration client by using the `DurableClientAttribute` .NET attribute.
 
-개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 오케스트레이션 트리거는 함수 `bindings` 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the orchestration trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -274,7 +269,7 @@ Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 `Orchestr
 
 ### <a name="client-usage"></a>클라이언트 사용
 
-일반적으로 .NET 함수에서는 Durable Functions에 의해 지원 되는 모든 오케스트레이션 클라이언트 Api에 대 한 모든 권한을 제공 하는 `IDurableOrchestrationClient`에 바인딩합니다. 이전 Durable Functions 2.x 릴리스에서는 대신 `DurableOrchestrationClient` 클래스에 바인딩합니다. JavaScript에서 동일한 Api는 `getClient`에서 반환 되는 개체에 의해 노출 됩니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
+In .NET functions, you typically bind to `IDurableOrchestrationClient`, which gives you full access to all orchestration client APIs supported by Durable Functions. In the older Durable Functions 2.x releases, you instead bind to the `DurableOrchestrationClient` class. In JavaScript, the same APIs are exposed by the object returned from `getClient`. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
 * `StartNewAsync`
 * `GetStatusAsync`
@@ -284,9 +279,9 @@ Visual Studio를 사용 하는 경우 Durable Functions 1.0에 대 한 `Orchestr
 * `CreateCheckStatusResponse`
 * `CreateHttpManagementPayload`
 
-또는 .NET 함수가 `T`를 `StartOrchestrationArgs` 하거나 `JObject`하는 `IAsyncCollector<T>`에 바인딩할 수 있습니다.
+Alternatively, .NET functions can bind to `IAsyncCollector<T>` where `T` is `StartOrchestrationArgs` or `JObject`.
 
-이러한 작업에 대 한 자세한 내용은 `IDurableOrchestrationClient` API 설명서를 참조 하세요.
+For more information on these operations, see the `IDurableOrchestrationClient` API documentation.
 
 ### <a name="client-sample-visual-studio-development"></a>클라이언트 샘플(Visual Studio 개발)
 
@@ -304,7 +299,7 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 ### <a name="client-sample-not-visual-studio"></a>클라이언트 샘플(Visual Studio 사용 안 함)
 
@@ -329,13 +324,13 @@ public static Task Run(
 ```
 
 > [!NOTE]
-> 이전 JSON은 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 트리거 형식으로 `durableClient` 대신 `orchestrationClient`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous JSON is for Durable Functions 2.x. For Durable Functions 1.x, you must use `orchestrationClient` instead of the `durableClient` as the trigger type. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 다음은 새 오케스트레이터 함수 인스턴스를 시작하는 언어 관련 샘플입니다.
 
-#### <a name="c-script-sample"></a>C#스크립트 샘플
+#### <a name="c-script-sample"></a>C# Script Sample
 
-다음 샘플에서는 지 속성 오케스트레이션 클라이언트 바인딩을 사용 하 여 큐 트리거 C# 함수에서 새 함수 인스턴스를 시작 하는 방법을 보여 줍니다.
+The following sample shows how to use the durable orchestration client binding to start a new function instance from a queue-triggered C# function:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -349,7 +344,7 @@ public static Task Run(string input, IDurableOrchestrationClient starter)
 ```
 
 > [!NOTE]
-> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
+> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions Versions](durable-functions-versions.md) article.
 
 #### <a name="javascript-sample"></a>JavaScript 샘플
 
@@ -366,51 +361,51 @@ module.exports = async function (context) {
 
 인스턴스 시작에 대한 자세한 내용은 [인스턴스 관리](durable-functions-instance-management.md)에서 찾을 수 있습니다.
 
-## <a name="entity-trigger"></a>엔터티 트리거
+## <a name="entity-trigger"></a>Entity trigger
 
-엔터티 트리거를 사용 하면 [엔터티 함수](durable-functions-entities.md)를 작성할 수 있습니다. 이 트리거는 특정 엔터티 인스턴스에 대 한 이벤트 처리를 지원 합니다.
+Entity triggers allow you to author [entity functions](durable-functions-entities.md). This trigger supports processing events for a specific entity instance.
 
-Azure Functions 용 Visual Studio 도구를 사용 하는 경우 엔터티 트리거는 `EntityTriggerAttribute` .NET 특성을 사용 하 여 구성 됩니다.
+When you use the Visual Studio tools for Azure Functions, the entity trigger is configured using the `EntityTriggerAttribute` .NET attribute.
 
 > [!NOTE]
-> 엔터티 트리거는 Durable Functions 2.x부터 사용할 수 있습니다.
+> Entity triggers are available starting in Durable Functions 2.x.
 
 내부적으로 이 트리거 바인딩은 함수 앱에 대한 기본 스토리지 계정에 있는 일련의 큐를 폴링합니다. 이러한 큐는 확장에 대한 내부 구현 세부 정보이며, 이는 바인딩 속성에서 명시적으로 구성되지 않은 이유입니다.
 
 ### <a name="trigger-behavior"></a>트리거 동작
 
-엔터티 트리거에 대 한 몇 가지 참고 사항은 다음과 같습니다.
+Here are some notes about the entity trigger:
 
-* **단일 스레드**: 단일 디스패처 스레드를 사용 하 여 특정 엔터티에 대 한 작업을 처리 합니다. 여러 메시지를 단일 엔터티로 동시에 보내는 경우 작업은 한 번에 하나씩 처리 됩니다.
-* **포이즌 메시지 처리** -엔터티 트리거에서 포이즌 메시지를 지원 하지 않습니다.
-* **메시지 표시 유형** -엔터티 트리거 메시지가 구성 가능한 기간 동안 큐에서 제거 되 고 보이지 않게 유지 됩니다. 함수 앱이 실행되고 있고 정상으로 유지되는 동안은 이러한 메시지의 가시성이 자동으로 갱신됩니다.
-* **반환 값** -엔터티 함수는 반환 값을 지원 하지 않습니다. 상태를 저장 하거나 다시 오케스트레이션에 값을 전달 하는 데 사용할 수 있는 특정 Api가 있습니다.
+* **Single-threaded**: A single dispatcher thread is used to process operations for a particular entity. If multiple messages are sent to a single entity concurrently, the operations will be processed one-at-a-time.
+* **Poison-message handling** - There is no poison message support in entity triggers.
+* **Message visibility** - Entity trigger messages are dequeued and kept invisible for a configurable duration. 함수 앱이 실행되고 있고 정상으로 유지되는 동안은 이러한 메시지의 가시성이 자동으로 갱신됩니다.
+* **Return values** - Entity functions do not support return values. There are specific APIs that can be used to save state or pass values back to orchestrations.
 
-실행 중에 엔터티에 대 한 모든 상태 변경 내용은 실행이 완료 된 후 자동으로 유지 됩니다.
+Any state changes made to an entity during its execution will be automatically persisted after execution has completed.
 
 ### <a name="trigger-usage-net"></a>트리거 사용(.NET)
 
-모든 엔터티 함수에는 다음 멤버를 포함 하는 `IDurableEntityContext`의 매개 변수 형식이 있습니다.
+Every entity function has a parameter type of `IDurableEntityContext`, which has the following members:
 
-* **EntityName**: 현재 실행 중인 엔터티의 이름입니다.
-* **EntityKey**: 현재 실행 중인 엔터티의 키입니다.
-* **EntityId**: 현재 실행 중인 엔터티의 ID입니다.
-* **OperationName**: 현재 작업의 이름입니다.
-* **Hasstate**: 엔터티가 존재 하는지 여부, 즉 특정 상태를 포함 합니다. 
-* **Getstate\<tstate > ()** : 엔터티의 현재 상태를 가져옵니다. 아직 존재 하지 않는 경우 `default<TState>`으로 만들어지고 초기화 됩니다. `TState` 매개 변수는 기본 또는 JSON serializeable 형식 이어야 합니다. 
-* **Getstate\<tstate > (initfunction)** : 엔터티의 현재 상태를 가져옵니다. 존재 하지 않는 경우 제공 된 `initfunction` 매개 변수를 호출 하 여 생성 됩니다. `TState` 매개 변수는 기본 또는 JSON serializeable 형식 이어야 합니다. 
-* **SetState (arg)** : 엔터티의 상태를 만들거나 업데이트 합니다. `arg` 매개 변수는 JSON-serializeable 개체 또는 기본 형식 이어야 합니다.
-* **Deletestate ()** : 엔터티의 상태를 삭제 합니다. 
-* **Getinput\<TInput > ()** : 현재 작업에 대 한 입력을 가져옵니다. `TInput` 형식 매개 변수는 기본 형식 또는 JSON serializeable 형식 이어야 합니다.
-* **Return (arg)** : 작업을 호출한 오케스트레이션에 값을 반환 합니다. `arg` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
-* **SignalEntity (EntityId, operation, input)** : 엔터티에 단방향 메시지를 보냅니다. `operation` 매개 변수는 null이 아닌 문자열 이어야 하 고 `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
-* **CreateNewOrchestration (orchestratorFunctionName, input)** : 새 오케스트레이션을 시작 합니다. `input` 매개 변수는 기본 또는 JSON serializeable 개체 여야 합니다.
+* **EntityName**: the name of the currently executing entity.
+* **EntityKey**: the key of the currently executing entity.
+* **EntityId**: the ID of the currently executing entity.
+* **OperationName**: the name of the current operation.
+* **HasState**: whether the entity exists, that is, has some state. 
+* **GetState\<TState>()** : gets the current state of the entity. If it does not already exist, it is created and initialized to `default<TState>`. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **GetState\<TState>(initfunction)** : gets the current state of the entity. If it does not already exist, it is created by calling the provided `initfunction` parameter. The `TState` parameter must be a primitive or JSON-serializeable type. 
+* **SetState(arg)** : creates or updates the state of the entity. The `arg` parameter must be a JSON-serializeable object or primitive.
+* **DeleteState()** : deletes the state of the entity. 
+* **GetInput\<TInput>()** : gets the input for the current operation. The `TInput` type parameter must be a primitive or JSON-serializeable type.
+* **Return(arg)** : returns a value to the orchestration that called the operation. The `arg` parameter must be a primitive or JSON-serializeable object.
+* **SignalEntity(EntityId, operation, input)** : sends a one-way message to an entity. The `operation` parameter must be a non-null string, and the `input` parameter must be a primitive or JSON-serializeable object.
+* **CreateNewOrchestration(orchestratorFunctionName, input)** : starts a new orchestration. The `input` parameter must be a primitive or JSON-serializeable object.
 
-`Entity.Current` async-local 속성을 사용 하 여 엔터티 함수에 전달 되는 `IDurableEntityContext` 개체에 액세스할 수 있습니다. 이 방법은 클래스 기반 프로그래밍 모델을 사용 하는 경우에 편리 합니다.
+The `IDurableEntityContext` object passed to the entity function can be accessed using the `Entity.Current` async-local property. This approach is convenient when using the class-based programming model.
 
-### <a name="trigger-sample-c-function-based-syntax"></a>트리거 샘플 (C# 함수 기반 구문)
+### <a name="trigger-sample-c-function-based-syntax"></a>Trigger sample (C# function-based syntax)
 
-다음 코드는 영 속 함수로 구현 된 간단한 *카운터* 엔터티의 예입니다. 이 함수는 각각 정수 상태에서 작동 하는 `add`, `reset` 및 `get`의 세 가지 작업을 정의 합니다.
+다음 코드는 지속성 함수로 구현된 간단한 *Counter* 엔터티의 예제입니다. 이 함수는 각각 정수 상태에서 작동하는 세 가지 작업(`add`, `reset` 및 `get`)을 정의합니다.
 
 ```csharp
 [FunctionName("Counter")]
@@ -431,9 +426,9 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-함수 기반 구문 및 사용 방법에 대 한 자세한 내용은 [함수 기반 구문](durable-functions-dotnet-entities.md#function-based-syntax)을 참조 하세요.
+함수 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [함수 기반 구문](durable-functions-dotnet-entities.md#function-based-syntax)을 참조하세요.
 
-### <a name="trigger-sample-c-class-based-syntax"></a>트리거 샘플 (C# 클래스 기반 구문)
+### <a name="trigger-sample-c-class-based-syntax"></a>Trigger sample (C# class-based syntax)
 
 다음 예제에서는 클래스와 메서드를 사용하여 `Counter` 엔터티를 동일하게 구현합니다.
 
@@ -456,20 +451,20 @@ public class Counter
 }
 ```
 
-이 엔터티의 상태는 카운터의 현재 값을 저장 하는 필드를 포함 하는 `Counter` 형식의 개체입니다. 이 개체를 저장소에 유지 하기 위해 [Json.NET](https://www.newtonsoft.com/json) 라이브러리에 의해 직렬화 및 deserialize 됩니다. 
+이 엔터티의 상태는 카운터의 현재 값을 저장하는 필드가 포함된 `Counter` 형식의 개체입니다. 이 개체를 스토리지에 유지하기 위해 [Json.NET](https://www.newtonsoft.com/json) 라이브러리에서 직렬화 및 역직렬화합니다. 
 
-클래스 기반 구문 및 사용 방법에 대 한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조 하세요.
+클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
 
 > [!NOTE]
-> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 *으로* 선언해야`static` 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
+> 엔터티 클래스를 사용하는 경우 `[FunctionName]` 특성이 있는 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 진입점 메서드를 사용하면 여러 개체가 초기화되고 잠재적으로 정의되지 않은 다른 동작이 발생할 수 있습니다.
 
-엔터티 클래스에는 바인딩과 .NET 종속성 주입을 상호 작용 하기 위한 특수 메커니즘이 있습니다. 자세한 내용은 [엔터티 생성](durable-functions-dotnet-entities.md#entity-construction)을 참조 하세요.
+Entity classes have special mechanisms for interacting with bindings and .NET dependency injection. For more information, see [Entity construction](durable-functions-dotnet-entities.md#entity-construction).
 
-### <a name="trigger-sample-javascript"></a>트리거 샘플 (JavaScript)
+### <a name="trigger-sample-javascript"></a>Trigger sample (JavaScript)
 
-다음 코드는 JavaScript로 작성 된 내구성이 있는 함수로 구현 된 간단한 *Counter* 엔터티의 예입니다. 이 함수는 각각 정수 상태에서 작동 하는 `add`, `reset` 및 `get`의 세 가지 작업을 정의 합니다.
+The following code is an example of a simple *Counter* entity implemented as a durable function written in JavaScript. 이 함수는 각각 정수 상태에서 작동하는 세 가지 작업(`add`, `reset` 및 `get`)을 정의합니다.
 
-**함수. json**
+**function.json**
 ```json
 {
   "bindings": [
@@ -505,18 +500,18 @@ module.exports = df.entity(function(context) {
 ```
 
 > [!NOTE]
-> 지 속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0** 시작 하 여 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
 
-## <a name="entity-client"></a>엔터티 클라이언트
+## <a name="entity-client"></a>Entity client
 
-엔터티 클라이언트 바인딩을 사용 하면 [엔터티 함수](#entity-trigger)를 비동기적으로 트리거할 수 있습니다. 이러한 함수를 [클라이언트 함수](durable-functions-types-features-overview.md#client-functions)라고도 합니다.
+The entity client binding enables you to asynchronously trigger [entity functions](#entity-trigger). These functions are sometimes referred to as [client functions](durable-functions-types-features-overview.md#client-functions).
 
-Visual Studio를 사용 하는 경우 `DurableClientAttribute` .NET 특성을 사용 하 여 엔터티 클라이언트에 바인딩할 수 있습니다.
+If you're using Visual Studio, you can bind to the entity client by using the `DurableClientAttribute` .NET attribute.
 
 > [!NOTE]
-> `[DurableClientAttribute]`를 사용 하 여 [오케스트레이션 클라이언트](#orchestration-client)에 바인딩할 수도 있습니다.
+> The `[DurableClientAttribute]` can also be used to bind to the [orchestration client](#orchestration-client).
 
-개발을 위해 스크립트 언어 (예: *csx* 또는 *.js* 파일)를 사용 하는 경우 엔터티 트리거는 함수 `bindings` 배열의 다음 json 개체에 의해 정의 됩니다 *. json*:
+If you're using scripting languages (for example, *.csx* or *.js* files) for development, the entity trigger is defined by the following JSON object in the `bindings` array of *function.json*:
 
 ```json
 {
@@ -528,27 +523,27 @@ Visual Studio를 사용 하는 경우 `DurableClientAttribute` .NET 특성을 �
 }
 ```
 
-* `taskHub` - 여러 함수 앱에서 동일한 스토리지 계정을 공유하지만 서로 격리되어야 하는 시나리오에 사용됩니다. 지정하지 않으면 `host.json`의 기본값이 사용됩니다. 이 값은 대상 엔터티 함수에서 사용 하는 값과 일치 해야 합니다.
-* `connectionName` - 스토리지 계정 연결 문자열을 포함하는 앱 설정의 이름입니다. 이 연결 문자열이 나타내는 저장소 계정은 대상 엔터티 함수에서 사용 하는 것과 동일 해야 합니다. 지정하지 않으면 함수 앱에 대한 기본 스토리지 계정 연결 문자열이 사용됩니다.
+* `taskHub` - 여러 함수 앱에서 동일한 스토리지 계정을 공유하지만 서로 격리되어야 하는 시나리오에 사용됩니다. 지정하지 않으면 `host.json`의 기본값이 사용됩니다. This value must match the value used by the target entity functions.
+* `connectionName` - 스토리지 계정 연결 문자열을 포함하는 앱 설정의 이름입니다. The storage account represented by this connection string must be the same one used by the target entity functions. 지정하지 않으면 함수 앱에 대한 기본 스토리지 계정 연결 문자열이 사용됩니다.
 
 > [!NOTE]
-> 대부분의 경우 선택적 속성을 생략 하 고 기본 동작을 사용 하는 것이 좋습니다.
+> In most cases, we recommend that you omit the optional properties and rely on the default behavior.
 
-### <a name="entity-client-usage"></a>엔터티 클라이언트 사용
+### <a name="entity-client-usage"></a>Entity client usage
 
-일반적으로 .NET 함수에서 `IDurableEntityClient`에 바인딩합니다 .이는 영 속 엔터티에서 지 원하는 모든 클라이언트 Api에 대 한 모든 권한을 제공 합니다. 엔터티와 오케스트레이션의 클라이언트 Api에 대 한 액세스를 제공 하는 `IDurableOrchestrationClient` 인터페이스에 바인딩할 수도 있습니다. 클라이언트 개체에 대한 API는 다음과 같습니다.
+In .NET functions, you typically bind to `IDurableEntityClient`, which gives you full access to all client APIs supported by Durable Entities. You can also bind to the `IDurableOrchestrationClient` interface, which provides access to client APIs for both entities and orchestrations. 클라이언트 개체에 대한 API는 다음과 같습니다.
 
-* **ReadEntityStateAsync\<t >** : 엔터티 상태를 읽습니다. 대상 엔터티가 있는지 여부를 나타내는 응답을 반환 하 고, 그럴 경우 상태를 반환 합니다.
-* **SignalEntityAsync**: 엔터티에 단방향 메시지를 보내고 큐에 대기 될 때까지 기다립니다.
+* **ReadEntityStateAsync\<T>** : reads the state of an entity. It returns a response that indicates whether the target entity exists, and if so, what its state is.
+* **SignalEntityAsync**: sends a one-way message to an entity, and waits for it to be enqueued.
 
-신호를 보내기 전에 대상 엔터티를 만들 필요는 없습니다. 신호를 처리 하는 엔터티 함수 내에서 엔터티 상태를 만들 수 있습니다.
+There is no need to create the target entity before sending a signal - the entity state can be created from within the entity function that handles the signal.
 
 > [!NOTE]
-> 클라이언트에서 전송 된 "신호"는 방금 큐에 넣은 후 나중에 비동기식으로 처리 된다는 것을 이해 하는 것이 중요 합니다. 특히 `SignalEntityAsync`은 일반적으로 엔터티가 작업을 시작 하기 전에를 반환 하며 반환 값을 반환 하거나 예외를 관찰할 수 없습니다. 워크플로의 경우와 같이 더 강력한 보증이 필요한 경우에는 *orchestrator 함수* 를 사용 해야 합니다 .이 함수를 사용 하면 엔터티 작업이 완료 될 때까지 기다릴 수 있으며 반환 값을 처리 하 고 예외를 관찰할 수 있습니다.
+> It's important to understand that the "signals" sent from the client are simply enqueued, to be processed asynchronously at a later time. In particular, the `SignalEntityAsync` usually returns before the entity even starts the operation, and it is not possible to get back the return value or observe exceptions. If stronger guarantees are required (e.g. for workflows), *orchestrator functions* should be used, which can wait for entity operations to complete, and can process return values and observe exceptions.
 
-### <a name="example-client-signals-entity-directly---c"></a>예: 클라이언트에서 직접 엔터티 신호 전달-C#
+### <a name="example-client-signals-entity-directly---c"></a>Example: client signals entity directly - C#
 
-다음은 "Counter" 엔터티를 호출 하는 큐 트리거 함수 예제입니다.
+Here is an example queue-triggered function that invokes a "Counter" entity.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -563,9 +558,9 @@ public static Task Run(
 }
 ```
 
-### <a name="example-client-signals-entity-via-interface---c"></a>예: 클라이언트 신호 엔터티 via 인터페이스-C#
+### <a name="example-client-signals-entity-via-interface---c"></a>Example: client signals entity via interface - C#
 
-가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) 하는 것이 좋습니다. 예를 들어 앞에서 설명한 `Counter` 엔터티에서 다음과 같이 정의 된 `ICounter` 인터페이스를 구현 했다고 가정 합니다.
+Where possible, we recommend [accessing entities through interfaces](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces) because it provides more type checking. For example, suppose the `Counter` entity mentioned earlier implemented an `ICounter` interface, defined as follows:
 
 ```csharp
 public interface ICounter
@@ -581,7 +576,7 @@ public class Counter : ICounter
 }
 ```
 
-클라이언트 코드는 `SignalEntityAsync<ICounter>`을 사용 하 여 형식이 안전한 프록시를 생성할 수 있습니다.
+Client code can then use `SignalEntityAsync<ICounter>` to generate a type-safe proxy:
 
 ```csharp
 [FunctionName("UserDeleteAvailable")]
@@ -595,18 +590,18 @@ public static async Task AddValueClient(
 }
 ```
 
-`proxy` 매개 변수는 `Add`에 대 한 호출을 `SignalEntityAsync`에 대 한 해당 (형식화 되지 않은) 호출로 내부적으로 변환 하는 `ICounter`의 동적으로 생성 된 인스턴스입니다.
+The `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Add` into the equivalent (untyped) call to `SignalEntityAsync`.
 
 > [!NOTE]
-> `SignalEntityAsync` Api는 단방향 작업을 나타냅니다. 엔터티 인터페이스가 `Task<T>`을 반환 하는 경우 `T` 매개 변수의 값은 항상 null 이거나 `default`가 됩니다.
+> The `SignalEntityAsync` APIs represent one-way operations. If an entity interfaces returns `Task<T>`, the value of the `T` parameter will always be null or `default`.
 
-특히 값이 반환 되지 않으므로 `Get` 연산을 알리는 것은 의미가 없습니다. 대신 클라이언트는 `ReadStateAsync` 중 하나를 사용 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다.
+In particular, it does not make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation.
 
-### <a name="example-client-signals-entity---javascript"></a>예: 클라이언트 신호 엔터티-JavaScript
+### <a name="example-client-signals-entity---javascript"></a>Example: client signals entity - JavaScript
 
-다음은 JavaScript의 "카운터" 엔터티에 신호를 전달 하는 큐 트리거 함수 예제입니다.
+Here is an example queue-triggered function that signals a "Counter" entity in JavaScript.
 
-**함수. json**
+**function.json**
 ```json
 {
     "bindings": [
@@ -638,7 +633,7 @@ module.exports = async function (context) {
 ```
 
 > [!NOTE]
-> 지 속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0** 시작 하 여 JavaScript에서 사용할 수 있습니다.
+> 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다.
 
 <a name="host-json"></a>
 ## <a name="hostjson-settings"></a>host.json 설정
@@ -648,4 +643,4 @@ module.exports = async function (context) {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [인스턴스 관리에 대 한 기본 제공 HTTP API 참조](durable-functions-http-api.md)
+> [Built-in HTTP API reference for instance management](durable-functions-http-api.md)

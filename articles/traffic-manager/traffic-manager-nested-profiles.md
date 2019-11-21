@@ -1,6 +1,6 @@
 ---
 title: Azure의 중첩 Traffic Manager 프로필
-titlesuffix: Azure Traffic Manager
+titleSuffix: Azure Traffic Manager
 description: 이 문서에서는 Azure Traffic Manager의 ‘중첩 프로필’ 기능에 대해 설명합니다.
 services: traffic-manager
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/22/2018
 ms.author: allensu
-ms.openlocfilehash: 8815d852ad9f8a1823e1c21cc2d233409518da33
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: a5444c05b59196f53c670a2ae782f2bda5527c54
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68333799"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227745"
 ---
 # <a name="nested-traffic-manager-profiles"></a>중첩 Traffic Manager 프로필
 
@@ -30,7 +30,7 @@ Traffic Manager에는 Traffic Manager가 각 최종 사용자의 트래픽을 �
 
 ## <a name="example-1-combining-performance-and-weighted-traffic-routing"></a>예제 1: '성능' 및 '가중' 트래픽 라우팅 결합
 
-미국 서부, 유럽 서부 및 동아시아 Azure 지역에 애플리케이션을 배포했다고 가정해 보겠습니다. Traffic Manager의 '성능' 트래픽 라우팅 방법을 사용하여 사용자에게 가장 가까운 지역으로 트래픽을 분산합니다.
+애플리케이션이 미국 서부, 유럽 서부 및 동아시아 등의 Azure 지역에 배포되었다고 가정합니다. Traffic Manager의 '성능' 트래픽 라우팅 방법을 사용하여 사용자에게 가장 가까운 지역으로 트래픽을 분산합니다.
 
 ![단일 Traffic Manager 프로필][4]
 
@@ -85,7 +85,7 @@ Traffic Manager는 적극적으로 각 서비스 엔드포인트의 상태를 �
 
 ![사용자 지정 지역 내 트래픽 분산을 사용하는 '성능' 트래픽 라우팅][8]
 
-## <a name="example-5-per-endpoint-monitoring-settings"></a>예제 5: 엔드포인트별 모니터링 설정
+## <a name="example-5-per-endpoint-monitoring-settings"></a>예제 5: 엔드포인트 기준 모니터링 설정
 
 Traffic Manager를 사용하여 기존 온-프레미스 웹 사이트에서 Azure에서 호스트되는 새로운 클라우드 기반 버전으로 원활하게 트래픽을 마이그레이션하고 있다고 가정하겠습니다. 기존 사이트의 경우 홈페이지 URI를 사용하여 사이트 상태를 모니터링하려고 합니다. 하지만 새로운 클라우드 기반 버전의 경우에는 추가 검사를 포함하는 사용자 지정 모니터링 페이지(경로 '/monitor.aspx')를 구현합니다.
 
@@ -97,17 +97,17 @@ Traffic Manager 프로필에서 모니터링 설정은 단일 프로필 내의 �
 
 ## <a name="faqs"></a>FAQ
 
-* [중첩 프로필을 구성 어떻게 할까요??](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
+* [How do I configure nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#traffic-manager-endpoint-monitoring)
 
-* [트래픽 관리자가 지 원하는 중첩 계층은 몇 개입니까?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
+* [How many layers of nesting does Traffic Manger support?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-many-layers-of-nesting-does-traffic-manger-support)
 
-* [동일한 Traffic Manager 프로필에서 다른 끝점 형식을 중첩 된 자식 프로필과 혼합할 수 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
+* [Can I mix other endpoint types with nested child profiles, in the same Traffic Manager profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#can-i-mix-other-endpoint-types-with-nested-child-profiles-in-the-same-traffic-manager-profile)
 
-* [중첩 프로필에 대 한 청구 모델은 어떻게 적용 되나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
+* [How does the billing model apply for Nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-the-billing-model-apply-for-nested-profiles)
 
-* [중첩 프로필에 대 한 성능에 영향이 있나요?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
+* [Is there a performance impact for nested profiles?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#is-there-a-performance-impact-for-nested-profiles)
 
-* [부모 프로필에서 중첩 된 끝점의 상태를 계산 Traffic Manager는 방법](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
+* [How does Traffic Manager compute the health of a nested endpoint in a parent profile?](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs#how-does-traffic-manager-compute-the-health-of-a-nested-endpoint-in-a-parent-profile)
 
 ## <a name="next-steps"></a>다음 단계
 

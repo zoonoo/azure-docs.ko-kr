@@ -1,18 +1,14 @@
 ---
-title: 패키지에서 Azure Functions 실행 | Microsoft Docs
+title: Run your Azure Functions from a package
 description: 함수 앱 프로젝트 파일을 포함하는 배포 패키지 파일을 탑재하여 Azure Functions 런타임이 함수를 실행하게 합니다.
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 07/15/2019
-ms.author: glenga
-ms.openlocfilehash: dc7f2b6c6e00477b6326e3277cb195aa0de6868c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5d3465e0899f7e5eab213bdb6234313128b7ec8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176414"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230348"
 ---
 # <a name="run-your-azure-functions-from-a-package-file"></a>패키지에서 Azure Functions 실행
 
@@ -21,7 +17,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 이 문서에서는 패키지에서 함수를 실행하는 이점에 대해 설명합니다. 또한 함수 앱에서 이 기능을 사용하도록 설정하는 방법을 보여줍니다.
 
 > [!IMPORTANT]
-> [프리미엄 계획](functions-scale.md#premium-plan)에서 Linux 함수 앱에 함수를 배포할 때는 항상 패키지 파일에서를 실행 하 고 [Azure Functions Core Tools를 사용 하 여 앱을 게시](functions-run-local.md#project-file-deployment)해야 합니다.
+> When deploying your functions to a Linux function app in a [Premium plan](functions-scale.md#premium-plan), you should always run from the package file and [publish your app using the Azure Functions Core Tools](functions-run-local.md#project-file-deployment).
 
 ## <a name="benefits-of-running-from-a-package-file"></a>패키지 파일에서 실행하는 이점
   
@@ -41,11 +37,11 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 | Value  | 설명  |
 |---------|---------|
-| **`1`**  | Windows에서 실행 되는 함수 앱에 권장 됩니다. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. [Zip 배포를 사용 하 여 배포](#integration-with-zip-deployment)하지 않는 경우이 옵션을 사용 하려면 폴더에 `packagename.txt` 이라는 파일이 있어야 합니다. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
-|**`<URL>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. URL을 지정 하는 경우 업데이트 된 패키지를 게시 한 후에도 [트리거를 동기화](functions-deployment-technologies.md#trigger-syncing) 해야 합니다. |
+| **`1`**  | Recommended for function apps running on Windows. 함수 앱의 `d:\home\data\SitePackages` 폴더의 패키지 파일에서 실행합니다. If not [deploying with zip deploy](#integration-with-zip-deployment), this option requires the folder to also have a file named `packagename.txt`. 이 파일에는 공백 없이 폴더에 패키지 파일 이름만 포함됩니다. |
+|**`<URL>`**  | 실행하려는 특정 패키지 파일의 위치입니다. Blob Storage를 사용하는 경우 [SAS(공유 액세스 서명)](../vs-azure-tools-storage-manage-with-storage-explorer.md#generate-a-sas-in-storage-explorer)가 포함된 프라이빗 컨테이너를 사용하여 Functions 런타임이 패키지에 액세스할 수 있게 해야 합니다. [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)를 사용하여 Blob 스토리지 계정에 패키지 파일을 업로드할 수 있습니다. When you specify a URL, you must also [sync triggers](functions-deployment-technologies.md#trigger-syncing) after you publish an updated package. |
 
 > [!CAUTION]
-> Windows에서 함수 앱을 실행 하는 경우 외부 URL 옵션의 콜드 시작 성능이 저하 됩니다. Windows에 함수 앱을 배포 하는 경우 `WEBSITE_RUN_FROM_PACKAGE`를 `1`으로 설정 하 고 zip 배포를 사용 하 여 게시 해야 합니다.
+> When running a function app on Windows, the external URL option yields worse cold-start performance. When deploying your function app to Windows, you should set `WEBSITE_RUN_FROM_PACKAGE` to `1` and publish with zip deployment.
 
 다음은 Azure Blob Storage에 호스트된 .zip 파일에서 실행되도록 구성된 함수 앱을 보여줍니다.
 
@@ -56,7 +52,7 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 ## <a name="integration-with-zip-deployment"></a>Zip 배포와 통합
 
-[Zip 배포][Zip deployment for Azure Functions] 는 함수 앱 프로젝트를 `wwwroot` 디렉터리에 배포할 수 있는 Azure App Service의 기능입니다. 프로젝트는 .zip 배포 파일로 패키지됩니다. 패키지를 `d:\home\data\SitePackages` 폴더에 배포하는 데 동일한 API를 사용할 수 있습니다. `1`의 `WEBSITE_RUN_FROM_PACKAGE` 앱 설정 값을 사용하여 Zip 배포 API는 `d:\home\site\wwwroot`에 파일을 추출하지 않고 `d:\home\data\SitePackages` 폴더에 패키지를 복사합니다. 또한 `packagename.txt` 파일도 만듭니다. 다시 시작 후 패키지가 읽기 전용 파일 시스템으로 `wwwroot`에 탑재 됩니다. Zip 배포에 대한 자세한 내용은 [Azure Functions에 대한 Zip 배포](deployment-zip-push.md)를 참조하세요.
+[Zip deployment][Zip deployment for Azure Functions] is a feature of Azure App Service that lets you deploy your function app project to the `wwwroot` directory. 프로젝트는 .zip 배포 파일로 패키지됩니다. 패키지를 `d:\home\data\SitePackages` 폴더에 배포하는 데 동일한 API를 사용할 수 있습니다. `1`의 `WEBSITE_RUN_FROM_PACKAGE` 앱 설정 값을 사용하여 Zip 배포 API는 `d:\home\site\wwwroot`에 파일을 추출하지 않고 `d:\home\data\SitePackages` 폴더에 패키지를 복사합니다. 또한 `packagename.txt` 파일도 만듭니다. After a restart, the package is mounted to `wwwroot` as a read-only filesystem. Zip 배포에 대한 자세한 내용은 [Azure Functions에 대한 Zip 배포](deployment-zip-push.md)를 참조하세요.
 
 ## <a name="adding-the-website_run_from_package-setting"></a>WEBSITE_RUN_FROM_PACKAGE 설정 추가
 
@@ -64,10 +60,10 @@ Azure의 함수 앱의 배포 패키지 파일에서 직접 함수를 실행할 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-- 패키지에서 실행 `wwwroot` 읽기 전용 이므로이 디렉터리에 파일을 쓸 때 오류가 발생 합니다.
-- Tar 및 gzip 형식은 지원 되지 않습니다.
-- 이 기능은 로컬 캐시로 구성 되지 않습니다.
-- 콜드 부팅 성능을 향상 시키려면 로컬 Zip 옵션 (`WEBSITE_RUN_FROM_PACKAGE`= 1)을 사용 합니다.
+- Run From Package makes `wwwroot` read-only, so you will receive an error when writing files to this directory.
+- Tar and gzip formats are not supported.
+- This feature does not compose with local cache.
+- For improved cold-start performance, use the local Zip option (`WEBSITE_RUN_FROM_PACKAGE`=1).
 
 ## <a name="next-steps"></a>다음 단계
 

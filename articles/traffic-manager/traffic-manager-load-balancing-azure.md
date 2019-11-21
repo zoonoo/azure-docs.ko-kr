@@ -1,23 +1,23 @@
 ---
 title: Azure에서 부하 분산 서비스 사용 | Microsoft Docs
-description: 이 자습서에서는 Azure 부하 분산 포트폴리오를 사용하여 시나리오를 만드는 방법을 보여줍니다. Traffic Manager, Application Gateway 및 Load Balancer.
+description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여줍니다.
 services: traffic-manager
 documentationcenter: ''
-author: liumichelle
-manager: dkays
+author: asudbring
+manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: limichel
-ms.openlocfilehash: 906e1840f35ab14997c727551b893a0219eb78d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: allensu
+ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60330522"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227780"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "60330522"
 
 Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는 방법을 관리하는 여러 서비스를 제공합니다. 사용자의 요구 사항에 따라 이러한 서비스를 개별적으로 사용하거나 해당 메서드를 결합하여 최적의 솔루션을 빌드할 수 있습니다.
 
-이 자습서에서는 먼저 고객 사용 사례를 정의하고 다음과 같은 Azure 부하 분산 포트폴리오를 사용하여 보다 강력하게 성능을 향상시키는 방법을 알아봅니다. Traffic Manager, Application Gateway 및 Load Balancer. 그런 다음 지리적으로 중복되고 VM에 트래픽을 분산하며 다양한 유형의 요청을 관리하도록 하는 배포를 만들기 위한 단계별 지침을 제공합니다.
+이 자습서에서는 먼저 고객 사용 사례를 정의하고 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 보다 강력하게 성능을 향상시키는 방법을 알아봅니다. 그런 다음 지리적으로 중복되고 VM에 트래픽을 분산하며 다양한 유형의 요청을 관리하도록 하는 배포를 만들기 위한 단계별 지침을 제공합니다.
 
 개념 수준에서 이러한 서비스는 각각 부하 분산 계층 구조에서 고유한 역할을 담당합니다.
 
@@ -50,7 +50,7 @@ Microsoft Azure는 네트워크 트래픽을 분산하고 부하를 분산하는
 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 사이트에서 다음과 같은 디자인 목표를 달성할 수 있습니다.
 
 * **다중 지역 중복**: 한 지역의 작동이 중단되더라도 Traffic Manager에서는 애플리케이션 소유자의 개입 없이 가장 가까운 지역으로 트래픽을 원활하게 라우팅합니다.
-* **대기 시간 감소**: Traffic Manager에서 고객을 자동으로 가장 가까운 지역으로 다이렉트하기 때문에 고객이 웹 페이지 콘텐츠를 요청할 때 대기 시간이 줄어들게 됩니다.
+* **대기 시간 감소**: Azure Traffic Manager에서 고객을 자동으로 가장 가까운 지역으로 다이렉트하기 때문에 고객이 웹 페이지 콘텐츠를 요청할 때 대기 시간이 줄어들게 됩니다.
 * **독립 확장성**: 웹 애플리케이션 워크로드를 콘텐츠 형식에 따라 구분했으므로 애플리케이션 소유자는 서로 독립적인 요청 워크로드를 확장할 수 있습니다. Application Gateway는 지정된 규칙 및 애플리케이션의 상태에 따라 트래픽을 적당한 풀로 라우팅되게 합니다.
 * **내부 부하 분산**: Load Balancer가 고가용성 클러스터 앞에 배치되기 때문에 데이터베이스에 대한 활성 및 정상 엔드포인트만이 애플리케이션에 노출됩니다. 또한 데이터베이스 관리자는 프런트 엔드 애플리케이션과 독립적인 클러스터 전반에 활성 및 수동 복제본을 배포하여 워크로드를 최적화할 수 있습니다. Load Balancer는 고가용성 클러스터에 연결을 제공하고 정상적인 데이터베이스만 연결 요청을 받는지 확인합니다.
 
@@ -69,25 +69,25 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 2. 다음 기본 정보를 입력하세요.
 
    * **이름**: Traffic Manager 프로필에 DNS 접두사 이름을 지정합니다.
-   * **라우팅 방법**: 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
+   * **라우팅 정책**에서 트래픽 라우팅 메서드 정책을 선택합니다. 메서드에 대한 자세한 내용은 [Traffic Manager 트래픽 라우팅 메서드 정보](traffic-manager-routing-methods.md)를 참조하세요.
    * **구독**: 프로필을 포함하는 구독을 선택합니다.
-   * **리소스 그룹**: 프로필 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
-   * **리소스 그룹 위치**: Traffic Manager 서비스는 글로벌이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
+   * **리소스 그룹**: 프로필을 포함하는 리소스 그룹을 선택합니다. 새 리소스 그룹이나 기존 리소스 그룹을 선택할 수 있습니다.
+   * **리소스 그룹 위치**: Traffic Manager 서비스는 전역적이며 위치에 묶여 있지 않습니다. 그러나 Traffic Manager 프로필과 연결된 메타데이터가 있는 그룹의 지역을 지정해야 합니다. 이 위치는 프로필의 런타임 가용성에 영향을 주지 않습니다.
 
 3. Traffic Manager 프로필을 생성하려면 **만들기**를 클릭합니다.
 
    !["Traffic Manager 만들기" 블레이드](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
-### <a name="step-2-create-the-application-gateways"></a>2단계: 애플리케이션 게이트웨이 만들기
+### <a name="step-2-create-the-application-gateways"></a>2단계: Application Gateway 만들기
 
 1. Azure Portal의 왼쪽 창에서 **리소스 만들기** > **네트워킹** > **Application Gateway**를 클릭합니다.
 2. Application Gateway에 대한 기본 정보를 입력합니다.
 
-   * **이름**: 애플리케이션 게이트웨이의 이름입니다.
-   * **SKU 크기**: 애플리케이션 게이트웨이의 크기이며 소형, 중형 및 대형을 사용 가능합니다.
-   * **인스턴트 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
-   * **리소스 그룹**: 애플리케이션 게이트웨이를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
-   * **Location**: 애플리케이션 게이트웨이의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
+   * **이름**: Application Gateway의 이름입니다.
+   * **SKU 크기**:Application Gateway의 크기이며 소형, 중형 및 대형을 사용 가능합니다.
+   * **인스턴스 개수**: 인스턴스의 수이며 2에서 10사이의 값입니다.
+   * **리소스 그룹**: Application Gateway를 보유하는 리소스 그룹입니다. 기존 리소스 그룹이나 새 리소스 그룹을 선택할 수 있습니다.
+   * **위치**: Application Gateway의 지역이며 리소스 그룹과 동일한 위치입니다. 위치는 가상 네트워크와 공용 IP가 게이트웨이와 동일한 위치에 있어야 하므로 중요합니다.
 3. **확인**을 클릭합니다.
 4. Application Gateway에 대한 가상 네트워크, 서브넷, 프런트 엔드 IP 및 수신기 구성을 정의합니다. 이 시나리오에서 프런트 엔드 IP 주소는 **공용**이며 따라서 나중에 Traffic Manager 프로필에 엔드포인트로 추가할 수 있습니다.
 5. 다음 옵션 중 하나를 사용하여 수신기를 구성합니다.
@@ -114,24 +114,24 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
    기본 설정:
 
-   + **이름**: 포털에서 액세스할 수 있는 규칙의 식별 이름입니다.
+   + **이름**: 포털에서 액세스할 수 있는 규칙의 이름입니다.
    + **수신기**: 규칙에 사용되는 수신기입니다.
    + **기본 백 엔드 풀**: 기본 규칙에 사용할 백 엔드 풀입니다.
    + **기본 HTTP 설정**: 기본 규칙에 사용할 HTTP 설정입니다.
 
    패스 기반 규칙:
 
-   + **이름**: 경로 기반 규칙의 식별 이름입니다.
+   + **이름**: 경로 기반 규칙의 이름입니다.
    + **경로**: 트래픽 전달에 사용되는 경로 규칙입니다.
    + **백 엔드 풀**: 이 규칙에 사용할 백 엔드 풀입니다.
    + **HTTP 설정**: 이 규칙에 사용할 HTTP 설정입니다.
 
    > [!IMPORTANT]
-   > 경로: 유효한 경로는 "/"로 시작해야 합니다. 와일드 카드 "\*"는 끝에만 허용됩니다. 사용 가능한 예는 /xyz, /xyz\* 또는 /xyz/\*입니다.
+   > 패스: 유효한 패스는 "/"로 시작해야 합니다. 와일드 카드 "\*"는 끝에만 허용됩니다. 사용 가능한 예는 /xyz, /xyz\* 또는 /xyz/\*입니다.
 
    ![Application Gateway "경로 기반 규칙 추가" 블레이드](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
-### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>3단계: Traffic Manager 엔드포인트에 애플리케이션 게이트웨이 추가
+### <a name="step-3-add-application-gateways-to-the-traffic-manager-endpoints"></a>3단계: Traffic Manager 엔드포인트에 Application Gateway 추가
 
 이 시나리오에서 Traffic Manager는 다른 지역에 있는 Application Gateway(위의 단계에서 구성됨)에 연결됩니다. Application Gateway를 구성했으므로 다음 단계에서는 Traffic Manager 프로필에 연결합니다.
 
@@ -144,11 +144,11 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
    * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트**를 선택합니다.
    * **이름**: 엔드포인트의 이름을 입력합니다.
-   * **대상 리소스 종류**: **공용 IP 주소**를 선택한 다음, **대상 리소스**에서 앞서 구성한 애플리케이션 게이트웨이의 공용 IP를 선택합니다.
+   * **대상 리소스 유형**: **공용 IP 주소**를 선택한 다음, **대상 리소스**에서 앞서 구성한 Application Gateway의 공용 IP를 선택합니다.
 
    ![Traffic Manager “엔드포인트 추가”](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
-4. 이제 Traffic Manager 프로필의 DNS로 액세스하여 설정을 테스트할 수 있습니다(이 예제의 경우: TrafficManagerScenario.trafficmanager.net). 요청을 다시 전송하고 다른 지역에서 만든 VM 및 웹 서버를 내보내거나 가져오고 Traffic Manager 프로필 설정을 변경하여 사용자 설정을 테스트할 수 있습니다.
+4. 이제 Traffic Manager 프로필의 DNS로 액세스하여 사용자의 설정을 테스트할 수 있습니다(이 경우 TrafficManagerScenario.trafficmanager.net). 요청을 다시 전송하고 다른 지역에서 만든 VM 및 웹 서버를 내보내거나 가져오고 Traffic Manager 프로필 설정을 변경하여 사용자 설정을 테스트할 수 있습니다.
 
 ### <a name="step-4-create-a-load-balancer"></a>4단계: 부하 분산 장치 만들기
 

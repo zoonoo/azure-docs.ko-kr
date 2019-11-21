@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 80ad38856686229c259730bb4e4a8fcd38d5df4f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d6b65b76138cb180ab105631ebc0f19b7d38f206
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677773"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226530"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Azure Monitor에서 로그 메트릭 경고 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "71677773"
 
 Azure Monitor는 [클래식 경고](../../azure-monitor/platform/alerts-classic-portal.md)보다 이점이 있는 [메트릭 경고 유형](../../azure-monitor/platform/alerts-metric-near-real-time.md)을 지원합니다. [다양한 Azure 서비스](../../azure-monitor/platform/metrics-supported.md)에 대해 메트릭을 사용할 수 있습니다. 이 문서에서는 리소스(`Microsoft.OperationalInsights/workspaces`)의 하위 집합을 사용하는 방법에 대해 설명합니다.
 
-Azure 또는 온-프레미스의 리소스를 포함하여 [로그]에서 [메트릭]의 일부인 메트릭으로 추출된 메트릭 경고를 인기 있는 Log Analytics 로그에서 사용할 수 있습니다. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
+You can use metric alerts on popular Log Analytics logs extracted as metrics as part of Metrics from Logs including resources in Azure or on-premises. 지원되는 Log Analytics 솔루션은 다음과 같습니다.
 
 - Windows 및 Linux 컴퓨터에 대한 [성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md)
 - [에이전트 상태에 대한 하트비트 레코드](../../azure-monitor/insights/solution-agenthealth.md)
@@ -56,8 +56,8 @@ Azure에서 **로그 메트릭 경고**를 사용하면 쿼리 기반 [로그 �
 Log Analytics 데이터에서 수집된 로그에 대한 메트릭이 작동하려면 다음을 설정하여 사용할 수 있어야 합니다.
 
 1. **활성 Log Analytics 작업 영역**: 유효한 활성 Log Analytics 작업 영역이 있어야 합니다. 자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../azure-monitor/learn/quick-create-workspace.md)를 참조하세요.
-2. **Log Analytics 작업 영역에 대한 에이전트 구성**: Azure VM 및/또는 온-프레미스 VM에서 이전 단계에서 사용된 Log Analytics 작업 영역으로 데이터를 보내도록 에이전트를 구성해야 합니다. 자세한 내용은 [Log Analytics - 에이전트 개요](../../azure-monitor/platform/agents-overview.md)를 참조하세요.
-3. **지원되는 Log Analytics 솔루션 설치**: Log Analytics 솔루션에서 Log Analytics 작업 영역으로 데이터를 보내도록 구성해야 합니다. 지원되는 솔루션은 [Windows 및 Linux에 대한 성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md), [에이전트 상태에 대한 하트비트 레코드](../../azure-monitor/insights/solution-agenthealth.md), [업데이트 관리](../../automation/automation-update-management.md) 및 [이벤트 데이터](../../azure-monitor/platform/data-sources-windows-events.md)입니다.
+2. **Agent is configured for Log Analytics Workspace**: Agent needs to be configured for Azure VMs (and/or) on-premises VMs to send data into the Log Analytics Workspace used in earlier step. 자세한 내용은 [Log Analytics - 에이전트 개요](../../azure-monitor/platform/agents-overview.md)를 참조하세요.
+3. **Supported Log Analytics Solutions is installed**: Log Analytics solution should be configured and sending data into Log Analytics workspace - supported solutions are [Performance counters for Windows & Linux](../../azure-monitor/platform/data-sources-performance-counters.md), [Heartbeat records for Agent Health](../../azure-monitor/insights/solution-agenthealth.md), [Update management](../../automation/automation-update-management.md), and [Event data](../../azure-monitor/platform/data-sources-windows-events.md).
 4. **로그를 보내도록 Log Analytics 솔루션 구성**: Log Analytcis 솔루션은 [Log Analytics 작업 영역에 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftoperationalinsightsworkspaces)에 해당하는 필수 로그/데이터를 사용하도록 설정해야 합니다. 예를 들어 *% 사용 가능한 메모리* 카운터는 먼저 [성능 카운터](../../azure-monitor/platform/data-sources-performance-counters.md) 솔루션에 구성해야 합니다.
 
 ## <a name="configuring-metric-alert-for-logs"></a>로그 메트릭 경고 구성

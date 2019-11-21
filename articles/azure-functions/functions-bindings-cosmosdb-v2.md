@@ -1,25 +1,20 @@
 ---
 title: Functions 2.x의 Azure Cosmos DB 바인딩
 description: Azure Functions에서 Azure Cosmos DB 트리거 및 바인딩을 사용하는 방법을 파악합니다.
-services: functions
-documentationcenter: na
 author: craigshoemaker
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 081a0e9ac165fdee2426780be6d1440cf8d4fcc0
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0ad569977194441b026c2c987ecad544ce40cfa1
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904010"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227355"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x"></a>Azure Functions 2.x의 Azure Cosmos DB 바인딩
 
-> [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
+> [!div class="op_single_selector" title1="Select the version of the Azure Functions runtime you are using: "]
 > * [버전 1](functions-bindings-cosmosdb.md)
 > * [버전 2](functions-bindings-cosmosdb-v2.md)
 
@@ -195,7 +190,7 @@ Java 코드는 다음과 같습니다.
 ```
 
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  이 주석은 기본 Java 형식, POJOs 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 매개 변수에 대한 `@CosmosDBTrigger` 주석을 사용합니다.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
 
 
 트리거 건너뛰기 예제
@@ -257,8 +252,8 @@ Java 코드는 다음과 같습니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** || `cosmosDBTrigger`으로 설정해야 합니다. |
-|**direction** || `in`으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**type** || `cosmosDBTrigger`로 설정해야 합니다. |
+|**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** || 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
 |**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
@@ -274,7 +269,7 @@ Java 코드는 다음과 같습니다.
 |**leaseExpirationInterval**| **LeaseExpirationInterval**| (선택 사항) 설정하면 파티션을 나타내는 임대에 대한 임대 기간인 간격을 밀리초로 정의합니다. 이 간격 내에서 임대를 갱신하지 않으면 기간이 만료되어 다른 인스턴스로 파티션 소유권이 이동합니다. 기본값은 60000(60초)입니다.
 |**leaseRenewInterval**| **LeaseRenewInterval**| (선택 사항) 설정하면 인스턴스가 현재 보유한 파티션의 모든 임대에 대한 갱신 간격을 밀리초로 정의합니다. 기본값은 17000(17초)입니다.
 |**checkpointFrequency**| **CheckpointFrequency**| (선택 사항) 설정하면 임대 검사점 간격을 밀리초로 정의합니다. 기본값은 항상 각 함수 호출 이후입니다.
-|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| 필드 설정 되 면이 속성은 함수 호출 당 수신 된 항목의 최대 크기를 설정 합니다. 모니터링 되는 컬렉션의 작업이 저장 프로시저를 통해 수행 되는 경우 변경 피드에서 항목을 읽을 때 [트랜잭션 범위가](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) 유지 됩니다. 이로 인해 동일한 트랜잭션으로 변경 된 항목이 하나의 원자성 일괄 처리의 일부로 반환 되도록 받은 항목의 양이 지정 된 값 보다 높을 수 있습니다.
+|**maxItemsPerInvocation**| **MaxItemsPerInvocation**| (Optional) When set, this property sets the maximum amount of items received per Function call. If operations in the monitored collection are performed through stored procedures, [transaction scope](../cosmos-db/stored-procedures-triggers-udfs.md#transactions) is preserved when reading items from the Change Feed. As a result of this, it's possible for the amount of items received to be higher than the specified value so that the items changed by the same transaction are returned as part of one atomic batch.
 |**startFromBeginning**| **StartFromBeginning**| (선택 사항) 설정하면 현재 시간이 아니라 컬렉션 기록 시작부터 변경 내용을 읽기 시작하도록 트리거에 알립니다. 후속 실행에서는 검사점이 이미 저장되므로 트리거가 처음 시작될 때만 작동합니다. 임대가 이미 만들어진 후에 이 값을 `true`로 설정하면 아무 효과가 없습니다.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -293,7 +288,7 @@ Java 코드는 다음과 같습니다.
 Azure Cosmos DB 입력 바인딩은 SQL API를 사용하여 하나 이상의 Azure Cosmos DB 문서를 검색하고, 함수의 입력 매개 변수에 전달합니다. 문서 ID 또는 쿼리 매개 변수는 함수를 호출하는 트리거를 기반으로 결정할 수 있습니다.
 
 > [!NOTE]
-> 컬렉션이 [분할](../cosmos-db/partition-data.md#logical-partitions)된 경우 조회 작업은 파티션 키 값도 지정 해야 합니다.
+> If the collection is [partitioned](../cosmos-db/partition-data.md#logical-partitions), lookup operations need to also specify the partition key value.
 >
 
 ## <a name="input---examples"></a>입력 - 예제
@@ -338,7 +333,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="queue-trigger-look-up-id-from-json-c"></a>큐 트리거, JSON에서 ID 조회(C#)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 JSON 개체가 있는 큐 메시지에 의해 트리거됩니다. 큐 트리거는 검색할 ID 및 파티션 키 값을 포함 하는 `ToDoItemLookup`라는 개체로 JSON을 구문 분석 합니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 JSON 개체가 있는 큐 메시지에 의해 트리거됩니다. The queue trigger parses the JSON into an object named `ToDoItemLookup`, which contains the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 namespace CosmosDBSamplesV2
@@ -391,7 +386,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-query-string-c"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(C#)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 >[!NOTE]
 >HTTP 쿼리 문자열 매개 변수는 대/소문자를 구분합니다.
@@ -441,7 +436,7 @@ namespace CosmosDBSamplesV2
 
 #### <a name="http-trigger-look-up-id-from-route-data-c"></a>HTTP 트리거, 경로 데이터에서 ID 조회(C#)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 경로 데이터를 사용 하 여 조회할 ID와 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -492,7 +487,7 @@ namespace CosmosDBSamplesV2
 이 예제에서는 `SqlQuery` 매개 변수에서 바인딩 식을 사용하는 방법을 보여줍니다. 표시된 대로 경로 데이터를 `SqlQuery` 매개 변수에 전달할 수는 있지만 현재 [쿼리 문자열 값을 전달할 수 없습니다](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string-c)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-queries.md) 입니다.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
 >
 
 ```cs
@@ -580,7 +575,7 @@ namespace CosmosDBSamplesV2
 다음 예제에서는 문서 목록을 검색하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 함수는 HTTP 요청에 의해 트리거됩니다. 코드를 Azure Cosmos DB 바인딩에 의해 제공된 `DocumentClient` 인스턴스를 사용하여 문서 목록을 읽습니다. `DocumentClient` 인스턴스는 쓰기 작업에 사용될 수도 있습니다.
 
 > [!NOTE]
-> 또한 [Idocumentclient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) 인터페이스를 사용 하 여 테스트를 더 쉽게 수행할 수 있습니다.
+> You can also use the [IDocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.idocumentclient?view=azure-dotnet) interface to make testing easier.
 
 ```cs
 using Microsoft.AspNetCore.Http;
@@ -743,7 +738,7 @@ C# 스크립트 코드는 다음과 같습니다.
 
 #### <a name="http-trigger-look-up-id-from-query-string-c-script"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(C# 스크립트)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -806,7 +801,7 @@ public static HttpResponseMessage Run(HttpRequestMessage req, ToDoItem toDoItem,
 
 #### <a name="http-trigger-look-up-id-from-route-data-c-script"></a>HTTP 트리거, 경로 데이터에서 ID 조회(C# 스크립트)
 
-다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 경로 데이터를 사용 하 여 조회할 ID와 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. The function is triggered by an HTTP request that uses route data to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1061,7 +1056,7 @@ JavaScript 코드는 다음과 같습니다.
 
 #### <a name="http-trigger-look-up-id-from-query-string-javascript"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(JavaScript)
 
-다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1120,7 +1115,7 @@ module.exports = function (context, req, toDoItem) {
 
 #### <a name="http-trigger-look-up-id-from-route-data-javascript"></a>HTTP 트리거, 경로 데이터에서 ID 조회(JavaScript)
 
-다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1274,7 +1269,7 @@ def main(queuemsg: func.QueueMessage, documents: func.DocumentList) -> func.Docu
 
 #### <a name="http-trigger-look-up-id-from-query-string-python"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회(Python)
 
-다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1333,7 +1328,7 @@ def main(req: func.HttpRequest, todoitems: func.DocumentList) -> str:
 
 #### <a name="http-trigger-look-up-id-from-route-data-python"></a>HTTP 트리거, 경로 데이터에서 ID 조회(Python)
 
-다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 `ToDoItem` 문서를 검색 하는 데 해당 ID와 파티션 키 값이 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. The function is triggered by an HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a `ToDoItem` document from the specified database and collection.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -1456,7 +1451,7 @@ F# 코드는 다음과 같습니다.
     inputDocument?text <- "This has changed."
 ```
 
-이 예제에는 `project.json` 및 `FSharp.Interop.Dynamic` NuGet 종속성을 지정하는 `Dynamitey` 파일이 필요합니다.
+이 예제에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -1508,7 +1503,7 @@ public class ToDoItem {
 
 #### <a name="http-trigger-look-up-id-from-query-string---string-parameter-java"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회 - 문자열 매개 변수(Java)
 
-다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 이 ID 및 파티션 키 값은 지정 된 데이터베이스 및 컬렉션에서 문서를 문자열 형식으로 검색 하는 데 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, in String form.
 
 ```java
 public class DocByIdFromQueryString {
@@ -1550,11 +1545,11 @@ public class DocByIdFromQueryString {
 }
  ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  이 주석은 기본 Java 형식, POJOs 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Cosmos DB에서 제공되는 함수 매개 변수에 대한 `@CosmosDBInput` 주석을 사용합니다.  This annotation can be used with native Java types, POJOs, or nullable values using Optional\<T>.
 
 #### <a name="http-trigger-look-up-id-from-query-string---pojo-parameter-java"></a>HTTP 트리거, 쿼리 문자열에서 ID 조회 - POJO 매개 변수(Java)
 
-다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 쿼리 문자열을 사용 하 여 조회할 ID 및 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 지정 된 데이터베이스 및 컬렉션에서 문서를 검색 하는 데 사용 되는 해당 ID 및 파티션 키 값입니다. 그런 후 문서는 이전에 만든 ```ToDoItem``` POJO의 인스턴스로 변환되고 함수에 인수로 전달됩니다.
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. The function is triggered by a HTTP request that uses a query string to specify the ID and partition key value to look up. That ID and partition key value used to retrieve a document from the specified database and collection. 그런 후 문서는 이전에 만든 ```ToDoItem``` POJO의 인스턴스로 변환되고 함수에 인수로 전달됩니다.
 
 ```java
 public class DocByIdFromQueryStringPojo {
@@ -1596,7 +1591,7 @@ public class DocByIdFromQueryStringPojo {
 
 #### <a name="http-trigger-look-up-id-from-route-data-java"></a>HTTP 트리거, 경로 데이터에서 ID 조회(Java)
 
-다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 경로 매개 변수를 사용 하 여 조회할 ID와 파티션 키 값을 지정 하는 HTTP 요청에 의해 트리거됩니다. 이 ID 및 파티션 키 값은 지정 된 데이터베이스 및 컬렉션에서 문서를 검색 하 여 ```Optional<String>```로 반환 하는 데 사용 됩니다.
+다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. The function is triggered by a HTTP request that uses a route parameter to specify the ID and partition key value to look up. That ID and partition key value are used to retrieve a document from the specified database and collection, returning it as an ```Optional<String>```.
 
 ```java
 public class DocByIdFromRoute {
@@ -1644,7 +1639,7 @@ public class DocByIdFromRoute {
 다음 예제에서는 단일 문서를 검색하는 Java 함수를 보여줍니다. 함수는 조회할 ID를 지정하기 위해 경로 문자열을 사용하는 HTTP 요청에 의해 트리거됩니다. ID는 지정한 데이터베이스 및 컬렉션에서 문서를 검색한 후, 쿼리 조건에 따라 많은 문서가 반환될 수 있으므로 결과 세트를 ```ToDoItem[]```으로 변환하는 데 사용됩니다.
 
 > [!NOTE]
-> ID를 기준으로 쿼리해야 하는 경우 [이전 예제](#http-trigger-look-up-id-from-query-string---pojo-parameter-java)와 같이 조회를 사용 하 여 [요청 단위](../cosmos-db/request-units.md)를 적게 사용 하는 것이 좋습니다. 요소 읽기 작업 (GET)은 ID로 쿼리 하는 것 보다 [더 효율적](../cosmos-db/optimize-cost-queries.md) 입니다.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-queries.md) than queries by ID.
 >
 
 ```java
@@ -1687,7 +1682,7 @@ public class DocByIdFromRouteSqlQuery {
 
 #### <a name="http-trigger-get-multiple-docs-from-route-data-using-sqlquery-java"></a>HTTP 트리거, SqlQuery를 사용하여 경로 데이터에서 여러 문서 가져오기(Java)
 
-다음 예제에서는 여러 문서를 검색하는 Java 함수를 보여줍니다. 함수는 ```desc``` 필드에서 검색할 문자열을 지정하기 위해 경로 문자열 ```description```를 사용하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
+다음 예제에서는 여러 문서를 검색하는 Java 함수를 보여줍니다. 함수는 ```description``` 필드에서 검색할 문자열을 지정하기 위해 경로 문자열 ```desc```를 사용하는 HTTP 요청에 의해 트리거됩니다. 검색 용어는 지정한 데이터베이스 및 컬렉션에서 문서 컬렉션을 검색한 후 결과 세트를 ```ToDoItem[]```으로 변환하고 함수에 인수로 전달하는 데 사용됩니다.
 
 ```java
 public class DocsFromRouteSqlQuery {
@@ -1739,15 +1734,15 @@ public class DocsFromRouteSqlQuery {
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`으로 설정해야 합니다.        |
-|**direction**     || `in`으로 설정해야 합니다.         |
+|**type**     || `cosmosDB`로 설정해야 합니다.        |
+|**direction**     || `in`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
 |**id**    | **Id** | 검색할 문서의 ID입니다. 이 속성은 [바인딩 식](./functions-bindings-expressions-patterns.md)을 지원합니다. **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다. |
 |**sqlQuery**  |**SqlQuery**  | 여러 문서를 검색하는 데 사용되는 Azure Cosmos DB SQL 쿼리입니다. 이 속성은 런타임 바인딩을 지원합니다(예: `SELECT * FROM c where c.departmentId = {departmentId}`). **id** 및 **sqlQuery** 속성을 둘 다 설정하지 마십시오. 둘 중 하나를 설정하지 않으면 전체 컬렉션이 검색됩니다.|
 |**connectionStringSetting**     |**ConnectionStringSetting**|Azure Cosmos DB 연결 문자열을 포함하는 앱 설정의 이름입니다.        |
-|**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. [분할](../cosmos-db/partition-data.md#logical-partitions) 된 컬렉션에서 조회를 수행 하는 데 필요 합니다.|
+|**partitionKey**|**PartitionKey**|조회를 위한 파티션 키 값을 지정합니다. 바인딩 매개 변수가 포함될 수 있습니다. It is required for lookups in [partitioned](../cosmos-db/partition-data.md#logical-partitions) collections.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1772,7 +1767,7 @@ Azure Cosmos DB 출력 바인딩을 사용하면 Azure Cosmos DB 데이터베이
 * [JavaScript](#output---javascript-examples)
 * [Python](#output---python-examples)
 
-[을 사용하는 ](#input---c-examples)입력 예제`DocumentClient`도 참조하세요.
+`DocumentClient`을 사용하는 [입력 예제](#input---c-examples)도 참조하세요.
 
 [출력 건너뛰기 예제](#output---attributes)
 
@@ -2123,7 +2118,7 @@ F# 코드는 다음과 같습니다.
           address = employee?address }
 ```
 
-이 예제에는 `project.json` 및 `FSharp.Interop.Dynamic` NuGet 종속성을 지정하는 `Dynamitey` 파일이 필요합니다.
+이 예제에는 `FSharp.Interop.Dynamic` 및 `Dynamitey` NuGet 종속성을 지정하는 `project.json` 파일이 필요합니다.
 
 ```json
 {
@@ -2207,7 +2202,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-one-document-to-database-via-outputbinding-java"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 단일 문서 저장(Java)
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```outputItem```을 주석으로 지정해야 하는 ```@CosmosDBOutput``` 매개 변수입니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```@CosmosDBOutput```을 주석으로 지정해야 하는 ```outputItem``` 매개 변수입니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteOneDocOutputBinding")
@@ -2251,7 +2246,7 @@ public String cosmosDbQueryById(
 
 #### <a name="http-trigger-save-multiple-documents-to-database-via-outputbinding-java"></a>HTTP 트리거, OutputBinding을 통해 데이터베이스에 여러 문서 저장(Java)
 
-다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```outputItem```을 주석으로 지정해야 하는 ```@CosmosDBOutput``` 매개 변수입니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
+다음 예제에서는 ```OutputBinding<T>``` 출력 매개 변수를 통해 CosmosDB에 여러 문서를 쓰는 Java 함수를 보여줍니다. 이 설정에서는 함수 시그니처가 아니라 ```@CosmosDBOutput```을 주석으로 지정해야 하는 ```outputItem``` 매개 변수입니다. 출력 매개 변수 ```outputItem```에는 ```ToDoItem``` 개체 목록이 템플릿 매개 변수 형식으로 포함되어 있습니다. ```OutputBinding<T>```을 사용하면 JSON 또는 XML 문서와 같은 함수 호출자에 다른 값을 반환하도록 허용하면서 함수가 바인딩을 활용하여 CosmosDB에 문서를 쓸 수 있습니다.
 
 ```java
     @FunctionName("WriteMultipleDocsOutputBinding")
@@ -2300,11 +2295,11 @@ public String cosmosDbQueryById(
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 Cosmos DB에 작성될 매개 변수에 대한 `@CosmosDBOutput` 주석을 사용합니다.  주석 매개 변수 형식은 ```OutputBinding<T>```이어야 합니다. 여기서 T는 원시 Java 형식 또는 POJO입니다.
 
-### <a name="output---python-examples"></a>출력-Python 예제
+### <a name="output---python-examples"></a>Output - Python examples
 
-다음 예제에서는 Azure CosmosDB 데이터베이스에 문서를 함수의 출력으로 작성 하는 방법을 보여 줍니다.
+The following example demonstrates how to write a document to an Azure CosmosDB database as the output of a function.
 
-바인딩 정의는 *형식이* `cosmosDB`로 설정 된 *함수인 json* 에 정의 되어 있습니다.
+The binding definition is defined in *function.json* where *type* is set to `cosmosDB`.
 
 ```json
 {
@@ -2338,7 +2333,7 @@ public String cosmosDbQueryById(
 }
 ```
 
-데이터베이스에 쓰려면 문서 개체를 데이터베이스 매개 변수의 `set` 메서드에 전달 합니다.
+To write to the database, pass a document object to the `set` method of the database parameter.
 
 ```python
 import azure.functions as func
@@ -2376,8 +2371,8 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     || `cosmosDB`으로 설정해야 합니다.        |
-|**direction**     || `out`으로 설정해야 합니다.         |
+|**type**     || `cosmosDB`로 설정해야 합니다.        |
+|**direction**     || `out`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |
@@ -2422,11 +2417,11 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------|
 |GatewayMode|게이트웨이|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 모드입니다. 옵션은 `Direct` 및 `Gateway`입니다.|
 |프로토콜|Https|Azure Cosmos DB 서비스에 연결할 때 해당 함수에 의해 사용되는 연결 프로토콜입니다.  [두 모드에 대한 설명은 여기](../cosmos-db/performance-tips.md#networking)를 참조하세요.|
-|leasePrefix|해당 없음|앱의 모든 함수에서 사용할 접두사를 임대합니다.|
+|leasePrefix|n/a|앱의 모든 함수에서 사용할 접두사를 임대합니다.|
 
 ## <a name="next-steps"></a>다음 단계
 

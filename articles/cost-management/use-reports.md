@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
 ms.custom: seodec18
-ms.openlocfilehash: f056515e87d01d0a30fec7f792fcb6e5e91c0c89
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f838091f4b4cdcb0535f58926a724074ef080463
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65969037"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74218865"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 포털에 제공되는 보고서
 
@@ -146,7 +146,7 @@ Cloudyn에는 다음과 같은 보고서 및 보고 기능이 포함되어 있�
 
 - 연간 지원 요금
 - 연간 보안 구성 요소 요금
-- 예약 인스턴스 구입 요금
+- 예약 인스턴스 구매 요금
 - 일부 Azure Marketplace 항목
 
 청구 파일에서 일회성 요금은 서비스 사용 시작 및 종료 날짜(타임스탬프)가 동일한 값을 가진다는 특징이 있습니다. 그러면 Cloudyn 서비스는 해당 요금을 분할 상환되는 일회성 요금으로 인식합니다. 주문형 사용량 비용을 이용하는 다른 사용량 기반 서비스는 분할 상환되지 않습니다.
@@ -198,7 +198,7 @@ Cloudyn은 _계정 선호도_를 적용하여 할당이 각 연결된 계정의 
 7. **날짜**에서 일회성 요금을 선택한 경우 **적용 날짜**에 요금이 결제되는 날짜를 입력합니다. 반복 청구 요금을 선택한 경우 청구 시작 날짜와 종료 날짜를 포함하는 날짜 범위를 입력합니다.
 8. **엔터티 트리**에서 요금을 적용하려는 엔터티를 선택한 후 **On**(설정)을 선택합니다.
 
-_요금이 엔터티에 할당되면 사용자가 변경할 수 없습니다. 관리자가 부모 엔터티에 추가한 요금은 읽기 전용입니다._
+_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
 
 사용자 지정 요금을 보려면
 
@@ -210,9 +210,9 @@ Cost Allocation 360을 사용하여 소비된 클라우드 리소스에 비용�
 
 사용자 지정 비용 모델을 만드는 방법에 대한 자세한 내용은 [자습서: Cloudyn을 사용한 비용 관리](tutorial-manage-costs.md)를 참조하세요.
 
-### <a name="cost-vs-budget-over-time-report"></a>시간당 비용 및 예산 보고서
+### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
 
-시간당 비용 및 예산 보고서를 사용하여 주 비용 기여요인을 예산과 비교할 수 있습니다. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
+The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
 
 ### <a name="current-month-projected-cost-report"></a>이번 달 예상 비용 보고서
 
@@ -246,7 +246,7 @@ Cost Allocation 360을 사용하여 소비된 클라우드 리소스에 비용�
 
 완료된 예산을 CSV 파일로 내보내려면 **작업**에서 **내보내기**를 선택하여 파일을 다운로드합니다.
 
-완료되면 예산이 비용 분석 보고서와 시간당 비용 및 예산 보고서에 표시됩니다. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
+When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
 
 ### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer 보고서
 
@@ -298,7 +298,7 @@ Azure Resource Explorer 보고서에는 Cloudyn에서 사용할 수 있는 모�
 
 ### <a name="compute-power-average-cost-over-time-report"></a>시간당 컴퓨팅 능력 평균 비용 보고서
 
-시간당 계산 능력 평균 비용 보고서를 사용하면 실행 중인 각 머신에 대해 비용 이상의 정보를 볼 수 있습니다. 이 보고서는 인스턴스 시간, 코어 시간, 컴퓨팅 단위 시간 및 GB RAM 시간당 평균 비용을 표시합니다. 이 보고서는 배포 효율성에 대한 정보를 제공합니다.
+시간당 컴퓨팅 능력 평균 비용 보고서를 사용하면 실행 중인 각 머신에 대해 비용 이상의 정보를 볼 수 있습니다. 이 보고서는 인스턴스 시간, 코어 시간, 컴퓨팅 단위 시간 및 GB RAM 시간당 평균 비용을 표시합니다. 이 보고서는 배포 효율성에 대한 정보를 제공합니다.
 
 이 보고서는 [Cost Allocation 360](tutorial-manage-costs.md#use-custom-tags-to-allocate-costs) 정책에 연결되므로, 정의된 태그 및 선택한 비용 정책에 따라 결과가 표시됩니다. 만든 정책이 없는 경우 결과가 표시되지 않습니다.
 
@@ -448,7 +448,7 @@ AWS 예약 인스턴스를 구매한 경우 이 보고서에는 RI로 실행되�
 
 그래프를 클릭하여 드릴다운하고, 시간당 인스턴스 CPU 보고서를 열어 인스턴스의 분석 결과를 볼 수 있습니다.
 
-- **필드 표시/숨기기**를 사용하여: 타임스탬프, 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
+- **필드 표시/숨기기**를 사용하여 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
 - **날짜 범위**를 입력하여 날짜 또는 날짜 범위를 입력하고 특정 InstanceID로 드릴합니다.
 - **확장 필터**를 사용하여 모든 인스턴스 ID 또는 특정 인스턴스 ID를 표시합니다.
 - **확대**를 클릭하여 CPU 사용률 보고서를 엽니다.
@@ -459,9 +459,9 @@ AWS 예약 인스턴스를 구매한 경우 이 보고서에는 RI로 실행되�
 
 **메모리 사용률(%)** 섹션에는 사용된 메모리의 백분율이 표시됩니다.
 
-**네트워크 입력 트래픽** 섹션에는 선택한 인스턴스에 대한 네트워크 트래픽, 평균 및 최대값을 나타내는 시간당 스냅숏이 표시됩니다. 줄 위로 마우스를 가져가면 날짜와 해당 시간의 최대 트래픽이 표시됩니다. **확대**를 클릭하여 네트워크 입력 트래픽 보고서를 엽니다.
+**네트워크 입력 트래픽** 섹션에는 선택한 인스턴스에 대한 네트워크 트래픽, 평균 및 최대값을 나타내는 시간당 스냅샷이 표시됩니다. 줄 위로 마우스를 가져가면 날짜와 해당 시간의 최대 트래픽이 표시됩니다. **확대**를 클릭하여 네트워크 입력 트래픽 보고서를 엽니다.
 
-**네트워크 출력 트래픽** 섹션에는 선택한 인스턴스에 대한 네트워크 출력 트래픽의 스냅숏이 표시됩니다. 줄 위로 마우스를 가져가면 날짜와 해당 시간의 최대 트래픽이 표시됩니다. **확대**를 클릭하여 네트워크 출력 트래픽 보고서를 엽니다.
+**네트워크 출력 트래픽** 섹션에는 선택한 인스턴스에 대한 네트워크 출력 트래픽의 스냅샷이 표시됩니다. 줄 위로 마우스를 가져가면 날짜와 해당 시간의 최대 트래픽이 표시됩니다. **확대**를 클릭하여 네트워크 출력 트래픽 보고서를 엽니다.
 
 ### <a name="instance-metrics-explorer-report"></a>인스턴스 메트릭 탐색기 보고서
 

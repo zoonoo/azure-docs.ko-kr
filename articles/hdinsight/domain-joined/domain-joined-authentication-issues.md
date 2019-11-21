@@ -1,32 +1,32 @@
 ---
-title: Azure HDInsight의 인증 문제
-description: Azure HDInsight의 인증 문제
+title: Authentication issues in Azure HDInsight
+description: Authentication issues in Azure HDInsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 11/08/2019
-ms.openlocfilehash: 17bc9f1ea93b0afa4f53443a53d294acb9e94b2e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 2ffc3ced360e1fdf00f69ea5826e6c6af7806f71
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901394"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215987"
 ---
-# <a name="authentication-issues-in-azure-hdinsight"></a>Azure HDInsight의 인증 문제
+# <a name="authentication-issues-in-azure-hdinsight"></a>Authentication issues in Azure HDInsight
 
-이 문서에서는 Azure HDInsight 클러스터와 상호 작용할 때 문제에 대 한 문제 해결 단계 및 가능한 해결 방법을 설명 합니다.
+This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters.
 
-Azure Data Lake (Gen1 또는 Gen2)에 의해 지원 되는 보안 클러스터에서 도메인 사용자가 HDI 게이트웨이를 통해 클러스터 서비스에 로그인 하는 경우 (예: Apache Ambari 포털에 로그인) HDI 게이트웨이는 먼저 Azure Active Directory (Azure AD)에서 OAuth 토큰을 가져오려고 시도 합니다. Azure AD DS에서 Kerberos 티켓을 가져옵니다. 이러한 단계 중 하나에서 인증이 실패할 수 있습니다. 이 문서에서는 이러한 문제 중 일부를 디버깅 하는 방법을 설명 합니다.
+On secure clusters backed by Azure Data Lake (Gen1 or Gen2), when domain users sign in to the cluster services through HDI Gateway (like signing in to the Apache Ambari portal), HDI Gateway will try to obtain an OAuth token from Azure Active Directory (Azure AD) first, and then get a Kerberos ticket from Azure AD DS. Authentication can fail in either of these stages. This article is aimed at debugging some of those issues.
 
-인증에 실패 하면 자격 증명을 입력 하 라는 메시지가 표시 됩니다. 이 대화 상자를 취소 하면 오류 메시지가 출력 됩니다. 다음은 몇 가지 일반적인 오류 메시지입니다.
+When the authentication fails, you will get prompted for credentials. If you cancel this dialog, the error message will be printed. Here are some of the common error messages:
 
-## <a name="invalid_grant-or-unauthorized_client-50126"></a>invalid_grant 또는 unauthorized_client, 50126
+## <a name="invalid_grant-or-unauthorized_client-50126"></a>invalid_grant or unauthorized_client, 50126
 
 ### <a name="issue"></a>문제
 
-페더레이션 사용자에 대 한 로그인이 실패 합니다 (오류 코드 50126) (클라우드 사용자에 대 한 로그인 성공). 오류 메시지는 다음과 유사 합니다.
+Sign in fails for federated users with error code 50126 (sign in succeeds for cloud users). Error message is similar to:
 
 ```
 Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_description":"AADSTS70002: Error validating credentials. AADSTS50126: Invalid username or password\r\nTrace ID: 09cc9b95-4354-46b7-91f1-efd92665ae00\r\n Correlation ID: 4209bedf-f195-4486-b486-95a15b70fbe4\r\nTimestamp: 2019-01-28 17:49:58Z","error_codes":[70002,50126], "timestamp":"2019-01-28 17:49:58Z","trace_id":"09cc9b95-4354-46b7-91f1-efd92665ae00","correlation_id":"4209bedf-f195-4486-b486-95a15b70fbe4"}
@@ -34,19 +34,19 @@ Reason: Bad Request, Detailed Response: {"error":"invalid_grant","error_descript
 
 ### <a name="cause"></a>원인
 
-Azure AD 오류 코드 50126은 테 넌 트에서 `AllowCloudPasswordValidation` 정책이 설정 되지 않았음을 의미 합니다.
+Azure AD error code 50126 means the `AllowCloudPasswordValidation` policy has not been set by the tenant.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자에 대 한 암호 해시를 사용 하도록 설정 해야 합니다.  [HDInsight에서 Enterprise Security Package 사용](../domain-joined/apache-domain-joined-architecture.md)문서에 표시 된 대로 `AllowCloudPasswordValidationPolicy` 적용 합니다.
+The Company Administrator of the Azure AD tenant should enable Azure AD to use password hashes for ADFS backed users.  Apply the `AllowCloudPasswordValidationPolicy` as shown in the article [Use Enterprise Security Package in HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
 ---
 
-## <a name="invalid_grant-or-unauthorized_client-50034"></a>invalid_grant 또는 unauthorized_client, 50034
+## <a name="invalid_grant-or-unauthorized_client-50034"></a>invalid_grant or unauthorized_client, 50034
 
 ### <a name="issue"></a>문제
 
-로그인이 실패 하 고 오류 코드 50034이 발생 합니다. 오류 메시지는 다음과 유사 합니다.
+Sign in fails with error code 50034. Error message is similar to:
 
 ```
 {"error":"invalid_grant","error_description":"AADSTS50034: The user account Microsoft.AzureAD.Telemetry.Diagnostics.PII does not exist in the 0c349e3f-1ac3-4610-8599-9db831cbaf62 directory. To sign into this application, the account must be added to the directory.\r\nTrace ID: bbb819b2-4c6f-4745-854d-0b72006d6800\r\nCorrelation ID: b009c737-ee52-43b2-83fd-706061a72b41\r\nTimestamp: 2019-04-29 15:52:16Z", "error_codes":[50034],"timestamp":"2019-04-29 15:52:16Z","trace_id":"bbb819b2-4c6f-4745-854d-0b72006d6800", "correlation_id":"b009c737-ee52-43b2-83fd-706061a72b41"}
@@ -54,19 +54,19 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 ### <a name="cause"></a>원인
 
-사용자 이름이 잘못 되었습니다 (존재 하지 않음). 사용자가 Azure Portal에 사용 되는 것과 동일한 사용자 이름을 사용 하 고 있지 않습니다.
+User name is incorrect (does not exist). The user is not using the same username that is used in Azure portal.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-해당 포털에서 작동 하는 것과 동일한 사용자 이름을 사용 합니다.
+Use the same user name that works in that portal.
 
 ---
 
-## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant 또는 unauthorized_client, 50053
+## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant or unauthorized_client, 50053
 
 ### <a name="issue"></a>문제
 
-사용자 계정이 잠겨 있습니다. 오류 코드는 50053입니다. 오류 메시지는 다음과 유사 합니다.
+User account is locked out, error code 50053. Error message is similar to:
 
 ```
 {"error":"unauthorized_client","error_description":"AADSTS50053: You've tried to sign in too many times with an incorrect user ID or password.\r\nTrace ID: 844ac5d8-8160-4dee-90ce-6d8c9443d400\r\nCorrelation ID: 23fe8867-0e8f-4e56-8764-0cdc7c61c325\r\nTimestamp: 2019-06-06 09:47:23Z","error_codes":[50053],"timestamp":"2019-06-06 09:47:23Z","trace_id":"844ac5d8-8160-4dee-90ce-6d8c9443d400","correlation_id":"23fe8867-0e8f-4e56-8764-0cdc7c61c325"}
@@ -74,19 +74,19 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 ### <a name="cause"></a>원인
 
-잘못 된 암호를 사용 하 여 로그인을 너무 많이 시도 했습니다.
+Too many sign in attempts with an incorrect password.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-30 분 정도 기다린 후 인증을 시도할 수 있는 응용 프로그램을 모두 중지 합니다.
+Wait for 30 minutes or so, stop any applications that might be trying to authenticate.
 
 ---
 
-## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant 또는 unauthorized_client, 50053
+## <a name="invalid_grant-or-unauthorized_client-50053"></a>invalid_grant or unauthorized_client, 50053
 
 ### <a name="issue"></a>문제
 
-암호가 만료 되었습니다. 오류 코드는 50053입니다. 오류 메시지는 다음과 유사 합니다.
+Password expired, error code 50053. Error message is similar to:
 
 ```
 {"error":"user_password_expired","error_description":"AADSTS50055: Password is expired.\r\nTrace ID: 241a7a47-e59f-42d8-9263-fbb7c1d51e00\r\nCorrelation ID: c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a\r\nTimestamp: 2019-06-06 17:29:37Z","error_codes":[50055],"timestamp":"2019-06-06 17:29:37Z","trace_id":"241a7a47-e59f-42d8-9263-fbb7c1d51e00","correlation_id":"c7fe4a42-67e4-4acd-9fb6-f4fb6db76d6a","suberror":"user_password_expired","password_change_url":"https://portal.microsoftonline.com/ChangePassword.aspx"}
@@ -94,11 +94,11 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 ### <a name="cause"></a>원인
 
-암호가 만료 되었습니다.
+Password is expired.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-온-프레미스 시스템에서 Azure Portal의 암호를 변경한 다음 동기화가 완료 될 때까지 30 분 동안 기다립니다.
+Change the password in the Azure portal (on your on-premises system) and then wait for 30 minutes for sync to catch up.
 
 ---
 
@@ -106,109 +106,109 @@ Azure AD 테 넌 트의 회사 관리자는 Azure AD에서 ADFS 지원 사용자
 
 ### <a name="issue"></a>문제
 
-`interaction_required`오류 메시지를 수신 합니다.
+Receive error message `interaction_required`.
 
 ### <a name="cause"></a>원인
 
-조건부 액세스 정책 또는 MFA가 사용자에게 적용되고 있습니다. 대화형 인증은 아직 지원되지 않으므로 MFA/조건부 액세스에서 사용자 또는 클러스터를 제외해야 합니다. 클러스터 (IP 주소 기반 예외 정책)를 제외 하도록 선택한 경우 해당 vnet에 대해 AD `ServiceEndpoints`를 사용 하도록 설정 했는지 확인 합니다.
+조건부 액세스 정책 또는 MFA가 사용자에게 적용되고 있습니다. 대화형 인증은 아직 지원되지 않으므로 MFA/조건부 액세스에서 사용자 또는 클러스터를 제외해야 합니다. If you choose to exempt the cluster (IP address based exemption policy), then make sure that the AD `ServiceEndpoints` are enabled for that vnet.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-[Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package를 사용 하 여 HDInsight 클러스터 구성](./apache-domain-joined-configure-using-azure-adds.md)에 표시 된 대로 조건부 액세스 정책을 사용 하 고 MFA에서 HDInisght 클러스터를 제외 합니다.
+Use conditional access policy and exempt the HDInisght clusters from MFA as shown in [Configure a HDInsight cluster with Enterprise Security Package by using Azure Active Directory Domain Services](./apache-domain-joined-configure-using-azure-adds.md).
 
 ---
 
-## <a name="sign-in-denied"></a>로그인 거부 됨
+## <a name="sign-in-denied"></a>Sign in denied
 
 ### <a name="issue"></a>문제
 
-로그인이 거부 되었습니다.
+Sign in is denied.
 
 ### <a name="cause"></a>원인
 
-이 단계로 이동 하려면 OAuth 인증에 문제가 없지만 Kerberos 인증은입니다. 이 클러스터가 ADLS에서 지원 되는 경우 Kerberos 인증을 시도 하기 전에 OAuth 로그인이 성공 했습니다. WASB 클러스터에서 OAuth 로그인을 시도 하지 않습니다. 암호 해시가 동기화 되지 않은 경우, Azure AD DS에서 잠긴 사용자 계정 등의 여러 가지 Kerberos 오류가 발생할 수 있습니다. 암호 해시는 사용자가 암호를 변경 하는 경우에만 동기화 됩니다. Azure AD DS 인스턴스를 만들 때 생성 후 변경 된 암호의 동기화가 시작 됩니다. 처음에 설정 된 암호는 소급 하지 않습니다.
+To get to this stage, your OAuth authentication is not an issue, but Kerberos authentication is. If this cluster is backed by ADLS, OAuth sign in has succeeded before Kerberos auth is attempted. On WASB clusters, OAuth sign in is not attempted. There could be many reasons for Kerberos failure - like password hashes are out of sync, user account locked out in Azure AD DS, and so on. Password hashes sync only when the user changes password. When you create the Azure AD DS instance, it will start syncing passwords that are changed after the creation. It won't retroactively sync passwords that were set before its inception.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-암호가 동기화 되지 않을 수 있다고 생각 되는 경우 암호를 변경 하 고 몇 분 후에 동기화 해 보세요.
+If you think passwords may not be in sync, try changing the password and wait for a few minutes to sync.
 
-에 SSH를 시도 합니다. 도메인에 가입 된 컴퓨터에서 동일한 사용자 자격 증명을 사용 하 여 인증 (kinit)을 시도 해야 합니다. 로컬 사용자를 사용 하 여 헤드/에 지 노드로 SSH를 실행 한 다음 kinit를 실행 합니다.
+Try to SSH into a You will need to try to authenticate (kinit) using the same user credentials, from a machine that is joined to the domain. SSH into the head / edge node with a local user and then run kinit.
 
 ---
 
-## <a name="kinit-fails"></a>kinit 실패
+## <a name="kinit-fails"></a>kinit fails
 
 ### <a name="issue"></a>문제
 
-Kinit가 실패 합니다.
+Kinit fails.
 
 ### <a name="cause"></a>원인
 
-잠기기.
+Varies.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-Kinit에 성공 하려면 `sAMAccountName`을 알아야 합니다 (영역이 없는 짧은 계정 이름). `sAMAccountName`은 일반적으로 계정 접두사입니다 (예: `bob@contoso.com`의 bob). 일부 사용자의 경우 다를 수 있습니다. `sAMAccountName`학습 하려면 디렉터리를 찾아보거나 검색 하는 기능이 필요 합니다.
+For kinit to succeed, you need to know your `sAMAccountName` (this is the short account name without the realm). `sAMAccountName` is usually the account prefix (like bob in `bob@contoso.com`). For some users, it could be different. You will need the ability to browse / search the directory to learn your `sAMAccountName`.
 
-`sAMAccountName`를 찾는 방법:
+Ways to find `sAMAccountName`:
 
-* 로컬 Ambari admin을 사용 하 여 Ambari에 로그인 할 수 있는 경우 사용자 목록을 확인 합니다.
+* If you can sign in to Ambari using the local Ambari admin, look at the list of users.
 
-* 도메인에 가입 된 [windows 컴퓨터](../../active-directory-domain-services/manage-domain.md)를 사용 하는 경우 표준 windows AD 도구를 사용 하 여 찾아볼 수 있습니다. 이렇게 하려면 도메인에서 작업 계정이 필요 합니다.
+* If you have a [domain joined windows machine](../../active-directory-domain-services/manage-domain.md), you can use the standard Windows AD tools to browse. This requires a working account in the domain.
 
-* 헤드 노드에서는 SAMBA 명령을 사용 하 여 검색할 수 있습니다. 이를 위해서는 유효한 Kerberos 세션 (성공한 kinit)이 필요 합니다. net ads 검색 "(userPrincipalName = bob *)"
+* From the head node, you can use SAMBA commands to search. This requires a valid Kerberos session (successful kinit). net ads search "(userPrincipalName=bob*)"
 
-    검색/찾아보기 결과에 `sAMAccountName` 특성이 표시 됩니다. 또한 `pwdLastSet`, `badPasswordTime`, `userPrincipalName` 등의 다른 특성도 확인 하 여 이러한 속성이 필요한 내용과 일치 하는지 확인할 수 있습니다.
+    The search / browse results should show you the `sAMAccountName` attribute. Also, you could look at other attributes like `pwdLastSet`, `badPasswordTime`, `userPrincipalName` etc. to see if those properties match what you expect.
 
 ---
 
-## <a name="kinit-fails-with-preauthentication-failure"></a>kinit이 사전 인증 실패로 실패 함
+## <a name="kinit-fails-with-preauthentication-failure"></a>kinit fails with Preauthentication failure
 
 ### <a name="issue"></a>문제
 
-Kinit 실패 `Preauthentication` 실패 합니다.
+Kinit fails with `Preauthentication` failure.
 
 ### <a name="cause"></a>원인
 
-사용자 이름 또는 암호가 잘못 되었습니다.
+Incorrect username or password.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-사용자 이름 및 암호를 확인 합니다. 또한 위에서 설명한 다른 속성도 확인 하세요. 자세한 디버깅을 사용 하려면 kinit를 시도 하기 전에 세션에서 `export KRB5_TRACE=/tmp/krb.log`를 실행 합니다.
+Check your username and password. Also check for other properties described above. To enable verbose debugging, run `export KRB5_TRACE=/tmp/krb.log` from the session before trying kinit.
 
 ---
 
-## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>TokenNotFoundException로 인해 작업/HDFS 명령이 실패 합니다.
+## <a name="job--hdfs-command-fails-due-to-tokennotfoundexception"></a>Job / HDFS command fails due to TokenNotFoundException
 
 ### <a name="issue"></a>문제
 
-`TokenNotFoundException`로 인해 작업/HDFS 명령이 실패 합니다.
+Job / HDFS command fails due to `TokenNotFoundException`.
 
 ### <a name="cause"></a>원인
 
-작업/명령이 성공 하기 위해 필요한 OAuth 액세스 토큰을 찾을 수 없습니다. ADLS/ABFS 드라이버는 저장소 요청을 만들기 전에 자격 증명 서비스에서 OAuth 액세스 토큰을 검색 합니다. 이 토큰은 동일한 사용자를 사용 하 여 Ambari 포털에 로그인 할 때 등록 됩니다.
+The required OAuth access token was not found for the job / command to succeed. The ADLS / ABFS driver will try to retrieve the OAuth access token from the credential service before making storage requests. This token gets registered when you sign in to the Ambari portal using the same user.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-작업을 실행 하는 데 해당 id가 사용 되는 사용자 이름을 통해 Ambari 포털에 한 번 로그인 했는지 확인 합니다.
+Ensure that you have successfully logged in to the Ambari portal once through the username whose identity is used to run the job.
 
 ---
 
-## <a name="error-fetching-access-token"></a>액세스 토큰을 가져오는 동안 오류 발생
+## <a name="error-fetching-access-token"></a>Error fetching access token
 
 ### <a name="issue"></a>문제
 
-사용자가 `Error fetching access token`오류 메시지를 받습니다.
+User receives error message `Error fetching access token`.
 
 ### <a name="cause"></a>원인
 
-이 오류는 사용자가 Acl을 사용 하 여 ADLS Gen2에 액세스 하려고 할 때 간헐적으로 발생 하며, Kerberos 토큰이 만료 되었습니다.
+This error occurs intermittently when users try to access the ADLS Gen2 using ACLs and the Kerberos token has expired.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
-* Azure Data Lake Storage Gen1의 경우 브라우저 캐시를 정리 하 고 다시 Ambari에 로그인 합니다.
+* For Azure Data Lake Storage Gen1, clean browser cache and log into Ambari again.
 
-* Azure Data Lake Storage Gen2의 경우 사용자가 로그인을 시도 하는 사용자에 대해 `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>`를 실행 합니다.
+* For Azure Data Lake Storage Gen2, Run `/usr/lib/hdinsight-common/scripts/RegisterKerbWithOauth.sh <upn>` for the user the user is trying to login as
 
 ---
 
@@ -216,8 +216,8 @@ Kinit 실패 `Preauthentication` 실패 합니다.
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-* Azure [커뮤니티 지원을](https://azure.microsoft.com/support/community/)통해 azure 전문가 로부터 답변을 받으세요.
+* Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* [@AzureSupport](https://twitter.com/azuresupport) 연결-고객 환경을 개선 하기 위한 공식 Microsoft Azure 계정입니다. Azure 커뮤니티를 적절 한 리소스 (답변, 지원 및 전문가)에 연결 합니다.
+* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
-* 도움이 더 필요한 경우 [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/)에서 지원 요청을 제출할 수 있습니다. 메뉴 모음에서 **지원** 을 선택 하거나 **도움말 + 지원** 허브를 엽니다. 자세한 내용은 [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)을 참조 하세요. 구독 관리 및 청구 지원에 대한 액세스 권한은 Microsoft Azure 구독에 포함되어 있으며, [Azure 지원 플랜](https://azure.microsoft.com/support/plans/) 중 하나를 통해 기술 지원이 제공됩니다.
+* If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

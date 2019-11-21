@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/21/2019
 ms.topic: conceptual
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: alavital
 ms.custom: ''
-ms.openlocfilehash: f1bf62596b6edcc6fff6572e431f3a777be93f05
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4be484cdff2014f11c872da9a246ef8406447712
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66002084"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230112"
 ---
 # <a name="use-cost-alerts-to-monitor-usage-and-spending"></a>비용 경고를 사용하여 사용량 및 지출 모니터링
 
@@ -35,21 +35,21 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 부서 지출 할당량 경고는 부서 지출이 할당량의 정해진 임계값에 도달할 때 알립니다. 지출 할당량은 EA 포털에서 구성됩니다. 임계값이 충족될 때마다 부서 소유자에게 전송되는 메일이 생성되고 비용 경고에 표시됩니다. 예를 들어 할당량의 50% 또는 75%입니다.
 
-## <a name="supported-alert-features-by-offer-categories"></a>제품 범주별으로 지원 되는 경고 기능
+## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
 
-경고 유형에 대 한 지원 (Microsoft 제공) 해야 하는 Azure 계정 유형에 따라 달라 집니다. 다음 표에서 지원 되는 경고 기능을 보여 줍니다. 다양 한 Microsoft 제품으로 합니다. Microsoft 제품의 전체 목록을 볼 수 있습니다 [이해 Cost Management 데이터](understand-cost-mgt-data.md)입니다.
+Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
 
-| 경고 유형 | 기업 계약 | Microsoft 고객 계약 | Web direct/종 량 제 As-You-중단 |
+| 경고 유형 | 기업계약 | Microsoft 고객 계약 | Web direct/Pay-As-You-Go |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | 크레딧 | ✔ |✘ | ✘ |
-| 부서 지출 할당액 | ✔ | ✘ | ✘ |
+| Department spending quota | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>비용 경고 보기
 
-비용 경고를 보려면 Azure portal 선택에서 원하는 범위를 엽니다 **예산을** 메뉴에서. 사용 된 **범위** 필 다른 범위로 전환 하려면. 선택 **경고 비용** 메뉴에서. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 ![Cost Management에 표시된 경고의 예제 이미지](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 

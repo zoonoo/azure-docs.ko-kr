@@ -1,42 +1,37 @@
 ---
-title: Azure Functions에서 연결 관리
+title: Manage connections in Azure Functions
 description: 정적 연결 클라이언트를 사용하여 Azure Functions에서 성능 문제를 방지하는 방법을 알아봅니다.
-services: functions
-author: ggailey777
-manager: jeconnoc
-ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 02/25/2018
-ms.author: glenga
-ms.openlocfilehash: 26702ae63dcb7aadb96b5bf77f96a44f7d6776f5
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 872ad9a1b8f0a7da6fe410e68f08469ac11045a5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114321"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226493"
 ---
-# <a name="manage-connections-in-azure-functions"></a>Azure Functions에서 연결 관리
+# <a name="manage-connections-in-azure-functions"></a>Manage connections in Azure Functions
 
-함수 앱의 함수는 리소스를 공유 합니다. 이러한 공유 리소스 중에는 다음과 같은 연결을 사용할 수 있습니다. HTTP 연결, 데이터베이스 연결, Azure Storage 등의 서비스에 대 한 연결입니다. 많은 함수가 동시에 실행되면 사용 가능한 연결이 부족해질 수 있습니다. 이 문서에서는 필요한 것 보다 더 많은 연결을 사용 하지 않도록 함수를 코딩 하는 방법을 설명 합니다.
+Functions in a function app share resources. Among those shared resources are connections: HTTP connections, database connections, and connections to services such as Azure Storage. 많은 함수가 동시에 실행되면 사용 가능한 연결이 부족해질 수 있습니다. This article explains how to code your functions to avoid using more connections than they need.
 
-## <a name="connection-limit"></a>연결 제한
+## <a name="connection-limit"></a>Connection limit
 
-함수 앱은 [샌드박스 환경](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox)에서 실행 되므로 사용 가능한 연결 수는 부분적으로 제한 됩니다. 샌드박스에서 코드에 적용 하는 제한 사항 중 하나는 현재 인스턴스당 600 활성 (총 1200) 연결 인 아웃 바운드 연결 수에 대 한 제한입니다. 이 한도에 도달 하면 함수 런타임에서는 로그 `Host thresholds exceeded: Connections`에 다음 메시지를 기록 합니다. 자세한 내용은 [함수 서비스 제한](functions-scale.md#service-limits)을 참조 하세요.
+The number of available connections is limited partly because a function app runs in a [sandbox environment](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox). One of the restrictions that the sandbox imposes on your code is a limit on the number of outbound connections, which is currently 600 active (1,200 total) connections per instance. When you reach this limit, the functions runtime writes the following message to the logs: `Host thresholds exceeded: Connections`. For more information, see the [Functions service limits](functions-scale.md#service-limits).
 
-이 제한은 인스턴스당입니다. [크기 조정 컨트롤러에서 함수 앱 인스턴스를 추가](functions-scale.md#how-the-consumption-and-premium-plans-work) 하 여 더 많은 요청을 처리 하면 각 인스턴스에 독립적인 연결 제한이 있습니다. 즉, 전역 연결 제한이 없으며 모든 활성 인스턴스에서 600 개가 넘는 활성 연결을 가질 수 있습니다.
+This limit is per instance. When the [scale controller adds function app instances](functions-scale.md#how-the-consumption-and-premium-plans-work) to handle more requests, each instance has an independent connection limit. That means there's no global connection limit, and you can have much more than 600 active connections across all active instances.
 
-문제를 해결 하려면 함수 앱에 대 한 Application Insights를 사용 하도록 설정 했는지 확인 합니다. Application Insights를 사용 하 여 실행 같은 함수 앱에 대 한 메트릭을 볼 수 있습니다. 자세한 내용은 [Application Insights에서 원격 분석 보기](functions-monitoring.md#view-telemetry-in-application-insights)를 참조 하세요.  
+When troubleshooting, make sure that you have enabled Application Insights for your function app. Application Insights lets you view metrics for your function apps like executions. For more information, see [View telemetry in Application Insights](functions-monitoring.md#view-telemetry-in-application-insights).  
 
-## <a name="static-clients"></a>정적 클라이언트
+## <a name="static-clients"></a>Static clients
 
-필요한 것보다 더 많은 연결을 유지하지 않으려면, 각 함수 호출을 사용하여 새 인스턴스를 만드는 대신 클라이언트 인스턴스를 다시 사용합니다. 함수를 작성할 수 있는 모든 언어에 대해 클라이언트 연결을 다시 사용 하는 것이 좋습니다. 예를 들어, 단일 정적 클라이언트를 사용 하 [는 경우](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-) [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), documentclient 및 Azure Storage 클라이언트와 같은 .net 클라이언트에서 연결을 관리할 수 있습니다.
+필요한 것보다 더 많은 연결을 유지하지 않으려면, 각 함수 호출을 사용하여 새 인스턴스를 만드는 대신 클라이언트 인스턴스를 다시 사용합니다. We recommend reusing client connections for any language that you might write your function in. For example, .NET clients like the [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx), [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+), and Azure Storage clients can manage connections if you use a single, static client.
 
-Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용 하는 경우 따라야 할 몇 가지 지침은 다음과 같습니다.
+Here are some guidelines to follow when you're using a service-specific client in an Azure Functions application:
 
-- 모든 함수 호출을 사용 하 여 새 클라이언트를 만들지 *마십시오* .
-- 모든 함수 호출에서 사용할 수 있는 단일 정적 클라이언트를 만듭니다.
-- 다른 함수에서 동일한 서비스를 사용 하는 경우 공유 도우미 클래스에서 단일 정적 클라이언트를 만드는 *것이 좋습니다* .
+- *Do not* create a new client with every function invocation.
+- *Do* create a single, static client that every function invocation can use.
+- *Consider* creating a single, static client in a shared helper class if different functions use the same service.
 
 ## <a name="client-code-examples"></a>클라이언트 코드 예제
 
@@ -44,7 +39,7 @@ Azure Functions 응용 프로그램에서 서비스별 클라이언트를 사용
 
 ### <a name="httpclient-example-c"></a>HttpClient 예제(C#)
 
-다음은 정적 C# [httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 인스턴스를 만드는 함수 코드의 예제입니다.
+Here's an example of C# function code that creates a static [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) instance:
 
 ```cs
 // Create a single, static HttpClient
@@ -57,19 +52,19 @@ public static async Task Run(string input)
 }
 ```
 
-.NET의 [Httpclient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 에 대 한 일반적인 질문은 "클라이언트를 삭제 해야 하나요?"입니다. 일반적으로를 사용 하는 경우를 구현 `IDisposable` 하는 개체를 삭제 합니다. 그러나 정적 클라이언트는 함수가 종료 될 때 사용 하지 않으므로 삭제 하지 않습니다. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
+A common question about [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) in .NET is "Should I dispose of my client?" In general, you dispose of objects that implement `IDisposable` when you're done using them. But you don't dispose of a static client because you aren't done using it when the function ends. 정적 클라이언트가 애플리케이션 기간 동안 지속되도록 합니다.
 
-### <a name="http-agent-examples-javascript"></a>HTTP 에이전트 예제 (JavaScript)
+### <a name="http-agent-examples-javascript"></a>HTTP agent examples (JavaScript)
 
-개선된 연결 관리 옵션을 제공하므로 비네이티브 메서드 대신 `node-fetch` 모듈과 같이 네이티브 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 클래스를 사용해야 합니다. 연결 매개 변수는 `http.agent` 클래스의 옵션을 통해 구성 됩니다. HTTP 에이전트에서 사용할 수 있는 자세한 옵션은 [새 에이전트 (\[\]옵션)](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options)를 참조 하세요.
+개선된 연결 관리 옵션을 제공하므로 비네이티브 메서드 대신 `node-fetch` 모듈과 같이 네이티브 [`http.agent`](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_class_http_agent) 클래스를 사용해야 합니다. Connection parameters are configured through options on the `http.agent` class. For detailed options available with the HTTP agent, see [new Agent(\[options\])](https://nodejs.org/dist/latest-v6.x/docs/api/http.html#http_new_agent_options).
 
-`http.globalAgent` 에서`http.request()` 사용 하는 전역 클래스는 이러한 값을 모두 해당 기본값으로 설정 합니다. 함수에서 연결 제한을 구성하는 방법은 최대 수를 전역적으로 설정하는 것이 좋습니다. 다음 예제에서는 함수 앱에 대한 소켓의 최대 수를 설정합니다.
+The global `http.globalAgent` class used by `http.request()` has all of these values set to their respective defaults. 함수에서 연결 제한을 구성하는 방법은 최대 수를 전역적으로 설정하는 것이 좋습니다. 다음 예제에서는 함수 앱에 대한 소켓의 최대 수를 설정합니다.
 
 ```js
 http.globalAgent.maxSockets = 200;
 ```
 
- 다음 예제에서는 해당 요청에 대해서만 사용자 지정 HTTP 에이전트를 사용 하 여 새 HTTP 요청을 만듭니다.
+ The following example creates a new HTTP request with a custom HTTP agent only for that request:
 
 ```js
 var http = require('http');
@@ -110,8 +105,8 @@ public static async Task Run(string input)
 }
 ```
 
-### <a name="cosmosclient-code-example-javascript"></a>CosmosClient 코드 예제 (JavaScript)
-[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) 는 Azure Cosmos DB 인스턴스에 연결 됩니다. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
+### <a name="cosmosclient-code-example-javascript"></a>CosmosClient code example (JavaScript)
+[CosmosClient](/javascript/api/@azure/cosmos/cosmosclient) connects to an Azure Cosmos DB instance. Azure Cosmos DB 문서에서는 [애플리케이션 수명 동안 싱글톤 Azure Cosmos DB 클라이언트를 사용](../cosmos-db/performance-tips.md#sdk-usage)하도록 권장하고 있습니다. 다음 예제에서는 함수에서 이 작업을 수행하는 하나의 패턴을 보여 줍니다.
 
 ```javascript
 const cosmos = require('@azure/cosmos');
@@ -131,14 +126,14 @@ module.exports = async function (context) {
 
 ## <a name="sqlclient-connections"></a>SqlClient 연결
 
-함수 코드는 SQL Server에 대 한 .NET Framework Data Provider ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx))를 사용 하 여 SQL 관계형 데이터베이스에 연결할 수 있습니다. [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx)와 같이 ADO.NET를 사용 하는 데이터 프레임 워크의 기본 공급자 이기도 합니다. [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 및 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
-)와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. 그러나 계속 해 서 연결을 실행할 수 있기 때문에 데이터베이스에 대 한 연결을 최적화 해야 합니다. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
+Your function code can use the .NET Framework Data Provider for SQL Server ([SqlClient](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx)) to make connections to a SQL relational database. This is also the underlying provider for data frameworks that rely on ADO.NET, such as [Entity Framework](https://msdn.microsoft.com/library/aa937723(v=vs.113).aspx). [HttpClient](https://msdn.microsoft.com/library/system.net.http.httpclient(v=vs.110).aspx) 및 [DocumentClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.documents.client.documentclient
+)와 달리, ADO.NET은 기본적으로 연결 풀링을 구현합니다. But because you can still run out of connections, you should optimize connections to the database. 자세한 내용은 [SQL Server 연결 풀링(ADO.NET)](https://docs.microsoft.com/dotnet/framework/data/adonet/sql-server-connection-pooling)을 참조하세요.
 
 > [!TIP]
-> Entity Framework와 같은 일부 데이터 프레임 워크는 일반적으로 구성 파일의 **ConnectionStrings** 섹션에서 연결 문자열을 가져옵니다. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. 함수 코드에 [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) 의 인스턴스를 만드는 경우 **응용 프로그램 설정** 에 연결 문자열 값을 다른 연결과 함께 저장 해야 합니다.
+> Some data frameworks, such as Entity Framework, typically get connection strings from the **ConnectionStrings** section of a configuration file. 이 경우, 함수 앱 설정의 **연결 문자열** 컬렉션과 로컬 프로젝트의 [local.settings.json 파일](functions-run-local.md#local-settings-file)에 SQL 데이터베이스 연결 문자열을 명시적으로 추가해야 합니다. If you're creating an instance of [SqlConnection](https://msdn.microsoft.com/library/system.data.sqlclient.sqlconnection(v=vs.110).aspx) in your function code, you should store the connection string value in **Application settings** with your other connections.
 
 ## <a name="next-steps"></a>다음 단계
 
-정적 클라이언트를 권장 하는 이유에 대 한 자세한 내용은 [부적절 한 인스턴스화 방지 패턴](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/)을 참조 하세요.
+For more information about why we recommend static clients, see [Improper instantiation antipattern](https://docs.microsoft.com/azure/architecture/antipatterns/improper-instantiation/).
 
 Azure Functions 성능 팁에 대한 자세한 내용은 [Azure 함수의 성능 및 안정성 최적화](functions-best-practices.md)를 참조하세요.

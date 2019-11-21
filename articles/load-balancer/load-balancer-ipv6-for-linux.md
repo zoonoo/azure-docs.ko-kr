@@ -1,7 +1,7 @@
 ---
 title: Linux VM에 대한 DHCPv6 구성
-titlesuffix: Azure Load Balancer
-description: 이 문서에서는 Linux Vm에 대해 DHCPv6을 구성 하는 방법에 대해 알아봅니다.
+titleSuffix: Azure Load Balancer
+description: In this article, learn how to configure DHCPv6 for Linux VMs.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: 1eea6d71b06bac47dcc4fdca9302ee937e0fd54d
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 6ea215b6aa826231e940f88c3687bb65591303f2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077043"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225313"
 ---
 # <a name="configure-dhcpv6-for-linux-vms"></a>Linux VM에 대한 DHCPv6 구성
 
@@ -54,9 +54,9 @@ Azure Marketplace의 Linux 가상 머신 이미지 중 일부에는 기본적으
     ```bash
     sudo ifdown eth0 && sudo ifup eth0
     ```
-Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( https://netplan.io)입니다.  설치/인스턴스화 시간에 NETPLAN은이 위치에 있는 YAML 구성 파일의 네트워크 구성을 읽습니다 (예:/{lib).
+Beginning with Ubuntu 17.10, the default network configuration mechanism is [NETPLAN]( https://netplan.io).  At install/instantiation time, NETPLAN reads network configuration from YAML configuration files at this location: /{lib,etc,run}/netplan/*.yaml.
 
-구성의 각 이더넷 인터페이스에 대해 *dhcp6: true* 문을 포함 하십시오.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+Please include a *dhcp6:true* statement for each ethernet interface in your configuration.  다음은 그 예입니다.
   
         network:
           version: 2
@@ -64,7 +64,7 @@ Ubuntu 17.10 부터는 기본 네트워크 구성 메커니즘이 [Netplan]( htt
             eno1:
               dhcp6: true
 
-초기 부팅 하는 동안 netplan "네트워크 렌더러"는/run에 구성을 써서 NETPLAN에 대 한 참조 정보에 대 한 장치 제어를 지정 된 네트워킹 데몬에 전달 합니다. https://netplan.io/reference를 참조 하세요.
+During early boot, the netplan “network renderer” writes configuration to /run to hand off control of devices to the specified networking daemon For reference information about NETPLAN, see https://netplan.io/reference.
  
 ## <a name="debian"></a>Debian
 

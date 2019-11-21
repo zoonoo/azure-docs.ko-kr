@@ -7,16 +7,16 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: daeb09acd11d727b11ad8a7b98d97ff90fddc6d8
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331370"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228258"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
-이 문서에서는 IoT Hub에 대 한 할당량을 설명 하 고, 제한이 작동 하는 방식을 이해 하는 데 도움이 되는 정보를 제공 합니다.
+This article explains the quotas for an IoT Hub, and provides information to help you understand how throttling works.
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
 
@@ -28,66 +28,66 @@ ms.locfileid: "72331370"
 
 ### <a name="iot-plug-and-play"></a>IoT 플러그 앤 플레이
 
-공개 미리 보기 중 IoT 플러그 앤 플레이 장치는 인터페이스 마다 별도의 메시지를 전송 하 여 메시지 할당량에 대해 계산 되는 메시지 수를 늘릴 수 있습니다.
+During public preview, IoT Plug and Play devices will send separate messages per interface, which may increase the number of messages counted towards your message quota.
 
 ## <a name="operation-throttles"></a>작업 제한
 
-작업 제한는 분 범위에서 적용 되 고 남용을 방지 하기 위해 사용 되는 rate 제한 사항입니다. 또한 [트래픽 셰이핑](#traffic-shaping)의 영향을 받습니다.
+Operation throttles are rate limitations that are applied in minute ranges and are intended to prevent abuse. They're also subject to [traffic shaping](#traffic-shaping).
 
 다음 표에서는 적용된 제한을 보여 줍니다. 값은 개별 허브라고 합니다.
 
 | 제한 | 무료, B1 및 S1 | B2 및 S2 | B3 및 S3 | 
 | -------- | ------- | ------- | ------- |
-| [Id 레지스트리 작업](#identity-registry-operations-throttle) (만들기, 검색, 목록, 업데이트, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위 (5000/분/단위) |
-| [새 장치 연결](#device-connections-throttle) (이 제한은 총 연결 수가 아닌 _새 연결_의 비율에 적용 됨) | 100/초 또는 12/초/단위 이상 <br/> 예를 들어 두 개의 S1 단위는 2\*12=24 새 연결/초이지만 단위에는 100개 이상의 새 연결/초가 있습니다. S1 단위가 9개인 경우 단위 전체에 대한 값은 108 새 연결/초(9\*12)입니다. | 120 새 연결/초/단위 | 6000 새 연결/초/단위 |
-| 디바이스-&gt;클라우드 보내기 | 100 전송 작업/초 또는 12 개의 전송 작업/초/단위 <br/> 예를 들어 두 개의 S1 단위는 2 @ no__t-012 = 24/sec 이지만 사용자 단위에 대해 최소 100의 전송 작업/초가 있습니다. S1 단위 9 개를 사용 하는 경우 단위에서 108 send 작업/초 (9 @ no__t-012)가 있습니다. | 120 전송 작업/초/단위 | 6000 전송 작업/초/단위 |
-| 클라우드-디바이스 보내기<sup>1</sup> | 1.67 전송 작업/초/단위 (100 메시지/분/단위) | 1.67 전송 작업/초/단위 (100 전송 작업/분/단위) | 83.33 전송 작업/초/단위 (5000 전송 작업/분/단위) |
-| 클라우드-디바이스 받기<sup>1</sup> <br/> (디바이스에서 HTTPS를 사용하는 경우에만)| 16.67 수신 작업/초/단위 (1000 수신 작업/분/단위) | 16.67 수신 작업/초/단위 (1000 수신 작업/분/단위) | 833.33 수신 작업/초/단위 (5만 수신 작업/분/단위) |
-| 파일 업로드 | 1.67 파일 업로드 따르며/초/단위 (100/분/단위) | 1.67 파일 업로드 따르며/초/단위 (100/분/단위) | 83.33 파일 업로드 따르며/초/단위 (5000/분/단위) |
+| [Identity registry operations](#identity-registry-operations-throttle) (create, retrieve, list, update, delete) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/sec/unit (5,000/min/unit) |
+| [New device connections](#device-connections-throttle) (this limit applies to the rate of _new connections_, not the total number of connections) | 100/초 또는 12/초/단위 이상 <br/> 예를 들어 두 개의 S1 단위는 2\*12=24 새 연결/초이지만 단위에는 100개 이상의 새 연결/초가 있습니다. S1 단위가 9개인 경우 단위 전체에 대한 값은 108 새 연결/초(9\*12)입니다. | 120 새 연결/초/단위 | 6,000 new connections/sec/unit |
+| 디바이스-&gt;클라우드 보내기 | Higher of 100 send operations/sec or 12 send operations/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100 send operations/sec across your units. With nine S1 units, you have 108 send operations/sec (9\*12) across your units. | 120 send operations/sec/unit | 6,000 send operations/sec/unit |
+| 클라우드-디바이스 보내기<sup>1</sup> | 1.67 send operations/sec/unit (100 messages/min/unit) | 1.67 send operations/sec/unit (100 send operations/min/unit) | 83.33 send operations/sec/unit (5,000 send operations/min/unit) |
+| 클라우드-디바이스 받기<sup>1</sup> <br/> (디바이스에서 HTTPS를 사용하는 경우에만)| 16.67 receive operations/sec/unit (1,000 receive operations/min/unit) | 16.67 receive operations/sec/unit (1,000 receive operations/min/unit) | 833.33 receive operations/sec/unit (50,000 receive operations/min/unit) |
+| 파일 업로드 | 1.67 file upload initiations/sec/unit (100/min/unit) | 1.67 file upload initiations/sec/unit (100/min/unit) | 83.33 file upload initiations/sec/unit (5,000/min/unit) |
 | 직접 메서드<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
-| 쿼리 | 20/분/단위 | 20/분/단위 | 1000/분/단위 |
-| 쌍(디바이스 및 모듈) 읽기<sup>1</sup> | 100/초 | 100/초 또는 10/초/단위 이상 | 500/초/단위 |
-| 쌍 업데이트(디바이스 및 모듈)<sup>1</sup> | 50/초 | 50/초 또는 5/초/단위 이상 | 250/초/단위 |
-| 작업(Job) 작업<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/초/단위 (5000/분/단위) |
+| 쿼리 | 20/min/unit | 20/min/unit | 1,000/min/unit |
+| 쌍(디바이스 및 모듈) 읽기<sup>1</sup> | 100/sec | Higher of 100/sec or 10/sec/unit | 500/sec/unit |
+| 쌍 업데이트(디바이스 및 모듈)<sup>1</sup> | 50/sec | Higher of 50/sec or 5/sec/unit | 250/sec/unit |
+| 작업(Job) 작업<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 1.67/초/단위(100/분/단위) | 1.67/초/단위(100/분/단위) | 83.33/sec/unit (5,000/min/unit) |
 | 작업 디바이스 연산<sup>1</sup> <br/> (쌍 업데이트, 직접 메서드 호출) | 10/초 | 10/초 또는 1/초/단위 이상 | 50/초/단위 |
 | 구성 및 에지 배포<sup>1</sup> <br/> (만들기, 업데이트, 나열, 삭제) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) | 0.33/초/단위(20/분/단위) |
-| 장치 스트림 시작 율<sup>1</sup> | 새 스트림 5개/초 | 새 스트림 5개/초 | 새 스트림 5개/초 |
-| 동시에 연결 된 장치 스트림의 최대 수<sup>1</sup> | 50 | 50 | 50 |
-| 최대 장치 스트림 데이터 전송<sup>1</sup> (일일 집계 볼륨) | 300MB | 300MB | 300MB |
+| Device stream initiation rate<sup>1</sup> | 새 스트림 5개/초 | 새 스트림 5개/초 | 새 스트림 5개/초 |
+| Maximum number of concurrently connected device streams<sup>1</sup> | 50 | 50 | 50 |
+| Maximum device stream data transfer<sup>1</sup> (aggregate volume per day) | 300MB | 300MB | 300MB |
 
-<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup> 제한 측정기 크기는 4kb입니다.
+<sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요. <br/><sup>2</sup>Throttling meter size is 4 KB.
 
-### <a name="throttling-details"></a>제한 세부 정보
+### <a name="throttling-details"></a>Throttling Details
 
-* 측정기 크기는 제한 한도를 사용 하는 증가값을 결정 합니다. 직접 호출의 페이로드가 0에서 4kb 사이인 경우 4kb로 계산 됩니다. 160 k b/초/단위 제한에 도달 하기 전에 단위당 초당 최대 40 개의 호출을 만들 수 있습니다.
+* The meter size determines at what increments your throttling limit is consumed. If your direct call's payload is between 0 and 4 KB, it is counted as 4 KB. You can make up to 40 calls per second per unit before hitting the limit of 160 KB/sec/unit.
 
-   마찬가지로 페이로드가 4kb에서 8kb 사이에 있는 경우 각 호출은 8kb에 대해 계정을 호출 하 고 최대 한도에 도달 하기 전에 단위당 초당 20 개의 호출을 만들 수 있습니다.
+   Similarly, if your payload is between 4 KB and 8 KB, each call accounts for 8 KB and you can make up to 20 calls per second per unit before hitting the max limit.
 
-   마지막으로, 페이로드 크기가 156KB에서 160 KB 사이인 경우 허브 당 장치당 초당 1 개의 호출을 수행할 수 있으며, 160 k b/초/단위 제한에 도달 합니다.
+   Finally, if your payload size is between 156KB and 160 KB, you'll be able to make only 1 call per second per unit in your hub before hitting the limit of 160 KB/sec/unit.
 
-*  계층 s 2에 대 한 *작업 장치 작업 (업데이트 쌍, 호출 직접 메서드)* 의 경우 작업을 사용 하 여 메서드를 호출 하는 경우에만 50/초/단위가 적용 됩니다. 직접 메서드를 직접 호출 하는 경우 원래 제한 제한인 24 m b/초/단위 (s 2의 경우)가 적용 됩니다.
+*  For *Jobs device operations (update twin, invoke direct method)* for tier S2, 50/sec/unit only applies to when you invoke methods using jobs. If you invoke direct methods directly, the original throttling limit of 24 MB/sec/unit (for S2) applies.
 
-*  **할당량** 은 *하루*에 허브에서 보낼 수 있는 집계 메시지 수입니다. [IoT Hub 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-hub/)의 **총 메시지 수/일** 열에서 허브의 할당량 한도를 찾을 수 있습니다.
+*  **Quota** is the aggregate number of messages you can send in your hub *per day*. You can find your hub's quota limit under the column **Total number of messages /day** on the [IoT Hub pricing page](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-*  클라우드-장치 및 장치-클라우드 제한은 메시지를 보낼 수 있는 최대 *속도* 를 결정 합니다. 4 KB 청크와 관계 없이 메시지 수입니다. 각 메시지는 최대 256 KB가 될 수 있으며 [최대 메시지 크기는 최대](iot-hub-devguide-quotas-throttling.md#other-limits)입니다.
+*  Your cloud-to-device and device-to-cloud throttles determine the maximum *rate* at which you can send messages -- number of messages irrespective of 4 KB chunks. Each message can be up to 256 KB which is the [maximum message size](iot-hub-devguide-quotas-throttling.md#other-limits).
 
-*  제한 한도를 초과 하거나 초과 하지 않도록 호출을 제한 하는 것이 좋습니다. 제한에 도달 하면 IoT Hub는 오류 코드 429로 응답 하 고 클라이언트는 백오프 했다가 다시 시도 해야 합니다. 이러한 한도는 허브 당 또는 허브/단위당 일부 경우에 해당 합니다. 자세한 내용은 [연결 및 신뢰할 수 있는 메시징/재시도 패턴 관리](iot-hub-reliability-features-in-sdks.md#retry-patterns)를 참조 하세요.
+*  It's a good practice to throttle your calls so that you don't hit/exceed the throttling limits. If you do hit the limit, IoT Hub responds with error code 429 and the client should back-off and retry. These limits are per hub (or in some cases per hub/unit). For more information, refer to [Manage connectivity and reliable messaging/Retry patterns](iot-hub-reliability-features-in-sdks.md#retry-patterns).
 
-### <a name="traffic-shaping"></a>교통 셰이핑
+### <a name="traffic-shaping"></a>Traffic shaping
 
-버스트 트래픽을 수용 하기 위해 제한 된 시간에 대 한 제한 보다 높은 요청을 허용 IoT Hub 합니다. 이러한 요청 중 처음 몇 개는 즉시 처리 됩니다. 그러나 요청 수가 계속 해 서 제한을 위반 하는 경우 IoT Hub은 요청을 큐에 배치 하 고 제한 속도로 처리를 시작 합니다. 이러한 효과를 *트래픽 셰이핑*이라고 합니다. 또한이 큐의 크기는 제한 됩니다. 스로틀 위반이 계속 되 면 큐가 가득 찰 IoT Hub `429 ThrottlingException`으로 요청을 거부 하기 시작 합니다.
+To accommodate burst traffic, IoT Hub accepts requests above the throttle for a limited time. The first few of these requests are processed immediately. However, if the number of requests continues violate the throttle, IoT Hub starts placing the requests in a queue and processed at the limit rate. This effect is called *traffic shaping*. Furthermore, the size of this queue is limited. If the throttle violation continues, eventually the queue fills up, and IoT Hub starts rejecting requests with `429 ThrottlingException`.
 
-예를 들어 시뮬레이션 된 장치를 사용 하 여 200 초당 장치-클라우드 메시지를 S1 IoT Hub (100/sec D2C 전송)로 보냅니다. 첫 번째 1 ~ 2 개의 경우 메시지는 즉시 처리 됩니다. 그러나 장치가 스로틀 제한 보다 더 많은 메시지를 계속 보내기 때문에 IoT Hub는 초당 100 메시지만 처리 하 고 나머지는 큐에 배치 합니다. 대기 시간이 증가 하는 것을 시작 합니다. 결과적으로, 큐가 채워질 때 `429 ThrottlingException`을 가져오기 시작 하 고 [IoT Hub 메트릭의](iot-hub-metrics.md) "제한 오류 수"가 증가할 수 있습니다.
+For example, you use a simulated device to send 200 device-to-cloud messages per second to your S1 IoT Hub (which has a limit of 100/sec D2C sends). For the first minute or two, the messages are processed immediately. However, since the device continues to send more messages than the throttle limit, IoT Hub begins to only process 100 messages per second and puts the rest in a queue. You start noticing increased latency. Eventually, you start getting `429 ThrottlingException` as the queue fills up, and the "number of throttle errors" in [IoT Hub's metrics](iot-hub-metrics.md) starts increasing.
 
-### <a name="identity-registry-operations-throttle"></a>Id 레지스트리 작업 제한
+### <a name="identity-registry-operations-throttle"></a>Identity registry operations throttle
 
-장치 id 레지스트리 작업은 장치 관리 및 프로 비전 시나리오에서 런타임 사용을 위한 것입니다. 많은 수의 디바이스 ID는 [가져오기 및 내보내기 작업](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)을 통해 읽거나 업데이트할 수 있습니다.
+Device identity registry operations are intended for run-time use in device management and provisioning scenarios. 많은 수의 디바이스 ID는 [가져오기 및 내보내기 작업](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)을 통해 읽거나 업데이트할 수 있습니다.
 
-### <a name="device-connections-throttle"></a>장치 연결 제한
+### <a name="device-connections-throttle"></a>Device connections throttle
 
 *디바이스 연결* 제한은 IoT Hub에서 새 디바이스 연결을 설정할 수 있는 속도를 제어합니다. *디바이스 연결* 제한은 동시에 연결되는 디바이스의 최대 수를 제어하지 않습니다. *디바이스 연결* 속도 제한은 IoT Hub에 대해 프로비전되는 단위의 수에 따라 다릅니다.
 
-예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. 따라서 10만 장치를 연결 하려면 최소 1000 초 (약 16 분)가 걸립니다. 그러나 ID 레지스트리에 등록한 수만큼의 디바이스를 동시에 연결할 수 있습니다.
+예를 들어 S1 단위 하나를 구매하는 경우 초당 연결 제한은 100개입니다. Therefore, to connect 100,000 devices, it takes at least 1,000 seconds (approximately 16 minutes). 그러나 ID 레지스트리에 등록한 수만큼의 디바이스를 동시에 연결할 수 있습니다.
 
 ## <a name="other-limits"></a>기타 제한
 
@@ -95,28 +95,28 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 
 | 작업(Operation) | 제한 |
 | --------- | ----- |
-| 디바이스 | 단일 IoT hub에 등록할 수 있는 장치 및 모듈의 총 수는 100만로 표시 됩니다. 이 한도를 늘리는 유일한 방법은 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 연결 하는 것입니다.|
-| 파일 업로드 | 장치 당 10 개의 동시 파일 업로드. |
-| 작업<sup>1</sup> | 최대 동시 작업 수는 1 (무료 및 S1), 5 (S2의 경우) 및 10 (s 3의 경우)입니다. 그러나 최대 동시 [장치 가져오기/내보내기 작업](iot-hub-bulk-identity-mgmt.md) 은 모든 계층에 대해 1입니다. <br/>작업 기록은 30 일까지 유지 됩니다. |
+| 디바이스 | The total number of devices plus modules that can be registered to a single IoT hub is capped at 1,000,000. The only way to increase this limit is to contact [Microsoft Support](https://azure.microsoft.com/support/options/).|
+| 파일 업로드 | 10 concurrent file uploads per device. |
+| 작업<sup>1</sup> | Maximum concurrent jobs is 1 (for Free and S1), 5 (for S2), and 10 (for S3). However, the max concurrent [device import/export jobs](iot-hub-bulk-identity-mgmt.md) is 1 for all tiers. <br/>Job history is retained up to 30 days. |
 | 추가 엔드포인트 | 유료 SKU 허브에는 10개, 무료 SKU 허브에는 하나의 추가 엔드포인트가 있을 수 있습니다. |
-| 메시지 라우팅 쿼리 | 유료 SKU 허브에는 100 라우팅 쿼리가 있을 수 있습니다. 무료 SKU 허브에는 5 개의 라우팅 쿼리가 있을 수 있습니다. |
-| 메시지 보강 | 유료 SKU 허브에는 최대 10 개의 메시지 강화 있을 수 있습니다. 무료 SKU 허브에는 최대 2 개의 메시지 강화 있을 수 있습니다.|
+| Message routing queries | Paid SKU hubs may have 100 routing queries. Free SKU hubs may have five routing queries. |
+| 메시지 보강 | Paid SKU hubs can have up to 10 message enrichments. Free SKU hubs can have up to 2 message enrichments.|
 | 디바이스-클라우드 메시징 | 최대 메시지 크기 256KB |
-| 클라우드-디바이스 메시징<sup>1</sup> | 최대 메시지 크기 64KB 배달 보류 중인 최대 메시지 수는 장치당 50입니다. |
+| 클라우드-디바이스 메시징<sup>1</sup> | 최대 메시지 크기 64KB Maximum pending messages for delivery is 50 per device. |
 | 직접 메서드<sup>1</sup> | 최대 직접 메서드 페이로드 크기는 128KB입니다. |
 | 자동 디바이스 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
-| 자동 배포 IoT Edge<sup>1</sup> | 배포당 20개의 모듈 유료 SKU 허브당 100개 배포입니다. 무료 SKU 허브 당 10 개의 배포. |
-| 쌍<sup>1</sup> | 쌍 섹션(태그, 원하는 속성, 보고된 속성)당 최대 크기는 8KB입니다. |
+| IoT Edge automatic deployments<sup>1</sup> | 배포당 20개의 모듈 유료 SKU 허브당 100개 배포입니다. 10 deployments per free SKU hub. |
+| 쌍<sup>1</sup> | Maximum size of desired properties and reported properties sections are 32 KB each. Maximum size of tags section is 8 KB. |
 
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.
 
-## <a name="increasing-the-quota-or-throttle-limit"></a>할당량 또는 스로틀 제한을 늘립니다.
+## <a name="increasing-the-quota-or-throttle-limit"></a>Increasing the quota or throttle limit
 
-지정 된 시간에 [IoT hub에서 프로 비전 된 단위 수를 늘려](iot-hub-upgrade.md)할당량 또는 스로틀 제한을 늘릴 수 있습니다.
+At any given time, you can increase quotas or throttle limits by [increasing the number of provisioned units in an IoT hub](iot-hub-upgrade.md).
 
 ## <a name="latency"></a>대기 시간
 
-IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. 그러나 네트워크 상태 및 예측할 수 없는 기타 요인으로 인해 특정 대기 시간을 보장할 수 없습니다. 솔루션을 설계할 때 다음을 수행해야 합니다.
+IoT Hub는 모든 작업에 낮은 대기 시간을 제공하기 위해 노력합니다. However, due to network conditions and other unpredictable factors it cannot guarantee a certain latency. 솔루션을 설계할 때 다음을 수행해야 합니다.
 
 * IoT Hub 작업의 최대 대기 시간을 가정하지 마세요.
 * 디바이스에 가장 가까운 Azure 지역에서 IoT Hub를 프로비전합니다.

@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용하여 Azure 내부 부하 분산 장치 만들기
-titlesuffix: Azure Load Balancer
+titleSuffix: Azure Load Balancer
 description: Azure Resource Manager로 Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치를 만드는 방법 알아보기
 services: load-balancer
 documentationcenter: na
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: b53225334c6a7d61fcee70327df5979af1e424ee
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: 547402fd2cca94f47a9ff0db3131d359bafd967a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68275406"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225383"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -42,11 +42,11 @@ ms.locfileid: "68275406"
 
 부하 분산 장치를 배포하려면 다음 개체를 만들어야 합니다.
 
-* 프런트 엔드 IP 풀: 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
-* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스
-* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성
-* 프로브 구성: 가상 머신에 대한 상태 프로브
-* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙
+* 프런트 엔드 IP 구성 – 들어오는 모든 네트워크 트래픽에 대한 개인 IP 주소.
+* 백 엔드 주소 풀: 프런트 엔드 IP 주소의 부하가 분산된 트래픽을 수신하기 위한 네트워크 인터페이스.
+* 부하 분산 규칙: 부하 분산 장치의 포트(원본 및 로컬) 구성.
+* 프로브 구성: 가상 머신에 대한 상태 프로브.
+* 인바운드 NAT 규칙: 가상 머신에 직접 액세스를 위한 포트 규칙.
 
 부하 분산 장치 구성 요소에 대한 자세한 내용은 [부하 분산 장치에 대한 Azure Resource Manager 지원](load-balancer-arm.md)을 참조하세요.
 
@@ -138,10 +138,10 @@ $beaddresspool= New-AzLoadBalancerBackendAddressPoolConfig -Name "LB-backend"
 
 이 예제에서는 다음 네 가지 규칙 개체를 만듭니다.
 
-* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441~포트 3389에서 들어오는 모든 트래픽 리디렉션
-* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442~포트 3389에서 들어오는 모든 트래픽 리디렉션
-* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태 확인
-* 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산
+* RDP(원격 데스크톱 프로토콜)에 대한 인바운드 NAT 규칙: 포트 3441의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
+* RDP에 대한 두 번째 인바운드 NAT 규칙: 포트 3442의 모든 들어오는 트래픽을 포트 3389로 리디렉션합니다.
+* 상태 프로브 규칙: HealthProbe.aspx 경로의 상태를 확인합니다.
+* 부하 분산 장치 규칙: 공용 포트 80의 들어오는 모든 트래픽을 백 엔드 주소 풀의 로컬 포트 80으로 부하 분산합니다.
 
 ```azurepowershell-interactive
 $inboundNATRule1= New-AzLoadBalancerInboundNatRuleConfig -Name "RDP1" -FrontendIpConfiguration $frontendIP -Protocol TCP -FrontendPort 3441 -BackendPort 3389
@@ -241,7 +241,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
-`Add-AzVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
+`Add-AzVMNetworkInterface` 명령을 사용하여 NIC를 가상 머신에 할당합니다.
 
 가상 컴퓨터를 만들고 NIC를 할당하는 단계별 지침은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
@@ -251,7 +251,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>1단계: 부하 분산 장치 리소스 저장
 
-부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$lb**를 변수 이름으로 사용합니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용합니다.
+부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG

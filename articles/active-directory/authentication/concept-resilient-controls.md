@@ -1,5 +1,5 @@
 ---
-title: 복원 력 있는 액세스 제어 관리 전략 만들기-Azure Active Directory
+title: Create a resilient access control management strategy - Azure AD
 description: 이 문서에서는 조직이 예기치 않은 중단 시 잠금의 위험을 줄이는 복원력을 제공하기 위해 채택해야 하는 전략에 대한 지침을 제공합니다.
 services: active-directory
 author: martincoetzer
@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/19/2018
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 675e970bbdaeb035273eb87394dda610e070aa39
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125120"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74208565"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -37,8 +37,8 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 이 문서의 4가지 핵심 사항은 다음과 같습니다.
 
 * 응급 액세스 계정을 사용하여 관리자 잠금을 방지합니다.
-* 사용자 단위 MFA 대신 CA (조건부 액세스)를 사용 하 여 MFA를 구현 합니다.
-* 여러 가지 CA (조건부 액세스) 컨트롤을 사용 하 여 사용자 잠금을 완화 합니다.
+* Implement MFA using Conditional Access (CA) rather than per-user MFA.
+* Mitigate user lockout by using multiple Conditional Access (CA) controls.
 * 각 사용자에 대해 여러 인증 방법 또는 이와 동등한 기능을 프로비전하여 사용자 잠금을 완화합니다.
 
 ## <a name="before-a-disruption"></a>중단 전
@@ -49,8 +49,8 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
  ID는 애플리케이션과 리소스에 액세스하는 사용자의 제어 평면입니다. ID 시스템은 액세스 제어 또는 인증 요구 사항과 같이 사용자가 애플리케이션에 액세스할 수 있는 사용자와 조건을 제어합니다. 예기치 않은 상황으로 인해 사용자가 인증하는 데 하나 이상의 인증 또는 액세스 제어 요구 사항을 사용할 수 없는 경우 조직에서는 다음 문제 중 하나 또는 둘 모두를 경험할 수 있습니다.
 
-* **관리자 잠금:** 관리자가 테넌트 또는 서비스를 관리할 수 없습니다.
-* **사용자 잠금:** 사용자가 애플리케이션 또는 리소스에 액세스할 수 없습니다.
+* **Administrator lockout:** Administrators can’t manage the tenant or services.
+* **User lockout:** Users can’t access apps or resources.
 
 ### <a name="administrator-lockout-contingency"></a>관리자 잠금 긴급 상황
 
@@ -58,11 +58,11 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 ### <a name="mitigating-user-lockout"></a>사용자 잠금 완화
 
- 사용자 잠금의 위험을 완화 하려면 여러 컨트롤이 포함 된 조건부 액세스 정책을 사용 하 여 사용자에 게 앱과 리소스에 액세스 하는 방법을 선택할 수 있습니다. 예를 들어 사용자가 MFA로 로그인 **또는** 관리 디바이스에서 로그인 **또는** 회사 네트워크에서 로그인 중에서 선택할 수 있도록 하여 액세스 제어 중 하나를 사용할 수 없는 경우 계속 작업할 수 있는 다른 옵션이 사용자에게 제공됩니다.
+ To mitigate the risk of user lockout, use Conditional Access policies with multiple controls to give users a choice of how they will access apps and resources. 예를 들어 사용자가 MFA로 로그인 **또는** 관리 디바이스에서 로그인 **또는** 회사 네트워크에서 로그인 중에서 선택할 수 있도록 하여 액세스 제어 중 하나를 사용할 수 없는 경우 계속 작업할 수 있는 다른 옵션이 사용자에게 제공됩니다.
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
-조직의 기존 조건부 액세스 정책에 다음 액세스 제어를 통합 합니다.
+Incorporate the following access controls in your existing Conditional Access policies for organization:
 
 1. Microsoft Authenticator 앱(인터넷 기반), OATH 토큰(디바이스에서 생성) 및 SMS(전화)와 같이 다양한 통신 채널을 사용하는 각 사용자에 대해 여러 인증 방법을 프로비전합니다.
 2. 디바이스 로그인에서 직접 MFA 요구 사항을 충족시키기 위해 Windows 10 디바이스에 비즈니스용 Windows Hello를 배포합니다.
@@ -77,23 +77,23 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 **CA 완화 정책 세트:**
 
-* 정책 1: 대상 그룹 외부의 사용자에 대한 액세스 차단
-  * 사용자 및 그룹: 모든 사용자 포함, AppUsers, CoreAdmins 및 EmergencyAccess 제외
-  * 클라우드 앱: 모든 앱 포함
-  * 조건: (없음)
-  * 제어 권한 부여: 블록
-* 정책 2: MFA 또는 신뢰할 수 있는 디바이스가 필요한 AppUsers에 액세스 권한 부여
-  * 사용자 및 그룹: AppUsers 포함, CoreAdmins 및 EmergencyAccess 제외
-  * 클라우드 앱: 모든 앱 포함
-  * 조건: (없음)
-  * 제어 권한 부여: 액세스를 허용하고, 다단계 인증을 요구하고, 디바이스에서 규정을 준수하도록 요구합니다. 여러 제어의 경우: 선택한 제어 중 하나를 요구합니다.
+* Policy 1: Block access to people outside target groups
+  * Users and Groups: Include all users. AppUsers, CoreAdmins 및 EmergencyAccess 제외
+  * Cloud Apps: Include all apps
+  * Conditions: (None)
+  * Grant Control: Block
+* Policy 2: Grant access to AppUsers requiring MFA OR trusted device.
+  * Users and Groups: Include AppUsers. CoreAdmins 및 EmergencyAccess 제외
+  * Cloud Apps: Include all apps
+  * Conditions: (None)
+  * Grant Control: Grant access, require multi-factor authentication, require device to be compliant. For multiple controls: Require one of the selected controls.
 
 ### <a name="contingencies-for-user-lockout"></a>사용자 잠금 긴급 상황
 
 조직에서는 대안으로 대응 정책을 만들 수도 있습니다. 대응 정책을 만들려면 비즈니스 연속성, 운영 비용, 재무 비용 및 보안 위험 간의 절충 조건을 정의해야 합니다. 예를 들어 애플리케이션의 하위 세트, 클라이언트의 하위 세트 또는 위치의 하위 세트에 속한 사용자의 하위 세트에만 대응 정책을 활성화할 수 있습니다. 완화 방법이 구현되지 않은 중단 동안 관리자와 최종 사용자는 대응 정책을 통해 애플리케이션 및 리소스에 액세스할 수 있습니다.
 중단 동안의 노출을 이해하는 것은 위험을 줄이는 데 도움이 되며 계획 프로세스에서 중요한 부분입니다. 대응 계획을 만들기 위해 먼저 결정해야 하는 조직의 다음 비즈니스 요구 사항은 다음과 같습니다.
 
-1. 중요 업무용 애플리케이션을 미리 파악합니다. 즉, 낮은 위험/보안 상태에서도 액세스 권한을 부여해야 하는 애플리케이션을 파악합니다. 이러한 애플리케이션의 목록을 작성하고, 액세스 제어가 모두 사라지더라도 이러한 애플리케이션이 계속 실행되어야 한다는 것에 대해 다른 모든 이해 관계자(비즈니스, 보안, 법률, 리더십)가 동의해야 합니다. 결과적으로 다음과 같은 범주로 분류될 수 있습니다.
+1. Determine your mission critical apps ahead of time: What are the apps that you must give access to, even with a lower risk/security posture? 이러한 애플리케이션의 목록을 작성하고, 액세스 제어가 모두 사라지더라도 이러한 애플리케이션이 계속 실행되어야 한다는 것에 대해 다른 모든 이해 관계자(비즈니스, 보안, 법률, 리더십)가 동의해야 합니다. 결과적으로 다음과 같은 범주로 분류될 수 있습니다.
    * **범주 1 중요 업무용 애플리케이션** - 몇 분 이상 사용할 수 없습니다(예: 조직의 매출에 직접 영향을 미치는 앱).
    * **범주 2 중요한 애플리케이션** - 몇 시간 내에 비즈니스에 액세스할 수 있어야 합니다.
    * **범주 3 우선 순위가 낮은 애플리케이션** - 며칠간의 중단에 견딜 수 있습니다.
@@ -109,7 +109,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
 
-대체 조건부 액세스 정책은 Azure MFA, 타사 MFA, 위험 기반 또는 장치 기반 컨트롤을 생략 하는 **사용 하지 않도록 설정 된 정책** 입니다. 그런 다음, 조직에서 대응 계획을 활성화하도록 결정하면 관리자는 정책을 사용하도록 설정하고 일반 제어 기반 정책을 사용하지 않도록 설정할 수 있습니다.
+A contingency Conditional Access policy is a **disabled policy** that omits Azure MFA, third-party MFA, risk-based or device-based controls. 그런 다음, 조직에서 대응 계획을 활성화하도록 결정하면 관리자는 정책을 사용하도록 설정하고 일반 제어 기반 정책을 사용하지 않도록 설정할 수 있습니다.
 
 >[!IMPORTANT]
 > 사용자에게 보안을 적용하는 정책을 일시적이라도 사용하지 않도록 설정하면 대응 계획이 있는 동안 보안 상태가 저하됩니다.
@@ -117,13 +117,13 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 타사 MFA 공급자가 필요한 활성 정책에 대한 백업과 같이 도메인 조인이 제어로 필요한 정책을 사용 안 함 상태로 구성합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) 및 [Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어:
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 다음은 그 예입니다.
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
   * 정책에 대한 *레이블 번호*
-  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. 예를 들어: **응급 상황에서 사용**
-  * 적용되는 *중단*. 예를 들어: **MFA 중단 시**
+  * 표시할 텍스트 - 이 정책은 응급 상황에만 적용됩니다. For example: **ENABLE IN EMERGENCY**
+  * 적용되는 *중단*. For example: **During MFA Disruption**
   * 정책을 활성화해야 하는 순서를 나타내는 *시퀀스 번호*
   * 적용되는 *앱*
   * 적용할 *제어*
@@ -135,72 +135,72 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions]
 ```
 
-다음 예제를 참조하세요. **예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책**은 일반적인 회사 대응 정책입니다. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
+The following example: **Example A - Contingency CA policy to restore Access to mission-critical Collaboration Apps**, is a typical corporate contingency. 이 시나리오에서 조직은 일반적으로 모든 Exchange Online 및 SharePoint Online 액세스에서 MFA를 요구하며, 이 경우 중단되면 고객에 대한 MFA 공급자(Azure MFA, 온-프레미스 MFA 공급자 또는 타사 MFA)가 중단된 것입니다. 이 정책은 특정 대상 사용자가 신뢰할 수 있는 회사 네트워크에서 해당 애플리케이션에 액세스할 때만 신뢰할 수 있는 Windows 디바이스에서 이러한 애플리케이션에 액세스할 수 있도록 하여 이러한 중단을 완화합니다. 또한 응급 계정과 핵심 관리자도 이러한 제한에서 제외됩니다. 그러면 대상으로 지정된 사용자는 Exchange Online 및 SharePoint Online에 액세스할 수 있지만, 다른 사용자는 중단으로 인해 애플리케이션에 액세스할 수 없습니다. 이 예제에서는 대상 사용자가 있는 **CorpNetwork** 네트워크 위치와 **ContingencyAccess** 보안 그룹, 핵심 관리자가 있는 **CoreAdmins** 그룹 및 응급 액세스 계정이 있는 **EmergencyAccess** 그룹이 필요합니다. 긴급 상황에는 원하는 액세스를 제공하는 4가지 정책이 필요합니다. 
 
 **예제 A - 중요 업무용 협업 앱에 대한 액세스를 복원하는 대응 CA 정책:**
 
-* 정책 1: Exchange 및 SharePoint에 대한 도메인 조인 디바이스 필요
-  * 이름: EM001 - 응급 상황에서 사용: MFA 중단[1/4] - Exchange SharePoint - 하이브리드 Azure AD 조인 필요
-  * 사용자 및 그룹: ContingencyAccess 포함, CoreAdmins 및 EmergencyAccess 제외
-  * 클라우드 앱: Exchange Online 및 SharePoint Online
-  * 조건: 임의의 값
-  * 제어 권한 부여: 도메인 조인 필요
-  * 상태: 사용 안 함
-* 정책 2: Windows 이외의 플랫폼 차단
-  * 이름: EM002 - 응급 상황에서 사용: MFA 중단[2/4] - Exchange SharePoint - Windows를 제외한 액세스 차단
-  * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
-  * 클라우드 앱: Exchange Online 및 SharePoint Online
-  * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, Windows 제외
-  * 제어 권한 부여: 블록
-  * 상태: 사용 안 함
-* 정책 3: CorpNetwork 이외의 네트워크 차단
-  * 이름: EM003 - 응급 상황에서 사용: MFA 중단[3/4] - Exchange SharePoint - 회사 네트워크를 제외한 액세스 차단
-  * 사용자 및 그룹: 모든 사용자 포함, CoreAdmins 및 EmergencyAccess 제외
-  * 클라우드 앱: Exchange Online 및 SharePoint Online
-  * 조건: 위치, 모든 위치 포함, CorpNetwork 제외
-  * 제어 권한 부여: 블록
-  * 상태: 사용 안 함
-* 정책 4: 명시적으로 EAS 차단
-  * 이름: EM004 - 응급 상황에서 사용: MFA 중단[4/4] - Exchange - 모든 사용자에 대한 EAS 차단
-  * 사용자 및 그룹: 모든 사용자 포함
-  * 클라우드 앱: Exchange Online 포함
-  * 조건: 클라이언트 앱: Exchange Active Sync
-  * 제어 권한 부여: 블록
-  * 상태: 사용 안 함
+* Policy 1: Require Domain Joined devices for Exchange and SharePoint
+  * Name: EM001 - ENABLE IN EMERGENCY: MFA Disruption[1/4] - Exchange SharePoint - Require Hybrid Azure AD Join
+  * Users and Groups: Include ContingencyAccess. CoreAdmins 및 EmergencyAccess 제외
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Any
+  * Grant Control: Require Domain Joined
+  * State: Disabled
+* Policy 2: Block platforms other than Windows
+  * Name: EM002 - ENABLE IN EMERGENCY: MFA Disruption[2/4] - Exchange SharePoint - Block access except Windows
+  * Users and Groups: Include all users. CoreAdmins 및 EmergencyAccess 제외
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Device Platform Include All Platforms, exclude Windows
+  * Grant Control: Block
+  * State: Disabled
+* Policy 3: Block networks other than CorpNetwork
+  * Name: EM003 - ENABLE IN EMERGENCY: MFA Disruption[3/4] - Exchange SharePoint - Block access except Corporate Network
+  * Users and Groups: Include all users. CoreAdmins 및 EmergencyAccess 제외
+  * Cloud Apps: Exchange Online and SharePoint Online
+  * Conditions: Locations Include any location, exclude CorpNetwork
+  * Grant Control: Block
+  * State: Disabled
+* Policy 4: Block EAS Explicitly
+  * Name: EM004 - ENABLE IN EMERGENCY: MFA Disruption[4/4] - Exchange - Block EAS for all users
+  * Users and Groups: Include all users
+  * Cloud Apps: Include Exchange Online
+  * Conditions: Client apps: Exchange Active Sync
+  * Grant Control: Block
+  * State: Disabled
 
 활성화 순서:
 
 1. 기존 MFA 정책에서 ContingencyAccess, CoreAdmins 및 EmergencyAccess를 제외합니다. ContingencyAccess의 사용자가 SharePoint Online 및 Exchange Online에 액세스할 수 있는지 확인합니다.
-2. 정책 1 사용 설정: 제외 그룹에 속하지 않은 도메인 조인 디바이스의 사용자가 Exchange Online 및 SharePoint Online에 액세스할 수 있는지 확인합니다. 제외 그룹에 속한 사용자가 모든 디바이스에서 SharePoint Online 및 Exchange에 액세스할 수 있는지 확인합니다.
-3. 정책 2 사용 설정: 제외 그룹에 속하지 않은 사용자가 모바일 디바이스에서 SharePoint Online 및 Exchange Online에 연결할 수 없는지 확인합니다. 제외 그룹에 속한 사용자가 모든 디바이스(Windows/iOS/Android)에서 SharePoint 및 Exchange에 액세스할 수 있는지 확인합니다.
-4. 정책 3 사용 설정: 제외 그룹에 속하지 않은 사용자가 도메인 조인 머신을 사용하는 경우에도 회사 네트워크에서 SharePoint 및 Exchange에 액세스할 수 없는지 확인합니다. 제외 그룹에 속한 사용자가 모든 네트워크에서 SharePoint 및 Exchange에 액세스할 수 있는지 확인합니다.
-5. 정책 4 사용 설정: 모든 사용자가 모바일 디바이스의 기본 메일 애플리케이션에서 Exchange Online을 가져올 수 없는지 확인합니다.
+2. Enable Policy 1: Verify users on Domain Joined devices who are not in the exclude groups are able to access Exchange Online and SharePoint Online. 제외 그룹에 속한 사용자가 모든 디바이스에서 SharePoint Online 및 Exchange에 액세스할 수 있는지 확인합니다.
+3. Enable Policy 2: Verify users who are not in the exclude group cannot get to SharePoint Online and Exchange Online from their mobile devices. 제외 그룹에 속한 사용자가 모든 디바이스(Windows/iOS/Android)에서 SharePoint 및 Exchange에 액세스할 수 있는지 확인합니다.
+4. Enable Policy 3: Verify users who are not in the exclude groups cannot access SharePoint and Exchange off the corporate network, even with a domain joined machine. 제외 그룹에 속한 사용자가 모든 네트워크에서 SharePoint 및 Exchange에 액세스할 수 있는지 확인합니다.
+5. Enable Policy 4: Verify all users cannot get Exchange Online from the native mail applications on mobile devices.
 6. SharePoint Online 및 Exchange Online에 대한 기존 MFA 정책을 사용하지 않도록 설정합니다.
 
 **예제 B - Salesforce에 대한 모바일 액세스를 허용하는 대응 CA 정책** 예제에서는 비즈니스 앱의 액세스가 복원됩니다. 이 시나리오에서 고객은 일반적으로 판매 직원이 모바일 디바이스에서 Salesforce(Azure AD를 통한 Single Sign-On으로 구성됨)에 액세스하여 규정 준수 디바이스에서만 허용되도록 요구합니다. 이 경우 중단이 발생하면 디바이스의 규정 준수를 평가하는 데 문제가 있으며, 판매 팀이 거래를 성사시키기 위해 Salesforce에 액세스해야 하는 중요한 시점에 중단이 발생하는 것입니다. 이러한 대응 정책을 통해 중요한 사용자는 모바일 디바이스에서 Salesforce에 액세스할 수 있으므로 거래를 계속 성사시키고 비즈니스를 중단하지 않을 수 있습니다. 이 예제에서 **SalesforceContingency**에는 액세스를 유지해야 하는 모든 판매 직원이 포함되며, **SalesAdmins**에는 Salesforce의 필수 관리자가 포함됩니다.
 
 **예제 B - 대응 CA 정책:**
 
-* 정책 1: SalesContingency 팀에 속하지 않은 모든 사용자 차단
-  * 이름: EM001 - 응급 상황에서 사용: 디바이스 규정 준수 중단[1/2]- Salesforce - SalesforceContingency를 제외한 모든 사용자 차단
-  * 사용자 및 그룹: 모든 사용자 포함, SalesAdmins 및 SalesforceContingency 제외
-  * 클라우드 앱: Salesforce
-  * 조건: 없음
-  * 제어 권한 부여: 블록
-  * 상태: 사용 안 함
-* 정책 2: 모바일 이외의 모든 플랫폼에서 판매 팀 차단(공격 노출 영역을 줄이기 위해)
-  * 이름: EM002 - 응급 상황에서 사용: 디바이스 규정 준수 중단[2/2]- Salesforce - iOS 및 Android를 제외한 모든 플랫폼 차단
-  * 사용자 및 그룹: SalesforceContingency 포함, SalesAdmins 제외
-  * 클라우드 앱: Salesforce
-  * 조건: 디바이스 플랫폼, 모든 플랫폼 포함, iOS 및 Android 제외
-  * 제어 권한 부여: 블록
-  * 상태: 사용 안 함
+* Policy 1: Block everyone not in the SalesContingency team
+  * Name: EM001 - ENABLE IN EMERGENCY: Device Compliance Disruption[1/2] - Salesforce - Block All users except SalesforceContingency
+  * Users and Groups: Include all users. SalesAdmins 및 SalesforceContingency 제외
+  * Cloud Apps: Salesforce.
+  * Conditions: None
+  * Grant Control: Block
+  * State: Disabled
+* Policy 2: Block the Sales team from any platform other than mobile (to reduce surface area of attack)
+  * Name: EM002 - ENABLE IN EMERGENCY: Device Compliance Disruption[2/2] - Salesforce - Block All platforms except iOS and Android
+  * Users and Groups: Include SalesforceContingency. SalesAdmins 제외
+  * Cloud Apps: Salesforce
+  * Conditions: Device Platform Include All Platforms, exclude iOS and Android
+  * Grant Control: Block
+  * State: Disabled
 
 활성화 순서:
 
 1. Salesforce에 대한 기존 디바이스 규정 준수 정책에서 SalesAdmins 및 SalesforceContingency를 제외합니다. SalesforceContingency 그룹에 속한 사용자가 Salesforce에 액세스할 수 있는지 확인합니다.
-2. 정책 1 사용 설정: SalesContingency에 속하지 않은 사용자가 Salesforce에 액세스할 수 없는지 확인합니다. SalesAdmins 및 SalesforceContingency에 속한 사용자가 Salesforce에 액세스할 수 있는지 확인합니다.
-3. 정책 2 사용 설정: SalesContingency 그룹에 속한 사용자가 Windows/Mac 랩톱에서 Salesforce에 액세스할 수 없지만 모바일 디바이스에서는 계속 액세스할 수 있는지 확인합니다. SalesAdmin이 모든 디바이스에서 Salesforce에 계속 액세스할 수 있는지 확인합니다.
+2. Enable Policy 1: Verify users outside of SalesContingency cannot access Salesforce. SalesAdmins 및 SalesforceContingency에 속한 사용자가 Salesforce에 액세스할 수 있는지 확인합니다.
+3. Enable Policy 2: Verify users in the SalesContingency group cannot access Salesforce from their Windows/Mac laptops but can still access from their mobile devices. SalesAdmin이 모든 디바이스에서 Salesforce에 계속 액세스할 수 있는지 확인합니다.
 4. Salesforce에 대한 기존 디바이스 규정 준수 정책을 사용하지 않도록 설정합니다.
 
 ### <a name="deploy-password-hash-sync-even-if-you-are-federated-or-use-pass-through-authentication"></a>페더레이션되었거나 통과 인증을 사용하는 경우에도 암호 해시 동기화 배포
@@ -232,7 +232,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 1. 변경 제어 전략의 일환으로 액세스 제어가 완전히 작동하는 즉시 구현한 모든 긴급 상황을 롤백할 수 있도록 모든 변경 내용과 이전 상태를 문서화합니다.
 2. 악의적인 행위자가 MFA를 사용하지 않는 동안 암호 스프레이 또는 피싱 공격을 통해 암호를 수집하려고 한다고 가정합니다. 또한 이전에 이 기간 동안 시도될 수 있는 리소스에 대한 액세스 권한을 부여하지 않은 암호가 악의적인 행위자에게 이미 있을 수도 있습니다. 임원과 같은 중요한 사용자의 경우 MFA를 사용하지 않도록 설정하기 전에 암호를 다시 설정하여 이 위험을 부분적으로 완화할 수 있습니다.
 3. 모든 로그인 활동을 보관하여 MFA가 사용되지 않는 동안 액세스한 사용자를 식별합니다.
-4. 이 기간 동안 [보고 된 모든 위험 감지를 심사](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) 합니다.
+4. [Triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) during this window.
 
 ## <a name="after-a-disruption"></a>중단 후
 
@@ -242,24 +242,24 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 2. 대응 정책을 사용하지 않도록 설정합니다. 
 3. 중단 중에 수행되고 문서화된 다른 변경을 롤백합니다.
 4. 응급 액세스 계정을 사용한 경우 응급 액세스 계정 절차의 일환으로 자격 증명을 다시 생성하고 새 자격 증명의 세부 정보를 물리적으로 보호합니다.
-5. 의심 스러운 활동의 중단 이후에 [보고 된 모든 위험](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) 검색을 계속 심사 합니다.
+5. Continue to [triage all risk detections reported](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) after the disruption for suspicious activity.
 6. [PowerShell을 사용](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)하여 발급된 모든 새로 고침 토큰을 철회하여 일단의 사용자를 대상으로 지정합니다. 모든 새로 고침 토큰을 철회하는 것은 중단 중에 사용되는 권한 있는 계정에 중요합니다. 이를 수행하는 경우 복원된 정책의 제어를 다시 인증하고 충족하도록 강제로 적용합니다.
 
 ## <a name="emergency-options"></a>응급 옵션
 
- 응급 상황에서 조직이 완화 또는 대체 계획을 이전에 구현 하지 않은 경우 이미 조건부 액세스 정책을 사용 하 여 MFA를 적용 하는 경우 [사용자 잠금에 대 한 응급](#contingencies-for-user-lockout) 섹션의 권장 사항을 따릅니다.
+ In case of an emergency and your organization did not previously implement a mitigation or contingency plan, then follow the recommendations in the [Contingencies for user lockout](#contingencies-for-user-lockout) section if they already use Conditional Access policies to enforce MFA.
 조직에서 사용자별 MFA 레거시 정책을 사용하는 경우 고려할 수 있는 대안은 다음과 같습니다.
 
 1. 회사 네트워크 아웃바운드 IP 주소가 있으면 회사 네트워크에만 인증할 수 있도록 이를 신뢰할 수 있는 IP로 추가합니다.
    1. 아웃바운드 IP 주소의 인벤토리가 없거나 회사 네트워크 내부 및 외부에서 액세스할 수 있어야 하는 경우 0.0.0.0/1 및 128.0.0.0/1을 지정하여 전체 IPv4 주소 공간을 신뢰할 수 있는 IP로 추가할 수 있습니다.
 
 >[!IMPORTANT]
- > 액세스를 차단 해제 하기 위해 신뢰할 수 있는 IP 주소를 확장 한 경우에는 IP 주소 (예: 불가능 한 이동 또는 익숙하지 않은 위치)와 관련 된 위험 검색이 생성 되지 않습니다.
+ > If you broaden the trusted IP addresses to unblock access, risk detections associated with IP addresses (for example, impossible travel or unfamiliar locations) will not be generated.
 
 >[!NOTE]
  > Azure MFA에 대한 [신뢰할 수 있는 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)는 [Azure AD Premium 라이선스](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)에서만 구성할 수 있습니다.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 * [Azure AD 인증 설명서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD에서 응급 액세스 관리 계정 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
@@ -268,5 +268,5 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 * [하이브리드 Azure Active Directory 조인 디바이스를 구성하는 방법](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)
 * [비즈니스용 Windows Hello 배포 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-deployment-guide)
   * [암호 지침 - Microsoft Research](https://research.microsoft.com/pubs/265143/microsoft_password_guidance.pdf)
-* [조건부 액세스 Azure Active Directory의 조건은 무엇입니까?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
-* [Azure Active Directory 조건부 액세스의 액세스 제어 정의](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)
+* [What are conditions in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/conditions)
+* [What are access controls in Azure Active Directory Conditional Access?](https://docs.microsoft.com/azure/active-directory/conditional-access/controls)

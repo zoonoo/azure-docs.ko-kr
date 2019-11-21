@@ -1,22 +1,14 @@
 ---
 title: Azure Functions C# 개발자 참조
 description: C#을 사용하여 Azure Functions를 개발하는 방법을 알아봅니다.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, webhook, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
-ms.devlang: dotnet
 ms.topic: reference
 ms.date: 09/12/2018
-ms.author: glenga
-ms.openlocfilehash: c3c13b7e28ef7c17fd45682d828f318de5326542
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 20bbf31bc92e49106a94e7a85d3b1541aaa2a34b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293873"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230613"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# 개발자 참조
 
@@ -29,20 +21,20 @@ Azure Functions는 C# 및 C# 스크립트 프로그래밍 언어를 지원합니
 이 문서에서는 사용자가 이미 다음 문서를 읽었다고 가정합니다.
 
 * [Azure Functions 개발자 가이드](functions-reference.md)
-* [Azure Functions Visual Studio 2019 도구](functions-develop-vs.md)
+* [Azure Functions Visual Studio 2019 Tools](functions-develop-vs.md)
 
 ## <a name="supported-versions"></a>지원되는 버전
 
-Azure Functions 2.x 런타임은 .NET Core 2.2를 사용 합니다. 함수 코드는 Visual Studio 프로젝트 설정을 업데이트 하 여 .NET Core 2.2 Api를 사용할 수 있습니다. .NET Core 2.2이 설치 되어 있지 않은 고객에 게 부정적인 영향을 주지 않도록 하기 위해 함수 템플릿은 .NET Core 2.2를 기본값으로 사용 하지 않습니다.
+The Azure Functions 2.x runtime uses .NET Core 2.2. Your function code can use .NET Core 2.2 APIs by updating the Visual Studio project settings. The Function templates do not default to .NET Core 2.2 to avoid adversely affecting customers that do not have .NET Core 2.2 installed.
 
 ## <a name="functions-class-library-project"></a>Functions 클래스 라이브러리 프로젝트
 
 Visual Studio에서 **Azure Functions** 프로젝트 템플릿은 다음 파일이 포함된 C# 클래스 라이브러리 프로젝트를 만듭니다.
 
 * [host.json](functions-host-json.md) -로컬로 또는 Azure에서 실행될 경우 프로젝트의 모든 함수에 영향을 주는 구성 설정을 저장합니다.
-* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. 대신, [함수 앱에 앱 설정을 추가](functions-develop-vs.md#function-app-settings)합니다.
+* [local.settings.json](functions-run-local.md#local-settings-file) - 로컬로 실행될 때 사용되는 앱 설정 및 연결 문자열을 저장합니다. 이 파일은 암호를 포함하며 Azure의 함수 앱에 게시되지 않습니다. Instead, [add app settings to your function app](functions-develop-vs.md#function-app-settings).
 
-프로젝트를 빌드하면 빌드 출력 디렉터리에 다음 예제와 같은 폴더 구조가 생성 됩니다.
+When you build the project, a folder structure that looks like the following example is generated in the build output directory:
 
 ```
 <framework.version>
@@ -77,7 +69,7 @@ public static class SimpleExample
 } 
 ```
 
-`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. 이름은 프로젝트 내에서 고유 해야 하 고, 문자로 시작 하 고, 문자, 숫자, `_` 및 `-`만 포함 해야 합니다. 최대 길이는 127 자입니다. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
+`FunctionName` 특성은 메서드를 함수 진입점으로 표시합니다. The name must be unique within a project, start with a letter and only contain letters, numbers, `_`, and `-`, up to 127 characters in length. 프로젝트 템플릿에서 `Run` 메서드를 자주 만들지만, 유효한 C# 이름은 모두 메서드 이름이 될 수 있습니다.
 
 트리거 특성은 트리거 유형을 지정하고, 입력 데이터를 메서드 매개 변수에 바인딩합니다. 예제 함수는 큐 메시지에 의해 트리거되며, 큐 메시지는 `myQueueItem` 매개 변수의 메서드에 전달됩니다.
 
@@ -186,7 +178,7 @@ public static class BindingExpressionsExample
 </ItemGroup>
 ```
 
-`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. 1\.x 프로젝트는 1.x 트리거와 바인딩이 .NET Framework 대상으로 하는 반면, 2.x 트리거와 바인딩은 .NET Core를 대상으로 하기 때문에 1. x 트리거 및 바인딩을 참조 합니다.
+`Sdk` 패키지 종속성에는 트리거 및 바인딩이 있습니다. A 1.x project refers to 1.x triggers and bindings because those triggers and bindings target the .NET Framework, while 2.x triggers and bindings target .NET Core.
 
 `Sdk` 패키지는 [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json)에도 종속되며, [WindowsAzure.Storage](https://www.nuget.org/packages/WindowsAzure.Storage)에는 간접적으로 종속됩니다. 이러한 종속성 때문에 프로젝트는 대상이 되는 Functions 런타임 버전에서 작동하는 패키지 버전을 사용하게 됩니다. 예를 들어, `Newtonsoft.Json`에는 .NET Framework 4.6.1용 버전 11이 있지만, .NET Framework 4.6.1을 대상으로 하는 Functions 런타임은 `Newtonsoft.Json` 9.0.1과만 호환됩니다. 따라서 해당 프로젝트의 함수 코드도 `Newtonsoft.Json` 9.0.1을 사용해야 합니다.
 
@@ -349,7 +341,7 @@ C# 및 기타 .NET 언어에서는 특성의 [*declarative*](https://en.wikipedi
   }
   ```
 
-  `BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. 예를 들어 Mobile Apps 테이블 출력 바인딩은 [6 개의 출력 형식을](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22)지원 하지만 명령적 바인딩과 함께 [ICollector @ No__t-2T >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) 또는 [iasynccollector @ no__t-4t에서는 >](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) 만 사용할 수 있습니다.
+  `BindingTypeAttribute`는 바인딩을 정의하는 .NET 특성이며, `T`는 해당 바인딩 형식에서 지원되는 입력 또는 출력 형식입니다. `T`는 `out` 매개 변수 형식(예: `out JObject`)일 수 없습니다. For example, the Mobile Apps table output binding supports [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22), but you can only use [ICollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/ICollector.cs) or [IAsyncCollector\<T>](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/IAsyncCollector.cs) with imperative binding.
 
 ### <a name="single-attribute-example"></a>단일 특성 예제
 
@@ -378,7 +370,7 @@ public static class IBinderExample
 
 ### <a name="multiple-attribute-example"></a>다중 특성 예제
 
-앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  예를 들어 다음과 같은 가치를 제공해야 합니다.
+앞의 예제에서는 함수 앱의 주 Storage 계정 연결 문자열(`AzureWebJobsStorage`)에 대한 앱 설정을 가져옵니다. [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)를 추가하고 `BindAsync<T>()`에 특성 배열을 전달하여 스토리지 계정에 사용할 사용자 지정 앱 설정을 지정할 수 있습니다. `IBinder`가 아닌 `Binder` 매개 변수를 사용합니다.  다음은 그 예입니다.
 
 ```cs
 public static class IBinderExampleMultipleAttributes
