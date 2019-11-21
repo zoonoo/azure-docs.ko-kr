@@ -47,6 +47,10 @@
           href: quickstart-scale-compute-tsql.md
     - name: 워크로드 관리
       items:
+        - name: 워크로드 분류자 만들기
+          items:
+            - name: T-SQL
+              href: quickstart-create-a-workload-classifier-tsql.md
         - name: 워크로드 격리 만들기
           items:
             - name: T-SQL
