@@ -112,14 +112,6 @@
               items:
                 - name: SQL Database 감사 시작
                   href: sql-database-auditing.md
-        - name: 네트워크 보안
-          items:
-            - name: 가상 네트워크 엔드포인트
-              href: sql-database-vnet-service-endpoint-rule-overview.md
-            - name: 가상 네트워크 엔드포인트 - PowerShell
-              href: sql-database-vnet-service-endpoint-rule-powershell.md
-            - name: Private Link
-              href: sql-database-private-endpoint-overview.md
         - name: 보안 관리
           items:
             - name: 고급 데이터 보안
@@ -136,14 +128,22 @@
               href: sql-database-feature-restrictions.md
         - name: 단일 데이터베이스 보안
           items:
+            - name: 네트워크 액세스 컨트롤
+              href: sql-database-networkaccess-overview.md
+            - name: IP 기반 방화벽
+              href: sql-database-firewall-configure.md
+            - name: vNet 방화벽 규칙
+              items:
+                - name: vNet 엔드포인트
+                  href: sql-database-vnet-service-endpoint-rule-overview.md
+                - name: vNet 엔드포인트 - PowerShell
+                  href: sql-database-vnet-service-endpoint-rule-powershell.md
+            - name: Private Link
+              href: sql-database-private-endpoint-overview.md
             - name: 감사 로그 형식
               href: sql-database-audit-log-format.md
             - name: 조건부 액세스
               href: sql-database-conditional-access.md
-            - name: 서버 수준 IP 방화벽 규칙
-              items:
-                - name: 만들기 및 관리
-                  href: sql-database-firewall-configure.md
         - name: Managed Instance 보안
           items:
             - name: 보안 공용 엔드포인트

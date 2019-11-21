@@ -427,6 +427,33 @@
           href: 'https://aka.ms/csspeech/pythonref'
         - name: 음성 SDK 릴리스 정보
           href: releasenotes.md
+- name: 디바이스
+  exanded: false
+  items:
+    - name: 개요
+      items:
+        - name: Speech Devices SDK 정보
+          href: speech-devices-sdk.md
+        - name: 음성 디바이스 SDK 가져오기
+          href: get-speech-devices-sdk.md
+    - name: 하드웨어
+      items:
+        - name: 마이크 배열 권장 사항
+          href: speech-devices-sdk-microphone.md
+        - name: Roobo v1 키트
+          href: speech-devices-sdk-roobo-v1.md
+    - name: 빠른 시작
+      items:
+        - name: Windows
+          href: speech-devices-sdk-windows-quickstart.md
+        - name: Linux
+          href: speech-devices-sdk-linux-quickstart.md
+        - name: Android
+          href: speech-devices-sdk-android-quickstart.md
+    - name: 리소스
+      items:
+        - name: Speech Devices SDK 문제 해결
+          href: speech-devices-sdk-troubleshooting.md
 - name: 마이그레이션
   exanded: false
   items:

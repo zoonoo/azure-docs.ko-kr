@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Azure IoT Hub Device Provisioning Service 설명서
 metadata:
-  title: 'Azure IoT Hub Device Provisioning Service 설명서 - 자습서, API 참조'
+  title: Azure IoT Hub Device Provisioning Service 설명서
   description: 'Azure IoT Hub Device Provisioning Service - 자습서, 빠른 시작, HowTos 및 API 참조'
   author: nberdy
   ms.service: iot-dps
@@ -11,7 +11,7 @@ metadata:
   ms.date: 01/23/2017
   ms.author: nberdy
 abstract:
-  description: 'IoT Hub Device Provisioning Service는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT Hub에 무인 프로비전이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비전할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아봅니다.'
+  description: 'IoT Hub DPS(Device Provisioning Service)는 IoT Hub를 위한 도우미 서비스로, 사람이 개입할 필요 없이 적기에 올바른 IoT 허브에 무인 프로비저닝이 가능하여 고객은 안전하고 확장성이 뛰어난 방식으로 수백만 대의 디바이스를 프로비저닝할 수 있습니다. 빠른 시작, 자습서 및 샘플을 사용하여 IoT Hub에 디바이스를 프로비전하는 방법을 알아봅니다.'
 sections:
   - title: 5분 빠른 시작
     items:

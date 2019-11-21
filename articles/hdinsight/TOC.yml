@@ -355,7 +355,7 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: 셀 매직을 사용하는 Jupyter에서 외부 패키지 사용
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: 스크립트 작업을 사용하는 Jupyter에서 외부 패키지 사용
+                - name: 스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
                   href: ./spark/apache-spark-python-package-installation.md
                 - name: Apache Zeppelin Notebook 사용
                   href: ./spark/apache-spark-zeppelin-notebook.md

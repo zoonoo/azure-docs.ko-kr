@@ -168,6 +168,8 @@
           href: howto-configure-ssl.md
         - name: 웹 앱
           href: howto-connect-webapp.md
+        - name: 리디렉션으로 연결
+          href: howto-redirection.md
     - name: 서버 매개 변수 구성
       items:
         - name: Azure portal
