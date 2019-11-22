@@ -1,5 +1,5 @@
 ---
-title: 웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
+title: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
 description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
 author: snehithm
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 04/03/2017
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 264f3eb042a3c29523ed93df93dfa6d45c00ae87
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60345784"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286172"
 ---
-# <a name="have-a-classic-metric-alert-notify-a-non-azure-system-using-a-webhook"></a>웹후크를 사용하여 비 Azure 시스템을 알리도록 클래식 메트릭 경고 설정
+# <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
 
 이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](alerts-log-webhook.md)을 참조하세요.
@@ -69,14 +69,14 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 ```
 
 
-| 필드 | 필수 | 고정된 값 집합 | 메모 |
+| 필드 | 필수 | 고정된 값 집합 | 참고 사항 |
 |:--- |:--- |:--- |:--- |
 | status |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
 | context |Y | |경고 컨텍스트입니다. |
 | timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
 | id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
 | name |Y | |경고 이름입니다. |
-| description |Y | |경고에 대한 설명입니다. |
+| 설명 |Y | |경고에 대한 설명입니다. |
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
 | condition |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
 | metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
@@ -85,7 +85,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | threshold |메트릭 경고의 경우 | |경고가 활성화되는 임계값입니다. |
 | windowSize |메트릭 경고의 경우 | |임계값에 기반하여 경보 활동을 모니터링하는 데 사용되는 기간입니다. 값은 5분에서 1일 사이여야 합니다. 값은 ISO 8601 기간 형식이어야 합니다. |
 | timeAggregation |메트릭 경고의 경우 |Average, Last, Maximum, Minimum, None, Total |데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx)을 참조하세요. |
-| operator |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교하는 데 사용되는 연산자입니다. |
+| 적용한 후 |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교하는 데 사용되는 연산자입니다. |
 | subscriptionId |Y | |Azure 구독 ID입니다. |
 | resourceGroupName |Y | |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceName |Y | |영향을 받는 리소스의 리소스 이름입니다. |
@@ -93,10 +93,10 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| properties |N |선택 사항 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
-> [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.
+> **Azure Monitor REST API**를 사용하여 [properties](https://msdn.microsoft.com/library/azure/dn933805.aspx) 필드만 설정할 수 있습니다.
 >
 >
 

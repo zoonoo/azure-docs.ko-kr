@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: fd7ff7aa2275defba57aa24b5ef0b9adc78a5355
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f6e1af2fdf43eb4351e996297f7dba775b7ffcef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093788"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278802"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -29,17 +29,17 @@ ms.locfileid: "74093788"
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
 
-## <a name="remove-solutions"></a>솔루션 제거
-작업 영역에 설치 되는 관리형 솔루션은 Log Analytics 작업 영역 이동 작업과 함께 이동 됩니다. 그러나 작업 영역의 링크를 automation 계정으로 제거 해야 하므로 해당 링크를 사용 하는 솔루션은 제거 해야 합니다.
+## <a name="workspace-move-considerations"></a>작업 영역 이동 고려 사항
+작업 영역에 설치 되는 관리형 솔루션은 Log Analytics 작업 영역 이동 작업과 함께 이동 됩니다. 연결 된 에이전트는 연결 된 상태를 유지 하 고 이동 후에 작업 영역으로 데이터를 전송 합니다. 이동 작업을 수행 하려면 작업 영역에서 automation 계정으로의 링크가 필요 하지 않으므로 해당 링크를 사용 하는 솔루션을 제거 해야 합니다.
 
-제거 해야 하는 솔루션은 다음과 같습니다. 
+Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션은 다음과 같습니다.
 
 - 업데이트 관리
 - 변경 내용 추적
 - 작업이 없는 동안 VM 시작/중지
 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="delete-in-azure-portal"></a>Azure Portal에서 삭제
 Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 따르십시오.
 
 1. 솔루션이 설치 된 리소스 그룹의 메뉴를 엽니다.
@@ -48,7 +48,7 @@ Azure Portal를 사용 하 여 솔루션을 제거 하려면 다음 절차를 �
 
 ![솔루션 삭제](media/move-workspace/delete-solutions.png)
 
-### <a name="powershell"></a>PowerShell
+### <a name="delete-using-powershell"></a>PowerShell을 사용 하 여 삭제
 
 PowerShell을 사용 하 여 솔루션을 제거 하려면 다음 예제와 같이 [AzResource](/powershell/module/az.resources/remove-azresource?view=azps-2.8.0) cmdlet을 사용 합니다.
 
@@ -58,7 +58,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
 ```
 
-## <a name="remove-alert-rules"></a>경고 규칙 제거
+### <a name="remove-alert-rules"></a>경고 규칙 제거
 **Vm 시작/중지** 솔루션의 경우 솔루션에서 만든 경고 규칙도 제거 해야 합니다. Azure Portal에서 다음 절차를 사용 하 여 이러한 규칙을 제거 합니다.
 
 1. **모니터** 메뉴를 열고 **경고**를 선택 합니다.

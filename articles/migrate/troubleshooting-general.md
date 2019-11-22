@@ -5,14 +5,14 @@ author: musa-57
 ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 12f8f64c051d33ac2518edbe8b937521318a9e71
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970646"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284494"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Azure Migrate 문제 해결
 
@@ -88,8 +88,8 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 ### <a name="delete-a-workspace"></a>작업 영역 삭제
 
 프로젝트에 연결된 Log Analytics 작업 영역을 찾습니다.
-* Azure Migrate 프로젝트를 삭제 하지 않은 경우 **Essentials** > **서버 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
-       ![LA 작업 영역 @ no__t-1
+* Azure Migrate 프로젝트를 삭제 하지 않은 경우 **Essentials** > **Server 평가**에서 작업 영역에 대 한 링크를 찾을 수 있습니다.
+       ![LA 작업 영역](./media/troubleshooting-general/loganalytics-workspace.png)
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -106,13 +106,13 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="error-invalid-ovf-manifest-entry"></a>"잘못 된 오류 매니페스트 항목" 오류
 
-"제공 된 매니페스트 파일이 잘못 되었습니다." 오류가 표시 되는 경우 잘못 된 위치 매니페스트 항목 ", 다음을 수행 합니다.
+"제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트 (https://<*호스트 IP 주소*>/uiu)와 함께 ESXi 호스트에 직접 연결 (vCenter Server 대신) 합니다.
-   - **Home** > **인벤토리에서** **파일** > **배포**를 선택 합니다. OVA로 이동 하 여 배포를 완료 합니다.
+   - **Home** > **Inventory**에서 **파일** > 배포 파일 **템플릿 배포**를 선택 합니다. OVA로 이동 하 여 배포를 완료 합니다.
 4. 배포가 여전히 실패하는 경우 Azure Migrate 지원에 문의합니다.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>어플라이언스에서 인터넷에 연결할 수 없음
@@ -169,7 +169,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 - 문제가 지속되면 Microsoft 지원에 문의하세요.
 - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance-deployment-requirements) .
 
-## <a name="fix-discovery-couldnt-be-initiated"></a>해결 방법: 검색을 시작할 수 없습니다.
+## <a name="fix-discovery-couldnt-be-initiated"></a>Fix: 검색을 시작할 수 없습니다.
 
 오류 60028: "오류로 인해 검색을 시작할 수 없습니다. 지정 된 호스트 또는 클러스터 목록에 대 한 작업이 실패 했습니다. "는 VM 정보에 액세스 하거나 검색 하는 데 문제가 있어 오류에 나열 된 호스트에서 검색을 시작할 수 없음을 나타냅니다. 나머지 호스트를 추가 했습니다.
 
@@ -201,7 +201,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 - 어플라이언스에 의해 수집 된 검색 데이터가 포털에 반영 되는 데 최대 30 분이 걸립니다.
 - 30 분 후에 최신 정보가 표시 되지 않으면 다음 단계를 수행 하 여 데이터를 새로 고칩니다.
 
-    1. **서버** > **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
+    1. 서버 ** > ** **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
     2. **관리**에서를 선택 **에이전트 상태**
     3. **에이전트 새로 고침**을 선택 합니다.
     1. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
@@ -211,7 +211,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 - 어플라이언스에 의해 수집 된 검색 데이터가 포털에 반영 되는 데 최대 30 분이 걸립니다.
 - 30 분 후에 최신 정보가 표시 되지 않으면 다음 단계를 수행 하 여 데이터를 새로 고칩니다.
 
-    1. **서버** > **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
+    1. 서버 ** > ** **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
     2. **관리**에서를 선택 **에이전트 상태**
     3. **에이전트 새로 고침**을 선택 합니다.
     1. 새로 고침 작업이 완료 될 때까지 기다립니다. 이제 최신 정보가 표시 됩니다.
@@ -219,7 +219,7 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 
 ## <a name="fix-cant-connect-to-host-or-cluster"></a>해결 방법: 호스트 또는 클러스터에 연결할 수 없습니다.
 
-오류 50004: "서버 이름을 확인할 수 없기 때문에 호스트 또는 클러스터에 연결할 수 없습니다. WinRM 오류 코드: Azure DNS 서비스에서 제공 된 클러스터 또는 호스트 이름을 확인할 수 없는 경우 0x803381B9 "가 발생할 수 있습니다.
+오류 50004: "서버 이름을 확인할 수 없기 때문에 호스트 또는 클러스터에 연결할 수 없습니다. WinRM 오류 코드: 0x803381B9 "는 어플라이언스에 대 한 Azure DNS 서비스에서 사용자가 제공한 클러스터 또는 호스트 이름을 확인할 수 없을 때 발생할 수 있습니다.
 
 - 클러스터에이 오류가 표시 되 면 클러스터 FQDN을 설정 합니다.
 - 클러스터의 호스트에 대해이 오류가 나타날 수도 있습니다. 이는 어플라이언스를 클러스터에 연결할 수 있지만 클러스터에서 Fqdn이 아닌 호스트 이름을 반환 한다는 것을 나타냅니다. 이 오류를 해결 하려면 IP 주소와 호스트 이름의 매핑을 추가 하 여 어플라이언스의 hosts 파일을 업데이트 합니다.
@@ -229,6 +229,31 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
     4. Hosts 파일을 저장 한 후 닫습니다.
     5. 어플라이언스 관리 앱을 사용 하 여 어플라이언스를 호스트에 연결할 수 있는지 여부를 확인 합니다. 30 분 후 Azure Portal에 이러한 호스트에 대 한 최신 정보가 표시 됩니다.
 
+## <a name="application-discovery-issues"></a>응용 프로그램 검색 문제
+
+응용 프로그램 검색은 현재 VMware Vm에 대해서만 지원 됩니다. Hyper-v Vm 및 물리적 서버에 대 한 지원은 나중에 사용 하도록 설정 됩니다. 응용 프로그램을 검색 하려면 어플라이언스에서 VM 자격 증명을 제공 해야 합니다. VCenter Server 및 VMware Vm에 필요한 액세스 권한에 대해 자세히 알아보세요. 다음 문제 중 하나로 인해 검색이 실패할 수 있습니다. 문제를 해결 하려면 아래에서 설명한 권장 작업을 검토 하세요.
+
+**오류 코드** | **메시지** | **가능한 원인** | **권장 작업**
+--- | --- | --- | ---
+10000 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 서버에서 실행 중인 운영 체제가 Windows 또는 Linux가 아닌 경우에 발생할 수 있습니다. | 설치 된 응용 프로그램의 검색은 Windows 및 Linux 서버 에서만 지원 됩니다.
+10001 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 이는 어플라이언스에 누락 된 파일이 있기 때문에 발생 하는 내부 오류입니다. | Microsoft 지원에 문의 하세요.
+10002 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | Azure Migrate 어플라이언스의 검색 에이전트가 제대로 작동 하지 않는 경우 발생할 수 있습니다. | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+10003 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 검색 에이전트가 제대로 작동 하지 않는 경우 이러한 문제가 발생할 수 있습니다. | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+10004 | < Windows/Linux > 컴퓨터에 대해 설치 된 응용 프로그램을 검색할 수 없습니다. |  < Windows/Linux > 컴퓨터에 액세스 하기 위한 자격 증명을 Azure Migrate 어플라이언스에서 제공 하지 않았습니다. | < Windows/Linux > 컴퓨터에 대 한 액세스 권한이 있는 Azure Migrate 어플라이언스에 자격 증명을 추가 하세요.
+10005 | 온-프레미스 서버에 액세스할 수 없습니다. | 이는 서버에 액세스 하기 위해 컴퓨터에 제공 된 자격 증명이 잘못 된 경우에 발생할 수 있습니다. | 어플라이언스에 제공 된 자격 증명을 업데이트 하 고 자격 증명을 사용 하 여 서버에 액세스할 수 있는지 확인 하세요.
+10006 | 온-프레미스 서버에 액세스할 수 없습니다. | 서버에서 실행 중인 운영 체제가 Windows 또는 Linux가 아닌 경우에 발생할 수 있습니다. | 설치 된 응용 프로그램의 검색은 Windows 및 Linux 서버 에서만 지원 됩니다.
+9000 | VM에 설치 된 응용 프로그램을 검색할 수 없습니다. | VMware 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다. | VMware 도구를 VM에 설치/다시 설치 하 고 실행 중인지 확인 합니다.
+9001 | VM에 설치 된 응용 프로그램을 검색할 수 없습니다. | VMware 도구가 설치 되어 있지 않거나 손상 되었을 수 있습니다. | VMware 도구를 VM에 설치/다시 설치 하 고 실행 중인지 확인 합니다.
+9002 | VM에 설치 된 응용 프로그램을 검색할 수 없습니다. | VMware 도구가 실행 되 고 있지 않을 수 있습니다. | VMware 도구를 VM에 설치/다시 설치 하 고 실행 중인지 확인 합니다.
+9003 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 서버에서 실행 중인 운영 체제가 Windows 또는 Linux가 아닌 경우에 발생할 수 있습니다. | 설치 된 응용 프로그램의 검색은 Windows 및 Linux 서버 에서만 지원 됩니다.
+9004 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | VM이 꺼진 경우에 발생할 수 있습니다. | 서버에서 설치 된 응용 프로그램을 검색 하려면 VM이 켜 졌는 지 확인 합니다.
+9005 | VM에 설치 된 응용 프로그램을 검색할 수 없습니다. | 이는 VM에서 실행 중인 운영 체제가 Windows 또는 Linux가 아닌 경우에 발생할 수 있습니다. | 설치 된 응용 프로그램의 검색은 Windows 및 Linux 서버 에서만 지원 됩니다.
+9006 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 검색 에이전트가 제대로 작동 하지 않는 경우 이러한 문제가 발생할 수 있습니다. | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+9007 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 검색 에이전트가 제대로 작동 하지 않는 경우 이러한 문제가 발생할 수 있습니다. | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+9008 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 내부 오류로 인해 문제가 발생할 수 있습니다.  | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+9009 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 서버의 Windows UAC (사용자 계정 컨트롤) 설정이 제한적이 고 설치 된 응용 프로그램의 검색을 방해 하는 경우이 문제가 발생할 수 있습니다. | 서버에서 ' 사용자 계정 컨트롤 ' 설정을 검색 하 고 서버에서 하위 두 수준 중 하나에 있는 UAC 설정을 구성 합니다.
+9010 | 서버에 설치 된 응용 프로그램을 검색할 수 없습니다. | 내부 오류로 인해 문제가 발생할 수 있습니다.  | 이 문제는 24 시간 이내에 자동으로 해결 됩니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요.
+8084 | VMware 오류로 인해 응용 프로그램을 검색할 수 없습니다. <Exception from VMware> | Azure Migrate 어플라이언스는 VMware Api를 사용 하 여 응용 프로그램을 검색 합니다. 응용 프로그램을 검색 하는 동안 vCenter Server에서 throw 된 예외로 인해이 문제가 발생할 수 있습니다. VMware의 오류 메시지는 포털에 표시 된 오류 메시지에 표시 됩니다. | [Vmware 설명서](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)를 검토 하 고 오류 메시지를 검색 한 다음 vmware 문서의 문제 해결 단계에 따라 문제를 해결 합니다. 그래도 문제를 해결할 수 없는 경우 Microsoft 지원에 연결 합니다.
 
 
 ## <a name="fix-assessment-readiness"></a>평가 준비 상태 수정
@@ -241,21 +266,21 @@ Azure Migrate의 현재 버전에서 프로젝트를 삭제 하려면 다음을 
 조건부로 지원 되는 Windows 운영 체제 | 운영 체제에서 지원 종료 날짜를 통과 했으며 [Azure에서 지원](https://aka.ms/WSosstatement)하기 위해 CSA (사용자 지정 지원 계약)가 필요 합니다. Azure로 마이그레이션하기 전에 업그레이드 하는 것이 좋습니다.
 지원 되지 않는 Windows 운영 체제 | Azure는 [선택한 WINDOWS OS 버전만](https://aka.ms/WSosstatement)지원 합니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다.
 조건부로 보증되는 Linux OS | Azure 보증에는 [선택한 LINUX OS 버전만](../virtual-machines/linux/endorsed-distros.md)있습니다. Azure로 마이그레이션하기 전에 컴퓨터를 업그레이드 하는 것이 좋습니다.
-보증되지 않은 Linux OS | 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 운영 체제를 지원 하지 않습니다. Azure로 마이그레이션하기 전에 [보증 Linux 버전](../virtual-machines/linux/endorsed-distros.md) 으로 업그레이드 하는 것이 좋습니다.
+보증되지 않는 Linux OS | 컴퓨터가 Azure에서 시작 될 수 있지만 Azure는 운영 체제를 지원 하지 않습니다. Azure로 마이그레이션하기 전에 [보증 Linux 버전](../virtual-machines/linux/endorsed-distros.md) 으로 업그레이드 하는 것이 좋습니다.
 알 수 없는 운영 체제 | VCenter Server에서 VM의 운영 체제가 "기타"로 지정 되었습니다. 이 동작은 VM의 Azure 준비 상태를 확인 하는 Azure Migrate 차단 합니다. 컴퓨터를 마이그레이션하기 전에 Azure에서 운영 체제가 [지원](https://aka.ms/azureoslist) 되는지 확인 합니다.
 지원 되지 않는 비트 버전 | 32 비트 운영 체제를 사용 하는 Vm은 Azure에서 부팅 될 수 있지만, Azure로 마이그레이션하기 전에 64 비트로 업그레이드 하는 것이 좋습니다.
 Microsoft Visual Studio 구독이 필요 합니다. | 컴퓨터에서 Visual Studio 구독을 통해서만 지원 되는 Windows 클라이언트 운영 체제를 실행 하 고 있습니다.
-필요한 저장소 성능에 대한 VM을 찾을 수 없음 | 컴퓨터에 필요한 저장소 성능 (초당 입/출력 작업 수 [IOPS] 및 처리량)이 Azure VM 지원을 초과 합니다. 마이그레이션을 시작하기 전에 컴퓨터의 저장소 요구 사항을 낮춰봅니다.
+필요한 저장소 성능에 대한 VM을 찾을 수 없음 | 컴퓨터에 필요한 저장소 성능 (초당 입/출력 작업 수 [IOPS] 및 처리량)이 Azure VM 지원을 초과 합니다. 마이그레이션을 시작하기 전에 컴퓨터의 스토리지 요구 사항을 낮춰봅니다.
 필요한 네트워크 성능에 대한 VM을 찾을 수 없음 | 컴퓨터에 필요한 네트워크 성능(입력/출력)이 Azure VM 지원을 초과합니다. 컴퓨터의 네트워킹 요구 사항을 낮춰봅니다.
 지정한 위치에서 VM을 찾을 수 없음 | 다른 대상 위치를 사용하여 마이그레이션을 실행해 봅니다.
-하나 이상의 적합하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크의 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)에서 지원 되는지 확인 합니다.
+하나 이상의 적합하지 않은 디스크 | VM에 연결 된 하나 이상의 디스크가 Azure 요구 사항을 충족 하지 않습니다. 은<br/><br/> Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 관리 디스크에 대 한 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> VM에 연결 된 각 디스크에 대해 디스크 크기가 64 TB < (울트라 SSD 디스크에서 지원 됨) 확인 합니다.<br/><br/> 그렇지 않은 경우 Azure로 마이그레이션하기 전에 디스크 크기를 줄이거나, Azure에서 여러 디스크를 사용 하 고 여러 디스크를 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 저장소 제한을 더 늘려야 합니다. 각 디스크에 필요한 성능 (IOPS 및 처리량)이 Azure [관리 가상 머신 디스크](https://docs.microsoft.com/azure/azure-subscription-service-limits#storage-limits)에서 지원 되는지 확인 합니다.
 부적합한 네트워크 어댑터가 하나 이상 있습니다. | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 네트워크 어댑터를 제거합니다.
-디스크 수가 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
-디스크 크기가 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64 TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
-지정한 위치에서 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
-지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 저장소 형식(기본적으로 LRS)을 사용해야 합니다.
+디스크 수 한도 초과 | 마이그레이션을 시작하기 전에 컴퓨터에서 사용하지 않는 디스크를 제거합니다.
+디스크 크기 한도 초과 | Azure Migrate: 서버 평가는 현재 울트라 SSD 디스크를 지원 하지 않으며 프리미엄 디스크 제한 (32 TB)에 따라 디스크를 평가 합니다.<br/><br/> 그러나 Azure는 최대 64 TB 크기의 디스크를 지원 합니다 (울트라 SSD 디스크에서 지원 됨). 마이그레이션을 수행 하기 전에 디스크를 64 TB 미만으로 축소 하거나 Azure에서 여러 디스크를 사용 하 고 [함께 스트라이프](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#disk-striping) 하 여 더 높은 저장소 제한을 얻습니다.
+지정된 위치의 디스크를 사용할 수 없음 | 마이그레이션하기 전에 디스크가 대상 위치에 있는지 확인합니다.
+지정된 이중화에 디스크를 사용할 수 없음 | 디스크가 평가 설정에 정의된 중복 스토리지 형식(기본적으로 LRS)을 사용해야 합니다.
 내부 오류로 인해 디스크 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
-필요한 코어를 포함하는 VM과 메모리를 찾을 수 없음 | Azure에서 적합 한 VM 유형을 찾을 수 없습니다. 마이그레이션하기 전에 온-프레미스 컴퓨터의 메모리 및 코어 수를 줄여봅니다.
+필요한 코어 및 메모리가 포함된 VM을 찾을 수 없음 | Azure에서 적합 한 VM 유형을 찾을 수 없습니다. 마이그레이션하기 전에 온-프레미스 컴퓨터의 메모리 및 코어 수를 줄여봅니다.
 내부 오류로 인해 VM 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 디스크에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
 내부 오류로 인해 하나 이상의 네트워크 어댑터에 대 한 적합성을 확인할 수 없습니다. | 그룹에 대한 새 평가를 만들어 봅니다.
@@ -276,7 +301,7 @@ Azure Migrate 서버 평가는 평가 유형에 따라 현재 온-프레미스 �
 
 
 - VM SKU 권장 사항은 평가 속성에 따라 달라 집니다.
-- 이는 서버 평가에서 수행 하는 평가의 유형에 의해 영향을 받습니다. *성능 기반*또는 *온-프레미스로*
+- 이는 서버 평가에서 수행 하는 평가 유형 ( *성능 기반*또는 *온-프레미스)* 의 영향을 받습니다.
 - 성능 기반 평가의 경우 서버 평가는 온-프레미스 vm (CPU, 메모리, 디스크 및 네트워크 사용률)의 사용률 데이터를 고려 하 여 온-프레미스 Vm의 올바른 대상 VM SKU를 확인 합니다. 또한 효과적인 사용률을 결정할 때 편안 하 게 요소를 추가 합니다.
 - 온-프레미스 크기 조정의 경우 성능 데이터를 고려 하지 않으며 대상 SKU는 온-프레미스 할당을 기반으로 하는 것이 좋습니다.
 
@@ -297,7 +322,7 @@ Azure Migrate Server 평가는 평가 유형에 따라 더 큰 디스크를 권�
 
 예를 들어 32 GB의 메모리를 포함 하는 온-프레미스 디스크가 있지만 디스크에 대 한 집계 된 읽기/쓰기 IOPS는 800 IOPS 인 경우 서버 평가는 프리미엄 디스크 (IOPS 요구 사항)를 권장 하 고 r을 지원할 수 있는 디스크 SKU를 권장 합니다. e IOPS 및 크기. 이 예제에서 가장 가까운 일치 항목은 P15(256GB, 1100IOPS)입니다. 온-프레미스 디스크에 필요한 크기가 32 GB 이더라도 서버 평가는 온-프레미스 디스크의 높은 IOPS 요구 사항으로 인해 더 큰 디스크를 권장 합니다.
 
-## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>해결 방법: 사용률 코어 또는 메모리 누락 비율
+## <a name="fix-percentage-of-utilized-core-or-memory-missing"></a>해결 방법: 사용 된 코어 또는 메모리 누락 비율
 
 Azure Migrate 어플라이언스에서 관련 온-프레미스 Vm에 대 한 성능 데이터를 수집할 수 없는 경우 서버 평가 보고서는 "PercentageOfCoresUtilizedMissing" 또는 "PercentageOfMemoryUtilizedMissing"입니다.
 
@@ -321,19 +346,17 @@ Server Assessment는 온-프레미스 머신의 성능 데이터를 지속적으
 - 기간에 대 한 피크 사용을 선택 하 고 이상 값을 누락 하지 않으려면 백분위 수 사용률에 대해 99 번째 백분위 수를 선택 해야 합니다.
 
 
-
 ## <a name="i-cant-find-dependency-visualization-for-azure-government"></a>Azure Government에 대 한 종속성 시각화를 찾을 수 없습니다.
 
 Azure Migrate는 종속성 시각화 기능의 서비스 맵에 따라 달라 집니다. 서비스 맵 현재 Azure Government에서 사용할 수 없기 때문에 Azure Government에서이 기능을 사용할 수 없습니다.
 
 ## <a name="dependencies-dont-show-after-installing-agents"></a>에이전트 설치 후 종속성이 표시 되지 않음
 
-
 온-프레미스 Vm에서 종속성 시각화 에이전트를 설치 하 고 나면 Azure Migrate는 일반적으로 포털에서 종속성을 표시 하는 데 15-30 분이 소요 됩니다. 30 분 넘게 대기한 경우 Microsoft Monitoring Agent (MMA)가 Log Analytics 작업 영역에 연결할 수 있는지 확인 합니다.
 
 Windows VM의 경우
 1. 제어판에서 MMA를 시작 합니다.
-2. **Microsoft Monitoring Agent 속성** > **OMS (Azure Log Analytics)** 에서 작업 영역의 **상태가** 녹색 인지 확인 합니다.
+2. **Microsoft Monitoring Agent 속성** > **AZURE Log Analytics (OMS)** 에서 작업 영역에 대 한 **상태가** 녹색 인지 확인 합니다.
 3. 상태가 녹색이 아닌 경우 작업 영역을 제거 하 고 다시 MMA에 추가 하십시오.
 
       ![MMA 속성 대화 상자](./media/troubleshooting-general/mma-status.png)
@@ -384,7 +407,7 @@ Azure Migrate Server 평가에서는 최대 10 개의 Vm이 있는 [그룹에 �
 5. 기록하는 동안 오류가 발생하면 기록을 중지하고 기록된 활동의 복사본을 저장합니다.
    - Chrome에서 마우스 오른쪽 단추를 클릭 하 고 **콘텐츠를 사용 하 여 HAR로 저장**을 선택 합니다. 이 작업은 로그를 압축 하 고 har 파일로 내보냅니다.
    - Microsoft Edge 또는 Internet Explorer에서 **캡처된 트래픽 내보내기** 옵션을 선택 합니다. 이 작업은 로그를 압축 하 고 내보냅니다.
-6. **콘솔** 탭을 선택 하 여 경고 또는 오류를 확인 합니다. 콘솔 로그를 저장하는 방법은 다음과 같습니다.
+6. **콘솔** 탭을 선택 하 여 경고 또는 오류를 확인 합니다. 콘솔 로그를 저장하려면:
    - 크롬의 경우 콘솔 로그에서 아무 위치를 마우스 오른쪽 단추로 클릭합니다. 다른 **이름으로 저장**을 선택 하 고 로그를 내보내고 압축 합니다.
    - Microsoft Edge 또는 Internet Explorer에서 오류를 마우스 오른쪽 단추로 클릭 하 고 **모두 복사**를 선택 합니다.
 7. 개발자 도구를 닫습니다.

@@ -1,23 +1,14 @@
 ---
 title: Azure Notebooks에 대한 샘플 Jupyter Notebook
 description: 샘플은 체험판 Azure Notebooks 클라우드 서비스에서 실행되는 Jupyter Notebook을 경험할 수 있는 좋은 방법입니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 07e95905-0f1b-49ce-a0f9-820f61952278
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
-ms.author: kraigb
-ms.openlocfilehash: 715db36921427dc0ac5dcdad24c2c026b1ea1326
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cd615777adb28af6528afd2b95bc853372e799e8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496699"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277652"
 ---
 # <a name="discover-and-use-sample-notebooks"></a>샘플 Notebook 검색 및 사용
 

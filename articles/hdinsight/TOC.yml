@@ -243,14 +243,8 @@
           href: ./hdinsight-hadoop-collect-debug-heap-dump-linux.md
         - name: WebHCat 오류 이해 및 해결
           href: ./hdinsight-hadoop-templeton-webhcat-debug-errors.md
-        - name: Azure 로드맵
-          href: 'https://azure.microsoft.com/roadmap/?category=intelligence-analytics'
         - name: 포럼에서 도움말 보기
           href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=hdinsight'
-        - name: 학습 경로
-          href: 'https://azure.microsoft.com/documentation/learning-paths/hdinsight-self-guided-hadoop-training/'
-        - name: 빅 데이터에 대한 Microsoft 전문가 프로그램
-          href: 'https://academy.microsoft.com/en-us/professional-program/tracks/big-data/'
         - name: 요금 계산기
           href: 'https://azure.microsoft.com/pricing/calculator/'
         - name: HDInsight에 대한 Windows 도구
@@ -279,8 +273,6 @@
           href: ./spark/apache-spark-intellij-tool-failure-debug.md
         - name: BI 도구를 사용하여 데이터 분석
           href: ./spark/apache-spark-use-bi-tools.md
-        - name: 스트리밍 작업 실행
-          href: ./spark/apache-spark-eventhub-streaming.md
         - name: 기계 학습 앱 만들기
           href: ./spark/apache-spark-ipython-notebook-machine-learning.md
         - name: IntelliJ에서 Apache Spark 앱 만들기

@@ -1,6 +1,6 @@
 ---
 title: Azure 활동 로그 이벤트 스키마
-description: 활동 로그로 내보내는 데이터의 이벤트 스키마에 대해 설명합니다.
+description: Azure 활동 로그의 각 범주에 대 한 이벤트 스키마를 설명 합니다.
 author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 1/16/2019
 ms.author: dukek
 ms.subservice: logs
-ms.openlocfilehash: 9f58f08718cc0bfeb94b83de55531c9bd22720e2
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: d196cf4024513d891182f3b916bd8412a2f81d14
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847343"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305483"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 **Azure 활동 로그**는 Azure에서 발생한 모든 구독 수준 이벤트에 대한 정보를 제공하는 로그입니다. 이 문서에서는 데이터 범주별 이벤트 스키마에 대해 설명합니다. 데이터의 스키마는 포털, PowerShell, CLI 또는 REST API를 통해 직접 데이터를 읽는지, 아니면 [로그 프로필을 사용하여 데이터를 스토리지 또는 Event Hubs로 스트리밍](activity-log-export.md)하는지에 따라 다릅니다. 아래 예제는 포털, PowerShell, CLI 및 REST API를 통해 사용할 수 있는 스키마를 보여 줍니다. 이러한 속성과 [Azure 진단 로그 스키마](diagnostic-logs-schema.md)의 매핑은 문서의 끝에 제공되어 있습니다.
@@ -112,17 +112,17 @@ ms.locfileid: "73847343"
 ### <a name="property-descriptions"></a>속성 설명
 | 요소 이름 | 설명 |
 | --- | --- |
-| 권한 부여 |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
+| authorization |이벤트의 RBAC 속성 Blob입니다. 일반적으로 "action", "role" 및 "scope" 속성이 포함됩니다. |
 | caller |가용성을 기반으로 작업, UPN 클레임 또는 SPN 클레임을 수행한 사용자의 메일 주소입니다. |
 | channels |"Admin", "Operation" 값 중 하나여야 합니다. |
 | claims |Active Directory에서 사용자 또는 애플리케이션이 리소스 관리자를 통해 이 작업을 수행할 수 있도록 인증하는 데 사용하는 JWT 토큰입니다. |
-| CorrelationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
-| description |이벤트의 정적 텍스트 설명입니다. |
+| correlationId |일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
+| 설명 |이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |이벤트의 고유 식별자입니다. |
 | eventName | 관리 이벤트의 이름입니다. |
 | 카테고리 | 항상 "관리" |
 | httpRequest |Http 요청을 설명하는 Blob입니다. 일반적으로 "clientRequestId", "clientIpAddress" 및 "method"(PUT 등의 HTTP 메서드) 포함. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |영향을 받는 리소스의 리소스 공급자 이름입니다. |
 | resourceType | 관리 이벤트의 영향을 받은 리소스의 형식입니다. |
@@ -260,12 +260,12 @@ ms.locfileid: "73847343"
 | 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 "Admin, Operation"입니다. |
-| CorrelationId | 문자열 형식의 GUID입니다. |
-| description |경고 이벤트의 정적 텍스트 설명입니다. |
+| correlationId | 문자열 형식의 GUID입니다. |
+| 설명 |경고 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
 | 카테고리 | 항상 “ResourceHealth” |
 | eventTimestamp |이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning”, “Informational” 및 “Verbose” 값 중 하나입니다. |
 | operationId |단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName |작업의 이름입니다. |
 | resourceGroupName |리소스를 포함하는 리소스 그룹의 이름 |
@@ -355,11 +355,11 @@ ms.locfileid: "73847343"
 | caller | Always Microsoft.Insights/alertRules |
 | channels | 항상 "Admin, Operation"입니다. |
 | claims | 경고 엔진의 SPN(서비스 사용자 이름) 또는 리소스 종류가 포함된 JSON Blob입니다. |
-| CorrelationId | 문자열 형식의 GUID입니다. |
-| description |경고 이벤트의 정적 텍스트 설명입니다. |
+| correlationId | 문자열 형식의 GUID입니다. |
+| 설명 |경고 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |경고 이벤트의 고유 식별자입니다. |
 | 카테고리 | 항상 "경고" |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 그룹 이름입니다. 다른 경고 유형의 경우 경고 자체가 포함된 리소스 그룹의 이름입니다. |
 | resourceProviderName |메트릭 경고의 경우 영향을 받는 리소스의 리소스 공급자 이름입니다. 다른 경고 유형의 경우 경고 자체에 대한 리소스 공급자 이름입니다. |
 | resourceId | 메트릭 경고의 경우 영향을 받는 리소스의 리소스 ID 이름입니다. 다른 경고 유형의 경우 경고 리소스 자체의 리소스 ID입니다. |
@@ -465,10 +465,10 @@ ms.locfileid: "73847343"
 | caller | 항상 Microsoft.Insights/autoscaleSettings입니다. |
 | channels | 항상 "Admin, Operation"입니다. |
 | claims | 자동 크기 조정 엔진의 SPN(서비스 사용자 이름) 또는 리소스 종류가 포함된 JSON Blob입니다. |
-| CorrelationId | 문자열 형식의 GUID입니다. |
-| description |자동 크기 조정 이벤트의 정적 텍스트 설명입니다. |
+| correlationId | 문자열 형식의 GUID입니다. |
+| 설명 |자동 크기 조정 이벤트의 정적 텍스트 설명입니다. |
 | eventDataId |자동 크기 조정 이벤트의 고유 식별자입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 및 “Informational” 값 중 하나입니다. |
 | resourceGroupName |자동 크기 조정 설정의 리소스 그룹 이름입니다. |
 | resourceProviderName |자동 크기 조정 설정의 리소스 공급자 이름입니다. |
 | resourceId |자동 크기 조정 설정의 리소스 ID입니다. |
@@ -553,13 +553,13 @@ ms.locfileid: "73847343"
 | 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
-| CorrelationId | 문자열 형식의 GUID입니다. |
-| description |보안 이벤트에 대한 정적 텍스트 설명입니다. |
+| correlationId | 문자열 형식의 GUID입니다. |
+| 설명 |보안 이벤트에 대한 정적 텍스트 설명입니다. |
 | eventDataId |보안 이벤트의 고유 식별자입니다. |
 | eventName |보안 이벤트의 이름입니다. |
 | 카테고리 | 항상 "보안" |
 | id |보안 이벤트의 고유 리소스 식별자입니다. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |Azure Security Center의 리소스 공급자 이름입니다. 항상 "Microsoft.Security"입니다. |
 | resourceType |보안 이벤트를 생성한 리소스 유형(예: "Microsoft.Security/locations/alerts")입니다. |
@@ -634,12 +634,12 @@ ms.locfileid: "73847343"
 | 요소 이름 | 설명 |
 | --- | --- |
 | channels | 항상 “Operation”입니다. |
-| CorrelationId | 문자열 형식의 GUID입니다. |
-| description |권장 사항 이벤트에 대한 정적 텍스트 설명 |
+| correlationId | 문자열 형식의 GUID입니다. |
+| 설명 |권장 사항 이벤트에 대한 정적 텍스트 설명 |
 | eventDataId | 권장 사항 이벤트의 고유 식별자. |
 | 카테고리 | 항상 "권장 사항" |
 | id |권장 사항 이벤트의 고유 리소스 식별자. |
-| level |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
+| 수준(level) |이벤트의 수준입니다. “Critical”, “Error”, “Warning” 또는 “Informational” 값 중 하나입니다. |
 | operationName |작업의 이름입니다.  항상 "Microsoft.Advisor/generateRecommendations/action"|
 | resourceGroupName |리소스의 리소스 그룹 이름입니다. |
 | resourceProviderName |이 권장 사항이 적용되는 리소스의 리소스 공급자 이름(예: "MICROSOFT.COMPUTE") |
@@ -743,18 +743,18 @@ ms.locfileid: "73847343"
 
 | 요소 이름 | 설명 |
 | --- | --- |
-| 권한 부여 | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
+| authorization | 이벤트의 RBAC 속성 배열입니다. 새 리소스의 경우 평가를 트리거한 요청의 작업 및 범위입니다. 기존 리소스의 경우 작업은 "Microsoft.Resources/checkPolicyCompliance/read"입니다. |
 | caller | 새 리소스의 경우 배포를 시작한 ID입니다. 기존 리소스의 경우 Microsoft Azure Policy Insights RP의 GUID입니다. |
 | channels | Policy 이벤트는 "Operation" 채널만 사용합니다. |
 | claims | Active Directory에서 사용자 또는 애플리케이션이 리소스 관리자를 통해 이 작업을 수행할 수 있도록 인증하는 데 사용하는 JWT 토큰입니다. |
-| CorrelationId | 일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
-| description | 이 필드는 Policy 이벤트에 대해 비어 있습니다. |
+| correlationId | 일반적으로 문자열 형식의 GUID입니다. 동일한 uber 작업에 속하는 correlationId를 공유하는 이벤트입니다. |
+| 설명 | 이 필드는 Policy 이벤트에 대해 비어 있습니다. |
 | eventDataId | 이벤트의 고유 식별자입니다. |
 | eventName | "BeginRequest" 또는 "EndRequest"입니다. "BeginRequest"는 deployIfNotExists 적용이 템플릿 배포를 시작할 때, 지연된 auditIfNotExists 및 deployIfNotExists 평가에 사용됩니다. 다른 모든 작업은 "EndRequest"를 반환합니다. |
 | 카테고리 | 활동 로그 이벤트를 "Policy"에 속하는 것으로 선언합니다. |
 | eventTimestamp | 이벤트에 해당하는 요청을 처리한 Azure 서비스에 의해 이벤트가 생성된 타임스탬프입니다. |
 | id | 특정 리소스에서 이벤트의 고유 식별자입니다. |
-| level | 이벤트의 수준입니다. 감사는 "Warning"을 사용하고 거부는 "Error"를 사용합니다. AuditIfNotExists 또는 deployIfNotExists 오류는 심각도에 따라 "Warning" 또는 "Error"를 생성할 수 있습니다. 다른 모든 Policy 이벤트는 "Informational"을 사용합니다. |
+| 수준(level) | 이벤트의 수준입니다. 감사는 "Warning"을 사용하고 거부는 "Error"를 사용합니다. AuditIfNotExists 또는 deployIfNotExists 오류는 심각도에 따라 "Warning" 또는 "Error"를 생성할 수 있습니다. 다른 모든 Policy 이벤트는 "Informational"을 사용합니다. |
 | operationId | 단일 작업에 해당하는 이벤트 간에 공유되는 GUID입니다. |
 | operationName | 작업의 이름으로, Policy 적용에 직접적으로 상관 관계가 있습니다. |
 | resourceGroupName | 평가된 리소스의 리소스 그룹 이름입니다. |
@@ -783,10 +783,10 @@ Azure 활동 로그를 스토리지 계정 또는 Event Hubs 네임스페이스�
 | 카테고리 | 작업 이름의 일부 | 작업 유형 분류 - “쓰기”/“삭제”/“작업” |
 | resultType | status.value | |
 | resultSignature | substatus.value | |
-| resultDescription | description |  |
+| resultDescription | 설명 |  |
 | durationMS | 해당 없음 | 항상 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
-| CorrelationId | CorrelationId |  |
+| correlationId | correlationId |  |
 | ID | 클레임 및 권한 부여 속성 |  |
 | 수준 | 수준 |  |
 | location | 해당 없음 | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |

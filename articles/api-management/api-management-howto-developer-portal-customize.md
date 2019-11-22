@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: c8aa3fb124420c933e17b0e9f7e52b7f114a7f61
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 28ef082d6aac5557998f7b67443d4dafd3a0fb15
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012900"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285587"
 ---
 # <a name="access-and-customize-developer-portal"></a>개발자 포털 액세스 및 사용자 지정
 
@@ -35,10 +35,6 @@ ms.locfileid: "74012900"
 개발자 포털에 대 한 자세한 내용은 [Azure API Management 개발자 포털 개요](api-management-howto-developer-portal.md)에서 찾을 수 있습니다.
 
 ![API Management 개발자 포털-관리자 모드](media/api-management-howto-developer-portal-customize/cover.png)
-
-> [!WARNING]
-> 개발자 포털이 현재 API Management 서비스에 롤아웃 되 고 있습니다.
-> 서비스가 새로 만들어지거나 개발자 계층 서비스인 경우 최신 버전이 이미 있어야 합니다. 그렇지 않으면 게시 기능과 같은 문제가 발생할 수 있습니다. 기능 출시는 금요일 11 월 26 2019 일 금요일에 완료 될 것으로 예상 됩니다. 
 
 ## <a name="prerequisites"></a>선행 조건
 

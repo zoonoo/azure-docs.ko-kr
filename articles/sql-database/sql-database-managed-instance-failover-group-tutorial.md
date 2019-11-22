@@ -12,12 +12,12 @@ ms.author: mathoma
 ms.reviewer: sashan, carlrab
 manager: jroth
 ms.date: 08/27/2019
-ms.openlocfilehash: 85d2e58d35ef233fda7c724f85152fc74bd11189
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 939606412c55ddad29801776c2385b406dc93a33
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826831"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286754"
 ---
 # <a name="tutorial-add-a-sql-database-managed-instance-to-a-failover-group"></a>자습서: 장애 조치 (failover) 그룹에 SQL Database 관리 되는 인스턴스 추가
 
@@ -26,14 +26,14 @@ ms.locfileid: "73826831"
 > [!div class="checklist"]
 > - 기본 관리 되는 인스턴스 만들기
 > - [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)의 일부로 보조 관리 되는 인스턴스를 만듭니다. 
-> - 테스트 장애 조치(Failover)
+> - 테스트 장애 조치(failover)
 
   > [!NOTE]
   > - 이 자습서를 진행 하는 경우 [관리 되는 인스턴스에 대해 장애 조치 그룹을 설정 하기 위한 필수 구성 요소](sql-database-auto-failover-group.md#enabling-geo-replication-between-managed-instances-and-their-vnets)를 사용 하 여 리소스를 구성 하 고 있는지 확인 합니다. 
   > - 관리 되는 인스턴스를 만드는 데는 상당한 시간이 걸릴 수 있습니다. 따라서이 자습서를 완료 하는 데 몇 시간 정도 걸릴 수 있습니다. 프로 비전 시간에 대 한 자세한 내용은 [관리 되는 인스턴스 관리 작업](sql-database-managed-instance.md#managed-instance-management-operations)을 참조 하세요. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다. 
@@ -385,19 +385,19 @@ PowerShell을 사용 하 여 리소스 그룹 및 기본 관리 되는 인스턴
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가 합니다. | 
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크의 서브넷을 가져옵니다. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷을 가져옵니다. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | 네트워크 보안 그룹을 만듭니다. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | 경로 테이블을 만듭니다. |
-| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대 한 서브넷 구성을 업데이트 합니다.  |
-| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트 합니다.  |
+| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대한 서브넷 구성을 업데이트합니다.  |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트합니다.  |
 | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | 네트워크 보안 그룹을 가져옵니다. |
 | [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| 네트워크 보안 그룹에 네트워크 보안 규칙 구성을 추가합니다. |
-| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트 합니다.  | 
-| [AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가 합니다. |
-| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트 합니다.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | 관리 되는 Azure SQL Database 인스턴스를 만듭니다.  |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트합니다.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가합니다. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트합니다.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Azure SQL Database 관리형 인스턴스를 만듭니다.  |
 
 ---
 
@@ -425,7 +425,7 @@ Azure Portal를 사용 하 여 관리 되는 인스턴스를 만드는 경우 �
     | **이름** |  `vnet-sql-mi-secondary`와 같이 보조 관리 되는 인스턴스에서 사용할 가상 네트워크의 이름입니다. |
     | **주소 공간** | `10.128.0.0/16`와 같은 가상 네트워크의 주소 공간입니다. | 
     | **구독** | 기본 관리 되는 인스턴스 및 리소스 그룹이 상주 하는 구독입니다. |
-    | **지역** | 보조 관리 되는 인스턴스를 배포할 위치입니다. |
+    | **Region** | 보조 관리 되는 인스턴스를 배포할 위치입니다. |
     | **서브넷** | 서브넷의 이름입니다. `default` 기본적으로 제공 됩니다. |
     | **주소 범위**| 서브넷의 주소 범위입니다. `10.128.0.0/24`와 같이 기본 관리 되는 인스턴스의 가상 네트워크에서 사용 하는 서브넷 주소 범위와 달라 야 합니다.  |
     | &nbsp; | &nbsp; |
@@ -464,7 +464,7 @@ Azure Portal를 사용 하 여 보조 관리 되는 인스턴스를 만듭니다
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
     | **리소스 그룹**| 기본 관리 되는 인스턴스가 있는 리소스 그룹입니다. |
     | **관리되는 인스턴스 이름** | 새 보조 관리 되는 인스턴스의 이름 (예: `sql-mi-secondary`  | 
-    | **지역**| 보조 관리 되는 인스턴스의 위치입니다.  |
+    | **Region**| 보조 관리 되는 인스턴스의 위치입니다.  |
     | **Managed Instance 관리자 로그인** | `azureuser`와 같이 새 보조 관리 되는 인스턴스에 사용 하려는 로그인입니다. |
     | **암호** | 새 보조 관리 되는 인스턴스의 관리자 로그인에 사용 되는 복잡 한 암호입니다.  |
     | &nbsp; | &nbsp; |
@@ -711,19 +711,19 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스를 만듭니다.
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가 합니다. | 
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크의 서브넷을 가져옵니다. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷을 가져옵니다. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | 네트워크 보안 그룹을 만듭니다. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | 경로 테이블을 만듭니다. |
-| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대 한 서브넷 구성을 업데이트 합니다.  |
-| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트 합니다.  |
+| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대한 서브넷 구성을 업데이트합니다.  |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트합니다.  |
 | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | 네트워크 보안 그룹을 가져옵니다. |
 | [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| 네트워크 보안 그룹에 네트워크 보안 규칙 구성을 추가합니다. |
-| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트 합니다.  | 
-| [AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가 합니다. |
-| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트 합니다.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | 관리 되는 Azure SQL Database 인스턴스를 만듭니다.  |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트합니다.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가합니다. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트합니다.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Azure SQL Database 관리형 인스턴스를 만듭니다.  |
 
 ---
 
@@ -753,11 +753,11 @@ Azure Portal를 사용 하 여 기본 관리 되는 인스턴스의 가상 네�
     | --- | --- |
     | **구독** |  기본 관리 되는 인스턴스가 있는 구독입니다. |
     | **이름** | `primary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
-    | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
+    | **Region** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
     | **게이트웨이 유형** | **VPN**을 선택합니다. |
     | **VPN 유형** | **경로 기반** 선택 |
     | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
-    | **위치**:| 기본 관리 되는 인스턴스 및 기본 가상 네트워크가 있는 위치입니다.   |
+    | **위치**| 기본 관리 되는 인스턴스 및 기본 가상 네트워크가 있는 위치입니다.   |
     | **가상 네트워크**| `vnet-sql-mi-primary`와 같이 섹션 2에서 만든 가상 네트워크를 선택 합니다. |
     | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
     | **공용 IP 주소 이름**| IP 주소 이름을 입력 합니다 (예: `primary-gateway-IP`). |
@@ -810,11 +810,11 @@ PowerShell을 사용 하 여 기본 관리 되는 인스턴스의 가상 네트�
 | 명령 | 참고 사항 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가 합니다. | 
-| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트 합니다.  |
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크의 서브넷을 가져옵니다. |
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트합니다.  |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷을 가져옵니다. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대 한 IP 구성을 만듭니다. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대한 IP 구성을 만듭니다. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Virtual Network 게이트웨이를 만듭니다. |
 
 
@@ -835,11 +835,11 @@ Azure Portal를 사용 하 여 이전 섹션의 단계를 반복 하 여 보조 
    | --- | --- |
    | **구독** |  보조 관리 되는 인스턴스가 있는 구독입니다. |
    | **이름** | `secondary-mi-gateway`와 같은 가상 네트워크 게이트웨이의 이름입니다. | 
-   | **지역** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
+   | **Region** | 보조 관리 되는 인스턴스가 있는 지역입니다. |
    | **게이트웨이 유형** | **VPN**을 선택합니다. |
    | **VPN 유형** | **경로 기반** 선택 |
    | **SKU**| `VpnGw1`기본값을 그대로 둡니다. |
-   | **위치**:| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
+   | **위치**| 보조 관리 되는 인스턴스와 보조 가상 네트워크가 있는 위치입니다.   |
    | **가상 네트워크**| `vnet-sql-mi-secondary`와 같이 섹션 2에서 만든 가상 네트워크를 선택 합니다. |
    | **공용 IP 주소**| **새로 만들기**를 선택합니다. |
    | **공용 IP 주소 이름**| IP 주소 이름을 입력 합니다 (예: `secondary-gateway-IP`). |
@@ -891,11 +891,11 @@ PowerShell을 사용 하 여 보조 관리 되는 인스턴스의 가상 네트�
 | 명령 | 참고 사항 |
 |---|---|
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가 합니다. | 
-| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트 합니다.  |
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크의 서브넷을 가져옵니다. |
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트합니다.  |
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷을 가져옵니다. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대 한 IP 구성을 만듭니다. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대한 IP 구성을 만듭니다. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Virtual Network 게이트웨이를 만듭니다. |
 
 ---
@@ -955,7 +955,7 @@ PowerShell을 사용 하 여 두 게이트웨이를 연결 합니다.
 
 | 명령 | 참고 사항 |
 |---|---|
-| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 두 가상 네트워크 게이트웨이 간의 연결을 만듭니다.   |
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 두 가상 네트워크 게이트웨이를 연결합니다.   |
 
 ---
 
@@ -997,7 +997,7 @@ PowerShell을 사용 하 여 장애 조치 (failover) 그룹을 만듭니다.
 
 | 명령 | 참고 사항 |
 |---|---|
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 새 Azure SQL Database 관리 되는 인스턴스 장애 조치 (failover) 그룹을 만듭니다.  |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 새 Azure SQL Database 관리형 인스턴스 장애 조치(failover) 그룹을 만듭니다.  |
 
 
 ---
@@ -1063,8 +1063,8 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 | 명령 | 참고 사항 |
 |---|---|
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 관리 되는 인스턴스 장애 조치 (failover) 그룹을 가져오거나 나열 합니다.| 
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 관리 되는 인스턴스 장애 조치 (failover) 그룹의 장애 조치를 실행 합니다. | 
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹을 가져오거나 나열합니다.| 
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹의 장애 조치(failover)를 실행합니다. | 
 
 ---
 
@@ -1082,7 +1082,7 @@ PowerShell을 사용 하 여 테스트 장애 조치 (failover)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-리소스 그룹을 두 번 제거 해야 합니다. 처음으로 리소스 그룹을 제거 하면 관리 되는 인스턴스 및 가상 클러스터가 제거 되지만 `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.`오류 메시지와 함께 실패 하 게 됩니다. AzResourceGroup 명령을 한 번 실행 하 여 리소스 그룹 뿐만 아니라 나머지 리소스도 모두 제거 합니다.
+리소스 그룹을 두 번 제거해야 합니다. 리소스 그룹을 처음으로 제거하면 관리형 인스턴스와 가상 클러스터가 제거되지만, `Remove-AzResourceGroup : Long running operation failed with status 'Conflict'.` 오류 메시지와 함께 실패하게 됩니다. Remove-AzResourceGroup 명령을 한 번 더 실행하여 리소스 그룹뿐 아니라 나머지 리소스를 모두 제거합니다.
 
 ```powershell-interactive
 Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
@@ -1095,7 +1095,7 @@ Write-host "Removing residual resources and resouce group..."
 
 | 명령 | 참고 사항 |
 |---|---|
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거 합니다. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. |
 
 ---
 
@@ -1110,28 +1110,28 @@ Write-host "Removing residual resources and resouce group..."
 |---|---|
 | [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) | Azure 리소스 그룹을 만듭니다.  |
 | [New-AzVirtualNetwork](/powershell/module/az.network/new-azvirtualnetwork) | 가상 네트워크를 만듭니다.  |
-| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가 합니다. | 
+| [Add-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/add-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷 구성을 추가합니다. | 
 | [Get-AzVirtualNetwork](/powershell/module/az.network/get-azvirtualnetwork) | 리소스 그룹의 가상 네트워크를 가져옵니다. | 
-| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크의 서브넷을 가져옵니다. | 
+| [Get-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/get-azvirtualnetworksubnetconfig) | 가상 네트워크에 서브넷을 가져옵니다. | 
 | [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) | 네트워크 보안 그룹을 만듭니다. | 
 | [New-AzRouteTable](/powershell/module/az.network/new-azroutetable) | 경로 테이블을 만듭니다. |
-| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대 한 서브넷 구성을 업데이트 합니다.  |
-| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트 합니다.  |
+| [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) | 가상 네트워크에 대한 서브넷 구성을 업데이트합니다.  |
+| [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) | 가상 네트워크를 업데이트합니다.  |
 | [Get-AzNetworkSecurityGroup](/powershell/module/az.network/get-aznetworksecuritygroup) | 네트워크 보안 그룹을 가져옵니다. |
 | [Add-AzNetworkSecurityRuleConfig](/powershell/module/az.network/add-aznetworksecurityruleconfig)| 네트워크 보안 그룹에 네트워크 보안 규칙 구성을 추가합니다. |
-| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트 합니다.  | 
-| [AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가 합니다. |
-| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트 합니다.  |
-| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | 관리 되는 Azure SQL Database 인스턴스를 만듭니다.  |
-| [AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Azure SQL 관리 되는 데이터베이스 인스턴스에 대 한 정보를 반환 합니다. |
+| [Set-AzNetworkSecurityGroup](/powershell/module/az.network/set-aznetworksecuritygroup) | 네트워크 보안 그룹을 업데이트합니다.  | 
+| [Add-AzRouteConfig](/powershell/module/az.network/add-azrouteconfig) | 경로 테이블에 경로를 추가합니다. |
+| [Set-AzRouteTable](/powershell/module/az.network/set-azroutetable) | 경로 테이블을 업데이트합니다.  |
+| [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) | Azure SQL Database 관리형 인스턴스를 만듭니다.  |
+| [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance)| Azure SQL Managed Database Instance에 대한 정보를 반환합니다. |
 | [New-AzPublicIpAddress](/powershell/module/az.network/new-azpublicipaddress) | 공용 IP 주소를 만듭니다.  | 
-| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대 한 IP 구성을 만듭니다. |
+| [New-AzVirtualNetworkGatewayIpConfig](/powershell/module/az.network/new-azvirtualnetworkgatewayipconfig) | Virtual Network 게이트웨이에 대한 IP 구성을 만듭니다. |
 | [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) | Virtual Network 게이트웨이를 만듭니다. |
-| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 두 가상 네트워크 게이트웨이 간의 연결을 만듭니다.   |
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 새 Azure SQL Database 관리 되는 인스턴스 장애 조치 (failover) 그룹을 만듭니다.  |
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 관리 되는 인스턴스 장애 조치 (failover) 그룹을 가져오거나 나열 합니다.| 
-| [AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 관리 되는 인스턴스 장애 조치 (failover) 그룹의 장애 조치를 실행 합니다. | 
-| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거 합니다. | 
+| [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection) | 두 가상 네트워크 게이트웨이를 연결합니다.   |
+| [New-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/new-azsqldatabaseinstancefailovergroup)| 새 Azure SQL Database 관리형 인스턴스 장애 조치(failover) 그룹을 만듭니다.  |
+| [Get-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/get-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹을 가져오거나 나열합니다.| 
+| [Switch-AzSqlDatabaseInstanceFailoverGroup](/powershell/module/az.sql/switch-azsqldatabaseinstancefailovergroup) | 관리형 인스턴스 장애 조치(failover) 그룹의 장애 조치(failover)를 실행합니다. | 
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | 리소스 그룹을 제거합니다. | 
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal) 
 
@@ -1146,7 +1146,7 @@ Azure Portal 사용할 수 있는 스크립트가 없습니다.
 > [!div class="checklist"]
 > - 기본 관리 되는 인스턴스 만들기
 > - [장애 조치 (failover) 그룹](sql-database-auto-failover-group.md)의 일부로 보조 관리 되는 인스턴스를 만듭니다. 
-> - 테스트 장애 조치(Failover)
+> - 테스트 장애 조치(failover)
 
 관리 되는 인스턴스에 연결 하는 방법 및 데이터베이스를 관리 되는 인스턴스로 복원 하는 방법에 대 한 다음 빠른 시작으로 이동 합니다. 
 

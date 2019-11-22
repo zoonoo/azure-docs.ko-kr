@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: b782581318751830ec47b9fecb056fecefb353eb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134958"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279706"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>컨테이너 상태 모니터의 Azure Monitor 구성 가이드
 
-모니터는 컨테이너에 대 한 Azure Monitor 상태를 측정 하 고 오류를 검색 하기 위한 기본 요소입니다. 이 문서는 상태를 측정 하는 방법 및 상태 모델을 구성 하는 요소에 대 한 개념을 이해 하 여 [상태 기능](container-insights-health.md)을 통해 Kubernetes 클러스터의 상태를 모니터링 하 고 보고 하는 데 도움이 됩니다.
+모니터는 컨테이너에 대 한 Azure Monitor 상태를 측정 하 고 오류를 검색 하기 위한 기본 요소입니다. 이 문서는 상태를 측정 하는 방법 및 상태 모델을 구성 하는 요소가 [상태 (미리 보기)](container-insights-health.md) 기능을 사용 하 여 Kubernetes 클러스터의 상태를 모니터링 하 고 보고 하는 방법에 대 한 개념을 이해 하는 데 도움이 됩니다.
+
+>[!NOTE]
+>상태 기능은 현재 공개 미리 보기로 제공 됩니다.
+>
 
 ## <a name="monitors"></a>모니터
 

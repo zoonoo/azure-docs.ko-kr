@@ -1,23 +1,14 @@
 ---
 title: Jupyter Notebook을 Azure에서 슬라이드 쇼로 프레젠테이션
 description: Jupyter Notebook에서 슬라이드 쇼 모드로 셀을 구성한 다음 RISE 확장을 사용하여 슬라이드 쇼를 프레젠테이션하는 방법입니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d180eaf571fa57191e3b0856020b02f05d05e344
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973106"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277588"
 ---
 # <a name="run-a-notebook-slideshow"></a>Notebook 슬라이드 쇼 실행
 
@@ -60,7 +51,7 @@ Notebook을 슬라이드 쇼로 준비하려면 두 기본 작업을 거처야 �
     | 하위 슬라이드 | 셀이 기본 슬라이드 “하위”에 있으며, 탐색 컨트롤의 왼쪽 및 오른쪽 화살표를 사용하여 탐색됩니다. 위쪽 화살표는 기본 슬라이드로 돌아갑니다. 하위 슬라이드는 프레젠테이션의 기본 경로에서 건너뛸 수 있는 보조 자료에 사용되지만, 필요한 경우 즉시 사용 가능합니다. |
     | 조각 | 셀 콘텐츠는 아래쪽 탐색 화살표를 사용하는 경우 이전 슬라이드 또는 하위 슬라이드의 컨텍스트에서 나타납니다(조각은 위쪽 화살표를 사용하는 경우 제거됨). 코드 셀이 있는 조각을 사용해 그 코드를 슬라이드에 표시되도록 하거나 여러 조각을 사용하여 텍스트 글머리 기호가 하나씩 표시되도록 할 수 있습니다(다음 섹션의 예제 참조). 조각은 현재 슬라이드에서 빌드되므로, 과도한 조각은 브라우저 창 아래쪽에 나타나지 않습니다. |
     | Skip | 셀이 슬라이드 쇼에 표시되지 않습니다. |
-    | 참고 | 셀에 슬라이드 쇼에는 표시되지 않는 발표자 메모가 포함됩니다. |
+    | 참고 사항 | 셀에 슬라이드 쇼에는 표시되지 않는 발표자 메모가 포함됩니다. |
 
 1. 처음에 모든 셀에 대해 **슬라이드**를 선택하는 것이 유용합니다. 그래야 슬라이드 쇼를 실행하고 적절히 조정할 수 있습니다.
 
@@ -102,6 +93,6 @@ Notebook을 슬라이드 쇼로 준비하려면 두 기본 작업을 거처야 �
 ## <a name="next-steps"></a>다음 단계
 
 - [방법: 프로젝트 구성 및 관리](configure-manage-azure-notebooks-projects.md)
-- [방법: Notebook에서 패키지 설치](install-packages-jupyter-notebook.md)
+- [방법: 노트북 내에서 패키지 설치](install-packages-jupyter-notebook.md)
 - [방법: 데이터 파일 작업](work-with-project-data-files.md)
 - [방법: 데이터 리소스 액세스](access-data-resources-jupyter-notebooks.md)

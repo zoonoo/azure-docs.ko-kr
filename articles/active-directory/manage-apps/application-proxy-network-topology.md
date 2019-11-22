@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 프록시에 대 한 네트워크 토폴로지 고려 사항 | Microsoft Docs
+title: Azure AD 응용 프로그램 프록시에 대 한 네트워크 토폴로지 고려 사항
 description: Azure AD 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7320df63885f562b4724285a3ca5c3cf6ea2a52
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 075b2c92168afe0c366608266c38b14394b73cff
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381459"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275478"
 ---
 # <a name="network-topology-considerations-when-using-azure-active-directory-application-proxy"></a>Azure Active Directory 애플리케이션 프록시를 사용할 때 네트워크 토폴로지 고려 사항
 
@@ -80,13 +80,13 @@ Azure 및 회사 네트워크 간에 전용 VPN 또는 ExpressRoute가 있는 �
 
 사용자와 애플리케이션 프록시 서비스 간의 연결을 제어할 수 있는 방법은 거의 없습니다. 사용자는 홈 네트워크, 커피숍 또는 다른 국가/지역에서 앱에 액세스할 수 있습니다. 대신 애플리케이션 프록시 서비스에서 애플리케이션 프록시 커넥터로, 그런 다음 앱으로 연결을 최적화할 수 있습니다. 사용자 환경에서 다음과 같은 패턴을 통합하는 것이 좋습니다.
 
-### <a name="pattern-1-put-the-connector-close-to-the-application"></a>패턴 1: 커넥터를 애플리케이션 가까이 배치
+### <a name="pattern-1-put-the-connector-close-to-the-application"></a>패턴 1: 커넥터를 애플리케이션 가까이에 배치
 
 커넥터를 고객 네트워크의 대상 애플리케이션 가까이에 배치합니다. 이 구성은 커넥터와 애플리케이션이 가까이 있기 때문에 토폴로지 다이어그램에서 3단계를 최소화합니다.
 
 도메인 컨트롤러에 대한 가시선이 커넥터에 필요한 경우 이 패턴이 유리합니다. 대부분의 시나리오에 적합하기 때문에 대부분의 고객이 이 패턴을 사용합니다. 이 패턴을 패턴 2와 조합하여 서비스와 커넥터 사이의 트래픽을 최적화할 수도 있습니다.
 
-### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>패턴 2: Microsoft 피어링이 있는 ExpressRoute 활용
+### <a name="pattern-2-take-advantage-of-expressroute-with-microsoft-peering"></a>패턴 2: Microsoft 피어 링으로 Express 경로 활용
 
 Microsoft 피어링이 있는 ExpressRoute를 설정한 경우 애플리케이션 프록시와 커넥터 간 트래픽에 대해 더 빨라진 ExpressRoute 연결을 사용할 수 있습니다. 커넥터는 여전히 네트워크에서 앱에 가까운 위치를 유지합니다.
 
@@ -118,9 +118,9 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 ### <a name="use-case-1"></a>사용 사례 1
 
-**시나리오:** 앱은 동일한 지역의 사용자와 함께 미국에 있는 조직의 네트워크에 있습니다. Azure 데이터 센터 및 회사 네트워크 간에 ExpressRoute 또는 VPN이 존재하지 않습니다.
+**시나리오:** 앱이 동일한 지역의 사용자와 함께 미국에 있는 조직의 네트워크에 있습니다. Azure 데이터 센터 및 회사 네트워크 간에 ExpressRoute 또는 VPN이 존재하지 않습니다.
 
-**권장 사항**: 이전 섹션에서 설명한 패턴 1을 따릅니다. 대기 시간 개선을 위해 필요한 경우 ExpressRoute를 사용하는 것이 좋습니다.
+**권장 사항:** 이전 섹션에서 설명한 대로 패턴 1을 따릅니다. 대기 시간 개선을 위해 필요한 경우 ExpressRoute를 사용하는 것이 좋습니다.
 
 이것은 단순한 패턴입니다. 커넥터를 앱 가까이에 배치하여 홉 3을 최적화합니다. 일반적으로 커넥터는 KCD 작업을 수행하기 위해 앱과 데이터 센터에 대한 시야를 사용하여 설치되므로 자연스러운 선택이기도 합니다.
 
@@ -128,9 +128,9 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 ### <a name="use-case-2"></a>사용 사례 2
 
-**시나리오:** 앱은 전 세계에 분산된 사용자와 함께 미국에 있는 조직의 네트워크에 있습니다. Azure 데이터 센터 및 회사 네트워크 간에 ExpressRoute 또는 VPN이 존재하지 않습니다.
+**시나리오:** 앱이 전 세계에 분산된 사용자와 함께 미국에 있는 조직의 네트워크에 있습니다. Azure 데이터 센터 및 회사 네트워크 간에 ExpressRoute 또는 VPN이 존재하지 않습니다.
 
-**권장 사항**: 이전 섹션에서 설명한 패턴 1을 따릅니다.
+**권장 사항:** 이전 섹션에서 설명한 대로 패턴 1을 따릅니다.
 
 일반적인 패턴은 홉 3을 최적화하는 것이며, 이 경우 커넥터를 앱 근처에 배치합니다. 홉 3이 모두 동일한 지역에 있는 경우 일반적으로 비용이 많이 들지 않습니다. 하지만 전 세계의 사용자가 미국에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1은 사용자 위치에 따라 비용이 더 높을 수 있습니다. 모든 프록시 솔루션은 전 세계에 분산된 사용자에 따라 유사한 특성을 포함한다는 것에 주목해야 합니다.
 
@@ -138,9 +138,9 @@ Azure 및 회사 네트워크 간에 프라이빗 피어링이 있는 전용 VPN
 
 ### <a name="use-case-3"></a>사용 사례 3
 
-**시나리오:** 앱은 미국에 있는 조직의 네트워크에 있습니다. Microsoft 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
+**시나리오:** 앱이 미국에 있는 조직의 네트워크에 있습니다. Microsoft 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
 
-**권장 사항**: 이전 섹션에서 설명한 패턴 1과 2를 따릅니다.
+**권장 사항:** 이전 섹션에서 설명한 패턴 1과 2를 따릅니다.
 
 먼저 커넥터를 앱에 최대한 가까이 배치합니다. 그런 다음 시스템에서 홉 2에 ExpressRoute를 자동으로 사용합니다.
 
@@ -150,9 +150,9 @@ ExpressRoute 링크가 Microsoft 피어링을 사용하는 경우 프록시와 �
 
 ### <a name="use-case-4"></a>사용 사례 4
 
-**시나리오:** 앱은 미국에 있는 조직의 네트워크에 있습니다. 프라이빗 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
+**시나리오:** 앱이 미국에 있는 조직의 네트워크에 있습니다. 프라이빗 피어링이 있는 ExpressRoute는 Azure 및 회사 네트워크 간에 존재합니다.
 
-**권장 사항**: 이전 섹션에서 설명한 패턴 3을 따릅니다.
+**권장 사항:** 이전 섹션에서 설명한 패턴 3을 따릅니다.
 
 ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 Azure 데이터 센터에 커넥터를 배치합니다.
 
@@ -164,7 +164,7 @@ ExpressRoute 프라이빗 피어링을 통해 회사 네트워크에 연결된 A
 
 **시나리오:** 앱은 EU의 조직 네트워크에 있고 애플리케이션 프록시 인스턴스와 대부분의 사용자는 미국에 있습니다.
 
-**권장 사항**: 커넥터를 앱 가까이 배치합니다. 미국 사용자는 동일한 지역에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1의 비용은 그다지 비싸지 않습니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
+**권장 사항:** 커넥터를 앱 가까이 배치합니다. 미국 사용자는 동일한 지역에 있는 애플리케이션 프록시 인스턴스에 액세스하므로 홉 1의 비용은 그다지 비싸지 않습니다. 홉 3이 최적화됩니다. ExpressRoute를 사용하여 홉 2를 최적화하는 것이 좋습니다.
 
 ![다이어그램은 EU의 미국, 커넥터 및 앱에서 사용자 및 프록시를 보여줍니다.](./media/application-proxy-network-topology/application-proxy-pattern5b.png)
 

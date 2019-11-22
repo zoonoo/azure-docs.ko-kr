@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dd50ca8b81b933a61a67ac36db6a656791a8121f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0bfd75f54e2b57e57fcadc27df2ca43d8be5cf37
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832861"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285515"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -34,8 +34,8 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 - Azure RBAC를 사용 하면 필요에 따라 Vm에 적절 한 액세스 권한을 부여 하 고 더 이상 필요 하지 않을 때 제거할 수 있습니다.
 - VM에 대 한 액세스를 허용 하기 전에 Azure AD 조건부 액세스에서 다음과 같은 추가 요구 사항을 적용할 수 있습니다. 
    - Multi-Factor Authentication
-   - 로그인 위험
-- Azure 기반 Windows Vm에 대 한 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
+   - 로그인 위험 검사
+- VDI 배포에 포함 되는 Azure Windows Vm의 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
 
 ## <a name="requirements"></a>요구 사항
 
@@ -68,7 +68,7 @@ Azure에서 Windows VM에 대해에서 Azure AD 로그인을 사용 하려면 �
 Windows VM에 대해 Azure AD 로그인을 사용 하도록 설정 하는 방법에는 여러 가지가 있습니다.
 
 - Windows VM을 만들 때 Azure Portal 환경 사용
-- Windows VM을 만들 때 또는 기존 Windows VM에 대 한 Azure Cloud Shell 환경 사용
+- Windows VM을 만들 때 **또는 기존 WINDOWS vm에 대 한** Azure Cloud Shell 환경 사용
 
 ### <a name="using-azure-portal-create-vm-experience-to-enable-azure-ad-login"></a>Azure Portal 사용 하 여 Azure AD 로그인을 사용 하도록 설정 하는 VM 환경 만들기
 
@@ -187,6 +187,13 @@ RBAC를 사용 하 여 Azure 구독 리소스에 대 한 액세스를 관리 하
 - [RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 액세스 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 - [RBAC 및 Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 액세스를 관리](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell)합니다.
 
+## <a name="using-conditional-access"></a>조건부 액세스 사용
+
+Azure AD 로그인을 사용 하도록 설정 된 Azure에서 Windows Vm에 대 한 액세스 권한을 부여 하기 전에 multi-factor authentication 또는 사용자 로그인 위험 확인 등의 조건부 액세스 정책을 적용할 수 있습니다. 조건부 액세스 정책을 적용 하려면 클라우드 앱 또는 작업 할당 옵션에서 "Azure Windows VM 로그인" 앱을 선택 하 고, 로그인 위험을 조건으로 사용 하거나, 권한 부여 액세스 제어로 multi-factor authentication을 사용 해야 합니다. 
+
+> [!NOTE]
+> "Azure Windows VM 로그인" 앱에 대 한 액세스를 요청 하는 권한 부여 액세스 제어로 "multi-factor authentication 필요"를 사용 하는 경우에서 대상 Windows VM에 대 한 RDP 세션을 시작 하는 클라이언트의 일부로 multi-factor authentication 클레임을 제공 해야 합니다. Microsoft. Windows 10 클라이언트에서이 작업을 수행 하려면 비즈니스용 Windows Hello PIN 또는 RDP 중에 생체 인식 인증을 사용 합니다. RDP 중 생체 인식 인증에 대 한 지원은 Windows 10 1809에 추가 되었습니다. RDP 중 비즈니스용 Windows Hello 인증을 사용 하는 것은 인증서 신뢰 모델을 사용 하 고 현재 키 신뢰 모델에 사용할 수 없는 배포에만 사용할 수 있습니다.
+
 ## <a name="log-in-using-azure-ad-credentials-to-a-windows-vm"></a>Azure AD 자격 증명을 사용 하 여 Windows VM에 로그인
 
 > [!IMPORTANT]
@@ -223,9 +230,9 @@ VM이 Azure AD 조인 프로세스를 완료 하려면 AADLoginForWindows 확장
 
    | 실행할 명령 | 예상 출력 |
    | --- | --- |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Azure VM에 대 한 올바른 정보 |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Azure 구독과 연결 된 유효한 테 넌 트 ID |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Azure VM에 대 한 올바른 정보 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Azure 구독과 연결 된 유효한 테 넌 트 ID |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
 
    > [!NOTE]
    > [http://calebb.net/](http://calebb.net/)와 같은 도구를 사용 하 여 액세스 토큰을 디코딩할 수 있습니다. 액세스 토큰의 "appid"가 VM에 할당 된 관리 id와 일치 하는지 확인 합니다.
@@ -337,7 +344,12 @@ VM에 대 한 원격 데스크톱 연결을 시작할 때 다음과 같은 오�
 
 ![사용 하려는 로그인 방법은 허용 되지 않습니다.](./media/howto-vm-sign-in-azure-ad-windows/mfa-sign-in-method-required.png)
 
-RBAC 리소스에 액세스 하기 전에 MFA를 수행 해야 하는 조건부 액세스 정책을 구성한 경우, VM에 대 한 원격 데스크톱 연결을 시작 하는 Windows 10 PC에서 강력한 인증 방법을 사용 하 여 로그인 해야 합니다. Windows Hello. 원격 데스크톱 연결에 강력한 인증 방법을 사용 하지 않는 경우 다음과 같은 오류가 표시 됩니다.
+RBAC 리소스에 액세스 하기 전에 MFA를 수행 해야 하는 조건부 액세스 정책을 구성한 경우, VM에 대 한 원격 데스크톱 연결을 시작 하는 Windows 10 PC에서 강력한 인증 방법을 사용 하 여 로그인 해야 합니다. Windows Hello. 원격 데스크톱 연결에 강력한 인증 방법을 사용 하지 않는 경우 다음과 같은 오류가 표시 됩니다. 
+
+비즈니스용 Windows Hello를 배포 하지 않은 경우 현재이 옵션이 아닌 경우 MFA를 요구 하는 클라우드 앱 목록에서 "Azure Windows VM 로그인" 앱을 제외 하는 조건부 액세스 정책을 구성 하 여 MFA 요구 사항을 제거할 수 있습니다. 비즈니스용 Windows Hello에 대 한 자세한 내용은 [비즈니스용 Windows Hello 개요](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification)를 참조 하세요.
+
+> [!NOTE]
+> 지금은 Windows 10에서 RDP 중 비즈니스용 windows Hello PIN 인증을 지원 합니다. RDP 중 생체 인식 인증에 대 한 지원은 Windows 10 1809에 추가 되었습니다. RDP 중 비즈니스용 Windows Hello 인증을 사용 하는 것은 인증서 신뢰 모델을 사용 하 고 현재 키 신뢰 모델에 사용할 수 없는 배포에만 사용할 수 있습니다.
  
 ## <a name="preview-feedback"></a>미리 보기 피드백
 

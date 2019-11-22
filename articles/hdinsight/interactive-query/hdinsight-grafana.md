@@ -7,18 +7,18 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: cea0e9709afb65caa23d28be093c28498f2b82d0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: dae9c47f535d87214c9e1583562b4c0419cd44cf
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122989"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305443"
 ---
 # <a name="access-grafana-in-azure-hdinsight"></a>Azure HDInsight에서 Grafana에 액세스
 
 [Grafana](https://grafana.com/)는 널리 사용되는 오픈 소스 그래프 및 대시보드 작성기입니다. Grafana는 다양한 기능을 수행합니다. 사용자가 사용자 지정 가능하고 공유 가능한 대시보드를 만들 뿐만 아니라 템플릿/스크립팅 대시보드, LDAP 통합, 여러 데이터 원본 등도 제공합니다.
 
-현재, Azure HDInsight에서 Grafana는 Hbase 및 대화형 쿼리 클러스터 형식으로 지원됩니다.
+현재 Azure HDInsight에서 Grafana는 Hbase, Kafka 및 대화형 쿼리 클러스터 유형으로 지원 됩니다. 엔터프라이즈 보안 팩을 사용 하도록 설정한 클러스터에서는 지원 되지 않습니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -37,7 +37,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     > 
     >
     
-    ![HDInsight Linux 포털에서 Resource Manager 템플릿 시작](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Azure Portal과 리소스 그룹 관리자 템플릿을 사용하여 HDInsigut에 Hadoop 클러스터 배포")
+    ![포털에서 HDInsight Linux 리소스 관리자 템플릿 시작 하기](./media/hdinsight-grafana/hdinsight-linux-get-started-arm-template-on-portal.png "Azure Portal 및 리소스 그룹 관리자 템플릿을 사용 하 여 HDInsigut에 Hadoop 클러스터 배포")
 
     다음 값을 입력하거나 선택합니다.
     
@@ -45,10 +45,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     |---------|---------|
     |**구독**     |  Azure 구독을 선택합니다. |
     |**리소스 그룹**     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
-    |**Location**:     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
+    |**위치**     | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
     |**클러스터 유형**     | **hadoop**을 선택합니다. |
     |**클러스터 이름**     | Apache Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
-    |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
+    |**클러스터 로그인 이름 및 암호**     | 기본 로그인 이름은 **admin**입니다. 암호는 10 자 이상 이어야 하 고 하나 이상의 숫자, 대문자 및 소문자 1 자 (문자 ' "\)'를 제외 하 고 영숫자가 아닌 문자 하나)를 포함 해야 합니다. " **"과 같은 일반적인 암호를** 제공하지 않았는지Pass@word1 확인합니다.|
     |**SSH 사용자 이름 및 암호**     | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름은 바꿀 수 있습니다.  SSH 사용자 암호에는 클러스터 로그인 암호와 동일한 요구 사항이 적용됩니다.|
 
     일부 속성이 템플릿에 하드 코딩되었습니다.  템플릿에서 이러한 값을 구성할 수 있습니다. 이러한 속성에 대한 자세한 설명은 [HDInsight에서 Apache Hadoop 클러스터 만들기](../hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요.
@@ -59,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 4. 클러스터가 생성되면 타일의 캡션이 지정한 리소스 그룹 이름으로 변경됩니다. 또한 타일은 리소스 그룹 내에서 만든 HDInsight 클러스터를 나열합니다.
 
-    ![HDInsight Linux 시작 - 리소스 그룹](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
+    ![HDInsight Linux 시작 리소스 그룹](./media/hdinsight-grafana/hdinsight-linux-get-started-resource-group.png "Azure HDInsight 클러스터 리소스 그룹")
 
 5. 또한 타일은 클러스터와 연결된 기본 스토리지를 나열합니다. 각 클러스터에는 [Azure Storage 계정](../hdinsight-hadoop-use-blob-storage.md) 또는 [Azure Data Lake 계정](../hdinsight-hadoop-use-data-lake-store.md) 종속성이 있습니다. 이 스토리지 계정을 기본 스토리지 계정이라고 합니다. HDInsight 클러스터와 해당 기본 스토리지 계정은 같은 Azure 지역에 있어야 합니다. 클러스터를 삭제해도 스토리지 계정은 삭제되지 않습니다.
     
@@ -77,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     ![HDInsight 클러스터 대시보드 포털](./media/hdinsight-grafana/hdinsight-portal-cluster-dashboard.png "포털의 HDInsight 클러스터 대시보드")
 
-4. 대시보드에서 **Grafana** 타일을 클릭합니다. 또는 클러스터 URL의 `/grafana/` 경로로 이동합니다. 예를 들어, `https://<clustername>.azurehdinsight.net/grafana/`을 입력합니다.
+4. 대시보드에서 **Grafana** 타일을 클릭합니다. 또는 클러스터 URL의 `/grafana/` 경로로 이동합니다. 예: `https://<clustername>.azurehdinsight.net/grafana/`.
 
 5. Hadoop 클러스터 사용자 자격 증명을 입력합니다.
 

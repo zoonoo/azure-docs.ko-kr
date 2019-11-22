@@ -3,12 +3,12 @@ title: 새 Azure 정책의 영향 평가
 description: Azure 환경에 새 정책을 도입할 때 따라야 하는 프로세스를 이해 합니다.
 ms.date: 09/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6c1a3ea764aedec7de5eab1f564176eaafead70b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e39183b13d2b3cf8c7527f9372879372b2123648
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959839"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279434"
 ---
 # <a name="evaluate-the-impact-of-a-new-azure-policy"></a>새 Azure 정책의 영향 평가
 
@@ -71,6 +71,6 @@ Azure Policy은 Azure 리소스를 비즈니스 표준으로 관리 하 고 규�
 - [정책 정의 구조](./definition-structure.md)에 대해 알아봅니다.
 - [정책 할당 구조](./assignment-structure.md)에 대해 알아봅니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

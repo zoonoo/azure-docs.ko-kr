@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 7b46b1108246f0b83fcfce69844d19d01b1994c4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e36cc044e6a4160d16f15b93d8a88d946f476c89
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73665642"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287083"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
@@ -37,6 +37,30 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 ### <a name="data-validation"></a>데이터 유효성 검사
 
 코드를 사용 하지 않는 방식으로 데이터를 시각적으로 검사 하 여 이상 값, 이상 값을 제거 하 고 빠른 분석을 위해 셰이프를 준수 합니다.
+
+## <a name="supported-sources"></a>지원 되는 원본
+
+| 커넥터 | 데이터 형식 | 인증 유형 |
+| -- | -- | --|
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | 계정 키 |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | 서비스 주체 |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | 계정 키, 서비스 주체 |
+| [Azure SQL Database](connector-azure-sql-database.md) | - | SQL 인증 |
+| [Azure Synapse 분석](connector-azure-sql-data-warehouse.md) | - | SQL 인증 |
+
+## <a name="the-mashup-editor"></a>매시업 편집기
+
+랭 글 링 데이터 흐름을 만들 때 모든 원본 데이터 집합은 데이터 집합 쿼리가 되며 **Adfresource** 폴더에 배치 됩니다. 기본적으로 UserQuery는 첫 번째 데이터 집합 쿼리를 가리킵니다. 데이터 집합 쿼리에 대 한 변경 내용이 지원 되지 않거나 유지 되지 않으므로 UserQuery에서 모든 변환을 수행 해야 합니다. 현재는 쿼리 이름을 바꾸고 쿼리를 추가 및 삭제 하는 것은 지원 되지 않습니다.
+
+![랭 글 링](media/wrangling-data-flow/editor.png)
+
+현재 모든 파워 쿼리 M 함수는 제작 중에도 사용할 수 있는 데이터 랭 글 링 지원 되지 않습니다. 랭 글 링 데이터 흐름을 작성 하는 동안 함수가 지원 되지 않으면 다음과 같은 오류 메시지가 표시 됩니다.
+
+`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+
+지원 되는 변환에 대 한 자세한 내용은 [랭 글 링 data flow 함수](wrangling-data-flow-functions.md)를 참조 하세요.
+
+현재 랭 글 링 데이터 흐름은 한 싱크에만 쓸 수 있도록 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

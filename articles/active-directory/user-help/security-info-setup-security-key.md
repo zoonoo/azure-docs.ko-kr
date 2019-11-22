@@ -1,6 +1,6 @@
 ---
-title: 보안 키에 대 한 보안 정보 (미리 보기) 설정-Azure AD
-description: FIDO2 (Fast Identity Online) 보안 키를 사용 하 여 id를 확인 하는 보안 정보를 설정 하는 방법입니다.
+title: 보안 키를 확인 방법으로 설정-Azure AD
+description: FIDO2 (Fast Identity Online) 보안 키를 확인 방법으로 사용 하기 위해 id를 확인 하도록 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9d86d594f0918e6a9ffed49142a81a0f7834e86
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d02ca3a8b5b617edb8ee00ae7d15ea7e94cae80
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803782"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278956"
 ---
-# <a name="set-up-security-info-preview-for-a-security-key"></a>보안 키에 대 한 보안 정보 (미리 보기) 설정
+# <a name="set-up-a-security-key-as-your-verification-method"></a>보안 키를 확인 방법으로 설정 합니다.
 
-보안 키를 조직 내에서 암호 없는 로그인 방법으로 사용할 수 있습니다. 보안 키는 회사 또는 학교 계정에 로그인 하기 위해 고유한 PIN과 함께 사용 되는 물리적 장치입니다. 보안 키에는 물리적 장치와 사용자가 알고 있는 것만 필요 하기 때문에 사용자 이름 및 암호 보다 강력한 인증 방법으로 간주 됩니다.
+보안 키를 조직 내에서 암호 없는 로그인 방법으로 사용할 수 있습니다. 보안 키는 회사 또는 학교 계정에 로그인 하기 위해 고유한 PIN과 함께 사용 되는 물리적 장치입니다. 보안 키에는 물리적 장치와 사용자가 알고 있어야 하는 사항이 있으므로 사용자 이름 및 암호 보다 더 강력한 확인 방법으로 간주 됩니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-key.md)]
 
@@ -144,13 +144,13 @@ ms.locfileid: "73803782"
      보안 키는 회사 또는 학교 계정에 사용 하기 위해 새 보안 키 PIN으로 업데이트 됩니다. PIN을 다시 변경 하기로 결정 한 경우에는 **변경** 단추를 선택할 수 있습니다.
 4. **닫기** 를 선택 하 여 **관리** 화면을 닫습니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
+## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
 
 보안 키를 등록 하려면 하나 이상의 추가 보안 확인 방법이 등록 되어 있어야 합니다. 자세한 내용은 [개요 섹션](security-info-add-update-methods-overview.md) 을 참조 하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 암호 없는 인증 방법에 대 한 자세한 내용은 [Microsoft의 Azure AD에서 FIDO2 보안 키에 대 한 공개 미리 보기를 시작 하 고, 암호 없는 로그인 블로그를 사용 하도록 설정](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) 하거나, [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md) 을 [참조 하세요. Windows Hello 개요](https://www.microsoft.com/windows/windows-hello) 문서.
+- 암호 없는 인증 방법에 대 한 자세한 내용은 [Microsoft의 Azure AD에서 FIDO2 보안 키에 대 한 공개 미리 보기를 시작 하 고, 암호 없는 로그인 블로그를 사용 하도록 설정](https://www.onmsft.com/news/microsofts-azure-ad-begins-public-preview-of-fido2-security-keys-enabling-passwordless-logins) 하거나, [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md) 및 [Windows Hello 개요](https://www.microsoft.com/windows/windows-hello) 문서를 참조 하세요.
 
 - [Microsoft 규격 보안 키](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/microsoft-compatible-security-key)에 대 한 자세한 정보.
 

@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 11/20/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8f95dfd6410ae22a4596ac7d5d72add57e8029d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 49081ba72559b021d2e4846e7d9feffd61ae7b36
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373887"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284909"
 ---
 # <a name="service-to-service-apps"></a>서비스 간 앱
 
@@ -40,7 +40,7 @@ ms.locfileid: "72373887"
 
 ![디먼 또는 서버 애플리케이션-Web API 다이어그램](./media/authentication-scenarios/daemon_server_app_to_web_api.png)
 
-## <a name="dprotocol-flow"></a>DProtocol 흐름
+## <a name="protocol-flow"></a>프로토콜 흐름
 
 ### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>OAuth 2.0 클라이언트 자격 증명 권한 부여를 사용하는 애플리케이션 ID
 
@@ -59,11 +59,11 @@ ms.locfileid: "72373887"
 
 ## <a name="code-samples"></a>코드 샘플
 
-디먼 또는 서버 애플리케이션-Web API 시나리오에 대한 코드 샘플을 참조하세요. 그리고 새로운 샘플이 자주 추가되므로 자주 확인해 보세요. [서버 또는 디먼 애플리케이션-Web API](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
+웹 api 시나리오에 대 한 디먼 또는 서버 응용 프로그램에 대 한 코드 샘플을 참조 하세요. [서버 또는 디먼 응용 프로그램-WEB api](sample-v1-code.md#daemon-applications-accessing-web-apis-with-the-applications-identity)
 
 ## <a name="app-registration"></a>앱 등록
 
-* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 디먼 또는 서버 애플리케이션을 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 디먼 또는 서버의 액세스를 제한하기 위해 사용됩니다. 위임된 사용자 ID 형식을 사용하는 경우 서버 애플리케이션이 Azure Portal의 "다른 애플리케이션에 대한 권한" 드롭다운 메뉴에서 원하는 권한을 선택해야 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
+* 단일 테넌트 - 애플리케이션 ID 및 위임된 사용자 ID의 경우 모두, 디먼 또는 서버 애플리케이션을 Azure AD의 동일한 디렉터리에 등록해야 합니다. 일련의 권한을 노출하도록 웹 API를 구성할 수 있으며, 이 방법은 해당 리소스에 대한 디먼 또는 서버의 액세스를 제한하기 위해 사용됩니다. 위임 된 사용자 id 유형을 사용 중인 경우 서버 응용 프로그램에서 원하는 권한을 선택 해야 합니다. 응용 프로그램 등록에 대 한 **Api 권한** 페이지에서 **사용 권한 추가** 를 선택 하 고 api 패밀리를 선택한 후 위임 된 **권한**을 선택 하 고 사용 권한을 선택 합니다. 이 단계는 애플리케이션 ID 형식을 사용 중일 때는 필요 없습니다.
 * 다중 테넌트 - 먼저, 디먼 또는 서버 애플리케이션이 작동에 필요한 권한을 나타내도록 구성됩니다. 이러한 필수 권한 목록은 대상 디렉터리의 사용자나 관리자가 애플리케이션에 동의하여 애플리케이션을 조직에서 사용할 수 있도록 만들면 대화 상자에 표시됩니다. 일부 애플리케이션에는 조직의 모든 사용자가 동의할 수 있는 사용자 수준 권한만 필요합니다. 또 일부 애플리케이션에는 조직의 사용자가 동의할 수 없는 수준인 관리자 수준 권한이 필요합니다. 이 수준의 권한이 요구되는 애플리케이션에 동의할 수 있는 사람은 디렉터리 관리자뿐입니다. 사용자 또는 관리자가 동의하면 웹 응용 프로그램과 웹 API가 모두 이들의 디렉터리에 등록됩니다.
 
 ## <a name="token-expiration"></a>토큰 만료

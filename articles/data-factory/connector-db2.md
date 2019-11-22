@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: dad28da0b481467633bebf664fea2be39a50200b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e72e6c112913d646b6dc1479a9b80acc6d4ec7b1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681046"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280745"
 ---
 # <a name="copy-data-from-db2-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 DB2에서 데이터 복사
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -52,7 +52,7 @@ DB2 데이터베이스에서 지원되는 모든 싱크 데이터 저장소로 �
 > - i용 DB2(AS400): 고급 사용자가 복사 작업을 사용하기 전에 로그인 사용자의 컬렉션을 만들 수 있습니다. 명령: `create collection <username>`
 > - z/OS 또는 LUW용 DB2: 고급 권장 계정 사용 - 패키지 권한 및 BIND, BINDADD, GRANT EXECUTE TO PUBLIC 권한이 있는 고급 사용자 또는 관리자 - 복사 작업을 한 번 실행하기 위해 복사 중에 필요한 패키지가 자동으로 생성됩니다. 그 후에는 다시 일반 사용자로 전환하여 이후 복사 실행을 수행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [data-factory-v2-integration-runtime-requirements](../../includes/data-factory-v2-integration-runtime-requirements.md)]
 
@@ -71,14 +71,16 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Db2**로 설정해야 합니다. | 예 |
-| server |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
+| 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
 | database |DB2 데이터베이스의 이름입니다. |예 |
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
 | 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
-| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. |아니요 |
+| password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
+| packageCollection | 데이터베이스를 쿼리할 때 ADF에서 필요한 패키지가 자동으로 생성 되는 위치를 지정 합니다. | 아니오 |
+| certificateCommonName | SSL(Secure Sockets Layer) (SSL) 또는 TLS (전송 계층 보안) 암호화를 사용 하는 경우 인증서 일반 이름에 값을 입력 해야 합니다. | 아니오 |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [전제 조건](#prerequisites) 섹션에서 자세히 알아보세요. 지정하지 않으면 기본 Azure 통합 런타임을 사용합니다. |아니오 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -147,9 +149,9 @@ DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **Db2Source** 로 설정 해야 합니다. | 예 |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예제: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예를 들어 `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`을 참조하십시오. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -190,31 +192,31 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | DB2 데이터베이스 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | BigInt |Int64 |
-| 이진 |Byte[] |
+| Binary |Byte[] |
 | Blob |Byte[] |
 | Char |문자열 |
 | Clob |문자열 |
 | Date |DateTime |
 | DB2DynArray |문자열 |
 | DbClob |문자열 |
-| 10진수 |10진수 |
-| DecimalFloat |10진수 |
+| DECIMAL |DECIMAL |
+| DecimalFloat |DECIMAL |
 | Double |Double |
 | Float |Double |
 | Graphic |문자열 |
-| Integer |Int32 |
+| String |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |문자열 |
 | LongVarGraphic |문자열 |
-| 숫자 |10진수 |
+| 숫자 |DECIMAL |
 | Real |단일 |
 | SmallInt |Int16 |
 | Time |TimeSpan |
-| Timestamp |DateTime |
+| 타임 스탬프 |DateTime |
 | VarBinary |Byte[] |
 | VarChar |문자열 |
 | VarGraphic |문자열 |
-| Xml |Byte[] |
+| xml |Byte[] |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

@@ -1,6 +1,6 @@
 ---
-title: Microsoft Graph API for Azure Active Directory Identity Protection
-description: Learn how to query Microsoft Graph risk detections and associated information from Azure Active Directory
+title: Azure Active Directory Identity Protection에 대 한 Microsoft Graph API
+description: Azure Active Directory에서 Microsoft Graph 위험 검색 및 관련 정보를 쿼리 하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3c7d2c6fe5a489415103a4da5daf707f9585f9d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 15b9bae1bd901325efdefeaa4db53df2d6b42b44
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212874"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275899"
 ---
 # <a name="get-started-with-azure-active-directory-identity-protection-and-microsoft-graph"></a>Azure Active Directory ID 보호 및 Microsoft Graph 시작
 
-Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. There are four APIs that expose information about risky users and sign-ins. The first API, **riskDetection**, allows you to query Microsoft Graph for a list of both user and sign-in linked risk detections and associated information about the detection. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. The fourth API, **identityRiskEvents**, allows you to query Microsoft Graph for a list of [risk detections](../reports-monitoring/concept-risk-events.md) and associated information. This article gets you started with connecting to the Microsoft Graph and querying these APIs. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
+Microsoft Graph는 Microsoft의 통합된 API 엔드포인트이며 [Azure Active Directory ID 보호](../active-directory-identityprotection.md) API의 시작점입니다. 위험한 사용자 및 로그인에 대 한 정보를 노출 하는 네 가지 Api가 있습니다. 첫 번째 API 인 **riskDetection**를 사용 하면 사용자 및 로그인 연결 된 위험 검색의 목록 및 검색에 대 한 관련 정보를 Microsoft Graph 쿼리할 수 있습니다. 두 번째 API인 **riskyUsers**를 사용하면 위험으로 검색된 사용자 ID 보호에 대한 정보에 관하여 Microsoft Graph를 쿼리할 수 있습니다. 세 번째 API인 **signIn**을 사용하면 위험 상태, 세부 정보 및 수준과 관련된 특정 속성을 사용하여 Azure AD 로그인의 정보에 대한 Microsoft Graph를 쿼리할 수 있습니다. 네 번째 API 인 **identityRiskEvents**를 사용 하 여 [위험](../reports-monitoring/concept-risk-events.md) 검색 및 관련 정보 목록에 대 한 Microsoft Graph를 쿼리할 수 있습니다. IdentityRiskEvents API는 2020 년 1 월 10 일에 사용 되지 않습니다. 대신 **riskDetections** API를 사용 하는 것이 좋습니다. 이 문서에서는 Microsoft Graph 연결 하 고 이러한 Api를 쿼리 하는 작업을 시작 합니다. 자세한 소개, 전체 설명서 및 Graph Explorer에 대한 액세스는 [Microsoft Graph 사이트](https://graph.microsoft.io/) 또는 이러한 API에 대한 특정 참조 설명서를 참조하세요.
 
 * [riskDetection API](https://docs.microsoft.com/graph/api/resources/riskdetection?view=graph-rest-beta)
 * [riskyUsers API](https://docs.microsoft.com/graph/api/resources/riskyuser?view=graph-rest-beta)
 * [signIn API](https://docs.microsoft.com/graph/api/resources/signin?view=graph-rest-beta)
-* [identityRiskEvents API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta)
+* [IDENTITYRISKEVENTS API](https://docs.microsoft.com/graph/api/resources/identityriskevent?view=graph-rest-beta) *는 2020 년 1 월 10 일에 사용 되지 않습니다* .
 
 ## <a name="connect-to-microsoft-graph"></a>Microsoft Graph에 연결
 
@@ -68,7 +68,7 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
    ![애플리케이션 만들기](./media/howto-identity-protection-graph-api/44.png)
 
-   1. In the **Name** textbox, type a name for your application (for example: Azure AD Risk Detection API Application).
+   1. **이름** 텍스트 상자에 응용 프로그램의 이름을 입력 합니다 (예: Azure AD 위험 검색 API 응용 프로그램).
 
    1. **유형**으로 **웹 애플리케이션 및/또는 Web API**를 선택합니다.
 
@@ -122,16 +122,16 @@ Microsoft Graph를 통해 ID 보호 데이터에 액세스하려면 네 가지 �
 
    ![애플리케이션 만들기](./media/howto-identity-protection-graph-api/24.png)
 
-   1. In the **Key description** textbox, type a description (for example, *Azure AD Risk Detection*).
+   1. **키 설명** 텍스트 상자에 설명을 입력 합니다 (예: *Azure AD 위험 검색*).
    1. **기간**으로 **1년**을 선택합니다.
-   1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+   1. **저장**을 클릭합니다.
    1. 키 값을 복사한 다음 안전한 위치에 붙여넣습니다.   
    
    > [!NOTE]
    > 이 키를 분실하면 이 섹션으로 돌아와서 새 키를 만들어야 합니다. 이 키의 비밀을 유지합니다. 키를 가진 사람은 누구나 데이터에 액세스할 수 있습니다.
    > 
 
-## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Authenticate to Microsoft Graph and query the Identity Risk Detections API
+## <a name="authenticate-to-microsoft-graph-and-query-the-identity-risk-detections-api"></a>Microsoft Graph에 인증 하 고 Id 위험 검색 API를 쿼리 합니다.
 
 이 시점에서 다음 항목이 만들어 집니다.
 
@@ -157,7 +157,7 @@ API를 호출하려면 다음 매개 변수를 사용하여 헤더를 만듭니�
 
 다음 API URL에 대한 요청으로 이 헤더를 보냅니다. `https://graph.microsoft.com/beta/identityRiskEvents`
 
-The response, if successful, is a collection of identity risk detections and associated data in the OData JSON format, which can be parsed and handled as you see fit.
+성공 하는 경우 응답은 id 위험 검색의 컬렉션 이며 OData JSON 형식으로 연결 된 데이터의 컬렉션입니다 .이를 구문 분석 하 고 적절 하 게 처리할 수 있습니다.
 
 다음은 PowerShell을 사용하여 API를 인증하고 호출하는 데 대한 샘플 코드입니다.  
 클라이언트 ID, 비밀 키 및 테넌트 도메인만 추가하면 됩니다.
@@ -196,25 +196,17 @@ The response, if successful, is a collection of identity risk detections and ass
 
 이러한 세 가지 API는 조직의 위험한 사용자 및 로그인에 대한 정보를 가져오는 다양한 기회를 제공합니다. 다음은 이러한 API 및 관련된 샘플 요청에 대한 몇 가지 일반적인 사용 사례입니다. 위의 샘플 코드 또는 [Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer)를 사용하여 이러한 쿼리를 실행할 수 있습니다.
 
-### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>Get all of the offline risk detections (riskDetection API)
+### <a name="get-all-of-the-offline-risk-detections-riskdetection-api"></a>모든 오프 라인 위험 검색 가져오기 (riskDetection API)
 
-With Identity Protection sign-in risk policies, you can apply conditions when risk is detected in real time. But what about detections that are discovered offline? To understand what detections occurred offline, and thus would not have triggered the sign-in risk policy, you can query the riskDetection API.
+Id 보호 로그인 위험 정책을 사용 하면 위험이 실시간으로 감지 될 때 조건을 적용할 수 있습니다. 그러나 오프 라인에서 검색 되는 검색은 어떻습니까? 오프 라인으로 발생 한 검색을 이해 하 고 로그인 위험 정책을 트리거하지 않은 경우 riskDetection API를 쿼리할 수 있습니다.
 
 ```
 GET https://graph.microsoft.com/beta/riskDetections?$filter=detectionTimingType eq 'offline'
 ```
 
-### <a name="get-the-high-risk-and-medium-risk-detections-identityriskevents-api"></a>Get the high-risk and medium-risk detections (identityRiskEvents API)
-
-Medium and high-risk detections represent those that may have the capability to trigger Identity Protection sign-in or user-risk policies. 로그인을 시도하는 사용자가 합법적인 ID 소유자가 아닐 보통 또는 높은 가능성이 있으므로 이러한 이벤트 수정은 우선 순위를 갖습니다. 
-
-```
-GET https://graph.microsoft.com/beta/identityRiskEvents?`$filter=riskLevel eq 'high' or riskLevel eq 'medium'" 
-```
-
 ### <a name="get-all-of-the-users-who-successfully-passed-an-mfa-challenge-triggered-by-risky-sign-ins-policy-riskyusers-api"></a>위험한 로그인 정책에 의해 트리거되는 MFA 챌린지를 성공적으로 통과한 모든 사용자 가져오기(riskyUsers API)
 
-To understand the impact Identity Protection risk-based policies have on your organization, you can query all of the users who successfully passed an MFA challenge triggered by a risky sign-ins policy. 이 정보는 위험에서 잘못 감지했을 수 있는 사용자 ID 보호 및 AI에서 위험하다고 판단하는 작업을 수행할 수 있는 합법적인 사용자를 이해하는 데 도움이 될 수 있습니다.
+Id 보호 위험 기반 정책이 조직에 미치는 영향을 이해 하려면 위험한 로그인 정책에 의해 트리거된 MFA 챌린지를 성공적으로 통과 한 모든 사용자를 쿼리할 수 있습니다. 이 정보는 위험에서 잘못 감지했을 수 있는 사용자 ID 보호 및 AI에서 위험하다고 판단하는 작업을 수행할 수 있는 합법적인 사용자를 이해하는 데 도움이 될 수 있습니다.
 
 ```
 GET https://graph.microsoft.com/beta/riskyUsers?$filter=riskDetail eq 'userPassedMFADrivenByRiskBasedPolicy'
@@ -230,14 +222,14 @@ https://graph.microsoft.com/beta/identityRiskEvents?`$filter=userID eq '<userID>
 ## <a name="next-steps"></a>다음 단계
 
 축하합니다! Microsoft Graph에 대한 호출을 처음으로 만들었습니다.  
-Now you can query identity risk detections and use the data however you see fit.
+이제 id 위험 검색을 쿼리하고 데이터를 사용할 수 있습니다.
 
 Microsoft Graph 및 Graph API를 사용하여 애플리케이션을 구축하는 방법에 대한 자세한 내용은 [설명서](https://docs.microsoft.com/graph/overview) 및 [Microsoft Graph 사이트](https://developer.microsoft.com/graph)에서 확인합니다. 
 
 관련 정보는 다음을 참조하세요.
 
 - [Azure Active Directory ID 보호](../active-directory-identityprotection.md)
-- [Types of risk detections detected by Azure Active Directory Identity Protection](../reports-monitoring/concept-risk-events.md)
+- [Azure Active Directory Identity Protection에서 검색 하는 위험 검색 유형](../reports-monitoring/concept-risk-events.md)
 - [Microsoft Graph](https://developer.microsoft.com/graph/)
 - [Microsoft Graph 개요](https://developer.microsoft.com/graph/docs)
 - [Azure AD ID 보호 서비스 루트](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/identityprotection_root)

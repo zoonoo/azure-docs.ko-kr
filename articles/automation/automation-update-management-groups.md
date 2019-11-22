@@ -1,20 +1,20 @@
 ---
 title: Azure 업데이트 관리에서 동적 그룹 사용
-description: 동적 그룹의 작동 방식에 대해 설명 업데이트 관리
+description: 이 문서에서는 Azure Automation 업데이트 관리에서 동적 그룹을 사용 하는 방법을 설명 합니다.
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
-ms.date: 10/02/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: edc4384be0f1dc73f2e7e098114080d304d92ce8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 022c2061febb54666acee1cfed4ec595421660a3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377747"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278754"
 ---
 # <a name="use-dynamic-groups-with-update-management"></a>업데이트 관리에서 동적 그룹 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "72377747"
 
 이러한 그룹은 쿼리를 통해 정의되고, 업데이트 배포가 시작되면 해당 그룹의 멤버가 평가됩니다. 동적 그룹은 클래식 Vm에서 작동 하지 않습니다. 쿼리를 정의 하는 경우 다음 항목을 함께 사용 하 여 동적 그룹을 채울 수 있습니다.
 
-* Subscription
+* 구독
 * 리소스 그룹
 * 위치
 * 태그
@@ -37,7 +37,7 @@ ms.locfileid: "72377747"
 
 ## <a name="non-azure-machines"></a>비 Azure 컴퓨터
 
-비 Azure 컴퓨터의 경우에는 저장 된 검색을 컴퓨터 그룹이 라고도 하는 동적 그룹을 만드는 데 사용 됩니다. 저장 된 검색을 만드는 방법을 알아보려면 [컴퓨터 그룹 만들기](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)를 참조 하세요. 그룹을 만든 후에는 저장 된 검색 목록에서 선택할 수 있습니다. 해당 시점에 저장 된 검색에서 컴퓨터를 미리 보려면 **미리 보기** 를 클릭 합니다.
+비 Azure 컴퓨터의 경우 컴퓨터 그룹이 라고도 하는 저장 된 검색을 사용 하 여 동적 그룹을 만듭니다. 저장 된 검색을 만드는 방법을 알아보려면 [컴퓨터 그룹 만들기](../azure-monitor/platform/computer-groups.md#creating-a-computer-group)를 참조 하세요. 그룹을 만든 후에는 저장 된 검색 목록에서 선택할 수 있습니다. 해당 시점에 저장 된 검색에서 컴퓨터를 미리 보려면 **미리 보기** 를 클릭 합니다.
 
 ![그룹 선택](./media/automation-update-management/select-groups-2.png)
 

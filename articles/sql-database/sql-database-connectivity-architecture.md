@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 2140216a27d9c903495da4f7b43f6fdfda62591e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: b3b735f7ee644bb017756f3d6378e625fa66d448
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826901"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280779"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -55,6 +55,10 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
+> [!IMPORTANT]
+> 또한 포트 14000-14999을 열어 [DAC와 연결할](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 수 있습니다.
+
+
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
 다음 표에서는 지역별 게이트웨이의 IP 주소를 나열 합니다. Azure SQL Database에 연결 하려면 네트워크 트래픽이 해당 지역에 대 한 **모든** 게이트웨이에서 & 하도록 허용 해야 합니다.
@@ -90,9 +94,9 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 한국 중부        | 52.231.32.42       |
 | 한국 남부          | 52.231.200.86      |
 | 미국 중북부     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| 북유럽         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| 유럽 북부         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | 남아프리카 공화국 북부   | 102.133.152.0      |
-| 남아프리카 공화국 서부    | 102.133.24.0       |
+| 남아프리카 서부    | 102.133.24.0       |
 | 미국 중남부     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | 동남아시아      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | 아랍에미리트 중부          | 20.37.72.64        |
@@ -116,7 +120,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 

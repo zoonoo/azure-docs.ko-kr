@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3fd97e33c88e7767e1d9b230792aea675a744f27
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: c16abd02dfef5fb8b74cd5c0cafa97e5f29cc6b2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73619779"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286974"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -25,7 +25,7 @@ ms.locfileid: "73619779"
 
 Azure Compute는 모든 MPI 구현 및 버전을 지원 하 고 InfiniBand 장착 가상 머신에 대 한 RDMA 동사를 지원 하기 위해 11 월 2019 초에 시작 하는 NCv3 Sku를 업데이트 합니다. 이 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다. [sr-iov 업그레이드에 대해 자세히](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)알아보세요.
 
-Azure Machine Learning의 관리 되는 계산 제공 (AmlCompute)의 고객으로 서 지금은 변경할 필요가 없습니다. [업데이트 일정](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) 에 따라 교육의 짧은 중단을 계획 해야 합니다. 서비스는 클러스터 노드의 VM 이미지를 업데이트 하 고 클러스터를 자동으로 확장 하는 작업을 담당 합니다. 업그레이드가 완료 되 면 더 높은 InfiniBand 대역폭, 짧은 대기 시간 및 향상 된 배포 응용 프로그램 성능을 얻는 것 외에도 다른 모든 MPI discibutions (예: Pytorch에서 OpenMPI)를 사용할 수 있습니다.
+Azure Machine Learning의 관리 되는 계산 제공 (AmlCompute)의 고객으로 서 지금은 변경할 필요가 없습니다. [업데이트 일정](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku) 에 따라 교육의 짧은 중단을 계획 해야 합니다. 서비스는 클러스터 노드의 VM 이미지를 업데이트 하 고 클러스터를 자동으로 확장 하는 작업을 담당 합니다. 업그레이드가 완료 되 면 더 높은 InfiniBand 대역폭, 짧은 대기 시간 및 향상 된 배포 응용 프로그램 성능을 얻을 수 있을 뿐만 아니라 다른 MPI 배포 (예: Pytorch)를 모두 사용할 수 있습니다.
 
 ## <a name="azure-machine-learning-designer-issues"></a>Azure Machine Learning 디자이너 문제
 
@@ -98,7 +98,7 @@ AzureML DataPrep SDK 버전 1.1.25에는 HTTP 또는 ADLS Gen 2에서 Parquet �
 pip install --upgrade azureml-dataprep
 ```
 
-### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: mount ()에서 예기치 않은 키워드 인수 ' invocation_id '를 가져왔습니다.
+### <a name="typeerror-mount-got-an-unexpected-keyword-argument-invocation_id"></a>TypeError: mount ()에서 예기치 않은 키워드 인수 ' invocation_id '을 (를) 가져왔습니다.
 
 `azureml-core`와 `azureml-dataprep`간에 호환 되지 않는 버전이 있는 경우이 오류가 발생 합니다. 이 오류가 표시 되는 경우 `azureml-dataprep` 패키지를 최신 버전으로 업그레이드 합니다 (1.1.29 보다 크거나 같음).
 
@@ -159,7 +159,7 @@ Azure Databricks 클러스터에서 데이터를 읽을 때 `FailToSendFeather` 
 * `azureml-dataprep` 버전 1.1.8 이상을 추가 합니다.
 * `pyarrow` 버전 0.11 이상을 추가 합니다.
 
-## <a name="azure-portal"></a>Azure portal
+## <a name="azure-portal"></a>Azure 포털
 
 SDK 또는 포털의 공유 링크에서 작업 영역을 직접 확인하려는 경우 확장에서 구독 정보가 포함된 일반 개요 페이지를 확인할 수 없습니다. 다른 작업 영역으로 전환할 수 없습니다. 다른 작업 영역을 확인 해야 하는 경우 해결 방법은 [Azure Machine Learning studio](https://ml.azure.com) 로 직접 이동 하 여 작업 영역 이름을 검색 하는 것입니다.
 
@@ -202,7 +202,7 @@ Azure Machine Learning을 사용할 때 발생할 수 있는 [리소스 할당�
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Azure Kubernetes 서비스 실패의 Webservices 
 
-`kubectl`를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`을 가져올 수 있습니다.
+`kubectl`를 사용 하 여 클러스터에 연결 하 여 Azure Kubernetes Service에서 많은 webservice 오류를 디버그할 수 있습니다. 을 실행 하 여 Azure Kubernetes 서비스 클러스터에 대 한 `kubeconfig.json`를 가져올 수 있습니다.
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -236,7 +236,7 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`을 사용 하 여 클러스터에 연결 하 고 암호 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
+SSL 인증서와 개인 키가 더 이상 없거나 Azure Machine Learning에 의해 생성 된 인증서를 사용 하는 경우 `kubectl`를 사용 하 여 클러스터에 연결 하 고 비밀 `azuremlfessl`을 검색 하 여 클러스터를 분리 하기 전에 파일을 검색할 수 있습니다.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
@@ -261,10 +261,10 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
 >[참고!] 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
  
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
-이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`을 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
+이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
 
 ### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
-대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그 이름에 `_rank`을 지정 하 여 로그를 쉽게 구분할 수 있습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 살펴보고 driver_log 파일의 끝에 있는 `Traceback`를 찾습니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 있는 `Traceback`를 확인 합니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
 ## <a name="labeling-projects-issues"></a>프로젝트 문제 레이블 지정
 

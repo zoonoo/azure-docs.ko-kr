@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher를 사용하여 패킷 캡처 관리 - PowerShell | Microsoft Docs
+title: 패킷 캡처 관리-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 PowerShell을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법에 대해 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 4158c2c5ce69d1811b20c9937c1d064f4fe657ee
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3be68f6ef87ba37bcfaf418225ce7f460aed53a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163956"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277874"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-powershell"></a>PowerShell에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -41,7 +42,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
@@ -60,7 +61,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 $VM = Get-AzVM -ResourceGroupName testrg -Name VM1
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 다음 예에서는 `Set-AzVMExtension` cmdlet을 실행하는 데 필요한 확장 정보를 검색합니다. 이 cmdlet을 사용하면 게스트 가상 머신에 패킷 캡처 에이전트가 설치됩니다.
 
@@ -133,7 +134,7 @@ ForceUpdateTag          :
 $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq "WestCentralUS" }
 ```
 
-### <a name="step-2"></a>2단계
+### <a name="step-2"></a>2단계:
 
 스토리지 계정을 검색합니다. 이 스토리지 계정은 패킷 캡처 파일을 저장하는 데 사용됩니다.
 
@@ -161,7 +162,7 @@ $filter2 = New-AzPacketCaptureFilterConfig -Protocol UDP
 New-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -TargetVirtualMachineId $vm.Id -PacketCaptureName "PacketCaptureTest" -StorageAccountId $storageAccount.id -TimeLimitInSeconds 60 -Filter $filter1, $filter2
 ```
 
-다음 예제는 `New-AzNetworkWatcherPacketCapture` cmdlet 실행 시 예상된 출력입니다.
+다음 예제는 `New-AzNetworkWatcherPacketCapture` cmdlet을 실행하는 예상된 출력입니다.
 
 ```
 Name                    : PacketCaptureTest
@@ -268,7 +269,7 @@ Remove-AzNetworkWatcherPacketCapture -NetworkWatcher $networkWatcher -PacketCapt
 
 ## <a name="download-a-packet-capture"></a>패킷 캡처 다운로드
 
-패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 VM의 로컬 파일에 업로드할 수 있습니다. 패킷 캡처의 스토리지 위치는 세션 생성 시 정의됩니다. 스토리지 계정에 저장되는 이러한 캡처 파일에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/ 에서 다운로드할 수 있습니다.
+패킷 캡처 세션이 완료되면 캡처 파일을 Blob Storage 또는 VM의 로컬 파일에 업로드할 수 있습니다. 패킷 캡처의 스토리지 위치는 세션 생성 시 정의됩니다. 스토리지 계정에 저장되는 이러한 캡처 파일에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/에서 다운로드할 수 있습니다.
 
 스토리지 계정이 지정되어 있으면 패킷 캡처 파일은 다음 위치에서 스토리지 계정에 저장됩니다.
 

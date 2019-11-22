@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: cynthn
 ms.subservice: disks
-ms.openlocfilehash: 78604a4f6fd5a6bcd21d0adc80c1c60278068836
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9b0602f526991be37b7a9cce1d621dc2138dec48
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037059"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279146"
 ---
 # <a name="use-the-portal-to-attach-a-data-disk-to-a-linux-vm"></a>포털을 사용하여 데이터 디스크를 Linux VM에 연결 
 이 문서에서는 Azure 포털을 통해 신규 및 기존 디스크를 Linux 가상 머신에 연결하는 방법을 보여줍니다. 또한 [Azure 포털에서 Windows VM에 데이터 디스크를 연결](../windows/attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)할 수도 있습니다. 
@@ -183,6 +183,15 @@ Writing inode tables: done
 Creating journal (32768 blocks): done
 Writing superblocks and filesystem accounting information: done
 ```
+
+#### <a name="alternate-method-using-parted"></a>Parted를 사용 하는 대체 방법
+Fdisk 유틸리티는 대화형 입력이 필요 하므로 자동화 스크립트 내에서 사용 하기에 적합 하지 않습니다. 그러나 [parted](https://www.gnu.org/software/parted/) 유틸리티는 스크립팅할 수 있으므로 자동화 시나리오에 적합 합니다. Parted 유틸리티를 사용 하 여 데이터 디스크를 분할 하 고 형식을 지정할 수 있습니다. 아래 연습에서는 새 데이터 디스크/vv/sdc를 사용 하 고 [Xfs](https://xfs.wiki.kernel.org/) 파일 시스템을 사용 하 여 형식을 지정 합니다.
+```bash
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
+partprobe /dev/sdc1
+```
+위에서 설명한 것 처럼 [partprobe](https://linux.die.net/man/8/partprobe) 유틸리티를 사용 하 여 커널이 새 파티션 및 파일 시스템을 즉시 인식 하는지 확인 합니다. Partprobe를 사용 하지 않으면 blkid 또는 lslbk 명령이 새 파일 시스템에 대 한 UUID를 즉시 반환 하지 않을 수 있습니다.
+
 ### <a name="mount-the-disk"></a>디스크 탑재
 `mkdir`을 사용하여 파일 시스템을 탑재할 디렉터리를 만듭니다. 다음 예제에서는 */datadrive*에 디렉터리를 만듭니다.
 

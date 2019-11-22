@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 GitHub 구성 | Microsoft Docs'
+title: '자습서: GitHub에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 GitHub에 자동으로 프로비전하고 프로비전 해제하도록 Azure Active Directory를 구성하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 356af6567cea96efc7edbe8bc4932182d35ebc07
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 02bae60622ca8f0e660c8fafbd21189d8e368ba9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963949"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276599"
 ---
 # <a name="tutorial-configure-github-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 GitHub 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 GitHub로 자동으로 프로비전하고 프로비전 해제하기 위해 GitHub 및 Azure AD에서 수행해야 하는 단계를 보여주는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -35,11 +35,11 @@ ms.locfileid: "65963949"
 * 조직에 대 한 관리자 권한이 있는 GitHub의 사용자 계정
 
 > [!NOTE]
-> Azure AD 프로 비전 통합에 의존 합니다 [GitHub SCIM API](https://developer.github.com/v3/scim/)를 사용할 수 있는 [GitHub Enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객에 게를 [GitHub Enterprise 요금제](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations) .
+> Azure AD 프로 비전 통합은 github 엔터프라이즈 [청구 계획](https://help.github.com/articles/github-s-billing-plans/#billing-plans-for-organizations)의 Github [enterprise Cloud](https://help.github.com/articles/github-s-products/#github-enterprise) 고객이 사용할 수 있는 [github scim API](https://developer.github.com/v3/scim/)를 사용 합니다.
 
 ## <a name="assigning-users-to-github"></a>GitHub에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다. 
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다. 
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Azure AD에서 GitHub 앱에 액세스해야 하는 사용자를 나타내는 사용자 및/또는 그룹을 결정해야 합니다. 일단 결정되면 다음 지침에 따라 해당 사용자를 GitHub 앱에 할당할 수 있습니다.
 
@@ -76,11 +76,11 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
     ![권한 부여 대화 상자](./media/github-provisioning-tutorial/GitHub2.png)
 
-7. Azure Portal에서 **테넌트 URL**을 입력하고 **연결 테스트**를 클릭하여 Azure AD가 GitHub 앱에 연결할 수 있는지 확인합니다. 연결이 실패하면 GitHub 계정에 관리자 권한이 있는지 및 **테넌트 URl**가 제대로 입력되었는지 확인한 다음, “권한 부여” 단계를 다시 시도합니다(**테넌트 URL**은 `https://api.github.com/scim/v2/organizations/<Organization_name>` 규칙에 따라 구성할 수 있습니다. 조직은 GitHub 계정의 **설정** > **조직**에서 찾을 수 있음).
+7. Azure Portal에서 **테넌트 URL**을 입력하고 **연결 테스트**를 클릭하여 Azure AD가 GitHub 앱에 연결할 수 있는지 확인합니다. 연결이 실패하면 GitHub 계정에 관리자 권한이 있는지 및 **테넌트 URl**가 제대로 입력되었는지 확인한 다음, "권한 부여" 단계를 다시 시도합니다. (**테넌트 URL**은 `https://api.github.com/scim/v2/organizations/<Organization_name>` 규칙에 따라 구성할 수 있습니다. 조직은 GitHub 계정으로 **설정** > **조직**에서 찾을 수 있습니다.)
 
     ![권한 부여 대화 상자](./media/github-provisioning-tutorial/GitHub3.png)
 
-8. **알림 전자 메일** 필드에 프로비전 오류 알림을 받아야 하는 사람이나 그룹의 이메일 주소를 입력하고 "오류가 발생할 경우 전자 메일 알림 보내기"확인란을 선택합니다.
+8. 프로비전 오류 알림을 받을 개인 또는 그룹의 메일 주소를 **알림 메일** 필드에 입력하고 “오류가 발생할 경우 메일 알림 보내기” 확인란을 선택합니다.
 
 9. **저장**을 클릭합니다.
 

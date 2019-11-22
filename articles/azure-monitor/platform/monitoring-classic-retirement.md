@@ -1,6 +1,6 @@
 ---
-title: 클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
-description: 이전에 Azure Portal의 경고(클래식) 아래에 표시된 클래식 모니터링 서비스 및 기능의 사용 중지에 대한 개요입니다. 클래식 경고 및 모니터링에는 Azure 리소스에 대한 클래식 메트릭 경고, Application Insights에 대한 클래식 메트릭 경고, Application Insights에 대한 클래식 웹 테스트 경고, Application Insights에 대한 클래식 사용자 지정 메트릭 기반 경고 및 Application Insights SmartDetection v1에 대한 클래식 경고가 포함되어 있습니다.
+title: Azure Monitor에서 & 모니터링 하는 클래식 경고 업데이트
+description: 이전에 경고 (클래식) 아래 Azure Portal에 표시 된 클래식 모니터링 서비스 및 기능의 사용 중지에 대 한 설명입니다.
 author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 2/7/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: ea50a4f10aa1d794f875cb1eb9601774bec146cd
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f4639d46a796924b4fe1dcbb46735abea128388f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676888"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307094"
 ---
 # <a name="unified-alerting--monitoring-in-azure-monitor-replaces-classic-alerting--monitoring"></a>클래식 경고 및 모니터링을 Azure Monitor 통합 경고 및 모니터링으로 대체
 
 Azure Monitor는 이제 리소스 전체에서 '하나의 메트릭' 및 '하나의 경고'를 지원하는 통합된 전체 스택 모니터링 서비스가 되었습니다. 자세한 내용은 [새 Azure Monitor에 대한 블로그 게시물](https://azure.microsoft.com/blog/new-full-stack-monitoring-capabilities-in-azure-monitor/)을 참조하세요. 새 Azure 모니터링 및 경고 플랫폼은 성장하고 있는 클라우드 컴퓨팅에 보조를 맞추고 Microsoft 지능형 클라우드 원칙에 맞게 더 빠르고, 더 스마트하게, 확장 가능하도록 설계되었습니다. 
 
-새로운 Azure 모니터링 및 경고 플랫폼을 사용 하는 경우 azure alerts의 *클래식 경고 보기* 섹션 내에서 호스팅되는 "클래식" 모니터링 및 경고 플랫폼은 **Azure 공용 클라우드의 8 월 2019에 의해 사용 되지** 않습니다. . [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md) 및 [Azure 중국 21vianet](https://docs.azure.cn/) 에는 영향을 주지 않습니다.
+새로운 Azure 모니터링 및 경고 플랫폼을 사용 하는 경우 azure alerts의 *클래식 경고 보기* 섹션 내에서 "클래식" 모니터링 및 경고 플랫폼을 사용 하지 않도록 설정할 예정입니다. **azure 공용 클라우드의 2019 년 8 월까지 사용**이 중지 될 예정입니다. [Azure Government 클라우드](../../azure-government/documentation-government-welcome.md) 및 [Azure 중국 21vianet](https://docs.azure.cn/) 에는 영향을 주지 않습니다.
 
 > [!NOTE]
 > 마이그레이션 도구의 롤아웃 지연으로 인해 클래식 경고 마이그레이션의 사용 중지 날짜가 원래 발표 된 날짜 6 월 30 일까 지 [2019 년 8 월 31](https://azure.microsoft.com/updates/azure-monitor-classic-alerts-retirement-date-extended-to-august-31st-2019/) 2019 일로 연장 되었습니다.

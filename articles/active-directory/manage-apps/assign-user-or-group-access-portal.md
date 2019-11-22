@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당 | Microsoft Docs
+title: Azure AD에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 description: Azure Active Directory에서 사용자 또는 그룹을 할당할 엔터프라이즈 앱을 선택하는 방법
 services: active-directory
 author: msmimart
@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d28b9c31b8fbad8a565ff8cbdf717bfb3bc1309
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3a5135f97ffb7d29c9fd928382ca4344beaa654d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72896466"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274732"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 사용자 또는 그룹 할당
 
@@ -28,7 +28,7 @@ ms.locfileid: "72896466"
 
 ## <a name="assign-a-user-to-an-app---portal"></a>앱에 사용자 할당 - 포털
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 1. **모든 서비스**를 선택하고 텍스트 상자에 Azure Active Directory를 입력한 다음, **입력**을 선택합니다.
 1. **Enterprise 애플리케이션**을 선택합니다.
 1. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 창에서 관리할 수 있는 앱 목록이 표시 됩니다. 앱을 선택 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "72896466"
 
 ## <a name="allow-all-users-to-access-an-app---portal"></a>모든 사용자가 앱에 액세스하도록 허용 - 포털
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 1. **모든 서비스**를 선택하고 텍스트 상자에 Azure Active Directory를 입력한 다음, **입력**을 선택합니다.
 1. **Enterprise 애플리케이션**을 선택합니다.
 1. **엔터프라이즈 애플리케이션** 창에서 **모든 애플리케이션**을 선택합니다. 그러면 관리할 수 있는 앱이 표시됩니다.
@@ -89,7 +89,7 @@ ms.locfileid: "72896466"
 
 그룹을 엔터프라이즈 앱에 할당하려면 `Get-AzureADUser`를 `Get-AzureADGroup`으로 바꿔야 합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 이 예제에서는 PowerShell을 사용하여 사용자 Britta Simon을 [Microsoft Workplace Analytics](https://products.office.com/business/workplace-analytics) 애플리케이션에 할당합니다.
 

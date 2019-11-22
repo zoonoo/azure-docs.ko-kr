@@ -1,5 +1,5 @@
 ---
-title: Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정 | Microsoft 문서
+title: SharePoint에 대 한 원격 액세스 사용-Azure AD 응용 프로그램 프록시
 description: 온-프레미스 SharePoint 서버를 Azure AD 애플리케이션 프록시와 통합하는 방법에 대한 기본 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4f1351a2ebe6a23dc4d1e31f30f1c69ac862b21
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8d8f1bbd79e6dcbbd75e1ea1b98bd211d77ed1a9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595443"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275457"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Azure AD 애플리케이션 프록시를 통해 SharePoint에 원격 액세스를 사용하도록 설정
 
 이 단계별 가이드에서는 온-프레미스 SharePoint 팜을 Azure Active Directory (Azure AD) 응용 프로그램 프록시와 통합 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 구성을 수행 하려면 다음 리소스가 필요 합니다.
 - SharePoint 2013 팜 이상
@@ -171,12 +171,12 @@ SharePoint 웹 응용 프로그램의 응용 프로그램 풀을 실행 하는 �
 
 ### <a name="set-the-spn-for-the-sharepoint-service-account"></a>SharePoint 서비스 계정에 대 한 SPN 설정
 
-이 문서에서는 내부 URL이 `https://sharepoint` 이므로 SPN (서비스 사용자 이름)이 `HTTP/sharepoint` 됩니다. 이러한 값을 사용자 환경에 해당 하는 값으로 바꾸어야 합니다.
+이 문서에서는 내부 URL이 `https://sharepoint`이므로 SPN (서비스 사용자 이름)이 `HTTP/sharepoint`됩니다. 이러한 값을 사용자 환경에 해당 하는 값으로 바꾸어야 합니다.
 SharePoint 응용 프로그램 풀 계정 `Contoso\spapppool`에 대 한 SPN `HTTP/sharepoint`를 등록 하려면 도메인 관리자 권한으로 명령 프롬프트에서 다음 명령을 실행 합니다.
 
 `setspn -S HTTP/sharepoint Contoso\spapppool`
 
-@No__t_0 명령은 SPN을 추가 하기 전에 SPN을 검색 합니다. SPN이 이미 있는 경우 **중복 된 Spn 값** 오류가 표시 됩니다. 이 경우 올바른 응용 프로그램 풀 계정에 설정 되어 있지 않은 경우 기존 SPN을 제거 하는 것이 좋습니다. -L 옵션을 사용 하 여 `Setspn` 명령을 실행 하 여 SPN이 성공적으로 추가 되었는지 확인할 수 있습니다. 이 명령에 대해 자세히 알아보려면 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))을 참조하세요.
+`Setspn` 명령은 SPN을 추가 하기 전에 SPN을 검색 합니다. SPN이 이미 있는 경우 **중복 된 Spn 값** 오류가 표시 됩니다. 이 경우 올바른 응용 프로그램 풀 계정에 설정 되어 있지 않은 경우 기존 SPN을 제거 하는 것이 좋습니다. -L 옵션을 사용 하 여 `Setspn` 명령을 실행 하 여 SPN이 성공적으로 추가 되었는지 확인할 수 있습니다. 이 명령에 대해 자세히 알아보려면 [Setspn](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/cc731241(v=ws.11))을 참조하세요.
 
 ### <a name="make-sure-the-connector-is-trusted-for-delegation-to-the-spn-that-was-added-to-the-sharepoint-application-pool-account"></a>커넥터가 SharePoint 응용 프로그램 풀 계정에 추가 된 SPN에 대 한 위임용으로 트러스트 되어 있는지 확인 합니다.
 
@@ -188,7 +188,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 수�
 1. Azure AD 프록시 커넥터를 실행 하는 컴퓨터를 찾습니다. 이 예제에서는 SharePoint 서버 자체입니다.
 1. 컴퓨터를 두 번 클릭 하 고 **위임** 탭을 선택 합니다.
 1. 위임 옵션이 **지정 된 서비스에 대 한 위임용 으로만이 컴퓨터 트러스트**로 설정 되어 있는지 확인 합니다. 그런 다음 **모든 인증 프로토콜 사용**을 선택합니다.
-1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터**를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예: `Contoso\spapppool`.
+1. **추가** 단추를 선택 하 고, **사용자 또는 컴퓨터**를 선택 하 고, SharePoint 응용 프로그램 풀 계정을 찾습니다. 예를 들어 `Contoso\spapppool`을 참조하십시오.
 1. SPN 목록에서 서비스 계정에 대해 이전에 만든 SPN을 선택합니다.
 1. **확인** 을 선택 하 고 **확인** 을 다시 선택 하 여 변경 내용을 저장 합니다.
   
@@ -198,7 +198,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 수�
 
 ## <a name="troubleshoot-sign-in-errors"></a>로그인 오류 문제 해결
 
-사이트에 대 한 로그인이 작동 하지 않는 경우 커넥터 로그에서 문제에 대 한 자세한 정보를 얻을 수 있습니다. 커넥터를 실행 하는 컴퓨터에서 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그**  > **Microsoft** 로 이동  >  **AadApplicationProxy**  > **커넥터**를 만들고 **관리** 로그를 검사 합니다.
+사이트에 대 한 로그인이 작동 하지 않는 경우 커넥터 로그에서 문제에 대 한 자세한 정보를 얻을 수 있습니다. 커넥터를 실행 하는 컴퓨터에서 이벤트 뷰어를 열고 **응용 프로그램 및 서비스 로그** > **Microsoft** > **AadApplicationProxy** > **커넥터**로 이동한 후 **관리** 로그를 검사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

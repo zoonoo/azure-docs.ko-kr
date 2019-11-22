@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 프로비전 관리 | Microsoft Docs
+title: Azure AD에서 엔터프라이즈 앱에 대 한 사용자 프로 비전 관리
 description: Azure Active Directory를 사용하여 엔터프라이즈 앱에 대한 사용자 계정 프로비전을 관리하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 77cda523582b513669adcafd3a46b6ac02dd99db
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315264"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285614"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -85,9 +85,4 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에 미리 �
 
 프로 비전 서비스를 일시 중지 하려면 **프로 비전 상태** 를 **Off** 로 변경 합니다. 이 상태에서 Azure는 앱의 사용자 또는 그룹 개체를 만들거나, 업데이트 하거나, 제거 하지 않습니다. 상태를 다시 **설정** 으로 변경 하면 서비스가 중단 된 위치에서 선택 됩니다.
 
-**현재 상태 지우기 및 동기화 다시 시작** 확인란을 선택 하 고 **저장** 위치를 선택 합니다.
-
-* 프로 비전 서비스 중지
-* 서비스를 다시 시작 하 고 초기 주기를 다시 실행 합니다.
-
-이 옵션을 사용 하면 관리자가 프로 비전 배포 프로세스를 다시 시작할 수 있습니다.
+**현재 상태를 지우고 동기화를 다시 시작 하** 여 초기 주기를 트리거합니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가 하 고 프로 비전 범위에 있는지 확인 합니다. 이는 응용 프로그램이 현재 격리 되 고 있거나 특성 매핑을 변경 해야 하는 경우에 유용할 수 있습니다. Clear 상태를 트리거하고 다시 시작할 때 이러한 이벤트를 삭제할 수 있으므로 삭제 또는 사용 안 함 요청을 트리거하는 데 사용 하면 안 됩니다. 또한 계산 해야 하는 개체의 수로 인해 초기 주기는 일반적인 증분 주기 보다 완료 하는 데 더 오래 걸립니다. 여기에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다 [.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 

@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+title: 템플릿을 사용 하 여 Azure Monitor에서 Windows VM 메트릭 수집
 description: Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: ac8d059c2bcad7aaa005b4afe1fb7814d49f9339
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6e66bea6dd86409866db1fee3564d21236ecbce
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844950"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286176"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Windows 가상 머신용 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -27,9 +27,9 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다.
+- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다.
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
@@ -40,7 +40,7 @@ Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../.
 Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메트릭과 로그를 다른 위치로 라우팅합니다. 다음 단계에서는 Resource Manager 템플릿과 PowerShell을 사용하여 새 "Azure Monitor" 데이터 싱크를 통해 VM을 배포하는 방법을 보여줍니다.
 
 ## <a name="author-resource-manager-template"></a>Resource Manager 템플릿 작성
-이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows 에 있습니다.
+이 예제에서는 공개적으로 사용할 수 있는 템플릿 샘플을 사용할 수 있습니다. 시작 템플릿은 https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows에 있습니다.
 
 - **Azuredeploy.json**은 가상 머신을 배포하도록 미리 구성된 Resource Manager 템플릿입니다.
 
@@ -55,7 +55,7 @@ Azure Diagnostics 확장은 "데이터 싱크"라는 기능을 사용하여 메�
 
 1. VM에 대한 고유한 dnsname을 만듭니다.
 
-### <a name="modify-azuredeployjson"></a>azuredeploy.json 수정
+### <a name="modify-azuredeployjson"></a>Azuredeploy.json을 수정합니다.
 
 *azuredeploy.json* 파일을 엽니다.
 
@@ -289,5 +289,5 @@ Resource Manager 템플릿을 배포하기 위해 Azure PowerShell을 활용합�
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
 

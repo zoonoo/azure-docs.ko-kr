@@ -1,6 +1,6 @@
 ---
-title: Authenticator 앱에 개인 Microsoft 계정 추가-Azure AD
-description: 2단계 인증용으로 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가하는 방법을 설명합니다.
+title: Microsoft Authenticator 앱에 개인 Microsoft 계정 추가-Azure AD
+description: 2 단계 인증을 사용 하는 동안 id를 확인 하기 위해 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 Microsoft Authenticator 앱에 추가 합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca01aad76bfbeba0cf56be8ee74287a79f6346e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 28fd29c1f3f393c37c9e9a8d0995766258c2eb45
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820251"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278896"
 ---
-# <a name="add-your-personal-microsoft-accounts"></a>개인 Microsoft 계정 추가
+# <a name="add-personal-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 개인 Microsoft 계정 추가
 
 표준 2단계 인증 프로세스 및 암호 없는 휴대폰 로그인 방법에 모두 사용하도록 Microsoft Authenticator 앱에 Outlook.com 또는 Xbox LIVE와 같은 개인 Microsoft 계정을 추가합니다.
 
@@ -37,9 +37,9 @@ ms.locfileid: "73820251"
 >[!Note]
 >개인 Microsoft 계정에 암호 없는 휴대폰 로그인만 사용하려면 2단계 인증을 켤 필요가 없습니다. 그러나 계정 보안을 강화하기 위해 2단계 인증을 켜는 것이 좋습니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
 
-1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com
+1. 컴퓨터에서 [보안 기본 사항](https://account.microsoft.com/security) 페이지로 이동한 다음, 개인 Microsoft 계정을 사용하여 로그인합니다. 예: alain@outlook.com.
 
 2. **보안 기본 사항** 페이지 아래쪽에서 **추가 보안 옵션** 링크를 선택합니다.
 

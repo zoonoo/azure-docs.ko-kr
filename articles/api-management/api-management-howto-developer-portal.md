@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 377ed8f17cfcf67f10cbdec77199c69c606afa3e
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 1a8fb8140fd2f58556e4a64bca0f4a052a84c2bb
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74180683"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74285611"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -26,8 +26,6 @@ ms.locfileid: "74180683"
 이 문서에서는 API Management에서 개발자 포털 자체 호스팅 및 관리 되는 버전 간의 차이점을 설명 합니다. 또한 아키텍처를 설명 하 고 질문과 대답을 제공 합니다.
 
 > [!WARNING]
-> 새 개발자 포털이 현재 API Management 서비스에 롤아웃 되 고 있습니다.
-> 서비스가 새로 만들어지거나 개발자 계층 서비스인 경우 최신 버전이 이미 있어야 합니다. 그렇지 않으면 게시 기능과 같은 문제가 발생할 수 있습니다. 기능 출시는 금요일 11 월 26 2019 일 금요일에 완료 될 것으로 예상 됩니다.
 >
 > [미리 보기 버전에서 개발자 포털의 일반 공급 버전으로 마이그레이션하는 방법에 대해 알아봅니다](#preview-to-ga) .
 
@@ -117,7 +115,7 @@ ms.locfileid: "74180683"
 
 ### <a name="im-getting-a-cors-error-when-using-the-interactive-console-what-should-i-do"></a>대화형 콘솔을 사용 하는 경우 CORS 오류가 발생 합니다. 어떻게 해야 하나요?
 
-대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+대화형 콘솔은 브라우저에서 클라이언트 쪽 API 요청을 만듭니다. API에 [cors 정책을](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) 추가 하 여 cors 문제를 해결할 수 있습니다. 모든 매개 변수를 수동으로 지정 하거나 와일드 카드 `*` 값을 사용할 수 있습니다. 예:
 
 ```XML
 <cors>

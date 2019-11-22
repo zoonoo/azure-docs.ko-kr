@@ -1,5 +1,6 @@
 ---
-title: Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 | Microsoft Docs
+title: Grafana를 사용 하 여 NSG 흐름 로그 관리
+titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Grafana를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
 ms.author: mareat
-ms.openlocfilehash: 73173c144f979d4a10b90a16aec783fe51a3f90e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62116256"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277949"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
 
@@ -138,7 +139,7 @@ Logstash를 사용하여 JSON 형식 흐름 로그를 흐름 튜플 수준으로
     }
    ```
 
-제공되는 Logstash 구성 파일은 입력, 필터 및 출력의 세 부분으로 구성됩니다.
+제공되는 Logstash 구성 파일은 input, filter 및 output의 세 부분으로 구성됩니다.
 입력 섹션은 Logstash가 처리하는 로그의 입력 원본을 지정합니다. 이 경우는 Blob Storage에 저장된 NSG 흐름 로그 JSON 파일에 액세스할 수 있도록 하는 "azureblob" 입력 플러그 인(다음 단계에서 설치)을 사용할 것입니다. 
 
 그런 후 필터 섹션은 각 개별 흐름 튜플 및 연결된 속성이 별도의 Logstash 이벤트가 되도록 각 흐름 로그 파일을 평면화합니다.

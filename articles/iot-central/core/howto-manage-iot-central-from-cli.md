@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: ddf1cfb1cb3997431b83812d03535ed990c88922
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 80f91849a35bcb94b934941a204d4503ddda376b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806882"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278865"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -21,9 +21,9 @@ ms.locfileid: "73806882"
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure CLI](/cli/azure/) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
@@ -48,12 +48,12 @@ az iotcentral app create \
   --display-name "My Custom Display Name"
 ```
 
-이러한 명령은 먼저 응용 프로그램에 대 한 미국 동부 지역에 리소스 그룹을 만듭니다. 다음 표에서는 **az iotcentral app create** 명령에 사용 되는 매개 변수에 대해 설명 합니다.
+이러한 명령은 먼저 응용 프로그램의 미국 동부 위치에 리소스 그룹을 만듭니다. 다음 표에서는 **az iotcentral app create** 명령에 사용 되는 매개 변수에 대해 설명 합니다.
 
-| 매개 변수         | 설명 |
+| 매개 변수를 포함해야 합니다.         | 설명 |
 | ----------------- | ----------- |
 | resource-group    | 애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-| location          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **미국 동부**, **미국 서 부**, **유럽**서 부, **유럽 서부** 지역 또는 **오스트레일리아** 또는 **아시아 태평양** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
+| location          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽** 위치에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
 | name              | Azure Portal의 애플리케이션 이름입니다. |
 | 도메인이         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com입니다. |
 | sku               | 현재 유일한 값은 **S1**(표준 계층)입니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
@@ -69,7 +69,7 @@ az iotcentral app create \
 | iotc-devkit-sample@1.0.0 | MXChip 또는 Raspberry Pi 디바이스를 연결할 수 있는 디바이스 템플릿을 사용하여 애플리케이션을 만듭니다. 다음 디바이스 중 하나를 실험하는 디바이스 개발자인 경우 이 템플릿을 사용합니다. |
 
 > [!NOTE]
-> **Preview 응용 프로그램** 템플릿은 현재 **북부** 및 **미국 중부** 지역 에서만 사용할 수 있습니다.
+> **Preview 응용 프로그램** 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
 ## <a name="view-your-applications"></a>애플리케이션 보기
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Storage에서 진단 데이터 저장 및 보기
-description: Azure Storage로 Azure 진단 데이터를 가져오고 보기
+description: 사용할 수 있는 여러 도구 중 하나를 사용 하 여 볼 수 있도록 Azure Storage 계정에서 Azure 진단 데이터를 수집 하는 방법을 알아봅니다.
 services: azure-monitor
 author: jpconnock
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 08/01/2016
 ms.author: jeconnoc
 ms.subservice: diagnostic-extension
-ms.openlocfilehash: 23379e9d9bb29efb7fb026260e8245e8eb8a2d71
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 35e852a36ebc52edff338ed640419afe32297b81
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60395070"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304963"
 ---
 # <a name="store-and-view-diagnostic-data-in-azure-storage"></a>Azure Storage에서 진단 데이터 저장 및 보기
 진단 데이터를 Microsoft Azure Storage 에뮬레이터 또는 Azure Storage에 전송하지 않는 한 진단 데이터는 영구적으로 저장되지 않습니다. 스토리지에서 사용할 수 있는 여러 도구 중 하나로 한 번 볼 수 있습니다.
@@ -33,12 +33,12 @@ ServiceConfiguration.cscfg 파일에서 사용하려는 스토리지 계정을 �
 
 | 데이터 원본 | 스토리지 형식 |
 | --- | --- |
-| Azure 로그 |테이블 |
+| Azure 로그 |Table |
 | IIS 7.0 로그 |Blob |
-| Azure Diagnostics 인프라 로그 |테이블 |
+| Azure Diagnostics 인프라 로그 |Table |
 | 실패한 요청 추적 로그 |Blob |
-| Windows 이벤트 로그 |테이블 |
-| 성능 카운터 |테이블 |
+| Windows 이벤트 로그 |Table |
+| 성능 카운터 |Table |
 | 크래시 덤프 |Blob |
 | 사용자 지정 오류 로그 |Blob |
 
@@ -71,7 +71,7 @@ SDK 2.4 및 이전 버전의 경우 프로그래밍 방식으로 구성 파일�
 * **"custom"** – 진단 모니터에 의해 모니터링되는 구성 디렉터리에 기반한 사용자 지정 컨테이너입니다.  이 Blob 컨테이너의 이름은 WADDirectoriesTable에 지정됩니다.
 
 ## <a name="tools-to-view-diagnostic-data"></a>진단 데이터를 볼 도구
-여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 예를 들면 다음과 같습니다.
+여러 도구를 사용하여 스토리지로 전송된 후 데이터를 볼 수 있습니다. 예:
 
 * Visual Studio의 서버 탐색기 - Microsoft Visual Studio용 Azure 도구를 설치한 경우 서버 탐색기에서 Azure Storage 노드를 사용하여 Azure Storage 계정에서 읽기 전용 Blob 및 테이블 데이터를 볼 수 있습니다. 로컬 스토리지 에뮬레이터 계정 및 Azure용으로 만든 스토리지 계정에서 데이터를 표시할 수 있습니다. 자세한 내용은 [서버 탐색기로 Storage 리소스 탐색 및 관리](/visualstudio/azure/vs-azure-tools-storage-resources-server-explorer-browse-manage)를 참조하세요.
 * [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, OSX 및 Linux에서 Azure Storage 데이터로 손쉽게 작업할 수 있도록 해주는 독립 실행형 앱입니다.
