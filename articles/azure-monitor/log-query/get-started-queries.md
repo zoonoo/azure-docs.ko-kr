@@ -3,28 +3,23 @@ title: Azure Monitor에서 로그 쿼리 시작 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor에서 로그 쿼리 작성을 시작하기 위한 자습서를 제공합니다.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
-ms.date: 05/09/2019
-ms.openlocfilehash: d9116ba1b43959402223e0cbd1e4f729e053b9b6
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.date: 10/24/2019
+ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894296"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933034"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
-
 > [!NOTE]
-> 이 자습서를 완료 하기 전에 [Azure Monitor Log Analytics 시작](get-started-portal.md) 을 완료 해야 합니다.
+> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://portal.loganalytics.io/demo)을 사용합니다.
 
-> [!NOTE]
-> 하나 이상의 가상 머신에서 데이터를 수집 하는 경우 사용자 환경에서이 연습을 수행할 수 있습니다. 그렇지 않은 경우 샘플 데이터를 많이 포함 하는 [데모 환경을](https://portal.loganalytics.io/demo)사용 합니다.
-
-
-이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성 하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Monitor에서 로그 쿼리를 작성하는 방법을 배웁니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
 - 쿼리 구조 이해
 - 쿼리 결과 정렬
@@ -34,8 +29,12 @@ ms.locfileid: "72894296"
 - 사용자 지정 필드 정의 및 사용
 - 결과 집계 및 그룹화
 
-Azure Portal에서 Log Analytics를 사용 하는 방법에 대 한 자습서는 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 참조 하세요.<br>
-Azure Monitor의 로그 쿼리에 대 한 자세한 내용은 [Azure Monitor 로그 쿼리 개요](log-query-overview.md)를 참조 하세요.
+Azure Portal에서 Log Analytics를 사용하는 방법에 대한 자습서는 [Azure Monitor Log Analytics 시작](get-started-portal.md)을 참조하세요.<br>
+Azure Monitor에서 로그 쿼리에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 개요](log-query-overview.md)를 참조하세요.
+
+아래 자습서의 비디오 버전을 따르세요.
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE42pGX]
 
 ## <a name="writing-a-new-query"></a>새 쿼리 작성
 쿼리는 테이블 이름 또는 *search* 명령을 사용하여 시작할 수 있습니다. 쿼리에 대한 명확한 범위를 정의하고 쿼리 성능 및 결과의 관련성을 개선하므로 테이블 이름을 사용하여 시작해야 합니다.
@@ -70,7 +69,7 @@ search in (SecurityEvent) "Cryptographic"
 이 쿼리는 구문 "Cryptographic"을 포함하는 레코드에 대한 *SecurityEvent* 테이블을 검색합니다. 이러한 레코드 중 10개의 레코드가 반환되고 표시됩니다. `in (SecurityEvent)` 부분을 생략하고 `search "Cryptographic"`만을 실행하는 경우 검색은 *모든* 테이블을 살펴봅니다. 이는 시간이 더 걸리며 덜 효율적입니다.
 
 > [!WARNING]
-> 검색 쿼리는 더 많은 데이터를 처리 해야 하기 때문에 일반적으로 테이블 기반 쿼리 보다 느립니다. 
+> 검색 쿼리는 더 많은 데이터를 처리해야 하기 때문에 일반적으로 테이블 기반 쿼리보다 느립니다. 
 
 ## <a name="sort-and-top"></a>정렬 및 위쪽
 **take**가 몇 가지 레코드를 가져오는 데 유용하지만 특정 순서 없이 결과가 선택되고 표시됩니다. 정렬된 보기를 가져오려면 기본 열을 기준으로 **정렬**할 수 있습니다.
@@ -106,7 +105,7 @@ SecurityEvent
 
 필터 조건을 작성하는 경우 다음 식을 사용할 수 있습니다.
 
-| 식 | 설명 | 예제 |
+| 식 | 설명 | 예 |
 |:---|:---|:---|
 | == | 같은지 여부를 확인<br>(대/소문자 구분) | `Level == 8` |
 | =~ | 같은지 여부를 확인<br>(대/소문자 구분하지 않음) | `EventSourceName =~ "microsoft-windows-security-auditing"` |
@@ -177,7 +176,7 @@ SecurityEvent
 | project Computer, TimeGenerated, EventDetails=Activity, EventCode=substring(Activity, 0, 4)
 ```
 
-**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서는 **확장** 을 사용 하 여 *eventcode* 열을 추가 합니다. 이 열은 테이블의 끝에 표시 되지 않을 수 있으며,이 경우 레코드의 세부 정보를 확장 해야 합니다.
+**extend**는 결과 집합에서 모든 원본 열을 유지하고 추가 항목을 정의합니다. 다음 쿼리에서는 **확장**을 사용하여 *EventCode* 열을 추가합니다. 이 열은 테이블의 끝에 표시되지 않을 수 있으며, 이 경우 레코드의 세부 정보를 확장해야 합니다.
 
 ```Kusto
 SecurityEvent
@@ -222,7 +221,7 @@ Perf
 ### <a name="summarize-by-a-time-column"></a>시간 열별 요약
 결과 그룹화는 time 열 또는 다른 연속 값을 기준으로 할 수도 있습니다. 그러나 간단히 `by TimeGenerated`를 요약하면 이는 고유한 값이므로 시간 범위 동안 모든 단일 밀리초에 대한 그룹을 만듭니다. 
 
-연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7 일 동안 각 1 시간의 평균 값을 계산 합니다.
+연속 값에 따라 그룹을 만들려면 **bin**을 사용하여 범위를 관리 가능한 단위로 나누는 것이 가장 좋습니다. 다음 쿼리는 특정 컴퓨터에서 사용 가능한 메모리(*Available MBytes*)를 측정하는 *Perf* 레코드를 분석합니다. 지난 7일 동안 각 1시간의 평균 값을 계산합니다.
 
 ```Kusto
 Perf 

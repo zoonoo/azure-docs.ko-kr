@@ -16,18 +16,18 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfaa5a4ebb8bc633dc49db08698aec31de9436d4
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 779328f4c21afb4392663e6f8840749ea505c529
+ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373138"
+ms.lasthandoff: 10/31/2019
+ms.locfileid: "73242431"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-purecloud-by-genesys"></a>자습서: PureCloud by Genesys와 Azure Active Directory SSO(Single Sign-On) 연결
 
-이 자습서에서는 Azure AD(Azure Active Directory)와 PureCloud by Genesys를 연결하는 방법을 알아봅니다. Azure AD와 PureCloud by Genesys를 연결하는 경우 다음을 수행할 수 있습니다.
+이 자습서에서는 Azure AD(Azure Active Directory)와 PureCloud by Genesys를 연결하는 방법을 알아봅니다. 이렇게 하면 다음을 수행할 수 있습니다.
 
-* PureCloud by Genesys에 대한 액세스 권한이 있는 사용자를 Azure AD에서 제어합니다.
+* Azure AD를 사용하여 PureCloud by Genesys에 액세스할 수 있는 사용자를 제어합니다.
 * 사용자가 자신의 Azure AD 계정으로 PureCloud by Genesys에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
@@ -37,8 +37,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* PureCloud by Genesys SSO(Single Sign-On)이 설정된 구독
+* Azure AD 구독 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* PureCloud by Genesys SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -51,9 +51,9 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="adding-purecloud-by-genesys-from-the-gallery"></a>갤러리에서 PureCloud by Genesys 추가
 
-Azure AD에 PureCloud by Genesys를 통합하도록 구성하려면 갤러리의 PureCloud by Genesys를 관리되는 SaaS 앱 목록에 추가해야 합니다.
+Azure AD에 PureCloud by Genesys를 통합하도록 구성하려면 갤러리의 PureCloud by Genesys를 관리형 SaaS 앱 목록에 추가해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
+1. 회사 또는 학교 계정을 사용하거나 개인 Microsoft 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 탐색 창에서 **Azure Active Directory** 서비스를 선택합니다.
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
@@ -66,12 +66,12 @@ Azure AD에 PureCloud by Genesys를 통합하도록 구성하려면 갤러리의
 
 PureCloud by Genesys에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
-1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. 사용자가 이 기능을 사용할 수 있도록 **[Azure AD SSO를 구성](#configure-azure-ad-sso)** 합니다.
+    1. **[Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)** 하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
+    1. **[Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)** 하여 B.Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[PureCloud by Genesys SSO 구성](#configure-purecloud-by-genesys-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
     1. **[PureCloud by Genesys 테스트 사용자 만들기](#create-purecloud-by-genesys-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 PureCloud by Genesys에 만듭니다.
-1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+1. **[SSO를 테스트](#test-sso)** 하여 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -79,13 +79,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. [Azure Portal](https://portal.azure.com/)의 **PureCloud by Genesys** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾은 후 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 펜 아이콘을 선택하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    a. **식별자** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+    a. **식별자** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
 
     | |
     |--|
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://login.mypurecloud.ie/saml` |
     | `https://login.mypurecloud.au/saml` |
 
-    b. **회신 URL** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+    b. **회신 URL** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
 
     | |
     |--|
@@ -105,9 +105,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://login.mypurecloud.ie/saml` |
     | `https://login.mypurecloud.com.au/saml`|
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 선택하고, 다음 단계를 수행합니다.
 
-    **로그온 URL** 텍스트 상자에 지역에 따라 URL을 입력합니다.
+    **로그온 URL** 상자에 사용자 지역에 해당하는 URL을 입력합니다.
     
     | |
     |--|
@@ -117,18 +117,18 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     | `https://login.mypurecloud.ie` |
     | `https://login.mypurecloud.com.au` |
 
-1. PureCloud by Genesys 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+1. PureCloud by Genesys 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여줍니다.
 
     ![이미지](common/default-attributes.png)
 
-1. 위에서 언급한 특성 외에도, 다음과 같이 PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+1. 또한 다음 표와 같이 PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
     | Name | 원본 특성|
     | ---------------| --------------- |
     | Email | user.userprinicipalname |
     | OrganizationName | `Your organization name` |
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 본인의 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificatebase64.png)
 
@@ -144,13 +144,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
-   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
-   1. **만들기**를 클릭합니다.
+   1. **사용자 이름** 필드에 username@companydomain.extension 형식의 사용자 이름을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어 둡니다.
+   1. **만들기**를 선택합니다.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Azure AD 테스트 사용자 할당
 
-이 섹션에서는 Azure Single Sign-On을 사용할 수 있도록 B.Simon에게 PureCloud by Genesys에 대한 액세스 권한을 부여합니다.
+이 섹션에서는 B.Simon에게 PureCloud by Genesys에 대한 액세스 권한을 부여하여 Azure Single Sign-On을 사용할 수 있도록 설정합니다.
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **PureCloud by Genesys**를 선택합니다.
@@ -162,72 +162,72 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
-1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면의 아래쪽에서 **선택** 단추를 누릅니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 선택합니다.
+1. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
 
 ## <a name="configure-purecloud-by-genesys-sso"></a>PureCloud by Genesys SSO 구성
 
 1. 다른 웹 브라우저 창에서 PureCloud by Genesys에 관리자 권한으로 로그인합니다.
 
-1. 맨 위에서 **Admin**(관리자)을 클릭하고 **Integrations**(통합) 아래 **Single Sign-on**으로 이동합니다.
+1. 맨 위에서 **관리자**를 선택한 다음, **통합** 아래에 있는 **Single Sign-On**으로 이동합니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure01.png)
 
-1. **ADFS/Azure AD(Premium)** 탭으로 전환하여 다음 단계를 수행합니다.
+1. **ADFS/Azure AD(Premium)** 탭으로 전환한 다음, 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure02.png)
 
-    a. **찾아보기**를 클릭하여 Azure Portal에서 다운로드한 base-64 인코딩 인증서를 **ADFS Certificate**(ADFS 인증서)에 업로드합니다.
+    a. **찾아보기**를 선택하여 Azure Portal에서 다운로드한 base-64 인코딩 인증서를 **ADFS 인증서**에 업로드합니다.
 
-    b. **ADFS 발급자 URI** 텍스트 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
+    b. **ADFS 발급자 URI** 상자에 Azure Portal에서 복사한 **Azure AD 식별자** 값을 붙여넣습니다.
 
-    다. Azure Portal에서 복사한 **로그인 URL** 값을 **대상 URI** 텍스트 상자에 붙여넣습니다.
+    다. **대상 URI** 상자에 Azure Portal에서 복사한 **로그인 URL** 값을 붙여넣습니다.
 
-    d. **신뢰 당사자 식별자** 값의 경우, Azure Portal로 이동하고, **PureCloud by Genesys** 애플리케이션 통합 페이지에서 **속성** 탭을 클릭하고 **애플리케이션 ID** 값을 복사합니다. 이것을 **신뢰 당사자 식별자** 텍스트 상자에 붙여넣습니다. 
+    d. **신뢰 당사자 식별자** 값의 경우, Azure Portal로 이동한 다음, **PureCloud by Genesys** 애플리케이션 통합 페이지에서 **속성** 탭을 선택하고 **애플리케이션 ID** 값을 복사합니다. 이것을 **신뢰 당사자 식별자** 상자에 붙여넣습니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure06.png)
 
-    e. 페이지 맨 아래에 있는 **저장**
+    e. **저장**을 선택합니다.
 
 ### <a name="create-purecloud-by-genesys-test-user"></a>PureCloud by Genesys 테스트 사용자 만들기
 
 Azure AD 사용자가 PureCloud by Genesys에 로그인할 수 있도록 하려면 이 사용자를 PureCloud by Genesys에 프로비저닝해야 합니다. PureCloud by Genesys에서는 프로비저닝이 수동 작업입니다.
 
-**사용자 계정을 프로비전하려면 다음 단계를 수행합니다.**
+**사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.**
 
 1. PureCloud by Genesys에 관리자 권한으로 로그인합니다.
 
-1. 맨 위에서 **Admin**을 클릭하고 **People & Permissions** 아래 **People**로 이동합니다.
+1. 맨 위에서 **관리자**를 선택하고 **사용자 및 사용 권한** 아래에 있는 **사용자**로 이동합니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure03.png)
 
-1. People 페이지에서 **Add Person**(사용자 추가)을 클릭합니다.
+1. **사용자** 페이지에서 **사람 추가**를 선택합니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure04.png)
 
-1. **Add People to the Organization**(조직에 사용자 추가) 팝업이 표시되면 다음 단계를 수행합니다.
+1. **조직에 사람 추가** 대화 상자에서 다음 단계를 수행합니다.
 
     ![Configure Single Sign-On](./media/purecloud-by-genesys-tutorial/configure05.png)
 
-    a. **전체 이름** 텍스트 상자에 **B.simon**과 같은 이름을 입력합니다.
+    a. **전체 이름** 상자에서 사용자의 이름을 입력합니다. 예:  **B.simon**.
 
-    b. **이메일** 텍스트 상자에 사용자의 이메일(예: **b.simon\@contoso.com**)을 입력합니다.
+    b. **이메일** 상자에서 사용자의 이메일을 입력합니다. 예: **b.simon\@contoso.com**.
 
-    다. **만들기**를 클릭합니다.
+    다. **만들기**를 선택합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
-액세스 패널에서 PureCloud by Genesys 타일을 클릭하면 SSO를 설정한 PureCloud by Genesys에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+액세스 패널에서 **PureCloud by Genesys** 타일을 선택하면 SSO를 설정한 PureCloud by Genesys에 자동으로 로그인되어야 합니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [SaaS 앱을 Azure AD와 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure AD로 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
-- [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Azure AD에서 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 PureCloud by Genesys 사용해보기](https://aad.portal.azure.com/)

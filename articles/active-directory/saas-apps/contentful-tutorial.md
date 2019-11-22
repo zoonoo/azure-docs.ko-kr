@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ffad0656169c49268eac6aa4a107f3445cba614
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: fd218c61114c1e15009ace5a9a9bd7a536996e86
+ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72599726"
+ms.lasthandoff: 10/27/2019
+ms.locfileid: "72968657"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-contentful"></a>자습서: Contentful과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -48,7 +48,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 * Contentful은 **Just In Time** 사용자 프로비저닝을 지원합니다.
 
 > [!NOTE]
-> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
+> 이 애플리케이션의 식별자는 고정 문자열 값입니다. 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-contentful-from-the-gallery"></a>갤러리에서 Contentful 추가
 
@@ -59,7 +59,7 @@ Contentful의 Azure AD 통합을 구성하려면 갤러리의 Contentful을 관�
 1. **엔터프라이즈 애플리케이션**으로 이동한 다음, **모든 애플리케이션**을 선택합니다.
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Contentful**을 입력합니다.
-1. 결과 패널에서 **Contentful**을 선택한 후 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
+1. 결과에서 **Contentful**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-contentful"></a>Contentful용 Azure AD Single Sign-On 구성 및 테스트
 
@@ -84,24 +84,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **IDP** 섹션에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
+1. **IDP** 시작 모드에서 애플리케이션을 구성하려면 **기본 SAML 구성** 섹션에서 다음 필드 값을 입력합니다.
 
-    **회신 URL** 텍스트 상자에 `https://be.contentful.com/sso/<organization_id>/consume` 패턴을 사용하여 URL을 입력합니다.
+    - **회신 URL** 텍스트 상자에 Contentful의 SSO 설정 페이지에서 ACS(Assertion Consumer Service) URL을 복사합니다. 다음과 같이 표시됩니다. `https://be.contentful.com/sso/<organization_id>/consume`
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
 
-    **로그인 URL** 텍스트 상자에서 `https://be.contentful.com/sso/<organization_id>/login` 패턴을 사용하여 URL을 입력합니다.
+    - **로그온 URL** 텍스트 상자에 동일한 ACS(Assertion Consumer Service) URL을 복사합니다. 다음과 같이 표시됩니다. `https://be.contentful.com/sso/<organization_id>/login`
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Contentful 클라이언트 지원 팀](mailto:support@contentful.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. Contentful의 SSO 설정 페이지에서 ACS(Assertion Consumer Service) URL을 복사하여 실제 회신 URL 및 로그온 URL로 이러한 값을 업데이트합니다.
 
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
-    ![인증서 다운로드 링크](common/certificateraw.png)
+    ![인증서 다운로드 링크](common/certificatebase64.png)
 
-1. **Contentful 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Contentful 설정** 섹션에서 로그인 URL을 복사하여 Contentful SSO를 구성합니다.
 
-    ![구성 URL 복사](common/copy-configuration-urls.png)
+    ![구성 URL 복사](media/contentful-tutorial/copy-configuration-urls.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -121,7 +121,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **Contentful**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션을 찾고, **사용자 및 그룹**을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
@@ -129,13 +129,22 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     ![사용자 추가 링크](common/add-assign-user.png)
 
-1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
-1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
+1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 페이지 아래쪽에서 **선택** 단추를 클릭합니다.
+1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에게 적합한 역할을 선택한 다음, 페이지의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
 ## <a name="configure-contentful-sso"></a>Contentful SSO 구성
 
-**Contentful** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 적절히 복사한 URL을 [Contentful 지원 팀](mailto:support@contentful.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+다음 단계를 수행하여 **Contentful** 쪽에 Single Sign-On을 구성합니다.
+
+1. [Contentful](https://app.contentful.com)에서 **조직 설정**의 SSO 설정 페이지로 이동합니다.
+1. **SSO 설정**을 클릭합니다.
+1. Azure AD의 **Contentful 설정** 섹션에서 로그인 URL을 복사하여 붙여 넣습니다.
+1. Azure AD에서 다운로드한 Base64 인증서 파일의 인증서를 복사하여 붙여 넣습니다.
+1. SP에서 시작한 로그인에 대한 SSO 이름을 설정합니다.
+1. **SSO 사용**을 클릭합니다.
+
+작동하지 않는 경우 [Contentful 지원 팀](mailto:support@contentful.com)에 문의하세요.
 
 ### <a name="create-contentful-test-user"></a>Contentful 테스트 사용자 만들기
 
@@ -149,9 +158,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

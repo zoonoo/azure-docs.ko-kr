@@ -1,27 +1,27 @@
 ---
-title: Azure Monitor Log Analytics 시작 하기 | Microsoft Docs
+title: Azure Monitor Log Analytics 시작 | Microsoft Docs
 description: 이 문서에서는 Azure Portal에서 Log Analytics를 사용하여 쿼리를 작성하는 방법에 대한 자습서를 제공합니다.
 ms.service: azure-monitor
 ms.subservice: logs
-ms.topic: conceptual
+ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
-ms.openlocfilehash: 1babd0828e21f0125dba55199d808a579a10f049
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 1117ebbb8d2c3b133156c6b63a0ab13185f9f4a5
+ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900359"
+ms.lasthandoff: 10/25/2019
+ms.locfileid: "72933045"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
 > [!NOTE]
-> 하나 이상의 가상 머신에서 데이터를 수집 하는 경우 사용자 환경에서이 연습을 수행할 수 있습니다. 그렇지 않은 경우 샘플 데이터를 많이 포함 하는 [데모 환경을](https://portal.loganalytics.io/demo)사용 합니다.
+> 하나 이상의 가상 머신에서 데이터를 수집하는 경우 사용자 환경에서 이 연습을 수행할 수 있습니다. 그렇지 않은 경우 다양한 샘플 데이터를 포함하는 [데모 환경](https://portal.loganalytics.io/demo)을 사용합니다.
 
-이 자습서에서는 Azure Portal에서 Log Analytics를 사용 하 여 Azure Monitor 로그 쿼리를 작성 하는 방법을 알아봅니다. 다음을 수행하는 방법에 대해 알아봅니다.
+이 자습서에서는 Azure Portal에서 Log Analytics를 사용하여 Azure Monitor 로그 쿼리를 작성하는 방법을 알아봅니다. 다음을 수행하는 방법에 대해 알아봅니다.
 
-- Log Analytics를 사용 하 여 간단한 쿼리 작성
+- Log Analytics를 사용하여 간단한 쿼리 작성
 - 데이터의 스키마 이해
 - 결과의 필터, 정렬 및 그룹화
 - 시간 범위 적용
@@ -29,22 +29,22 @@ ms.locfileid: "72900359"
 - 쿼리 저장 및 로드
 - 쿼리 내보내기 및 공유
 
-로그 쿼리 작성에 대 한 자습서는 [Azure Monitor에서 로그 쿼리 시작](get-started-queries.md)을 참조 하세요.<br>
-로그 쿼리에 대 한 자세한 내용은 Azure Monitor의 [로그 쿼리 개요](log-query-overview.md)를 참조 하세요.
+로그 쿼리 작성에 대한 자습서는 [Azure Monitor에서 로그 쿼리 시작](get-started-queries.md)을 참조하세요.<br>
+로그 쿼리에 대한 자세한 내용은 [Azure Monitor에서 로그 쿼리 개요](log-query-overview.md)를 참조하세요.
 
-## <a name="meet-log-analytics"></a>Log Analytics 충족
-Log Analytics은 Azure Monitor 로그 쿼리를 작성 하 고 실행 하는 데 사용 되는 웹 도구입니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
+## <a name="meet-log-analytics"></a>Log Analytics 살펴보기
+Log Analytics는 Azure Monitor 로그 쿼리를 작성하고 실행하는 데 사용되는 웹 도구입니다. Azure Monitor 메뉴에서 **로그**를 클릭하여 Log Analytics를 엽니다. 비어 있는 새 쿼리로 시작합니다.
 
 ![홈 페이지](media/get-started-portal/homepage.png)
 
 ## <a name="firewall-requirements"></a>방화벽 요구 사항
-Log Analytics를 사용 하려면 브라우저에서 다음 주소에 액세스할 수 있어야 합니다. 브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
+Log Analytics를 사용하려면 브라우저가 다음 주소에 액세스해야 합니다. 브라우저가 방화벽을 통해 Azure Portal에 액세스하는 경우 이 주소에 대한 액세스를 활성화해야 합니다.
 
 | Uri | IP | 포트 |
 |:---|:---|:---|
-| portal.loganalytics.io | 않는 | 80,443 |
-| api.loganalytics.io | 않는 | 80,443 |
-| docs.loganalytics.io | 않는 | 80,443 |
+| portal.loganalytics.io | 동적 | 80,443 |
+| api.loganalytics.io | 동적 | 80,443 |
+| docs.loganalytics.io | 동적 | 80,443 |
 
 ## <a name="basic-queries"></a>기본 쿼리
 쿼리는 용어를 검색하고, 추세를 파악하고, 패턴을 분석하며 데이터에 따라 다른 많은 정보를 제공하는 데 사용할 수 있습니다. 기본 쿼리를 시작합니다.
@@ -53,9 +53,9 @@ Log Analytics를 사용 하려면 브라우저에서 다음 주소에 액세스�
 Event | search "error"
 ```
 
-이 쿼리는 속성에 _오류_ 용어를 포함 하는 레코드에 대 한 _이벤트_ 테이블을 검색 합니다.
+이 쿼리는 속성에 _error_라는 용어를 포함하는 레코드에 대한 _이벤트_ 테이블을 검색합니다.
 
-쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예는 이벤트 테이블에서 모든 레코드를 검색 하는 table name _이벤트_로 시작 합니다. 파이프 (|) 문자는 명령을 구분 하기 때문에 첫 번째 항목의 출력이 다음 명령의 입력으로 사용 됩니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
+쿼리는 테이블 이름 또는 [search](/azure/kusto/query/searchoperator) 명령을 사용하여 시작할 수 있습니다. 위의 예는 Event 테이블의 모든 레코드를 검색하는 _Event_ 테이블 이름으로 시작합니다. 파이프(|) 문자는 명령을 분리하므로 첫 번째 명령의 출력이 다음 명령의 입력으로 사용됩니다. 단일 쿼리에 원하는 수의 명령을 추가할 수 있습니다.
 
 동일한 쿼리를 작성하는 또 다른 방법은 다음과 같습니다.
 
@@ -63,18 +63,18 @@ Event | search "error"
 search in (Event) "error"
 ```
 
-이 예에서는 **검색** 범위가 _이벤트_ 테이블로 지정 되 고 해당 테이블의 모든 레코드는 용어 _오류_를 검색 합니다.
+이 예제에서 **search**의 범위는 _Event_ 테이블이며, 해당 테이블의 모든 레코드는 _error_라는 용어에 대해 검색됩니다.
 
 ## <a name="running-a-query"></a>쿼리 실행
 **실행** 단추를 클릭하거나 **Shift + Enter** 키를 눌러 쿼리를 실행합니다. 실행되는 코드와 반환되는 데이터를 결정하는 다음 세부 정보를 고려합니다.
 
-- 줄 바꿈: 단일 중단으로 인해 쿼리를 보다 쉽게 읽을 수 있습니다. 여러 줄 바꿈은 쿼리를 별도의 쿼리로 분할합니다.
+- 줄 바꿈: 단일 줄 바꿈은 쿼리를 더 읽기 쉽게 만듭니다. 여러 줄 바꿈은 쿼리를 별도의 쿼리로 분할합니다.
 - 커서: 실행하도록 쿼리 내 어딘가에 커서를 놓습니다. 현재 쿼리는 빈 줄을 찾을 때까지 코드 업으로 간주됩니다.
 - 시간 범위 - _지난 24시간_의 시간 범위가 기본적으로 설정됩니다. 다른 범위를 사용하려면 시간 선택기를 사용하거나 명시적 시간 범위 필터를 쿼리에 추가합니다.
 
 
 ## <a name="understand-the-schema"></a>스키마 이해
-스키마는 논리 범주에서 시각적으로 그룹화된 테이블의 컬렉션입니다. 다양한 범주는 모니터링 솔루션에서 가져온 것입니다. _Logmanagement_ 범주는 Windows 및 Syslog 이벤트, 성능 데이터 및 에이전트 하트 비트와 같은 공통 데이터를 포함 합니다.
+스키마는 논리 범주에서 시각적으로 그룹화된 테이블의 컬렉션입니다. 다양한 범주는 모니터링 솔루션에서 가져온 것입니다. _LogManagement_ 범주는 Windows 및 Syslog 이벤트, 성능 데이터 및 에이전트 하트비트와 같은 일반적인 데이터를 포함합니다.
 
 ![스키마](media/get-started-portal/schema.png)
 
@@ -87,9 +87,9 @@ search in (Event) "error"
 Event
 ```
 
-자동으로 결과 범위를 Log Analytics 다음을 수행 합니다.
+Log Analytics는 다음을 기준으로 결과의 범위를 자동으로 정합니다.
 
-- 시간 범위: 기본적으로 쿼리는 마지막 24시간으로 제한됩니다.
+- 시간 범위:  기본적으로 쿼리는 지난 24시간으로 제한됩니다.
 - 결과 수: 결과는 최대 10,000개 레코드로 제한됩니다.
 
 이 쿼리는 매우 일반적이며 결과를 너무 많이 반환해서 사용할 수 없습니다. 테이블 요소를 통해 또는 명시적으로 쿼리에 필터를 추가하여 결과를 필터링할 수 있습니다. 테이블 요소를 통한 결과 필터링은 기존 결과 집합에 적용되는 반면, 쿼리 자체에 대한 필터는 새로 필터링된 결과 집합을 반환하므로 더 정확한 결과를 생성할 수 있습니다.
@@ -106,7 +106,7 @@ Event
 
 열 제목 옆에 있는 필터 아이콘을 클릭하고 팝업 창에서 텍스트 _error_를 _사용하여 시작_하는 값을 선택합니다.
 
-![필터링](media/get-started-portal/filter.png)
+![Filter](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>결과의 정렬 및 그룹화
@@ -125,7 +125,7 @@ Event
 
 
 ## <a name="select-a-time-range"></a>시간 범위 선택
-기본적으로 Log Analytics는 _최근 24 시간_ 범위를 적용 합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
+기본적으로 Log Analytics는 _지난 24시간_ 타임 범위를 적용합니다. 다른 범위를 사용하려면 시간 선택기를 통해 다른 값을 선택하고 **실행**을 클릭합니다. 미리 설정된 값 외에도 쿼리에 대한 절대 범위를 선택하는 _사용자 지정 시간 범위_ 옵션을 사용할 수 있습니다.
 
 ![시간 선택기](media/get-started-portal/time-picker.png)
 
@@ -162,7 +162,7 @@ x 및 y축과 같은 보기의 다른 속성이나 기본 설정의 그룹화 �
 ![스마트 진단](media/get-started-portal/smart-diagnostics.png)
 
 ## <a name="pin-to-dashboard"></a>대시보드에 고정
-다이어그램 또는 테이블을 공유 Azure 대시보드 중 하나에 고정하려면 핀 아이콘을 클릭합니다. 이 아이콘은 아래 스크린샷에서와는 Log Analytics 창의 맨 위로 이동 되었습니다.
+다이어그램 또는 테이블을 공유 Azure 대시보드 중 하나에 고정하려면 핀 아이콘을 클릭합니다. 이 아이콘은 아래 스크린샷과 다르게 Log Analytics 창의 맨 위로 이동되었습니다.
 
 ![대시보드에 고정](media/get-started-portal/pin-dashboard.png)
 
@@ -170,7 +170,7 @@ x 및 y축과 같은 보기의 다른 속성이나 기본 설정의 그룹화 �
 
 - 테이블 열 및 행: 테이블을 대시보드에 고정하려면 4개 이하의 열이 있어야 합니다. 상위 7개의 행만 표시됩니다.
 - 시간 제한: 쿼리가 지난 14일로 자동으로 제한됩니다.
-- 구간 수 제한: 불연속적인 구간이 많은 차트를 표시할 경우 덜 채워진 구간은 하나의 _기타_ 구간으로 자동으로 그룹화됩니다.
+- Bin 개수 제한: 불연속적인 Bin이 많은 차트를 표시할 경우 덜 채워진 Bin은 하나의 _기타_ Bin으로 자동으로 그룹화됩니다.
 
 ## <a name="save-queries"></a>쿼리 저장
 유용한 쿼리를 만든 후 저장하거나 다른 사용자와 공유하고자 할 수도 있습니다. **저장** 아이콘은 위쪽 막대에 있습니다.
@@ -180,7 +180,7 @@ x 및 y축과 같은 보기의 다른 속성이나 기본 설정의 그룹화 �
 ![함수 저장](media/get-started-portal/save-function.png)
 
 >[!NOTE]
->저장 된 쿼리를 저장 하거나 편집할 때 **이름** 필드에 `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |` 지원 되는 문자는 다음과 같습니다.
+>저장된 쿼리를 저장하거나 편집할 때 **이름** 필드에 지원되는 문자는 다음과 같습니다. `a–z, A–Z, 0-9, -, _, ., <space>, (, ), |`
 
 Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 작업 영역의 다른 사용자와 공유됩니다.
 
@@ -190,7 +190,7 @@ Log Analytics 쿼리는 항상 선택한 작업 영역에 저장되고 해당 �
 ![쿼리 탐색기](media/get-started-portal/query-explorer.png)
 
 ## <a name="export-and-share-as-link"></a>링크로 내보내기 및 공유
-Log Analytics는 여러 가지 내보내기 방법을 지원 합니다.
+Log Analytics는 여러 내보내기 메서드를 지원합니다.
 
 - Excel: 결과를 CSV 파일로 저장합니다.
 - Power BI: Power BI로 결과를 내보냅니다. 자세한 내용은 [Azure Monitor 로그 데이터를 Power BI로 가져오기](../../azure-monitor/platform/powerbi.md)를 참조하세요.

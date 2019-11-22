@@ -2,7 +2,7 @@
 title: Azure Blockchain Service 설명서
 summary: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 관리하는 방법을 보여줍니다.
 metadata:
-  title: Azure Blockchain Service 설명서 - 자습서, API 참조
+  title: Azure Blockchain Service 설명서
   description: 블록체인 애플리케이션을 만드는 방법을 알아봅니다. 자습서, API 참조 및 기타 문서에서는 Azure Blockchain Service를 사용하여 Azure에서 블록체인 애플리케이션을 만들고, 개발하고, 관리하는 방법을 보여줍니다.
   services: azure-blockchain
   ms.service: azure-blockchain
@@ -10,12 +10,12 @@ metadata:
   author: PatAltimore
   ms.author: patricka
   ms.date: 11/04/2019
-  ms.openlocfilehash: 9e4def49e2d0e1fc91259bbdf744ec7e40a34547
-  ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+  ms.openlocfilehash: 5af8999a32682df18d1e4f1be192c2d4be628860
+  ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/04/2019
-  ms.locfileid: "73577336"
+  ms.lasthandoff: 11/21/2019
+  ms.locfileid: "74285071"
 landingContent:
 - title: Azure Blockchain Service 정보
   linkLists:
