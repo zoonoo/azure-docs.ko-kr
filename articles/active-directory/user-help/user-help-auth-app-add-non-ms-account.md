@@ -1,6 +1,6 @@
 ---
-title: 인증자 앱에 비 Microsoft 계정 추가-Azure AD
-description: 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가하는 방법을 설명합니다.
+title: Microsoft Authenticator 앱에 타사 계정 추가-Azure AD
+description: 2 단계 인증을 사용 하는 동안 id를 확인 하기 위해 Google 또는 Facebook과 같은 타사 계정을 Microsoft Authenticator 앱에 추가 합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,14 +12,14 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62d866e9bf543577887ee99173a52202fcfec632
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803671"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278891"
 ---
-# <a name="add-your-non-microsoft-accounts"></a>비 Microsoft 계정 추가
+# <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 타사 계정 추가
 
 2단계 인증용으로 Microsoft Authenticator 앱에 Google, Facebook, GitHub 등의 비 Microsoft 계정을 추가합니다. Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 앱 및 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원하는 모든 계정과 호환됩니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "73803671"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Google 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
 
 1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
 
@@ -79,7 +79,7 @@ ms.locfileid: "73803671"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Facebook 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
 
 1. 컴퓨터에서 Facebook을 열고 오른쪽 위의 드롭다운 메뉴를 선택한 다음, **설정** > **보안 및 로그인**으로 이동합니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "73803671"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 GitHub 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
 
 1. 컴퓨터에서 GitHub를 열고 오른쪽 위에서 사용자 이미지를 선택한 다음, **설정**을 선택합니다.
 
@@ -156,7 +156,7 @@ ms.locfileid: "73803671"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Amazon 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
 
 1. 컴퓨터에서 Amazon을 열고 **계정 및 목록** 드롭다운 메뉴를 선택한 다음, **계정**을 선택합니다.
 
