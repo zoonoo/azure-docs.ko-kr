@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56f9901a1468207a295f8223e990f7a926b2d76e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e8196c9561465930fc9723c9b8f8a0d02668ef5
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561420"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114089"
 ---
 # <a name="quickstart-create-a-unity-hololens-app-that-uses-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하는 Unity HoloLens 앱 만들기
 
@@ -78,7 +78,7 @@ ms.locfileid: "68561420"
 
 **솔루션 구성**을 **릴리스**로 변경하고, **솔루션 플랫폼**을 **x86**으로 변경하고, 배포 대상 옵션에서 **디바이스**를 선택합니다.
 
-HoloLens 2를 사용하는 경우 **x86** 대신 **ARM**을 **솔루션 플랫폼**으로 사용합니다.
+HoloLens 2를 사용하는 경우 **x86** 대신 **ARM64**을 **솔루션 플랫폼**으로 사용합니다.
 
    ![Visual Studio 구성](./media/get-started-unity-hololens/visual-studio-configuration.png)
 

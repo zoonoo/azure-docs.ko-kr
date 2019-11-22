@@ -1,22 +1,22 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Device Provisioning 설정 | Microsoft Docs
+title: '빠른 시작: Azure Resource Manager 템플릿을 사용하여 Device Provisioning 설정'
 description: Azure 빠른 시작 - 템플릿을 사용하여 Azure IoT Hub Device Provisioning 서비스 설정
 author: wesmc7777
 ms.author: wesmc
-ms.date: 06/18/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3360bfa7eed15f72fb78f698e837d887e9c8aa85
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: fdc75424c5c99e80c13ac086229da93411e3ce83
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62126480"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903376"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿으로 IoT Hub Device Provisioning 서비스 설정
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하여 디바이스를 프로비전하는 데 필요한 Azure 클라우드 리소스를 프로그래밍 방식으로 설정할 수 있습니다. 이 단계에서는 IoT 허브, 새 IoT Hub Device Provisioning 서비스를 만들고 Azure Resource Manager 템플릿을 사용하여 두 서비스를 서로 연결하는 방법을 보여줍니다. 이 빠른 시작에서는 [Azure CLI](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-cli)를 사용하여 리소스 그룹을 만들고 템플릿을 배포하는 데 필요한 프로그래밍 단계를 수행하지만, [Azure Portal](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal), [PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy), .NET, Ruby 또는 다른 프로그래밍 언어를 사용하여 이러한 단계를 간편하게 수행하고 템플릿을 배포할 수 있습니다. 
 

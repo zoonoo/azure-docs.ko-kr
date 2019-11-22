@@ -1,7 +1,7 @@
 ---
 title: '자습서: Bing Spell Check API를 사용하여 맞춤법 검사 결과 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing Spell Check을 사용하는 방법을 보여 줍니다.
+description: 이 자습서에서는 사용자가 Bing Spell Check API를 쿼리할 수 있게 하고 결과를 표시하는 웹 페이지 빌드합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: 73466b80915d5eb7228eef397d5aad68d27faa15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 4ef45d0d67d44ee1bcf0f06f41425ca5366ce46d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996842"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111459"
 ---
 # <a name="tutorial-build-a-web-page-spell-check-client"></a>자습서: 웹 페이지 Spell Check 클라이언트 빌드
 

@@ -1,5 +1,5 @@
 ---
-title: Azure IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신(미리 보기) | Microsoft Docs
+title: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신
 description: 이 빠른 시작에서는 디바이스 스트림을 통해 IoT 디바이스와 통신하는 C 서비스 쪽 애플리케이션을 실행합니다.
 author: robinsh
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: b0a23486d81ac6b48bf7bb256e3583973a338002
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d53b36beeca2c5e0456965cf5af19e5324b31ad9
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900914"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084207"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-c-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 C에서 디바이스 애플리케이션과 통신(미리 보기)
 

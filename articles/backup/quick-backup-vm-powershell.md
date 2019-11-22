@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 04/16/2019
 ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 268cac453ed68903c73b597ffeff2569c13e9db7
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747092"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073969"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 
@@ -106,18 +106,18 @@ Azure VM에 대해 백업을 사용하도록 설정하고 백업 정책을 지�
 
 ## <a name="start-a-backup-job"></a>백업 작업 시작
 
-백업은 백업 정책에 지정된 일정에 따라 실행됩니다. 또한 임시 백업을 실행할 수도 있습니다.
+백업은 백업 정책에 지정된 일정에 따라 실행됩니다. 다음과 같이 주문형 백업을 실행할 수도 있습니다.
 
 - 첫 번째 초기 백업 작업에서는 전체 복구 지점이 만들어집니다.
 - 초기 백업 후에는 각 백업 작업에서 증분 복구 지점이 만들어집니다.
 - 증분 복구 지점은 마지막 백업 이후 변경된 내용만을 전송하기 때문에 스토리지 및 시간 효율적입니다.
 
-임시 백업을 실행하려면 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용합니다.
+주문형 백업을 실행하려면 [Backup-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용합니다.
 
 - [Get-AzRecoveryServicesBackupContainer](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupcontainer)를 사용하여 백업 데이터를 보관하는 컨테이너를 자격 증명 모음에 지정합니다.
 - 백업할 각 VM은 항목으로 처리됩니다. 백업 작업을 시작하려면 [Get-AzRecoveryServicesBackupItem](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupitem)을 사용하여 VM에 대한 정보를 가져옵니다.
 
-다음과 같이 임시 백업 작업을 실행합니다.
+주문형 백업 작업은 다음과 같이 실행합니다.
 
 1. 컨테이너를 지정하고, VM 정보를 가져오고, 백업을 실행합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: IoT 플러그 앤 플레이 미리 보기 디바이스 만들기 | Microsoft Docs
+title: IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Windows) | Microsoft Docs
 description: 디바이스 기능 모델을 사용하여 디바이스 코드를 만듭니다. 그런 다음, 디바이스 코드를 실행하고 디바이스가 IoT Hub에 연결하는지 확인합니다.
 author: miagdp
 ms.author: miag
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 019dbe8b977932c6a806f7efca8c0724597718d8
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818067"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931904"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Windows)
 
@@ -48,42 +48,34 @@ Microsoft 회사 또는 학교 계정으로 로그인하거나 Microsoft 파트�
 
 ## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
 
-또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. IoT Hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md).
 
-> [!NOTE]
+> [!IMPORTANT]
 > 공개 미리 보기 기간에는 **미국 중부**, **북유럽** 및 **일본 동부** 지역에서 만든 IoT 허브에서만 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
-다음과 같이 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDevice** 자리 표시자를 실제 이름으로 바꿉니다. IoT Hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md).
+다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDevice** 자리 표시자를 실제 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id [YourDevice]
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
 ```
 
-다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id [YourDevice] --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 다음 명령을 실행하여 허브의 _IoT Hub 연결 문자열_을 가져옵니다.
 
 ```azurecli-interactive
-az iot hub show-connection-string --hub-name [YourIoTHubName] --output table
+az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 ```
-
-다음과 같은 디바이스 연결 문자열을 기록해 둡니다.
-
-```json
-HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={YourSharedAccessKey}
-```
-
-이 값은 빠른 시작의 뒷부분에서 사용합니다.
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
@@ -116,9 +108,9 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 
 이 빠른 시작에서는 기존 샘플 디바이스 기능 모델 및 연결된 인터페이스를 사용합니다.
 
-1. 로컬 드라이브에 `pnp_app` 디렉터리를 만듭니다.
+1. 로컬 드라이브에 `pnp_app` 디렉터리를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
 
-1. [디바이스 기능 모델](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) 및 [인터페이스 샘플](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json)을 다운로드하고 파일을 `pnp_app` 폴더에 저장합니다.
+1. [디바이스 기능 모델 및 인터페이스 샘플 파일](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/SampleDevice.capabilitymodel.json) 및 [인터페이스 샘플](https://github.com/Azure/IoTPlugandPlay/blob/master/samples/EnvironmentalSensor.interface.json)을 다운로드하고 파일을 `pnp_app` 폴더에 저장합니다.
 
     > [!TIP]
     > GitHub에서 파일을 다운로드하려면 파일을 탐색하고, **Raw**를 마우스 오른쪽 단추로 클릭한 다음, **다른 이름으로 링크 저장**을 선택합니다.
@@ -133,14 +125,14 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 
 이제 DCM 및 관련 인터페이스가 있으므로, 모델을 구현하는 디바이스 코드를 생성할 수 있습니다. VS Code에서 C 코드 스텁을 생성하는 방법은 다음과 같습니다.
 
-1. DCM 파일이 들어 있는 폴더를 열어 놓은 상태에서, **Ctrl+Shift+P**를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이**를 입력하고, **디바이스 코드 스텁 생성**을 선택합니다.
+1. VS Code에서 `pnp_app` 폴더를 열고, **Ctrl+Shift+P**를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이**를 입력하고, **디바이스 코드 스텁 생성**을 선택합니다.
 
     > [!NOTE]
     > IoT 플러그 앤 플레이 CodeGen CLI를 처음 사용하는 경우 자동으로 다운로드하고 설치하는 데 몇 초 정도 걸립니다.
 
-1. 디바이스 코드 스텁을 생성하는 데 사용할 DCM 파일을 선택합니다.
+1. 디바이스 코드 스텁을 생성하는 데 사용할 **SampleDevice.capabilitymodel.json** 파일을 선택합니다.
 
-1. 프로젝트 이름으로 **sample_device**를 입력합니다. 이 이름이 디바이스 애플리케이션의 이름이 됩니다.
+1. 프로젝트 이름 **sample_device**를 입력합니다. 이것은 디바이스 애플리케이션의 이름입니다.
 
 1. 언어로 **ANSI C**를 선택합니다.
 
@@ -153,9 +145,9 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 1. **sample_device**라는 새 폴더가 DCM 파일이 있는 동일한 위치에 만들어지며, 그 안에는 생성된 디바이스 코드 스텁 파일이 있습니다. VS Code는 이 내용을 표시하기 위해 새 창을 엽니다.
     ![디바이스 코드](media/quickstart-create-pnp-device/device-code.png)
 
-## <a name="build-the-code"></a>코드 빌드
+## <a name="build-and-run-the-code"></a>코드 빌드 및 실행
 
-디바이스 SDK를 사용하여 생성된 디바이스 코드 스텁을 함께 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
+디바이스 SDK 소스 코드를 사용하여 생성된 디바이스 코드 스텁을 빌드합니다. 빌드하는 애플리케이션은 IoT Hub에 연결하는 디바이스를 시뮬레이션합니다. 이 애플리케이션은 원격 분석 데이터 및 속성을 보내고 명령을 수신합니다.
 
 1. `sample_device` 폴더에 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다.
 
@@ -167,7 +159,7 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 1. 다음 명령을 실행하여 생성된 코드 스텁을 빌드합니다(자리 표시자를 Vcpkg 리포지토리의 디렉터리로 바꿈).
 
     ```cmd\sh
-    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
+    cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
     ```
@@ -187,7 +179,7 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 1. 빌드가 성공적으로 완료되면 애플리케이션을 실행하고 IoT Hub 디바이스 연결 문자열을 매개 변수로 전달합니다.
 
     ```cmd\sh
-    .\Debug\sample_device.exe "[IoT Hub device connection string]"
+    .\Debug\sample_device.exe "<device connection string>"
     ```
 
 1. 디바이스 애플리케이션이 IoT Hub로 데이터를 보내기 시작합니다.
@@ -200,7 +192,7 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 
 **Azure IoT 탐색기**를 사용하여 디바이스 코드의 유효성을 검사하려면 파일을 모델 리포지토리에 게시해야 합니다.
 
-1. VS Code에서 DCM 파일이 들어 있는 폴더를 열어 놓은 상태에서, **Ctrl+Shift+P**를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이: 모델 리포지토리에 파일 제출**을 입력하고 선택합니다.
+1. VS Code에서 `pnp_app` 폴더를 열어 두고 **Ctrl+Shift+P**를 사용하여 명령 팔레트를 연 다음, **IoT 플러그 앤 플레이: 모델 리포지토리에 파일 제출**을 입력하고 선택합니다.
 
 1. `SampleDevice.capabilitymodel.json` 및 `EnvironmentalSensor.interface.json` 파일을 선택합니다.
 
@@ -216,9 +208,9 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 
 ### <a name="use-the-azure-iot-explorer-to-validate-the-code"></a>Azure IoT 탐색기를 사용하여 코드의 유효성을 검사합니다.
 
-1. Azure IoT 탐색기를 열면 **앱 구성** 페이지가 표시됩니다.
+1. Azure IoT 탐색기를 엽니다. **앱 구성** 페이지가 표시됩니다.
 
-1. IoT Hub 연결 문자열을 입력하고 **연결**을 클릭합니다.
+1. _IoT Hub 연결 문자열_을 입력하고 **연결**을 선택합니다.
 
 1. 연결되면 디바이스 개요 페이지가 표시됩니다.
 
@@ -236,19 +228,19 @@ HostName={YourIoTHubName}.azure-devices.net;DeviceId=MyCDevice;SharedAccessKey={
 
 1. 속성 **이름**을 확장하고, 새 이름으로 업데이트하고, **쓰기 가능한 속성 업데이트**를 선택합니다.
 
-1. 새 이름이 **보고된 속성** 열에 표시되는 것을 보려면 페이지 맨 위에 있는 **새로 고침** 단추를 클릭합니다.
+1. 새 이름이 **보고된 속성** 열에 표시되는 것을 보려면 페이지 맨 위에 있는 **새로 고침** 단추를 선택합니다.
 
 1. **명령** 페이지를 선택하여 디바이스에서 지원하는 모든 명령을 살펴봅니다.
 
 1. **blink** 명령을 확장하고 깜박임 시간 간격을 새로 설정합니다. **명령 보내기**를 선택하여 디바이스에서 명령을 호출합니다.
 
-1. 시뮬레이션된 디바이스로 이동하여 명령이 예상대로 실행되었는지 확인합니다.
+1. 시뮬레이트된 디바이스 명령 프롬프트로 이동한 후 인쇄된 확인 메시지를 읽어 보면서 명령이 예상대로 실행되었는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 DCM을 사용하여 IoT 플러그 앤 플레이 디바이스를 만드는 방법을 알아보았습니다.
 
-IoT 플러그 앤 플레이에 대해 자세히 알아보려면 다음 자습서를 계속 진행하세요.
+DCM에 대한 자세한 내용과 나만의 모델을 만드는 방법에 대한 자세한 내용을 보려면 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트](tutorial-pnp-visual-studio-code.md)
+> [자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트](tutorial-pnp-visual-studio-code.md)

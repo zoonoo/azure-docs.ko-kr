@@ -1,7 +1,7 @@
 ---
-title: Azure Cognitive Services에서 Text Analytics REST API를 사용하여 감정 분석
+title: Text Analytics REST API를 사용하여 감정 분석 수행
 titleSuffix: Azure Cognitive Services
-description: Text Analytics REST API를 사용하여 감정을 감지하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Cognitive Services Text Analytics REST API를 사용하여 텍스트에서 감정를 검색하는 방법을 보여 줍니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: d246b14a5bd6e60a7b6facae73c68d7449e2e097
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494440"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74031453"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정 감지
 
@@ -36,7 +36,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
-이제 [감정 분석의 다음 버전](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/56f30ceeeda5650db055a3c9)을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다.
+이제 [감정 분석의 다음 버전](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다.
 
 > [!NOTE]
 > * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.

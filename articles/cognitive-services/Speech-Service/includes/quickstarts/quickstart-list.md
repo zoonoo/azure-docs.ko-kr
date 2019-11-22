@@ -1,10 +1,10 @@
 ---
-ms.openlocfilehash: 80299b2108459f4a1c09943ebbc04c66c2b90a27
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1e329e71298d5fc357f0a4cb7562883bfb742c6b
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500325"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73997346"
 ---
 - [빠른 시작: 마이크에서 음성 인식](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-microphone.md)
 - [빠른 시작: 파일에서 음성 인식](~/articles/cognitive-services/speech-service/quickstarts/speech-to-text-from-file.md)

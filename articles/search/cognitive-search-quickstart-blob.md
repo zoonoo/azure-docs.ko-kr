@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 인지 기술 세트 만들기
+title: '빠른 시작: Azure Portal에서 기술 세트 만들기'
 titleSuffix: Azure Cognitive Search
 description: 데이터 가져오기 마법사를 사용하여 인지 기술을 인덱싱 파이프라인에 추가합니다. 인지 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 14d2751f55f3df26277b1210b9201eed61409c6b
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792071"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113361"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
@@ -27,7 +27,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서는 Azure Cognitive Search, Azure Blob 스토리지 및 [Azure Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)를 AI에 사용합니다. 
 
-워크로드가 너무 작으므로 Cognitive Services는 Azure Cognitive Search에서 호출될 때 매일 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에서 탭됩니다. 제공하는 샘플 데이터를 사용하는 경우 Cognitive Services 리소스 만들기 또는 연결을 건너뛸 수 있습니다.
+워크로드가 너무 작으므로 Cognitive Services는 Azure Cognitive Search에서 호출될 때 매일 최대 20개의 트랜잭션을 무료로 처리하기 위해 백그라운드에 탭으로 처리됩니다. 제공하는 샘플 데이터를 사용하는 경우 Cognitive Services 리소스 만들기 또는 연결을 건너뛸 수 있습니다.
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 파일의 압축을 풉니다.
 

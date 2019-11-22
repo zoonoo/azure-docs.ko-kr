@@ -1,5 +1,5 @@
 ---
-title: 2단계 인증 및 회사 또는 학교 계정에 대한 개요 - Azure Active Directory | Microsoft Docs
+title: 보안 확인 및 회사 또는 학교 계정 - Azure AD
 description: 회사 또는 학교 계정으로 2단계 인증을 사용하여 보안 인증 방법을 설정하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -13,14 +13,14 @@ ms.date: 08/05/2019
 ms.author: lizross
 ms.reviewer: richagi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f10f3b272978ea24b515e39a8a8cc1fd0bea73a4
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: e8cda4b04a4555ed7747bb9444c2a5ec2e266573
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615994"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028460"
 ---
-# <a name="overview-for-two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정에 대한 개요
+# <a name="two-factor-verification-and-your-work-or-school-account"></a>2단계 인증 및 회사 또는 학교 계정
 
 IT 팀원 또는 상사로부터 조직에서 계정에 보안 확인 절차를 추가했다는 내용의 이메일을 받았습니다. 이것은 무슨 의미일까요? 조직에서 사용자가 로그인할 때 사용자의 신분을 정확하게 확인하기 위한 단계를 추가했다는 의미입니다. 2단계 인증이라고도 하는 이 추가 확인은 사용자 이름, 암호 및 모바일 디바이스 또는 휴대폰 조합을 통해 수행됩니다.
 

@@ -1,18 +1,19 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
+title: '빠른 시작: DNS 영역 및 레코드 만들기 - Azure Portal'
+titleSuffix: Azure DNS
 description: 이 단계별 빠른 시작 가이드를 통해 Azure Portal을 사용하여 Azure DNS 영역 및 레코드를 만드는 방법을 알아봅니다.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: feb46114b3cf1b04e6a181f84bcdc41c17f1c0ba
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.author: allensu
+ms.openlocfilehash: cb81b0ec2b5283ba242dd7c2dd549c330e230f0a
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58119074"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082920"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -88,7 +89,7 @@ DNS 영역 내에서 도메인에 대한 DNS 항목 또는 레코드를 만듭�
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예를 들면 다음과 같습니다.
+   예:
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

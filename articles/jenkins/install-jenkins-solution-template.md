@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 6/7/2017
-ms.openlocfilehash: 6bc0d8a1e938f2b8a97cab486d4679bfc445f6fb
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 531199303f7b00083bcd7139ac00ac36bde5c583
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58004084"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837511"
 ---
 # <a name="create-a-jenkins-server-on-an-azure-linux-vm-from-the-azure-portal"></a>Azure Portal에서 Azure Linux VM에 Jenkins 서버 만들기
 
@@ -33,7 +33,7 @@ Jenkins는 단일 Jenkins 설치가 많은 수의 프로젝트를 호스트하�
 
 ## <a name="connect-to-jenkins"></a>Jenkins에 연결
 
-웹 브라우저에서 가상 머신(예: http://jenkins2517454.eastus.cloudapp.azure.com/))으로 이동합니다. Jenkins 콘솔은 보안되지 않은 HTTP를 통해 액세스할 수 없으므로 SSH 터널을 사용하여 컴퓨터에서 안전하게 Jenkins 콘솔에 액세스하는 지침이 이 페이지에서 제공됩니다.
+웹 브라우저에서 가상 머신(예: `http://jenkins2517454.eastus.cloudapp.azure.com/`)으로 이동합니다. Jenkins 콘솔은 보안되지 않은 HTTP를 통해 액세스할 수 없으므로 SSH 터널을 사용하여 컴퓨터에서 안전하게 Jenkins 콘솔에 액세스하는 지침이 이 페이지에서 제공됩니다.
 
 ![Jenkins 잠금 해제](./media/install-jenkins-solution-template/jenkins-ssh-instructions.png)
 

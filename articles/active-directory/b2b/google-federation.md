@@ -1,5 +1,5 @@
 ---
-title: B2B에 대 한 id 공급자로 Google 추가-Azure Active Directory | Microsoft Docs
+title: B2B에 대 한 id 공급자로 Google 추가-Azure AD
 description: 게스트 사용자가 자신의 Gmail 계정을 사용하여 Azure AD 앱에 로그인할 수 있도록 Google과 페더레이션
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68acf32660fe36ddd4c2982b818ce21adde7ddab
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 6da9aed857524e9b71aad4dfc99f1d2e54306dc9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603587"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272890"
 ---
 # <a name="add-google-as-an-identity-provider-for-b2b-guest-users"></a>Google을 B2B 게스트 사용자에 대한 ID 공급자로 추가
 

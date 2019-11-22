@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: overview
 ms.date: 09/05/2019
 ms.author: aahi
-ms.openlocfilehash: 3bd60ff1e732940bbb13c2e224084cf7e331266b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 706bd9c141b191632acee1c04745d64baaf50ee5
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934872"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012053"
 ---
 # <a name="what-is-the-anomaly-detector-api"></a>Anomaly Detector API란?
 
@@ -72,7 +72,7 @@ Anomaly Detector API는 RESTful 웹 서비스이며, HTTP 요청을 수행하고
 
 ## <a name="algorithms"></a>알고리즘
 
-* 내부의 알고리즘에 대한 이 기술 블로그 [Azure Anomaly Detector API 소개](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162)를 참조하세요.
+* [Azure Anomaly Detector API 소개](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Introducing-Azure-Anomaly-Detector-API/ba-p/490162) 및 [Azure Anomaly Detector의 SR-CNN 알고리즘 개요](https://techcommunity.microsoft.com/t5/AI-Customer-Engineering-Team/Overview-of-SR-CNN-algorithm-in-Azure-Anomaly-Detector/ba-p/982798) 기술 블로그를 참조하여 기본적인 알고리즘에 대해 알아보세요.
 * Microsoft에서 개발한 최첨단 SR-CNN 알고리즘에 대한 이 문서 [Microsoft의 시계열 Anomaly Detection 서비스](https://arxiv.org/abs/1906.03821)(KDD 2019에서 수락)를 참조하세요.
 
 > [!VIDEO https://www.youtube.com/embed/ERTaAnwCarM]

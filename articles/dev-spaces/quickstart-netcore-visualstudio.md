@@ -5,19 +5,19 @@ author: zr-msft
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.author: zarhoads
-ms.date: 03/22/2019
+ms.date: 11/13/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 5a7ab993c58730594a0c4e10572939d3dccbdf02
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695483"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091807"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하여 Kubernetes에서 Visual Studio 및 .NET Core로 디버깅 및 반복
 
@@ -60,11 +60,11 @@ Azure Portal에서 AKS 클러스터로 이동하여 *Dev Spaces*를 클릭합니
 
 1. Visual Studio를 엽니다.
 1. 새 프로젝트 만들기
-1. *ASP.NET Core 웹 애플리케이션*을 선택하고 프로젝트 이름을 *webfrontend*로 지정합니다.
-1. *확인*을 클릭합니다.
+1. *ASP.NET Core 웹 애플리케이션*을 선택하고 *다음*을 클릭합니다.
+1. 프로젝트 이름을 *웹 프런트 엔드*로 지정하고 *만들기*를 클릭합니다.
 1. 메시지가 표시되면 템플릿에 대해 *웹 애플리케이션(Model-View-Controller)* 를 클릭합니다.
-1. 맨 위에서 *.NET Core*와 *ASP.NET Core 2.0*을 선택합니다.
-1. *확인*을 클릭합니다.
+1. 맨 위에서 *.NET Core*와 *ASP.NET Core 2.1*을 선택합니다.
+1. *만들기*를 클릭합니다.
 
 ## <a name="connect-your-project-to-your-dev-space"></a>개발 공간에 프로젝트 연결
 
@@ -93,12 +93,12 @@ Built container image in 39s
 Waiting for container...
 36s
 
-Service 'webfrontend' port 'http' is available at http://webfrontend.1234567890abcdef1234.eus.azds.io/
+Service 'webfrontend' port 'http' is available at http://default.webfrontend.1234567890abcdef1234.eus.azds.io/
 Service 'webfrontend' port 80 (http) is available at http://localhost:62266
 Completed warmup for project 'webfrontend' in 125 seconds.
 ```
 
-위의 예제에서 공용 URL은 http://webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
+위의 예제에서 공용 URL은 http://default.webfrontend.1234567890abcdef1234.eus.azds.io/ 입니다. 서비스의 공용 URL로 이동하여 개발 공간에서 실행 중인 서비스와 상호 작용합니다.
 
 이 프로세스는 서비스에 대한 공용 액세스가 비활성화되었을 수 있습니다. 공용 액세스를 활성화하기 위해 [*values.yaml*에서 수신 값][ingress-update]을 업데이트할 수 있습니다.
 

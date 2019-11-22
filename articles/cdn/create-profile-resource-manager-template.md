@@ -1,5 +1,6 @@
 ---
-title: 빠른 시작 - Resource Manager 템플릿을 사용하여 Azure Content Delivery Network 프로필 및 엔드포인트 만들기 | Microsoft Docs
+title: 빠른 시작 - Resource Manager 템플릿을 사용하여 프로필 및 엔드포인트 만들기
+titleSuffix: Azure Content Delivery Network
 description: Resource Manager 템플릿을 사용하여 Azure Content Delivery Network 프로필 및 엔드포인트 만드는 방법 알아보기
 services: cdn
 documentationcenter: ''
@@ -15,12 +16,12 @@ ms.topic: quickstart
 ms.date: 03/05/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cbde4c7fd568e6d9ff9a0d90332da96926e08077
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: b711a12161bc134bdcbb8c1f3e74f2e5ae06e701
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67593143"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083134"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint-using-resource-manager-template"></a>빠른 시작: Resource Manager 템플릿을 사용하여 Azure CDN 프로필 및 엔드포인트 만들기
 

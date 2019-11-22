@@ -193,7 +193,7 @@
             - name: 비행 지연 예측
               displayName: 'classification, studio'
               href: how-to-designer-sample-classification-flight-delay.md
-            - name: 테스트 분류
+            - name: 텍스트 분류
               displayName: 'classification, studio'
               href: how-to-designer-sample-text-classification.md
         - name: ML용 추정기 사용

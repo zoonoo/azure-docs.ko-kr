@@ -1,14 +1,14 @@
 ---
-title: 포털을 사용하여 리소스를 감사하는 정책 만들기 - Azure Policy
+title: 포털을 사용하여 리소스를 감사하는 정책 만들기
 description: 이 문서에서는 규정 비준수 리소스를 식별하는 정책 정의를 만드는 단계를 안내합니다.
 ms.date: 12/06/2018
 ms.topic: quickstart
-ms.openlocfilehash: e517173c74cd3fd37b50d327d32b668422428315
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ef89ea43ff3179877c0ac636083ed68946b6cc91
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960166"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74128920"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>빠른 시작: 비준수 리소스를 식별하는 정책 할당 만들기
 

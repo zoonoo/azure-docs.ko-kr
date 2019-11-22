@@ -1,21 +1,21 @@
 ---
-title: 이 빠른 시작에서는 Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법을 보여줍니다. | Microsoft Docs
+title: '빠른 시작: Java를 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법'
 description: 이 빠른 시작에서는 두 그룹과 개별 등록을 사용합니다. 이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/20/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 3eec6628ca7dbc16e0cc01701620f1699ba8d368
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 8a1accf232b022bc3028f91d2151c00b98969f1f
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50412774"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904776"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -89,7 +89,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
                 ```
 
         5. 메시지가 표시되면 필요에 따라 인증서에 대해 _일반 이름_을 입력할 수 있습니다.
-        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 개인 키** 및 **루트 인증서**를 로컬로 생성합니다.
+        6. 이 도구는 **클라이언트 인증서**, **클라이언트 인증서 프라이빗 키** 및 **루트 인증서**를 로컬로 생성합니다.
         7. **_-----BEGIN CERTIFICATE-----_** 및 **_-----END CERTIFICATE-----_** 줄을 포함하여 **루트 인증서**를 복사합니다. 
         8. 아래와 같이 **PUBLIC_KEY_CERTIFICATE_STRING** 매개 변수에 **루트 인증서**의 값을 할당합니다.
 
@@ -161,7 +161,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 4. 성공적으로 등록되었는지 출력 창을 확인합니다.
 
-5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 장치 그룹이 표시됩니다. 
+5. Azure Portal에서 프로비전 서비스로 이동합니다. **등록 관리**를 클릭합니다. **등록 그룹** 탭 아래에 자동 생성된 *그룹 이름*이 있는 X.509 디바이스 그룹이 표시됩니다. 
 
     ![포털에서 성공적인 X.509 등록 확인](./media/quick-enroll-device-x509-java/verify-x509-enrollment.png)  
 
@@ -210,7 +210,7 @@ Java 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소�
 1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스에 대한 *그룹 이름*을 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-이 빠른 시작에서는 시뮬레이션된 X.509 디바이스 그룹을 Device Provisioning Service에 등록했습니다. 디바이스 프로비저닝에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
+이 빠른 시작에서는 시뮬레이션된 X.509 디바이스 그룹을 Device Provisioning Service에 등록했습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
 
 > [!div class="nextstepaction"]
-> [Azure IoT Hub Device Provisioning 서비스 자습서](./tutorial-set-up-cloud.md)
+> [Azure IoT Hub Device Provisioning Service 자습서](./tutorial-set-up-cloud.md)

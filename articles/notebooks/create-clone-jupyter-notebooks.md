@@ -1,23 +1,14 @@
 ---
 title: Azure에서 Jupyter Notebook 만들기 및 복제
 description: Azure Notebooks 프로젝트는 Notebook 및 관련 파일 컬렉션을 관리하며, 프로젝트를 새로 만들 수도 있고 다른 원본에서 복제할 수도 있습니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 9b6a49e2-1d71-4c0b-9e5d-16e059427e38
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3e0c49d1141d976558ece325baaa99fc9981275e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5425312637710f0b9f94493b8cfb4a48582236
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496716"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277571"
 ---
 # <a name="create-and-clone-projects"></a>프로젝트 만들기 및 복제
 
@@ -35,7 +26,7 @@ Azure Notebooks는 Jupyter Notebook 및 관련 파일을 *프로젝트*라고 �
 
 | 명령 | 제공 대상 | 설명 |
 | --- | --- | --- |
-| **RoleEntryPoint** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
+| **실행** | 소유자 | 프로젝트 서버를 시작하고 Jupyter에서 프로젝트 폴더를 엽니다. (대부분은 프로젝트 폴더로 이동한 후 거기서 Notebook을 시작합니다.) |
 | **다운로드** | 모든 사람 | 선택한 프로젝트의 복사본을 ZIP 파일로 다운로드합니다. |
 | **공유** | 모든 사람 | 선택한 프로젝트의 URL을 가져오고, 소셜 미디어에 공유하고, URL이 포함된 이메일을 보내고, URL을 사용하여 "Notebook 시작" 배지([시작 배지 얻기](#obtain-a-launch-badge) 참조)가 있는 HTML 또는 Markdown 코드를 모두 얻을 수 있는 공유 팝업을 표시합니다. |
 | **삭제** | 소유자 | 선택한 프로젝트를 삭제합니다. 이 작업은 취소할 수 없습니다. |
@@ -79,9 +70,9 @@ Azure Notebooks 프로젝트가 없는 경우 다음 템플릿을 사용하여 �
 | --- | --- | --- | --- | --- | --- |
 | about | 계정 | 관리 | api | 치거나 | 단체 |
 | 콘텐츠 | dashboard | 탐험 | 자주 묻는 질문(FAQ) | help | html |
-| home | 수입 | 도서관 | 관리 | 신규 | 필기장이 |
-| 전자 | pdf | 미리 보기 | 가격 책정 | 프로필 | 검색 |
-| status | support | test | | | |
+| home | 수입 | 도서관 | 관리 | new | 필기장이 |
+| notebooks | pdf | 미리 보기 | 가격 책정 | profiles | 검색 |
+| status | support | 테스트 | | | |
 
 이러한 단어 중 하나를 프로젝트 ID로 사용 하려는 경우 **새 프로젝트** 및 **프로젝트 설정** 만들기 팝업은 "라이브러리 ID는 예약 된 식별자입니다."를 표시 합니다.
 

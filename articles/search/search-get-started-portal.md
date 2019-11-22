@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 366986f989fdd8d76b1707451c2a7cca2aa554cf
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719965"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73889967"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -68,9 +68,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 3. 다음 페이지를 계속합니다.
 
-   ![인식 검색에 대한 다음 페이지 단추](media/search-get-started-portal/next-button-add-cog-search.png)
-
-### <a name="step-2---skip-cognitive-skills"></a>2단계 - 인식 기술 건너뛰기
+### <a name="step-2---skip-the-enrich-content-page"></a>2단계 - "콘텐츠 보강" 페이지 건너뛰기
 
 마법사는 Cognitive Services AI 알고리즘을 인덱싱에 통합할 수 있도록 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 만들기를 지원합니다. 
 
@@ -104,7 +102,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 2. 다음 페이지를 계속합니다.
 
-   ![다음 페이지 인덱서 만들기](media/search-get-started-portal/next-button-create-indexer.png)
 
 ### <a name="step-4---configure-indexer"></a>4단계 - 인덱서 구성
 
@@ -127,6 +124,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="view-the-index"></a>인덱스 보기
 
 기본 서비스 페이지에서는 Azure Cognitive Search 서비스에서 만든 리소스의 링크를 제공합니다.  방금 만든 인덱스를 보려면 링크 목록에서 **인덱스**를 클릭합니다. 
+
+포털 페이지를 새로 고칠 때까지 기다립니다. 몇 분 후에 문서 수와 스토리지 크기를 포함하는 인덱스가 표시됩니다.
 
    ![서비스 대시보드의 인덱스 목록](media/search-get-started-portal/indexes-list.png)
 
@@ -154,7 +153,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![검색 탐색기 명령](media/search-get-started-portal/search-explorer-cmd.png)
 
-2. **인덱스** 드롭다운에서 선택 *hotels-sample*을 선택합니다. **API 버전** 드롭다운을 클릭하여 사용할 수 있는 REST API를 확인합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2019-05-06)을 사용합니다.
+2. **인덱스** 드롭다운에서 *hotels-sample-index*를 선택합니다. **API 버전** 드롭다운을 클릭하여 사용할 수 있는 REST API를 확인합니다. 아래 쿼리의 경우 일반적으로 제공되는 버전(2019-05-06)을 사용합니다.
 
    ![인덱스 및 API 명령](media/search-get-started-portal/search-explorer-changeindex.png)
 

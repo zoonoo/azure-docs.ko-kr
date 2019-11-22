@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6bc306551d158d4b996002de0bb5ab991a0bcbd9
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 669ebbf595629e8093c51d76b0816edeb5f80f93
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467236"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007596"
 ---
 # <a name="tutorial-use-personalizer-in-azure-notebook"></a>자습서: Azure Notebook에서 Personalizer 사용
 
@@ -589,7 +589,7 @@ createChart(count,rewards)
 1. 루프 평가에 필요한 평가 이름 및 날짜 범위의 데이터를 입력합니다. 날짜 범위에는 평가에 집중하는 날짜만 포함되어야 합니다. 
     ![Azure Portal에서 Personalizer 리소스의 평가 페이지를 엽니다. 평가 만들기를 선택합니다. 평가 이름과 날짜 범위를 입력합니다.](./media/tutorial-azure-notebook/create-offline-evaluation.png)
 
-    이 오프라인 평가를 실행하는 목적은 이 루프에 사용되는 기능과 작업에 대해 더 나은 학습 정책이 있는지 확인하는 것입니다. 더 나은 학습 정책을 찾으려면 **최적화 정책**이 설정되어 있는지 확인합니다.
+    이 오프라인 평가를 실행하는 목적은 이 루프에 사용되는 기능과 작업에 대해 더 나은 학습 정책이 있는지 확인하는 것입니다. 더 나은 학습 정책을 찾으려면 **최적화 검색**이 설정되어 있는지 확인합니다.
 
 1. **확인**을 선택하여 평가를 시작합니다. 
 1. 이 **평가** 페이지에서 새 평가 및 해당 현재 상태가 나열됩니다. 이 평가에는 보유한 데이터의 양에 따라 시간이 걸릴 수 있습니다. 몇 분 후에 이 페이지로 돌아와서 결과를 볼 수 있습니다. 

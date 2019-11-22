@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색 | Microsoft Docs'
-description: 빠른 시작을 통해 Azure Time Series Insights Preview 데모 환경을 파악합니다.
+title: '빠른 시작: Preview 데모 환경 살펴보기 - Azure Time Series Insights | Microsoft Docs'
+description: 샘플 빠른 시작을 통해 Azure Time Series Insights Preview 데모 환경에 대해 알아봅니다.
 ms.service: time-series-insights
 services: time-series-insights
 author: deepakpalled
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 10/24/2019
-ms.openlocfilehash: 25d6d1aa1cf7db0f448ec22ed7b5c84d840af3f5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61d13831ff0d8810cfdce35f86a0402cb1679ad1
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579656"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74014766"
 ---
 # <a name="quickstart-explore-the-azure-time-series-insights-preview-demo-environment"></a>빠른 시작: Azure Time Series Insights Preview 데모 환경 탐색
 

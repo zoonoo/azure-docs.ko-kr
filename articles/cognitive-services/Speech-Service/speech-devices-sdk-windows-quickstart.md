@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Windows에서 Speech Devices SDK 실행 - Speech Service'
+title: '빠른 시작: Windows에서 Speech Devices SDK 실행'
 titleSuffix: Azure Cognitive Services
 description: Windows Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: b1f23ffac26cb48493f013290654189162861a27
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468746"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111675"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>빠른 시작: Windows에서 Speech Devices SDK 샘플 앱 실행
 
-이 빠른 시작에서는 Windows용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 현재는 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다.
+이 빠른 시작에서는 Windows용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다. 대화 전사의 경우 [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)만 지원됩니다. 다른 음성의 경우 마이크 배열 기하 도형을 제공하는 선형 마이크 배열이 지원됩니다.
 
 애플리케이션은 Speech SDK 패키지와 64비트 Windows 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "73468746"
 이 빠른 시작에는 다음이 필요합니다.
 
 * 운영 체제: 64비트 Windows
-* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
+* [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)와 같은 마이크 배열
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
 * [Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
@@ -65,6 +65,29 @@ ms.locfileid: "73468746"
 
    ![패키지 탐색기의 스크린샷](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. pom.xml 파일을 열고 편집합니다.
+
+    파일의 끝에서 여기에 표시되는 것처럼 닫는 태그 `</project>` 앞에서 `repositories` 및 `dependencies` 요소를 만들고 `version`이 현재 버전과 일치하는지 확인합니다.
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
+1. **Windows-x64**의 내용을 Java 프로젝트 위치에 복사합니다(예: **C:\SDSDK\JRE-Sample-Release**).
+
 1. `kws.table`, `participants.properties` 및 `Microsoft.CognitiveServices.Speech.extension.pma.dll`을 프로젝트 폴더 **target\classes**로 복사합니다.
 
 ## <a name="configure-the-sample-application"></a>샘플 애플리케이션 구성
@@ -82,27 +105,25 @@ ms.locfileid: "73468746"
     private static String LuisAppId = "<enter your LUIS AppId>";
    ```
 
-    대화 전사를 사용하는 경우 `Cts.java`에도 음성 키 및 지역 정보가 필요합니다.
+   대화 전사를 사용하는 경우 `Cts.java`에도 음성 키 및 지역 정보가 필요합니다.
 
    ```java
     private static final String CTSKey = "<Conversation Transcription Service Key>";
     private static final String CTSRegion="<Conversation Transcription Service Region>";// Region may be "centralus" or "eastasia"
-    ```
+   ```
 
 1. 기본 키워드(키워드)는 "Computer"입니다. "Machine" 또는 "Assistant"와 같이 제공되는 다른 키워드 중 하나를 사용해 볼 수도 있습니다. 이러한 대체 키워드에 대한 리소스 파일은 Speech Devices SDK의 키워드 폴더에 있습니다. 예를 들어, `C:\SDSDK\JRE-Sample-Release\keyword\Computer`에는 키워드 "Computer"에 사용되는 파일이 포함되어 있습니다.
 
-   > [!TIP]
-   > [사용자 지정 키워드를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
+    > [!TIP]
+    > [사용자 지정 키워드를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    새 키워드를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 키워드 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `kws-machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
+    새 키워드를 사용하려면 `FunctionsList.java`에서 다음 줄을 업데이트하고 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
 
-   * 키워드 패키지를 프로젝트 폴더 **target/classes**에 복사합니다.
-
-   * `FunctionsList.java`를 키워드와 패키지 이름으로 업데이트합니다.
+   * zip 패키지의 `kws.table` 파일을 **대상/클래스** 프로젝트 폴더에 복사합니다.
+   * `FunctionsList.java`를 키워드 이름으로 업데이트합니다.
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Eclipse에서 샘플 애플리케이션 실행
@@ -121,23 +142,23 @@ ms.locfileid: "73468746"
 
 ## <a name="create-and-run-a-standalone-application"></a>독립 실행형 애플리케이션 만들기 및 실행
 
-1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 선택합니다. 
+1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **내보내기**를 선택합니다.
 
 1. **내보내기** 창이 나타납니다. **Java**를 펼치고 **실행 가능한 JAR 파일**을 선택한 후, **다음**을 선택합니다.
 
-   ![내보내기 창의 스크린샷](media/speech-devices-sdk/eclipse-export-windows.png) 
+   ![내보내기 창의 스크린샷](media/speech-devices-sdk/eclipse-export-windows.png)
 
 1. **실행 가능한 JAR 파일 내보내기** 창이 나타납니다. 애플리케이션에 대한 **내보내기 대상**을 선택한 다음, **마침**을 선택합니다.
- 
+
    ![실행 가능한 JAR 파일 내보내기 스크린샷](media/speech-devices-sdk/eclipse-export-jar-windows.png)
 
 1. `kws.table`, `participants.properties`, `unimic_runtime.dll`, `pma.dll` 및 `Microsoft.CognitiveServices.Speech.extension.pma.dll`은 애플리케이션에서 필요하므로 위에서 선택한 대상 폴더에 넣습니다.
 
 1. 독립 실행형 애플리케이션을 실행하려면
 
-     ```powershell
-     java -jar SpeechDemo.jar
-     ```
+   ```powershell
+   java -jar SpeechDemo.jar
+   ```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure PowerShell을 사용하여 고가용성 애플리케이션을 위한 Traffic Manager 프로필 만들기
+title: '빠른 시작: 고가용성 애플리케이션을 위한 프로필 만들기 - Azure PowerShell - Azure Traffic Manager'
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/04/2019
 ms.author: allensu
-ms.openlocfilehash: ce05d594555095c061e43df2464b906138811448
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0b1a0040c3cf6d517b19445be689dcc786334325
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051130"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038860"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 고가용성 웹 애플리케이션을 위한 Traffic Manager 프로필 만들기
 

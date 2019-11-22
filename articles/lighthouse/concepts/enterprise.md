@@ -1,22 +1,18 @@
 ---
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
-author: JnHs
-ms.service: lighthouse
-ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: fbd87cc801824729025feb7aefa411ac38048949
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266680"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132505"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
-Azure Lighthouse의 가장 일반적인 시나리오는 고객의 Azure AD(Azure Active Directory) 테넌트에서 리소스를 관리하는 서비스 공급자입니다. 그러나 Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수도 있습니다.
+[Azure Lighthouse](../overview.md)의 가장 일반적인 시나리오는 고객의 Azure AD(Azure Active Directory) 테넌트에서 리소스를 관리하는 서비스 공급자입니다. 그러나 Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수도 있습니다.
 
 ## <a name="single-vs-multiple-tenants"></a>단일 및 다중 테넌트 비교
 

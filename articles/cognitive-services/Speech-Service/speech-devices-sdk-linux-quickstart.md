@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/10/2019
+ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 5c881551648e8fc6078405e34fa3280723009b20
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490972"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74090436"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>빠른 시작: Linux에서 Speech Devices SDK 샘플 앱 실행
 
@@ -80,11 +80,34 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
 
    ![패키지 탐색기의 스크린샷](media/speech-devices-sdk/eclipse-convert-to-maven.png)
 
+1. pom.xml 파일을 열고 편집합니다.
+
+    파일의 끝에서 여기에 표시되는 것처럼 닫는 태그 `</project>` 앞에서 `repositories` 및 `dependencies` 요소를 만들고 `version`이 현재 버전과 일치하는지 확인합니다.
+    ```xml    
+    <repositories>
+         <repository>
+             <id>maven-cognitiveservices-speech</id>
+             <name>Microsoft Cognitive Services Speech Maven Repository</name>
+             <url>https://csspeechstorage.blob.core.windows.net/maven/</url>
+         </repository>
+    </repositories>
+ 
+    <dependencies>
+        <dependency>
+             <groupId>com.microsoft.cognitiveservices.speech</groupId>
+             <artifactId>client-sdk</artifactId>
+             <version>1.7.0</version>
+        </dependency>
+    </dependencies>
+   ```
+
 1. **패키지 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **속성**을 선택한 다음, **실행/디버그 설정** > **새로 만들기…** > **Java 애플리케이션**을 선택합니다. 
 
 1. **구성 편집** 창이 나타납니다. **이름** 필드에 **Main**을 입력하고 **주 클래스**의 **검색**을 사용하여 **com.microsoft.cognitiveservices.speech.samples.FunctionsList**를 찾아서 선택합니다.
 
    ![시작 구성 편집 스크린샷](media/speech-devices-sdk/eclipse-edit-launch-configuration-linux.png)
+
+1. 대상 아키텍처에 대한 오디오 이진 파일을 **Linux-arm** 또는 **Linux-x64**에서 Java 프로젝트 위치(예: **/home/wcaltest/JRE-Sample-Release**)로 복사합니다.
 
 1. 또한 **구성 편집** 창에서 **환경** 페이지와 **새로 만들기**를 선택합니다. **새 환경 변수** 창이 나타납니다. **이름** 필드에 **LD_LIBRARY_PATH**를 입력하고 **값** 필드에 *.so 파일이 포함된 폴더(예: **/home/wcaltest/JRE-Sample-Release**)를 입력합니다.
 
@@ -118,15 +141,14 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
    > [!TIP]
    > [사용자 지정 키워드를 만들](speech-devices-sdk-create-kws.md) 수도 있습니다.
 
-    새 키워드를 사용하려면 `FunctionsList.java`에서 다음 두 줄을 업데이트하고 키워드 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `kws-machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
+    새 키워드를 사용하려면 `FunctionsList.java`에서 다음 줄을 업데이트하고 패키지를 앱에 복사합니다. 예를 들어 키워드 패키지 `machine.zip`에서 키워드 'Machine'을 사용하려면 다음을 수행합니다.
 
-   * 키워드 패키지를 프로젝트 폴더 **target/classes**에 복사합니다.
+   * zip 패키지의 `kws.table` 파일을 **대상/클래스** 프로젝트 폴더에 복사합니다.
 
-   * `FunctionsList.java`를 키워드와 패키지 이름으로 업데이트합니다.
+   * `FunctionsList.java`를 키워드 이름으로 업데이트합니다.
 
      ```java
      private static final String Keyword = "Machine";
-     private static final String KeywordModel = "kws-machine.zip" // set your own keyword package name.
      ```
 
 ## <a name="run-the-sample-application-from-eclipse"></a>Eclipse에서 샘플 애플리케이션 실행

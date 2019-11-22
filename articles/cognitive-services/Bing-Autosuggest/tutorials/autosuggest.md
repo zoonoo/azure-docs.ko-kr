@@ -1,7 +1,7 @@
 ---
 title: '자습서: Bing Autosuggest API를 사용하여 자동 제안 결과 가져오기'
 titleSuffix: Azure Cognitive Services
-description: Bing Autosuggest를 사용하는 방법을 보여 줍니다.
+description: 이 자습서에서는 사용자가 Bing Autosuggest API를 쿼리할 수 있도록 하고 쿼리 결과를 표시하는 웹 페이지를 빌드합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: tutorial
 ms.date: 09/13/2019
 ms.author: aahi
-ms.openlocfilehash: d208187b7ba61fc0d217cef05a1bda559ca0c42b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 1408faf09ef8950fb0d86f8a036269da2963e3d4
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996798"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74072833"
 ---
 # <a name="tutorial-get-search-suggestions-on-a-web-page"></a>자습서: 웹 페이지에서 검색 제안 가져오기
 

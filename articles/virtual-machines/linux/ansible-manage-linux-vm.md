@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Ansible을 사용하여 Azure에서 Linux 가상 머신 관리 | Microsoft Docs
+title: 빠른 시작 - Ansible을 사용하여 Azure에서 Linux 가상 머신 관리
 description: 이 빠른 시작에서는 Ansible을 사용하여 Azure에서 Linux 가상 머신을 관리하는 방법을 알아봅니다.
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: c4878902425a26086ad77647ea06568f2110ccfe
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: fb6c4c7c6f90aa4fb9ac566433c62690e51db20d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668628"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037036"
 ---
 # <a name="quickstart-manage-linux-virtual-machines-in-azure-using-ansible"></a>빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 관리
 

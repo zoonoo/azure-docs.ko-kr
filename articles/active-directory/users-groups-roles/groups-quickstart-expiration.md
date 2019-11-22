@@ -1,25 +1,25 @@
 ---
-title: Office 365 그룹에 대한 만료 정책 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: 그룹 만료 정책 빠른 시작 - Azure AD | Microsoft Docs
 description: Office 365 그룹의 만료 - Azure Active Directory
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 05/06/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01cedadc115496fcf00df986b4ad4b9c5aab5139
-ms.sourcegitcommit: 6ea7f0a6e9add35547c77eef26f34d2504796565
+ms.openlocfilehash: 16b6e4f521568c89e415e6e9fa621175052cf34d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/14/2019
-ms.locfileid: "65606200"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026891"
 ---
 # <a name="quickstart-set-office-365-groups-to-expire-in-azure-active-directory"></a>빠른 시작: Azure Active Directory에서 Office 365 그룹이 만료되도록 설정
 
@@ -27,9 +27,13 @@ ms.locfileid: "65606200"
 
 만료 정책은 간단합니다.
 
-* 그룹 소유자에게는 곧 만료될 그룹을 갱신하라는 알림이 제공됩니다.
-* 갱신하지 않은 그룹은 삭제됩니다.
-* 삭제된 Office 365 그룹은 30일 내에 그룹 소유자 또는 Azure AD 관리자가 복원할 수 있습니다.
+- 만료가 다가올 때 사용자 활동이 있는 그룹이 자동으로 갱신됩니다.
+- 그룹 소유자에게는 곧 만료될 그룹을 갱신하라는 알림이 제공됩니다.
+- 갱신하지 않은 그룹은 삭제됩니다.
+- 삭제된 Office 365 그룹은 30일 내에 그룹 소유자 또는 Azure AD 관리자가 복원할 수 있습니다.
+
+> [!NOTE]
+> 이제 그룹은 Azure AD 인텔리전스를 사용하여 최근에 사용되었는지 여부에 따라 자동으로 갱신됩니다. 이러한 갱신 결정은 Outlook, SharePoint, Teams, Yammer 등의 Office 365 서비스에 있는 그룹의 사용자 활동을 기준으로 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

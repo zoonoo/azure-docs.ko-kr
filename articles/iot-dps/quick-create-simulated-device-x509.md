@@ -1,20 +1,20 @@
 ---
-title: 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스를 프로비전하는 방법을 보여줍니다. | Microsoft Docs
+title: '빠른 시작: 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub에 시뮬레이트된 X.509 디바이스를 프로비전하는 방법을 보여 줍니다.'
 description: 이 빠른 시작에서는 개별 등록을 사용합니다. 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service의 C# 디바이스 SDK를 사용하여 시뮬레이션된 X.509 디바이스를 만들고 프로비전합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ae5a1708b56db45bec38a4482b5dfd936bdedd4a
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: dbbdfb9ead31d11c760e6cbb0280ed1c4e5f3b24
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65901227"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904754"
 ---
 # <a name="quickstart-provision-an-x509-simulated-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 X.509 시뮬레이션된 디바이스 프로비전
 
@@ -35,7 +35,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="prerequisites"></a>필수 조건
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상.
+* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 

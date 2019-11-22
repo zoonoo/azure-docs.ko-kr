@@ -1,5 +1,5 @@
 ---
-title: Azure의 Linux VM 개요 | Microsoft Docs
+title: Azure의 Linux VM 개요
 description: Linux 가상 머신을 사용하여 Azure Compute, Storage 및 네트워킹 서비스를 설명합니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 14ed21efec47e15663724bd782ad931903fb8f13
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: dc0145e23b940f6aca9021186254b966592f343d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082418"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035351"
 ---
 # <a name="azure-and-linux"></a>Azure와 Linux
 Microsoft Azure는 분석, 가상 머신, 데이터베이스, 모바일, 네트워킹, 스토리지 및 웹을 포함하여 성장하고 있는 통합된 퍼블릭 클라우드 서비스 모음이며, 솔루션 호스팅에 적합합니다.  Microsoft Azure는 온-프레미스 하드웨어 없이도 확장할 수 있는 컴퓨팅 플랫폼을 제공하며, 필요한 때, 사용한 만큼 비용을 지불하면 됩니다.  Azure는 솔루션을 강화하고 클라이언트의 요구를 맞추기 위해 필요한 규모에 준비되어 있습니다.

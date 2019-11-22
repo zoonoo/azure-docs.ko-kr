@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 07/02/2018
+ms.date: 11/12/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b91ec337a3237e1bde54b42463d97a803f113c7c
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 064af4f54f3d3069c7e04a66cc7248dbfaa7ba0b
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65813128"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74008546"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "65813128"
 
 이 빠른 시작에서는 Azure AD에 새 게스트 사용자를 추가하고, 초대를 보내고, 게스트 사용자의 초대 사용 프로세스가 어떻게 표시되는지 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,9 +46,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
     ![새 게스트 사용자 옵션을 선택할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-3.png)
 
-5.  **사용자 이름**에서 외부 사용자의 이메일 주소를 입력합니다. **초대하는 개인 메시지를 포함**에서 환영 메시지를 입력합니다. 
+5. **새 사용자** 페이지에서 **사용자 초대**를 선택하고 게스트 사용자 정보를 추가합니다. 
 
-    ![게스트 사용자 초대 메시지를 입력할 수 있는 위치를 보여 주는 스크린샷](media/quickstart-add-users-portal/quickstart-users-portal-user-4.png)
+   - **이름.** 게스트 사용자의 이름 및 성입니다.
+   - **메일 주소(필수)** . 게스트 사용자의 메일 주소입니다.
+   - **개인 메시지(선택 사항)** 게스트 사용자에 대한 개인 환영 메시지를 포함합니다.
+   - **그룹**: 하나 이상의 기존 그룹에 게스트 사용자를 추가하거나 나중에 이 작업을 수행할 수 있습니다.
+   - **디렉터리 역할**: 사용자에 대한 Azure AD 관리 권한이 필요한 경우 Azure AD 역할에 추가할 수 있습니다. 
 
 6. **초대**를 선택하여 게스트 사용자에게 자동으로 초청을 발송합니다. 메시지 **사용자를 초대함**이 포함된 알림이 오른쪽 위에 표시됩니다. 
 7.  초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.

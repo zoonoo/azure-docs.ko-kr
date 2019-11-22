@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687036"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129693"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure App Configuration이란?
 
@@ -30,7 +30,7 @@ Azure Configuration은 현재 공개 미리 보기로 제공됩니다. 미리 �
 
 클라우드 기반 애플리케이션은 여러 지역의 여러 가상 머신이나 컨테이너에서 실행되며 다수의 외부 서비스를 사용합니다. 강력하고 확장성 있는 분산 애플리케이션을 만드는 작업은 매우 어렵습니다.
 
-개발자는 다양한 프로그래밍 방법을 통해 점점 더 복잡해지는 애플리케이션 구축을 처리할 수 있습니다. 예를 들어 12개 요소 앱에서는 충분한 테스트를 거친 다양한 아키텍처 패턴과 클라우드 애플리케이션 사용에 대한 모범 사례를 자세히 설명하고 있습니다. 이 가이드의 주요 권장 사항은 구성을 코드에서 분리하는 것입니다. 이 경우 애플리케이션의 구성 설정은 실행 파일 외부에 유지하고 런타임 환경이나 외부 원본에서 읽어야 합니다.
+개발자는 다양한 프로그래밍 방법을 통해 점점 더 복잡해지는 애플리케이션 구축을 처리할 수 있습니다. 예를 들어 [12개 요소 앱](https://12factor.net/)에서는 충분한 테스트를 거친 다양한 아키텍처 패턴과 클라우드 애플리케이션 사용에 대한 모범 사례를 자세히 설명하고 있습니다. 이 가이드의 주요 권장 사항은 구성을 코드에서 분리하는 것입니다. 이 경우 애플리케이션의 구성 설정은 실행 파일 외부에 유지하고 런타임 환경이나 외부 원본에서 읽어야 합니다.
 
 모든 애플리케이션에서 App Configuration을 사용할 수 있지만, 애플리케이션 사용의 이점을 누릴 수 있는 애플리케이션 유형의 예는 다음과 같습니다.
 

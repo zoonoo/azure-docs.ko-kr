@@ -1,5 +1,5 @@
 ---
-title: '개요: Azure Time Series Insights란? | Microsoft Docs'
+title: '개요: Azure Time Series Insights란? - Azure Time Series Insights | Microsoft Docs'
 description: 시계열 데이터 분석 및 IoT 솔루션을 위한 새로운 서비스인 Azure Time Series Insights를 소개합니다.
 ms.service: time-series-insights
 services: time-series-insights
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 15674d995036d11e1b4ec0ceda5aa4bbf4952906
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990019"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012582"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 

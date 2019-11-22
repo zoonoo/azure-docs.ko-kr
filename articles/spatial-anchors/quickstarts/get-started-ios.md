@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 56360238db8632e74a95c057a7fe643b5cea3151
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206826"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092110"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>빠른 시작: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 iOS 앱 만들기
 
@@ -32,7 +32,7 @@ ms.locfileid: "67206826"
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 
-- 개발자가 <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode 10+</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 macOS 머신을 활성화합니다.
+- 최신 버전의 <a href="https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12" target="_blank">Xcode</a> 및 <a href="https://cocoapods.org" target="_blank">CocoaPods</a>가 설치된 개발자 지원 macOS 컴퓨터
 - HomeBrew를 통해 설치된 Git. 터미널의 한 줄에 `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` 명령을 입력합니다. 그런 다음, `brew install git`를 실행합니다.
 - 개발자가 사용 가능한 <a href="https://developer.apple.com/documentation/arkit/verifying_device_support_and_user_permission" target="_blank">ARKit 호환</a> iOS 디바이스
 
@@ -67,6 +67,9 @@ cd ./iOS/Objective-C/
 `pod install --repo-update`를 실행하여 프로젝트용 CocoaPods를 설치합니다.
 
 이제 Xcode에서 `.xcworkspace`를 엽니다.
+
+> [!NOTE]
+> macOS Catalina(10.15)로 업그레이드한 후 CocoaPod 문제가 발생하는 경우 [여기에](#cocoapods-issues-on-macos-catalina-1015) 문제 해결 단계를 참조하세요.
 
 # <a name="swifttabopenproject-swift"></a>[Swift](#tab/openproject-swift)
 
@@ -118,6 +121,18 @@ iOS 디바이스를 Mac에 연결하고 **활성 스키마**를 iOS 디바이스
 > `library not found for -lPods-SampleObjC` 오류가 표시되는 경우 `.xcworkspace` 대신 `.xcodeproj` 파일을 열었을 수 있습니다. `.xcworkspace`를 열고 다시 시도하세요.
 
 Xcode에서 **중지**를 눌러 앱을 중지합니다.
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="cocoapods-issues-on-macos-catalina-1015"></a>macOS Catalina의 CocoaPods 문제(10.15)
+
+최근에 macOS Catalina(10.15)로 업데이트했으며 CocoaPods를 미리 설치한 경우 CocoaPods가 손상된 상태가 되며 pod 및 `.xcworkspace` 프로젝트 파일을 제대로 구성하지 못할 수 있습니다. 이 문제를 해결하려면 다음 명령을 실행하여 CocoaPods를 다시 설치해야 합니다.
+
+```shell
+brew update
+brew install cocoapods --build-from-source
+brew link --overwrite cocoapods
+```
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: 로컬 파트너 계정을 클라우드 B2B 사용자-Azure Active Directory로 동기화 | Microsoft Docs
+title: 로컬 파트너 계정을 B2B 사용자로 클라우드로 동기화-Azure AD
 description: Azure AD B2B 협업과 동일한 자격 증명을 사용하여 로컬로 관리되는 외부 파트너에게 로컬 및 클라우드 리소스에 대한 액세스 권한을 부여합니다.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ae75311ab61449f37ccea15a0bcb88fed80c3ed
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dcc8c0538bb3362818a4172dd42905fd72b19812
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767349"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272611"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업을 사용하여 로컬로 관리되는 파트너 계정에게 클라우드 리소스에 대한 액세스 권한 부여
 
@@ -32,7 +32,7 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 온-�
 이를 위한 두 가지 일반적인 방법은 다음과 같습니다.
 
 - 사용하지 않는 온-프레미스 Active Directory 특성(예: extensionAttribute1)을 원본 속성으로 사용하도록 지정합니다. 
-- 또는 UserType 특성의 값을 다른 속성에서 파생시킵니다. 예를 들어, 해당 온-프레미스 Active Directory UserPrincipalName 특성이 도메인으로 끝나는 경우 모든 사용자를 게스트로 동기화 하려는  *\@partners.contoso.com*합니다.
+- 또는 UserType 특성의 값을 다른 속성에서 파생시킵니다. 예를 들어 온-프레미스 Active Directory UserPrincipalName 특성이 도메인 *\@partners.contoso.com*로 끝나는 경우 모든 사용자를 게스트로 동기화 하려고 합니다.
  
 자세한 특성 요구 사항은 [UserType의 동기화 사용](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype)을 참조하세요. 
 
@@ -44,7 +44,7 @@ UserType 특성의 동기화를 사용하도록 설정하기 전에 먼저 온-�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [하이브리드 조직에 대한 Azure Active Directory B2B 공동 작업](hybrid-organizations.md)
+- [하이브리드 조직에 대한 Azure Active Directory B2B 협업](hybrid-organizations.md)
 - [Azure AD의 B2B 사용자에게 온-프레미스 애플리케이션에 대한 액세스 권한 부여](hybrid-cloud-to-on-premises.md)
 - Azure AD Connect 개요는 [Azure Active Directory와 온-프레미스 디렉터리 통합](../hybrid/whatis-hybrid-identity.md)을 참조하세요.
 

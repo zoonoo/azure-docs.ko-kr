@@ -1,23 +1,23 @@
 ---
-title: Node.js를 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록 | Microsoft Docs
+title: '빠른 시작: Node.js를 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록'
 description: Azure 빠른 시작 - Node.js 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 12/21/2017
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 202b308c3add7facdbb28dc634f70e5090dd2a9c
-ms.sourcegitcommit: eecd816953c55df1671ffcf716cf975ba1b12e6b
+ms.openlocfilehash: 02d5ec3b7ddd960e15b75fd3aa6691a187b5911a
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2019
-ms.locfileid: "55092085"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903477"
 ---
-# <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>Node.js 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
+# <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-nodejs-service-sdk"></a>빠른 시작: Node.js 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 

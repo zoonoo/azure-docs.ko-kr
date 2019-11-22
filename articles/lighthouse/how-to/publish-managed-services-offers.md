@@ -1,18 +1,14 @@
 ---
 title: Azure Marketplace에 관리형 서비스 솔루션 게시
 description: 고객이 Azure 위임 리소스 관리에 고객을 온보딩하는 관리형 서비스 제품을 게시하는 방법을 알아봅니다.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 10/17/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 4b2ce1253fd4421b36105fdbae68c6e89173a3c6
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 29f17e6227d3c50a4d9fe13f7525ac71f7550632
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615475"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74131299"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Azure Marketplace에 관리형 서비스 솔루션 게시
 
@@ -81,10 +77,10 @@ ms.locfileid: "73615475"
 
 각 **권한 부여**에 대해 다음을 제공해야 합니다. 그런 다음, 사용자 및 역할 정의를 더 추가하는 데 필요한 횟수만큼 **새 권한 부여**를 선택할 수 있습니다.
 
-  - **Azure AD 개체 ID**: 고객의 리소스에 대한 특정 권한(역할 정의에 설명됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD 식별자입니다.
-  - **Azure AD 개체 표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
-  - **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대한 설명은 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 및 [Azure 위임 리소스 관리에 대한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조하세요.
-  - **할당 가능한 역할**: 이 권한 부여에 대해 **역할 정의**에서 사용자 액세스 관리자를 선택한 경우에만 필요합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
+- **Azure AD 개체 ID**: 고객의 리소스에 대한 특정 권한(역할 정의에 설명됨)을 부여할 사용자, 사용자 그룹 또는 애플리케이션의 Azure AD 식별자입니다.
+- **Azure AD 개체 표시 이름**: 고객이 이 권한 부여의 용도를 이해하는 데 도움이 되는 친숙한 이름입니다. 리소스를 위임할 때 고객에게 이 이름이 표시됩니다.
+- **역할 정의**: 목록에서 사용 가능한 Azure AD 기본 제공 역할 중 하나를 선택합니다. 이 역할은 **Azure AD 개체 ID** 필드의 사용자가 고객의 리소스에 대해 갖게 되는 권한을 결정합니다. 이러한 역할에 대한 설명은 [기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) 및 [Azure 위임 리소스 관리에 대한 역할 지원](../concepts/tenants-users-roles.md#role-support-for-azure-delegated-resource-management)을 참조하세요.
+- **할당 가능한 역할**: 이 권한 부여에 대해 **역할 정의**에서 사용자 액세스 관리자를 선택한 경우에만 필요합니다. 그렇다면 여기에 할당 가능한 역할을 하나 이상 추가해야 합니다. **Azure AD 개체 ID** 필드의 사용자는 이러한 **할당 가능한 역할**을 [수정할 수 있는 정책을 배포](deploy-policy-remediation.md)하는 데 필요한 [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)에 할당할 수 있습니다. 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 이 사용자에게 적용되지 않습니다. 여기에서 하나 이상의 역할을 선택하지 않으면 제출이 인증을 통과하지 못합니다. 이 사용자의 역할 정의에 대해 사용자 액세스 관리자를 선택하지 않은 경우 이 필드는 영향을 주지 않습니다.
 
 > [!TIP]
 > 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다. 추가 권장 사항은 [Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자](../concepts/tenants-users-roles.md)를 참조하세요.
@@ -141,64 +137,19 @@ ms.locfileid: "73615475"
 
 모든 섹션을 완료한 후, 다음 단계는 Azure Marketplace에 제품을 게시하는 것입니다. **게시** 단추를 선택하여 제품을 라이브로 전환하는 프로세스를 시작합니다. 이 프로세스에 대한 자세한 내용은 [Azure Marketplace 및 AppSource 제안 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-publish-offer)를 참조하세요.
 
+언제든지 [제품의 업데이트된 버전을 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/manage-offers/cpp-update-offer)할 수 있습니다. 예를 들어 이전에 게시된 제품에 새 역할 정의를 추가하려고 할 수 있습니다. 이렇게 하면 제품을 이미 추가한 고객은 Azure Portal의 [**서비스 공급자**](view-manage-service-providers.md) 페이지에 업데이트를 사용할 수 있음을 알려 주는 아이콘이 표시됩니다. 각 고객은 [변경 내용을 검토](view-manage-service-providers.md#update-service-provider-offers)하고 새 버전으로 업데이트할지 여부를 결정할 수 있습니다. 
+
 ## <a name="the-customer-onboarding-process"></a>고객 온보딩 프로세스
 
-고객이 제품을 추가하면 [하나 이상의 특정 구독 또는 리소스 그룹을 위임](view-manage-service-providers.md#delegate-resources)할 수 있습니다. 그러면 Azure 위임 리소스 관리에 온보딩됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다. 고객의 테넌트에 있는 사용자가 이 위임을 수행할 수 없는 경우 해당 사용자에게 구독에 대한 소유자 역할이 없기 때문일 수 있습니다. 구독을 위임할 수 있는 사용자를 찾기 위해 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
+고객이 제품을 추가하면 하나 이상의 특정 구독 또는 리소스 그룹을 위임할 수 있습니다. 그러면 [Azure 위임 리소스 관리에 온보딩](view-manage-service-providers.md#delegate-resources)됩니다. 고객이 제품을 수락했지만 아직 리소스를 위임하지 않은 경우 Azure Portal에서 [**서비스 공급자**](view-manage-service-providers.md) 페이지의 **공급자 제품** 섹션 맨 위에 메모가 표시됩니다.
 
-구독(또는 구독 내의 리소스 그룹)을 온보딩하려면 먼저 **Microsoft.ManagedServices** 리소스 공급자를 수동으로 등록하여 온보딩에 대한 권한을 구독에 부여해야 합니다. 기여자 또는 소유자 역할이 있는 고객 테넌트의 사용자는 [Azure 리소스 공급자 및 유형](../../azure-resource-manager/resource-manager-supported-services.md)에 설명된 단계에 따라 이 작업을 수행할 수 있습니다.
+> [!IMPORTANT]
+> 위임은 온보딩하려는 구독에 대해 [소유자 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#owner)이 있는(또는 온보딩하려는 리소스 그룹을 포함하는) 고객 테넌트의 비게스트 계정이 수행해야 합니다. 구독을 위임할 수 있는 모든 사용자를 보기 위해 고객 테넌트의 사용자는 Azure Portal에서 구독을 선택하고, **IAM(액세스 제어)** 을 열고, [소유자 역할이 있는 모든 소유자를 볼 수 있습니다](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal#view-roles-and-permissions).
 
-고객은 다음 중 한 가지 방법으로 구독이 온보딩할 준비가 되었는지 확인할 수 있습니다.
+고객이 구독 또는 구독 내의 하나 이상의 리소스 그룹을 위임한 후에는 해당 구독에 대해 **Microsoft ManagedServices** 리소스 공급자가 등록되고, 테넌트의 사용자는 제품의 권한 부여에 따라 위임된 리소스에 액세스할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
-
-1. Azure Portal에서 구독을 선택합니다.
-1. **리소스 공급자**를 선택합니다.
-1. **Microsoft.ManagedServices**가 **등록됨**으로 표시되는지 확인합니다.
-
-### <a name="powershell"></a>PowerShell
-
-```azurepowershell-interactive
-# Log in first with Connect-AzAccount if you're not using Cloud Shell
-
-Set-AzContext -Subscription <subscriptionId>
-Get-AzResourceProvider -ProviderNameSpace 'Microsoft.ManagedServices'
-```
-
-그러면 다음과 같은 결과가 반환됩니다.
-
-```output
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationDefinitions}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {registrationAssignments}
-Locations         : {}
-
-ProviderNamespace : Microsoft.ManagedServices
-RegistrationState : Registered
-ResourceTypes     : {operations}
-Locations         : {}
-```
-
-### <a name="azure-cli"></a>Azure CLI
-
-```azurecli-interactive
-# Log in first with az login if you're not using Cloud Shell
-
-az account set –subscription <subscriptionId>
-az provider show --namespace "Microsoft.ManagedServices" --output table
-```
-
-그러면 다음과 같은 결과가 반환됩니다.
-
-```output
-Namespace                  RegistrationState
--------------------------  -------------------
-Microsoft.ManagedServices  Registered
-```
+> [!NOTE]
+> 현재 구독에서 Azure Databricks를 사용하는 경우 구독 또는 구독 내의 리소스 그룹을 위임할 수 없습니다. 마찬가지로 구독 또는 구독 내의 리소스 그룹이 이미 위임된 경우에는 현재 해당 구독에서 Databricks 작업 영역을 만들 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

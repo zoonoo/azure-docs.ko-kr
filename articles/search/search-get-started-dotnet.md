@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: .NET SDK를 사용하여 C#에서 검색 인덱스 만들기'
+title: '빠른 시작: .NET을 사용하여 C#에서 검색 인덱스 만들기'
 titleSuffix: Azure Cognitive Search
 description: C#과 Azure Cognitive Search .NET SDK를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cb52ebc4cfdb6f62e9e68bf007cadc20cd565fad
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 45d24286a511ff60db33e149627932b0768c543b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792834"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112033"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]

@@ -1,5 +1,5 @@
 ---
-title: '프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장 - ExpressRoute 개요: Azure | Microsoft Docs'
+title: 'Azure ExpressRoute 개요: 프라이빗 연결을 통해 연결'
 description: ExpressRoute 기술 개요에서는 프라이빗 연결을 통해 온-프레미스 네트워크를 Azure로 확장하기 위해 ExpressRoute 연결이 작동하는 방식에 대해 설명합니다.
 services: expressroute
 author: mialdrid
@@ -7,13 +7,12 @@ ms.service: expressroute
 ms.topic: overview
 ms.date: 09/18/2019
 ms.author: mialdrid
-ms.custom: seodec18
-ms.openlocfilehash: a068912857c16d2257d09e221477afc5d4a8d603
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: db728de120a50461257d8e85e708aa4c7f4d6190
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123326"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083419"
 ---
 # <a name="expressroute-overview"></a>ExpressRoute 개요
 ExpressRoute를 사용하면 연결 공급자가 지원하는 프라이빗 연결을 통해 온-프레미스 네트워크를 Microsoft 클라우드로 확장할 수 있습니다. ExpressRoute를 사용하면 Microsoft Azure 및 Office 365와 같은 Microsoft 클라우드 서비스에 대한 연결을 설정할 수 있습니다.

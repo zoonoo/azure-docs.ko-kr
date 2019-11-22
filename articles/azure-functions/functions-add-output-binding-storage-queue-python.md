@@ -7,12 +7,12 @@ ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: da3fb604bfb65f67e50d56a4520620cabc292b93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329726"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082813"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -91,7 +91,7 @@ curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow54
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터를 Storage 큐에 쓰도록 HTTP 트리거 함수를 업데이트했습니다. Python을 사용하여 Azure Functions를 개발하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md) 및 [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)을 참조하세요. Python의 전체 함수 프로젝트 예제는 [Python Functions 샘플](/samples/browse/?products=azure-functions&languages=python)을 참조하세요. 
+데이터를 Storage 큐에 쓰도록 HTTP 트리거 함수를 업데이트했습니다. Python을 사용하여 Azure Functions를 개발하는 방법에 대한 자세한 내용은 [Azure Functions Python 개발자 가이드](functions-reference-python.md) 및 [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)을 참조하세요. Python의 전체 함수 프로젝트 예제는 [Python Functions 샘플](/samples/browse/?products=azure-functions&languages=python)을 참조하세요. 가격 책정에 대한 자세한 내용은 [함수 가격 책정 페이지](https://azure.microsoft.com/pricing/details/functions/) 및 [소비 플랜 비용 예측](functions-consumption-costs.md) 문서를 참조하세요.
 
 다음으로, 함수 앱에 Application Insights 모니터링을 사용하도록 설정해야 합니다.
 

@@ -1,21 +1,21 @@
 ---
-title: 이 빠른 시작에서는 Python을 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법을 보여줍니다. | Microsoft Docs
+title: '빠른 시작: Python을 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법'
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 Python을 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: d9ed0cb82f8ad1c19f95299b3dd651fc099368b8
-ms.sourcegitcommit: 41015688dc94593fd9662a7f0ba0e72f044915d6
+ms.openlocfilehash: 23ae0bd9e66cbb592db0ec9adea5e4332a9aa19b
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/11/2019
-ms.locfileid: "59500773"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904732"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>빠른 시작: Python을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 

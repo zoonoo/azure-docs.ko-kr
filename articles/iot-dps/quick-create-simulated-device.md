@@ -1,20 +1,20 @@
 ---
-title: C를 사용하여 Azure IoT Hub에 시뮬레이션된 TPM 디바이스 프로비전 | Microsoft Docs
+title: '빠른 시작: C를 사용하여 Azure IoT Hub에 시뮬레이트된 TPM 디바이스 프로비저닝'
 description: 이 빠른 시작에서는 개별 등록을 사용합니다. 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service의 C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스를 만들고 프로비전합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ca6914967d855123c70bf746a9d68d2e045e76d9
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 3df1bd879c10411800596ce7157be4554fcffaf6
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65908680"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903503"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>빠른 시작: Azure IoT C SDK를 사용하여 시뮬레이션된 TPM 디바이스 프로비전
 
@@ -34,7 +34,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="prerequisites"></a>필수 조건
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상.
+* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 
@@ -220,4 +220,3 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 > [!div class="nextstepaction"]
 > [Azure 빠른 시작 - Azure IoT Hub Device Provisioning Service에 TPM 디바이스 등록](quick-enroll-device-tpm-java.md)
-

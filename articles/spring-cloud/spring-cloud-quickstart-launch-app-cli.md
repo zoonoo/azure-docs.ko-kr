@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 3bc1bfcf58d622151f0af9c6da693c5533bcf966
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9751435636519100ea13fd850508c99faeb87a92
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721617"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133295"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
 
@@ -146,7 +146,16 @@ az spring-cloud app update -n gateway --is-public true
 az spring-cloud app show --name gateway | grep url
 ```
 
-이전 명령에서 제공하는 URL로 이동하여 PiggyMetrics 애플리케이션이 실행되고 있는지 확인합니다.
+이전 명령에서 제공하는 URL로 이동하여 PiggyMetrics 애플리케이션을 실행합니다.
+    ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
+
+Azure Portal로 이동하여 URL을 찾을 수도 있습니다. 
+1. 서비스로 이동
+1. **앱** 선택
+1. **게이트웨이** 선택
+
+    ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
+1. **게이트웨이 개요** 페이지 ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)에서 URL 찾기
 
 ## <a name="next-steps"></a>다음 단계
 

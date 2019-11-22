@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure CLI를 사용하여 Windows VM 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure CLI를 사용하여 Windows VM 만들기
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Windows 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: e6709a6efff80df01d7504db8b39f8ff5c2c5e49
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3ad81091fa93993f71c6d65175e50f6ee216757
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088851"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073460"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-with-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Windows 가상 머신 만들기
 

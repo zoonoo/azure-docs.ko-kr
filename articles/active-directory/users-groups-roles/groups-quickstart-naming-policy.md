@@ -1,25 +1,25 @@
 ---
-title: Office 365 그룹에 대한 명명 정책 추가 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: 그룹 명명 정책 빠른 시작 - Azure Active Directory | Microsoft Docs
 description: Azure Active Directory에서 새 사용자를 추가하거나 기존 사용자를 삭제하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: quickstart
-ms.date: 04/24/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17ef24d753041934f68f3daee950aaa0bec46ba
-ms.sourcegitcommit: 4cdd4b65ddbd3261967cdcd6bc4adf46b4b49b01
+ms.openlocfilehash: 84e419ac5c3d292b7e630d1ebb3d3b9f59ef7b8a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66734733"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74026944"
 ---
 # <a name="quickstart-naming-policy-for-groups-in-azure-active-directory"></a>빠른 시작: Azure Active Directory의 그룹에 대한 명명 정책
 

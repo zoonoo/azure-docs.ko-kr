@@ -1,21 +1,21 @@
 ---
-title: 이 빠른 시작에서는 C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법을 설명합니다. | Microsoft Docs
+title: '빠른 시작: C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법'
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 15bce340b257b5c221192a6ace5c5f0eac30f85a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035986"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903430"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 고가용성 애플리케이션을 위한 Traffic Manager 프로필 만들기
+title: '빠른 시작: HA 애플리케이션용 프로필 만들기 - Azure Portal - Azure Traffic Manager'
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/28/2018
 ms.author: allensu
-ms.openlocfilehash: 1f7fd3398c24eb82b1a2308f3b52df382c0aab7e
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: b6a015c7462f082d5114a51d83cfacb0c550b026
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68224682"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74032708"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Traffic Manager 프로필 만들기
 

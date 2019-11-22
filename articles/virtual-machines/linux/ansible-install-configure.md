@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure의 Linux 가상 머신에 Ansible 설치 | Microsoft Docs
+title: 빠른 시작 - Azure의 Linux 가상 머신에 Ansible 설치
 description: 이 빠른 시작에서는 Ubuntu, CentOS 및 SLES에서 Azure 리소스를 관리하기 위해 Ansible을 설치 및 구성하는 방법을 알아봅니다.
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 ms.topic: quickstart
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3302d999dd70a83be18ce610b9c3d44992c865c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: a1ea5814ffd201456a2751b37b77f3062cac789a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671860"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037065"
 ---
 # <a name="quickstart-install-ansible-on-linux-virtual-machines-in-azure"></a>빠른 시작: Azure의 Linux 가상 머신에 Ansible 설치
 

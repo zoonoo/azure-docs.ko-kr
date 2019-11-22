@@ -61,8 +61,6 @@
               href: quickstart-v2-netcore-daemon.md
             - name: Python 콘솔 디먼
               href: quickstart-v2-python-daemon.md
-            - name: ASP.NET 디먼 웹앱
-              href: 'https://github.com/Azure-Samples/active-directory-dotnet-daemon-v2'
     - name: 자습서
       items:
         - name: 단일 페이지 앱
@@ -83,6 +81,10 @@
               href: tutorial-v2-windows-uwp.md
             - name: Windows 데스크톱 .NET
               href: tutorial-v2-windows-desktop.md
+        - name: 디먼 앱
+          items:
+            - name: ASP.NET 디먼 웹앱
+              href: tutorial-v2-aspnet-daemon-web-app.md
     - name: 샘플
       href: sample-v2-code.md
     - name: 개념

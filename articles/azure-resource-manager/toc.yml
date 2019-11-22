@@ -177,15 +177,35 @@
           displayName: DevOps
     - name: 템플릿 내보내기
       href: export-template-portal.md
-    - name: 이동
+    - name: Azure 지역 이동
       items:
-        - name: 리소스 이동
+        - name: 지역 간 이동
+          href: resource-group-move-region.md
+        - name: 지원되는 서비스
+          href: region-move-support.md
+        - name: Services
+          items:
+            - name: Azure VM
+              href: ../site-recovery/azure-to-azure-tutorial-migrate.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure Storage
+              href: ../storage/common/storage-account-move.md?toc=/azure/azure-resource-manager/toc.json
+            - name: Azure SQL
+              href: ../sql-database/sql-database-move-resources-across-regions.md?toc=/azure/azure-resource-manager/toc.json
+            - name: 가상 네트워크
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: NSG(네트워크 보안 그룹)
+              href: ../virtual-network/move-across-regions-nsg-portal.md?toc=/azure/azure-resource-manager/toc.json
+            - name: 공용 IP 주소
+              href: ../virtual-network/move-across-regions-publicip-portal.md?toc=/azure/azure-resource-manager/toc.json
+    - name: 리소스 그룹/구독 이동
+      items:
+        - name: 리소스 그룹/구독 간 이동
           href: resource-group-move-resources.md
-        - name: 리소스 지원
+        - name: 지원되는 서비스
           href: move-support-resources.md
         - name: 이동 문제 해결
           href: troubleshoot-move.md
-        - name: 서비스 지침 이동
+        - name: Services
           items:
             - name: App Service
               href: ./move-limitations/app-service-move-limitations.md

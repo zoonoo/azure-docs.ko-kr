@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory | Microsoft Docs
+title: B2B 공동 작업 API 및 사용자 지정-Azure Active Directory
 description: Azure Active Directory B2B 협업은 비즈니스 파트너가 선택적으로 회사 애플리케이션에 액세스할 수 있게 함으로써 회사 간 관계를 지원합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0369988bc6f6503f9940e6aabccb91ab843d63f5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3a090ee3f9588ff6bff01e12db469bf04407a7fc
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811878"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272871"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B 협업 API 및 사용자 지정
 
@@ -80,7 +80,7 @@ API는 다음과 같은 인증 모드에서 실행될 수 있습니다.
 
 앱 전용 컨텍스트에서 초대가 성공하려면 앱에 User.Invite.All 범위가 필요합니다.
 
-자세한 내용은 https://developer.microsoft.com/graph/docs/authorization/permission_scopes 를 참조하세요.
+자세한 내용은 https://developer.microsoft.com/graph/docs/authorization/permission_scopes를 참조하세요.
 
 
 ## <a name="powershell"></a>PowerShell
@@ -115,13 +115,13 @@ Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Proper
 > [!NOTE]
 > AzureAD PowerShell 모듈 또는 AzureADPreview PowerShell 모듈의 최신 버전이 있는지 확인합니다. 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)에서 초대 API 참조를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [B2B 공동 작업 초대 전자 메일의 요소](invitation-email-elements.md)
-- [B2B 공동 작업 초대 상환](redemption-experience.md)
-- [초대 없이 B2B 공동 작업 사용자 추가](add-user-without-invite.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
+- [B2B 협업 초대 이메일의 요소](invitation-email-elements.md)
+- [B2B 협업 초대 상환](redemption-experience.md)
+- [초대 없이 B2B 협업 사용자 추가](add-user-without-invite.md)

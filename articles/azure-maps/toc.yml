@@ -49,6 +49,8 @@
           href: routing-coverage.md
         - name: Mobility 검사
           href: mobility-coverage.md
+        - name: Weather 검사
+          href: weather-coverage.md
     - name: 지역화 지원
       href: supported-languages.md
     - name: 지원되는 맵 스타일
@@ -57,6 +59,8 @@
       href: zoom-levels-and-tile-grid.md
     - name: Mobility Service 데이터 구조
       href: mobility-service-data-structure.md
+    - name: Weather Service 개념
+      href: weather-services-concepts.md
 - name: 방법 가이드
   items:
     - name: Maps 계정 관리
@@ -185,6 +189,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/mobility'
         - name: Render Service
           href: 'https://docs.microsoft.com/rest/api/maps/render'
+        - name: Render Service V2
+          href: 'https://docs.microsoft.com/rest/api/maps/renderv2'
         - name: Route Service
           href: 'https://docs.microsoft.com/rest/api/maps/route'
         - name: Search 서비스
@@ -195,6 +201,8 @@
           href: 'https://docs.microsoft.com/rest/api/maps/timezone'
         - name: Traffic Service
           href: 'https://docs.microsoft.com/rest/api/maps/traffic'
+        - name: Weather Service
+          href: 'https://docs.microsoft.com/rest/api/maps/weather'
         - name: Maps 계정 관리
           href: 'https://docs.microsoft.com/rest/api/maps-management'
     - name: JavaScript

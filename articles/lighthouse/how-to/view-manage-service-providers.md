@@ -1,18 +1,14 @@
 ---
 title: 서비스 공급자 보기 및 관리
 description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용하여 서비스 공급자, 서비스 공급자 제공 및 위임된 리소스의 정보를 볼 수 있습니다.
-author: JnHs
-ms.author: jenhayes
-ms.service: lighthouse
-ms.date: 07/11/2019
+ms.date: 11/15/2019
 ms.topic: overview
-manager: carmonm
-ms.openlocfilehash: 0a7d39d95e35e30a16ce11db5b942024b6890438
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: baa5a77b481779ab511ff473aacda5d40e0d771c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286601"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132169"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 
@@ -50,6 +46,12 @@ Azure Portal의 **서비스 공급자** 페이지에 액세스하려면 고객�
 고객은 **제품 추가**를 선택하여 **공급자 제품** 페이지에서 새 서비스 공급자 제품을 추가할 수 있습니다. 서비스 공급자는 이 고객을 위해 제품을 게시했을 것입니다. 그러면 고객은 **프라이빗 제품** 화면에서 해당 제품을 선택하고 **만들기**를 선택할 수 있습니다.
 
 고객은 서비스 공급자 제품을 제거하려는 경우 해당 제품에 대한 행에서 휴지통 아이콘을 선택할 수 있습니다. 삭제를 확인한 후에는 해당 서비스 공급자가 이전에 해당 제품에 대해 위임된 고객 리소스에 더 이상 액세스할 수 없습니다.
+
+## <a name="update-service-provider-offers"></a>서비스 공급자 제품 업데이트
+
+고객이 제품을 추가한 후 서비스 공급자는 동일한 제품의 업데이트된 버전을 Azure Marketplace에 게시할 수 있습니다. 예를 들어, 새 역할 정의를 추가하려고 할 수 있습니다. 제품의 새 버전이 게시된 경우 **공급자 제품** 페이지에는 해당 제품에 대한 행에 "업데이트" 아이콘이 표시됩니다. 고객은 이 아이콘을 선택하여 현재 버전 및 새 제품 버전 간의 차이점을 확인할 수 있습니다. 
+
+고객은 변경 내용을 검토한 후 새 버전으로 업데이트하도록 선택할 수 있습니다. 일단 업데이트하도록 선택하면, 새 버전에 지정된 권한 부여 및 기타 설정이 해당 제품에 대해 위임된 구독 및/또는 리소스 그룹에 적용됩니다.
 
 ## <a name="view-delegations"></a>위임 보기
 

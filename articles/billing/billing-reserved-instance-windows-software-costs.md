@@ -1,25 +1,22 @@
 ---
-title: Azure에 대한 예약 소프트웨어 비용 | Microsoft Docs
+title: Azure에 대한 예약 소프트웨어 비용
 description: Azure Reserve VM Instances 비용에 포함되지 않는 소프트웨어 미터에 대해 알아봅니다.
-services: billing
-documentationcenter: ''
 author: yashar
 manager: yashar
-editor: ''
 tags: billing
 ms.service: billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/01/2019
+ms.date: 11/14/2019
 ms.author: banders
-ms.openlocfilehash: e74765ec09fb9cd2d219ceb3d784b4030c83e028
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 82a3dfa9534d58d425b15a433a69a224235e027f
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719650"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111543"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
 
@@ -64,7 +61,7 @@ ms.locfileid: "71719650"
 |dc72ee45-2ab7-4698-b435-e2cf10d1f9f6|Cloud Services 64 vCPU 라이선스|
 |7a803026-244c-4659-834c-11e6b2d6b76f|Cloud Services 80 vCPU 라이선스|
 
-## <a name="rates-for-azure-meters"></a>Azure 미터에 대한 요금
+## <a name="get-rates-for-azure-meters"></a>Azure 미터에 대한 요금 가져오기
 
 Azure RateCard API를 통해 이러한 미터 각각의 비용을 알아볼 수 있습니다. Azure 미터에 대한 요금을 알아보는 방법에 대한 정보는 [Azure 구독에서 사용되는 리소스에 대한 가격 및 메타데이터 정보 가져오기](/previous-versions/azure/reference/mt219004(v=azure.100))를 참조하세요.
 

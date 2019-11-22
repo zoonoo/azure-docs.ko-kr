@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Bing Spell Check REST API 및 PHP로 맞춤법 검사'
 titleSuffix: Azure Cognitive Services
-description: Bing Spell Check API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
+description: 이 간단한 PHP 애플리케이션은 Bing Spell Check API에 요청을 보내고 제안된 수정 사항을 반환합니다.
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 15a550321c28703c7bb4d8155ffeb7791eafedc6
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68423488"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74110796"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>빠른 시작: Bing Spell Check REST API 및 PHP로 맞춤법 검사
 
-이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 Python 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 Python에서 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+이 빠른 시작을 사용하여 Bing Spell Check REST API에 대한 첫 번째 호출을 수행할 수 있습니다. 이 간단한 PHP 애플리케이션은 API에 요청을 보내고 제안된 수정 사항을 반환합니다. 이 애플리케이션은 PHP로 작성되지만 API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

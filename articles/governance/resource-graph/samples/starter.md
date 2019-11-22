@@ -1,17 +1,14 @@
 ---
 title: 시작 쿼리 샘플
 description: Azure Resource Graph를 사용하여 리소스 개수 계산, 리소스 정렬 또는 특정 태그를 포함한 일부 시작 쿼리를 실행합니다.
-author: DCtheGeek
-ms.author: dacoulte
 ms.date: 10/21/2019
 ms.topic: quickstart
-ms.service: resource-graph
-ms.openlocfilehash: 7eef353f45d0387a45fbf8180bc49cae7975dfa9
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: ca7fc2ba3e952f93f85c677eb8a8a7322901c7d0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622495"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076125"
 ---
 # <a name="starter-resource-graph-queries"></a>Resource Graph 시작 쿼리
 
@@ -253,7 +250,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 ---
 
 > [!NOTE]
-> `=~`는 대/소문자를 구분하지 않는 일치를 허용하지만, 쿼리에서 속성(예: **properties.storageProfile.osDisk.osType**)을 사용하려면 대/소문자를 올바르게 사용해야 합니다. 속성의 대/소문자가 올바르지 않은 경우에도 값이 반환될 수 있지만 그룹화 또는 요약이 올바르지 않게 됩니다.
+> `=~`는 대/소문자를 구분하지 않는 일치를 허용하지만, 쿼리에서 속성(예: **properties.storageProfile.osDisk.osType**)을 사용하려면 대/소문자를 올바르게 사용해야 합니다. 속성의 대/소문자가 올바르지 않은 경우 null 또는 잘못된 값이 반환되며 그룹화 또는 요약이 올바르지 않게 됩니다.
 
 ## <a name="a-nameshow-storage-show-resources-that-contain-storage"></a><a name="show-storage" />스토리지를 포함하는 리소스 표시
 

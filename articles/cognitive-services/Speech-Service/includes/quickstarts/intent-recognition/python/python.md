@@ -11,19 +11,20 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8916cb0438f0005d3ff9f720cf1b5a5653eeac77
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4efa535118d075addf78b2e9be6a645c458d6bb4
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500789"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125548"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+>
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md)
@@ -44,11 +45,11 @@ Python 편집기에서 Quickstart.py를 엽니다.
 이 샘플은 LUIS 키 및 지역을 사용하여 `SpeechConfig` 개체를 생성합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig)를 참조하세요.
 
 > [!NOTE]
-> 음성 의도 인식에는 엔드포인트 키만 유효하므로 시작 키 또는 저작 키가 아닌 LUIS 엔드포인트 키를 사용하는 것이 중요합니다. 올바른 키를 가져오는 방법에 대한 지침에 대해서는 [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)를 참조하세요.
+> 음성 의도 변환 인식에는 엔드포인트 키만 유효하므로 시작 키 또는 저작 키가 아닌 LUIS 엔드포인트 키를 사용하는 것이 중요합니다. 올바른 키를 가져오는 방법에 대한 지침에 대해서는 [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)를 참조하세요.
 
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=12)]
 
-## <a name="initialize-a-intentrecognizer"></a>IntentRecognizer 초기화
+## <a name="initialize-an-intentrecognizer"></a>IntentRecognizer 초기화
 
 이제 `IntentRecognizer`를 만들어 보겠습니다. 음성 구성 바로 아래에 이 코드를 삽입합니다.
 [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=15)]
@@ -71,7 +72,8 @@ using 문 내의 `recognize_once()` 호출 아래에 다음 코드를 추가합�
 
 ## <a name="check-your-code"></a>코드 확인
 
-이 시점에서 코드는 다음과 같습니다. (이 버전에 몇 가지 주석을 추가함) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
+이 시점에서 코드는 다음과 같습니다.  
+(이 버전에 몇 가지 주석을 추가함) [!code-python[](~/samples-cognitive-services-speech-sdk/quickstart/python/intent-recognition/quickstart.py?range=5-47)]
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 

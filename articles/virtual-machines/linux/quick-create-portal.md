@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure Portal에서 Linux VM 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure Portal에서 Linux VM 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Linux 가상 머신을 만드는 방법을 배웁니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 11/05/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8dbe8e43122fb7fa00129dec0d9961bd70e5a784
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 894fa2f3cda798a409db3ee8e9761c1702baf955
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693353"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74035208"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Linux 가상 머신 만들기
 

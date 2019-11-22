@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: C# SDK 예측 엔드포인트 쿼리 - LUIS'
 titleSuffix: Azure Cognitive Services
-description: C# SDK를 사용하여 LUIS에 사용자 발화를 보내고 예측을 수신합니다.
+description: 이 문서에서는 C# SDK를 사용하여 Azure Cognitive Services LUIS 애플리케이션으로 사용자 발화를 전송하고 예측을 수신하는 방법을 보여 줍니다.
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: d7cf46add464a089f15a5bd15a20cea7d17eed37
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f4612f7b3f76cbbfc0deac98668770f92ff054bc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488689"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953419"
 ---
 # <a name="quickstart-query-v2-prediction-endpoint-with-c-net-sdk"></a>빠른 시작: C# .NET SDK를 통해 V2 예측 엔드포인트 쿼리
 
@@ -77,7 +77,7 @@ using Microsoft.Azure.CognitiveServices.Language.LUIS.Runtime.Models;
 
 ## <a name="create-a-new-method-for-the-prediction"></a>예측에 대한 새 메서드 만들기
 
-예측 엔드포인트 쿼리에 쿼리를 보내는 새 메서드 `GetPrediction`을 만듭니다. 메서드는 필요한 모든 개체를 만들고 구성한 다음, [`LuisResult`](https://docs.microsoft.com/en-us/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult?view=azure-python) 예측 결과를 통해 `Task`를 반환합니다. 
+예측 엔드포인트 쿼리에 쿼리를 보내는 새 메서드 `GetPrediction`을 만듭니다. 메서드는 필요한 모든 개체를 만들고 구성한 다음, [`LuisResult`](/python/api/azure-cognitiveservices-language-luis/azure.cognitiveservices.language.luis.runtime.models.luisresult) 예측 결과를 통해 `Task`를 반환합니다. 
 
 ```csharp
 static async  Task<LuisResult> GetPrediction() {

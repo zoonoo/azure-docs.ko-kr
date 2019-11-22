@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 203725ba109922a8704c0e31a6e61dc6eadf6bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 087f1d76aaab4b05425262e0c1fb87b168c99b95
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585929"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931228"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-linux"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Linux)
 
@@ -57,11 +57,11 @@ Microsoft 회사 또는 학교 계정으로 로그인하거나 Microsoft 파트�
 
 ## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
 
-이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. IoT Hub가 없는 경우 아래에 만드는 단계가 나와 있습니다.
 
 Azure CLI을 로컬로 사용하는 경우 `az` 버전은 **2.0.75** 이상이어야 합니다. Azure Cloud Shell은 최신 버전을 사용합니다. `az --version` 명령을 사용하여 컴퓨터에 설치된 버전을 확인합니다.
 
-다음과 같이 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -69,11 +69,11 @@ az extension add --name azure-cli-iot-ext
 
 이 빠른 시작의 단계에는 버전 **0.8.5** 이상의 확장이 필요합니다. `az extension list` 명령을 사용하여 설치된 버전을 확인하고 필요한 경우 `az extension update` 명령을 사용하여 업데이트합니다.
 
-IoT Hub가 없는 경우 다음 명령을 사용하여 하나를 만들고 `{YourIoTHubName}`을(를) 원하는 고유한 이름으로 바꿉니다. 이러한 명령을 로컬로 실행하는 경우 먼저 `az login`을 사용하여 Azure 구독에 로그인합니다. Azure Cloud Shell에서 이러한 명령을 실행하는 경우 자동으로 로그인됩니다.
+IoT Hub가 없는 경우 다음 명령을 사용하여 하나를 만들고 `<YourIoTHubName>`을(를) 원하는 고유한 이름으로 바꿉니다. 이러한 명령을 로컬로 실행하는 경우 먼저 `az login`을 사용하여 Azure 구독에 로그인합니다. Azure Cloud Shell에서 이러한 명령을 실행하는 경우 자동으로 로그인됩니다.
 
   ```azurecli-interactive
   az group create --name pnpquickstarts_rg --location centralus
-  az iot hub create --name {YourIoTHubName} \
+  az iot hub create --name <YourIoTHubName> \
     --resource-group pnpquickstarts_rg --sku S1
   ```
 
@@ -82,23 +82,23 @@ IoT Hub가 없는 경우 다음 명령을 사용하여 하나를 만들고 `{You
 > [!IMPORTANT]
 > 공개 미리 보기 기간에는 **미국 중부**, **북유럽** 및 **일본 동부** 지역에서 만든 IoT 허브에서만 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
-다음 명령을 실행하여 IoT Hub에서 `mypnpdevice`라는 디바이스의 디바이스 ID를 만듭니다. `{YourIoTHubName}` 자리 표시자를 IoT Hub의 이름으로 바꿉니다.
+다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDevice** 자리 표시자를 실제 이름으로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name {YourIoTHubName} --device-id mypnpdevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
 ```
 
-다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다. 이 빠른 시작의 뒷부분에서 이 연결 문자열이 필요합니다.
+다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --device-id mypnpdevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="author-your-model"></a>모델 작성
 
 이 빠른 시작에서는 기존 샘플 디바이스 기능 모델 및 연결된 인터페이스를 사용합니다.
 
-1. 홈 디렉터리에 `pnp_app` 디렉터리를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
+1. 로컬 드라이브에 `pnp_app` 디렉터리를 만듭니다. 이 폴더는 디바이스 모델 파일 및 디바이스 코드 스텁에 사용됩니다.
 
     ```bash
     cd ~
@@ -113,7 +113,7 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
     curl -O -L https://raw.githubusercontent.com/Azure/IoTPlugandPlay/master/samples/EnvironmentalSensor.interface.json
     ```
 
-1. VS Code에서 `pnp_app` 폴더를 엽니다. 다음과 같이 intellisense를 사용하여 파일을 볼 수 있습니다.
+1. VS Code에서 `pnp_app` 폴더를 엽니다. 다음과 같이 Intellisense를 사용하여 파일을 볼 수 있습니다.
 
     ![디바이스 기능 모델](media/quickstart-create-pnp-device-linux/dcm.png)
 
@@ -126,11 +126,11 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 1. VS Code에서 `pnp_app` 폴더를 열고, **Ctrl+Shift+P**를 사용하여 명령 팔레트를 열고, **IoT 플러그 앤 플레이**를 입력하고, **디바이스 코드 스텁 생성**을 선택합니다.
 
     > [!NOTE]
-    > IoT 플러그 앤 플레이 코드 생성기 유틸리티를 처음 사용하는 경우 다운로드하는 데 몇 초 정도 걸립니다.
+    > IoT 플러그 앤 플레이 Code Generator 유틸리티를 처음 사용하는 경우 자동으로 다운로드하고 설치하는 데 몇 초 정도 걸립니다.
 
 1. 디바이스 코드 스텁을 생성하는 데 사용할 **SampleDevice.capabilitymodel.json** 파일을 선택합니다.
 
-1. 프로젝트 이름으로 **sample_device**를 입력합니다. 이 이름이 디바이스 애플리케이션의 이름이 됩니다.
+1. 프로젝트 이름 **sample_device**를 입력합니다. 이것은 디바이스 애플리케이션의 이름입니다.
 
 1. 언어로 **ANSI C**를 선택합니다.
 
@@ -138,9 +138,9 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
 1. 프로젝트 템플릿으로 **Linux의 CMake 프로젝트**를 선택합니다.
 
-1. SDK를 포함하는 방법으로 **소스 코드를 통해**를 선택합니다.
+1. 디바이스 SDK를 포함하는 방법으로 **소스 코드를 통해**를 선택합니다.
 
-1. 생성된 디바이스 코드 스텁 파일이 포함된 VS Code 새 창이 열립니다.
+1. **sample_device**라는 새 폴더가 DCM 파일이 있는 동일한 위치에 만들어지며, 그 안에는 생성된 디바이스 코드 스텁 파일이 있습니다. VS Code는 이 내용을 표시하기 위해 새 창을 엽니다.
     ![디바이스 코드](media/quickstart-create-pnp-device-linux/device-code.png)
 
 ## <a name="build-and-run-the-code"></a>코드 빌드 및 실행
@@ -173,7 +173,7 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 
     ```sh
     cd ~/pnp_app/sample_device/cmake
-    ./sample_device "{IoT Hub device connection string}"
+    ./sample_device "<device connection string>"
     ```
 
 1. 디바이스 애플리케이션이 IoT Hub로 데이터를 보내기 시작합니다.
@@ -207,13 +207,13 @@ az iot hub device-identity show-connection-string --hub-name {YourIoTHubName} --
 다음 명령을 사용하여 샘플 디바이스가 보내는 원격 분석을 볼 수 있습니다. 출력에 원격 분석이 표시되기까지 1~ 2분 정도 기다려야 할 수 있습니다.
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mypnpdevice
+az iot dt monitor-events --hub-name <YourIoTHubNme> --device-id <YourDevice>
 ```
 
 다음 명령을 사용하여 디바이스에서 보낸 모든 속성을 볼 수 있습니다.
 
 ```azurecli-interactive
-az iot dt list-properties --device-id mypnpdevice --hub-name {Your IoT hub name} --source private --repo-login "{Your company model repository connection string}"
+az iot dt list-properties --device-id <YourDevice> --hub-name <YourIoTHubNme> --source private --repo-login "<Your company model repository connection string>"
 ```
 
 ## <a name="next-steps"></a>다음 단계

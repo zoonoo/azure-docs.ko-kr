@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure CDN과 Azure Storage 계정 통합 | Microsoft Docs
+title: 빠른 시작 - Azure CDN과 Azure Storage 계정 통합
 description: Azure Storage에서 Blob을 캐시하여 고대역폭 콘텐츠를 배달하기 위해 Azure CDN(Content Delivery Network)을 사용하는 방법을 알아봅니다.
 services: cdn
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: d8e1c3f845af6edf274aa95797523ace07cf820c
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 729ae34d90fd2415fc44fc75391950f18fee6fc0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594022"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74083064"
 ---
 # <a name="quickstart-integrate-an-azure-storage-account-with-azure-cdn"></a>빠른 시작: Azure CDN과 Azure Storage 계정 통합
 이 빠른 시작에서는 [Azure CDN(콘텐츠 배달 네트워크)](cdn-overview.md)이 Azure Storage에서 콘텐츠를 캐시하도록 활성화합니다. Azure CDN은 개발자에게 고대역폭 콘텐츠를 배달하기 위한 전역 솔루션을 제공합니다. 미국, 유럽, 아시아, 오스트레일리아 및 남아메리카의 물리적 노드에 컴퓨팅 인스턴스의 Blob 및 정적 콘텐츠를 캐시할 수 있습니다.
@@ -70,7 +70,7 @@ Azure Portal 및 Powershell을 포함하는 여러 가지 방법을 사용하여
     | -------- | ----- |
     | **배포 모델** | 기본값을 사용합니다. |
     | **계정 종류** | 기본값을 사용합니다. |
-    | **위치**:    | 드롭다운 목록에서 **미국 중부**를 선택합니다. |
+    | **위치**    | 드롭다운 목록에서 **미국 중부**를 선택합니다. |
     | **복제** | 기본값을 사용합니다. |
     | **성능** | 기본값을 사용합니다. |
     | **보안 전송 필요** | 기본값을 사용합니다. |

@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure PowerShell을 사용하여 Windows VM 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure PowerShell을 사용하여 Windows VM 만들기
 description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 Windows 가상 머신을 만드는 방법을 배웁니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/02/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0a8e6ab04cbb1c5a3ef9be299a08380912aad7ef
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 607ad17af42b88737d8ca4ebc379504d9b0b40df
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088791"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74073450"
 ---
 # <a name="quickstart-create-a-windows-virtual-machine-in-azure-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Azure에서 Windows 가상 머신 만들기
 

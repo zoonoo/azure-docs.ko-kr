@@ -1,19 +1,19 @@
 ---
-title: 보조 Azure 지역에 Azure IaaS VM의 재해 복구 설정
-description: 이 빠른 시작에서는 Azure Site Recovery 서비스를 사용하여 Azure 지역 간에 Azure IaaS VM 재해 복구를 수행하는 데 필요한 단계를 제공합니다.
+title: Azure Site Recovery를 사용하여 보조 지역으로 Azure VM 재해 복구 설정
+description: Azure Site Recovery 서비스를 사용하여 Azure VM에 대한 다른 Azure 지역으로 재해 복구를 신속하게 설정 합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: quickstart
-ms.date: 08/28/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b06cae5bcb07831ba79b805802a7851c2b6ad2b3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91674d6335ae95993bcdd59250658d562302b1dc
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467990"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73954140"
 ---
 # <a name="set-up-disaster-recovery-to-a-secondary-azure-region-for-an-azure-vm"></a>보조 Azure 지역에 Azure VM의 재해 복구 설정        
 

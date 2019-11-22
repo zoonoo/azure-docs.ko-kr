@@ -40,6 +40,8 @@
           href: class-type-ethical-hacking.md
         - name: 데이터베이스 관리
           href: class-type-database-management.md
+        - name: Python 및 Jupyter Notebooks
+          href: class-type-jupyter-notebook.md
     - name: 랩 계정 만들기 및 구성(랩 계정 소유자)
       items:
         - name: 랩 계정 만들기 및 관리

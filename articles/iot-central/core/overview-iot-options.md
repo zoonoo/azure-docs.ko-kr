@@ -9,18 +9,18 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: f57d36f6f24aab44d13ea07d8706bf40b7dcf552
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2ec6e1d00d331a7bb8dd7182dd4b0c91dd3d25a7
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72937342"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049083"
 ---
 # <a name="compare-azure-iot-central-and-azure-iot-options"></a>Azure IoT Central과 Azure IoT 옵션 비교
 
 Microsoft Azure IoT Central 및 Azure IoT는 IoT 솔루션을 빌드하기 위한 여러 옵션을 제공합니다. 이러한 옵션은 서로 다른 고객 요구 사항 세트에 적합합니다.
 
-* [Azure IoT Central](overview-iot-central.md)은 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 빌드할 수 있는 SaaS(Software-as-a-Service) 솔루션입니다.
+* [Azure IoT Central](overview-iot-central.md)은 모델 기반 접근 방식을 사용하여 클라우드 솔루션 개발에 대한 전문 지식이 없어도 엔터프라이즈급 IoT 솔루션을 빌드할 수 있는 IoT 애플리케이션 플랫폼입니다.
 
 * [Azure IoT 솔루션 가속기](https://docs.microsoft.com/azure/iot-accelerators/)는 사용자 지정 IoT 솔루션의 개발을 가속화하는 데 사용할 수 있는 Azure PaaS(Platform-as-a-Service)에 빌드된 [솔루션 가속기](../../iot-accelerators/iot-accelerators-what-are-solution-accelerators.md)의 엔터프라이즈급 컬렉션입니다.
 
@@ -42,7 +42,7 @@ Azure IoT 제품을 선택하는 것은 IoT 솔루션 계획의 중요한 부분
 |     | Azure IoT Central | Azure IoT 솔루션 가속기 |
 | --- | ----------- | --------- |
 | 기본 사용                      | 자세한 서비스 사용자 지정이 필요하지 않은 간단한 IoT 솔루션의 출시 시간을 가속화합니다.                                                    | 최대한의 유연성이 필요한 사용자 지정 IoT 솔루션의 개발을 가속화합니다.                                                                                                                             |
-| 기본 PaaS 서비스에 대한 액세스 | SaaS - 완벽하게 관리되는 솔루션이므로 기본 서비스가 노출되지 않습니다.                                                                                            | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다.                                                                                                                    |
+| 기본 PaaS 서비스에 대한 액세스 | 완벽하게 관리되는 솔루션이므로 기본 서비스가 노출되지 않습니다.                                                                                            | 기본 Azure 서비스에 액세스하여 이를 관리하거나 필요에 따라 바꿀 수 있습니다.                                                                                                                    |
 | 유연성                        | 중간. 기본 제공 브라우저 기반 사용자 환경을 사용하여 솔루션 모델 및 UI 측면을 사용자 지정할 수 있습니다. 다른 구성 요소가 노출되지 않기 때문에 인프라를 사용자 지정할 수 없습니다. | 높음. 마이크로 서비스의 코드는 오픈 소스이며, 원하는 대로 적절히 수정할 수 있습니다. 또한 배포 인프라를 사용자 지정할 수 있습니다.                                               |
 | 기술 수준                        | 낮음. 솔루션을 사용자 지정하려면 모델링 기술이 필요합니다. 코딩 기술은 필요하지 않습니다.                                                                          | 약간 높음. 솔루션의 백 엔드를 사용자 지정하려면 Java 또는 .NET 기술이 필요합니다. 시각화를 사용자 지정하려면 JavaScript 기술이 필요합니다.                                                                       |
 | 시작 환경             | 애플리케이션 템플릿 및 디바이스 템플릿은 미리 빌드된 모델을 제공합니다. 몇 분 안에 배포할 수 있습니다.                                                                                                  | 미리 구성된 솔루션에서 일반적인 IoT 시나리오를 구현합니다. 몇 분 안에 배포할 수 있습니다.                                                                                                                            |

@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins 개요 | Microsoft Docs
+title: 개요 - Azure Digital Twins | Microsoft Docs
 description: 공간 인텔리전스를 위한 Azure IoT 솔루션인 Azure Digital Twins에 대해 자세히 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
@@ -9,12 +9,12 @@ ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
 ms.custom: mvc
-ms.openlocfilehash: 93adf946ac630d2839f761b01a02d02f6ca92b64
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 07065e891ec46f51636fad005ffeece976c9f2fa
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718247"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74005949"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Azure Digital Twins 개요
 

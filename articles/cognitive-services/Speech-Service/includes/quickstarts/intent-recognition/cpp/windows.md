@@ -11,18 +11,19 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: b26b5edeaac1f6305ed2db920c711f906eb10384
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500753"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74125549"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
+>
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=windows)
@@ -37,7 +38,7 @@ ms.locfileid: "73500753"
 
 ## <a name="start-with-some-boilerplate-code"></a>몇 가지 상용구 코드로 시작
 
-프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다. `recognizeIntent()`라는 비동기 메서드를 만들어야 합니다.
+프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다. `recognizeIntent()`라는 비동기 메서드를 만듭니다.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
@@ -51,7 +52,7 @@ ms.locfileid: "73500753"
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=25)]
 
-## <a name="initialize-a-intentrecognizer"></a>IntentRecognizer 초기화
+## <a name="initialize-an-intentrecognizer"></a>IntentRecognizer 초기화
 
 이제 `IntentRecognizer`를 만들어 보겠습니다. `recognizeIntent()` 메서드(음성 구성 바로 아래)에 이 코드를 삽입합니다.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=28)]
@@ -76,13 +77,14 @@ using 문 내에서 `RecognizeOnceAsync()` 아래에 다음 코드를 추가합�
 
 ## <a name="check-your-code"></a>코드 확인
 
-이 시점에서 코드는 다음과 같습니다. (이 버전에 몇 가지 주석을 추가함) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+이 시점에서 코드는 다음과 같습니다.  
+(이 버전에 몇 가지 주석을 추가함) [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 
 이제 앱을 빌드하고 Speech Service를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
 
-1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다.
+1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션**을 선택합니다.
 2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
 3. **인식 시작** - 영어로 문구를 말하라는 메시지가 표시됩니다. 음성은 Speech Service로 전송되어 텍스트로 변환되고 콘솔에 렌더링됩니다.
 

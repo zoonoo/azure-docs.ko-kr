@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Azure CLI를 사용하여 고가용성 애플리케이션에 대한 Traffic Manager 프로필 만들기
+title: '빠른 시작: HA 애플리케이션용 프로필 만들기 - Azure CLI - Azure Traffic Manager'
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
 author: asudbring
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: allensu
-ms.openlocfilehash: dc7e555eb95cf88ecf57a6df4999672bb721b8cf
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 8b8880e10f9b920a2ec077d4cc4c2239e6ea7438
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618793"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034214"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 

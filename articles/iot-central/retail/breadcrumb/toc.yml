@@ -10,6 +10,6 @@
           tocHref: /azure/iot-central/
           topicHref: /azure/iot-central/
           items:
-            - name: 소매업용 IoT Central
+            - name: 소매업용 IoT Central(미리 보기 기능)
               tocHref: /azure/iot-central/
               topicHref: /azure/iot-central/retail/index/

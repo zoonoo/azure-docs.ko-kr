@@ -1,5 +1,5 @@
 ---
-title: 회사 또는 학교 암호 재설정 개요 - Azure Active Directory | Microsoft Docs
+title: 회사 또는 학교 암호 재설정 개요 - Azure AD
 description: 관리자의 도움 없이 회사 또는 학교 암호를 등록하고 재설정하는 방법에 대한 링크 목록입니다.
 services: active-directory
 author: eross-msft
@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 05/15/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15fbc526822f3b6659bc190ee67c6c17ff96b067
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 57d14ac3cbce6880604ad44b6aa71998ed061c10
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160610"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74028500"
 ---
 # <a name="reset-your-own-work-or-school-password-overview"></a>회사 또는 학교 암호 재설정 개요
 
@@ -34,5 +34,5 @@ ms.locfileid: "73160610"
 
 |문서 |설명 |
 |------|------------|
-| [셀프 서비스 암호 재설정](active-directory-passwords-reset-register.md) ] 암호를 재설정할 수 있도록 인증 방법을 확인하고 셀프 서비스 암호 재설정에 가입하는 방법에 대한 지침입니다.|
-| [암호 재설정](active-directory-passwords-update-your-own-password.md) ] 회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법에 대한 지침입니다.|
+| [셀프 서비스 암호 재설정 등록](active-directory-passwords-reset-register.md) | 암호를 재설정할 수 있도록 인증 방법을 확인하고 셀프 서비스 암호 재설정에 가입하는 방법에 대한 지침입니다. |
+| [암호 재설정](active-directory-passwords-update-your-own-password.md) | 회사 또는 학교 계정의 암호를 재설정 또는 잠금 해제하는 방법에 대한 지침입니다. |

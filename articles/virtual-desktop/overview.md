@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 058cf516fd8d10cef1e1c93e5493f8c19bdc679d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 4db9e1e812390f173da89a508c1dbc6782f4454f
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607494"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74120005"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -73,11 +73,9 @@ Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
 * [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
-* Azure Active Directory와 동기화되는 Windows Server Active Directory입니다. 다음을 통해 설정할 수 있습니다.
-  * Azure AD Connect
-  * Azure AD Domain Services
-     >[!NOTE]
-     >Azure AD Domain Services를 사용하는 경우 사용자는 Azure Active Directory에서 소싱해야 합니다. 현재 Windows Server AD에서 소싱된 사용자와 함께 Azure AD Domain Services를 사용하는 것은 지원되지 않습니다.
+* Azure Active Directory와 동기화되는 Windows Server Active Directory입니다. 다음 중 하나를 사용하여 구성할 수 있습니다.
+  * Azure AD Connect(하이브리드 조직용)
+  * Azure AD Domain Services(하이브리드 또는 클라우드 조직용)
 * Windows Server Active Directory를 포함하거나 그에 연결된 가상 네트워크를 포함하고 있는 Azure 구독
   
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
@@ -100,7 +98,7 @@ Windows Virtual Desktop용으로 만드는 Azure 가상 머신에는 다음 URL�
 >[!NOTE]
 >이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure AD와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
 
-Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국(미국 동부 2 지역의)에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
+Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 
 최적의 성능을 얻을 수 있도록 네트워크가 다음 요구 사항을 충족하는지 확인합니다.
 
@@ -117,14 +115,16 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 
 ## <a name="supported-virtual-machine-os-images"></a>지원되는 가상 머신 OS 이미지
 
-Windows Virtual Desktop은 다음 OS 이미지를 지원합니다.
+Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다.
 
-* Windows 10 Enterprise 다중 세션
-* Windows 10 Enterprise
+* Windows 10 Enterprise 다중 세션, 버전 1809 이상
+* Windows 10 Enterprise, 버전 1809 이상
 * Windows 7 Enterprise
 * Windows Server 2019
 * Windows Server 2016
 * Windows Server 2012 R2
+
+Windows 가상 데스크톱은 x86(32비트) 운영 체제 이미지를 지원하지 않습니다.
 
 사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
 

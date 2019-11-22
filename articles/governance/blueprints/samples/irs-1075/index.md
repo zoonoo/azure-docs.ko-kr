@@ -3,12 +3,12 @@ title: IRS 1075 청사진 샘플 - 개요
 description: IRS 1075 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 IRS 1075 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 11/19/2019
 ms.topic: sample
-ms.openlocfilehash: f713f6a59f439b2d5cb9df0860d16ff761304b4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1d2fdac47c590e663a51c11f54a3a135a7a0ed3d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210196"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267367"
 ---
 # <a name="overview-of-the-irs-1075-blueprint-sample"></a>IRS 1075 청사진 샘플 개요
 
@@ -24,6 +24,7 @@ IRS 1075 청사진 샘플에 대한 개요를 검토했습니다. 이제 다음 
 
 > [!div class="nextstepaction"]
 > [IRS 1075 청사진 - 컨트롤 매핑](./control-mapping.md)
+> [IRS 1075 청사진 - 배포 단계](./deploy.md)
 
 청사진 및 사용 방법에 대한 추가 문서:
 

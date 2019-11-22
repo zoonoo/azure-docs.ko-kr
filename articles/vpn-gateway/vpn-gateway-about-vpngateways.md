@@ -1,19 +1,19 @@
 ---
-title: Azure VPN Gateway | Microsoft Docs
+title: Azure VPN Gateway 정보
 description: VPN Gateway란 무엇이고, VPN Gateway를 사용하여 Azure 가상 네트워크에 연결하는 방법은 무엇인지 알아봅니다. IPsec/IKE 사이트 간 크로스-프레미스 및 VNet 대 VNet 솔루션은 물론 지점과 사이트 간 VPN을 포함합니다.
 services: vpn-gateway
 author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 10/31/2019
+ms.date: 11/13/2019
 ms.author: cherylmc
-ms.openlocfilehash: 82e9003036f67ecd3b3ecd7d8ab6cd434fcfc438
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58a92536510d2f434154169cbefff60487a422fa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075456"
 ---
 # <a name="what-is-vpn-gateway"></a>VPN Gateway란?
 
@@ -53,7 +53,10 @@ Azure Portal과 같은 하나의 구성 도구를 사용하여 리소스를 시�
 
 ## <a name="gwsku"></a>게이트웨이 SKU
 
-가상 네트워크 게이트웨이를 만들 때는 사용하려는 게이트웨이 SKU를 지정합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다. 지원되는 기능, 프로덕션 및 개발-테스트, 구성 단계를 포함한 게이트웨이 SKU에 대한 자세한 내용은 [VPN Gateway 설정 - 게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 문서를 참조하세요. 레거시 SKU 정보는 [레거시 SKU를 사용하여 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요.
+가상 네트워크 게이트웨이를 만들 때는 사용하려는 게이트웨이 SKU를 지정합니다. 작업 부하, 처리량, 기능 및 SLA의 종류를 기반으로 하는 요구 사항을 충족하는 SKU를 선택합니다.
+
+* 지원되는 기능, 프로덕션 및 개발-테스트, 구성 단계를 포함한 게이트웨이 SKU에 대한 자세한 내용은 [VPN Gateway 설정 - 게이트웨이 SKU](vpn-gateway-about-vpn-gateway-settings.md#gwsku) 문서를 참조하세요.
+* 레거시 SKU 정보는 [레거시 SKU를 사용하여 작업](vpn-gateway-about-skus-legacy.md)을 참조하세요.
 
 ### <a name="benchmark"></a>터널, 연결 및 처리량별 게이트웨이 SKU
 
@@ -92,7 +95,6 @@ S2S(사이트 간) VPN Gateway 연결은 IPsec/IKE(IKEv1 또는 IKEv2) VPN 터�
 P2S(지점 및 사이트 간) VPN 게이트웨이 연결을 사용하면 개별 클라이언트 컴퓨터에서 가상 네트워크에 대한 안전한 연결을 만들 수 있습니다. P2S 연결은 클라이언트 컴퓨터에서 시작하여 설정됩니다. 이 솔루션은 집 또는 회의실과 같은 원격 위치에서 Azure VNet에 연결하려는 재택 근무자에게 유용합니다. 또한 P2S VPN은 VNet에 연결해야 하는 클라이언트가 몇 개만 있는 경우 S2S VPN 대신 사용할 수 있는 유용한 솔루션입니다.
 
 S2S 연결과 달리 P2S 연결은 온-프레미스 공용 IP 주소 또는 VPN 디바이스가 필요하지 않습니다. P2S 연결과 S2S 연결에 대한 구성 요구 사항이 모두 충족될 경우 동일한 VPN Gateway를 통해 두 연결을 함께 사용할 수 있습니다. 지점 및 사이트 간 연결에 대한 자세한 내용은 [지점 및 사이트 간 VPN 정보](point-to-site-about.md)를 참조하세요.
-
 
 ![Azure VPN Gateway 지점 및 사이트 연결 예제](./media/vpn-gateway-about-vpngateways/point-to-site.png)
 

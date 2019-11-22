@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure Data Factory 설명서
-summary: Azure Data Factory는 서버리스 스케일 아웃 데이터 통합 및 데이터 변환을 위한 Azure의 클라우드 ETL 서비스입니다.  직관적인 작성 및 단일 창 클래스 모니터링 및 관리를 위한 코드 없는 UI를 제공합니다. 기존 SSIS 패키지를 Azure로 리프트 앤 시프트하고 ADF에서 완전한 호환성을 사용하여 실행할 수도 있습니다. SSIS Integration Runtime은 완전 관리형 서비스를 제공하므로 인프라 관리에 대해 걱정할 필요가 없습니다.
+summary: Azure Data Factory는 서버리스 스케일 아웃 데이터 통합 및 데이터 변환을 위한 Azure의 클라우드 ETL 서비스입니다.  코드가 필요 없는 UI로 직관적 작성 및 단일 창을 통한 모니터링 및 관리를 지원합니다. 기존 SSIS 패키지를 Azure로 리프트 앤 시프트하고 ADF에서 완전한 호환성을 사용하여 실행할 수도 있습니다. SSIS Integration Runtime은 완전 관리형 서비스를 제공하므로 인프라 관리에 대해 걱정할 필요가 없습니다.
 metadata:
   title: Azure Data Factory 설명서
   description: 클라우드 데이터 통합 서비스인 Data Factory를 사용하여 자동화된 데이터 파이프라인에 데이터 스토리지, 이동 및 처리 서비스를 구성하는 방법에 대해 알아봅니다. 자습서 및 기타 설명서에서는 데이터 파이프라인을 설정하고 관리하는 방법 및 분석을 위해 데이터를 이동하고 변환하는 방법을 보여줍니다.
@@ -12,12 +12,12 @@ metadata:
   ms.author: maghan
   ms.date: 10/02/2019
   monikerRange: ''
-  ms.openlocfilehash: 570a549bc132b1126d904d52af3066e152687e72
-  ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+  ms.openlocfilehash: fc85ae8cc6dcb2d5d04a6cbd7f79eb03470a58fb
+  ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72554846"
+  ms.lasthandoff: 11/22/2019
+  ms.locfileid: "74321743"
 landingContent:
 - title: Azure Data Factory 정보
   linkLists:

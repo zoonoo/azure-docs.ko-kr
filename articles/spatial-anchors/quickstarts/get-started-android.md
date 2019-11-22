@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 40969362e339770f18374ff22af5b3fe63908e65
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 248b66a928d373678d3058be488e226ee51bbcae
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68845741"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092136"
 ---
 # <a name="quickstart-create-an-android-app-with-azure-spatial-anchors"></a>빠른 시작: Azure Spatial Anchors를 사용하여 Android 앱 만들기
 
@@ -38,7 +38,7 @@ ms.locfileid: "68845741"
   - NDK 샘플을 빌드하려면 Android Studio에 NDK 및 CMake 3.6 이상의 SDK Tools를 설치해야 합니다.
 - <a href="https://developer.android.com/studio/debug/dev-options" target="_blank">개발자 사용</a> 및 <a href="https://developers.google.com/ar/discover/supported-devices" target="_blank">ARCore 지원</a> Android 디바이스.
   - 컴퓨터가 Android 디바이스와 통신하려면 추가 디바이스 드라이버가 필요할 수 있습니다. 추가 정보 및 지침은 [여기](https://developer.android.com/studio/run/device.html)를 참조하세요.
-- 앱은 ARCore **1.8**을 대상으로 해야 합니다.
+- 앱은 ARCore **1.11.0**을 대상으로 해야 합니다.
 
 [!INCLUDE [Create Spatial Anchors resource](../../../includes/spatial-anchors-get-started-create-resource.md)]
 
@@ -52,7 +52,7 @@ ms.locfileid: "68845741"
 
 [!INCLUDE [Clone Sample Repo](../../../includes/spatial-anchors-clone-sample-repository.md)]
 
-[여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.8.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치합니다.
+[여기](https://raw.githubusercontent.com/google-ar/arcore-android-sdk/v1.11.0/libraries/include/arcore_c_api.h)에서 `arcore_c_api.h`를 다운로드하여 `Android\NDK\libraries\include`에 배치합니다.
 
 새로 복제된 리포지토리 내에서 다음 명령을 실행하여 하위 모듈를 초기화합니다.
 

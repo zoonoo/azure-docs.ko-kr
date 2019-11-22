@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure Blueprints 개요
+    - name: Azure Blueprints란?
       displayName: 'templates, policy, definition, assignment, rbac'
       href: overview.md
 - name: 빠른 시작

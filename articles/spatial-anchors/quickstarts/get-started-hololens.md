@@ -8,12 +8,12 @@ ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 94cae186cee099618772f53d2b820e12f20cad64
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 7069a3c8b266938e974d1b7130a349e0c9b66b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562410"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111818"
 ---
 # <a name="quickstart-create-a-hololens-app-with-azure-spatial-anchors-in-cwinrt-and-directx"></a>빠른 시작: C++/WinRT 및 DirectX로 Azure Spatial Anchors를 사용하여 HoloLens 앱 만들기
 
@@ -58,7 +58,7 @@ Visual Studio에서 `HoloLens\DirectX\SampleHoloLens.sln`을 엽니다.
 
 **솔루션 구성**을 **릴리스**로 변경하고 **솔루션 플랫폼**을 **x86**로 변경하고 배포 대상 옵션에서 **디바이스**를 선택합니다.
 
-HoloLens 2를 사용하는 경우 **x86** 대신 **ARM**을 **솔루션 플랫폼**으로 사용합니다.
+HoloLens 2를 사용하는 경우 **x86** 대신 **ARM64**을 **솔루션 플랫폼**으로 사용합니다.
 
 ![Visual Studio 구성](./media/get-started-hololens/visual-studio-configuration.png)
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: bc8b834e0dd128457910c46cc1a62382bbc28ee1
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 39a249fb75249505189e2af4872c3a3f61ebe2af
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721578"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133236"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작
 
@@ -56,14 +56,16 @@ az extension add --name spring-cloud
 
 1. 웹 브라우저에서 [Azure Portal의 Azure Spring Cloud에 대한 이 링크](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)를 엽니다.
 
-1. **Azure Spring Cloud**를 선택하여 개요 페이지로 이동합니다. **만들기** 단추를 선택하여 시작합니다.
-
-1. 다음 지침을 고려하여 양식을 작성합니다.
+1. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
     - 서비스 이름: 서비스 인스턴스의 이름을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
     - 구독: 이 리소스 대한 요금이 청구될 구독을 선택합니다.  이 구독이 Azure Spring Cloud의 허용 목록에 추가되었는지 확인합니다.
     - 리소스 그룹: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다.
     - 위치: 서비스 인스턴스에 대한 위치를 선택합니다. 현재 지원되는 위치는 미국 동부, 미국 서부 2, 서유럽 및 동남 아시아입니다.
-    
+
+1. **검토 + 만들기**를 클릭합니다.
+
+1. 사양을 확인하고 **만들기**를 클릭합니다.
+
 서비스를 배포하는 데 약 5분이 걸립니다.  배포되면 서비스 인스턴스에 대한 **개요** 페이지가 나타납니다.
 
 ## <a name="set-up-your-configuration-server"></a>구성 서버 설정
@@ -72,7 +74,7 @@ az extension add --name spring-cloud
 
 1. **기본 리포지토리** 섹션에서 **URI**를 "https\://github.com/Azure-Samples/piggymetrics"로 설정하고 **LABEL**을 "config"로 설정하고 **적용**을 선택하여 변경 내용을 저장합니다.
 
-    ![ASC 포털의 스크린샷](media/spring-cloud-tutorial-config-server/portal-config-server.png)
+    ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>마이크로서비스 애플리케이션 빌드 및 배포
 

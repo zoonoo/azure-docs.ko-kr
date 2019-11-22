@@ -1,5 +1,5 @@
 ---
-title: 사용 가능한 회의실 찾기 - Azure Digital Twins | Microsoft Docs
+title: '빠른 시작: 사용 가능한 회의실 찾기 - Azure Digital Twins'
 description: 이 빠른 시작에서는 시뮬레이션된 동작 및 이산화탄소 원격 분석 데이터를 Azure Digital Twins의 공간으로 보내는 두 개의 .NET Core 샘플 애플리케이션을 실행합니다. 클라우드에서 계산 처리 후 관리 API에서 공기가 깨끗한 사용 가능한 회의실을 찾는 것이 목적입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -9,13 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 10/03/2019
-ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.date: 11/12/2019
+ms.openlocfilehash: 44ef646328f5f55d16dfa2d6906b78866292ebd9
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958905"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123204"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>빠른 시작: Azure Digital Twins로 사용 가능한 회의실 찾기
 
@@ -59,6 +59,8 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
     - **테넌트**: 마찬가지로 이전 섹션에서 본 Azure AD 테넌트의 디렉터리 ID를 입력합니다.
     - **BaseUrl**: Digital Twins 인스턴스의 관리 API URL은 `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/` 형식입니다. 이 URL의 자리 표시자를 이전 섹션의 인스턴스 값으로 바꿉니다.
 
+    업데이트된 파일을 저장합니다.
+
 ## <a name="provision-graph"></a>그래프 프로비전
 
 이 단계에서는 Digital Twins 공간 그래프에 다음을 프로비전합니다.
@@ -81,23 +83,25 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 1. 프로비전 단계는 몇 분 정도 걸릴 수 있습니다. Digital Twins 인스턴스 내에 IoT Hub도 프로비전합니다. IoT Hub가 Status=`Running`으로 표시될 때까지 반복됩니다.
 
-    [![샘플 프로비저닝](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![샘플 프로비저닝 - 상태=실행 중](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
 1. 실행이 끝나면 디바이스 시뮬레이터 샘플에 사용할 수 있도록 디바이스의 `ConnectionString`을 복사합니다. 이 이미지에 설명된 문자열만 복사하세요.
 
-    [![연결 문자열 복사](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![연결 문자열 복사](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png)](media/quickstart-view-occupancy-dotnet/digital-twins-connection-string.png#lightbox)
 
     >[!TIP]
     > [Azure Digital Twins 그래프 뷰어](https://github.com/Azure/azure-digital-twins-graph-viewer)를 사용하여 공간 그래프를 보고 수정할 수 있습니다.
 
+나중에 다시 사용하기 위해 콘솔 창을 열어 둡니다.
+
 ## <a name="send-sensor-data"></a>센서 데이터 보내기
 
-다음 단계에 따라 센서 시뮬레이터 애플리케이션을 빌드하고 실행합니다.
+다음 단계에 따라 센서 시뮬레이터 디바이스 애플리케이션을 빌드하고 실행합니다.
 
-1. 새 명령 프롬프트를 엽니다. digital-twins-samples-csharp-master 폴더에 다운로드한 프로젝트로 이동합니다.
+1. 새 명령 프롬프트를 엽니다. `digital-twins-samples-csharp-master` 폴더에서 다운로드한 프로젝트로 이동합니다.
 1. `cd device-connectivity`을 실행합니다.
 1. `dotnet restore`을 실행합니다.
-1. [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json)을 편집하여 **DeviceConnectionString**을 위의 `ConnectionString`으로 업데이트합니다.
+1. [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json)을 편집하여 **DeviceConnectionString**을 위의 `ConnectionString`으로 업데이트합니다. 업데이트된 파일을 저장합니다.
 1. `dotnet run` 명령을 실행하여 센서 데이터 전송을 시작합니다. 다음 이미지처럼 센서 데이터가 Digital Twins로 전송되는 것이 보입니다.
 
      [![디바이스 연결](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
@@ -111,32 +115,32 @@ Azure Digital Twins 서비스를 사용하여 물리적 환경의 디지털 이�
 
 센서 샘플은 두 센서의 임의 데이터 값을 시뮬레이션합니다. 두 센서는 동작 및 이산화탄소 센서입니다. 이 샘플에서 말하는 공기가 깨끗한 가용 회의실이란 아무도 없고 이산화탄소 농도가 1,000ppm 미만인 회의실이라고 정의되어 있습니다. 조건이 충족되지 않으면 공간을 사용할 수 없거나 공기질이 좋지 않은 것입니다.
 
-1. 이전 프로비전 단계를 실행할 때 사용한 명령 프롬프트를 엽니다.
+1. 이전에 프로비전 단계를 실행할 때 사용한 명령 프롬프트를 엽니다.
 1. `dotnet run GetAvailableAndFreshSpaces`을 실행합니다.
 1. 이 명령 프롬프트와 센서 데이터 명령 프롬프트를 나란히 놓고 살펴봅니다.
 
-    한 명령 프롬프트가 5초마다 시뮬레이션된 동작 및 이산화탄소 데이터를 Digital Twins로 보냅니다. 다른 명령 프롬프트는 실시간으로 그래프를 읽고 임의의 시뮬레이션된 데이터를 기반으로 공기가 깨끗한 가용 회의실을 찾습니다. 마지막으로 전송된 센서 데이터를 기준으로 다음 조건 중 하나를 거의 실시간으로 표시합니다.
-   - 공기가 깨끗한 가용 회의실.
-   - 다른 사람이 사용 중이거나 공기질이 좋지 않음.
+    센서 데이터 명령 프롬프트가 5초마다 시뮬레이트된 동작 및 이산화탄소 데이터를 Digital Twins로 보냅니다. 다른 명령 프롬프트는 실시간으로 그래프를 읽고 임의의 시뮬레이트된 데이터를 기반으로 공기가 깨끗한 가용 회의실을 찾습니다. 마지막으로 전송된 센서 데이터를 기준으로 다음 조건 중 하나를 거의 실시간으로 표시합니다.
+   - `Room is available and air is fresh`
+   - `Room is not available or air quality is poor`
 
      [![공기가 깨끗한 가용 회의실 가져오기](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
-이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 digital-twins-samples-csharp에서 찾은 코드 작업 영역 프로젝트를 사용하여 [Visual Studio Code](https://code.visualstudio.com/Download)를 엽니다. 다음 명령을 사용합니다.
+이 빠른 시작에서 어떤 일이 발생했고 어떤 API가 호출되었는지 이해하려면 `digital-twins-samples-csharp`에서 찾은 코드 작업 영역 프로젝트를 사용하여 [Visual Studio Code](https://code.visualstudio.com/Download)를 엽니다. 다음 명령을 사용합니다.
 
-```plaintext
+```cmd
 <path>\occupancy-quickstart\src>code ..\..\digital-twins-samples.code-workspace
 ```
 
 이 자습서에서는 코드를 심층적으로 살펴봅니다. 구성 데이터를 수정하는 방법 및 어떤 API가 호출되는지 살펴봅니다. 관리 API에 대한 자세한 내용을 보려면 Digital Twins Swagger 페이지로 이동하세요.
 
-```plaintext
+```URL
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
 | Name | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Digital Twins 인스턴스의 이름 |
-| YOUR_LOCATION | 인스턴스를 호스팅하는 서버 지역 |
+| YOUR_LOCATION | 인스턴스를 호스트하는 서버 지역 |
 
 또는 간편하게 [Digital Twins Swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger)로 이동합니다.
 
@@ -153,11 +157,11 @@ https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. 그런 다음, Digital Twins 리소스를 선택합니다. **모든 리소스** 창의 위쪽에서 **삭제**를 선택합니다.
 
     > [!TIP]
-    > Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
+    > 이전에 Digital Twins 인스턴스를 삭제하는 데 문제가 있을 경우 픽스가 포함된 서비스 업데이트가 배포된 것입니다. 인스턴스 삭제를 다시 시도해 보세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 간단한 시나리오를 사용하여 작업 조건이 양호한 회의실을 찾을 방법을 보여주었습니다. 이 시나리오에 대한 자세한 분석 내용은 다음 자습서를 참조하세요.
+이 빠른 시작에서는 간단한 시나리오와 샘플 애플리케이션을 사용하여 Digital Twins로 좋은 작업 조건의 방을 찾는 방법을 보여 줍니다. 이 시나리오에 대한 자세한 분석 내용은 다음 자습서를 참조하세요.
 
 >[!div class="nextstepaction"]
 >[자습서: Azure Digital Twins 배포 및 공간 그래프 구성](tutorial-facilities-setup.md)

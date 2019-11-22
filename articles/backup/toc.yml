@@ -168,6 +168,12 @@
               href: backup-azure-vms-encryption.md
             - name: 암호화된 VM의 키 및 비밀 복원
               href: backup-azure-restore-key-secret.md
+    - name: Recovery Services 자격 증명 모음용 진단 이벤트
+      items:
+        - name: Recovery Services 자격 증명 모음용 진단 설정 사용
+          href: backup-azure-diagnostic-events.md
+        - name: 리소스 관련 진단 이벤트에 대한 Log Analytics 데이터 모델
+          href: backup-azure-log-analytics-new-data-model.md
     - name: Azure Backup 보고서 구성
       items:
         - name: Azure Backup 보고서 구성

@@ -1,21 +1,22 @@
 ---
-title: '빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure PowerShell | Microsoft Docs'
+title: '빠른 시작: PowerShell을 사용하여 웹 트래픽 보내기'
+titleSuffix: Azure Application Gateway
 description: Azure PowerShell을 사용하여 백 엔드 풀의 가상 머신에 웹 트래픽을 보내는 Azure Application Gateway를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 07/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a55f602833cacd27cd82adafd888c67c544564c2
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: d5b0ebc2d1b64dd4be677c38de30af7f7a954637
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359983"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075094"
 ---
-# <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-powershell"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure PowerShell
+# <a name="quickstart-direct-web-traffic-with-azure-application-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure Application Gateway를 통해 웹 트래픽 보내기
 
 이 빠른 시작에서는 Azure PowerShell을 사용하여 애플리케이션 게이트웨이를 신속하게 만드는 방법을 보여줍니다.  Application Gateway를 만든 후 올바르게 작동하는지 테스트합니다. Azure Application Gateway를 통해 수신기를 포트에 할당하고, 규칙을 만들고, 백 엔드 풀에 리소스를 추가하여 애플리케이션 웹 트래픽을 특정 리소스로 보냅니다. 간단히 나타내기 위해 이 문서에서는 공용 프런트 엔드 IP 1개, 이 Application Gateway에 단일 사이트를 호스트하는 기본 수신기 1개, 백 엔드 풀에 사용되는 가상 머신 2개, 기본 요청 라우팅 규칙 1개를 이용한 간단한 설정을 사용합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 사용자 지정 음성 도우미(미리 보기), Java(Windows, Linux) - Speech Service'
+title: '빠른 시작: Java용 사용자 지정 음성 도우미(Windows, Linux) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Java 콘솔 애플리케이션에서 Cognitive Services Speech SDK를 사용하는 방법을 알아봅니다. 이전에 Direct Line Speech 채널을 사용하고 음성 도우미 환경을 사용하도록 만들고 구성한 Bot Framework 봇에 애플리케이션을 연결하는 방법을 알아봅니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 2fbe2e38ae1f41c2559b5ef5c6f66d19f3c41dae
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500799"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111701"
 ---
-# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java"></a>빠른 시작: Speech SDK를 사용하여 음성 도우미 만들기, Java
+# <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>빠른 시작: Speech SDK를 사용하여 음성 도우미 만들기, Java(미리 보기)
 
 이 빠른 시작은 [음성을 텍스트로](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java&tabs=jre), [텍스트 음성 변환](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-java&tabs=jre) 및 [음성 번역](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre)에도 사용할 수 있습니다.
 
@@ -27,24 +27,25 @@ ms.locfileid: "73500799"
 
 이 빠른 시작에는 다음이 필요합니다.
 
-* 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
-* [Eclipse Java IDE](https://www.eclipse.org/downloads/)
-* [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
-* Bot Framework 버전 4.2 이상을 사용하여 만든 미리 구성된 봇. 봇은 음성 입력을 수신할 수 있도록 새로운 "Direct Line Speech" 채널을 구독해야 합니다.
+- 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
+- [Eclipse Java IDE](https://www.eclipse.org/downloads/)
+- [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+- Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
+- Bot Framework 버전 4.2 이상을 사용하여 만든 미리 구성된 봇. 봇은 음성 입력을 수신할 수 있도록 새로운 "Direct Line Speech" 채널을 구독해야 합니다.
 
-    > [!NOTE]
-    > [음성 도우미에 대한 지원되는 지역 목록](regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
+  > [!NOTE]
+  > [음성 도우미에 대한 지원되는 지역 목록](regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
 Ubuntu 16.04/18.04를 실행하는 경우 Eclipse를 시작하기 전에 다음과 같은 종속 요소가 설치되어 있는지 확인합니다.
 
-```console
+```sh
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2 wget
 ```
 
 Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C++ 재배포 가능 패키지가 설치되어 있는지 확인합니다.
-* [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지 다운로드](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
+
+- [Visual Studio 2017용 Microsoft Visual C++ 재배포 가능 패키지 다운로드](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
 
 ## <a name="optional-get-started-fast"></a>선택 사항: 빠른 시작
 
@@ -54,177 +55,176 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-또한 로깅을 사용하려면 다음 종속성을 포함하도록 *pom.xml* 파일을 업데이트합니다.
+또한 로깅을 사용하려면 다음 종속성을 포함하도록 _pom.xml_ 파일을 업데이트합니다.
 
-   ```xml
-    <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-simple</artifactId>
-        <version>1.7.5</version>
-    </dependency>
-   ```
+```xml
+ <dependency>
+     <groupId>org.slf4j</groupId>
+     <artifactId>slf4j-simple</artifactId>
+     <version>1.7.5</version>
+ </dependency>
+```
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
 1. Java 프로젝트에 새로운 빈 클래스를 추가하려면 **파일** > **새로 만들기** > **클래스**를 선택합니다.
 
-1. **새 Java 클래스** 창에서, **패키지** 필드에 *speechsdk.quickstart*를 입력하고, **이름** 필드에 *기본*을 입력합니다.
+1. **새 Java 클래스** 창에서, **패키지** 필드에 _speechsdk.quickstart_를 입력하고, **이름** 필드에 _기본_을 입력합니다.
 
    ![새 Java 클래스 창의 스크린샷](media/sdk/qs-java-jre-06-create-main-java.png)
 
 1. 새로 만든 `Main` 클래스를 열고 `Main.java` 파일의 내용을 다음 시작 코드로 바꿉니다.
 
-    ```java
-    package speechsdk.quickstart;
+   ```java
+   package speechsdk.quickstart;
 
-    import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
-    import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
-    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
-    import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
-    import org.slf4j.Logger;
-    import org.slf4j.LoggerFactory;
+   import com.microsoft.cognitiveservices.speech.audio.AudioConfig;
+   import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
+   import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConfig;
+   import com.microsoft.cognitiveservices.speech.dialog.DialogServiceConnector;
+   import org.slf4j.Logger;
+   import org.slf4j.LoggerFactory;
 
-    import javax.sound.sampled.AudioFormat;
-    import javax.sound.sampled.AudioSystem;
-    import javax.sound.sampled.DataLine;
-    import javax.sound.sampled.SourceDataLine;
-    import java.io.InputStream;
+   import javax.sound.sampled.AudioFormat;
+   import javax.sound.sampled.AudioSystem;
+   import javax.sound.sampled.DataLine;
+   import javax.sound.sampled.SourceDataLine;
+   import java.io.InputStream;
 
-    public class Main {
-        final Logger log = LoggerFactory.getLogger(Main.class);
+   public class Main {
+       final Logger log = LoggerFactory.getLogger(Main.class);
 
-        public static void main(String[] args) {
-            // New code will go here
-        }
+       public static void main(String[] args) {
+           // New code will go here
+       }
 
-        private void playAudioStream(PullAudioOutputStream audio) {
-            ActivityAudioStream stream = new ActivityAudioStream(audio);
-            final ActivityAudioStream.ActivityAudioFormat audioFormat = stream.getActivityAudioFormat();
-            final AudioFormat format = new AudioFormat(
-                    AudioFormat.Encoding.PCM_SIGNED,
-                    audioFormat.getSamplesPerSecond(),
-                    audioFormat.getBitsPerSample(),
-                    audioFormat.getChannels(),
-                    audioFormat.getFrameSize(),
-                    audioFormat.getSamplesPerSecond(),
-                    false);
-            try {
-                int bufferSize = format.getFrameSize();
-                final byte[] data = new byte[bufferSize];
+       private void playAudioStream(PullAudioOutputStream audio) {
+           ActivityAudioStream stream = new ActivityAudioStream(audio);
+           final ActivityAudioStream.ActivityAudioFormat audioFormat = stream.getActivityAudioFormat();
+           final AudioFormat format = new AudioFormat(
+                   AudioFormat.Encoding.PCM_SIGNED,
+                   audioFormat.getSamplesPerSecond(),
+                   audioFormat.getBitsPerSample(),
+                   audioFormat.getChannels(),
+                   audioFormat.getFrameSize(),
+                   audioFormat.getSamplesPerSecond(),
+                   false);
+           try {
+               int bufferSize = format.getFrameSize();
+               final byte[] data = new byte[bufferSize];
 
-                SourceDataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
-                SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
-                line.open(format);
+               SourceDataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
+               SourceDataLine line = (SourceDataLine) AudioSystem.getLine(info);
+               line.open(format);
 
-                if (line != null) {
-                    line.start();
-                    int nBytesRead = 0;
-                    while (nBytesRead != -1) {
-                        nBytesRead = stream.read(data);
-                        if (nBytesRead != -1) {
-                            line.write(data, 0, nBytesRead);
-                        }
-                    }
-                    line.drain();
-                    line.stop();
-                    line.close();
-                }
-                stream.close();
+               if (line != null) {
+                   line.start();
+                   int nBytesRead = 0;
+                   while (nBytesRead != -1) {
+                       nBytesRead = stream.read(data);
+                       if (nBytesRead != -1) {
+                           line.write(data, 0, nBytesRead);
+                       }
+                   }
+                   line.drain();
+                   line.stop();
+                   line.close();
+               }
+               stream.close();
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
+           } catch (Exception e) {
+               e.printStackTrace();
+           }
+       }
 
-    }
-    ```
+   }
+   ```
 
 1. `main` 메서드에서는 먼저 `DialogServiceConfig`를 구성하고 `DialogServiceConnector` 인스턴스를 만드는 데 사용할 것입니다. 이 인스턴스는 Direct Line Speech 채널에 연결하여 봇과 상호 작용하게 됩니다. `AudioConfig` 인스턴스는 오디오 입력의 소스를 지정할 때도 사용됩니다. 이 예제에서는 `AudioConfig.fromDefaultMicrophoneInput()`을 통해 기본 마이크를 사용합니다.
 
-    * `YourSubscriptionKey` 문자열을 해당 구독 키로 바꿉니다. 구독 키는 [이 웹 사이트](get-started.md)에서 얻을 수 있습니다.
-    * `YourServiceRegion` 문자열을 구독과 연결된 [Azure 지역](regions.md)으로 바꿉니다.
+   - `YourSubscriptionKey` 문자열을 해당 구독 키로 바꿉니다. 구독 키는 [이 웹 사이트](get-started.md)에서 얻을 수 있습니다.
+   - `YourServiceRegion` 문자열을 구독과 연결된 [Azure 지역](regions.md)으로 바꿉니다.
 
-    > [!NOTE]
-    > [음성 도우미에 대한 지원되는 지역 목록](regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
+   > [!NOTE]
+   > [음성 도우미에 대한 지원되는 지역 목록](regions.md#voice-assistants)을 참조하고 리소스가 해당 지역 중 하나에 배포되었는지 확인합니다.
 
-    ```java
-    final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
-    final String region = "YourServiceRegion"; // Your speech subscription service region
-    final BotFrameworkConfig botConfig = BotFrameworkConfig.fromSubscription(subscriptionKey, region);
+   ```java
+   final String subscriptionKey = "YourSubscriptionKey"; // Your subscription key
+   final String region = "YourServiceRegion"; // Your speech subscription service region
+   final BotFrameworkConfig botConfig = BotFrameworkConfig.fromSubscription(subscriptionKey, region);
 
-    // Configure audio input from a microphone.
-    final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+   // Configure audio input from a microphone.
+   final AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
 
-    // Create a DialogServiceConnector instance.
-    final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
-    ```
+   // Create a DialogServiceConnector instance.
+   final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
+   ```
 
 1. `DialogServiceConnector` 커넥터는 여러 이벤트를 사용하여 봇 작업, 음성 인식 결과 및 기타 정보를 전달합니다. 그 후에는 다음 이벤트 수신기를 추가합니다.
 
-    ```java
-    // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
-    connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
-        log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
-    });
+   ```java
+   // Recognizing will provide the intermediate recognized text while an audio stream is being processed.
+   connector.recognizing.addEventListener((o, speechRecognitionResultEventArgs) -> {
+       log.info("Recognizing speech event text: {}", speechRecognitionResultEventArgs.getResult().getText());
+   });
 
-    // Recognized will provide the final recognized text once audio capture is completed.
-    connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
-        log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
-    });
+   // Recognized will provide the final recognized text once audio capture is completed.
+   connector.recognized.addEventListener((o, speechRecognitionResultEventArgs) -> {
+       log.info("Recognized speech event reason text: {}", speechRecognitionResultEventArgs.getResult().getText());
+   });
 
-    // SessionStarted will notify when audio begins flowing to the service for a turn.
-    connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
-        log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
-    });
+   // SessionStarted will notify when audio begins flowing to the service for a turn.
+   connector.sessionStarted.addEventListener((o, sessionEventArgs) -> {
+       log.info("Session Started event id: {} ", sessionEventArgs.getSessionId());
+   });
 
-    // SessionStopped will notify when a turn is complete and it's safe to begin listening again.
-    connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
-        log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
-    });
+   // SessionStopped will notify when a turn is complete and it's safe to begin listening again.
+   connector.sessionStopped.addEventListener((o, sessionEventArgs) -> {
+       log.info("Session stopped event id: {}", sessionEventArgs.getSessionId());
+   });
 
-    // Canceled will be signaled when a turn is aborted or experiences an error condition.
-    connector.canceled.addEventListener((o, canceledEventArgs) -> {
-        log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
-        connector.disconnectAsync();
-    });
+   // Canceled will be signaled when a turn is aborted or experiences an error condition.
+   connector.canceled.addEventListener((o, canceledEventArgs) -> {
+       log.info("Canceled event details: {}", canceledEventArgs.getErrorDetails());
+       connector.disconnectAsync();
+   });
 
-    // ActivityReceived is the main way your bot will communicate with the client and uses Bot Framework activities.
-    connector.activityReceived.addEventListener((o, activityEventArgs) -> {
-        final String act = activityEventArgs.getActivity().serialize();
-            log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
-            if (activityEventArgs.hasAudio()) {
-                playAudioStream(activityEventArgs.getAudio());
-            }
-        });
-    ```
+   // ActivityReceived is the main way your bot will communicate with the client and uses Bot Framework activities.
+   connector.activityReceived.addEventListener((o, activityEventArgs) -> {
+       final String act = activityEventArgs.getActivity().serialize();
+           log.info("Received activity {} audio", activityEventArgs.hasAudio() ? "with" : "without");
+           if (activityEventArgs.hasAudio()) {
+               playAudioStream(activityEventArgs.getAudio());
+           }
+       });
+   ```
 
 1. `connectAsync()` 메서드를 호출하여 `DialogServiceConnector`를 Direct Line Speech에 연결합니다. 봇을 테스트하려면 `listenOnceAsync` 메서드를 호출하여 마이크로 오디오 입력을 보내면 됩니다. `sendActivityAsync` 메서드를 사용하여 사용자 지정 작업을 직렬화된 문자열로 보낼 수도 있습니다. 이러한 사용자 지정 작업은 봇이 대화에 사용하는 추가 데이터를 제공할 수 있습니다.
 
-    ```java
-    connector.connectAsync();
-    // Start listening.
-    System.out.println("Say something ...");
-    connector.listenOnceAsync();
+   ```java
+   connector.connectAsync();
+   // Start listening.
+   System.out.println("Say something ...");
+   connector.listenOnceAsync();
 
-    // connector.sendActivityAsync(...)
-    ```
+   // connector.sendActivityAsync(...)
+   ```
 
 1. 변경 내용을 `Main` 파일에 저장합니다.
 
 1. 응답 재생을 지원할 수 있도록 getAudio() API에서 반환된 PullAudioOutputStream 개체를 java InputStream으로 변환하는 추가 클래스를 추가합니다. 이 `ActivityAudioStream`은 Direct Line Speech 채널의 오디오 응답을 처리하는 특수 클래스입니다. 재생 처리에 필요한 오디오 형식 정보를 가져오는 접근자를 제공합니다. 이 경우 **파일** > **새로 만들기** > **클래스**를 차례로 선택합니다.
 
-1. **새 Java 클래스** 창에서 **패키지** 필드에는 *speechsdk.quickstart*를 입력하고, **이름** 필드에는 *ActivityAudioStream*을 입력합니다.
+1. **새 Java 클래스** 창에서 **패키지** 필드에는 _speechsdk.quickstart_를 입력하고, **이름** 필드에는 _ActivityAudioStream_을 입력합니다.
 
 1. 새로 만든 `ActivityAudioStream` 클래스를 열고, 내용을 다음 코드로 바꿉니다.
 
-    ```java
-    package com.speechsdk.quickstart;
+   ```java
+   package com.speechsdk.quickstart;
 
-    import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
+   import com.microsoft.cognitiveservices.speech.audio.PullAudioOutputStream;
 
-    import java.io.IOException;
-    import java.io.InputStream;
-
+   import java.io.IOException;
+   import java.io.InputStream;
 
     public final class ActivityAudioStream extends InputStream {
         /**
@@ -455,7 +455,7 @@ Windows(64비트)를 실행하는 경우 플랫폼에 맞는 Microsoft Visual C+
         }
     }
 
-    ```
+   ```
 
 1. 변경 내용을 `ActivityAudioStream` 파일에 저장합니다.
 

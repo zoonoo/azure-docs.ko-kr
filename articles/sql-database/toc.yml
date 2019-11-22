@@ -526,7 +526,7 @@
               href: sql-database-elastic-pool-manage.md
         - name: 데이터베이스 서버 리소스
           items:
-            - name: 데이터베이스 서버 리소스 제한
+            - name: Database 리소스 제한
               href: sql-database-resource-limits-database-server.md
             - name: 연결 아키텍처
               href: sql-database-connectivity-architecture.md

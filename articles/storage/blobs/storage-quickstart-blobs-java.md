@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: a7cd61854176dc702f213211b14c2361b3e433ad
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5196dbbfb52ce75031a53764b371d6d34b43fba7
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825355"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091409"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -201,11 +201,11 @@ Azure Blob Storage는 대량의 비정형 데이터를 저장하도록 최적화
 
 다음 Java 클래스를 사용하여 이러한 리소스와 상호 작용합니다.
 
-* [BlobServiceClient](/java/api/com.azure.storage.blob.blobserviceclient): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다. 스토리지 계정은 Blob Service에 대한 최상위 네임스페이스를 제공합니다.
-* [BlobServiceClientBuilder](/java/api/com.azure.storage.blob.blobserviceclientbuilder): `BlobServiceClientBuilder` 클래스는 `BlobServiceClient` 개체의 구성과 인스턴스화를 지원하기 위한 뛰어난 작성기 API를 제공합니다.
-* [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
-* [BlobClient](/java/api/com.azure.storage.blob.blobclient): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
-* [BlobItem](/java/api/com.azure.storage.blob.blobitem): `BlobItem` 클래스는 `listBlobsFlat` 호출에서 반환된 개별 blob을 나타냅니다.
+* [BlobServiceClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClient.html): `BlobServiceClient` 클래스를 사용하여 Azure Storage 리소스 및 blob 컨테이너를 조작할 수 있습니다. 스토리지 계정은 Blob Service에 대한 최상위 네임스페이스를 제공합니다.
+* [BlobServiceClientBuilder](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobServiceClientBuilder.html): `BlobServiceClientBuilder` 클래스는 `BlobServiceClient` 개체의 구성과 인스턴스화를 지원하기 위한 뛰어난 작성기 API를 제공합니다.
+* [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html): `BlobContainerClient` 클래스를 사용하여 Azure Storage 컨테이너 및 해당 blob을 조작할 수 있습니다.
+* [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html): `BlobClient` 클래스를 사용하여 Azure Storage blob을 조작할 수 있습니다.
+* [BlobItem](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/models/BlobItem.html): `BlobItem` 클래스는 `listBlobsFlat` 호출에서 반환된 개별 blob을 나타냅니다.
 
 ## <a name="code-examples"></a>코드 예제
 
@@ -243,7 +243,7 @@ String connectStr = System.getenv("CONNECT_STR");
 > [!IMPORTANT]
 > 컨테이너 이름은 소문자여야 합니다. 컨테이너 및 Blob 이름 지정에 대한 자세한 내용은 [컨테이너, Blob, 메타데이터 이름 지정 및 참조](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata)를 참조하세요.
 
-그런 다음, [BlobContainerClient](/java/api/com.azure.storage.blob.blobcontainerclient) 클래스의 인스턴스를 만들고, [create](/java/api/com.azure.storage.blob.blobcontainerclient.create) 메서드를 호출하여 스토리지 계정에 컨테이너를 실제로 만듭니다.
+그런 다음, [BlobContainerClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html) 클래스의 인스턴스를 만들고, [create](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#create--) 메서드를 호출하여 스토리지 계정에 컨테이너를 실제로 만듭니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -263,8 +263,8 @@ BlobContainerClient containerClient = blobServiceClient.createBlobContainer(cont
 다음 코드 조각을 실행합니다.
 
 1. 로컬 *data* 디렉터리에 텍스트 파일을 만듭니다.
-1. [컨테이너 만들기](#create-a-container) 섹션에서 컨테이너에 대해 [getBlobClient](/java/api/com.azure.storage.blob.blobcontainerclient.getblobclient) 메서드를 호출하여 [BlobClient](/java/api/com.azure.storage.blob.blobclient) 개체에 대한 참조를 가져옵니다.
-1. [uploadFromFile](/java/api/com.azure.storage.blob.blobclient.uploadfromfile) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+1. [컨테이너 만들기](#create-a-container) 섹션에서 컨테이너에 대해 [getBlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#getBlobClient-java.lang.String-) 메서드를 호출하여 [BlobClient](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html) 개체에 대한 참조를 가져옵니다.
+1. [uploadFromFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobClient.html#uploadFromFile-java.lang.String-) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -290,7 +290,7 @@ blobClient.uploadFromFile(localPath + fileName);
 
 ### <a name="list-the-blobs-in-a-container"></a>컨테이너의 Blob 나열
 
-[listBlobsFlat](/java/api/com.azure.storage.blob.blobcontainerclient.listblobsflat) 메서드를 호출하여 컨테이너의 blob을 나열합니다. 이 경우 하나의 Blob만 컨테이너에 추가되었으므로 나열된 작업은 하나의 해당 Blob만 반환합니다.
+[listBlobs](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#listBlobs--) 메서드를 호출하여 컨테이너의 blob을 나열합니다. 이 경우 하나의 Blob만 컨테이너에 추가되었으므로 나열된 작업은 하나의 해당 Blob만 반환합니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -305,7 +305,7 @@ for (BlobItem blobItem : containerClient.listBlobs()) {
 
 ### <a name="download-blobs"></a>Blob 다운로드
 
-[downloadToFile](/java/api/com.azure.storage.blob.blobclient.downloadtofile) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 파일 이름에 "DOWNLOAD" 접미사를 추가합니다.
+[downloadToFile](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/specialized/BlobClientBase.html#downloadToFile-java.lang.String-) 메서드를 호출하여 이전에 만든 blob을 다운로드합니다. 예제 코드는 로컬 파일 시스템에서 두 파일을 볼 수 있도록 파일 이름에 "DOWNLOAD" 접미사를 추가합니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -322,7 +322,7 @@ blobClient.downloadToFile(localPath + downloadFileName);
 
 ### <a name="delete-a-container"></a>컨테이너 삭제
 
-다음 코드는 [delete](/java/api/com.azure.storage.blob.blobcontainerclient.delete) 메서드로 전체 컨테이너를 제거하여 앱이 만든 리소스를 정리합니다. 또한 앱에서 만든 로컬 파일도 삭제합니다.
+다음 코드는 [delete](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-blob/12.0.0/com/azure/storage/blob/BlobContainerClient.html#delete--) 메서드로 전체 컨테이너를 제거하여 앱이 만든 리소스를 정리합니다. 또한 앱에서 만든 로컬 파일도 삭제합니다.
 
 앱은 blob, 컨테이너 및 로컬 파일을 삭제하기 전에 `System.console().readLine()`을 호출하여 사용자 입력을 일시 중지합니다. 리소스를 삭제하기 전에 실제로 올바르게 만들어졌는지 확인하는 것이 좋습니다.
 

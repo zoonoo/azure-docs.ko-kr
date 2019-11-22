@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/29/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 578f7a01c22bd5aafd4e4ac08c9f5ab78e340a34
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 148d0c203248e4dcde5baaadc596d56e8b8ea17a
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606520"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73669390"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-server"></a>실행 중인 팀 데이터 과학 프로세스: SQL Server 사용
 이 자습서에서는 SQL Server 및 공개적으로 사용할 수 있는 데이터 세트([NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트)를 사용하여 Machine Learning 모델의 배포 및 빌드 처리를 연습합니다. 이 절차는 표준 데이터 과학 워크플로를 따릅니다. 데이터를 수집 및 탐색하고 학습이 용이하도록 기능을 엔지니어링한 후 모델을 빌드 및 배포합니다.
@@ -87,7 +87,7 @@ Azure 데이터 과학 환경을 설정하려면
 AzCopy를 사용하여 데이터를 복사하려면
 
 1. VM(가상 컴퓨터)에 로그인합니다.
-2. VM의 데이터 디스크에 새 디렉터리를 만듭니다.(참고: 데이터 디스크로 VM과 함께 제공되는 임시 디스크를 사용하지 마세요.)
+2. VM의 데이터 디스크에서 새 디렉터리를 만듭니다(참고: VM과 함께 제공되는 임시 디스크를 데이터 디스크로 사용하지 마세요.
 3. 명령 프롬프트 창에서 <path_to_data_folder>를 (2)에서 만든 데이터 폴더로 바꿔 다음 Azcopy 명령줄을 실행합니다.
    
         "C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy" /Source:https://nyctaxitrips.blob.core.windows.net/data /Dest:<path_to_data_folder> /S
@@ -96,13 +96,13 @@ AzCopy를 사용하여 데이터를 복사하려면
 4. 다운로드한 파일의 압축을 풉니다. 압축을 푼 파일이 있는 폴더를 적어 둡니다. 이 폴더를 <path\_to\_data\_files\>라고 합니다.
 
 ## <a name="dbload"></a>SQL Server 데이터베이스로 대량 데이터 가져오기
-*분할된 테이블 및 뷰*를 사용하여 대량의 데이터를 SQL Database로 로드/전송하고 이후에 쿼리하는 성능을 개선할 수 있습니다. 이 섹션에서는 [SQL 파티션 테이블을 사용하여 병렬로 대량 데이터 가져오기](parallel-load-sql-partitioned-tables.md) 에 설명된 지침에 따라 새 데이터베이스를 만들고 데이터를 분할된 테이블로 병렬로 로드합니다.
+*분할된 테이블 및 뷰*를 사용하여 대량의 데이터를 SQL 데이터베이스로 로드/전송하고 이후에 쿼리하는 성능을 개선할 수 있습니다. 이 섹션에서는 [SQL 파티션 테이블을 사용하여 병렬로 대량 데이터 가져오기](parallel-load-sql-partitioned-tables.md) 에 설명된 지침에 따라 새 데이터베이스를 만들고 데이터를 분할된 테이블로 병렬로 로드합니다.
 
 1. VM에 로그인한 상태로 **SQL Server Management Studio**를 시작합니다.
 2. Windows 인증을 사용하여 연결
    
     ![SSMS 연결][12]
-3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts** 폴더에서 **change\_auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행** 을 클릭하여 스크립트를 실행합니다.
+3. SQL Server 인증 모드를 변경하여 새 SQL 로그인 사용자를 만드는 작업을 아직 수행하지 않은 경우 **Sample Scripts\_ 폴더에서** change**auth.sql**이라는 스크립트 파일을 엽니다. 기본 사용자 이름 및 암호를 변경합니다. 도구 모음에서 **!실행** 을 클릭하여 스크립트를 실행합니다.
    
     ![스크립트 실행][13]
 4. SQL Server 기본 데이터베이스 및 로그 폴더를 확인하거나 변경하여 새로 만든 데이터베이스가 데이터 디스크에 저장되도록 합니다. 데이터 웨어하우징 로드에 최적화된 SQL Server VM 이미지는 데이터 및 로그 디스크로 미리 구성됩니다. VM에 데이터 디스크가 포함되지 않은 상태에서 VM 설정 프로세스 중에 새 가상 하드 디스크를 추가한 경우 다음과 같이 기본 폴더를 변경합니다.
@@ -132,7 +132,7 @@ AzCopy를 사용하여 데이터를 복사하려면
    
     인증 모드를 선택할 수도 있습니다. 기본값은 Windows 인증입니다. 도구 모음에서 녹색 화살표를 클릭하여 실행합니다. 스크립트는 분할된 테이블에 대해 12개씩 24개의 대량 가져오기 작업을 시작합니다. 위에 설정된 대로 SQL Server 기본 데이터 폴더를 열어 데이터 가져오기 진행률을 모니터링할 수 있습니다.
 9. PowerShell 스크립트는 시작 및 종료 시간을 보고합니다. 모든 대량 가져오기가 완료되면 종료 시간이 보고됩니다. 대상 로그 폴더를 확인하여 대량 가져오기에 성공했는지, 즉 대상 로그 폴더에 보고된 오류가 없는지 확인합니다.
-10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE** 절에 **pickup\_datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
+10. 이제 데이터베이스에서 탐색, 기능 엔지니어링 및 필요에 따라 다른 작업을 수행할 준비가 완료되었습니다. 테이블은 **pickup\_datetime** 필드에 따라 분할되어 있으므로 **WHERE\_ 절에** pickup**datetime** 조건이 포함된 쿼리에서 파티션 구성테이블을 활용합니다.
 11. **SQL Server Management Studio**에서 제공된 샘플 스크립트인 **sample\_queries.sql**을 탐색합니다. 샘플 쿼리를 실행하려면 쿼리 줄을 강조 표시한 다음 도구 모음에서 **!실행** 을 클릭합니다.
 12. NYC Taxi Trips 데이터가 별도 두 테이블에 로드됩니다. 조인 작업을 향상시키려면 테이블을 인덱싱하는 것이 좋습니다. 샘플 스크립트 **create\_partitioned\_index.sql**은 복합 조인 키 **medallion, hack\_license 및 pickup\_datetime**에 대한 분할된 인덱스를 만듭니다.
 
@@ -150,8 +150,8 @@ AzCopy를 사용하여 데이터를 복사하려면
 
 Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
 
-1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 또는
-2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 데이터베이스 테이블에 유지하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다.
+1. 최종 SQL 쿼리를 저장 하 여 데이터를 추출 및 샘플링 하 고 쿼리를 복사 하 여 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 직접 붙여 넣습니다. 또는
+2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링 된 데이터를 새 데이터베이스 테이블에 유지 하 고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용 합니다.
 
 이 섹션에서는 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장합니다. 두 번째 방법은 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어](#ipnb) 섹션에 설명되어 있습니다.
 
@@ -191,7 +191,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     OR    (pickup_longitude = '0' AND pickup_latitude = '0')
     OR    (dropoff_longitude = '0' AND dropoff_latitude = '0'))
 
-#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 vs. 비왕복 여정 분포
+#### <a name="exploration-tipped-vs-not-tipped-trips-distribution"></a>탐색: 왕복 여정과 비왕복 여정 분포
 이 예제에서는 지정된 기간 동안(또는 전체 연도를 포괄하는 경우 전체 데이터 세트에서) 왕복 여정 수와 비왕복 여정 수를 확인합니다. 이 분포는 나중에 이진 분류 모델링에 사용할 이진 레이블 분포를 반영합니다.
 
     SELECT tipped, COUNT(*) AS tip_freq FROM (
@@ -233,7 +233,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 레이블 생성 및 지리 변환 탐색 쿼리는 계산 부분을 제거하여 레이블/기능을 생성하는 데에도 사용될 수 있습니다. 추가적인 기능 엔지니어링 SQL 예제는 [IPython Notebook에서 데이터 탐색 및 기능 엔지니어링](#ipnb) 섹션에서 제공됩니다. SQL Server 데이터베이스 인스턴스에서 직접 실행되는 SQL 쿼리를 사용하여 전체 데이터 세트 또는 전체 데이터 세트의 큰 하위 집합에서 기능 생성 쿼리를 실행하는 것이 보다 효율적입니다. **SQL Server Management Studio**, IPython Notebook 또는 로컬이나 원격으로 데이터베이스에 액세스할 수 있는 모든 개발 도구/환경에서 쿼리를 실행할 수 있습니다.
 
 #### <a name="preparing-data-for-model-building"></a>모델 빌드를 위한 데이터 준비
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 1% 무작위 샘플을 추출합니다. Azure의 SQL Server 데이터베이스 인스턴스에서 데이터를 직접 수집하기 위해 이 쿼리를 복사한 다음 [Azure Machine Learning Studio](https://studio.azureml.net)[데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 1% 무작위 샘플을 추출합니다. 이 쿼리를 복사한 다음 Azure의 SQL Server 데이터베이스 인스턴스에서 직접 데이터를 수집 하기 위해 [Azure Machine Learning Studio](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -264,8 +264,8 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 수 있습니다.  
 
-1. 데이터를 추출 및 샘플링할 최종 SQL 쿼리를 저장하고 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 쿼리를 직접 복사하여 붙여 넣습니다. 이 방법은 [Azure Machine Learning에서 모델 빌드](#mlmodel) 섹션에 설명되어 있습니다.    
-2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링된 데이터를 새 데이터베이스 테이블에 유지한 다음 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용합니다.
+1. 최종 SQL 쿼리를 저장 하 여 데이터를 추출 및 샘플링 하 고 쿼리를 복사 하 여 Azure Machine Learning의 [데이터 가져오기][import-data] 모듈에 직접 붙여 넣습니다. 이 방법은 [Azure Machine Learning에서 모델 빌드](#mlmodel) 섹션에 설명되어 있습니다.    
+2. 모델을 빌드하는 데 사용할 샘플링 및 엔지니어링 된 데이터를 새 데이터베이스 테이블에 유지 한 다음 [데이터 가져오기][import-data] 모듈에서 새 테이블을 사용 합니다.
 
 다음은 데이터 탐색, 데이터 시각화 및 기능 엔지니어링에 대한 몇 가지 예제입니다. 더 많은 예제는 **Sample IPython Notebooks** 폴더에 있는 샘플 SQL IPython Notebook을 참조하세요.
 
@@ -344,7 +344,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 ![그릴 #2][2]
 
-#### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 또는 꺾은선형 그림
+#### <a name="visualization-bar-and-line-plots"></a>시각화: 가로 막대형 및 꺾은선형 차트
 이 예에서는 여정 거리를 5개의 bin으로 범주화하고 범주화 결과를 시각화합니다.
 
     trip_dist_bins = [0, 1, 2, 4, 10, 1000]
@@ -376,7 +376,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 ![그릴 #8][8]
 
 ### <a name="sub-sampling-the-data-in-sql"></a>SQL에서 데이터 하위 샘플링
-[Azure Machine Learning 스튜디오](https://studio.azureml.net)에서 모델을 빌드하기 위해 데이터를 준비할 때 **데이터 가져오기 모듈에서 직접 사용할 SQL 쿼리**를 결정하거나, 간단한 **SELECT * FROM <your\_new\_table\_name>** 을 사용하여 [데이터 가져오기][import-data] 모듈에서 사용할 수 있는 엔지니어링 및 샘플링된 데이터를 새 테이블에 유지할 수 있습니다.
+[Azure Machine Learning Studio](https://studio.azureml.net)에서 모델 빌드에 대 한 데이터를 준비 하는 경우 데이터 **가져오기 모듈에서 직접 사용할 SQL 쿼리** 를 결정 하거나, [데이터 가져오기][import-data] 모듈에서 간단한 **SELECT * FROM <\_새\_테이블\_이름 >** 을 사용 하 여 새 테이블에 엔지니어링 및 샘플링 된 데이터를 유지할 수 있습니다.
 
 이 섹션에서는 샘플링 및 엔지니어링된 데이터를 유지할 새 테이블을 만듭니다. 모델 빌드를 위한 직접 SQL 쿼리 예제는 SQL Server에서 [데이터 탐색 및 기능 엔지니어링 섹션](#dbexplore) 에서 제공됩니다.
 
@@ -405,7 +405,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     cursor.commit()
 
 ### <a name="data-exploration-using-sql-queries-in-ipython-notebook"></a>IPython Notebook에서 SQL 쿼리를 사용하여 데이터 탐색
-이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. [SQL Server에서 데이터 탐색 및 기능 엔지니어링](#dbexplore) 섹션에 설명된 대로 선택적으로 **TABLESAMPLE**을 사용하여 탐색 샘플을 제한하거나, **pickup\_datetime** 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
+이 섹션에서는 위에서 만든 새 테이블에 유지되는 1%의 샘플링된 데이터를 사용하여 데이터 분포를 탐색합니다. **SQL Server에서 데이터 탐색 및 기능 엔지니어링** 섹션에 설명된 대로 선택적으로 **TABLESAMPLE\_을 사용하여 탐색 샘플을 제한하거나,** pickup[datetime](#dbexplore) 파티션을 사용하여 결과를 지정된 기간으로 제한하여 원래 테이블로 유사한 탐색을 수행할 수 있습니다.
 
 #### <a name="exploration-daily-distribution-of-trips"></a>탐색: 일일 여정 분포
     query = '''
@@ -428,7 +428,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 ### <a name="feature-generation-using-sql-queries-in-ipython-notebook"></a>IPython Notebook에서 SQL 쿼리를 사용하여 기능 생성
 이 섹션에서는 이전 섹션에서 만든 1% 샘플 테이블에서 작동하는 SQL 쿼리를 직접 사용하여 새 레이블 및 기능을 생성합니다.
 
-#### <a name="label-generation-generate-class-labels"></a>레이블 생성: 클래스 레이블 생성
+#### <a name="label-generation-generate-class-labels"></a>레이블 생성: 클래스 레이블을 생성합니다.
 다음 예제에서는 모델링에 사용할 두 개의 레이블 집합을 생성합니다.
 
 1. 이진 클래스 레이블 **tipped** (팁이 제공되는지 예측)
@@ -515,7 +515,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
     cursor.commit()
 
 #### <a name="feature-engineering-extract-location-features-from-decimal-latitudelongitude"></a>기능 엔지니어링: 10진수 위도/경도에서 위치 기능 추출
-이 예제에서는 위도 및/또는 경도 필드의 10 진수 표현으로 나누는 다양 한 세분성의 여러 지역 필드 같은 국가/지역, 도시, 동, 블록 등. 새 지리 필드는 실제 위치에 매핑되지 않습니다. 지오코드 위치 매핑에 대한 자세한 내용은 [Bing Maps REST 서비스](https://msdn.microsoft.com/library/ff701710.aspx)를 참조하세요.
+이 예에서는 위도 및/또는 경도 필드의 10 진수 표현을 다른 세분성의 여러 지역 필드 (예: country/region, city, 타운, block 등)로 구분 합니다. 새 지리적 필드는 실제 위치에 매핑되지 않습니다. 지오코드 위치 매핑에 대한 자세한 내용은 [Bing Maps REST 서비스](https://msdn.microsoft.com/library/ff701710.aspx)를 참조하세요.
 
     nyctaxi_one_percent_insert_col = '''
         ALTER TABLE nyctaxi_one_percent
@@ -572,7 +572,7 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 이 연습에서는 이미 SQL Server에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning에서 수집할 샘플 크기를 결정했습니다. 결정한 예측 모델 중 하나 이상을 빌드하려면 다음을 수행합니다.
 
-1. **데이터 입력 및 출력** 섹션에서 제공되는 [데이터 가져오기][import-data] 모듈을 사용하여 Azure Machine Learning으로 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 참조 페이지를 참조하세요.
+1. 데이터 **입력 및 출력** 섹션에서 사용할 수 있는 데이터 [가져오기][import-data] 모듈을 사용 하 여 Azure Machine Learning 데이터를 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 모듈 참조 페이지를 참조 하세요.
    
     ![Azure Machine Learning 데이터 가져오기][17]
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.
@@ -588,12 +588,12 @@ SQL Server 데이터베이스에서 직접 데이터를 읽는 이진 분류 실
 > [!IMPORTANT]
 > 이전 섹션에 제공된 모델링 데이터 추출 및 샘플링 쿼리 예제에서는 **세 가지 모델링 연습에 대한 모든 레이블이 쿼리에 포함되어 있습니다**. 각 모델링 연습의 중요한(필수) 단계는 다른 두 문제에 대한 필요 없는 레이블 및 다른 모든 **목표 누설**을 **제외**하는 것입니다. 예를 들어, 이진 분류를 사용할 때는 레이블 **tipped**를 사용하고, **tip\_class**, **tip\_amount** 및 **total\_amount** 필드를 제외합니다. 이러한 필드는 지불된 팁을 의미하므로 목표 누설입니다.
 > 
-> 필요 없는 열 또는 목표 누설을 제외하려면 [데이터 세트의 열 선택][select-columns] 모듈 또는 [메타데이터 편집][edit-metadata]을 사용하면 됩니다. 자세한 내용은 [데이터 세트의 열 선택][select-columns] 및 [메타데이터 편집][edit-metadata] 참조 페이지를 참조하세요.
+> 불필요 한 열 및/또는 대상 누수를 제외 하려면 [데이터 집합의 열 선택][select-columns] 모듈 또는 [메타 데이터 편집][edit-metadata]을 사용할 수 있습니다. 자세한 내용은 [데이터 집합에서 열 선택][select-columns] 및 [메타 데이터][edit-metadata] 참조 페이지 편집을 참조 하세요.
 > 
 > 
 
 ## <a name="mldeploy"></a>Azure 기계 학습에서 모델 배포
-모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure Machine Learning 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/publish-a-machine-learning-web-service.md)를 참조하세요.
+모델이 준비된 경우 실험에서 직접 웹 서비스로 쉽게 배포할 수 있습니다. Azure Machine Learning 웹 서비스 배포에 대한 자세한 내용은 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요.
 
 새 웹 서비스를 배포하려면 다음을 수행해야 합니다.
 
@@ -610,7 +610,7 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 2. 필요한 입력 데이터 스키마를 나타내는 논리적 **입력 포트** 를 식별합니다.
 3. 필요한 웹 서비스 출력 스키마를 나타내는 논리적 **출력 포트** 를 식별합니다.
 
-점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 세트 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 세트 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 [데이터 세트의 열 선택][select-columns] 모듈을 사용하여 모든 입력 필드를 제외하고 **점수가 매겨진 레이블** 및 **점수가 매겨진 확률**만 출력에 포함합니다.
+점수 매기기 실험을 만들 때 필요에 따라 검토하고 조정합니다. 일반적인 조정은 입력 데이터 세트 및/또는 쿼리를 레이블 필드를 제외한 것으로 바꾸는 것입니다. 레이블 필드는 서비스를 호출할 때 사용할 수 없기 때문입니다. 또한 입력 데이터 세트 및/또는 쿼리 크기를 입력 스키마를 나타내는 데 충분한 정도의 몇몇 레코드로 줄이는 것이 좋습니다. 출력 포트의 경우 일반적으로 모든 입력 필드를 제외 하 고 [데이터 집합에서 열 선택][select-columns] 모듈을 사용 하 여 **점수 매기기 레이블과** **점수가 매겨진 확률** 을 출력에 포함 합니다.
 
 샘플 점수 매기기 실험은 아래 그림에 나와 있습니다. 배포할 준비가 되면 아래쪽 작업 모음에서 **웹 서비스 게시** 단추를 클릭합니다.
 

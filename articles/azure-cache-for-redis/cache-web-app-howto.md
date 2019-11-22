@@ -1,26 +1,18 @@
 ---
-title: Azure Cache for Redis를 사용하여 ASP.NET 웹앱 만들기 | Microsoft Docs
+title: Azure Cache for Redis를 사용하여 ASP.NET 웹앱 만들기
 description: 이 빠른 시작에서 Azure Cache for Redis를 사용하여 ASP.NET 웹앱을 만드는 방법 알아보기
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: 454e23d7-a99b-4e6e-8dd7-156451d2da7c
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7cca9d020d5e999bda2c494853295957da5cca1a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 155993bb3da781e698398ed8ddffa626e8f6cb2d
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326491"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74122588"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에서 Azure Cache for Redis 사용 
 
@@ -272,7 +264,7 @@ ASP.NET 런타임은 외부 파일의 내용을 `<appSettings>` 요소의 태그
     | **앱 이름** | 기본값을 사용하세요. | 앱 이름은 Azure에 배포할 때 앱에 사용하는 호스트 이름입니다. 필요한 경우 이름을 고유하게 만들려면 타임스탬프 접미사가 추가될 수 있습니다. |
     | **구독** | Azure 구독을 선택합니다. | 이 구독은 모든 관련된 호스팅 비용이 청구됩니다. 여러 Azure 구독이 있는 경우 원하는 구독이 선택되어 있는지 확인합니다.|
     | **리소스 그룹** | 캐시를 만든 것과 동일한 리소스 그룹을 사용합니다(예를 들어 *TestResourceGroup*). | 리소스 그룹은 모든 리소스를 그룹으로 관리하는 경우 유용합니다. 나중에 앱을 삭제하려는 경우 그룹만 삭제할 수 있습니다. |
-    | **App Service 계획** | **새로 만들기**를 선택하여 *TestingPlan*이라는 새 App Service 계획을 만듭니다. <br />캐시를 만들 때 사용했던 것과 동일한 **위치**를 사용합니다. <br />크기에 대해 **무료**를 선택합니다. | App Service 계획은 실행할 웹앱에 대한 계산 리소스 세트를 정의합니다. |
+    | **App Service 계획** | **새로 만들기**를 선택하여 *TestingPlan*이라는 새 App Service 계획을 만듭니다. <br />캐시를 만들 때 사용했던 것과 동일한 **위치**를 사용합니다. <br />크기에 대해 **무료**를 선택합니다. | App Service 계획은 실행할 웹앱에 대한 컴퓨팅 리소스 세트를 정의합니다. |
 
     ![App Service 대화 상자](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 

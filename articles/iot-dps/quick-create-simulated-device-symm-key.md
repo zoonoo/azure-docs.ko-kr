@@ -1,20 +1,20 @@
 ---
-title: 이 빠른 시작에서는 C와 함께 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이션된 디바이스를 프로비전하는 방법을 보여 줍니다. | Microsoft Docs
+title: '빠른 시작: C에서 대칭 키를 사용하여 Azure IoT Hub에 시뮬레이트된 디바이스를 프로비저닝하는 방법'
 description: 이 빠른 시작에서는 C 디바이스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service로 대칭 키를 사용하는 시뮬레이션된 디바이스를 만듭니다.
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 31e71e942d7bd3f7a9739eeb83bd3ed250bb2c61
-ms.sourcegitcommit: 67625c53d466c7b04993e995a0d5f87acf7da121
+ms.openlocfilehash: 8a5016587240dfcc0813b7f1e23cd574e82bb935
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65909024"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904858"
 ---
 # <a name="quickstart-provision-a-simulated-device-with-symmetric-keys"></a>빠른 시작: 대칭 키를 사용하여 시뮬레이션된 디바이스 프로비전
 
@@ -34,7 +34,7 @@ ms.locfileid: "65909024"
 
 ## <a name="prerequisites"></a>필수 조건
 
-* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상.
+* ['C++를 사용한 데스크톱 개발'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크로드를 사용하도록 설정한 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상
 * 최신 버전의 [Git](https://git-scm.com/download/) 설치
 
 

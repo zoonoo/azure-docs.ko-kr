@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: c20159d0583e18d0f5e71152fdb600d03db43224
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71279890"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73998129"
 ---
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 다음 단계에 따라 Azure Database for PostgreSQL 서버를 만듭니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 클릭합니다.
 2. **새로 만들기** 페이지에서 **데이터베이스**를 선택하고, **데이터베이스** 페이지에서 **PostgreSQL용 Azure Database**를 선택합니다.
-3. 배포 옵션을 보려면 **하이퍼스케일(Citus) 서버 그룹 - 미리 보기** 아래에서 **만들기** 단추를 클릭합니다.
+3. 배포 옵션을 보려면 **하이퍼스케일(Citus) 서버 그룹** 아래에서 **만들기** 단추를 클릭합니다.
 4. 새 서버 세부 정보 양식을 다음 정보로 작성합니다.
    - 리소스 그룹: 이 필드의 텍스트 상자 아래에 있는 **새로 만들기** 링크를 클릭합니다. **myresourcegroup**과 같은 이름을 입력합니다.
    - 서버 그룹 이름: 새 서버 그룹의 고유한 이름을 입력합니다. 이 이름은 서버 하위 도메인에도 사용됩니다.

@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리 | Microsoft Docs'
-description: .NET용 Form Recognizer 클라이언트 라이브러리를 시작합니다.
+description: .NET용 Form Recognizer 클라이언트 라이브러리를 시작하여 구조화된 데이터 출력을 학습, 추출, 분석 및 가져올 수 있습니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 6d360939a0196d7e5dc651ecf9a01ef5cbd2f689
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264446"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904600"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>빠른 시작: .NET용 Form Recognizer 클라이언트 라이브러리
 
@@ -43,7 +43,7 @@ ms.locfileid: "72264446"
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-평가판 구독 또는 리소스에서 키를 가져오면 `FORM_RECOGNIZER_KEY`라는 키에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+평가판 구독 또는 리소스에서 키를 가져온 후에는 각각 `FORM_RECOGNIZER_KEY` 및 `FORM_RECOGNIZER_ENDPOINT`라는 키 및 엔드포인트에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
@@ -120,7 +120,6 @@ Form Recognizer SDK의 주요 기능을 처리하는 클래스는 다음과 같�
 
 메서드를 정의하기 전에 다음 변수 정의를 **Program** 클래스의 맨 위에 추가합니다. 변수 중 일부는 직접 입력해야 합니다. 
 
-* 서비스의 Endpoint 값은 Azure Portal의 **개요** 섹션에서 찾을 수 있습니다. 
 * 학습 데이터에 대한 SAS URL를 검색하려면 Microsoft Azure Storage Explorer를 열고, 마우스 오른쪽 단추로 컨테이너를 클릭하고, **공유 액세스 서명 가져오기**를 선택합니다. **읽기** 권한과 **목록 사용** 권한이 선택되어 있는지 확인하고 **만들기**를 클릭합니다. 그런 다음 **URL** 섹션의 값을 복사합니다. `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>` 형식이어야 합니다.
 * 분석할 샘플 양식이 필요한 경우 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)의 **Tes** 폴더에 있는 파일 중 하나를 사용할 수 있습니다. 이 가이드에서는 PDF 양식만 사용합니다.
 

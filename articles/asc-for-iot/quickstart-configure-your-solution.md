@@ -1,6 +1,6 @@
 ---
-title: IoT용 Azure Security Center 솔루션 구성 | Microsoft Docs
-description: IoT용 Azure Security Center를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
+title: '빠른 시작: IoT용 Azure Security Center 솔루션 구성'
+description: 이 빠른 시작에서는 IoT용 Azure Security Center를 사용하여 엔드투엔드 IoT 솔루션을 구성하는 방법을 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2019
+ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: a546d153c6fe4f14ccc8c21308bd4a33385870c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: e670df359cc33c9eaca089d0ed8f9614ef8c0468
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299701"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904142"
 ---
 # <a name="quickstart-configure-your-iot-solution"></a>빠른 시작: IoT 솔루션 구성
 

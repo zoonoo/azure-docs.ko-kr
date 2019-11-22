@@ -1,22 +1,22 @@
 ---
-title: Azure CLI를 사용하여 Device Provisioning Service 설정 | Microsoft Docs
+title: '빠른 시작: Azure CLI를 사용하여 디바이스 프로비저닝 서비스 설정'
 description: Azure 빠른 시작 - Azure CLI를 사용하여 Azure IoT Hub Device Provisioning Service 설정
 author: wesmc7777
 ms.author: wesmc
-ms.date: 02/26/2018
+ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3062fb640985498ba35e23f6310828a2bd59bfed
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ef40d0df630fc369705a1365aa8d95317aa54cb3
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "60363719"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904716"
 ---
-# <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
+# <a name="quickstart-set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 IoT Hub Device Provisioning Service 설정
 
 명령줄 또는 스크립트에서 Azure 리소스를 만들고 관리하는 데 Azure CLI가 사용됩니다. 이 빠른 시작에서는 Azure CLI를 사용하여 IoT 허브 및 IoT Hub Device Provisioning Service를 만들고 두 서비스를 함께 연결하는 방법에 대해 자세히 설명합니다. 
 
@@ -137,4 +137,3 @@ az group delete --name my-sample-resource-group
 
 > [!div class="nextstepaction"]
 > [시뮬레이션된 디바이스를 만들기 위한 빠른 시작](./quick-create-simulated-device.md)
-
