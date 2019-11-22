@@ -1,5 +1,5 @@
 ---
-title: Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI에 대 한 원격 액세스 사용 Microsoft Docs
+title: Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI에 대 한 원격 액세스 사용
 description: 온-프레미스 Power BI를 Azure AD 응용 프로그램 프록시와 통합 하는 방법에 대 한 기본 사항을 다룹니다.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 845ffda22cae9464870786cc5997b9f5521c03e1
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 9faa1fffde5553168c8b76ea40cebc001c1e27b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275520"
 ---
 # <a name="enable-remote-access-to-power-bi-mobile-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI Mobile에 대 한 원격 액세스 사용
 
 이 문서에서는 Azure AD 응용 프로그램 프록시를 사용 하 여 Power BI mobile 앱이 Power BI Report Server (PBIRS) 및 SQL Server Reporting Services (SSRS) 2016 이상에 연결 하도록 설정 하는 방법을 설명 합니다. 이러한 통합을 통해 회사 네트워크를 벗어난 사용자는 Power BI 모바일 앱에서 해당 Power BI 보고서에 액세스 하 고 Azure AD 인증으로 보호할 수 있습니다. 이 보호에는 조건부 액세스 및 multi-factor authentication과 같은 [보안 이점이](application-proxy-security.md#security-benefits) 포함 됩니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 문서에서는 이미 보고서 서비스를 배포 하 고 [응용 프로그램 프록시를 사용 하도록 설정](application-proxy-add-on-premises-application.md)했다고 가정 합니다.
 
@@ -97,7 +97,7 @@ KCD를 구성 하려면 각 커넥터 컴퓨터에 대해 다음 단계를 반�
 
    c. **내부 애플리케이션 SPN**을 이전에 설정한 값으로 설정합니다.  
 
-   ㄹ. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 id로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조 하세요.
+   d. 커넥터에 대한 **위임된 로그인 ID**를 선택하여 사용자를 대신하여 사용합니다. 자세한 내용은 [다른 온-프레미스 및 클라우드 id로 작업](application-proxy-configure-single-sign-on-with-kcd.md#working-with-different-on-premises-and-cloud-identities)을 참조 하세요.
 
    e. **저장**을 클릭하여 변경 내용을 저장합니다.
 

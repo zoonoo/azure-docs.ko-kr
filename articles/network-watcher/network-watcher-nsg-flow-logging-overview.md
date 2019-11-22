@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher를 사용하여 네트워크 보안 그룹에 대한 흐름 로깅 소개 | Microsoft Docs
+title: NSGs에 대 한 흐름 로깅 소개
+titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher의 NSG 흐름 로그 기능을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: a77cc22c7a56c29b5b42a032af3d0ea0b2c17d88
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563526"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277974"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -87,14 +88,14 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 흐름 로깅 고려 사항
 
-**리소스에 연결된 모든 NSG에서 NSG 흐름 로깅 사용**: Azure의 흐름 로깅은 NSG 리소스에서 구성됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
+**리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
 
-**흐름 로깅 비용**: NSG 흐름 로그는 생성된 로그 양에 따라 요금이 청구됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
+**흐름 로깅 비용**: nsg 흐름 로깅은 생성 된 로그의 양에 따라 청구 됩니다. 트래픽 볼륨이 많으면 흐름 로그 볼륨과 관련 비용도 증가할 수 있습니다. NSG 흐름 로그의 가격에는 스토리지의 기본 비용이 포함되지 않습니다. NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다. 자세한 내용은 [Network Watcher 가격 책정](https://azure.microsoft.com/pricing/details/network-watcher/) 및 [Azure Storage 가격 책정](https://azure.microsoft.com/pricing/details/storage/)을 참조하세요.
 
 > [!IMPORTANT]
-> 현재는 Network Watcher에 대 한 [NSG (네트워크 보안 그룹) 흐름 로그가](network-watcher-nsg-flow-logging-overview.md) 보존 정책 설정에 따라 Blob 저장소에서 자동으로 삭제 되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 보존 기간을 지난 저장소 blob을 주기적으로 삭제 하 여 발생 하는 요금을 방지 하는 것이 좋습니다. NSG 흐름 로그 저장소 블로그를 삭제 하는 방법에 대 한 자세한 내용은 [NSG 흐름 로그 저장소 Blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조 하세요.
+> 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.
 
-**인터넷 ip에서 공용 ip가 없는 vm으로 기록 되는 인바운드 흐름**: NIC와 연결 된 공용 IP 주소를 통해 할당 된 공용 ip 주소를 사용 하는 공용 ip 주소가 인스턴스 수준 공용 IP 또는 기본 부하 분산 장치 백 엔드 풀의 일부인 Vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 를 사용 하 고 Azure에서 할당 된 IP 주소를 사용 하 여 쉽게 수행할 수 있습니다. 아웃 바운드 연결. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
+**인터넷 ip에서 공용 ip가 없는 vm으로 로그온 하는 인바운드 흐름**: 인스턴스 수준 공용 IP로 NIC와 연결 된 공용 ip 주소를 통해 할당 되거나 기본 부하 분산 장치 백 엔드 풀의 일부인 vm은 [기본 SNAT](../load-balancer/load-balancer-outbound-connections.md#defaultsnat) 를 사용 하 고 AZURE에서 할당 된 IP 주소를 사용 하 여 아웃 바운드 연결을 용이 하 게 합니다. 따라서 흐름이 SNAT에 할당 된 포트 범위의 포트를 대상으로 하는 경우 인터넷 IP 주소에서 흐름에 대 한 흐름 로그 항목이 표시 될 수 있습니다. Azure는 VM에 대 한 이러한 흐름을 허용 하지 않지만, 시도는 기록 되 고 Network Watcher의 NSG 흐름 로그에 설계상 표시 됩니다. 원치 않는 인바운드 인터넷 트래픽이 NSG를 사용 하 여 명시적으로 차단 되도록 하는 것이 좋습니다.
 
 ## <a name="sample-log-records"></a>샘플 로그 레코드
 
@@ -289,5 +290,5 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 - 흐름 로그를 사용하도록 설정하는 방법을 알아보려면 [NSG 흐름 로깅을 사용하도록 설정](network-watcher-nsg-flow-logging-portal.md)을 참조하세요.
 - 흐름 로그를 읽는 방법을 알아보려면 [NSG 흐름 로그 읽기](network-watcher-read-nsg-flow-logs.md)를 참조하세요.
-- NSG 로깅에 대해 자세히 알아보려면 Nsg [(네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
+- NSG 로깅에 대해 자세히 알아보려면 [nsg (네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
 - 트래픽이 허용되거나 VM에서 거부할지 여부를 결정하려면 [VM 네트워크 트래픽 필터 문제 진단](diagnose-vm-network-traffic-filtering-problem.md)을 참조하세요.

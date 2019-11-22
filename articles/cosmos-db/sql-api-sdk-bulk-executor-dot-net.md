@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 10/24/2019
 ms.author: ramkris
-ms.openlocfilehash: 0ff281e54df0273cc4c72d1780f4a99fe9719aec
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b6685f8524dc1f3ac080abe81389d091c7cf6f1b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900179"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306758"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET Bulk Executor 라이브러리: 다운로드 정보 
 
@@ -21,11 +21,11 @@ ms.locfileid: "72900179"
 > * [.NET](sql-api-sdk-dotnet.md)
 > * [.NET 변경 피드](sql-api-sdk-dotnet-changefeed.md)
 > * [.NET Core](sql-api-sdk-dotnet-core.md)
-> * [Node.js](sql-api-sdk-node.md)
+> * [Node.JS](sql-api-sdk-node.md)
 > * [비동기 Java](sql-api-sdk-async-java.md)
 > * [Java](sql-api-sdk-java.md)
 > * [Python](sql-api-sdk-python.md)
-> * [REST](https://docs.microsoft.com/rest/api/cosmos-db/)
+> * [REST (영문)](https://docs.microsoft.com/rest/api/cosmos-db/)
 > * [REST 리소스 공급자](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/)
 > * [SQL](sql-api-query-reference.md)
 > * [대량 실행자-.NET](sql-api-sdk-bulk-executor-dot-net.md)
@@ -37,8 +37,11 @@ ms.locfileid: "72900179"
 |**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub의 대량 실행자 라이브러리**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 설명서**|[.NET API 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**시작**|[Bulk Executor 라이브러리 .NET SDK 시작](bulk-executor-dot-net.md)|
+|**시작하기**|[Bulk Executor 라이브러리 .NET SDK 시작](bulk-executor-dot-net.md)|
 | **현재 지원되는 프레임워크**| Microsoft .NET Framework 4.5.2, 4.6.1 및 .NET Standard 2.0 |
+
+> [!NOTE]
+> 대량 실행자를 사용 하는 경우 SDK에 기본 제공 되는 대량 실행자를 포함 하는 [.NET sdk](tutorial-sql-api-dotnet-bulk-import.md)의 최신 버전을 참조 하세요. 
 
 ## <a name="release-notes"></a>릴리스 정보
 
@@ -50,15 +53,15 @@ ms.locfileid: "72900179"
 
 * SDK 종속성을 > = 2.5.1로 변경 했습니다.
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-미리 보기 2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
 
 * 꼭 짓 점 및 가장자리에서 ttl을 허용 하도록 그래프 대량 실행자에 대 한 지원이 추가 됨
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-미리 보기 2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * 게이트웨이 모드에서 실행 될 때 Azure Cosmos DB 탄력적으로 크기를 조정 하는 동안 예외가 발생 하는 문제를 해결 했습니다. 이 수정 프로그램은 1.4.1 릴리스와 기능적으로 동일 합니다.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-미리 보기 2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * 삭제할 파티션 키, 문서 id 튜플을 허용 하는 SQL API 계정에 대 한 대량 삭제 지원이 추가 되었습니다. 이러한 변경으로 인해 1.4.0 릴리스와 기능적으로 동일 합니다.
 
@@ -85,7 +88,7 @@ ms.locfileid: "72900179"
 ### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
 
 * 특정 시나리오에서 높은 CPU 사용량을 수정 했습니다.
-* 이제 추적은 TraceSource를 사용 합니다. 사용자는 `BulkExecutorTrace` 원본에 대 한 수신기를 정의할 수 있습니다.
+* 이제 추적은 TraceSource를 사용 합니다. 사용자는 `BulkExecutorTrace` 소스에 대 한 수신기를 정의할 수 있습니다.
 * 거의 크기가 2Mb 가까이 문서를 보낼 때 잠금을 유발할 수 있는 드문 시나리오를 수정 했습니다.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0

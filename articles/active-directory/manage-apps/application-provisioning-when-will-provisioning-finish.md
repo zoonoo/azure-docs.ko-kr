@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림 | Microsoft Docs
+title: Azure AD 갤러리 앱에 대 한 사용자 프로 비전에 몇 시간이 걸릴 수 있습니다.
 description: 애플리케이션에 대한 프로비저닝이 예상보다 오래 걸리는 이유를 확인하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2257a46815dd5e685b9cc746a64cede510d10a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 7425731a8d4adde11cd3f15df2cd27cd8541f615
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034178"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275704"
 ---
 # <a name="user-provisioning-to-an-azure-ad-gallery-application-is-taking-hours-or-more"></a>Azure AD 갤러리 애플리케이션에 대한 사용자 프로비저닝이 오래 걸림
 

@@ -1,20 +1,16 @@
 ---
 title: Azure Dev Spaces에 대 한 질문과 대답
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
-ms.openlocfilehash: 1f25ccd26aed832c068c04198486e769ec980380
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3c7335f1656d304d231c2146c8b7496ea43f0b4c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072204"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280251"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -48,10 +44,22 @@ ms.locfileid: "74072204"
 
 예, [API 서버 권한이 부여 된 IP 주소 범위][aks-auth-range] 를 사용 하 여 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. 클러스터를 [만들][aks-auth-range-create] 때 [해당 지역에 따라 추가 범위를 허용][aks-auth-range-ranges]해야 합니다. 또한 기존 클러스터를 [업데이트][aks-auth-range-update] 하 여 이러한 추가 범위를 허용할 수 있습니다.
 
+### <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>클러스터 노드에 대해 제한 된 송신 트래픽이 있는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
+
+예, 다음 Fqdn이 허용 되 면 사용 하도록 설정 된 [클러스터 노드에 대해 제한 된 송신 트래픽을][aks-restrict-egress-traffic] 사용 하는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다.
+
+| FQDN                                    | 포트      | 이후      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Linux 알파인 및 기타 Azure Dev Spaces 이미지를 꺼내려면 |
+| gcr.io | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
+| storage.googleapis.com | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
+
+
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled
 [aks-auth-range-ranges]: https://github.com/Azure/dev-spaces/tree/master/public-ips
 [aks-auth-range-update]: ../aks/api-server-authorized-ip-ranges.md#update-a-clusters-api-server-authorized-ip-ranges
+[aks-restrict-egress-traffic]: ../aks/limit-egress-traffic.md
 [dev-spaces-routing]: how-dev-spaces-works.md#how-routing-works
 [ingress-traefik]: how-to/ingress-https-traefik.md#configure-a-custom-traefik-ingress-controller
 [ingress-https-traefik]: how-to/ingress-https-traefik.md#configure-the-traefik-ingress-controller-to-use-https

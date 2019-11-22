@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4a0a005d096702b864c770675a427184547a2b44
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: a86c809e239a84b2ec6910c47a17b935c440c741
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185712"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287003"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -291,3 +291,19 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>경고: 데이터 변경 검색 정책이 키 열 ' X '를 사용 하도록 구성 되어 있습니다.
 [데이터 변경 검색 정책](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) 에는 변경을 검색 하는 데 사용 하는 열에 대 한 특정 요구 사항이 있습니다. 이러한 요구 사항 중 하나는 원본 항목이 변경 될 때마다이 열이 업데이트 되는 것입니다. 또 다른 요구 사항은이 열의 새 값이 이전 값 보다 크다는 것입니다. 키 열은 업데이트 마다 변경 되지 않으므로이 요구 사항을 충족 하지 않습니다. 이 문제를 해결 하려면 변경 검색 정책에 대해 다른 열을 선택 합니다.
+
+<a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"/>
+
+## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>경고: 문서 텍스트가 u t f-16으로 인코딩된 것으로 나타나지만 바이트 순서 표시가 없습니다.
+
+[인덱서 구문 분석 모드](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) 는 텍스트를 구문 분석 하기 전에 인코딩하는 방법을 알고 있어야 합니다. 텍스트를 인코딩하는 가장 일반적인 두 가지 방법은 u t f-16과 u t f-8입니다. U t f-8은 각 문자의 길이가 1 바이트에서 4 바이트 사이에 있는 가변 길이 인코딩입니다. U t f-16은 고정 길이 인코딩입니다. 각 문자는 2 바이트 길이입니다. U t f-16에는 "big endian" 및 "little endian"의 두 가지 변형이 있습니다. 텍스트 인코딩은 텍스트 앞의 바이트 시리즈 인 "바이트 순서 표시"에 의해 결정 됩니다.
+
+| 인코딩 | 바이트 순서 표시 |
+| --- | --- |
+| UTF-16 Big Endian | 0xFE 0xFF |
+| UTF-16 작은 Endian | 0xFF 0xFE |
+| UTF-8 | 0xEF 0Xef 0Xef |
+
+바이트 순서 표시가 없는 경우 텍스트는 u t f-8로 인코딩된 것으로 간주 됩니다.
+
+이 경고를 해결 하려면이 blob에 대 한 텍스트 인코딩이 무엇 인지 확인 하 고 적절 한 바이트 순서 표시를 추가 합니다.

@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: 64efd1a02b903ec3874066f6c663b86a8080f746
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ff82986b27d038c536872b07e1308b0d48fadaef
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932263"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270214"
 ---
 # <a name="performance-tiers-for-block-blob-storage"></a>블록 blob 저장소에 대 한 성능 계층
 
@@ -54,6 +54,12 @@ Azure 블록 blob 저장소는 다음과 같은 두 가지 성능 계층을 제�
 ## <a name="standard-performance"></a>표준 성능
 
 표준 성능은 가장 비용 효율적인 방식으로 데이터를 저장 하는 다양 한 [액세스 계층](storage-blob-storage-tiers.md) 을 지원 합니다. 대용량 데이터 집합에 대 한 높은 용량과 처리량에 최적화 되어 있습니다.
+
+- **백업 및 재해 복구 데이터 집합** Standard performance storage는 비용 효율적인 계층을 제공 하므로 단기 및 장기 재해 복구 데이터 집합, 보조 백업 및 규정 준수 데이터 보관에 대 한 완벽 한 사용 사례를 제공 합니다.
+
+- **미디어 콘텐츠**. 이미지 및 비디오는 처음 생성 및 저장 될 때 자주 액세스 되지만이 콘텐츠 형식은 오래 된 경우 자주 사용 됩니다. Standard performance storage는 미디어 콘텐츠 요구 사항에 적합 한 계층을 제공 합니다. 
+
+- **대량 데이터 처리**. 이러한 종류의 작업은 일관 된 짧은 대기 시간 보다 비용 효율적인 처리량이 높은 저장소를 필요로 하기 때문에 표준 저장소에 적합 합니다. 대량 원시 데이터 집합은 처리를 위해 준비 되 고 궁극적으로는 궁극적 계층으로 마이그레이션됩니다.
 
 ## <a name="migrate-from-standard-to-premium"></a>표준에서 프리미엄으로 마이그레이션
 

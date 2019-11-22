@@ -1,64 +1,64 @@
 ---
-title: Tag support for resources
+title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 3a6fae9e0f85f7767b8d2d0b7f1364dbd83a81db
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.date: 11/20/2019
+ms.openlocfilehash: b58591fe3bcf5b1f181669b1494b1c698c4968c0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230256"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278770"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
-이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. The column labeled **Supports tags** indicates whether the resource type has a property for the tag. The column labeled **Tag in cost report** indicates whether that resource type passes the tag to the cost report.
+이 문서에서는 리소스 종류가 [태그](resource-group-using-tags.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다.
 
 쉼표로 구분된 값 파일과 동일한 데이터를 가져오려면 [tag-support.csv](https://github.com/tfitzmac/resource-capabilities/blob/master/tag-support.csv) 파일을 다운로드합니다.
 
-Jump to a resource provider namespace:
+리소스 공급자 네임 스페이스로 이동 합니다.
 > [!div class="op_single_selector"]
 > - [Microsoft.AAD](#microsoftaad)
-> - [Microsoft.Addons](#microsoftaddons)
-> - [Microsoft.ADHybridHealthService](#microsoftadhybridhealthservice)
-> - [Microsoft.Advisor](#microsoftadvisor)
+> - [Addons](#microsoftaddons)
+> - [ADHybridHealthService](#microsoftadhybridhealthservice)
+> - [Microsoft Advisor](#microsoftadvisor)
 > - [Microsoft.AlertsManagement](#microsoftalertsmanagement)
 > - [Microsoft.AnalysisServices](#microsoftanalysisservices)
 > - [Microsoft.ApiManagement](#microsoftapimanagement)
 > - [Microsoft.AppConfiguration](#microsoftappconfiguration)
-> - [Microsoft.AppPlatform](#microsoftappplatform)
-> - [Microsoft.Attestation](#microsoftattestation)
+> - [Microsoft AppPlatform](#microsoftappplatform)
+> - [Microsoft 증명](#microsoftattestation)
 > - [Microsoft.Authorization](#microsoftauthorization)
 > - [Microsoft.Automation](#microsoftautomation)
-> - [Microsoft.Azconfig](#microsoftazconfig)
-> - [Microsoft.Azure.Geneva](#microsoftazuregeneva)
+> - [Azconfig](#microsoftazconfig)
+> - [Geneva](#microsoftazuregeneva)
 > - [Microsoft.AzureActiveDirectory](#microsoftazureactivedirectory)
-> - [Microsoft.AzureData](#microsoftazuredata)
+> - [Microsoft AzureData](#microsoftazuredata)
 > - [Microsoft.AzureStack](#microsoftazurestack)
 > - [Microsoft.Batch](#microsoftbatch)
-> - [Microsoft.Billing](#microsoftbilling)
+> - [Microsoft 청구](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
 > - [Microsoft.Cache](#microsoftcache)
-> - [Microsoft.Capacity](#microsoftcapacity)
+> - [Microsoft 용량](#microsoftcapacity)
 > - [Microsoft.Cdn](#microsoftcdn)
 > - [Microsoft.CertificateRegistration](#microsoftcertificateregistration)
 > - [Microsoft.ClassicCompute](#microsoftclassiccompute)
-> - [Microsoft.ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
+> - [ClassicInfrastructureMigrate](#microsoftclassicinfrastructuremigrate)
 > - [Microsoft.ClassicNetwork](#microsoftclassicnetwork)
 > - [Microsoft.ClassicStorage](#microsoftclassicstorage)
 > - [Microsoft.CognitiveServices](#microsoftcognitiveservices)
-> - [Microsoft.Commerce](#microsoftcommerce)
+> - [Microsoft 상거래](#microsoftcommerce)
 > - [Microsoft.Compute](#microsoftcompute)
-> - [Microsoft.Consumption](#microsoftconsumption)
+> - [Microsoft 소비량](#microsoftconsumption)
 > - [Microsoft.ContainerInstance](#microsoftcontainerinstance)
 > - [Microsoft.ContainerRegistry](#microsoftcontainerregistry)
 > - [Microsoft.ContainerService](#microsoftcontainerservice)
 > - [Microsoft.CortanaAnalytics](#microsoftcortanaanalytics)
 > - [Microsoft.CostManagement](#microsoftcostmanagement)
-> - [Microsoft.CustomerLockbox](#microsoftcustomerlockbox)
-> - [Microsoft.CustomProviders](#microsoftcustomproviders)
+> - [Microsoft. CustomerLockbox](#microsoftcustomerlockbox)
+> - [Microsoft CustomProviders](#microsoftcustomproviders)
 > - [Microsoft.DataBox](#microsoftdatabox)
 > - [Microsoft.DataBoxEdge](#microsoftdataboxedge)
 > - [Microsoft.Databricks](#microsoftdatabricks)
@@ -67,35 +67,35 @@ Jump to a resource provider namespace:
 > - [Microsoft.DataLakeAnalytics](#microsoftdatalakeanalytics)
 > - [Microsoft.DataLakeStore](#microsoftdatalakestore)
 > - [Microsoft.DataMigration](#microsoftdatamigration)
-> - [Microsoft.DataShare](#microsoftdatashare)
+> - [DataShare](#microsoftdatashare)
 > - [Microsoft.DBforMariaDB](#microsoftdbformariadb)
 > - [Microsoft.DBforMySQL](#microsoftdbformysql)
 > - [Microsoft.DBforPostgreSQL](#microsoftdbforpostgresql)
 > - [Microsoft.DeploymentManager](#microsoftdeploymentmanager)
-> - [Microsoft.DesktopVirtualization](#microsoftdesktopvirtualization)
+> - [Microsoft DesktopVirtualization](#microsoftdesktopvirtualization)
 > - [Microsoft.Devices](#microsoftdevices)
-> - [Microsoft.DevOps](#microsoftdevops)
+> - [Microsoft DevOps](#microsoftdevops)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
-> - [Microsoft.DynamicsLcs](#microsoftdynamicslcs)
+> - [Microsoft. DynamicsLcs](#microsoftdynamicslcs)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
 > - [Microsoft.EventGrid](#microsofteventgrid)
 > - [Microsoft.EventHub](#microsofteventhub)
-> - [Microsoft.Features](#microsoftfeatures)
-> - [Microsoft.Gallery](#microsoftgallery)
+> - [Microsoft. 기능](#microsoftfeatures)
+> - [Microsoft 갤러리](#microsoftgallery)
 > - [Microsoft.Genomics](#microsoftgenomics)
 > - [Microsoft.GuestConfiguration](#microsoftguestconfiguration)
 > - [Microsoft.HanaOnAzure](#microsofthanaonazure)
-> - [Microsoft.HardwareSecurityModules](#microsofthardwaresecuritymodules)
+> - [HardwareSecurityModules](#microsofthardwaresecuritymodules)
 > - [Microsoft.HDInsight](#microsofthdinsight)
 > - [Microsoft.HealthcareApis](#microsofthealthcareapis)
 > - [Microsoft.HybridCompute](#microsofthybridcompute)
 > - [Microsoft.HybridData](#microsofthybriddata)
-> - [Microsoft.Hydra](#microsofthydra)
+> - [Microsoft 히드라](#microsofthydra)
 > - [Microsoft.ImportExport](#microsoftimportexport)
-> - [Microsoft.Intune](#microsoftintune)
+> - [Microsoft Intune](#microsoftintune)
 > - [Microsoft.IoTCentral](#microsoftiotcentral)
 > - [Microsoft.IoTSpaces](#microsoftiotspaces)
 > - [Microsoft.KeyVault](#microsoftkeyvault)
@@ -105,21 +105,21 @@ Jump to a resource provider namespace:
 > - [Microsoft.MachineLearning](#microsoftmachinelearning)
 > - [Microsoft.MachineLearningServices](#microsoftmachinelearningservices)
 > - [Microsoft.ManagedIdentity](#microsoftmanagedidentity)
-> - [Microsoft.ManagedServices](#microsoftmanagedservices)
-> - [Microsoft.Management](#microsoftmanagement)
+> - [Microsoft ManagedServices](#microsoftmanagedservices)
+> - [Microsoft 관리](#microsoftmanagement)
 > - [Microsoft.Maps](#microsoftmaps)
-> - [Microsoft.Marketplace](#microsoftmarketplace)
+> - [Microsoft Marketplace](#microsoftmarketplace)
 > - [Microsoft.MarketplaceApps](#microsoftmarketplaceapps)
-> - [Microsoft.MarketplaceOrdering](#microsoftmarketplaceordering)
+> - [MarketplaceOrdering](#microsoftmarketplaceordering)
 > - [Microsoft.Media](#microsoftmedia)
-> - [Microsoft.Microservices4Spring](#microsoftmicroservices4spring)
+> - [Microservices4Spring](#microsoftmicroservices4spring)
 > - [Microsoft.Migrate](#microsoftmigrate)
-> - [Microsoft.MixedReality](#microsoftmixedreality)
+> - [MixedReality](#microsoftmixedreality)
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
-> - [Microsoft.ObjectStore](#microsoftobjectstore)
-> - [Microsoft.OffAzure](#microsoftoffazure)
+> - [Microsoft ObjectStore](#microsoftobjectstore)
+> - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft.OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
 > - [Microsoft.Peering](#microsoftpeering)
@@ -129,1713 +129,1708 @@ Jump to a resource provider namespace:
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
-> - [Microsoft.RemoteApp](#microsoftremoteapp)
-> - [Microsoft.ResourceGraph](#microsoftresourcegraph)
-> - [Microsoft.ResourceHealth](#microsoftresourcehealth)
+> - [Microsoft RemoteApp](#microsoftremoteapp)
+> - [Microsoft ResourceGraph](#microsoftresourcegraph)
+> - [Microsoft ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft.SaaS](#microsoftsaas)
 > - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
-> - [Microsoft.SecurityGraph](#microsoftsecuritygraph)
-> - [Microsoft.SecurityInsights](#microsoftsecurityinsights)
+> - [Microsoft SecurityGraph](#microsoftsecuritygraph)
+> - [Microsoft SecurityInsights](#microsoftsecurityinsights)
 > - [Microsoft.ServiceBus](#microsoftservicebus)
 > - [Microsoft.ServiceFabric](#microsoftservicefabric)
 > - [Microsoft.ServiceFabricMesh](#microsoftservicefabricmesh)
-> - [Microsoft.Services](#microsoftservices)
+> - [Microsoft 서비스](#microsoftservices)
 > - [Microsoft.SignalRService](#microsoftsignalrservice)
 > - [Microsoft.SiteRecovery](#microsoftsiterecovery)
-> - [Microsoft.SoftwarePlan](#microsoftsoftwareplan)
+> - [SoftwarePlan](#microsoftsoftwareplan)
 > - [Microsoft.Solutions](#microsoftsolutions)
-> - [Microsoft.SQL](#microsoftsql)
+> - [Microsoft .SQL](#microsoftsql)
 > - [Microsoft.SqlVirtualMachine](#microsoftsqlvirtualmachine)
 > - [Microsoft.Storage](#microsoftstorage)
 > - [Microsoft.StorageCache](#microsoftstoragecache)
-> - [Microsoft.StorageReplication](#microsoftstoragereplication)
+> - [StorageReplication](#microsoftstoragereplication)
 > - [Microsoft.StorageSync](#microsoftstoragesync)
 > - [Microsoft.StorageSyncDev](#microsoftstoragesyncdev)
 > - [Microsoft.StorageSyncInt](#microsoftstoragesyncint)
 > - [Microsoft.StorSimple](#microsoftstorsimple)
 > - [Microsoft.StreamAnalytics](#microsoftstreamanalytics)
-> - [Microsoft.Subscription](#microsoftsubscription)
+> - [Microsoft 구독](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft.Web](#microsoftweb)
-> - [Microsoft.WindowsDefenderATP](#microsoftwindowsdefenderatp)
+> - [WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
-> - [Microsoft.WorkloadMonitor](#microsoftworkloadmonitor)
+> - [WorkloadMonitor](#microsoftworkloadmonitor)
 
 ## <a name="microsoftaad"></a>Microsoft.AAD
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | DomainServices | yes | yes |
-> | DomainServices / oucontainer | 아닙니다. | 아닙니다. |
+> | DomainServices | 예 | 예 |
+> | DomainServices/oucontainer | 아니오 | 아니오 |
 
 ## <a name="microsoftaddons"></a>Microsoft.Addons
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | supportProviders | 아닙니다. | 아닙니다. |
+> | supportProviders | 아니오 | 아니오 |
 
 ## <a name="microsoftadhybridhealthservice"></a>Microsoft.ADHybridHealthService
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | aadsupportcases | 아닙니다. | 아닙니다. |
-> | addsservices | 아닙니다. | 아닙니다. |
-> | agents | 아닙니다. | 아닙니다. |
-> | anonymousapiusers | 아닙니다. | 아닙니다. |
-> | 구성 | 아닙니다. | 아닙니다. |
-> | 로그 | 아닙니다. | 아닙니다. |
-> | reports | 아닙니다. | 아닙니다. |
-> | servicehealthmetrics | 아닙니다. | 아닙니다. |
-> | services | 아닙니다. | 아닙니다. |
+> | aadsupportcases | 아니오 | 아니오 |
+> | addsservices | 아니오 | 아니오 |
+> | agents | 아니오 | 아니오 |
+> | anonymousapiusers | 아니오 | 아니오 |
+> | 구성 | 아니오 | 아니오 |
+> | logs | 아니오 | 아니오 |
+> | reports | 아니오 | 아니오 |
+> | servicehealthmetrics | 아니오 | 아니오 |
+> | services | 아니오 | 아니오 |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 구성 | 아닙니다. | 아닙니다. |
-> | generateRecommendations | 아닙니다. | 아닙니다. |
-> | metadata | 아닙니다. | 아닙니다. |
-> | 동영상 추천 기능 | 아닙니다. | 아닙니다. |
-> | suppressions | 아닙니다. | 아닙니다. |
+> | 구성 | 아니오 | 아니오 |
+> | generateRecommendations | 아니오 | 아니오 |
+> | metadata | 아니오 | 아니오 |
+> | 동영상 추천 기능 | 아니오 | 아니오 |
+> | suppressions | 아니오 | 아니오 |
 
 ## <a name="microsoftalertsmanagement"></a>Microsoft.AlertsManagement
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | actionRules | yes | yes |
-> | 경고 | 아닙니다. | 아닙니다. |
-> | alertsList | 아닙니다. | 아닙니다. |
-> | alertsMetaData | 아닙니다. | 아닙니다. |
-> | alertsSummary | 아닙니다. | 아닙니다. |
-> | alertsSummaryList | 아닙니다. | 아닙니다. |
-> | feedback | 아닙니다. | 아닙니다. |
-> | smartDetectorAlertRules | yes | yes |
-> | smartDetectorRuntimeEnvironments | 아닙니다. | 아닙니다. |
-> | smartGroups | 아닙니다. | 아닙니다. |
+> | actionRules | 예 | 예 |
+> | 경고 | 아니오 | 아니오 |
+> | alertsList | 아니오 | 아니오 |
+> | alertsMetaData | 아니오 | 아니오 |
+> | alertsSummary | 아니오 | 아니오 |
+> | alertsSummaryList | 아니오 | 아니오 |
+> | 있으신가요 | 아니오 | 아니오 |
+> | smartDetectorAlertRules | 예 | 예 |
+> | smartDetectorRuntimeEnvironments | 아니오 | 아니오 |
+> | smartGroups | 아니오 | 아니오 |
 
 ## <a name="microsoftanalysisservices"></a>Microsoft.AnalysisServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 서버 | yes | yes |
+> | servers | 예 | 예 |
 
 ## <a name="microsoftapimanagement"></a>Microsoft.ApiManagement
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | reportFeedback | 아닙니다. | 아닙니다. |
-> | 서비스 | yes | yes |
-> | validateServiceName | 아닙니다. | 아닙니다. |
+> | reportFeedback | 아니오 | 아니오 |
+> | 서비스 | 예 | 예 |
+> | validateServiceName | 아니오 | 아니오 |
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | yes | yes |
-> | configurationStores / eventGridFilters | 아닙니다. | 아닙니다. |
+> | configurationStores | 예 | 예 |
+> | configurationStores/eventGridFilters | 아니오 | 아니오 |
 
-## <a name="microsoftappplatform"></a>Microsoft.AppPlatform
+## <a name="microsoftappplatform"></a>Microsoft AppPlatform
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | Spring | yes | yes |
+> | Spring | 예 | 예 |
 
 ## <a name="microsoftattestation"></a>Microsoft.Attestation
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | attestationProviders | 아닙니다. | 아닙니다. |
+> | attestationProviders | 아니오 | 아니오 |
 
 ## <a name="microsoftauthorization"></a>Microsoft.Authorization
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | classicAdministrators | 아닙니다. | 아닙니다. |
-> | dataAliases | 아닙니다. | 아닙니다. |
-> | denyAssignments | 아닙니다. | 아닙니다. |
-> | elevateAccess | 아닙니다. | 아닙니다. |
-> | findOrphanRoleAssignments | 아닙니다. | 아닙니다. |
-> | locks | 아닙니다. | 아닙니다. |
-> | 권한 | 아닙니다. | 아닙니다. |
-> | policyAssignments | 아닙니다. | 아닙니다. |
-> | policyDefinitions | 아닙니다. | 아닙니다. |
-> | policySetDefinitions | 아닙니다. | 아닙니다. |
-> | providerOperations | 아닙니다. | 아닙니다. |
-> | roleAssignments | 아닙니다. | 아닙니다. |
-> | roleDefinitions | 아닙니다. | 아닙니다. |
+> | classicAdministrators | 아니오 | 아니오 |
+> | dataAliases | 아니오 | 아니오 |
+> | denyAssignments | 아니오 | 아니오 |
+> | elevateAccess | 아니오 | 아니오 |
+> | findOrphanRoleAssignments | 아니오 | 아니오 |
+> | locks | 아니오 | 아니오 |
+> | 권한 | 아니오 | 아니오 |
+> | policyAssignments | 아니오 | 아니오 |
+> | policyDefinitions | 아니오 | 아니오 |
+> | policySetDefinitions | 아니오 | 아니오 |
+> | providerOperations | 아니오 | 아니오 |
+> | roleAssignments | 아니오 | 아니오 |
+> | roleDefinitions | 아니오 | 아니오 |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | automationAccounts | yes | yes |
-> | automationAccounts / configurations | yes | yes |
-> | automationAccounts / jobs | 아닙니다. | 아닙니다. |
-> | automationAccounts / runbooks | yes | yes |
-> | automationAccounts / softwareUpdateConfigurations | 아닙니다. | 아닙니다. |
-> | automationAccounts / webhooks | 아닙니다. | 아닙니다. |
+> | automationAccounts | 예 | 예 |
+> | automationAccounts/구성 | 예 | 예 |
+> | automationAccounts/job | 아니오 | 아니오 |
+> | automationAccounts/runbook | 예 | 예 |
+> | automationAccounts/softwareUpdateConfigurations | 아니오 | 아니오 |
+> | automationAccounts/웹 후크 | 아니오 | 아니오 |
 
-## <a name="microsoftazconfig"></a>Microsoft.Azconfig
+## <a name="microsoftazconfig"></a>Azconfig
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | configurationStores | yes | yes |
-> | configurationStores / eventGridFilters | 아닙니다. | 아닙니다. |
+> | configurationStores | 예 | 예 |
+> | configurationStores/eventGridFilters | 아니오 | 아니오 |
 
 ## <a name="microsoftazuregeneva"></a>Microsoft.Azure.Geneva
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | environments | 아닙니다. | 아닙니다. |
-> | environments / accounts | 아닙니다. | 아닙니다. |
-> | environments / accounts / namespaces | 아닙니다. | 아닙니다. |
-> | environments / accounts / namespaces / configurations | 아닙니다. | 아닙니다. |
+> | environments | 아니오 | 아니오 |
+> | 환경/계정 | 아니오 | 아니오 |
+> | 환경/계정/네임 스페이스 | 아니오 | 아니오 |
+> | 환경/계정/네임 스페이스/구성 | 아니오 | 아니오 |
 
 ## <a name="microsoftazureactivedirectory"></a>Microsoft.AzureActiveDirectory
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | b2cDirectories | yes | 아닙니다. |
-> | b2ctenants | 아닙니다. | 아닙니다. |
+> | b2cDirectories | 예 | 아니오 |
+> | b2ctenants | 아니오 | 아니오 |
 
-## <a name="microsoftazuredata"></a>Microsoft.AzureData
+## <a name="microsoftazuredata"></a>Microsoft AzureData
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | hybridDataManagers | yes | yes |
-> | postgresInstances | yes | yes |
-> | sqlBigDataClusters | yes | yes |
-> | sqlInstances | yes | yes |
-> | sqlServerRegistrations | yes | yes |
-> | sqlServerRegistrations / sqlServers | 아닙니다. | 아닙니다. |
+> | hybridDataManagers | 예 | 예 |
+> | postgresInstances | 예 | 예 |
+> | sqlBigDataClusters | 예 | 예 |
+> | sqlInstances | 예 | 예 |
+> | sqlServerRegistrations | 예 | 예 |
+> | sqlServerRegistrations/sqlServers | 아니오 | 아니오 |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | registrations | yes | yes |
-> | registrations / customerSubscriptions | 아닙니다. | 아닙니다. |
-> | registrations / products | 아닙니다. | 아닙니다. |
-> | verificationKeys | 아닙니다. | 아닙니다. |
+> | registrations | 예 | 예 |
+> | 등록/customerSubscriptions | 아니오 | 아니오 |
+> | 등록/제품 | 아니오 | 아니오 |
+> | verificationKeys | 아니오 | 아니오 |
 
 ## <a name="microsoftbatch"></a>Microsoft.Batch
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | batchAccounts | yes | yes |
+> | batchAccounts | 예 | 예 |
 
 ## <a name="microsoftbilling"></a>Microsoft.Billing
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | billingAccounts | 아닙니다. | 아닙니다. |
-> | billingAccounts / agreements | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingPermissions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / billingPermissions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / billingRoleAssignments | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / billingRoleDefinitions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / billingSubscriptions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / createBillingRoleAssignment | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / customers | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoices | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoices / pricesheet | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / billingPermissions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / billingSubscriptions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / createBillingRoleAssignment | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / initiateTransfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / products | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / products / transfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / products / updateAutoRenew | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / transactions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / invoiceSections / transfers | 아닙니다. | 아닙니다. |
-> | billingAccounts / BillingProfiles / patchOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / paymentMethods | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / policies | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / pricesheet | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / pricesheetDownloadOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / products | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingProfiles / transactions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingRoleAssignments | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingRoleDefinitions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingSubscriptions | 아닙니다. | 아닙니다. |
-> | billingAccounts / billingSubscriptions / invoices | 아닙니다. | 아닙니다. |
-> | billingAccounts / createBillingRoleAssignment | 아닙니다. | 아닙니다. |
-> | billingAccounts / createInvoiceSectionOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / billingPermissions | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / billingSubscriptions | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / initiateTransfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / policies | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / products | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / transactions | 아닙니다. | 아닙니다. |
-> | billingAccounts / customers / transfers | 아닙니다. | 아닙니다. |
-> | billingAccounts / departments | 아닙니다. | 아닙니다. |
-> | billingAccounts / enrollmentAccounts | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoices | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / billingSubscriptions | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / billingSubscriptions / transfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / elevate | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / initiateTransfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / patchOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / productMoveOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / products | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / products / transfer | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / products / updateAutoRenew | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / transactions | 아닙니다. | 아닙니다. |
-> | billingAccounts / invoiceSections / transfers | 아닙니다. | 아닙니다. |
-> | billingAccounts / lineOfCredit | 아닙니다. | 아닙니다. |
-> | billingAccounts / patchOperations | 아닙니다. | 아닙니다. |
-> | billingAccounts / paymentMethods | 아닙니다. | 아닙니다. |
-> | billingAccounts / products | 아닙니다. | 아닙니다. |
-> | billingAccounts / transactions | 아닙니다. | 아닙니다. |
-> | billingPeriods | 아닙니다. | 아닙니다. |
-> | billingPermissions | 아닙니다. | 아닙니다. |
-> | billingProperty | 아닙니다. | 아닙니다. |
-> | billingRoleAssignments | 아닙니다. | 아닙니다. |
-> | billingRoleDefinitions | 아닙니다. | 아닙니다. |
-> | createBillingRoleAssignment | 아닙니다. | 아닙니다. |
-> | departments | 아닙니다. | 아닙니다. |
-> | enrollmentAccounts | 아닙니다. | 아닙니다. |
-> | invoices | 아닙니다. | 아닙니다. |
-> | transfers | 아닙니다. | 아닙니다. |
-> | transfers / acceptTransfer | 아닙니다. | 아닙니다. |
-> | transfers / declineTransfer | 아닙니다. | 아닙니다. |
-> | transfers / operationStatus | 아닙니다. | 아닙니다. |
-> | transfers / validateTransfer | 아닙니다. | 아닙니다. |
-> | validateAddress | 아닙니다. | 아닙니다. |
+> | billingAccounts | 아니오 | 아니오 |
+> | billingAccounts/규약 | 아니오 | 아니오 |
+> | billingAccounts / billingPermissions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / billingPermissions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / billingRoleAssignments | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / billingRoleDefinitions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / billingSubscriptions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / createBillingRoleAssignment | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/고객 | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/송장 | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/청구서/가격표 | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / billingPermissions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / billingRoleAssignments | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / billingRoleDefinitions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / billingSubscriptions | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / createBillingRoleAssignment | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / invoiceSections / initiateTransfer | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/invoiceSections/products | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/invoiceSections/products/transfer | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/invoiceSections/products/updateAutoRenew | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/invoiceSections/트랜잭션 | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/invoiceSections/transfer | 아니오 | 아니오 |
+> | billingAccounts / BillingProfiles / patchOperations | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / paymentMethods | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/정책 | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/가격표 | 아니오 | 아니오 |
+> | billingAccounts / billingProfiles / pricesheetDownloadOperations | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/제품 | 아니오 | 아니오 |
+> | billingAccounts/billingProfiles/트랜잭션 | 아니오 | 아니오 |
+> | billingAccounts / billingRoleAssignments | 아니오 | 아니오 |
+> | billingAccounts / billingRoleDefinitions | 아니오 | 아니오 |
+> | billingAccounts / billingSubscriptions | 아니오 | 아니오 |
+> | billingAccounts/billingSubscriptions/송장 | 아니오 | 아니오 |
+> | billingAccounts / createBillingRoleAssignment | 아니오 | 아니오 |
+> | billingAccounts / createInvoiceSectionOperations | 아니오 | 아니오 |
+> | billingAccounts/고객 | 아니오 | 아니오 |
+> | billingAccounts/customers/billingPermissions | 아니오 | 아니오 |
+> | billingAccounts/customers/billingSubscriptions | 아니오 | 아니오 |
+> | billingAccounts/customers/initiateTransfer | 아니오 | 아니오 |
+> | billingAccounts/고객/정책 | 아니오 | 아니오 |
+> | billingAccounts/고객/제품 | 아니오 | 아니오 |
+> | billingAccounts/고객/트랜잭션 | 아니오 | 아니오 |
+> | billingAccounts/고객/전송 | 아니오 | 아니오 |
+> | billingAccounts/부서 | 아니오 | 아니오 |
+> | billingAccounts / enrollmentAccounts | 아니오 | 아니오 |
+> | billingAccounts/송장 | 아니오 | 아니오 |
+> | billingAccounts / invoiceSections | 아니오 | 아니오 |
+> | billingAccounts / invoiceSections / billingSubscriptionMoveOperations | 아니오 | 아니오 |
+> | billingAccounts / invoiceSections / billingSubscriptions | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/billingSubscriptions/transfer | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/상승 | 아니오 | 아니오 |
+> | billingAccounts / invoiceSections / initiateTransfer | 아니오 | 아니오 |
+> | billingAccounts / invoiceSections / patchOperations | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/제품 Moveoperations | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/제품 | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/제품/이전 | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/products/updateAutoRenew | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/트랜잭션 | 아니오 | 아니오 |
+> | billingAccounts/invoiceSections/전송 | 아니오 | 아니오 |
+> | billingAccounts/lineOfCredit | 아니오 | 아니오 |
+> | billingAccounts / patchOperations | 아니오 | 아니오 |
+> | billingAccounts / paymentMethods | 아니오 | 아니오 |
+> | billingAccounts/제품 | 아니오 | 아니오 |
+> | billingAccounts/트랜잭션 | 아니오 | 아니오 |
+> | billingPeriods | 아니오 | 아니오 |
+> | billingPermissions | 아니오 | 아니오 |
+> | billingProperty | 아니오 | 아니오 |
+> | billingRoleAssignments | 아니오 | 아니오 |
+> | billingRoleDefinitions | 아니오 | 아니오 |
+> | createBillingRoleAssignment | 아니오 | 아니오 |
+> | departments | 아니오 | 아니오 |
+> | enrollmentAccounts | 아니오 | 아니오 |
+> | invoices | 아니오 | 아니오 |
+> | transfers | 아니오 | 아니오 |
+> | 전송/acceptTransfer | 아니오 | 아니오 |
+> | 전송/declineTransfer | 아니오 | 아니오 |
+> | 전송/operationStatus | 아니오 | 아니오 |
+> | 전송/validateTransfer | 아니오 | 아니오 |
+> | validateAddress | 아니오 | 아니오 |
 
 ## <a name="microsoftbingmaps"></a>Microsoft.BingMaps
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | mapApis | yes | yes |
-> | updateCommunicationPreference | 아닙니다. | 아닙니다. |
+> | mapApis | 예 | 예 |
+> | updateCommunicationPreference | 아니오 | 아니오 |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | blockchainMembers | yes | yes |
-> | cordaMembers | yes | yes |
-> | 감시자 | yes | yes |
+> | blockchainMembers | 예 | 예 |
+> | cordaMembers | 예 | 예 |
+> | 감시자 | 예 | 예 |
 
 ## <a name="microsoftblueprint"></a>Microsoft.Blueprint
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | blueprintAssignments | 아닙니다. | 아닙니다. |
-> | blueprintAssignments / assignmentOperations | 아닙니다. | 아닙니다. |
-> | blueprintAssignments / operations | 아닙니다. | 아닙니다. |
-> | blueprints | 아닙니다. | 아닙니다. |
-> | blueprints / artifacts | 아닙니다. | 아닙니다. |
-> | blueprints / versions | 아닙니다. | 아닙니다. |
-> | blueprints / versions / artifacts | 아닙니다. | 아닙니다. |
+> | blueprintAssignments | 아니오 | 아니오 |
+> | blueprintAssignments / assignmentOperations | 아니오 | 아니오 |
+> | blueprintAssignments/작업 | 아니오 | 아니오 |
+> | blueprints | 아니오 | 아니오 |
+> | 청사진/아티팩트 | 아니오 | 아니오 |
+> | 청사진/버전 | 아니오 | 아니오 |
+> | 청사진/버전/아티팩트 | 아니오 | 아니오 |
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | botServices | yes | yes |
-> | botServices / channels | 아닙니다. | 아닙니다. |
-> | botServices / connections | 아닙니다. | 아닙니다. |
-> | 언어 | 아닙니다. | 아닙니다. |
-> | 템플릿 | 아닙니다. | 아닙니다. |
+> | botServices | 예 | 예 |
+> | botServices/채널 | 아니오 | 아니오 |
+> | botServices/연결 | 아니오 | 아니오 |
+> | 언어 | 아니오 | 아니오 |
+> | 템플릿 | 아니오 | 아니오 |
 
 ## <a name="microsoftcache"></a>Microsoft.Cache
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | Redis | yes | yes |
-> | RedisConfigDefinition | 아닙니다. | 아닙니다. |
+> | Redis | 예 | 예 |
+> | RedisConfigDefinition | 아니오 | 아니오 |
 
 ## <a name="microsoftcapacity"></a>Microsoft.Capacity
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | appliedReservations | 아닙니다. | 아닙니다. |
-> | calculateExchange | 아닙니다. | 아닙니다. |
-> | calculatePrice | 아닙니다. | 아닙니다. |
-> | calculatePurchasePrice | 아닙니다. | 아닙니다. |
-> | catalogs | 아닙니다. | 아닙니다. |
-> | commercialReservationOrders | 아닙니다. | 아닙니다. |
-> | exchange | 아닙니다. | 아닙니다. |
-> | placePurchaseOrder | 아닙니다. | 아닙니다. |
-> | reservationOrders | 아닙니다. | 아닙니다. |
-> | reservationOrders / calculateRefund | 아닙니다. | 아닙니다. |
-> | reservationOrders / merge | 아닙니다. | 아닙니다. |
-> | reservationOrders / reservations | 아닙니다. | 아닙니다. |
-> | reservationOrders / reservations / revisions | 아닙니다. | 아닙니다. |
-> | reservationOrders / return | 아닙니다. | 아닙니다. |
-> | reservationOrders / split | 아닙니다. | 아닙니다. |
-> | reservationOrders / swap | 아닙니다. | 아닙니다. |
-> | reservations | 아닙니다. | 아닙니다. |
-> | 리소스 | 아닙니다. | 아닙니다. |
-> | validateReservationOrder | 아닙니다. | 아닙니다. |
+> | appliedReservations | 아니오 | 아니오 |
+> | calculateExchange | 아니오 | 아니오 |
+> | calculatePrice | 아니오 | 아니오 |
+> | calculatePurchasePrice | 아니오 | 아니오 |
+> | catalogs | 아니오 | 아니오 |
+> | commercialReservationOrders | 아니오 | 아니오 |
+> | 교환 | 아니오 | 아니오 |
+> | placePurchaseOrder | 아니오 | 아니오 |
+> | reservationOrders | 아니오 | 아니오 |
+> | reservationOrders / calculateRefund | 아니오 | 아니오 |
+> | reservationOrders/병합 | 아니오 | 아니오 |
+> | reservationOrders/예약 | 아니오 | 아니오 |
+> | reservationOrders/예약/수정 버전 | 아니오 | 아니오 |
+> | reservationOrders/반환 | 아니오 | 아니오 |
+> | reservationOrders/분할 | 아니오 | 아니오 |
+> | reservationOrders/교환 | 아니오 | 아니오 |
+> | reservations | 아니오 | 아니오 |
+> | 리소스 | 아니오 | 아니오 |
+> | validateReservationOrder | 아니오 | 아니오 |
 
 ## <a name="microsoftcdn"></a>Microsoft.Cdn
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | CdnWebApplicationFirewallManagedRuleSets | 아닙니다. | 아닙니다. |
-> | CdnWebApplicationFirewallPolicies | yes | yes |
-> | edgenodes | 아닙니다. | 아닙니다. |
-> | 프로필 | yes | yes |
-> | profiles / endpoints | yes | yes |
-> | profiles / endpoints / customdomains | 아닙니다. | 아닙니다. |
-> | profiles / endpoints / origins | 아닙니다. | 아닙니다. |
-> | validateProbe | 아닙니다. | 아닙니다. |
+> | CdnWebApplicationFirewallManagedRuleSets | 아니오 | 아니오 |
+> | CdnWebApplicationFirewallPolicies | 예 | 예 |
+> | edgenodes | 아니오 | 아니오 |
+> | profiles | 예 | 예 |
+> | 프로필/끝점 | 예 | 예 |
+> | 프로필/끝점/customdomains | 아니오 | 아니오 |
+> | 프로필/끝점/원본 | 아니오 | 아니오 |
+> | validateProbe | 아니오 | 아니오 |
 
 ## <a name="microsoftcertificateregistration"></a>Microsoft.CertificateRegistration
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | certificateOrders | yes | yes |
-> | certificateOrders / certificates | 아닙니다. | 아닙니다. |
-> | validateCertificateRegistrationInformation | 아닙니다. | 아닙니다. |
+> | certificateOrders | 예 | 예 |
+> | certificateOrders/certificate | 아니오 | 아니오 |
+> | validateCertificateRegistrationInformation | 아니오 | 아니오 |
 
 ## <a name="microsoftclassiccompute"></a>Microsoft.ClassicCompute
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | capabilities | 아닙니다. | 아닙니다. |
-> | domainNames | 아닙니다. | 아닙니다. |
-> | domainNames / capabilities | 아닙니다. | 아닙니다. |
-> | domainNames / internalLoadBalancers | 아닙니다. | 아닙니다. |
-> | domainNames / serviceCertificates | 아닙니다. | 아닙니다. |
-> | domainNames / slots | 아닙니다. | 아닙니다. |
-> | domainNames / slots / roles | 아닙니다. | 아닙니다. |
-> | domainNames / slots / roles / metricDefinitions | 아닙니다. | 아닙니다. |
-> | domainNames / slots / roles / metrics | 아닙니다. | 아닙니다. |
-> | moveSubscriptionResources | 아닙니다. | 아닙니다. |
-> | operatingSystemFamilies | 아닙니다. | 아닙니다. |
-> | operatingSystems | 아닙니다. | 아닙니다. |
-> | quotas | 아닙니다. | 아닙니다. |
-> | resourceTypes | 아닙니다. | 아닙니다. |
-> | validateSubscriptionMoveAvailability | 아닙니다. | 아닙니다. |
-> | virtualMachines | 아닙니다. | 아닙니다. |
-> | virtualMachines / diagnosticSettings | 아닙니다. | 아닙니다. |
-> | virtualMachines / metricDefinitions | 아닙니다. | 아닙니다. |
-> | virtualMachines / metrics | 아닙니다. | 아닙니다. |
+> | capabilities | 아니오 | 아니오 |
+> | domainNames | 아니오 | 아니오 |
+> | domainNames/기능 | 아니오 | 아니오 |
+> | domainNames/internalLoadBalancers 장치 | 아니오 | 아니오 |
+> | domainNames/serviceCertificates | 아니오 | 아니오 |
+> | domainNames/슬롯 | 아니오 | 아니오 |
+> | domainNames/슬롯/역할 | 아니오 | 아니오 |
+> | domainNames/슬롯/역할/metricDefinitions | 아니오 | 아니오 |
+> | domainNames/슬롯/역할/메트릭 | 아니오 | 아니오 |
+> | moveSubscriptionResources | 아니오 | 아니오 |
+> | operatingSystemFamilies | 아니오 | 아니오 |
+> | operatingSystems | 아니오 | 아니오 |
+> | quotas | 아니오 | 아니오 |
+> | resourceTypes | 아니오 | 아니오 |
+> | validateSubscriptionMoveAvailability | 아니오 | 아니오 |
+> | virtualMachines | 아니오 | 아니오 |
+> | virtualMachines/diagnosticSettings | 아니오 | 아니오 |
+> | virtualMachines/metricDefinitions | 아니오 | 아니오 |
+> | virtualMachines/메트릭 | 아니오 | 아니오 |
 
 ## <a name="microsoftclassicinfrastructuremigrate"></a>Microsoft.ClassicInfrastructureMigrate
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | classicInfrastructureResources | 아닙니다. | 아닙니다. |
+> | classicInfrastructureResources | 아니오 | 아니오 |
 
 ## <a name="microsoftclassicnetwork"></a>Microsoft.ClassicNetwork
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | capabilities | 아닙니다. | 아닙니다. |
-> | expressRouteCrossConnections | 아닙니다. | 아닙니다. |
-> | expressRouteCrossConnections / peerings | 아닙니다. | 아닙니다. |
-> | gatewaySupportedDevices | 아닙니다. | 아닙니다. |
-> | networkSecurityGroups | 아닙니다. | 아닙니다. |
-> | quotas | 아닙니다. | 아닙니다. |
-> | reservedIps | 아닙니다. | 아닙니다. |
-> | virtualNetworks | 아닙니다. | 아닙니다. |
-> | virtualNetworks / remoteVirtualNetworkPeeringProxies | 아닙니다. | 아닙니다. |
-> | virtualNetworks / virtualNetworkPeerings | 아닙니다. | 아닙니다. |
+> | capabilities | 아니오 | 아니오 |
+> | expressRouteCrossConnections | 아니오 | 아니오 |
+> | expressRouteCrossConnections/피어 링 | 아니오 | 아니오 |
+> | gatewaySupportedDevices | 아니오 | 아니오 |
+> | networkSecurityGroups | 아니오 | 아니오 |
+> | quotas | 아니오 | 아니오 |
+> | reservedIps | 아니오 | 아니오 |
+> | virtualNetworks | 아니오 | 아니오 |
+> | virtualNetworks/remoteVirtualNetworkPeeringProxies | 아니오 | 아니오 |
+> | virtualNetworks/virtualNetworkPeerings | 아니오 | 아니오 |
 
 ## <a name="microsoftclassicstorage"></a>Microsoft.ClassicStorage
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | capabilities | 아닙니다. | 아닙니다. |
-> | 디스크 | 아닙니다. | 아닙니다. |
-> | images | 아닙니다. | 아닙니다. |
-> | osImages | 아닙니다. | 아닙니다. |
-> | osPlatformImages | 아닙니다. | 아닙니다. |
-> | publicImages | 아닙니다. | 아닙니다. |
-> | quotas | 아닙니다. | 아닙니다. |
-> | storageAccounts | 아닙니다. | 아닙니다. |
-> | storageAccounts / blobServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / fileServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / metricDefinitions | 아닙니다. | 아닙니다. |
-> | storageAccounts / metrics | 아닙니다. | 아닙니다. |
-> | storageAccounts / queueServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / services | 아닙니다. | 아닙니다. |
-> | storageAccounts / services / diagnosticSettings | 아닙니다. | 아닙니다. |
-> | storageAccounts / services / metricDefinitions | 아닙니다. | 아닙니다. |
-> | storageAccounts / services / metrics | 아닙니다. | 아닙니다. |
-> | storageAccounts / tableServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / vmImages | 아닙니다. | 아닙니다. |
-> | vmImages | 아닙니다. | 아닙니다. |
+> | capabilities | 아니오 | 아니오 |
+> | 디스크 | 아니오 | 아니오 |
+> | images | 아니오 | 아니오 |
+> | osImages | 아니오 | 아니오 |
+> | osPlatformImages | 아니오 | 아니오 |
+> | publicImages | 아니오 | 아니오 |
+> | quotas | 아니오 | 아니오 |
+> | storageAccounts | 아니오 | 아니오 |
+> | storageAccounts/blobServices | 아니오 | 아니오 |
+> | storageAccounts/fileServices | 아니오 | 아니오 |
+> | storageAccounts/metricDefinitions | 아니오 | 아니오 |
+> | storageAccounts/메트릭 | 아니오 | 아니오 |
+> | storageAccounts/queueServices | 아니오 | 아니오 |
+> | storageAccounts/서비스 | 아니오 | 아니오 |
+> | storageAccounts/services/diagnosticSettings | 아니오 | 아니오 |
+> | storageAccounts/services/metricDefinitions | 아니오 | 아니오 |
+> | storageAccounts/서비스/메트릭 | 아니오 | 아니오 |
+> | storageAccounts/tableServices | 아니오 | 아니오 |
+> | storageAccounts/vmImages | 아니오 | 아니오 |
+> | vmImages | 아니오 | 아니오 |
 
 ## <a name="microsoftcognitiveservices"></a>Microsoft.CognitiveServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftcommerce"></a>Microsoft.Commerce
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | RateCard | 아닙니다. | 아닙니다. |
-> | UsageAggregates | 아닙니다. | 아닙니다. |
+> | RateCard | 아니오 | 아니오 |
+> | UsageAggregates | 아니오 | 아니오 |
 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | availabilitySets | yes | yes |
-> | diskEncryptionSets | yes | yes |
-> | 디스크 | yes | yes |
-> | galleries | yes | yes |
-> | galleries / applications | 아닙니다. | 아닙니다. |
-> | galleries / applications / versions | 아닙니다. | 아닙니다. |
-> | galleries / images | 아닙니다. | 아닙니다. |
-> | galleries / images / versions | 아닙니다. | 아닙니다. |
-> | hostGroups | yes | yes |
-> | hostGroups / hosts | yes | yes |
-> | images | yes | yes |
-> | proximityPlacementGroups | yes | yes |
-> | restorePointCollections | yes | yes |
-> | restorePointCollections / restorePoints | 아닙니다. | 아닙니다. |
-> | sharedVMImages | yes | yes |
-> | sharedVMImages / versions | 아닙니다. | 아닙니다. |
-> | 스냅샷 | yes | yes |
-> | virtualMachines | yes | yes |
-> | virtualMachines / extensions | yes | yes |
-> | virtualMachines / metricDefinitions | 아닙니다. | 아닙니다. |
-> | virtualMachineScaleSets | yes | yes |
-> | virtualMachineScaleSets / extensions | 아닙니다. | 아닙니다. |
-> | virtualMachineScaleSets / networkInterfaces | 아닙니다. | 아닙니다. |
-> | virtualMachineScaleSets / publicIPAddresses | 아닙니다. | 아닙니다. |
-> | virtualMachineScaleSets / virtualMachines | 아닙니다. | 아닙니다. |
-> | virtualMachineScaleSets / virtualMachines / networkInterfaces | 아닙니다. | 아닙니다. |
+> | availabilitySets | 예 | 예 |
+> | Disk; 집합 | 예 | 예 |
+> | 디스크 | 예 | 예 |
+> | galleries | 예 | 예 |
+> | 갤러리/응용 프로그램 | 아니오 | 아니오 |
+> | 갤러리/응용 프로그램/버전 | 아니오 | 아니오 |
+> | 갤러리/이미지 | 아니오 | 아니오 |
+> | 갤러리/이미지/버전 | 아니오 | 아니오 |
+> | 호스트 그룹 | 예 | 예 |
+> | 호스트 그룹/호스트 | 예 | 예 |
+> | images | 예 | 예 |
+> | proximityPlacementGroups | 예 | 예 |
+> | restorePointCollections | 예 | 예 |
+> | restorePointCollections / restorePoints | 아니오 | 아니오 |
+> | sharedVMImages | 예 | 예 |
+> | sharedVMImages/버전 | 아니오 | 아니오 |
+> | 스냅샷 | 예 | 예 |
+> | virtualMachines | 예 | 예 |
+> | virtualMachines/확장 | 예 | 예 |
+> | virtualMachines/metricDefinitions | 아니오 | 아니오 |
+> | virtualMachineScaleSets | 예 | 예 |
+> | virtualMachineScaleSets/확장 | 아니오 | 아니오 |
+> | virtualMachineScaleSets/networkInterfaces | 아니오 | 아니오 |
+> | virtualMachineScaleSets/publicIPAddresses | 아니오 | 아니오 |
+> | virtualMachineScaleSets/virtualMachines | 아니오 | 아니오 |
+> | virtualMachineScaleSets/virtualMachines/networkInterfaces | 아니오 | 아니오 |
 
 ## <a name="microsoftconsumption"></a>Microsoft.Consumption
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | AggregatedCost | 아닙니다. | 아닙니다. |
-> | 잔액 | 아닙니다. | 아닙니다. |
-> | 예산 | 아닙니다. | 아닙니다. |
-> | Charges | 아닙니다. | 아닙니다. |
-> | CostTags | 아닙니다. | 아닙니다. |
-> | credits | 아닙니다. | 아닙니다. |
-> | events | 아닙니다. | 아닙니다. |
-> | 예측 | 아닙니다. | 아닙니다. |
-> | lots | 아닙니다. | 아닙니다. |
-> | Marketplace | 아닙니다. | 아닙니다. |
-> | Pricesheets | 아닙니다. | 아닙니다. |
-> | products | 아닙니다. | 아닙니다. |
-> | ReservationDetails | 아닙니다. | 아닙니다. |
-> | ReservationRecommendations | 아닙니다. | 아닙니다. |
-> | ReservationSummaries | 아닙니다. | 아닙니다. |
-> | ReservationTransactions | 아닙니다. | 아닙니다. |
-> | 태그 | 아닙니다. | 아닙니다. |
-> | tenants | 아닙니다. | 아닙니다. |
-> | 용어 | 아닙니다. | 아닙니다. |
-> | UsageDetails | 아닙니다. | 아닙니다. |
+> | AggregatedCost | 아니오 | 아니오 |
+> | 잔액 | 아니오 | 아니오 |
+> | 예산 | 아니오 | 아니오 |
+> | Charges | 아니오 | 아니오 |
+> | CostTags | 아니오 | 아니오 |
+> | credits | 아니오 | 아니오 |
+> | events | 아니오 | 아니오 |
+> | 예측 | 아니오 | 아니오 |
+> | lots | 아니오 | 아니오 |
+> | Marketplace | 아니오 | 아니오 |
+> | Pricesheets | 아니오 | 아니오 |
+> | products | 아니오 | 아니오 |
+> | ReservationDetails | 아니오 | 아니오 |
+> | ReservationRecommendations | 아니오 | 아니오 |
+> | ReservationSummaries | 아니오 | 아니오 |
+> | ReservationTransactions | 아니오 | 아니오 |
+> | 태그 | 아니오 | 아니오 |
+> | tenants | 아니오 | 아니오 |
+> | 용어 | 아니오 | 아니오 |
+> | UsageDetails | 아니오 | 아니오 |
 
 ## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | containerGroups | yes | yes |
-> | serviceAssociationLinks | 아닙니다. | 아닙니다. |
+> | containerGroups | 예 | 예 |
+> | serviceAssociationLinks | 아니오 | 아니오 |
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | registries | yes | yes |
-> | registries / builds | 아닙니다. | 아닙니다. |
-> | registries / builds / cancel | 아닙니다. | 아닙니다. |
-> | registries / builds / getLogLink | 아닙니다. | 아닙니다. |
-> | registries / buildTasks | yes | yes |
-> | registries / buildTasks / steps | 아닙니다. | 아닙니다. |
-> | registries / eventGridFilters | 아닙니다. | 아닙니다. |
-> | registries / generateCredentials | 아닙니다. | 아닙니다. |
-> | registries / getBuildSourceUploadUrl | 아닙니다. | 아닙니다. |
-> | registries / GetCredentials | 아닙니다. | 아닙니다. |
-> | registries / importImage | 아닙니다. | 아닙니다. |
-> | registries / queueBuild | 아닙니다. | 아닙니다. |
-> | registries / regenerateCredential | 아닙니다. | 아닙니다. |
-> | registries / regenerateCredentials | 아닙니다. | 아닙니다. |
-> | registries / replications | yes | yes |
-> | registries / runs | 아닙니다. | 아닙니다. |
-> | registries / runs / cancel | 아닙니다. | 아닙니다. |
-> | registries / scheduleRun | 아닙니다. | 아닙니다. |
-> | registries / scopeMaps | 아닙니다. | 아닙니다. |
-> | registries / taskRuns | yes | yes |
-> | registries / tasks | yes | yes |
-> | registries / tokens | 아닙니다. | 아닙니다. |
-> | registries / updatePolicies | 아닙니다. | 아닙니다. |
-> | registries / webhooks | yes | yes |
-> | registries / webhooks / getCallbackConfig | 아닙니다. | 아닙니다. |
-> | registries / webhooks / ping | 아닙니다. | 아닙니다. |
+> | registries | 예 | 예 |
+> | 레지스트리/빌드 | 아니오 | 아니오 |
+> | 레지스트리/빌드/취소 | 아니오 | 아니오 |
+> | 레지스트리/빌드/getLogLink | 아니오 | 아니오 |
+> | 레지스트리/buildTasks | 예 | 예 |
+> | 레지스트리/buildTasks/단계 | 아니오 | 아니오 |
+> | 레지스트리/eventGridFilters | 아니오 | 아니오 |
+> | 레지스트리/generateCredentials | 아니오 | 아니오 |
+> | 레지스트리/getBuildSourceUploadUrl | 아니오 | 아니오 |
+> | 레지스트리/GetCredentials | 아니오 | 아니오 |
+> | 레지스트리/importImage | 아니오 | 아니오 |
+> | 레지스트리/queueBuild | 아니오 | 아니오 |
+> | 레지스트리/regenerateCredential | 아니오 | 아니오 |
+> | 레지스트리/regenerateCredentials | 아니오 | 아니오 |
+> | 레지스트리/복제 | 예 | 예 |
+> | 레지스트리/실행 | 아니오 | 아니오 |
+> | 레지스트리/실행/취소 | 아니오 | 아니오 |
+> | 레지스트리/scheduleRun | 아니오 | 아니오 |
+> | 레지스트리/scopeMaps | 아니오 | 아니오 |
+> | 레지스트리/taskRuns | 예 | 예 |
+> | 레지스트리/작업 | 예 | 예 |
+> | 레지스트리/토큰 | 아니오 | 아니오 |
+> | 레지스트리/updatePolicies | 아니오 | 아니오 |
+> | 레지스트리/웹 후크 | 예 | 예 |
+> | registry/웹 후크/getcallbackconfig | 아니오 | 아니오 |
+> | registry/웹 후크/ping | 아니오 | 아니오 |
 
 ## <a name="microsoftcontainerservice"></a>Microsoft.ContainerService
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | containerServices | yes | yes |
-> | managedClusters | yes | yes |
-> | openShiftManagedClusters | yes | yes |
+> | containerServices | 예 | 예 |
+> | managedClusters | 예 | 예 |
+> | openShiftManagedClusters | 예 | 예 |
 
 ## <a name="microsoftcortanaanalytics"></a>Microsoft.CortanaAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftcostmanagement"></a>Microsoft.CostManagement
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 경고 | 아닙니다. | 아닙니다. |
-> | BillingAccounts | 아닙니다. | 아닙니다. |
-> | 예산 | 아닙니다. | 아닙니다. |
-> | CloudConnectors | 아닙니다. | 아닙니다. |
-> | 커넥터 | yes | yes |
-> | Departments | 아닙니다. | 아닙니다. |
-> | 차원 | 아닙니다. | 아닙니다. |
-> | EnrollmentAccounts | 아닙니다. | 아닙니다. |
-> | 내보내기 | 아닙니다. | 아닙니다. |
-> | ExternalBillingAccounts | 아닙니다. | 아닙니다. |
-> | ExternalBillingAccounts / Alerts | 아닙니다. | 아닙니다. |
-> | ExternalBillingAccounts / Dimensions | 아닙니다. | 아닙니다. |
-> | ExternalBillingAccounts / Forecast | 아닙니다. | 아닙니다. |
-> | ExternalBillingAccounts / Query | 아닙니다. | 아닙니다. |
-> | ExternalSubscriptions | 아닙니다. | 아닙니다. |
-> | ExternalSubscriptions / Alerts | 아닙니다. | 아닙니다. |
-> | ExternalSubscriptions / Dimensions | 아닙니다. | 아닙니다. |
-> | ExternalSubscriptions / Forecast | 아닙니다. | 아닙니다. |
-> | ExternalSubscriptions / Query | 아닙니다. | 아닙니다. |
-> | Forecast | 아닙니다. | 아닙니다. |
-> | 쿼리 | 아닙니다. | 아닙니다. |
-> | register | 아닙니다. | 아닙니다. |
-> | Reportconfigs | 아닙니다. | 아닙니다. |
-> | 보고서 | 아닙니다. | 아닙니다. |
-> | 설정 | 아닙니다. | 아닙니다. |
-> | showbackRules | 아닙니다. | 아닙니다. |
-> | 뷰 | 아닙니다. | 아닙니다. |
+> | 경고 | 아니오 | 아니오 |
+> | BillingAccounts | 아니오 | 아니오 |
+> | 예산 | 아니오 | 아니오 |
+> | CloudConnectors | 아니오 | 아니오 |
+> | 커넥터 | 예 | 예 |
+> | Departments | 아니오 | 아니오 |
+> | 차원 | 아니오 | 아니오 |
+> | EnrollmentAccounts | 아니오 | 아니오 |
+> | 내보내기 | 아니오 | 아니오 |
+> | ExternalBillingAccounts | 아니오 | 아니오 |
+> | ExternalBillingAccounts/경고 | 아니오 | 아니오 |
+> | ExternalBillingAccounts/차원 | 아니오 | 아니오 |
+> | ExternalBillingAccounts/예측 | 아니오 | 아니오 |
+> | ExternalBillingAccounts/쿼리 | 아니오 | 아니오 |
+> | ExternalSubscriptions | 아니오 | 아니오 |
+> | ExternalSubscriptions/Alerts | 아니오 | 아니오 |
+> | ExternalSubscriptions/차원 | 아니오 | 아니오 |
+> | ExternalSubscriptions/예측 | 아니오 | 아니오 |
+> | ExternalSubscriptions/Query | 아니오 | 아니오 |
+> | 예측할 | 아니오 | 아니오 |
+> | query | 아니오 | 아니오 |
+> | register | 아니오 | 아니오 |
+> | Reportconfigs | 아니오 | 아니오 |
+> | 보고서 | 아니오 | 아니오 |
+> | 설정 | 아니오 | 아니오 |
+> | showbackRules | 아니오 | 아니오 |
+> | 뷰 | 아니오 | 아니오 |
 
 ## <a name="microsoftcustomerlockbox"></a>Microsoft.CustomerLockbox
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | requests | 아닙니다. | 아닙니다. |
+> | requests | 아니오 | 아니오 |
 
 ## <a name="microsoftcustomproviders"></a>Microsoft.CustomProviders
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | associations | 아닙니다. | 아닙니다. |
-> | resourceProviders | yes | yes |
+> | 사이의 | 아니오 | 아니오 |
+> | resourceProviders | 예 | 예 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | jobs | yes | yes |
+> | jobs | 예 | 예 |
 
 ## <a name="microsoftdataboxedge"></a>Microsoft.DataBoxEdge
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | DataBoxEdgeDevices | yes | yes |
+> | DataBoxEdgeDevices | 예 | 예 |
 
 ## <a name="microsoftdatabricks"></a>Microsoft.Databricks
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | workspaces | yes | 아닙니다. |
-> | workspaces / virtualNetworkPeerings | 아닙니다. | 아닙니다. |
+> | workspaces | 예 | 아니오 |
+> | 작업 영역/virtualNetworkPeerings | 아니오 | 아니오 |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | catalogs | yes | yes |
-> | datacatalogs | yes | yes |
-> | datacatalogs / datasources | 아닙니다. | 아닙니다. |
-> | datacatalogs / datasources / scans | 아닙니다. | 아닙니다. |
-> | datacatalogs / datasources / scans / datasets | 아닙니다. | 아닙니다. |
-> | datacatalogs / datasources / scans / triggers | 아닙니다. | 아닙니다. |
+> | catalogs | 예 | 예 |
+> | datacatalogs | 예 | 예 |
+> | datacatalogs/데이터 원본 | 아니오 | 아니오 |
+> | datacatalogs/데이터 원본/검색 | 아니오 | 아니오 |
+> | datacatalogs/데이터 원본/검색/데이터 집합 | 아니오 | 아니오 |
+> | datacatalogs/데이터 원본/검색/트리거 | 아니오 | 아니오 |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | dataFactories | yes | 아닙니다. |
-> | dataFactories / diagnosticSettings | 아닙니다. | 아닙니다. |
-> | dataFactories / metricDefinitions | 아닙니다. | 아닙니다. |
-> | dataFactorySchema | 아닙니다. | 아닙니다. |
-> | factories | yes | 아닙니다. |
-> | factories / integrationRuntimes | 아닙니다. | 아닙니다. |
+> | dataFactories | 예 | 아니오 |
+> | dataFactories/diagnosticSettings | 아니오 | 아니오 |
+> | dataFactories/metricDefinitions | 아니오 | 아니오 |
+> | dataFactorySchema | 아니오 | 아니오 |
+> | factories | 예 | 아니오 |
+> | 팩터리/integrationRuntimes | 아니오 | 아니오 |
 
 ## <a name="microsoftdatalakeanalytics"></a>Microsoft.DataLakeAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
-> | accounts / dataLakeStoreAccounts | 아닙니다. | 아닙니다. |
-> | accounts / storageAccounts | 아닙니다. | 아닙니다. |
-> | accounts / storageAccounts / containers | 아닙니다. | 아닙니다. |
-> | accounts / transferAnalyticsUnits | 아닙니다. | 아닙니다. |
+> | 계정 | 예 | 예 |
+> | 계정/dataLakeStoreAccounts | 아니오 | 아니오 |
+> | 계정/storageAccounts | 아니오 | 아니오 |
+> | 계정/storageAccounts/컨테이너 | 아니오 | 아니오 |
+> | 계정/transferAnalyticsUnits | 아니오 | 아니오 |
 
 ## <a name="microsoftdatalakestore"></a>Microsoft.DataLakeStore
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
-> | accounts / eventGridFilters | 아닙니다. | 아닙니다. |
-> | accounts / firewallRules | 아닙니다. | 아닙니다. |
+> | 계정 | 예 | 예 |
+> | 계정/eventGridFilters | 아니오 | 아니오 |
+> | 계정/firewallRules | 아니오 | 아니오 |
 
 ## <a name="microsoftdatamigration"></a>Microsoft.DataMigration
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | services | 아닙니다. | 아닙니다. |
-> | services / projects | 아닙니다. | 아닙니다. |
+> | services | 아니오 | 아니오 |
+> | 서비스/프로젝트 | 아니오 | 아니오 |
 
-## <a name="microsoftdatashare"></a>Microsoft.DataShare
+## <a name="microsoftdatashare"></a>DataShare
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
-> | accounts / shares | 아닙니다. | 아닙니다. |
-> | accounts / shares / datasets | 아닙니다. | 아닙니다. |
-> | accounts / shares / invitations | 아닙니다. | 아닙니다. |
-> | accounts / shares / providersharesubscriptions | 아닙니다. | 아닙니다. |
-> | accounts / shares / synchronizationSettings | 아닙니다. | 아닙니다. |
-> | accounts / sharesubscriptions | 아닙니다. | 아닙니다. |
-> | accounts / sharesubscriptions / consumerSourceDataSets | 아닙니다. | 아닙니다. |
-> | accounts / sharesubscriptions / datasetmappings | 아닙니다. | 아닙니다. |
-> | accounts / sharesubscriptions / triggers | 아닙니다. | 아닙니다. |
+> | 계정 | 예 | 예 |
+> | 계정/공유 | 아니오 | 아니오 |
+> | 계정/공유/데이터 집합 | 아니오 | 아니오 |
+> | 계정/공유/초대 | 아니오 | 아니오 |
+> | 계정/공유/providersharesubscriptions | 아니오 | 아니오 |
+> | 계정/공유/synchronizationSettings | 아니오 | 아니오 |
+> | 계정/sharesubscriptions | 아니오 | 아니오 |
+> | 계정/sharesubscriptions/consumerSourceDataSets | 아니오 | 아니오 |
+> | 계정/sharesubscriptions/datasetmappings | 아니오 | 아니오 |
+> | 계정/sharesubscriptions/트리거 | 아니오 | 아니오 |
 
 ## <a name="microsoftdbformariadb"></a>Microsoft.DBforMariaDB
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 서버 | yes | yes |
-> | servers / advisors | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnectionProxies | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnections | 아닙니다. | 아닙니다. |
-> | servers / privateLinkResources | 아닙니다. | 아닙니다. |
-> | servers / queryTexts | 아닙니다. | 아닙니다. |
-> | servers / recoverableServers | 아닙니다. | 아닙니다. |
-> | servers / topQueryStatistics | 아닙니다. | 아닙니다. |
-> | servers / virtualNetworkRules | 아닙니다. | 아닙니다. |
-> | servers / waitStatistics | 아닙니다. | 아닙니다. |
+> | servers | 예 | 예 |
+> | 서버/관리자 | 아니오 | 아니오 |
+> | servers/privateEndpointConnectionProxies | 아니오 | 아니오 |
+> | servers/privateEndpointConnections | 아니오 | 아니오 |
+> | servers/privateLinkResources | 아니오 | 아니오 |
+> | 서버/queryTexts | 아니오 | 아니오 |
+> | servers/recoverableServers | 아니오 | 아니오 |
+> | servers/topQueryStatistics | 아니오 | 아니오 |
+> | servers/virtualNetworkRules | 아니오 | 아니오 |
+> | 서버/waitStatistics | 아니오 | 아니오 |
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 서버 | yes | yes |
-> | servers / advisors | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnectionProxies | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnections | 아닙니다. | 아닙니다. |
-> | servers / privateLinkResources | 아닙니다. | 아닙니다. |
-> | servers / queryTexts | 아닙니다. | 아닙니다. |
-> | servers / recoverableServers | 아닙니다. | 아닙니다. |
-> | servers / topQueryStatistics | 아닙니다. | 아닙니다. |
-> | servers / virtualNetworkRules | 아닙니다. | 아닙니다. |
-> | servers / waitStatistics | 아닙니다. | 아닙니다. |
+> | servers | 예 | 예 |
+> | 서버/관리자 | 아니오 | 아니오 |
+> | servers/privateEndpointConnectionProxies | 아니오 | 아니오 |
+> | servers/privateEndpointConnections | 아니오 | 아니오 |
+> | servers/privateLinkResources | 아니오 | 아니오 |
+> | 서버/queryTexts | 아니오 | 아니오 |
+> | servers/recoverableServers | 아니오 | 아니오 |
+> | servers/topQueryStatistics | 아니오 | 아니오 |
+> | servers/virtualNetworkRules | 아니오 | 아니오 |
+> | 서버/waitStatistics | 아니오 | 아니오 |
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | serverGroups | yes | yes |
-> | 서버 | yes | yes |
-> | servers / advisors | 아닙니다. | 아닙니다. |
-> | servers / keys | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnectionProxies | 아닙니다. | 아닙니다. |
-> | servers / privateEndpointConnections | 아닙니다. | 아닙니다. |
-> | servers / privateLinkResources | 아닙니다. | 아닙니다. |
-> | servers / queryTexts | 아닙니다. | 아닙니다. |
-> | servers / recoverableServers | 아닙니다. | 아닙니다. |
-> | servers / topQueryStatistics | 아닙니다. | 아닙니다. |
-> | servers / virtualNetworkRules | 아닙니다. | 아닙니다. |
-> | servers / waitStatistics | 아닙니다. | 아닙니다. |
-> | serversv2 | yes | yes |
+> | serverGroups | 예 | 예 |
+> | servers | 예 | 예 |
+> | 서버/관리자 | 아니오 | 아니오 |
+> | 서버/키 | 아니오 | 아니오 |
+> | servers/privateEndpointConnectionProxies | 아니오 | 아니오 |
+> | servers/privateEndpointConnections | 아니오 | 아니오 |
+> | servers/privateLinkResources | 아니오 | 아니오 |
+> | 서버/queryTexts | 아니오 | 아니오 |
+> | servers/recoverableServers | 아니오 | 아니오 |
+> | servers/topQueryStatistics | 아니오 | 아니오 |
+> | servers/virtualNetworkRules | 아니오 | 아니오 |
+> | 서버/waitStatistics | 아니오 | 아니오 |
+> | serversv2 | 예 | 예 |
 
 ## <a name="microsoftdeploymentmanager"></a>Microsoft.DeploymentManager
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | artifactSources | yes | yes |
-> | rollouts | yes | yes |
-> | serviceTopologies | yes | yes |
-> | serviceTopologies / services | yes | yes |
-> | serviceTopologies / services / serviceUnits | yes | yes |
-> | 단계 | yes | yes |
+> | artifactSources | 예 | 예 |
+> | rollouts | 예 | 예 |
+> | serviceTopologies | 예 | 예 |
+> | serviceTopologies/서비스 | 예 | 예 |
+> | serviceTopologies/서비스/serviceUnits | 예 | 예 |
+> | 단계 | 예 | 예 |
 
-## <a name="microsoftdesktopvirtualization"></a>Microsoft.DesktopVirtualization
+## <a name="microsoftdesktopvirtualization"></a>Microsoft DesktopVirtualization
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | applicationgroups | yes | yes |
-> | applicationgroups / applications | 아닙니다. | 아닙니다. |
-> | applicationgroups / desktops | 아닙니다. | 아닙니다. |
-> | applicationgroups / startmenuitems | 아닙니다. | 아닙니다. |
-> | hostpools | yes | yes |
-> | hostpools / sessionhosts | 아닙니다. | 아닙니다. |
-> | hostpools / sessionhosts / usersessions | 아닙니다. | 아닙니다. |
-> | hostpools / usersessions | 아닙니다. | 아닙니다. |
-> | workspaces | yes | yes |
+> | applicationgroups | 예 | 예 |
+> | applicationgroups/응용 프로그램 | 아니오 | 아니오 |
+> | applicationgroups/데스크톱 | 아니오 | 아니오 |
+> | applicationgroups/startmenuitems | 아니오 | 아니오 |
+> | hostpools | 예 | 예 |
+> | hostpools/sessionhosts | 아니오 | 아니오 |
+> | hostpools/sessionhosts/usersessions | 아니오 | 아니오 |
+> | hostpools/usersessions | 아니오 | 아니오 |
+> | workspaces | 예 | 예 |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | ElasticPools | yes | yes |
-> | ElasticPools / IotHubTenants | yes | yes |
-> | IotHubs | yes | yes |
-> | IotHubs / eventGridFilters | 아닙니다. | 아닙니다. |
-> | ProvisioningServices | yes | yes |
-> | usages | 아닙니다. | 아닙니다. |
+> | ElasticPools | 예 | 예 |
+> | ElasticPools / IotHubTenants | 예 | 예 |
+> | IotHubs | 예 | 예 |
+> | IotHubs/eventGridFilters | 아니오 | 아니오 |
+> | ProvisioningServices | 예 | 예 |
+> | usages | 아니오 | 아니오 |
 
-## <a name="microsoftdevops"></a>Microsoft.DevOps
+## <a name="microsoftdevops"></a>Microsoft DevOps
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | pipelines | yes | yes |
+> | 파이프라인 | 예 | 예 |
 
 ## <a name="microsoftdevspaces"></a>Microsoft.DevSpaces
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | controllers | yes | yes |
+> | controllers | 예 | 예 |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | labcenters | yes | yes |
-> | labs | yes | yes |
-> | labs / environments | yes | yes |
-> | labs / serviceRunners | yes | yes |
-> | labs / virtualMachines | yes | yes |
-> | schedules | yes | yes |
+> | labcenters | 예 | 예 |
+> | labs | 예 | 예 |
+> | 랩/환경 | 예 | 예 |
+> | labs/serviceRunners | 예 | 예 |
+> | labs/virtualMachines | 예 | 예 |
+> | schedules | 예 | 예 |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | databaseAccountNames | 아닙니다. | 아닙니다. |
-> | databaseAccounts | yes | yes |
+> | databaseAccountNames | 아니오 | 아니오 |
+> | databaseAccounts | 예 | 예 |
 
 ## <a name="microsoftdomainregistration"></a>Microsoft.DomainRegistration
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | domains | yes | yes |
-> | domains / domainOwnershipIdentifiers | 아닙니다. | 아닙니다. |
-> | generateSsoRequest | 아닙니다. | 아닙니다. |
-> | topLevelDomains | 아닙니다. | 아닙니다. |
-> | validateDomainRegistrationInformation | 아닙니다. | 아닙니다. |
+> | domains | 예 | 예 |
+> | 도메인/도메인 소유자의 식별자 | 아니오 | 아니오 |
+> | generateSsoRequest | 아니오 | 아니오 |
+> | topLevelDomains | 아니오 | 아니오 |
+> | validateDomainRegistrationInformation | 아니오 | 아니오 |
 
 ## <a name="microsoftdynamicslcs"></a>Microsoft.DynamicsLcs
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | lcsprojects | 아닙니다. | 아닙니다. |
-> | lcsprojects / clouddeployments | 아닙니다. | 아닙니다. |
-> | lcsprojects / connectors | 아닙니다. | 아닙니다. |
+> | lcsprojects | 아니오 | 아니오 |
+> | lcsprojects/clouddeployments | 아니오 | 아니오 |
+> | lcsprojects/커넥터 | 아니오 | 아니오 |
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | services | yes | yes |
+> | services | 예 | 예 |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | domains | yes | yes |
-> | domains / topics | 아닙니다. | 아닙니다. |
-> | eventSubscriptions | 아닙니다. | 아닙니다. |
-> | extensionTopics | 아닙니다. | 아닙니다. |
-> | topics | yes | yes |
-> | topicTypes | 아닙니다. | 아닙니다. |
+> | domains | 예 | 예 |
+> | 도메인/항목 | 아니오 | 아니오 |
+> | eventSubscriptions | 아니오 | 아니오 |
+> | extensionTopics | 아니오 | 아니오 |
+> | topics | 예 | 예 |
+> | topicTypes | 아니오 | 아니오 |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | clusters | yes | yes |
-> | namespaces | yes | yes |
-> | namespaces / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / disasterrecoveryconfigs | 아닙니다. | 아닙니다. |
-> | namespaces / eventhubs | 아닙니다. | 아닙니다. |
-> | namespaces / eventhubs / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / eventhubs / consumergroups | 아닙니다. | 아닙니다. |
-> | namespaces / networkrulesets | 아닙니다. | 아닙니다. |
+> | clusters | 예 | 예 |
+> | namespaces | 예 | 예 |
+> | 네임 스페이스/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/disasterrecoveryconfigs | 아니오 | 아니오 |
+> | 네임 스페이스/eventhubs | 아니오 | 아니오 |
+> | 네임 스페이스/eventhubs/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/eventhubs/consumergroups | 아니오 | 아니오 |
+> | 네임 스페이스/네트워크 규칙 집합 | 아니오 | 아니오 |
 
 ## <a name="microsoftfeatures"></a>Microsoft.Features
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | SaaS 앱 개발 | 아닙니다. | 아닙니다. |
-> | providers | 아닙니다. | 아닙니다. |
+> | 기능 | 아니오 | 아니오 |
+> | providers | 아니오 | 아니오 |
 
 ## <a name="microsoftgallery"></a>Microsoft.Gallery
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | enroll | 아닙니다. | 아닙니다. |
-> | galleryitems | 아닙니다. | 아닙니다. |
-> | generateartifactaccessuri | 아닙니다. | 아닙니다. |
-> | myareas | 아닙니다. | 아닙니다. |
-> | myareas / areas | 아닙니다. | 아닙니다. |
-> | myareas / areas / areas | 아닙니다. | 아닙니다. |
-> | myareas / areas / areas / galleryitems | 아닙니다. | 아닙니다. |
-> | myareas / areas / galleryitems | 아닙니다. | 아닙니다. |
-> | myareas / galleryitems | 아닙니다. | 아닙니다. |
-> | register | 아닙니다. | 아닙니다. |
-> | 리소스 | 아닙니다. | 아닙니다. |
-> | retrieveresourcesbyid | 아닙니다. | 아닙니다. |
+> | enroll | 아니오 | 아니오 |
+> | galleryitems | 아니오 | 아니오 |
+> | generateartifactaccessuri | 아니오 | 아니오 |
+> | myareas | 아니오 | 아니오 |
+> | myareas/areas | 아니오 | 아니오 |
+> | myareas/areas/areas | 아니오 | 아니오 |
+> | myareas/areas/areas/galleryitems | 아니오 | 아니오 |
+> | myareas/areas/galleryitems | 아니오 | 아니오 |
+> | myareas/galleryitems | 아니오 | 아니오 |
+> | register | 아니오 | 아니오 |
+> | 리소스 | 아니오 | 아니오 |
+> | retrieveresourcesbyid | 아니오 | 아니오 |
 
 ## <a name="microsoftgenomics"></a>Microsoft.Genomics
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
+> | 계정 | 예 | 예 |
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | configurationProfileAssignments | 아닙니다. | 아닙니다. |
-> | guestConfigurationAssignments | 아닙니다. | 아닙니다. |
-> | software | 아닙니다. | 아닙니다. |
-> | softwareUpdateProfile | 아닙니다. | 아닙니다. |
-> | softwareUpdates | 아닙니다. | 아닙니다. |
+> | configurationprofil | 아니오 | 아니오 |
+> | guestConfigurationAssignments | 아니오 | 아니오 |
+> | software | 아니오 | 아니오 |
+> | softwareUpdateProfile | 아니오 | 아니오 |
+> | 업데이트 | 아니오 | 아니오 |
 
 ## <a name="microsofthanaonazure"></a>Microsoft.HanaOnAzure
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | hanaInstances | yes | yes |
-> | sapMonitors | yes | yes |
+> | hanaInstances | 예 | 예 |
+> | sapMonitors | 예 | 예 |
 
 ## <a name="microsofthardwaresecuritymodules"></a>Microsoft.HardwareSecurityModules
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | dedicatedHSMs | yes | yes |
+> | dedicatedHSMs | 예 | 예 |
 
 ## <a name="microsofthdinsight"></a>Microsoft.HDInsight
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | clusters | yes | yes |
-> | clusters / applications | 아닙니다. | 아닙니다. |
+> | clusters | 예 | 예 |
+> | 클러스터/응용 프로그램 | 아니오 | 아니오 |
 
 ## <a name="microsofthealthcareapis"></a>Microsoft.HealthcareApis
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | services | yes | yes |
+> | services | 예 | 예 |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | machines | yes | yes |
-> | machines / extensions | yes | yes |
+> | 머신의 | 예 | 예 |
+> | 컴퓨터/확장 | 예 | 예 |
 
 ## <a name="microsofthybriddata"></a>Microsoft.HybridData
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | dataManagers | yes | yes |
+> | dataManagers | 예 | 예 |
 
-## <a name="microsofthydra"></a>Microsoft.Hydra
+## <a name="microsofthydra"></a>Microsoft 히드라
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | components | yes | yes |
-> | networkScopes | yes | yes |
+> | components | 예 | 예 |
+> | networkScopes | 예 | 예 |
 
 ## <a name="microsoftimportexport"></a>Microsoft.ImportExport
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | jobs | yes | yes |
+> | jobs | 예 | 예 |
 
 ## <a name="microsoftintune"></a>Microsoft.Intune
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | diagnosticSettings | 아닙니다. | 아닙니다. |
-> | diagnosticSettingsCategories | 아닙니다. | 아닙니다. |
+> | diagnosticSettings | 아니오 | 아니오 |
+> | diagnosticSettingsCategories | 아니오 | 아니오 |
 
 ## <a name="microsoftiotcentral"></a>Microsoft.IoTCentral
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | appTemplates | 아닙니다. | 아닙니다. |
-> | IoTApps | yes | yes |
+> | appTemplates | 아니오 | 아니오 |
+> | IoTApps | 예 | 예 |
 
 ## <a name="microsoftiotspaces"></a>Microsoft.IoTSpaces
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 그래프 | yes | yes |
+> | 그래프 | 예 | 예 |
 
 ## <a name="microsoftkeyvault"></a>Microsoft.KeyVault
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | deletedVaults | 아닙니다. | 아닙니다. |
-> | hsmPools | yes | yes |
-> | vaults | yes | yes |
-> | vaults / accessPolicies | 아닙니다. | 아닙니다. |
-> | vaults / eventGridFilters | 아닙니다. | 아닙니다. |
-> | vaults / secrets | 아닙니다. | 아닙니다. |
+> | deletedVaults | 아니오 | 아니오 |
+> | hsmPools | 예 | 예 |
+> | vaults | 예 | 예 |
+> | 자격 증명 모음/Accesspolicy | 아니오 | 아니오 |
+> | 자격 증명 모음/eventGridFilters | 아니오 | 아니오 |
+> | 자격 증명 모음/비밀 | 아니오 | 아니오 |
 
 ## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | clusters | yes | yes |
-> | clusters / attacheddatabaseconfigurations | 아닙니다. | 아닙니다. |
-> | clusters / databases | 아닙니다. | 아닙니다. |
-> | clusters / databases / dataconnections | 아닙니다. | 아닙니다. |
-> | clusters / databases / eventhubconnections | 아닙니다. | 아닙니다. |
-> | clusters / sharedidentities | 아닙니다. | 아닙니다. |
+> | clusters | 예 | 예 |
+> | 클러스터/attacheddatabaseconfigurations | 아니오 | 아니오 |
+> | 클러스터/데이터베이스 | 아니오 | 아니오 |
+> | 클러스터/데이터베이스/dataconnections | 아니오 | 아니오 |
+> | 클러스터/데이터베이스/eventhubconnections | 아니오 | 아니오 |
+> | 클러스터/sharedidentities | 아니오 | 아니오 |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | labaccounts | yes | yes |
-> | users | 아닙니다. | 아닙니다. |
+> | labaccounts | 예 | 예 |
+> | users | 아니오 | 아니오 |
 
 ## <a name="microsoftlogic"></a>Microsoft.Logic
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | hostingEnvironments | yes | yes |
-> | integrationAccounts | yes | yes |
-> | integrationServiceEnvironments | yes | yes |
-> | integrationServiceEnvironments / managedApis | yes | yes |
-> | isolatedEnvironments | yes | yes |
-> | workflows | yes | yes |
+> | hostingEnvironments | 예 | 예 |
+> | integrationAccounts | 예 | 예 |
+> | integrationServiceEnvironments | 예 | 예 |
+> | integrationServiceEnvironments/managedApis | 예 | 예 |
+> | isolatedEnvironments | 예 | 예 |
+> | workflows | 예 | 예 |
 
 ## <a name="microsoftmachinelearning"></a>Microsoft.MachineLearning
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | commitmentPlans | yes | yes |
-> | webServices | yes | yes |
-> | 작업 영역 | yes | yes |
+> | commitmentPlans | 예 | 예 |
+> | webServices | 예 | 예 |
+> | 작업 영역 | 예 | 예 |
 
 ## <a name="microsoftmachinelearningservices"></a>Microsoft.MachineLearningServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | workspaces | yes | yes |
-> | workspaces / computes | 아닙니다. | 아닙니다. |
-> | workspaces / eventGridFilters | 아닙니다. | 아닙니다. |
+> | workspaces | 예 | 예 |
+> | 작업 영역/계산 | 아니오 | 아니오 |
+> | workspace/eventGridFilters | 아니오 | 아니오 |
 
 ## <a name="microsoftmanagedidentity"></a>Microsoft.ManagedIdentity
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | Identities | 아닙니다. | 아닙니다. |
-> | userAssignedIdentities | yes | yes |
+> | Identities | 아니오 | 아니오 |
+> | userAssignedIdentities | 예 | 예 |
 
-## <a name="microsoftmanagedservices"></a>Microsoft.ManagedServices
+## <a name="microsoftmanagedservices"></a>Microsoft ManagedServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | marketplaceRegistrationDefinitions | 아닙니다. | 아닙니다. |
-> | registrationAssignments | 아닙니다. | 아닙니다. |
-> | registrationDefinitions | 아닙니다. | 아닙니다. |
+> | marketplaceRegistrationDefinitions | 아니오 | 아니오 |
+> | registrationAssignments | 아니오 | 아니오 |
+> | registrationDefinitions | 아니오 | 아니오 |
 
 ## <a name="microsoftmanagement"></a>Microsoft.Management
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | getEntities | 아닙니다. | 아닙니다. |
-> | managementGroups | 아닙니다. | 아닙니다. |
-> | 리소스 | 아닙니다. | 아닙니다. |
-> | startTenantBackfill | 아닙니다. | 아닙니다. |
-> | tenantBackfillStatus | 아닙니다. | 아닙니다. |
+> | getEntities | 아니오 | 아니오 |
+> | managementGroups | 아니오 | 아니오 |
+> | 리소스 | 아니오 | 아니오 |
+> | startTenantBackfill | 아니오 | 아니오 |
+> | tenantBackfillStatus | 아니오 | 아니오 |
 
 ## <a name="microsoftmaps"></a>Microsoft.Maps
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | yes | yes |
-> | accounts / eventGridFilters | 아닙니다. | 아닙니다. |
+> | 계정 | 예 | 예 |
+> | 계정/eventGridFilters | 아니오 | 아니오 |
 
 ## <a name="microsoftmarketplace"></a>Microsoft.Marketplace
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | offers | 아닙니다. | 아닙니다. |
-> | offerTypes | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers / offers | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers / offers / plans | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers / offers / plans / agreements | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers / offers / plans / configs | 아닙니다. | 아닙니다. |
-> | offerTypes / publishers / offers / plans / configs / importImage | 아닙니다. | 아닙니다. |
-> | privategalleryitems | 아닙니다. | 아닙니다. |
-> | products | 아닙니다. | 아닙니다. |
-> | publishers | 아닙니다. | 아닙니다. |
-> | publishers / offers | 아닙니다. | 아닙니다. |
-> | publishers / offers / amendments | 아닙니다. | 아닙니다. |
+> | offers | 아니오 | 아니오 |
+> | offerTypes | 아니오 | 아니오 |
+> | offerTypes/게시자 | 아니오 | 아니오 |
+> | offerTypes/게시자/제안 | 아니오 | 아니오 |
+> | offerTypes/게시자/제품/계획 | 아니오 | 아니오 |
+> | offerTypes/게시자/제품/계획/규약 | 아니오 | 아니오 |
+> | offerTypes/게시자/제품/계획/configs | 아니오 | 아니오 |
+> | offerTypes/publishers/제품/계획/configs/importImage | 아니오 | 아니오 |
+> | privategalleryitems | 아니오 | 아니오 |
+> | products | 아니오 | 아니오 |
+> | 게시자 | 아니오 | 아니오 |
+> | 게시자/제안 | 아니오 | 아니오 |
+> | 게시자/제품/개정 | 아니오 | 아니오 |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | classicDevServices | yes | yes |
-> | updateCommunicationPreference | 아닙니다. | 아닙니다. |
+> | classicDevServices | 예 | 예 |
+> | updateCommunicationPreference | 아니오 | 아니오 |
 
 ## <a name="microsoftmarketplaceordering"></a>Microsoft.MarketplaceOrdering
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | agreements | 아닙니다. | 아닙니다. |
-> | offertypes | 아닙니다. | 아닙니다. |
+> | agreements | 아니오 | 아니오 |
+> | offertypes | 아니오 | 아니오 |
 
 ## <a name="microsoftmedia"></a>Microsoft.Media
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | mediaservices | yes | yes |
-> | mediaservices / accountFilters | 아닙니다. | 아닙니다. |
-> | mediaservices / assets | 아닙니다. | 아닙니다. |
-> | mediaservices / assets / assetFilters | 아닙니다. | 아닙니다. |
-> | mediaservices / contentKeyPolicies | 아닙니다. | 아닙니다. |
-> | mediaservices / eventGridFilters | 아닙니다. | 아닙니다. |
-> | mediaservices / liveEventOperations | 아닙니다. | 아닙니다. |
-> | mediaservices / liveEvents | yes | yes |
-> | mediaservices / liveEvents / liveOutputs | 아닙니다. | 아닙니다. |
-> | mediaservices / liveOutputOperations | 아닙니다. | 아닙니다. |
-> | mediaservices / mediaGraphs | 아닙니다. | 아닙니다. |
-> | mediaservices / streamingEndpointOperations | 아닙니다. | 아닙니다. |
-> | mediaservices / streamingEndpoints | yes | yes |
-> | mediaservices / streamingLocators | 아닙니다. | 아닙니다. |
-> | mediaservices / streamingPolicies | 아닙니다. | 아닙니다. |
-> | mediaservices / transforms | 아닙니다. | 아닙니다. |
-> | mediaservices / transforms / jobs | 아닙니다. | 아닙니다. |
+> | mediaservices | 예 | 예 |
+> | windowsazure.mediaservices/accountFilters | 아니오 | 아니오 |
+> | windowsazure.mediaservices/자산 | 아니오 | 아니오 |
+> | windowsazure.mediaservices/asset/assetFilters | 아니오 | 아니오 |
+> | windowsazure.mediaservices/Contentkeypolicy | 아니오 | 아니오 |
+> | windowsazure.mediaservices/eventGridFilters | 아니오 | 아니오 |
+> | windowsazure.mediaservices/liveEventOperations | 아니오 | 아니오 |
+> | windowsazure.mediaservices/liveEvents | 예 | 예 |
+> | windowsazure.mediaservices/liveEvents/Liveoutput | 아니오 | 아니오 |
+> | windowsazure.mediaservices/liveOutputOperations | 아니오 | 아니오 |
+> | windowsazure.mediaservices/mediaGraphs | 아니오 | 아니오 |
+> | windowsazure.mediaservices/streamingEndpointOperations | 아니오 | 아니오 |
+> | windowsazure.mediaservices/streamingEndpoints | 예 | 예 |
+> | windowsazure.mediaservices/streamingLocators | 아니오 | 아니오 |
+> | windowsazure.mediaservices/streamingPolicies | 아니오 | 아니오 |
+> | windowsazure.mediaservices/변환 | 아니오 | 아니오 |
+> | windowsazure.mediaservices/변환/작업 | 아니오 | 아니오 |
 
-## <a name="microsoftmicroservices4spring"></a>Microsoft.Microservices4Spring
+## <a name="microsoftmicroservices4spring"></a>Microservices4Spring
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | appClusters | yes | yes |
+> | appClusters | 예 | 예 |
 
 ## <a name="microsoftmigrate"></a>Microsoft.Migrate
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | assessmentProjects | yes | yes |
-> | migrateprojects | yes | yes |
-> | projects | yes | yes |
+> | assessmentProjects | 예 | 예 |
+> | migrateprojects | 예 | 예 |
+> | projects | 예 | 예 |
 
 ## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | holographicsBroadcastAccounts | yes | yes |
-> | objectUnderstandingAccounts | yes | yes |
-> | remoteRenderingAccounts | yes | yes |
-> | spatialAnchorsAccounts | yes | yes |
-> | surfaceReconstructionAccounts | yes | yes |
+> | holographicsBroadcastAccounts | 예 | 예 |
+> | objectUnderstandingAccounts | 예 | 예 |
+> | remoteRenderingAccounts | 예 | 예 |
+> | spatialAnchorsAccounts | 예 | 예 |
+> | surfaceReconstructionAccounts | 예 | 예 |
 
 ## <a name="microsoftnetapp"></a>Microsoft.NetApp
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | netAppAccounts | yes | 아닙니다. |
-> | netAppAccounts / capacityPools | yes | 아닙니다. |
-> | netAppAccounts / capacityPools / volumes | yes | 아닙니다. |
-> | netAppAccounts / capacityPools / volumes / mountTargets | yes | 아닙니다. |
-> | netAppAccounts / capacityPools / volumes / snapshots | yes | 아닙니다. |
+> | netAppAccounts | 예 | 아니오 |
+> | netAppAccounts/capacityPools | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨 | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨/mountTargets | 예 | 아니오 |
+> | netAppAccounts/capacityPools/볼륨/스냅숏 | 예 | 아니오 |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | applicationGateways | yes | yes |
-> | applicationGatewayWebApplicationFirewallPolicies | yes | yes |
-> | applicationSecurityGroups | yes | yes |
-> | azureFirewallFqdnTags | 아닙니다. | 아닙니다. |
-> | azureFirewalls | yes | 아닙니다. |
-> | bastionHosts | yes | yes |
-> | bgpServiceCommunities | 아닙니다. | 아닙니다. |
-> | connections | yes | yes |
-> | ddosCustomPolicies | yes | yes |
-> | ddosProtectionPlans | yes | yes |
-> | dnsOperationStatuses | 아닙니다. | 아닙니다. |
-> | dnszones | yes | yes |
-> | dnszones / A | 아닙니다. | 아닙니다. |
-> | dnszones / AAAA | 아닙니다. | 아닙니다. |
-> | dnszones / all | 아닙니다. | 아닙니다. |
-> | dnszones / CAA | 아닙니다. | 아닙니다. |
-> | dnszones / CNAME | 아닙니다. | 아닙니다. |
-> | dnszones / MX | 아닙니다. | 아닙니다. |
-> | dnszones / NS | 아닙니다. | 아닙니다. |
-> | dnszones / PTR | 아닙니다. | 아닙니다. |
-> | dnszones / recordsets | 아닙니다. | 아닙니다. |
-> | dnszones / SOA | 아닙니다. | 아닙니다. |
-> | dnszones / SRV | 아닙니다. | 아닙니다. |
-> | dnszones / TXT | 아닙니다. | 아닙니다. |
-> | expressRouteCircuits | yes | yes |
-> | expressRouteCrossConnections | yes | yes |
-> | expressRouteGateways | yes | yes |
-> | expressRoutePorts | yes | yes |
-> | expressRouteServiceProviders | 아닙니다. | 아닙니다. |
-> | firewallPolicies | yes | yes |
-> | frontdoors | Yes, but limited (see [note below](#frontdoor)) | yes |
-> | frontdoorWebApplicationFirewallManagedRuleSets | Yes, but limited (see [note below](#frontdoor)) | 아닙니다. |
-> | frontdoorWebApplicationFirewallPolicies | Yes, but limited (see [note below](#frontdoor)) | yes |
-> | getDnsResourceReference | 아닙니다. | 아닙니다. |
-> | internalNotify | 아닙니다. | 아닙니다. |
-> | loadBalancers | yes | 아닙니다. |
-> | localNetworkGateways | yes | yes |
-> | natGateways | yes | yes |
-> | networkIntentPolicies | yes | yes |
-> | networkInterfaces | yes | yes |
-> | networkProfiles | yes | yes |
-> | networkSecurityGroups | yes | yes |
-> | networkWatchers | yes | 아닙니다. |
-> | networkWatchers / connectionMonitors | yes | 아닙니다. |
-> | networkWatchers / lenses | yes | 아닙니다. |
-> | networkWatchers / pingMeshes | yes | 아닙니다. |
-> | p2sVpnGateways | yes | yes |
-> | privateDnsOperationStatuses | 아닙니다. | 아닙니다. |
-> | privateDnsZones | yes | yes |
-> | privateDnsZones / A | 아닙니다. | 아닙니다. |
-> | privateDnsZones / AAAA | 아닙니다. | 아닙니다. |
-> | privateDnsZones / all | 아닙니다. | 아닙니다. |
-> | privateDnsZones / CNAME | 아닙니다. | 아닙니다. |
-> | privateDnsZones / MX | 아닙니다. | 아닙니다. |
-> | privateDnsZones / PTR | 아닙니다. | 아닙니다. |
-> | privateDnsZones / SOA | 아닙니다. | 아닙니다. |
-> | privateDnsZones / SRV | 아닙니다. | 아닙니다. |
-> | privateDnsZones / TXT | 아닙니다. | 아닙니다. |
-> | privateDnsZones / virtualNetworkLinks | yes | yes |
-> | privateEndpoints | yes | yes |
-> | privateLinkServices | yes | yes |
-> | publicIPAddresses | yes | yes |
-> | publicIPPrefixes | yes | yes |
-> | routeFilters | yes | yes |
-> | routeTables | yes | yes |
-> | serviceEndpointPolicies | yes | yes |
-> | trafficManagerGeographicHierarchies | 아닙니다. | 아닙니다. |
-> | trafficmanagerprofiles | yes | yes |
-> | trafficmanagerprofiles/heatMaps | 아닙니다. | 아닙니다. |
-> | trafficManagerUserMetricsKeys | 아닙니다. | 아닙니다. |
-> | virtualHubs | yes | yes |
-> | virtualNetworkGateways | yes | yes |
-> | virtualNetworks | yes | yes |
-> | virtualNetworkTaps | yes | yes |
-> | virtualWans | yes | yes |
-> | vpnGateways | yes | 아닙니다. |
-> | vpnSites | yes | yes |
-> | webApplicationFirewallPolicies | yes | yes |
+> | applicationGateways | 예 | 예 |
+> | applicationGatewayWebApplicationFirewallPolicies | 예 | 예 |
+> | applicationSecurityGroups | 예 | 예 |
+> | azureFirewallFqdnTags | 아니오 | 아니오 |
+> | azureFirewalls | 예 | 아니오 |
+> | bastionHosts | 예 | 예 |
+> | bgpServiceCommunities | 아니오 | 아니오 |
+> | connections | 예 | 예 |
+> | ddosCustomPolicies | 예 | 예 |
+> | ddosProtectionPlans | 예 | 예 |
+> | dnsOperationStatuses | 아니오 | 아니오 |
+> | dnszones | 예 | 예 |
+> | dnszones/A | 아니오 | 아니오 |
+> | dnszones/AAAA | 아니오 | 아니오 |
+> | dnszones/모두 | 아니오 | 아니오 |
+> | dnszones/CAA | 아니오 | 아니오 |
+> | dnszones/CNAME | 아니오 | 아니오 |
+> | dnszones/MX | 아니오 | 아니오 |
+> | dnszones/NS | 아니오 | 아니오 |
+> | dnszones/PTR | 아니오 | 아니오 |
+> | dnszones/레코드 집합 | 아니오 | 아니오 |
+> | dnszones/SOA | 아니오 | 아니오 |
+> | dnszones/SRV | 아니오 | 아니오 |
+> | dnszones/TXT | 아니오 | 아니오 |
+> | expressRouteCircuits | 예 | 예 |
+> | expressRouteCrossConnections | 예 | 예 |
+> | expressRouteGateways | 예 | 예 |
+> | expressRoutePorts | 예 | 예 |
+> | expressRouteServiceProviders | 아니오 | 아니오 |
+> | firewallPolicies | 예 | 예 |
+> | frontdoors | 예, 제한 ( [아래 참고](#frontdoor)참조) | 예 |
+> | frontdoorWebApplicationFirewallManagedRuleSets | 예, 제한 ( [아래 참고](#frontdoor)참조) | 아니오 |
+> | frontdoorWebApplicationFirewallPolicies | 예, 제한 ( [아래 참고](#frontdoor)참조) | 예 |
+> | getDnsResourceReference | 아니오 | 아니오 |
+> | internalNotify | 아니오 | 아니오 |
+> | loadBalancers | 예 | 아니오 |
+> | localNetworkGateways | 예 | 예 |
+> | natGateways | 예 | 예 |
+> | networkIntentPolicies | 예 | 예 |
+> | networkInterfaces | 예 | 예 |
+> | networkProfiles | 예 | 예 |
+> | networkSecurityGroups | 예 | 예 |
+> | networkWatchers | 예 | 아니오 |
+> | networkWatchers/connectionMonitors | 예 | 아니오 |
+> | networkWatchers/lenses | 예 | 아니오 |
+> | networkWatchers/ | 예 | 아니오 |
+> | p2sVpnGateways | 예 | 예 |
+> | privateDnsOperationStatuses | 아니오 | 아니오 |
+> | privateDnsZones | 예 | 예 |
+> | privateDnsZones/A | 아니오 | 아니오 |
+> | privateDnsZones/AAAA | 아니오 | 아니오 |
+> | privateDnsZones/모두 | 아니오 | 아니오 |
+> | privateDnsZones/CNAME | 아니오 | 아니오 |
+> | privateDnsZones/MX | 아니오 | 아니오 |
+> | privateDnsZones/PTR | 아니오 | 아니오 |
+> | privateDnsZones/SOA | 아니오 | 아니오 |
+> | privateDnsZones/SRV | 아니오 | 아니오 |
+> | privateDnsZones/TXT | 아니오 | 아니오 |
+> | privateDnsZones / virtualNetworkLinks | 예 | 예 |
+> | privateEndpoints | 예 | 예 |
+> | privateLinkServices | 예 | 예 |
+> | publicIPAddresses | 예 | 예 |
+> | publicIPPrefixes | 예 | 예 |
+> | routeFilters | 예 | 예 |
+> | routeTables | 예 | 예 |
+> | serviceEndpointPolicies | 예 | 예 |
+> | trafficManagerGeographicHierarchies | 아니오 | 아니오 |
+> | trafficmanagerprofiles | 예 | 예 |
+> | trafficmanagerprofiles/heatMaps | 아니오 | 아니오 |
+> | trafficManagerUserMetricsKeys | 아니오 | 아니오 |
+> | virtualHubs | 예 | 예 |
+> | virtualNetworkGateways | 예 | 예 |
+> | virtualNetworks | 예 | 예 |
+> | virtualNetworkTaps | 예 | 예 |
+> | virtualWans | 예 | 예 |
+> | vpnGateways | 예 | 아니오 |
+> | vpnSites | 예 | 예 |
+> | webApplicationFirewallPolicies | 예 | 예 |
 
 <a id="frontdoor" />
 
 > [!NOTE]
-> For Azure Front Door Service, you can apply tags when creating the resource, but updating or adding tags is not currently supported.
+> Azure Front 도어 서비스의 경우 리소스를 만들 때 태그를 적용할 수 있지만, 태그를 업데이트 하거나 추가 하는 기능은 현재 지원 되지 않습니다.
 
 
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | namespaces | yes | 아닙니다. |
-> | namespaces / notificationHubs | yes | 아닙니다. |
+> | namespaces | 예 | 아니오 |
+> | 네임 스페이스/notificationHubs | 예 | 아니오 |
 
-## <a name="microsoftobjectstore"></a>Microsoft.ObjectStore
+## <a name="microsoftobjectstore"></a>Microsoft ObjectStore
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | osNamespaces | yes | yes |
+> | osNamespaces 스페이스 | 예 | 예 |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | HyperVSites | yes | yes |
-> | ImportSites | yes | yes |
-> | ServerSites | yes | yes |
-> | VMwareSites | yes | yes |
+> | HyperVSites | 예 | 예 |
+> | ImportSites | 예 | 예 |
+> | ServerSites | 예 | 예 |
+> | VMwareSites | 예 | 예 |
 
 ## <a name="microsoftoperationalinsights"></a>Microsoft.OperationalInsights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | clusters | yes | yes |
-> | devices | 아닙니다. | 아닙니다. |
-> | linkTargets | 아닙니다. | 아닙니다. |
-> | storageInsightConfigs | 아닙니다. | 아닙니다. |
-> | workspaces | yes | yes |
-> | workspaces / dataSources | 아닙니다. | 아닙니다. |
-> | workspaces / linkedServices | 아닙니다. | 아닙니다. |
-> | workspaces / query | 아닙니다. | 아닙니다. |
+> | clusters | 예 | 예 |
+> | devices | 아니오 | 아니오 |
+> | linkTargets | 아니오 | 아니오 |
+> | storageInsightConfigs | 아니오 | 아니오 |
+> | workspaces | 예 | 예 |
+> | 작업 영역/데이터 원본 | 아니오 | 아니오 |
+> | 작업 영역/Linkedservices.json 및 datasets.json | 아니오 | 아니오 |
+> | 작업 영역/쿼리 | 아니오 | 아니오 |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | managementassociations | 아닙니다. | 아닙니다. |
-> | managementconfigurations | yes | yes |
-> | solutions | yes | yes |
-> | 뷰 | yes | yes |
+> | managementassociations | 아니오 | 아니오 |
+> | managementconfigurations | 예 | 예 |
+> | solutions | 예 | 예 |
+> | 뷰 | 예 | 예 |
 
 ## <a name="microsoftpeering"></a>Microsoft.Peering
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | legacyPeerings | 아닙니다. | 아닙니다. |
-> | peerAsns | 아닙니다. | 아닙니다. |
-> | peerings | yes | yes |
-> | peeringServiceProviders | 아닙니다. | 아닙니다. |
-> | peeringServices | yes | yes |
+> | legacyPeerings | 아니오 | 아니오 |
+> | peerAsns | 아니오 | 아니오 |
+> | 피어 링 | 예 | 예 |
+> | peeringServiceProviders | 아니오 | 아니오 |
+> | peeringServices | 예 | 예 |
 
 ## <a name="microsoftpolicyinsights"></a>Microsoft.PolicyInsights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | policyEvents | 아닙니다. | 아닙니다. |
-> | policyMetadata | 아닙니다. | 아닙니다. |
-> | policyStates | 아닙니다. | 아닙니다. |
-> | policyTrackedResources | 아닙니다. | 아닙니다. |
-> | remediations | 아닙니다. | 아닙니다. |
+> | policyEvents | 아니오 | 아니오 |
+> | policyMetadata | 아니오 | 아니오 |
+> | policyStates | 아니오 | 아니오 |
+> | policyTrackedResources | 아니오 | 아니오 |
+> | remediations | 아니오 | 아니오 |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | consoles | 아닙니다. | 아닙니다. |
-> | dashboards | yes | yes |
-> | userSettings | 아닙니다. | 아닙니다. |
+> | consoles | 아니오 | 아니오 |
+> | dashboards | 예 | 예 |
+> | userSettings | 아니오 | 아니오 |
 
 ## <a name="microsoftpowerbi"></a>Microsoft.PowerBI
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | workspaceCollections | yes | yes |
+> | workspaceCollections | 예 | 예 |
 
 ## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | capacities | yes | yes |
+> | capacities | 예 | 예 |
 
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | backupProtectedItems | 아닙니다. | 아닙니다. |
-> | vaults | yes | yes |
+> | backupProtectedItems | 아니오 | 아니오 |
+> | vaults | 예 | 예 |
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | namespaces | yes | yes |
-> | namespaces / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / hybridconnections | 아닙니다. | 아닙니다. |
-> | namespaces / hybridconnections / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / wcfrelays | 아닙니다. | 아닙니다. |
-> | namespaces / wcfrelays / authorizationrules | 아닙니다. | 아닙니다. |
+> | namespaces | 예 | 예 |
+> | 네임 스페이스/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/hybridconnections | 아니오 | 아니오 |
+> | 네임 스페이스/hybridconnections/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/wcfrelays | 아니오 | 아니오 |
+> | 네임 스페이스/wcfrelays/authorizationrules | 아니오 | 아니오 |
 
-## <a name="microsoftremoteapp"></a>Microsoft.RemoteApp
+## <a name="microsoftremoteapp"></a>Microsoft RemoteApp
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 계정 | 아닙니다. | 아닙니다. |
-> | collections | yes | yes |
-> | collections / applications | 아닙니다. | 아닙니다. |
-> | collections / securityprincipals | 아닙니다. | 아닙니다. |
-> | templateImages | 아닙니다. | 아닙니다. |
+> | 계정 | 아니오 | 아니오 |
+> | 수집이 | 예 | 예 |
+> | 컬렉션/응용 프로그램 | 아니오 | 아니오 |
+> | collections/securityprincipals | 아니오 | 아니오 |
+> | 템플릿 이미지 | 아니오 | 아니오 |
 
 ## <a name="microsoftresourcegraph"></a>Microsoft.ResourceGraph
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 쿼리 | yes | yes |
-> | resourceChangeDetails | 아닙니다. | 아닙니다. |
-> | resourceChanges | 아닙니다. | 아닙니다. |
-> | 리소스 | 아닙니다. | 아닙니다. |
-> | resourcesHistory | 아닙니다. | 아닙니다. |
-> | subscriptionsStatus | 아닙니다. | 아닙니다. |
+> | 쿼리 | 예 | 예 |
+> | resourceChangeDetails | 아니오 | 아니오 |
+> | resourceChanges | 아니오 | 아니오 |
+> | 리소스 | 아니오 | 아니오 |
+> | 자원 기록 | 아니오 | 아니오 |
+> | subscriptionsStatus | 아니오 | 아니오 |
 
 ## <a name="microsoftresourcehealth"></a>Microsoft.ResourceHealth
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | availabilityStatuses | 아닙니다. | 아닙니다. |
-> | childAvailabilityStatuses | 아닙니다. | 아닙니다. |
-> | childResources | 아닙니다. | 아닙니다. |
-> | events | 아닙니다. | 아닙니다. |
-> | impactedResources | 아닙니다. | 아닙니다. |
-> | metadata | 아닙니다. | 아닙니다. |
-> | 알림 | 아닙니다. | 아닙니다. |
+> | availabilityStatuses | 아니오 | 아니오 |
+> | childAvailabilityStatuses | 아니오 | 아니오 |
+> | childResources | 아니오 | 아니오 |
+> | events | 아니오 | 아니오 |
+> | impactedResources | 아니오 | 아니오 |
+> | metadata | 아니오 | 아니오 |
+> | 알림 | 아니오 | 아니오 |
 
 ## <a name="microsoftresources"></a>Microsoft.Resources
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 배포 | yes | 아닙니다. |
-> | deployments / operations | 아닙니다. | 아닙니다. |
-> | deploymentScripts | yes | yes |
-> | deploymentScripts / logs | 아닙니다. | 아닙니다. |
-> | links | 아닙니다. | 아닙니다. |
-> | notifyResourceJobs | 아닙니다. | 아닙니다. |
-> | providers | 아닙니다. | 아닙니다. |
-> | resourceGroups | yes | 아닙니다. |
-> | 리소스 | 아닙니다. | 아닙니다. |
-> | 구독 | 아닙니다. | 아닙니다. |
-> | subscriptions / providers | 아닙니다. | 아닙니다. |
-> | subscriptions / resources | 아닙니다. | 아닙니다. |
-> | subscriptions / tagnames | 아닙니다. | 아닙니다. |
-> | subscriptions / tagNames / tagValues | 아닙니다. | 아닙니다. |
-> | tenants | 아닙니다. | 아닙니다. |
+> | 배포 | 예 | 아니오 |
+> | 배포/작업 | 아니오 | 아니오 |
+> | deploymentScripts | 예 | 예 |
+> | deploymentScripts/logs | 아니오 | 아니오 |
+> | links | 아니오 | 아니오 |
+> | notifyResourceJobs | 아니오 | 아니오 |
+> | providers | 아니오 | 아니오 |
+> | resourceGroups | 예 | 아니오 |
+> | 구독 | 아니오 | 아니오 |
+> | tenants | 아니오 | 아니오 |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 애플리케이션 | yes | yes |
-> | saasresources | 아닙니다. | 아닙니다. |
+> | 애플리케이션 | 예 | 예 |
+> | saasresources | 아니오 | 아니오 |
 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | jobcollections | yes | yes |
+> | jobcollections | 예 | 예 |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | resourceHealthMetadata | 아닙니다. | 아닙니다. |
-> | searchServices | yes | yes |
+> | resourceHealthMetadata | 아니오 | 아니오 |
+> | searchServices | 예 | 예 |
 
 ## <a name="microsoftsecurity"></a>Microsoft.Security
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | adaptiveNetworkHardenings | 아닙니다. | 아닙니다. |
-> | advancedThreatProtectionSettings | 아닙니다. | 아닙니다. |
-> | 경고 | 아닙니다. | 아닙니다. |
-> | allowedConnections | 아닙니다. | 아닙니다. |
-> | applicationWhitelistings | 아닙니다. | 아닙니다. |
-> | assessmentMetadata | 아닙니다. | 아닙니다. |
-> | assessments | 아닙니다. | 아닙니다. |
-> | autoDismissAlertsRules | 아닙니다. | 아닙니다. |
-> | automations | yes | yes |
-> | AutoProvisioningSettings | 아닙니다. | 아닙니다. |
-> | Compliances | 아닙니다. | 아닙니다. |
-> | dataCollectionAgents | 아닙니다. | 아닙니다. |
-> | deviceSecurityGroups | 아닙니다. | 아닙니다. |
-> | discoveredSecuritySolutions | 아닙니다. | 아닙니다. |
-> | externalSecuritySolutions | 아닙니다. | 아닙니다. |
-> | InformationProtectionPolicies | 아닙니다. | 아닙니다. |
-> | iotSecuritySolutions | yes | yes |
-> | iotSecuritySolutions / analyticsModels | 아닙니다. | 아닙니다. |
-> | iotSecuritySolutions / analyticsModels / aggregatedAlerts | 아닙니다. | 아닙니다. |
-> | iotSecuritySolutions / analyticsModels / aggregatedRecommendations | 아닙니다. | 아닙니다. |
-> | jitNetworkAccessPolicies | 아닙니다. | 아닙니다. |
-> | networkData | 아닙니다. | 아닙니다. |
-> | 정책 | 아닙니다. | 아닙니다. |
-> | pricings | 아닙니다. | 아닙니다. |
-> | regulatoryComplianceStandards | 아닙니다. | 아닙니다. |
-> | regulatoryComplianceStandards / regulatoryComplianceControls | 아닙니다. | 아닙니다. |
-> | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | 아닙니다. | 아닙니다. |
-> | securityContacts | 아닙니다. | 아닙니다. |
-> | securitySolutions | 아닙니다. | 아닙니다. |
-> | securitySolutionsReferenceData | 아닙니다. | 아닙니다. |
-> | securityStatuses | 아닙니다. | 아닙니다. |
-> | securityStatusesSummaries | 아닙니다. | 아닙니다. |
-> | serverVulnerabilityAssessments | 아닙니다. | 아닙니다. |
-> | 설정 | 아닙니다. | 아닙니다. |
-> | subAssessments | 아닙니다. | 아닙니다. |
-> | 태스크 | 아닙니다. | 아닙니다. |
-> | topologies | 아닙니다. | 아닙니다. |
-> | workspaceSettings | 아닙니다. | 아닙니다. |
+> | adaptiveNetworkHardenings | 아니오 | 아니오 |
+> | advancedThreatProtectionSettings | 아니오 | 아니오 |
+> | 경고 | 아니오 | 아니오 |
+> | allowedConnections | 아니오 | 아니오 |
+> | applicationWhitelistings | 아니오 | 아니오 |
+> | assessmentMetadata | 아니오 | 아니오 |
+> | 인사 | 아니오 | 아니오 |
+> | autoDismissAlertsRules | 아니오 | 아니오 |
+> | 자동화 | 예 | 예 |
+> | AutoProvisioningSettings | 아니오 | 아니오 |
+> | Compliances | 아니오 | 아니오 |
+> | dataCollectionAgents | 아니오 | 아니오 |
+> | deviceSecurityGroups | 아니오 | 아니오 |
+> | discoveredSecuritySolutions | 아니오 | 아니오 |
+> | externalSecuritySolutions | 아니오 | 아니오 |
+> | InformationProtectionPolicies | 아니오 | 아니오 |
+> | iotSecuritySolutions | 예 | 예 |
+> | IanalyticsModels Securitysolutions/ | 아니오 | 아니오 |
+> | iotSecuritySolutions/analyticsModels/aggregatedAlerts | 아니오 | 아니오 |
+> | iotSecuritySolutions/analyticsModels/aggregatedRecommendations | 아니오 | 아니오 |
+> | jitNetworkAccessPolicies | 아니오 | 아니오 |
+> | Networkdata.xml | 아니오 | 아니오 |
+> | 정책 | 아니오 | 아니오 |
+> | pricings | 아니오 | 아니오 |
+> | regulatoryComplianceStandards | 아니오 | 아니오 |
+> | regulatoryComplianceStandards / regulatoryComplianceControls | 아니오 | 아니오 |
+> | regulatoryComplianceStandards / regulatoryComplianceControls / regulatoryComplianceAssessments | 아니오 | 아니오 |
+> | securityContacts | 아니오 | 아니오 |
+> | securitySolutions | 아니오 | 아니오 |
+> | securitySolutionsReferenceData | 아니오 | 아니오 |
+> | securityStatuses | 아니오 | 아니오 |
+> | securityStatusesSummaries | 아니오 | 아니오 |
+> | serverVulnerabilityAssessments | 아니오 | 아니오 |
+> | 설정 | 아니오 | 아니오 |
+> | 하위 평가 | 아니오 | 아니오 |
+> | 태스크 | 아니오 | 아니오 |
+> | topologies | 아니오 | 아니오 |
+> | workspaceSettings | 아니오 | 아니오 |
 
 ## <a name="microsoftsecuritygraph"></a>Microsoft.SecurityGraph
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | diagnosticSettings | 아닙니다. | 아닙니다. |
-> | diagnosticSettingsCategories | 아닙니다. | 아닙니다. |
+> | diagnosticSettings | 아니오 | 아니오 |
+> | diagnosticSettingsCategories | 아니오 | 아니오 |
 
-## <a name="microsoftsecurityinsights"></a>Microsoft.SecurityInsights
+## <a name="microsoftsecurityinsights"></a>Microsoft SecurityInsights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | aggregations | 아닙니다. | 아닙니다. |
-> | alertRules | 아닙니다. | 아닙니다. |
-> | alertRuleTemplates | 아닙니다. | 아닙니다. |
-> | bookmarks | 아닙니다. | 아닙니다. |
-> | cases | 아닙니다. | 아닙니다. |
-> | dataConnectors | 아닙니다. | 아닙니다. |
-> | 엔터티 | 아닙니다. | 아닙니다. |
-> | entityQueries | 아닙니다. | 아닙니다. |
-> | officeConsents | 아닙니다. | 아닙니다. |
-> | 설정 | 아닙니다. | 아닙니다. |
+> | 집계 | 아니오 | 아니오 |
+> | alertRules | 아니오 | 아니오 |
+> | alertRuleTemplates | 아니오 | 아니오 |
+> | 내부의 | 아니오 | 아니오 |
+> | cases | 아니오 | 아니오 |
+> | dataConnectors | 아니오 | 아니오 |
+> | 엔터티 | 아니오 | 아니오 |
+> | entityQueries | 아니오 | 아니오 |
+> | officeConsents | 아니오 | 아니오 |
+> | 설정 | 아니오 | 아니오 |
 
 ## <a name="microsoftservicebus"></a>Microsoft.ServiceBus
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | namespaces | yes | 아닙니다. |
-> | namespaces / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / disasterrecoveryconfigs | 아닙니다. | 아닙니다. |
-> | namespaces / eventgridfilters | 아닙니다. | 아닙니다. |
-> | namespaces / networkrulesets | 아닙니다. | 아닙니다. |
-> | namespaces / queues | 아닙니다. | 아닙니다. |
-> | namespaces / queues / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / topics | 아닙니다. | 아닙니다. |
-> | namespaces / topics / authorizationrules | 아닙니다. | 아닙니다. |
-> | namespaces / topics / subscriptions | 아닙니다. | 아닙니다. |
-> | namespaces / topics / subscriptions / rules | 아닙니다. | 아닙니다. |
-> | premiumMessagingRegions | 아닙니다. | 아닙니다. |
+> | namespaces | 예 | 아니오 |
+> | 네임 스페이스/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/disasterrecoveryconfigs | 아니오 | 아니오 |
+> | 네임 스페이스/eventgridfilters | 아니오 | 아니오 |
+> | 네임 스페이스/네트워크 규칙 집합 | 아니오 | 아니오 |
+> | 네임 스페이스/큐 | 아니오 | 아니오 |
+> | 네임 스페이스/큐/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/항목 | 아니오 | 아니오 |
+> | 네임 스페이스/토픽/authorizationrules | 아니오 | 아니오 |
+> | 네임 스페이스/토픽/구독 | 아니오 | 아니오 |
+> | 네임 스페이스/항목/구독/규칙 | 아니오 | 아니오 |
+> | premiumMessagingRegions | 아니오 | 아니오 |
 
 ## <a name="microsoftservicefabric"></a>Microsoft.ServiceFabric
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 애플리케이션 | yes | yes |
-> | clusters | yes | yes |
-> | clusters / applications | 아닙니다. | 아닙니다. |
-> | containerGroups | yes | yes |
-> | containerGroupSets | yes | yes |
-> | edgeclusters | yes | yes |
-> | edgeclusters / applications | 아닙니다. | 아닙니다. |
-> | networks | yes | yes |
-> | secretstores | yes | yes |
-> | secretstores / certificates | 아닙니다. | 아닙니다. |
-> | secretstores / secrets | 아닙니다. | 아닙니다. |
-> | volumes | yes | yes |
+> | 애플리케이션 | 예 | 예 |
+> | clusters | 예 | 예 |
+> | 클러스터/응용 프로그램 | 아니오 | 아니오 |
+> | containerGroups | 예 | 예 |
+> | containerGroupSets | 예 | 예 |
+> | edgeclusters | 예 | 예 |
+> | edgeclusters/응용 프로그램 | 아니오 | 아니오 |
+> | networks | 예 | 예 |
+> | secretstores | 예 | 예 |
+> | secretstores/인증서 | 아니오 | 아니오 |
+> | secretstores/비밀 | 아니오 | 아니오 |
+> | volumes | 예 | 예 |
 
 ## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | 애플리케이션 | yes | yes |
-> | containerGroups | yes | yes |
-> | gateways | yes | yes |
-> | networks | yes | yes |
-> | secrets | yes | yes |
-> | volumes | yes | yes |
+> | 애플리케이션 | 예 | 예 |
+> | containerGroups | 예 | 예 |
+> | gateways | 예 | 예 |
+> | networks | 예 | 예 |
+> | secrets | 예 | 예 |
+> | volumes | 예 | 예 |
 
-## <a name="microsoftservices"></a>Microsoft.Services
+## <a name="microsoftservices"></a>Microsoft 서비스
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | providerRegistrations | 아닙니다. | 아닙니다. |
-> | providerRegistrations / resourceTypeRegistrations | 아닙니다. | 아닙니다. |
-> | rollouts | yes | yes |
+> | providerRegistrations | 아니오 | 아니오 |
+> | providerRegistrations resourceTypeRegistrations | 아니오 | 아니오 |
+> | rollouts | 예 | 예 |
 
 ## <a name="microsoftsignalrservice"></a>Microsoft.SignalRService
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | SignalR | yes | yes |
-> | SignalR / eventGridFilters | 아닙니다. | 아닙니다. |
+> | SignalR | 예 | 예 |
+> | SignalR/eventGridFilters | 아니오 | 아니오 |
 
 ## <a name="microsoftsiterecovery"></a>Microsoft.SiteRecovery
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | SiteRecoveryVault | yes | yes |
+> | SiteRecoveryVault | 예 | 예 |
 
-## <a name="microsoftsoftwareplan"></a>Microsoft.SoftwarePlan
+## <a name="microsoftsoftwareplan"></a>SoftwarePlan
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | hybridUseBenefits | 아닙니다. | 아닙니다. |
+> | hybridUseBenefits | 아니오 | 아니오 |
 
 ## <a name="microsoftsolutions"></a>Microsoft.Solutions
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | applicationDefinitions | yes | yes |
-> | 애플리케이션 | yes | yes |
-> | jitRequests | yes | yes |
+> | applicationDefinitions | 예 | 예 |
+> | 애플리케이션 | 예 | 예 |
+> | jitRequests | 예 | 예 |
 
 
 ## <a name="microsoftsql"></a>Microsoft.SQL
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | managedInstances | yes | yes |
-> | managedInstances / databases | Yes (see [note below](#sqlnote)) | yes |
-> | managedInstances / databases / backupShortTermRetentionPolicies | 아닙니다. | 아닙니다. |
-> | managedInstances / databases / schemas / tables / columns / sensitivityLabels | 아닙니다. | 아닙니다. |
-> | managedInstances / databases / vulnerabilityAssessments | 아닙니다. | 아닙니다. |
-> | managedInstances / databases / vulnerabilityAssessments / rules / baselines | 아닙니다. | 아닙니다. |
-> | managedInstances / encryptionProtector | 아닙니다. | 아닙니다. |
-> | managedInstances / keys | 아닙니다. | 아닙니다. |
-> | managedInstances / restorableDroppedDatabases / backupShortTermRetentionPolicies | 아닙니다. | 아닙니다. |
-> | managedInstances / vulnerabilityAssessments | 아닙니다. | 아닙니다. |
-> | 서버 | yes | yes |
-> | servers / administrators | 아닙니다. | 아닙니다. |
-> | servers / communicationLinks | 아닙니다. | 아닙니다. |
-> | servers / databases | Yes (see [note below](#sqlnote)) | yes |
-> | servers / encryptionProtector | 아닙니다. | 아닙니다. |
-> | servers / firewallRules | 아닙니다. | 아닙니다. |
-> | servers / keys | 아닙니다. | 아닙니다. |
-> | servers / restorableDroppedDatabases | 아닙니다. | 아닙니다. |
-> | servers / serviceobjectives | 아닙니다. | 아닙니다. |
-> | servers / tdeCertificates | 아닙니다. | 아닙니다. |
-> | virtualClusters | 아닙니다. | 아닙니다. |
+> | managedInstances | 예 | 예 |
+> | managedInstances/데이터베이스 | 아니오 | 아니오 |
+> | managedInstances/databases/backupShortTermRetentionPolicies | 아니오 | 아니오 |
+> | managedInstances/데이터베이스/스키마/테이블/열/sensitivityLabels | 아니오 | 아니오 |
+> | managedInstances/databases/vulnerabilityAssessments | 아니오 | 아니오 |
+> | managedInstances/databases/vulnerabilityAssessments/rules/기준선 | 아니오 | 아니오 |
+> | managedInstances/가 나 보호기 | 아니오 | 아니오 |
+> | managedInstances/키 | 아니오 | 아니오 |
+> | managedInstances/restorableDroppedDatabases/backupShortTermRetentionPolicies | 아니오 | 아니오 |
+> | managedInstances/vulnerabilityAssessments | 아니오 | 아니오 |
+> | servers | 예 | 예 |
+> | 서버/관리자 | 아니오 | 아니오 |
+> | servers/communicationLinks | 아니오 | 아니오 |
+> | 서버/데이터베이스 | 예 ( [아래 참고](#sqlnote)참조) | 예 |
+> | 서버/서버 보호기 | 아니오 | 아니오 |
+> | servers/firewallRules | 아니오 | 아니오 |
+> | 서버/키 | 아니오 | 아니오 |
+> | servers/restorableDroppedDatabases | 아니오 | 아니오 |
+> | servers/serviceobjectives | 아니오 | 아니오 |
+> | servers/tdeCertificates | 아니오 | 아니오 |
+> | virtualClusters | 아니오 | 아니오 |
 
 <a id="sqlnote" />
 
@@ -1845,91 +1840,91 @@ Jump to a resource provider namespace:
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | SqlVirtualMachineGroups | yes | yes |
-> | SqlVirtualMachineGroups / AvailabilityGroupListeners | 아닙니다. | 아닙니다. |
-> | SqlVirtualMachines | yes | yes |
+> | SqlVirtualMachineGroups | 예 | 예 |
+> | SqlVirtualMachineGroups/AvailabilityGroupListeners | 아니오 | 아니오 |
+> | SqlVirtualMachines | 예 | 예 |
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | storageAccounts | yes | yes |
-> | storageAccounts / blobServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / fileServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / queueServices | 아닙니다. | 아닙니다. |
-> | storageAccounts / services | 아닙니다. | 아닙니다. |
-> | storageAccounts / services / metricDefinitions | 아닙니다. | 아닙니다. |
-> | storageAccounts / tableServices | 아닙니다. | 아닙니다. |
-> | usages | 아닙니다. | 아닙니다. |
+> | storageAccounts | 예 | 예 |
+> | storageAccounts/blobServices | 아니오 | 아니오 |
+> | storageAccounts/fileServices | 아니오 | 아니오 |
+> | storageAccounts/queueServices | 아니오 | 아니오 |
+> | storageAccounts/서비스 | 아니오 | 아니오 |
+> | storageAccounts/services/metricDefinitions | 아니오 | 아니오 |
+> | storageAccounts/tableServices | 아니오 | 아니오 |
+> | usages | 아니오 | 아니오 |
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | caches | yes | yes |
-> | caches / storageTargets | 아닙니다. | 아닙니다. |
-> | usageModels | 아닙니다. | 아닙니다. |
+> | 캐시 | 예 | 예 |
+> | 캐시/storageTargets 가져오기 | 아니오 | 아니오 |
+> | usageModels | 아니오 | 아니오 |
 
-## <a name="microsoftstoragereplication"></a>Microsoft.StorageReplication
+## <a name="microsoftstoragereplication"></a>StorageReplication
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | replicationGroups | 아닙니다. | 아닙니다. |
+> | replicationGroups | 아니오 | 아니오 |
 
 ## <a name="microsoftstoragesync"></a>Microsoft.StorageSync
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | yes | yes |
-> | storageSyncServices / registeredServers | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / cloudEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / serverEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / workflows | 아닙니다. | 아닙니다. |
+> | storageSyncServices | 예 | 예 |
+> | storageSyncServices/registeredServers | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/cloudEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/serverEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/워크플로 | 아니오 | 아니오 |
 
 ## <a name="microsoftstoragesyncdev"></a>Microsoft.StorageSyncDev
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | yes | yes |
-> | storageSyncServices / registeredServers | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / cloudEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / serverEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / workflows | 아닙니다. | 아닙니다. |
+> | storageSyncServices | 예 | 예 |
+> | storageSyncServices/registeredServers | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/cloudEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/serverEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/워크플로 | 아니오 | 아니오 |
 
 ## <a name="microsoftstoragesyncint"></a>Microsoft.StorageSyncInt
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | storageSyncServices | yes | yes |
-> | storageSyncServices / registeredServers | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / cloudEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / syncGroups / serverEndpoints | 아닙니다. | 아닙니다. |
-> | storageSyncServices / workflows | 아닙니다. | 아닙니다. |
+> | storageSyncServices | 예 | 예 |
+> | storageSyncServices/registeredServers | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/cloudEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/syncGroups/serverEndpoints | 아니오 | 아니오 |
+> | storageSyncServices/워크플로 | 아니오 | 아니오 |
 
 ## <a name="microsoftstorsimple"></a>Microsoft.StorSimple
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | managers | yes | yes |
+> | managers | 예 | 예 |
 
 ## <a name="microsoftstreamanalytics"></a>Microsoft.StreamAnalytics
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | streamingjobs | 예(아래 참고를 참조) | yes |
+> | streamingjobs | 예(아래 참고를 참조) | 예 |
 
 > [!NOTE]
 > streamingjobs를 실행 중일 때 태그를 추가할 수 없습니다. 태그를 추가하려면 리소스를 중지합니다.
@@ -1937,105 +1932,105 @@ Jump to a resource provider namespace:
 ## <a name="microsoftsubscription"></a>Microsoft.Subscription
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | cancel | 아닙니다. | 아닙니다. |
-> | CreateSubscription | 아닙니다. | 아닙니다. |
-> | enable | 아닙니다. | 아닙니다. |
-> | rename | 아닙니다. | 아닙니다. |
-> | SubscriptionDefinitions | 아닙니다. | 아닙니다. |
-> | SubscriptionOperations | 아닙니다. | 아닙니다. |
+> | 취소 | 아니오 | 아니오 |
+> | CreateSubscription | 아니오 | 아니오 |
+> | enable | 아니오 | 아니오 |
+> | 이름 바꾸기 | 아니오 | 아니오 |
+> | SubscriptionDefinitions | 아니오 | 아니오 |
+> | SubscriptionOperations | 아니오 | 아니오 |
 
 ## <a name="microsofttimeseriesinsights"></a>Microsoft.TimeSeriesInsights
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | environments | yes | 아닙니다. |
-> | environments / accessPolicies | 아닙니다. | 아닙니다. |
-> | environments / eventsources | yes | 아닙니다. |
-> | environments / referenceDataSets | yes | 아닙니다. |
+> | environments | 예 | 아니오 |
+> | 환경/Accesspolicy | 아니오 | 아니오 |
+> | 환경/s s o 원본 | 예 | 아니오 |
+> | environment/referenceDataSets | 예 | 아니오 |
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | dedicatedCloudNodes | yes | yes |
-> | dedicatedCloudServices | yes | yes |
-> | virtualMachines | yes | yes |
+> | dedicatedCloudNodes | 예 | 예 |
+> | dedicatedCloudServices | 예 | 예 |
+> | virtualMachines | 예 | 예 |
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | apiManagementAccounts | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apiAcls | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis / apiAcls | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis / connectionAcls | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis / connections | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis / connections / connectionAcls | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / apis / localizedDefinitions | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / connectionAcls | 아닙니다. | 아닙니다. |
-> | apiManagementAccounts / connections | 아닙니다. | 아닙니다. |
-> | billingMeters | 아닙니다. | 아닙니다. |
-> | certificates | yes | yes |
-> | connectionGateways | yes | yes |
-> | connections | yes | yes |
-> | customApis | yes | yes |
-> | deletedSites | 아닙니다. | 아닙니다. |
-> | Functions | 아닙니다. | 아닙니다. |
-> | hostingEnvironments | yes | yes |
-> | hostingEnvironments / multiRolePools | 아닙니다. | 아닙니다. |
-> | hostingEnvironments / workerPools | 아닙니다. | 아닙니다. |
-> | publishingUsers | 아닙니다. | 아닙니다. |
-> | 동영상 추천 기능 | 아닙니다. | 아닙니다. |
-> | resourceHealthMetadata | 아닙니다. | 아닙니다. |
-> | runtimes | 아닙니다. | 아닙니다. |
-> | serverFarms | yes | yes |
-> | serverFarms / eventGridFilters | 아닙니다. | 아닙니다. |
-> | sites | yes | yes |
-> | sites / config  | 아닙니다. | 아닙니다. |
-> | sites / eventGridFilters | 아닙니다. | 아닙니다. |
-> | sites / hostNameBindings | 아닙니다. | 아닙니다. |
-> | sites / networkConfig | 아닙니다. | 아닙니다. |
-> | sites / premieraddons | yes | yes |
-> | sites / slots | yes | yes |
-> | sites / slots / eventGridFilters | 아닙니다. | 아닙니다. |
-> | sites / slots / hostNameBindings | 아닙니다. | 아닙니다. |
-> | sites / slots / networkConfig | 아닙니다. | 아닙니다. |
-> | sourceControls | 아닙니다. | 아닙니다. |
-> | validate | 아닙니다. | 아닙니다. |
-> | verifyHostingEnvironmentVnet | 아닙니다. | 아닙니다. |
+> | apiManagementAccounts | 아니오 | 아니오 |
+> | Apimanagementaccount/apiAcls | 아니오 | 아니오 |
+> | Apimanagementaccount/api | 아니오 | 아니오 |
+> | Apimanagementaccount/api/apiAcls | 아니오 | 아니오 |
+> | Apimanagementaccount/api/connectionAcls | 아니오 | 아니오 |
+> | Apimanagementaccount/api/연결 | 아니오 | 아니오 |
+> | Apimanagementaccount/api/connections/connectionAcls | 아니오 | 아니오 |
+> | Apimanagementaccount/api/localizedDefinitions | 아니오 | 아니오 |
+> | Apimanagementaccount/connectionAcls | 아니오 | 아니오 |
+> | Apimanagementaccount/연결 | 아니오 | 아니오 |
+> | billingMeters | 아니오 | 아니오 |
+> | certificates | 예 | 예 |
+> | connectionGateways | 예 | 예 |
+> | connections | 예 | 예 |
+> | customApis | 예 | 예 |
+> | deletedSites | 아니오 | 아니오 |
+> | functions | 아니오 | 아니오 |
+> | hostingEnvironments | 예 | 예 |
+> | hostingEnvironments/multiRolePools | 아니오 | 아니오 |
+> | hostingEnvironments/이상 풀 | 아니오 | 아니오 |
+> | publishingUsers | 아니오 | 아니오 |
+> | 동영상 추천 기능 | 아니오 | 아니오 |
+> | resourceHealthMetadata | 아니오 | 아니오 |
+> | runtimes | 아니오 | 아니오 |
+> | serverFarms | 예 | 예 |
+> | serverFarms/eventGridFilters | 아니오 | 아니오 |
+> | sites | 예 | 예 |
+> | 사이트/구성  | 아니오 | 아니오 |
+> | sites/eventGridFilters | 아니오 | 아니오 |
+> | 사이트/hostNameBindings | 아니오 | 아니오 |
+> | 사이트/네트워크 구성 | 아니오 | 아니오 |
+> | 사이트/premieraddons | 예 | 예 |
+> | 사이트/슬롯 | 예 | 예 |
+> | 사이트/슬롯/eventGridFilters 필터 | 아니오 | 아니오 |
+> | 사이트/슬롯/hostNameBindings | 아니오 | 아니오 |
+> | 사이트/슬롯/네트워크 구성 | 아니오 | 아니오 |
+> | sourceControls | 아니오 | 아니오 |
+> | validate | 아니오 | 아니오 |
+> | verifyHostingEnvironmentVnet | 아니오 | 아니오 |
 
 ## <a name="microsoftwindowsdefenderatp"></a>Microsoft.WindowsDefenderATP
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | diagnosticSettings | 아닙니다. | 아닙니다. |
-> | diagnosticSettingsCategories | 아닙니다. | 아닙니다. |
+> | diagnosticSettings | 아니오 | 아니오 |
+> | diagnosticSettingsCategories | 아니오 | 아니오 |
 
 ## <a name="microsoftwindowsiot"></a>Microsoft.WindowsIoT
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | DeviceServices | yes | yes |
+> | DeviceServices | 예 | 예 |
 
 ## <a name="microsoftworkloadmonitor"></a>Microsoft.WorkloadMonitor
 
 > [!div class="mx-tableFixed"]
-> | 리소스 종류 | 태그 지원 | Tag in cost report |
+> | 리소스 형식 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
-> | components | 아닙니다. | 아닙니다. |
-> | componentsSummary | 아닙니다. | 아닙니다. |
-> | monitorInstances | 아닙니다. | 아닙니다. |
-> | monitorInstancesSummary | 아닙니다. | 아닙니다. |
-> | monitors | 아닙니다. | 아닙니다. |
-> | notificationSettings | 아닙니다. | 아닙니다. |
+> | components | 아니오 | 아니오 |
+> | componentsSummary | 아니오 | 아니오 |
+> | monitorInstances | 아니오 | 아니오 |
+> | monitorInstancesSummary | 아니오 | 아니오 |
+> | monitors | 아니오 | 아니오 |
+> | notificationSettings | 아니오 | 아니오 |
 
 ## <a name="next-steps"></a>다음 단계
 

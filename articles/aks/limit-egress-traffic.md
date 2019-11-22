@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/29/2019
 ms.author: mlearned
-ms.openlocfilehash: cfef8ff79f62eca9946dcbb49cafc253f36ab7bb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 52d181a71c31b718d62690a88664a86093248016
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472749"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279090"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터 노드에 대 한 송신 트래픽 제어
 
@@ -60,78 +60,88 @@ AKS 클러스터에는 다음과 같은 아웃 바운드 포트/네트워크 규
 다음 FQDN/응용 프로그램 규칙이 필요 합니다.
 - Azure 글로벌
 
-| 일                       | 포트      | 사용      |
+| FQDN                       | 포트      | 이후      |
 |----------------------------|-----------|----------|
-| *. hcp.\<위치\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| *. 실행.\<위치\>. azmk8s.io | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| aksrepos.azurecr.io        | HTTPS: 443 | 이 주소는 ACR (Azure Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 타사 이미지/차트 (예: 메트릭 서버, 코어 dns 등)가 포함 되어 있습니다.|
-| *.blob.core.windows.net    | HTTPS: 443 | 이 주소는 ACR에 저장 된 이미지의 백 엔드 저장소입니다. |
-| mcr.microsoft.com          | HTTPS: 443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
-| *. cdn.mscr.io              | HTTPS: 443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
-| management.azure.com       | HTTPS: 443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
-| login.microsoftonline.com  | HTTPS: 443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
-| ntp.ubuntu.com             | UDP: 123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
-| packages.microsoft.com     | HTTPS: 443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
-| acs-mirror.azureedge.net   | HTTPS: 443 | 이 주소는 kubenet 및 Azure CNI와 같은 필수 이진 파일을 설치 하는 데 필요한 리포지토리입니다. |
+| *.hcp.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| *.tun.\<location\>.azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| aksrepos.azurecr.io        | HTTPS:443 | 이 주소는 ACR (Azure Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 타사 이미지/차트 (예: 메트릭 서버, 코어 dns 등)가 포함 되어 있습니다.|
+| *.blob.core.windows.net    | HTTPS:443 | 이 주소는 ACR에 저장 된 이미지의 백 엔드 저장소입니다. |
+| mcr.microsoft.com          | HTTPS:443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
+| *.cdn.mscr.io              | HTTPS:443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
+| management.azure.com       | HTTPS:443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
+| login.microsoftonline.com  | HTTPS:443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
+| ntp.ubuntu.com             | UDP:123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
+| packages.microsoft.com     | HTTPS:443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
+| acs-mirror.azureedge.net   | HTTPS:443 | 이 주소는 kubenet 및 Azure CNI와 같은 필수 이진 파일을 설치 하는 데 필요한 리포지토리입니다. |
 - Azure China
 
-| 일                       | 포트      | 사용      |
+| FQDN                       | 포트      | 이후      |
 |----------------------------|-----------|----------|
-| *. hcp.\<위치\>. cx.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| *. 실행.\<위치\>. cx.prod.service.azk8s.cn | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| *. azk8s.cn        | HTTPS: 443 | 이 주소는 필요한 이진 파일과 이미지를 다운로드 하는 데 필요 합니다.|
-| mcr.microsoft.com          | HTTPS: 443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
-| *. cdn.mscr.io              | HTTPS: 443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
-| management.chinacloudapi.cn       | HTTPS: 443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
-| login.chinacloudapi.cn  | HTTPS: 443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
-| ntp.ubuntu.com             | UDP: 123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
-| packages.microsoft.com     | HTTPS: 443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
+| *. hcp.\<위치\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| *. 실행.\<위치\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| *. azk8s.cn        | HTTPS:443 | 이 주소는 필요한 이진 파일과 이미지를 다운로드 하는 데 필요 합니다.|
+| mcr.microsoft.com          | HTTPS:443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
+| *.cdn.mscr.io              | HTTPS:443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
+| management.chinacloudapi.cn       | HTTPS:443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
+| login.chinacloudapi.cn  | HTTPS:443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
+| ntp.ubuntu.com             | UDP:123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
+| packages.microsoft.com     | HTTPS:443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
 - Azure Government
 
-| 일                       | 포트      | 사용      |
+| FQDN                       | 포트      | 이후      |
 |----------------------------|-----------|----------|
-| *. hcp.\<위치\>. cx.aks.containerservice.azure.us | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| *. 실행.\<위치\>. cx.aks.containerservice.azure.us | HTTPS: 443, TCP: 22, TCP: 9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
-| aksrepos.azurecr.io        | HTTPS: 443 | 이 주소는 ACR (Azure Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 타사 이미지/차트 (예: 메트릭 서버, 코어 dns 등)가 포함 되어 있습니다.|
-| *.blob.core.windows.net    | HTTPS: 443 | 이 주소는 ACR에 저장 된 이미지의 백 엔드 저장소입니다. |
-| mcr.microsoft.com          | HTTPS: 443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
-| *. cdn.mscr.io              | HTTPS: 443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
-| management.usgovcloudapi.net       | HTTPS: 443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
-| login.microsoftonline.us  | HTTPS: 443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
-| ntp.ubuntu.com             | UDP: 123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
-| packages.microsoft.com     | HTTPS: 443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
-| acs-mirror.azureedge.net   | HTTPS: 443 | 이 주소는 kubenet 및 Azure CNI와 같은 필수 이진 파일을 설치 하는 데 필요한 리포지토리입니다. |
+| *. hcp.\<위치\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| *. 실행.\<위치\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
+| aksrepos.azurecr.io        | HTTPS:443 | 이 주소는 ACR (Azure Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 타사 이미지/차트 (예: 메트릭 서버, 코어 dns 등)가 포함 되어 있습니다.|
+| *.blob.core.windows.net    | HTTPS:443 | 이 주소는 ACR에 저장 된 이미지의 백 엔드 저장소입니다. |
+| mcr.microsoft.com          | HTTPS:443 | 이 주소는 MCR (Microsoft Container Registry)의 이미지에 액세스 하는 데 필요 합니다. 이 레지스트리에는 클러스터를 업그레이드 및 확장 하는 동안 클러스터 기능에 필요한 자사 이미지/차트 (예: moby)가 포함 되어 있습니다. |
+| *.cdn.mscr.io              | HTTPS:443 | 이 주소는 Azure CDN (content delivery network)에 의해 지원 되는 MCR 저장소에 필요 합니다. |
+| management.usgovcloudapi.net       | HTTPS:443 | 이 주소는 Kubernetes GET/PUT 작업에 필요 합니다. |
+| login.microsoftonline.us  | HTTPS:443 | 이 주소는 Azure Active Directory 인증에 필요 합니다. |
+| ntp.ubuntu.com             | UDP:123   | 이 주소는 Linux 노드에서 NTP 시간 동기화에 필요 합니다. |
+| packages.microsoft.com     | HTTPS:443 | 이 주소는 캐시 된 *apt-get* 작업에 사용 되는 Microsoft 패키지 리포지토리입니다.  예제 패키지에는 Moby, PowerShell 및 Azure CLI 포함 됩니다. |
+| acs-mirror.azureedge.net   | HTTPS:443 | 이 주소는 kubenet 및 Azure CNI와 같은 필수 이진 파일을 설치 하는 데 필요한 리포지토리입니다. |
 ## <a name="optional-recommended-addresses-and-ports-for-aks-clusters"></a>AKS 클러스터에 대 한 선택적 권장 주소 및 포트
 
 다음 아웃 바운드 포트/네트워크 규칙은 AKS 클러스터에 대 한 선택 사항입니다.
 
 AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그램 규칙을 권장 합니다.
 
-| 일                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 이후      |
 |-----------------------------------------|-----------|----------|
-| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP: 80   | 이 주소를 통해 Linux 클러스터 노드가 필요한 보안 패치와 업데이트를 다운로드할 수 있습니다. |
+| security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | 이 주소를 통해 Linux 클러스터 노드가 필요한 보안 패치와 업데이트를 다운로드할 수 있습니다. |
 
 ## <a name="required-addresses-and-ports-for-gpu-enabled-aks-clusters"></a>GPU 사용 AKS 클러스터에 대 한 필수 주소 및 포트
 
 다음 FQDN/응용 프로그램 규칙은 GPU를 사용 하는 AKS 클러스터에 필요 합니다.
 
-| 일                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 이후      |
 |-----------------------------------------|-----------|----------|
-| nvidia.github.io | HTTPS: 443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
-| us.download.nvidia.com | HTTPS: 443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
-| apt.dockerproject.org | HTTPS: 443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
+| nvidia.github.io | HTTPS:443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
+| us.download.nvidia.com | HTTPS:443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
+| apt.dockerproject.org | HTTPS:443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
 
 ## <a name="required-addresses-and-ports-with-azure-monitor-for-containers-enabled"></a>컨테이너에 대해 Azure Monitor를 사용 하도록 설정 된 필수 주소 및 포트
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
 
-| 일                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 이후      |
 |-----------------------------------------|-----------|----------|
-| dc.services.visualstudio.com | HTTPS: 443  | Azure Monitor를 사용 하 여 올바른 메트릭 및 모니터링 원격 분석을 위한 것입니다. |
-| *.ods.opinsights.azure.com    | HTTPS: 443 | 수집 log analytics 데이터에 대 한 Azure Monitor에 사용 됩니다. |
-| *.oms.opinsights.azure.com | HTTPS: 443 | 이 주소는 log analytics 서비스를 인증 하는 데 사용 되는 omsagent에서 사용 됩니다. |
-|*.microsoftonline.com | HTTPS: 443 | Azure Monitor에 대 한 메트릭을 인증 하 고 전송 하는 데 사용 됩니다. |
-|*. monitoring.azure.com | HTTPS: 443 | Azure Monitor에 메트릭 데이터를 전송 하는 데 사용 됩니다. |
+| dc.services.visualstudio.com | HTTPS:443  | Azure Monitor를 사용 하 여 올바른 메트릭 및 모니터링 원격 분석을 위한 것입니다. |
+| *.ods.opinsights.azure.com    | HTTPS:443 | 수집 log analytics 데이터에 대 한 Azure Monitor에 사용 됩니다. |
+| *.oms.opinsights.azure.com | HTTPS:443 | 이 주소는 log analytics 서비스를 인증 하는 데 사용 되는 omsagent에서 사용 됩니다. |
+|*.microsoftonline.com | HTTPS:443 | Azure Monitor에 대 한 메트릭을 인증 하 고 전송 하는 데 사용 됩니다. |
+|*.monitoring.azure.com | HTTPS:443 | Azure Monitor에 메트릭 데이터를 전송 하는 데 사용 됩니다. |
+
+## <a name="required-addresses-and-ports-with-azure-dev-spaces-enabled"></a>Azure Dev Spaces 사용 하도록 설정 된 필수 주소 및 포트
+
+Azure Dev Spaces 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
+
+| FQDN                                    | 포트      | 이후      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | 이 주소는 linux 알파인 및 기타 Azure Dev Spaces 이미지를 가져오는 데 사용 됩니다. |
+| gcr.io | HTTP: 443 | 이 주소는 투구/tiller 이미지를 가져오는 데 사용 됩니다.|
+| storage.googleapis.com | HTTP: 443 | 이 주소는 투구/tiller 이미지를 가져오는 데 사용 됩니다.|
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Azure Policy (공개 미리 보기) 사용으로 설정 된 AKS 클러스터에 대 한 필수 주소 및 포트
 
@@ -140,12 +150,12 @@ AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그�
 
 Azure Policy 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
 
-| 일                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 이후      |
 |-----------------------------------------|-----------|----------|
-| gov-prod-policy-data.trafficmanager.net | HTTPS: 443 | 이 주소는 Azure Policy에 대 한 올바른 작업에 사용 됩니다. (현재 AKS의 미리 보기 상태) |
-| raw.githubusercontent.com | HTTPS: 443 | 이 주소는 Azure Policy의 올바른 작동을 보장 하기 위해 GitHub에서 기본 제공 정책을 가져오는 데 사용 됩니다. (현재 AKS의 미리 보기 상태) |
-| \* .gk.<location>azmk8s.io | HTTPS: 443 | Azure 정책 추가 기능에서는 감사 결과를 얻기 위해 마스터 서버에서 실행 되는 게이트 키퍼 감사 끝점에 대 한 통신을 제공 합니다. |
-| dc.services.visualstudio.com | HTTPS: 443 | Azure 정책 추가 기능에서 원격 분석 데이터를 application insights 끝점으로 보냅니다. |
+| gov-prod-policy-data.trafficmanager.net | HTTPS:443 | 이 주소는 Azure Policy에 대 한 올바른 작업에 사용 됩니다. (현재 AKS의 미리 보기 상태) |
+| raw.githubusercontent.com | HTTPS:443 | 이 주소는 Azure Policy의 올바른 작동을 보장 하기 위해 GitHub에서 기본 제공 정책을 가져오는 데 사용 됩니다. (현재 AKS의 미리 보기 상태) |
+| \* .gk.<location>azmk8s.io | HTTPS:443 | Azure 정책 추가 기능에서는 감사 결과를 얻기 위해 마스터 서버에서 실행 되는 게이트 키퍼 감사 끝점에 대 한 통신을 제공 합니다. |
+| dc.services.visualstudio.com | HTTPS:443 | Azure 정책 추가 기능에서 원격 분석 데이터를 application insights 끝점으로 보냅니다. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Windows Server 기반 노드 (공개 미리 보기) 사용에 필요 합니다.
 
@@ -154,10 +164,10 @@ Azure Policy 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/appl
 
 Windows server 기반 AKS 클러스터에는 다음과 같은 FQDN/응용 프로그램 규칙이 필요 합니다.
 
-| 일                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 이후      |
 |-----------------------------------------|-----------|----------|
-| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS: 443 | Windows 관련 이진 파일을 설치 하려면 |
-| mp.microsoft.com,<span></span>msftconnecttest.com, ctldl.windowsupdate.com | HTTP: 80 | Windows 관련 이진 파일을 설치 하려면 |
+| onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Windows 관련 이진 파일을 설치 하려면 |
+| mp.microsoft.com,<span></span>msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Windows 관련 이진 파일을 설치 하려면 |
 | kms.core.windows.net | TCP: 1688 | Windows 관련 이진 파일을 설치 하려면 |
 
 

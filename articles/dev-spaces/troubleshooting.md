@@ -1,20 +1,16 @@
 ---
 title: 문제 해결
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 09/25/2019
 ms.topic: conceptual
 description: Azure에서 컨테이너 및 마이크로 서비스가 있는 Kubernetes 개발 환경을 빠르게 만듭니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s '
-ms.openlocfilehash: 5d327dd1041172bc546b2e0cb5ec3a140f401d84
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
-ms.translationtype: MT
+ms.openlocfilehash: 5eec9771e964cf6b47492fdad34bcba14d897d41
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072201"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279710"
 ---
 # <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -56,13 +52,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못했습니다.
 
-Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예:
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예:
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -163,7 +159,7 @@ Container image build failed
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예:
 
 ```yaml
 ...
@@ -210,7 +206,7 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용 하도록 설정 합니다.
 
-명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예:
 
 ```cmd
 azds up --verbose --output json
@@ -324,7 +320,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>"Microsoft DevSpaces/register/action" 권한 부여 오류
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예:
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -453,3 +449,13 @@ kubectl -n my-namespace delete pod --all
 ```
 
 Pod가 다시 시작 되 면 Azure Dev Spaces에서 기존 네임 스페이스 사용을 시작할 수 있습니다.
+
+### <a name="enable-azure-dev-spaces-on-aks-cluster-with-restricted-egress-traffic-for-cluster-nodes"></a>클러스터 노드에 대해 제한 된 송신 트래픽으로 AKS 클러스터에서 Azure Dev Spaces 사용
+
+클러스터 노드의 송신 트래픽이 제한 되는 AKS 클러스터에 대 한 Azure Dev Spaces를 사용 하도록 설정 하려면 다음 Fqdn을 허용 해야 합니다.
+
+| FQDN                                    | 포트      | 이후      |
+|-----------------------------------------|-----------|----------|
+| cloudflare.docker.com | HTTPS:443 | Linux 알파인 및 기타 Azure Dev Spaces 이미지를 꺼내려면 |
+| gcr.io | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
+| storage.googleapis.com | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|

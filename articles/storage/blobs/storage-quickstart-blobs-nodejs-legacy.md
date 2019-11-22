@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: JavaScript 용 Azure Blob storage 클라이언트 라이브러리 v2'
-description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. 그런 다음, Node.js v2용 Azure Storage 클라이언트 라이브러리를 사용하여 Azure Storage에 Blob을 업로드하고, Blob을 다운로드하고, 컨테이너에 Blob을 나열합니다.
+description: 개체(Blob) 스토리지에서 스토리지 계정 및 컨테이너를 만듭니다. Node.js v2 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 blob을 업로드 하 고, blob을 다운로드 하 고, 컨테이너에 blob을 나열 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 02/04/2019
@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 12078300b36412a1507991507a39654acdeb7c69
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7300d4eccec5b1e4b3b5b7dc292cf6150a42e7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825339"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269680"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v2-for-javascript"></a>빠른 시작: JavaScript 용 Azure Blob storage 클라이언트 라이브러리 v2
 
@@ -22,9 +22,9 @@ ms.locfileid: "73825339"
 > [!TIP]
 > Node.js용 Azure Storage 클라이언트 라이브러리의 최신 버전은 v10입니다. 되도록이면 클라이언트 라이브러리의 최신 버전을 사용 하는 것이 좋습니다. V10 사용을 시작 하려면 빠른 시작 [: JavaScript v10 용 Azure Storage 클라이언트 라이브러리를 사용 하 여 Blob 업로드, 다운로드, 나열 및 삭제 (미리 보기)](storage-quickstart-blobs-nodejs-v10.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM)에서 Azure Storage 계정을 만듭니다. 스토리지 계정을 만드는 데 도움이 필요한 경우 [스토리지 계정 만들기](../common/storage-quickstart-create-account.md)를 참조하세요.
 
@@ -53,7 +53,7 @@ npm install
 ```
 
 ## <a name="run-the-sample"></a>샘플 실행
-이제 종속성이 설치되었으므로 다음 명령을 발행하여 샘플을 실행할 수 있습니다.
+종속성이 설치되었으므로 다음 명령을 실행하여 샘플을 실행할 수 있습니다.
 
 ```bash
 npm start

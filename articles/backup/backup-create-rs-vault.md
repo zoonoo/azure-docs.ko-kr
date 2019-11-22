@@ -4,12 +4,12 @@ description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recov
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: c678452cd65d0b03d923659e380c1dcef3540ce1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 144d8cdb870e12474dfc47784749b5f0e466f8bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172420"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273387"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -72,6 +72,13 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 
 > [!NOTE]
 > Recovery services 자격 증명 모음에 대 한 **저장소 복제 유형** (로컬 중복/지역 중복) 변경은 자격 증명 모음에서 백업을 구성 하기 전에 수행 해야 합니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없으며 **저장소 복제 유형을**변경할 수 없습니다.
+
+## <a name="modifying-default-settings"></a>기본 설정 수정
+
+**저장소 복제 유형** 및 **보안 설정** 에 대 한 기본 설정은 자격 증명 모음에서 백업을 구성 하기 전에 검토 하는 것이 좋습니다. 
+* 기본적으로 **저장소 복제 유형은** **지역 중복**으로 설정 됩니다. 백업을 구성한 후에는 수정 하는 옵션을 사용할 수 없습니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-create-rs-vault#set-storage-redundancy) 를 수행 합니다. 
+* 새로 만든 자격 증명 모음에 대해 기본적으로 **일시 삭제** 를 **사용** 하 여 실수로 인 한 삭제 또는 악의적인 삭제 로부터 백업 데이터를 보호 합니다. 설정을 검토 하 고 수정 하려면 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud#disabling-soft-delete) 를 수행 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

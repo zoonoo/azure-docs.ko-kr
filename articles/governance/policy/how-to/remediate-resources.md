@@ -3,12 +3,12 @@ title: 규정 비준수 리소스 수정
 description: 이 가이드에서는 Azure Policy 정책을 준수 하지 않는 리소스를 수정 하는 과정을 안내 합니다.
 ms.date: 09/09/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53ca21e4b8a1f3e7973706acd10601593efc3448
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8f1d263286a7504e7a8234ebd944bbbee69c5303
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959495"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267351"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -187,5 +187,5 @@ Start-AzPolicyRemediation -Name 'myRemedation' -PolicyAssignmentId '/subscriptio
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](get-compliance-data.md)방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

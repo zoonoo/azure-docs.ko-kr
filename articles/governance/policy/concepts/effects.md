@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: c345f96ef5176c4afb3d46aaca2e9903c7911fb1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8338f3bf965f121a553a56c551d2095bf60e4880
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959897"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279506"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -571,6 +571,6 @@ EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제
 - [Azure Policy 샘플](../samples/index.md)에서 예제를 검토 합니다.
 - [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션에 대한 사용자 동의 구성 - Azure Active Directory | Microsoft Docs
+title: 응용 프로그램에 대 한 사용자 동의 구성-Azure Active Directory
 description: 사용자가 애플리케이션 권한에 동의하는 방법을 관리하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다.
 services: active-directory
 author: msmimart
@@ -12,19 +12,19 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6bd746e79bc9d70be23771f97b1757f090f6375f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709281"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273982"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>최종 사용자가 Azure Active Directory에서 애플리케이션에 동의하는 방법을 구성합니다.
 사용자가 애플리케이션 권한에 동의하는 방법을 구성하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이 문서에서는 사용자 동의를 구성하는 다양한 방법을 제공합니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다. 
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 관리자 동의를 허용하려면 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 로그인해야 합니다.
 
@@ -63,14 +63,14 @@ ms.locfileid: "71709281"
 
 URL 요청을 통해 관리자 동의를 허용하려면 다음을 수행합니다.
 
-1. 앱 구성을 사용하여 *login.microsoftonline.com*에 대한 요청을 생성하고 `&prompt=admin_consent`에 추가합니다. 이 URL은 `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`과 같습니다.
+1. 앱 구성을 사용하여 *login.microsoftonline.com*에 대한 요청을 생성하고 `&prompt=admin_consent`에 추가합니다. 이 URL은 다음과 같습니다. `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=admin_consent`
 2. 관리자 자격 증명으로 로그인한 후 앱에서 모든 사용자에 대한 동의를 부여했습니다.
 
 
 ## <a name="force-user-consent-through-a-url-request"></a>URL 요청을 통해 강제로 사용자 동의
 
 최종 사용자가 인증을 받을 때마다 애플리케이션에 동의하도록 하려면 인증 요청 URL에 `&prompt=consent`를 추가합니다.
-이 URL은 `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=consent`과 같습니다.
+이 URL은 다음과 같습니다. `https://login.microsoftonline.com/<tenant-id>/oauth2/authorize?client_id=<client id>&response_type=code&redirect_uri=<Your-Redirect-URI-Https-Encoded>&nonce=1234&resource=<your-resource-Https-encoded>&prompt=consent`
 
 ## <a name="next-steps"></a>다음 단계
 

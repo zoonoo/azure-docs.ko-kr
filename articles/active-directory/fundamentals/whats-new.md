@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7db35b89903de6c5027bb7ea445245d84b96d6ef
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a6c6e680de6253f5e822ba282df2e2397093d003
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473299"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270990"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -39,7 +39,7 @@ Azure AD는 지속적인 향상되고 있습니다. 최신 개발 정보를 확�
 
 ---
 
-## <a name="october-2019"></a>10 월 2019
+## <a name="october-2019"></a>2019년 10월
 
 ### <a name="deprecation-of-the-identityriskevent-api-for-azure-ad-identity-protection-risk-detections"></a>Azure AD ID 보호 위험 검색을 위한 identityRiskEvent API의 사용 중단  
 
@@ -82,7 +82,7 @@ Chrome 80 브라우저 릴리스 전에 몇 주 후에는 응용 프로그램 �
 
 가까운 장래에 Azure AD 계정을 사용 하는 사용자는 apps.dev.microsoft.com (응용 프로그램 등록 포털)를 사용 하 여 수렴 형 응용 프로그램을 더 이상 등록 하 고 관리할 수 없으며, 앱 등록 (레거시)에서 응용 프로그램을 등록 하 고 관리할 수 없습니다. Azure Portal의 경험
 
-새로운 앱 등록 환경에 대해 자세히 알아보려면 [Azure Portal 학습 가이드에서 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/app-registrations-training-guide)를 참조 하세요.
+새로운 앱 등록 환경에 대해 자세히 알아보려면 [Azure Portal 학습 가이드에서 앱 등록](../develop/app-registrations-training-guide-for-app-registrations-legacy-users.md)를 참조 하세요.
 
 ---
 
@@ -196,7 +196,7 @@ Azure AD B2C에 대 한 페이지 계약의 버전 1.2.0에 대 한 몇 가지 �
 
 - 조건부 액세스
 - ID 보호
-- Security Center
+- 보안 센터
 - ID 보안 점수
 - 인증 방법
 - MFA
@@ -233,7 +233,7 @@ Azure AD B2C에 대 한 페이지 계약의 버전 1.2.0에 대 한 몇 가지 �
 
 ---
 
-## <a name="september-2019"></a>9 월 2019
+## <a name="september-2019"></a>2019년 9월
 
 ### <a name="plan-for-change-deprecation-of-the-power-bi-content-packs"></a>변경 계획: Power BI 콘텐츠 팩의 사용 중단
 
@@ -480,7 +480,7 @@ Azure AD 인증 라이브러리 (ADAL.NET) 버전 5.0.0-preview부터 앱 개발
 
 8 월 2019에 앱 갤러리에 대 한 페더레이션 지원을 통해 이러한 26 개의 새 앱을 추가 했습니다.
 
-[도시 플랫폼](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport의 inativ 포털 (유럽)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [로빈](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [아카데미 참석자](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [우선 순위 행렬](https://sync.appfluence.com/pmwebng/), [Cousto MySpace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [cpqsync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), delivery [. media™ Portal](https://portal.deliver.media), [Frontline 교육용](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [색으로 보기](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [도구](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [eab 탐색 전략적 주의](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
+[도심 Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/civic-platform-tutorial), [Amazon Business](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-business-tutorial), [ProNovos Ops Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-ops-manager-tutorial), [Cognidox](https://docs.microsoft.com/azure/active-directory/saas-apps/cognidox-tutorial), [Viareport의 inativ 포털 (유럽)](https://docs.microsoft.com/azure/active-directory/saas-apps/viareports-inativ-portal-europe-tutorial), [Azure Databricks](https://azure.microsoft.com/services/databricks), [로빈](https://docs.microsoft.com/azure/active-directory/saas-apps/robin-tutorial), [아카데미 참석자](https://docs.microsoft.com/azure/active-directory/saas-apps/academy-attendance-tutorial), [우선 순위 행렬](https://sync.appfluence.com/pmwebng/), [Cousto myspace](https://cousto.platformers.be/account/login), [Uploadcare](https://uploadcare.com/accounts/signup/), [Carbonite Endpoint Backup](https://docs.microsoft.com/azure/active-directory/saas-apps/carbonite-endpoint-backup-tutorial), [cpqsync by Cincom](https://docs.microsoft.com/azure/active-directory/saas-apps/cpqsync-by-cincom-tutorial), [Chargebee](https://docs.microsoft.com/azure/active-directory/saas-apps/chargebee-tutorial), delivery [. media™ Portal](https://portal.deliver.media), [Frontline 교육용](https://docs.microsoft.com/azure/active-directory/saas-apps/frontline-education-tutorial), [F5](https://www.f5.com/products/security/access-policy-manager), [stashcat AD connect](https://www.stashcat.com), [Blink](https://docs.microsoft.com/azure/active-directory/saas-apps/blink-tutorial), [Vocoli](https://docs.microsoft.com/azure/active-directory/saas-apps/vocoli-tutorial), [ProNovos Analytics](https://docs.microsoft.com/azure/active-directory/saas-apps/pronovos-analytics-tutorial), [Sigstr](https://docs.microsoft.com/azure/active-directory/saas-apps/sigstr-tutorial), [Darwinbox](https://docs.microsoft.com/azure/active-directory/saas-apps/darwinbox-tutorial), [색으로 보기](https://docs.microsoft.com/azure/active-directory/saas-apps/watch-by-colors-tutorial), [도구](https://docs.microsoft.com/azure/active-directory/saas-apps/harness-tutorial), [eab 탐색 전략적 주의](https://docs.microsoft.com/azure/active-directory/saas-apps/eab-navigate-strategic-care-tutorial)
 
 앱에 대한 자세한 내용은 [Azure Active Directory와 SaaS 애플리케이션 통합](https://aka.ms/appstutorial)을 참조하세요. Azure AD 앱 갤러리에 애플리케이션을 나열하는 방법에 대한 자세한 내용은 [Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열](https://aka.ms/azureadapprequest)을 참조하세요.
 
@@ -525,7 +525,7 @@ Azure Portal에서 사용할 수 있는 동적 그룹 규칙 작성기에 대 �
 **서비스 범주:** 액세스 검토  
 **제품 기능:** Id 거 버 넌 스
 
-앱에서 그룹 멤버 자격 및 앱 할당에 대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한 (`AccessReview.ReadWrite.Membership`)이 도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
+앱에서 그룹 멤버 자격 및 앱 할당에 대 한 액세스 검토를 자동으로 만들고 검색할 수 있도록 하는 새로운 Microsoft Graph 앱 권한 `AccessReview.ReadWrite.Membership`도입 되었습니다. 로그인 한 사용자 컨텍스트를 요구 하지 않고, 예약 된 작업 또는 자동화의 일부로이 사용 권한을 사용할 수 있습니다.
 
 자세한 내용은 [PowerShell 블로그를 사용 하 여 Microsoft Graph 앱 사용 권한을 사용 하 여 AZURE AD 액세스 검토를 만드는 방법 예제](https://techcommunity.microsoft.com/t5/Azure-Active-Directory/Example-how-to-create-Azure-AD-access-reviews-using-Microsoft/m-p/807241)를 참조 하세요.
 
@@ -584,7 +584,7 @@ Azure Monitor 설정에 대 한 자세한 내용은 [Azure Monitor의 AZURE AD �
 
 ---
 
-## <a name="july-2019"></a>7 월 2019
+## <a name="july-2019"></a>2019년 7월
 
 ### <a name="plan-for-change-application-proxy-service-update-to-support-only-tls-12"></a>변경 계획: 응용 프로그램 프록시 서비스 업데이트가 TLS 1.2만 지원 합니다.
 
@@ -809,9 +809,9 @@ Azure AD 도메인 서비스 보안 감사 릴리스를 공개 미리 보기로 
 **서비스 범주:** 인증(로그인)  
 **제품 기능:** 사용자 인증
 
-이제 Azure AD 앱은 OAuth 2.0 요청에 대해 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)로 reply (리디렉션) Uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
+이제 Azure AD 앱은 OAuth 2.0 요청에 대 한 정적 쿼리 매개 변수 (예: `https://contoso.com/oauth2?idp=microsoft`)로 reply (리디렉션) Uri를 등록 하 고 사용할 수 있습니다. 정적 쿼리 매개 변수는 회신 URI의 다른 부분과 마찬가지로 회신 uri에 대해 문자열 일치가 적용 됩니다. URL 디코딩된 리디렉션 uri와 일치 하는 등록 된 문자열이 없는 경우 요청이 거부 됩니다. 회신 URI가 있는 경우 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다.
 
-동적 회신 Uri는 보안 위험을 나타내므로 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없기 때문에 계속 사용할 수 없습니다. 이 목적을 위해 `state` 매개 변수를 사용 합니다.
+동적 회신 Uri는 보안 위험을 나타내므로 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없기 때문에 계속 사용할 수 없습니다. 이러한 목적을 위해 `state` 매개 변수를 사용 합니다.
 
 현재 Azure Portal의 앱 등록 화면은 쿼리 매개 변수를 계속 차단 합니다. 그러나 응용 프로그램 매니페스트를 수동으로 편집 하 여 앱에서 쿼리 매개 변수를 추가 하 고 테스트할 수 있습니다. 자세한 내용은 [인증의 새로운 기능](https://docs.microsoft.com/azure/active-directory/develop/reference-breaking-changes#redirect-uris-can-now-contain-query-string-parameters)을 참조 하세요.
 
@@ -877,7 +877,7 @@ Azure ad 활동 로그 (감사 및 로그인 보고서)는 이제 Azure AD Power
 
 이제 새로 통합 되는 앱에 대 한 사용자 계정을 만들고, 업데이트 하 고, 삭제할 수 있습니다.
 
-- [Zoom](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
+- [확대/축소](https://docs.microsoft.com/azure/active-directory/saas-apps/zoom-provisioning-tutorial)
 
 - [Envoy](https://docs.microsoft.com/azure/active-directory/saas-apps/envoy-provisioning-tutorial)
 

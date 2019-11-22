@@ -12,16 +12,20 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/18/2019
 ms.author: magoedte
-ms.openlocfilehash: f748399b6b356e5f8655f59221e78acd0d98f51e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 08f7cf5a26108608aa3719085d69ec9543f4aa51
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279648"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러스터 상태 이해
 
-컨테이너에 대 한 Azure Monitor를 사용 하 여 관리 인프라 구성 요소 및 컨테이너에 대 한 Azure Monitor에서 지 원하는 모든 Kubernetes 클러스터에서 실행 되는 모든 노드의 상태를 모니터링 하 고 보고 합니다. 이 환경은 클러스터 상태에 대해 계산 되 고 보고 된 클러스터 상태 [를 넘어](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)확장 됩니다. 이제 클러스터에 있는 하나 이상의 노드가 리소스 제한 인지 또는 큐 레이트 메트릭을 기반으로 하는 클러스터에서 실행 중인 응용 프로그램에 영향을 줄 수 있는 노드 또는 pod를 사용할 수 없는지 파악할 수 있습니다. 
+컨테이너에 대 한 Azure Monitor를 사용 하 여 관리 인프라 구성 요소 및 컨테이너에 대 한 Azure Monitor에서 지 원하는 모든 Kubernetes 클러스터에서 실행 되는 모든 노드의 상태를 모니터링 하 고 보고 합니다. 이 환경은 클러스터 상태에 대해 계산 되 고 보고 된 클러스터 상태 [를 넘어](container-insights-analyze.md#multi-cluster-view-from-azure-monitor)확장 됩니다. 이제 클러스터에 있는 하나 이상의 노드가 리소스 제한 인지 또는 큐 레이트 메트릭을 기반으로 하는 클러스터에서 실행 중인 응용 프로그램에 영향을 줄 수 있는 노드 또는 pod를 사용할 수 없는지 파악할 수 있습니다.
+
+>[!NOTE]
+>상태 기능은 현재 공개 미리 보기로 제공 됩니다.
+>
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [컨테이너의 Azure Monitor](container-insights-onboard.md)등록을 참조 하세요.
 
@@ -33,7 +37,7 @@ ms.locfileid: "74173628"
 
 ## <a name="overview"></a>개요
 
-컨테이너에 대 한 Azure Monitor 상태 기능은 문제를 식별 하 고 진단 하는 데 도움이 되는 Kubernetes 클러스터의 사전 대응 상태 모니터링을 제공 합니다. 검색 된 중요 한 문제를 볼 수 있는 기능을 제공 합니다. 클러스터의 컨테이너 화 된 에이전트에서 실행 되는 클러스터의 상태를 평가 하는 모니터와 상태 데이터는 Log Analytics 작업 영역의 **KubeHealth** 테이블에 기록 됩니다. 
+컨테이너의 Azure Monitor 상태 (미리 보기) 기능은 문제를 식별 하 고 진단 하는 데 도움이 되는 Kubernetes 클러스터의 사전 상태 모니터링을 제공 합니다. 검색 된 중요 한 문제를 볼 수 있는 기능을 제공 합니다. 클러스터의 컨테이너 화 된 에이전트에서 실행 되는 클러스터의 상태를 평가 하는 모니터와 상태 데이터는 Log Analytics 작업 영역의 **KubeHealth** 테이블에 기록 됩니다. 
 
 Kubernetes 클러스터 상태는 다음과 같은 Kubernetes 개체 및 추상화로 구성 된 다양 한 모니터링 시나리오를 기반으로 합니다.
 
@@ -72,7 +76,7 @@ Kubernetes 클러스터 상태는 다음과 같은 Kubernetes 개체 및 추상�
 
 ## <a name="view-health-of-an-aks-or-non-aks-cluster"></a>AKS 또는 비 AKS 클러스터의 상태 보기
 
-컨테이너 상태에 대 한 Azure Monitor에 대 한 액세스는 Azure Portal의 왼쪽 창에서 **Insights** 를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다. 
+컨테이너 상태 (미리 보기) 기능에 대 한 Azure Monitor에 대 한 액세스는 Azure Portal의 왼쪽 창에서 **정보** 를 선택 하 여 AKS 클러스터에서 직접 사용할 수 있습니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다. 
 
 AKS 않는 클러스터에서 온-프레미스 또는 Azure Stack에서 호스트 되는 AKS 엔진 클러스터의 상태를 보려면 Azure Portal의 왼쪽 창에서 **Azure Monitor** 를 선택 합니다. **인사이트** 섹션에서 **컨테이너**를 선택합니다.  다중 클러스터 페이지의 목록에서 비 AKS 클러스터를 선택 합니다.
 

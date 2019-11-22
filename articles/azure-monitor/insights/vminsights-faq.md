@@ -1,18 +1,18 @@
 ---
 title: VM용 Azure Monitor(미리 보기) 질문과 대답 | Microsoft Docs
-description: VM용 Azure Monitor는 Azure VM 운영 체제의 상태 및 성능 모니터링뿐만 아니라 애플리케이션 구성 요소 및 종속성의 자동 검색도 다른 리소스와 결합하고, 이러한 항목 간의 통신을 매핑하는 Azure의 솔루션입니다. 이 문서에서는 일반적인 질문에 답변합니다.
+description: 응용 프로그램 구성 요소와 해당 종속성을 자동으로 검색 하 고 매핑하는 것 외에도 Azure Vm의 상태와 성능을 모니터링 하는 VM용 Azure Monitor에 대 한 일반적인 질문에 대 한 답변입니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/09/2018
-ms.openlocfilehash: 675277a33a5613507297f1c77ee9cef3215b22a2
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 579538996e934c7068c397a284d819f5ddb92f08
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555204"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305450"
 ---
 # <a name="azure-monitor-for-vms-preview-frequently-asked-questions"></a>VM용 Azure Monitor(미리 보기) 질문과 대답
 Microsoft FAQ는 VM용 Azure Monitor에 대한 질문과 대답 목록입니다. 솔루션에 대한 추가 질문이 있으면 [토론 포럼](https://feedback.azure.com/forums/34192--general-feedback)으로 이동하여 질문을 게시하세요. 자주 묻는 질문일 경우 빠르고 쉽게 찾을 수 있도록 이 문서에 추가하겠습니다.

@@ -1,5 +1,5 @@
 ---
-title: B2B에 대 한 id 공급자를 사용 하 여 직접 페더레이션 설정-Azure Active Directory | Microsoft Docs
+title: B2B에 대 한 id 공급자와 직접 페더레이션-Azure AD
 description: 게스트가 Azure AD 앱에 로그인 할 수 있도록 SAML 또는 WS-급지됨 id 공급자와 직접 페더레이션
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3aea108ed87debac56b18b5959d492f2bcb291d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f5b6e99c803fb703f18b61200c28cbdac3282750
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853611"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272749"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -28,7 +28,7 @@ ms.locfileid: "68853611"
 이 문서에서는 B2B 공동 작업을 위해 다른 조직과 직접 페더레이션을 설정 하는 방법을 설명 합니다. IdP (id 공급자)가 SAML 2.0 또는 WS-급지됨 프로토콜을 지 원하는 조직과 직접 페더레이션을 설정할 수 있습니다.
 파트너의 IdP 직접 페더레이션을 설정 하면 해당 도메인의 새 게스트 사용자는 자신의 IdP 관리 조직 계정을 사용 하 여 Azure AD 테 넌 트에 로그인 하 고 사용자와 공동 작업을 시작할 수 있습니다. 게스트 사용자가 별도의 Azure AD 계정을 만들 필요가 없습니다.
 > [!NOTE]
-> 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 또는 `https://portal.azure.com/<tenant id>`확인 된 도메인 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`의 경우)를 포함 하는 링크를 사용 하 여 로그인 해야 합니다. 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어, `https://myapps.microsoft.com`또는 `https://portal.azure.com` `https://teams.microsoft.com` 를 사용 하면 오류가 발생 합니다.
+> 직접 페더레이션 게스트 사용자는 테 넌 트 컨텍스트를 포함 하는 링크 (예: `https://myapps.microsoft.com/?tenantid=<tenant id>` 또는 `https://portal.azure.com/<tenant id>`또는 확인 된 도메인의 경우 `https://myapps.microsoft.com/\<verified domain>.onmicrosoft.com`)를 사용 하 여 로그인 해야 합니다. 애플리케이션 및 리소스에 대한 직접 링크는 테넌트 컨텍스트를 포함하는 한 작동합니다. 직접 페더레이션 사용자는 현재 테 넌 트 컨텍스트가 없는 일반 끝점을 사용 하 여 로그인 할 수 없습니다. 예를 들어 `https://myapps.microsoft.com`, `https://portal.azure.com`또는 `https://teams.microsoft.com`를 사용 하면 오류가 발생 합니다.
  
 ## <a name="when-is-a-guest-user-authenticated-with-direct-federation"></a>게스트 사용자가 직접 페더레이션을 사용 하 여 인증 된 경우는 언제 입니까?
 조직과의 직접 페더레이션을 설정한 후에는 직접 페더레이션을 사용 하 여 초대 하는 모든 새 게스트 사용자가 인증 됩니다. 직접 페더레이션을 설정 해도 이미 초대를 받은 게스트 사용자에 대 한 인증 방법은 변경 되지 않습니다. 다음은 몇 가지 예입니다.
@@ -57,7 +57,7 @@ ms.locfileid: "68853611"
 -   federation.exostar.com
 -   federation.exostartest.com
 
-예를 들어 **fabrikam.com**에 대 한 직접 페더레이션을 설정 하는 경우 인증 `https://fabrikam.com/adfs` URL은 유효성 검사를 통과 합니다. 예를 들어 `https://sts.fabrikam.com/adfs`동일한 도메인의 호스트도 전달 됩니다. 그러나 인증 URL `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs` 같은 도메인에 대 한가 전달 되지 않습니다.
+예를 들어 **fabrikam.com**에 대 한 직접 페더레이션을 설정할 때 인증 URL `https://fabrikam.com/adfs`는 유효성 검사를 통과 합니다. 예를 들어 동일한 도메인에 있는 호스트는 `https://sts.fabrikam.com/adfs`를 전달 합니다. 그러나 같은 도메인에 대 한 인증 URL `https://fabrikamconglomerate.com/adfs` 또는 `https://fabrikam.com.uk/adfs`는 전달 되지 않습니다.
 
 ### <a name="signing-certificate-renewal"></a>서명 인증서 갱신
 Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD는 만료 될 때 서명 인증서를 자동으로 갱신 합니다. 그러나 만료 시간 이전에 어떤 이유로 든 인증서를 회전 하거나 메타 데이터 URL을 제공 하지 않으면 Azure AD에서 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.
@@ -72,7 +72,7 @@ Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD�
 ### <a name="does-direct-federation-address-sign-in-issues-due-to-a-partially-synced-tenancy"></a>부분적으로 동기화 된 테 넌 트로 인해 페더레이션 주소 로그인 문제가 발생 하나요?
 아니요,이 시나리오에서는 [전자 메일 일회용 암호](one-time-passcode.md) 기능을 사용 해야 합니다. "부분적으로 동기화 된 테 넌 트"는 온-프레미스 사용자 id가 클라우드와 완전히 동기화 되지 않는 파트너 Azure AD 테 넌 트를 나타냅니다. 해당 id가 클라우드에 아직 없지만 B2B 초대를 교환 하려는 사용자는 로그인 할 수 없습니다. 일회용 암호 기능을 사용 하면이 게스트가 로그인 할 수 있습니다. 직접 페더레이션 기능은 게스트에 고유한 IdP 관리 조직 계정이 있지만 조직에 Azure AD가 전혀 존재 하지 않는 시나리오를 해결 합니다.
 
-## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>1단계: 파트너 조직의 id 공급자 구성
+## <a name="step-1-configure-the-partner-organizations-identity-provider"></a>1 단계: 파트너 조직의 id 공급자 구성
 먼저 파트너 조직에서 필요한 클레임 및 신뢰 당사자 트러스트를 사용 하 여 id 공급자를 구성 해야 합니다. 
 
 > [!NOTE]
@@ -93,8 +93,8 @@ IdP의 SAML 2.0 응답에 필요한 특성:
 |특성  |값  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|대상 사용자     |`urn:federation:MicrosoftOnline`         |
-|발급자     |파트너 IdP의 발급자 URI입니다 (예:).`http://www.example.com/exk10l6w90DHM0yi...`         |
+|대상     |`urn:federation:MicrosoftOnline`         |
+|발급자     |파트너 IdP의 발급자 URI (예: `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 IdP에서 발급 한 SAML 2.0 토큰에 필요한 클레임:
@@ -119,8 +119,8 @@ IdP의 WS-급지됨 메시지에 필요한 특성:
 |특성  |값  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|대상 사용자     |`urn:federation:MicrosoftOnline`         |
-|발급자     |파트너 IdP의 발급자 URI입니다 (예:).`http://www.example.com/exk10l6w90DHM0yi...`         |
+|대상     |`urn:federation:MicrosoftOnline`         |
+|발급자     |파트너 IdP의 발급자 URI (예: `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
@@ -129,11 +129,11 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
 
-## <a name="step-2-configure-direct-federation-in-azure-ad"></a>2단계: Azure AD에서 직접 페더레이션 구성 
+## <a name="step-2-configure-direct-federation-in-azure-ad"></a>2 단계: Azure AD에서 직접 페더레이션 구성 
 다음으로, Azure AD에서 1 단계에서 구성 된 id 공급자를 사용 하 여 페더레이션을 구성 합니다. Azure AD 포털 또는 PowerShell을 사용할 수 있습니다. 직접 페더레이션 정책이 적용 되기까지 5-10 분이 걸릴 수 있습니다. 이 시간 동안 직접 페더레이션 도메인에 대 한 초대를 교환 하려고 시도 하지 마세요. 다음과 같은 특성이 필요합니다.
 - 파트너 IdP의 발급자 URI
 - 파트너 IdP의 수동 인증 끝점 (https만 지원 됨)
-- Certificate
+- 인증서
 
 ### <a name="to-configure-direct-federation-in-the-azure-ad-portal"></a>Azure AD 포털에서 직접 페더레이션을 구성 하려면
 
@@ -151,12 +151,12 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 6. 메타 데이터 파일을 업로드 하 여 메타 데이터 정보를 채울 수 있습니다. 메타 데이터를 수동으로 입력 하도록 선택 하는 경우 다음 정보를 입력 합니다.
    - 파트너 IdP의 도메인 이름
    - 파트너 IdP의 엔터티 ID
-   - 파트너 IdP의 수동 요청자 엔드포인트
-   - Certificate
+   - 파트너 IdP의 수동 요청자 끝점
+   - 인증서
    > [!NOTE]
    > 메타 데이터 URL은 선택 사항 이지만 권장 됩니다. 메타 데이터 URL을 제공 하는 경우 Azure AD는 만료 될 때 서명 인증서를 자동으로 갱신할 수 있습니다. 만료 시간 이전에 어떤 이유로 든 인증서를 회전 하거나 메타 데이터 URL을 제공 하지 않으면 Azure AD는 갱신할 수 없습니다. 이 경우 서명 인증서를 수동으로 업데이트 해야 합니다.
 
-7.           **저장**을 선택합니다. 
+7. **저장**을 선택합니다. 
 
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용 하 여 Azure AD에서 직접 페더레이션을 구성 하려면
 
@@ -180,7 +180,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
    New-AzureADExternalDomainFederation -ExternalDomainName $domainName  -FederationSettings $federationSettings
    ```
 
-## <a name="step-3-test-direct-federation-in-azure-ad"></a>3단계: Azure AD에서 직접 페더레이션 테스트
+## <a name="step-3-test-direct-federation-in-azure-ad"></a>3 단계: Azure AD에서 직접 페더레이션 테스트
 이제 새 B2B 게스트 사용자를 초대 하 여 직접 페더레이션 설정을 테스트 합니다. 자세한 내용은 [Azure Portal에서 AZURE AD B2B 공동 작업 사용자 추가](add-users-administrator.md)를 참조 하세요.
  
 ## <a name="how-do-i-edit-a-direct-federation-relationship"></a>직접 페더레이션 관계를 편집 어떻게 할까요??
@@ -190,7 +190,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 3. **Id 공급자** 선택
 4. **SAML/WS 공급 id 공급자**에서 공급자를 선택 합니다.
 5. Id 공급자 세부 정보 창에서 값을 업데이트 합니다.
-6.           **저장**을 선택합니다.
+6. **저장**을 선택합니다.
 
 
 ## <a name="how-do-i-remove-direct-federation"></a>직접 페더레이션을 제거 어떻게 할까요??

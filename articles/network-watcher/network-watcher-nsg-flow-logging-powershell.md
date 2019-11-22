@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher를 사용하여 네트워크 보안 그룹 흐름 로그 관리 - PowerShell | Microsoft Docs
+title: NSG 흐름 로그 관리-Azure PowerShell
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 PowerShell을 사용하여 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 508fe6f7dc6c5fef99e5f62a2ce75b0c81b1577f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 162e499ba44557db388484639c21877fd8b852bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676342"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277959"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -83,7 +84,7 @@ Set-AzNetworkWatcherConfigFlowLog -NetworkWatcher $NW -TargetResourceId $nsg.Id 
 
 ## <a name="download-a-flow-log"></a>흐름 로그 다운로드
 
-흐름 로그의 스토리지 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/ 에서 다운로드할 수 있습니다.
+흐름 로그의 스토리지 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/에서 다운로드할 수 있습니다.
 
 스토리지 계정이 지정되어 있으면 흐름 로그 파일은 다음 위치에서 스토리지 계정에 저장됩니다.
 

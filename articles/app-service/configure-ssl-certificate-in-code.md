@@ -14,12 +14,12 @@ ms.date: 11/04/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 93dfe784d45cd9cd93d22c5e8c3275c563f7f88b
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572090"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271280"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service에서 코드에 SSL 인증서를 사용 합니다.
 
@@ -29,7 +29,7 @@ ms.locfileid: "73572090"
 
 App Service에서 SSL 인증서를 관리할 수 있는 경우 인증서 및 애플리케이션 코드를 별도로 유지 관리하여 중요한 데이터를 보호할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -38,7 +38,7 @@ App Service에서 SSL 인증서를 관리할 수 있는 경우 인증서 및 애
 
 ## <a name="find-the-thumbprint"></a>지문 찾기
 
-<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<앱 이름 >** 을 선택 합니다.
+<a href="https://portal.azure.com" target="_blank">Azure Portal</a>의 왼쪽 메뉴에서 **App Services** >  **\<app-name>** 을 선택합니다.
 
 앱의 왼쪽 탐색 영역에서 **TLS/SSL 설정**을 선택 하 고 **개인 키 인증서 (.Pfx)** 또는 **공개 키 인증서 (.cer)** 를 선택 합니다.
 
@@ -141,6 +141,8 @@ Node.js, PHP, Python, Java 또는 Ruby의 파일에서 SSL 인증서를 로드 �
 > ```azurecli-interactive
 > az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 > ```
+>
+> 코드에서 인증서를 사용 하는이 방법은 App Service에서 SSL 기능을 사용 합니다 .이 기능을 사용 하면 앱이 **기본** 계층 이상 이어야 합니다.
 
 다음 C# 예제에서는 앱의 상대 경로에서 공용 인증서를 로드 합니다.
 
@@ -159,7 +161,7 @@ Node.js, PHP, Python, Java 또는 Ruby의 파일에서 SSL 인증서를 로드 �
 
 ## <a name="more-resources"></a>추가 리소스
 
-* [SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
+* [SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
 * [HTTPS 적용](configure-ssl-bindings.md#enforce-https)
 * [TLS 1.1/1.2 적용](configure-ssl-bindings.md#enforce-tls-versions)
 * [FAQ : App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

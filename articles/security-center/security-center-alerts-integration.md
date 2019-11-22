@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/02/2019
 ms.author: memildin
-ms.openlocfilehash: dc1cb5cde06314e52ac886c1be1bb46b5f4bbd73
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 693e7d35a0bb4c7dfbb3e033690a5e86e2c398a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686472"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278340"
 ---
 # <a name="integration-of-azure-security-products-in-azure-security-center"></a>Azure Security Center에서 Azure 보안 제품 통합
 
@@ -28,7 +28,7 @@ Azure Security Center는 다음 보안 제품을 사용할 수 있는 추가 Mic
 
 Azure Application Gateway는 일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 
-웹 응용 프로그램은 일반적으로 알려진 취약점을 악용 하는 악의적인 공격을 대상으로 점차 증가 하 고 있습니다. Application Gateway WAF는 공개 웹 응용 프로그램 보안 프로젝트의 핵심 규칙 집합 3.0 또는 2.2.9을 기반으로 합니다. WAF는 추가 구성 없이도 새로운 취약점 으로부터 보호 하기 위해 자동으로 업데이트 됩니다. WAF 경고는 Security Center로 스트리밍됩니다. WAF에 의해 생성 되는 경고에 대 한 자세한 내용은 [웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙](https://docs.microsoft.com/azure/application-gateway/application-gateway-crs-rulegroups-rules?tabs=owasp3#crs911)을 참조 하세요.
+일반적으로 알려진 취약성을 악용하여 웹 애플리케이션을 공격하는 악의적인 사례가 점점 늘어나고 있습니다. Application Gateway WAF는 공개 웹 응용 프로그램 보안 프로젝트의 핵심 규칙 집합 3.0 또는 2.2.9을 기반으로 합니다. WAF는 추가 구성 없이도 새로운 취약점 으로부터 보호 하기 위해 자동으로 업데이트 됩니다. WAF 경고는 Security Center로 스트리밍됩니다. WAF에 의해 생성 되는 경고에 대 한 자세한 내용은 [웹 응용 프로그램 방화벽 CRS 규칙 그룹 및 규칙](../web-application-firewall/ag/application-gateway-crs-rulegroups-rules.md?tabs=owasp31#crs911-31)을 참조 하세요.
 
 ## Azure DDoS Protection<a name="azure-ddos"></a>
 

@@ -1,5 +1,5 @@
 ---
-title: 특정 사용자가 애플리케이션에 액세스할 수 있는 시점 파악 | Microsoft Docs
+title: 특정 사용자가 앱에 액세스할 수 있는 시기를 확인 합니다.
 description: 매우 중요한 사용자가 Azure AD를 사용하여 사용자를 프로비저닝하도록 구성한 애플리케이션에 액세스할 수 있는 시기를 찾는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7d3b334df8cd24a1d8ca88c8ac2e3117bdd24d8b
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 25ac9ad5877c6a1408d4045df4d4e1fd8f64ea94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057760"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275736"
 ---
 # <a name="check-the-status-of-user-provisioning"></a>사용자 프로 비전 상태를 확인 합니다.
 
@@ -40,7 +40,7 @@ Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대
 
 프로 비전 주기가 완료 된 후 **날짜 통계** 섹션에는 마지막 주기의 완료 날짜 및 기간과 함께 날짜에 프로 비전 된 사용자 및 그룹의 누적 수가 표시 됩니다. **활동 ID** 는 가장 최근의 프로 비전 주기를 고유 하 게 식별 합니다. **작업 ID** 는 프로 비전 작업의 고유 식별자 이며, 테 넌 트의 앱에만 적용 됩니다.
 
-프로 비전 진행률은 Azure Portal **Azure Active Directory &gt; Enterprise Apps &gt; \[응용 프로그램 이름\] &gt; 프로 비전** 탭에서 볼 수 있습니다.
+프로 비전 진행률은 Azure Portal의 **Azure Active Directory &gt; Enterprise Apps &gt; \[프로 비전 탭\] 응용 프로그램 이름 &gt; 프로 비전** 탭에서 볼 수 있습니다.
 
 ![프로 비전 페이지 진행률 표시줄](media/application-provisioning-when-will-provisioning-finish-specific-user/provisioning-progress-bar-section.png)
 
@@ -66,7 +66,7 @@ Azure Portal에서 프로 비전 로그를 읽는 방법에 대 한 자세한 �
 
 - **초기 주기**에서 작업 시간은 프로 비전 범위에 있는 사용자 및 그룹 수와 원본 시스템의 총 사용자 및 그룹 수를 비롯 한 여러 요인에 따라 달라 집니다. Azure AD와 앱 간의 첫 번째 동기화는 Azure AD 디렉터리의 크기와 프로비저닝 범위에 있는 사용자 수에 따라 20분에서 몇 시간이 걸릴 수 있습니다. 초기 주기 성능에 영향을 주는 포괄적인 요소 목록은이 섹션의 뒷부분에서 간략하게 설명 합니다.
 
-- 초기 주기 이후 **증분 주기의** 경우 프로 비전 서비스는 초기 주기 후 두 시스템의 상태를 나타내는 워터 마크를 저장 하므로, 이후 성능을 향상 시키기 때문에 작업 시간이 더 빠를 수 있습니다 (예: 10 분 이내). 하므로. 작업 시간은 해당 프로 비전 주기에서 검색 된 변경 수에 따라 달라 집니다. 사용자 또는 그룹 멤버 자격 변경 내용이 5000 미만이 면 단일 증분 프로 비전 주기 내에서 작업을 완료할 수 있습니다. 
+- 초기 주기 이후 **증분 주기의** 경우 프로 비전 서비스는 초기 주기 후 두 시스템의 상태를 나타내는 워터 마크를 저장 하므로 이후 동기화의 성능이 향상 되기 때문에 작업 시간이 더 빠를 수 있습니다 (예: 10 분 이내). 작업 시간은 해당 프로 비전 주기에서 검색 된 변경 수에 따라 달라 집니다. 사용자 또는 그룹 멤버 자격 변경 내용이 5000 미만이 면 단일 증분 프로 비전 주기 내에서 작업을 완료할 수 있습니다. 
 
 다음 표에는 일반적인 프로비저닝 시나리오의 동기화 시간이 요약되어 있습니다. 이러한 시나리오에서 원본 시스템은 Azure AD이고, 대상 시스템은 SaaS 애플리케이션입니다. 동기화 시간은 SaaS 응용 프로그램 ServiceNow, 작업 공간, Salesforce 및 G Suite에 대 한 동기화 작업의 통계 분석에서 파생 됩니다.
 

@@ -1,23 +1,14 @@
 ---
 title: Azure Notebook 프로젝트 구성 및 관리
 description: Azure Notebooks UI 및 터미널 직접 액세스를 통해 프로젝트 메타데이터, 프로젝트 파일, 프로젝트의 환경 및 설치 단계를 관리하는 방법을 설명합니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
-ms.author: kraigb
-ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 56c265122894412e79b3d5a7b256964c49ab81a6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973121"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277638"
 ---
 # <a name="manage-and-configure-projects"></a>프로젝트 관리 및 구성
 
@@ -61,16 +52,16 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 
 **+ 새로 만들기** 명령(바로 가기 키: n)은 새 파일 또는 폴더를 만듭니다. 이 명령을 사용할 때, 만들려는 항목의 유형부터 선택해야 합니다.
 
-| 항목 유형 | 설명 | 명령 동작 |
+| 항목 종류 | 설명 | 명령 동작 |
 | --- | --- | --- |
 | **Notebook** | Jupyter Notebook입니다. | Notebook의 파일 이름 및 언어를 지정하는 팝업을 표시합니다. |
-| **Folder** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
+| **폴더** | 하위 폴더입니다. | 프로젝트의 파일 목록에 폴더 이름을 입력하는 편집 필드를 만듭니다. |
 | **빈 파일** | 텍스트, 데이터 등의 콘텐츠를 저장할 수 있는 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
 | **Markdown** | Markdown 파일입니다. | 프로젝트의 파일 목록에 파일 이름을 입력하는 편집 필드를 만듭니다. |
 
 ### <a name="upload-files"></a>파일 업로드
 
-**업로드** 명령은 다른 위치에서 데이터를 가져오는 두 가지 옵션 **URL에서** 및 **컴퓨터에서**를 제공합니다. 자세한 내용은 [Azure Notebook 프로젝트에서 데이터 파일 작업](work-with-project-data-files.md)을 참조하세요.
+**Upload** 명령은 다른 위치 ( **URL** 및 **컴퓨터**)에서 데이터를 가져오는 두 가지 옵션을 제공 합니다. 자세한 내용은 [Azure Notebook 프로젝트에서 데이터 파일 작업](work-with-project-data-files.md)을 참조하세요.
 
 ### <a name="select-file-specific-commands"></a>파일 관련 명령 선택
 
@@ -88,7 +79,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | 다운로드 | d | 폴더의 파일 또는 콘텐츠를 포함하고 있는 Zip 파일을 다운로드합니다. |
 | 이름 바꾸기 | a | 파일 또는 폴더의 새 이름을 요청합니다. |
 | 삭제 | x | 확인을 요청한 다음, 프로젝트에서 파일을 영구적으로 제거합니다. 삭제 작업은 실행 취소할 수 없습니다. |
-| 이동 | 분 | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
+| 이동 | m | 파일을 같은 프로젝트의 다른 폴더로 이동합니다. |
 
 #### <a name="preview"></a>미리 보기
 
@@ -99,7 +90,7 @@ Azure Notebooks는 사용자가 Notebook이나 기타 파일을 실행할 때마
 | 명령 | 바로 가기 키 | 작업 |
 | --- | --- | --- |
 | 공유 | s | 링크를 획득하고, 소셜 미디어에 공유하고, 포함할 HTML을 획득하고, 이메일을 보낼 수 있는 공유 팝업을 표시합니다. |
-| 복제 | c  | Notebook을 계정에 복제합니다. |
+| 복제 | C  | Notebook을 계정에 복제합니다. |
 | 실행 | r | 실행 권한이 있는 경우 Notebook을 실행합니다. |
 | 다운로드 | d | Notebook의 복사본을 다운로드합니다. |
 
@@ -115,7 +106,7 @@ Notebook이 실행되는 기본 가상 머신의 환경을 구성하는 세 가�
 
 ### <a name="one-time-initialization-script"></a>일회용 초기화 스크립트
 
-Azure Notebooks는 프로젝트에 대한 서버를 처음으로 만들 때 프로젝트에서 *aznbsetup.sh*라는 파일을 찾습니다. 이 파일이 있으면 Azure Notebooks는 이 파일을 실행합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log*로 저장됩니다.
+처음 Azure Notebooks 프로젝트에 대 한 서버를 만들 때 *aznbsetup.sh*이라는 프로젝트에서 파일을 찾습니다. 이 파일이 있는 경우 Azure Notebooks 실행 합니다. 스크립트의 출력은 프로젝트 폴더에 *. aznbsetup.log*로 저장됩니다.
 
 ### <a name="environment-setup-steps"></a>환경 설정 단계
 
@@ -131,11 +122,11 @@ Azure Notebooks는 프로젝트에 대한 서버를 처음으로 만들 때 프�
 
 프로젝트에서 얻는 정보는 선택한 작업의 유형에 따라 달라집니다.
 
-- **Requirements.txt**: 두 번째 드롭다운 목록에서 이미 프로젝트에 있는 *requirements.txt* 파일을 선택합니다. 그리고 표시되는 세 번째 드롭다운 목록에서 Python 버전을 선택합니다. Azure Notebooks는 Notebook 서버를 시작할 때 *requirements.txt* 파일을 사용하여 *requirements.txt* 파일에서 `pip install -r`을 실행합니다. Notebook 내에서 명시적으로 패키지를 설치할 필요가 없습니다.
+- **요구 사항 .txt**: 두 번째 드롭다운 목록에서 프로젝트에 이미 있는 *요구 사항 .txt* 파일을 선택 합니다. 그리고 표시되는 세 번째 드롭다운 목록에서 Python 버전을 선택합니다. Azure Notebooks는 Notebook 서버를 시작할 때 *requirements.txt* 파일을 사용하여 `pip install -r`requirements.txt*파일에서*을 실행합니다. Notebook 내에서 명시적으로 패키지를 설치할 필요가 없습니다.
 
-- **셸 스크립트**: 두 번째 드롭다운 목록에서, 환경을 초기화하기 위해 실행하려는 모든 명령어가 포함된 bash 셸 스크립트(일반적으로 확장명이 *.sh*인 파일)를 선택합니다.
+- **셸 스크립트**: 두 번째 드롭다운 목록에서 환경을 초기화 하기 위해 실행 하려는 명령을 포함 하는 프로젝트 (일반적으로 확장명이 *sh* 인 파일)에서 bash 셸 스크립트를 선택 합니다.
 
-- **Environment.yml**: 두 번째 드롭다운 목록에서, conda 환경을 사용하는 Python 프로젝트에 대한 *environments.yml* 파일을 선택합니다.
+- **환경 .yml**: 두 번째 드롭다운 목록에서 conda 환경을 사용 하 여 Python 프로젝트용 *환경 .yml* 파일을 선택 합니다.
 
 단계 추가를 마쳤으면 **저장**을 선택합니다.
 
@@ -152,7 +143,7 @@ Azure Notebooks는 프로젝트에 대한 서버를 처음으로 만들 때 프�
 
 특정 환경에 영향을 주려면 먼저 디렉터리를 해당 환경 폴더로 변경합니다.
 
-Python 환경의 경우 각 환경의 *bin* 폴더에서 `pip` 및 `conda`를 찾을 수 있습니다. 환경에 기본 제공되는 별칭을 사용할 수도 있습니다.
+Python 환경의 경우 각 환경의 `pip`bin`conda` 폴더에서 *및*를 찾을 수 있습니다. 환경에 기본 제공되는 별칭을 사용할 수도 있습니다.
 
 ```bash
 # Anaconda 2 5.3.0/Python 2.7: python27
@@ -190,5 +181,5 @@ Python Notebook의 코드 셀에서 명령을 사용할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)
 - [Notebook에서 클라우드 데이터 액세스](access-data-resources-jupyter-notebooks.md)

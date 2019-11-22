@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 앱에 대해 페더레이션된 single sign-on을 구성 하는 문제 | Microsoft Docs
+title: Azure AD 갤러리 앱에 대해 페더레이션된 SSO를 구성 하는 문제
 description: Azure AD 애플리케이션 갤러리에 나열된 애플리케이션의 SAML을 사용하여 페더레이션된 Single Sign-On을 구성할 때 발생하는 일반적인 문제 몇 가지를 해결
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f4e690b440604a312ddfa8cd320ac200c0f40cf
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 87c2497a781b0d46b3b2f1e281a3d7b327b60952
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381212"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274649"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -42,11 +42,11 @@ ms.locfileid: "68381212"
 
 애플리케이션에 대해 미리 구성된 패턴을 알려면:
 
-1. [**Azure Portal**](https://portal.azure.com/)을 열고 **전역 관리자** 또는 **공동 관리자** 권한으로 로그인합니다. 7단계로 이동합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
+1. [**Azure Portal**](https://portal.azure.com/) 을 열고 **전역 관리자** 또는 공동 관리자 권한으로 로그인 **합니다.** 7 단계로 이동 합니다. 이미 Azure AD의 애플리케이션 구성 블레이드에 있는 경우.
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
@@ -70,7 +70,7 @@ ms.locfileid: "68381212"
 
     * 애플리케이션의 자습서에서 지원되는 패턴에 대한 정보를 볼 수도 있습니다. **Azure AD Single Sign-On 구성** 섹션 아래. **도메인 및 URL** 섹션 아래의 값 구성 단계로 이동합니다.
 
-값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 할 수 있습니다.
+값이 Azure AD에 미리 구성된 패턴과 일치하지 않을 경우. 다음을 수행할 수 있습니다.
 
 -   애플리케이션 공급업체의 도움을 받아 Azure AD에 미리 구성된 패턴과 일치하는 값을 얻습니다.
 
@@ -90,7 +90,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 

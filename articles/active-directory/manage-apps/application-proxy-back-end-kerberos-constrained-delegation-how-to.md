@@ -1,5 +1,5 @@
 ---
-title: 앱 프록시에 대 한 Kerberos 제한 위임 configs 문제 해결 | Microsoft Docs
+title: Kerberos 제한 위임 문제 해결-앱 프록시
 description: 애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/23/2019
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca50cfb8697fdbb8c71054c5a6b4d5e23792eb5
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: c5e866f61409960447e17ecb50b035eabd53dc38
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381530"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275690"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>애플리케이션 프록시에 대한 Kerberos 제한 위임 구성 문제 해결
 
@@ -38,7 +38,7 @@ KCD를 사용하도록 설정하는 절차는 간단합니다. SSO를 지원하�
 - 서버 및 애플리케이션 호스트는 단일 Azure Active Directory 도메인에 상주합니다. 도메인 및 포리스트 간 시나리오에 대한 자세한 내용은 [KCD 백서](https://aka.ms/KCDPaper)를 참조하세요.
 - 주체 애플리케이션은 사전 인증을 사용하도록 설정하여 Azure 테넌트에 게시됩니다. 사용자는 양식 기반 인증을 통해 Azure에 인증해야 합니다. 리치 클라이언트 인증 시나리오는 이 문서에서 다루지 않습니다. 나중에 특정 시점에 추가될 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환경에 배포할 수 있습니다. 아키텍처는 조직마다 다릅니다. KCD 관련 문제의 가장 일반적인 원인은 환경이 아닙니다. 대부분의 문제가 단순한 구성 오류나 일반적인 실수로 인해 발생합니다.
 
@@ -56,9 +56,9 @@ Azure AD 애플리케이션 프록시는 여러 유형의 인프라 또는 환�
 
 KCD 문제를 보여 주는 것은 무엇일까요? KCD SSO 오류를 나타내는 여러 가지 일반적인 표시가 있습니다. 문제의 첫 번째 증상은 브라우저에서 나타납니다.
 
-![예제: 잘못된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
-![예제: 누락된 권한으로 인해 권한 부여 실패](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
+![예: 권한 누락으로 인해 권한 부여에 실패 했습니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
 두 이미지 모두 동일한 증상인 SSO 실패를 보여 줍니다. 애플리케이션에 대한 사용자 액세스가 거부되었습니다.
 
@@ -84,7 +84,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
 앞에서 언급했듯이 브라우저 오류 메시지는 실패하는 이유에 대한 단서를 제공합니다. 응답에 포함된 활동 ID 및 타임스탬프를 적어 두세요. 이 정보는 Azure 프록시 이벤트 로그의 실제 이벤트와 동작을 상호 연결하는 데 도움이 됩니다.
 
-![예제: 잘못된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
+![예: 잘못 된 KCD 구성 오류](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
 이벤트 로그에 표시된 해당 항목은 이벤트 13019 또는 12027로 표시됩니다. 커넥터 이벤트 로그는 **애플리케이션 및 서비스 로그**&gt;**Microsoft**&gt;**AadApplicationProxy**&gt;**Connector**&gt;**Admin**에서 확인할 수 있습니다.
 
@@ -135,7 +135,7 @@ Kerberos KCD(키 배포 센터)에서 사용자에 대한 Kerberos 서비스 티
 
       ![IIS 애플리케이션 구성 창](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
 
-      ID를 알게 되었으면, 이 계정이 해당 SPN으로 구성되었는지 확인합니다. 예제입니다. `setspn –q http/spn.wacketywack.com` 명령 프롬프트에 다음 텍스트를 입력합니다.
+      ID를 알게 되었으면, 이 계정이 해당 SPN으로 구성되었는지 확인합니다. 예는 `setspn –q http/spn.wacketywack.com`입니다. 명령 프롬프트에 다음 텍스트를 입력합니다.
 
       ![SetSPN 명령 창을 표시 합니다.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
 

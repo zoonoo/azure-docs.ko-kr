@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 B2B 협업 사용자 - Azure Active Directory | Microsoft Docs
+title: Azure Portal에서 B2B 공동 작업 사용자 추가-Azure AD
 description: 관리자가 Azure AD(Azure Active Directory) B2B 협업을 사용하여 파트너 조직에서 해당 디렉터리에 게스트 사용자를 추가할 수 있는 방법을 보여줍니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85905e31b9375bac7f813782cbc224a6e770b7ce
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 7176101a1e6c1da54ddd8b5f22b61b91fbc5115a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013134"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267936"
 ---
 # <a name="add-azure-active-directory-b2b-collaboration-users-in-the-azure-portal"></a>Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가
 

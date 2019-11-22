@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: fb8f5f2adf497a12b4ed54b381a2dbf85e160b8e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a40680b45522d8a8e49a3f01a50a748e1c71b53
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123962"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274073"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -32,7 +32,7 @@ Azure Security Center는 컨테이너 보안을 위한 Azure 기본 솔루션입
 [![Azure Security Center의 컨테이너 보안 탭](media/container-security/container-security-tab.png)](media/container-security/container-security-tab.png#lightbox)
 
 ## <a name="vulnerability-management---scanning-container-images-preview"></a>취약성 관리-컨테이너 이미지 검색 (미리 보기)
-Azure Container Registry를 모니터링 하려면 Security Center에 연결 합니다. 새 이미지가 푸시되 면 업계 최고의 취약점 검색 공급 업체 Qualys에서 스캐너를 사용 하 여 이미지를 검색 Security Center.
+Azure Container Registry를 모니터링 하려면 Security Center의 표준 계층에 있는지 확인 합니다 ( [가격 책정](https://docs.microsoft.com/azure/security-center/security-center-pricing.md)참조). 그런 다음 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다. 새 이미지가 푸시되 면 업계 최고의 취약점 검색 공급 업체 Qualys에서 스캐너를 사용 하 여 이미지를 검색 Security Center.
 
 Qualys 또는 Security Center에서 문제가 발견 되 면 Security Center 대시보드의 알림이 표시 됩니다. 모든 취약점에 대해 Security Center는 심각도 분류 및 문제 해결 방법에 대 한 지침과 함께 조치 가능한 권장 사항을 제공 합니다. Security Center 권장 사항에 대 한 자세한 내용은 [가상 머신 보호](security-center-virtual-machine-protection.md##compute-and-app-recs)의 권장 사항 목록을 참조 하세요.
 
@@ -55,7 +55,7 @@ AKS는 클러스터의 보안 상태에 대 한 보안 제어 및 가시성을 �
 
 Security Center 권장 사항에 대 한 자세한 내용은 [가상 머신 보호](security-center-virtual-machine-protection.md)를 참조 하세요.
 
-## <a name="run-time-protection---real-time-threat-detection"></a>런타임 보호-실시간 위협 감지 
+## <a name="run-time-protection---real-time-threat-detection"></a>런타임 보호-실시간 위협 감지
 
 Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 

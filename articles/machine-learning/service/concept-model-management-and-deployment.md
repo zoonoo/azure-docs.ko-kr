@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: c77e36b5fbeb1ecacd42352c8c52cfd4b617d0e6
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 715752072a14a3220d17d0dbda2efd0786a83de4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123610"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271262"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -169,6 +169,6 @@ Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 
 
 + [배포 된 모델을 사용](how-to-consume-web-service.md) 하는 클라이언트 만들기
 
-+ [규모에 맞는 기계 학습](/architecture/data-guide/big-data/machine-learning-at-scale)
++ [규모에 맞는 기계 학습](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI 참조 아키텍처 & 모범 사례 담당자](https://github.com/microsoft/AI)

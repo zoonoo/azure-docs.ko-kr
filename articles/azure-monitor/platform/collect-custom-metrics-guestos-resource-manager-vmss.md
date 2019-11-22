@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
+title: 템플릿을 사용 하 여 Azure Monitor에서 Windows 확장 집합 메트릭 수집
 description: Windows 가상 머신 확장 집합에 대해 Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 8ee8c0c9d9724706f9b46013eba14e878832fd02
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 691b2ae7e497c9292975083e3687d9240ce6f3e6
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844979"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286130"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-by-using-an-azure-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Windows 가상 머신 확장 집합에 대해 Azure Resource Manager 템플릿을 사용하여 Azure Monitor 메트릭 저장소에 게스트 OS 메트릭 보내기
 
@@ -25,9 +25,9 @@ Azure Monitor [WAD(Microsoft Azure Diagnostics) 확장](diagnostics-extension-ov
 
 Resource Manager 템플릿을 처음 사용하는 경우 [템플릿 배포](../../azure-resource-manager/resource-group-overview.md)와 해당 구조 및 구문에 대해 알아보세요.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
+- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
 
 - [Azure PowerShell](/powershell/azure)이 설치되어 있어야 하거나, [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)을 사용할 수 있습니다. 
 
@@ -293,6 +293,6 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
 
 

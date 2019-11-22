@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271684"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "71811620"
 
 ## <a name="enable-client-certificates"></a>클라이언트 인증서 사용
 
-클라이언트 인증서를 요구 하도록 앱을 설정 하려면 앱에 대 한 `clientCertEnabled` 설정을 `true`로 설정 해야 합니다. 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
+클라이언트 인증서를 요구 하도록 앱을 설정 하려면 앱에 대 한 `clientCertEnabled` 설정을 `true`설정 해야 합니다. 설정을 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
@@ -41,7 +41,7 @@ az webapp update --set clientCertEnabled=true --name <app_name> --resource-group
 
 응용 프로그램에 대해 상호 인증을 사용 하도록 설정 하면 앱의 루트에 있는 모든 경로에 액세스 하기 위한 클라이언트 인증서가 필요 합니다. 익명 액세스를 위해 특정 경로를 열어 둘 수 있도록 허용 하려면 응용 프로그램 구성의 일부로 제외 경로를 정의할 수 있습니다.
 
-제외 경로는 **구성** > **일반 설정** 을 선택 하 고 제외 경로를 정의 하 여 구성할 수 있습니다. 이 예제에서 응용 프로그램에 대 한 `/public` 경로 아래의 모든 항목은 클라이언트 인증서를 요청 하지 않습니다.
+**구성** > **일반 설정** 을 선택 하 고 제외 경로를 정의 하 여 제외 경로를 구성할 수 있습니다. 이 예제에서 응용 프로그램의 `/public` 경로 아래에 있는 모든 항목은 클라이언트 인증서를 요청 하지 않습니다.
 
 ![인증서 제외 경로][exclusion-paths]
 
@@ -52,7 +52,7 @@ App Service에서 요청의 SSL 종료는 프런트 엔드 부하 분산 장치�
 
 ASP.NET의 경우 **HttpRequest** 속성을 통해 클라이언트 인증서를 사용할 수 있습니다.
 
-다른 응용 프로그램 스택 (node.js, PHP 등)의 경우 `X-ARR-ClientCert` 요청 헤더의 base64 인코딩 값을 통해 응용 프로그램에서 클라이언트 인증서를 사용할 수 있습니다.
+다른 응용 프로그램 스택 (node.js, PHP 등)의 경우 `X-ARR-ClientCert` 요청 헤더에 있는 base64 인코딩 값을 통해 앱에서 클라이언트 인증서를 사용할 수 있습니다.
 
 ## <a name="aspnet-sample"></a>ASP.NET 샘플
 
@@ -64,7 +64,7 @@ ASP.NET의 경우 **HttpRequest** 속성을 통해 클라이언트 인증서를 
 
     namespace ClientCertificateUsageSample
     {
-        public partial class cert : System.Web.UI.Page
+        public partial class Cert : System.Web.UI.Page
         {
             public string certHeader = "";
             public string errorString = "";

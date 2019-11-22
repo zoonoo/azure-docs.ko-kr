@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 59fc01920a94e8ab3e7037e4bb226ea18a4314bf
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: c9a8ed6d55fbbfcf59c98a86ac98cb4264d31ee4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73806503"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278811"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -41,10 +41,10 @@ ms.locfileid: "73806503"
 
 양식에 있는 모든 필드를 작성합니다. 이 양식은 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 응용 프로그램을 만들기 위해 작성 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
-**Location** 은 응용 프로그램을 만들려는 물리적 위치 또는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 위치를 선택 해야 합니다. Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) 페이지에서 확인할 수 있습니다. 위치를 선택 하면 나중에 응용 프로그램을 다른 위치로 이동할 수 없습니다.
+**Location** 은 응용 프로그램을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 위치를 선택 해야 합니다. Azure IoT Central는 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽**에서 사용할 수 있습니다.  위치를 선택 하면 나중에 응용 프로그램을 다른 위치로 이동할 수 없습니다.
 
 > [!NOTE]
-> **Preview 응용 프로그램** 템플릿은 현재 **북부** 및 **미국 중부** 지역 에서만 사용할 수 있습니다.
+> **Preview 응용 프로그램** 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
 ![관리 포털: IoT Central 리소스 만들기](media/howto-manage-iot-central-from-portal/image1a.png)  
 

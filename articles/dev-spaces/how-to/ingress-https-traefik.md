@@ -1,26 +1,22 @@
 ---
 title: 사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 08/13/2019
 ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: c015fe8e7108f07d66d2464c4f8b6287e8f54446
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+ms.openlocfilehash: a7f8684c8236e69c16bedf0186ed7ed17bbc8462
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582316"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280070"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
 이 문서에서는 사용자 지정 traefik 수신 컨트롤러를 사용 하도록 Azure Dev Spaces를 구성 하는 방법을 보여 줍니다. 또한이 문서에서는 HTTPS를 사용 하도록 사용자 지정 수신 컨트롤러를 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독. 계정이 없는 경우 [무료 계정][azure-account-create]에 만들 수 있습니다.
 * [Azure CLI 설치][az-cli]
@@ -87,7 +83,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/BikeSharingApp/charts
 ```
 
-*REPLACE_ME_WITH_HOST_SUFFIX > <* 모든 인스턴스를 traefik로 교체 하 고 값을 엽니다 [.][values-yaml]  *MY_CUSTOM_DOMAIN* 도메인을 사용 하 여 *MY_CUSTOM_DOMAIN*합니다. 또한 *kubernetes.io/ingress.class: traefik # Custom 수신*과 *kubernetes.io/ingress.class: traefik-Azds # Dev Spaces* 를 바꿉니다. 다음은 업데이트 된 `values.yaml` 파일의 예입니다.
+Traefik를 사용 하 여 *< REPLACE_ME_WITH_HOST_SUFFIX >* 모든 인스턴스를 바꿉니다 [.][values-yaml] *MY_CUSTOM_DOMAIN*에 대해 도메인을 사용 하 여 MY_CUSTOM_DOMAIN 합니다. 또한 *kubernetes.io/ingress.class: traefik # Custom 수신*과 *kubernetes.io/ingress.class: traefik-Azds # Dev Spaces* 를 바꿉니다. 다음은 업데이트 된 `values.yaml` 파일의 예입니다.
 
 ```yaml
 # This is a YAML-formatted file.

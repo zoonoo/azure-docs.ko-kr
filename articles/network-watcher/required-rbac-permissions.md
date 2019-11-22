@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher 기능을 사용하는 데 필요한 사용 권한 | Microsoft Docs
+title: 기능을 사용 하는 데 필요한 RBAC 권한
+titleSuffix: Azure Network Watcher
 description: Network Watcher 기능을 사용하는 데 필요한 Azure 역할 기반 액세스 제어 권한에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: ''
@@ -14,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: kumud
-ms.openlocfilehash: 5bd7e30a6a95d60bda4b7c3da44be1b8046bb71f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 9d56865a558f027a044e990a2da697dc53e7a311
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163790"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277714"
 ---
 # <a name="role-based-access-control-permissions-required-to-use-network-watcher-capabilities"></a>Network Watcher 기능을 사용하는 데 필요한 역할 기반 액세스 제어 권한
 
@@ -27,7 +28,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="network-watcher"></a>Network Watcher
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/read                              | Network Watcher 가져오기                                          |
 | Microsoft.Network/networkWatchers/write                             | Network Watcher 만들기 또는 업데이트                             |
@@ -35,7 +36,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="nsg-flow-logs"></a>NSG 흐름 로그
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/configureFlowLog/action           | 흐름 로그 구성                                           |
 | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | 흐름 로그에 대한 쿼리 상태                                    |
@@ -50,7 +51,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="connection-monitor"></a>연결 모니터
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/connectionMonitors/start/action   | 연결 모니터 시작                                     |
 | Microsoft.Network/networkWatchers/connectionMonitors/stop/action    | 연결 모니터 중지                                      |
@@ -61,7 +62,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="packet-capture"></a>패킷 캡처
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/packetCaptures/queryStatus/action | 패킷 캡처의 상태 쿼리                           |
 | Microsoft.Network/networkWatchers/packetCaptures/stop/action        | 패킷 캡처 중지                                          |
@@ -71,13 +72,13 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="ip-flow-verify"></a>IP 흐름 확인
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/ipFlowVerify/action               | IP 흐름 확인                                              |
 
 ## <a name="next-hop"></a>다음 홉
 
-| 작업                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/nextHop/action                    | VM에서 다음 홉 가져오기                                     |
 
@@ -95,7 +96,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 ## <a name="reachability-report"></a>연결 가능성 보고서
 
-| 동작                                                              | Description                                                           |
+| 작업                                                              | 설명                                                           |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Network/networkWatchers/azureReachabilityReport/action    | Azure 연결 가능성 보고서 가져오기                               |
 
@@ -104,7 +105,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하면 사용자가 할당�
 
 Network Watcher 기능에는 다음 작업도 필요합니다.
 
-| 작업                                                           | Description                                                    |
+| 작업                                                           | 설명                                                    |
 | ---------                                                           | -------------                                                  |
 | Microsoft.Authorization/\*/Read                                     | RBAC 역할 할당 및 정책 정의를 인출 하는 데 사용 됩니다.          |
 | Microsoft.Resources/subscriptions/resourceGroups/Read               | 구독의 모든 리소스 그룹을 열거 하는 데 사용 됩니다.    |

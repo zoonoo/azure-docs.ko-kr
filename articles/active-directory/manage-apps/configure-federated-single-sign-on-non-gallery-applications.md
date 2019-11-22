@@ -1,5 +1,5 @@
 ---
-title: 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법 | Microsoft Docs
+title: 비 갤러리 앱에 대해 페더레이션된 Single Sign-On를 구성 하는 방법
 description: Azure AD와 통합할 사용자 지정 비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7de7384b93237e240352651eda6e16383bcb143
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: c1d49ec5ef80b284aa6b1a305b037d19dae34870
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67190196"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274589"
 ---
 # <a name="how-to-configure-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 페더레이션된 Single Sign-On을 구성하는 방법
 
@@ -47,7 +47,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
@@ -91,7 +91,7 @@ Azure AD 갤러리에 없는 애플리케이션에 대해 Single Sign-On을 구�
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
@@ -126,7 +126,7 @@ Azure AD에서 애플리케이션 메타데이터 또는 인증서를 다운로�
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
@@ -150,7 +150,7 @@ Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플
 
 2. 왼쪽 주 탐색 메뉴의 맨 위에서 **모든 서비스**를 클릭하여 **Azure Active Directory 확장**을 엽니다.
 
-3. 필터 검색 상자에 **“Azure Active Directory**”를 입력하고 **Azure Active Directory** 항목을 선택합니다.
+3. 필터 검색 상자에 **"Azure Active Directory**"를 입력하고 **Azure Active Directory** 항목을 선택합니다.
 
 4. Azure Active Directory 왼쪽 탐색 메뉴에서 **엔터프라이즈 애플리케이션**을 클릭합니다.
 
@@ -170,7 +170,7 @@ Azure AD에서도 메타데이터를 가져오는 URL을 제공합니다. 애플
 
 11. 목록의 **사용자** 위로 마우스를 이동하여 **확인란**을 표시합니다. 사용자의 프로필 사진이나 로고 옆의 확인란을 클릭하여 사용자를 **선택됨** 목록에 추가합니다.
 
-12. **선택 사항:** **하나를 초과하는 사용자를 추가**하려는 경우 **이름 또는 이메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **이메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
+12. **선택 사항:** **둘 이상의 사용자를 추가**하려는 경우 **이름 또는 전자 메일 주소로 검색** 검색 상자에 다른 **전체 이름** 또는 **전자 메일 주소**를 입력하고 확인란을 클릭하여 이 사용자를 **선택됨** 목록에 추가합니다.
 
 13. 사용자 선택이 완료되면 **선택** 단추를 클릭하여 애플리케이션에 할당되도록 사용자 및 그룹의 목록에 추가합니다.
 

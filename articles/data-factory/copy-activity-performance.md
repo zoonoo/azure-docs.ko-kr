@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory |의 복사 작업 성능 및 확장성 가이드 Microsoft Docs
+title: Azure Data Factory의 복사 작업 성능 및 확장성 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory에서 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -10,14 +10,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: f760917ae8f4ab11902799e36973ae896c4a2b43
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232338"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73678277"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
@@ -41,16 +41,16 @@ ms.locfileid: "70232338"
 
 ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 아키텍처를 제공 합니다 .이 아키텍처를 통해 개발자는 네트워크 대역폭과 저장소 IOPS 및 대역폭을 완벽 하 게 활용 하 여 환경에 대 한 데이터 이동 처리량을 최대화할 수 있습니다.  즉, 원본 및 대상 사이에서 원본 데이터 저장소, 대상 데이터 저장소 및 네트워크 대역폭에서 제공 되는 최소 처리량을 측정 하 여 달성할 수 있는 처리량을 예상할 수 있습니다.  아래 표에서는 사용자 환경에 대 한 데이터 크기 및 대역폭 제한에 따라 복사 기간을 계산 합니다. 
 
-| 데이터 크기/ <br/> 대역폭 | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
+| 데이터 크기/ <br/> bandwidth | 50Mbps    | 100Mbps  | 500Mbps  | 1Gbps   | 5Gbps   | 10Gbps  | 50Gbps   |
 | --------------------------- | ---------- | --------- | --------- | -------- | -------- | -------- | --------- |
 | **1GB**                    | 2.7 분    | 1.4 분   | 0.3 분   | 0.1 분  | 0.03 분 | 0.01 분 | 0.0 분   |
-| **10GB**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
+| **10gb**                   | 27.3 분   | 13.7 분  | 2.7 분   | 1.3 분  | 0.3 분  | 0.1 분  | 0.03 분  |
 | **100 GB**                  | 4.6 시간    | 2.3 시간   | 0.5 시간   | 0.2 시간  | 0.05 시간 | 0.02 시간 | 0.0 시간   |
 | **1 TB**                    | 46.6 시간   | 23.3 시간  | 4.7 시간   | 2.3 시간  | 0.5 시간  | 0.2 시간  | 0.05 시간  |
 | **10TB**                   | 19.4 일  | 9.7 일  | 1.9 일  | 0.9 일 | 0.2 일 | 0.1 일 | 0.02 일 |
 | **100 TB**                  | 194.2 일 | 97.1 일 | 19.4 일 | 9.7 일 | 1.9 일 | 1 일   | 0.2 일  |
 | **1 PB**                    | 64.7 mo    | 32.4 mo   | 6.5 mo    | 3.2 mo   | 0.6 mo   | 0.3 mo   | 0.06 mo   |
-| **10GB**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
+| **10gb**                   | 647.3 mo   | 323.6 mo  | 64.7 mo   | 31.6 mo  | 6.5 mo   | 3.2 mo   | 0.6 mo    |
 
 ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
@@ -106,7 +106,7 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
    성능 튜닝 규칙도 점진적으로 보강됩니다.
 
-   **예제: 성능 튜닝 팁을 사용 하 여 Azure SQL Database에 복사**
+   **예: 성능 튜닝 팁을 사용 하 여 Azure SQL Database에 복사**
 
    이 샘플에서 복사를 실행 하는 동안 싱크 Azure SQL Database 높은 DTU 사용률에 도달 하 여 쓰기 작업의 속도를 저하 시키는 Azure Data Factory 합니다. 더 많은 Dtu를 사용 하 여 Azure SQL Database 계층을 늘리는 것이 좋습니다. 
 
@@ -133,7 +133,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 
 데이터 통합 단위는 Azure Data Factory의 단일 단위에 대 한 전원 (CPU, 메모리 및 네트워크 리소스 할당의 조합)을 나타내는 척도입니다. 데이터 통합 단위는 [Azure integration runtime](concepts-integration-runtime.md#azure-integration-runtime)에만 적용 되 고 [자체 호스팅 통합 런타임에](concepts-integration-runtime.md#self-hosted-integration-runtime)는 적용 되지 않습니다.
 
-**사용 \* 된 dius \* 복사 기간 단가/dius 시간에 대 한**요금이 청구 됩니다. [여기](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)에서 현재 가격을 참조 하세요. 로컬 통화 및 별도의 크기 구독 유형별로 적용 될 수 있습니다.
+**사용 된 DIUs \* 복사 기간 \* 단가/DIUS-시간에 대 한**요금이 청구 됩니다. [여기](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/)에서 현재 가격을 참조 하세요. 로컬 통화 및 별도의 크기 구독 유형별로 적용 될 수 있습니다.
 
 복사 작업 실행을 강화 하는 데 허용 되는 DIUs는 **2에서 256 사이**입니다. 지정 하지 않거나 UI에서 "Auto"를 선택 하면 소스 싱크 쌍 및 데이터 패턴에 따라 최적의 DIU 설정을 동적으로 적용할 Data Factory. 다음 표에서는 다양 한 복사 시나리오에서 사용 되는 기본 DIUs를 나열 합니다.
 
@@ -148,9 +148,9 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 작업 실행을 모니터링할 때 복사 작업 출력에서 각 복사 실행에 사용 되는 DIUs를 확인할 수 있습니다. 자세한 내용은 [복사 작업 모니터링](copy-activity-overview.md#monitoring)을 참조 하세요.
 
 > [!NOTE]
-> Azure Storage, Azure Data Lake Storage, Amazon S3, Google Cloud Storage, cloud FTP 또는 cloud SFTP에서 다른 클라우드 데이터 저장소로 여러 파일을 복사 하는 경우에만 현재 4 개 보다 큰 DIUs 설정이 적용 됩니다.
+> Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP에서 또는 파티션 옵션 사용 클라우드 관계형 데이터 저장소 ( [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)포함)에서 다른 클라우드 데이터 저장소로 여러 파일을 복사 하는 경우에만 현재 4 개 보다 큰 dius 설정이 적용 됩니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -197,7 +197,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 - **ParallelCopies** 속성은 **dataIntegrationUnits**와 직교 합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
 - **ParallelCopies** 속성의 값을 지정 하는 경우 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려해 야 합니다. 또한 하이브리드 복사의 경우와 같이 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 부하를 완화 하기 위해 **parallelCopies** 값을 줄입니다.
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -239,14 +239,14 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 
 #### <a name="configuration"></a>Configuration
 
-복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 Blob 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을로 `TRUE`설정 하는 경우 다음 표에 나열 된 추가 속성을 지정 합니다. 또한 준비에 대 한 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스가 없는 경우 만들어야 합니다.
+복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 Blob 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을 `TRUE`로 설정 하는 경우 다음 표에 나열 된 추가 속성을 지정 합니다. 또한 준비에 대 한 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스가 없는 경우 만들어야 합니다.
 
 | 속성 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
-| enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니요 |
+| enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니오 |
 | linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse에 데이터를 로드 하는 데 공유 액세스 서명이 포함 된 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| path |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니요 |
-| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니요 |
+| path |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니오 |
+| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니오 |
 
 >[!NOTE]
 > 압축을 사용 하는 준비 된 복사를 사용 하는 경우 스테이징 blob 연결 된 서비스에 대 한 서비스 주체 또는 MSI 인증이 지원 되지 않습니다.
@@ -288,16 +288,16 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 * 클라우드 복사 중에 준비를 사용 하 여 클라우드 데이터 저장소에서 다른 클라우드 데이터 저장소로 데이터를 복사 하는 경우, 두 단계 모두 Azure integration runtime에 의해 사용 되는 경우 [1 단계 및 2 단계에 대 한 복사 기간의 합계 합계] x [클라우드 복사 단가]에 대해 요금이 청구 됩니다.
 * 온-프레미스 데이터 저장소에서 클라우드 데이터 저장소로 데이터를 복사 하는 하이브리드 복사 중에 준비를 사용 하는 경우 1 단계는 자체 호스팅 통합 런타임으로 사용 되며, [하이브리드 복사 기간] x [하이브리드 복사 단가] + [클라우드 복사 기간]에 대 한 요금이 청구 됩니다. x [클라우드 복사 단가].
 
-## <a name="references"></a>참조 항목
+## <a name="references"></a>참조
 
 다음은 지원되는 데이터 저장소에 대한 몇 가지 성능 모니터링 및 튜닝 참조입니다.
 
-* Blob storage 및 Table storage를 포함 하는 Azure Storage: [확장성 목표를 Azure Storage](../storage/common/storage-scalability-targets.md) 하 고 [성능 및 확장성 검사 목록을 Azure Storage](../storage/common/storage-performance-checklist.md)합니다.
+* Blob storage 및 Table storage를 포함 하는 Azure Storage: [Azure Storage 확장성 목표](../storage/common/storage-scalability-targets.md) 와 [Azure Storage 성능 및 확장성 검사 목록](../storage/common/storage-performance-checklist.md)입니다.
 * Azure SQL Database: [성능을 모니터링](../sql-database/sql-database-single-database-monitor.md) 하 고 DTU (데이터베이스 트랜잭션 단위) 비율을 확인할 수 있습니다.
 * Azure SQL Data Warehouse: 해당 기능은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다. [Azure SQL Data Warehouse에서 계산 능력 관리 (개요)](../sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)를 참조 하세요.
-* Azure Cosmos DB는 [Azure Cosmos DB 성능 수준](../cosmos-db/performance-levels.md)
+* Azure Cosmos DB: [Azure Cosmos DB의 성능 수준](../cosmos-db/performance-levels.md)입니다.
 * 온-프레미스 SQL Server: [성능을 모니터링 하 고 조정](https://msdn.microsoft.com/library/ms189081.aspx)합니다.
-* 온-프레미스 파일 서버: [파일 서버 성능 조정](https://msdn.microsoft.com/library/dn567661.aspx)
+* 온-프레미스 파일 서버: [파일 서버에 대 한 성능 조정](https://msdn.microsoft.com/library/dn567661.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 다른 복사 작업 문서를 참조 하세요.

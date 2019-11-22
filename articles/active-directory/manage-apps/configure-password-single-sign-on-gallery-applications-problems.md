@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 앱에 대 한 암호 single sign-on을 구성 하는 문제 | Microsoft Docs
+title: Azure AD 갤러리 앱에 대 한 암호 SSO 구성 문제
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 일반적인 문제 이해
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc75346b1093cc41a44edad1376c5f10dfec2409
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 96e729bee0ac9beac447893ed8dbf1bba633e412
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381136"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274191"
 ---
 # <a name="problem-configuring-password-single-sign-on-for-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 암호 Single Sign-On을 구성할 때 발생하는 문제
 
@@ -39,13 +39,13 @@ Microsoft에는 통합이 중단되었을 때 자동으로 검색할 기술이 �
 
 - 사용자가 먼저 저장된 자격 증명을 사용해서 **애플리케이션 웹 사이트에 직접 로그인**을 시도하도록 합니다.
 
-  * 로그인이 되면 사용자가 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)의 **앱** 섹션에서 **애플리케이션 타일**에 있는 **자격 증명 업데이트** 단추를 클릭하여 작동하는 최신 사용자 이름 및 암호로 업데이트합니다.
+  * 로그인이 되면 사용자가 **애플리케이션 액세스 패널**의 **앱** 섹션에서 **애플리케이션 타일**에 있는 [자격 증명 업데이트](https://myapps.microsoft.com/) 단추를 클릭하여 작동하는 최신 사용자 이름 및 암호로 업데이트합니다.
 
   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 애플리케이션의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 애플리케이션 할당을 찾습니다.
 
 - 사용자가 직접 자격 증명을 할당한 경우는 사용자에게 **애플리케이션에서 암호가 만료되지 않았는지 확인하라고 한** 다음, 만료되었으면 애플리케이션에 직접 로그인하여 **만료된 암호를 업데이트**하도록 합니다.
 
-  * 애플리케이션에서 암호가 업데이트된 후에 사용자에게 [애플리케이션 액세스 패널](https://myapps.microsoft.com/)의 **애플리케이션** 섹션에서 **애플리케이션 타일**에 있는 **자격 증명 업데이트** 단추를 클릭하여 문제가 없는 최신 사용자 이름 및 암호로 업데이트하라고 요청합니다.
+  * 애플리케이션에서 암호가 업데이트된 후에 사용자에게 **애플리케이션 액세스 패널**의 **애플리케이션** 섹션에서 **애플리케이션 타일**에 있는 [자격 증명 업데이트](https://myapps.microsoft.com/) 단추를 클릭하여 문제가 없는 최신 사용자 이름 및 암호로 업데이트하라고 요청합니다.
 
   * 자신이나 다른 관리자가 이 사용자에게 자격 증명을 할당한 경우는 애플리케이션의 **사용자 및 그룹** 탭으로 이동하여 할당을 선택하고 **자격 증명 업데이트** 단추를 클릭하여 사용자 또는 그룹의 애플리케이션 할당을 찾습니다.
 

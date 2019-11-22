@@ -1,5 +1,5 @@
 ---
-title: Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전을 구성하는 방법 | Microsoft Docs
+title: Azure AD 갤러리 앱에 대 한 사용자 프로 비전을 구성 하는 방법
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대해 다양한 사용자 계정 프로비전 및 프로비전 해제를 빠르게 구성하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 07/11/2017
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bcc53b97b1187314404cfe075f6593f437e7bf4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5a2955a418aa0ce43c030afc588a2840bbb9b50f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72789057"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275820"
 ---
 # <a name="how-to-configure-user-provisioning-to-an-azure-ad-gallery-application"></a>Azure AD 갤러리 애플리케이션에 대해 사용자 프로비전을 구성하는 방법
 

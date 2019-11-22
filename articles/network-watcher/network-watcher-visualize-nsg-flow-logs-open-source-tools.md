@@ -1,5 +1,6 @@
 ---
-title: Network Watcher 및 Elastic Stack을 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석 | Microsoft Docs
+title: NSG 흐름 로그 시각화-탄력적 스택
+titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Elastic Stack을 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 7361eff0f76271564fd5a0e9b8a18221ec4138e3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53cbfe08d310f7244134e1ae31b18644a83c63d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860119"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277739"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>오픈 소스 도구를 사용하여 Azure Network Watcher NSG 흐름 로그 시각화
 
@@ -169,7 +170,7 @@ Logstash 설치에 대한 추가 정보는 [공식 설명서](https://www.elasti
 logstash-plugin install logstash-input-azureblob
 ```
 
-Logstash를 시작하려면 다음 명령을 실행합니다.
+Logstash를 시작하려면 명령을 실행합니다.
 
 ```bash
 sudo /etc/init.d/logstash start
@@ -245,7 +246,7 @@ Kibana의 **관리** 탭 아래에서 **저장된 개체**로 이동하고 세 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
+[Power BI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)를 방문하여 Power BI로 NSG 흐름 로그를 시각화하는 방법 알아보기
 
 <!--Image references-->
 

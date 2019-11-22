@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Pingboard 구성 | Microsoft Docs'
+title: '자습서: Azure AD에 대 한 사용자 프로 비전'
 description: 사용자 계정을 Pingboard에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f7e2fabc86374f7fe055303d056ae8e00f33389
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964379"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278252"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
 이 자습서의 목적은 Azure AD(Azure Active Directory)에서 Pingboard로 사용자 계정을 프로비전 및 프로비전 해제할 수 있도록 하기 위해 수행해야 하는 단계를 보여주는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -74,7 +74,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
     b. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
 
-    다. **추가 기능** > **통합** > **Azure Active Directory**를 선택합니다.
+    c. **추가 기능** > **통합** > **Azure Active Directory**를 선택합니다.
 
     d. **구성** 탭으로 가서 **Azure에서 사용자 프로비전 사용**을 선택합니다.
 
@@ -94,7 +94,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. **저장**을 선택하여 Pingboard에 할당된 사용자의 초기 동기화를 시작합니다.
 
-초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
+초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 

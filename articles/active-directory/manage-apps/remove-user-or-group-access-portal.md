@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 앱에서 사용자 또는 그룹 할당 제거 Microsoft Docs
+title: Azure AD에서 앱의 사용자 또는 그룹 할당 제거
 description: Azure Active Directory에서 엔터프라이즈 앱의 사용자 또는 그룹의 액세스 할당을 제거하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 380816283156969c47f45a9b47435688df91f4ca
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: edf918b57212cf2adfbffb358a0257d9dbea85e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381053"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275874"
 ---
 # <a name="remove-a-user-or-group-assignment-from-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱의 사용자 또는 그룹 할당 제거
 
@@ -32,7 +32,7 @@ Azure Active Directory (Azure AD)에서 엔터프라이즈 응용 프로그램 �
 
 ## <a name="how-do-i-remove-a-user-or-group-assignment-to-an-enterprise-app-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 또는 그룹 할당을 어떻게 제거하나요?
 
-1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 1. **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
 1. ***Directoryname*** 페이지 (즉, 관리 중인 디렉터리에 대 한 Azure AD 페이지) Azure Active Directory에서 **엔터프라이즈 응용 프로그램**을 선택 합니다.
 1. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 페이지에 관리할 수 있는 앱 목록이 표시 됩니다. 앱을 선택 합니다.

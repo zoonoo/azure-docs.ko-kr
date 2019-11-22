@@ -1,5 +1,5 @@
 ---
-title: Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
+title: Azure Monitor 메트릭 데이터베이스로 클래식 Windows VM 메트릭 보내기
 description: Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
 author: anirudhcavale
 services: azure-monitor
@@ -8,30 +8,30 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: ''
-ms.openlocfilehash: cc0c7c4928fb03cb60bb51f74d74fdc1ab914348
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: af99bd8ea619d17bdc40ea025f0bfcb1c095db52
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844912"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286140"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-data-store-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신(클래식)용 Azure Monitor 데이터 저장소에 게스트 OS 메트릭 보내기
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metrics-database-for-a-windows-virtual-machine-classic"></a>Windows 가상 머신에 대 한 Azure Monitor 메트릭 데이터베이스에 게스트 OS 메트릭 보내기 (클래식)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)(“WAD” 또는 “진단”이라고도 함)을 사용하면 가상 머신, 클라우드 서비스 또는 Service Fabric 클러스터의 일부로 실행되는 게스트 OS(게스트 운영 체제)에서 메트릭과 로그를 수집할 수 있습니다. 이 확장은 [여러 다른 위치](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json)에 원격 분석을 보낼 수 있습니다.
 
-이 문서에서는 Windows 가상 머신(클래식)의 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 보내는 프로세스를 설명합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
+이 문서에서는 Windows 가상 머신 (클래식)에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 데이터베이스로 전송 하는 프로세스를 설명 합니다. 진단 버전 1.11부터 표준 플랫폼 메트릭이 이미 수집된 Azure Monitor 메트릭 저장소에 메트릭을 직접 기록할 수 있습니다. 
 
 이 위치에 메트릭을 저장하면 플랫폼 메트릭의 경우와 동일한 작업에 액세스할 수 있습니다. 작업에는 실시간에 가까운 경고, 차트 작성, 라우팅, REST API에서 액세스 등이 포함됩니다. 과거에는 진단 확장을 Azure Monitor 데이터 저장소가 아니라 Azure Storage에 기록했습니다. 
 
 이 문서에 설명된 프로세스는 Windows 운영 체제를 실행하는 클래식 가상 머신에서만 작동합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../billing/billing-add-change-azure-subscription-administrator.md)여야 합니다. 
 
-- 구독이 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록되어야 합니다. 
+- 구독은 [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services)에 등록해야 합니다. 
 
 - [Azure PowerShell](/powershell/azure) 또는 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview)이 설치되어 있어야 합니다.
 
@@ -204,5 +204,5 @@ Azure Monitor [진단 확장](https://docs.microsoft.com/azure/monitoring-and-di
 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
 

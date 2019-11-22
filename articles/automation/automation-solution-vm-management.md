@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: bobbytreed
 ms.author: robreed
-ms.date: 05/21/2019
+ms.date: 11/06/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 15036b33e637953de7dc12100468d3dd8570f775
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d7a43ee2ed8719df2c38d00c9a50811c6d5ea70d
+ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376104"
+ms.lasthandoff: 11/07/2019
+ms.locfileid: "73718673"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -29,31 +29,31 @@ ms.locfileid: "72376104"
 - Azure Tags(클래식 VM에서는 지원되지 않음)를 사용하여 VM 시작/중지를 오름차순으로 예약
 - 낮은 CPU 사용량을 기준으로 VM 자동 중지
 
-현재 솔루션에 대한 제한 사항은 다음과 같습니다.
+현재 솔루션에 대 한 제한 사항은 다음과 같습니다.
 
 - 이 솔루션은 모든 지역의 VM을 관리하지만 Azure Automation 계정과 동일한 구독에서만 사용할 수 있습니다.
 - 이 솔루션은 Log Analytics 작업 영역, Azure Automation 계정 및 Alerts를 지원하는 Azure 및 AzureGov의 모든 지역에서 사용할 수 있습니다. AzureGov 지역은 현재 이메일 기능을 지원하지 않습니다.
 
 > [!NOTE]
-> 클래식 VM용 솔루션을 사용하는 경우 모든 VM이 클라우드 서비스마다 순차적으로 처리됩니다. 가상 머신은 다른 클라우드 서비스에서 여전히 병렬로 처리됩니다.
+> 클래식 VM용 솔루션을 사용하는 경우 모든 VM이 클라우드 서비스마다 순차적으로 처리됩니다. 가상 머신은 다른 클라우드 서비스에서 여전히 병렬로 처리됩니다. 클라우드 서비스 당 Vm이 20 개를 초과 하는 경우에는 부모 runbook **ScheduledStartStop_Parent** 를 사용 하 여 여러 일정을 만들고 일정 당 20 개의 vm을 지정 하는 것이 좋습니다. 일정 속성에서를 쉼표로 구분 된 목록으로 지정 하 고 **vmlist** 매개 변수에서 VM 이름을 지정 합니다. 그렇지 않고이 솔루션에 대 한 자동화 작업이 3 시간 이상 실행 되 면 공평 하 게 [공유](automation-runbook-execution.md#fair-share) 한도에 따라 일시적으로 언로드되고 중지 됩니다.
 >
 > Azure CSP(Cloud Solution Provider) 구독은 Azure Resource Manager 모델만 지원하므로 Azure Resource Manager 이외의 서비스는 프로그램에서 사용할 수 없습니다. 시작/중지 솔루션을 실행하면 클래식 리소스를 관리하기 위한 cmdlet에 발생하는 오류가 발생할 수 있습니다. CSP에 대해 자세히 알아보려면 [CSP 구독에서 사용 가능한 서비스](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-available-services#comments)를 참조하세요. CSP 구독을 사용하는 경우 배포 후에 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 수정해야 합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 솔루션에 대한 Runbook은 [Azure 실행 계정](automation-create-runas-account.md)을 통해 작동합니다. 실행 계정은 자주 만료되거나 변경될 수 있는 암호 대신 인증서 인증을 사용하기 때문에 선호하는 인증 방법입니다.
 
-VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것이 좋습니다. Azure 모듈 버전이 자주 업그레이드 되 고 해당 매개 변수가 변경 될 수 있기 때문입니다. VM 시작/중지 솔루션은 동일한 흐름에서 업그레이드 되지 않으므로 사용 하는 cmdlet의 최신 버전에서는 작동 하지 않을 수 있습니다. 프로덕션 Automation 계정에 모듈 업데이트를 가져오기 전에 테스트 자동화 계정에서 모듈 업데이트를 테스트 하는 것이 좋습니다.
+VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것이 좋습니다. Azure 모듈 버전이 자주 업그레이드 되 고 해당 매개 변수가 변경 될 수 있기 때문입니다. VM 시작/중지 솔루션은 동일한 흐름에서 업그레이드 되지 않으므로 사용 하는 cmdlet의 최신 버전에서는 작동 하지 않을 수 있습니다. 또한 프로덕션 Automation 계정으로 가져오기 전에 테스트 자동화 계정에서 모듈 업데이트를 테스트 하는 것이 좋습니다.
 
 ### <a name="permissions-needed-to-deploy"></a>배포 하는 데 필요한 권한
 
 사용자가 휴가 시간 동안 Vm 시작/중지 솔루션을 배포 해야 하는 특정 권한이 있습니다. 이러한 권한은 미리 만든 Automation 계정 및 Log Analytics 작업 영역을 사용 하거나 배포 중에 새 작업 영역을 만드는 경우에 다릅니다. Azure Active Directory 테 넌 트의 구독 및 전역 관리자에 대 한 참가자 인 경우 다음 사용 권한을 구성할 필요가 없습니다. 이러한 권한이 없거나 사용자 지정 역할을 구성 해야 하는 경우 아래에 필요한 사용 권한을 참조 하세요.
 
-#### <a name="pre-existing-automation-account-and-log-analytics-account"></a>기존 Automation 계정 및 Log Analytics 계정
+#### <a name="pre-existing-automation-account-and-log-analytics-workspace"></a>기존 Automation 계정 및 Log Analytics 작업 영역
 
-업무 시간 외 Vm 시작/중지 솔루션을 Automation 계정에 배포 하 고 솔루션을 배포 하는 사용자에 게 Log Analytics **리소스 그룹**에 대 한 다음 권한이 필요 합니다. 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
+업무 시간 외 Vm 시작/중지 솔루션을 기존 Automation 계정 및 Log Analytics 작업 영역에 배포 하려면 솔루션을 배포 하는 사용자에 게 **리소스 그룹**에 대 한 다음 권한이 필요 합니다. 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 | 사용 권한 | 범위|
 | --- | --- |
@@ -65,32 +65,32 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 | Microsoft.Automation/automationAccounts/certificates/write | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/modules/write | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/modules/read | 리소스 그룹 |
-| Microsoft. automation/automationAccounts/jobSchedules/write | 리소스 그룹 |
+| Microsoft.automation/automationAccounts/jobSchedules/write | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/jobs/write | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/jobs/read | 리소스 그룹 |
 | Microsoft.OperationsManagement/solutions/write | 리소스 그룹 |
-| OperationalInsights/작업 영역/* | 리소스 그룹 |
-| Microsoft diagnosticSettings/write/write | 리소스 그룹 |
+| Microsoft.OperationalInsights/workspaces/* | 리소스 그룹 |
+| Microsoft.Insights/diagnosticSettings/write | 리소스 그룹 |
 | Microsoft.Insights/ActionGroups/Write | 리소스 그룹 |
-| Microsoft Insights/ActionGroups/read | 리소스 그룹 |
+| Microsoft.Insights/ActionGroups/read | 리소스 그룹 |
 | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹 |
 | Microsoft.Resources/deployments/* | 리소스 그룹 |
 
 #### <a name="new-automation-account-and-a-new-log-analytics-workspace"></a>새 Automation 계정 및 새 Log Analytics 작업 영역
 
-업무 시간 외 Vm 시작/중지 솔루션을 새 Automation 계정 및 Log Analytics 작업 영역에 배포 하려면 솔루션을 배포 하는 사용자에 게 이전 섹션에서 정의 된 사용 권한 및 다음 사용 권한이 필요 합니다.
+업무 시간 외 Vm 시작/중지 솔루션을 새 Automation 계정 및 Log Analytics 작업 영역에 배포 하려면 솔루션을 배포 하는 사용자에 게 이전 섹션에 정의 된 권한과 다음 사용 권한이 필요 합니다.
 
 - 구독에 대 한 공동 관리자-클래식 Vm을 관리 하려는 경우 클래식 실행 계정을 만드는 데만 필요 합니다. [클래식 실행 계정은](automation-create-standalone-account.md#classic-run-as-accounts) 더 이상 기본적으로 생성 되지 않습니다.
-- [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **응용 프로그램 개발자** 역할의 일부 여야 합니다. 실행 계정을 구성 하는 방법에 대 한 자세한 내용은 [실행 계정을 구성할 수 있는 권한](manage-runas-account.md#permissions)을 참조 하세요.
+- [Azure Active Directory](../active-directory/users-groups-roles/directory-assign-admin-roles.md) **응용 프로그램 개발자** 역할의 멤버입니다. 실행 계정을 구성 하는 방법에 대 한 자세한 내용은 [실행 계정을 구성할 수 있는 권한](manage-runas-account.md#permissions)을 참조 하세요.
 - 구독에 대 한 참가자 또는 다음 사용 권한.
 
 | 사용 권한 |범위|
 | --- | --- |
-| Microsoft. 권한 부여/작업/읽기 | Subscription|
-| Microsoft.Authorization/permissions/read |Subscription|
-| Microsoft.Authorization/roleAssignments/read | Subscription |
-| Microsoft.Authorization/roleAssignments/write | Subscription |
-| Microsoft.Authorization/roleAssignments/delete | Subscription |
+| Microsoft.Authorization/Operations/read | 구독|
+| Microsoft.Authorization/permissions/read |구독|
+| Microsoft.Authorization/roleAssignments/read | 구독 |
+| Microsoft.Authorization/roleAssignments/write | 구독 |
+| Microsoft.Authorization/roleAssignments/delete | 구독 |
 | Microsoft.Automation/automationAccounts/connections/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/certificates/read | 리소스 그룹 |
 | Microsoft.Automation/automationAccounts/write | 리소스 그룹 |
@@ -109,7 +109,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 
 2. 선택한 솔루션에 대한 **작업 시간 외 VM 시작/중지** 페이지에서 요약 정보를 검토한 다음, **만들기**를 클릭합니다.
 
-   ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
+   ![Azure 포털](media/automation-solution-vm-management/azure-portal-01.png)
 
 3. **솔루션 추가** 페이지가 나타납니다. Automation 구독으로 솔루션을 가져오려면 솔루션을 구성하라는 메시지가 표시됩니다.
 
@@ -120,7 +120,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
    - 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    - **리소스 그룹**의 경우, 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
    - **위치**를 선택합니다. 현재 사용할 수 있는 지역은 **오스트레일리아 남동부**, **캐나다 중부**, **인도 중부**, **미국 동부**, **일본 동부**, **동남 아시아**, **영국 남부**, **유럽 서부** 및 **미국 서부 2**입니다.
-   - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그의 [가격은](https://azure.microsoft.com/pricing/details/log-analytics/) 업데이트 되었으며 GB 당 계층만 유일한 옵션입니다.
+   - **가격 책정 계층**을 선택합니다. **GB당(독립 실행형)** 옵션을 선택합니다. Azure Monitor 로그의 [가격은](https://azure.microsoft.com/pricing/details/log-analytics/) 업데이트 되며 GB 당 계층만 유일한 옵션입니다.
 
    > [!NOTE]
    > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
@@ -153,7 +153,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 8. 솔루션에 필요한 초기 설정을 구성한 후에 **확인**을 클릭하여 **매개 변수** 페이지를 닫고 **만들기**를 선택합니다. 모든 설정이 확인되면 솔루션이 구독에 배포됩니다. 이 프로세스는 완료하는 데 수 초가 소요되며 메뉴의 **알림**에서 진행 상황을 추적할 수 있습니다.
 
 > [!NOTE]
-> Azure CSP (클라우드 솔루션 공급자) 구독이 있는 경우 배포가 완료 된 후 Automation 계정에서 **공유 리소스** 아래의 **변수로** 이동 하 고 [**External_EnableClassicVMs**](#variables) 변수를 False로 설정 합니다. 이렇게 하면 솔루션이 클래식 VM 리소스를 검색하지 않습니다.
+> Azure CSP (클라우드 솔루션 공급자) 구독이 있는 경우 배포가 완료 된 후 Automation 계정에서 **공유 리소스** 아래의 **변수로** 이동 하 고 [**External_EnableClassicVMs**](#variables) 변수를 **False**로 설정 합니다. 이렇게 하면 솔루션이 클래식 VM 리소스를 검색하지 않습니다.
 
 ## <a name="scenarios"></a>시나리오
 
@@ -178,7 +178,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. ACTION 매개 변수를 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 *True*로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
 
@@ -199,7 +199,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
 1. 양의 정수 값이 포함된 **sequencestart** 및 **sequencestop** 태그를 **VMList** 매개 변수에 추가하려는 VM에 추가합니다.
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. ACTION 매개 변수를 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 *True*로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
 1. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 monitoring-and-diagnostics/monitoring-action-groupsrunbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM**이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
@@ -225,14 +225,14 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가하고, WHATIF 매개 변수를 **True**로 설정하여 **AutoStop_CreateAlert_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. ACTION 매개 변수를 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가하고, WHATIF 매개 변수를 *True*로 설정하여 **AutoStop_CreateAlert_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
 
 CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 일정 중 하나를 사용하도록 설정하여 시작해야 합니다.
 
-- 구독 및 리소스 그룹으로 시작 작업 대상 지정. **Scheduled-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 1](#scenario-1-startstop-vms-on-a-schedule)의 단계를 참조하세요.
-- 구독, 리소스 그룹 및 태그별로 시작 작업 대상 지정. **Sequenced-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 2](#scenario-2-startstop-vms-in-sequence-by-using-tags)의 단계를 참조하세요.
+- 구독 및 리소스 그룹으로 시작 작업 대상 지정. [Scheduled-StartVM](#scenario-1-startstop-vms-on-a-schedule) 일정을 테스트하고 사용하도록 설정하려면 **시나리오 1**의 단계를 참조하세요.
+- 구독, 리소스 그룹 및 태그별로 시작 작업 대상 지정. [Sequenced-StartVM](#scenario-2-startstop-vms-in-sequence-by-using-tags) 일정을 테스트하고 사용하도록 설정하려면 **시나리오 2**의 단계를 참조하세요.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -271,7 +271,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 |External_AutoStop_TimeAggregationOperator | 조건을 평가하기 위해 선택한 기간 크기에 적용되는 시간 집계 연산자입니다. 사용 가능한 값은 **Average**, **Minimum**, **Maximum**, **Total** 및 **Last**입니다.|
 |External_AutoStop_TimeWindow | Azure에서 경고를 트리거하기 위해 선택된 메트릭을 분석하는 기간입니다. 이 매개 변수는 시간 간격 형식의 입력을 허용합니다. 가능한 값은 5분에서 6시간 사이입니다.|
 |External_EnableClassicVMs| 솔루션이 클래식 VM을 대상으로 하는지 여부를 지정합니다. 기본값은 True입니다. CSP 구독의 경우 False로 설정해야 합니다. 클래식 Vm에는 [클래식 실행 계정이](automation-create-standalone-account.md#classic-run-as-accounts)필요 합니다.|
-|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다. VM은 140개로 제한됩니다. 140개를 초과하는 VM을 쉼표로 구분된 목록에 추가하는 경우 제외하도록 설정된 VM이 실수로 시작되거나 중지될 수 있습니다.|
+|External_ExcludeVMNames | 공백 없이 쉼표로 이름을 구분하여 제외할 VM 이름을 입력합니다. VM은 140개로 제한됩니다. 이 쉼표로 구분 된 목록에 140 개 이상의 Vm을 추가 하는 경우 제외 되도록 설정 된 Vm이 실수로 시작 되거나 중지 될 수 있습니다.|
 |External_Start_ResourceGroupNames | 시작 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |External_Stop_ResourceGroupNames | 중지 작업의 대상이 될 하나 이상의 리소스 그룹을 쉼표로 구분해서 지정합니다.|
 |Internal_AutomationAccountName | Automation 계정의 이름을 지정합니다.|
@@ -301,10 +301,10 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 ### <a name="job-logs"></a>작업 로그
 
-|자산 | 설명|
+|속성 | 설명|
 |----------|----------|
-|Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
-|범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
+|호출자 |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
+|Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
 |CorrelationId | Runbook 작업의 상관 관계 ID인 GUID입니다.|
 |JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
@@ -312,20 +312,20 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
 |ResourceProvider | 배포하고 관리할 수 있는 리소스를 제공하는 Azure 서비스를 지정합니다. Automation에 대한 값은 Azure Automation입니다.|
 |ResourceType | Azure의 리소스 유형을 지정합니다. Automation의 경우 값은 runbook과 연결된 자동화 계정입니다.|
-|resultType | runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- Succeeded입니다.|
-|resultDescription | runbook 작업 결과 상태를 설명합니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다.|
+|resultType | runbook 작업의 상태입니다. 가능한 값은<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- Succeeded입니다.|
+|resultDescription | runbook 작업 결과 상태를 설명합니다. 가능한 값은<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다.|
 |RunbookName | Runbook의 이름을 지정합니다.|
 |SourceSystem | 제출된 데이터에 대한 원본 시스템을 지정합니다. Automation의 경우 값은 OpsManager입니다.|
-|StreamType | 이벤트의 유형을 지정합니다. 가능한 값은 다음과 같습니다.<br>- Verbose입니다.<br>- 출력<br>- 오류<br>- 경고|
+|StreamType | 이벤트의 유형을 지정합니다. 가능한 값은<br>- Verbose입니다.<br>- 출력<br>- 오류<br>- 경고|
 |SubscriptionId | 작업의 구독 ID를 지정합니다.
-|시간 | runbook 작업이 실행된 날짜 및 시간입니다.|
+|Time | runbook 작업이 실행된 날짜 및 시간입니다.|
 
 ### <a name="job-streams"></a>작업 스트림
 
-|자산 | 설명|
+|속성 | 설명|
 |----------|----------|
-|Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
-|범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
+|호출자 |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
+|Category | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
 |JobId | Runbook 작업의 ID인 GUID입니다.|
 |operationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다.|
 |ResourceGroup | Runbook 작업의 리소스 그룹 이름을 지정합니다.|
@@ -336,8 +336,8 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 |resultDescription | runbook의 출력 스트림을 포함합니다.|
 |RunbookName | runbook의 이름입니다.|
 |SourceSystem | 제출된 데이터에 대한 원본 시스템을 지정합니다. Automation의 경우 값은 OpsManager입니다.|
-|StreamType | 작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>- 진행률<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다.|
-|시간 | runbook 작업이 실행된 날짜 및 시간입니다.|
+|StreamType | 작업 스트림의 유형입니다. 가능한 값은<br>- 진행률<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다.|
+|Time | runbook 작업이 실행된 날짜 및 시간입니다.|
 
 **JobLogs** 또는 **JobStreams**의 범주 레코드를 반환하는 로그 검색을 수행하는 경우, 검색에 의해 반환되는 업데이트를 요약하는 타일 집합을 표시하는 **JobLogs** 또는 **JobStreams** 보기를 선택할 수 있습니다.
 
@@ -345,7 +345,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 다음 테이블은 이 솔루션에 의해 수집된 작업 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-|쿼리 | 설명|
+|query | 설명|
 |----------|----------|
 |성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
@@ -389,13 +389,13 @@ Azure Portal에서 [모니터] -> [작업 그룹]으로 이동합니다. **Start
 
 VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용할 수 있는 몇 가지 옵션이 있습니다.
 
-* 솔루션의 각 부모 [Runbook](#runbooks)에는 **VMList** 매개 변수가 있습니다. 상황에 맞는 적절한 부모 Runbook을 예약할 때 쉼표로 구분된 VM 이름 목록을 이 매개 변수에 전달할 수 있으며, 솔루션이 실행될 때 이러한 VM이 포함됩니다.
+* 솔루션의 각 부모 [runbook](#runbooks) 에는 **vmlist** 매개 변수가 있습니다. 상황에 맞는 부모 runbook을 예약할 때 쉼표로 구분 된 VM 이름 목록을이 매개 변수에 전달할 수 있으며, 이러한 Vm은 솔루션이 실행 될 때 포함 됩니다.
 
 * 여러 VM을 선택하려면 시작하거나 중지하려는 VM이 포함된 리소스 그룹 이름을 사용하여 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupNames**를 설정합니다. 솔루션이 구독의 모든 리소스 그룹에 대해 실행되도록 하려면 이 값을 `*`로 설정할 수도 있습니다.
 
 ### <a name="exclude-a-vm"></a>VM 제외
 
-솔루션에서 VM을 제외하려면 해당 VM을 **External_ExcludeVMNames** 변수에 추가할 수 있습니다. 이 변수는 시작/중지 솔루션에서 제외할 특정 VM의 쉼표로 구분된 목록입니다. 이 목록은 140개의 VM으로 제한됩니다. 140개를 초과하는 VM을 쉼표로 구분된 목록에 추가하는 경우 제외하도록 설정된 VM이 실수로 시작되거나 중지될 수 있습니다.
+솔루션에서 VM을 제외하려면 해당 VM을 **External_ExcludeVMNames** 변수에 추가할 수 있습니다. 이 변수는 시작/중지 솔루션에서 제외할 특정 Vm의 쉼표로 구분 된 목록입니다. 이 목록은 140개의 VM으로 제한됩니다. 이 쉼표로 구분 된 목록에 140 개 이상의 Vm을 추가 하는 경우 제외 되도록 설정 된 Vm이 실수로 시작 되거나 중지 될 수 있습니다.
 
 ## <a name="modify-the-startup-and-shutdown-schedules"></a>시작 및 종료 일정 수정
 
@@ -407,7 +407,7 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 2. VM을 종료하려는 시간에 대한 고유한 일정을 만듭니다.
 3. **ScheduledStartStop_Parent** Runbook으로 이동하고 **일정**을 클릭합니다. 이 옵션을 사용하면 이전 단계에서 만든 일정을 선택할 수 있습니다.
 4. **매개 변수 및 실행 설정**을 선택하고 ACTION 매개 변수를 "중지"로 설정합니다.
-5. **확인**을 클릭하여 변경 내용을 저장합니다.
+5. **확인** 을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="update-the-solution"></a>솔루션 업데이트
 

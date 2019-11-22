@@ -2,18 +2,18 @@
 title: '이점: 온-프레미스 Apache Hadoop을 Azure HDInsight로 마이그레이션'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하도록 유도하는 동기 부여 및 혜택에 대해 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: ashishth
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/25/2018
-ms.author: hrasheed
-ms.openlocfilehash: 7f67b85b66748ae98cbb520bf4ebc11a2eef9efb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/15/2019
+ms.openlocfilehash: 2440b93629416ea73fcf211cbe7bf5a3b72ab2e7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494933"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267317"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 동기 부여 및 혜택
 
@@ -45,7 +45,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 
 - **보안 및 규정 준수** - HDInsight를 사용하면  [Azure Virtual Network](../hdinsight-plan-virtual-network-deployment.md),  [암호화](../hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md) 및  [Azure Active Directory](../domain-joined/hdinsight-security-overview.md)와 통합을 통해 엔터프라이즈 데이터 자산을 보호할 수 있습니다. 또한 HDInsight는 가장 널리 사용되는 산업 및 정부  [규격 표준](https://azure.microsoft.com/overview/trusted-cloud)을 충족합니다.
 
-- **버전 관리 간소화** - Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리하고 최신 상태로 유지합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
+- **간소화 된 버전 관리** -Azure HDInsight는 Hadoop 에코 시스템 구성 요소의 버전을 관리 하 고 최신 상태로 유지 합니다. 소프트웨어 업데이트는 일반적으로 온-프레미스 배포를 위한 복잡한 프로세스입니다.
 
 - **구성 요소 간 종속성이 적고 특정 워크로드에 최적화된 더 작아진 클러스터** - 일반적인 온-프레미스 Hadoop 설치 시 다목적 단일 클러스터를 사용합니다. Azure HDInsight를 사용하면 워크로드 관련 클러스터를 만들 수 있습니다. 특정 워크로드에 대한 클러스터를 만들면 복잡성이 점점 증가하는 단일 클러스터를 유지할 필요가 없습니다.
 
@@ -61,7 +61,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
     - Azure Blob Storage
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Azure SQL Database
+    - Azure SQL 데이터베이스
     - Azure Analysis Services
 
 - **자동 복구 프로세스 및 구성 요소** - HDInsight는 자체 모니터링 인프라를 사용하여 지속적으로 인프라 및 오픈 소스 구성 요소를 확인합니다. 또한 오픈 소스 구성 요소 및 노드를 사용할 수 없는 경우처럼 중요한 오류를 자동으로 복구합니다. OSS 구성 요소에 장애가 발생하면 Ambari에서 경고가 트리거됩니다.
@@ -85,7 +85,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 - 프로젝트 세부 정보
 - Azure 요구 사항
 
-### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 설문지
+### <a name="on-premises-deployment-questionnaire"></a>온-프레미스 배포 질문
 
 | **질문** | **예제** | **대답** |
 |---|---|---|
@@ -183,7 +183,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |동기화 할 AD 사용자의 수|          100||
 |암호를 클라우드와 동기화해도 괜찮습니까?|    예||
 |클라우드 전용 사용자입니까?|                 예||
-|MFA가 필요합니까?|                       아니요|| 
+|MFA가 필요합니까?|                       아니오|| 
 |데이터 권한 부여 요구 사항이 있습니까?|  예||
 |역할 기반 액세스 제어를 사용합니까?|        예||
 |감사가 필요합니까?|                  예||
@@ -197,7 +197,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
 |원격 metastore를 사용합니까?|예||
 |서로 다른 클러스터 간에 metastore를 공유합니까?|예||
 |워크로드를 분해합니까?|Hive 작업을 Spark 작업으로 대체||
-|데이터 오케스트레이션에 ADF를 사용합니까?|아니요||
+|데이터 오케스트레이션에 ADF를 사용합니까?|아니오||
 
 ## <a name="next-steps"></a>다음 단계
 

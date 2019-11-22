@@ -3,12 +3,12 @@ title: Azure Kubernetes Service에 대 한 Azure Policy 알아보기
 description: Azure Policy에서 Rego를 사용 하 여 Azure Kubernetes Service에서 클러스터를 관리 하는 방법에 대해 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: dbac1ee762066fb59cd57c04839666026a2bd89b
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: d8d5c1ebeded62f475804e4e704f823aba2c10eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959792"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279388"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 Azure Policy 이해
 
@@ -257,6 +257,6 @@ Kubernetes 용 Azure Policy 추가 기능은 제한 된 클러스터 진단 데�
 - [Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

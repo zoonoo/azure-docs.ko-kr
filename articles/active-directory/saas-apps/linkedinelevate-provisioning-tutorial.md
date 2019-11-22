@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성 | Microsoft Docs'
+title: '자습서: LinkedIn 권한 상승에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 LinkedIn Elevate로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adefb0c88e88a8bfb4b896c0788654e478ff4555
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ea6f9923062d960f18203b081702e69a30dd3c9e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65963696"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276838"
 ---
 # <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Elevate 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 LinkedIn Elevate로 자동으로 프로비전 및 프로비전 해제하도록 LinkedIn Elevate 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -84,7 +84,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 5. **토큰 생성**을 클릭합니다. **액세스 토큰** 필드 아래에 액세스 토큰이 표시됩니다.
 
-6. 페이지를 나가기 전에 클립보드 또는 컴퓨터에 액세스 토큰을 저장 합니다.
+6. 페이지를 벗어나기 전에 클립보드 또는 컴퓨터에 액세스 토큰을 저장 합니다.
 
 7. 다음으로, [Azure Portal](https://portal.azure.com)에 로그인하고 **Azure Active Directory &gt; 엔터프라이즈 앱 &gt; 모든 애플리케이션** 섹션으로 이동합니다.
 

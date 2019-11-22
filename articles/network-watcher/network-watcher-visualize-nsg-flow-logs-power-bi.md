@@ -1,5 +1,6 @@
 ---
-title: Power BI를 사용하여 Azure 네트워크 보안 그룹 흐름 로그 시각화 | Microsoft Docs
+title: Azure NSG 흐름 로그 시각화-Power BI
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Power BI를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: mareat
-ms.openlocfilehash: 6df49f9cd308f4bb9b1fef6e5860872526ce8bb7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60860884"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277723"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -44,9 +45,9 @@ ms.locfileid: "60860884"
 
 제공된 템플릿은 편집 가능하므로 사용자는 템플릿을 수정하여 새 데이터와 시각 효과를 추가하거나 본인의 요구 사항에 맞게 쿼리를 편집할 수 있습니다.
 
-## <a name="setup"></a>설정
+## <a name="setup"></a>설치
 
-시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 다음 문서를 참조하세요. [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
+시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
 또한 컴퓨터에 Power BI Desktop 클라이언트가 설치되어 있고, 스토리지 계정에 있는 로그 데이터를 다운로드 및 로드하는 데 충분한 여유 공간이 있어야 합니다.
 
@@ -56,7 +57,7 @@ ms.locfileid: "60860884"
 
 1. Power BI Desktop 애플리케이션 [Network Watcher PowerBI 흐름 로그 템플릿](https://aka.ms/networkwatcherpowerbiflowlogstemplate)에서 다음 Power BI 템플릿을 다운로드하여 열기
 1. 필요한 쿼리 매개 변수 입력
-   1. **StorageAccountName** - 로드하여 시각화하려는 NSG 흐름 로그가 포함된 스토리지 계정의 이름을 지정합니다.
+   1. **StorageAccountName** - 로드하고 시각화하려는 NSG 흐름 로그가 포함된 스토리지 계정의 이름을 지정합니다.
    1. **NumberOfLogFiles** – Power BI에서 다운로드하여 시각화하려는 로그 파일의 수를 지정합니다. 예를 들어 50을 지정하면 가장 최근의 로그 파일 50개가 지정됩니다. NSG 2개가 활성화되어 이 계정에 NSG 흐름 로그를 보내도록 구성되어 있는 경우 지난 25시간 동안의 로그를 볼 수 있습니다.
 
       ![power BI 메인][2]
@@ -111,7 +112,7 @@ ms.locfileid: "60860884"
 
 본인의 요구 사항에 맞게 얼마든지 이 템플릿을 사용자 지정해도 됩니다. Power BI를 네트워크 보안 그룹 흐름 로그와 함께 사용할 수 있는 매우 다양한 방법이 있습니다. 
 
-## <a name="notes"></a>메모
+## <a name="notes"></a>참고 사항
 
 * 로그는 기본적으로 `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`에 저장됩니다.
 

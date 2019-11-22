@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: sstein
-ms.openlocfilehash: 5c70d1d7d62b41965d4c81e8bbe0e5b2dc3cbb92
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bdea9af04008ef68578ff8c136760f2493a2ae35
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166265"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279224"
 ---
 # <a name="sql-database-release-notes"></a>SQL Database 릴리스 정보
 
@@ -80,6 +80,7 @@ ms.locfileid: "74166265"
 
 - **8 월 2019** 포함 된 데이터베이스는 관리 되는 인스턴스에서 완전히 지원 됩니다.
 - **10 월 2019** -원본 데이터베이스에 메모리 내 OLTP 개체가 포함 되어 있는 경우 중요 비즈니스용 계층에서 일반 용도의 계층으로 기본 제공 되는 지정 시간 데이터베이스 복원에 실패 합니다.
+- **Oct 2019** -보안 연결을 사용 하 여 외부 (비 Azure) 메일 서버에 **데이터베이스 메일** 기능을 사용할 수 있습니다.
 - **2019 년 11 월** -데이터베이스에서 데이터베이스 Azure Blob Storage를 복원한 후 `DBCC CHECKDB`를 사용 하 여 데이터베이스 일관성을 확인 합니다.
 
 ## <a name="updates"></a>업데이트

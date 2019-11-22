@@ -1,6 +1,6 @@
 ---
-title: Set up an email address as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using an email address as your authentication method.
+title: 전자 메일 주소를 확인 방법으로 설정-Azure AD
+description: 확인 방법으로 전자 메일 주소를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03b53760f27f853f34397ac9047f18a37e1bc845
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: dafa78e6f46a3d2d6b7a9c505defaeae21875946
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231789"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279013"
 ---
-# <a name="set-up-an-email-address-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up an email address as your authentication method from the Security info (preview) page
+# <a name="set-up-an-email-address-as-your-verification-method"></a>전자 메일 주소를 확인 방법으로 설정 합니다.
 
 다음 단계에 따라 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
-암호 재설정 방법을 설정한 후 [Authenticator 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
+암호 재설정 방법을 설정한 후 [인증자 앱](security-info-setup-auth-app.md), [문자 메시지](security-info-setup-text-msg.md) 또는 [전화 통화](security-info-setup-phone-number.md)를 사용하여 2단계 확인 방법도 설정해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
@@ -42,7 +42,7 @@ ms.locfileid: "74231789"
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **이메일**을 선택한 다음, **추가**를 선택합니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "74231789"
 
 2. 확인 상자에서 **예**를 선택하여 **이메일** 계정을 삭제합니다. 이메일 계정이 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
+## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "74231789"
 
 - **모바일 디바이스 또는 회사 전화 통화.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정을 위한 전화가 걸려옵니다. 전화 번호를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [전화 통화를 사용하도록 보안 정보 설정](security-info-setup-phone-number.md)을 참조하세요.
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
 - **본인 확인 질문.** 조직의 관리자가 만든 몇 가지 보안 질문에 대답합니다. 이 옵션은 2단계 인증이 아닌 암호 재설정에만 사용할 수 있습니다. 보안 질문을 설정하는 방법에 대한 단계별 지침은 [보안 질문을 사용하도록 보안 정보 설정](security-info-setup-questions.md) 문서를 참조하세요.
 

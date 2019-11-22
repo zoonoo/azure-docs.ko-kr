@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업-Azure Active Directory에 대 한 지원 받기 | Microsoft Docs
+title: B2B 공동 작업 지원 가져오기-Azure Active Directory
 description: Azure Active Directory B2B 협업에 대한 지원 환경이란?
 services: active-directory
 ms.service: active-directory
@@ -12,19 +12,19 @@ manager: celested
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7b9ebefb9762b663adcd17fb1fdd656cb4f2ec2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00817acf93295becefab2d1a61de84a3f5519338
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65768442"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272762"
 ---
 # <a name="getting-support-for-b2b-collaboration"></a>B2B 협업에 대한 지원 받기
 
 설명서를 읽고 올바르게 수행했지만 여전히 기능을 작동시킬 수 없으신가요? 지원 티켓을 엽니다(지원 계획 필요).
 
 1. [Azure Portal](https://portal.azure.com)에서 도움말 및 지원 블레이드로 이동하고 새 지원 요청을 선택합니다.
-   - 문제 유형: 기술적
+   - 문제 유형: 기술
    - 구독: 영향을 주는 구독 선택
      - 서비스: Active Directory
      - 지원 계획: 관련 지원 계획 선택

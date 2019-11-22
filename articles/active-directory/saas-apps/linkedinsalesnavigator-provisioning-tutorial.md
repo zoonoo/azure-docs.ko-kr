@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성 | Microsoft Docs'
+title: '자습서: 사용자 프로 비전-LinkedIn Sales Navigator, Azure AD'
 description: 사용자 계정을 LinkedIn Sales Navigator로 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/28/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8977e6bb8b665705af7183ff0cdcfae22a19c759
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dbf8923d62b49ed5341776aef03bc1bc2dabeaa9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65965935"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276814"
 ---
 # <a name="tutorial-configure-linkedin-sales-navigator-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 LinkedIn Sales Navigator 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 LinkedIn Sales Navigator로 자동으로 프로비전 및 프로비전 해제하도록 LinkedIn Sales Navigator 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -99,7 +99,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 11. **관리자 자격 증명** 아래에서 다음 필드를 입력합니다.
 
-    * **테넌트 URL** 필드에 https://api.linkedin.com 을 입력합니다.
+    * **테넌트 URL** 필드에 https://api.linkedin.com을 입력합니다.
 
     * **비밀 토큰** 필드에 1단계에서 생성한 액세스 토큰을 입력하고 **연결 테스트**를 클릭합니다.
 

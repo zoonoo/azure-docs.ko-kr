@@ -1,14 +1,14 @@
 ---
 title: 일반적인 오류 문제 해결
-description: Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리 하는 문제를 해결 하는 방법을 알아봅니다.
+description: Azure 리소스 그래프를 사용 하 여 Azure 리소스를 쿼리 하는 동안 다양 한 Sdk 관련 문제를 해결 하는 방법을 알아봅니다.
 ms.date: 10/18/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: e8f42650265b1ca400731365203408eeb22a4e4c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f881db4f75bcee8c13221717596442ac29a4b1ac
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958514"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303902"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Azure 리소스 그래프를 사용 하 여 오류 문제 해결
 

@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher의 리소스 문제 해결 소개 | Microsoft Docs
+title: 리소스 문제 해결 소개
+titleSuffix: Azure Network Watcher
 description: 이 페이지는 Network Watcher 리소스 문제 해결 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 65ce9e7d298131486ae4e5f3584c7975ca81e1ab
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 736bbd16456dd0abda3292b9b9e73ea5b941e7ed
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64684241"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277785"
 ---
 # <a name="introduction-to-resource-troubleshooting-in-azure-network-watcher"></a>Azure Network Watcher의 리소스 문제 해결 소개
 
@@ -49,33 +50,33 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 ### <a name="gateway"></a>게이트웨이
 
-| 오류 유형 | 이유 | 로그|
+| 오류 유형 | 이유 | Log|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아닙니다.|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아닙니다.|
-| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아닙니다. |
-| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아닙니다. |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니요|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아닙니다.|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 아닙니다.|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니오|
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다. | 아니오 |
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니오 |
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니오|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니오|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 아니오|
 | ConnectionsNotConnected | 연결이 연결되지 않습니다. 이 오류는 단지 경고일 뿐입니다.| 예|
 | GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
 
 ### <a name="connection"></a>연결
 
-| 오류 유형 | 이유 | 로그|
+| 오류 유형 | 이유 | Log|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아닙니다.|
-| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아닙니다.|
-| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아닙니다. |
-| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아닙니다. |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아닙니다. |
-| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |아닙니다.|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
+| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니오|
+| UserDrivenUpdate | 이 오류는 사용자 업데이트를 진행 중인 경우 발생합니다. 업데이트는 크기 조정 작업일 수 있습니다.  | 아니오 |
+| VipUnResponsive | 이 오류는 게이트웨이의 주 인스턴스가 상태 프로브 실패로 인해 연결할 수 없을 때 발생합니다. | 아니오 |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니오 |
+| ConnectionIsMarkedDisconnected | 연결이 “연결 끊김”으로 표시되었습니다. |아니오|
 | ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
 | ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
-| Authentication | 미리 공유한 키가 일치하지 않습니다. | 예|
+| 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
 | PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
 | IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
 | WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
@@ -107,7 +108,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 > [!NOTE]
 > 일부 경우에는 로그 파일의 하위 집합만 스토리지에 기록됩니다.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 여기에 있는 [Storage Explorer](https://storageexplorer.com/) 링크에서 찾을 수 있습니다.
 
 ### <a name="connectionstatstxt"></a>ConnectionStats.txt
 

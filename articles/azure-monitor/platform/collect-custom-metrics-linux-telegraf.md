@@ -1,6 +1,6 @@
 ---
 title: InfluxData Telegraf agent를 사용 하 여 Linux VM에 대 한 사용자 지정 메트릭 수집
-description: InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
+description: Azure에서 Linux VM에 InfluxData Telegraf 에이전트를 배포 하 고 Azure Monitor에 메트릭을 게시 하도록 에이전트를 구성 하는 방법에 대 한 지침을 설명 합니다.
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 05cc1dcb2a6fa4e7790fa57cd2136d21d94b8a0b
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 4e8783d500ed7dd6e8e5d518d2a4fbe5e5e1e276
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200532"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305285"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -29,7 +29,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 이 자습서에서는 Ubuntu 16.04 LTS 운영 체제를 실행하는 Linux VM을 배포합니다. Telegraf 에이전트는 대부분의 Linux 운영 체제에 대해 지원됩니다. Debian 및 RPM 패키지는 모두 [InfluxData 다운로드 포털](https://portal.influxdata.com/downloads)에서 패키지되지 않은 Linux 이진 파일과 함께 사용할 수 있습니다. 추가 설치 지침 및 옵션은 이 [Telegraf 설치 가이드](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/)를 참조하세요. 
 
-[Azure portal](https://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 새 Linux VM을 만듭니다. 
 
@@ -106,7 +106,7 @@ sudo systemctl start telegraf
 
 ## <a name="plot-your-telegraf-metrics-in-the-azure-portal"></a>Azure Portal에서 Telegraf 메트릭 그리기 
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다. 
+1. [Azure 포털](https://portal.azure.com)을 엽니다. 
 
 1. 새 **모니터** 탭으로 이동 합니다. 그런 다음 **메트릭**을 선택 합니다.  
 
@@ -131,7 +131,7 @@ sudo systemctl start telegraf
 더 이상 필요 없는 경우 리소스 그룹, 가상 머신 및 모든 관련 리소스를 삭제해도 됩니다. 이렇게 하려면 가상 컴퓨터의 리소스 그룹을 선택 하 고 **삭제**를 선택 합니다. 삭제할 리소스 그룹의 이름을 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
-- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아보세요.
+- [사용자 지정 메트릭](metrics-custom-overview.md)에 대해 자세히 알아봅니다.
 
 
 

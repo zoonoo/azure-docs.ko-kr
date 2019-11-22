@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업-Azure Active Directory의에서 사용자 토큰 이해 | Microsoft Docs
+title: B2B 공동 작업의 사용자 토큰 이해-Azure AD
 description: Azure Active Directory B2B 협업에 대한 사용자 토큰 참조
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c2e872c108e19e21258610edd62899b1029fcd9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08dbb81b91def2fd464ecc85c2d2eaf45ed189d5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65767178"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271770"
 ---
 # <a name="understand-user-tokens-in-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업의 사용자 토큰 이해
 
@@ -34,7 +34,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ilk0dWVLMm9hSU
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-* [B2B 공동 작업 사용자 속성](user-properties.md)
-* [B2B 공동 작업 사용자 클레임 매핑](claims-mapping.md)
+* [Azure AD B2B 협업이란?](what-is-b2b.md)
+* [B2B 협업 사용자 속성](user-properties.md)
+* [B2B 협업 사용자 클레임 매핑](claims-mapping.md)
 

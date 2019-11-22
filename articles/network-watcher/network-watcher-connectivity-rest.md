@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher로 연결 문제 해결 - Azure REST API | Microsoft Docs
+title: 연결 문제 해결-Azure REST API
+titleSuffix: Azure Network Watcher
 description: Azure REST API를 사용하여 Azure Network Watcher의 연결 문제 해결 기능을 사용하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
@@ -13,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/02/2017
 ms.author: kumud
-ms.openlocfilehash: 82dd77e8ea36610244b97c1701209d5aa3be2869
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 792556a63b5ca9ef53a33960e8284354972b3895
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69017779"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275953"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-the-azure-rest-api"></a>Azure REST API를 사용하여 Azure Network Watcher로 연결 문제 해결
 
@@ -30,7 +31,7 @@ ms.locfileid: "69017779"
 
 연결 문제 해결을 사용하여 가상 머신에서 지정된 엔드포인트로 직접 TCP 연결을 설정하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 사용자에게 다음 리소스가 있는 것으로 가정합니다.
 
@@ -40,7 +41,7 @@ ms.locfileid: "69017779"
 > [!IMPORTANT]
 > 연결 문제 해결은 문제를 해결하는 VM에 `AzureNetworkWatcherExtension` VM 확장이 설치되어 있어야 합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하세요. 확장은 대상 엔드포인트에서 필요하지 않습니다.
 
-## <a name="log-in-with-armclient"></a>ARMClient에 로그인
+## <a name="log-in-with-armclient"></a>ARMClient로 로그인
 
 Azure 자격 증명으로 armclient에 로그인합니다.
 
@@ -83,7 +84,7 @@ armclient get https://management.azure.com/subscriptions/${subscriptionId}/Resou
 
 이 예제에서는 포트 80을 통해 대상 가상 머신에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -131,9 +132,9 @@ Date: Fri, 02 Jun 2017 20:21:16 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
-다음 응답은 이전 예제에서 가져온 것입니다.  이 응답에서 `ConnectionStatus`는 **Unreachable**입니다. 전송된 모든 프로브가 실패한 것을 볼 수 있습니다. 포트 80에서 들어오는 트래픽을 차단하도록 구성된, 사용자가 구성한 **UserRule_Port80**이라는 `NetworkSecurityRule`로 인해 가상 어플라이언스에서 연결이 실패했습니다. 이 정보는 연결 문제를 조사하는 데 사용할 수 있습니다.
+다음 응답은 이전 예제에서 가져온 것입니다.  이 응답에서 `ConnectionStatus`는 **Unreachable**입니다. 전송된 모든 프로브가 실패한 것을 볼 수 있습니다. 포트 80에서 들어오는 트래픽을 차단하도록 구성된, 사용자가 구성한 `NetworkSecurityRule`UserRule_Port80**이라는** 로 인해 가상 어플라이언스에서 연결이 실패했습니다. 이 정보는 연결 문제를 조사하는 데 사용할 수 있습니다.
 
 ```json
 {
@@ -199,7 +200,7 @@ null
 
 이 예제에서는 가상 컴퓨터와 원격 엔드포인트 간의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -247,7 +248,7 @@ Date: Fri, 02 Jun 2017 20:26:05 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 예제에서 `connectionStatus`는 **Unreachable**로 표시됩니다. `hops` 세부 정보의 `issues`에서 트래픽이 `UserDefinedRoute`로 인해 차단되었음을 알 수 있습니다.
 
@@ -295,7 +296,7 @@ null
 
 다음 예제에서는 웹 사이트에 대한 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -343,7 +344,7 @@ Date: Fri, 02 Jun 2017 20:31:00 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 응답에서 `connectionStatus`가 **Reachable**로 표시된 것을 볼 수 있습니다. 연결에 성공하면 대기 시간 값이 제공됩니다.
 
@@ -382,7 +383,7 @@ null
 
 다음 예제에서는 가상 컴퓨터에서 BLOB 스토리지 계정으로의 연결을 확인합니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```powershell
 $subscriptionId = "00000000-0000-0000-0000-000000000000"
@@ -430,7 +431,7 @@ Date: Fri, 02 Jun 2017 20:05:03 GMT
 null
 ```
 
-### <a name="response"></a>응답
+### <a name="response"></a>response
 
 다음 예제는 이전 API 호출 실행에서 가져온 응답입니다. 확인에 성공했으므로 `connectionStatus` 속성이 **Reachable**로 표시됩니다.  스토리지 BLOB 및 대기 시간에 도달하는 데 필요한 홉 수에 대한 세부 정보가 제공됩니다.
 

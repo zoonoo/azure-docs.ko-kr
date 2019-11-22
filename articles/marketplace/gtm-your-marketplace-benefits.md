@@ -4,15 +4,16 @@ description: 이 섹션에서는 게시자가 사용할 수 있는 시장 진출
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security, Partner Center
 author: qianw211
 ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: v-qiwe
-ms.openlocfilehash: 6ae761b9558a0d6c1b663c1202bc560382c7b0b6
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 7b563cd90ec3e46dfd2d4420b728cd6f69df40eb
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72752399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73818639"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
@@ -102,7 +103,7 @@ Microsoft는 다음을 수행 하는 게시자에 게 Marketplace 보상 혜택�
 
 이 제품은 Azure Marketplace 또는 Microsoft AppSource에서 라이브 제품을 사용 하는 모든 파트너에 대해 영어로 수행 됩니다.
 
-사기성으로 검증된 트랜잭션은 [목록, 평가판, 컨설팅](https://aka.ms/marketplacepublisherrewards) 섹션,의 [거래 혜택](#list-trial-and-consulting-benefits) 섹션 및 [자세한 프로그램 데크](#marketplace-rewards-for-transact-partners)에 설명 된 대로 게시자의 [청구된 판매 프로그램 계층](https://aka.ms/marketplacepublisherrewards)에 계산되지 않습니다. Microsoft는 사기 행위를 제거 하 고 나 서 실제 청구 된 판매량에 따라 적격 계층에 파트너를 할당 합니다. 
+사기성으로 검증 된 트랜잭션은 [목록, 평가판, 컨설팅](#list-trial-and-consulting-benefits) 섹션, [transact-sql 혜택](#marketplace-rewards-for-transact-partners) 섹션 및 [자세한 프로그램 데크에 설명](https://aka.ms/marketplacepublisherrewards)된 대로 게시자의 [청구 된 판매 프로그램 계층](https://aka.ms/marketplacepublisherrewards)에 계산 되지 않습니다. Microsoft는 사기 행위를 제거 하 고 나 서 실제 청구 된 판매량에 따라 적격 계층에 파트너를 할당 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

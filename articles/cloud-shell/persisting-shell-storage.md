@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 11/20/2019
 ms.author: damaerte
-ms.openlocfilehash: ee68400d000ca823816c8efc6bcbc224d1388832
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8e04e7c1919deaf60e083aba4588943147ebd6bf
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082987"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284823"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -38,14 +38,11 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 
 파일 공유는 `clouddrive` 디렉터리에서 `$Home`로 마운트됩니다. 이것은 일회성 작업이며 파일 공유는 후속 세션에서 자동으로 마운트됩니다. 
 
-> [!NOTE]
-> 보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  RBAC(역할 기반 액세스 제어)의 경우 사용자에게는 스토리지 계정 수준에서 참가자 액세스 권한 이상이 있어야 합니다.
-
 파일 공유는 `$Home` 디렉터리에서 데이터를 자동으로 유지하기 위해 만든 5GB 이미지를 포함합니다. 이는 Bash 및 PowerShell 모두에 적용됩니다.
 
 ## <a name="use-existing-resources"></a>기존 리소스 사용
 
-고급 옵션을 사용하여 기존 리소스를 연결할 수 있습니다. Cloud Shell 지역을 선택할 때 동일한 지역에 배치된 지원 스토리지 계정을 선택해야 합니다. 예를 들어 할당된 지역이 미국 서부인 경우 역시 미국 서부에 있는 파일 공유를 연결해야 합니다.
+고급 옵션을 사용하여 기존 리소스를 연결할 수 있습니다. Cloud Shell 지역을 선택할 때 동일한 지역에 배치된 지원 스토리지 계정을 선택해야 합니다. 예를 들어 할당 된 지역이 미국 서 부 인 경우 미국 서 부에 있는 파일 공유도 연결 해야 합니다.
 
 스토리지 설정 프롬프트가 나타나면 **고급 옵션 표시**를 선택하여 추가 옵션을 봅니다. 채워진 스토리지 옵션은 LRS(로컬 중복 스토리지), GRS(지역 중복 스토리지) 및 ZRS(영역 중복 스토리지) 계정을 필터링합니다. 
 
@@ -54,7 +51,14 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 
 ![리소스 그룹 설정](media/persisting-shell-storage/advanced-storage.png)
 
-### <a name="supported-storage-regions"></a>지원되는 스토리지 지역
+## <a name="securing-storage-access"></a>저장소 액세스 보안
+보안을 위해 각 사용자는 자신의 스토리지 계정을 프로비전해야 합니다.  RBAC(역할 기반 액세스 제어)의 경우 사용자에게는 스토리지 계정 수준에서 참가자 액세스 권한 이상이 있어야 합니다.
+
+Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공유를 사용 합니다. 상속 된 권한으로 인해 구독에 대 한 충분 한 액세스 권한이 있는 사용자는 구독에 포함 된 모든 저장소 계정 및 파일 공유에 액세스할 수 있습니다.
+
+사용자는 저장소 계정 또는 구독 수준에서 사용 권한을 설정 하 여 파일에 대 한 액세스를 잠가야 합니다.
+
+## <a name="supported-storage-regions"></a>지원되는 스토리지 지역
 연결된 Azure Storage 계정은 사용자가 마운트하는 Cloud Shell 컴퓨터와 동일한 지역에 있어야 합니다. 현재 영역을 찾으려면 Bash에서 `env`를 실행하여 `ACC_LOCATION` 변수를 찾을 수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
@@ -67,8 +71,6 @@ Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
 Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 스토리지 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../azure-policy/json-samples.md)을 만듭니다.
-
-
 
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 스토리지 작동 방법 
 Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 

@@ -1,5 +1,5 @@
 ---
-title: 특정 조직에 대 한 초대 허용 또는 차단-Azure Active Directory | Microsoft Docs
+title: 특정 조직에 대 한 초대 허용 또는 차단-Azure AD
 description: Azure Portal 또는 PowerShell을 사용하여 특정 도메인에서 B2B 사용자를 허용하거나 차단하는 액세스 또는 거부 목록을 설정하는 방법을 살펴봅니다.
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: sasubram
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cd0cc6b2343a84287bd2ffdfd9df8d832f17fc8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8b5100c4406cfd4a8395dfa177dc3cd5e911decb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474165"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273418"
 ---
 # <a name="allow-or-block-invitations-to-b2b-users-from-specific-organizations"></a>특정 조직의 B2B 사용자 초대 허용 또는 차단
 
@@ -41,7 +41,7 @@ ms.locfileid: "73474165"
 
 거부 목록을 추가하려면
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
@@ -62,7 +62,7 @@ ms.locfileid: "73474165"
 
 허용 목록을 추가하려면
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "73474165"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>필수 요소
+### <a name="prerequisite"></a>사전 요구 사항
 
 > [!Note]
 > AzureADPreview 모듈은 미리 보기 상태 이므로 완전히 지원 되는 모듈이 아닙니다. 

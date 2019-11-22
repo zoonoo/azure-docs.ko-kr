@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: d91ac6d50faaadf560ae7ff9e9cce5f7bc4b180a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 47e66bfc4550372b571b7263ef5b7f2f149712dc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803920"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307316"
 ---
 # <a name="supported-platforms"></a>지원되는 플랫폼 
 
@@ -86,7 +86,7 @@ Azure Kubernetes (AKS), Azure Databricks 등의 일부 Azure 관리 되는 서�
 
 Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같습니다.
 
-* SQL
+* SQL -
 * PostGreSQL
 * MySQL
 * CosmosDB
@@ -101,8 +101,8 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * Batch 계정
 * Service fabric 계정
 * Automation 계정
-* Load Balancer
-* Search
+* 부하 분산 장치
+* 검색
 * Service Bus 네임스페이스
 * Stream Analytics
 * 이벤트 허브 네임스페이스
@@ -110,9 +110,11 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* Key Vault
+* 주요 자격 증명 모음
 
 위의 PaaS 리소스 목록에서 지원 되는 기능에 대해 자세히 알아보려면 [paas 서비스 지원 기능](security-center-services.md#paas-services)을 참조 하세요.
+
+Azure Stack에 있는 Virtual Machines에 대 한 보호도 지원 됩니다. Azure Stack와 Security Center의 통합에 대 한 자세한 내용은 [Security Center에 Azure Stack virtual machines](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)등록을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

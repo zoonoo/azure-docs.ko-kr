@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory의 특성 매핑에 대한 식 작성 | Microsoft Docs
+title: Azure AD에서 특성 매핑에 대 한 식 작성
 description: Azure Active Directory에서 SaaS 앱 개체의 자동화된 프로비전 중 허용되는 형식으로 특성 값을 변환하기 위해 식 매핑을 사용하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd7abdeef7c13c272a0e4bbf2075c6eda8f73a07
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 5f1880a79f7fdb27b407ecb7ed1b761493fe850d
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162387"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274016"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Azure Active Directory의 특성 매핑에 대한 식 작성
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 경우, 사용자의 데이터를 SaaS 애플리케이션에 대해 사용하는 형식으로 변환할 수 있는 스크립트 방식의 식을 작성해야 합니다.
@@ -29,13 +29,13 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 * 전체 식은 <br>
   *FunctionName(`<<argument 1>>`,`<<argument N>>`)*
-* 서로 함수를 중첩할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
+* 서로 함수를 중첩할 수 있습니다. 예: <br> *FunctionOne(FunctionTwo(`<<argument1>>`))*
 * 함수에 3가지 다른 유형의 인수를 전달할 수 있습니다.
   
   1. 특성은 대괄호로 묶어야 합니다. 예: [attributeName]
-  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. "미국"
-  3. 기타 함수 예를 들어 다음과 같은 가치를 제공해야 합니다. FunctionOne(`<<argument1>>`, FunctionTwo(`<<argument2>>`))
-* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. "회사 이름: \\"Contoso\\""
+  2. 문자열 상수는 큰따옴표로 묶어야 합니다. 예: "미국"
+  3. 기타 함수 예: FunctionOne (`<<argument1>>`, Functionone (`<<argument2>>`))
+* 문자열 상수의 경우, 백슬래시 (\) 또는 따옴표(")가 문자열에 필요한 경우 백슬래시(\) 기호로 이스케이프되어야 합니다. 예: "회사 이름: \\" Contoso\\""
 
 ## <a name="list-of-functions"></a>함수 목록
 [Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [Split](#split)&nbsp;&nbsp;&nbsp;&nbsp;[StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)&nbsp;&nbsp;&nbsp;&nbsp; [ToLower](#tolower)&nbsp;&nbsp;&nbsp;&nbsp; [ToUpper](#toupper)
@@ -48,10 +48,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **suffix** |필요한 공간 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **접미사** |필수 |문자열 |원본 값의 끝에 추가하려는 문자열입니다. |
 
 ---
 ### <a name="formatdatetime"></a>FormatDateTime
@@ -61,14 +61,14 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **inputFormat** |필요한 공간 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
-| **outputFormat** |필요한 공간 |문자열 |출력 날짜의 형식입니다. |
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **inputFormat** |필수 |문자열 |원본 값의 예상된 형식입니다. 지원되는 형식은 [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx)를 참조하세요. |
+| **outputFormat** |필수 |문자열 |출력 날짜의 형식입니다. |
 
 ---
-### <a name="join"></a>Join
+### <a name="join"></a>조인
 **함수:**<br> Join(separator, source1, source2, …)
 
 **설명:**<br> 다중 **source** 문자열 값을 단일 문자열로 결합할 수 있다는 점을 제외하고 Join()은 Append()와 유사하며, 각 값은 **separator** 문자열로 구분됩니다.
@@ -77,9 +77,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **구분 기호** |필요한 공간 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
+| **separator** |필수 |문자열 |문자열이 하나의 문자열로 연결되면 원본 값을 구분하는데 문자열을 사용합니다. 구분 기호가 필요하지 않은 경우 ""일 수 있습니다. |
 | **source1  … sourceN** |필수, 시간 변수 |문자열 |값이 함께 조인될 문자열입니다. |
 
 ---
@@ -90,11 +90,11 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |일반적으로 특성 이름입니다. |
-| **시작** |필요한 공간 |integer |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
-| **length** |필요한 공간 |integer |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
+| **원본** |필수 |문자열 |일반적으로 특성 이름입니다. |
+| **start** |필수 |integer |부분 문자열이 시작될 **원본** 문자열의 인덱스입니다. 문자열의 첫번째 문자에는 인덱스 1이 있고, 두번째 문자에는 인덱스 2가 있습니다. |
+| **length** |필수 |integer |부분 문자열의 길이입니다. 길이가 **원본** 문자열 외부에서 종료되면 함수는 **시작** 인덱스부터 **원본** 문자열 끝까지의 부분 문자열을 반환합니다. |
 
 ---
 ### <a name="normalizediacritics"></a>NormalizeDiacritics
@@ -104,9 +104,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 | 일반적으로 이름 또는 성 특성입니다. |
+| **원본** |필수 |문자열 | 일반적으로 이름 또는 성 특성입니다. |
 
 ---
 ### <a name="not"></a>not
@@ -116,9 +116,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
+| **원본** |필수 |부울 문자열 |예상 **원본** 값은 "True" 또는 "False"입니다. |
 
 ---
 ### <a name="replace"></a>바꾸기
@@ -146,15 +146,15 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |일반적으로 **소스** 개체의 특성 이름입니다. |
-| **oldValue** |선택 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
-| **regexPattern** |선택 |String |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName** 을 사용 하는 경우 **replacementPropertyName**에서 값을 추출 하는 패턴입니다. |
-| **regexGroupName** |선택 |문자열 |**regexPattern**내 그룹의 이름입니다. **ReplacementPropertyName** 를 사용 하는 경우에만이 그룹의 값을 **replacementPropertyName**에서 **replacementValue** 로 추출 합니다. |
-| **replacementValue** |선택 |문자열 |이전 값과 대체할 새로운 값입니다. |
-| **replacementAttributeName** |선택 |문자열 |대체 값에 사용할 특성의 이름입니다. |
-| **template** |옵션 |문자열 |**템플릿** 값이 제공 되 면 템플릿 내에서 **oldValue** 를 찾아 **원본** 값으로 바꿉니다. |
+| **원본** |필수 |문자열 |일반적으로 **소스** 개체의 특성 이름입니다. |
+| **oldValue** |선택 사항 |문자열 |**원본** 또는 **템플릿**에서 대체될 값입니다. |
+| **regexPattern** |선택 사항 |문자열 |**원본**에서 대체될 값에 대한 Regex 패턴입니다. 또는 **replacementPropertyName** 을 사용 하는 경우 **replacementPropertyName**에서 값을 추출 하는 패턴입니다. |
+| **regexGroupName** |선택 사항 |문자열 |**regexPattern**내 그룹의 이름입니다. **ReplacementPropertyName** 를 사용 하는 경우에만이 그룹의 값을 **replacementPropertyName**에서 **replacementValue** 로 추출 합니다. |
+| **replacementValue** |선택 사항 |문자열 |이전 값과 대체할 새로운 값입니다. |
+| **replacementAttributeName** |선택 사항 |문자열 |대체 값에 사용할 특성의 이름입니다. |
+| **template** |선택 사항 |문자열 |**템플릿** 값이 제공 되 면 템플릿 내에서 **oldValue** 를 찾아 **원본** 값으로 바꿉니다. |
 
 ---
 ### <a name="selectuniquevalue"></a>SelectUniqueValue
@@ -171,7 +171,7 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
 | **uniqueValueRule1  … uniqueValueRuleN** |2개 이상 필요, 상한 없음 |문자열 | 평가할 고유한 값 생성 규칙 목록입니다. |
 
@@ -184,9 +184,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **[appRoleAssignments]** |필요한 공간 |문자열 |**[appRoleAssignments]** 개체. |
+| **[appRoleAssignments]** |필수 |문자열 |**[appRoleAssignments]** 개체. |
 
 ---
 ### <a name="split"></a>분할
@@ -196,10 +196,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |**원본** 값입니다. |
-| **delimiter** |필요한 공간 |문자열 |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
+| **원본** |필수 |문자열 |**원본** 값입니다. |
+| **delimiter** |필수 |문자열 |문자열을 분할하는 데 사용할 문자(예: ",")를 지정 |
 
 ---
 ### <a name="stripspaces"></a>StripSpaces
@@ -209,9 +209,9 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |**원본** 값입니다. |
+| **원본** |필수 |문자열 |**원본** 값입니다. |
 
 ---
 ### <a name="switch"></a>Switch
@@ -221,12 +221,12 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |**Source** 값입니다. |
-| **defaultValue** |선택 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
-| **key** |필요한 공간 |문자열 |**원본** 값과 비교할 **Key**입니다. |
-| **값** |필요한 공간 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
+| **원본** |필수 |문자열 |**Source** 값입니다. |
+| **defaultValue** |선택 사항 |문자열 |원본이 모든 키와 일치하지 않는 경우 사용할 기본값입니다. 빈 문자열("")일 수 있습니다. |
+| **key** |필수 |문자열 |**원본** 값과 비교할 **Key**입니다. |
+| **값** |필수 |문자열 |키와 일치하는 **원본** 의 대체 값입니다. |
 
 ---
 ### <a name="tolower"></a>ToLower
@@ -236,10 +236,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | type | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |대개는 원본 개체의 특성 이름 |
-| **문화권** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름 |
+| **문화권** |선택 사항 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ---
 ### <a name="toupper"></a>ToUpper
@@ -249,10 +249,10 @@ SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 
 
 **매개 변수:**<br> 
 
-| 이름 | 필수/ 반복 | 형식 | 참고 |
+| 이름 | 필수/ 반복 | 형식 | 참고 사항 |
 | --- | --- | --- | --- |
-| **원본** |필요한 공간 |문자열 |대개는 원본 개체의 특성 이름입니다. |
-| **culture** |선택 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
+| **원본** |필수 |문자열 |대개는 원본 개체의 특성 이름입니다. |
+| **문화권** |선택 사항 |문자열 |RFC 4646 기반의 문화권 이름 형식은 *languagecode2-country/regioncode2*이며, 여기서 *languagecode2*는 2자 언어 코드이고 *country/regioncode2*는 2자 하위 문화권 코드입니다. 일본어(일본)의 ja-JP와 영어(미국)의 en-US를 예로 들 수 있습니다. 2자 언어 코드를 사용할 수 없는 경우 ISO 639-2에서 파생된 3자 코드가 사용됩니다.|
 
 ## <a name="examples"></a>예
 ### <a name="strip-known-domain-name"></a>알려진 도메인 이름 제거
@@ -286,9 +286,9 @@ Salesforce 샌드박스를 사용하는 경우 동기화하기 전에 모든 사
 
 **샘플 입/출력:** <br>
 
-* **입력**(givenName): "John"
-* **입력**(surname): "Doe"
-* **출력**:  "JohDoe"
+* **입력** (givenName): "John"
+* **입력** (surname): "Doe"
+* **출력**: "JohDoe"
 
 ### <a name="remove-diacritics-from-a-string"></a>문자열에서 분음 부호 제거
 악센트 기호를 포함하지 않는 해당 문자로 악센트 기호를 포함하는 문자를 바꿔야 합니다.
@@ -298,7 +298,7 @@ NormalizeDiacritics([givenName])
 
 **샘플 입/출력:** <br>
 
-* **입력**(givenName): "Zoë"
+* **입력** (givenName): "Zoë"
 * **출력**:  "Zoe"
 
 ### <a name="split-a-string-into-a-multi-valued-array"></a>문자열을 다중 값 배열로 분할
@@ -309,7 +309,7 @@ Split([extensionAttribute5], ",")
 
 **샘플 입/출력:** <br>
 
-* **INPUT** (extensionAttribute5): "PermissionSetOne, PermisionSetTwo"
+* **INPUT** (extensionAttribute5): "PermisionSetTwo"
 * **OUTPUT**:  ["PermissionSetOne", "PermissionSetTwo"]
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>특정 형식에서 문자열로 출력 날짜
@@ -322,8 +322,8 @@ SaaS 애플리케이션에 특정 형식의 날짜를 전송하려고 합니다.
 
 **샘플 입/출력:**
 
-* **입력**(extensionAttribute1): "20150123105347.1Z"
-* **출력**:  "2015-01-23"
+* **입력** (extensionAttribute1): "20150123105347.1Z"
+* **출력**: “2015-01-23”
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>미리 정의된 옵션 집합을 기반으로 값 바꾸기
 
@@ -335,7 +335,7 @@ Azure AD에 저장된 상태 코드를 기반으로 사용자의 시간대를 �
 
 **샘플 입/출력:**
 
-* **입력**(상태): "QLD"
+* **입력** (상태): "QLD"
 * **출력**: "오스트레일리아/브리즈번"
 
 ### <a name="replace-characters-using-a-regular-expression"></a>정규식을 사용하여 문자를 바꿈
@@ -357,8 +357,8 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **샘플 입/출력:**
 
-* **입력**(PreferredFirstName): "John"
-* **입력**(PreferredLastName): "Smith"
+* (PreferredFirstName) **입력**: “John”
+* (PreferredLastName) **입력**: “Smith”
 * **출력**: "john.smith@contoso.com"
 
 ### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>UPN(userPrincipalName) 특성의 고유한 값 생성
@@ -374,10 +374,10 @@ Replace([mailNickname], , "[a-zA-Z_]*", , "", , )
 
 **샘플 입/출력:**
 
-* **입력**(PreferredFirstName): "John"
-* **입력**(PreferredLastName): "Smith"
+* (PreferredFirstName) **입력**: “John”
+* (PreferredLastName) **입력**: “Smith”
 * **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 아직 없는 경우 “John.Smith@contoso.com”
-* **출력**: John.Smith@contoso.com의 UPN 값이 디렉터리에 이미 있는 경우 “J.Smith@contoso.com”
+* **출력**: J.Smith@contoso.com의 UPN 값이 디렉터리에 이미 있는 경우 “John.Smith@contoso.com”
 * **출력**: 위의 두 UPN 값이 디렉터리에 이미 있는 경우 “Jo.Smith@contoso.com”
 
 ## <a name="related-articles"></a>관련 문서

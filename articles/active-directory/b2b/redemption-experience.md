@@ -1,5 +1,5 @@
 ---
-title: B2B 협업의 초대 상환 - Azure Active Directory | Microsoft Docs
+title: B2B 공동 작업의 초대 상환-Azure AD
 description: 개인 정보 보호 조건에 대한 규약을 비롯한 최종 사용자에 대한 Azure AD B2B 협업 초대 상환 환경을 설명합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d32818f9e96e931f9e8c3c13554752327c5c456
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3e85b0ae298589c0e0e051a24e5db89eae81db62
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622622"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272129"
 ---
 # <a name="azure-active-directory-b2b-collaboration-invitation-redemption"></a>Azure Active Directory B2B 협업 초대 상환
 
@@ -38,16 +38,16 @@ ms.locfileid: "69622622"
 초대 전자 메일의 대 안으로 게스트에 앱 또는 포털에 대 한 직접 링크를 제공할 수 있습니다. 먼저 [Azure Portal](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-add-guest-users-portal) 또는 [PowerShell](https://docs.microsoft.com/azure/active-directory/b2b/b2b-quickstart-invite-powershell)을 통해 게스트 사용자를 디렉터리에 추가 해야 합니다. 그런 다음 [사용자 지정 가능한 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/end-user-experiences)중 하나를 사용 하 여 직접 로그온 링크를 비롯 한 응용 프로그램을 사용자에 게 배포할 수 있습니다. 게스트가 초대 전자 메일 대신 직접 링크를 사용 하는 경우 처음에는 첫 번째 시간 승인 환경에 따라 진행 됩니다.
 
 > [!IMPORTANT]
-> 직접 링크는 테 넌 트와 관련 되어야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 합니다. 그러면 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. 와 같은 https://myapps.microsoft.com 공통 URL은 인증을 위해 해당 홈 테 넌 트로 리디렉션되도록 게스트에서 작동 하지 않습니다. 다음은 테 넌 트 컨텍스트가 포함 된 직접 링크의 몇 가지 예입니다.
+> 직접 링크는 테 넌 트와 관련 되어야 합니다. 즉, 테 넌 트 ID 또는 확인 된 도메인을 포함 해야 합니다. 그러면 공유 앱이 있는 테 넌 트에서 게스트를 인증할 수 있습니다. https://myapps.microsoft.com와 같은 공통 URL은 인증을 위해 해당 홈 테 넌 트로 리디렉션하는 게스트에 대해 작동 하지 않습니다. 다음은 테 넌 트 컨텍스트가 포함 된 직접 링크의 몇 가지 예입니다.
  > - 앱 액세스 패널: https://myapps.microsoft.com/?tenantid=&lt, 테 넌 트 id&gt; 
- > - 확인 된 도메인의 앱 액세스 패널: https://myapps.microsoft.com/&lt; 확인 된 도메인&gt;
+ > - 확인 된 도메인에 대 한 앱 액세스 패널: https://myapps.microsoft.com/&lt; 확인 된 도메인&gt;
  > - Azure Portal: https://portal.azure.com/&lt, 테 넌 트 id&gt;
  > - 개별 앱: [직접 로그온 링크](../manage-apps/end-user-experiences.md#direct-sign-on-links) 를 사용 하는 방법을 참조 하세요.
 
 직접 링크를 통해 초대 전자 메일을 권장 하는 경우도 있습니다. 이러한 특수 사례가 조직에 중요 한 경우 초대 전자 메일을 계속 보내는 방법을 사용 하 여 사용자를 초대 하는 것이 좋습니다.
  - 사용자에 게 페더레이션 조직의 Azure AD 계정, MSA 또는 전자 메일 계정이 없습니다. 일회용 암호 기능을 사용 하지 않는 한 게스트는 MSA를 만드는 단계를 안내 하는 초대 전자 메일을 사용 해야 합니다.
  - 경우에 따라 연락처 개체(예: Outlook 연락처 개체)와 충돌이 발생하기 때문에 초대된 사용자 개체에는 이메일 주소가 없을 수 있습니다. 이 경우에 사용자는 초대 이메일에서 상환 URL을 클릭해야 합니다.
- - 사용자는 초대된 이메일 주소의 별칭으로 로그인할 수 있습니다. (별칭은 이메일 계정과 연결된 추가 이메일 주소입니다.) 이 경우에 사용자는 초대 이메일에서 상환 URL을 클릭해야 합니다.
+ - 사용자는 초대된 이메일 주소의 별칭으로 로그인할 수 있습니다. 별칭은 전자 메일 계정과 연결 된 추가 전자 메일 주소입니다. 이 경우 사용자는 초대 전자 메일에서 상환 URL을 클릭 해야 합니다.
 
 ## <a name="consent-experience-for-the-guest"></a>게스트에 대 한 동의 환경
 
@@ -65,7 +65,7 @@ ms.locfileid: "69622622"
    ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/terms-of-use-accept.png) 
 
    > [!NOTE]
-   > 조직 관계 **관리사용** > [약관](../governance/active-directory-tou.md)에서 **사용** > **약관**보기를 구성할 수 있습니다.
+   > 조직 관계 [관리사용](../governance/active-directory-tou.md)약관 > 에서 **사용** > **약관**보기를 구성할 수 있습니다.
 
 3. 달리 지정 하지 않는 한 게스트는 게스트가 액세스할 수 있는 응용 프로그램을 나열 하는 앱 액세스 패널로 리디렉션됩니다.
 
@@ -76,7 +76,7 @@ ms.locfileid: "69622622"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure AD B2B 협업이란?](what-is-b2b.md)
-- [Azure Portal에서 Azure Active Directory B2B Collaboration 사용자 추가](add-users-administrator.md)
+- [Azure Active Directory B2B 협업 사용자를 Azure Portal에 추가](add-users-administrator.md)
 - [정보 근로자가 Azure Active Directory에 B2B 협업 사용자를 추가하는 방법](add-users-information-worker.md)
 - [PowerShell을 사용하여 Azure Active Directory B2B 협업 사용자 추가](customize-invitation-api.md#powershell)
 - [게스트 사용자로써 조직 나가기](leave-the-organization.md)

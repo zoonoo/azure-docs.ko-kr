@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: ae49a84dba01047d85ea0dbb854d1a7a59318567
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 1fbd69a095e171ec2fb386bed34b196f723e7496
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647651"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278926"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -109,7 +109,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
     ![작업 영역 데이터 보존 설정 변경](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-`retentionInDays` 매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하는 경우 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
+`retentionInDays` 매개 변수를 사용 하 여 [Azure Resource Manager를 통해](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하면 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 기능은 Azure Resource Manager 통해서만 노출 됩니다. 
 
 `Usage` 및 `AzureActivity`의 두 데이터 형식은 기본적으로 90 일 동안 유지 되며, 90 일 보존에 대해 요금이 청구 되지 않습니다. 이러한 데이터 형식은 데이터 수집 요금에도 무료로 제공 됩니다. 
 
@@ -300,7 +300,7 @@ union withsource = tt *
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독에의 한 데이터 볼륨
 
-Azure에서 호스트 **되는 노드의** 데이터의 __경우, 수집에서 리소스__에 대 한 전체 경로를 제공 하는 _resourceid [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
+Azure에서 호스트 되는 노드의 데이터의 __경우 수집에__대 한 청구 가능 이벤트의 **크기** 를 가져올 수 있습니다 .이 속성은 리소스의 전체 경로를 제공 하는 _ResourceId [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
@@ -353,7 +353,7 @@ union withsource = tt *
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
-| syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
+| Syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
 

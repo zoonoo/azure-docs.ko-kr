@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9d134e522575f30fd1f1be8176e0e1589faa7ac
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a45caeed8b601a845b0eb0fbcd25f1ec097a77a1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73587629"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279031"
 ---
 # <a name="view-and-search-your-recent-sign-in-activity-from-the-my-sign-ins-preview-page"></a>내 로그인 (미리 보기) 페이지에서 최근 로그인 활동 보기 및 검색
 
@@ -49,7 +49,7 @@ ms.locfileid: "73587629"
 
 ### <a name="if-you-see-an-unsuccessful-sign-in"></a>실패 한 로그인이 표시 되는 경우
 
-세션 활동이 없는 로그인 실패는 기본 인증 방법 (사용자 이름/암호)이 실패 했음을 의미 합니다. 이는 사용자 이름 또는 암호를 잘못 입력 하는 것을 의미할 수도 있지만 공격자가 암호를 추측 하려고 시도 했을 수도 있습니다. 공격자가 암호를 추측 하지 못한 것으로 생각 되는 경우 암호를 변경할 필요가 없지만 Azure Multi-Factor Authentication (MFA)에 등록 하는 것이 좋습니다. MFA를 사용 하는 경우 해커가 암호를 추측 하더라도 계정에 액세스 하는 데 충분 하지 않습니다.
+세션 작업 없이 실패 한 로그인은 기본 확인 방법 (사용자 이름/암호)이 실패 했음을 의미 합니다. 이는 사용자 이름 또는 암호를 잘못 입력 하는 것을 의미할 수도 있지만 공격자가 암호를 추측 하려고 시도 했을 수도 있습니다. 공격자가 암호를 추측 하지 못한 것으로 생각 되는 경우 암호를 변경할 필요가 없지만 Azure Multi-Factor Authentication (MFA)에 등록 하는 것이 좋습니다. MFA를 사용 하는 경우 해커가 암호를 추측 하더라도 계정에 액세스 하는 데 충분 하지 않습니다.
 
 성공 하지 못한 로그인이 표시 되는 경우 **추가 확인에 실패 했습니다**. 라는 메시지가 표시 되 고, 잘못 된 코드는 기본 인증 (사용자 이름/암호)이 성공 했지만 MFA에 실패 했음을 의미 합니다. 공격자 인 경우 암호를 정확 하 게 추측 했지만 여전히 MFA 챌린지를 전달할 수 없습니다. 이 경우 공격자가 권한을가지고 있으므로 보안 [정보](https://mysignins.microsoft.com/security-info) 페이지로 이동 하 여 보안 설정을 업데이트 하기 때문에 여전히 암호를 변경 하는 것이 좋습니다.
 

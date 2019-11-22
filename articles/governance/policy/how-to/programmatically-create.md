@@ -3,18 +3,18 @@ title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서는 Azure Policy에 대해 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다.
 ms.date: 01/31/2019
 ms.topic: conceptual
-ms.openlocfilehash: 581f7e5cc2fa20f1ff284e32351e495349fdfad2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bc97eac8f66a3c289bb22bfac8617177d60b4583
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959430"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267231"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
 이 문서는 프로그래밍 방식으로 정책을 만들고 관리하는 방법을 설명합니다. Azure Policy 정의는 리소스에 대해 다양 한 규칙과 효과를 적용 합니다. 적용은 리소스가 회사 표준 및 서비스 수준 계약을 준수하는지 확인합니다.
 
-규정 준수에 대한 내용은 [준수 데이터 가져오기](getting-compliance-data.md)를 참조하세요.
+규정 준수에 대한 내용은 [준수 데이터 가져오기](get-compliance-data.md)를 참조하세요.
 
 ## <a name="prerequisites"></a>선행 조건
 

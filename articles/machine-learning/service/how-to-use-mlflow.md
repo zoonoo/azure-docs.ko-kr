@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 946350af0c1a4e8140fbf7f926061aae250e9969
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b6efdc75c15e9686728236f82fea8794f3782bf
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716475"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276634"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "73716475"
 |모델 성능 모니터링||✓|  |   |
 | 데이터 드리프트 검색 |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * [MLflow를 설치 합니다.](https://mlflow.org/docs/latest/quickstart.html)
 * 로컬 컴퓨터에 [AZURE MACHINE LEARNING sdk를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 합니다. Sdk는 mlflow에 대 한 연결을 제공 하 여 작업 영역에 액세스 합니다.
@@ -269,7 +269,7 @@ model_save_path = 'model'
 
 `mlflow.azureml.build_image()` 함수는 저장 된 모델에서 프레임 워크를 인식 하는 방식으로 Docker 이미지를 작성 합니다. 자동으로 프레임 워크 별 추론 래퍼 코드를 만들고 패키지 종속성을 지정 합니다. 모델 경로, 작업 영역, 실행 ID 및 기타 매개 변수를 지정 합니다.
 
-다음 코드는 Scikit를 사용 하 < 여 model_uri *>/tmodel* 을 사용 하 여 docker 이미지를 작성 합니다.
+다음 코드에서는 Scikit 실험에 대 한 model_uri 경로로 *run:/< run. id >/tmodel* 을 사용 하 여 docker 이미지를 작성 합니다.
 
 ```python
 import mlflow.azureml
@@ -303,7 +303,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
 
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
@@ -359,7 +359,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 service_name ='aks-service'
 ```
 
-그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
 
 ```python
 # Webservice creation using single command
@@ -389,7 +389,7 @@ aks_service.wait_for_deployment(show_output=True)
 1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
 
 
-## <a name="example-notebooks"></a>노트북 예제
+## <a name="example-notebooks"></a>예제 Notebook
 
 [AZURE ML 노트북을 사용 하는 Mlflow](https://aka.ms/azureml-mlflow-examples) 는이 문서에 제시 된 개념을 시연 하 고 확장 합니다.
 

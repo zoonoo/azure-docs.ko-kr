@@ -1,5 +1,5 @@
 ---
-title: 모델 학습의 컴퓨팅 대상 만들기 및 사
+title: 모델 학습에 계산 대상 사용
 titleSuffix: Azure Machine Learning
 description: 기계 학습 모델 학습의 학습 환경(컴퓨팅 대상)을 구성합니다. 학습 환경을 쉽게 전환할 수 있습니다. 로컬로 학습을 시작합니다. 규모 확장이 필요한 경우 클라우드 기반 컴퓨팅 대상으로 전환합니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3237272c7bdab5a798e84117147254a3471f5c6d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489561"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305320"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure Machine Learning SDK, Azure Machine Learning studio, Azure CLI 또는 Azur
 
 
 >[!NOTE]
-> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.39에서 테스트되었습니다.
+> 이 문서의 코드는 Azure Machine Learning SDK 버전 1.0.74를 사용 하 여 테스트 되었습니다.
 
 ## <a name="compute-targets-for-training"></a>학습용 컴퓨팅 대상
 
@@ -105,9 +105,6 @@ Azure Machine Learning 컴퓨팅에는 할당할 수 있는 코어 수와 같은
 #### <a name="run-based-creation"></a>실행 기반 만들기
 
 Azure Machine Learning 컴퓨팅을 런타임에 컴퓨팅 대상으로 만들 수 있습니다. 실행에 대해 컴퓨팅이 자동으로 만들어집니다. 실행이 완료되면 컴퓨팅이 자동으로 삭제됩니다. 
-
-> [!NOTE]
-> 사용할 최대 노드 수를 지정 하려면 일반적으로 `node_count`을 노드 수로 설정 합니다. 현재이 작업을 수행 하지 못하게 하는 버그가 있습니다 (04/04/2019). 이 문제를 해결 하려면 실행 구성의 `amlcompute._cluster_max_node_count` 속성을 사용 합니다. 예: `run_config.amlcompute._cluster_max_node_count = 5`
 
 > [!IMPORTANT]
 > Azure Machine Learning 컴퓨팅의 실행 기반 만들기는 현재 미리 보기로 제공됩니다. 하이퍼 매개 변수 튜닝 또는 자동화된 Machine Learning을 사용 중인 경우에는 실행 기반 만들기를 사용하지 마세요. 하이퍼 매개 변수 튜닝 또는 자동화된 기계 학습을 사용하려면 [영구적 컴퓨팅](#persistent) 대상을 대신 만듭니다.
@@ -394,7 +391,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 
 `ScriptRunConfig` 개체와 함께 실험을 제출합니다.  이 개체는 다음을 포함합니다.
 
-* **source_directory**: 학습 스크립트를 포함 하는 원본 디렉터리입니다.
+* **source_directory**: 학습 스크립트를 포함 하는 원본 디렉터리
 * **스크립트**: 학습 스크립트를 식별 합니다.
 * **run_config**: 실행 구성으로, 학습의 발생 위치를 정의 합니다.
 
@@ -433,7 +430,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 az ml folder attach
 ```
 
-이 명령은 다른 계산 대상의 템플릿 실행 구성 파일을 포함 하는 하위 폴더 `.azureml`을 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
+이 명령은 다양 한 계산 대상에 대 한 템플릿 실행 구성 파일을 포함 하는 하위 폴더 `.azureml`를 만듭니다. 이러한 파일을 복사 및 편집 하 여 Python 패키지를 추가 하거나 Docker 설정을 변경 하는 등의 방법으로 구성을 사용자 지정할 수 있습니다.  
 
 ### <a name="structure-of-run-configuration-file"></a>실행 구성 파일의 구조
 

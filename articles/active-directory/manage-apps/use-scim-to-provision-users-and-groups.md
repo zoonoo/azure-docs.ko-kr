@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory로 SCIM 사용자 프로 비전 Microsoft Docs
+title: Azure AD에서 SCIM을 사용 하 여 앱 프로 비전 자동화
 description: SCIM 끝점을 빌드하고, Azure Active Directory SCIM API를 통합 하 고, 사용자 및 그룹을 응용 프로그램에 프로 비전 하는 자동화를 시작 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8bb9b507763c935ab244c42584120a279063954
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1d4694dfa92d282e1dc098a510ac82dd9c703c1e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195462"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276479"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory-azure-ad"></a>Azure Active Directory로 SCIM 사용자 프로 비전 (Azure AD)
 

@@ -1,6 +1,6 @@
 ---
 title: Microsoft Authenticator 앱에 대 한 질문 & 답변-Azure AD
-description: Microsoft 인증 앱 및 인증과 관련 된 질문과 대답 목록을 제공 합니다.
+description: Microsoft 인증 앱 및 2 단계 인증에 대 한 Faq (질문과 대답)입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,14 +13,14 @@ ms.date: 01/31/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcd8140acaff693f5b73fe9654968a5ae7cd4c4a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5ba475ecae09dadf31441827a2db846286b74ad2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029818"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266973"
 ---
-# <a name="frequently-asked-questions-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 질문과 대답
+# <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 Faq (질문과 대답)
 
 이 문서에서는 Microsoft Authenticator 앱에 대한 일반적인 질문에 대답합니다. 질문에 대한 답변을 찾을 수 없는 경우 [Microsoft Authenticator 앱 포럼](https://social.technet.microsoft.com/Forums/en-US/home?forum=MicrosoftAuthenticatorApp)으로 이동하세요.
 

@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: e92471bd467557f3ac8eb0404d672355ccab8449
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597101"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267899"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 
@@ -42,7 +42,7 @@ Spark에서 데이터 흐름을 실행 하는 경우 Azure Data Factory은 전�
 
 * 개별 변환을 선택 하면 오른쪽 패널에서 파티션 통계, 열 개수, 왜곡도 (파티션에 데이터를 균등 하 게 분산 하는 방법) 및 첨도 (급증 데이터)를 표시 하는 추가 피드백을 받게 됩니다.
 
-* 노드 보기에서 싱크를 클릭하면 열 계보가 표시됩니다. 데이터 흐름 전체의 열이 누적되어 싱크에 배치되는 세 가지 방법이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
+* 노드 보기에서 싱크를 클릭하면 열 계보가 표시됩니다. 데이터 흐름 전체의 열이 누적되어 싱크에 배치되는 세 가지 방법이 있습니다. 구현되지 않은 것은 다음과 같습니다.
 
   * 계산 됨: 데이터 흐름에서 조건부 처리 나 식 내에서 열을 사용 하지만 싱크에 배치 하지 않습니다.
   * 파생: 열이 흐름에서 생성 된 새 열 (즉, 원본에 없음)입니다.
@@ -51,7 +51,7 @@ Spark에서 데이터 흐름을 실행 하는 경우 Azure Data Factory은 전�
   * 클러스터 시작 시간: 데이터 흐름 실행을 위한 JIT Spark 계산 환경을 확보 하는 데 걸리는 시간입니다.
   * 변환 수: 흐름에서 실행 중인 변환 단계 수
   
-![Acit 데이터 흐름 모니터링](media/data-flow/monitornew.png "데이터 흐름 모니터링 새로 만들기")  
+![데이터 흐름 모니터링](media/data-flow/monitornew.png "데이터 흐름 모니터링 새로 만들기")  
   
 ## <a name="monitor-icons"></a>모니터 아이콘
 

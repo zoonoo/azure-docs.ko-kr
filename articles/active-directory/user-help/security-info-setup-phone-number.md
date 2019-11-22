@@ -1,6 +1,6 @@
 ---
-title: Set up your phone number as your authentication method - Azure AD
-description: How to set up the Security info page to verify your identity using your phone number and mobile device as your authentication method.
+title: 전화 번호를 확인 방법으로 설정-Azure AD
+description: 확인 방법으로 전화 번호와 모바일 장치를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -12,16 +12,16 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 74a0c0d374e9a3bc58a62ba72a0c934ed0c6eff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6bb7d811b1d622fb14935b4d5ddf0cb60e44daa8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233147"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278976"
 ---
-# <a name="set-up-your-phone-number-as-your-authentication-method-from-the-security-info-preview-page"></a>Set up your phone number as your authentication method from the Security info (preview) page
+# <a name="set-up-a-phone-number-as-your-verification-method"></a>전화 번호를 확인 방법으로 설정 합니다.
 
-다음 단계에 따라 2단계 인증 및 암호 재설정 메서드를 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
+이 단계를 수행하여 2단계 확인 및 암호 재설정 방법을 추가할 수 있습니다. 이 정보를 처음 설정한 후 **보안 정보** 페이지로 돌아가서 보안 정보를 추가, 업데이트 또는 삭제할 수 있습니다.
 
 회사 또는 학교 계정에 로그인한 직후에 이 정보를 설정하라는 메시지가 표시되는 경우 [로그인 페이지 프롬프트에서 보안 정보 설정](security-info-setup-signin.md) 문서의 자세한 단계를 참조하세요.
 
@@ -30,7 +30,7 @@ ms.locfileid: "74233147"
 > [!Note]
 > 보안 정보는 내선 번호 사용을 지원하지 않습니다. 올바른 형식인 +1 4255551234X12345를 추가하더라도, 통화가 되기 전에 내선 번호가 제거됩니다.
 >
-> 전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 메서드를 선택하거나 관리자에게 도움을 요청해야 합니다.
+> 전화 옵션이 보이지 않는 경우 전화 번호를 확인에 사용하는 것을 조직에서 허용하지 않기 때문일 수 있습니다. 이 경우 다른 방법을 선택하거나 관리자에게 문의하여 추가 도움을 받아야 합니다.
 
 ## <a name="set-up-phone-calls-from-the-security-info-page"></a>보안 정보 페이지에서 전화 통화 설정
 
@@ -47,7 +47,7 @@ ms.locfileid: "74233147"
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **전화**를 선택한 다음, **추가**를 선택합니다.
 
@@ -59,20 +59,20 @@ ms.locfileid: "74233147"
 
 5. 입력한 전화 번호로 수신되는 확인 전화 통화에 응답하고 지침을 따릅니다.
 
-    완료되면 페이지가 변경됩니다.
+    페이지가 변경되어 성공을 표시합니다.
 
     ![성공 알림, 전화 번호 연결, 전화 통화 수신 선택 및 계정](media/security-info/securityinfo-myprofile-phonetext-success.png)
 
-    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 인증 방식 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
+    보안 정보가 업데이트되며, 2단계 확인 또는 암호 재설정을 사용할 때 전화 통화를 사용하여 본인 여부를 확인할 수 있습니다. 전화 통화를 기본 방법으로 설정하려는 경우 이 문서의 [기본 보안 정보 방법 변경](#change-your-default-security-info-method) 섹션을 참조하세요.
 
-## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 옵션 해제
+## <a name="delete-phone-calls-from-your-security-info-methods"></a>보안 정보 방법에서 전화 통화 삭제
 
 더 이상 전화 통화를 보안 정보 방법으로 사용하지 않으려는 경우 **보안 정보** 페이지에서 제거할 수 있습니다.
 
 >[!Important]
->실수로 전화 통화 옵션을 해제하는 경우, 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
+>실수로 전화 통화를 삭제하면 실행 취소할 수 없습니다. 이 문서의 [전화 통화 설정](#set-up-phone-calls-from-the-security-info-page) 섹션에 있는 단계에 따라 방법을 다시 추가해야 합니다.
 
-### <a name="to-delete-phone-calls"></a>전화 통화 옵션을 해제하려면 다음을 수행합니다.
+### <a name="to-delete-phone-calls"></a>전화 통화를 삭제하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **전화** 옵션 옆에 있는 **삭제** 링크를 선택합니다.
 
@@ -80,23 +80,23 @@ ms.locfileid: "74233147"
 
 2. 확인 상자에서 **예**를 선택하여 **전화** 번호를 삭제합니다. 전화 번호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다. **전화**가 기본 방법인 경우 기본값이 사용 가능한 다른 방법으로 바뀝니다.
 
-## <a name="change-your-default-security-info-method"></a>기본 보안 인증 방식 변경
+## <a name="change-your-default-security-info-method"></a>기본 보안 정보 방법 변경
 
 2단계 확인을 사용하거나 암호 재설정 요청을 위해 회사 또는 학교 계정에 로그인할 때 사용되는 기본 방법으로 전화 통화를 설정하려는 경우 **보안 정보** 페이지에서 설정할 수 있습니다.
 
-### <a name="to-change-your-default-security-info-method"></a>기본 보안 인증 방식을 변경하려면 다음을 수행합니다.
+### <a name="to-change-your-default-security-info-method"></a>기본 보안 정보 방법을 변경하려면 다음을 수행합니다.
 
 1. **보안 정보** 페이지에서 **기본 로그인 방법** 정보 옆에 있는 **변경** 링크를 선택합니다.
 
-    ![기본 로그인 메서드에 대한 링크 변경](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
+    ![기본 로그인 방법의 변경 링크](media/security-info/securityinfo-myprofile-phonetext-defaultchange.png)
 
 2. 사용 가능한 방법의 드롭다운 목록에서 **전화 통화( *_your_phone_number_* )** 를 선택한 다음, **확인**을 선택합니다.
 
-    ![기본 로그인 메서드 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
+    ![기본 로그인 방법 선택](media/security-info/securityinfo-myprofile-phonecall-changeddefault.png)
 
     로그인에 사용되는 기본 방법이 **전화 통화( *_your_phone_number_* )** 로 바뀝니다.
 
-## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
+## <a name="additional-security-info-methods"></a>추가 보안 정보 방법
 
 수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
 
@@ -104,7 +104,7 @@ ms.locfileid: "74233147"
 
 - **모바일 디바이스 텍스트.** 모바일 디바이스 번호를 입력하면 2단계 인증 또는 암호 재설정에 사용할 코드가 포함된 문자를 받습니다. 문자 메시지(SMS)를 사용하여 본인 여부를 확인하는 방법에 대한 단계별 지침은 [문자 메시지(SMS)를 사용하도록 보안 정보 설정](security-info-setup-text-msg.md)을 참조하세요.
 
-- **Security key.** Register your Microsoft-compatible security key and use it along with a PIN for two-step verification or password reset. For step-by-step instructions about how to verify your identity with a security key, see [Set up security info to use a security key](security-info-setup-security-key.md).
+- **보안 키입니다.** Microsoft 호환 보안 키를 등록 하 고 2 단계 인증 또는 암호 재설정을 위해 PIN과 함께 사용 합니다. 보안 키를 사용 하 여 id를 확인 하는 방법에 대 한 단계별 지침은 보안 [키를 사용 하도록 보안 정보 설정](security-info-setup-security-key.md)을 참조 하세요.
 
 - **이메일 주소.** 회사 또는 학교 이메일 주소를 입력하여 암호 재설정을 위한 이메일을 받습니다. 이 옵션은 2단계 인증에 사용할 수 없습니다. 이메일을 설정하는 방법에 대한 단계별 지침은 [이메일을 사용하도록 보안 정보 설정](security-info-setup-email.md)을 참조하세요.
 

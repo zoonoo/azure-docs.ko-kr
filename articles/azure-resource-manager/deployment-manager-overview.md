@@ -2,14 +2,14 @@
 title: 지역 간 안전 배포-Azure 배포 관리자
 description: Azure 배포 관리자를 사용하여 여러 지역에 서비스를 배포하는 방법을 설명합니다. 모든 지역에 롤아웃하기 전에 배포의 안정성을 확인하는 안전한 배포 사례를 보여 줍니다.
 ms.topic: conceptual
-ms.date: 05/31/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0a0d13150086b393e10bc16c5c2cef173ab0abab
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9b0e314b3911dcd3b96dc2b5b32081bd2e9c0c0c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147198"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307033"
 ---
 # <a name="enable-safe-deployment-practices-with-azure-deployment-manager-public-preview"></a>Azure 배포 관리자을 사용 하 여 안전한 배포 방법 사용 (공개 미리 보기)
 
@@ -338,3 +338,5 @@ Azure 리소스를 배포하려면 템플릿용 매개 변수 파일에서 `$con
 
 > [!div class="nextstepaction"]
 > [자습서: Azure 배포 관리자에서 Resource Manager 템플릿 사용](./deployment-manager-tutorial.md)
+>
+> [빠른 시작: 몇 분만에 Azure 배포 관리자 사용해 보기](https://github.com/Azure-Samples/adm-quickstart)

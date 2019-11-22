@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 10/07/2019
-ms.openlocfilehash: 8070abad675acc69f5b1da232b60179078adbc57
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 11/21/2019
+ms.openlocfilehash: 33ba07ac8d89546856666cc7ab94fae650020001
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932235"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74306535"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터 수집
 
@@ -40,7 +40,7 @@ System Center Operations Manager 2012 R2 이상을 사용 하는 경우:
 * 관리 그룹에 보고 하는 Linux 컴퓨터는 Log Analytics 작업 영역에 직접 보고 하도록 구성 되어야 합니다. Linux 컴퓨터가 이미 작업 영역에 직접 보고 하 고 Operations Manager를 사용 하 여 모니터링 하려는 경우 다음 단계에 따라 [Operations Manager 관리 그룹에 보고](agent-manage.md#configure-agent-to-report-to-an-operations-manager-management-group)합니다.
 * Windows 컴퓨터에 Log Analytics Windows 에이전트를 설치 하 고 작업 영역과 함께 통합 된 Operations Manager와 다른 작업 영역에 보고 하도록 할 수 있습니다.
 
-Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하기 위한 것이 아니라 Hybrid Runbook worker 역할을 호스트 하는 Azure Automation 지원 하 고 [변경 내용 추적](../../automation/change-tracking.md), [업데이트 관리](../../automation/automation-update-management.md)및와 같은 기타 서비스도 지원 [Azure Security Center ](../../security-center/security-center-intro.md). Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
+Linux 및 Windows 용 에이전트는 Azure Monitor에 연결 하는 경우에만 사용할 수 있으며, [변경 내용 추적](../../automation/change-tracking.md), [업데이트 관리](../../automation/automation-update-management.md), [Azure Security Center](../../security-center/security-center-intro.md)와 같은 Hybrid Runbook worker 역할 및 기타 서비스를 호스트 하는 Azure Automation도 지원 합니다. Hybrid Runbook Worker 역할에 대한 자세한 내용은 [Azure Automation Hybrid Runbook Worker](../../automation/automation-hybrid-runbook-worker.md)를 참조하세요.  
 
 ## <a name="supported-windows-operating-systems"></a>지원되는 Windows 운영 체제
 
@@ -106,14 +106,13 @@ Azure Monitor 로그로 전송 중인 데이터의 보안을 보장 하려면 TL
 
 |에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|*.oms.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|\*.blob.core.windows.net |포트 443 |아웃바운드|yes |  
-|*.azure-automation.net |포트 443 |아웃바운드|yes |  
+|*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
 
 Azure Government에 필요한 방화벽 정보는 [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조 하세요. 
 
-Azure Automation Hybrid Runbook Worker를 사용하여 사용자 환경에서 Runbook을 사용하기 위해 Automation 서비스에 연결하고 등록하려면 [Hybrid Runbook Worker에 대한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명된 URL 및 포트 번호에 대한 액세스 권한이 있어야 합니다. 
+Azure Automation Hybrid Runbook Worker를 사용 하 여 사용자 환경에서 runbook 또는 관리 솔루션을 사용 하기 위해 자동화 서비스에 연결 하 고 등록 하려는 경우에 [는 Hybrid Runbook Worker에 대 한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명 된 포트 번호 및 url에 대 한 액세스 권한이 있어야 합니다. 
 
 Windows 및 Linux 에이전트는 HTTPS 프로토콜을 사용 하 여 Azure Monitor에 대 한 프록시 서버 또는 Log Analytics 게이트웨이를 통해 통신 하는 것을 지원 합니다.  익명 및 기본 인증(사용자 이름/암호)이 둘 다 지원됩니다.  서비스에 직접 연결된 Windows 에이전트의 경우, 프록시 구성은 설치 중이나 제어판 또는 PowerShell을 사용하여 [배포 후](agent-manage.md#update-proxy-settings)에 지정됩니다.  
 
@@ -124,11 +123,11 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 > [!NOTE]
 > 프록시 서버에 인증할 필요가 없는 경우에도 Linux 에이전트는 의사 사용자/암호를 제공해야 합니다. 이는 사용자 이름 또는 암호일 수 있습니다.
 
-|자산| 설명 |
+|속성| 설명 |
 |--------|-------------|
 |프로토콜 | https |
 |사용자 | 프록시 인증을 위한 선택적 사용자 이름 |
-|암호 | 프록시 인증을 위한 선택적 암호 |
+|password | 프록시 인증을 위한 선택적 암호 |
 |proxyhost | 프록시 서버/Log Analytics 게이트웨이의 주소 또는 FQDN |
 |포트 | 프록시 서버/Log Analytics 게이트웨이 대한 선택적 포트 번호 |
 
@@ -141,7 +140,7 @@ Linux 에이전트의 경우, 설치 중에 또는 [설치 후에](agent-manage.
 
 사용자의 요구 사항에 따라 다른 방법을 사용 하 여 Azure 구독 또는 하이브리드 환경의 컴퓨터를 Azure Monitor 로그에 직접 연결할 수 있습니다. 다음 표는 조직에서 어떤 방법이 가장 적합한지 결정하기 위해 각 방법을 설명합니다.
 
-|원본 | 방법 | 설명|
+|원본 | 메서드 | 설명|
 |-------|-------------|-------------|
 |Azure VM| - Azure CLI 또는 Azure Resource Manager 템플릿을 사용한 [Windows](../../virtual-machines/extensions/oms-windows.md) 또는 [Linux](../../virtual-machines/extensions/oms-linux.md)용 Log Analytics VM 확장<br>[Azure Portal에서 수동으로](../../azure-monitor/learn/quick-collect-azurevm.md?toc=/azure/azure-monitor/toc.json) - <br>[자동 프로 비전 - Azure Security Center](../../security-center/security-center-enable-data-collection.md)| -확장은 Azure 가상 컴퓨터에 Log Analytics 에이전트를 설치 하 고 기존 Azure Monitor 작업 영역에 등록 합니다.<br>-Azure Security Center은 지원 되는 모든 Azure Vm 및 새로 생성 된 Vm에 대 한 Log Analytics 에이전트를 프로 비전 할 수 있습니다 .이 에이전트를 사용 하 여 보안 취약성 및 위협을 모니터링할 수 있습니다. 사용 하도록 설정 하면 설치 된 에이전트가 없는 기존 또는 새 VM이 프로 비전 됩니다.|
 | 하이브리드 Windows 컴퓨터|- [수동 설치](agent-windows.md)<br>- [Azure Automation DSC](agent-windows.md#install-the-agent-using-dsc-in-azure-automation)<br>- [Azure Stack을 사용한 Resource Manager 템플릿](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/MicrosoftMonitoringAgent-ext-win) |Azure Automation DSC, [System Center Configuration Manager](https://docs.microsoft.com/sccm/apps/deploy-use/deploy-applications) 또는 Azure Resource Manager 템플릿(데이터 센터에 Microsoft Azure Stack을 배포한 경우)과 같은 자동화된 방법을 사용하거나 명령줄에서 Microsoft Monitoring Agent를 설치합니다.| 

@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 프록시를 사용 하는 온-프레미스 앱에 대 한 SAML Single Sign-On | Microsoft Docs
+title: Azure AD 앱 프록시를 사용 하는 온-프레미스 앱에 대 한 SAML Single Sign-On
 description: SAML 인증으로 보호 되는 온-프레미스 응용 프로그램에 대 한 Single Sign-On를 제공 하는 방법을 알아봅니다. 응용 프로그램 프록시를 사용 하 여 온-프레미스 앱에 대 한 원격 액세스를 제공 합니다.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d004d1183c9f5c1aec2dae7ab2d638528f164cd9
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 59e4e527f25a32c8a5274db5eab5d33a7843bc3c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062509"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275577"
 ---
 # <a name="saml-single-sign-on-for-on-premises-applications-with-application-proxy"></a>응용 프로그램 프록시를 사용 하는 온-프레미스 응용 프로그램에 대 한 SAML Single Sign-On
 

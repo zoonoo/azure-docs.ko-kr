@@ -1,5 +1,5 @@
 ---
-title: 홈 영역 검색 정책을 사용 하 여 로그인 자동 가속화 구성 | Microsoft Docs
+title: 홈 영역 검색을 사용 하 여 로그인 자동 가속 구성
 description: 자동 가속 및 도메인 힌트를 포함 하 여 페더레이션 사용자에 대 한 Azure Active Directory 인증에 대 한 홈 영역 검색 정책을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f8f51fcd69a7115879aad97bbf696833e87877b
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 174cdc31d7e5f29716febc7f68bbb410f33926c6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477218"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274636"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -65,9 +65,9 @@ HRD(홈 영역 검색)는 Azure AD(Azure Active Directory)에서 로그인 시 �
 
 **WS-Federation**: 쿼리 문자열의 whr=contoso.com
 
-**SAML**:  도메인 힌트가 포함된 SAML 인증 요청 또는 whr=contoso.com 쿼리 문자열
+**SAML**: 도메인 힌트가 포함된 SAML 인증 요청 또는 쿼리 문자열 whr=contoso.com
 
-**Open ID Connect**: domain_hint=contoso.com 쿼리 문자열 
+**Open ID Connect**: 쿼리 문자열 domain_hint=contoso.com 
 
 도메인 힌트가 애플리케이션의 인증 요청에 포함되고 테넌트가 해당 도메인과 페더레이션되면 Azure AD는 해당 도메인에 대해 구성된 IdP로 로그인을 리디렉션하려고 합니다. 
 
@@ -152,7 +152,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 - 정책이 구성된 애플리케이션 나열
 
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>선행 조건
 다음 예제에서는 Azure AD에서 애플리케이션 서비스 주체에 대해 정책을 생성, 업데이트, 연결 및 삭제합니다.
 
 1.  시작하려면 최신 Azure AD PowerShell cmdlet 미리 보기를 다운로드합니다. 
@@ -217,7 +217,7 @@ PowerShell을 사용 하 고 있기 때문에 다음 cmdlet을 사용 하 여 �
 Get-AzureADServicePrincipal
 ```
 
-#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에 정책 할당  
+#### <a name="step-3-assign-the-policy-to-your-service-principal"></a>3단계: 서비스 주체에게 정책 할당  
 자동 가속을 구성하려는 애플리케이션의 서비스 주체 **ObjectID**를 찾은 후 다음 명령을 실행합니다. 이 명령은 1단계에서 만든 HRD 정책을 2단계에서 찾은 서비스 주체에 연결합니다.
 
 ``` powershell
@@ -239,7 +239,7 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 
 ### <a name="example-list-the-applications-for-which-hrd-policy-is-configured"></a>예제: HRD 정책이 구성된 애플리케이션 나열
 
-#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 만든 모든 정책 나열 
+#### <a name="step-1-list-all-policies-that-were-created-in-your-organization"></a>1단계: 조직에서 생성된 모든 정책 나열 
 
 ``` powershell
 Get-AzureADPolicy
@@ -270,5 +270,5 @@ Get-AzureADPolicyAppliedObject -id <ObjectId of the Policy>
 ```
 ## <a name="next-steps"></a>다음 단계
 - Azure AD에서 인증이 작동하는 방법에 대한 자세한 내용은 [Azure AD의 인증 시나리오](../develop/authentication-scenarios.md)를 참조하세요.
-- 사용자 single sign-on에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 single sign-on](what-is-single-sign-on.md)을 참조 하세요.
+- 사용자 Single Sign-On에 대 한 자세한 내용은 [Azure Active Directory의 응용 프로그램에 대 한 single sign-on을](what-is-single-sign-on.md)참조 하세요.
 - 모든 개발자 관련 콘텐츠에 대한 개요는 [Active Directory 개발자 가이드](../develop/v1-overview.md)를 참조하세요.

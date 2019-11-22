@@ -1,14 +1,14 @@
 ---
 title: 대규모 데이터 세트로 작업
-description: Azure Resource Graph를 사용하는 동안 큰 데이터 세트를 가져오고 제어하는 방법을 파악합니다.
+description: Azure 리소스 그래프를 사용 하는 동안 대량 데이터 집합에서 레코드를 가져오고, 포맷 하 고, 페이지를 표시 하 고 건너뛰는 방법을 이해 합니다.
 ms.date: 10/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: a7258534b867c57f89eeb432b579e87070b4fc1d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 2c6aca0c468630cee79222bc77bdc20dc9d95b19
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959007"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304016"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>큰 Azure 리소스 데이터 세트 작업
 
@@ -168,4 +168,4 @@ response = client.resources(request)
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 탐색](explore-resources.md)하는 방법에 대해 자세히 알아보세요.
+- [리소스를 살펴 보는](explore-resources.md) 방법을 자세히 알아보세요.

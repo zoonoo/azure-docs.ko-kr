@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화 | Microsoft Docs
+title: Azure AD에서 엔터프라이즈 앱에 대 한 사용자 로그인 사용 안 함
 description: Azure Active Directory에서 사용자가 로그인하지 않도록 엔터프라이즈 애플리케이션을 비활성화하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: asteen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a08779d171367d982392ae4e987fb46e019e61f
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 10553898376c4b9236ee62718fffccd45b12d70b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720272"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274084"
 ---
 # <a name="disable-user-sign-ins-for-an-enterprise-app-in-azure-active-directory"></a>Azure Active Directory에서 엔터프라이즈 앱에 대한 사용자 로그인 비활성화
 
@@ -30,7 +30,7 @@ ms.locfileid: "73720272"
 ## <a name="how-do-i-disable-user-sign-ins"></a>사용자 로그인을 비활성화하려면 어떻게 합니까?
 
 1. 디렉터리에 대한 전역 관리자인 계정으로 [Azure 포털](https://portal.azure.com) 에 로그인합니다.
-1. **모든 서비스**를 선택하고, 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
+1. **모든 서비스**를 선택하고 텍스트 상자에 **Azure Active Directory**를 입력한 다음, **입력**을 선택합니다.
 1. **Azure Active Directory** -  ***directoryname*** 창, 즉 관리 중인 디렉터리에 대 한 Azure AD 창에서 **엔터프라이즈 응용 프로그램**을 선택 합니다.
 1. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 창에서 관리할 수 있는 앱 목록이 표시 됩니다. 앱을 선택 합니다.
 1. ***appname*** 창, 즉 제목에서 선택된 앱의 이름을 사용한 창에서 **속성**을 선택합니다.

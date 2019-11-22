@@ -1,20 +1,16 @@
 ---
 title: Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/25/2019
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 90d7c8e5fc08405178ab6596b765f289b9bd716f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: ad91d8e48a9242795d4f5d5cd165e658339ebe08
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582783"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280041"
 ---
 # <a name="use-azure-dev-spaces-to-interact-with-windows-containers"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 

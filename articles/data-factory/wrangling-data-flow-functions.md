@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3274641f7b118e13b3ed727f609ce7471fd66b54
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e2517ec4a02a5d61fb3ce1d9ca9ffa2b5f4e8bf8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682297"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287039"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>랭 글 링 데이터 흐름의 변환 함수
 
@@ -67,13 +67,13 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 * 지원 되는 조인 종류: [Inner](https://docs.microsoft.com/powerquery-m/joinkind-inner), [LeftOuter](https://docs.microsoft.com/powerquery-m/joinkind-leftouter), [rightouter](https://docs.microsoft.com/powerquery-m/joinkind-rightouter), [fullouter](https://docs.microsoft.com/powerquery-m/joinkind-fullouter)
 * 두 [값 모두 Equals](https://docs.microsoft.com/powerquery-m/value-equals) 및 [value. NullableEquals](https://docs.microsoft.com/powerquery-m/value-nullableequals) 는 키 같음 비교자로 지원 됩니다.
 
-## <a name="group-by"></a>그룹화 방법
+## <a name="group-by"></a>Group By
 
 [표. Group](https://docs.microsoft.com/powerquery-m/table-group) 을 사용 하 여 값을 집계 합니다.
 * 집계 함수와 함께 사용 해야 합니다.
 * 지원 되는 집계 함수: [테이블. RowCount](https://docs.microsoft.com/powerquery-m/table-rowcount), [list. Sum](https://docs.microsoft.com/powerquery-m/list-sum), [list. Count](https://docs.microsoft.com/powerquery-m/list-count), [list. Average](https://docs.microsoft.com/powerquery-m/list-average), [list. Min](https://docs.microsoft.com/powerquery-m/list-min), [List. Max](https://docs.microsoft.com/powerquery-m/list-max), [list. standarddeviation](https://docs.microsoft.com/powerquery-m/list-standarddeviation), [list. First](https://docs.microsoft.com/powerquery-m/list-first), [list. Last](https://docs.microsoft.com/powerquery-m/list-last)
 
-## <a name="sorting"></a>기능
+## <a name="sorting"></a>정렬
 
 표를 사용 하 여 값을 정렬 합니다 [.](https://docs.microsoft.com/powerquery-m/table-sort)
 
@@ -81,12 +81,21 @@ M 함수 테이블을 사용 합니다. 다음 조건을 필터링 하려면 [�
 
 유지 및 제거 범위 (해당 M 함수는 조건을 제외 하 고, 테이블. [FirstN](https://docs.microsoft.com/powerquery-m/table-firstn), [table. Skip](https://docs.microsoft.com/powerquery-m/table-skip), [table. removefirstn](https://docs.microsoft.com/powerquery-m/table-removefirstn), [Table. range](https://docs.microsoft.com/powerquery-m/table-range), [table. Minn](https://docs.microsoft.com/powerquery-m/table-minn), [table. maxn](https://docs.microsoft.com/powerquery-m/table-maxn))를 유지 합니다.
 
-## <a name="known-unsupported-functionality"></a>알려진 지원 되지 않는 기능
+## <a name="known-unsupported-functions"></a>지원 되지 않는 알려진 함수
 
-다음은 지원 되지 않는 함수입니다. 이 목록은 완전 하지 않으며 변경 될 수 있습니다.
-* 열 병합 (AddColumn을 사용 하 여 달성할 수 있음)
-* 열 분할
-* 쿼리 추가
-* ' 첫 번째 행을 헤더로 사용 ' 및 ' 첫 번째 행으로 헤더 사용 '
+| 함수 | 가동 상태 |
+| -- | -- |
+| Table.promoteheaders table.promoteheaders | 지원되지 않습니다. 데이터 집합에서 "First row as header"를 설정 하 여 동일한 결과를 얻을 수 있습니다. |
+| CombineColumns | 이는 직접 지원 되지 않지만 지정 된 두 열을 연결 하는 새 열을 추가 하 여 달성할 수 있는 일반적인 시나리오입니다.  예: Table. AddColumn (RemoveEmailColumn, "Name", each [FirstName] & "" & [LastName]) |
+| Table.transformcolumntypes | 이는 대부분의 경우 지원 됩니다. 다음 시나리오는 지원 되지 않습니다. 문자열을 통화 형식으로 변환, 문자열을 시간 형식으로 변환, 문자열을 백분율 형식으로 변환 |
+| NestedJoin | 조인을 수행 하면 유효성 검사 오류가 발생 합니다. 열이 제대로 작동 하려면 확장 해야 합니다. |
+| 테이블 고유 | 중복 행 제거는 지원 되지 않습니다. |
+| RemoveLastN | 하위 행 제거는 지원 되지 않습니다. |
+| 표. 행 개수 | 지원 되지 않지만 모든 셀이 비어 있는 add 열 (condition 열을 사용할 수 있음)을 사용한 다음 해당 열에서 group by를 사용 하 여 달성할 수 있습니다. 테이블. 그룹이 지원 됩니다. | 
+| 행 수준 오류 처리 | 행 수준 오류 처리는 현재 지원 되지 않습니다. 예를 들어 열에서 숫자가 아닌 값을 필터링 하려면 텍스트 열을 숫자로 변환 하는 방법 중 하나를 사용 합니다. 변환에 실패 하는 모든 셀은 오류 상태가 되며 필터링 해야 합니다. 이 시나리오는 랭 글 링 데이터 흐름에서 사용할 수 없습니다. |
+| 표. 바꾸기 | 지원되지 않음 |
+| 표. 피벗 | 지원되지 않음 |
 
 ## <a name="next-steps"></a>다음 단계
+
+[랭 글 링 데이터 흐름을 만드는](wrangling-data-flow-tutorial.md)방법에 대해 알아봅니다.

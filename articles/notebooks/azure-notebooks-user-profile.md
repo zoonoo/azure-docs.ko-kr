@@ -1,23 +1,14 @@
 ---
 title: Azure Notebooks에 사용할 사용자 프로필 및 ID
 description: 공유 전자 필기장의 URL에 포함 되는 Azure Notebooks을 사용 하 여 사용자 프로필 및 사용자 ID를 만들고 관리 하는 방법입니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: 7d069d86-660f-4c94-b6e3-0c0f38c52d0e
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: kraigb
-ms.openlocfilehash: 3985e3d5fbe6e24014694665557f13bcc9a35a25
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 0874fe8223ae9c49ccfe4e8efedf2620117a0f8c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598203"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277603"
 ---
 # <a name="your-profile-and-user-id-for-azure-notebooks"></a>Azure Notebooks에 대한 프로필 및 사용자 ID
 
@@ -56,7 +47,7 @@ Azure Notebooks의 강력하고 공동 작업 공간 내, 사용자 프로필에
 
 프로필을 편집하려면 프로필 페이지에서 **프로필 정보 편집** 명령을 사용합니다. 프로필의 섹션은 다음과 같습니다.
 
-| 섹션 | 콘텐츠 |
+| 섹션 | 내용 |
 | --- | --- |
 | 프로필 사진 | 프로필 페이지에 표시되는 이미지입니다. |
 | 계정 정보 | 표시 이름, 사용자 ID와 공용 이메일 계정입니다. 여기에서 이메일 계정은 다른 사용자가 사용자에게 연락할 수 있는 수단을 제공하며 Azure Notebooks에 로그인하는 데 사용하는 [계정](azure-notebooks-user-account.md)과는 다를 수 있습니다. |

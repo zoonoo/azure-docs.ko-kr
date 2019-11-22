@@ -1,5 +1,5 @@
 ---
-title: 탄력적 풀 리소스 크기 조정 - Azure SQL Database | Microsoft Docs
+title: 탄력적 풀 리소스 크기 조정
 description: 이 페이지에서는 Azure SQL Database에서 탄력적 풀의 리소스 크기를 조정하는 방법을 설명합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: c96be7930a33185077134d051b49cba0695327e3
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568636"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73823808"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 
@@ -47,9 +47,9 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](sql-dat
 
 |서비스 계층|기본 단일 데이터베이스,</br>Standard (S0-S1)|기본 탄력적 풀</br>Standard (S2-S 12), </br>대규모 </br>범용 단일 데이터베이스 또는 탄력적 풀|프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀|
 |:---|:---|:---|:---|
-|**기본 단일 데이터베이스,</br> 표준 (S0-S1)**|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
-|**기본 탄력적 풀, </br>표준 (S2-s 12), </br>hyperscale, </br>범용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;사용 된 공간에 독립적인 일정 한 시간 대기 시간</br>&bull;&nbsp;일반적으로 5 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
-|**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|&bull;&nbsp;데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 대기 시간</br>&bull;&nbsp;일반적으로 사용 되는 공간의 GB 당 1 분 미만|
+|**기본 단일 데이터베이스,</br> Standard (S0-S1)**|사용 된 공간에 독립적인 일정 한 시간 대기 시간 &nbsp;&bull;</br>&bull; &nbsp;일반적으로 5 분 미만|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|
+|**기본 탄력적 풀, </br>Standard (S2-S 12), </br>Hyperscale, </br>범용 단일 데이터베이스 또는 탄력적 풀**|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|사용 된 공간에 독립적인 일정 한 시간 대기 시간 &nbsp;&bull;</br>&bull; &nbsp;일반적으로 5 분 미만|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|
+|**프리미엄 또는 중요 비즈니스용 단일 데이터베이스 또는 탄력적 풀**|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|데이터 복사로 인해 사용 되는 데이터베이스 공간에 비례 하는 &bull; &nbsp;대기 시간</br>일반적으로 사용 되는 공간의 GB 당 1 분 미만 &bull; &nbsp;|
 
 > [!NOTE]
 >
@@ -57,7 +57,7 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](sql-dat
 > - 탄력적 풀에서 데이터베이스를 이동 하는 경우 데이터베이스에 사용 되는 공간만 탄력적 풀에서 사용 하는 공간이 아니라 대기 시간에 영향을 줍니다.
 >
 > [!TIP]
-> 진행 중인 작업을 모니터링하려면 [Manage operations using the SQL REST API](https://docs.microsoft.com/rest/api/sql/operations/list)(SQL REST API를 사용하여 작업 관리), [Manage operations using CLI](/cli/azure/sql/db/op)(CLI를 사용하여 작업 관리), [Monitor operations using T-SQL](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database)(T-SQL을 사용하여 작업 관리) 및 다음 두 가지 PowerShell 명령, 즉 [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity](/powershell/module/az.sql/stop-azsqldatabaseactivity).
+> 진행 중인 작업을 모니터링 하려면 [sql REST API를 사용 하 여 작업 관리](https://docs.microsoft.com/rest/api/sql/operations/list), [CLI를 사용](/cli/azure/sql/db/op)하 여 작업 관리, [t-sql을 사용 하 여 작업 모니터링](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) 및 다음 두 가지 PowerShell 명령 ( [AzSqlDatabaseActivity](/powershell/module/az.sql/get-azsqldatabaseactivity) 및 [AzSqlDatabaseActivity)](/powershell/module/az.sql/stop-azsqldatabaseactivity)을 참조 하세요.
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경 시 추가 고려 사항
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: a7b0276ca41e1b9342b3602a67dea0517c60f66a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d30f59252a5282c1b0e43249d2cab1e6136b539
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489346"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276668"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델에 대 한 하이퍼 매개 변수 조정
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -380,7 +380,7 @@ Azure 웹 포털에서도 모든 하이퍼 매개 변수 조정 실행을 시각
 
 ## <a name="find-the-best-model"></a>최적 모델 찾기
 
-모든 하이퍼 매개 변수 튜닝 실행이 완료 되 면 [가장 잘 수행 하는 구성과](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true-) 해당 하이퍼 매개 변수 값을 식별 합니다.
+모든 하이퍼 매개 변수 튜닝 실행이 완료 되 면 [가장 잘 수행 하는 구성과](/python/api/azureml-train-core/azureml.train.hyperdrive.hyperdriverun?view=azure-ml-py#get-best-run-by-primary-metric-include-failed-true--include-canceled-true--include-resume-from-runs-true-----typing-union-azureml-core-run-run--nonetype-) 해당 하이퍼 매개 변수 값을 식별 합니다.
 
 ```Python
 best_run = hyperdrive_run.get_best_run_by_primary_metric()

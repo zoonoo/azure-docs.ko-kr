@@ -1,5 +1,5 @@
 ---
-title: SaaS 응용 프로그램에 자동 사용자 계정 프로 비전 보고 | Microsoft Docs
+title: SaaS 응용 프로그램에 자동 사용자 계정 프로 비전 보고
 description: 자동 사용자 계정 프로비전 작업의 상태를 확인하는 방법과 개별 사용자의 프로비전 문제를 해결하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2e5ef4067f22d0e9e015e4d9a646f8b92309010a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: f1eea9cc738897c6de86c2fd73a0967e39b8afd4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033514"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275056"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -30,7 +30,7 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="overview"></a>개요
 
-프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](../saas-apps/tutorial-list.md)에 따라 [Azure Portal](https://portal.azure.com)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
+프로비전 커넥터는 지원되는 애플리케이션에 [제공된 설명서](https://portal.azure.com)에 따라 [Azure Portal](../saas-apps/tutorial-list.md)을 사용하여 설정하고 구성합니다. 일단 구성되고 실행된 후에는 다음 두 가지 방법 중 하나를 사용하여 프로비전 작업을 보고할 수 있습니다.
 
 * **Azure Portal** -이 문서에서는 기본적으로 프로 비전 요약 보고서와 지정 된 응용 프로그램에 대 한 자세한 프로 비전 감사 로그를 모두 제공 하는 [Azure Portal](https://portal.azure.com)에서 보고서 정보를 검색 하는 방법을 설명 합니다.
 * **감사 API** - Azure Active Directory는 자세한 프로비저닝 감사 로그를 프로그래밍 방식으로 검색할 수 있게 해주는 감사 API도 제공합니다. 이 API의 사용과 관련하여 [Azure Active Directory 감사 API 참조](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 문서를 참조하세요. 이 문서에서는 API를 사용하는 방법을 구체적으로 다루지 않지만, 감사 로그에 기록되는 프로비전 이벤트 유형에 대해서는 자세히 설명합니다.
@@ -39,12 +39,12 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 이 문서에서 사용하는 용어는 다음과 같이 정의됩니다.
 
-* **원본 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 원본이 되는 사용자의 리포지토리입니다. Azure Active Directory는 대부분의 사전 통합된 프로비전 커넥터를 위한 원본 시스템이지만, 몇 가지 예외(예: Workday 인바운드 동기화)가 있습니다.
-* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 이 시스템은 일반적으로 SaaS 애플리케이션(예: Salesforce, ServiceNow, G Suite, Dropbox for Business)를 사용할 수 있지만 경우에 따라 Active Directory와 같은 온-프레미스 시스템을 사용할 수 있습니다 (예: Active Directory에 대한 Workday 인바운드 동기화)일 수도 있습니다.
+* **원본 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 원본이 되는 사용자의 리포지토리입니다. Azure Active Directory는 대부분의 사전 통합된 프로비전 커넥터를 위한 원본 시스템이지만, Workday 인바운드 동기화와 같이 일부 예외가 있습니다.
+* **대상 시스템** - Azure AD 프로비전 서비스에서 동기화하기 위해 대상이 되는 사용자의 리포지토리입니다. 일반적으로 SaaS 응용 프로그램 (예: Salesforce, ServiceNow, G Suite, Dropbox for Business) 이지만, 경우에 따라 Active Directory (예: Active Directory에 대 한 Workday 인바운드 동기화)와 같은 온-프레미스 시스템 일 수 있습니다.
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure Portal에서 프로 비전 보고서 가져오기
 
-지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 &gt; 시작 하 고 **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 Azure Active Directory 합니다 **. 작업** 섹션 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
+지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 시작 하 고 **작업** 섹션에서 &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 **Azure Active Directory** 합니다. 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 

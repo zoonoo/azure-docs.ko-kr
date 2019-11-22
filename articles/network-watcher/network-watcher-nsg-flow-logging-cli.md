@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher를 사용하여 네트워크 보안 그룹 흐름 로그 관리 - Azure CLI | Microsoft Docs
+title: NSG 흐름 로그 관리-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Azure CLI를 사용하여 Azure Network Watcher의 네트워크 보안 그룹 흐름 로그를 관리하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 5e7c09c1a06a94a2ed64f3624ee38dc42606d7bc
-ms.sourcegitcommit: 39d95a11d5937364ca0b01d8ba099752c4128827
+ms.openlocfilehash: 950b014d7e08eeeeed40ba7b294e53e1c200474b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69563481"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278011"
 ---
 # <a name="configuring-network-security-group-flow-logs-with-azure-cli"></a>Azure CLI를 사용하여 네트워크 보안 그룹 흐름 로그 구성
 
@@ -65,7 +66,7 @@ az network watcher flow-log configure --resource-group resourceGroupName --enabl
 
 ## <a name="download-a-flow-log"></a>흐름 로그 다운로드
 
-흐름 로그의 스토리지 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/ 에서 다운로드할 수 있습니다.
+흐름 로그의 스토리지 위치를 만들 때 정의합니다. 스토리지 계정에 저장되는 이러한 흐름 로그에 액세스하는 편리한 도구는 Microsoft Azure Storage Explorer이며 https://storageexplorer.com/에서 다운로드할 수 있습니다.
 
 스토리지 계정이 지정되어 있으면 흐름 로그 파일은 다음 위치에서 스토리지 계정에 저장됩니다.
 
@@ -74,7 +75,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 
 > [!IMPORTANT]
-> 현재는 Network Watcher에 대 한 [NSG (네트워크 보안 그룹) 흐름 로그가](network-watcher-nsg-flow-logging-overview.md) 보존 정책 설정에 따라 Blob 저장소에서 자동으로 삭제 되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 보존 기간을 지난 저장소 blob을 주기적으로 삭제 하 여 발생 하는 요금을 방지 하는 것이 좋습니다. NSG 흐름 로그 저장소 블로그를 삭제 하는 방법에 대 한 자세한 내용은 [NSG 흐름 로그 저장소 Blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조 하세요.
+> 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -12,18 +12,18 @@ ms.date: 03/12/2018
 ms.author: ghogen
 ms.custom: aaddev, vs-azure
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 26f25daa01288959c38520f9713d35eb975d2df2
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: c6df50db564dac09785b460d158d4276ea8a215e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73941375"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271244"
 ---
 # <a name="diagnosing-errors-with-the-azure-active-directory-connected-service"></a>Azure Active Directory의 연결된 서비스를 사용하여 오류 진단
 
-이전 인증 코드를 검색하는 동안 Azure Active Directory 연결 서버에서 호환되지 않는 인증 유형을 검색했습니다.
+이전 인증 코드를 검색 하는 동안 Azure Active Directory 연결 된 서비스에서 호환 되지 않는 인증 유형을 검색 했습니다.
 
-프로젝트에서 이전 인증 코드를 제대로 감지하려면 프로젝트를 빌드해야 합니다.  이 오류가 표시 되 고 프로젝트에 이전 인증 코드가 없으면 다시 빌드하여 다시 시도 합니다.
+프로젝트에서 이전 인증 코드를 제대로 감지 하려면 프로젝트를 다시 빌드해야 합니다. 이 오류가 표시 되 고 프로젝트에 이전 인증 코드가 없으면 다시 빌드하여 다시 시도 합니다.
 
 ## <a name="project-types"></a>프로젝트 형식
 

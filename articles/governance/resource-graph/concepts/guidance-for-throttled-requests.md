@@ -1,14 +1,14 @@
 ---
 title: 제한된 요청에 대한 지침
-description: Azure 리소스 그래프가 제한 되는 것을 방지 하기 위해 더 나은 쿼리를 만드는 방법을 알아봅니다.
-ms.date: 10/18/2019
+description: Azure 리소스 그래프에 의해 제한 되는 요청을 방지 하기 위해 병렬로 일괄 처리, 스 태거, 정보 매김 및 쿼리 하는 방법을 알아봅니다.
+ms.date: 11/21/2019
 ms.topic: conceptual
-ms.openlocfilehash: 651a5daa9e7e19a5dc157ba0cfa17da2c8abe3db
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 4405cce567a75f83823cc2d441b2a59985c196ad
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038320"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304681"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Azure 리소스 그래프의 제한 된 요청에 대 한 지침
 
@@ -237,4 +237,4 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 탐색](explore-resources.md)하는 방법에 대해 자세히 알아보세요.
+- [리소스를 살펴 보는](explore-resources.md) 방법을 자세히 알아보세요.

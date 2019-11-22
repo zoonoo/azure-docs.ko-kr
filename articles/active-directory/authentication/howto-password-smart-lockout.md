@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a762009a7aaf1a965333ac573efe55d792c3f04b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d4cb2d424d242fd9ea078d981a85516a00c8115f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125014"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268658"
 ---
 # <a name="azure-active-directory-smart-lockout"></a>Azure Active Directory 스마트 잠금
 
@@ -33,7 +33,7 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 
 스마트 잠금은 보안 및 유용성의 적절한 혼합을 제공하는 기본 설정으로 모든 Azure AD 고객에 대해 항상 활성 상태입니다. 사용자의 조직에 특정 한 값을 사용 하 여 스마트 잠금 설정의 사용자 지정에는 사용자에 대 한 유료 Azure AD 라이선스가 필요 합니다.
 
-스마트 잠금 기능을 사용해도 진정한 사용자가 절대 잠금되지 않는다고 보장할 수 없습니다. 스마트 잠금 기능이 사용자 계정을 잠글 때 진정한 사용자는 잠기지 않도록 최선을 다해 노력합니다. 잠금 서비스는 악의적인 행위자가 진정한 사용자 계정에 액세스할 수 없도록 합니다.  
+스마트 잠금을 사용 해도 정품 사용자가 잠기지 않도록 보장 하지는 않습니다. 스마트 잠금이 사용자 계정을 잠근 경우에는 정품 사용자의 잠금을 해제 하는 것이 가장 좋습니다. 잠금 서비스는 악의적인 행위자가 진정한 사용자 계정에 액세스할 수 없도록 합니다.  
 
 * 각 Azure Active Directory 데이터 센터는 독립적으로 잠금을 추적합니다. 사용자가 각 데이터 센터에 방문하면 사용자는 (threshold_limit * datacenter_count) 시도 횟수를 갖게 됩니다.
 * 스마트 잠금은 익숙한 위치 및 낯선 위치를 사용하여 악의적 행위자와 진정한 사용자를 구별합니다. 낯설고 익숙한 위치는 모두 별도의 잠금 카운터를 갖게 됩니다.
@@ -67,7 +67,8 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 
 조직에 대한 스마트 잠금 값을 확인하거나 수정하려면 다음 단계를 사용합니다.
 
-1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 **Azure Active Directory** > **인증 방법** > **암호 보호**로 이동 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. *Azure Active Directory*를 검색하여 선택합니다. **인증 방법** > **암호 보호**를 선택 합니다.
 1. 첫 번째 잠금 전에 계정에서 허용되는 실패한 로그인 횟수에 따라 **잠금 임계값**을 설정합니다. 기본값은 10입니다.
 1. **잠금 지속 기간(초)** 을 각 잠금의 길이(초)로 설정합니다. 기본값은 60초(1분)입니다.
 
@@ -80,7 +81,7 @@ AD FS 2016 및 AF FS 2019을 사용 하는 페더레이션된 배포는 [엑스�
 
 스마트 잠금 임계값이 트리거되면 계정이 잠겨 있는 동안 다음 메시지가 표시 됩니다.
 
-**권한 없는 사용을 방지하기 위해 계정이 일시적으로 잠겨 있습니다. 나중에 다시 시도하세요. 문제가 계속 발생하면 관리자에게 문의하세요.**
+**무단 사용을 방지 하기 위해 계정이 임시로 잠겨 있습니다. 나중에 다시 시도 하세요. 문제가 계속 되 면 관리자에 게 문의 하세요.**
 
 ## <a name="next-steps"></a>다음 단계
 

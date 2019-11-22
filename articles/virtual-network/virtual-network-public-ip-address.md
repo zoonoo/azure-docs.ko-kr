@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: kumud
-ms.openlocfilehash: 5e71f30723826a18f10d4c8e1b9d34e356c9962b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9071596d384d09bf6cbc46316a7f33c69c7b32e9
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114628"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278463"
 ---
 # <a name="create-change-or-delete-a-public-ip-address"></a>공용 IP 주소 만들기, 변경 또는 삭제
 
@@ -45,7 +45,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](../rol
 
 ## <a name="create-a-public-ip-address"></a>공용 IP 주소 만들기
 
-1. 포털의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
 2. *마켓플레이스 검색* 상자에 *공용 IP 주소*를 입력합니다. 검색 결과에 표시된 **공용 IP 주소**를 선택합니다.
 3. **공용 IP 주소** 아래에서 **만들기**를 선택합니다.
 4. **공용 IP 주소 만들기** 아래에서 다음 설정의 값을 입력하거나 선택한 다음, 만들기**를 선택합니다**:

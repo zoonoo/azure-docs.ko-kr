@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용 Microsoft Docs
+title: PowerShell 또는 템플릿을 사용 하 여 VM용 Azure Monitor (클래식) 사용
 description: 이 문서에서는 Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 하나 이상의 Azure 가상 머신 또는 가상 머신 확장 집합에 대해 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/14/2019
-ms.openlocfilehash: 25e9848124b84822749d3be4d1ead7b86e6e584e
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 7d5107279654aa883a040a9168eb099a6543caa8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091767"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286227"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 

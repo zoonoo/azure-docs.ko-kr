@@ -1,5 +1,5 @@
 ---
-title: 사전 통합 된 Azure AD 앱에 대 한 고급 SAML 토큰 인증서 서명 옵션 | Microsoft Docs
+title: Azure AD 앱에 대 한 고급 SAML 토큰 인증서 서명 옵션
 description: Azure Active Directory에서 사전 통합된 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션을 사용하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea99344399dbbbc17f0d7381e54ab68ae4bcc78f
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 614a90fcc0daef3eb77c43e6b56848c34d160ed5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381274"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74274754"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Azure Active Directory의 갤러리 앱에 대한 SAML 토큰의 고급 인증서 서명 옵션
 
-현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 애플리케이션을 지원합니다. 500 개 이상의 응용 프로그램은 SAML ( [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) ) 2.0 프로토콜 (예: [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) 응용 프로그램)을 사용 하 여 single sign-on을 지원 합니다. 고객이 SAML을 사용 하 여 Azure AD를 통해 응용 프로그램에 인증 하는 경우 Azure AD는 HTTP POST를 통해 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램은 사용자 이름 및 암호를 묻는 메시지를 표시 하는 대신 토큰을 검사 하 고 토큰을 사용 하 여 고객에 로그인 합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
+현재 Azure AD(Azure Active Directory)는 Azure Active Directory 앱 갤러리에서 수천 개의 사전 통합 애플리케이션을 지원합니다. 500 이상의 응용 프로그램은 [NetSuite](https://azuremarketplace.microsoft.com/marketplace/apps/aad.netsuite) 응용 프로그램과 같은 SAML ( [Security Assertion Markup Language](https://wikipedia.org/wiki/Security_Assertion_Markup_Language) ) 2.0 프로토콜을 사용 하 여 Single Sign-On 지원 합니다. 고객이 SAML을 사용 하 여 Azure AD를 통해 응용 프로그램에 인증 하는 경우 Azure AD는 HTTP POST를 통해 응용 프로그램에 토큰을 보냅니다. 그런 다음 응용 프로그램은 사용자 이름 및 암호를 묻는 메시지를 표시 하는 대신 토큰을 검사 하 고 토큰을 사용 하 여 고객에 로그인 합니다. 이러한 SAML 토큰은 Azure AD 및 특정 표준 알고리즘에서 생성된 고유한 인증서로 서명됩니다.
 
 Azure AD는 갤러리 애플리케이션의 기본 설정 중 일부를 사용합니다. 애플리케이션 요구 사항에 따라 기본값이 설정됩니다.
 
@@ -57,20 +57,20 @@ Azure AD는 SAML 응답에 서명 하는 두 가지 서명 알고리즘 또는 S
 1. 왼쪽 창에서 **엔터프라이즈 애플리케이션**을 선택합니다. 계정의 엔터프라이즈 응용 프로그램 목록이 표시 됩니다.
 1. 응용 프로그램을 선택 합니다. 응용 프로그램에 대 한 개요 페이지가 표시 됩니다.
 
-   ![예제: 응용 프로그램 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
+   ![예: 응용 프로그램 개요 페이지](./media/certificate-signing-options/application-overview-page.png)
 
 그런 다음 해당 응용 프로그램에 대 한 SAML 토큰에서 인증서 서명 옵션을 변경 합니다.
 
 1. 응용 프로그램 개요 페이지의 왼쪽 창에서 **Single sign-on**을 선택 합니다.
 1. **SAML 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지가 표시 되 면 5 단계로 이동 합니다.
-1. **Single sign-on 방법 선택** 페이지가 표시 되지 않으면 **Single sign-on 모드 변경** 을 선택 하 여 해당 페이지를 표시 합니다.
-1. **Single sign-on 방법 선택** 페이지에서 사용 가능한 경우 **SAML** 을 선택 합니다. ( **Saml** 을 사용할 수 없는 경우 응용 프로그램은 saml을 지원 하지 않으며,이 절차와 문서의 나머지 부분을 무시할 수 있습니다.)
+1. **Single Sign-On 방법 선택** 페이지가 표시 되지 않으면 **Single Sign-On 모드 변경** 을 선택 하 여 해당 페이지를 표시 합니다.
+1. **Single Sign-On 방법 선택** 페이지에서 사용 가능한 경우 **SAML** 을 선택 합니다. ( **Saml** 을 사용할 수 없는 경우 응용 프로그램은 saml을 지원 하지 않으며,이 절차와 문서의 나머지 부분을 무시할 수 있습니다.)
 1. **Saml 미리 보기를 사용 하 여 Single Sign-on 설정** 페이지에서 **saml 서명 인증서** 제목을 찾고 **편집** 아이콘 (연필)을 선택 합니다. **SAML 서명 인증서** 페이지가 표시 됩니다.
 
-   ![예제: SAML 서명 인증서 페이지](./media/certificate-signing-options/saml-signing-page.png)
+   ![예: SAML 서명 인증서 페이지](./media/certificate-signing-options/saml-signing-page.png)
 
-1. **서명 옵션** 드롭다운 목록에서 **saml 응답 서명**, **saml 어설션 서명**또는 **saml 응답 및 어설션 서명**을 선택 합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 옵션](#certificate-signing-options)에 나와 있습니다.
-1. **서명 알고리즘** 드롭다운 목록에서 **sha-1** 또는 **sha-256**을 선택 합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션에 나와 있습니다.
+1. **서명 옵션** 드롭다운 목록에서 **SAML 응답 서명**, **SAML 어설션 서명** 또는 **SAML 응답 및 어설션 서명**을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 옵션](#certificate-signing-options)에 나와 있습니다.
+1. **서명 알고리즘** 드롭다운 목록에서 **SHA-1** 또는 **SHA-256**을 선택합니다. 이러한 옵션에 대 한 설명은이 문서의 앞부분에 나오는 [인증서 서명 알고리즘](#certificate-signing-algorithms) 섹션에 나와 있습니다.
 1. 선택 사항에 만족 하는 경우 **저장** 을 선택 하 여 새 SAML 서명 인증서 설정을 적용 합니다. 그렇지 않으면 **X** 를 선택 하 여 변경 내용을 취소 합니다.
 
 ## <a name="next-steps"></a>다음 단계

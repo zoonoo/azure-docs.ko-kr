@@ -1,5 +1,5 @@
 ---
-title: Azure Multi-factor Authentication-Azure Active Directory 시작
+title: Azure Multi-Factor Authentication 서버 시작-Azure Active Directory
 description: Azure MFA 서버 온-프레미스 단계별 시작
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,28 +11,28 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15900758945fd5c97198caf47ff01fcfb5a6a794
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4682425dfd3f32e139390ef65e267a80d95f6ccd
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057409"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74268985"
 ---
 # <a name="getting-started-with-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버로 시작하기
 
 <center>
 
-![MFA 서버 온-프레미스를 사용 하 여 시작](./media/howto-mfaserver-deploy/server2.png)</center>
+온-프레미스에서 MFA 서버를 시작 하는 ![](./media/howto-mfaserver-deploy/server2.png)</center>
 
 이 페이지에서는 서버를 새롭게 설치하고 이를 온-프레미스 Active Directory를 사용하여 설정하는 것을 다룹니다. MFA 서버가 이미 설치되어 있고 업그레이드를 고려하는 경우 [최신 Azure Multi-Factor Authentication 서버로 업그레이드](howto-mfaserver-deploy-upgrade.md)를 참조하세요. 웹 서비스만 설치하는 정보는 [Azure Multi-Factor Authentication 서버 모바일 앱 웹 서비스 배포](howto-mfaserver-deploy-mobileapp.md)를 참조하세요.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="plan-your-deployment"></a>배포 계획
 
 > [!WARNING]
-> MFA 서버 2019 년 3 월부터 다운로드만 됩니다 유료 테 넌 트에 사용할 수 있습니다. 체험/평가판 테 넌 트를 다운로드 하거나 생성 하 고 정품 인증 자격 증명을 사용 하 여 더 이상.
+> 2019 년 3 월부터 MFA 서버 다운로드는 유료 테 넌 트에만 사용할 수 있습니다. 무료/평가판 테 넌 트는 더 이상 활성화 자격 증명을 다운로드 하거나 생성 하 고 사용할 수 없습니다.
 
 Azure Multi-Factor Authentication 서버를 다운로드하기 전에 로드 및 고가용성 요구 사항에 대해 알아봅니다. 이 정보를 사용하여 배포 방법 및 위치를 결정합니다.
 
@@ -57,7 +57,7 @@ Azure Multi-Factor Authentication에 사용 중인 서버가 다음 요구 사�
 | Azure Multi-Factor Authentication 서버 요구 사항 | 설명 |
 |:--- |:--- |
 | 하드웨어 |<li>200MB의 하드 디스크 공간</li><li>x32 또는 x64 지원 프로세서</li><li>1GB 이상 RAM</li> |
-| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>윈도우 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
+| 소프트웨어 |<li>Windows Server 2016</li><li>Windows Server 2012 R2</li><li>Windows Server 2012</li><li>Windows Server 2008 R2</li><li>Windows Server 2008, SP1, SP2</li><li>Windows Server 2003 R2</li><li>Windows Server 2003, SP1, SP2</li><li>Windows 10</li><li>Windows 8.1, 모든 버전</li><li>Windows 8, 모든 버전</li><li>Windows 7, 모든 버전</li><li>Windows Vista, 모든 버전, SP1, SP2</li><li>Microsoft .NET 4.0 Framework</li><li>사용자 포털 또는 웹 서비스 SDK를 설치하는 경우 IIS 7.0 이상</li> |
 | 권한 | Active Directory에 등록할 도메인 관리자 또는 엔터프라이즈 관리자 계정 |
 
 ### <a name="azure-mfa-server-components"></a>Azure MFA 서버 구성 요소
@@ -97,16 +97,16 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 ## <a name="download-the-mfa-server"></a>MFA 서버를 다운로드합니다.
 
 > [!WARNING]
-> MFA 서버 2019 년 3 월부터 다운로드만 됩니다 유료 테 넌 트에 사용할 수 있습니다. 체험/평가판 테 넌 트를 다운로드 하거나 생성 하 고 정품 인증 자격 증명을 사용 하 여 더 이상.
+> 2019 년 3 월부터 MFA 서버 다운로드는 유료 테 넌 트에만 사용할 수 있습니다. 무료/평가판 테 넌 트는 더 이상 활성화 자격 증명을 다운로드 하거나 생성 하 고 사용할 수 없습니다.
 
 다음 단계를 따라 Azure Portal에서 Azure Multi-Factor Authentication 서버를 다운로드합니다.
 
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. **Azure Active Directory** > **MFA 서버**를 선택합니다.
+2. *Azure Active Directory*를 검색하여 선택합니다. **MFA 서버**를 선택 합니다.
 3. **서버 설정**을 선택합니다.
 4. **다운로드**를 선택하고 다운로드 페이지의 지침을 따라 설치 관리자를 저장합니다. 
 
-   ![Azure portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
+   ![Azure Portal에서 MFA 서버 다운로드](./media/howto-mfaserver-deploy/downloadportal.png)
 
 5. 설치 관리자를 실행한 후 참조할 수 있도록 이 페이지를 열어둡니다.
 
@@ -139,7 +139,7 @@ Azure MFA 서버를 구성하는 세 가지 웹 구성 요소가 있습니다.
 
 전자 메일 내용 탭에서 선택할 수 있는 전자 메일 템플릿을 확인할 수 있습니다. 사용자가 2단계 인증을 수행하도록 구성한 방법에 따라 가장 적합한 템플릿을 선택합니다.
 
-![콘솔에서 MFA 서버 전자 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
+![콘솔의 MFA 서버 전자 메일 템플릿](./media/howto-mfaserver-deploy/email2.png)
 
 ## <a name="import-users-from-active-directory"></a>Active Directory에서 사용자 가져오기
 
@@ -180,7 +180,7 @@ MFA(Multi-Factor Authentication) 서버 온-프레미스를 사용하면 사용�
 위의 필드 외에도 인증 결과(성공/거부) 및 모든 거부 사유는 인증 데이터와 함께 저장되어 인증/사용 보고서를 통해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 서버 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+> 2019 년 3 월부터 무료/평가판 Azure AD 테 넌 트의 MFA 서버 사용자는 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 ## <a name="back-up-and-restore-azure-mfa-server"></a>Azure MFA 서버 백업 및 복원
 
@@ -200,7 +200,7 @@ Azure MFA 서버를 백업하려면 **PhoneFactor.pfdata** 파일을 포함한 *
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
-MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설치하면 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
+MFA 서버 버전 8.x 이상으로 업그레이드하거나 해당 버전을 설치하면 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 아티클에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 95eb72fe9d918b527cdceec69a0e90a682d62b07
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172713"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278223"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
@@ -41,7 +41,7 @@ ms.locfileid: "74172713"
    > [!NOTE]
    > 일시 삭제 된 백업 항목이 자격 증명 모음에 있으면 해당 시점에 자격 증명 모음을 삭제할 수 없습니다. 백업 항목이 영구적으로 삭제 된 후 자격 증명 모음 삭제를 시도 하 고, 자격 증명 모음에 일시 삭제 됨 상태의 항목이 없습니다.
 
-4. 일시 삭제 된 VM을 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 VM을 선택 하 고 **삭제 취소**옵션을 클릭 합니다.
+4. 일시 삭제 된 VM을 복원 하려면 먼저 삭제를 취소 해야 합니다. 삭제를 취소 하려면 일시 삭제 된 VM을 선택한 다음 **삭제 취소**옵션을 선택 합니다.
 
    ![Azure Portal의 스크린샷, VM 삭제 취소](./media/backup-azure-security-feature-cloud/choose-undelete.png)
 
@@ -60,7 +60,7 @@ ms.locfileid: "74172713"
 
    ![Azure Portal, 백업 다시 시작 옵션의 스크린샷](./media/backup-azure-security-feature-cloud/resume-backup.png)
 
-이 순서도는 백업 항목의 여러 단계와 상태를 보여 줍니다.
+이 순서도는 일시 삭제를 사용 하는 경우 백업 항목의 여러 단계와 상태를 보여 줍니다.
 
 ![일시 삭제 된 백업 항목의 수명 주기](./media/backup-azure-security-feature-cloud/lifecycle.png)
 
@@ -68,26 +68,47 @@ ms.locfileid: "74172713"
 
 ## <a name="disabling-soft-delete"></a>일시 삭제 사용 안 함
 
-일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 됩니다. 일시 삭제 보안 기능을 사용 하지 않도록 설정 하면 백업 데이터가 실수로 또는 악의적으로 삭제 되지 않도록 보호 됩니다. 일시 삭제 기능을 사용 하지 않으면 보호 된 항목을 삭제 하면 복원 기능 없이 즉시 제거 됩니다. "일시 삭제" 상태의 백업 데이터는 고객에 게 어떠한 비용도 부과 되지 않으므로이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다.
+일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다. 백업 관리자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 모두 삭제 하면 복원 기능 없이 즉시 제거 됩니다. 일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
 
-### <a name="prerequisites-for-disabling-soft-delete"></a>일시 삭제를 사용 하지 않도록 설정 하기 위한 필수 구성 요소
-
-- 자격 증명 모음에 대해 일시 삭제를 사용 하거나 사용 하지 않도록 설정 하는 경우 (보호 된 항목 없음) Azure Portal만 수행할 수 있습니다. 적용 대상:
-  - 보호 된 항목을 포함 하지 않는 새로 만든 자격 증명 모음
-  - 보호 된 항목이 삭제 되 고 만료 된 기존 자격 증명 모음 (14 일 고정 보존 기간 초과)
-- 자격 증명 모음에 대해 일시 삭제 기능을 사용 하지 않도록 설정한 경우 해당 기능을 다시 사용 하도록 설정할 수 있지만, 자격 증명 모음에 보호 된 항목이 포함 된 경우에는 선택을 취소 하 고 다시 사용 하지 않도록 설정할 수 없습니다.
-- 일시 삭제 된 항목 또는 항목을 포함 하는 자격 증명 모음에 대해 일시 삭제를 사용 하지 않도록 설정할 수 없습니다. 이 작업을 수행 해야 하는 경우 다음 단계를 수행 합니다.
-  - 모든 보호 된 항목에 대해 삭제 된 데이터의 보호를 중지 합니다.
-  - 보안 보존 기간 14 일이 만료 될 때까지 기다립니다.
-  - 일시 삭제를 사용 하지 않습니다.
-
-일시 삭제를 사용 하지 않도록 설정 하려면 필수 구성 요소가 충족 되었는지 확인 한 후 다음 단계를 수행 합니다.
+일시 삭제를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 자격 증명 모음으로 이동한 다음 **설정** -> **속성**으로 이동 합니다.
-2. 속성 창에서 **보안 설정** -> **업데이트**를 선택 합니다.
-3. 보안 설정 창의 일시 삭제 아래에서 **사용 안 함**을 선택 합니다.
+2. 속성 창에서 **보안 설정** -> **업데이트**를 선택 합니다.  
+3. 보안 설정 창의 **일시 삭제**아래에서 **사용 안 함**을 선택 합니다.
+
 
 ![일시 삭제 사용 안 함](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+## <a name="permanently-deleting-soft-deleted-backup-items"></a>일시 삭제 된 백업 항목을 영구적으로 삭제
+
+일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 영구적으로 삭제 하려면 삭제 한 후 삭제 하 고 다시 삭제 하 여 영구적으로 삭제 합니다. 
+
+다음 단계를 수행하세요.
+
+1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다. 
+2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목** 으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다. 
+
+![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
+
+3. **삭제 취소**옵션을 선택 합니다.
+
+![삭제 취소 선택](./media/backup-azure-security-feature-cloud/choose-undelete.png)
+
+
+4. 창이 표시 됩니다. **삭제 취소**를 선택 합니다.
+
+![삭제 취소 선택](./media/backup-azure-security-feature-cloud/undelete-vm.png)
+
+5. 백업 데이터 **삭제** 를 선택 하 여 백업 데이터를 영구적으로 삭제 합니다.
+
+![백업 데이터 삭제 선택](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-buttom.png)
+
+6. 복구 지점이 삭제 되도록 확인할 백업 항목의 이름을 입력 합니다.
+
+![백업 항목의 이름 입력](https://docs.microsoft.com/azure/backup/media/backup-azure-manage-vms/delete-backup-data1.png)
+
+7. 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
+
 
 ## <a name="other-security-features"></a>기타 보안 기능
 
@@ -139,7 +160,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 #### <a name="can-i-delete-my-vault-if-there-are-soft-deleted-items-in-the-vault"></a>자격 증명 모음에 일시 삭제 된 항목이 있는 경우 자격 증명 모음을 삭제할 수 있나요?
 
-자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업을 14 일 후에 영구적으로 삭제 됩니다. 모든 일시 삭제 된 항목이 제거 된 후에만 자격 증명 모음을 삭제할 수 있습니다.  
+자격 증명 모음에 일시 삭제 된 상태의 백업 항목이 있는 경우에는 Recovery Services 자격 증명 모음을 삭제할 수 없습니다. 일시 삭제 된 항목은 삭제 작업 후 14 일이 지나면 영구적으로 삭제 됩니다. 14 일 동안 기다릴 수 없는 경우 [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하 고 일시 삭제 된 항목의 삭제를 취소 한 다음 삭제 된 항목을 다시 삭제 하 여 영구적으로 삭제 합니다. 보호 된 항목이 없고 일시 삭제 된 항목이 없는 경우 자격 증명 모음을 삭제할 수 있습니다.  
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 일시 삭제 기간 보다 이전 데이터를 삭제할 수 있나요?
 

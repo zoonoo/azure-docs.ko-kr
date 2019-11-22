@@ -1,23 +1,17 @@
 ---
 title: Azure 데이터 과학 Virtual Machines 사용
 description: Azure Data Science Virtual Machine (DSVM)에 연결 하 여 Azure Notebooks에서 사용할 수 있는 계산 능력을 확장 합니다.
-services: app-service
-documentationcenter: ''
 author: getroyer
 manager: andneil
-ms.assetid: 0ccc2529-e17f-4221-b7c7-9496d6a731cc
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.author: getroyer
 ms.topic: article
 ms.date: 06/13/2019
-ms.author: getroyer
-ms.openlocfilehash: 0f06475708adaf1324eedbd8e315fe4d731339be
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 0559442cb3f6c3937e6930082940e9354c43bc30
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970109"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277399"
 ---
 # <a name="use-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines 사용
 

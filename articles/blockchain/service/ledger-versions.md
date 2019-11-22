@@ -1,21 +1,21 @@
 ---
-title: Azure Blockchain 서비스 원장 버전, 패치 및 업그레이드
+title: Azure Blockchain 서비스 원장 버전, 패치, & 업그레이드
 description: 시스템 패치, 시스템 관리 및 사용자 관리 업그레이드에 대 한 정책을 포함 하 여 Azure Blockchain 서비스에서 지원 되는 원장 버전에 대 한 개요입니다.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: azure-blockchain
 ms.reviewer: janders
 manager: femila
-ms.openlocfilehash: 16d0f0876e7d75dfd0266468ddc3005b86fc632f
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
-ms.translationtype: MT
+ms.openlocfilehash: 03eaf86ece191cce7eef6647a582a66495692db2
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579809"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284916"
 ---
 # <a name="supported-azure-blockchain-service-ledger-versions"></a>지원 되는 Azure Blockchain 서비스 원장 버전
 

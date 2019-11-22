@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결 - REST | Microsoft Docs
+title: VNET 게이트웨이 및 연결 문제 해결-Azure REST API
+titleSuffix: Azure Network Watcher
 description: REST를 사용하여 Azure Network Watcher에서 Virtual Network 게이트웨이 및 연결 문제를 해결하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
 ms.author: kumud
-ms.openlocfilehash: 0f10b9b45f63485417685a0826c047725a264772
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64686126"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277793"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -48,7 +49,7 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 
 Network Watcher 문제 해결은 Virtual Network 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다. 리소스 문제 해결을 요청하는 경우 로그를 쿼리하고 검사합니다. 검사가 완료되면 결과가 반환됩니다. 문제 해결 API 요청은 장기 실행 요청이며 결과를 반환하는 데 몇 분이 걸릴 수 있습니다. 로그는 스토리지 계정의 컨테이너에 저장됩니다.
 
-## <a name="log-in-with-armclient"></a>ARMClient에 로그인
+## <a name="log-in-with-armclient"></a>ARMClient로 로그인
 
 ```powershell
 armclient login
@@ -325,7 +326,7 @@ is a transient state while the Azure platform is being updated.",
 
 작업 텍스트에서는 문제를 해결하는 방법에 대한 일반적인 지침을 제공합니다. 문제에 대한 조치를 취할 수 있는 경우 링크는 추가 설명서와 함께 제공됩니다. 추가 지침이 없는 경우에 응답은 지원 사례를 열 URL을 제공합니다.  응답의 속성 및 포함된 항목에 대한 자세한 내용은 [Network Watcher 문제 해결 개요](network-watcher-troubleshoot-overview.md)를 방문하세요.
 
-Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 다음 링크에서 찾을 수 있습니다. [Storage 탐색기](https://storageexplorer.com/)
+Azure Storage 계정에서 파일을 다운로드하는 방법에 대한 지침은 [.NET을 사용하여 Azure Blob Storage 시작](../storage/blobs/storage-dotnet-how-to-use-blobs.md)을 참조하세요. 사용할 수 있는 다른 도구는 Storage Explorer입니다. Storage Explorer에 대한 자세한 내용은 여기에 있는 [Storage Explorer](https://storageexplorer.com/) 링크에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: bf82714011754ba516fa38444b1019b9cc1aa732
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111869"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276769"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -80,7 +80,7 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
 ## <a name="configure-data-drift"></a>데이터 드리프트 구성
 실험에 대 한 데이터 드리프트를 구성 하려면 다음 Python 예제에서 볼 수 있듯이 종속성을 가져옵니다. 
 
-이 예제에서는 [`DataDriftDetector`](https://docs.microsoft.com/python/api/azureml-contrib-datadrift/azureml.contrib.datadrift.datadriftdetector.datadriftdetector?view=azure-ml-py) 개체를 구성 하는 방법을 보여 줍니다.
+이 예제에서는 [`DataDriftDetector`](/python/api/azureml-datadrift/azureml.datadrift.datadriftdetector.datadriftdetector) 개체를 구성 하는 방법을 보여 줍니다.
 
 ```python
 # Import Azure ML packages

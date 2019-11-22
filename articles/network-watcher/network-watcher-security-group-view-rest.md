@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher 보안 그룹 보기를 사용하여 네트워크 보안 분석 - REST API | Microsoft Docs
+title: 네트워크 보안 분석-보안 그룹 보기-Azure REST API
+titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 PowerShell을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 86fff39605fa91c1b09c1547dd0efa97b8fd26cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687856"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277904"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>REST API를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -43,7 +44,7 @@ ms.locfileid: "64687856"
 
 이 문서에서 다루는 시나리오는 지정된 가상 머신에 대한 효과적으로 적용된 보안 규칙을 검색합니다.
 
-## <a name="log-in-with-armclient"></a>ARMClient에 로그인
+## <a name="log-in-with-armclient"></a>ARMClient로 로그인
 
 ```powershell
 armclient login
@@ -53,7 +54,7 @@ armclient login
 
 다음 스크립트를 실행하여 가상 머신을 반환합니다. 다음 코드에는 변수가 필요합니다.
 
-- **subscriptionId** -구독 id를 사용 하 여 검색할 수도 있습니다는 **Get AzSubscription** cmdlet.
+- **subscriptionId** - **AzSubscription** cmdlet을 사용 하 여 구독 id를 검색할 수도 있습니다.
 - **resourceGroupName** - 가상 머신을 포함하는 리소스 그룹의 이름입니다.
 
 ```powershell
@@ -63,7 +64,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-필요한 정보는 다음 예제에 볼 수 있는 것처럼 응답에서 `Microsoft.Compute/virtualMachines` 형식 아래의 **id**입니다.
+필요한 정보는 다음 예제에 볼 수 있는 것처럼 응답에서 **형식 아래의**id`Microsoft.Compute/virtualMachines`입니다.
 
 ```json
 ...,

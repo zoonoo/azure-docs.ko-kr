@@ -1,6 +1,6 @@
 ---
 title: Microsoft Authenticator 앱 다운로드 및 설치-Azure AD
-description: 2단계 인증을 위해 Microsoft Authenticator 앱을 다운로드, 설치 및 사용하는 방법입니다.
+description: 2 단계 인증을 사용 하는 동안 Microsoft Authenticator 앱을 다운로드 하 고 설치 하 여 id를 확인 합니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -13,12 +13,12 @@ ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebe80d44d52ffa348413e51cd5e82e8468537479
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 86bbe9560a4c3520bce5aa006c18f794c8298a54
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820234"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74266940"
 ---
 # <a name="download-and-install-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 다운로드 및 설치
 

@@ -1,20 +1,16 @@
 ---
 title: AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
-titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/24/2019
 ms.topic: conceptual
 description: AKS 클러스터에 Azure Dev Spaces를 설치 하 고 클라이언트 쪽 도구를 설치 하는 방법에 대해 알아봅니다.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 642d4406840f1748c3b6cbb4441227fff0c6d721
-ms.sourcegitcommit: 5604661655840c428045eb837fb8704dca811da0
-ms.translationtype: MT
+keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
+ms.openlocfilehash: c62fe38a12b5ec279bc51fe8bc0d340e2f439200
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68494841"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280050"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
 
@@ -53,7 +49,7 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-이 `use-dev-spaces` 명령은 Azure Dev Spaces CLI도 설치 합니다.
+`use-dev-spaces` 명령은 Azure Dev Spaces CLI도 설치 합니다.
 
 ## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Dev Spaces 설치
 

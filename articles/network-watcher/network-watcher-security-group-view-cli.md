@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher 보안 그룹 보기를 사용하여 네트워크 보안 분석 - Azure CLI | Microsoft Docs
+title: 보안 그룹 보기를 사용 하 여 네트워크 보안 분석-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 Azure CLI를 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 68222a90eb60ab4f84a34b5e46833128ea081ec1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 70460d3b46baa094f227f96733f8ac98fae9285b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64724444"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277843"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-azure-cli"></a>Azure CLI를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -38,7 +39,7 @@ ms.locfileid: "64724444"
 
 ## <a name="scenario"></a>시나리오
 
-이 문서에서 다루는 시나리오는 지정된 가상 머신에 대한 효과적으로 구성된 보안 규칙을 검색합니다.
+이 문서에서 다루는 시나리오는 지정된 가상 컴퓨터에 대한 효과적으로 구성된 보안 규칙을 검색합니다.
 
 ## <a name="get-a-vm"></a>VM 확인
 

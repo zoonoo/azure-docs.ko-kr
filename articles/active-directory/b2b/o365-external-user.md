@@ -1,5 +1,5 @@
 ---
-title: Office 365 외부 공유 및 B2B 공동 작업-Azure Active Directory | Microsoft Docs
+title: Office 365 외부 공유 및 B2B 공동 작업-Azure AD
 description: O365 및 Azure Active Directory B2B 협업을 사용하여 외부 파트너와 리소스 공유에 대해 설명합니다.
 services: active-directory
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f6cdc782f091709ed00358dd309e9fd4ccfd0eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d70aed6fbe0f09ea6284f913c88186ecf94e297
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66807702"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272263"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Office 365 외부 공유 및 Azure Active Directory B2B 협업
 
@@ -45,8 +45,8 @@ Azure AD B2B 협업 기능으로 OneDrive/SharePoint Online의 외부 공유를 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-* [역할에 B2B 공동 작업 사용자 추가](add-guest-to-role.md)
-* [B2B 공동 작업 초대 위임](delegate-invitations.md)
-* [동적 그룹 및 B2B 공동 작업](use-dynamic-groups.md)
-* [Azure Active Directory B2B 공동 작업 문제 해결](troubleshoot.md)
+* [Azure AD B2B 협업이란?](what-is-b2b.md)
+* [역할에 B2B 협업 사용자 추가](add-guest-to-role.md)
+* [B2B 협업 초대 위임](delegate-invitations.md)
+* [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
+* [Azure Active Directory B2B 협업 문제 해결](troubleshoot.md)

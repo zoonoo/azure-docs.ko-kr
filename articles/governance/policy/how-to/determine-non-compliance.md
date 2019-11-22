@@ -3,12 +3,12 @@ title: 규정 비준수의 원인 확인
 description: 리소스가 비규격 인 경우 여러 가지 원인이 있을 수 있습니다. 비준수를 일으킨 원인을 확인 하는 방법을 알아보세요.
 ms.date: 04/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6f113080ab84fe7d159766e6543ff61b28f4ead2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959606"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279407"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -216,6 +216,6 @@ _시각적 차이_는 리소스 변경 내용을 식별하는 데 도움이 됩�
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

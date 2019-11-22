@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 6a001d6b501a22b4b07599792a64af735c5d4d9b
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 784e31b823c65c0b908dc07582805e7a69d19563
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090498"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304802"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -52,15 +52,15 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 1. 동일한 **API 사용 권한 요청** 창에 선택한 API가 **Azure Digital Twins**로 표시됩니다. **읽기(1)** 드롭다운을 선택한 다음, **Read.Write** 확인란을 선택합니다. **사용 권한 추가** 단추를 선택합니다.
 
-    [![API 권한 추가](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    [Azure Digital Twins에 대 한 API 권한 추가 ![](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
 
 1. 조직의 설정에 따라 이 API에 대한 관리자 액세스 권한을 부여하려면 추가 단계를 수행해야 할 수도 있습니다. 자세한 내용은 관리자에게 문의하세요. 관리자 액세스가 승인되면 **API 사용 권한** 창의 **관리자 동의 필요** 열이 API에 대해 다음과 유사하게 표시됩니다.
 
-    [![관리자 동의 승인](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+    [관리자 동의 승인 구성 ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
 
 1. `https://www.getpostman.com/oauth2/callback`에 대 한 두 번째 **리디렉션 URI** 를 구성 합니다.
 
-    [Postman Redirect URI를 추가 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
+    [새 Postman 리디렉션 URI를 구성 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
 1. [앱이 **공용 클라이언트로**등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)되었는지 확인 하려면 앱 등록에 대 한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **응용 프로그램을 공용 클라이언트로 처리**에 대해 **예** 를 선택 하 고 **저장**을 누릅니다.
 
@@ -104,7 +104,7 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
 
 1. 클라이언트는 이제 다음과 같아야 합니다.
 
-    [![Postman 클라이언트 예제](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [![Postman 클라이언트 토큰 예제](media/how-to-configure-postman/configure-postman-oauth-token.png)](media/how-to-configure-postman/configure-postman-oauth-token.png#lightbox)
 
 1. **토큰 요청**을 선택합니다.
   
@@ -116,14 +116,14 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
 
 1. **헤더** 탭에서 값 `multipart/mixed`를 사용 하 여 HTTP 요청 헤더 키 **콘텐츠 형식을** 추가 합니다.
 
-   [![콘텐츠 형식 다중 파트/혼합](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [내용 유형을 multipart/mixed로 지정 ![](media/how-to-configure-postman/configure-postman-content-type.png)](media/how-to-configure-postman/configure-postman-content-type.png#lightbox)
 
 1. 텍스트가 아닌 데이터를 파일로 직렬화합니다. JSON 데이터는 JSON 파일로 저장됩니다.
 1. **본문** 탭에서 `form-data`를 선택 합니다. 
 1. **키** 이름을 할당 하 여 각 파일을 추가 하 고 `File`를 선택 합니다.
 1. 그런 후 **파일 선택** 단추를 사용하여 각 파일을 선택합니다.
 
-   [![Postman 클라이언트 예제](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [![Postman 클라이언트 양식 본문 예제](media/how-to-configure-postman/configure-postman-form-body.png)](media/how-to-configure-postman/configure-postman-form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman 클라이언트에서는 다중 파트 청크에 **Content-Type** 또는 **Content-Disposition**을 수동으로 할당할 필요가 없습니다.

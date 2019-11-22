@@ -1,5 +1,6 @@
 ---
-title: Azure Network Watcher 및 오픈 소스 도구를 사용하여 네트워크 트래픽 패턴 시각화 | Microsoft Docs
+title: 오픈 소스 도구를 사용 하 여 네트워크 트래픽 패턴 시각화
+titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
@@ -14,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 3a0ae782d3fe97752ca8b9e786c3c2672f554277
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64936018"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277753"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -37,7 +38,7 @@ Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 �
 
 ### <a name="install-capanalysis"></a>CapAnalysis 설치
 
-가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis 에서 공식 절차를 참조하세요.
+가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis에서 공식 절차를 참조하세요.
 CapAnalysis에 원격으로 액세스하려면 새 인바운드 보안 규칙을 추가하여 VM에서 9877 포트를 열어야 합니다. 네트워크 보안 그룹에서 규칙을 만드는 방법에 대한 자세한 내용은 [기존 NSG에서 규칙 만들기](../virtual-network/manage-network-security-group.md#create-a-security-rule)를 참조하세요. 규칙이 추가되면 `http://<PublicIP>:9877`에서 CapAnalysis에 액세스할 수 있습니다.
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Azure Network Watcher를 사용하여 패킷 캡처 세션 시작
@@ -76,7 +77,7 @@ CapAnalysis는 패킷 캡처를 시각화하는 다양한 옵션을 제공하며
 
 1. 지역 지도
 
-    이 창을 사용 하면 각 국가/지역의 트래픽 볼륨을 확장 하는 색을 사용 하 여 네트워크 트래픽의 지도 보기를 사용 하 여 할 수 있습니다. 해당 국가/지역의 Ip에서 보내거나 받는 데이터 비율 같은 추가 흐름 통계를 보는 데 강조 표시 된 국가 선택할 수 있습니다.
+    이 창에서는 각 국가/지역의 트래픽 양에 대 한 색을 조정 하 여 네트워크 트래픽의 지도 보기를 제공 합니다. 강조 표시 된 국가/지역을 선택 하 여 해당 국가/지역의 Ip에서 보내고 받은 데이터의 비율과 같은 추가 흐름 통계를 볼 수 있습니다.
 
     ![지역 지도][8]
 

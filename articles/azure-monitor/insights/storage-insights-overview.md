@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 08/15/2019
-ms.openlocfilehash: e5738b9f7cca03898d3bb5c593004bb316aa0b23
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: aaf7d1a38d4b809b904b6c607a4cfc23efd4dde5
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553888"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286299"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "72553888"
 
 다음을 제공 합니다.
 
-* 저장소 서비스 또는 API 작업의 상태에 따라 가용성의 스냅숏 보기를 보여 주는 **규모 관점에서** , 저장소 서비스에서 받은 총 요청 수를 보여 주는 사용률, 평균 시간을 보여 주는 대기 시간 저장소 서비스 또는 API 작업 형식에서 요청을 처리 하는 중입니다. Blob, 파일, 테이블 및 큐를 기준으로 용량을 볼 수도 있습니다.
+* 저장소 서비스 또는 API 작업의 상태에 따라 가용성의 스냅숏 보기를 보여 주는 **규모 관점에서** , 저장소 서비스에서 수신 하는 총 요청 수를 표시 하는 사용률, 저장소 서비스 또는 api 작업 유형에 서 요청을 처리 하는 데 걸리는 평균 시간을 표시 하는 대기 시간입니다. Blob, 파일, 테이블 및 큐를 기준으로 용량을 볼 수도 있습니다.
 
 * 특정 저장소 계정에 대 한 **분석을 드릴 다운** 하 여 문제를 진단 하거나 범주별 가용성, 성능, 오류 및 용량을 기준으로 상세 분석을 수행할 수 있습니다. 이러한 옵션 중 하나를 선택 하면 메트릭의 심도 있는 보기가 제공 됩니다.  
 
@@ -47,7 +47,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 모든 구독에서 저장소 계정의 사용률과 가용성을 보려면 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. Azure Portal의 왼쪽 창에서 **모니터** 를 선택 하 고, **Insights** 섹션 아래에서 **Storage 계정 (미리 보기)** 을 선택 합니다.
 
@@ -65,7 +65,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 드롭다운 목록 아래의 카운터 타일은 구독의 총 저장소 계정 수를 롤업 하 고 선택 된 총 수를 반영 합니다. 통합 문서에서 트랜잭션 메트릭 또는 오류를 보고 하는 열에 대 한 조건부 색 구분 또는 열 지도이 있습니다. 가장 높은 색은 가장 높은 값을 가지 며 가장 밝은 색은 가장 작은 값을 기준으로 합니다. 오류 기반 열의 경우 값은 빨간색이 고 메트릭 기반 열에 대해서는 값이 파란색으로 되어 있습니다.
 
-열 **가용성**, **E2E 대기 시간**, **서버 대기 시간**및 **트랜잭션 오류 유형/오류** 열에서 값을 선택 하면 해당 항목에 대해 선택한 열과 일치 하는 특정 유형의 저장소 메트릭에 맞는 보고서로 이동 합니다. 저장소 계정. 각 범주의 통합 문서에 대 한 자세한 내용은 아래의 [자세한 저장소 통합 문서](#detailed-storage-workbooks) 섹션을 참조 하세요. 
+**가용성**, **E2E 대기 시간**, **서버 대기 시간**및 **트랜잭션 오류 유형/오류** 열에서 값을 선택 하면 해당 저장소 계정에 대해 선택한 열과 일치 하는 특정 유형의 저장소 메트릭에 맞게 조정 된 보고서로 이동 합니다. 각 범주의 통합 문서에 대 한 자세한 내용은 아래의 [자세한 저장소 통합 문서](#detailed-storage-workbooks) 섹션을 참조 하세요. 
 
 >[!NOTE]
 >보고서에 표시 될 수 있는 오류에 대 한 자세한 내용은 [응답 유형 스키마](../../storage/common/storage-metrics-in-azure-monitor.md#metrics-dimensions) 및 응답 유형 (예: **serverothererror**, **clientothererror**, **ClientThrottlingError**)을 참조 하세요. 선택한 저장소 계정에 따라 세 가지 유형의 오류가 보고 된 경우 다른 모든 오류는 **기타**범주에 표시 됩니다.
@@ -111,7 +111,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 ## <a name="detailed-storage-workbooks"></a>자세한 저장소 통합 문서
 
-여러 저장소 계정 **개요** 통합 문서에서 **사용 가능**열 값, **E2E 대기 시간**, **서버 대기 시간**및 **트랜잭션 오류 유형/오류** 를 선택 했는지 여부에 관계 없이 다음 단추 중 하나를 선택 합니다. **개요** 통합 문서에서 **발생**하는 오류, **성능**, **가용성**및 **용량** 은 특정 저장소 계정에서 각 범주에 맞게 조정 된 대화형 저장소 관련 정보 집합을 제공 합니다.  
+여러 저장소 계정 **개요** 통합 문서에서 **사용 가능한**열 값, **E2E 대기 시간**, **서버 대기**시간 및 **트랜잭션 오류 유형/오류** 를 선택 했는지 여부에 관계 없이 특정 저장소 계정의 **개요** 통합 문서에서 **오류**, **성능**, **가용성**및 **용량** 에 대 한 단추 중 하나를 선택 하면 각각 해당 범주에 맞게 조정 된 대화형 저장소 관련 정보 집합을 제공 합니다.  
 
 * **가용성** **가용성 통합 문서** 를 엽니다. Azure Storage 서비스의 현재 상태를 표시 하 고, 선택 된 시간 범위를 나타내는 추세 선이 있는 저장소 계정에 정의 된 데이터 서비스에 의해 분류 된 각 개체의 사용 가능한 상태와에 대 한 가용성 추세 차트를 보여 주는 테이블입니다. 계정의 각 데이터 서비스입니다.  
 
@@ -121,7 +121,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
     ![성능 보고서 예](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* 표에 나열 된 오류 범주 중 하나를 선택 하면 **실패** 통합 문서가 열립니다. 이 보고서에는 설명 및 성공한 요청, 클라이언트 제한 오류, ClientOtherError 특성과 관련 된 트랜잭션 **응답 유형** 차원 메트릭에 대 한 성능 차트를 제외 하 고 다른 모든 클라이언트 쪽 오류의 메트릭 타일이 표시 됩니다. 그리고 두 개의 테이블- **API 이름별 트랜잭션과** **응답 유형별**트랜잭션.
+* 표에 나열 된 오류 범주 중 하나를 선택 하면 **실패** 통합 문서가 열립니다. 이 보고서에는 설명 및 성공한 요청, 클라이언트 제한 오류, ClientOtherError 특성과 관련 된 트랜잭션 **응답 유형** 차원 메트릭에 대 한 성능 차트 및 응답 유형별 두 개의 테이블 **트랜잭션** ( **응답 유형별**트랜잭션)을 제외 하 고 다른 모든 클라이언트 쪽 오류의 메트릭 타일이 표시 됩니다.
 
    ![오류 보고서 예](./media/storage-insights-overview/storage-account-failures-01.png)
 
@@ -168,7 +168,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 ### <a name="modify-metrics-and-colors-in-the-workbook"></a>통합 문서의 메트릭 및 색 수정
 
-미리 작성 된 통합 문서에는 메트릭 데이터가 포함 되어 있으며, 시각화 중 하나를 수정 하거나 제거 하 고 팀의 특정 요구에 맞게 사용자 지정할 수 있습니다. 
+미리 작성 된 통합 문서에는 메트릭 데이터가 포함 되어 있으며, 시각화 중 하나를 수정 하거나 제거 하 고 팀의 특정 요구에 맞게 사용자 지정할 수 있습니다.
 
 이 예제에서는 다중 구독 및 저장소 계정 용량 통합 문서를 사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다.
 
@@ -183,7 +183,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
     ![편집을 선택 하 여 통합 문서 수정](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. 메트릭 섹션 옆에 있는 **편집**을 선택 합니다. 
+3. 메트릭 섹션 옆에 있는 **편집**을 선택 합니다.
 
     ![용량 통합 문서 메트릭을 수정 하려면 편집을 선택 합니다.](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
@@ -191,7 +191,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
     ![열 설정 편집](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. **열 설정 편집** 창의 **,/Storageaccounts-Capacity-Timeline $ | 열에서을 선택 합니다. 계정 사용 용량 시간 표시 막대 $** , 드롭다운 목록 **열 렌더러** 아래에서 **숨김**을 선택 합니다. 
+5. **열 설정 편집** 창의 **,/Storageaccounts-Capacity-Timeline $ | 열에서을 선택 합니다. 계정 사용 용량 시간 표시 막대 $** , 드롭다운 목록 **열 렌더러** 아래에서 **숨김**을 선택 합니다.
 
 6. **저장 후 닫기** 를 선택 하 여 변경 내용을 커밋합니다.
 
@@ -199,7 +199,7 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 
 1. 메트릭 표에서 **열 설정** 을 선택 합니다.
 
-2. **열 설정 편집** 창의 **열** 섹션에서 **, $ | microsoft storage/Storageaccounts/Blobservices-capacity-blobservices $ | microsoft. storage/를 선택 합니다. storageaccounts/fileservices-FileCapacity $ | queueservices/storageaccounts/-QueueCapacity $ | microsoft storage/storageaccounts/tableservices-TableCapacity $** . 드롭다운 **목록 색상표에서** **녹색**을 선택 합니다.
+2. **열 설정 편집** 창에서 **열** 섹션 아래에서, $ | microsoft storage/storageaccounts/ **Blobservices-capacity-blobservices $** | microsoft storage/storageaccounts/fileservices-FileCapacity $ | queueservices/storageaccounts/QueueCapacity $ | microsoft. storage/storageaccounts/tableservices-TableCapacity $를 선택 합니다. 드롭다운 **목록 색상표에서** **녹색**을 선택 합니다.
 
 3. **저장 후 닫기** 를 선택 하 여 변경 내용을 커밋합니다.
 
@@ -234,6 +234,86 @@ Azure Monitor에서 구독의 여러 저장소 계정에서 트랜잭션, 대기
 ### <a name="resolving-performance-capacity-or-availability-issues"></a>성능, 용량 또는 가용성 문제 해결
 
 저장소 (미리 보기)에 대 한 Azure Monitor에서 식별 하는 저장소 관련 문제를 해결 하려면 Azure Storage [문제 해결 지침](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md#troubleshooting-guidance)을 참조 하세요.  
+
+### <a name="why-can-i-only-see-200-storage-accounts"></a>200 저장소 계정만 볼 수 있는 이유는 무엇 인가요?
+
+선택한 구독 수에 관계 없이 선택한 저장소 계정의 수는 200 개로 제한 됩니다.
+
+### <a name="what-happens-when-i-click-on-a-recently-pinned-tile-in-the-dashboard"></a>대시보드에서 최근에 고정 된 타일을 클릭 하면 어떻게 되나요?
+
+* 타일에서 아무 곳 이나 클릭 하면 타일이 고정 된 탭으로 이동 됩니다. 예를 들어 "저장소 계정 개요" 탭에서 그래프를 고정 하는 경우 대시보드에서 해당 타일을 클릭 하면 해당 기본 보기가 열립니다. 그러나 사용자가 저장 한 복사본에서 그래프를 고정 하면 저장 된 복사본의 보기가 열립니다.
+* 제목 왼쪽 상단에 있는 필터 아이콘을 통해 "타일 설정 구성" 탭이 열립니다.
+* 오른쪽 위의 타원 아이콘은 "제목 데이터 사용자 지정", "사용자 지정", "새로 고침" 및 "대시보드에서 제거"에 대 한 옵션을 제공 합니다.
+
+### <a name="what-happens-when-i-save-a-workbook"></a>통합 문서를 저장 하면 어떻게 되나요?
+
+* 통합 문서를 저장 하면 편집 내용이 포함 된 통합 문서의 새 복사본을 만들고 제목을 변경할 수 있습니다. 저장은 통합 문서를 덮어쓰지 않으며 현재 통합 문서는 항상 기본 보기가 됩니다.
+* **저장 하지 않은** 통합 문서는 기본 뷰입니다.
+
+
+### <a name="why-dont-i-see-all-my-subscriptions-in-the-portal"></a>포털에서 내 구독이 모두 표시 되지 않는 이유는 무엇 인가요?
+
+포털에서 선택한 구독에 대 한 데이터만 표시 됩니다 포털 시작 합니다. 선택한 구독을 변경 하려면 오른쪽 상단으로 이동 하 여 필터 아이콘이 있는 노트북을 클릭 합니다. 그러면 디렉터리 + 구독 탭이 표시 됩니다.
+
+![디렉터리 + 구독](./media/storage-insights-overview/fqa3.png)
+
+### <a name="how-to-change-the-coloring-and-threshold-for-availability"></a>가용성에 대 한 색 지정 및 임계값을 변경 하는 방법
+
+가용성에 대 한 색 지정 및 임계값을 변경 하는 방법에 대 한 자세한 단계는 [가용성 임계값 수정](storage-insights-overview.md#modify-the-availability-threshold) 섹션을 참조 하세요.
+
+### <a name="how-to-analyze-and-troubleshoot-the-data-shown-in-azure-monitor-for-storage"></a>저장소에 대 한 Azure Monitor에 표시 된 데이터를 분석 하 고 문제를 해결 하는 방법
+
+ 저장소 Azure Monitor에 표시 되는 Azure Storage 데이터를 분석 하 고 문제를 해결 하는 방법에 대 한 자세한 내용은 [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](https://docs.microsoft.com/azure/storage/common/storage-monitoring-diagnosing-troubleshooting) 문서를 참조 하세요.
+
+### <a name="why-dont-i-see-all-the-types-of-errors-in-metrics"></a>메트릭에 모든 오류 유형이 표시 되지 않는 이유는 무엇 인가요?
+
+현재는 여러 가지 유형의 오류가 표시 되 고 나머지 오류는 단일 버킷에 함께 그룹화 됩니다. SplitByLimit를 사용 하 여 제어 되며 수정할 수 있습니다. 이 속성을 변경 하려면
+
+1. 통합 문서 편집을 클릭 합니다.
+2. 메트릭으로 이동 하 고 편집을 클릭 한 다음 편집 하려는 **트랜잭션, 합계** 또는 모든 메트릭을 선택 합니다.
+
+    ![메트릭으로 이동 하 고 편집을 클릭 한 다음 "트랜잭션, 합계"를 클릭 합니다.](./media/storage-insights-overview/fqa7.png)
+
+1. 그런 다음 분할 수를 변경 합니다.
+
+    ![메트릭 매개 변수 선택 "](./media/storage-insights-overview/fqa7-2.png)
+
+N + 1로 splitByLimit를 지정 하는 것 보다 n 개의 다른 유형의 오류를 확인 하려는 경우 나머지 오류에 대 한 추가를 1로 지정 합니다.
+
+###  <a name="i-saved-my-workbook-while-on-some-storage-account-why-cant-i-find-it-now"></a>일부 저장소 계정에서 내 통합 문서를 저장 했습니다. 지금 찾을 수 없는 이유는 무엇 인가요?
+
+각 통합 문서는 저장 한 저장소 계정에 저장 됩니다. 사용자가 통합 문서를 저장 한 특정 저장소 계정을 찾습니다. 그렇지 않으면 리소스 (저장소 계정)를 몰라도 특정 통합 문서를 찾을 수 있는 방법이 없습니다.
+
+### <a name="what-is-time-range"></a>시간 범위 란?
+
+시간 범위는 특정 시간 프레임의 데이터를 표시 합니다. 예를 들어 시간 범위가 24 시간인 경우 지난 24 시간 동안의 데이터를 표시 합니다.
+
+### <a name="what-is-time-granularity-time-grain"></a>시간 세분성 (시간 세분화) 이란?
+
+시간 세분성은 두 데이터 요소 간의 시간 차이입니다. 예를 들어 시간 수준을 1 초로 설정 하면 메트릭이 초당 수집 됩니다.
+
+### <a name="what-is-the-time-granularity-once-we-pin-any-part-of-the-workbooks-to-a-dashboard"></a>통합 문서의 모든 부분을 대시보드에 고정 하면 시간 세분성은 무엇 인가요?
+
+기본 시간 세분성은 자동으로 설정 되며 지금은 현재 변경할 수 없습니다.
+
+### <a name="how-do-i-change-the-timespan-time-range-of-the-workbook-step-on-my-dashboard"></a>내 대시보드에서 통합 문서 단계의 timespan/time 범위를 변경 어떻게 할까요?
+
+기본적으로 대시보드 타일의 시간 범위는 24 시간으로 설정 되 고, 오른쪽 위에 있는 줄임표를 클릭 하 고, **타일 데이터 사용자 지정**을 선택 하 고, "제목 수준에서 대시보드 시간 설정 재정의" 확인란을 선택 하 고 드롭다운 메뉴를 사용 하 여 timespan을 선택 합니다.  
+
+![타일의 오른쪽 모서리에 있는 줄임표를 선택 하 고이 데이터 사용자 지정을 선택 합니다.](./media/storage-insights-overview/fqa-data-settings.png)
+
+![타일 설정 구성에서 timespan 드롭다운을 선택 하 여 시간 범위/시간 범위를 변경 합니다.](./media/storage-insights-overview/fqa-timespan.png)
+
+### <a name="how-do-i-change-the-title-of-the-workbook-or-a-workbook-step-i-pinned-to-a-dashboard"></a>대시보드에 고정 된 통합 문서 또는 통합 문서 단계를 변경 어떻게 할까요?
+
+대시보드에 고정 된 통합 문서 또는 통합 문서 단계의 제목은 통합 문서에 있던 것과 동일한 이름을 유지 합니다. 제목을 변경 하려면 자신의 통합 문서 복사본을 저장 해야 합니다. 그런 다음 저장을 누르기 전에 통합 문서 이름을 지정할 수 있습니다.
+
+![위쪽에서 저장을 선택 하 여 통합 문서의 복사본을 저장 하 고 이름을 변경 합니다.](./media/storage-insights-overview/fqa-change-workbook-name.png)
+
+저장 된 통합 문서의 단계 이름을 변경 하려면 단계에서 편집을 선택 하 고 설정 맨 아래에서 기어를 선택 합니다.
+
+![통합 문서 단계 맨 아래에서 편집을 선택 하](./media/storage-insights-overview/fqa-edit.png)
+설정을 엽니다. 설정에서 ![아래쪽의 기어를 선택 하 여 단계 이름을 변경할 수 있습니다](./media/storage-insights-overview/fqa-change-name.png)
 
 ## <a name="next-steps"></a>다음 단계
 

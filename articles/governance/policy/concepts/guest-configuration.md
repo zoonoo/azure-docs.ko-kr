@@ -3,12 +3,12 @@ title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성을 사용 하 여 Azure 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5148ecb2f10a2ac517c5cf6c7f682a0f25808910
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: c01f6d02c15dbd7519bfafdc413d70a05498c7c4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959773"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279371"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -61,7 +61,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 |운영 체제|유효성 검사 도구|참고 사항|
 |-|-|-|
-|Windows|[Microsoft Desired State Configuration](/powershell/dsc) v2| |
+|Windows|[Windows PowerShell 필요한 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
 
 ### <a name="validation-frequency"></a>유효성 검사 빈도
@@ -113,7 +113,7 @@ IP 주소 목록 [Microsoft Azure 데이터 센터 Ip 범위](https://www.micros
 
 **Deployifnotexists** 할당이 규격을 준수 하는 경우 **AuditIfNotExists** 정책 할당은 로컬 유효성 검사 도구를 사용 하 여 구성 할당이 규격 인지 아니면 비규격 인지를 확인 합니다. 유효성 검사 도구는 게스트 구성 클라이언트에 결과를 제공합니다. 클라이언트는 게스트 확장에 결과를 전달하므로 게스트 구성 리소스 공급자를 통해 사용할 수 있습니다.
 
-Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/getting-compliance-data.md)를 참조하세요.
+Azure Policy는 게스트 구성 리소스 공급자 **complianceStatus** 속성을 사용하여 **규정 준수** 노드에서 규정 준수를 보고합니다. 자세한 내용은 [규정 준수 데이터 가져오기](../how-to/get-compliance-data.md)를 참조하세요.
 
 > [!NOTE]
 > **AuditIfNotExists** 정책에서 결과를 반환 하려면 **Deployifnotexists** 정책이 필요 합니다. **Deployifnotexists**가 없으면 **AuditIfNotExists** 정책에 "0/0" 리소스가 상태로 표시 됩니다.
@@ -198,6 +198,6 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 - [Azure Policy 정의 구조](definition-structure.md)를 검토합니다.
 - [정책 효과 이해](effects.md)를 검토합니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

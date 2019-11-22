@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7504d14d522a440572aa25491270c0afc73325a9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
-ms.translationtype: HT
+ms.openlocfilehash: 22e3131a204589a506b2d5f1e2508c37ad3b4100
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554399"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73847214"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -24,11 +24,11 @@ ms.locfileid: "72554399"
 
 [MFA (Azure Multi-Factor Authentication)](concept-mfa-howitworks.md) 는 데이터 및 응용 프로그램에 대 한 액세스를 보호 하는 데 도움이 됩니다. 두 번째 형태의 인증을 사용 하 여 추가 보안 계층을 제공 합니다. 조직에서는 [조건부 액세스](../conditional-access/overview.md) 를 사용 하 여 솔루션을 특정 요구 사항에 맞게 만들 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure Multi-Factor Authentication 배포를 시작 하기 전에 고려해 야 하는 필수 조건 항목이 있습니다.
 
-| 시나리오 | 필수 요소 |
+| 시나리오 | 사전 요구 사항 |
 | --- | --- |
 | 최신 인증을 사용 하는 **클라우드 전용** id 환경 | **추가 필수 구성 요소 작업 없음** |
 | **하이브리드** id 시나리오 | [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) 배포 되 고 사용자 id가 Azure Active Directory를 사용 하 여 온-프레미스 Active Directory Domain Services와 동기화 되거나 페더레이션 됩니다. |
@@ -96,7 +96,7 @@ Azure Active Directory Identity Protection에서 검색 되는 일부 위험 검
    2. 국가/지역을 사용 하는 경우
       1. 드롭다운 메뉴를 확장 하 고이 명명 된 위치에 대해 정의 하려는 국가 또는 지역을 선택 합니다.
       2. 알 수 없는 영역을 포함할지 여부를 결정 합니다. 알 수 없는 영역은 국가/지역에 매핑할 수 없는 IP 주소입니다.
-7. **만들기**
+7. 갤러리 헤더에서 **만들기**
 
 ## <a name="plan-authentication-methods"></a>인증 방법 계획
 
@@ -209,6 +209,9 @@ function Set-MfaState {
 Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
+> [!NOTE]
+> 최근 그에 따라 위의 동작 및 PowerShell 스크립트를 변경 했습니다. 이전에는 스크립트에서 MFA 메서드를 사용 하지 않도록 설정 하 고 MFA를 사용 하지 않도록 설정 하 고 메서드를 복원 했습니다. 더 이상 사용 하지 않도록 설정 하는 기본 동작이 메서드를 지우지 않으므로 이제는이 작업이 필요 하지 않습니다.
+
 ## <a name="plan-conditional-access-policies"></a>조건부 액세스 정책 계획
 
 MFA 및 기타 컨트롤이 필요한 시기를 결정 하는 조건부 액세스 정책 전략을 계획 하려면 [Azure Active Directory의 조건부 액세스 란?](../conditional-access/overview.md)을 참조 하세요.
@@ -220,14 +223,15 @@ Azure AD 테 넌 트에서 실수로 잠기는 것을 방지 하는 것이 중�
 1. 전역 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** , **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
+   ![하 여 파일럿 그룹의 Azure Portal 사용자에 대해 MFA를 사용 하도록 설정 하는 조건부 액세스 정책을 만듭니다](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 1. 의미 있는 정책 이름을 입력합니다.
 1. **사용자 및 그룹** 아래에서:
    * **포함** 탭에서 **모든 사용자** 라디오 단추를 선택합니다.
    * **제외** 탭에서 **사용자 및 그룹** 의 확인란을 선택 하 고 응급 액세스 계정을 선택 합니다.
-   * **Done**을 클릭합니다.
+   * **완료**를 클릭합니다.
 1. **클라우드 앱**에서 **모든 클라우드 앱** 라디오 단추를 선택합니다.
    * 선택 사항: **제외** 탭에서, 조직에서 MFA를 요구하지 않는 클라우드 앱을 선택합니다.
-   * **Done**을 클릭합니다.
+   * **완료**를 클릭합니다.
 1. **조건** 섹션에서:
    * 선택 사항: Azure Identity Protection을 사용하도록 설정한 경우 정책의 일부로 로그인 위험을 평가하도록 선택할 수 있습니다.
    * 선택 사항: 신뢰할 수 있는 위치를 구성했거나 위치 이름을 지정한 경우 정책에 해당 위치를 포함 또는 제거하도록 지정할 수 있습니다.
@@ -237,8 +241,6 @@ Azure AD 테 넌 트에서 실수로 잠기는 것을 방지 하는 것이 중�
 1. **세션** 섹션을 건너뜁니다.
 1. **정책 사용** 토글을 **켜기**로 설정합니다.
 1. **만들기**를 클릭합니다.
-
-![파일럿 그룹의 Azure Portal 사용자에 대해 MFA를 사용 하도록 설정 하는 조건부 액세스 정책 만들기](media/howto-mfa-getstarted/conditionalaccess-newpolicy.png)
 
 ## <a name="plan-integration-with-on-premises-systems"></a>온-프레미스 시스템과의 통합 계획
 
@@ -281,7 +283,7 @@ MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행�
 
 이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 이 설정이 변경 되는 영향은 아래 표에 나와 있습니다.
 
-| 설정 | 사용자 MFA 상태 | Effects |
+| 설정 | 사용자 MFA 상태 | 효과 |
 | --- | --- | --- |
 | 키가 없습니다. | 등록 되지 않음 | MFA 챌린지 실패 |
 | True/설정 안 함으로 설정 되는 값 | 등록 되지 않음 | MFA 챌린지 실패 |
@@ -345,7 +347,7 @@ Azure MFA에 대 한 보고서
 
 Azure Multi-Factor Authentication는 Azure Portal를 통해 보고서를 제공 합니다.
 
-| 보고서 | 위치 | 설명 |
+| 보고서 | Location | 설명 |
 | --- | --- | --- |
 | 사용량 및 사기 행위 경고 | Azure AD > 로그인 | 지정된 날짜 범위 동안 제출된 사기 행위 경고의 기록을 비롯한 전체 사용량, 사용자 요약 및 사용자 세부 정보에 대한 정보를 제공합니다. |
 

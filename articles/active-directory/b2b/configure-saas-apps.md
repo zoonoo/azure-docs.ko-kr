@@ -1,5 +1,5 @@
 ---
-title: B2B 공동 작업-Azure Active Directory SaaS 앱 구성 | Microsoft Docs
+title: B2B 공동 작업을 위한 SaaS 앱 구성-Azure AD
 description: Azure Active Directory B2B 협업을 위한 코드 및 PowerShell 샘플
 services: active-directory
 ms.service: active-directory
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35dad420aa004e27ec974c494dc66e9b8e13c733
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7c73a14c2a8cd063672bd0998368ca660f52cd5a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65811951"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74272947"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>B2B 협업용 SaaS 앱 구성
 
@@ -79,14 +79,14 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
 2. 다음 순서로 Single Sign-On을 구성합니다.
 
-   ![Single sign-on 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
+   ![Single Sign-On 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
 
    a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 *https://.box.com* 명명 규칙을 따라야 합니다.  
    **식별자**는 이 앱에 적용되지 않지만 여전히 필수 필드로 표시됩니다.
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.
 
-   다. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
+   c. **SAML 서명 인증서**에서 **새 인증서 만들기**를 클릭합니다.
 
    d. ID 공급자로 Azure AD를 사용하도록 Box.com 테넌트를 구성하려면 메타데이터 파일을 다운로드하여 로컬 드라이브에 저장합니다.
 
@@ -102,8 +102,8 @@ Dropbox 초대 대상자와 마찬가지로 Box 초대 대상자는 Box 앱의 �
 
 Azure AD B2B 협업에 대한 다음 문서를 살펴보세요.
 
-- [Azure AD B2B 공동 작업이란?](what-is-b2b.md)
-- [동적 그룹 및 B2B 공동 작업](use-dynamic-groups.md)
-- [B2B 공동 작업 사용자 클레임 매핑](claims-mapping.md)
+- [Azure AD B2B 협업이란?](what-is-b2b.md)
+- [동적 그룹 및 B2B 협업](use-dynamic-groups.md)
+- [B2B 협업 사용자 클레임 매핑](claims-mapping.md)
 - [Office 365 외부 공유](o365-external-user.md)
 

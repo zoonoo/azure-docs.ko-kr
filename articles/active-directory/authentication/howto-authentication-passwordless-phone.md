@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acdcbef74d95fbbc4cfb49176d1f98621e746ff6
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3ca668036a8b4a4af261ee85b8a884c22258beb4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474362"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269497"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "73474362"
 > [!NOTE]
 > 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 - Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
@@ -46,7 +46,7 @@ ms.locfileid: "73474362"
 ### <a name="enable-passwordless-phone-sign-in-authentication-methods"></a>암호 없는 휴대폰 로그인 인증 방법 사용
 
 1. [Azure 포털](https://portal.azure.com)
-1. **인증 방법 정책 (미리 보기)**  > **Azure AD 보안** > **인증 방법** 으로 이동 합니다.
+1. *Azure Active Directory*를 검색하여 선택합니다. 인증 방법 정책 > **보안** > **인증 방법** 선택 **(미리 보기)**
 1. **Passwordless 휴대폰 로그인**에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
    1. **대상** -모든 사용자 또는 사용자 선택

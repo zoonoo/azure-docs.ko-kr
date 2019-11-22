@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
-ms.date: 06/12/2019
-ms.openlocfilehash: 7bf0c8429eaecd6cba83872cbea5876cc0c31221
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.date: 11/21/2019
+ms.openlocfilehash: d31351a6ab679fdc3ff3f9af9644b1761716c64b
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73199013"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305348"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-windows"></a>Windows 용 Log Analytics 에이전트 문제를 해결 하는 방법 
 
@@ -36,12 +36,11 @@ ms.locfileid: "73199013"
 
 |에이전트 리소스|포트 |방향 |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|*.ods.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|*.oms.opinsights.azure.com |포트 443 |아웃바운드|yes |  
-|\*.blob.core.windows.net |포트 443 |아웃바운드|yes |  
-|*.azure-automation.net |포트 443 |아웃바운드|yes |  
+|*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
+|*.blob.core.windows.net |포트 443 |아웃바운드|예 |  
 
-Azure Government에 필요한 방화벽 정보는 [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조 하세요. 
+Azure Government에 필요한 방화벽 정보는 [Azure Government management](../../azure-government/documentation-government-services-monitoringandmanagement.md#azure-monitor-logs)를 참조 하세요. Azure Automation Hybrid Runbook Worker를 사용 하 여 사용자 환경에서 runbook 또는 관리 솔루션을 사용 하기 위해 자동화 서비스에 연결 하 고 등록 하려는 경우에 [는 Hybrid Runbook Worker에 대 한 네트워크 구성](../../automation/automation-hybrid-runbook-worker.md#network-planning)에 설명 된 포트 번호 및 url에 대 한 액세스 권한이 있어야 합니다. 
 
 에이전트가 Azure Monitor와 성공적으로 통신 하 고 있는지 확인할 수 있는 몇 가지 방법이 있습니다.
 
@@ -61,9 +60,9 @@ Azure Government에 필요한 방화벽 정보는 [Azure Government management](
 
     ![TestCloudConnection 도구 실행 결과](./media/agent-windows-troubleshoot/output-testcloudconnection-tool-01.png)
 
-- **이벤트 소스** - *상태 관리 서비스 모듈*, *health service*및 *서비스 커넥터* 를 기준으로 *Operations Manager* 이벤트 로그를 필터링 하 고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 합니다. 다음 표의 이벤트를 기록 했는지 확인 합니다. 가능한 경우 각 이벤트에 대해 포함 된 해결 단계를 검토 합니다.
+- **이벤트 원본** 으로 *Operations Manager* 이벤트 로그를 필터링 하 여 모듈, *health service*및 *서비스 커넥터* 를 *상태 관리 서비스* - 하 고, **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트 작성 여부를 확인 합니다. 가능한 경우 각 이벤트에 대해 포함 된 해결 단계를 검토 합니다.
 
-    |이벤트 ID |원본 |설명 |해상도 |
+    |이벤트 ID |원본 |설명 |해결 방법 |
     |---------|-------|------------|-----------|
     |2133 & 2129 |상태 관리 서비스 |에이전트에서 서비스에 연결 하지 못했습니다. |이 오류는 에이전트가 직접 또는 방화벽/프록시 서버를 통해 Azure Monitor 서비스와 통신할 수 없는 경우에 발생할 수 있습니다. 에이전트 프록시 설정을 확인 하거나 네트워크 방화벽/프록시가 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하는지 확인 합니다.|
     |2138 |상태 관리 서비스 모듈 |프록시에 인증 필요 |에이전트 프록시 설정을 구성 하 고 프록시 서버를 인증 하는 데 필요한 사용자 이름/암호를 지정 합니다. |
@@ -94,16 +93,16 @@ Heartbeat
 
 쿼리에서 결과를 반환 하는 경우 특정 데이터 형식이 수집 되지 않고 서비스로 전달 되는지 확인 해야 합니다. 이 문제는 에이전트가 서비스에서 업데이트 된 구성을 받지 못하거나 에이전트가 정상적으로 작동 하지 않는 다른 증상이 원인일 수 있습니다. 추가로 문제를 해결 하려면 다음 단계를 수행 합니다.
 
-1. 컴퓨터에서 관리자 권한 명령 프롬프트를 열고 `net stop healthservice && net start healthservice`을 입력 하 여 에이전트 서비스를 다시 시작 합니다.
+1. 컴퓨터에서 관리자 권한 명령 프롬프트를 열고 `net stop healthservice && net start healthservice`를 입력 하 여 에이전트 서비스를 다시 시작 합니다.
 2. *Operations Manager* 이벤트 로그를 열고 이벤트 **원본** *health service*에서 **이벤트 id** *7023, 7024, 7025, 7028* 및 *1210* 를 검색 합니다.  이러한 이벤트는 에이전트가 Azure Monitor에서 구성을 성공적으로 수신 하 고 컴퓨터를 적극적으로 모니터링 하 고 있음을 표시 합니다. 이벤트 ID 1210에 대 한 이벤트 설명도 에이전트의 모니터링 범위에 포함 된 모든 솔루션과 정보를 마지막 줄에 지정 합니다.  
 
     ![이벤트 ID 1210 설명](./media/agent-windows-troubleshoot/event-id-1210-healthservice-01.png)
 
-3. 몇 분 후에 쿼리 결과 또는 시각화에 필요한 데이터가 표시 되지 않는 경우 *Operations Manager* 이벤트 로그에서 **이벤트 소스** 검색에서 데이터를 볼 수 있는지 여부에 따라 쿼리 결과 또는 시각화에 필요한 데이터가 표시 되지 않습니다. *health service* 및는 *모듈을 상태 관리 서비스* 하 고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트를 기록 했는지 확인 합니다.
+3. 몇 분 후에 쿼리 결과 또는 시각화에 필요한 데이터가 표시 되지 않는 경우, *Operations Manager* 이벤트 로그에서 솔루션 또는 정보에 대 한 데이터를 볼 수 있는지 여부에 따라 **이벤트 원본** *health service* 및 *상태 관리 서비스 모듈* 을 검색 하 고 **이벤트 수준** *경고* 및 *오류* 를 기준으로 필터링 하 여 다음 표의 이벤트 작성 여부를 확인 합니다.
 
-    |이벤트 ID |원본 |설명 |해상도 |
+    |이벤트 ID |원본 |설명 |해결 방법 |
     |---------|-------|------------|
-    |8000 |Health service |이 이벤트는 성능, 이벤트 또는 수집 된 다른 데이터 형식과 관련 된 워크플로가 작업 영역에 수집 하기 위해 서비스로 전달할 수 없는 경우를 지정 합니다. | 원본 Health service의 이벤트 ID 2136는이 이벤트와 함께 기록 되며, 에이전트에서 서비스와 통신할 수 없음을 나타낼 수 있습니다. 프록시 및 인증 설정, 네트워크 중단 또는 네트워크 방화벽/의 잘못 된 구성으로 인 한 것일 수 있습니다. 프록시는 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하지 않습니다.| 
+    |8000 |HealthService |이 이벤트는 성능, 이벤트 또는 수집 된 다른 데이터 형식과 관련 된 워크플로가 작업 영역에 수집 하기 위해 서비스로 전달할 수 없는 경우를 지정 합니다. | 원본 Health service의 이벤트 ID 2136는이 이벤트와 함께 기록 되며, 에이전트에서 서비스와 통신할 수 없음을 나타낼 수 있습니다. 프록시 및 인증 설정의 잘못 된 구성, 네트워크 중단 또는 네트워크 방화벽/프록시가 컴퓨터에서 서비스로의 TCP 트래픽을 허용 하지 않을 수 있습니다.| 
     |10102 및 10103 |상태 관리 서비스 모듈 |워크플로에서 데이터 원본을 확인할 수 없습니다. |지정 된 성능 카운터 또는 인스턴스가 컴퓨터에 없거나 작업 영역 데이터 설정에 잘못 정의 된 경우이 문제가 발생할 수 있습니다. 사용자 지정 [성능 카운터](data-sources-performance-counters.md#configuring-performance-counters)인 경우 지정 된 정보가 올바른 형식을 사용 하 고 대상 컴퓨터에 존재 하는지 확인 합니다. |
     |26002 |상태 관리 서비스 모듈 |워크플로에서 데이터 원본을 확인할 수 없습니다. |이 문제는 지정 된 Windows 이벤트 로그가 컴퓨터에 없는 경우에 발생할 수 있습니다. 컴퓨터에이 이벤트 로그가 등록 되지 않은 경우이 오류를 안전 하 게 무시할 수 있습니다. 그렇지 않으면 사용자가 지정한 [이벤트 로그](data-sources-windows-events.md#configuring-windows-event-logs)이면 지정 된 정보가 올바른지 확인 하십시오. |
 

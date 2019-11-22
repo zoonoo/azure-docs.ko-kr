@@ -1,5 +1,5 @@
 ---
-title: Azurite 오픈 소스 에뮬레이터를 사용 하 여 Azure storage 개발 및 테스트 (미리 보기)
+title: 로컬 Azure Storage 개발에 Azurite emulator 사용
 description: Azurite 오픈 소스 에뮬레이터 (미리 보기)는 Azure storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다.
 author: mhopkins-msft
 ms.author: mhopkins
@@ -7,14 +7,14 @@ ms.date: 08/31/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
-ms.openlocfilehash: e611afd6f10154636eb2e0dd08437b4f7468d6b3
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 0421f49b31eba688542adc0a5b62e1cf75028836
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309553"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74269467"
 ---
-# <a name="use-the-azurite-open-source-emulator-for-azure-storage-development-and-testing-preview"></a>Azurite 오픈 소스 에뮬레이터를 사용 하 여 Azure storage 개발 및 테스트 (미리 보기)
+# <a name="use-the-azurite-emulator-for-local-azure-storage-development-and-testing-preview"></a>Azurite 에뮬레이터를 사용 하 여 로컬 Azure Storage 개발 및 테스트 (미리 보기)
 
 Azurite 버전 3.2 오픈 소스 에뮬레이터 (미리 보기)는 Azure blob 및 queue storage 응용 프로그램을 테스트 하기 위한 무료 로컬 환경을 제공 합니다. 응용 프로그램이 로컬에서 작동 하는 방식에 만족 하는 경우 클라우드에서 Azure Storage 계정을 사용 하도록 전환 합니다. 에뮬레이터는 Windows, Linux 및 MacOS에서 플랫폼 간 지원을 제공 합니다. Azurite v3은 Azure Blob service에서 구현 하는 Api를 지원 합니다.
 
@@ -39,15 +39,15 @@ VS Code 상태 표시줄에서 **[Azurite Blob service]** 또는 **[Azurite Queu
 
 확장은 다음과 같은 Visual Studio Code 명령을 지원 합니다.
 
-   * **Azurite: 시작** -모든 Azurite services 시작
-   * **Azurite:**  모든 Azurite 서비스 닫기
+   * **Azurite: 시작** -모든 Azurite 서비스 시작
+   * **Azurite:** 모든 Azurite 서비스를 닫습니다.
    * **Azurite: Clean** -모든 Azurite services 지 속성 데이터를 다시 설정 합니다.
-   * **Azurite: Blob 서비스** 시작-blob service 시작
-   * **Azurite: Blob 서비스** 닫기-blob service 닫기
-   * **Azurite: 클린 blob service** -blob 서비스 정리
-   * **Azurite: 큐 서비스** 시작-큐 서비스 시작
-   * **Azurite: 큐 서비스** 닫기-큐 서비스 닫기
-   * **Azurite: 정리 큐 서비스** -큐 서비스 정리
+   * **Azurite: Blob service** 시작-blob service 시작
+   * **Azurite: Blob 서비스를 닫습니다.** blob service를 닫습니다.
+   * **Azurite: 클린 blob** service-blob 서비스 정리
+   * **Azurite: 큐 서비스 시작** -큐 서비스 시작
+   * **Azurite: Queue service를 닫습니다.** 큐 서비스를 닫습니다.
+   * **Azurite: 큐 서비스 정리** -큐 서비스 정리
 
 Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 합니다. **Azurite**에 대 한 **관리** (기어) 아이콘을 선택 합니다. **확장 설정 구성**을 선택 합니다.
 
@@ -55,13 +55,13 @@ Visual Studio Code 내에서 Azurite를 구성 하려면 확장 창을 선택 �
 
 다음 설정이 지원 됩니다.
 
-   * **Azurite: Blob 호스트** -Blob service 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
-   * **Azurite: Blob 포트** -Blob service 수신 포트입니다. 기본 포트는 1만입니다.
-   * **Azurite: 디버그** -Azurite 채널에 디버그 로그를 출력 합니다. 기본값은 **false**입니다.
-   * **Azurite: Location** -작업 영역 위치 경로입니다. 기본값은 Visual Studio Code 작업 폴더입니다.
-   * **Azurite: 큐 호스트** -큐 서비스 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
+   * **Azurite: Blob Host** -Blob service 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
+   * **Azurite: Blob port** -Blob service 수신 대기 포트입니다. 기본 포트는 1만입니다.
+   * **Azurite: debug** -디버그 로그를 Azurite 채널에 출력 합니다. 기본값은 **false**입니다.
+   * **Azurite: location** -작업 영역 위치 경로입니다. 기본값은 Visual Studio Code 작업 폴더입니다.
+   * **Azurite: Queue Host** -큐 서비스 수신 대기 끝점입니다. 기본 설정은 127.0.0.1입니다.
    * **Azurite: Queue port** -큐 서비스 수신 포트입니다. 기본 포트는 10001입니다.
-   * **Azurite: 자동** -자동 모드는 액세스 로그를 사용 하지 않도록 설정 합니다. 기본값은 **false**입니다.
+   * **Azurite: 자동** -자동 모드에서 액세스 로그를 사용 하지 않도록 설정 합니다. 기본값은 **false**입니다.
 
 ## <a name="install-and-run-azurite-by-using-npm"></a>NPM를 사용 하 여 Azurite 설치 및 실행
 
@@ -83,7 +83,7 @@ docker pull mcr.microsoft.com/azure-storage/azurite
 
 **Azurite Docker 이미지를 실행 합니다**.
 
-다음 명령은 Azurite Docker 이미지를 실행 합니다. 매개 `-p 10000:10000` 변수는 호스트 컴퓨터의 포트 1만에서 Docker 인스턴스로 요청을 리디렉션합니다.
+다음 명령은 Azurite Docker 이미지를 실행 합니다. `-p 10000:10000` 매개 변수는 호스트 컴퓨터의 포트 1만에서 Docker 인스턴스로 요청을 리디렉션합니다.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
@@ -91,7 +91,7 @@ docker run -p 10000:10000 -p 10001:10001 mcr.microsoft.com/azure-storage/azurite
 
 **작업 영역 위치 지정**:
 
-다음 예제에서 매개 변수는 `-v c:/azurite:/data` azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite*를 만들어야 합니다.
+다음 예제에서 `-v c:/azurite:/data` 매개 변수는 Azurite 지속형 데이터 위치로 *c:/azurite* 를 지정 합니다. Docker 명령을 실행 하기 전에 디렉터리 *c:/azurite*를 만들어야 합니다.
 
 ```console
 docker run -p 10000:10000 -p 10001:10001 -v c:/azurite:/data mcr.microsoft.com/azure-storage/azurite
@@ -290,8 +290,8 @@ azurite -d path/debug.log
 
 Azurite에서 다음 계정 이름 및 키를 사용할 수 있습니다. 레거시 Azure 저장소 에뮬레이터에서 사용 하는 것과 동일한 잘 알려진 계정 및 키입니다.
 
-* 계정 이름:`devstoreaccount1`
-* 계정 키:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+* 계정 이름: `devstoreaccount1`
+* 계정 키: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 > [!NOTE]
 > Azurite는 SharedKey 인증 외에도 계정 및 서비스 SAS 인증을 지원 합니다. 공용 액세스를 허용 하도록 컨테이너를 설정 하는 경우에도 익명 액세스를 사용할 수 있습니다.
@@ -308,7 +308,7 @@ Azurite에서 다음 계정 이름 및 키를 사용할 수 있습니다. 레거
 
 자세한 내용은 [Azure Storage 연결 문자열 구성](storage-configure-connection-string.md)을 참조하세요.
 
-### <a name="storage-explorer"></a>Storage 탐색기
+### <a name="storage-explorer"></a>Storage Explorer
 
 Azure Storage 탐색기에서 **계정 추가** 아이콘을 클릭 하 여 Azurite에 연결한 다음 **로컬 에뮬레이터에** 연결을 선택 하 고 **연결**을 클릭 합니다.
 

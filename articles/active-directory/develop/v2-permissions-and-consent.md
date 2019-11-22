@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0b4aa4fbff4e1b89b87dd05e0547db8e14ae5835
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927147"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74271506"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -41,6 +41,7 @@ Microsoft ID 플랫폼은 [OAuth 2.0](active-directory-v2-protocols.md) 권한 �
 * Microsoft Graph: `https://graph.microsoft.com`
 * Office 365 메일 API: `https://outlook.office.com`
 * Azure AD Graph: `https://graph.windows.net`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
 > Azure AD Graph나 Office 365 메일 API 대신 Microsoft Graph를 사용할 것을 강력하게 권장합니다.
@@ -89,7 +90,7 @@ Openid connect Connect의 Microsoft identity platform 구현에는 특정 리소
 
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email` 클레임은 이메일 주소가 사용자 계정과 연결 된 경우에만 토큰에 포함 되며 항상 그렇지는 않습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
-### <a name="profile"></a>프로필
+### <a name="profile"></a>profiles
 
 `profile` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 사용자에 대한 상당한 양의 정보에 액세스할 수 있도록 해줍니다. 액세스할 수 있는 정보에는 사용자의 이름, 성, 기본 설정 된 사용자 이름 및 개체 ID가 포함 되지만이에 국한 되지 않습니다. 특정 사용자에 대한 id_token 매개 변수에서 사용할 수 있는 프로필 클레임의 전체 목록은 [`id_tokens` 참조](id-tokens.md)를 참조하세요.
 

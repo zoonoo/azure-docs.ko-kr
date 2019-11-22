@@ -1,5 +1,6 @@
 ---
-title: 가상 머신 네트워크 라우팅 문제 진단 - Azure CLI | Microsoft Docs
+title: VM 네트워크 라우팅 문제 진단-Azure CLI
+titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,18 +18,18 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 968b7dd703ba40f46a068deb1d8b7d2b32e0de2b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 23ffc16948c250a6999c33b8812769ba889f4900
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64688208"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276102"
 ---
 # <a name="diagnose-a-virtual-machine-network-routing-problem---azure-cli"></a>가상 머신 네트워크 라우팅 문제 진단 - Azure CLI
 
-이 문서에서는 VM(가상 머신)을 배포한 다음, IP 주소와 URL로 전송되는 통신을 확인합니다. 통신 오류의 원인 및 해결 방법을 확인합니다.
+이 문서에서는 VM(가상 머신)을 배포한 다음, IP 주소와 URL에 대한 통신을 확인합니다. 통신 오류의 원인 및 해결 방법을 확인합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -52,11 +53,11 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 CLI에서 출력을 반환할 때까지 나머지 단계를 진행하지 마세요.
+VM을 만드는 데 몇 분이 걸립니다. VM이 만들어지고 CLI에서 출력을 반환할 때까지 나머지 단계를 진행하지 마십시오.
 
 ## <a name="test-network-communication"></a>네트워크 통신 테스트
 
-Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트하려는 VM이 있는 지역에서 Network Watcher를 사용하도록 설정한 다음, Network Watcher의 다음 홉 기능을 사용하여 통신을 테스트해야 합니다.
+Network Watcher와의 네트워크 통신을 테스트하려면 먼저 테스트하려는 VM이 있는 지역에서 네트워크 감시자를 활성화한 다음, Network Watcher의 다음 홉 기능을 사용하여 통신을 테스트해야 합니다.
 
 ### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
@@ -73,7 +74,7 @@ az network watcher configure \
 
 Azure에서는 기본 대상에 대한 경로를 자동으로 만듭니다. 기본 경로를 재정의하는 사용자 지정 경로를 만들 수 있습니다. 경우에 따라 사용자 지정 경로로 인해 통신이 실패할 수 있습니다. VM에서 라우팅을 테스트하려면 [az network watcher show-next-hop](/cli/azure/network/watcher?view=azure-cli-latest#az-network-watcher-show-next-hop)을 사용하여 트래픽의 대상이 특정 주소로 지정되는 경우 다음 라우팅 홉을 확인합니다.
 
-VM에서 www.bing.com 에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
+VM에서 www.bing.com에 대한 IP 주소 중 하나로 아웃바운드 통신을 테스트합니다.
 
 ```azurecli-interactive
 az network watcher show-next-hop \
@@ -85,7 +86,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-몇 초 후에 결과는 **nextHopType**이 **인터넷**이며, **routeTableId**가 **시스템 경로**임을 알려줍니다. 이 출력 결과를 통해 대상에 대한 유효한 경로가 있음을 알 수 있습니다.
+몇 초 후에 결과는 **nextHopType**이 **인터넷**이며, **routeTableId**가 **시스템 경로**임을 알려줍니다. 이 결과를 확인하면 대상에 대한 올바른 경로가 있음을 알 수 있습니다.
 
 VM에서 172.31.0.100으로 아웃바운드 통신을 테스트합니다.
 
@@ -99,7 +100,7 @@ az network watcher show-next-hop \
   --out table
 ```
 
-반환된 결과는 **없음**이 **nextHopType**이며, **routeTableId**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 유효한 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
+반환된 결과는 **없음**이 **nextHopType**이며, **routeTableId**가 **시스템 경로**임도 알려줍니다. 이 결과를 사용하면 대상에 대한 올바른 시스템 경로가 있지만, 대상에 트래픽을 라우팅하는 다음 홉이 없음을 알 수 있습니다.
 
 ## <a name="view-details-of-a-route"></a>경로의 세부 정보 보기
 
@@ -129,7 +130,7 @@ az network nic show-effective-route-table \
 },
 ```
 
-[다음 홉 사용](#use-next-hop)에서 `az network watcher show-next-hop` 명령을 사용하여 13.107.21.200에 대한 아웃바운드 통신을 테스트하는 경우 출력의 다른 경로가 주소를 포함하지 않으므로 **addressPrefix** 0.0.0.0/0** 포함 경로를 사용하여 주소에 트래픽을 라우팅했습니다. 기본적으로 다른 경로의 주소 접두사 내에서 지정되지 않은 모든 주소는 인터넷으로 라우팅됩니다.
+`az network watcher show-next-hop`다음 홉 사용[에서 ](#use-next-hop) 명령을 사용하여 13.107.21.200에 대한 아웃바운드 통신을 테스트하는 경우 출력의 다른 경로가 주소를 포함하지 않으므로 **addressPrefix** 0.0.0.0/0** 포함 경로를 사용하여 주소에 트래픽을 라우팅했습니다. 기본적으로 다른 경로의 주소 접두사 내에서 지정되지 않은 모든 주소는 인터넷으로 라우팅됩니다.
 
 그러나 `az network watcher show-next-hop` 명령을 사용하여 172.31.0.100에 대한 아웃바운드 통신을 테스트하는 경우 결과에서 다음 홉 유형이 없음을 알 수 있습니다. 반환되는 출력에서 다음 텍스트를 볼 수 있습니다.
 
@@ -149,7 +150,7 @@ az network nic show-effective-route-table \
 },
 ```
 
-`az network watcher nic show-effective-route-table` 명령의 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType**은 **없음**입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 경로의 **nextHopType**을 **가상 네트워크**로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크**를 **nextHopType**으로 표시합니다.
+`az network watcher nic show-effective-route-table` 명령의 출력에서 볼 수 있듯이 172.31.0.100 주소를 포함하는 172.16.0.0/12 접두사에 대한 기본 경로가 있더라도 **nextHopType**은 **없음**입니다. Azure에서는 172.16.0.0/12에 대한 기본 경로를 만들지만 필요가 있을 때까지 다음 홉 형식을 지정하지 않습니다. 예를 들어, 가상 네트워크의 주소 공간에 172.16.0.0/12 주소 범위를 추가한 경우, Azure는 **nextHopType**을 경로의 **가상 네트워크**로 변경합니다. 그런 다음, 검사에서는 **가상 네트워크**를 **nextHopType**으로 표시합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -163,4 +164,4 @@ az group delete --name myResourceGroup --yes
 
 이 문서에서는 VM을 만들고 VM에서 네트워크 라우팅을 진단했습니다. Azure가 여러 개의 기본 경로를 만들고 두 개의 다른 대상에 대한 라우팅을 테스트했음을 알아보았습니다. [Azure에서 라우팅](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 및 [사용자 지정 경로를 만드는](../virtual-network/manage-route-table.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#create-a-route) 방법을 알아봅니다.
 
-아웃바운드 VM 연결의 경우 Network Watcher의 [연결 문제 해결](network-watcher-connectivity-cli.md) 기능을 사용하여 대기 시간 외에도 VM과 엔드포인트 간의 허용 또는 거부되는 네트워크 트래픽을 확인할 수 있습니다. Network Watcher 연결 모니터 기능을 사용하여 시간에 따라 IP 주소 또는 URL과 같은 VM과 엔드포인트 간의 통신을 모니터링할 수 있습니다. 방법을 알아보려면 [네트워크 연결 모니터링](connection-monitor.md)을 참조하세요.
+아웃바운드 VM 연결의 경우 Network Watcher의 [연결 문제 해결](network-watcher-connectivity-cli.md) 기능을 사용하여 VM과 엔드포인트 간의 네트워크 트래픽을 허용하거나 거부하는 대기 시간을 결정할 수도 있습니다. Network Watcher 연결 모니터 기능을 사용하여 시간에 따라 IP 주소 또는 URL과 같은 VM과 엔드포인트 간의 통신을 모니터링할 수 있습니다. 방법을 알아보려면 [네트워크 연결 모니터링](connection-monitor.md)을 참조하세요.

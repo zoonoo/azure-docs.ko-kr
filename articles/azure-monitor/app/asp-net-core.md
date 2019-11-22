@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 8f39556fcffea5f254e5362dbb1b55762f60c9b3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 823527af81e0cb22fb59421b84983684d4cdfffd
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131944"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286257"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -107,7 +107,7 @@ ms.locfileid: "74131944"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예를 들어:
+    예:
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 
@@ -203,7 +203,7 @@ public void ConfigureServices(IServiceCollection services)
 |AddAutoCollectedMetricExtractor | 샘플링을 수행 하기 전에 요청/종속성에 대 한 미리 집계 된 메트릭을 전송 하는 TelemetryProcessor AutoCollectedMetrics 추출기를 사용/사용 안 함으로 설정 합니다. | true
 |RequestCollectionOptions. 사이 예외 | 요청 수집 모듈에서 처리 되지 않은 예외 추적의 보고를 사용 하거나 사용 하지 않도록 설정 합니다. | ApplicationInsightsLoggerProvider를 사용 하 여 예외를 추적 하므로 NETSTANDARD 2.0의 경우 false이 고, 그렇지 않으면 true입니다.
 
-최신 목록에 대해서는 [`ApplicationInsightsServiceOptions`의 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-aspnetcore/blob/develop/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
+최신 목록에 대해서는 [`ApplicationInsightsServiceOptions`의 구성 가능한 설정을](https://github.com/microsoft/ApplicationInsights-dotnet/blob/develop/NETCORE/src/Shared/Extensions/ApplicationInsightsServiceOptions.cs) 참조 하세요.
 
 ### <a name="sampling"></a>샘플링
 

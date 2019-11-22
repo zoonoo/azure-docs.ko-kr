@@ -8,18 +8,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: atsenthi
-ms.openlocfilehash: b0f1a081727721ea0325276cf9edd52c6d71fb6b
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 96da89a00b054767553b0ed3d8debf30c344dd62
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73243861"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307332"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
 클라우드 응용 프로그램을 빌드할 때 일반적인 문제는 응용 프로그램에 필요한 비밀을 안전 하 게 저장 하는 방법입니다. 예를 들어, 컨테이너 리포지토리 자격 증명을 keyvault에 저장 하 고 응용 프로그램 매니페스트에서 참조할 수 있습니다. Service Fabric KeyVaultReference는 관리 Id Service Fabric를 사용 하며 keyvault 암호를 쉽게 참조할 수 있습니다. 이 문서의 나머지 부분에서는 Service Fabric KeyVaultReference를 사용 하는 방법에 대해 자세히 설명 하 고 몇 가지 일반적인 사용법을 포함 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 응용 프로그램에 대 한 관리 Id (MIT)
     
@@ -37,7 +37,7 @@ ms.locfileid: "73243861"
         ...
     {
         "parameters":  [
-            "name":  "CentralSecretService"
+            "name":  "CentralSecretService",
                 {
                     "name":  "IsEnabled",
                     "value":  "true"

@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor 진단 로그에 대한 형식 변경 준비
-description: Azure 진단 로그는 추가 Blob을 사용하도록 2018년 11월 1일에 전환됩니다.
+description: 2018 년 11 월 1 일에 추가 blob을 사용 하도록 변경 된 새 Azure 진단 로그를 처리 하도록 도구를 업데이트 하는 방법과 그 영향을 설명 합니다.
 author: johnkemnetz
 services: monitoring
 ms.service: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: a5589828570455c61f857dbeadc896e8fef27178
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5e71f4c590e4eafea5a2c6ad52b8df8c7dcf3814
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258396"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307055"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-diagnostic-logs-archived-to-a-storage-account"></a>스토리지 계정에 보관된 Azure Monitor 진단 로그에 대한 형식 변경 준비
 

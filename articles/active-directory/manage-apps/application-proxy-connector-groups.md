@@ -1,5 +1,5 @@
 ---
-title: Azure AD 앱 프록시 커넥터 그룹을 사용 하 여 별도의 네트워크에 앱 게시 | Microsoft Docs
+title: 커넥터 그룹을 통해 별도의 네트워크에 앱 게시-Azure AD
 description: Azure AD 애플리케이션 프록시에서 커넥터 그룹을 만들고 관리하는 방법에 대해 설명합니다.
 services: active-directory
 author: msmimart
@@ -14,12 +14,12 @@ ms.date: 11/08/2018
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dae4eea3e08818d43482c995595cc9fbc3f91910
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 22fa1de0a0e3bb91480212381e07b17875bf0bf4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381492"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275575"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>커넥터 그룹을 사용하여 별도의 네트워크 및 위치에서 애플리케이션 게시
 
@@ -32,7 +32,7 @@ ms.locfileid: "68381492"
 > [!TIP]
 > 대규모 애플리케이션 프록시 배포가 있는 경우 기본 커넥터 그룹에 애플리케이션을 할당하지 마십시오. 이런 방식으로 새 커넥터는 활성 커넥터 그룹에 할당될 때까지 라이브 트래픽을 수신하지 않습니다. 또한 이 구성을 통해 사용자에 영향을 주지 않고 유지 관리를 수행할 수 있도록 기본 그룹으로 다시 이동하여 커넥터를 유휴 모드로 전환할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 커넥터를 그룹화하려면 [여러 커넥터를 설치](application-proxy-add-on-premises-application.md)해야 합니다. 새 커넥터를 설치하면 자동으로 **기본** 커넥터 그룹을 조인합니다.
 

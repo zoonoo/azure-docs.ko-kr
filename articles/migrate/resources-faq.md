@@ -4,14 +4,14 @@ description: Azure Migrate 서비스에 대 한 일반적인 질문에 대 한 �
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a622a5793e817be2445e60d925354ab37bb8e331
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: dc7dff0119ec849b447754ae54a45911038f6c48
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185772"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284462"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -118,16 +118,10 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 
 ### <a name="whats-the-difference-between-server-assessment-and-the-site-recovery-deployment-planner"></a>서버 평가와 Site Recovery Deployment Planner의 차이점은 무엇 인가요?
 
-서버 평가는 마이그레이션 계획 도구입니다. Site Recovery Deployment Planner은 재해 복구 계획 도구입니다. 
+서버 평가는 마이그레이션 계획 도구입니다. Site Recovery Deployment Planner은 재해 복구 계획 도구입니다.
 
 - **Azure로 온-프레미스 마이그레이션 계획**: 온-프레미스 서버를 azure로 마이그레이션하려면 마이그레이션 계획에 대 한 서버 평가를 사용 합니다. 온-프레미스 워크 로드를 평가 하 고 마이그레이션에 도움이 되는 지침 및 도구를 제공 합니다. 마이그레이션 계획을 적용 한 후에는 Azure Migrate 서버 마이그레이션을 비롯 한 도구를 사용 하 여 컴퓨터를 Azure로 마이그레이션할 수 있습니다.
 - **Azure로 재해 복구 계획**: Site Recovery을 사용 하 여 온-프레미스에서 azure로 재해 복구를 설정 하려면 Site Recovery Deployment Planner를 사용 합니다. Deployment Planner은 재해 복구를 위해 온-프레미스 환경에 대 한 심층 Site Recovery 관련 평가를 제공 합니다. 복제 및 장애 조치 (failover)와 같은 재해 복구에 대 한 권장 사항을 제공 합니다.
-
-### <a name="does-azure-migrate-estimate-costs-for-the-enterprise-agreement-ea-program"></a>EA (기업계약) 프로그램에 대 한 예상 비용을 Azure Migrate 합니까?
-
-Azure Migrate 서버 평가는 현재 [기업계약 프로그램](https://azure.microsoft.com/offers/enterprise-agreement-support/)에 대 한 비용 추정치를 지원 하지 않습니다. 해결 방법으로 평가를 만들 때 **제품**으로 **종 량** 제를 지정 하 고 평가 **속성에서 할인으로 할인 비율** (구독에 적용 됨)을 수동으로 추가할 수 있습니다.
-
-  ![평가 속성](./media/resources-faq/discount.png)
 
 ### <a name="whats-the-difference-between-as-on-premises-and-performance-based-sizing"></a>온-프레미스와 성능 기반 크기 조정의 차이점은 무엇 인가요?
 

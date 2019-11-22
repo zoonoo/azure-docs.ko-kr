@@ -1,5 +1,5 @@
 ---
-title: 관리자 자격 증명을 저장 하는 데 문제가 있습니다. Azure AD 갤러리 앱 구성 | Microsoft Docs
+title: 관리자 자격 증명을 저장 하는 데 문제가 있습니다. Azure AD 갤러리 앱 구성
 description: Azure AD 애플리케이션 갤러리에 이미 나열된 애플리케이션에 대한 사용자 프로비전을 구성할 때 발생하는 일반적인 문제를 해결하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 02/21/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 152b704ca597fb473a820124ee6147d6d9bc7845
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 77e48b8921a1ebe3affd981c068da7fa55fdf30f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68381469"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275796"
 ---
 # <a name="problem-saving-administrator-credentials-while-configuring-user-provisioning-to-an-azure-active-directory-gallery-application"></a>사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제 
 

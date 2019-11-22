@@ -3,12 +3,12 @@ title: 코드 워크플로서의 디자인 정책
 description: Azure Policy 정의를 코드로 배포 하 고 리소스의 유효성을 자동으로 검사 하는 워크플로를 디자인 하는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 935616145ee32bea8c3b514c495690ce4105cb80
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0914ba6510c9d2ef87d3f83417f97340d42c8bce
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072083"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74267272"
 ---
 # <a name="design-policy-as-code-workflows"></a>코드 워크플로서의 디자인 정책
 
@@ -128,6 +128,6 @@ Automation에서 새로 만들었거나 업데이트 된 정책 또는 이니셔
 - [정책 정의 구조](./definition-structure.md)에 대해 알아봅니다.
 - [정책 할당 구조](./assignment-structure.md)에 대해 알아봅니다.
 - [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
-- [준수 데이터를 가져오는](../how-to/getting-compliance-data.md)방법에 대해 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
 - [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: e891f6675920e7bb90d2a6d007676cdd65f19917
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679896"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280658"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
 
@@ -32,7 +32,7 @@ ms.locfileid: "73679896"
 - 조건 식에서 메타 데이터 가져오기 작업의 출력을 사용 하 여 유효성 검사를 수행할 수 있습니다.
 - 루프를 통해 조건을 만족할 때 파이프라인을 트리거할 수 있습니다.
 
-## <a name="capabilities"></a>기능
+## <a name="capabilities"></a>Capabilities
 
 메타 데이터 가져오기 작업은 데이터 집합을 입력으로 사용 하 고 메타 데이터 정보를 출력으로 반환 합니다. 현재 다음 커넥터와 해당 하는 검색할 수 있는 메타 데이터가 지원 됩니다. 반환 되는 메타 데이터의 최대 크기는 1mb입니다.
 
@@ -57,6 +57,7 @@ ms.locfileid: "73679896"
 
 - Amazon S3 및 Google Cloud Storage의 경우 `lastModified`는 버킷 및 키에만 적용 되 고 가상 폴더에는 적용 되지 않으며 `exists`는 버킷 및 키에 적용 되 고 접두사 또는 가상 폴더에는 적용 되지 않습니다.
 - Azure Blob storage의 경우 컨테이너와 Blob에는 적용 되지만 가상 폴더에는 적용 되지 `lastModified`.
+- 폴더/파일에 대 한 와일드 카드 필터는 메타 데이터 가져오기 작업에 대해 지원 되지 않습니다.
 
 **관계형 데이터베이스**
 
@@ -137,9 +138,9 @@ ms.locfileid: "73679896"
 속성 | 설명 | 필수
 -------- | ----------- | --------
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | 예 
-dataset | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니요
+데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | 예
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니오
+storeSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아니오
 
 ## <a name="sample-output"></a>샘플 출력
 

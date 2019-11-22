@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory로 자동 사용자 프로비전을 위한 Asana 구성 | Microsoft Docs'
+title: '자습서: Asana에 대 한 사용자 프로 비전-Azure AD'
 description: 사용자 계정을 Asana에 자동으로 프로비전 및 프로비전 해제하도록 Azure Active Directory를 구성하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,18 +16,18 @@ ms.date: 03/27/2019
 ms.author: arvinh
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 10d5ceedfd1f0fad0c6f03feba2150968aecf02b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 60a237e4295f17ce37f622022d318e9f2aff24d7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65964213"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276595"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Asana 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Asana로 자동으로 프로비전 및 프로비전 해제하기 위해 Asana 및 Azure AD(Azure Active Directory)에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "65964213"
 
 ## <a name="assign-users-to-asana"></a>Asana에 사용자 할당
 
-이라는 개념을 사용 하 여 azure AD *할당* 어떤 사용자가 선택한 앱에 대 한 액세스를 받아야 하는지를 판단 합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다.
+Azure AD는 *할당* 이라는 개념을 사용 하 여 선택한 앱에 대 한 액세스 권한을 받아야 하는 사용자를 결정 합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 할당된 사용자만 동기화됩니다.
 
 프로비전 서비스를 구성 및 사용하도록 설정하기 전에 Azure AD에서 Asana 앱에 액세스해야 하는 사용자를 결정해야 합니다. 그런 후에 다음 지침에 따라 해당 사용자를 Asana 앱에 할당할 수 있습니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "65964213"
 
     b. 맨 위 막대에서 프로필 사진을 선택하고 현재 조직 이름 설정을 선택합니다.
 
-    다. **서비스 계정** 탭으로 이동합니다.
+    c. **서비스 계정** 탭으로 이동합니다.
 
     d. **서비스 계정 추가**를 선택합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "65964213"
 
 1. **저장**을 선택합니다.
 
-이제 **사용자** 섹션에서 Asana에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비전 작업 로그를 확인합니다. 감사 로그에서는 Asana 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
+이제 **사용자** 섹션에서 Asana에 할당된 모든 사용자의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 로그를 확인합니다. 감사 로그에서는 Asana 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음 | Microsoft 문서
+title: 응용 프로그램 프록시 앱에 대 한 작동 중인 커넥터 그룹이 없습니다.
 description: Azure AD 애플리케이션 프록시를 사용하는 애플리케이션에 대한 커넥터 그룹에 작동 중인 커넥터가 없을 때 발생할 수 있는 주소 문제
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 05/21/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f829b8e8a4bc08b43d3c30a6333771ccd4e26e8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96ab0d1b3bbab9c97c04da4f918f3aaa2f1d07e4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65783620"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74275614"
 ---
 # <a name="no-working-connector-group-found-for-an-application-proxy-application"></a>애플리케이션 프록시 애플리케이션에 대해 작동하는 커넥터 그룹 없음
 
@@ -32,7 +32,7 @@ ms.locfileid: "65783620"
 
 -   그룹에 커넥터가 없는 경우 다음을 수행할 수 있습니다.
 
-    -   프레미스 서버의 오른쪽에 있는 새 커넥터를 다운로드 하 고이 그룹에 할당
+    -   온-프레미스 서버에서 새 커넥터를 다운로드 하 여이 그룹에 할당 합니다.
 
     -   활성 커넥터를 그룹으로 이동합니다.
 

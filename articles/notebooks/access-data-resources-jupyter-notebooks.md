@@ -1,29 +1,20 @@
 ---
 title: Azure의 Jupyter Notebook에서 데이터 리소스 액세스
 description: Jupyter Notebook에서 파일, REST API, 데이터베이스 및 다른 Azure Storage 리소스에 액세스하는 방법입니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 23acdf99f6cb69f100e484e236580f3b2b43ba94
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71970250"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277694"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Notebook에서 클라우드 데이터 액세스
 
 Jupyter Notebook에서 흥미로운 작업을 하려면 데이터가 필요합니다. 데이터는 실제로 Notebook의 핵심 요소입니다.
 
-Notebook 내에서 `curl`과 같은 명령을 사용하여 파일을 직접 다운로드할 수 있지만 [데이터 파일을 프로젝트로 가져올](work-with-project-data-files.md) 수 있습니다. 그러나 REST API, 관계형 데이터베이스 및 Azure 테이블과 같은 클라우드 스토리지와 같은 파일이 아닌 원본에서 사용할 수 있는 훨씬 더 광범위한 데이터를 사용해야 합니다.
+Notebook 내에서 [과 같은 명령을 사용하여 파일을 직접 다운로드할 수 있지만 ](work-with-project-data-files.md)데이터 파일을 프로젝트로 가져올`curl` 수 있습니다. 그러나 REST API, 관계형 데이터베이스 및 Azure 테이블과 같은 클라우드 스토리지와 같은 파일이 아닌 원본에서 사용할 수 있는 훨씬 더 광범위한 데이터를 사용해야 합니다.
 
 이 문서에는 간단히 이러한 다양한 옵션을 설명합니다. 데이터 액세스는 작업에서 가장 잘 표시되므로 [Azure Notebooks 샘플 - 데이터 액세스](https://github.com/Microsoft/AzureNotebooks/blob/master/Samples/Access%20your%20data%20in%20Azure%20Notebooks.ipynb)에서 실행 가능한 코드를 찾을 수 있습니다.
 
@@ -79,12 +70,12 @@ Cosmos DB로 작업할 때 [Azure-cosmosdb-table](https://pypi.org/project/azure
 
 Azure는 사용할 수 있는 많은 다른 데이터베이스 형식을 제공 합니다. 아래 문서에서는 Python에서 해당 데이터베이스에 액세스하기 위한 지침을 제공합니다.
 
-- [Azure Database for PostgreSQL Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [빠른 시작: Python으로 Azure Redis Cache사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL: Python을 사용하여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
-- [Azure 데이터 팩터리](https://azure.microsoft.com/services/data-factory/)
+- [Azure Database for PostgreSQL: Python을 사용 하 여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/postgresql/connect-python)
+- [빠른 시작: Python에서 Azure Redis Cache 사용](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
+- [Azure Database for MySQL: Python을 사용 하 여 데이터 연결 및 쿼리](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Azure Data Factory 복사 마법사](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [방법: 프로젝트 데이터 파일을 사용하여 작업](work-with-project-data-files.md)
+- [방법: 프로젝트 데이터 파일 작업](work-with-project-data-files.md)

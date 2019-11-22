@@ -14,17 +14,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: f9b1af14bd986f1fa6fb5feb398a7f1fdf982f77
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 02d8c511b799a4caee185f7ecb847e6cc15f3c87
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669105"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304734"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
 
-웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 배포 하는 경우 **표준**, **프리미엄**또는 격리에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다.App Service 계획 계층입니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
+웹 앱, Linux, 모바일 백 엔드 또는 API 앱의 웹 앱을 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에 배포 하는 경우 **표준**, **프리미엄**또는 **격리** 된 App Service 계획 계층에서 실행 하는 경우 기본 프로덕션 슬롯 대신 별도의 배포 슬롯을 사용할 수 있습니다. 배포 슬롯은 고유한 호스트 이름이 있는 라이브 앱입니다. 앱 콘텐츠 및 구성 요소는 프로덕션 슬롯을 포함하여 두 배포 슬롯 간에 교환될 수 있습니다. 
 
 애플리케이션을 비프로덕션 슬롯에 배포하면 다음과 같은 이점이 있습니다.
 
@@ -248,6 +249,10 @@ Preview를 사용 하 여 교환 하려면:
 설정이 저장 된 후 지정 된 클라이언트 비율 (%)은 비프로덕션 슬롯으로 임의로 라우팅됩니다. 
 
 클라이언트는 특정 슬롯에 자동으로 라우팅되고 나면 해당 클라이언트 세션의 수명 동안 해당 슬롯에 "고정" 됩니다. 클라이언트 브라우저에서 HTTP 헤더의 `x-ms-routing-name` 쿠키를 확인하여 세션이 고정된 슬롯을 볼 수 있습니다. "스테이징" 슬롯에 라우팅되는 요청에는 쿠키 `x-ms-routing-name=staging`이 있습니다. 프로덕션 슬롯으로 라우팅되는 요청에는 쿠키 `x-ms-routing-name=self`가 있습니다.
+
+   > [!NOTE]
+   > Azure Portal 옆의 Azure CLI에서 [`az webapp traffic-routing set`](/cli/azure/webapp/traffic-routing.md#az-webapp-traffic-routing-set) 명령을 사용 하 여 devops 파이프라인이 나 기타 자동화 시스템과 같은 CI/CD 도구에서 라우팅 비율을 설정할 수도 있습니다.
+   > 
 
 ### <a name="route-production-traffic-manually"></a>수동으로 프로덕션 트래픽 라우팅
 

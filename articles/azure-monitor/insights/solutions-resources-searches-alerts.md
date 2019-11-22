@@ -1,6 +1,6 @@
 ---
 title: 관리 솔루션의 저장 된 검색 | Microsoft Docs
-description: 관리 솔루션은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 저장된 검색을 포함하게 됩니다. 또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 경고를 정의합니다. 이 문서에서는 관리 솔루션에 포함 될 수 있도록 리소스 관리자 템플릿에서 저장 된 검색 Log Analytics 정의 하는 방법을 설명 합니다.
+description: 관리 솔루션은 일반적으로 저장 된 로그 쿼리를 포함 하 여 솔루션에 의해 수집 된 데이터를 분석 합니다. 이 문서에서는 리소스 관리자 템플릿에서 저장 된 검색 Log Analytics 정의 하는 방법을 설명 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -8,27 +8,27 @@ author: bwren
 ms.author: bwren
 ms.date: 07/29/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ce4f3dcbc28668f786c706e7029061e541a76ce9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1f4f0ac5d592a01b284a12e899b0aa5a9a62d122
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553914"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304933"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>관리 솔루션(미리 보기)에 Log Analytics에서 저장한 검색 및 경고 추가
 
 > [!IMPORTANT]
-> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)했 듯이 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 Azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 PowerShell **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. [ cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell). 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능과 같은 [새로운 많은 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 얻을 수 있습니다. lookback는 규칙에서 별도의 리소스 그룹 또는 구독에 대 한 규칙 생성 등의 기간을 결정 합니다.
+> [앞서 발표](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/)한 대로 *2019 년 6 월 1 일* 이후에 생성 된 log Analytics 작업 영역은 Azure ScheduledQueryRules [REST API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/), [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-azure-resource-template) 및 [PowerShell cmdlet](../../azure-monitor/platform/alerts-log.md#managing-log-alerts-using-powershell) **만** 사용 하 여 경고 규칙을 관리할 수 있습니다. 고객은 이전 작업 영역에 대 한 기본 [설정 된 경고 규칙 관리 수단](../../azure-monitor/platform/alerts-log-api-switch.md#process-of-switching-from-legacy-log-alerts-api) 을 쉽게 전환 하 여 Azure Monitor scheduledQueryRules를 기본값으로 활용할 수 있으며, 기본 PowerShell cmdlet을 사용 하는 기능, 규칙에서 lookback 기간 증가, 별도의 리소스 그룹 또는 구독에서 규칙 생성 등의 많은 [새로운 이점을](../../azure-monitor/platform/alerts-log-api-switch.md#benefits-of-switching-to-new-azure-api) 누릴 수 있습니다.
 
 > [!NOTE]
 > 현재 Preview로 제공되는 관리 솔루션 만들기에 대한 예비 설명서입니다. 아래 설명된 스키마는 변경될 수 있습니다.
 
-[관리 솔루션](solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../../azure-monitor/log-query/log-query-overview.md)을 포함하게 됩니다. 또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../../azure-monitor/platform/alerts-overview.md)를 정의합니다. 이 문서에서는 [관리 솔루션](solutions-creating.md)에 포함되도록 [리소스 관리 템플릿](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
+[관리 솔루션](solutions.md)은 일반적으로 솔루션에서 수집한 데이터를 분석하기 위해 Log Analytics에 [저장된 검색](../../azure-monitor/log-query/log-query-overview.md)을 포함하게 됩니다. 또한 중요한 문제에 대한 응답으로 사용자에게 알리거나 자동으로 조치를 취하기 위한 [경고](../../azure-monitor/platform/alerts-overview.md)를 정의합니다. 이 문서에서는 [관리 솔루션](../../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)에 포함되도록 [리소스 관리 템플릿](solutions-creating.md)에서 Log Analytics 저장된 검색 및 경고를 정의하는 방법을 설명합니다.
 
 > [!NOTE]
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드](solutions-creating.md)에서 설명한 매개 변수와 변수가 사용됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 이 문서에서는 여러분이 [관리 솔루션을 만드는 방법](solutions-creating.md)과 [Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md) 및 솔루션 파일의 구조를 잘 알고 있다고 가정합니다.
 
 
@@ -44,7 +44,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 다음 표에는 이 예제에서 사용된 리소스의 API 버전이 제공됩니다.
 
-| 리소스 종류 | API 버전 | 쿼리 |
+| 리소스 형식 | API 버전 | query |
 |:---|:---|:---|
 | savedSearches | 2017-03-15-preview | Event &#124; where EventLevelName == "Error"  |
 
@@ -71,11 +71,11 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 
 저장된 검색의 각 속성은 다음 표에 설명되어 있습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |:--- |:--- |
-| category | 저장된 검색의 범주입니다.  같은 솔루션에 있는 저장된 검색은 종종 단일 범주를 공유하므로 콘솔에서 함께 그룹화됩니다. |
+| 카테고리 | 저장된 검색의 범주입니다.  같은 솔루션에 있는 저장된 검색은 종종 단일 범주를 공유하므로 콘솔에서 함께 그룹화됩니다. |
 | displayname | 포털에서 저장된 검색에 표시할 이름입니다. |
-| 쿼리 | 실행할 쿼리입니다. |
+| query | 실행할 쿼리입니다. |
 
 > [!NOTE]
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다. 예를 들어, 쿼리가 **AzureActivity | OperationName:“Microsoft.Compute/virtualMachines/write”** 이면 솔루션 파일에 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
@@ -114,15 +114,15 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 사용       | yes | 경고를 만들 때 사용 여부를 지정합니다. |
-| interval      | yes | 쿼리가 실행되는 빈도(분)입니다. |
-| queryTimeSpan | yes | 결과를 평가하는 시간의 길이(분)입니다. |
+| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
+| interval      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
+| queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
 
 일정 전에 저장된 검색이 생성되도록 일정 리소스는 저장된 검색에 따라 결정됩니다.
 > [!NOTE]
 > 일정 이름은 지정된 작업 영역에서 고유해야 합니다. 두 일정이 서로 다른 저장된 검색과 연결되었다 하더라도 동일한 ID를 가질 수 없습니다. 또한 Log Analytics API를 사용하여 만든 저장된 모든 검색, 일정 및 작업의 이름은 소문자여야 합니다.
 
-### <a name="actions"></a>작업
+### <a name="actions"></a>동작
 일정이 여러 작업을 가질 수 있습니다. 작업은 메일 보내기 또는 Runbook 시작과 같은 하나 이상의 수행할 프로세스를 정의하거나 검색 결과가 일부 조건과 일치하는 경우를 결정하는 임계값을 정의할 수 있습니다. 일부 작업은 임계값을 만족할 때 프로세스가 수행되도록 정의합니다.
 [작업 그룹] 리소스 또는 작업 리소스를 사용하여 작업을 정의할 수 있습니다.
 
@@ -166,27 +166,27 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| `type` | yes | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
-| `name` | yes | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
-| `description` | 아닙니다. | 경고에 대한 선택적 설명입니다. |
-| `severity` | yes | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
+| `type` | 예 | 작업의 유형입니다.  경고 작업의 **경고**가 됩니다. |
+| `name` | 예 | 경고에 대한 표시 이름입니다.  경고 규칙에 대한 콘솔에 표시되는 이름입니다. |
+| `description` | 아니오 | 경고에 대한 선택적 설명입니다. |
+| `severity` | 예 | 다음 값의 경고 레코드의 심각도입니다.<br><br> **중요**<br>**경고**<br>**정보 제공**
 
 #### <a name="threshold"></a>임계값
 이 섹션은 필수입니다. 경고 임계값의 속성을 정의합니다.
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| `Operator` | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| `Value` | yes | 결과를 비교하는 값입니다. |
+| `Operator` | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| `Value` | 예 | 결과를 비교하는 값입니다. |
 
 ##### <a name="metricstrigger"></a>MetricsTrigger
 이 섹션은 선택 사항입니다. 미터법 경고에는 이 섹션을 포함해야 합니다.
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| `TriggerCondition` | yes | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
-| `Operator` | yes | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
-| `Value` | yes | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
+| `TriggerCondition` | 예 | 임계값이 총 위반 수인지 아니면 연속 위반인지 다음 값을 사용하여 지정합니다.<br><br>**총<br>연속** |
+| `Operator` | 예 | 다음 값의 비교 연산자입니다.<br><br>**gt = 보다 큼<br>lt = 보다 작음** |
+| `Value` | 예 | 경고를 트리거하기 위해 조건을 충족해야 하는 시간입니다. |
 
 
 #### <a name="throttling"></a>제한
@@ -203,9 +203,9 @@ Azure에서 모든 경고는 작업을 처리하기 위한 기본 메커니즘�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| AzNsNotification | yes | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
-| CustomEmailSubject | 아닙니다. | 연결된 작업 그룹에서 지정된 모든 주소로 전송되는 메일의 사용자 지정 제목 줄. |
-| CustomWebhookPayload | 아닙니다. | 연결된 작업 그룹에 정의된 모든 웹후크 엔드포인트로 보낼 사용자 지정된 페이로드. 형식은 웹후크에서 기대하는 내용에 따라 달라지며 유효한 직렬화 JSON이어야 합니다. |
+| AzNsNotification | 예 | 경고 조건이 충족되면 필요한 작업을 수행하도록 경고와 연결되는 Azure 작업 그룹의 리소스 ID. |
+| CustomEmailSubject | 아니오 | 연결된 작업 그룹에서 지정된 모든 주소로 전송되는 메일의 사용자 지정 제목 줄. |
+| CustomWebhookPayload | 아니오 | 연결된 작업 그룹에 정의된 모든 웹후크 엔드포인트로 보낼 사용자 지정된 페이로드. 형식은 웹후크에서 기대하는 내용에 따라 달라지며 유효한 직렬화 JSON이어야 합니다. |
 
 ## <a name="sample"></a>샘플
 

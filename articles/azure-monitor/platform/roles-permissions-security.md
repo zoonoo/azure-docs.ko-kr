@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor에서의 역할, 권한 및 보안 시작
+title: Azure Monitor의 역할, 권한 및 보안
 description: Azure Monitor 기본 제공 역할 및 권한을 사용하여 모니터링 리소스에 대한 액세스를 제한하는 방법을 알아봅니다.
 author: johnkemnetz
 services: azure-monitor
@@ -8,23 +8,23 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: c745375eb4f59208af79bbb03d45f8f0eea7f3ca
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260616"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305160"
 ---
-# <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Azure Monitor에서의 역할, 권한 및 보안 시작
+# <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure Monitor의 역할, 권한 및 보안
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 많은 팀에서는 모니터링 데이터 및 설정에 대한 액세스를 엄격히 규제할 필요가 있습니다. 예를 들어 모니터링에 독점적으로 작업 하는 팀 구성원 (지원 엔지니어, DevOps 엔지니어)이 있거나 관리 서비스 공급자를 사용 하는 경우 모니터링 데이터에 대 한 액세스 권한을 부여 하는 동시에 모니터링 데이터에 대 한 액세스 권한을 부여 하 여 해당 기능을 생성, 수정 또는 삭제할 수 있습니다. 리소스를 삭제 합니다. 이 문서에서는 Azure의 사용자에게 기본 제공 모니터링 RBAC 역할을 신속하게 적용하거나 제한된 모니터링 권한이 필요한 사용자에 대해 자체 사용자 지정 역할을 구성하는 방법을 보여 줍니다. 그런 다음 Azure Monitor 관련 리소스에 대한 보안 고려 사항과, 포함된 데이터에 대한 액세스를 제한하는 방법에 대해 논의합니다.
 
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
-Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 두 개의 기본 제공 역할인 모니터링 읽기 권한자와 모니터링 참가자를 제공합니다.
+Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 Monitoring Reader와Monitoring Contributor 등, 바로 사용할 수 있는 2가지 역할을 제공합니다.
 
-### <a name="monitoring-reader"></a>모니터링 리더
+### <a name="monitoring-reader"></a>Monitoring Reader
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
@@ -61,7 +61,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 * Log Analytics 작업 영역에서 저장 된 검색을 만들고 삭제 하 고 실행 합니다.
 * Log Analytics 작업 영역 저장소 구성을 만들고 삭제 합니다.
 
-\*또한 사용자에 게는 로그 프로필 또는 진단 설정을 지정할 수 있도록 대상 리소스 (저장소 계정 또는 이벤트 허브 네임 스페이스)에 대 한 ListKeys 권한도 별도로 부여 해야 합니다.
+또한 사용자 \*에는 대상 리소스 (저장소 계정 또는 이벤트 허브 네임 스페이스)에 대 한 ListKeys 권한이 별도로 부여 되어야 로그 프로필 또는 진단 설정을 지정할 수 있습니다.
 
 > [!NOTE]
 > 이 역할은 이벤트 허브에 스트리밍되었거나 스토리지 계정에 저장된 로그 데이터에 대한 읽기 액세스를 부여하지 않습니다. [아래를 참조하세요](#security-considerations-for-monitoring-data) .
@@ -71,7 +71,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링
 ## <a name="monitoring-permissions-and-custom-rbac-roles"></a>권한 및 사용자 지정 RBAC 역할 모니터링
 위의 기본 제공 역할이 팀의 정확한 요구에 부합하지 못할 경우 더 세밀하게 지정한 권한을 갖는 [사용자 지정 RBAC 역할](../../role-based-access-control/custom-roles.md) 을 만들 수 있습니다. 다음은 공통 Azure 모니터 RBAC 작업과 그에 대한 설명입니다.
 
-| 연산 | 설명 |
+| 작업(Operation) | 설명 |
 | --- | --- |
 | Microsoft.Insights/ActionGroups/[Read, Write, Delete] |작업 그룹을 읽고 쓰고 삭제합니다. |
 | Microsoft.Insights/ActivityLogAlerts/[Read, Write, Delete] |활동 로그 알림을 읽고 쓰고 삭제합니다. |
@@ -127,7 +127,7 @@ New-AzRoleDefinition -Role $role
 * 사용자가 모니터링 데이터 액세스만 필요할 경우 구독에서 이벤트 허브나 스토리지 계정에 ListKeys 권한을 부여해서는 안 됩니다. 그 대신 리소스나 리소스 그룹(전용 모니터링 리소스 그룹이 있는 경우) 범위에서 사용자에게 해당 건한을 부여합니다.
 
 ### <a name="limiting-access-to-monitoring-related-storage-accounts"></a>모니터링 관련 스토리지 계정에 대한 액세스 제한
-사용자나 애플리케이션이 스토리지 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob 스토리지에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 스토리지 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
+사용자나 애플리케이션이 스토리지 계정의 모니터링 데이터에 대한 액세스를 필요로 할 경우, Blob Storage에 대한 서비스 수준 읽기 전용 액세스 권한을 통해 모니터링 데이터를 포함하는 스토리지 계정에서 [계정 SAS를 생성](https://msdn.microsoft.com/library/azure/mt584140.aspx) 해야 합니다. PowerShell에서는 다음과 같습니다.
 
 ```powershell
 $context = New-AzStorageContext -ConnectionString "[connection string for your monitoring Storage Account]"
