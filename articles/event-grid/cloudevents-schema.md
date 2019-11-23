@@ -3,25 +3,24 @@ title: CloudEvents 스키마에서 이벤트에 Azure Event Grid 사용
 description: Azure Event Grid에서 이벤트에 대한 CloudEvents 스키마를 설정하는 방법을 설명합니다.
 services: event-grid
 author: banisadr
-manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 8925110511f6c63a42dd9b121429ac7264cd4aa4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6a0e24ce7fa11c6373fbaada40cd9f1b1e7f55a2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170241"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325481"
 ---
-# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
+# <a name="use-cloudevents-v10-schema-with-event-grid"></a>Use CloudEvents v1.0 schema with Event Grid
 
-[기본 이벤트 스키마](event-schema.md)외에도 Azure Event Grid는 [CloudEvents v 1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) 및 [HTTP 프로토콜 바인딩의](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md)JSON 구현에서 이벤트를 기본적으로 지원 합니다. [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
+In addition to its [default event schema](event-schema.md), Azure Event Grid natively supports events in the [JSON implementation of CloudEvents v1.0](https://github.com/cloudevents/spec/blob/v1.0/json-format.md) and [HTTP protocol binding](https://github.com/cloudevents/spec/blob/v1.0/http-protocol-binding.md). [CloudEvents](https://cloudevents.io/)는 이벤트 데이터를 설명하는 [공개 사양](https://github.com/cloudevents/spec/blob/v1.0/spec.md)입니다.
 
 CloudEvents는 클라우드 기반 이벤트를 게시 및 사용하기 위한 일반적인 이벤트 스키마를 제공하여 상호 운용성을 간소화합니다. 이 스키마를 통해 균일한 도구, 이벤트를 라우팅 및 처리하는 표준 방법, 외부 이벤트 스키마를 역직렬화하는 유니버설 방법이 가능해집니다. 공통 스키마를 통해 여러 플랫폼에서 작업을 보다 쉽게 통합할 수 있습니다.
 
-CloudEvents는 [Cloud Native Computing Foundation](https://github.com/cloudevents/spec/blob/master/community/contributors.md)을 통해 Microsoft를 포함한 여러 [협력자](https://www.cncf.io/)가 작성하고 있습니다. 현재 버전 1.0로 사용할 수 있습니다.
+CloudEvents는 [Cloud Native Computing Foundation](https://www.cncf.io/)을 통해 Microsoft를 포함한 여러 [협력자](https://github.com/cloudevents/spec/blob/master/community/contributors.md)가 작성하고 있습니다. It's currently available as version 1.0.
 
 이 문서에서는 Event Grid에서 CloudEvents 스키마를 사용하는 방법을 설명합니다.
 
@@ -61,7 +60,7 @@ CloudEvents 형식의 Azure Blob Storage 이벤트의 예는 다음과 같습니
 }
 ```
 
-사용 가능한 필드, 해당 형식 및 CloudEvents v 0.1의 정의에 대 한 자세한 설명은 [여기에서 사용할 수](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes)있습니다.
+A detailed description of the available fields, their types, and definitions in CloudEvents v0.1 is [available here](https://github.com/cloudevents/spec/blob/v1.0/spec.md#required-attributes).
 
 `content-type`을 제외하고 CloudEvents 스키마 및 Event Grid 스키마에 배달된 이벤트에 대한 헤더 값은 동일합니다. CloudEvents 스키마의 경우 헤더 값은 `"content-type":"application/cloudevents+json; charset=utf-8"`입니다. Event Grid 스키마의 경우 헤더 값은 `"content-type":"application/json; charset=utf-8"`입니다.
 
@@ -94,7 +93,7 @@ az eventgrid topic create \
   --name <topic_name> \
   -l westcentralus \
   -g gridResourceGroup \
-  --input-schema cloudeventv01schema
+  --input-schema cloudeventschemav1_0
 ```
 
 PowerShell의 경우 다음을 사용합니다.
@@ -108,7 +107,7 @@ New-AzureRmEventGridTopic `
   -ResourceGroupName gridResourceGroup `
   -Location westcentralus `
   -Name <topic_name> `
-  -InputSchema CloudEventV01Schema
+  -InputSchema CloudEventSchemaV1_0
 ```
 
 현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마를 갖는 이벤트를 토픽에 게시하려면 각 이벤트를 개별적으로 게시합니다.
@@ -126,7 +125,7 @@ az eventgrid event-subscription create \
   --name <event_subscription_name> \
   --source-resource-id $topicID \
   --endpoint <endpoint_URL> \
-  --event-delivery-schema cloudeventv01schema
+  --event-delivery-schema cloudeventschemav1_0
 ```
 
 PowerShell의 경우 다음을 사용합니다.
@@ -137,10 +136,14 @@ New-AzureRmEventGridSubscription `
   -ResourceId $topicid `
   -EventSubscriptionName <event_subscription_name> `
   -Endpoint <endpoint_URL> `
-  -DeliverySchema CloudEventV01Schema
+  -DeliverySchema CloudEventSchemaV1_0
 ```
 
  현재는, 이벤트가 CloudEvents 스키마에 전달되는 경우 Azure Functions 앱에 Event Grid 트리거를 사용할 수 없습니다. HTTP 트리거를 사용합니다. CloudEvents 스키마에서 이벤트를 수신하는 HTTP 트리거를 구현하는 예제는 [HTTP 트리거를 Event Grid 트리거로 사용](../azure-functions/functions-bindings-event-grid.md#use-an-http-trigger-as-an-event-grid-trigger)을 참조하세요.
+
+ ## <a name="endpoint-validation-with-cloudevents-v10"></a>Endpoint Validation with CloudEvents v1.0
+
+If you are already familiar with Event Grid, you may be aware of Event Grid's endpoint validation handshake for preventing abuse. CloudEvents v1.0 implements its own [abuse protection semantics](security-authentication.md#webhook-event-delivery) using the HTTP OPTIONS method. 해당 서비스에 대한 자세한 내용은 [여기](https://github.com/cloudevents/spec/blob/v1.0/http-webhook.md#4-abuse-protection)에서 확인할 수 있습니다. When using the CloudEvents schema for output, Event Grid uses with the CloudEvents v1.0 abuse protection in place of the Event Grid validation event mechanism.
 
 ## <a name="next-steps"></a>다음 단계
 

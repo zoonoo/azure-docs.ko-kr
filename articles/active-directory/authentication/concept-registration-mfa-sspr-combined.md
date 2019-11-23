@@ -1,57 +1,57 @@
 ---
-title: Azure AD SSPR 및 Multi-Factor Authentication (미리 보기)에 대 한 결합 된 등록-Azure Active Directory
-description: Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 등록 (미리 보기)
+title: Combined registration for SSPR and MFA - Azure Active Directory
+description: Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a312c39352f0d13b4354e7b0dfcd897bf4cc0992
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808457"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381953"
 ---
-# <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
+# <a name="combined-security-information-registration-preview"></a>Combined security information registration (preview)
 
-결합 된 등록 전에 사용자는 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정 (SSPR)에 대 한 인증 방법을 별도로 등록 했습니다. 사용자는 비슷한 메서드가 Multi-Factor Authentication 및 SSPR에 사용 되었지만 두 기능 모두에 등록 해야 했습니다. 이제는 결합 된 등록을 통해 사용자가 한 번 등록 하 고 Multi-Factor Authentication 및 SSPR의 이점을 얻을 수 있습니다.
+Before combined registration, users registered authentication methods for Azure Multi-Factor Authentication and self-service password reset (SSPR) separately. People were confused that similar methods were used for Multi-Factor Authentication and SSPR but they had to register for both features. Now, with combined registration, users can register once and get the benefits of both Multi-Factor Authentication and SSPR.
 
-![사용자에 대 한 등록 된 보안 정보를 표시 하는 내 프로필](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
+![My Profile showing registered Security info for a user](media/concept-registration-mfa-sspr-combined/combined-security-info-defualts-registered.png)
 
-새 환경을 사용 하도록 설정 하기 전에이 관리자 중심 설명서 및 사용자 중심의 설명서를 검토 하 여이 기능의 기능과 영향을 이해 해야 합니다. [사용자 설명서](../user-help/user-help-security-info-overview.md) 에 대 한 교육을 바탕으로 사용자에 게 새로운 환경을 준비 하 고 성공적으로 롤아웃 하도록 도움을 줍니다.
+Before enabling the new experience, review this administrator-focused documentation and the user-focused documentation to ensure you understand the functionality and effect of this feature. Base your training on the [user documentation](../user-help/user-help-security-info-overview.md) to prepare your users for the new experience and help to ensure a successful rollout.
 
-Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일 또는 Azure 중국 21Vianet과 같은 국가별 클라우드에서 사용할 수 없습니다.
+Azure AD combined security information registration is not currently available to national clouds like Azure US Government, Azure Germany, or Azure China 21Vianet.
 
 |     |
 | --- |
-| Multi-Factor Authentication 및 Azure Active Directory (Azure AD) 셀프 서비스 암호 재설정에 대 한 결합 된 보안 정보 등록은 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Combined security information registration for Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 > [!IMPORTANT]
-> 원본 미리 보기와 향상 된 결합 등록 환경 모두에 대해 사용 하도록 설정 된 사용자는 새로운 동작을 볼 수 있습니다. 두 환경 모두에 대해 사용 하도록 설정 된 사용자에 게는 새 내 프로필 환경만 표시 됩니다. 새 내 프로필은 결합 된 등록의 모양과 느낌을 맞추고 사용자에 게 원활한 환경을 제공 합니다. 사용자는 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)로 이동 하 여 내 프로필을 볼 수 있습니다.
+> Users who are enabled for both the original preview and the enhanced combined registration experience will see the new behavior. Users who are enabled for both experiences will see only the new My Profile experience. The new My Profile aligns with the look and feel of combined registration and provides a seamless experience for users. Users can see My Profile by going to [https://myprofile.microsoft.com](https://myprofile.microsoft.com).
 
 > [!NOTE] 
-> 보안 정보 옵션에 액세스 하려고 하면 오류 메시지가 나타날 수 있습니다. 예를 들어 "죄송 합니다."에 로그인 할 수 없습니다. 이 경우 웹 브라우저에서 타사 쿠키를 차단 하는 구성 또는 그룹 정책 개체가 없는지 확인 합니다. 
+> You might encounter an error message while trying to access the Security info option. For example, "Sorry, we can't sign you in". In this case, confirm that you don't have any configuration or group policy object that blocks third-party cookies on the web browser. 
 
-내 프로필 페이지는 페이지에 액세스 하는 컴퓨터의 언어 설정에 따라 지역화 됩니다. Microsoft는 브라우저 캐시에서 가장 최근에 사용 된 언어를 저장 하므로 이후 페이지에 대 한 액세스 시도는 마지막으로 사용 된 언어로 계속 렌더링 됩니다. 캐시를 지우면 페이지가 다시 렌더링 됩니다. 특정 언어를 적용 하려는 경우 URL의 끝에 `?lng=<language>`를 추가할 수 있습니다. 여기서 `<language>`은 렌더링 하려는 언어의 코드입니다.
+My Profile pages are localized based on the language settings of the computer accessing the page. Microsoft stores the most recent language used in the browser cache, so subsequent attempts to access the pages will continue to render in the last language used. If you clear the cache, the pages will re-render. If you want to force a specific language, you can add `?lng=<language>` to the end of the URL, where `<language>` is the code of the language you want to render.
 
-![SSPR 또는 기타 보안 확인 방법 설정](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
+![Set up SSPR or other security verification methods](media/howto-registration-mfa-sspr-combined/combined-security-info-my-profile.png)
 
-## <a name="methods-available-in-combined-registration"></a>결합 된 등록에서 사용할 수 있는 메서드
+## <a name="methods-available-in-combined-registration"></a>Methods available in combined registration
 
-결합 된 등록에서는 다음과 같은 인증 방법과 작업을 지원 합니다.
+Combined registration supports the following authentication methods and actions:
 
 |   | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 아닙니다. | yes |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 아닙니다. | yes |
-| 하드웨어 토큰 | 아닙니다. | 아닙니다. | yes |
+| Microsoft Authenticator | Yes (maximum of 5) | 아닙니다. | yes |
+| Other authenticator app | Yes (maximum of 5) | 아닙니다. | yes |
+| Hardware token | 아닙니다. | 아닙니다. | yes |
 | 전화 | yes | yes | yes |
 | 대체 전화 | yes | yes | yes |
 | 사무실 전화 | 아닙니다. | 아닙니다. | 아닙니다. |
@@ -60,92 +60,92 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 | 앱 암호 | yes | 아닙니다. | yes |
 
 > [!NOTE]
-> 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.
+> App passwords are available only to users who have been enforced for Multi-Factor Authentication. App passwords are not available to users who are enabled for Multi-Factor Authentication via a Conditional Access policy.
 
-사용자는 다음 옵션 중 하나를 기본 Multi-Factor Authentication 방법으로 설정할 수 있습니다.
+Users can set one of the following options as the default Multi-Factor Authentication method:
 
-- Microsoft Authenticator – 알림.
-- Authenticator 앱 또는 하드웨어 토큰-코드
-- 전화 통화.
-- 문자 메시지입니다.
+- Microsoft Authenticator – notification.
+- Authenticator app or hardware token – code.
+- Phone call.
+- Text message.
 
-Azure AD에 더 많은 인증 방법을 추가 하기 때문에 이러한 메서드는 결합 된 등록에서 사용할 수 있습니다.
+As we continue to add more authentication methods to Azure AD, those methods will be available in combined registration.
 
-## <a name="combined-registration-modes"></a>결합 된 등록 모드
+## <a name="combined-registration-modes"></a>Combined registration modes
 
-결합 된 등록에는 인터럽트와 관리의 두 가지 모드가 있습니다.
+There are two modes of combined registration: interrupt and manage.
 
-- **인터럽트 모드** 는 사용자가 로그인 시 보안 정보를 등록 하거나 새로 고칠 때 사용자에 게 표시 되는 마법사와 같은 환경입니다.
+- **Interrupt mode** is a wizard-like experience, presented to users when they register or refresh their security info at sign-in.
 
-- **관리 모드** 는 사용자 프로필의 일부로 서 사용자가 보안 정보를 관리할 수 있도록 합니다.
+- **Manage mode** is part of the user profile and allows users to manage their security info.
 
-두 모드 모두 Multi-Factor Authentication에 사용할 수 있는 메서드를 이전에 등록 한 사용자는 Multi-Factor Authentication를 수행 해야 보안 정보에 액세스할 수 있습니다.
+For both modes, users who have previously registered a method that can be used for Multi-Factor Authentication will need to perform Multi-Factor Authentication before they can access their security info.
 
-### <a name="interrupt-mode"></a>인터럽트 모드
+### <a name="interrupt-mode"></a>Interrupt mode
 
-둘 다 테 넌 트에 대해 사용 하도록 설정 된 경우 결합 된 등록은 Multi-Factor Authentication 및 SSPR 정책을 모두 사용 합니다. 이러한 정책은 로그인 하는 동안 사용자 등록이 중단 되었는지 여부와 등록에 사용할 수 있는 방법을 제어 합니다.
+Combined registration respects both Multi-Factor Authentication and SSPR policies, if both are enabled for your tenant. These policies control whether a user is interrupted for registration during sign-in and which methods are available for registration.
 
-사용자에 게 보안 정보를 등록 하거나 새로 고치는 메시지가 표시 될 수 있는 몇 가지 시나리오는 다음과 같습니다.
+Here are several scenarios in which users might be prompted to register or refresh their security info:
 
-- Id 보호를 통해 Multi-Factor Authentication 등록이 적용 됨: 로그인 하는 동안 사용자에 게 등록 하 라는 메시지가 표시 됩니다. 사용자가 SSPR를 사용 하도록 설정 된 경우 Multi-Factor Authentication 메서드와 SSPR 메서드를 등록 합니다.
-- 사용자 단위 Multi-Factor Authentication를 통해 등록이 적용 Multi-Factor Authentication: 로그인 하는 동안 사용자에 게 등록 하 라는 메시지가 표시 됩니다. 사용자가 SSPR를 사용 하도록 설정 된 경우 Multi-Factor Authentication 메서드와 SSPR 메서드를 등록 합니다.
-- Multi-Factor Authentication 등록은 조건부 액세스 또는 다른 정책을 통해 적용 됩니다. Multi-Factor Authentication 필요한 리소스를 사용 하는 경우 사용자에 게 등록 하 라는 메시지가 표시 됩니다. 사용자가 SSPR를 사용 하도록 설정 된 경우 Multi-Factor Authentication 메서드와 SSPR 메서드를 등록 합니다.
-- SSPR 등록이 적용 됨: 로그인 하는 동안 사용자에 게 등록 하 라는 메시지가 표시 됩니다. SSPR 메서드만 등록 합니다.
-- SSPR refresh 적용: 사용자가 관리자가 설정한 간격에 따라 보안 정보를 검토 해야 합니다. 사용자에 게 정보가 표시 되며, 필요한 경우 현재 정보를 확인 하거나 변경할 수 있습니다.
+- Multi-Factor Authentication registration enforced through Identity Protection: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+- Multi-Factor Authentication registration enforced through per-user Multi-Factor Authentication: Users are asked to register during sign-in. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+- Multi-Factor Authentication registration enforced through Conditional Access or other policies: Users are asked to register when they use a resource that requires Multi-Factor Authentication. They register Multi-Factor Authentication methods and SSPR methods (if the user is enabled for SSPR).
+- SSPR registration enforced: Users are asked to register during sign-in. They register only SSPR methods.
+- SSPR refresh enforced: Users are required to review their security info at an interval set by the admin. Users are shown their info and can confirm the current info or make changes if needed.
 
-등록이 적용 되 면 사용자는 대부분의 보안 수준에서 Multi-Factor Authentication 및 SSPR 정책을 준수 하는 데 필요한 최소 메서드 수를 표시 합니다.
+When registration is enforced, users are shown the minimum number of methods needed to be compliant with both Multi-Factor Authentication and SSPR policies, from most to least secure.
 
 다음은 그 예입니다.
 
-- 사용자가 SSPR에 대해 사용 하도록 설정 되어 있습니다. SSPR 정책에서는 모바일 앱 코드, 전자 메일 및 휴대폰을 다시 설정 하 고 사용 하도록 설정 하는 두 가지 방법이 필요 합니다.
-   - 이 사용자는 두 가지 메서드를 등록 해야 합니다.
-      - 사용자는 기본적으로 인증자 앱 및 전화에 표시 됩니다.
-      - 사용자는 authenticator 앱 또는 휴대폰 대신 전자 메일을 등록 하도록 선택할 수 있습니다.
+- A user is enabled for SSPR. The SSPR policy required two methods to reset and has enabled mobile app code, email, and phone.
+   - This user is required to register two methods.
+      - The user is shown authenticator app and phone by default.
+      - The user can choose to register email instead of authenticator app or phone.
 
-이 순서도는 로그인 중에 등록이 중단 될 때 사용자에 게 표시 되는 방법을 설명 합니다.
+This flowchart describes which methods are shown to a user when interrupted to register during sign-in:
 
-![결합 된 보안 정보 순서도](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
+![Combined security info flowchart](media/concept-registration-mfa-sspr-combined/combined-security-info-flow-chart.png)
 
-Multi-Factor Authentication 및 SSPR를 모두 사용 하는 경우 Multi-Factor Authentication 등록을 적용 하는 것이 좋습니다.
+If you have both Multi-Factor Authentication and SSPR enabled, we recommend that you enforce Multi-Factor Authentication registration.
 
-SSPR 정책에서 사용자가 일정 한 간격으로 보안 정보를 검토 해야 하는 경우 로그인 중에 사용자가 중단 되 고 등록 된 모든 메서드를 표시 합니다. 최신 정보를 확인할 수 있습니다. 최신 정보를 확인 하거나 필요한 경우 변경할 수 있습니다.
+If the SSPR policy requires users to review their security info at regular intervals, users are interrupted during sign-in and shown all their registered methods. They can confirm the current info if it's up-to-date, or they can make changes if they need to.
 
-### <a name="manage-mode"></a>관리 모드
+### <a name="manage-mode"></a>Manage mode
 
-사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) 이동 하거나 내 프로필에서 **보안 정보** 를 선택 하 여 관리 모드에 액세스할 수 있습니다. 여기에서 사용자는 메서드를 추가 하 고, 기존 메서드를 삭제 하거나 변경 하 고, 기본 메서드를 변경 하는 등의 방법을 사용할 수 있습니다.
+Users can access manage mode by going to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo) or by selecting **Security info** from My Profile. From there, users can add methods, delete or change existing methods, change the default method, and more.
 
-## <a name="key-usage-scenarios"></a>주요 사용 시나리오
+## <a name="key-usage-scenarios"></a>Key usage scenarios
 
-### <a name="set-up-security-info-during-sign-in"></a>로그인 하는 동안 보안 정보 설정
+### <a name="set-up-security-info-during-sign-in"></a>Set up security info during sign-in
 
-관리자가 등록을 적용 했습니다.
+An admin has enforced registration.
 
-사용자가 필요한 보안 정보를 모두 설정 하지 않은 상태에서 Azure Portal로 이동 합니다. 사용자 이름 및 암호를 입력 하면 보안 정보를 설정 하 라는 메시지가 표시 됩니다. 그러면 사용자가 마법사에 표시 된 단계에 따라 필요한 보안 정보를 설정 합니다. 설정에서 허용 하는 경우 사용자는 기본적으로 표시 되는 방법이 아닌 다른 방법을 설정 하도록 선택할 수 있습니다. 마법사를 완료 한 후 사용자는 설정 된 방법과 Multi-Factor Authentication의 기본 방법을 검토 합니다. 사용자는 설치 프로세스를 완료 하기 위해 정보를 확인 하 고 Azure Portal을 계속 진행 합니다.
+A user has not set up all required security info and goes to the Azure portal. After entering the user name and password, the user is prompted to set up security info. The user then follows the steps shown in the wizard to set up the required security info. If your settings allow it, the user can choose to set up methods other than those shown by default. After completing the wizard, users review the methods they set up and their default method for Multi-Factor Authentication. To complete the setup process, the user confirms the info and continues to the Azure portal.
 
-### <a name="set-up-security-info-from-my-profile"></a>내 프로필에서 보안 정보 설정
+### <a name="set-up-security-info-from-my-profile"></a>Set up security info from My Profile
 
-관리자가 등록을 적용 하지 않았습니다.
+An admin has not enforced registration.
 
-필요한 보안 정보를 아직 설정 하지 않은 사용자는 [https://myprofile.microsoft.com](https://myprofile.microsoft.com)로 이동 합니다. 사용자가 왼쪽 창에서 **보안 정보** 를 선택 합니다. 여기서 사용자는 메서드를 추가 하도록 선택 하 고, 사용 가능한 메서드를 선택 하 고, 해당 메서드를 설정 하는 단계를 따릅니다. 완료 되 면 사용자에 게 보안 정보 페이지에 방금 설정 된 메서드가 표시 됩니다.
+A user who hasn't yet set up all required security info goes to [https://myprofile.microsoft.com](https://myprofile.microsoft.com). The user selects **Security info** in the left pane. From there, the user chooses to add a method, selects any of the methods available, and follows the steps to set up that method. When finished, the user sees the method that was just set up on the Security info page.
 
-### <a name="delete-security-info-from-my-profile"></a>내 프로필에서 보안 정보 삭제
+### <a name="delete-security-info-from-my-profile"></a>Delete security info from My Profile
 
-이전에 하나 이상의 메서드를 설정한 사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)로 이동 합니다. 사용자가 이전에 등록 된 메서드 중 하나를 삭제 하도록 선택 합니다. 완료 되 면 사용자에 게 보안 정보 페이지에서 해당 메서드가 더 이상 표시 되지 않습니다.
+A user who has previously set up at least one method navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user chooses to delete one of the previously registered methods. When finished, the user no longer sees that method on the Security info page.
 
-### <a name="change-the-default-method-from-my-profile"></a>내 프로필에서 기본 방법 변경
+### <a name="change-the-default-method-from-my-profile"></a>Change the default method from My Profile
 
-이전에 Multi-Factor Authentication 사용할 수 있는 메서드를 하나 이상 설정 하는 사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)으로 이동할 수 있습니다. 사용자가 현재 기본 메서드를 다른 기본 메서드로 변경 합니다. 완료 되 면 사용자는 보안 정보 페이지에 새 기본 메서드를 표시 합니다.
+A user who has previously set up at least one method that can be used for Multi-Factor Authentication navigates to [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo). The user changes the current default method to a different default method. When finished, the user sees the new default method on the Security info page.
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자가 인증 방법을 다시 등록 하도록 강제](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
-[테 넌 트에서 결합 된 등록 사용](howto-registration-mfa-sspr-combined.md)
+[Enable combined registration in your tenant](howto-registration-mfa-sspr-combined.md)
 
-[SSPR 및 MFA 사용량 및 통찰력 보고](howto-authentication-methods-usage-insights.md)
+[SSPR and MFA usage and insights reporting](howto-authentication-methods-usage-insights.md)
 
-[Multi-Factor Authentication 및 SSPR에 대해 사용 가능한 방법](concept-authentication-methods.md)
+[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 
-[셀프 서비스 암호 재설정 구성](howto-sspr-deployment.md)
+[Configure self-service password reset](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication 구성](howto-mfa-getstarted.md)
+[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)

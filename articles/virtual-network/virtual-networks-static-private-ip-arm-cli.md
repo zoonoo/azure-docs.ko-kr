@@ -1,5 +1,5 @@
 ---
-title: Vm에 대 한 개인 IP 주소 구성-Azure CLI
+title: Configure private IP addresses for VMs - Azure CLI
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/16/2017
 ms.author: kumud
-ms.openlocfilehash: 5734b96466801efaa991a971bd87f60aafc9df32
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: dfc56d86d2e516a7c7bb82ef7a5e84105e049188
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196618"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404456"
 ---
 # <a name="configure-private-ip-addresses-for-a-virtual-machine-using-the-azure-cli"></a>Azure CLI를 사용하여 가상 머신에 대한 개인 IP 주소 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "74196618"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
+이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -120,7 +120,7 @@ ms.locfileid: "74196618"
     }
     ```
     
-    매개 변수:
+    매개 변수
 
     * `--private-ip-address`: NIC에 대한 고정 개인 IP 주소입니다.
     * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
@@ -251,7 +251,7 @@ Azure Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 
 2. **azure vm set** 명령을 실행하여 VM에 사용된 NIC를 변경합니다.
    
     ```azurecli
-    azure vm set -g TestRG -n DNS01 -N TestNIC2
+   az vm nic set --resource-group TestRG --vm-name DNS01 --nics TestNIC2
     ```
 
     예상 출력:

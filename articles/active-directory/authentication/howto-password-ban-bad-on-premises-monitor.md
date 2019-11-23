@@ -1,28 +1,28 @@
 ---
-title: Azure AD 암호 보호의 모니터링 및 로깅-Azure Active Directory
+title: Password protection monitor and logging- Azure Active Directory
 description: Azure AD 암호 보호 모니터링 및 로깅 이해
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 02/01/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a763f15b57bf7f23eeb52c81dd48de7f02adc5e4
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 77f1ac530fe4e20fe26f3a6b7d0111b0bd432928
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853549"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381689"
 ---
 # <a name="azure-ad-password-protection-monitoring-and-logging"></a>Azure AD 암호 보호 모니터링 및 로깅
 
 Azure AD 암호 보호의 배포 후 모니터링 및 보고는 필수 작업입니다. 이 문서에서는 각 서비스에서 정보를 기록하는 위치 및 Azure AD 암호 보호 사용에 대한 보고 방법을 포함하여 다양한 모니터링 기술을 이해할 수 있도록 자세히 설명합니다.
 
-모니터링 및 보고는 이벤트 로그 메시지 또는 PowerShell cmdlet을 실행 하 여 수행 됩니다. DC 에이전트와 프록시 서비스는 모두 이벤트 로그 메시지를 기록 합니다. 아래에 설명 된 모든 PowerShell cmdlet은 프록시 서버 에서만 사용할 수 있습니다 (AzureADPasswordProtection PowerShell 모듈 참조). DC 에이전트 소프트웨어는 PowerShell 모듈을 설치 하지 않습니다.
+Monitoring and reporting are done either by event log messages or by running PowerShell cmdlets. The DC agent and proxy services both log event log messages. All PowerShell cmdlets described below are only available on the proxy server (see the AzureADPasswordProtection PowerShell module). The DC agent software does not install a PowerShell module.
 
 ## <a name="dc-agent-event-logging"></a>DC 에이전트 이벤트 로깅
 
@@ -65,7 +65,7 @@ DC 에이전트 관리자 로그는 소프트웨어 작동 방식의 주요 정�
 
 |   |암호 변경 |암호 설정|
 | --- | :---: | :---: |
-|통과 |10014 |10015|
+|합격 |10014 |10015|
 |실패(고객 암호 정책으로 인해)| 10016, 30002| 10017, 30003|
 |실패(Microsoft 암호 정책으로 인해)| 10016, 30004| 10017, 30005|
 |실패(결합된 Microsoft 암호 정책 및 고객 암호 정책으로 인해)| 10016, 30026| 10017, 30027|
@@ -96,9 +96,9 @@ PasswordSetErrors               : 1
 
 –Forest, -Domain 또는 –DomainController 매개 변수 중 하나를 사용하여 cmdlet의 보고 범위에 영향을 줄 수 있습니다. 매개 변수를 지정하지 않는 것은 –Forest를 의미합니다.
 
-`Get-AzureADPasswordProtectionSummaryReport` cmdlet은 DC 에이전트 관리자 이벤트 로그를 쿼리한 다음, 표시된 각 결과 범주에 해당하는 총 이벤트 수를 계산하는 방식으로 작동합니다. 다음 표에는 각 결과와 해당 이벤트 ID 간의 매핑이 포함 되어 있습니다.
+`Get-AzureADPasswordProtectionSummaryReport` cmdlet은 DC 에이전트 관리자 이벤트 로그를 쿼리한 다음, 표시된 각 결과 범주에 해당하는 총 이벤트 수를 계산하는 방식으로 작동합니다. The following table contains the mappings between each outcome and its corresponding event ID:
 
-|Get-AzureADPasswordProtectionSummaryReport 속성 |해당 이벤트 ID|
+|Get-AzureADPasswordProtectionSummaryReport 속성 |Corresponding event ID|
 | :---: | :---: |
 |PasswordChangesValidated |10014|
 |PasswordSetsValidated |10015|
@@ -269,11 +269,11 @@ Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하�
 
 HeartbeatUTC 값이 부실해지면 해당 도메인 컨트롤러의 Azure AD 암호 보호 DC 에이전트가 실행되고 있지 않거나, 제거되었거나, 머신이 강등되어 더 이상 도메인 컨트롤러가 아님을 나타낼 수 있습니다.
 
-PasswordPolicyDateUTC 값이 오래 된 경우 해당 컴퓨터의 Azure AD 암호 보호 DC 에이전트가 제대로 작동 하지 않을 수 있습니다.
+If the PasswordPolicyDateUTC value gets stale, this may be a symptom that the Azure AD Password Protection DC Agent on that machine is not working properly.
 
-## <a name="dc-agent-newer-version-available"></a>DC 에이전트의 최신 버전 사용 가능
+## <a name="dc-agent-newer-version-available"></a>DC agent newer version available
 
-DC 에이전트 서비스는 새 버전의 DC 에이전트 소프트웨어를 사용할 수 있음을 감지 하면 작업 로그에 30034 경고 이벤트를 기록 합니다. 예를 들면 다음과 같습니다.
+The DC agent service will log a 30034 warning event to the Operational log upon detecting that a newer version of the DC agent software is available, for example:
 
 ```text
 An update for Azure AD Password Protection DC Agent is available.
@@ -287,10 +287,10 @@ https://aka.ms/AzureADPasswordProtectionAgentSoftwareVersions
 Current version: 1.2.116.0
 ```
 
-위의 이벤트는 최신 버전의 소프트웨어를 지정 하지 않습니다. 해당 정보에 대 한 이벤트 메시지의 링크로 이동 해야 합니다.
+The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
 
 > [!NOTE]
-> 위의 이벤트 메시지에서 "autoupgrade"에 대 한 참조에도 불구 하 고 DC 에이전트 소프트웨어는 현재이 기능을 지원 하지 않습니다.
+> Despite the references to "autoupgrade" in the above event message, the DC agent software does not currently support this feature.
 
 ## <a name="proxy-service-event-logging"></a>프록시 서비스 이벤트 로깅
 
@@ -335,7 +335,7 @@ HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters
 
 상태를 변경하는 PowerShell cmdlet(예: Register-AzureADPasswordProtectionProxy)은 일반적으로 작업 로그에 결과 이벤트를 기록합니다.
 
-또한 대부분의 Azure AD 암호 보호 PowerShell cmdlet은 아래에 있는 텍스트 로그에 기록 합니다.
+In addition, most of the Azure AD Password Protection PowerShell cmdlets will write to a text log located under:
 
 `%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
 
@@ -361,9 +361,9 @@ Cmdlet의 쿼리 범위는 포리스트 또는 도메인 매개 변수 중 하�
 
 HeartbeatUTC 값이 부실해지면 해당 머신의 Azure AD 암호 보호 프록시가 실행되지 않거나 제거되었음을 나타낼 수 있습니다.
 
-## <a name="proxy-agent-newer-version-available"></a>프록시 에이전트의 최신 버전을 사용할 수 있습니다.
+## <a name="proxy-agent-newer-version-available"></a>Proxy agent newer version available
 
-프록시 서비스는 최신 버전의 프록시 소프트웨어를 사용할 수 있음을 감지 하면 작업 로그에 20002 경고 이벤트를 기록 합니다. 예를 들면 다음과 같습니다.
+The Proxy service will log a 20002 warning event to the Operational log upon detecting that a newer version of the proxy software is available, for example:
 
 ```text
 An update for Azure AD Password Protection Proxy is available.
@@ -378,9 +378,9 @@ Current version: 1.2.116.0
 .
 ```
 
-위의 이벤트는 최신 버전의 소프트웨어를 지정 하지 않습니다. 해당 정보에 대 한 이벤트 메시지의 링크로 이동 해야 합니다.
+The event above does not specify the version of the newer software. You should go to the link in the event message for that information.
 
-Autoupgrade enabled를 사용 하 여 프록시 에이전트가 구성 된 경우에도이 이벤트를 내보냅니다.
+This event will be emitted even if the Proxy agent is configured with autoupgrade enabled.
 
 ## <a name="next-steps"></a>다음 단계
 

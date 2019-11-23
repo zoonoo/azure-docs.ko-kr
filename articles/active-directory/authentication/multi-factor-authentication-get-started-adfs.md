@@ -1,28 +1,28 @@
 ---
-title: 2 단계 인증 Azure MFA 및 AD FS-Azure Active Directory
+title: Two-step verification Azure MFA and ADFS - Azure Active Directory
 description: Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cfac56af9074e065431f6adbd44496adc7c7a6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 142b836a4f585f047c0789e3214c27ef9f07599f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60414514"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381172"
 ---
 # <a name="getting-started-with-azure-multi-factor-authentication-and-active-directory-federation-services"></a>Azure Multi-Factor Authentication 및 Active Directory Federation Services 시작
 
 <center>
 
-![Azure MFA 및 ADFS 시작](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
+![Azure MFA and ADFS getting started](./media/multi-factor-authentication-get-started-adfs/adfs.png)</center>
 
 조직에서 AD FS를 사용하여 온-프레미스 Active Directory를 Azure Active Directory에 페더레이션한 경우 Azure Multi-Factor Authentication 사용을 위한 두 가지 옵션이 있습니다.
 

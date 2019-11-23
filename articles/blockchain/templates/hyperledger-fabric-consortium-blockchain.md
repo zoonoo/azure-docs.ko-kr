@@ -1,21 +1,15 @@
 ---
-title: Azure의 Hyperledger 패브릭 컨소시엄 네트워크
-description: Hyperledger 패브릭 컨소시엄 네트워크를 배포하고 구성하기 위한 솔루션 템플릿
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Deploy Hyperledger Fabric Consortium solution template on Azure
+description: How to deploy and configure the Hyperledger Fabric consortium network solution template on Azure
 ms.date: 05/09/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: caleteet
-manager: femila
-ms.openlocfilehash: 80de4e1479fac7296889e45289a5f20e586e3f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: be35cfa26204b36ad65da91252144b9167cb9e54
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65510763"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325142"
 ---
 # <a name="hyperledger-fabric-consortium-network"></a>Hyperledger 패브릭 컨소시엄 네트워크
 
@@ -39,10 +33,10 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 두 배포에서 Hyperledger 패브릭의 핵심을 이루는 구성 요소는 동일합니다.  배포의 차이점은 이러한 구성 요소의 확장 방법입니다.
 
-- **CA 노드**: 네트워크의 ID에 사용되는 인증서를 생성하는 데 사용되는 인증 기관을 실행하는 노드입니다.
-- **정렬자 노드**: 총 명령 브로드캐스트 또는 원자성 트랜잭션 같은 전송 보증을 구현하는 통신 서비스를 실행하는 노드입니다.
-- **피어 노드**: 트랜잭션을 커밋하고 분산 원장의 상태와 복사본을 유지하는 노드입니다.
-- **CouchDB 노드**: 상태 데이터베이스를 보유할 수 있는 CouchDB 서비스를 실행하고 chaincode 데이터의 풍부한 쿼리를 제공하여 단순 키/값에서 JSON 형식 스토리지로 확장할 수 있는 노드입니다.
+- **CA nodes**: A node running Certificate Authority that is used to generate certificates that are used for identities in the network.
+- **Orderer nodes**: A node running the communication service implementing a delivery guarantee, such as total order broadcast or atomic transactions.
+- **Peer nodes**: A node that commits transactions and maintains the state and a copy of the distributed ledger.
+- **CouchDB nodes**: A node that can run the CouchDB service that can hold the state database and provide rich querying of chaincode data, expanding from simple key/value to JSON type storage.
 
 ### <a name="single-virtual-machine-architecture"></a>단일 가상 머신 아키텍처
 
@@ -68,7 +62,7 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 
 **Hyperledger 패브릭 컨소시엄** 템플릿에서 **만들기**를 선택합니다.
 
-템플릿 배포에서 다중 노드 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 네트워크를 구성하는 과정을 안내합니다. 배포 흐름은 기본 사항, 컨소시엄 네트워크 설정, 패브릭 구성 및 선택적 구성 요소의 네 단계로 구분됩니다.
+템플릿 배포에서 다중 노드 [Hyperledger 1.3](https://hyperledger-fabric.readthedocs.io/en/release-1.3/) 네트워크를 구성하는 과정을 안내합니다. The deployment flow is divided into four steps: Basics, Consortium Network Settings, Fabric configuration, and Optional components.
 
 ### <a name="basics"></a>기본 사항
 
@@ -79,13 +73,13 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 | 매개 변수 이름 | 설명 | 허용되는 값 |
 |---|---|---|
 **리소스 접두사** | 배포의 일부로 프로비전된 리소스의 이름 접두사 |6자 이하 |
-**사용자 이름** | 이 멤버에게 배포된 각 가상 머신의 관리자 사용자 이름 |1-64자 |
+**사용자 이름** | 이 멤버에게 배포된 각 가상 머신의 관리자 사용자 이름 |1 ~ 64자 |
 **인증 유형** | 가상 머신에 인증하는 방법 |암호 또는 SSH 공개 키|
-**암호(인증 형식 = 암호)** |배포된 각 가상 머신의 관리자 계정 암호. 암호는 다음 문자 유형 중 세 가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12-72자|
+**암호(인증 형식 = 암호)** |배포된 각 가상 머신에 대한 관리자 계정의 암호입니다. The password must contain three of the following character types: 1 upper case character, 1 lower case character, 1 number, and 1 special character<br /><br />처음에는 모든 VM의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|12 - 72문자|
 **SSH 키(인증 유형 = SSH 공개 키)** |원격 로그인에 사용되는 보안 셸 키 ||
 **구독** |배포할 구독 ||
 **리소스 그룹** |컨소시엄 네트워크를 배포할 리소스 그룹 ||
-**Location**: |첫 번째 멤버를 배포할 Azure 지역 ||
+**위치** |첫 번째 멤버를 배포할 Azure 지역 ||
 
 **확인**을 선택합니다.
 
@@ -98,9 +92,9 @@ Azure에서 Hyperledger 패브릭을 사용할 수 있도록 지원되는 두 �
 | 매개 변수 이름 | 설명 | 허용되는 값 |
 |---|---|---|
 **네트워크 구성** |새 네트워크를 만들거나 기존 네트워크를 연결하도록 선택할 수 있습니다. ‘기존 네트워크 연결’을 선택하는 경우 추가로 값을 제공해야 합니다. |새 네트워크 <br/> 기존 네트워크 연결 |
-**HLF CA 암호** |배포의 일부로 생성되는 인증 기관에서 생성한 인증서에 사용되는 암호입니다. 암호는 다음 문자 유형 중 세 가지를 포함해야 합니다. 대문자 1개, 소문자 1개, 숫자 1개, 특수 문자 1개.<br /><br />처음에는 모든 가상 머신의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|1-25자 |
+**HLF CA 암호** |배포의 일부로 생성되는 인증 기관에서 생성한 인증서에 사용되는 암호입니다. 암호에는 대문자 1자, 소문자 1자, 숫자 1개 및 특수 문자 1자의 문자 유형 중 3가지가 포함돼야 합니다.<br /><br />처음에는 모든 가상 머신의 암호가 동일하지만, 프로비전 후 암호를 변경할 수 있습니다.|1-25자 |
 **조직 설정** |조직 이름 및 인증서를 사용자 지정하거나 사용할 기본값을 설정할 수 있습니다.|기본값 <br/> 고급 |
-**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | 예 <br/> 아닙니다. |
+**VPN 네트워크 설정** | VM에 액세스하기 위한 VPN 터널 게이트웨이를 프로비전합니다. | yes <br/> 아닙니다. |
 
 **확인**을 선택합니다.
 

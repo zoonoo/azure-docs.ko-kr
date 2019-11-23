@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8aba38b7ecebefb1205b17bc633d9ff0c0812d4b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 803b1e397efd4a6f9ddaa3bae1d101c8f204e728
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206801"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74328305"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>SAP NetWeaver용 SQL Server Azure Virtual Machines DBMS 배포
 
@@ -341,7 +341,7 @@ It is recommended to review [this][virtual-machines-sql-server-infrastructure-se
 이러한 구성을 사용하면 tempdb에서 시스템 드라이브에서 제공할 수 있는 것보다 더 많은 공간을 사용할 수 있습니다. 또한 비영구 D:\ 드라이브는 A- 시리즈 VM을 제외하고 더 효율적인 I/O 대기 시간과 처리량을 제공합니다. 적절한 tempdb 크기를 결정하기 위해 기존 시스템에서 tempdb 크기를 확인할 수 있습니다. 
 
 >[!NOTE]
-> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://www.sqlserver.co.uk/index.php/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
+> tempdb 데이터 파일과 로그 파일을 만든 D:\ 드라이브의 폴더에 저장하는 경우 VM을 다시 부팅한 후에 해당 폴더가 있는지 확인해야 합니다. Since the D:\ drive is freshly initialized after a VM reboot all file and directory structures are wiped out. A possibility to recreate eventual directory structures on D:\ drive before the start of the SQL Server service is documented in [this article](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/).
 
 SQL Server와 SAP 데이터베이스를 실행하고 tempdb 데이터 및 tempdb 로그 파일이 D:\ 드라이브에 배치된 VM 구성은 다음과 같습니다.
 

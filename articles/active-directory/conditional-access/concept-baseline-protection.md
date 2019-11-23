@@ -1,92 +1,92 @@
 ---
-title: 조건부 액세스 기준 보호 정책-Azure Active Directory
-description: 일반적인 공격 으로부터 조직을 보호 하기 위한 기준 조건부 액세스 정책
+title: Conditional Access baseline policies - Azure Active Directory
+description: Baseline Conditional Access policies to protect organizations from common attacks
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: c73b806d227fbe6e1f2c1d5a92d75a9827d69ed8
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72430337"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380651"
 ---
-# <a name="what-are-baseline-policies"></a>기준 정책 이란?
+# <a name="what-are-baseline-policies"></a>What are baseline policies?
 
-기준 정책은 여러 일반적인 공격 으로부터 조직을 보호 하는 데 도움이 되는 미리 정의 된 정책 집합입니다. 이러한 일반적인 공격은 암호 스프레이, 재생 및 피싱을 포함할 수 있습니다. 기본 정책은 모든 버전의 Azure AD에서 사용할 수 있습니다. Microsoft는 id 기반 공격이 지난 몇 년 동안 증가 하 여 모든 사용자에 게 이러한 기본 보호 정책을 사용할 수 있도록 합니다. 이러한 네 가지 정책의 목표는 모든 조직에서 추가 비용 없이 기본 보안 수준을 사용 하도록 설정 하는 것입니다.  
+Baseline policies are a set of predefined policies that help protect organizations against many common attacks. These common attacks can include password spray, replay, and phishing. Baseline policies are available in all editions of Azure AD. Microsoft is making these baseline protection policies available to everyone because identity-based attacks have been on the rise over the last few years. The goal of these four policies is to ensure that all organizations have a baseline level of security enabled at no extra cost.  
 
-사용자 지정 된 조건부 액세스 정책을 관리 하려면 Azure AD Premium 라이선스가 필요 합니다.
+Managing customized Conditional Access policies requires an Azure AD Premium license.
 
 ## <a name="baseline-policies"></a>기준 정책
 
-![Azure Portal의 조건부 액세스 기준 정책](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
+![Conditional Access baseline policies in the Azure portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-다음 네 가지 기준 정책이 있습니다.
+There are four baseline policies:
 
-* 관리자 용 MFA 필요 (미리 보기)
-* 최종 사용자 보호 (미리 보기)
-* 레거시 인증 차단 (미리 보기)
-* 서비스 관리를 위해 MFA 필요 (미리 보기)
+* Require MFA for admins (preview)
+* End user protection (preview)
+* Block legacy authentication (preview)
+* Require MFA for service management (preview)
 
-이러한 정책 중 4 개는 POP, IMAP 및 이전 Office 데스크톱 클라이언트와 같은 레거시 인증 흐름에 영향을 줍니다.
+All four of these policies will impact legacy authentication flows like POP, IMAP, and older Office desktop clients.
 
-### <a name="require-mfa-for-admins-preview"></a>관리자 용 MFA 필요 (미리 보기)
+### <a name="require-mfa-for-admins-preview"></a>Require MFA for admins (preview)
 
-관리자 계정에는 강력 하 고 액세스 권한이 있으므로 특별히 주의 해 서 처리 해야 합니다. 권한 있는 계정에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 로그인에 사용할 때 보다 강력한 계정 확인을 요구 하는 것입니다. Azure Active Directory 관리자가 Azure Multi-Factor Authentication를 등록 하 고 사용 하도록 요구 하 여 더 강력한 계정 확인을 얻을 수 있습니다.
+Due to the power and access that administrator accounts have, you should treat them with special care. One common method to improve the protection of privileged accounts is to require a stronger form of account verification when they are used to sign in. In Azure Active Directory, you can get a stronger account verification by requiring administrators to register for and use Azure Multi-Factor Authentication.
 
-관리자 용 MFA 필요 (미리 보기)는 다음 디렉터리 역할에 대해 MFA (multi-factor authentication)를 요구 하는 기준 정책으로, 가장 권한 있는 Azure AD 역할로 간주 됩니다.
+Require MFA for admins (preview) is a baseline policy that requires multi-factor authentication (MFA) for the following directory roles, considered to be the most privileged Azure AD roles:
 
 * 전역 관리자
 * SharePoint 관리자
 * Exchange 관리자
 * 조건부 액세스 관리자
 * 보안 관리자
-* 기술 지원팀 관리자/암호 관리자
+* Helpdesk administrator / Password administrator
 * 대금 청구 관리자
 * 사용자 관리자
 
-조직에서 스크립트나 코드에 이러한 계정을 사용 하는 경우 [관리 되는 id](../managed-identities-azure-resources/overview.md)로 대체 하는 것이 좋습니다.
+If your organization has these accounts in use in scripts or code, consider replacing them with [managed identities](../managed-identities-azure-resources/overview.md).
 
-### <a name="end-user-protection-preview"></a>최종 사용자 보호 (미리 보기)
+### <a name="end-user-protection-preview"></a>End user protection (preview)
 
-권한이 높은 관리자는 공격 대상이 되는 유일한 관리자가 아닙니다. 잘못 된 행위자는 일반 사용자를 대상으로 하는 경향이 있습니다. 액세스 권한을 획득 한 후 이러한 잘못 된 행위자는 원래 계정 소유자를 대신 하 여 권한 있는 정보에 대 한 액세스를 요청 하거나 전체 디렉터리를 다운로드 하 고 전체 조직에서 피싱 공격을 수행할 수 있습니다. 모든 사용자에 대 한 보호를 개선 하는 일반적인 방법 중 하나는 위험한 로그인이 감지 될 때 더 강력한 형태의 계정 확인을 요구 하는 것입니다.
+High privileged administrators aren’t the only ones targeted in attacks. Bad actors tend to target normal users. After gaining access, these bad actors can request access to privileged information on behalf of the original account holder or download the entire directory and perform a phishing attack on your whole organization. One common method to improve the protection for all users is to require a stronger form of account verification when a risky sign-in is detected.
 
-**최종 사용자 보호 (미리 보기)** 는 디렉터리의 모든 사용자를 보호 하는 기준 정책입니다. 이 정책을 사용 하도록 설정 하려면 모든 사용자가 14 일 이내에 Azure Multi-Factor Authentication에 등록 해야 합니다. 등록 한 후에는 사용자에 게 위험한 로그인 시도 중에만 MFA를 입력 하 라는 메시지가 표시 됩니다. 손상 된 사용자 계정은 암호 재설정 및 위험 해제 될 때까지 차단 됩니다. 
+**End user protection (preview)** is a baseline policy that protects all users in a directory. Enabling this policy requires all users to register for Azure Multi-Factor Authentication within 14 days. Once registered, users will be prompted for MFA only during risky sign-in attempts. Compromised user accounts are blocked until password reset and risk dismissal. 
 
 [!NOTE]
-이전에 위험 플래그가 지정 된 사용자는 암호 재설정 및 정책 활성화 시 해제 위험에 도달할 때까지 차단 됩니다.
+Any users previously flagged for risk are blocked until password reset and risk dismissal upon policy activation.
 
-### <a name="block-legacy-authentication-preview"></a>레거시 인증 차단 (미리 보기)
+### <a name="block-legacy-authentication-preview"></a>Block legacy authentication (preview)
 
-레거시 인증 프로토콜 (예: IMAP, SMTP, POP3)은 이전 메일 클라이언트가 인증 하는 데 일반적으로 사용 되는 프로토콜입니다. 레거시 프로토콜은 multi-factor authentication을 지원 하지 않습니다. 디렉터리에 대해 multi-factor authentication을 요구 하는 정책이 있는 경우에도 잘못 된 행위자는 이러한 레거시 프로토콜 중 하나를 사용 하 여 인증 하 고 multi-factor authentication을 우회할 수 있습니다.
+Legacy authentication protocols (ex: IMAP, SMTP, POP3) are protocols normally used by older mail clients to authenticate. Legacy protocols do not support multi-factor authentication. Even if you have a policy requiring multi-factor authentication for your directory, a bad actor can authenticate using one of these legacy protocols and bypass multi-factor authentication.
 
-레거시 프로토콜에서 수행 하는 악의적인 인증 요청 으로부터 계정을 보호 하는 가장 좋은 방법은 차단 하는 것입니다.
+The best way to protect your account from malicious authentication requests made by legacy protocols is to block them.
 
-**레거시 인증 (미리 보기) 차단** 기준 정책은 레거시 프로토콜을 사용 하 여 만든 인증 요청을 차단 합니다. 최신 인증을 사용 하 여 모든 사용자에 게 성공적으로 로그인 해야 합니다. 다른 기준 정책과 함께 사용 하는 경우 레거시 프로토콜에서 오는 요청이 차단 됩니다. 또한 모든 사용자는 필요할 때마다 MFA를 수행 해야 합니다. 이 정책은 Exchange ActiveSync를 차단 하지 않습니다.
+The **Block legacy authentication (preview)** baseline policy blocks authentication requests that are made using legacy protocols. Modern authentication must be used to successfully sign in for all users. Used in conjunction with the other baseline policies, requests coming from legacy protocols will be blocked. In addition, all users will be required to MFA whenever required. This policy does not block Exchange ActiveSync.
 
-### <a name="require-mfa-for-service-management-preview"></a>서비스 관리를 위해 MFA 필요 (미리 보기)
+### <a name="require-mfa-for-service-management-preview"></a>Require MFA for service management (preview)
 
-조직에서는 다양 한 Azure 서비스를 사용 하 고 다음과 같은 Azure Resource Manager 기반 도구에서 관리 합니다.
+Organizations use a variety of Azure services and manage them from Azure Resource Manager based tools like:
 
 * Azure Portal
 * Azure PowerShell
 * Azure CLI
 
-이러한 도구 중 하나를 사용 하 여 리소스 관리를 수행 하는 작업은 매우 특권 수준의 작업입니다. 이러한 도구는 서비스 설정 및 구독 청구와 같은 구독 전체의 구성을 변경할 수 있습니다.
+Using any of these tools to perform resource management is a highly privileged action. These tools can alter subscription-wide configurations, such as service settings and subscription billing.
 
-권한 있는 작업을 보호 하려면 **서비스 관리 (미리 보기)에 대 한 MFA** 를 사용 하려면 Azure Portal, Azure PowerShell 또는 Azure CLI에 액세스 하는 모든 사용자에 대해 다단계 인증이 필요 합니다.
+To protect privileged actions, this **Require MFA for service management (preview)** policy will require multi-factor authentication for any user accessing Azure portal, Azure PowerShell, or Azure CLI.
 
 ## <a name="next-steps"></a>다음 단계
 
 자세한 내용은
 
-* [일반적인 조건부 액세스 정책](concept-conditional-access-policy-common.md)
+* [Common Conditional Access policies](concept-conditional-access-policy-common.md)
 * [ID 인프라를 보호하기 위한 5단계](../../security/fundamentals/steps-secure-identity.md)
 * [Azure Active Directory의 조건부 액세스란?](overview.md)

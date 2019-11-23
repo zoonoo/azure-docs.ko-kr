@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: a536eb89f2040333617329e963ce00f5c6b1ba7a
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4026de0b13a143a6bd3905e3d4fbb5071e196c21
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086968"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384238"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -67,7 +67,7 @@ Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>사용자 시작 재부팅 또는 종료 작업
 
-Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 API 다시 설정을 수행한 경우 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에서 이벤트를 확인할 수 있습니다.
+If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
 
 VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 이벤트를 찾을 수 있습니다.
 
@@ -101,7 +101,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 가끔 Azure 운영 팀은 Azure 플랫폼의 전반적인 상태를 확인하기 위한 유지 관리 활동을 수행해야 할 수 있습니다. 이 동작은 VM 사용 가능성에 영향을 줄 수 있고 일반적으로 앞에서 설명한 대로 동일한 자동 복구 작업이 발생합니다.  
 
-계획 되지 않은 유지 관리에는 다음이 포함 됩니다.
+Unplanned maintenance include the following:
 
 - 긴급 노드 조각 모음
 - 긴급 네트워크 스위치 업데이트
@@ -118,7 +118,7 @@ Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 �
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 스토리지는 500IOPS로 제한됩니다.) 이 문제를 완화하려면 워크로드에 따라 디스크 스트라이프를 사용하거나 게스트 VM 내에서 스토리지 공간을 구성합니다. 자세한 내용은 [스토리지 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
 
 ### <a name="other-incidents"></a>다른 인시던트
 

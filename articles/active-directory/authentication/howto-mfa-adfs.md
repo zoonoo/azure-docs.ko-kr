@@ -1,5 +1,5 @@
 ---
-title: Azure MFA 및 AD FS-Azure Active Directory를 사용 하 여 클라우드 리소스 보안 유지
+title: Secure resources with Azure MFA and ADFS - Azure Active Directory
 description: 클라우드에서 Azure MFA 및 AD FS 시작 방법을 설명하는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5b1838007e1be7fc1d9872516ede14c208b1f57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20e9f0b9a993d2a8af9b9d91399fdd49f9a06eaa
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113468"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381841"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -30,11 +30,11 @@ ms.locfileid: "67113468"
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
 3. **Microsoft Office 365 ID 플랫폼**을 마우스 오른쪽 단추로 클릭하고 **클레임 규칙 편집**을 선택합니다.
 
-   ![ADFS 콘솔-신뢰 당사자 트러스트](./media/howto-mfa-adfs/trustedip1.png)
+   ![ADFS Console - Relying Party Trusts](./media/howto-mfa-adfs/trustedip1.png)
 
 4. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 
-   ![발급 변환 규칙 편집](./media/howto-mfa-adfs/trustedip2.png)
+   ![Editing Issuance Transform Rules](./media/howto-mfa-adfs/trustedip2.png)
 
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
 
@@ -58,15 +58,15 @@ ms.locfileid: "67113468"
 
 1. AD FS 관리를 엽니다.
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
-3. 마우스 오른쪽 단추로 클릭 **Microsoft Office 365 Id 플랫폼** 선택한 **클레임 규칙 편집...** 
-   ![ADFS 콘솔-클레임 규칙 편집](./media/howto-mfa-adfs/trustedip1.png)
-4. 발급 변환 규칙에서 클릭 **규칙 추가.** 
-    ![클레임 규칙 추가](./media/howto-mfa-adfs/trustedip2.png)
+3. Right-click on **Microsoft Office 365 Identity Platform** and select **Edit Claim Rules…** 
+   ![ADFS Console - Edit Claim Rules](./media/howto-mfa-adfs/trustedip1.png)
+4. On Issuance Transform Rules, click **Add Rule.** 
+   ![Adding a Claim Rule](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
    ![변환 클레임 규칙 추가 마법사](./media/howto-mfa-adfs/trustedip3.png)
-6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들면 다음과 같습니다. InsideCorpNet.
+6. 클레임 규칙 이름 옆에 있는 상자에 규칙의 이름을 지정합니다. 예를 들어 InsideCorpNet입니다.
 7. 들어오는 클레임 형식 옆의 드롭다운 목록에서 **회사 네트워크 내부**를 선택합니다.
-   ![회사 네트워크 내에서 추가 클레임](./media/howto-mfa-adfs/trustedip4.png)
+   ![Adding Inside Corporate Network claim](./media/howto-mfa-adfs/trustedip4.png)
 8. **Finish**를 클릭합니다.
 9. 발급 변환 규칙에서 **규칙 추가**를 클릭합니다.
 10. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **사용자 지정 규칙을 사용하여 클레임 보내기**를 선택하고 **다음**을 클릭합니다.
@@ -75,21 +75,21 @@ ms.locfileid: "67113468"
 
         c:[Type == "http://schemas.microsoft.com/2014/03/psso"]
             => issue(claim = c);
-    ![사용자 로그인 유지 하기 위해 사용자 지정 클레임 만들기](./media/howto-mfa-adfs/trustedip5.png)
+    ![Create custom claim to keep users signed in](./media/howto-mfa-adfs/trustedip5.png)
 13. **Finish**를 클릭합니다.
-14. **적용**을 클릭합니다.
-15. **Ok**를 클릭합니다.
+14. **Apply**를 클릭합니다.
+15. **확인**을 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
 ### <a name="configure-azure-multi-factor-authentication-trusted-ips-with-federated-users"></a>페더레이션 사용자로 Azure Multi-Factor Authentication 신뢰할 수 있는 IP 구성
 
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-2. 선택 **Azure Active Directory** > **조건부 액세스** > **명명 된 위치**합니다.
-3. **조건부 액세스-명명 된 위치** 블레이드에서 **구성 MFA 신뢰할 수 있는 Ip**
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+2. Select **Azure Active Directory** > **Conditional Access** > **Named locations**.
+3. From the **Conditional Access - Named locations** blade, select **Configure MFA trusted IPs**
 
-   ![명명 된 위치를 azure AD 조건부 액세스 구성 MFA 신뢰할 수 있는 Ip](./media/howto-mfa-adfs/trustedip6.png)
+   ![Azure AD Conditional Access named locations Configure MFA trusted IPs](./media/howto-mfa-adfs/trustedip6.png)
 
 4. [서비스 설정] 페이지의 **신뢰할 수 있는 IP**에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택합니다.  
 5. **저장**을 클릭합니다.

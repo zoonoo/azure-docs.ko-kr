@@ -1,22 +1,22 @@
 ---
-title: 기존 NPS 서버를 사용 하 여 Azure MFA 기능 제공-Azure Active Directory
+title: Provide Azure MFA capabilities using NPS - Azure Active Directory
 description: 기존 인증 인프라에 클라우드 기반 2단계 검증 기능 추가
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d8606ad9afb6642fa29cc3cae523c31e129c7ebd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: b5faf7c73e071b1eb075a72dac103b92e982ed84
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73061480"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381750"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -79,7 +79,7 @@ NPS 서버는 포트 80 및 443을 통해 다음 URL로 통신할 수 있어야 
 - https:\//adnotifications.windowsazure.com
 - https:\//login.microsoftonline.com
 
-또한 [제공 된 PowerShell 스크립트를 사용 하 여 어댑터 설정을](#run-the-powershell-script) 완료 하려면 다음 url에 연결 해야 합니다.
+Additionally, connectivity to the following URLs is required to complete the [setup of the adapter using the provided PowerShell script](#run-the-powershell-script)
 
 - https:\//login.microsoftonline.com
 - https:\//provisioningapi.microsoftonline.com
@@ -119,13 +119,13 @@ NPS에 대해 지정된 서버를 가지게 되었으며, 이 서버 또한 VPN 
 어떤 인증 방법을 NPS 확장 배포와 함께 사용할 수 있는지에 영향을 미치는 두 가지 요소가 있습니다.
 
 1. RADIUS 클라이언트(VPN, Netscaler 서버 또는 기타)와 NPS 서버 간에 사용되는 암호 암호화 알고리즘입니다.
-   - **PAP** 는 클라우드에서 Azure MFA의 모든 인증 방법, 즉 전화 통화, 단방향 문자 메시지, 모바일 앱 알림, OATH 하드웨어 토큰 및 모바일 앱 확인 코드를 지원 합니다.
+   - **PAP** supports all the authentication methods of Azure MFA in the cloud: phone call, one-way text message, mobile app notification, OATH hardware tokens, and mobile app verification code.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
 
       > [!NOTE]
       > NPS 확장을 배포하는 경우 이러한 요소를 사용하여 사용자가 사용할 수 있는 방법이 무엇인지 평가합니다. RADIUS 클라이언트가 PAP를 지원하지만, 클라이언트 UX에 확인 코드에 대한 입력 필드가 없는 경우에는 전화 통화 및 모바일 앱 알림의 두 옵션이 지원됩니다.
       >
-      > 또한 VPN 클라이언트 UX에서 입력 필드를 지원 하 고 네트워크 액세스 정책을 구성한 경우에는 인증이 성공 하지만 네트워크 정책에 구성 된 RADIUS 특성은 네트워크 액세스 장치에도 적용 되지 않습니다. RRAS 서버, VPN 클라이언트 등이 있습니다. 따라서 VPN 클라이언트는 액세스 권한이 없는 것 보다 더 많은 액세스 권한을 가질 수 있습니다.
+      > In addition, if your VPN client UX does support input field and you have configured Network Access Policy - the authentication might succeed, however none of the RADIUS attributes configured in the Network Policy will be applied to neither the Network Access Device, like the RRAS server, nor the VPN client. As a result, the VPN client might have more access than desired or less to no access.
       >
 
 2. 클라이언트 애플리케이션(VPN, Netscaler 서버 또는 기타)이 처리할 수 있는 입력 방법입니다. 예를 들어 VPN 클라이언트에 사용자가 텍스트 또는 모바일 앱의 인증 코드를 입력할 수 있는 몇 가지 방법이 있습니까?
@@ -140,7 +140,7 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 
 1. 테스트 계정으로 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에 로그인합니다.
 2. 지시에 따라 확인 방법을 설정합니다.
-3. 테스트 계정에 대해 multi-factor authentication을 요구 하 [는 조건부 액세스 정책을 만듭니다](howto-mfa-getstarted.md#create-conditional-access-policy) .
+3. [Create a Conditional Access policy](howto-mfa-getstarted.md#create-conditional-access-policy) to require multi-factor authentication for the test account.
 
 ## <a name="install-the-nps-extension"></a>NPS 확장 설치
 
@@ -153,13 +153,13 @@ NPS 확장 프로그램을 사용하고 배포하기 전에 2단계 인증을 �
 2. 이진 파일을 구성할 NPS(네트워크 정책 서버)에 복사합니다.
 3. *setup.exe*를 실행하고 설치 지침을 따릅니다. 오류가 발생하면 필수 조건 섹션의 두 라이브러리가 성공적으로 설치되었는지 다시 확인합니다.
 
-#### <a name="upgrade-the-nps-extension"></a>NPS 확장 업그레이드
+#### <a name="upgrade-the-nps-extension"></a>Upgrade the NPS extension
 
-기존 NPS 확장 설치를 업그레이드할 때 기본 서버를 다시 부팅 하지 않으려면 다음 단계를 완료 합니다.
+When upgrading an existing NPS extension install, to avoid a reboot of the underlying server complete the following steps:
 
-1. 기존 버전 제거
-1. 새 설치 관리자를 실행 합니다.
-1. 네트워크 정책 서버 (IAS) 서비스를 다시 시작 합니다.
+1. Uninstall the existing version
+1. Run the new installer
+1. Restart the Network Policy Server (IAS) service
 
 ### <a name="run-the-powershell-script"></a>PowerShell 스크립트 실행
 
@@ -188,18 +188,18 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 부하 분산을 위해 설정하려는 추가 NPS 서버에서 이러한 단계를 반복합니다.
 
-이전 컴퓨터 인증서가 만료 되 고 새 인증서가 생성 된 경우에는 만료 된 인증서를 모두 삭제 해야 합니다. 인증서가 만료 되 면 NPS 확장을 시작 하는 데 문제가 발생할 수 있습니다.
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
 > [!NOTE]
 > PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
 
 ### <a name="certificate-rollover"></a>인증서 롤오버
 
-NPS 확장의 릴리스 1.0.1.32를 사용 하 여 여러 인증서 읽기가 지원 됩니다. 이 기능은 만료 되기 전에 롤링 인증서 업데이트를 용이 하 게 하는 데 도움이 됩니다. 조직에서 이전 버전의 NPS 확장을 실행 하는 경우 버전 1.0.1.32 이상으로 업그레이드 해야 합니다.
+With release 1.0.1.32 of the NPS extension, reading multiple certificates is now supported. This capability will help facilitate rolling certificate updates prior to their expiration. If your organization is running a previous version of the NPS extension, you should upgrade to version 1.0.1.32 or higher.
 
-`AzureMfaNpsExtnConfigSetup.ps1` 스크립트에서 만든 인증서는 2 년 동안 유효 합니다. IT 조직에서는 인증서가 만료 될 때까지 모니터링 해야 합니다. NPS 확장에 대 한 인증서는 개인의 로컬 컴퓨터 인증서 저장소에 배치 되 고 스크립트에 제공 된 테 넌 트 ID에 발급 됩니다.
+Certificates created by the `AzureMfaNpsExtnConfigSetup.ps1` script are valid for 2 years. IT organizations should monitor certificates for expiration. Certificates for the NPS extension are placed in the Local Computer certificate store under Personal and are Issued To the tenant ID provided to the script.
 
-인증서가 만료 날짜에 도달 하면 새 인증서를 만들어 해당 인증서를 바꾸어야 합니다.  이 프로세스는 `AzureMfaNpsExtnConfigSetup.ps1`를 다시 실행 하 고 메시지가 표시 될 때 동일한 테 넌 트 ID를 유지 하 여 수행 됩니다. 사용자 환경의 각 NPS 서버에서이 프로세스를 반복 해야 합니다.
+When a certificate is approaching the expiration date, a new certificate should be created to replace it.  This process is accomplished by running the `AzureMfaNpsExtnConfigSetup.ps1` again and keeping the same tenant ID when prompted. This process should be repeated on each NPS server in your environment.
 
 ## <a name="configure-your-nps-extension"></a>NPS 확장 구성
 
@@ -208,7 +208,7 @@ NPS 확장의 릴리스 1.0.1.32를 사용 하 여 여러 인증서 읽기가 �
 ### <a name="configuration-limitations"></a>구성 제한 사항
 
 - Azure MFA용 NPS 확장에는 사용자 및 설정을 MFA 서버에서 클라우드로 마이그레이션하는 도구가 없습니다. 이러한 이유로 기존 배포가 아닌 새 배포에 대한 확장을 사용하는 것이 좋습니다. 기존 배포에서 확장을 사용하는 경우 사용자는 증명을 다시 수행하여 클라우드에 MFA 세부 정보를 채워야 합니다.  
-- NPS 확장은 온-프레미스 Active directory의 UPN을 사용 하 여 Azure MFA에서 보조 인증을 수행 하는 사용자를 식별 합니다. 대체 로그인 ID 또는 UPN 이외의 사용자 지정 Active Directory 필드와 같은 다른 식별자를 사용 하도록 확장을 구성할 수 있습니다. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md) 문서를 참조하세요.
+- The NPS extension uses the UPN from the on-premises Active directory to identify the user on Azure MFA for performing the Secondary Auth. The extension can be configured to use a different identifier like alternate login ID or custom Active Directory field other than UPN. 자세한 내용은 [Multi-Factor Authentication에 대한 NPS 확장을 위한 고급 구성 옵션](howto-mfa-nps-extension-advanced.md) 문서를 참조하세요.
 - 모든 암호화 프로토콜이 모든 확인 메서드를 지원하는 것은 아닙니다.
    - **PAP**는 전화 통화, 단방향 문자 메시지, 모바일 앱 알림 및 모바일 앱 확인 코드를 지원합니다.
    - **CHAPV2** 및 **EAP**는 전화 통화 및 모바일 앱 알림을 지원합니다.
@@ -231,11 +231,11 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 ## <a name="troubleshooting"></a>문제 해결
 
-### <a name="nps-extension-health-check-script"></a>NPS 확장 상태 검사 스크립트
+### <a name="nps-extension-health-check-script"></a>NPS extension health check script
 
-다음 스크립트는 TechNet 갤러리에서 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
+The following script is available on the TechNet Gallery to perform basic health check steps when troubleshooting the NPS extension.
 
-[MFA_NPS_Troubleshooter](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -243,7 +243,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 설치 관리자에서 만든 자체 서명된 인증서를 인증서 저장소에서 찾고, 사용자에게 부여된 **네트워크 서비스** 권한이 프라이빗 키에 있는지 확인합니다. 인증서에는 **CN \<tenantid\>, OU = Microsoft NPS Extension** 주체 이름이 있습니다.
 
-*AzureMfaNpsExtnConfigSetup* 스크립트에 의해 생성 된 자체 서명 된 인증서의 유효 기간은 2 년입니다. 인증서가 설치 되어 있는지 확인 하는 경우에도 인증서가 만료 되지 않았는지 확인 해야 합니다.
+Self-signed certificates generated by the *AzureMfaNpsExtnConfigSetup.ps1* script also have a validity lifetime of two years. When verifying that the certificate is installed, you should also check that the certificate has not expired.
 
 ---
 
@@ -267,7 +267,7 @@ Connect-MsolService
 Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b09b8cd720" -ReturnKeyValues 1 | select -ExpandProperty "value" | out-file c:\npscertficicate.cer
 ```
 
-이 명령을 실행 한 후 C 드라이브로 이동 하 여 파일을 찾아 두 번 클릭 합니다. 세부 정보로 이동하여 "지문"까지 아래로 스크롤하고 서버에 설치된 인증서의 지문을 이 지문과 비교합니다. 인증서 지문이 일치해야 합니다.
+Once you run this command, go to your C drive, locate the file and double-click on it. 세부 정보로 이동하여 "지문"까지 아래로 스크롤하고 서버에 설치된 인증서의 지문을 이 지문과 비교합니다. 인증서 지문이 일치해야 합니다.
 
 명령이 둘 이상의 인증서를 반환하면 사람이 읽을 수 있는 형식의 Valid-From(유효 기간 시작) 및 Valid-Until(유효 기간) 타임스탬프를 사용하여 확실한 부적격 항목을 필터링할 수 있습니다.
 
@@ -275,7 +275,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 
 ### <a name="why-cant-i-sign-in"></a>로그인할 수 없는 이유
 
-암호가 만료되지 않았는지 확인합니다. NPS 확장은 로그인 워크플로의 일환으로 암호 변경을 지원하지 않습니다. 조직의 IT 직원에 게 추가 지원을 요청 하세요.
+암호가 만료되지 않았는지 확인합니다. NPS 확장은 로그인 워크플로의 일환으로 암호 변경을 지원하지 않습니다. Contact your organization's IT Staff for further assistance.
 
 ---
 
@@ -302,19 +302,19 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 ---
 
-### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>유효한 인증서가 있지만 인증이 작동 하지 않는 이유는 무엇 인가요?
+### <a name="why-is-authentication-not-working-despite-a-valid-certificate-being-present"></a>Why is authentication not working, despite a valid certificate being present?
 
-이전 컴퓨터 인증서가 만료 되 고 새 인증서가 생성 된 경우에는 만료 된 인증서를 모두 삭제 해야 합니다. 인증서가 만료 되 면 NPS 확장을 시작 하는 데 문제가 발생할 수 있습니다.
+If your previous computer certificate has expired, and a new certificate has been generated, you should delete any expired certificates. Having expired certificates can cause issues with the NPS Extension starting.
 
-유효한 인증서가 있는지 확인 하려면 MMC를 사용 하 여 로컬 컴퓨터 계정의 인증서 저장소를 확인 하 고 인증서에 만료 날짜가 전달 되지 않았는지 확인 합니다. 새로 유효한 인증서를 생성 하려면 "[PowerShell 스크립트 실행](#run-the-powershell-script)" 섹션의 단계를 다시 실행 합니다.
+To check if you have a valid certificate, check the local Computer Account's Certificate Store using MMC, and ensure the certificate has not passed its expiry date. To generate a newly valid certificate, rerun the steps under the section "[Run the PowerShell script](#run-the-powershell-script)"
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
 조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
 
-### <a name="additional-troubleshooting"></a>추가 문제 해결
+### <a name="additional-troubleshooting"></a>Additional troubleshooting
 
-추가 문제 해결 지침과 가능한 해결 방법은 [Azure MULTI-FACTOR AUTHENTICATION NPS 확장에서 오류 메시지 해결](howto-mfa-nps-extension-errors.md)문서를 참조 하세요.
+Additional troubleshooting guidance and possible solutions can be found in the article [Resolve error messages from the NPS extension for Azure Multi-Factor Authentication](howto-mfa-nps-extension-errors.md).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,102 +1,102 @@
 ---
-title: Azure AD SSPR 및 Multi-Factor Authentication에 대 한 결합 된 등록 시작 (미리 보기)-Azure Active Directory
-description: 결합 된 Azure AD Multi-Factor Authentication 및 셀프 서비스 암호 재설정 등록 (미리 보기) 사용
+title: Get started with combined registration - Azure Active Directory
+description: Enable combined Azure AD Multi-Factor Authentication and self-service password reset registration (preview)
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b610a62e9ca9b964482638c2c0302461996c0bf2
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 075f5112a5ff7d2184a6a42ec531d472974199f3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145684"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381310"
 ---
-# <a name="enable-combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 사용 (미리 보기)
+# <a name="enable-combined-security-information-registration-preview"></a>Enable combined security information registration (preview)
 
-새 환경을 사용 하도록 설정 하기 전에 통합 된 [보안 정보 등록 (미리 보기)](concept-registration-mfa-sspr-combined.md) 문서를 검토 하 여이 기능의 기능과 효과를 이해 하 고 있어야 합니다.
+Before enabling the new experience, review the article [Combined security information registration (preview)](concept-registration-mfa-sspr-combined.md) to ensure you understand the functionality and effects of this feature.
 
-![결합 된 보안 정보 등록 고급 환경](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
+![Combined security information registration enhanced experience](media/howto-registration-mfa-sspr-combined/combined-security-info-more-required.png)
 
 |     |
 | --- |
-| Azure Multi-Factor Authentication 및 Azure Active Directory (azure AD) 셀프 서비스 암호 재설정에 대 한 결합 된 보안 정보 등록은 Azure AD의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Combined security information registration for Azure Multi-Factor Authentication and Azure Active Directory (Azure AD) self-service password reset is a public preview feature of Azure AD. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 > [!NOTE]
-> 이전 미리 보기를 사용 하 여 보안 정보를 등록 하 고 관리 하는 조직에서는 향상 된 미리 보기 환경을 사용할 수 있도록 아래 단계를 완료 해야 합니다. 스위치를 설정 하지 않는 조직의 경우 2019 년 10 월 8 일에 Microsoft에서 보안 정보를 고급 환경으로 등록 하 고 관리 하기 위해 이전 미리 보기의 사용자를 전환 합니다. 
+> Organizations who enabled the previous preview for registering and managing security info should complete the steps below to enable the enhanced preview experience. For organizations who do not make the switch, on October 8, 2019, Microsoft will switch users of the previous preview for registering and managing security info to the enhanced experience. 
 > 
-> 모든 버전의 미리 보기를 사용 하도록 설정 하지 않은 경우 조직에 영향을 주지 않습니다.
+> If you have not enabled any version of the preview your organization will not be impacted.
 
 ## <a name="enable-combined-registration"></a>결합 등록 사용
 
-결합 된 등록을 사용 하도록 설정 하려면 다음 단계를 완료 합니다.
+Complete these steps to enable combined registration:
 
-1. 사용자 관리자 또는 전역 관리자 권한으로 Azure Portal에 로그인 합니다.
-2. **Azure Active Directory** > **사용자**설정액세스 > **패널 미리 보기 기능에 대 한 설정 관리**로 이동 합니다.
-3. **사용자는 미리 보기 기능을 사용 하 여 보안 정보를 등록 하 고 관리할 수 있습니다.-새로 고침**을 선택 하 여 **선택한** 사용자 그룹 또는 **모든** 사용자에 대해 사용 하도록 설정할 수 있습니다.
+1. Sign in to the Azure portal as a user administrator or global administrator.
+2. Go to **Azure Active Directory** > **User settings** > **Manage settings for access panel preview features**.
+3. Under **Users can use preview features for registering and managing security info - refresh**, choose to enable for a **Selected** group of users or for **All** users.
 
-   ![모든 사용자에 대해 결합 된 보안 정보 미리 보기 환경 사용](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
+   ![Enable the combined security info preview experience for All users](media/howto-registration-mfa-sspr-combined/combined-security-info-enable.png)
 
 > [!IMPORTANT]
-> 2019 년 3 월부터 무료/평가판 Azure AD 테 넌 트의 사용자를 Multi-Factor Authentication 하 고 SSPR 하는 데 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는이 변경 내용의 영향을 받지 않습니다. 전화 통화 옵션은 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다.
+> Starting in March 2019, the phone call options won't be available to Multi-Factor Authentication and SSPR users in free/trial Azure AD tenants. SMS messages are not affected by this change. The phone call options will still be available to users in paid Azure AD tenants.
 
 > [!NOTE]
-> 결합 된 등록을 사용 하도록 설정한 후에는 새 환경을 통해 전화 번호 또는 모바일 앱을 등록 하거나 확인 하는 사용자가 Multi-Factor Authentication 및 SSPR에서 해당 메서드를 사용할 수 있는 경우 Multi-Factor Authentication 및 SSPR에 사용할 수 있습니다. 방침. 이 환경을 사용 하지 않도록 설정 하는 경우의 이전 SSPR 등록 페이지로 `https://aka.ms/ssprsetup` 이동 하는 사용자는 multi-factor authentication을 수행 해야 페이지에 액세스할 수 있습니다.
+> After you enable combined registration, users who register or confirm their phone number or mobile app through the new experience can use them for Multi-Factor Authentication and SSPR, if those methods are enabled in the Multi-Factor Authentication and SSPR policies. If you then disable this experience, users who go to the previous SSPR registration page at `https://aka.ms/ssprsetup` will be required to perform multi-factor authentication before they can access the page.
 
-Internet Explorer에서 사이트 간 할당 목록을 구성한 경우 다음 사이트가 동일한 영역에 있어야 합니다.
+If you have configured the Site to Zone Assignment List in Internet Explorer, the following sites have to be in the same zone:
 
 * [https://login.microsoftonline.com](https://login.microsoftonline.com)
 * [https://mysignins.microsoft.com](https://mysignins.microsoft.com)
 * [https://account.activedirectory.windowsazure.com](https://account.activedirectory.windowsazure.com)
 
-## <a name="conditional-access-policies-for-combined-registration"></a>결합 된 등록에 대 한 조건부 액세스 정책
+## <a name="conditional-access-policies-for-combined-registration"></a>Conditional Access policies for combined registration
 
-이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록 하는 시기 및 방법에 대 한 보안을 설정할 수 있습니다. 이 미리 보기 기능은 [결합 된 등록 미리 보기](../authentication/concept-registration-mfa-sspr-combined.md)를 사용 하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 사용자가 HR 온 보 딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure Multi-Factor Authentication에 등록 하 고 SSPR 하는 조직에서 사용 하도록 설정할 수 있습니다. 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](../conditional-access/location-condition.md#named-locations) 문서를 참조 하세요.
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
-### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>신뢰할 수 있는 위치에서 등록을 요구 하는 정책 만들기
+### <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
 
-다음 정책은 모든 선택한 사용자에 게 적용 되며, 결합 된 등록 환경을 사용 하 여 등록을 시도 하 고, 신뢰할 수 있는 네트워크로 표시 된 위치에서 연결 하지 않는 한 액세스를 차단 합니다.
+The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-![보안 정보 등록을 제어 하는 CA 정책 만들기](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
+![Create a CA policy to control security info registration](media/howto-registration-mfa-sspr-combined/conditional-access-register-security-info.png)
 
-1. **Azure Portal**에서 **Azure Active Directory** > **조건부 액세스** 로 이동 합니다.
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**
 1. **새 정책**을 선택합니다.
-1. 이름에이 정책의 이름을 입력 합니다. 예를 들어 **신뢰할 수 있는 네트워크에서 결합 된 보안 정보 등록**
-1. **할당**에서 **사용자 및 그룹**을 클릭 하 고이 정책을 적용할 사용자 및 그룹을 선택 합니다.
+1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**
+1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to
 
    > [!WARNING]
-   > 사용자는 [결합 된 등록 미리 보기](../authentication/howto-registration-mfa-sspr-combined.md)를 사용 하도록 설정 해야 합니다.
+   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. **클라우드 앱 또는 작업**에서 **사용자 작업**을 선택 하 고 **보안 정보 등록 (미리 보기)** 을 선택 합니다.
-1. **조건** > **위치** 아래
-   1. **예** 구성
-   1. **모든 위치** 포함
-   1. **모든 신뢰할 수 있는 위치** 제외
-   1. 위치 블레이드에서 **완료** 를 클릭 합니다.
-   1. 조건 블레이드에서 **완료** 를 클릭 합니다.
-1. **액세스 제어** > **권한 부여** 에서
-   1. **액세스 차단** 을 클릭 합니다.
-   1. 그런 다음 **선택** 을 클릭 합니다.
-1. **정책 사용** 을 **켜기** 로 설정 합니다.
-1. 그런 다음 **만들기** 를 클릭 합니다.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)**
+1. Under **Conditions** > **Locations**
+   1. Configure **Yes**
+   1. Include **Any location**
+   1. Exclude **All trusted locations**
+   1. Click **Done** on the Locations blade
+   1. Click **Done** on the Conditions blade
+1. Under **Access controls** > **Grant**
+   1. Click **Block access**
+   1. Then click **Select**
+1. Set **Enable policy** to **On**
+1. Then click **Create**
 
 ## <a name="next-steps"></a>다음 단계
 
-[사용자가 인증 방법을 다시 등록 하도록 강제](howto-mfa-userdevicesettings.md#manage-authentication-methods)
+[Force users to re-register authentication methods](howto-mfa-userdevicesettings.md#manage-authentication-methods)
 
-[Multi-Factor Authentication 및 SSPR에 대해 사용 가능한 방법](concept-authentication-methods.md)
+[Available methods for Multi-Factor Authentication and SSPR](concept-authentication-methods.md)
 
-[셀프 서비스 암호 재설정 구성](howto-sspr-deployment.md)
+[Configure self-service password reset](howto-sspr-deployment.md)
 
-[Azure Multi-Factor Authentication 구성](howto-mfa-getstarted.md)
+[Configure Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 
-[결합 된 보안 정보 등록 문제 해결](howto-registration-mfa-sspr-combined-troubleshoot.md)
+[Troubleshooting combined security info registration](howto-registration-mfa-sspr-combined-troubleshoot.md)
 
-[Azure Active Directory 조건부 액세스의 위치 조건은 무엇 인가요?](../conditional-access/location-condition.md)
+[What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md)

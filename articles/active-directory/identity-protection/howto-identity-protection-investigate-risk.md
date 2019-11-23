@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection에서 위험을 조사 하는 방법
-description: Azure Active Directory Identity Protection에서 위험한 사용자, 검색 및 로그인을 조사 하는 방법에 대해 알아봅니다.
+title: Investigate risk Azure Active Directory Identity Protection
+description: Learn how to investigate risky users, detections, and sign-ins in Azure Active Directory Identity Protection
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -11,85 +11,85 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e04cadef1f6a4aee7d8f807fc7aaa999ba6da8d7
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 27753d965949d3e677606111139a5d86ccf26dbf
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887092"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74382130"
 ---
-# <a name="how-to-investigate-risk"></a>방법: 위험 조사
+# <a name="how-to-investigate-risk"></a>How To: Investigate risk
 
-Id 보호는 조직의 사용자 환경에서 id 위험을 조사 하는 데 사용할 수 있는 세 가지 보고서를 조직에 제공 합니다. 이러한 보고서는 **위험한 사용자**, **위험한 로그인**및 **위험 탐지**입니다. 이벤트 조사는 보안 전략에서 weak 점수를 보다 잘 이해 하 고 식별 하는 데 중요 합니다.
+Identity Protection provides organizations with three reports they can use to investigate identity risks in their environment. These reports are the **risky users**, **risky sign-ins**, and **risk detections**. Investigation of events is key to better understanding and identifying any weak points in your security strategy.
 
-세 보고서는 모두에서 이벤트를 다운로드할 수 있습니다. Azure Portal 외부의 추가 분석을 위한 CSV 형식입니다. 위험한 사용자 및 위험한 로그인 보고서는 가장 최근 2500 항목을 다운로드할 수 있는 반면, 위험 검색 보고서는 가장 최근의 5000 레코드를 다운로드할 수 있습니다.
+All three reports allow for downloading of events in .CSV format for further analysis outside of the Azure portal. The risky users and risky sign-ins reports allow for downloading the most recent 2500 entries, while the risk detections report allows for downloading the most recent 5000 records.
 
-조직에서는 Microsoft Graph API 통합을 활용 하 여 조직으로 액세스할 수 있는 다른 원본으로 데이터를 집계할 수 있습니다.
+Organizations can take advantage of the Microsoft Graph API integrations to aggregate data with other sources they may have access to as an organization.
 
-3 개의 보고서는 **Azure Portal** > **Azure Active Directory** > **보안**에 있습니다.
+The three reports are found in the **Azure portal** > **Azure Active Directory** > **Security**.
 
-## <a name="navigating-the-reports"></a>보고서 탐색
+## <a name="navigating-the-reports"></a>Navigating the reports
 
-각 보고서는 보고서 맨 위에 표시 되는 기간에 대 한 모든 검색 목록으로 시작 됩니다. 각 보고서에서는 관리자 기본 설정에 따라 열을 추가 하거나 제거할 수 있습니다. 관리자는에서 데이터를 다운로드 하도록 선택할 수 있습니다. CSV 형식입니다. 보고서의 맨 위에 있는 필터를 사용 하 여 보고서를 필터링 할 수 있습니다.
+Each report launches with a list of all detections for the period shown at the top of the report. Each report allows for the addition or removal of columns based on administrator preference. Administrators can choose to download the data in .CSV format. Reports can be filtered using the filters across the top of the report.
 
-개별 항목을 선택 하면 보고서 맨 위에 추가 항목이 사용 될 수 있습니다. 예를 들어 손상 또는 안전 하 게 로그인을 확인 하거나, 사용자가 손상 된 것으로 확인 하거나, 사용자 위험을 해제할 수 있습니다.
+Selecting individual entries may enable additional entries at the top of the report such as the ability to confirm a sign-in as compromised or safe, confirm a user as compromised, or dismiss user risk.
 
-개별 항목을 선택 하면 검색 아래의 세부 정보 창이 확장 됩니다. 관리자는 세부 정보 보기를 사용 하 여 각 검색에 대해 작업을 조사 하 고 수행할 수 있습니다. 
+Selecting individual entries expands a details window below the detections. The details view allows administrators to investigate and perform actions on each detection. 
 
-![위험한 로그인 및 세부 정보를 보여 주는 Id 보호 보고서 예제](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
+![Example Identity Protection report showing risky sign-ins and details](./media/howto-identity-protection-investigate-risk/identity-protection-risky-sign-ins-report.png)
 
 ## <a name="risky-users"></a>위험한 사용자
 
-위험한 사용자 보고서에서 제공 하는 정보를 사용 하 여 관리자는 다음을 찾을 수 있습니다.
+With the information provided by the risky users report, administrators can find:
 
-- 위험에 노출 된 사용자, 위험을 재구성 한 사용자 또는 위험이 해제 되었습니까?
-- 검색에 대 한 세부 정보
-- 위험한 로그인 기록
+- Which users are at risk, have had risk remediated, or have had risk dismissed?
+- Details about detections
+- History of risky sign-ins
 - 위험 기록
  
-그러면 관리자는 이러한 이벤트에 대해 작업을 수행 하도록 선택할 수 있습니다. 관리자는 다음을 선택할 수 있습니다.
+Administrators can then choose to take action on these events. Administrators can choose to:
 
-- 사용자 암호 다시 설정
-- 사용자 손상 확인
+- Reset the user password
+- Confirm user compromise
 - 사용자 위험 해제
-- 사용자가 로그인 하지 못하도록 차단
-- Azure ATP를 사용 하 여 자세히 조사
+- Block user from signing in
+- Investigate further using Azure ATP
 
 ## <a name="risky-sign-ins"></a>위험한 로그인
 
-위험한 로그인 보고서에는 지난 30 일 (1 개월) 동안 필터링 가능한 데이터가 포함 되어 있습니다.
+The risky sign-ins report contains filterable data for up to the past 30 days (1 month).
 
-위험한 로그인 보고서에서 제공 하는 정보를 사용 하 여 관리자는 다음을 찾을 수 있습니다.
+With the information provided by the risky sign-ins report, administrators can find:
 
-- 위험에 따라 분류 되는 로그인, 손상 확인, 안전 확인, 해제 됨 또는 재구성 됨
-- 로그인 시도와 관련 된 실시간 및 집계 위험 수준
-- 트리거된 검색 유형
-- 조건부 액세스 정책이 적용 됨
-- MFA 세부 정보
-- 장치 정보
+- Which sign-ins are classified as at risk, confirmed compromised, confirmed safe, dismissed, or remediated.
+- Real-time and aggregate risk levels associated with sign-in attempts.
+- Detection types triggered
+- Conditional Access policies applied
+- MFA details
+- Device information
 - 애플리케이션 정보
-- 위치 정보
+- Location information
 
-그러면 관리자는 이러한 이벤트에 대해 작업을 수행 하도록 선택할 수 있습니다. 관리자는 다음을 선택할 수 있습니다.
+Administrators can then choose to take action on these events. Administrators can choose to:
 
-- 로그인 손상 확인
-- 안전 하 게 로그인 확인
+- Confirm sign-in compromise
+- Confirm sign-in safe
 
 ## <a name="risk-detections"></a>위험 탐지
 
-위험 검색 보고서는 지난 90 일 (3 개월) 동안 필터링 가능한 데이터를 포함 합니다.
+The risk detections report contains filterable data for up to the past 90 days (3 months).
 
-관리자는 위험 검색 보고서에서 제공 하는 정보를 사용 하 여 다음을 찾을 수 있습니다.
+With the information provided by the risk detections report, administrators can find:
 
-- 유형을 비롯 한 각 위험 검색에 대 한 정보입니다.
-- 동시에 트리거되는 기타 위험
-- 로그인 시도 위치
-- Microsoft Cloud App Security (MCAS)에서 자세한 정보로 연결 합니다.
+- Information about each risk detection including type.
+- Other risks triggered at the same time
+- Sign-in attempt location
+- Link out to more detail from Microsoft Cloud App Security (MCAS).
 
-그러면 관리자는 수집 된 정보에 따라 작업을 수행 하도록 사용자의 위험 또는 로그인 보고서로 돌아갈 수 있습니다.
+Administrators can then choose to return to the user's risk or sign-ins report to take actions based on information gathered.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [위험을 완화 하는 데 사용할 수 있는 정책](concept-identity-protection-policies.md)
+- [Policies available to mitigate risks](concept-identity-protection-policies.md)
 
-- [로그인 및 사용자 위험 정책 사용](howto-identity-protection-configure-risk-policies.md)
+- [Enable sign-in and user risk policies](howto-identity-protection-configure-risk-policies.md)
