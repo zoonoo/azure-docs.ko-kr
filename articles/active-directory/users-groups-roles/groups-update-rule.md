@@ -1,6 +1,6 @@
 ---
-title: 동적 그룹 규칙 업데이트 및 관리 및 멤버 자격 문제 해결-Azure Active Directory | Microsoft Docs
-description: Azure Portal에서 그룹 멤버 자격 규칙을 만드는 방법 상태를 확인 합니다.
+title: Update and manage a dynamic group rule and troubleshoot membership - Azure Active Directory | Microsoft Docs
+description: How to create a group membership rule in the Azure portal, check status.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,79 +14,79 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84290ee3c242b5ccb91bdca8a6b82fc0bf963751
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: c387e2d78adcaebc430073a2a45818c4a0928b9f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194595"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422361"
 ---
-# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Azure Active Directory의 멤버 자격을 관리 하도록 동적 그룹 업데이트
+# <a name="update-a-dynamic-group-to-manage-membership-in-azure-active-directory"></a>Update a dynamic group to manage membership in Azure Active Directory
 
-Azure Active Directory (Azure AD)에서 규칙을 사용 하 여 사용자 또는 장치 속성에 따라 그룹 멤버 자격을 확인할 수 있습니다. 이 문서에서는 Azure Portal에서 동적 그룹에 대 한 규칙을 설정 하는 방법을 설명 합니다.
-동적 멤버 자격은 보안 그룹 또는 Office 365 그룹에 대해 지원 됩니다. 그룹 멤버 자격 규칙을 적용 하는 경우 사용자 및 장치 특성은 멤버 자격과 일치 하는지 평가 됩니다. 사용자 또는 장치에 대 한 특성이 변경 되 면 조직의 모든 동적 그룹 규칙이 멤버 자격 변경에 대해 처리 됩니다. 사용자 및 장치는 그룹에 대 한 조건을 충족 하는 경우 추가 되거나 제거 됩니다.
+In Azure Active Directory (Azure AD), you can use rules to determine group membership based on user or device properties. This article tells how to set up a rule for a dynamic group in the Azure portal.
+Dynamic membership is supported for security groups or Office 365 groups. When a group membership rule is applied, user and device attributes are evaluated for matches with the membership rule. When an attribute changes for a user or device, all dynamic group rules in the organization are processed for membership changes. Users and devices are added or removed if they meet the conditions for a group.
 
-## <a name="rule-builder-in-the-azure-portal"></a>Azure Portal의 규칙 작성기
+## <a name="rule-builder-in-the-azure-portal"></a>Rule builder in the Azure portal
 
-Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하는 규칙 작성기를 제공 합니다. 규칙 작성기는 최대 5 개 식의 생성을 지원 합니다. 규칙 작성기를 사용 하면 몇 가지 간단한 식으로 규칙을 보다 쉽게 만들 수 있지만 모든 규칙을 재현 하는 데 사용할 수는 없습니다. 규칙 작성기에서 만들려는 규칙을 지원 하지 않는 경우 텍스트 상자를 사용할 수 있습니다.
+Azure AD provides a rule builder to create and update your important rules more quickly. The rule builder supports the construction up to five expressions. The rule builder makes it easier to form a rule with a few simple expressions, however, it can't be used to reproduce every rule. If the rule builder doesn't support the rule you want to create, you can use the text box.
 
-텍스트 상자를 사용 하 여 구성 하는 데 권장 되는 고급 규칙 또는 구문의 예는 다음과 같습니다.
+Here are some examples of advanced rules or syntax for which we recommend that you construct using the text box:
 
-- 5 개 이상의 식이 있는 규칙
-- 부하 직원 규칙
-- [연산자 우선 순위](groups-dynamic-membership.md#operator-precedence) 설정
-- [복잡 한 식이 포함 된 규칙](groups-dynamic-membership.md#rules-with-complex-expressions) 예를 들어`(user.proxyAddresses -any (_ -contains "contoso"))`
+- Rule with more than five expressions
+- The Direct reports rule
+- Setting [operator precedence](groups-dynamic-membership.md#operator-precedence)
+- [Rules with complex expressions](groups-dynamic-membership.md#rules-with-complex-expressions); for example `(user.proxyAddresses -any (_ -contains "contoso"))`
 
 > [!NOTE]
-> 규칙 작성기가 텍스트 상자에 생성 된 일부 규칙을 표시 하지 못할 수 있습니다. 규칙 작성기에서 규칙을 표시할 수 없는 경우 메시지가 표시 될 수 있습니다. 규칙 빌더는 지원 되는 구문, 유효성 검사 또는 동적 그룹 규칙의 처리를 어떤 식으로든 변경 하지 않습니다.
+> The rule builder might not be able to display some rules constructed in the text box. You might see a message when the rule builder is not able to display the rule. The rule builder doesn't change the supported syntax, validation, or processing of dynamic group rules in any way.
 
-![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
+![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-멤버 자격 규칙에 대 한 구문, 지원 되는 속성, 연산자 및 값의 예는 [Azure Active Directory의 그룹에 대 한 동적 멤버 자격 규칙](groups-dynamic-membership.md)을 참조 하세요.
+For examples of syntax, supported properties, operators, and values for a membership rule, see [Dynamic membership rules for groups in Azure Active Directory](groups-dynamic-membership.md).
 
-## <a name="to-update-a-group-membership-rule"></a>그룹 멤버 자격 규칙을 업데이트 하려면
+## <a name="to-update-a-group-membership-rule"></a>To update a group membership rule
 
-1. 전역 관리자, Intune 관리자 또는 테 넌 트의 사용자 관리자 역할에 있는 계정을 사용 하 여 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **그룹** > **모든 그룹**을 선택 합니다.
-1. 그룹을 선택 하 여 해당 프로필을 엽니다.
-1. 그룹에 대 한 프로필 페이지에서 **동적 멤버 자격 규칙**을 선택 합니다. 규칙 작성기는 최대 5 개의 식을 지원 합니다. 5 개 이상의 식을 추가 하려면 텍스트 상자를 사용 해야 합니다.
+1. Sign in to the [Azure AD admin center](https://aad.portal.azure.com) with an account that is in the Global administrator, Group administrator, Intune administrator, or User administrator role in the tenant.
+1. Select **Groups** > **All groups**.
+1. Select a group to open its profile.
+1. On the profile page for the group, select **Dynamic membership rules**. The rule builder supports up to five expressions. To add more than five expressions, you must use the text box.
 
-   ![동적 그룹에 대 한 멤버 자격 규칙 추가](./media/groups-update-rule/update-dynamic-group-rule.png)
+   ![Add membership rule for a dynamic group](./media/groups-update-rule/update-dynamic-group-rule.png)
 
-1. 멤버 자격 규칙에 사용할 수 있는 사용자 지정 확장 속성을 보려면 다음을 수행 합니다.
-   1. **사용자 지정 확장 속성 가져오기** 선택
-   1. 응용 프로그램 ID를 입력 하 고 **속성 새로 고침**을 선택 합니다.
-1. 규칙을 업데이트 한 후 **저장**을 선택 합니다.
+1. To see the custom extension properties available for your membership rule:
+   1. Select **Get custom extension properties**
+   1. Enter the application ID, and then select **Refresh properties**.
+1. After updating the rule, select **Save**.
 
-입력 한 규칙이 유효 하지 않은 경우에는 포털에서 Azure 알림에 규칙이 처리 되지 않는 이유에 대 한 설명이 표시 됩니다. 규칙을 수정 하는 방법을 이해 하려면 신중 하 게 읽어 보세요.
+If the rule you entered isn't valid, an explanation of why the rule couldn't be processed is displayed in an Azure notification in the portal. Read it carefully to understand how to fix the rule.
 
-## <a name="check-processing-status-for-a-rule"></a>규칙에 대 한 처리 상태 확인
+## <a name="check-processing-status-for-a-rule"></a>Check processing status for a rule
 
 그룹에 대한 **개요** 페이지에서 멤버 자격 처리 상태 및 마지막으로 업데이트한 날짜를 확인할 수 있습니다.
   
-  ![동적 그룹 상태 표시](./media/groups-create-rule/group-status.png)
+  ![display of dynamic group status](./media/groups-create-rule/group-status.png)
 
 **멤버 자격 처리** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
 
-- **평가 중**:  그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
+- **평가 중**: 그룹 변경 내용이 수신되었으며 업데이트가 평가 중입니다.
 - **처리 중**: 업데이트가 처리 중입니다.
 - **업데이트 완료**: 처리가 완료되었으며 적용 가능한 모든 업데이트가 수행되었습니다.
-- **처리 오류**:  멤버 자격 규칙을 평가 하는 동안 오류가 발생 하 여 처리를 완료할 수 없습니다.
+- **Processing error**:  Processing couldn't be completed because of an error evaluating the membership rule.
 - **업데이트 일시 중지됨**: 관리자가 동적 멤버 자격 규칙 업데이트를 일시 중지했습니다. MembershipRuleProcessingState가 “일시 중지됨”으로 설정됩니다.
 
 **마지막으로 업데이트된 멤버 자격** 상태에 대해 다음 상태 메시지가 표시될 수 있습니다.
 
-- **날짜 및 시간**: 멤버 자격이 마지막으로 업데이트된 시간입니다.
+- **Date and time**: The last time the membership was updated.
 - **진행 중**: 업데이트가 현재 진행 중입니다.
-- **알 수 없음**: 마지막 업데이트 시간을 검색할 수 없습니다. 새 그룹 일 수 있습니다.
+- **Unknown**: The last update time can't be retrieved. The group might be new.
 
 특정 그룹에 대한 멤버 자격 규칙을 처리하는 동안 오류가 발생하면 해당 그룹에 대한 **개요 페이지** 맨 위에 경고가 표시됩니다. 테넌트 내의 모든 그룹에 대해 보류 중인 동적 멤버 자격 업데이트를 24시간 이상 동안 처리할 수 없는 경우 **모든 그룹** 위에 경고가 표시됩니다.
 
-![오류 메시지 경고 처리](./media/groups-create-rule/processing-error.png)
+![processing error message alerts](./media/groups-create-rule/processing-error.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-이러한 문서는 Azure AD의 동적 그룹 작업에 대 한 추가 정보를 제공 합니다.
+These articles provide additional information on working with dynamic groups in Azure AD.
 
-- 동적 규칙 구조에 대 한 전체 참조는 [동적 멤버 관리 규칙 구문](groups-dynamic-membership.md)을 참조 하세요.
-- [정적 멤버 자격 그룹을 만들고 멤버를 추가](../fundamentals/active-directory-groups-create-azure-portal.md)합니다.
+- For a complete reference to dynamic rule structure, see [Dynamic membership rule syntax](groups-dynamic-membership.md).
+- [Create a static membership group and add members](../fundamentals/active-directory-groups-create-azure-portal.md).

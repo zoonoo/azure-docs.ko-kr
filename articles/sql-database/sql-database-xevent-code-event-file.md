@@ -1,5 +1,5 @@
 ---
-title: XEvent 이벤트 파일 코드
+title: XEvent Event File code
 description: Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure Storage는 이 시나리오의 필수 부분입니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: jrasnik
 ms.date: 03/12/2019
-ms.openlocfilehash: 3b1e8881b2e2004a94064e472690ee40414ea02d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 00f31bdf147c4711715cd600fa8a8fd4bac2162a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822378"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422485"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>SQL Database의 확장 이벤트에 대한 이벤트 파일 대상 코드
 
@@ -28,30 +28,33 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 이 항목에서는 2단계 코드 샘플을 제공합니다.
 
-* 클라우드에서 Azure Storage 컨테이너를 만드는 PowerShell.
-* Transact-SQL:
+- 클라우드에서 Azure Storage 컨테이너를 만드는 PowerShell.
+- Transact-SQL:
   
-  * Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
-  * 이벤트 세션 등을 만들고 시작합니다.
+  - Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
+  - 이벤트 세션 등을 만들고 시작합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-* Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
-* 테이블을 만들 수 있는 데이터베이스.
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+
+- Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
+- 테이블을 만들 수 있는 데이터베이스.
   
-  * 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
-* SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전). 
+  - 또는 몇 분 이내에 [**AdventureWorksLT** 데모 데이터베이스를 만들](sql-database-get-started.md) 수 있습니다.
+
+- SQL Server Management Studio(ssms.exe)(이상적으로 최신 월별 업데이트 버전).
   다음 위치에서 최신 ssms.exe를 다운로드할 수 있습니다.
   
-  * [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)항목
-  * [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
-* [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
-  
-  * 모듈은- **AzStorageAccount**등의 명령을 제공 합니다.
+  - [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)항목
+  - [직접 다운로드 링크](https://go.microsoft.com/fwlink/?linkid=616025)
+
+- [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
+
+  - The modules provide commands such as - **New-AzStorageAccount**.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
@@ -64,14 +67,14 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 3. 프롬프트에서<br/>`Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Scope CurrentUser`<br/>을 입력한 다음 Enter를 누릅니다.
 4. PowerShell ISE에서 **.ps1** 파일을 엽니다. 스크립트를 실행합니다.
 5. 가장 먼저 Azure에 로그인할 수 있는 새 창이 열립니다.
-   
-   * 세션을 중단하지 않고 스크립트를 다시 실행하는 경우 **Add-AzureAccount** 명령에 주석을 입력하는 편리한 옵션을 사용할 수 있습니다.
+
+   - 세션을 중단하지 않고 스크립트를 다시 실행하는 경우 **Add-AzureAccount** 명령에 주석을 입력하는 편리한 옵션을 사용할 수 있습니다.
 
 ![스크립트를 실행하려면 Azure 모듈이 설치된 PowerShell ISE가 준비되어 있어야 합니다.][30_powershell_ise]
 
 ### <a name="powershell-code"></a>PowerShell 코드
 
-이 PowerShell 스크립트는 Az module을 이미 설치 했다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
+This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -123,8 +126,7 @@ Select-AzSubscription -Subscription $subscriptionName;
 Clean up the old Azure Storage Account after any previous run, 
 before continuing this new run.';
 
-If ($storageAccountName)
-{
+if ($storageAccountName) {
     Remove-AzStorageAccount `
         -Name              $storageAccountName `
         -ResourceGroupName $resourceGroupName;
@@ -196,15 +198,13 @@ New-AzStorageContainerStoredAccessPolicy `
 '
 Generate a SAS token for the container.
 ';
-Try
-{
+try {
     $sasTokenWithPolicy = New-AzStorageContainerSASToken `
         -Name    $containerName `
         -Context $context `
         -Policy  $policySasToken;
 }
-Catch 
-{
+catch {
     $Error[0].Exception.ToString();
 }
 
@@ -230,13 +230,12 @@ Now shift to the Transact-SQL portion of the two-part code sample!';
 # EOFile
 ```
 
-
 스크립트가 종료될 때 PowerShell 스크립트가 인쇄하는 몇 가지 명명된 값을 기록해 둡니다. 다음 2단계에서 Transact-SQL 스크립트로 해당 값을 편집해야 합니다.
 
 ## <a name="phase-2-transact-sql-code-that-uses-azure-storage-container"></a>2단계: Azure Storage 컨테이너를 사용하는 Transact-SQL 코드
 
-* 이 코드 샘플의 1단계에서 Azure Storage 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
-* 다음으로, 2단계에서 다음 Transact-SQL 스크립트는 컨테이너를 사용해야 합니다.
+- 이 코드 샘플의 1단계에서 Azure Storage 컨테이너를 만드는 PowerShell 스크립트를 실행했습니다.
+- 다음으로, 2단계에서 다음 Transact-SQL 스크립트는 컨테이너를 사용해야 합니다.
 
 이 스크립트는 이전 실행(있는 경우) 다음에 정리하는 명령으로 시작하며, 재실행이 가능합니다.
 
@@ -249,10 +248,8 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 5. 스크립트의 모든 **TODO** 를 찾고 적절히 편집합니다.
 6. 저장한 다음 스크립트를 실행합니다.
 
-
 > [!WARNING]
 > 앞의 PowerShell 스크립트에서 생성된 SAS 키 값은 '?'(물음표)로 시작될 수 있습니다. 다음 T-SQL 스크립트에서 SAS 키를 사용하는 경우 *앞의 '?'를 제거해야 합니다*. 그렇지 않으면 보안에 의해 작업이 차단될 수 있습니다.
-
 
 ### <a name="transact-sql-code"></a>Transact-SQL 코드
 
@@ -262,14 +259,11 @@ PowerShell 스크립트가 종료될 때 몇 가지 명명된 값을 인쇄했�
 
 ---- Transact-SQL code for Event File target on Azure SQL Database.
 
-
 SET NOCOUNT ON;
 GO
 
-
 ----  Step 1.  Establish one little table, and  ---------
 ----  insert one row of data.
-
 
 IF EXISTS
     (SELECT * FROM sys.objects
@@ -278,7 +272,6 @@ BEGIN
     DROP TABLE gmTabEmployee;
 END
 GO
-
 
 CREATE TABLE gmTabEmployee
 (
@@ -289,15 +282,12 @@ CREATE TABLE gmTabEmployee
 );
 GO
 
-
 INSERT INTO gmTabEmployee ( EmployeeDescr )
     VALUES ( 'Jane Doe' );
 GO
 
-
 ------  Step 2.  Create key, and  ------------
 ------  Create credential (your Azure Storage container must already exist).
-
 
 IF NOT EXISTS
     (SELECT * FROM sys.symmetric_keys
@@ -306,7 +296,6 @@ BEGIN
     CREATE MASTER KEY ENCRYPTION BY PASSWORD = '0C34C960-6621-4682-A123-C7EA08E3FC46' -- Or any newid().
 END
 GO
-
 
 IF EXISTS
     (SELECT * FROM sys.database_scoped_credentials
@@ -318,7 +307,6 @@ BEGIN
         [https://gmstorageaccountxevent.blob.core.windows.net/gmcontainerxevent] ;
 END
 GO
-
 
 CREATE
     DATABASE SCOPED
@@ -332,7 +320,6 @@ CREATE
         SECRET = 'sv=2014-02-14&sr=c&si=gmpolicysastoken&sig=EjAqjo6Nu5xMLEZEkMkLbeF7TD9v1J8DNB2t8gOKTts%3D'
     ;
 GO
-
 
 ------  Step 3.  Create (define) an event session.  --------
 ------  The event session has an event with an action,
@@ -348,7 +335,6 @@ BEGIN
         ON DATABASE;
 END
 GO
-
 
 CREATE
     EVENT SESSION
@@ -375,7 +361,6 @@ CREATE
     ;
 GO
 
-
 ------  Step 4.  Start the event session.  ----------------
 ------  Issue the SQL Update statements that will be traced.
 ------  Then stop the session.
@@ -390,7 +375,6 @@ ALTER
     STATE = START;
 GO
 
-
 SELECT 'BEFORE_Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 UPDATE gmTabEmployee
@@ -404,14 +388,12 @@ UPDATE gmTabEmployee
 SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 GO
 
-
 ALTER
     EVENT SESSION
         gmeventsessionname240b
     ON DATABASE
     STATE = STOP;
 GO
-
 
 -------------- Step 5.  Select the results. ----------
 
@@ -427,7 +409,6 @@ SELECT
                 null, null, null
             );
 GO
-
 
 -------------- Step 6.  Clean up. ----------
 
@@ -450,7 +431,6 @@ PRINT 'Use PowerShell Remove-AzStorageAccount to delete your Azure Storage accou
 GO
 ```
 
-
 실행 시 대상이 연결되지 않으면 이벤트 세션을 중지했다 다시 시작해야 합니다.
 
 ```sql
@@ -460,13 +440,11 @@ ALTER EVENT SESSION ... STATE = START;
 GO
 ```
 
-
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 UPDATE 문을 표시 하는 하나의 **\<이벤트 >** 요소가 표시 됩니다.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. One **\<event>** element is displayed which shows one UPDATE statement.
 
-다음은 테스트 중에 생성 된 **\<이벤트 >** 요소 중 하나입니다.
-
+Here is one **\<event>** element that was generated during testing:
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">
@@ -507,40 +485,34 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 </event>
 ```
 
-
 앞에 나오는 Transact-SQL 스크립트는 다음 시스템 함수를 사용해서 event_file을 읽었습니다.
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
+- [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 확장된 이벤트에서 데이터를 보기 위한 고급 옵션에 대한 설명은 다음에서 사용할 수 있습니다.
 
-* [확장된 이벤트의 대상 데이터에 대한 고급 보기](https://msdn.microsoft.com/library/mt752502.aspx)
-
+- [확장된 이벤트의 대상 데이터에 대한 고급 보기](https://msdn.microsoft.com/library/mt752502.aspx)
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>SQL Server 실행을 위해 코드 샘플 변환
 
 Microsoft SQL Server에서 위의 Transact-SQL 샘플을 실행하는 경우를 가정하겠습니다.
 
-* 간단히 Azure Storage 컨테이너를 **C:\myeventdata.xel**과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
-* **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
-* **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=** 에 지정된 Http 값을 **C:\myfile.xel**와 같은 전체 경로 문자열로 바꾸겠습니다.
+- 간단히 Azure Storage 컨테이너를 *C:\myeventdata.xel*과 같은 간단한 파일로 바꾼다고 가정합니다. 이 파일은 SQL Server를 호스팅하는 컴퓨터의 로컬 하드 드라이브에 기록됩니다.
+- **CREATE MASTER KEY** 및 **CREATE CREDENTIAL**에는 Transact-SQL 종류의 문이 필요하지 않습니다.
+- **CREATE EVENT SESSION** 문의 **ADD TARGET** 절에서 **filename=** 에 지정된 Http 값을 *C:\myfile.xel*와 같은 전체 경로 문자열로 바꾸겠습니다.
   
-  * Azure Storage 계정은 사용하지 않습니다.
+  - Azure Storage 계정은 사용하지 않습니다.
 
 ## <a name="more-information"></a>자세한 정보
 
 Azure Storage 서비스에서 계정 및 컨테이너에 대한 자세한 내용은 다음을 참조하세요.
 
-* [.NET에서 Blob Storage를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
-  * [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
-* [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+- [.NET에서 Blob Storage를 사용하는 방법](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+- [컨테이너, BLOB, 메타데이터 이름 명명 및 참조](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+- [루트 컨테이너 사용](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+- [단원 1: Azure 컨테이너에 저장된 액세스 정책 및 공유 액세스 서명 만들기](https://msdn.microsoft.com/library/dn466430.aspx)
+  - [단원 2: 공유 액세스 서명을 사용하여 SQL Server 자격 증명 만들기](https://msdn.microsoft.com/library/dn466435.aspx)
+- [Microsoft SQL Server의 확장 이벤트](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
 
-<!--
-Image references.
--->
-
+<!-- Image references. -->
 [30_powershell_ise]: ./media/sql-database-xevent-code-event-file/event-file-powershell-ise-b30.png
-

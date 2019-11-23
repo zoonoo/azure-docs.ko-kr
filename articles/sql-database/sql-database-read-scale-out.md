@@ -1,6 +1,6 @@
 ---
-title: 복제본에 대 한 쿼리 읽기
-description: Azure SQL Database는 읽기 확장 이라는 읽기 전용 복제본의 용량을 사용 하 여 읽기 전용 작업의 부하를 분산 하는 기능을 제공 합니다.
+title: Read queries on replicas
+description: The Azure SQL Database provides the ability to load-balance read-only workloads using the capacity of read-only replicas - called Read Scale-Out.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
@@ -11,35 +11,35 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: 1f47b01c4a9227d0e2ee45b17645b2ae97e4ba3d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821222"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420720"
 ---
-# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 부하 분산
+# <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Use read-only replicas to load-balance read-only query workloads
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-고가용성 [아키텍처](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)의 일부로 프리미엄 및 중요 비즈니스용 서비스 계층의 각 데이터베이스는 주 복제본과 여러 보조 복제본으로 자동으로 프로 비전 됩니다. 보조 복제본은 주 복제본과 동일한 계산 크기로 프로 비전 됩니다. 읽기 **확장** 기능을 사용 하면 읽기-쓰기 복제본을 공유 하는 대신 읽기 전용 복제본 중 하나의 용량을 사용 하 여 읽기 전용 작업 SQL Database 부하를 분산할 수 있습니다. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. 이 기능은 분석과 같이 논리적으로 구분 된 읽기 전용 작업을 포함 하는 응용 프로그램을 위한 것입니다. 프리미엄 및 중요 비즈니스용 서비스 계층에서 응용 프로그램은 추가 비용 없이이 추가 용량을 사용 하 여 성능상의 이점을 얻을 수 있습니다.
+As part of the [High Availability architecture](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability), each database in the Premium and Business Critical service tier is automatically provisioned with a primary replica and several secondary replicas. The secondary replicas are provisioned with the same compute size as the primary replica. The **Read Scale-Out** feature allows you to load-balance SQL Database read-only workloads using the capacity of one of the read-only replicas instead of sharing the read-write replica. 이러한 방식으로 읽기 전용 워크로드는 주 읽기-쓰기 작업에서 격리되고 해당 성능에 영향을 주지 않습니다. The feature is intended for the applications that include logically separated read-only workloads, such as analytics. In the Premium and Business Critical service tiers, applications could gain performance benefits using this additional capacity at no extra cost.
 
-**읽기 확장** 기능은 하나 이상의 보조 복제본이 생성 될 때 hyperscale 서비스 계층 에서도 사용할 수 있습니다. 읽기 전용 작업에 보조 복제본 하나에서 사용할 수 있는 것 보다 많은 리소스가 필요한 경우 보조 복제본을 여러 개 사용할 수 있습니다. Basic, Standard 및 범용 서비스 계층의 고가용성 아키텍처에는 복제본이 포함 되지 않습니다. 이러한 서비스 계층에서는 **읽기 확장** 기능을 사용할 수 없습니다.
+The **Read Scale-Out** feature is also available in the Hyperscale service tier when at least one secondary replica is created. Multiple secondary replicas can be used if read-only workloads require more resources than available on one secondary replica. The High Availability architecture of Basic, Standard, and General Purpose service tiers does not include any replicas. The **Read Scale-Out** feature is not available in these service tiers.
 
-다음 다이어그램에서는 중요 비즈니스용 데이터베이스를 사용 하는 방법을 보여 줍니다.
+The following diagram illustrates it using a Business Critical database.
 
 ![읽기 전용 복제본](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-읽기 확장 기능은 새 Premium, 중요 비즈니스용 및 Hyperscale 데이터베이스에서 기본적으로 사용 하도록 설정 됩니다. Hyperscale의 경우 기본적으로 새 데이터베이스에 대해 하나의 보조 복제본이 생성 됩니다. SQL 연결 문자열이 `ApplicationIntent=ReadOnly`구성 된 경우 해당 데이터베이스의 읽기 전용 복제본에 대 한 응용 프로그램이 해당 데이터베이스의 읽기 전용 복제본으로 리디렉션됩니다. `ApplicationIntent` 속성을 사용 하는 방법에 대 한 자세한 내용은 [응용 프로그램 의도 지정](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent)을 참조 하세요.
+The Read Scale-Out feature is enabled by default on new Premium,  Business Critical, and Hyperscale databases. For Hyperscale, one secondary replica is created by default for new databases. If your SQL connection string is configured with `ApplicationIntent=ReadOnly`, the application will be redirected by the gateway to a read-only replica of that database. For information on how to use the `ApplicationIntent` property, see [Specifying Application Intent](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
-SQL 연결 문자열의 `ApplicationIntent` 설정에 관계 없이 응용 프로그램이 주 복제본에 연결 되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 해제 해야 합니다. 예를 들어 데이터베이스를 Standard 또는 범용 계층에서 Premium, 중요 비즈니스용 또는 Hyperscale 계층으로 업그레이드 하 고 모든 연결이 주 복제본으로 계속 진행 되도록 하려면 읽기 확장을 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [읽기 확장 사용 및 사용 안 함](#enable-and-disable-read-scale-out)을 참조 하세요.
+If you wish to ensure that the application connects to the primary replica regardless of the `ApplicationIntent` setting in the SQL connection string, you must explicitly disable read scale-out when creating the database or when altering its configuration. For example, if you upgrade your database from Standard or General Purpose tier to Premium, Business Critical or Hyperscale tier and want to make sure all your connections continue to go to the primary replica, disable Read Scale-out. For details on how to disable it, see [Enable and disable Read Scale-Out](#enable-and-disable-read-scale-out).
 
 > [!NOTE]
-> 쿼리 데이터 저장소, 확장 이벤트, SQL Profiler 및 감사 기능은 읽기 전용 복제본에서 지원 되지 않습니다. 
+> Query Data Store, Extended Events, SQL Profiler and Audit features are not supported on the read-only replicas.
 
 ## <a name="data-consistency"></a>데이터 일관성
 
-복제본의 이점 중 하나는 복제본이 트랜잭션 측면에서 항상 일관된 상태로 있지만 다른 시점에 서로 다른 복제본 간에 약간의 대기 시간이 있을 수 있다는 것입니다. 읽기 확장은 세션 수준 일관성을 지원합니다. 즉, 복제본을 사용할 수 없는 경우 발생 하는 연결 오류가 발생 한 후 읽기 전용 세션이 다시 연결 되 면 읽기-쓰기 복제본으로 최신 100%가 아닌 복제본으로 리디렉션될 수 있습니다. 마찬가지로 응용 프로그램에서 읽기/쓰기 세션을 사용 하 여 데이터를 쓰고 읽기 전용 세션을 사용 하 여 즉시 읽는 경우 최신 업데이트가 복제본에 즉시 표시 되지 않을 수 있습니다. 대기 시간은 비동기 트랜잭션 로그 다시 실행 작업으로 인해 발생 합니다.
+복제본의 이점 중 하나는 복제본이 트랜잭션 측면에서 항상 일관된 상태로 있지만 다른 시점에 서로 다른 복제본 간에 약간의 대기 시간이 있을 수 있다는 것입니다. 읽기 확장은 세션 수준 일관성을 지원합니다. It means, if the read-only session reconnects after a connection error caused by replica unavailability, it may be redirected to a replica that is not 100% up-to-date with the read-write replica. Likewise, if an application writes data using a read-write session and immediately reads it using a read-only session, it is possible that the latest updates are not immediately visible on the replica. The latency is caused by an asynchronous transaction log redo operation.
 
 > [!NOTE]
 > 지역 내의 복제 대기 시간은 낮으며 이 상황은 드물게 발생합니다.
@@ -50,13 +50,13 @@ SQL 연결 문자열의 `ApplicationIntent` 설정에 관계 없이 응용 프�
 
 예를 들어 다음 연결 문자열은 클라이언트를 읽기 전용 복제본에 연결합니다(꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제함).
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadOnly;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 ```
 
 다음 연결 문자열 중 하나는 클라이언트를 읽기/쓰기 복제본에 연결합니다(꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제함).
 
-```SQL
+```sql
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;ApplicationIntent=ReadWrite;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
 
 Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>;Password=<myPassword>;Trusted_Connection=False; Encrypt=True;
@@ -66,68 +66,69 @@ Server=tcp:<server>.database.windows.net;Database=<mydatabase>;User ID=<myLogin>
 
 다음 쿼리를 실행하여 읽기 전용 복제본에 연결되어 있는지 여부를 확인할 수 있습니다. 읽기 전용 복제본에 연결된 경우 READ_ONLY가 반환됩니다.
 
-```SQL
+```sql
 SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 ```
 
 > [!NOTE]
 > ReadOnly 세션에서는 항상 AlwaysON 복제본 중 하나만 액세스할 수 있습니다.
 
-## <a name="monitoring-and-troubleshooting-read-only-replica"></a>읽기 전용 복제본 모니터링 및 문제 해결
+## <a name="monitoring-and-troubleshooting-read-only-replica"></a>Monitoring and troubleshooting read-only replica
 
-읽기 전용 복제본에 연결 된 경우 `sys.dm_db_resource_stats` DMV를 사용 하 여 성능 메트릭에 액세스할 수 있습니다. 쿼리 계획 통계에 액세스 하려면 `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` 및 `sys.dm_exec_sql_text` Dmv를 사용 합니다.
+When connected to a read-only replica, you can access the performance metrics using the `sys.dm_db_resource_stats` DMV. To access query plan statistics, use the `sys.dm_exec_query_stats`, `sys.dm_exec_query_plan` and `sys.dm_exec_sql_text` DMVs.
 
 > [!NOTE]
-> 논리 master 데이터베이스의 DMV `sys.resource_stats`는 주 복제본의 CPU 사용량 및 저장소 데이터를 반환 합니다.
-
+> The DMV `sys.resource_stats` in the logical master database returns CPU usage and storage data of the primary replica.
 
 ## <a name="enable-and-disable-read-scale-out"></a>읽기 확장 사용 및 사용 안 함
 
-읽기 확장은 프리미엄, 중요 비즈니스용 및 Hyperscale 서비스 계층에서 기본적으로 사용 하도록 설정 되어 있습니다. 기본, 표준 또는 범용 서비스 계층에서는 읽기 확장을 사용 하도록 설정할 수 없습니다. 읽기 확장은 0 개 복제본으로 구성 된 Hyperscale 데이터베이스에서 자동으로 비활성화 됩니다. 
+Read Scale-Out is enabled by default on Premium, Business Critical and Hyperscale service tiers. Read Scale-Out cannot be enabled in Basic, Standard, or General Purpose service tiers. Read Scale-Out is automatically disabled on Hyperscale databases configured with 0 replicas.
 
-다음 방법을 사용 하 여 프리미엄 또는 중요 비즈니스용 서비스 계층의 단일 데이터베이스 및 탄력적 풀 데이터베이스에서 읽기 확장을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정할 수 있습니다.
+You can disable and re-enable Read Scale-Out on single databases and elastic pool databases in Premium or Business Critical service tier using the following methods.
 
 > [!NOTE]
-> 읽기 확장을 사용 하지 않도록 설정 하는 기능은 이전 버전과의 호환성을 위해 제공 됩니다.
+> The ability to disable Read Scale-Out is provided for backward compatibility.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-데이터베이스 **구성** 블레이드에서 읽기 확장 설정을 관리할 수 있습니다. 
+You can manage the Read Scale-out setting on the **Configure** database blade.
 
 ### <a name="powershell"></a>PowerShell
 
+> [!IMPORTANT]
+> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+
 Azure PowerShell에서 읽기 확장을 관리하려면 2016년 12월 Azure PowerShell 릴리스 이상이 필요합니다. 최신 PowerShell 버전은 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)을 참조하세요.
 
-Azure PowerShell에서 읽기 확장을 사용 하지 않도록 설정 하거나 다시 사용 하도록 설정할 수 있습니다. `-ReadScale` 매개 변수에 대해 원하는 값 – `Enabled` 또는 `Disabled`를 전달 하 여 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet을 호출 합니다. 
+You can disable or re-enable Read Scale-Out in Azure PowerShell by invoking the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) cmdlet and passing in the desired value – `Enabled` or `Disabled` -- for the `-ReadScale` parameter.
 
-기존 데이터베이스에서 읽기 확장을 사용 하지 않도록 설정 하려면 다음을 수행 합니다 (꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제 함).
-
-```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled
-```
-새 데이터베이스에서 읽기 확장을 사용 하지 않도록 설정 하려면 (꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호를 삭제 합니다.)
+To disable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
-New-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Disabled -Edition Premium
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled
 ```
 
-기존 데이터베이스에서 읽기 확장을 다시 사용 하도록 설정 하려면 다음을 수행 합니다 (꺾쇠 괄호 안의 항목을 사용자 환경에 맞는 값으로 바꾸고 꺾쇠 괄호는 삭제 함).
+To disable read scale-out on a new database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
 
 ```powershell
-Set-AzSqlDatabase -ResourceGroupName <myresourcegroup> -ServerName <myserver> -DatabaseName <mydatabase> -ReadScale Enabled
+New-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Disabled -Edition Premium
+```
+
+To re-enable read scale-out on an existing database (replacing the items in the angle brackets with the correct values for your environment and dropping the angle brackets):
+
+```powershell
+Set-AzSqlDatabase -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> -ReadScale Enabled
 ```
 
 ### <a name="rest-api"></a>REST API
 
-읽기 확장을 사용 하지 않도록 설정 된 데이터베이스를 만들거나 기존 데이터베이스의 설정을 변경 하려면 아래 샘플 요청에서와 같이 `readScale` 속성이 `Enabled` 또는 `Disabled`으로 설정 된 다음 메서드를 사용 합니다.
+To create a database with read scale-out disabled, or to change the setting for an existing database, use the following method with the `readScale` property set to `Enabled` or `Disabled` as in the below sample request.
 
 ```rest
 Method: PUT
 URL: https://management.azure.com/subscriptions/{SubscriptionId}/resourceGroups/{GroupName}/providers/Microsoft.Sql/servers/{ServerName}/databases/{DatabaseName}?api-version= 2014-04-01-preview
-Body:
-{
-   "properties":
-   {
+Body: {
+   "properties": {
       "readScale":"Disabled"
    }
 }
@@ -135,17 +136,17 @@ Body:
 
 자세한 내용은 [데이터베이스 - 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)를 참조하세요.
 
-## <a name="using-tempdb-on-read-only-replica"></a>읽기 전용 복제본에서 TempDB 사용
+## <a name="using-tempdb-on-read-only-replica"></a>Using TempDB on read-only replica
 
-TempDB 데이터베이스가 읽기 전용 복제본으로 복제 되지 않습니다. 각 복제본에는 복제본을 만들 때 생성 되는 고유 버전의 TempDB 데이터베이스가 있습니다. 이를 통해 TempDB를 업데이트할 수 있고 쿼리 실행 중에 수정할 수 있습니다. 읽기 전용 작업에 TempDB 개체를 사용 하는 경우에는 이러한 개체를 쿼리 스크립트의 일부로 만들어야 합니다. 
+The TempDB database is not replicated to the read-only replicas. Each replica has its own version of TempDB database that is created when the replica is created. It ensures that TempDB is updateable and can be modified during your query execution. If your read-only workload depends on using TempDB objects, you should create these objects as part of your query script.
 
 ## <a name="using-read-scale-out-with-geo-replicated-databases"></a>지역 복제 데이터베이스에서 읽기 확장 사용
 
-장애 조치 (failover) 그룹의 구성원 인 경우와 같이 지역에서 복제 된 데이터베이스에서 읽기 확장을 사용 하 여 읽기 전용 작업 부하를 분산 하는 경우 주 데이터베이스와 지역에서 복제 된 보조 데이터베이스 모두에서 읽기 확장을 사용 하도록 설정 했는지 확인 합니다. 이 구성은 응용 프로그램이 장애 조치 (failover) 후 새 주 복제본에 연결 될 때 동일한 부하 분산 환경을 계속 유지 합니다. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. 지리적으로 복제 된 보조 데이터베이스는 주 데이터베이스와 다른 끝점을 사용 하기 때문에 보조 데이터베이스에 액세스 하려면 `ApplicationIntent=ReadOnly`를 설정 하지 않아도 됩니다. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
+If you are using Read Scale-Out to load-balance read-only workloads on a database that is geo-replicated (for example, as a member of a failover group), make sure that read scale-out is enabled on both the primary and the geo-replicated secondary databases. This configuration will ensure that the same load-balancing experience continues when your application connects to the new primary after failover. 읽기 확장을 사용할 수 있는 지역 복제된 보조 데이터베이스에 연결하는 경우, `ApplicationIntent=ReadOnly`가 있는 세션은 주 데이터베이스에서 연결을 라우팅하는 것과 동일한 방식으로 복제본 중 하나로 라우팅됩니다.  `ApplicationIntent=ReadOnly`가 없는 세션은 역시 읽기 전용인 지역 복제된 보조 데이터베이스의 주 복제본으로 라우팅됩니다. Because geo-replicated secondary database has a different endpoint than the primary database, historically to access the secondary it wasn't required to set `ApplicationIntent=ReadOnly`. 이전 버전과의 호환성을 보장하기 위해 `sys.geo_replication_links` DMV에 `secondary_allow_connections=2`(모든 클라이언트 연결이 허용됨)가 표시됩니다.
 
 > [!NOTE]
-> 보조 데이터베이스의 로컬 복제본 간에 라운드 로빈 또는 다른 부하 분산 라우팅이 지원 되지 않습니다.
+> Round-robin or any other load-balanced routing between the local replicas of the secondary database is not supported.
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL Database 하이퍼 확장 제공에 대 한 자세한 내용은 [hyperscale service 계층](./sql-database-service-tier-hyperscale.md)을 참조 하세요.
+- For information about SQL Database Hyperscale offering, see [Hyperscale service tier](./sql-database-service-tier-hyperscale.md).

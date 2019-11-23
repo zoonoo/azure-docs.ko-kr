@@ -1,6 +1,6 @@
 ---
-title: Azure AD SSPR와 온-프레미스 비밀 번호 쓰기 저장 통합-Azure Active Directory
-description: 온-프레미스 AD 인프라에 클라우드 비밀번호 쓰기 저장
+title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
+description: Get cloud passwords written back to on-premises AD infrastructure
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07069d22d57540c6a16472bc7278821e14f1f18e
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 758d7122a991309504c5cac18b9aaf1268808887
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561287"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420666"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -37,13 +37,13 @@ ms.locfileid: "68561287"
 비밀번호 쓰기 저장은 다음 기능을 제공합니다.
 
 * **온-프레미스 Active Directory 암호 정책 적용**: 사용자가 자신의 암호를 재설정하는 경우 해당 디렉터리에 커밋하기 전에 온-프레미스 Active Directory 정책을 준수하는지 확인합니다. 이 검토에는 기록, 복잡성, 나이, 암호 필터 및 로컬 Active Directory에서 사용자가 정의한 기타 암호 제한 사항 확인이 포함됩니다.
-* **지연 피드백 없음**:  암호 쓰기 저장은 동기식 작업입니다. 사용자의 암호가 정책에 맞지 않거나 어떤 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
+* **지연 피드백 없음**: 비밀번호 쓰기 저장은 동기식 작업입니다. 사용자의 암호가 정책에 맞지 않거나 어떤 이유로든 재설정 또는 변경할 수 없는 경우 즉시 사용자에게 알려줍니다.
 * **액세스 패널 및 Office 365에서 암호 변경 지원**: 페더레이션 또는 암호 해시 동기화된 사용자가 만료되었거나 만료되지 않은 암호를 변경하면 해당 암호는 로컬 Active Directory 환경에 다시 기록됩니다.
 * **Azure Portal에서 관리자가 암호를 재설정할 때 비밀번호 쓰기 저장 지원**: 사용자가 페더레이션 또는 암호 해시 동기화된 경우 관리자가 [Azure Portal](https://portal.azure.com)에서 해당 사용자의 암호를 재설정할 때마다 암호가 온-프레미스에 다시 기록됩니다. 이 기능은 현재 Office 관리자 포털에서 지원되지 않습니다.
-* **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus Relay를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
+* **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus 릴레이를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!NOTE]
-> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수 있지만 암호 재설정을 사용 하 여 잊어버린 암호를 재설정할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. Administrators can change their password in the cloud but cannot use password reset to reset a forgotten password. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -118,8 +118,8 @@ ms.locfileid: "68561287"
 사용자가 암호 재설정을 제출한 후 재설정 요청은 여러 암호화 단계를 거친 후 온-프레미스 환경에 도달합니다. 이러한 암호화 단계는 최대의 서비스 안정성과 보안을 보장합니다. 다음과 같이 설명할 수 있습니다.
 
 * **1단계: 2048비트 RSA 키를 사용한 암호 암호화**: 사용자가 온-프레미스에 다시 작성된 암호를 제출하면 제출된 암호 자체를 2048비트 RSA 키로 암호화합니다.
-* **2단계: AES-GCM을 사용한 패키지 수준 암호화**: AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 ServiceBus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
-* **3단계: 모든 통신이 TLS/SSL을 통해 발생**: Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
+* **2단계: AES-GCM을 사용한 패키지 수준 암호화**AES-GCM을 사용하여 전체 패키지(암호 + 필수 메타데이터)를 암호화합니다. 이 암호화는 기본 ServiceBus 채널에 직접 액세스할 수 있는 사람이 콘텐츠를 보거나 변조하는 것을 방지합니다.
+* **3단계: 모든 통신이 TLS/SSL에 발생**: Service Bus와 모든 통신은 SSL/TLS 채널에서 발생합니다. 이 암호화는 권한이 없는 제3자의 콘텐츠를 보호합니다.
 * **6개월마다 자동 키 롤오버**: 최상의 서비스 보안과 안전성을 보장하기 위해, 모든 키는 6개월마다 또는 Azure AD Connect에서 비밀번호 쓰기 저장이 해제되었다가 다시 설정될 때마다 롤오버됩니다.
 
 ### <a name="password-writeback-bandwidth-usage"></a>비밀번호 쓰기 저장 대역폭 사용
@@ -161,10 +161,10 @@ ms.locfileid: "68561287"
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
-   * [Microsoft 365 관리 센터](https://admin.microsoft.com) 에서 관리자가 시작한 최종 사용자 암호 재설정
+   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
 
 > [!WARNING]
-> 온-프레미스 Active Directory Active Directory 사용자 및 컴퓨터와 같은 관리 도구를 사용 하거나 Active Directory 관리 센터 지원 되지 않으므로 "다음 로그온 할 때 반드시 암호를 변경 해야 합니다." 확인란을 사용 합니다. 온-프레미스에서 암호를 변경 하는 경우이 옵션을 선택 하지 않습니다.
+> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
 
 ## <a name="next-steps"></a>다음 단계
 

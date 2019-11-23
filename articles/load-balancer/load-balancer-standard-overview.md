@@ -1,7 +1,7 @@
 ---
 title: Azure 표준 Load Balancer란?
 titleSuffix: Azure Load Balancer
-description: 이 학습 경로를 사용 하 여 Azure 표준 Load Balancer 기능에 대 한 개요를 시작 하세요.
+description: With this learning path, get started with an overview of Azure Standard Load Balancer features.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: allensu
-ms.openlocfilehash: ce85c3ab1bf642dc7e9a92f08acdec2bd754d2f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 36035d844237115361ccb3c1e1bc0dcb91250881
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278041"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423879"
 ---
 # <a name="azure-standard-load-balancer-overview"></a>Azure 표준 Load Balancer 개요
 
@@ -40,9 +40,9 @@ Load Balancer 리소스의 기능은 항상 프런트 엔드, 규칙, 상태 프
 Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않으며 용량은 항상 사용 가능하고, 고려해야 할 시작 또는 확장 지연도 없습니다. 
 
 >[!NOTE]
-> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS (전송 계층 보안) 프로토콜 종료 ("SSL 오프 로드") 또는 HTTP/HTTPS 요청, 응용 프로그램 계층 처리를 찾고 [있는 경우 Azure 애플리케이션 게이트웨이의 정의](../application-gateway/overview.md)를 참조 하세요. 전역 DNS 부하 분산을 찾고 [있는 경우 > Traffic Manager을](../traffic-manager/traffic-manager-overview.md)참조 하세요. 종단 간 시나리오에서는 이러한 솔루션을 결합 하 여 이점을 누릴 수 있습니다.
+> Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. If you're looking for Transport Layer Security (TLS) protocol termination ("SSL offload") or per-HTTP/HTTPS request, application-layer processing, see [What is Azure Application Gateway?](../application-gateway/overview.md) If you're looking for global DNS load balancing, see [What is Traffic Manager?](../traffic-manager/traffic-manager-overview.md) Your end-to-end scenarios may benefit from combining these solutions.
 >
-> Azure 부하 분산 옵션 비교는 [azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조 하세요.
+> For an Azure load-balancing options comparison, see [Overview of load-balancing options in Azure](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview).
 
 ## <a name="why-use-standard-load-balancer"></a>표준 Load Balancer를 사용해야 하는 이유
 
@@ -77,7 +77,7 @@ Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azur
 ### <a name="az"></a> 가용성 영역
 
 >[!IMPORTANT]
->지역별 관련 정보를 포함 하 여 관련 항목에 대 한 [가용성 영역](../availability-zones/az-overview.md) 를 검토 합니다.
+>Review [Availability Zones](../availability-zones/az-overview.md) for related topics, including any region specific information.
 
 표준 Load Balancer는 가용성 영역을 사용할 수 있는 지역에서 추가 기능을 지원합니다.  이러한 기능은 모든 표준 Load Balancer 제공 기능에 추가됩니다.  가용성 영역 구성은 공용 및 내부 표준 Load Balancer에 사용할 수 있습니다.
 
@@ -206,7 +206,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 >
 >SKU 일치는 Load Balancer 및 공용 IP 리소스에 대해 사용되어야 합니다. 기본 SKU 리소스와 표준 SKU 리소스를 함께 사용할 수 없습니다. 독립 실행형 가상 머신, 가용성 집합 리소스의 가상 머신 또는 가상 머신 확장 집합 리소스를 두 SKU에 동시에 연결할 수 없습니다.
 
-## <a name="region-availability"></a>지역 가용성
+## <a name="region-availability"></a>리전 가용성
 
 표준 Load Balancer는 현재 모든 퍼블릭 클라우드 지역에서 사용 가능합니다.
 
@@ -230,7 +230,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 - Load Balancer 규칙은 두 가상 네트워크에 걸쳐 있을 수 없습니다.  프런트엔드 및 해당 관련 백 엔드 인스턴스는 동일한 가상 네트워크에 있어야 합니다.  
 - [구독 작업 이동](../azure-resource-manager/resource-group-move-resources.md)은 표준 SKU LB 및 PIP 리소스에 대해 지원되지 않습니다.
 - VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스의 기능 방법의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 해당 서비스 자체 또는 기본 플랫폼이 예고 업이 변경될 수 있기 때문에 여기에 의존하지 말아야 합니다. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 만들어야 한다고 항상 가정해야 합니다.
-- Load Balancer는 이러한 특정 IP 프로토콜에 대한 부하 분산 및 포트 전달용 TCP 또는 UDP 제품입니다.  부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP에 대해 지원되며 ICMP를 포함한 다른 IP 프로토콜에 대해서는 지원되지 않습니다. Load Balancer가 종료 및 응답하지 않거나 UDP 또는 TCP 흐름의 페이로드와 상호 작용하지 않습니다. 프록시가 아닙니다. 프런트 엔드 연결에 대한 성공적인 유효성 검사는 부하 분산 또는 인바운드 NAT 규칙(TCP 또는 UDP)에 사용된 동일한 프로토콜을 사용하여 대역 내에서 이뤄져야 하며, _그리고_ 하나 이상의 가상 머신은 프런트 엔드에서 응답을 확인하려면 클라이언트에 대한 응답을 생성해야 합니다.  Load Balancer 프런트 엔드에서 대역 내 응답을 수신하지 못하면 어떤 가상 머신도 응답할 수 없음을 나타냅니다.  응답할 수 있는 가상 머신이 없으면 Load Balancer 프런트 엔드와 상호 작용이 불가능합니다.  이는 [SNAT 모조 포트](load-balancer-outbound-connections.md#snat)가 TCP 및 UDP에 대해서만 지원되고 ICMP를 포함한 다른 모든 IP 프로토콜이 실패하는 경우에 아웃 바운드 연결에도 적용됩니다.  완화할 인스턴스 수준 공용 IP 주소를 할당합니다.
+- Load Balancer는 이러한 특정 IP 프로토콜에 대한 부하 분산 및 포트 전달용 TCP 또는 UDP 제품입니다.  부하 분산 규칙 및 인바운드 NAT 규칙은 TCP 및 UDP에 대해 지원되며 ICMP를 포함한 다른 IP 프로토콜에 대해서는 지원되지 않습니다. Load Balancer가 종료 및 응답하지 않거나 UDP 또는 TCP 흐름의 페이로드와 상호 작용하지 않습니다. 프록시가 아닙니다. 프런트 엔드 연결에 대한 성공적인 유효성 검사는 부하 분산 또는 인바운드 NAT 규칙(TCP 또는 UDP)에 사용된 동일한 프로토콜을 사용하여 대역 내에서 이뤄져야 하며, _그리고_ 하나 이상의 가상 머신은 프런트 엔드에서 응답을 확인하려면 클라이언트에 대한 응답을 생성해야 합니다.  Load Balancer 프런트 엔드에서 대역 내 응답을 수신하지 못하면 어떤 가상 머신도 응답할 수 없음을 나타냅니다.  응답할 수 있는 가상 머신이 없으면 Load Balancer 프런트 엔드와 상호 작용이 불가능합니다.  이는 [SNAT 모조 포트](load-balancer-outbound-connections.md#snat)가 TCP 및 UDP에 대해서만 지원되거나 ICMP를 포함한 다른 모든 IP 프로토콜이 실패하는 경우에 아웃 바운드 연결에도 적용됩니다.  완화할 인스턴스 수준 공용 IP 주소를 할당합니다.
 - 가상 네트워크 내의 개인 IP 주소에서 공용 IP 주소로 전환할 때 [아웃 바운드 연결](load-balancer-outbound-connections.md)을 제공하는 공용 Load Balancer와 달리 공용 및 내부 Load Balancer가 모두 개인 IP 주소 공간에 있으므로 내부 Load Balancer는 내부 Load Balancer의 프런트 엔드에 아웃바운드 연결을 변환하지 않습니다.  이렇게 하면 변환이 필요하지 않은 경우 고유한 내부 IP 주소 공간 내에서 SNAT 소모 가능성이 없습니다.  부작용은 백 엔드 풀의 VM에서 아웃바운드 흐름이 상주하는 풀에 있는 내부 Load Balancer의 프런트 엔드로 흐름을 유도하고 _또_ 자체로 매핑되는 경우, 흐름의 구간 둘 다 일치하지 않으며 흐름이 실패하게 된다는 것입니다.  흐름이 프런트 엔드로 흐름을 생성한 백 엔드 풀에서 동일한 VM에 다시 매핑하지 않은 경우 흐름은 성공하게 됩니다.   흐름이 스스로에게 다시 매핑되는 경우 아웃바운드 흐름은 VM에서 시작돼 프런트 엔드에 나타나며 해당 인바운드 흐름은 VM에서 시작돼 자신에게 나타납니다. 게스트 OS의 관점에서 동일한 흐름의 인바운드 및 아웃 바운드 부분은 가상 머신 내에서 일치하지 않습니다. TCP 스택은 원본과 대상이 일치하지 않으므로 동일한 흐름의 이러한 절반을 동일한 흐름의 일부로서 인식하지 않습니다.  흐름이 백 엔드 풀에서 다른 모든 VM에 매핑되는 경우 흐름의 절반은 일치하며 VM은 성공적으로 흐름에 응답할 수 있습니다.  이 시나리오의 증상은 일시적인 연결 시간 제한입니다. 이 시나리오를 안전하게 실현하기 위한 몇 가지 일반적인 해결 방법(백 엔드 풀에서 백 엔드 풀 해당 내부 Load Balancer 프런트 엔드로 흐름이 시작)에는 내부 Load Balancer 뒤에 타사 프록시의 삽입이나 [DSR 스타일 규칙 사용](load-balancer-multivip-overview.md) 중 하나가 포함됩니다.  완화할 공용 Load Balancer를 사용할 수도 있지만 결과적인 시나리오는 [SNAT 소모](load-balancer-outbound-connections.md#snat)가 발생하기 쉬우며 주의해 관리하지 않는 한 사용하지 말아야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
@@ -239,7 +239,7 @@ SKU는 변경할 수 없습니다. 이 섹션의 단계에 따라 리소스 SKU 
 - [상태 프로브](load-balancer-custom-probe-overview.md)에 대해 자세히 알아보세요.
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보세요.
 - [표준 Load Balancer 진단](load-balancer-standard-diagnostics.md)에 대해 자세히 알아보세요.
-- [Azure Monitor](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)의 진단과 관련된 [지원되는 다차원 메트릭](../monitoring-and-diagnostics/monitoring-overview.md)에 대해 자세히 알아보세요.
+- [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md)의 진단과 관련된 [지원되는 다차원 메트릭](../azure-monitor/platform/metrics-supported.md#microsoftnetworkloadbalancers)에 대해 자세히 알아보세요.
 - [아웃바운드 연결에 Load Balancer](load-balancer-outbound-connections.md) 사용에 대해 자세히 알아보세요.
 - [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)에 대해 알아보세요.
 - [유휴 상태의 TCP 재설정](load-balancer-tcp-reset.md)에 대해 알아보세요.

@@ -1,6 +1,6 @@
 ---
-title: Azure Media Services 레거시 구성 요소 | Microsoft Docs
-description: 이 항목에서는 레거시 구성 요소 Azure Media Services 설명 합니다.
+title: Azure Media Services legacy components | Microsoft Docs
+description: This topic discusses Azure Media Services legacy components.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -11,32 +11,32 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 11/22/2019
 ms.author: juliako
-ms.openlocfilehash: 592fd8901fc7f8a82a390f3c125c712ef5829a52
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6a61c868da7b979b1ac5654f4be93b5245179105
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083724"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423923"
 ---
-# <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
+# <a name="azure-media-services-legacy-components"></a>Azure Media Services legacy components
 
-시간이 지남에 따라 Media Service 구성 요소에 대 한 향상 된 기능과 향상 된 기능이 있습니다. 따라서 일부 레거시 구성 요소는 사용이 중지 되었습니다. 다음 문서에서는 레거시 구성 요소에서 현재 구성 요소로 응용 프로그램을 마이그레이션하는 방법에 대 한 지침을 찾을 수 있습니다.
+Over time, there have been steady improvements and enhancements to Media Service components. As a result, some legacy components have been retired. You can find the instructions on how to migrate your application from the legacy component to a current component in the following articles.
  
-## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>레거시 구성 요소 및 마이그레이션 지침의 사용 중지 계획
+## <a name="retirement-plans-of-legacy-components-and-migration-guidance"></a>Retirement plans of legacy components and migration guidance
 
-*Windows Azure Media Encoder* (wame) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다. 이러한 프로세서는 2019 년 11 월 30 일에 사용 중지 됩니다.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors. These processors are being retired on March 31, 2020.
 
-* [Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-windows-azure-media-encoder.md)
-* [Azure Media Encoder에서 Media Encoder Standard로 마이그레이션](migrate-azure-media-encoder.md)
+* [Migrate from Windows Azure Media Encoder to Media Encoder Standard](migrate-windows-azure-media-encoder.md)
+* [Migrate from Azure Media Encoder to Media Encoder Standard](migrate-azure-media-encoder.md)
 
-또한 다음 미디어 분석 미디어 프로세서를 사용 중지 하는 것을 발표 하 고 있습니다. 
+We are also announcing retirement of the following Media Analytics media processors: 
  
 |미디어 프로세서 이름|사용 중지 날짜|추가적인 참고 사항|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 2020의 1 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
-|[Azure Media Indexer](media-services-index-content.md)|2020의 10 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| January 1 of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).|
+|[Azure Media Indexer](media-services-index-content.md)|October 1st of 2020|This media processor will be replaced by [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/). For more information, see [Migrate from Azure Media Indexer to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md)
 
 ## <a name="next-steps"></a>다음 단계
 

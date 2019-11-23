@@ -1,5 +1,5 @@
 ---
-title: 지리적으로 분산 된 솔루션 구현
+title: Implement a geo-distributed solution
 description: Azure SQL 데이터베이스와 애플리케이션을 복제된 데이터베이스로 장애 조치(failover)하도록 구성하고 장애 조치(failover)를 테스트하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -11,35 +11,36 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: 51380d312c778380602c64cac766b050511cf994
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1da977f41add19afa6f84b7e5a3dc99c980ac1cf
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810933"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421132"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지역 분산 데이터베이스 구현
 
-Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법에 대해 알아봅니다.
+Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치(Failover)
+> - 테스트 장애 조치
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- Azure SQL Database의 단일 데이터베이스. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
-  - [포털](sql-database-single-database-get-started.md)
+- A single database in Azure SQL Database. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
+  - [Portal](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -57,49 +58,65 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 Azure PowerShell을 사용하여 기존 Azure SQL Server와 다른 지역의 새 Azure SQL Server 사이에 [장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 만듭니다. 그런 다음 장애 조치(failover) 그룹에 샘플 데이터베이스를 추가합니다.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 > [!IMPORTANT]
 > [!INCLUDE [sample-powershell-install](../../includes/sample-powershell-install-no-ssh.md)]
 
 장애 조치(failover) 그룹을 만들려면 다음 스크립트를 실행합니다.
 
-   ```powershell
-    # Set variables for your server and database
-    $adminlogin = "<your admin>"
-    $password = "<your password>"
-    $myresourcegroupname = "<your resource group name>"
-    $mylocation = "<your resource group location>"
-    $myservername = "<your existing server name>"
-    $mydatabasename = "<your database name>"
-    $mydrlocation = "<your disaster recovery location>"
-    $mydrservername = "<your disaster recovery server name>"
-    $myfailovergroupname = "<your globally unique failover group name>"
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>"
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
 
-    # Create a backup server in the failover region
-    New-AzSqlServer -ResourceGroupName $myresourcegroupname `
-       -ServerName $mydrservername `
-       -Location $mydrlocation `
-       -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
-          -ArgumentList $adminlogin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
+# create a backup server in the failover region
+New-AzSqlServer -ResourceGroupName $resourceGroup -ServerName $drServer `
+    -Location $drLocation -SqlAdministratorCredentials $(New-Object -TypeName System.Management.Automation.PSCredential `
+    -ArgumentList $admin, $(ConvertTo-SecureString -String $password -AsPlainText -Force))
 
-    # Create a failover group between the servers
-    New-AzSqlDatabaseFailoverGroup `
-       –ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -PartnerServerName $mydrservername  `
-       –FailoverGroupName $myfailovergroupname `
-       –FailoverPolicy Automatic `
-       -GracePeriodWithDataLossHours 2
+# create a failover group between the servers
+New-AzSqlDatabaseFailoverGroup –ResourceGroupName $resourceGroup -ServerName $server `
+    -PartnerServerName $drServer –FailoverGroupName $failoverGroup –FailoverPolicy Automatic -GracePeriodWithDataLossHours 2
 
-    # Add the database to the failover group
-    Get-AzSqlDatabase `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -DatabaseName $mydatabasename | `
-     Add-AzSqlDatabaseToFailoverGroup `
-       -ResourceGroupName $myresourcegroupname `
-       -ServerName $myservername `
-       -FailoverGroupName $myfailovergroupname
-   ```
+# add the database to the failover group
+Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -DatabaseName $database | `
+    Add-AzSqlDatabaseToFailoverGroup -ResourceGroupName $resourceGroup -ServerName $server -FailoverGroupName $failoverGroup
+```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+> [!IMPORTANT]
+> Run `az login` to sign in to Azure.
+
+```powershell
+$admin = "<adminName>"
+$password = "<password>"
+$resourceGroup = "<resourceGroupName>"
+$location = "<resourceGroupLocation>"
+$server = "<serverName>"
+$database = "<databaseName>"
+$drLocation = "<disasterRecoveryLocation>" # must be different then $location
+$drServer = "<disasterRecoveryServerName>"
+$failoverGroup = "<globallyUniqueFailoverGroupName>"
+
+# create a backup server in the failover region
+az sql server create --admin-password $password --admin-user $admin `
+    --name $drServer --resource-group $resourceGroup --location $drLocation
+
+# create a failover group between the servers
+az sql failover-group create --name $failoverGroup --partner-server $drServer `
+    --resource-group $resourceGroup --server $server --add-db $database `
+    --failover-policy Automatic --grace-period 2
+```
+
+* * *
 
 Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역에서 복제**를 선택하여 지역에서 복제 설정을 변경할 수도 있습니다.
 
@@ -133,7 +150,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </dependency>
    ```
 
-1. `properties` 섹션 뒤에 `dependencies` 섹션을 추가하여 Java 버전을 지정합니다.
+1. `dependencies` 섹션 뒤에 `properties` 섹션을 추가하여 Java 버전을 지정합니다.
 
    ```xml
    <properties>
@@ -142,7 +159,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </properties>
    ```
 
-1. `build` 섹션 뒤에 `properties` 섹션을 추가하여 매니페스트 파일을 지원합니다.
+1. `properties` 섹션 뒤에 `build` 섹션을 추가하여 매니페스트 파일을 지원합니다.
 
    ```xml
    <build>
@@ -296,38 +313,58 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    ...
    ```
 
-## <a name="test-failover"></a>테스트 장애 조치(Failover)
+## <a name="test-failover"></a>테스트 장애 조치
 
 다음 스크립트를 실행하여 장애 조치(failover) 시뮬레이션을 진행한 다음 애플리케이션 결과를 관찰합니다. 데이터베이스 마이그레이션 중에 일부 삽입과 선택이 실패하는 방식을 잘 살펴봅니다.
 
-다음 명령을 사용한 테스트 중에 재해 복구 서버의 역할을 확인할 수도 있습니다.
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-   ```powershell
-   (Get-AzSqlDatabaseFailoverGroup `
-      -FailoverGroupName $myfailovergroupname `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername).ReplicationRole
-   ```
+You can check the role of the disaster recovery server during the test with the following command:
+
+```powershell
+(Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
+    -ResourceGroupName $resourceGroup -ServerName $drServer).ReplicationRole
+```
 
 장애 조치(failover)를 테스트하려면:
 
 1. 장애 조치(failover) 그룹의 수동 장애 조치(failover)를 시작합니다.
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $mydrservername `
-      -FailoverGroupName $myfailovergroupname
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+    -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 
 1. 장애 조치(failover) 그룹을 주 서버로 되돌립니다.
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup `
-      -ResourceGroupName $myresourcegroupname `
-      -ServerName $myservername `
-      -FailoverGroupName $myfailovergroupname
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
+    -ServerName $server -FailoverGroupName $failoverGroup
    ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+You can check the role of the disaster recovery server during the test with the following command:
+
+```azure-cli
+az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
+```
+
+장애 조치(failover)를 테스트하려면:
+
+1. 장애 조치(failover) 그룹의 수동 장애 조치(failover)를 시작합니다.
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $drServer
+   ```
+
+1. 장애 조치(failover) 그룹을 주 서버로 되돌립니다.
+
+   ```azure-cli
+   az sql failover-group set-primary --name $failoverGroup --resource-group $resourceGroup --server $server
+   ```
+
+* * *
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -336,7 +373,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
 > [!div class="checklist"]
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치(Failover)
+> - 테스트 장애 조치
 
 DMS를 사용한 마이그레이션 방법을 설명하는 다음 자습서를 진행합니다.
 

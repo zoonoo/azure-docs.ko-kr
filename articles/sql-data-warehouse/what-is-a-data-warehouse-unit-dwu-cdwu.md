@@ -1,38 +1,38 @@
 ---
-title: Azure Synapse Analytics (이전 SQL DW)의 데이터 웨어하우스 단위 (DWUs, Cdwu)
-description: 가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
+title: Data Warehouse Units (DWUs) in Azure Synapse Analytics (formerly SQL DW)
+description: Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 services: sql-data-warehouse
 author: mlee3gsd
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/04/2019
+ms.date: 11/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: caa23d3e86fba86aa45e677f7ab85859cda6ddce
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 7cd6a037f339f193f63cbe152f0ea9964679c231
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133171"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420485"
 ---
-# <a name="data-warehouse-units-dwus-and-compute-data-warehouse-units-cdwus"></a>DWU(데이터 웨어하우스 단위) 및 cDWU(컴퓨팅 데이터 웨어하우스 단위)
+# <a name="data-warehouse-units-dwus"></a>Data Warehouse Units (DWUs)
 
-가격 및 성능을 최적화하기 위한 이상적인 데이터 웨어하우스 단위(DWU, cDWU) 수 선택에 대한 권장 사항 및 단위 수를 변경하는 방법
+Recommendations on choosing the ideal number of data warehouse units (DWUs) to optimize price and performance, and how to change the number of units.
 
-## <a name="what-are-data-warehouse-units"></a>데이터 웨어하우스 단위 란?
+## <a name="what-are-data-warehouse-units"></a>What are Data Warehouse Units
 
-Sql 풀은 [Sql Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse)를 사용할 때 프로 비전 되는 분석 리소스의 컬렉션을 나타냅니다. 분석 리소스는 CPU, 메모리 및 IO의 조합으로 정의 됩니다. 이러한 세 리소스는 DWUs (데이터 웨어하우스 단위) 라고 하는 계산 확장 단위로 번들로 제공 됩니다. DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. 서비스 수준을 변경 하면 시스템에서 사용할 수 있는 DWUs 수를 변경 하 여 시스템의 성능 및 비용을 조정 합니다.
+A [SQL pool](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse) represents a collection of analytic resources that are being provisioned when using [SQL Analytics](sql-data-warehouse-overview-what-is.md#sql-analytics-and-sql-pool-in-azure-synapse). Analytic resources are defined as a combination of CPU, memory and IO. These three resources are bundled into units of compute scale called Data Warehouse Units (DWUs). DWU는 컴퓨팅 리소스 및 성능의 추상적이고 정규화된 측정값을 나타냅니다. A change to your service level alters the number of DWUs that are available to the system, which in turn adjusts the performance, and the cost, of your system.
 
-성능 향상을 위해 데이터 웨어하우스 단위 수를 늘릴 수 있습니다. 성능 저하를 위해 데이터 웨어하우스 단위를 줄입니다. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
+For higher performance, you can increase the number of data warehouse units. For less performance, reduce data warehouse units. 스토리지 및 컴퓨팅 비용은 별도로 청구되므로 데이터 웨어하우스 단위를 변경해도 스토리지 비용에 영향을 미치지 않습니다.
 
-데이터 웨어하우스 단위에 대 한 성능은 다음과 같은 작업 메트릭을 기반으로 합니다.
+Performance for data warehouse units is based on these workload metrics:
 
-- 표준 데이터 웨어하우징 쿼리가 많은 수의 행을 검색 한 후 복잡 한 집계를 수행 하는 속도입니다. 이 작업은 I/O 및 CPU를 많이 사용합니다.
-- 데이터 웨어하우스가 Azure Storage Blob 또는 Azure Data Lake에서 데이터를 수집할 수 있는 속도입니다. 이 작업은 네트워크 및 CPU를 많이 사용합니다.
-- [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) t-sql 명령이 테이블을 복사할 수 있는 속도입니다. 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
+- How fast a standard data warehousing query can scan a large number of rows and then perform a complex aggregation. 이 작업은 I/O 및 CPU를 많이 사용합니다.
+- How fast the data warehouse can ingest data from Azure Storage Blobs or Azure Data Lake. 이 작업은 네트워크 및 CPU를 많이 사용합니다.
+- How fast the [`CREATE TABLE AS SELECT`](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) T-SQL command can copy a table. 이 작업에는 데이터를 스토리지에서 읽어오기, 어플라이언스의 노드 전체에 배포하기, 스토리지에 다시 쓰기가 포함됩니다. 이 작업은 CPU, IO 및 네트워크를 많이 사용합니다.
 
 DWU 늘리기:
 
@@ -42,44 +42,23 @@ DWU 늘리기:
 
 ## <a name="service-level-objective"></a>서비스 수준 목표
 
-SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. Gen2 SQL 풀의 서비스 수준은 cDWU (계산 데이터 웨어하우스 단위) (예: DW2000c)로 측정 됩니다. Gen1 SQL 풀 서비스 수준은 DWUs (예: DW2000)로 측정 됩니다.
-  > [!NOTE]
-  > Gen 2 SQL 풀은 최근에 100 cDWU 낮은 계산 계층을 지원 하기 위해 추가 크기 조정 기능을 추가 했습니다. 이제 더 낮은 계산 계층이 필요한 기존 SQL 풀은 현재 추가 비용 없이 사용할 수 있는 지역의 Gen2로 업그레이드할 수 있습니다.  해당 지역이 아직 지원되지 않는 경우에도 지원되는 지역으로 업그레이드할 수 있습니다. 자세한 내용은 [Gen2로 업그레이드](upgrade-to-latest-generation.md)를 참조하세요.
+SLO(서비스 수준 목표)는 데이터 웨어하우스의 비용 및 성능 수준을 결정하는 확장성 설정입니다. The service levels for Gen2 SQL pool are measured in data warehouse units (DWU), for example DW2000c.
 
-T-sql에서 SERVICE_OBJECTIVE 설정은 SQL 풀의 서비스 수준 및 성능 계층을 결정 합니다.
+In T-SQL, the SERVICE_OBJECTIVE setting determines the service level for your SQL pool.
 
 ```sql
---Gen1
-CREATE DATABASE myElasticSQLDW
-WITH
-(    SERVICE_OBJECTIVE = 'DW1000'
-)
-;
-
---Gen2
-CREATE DATABASE myComputeSQLDW
-(Edition = 'Datawarehouse'
+CREATE DATABASE mySQLDW
+( EDITION = 'Datawarehouse'
  ,SERVICE_OBJECTIVE = 'DW1000c'
 )
 ;
 ```
 
-## <a name="performance-tiers-and-data-warehouse-units"></a>성능 계층 및 데이터 웨어하우스 단위
-
-각 성능 계층은 약간 다른 데이터 웨어하우스의 측정 단위를 사용합니다. 이러한 차이는 크기 단위를 직접 요금 청구로 변환하므로 송장에 반영됩니다.
-
-- Gen1 SQL 풀은 DWUs (데이터 웨어하우스 단위)로 측정 됩니다.
-- Gen2 SQL 풀은 Cdwu (계산 데이터 웨어하우스 단위)로 측정 됩니다.
-
-DWUs 및 Cdwu는 모두 계산 확장 또는 축소를 지원 하 고 SQL 풀을 사용할 필요가 없을 때 계산을 일시 중지 합니다. 이러한 작업은 모두 주문형 작업입니다. Gen2는 컴퓨팅 노드에서 로컬 디스크 기반 캐시를 사용하여 성능을 향상시킵니다. 시스템의 크기를 조정하거나 시스템을 일시 중지할 경우 캐시가 무효화되므로 최적의 성능을 얻으려면 캐시 준비 시간이 필요합니다.  
-
-데이터 웨어하우스 단위를 늘리면 계산 리소스가 선형적으로 증가됩니다. Gen2는 최상의 쿼리 성능과 최고 규모를 제공 합니다. Gen2 시스템은 캐시를 최대한 활용 합니다.
-
-### <a name="capacity-limits"></a>용량 제한
+## <a name="capacity-limits"></a>용량 제한
 
 각 SQL Server(예: myserver.database.windows.net)에는 특정 데이터 웨어하우스 단위 수를 허용하는 [DTU(데이터베이스 트랜잭션 단위)](../sql-database/sql-database-what-is-a-dtu.md) 할당량이 지정되어 있습니다. 자세한 내용은 [워크로드 관리 용량 제한](sql-data-warehouse-service-capacity-limits.md#workload-management)을 참조하세요.
 
-## <a name="how-many-data-warehouse-units-do-i-need"></a>필요한 데이터 웨어하우스 단위 수
+## <a name="how-many-data-warehouse-units-do-i-need"></a>How many data warehouse units do I need
 
 이상적인 데이터 웨어하우스 단위 수는 워크로드 및 시스템에 로드한 데이터 양에 따라 매우 다릅니다.
 
@@ -87,9 +66,9 @@ DWUs 및 Cdwu는 모두 계산 확장 또는 축소를 지원 하 고 SQL 풀을
 
 1. 더 작은 DWU를 선택하여 시작합니다.
 2. 시스템으로 로드하는 데이터를 테스트할 때 애플리케이션 성능을 모니터링하여 선택한 DWU 수와 관찰한 성능을 비교합니다.
-3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. 활동에서 상당한 최대 및 최저점을 보여 주는 워크 로드는 자주 크기를 조정 해야 할 수 있습니다.
+3. 정기적으로 작업량이 많은 기간에 필요한 추가 요구 사항을 식별합니다. Workloads that show significant peaks and troughs in activity may need to be scaled frequently.
 
-SQL Analytics는 방대한 양의 계산을 프로 비전 하 고 방대한 양의 데이터를 쿼리할 수 있는 스케일 아웃 시스템입니다. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
+SQL Analytics is a scale-out system that can provision vast amounts of compute and query sizeable quantities of data. 특히 큰 DWU에서 진정한 크기 조정 기능을 확인하려면 데이터에 충분한 CPU가 할당되도록 데이터 집합의 크기를 조정하는 것이 좋습니다. 크기 조정 테스트의 경우 1TB 이상을 사용하는 것이 좋습니다.
 
 > [!NOTE]
 >
@@ -107,7 +86,7 @@ SQL DB 참가자 및 SQL Server 참가자와 같은 Azure 리소스에 대한 �
 
 1. Visual Studio에서 SQL Server 개체 탐색기를 엽니다.
 2. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음 예를 참조하세요.
+3. sys.database_service_objectives 동적 관리 뷰에서 선택합니다. 다음은 예제입니다.
 
 ```sql
 SELECT  db.name [Database]
@@ -120,46 +99,46 @@ JOIN    sys.databases                     AS db ON ds.database_id = db.database_
 
 ## <a name="change-data-warehouse-units"></a>데이터 웨어하우스 단위 변경
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
-DWU 또는 cDWU를 변경하려면
+To change DWUs:
 
-1. [Azure 포털](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **조정**을 클릭합니다.
+1. [Azure Portal](https://portal.azure.com)을 열고 데이터베이스를 연 다음 **크기 조정**을 클릭합니다.
 
 2. **크기 조정**에서 슬라이더를 왼쪽 또는 오른쪽으로 이동해 DWU 설정을 변경합니다.
 
-3. **저장**을 클릭합니다. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
+3. 페이지 맨 아래에 있는 **저장**을 참조하세요. 확인 메시지가 표시됩니다. **예**를 클릭하여 확인하거나 **아니요**를 클릭하여 취소합니다.
 
 ### <a name="powershell"></a>PowerShell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-DWUs 또는 Cdwu를 변경 하려면 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet을 사용 합니다. 다음 예제에서는 MyServer에서 호스트되는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
+To change the DWUs, use the [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) PowerShell cmdlet. The following example sets the service level objective to DW1000c for the database MySQLDW that is hosted on server MyServer.
 
 ```Powershell
-Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000"
+Set-AzSqlDatabase -DatabaseName "MySQLDW" -ServerName "MyServer" -RequestedServiceObjectiveName "DW1000c"
 ```
 
 자세한 내용은 [SQL Data Warehouse용 PowerShell cmdlet](sql-data-warehouse-reference-powershell-cmdlets.md)을 참조하세요.
 
 ### <a name="t-sql"></a>T-SQL
 
-T-SQL을 사용하여 현재 DWU 또는 cDWU 설정을 보고, 설정을 변경하고, 진행 상황을 확인할 수 있습니다.
+With T-SQL you can view the current DWU settings, change the settings, and check the progress.
 
-DWU 또는 cDWU를 변경하려면:
+DWU를 변경하려면
 
 1. 논리적 SQL Database 서버와 연결된 마스터 데이터베이스에 연결합니다.
-2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL 문을 사용합니다. 다음 예제에서는 MySQLDW 데이터베이스에 대한 서비스 수준 목표를 DW1000으로 설정합니다.
+2. [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql) TSQL 문을 사용합니다. The following example sets the service level objective to DW1000c for the database MySQLDW.
 
 ```Sql
 ALTER DATABASE MySQLDW
-MODIFY (SERVICE_OBJECTIVE = 'DW1000')
+MODIFY (SERVICE_OBJECTIVE = 'DW1000c')
 ;
 ```
 
 ### <a name="rest-apis"></a>REST API
 
-DWU를 변경하려면 [데이터베이스 생성 또는 업데이트](/rest/api/sql/databases/createorupdate) REST API를 사용합니다. 다음 예에서는 서버 MyServer에서 호스트 되는 데이터베이스 MySQLDW에 대해 서비스 수준 목표를 D W 1000로 설정 합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
+DWU를 변경하려면 [데이터베이스 생성 또는 업데이트](/rest/api/sql/databases/createorupdate) REST API를 사용합니다. The following example sets the service level objective to DW1000c for the database MySQLDW, which is hosted on server MyServer. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}?api-version=2014-04-01-preview HTTP/1.1
@@ -167,7 +146,7 @@ Content-Type: application/json; charset=UTF-8
 
 {
     "properties": {
-        "requestedServiceObjectiveName": DW1000
+        "requestedServiceObjectiveName": DW1000c
     }
 }
 ```
@@ -204,14 +183,14 @@ DWU 변경 상태를 확인하려면:
     ;
     ```
     
-이 DMV는 작업 및 작업 상태와 같은 SQL 풀에서 다양 한 관리 작업에 대 한 정보를 반환 합니다 (IN_PROGRESS 또는 완료 됨).
+This DMV returns information about various management operations on your SQL pool such as the operation and the state of the operation, which is either IN_PROGRESS or COMPLETED.
 
 ## <a name="the-scaling-workflow"></a>크기 조정 워크플로
 
-크기 조정 작업을 시작 하면 시스템은 먼저 열려 있는 모든 세션을 종료 하 고 모든 열린 트랜잭션을 롤백하여 일관 된 상태를 유지 합니다. 크기 조정 작업의 경우 이 트랜잭션 롤백을 완료한 후에만 크기 조정이 수행됩니다.  
+When you start a scale operation, the system first kills all open sessions, rolling back any open transactions to ensure a consistent state. 크기 조정 작업의 경우 이 트랜잭션 롤백을 완료한 후에만 크기 조정이 수행됩니다.  
 
-- 수직 확장 작업의 경우 시스템은 모든 계산 노드를 분리 하 고, 추가 계산 노드를 프로 비전 한 다음, 저장소 계층으로 다시 연결.
-- 수평 확장 작업의 경우 시스템은 모든 계산 노드를 분리 한 다음 저장소 계층에 필요한 노드만 다시 연결 합니다.
+- For a scale-up operation, the system detaches all compute nodes, provisions the additional compute nodes, and then reattaches to the storage layer.
+- For a scale-down operation, the system detaches all compute nodes and then reattaches only the needed nodes to the storage layer.
 
 ## <a name="next-steps"></a>다음 단계
 

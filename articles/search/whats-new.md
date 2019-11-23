@@ -1,49 +1,53 @@
 ---
-title: 새 기능 공지
+title: New feature announcements
 titleSuffix: Azure Cognitive Search
-description: Azure Cognitive Search에 대 한 Azure Search 서비스 이름을 포함 하 여 새로운 기능 및 향상 된 기능에 대 한 공지입니다.
+description: Announcements of new and enhanced features, including a service rename of Azure Search to Azure Cognitive Search.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 26f6c651b78099eff80b6af57d2047cc8696f4c2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: f35fcc2604866c2ff5a330b65ae844be0eed9476
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112207"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422386"
 ---
-# <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
+# <a name="whats-new-in-azure-cognitive-search"></a>What's new in Azure Cognitive Search
 
-서비스의 새로운 기능에 대해 알아봅니다. 서비스를 최신 상태로 유지하려면 이 페이지에 책갈피를 설정합니다.
+서비스의 새로운 기능에 대해 알아봅니다. Bookmark this page to keep up to date with the service.
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Azure Search에 대 한 새 서비스 이름
+## <a name="new-service-name-for-azure-search"></a>New service name for Azure Search
 
-Azure Search은 이제 핵심 작업에서 인식 기술 및 AI 처리의 확장 된 사용을 반영 하기 위해 **Azure Cognitive Search** 로 이름이 변경 되었습니다. 인식 기술이 새 기능을 추가 하는 동안 AI를 사용 하는 것은 엄격히 선택 됩니다. AI 없이 Azure Cognitive Search를 계속 사용 하 여 클라우드에서 만들고 관리 하는 인덱스의 개인, 다른 유형의, 텍스트 기반 콘텐츠에 대해 다양 한 전체 텍스트 검색 솔루션을 빌드할 수 있습니다. 
+Azure Search is now renamed to **Azure Cognitive Search** to reflect the expanded use of cognitive skills and AI processing in core operations. While cognitive skills add new capabilities, using AI is strictly optional. You can continue to use Azure Cognitive Search without AI to build rich, full text search solutions over private, heterogenous, text-based content in an index that you create and manage in the cloud. 
 
-API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않습니다. 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
+API versions, Nuget packages, namespaces, and endpoints are unchanged. Your existing search solutions are unaffected by the service name change.
 
-## <a name="feature-announcements"></a>기능 알림
+## <a name="feature-announcements"></a>Feature announcements
 
-2019 년 11 월 4 일-Ignite 회의
+November 4, 2019 - Ignite Conference
 
-+ [증분 인덱싱 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 을 사용 하면 보강 파이프라인을 수정할 때 반드시 필요한 단계만 처리 하거나 다시 처리할 수 있습니다. 이 기능은 이전에 분석 한 이미지 내용이 있는 경우 특히 유용 합니다. 비용이 많이 드는 분석의 출력은 저장 된 후 추가 인덱싱 또는 보강의 기준으로 사용 됩니다.
++ [Incremental indexing (preview)](cognitive-search-incremental-indexing-conceptual.md) allows you to pick and choose which steps to reprocess when making modifications to an enrichment pipeline. Incremental indexing is useful if you have image content that you previously analyzed. The output of costly analysis is stored and then used as a basis for additional indexing or enrichment.
 
 <!-- 
 + Custom Entity Lookup is a cognitive skill used during indexing that allows you to provide a list of custom entities (such as part numbers, diseases, or names of locations you care about) that should be found within the text. It supports fuzzy matching, case-insensitive matching, and entity synonyms. -->
 
-+ [문서 추출 (미리 보기)](cognitive-search-skill-document-extraction.md) 은 기술 내에서 파일의 콘텐츠를 추출할 수 있는 인덱싱 중에 사용 되는 인식 기술입니다. 이전에는 문서 크랙 기술 실행 되기 전에 발생 했습니다. 이 기술 외에도 기술 실행 내에서이 작업을 수행할 수 있습니다.
++ [Document Extraction (preview)](cognitive-search-skill-document-extraction.md) is a cognitive skill used during indexing that allows you to extract the contents of a file from within a skillset. Previously, document cracking only occurred prior to skillset execution. With the addition of this skill, you can also perform this operation within skillset execution.
 
-+ [텍스트 번역 (미리 보기)](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
++ [Text Translation (preview)](cognitive-search-skill-text-translation.md) is a cognitive skill used during indexing that evaluates text and, for each record, returns the text translated to the specified target language.
 
-+ [Power BI 템플릿은](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) Power BI desktop의 기술 자료 저장소에서 보강 콘텐츠를 시각화 하 고 분석할 수 있습니다. 이 템플릿은 [데이터 가져오기 마법사](knowledge-store-create-portal.md)를 통해 만든 Azure table 프로젝션 용으로 설계 되었습니다.
++ [Power BI templates](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) can jumpstart your visualizations and analysis of enriched content in a knowledge store in Power BI desktop. This template is designed for Azure table projections created through the [Import data wizard](knowledge-store-create-portal.md).
 
-+ [Azure Data Lake Storage Gen2 (미리 보기)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (미리](search-howto-index-cosmosdb.md)보기) 및 [Cosmos DB Cassandra API (미리 보기)](search-howto-index-cosmosdb.md) 는 이제 인덱서에 지원 됩니다. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)사용 하 여 등록할 수 있습니다. 미리 보기 프로그램에 동의 하면 확인 전자 메일을 받게 됩니다.
++ [Azure Data Lake Storage Gen2 (preview)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (preview)](search-howto-index-cosmosdb.md), and [Cosmos DB Cassandra API (preview)](search-howto-index-cosmosdb.md) are now supported in indexers. You can sign up using [this form](https://aka.ms/azure-cognitive-search/indexer-preview). You will receive a confirmation email once you have been accepted into the preview program.
+
+July 24 2019
+
++ Generally available in [Azure Government Cloud](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search).
 
 ## <a name="service-updates"></a>서비스 업데이트
 
-Azure Cognitive Search에 대 한 [서비스 업데이트 공지](https://azure.microsoft.com/updates/?product=search&status=all) 는 azure 웹 사이트에서 찾을 수 있습니다.
+[Service update announcements](https://azure.microsoft.com/updates/?product=search&status=all) for Azure Cognitive Search can be found on the Azure web site.

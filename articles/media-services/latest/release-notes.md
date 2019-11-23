@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 50c28f86a1ba36ac44a25e047800d14fe314f9bf
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72168627"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420044"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -38,101 +38,101 @@ ms.locfileid: "72168627"
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
-#### <a name="live-linear-encoding-of-live-events"></a>라이브 이벤트의 라이브 선형 인코딩
+#### <a name="live-linear-encoding-of-live-events"></a>Live linear encoding of live events
 
-Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시간 x 365 일 미리 보기를 발표 하 고 있습니다.
+Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear encoding of live events.
 
 ###  <a name="media-services-v2"></a>Media Services v2  
 
-#### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+#### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-*Azure Media Indexer* 및 *Azure Media Indexer 2 Preview*의 사용 중단을 발표 하 고 있습니다. [Azure Media Indexer](../previous/media-services-index-content.md) 미디어 프로세서는 2020 년 10 월 1 일에 사용 중지 됩니다. [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이러한 레거시 미디어 프로세서를 대체 합니다.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. The [Azure Media Indexer](../previous/media-services-index-content.md) media processor will be retired on October 1st of 2020. The [Azure Media Indexer 2 Preview](../previous/media-services-process-content-with-indexer2.md) media processors will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces these legacy media processors.
 
-자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](../previous/migrate-indexer-v1-v2.md)을 참조 하세요.
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>2019년 8월
 
 ###  <a name="media-services-v3"></a>Media Services v3  
 
-#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Media Services에 대 한 동남 공화국 지역 쌍이 열려 있습니다. 
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>South Africa regional pair is open for Media Services 
 
-현재 남아프리카 북부와 남아프리카 공화국 지역에서 Media Services를 사용할 수 있습니다.
+Media Services is now available in South Africa North and South Africa West regions.
 
-자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
 
 ###  <a name="media-services-v2"></a>Media Services v2  
 
-#### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
+#### <a name="deprecation-of-media-processors"></a>Deprecation of media processors
 
-2019 년 11 월 30 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
+We are announcing deprecation of the *Windows Azure Media Encoder* (WAME) and *Azure Media Encoder* (AME) media processors, which are being retired on March 31, 2020.
 
-자세한 내용은 [WAME to Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME를 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조 하세요.
+For details, see [Migrate WAME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) and [Migrate AME to Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
  
-## <a name="july-2019"></a>7 월 2019
+## <a name="july-2019"></a>2019년 7월
 
 ### <a name="content-protection"></a>콘텐츠 보호
 
-토큰 제한으로 보호 된 콘텐츠를 스트리밍하는 경우 최종 사용자는 키 배달 요청의 일부로 전송 되는 토큰을 가져와야 합니다. *토큰 재생 방지* 기능을 사용 하면 고객이 동일한 토큰을 사용 하 여 키 또는 라이선스를 요청 하는 횟수에 대 한 제한을 설정할 수 Media Services 있습니다. 자세한 내용은 [토큰 재생 방지](content-protection-overview.md#token-replay-prevention)를 참조 하세요.
+When streaming content protected with token restriction, end users need to obtain a token that is sent as part of the key delivery request. The *Token Replay Prevention* feature allows Media Services customers to set a limit on how many times the same token can be used to request a key or a license. For more information, see [Token Replay Prevention](content-protection-overview.md#token-replay-prevention).
 
-이 기능은 현재 미국 중부 및 미국 서 부 중부에서 사용할 수 있습니다.
+This feature is currently available in US Central and US West Central.
 
 ## <a name="june-2019"></a>2019년 6월
 
-### <a name="video-subclipping"></a>비디오 하위 클리핑
+### <a name="video-subclipping"></a>Video subclipping
 
-이제 [작업](https://docs.microsoft.com/rest/api/media/jobs)을 사용 하 여 인코딩할 때 비디오를 자르거나 하위 클립 할 수 있습니다. 
+You can now trim or subclip a video when encoding it using a [Job](https://docs.microsoft.com/rest/api/media/jobs). 
 
-이 기능은 [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) 사전 설정 또는 [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) 사전 설정을 사용 하 여 작성 된 모든 [변환](https://docs.microsoft.com/rest/api/media/transforms) 에 적용 됩니다. 
+This functionality works with any [Transform](https://docs.microsoft.com/rest/api/media/transforms) that is built using either the [BuiltInStandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#builtinstandardencoderpreset) presets, or the [StandardEncoderPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#standardencoderpreset) presets. 
 
-예를 참조 하세요.
+See examples:
 
-* [.NET을 사용 하 여 비디오 하위 클립](subclip-video-dotnet-howto.md)
-* [REST를 사용 하 여 비디오 하위 클립](subclip-video-rest-howto.md)
+* [Subclip a video with .NET](subclip-video-dotnet-howto.md)
+* [Subclip a video with REST](subclip-video-rest-howto.md)
 
 ## <a name="may-2019"></a>2019년 5월
 
-### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services 진단 로그 및 메트릭에 대 한 Azure Monitor 지원
+### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Azure Monitor support for Media Services diagnostic logs and metrics
 
-이제 Azure Monitor를 사용 하 여 Media Services emmited 원격 분석 데이터를 볼 수 있습니다.
+You can now use Azure Monitor to view telemetry data emmited by Media Services.
 
-* Azure Monitor 진단 로그를 사용 하 여 Media Services 키 배달 끝점에서 보낸 요청을 모니터링 합니다. 
-* Media Services [스트리밍 끝점](streaming-endpoint-concept.md)에서 내보낸 메트릭을 모니터링 합니다.   
+* Use the Azure Monitor diagnostic logs to monitor requests sent by the Media Services Key Delivery endpoint. 
+* Monitor metrics emitted by Media Services [Streaming Endpoints](streaming-endpoint-concept.md).   
 
-자세한 내용은 [Media Services 메트릭 및 진단 로그 모니터링](media-services-metrics-diagnostic-logs.md)을 참조 하세요.
+For details, see [Monitor Media Services metrics and diagnostic logs](media-services-metrics-diagnostic-logs.md).
 
-### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>동적 패키징에서 지 원하는 다중 오디오 트랙 
+### <a name="multi-audio-tracks-support-in-dynamic-packaging"></a>Multi audio tracks support in Dynamic Packaging 
 
-여러 코덱 및 언어를 사용 하는 여러 오디오 트랙이 있는 자산을 스트리밍하는 경우 [동적 패키징](dynamic-packaging-overview.md) 은 이제 HLS 출력 (버전 4 이상)에 대 한 다중 오디오 트랙을 지원 합니다.
+When streaming Assets that have multiple audio tracks with multiple codecs and languages, [Dynamic Packaging](dynamic-packaging-overview.md) now supports multi audio tracks for the HLS output (version 4 or above).
 
-### <a name="korea-regional-pair-is-open-for-media-services"></a>대한민국 지역 쌍이 Media Services에 대해 열려 있습니다. 
+### <a name="korea-regional-pair-is-open-for-media-services"></a>Korea regional pair is open for Media Services 
 
-Media Services는 대한민국 중부 및 대한민국 남부 지역에서 사용할 수 있습니다. 
+Media Services is now available in Korea Central and Korea South regions. 
 
-자세한 내용은 [Media Services v3이 존재 하는 클라우드 및 지역](azure-clouds-regions.md)을 참조 하세요.
+For more information, see [Clouds and regions in which Media Services v3 exists](azure-clouds-regions.md).
 
 ### <a name="performance-improvements"></a>성능 개선
 
-Media Services 성능 개선을 포함 하는 업데이트를 추가 했습니다.
+Added updates that include Media Services performance improvements.
 
-* 처리를 위해 지원 되는 최대 파일 크기가 업데이트 되었습니다. , [할당량 및 제한 사항](limits-quotas-constraints.md)을 참조 하세요.
-* [인코딩 속도 향상](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
+* The maximum file size supported for processing was updated. See, [Quotas and limitations](limits-quotas-constraints.md).
+* [Encoding speeds improvements](media-reserved-units-cli-how-to.md#choosing-between-different-reserved-unit-types).
 
 ## <a name="april-2019"></a>2019년 4월
 
-### <a name="new-presets"></a>새 사전 설정
+### <a name="new-presets"></a>New presets
 
-* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) 가 기본 제공 분석기 사전 설정에 추가 되었습니다.
-* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) 가 기본 제공 인코더 사전 설정에 추가 되었습니다. 자세한 내용은 [콘텐츠 인식 인코딩](cae-experimental.md)을 참조 하세요. 
+* [FaceDetectorPreset](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#facedetectorpreset) was added to the built-in analyzer presets.
+* [ContentAwareEncodingExperimental](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset) was added to the built-in encoder presets. For more information, see [Content-aware encoding](cae-experimental.md). 
 
 ## <a name="march-2019"></a>2019년 3월
 
-동적 패키징은 이제 돌비 Atmos을 지원 합니다. 자세한 내용은 [동적 패키징에서 지 원하는 오디오 코덱](dynamic-packaging-overview.md#audio-codecs)을 참조 하세요.
+Dynamic Packaging now supports Dolby Atmos. For more information, see [Audio codecs supported by dynamic packaging](dynamic-packaging-overview.md#audio-codecs).
 
-이제 스트리밍 로케이터에 적용 되는 자산 또는 계정 필터 목록을 지정할 수 있습니다. 자세한 내용은 [스트리밍 로케이터를 사용 하 여 필터 연결](filters-concept.md#associating-filters-with-streaming-locator)을 참조 하세요.
+You can now specify a list of asset or account filters, which would apply to your Streaming Locator. For more information, see [Associate filters with Streaming Locator](filters-concept.md#associating-filters-with-streaming-locator).
 
 ## <a name="february-2019"></a>2019년 2월
 
-Media Services v3은 이제 Azure 국가별 클라우드에서 지원 됩니다. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
+Media Services v3 is now supported in Azure national clouds. 아직은 일부 클라우드에서 일부 기능을 사용할 수 없습니다. 자세한 내용은 [Azure Media Services v3가 있는 클라우드 및 지역](azure-clouds-regions.md)을 참조하세요.
 
 Media Services에 대한 Azure Event Grid 스키마에 [Microsoft.Media.JobOutputProgress](media-services-event-schemas.md#monitoring-job-output-progress) 이벤트가 추가되었습니다.
 
@@ -258,7 +258,7 @@ Media Services v3에 지원되는 언어: .NET Core, Java, Node.js, Ruby, Typesc
 
 CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMAF 및 'cbcs' 암호화가 지원됩니다.
 
-### <a name="video-indexer"></a>비디오 인덱서
+### <a name="video-indexer"></a>Video Indexer
 
 Video Indexer GA 릴리스가 8월에 발표되었습니다. 현재 지원되는 기능에 대한 자세한 내용은 [Video Indexer란?](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json)을 참조하세요. 
 
@@ -278,7 +278,7 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 
 ### <a name="net-sdk"></a>.NET SDK
 
-.NET SDK에는 다음과 같은 기능이 포함 되어 있습니다.
+The following features are present in the .NET SDK:
 
 * 미디어 콘텐츠를 인코딩하거나 분석할 수 있는 **Transform** 및 **Job**. 예를 들어 [스트림 파일](stream-files-tutorial-with-api.md) 및 [분석](analyze-videos-tutorial-with-api.md)을 참조하세요.
 * 최종 사용자 디바이스에 콘텐츠를 게시하고 스트리밍하는 **스트리밍 로케이터**.
@@ -298,4 +298,4 @@ Media Services v3 CLI 또는 API를 통해 9월 28일에서 10월 12일 사이�
 ## <a name="next-steps"></a>다음 단계
 
 - [개요](media-services-overview.md)
-- [Media Services v2 릴리스 정보](../previous/media-services-release-notes.md)
+- [Media Services v2 release notes](../previous/media-services-release-notes.md)

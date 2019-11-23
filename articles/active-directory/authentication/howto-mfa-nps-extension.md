@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5faf7c73e071b1eb075a72dac103b92e982ed84
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381750"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420620"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -68,9 +68,9 @@ Windows PowerShell용 Microsoft Azure Active Directory 모듈은 아직 설치�
 
 NPS 확장을 사용하는 모든 사용자는 Azure AD Connect를 사용하여 Azure Active Directory와 동기화되어야 하며 MFA에 등록되어야 합니다.
 
-확장을 설치할 때 Azure AD 테넌트에 대한 디렉터리 ID와 관리자 자격 증명이 필요합니다. [Azure Portal](https://portal.azure.com)에서 디렉터리 ID를 찾을 수 있습니다. 관리자로 로그인하고 왼쪽의 **Azure Active Directory** 아이콘을 선택한 다음 **속성**을 선택합니다. **디렉터리 ID** 상자에서 GUID를 복사하고 저장합니다. NPS 확장을 설치할 때 이 GUID를 테넌트 ID로 사용합니다.
+확장을 설치할 때 Azure AD 테넌트에 대한 디렉터리 ID와 관리자 자격 증명이 필요합니다. [Azure Portal](https://portal.azure.com)에서 디렉터리 ID를 찾을 수 있습니다. 관리자 권한으로 로그인합니다. Search for and select the **Azure Active Directory**, then select **Properties**. **디렉터리 ID** 상자에서 GUID를 복사하고 저장합니다. NPS 확장을 설치할 때 이 GUID를 테넌트 ID로 사용합니다.
 
-![Azure Active Directory 속성에서 디렉터리 ID 찾기](./media/howto-mfa-nps-extension/find-directory-id.png)
+![Azure Active Directory 속성에서 디렉터리 ID 찾기](./media/howto-mfa-nps-extension/properties-directory-id.png)
 
 ### <a name="network-requirements"></a>네트워크 요구 사항
 
