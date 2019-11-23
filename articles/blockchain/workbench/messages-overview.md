@@ -1,21 +1,15 @@
 ---
-title: Azure Blockchain Workbench 메시지 통합 개요
-description: Azure Blockchain 워크 벤치 미리 보기에서 메시지 사용에 대 한 개요입니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Use messages to integrate with Azure Blockchain Workbench
+description: Overview of using messages to integrate Azure Blockchain Workbench Preview with other systems.
 ms.date: 09/05/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 99159b15ea663d43d125748d6db1f334b72931ae
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 14bd0f84bc9490d95d3dbe0b9f122882f0d2059d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161805"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324502"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Azure Blockchain Workbench 메시지 통합 개요
 
@@ -65,7 +59,7 @@ Blockchain Workbench는 다음 필드가 포함된 응답을 반환합니다.
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | 클라이언트 제공 GUID입니다. |
 | userId                | 생성된 사용자의 ID입니다. |
-| userChainIdentifier   | 블록체인 네트워크에서 생성된 사용자의 주소입니다. Ethereum에서 주소는 사용자의 **체인** 주소입니다. |
+| userChainIdentifier   | 블록체인 네트워크에서 생성된 사용자의 주소입니다. In Ethereum, the address is the user's **on-chain** address. |
 | connectionId          | 블록체인 연결에 대한 고유 식별자입니다.|
 | messageSchemaVersion  | 메시징 스키마 버전입니다. |
 | messageName           | **CreateUserUpdate** |
@@ -375,7 +369,7 @@ Service Bus 토픽을 사용하여 Blockchain Workbench에서 발생하는 이�
 
 ## <a name="notification-message-reference"></a>알림 메시지 참조
 
-**Messagename**에 따라 알림 메시지의 메시지 유형 중 하나는 다음과 같습니다.
+Depending on the **messageName**, the notification messages have one of the following message types.
 
 ### <a name="block-message"></a>블록 메시지
 
@@ -556,7 +550,7 @@ Blockchain Workbench에서 *ContractMessage*의 예제:
 }
 ```
 
-### <a name="event-message-contract-function-invocation"></a>이벤트 메시지: 계약 함수 호출
+### <a name="event-message-contract-function-invocation"></a>Event message: Contract function invocation
 
 계약 함수가 호출되었을 때 함수 이름, 매개 변수 입력 및 함수의 호출자와 같은 정보를 포함합니다.
 
@@ -636,7 +630,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 }
 ```
 
-### <a name="event-message-application-ingestion"></a>이벤트 메시지: 응용 프로그램 수집
+### <a name="event-message-application-ingestion"></a>Event message: Application ingestion
 
 애플리케이션이 Workbench에 업로드될 때 업로드된 애플리케이션의 이름 및 버전과 같은 정보를 포함합니다.
 
@@ -678,7 +672,7 @@ Blockchain Workbench에서 *EventMessage ContractFunctionInvocation*의 예제:
 | id | Azure Blockchain Workbench 내 애플리케이션 워크플로에 대한 고유 식별자입니다. |
 | 이름 | 애플리케이션 워크플로 이름 |
 | displayName | 애플리케이션 워크플로 표시 이름 |
-| Functions | [응용 프로그램 워크플로에 대 한 함수](#workflow-function-information) 컬렉션입니다.|
+| Functions | Collection of [functions for the application workflow](#workflow-function-information)|
 | states | [애플리케이션 워크플로에 대한 상태](#workflow-state-information)의 컬렉션 |
 | properties | 애플리케이션 [워크플로 속성 정보](#workflow-property-information) |
 
@@ -830,7 +824,7 @@ Blockchain Workbench에서 *EventMessage ApplicationIngestion*의 예제:
 }
 ```
 
-### <a name="event-message-role-assignment"></a>이벤트 메시지: 역할 할당
+### <a name="event-message-role-assignment"></a>Event message: Role assignment
 
 사용자가 Workbench의 역할에 할당될 때 역할 할당을 수행한 사용자와 역할의 이름 및 해당 애플리케이션과 같은 정보를 포함합니다.
 

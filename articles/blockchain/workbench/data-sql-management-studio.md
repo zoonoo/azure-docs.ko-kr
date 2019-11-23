@@ -1,27 +1,22 @@
 ---
-title: SQL database와 함께 Azure Blockchain 워크 벤치 데이터 사용
+title: Query Azure Blockchain Workbench data using SQL Server Management Studio
 description: SQL Server Management Studio 내에서 Azure Blockchain Workbench의 SQL Database에 연결하는 방법을 알아봅니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 11/20/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 3a734c09b3a74fbe4165f4de25ce450fd3fbde1d
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: f87d1880c90202fa26b0477e3b4dfbed5965bb82
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286719"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326032"
 ---
 # <a name="using-azure-blockchain-workbench-data-with-sql-server-management-studio"></a>SQL Server Management Studio에 Azure Blockchain Workbench 데이터 사용
 
-Microsoft SQL Server Management Studio는 Azure Blockchain Workbench의 SQL DB에 대한 쿼리를 신속하게 작성하고 테스트할 수 있는 기능을 제공합니다. 이 섹션에는 SQL Server Management Studio 내에서 Azure Blockchain 워크 벤치의 SQL Database에 연결 하는 방법에 대 한 단계별 연습이 포함 되어 있습니다.
+Microsoft SQL Server Management Studio는 Azure Blockchain Workbench의 SQL DB에 대한 쿼리를 신속하게 작성하고 테스트할 수 있는 기능을 제공합니다. This section contains a step-by-step walkthrough of how to connect to Azure Blockchain Workbench's SQL Database from within SQL Server Management Studio.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)를 다운로드합니다.
 

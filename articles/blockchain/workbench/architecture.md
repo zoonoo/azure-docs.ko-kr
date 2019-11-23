@@ -1,27 +1,21 @@
 ---
-title: Azure Blockchain 워크 벤치 미리 보기 아키텍처
-description: Azure Blockchain 워크 벤치 미리 보기 아키텍처 및 해당 구성 요소에 대 한 개요입니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Workbench 아키텍처
+description: Overview of Azure Blockchain Workbench Preview architecture and its components.
 ms.date: 09/05/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 4613d441fd0d363654073d4832de19139a7781e7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: aa972e8ae486d181f0c48df72ec89c925c940451
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579736"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324890"
 ---
-# <a name="azure-blockchain-workbench-preview-architecture"></a>Azure Blockchain 워크 벤치 미리 보기 아키텍처
+# <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain 워크 벤치 Preview는 여러 Azure 구성 요소를 사용 하 여 솔루션을 제공 하 여 블록 체인 응용 프로그램 개발을 간소화 합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
-![블록 체인 워크 벤치 아키텍처](./media/architecture/architecture.png)
+![Blockchain Workbench architecture](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>ID 및 인증
 

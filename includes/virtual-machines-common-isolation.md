@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/18/2019
 ms.author: azcspmt;ayshak;cynthn
 ms.custom: include file
-ms.openlocfilehash: d85ea932a62718d04e0c0aff1eeae80472a410f1
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4aa995e8e246e96b4fdac59a7ad94fa4abd3cabc
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173917"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378221"
 ---
 Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전용인 가상 머신 크기를 제공합니다.  이러한 가상 머신 크기는 규정 준수 및 규정 요구 사항과 같은 요소를 포함하는 작업에 대해 다른 고객으로부터 높은 수준의 격리가 필요한 작업에 가장 적합합니다.  고객은 [중첩된 가상 머신에 대한 Azure 지원](https://azure.microsoft.com/blog/nested-virtualization-in-azure/)을 사용하여 이러한 격리된 가상 머신의 리소스를 보다 세분화할 수도 있습니다.
 
@@ -27,77 +27,77 @@ Azure Compute는 특정 하드웨어 유형에서 격리되고 단일 고객 전
 * Standard_D15_v2
 * Standard_F72s_v2
 
-[여기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory)에서 사용 가능한 각 격리 된 크기에 대해 자세히 알아볼 수 있습니다.
+You can learn more about each available isolated size [here](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory).
 
-## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>2020 년 2 월 15 일 D15_v2/DS15_v2 격리 사용 중지
-최근 Azure 전용 호스트의 미리 보기를 발표 했습니다 .이를 통해 단일 테 넌 트 물리적 서버에서 조직의 Linux 및 Windows 가상 머신을 실행할 수 있습니다. 격리 된 Azure Vm을 Azure 전용 호스트로 완전히 바꿀 예정입니다. **2020 년 2 월 15 일** 이후 D15_v2/DS15_v2 Azure vm은 더 이상 하드웨어로 격리 되지 않을 수 있습니다.
+## <a name="retiring-d15_v2ds15_v2-isolation-on-february-15-2020"></a>Retiring D15_v2/DS15_v2 isolation on February 15, 2020
+We recently announced the Preview of Azure Dedicated Host, which allows you to run your organization’s Linux and Windows virtual machines on single-tenant physical servers. We plan to fully replace isolated Azure VMs with Azure Dedicated Host. After **February 15, 2020** the D15_v2/DS15_v2 Azure VMs may no longer be hardware isolated.
 
-## <a name="how-does-this-affect-me"></a>이는 어떻게 영향을 미칩니까?
-2020 년 2 월 15 일 이후에는 D15_v2/DS15_v2 Azure virtual machines에 대 한 격리 보증을 더 이상 제공 하지 않습니다. 
+## <a name="how-does-this-affect-me"></a>How does this affect me?
+After February 15, 2020, we will no longer provide an isolation guarantee for your D15_v2/DS15_v2 Azure virtual machines. 
 
-## <a name="what-actions-should-i-take"></a>어떤 작업을 수행 해야 하나요?
-하드웨어 격리가 필요 하지 않은 경우에는 수행 해야 하는 작업이 없습니다. 
+## <a name="what-actions-should-i-take"></a>What actions should I take?
+If hardware isolation is not required for you, there is no action you need to take. 
 
-2020 년 2 월 15 일 이전에 격리 해야 하는 경우 다음 중 하나를 수행 해야 합니다.
+If isolation is required to you, before February 15, 2020, you would need to either:
 
-• 워크 로드를 Azure 전용 호스트 미리 보기로 [마이그레이션](https://azure.microsoft.com/blog/introducing-azure-dedicated-host)
+•   [Migrate](https://azure.microsoft.com/blog/introducing-azure-dedicated-host) your workload to Azure Dedicated Host Preview
 
-• D15i_v2에 대 한 [액세스를 요청](https://aka.ms/D15iRequestAccess) 하 고 Azure VM을 DS15i_v2 하 여 동일한 가격의 성능을 얻을 수 있습니다. 이 옵션은 종 량 제 및 1 년 예약 인스턴스 시나리오에만 사용할 수 있습니다.    
+•   [Request access](https://aka.ms/D15iRequestAccess) to a D15i_v2 and DS15i_v2 Azure VM, to get the same price performance. This option is only available for pay-as-you-go and one-year reserved instance scenarios.    
 
-• 워크 로드를 다른 Azure 격리 가상 머신으로 [마이그레이션합니다](https://azure.microsoft.com/blog/resize-virtual-machines/) . 
+•   [Migrate](https://azure.microsoft.com/blog/resize-virtual-machines/) your workload to another Azure isolated virtual machine. 
 
-자세한 내용은 다음을 참조 하세요.
+For details see below:
 
 ## <a name="timeline"></a>타임라인
-| Date | 작업 | 
+| 날짜 | 실행력 | 
 | --- | --- |
-| 2019 년 11 월 18 일  | D/DS15i_v2의 가용성 (PAYG, 1 년 RI) |
-| 2 월 14 일, 2020  | D/DS15i_v2 1 년 RI의 최근 구매 날짜 | 
-| 2 월 15 일 2020   | D/DS15_v2 격리 보장 제거 | 
-| 5 월 15 일, 2021  | D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 DS15_v2 RI를 구매한 사용자를 제외한 모든 고객)| 
-| 2022 년 11 월 17 일   | 3 년 RIs가 완료 될 때 D/DS15i_v2 사용 중지 (2019 년 11 월 18 일 이전에 3 년 RI의 D/DS15_v2를 구매한 고객의 경우) | 
+| Nov 18, 2019  | Availability of D/DS15i_v2 (PAYG, 1-year RI) |
+| Feb 14, 2020  | Last day to buy D/DS15i_v2 1-year RI | 
+| Feb 15, 2020   | D/DS15_v2 isolation guarantee removed | 
+| May 15, 2021  | Retire D/DS15i_v2 (all customers except who bought 3-year RI of D/DS15_v2 before November 18, 2019)| 
+| Nov 17, 2022   | Retire D/DS15i_v2 when 3-year RIs done (for customers who bought 3-year RI of D/DS15_v2 before November 18, 2019) | 
 
 ## <a name="faq"></a>FAQ
-### <a name="q-why-am-i-not-seeing-the-new-dds15i_v2-sizes-in-the-portal"></a>Q: 포털에서 새로운 D/DS15i_v2 크기가 표시 되지 않는 이유는 무엇 인가요?
-**A**: 현재 d/DS15_v2 고객 이며 새로운 d/DS15i_v2 크기를 사용 하려는 경우이 [양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u) 작성 하세요.
+### <a name="q-why-am-i-not-seeing-the-new-dds15i_v2-sizes-in-the-portal"></a>Q: Why am I not seeing the new D/DS15i_v2 sizes in the portal?
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u)
 
-### <a name="q-why-i-am-not-seeing-any-quota-for-the-new-dds15i_v2-sizes"></a>Q: 새 D/DS15i_v2 크기에 대 한 할당량이 표시 되지 않는 이유는 무엇 인가요?
-**A**: 현재 d/DS15_v2 고객 이며 새로운 d/DS15i_v2 크기를 사용 하려는 경우이 [양식을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUMkZUWEFPNjFPNVgyMkhZS05FSzlPTzRIOS4u) 작성 하세요.
+### <a name="q-why-i-am-not-seeing-any-quota-for-the-new-dds15i_v2-sizes"></a>Q: Why I am not seeing any quota for the new D/DS15i_v2 sizes?
+**A**: If you are a current D/DS15_v2 customer and want to use the new D/DS15i_v2 sizes, please fill this [form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0FTPNXHdWpJlO27GE-bHitUNU1XUkhZWkNXQUFMNEJWUk9VWkRRVUJPMy4u)
 
-### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>Q: 다른 격리 된 크기는 언제 사용 중지 될 예정 인가요?
-**A**: 크기의 공식 서비스 해제를 사전에 12 개월 전에 미리 알림을 제공 합니다.
+### <a name="q-when-are-the-other-isolated-sizes-going-to-retire"></a>Q: When are the other isolated sizes going to retire?
+**A**: We will provide reminders 12 months in advance of the official decommissioning of the sizes.
 
-### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q: vm이 격리 되지 않은 하드웨어에 있는 경우 가동 중지 시간이 있나요?
-**A**: 격리가 필요 하지 않은 경우 아무 작업도 수행할 필요가 없으며 가동 중지 시간이 표시 되지 않습니다.
+### <a name="q-is-there-a-downtime-when-my-vm-lands-on-a-non-isolated-hardware"></a>Q: Is there a downtime when my vm lands on a non-isolated hardware?
+**A**: If you do not need isolation you do not need to take any action and you would not see any downtime.
 
-### <a name="q-are-there-any-cost-changes-for-moving-to-a-non-isolated-virtual-machine"></a>Q: 격리 되지 않은 가상 머신으로 이동 하기 위한 비용 변화가 있나요?
-**A**: 아니요 
+### <a name="q-are-there-any-cost-changes-for-moving-to-a-non-isolated-virtual-machine"></a>Q: Are there any cost changes for moving to a non-isolated virtual machine?
+**A**: No 
 
-### <a name="q-i-already-purchased-1--or-3-year-reserved-instance-for-d15_v2-or-ds15_v2-how-will-the-discount-be-applied-to-my-vm-usage"></a>Q: D15_v2 또는 Ds15_v2에 대해 1 년 또는 3 년 예약 인스턴스를 이미 구입 했습니다. 내 VM 사용에 할인이 적용 되는 방법
-**A**: 2019 년 11 월 18 일 이전에 구매한 RIs는 새 격리 된 VM 시리즈에 대 한 검사를 자동으로 확장 합니다. 
+### <a name="q-i-already-purchased-1--or-3-year-reserved-instance-for-d15_v2-or-ds15_v2-how-will-the-discount-be-applied-to-my-vm-usage"></a>Q: I already purchased 1- or 3-year Reserved Instance for D15_v2 or Ds15_v2. How will the discount be applied to my VM usage?
+**A**: RIs purchased before November 18, 2019 will automatically extend coverage to the new isolated VM series. 
 
-| RI |  인스턴스 크기 유연성 | 혜택 자격 |   
+| RI |  Instance Size Flexibility | Benefit eligibility |   
 | --- | --- | --- |
-|   D15_v2  |   끄기     |   D15_v2 및 D15i_v2 |    
-|   D15_v2  |   켜짐  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
-|   D14_v2  |   켜짐  |   D15_v2 시리즈 및 D15i_v2는 모두 RI 혜택을 받습니다. |    
+|   D15_v2  |   해제     |   D15_v2 and D15i_v2 |    
+|   D15_v2  |   설정  |   D15_v2 series and D15i_v2 will all receive the RI benefit. |    
+|   D14_v2  |   설정  |   D15_v2 series and D15i_v2 will all receive the RI benefit. |    
  
-Dsv2 시리즈의 경우에도 마찬가지입니다.
+Likewise for Dsv2 series.
  
-### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>Q: Dv2에 대 한 추가 예약 인스턴스를 구매 하려고 합니다. 어떤 것을 선택 해야 하나요?
-**A**: 2019 년 11 월 18 일 이후에 구매한 모든 RIs는 다음 동작을 수행 합니다. 
+### <a name="q-i-want-to-purchase-additional-reserved-instances-for-dv2-which-one-should-i-choose"></a>Q: I want to purchase additional Reserved Instances for Dv2. Which one should I choose?
+**A**: All RIs purchased after Nov 18, 2019, have the following behavior. 
 
-| RI |  인스턴스 크기 유연성 | 혜택 자격 |   
+| RI |  Instance Size Flexibility | Benefit eligibility |   
 | --- | --- | --- |
-| D15_v2 |  끄기 |   D15_v2만  
-| D15_v2 |  켜짐 |    D15_v2 시리즈는 RI 혜택을 받습니다. 새 D15i_v2는이 RI 유형의 RI 혜택에 적합 하지 않습니다. | 
-| D15i_v2 |     끄기 | D15i_v2만 |  
-| D15i_v2 |     켜짐  | D15i_v2만 | 
+| D15_v2 |  해제 |   D15_v2 only  
+| D15_v2 |  설정 |    D15_v2 series will receive the RI benefit. The new D15i_v2 will not be eligible for RI benefit from this RI type. | 
+| D15i_v2 |     해제 | D15i_v2 only |  
+| D15i_v2 |     설정  | D15i_v2 only | 
  
-인스턴스 크기 유연성을 사용 하 여 D2_v2, D4_v2, D15_v2 등의 다른 크기에 적용할 수 없습니다. 마찬가지로 Dsv2 시리즈의 경우입니다.  
+Instance Size Flexibility cannot be used to apply to any other sizes such as D2_v2, D4_v2, or D15_v2. Likewise, for Dsv2 series.  
  
-### <a name="q-can-i-buy-a-new-3-year-ri-for-d15i_v2-and-ds15i_v2"></a>Q: D15i_v2 및 DS15i_v2에 대해 새로운 3 년 RI를 구입할 수 있습니까?
-**A**: 아쉽게도 1 년 RI만 새 구매에 사용할 수 있습니다.
+### <a name="q-can-i-buy-a-new-3-year-ri-for-d15i_v2-and-ds15i_v2"></a>Q: Can I buy a new 3-year RI for D15i_v2 and DS15i_v2?
+**A**: Unfortunately no, only 1-year RI is available for new purchase.
  
-### <a name="q-can-i-move-my-existing-d15_v2ds15_v2-reserve-instance-to-an-isolated-size-reserved-instance"></a>Q: 기존 D15_v2/DS15_v2 예약 인스턴스를 분리 된 크기의 예약 된 인스턴스로 이동할 수 있나요?
-**A**:이 기능은 격리 된 크기와 격리 되지 않은 크기 모두에 적용 되므로 필요 하지 않습니다. 그러나 Azure는 기존 D15_v2/DS15_v2 예약 된 인스턴스를 D15i_v2/DS15i_v2로 변경 하는 기능을 지원 합니다. 다른 모든 Dv2/Dsv2 예약 인스턴스의 경우 기존 예약 인스턴스를 사용 하거나 격리 된 크기에 대해 새 예약 인스턴스를 구입 합니다.
+### <a name="q-can-i-move-my-existing-d15_v2ds15_v2-reserve-instance-to-an-isolated-size-reserved-instance"></a>Q: Can I move my existing D15_v2/DS15_v2 Reserve Instance to an isolated size Reserved Instance?
+**A**: This is not necessary since the benefit will apply to both isolated and non-isolated sizes. But Azure will support changing existing D15_v2/DS15_v2 Reserved Instances to D15i_v2/DS15i_v2. For all other Dv2/Dsv2 Reserved Instances, use the existing Reserved Instance or buy new Reserved Instances for the isolated sizes.

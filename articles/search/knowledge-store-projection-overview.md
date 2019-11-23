@@ -1,85 +1,85 @@
 ---
-title: 기술 자료 저장소에서 프로젝션 사용 (미리 보기)
+title: Working with projections in a knowledge store (preview)
 titleSuffix: Azure Cognitive Search
-description: AI 보강 인덱싱 파이프라인의 보강 데이터를 전체 텍스트 검색 이외의 시나리오에서 사용할 정보 저장소로 저장 하 고 셰이프를 저장 합니다. 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다.
+description: Save and shape your enriched data from the AI enrichment indexing pipeline into a knowledge store for use in scenarios other than full text search. 지식 저장소는 현재 공개 미리 보기로 제공됩니다.
 manager: nitinme
 author: vkurpad
 ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: bb6af4be232810c1f5d135e459238e2e4f2cd5d8
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: e7ed7eef961e357b8c1e4e59790f9f150c286c61
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720046"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326603"
 ---
-# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 자료 저장소에서 프로젝션 사용
+# <a name="working-with-projections-in-a-knowledge-store-in-azure-cognitive-search"></a>Working with projections in a knowledge store in Azure Cognitive Search
 
 > [!IMPORTANT] 
-> 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-미리](search-api-preview.md) 보기는 미리 보기 기능을 제공 합니다. 현재는 포털 지원이 제한적 이며 .NET SDK를 지원 하지 않습니다.
+> 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되는 인식 기술 및 사용자 지정 기술을 통해 콘텐츠를 보강 수 있습니다. 강화를 사용 하 여 문서에 구조를 추가 하 고 검색을 더 효과적으로 수행할 수 있습니다. 대부분의 경우 보강 문서는 검색 이외의 시나리오 (예: 기술 자료 마이닝)에 유용 합니다.
+Azure Cognitive Search enables content enrichment through built-in cognitive skills and custom skills as part of indexing. Enrichments add structure to your documents and make searching more effective. In many instances, the enriched documents are useful for scenarios other than search, such as for knowledge mining.
 
-[기술 자료 저장소](knowledge-store-concept-intro.md)의 구성 요소인 프로젝션은 기술 자료를 위해 실제 저장소에 저장할 수 있는 보강 문서에 대 한 뷰입니다. 프로젝션을 사용 하면 필요에 맞게 데이터를 "프로젝션" 하 여 Power BI 같은 도구에서 추가 작업 없이 데이터를 읽을 수 있도록 관계를 유지할 수 있습니다.
+Projections, a component of [knowledge store](knowledge-store-concept-intro.md), are views of enriched documents that can be saved to physical storage for knowledge mining purposes. A projection lets you "project" your data into a shape that aligns with your needs, preserving relationships so that tools like Power BI can read the data with no additional effort.
 
-프로젝션은 Azure Table storage의 행 및 열에 저장 된 데이터 또는 Azure Blob storage에 저장 된 JSON 개체를 사용 하 여 테이블 형식으로 지정할 수 있습니다. 보강 되는 데이터의 여러 프로젝션을 정의할 수 있습니다. 여러 프로젝션은 개별 사용 사례에 대해 동일한 데이터 모양을 다르게 하려는 경우에 유용 합니다.
+Projections can be tabular, with data stored in rows and columns in Azure Table storage, or JSON objects stored in Azure Blob storage. You can define multiple projections of your data as it is being enriched. Multiple projections are useful when you want the same data shaped differently for individual use cases.
 
-기술 자료 저장소는 세 가지 유형의 프로젝션을 지원 합니다.
+The knowledge store supports three types of projections:
 
-+ **테이블**: 행 및 열로 가장 잘 표현 되는 데이터의 경우 테이블 프로젝션을 사용 하 여 테이블 저장소에서 스키마 화 된 셰이프 또는 프로젝션을 정의할 수 있습니다.
++ **Tables**: For data that's best represented as rows and columns, table projections allow you to define a schematized shape or projection in Table storage.
 
-+ **개체**: 데이터 및 강화의 JSON 표현이 필요한 경우 개체 프로젝션이 blob으로 저장 됩니다.
++ **Objects**: When you need a JSON representation of your data and enrichments, object projections are saved as blobs.
 
-+ **파일**: 문서에서 추출한 이미지를 저장 해야 하는 경우 파일 프로젝션을 통해 정규화 된 이미지를 저장할 수 있습니다.
++ **Files**: When you need to save the images extracted from the documents, file projections allow you to save the normalized images.
 
-컨텍스트에 정의 된 프로젝션을 보려면 [기술 자료 저장소를 시작 하는 방법을](knowledge-store-howto.md)단계별로 안내 합니다.
+To see projections defined in context, step through [How to get started with knowledge store](knowledge-store-howto.md).
 
-## <a name="projection-groups"></a>프로젝션 그룹
+## <a name="projection-groups"></a>Projection groups
 
-경우에 따라 서로 다른 목표를 충족 하기 위해 보강 데이터를 다른 모양으로 프로젝션 해야 하는 경우도 있습니다. 기술 자료 저장소를 사용 하면 여러 개의 프로젝션 그룹을 정의할 수 있습니다. 프로젝션 그룹에는 상호 독점 성을 및 관련성의 다음과 같은 주요 특징이 있습니다.
+In some cases, you will need to project your enriched data in different shapes to meet different objectives. The knowledge store allows you to define multiple groups of projections. Projection groups have the following key characteristics of mutual exclusivity and relatedness.
 
-### <a name="mutual-exclusivity"></a>상호 독점 성을
+### <a name="mutual-exclusivity"></a>Mutual exclusivity
 
-단일 그룹으로 프로젝션 된 모든 콘텐츠는 다른 프로젝션 그룹으로 프로젝션 된 데이터와는 독립적입니다.
-이러한 독립성은 동일한 데이터를 서로 다른 모양으로 표시 하 고 각 프로젝션 그룹에서 반복할 수 있음을 의미 합니다.
+All content projected into a single group is independent of data projected into other projection groups.
+This independence implies that you can have the same data shaped differently, yet repeated in each projection group.
 
-### <a name="relatedness"></a>관련성
+### <a name="relatedness"></a>Relatedness
 
-이제 프로젝션 그룹을 사용 하 여 프로젝션 형식 간에 관계를 유지 하면서도 프로젝션 형식 간에 문서를 투영할 수 있습니다. 단일 프로젝션 그룹 내에서 프로젝션 된 모든 콘텐츠는 프로젝션 형식 간에 데이터 내에서 관계를 유지 합니다. 테이블 내에서 관계는 생성 된 키를 기반으로 하며 각 자식 노드는 부모 노드에 대 한 참조를 유지 합니다. 형식 (테이블, 개체 및 파일) 간에는 단일 노드가 여러 형식에서 프로젝션 될 때 관계가 유지 됩니다. 예를 들어 이미지와 텍스트가 포함 된 문서가 있는 시나리오를 가정해 보겠습니다. 테이블 또는 개체에 파일 URL을 포함 하는 속성이 있는 테이블이 나 개체 및 이미지에 대 한 텍스트를 프로젝션 할 수 있습니다.
+Projection groups now allow you to project your documents across projection types while preserving the relationships across projection types. All content projected within a single projection group preserves relationships within the data across projection types. Within tables, relationships are based on a generated key and each child node retains a reference to the parent node. Across types (tables, objects, and files), relationships are preserved when a single node is projected across different types. For example, consider a scenario where you have a document containing images and text. You could project the text to tables or objects and the images to files where the tables or objects have a property containing the file URL.
 
-## <a name="input-shaping"></a>입력 셰이핑
+## <a name="input-shaping"></a>Input shaping
 
-올바른 모양 또는 구조에서 데이터를 가져오는 것은 테이블이 나 개체 일 수 있는 효과적인 용도입니다. 액세스 및 사용을 계획 하는 방법에 따라 데이터를 모양 또는 구성 하는 기능은 기술 내에서 **Shaper** 기술로 노출 되는 주요 기능입니다.  
+Getting your data in the right shape or structure is key to effective use, be it tables or objects. The ability to shape or structure your data based on how you plan to access and use it is a key capability exposed as the **Shaper** skill within the skillset.  
 
-프로젝션의 스키마와 일치 하는 보강 트리에 개체가 있는 경우 프로젝션을 정의 하는 것이 더 쉽습니다. 업데이트 된 [Shaper 기술을](cognitive-search-skill-shaper.md) 사용 하 여 보강 트리의 여러 노드에서 개체를 작성 하 고 새 노드 아래에 부모를 지정할 수 있습니다. **Shaper** 기술로 중첩 된 개체를 사용 하 여 복합 형식을 정의할 수 있습니다.
+Projections are easier to define when you have an object in the enrichment tree that matches the schema of the projection. The updated [Shaper skill](cognitive-search-skill-shaper.md) allows you to compose an object from different nodes of the enrichment tree and parent them under a new node. The **Shaper** skill allows you to define complex types with nested objects.
 
-프로젝트를 실행 하는 데 필요한 모든 요소를 포함 하는 새 셰이프를 정의 하는 경우 이제이 셰이프를 프로젝션의 소스로 사용 하거나 다른 기술에 대 한 입력으로 사용할 수 있습니다.
+When you have a new shape defined that contains all the elements you need to project out, you can now use this shape as the source for your projections or as an input to another skill.
 
-## <a name="projection-slicing"></a>프로젝션 조각화
+## <a name="projection-slicing"></a>Projection slicing
 
-프로젝션 그룹을 정의할 때 보강 트리의 단일 노드를 관련 된 여러 테이블 또는 개체로 분할할 수 있습니다. 기존 프로젝션의 자식인 원본 경로를 사용 하 여 프로젝션을 추가 하면 자식 노드가 부모 노드에서 분리 되 고 새로운 관련 테이블이 나 개체로 프로젝션 됩니다. 이 기술을 사용 하면 모든 프로젝션의 소스가 될 수 있는 shaper 기술에서 단일 노드를 정의할 수 있습니다.
+When defining a projection group, a single node in the enrichment tree can be sliced into multiple related tables or objects. Adding a projection with a source path that is a child of an existing projection will result in the child node being sliced out of the parent node and projected into the new yet related table or object. This technique allows you to define a single node in a shaper skill that can be the source for all of your projections.
 
-## <a name="table-projections"></a>테이블 프로젝션
+## <a name="table-projections"></a>Table projections
 
-가져오기를 용이 하 게 하므로 Power BI를 사용 하 여 데이터 탐색에 대 한 테이블 프로젝션을 사용 하는 것이 좋습니다. 또한 테이블 프로젝션을 사용 하면 테이블 관계 간의 카디널리티를 변경할 수 있습니다. 
+Because it makes importing easier, we recommend table projections for data exploration with Power BI. Additionally, table projections allow for changing the cardinality between table relationships. 
 
-인덱스의 단일 문서를 여러 테이블에 프로젝션 하 여 관계를 유지할 수 있습니다. 여러 테이블로 프로젝션 하는 경우 자식 노드가 동일한 그룹 내에 있는 다른 테이블의 원본이 아니면 전체 셰이프가 각 테이블에 투영 됩니다.
+You can project a single document in your index into multiple tables, preserving the relationships. When projecting to multiple tables, the complete shape will be projected into each table, unless a child node is the source of another table within the same group.
 
-### <a name="defining-a-table-projection"></a>테이블 프로젝션 정의
+### <a name="defining-a-table-projection"></a>Defining a table projection
 
-기술의 `knowledgeStore` 요소 내에서 테이블 프로젝션을 정의 하는 경우 먼저 보강 트리의 노드를 테이블 원본에 매핑합니다. 일반적으로이 노드는 테이블에 프로젝션 해야 하는 특정 셰이프를 생성 하는 기술 목록에 추가 된 **Shaper** 기술의 출력입니다. 프로젝트를 선택 하 여 프로젝트를 여러 테이블로 분할할 수 있습니다. 테이블 정의는 프로젝트 하려는 테이블의 목록입니다.
+When defining a table projection within the `knowledgeStore` element of your skillset, start by mapping a node on the enrichment tree to the table source. Typically this node is the output of a **Shaper** skill that you added to the list of skills to produce a specific shape that you need to project into tables. The node you choose to project can be sliced to project into multiple tables. The tables definition is a list of tables that you want to project.
 
-각 테이블에는 세 가지 속성이 필요 합니다.
+Each table requires three properties:
 
-+ tableName: Azure Storage에 있는 테이블의 이름입니다.
++ tableName: The name of the table in Azure Storage.
 
-+ generatedKeyName:이 행을 고유 하 게 식별 하는 키의 열 이름입니다.
++ generatedKeyName: The column name for the key that uniquely identifies this row.
 
-+ 원본: 강화를 소싱 하는 보강 트리의 노드입니다. 일반적으로이 노드는 shaper의 출력 이지만 모든 기술의 출력이 될 수 있습니다.
++ source: The node from the enrichment tree you are sourcing your enrichments from. This node is usually the output of a shaper, but could be the output of any of the skills.
 
-표 프로젝션의 예는 다음과 같습니다.
+Here is an example of table projections.
 
 ```json
 {
@@ -112,15 +112,17 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 }
 ```
 
-이 예제에서 설명한 것 처럼 키 구와 엔터티는 서로 다른 테이블로 모델링 되며 각 행에 대 한 부모 (MainTable)에 대 한 참조를 포함 합니다.
+As demonstrated in this example, the key phrases and entities are modeled into different tables and will contain a reference back to the parent (MainTable) for each row.
 
-다음 그림은 [기술 자료 저장소를 시작 하는 방법](knowledge-store-howto.md)의 사례에 대 한 참조입니다. 대/소문자에 여러 개의 의견이 있는 시나리오에서 각 의견에 포함 된 엔터티를 식별 하 여 각 의견을 보강 여기에 표시 된 대로 프로젝션을 모델링할 수 있습니다.
+<!---
+The following illustration is a reference to the Case-law exercise in [How to get started with knowledge store](knowledge-store-howto.md). In a scenario where a case has multiple opinions, and each opinion is enriched by identifying entities contained within it, you could model the projections as shown here.
 
-![테이블의 엔터티 및 관계](media/knowledge-store-projection-overview/TableRelationships.png "테이블 프로젝션에서 관계 모델링")
+![Entities and relationships in tables](media/knowledge-store-projection-overview/TableRelationships.png "Modeling relationships in table projections")
+--->
 
-## <a name="object-projections"></a>개체 프로젝션
+## <a name="object-projections"></a>Object projections
 
-개체 프로젝션은 모든 노드에서 원본으로 사용할 수 있는 보강 트리의 JSON 표현입니다. 대부분의 경우 테이블 프로젝션을 만드는 동일한 **Shaper** 기술을 사용 하 여 개체 프로젝션을 생성할 수 있습니다. 
+Object projections are JSON representations of the enrichment tree that can be sourced from any node. In many cases, the same **Shaper** skill that creates a table projection can be used to generate an object projection. 
 
 ```json
 {
@@ -156,15 +158,15 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 }
 ```
 
-개체 프로젝션을 생성 하려면 몇 가지 개체 관련 특성이 필요 합니다.
+Generating an object projection requires a few object-specific attributes:
 
-+ storageContainer: 개체가 저장 될 컨테이너입니다.
-+ source: 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다.
-+ 키: 저장할 개체의 고유 키를 나타내는 경로입니다. 컨테이너에서 blob의 이름을 만드는 데 사용 됩니다.
++ storageContainer: The container where the objects will be saved
++ source: The path to the node of the enrichment tree that is the root of the projection
++ key: A path that represents a unique key for the object to be stored. It will be used to create the name of the blob in the container.
 
-## <a name="file-projection"></a>파일 프로젝션
+## <a name="file-projection"></a>File projection
 
-파일 프로젝션은 개체 프로젝션과 비슷하며 `normalized_images` 컬렉션 에서만 작동 합니다. 개체 프로젝션과 마찬가지로 파일 프로젝션은 blob 컨테이너에 문서 ID의 base64 인코딩 값의 폴더 접두사로 저장 됩니다. 파일 프로젝션은 개체 프로젝션과 동일한 컨테이너를 공유할 수 없으며 다른 컨테이너에 프로젝션 해야 합니다.
+File projections are similar to object projections and only act on the `normalized_images` collection. Similar to object projections, file projections are saved in the blob container with folder prefix of the base64 encoded value of the document ID. File projections cannot share the same container as object projections and need to be projected into a different container.
 
 ```json
 {
@@ -198,23 +200,23 @@ Azure Cognitive Search을 사용 하면 인덱싱의 일부로 기본 제공 되
 }
 ```
 
-## <a name="projection-lifecycle"></a>프로젝션 수명 주기
+## <a name="projection-lifecycle"></a>Projection lifecycle
 
-프로젝션에는 데이터 원본의 원본 데이터와 연결 되는 수명 주기가 있습니다. 데이터가 업데이트 되 고 인덱싱해야 되 면 예측은 궁극적으로 데이터 원본의 데이터와 일치 하는지 확인 하는 강화의 결과로 업데이트 됩니다. 프로젝션은 인덱스에 대해 구성한 삭제 정책을 상속 합니다. 인덱서 또는 검색 서비스 자체가 삭제 된 경우에는 프로젝션이 삭제 되지 않습니다.
+Your projections have a lifecycle that is tied to the source data in your data source. As your data is updated and reindexed, your projections are updated with the results of the enrichments ensuring your projections are eventually consistent with the data in your data source. The projections inherit the delete policy you've configured for your index. Projections are not deleted when the indexer or the search service itself is deleted.
 
-## <a name="using-projections"></a>프로젝션 사용
+## <a name="using-projections"></a>Using projections
 
-인덱서를 실행 한 후에는 프로젝션을 통해 지정한 컨테이너 또는 테이블에서 프로젝션 된 데이터를 읽을 수 있습니다.
+After the indexer is run, you can read the projected data in the containers or tables you specified through projections.
 
-분석의 경우 Power BI의 탐색은 Azure Table storage를 데이터 원본으로 설정 하는 것 처럼 간단 합니다. 내에서 관계를 사용 하 여 데이터에 대 한 시각화 집합을 쉽게 만들 수 있습니다.
+For analytics, exploration in Power BI is as simple as setting Azure Table storage as the data source. You can easily create a set of visualizations on your data using the relationships within.
 
-또는 데이터 과학 파이프라인에서 보강 데이터를 사용 해야 하는 경우 [blob의 데이터를 Pandas 데이터 프레임에 로드할](../machine-learning/team-data-science-process/explore-data-blob.md)수 있습니다.
+Alternatively, if you need to use the enriched data in a data science pipeline, you could [load the data from blobs into a Pandas DataFrame](../machine-learning/team-data-science-process/explore-data-blob.md).
 
-마지막으로 기술 자료 저장소에서 데이터를 내보내야 하는 경우 Azure Data Factory에는 데이터를 내보내고 선택한 데이터베이스에 배치 하는 커넥터가 있습니다. 
+Finally, if you need to export your data from the knowledge store, Azure Data Factory has connectors to export the data and land it in the database of your choice. 
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 단계로 샘플 데이터 및 지침을 사용 하 여 첫 번째 정보 저장소를 만듭니다.
+As a next step, create your first knowledge store using sample data and instructions.
 
 > [!div class="nextstepaction"]
-> [기술 자료 저장소를 만드는 방법](knowledge-store-howto.md)
+> [How to create a knowlege store](knowledge-store-howto.md).

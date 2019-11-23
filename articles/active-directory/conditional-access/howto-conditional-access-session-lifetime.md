@@ -1,107 +1,117 @@
 ---
-title: Azure Active Directory 조건부 액세스를 사용 하 여 인증 세션 관리 구성
-description: 사용자 로그인 빈도 및 브라우저 세션 지 속성을 포함 하 여 Azure AD 인증 세션 구성을 사용자 지정 합니다.
+title: Configure authentication session management - Azure Active Directory
+description: Customize Azure AD authentication session configuration including user sign in frequency and browser session persistence.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: calebb
+ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70de9da44d52bd6e93377776a2dbfc1b802dd412
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 225b2248f9d4953e5daa763d9e195cfe2662d05f
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241703"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380723"
 ---
-# <a name="configure-authentication-session-management-with-conditional-access"></a>조건부 액세스를 사용 하 여 인증 세션 관리 구성
+# <a name="configure-authentication-session-management-with-conditional-access"></a>Configure authentication session management with Conditional Access
 
-복잡 한 배포에서는 조직에서 인증 세션을 제한 해야 할 수 있습니다. 일부 시나리오에는 다음이 포함 될 수 있습니다.
+In complex deployments, organizations might have a need to restrict authentication sessions. Some scenarios might include:
 
-* 관리 되지 않는 장치 또는 공유 장치에서 리소스 액세스
-* 외부 네트워크의 중요 한 정보에 대 한 액세스
-* 높은 영향 사용자
-* 중요 업무용 응용 프로그램
+* Resource access from an unmanaged or shared device
+* Access to sensitive information from an external network
+* High impact users
+* Critical business applications
 
-조건부 액세스 제어를 사용 하면 모든 사용자에 게 영향을 주지 않고 조직 내의 특정 사용 사례를 대상으로 하는 정책을 만들 수 있습니다.
+Conditional Access controls allow you to create policies that target specific use cases within your organization without affecting all users.
 
-정책을 구성 하는 방법에 대 한 세부 정보를 살펴보기 전에 기본 구성을 검토해 보겠습니다.
+Before diving into details on how to configure the policy, let’s examine the default configuration.
 
-## <a name="user-sign-in-frequency"></a>사용자 로그인 빈도
+## <a name="user-sign-in-frequency"></a>User sign-in frequency
 
-로그인 빈도는 리소스에 액세스 하려고 할 때 사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 기간을 정의 합니다.
+Sign-in frequency defines the time period before a user is asked to sign in again when attempting to access a resource.
 
-사용자 로그인 빈도에 대 한 Azure Active Directory (Azure AD) 기본 구성은 90 일의 롤링 기간입니다. 사용자에 게 자격 증명을 요청 하는 것이 중요 한 것 처럼 보일 수 있지만,이 경우에는 사용자가 생각 하지 않고 자격 증명을 입력 하도록 학습 한 사용자가 실수로 악성 자격 증명 프롬프트에 해당 자격 증명을 제공할 수 있습니다.
+The Azure Active Directory (Azure AD) default configuration for user sign in frequency is a rolling window of 90 days. Asking users for credentials often seems like a sensible thing to do, but it can backfire: users that are trained to enter their credentials without thinking can unintentionally supply them to a malicious credential prompt.
 
-사용자에 게 다시 로그인 하 라는 메시지가 표시 되는 것을 오류가 심각한 증가 수 있습니다. 실제로 IT 정책 위반으로 인해 세션이 해지 됩니다. 암호 변경, incompliant 장치 또는 계정 비활성화를 비롯 한 몇 가지 예가 있습니다. [PowerShell을 사용 하 여 사용자 세션](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0)을 명시적으로 해지할 수도 있습니다. Azure AD 기본 구성은 "세션의 보안 상태가 변경 되지 않은 경우 사용자에 게 자격 증명을 제공 하지 않습니다." 라는 메시지가 표시 됩니다.
+It might sound alarming to not ask for a user to sign back in, in reality any violation of IT policies will revoke the session. Some examples include (but are not limited to) a password change, an incompliant device, or account disable. You can also explicitly [revoke users’ sessions using PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). The Azure AD default configuration comes down to “don’t ask users to provide their credentials if security posture of their sessions has not changed”.
 
-로그인 빈도 설정은 표준에 따라 OAUTH2 또는 OIDC 프로토콜을 구현한 앱과 함께 작동 합니다. Windows, Mac 및 Mobile 용 Microsoft 네이티브 앱 대부분은 설정을 준수 합니다.
+Sign-in frequency setting works with apps that have implemented OAUTH2 or OIDC protocols according to the standards. Most Microsoft native apps for Windows, Mac, and Mobile including the following comply with the setting.
 
-## <a name="persistence-of-browsing-sessions"></a>검색 세션의 지 속성
+- Word, Excel, PowerPoint Online
+- OneNote Online
+- Office.com
+- O365 Admin portal
+- Exchange Online
+- SharePoint and OneDrive
+- Teams web client
+- Dynamics CRM Online
+- Azure Portal
 
-영구 브라우저 세션을 사용 하면 사용자가 브라우저 창을 닫았다가 다시 연 후 로그인 상태를 유지할 수 있습니다.
+## <a name="persistence-of-browsing-sessions"></a>Persistence of browsing sessions
 
-브라우저 세션 지 속성의 Azure AD 기본값은 개인 장치의 사용자가 "로그인 상태 유지"를 표시 하 여 세션을 유지할지 여부를 선택할 수 있도록 허용 합니다. 인증 성공 후 확인. [AD FS Single Sign-on 설정](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)문서에 있는 지침을 사용 하 여 AD FS에서 브라우저 지 속성을 구성 하는 경우 해당 정책을 준수 하 고 Azure AD 세션도 유지 합니다. 또한 테 넌 트의 사용자에 게 "로그인 상태 유지"가 표시 되는지 여부를 구성할 수 있습니다. [AZURE AD 로그인 페이지 사용자 지정](../fundamentals/customize-branding.md)문서에 있는 지침을 사용 하 Azure Portal의 회사 브랜딩 창에서 적절 한 설정을 변경 하 여 프롬프트를 표시 합니다.
+A persistent browser session allows users to remain signed in after closing and reopening their browser window.
 
-## <a name="configuring-authentication-session-controls"></a>인증 세션 컨트롤 구성
+The Azure AD default for browser session persistence allows users on personal devices to choose whether to persist the session by showing a “Stay signed in?” prompt after successful authentication. If browser persistence is configured in AD FS using the guidance in the article [AD FS Single Sign-On Settings](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), we will comply with that policy and persist the Azure AD session as well. You can also configure whether users in your tenant see the “Stay signed in?” prompt by changing the appropriate setting in the company branding pane in Azure portal using the guidance in the article [Customize your Azure AD sign-in page](../fundamentals/customize-branding.md).
 
-조건부 액세스는 Azure AD Premium 기능이 며 프리미엄 라이선스가 필요 합니다. 조건부 액세스에 대해 자세히 알아보려면 [Azure Active Directory의 조건부 액세스 란?](overview.md#license-requirements) 을 참조 하세요.
+## <a name="configuring-authentication-session-controls"></a>Configuring authentication session controls
+
+Conditional Access is an Azure AD Premium capability and requires a premium license. If you would like to learn more about Conditional Access, see [What is Conditional Access in Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> 현재 공개 미리 보기로 제공 되는 [구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md) 기능을 사용 하는 경우 동일한 사용자 또는 앱 조합에 대해 두 개의 다른 정책 만들기를 지원 하지 않습니다. 하나는이 기능을 사용 하 고 다른 하나는 구성 가능한 토큰입니다. 수명 기능. Microsoft는 2020 년 5 월 1 일에 구성 가능한 토큰 수명 기능을 사용 중지 하 고 조건부 액세스 인증 세션 관리 기능으로 바꿀 계획입니다.  
+> If you are using the [configurable token lifetime](../develop/active-directory-configurable-token-lifetimes.md) feature currently in public preview, please note that we don’t support creating two different policies for the same user or app combination: one with this feature and another one with configurable token lifetime feature. Microsoft plans to retire the configurable token lifetime feature on May 1, 2020 and replace it with the Conditional Access authentication session management feature.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>정책 1: 로그인 빈도 제어
+### <a name="policy-1-sign-in-frequency-control"></a>Policy 1: Sign-in frequency control
 
-1. 새 정책 만들기
-1. 대상 클라우드 앱을 포함 하 여 고객 환경에 필요한 모든 조건을 선택 합니다.
-
-   > [!NOTE]
-   > 최상의 사용자 환경을 위해 Exchange Online, SharePoint Online 등의 주요 Microsoft Office 앱에 대해 동일한 인증 프롬프트 빈도를 설정 하는 것이 좋습니다.
-
-1. **액세스 제어** > **세션** 으로 이동 하 고 **로그인 빈도** 를 클릭 합니다.
-1. 첫 번째 텍스트 상자에 날짜 및 시간에 대 한 필수 값을 입력 합니다.
-1. 드롭다운에서 **시간** 또는 **일** 값을 선택 합니다.
-1. 정책 저장
-
-![로그인 빈도로 구성 된 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
-
-Azure AD에서 등록 된 Windows 장치에는 장치에 로그인 하는 것으로 간주 됩니다. 예를 들어 Office 앱에 대 한 로그인 빈도를 24 시간으로 구성한 경우 Azure AD에 등록 된 Windows 장치의 사용자는 장치에 로그인 하 여 로그인 빈도 정책을 충족 하 고 Office 앱을 열 때 메시지가 다시 표시 되지 않습니다.
-
-동일한 브라우저 세션에서 실행 되는 다른 웹 앱에 대해 서로 다른 로그인 빈도를 구성한 경우 동일한 브라우저 세션에서 실행 되는 모든 앱이 단일 세션 토큰을 공유 하므로 가장 엄격한 정책이 두 앱 모두에 적용 됩니다.
-
-### <a name="policy-2-persistent-browser-session"></a>정책 2: 영구 브라우저 세션
-
-1. 새 정책 만들기
-1. 모든 필수 조건을 선택 합니다.
+1. Create new policy
+1. Choose all required conditions for customer’s environment, including the target cloud apps.
 
    > [!NOTE]
-   > 이 컨트롤은 "모든 클라우드 앱"을 조건으로 선택 해야 합니다. 브라우저 세션 지 속성은 인증 세션 토큰에 의해 제어 됩니다. 브라우저 세션의 모든 탭은 단일 세션 토큰을 공유 하므로 모두 지 속성 상태를 공유 해야 합니다.
+   > It is recommended to set equal authentication prompt frequency for key Microsoft Office apps such as Exchange Online and SharePoint Online for best user experience.
 
-1. **액세스 제어** > **세션** 으로 이동 하 고 **영구 브라우저 세션** 을 클릭 합니다.
-1. 드롭다운에서 값 선택
-1. 정책 저장
+1. Go to **Access Controls** > **Session** and click **Sign-in frequency**
+1. Enter the required value of days and hours in the first text box
+1. Select a value of **Hours** or **Days** from dropdown
+1. Save your policy
 
-![영구 브라우저에 대해 구성 된 조건부 액세스 정책](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
+![Conditional Access policy configured for sign in frequency](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-sign-in-frequency.png)
+
+On Azure AD registered Windows devices sign in to the device is considered a prompt. For example, if you have configured the Sign in frequency to 24 hours for Office apps, users on Azure AD registered Windows devices will satisfy the Sign in frequency policy by signing in to the device and will be not prompted again when opening Office apps.
+
+If you have configured different Sign-in frequency for different web apps that are running in the same browser session, the strictest policy will be applied to both apps because all apps running in the same browser session share a single session token.
+
+### <a name="policy-2-persistent-browser-session"></a>Policy 2: Persistent browser session
+
+1. Create new policy
+1. Choose all required conditions.
+
+   > [!NOTE]
+   > Please note that this control requires to choose “All Cloud Apps” as a condition. Browser session persistence is controlled by authentication session token. All tabs in a browser session share a single session token and therefore they all must share persistence state.
+
+1. Go to **Access Controls** > **Session** and click **Persistent browser session**
+1. Select a value from dropdown
+1. Save you policy
+
+![Conditional Access policy configured for persistent browser](media/howto-conditional-access-session-lifetime/conditional-access-policy-session-persistent-browser.png)
 
 > [!NOTE]
-> Azure AD 조건부 액세스의 영구 브라우저 세션 구성이 "로그인 상태 유지"를 덮어씁니다. 두 정책을 모두 구성한 경우 동일한 사용자에 대해 Azure Portal의 회사 브랜딩 창에서를 설정 합니다.
+> Persistent Browser Session configuration in Azure AD Conditional Access will overwrite the “Stay signed in?” setting in the company branding pane in the Azure portal for the same user if you have configured both policies.
 
 ## <a name="validation"></a>유효성 검사
 
-가상 도구를 사용 하 여 사용자의 로그인을 대상 응용 프로그램으로 시뮬레이션 하 고 정책을 구성한 방법에 따라 기타 조건을 사용 합니다. 인증 세션 관리 컨트롤이 도구의 결과에 표시 됩니다.
+Use the What-If tool to simulate a login from the user to the target application and other conditions based on how you configured your policy. The authentication session management controls show up in the result of the tool.
 
-![조건부 액세스 What If 도구 결과](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
+![Conditional Access What If tool results](media/howto-conditional-access-session-lifetime/conditional-access-what-if-tool-result.png)
 
 ## <a name="policy-deployment"></a>정책 배포
 
-정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. 자세한 내용은 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+정책이 예상대로 작동하는지 확인하는 데 권장되는 모범 사례는 프로덕션에 배포하기 전에 테스트하는 것입니다. 테스트 테넌트를 사용하여 새 정책이 의도한 대로 작동하는지 확인하는 것이 좋습니다. For more information, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).
 
 ## <a name="next-steps"></a>다음 단계
 
-* 조건부 액세스 정책을 구성 하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용 하는 특정 앱에 대 한 MFA 필요](app-based-mfa.md)문서를 참조 하세요.
-* 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 된 경우 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)문서를 참조 하세요.
+* If you want to know how to configure a Conditional Access policy, see the article [Require MFA for specific apps with Azure Active Directory Conditional Access](app-based-mfa.md).
+* If you are ready to configure Conditional Access policies for your environment, see the article [Best practices for Conditional Access in Azure Active Directory](best-practices.md).

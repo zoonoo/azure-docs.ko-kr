@@ -1,21 +1,15 @@
 ---
-title: 스마트 계약 통합 패턴-Azure 블록 체인 워크 벤치
-description: Azure Blockchain 워크 벤치 미리 보기의 스마트 계약 통합 패턴 개요.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+title: Smart contract integration patterns - Azure Blockchain Workbench
+description: Overview of smart contract integration patterns in Azure Blockchain Workbench Preview.
 ms.date: 11/20/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: mmercuri
-manager: femila
-ms.openlocfilehash: 02789b2e4414af8503a655ea954b40031df8ccb7
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
-ms.translationtype: HT
+ms.openlocfilehash: f9626edd5bd655e3de5d0f9648041faf832e3b84
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286667"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325959"
 ---
 # <a name="smart-contract-integration-patterns"></a>스마트 계약 통합 패턴
 
@@ -180,7 +174,7 @@ Azure Blockchain Workbench REST API는 분산 원장의 스마트 계약 실행�
 
 일반적인 통합 시나리오는 스마트 계약의 센서에서 검색된 원격 분석 데이터를 포함합니다. 센서에 의해 전달된 데이터를 기반으로 하여 스마트 계약은 정보에 입각한 작업을 수행하고 계약 상태를 변경할 수 있습니다.
 
-예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. 드라이버가 자동차를 시간당 100 마일으로 가속화 하는 경우 결과 센서 정보는 보험 공급자가 보험을 취소 하는 것을 트리거할 수 있습니다. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
+예를 들어 약품을 운반하는 트럭의 온도가 110도까지 상승하면 약품의 효능에 영향을 미칠 수 있으며 공급망에서 감지되고 제거되지 않으면 공공 안전 문제가 발생할 수 있습니다. If a driver accelerated their car to 100 miles per hour, the resulting sensor information could trigger a cancellation of insurance by their insurance provider. 자동차가 렌트카인 경우 GPS 데이터는 운전자가 임대 계약서의 적용을 받는 지역을 벗어날 때를 나타내고 벌금을 부과할 수 있습니다.
 
 문제는 이러한 센서가 정기적으로 데이터를 전달할 수 있기 때문에 모든 데이터를 스마트 계약으로 보내는 것이 적절하지 않다는 것입니다. 일반적인 접근 방법은 모든 메시지를 보조 저장소로 전달하는 반면 블록체인으로 전송되는 메시지의 수를 제한하는 것입니다. 예를 들어 정해진 간격으로만 수신되는 메시지를 전달하거나 포함된 값이 스마트 계약에 대해 합의된 범위를 벗어날 때 메시지를 전달합니다. 허용 오차를 벗어나는 값을 확인하면 계약 비즈니스 논리와 관련된 데이터가 수신되고 실행됩니다. 간격을 띄워서 값을 확인하면 센서가 계속 보고 중인지 확인할 수 있습니다. 보다 광범위한 보고, 분석 및 기계 학습을 위해 모든 데이터가 보조 보고 저장소로 전송됩니다. 예를 들어 스마트 계약의 경우 1분마다 GPS에 대한 센서 판독 값을 가져올 필요가 없지만 보고서 또는 매핑 경로에 사용할 흥미로운 데이터를 제공할 수 있습니다.
 

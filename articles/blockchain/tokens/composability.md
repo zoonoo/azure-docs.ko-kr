@@ -1,88 +1,84 @@
 ---
-title: Azure Blockchain 토큰 composability
-description: Azure Blockchain 토큰 composability는 고급 시나리오에 대 한 토큰을 만들 수 있는 유연성을 제공 합니다.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Azure Blockchain Tokens composability
+description: Azure Blockchain Tokens composability provides flexibility to create tokens for advanced scenarios.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.service: azure-blockchain
 ms.reviewer: brendal
-ms.openlocfilehash: a82d7ba606eac5dcafc26b1a8527810a5a21840d
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a3fe1b290917de20b7c3af31fe386ed93580d850
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577112"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325113"
 ---
-# <a name="azure-blockchain-tokens-composability"></a>Azure Blockchain 토큰 composability
+# <a name="azure-blockchain-tokens-composability"></a>Azure Blockchain Tokens composability
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-토큰 composability 고급 시나리오에 대 한 토큰을 만들 수 있는 유연성을 제공 합니다. [미리 빌드된 4 개의 토큰 템플릿을](templates.md#base-token-types)사용 하 여 구현할 수 없는 복잡 한 시나리오가 있을 수 있습니다. Token composability을 사용 하면 고유한 토큰 템플릿을 작성 하는 정의 된 동작을 추가 또는 제거 하 여 고유한 토큰 템플릿을 디자인할 수 있습니다. 새 토큰 템플릿을 만들 때 Azure Blockchain 토큰은 모든 토큰 문법 규칙을 확인 합니다. 구성 된 템플릿은 연결 된 Blockchain 네트워크에서 발급 하기 위해 Azure Blockchain 토큰 서비스에 저장 됩니다.
+Token composability provides flexibility to create tokens for advanced scenarios. You may have a complex scenario that cannot be implemented using the [four pre-built token templates](templates.md#base-token-types). Token composability allows you to design your own token templates by adding or removing defined behaviors to build your own token template. When creating a new token template, Azure Blockchain Tokens verifies all token grammar rules. Composed templates are saved in Azure Blockchain Tokens service for issuing on connected blockchain networks.
 
-토큰 템플릿을 디자인 하려면 다음 섹션의 [토큰 동작](templates.md#token-behaviors) 을 사용할 수 있습니다.
+You can use the [token behaviors](templates.md#token-behaviors) in the following sections to design your token template.
 
 ## <a name="burnable-b"></a>Burnable (b)
 
-제공에서 토큰을 제거 하는 기능입니다.
+Ability to remove the tokens from supply.
 
-예를 들어 선물 카드의 온라인 신용 카드 점수를 사용할 경우 신용 카드 지점이 표시 됩니다.
+For example, when you redeem online credit card points for a gift card, the credit card points are burned.
 
-## <a name="delegable-g"></a>위임 가능한 (g)
+## <a name="delegable-g"></a>Delegable (g)
 
-소유 하 고 있는 토큰에서 수행 되는 작업을 위임 하는 기능.
+Ability to delegate the actions taken on the token that you own.
 
-대리자는 토큰의 소유자로 동작을 수행할 수 있습니다. 예를 들어 위임 가능한 토큰을 사용 하 여 투표를 구현할 수 있습니다. 위임 가능한 토큰을 통해 투표 토큰 소유자는 다른 사용자에 게 응답할 수 있습니다.
+The delegate can perform actions as the owner of the token. For example, you could use a delegable token to implement a vote. A delegable token allows the vote token owner to have someone else vote on their behalf.
 
 ## <a name="logable-l"></a>Logable (l)
 
-기록할 수 있습니다.
+Ability to log.
 
-예를 들어 특정 영화를 표시 하는 각 극장에 대 한 영화 배포에 대해 logable 토큰을 발급할 수 있습니다. 동영상이 재생 될 수 있도록 동영상의 릴리스 실행 중에 로열티 지급 표시 되기 때문에 표시 되는는 각 표시에 대해 트랜잭션을 기록 해야 합니다. 행위자 빌드는 영화 토큰을 사용 하 여 분포의 극장 당 표시 되는 지급의 유효성을 검사할 수 있습니다.
+For example, you can issue a logable token for a movie distribution to each theater showing a specific movie. For the movie to be played, the showing must log a transaction for each showing because royalty payouts are per showing during the movie's release run. The actors build can use the movie tokens to validate payouts per movie showing per theater in the distribution.
 
-## <a name="mint-able-m"></a>Mint (m)
+## <a name="mint-able-m"></a>Mint-able (m)
 
-토큰 클래스에 대 한 추가 토큰을 mint 수 있습니다. Minter 역할은 mintable 동작을 포함 합니다.
+Ability to mint additional tokens for the token class. The minter role includes the mintable behavior.
 
-예를 들어, 충성도 프로그램을 구현 하려는 소매 회사는 해당 충성도 프로그램에 mintable 토큰을 사용할 수 있습니다. 고객 기반이 증가 함에 따라 고객에 대 한 추가 충성도 점수를 mint 수 있습니다.  
+For example, a retail company, which wants to implement a loyalty program can use mintable tokens for their loyalty program. They can mint additional loyalty points for their customers as their customer base grows.  
 
-## <a name="non-subdividable-or-whole-d"></a>비 subdividable 또는 전체 (~ d)
+## <a name="non-subdividable-or-whole-d"></a>Non-subdividable or whole (~d)
 
-토큰을 더 작은 부분으로 나눌 수 없도록 하는 제한 사항입니다.
+Restriction to prevent a token from being divided into smaller parts.
 
-예를 들어 단일 아트 그리기를 여러 개의 작은 파트로 나눌 수는 없습니다. 
+For example, a single art painting cannot be subdivided into multiple smaller parts. 
 
-## <a name="non-transferable-t"></a>양도할 없음 (~ t)
+## <a name="non-transferable-t"></a>Non-transferable (~t)
 
-초기 토큰 소유자의 소유권 변경을 방지 하는 제한입니다.
+Restriction to prevent a change of ownership from the initial token owner.
 
-예를 들어 대학 학위는 전송할 수 없는 토큰입니다. 졸업에 학위을 제공 하 고 나면 졸업에서 다른 사람에 게 전송할 수 없습니다.
+For example, a university diploma is a non-transferable token. Once a diploma is given to a graduate, it cannot be transferred from the graduate to another person.
 
-## <a name="roles-r"></a>역할 (r)
+## <a name="roles-r"></a>Roles (r)
 
-특정 동작에 대 한 토큰 템플릿 클래스 내에서 역할을 정의할 수 있습니다.
+Ability to define roles within the token template class for specific behaviors.
 
-토큰이 토큰을 만들 때 지 원하는 역할 이름 목록을 제공할 수 있습니다. 역할을 지정 하면 사용자는 이러한 동작에 역할을 할당할 수 있습니다. 현재는 minter 역할만 지원 됩니다.
+You can provide a list of role names that a token supports at the token creation time. When roles are specified, the user can assign roles to these behaviors. Currently, only the minter role is supported.
 
-## <a name="singleton-s"></a>단일 항목
+## <a name="singleton-s"></a>Singleton (s)
 
-하나의 토큰을 제공할 수 있는 제한
+Restriction to allow a supply of one token.
 
-예를 들어, 박물관 아티팩트는 단일 토큰입니다. 박물관 아티팩트는 고유 합니다. 아티팩트를 나타내는 토큰은 공급망에 단일 항목만 있습니다.
+For example, a museum artifact is a singleton token. Museum artifacts are unique. A token representing an artifact only has a single item in the supply.
 
 ## <a name="subdividable-d"></a>Subdividable (d)
 
-토큰을 더 작은 부분으로 나눌 수 있습니다.
+Ability to divide a token into smaller parts.
 
-예를 들어 달러를 센트로 세분화할 수 있습니다.
+For example, a dollar can be subdivided into cents.
 
-## <a name="transferable-t"></a>양도 (t)
+## <a name="transferable-t"></a>Transferable (t)
 
-토큰의 소유권을 이전할 수 있습니다.
+Ability to transfer ownership of the token.
 
-예를 들어 속성 제목은 전송할 수 있는 토큰으로, 속성이 판매 될 때 한 사용자에서 다른 사용자로 전송 될 수 있습니다.
+For example, a property title is a transferable token, which can be transferred from one person to another when the property is sold.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure Blockchain 토큰 계정 관리](account-management.md)에 대해 알아봅니다.
+Learn about [Azure Blockchain Tokens account management](account-management.md).

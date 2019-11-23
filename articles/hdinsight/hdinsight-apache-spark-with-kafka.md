@@ -1,20 +1,19 @@
 ---
 title: Apache Kafka에서 Apache Spark 스트리밍 - Azure HDInsight
 description: DStreams를 사용하여 Apache Kafka 간에 데이터를 스트리밍하기 위해 Apache Spark를 사용하는 방법을 알아봅니다. 이 예제에서는 HDInsight의 Spark에서 Jupyter Notebook을 사용하여 데이터를 스트리밍합니다.
-keywords: kafka 예제,kafka zookeeper,spark 스트리밍 kafka,spark 스트리밍 kafka 예제
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2018
-ms.author: hrasheed
-ms.openlocfilehash: 201e86908b61efa72eed76346f70cfc55e08d03c
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.custom: hdinsightactive
+ms.date: 11/21/2019
+ms.openlocfilehash: d868cdd346c79cf77d4f8c1ea6e4b20adcd99b6c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076809"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327390"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
@@ -30,7 +29,7 @@ ms.locfileid: "71076809"
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
-HDInsight의 Apache Kafka는 공용 인터넷을 통한 액세스를 Kafka broker에 제공하지 않습니다. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
+Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
 
 ![Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
@@ -50,27 +49,23 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
     이 템플릿은 Kafka와 Spark 둘 다에 대해 HDInsight 3.6 클러스터를 만듭니다.
 
-2. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
+1. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
 
-    ![HDInsight 사용자 지정 배포 매개 변수](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+    |자산 |Value |
+    |---|---|
+    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
+    |위치|지리적으로 가까운 위치를 선택합니다.|
+    |Base Cluster Name|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.|
+    |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
+    |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
+    |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
+    |SSH 암호|Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.|
 
-    * **리소스 그룹**: 그룹을 만들거나 기존 그룹을 선택합니다. 이 그룹에는 HDInsight 클러스터가 포함됩니다.
+    ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
-    * **위치**: 지리적으로 가까운 위치를 선택합니다.
+1. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 
-    * **기본 클러스터 이름**: 이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.
-
-    * **클러스터 로그인 사용자 이름**: Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.
-
-    * **클러스터 로그인 암호**: Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.
-
-    * **SSH 사용자 이름**: Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.
-
-    * **SSH 암호**: Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.
-
-3. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
-
-4. 마지막으로, **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
+1. 마지막으로, **구매**를 선택합니다. 클러스터를 만드는 데 약 20분이 걸립니다.
 
 리소스를 만든 후에 요약 페이지가 나타납니다.
 
@@ -82,8 +77,6 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 ## <a name="use-the-notebooks"></a>노트북 사용
 
 이 문서에 설명된 예제에 대한 코드는 [https://github.com/Azure-Samples/hdinsight-spark-scala-kafka](https://github.com/Azure-Samples/hdinsight-spark-scala-kafka)에서 지원됩니다.
-
-이 예제를 완료하려면 `README.md`의 단계를 따르세요.
 
 ## <a name="delete-the-cluster"></a>클러스터 삭제
 
@@ -98,4 +91,3 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 * [HDInsight에서 Apache Kafka 시작](kafka/apache-kafka-get-started.md)
 * [MirrorMaker를 사용하여 HDInsight에 Apache Kafka 복제본 만들기](kafka/apache-kafka-mirroring.md)
 * [HDInsight에서 Apache Storm 및 Apache Kafka 사용](hdinsight-apache-storm-with-kafka.md)
-

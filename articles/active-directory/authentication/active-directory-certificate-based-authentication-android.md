@@ -1,22 +1,22 @@
 ---
-title: Android-Azure Active Directory에서 인증서 기반 인증
+title: Android certificate-based authentication - Azure Active Directory
 description: Android 디바이스에서 솔루션의 인증서 기반 인증을 구성하는 데 지원되는 시나리오 및 요구 사항에 대한 자세한 정보
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b55b439f61c76d6d0524c1f01ba5fef745187d04
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60416181"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381982"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
@@ -35,16 +35,16 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 
 | 앱 | 지원 |
 | --- | --- |
-| Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Microsoft 팀 |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| OneNote |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| OneDrive |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Outlook |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Power BI |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| 비즈니스용 Skype |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Word / Excel / PowerPoint |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
-| Yammer |![이 응용 프로그램에 대 한 지원을 나타내는 확인란][1] |
+| Azure Information Protection 앱 |![Check mark signifying support for this application][1] |
+| Intune 회사 포털 |![Check mark signifying support for this application][1] |
+| Microsoft Teams |![Check mark signifying support for this application][1] |
+| OneNote |![Check mark signifying support for this application][1] |
+| OneDrive |![Check mark signifying support for this application][1] |
+| Outlook |![Check mark signifying support for this application][1] |
+| Power BI |![Check mark signifying support for this application][1] |
+| 비즈니스용 Skype |![Check mark signifying support for this application][1] |
+| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
+| Yammer |![Check mark signifying support for this application][1] |
 
 ### <a name="implementation-requirements"></a>구현 요구 사항
 

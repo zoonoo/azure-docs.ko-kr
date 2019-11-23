@@ -1,38 +1,34 @@
 ---
-title: Blockchain Data Manager 구성-Azure CLI
-description: Azure CLI를 사용 하 여 블록 체인 Data Manager를 만들고 관리 하는 방법
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
+title: Configure Blockchain Data Manager using Azure CLI - Azure Blockchain Service
+description: Create and manage a Blockchain Data Manager for Azure Blockchain Service using Azure CLI
 ms.date: 11/04/2019
 ms.topic: article
-ms.service: azure-blockchain
 ms.reviewer: chroyal
-ms.openlocfilehash: 9f408b090db40e5145b424034c39cdba4de14a8f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 88abea691219a78ee16702e231337de055dbf5e4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605913"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326233"
 ---
-# <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용 하 여 블록 체인 Data Manager 구성
+# <a name="configure-blockchain-data-manager-using-azure-cli"></a>Azure CLI를 사용하여 Blockchain Data Manager 구성
 
-블록 체인 데이터를 캡처하도록 Blockchain Data Manager 구성 하 여 Azure Event Grid 토픽으로 보냅니다.
+Configure Blockchain Data Manager for Azure Blockchain Service to capture blockchain data send it to an Azure Event Grid Topic.
 
-Blockchain Data Manager 인스턴스를 구성 하려면 다음을 수행 합니다.
+To configure a Blockchain Data Manager instance, you:
 
-* 블록 체인 관리자 인스턴스 만들기
-* Azure Blockchain 서비스 트랜잭션 노드에 대 한 입력 만들기
-* Azure Event Grid 항목에 대 한 출력 만들기
-* 블록 체인 응용 프로그램 추가
-* 인스턴스 시작
+* Create a Blockchain Manager instance
+* Create an input to an Azure Blockchain Service transaction node
+* Create an output to an Azure Event Grid Topic
+* 블록체인 애플리케이션 추가
+* Start an instance
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) 를 설치 하 고 `az login`를 사용 하 여 로그인 합니다.
-* 빠른 시작 완료 [: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)
+* Install the latest [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli) and signed in using `az login`.
+* Complete [Quickstart: Use Visual Studio Code to connect to a Azure Blockchain Service consortium network](connect-vscode.md)
 * [Event Grid 토픽](../../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) 만들기
-* [Azure Event Grid에서 이벤트 처리기](../../event-grid/event-handlers.md) 에 대해 알아보기
+* [Azure Event Grid의 이벤트 처리기](../../event-grid/event-handlers.md) 알아보기
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
@@ -52,7 +48,7 @@ az group create --name myRG --location eastus
 
 ## <a name="create-instance"></a>인스턴스 만들기
 
-Blockchain Data Manager 인스턴스는 Azure Blockchain 서비스 트랜잭션 노드를 모니터링 합니다. 인스턴스는 트랜잭션 노드에서 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
+A Blockchain Data Manager instance monitors an Azure Blockchain Service transaction node. 인스턴스는 트랜잭션 노드의 모든 원시 블록 및 원시 트랜잭션 데이터를 캡처합니다.
 
 ``` azurecli
 az resource create \
@@ -63,17 +59,17 @@ az resource create \
                    --properties <watcher resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| resource-group | 블록 체인 Data Manager 인스턴스를 만들 리소스 그룹 이름입니다. |
-| name | 블록 체인 Data Manager 인스턴스의 이름입니다. |
-| 리소스 유형 | Blockchain Data Manager 인스턴스에 대 한 리소스 유형은 **Microsoft blockchain/감시자**입니다. |
-| is-full-object | 속성에 감시자 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
-| properties | 감시자 리소스의 속성을 포함 하는 JSON 형식 문자열입니다. 는 문자열 또는 파일로 전달할 수 있습니다.  |
+| resource-group | Resource group name where to create the Blockchain Data Manager instance. |
+| 이름 | Name of the Blockchain Data Manager instance. |
+| resource-type | The resource type for a Blockchain Data Manager instance is **Microsoft.blockchain/watchers**. |
+| is-full-object | Indicates properties contain options for the watcher resource. |
+| properties | JSON-formatted string containing properties for the watcher resource. Can be passed as a string or a file.  |
 
-### <a name="create-instance-examples"></a>인스턴스 만들기 예제
+### <a name="create-instance-examples"></a>Create instance examples
 
-**미국 동부** 지역에 블록 체인 관리자 인스턴스를 만드는 JSON 구성 예제입니다.
+JSON configuration example to create a Blockchain Manager instance in the **East US** region.
 
 ``` json
 {
@@ -85,10 +81,10 @@ az resource create \
 
 | 요소 | 설명 |
 |---------|-------------|
-| location | 감시자 리소스를 만들 지역 |
-| properties | 감시자 리소스를 만들 때 설정할 속성 |
+| location | Region where to create the watcher resource |
+| properties | Properties to set when creating the watcher resource |
 
-구성에 JSON 문자열을 사용 하 여 *mywatcher* 라는 blockchain Data Manager 인스턴스를 만듭니다.
+Create a Blockchain Data Manager instance named *mywatcher* using a JSON string for configuration.
 
 ``` azurecli-interactive
 az resource create \
@@ -99,7 +95,7 @@ az resource create \
                      --properties '{"location":"eastus"}'
 ```
 
-JSON 구성 파일을 사용 하 여 *mywatcher* 라는 블록 체인 Data Manager 인스턴스를 만듭니다.
+Create a Blockchain Data Manager instance named *mywatcher* using a JSON configuration file.
 
 ``` azurecli
 az resource create \
@@ -112,7 +108,7 @@ az resource create \
 
 ## <a name="create-input"></a>입력 만들기
 
-입력은 Blockchain Data Manager를 Azure Blockchain 서비스 트랜잭션 노드에 연결 합니다. 트랜잭션 노드에 대 한 액세스 권한이 있는 사용자만 연결을 만들 수 있습니다.
+An input connects Blockchain Data Manager to an Azure Blockchain Service transaction node. Only users with access to the transaction node can create a connection.
 
 ``` azurecli
 az resource create \
@@ -125,19 +121,19 @@ az resource create \
                    --properties <input resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| resource-group | 입력 리소스를 만들 리소스 그룹 이름입니다. |
-| name | 입력의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
-| 리소스 유형 | 블록 체인에 대 한 리소스 유형은 입력 Data Manager 입력 **입니다.** |
-| 부모 | 입력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
-| is-full-object | 속성에 입력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
-| properties | 입력 리소스의 속성을 포함 하는 JSON 형식 문자열입니다. 는 문자열 또는 파일로 전달할 수 있습니다. |
+| resource-group | Resource group name where to create the input resource. |
+| 이름 | Name of the input. |
+| namespace | Use the **Microsoft.Blockchain** provider namespace. |
+| resource-type | The resource type for a Blockchain Data Manager input is **inputs**. |
+| parent | The path to the watcher to which the input is associated. For example, **watchers/mywatcher**. |
+| is-full-object | Indicates properties contain options for the input resource. |
+| properties | JSON-formatted string containing properties for the input resource. Can be passed as a string or a file. |
 
-### <a name="input-examples"></a>입력 예제
+### <a name="input-examples"></a>Input examples
 
-구성 JSON 예 \<Blockchain 구성원\>에 연결 된 *미국 동부* 지역에 입력 리소스를 만듭니다.
+Configuration JSON example to create an input resource in the *East US* region that is connected to \<Blockchain member\>.
 
 ``` json
 {
@@ -153,11 +149,11 @@ az resource create \
 
 | 요소 | 설명 |
 |---------|-------------|
-| location | 입력 리소스를 만들 지역입니다. |
-| inputType | Azure Blockchain 서비스 구성원의 원장 유형입니다. 현재 **Ethereum** 가 지원 됩니다. |
-| resourceId | 입력이 연결 된 트랜잭션 노드입니다. \<구독 ID\>, \<리소스 그룹\>및 \<Blockchain 멤버\>를 트랜잭션 노드 리소스에 대 한 값으로 바꿉니다. 입력은 Azure Blockchain 서비스 멤버의 기본 트랜잭션 노드에 연결 됩니다. |
+| location | Region where to create the input resource. |
+| inputType | Ledger type of the Azure Blockchain Service member. Currently, **Ethereum** is supported. |
+| resourceId | Transaction node to which the input is connected. Replace \<Subscription ID\>, \<Resource group\>, and \<Blockchain member\> with the values for the transaction node resource. The input connects to the default transaction node for the Azure Blockchain Service member. |
 
-구성에 JSON 문자열을 사용 하 여 *myinput* 에 대해 *myinput* 이라는 입력을 만듭니다.
+Create an input named *myInput* for *mywatcher* using a JSON string for configuration.
 
 ``` azurecli-interactive
 az resource create \
@@ -170,7 +166,7 @@ az resource create \
                    --properties '{"location":"eastus", "properties":{"inputType":"Ethereum","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/BlockchainMembers/<Blockchain member>/transactionNodes/transaction-node"}}}'
 ```
 
-JSON 구성 파일을 사용 하 여 *myinput* 에 대해 *myinput* 이라는 입력을 만듭니다.
+Create an input named *myInput* for *mywatcher* using a JSON configuration file.
 
 ``` azurecli
 az resource create \
@@ -182,9 +178,9 @@ az resource create \
                    --properties @input.json
 ```
 
-## <a name="create-output"></a>출력 만들기
+## <a name="create-output"></a>Create output
 
-아웃 바운드 연결은 blockchain 데이터를 Azure Event Grid 보냅니다. 블록 체인 데이터를 단일 대상으로 전송 하거나 블록 체인 데이터를 여러 대상으로 보낼 수 있습니다. Blockchain Data Manager는 지정 된 Blockchain Data Manager 인스턴스에 대해 여러 Event Grid 토픽 아웃 바운드 연결을 지원 합니다.
+아웃바운드 연결은 블록체인 데이터를 Azure Event Grid로 보냅니다. 블록체인 데이터는 단일 대상 또는 여러 대상으로 보낼 수 있습니다. Blockchain Data Manager는 지정된 Blockchain Data Manager 인스턴스에 대한 여러 개의 Event Grid 항목 아웃바운드 연결을 지원합니다.
 
 ``` azurecli
 az resource create \
@@ -197,19 +193,19 @@ az resource create \
                    --properties <output resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| resource-group | 출력 리소스를 만들 리소스 그룹 이름입니다. |
-| name | 출력의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
-| 리소스 유형 | Blockchain Data Manager 출력에 대 한 리소스 유형은 **출력**입니다. |
-| 부모 | 출력이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
-| is-full-object | 속성에 출력 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
-| properties | 출력 리소스에 대 한 속성을 포함 하는 JSON 형식 문자열입니다. 는 문자열 또는 파일로 전달할 수 있습니다. |
+| resource-group | Resource group name where to create the output resource. |
+| 이름 | Name of the output. |
+| namespace | Use the **Microsoft.Blockchain** provider namespace. |
+| resource-type | The resource type for a Blockchain Data Manager output is **outputs**. |
+| parent | The path to the watcher to which the output is associated. For example, **watchers/mywatcher**. |
+| is-full-object | Indicates properties contain options for the output resource. |
+| properties | JSON-formatted string containing properties for the output resource. Can be passed as a string or a file. |
 
-### <a name="output-examples"></a>출력 예제
+### <a name="output-examples"></a>Output examples
 
-\<event grid 토픽\>이라는 event grid 토픽에 연결 된 *미국 동부* 지역에 출력 리소스를 만드는 구성 JSON 예제입니다.
+Configuration JSON example to create an output resource in the *East US* region that is connected to an event grid topic named \<event grid topic\>.
 
 ``` json
 {
@@ -225,11 +221,11 @@ az resource create \
 
 | 요소 | 설명 |
 |---------|-------------|
-| location | 출력 리소스를 만들 지역입니다. |
-| outputType | 출력의 유형입니다. 현재 **Eventgrid** 가 지원 됩니다. |
-| resourceId | 출력이 연결 되는 리소스입니다. \<구독 ID\>, \<리소스 그룹\>및 \<Blockchain 구성원\>을 event grid 리소스의 값으로 바꿉니다. |
+| location | Region where to create the output resource. |
+| outputType | Type of output. Currently, **EventGrid** is supported. |
+| resourceId | Resource to which the output is connected. Replace \<Subscription ID\>, \<Resource group\>, and \<Blockchain member\> with the values for the event grid resource. |
 
-JSON 구성 문자열을 사용 하 여 event grid 토픽에 연결 하는 *mywatcher* 용 *myoutput* 이라는 출력을 만듭니다.
+Create an output named *myoutput* for *mywatcher* that connects to an event grid topic using a JSON configuration string.
 
 ``` azurecli-interactive
 az resource create \
@@ -242,7 +238,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"outputType":"EventGrid","dataSource":{"resourceId":"/subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.EventGrid/topics/<event grid topic>"}}}'
 ```
 
-JSON 구성 파일을 사용 하 여 event grid 토픽에 연결 하는 *mywatcher* 용 *myoutput* 이라는 출력을 만듭니다.
+Create an output named *myoutput* for *mywatcher* that connects to an event grid topic using a JSON configuration file.
 
 ``` azurecli
 az resource create \
@@ -255,13 +251,13 @@ az resource create \
                    --properties @output.json
 ```
 
-## <a name="add-blockchain-application"></a>블록 체인 응용 프로그램 추가
+## <a name="add-blockchain-application"></a>Add blockchain application
 
-Blockchain 응용 프로그램을 추가 하는 경우 Blockchain Data Manager 응용 프로그램에 대 한 이벤트 및 속성 상태를 디코딩합니다. 그렇지 않으면 원시 블록 및 원시 트랜잭션 데이터만 전송 됩니다. Blockchain Data Manager 계약을 배포할 때 계약 주소도 검색 합니다. 블록 체인 Data Manager 인스턴스에 여러 블록 체인 응용 프로그램을 추가할 수 있습니다.
+If you add a blockchain application, Blockchain Data Manager decodes event and property state for the application. Otherwise, only raw block and raw transaction data is sent. Blockchain Data Manager also discovers contract addresses when the contract is deployed. You can add multiple blockchain applications to a Blockchain Data Manager instance.
 
 
 > [!IMPORTANT]
-> 현재는 농담 [배열 형식](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) 또는 [매핑 형식을](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) 선언 하는 블록 체인 응용 프로그램은 완전히 지원 되지 않습니다. 배열 또는 매핑 형식으로 선언 된 속성은 *ContractPropertiesMsg* 또는 *DecodedContractEventsMsg* 메시지에서 디코딩되 지 않습니다.
+> Currently, blockchain applications that declare Solidity [array types](https://solidity.readthedocs.io/en/v0.5.12/types.html#arrays) or [mapping types](https://solidity.readthedocs.io/en/v0.5.12/types.html#mapping-types) are not fully supported. Properties declared as array or mapping types will not be decoded in *ContractPropertiesMsg* or *DecodedContractEventsMsg* messages.
 
 ``` azurecli
 az resource create \
@@ -274,19 +270,19 @@ az resource create \
                    --properties <Application resource properties>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| resource-group | 응용 프로그램 리소스를 만들 리소스 그룹 이름입니다. |
-| name | 응용 프로그램의 이름입니다. |
-| namespace | **Microsoft Blockchain** 공급자 네임 스페이스를 사용 합니다. |
-| 리소스 유형 | Blockchain Data Manager 응용 프로그램에 대 한 리소스 형식이 **아티팩트**입니다. |
-| 부모 | 응용 프로그램이 연결 된 감시자의 경로입니다. 예를 들면 **감시자/mywatcher**가 있습니다. |
-| is-full-object | 속성에 응용 프로그램 리소스에 대 한 옵션이 포함 되어 있음을 나타냅니다. |
-| properties | 응용 프로그램 리소스에 대 한 속성을 포함 하는 JSON 형식 문자열입니다. 는 문자열 또는 파일로 전달할 수 있습니다. |
+| resource-group | Resource group name where to create the application resource. |
+| 이름 | Name of the application. |
+| namespace | Use the **Microsoft.Blockchain** provider namespace. |
+| resource-type | The resource type for a Blockchain Data Manager application is **artifacts**. |
+| parent | The path to the watcher to which the application is associated. For example, **watchers/mywatcher**. |
+| is-full-object | Indicates properties contain options for the application resource. |
+| properties | JSON-formatted string containing properties for the application resource. Can be passed as a string or a file. |
 
-### <a name="blockchain-application-examples"></a>Blockchain 응용 프로그램 예제
+### <a name="blockchain-application-examples"></a>Blockchain application examples
 
-계약 ABI 및 바이트 코드에서 정의한 스마트 계약을 모니터링 하는 응용 프로그램 리소스를 *미국 동부* 지역에 만드는 구성 JSON 예제입니다.
+Configuration JSON example to create an application resource in the *East US* region that monitors a smart contract defined by the contract ABI and bytecode.
 
 ``` json
 {
@@ -307,13 +303,13 @@ az resource create \
 
 | 요소 | 설명 |
 |---------|-------------|
-| location | 응용 프로그램 리소스를 만들 지역입니다. |
-| artifactType | 애플리케이션의 유형입니다. 현재 **EthereumSmartContract** 가 지원 됩니다. |
-| abiFileUrl | 스마트 계약 ABI JSON 파일에 대 한 URL입니다. 계약 ABI를 가져오고 URL을 만드는 방법에 대 한 자세한 내용은 [계약 abi 및 바이트 코드 가져오기](data-manager-portal.md#get-contract-abi-and-bytecode) 및 [계약 abi 및 바이트 코드 URL 만들기](data-manager-portal.md#create-contract-abi-and-bytecode-url)를 참조 하세요. |
-| bytecodeFileUrl | 스마트 계약에 배포 된 바이트 코드 JSON 파일의 URL입니다. 스마트 계약에서 바이트 코드를 배포 하 고 URL을 만드는 방법에 대 한 자세한 내용은 [계약 abi 및 바이트 코드 가져오기](data-manager-portal.md#get-contract-abi-and-bytecode) 및 [계약 abi 및 바이트 코드 url 만들기](data-manager-portal.md#create-contract-abi-and-bytecode-url)를 참조 하세요. 참고: Blockchain Data Manager에는 **배포 된 바이트**집합이 필요 합니다. |
-| queryTargetTypes | 게시 된 메시지 유형입니다. **ContractProperties** 게시 *ContractPropertiesMsg* 메시지 유형을 지정 합니다. **ContractEvents** 게시 *DecodedContractEventsMsg* 메시지 유형을 지정 합니다. 참고: *RawBlockAndTransactionMsg* 및 *RawTransactionContractCreationMsg* 메시지 유형은 항상 게시 됩니다. |
+| location | Region where to create the application resource. |
+| artifactType | 애플리케이션의 유형입니다. Currently, **EthereumSmartContract** is supported. |
+| abiFileUrl | URL for smart contract ABI JSON file. For more information on obtaining contract ABI and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). |
+| bytecodeFileUrl | URL for smart contract deployed bytecode JSON file. For more information on obtaining the smart contract deployed bytecode and creating a URL, see [Get Contract ABI and bytecode](data-manager-portal.md#get-contract-abi-and-bytecode) and [Create contract ABI and bytecode URL](data-manager-portal.md#create-contract-abi-and-bytecode-url). Note: Blockchain Data Manager requires the **deployed bytecode**. |
+| queryTargetTypes | Published message types. Specifying **ContractProperties** publishes *ContractPropertiesMsg* message type. Specifying **ContractEvents** publishes *DecodedContractEventsMsg* message type. Note: *RawBlockAndTransactionMsg* and *RawTransactionContractCreationMsg* message types are always published. |
 
-JSON 문자열로 정의 된 스마트 계약을 모니터링 하는, *mywatcher* 에 대해 *myApplication* 이라는 응용 프로그램을 만듭니다.
+Create an application named *myApplication* for *mywatcher* that monitors a smart contract defined by a JSON string.
 
 ``` azurecli-interactive
 az resource create \
@@ -326,7 +322,7 @@ az resource create \
                    --properties '{"location":"eastus","properties":{"artifactType":"EthereumSmartContract","content":{"abiFileUrl":"<ABI URL>","bytecodeFileUrl":"<Bytecode URL>","queryTargetTypes":["ContractProperties","ContractEvents"]}}}'
 ```
 
-JSON 구성 파일을 사용 하 여 정의 된 스마트 계약을 감시 하는, *mywatcher* 용 *myApplication* 이라는 응용 프로그램을 만듭니다.
+Create an application named *myApplication* for *mywatcher* that watches a smart contract defined using a JSON configuration file.
 
 ``` azurecli
 az resource create \
@@ -339,9 +335,9 @@ az resource create \
                    --properties @artifact.json
 ```
 
-## <a name="start-instance"></a>인스턴스 시작
+## <a name="start-instance"></a>Start instance
 
-블록 체인 관리자 인스턴스는 실행 될 때 정의 된 입력에서 Blockchain 이벤트를 모니터링 하 고 정의 된 출력에 데이터를 보냅니다.
+When running, a Blockchain Manager instance monitors blockchain events from the defined inputs and sends data to the defined outputs.
 
 ``` azurecli
 az resource invoke-action \
@@ -349,14 +345,14 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| action | **Start** 를 사용 하 여 감시자를 실행 합니다. |
-| ids | 감시자 리소스 ID입니다. \<구독 ID\>, \<리소스 그룹\>및 감시자 이름 \<감시자 리소스에 대 한 값으로 바꿉니다.\>|
+| action | Use **start** to run the watcher. |
+| ids | Watcher resource ID. Replace \<Subscription ID\>, \<Resource group\>, and \<Watcher name\> with the values for the watcher resource.|
 
-### <a name="start-instance-example"></a>시작 인스턴스 예제
+### <a name="start-instance-example"></a>Start instance example
 
-*Mywatcher*라는 블록 체인 Data Manager 인스턴스를 시작 합니다.
+Start a Blockchain Data Manager instance named *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -364,9 +360,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="stop-instance"></a>인스턴스 중지
+## <a name="stop-instance"></a>Stop instance
 
-블록 체인 Data Manager 인스턴스를 중지 합니다.
+Stop a Blockchain Data Manager instance.
 
 ``` azurecli
 az resource invoke-action \
@@ -374,14 +370,14 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/<Watcher name>
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| action | **중지** 를 사용 하 여 감시자를 중지 합니다. |
-| ids | 감시자의 이름입니다. \<구독 ID\>, \<리소스 그룹\>및 감시자 이름 \<감시자 리소스에 대 한 값으로 바꿉니다.\> |
+| action | Use **stop** to stop the watcher. |
+| ids | Name of the watcher. Replace \<Subscription ID\>, \<Resource group\>, and \<Watcher name\> with the values for the watcher resource. |
 
-### <a name="stop-watcher-example"></a>감시자 중지 예
+### <a name="stop-watcher-example"></a>Stop watcher example
 
-*Mywatcher*라는 인스턴스를 중지 합니다.
+Stop an instance named *mywatcher*.
 
 ``` azurecli-interactive
 az resource invoke-action \
@@ -389,9 +385,9 @@ az resource invoke-action \
                           --ids /subscriptions/<Subscription ID>/resourceGroups/<Resource group>/providers/Microsoft.Blockchain/watchers/mywatcher
 ```
 
-## <a name="delete-instance"></a>인스턴스 삭제
+## <a name="delete-instance"></a>Delete instance
 
-블록 체인 Data Manager 인스턴스를 삭제 합니다.
+Delete a Blockchain Data Manager instance.
 
 ``` azurecli
 az resource delete \
@@ -400,15 +396,15 @@ az resource delete \
                    --resource-type Microsoft.Blockchain/watchers
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 |-----------|-------------|
-| resource-group | 삭제할 감시자의 리소스 그룹 이름입니다. |
-| name | 삭제할 감시자의 이름입니다. |
-| 리소스 유형 | Blockchain Data Manager 감시자의 리소스 유형은 **Microsoft blockchain/감시자**입니다. |
+| resource-group | Resource group name of the watcher to delete. |
+| 이름 | Name of the watcher to delete. |
+| resource-type | The resource type for a Blockchain Data Manager watcher is **Microsoft.blockchain/watchers**. |
 
-### <a name="delete-instance-example"></a>인스턴스 삭제 예제
+### <a name="delete-instance-example"></a>Delete instance example
 
-*Mywatcher* 리소스 그룹에서 *mywatcher* 라는 인스턴스를 삭제 합니다.
+Delete an instance named *mywatcher* in the *myRG* resource group.
 
 ``` azurecli-interactive
 az resource delete \
@@ -419,7 +415,7 @@ az resource delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-Blockchain Data Manager 및 Azure Cosmos DB를 사용 하 여 blockchain 트랜잭션 메시지 탐색기를 만들어 보세요.
+Try creating a blockchain transaction message explorer using Blockchain Data Manager and Azure Cosmos DB.
 
 > [!div class="nextstepaction"]
-> [자습서: 블록 체인 Data Manager를 사용 하 여 데이터를 Azure Cosmos DB에 전송](data-manager-cosmosdb.md)
+> [Tutorial: Use Blockchain Data Manager to send data to Azure Cosmos DB](data-manager-cosmosdb.md)

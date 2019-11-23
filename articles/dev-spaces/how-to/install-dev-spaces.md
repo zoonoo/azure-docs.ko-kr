@@ -1,27 +1,27 @@
 ---
-title: AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
+title: Install Azure Dev Spaces on AKS & the client-side tooling
 services: azure-dev-spaces
 ms.date: 07/24/2019
 ms.topic: conceptual
-description: AKS 클러스터에 Azure Dev Spaces를 설치 하 고 클라이언트 쪽 도구를 설치 하는 방법에 대해 알아봅니다.
+description: Learn how to install Azure Dev Spaces on an AKS cluster and install the client-side tooling.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
-ms.openlocfilehash: c62fe38a12b5ec279bc51fe8bc0d340e2f439200
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 2649b36c96313d4a7d878a1c72c3b175ad0f4d30
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280050"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325774"
 ---
-# <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
+# <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>Install Azure Dev Spaces on AKS and the client-side tooling
 
-이 문서에서는 AKS 클러스터에 Azure Dev Spaces를 설치 하 고 클라이언트 쪽 도구를 설치 하는 여러 가지 방법을 보여 줍니다.
+This article shows you several ways to install Azure Dev Spaces on an AKS cluster as well as install the client-side tooling.
 
-## <a name="install-azure-dev-spaces-using-the-cli"></a>CLI를 사용 하 여 Azure Dev Spaces 설치
+## <a name="install-azure-dev-spaces-using-the-cli"></a>Install Azure Dev Spaces using the CLI
 
-CLI를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
+Before you can install Dev Spaces using the CLI, you need:
 * Azure 구독. Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
-* [Azure CLI 설치][install-cli]되었습니다.
-* [지원 되는 지역의][supported-regions] [AKS 클러스터][create-aks-cli] .
+* [The Azure CLI installed][install-cli].
+* [An AKS cluster][create-aks-cli] in a [supported region][supported-regions].
 
 `use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트의 지시를 따릅니다.
 
@@ -29,7 +29,7 @@ CLI를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
-위의 명령은 *Myresourcegroup* 그룹의 *MyAKSCluster* 클러스터에서 개발 공간을 사용 하도록 설정 하 고 *기본* 개발 공간을 만듭니다.
+The above command enables Dev Spaces on the *myAKSCluster* cluster in the *myResourceGroup* group and creates a *default* dev space.
 
 ```cmd
 $ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
@@ -49,32 +49,32 @@ Configuring and selecting dev space 'default'...3s
 Managed Kubernetes cluster 'myAKSCluster' in resource group 'myResourceGroup' is ready for development in dev space 'default'. Type `azds prep` to prepare a source directory for use with Azure Dev Spaces and `azds up` to run.
 ```
 
-`use-dev-spaces` 명령은 Azure Dev Spaces CLI도 설치 합니다.
+The `use-dev-spaces` command also installs the Azure Dev Spaces CLI.
 
-## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Dev Spaces 설치
+## <a name="install-azure-dev-spaces-using-the-azure-portal"></a>Install Azure Dev Spaces using the Azure portal
 
-Azure Portal를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
+Before you can install Dev Spaces using the Azure portal, you need:
 * Azure 구독. Azure 구독이 없는 경우 [체험 계정][az-portal-create-account]을 만들 수 있습니다.
-* [지원 되는 지역의][supported-regions] [AKS 클러스터][create-aks-portal] .
+* [An AKS cluster][create-aks-portal] in a [supported region][supported-regions].
 
-Azure Portal를 사용 하 여 Azure Dev Spaces를 설치 하려면:
-1. [Azure Portal][az-portal]에 로그인합니다.
-1. AKS 클러스터로 이동 합니다.
-1. *Dev Spaces*를 클릭 합니다.
+To install Azure Dev Spaces using the Azure portal:
+1. [Azure portal][az-portal]에 로그인합니다.
+1. Navigate to your AKS cluster.
+1. Click *Dev Spaces*.
 1. *Dev Spaces 사용*을 *예*로 변경하고 *저장*을 클릭합니다.
 
 ![Azure Portal에서 Dev Spaces를 사용하도록 설정](../media/how-to-setup-dev-spaces/enable-dev-spaces-portal.png)
 
-Azure Portal를 사용 하 여 Azure Dev Spaces를 설치 해도 Azure Dev Spaces에 대 한 클라이언트 쪽 도구는 설치 **되지** 않습니다.
+Installing Azure Dev Spaces using the Azure portal **does not** install any client-side tooling for Azure Dev Spaces.
 
-## <a name="install-the-client-side-tooling"></a>클라이언트 쪽 도구 설치
+## <a name="install-the-client-side-tooling"></a>Install the client-side tooling
 
-Azure Dev Spaces 클라이언트 쪽 도구를 사용 하 여 로컬 컴퓨터에서 AKS 클러스터의 Dev 공백과 상호 작용할 수 있습니다. 클라이언트 쪽 도구를 설치 하는 방법에는 여러 가지가 있습니다.
+You can use the Azure Dev Spaces client-side tooling to interact with dev spaces on an AKS cluster from your local machine. There are several ways to install the client-side tooling:
 
-* [Visual Studio Code][vscode]에서 [Azure Dev Spaces 확장][vscode-extension]을 설치 합니다.
-* [Visual Studio 2019][visual-studio]에서 Azure 개발 워크 로드를 설치 합니다.
-* Visual Studio 2017에서 웹 개발 워크 로드를 설치 하 고 [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools]합니다.
-* [Windows][cli-win], [Mac][cli-mac]또는 [Linux][cli-linux] CLI를 다운로드 하 여 설치 합니다.
+* In [Visual Studio Code][vscode], install the [Azure Dev Spaces extension][vscode-extension].
+* In [Visual Studio 2019][visual-studio], install the Azure Development workload.
+* In Visual Studio 2017, install the Web Development workload and [Visual Studio Tools for Kubernetes][visual-studio-k8s-tools].
+* Download and install the [Windows][cli-win], [Mac][cli-mac], or [Linux][cli-linux] CLI.
 
 ## <a name="next-steps"></a>다음 단계
 
