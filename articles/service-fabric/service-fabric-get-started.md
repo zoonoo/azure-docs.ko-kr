@@ -35,7 +35,7 @@ Windows 개발 컴퓨터에서 [Azure Service Fabric 응용 프로그램][1] 을
 ### <a name="supported-operating-system-versions"></a>지원되는 운영 체제 버전
 개발을 위해 다음 운영 체제 버전이 지원됩니다.
 
-* 윈도우 7
+* Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
 * Windows Server 2016

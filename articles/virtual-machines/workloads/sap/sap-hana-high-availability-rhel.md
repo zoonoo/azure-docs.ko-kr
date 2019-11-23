@@ -72,8 +72,8 @@ SAP HANA 복제는 하나의 기본 노드와 하나 이상의 보조 노드로 
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
-  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
-* Azure 특정 RHEL 설명서:
+  * [고가용성 추가 기능 참조](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+* Azure 관련 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
   * [Install SAP HANA on Red Hat Enterprise Linux for Use in Microsoft Azure](https://access.redhat.com/solutions/3193782)(Microsoft Azure에서 사용할 용도로 Red Hat Enterprise Linux에 SAP HANA 설치)
@@ -222,7 +222,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694]에 있는 [테 넌 트 데이터베이스에](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 대 한 연결 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 > SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)도 참조 하세요. 
 
 ## <a name="install-sap-hana"></a>SAP HANA 설치
@@ -601,7 +601,7 @@ sudo pcs property set maintenance-mode=false
 #      vip_HN1_03 (ocf::heartbeat:IPaddr2):       Started hn1-db-0
 </code></pre>
 
-## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
 이 섹션에서는 설정을 테스트하는 방법을 설명합니다. 테스트를 시작하기 전에 Pacemaker에 실패한 작업이 없으며(pcs status를 통해), 예기치 않은 위치 제약 조건이 없고(예를 들어 마이그레이션 테스트의 결과), systemReplicationStatus의 경우처럼 해당 HANA가 동기화 상태에 있는지 확인합니다.
 
@@ -610,7 +610,7 @@ sudo pcs property set maintenance-mode=false
 
 ### <a name="test-the-migration"></a>마이그레이션 테스트
 
-테스트를 시작하기 전 리소스 상태:
+테스트 시작 전 리소스 상태:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -672,7 +672,7 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-the-azure-fencing-agent"></a>Azure 펜싱 에이전트 테스트
 
-테스트를 시작하기 전 리소스 상태:
+테스트 시작 전 리소스 상태:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]
@@ -723,7 +723,7 @@ Resource Group: g_ip_HN1_03
 
 ### <a name="test-a-manual-failover"></a>수동 장애 조치(failover) 테스트
 
-테스트를 시작하기 전 리소스 상태:
+테스트 시작 전 리소스 상태:
 
 <pre><code>Clone Set: SAPHanaTopology_HN1_03-clone [SAPHanaTopology_HN1_03]
     Started: [ hn1-db-0 hn1-db-1 ]

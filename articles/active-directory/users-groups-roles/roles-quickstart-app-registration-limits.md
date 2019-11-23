@@ -26,7 +26,7 @@ ms.locfileid: "74024402"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisite"></a>사전 요구 사항
 
 Azure AD 사용자 지정 역할을 만들고 할당 하는 데 필요한 최소 권한 있는 역할은 권한 있는 역할 관리자입니다.
 
@@ -135,7 +135,7 @@ $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Displ
 
 사용자 지정 역할을 만들기 위한 HTTP 요청입니다.
 
-POST
+올리기
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
@@ -172,7 +172,7 @@ Body
 
 사용자 지정 역할을 할당 하는 HTTP 요청입니다.
 
-POST
+올리기
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments

@@ -24,7 +24,7 @@ ms.locfileid: "70012581"
 # <a name="create-a-netapp-account"></a>NetApp 계정 만들기
 NetApp 계정 만들기를 사용하면 용량 풀을 설정하고 이후에 볼륨을 만들 수 있습니다. Azure NetApp Files 블레이드를 사용하여 새 NetApp 계정을 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 Azure NetApp Files 팀에서 서비스에 대 한 액세스 권한이 부여 되었는지 확인 하는 전자 메일을 수신 해야 합니다. [서비스 액세스에 대 한 waitlist 요청 제출](azure-netapp-files-register.md#waitlist)을 참조 하세요.
 
 또한 NetApp 리소스 공급자를 사용 하기 위해 구독을 등록 해야 합니다. [NetApp 리소스 공급자 등록을](azure-netapp-files-register.md#resource-provider)참조 하세요.

@@ -27,7 +27,7 @@ Java 용 Azure Blob Storage 클라이언트 라이브러리를 사용 하 여 �
 * 컨테이너의 모든 blob 나열
 * 컨테이너 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 * Azure Storage 계정 - [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)

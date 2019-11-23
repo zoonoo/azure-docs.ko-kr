@@ -57,14 +57,14 @@ ms.locfileid: "70101358"
 ## <a name="definitions"></a>정의
 문서 전체에서 다음과 같은 용어가 사용 됩니다.
 
-* **IaaS**: Infrastructure as a service.
-* **PaaS**: Platform as a service.
-* **SaaS**: Software as a service.
-* **SAP 구성 요소**: ECC (ERP Central Component), BW (Business Warehouse), 솔루션 관리자 또는 EP (Enterprise Portal)와 같은 개별 SAP 응용 프로그램입니다. SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 NetWeaver 기반이 아닌 응용 프로그램을 기반으로 할 수 있습니다.
-* **SAP 환경**: 하나 이상의 SAP 구성 요소가 논리적으로 그룹화 되어 개발, 품질 보증, 교육, 재해 복구 또는 프로덕션과 같은 비즈니스 기능을 수행 합니다.
-* **SAP 환경**: 고객의 IT 자산 중 SAP 자산 전체를 의미합니다. SAP 가로에는 모든 프로덕션 및 비프로덕션 환경이 포함 됩니다.
-* **SAP 시스템**: SAP ERP 개발 시스템, SAP Business Warehouse 테스트 시스템, SAP CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 분할 하는 것은 지원 되지 않습니다. 따라서 SAP 시스템은 온-프레미스에 배포 되거나 Azure에 배포 됩니다. Azure 또는 온-프레미스에서 SAP 환경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
-* **크로스-프레미스**: Vm이 온-프레미스 데이터 센터와 Azure 간에 사이트 간, 멀티 사이트 또는 Azure Express 경로 연결을 포함 하는 Azure 구독에 배포 되는 시나리오를 설명 합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 시나리오라고도 합니다. 
+* **IaaS**: Infrastructure as a Service
+* **PaaS**: Platform as a Service
+* **SaaS**: Software as a service
+* **Sap 구성 요소**: ECC (ERP Central component), BW (Business Warehouse), Solution MANAGER 또는 EP (Enterprise Portal)와 같은 개별 SAP 응용 프로그램입니다. SAP 구성 요소는 기존의 ABAP 또는 Java 기술을 기반으로 하거나 비즈니스 개체와 같은 NetWeaver 기반이 아닌 응용 프로그램을 기반으로 할 수 있습니다.
+* **Sap 환경**: 하나 이상의 sap 구성 요소가 논리적으로 그룹화 되어 개발, 품질 보증, 교육, 재해 복구 또는 프로덕션과 같은 비즈니스 기능을 수행 합니다.
+* **Sap 가로**:이 용어는 고객의 IT 환경에서 전체 SAP 자산을 의미 합니다. SAP 가로에는 모든 프로덕션 및 비프로덕션 환경이 포함 됩니다.
+* **Sap 시스템**: sap ERP 개발 시스템, Sap Business Warehouse 테스트 시스템, sap CRM 프로덕션 시스템 등의 응용 프로그램 계층과 DBMS 계층의 조합입니다. Azure 배포에서는 온-프레미스와 Azure 간에 이러한 두 계층을 분할 하는 것은 지원 되지 않습니다. 따라서 SAP 시스템은 온-프레미스에 배포 되거나 Azure에 배포 됩니다. Azure 또는 온-프레미스에서 SAP 환경의 서로 다른 시스템을 배포할 수 있습니다. 예를 들어 Azure에는 SAP CRM 개발 및 테스트 시스템을 배포할 수 있지만 온-프레미스에는 SAP CRM 프로덕션 시스템을 배포할 수 있습니다.
+* **프레미스 간**: vm이 온-프레미스 데이터 센터와 azure 간에 사이트 간, 멀티 사이트 또는 azure express 경로 연결을 포함 하는 azure 구독에 배포 되는 시나리오를 설명 합니다. 공통 Azure 설명서에서 이러한 종류의 배포를 크로스-프레미스 시나리오라고도 합니다. 
 
     연결하는 이유는 온-프레미스 도메인, 온-프레미스 Active Directory 및 온-프레미스 DNS를 Azure로 확장하기 위한 것입니다. 온-프레미스 배경은 구독의 Azure 자산으로 확장됩니다. 이 확장을 사용하면 VM이 온-프레미스 도메인에 속할 수 있습니다. 온-프레미스 도메인의 도메인 사용자는 서버에 액세스 하 고 DBMS 서비스와 같은 해당 Vm에서 서비스를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 시나리오는 Azure에서 SAP 자산을 배포 하는 데 가장 일반적으로 사용 되는 시나리오입니다. 자세한 내용은 [VPN 게이트웨이 계획 및 설계](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design)를 참조하세요.
 
@@ -78,23 +78,23 @@ ms.locfileid: "70101358"
 일부 Microsoft 문서에서는 특히 DBMS 고가용성 구성에 대해 크로스-프레미스 시나리오를 약간 다르게 설명 합니다. SAP 관련 문서의 경우 크로스-프레미스 시나리오는 사이트 간 또는 개인 [express](https://azure.microsoft.com/services/expressroute/) 경로 연결로 구축 온-프레미스와 Azure 간에 배포 되는 SAP 환경에 연결 됩니다.
 
 ## <a name="resources"></a>리소스
-Azure에서 SAP 워크 로드에 사용할 수 있는 다른 문서가 있습니다. Azure에서 [SAP 워크 로드 시작: 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) 하 고 관심 영역을 선택 합니다.
+Azure에서 SAP 워크 로드에 사용할 수 있는 다른 문서가 있습니다. [Azure에서 SAP 워크 로드 시작: 시작](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started) 을 클릭 한 후 관심 영역을 선택 합니다.
 
 다음 SAP 참고 사항은이 문서에 설명 된 영역과 관련 하 여 Azure의 SAP와 관련 되어 있습니다.
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
+| [1928533] |Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 지원 필수 구성 요소 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [1409604] |Windows에서의 가상화: 고급 모니터링 |
-| [2191498] |Azure 포함 Linux의 SAP: 고급 모니터링 |
-| [2039619] |Oracle Database를 사용하는 Microsoft Azure의 SAP 애플리케이션: 지원되는 제품 및 버전 |
+| [1409604] |Windows의 가상화: 향상 된 모니터링 |
+| [2191498] |Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
+| [2039619] |Oracle 데이터베이스를 사용 하는 Microsoft Azure의 SAP 응용 프로그램: 지원 되는 제품 및 버전 |
 | [2233094] |DB6: Linux, UNIX 및 Windows 용 IBM DB2를 사용 하는 Azure의 SAP 응용 프로그램: 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
-| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 사항 |
-| [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
+| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
+| [2002167] |Red Hat Enterprise Linux 8.x: 설치 및 업그레이드 |
 | [2069760] |Oracle Linux 7.x SAP 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
 | [2171857] |Oracle Database 12c: Linux에서 파일 시스템 지원 |
@@ -156,7 +156,7 @@ Azure는 데이터 디스크 IOPS 할당량을 적용합니다. 이러한 할당
 >
 > ![Linux][Logo_Linux] Linux
 >
-> Linux에서 소프트웨어 RAID를 빌드하는 데 MDADM 및 LVM (논리 볼륨 관리자)만 지원 됩니다. 자세한 내용은 다음을 참조하세요.
+> Linux에서 소프트웨어 RAID를 빌드하는 데 MDADM 및 LVM (논리 볼륨 관리자)만 지원 됩니다. 자세한 내용은
 >
 > - MDADM을 사용 하 여 [Linux에서 소프트웨어 RAID 구성](https://docs.microsoft.com/azure/virtual-machines/linux/configure-raid)
 > - [Azure에서 Linux VM에 LVM 구성](https://docs.microsoft.com/azure/virtual-machines/linux/configure-lvm)(LVM 사용)
@@ -206,7 +206,7 @@ SAP 워크 로드와 함께 DBMS 배포에 standard storage를 사용 하지 않
 Standard storage의 경우 가능한 캐시 유형은 다음과 같습니다.
 
 * 없음
-* Read
+* 읽기
 * 읽기/쓰기
 
 일관성 있고 결정적 성능을 얻으려면 DBMS 관련 데이터 파일, 로그 및 다시 실행 파일 및 테이블 공간을 포함 하는 모든 디스크의 표준 저장소에 대 한 캐싱을 **NONE**으로 설정 합니다. 기본 VHD의 캐싱은 기본값으로 유지할 수 있습니다.
@@ -214,7 +214,7 @@ Standard storage의 경우 가능한 캐시 유형은 다음과 같습니다.
 Premium storage의 경우 다음과 같은 캐싱 옵션이 있습니다.
 
 * 없음
-* Read
+* 읽기
 * 읽기/쓰기
 * 없음 + 쓰기 가속기 (Azure M 시리즈 Vm에만 해당)
 * 읽기 + 쓰기 가속기 (Azure M 시리즈 Vm에만 해당)

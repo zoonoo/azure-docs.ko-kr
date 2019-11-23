@@ -145,7 +145,7 @@ Azure AD Connect 설치는 설치 마법사를 사용하는 경우에만 지원�
 **Q: Office 365 신뢰 당사자에 대해 "신뢰 당사자 자동 업데이트"가 설정 되어 있습니다. 토큰 서명 인증서가 자동으로 롤오버 될 때 어떤 조치를 취해야 하나요?**  
 [인증서 갱신](how-to-connect-fed-o365-certs.md) 문서에 설명된 지침을 사용하세요.
 
-## <a name="environment"></a>Environment
+## <a name="environment"></a>환경
 **Q: Azure AD Connect를 설치한 후에 서버 이름을 변경하는 것이 지원되나요?**  
 아니요. 서버 이름을 변경하면 동기화 엔진이 SQL 데이터베이스 인스턴스에 연결할 수 없으므로 서비스를 시작할 수 없습니다.
 

@@ -233,7 +233,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    SAP HANA에 필요한 포트에 대 한 자세한 내용은 [SAP HANA 테 넌 트 데이터베이스](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6) 가이드 또는 [SAP Note 2388694][2388694]에 있는 [테 넌 트 데이터베이스에](https://help.sap.com/viewer/78209c1d3a9b41cd8624338e42a12bf6/latest/en-US/7a9343c9f2a2436faa3cfdb5ca00c052.html) 대 한 연결 챕터를 참조 하세요.
 
 > [!IMPORTANT]
-> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. 매개 변수 **net.tcp. tcp 타임 스탬프** 를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
+> Azure Load Balancer 뒤에 배치 되는 Azure Vm에서 TCP 타임 스탬프를 사용 하도록 설정 하지 마세요. TCP 타임 스탬프를 사용 하도록 설정 하면 상태 프로브가 실패 합니다. **Tcp_timestamps** 매개 변수를 **0**으로 설정 합니다. 자세한 내용은 [Load Balancer 상태 프로브](https://docs.microsoft.com/azure/load-balancer/load-balancer-custom-probe-overview)를 참조 하세요.
 > SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421)도 참조 하세요. 
 
 ## <a name="create-a-pacemaker-cluster"></a>Pacemaker 클러스터 만들기
@@ -578,7 +578,7 @@ sudo crm configure rsc_defaults migration-threshold=5000
 #     rsc_nc_HN1_HDB03   (ocf::heartbeat:anything):      Started hn1-db-0
 </code></pre>
 
-## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
 이 섹션에서는 설정을 테스트하는 방법을 설명합니다. 모든 테스트에서는 사용자가 루트이고 SAP HANA 마스터가 **hn1-db-0** 가상 머신에서 실행 중이라고 가정합니다.
 
@@ -740,7 +740,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 1: 노드 1에서 주 데이터베이스 중지
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -781,7 +781,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 2: 노드 2에서 주 데이터베이스 중지
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -822,7 +822,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 3: 노드에서 주 데이터베이스 크래시
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -863,7 +863,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 4: 노드 2에서 주 데이터베이스 크래시
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -904,7 +904,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 5: 주 사이트 노드 크래시(노드 1)
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -955,7 +955,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 6: 보조 사이트 노드 크래시(노드 2)
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1006,7 +1006,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 7: 노드 2에서 보조 데이터베이스 중지
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1043,7 +1043,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 8: 노드 2에서 보조 데이터베이스 크래시
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]
@@ -1080,7 +1080,7 @@ crm resource cleanup msl_SAPHana_<b>HN1</b>_HDB<b>03</b> <b>hn1-db-0</b>
 
 1. 테스트 9: 보조 HANA 데이터베이스를 실행 중인 보조 사이트 노드 크래시(노드 2)
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>Clone Set: cln_SAPHanaTopology_HN1_HDB03 [rsc_SAPHanaTopology_HN1_HDB03]
       Started: [ hn1-db-0 hn1-db-1 ]

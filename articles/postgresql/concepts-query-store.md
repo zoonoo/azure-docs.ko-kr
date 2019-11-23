@@ -1,6 +1,6 @@
 ---
 title: Azure Database for PostgreSQL 쿼리 저장소의 단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버의 쿼리 저장소 기능에 대해 설명 합니다.
+description: 이 문서에서는 PostgreSQL-단일 서버에 대한 Azure Database의 쿼리 저장소 기능을 설명합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
@@ -29,14 +29,14 @@ Azure Database for PostgreSQL의 쿼리 저장소 기능은 시간 경과에 따
 1. Azure Portal에 로그인하고 Azure Database for PostgreSQL 서버를 선택합니다.
 2. 메뉴의 **설정** 섹션에서 **서버 매개 변수**를 선택합니다.
 3. `pg_qs.query_capture_mode` 매개 변수를 검색합니다.
-4. 값 `TOP`으로 설정 하 고 **저장**합니다.
+4. 값을 `TOP`으로 설정하고 **저장**합니다.
 
-쿼리 저장소에서 대기 통계를 사용 하도록 설정 하려면: 
+쿼리 저장소에서 대기 통계를 활성화하려면 다음을 수행합니다. 
 1. `pgms_wait_sampling.query_capture_mode` 매개 변수를 검색합니다.
-1. 값 `ALL`으로 설정 하 고 **저장**합니다.
+1. 값을 `ALL`으로 설정하고 **저장**합니다.
 
 
-또는 Azure CLI를 사용 하 여 이러한 매개 변수를 설정할 수 있습니다.
+또는 Azure CLI를 사용하여 이러한 매개 변수를 설정할 수 있습니다.
 ```azurecli-interactive
 az postgres server configuration set --name pg_qs.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value TOP
 az postgres server configuration set --name pgms_wait_sampling.query_capture_mode --resource-group myresourcegroup --server mydemoserver --value ALL
@@ -80,7 +80,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음은 쿼리 저장소의 대기 통계를 사용하여 워크로드에 대한 더 많은 통찰력을 얻을 수 있는 방법의 몇 가지 예입니다.
 
-| **관찰** | **작업** |
+| **관찰** | **동작** |
 |---|---|
 |최고 잠금 대기 | 영향을 받는 쿼리에 대한 쿼리 텍스트를 확인하고 대상 엔터티를 식별합니다. 쿼리 저장소에서 자주 실행되거나 오래 실행되는 동일한 엔터티를 수정하는 다른 쿼리를 확인합니다. 이러한 쿼리를 식별한 후 동시성 향상을 위해 애플리케이션 논리를 변경해 보거나 덜 제한적인 격리 수준을 사용합니다.|
 | 높은 버퍼 IO 대기 | 쿼리 저장소에서 물리적 읽기 횟수가 많은 쿼리를 찾습니다. 해당 쿼리가 IO 대기가 많은 쿼리와 일치하는 경우 검사 대신 검색을 수행하기 위해 기본 엔터티에 인덱스를 도입하는 것이 좋습니다. 이렇게 하면 쿼리의 IO 오버헤드가 최소화됩니다. 포털에서 서버에 대한 **성능 권장 사항**을 확인하여 쿼리를 최적화하는 이 서버에 대한 인덱스 권장 사항이 있는지 확인합니다.|
@@ -91,7 +91,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 쿼리 저장소 매개 변수를 구성하는 데 사용할 수 있습니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **Default** | **범위**|
 |---|---|---|---|
 | pg_qs.query_capture_mode | 추적되는 문을 설정합니다. | 없음 | none, top, all |
 | pg_qs.max_query_text_length | 저장할 수 있는 최대 쿼리 길이를 설정합니다. 더 긴 쿼리는 잘립니다. | 6000 | 100 - 10K |
@@ -100,7 +100,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 
 다음 옵션은 특히 대기 통계에 적용됩니다.
 
-| **매개 변수** | **설명** | **기본값** | **Range**|
+| **매개 변수** | **설명** | **Default** | **범위**|
 |---|---|---|---|
 | pgms_wait_sampling.query_capture_mode | 대기 통계가 추적되는 문을 설정합니다. | 없음 | none, all|
 | Pgms_wait_sampling.history_period | 대기 이벤트가 샘플링되는 빈도(밀리초)를 설정합니다. | 100 | 1-600000 |
@@ -119,7 +119,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storeqs_view"></a>query_store.qs_view
 이 보기는 쿼리 저장소의 모든 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID 및 쿼리 ID에 대한 하나의 행이 있습니다. 
 
-|**Name**   |**형식** | **참조**  | **설명**|
+|**이름**   |**형식** | **참조**  | **설명**|
 |---|---|---|---|
 |runtime_stats_entry_id |bigint | | runtime_stats_entries 테이블의 ID|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
@@ -152,7 +152,7 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storequery_texts_view"></a>query_store.query_texts_view
 이 보기는 쿼리 저장소의 쿼리 텍스트 데이터를 반환합니다. 각 고유 query_text에 대한 하나의 행이 있습니다.
 
-|**Name**|  **형식**|   **설명**|
+|**이름**|  **형식**|   **설명**|
 |---|---|---|
 |query_text_id  |bigint     |query_texts 테이블의 ID|
 |query_sql_text |Varchar(10000)     |대표 문의 텍스트. 동일한 구조의 서로 다른 쿼리가 함께 클러스터되고, 이 텍스트는 클러스터에 있는 첫 번째 쿼리의 텍스트입니다.|
@@ -160,17 +160,17 @@ SELECT * FROM query_store.pgms_wait_sampling_view;
 ### <a name="query_storepgms_wait_sampling_view"></a>query_store.pgms_wait_sampling_view
 이 보기는 쿼리 저장소의 대기 이벤트 데이터를 반환합니다. 각 고유 데이터베이스 ID, 사용자 ID, 쿼리 ID 및 이벤트에 대한 하나의 행이 있습니다.
 
-|**Name**|  **형식**|   **참조**| **설명**|
+|**이름**|  **형식**|   **참조**| **설명**|
 |---|---|---|---|
 |user_id    |oid    |pg_authid.oid  |문을 실행한 사용자의 OID|
 |db_id  |oid    |pg_database.oid    |문이 실행된 데이터베이스의 OID|
 |query_id   |bigint     ||문의 구문 분석 트리에서 계산된 내부 해시 코드|
 |event_type |text       ||백 엔드가 대기 중인 이벤트 유형|
-|event  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
-|calls  |정수        ||캡처된 동일한 이벤트 수|
+|이벤트  |text       ||백 엔드가 현재 대기 중인 경우 대기 이벤트 이름|
+|calls  |String        ||캡처된 동일한 이벤트 수|
 
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>함수
 Query_store.qs_reset() returns void
 
 `qs_reset`은 쿼리 저장소가 지금까지 수집한 모든 통계를 무시합니다.  이 함수는 서버 관리자 역할만 실행할 수 있습니다.

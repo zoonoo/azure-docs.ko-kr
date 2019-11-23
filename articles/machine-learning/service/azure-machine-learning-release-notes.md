@@ -237,7 +237,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
     + azureml-설명-모델 패키지의 이름이 azureml-대/소문자 구분-해석으로 바뀌었습니다.
   + **[azureml-코어](https://docs.microsoft.com/python/api/azureml-core)**
     + 데이터 집합의 등록을 취소 하는 API가 추가 되었습니다. 집합. [unregister_all_versions ()](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_datastore.abstractdatastore#unregister--).
-    + 데이터 변경 시간을 확인 하는 데이터 집합 API를 추가 했습니다. `dataset.data_changed_time`.
+    + 데이터 변경 시간을 확인 하는 데이터 집합 API를 추가 했습니다. `dataset.data_changed_time` 을 참조하세요.
     + `HyperDriveStep` 파이프라인에서 `PythonScriptStep`, `EstimatorStep`및 Azure Machine Learning에 대 한 입력으로 `FileDataset` 및 `TabularDataset`를 사용할 수 있습니다.
     + 많은 수의 파일을 포함 하는 폴더에 대 한 `FileDataset.mount` 성능이 향상 되었습니다.
     + [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset) 및 [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset) 을 Azure Machine Learning 파이프라인의 [PythonScriptStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.python_script_step.pythonscriptstep), [EstimatorStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.estimatorstep)및 [hyperdrivestep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.hyperdrivestep) 에 대 한 입력으로 사용할 수 있습니다.

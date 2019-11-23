@@ -33,7 +33,7 @@ ms.locfileid: "73847225"
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>선행 조건
 
 -   페더레이션된 도메인을 포함 하는 Azure AD 테 넌 트가 있습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "73847225"
 
 - 이 기능은 브라우저 및 최신 인증 클라이언트의 사용자 로그인 트래픽에만 사용할 때만 작동 합니다. 레거시 인증을 사용 하는 응용 프로그램 또는 클라우드 서비스는 페더레이션 인증 흐름으로 대체 됩니다. (예: 최신 인증이 설정 된 Exchange online 또는 최신 인증을 지원 하지 않는 Outlook 2010.)
 
-## <a name="unsupported-scenarios"></a>지원 되지 않는 시나리오
+## <a name="unsupported-scenarios"></a>지원되지 않는 시나리오
 
 이러한 시나리오는 준비 된 롤아웃에 대해 지원 되지 않습니다.
 
@@ -128,7 +128,7 @@ PowerShell을 사용 하 여 AD 포리스트에서 원활한 SSO를 사용 하�
 
 6.  `$creds = Get-Credential`를 호출 합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
-7. `Enable-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 원활한 SSO에 필요한이 특정 Active Directory 포리스트에 대해 온-프레미스 도메인 컨트롤러에서 AZUREADSSOACC 컴퓨터 계정을 만듭니다.
+7. `Enable-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 원활한 SSO에 필요한이 특정 Active Directory 포리스트에 대해 온-프레미스 도메인 컨트롤러에서 AZUREADSSOACC 컴퓨터 계정을 만듭니다.
 
 8. 원활한 SSO는 Url이 인트라넷 영역에 있어야 합니다. 그룹 정책을 사용 하 여 해당 URL을 배포 하려면 [원활한 Single Sign-On 빠른](how-to-connect-sso-quick-start.md#step-3-roll-out-the-feature) 시작을 참조 하세요.
 

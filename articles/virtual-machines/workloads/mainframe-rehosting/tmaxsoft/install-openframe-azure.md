@@ -51,7 +51,7 @@ OpenFrame은 Oracle Database, Microsoft SQL Server, IBM Db2 및 MySQL을 비롯 
 - PROTRIEVE는 메인프레임 언어 CA-Easytrieve를 실행 하는 솔루션입니다.
 - OFMiner은 메인프레임 자산을 분석 한 후 Azure로 마이그레이션하는 솔루션입니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>아키텍처
 
 다음 그림은이 자습서에 설치 된 OpenFrame 7.0 아키텍처 구성 요소에 대 한 개요를 제공 합니다.
 
@@ -72,7 +72,7 @@ OpenFrame은 Oracle Database, Microsoft SQL Server, IBM Db2 및 MySQL을 비롯 
 <td>
 Linux x86 2.6 (32 비트, 64 비트)<br/>
 Red Hat 7.x<br/>
-CentOS 4.x<br/>
+CentOS 7.x<br/>
 </td>
 </tr>
 <tr><td>하드웨어
@@ -96,7 +96,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 <!-- markdownlint-enable MD033 -->
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 필요한 모든 소프트웨어를 조합 하 고 모든 수동 프로세스를 완료 하는 데 며칠의 비용을 계획 합니다.
 
@@ -104,7 +104,7 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 - TmaxSoft에서 OpenFrame 설치 미디어를 가져옵니다. 기존 TmaxSoft 고객 인 경우 사용이 허가 된 복사본에 대해 TmaxSoft 담당자에 게 문의 하세요. 그렇지 않으면 [Tmaxsoft](https://www.tmaxsoft.com/contact/)에서 평가판 버전을 요청 합니다.
 
-- @No__t-0에 전자 메일을 보내 OpenFrame 설명서를 요청 합니다.
+- <support@tmaxsoft.com>에 전자 메일을 보내 OpenFrame 설명서를 요청 합니다.
 
 - 아직 없는 경우 Azure 구독을 가져옵니다. 시작 하기 전에 [무료 계정을](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 만들 수도 있습니다.
 
@@ -116,13 +116,13 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 **VM을 만들려면**
 
-1. @No__t-0에서 Azure Portal로 이동 하 여 계정에 로그인 합니다.
+1. <https://portal.azure.com> Azure Portal으로 이동 하 여 계정에 로그인 합니다.
 
 2. **가상 머신**을 클릭합니다.
 
     ![Azure Portal의 리소스 목록](media/vm-01.png)
 
-3. **추가**으로 로그온합니다.
+3. **추가**를 클릭합니다.
 
     ![Azure Portal에서 옵션 추가](media/vm-02.png)
 
@@ -145,20 +145,20 @@ Windows 용 Eclipse: TmaxSoft에서 지원 되는 개발 플랫폼<br/>
 
 Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 하려면 PuTTYgen가 필요 합니다.
 
-공개 키는 자유롭게 공유할 수 있지만 개인 키는 완전히 비밀로 유지 되어야 하며 다른 당사자와 공유 해서는 안 됩니다. 키를 생성 한 후에는 **SSH 공개 키** 를 구성에 붙여넣어 (실제로 Linux VM에 업로드 해야 합니다.) 이 파일은 사용자 계정의 홈 디렉터리에 있는 \~/. s s o 디렉터리 내의 권한이 있는 @ no__t-0keys 안에 저장 됩니다. 그런 다음 Linux VM은 연결 된 **ssh 개인 키** 를 ssh 클라이언트 (이 경우 PuTTY)에 제공 하 여 연결을 인식 하 고 유효성을 검사할 수 있습니다.
+공개 키는 자유롭게 공유할 수 있지만 개인 키는 완전히 비밀로 유지 되어야 하며 다른 당사자와 공유 해서는 안 됩니다. 키를 생성 한 후에는 **SSH 공개 키** 를 구성에 붙여넣어 (실제로 Linux VM에 업로드 해야 합니다.) 이 파일은 권한 있는\_키 내에 저장 되며, 사용자 계정의 홈 디렉터리에 있는 \~/.ssh 디렉터리 내에 저장 됩니다. 그런 다음 Linux VM은 연결 된 **ssh 개인 키** 를 ssh 클라이언트 (이 경우 PuTTY)에 제공 하 여 연결을 인식 하 고 유효성을 검사할 수 있습니다.
 
 새 개인에 게 VM에 대 한 액세스 권한을 부여 하는 경우: 
 
 - 각각의 새 개인은 PuTTYgen를 사용 하 여 자신의 공개/개인 키를 생성 합니다.
 - 개인은 개별적으로 개인 키를 저장 하 고 VM의 관리자에 게 공개 키 정보를 보냅니다.
-- 관리자는 \~/. s s t/권한이 부여 된 @ no__t-1 키 파일에 공개 키의 내용을 붙여넣습니다.
+- 관리자는 \~/.ssh/authorized\_키 파일에 공개 키의 내용을 붙여넣습니다.
 - 새 개인은 PuTTY을 통해 연결 됩니다.
 
 **공개/개인 키 쌍을 생성 하려면**
 
-1.  @No__t-0에서 PuTTYgen를 다운로드 하 고 모든 기본 설정을 사용 하 여 설치 합니다.
+1.  <https://www.putty.org/>에서 PuTTYgen를 다운로드 하 고 모든 기본 설정을 사용 하 여 설치 합니다.
 
-2.  PuTTYgen를 열려면 C: \\Program Files @ no__t-1PuTTY에서 PuTTY 설치 디렉터리를 찾습니다.
+2.  PuTTYgen를 열려면 C:\\Program Files\\PuTTY에서 PuTTY 설치 디렉터리를 찾습니다.
 
     ![PuTTY 인터페이스](media/puttygen-01.png)
 
@@ -166,7 +166,7 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 
     ![PuTTY 키 생성기 대화 상자](media/puttygen-02.png)
 
-4.  생성 후 공개 키와 개인 키를 모두 저장 합니다. 공개 키의 콘텐츠를 **Create virtual machine \> 기본 사항** 창 (이전 섹션의 6 단계 및 7 단계에 표시)의 **SSH 공개 키** 섹션에 붙여 넣습니다.
+4.  생성 후 공개 키와 개인 키를 모두 저장 합니다. 공개 키의 콘텐츠를 **SSH 공개 키** 섹션 (이전 섹션의 6 단계 및 7 단계에 표시)의 **가상 머신 \> 만들기** 창에 붙여넣습니다.
 
     ![PuTTY 키 생성기 대화 상자](media/puttygen-03.png)
 
@@ -189,7 +189,7 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 
 6. PuTTY를 엽니다.
 
-7. **호스트 이름**에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **username @ no__t-1publicip**.
+7. **호스트 이름**에 사용자 이름 및 복사한 공용 IP 주소를 입력 합니다. 예: **사용자 이름\@publicip**.
 
     ![PuTTY 구성 대화 상자](media/putty-01.png)
 
@@ -255,8 +255,8 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
 6. 필요한 패키지 가져오기: 서버가 인터넷에 연결 되어 있는지 확인 하 고 다음 패키지를 다운로드 한 후 설치 합니다.
 
      - dos2unix
-     - Glibc
-     - i686 glibc. x86 @ no__t-064
+     - glibc
+     - glibc.i686 glibc.x86\_64
      - libaio
      - ncurses
 
@@ -267,9 +267,9 @@ Windows 운영 체제를 사용 하는 경우 공개/개인 키 쌍을 생성 �
          ln -s /usr/lib64/libncurses.so.5.9 /usr/lib/libtermcap.so.2
          ```
 
-     - 하므로
-     - gcc-c + +
-     - libaio-devel. x86 @ no__t-064
+     - gcc
+     - gcc-c++
+     - libaio-devel.x86\_64
      - strace
      - ltrace
      - gdb
@@ -308,14 +308,14 @@ Tibero는 Azure의 OpenFrame 환경에서 몇 가지 주요 기능을 제공 합
 **Tibero를 설치 하려면**
 
 1. Tibero 이진 설치 관리자 파일이 있는지 확인 하 고 버전 번호를 검토 합니다.
-2. Tibero 소프트웨어를 Tibero 사용자 계정 (oframe)에 복사 합니다. 다음은 그 예입니다.
+2. Tibero 소프트웨어를 Tibero 사용자 계정 (oframe)에 복사 합니다. 예를 들어:
 
     ```
     [oframe7@ofdemo ~]$ tar -xzvf tibero6-bin-6_rel_FS04-linux64-121793-opt-tested.tar.gz 
     [oframe7@ofdemo ~]$ mv license.xml /opt/tmaxdb/tibero6/license/
     ```
 
-3. Vi (`vi .bash_profile`)에서 bash @ no__t-0profile을 열고 다음을 붙여넣습니다.
+3. Vi (`vi .bash_profile`)에서 bash\_프로필을 열고 다음을 붙여넣습니다.
 
     ```
     # Tibero6 ENV
@@ -331,14 +331,14 @@ Tibero는 Azure의 OpenFrame 환경에서 몇 가지 주요 기능을 제공 합
     source .bash_profile
     ```
 
-5. 팁 파일 (Tibero의 구성 파일)을 생성 한 다음 vi에서 엽니다. 다음은 그 예입니다.
+5. 팁 파일 (Tibero의 구성 파일)을 생성 한 다음 vi에서 엽니다. 예를 들어:
 
     ```
     [oframe7@ofdemo ~]$ sh $TB_HOME/config/gen_tip.sh
     [oframe7@ofdemo ~]$ vi $TB_HOME/config/$TB_SID.tip
     ```
 
-6. 다음과 같이 \$TB @ no__t-1HOME/client/config/tbdsn를 수정 하 고 대신 127.0.0.1을 추가 합니다.
+6. 다음과 같이 \$TB\_HOME/client/config/tbdsn을 수정 하 고 대신 127.0.0.1을 추가 합니다.
 
     ```
     TVSAM=( 
@@ -349,7 +349,7 @@ Tibero는 Azure의 OpenFrame 환경에서 몇 가지 주요 기능을 제공 합
      )
     ```
 
-7. 데이터베이스를 만듭니다. 다음과 같은 출력이 표시 됩니다.
+7. 데이터베이스를 만듭니다. 다음 출력이 표시됩니다.
 
     ```
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
@@ -386,14 +386,14 @@ Tibero는 Azure의 OpenFrame 환경에서 몇 가지 주요 기능을 제공 합
      ******************************************************************************
     ```
 
-8. Tibero를 재활용 하려면 먼저 `tbdown` 명령을 사용 하 여 종료 합니다. 다음은 그 예입니다.
+8. Tibero를 재활용 하려면 먼저 `tbdown` 명령을 사용 하 여 종료 합니다. 예를 들어:
 
     ```
     [oframe7@ofdemo ~]$$ tbdown 
     Tibero instance terminated (NORMAL mode).
     ```
 
-9. 이제 `tbboot`을 사용 하 여 Tibero를 부팅 합니다. 다음은 그 예입니다.
+9. 이제 `tbboot`를 사용 하 여 Tibero를 부팅 합니다. 예를 들어:
 
     ```
     [oframe7@ofdemo ~]$ tbboot
@@ -430,7 +430,7 @@ Tibero는 Azure의 OpenFrame 환경에서 몇 가지 주요 기능을 제공 합
     ps -ef | egrep tbsvr
     ```
 
-출력
+출력:
 
 ![Tibero 출력](media/tibero-01.png)
 
@@ -440,29 +440,29 @@ OpenFrame의 응용 프로그램은 오픈 소스 전체 Xodbc 프로젝트에�
 
 ODBC를 설치 하려면:
 
-1. UnixODBC-2.3.4 release.tar.gz 설치 관리자 파일이 있는지 확인 하거나 `wget unixODBC-2.3.4.tar.gz` 명령을 사용 합니다. 다음은 그 예입니다.
+1. UnixODBC-2.3.4 release.tar.gz installer 파일이 있는지 확인 하거나 `wget unixODBC-2.3.4.tar.gz` 명령을 사용 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ wget ftp://ftp.unixodbc.org/pub/unixODBC/unixODBC-2.3.4.tar.gz
      ```
 
-2. 이진 파일의 압축을 풉니다. 다음은 그 예입니다.
+2. 이진 파일의 압축을 풉니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf unixODBC-2.3.4.tar.gz
      ```
 
-3. 2\.3.4 디렉터리로 이동 하 고 컴퓨터 정보 확인을 사용 하 여 메이크파일을 생성 합니다. 다음은 그 예입니다.
+3. 2\.3.4 디렉터리로 이동 하 고 컴퓨터 정보 확인을 사용 하 여 메이크파일을 생성 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ ./configure --prefix=/opt/tmaxapp/unixODBC/ --sysconfdir=/opt/tmaxapp/unixODBC/etc
      ```
 
-     기본적으로/local에는 전체 값이 설치 되어 있습니다. @no__t 따라서-0은 위치를 변경 하는 값을 전달 합니다. 마찬가지로 구성 파일은 기본적으로/등으로 설치 되므로 `--sysconfdir`은 원하는 위치의 값을 전달 합니다.
+     기본적으로는 `--prefix`/local에 값을 전달 하 여 위치를 변경 하는 값을 전달 합니다. 마찬가지로 구성 파일은 기본적으로/등으로 설치 되므로 `--sysconfdir`는 원하는 위치의 값을 전달 합니다.
 
 4. 메이크파일 실행: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
-5. 컴파일한 후 프로그램 디렉터리에서 실행 파일을 복사 합니다. 다음은 그 예입니다.
+5. 컴파일한 후 프로그램 디렉터리에서 실행 파일을 복사 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ make install
@@ -479,7 +479,7 @@ ODBC를 설치 하려면:
      export ODBCSYSINI=$HOME
      ```
 
-7. ODBC를 적용 합니다. 다음 파일을 적절 하 게 편집 합니다. 다음은 그 예입니다.
+7. ODBC를 적용 합니다. 다음 파일을 적절 하 게 편집 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo unixODBC-2.3.4]$ source ~/.bash_profile
@@ -543,7 +543,7 @@ ODBC를 설치 하려면:
 
 **OpenFrame Base를 설치 하려면**
 
-1. Tibero가 성공적으로 설치 되었는지 확인 하 고 다음 OpenFrame @ no__t-0Base7 @ no__t-10 @ no__t @ no__t-3x86\_64.bin installer 파일 및 구성 파일이 있는지 확인 합니다.
+1. Tibero가 성공적으로 설치 되었는지 확인 한 다음 OpenFrame\_Base7\_0\_Linux\_x86\_64. bin 설치 관리자 파일 및 기본. properties 구성 파일이 있는지 확인 합니다.
 
 2. 다음 Tibero 관련 정보를 사용 하 여 bash 프로필을 업데이트 합니다.
 
@@ -558,8 +558,8 @@ ODBC를 설치 하려면:
      alias defvol='cd $OPENFRAME_HOME/volume_default'
      ```
 
-3. Bash 프로필을 실행 합니다. `[oframe7@ofdemo ~]$ . .bash_profile`
-4. Tibero 프로세스가 실행 되 고 있는지 확인 합니다. 다음은 그 예입니다.
+3. Bash 프로필을 실행 합니다.`[oframe7@ofdemo ~]$ . .bash_profile`
+4. Tibero 프로세스가 실행 되 고 있는지 확인 합니다. 예를 들어:
 
      ```linux
      [oframe7@ofdemo ~]$ ps -ef|grep tbsvr
@@ -602,7 +602,7 @@ ODBC를 설치 하려면:
      OPENFRAME_LICENSE_PATH=/opt/tmaxapp/license/OPENFRAME TMAX_LICENSE_PATH=/opt/tmaxapp/license/TMAX
      ```
 
-7. 기본. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 다음은 그 예입니다.
+7. 기본. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 예를 들어:
 
     ```
     [oframe7@ofdemo ~]$ chmod a+x OpenFrame_Base7_0_Linux_x86_64.bin 
@@ -611,7 +611,7 @@ ODBC를 설치 하려면:
 
     완료 되 면 설치 완료 메시지가 꽉 재생 됩니다.
 
-8. @No__t-0 명령을 사용 하 여 OpenFrame 기본 디렉터리 구조를 확인 합니다. 다음은 그 예입니다.
+8. `ls -ltr` 명령을 사용 하 여 OpenFrame 기본 디렉터리 구조를 확인 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo OpenFrame]$ ls -ltr
@@ -677,9 +677,9 @@ OpenFrame 일괄 처리는 메인프레임 일괄 처리 환경을 시뮬레이�
 
 **일괄 처리를 설치 하려면**
 
-1. 기본 설치에 성공 했는지 확인 한 후 OpenFrame @ no__t-0Batch7 @ no__t-10 @ no__t @ no__t-3MVS @ no__t-4Linux @ no__t-5x86\_64.bin installer 파일 및 batch. properties 구성 파일이 있는지 확인 합니다.
+1. 기본 설치에 성공 했는지 확인 한 후 OpenFrame\_Batch7\_0\_Fix2\_MVS\_Linux\_x86\_64. bin 설치 관리자 파일 및 batch. 속성 구성 파일이 있는지 확인 합니다.
 
-2. 명령 프롬프트에서 `vi batch.properties`을 입력 하 여 vi를 사용 하 여 batch. 속성 파일을 편집 합니다.
+2. 명령 프롬프트에서 `vi batch.properties`를 입력 하 여 vi를 사용 하는 batch. 속성 파일을 편집 합니다.
 
 3. 다음과 같이 매개 변수를 수정 합니다.
 
@@ -706,11 +706,11 @@ OpenFrame 일괄 처리는 메인프레임 일괄 처리 환경을 시뮬레이�
      ./OpenFrame_Batch7_0_Fix2_MVS_Linux_x86_64.bin -f batch.properties
      ```
 
-5. 설치가 완료 되 면 명령 프롬프트에서 `tmboot`을 입력 하 여 설치 된 OpenFrame 도구 모음을 시작 합니다.
+5. 설치가 완료 되 면 명령 프롬프트에서 `tmboot`를 입력 하 여 설치 된 OpenFrame 도구 모음을 시작 합니다.
 
     ![tmboot 출력](media/tmboot-01.png)
 
-6. 명령 프롬프트에서 `tmadmin`을 입력 하 여 OpenFrame 프로세스를 확인 합니다.
+6. 명령 프롬프트에 `tmadmin`를 입력 하 여 OpenFrame 프로세스를 확인 합니다.
 
     ![Tmax 관리 화면](media/tmadmin-01.png)
 
@@ -721,7 +721,7 @@ OpenFrame 일괄 처리는 메인프레임 일괄 처리 환경을 시뮬레이�
      ADM quit for node (NODE1)
      ```
 
-8. @No__t-0 명령을 사용 하 여 일괄 처리를 시작 하 고 종료 합니다.
+8. `tmdown` 명령을 사용 하 여 일괄 처리를 시작 하 고 종료 합니다.
 
      ```
      [oframe7@ofdemo ~]$tmdown
@@ -765,7 +765,7 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
 
 **TACF를 설치 하려면**
 
-1. OpenFrame @ no__t-0Tacf7 @ no__t @ no__t-2Fix2 @ no__t-3Linux @ no__t-4x86\_64.bin installer 파일 및 tacf 구성 파일이 있는지 확인 합니다.
+1. OpenFrame\_Tacf7\_0\_Fix2\_Linux\_x86\_64. bin 설치 관리자 파일과 tacf 구성 파일이 있는지 확인 합니다.
 2. 일괄 설치가 성공 했는지 확인 한 다음 vi를 사용 하 여 tacf 파일 (`vi tacf.properties`)을 엽니다.
 3. TACF 매개 변수를 수정 합니다.
 
@@ -812,7 +812,7 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
      /tmp/install.dir.41422/Linux/resource/jre/lib/resources.jar /tmp/install.dir.41422/Linux/resource/jre/lib/rt.jar /tmp/install.dir.41422/Linux/resource/jre/lib/sunrsasign.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jsse.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jce.jar /tmp/install.dir.41422/Linux/resource/jre/lib/charsets.jar /tmp/install.dir.41422/Linux/resource/jre/lib/jfr.jar /tmp/install.dir.41422/Linux/resource/jre/classes
      ```
 
-6. 명령 프롬프트에서 `tmboot`을 입력 하 여 OpenFrame을 다시 시작 합니다. 출력은 다음과 같습니다.
+6. 명령 프롬프트에서 `tmboot`를 입력 하 여 OpenFrame을 다시 시작 합니다. 출력은 다음과 같습니다.
 
      ```
      TMBOOT for node(NODE1) is starting: 
@@ -849,7 +849,7 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
      TMBOOT: SVR(tmsvr) is starting: Wed Sep  7 17:48:53 2016
      ```
 
-7. @No__t-1 명령에서 `tmadmin`을 사용 하 여 프로세스 상태가 준비 인지 확인 합니다. 다음은 그 예입니다.
+7. `si` 명령의 `tmadmin`를 사용 하 여 프로세스 상태가 준비 인지 확인 합니다. 예를 들어:
 
      ```
      [oframe7\@ofdemo \~]\$ tmadmin
@@ -875,7 +875,7 @@ TACF Manager는 RACF security를 통해 시스템 및 리소스에 대 한 사�
      [oframe7@ofdemo ~]$ tmdow
      ```
 
-9. @No__t-0 명령을 사용 하 여 서버를 종료 합니다. 출력은 다음과 같습니다.
+9. `tmdown` 명령을 사용 하 여 서버를 종료 합니다. 출력은 다음과 같습니다.
 
      ```
      [oframe7@ofdemo ~]$ tmdown 
@@ -909,7 +909,7 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
 
 **ProSort를 설치 하려면**
 
-1. 일괄 설치가 성공적으로 완료 되었는지 확인 한 다음 **prosort-bin-prosort\_2sp3-linux64-2123-opt.tar.gz** installer 파일이 있는지 확인 합니다.
+1. 일괄 설치가 성공적으로 완료 되었는지 확인 한 다음 **prosort-bin-prosort\_2sp3-linux64-2123-opt. release.tar.gz** 설치 관리자 파일이 있는지 확인 합니다.
 
 2. 속성 파일을 사용 하 여 설치 관리자를 실행 합니다. 명령 프롬프트에 다음을 입력합니다.
 
@@ -923,7 +923,7 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
      mv prosort /opt/tmaxapp/prosort
      ```
 
-4. 라이선스 하위 디렉터리를 만들고 여기에 라이선스 파일을 복사 합니다. 다음은 그 예입니다.
+4. 라이선스 하위 디렉터리를 만들고 여기에 라이선스 파일을 복사 합니다. 예를 들어:
 
      ```
      cd /opt/tmaxapp/prosort 
@@ -947,7 +947,7 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
 
 6. Bash 프로필을 실행 하려면 명령 프롬프트에서 다음을 입력 합니다. `. .bash_profile`
 
-7. 구성 파일을 만듭니다. 다음은 그 예입니다.
+7. 구성 파일을 만듭니다. 예를 들어:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/prosort/config 
@@ -956,14 +956,14 @@ ProSort는 일괄 처리 트랜잭션에서 데이터를 정렬 하는 데 사�
       /home/oframe7/prosort/config/gbg.tip generated
      ```
 
-8. 기호화 된 링크를 만듭니다. 다음은 그 예입니다.
+8. 기호화 된 링크를 만듭니다. 예를 들어:
 
      ```
      oframe@oframe7: cd /opt/tmaxapp/OpenFrame/util/ 
      oframe@oframe7home/oframe7/OpenFrame/util :  ln -s DFSORT SORT
      ```
 
-9. @No__t-0 명령을 실행 하 여 ProSort 설치를 확인 합니다. 다음은 그 예입니다.
+9. `prosort -h` 명령을 실행 하 여 ProSort 설치를 확인 합니다. 예를 들어:
 
      ```
      oframe@oframe7: prosort -h
@@ -983,7 +983,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
 
 **OFCOBOL을 설치 하려면**
 
-1. 일괄 처리/온라인 설치에 성공 했는지 확인 한 후 OpenFrame @ no__t-0COBOL3 @ no__t @ no__t-240 @ no__t 설치 관리자 파일이 있는지 확인 합니다.
+1. 일괄 처리/온라인 설치에 성공 했는지 확인 한 후 OpenFrame\_COBOL3\_0\_40\_Linux\_x86\_64. bin 설치 관리자 파일이 있는지 확인 합니다.
 
 2. OFCOBOL 설치 관리자를 실행 하려면 명령 프롬프트에서 다음을 입력 합니다.
 
@@ -1024,11 +1024,11 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
       source ~/.bash_profile
      ```
 
-7. OFCOBOL 라이선스를 설치 된 폴더에 복사 합니다. 다음은 그 예입니다.
+7. OFCOBOL 라이선스를 설치 된 폴더에 복사 합니다. 예를 들어:
      ```
      mv licofcob.dat $OFCOB_HOME/license
      ```
-8. OpenFrame tjclrun 구성 파일로 이동 하 여 vi에서 엽니다. 다음은 그 예입니다.
+8. OpenFrame tjclrun 구성 파일로 이동 하 여 vi에서 엽니다. 예를 들어:
      ```
      [oframe7@ofdemo ~]$ cd $OPENFRAME_HOME/config 
      [oframe7@ofdemo ~]$ vi tjclrun.conf
@@ -1043,7 +1043,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bin LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${COBDIR}/lib:/ usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib :${ODBC_HOME}/lib 
      :${OFCOB_HOME}/lib
      ```
-9. Vi에서 OpenFrame @ no__t-0COBOL\_InstallLog.log 파일을 검토 하 고 오류가 없는지 확인 합니다. 다음은 그 예입니다.
+9. \_OpenFrame을 검토 하 여 vi에서 COBOL\_InstallLog 파일을 검토 하 고 오류가 없는지 확인 합니다. 예를 들어:
      ```
      [oframe7@ofdemo ~]$ vi $OFCOB_HOME/UninstallerData/log/OpenFrame_COBOL_InstallLog.log 
      …….. 
@@ -1055,7 +1055,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
      0 NonFatalErrors 
      0 FatalError
      ```
-10. @No__t-0 명령을 사용 하 고 버전 번호를 검토 하 여 설치를 확인 합니다. 다음은 그 예입니다.
+10. `ofcob --version` 명령을 사용 하 고 버전 번호를 검토 하 여 설치를 확인 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ ofcob --version 
@@ -1063,7 +1063,7 @@ OFCOBOL은 메인프레임의 COBOL 프로그램을 해석 하는 OpenFrame 컴�
      CommitTag:: 645f3f6bf7fbe1c366a6557c55b96c48454f4bf
      ```
 
-11. @No__t-0 명령을 사용 하 여 OpenFrame을 다시 부팅 합니다.
+11. `tmdown/tmboot` 명령을 사용 하 여 OpenFrame을 다시 부팅 합니다.
 
 ## <a name="install-ofasm"></a>OFASM 설치
 
@@ -1071,9 +1071,9 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
 
 **OFASM을 설치 하려면**
 
-1. 일괄 처리/온라인 설치에 성공 했는지 확인 한 후 OpenFrame @ no__t-0ASM3 @ no__t @ no__t @ no__t-3x86\_64.bin installer 파일이 있는지 확인 합니다.
+1. Batch/온라인 설치에 성공 했는지 확인 한 후 OpenFrame\_ASM3\_0\_Linux\_x86\_64. bin 설치 관리자 파일이 있는지 확인 합니다.
 
-2. 설치 관리자를 실행 합니다. 다음은 그 예입니다.
+2. 설치 관리자를 실행 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ ./OpenFrame_ASM3_0_Linux_x86_64.bin
@@ -1081,7 +1081,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
 
 3. 사용권 계약을 읽고 Enter 키를 눌러 계속 합니다.
 4. 사용권 계약에 동의 합니다.
-5. Bash 프로필이 OFASM 변수로 업데이트 되는지 확인 합니다. 다음은 그 예입니다.
+5. Bash 프로필이 OFASM 변수로 업데이트 되는지 확인 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ source .bash_profile
@@ -1117,7 +1117,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      [SYSLIB] BIN_PATH=${OPENFRAME_HOME}/bin:${OPENFRAME_HOME}/util:${COBDIR}/bin:/usr/local/bin:/bi n:${OPENFRAME_HOME}/volume_default/SYS1.LOADLIB LIB_PATH=${OPENFRAME_HOME}/lib:${OPENFRAME_HOME}/core/lib:${TB_HOME}/client/lib:${CO BDIR}/lib:/usr/lib:/lib:/lib/i686:/usr/local/lib:${PROSORT_HOME}/lib:/opt/FSUNbsort/lib:${OFCOB_HOM E}/lib:${ODBC_HOME}/lib:${OFPLI_HOME}/lib:${OFASM_HOME}/lib
      ```
 
-7. Vi에서 OpenFrame @ no__t-0ASM\_InstallLog.log 파일을 열고 오류가 없는지 확인 합니다. 다음은 그 예입니다.
+7. Vi에서 OpenFrame\_ASM\_파일을 열고 오류가 없는지 확인 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ vi 
@@ -1140,7 +1140,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      tmdown / tmboot
      ```
 
-     디스크나
+     —또는—
 
      ```
      oscdown / oscboot
@@ -1152,7 +1152,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
 
 **.OSC를 설치 하려면**
 
-1. 기본 설치에 성공 했는지 확인 한 후 OpenFrame @ no__t-0OSC7 @ no__t @ no__t-2Fix2 @ no__t-3Linux @ no__t-4x86\_64.bin installer file 및 .osc 구성 파일이 있는지 확인 합니다.
+1. 기본 설치에 성공 했는지 확인 한 후 OpenFrame\_OSC7\_0\_Fix2\_Linux\_x86\_64. bin 설치 관리자 파일 및 .osc 구성 파일이 있는지 확인 합니다.
 2. .Osc 속성 파일에서 다음 매개 변수를 편집 합니다.
      ```
      OPENFRAME_HOME=/opt/tmaxapp/OpenFrame OSC_SYS_OSC_NCS_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_NCS OSC_APP_OSC_TC_PATH=/opt/tmaxapp/OpenFrame/temp/OSC_TC
@@ -1167,7 +1167,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      완료 되 면 "설치 완료" 메시지가 표시 됩니다.
 
 4. Bash 프로필이 .OSC 변수로 업데이트 되는지 확인 합니다.
-5. OpenFrame @ no__t-0OSC7 @ no__t @ no__t-2Fix2\_InstallLog.log 파일을 검토 합니다. 다음과 같이 표시됩니다.
+5. OpenFrame\_OSC7\_0\_Fix2\_InstallLog. 로그 파일을 검토 합니다. 다음과 같이 표시됩니다.
 
      ```
      Summary 
@@ -1180,13 +1180,13 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      0 FatalError
      ```
 
-6. Vi를 사용 하 여 ofsys. seq 구성 파일을 엽니다. 다음은 그 예입니다.
+6. Vi를 사용 하 여 ofsys. seq 구성 파일을 엽니다. 예를 들어:
 
      ```
      vi $OPENFRAME_HOME/config/ofsys.seq
      ```
 
-7. @No__t-0BASE 및 \# 일괄 처리 섹션에서 표시 된 대로 매개 변수를 편집 합니다.
+7. \#기본 및 \#일괄 처리 섹션에서 표시 된 대로 매개 변수를 편집 합니다.
 
      ```
      Before changes
@@ -1224,7 +1224,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      TPFMAGENT      tmsvr
     ```
 
-8. 라이선스 파일을 복사 합니다. 다음은 그 예입니다.
+8. 라이선스 파일을 복사 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ cp /home/oframe7/oflicense/ofonline/licosc.dat 
@@ -1238,9 +1238,9 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
      -rwxrwxr-x. 1 oframe mqm 80 Sep  3 11:54 lictjes.da
      ```
 
-9. .OSC를 시작 하 고 종료 하려면 명령 프롬프트에서 `osctdlinit OSCOIVP1`을 입력 하 여 CICS 지역 공유 메모리를 초기화 합니다.
+9. .OSC를 시작 하 고 종료 하려면 명령 프롬프트에서 `osctdlinit OSCOIVP1`를 입력 하 여 CICS 지역 공유 메모리를 초기화 합니다.
 
-10. @No__t-0을 실행 하 여 .OSC를 부팅 합니다. 출력은 다음과 같습니다.
+10. `oscboot`를 실행 하 여 .OSC를 부팅 합니다. 출력은 다음과 같습니다.
 
      ```
      OSCBOOT : pre-processing       [ OK ]
@@ -1258,7 +1258,7 @@ OFASM은 메인프레임의 어셈블러 프로그램을 해석 하는 OpenFrame
 
     ![RDY를 표시 하는 프로세스](media/tmadmin-02.png)
 
-12. @No__t-0 명령을 사용 하 여 .OSC를 종료 합니다.
+12. `oscdown` 명령을 사용 하 여 .OSC를 종료 합니다.
 
 ## <a name="install-jeus"></a>JEUS 설치
 
@@ -1268,13 +1268,13 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
 
 **Apache Ant를 설치 하려면**
 
-1. @No__t-0 명령을 사용 하 여 Ant binary를 다운로드 합니다. 다음은 그 예입니다.
+1. `wget` 명령을 사용 하 여 Ant binary를 다운로드 합니다. 예를 들어:
 
      ```
      wget http://apache.mirror.cdnetworks.com/ant/binaries/apacheant-1.9.7-bin.tar.gz
      ```
 
-2. @No__t-0 유틸리티를 사용 하 여 이진 파일을 추출 하 고 적절 한 위치로 이동 합니다. 다음은 그 예입니다.
+2. `tar` 유틸리티를 사용 하 여 이진 파일을 추출 하 고 적절 한 위치로 이동 합니다. 예를 들어:
 
      ```
      tar -xvzf apache-ant-1.9.7-bin.tar.gz
@@ -1294,7 +1294,7 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      export PATH=$HOME/ant/bin:$PATH
      ```
 
-5.  수정 된 환경 변수를 적용 합니다. 다음은 그 예입니다.
+5.  수정 된 환경 변수를 적용 합니다. 예를 들어:
 
      ```
      [oframe7\@ofdemo \~]\$ source \~/.bash\_profile
@@ -1302,20 +1302,20 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
 
 **JEUS를 설치 하려면**
 
-1. @No__t-0 유틸리티를 사용 하 여 설치 관리자를 확장 합니다. 다음은 그 예입니다.
+1. `tar` 유틸리티를 사용 하 여 설치 관리자를 확장 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ tar -zxvf jeus704.tar.gz
      ```
 
 2. **Jeus** 폴더 (`mkdir jeus7`)를 만들고 이진 파일의 압축을 풉니다.
-3. **설치** 디렉터리로 변경 하거나 사용자 환경에 JEUS 매개 변수를 사용 합니다. 다음은 그 예입니다.
+3. **설치** 디렉터리로 변경 하거나 사용자 환경에 JEUS 매개 변수를 사용 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ cd jeus7/setup/
      ```
 
-4. 빌드를 수행 하기 전에 `ant clean-all`을 실행 합니다. 출력은 다음과 같습니다.
+4. 빌드를 수행 하기 전에 `ant clean-all`를 실행 합니다. 출력은 다음과 같습니다.
 
      ```
      Buildfile: /home/oframe7jeus7/setup/build.xml
@@ -1330,7 +1330,7 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      Total time: 0 seconds
      ```
 
-5.  도메인 구성-템플릿. 속성 파일의 백업을 만듭니다. 다음은 그 예입니다.
+5.  도메인 구성-템플릿. 속성 파일의 백업을 만듭니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ cp domain-config-template.properties domain-configtemplate.properties.bkp
@@ -1344,8 +1344,8 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
 
 7. `jeus.password=jeusadmin nodename=Tmaxsoft`를 `jeus.password=tmax1234 nodename=ofdemo`로 변경
 
-8. @No__t-0 명령을 실행 하 여 JEUS를 빌드합니다.
-9.  다음과 같이 JEUS 변수를 사용 하 여 bash @ no__t-0profile 파일을 업데이트 합니다.
+8. `ant install` 명령을 실행 하 여 JEUS를 빌드합니다.
+9.  JEUS 변수를 사용 하 여 다음과 같이 bash\_프로필 파일을 업데이트 합니다.
 
      ```
      # JEUS ENV 
@@ -1353,13 +1353,13 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      export PATH
      ```
 
-10. Bash 프로필을 실행 합니다. 다음은 그 예입니다.
+10. Bash 프로필을 실행 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo setup]$ . .bash_profile
      ```
 
-11. *옵션*. JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
+11. *선택 사항*입니다. JEUS 구성 요소를 쉽게 종료 하 고 부팅 하기 위한 별칭을 만듭니다.
 
      ```     
      # JEUS alias
@@ -1382,7 +1382,7 @@ JEUS를 설치 하기 전에 JEUS을 설치 하는 데 필요한 라이브러리
      http://<IP>:<port>/webadmin/login
      ```
 
-     예를 들어 <http://192.168.92.133:9736/webadmin/login.>은 로그온 화면이 표시 됩니다.
+     예 <http://192.168.92.133:9736/webadmin/login.> 들어 로그온 화면이 표시 됩니다.
     
      ![JEUS WebAdmin 로그온 화면](media/jeus-01.png)
 
@@ -1413,8 +1413,8 @@ OFGW는 3270 터미널 에뮬레이터와 OSI 기반 간의 통신을 지원 하
 
 **OFGW를 설치 하려면**
 
-1. JEUS이 성공적으로 설치 되었는지 확인 한 다음 OFGW7 @ no__t-00 @ no__t-11\_Generic.bin installer 파일이 있는지 확인 합니다.
-2. 설치 관리자를 실행 합니다. 다음은 그 예입니다.
+1. JEUS이 성공적으로 설치 되었는지 확인 한 다음 OFGW7\_0\_1\_일반. bin 설치 관리자 파일이 있는지 확인 합니다.
+2. 설치 관리자를 실행 합니다. 예를 들어:
 
      ```
      [oframe7@ofdemo ~]$ ./OFGW7_0_1_Generic.bin
@@ -1447,8 +1447,8 @@ OFManager는 웹 환경에서 OpenFrame의 작업 및 관리 기능을 제공 �
 
 **OFManager를 설치 하려면**
 
-1. OFManager7\_Generic.bin 설치 관리자 파일이 있는지 확인 합니다.
-2. 설치 관리자를 실행 합니다. 다음은 그 예입니다.
+1. OFManager7\_일반 설치 관리자 파일이 있는지 확인 합니다.
+2. 설치 관리자를 실행 합니다. 예를 들어:
 
      ```
      OFManager7_Generic.bin

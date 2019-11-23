@@ -34,7 +34,7 @@ ms.locfileid: "72167315"
 확장 집합을 확대하는 경우 새 인스턴스가 생성됩니다. 새 확장 집합 인스턴스 이름은 일반적으로 확장 집합 이름 + 다음 인스턴스 번호입니다. 이 예제에서는 BackEnd_5입니다.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>확장 집합 부하 분산 장치를 노드 형식 및 확장 집합에 매핑
-Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 다음 형식을 사용 합니다. **LB-&lt; 노드 유형 이름 @ no__t-2**. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
+Azure Portal에 클러스터를 배포했거나 샘플 Azure Resource Manager 템플릿을 사용한 경우 리소스 그룹의 모든 리소스가 목록에 열거됩니다. 각 확장 집합 또는 노드 형식에 대해 부하 분산 장치를 확인할 수 있습니다. 부하 분산 장치 이름은 **LB-&lt;노드 형식 이름&gt;** 형식을 사용합니다. 다음 그림에서처럼 LB-sfcluster4doc-0을 예로 들 수 있습니다.
 
 ![리소스][Resources]
 
@@ -95,7 +95,7 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 * ["어디에나 배포" 기능의 개요 및 Azure 관리된 클러스터와 비교](service-fabric-deploy-anywhere.md)를 참조하세요.
 * [클러스터 보안](service-fabric-cluster-security.md)에 대해 알아보기
 * 특정 확장 집합 인스턴스에 [원격으로 연결](service-fabric-cluster-remote-connect-to-azure-cluster-node.md)
-* 배포 후에 클러스터에서 [RDP 포트 범위 값 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)
+* 배포 후에 클러스터 VM에서 [RDP 포트 범위 값 업데이트](./scripts/service-fabric-powershell-change-rdp-port-range.md)
 * 클러스터 VM에 대한 [관리자 사용자 이름 및 암호 변경](./scripts/service-fabric-powershell-change-rdp-user-and-pw.md)
 
 <!--Image references-->

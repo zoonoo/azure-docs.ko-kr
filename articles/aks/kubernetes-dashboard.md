@@ -20,7 +20,7 @@ Kubernetes에는 기본 관리 작업에 사용할 수 있는 웹 대시보드�
 
 Kubernetes 대시보드에 대 한 자세한 내용은 [Kubernetes 웹 UI 대시보드][kubernetes-dashboard]를 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에 설명된 단계에서는 AKS 클러스터를 만들고 클러스터와 `kubectl` 연결을 설정했다고 가정합니다. AKS 클러스터를 만들어야 하는 경우 [AKS 빠른][aks-quickstart]시작을 참조 하세요.
 

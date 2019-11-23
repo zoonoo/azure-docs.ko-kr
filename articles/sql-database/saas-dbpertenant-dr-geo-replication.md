@@ -25,7 +25,7 @@ ms.locfileid: "73811712"
 이 자습서에서는 장애 조치(Failover) 및 장애 복구(Failback) 워크플로에 대해 알아봅니다. 이 문서에서 배울 내용은 다음과 같습니다.
 > [!div class="checklist"]
 > 
-> * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
+> * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 > * 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
 > * _지역에서 복제_를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
 > * 애플리케이션 및 카탈로그와 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover) 
@@ -51,7 +51,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 
 모든 부분을 신중히 고려해야 하며 대규모로 운영하는 경우에는 특히 신중해야 합니다. 전반적으로 이 계획은 다음과 같은 몇 가지 목표를 달성해야 합니다.
 
-* 설정
+* 설치
     * 복구 지역에서 미러 이미지 환경을 설정하고 유지 관리합니다. 이 복구 환경에서 탄력적 풀을 만들고 데이터베이스를 복제하면 복구 지역의 용량이 절약됩니다. 이러한 환경의 유지 관리에는 새 테넌트 데이터베이스가 프로비전될 때 복제하는 작업도 포함됩니다.  
 * 복구
     * 일일 비용을 최소화하기 위해 규모가 축소된 복구 환경을 사용하는 경우 풀 및 데이터베이스를 강화하여 복구 지역의 전체 운영 용량을 확보해야 합니다.
@@ -107,7 +107,7 @@ DR(재해 복구)은 규정 준수 이유 또는 비즈니스 연속성 여부�
 > [!IMPORTANT]
 > 간단히 하기 위해 동기화 프로세스 및 다른 장기 실행 복구 및 송환 프로세스는 이러한 자습서에서 클라이언트 사용자 로그인으로 실행 되는 로컬 PowerShell 작업 또는 세션으로 구현 됩니다. 로그인할 때 발급한 인증 토큰은 몇 시간 후에 만료되고 작업이 실패합니다. 프로덕션 시나리오에서 장기 실행 프로세스는 서비스 주체에서 실행되는 어떤 종류의 신뢰할 수 있는 Azure 서비스로 구현되어야 합니다. [Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal)를 참조하세요.
 
-1. _PowerShell ISE_에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다.  파일을 저장합니다!
+1. _PowerShell ISE_에서 ...\Learning Modules\UserConfig.psm1 파일을 엽니다. 10 및 11번 줄의 `<resourcegroup>` 및 `<user>`를 앱을 배포할 때 사용한 값으로 바꿉니다.  파일을 저장합니다.
 
 2. *PowerShell ISE*에서 ...\Learning Modules\Business Continuity and Disaster Recovery\DR-FailoverToReplica\Demo-FailoverToReplica.ps1 스크립트를 열고 다음을 설정합니다.
     * **$DemoScenario = 1** - 테넌트 서버를 동기화하는 백그라운드 작업을 시작하고 구성 정보를 카탈로그에 풀링합니다.
@@ -302,10 +302,10 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서 학습한 방법은 다음과 같습니다.
 > [!div class="checklist"]
 > 
-> * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그로 동기화합니다.
+> * 데이터베이스 및 탄력적 풀 구성 정보를 테넌트 카탈로그 동기화
 > * 애플리케이션, 서버 및 풀로 구성된 대체 지역에서 복구 환경 설정
 > * _지역에서 복제_를 사용하여 카탈로그 및 테넌트 데이터베이스를 복구 지역으로 복제
 > * 애플리케이션 및 카탈로그와 테넌트 데이터베이스를 복구 지역으로 장애 조치(Failover) 
@@ -313,6 +313,6 @@ Traffic Manager에서 애플리케이션 엔드포인트를 사용하지 않도�
 
 [비즈니스 연속성 개요](sql-database-business-continuity.md) 설명서에서 Azure SQL 데이터베이스가 비즈니스 연속성을 사용하도록 설정하기 위해 제공하는 기술에 대해 자세히 알아볼 수 있습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 
 * [Wingtip SaaS 애플리케이션을 빌드하는 또 다른 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials).

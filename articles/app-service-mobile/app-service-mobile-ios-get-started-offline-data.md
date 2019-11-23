@@ -43,7 +43,7 @@ Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워
 
 **QSTodoService.m**(Objective-C) 또는 **ToDoTableViewController.swift**(Swift)에서 **syncTable** 멤버 형식은 **MSSyncTable**입니다. 오프라인 동기화에는 **MSTable** 대신 이 동기화 테이블 인터페이스가 사용됩니다. 동기화 테이블이 사용되면 모든 작업이 로컬 저장소로 이동되고 명시적 밀어넣기 및 끌어오기 작업이 있는 원격 백 엔드와만 동기화됩니다.
 
- 동기화 테이블에 대한 참조를 얻으려면 `MSClient`에서 **syncTableWithName** 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
+ 동기화 테이블에 대한 참조를 얻으려면 **에서** syncTableWithName`MSClient` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
 
 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 관련 코드는 다음과 같습니다.
 
@@ -134,7 +134,7 @@ Swift 버전의 경우 푸시 작업이 꼭 필요하지 않기 때문에 **push
 
 Objective-C 버전과 Swift 버전 모두에서 **pullWithQuery** 메서드를 사용하여 쿼리를 지정하면 검색할 레코드를 필터링할 수 있습니다. 이 예제에서 쿼리는 원격 `TodoItem` 테이블의 모든 레코드를 검색합니다.
 
-**PullWithQuery** 의 두 번째 매개 변수는 *증분 동기화*에 사용 되는 쿼리 ID입니다. 증분 동기화는 레코드의 @no__t 2 타임 스탬프 (로컬 저장소에서 `updatedAt` 이라고 함)를 사용 하 여 마지막 동기화 이후에 수정 된 레코드만 검색 합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열 이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이런 방법은 각각의 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
+**PullWithQuery** 의 두 번째 매개 변수는 *증분 동기화*에 사용 되는 쿼리 ID입니다. 증분 동기화는 레코드의 `UpdatedAt` 타임 스탬프 (로컬 저장소의 `updatedAt` 이라고 함)를 사용 하 여 마지막 동기화 이후에 수정 된 레코드만 검색 합니다. 쿼리 ID는 앱의 각 논리 쿼리에 고유한 설명 문자열 이어야 합니다. 증분 동기화를 옵트아웃하려면 `nil`을 쿼리 ID로 전달합니다. 이런 방법은 각각의 끌어오기 작업에서 모든 레코드가 검색되므로 비효율적일 수 있습니다.
 
 Objective-C 앱은 데이터를 추가하거나 수정할 때 사용자가 새로 고침 제스처를 수행할 때 및 시작 시 동기화됩니다.
 
@@ -164,50 +164,50 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 ![MS_TableOperations 테이블 특성][defining-core-data-tableoperations-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
-| id | 정수 64 |
-| itemId | string |
+| id | Integer 64 |
+| itemId | 문자열 |
 | properties | 이진 데이터 |
-| 테이블 | string |
-| tableKind | 정수 16 |
+| table | 문자열 |
+| tableKind | Integer 16 |
 
 
 **MS_TableOperationErrors**
 
  ![MS_TableOperationErrors 테이블 특성][defining-core-data-tableoperationerrors-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
-| id |string |
-| operationId |정수 64 |
+| id |문자열 |
+| operationId |Integer 64 |
 | properties |이진 데이터 |
-| tableKind |정수 16 |
+| tableKind |Integer 16 |
 
  **MS_TableConfig**
 
  ![][defining-core-data-tableconfig-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
-| id |string |
-| key |string |
-| keyType |정수 64 |
-| 테이블 |string |
-| 값 |string |
+| id |문자열 |
+| key |문자열 |
+| keyType |Integer 64 |
+| table |문자열 |
+| value |문자열 |
 
 ### <a name="data-table"></a>데이터 테이블
 
 **TodoItem**
 
-| 특성 | Type | 참고 |
+| 특성 | 형식 | 참고 |
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
-| complete | Boolean | 할 일 항목 필드 |
-| text |string |할 일 항목 필드 |
-| createdAt | 날짜 | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
-| updatedAt | 날짜 | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
-| 버전 | string | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| complete | 부울 | 할 일 항목 필드 |
+| text |문자열 |할 일 항목 필드 |
+| createdAt | Date | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
+| updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
+| 버전 | 문자열 | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.
@@ -275,7 +275,7 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 로컬 저장소를 서버와 동기화할 때 **MSSyncTable.pullWithQuery** 메서드를 사용했습니다.
 
-## <a name="additional-resources"></a>추가 리소스
+## <a name="additional-resources"></a>추가 자료
 * [Mobile Apps에서 오프라인 데이터 동기화]
 * [Cloud Cover: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
 

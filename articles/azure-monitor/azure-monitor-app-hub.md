@@ -149,7 +149,7 @@ ms.locfileid: "72899155"
                                                             <a href="./app/profiler-aspnetcore-linux.md">ASP.NET Core 프로파일링</a><br>
                                                             <a href="./app/api-custom-events-metrics.md">사용자 지정 이벤트 및 메트릭</a><br>
                                                             
-<a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">.NET Core SDK GitHub 리포지토리를 엽니다</a>                                                        </p>
+<a href="https://github.com/Microsoft/ApplicationInsights-aspnetcore">.NET Core SDK GitHub 리포지토리를 엽니다</a>                                                         </p>
                                                         <br><br>
                                                           <h3>Node.js 애플리케이션</h3>
                                                         <p>
@@ -214,7 +214,7 @@ ms.locfileid: "72899155"
                                                             <a href="./app/data-model-dependency-telemetry.md">종속성</a><br>
                                                             <a href="./app/data-model-exception-telemetry.md">예외</a><br>
                                                             <a href="./app/data-model-trace-telemetry.md">추적</a><br>
-                                                            <a href="./app/data-model-event-telemetry.md">Event</a><br>
+                                                            <a href="./app/data-model-event-telemetry.md">이벤트</a><br>
                                                             <a href="./app/data-model-metric-telemetry.md">메트릭</a><br>
                                                             <a href="./app/data-model-context.md">컨텍스트</a>
                                                             </p>

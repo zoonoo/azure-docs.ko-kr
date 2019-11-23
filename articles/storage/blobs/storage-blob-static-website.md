@@ -50,17 +50,17 @@ ms.locfileid: "72311226"
 
 사용자는 웹 사이트의 공용 URL을 사용 하 여 브라우저에서 사이트 콘텐츠를 볼 수 있습니다. Azure Portal, Azure CLI 또는 PowerShell을 사용 하 여 URL을 찾을 수 있습니다. 이 표를 가이드로 참조하세요.
 
-|도구| 지침 |
+|도구| 인도 |
 |----|----|
 |**Azure Portal** | [Azure Portal를 사용 하 여 웹 사이트 URL을 찾습니다.](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [Azure CLI를 사용 하 여 웹 사이트 URL을 찾습니다.](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell 모듈** | [PowerShell을 사용 하 여 웹 사이트 URL 찾기](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-사이트의 URL은 지역 코드를 포함 합니다. 예를 들어 @no__t URL에는-1 @no__t 지역 코드가 포함 됩니다.
+사이트의 URL은 지역 코드를 포함 합니다. 예를 들어 `https://contosoblobaccount.z22.web.core.windows.net/` URL에는 지역 코드 `z22`포함 되어 있습니다.
 
 이 코드는 URL에 남아 있어야 하지만 내부용 으로만 사용 되며 다른 방법으로는 해당 코드를 사용할 필요가 없습니다.
 
-정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정 하지 않을 때 나타납니다 (예: `https://contosoblobaccount.z22.web.core.windows.net`).  
+정적 웹 사이트 호스팅을 사용 하도록 설정할 때 지정한 인덱스 문서는 사용자가 사이트를 열고 특정 파일을 지정 하지 않을 때 표시 됩니다 (예: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 서버에서 404 오류를 반환 하 고 웹 사이트를 사용 하도록 설정할 때 오류 문서를 지정 하지 않은 경우 기본 404 페이지가 사용자에 게 반환 됩니다.
 
@@ -74,9 +74,9 @@ ms.locfileid: "72311226"
 
 기본 정적 웹 사이트 끝점에는 영향을 주지 않지만 공용 액세스 수준에 대 한 변경 내용은 주 blob service 끝점에 영향을 줍니다.
 
-예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **개인 (익명 액세스 없음)** 에서 **blob (blob에 대 한 익명 읽기 액세스**)로 변경 하는 경우 주 정적 웹 사이트 끝점에 대 한 공용 액세스 수준 `https://contosoblobaccount.z22.web.core.windows.net/index.html`입니다. 변경 되지 않습니다.
+예를 들어 **$web** 컨테이너의 공용 액세스 수준을 **Private (익명 액세스 없음)** 에서 **blob (blob에 대 한 익명 읽기 액세스**)로 변경 하는 경우 주 정적 웹 사이트 끝점에 대 한 공용 액세스 수준이 변경 되지 않습니다 `https://contosoblobaccount.z22.web.core.windows.net/index.html`.
 
-그러나 기본 blob 서비스 끝점에 대 한 공용 액세스 `https://contosoblobaccount.blob.core.windows.net/$web/index.html`은 개인에서 공용으로 변경 됩니다. 이제 사용자는 이러한 두 끝점 중 하나를 사용 하 여 해당 파일을 열 수 있습니다.
+그러나 기본 blob 서비스 끝점에 대 한 공용 액세스 `https://contosoblobaccount.blob.core.windows.net/$web/index.html` 개인에서 공용으로 변경 됩니다. 이제 사용자는 이러한 두 끝점 중 하나를 사용 하 여 해당 파일을 열 수 있습니다.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Content Delivery Network (CDN) 및 SSL (Secure Socket Layer) 지원
 
@@ -99,7 +99,7 @@ Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 
 
 정적 웹 사이트 호스팅을 무료로 사용할 수 있습니다. 사이트에서 활용 하는 blob 저장소 및 운영 비용에 대해서만 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
-## <a name="metrics"></a>metrics
+## <a name="metrics"></a>메트릭
 
 정적 웹 사이트 페이지에서 메트릭을 사용 하도록 설정할 수 있습니다. 메트릭을 사용 하도록 설정 하면 **$web** 컨테이너에 있는 파일에 대 한 트래픽 통계가 메트릭 대시보드에 보고 됩니다.
 
@@ -110,7 +110,7 @@ Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 
 * [Azure Storage에서 정적 웹 사이트를 호스팅합니다.](storage-blob-static-website-how-to.md)
 * [Azure CDN를 사용 하 여 HTTPS를 통한 사용자 지정 도메인으로 blob 액세스](storage-https-custom-domain-cdn.md)
 * [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
-* [Azure Functions](/azure/azure-functions/functions-overview)
+* [Azure 기능](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [자습서: Azure DNS에서 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)
+* [자습서: Azure DNS에 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)

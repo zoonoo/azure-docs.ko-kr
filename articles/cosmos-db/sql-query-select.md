@@ -76,9 +76,9 @@ SELECT <select_specification>
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
-다음 SELECT 쿼리 예제에서는 `id`가-3 @no__t와 일치 하는 `Families`에서 `address`을 반환 합니다.
+다음 SELECT 쿼리 예제에서는 `id` `AndersenFamily`와 일치 하는 `Families`에서 `address`을 반환 합니다.
 
 ```sql
     SELECT f.address
@@ -147,7 +147,7 @@ SELECT <select_specification>
     }]
 ```
 
-위의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 암시적 인수 변수 이름 `$1`을 사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수 `$1`과 `$2`을 반환 합니다.
+앞의 예제에서 SELECT 절은 JSON 개체를 만들어야 하며, 샘플에서 키를 제공 하지 않으므로 절은 `$1`암시적 인수 변수 이름을 사용 합니다. 다음 쿼리는 두 개의 암시적 인수 변수 `$1`와 `$2`를 반환 합니다.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },

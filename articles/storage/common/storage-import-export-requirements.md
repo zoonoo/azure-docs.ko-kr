@@ -26,7 +26,7 @@ WAImportExport 도구를 사용하여 하드 드라이브를 준비하기 위해
 
 |플랫폼 |버전 |
 |---------|---------|
-|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
+|Windows     | Windows 7 Enterprise, Windows 7 Ultimate <br> Windows 8 Pro, Windows 8 Enterprise, Windows 8.1 Pro, Windows 8.1 Enterprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012, Windows Server 2012 R2         |
 
 ## <a name="other-required-software-for-windows-client"></a>Windows 클라이언트에 필요한 다른 소프트웨어
@@ -57,10 +57,10 @@ Azure Import/Export 서비스는 다음과 같은 유형의 스토리지 계정�
 다음 스토리지 유형 목록은 Azure Import/Export 서비스를 지원합니다.
 
 
-|작업  |스토리지 서비스 |지원됨  |지원하지 않음  |
+|작업  |스토리지 서비스 |지원됨  |지원되지 않음  |
 |---------|---------|---------|---------|
-|가져오기     |  Azure Blob Storage <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
-|내보내기     |   Azure Blob Storage       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
+|가져오기     |  Linux에서 File Storage 사용에 대한 자세한 내용은 {1}Linux에서 Azure 파일 스토리지 사용 방법{2}을 참조하세요. <br><br> Azure File Storage       | 블록 Blob 및 페이지 Blob 지원됨 <br><br> 파일 지원됨          |
+|내보내기     |   Linux에서 File Storage 사용에 대한 자세한 내용은 {1}Linux에서 Azure 파일 스토리지 사용 방법{2}을 참조하세요.       | 블록 Blob, 페이지 Blob 및 추가 Blob 지원됨         | Azure Files 지원되지 않음
 
 
 ## <a name="supported-hardware"></a>지원되는 하드웨어 

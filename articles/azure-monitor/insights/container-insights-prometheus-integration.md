@@ -27,10 +27,10 @@ ms.locfileid: "73514343"
 
 프로메테우스의 활성 메트릭 스크랩는 다음 두 가지 관점 중 하나에서 수행 됩니다.
 
-* 클러스터 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 예를 들어 kube와 같은 k8s 서비스 및 응용 프로그램과 관련 된 pod 주석을 사용할 수 있습니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings]* 에 정의 됩니다.
-* 노드 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings]* 에 정의 됩니다.
+* 클러스터 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 예를 들어 kube와 같은 k8s 서비스 및 응용 프로그램과 관련 된 pod 주석을 사용할 수 있습니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[프로메테우스 data_collection_settings. cluster]* 에 정의 됩니다.
+* 노드 전반의 HTTP URL로, 서비스의 나열 된 끝점에서 대상을 검색 합니다. 이 컨텍스트에서 수집 된 메트릭은 ConfigMap 섹션 *[Prometheus_data_collection_settings. node]* 에 정의 됩니다.
 
-| 엔드포인트 | 범위 | 예제 |
+| 엔드포인트 | 범위 | 예 |
 |----------|-------|---------|
 | Pod 주석 | 클러스터 전체 | 달 <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes 서비스 | 클러스터 전체 | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
@@ -41,15 +41,15 @@ URL을 지정 하면 Azure Monitor 컨테이너의 경우에만 끝점을 스크
 |범위 | 키 | 데이터 형식 | 값 | 설명 |
 |------|-----|-----------|-------|-------------|
 | 클러스터 전체 | | | | 다음 세 가지 방법 중 하나를 지정 하 여 메트릭에 대 한 끝점을 스크랩. |
-| | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예제: `urls=[$NODE_IP/metrics]`. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
-| | `kubernetes_services` | 문자열 | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를 들어 `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`입니다.|
-| | `monitor_kubernetes_pods` | 부울 | true 또는 false | 클러스터 전체 설정에서 `true`으로 설정 된 경우 컨테이너 에이전트 Azure Monitor는 다음의 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| | `kubernetes_services` | 문자열 | 쉼표로 구분 된 배열 | Kube에서 메트릭을 스크랩 하는 Kubernetes services의 배열입니다. 예를 들어`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`합니다.|
+| | `monitor_kubernetes_pods` | 부울 | true 또는 false | 클러스터 전체 설정에서 `true`로 설정 된 경우 컨테이너 에이전트에 대 한 Azure Monitor는 다음 프로메테우스 주석을 위해 전체 클러스터에서 Kubernetes pod를 스크랩 합니다.<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | 부울 | true 또는 false | Pod의 스크랩를 사용 하도록 설정 합니다. `monitor_kubernetes_pods`은 `true`로 설정해야 합니다. |
 | | `prometheus.io/scheme` | 문자열 | HTTP 또는 HTTPS | 기본값은 HTTP over scrapping입니다. 필요한 경우 `https`으로 설정 합니다. | 
 | | `prometheus.io/path` | 문자열 | 쉼표로 구분 된 배열 | 메트릭을 페치할 HTTP 리소스 경로입니다. 메트릭 경로가 `/metrics`되지 않은 경우이 주석을 사용 하 여 정의 합니다. |
 | | `prometheus.io/port` | 문자열 | 9102 | 스크랩 포트를 지정 합니다. 포트가 설정 되지 않은 경우 기본값은 9102입니다. |
 | | `monitor_kubernetes_pods_namespaces` | 문자열 | 쉼표로 구분 된 배열 | Kubernetes pod에서 메트릭을 스크랩 네임 스페이스 목록을 허용 합니다.<br> 예: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
-| 노드 차원 | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예제: `urls=[$NODE_IP/metrics]`. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
+| 노드 차원 | `urls` | 문자열 | 쉼표로 구분 된 배열 | HTTP 끝점 (IP 주소 또는 올바른 URL 경로 중 하나). 예를 들어 `urls=[$NODE_IP/metrics]`을 참조하십시오. $NODE _IP는 컨테이너 매개 변수에 대 한 특정 Azure Monitor 이며 노드 IP 주소 대신 사용할 수 있습니다. 모두 대문자 여야 합니다. |
 | 노드 전체 또는 클러스터 전체 | `interval` | 문자열 | 60 초 | 컬렉션 간격 기본값은 1 분 (60 초)입니다. *[Prometheus_data_collection_settings]* 및/또는 *[prometheus_data_collection_settings]* 에 대 한 컬렉션을 시간 단위 (예: s, m, h)로 수정할 수 있습니다. |
 | 노드 전체 또는 클러스터 전체 | `fieldpass`<br> `fielddrop`| 문자열 | 쉼표로 구분 된 배열 | 허용 (`fieldpass`) 및 허용 안 함 (`fielddrop`) 목록을 설정 하 여 끝점에서 수집할 특정 메트릭을 지정할 수 있습니다. 먼저 허용 목록을 설정 해야 합니다. |
 
@@ -129,17 +129,17 @@ ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다�
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
-    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`이 포함 됩니다.
+    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`포함 됩니다.
 
 ## <a name="applying-updated-configmap"></a>업데이트 된 ConfigMap 적용
 
-클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용 했던 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다. `kubectl apply -f <configmap_yaml_file.yaml`.
+클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다 `kubectl apply -f <configmap_yaml_file.yaml`.
 
-구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" updated`이 포함 됩니다.
+구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" updated`포함 됩니다.
 
 ## <a name="verify-configuration"></a>구성 확인 
 
-구성이 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod에서 로그를 검토 합니다. `kubectl logs omsagent-fdf58 -n=kube-system`. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
+구성이 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod: `kubectl logs omsagent-fdf58 -n=kube-system`에서 로그를 검토 합니다. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
 
 ``` 
 ***************Start Config Processing******************** 
@@ -158,7 +158,7 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - Log Analytics 작업 영역에 있는 **KubeMonAgentEvents** 테이블의 스크랩 오류에 대 한 *경고* 심각도와 구성 오류에 대 한 *오류* 심각도를 사용 하 여 매시간 데이터가 전송 됩니다. 오류가 없는 경우 테이블의 항목에는 오류를 보고 하지 않는 심각도 *정보*를 포함 하는 데이터가 포함 됩니다. **Tags** 속성은 오류가 발생 한 pod 및 컨테이너 ID에 대 한 자세한 정보와 마지막으로 발생 한 시간을 포함 하 여 마지막으로 발생 한 시간을 포함 합니다.
 
-오류가 발생 하면 omsagent에서 파일을 구문 분석 하 여 다시 시작 되 고 기본 구성을 사용 하 게 됩니다. ConfigMap에서 오류를 수정한 후에는 yaml 파일을 저장 하 고 다음 명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다. `kubectl apply -f <configmap_yaml_file.yaml`.
+오류가 발생 하면 omsagent에서 파일을 구문 분석 하 여 다시 시작 되 고 기본 구성을 사용 하 게 됩니다. ConfigMap에서 오류를 수정한 후에는 yaml 파일을 저장 하 고 `kubectl apply -f <configmap_yaml_file.yaml`명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다.
 
 ## <a name="query-prometheus-metrics-data"></a>프로메테우스 메트릭 데이터 쿼리
 

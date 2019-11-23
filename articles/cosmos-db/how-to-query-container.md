@@ -19,7 +19,7 @@ ms.locfileid: "70092962"
 
 ## <a name="in-partition-query"></a>파티션 내 쿼리
 
-컨테이너에서 데이터를 쿼리 할 때 쿼리에 파티션 키 필터가 지정되어 있으면 Azure Cosmos DB가 쿼리를 자동으로 처리합니다. 필터에 지정된 파티션 키 값에 해당하는 파티션으로 쿼리를 라우팅합니다. 예를 들어 다음 쿼리는 파티션 키 값 `XMS-0001`에 해당하는 모든 문서를 포함하는 `DeviceId` 파티션으로 라우팅됩니다.
+컨테이너에서 데이터를 쿼리 할 때 쿼리에 파티션 키 필터가 지정되어 있으면 Azure Cosmos DB가 쿼리를 자동으로 처리합니다. 필터에 지정된 파티션 키 값에 해당하는 파티션으로 쿼리를 라우팅합니다. 예를 들어 다음 쿼리는 파티션 키 값 `DeviceId`에 해당하는 모든 문서를 포함하는 `XMS-0001` 파티션으로 라우팅됩니다.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

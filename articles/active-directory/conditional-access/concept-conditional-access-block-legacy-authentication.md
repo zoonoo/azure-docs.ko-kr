@@ -58,7 +58,7 @@ ms.locfileid: "72819730"
 
 디렉터리에서 최신 인증을 사용 하도록 설정한 후에는 Office 클라이언트에 대 한 최신 인증을 사용 하도록 설정 하 여 응용 프로그램 업데이트를 시작할 수 있습니다. Office 2016 이상 클라이언트는 기본적으로 최신 인증을 지원 합니다. 추가 단계가 필요 하지 않습니다.
 
-Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다.  [AZURE AD 암호 보호](../authentication/concept-password-ban-bad.md) 을 확인 하 여 디렉터리에서 weak 암호를 금지 합니다.
+Office 2013 Windows 클라이언트 또는 이전 버전을 사용 하는 경우 Office 2016 이상으로 업그레이드 하는 것이 좋습니다. 디렉터리에서 최신 인증을 사용 하도록 설정 하는 이전 단계를 완료 한 후에도 이전 Office 응용 프로그램은 계속 레거시 인증 프로토콜을 사용 합니다. Office 2013 클라이언트를 사용 하 고 Office 2016 이상으로 즉시 업그레이드할 수 없는 경우 [Windows 장치에서 office 2013에 대 한 최신 인증을 사용 하도록 설정](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication)하려면 다음 문서의 단계를 수행 합니다. 레거시 인증을 사용 하는 동안 계정을 보호 하려면 디렉터리에서 강력한 암호를 사용 하는 것이 좋습니다.  [AZURE AD 암호 보호](../authentication/concept-password-ban-bad.md) 확인 하 여 디렉터리에서 weak 암호를 금지 합니다.
 
 Office 2010은 최신 인증을 지원 하지 않습니다. Office 2010를 사용 하는 모든 사용자를 최신 버전의 Office로 업그레이드 해야 합니다. 기본적으로 레거시 인증을 차단 하므로 Office 2016 이상으로 업그레이드 하는 것이 좋습니다.
 

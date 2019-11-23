@@ -35,7 +35,7 @@ Azure SQL Database Managed Instance 데이터 소스는 개인 IP 주소를 사�
     ![항상 게이트웨이 속성 사용](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 [온-프레미스 데이터 원본에 연결](analysis-services-gateway.md)   
 [온-프레미스 데이터 게이트웨이 설치 및 구성](analysis-services-gateway-install.md)   
 [Azure VNET(Virtual Network)](../virtual-network/virtual-networks-overview.md)   

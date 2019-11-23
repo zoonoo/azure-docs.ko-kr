@@ -178,7 +178,7 @@ let query = table.queryWithPredicate(NSPredicate(format: "complete == NO"))
 * 요청에서 사용자 지정 쿼리 문자열 매개 변수 지정
 * 추가 함수 적용
 
-개체에 `readWithCompletion`을 호출하여 `MSQuery` 쿼리를 실행합니다.
+개체에 `MSQuery`을 호출하여 `readWithCompletion` 쿼리를 실행합니다.
 
 ## <a name="sorting"></a>방법: MSQuery를 사용하여 데이터 정렬
 
@@ -441,7 +441,7 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 사용자 지정 API를 사용하여 백 엔드 기능을 노출할 수 있습니다. 테이블 작업에 매핑할 필요는 없습니다. 더 효율적으로 메시징을 제어할 수 있으며 헤더의 읽기/설정 및 응답의 본문 형식을 변경할 수도 있습니다.
 
-사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [-1 @no__t의 다른 오버 로드를 사용][5]합니다.  @No__t-1 요청 대신 `GET` 요청을 만들려면 매개 변수 `HTTPMethod`를 `"GET"`로 설정 하 고 매개 변수를 `body`로 설정 합니다. GET 요청에는 메시지 본문이 없기 때문입니다. 사용자 지정 API에서 다른 HTTP 동사를 지 원하는 경우 `HTTPMethod`을 적절 하 게 변경 합니다.
+사용자 지정 API를 호출하려면 `MSClient.invokeAPI`를 호출합니다. 요청 및 응답 콘텐츠는 JSON으로 간주됩니다. 다른 미디어 유형을 사용 하려면 [`invokeAPI`의 다른 오버 로드를 사용 ][5]합니다.  `POST` 요청 대신 `GET` 요청을 수행 하려면 GET 요청에 메시지 본문이 없으므로 매개 변수 `HTTPMethod`를 `"GET"` 및 매개 변수 `body`로 설정 합니다. 사용자 지정 API에서 다른 HTTP 동사를 지 원하는 경우 `HTTPMethod`를 적절 하 게 변경 합니다.`nil`
 
 **Objective-C**:
 
@@ -522,7 +522,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Azure App Service 모바일 백 엔드를 호출할 때 완료 블록에 `NSError` 매개 변수가 포함됩니다. 오류가 발생하면 이 매개 변수는 null이 아닌 값입니다. 앞의 코드 조각에서 보여준 것처럼, 코드에서 이 매개 변수를 확인하고 필요한 경우 오류를 처리해야 합니다.
 
-@No__t- [1][6] 파일은 상수 `MSErrorResponseKey`, `MSErrorRequestKey` 및 `MSErrorServerItemKey`를 정의 합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
+파일 [`<WindowsAzureMobileServices/MSError.h>`][6] `MSErrorResponseKey`, `MSErrorRequestKey`및 `MSErrorServerItemKey`상수를 정의 합니다. 오류와 관련된 데이터를 더 가져오는 방법은 다음과 같습니다.
 
 **Objective-C**:
 
@@ -568,7 +568,7 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
 3. 터미널을 사용하여 프로젝트를 포함하는 디렉터리에서 `pod install`을 실행한 다음 생성된 Xcode 작업 영역(프로젝트 아님)을 엽니다.
 4. 사용하는 언어에 따라 애플리케이션에 다음 코드를 추가합니다. 각 코드에서 다음과 같이 값을 바꿉니다.
 
-   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE** 를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
@@ -904,7 +904,7 @@ Google 로그인을 사용하여 애플리케이션에 사용자를 로그인하
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx

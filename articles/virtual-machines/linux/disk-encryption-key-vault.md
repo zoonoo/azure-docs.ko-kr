@@ -29,8 +29,8 @@ Azure Disk Encryption 사용할 키 자격 증명 모음을 만들고 구성 하
 
 이러한 단계는 다음 퀵 스타트에 설명 되어 있습니다.
 
-- [Azure CLI를 사용 하 여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
-- [Azure PowerShell를 사용 하 여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [Azure CLI를 사용하여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [Azure Powershell을 사용하여 Linux VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
 
 KEK (키 암호화 키)를 생성 하거나 가져올 수도 있습니다.
 
@@ -41,7 +41,7 @@ KEK (키 암호화 키)를 생성 하거나 가져올 수도 있습니다.
 
 이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az module](/powershell/azure/overview)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 완료할 수 있습니다. 
 
-브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 하 고 로컬 설치가 필요 Azure PowerShell. [ Linux 용 Azure Disk Encryption을 참조 하세요. 자세한 내용은 도구 @ no__t-0을 설치 합니다.
+브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 하 고 로컬 설치가 필요 Azure PowerShell. 자세한 내용은 [Linux 용 Azure Disk Encryption: 설치 도구](disk-encryption-linux.md#install-tools-and-connect-to-azure) 를 참조 하세요.
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 
@@ -129,7 +129,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-deployment "true"
      ``` 
 
- - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager가 자격 증명 모음에서 비밀을 검색할 수 있습니다.
+ - **필요한 경우 템플릿 배포에 Key Vault 사용:** Resource Manager에서 자격 증명 모음으로부터 비밀을 검색할 수 있도록 허용합니다.
      ```azurecli-interactive  
      az keyvault update --name "<your-unique-keyvault-name>" --resource-group "MyResourceGroup" --enabled-for-template-deployment "true"
      ```
@@ -155,7 +155,7 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 1. 키 자격 증명 모음을 선택 하 고 **액세스 정책**으로 이동한 다음 **고급 액세스 정책을 클릭 하 여 표시**합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.

@@ -27,15 +27,15 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 조정할 수 있는 다른 매개 변수는 다음과 같습니다.
 
 - `audit_log_events`: 로깅할 이벤트를 제어 합니다. 특정 감사 이벤트는 아래 표를 참조 하세요.
-- `audit_log_include_users`: 로깅을 위해 포함할 MySQL 사용자입니다. 이 매개 변수의 기본값은 비어 있으며, 모든 사용자를 로깅할 수 있습니다. 이는 `audit_log_exclude_users` 보다 우선 순위가 높습니다. 매개 변수의 최대 길이는 512 자입니다.
+- `audit_log_include_users`: 로깅을 위해 포함할 MySQL 사용자입니다. 이 매개 변수의 기본값은 비어 있으며, 모든 사용자를 로깅할 수 있습니다. 이는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 매개 변수의 최대 길이는 512 자입니다.
 > [!Note]
-> `audit_log_include_users` @no__t 보다 우선 순위가 높습니다. 예를 들어 audit_log_include_users = `demouser` 및 audit_log_exclude_users = `demouser`의 경우 `audit_log_include_users`의 우선 순위가 높기 때문에 로그를 감사 합니다.
-- `audit_log_exclude_users`: 로깅에서 제외 되는 MySQL 사용자입니다. 매개 변수의 최대 길이는 512 자입니다.
+> `audit_log_include_users` `audit_log_exclude_users` 보다 우선 순위가 높습니다. 예를 들어 audit_log_include_users = `demouser` 및 audit_log_exclude_users = `demouser`이면 `audit_log_include_users` 우선 순위가 높기 때문에 로그를 감사 합니다.
+- `audit_log_exclude_users`: 로그에서 제외할 MySQL 사용자입니다. 매개 변수의 최대 길이는 512 자입니다.
 
 > [!Note]
-> @No__t-0의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
+> `sql_text`의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
 
-| **Event** | **설명** |
+| **이벤트** | **설명** |
 |---|---|
 | `CONNECTION` | -연결 시작 (성공 또는 실패) <br> -세션 중에 다른 사용자/암호를 사용 하 여 사용자 재인증 <br> -연결 종료 |
 | `DML_SELECT`| 쿼리 선택 |
@@ -44,7 +44,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | `DDL` | "데이터베이스 삭제"와 같은 쿼리 |
 | `DCL` | "권한 부여"와 같은 쿼리 |
 | `ADMIN` | "SHOW STATUS"와 같은 쿼리 |
-| `GENERAL` | DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 ADMIN의 All |
+| `GENERAL` | DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 관리자의 모든 |
 | `TABLE_ACCESS` | -MySQL 5.7에만 사용할 수 있음 <br> -SELECT 또는 INSERT INTO ...와 같은 테이블 읽기 문 <br> -DELETE 또는 TRUNCATE TABLE와 같은 Table delete 문 <br> -INSERT 또는 REPLACE와 같은 테이블 insert 문 <br> -UPDATE와 같은 테이블 업데이트 문 |
 
 ## <a name="access-audit-logs"></a>감사 로그 액세스
@@ -103,7 +103,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` (MySQL 5.6에만 사용 가능) |
 | `event_time` | 쿼리 시작 시간 (UTC 타임 스탬프) |
-| `error_code_d` | 쿼리가 실패 한 경우 오류 코드입니다. `0`은 오류 없음을 의미 합니다. |
+| `error_code_d` | 쿼리가 실패 한 경우 오류 코드입니다. `0`는 오류가 없음을 의미 합니다. |
 | `thread_id_d` | 쿼리를 실행 한 스레드의 ID |
 | `host_s` | 비어 있음 |
 | `ip_s` | MySQL에 연결 하는 클라이언트의 IP 주소 |
@@ -129,7 +129,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 서버의 이름 |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` 또는 `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`또는 `DELETE` |
 | `connection_id_d` | MySQL에 의해 생성 된 고유 연결 ID |
 | `db_s` | 액세스 한 데이터베이스 이름 |
 | `table_s` | 액세스 한 테이블 이름 |

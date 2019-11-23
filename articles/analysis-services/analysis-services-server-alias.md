@@ -52,7 +52,7 @@ protected void Page_Load(object sender, EventArgs e)
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
 [클라이언트 라이브러리](analysis-services-data-providers.md)   
 [Power BI Desktop에서 연결](analysis-services-connect-pbi.md)

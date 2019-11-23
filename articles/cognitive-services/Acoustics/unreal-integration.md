@@ -55,7 +55,7 @@ Unreal Engine 플러그 인 및 Wto믹서 플러그 인이 패키지에 포함 �
    > [!NOTE]
    > **엔진 플러그 인:** Unreal C++ 프로젝트에 게임 플러그 인을 설치한 경우이 단계를 건너뜁니다. 예를 들어, Unreal 프로젝트가 청사진 으로만 사용 되기 때문에 엔진 플러그 인으로 설치 된 경우에는 믹서 플러그 인을 사용한 Wwise 배포가 더 복잡 합니다. 빈 빈 비 실제 C++ 프로젝트를 만듭니다. 열려 있지 않은 경우에는 Unreal 편집기를 닫고 나머지 절차에 따라 더미 프로젝트를 배포 합니다. 그런 다음 배포 된 모든 플러그 인을 복사 합니다.
  
-1. Wto시작 관리자에서 **Unreal Engine** 탭을 선택 합니다. **최근 Unreal Engine 프로젝트** 옆에 있는 "햄버거" (아이콘) 메뉴를 선택 하 고 **프로젝트 찾아보기**를 선택 합니다. 게임의 Unreal project *. 프로젝트* 파일을 엽니다.
+1. Wto시작 관리자에서 **Unreal engine** 탭을 선택 합니다. **최근 Unreal engine 프로젝트** 옆에 있는 "햄버거" (아이콘) 메뉴를 선택 하 고 **프로젝트 찾아보기**를 선택 합니다. 게임의 Unreal project *. 프로젝트* 파일을 엽니다.
 
     ![Wto시작 관리자 탭](media/wwise-unreal-tab.png)
 
@@ -69,18 +69,18 @@ Unreal Engine 플러그 인 및 Wto믹서 플러그 인이 패키지에 포함 �
 1. 플러그 인 패키지의 *Unreal\ProjectAcoustics* 폴더를 복사 합니다. 새 폴더 *[Uprojectdir] \Plugins\ProjectAcoustics*을 만듭니다. 여기서 *[uprojectdir]* 은 *uproject* 파일을 포함 하는 게임의 프로젝트 폴더입니다.
 
    > [!NOTE]
-   > **엔진 플러그**인: 엔진 플러그 인으로 Wtoas를 사용 하는 경우 Project Acoustics를 Unreal engine 플러그 인으로 사용 해야 합니다. 이전에 언급 한 대상 디렉터리 대신 *[uesource]* 을 사용 합니다.
+   > **엔진 플러그**인: 엔진 플러그 인을 사용 하는 경우 Project Acoustics를 unreal engine 플러그 인으로 사용 해야 합니다. 이전에 언급 한 대상 디렉터리 대신 *[uesource]* 을 사용 합니다.
 
 1. *ProjectAcoustics* 폴더와 함께 *wtofolder* 가 표시 되는지 확인 합니다. 여기에는 이전에 배포한 믹서 플러그 인의 이진과 함께 Wto플러그 인이 포함 됩니다.
 
-### <a name="extend-wwise-unreal-plug-in-functionality"></a>실제 플러그 인 기능 확장
+### <a name="extend-wwise-unreal-plug-in-functionality"></a>Wwise Unreal 플러그 인 기능 확장
 Acoustics Unreal 플러그 인 프로젝트에는 [이러한 지침](https://www.audiokinetic.com/library/?source=UE4&id=using__initialsetup.html)에 따라 Wtounreal 플러그 인 API에서 노출 되는 추가 동작이 필요 합니다. 패치 절차를 자동화 하는 배치 파일을 포함 했습니다.
 
 * *Plugins\ProjectAcoustics\Resources*내에서 *PatchWwise*를 실행 합니다. 다음 예제 이미지에서는 AcousticsGame 샘플 프로젝트를 사용 합니다.
 
     ![강조 표시 된 패치 스크립트가 포함 된 Windows 탐색기 창](media/patch-wwise-script.png)
 
-* DirectX SDK가 설치 되어 있지 않으면 다음을 수행 합니다. 사용 중인 AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs의 버전에 따라,에서-0을 @no__t 포함 하는 줄을 주석으로 처리 해야 할 수 있습니다.
+* DirectX SDK가 설치 되어 있지 않은 경우: 사용 중인 버전에 따라 *AcousticsGame\Plugins\Wwise\Source\AkAudio\AkAudio.Build.cs*에서 `DXSDK_DIR` 포함 된 줄을 주석으로 처리 해야 할 수 있습니다.
 
     ![' DXSDK '이 주석으로 표시 된 코드 편집기](media/directx-sdk-comment.png)
 
@@ -110,7 +110,7 @@ Acoustics Unreal 플러그 인 프로젝트에는 [이러한 지침](https://www
 예제 Wtoproject는 샘플 다운로드에 포함 되어 있습니다. 이러한 지침과 함께 확인 하는 것이 좋습니다. 이 문서의 뒷부분에 나오는 스크린샷는이 프로젝트에서 가져온 것입니다.
 
 #### <a name="bus-setup"></a>버스 설정
-프로젝트 Acoustics Unreal 플러그 인은 정확한 이름이 `Project Acoustics Bus` 인 버스에서 연결 된 믹서 플러그 인을 찾습니다. 동일한 이름을 가진 새 오디오 버스를 만듭니다. 믹서 플러그 인은 다양 한 구성에서 작동할 수 있습니다. 그러나 지금은 반향 처리에만 사용 된다고 가정 합니다. 이 버스는 Acoustics을 사용 하는 모든 원본에 대해 혼합 된 반향 신호를 전달 합니다. 업스트림을 버스 믹싱 구조체로 혼합할 수 있습니다. 예제는 샘플 다운로드에 포함 된 Wtosample 프로젝트에서 볼 수 있습니다.
+프로젝트 Acoustics Unreal 플러그 인은 정확한 이름이 `Project Acoustics Bus`버스에서 연결 된 믹서 플러그 인을 찾습니다. 동일한 이름을 가진 새 오디오 버스를 만듭니다. 믹서 플러그 인은 다양 한 구성에서 작동할 수 있습니다. 그러나 지금은 반향 처리에만 사용 된다고 가정 합니다. 이 버스는 Acoustics을 사용 하는 모든 원본에 대해 혼합 된 반향 신호를 전달 합니다. 업스트림을 버스 믹싱 구조체로 혼합할 수 있습니다. 예제는 샘플 다운로드에 포함 된 Wtosample 프로젝트에서 볼 수 있습니다.
 
 ![프로젝트 Acoustics Bus를 보여 주는 Wtobus](media/acoustics-bus.png)
 
@@ -127,7 +127,7 @@ Acoustics Unreal 플러그 인 프로젝트에는 [이러한 지침](https://www
     ![Wtobus에 Project Acoustics 믹서 플러그 인을 추가 하는 방법에 대 한 다이어그램](media/add-mixer-plugin.png)
 
 #### <a name="actor-mixer-hierarchy-setup"></a>행위자-믹서 계층 설정
-최상의 성능을 위해 Project Acoustics는 모든 원본에 오디오 디지털 신호 처리를 동시에 적용 합니다. 따라서 플러그 인은 믹서 플러그 인으로 작동 해야 합니다. 출력 버스가 일반적으로 드라이 출력 신호를 전달 하지만 wto는 출력 버스에 믹서 플러그 인을 사용 해야 합니다. Project Acoustics를 사용 하려면는는 aux 버스를 통해 마른 신호를 라우팅해야 하는 반면,는 `Project Acoustics Bus`에 전달 됩니다. 다음 프로세스는이 신호 흐름으로의 점진적 마이그레이션을 지원 합니다.
+최상의 성능을 위해 Project Acoustics는 모든 원본에 오디오 디지털 신호 처리를 동시에 적용 합니다. 따라서 플러그 인은 믹서 플러그 인으로 작동 해야 합니다. 출력 버스가 일반적으로 드라이 출력 신호를 전달 하지만 wto는 출력 버스에 믹서 플러그 인을 사용 해야 합니다. Project Acoustics를 사용 하려면 `Project Acoustics Bus`에서가 중 신호를 전달 하는 동안 마른 신호가 aux 버스를 통해 라우팅됩니다. 다음 프로세스는이 신호 흐름으로의 점진적 마이그레이션을 지원 합니다.
 
 *전례*, *무기*및 기타를 최상위 수준에 포함 하는 행위자 믹서 계층 구조를 포함 하는 기존 프로젝트가 있다고 가정해 봅니다. 각에는 해당 하는 출력 버스가 포함 되어 있습니다. Acoustics를 사용 하도록 전례를 마이그레이션하 려 한다고 가정해 보겠습니다. 먼저 전례 출력 버스의 자식인 마른 서브 믹스를 운반 하는 해당 aux bus를 만듭니다. 예를 들어, 정확한 이름이 중요 하지는 않지만 다음 이미지에서 "건조" 접두사를 사용 하 여 버스를 구성 했습니다. 전례 bus에 대 한 모든 미터 또는 효과는 여전히 이전 처럼 작동 합니다.
 
@@ -137,7 +137,7 @@ Acoustics Unreal 플러그 인 프로젝트에는 [이러한 지침](https://www
 
 ![권장 Wto행위자 믹서 버스 설정](media/actor-mixer-bus-settings.png)
 
-이제 모든 전례가 acoustics 처리를 가져오고 프로젝트 Acoustics Bus에서 반향를 출력 합니다. 마른 신호는 일반적인 방법으로 Dry_Footsteps 및 spatialized를 통해 라우팅됩니다.
+이제 모든 전례가 acoustics 처리를 가져오고 프로젝트 Acoustics Bus에서 반향를 출력 합니다. 마른 신호는 평소와 같이 Dry_Footsteps 및 spatialized을 통해 라우팅됩니다.
 
 Project Acoustics는 전 세계에 3D 위치가 있는 소리에만 적용 됩니다. 다음 단계별 [설명서](https://blog.audiokinetic.com/out-with-the-old-in-with-the-new-positioning-revamped-in-wwise-2018.1/)를 참조 하십시오. 배치 속성을 표시 된 대로 설정 해야 합니다. **3D Spatialization** 설정은 필요에 따라 *위치* 또는 *위치 + 방향* 중 하나를 사용할 수 있습니다.
 

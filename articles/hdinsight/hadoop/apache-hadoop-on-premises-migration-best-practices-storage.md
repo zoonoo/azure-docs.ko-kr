@@ -74,7 +74,7 @@ keytool -list -v -keystore /path/to/jre/lib/security/cacerts
 자세한 내용은 다음 문서를 참조하세요.
 
 - [Azure HDInsight 클러스터에서 Azure Storage 사용](../hdinsight-hadoop-use-blob-storage.md)
-- [Azure Storage 확장성 및 성능 목표](../../storage/common/storage-scalability-targets.md)
+- [Azure Storage Scalability and Performance Targets](../../storage/common/storage-scalability-targets.md)
 - [Microsoft Azure Storage 성능 및 확장성 검사 목록](../../storage/common/storage-performance-checklist.md)
 - [Microsoft Azure Storage 모니터링, 진단 및 문제 해결](../../storage/common/storage-monitoring-diagnosing-troubleshooting.md)
 - [Azure Portal에서 스토리지 계정 모니터링](../../storage/common/storage-monitor-storage-account.md)
@@ -161,7 +161,7 @@ HDInsight는 기본적으로 클러스터와 연결된 Azure Storage 계정의 �
     |storage_account_name|사용자 스토리지 계정의 이름입니다.|
     |storage_account_key|스토리지 계정의 키입니다.|
     |storage_container_name|액세스를 제한할 스토리지 계정의 컨테이너입니다.|
-    |example_file_path|컨테이너에 업로드되는 파일에 대한 경로입니다.|
+    |example_file_path|컨테이너에 업로드되는 파일의 경로입니다.|
 
 2. SASToken.py 파일은 `ContainerPermissions.READ + ContainerPermissions.LIST` 권한과 함께 제공되며 사용 사례에 따라 조정할 수 있습니다.
 

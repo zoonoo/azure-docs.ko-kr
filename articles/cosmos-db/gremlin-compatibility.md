@@ -23,17 +23,17 @@ Azure Cosmos DB Graph 엔진은 [Apache TinkerPop](https://tinkerpop.apache.org/
 
 ## <a name="unsupported-features"></a>지원되지 않는 기능
 
-* ***[Gremlin 바이트 코드](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 는 프로그래밍 언어의 제약을 받지 않는 그래프 조회에 대한 사양입니다. Cosmos DB Graph는 아직 지원 하지 않습니다. @No__t-0을 사용 하 고 순회를 텍스트 문자열로 전달 합니다.
+* ***[Gremlin 바이트 코드](http://tinkerpop.apache.org/docs/current/tutorials/gremlin-language-variants/)*** 는 프로그래밍 언어의 제약을 받지 않는 그래프 조회에 대한 사양입니다. Cosmos DB Graph는 아직 지원 하지 않습니다. ```GremlinClient.SubmitAsync()```를 사용 하 고 순회를 텍스트 문자열로 전달 합니다.
 
-* ***```property(set, 'xyz', 1)```*** 집합 카디널리티는 현재 지원 되지 않습니다. 대신 ```property(list, 'xyz', 1)```를 사용하세요.
+* 현재 집합 카디널리티 ***```property(set, 'xyz', 1)```*** 지원 되지 않습니다. 대신 ```property(list, 'xyz', 1)```를 사용하세요.
 
-* ***```match()```은*** 선언적 패턴 일치를 사용 하 여 그래프를 쿼리할 수 있습니다. 이 기능은 사용할 수 없습니다.
+* ***```match()```*** 선언 패턴 일치를 사용 하 여 그래프를 쿼리할 수 있습니다. 이 기능은 사용할 수 없습니다.
 
 * 꼭 짓 점 또는 가장자리의 ***속성인 개체는*** 지원 되지 않습니다. 속성은 기본 형식 또는 배열이어야 합니다.
 
-* ***배열 속성 ```.order().by(<array property>)```로 정렬 하는*** 것은 지원 되지 않습니다. 정렬은 기본 형식만 지원됩니다.
+* ```.order().by(<array property>)``` ***배열 속성을 기준으로 정렬할*** 때 지원 되지 않습니다. 정렬은 기본 형식만 지원됩니다.
 
-* ***기본이 아닌 JSON 형식은*** 지원 되지 않습니다. @No__t-0, ```number``` 또는 ```true``` @ no__t @ no__t-4 유형을 사용 합니다. ```null``` 값은 지원 되지 않습니다. 
+* ***기본이 아닌 JSON 형식은*** 지원 되지 않습니다. ```string```, ```number```또는 ```true```/```false``` 유형을 사용 합니다. ```null``` 값은 지원 되지 않습니다. 
 
 * ***GraphSONv3*** serializer는 현재 사용할 수 없습니다.
 

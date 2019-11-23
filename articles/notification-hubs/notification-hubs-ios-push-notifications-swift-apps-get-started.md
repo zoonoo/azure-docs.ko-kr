@@ -23,7 +23,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72030648"
 ---
-# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>자습서: Notification Hubs REST API를 사용 하는 Swift iOS 앱에 대 한 푸시 알림
+# <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>자습서: Notification Hubs REST API를 사용 하는 Swift iOS 앱에 알림 푸시
 
 > [!div class="op_single_selector"]
 > * [Objective-C](notification-hubs-ios-apple-push-notification-apns-get-started.md)
@@ -42,7 +42,7 @@ ms.locfileid: "72030648"
 > * IOS 앱을 알림 허브에 연결 합니다.
 > * 솔루션을 테스트 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 필수 조건을 충족하려면 다음이 필요합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "72030648"
 
 1. 프로 비전 한 알림 허브의 고유한 값을 사용 하 여 다음 구성 항목을 포함 하도록 info.plist를 업데이트 **합니다** .
 
-   | Key                            | 형식                     | 값                     |
+   | 키                            | 형식                     | 값                     |
    |--------------------------------| -------------------------| --------------------------|
    | notificationHubKey             | 문자열                   | \<hubKey>                  |
    | notificationHubKeyName         | 문자열                   | \<hubKeyName>              |
@@ -100,7 +100,7 @@ ms.locfileid: "72030648"
 
    ![Notification Hubs Essentials 요약](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   **액세스 정책** 으로 이동 하 고 해당 **액세스 정책**(예: `DefaultFullSharedAccessSignature`)을 선택 하 여 **notificationHubKeyName** 및 **notificationHubKey** 값을 찾을 수도 있습니다. 그런 다음 **기본 연결 문자열** 에서 접두사 앞에 `SharedAccessKeyName=`을 사용 하 고 @no__t에는-1을 사용 하 고 `notificationHubKey`에는 `SharedAccessKey=`의 값을 복사 합니다.
+   **NotificationHubKeyName** 및 **NotificationHubKey** 값은 **액세스 정책** 으로 이동 하 고 해당 **액세스 정책**(예: `DefaultFullSharedAccessSignature`)을 선택 하 여 찾을 수도 있습니다. 그런 다음 `notificationHubKeyName`에 대 한 `SharedAccessKeyName=` 접두사가 접두사로 추가 된 값을 **기본 연결 문자열** 에서 복사 하 고 `notificationHubKey`에 대 한 `SharedAccessKey=` 접두사가 접두사로 추가 합니다.
 
    연결 문자열은 다음 형식 이어야 합니다.
 
@@ -108,15 +108,15 @@ ms.locfileid: "72030648"
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   간단 하 게 유지 하려면 토큰을 사용 하 여 알림을 보낼 수 있도록 `DefaultFullSharedAccessSignature`을 지정 합니다. 실제로 `DefaultListenSharedAccessSignature`은 알림을 받으려는 경우에 더 적합 합니다.
+   간단 하 게 유지 하려면 토큰을 사용 하 여 알림을 보낼 수 있도록 `DefaultFullSharedAccessSignature`를 지정 합니다. 실제로 `DefaultListenSharedAccessSignature` 알림을 받으려는 경우에는이 옵션을 선택 하는 것이 좋습니다.
 
 1. **프로젝트 탐색기**에서 **프로젝트 이름을** 선택한 다음 **일반** 탭을 선택 합니다.
 
-1. **Id** 를 찾은 다음,-2 (이전 단계의 **앱 ID** 에 사용 되는 값) @no__t와 일치 하도록 **번들 식별자** 값을 설정 합니다.
+1. **Id** 를 찾은 다음 **번들 식별자** 값이 이전 단계의 **앱 ID** 에 사용 되는 값인 `com.<organization>.PushDemo`와 일치 하도록 설정 합니다.
 
 1. **서명**을 찾은 다음 **Apple Developer 계정**에 적절 한 **팀** 을 선택 합니다. **팀** 값은 인증서와 프로필을 생성 한 값과 일치 해야 합니다.
 
-1. Xcode는 **번들 식별자**를 기반으로 적절 한 **프로 비전 프로필** 값을 자동으로 끌어옵니다. 새 **프로 비전 프로필** 값이 표시 되지 않으면 **Xcode** > **기본 설정** > **계정** > **자세히 보기**를 선택 하 여 **서명 id** 에 대 한 프로필을 새로 고칩니다. **서명 id**를 선택 하 고 오른쪽 아래에 있는 **새로 고침** 단추를 선택 하 여 프로필을 다운로드 합니다.
+1. Xcode는 **번들 식별자**를 기반으로 적절 한 **프로 비전 프로필** 값을 자동으로 끌어옵니다. 새 **프로 비전 프로필** 값이 표시 되지 않는 경우 **Xcode** > **기본 설정** > **계정** > **자세히 보기**를 선택 하 여 **서명 id** 에 대 한 프로필을 새로 고쳐 보세요. **서명 id**를 선택 하 고 오른쪽 아래에 있는 **새로 고침** 단추를 선택 하 여 프로필을 다운로드 합니다.
 
 1. **기능** 탭을 선택 하 고 **푸시 알림이** 활성화 되어 있는지 확인 합니다.
 
@@ -171,7 +171,7 @@ ms.locfileid: "72030648"
     return true
     ```
 
-    이 코드는 **info.plist**에서 설정 값을 검색 하 고, **AppDelegate** 클래스를 **unusernotificationcenter** 대리자로 설정 하 고, 푸시 알림에 대 한 권한 부여를 요청 하 고,를 호출 **합니다. registerForRemoteNotifications**.
+    이 코드는 **info.plist**에서 설정 값을 검색 하 고, **AppDelegate** 클래스를 **unusernotificationcenter** 대리자로 설정 하 고, 푸시 알림에 대 한 권한 부여를 요청 하 고, **registerForRemoteNotifications**를 호출 합니다.
 
     이 코드는 간단 하 게 유지 하기 위해 *iOS 10 이상만*지원 합니다. 일반적인 방법으로 각 Api 및 방법을 사용 하 여 조건에 따라 이전 OS 버전에 대 한 지원을 추가할 수 있습니다.
 
@@ -286,7 +286,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. [UNIX Epoch 시간](https://en.wikipedia.org/wiki/Unix_time) 형식의 만료 시간을 계산 하는 것은 1970 년 1 월 1 일 자정 utc 이후 경과 된 시간 (초)입니다.
 1. 액세스 하려고 하는 리소스를 나타내는 **Resourceurl** 의 형식을 지정 합니다 .이 url은 백분율 인코딩 및 소문자입니다. **Resourceurl** 의 형식은 `'https://<namespace>.servicebus.windows.net/<hubName>'`입니다.
-1. @No__t-1로 형식이 지정 된 **Stringtosign**을 준비 하는 중입니다.
+1. `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`형식으로 지정 된 **Stringtosign**을 준비 하는 중입니다.
 1. **Stringtosign** 값의 HMAC-SHA256 해시를 사용 하 여 **서명을** 계산 하 고 Base64 인코딩을 사용 합니다. 해시 값은 각 **권한 부여 규칙**에 대 한 **연결 문자열** 의 **키** 부분과 함께 사용 됩니다.
 1. % 인코딩 되도록 Base64 인코딩된 **서명의** 서식을 지정 합니다.
 1. **UrlEncodedSignature**, **ExpiryEpoch**, **KeyName**및 **UrlEncodedResourceUrl** 값을 사용 하 여 필요한 형식으로 토큰을 생성 합니다.
@@ -297,7 +297,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 브리징 헤더를 추가 하 고 구성 하려면 다음을 수행 합니다.
 
-1. Xcode에서 **file** > **New** > **File** > **헤더 파일**을 선택 합니다. 헤더 파일의 이름을 **BridgingHeader**로 합니다.
+1. Xcode에서 **파일** > **새** > **파일** > **헤더 파일**을 선택 합니다. 헤더 파일의 이름을 **BridgingHeader**로 합니다.
 
 1. 파일을 편집 하 여 **CommonHMAC**를 가져옵니다.
 
@@ -317,7 +317,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
    1. **설치 목표-C 호환성 헤더** 옵션이 **예**로 설정 되어 있는지 확인 합니다.
 
-   1. **목표-C 브리징 헤더** 옵션에 `'<ProjectName>/BridgingHeader.h'` 파일 경로를 입력 합니다. 이는 브리징 헤더의 파일 경로입니다.
+   1. **목적-C 브리징 헤더** 옵션에 `'<ProjectName>/BridgingHeader.h'` 파일 경로를 입력 합니다. 이는 브리징 헤더의 파일 경로입니다.
 
    이러한 옵션을 찾을 수 없는 경우 **기본** 또는 **사용자 지정**이 아닌 **모든** 보기가 선택 되어 있는지 확인 합니다.
 
@@ -410,10 +410,10 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 
 1. 다음과 같이 요청 헤더를 구성 합니다.
 
-   | Key           | 값            |
+   | 키           | 값            |
    | ------------- | ---------------- |
    | Content-Type  | application/json |
-   | Authorization | \<sasToken>       |
+   | 권한 부여 | \<sasToken>       |
    | x-ms-version  | 2015-01          |
 
 1. **저장** 단추 오른쪽 위에 표시 되는 **코드** 단추를 선택 합니다. 요청은 다음 예제와 유사 하 게 표시 됩니다.
@@ -428,7 +428,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
     Postman-Token: <postmanToken>
     ```
 
-1. 선택 된 **보낼** 단추입니다.
+1. **보내기** 단추를 선택합니다.
 
 이 시점에서 지정 된 **installationId** 에 대 한 등록이 존재 하지 않습니다. 확인 하는 동안 "401 권한 없음" 응답이 아닌 "404 Not Found" 응답이 발생 합니다. 이 결과는 SAS 토큰이 수락 되었는지 확인 해야 합니다.
 
@@ -658,10 +658,10 @@ class NotificationRegistrationService {
 
 1. 다음과 같이 요청 헤더를 구성 합니다.
 
-   | Key                            | 값                          |
+   | 키                            | 값                          |
    | ------------------------------ | ------------------------------ |
    | Content-Type                   | application/json;charset=utf-8 |
-   | Authorization                  | \<sasToken>                     |
+   | 권한 부여                  | \<sasToken>                     |
    | ServiceBusNotification-Format  | 템플릿                       |
    | Tags                           | "12345"                        |
 
@@ -690,7 +690,7 @@ class NotificationRegistrationService {
     }
     ```
 
-1. 선택 된 **보낼** 단추입니다.
+1. **보내기** 단추를 선택합니다.
 
 성공 상태 코드를 받고 클라이언트 장치에서 알림을 받습니다.
 

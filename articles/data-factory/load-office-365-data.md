@@ -73,7 +73,7 @@ ms.locfileid: "73672612"
 
     ![새 Office 365 연결된 서비스](./media/load-office-365-data/new-office-365-linked-service.png)
  
-7. 연결된 서비스를 만든 후에 데이터 세트 설정으로 돌아갑니다. **표**옆에서 아래쪽 화살표를 선택 하 여 사용 가능한 Office 365 데이터 집합 목록을 확장 하 고 "BasicDataSet_v0"를 선택 합니다. Message_v0 "드롭다운 목록에서 다음을 수행 합니다.
+7. 연결된 서비스를 만든 후에 데이터 세트 설정으로 돌아갑니다. **표**옆에서 아래쪽 화살표를 선택 하 여 사용 가능한 Office 365 데이터 집합 목록을 확장 하 고 "BasicDataSet_v0를 선택 합니다. 드롭다운 목록에서 다음을 Message_v0 합니다.
 
     ![Office 365 데이터 세트 테이블 구성](./media/load-office-365-data/edit-dataset.png)
 
@@ -128,7 +128,7 @@ ms.locfileid: "73672612"
 
 ![작업 모니터링](./media/load-office-365-data/activity-status.png) 
 
-이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업이 표시 됩니다. **진행**중인 상태 이며, "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 구성원이 Privileged Access Management에서 요청을 승인해야 데이터 추출을 진행할 수 있습니다.
+이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업이 표시 됩니다. **진행**중인 상태 이며, "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 멤버가 데이터 추출이 진행되기 전에 Privileged Access Management에서 요청을 승인해야 합니다.
 
 _동의 요청 중 상태:_ 
 ![활동 실행 세부 정보 - 요청 동의](./media/load-office-365-data/activity-details-request-consent.png) 

@@ -61,8 +61,8 @@ ms.locfileid: "71672992"
 * 일반 RHEL 설명서
   * [High Availability Add-On Overview](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)(고가용성 추가 기능 개요)
   * [High Availability Add-On Administration](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)(고가용성 추가 기능 관리)
-  * [High Availability Add-On Reference](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)(고가용성 추가 기능 참조)
-  * [RHEL High Availability 클러스터에 대 한 지원 정책-sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)
+  * [고가용성 추가 기능 참조](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [RHEL 고가용성 클러스터에 대 한 지원 정책-sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)
 * Azure 관련 RHEL 설명서:
   * [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members](https://access.redhat.com/articles/3131341)(RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
   * [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure](https://access.redhat.com/articles/3252491)(Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
@@ -73,7 +73,7 @@ ms.locfileid: "71672992"
 ![RHEL의 Pacemaker 개요](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
 
 > [!NOTE]
-> Red Hat은 소프트웨어 에뮬레이션 watchdog을 지원 하지 않습니다. Red Hat은 클라우드 플랫폼에서 SBD을 지원 하지 않습니다. 자세한 내용은 [RHEL High Availability 클러스터에 대 한 지원 정책-sbd 및 fence_sbd](https://access.redhat.com/articles/2800691)를 참조 하세요.
+> Red Hat은 소프트웨어 에뮬레이션 watchdog을 지원 하지 않습니다. Red Hat은 클라우드 플랫폼에서 SBD을 지원 하지 않습니다. 자세한 내용은 [RHEL High Availability sbd 및 fence_sbd에 대 한 지원 정책](https://access.redhat.com/articles/2800691)을 참조 하세요.
 > Azure의 Pacemaker Red Hat Enterprise Linux 클러스터에 대해 지원 되는 유일한 펜스 메커니즘은 Azure fence 에이전트입니다.  
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
@@ -108,9 +108,9 @@ ms.locfileid: "71672992"
 
    > [!IMPORTANT]
    > 더 빠른 장애 조치 (failover) 시간을 활용 하기 위해 고객에 게 더 빠른 장애 조치 (failover)를 수행 하거나 클러스터 노드가 더 이상 서로 통신할 수 없는 경우 다음 버전의 Azure Fence 에이전트 (또는 이후 버전)를 권장 합니다.  
-   > RHEL 7.6: fence-agents-4.2.1 -11 el7 _ 6.8  
-   > RHEL 7.5: fence-agents-4.0.11 -86 el7 _ 5.8  
-   > RHEL 7.4: fence-agents-4.0.11 -66 el7 _ 4.12 문제점  
+   > RHEL 7.6:4.2.1-11. el7_6.8  
+   > RHEL 7.5:4.0.11-86. el7_5.8  
+   > RHEL 7.4:4.0.11-66. el7_4 12  
    > 자세한 내용은 [RHEL 고가용성 클러스터 구성원으로 실행 되는 AZURE vm을 친 하는 데 시간이 오래 걸리고, VM이 종료 되기 전에 펜스가 실패 하거나 시간이 초과](https://access.redhat.com/solutions/3408711)되는 경우를 참조 하세요.
 
    Azure fence 에이전트의 버전을 확인 합니다. 필요한 경우 위에 명시 된 것 보다 이전 버전 또는 같은 버전으로 업데이트 합니다.
@@ -206,7 +206,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 1. 앱 등록 클릭
 1. 새 등록을 클릭 합니다.
 1. 이름을 입력 하 고 "이 조직 디렉터리에만 있는 계정"을 선택 합니다. 
-2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:/slocallocalhost)을 입력 한 다음 추가를 클릭 합니다.\/  
+2. 응용 프로그램 유형 "웹"을 선택 하 고 로그온 URL (예: http:\//localhost)을 입력 한 다음 추가를 클릭 합니다.  
    로그온 URL이 사용되지 않으며, 이 URL은 임의의 올바른 URL이 될 수 있음
 1. 인증서 및 암호를 선택 하 고 새 클라이언트 암호를 클릭 합니다.
 1. 새 키에 대 한 설명을 입력 하 고 "기간 제한 없음"을 선택 하 고 추가를 클릭 합니다.
@@ -243,7 +243,7 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 
-1. [https://resources.azure.com](https://portal.azure.com ) 으로 이동합니다.
+1. [https://resources.azure.com](https://portal.azure.com) 으로 이동합니다.
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭

@@ -40,7 +40,7 @@ Azure AD Connect Health 모니터링 하는 온-프레미스 컴퓨터의 에이
  
 다음 표에서는 서비스 유형을 해당 하는 필수 데이터 형식에 매핑합니다.
 
-| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 용도 | 생성 된 데이터 형식  |
+| 서비스 유형 | 에이전트 (Windows 서비스 이름) | 목적 | 생성 된 데이터 형식  |
 | --- | --- | --- | --- |  
 | Azure AD Connect (동기화) | Azure AD Connect Health Sync Insights Service | AAD Connect 관련 정보 (커넥터, 동기화 규칙 등)를 수집 합니다. | - AadSyncService-SynchronizationRules <br />  -AadSyncService-커넥터 <br /> -AadSyncService-GlobalConfigurations  <br />  - AadSyncService-RunProfileResults <br /> - AadSyncService-ServiceConfigurations <br /> - AadSyncService-ServiceStatus   |
 |  | Azure AD Connect Health Sync Monitoring Service | AAD Connect 관련 성능 카운터, ETW 추적, 파일을 수집 합니다. | 성능 카운터 |
@@ -59,7 +59,7 @@ Azure AD Connect Health 모니터링 하는 온-프레미스 컴퓨터의 에이
 
 * 최신 버전의 에이전트가 설치 되어 있는지 확인 합니다. [릴리스 기록을](reference-connect-health-version-history.md)봅니다. 
 * Azure AD Connect Health 에이전트 서비스가 컴퓨터에서 **실행** 되 고 있는지 확인 합니다. 예를 들어 AD FS용 Connect Health에 3개의 서비스가 있어야 합니다.
-  ![Verify Azure AD Connect Health @ no__t-1
+  ![확인 Azure AD Connect Health](./media/how-to-connect-health-agent-install/install5.png)
 
 * [요구 사항 섹션](how-to-connect-health-agent-install.md#requirements)을 검토하고 충족하는지 확인합니다.
 * [연결 테스트 도구](how-to-connect-health-agent-install.md#test-connectivity-to-azure-ad-connect-health-service)를 사용하여 연결 문제를 검색합니다.

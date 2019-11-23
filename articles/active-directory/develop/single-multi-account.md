@@ -30,30 +30,30 @@ ms.locfileid: "71679712"
 
 ADAL (Azure Active Directory 인증 라이브러리)은 서버를 모델링 합니다.  대신 MSAL (Microsoft 인증 라이브러리)은 클라이언트 응용 프로그램을 모델링 합니다.  대부분의 Android 앱은 공용 클라이언트로 간주 됩니다. 공용 클라이언트는 안전 하 게 암호를 유지할 수 없는 앱입니다.  
 
-MSAL은 한 번에 하나의 계정만 사용할 수 있도록 하는 앱에 대 한 개발 환경을 단순화 하 고 명확 하 게 하기 위해 `PublicClientApplication`의 API 화면을 전문적으로 만듭니다. `PublicClientApplication`은 `SingleAccountPublicClientApplication` 및 `MultipleAccountPublicClientApplication`로 서브클래싱 됩니다.  다음 다이어그램에서는 이러한 클래스 간의 관계를 보여 줍니다.
+MSAL은 한 번에 하나의 계정만 사용할 수 있도록 하는 앱에 대 한 개발 환경을 단순화 하 고 명확 하 게 `PublicClientApplication`의 API 화면을 전문적으로 만듭니다. `PublicClientApplication`은 `SingleAccountPublicClientApplication` 및 `MultipleAccountPublicClientApplication`에 의해 서브클래싱 됩니다.  다음 다이어그램에서는 이러한 클래스 간의 관계를 보여 줍니다.
 
 ![SingleAccountPublicClientApplication UML 클래스 다이어그램](./media/single-multi-account/single-and-multiple-account.png)
 
 ## <a name="single-account-public-client-application"></a>단일 계정 공용 클라이언트 응용 프로그램
 
-@No__t-0 클래스를 사용 하면 한 번에 하나의 계정만 로그인 할 수 있는 MSAL 기반 앱을 만들 수 있습니다. `SingleAccountPublicClientApplication`은 다음과 같은 방법으로 `PublicClientApplication`과 다릅니다.
+`SingleAccountPublicClientApplication` 클래스를 사용 하면 한 번에 하나의 계정만 로그인 할 수 있는 MSAL 기반 앱을 만들 수 있습니다. `SingleAccountPublicClientApplication`는 다음과 같은 방식으로 `PublicClientApplication`와 다릅니다.
 
 - MSAL은 현재 로그인 된 계정을 추적 합니다.
   - 앱이 broker를 사용 하는 경우 (Azure Portal 기본값) broker가 있는 장치에 설치 된 경우 MSAL은 해당 계정을 장치에서 계속 사용할 수 있는지 확인 합니다.
-- `signIn`을 사용 하면 명시적으로 또는 요청 범위와 별도로 계정에 로그인 할 수 있습니다.
+- `signIn`를 사용 하 여 명시적으로 또는 요청 범위와 별도로 계정에 로그인 할 수 있습니다.
 - `acquireTokenSilent`에는 계정 매개 변수가 필요 하지 않습니다.  계정을 제공 하 고 제공 하는 계정이 MSAL에서 추적 하는 현재 계정과 일치 하지 않으면 `MsalClientException`이 throw 됩니다.
-- `acquireToken`은 사용자가 계정을 전환 하는 것을 허용 하지 않습니다. 사용자가 다른 계정으로 전환 하려고 하면 예외가 throw 됩니다.
-- `getCurrentAccount`은 다음을 제공 하는 결과 개체를 반환 합니다.
+- `acquireToken` 사용자가 계정을 전환할 수 없습니다. 사용자가 다른 계정으로 전환 하려고 하면 예외가 throw 됩니다.
+- `getCurrentAccount`는 다음을 제공 하는 결과 개체를 반환 합니다.
   - 계정이 변경 되었는지 여부를 나타내는 부울입니다. 예를 들어 장치에서 제거 된 결과로 계정이 변경 될 수 있습니다.
   - 이전 계정. 이는 계정이 장치에서 제거 되거나 새 계정이 로그인 될 때 로컬 데이터 정리를 수행 해야 하는 경우에 유용 합니다.
   - CurrentAccount입니다.
-- `signOut`은 장치에서 클라이언트와 연결 된 모든 토큰을 제거 합니다.  
+- `signOut` 장치에서 클라이언트와 연결 된 모든 토큰을 제거 합니다.  
 
-Microsoft Authenticator 또는 Intune 회사 포털와 같은 Android 인증 브로커가 장치에 설치 되어 있고 앱이 broker를 사용 하도록 구성 된 경우 `signOut`은 장치에서 계정을 제거 하지 않습니다.
+Microsoft Authenticator 또는 Intune 회사 포털와 같은 Android 인증 브로커가 장치에 설치 되어 있고 앱이 broker를 사용 하도록 구성 된 경우 `signOut` 장치에서 계정을 제거 하지 않습니다.
 
 ## <a name="single-account-scenario"></a>단일 계정 시나리오
 
-다음 의사 코드는 `SingleAccountPublicClientApplication`을 사용 하는 방법을 보여 줍니다.
+다음 의사 코드는 `SingleAccountPublicClientApplication`를 사용 하는 방법을 보여 줍니다.
 
 ```java
 // Construct Single Account Public Client Application
@@ -112,24 +112,24 @@ if (app.signOut())
 
 ## <a name="multiple-account-public-client-application"></a>여러 계정 공용 클라이언트 응용 프로그램
 
-@No__t-0 클래스는 여러 계정을 동시에 로그인 할 수 있도록 하는 MSAL 기반 앱을 만드는 데 사용 됩니다. 다음과 같이 계정을 가져오고 추가 하 고 제거할 수 있습니다.
+`MultipleAccountPublicClientApplication` 클래스는 여러 계정을 동시에 로그인 할 수 있도록 하는 MSAL 기반 앱을 만드는 데 사용 됩니다. 다음과 같이 계정을 가져오고 추가 하 고 제거할 수 있습니다.
 
 ### <a name="add-an-account"></a>계정 추가
 
-0 번 이상 @no__t를 호출 하 여 응용 프로그램에서 하나 이상의 계정을 사용 합니다.  
+`acquireToken`를 한 번 이상 호출 하 여 응용 프로그램에서 하나 이상의 계정을 사용 합니다.  
 
 ### <a name="get-accounts"></a>계정 가져오기
 
-- @No__t-0을 호출 하 여 특정 계정을 가져옵니다.
-- @No__t-0to 호출 하 여 현재 앱에 알려진 계정 목록을 가져옵니다.
+- `getAccount`를 호출 하 여 특정 계정을 가져옵니다.
+- `getAccounts`를 호출 하 여 현재 앱에 알려진 계정 목록을 가져옵니다.
 
 앱은 broker 앱에 알려진 장치에서 모든 Microsoft id 플랫폼 계정을 열거할 수 없습니다. 앱에서 사용 된 계정만 열거할 수 있습니다.  장치에서 제거 된 계정은 이러한 함수에서 반환 되지 않습니다.
 
 ### <a name="remove-an-account"></a>계정 제거
 
-계정 식별자를 사용 하 여 `removeAccount`을 호출 하 여 계정을 제거 합니다.
+계정 식별자를 사용 하 여 `removeAccount`를 호출 하 여 계정을 제거 합니다.
 
-Broker를 사용 하도록 앱을 구성 하 고 장치에 broker를 설치 하는 경우 `removeAccount`을 호출 하면 broker에서 계정이 제거 되지 않습니다.  클라이언트와 연결 된 토큰만 제거 됩니다.
+Broker를 사용 하도록 앱을 구성 하 고 장치에 broker를 설치 하는 경우 `removeAccount`를 호출할 때 broker에서 계정이 제거 되지 않습니다.  클라이언트와 연결 된 토큰만 제거 됩니다.
 
 ## <a name="multiple-account-scenario"></a>여러 계정 시나리오
 

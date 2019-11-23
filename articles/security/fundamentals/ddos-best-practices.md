@@ -46,7 +46,7 @@ Microsoft Azure에서 실행되는 서비스를 보호하기 위해 애플리케
 
 ### <a name="design-for-scalability"></a>확장성을 위한 디자인
 
-확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 특히 DDoS 공격이 발생 하는 경우 증폭 된 부하의 수요를 충족 하도록 응용 프로그램을 [수평으로 확장](/azure/architecture/guide/design-principles/scale-out) 하도록 설계 합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
+확장성은 시스템이 증가된 로드를 처리할 수 있는 정도입니다. 증폭되는 부하, 특히 DDoS 공격 시 증폭되는 부하 수요를 충족할 수 있도록 애플리케이션이 [수평으로 확장 가능](/azure/architecture/guide/design-principles/scale-out)하도록 설계합니다. 애플리케이션이 서비스의 단일 인스턴스에 종속된 경우 단일 실패 지점이 생깁니다. 여러 인스턴스를 프로비전하면 시스템에 복원성 및 확장성이 증가하게 됩니다.
 
 [Azure App Service](/azure/app-service/app-service-value-prop-what-is)의 경우 여러 인스턴스를 제공하는 [App Service 계획](/azure/app-service/overview-hosting-plans)을 선택합니다. Azure Cloud Services의 경우 각각의 역할을 [여러 인스턴스](/azure/cloud-services/cloud-services-choose-me)를 사용하도록 구성합니다. [Azure Virtual Machines](/azure/virtual-machines/virtual-machines-windows-about/?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)의 경우, VM(가상 머신) 아키텍처가 둘 이상의 VM을 포함하는지 그리고 각각의 VM이 [가용성 집합](/azure/virtual-machines/virtual-machines-windows-manage-availability)에 포함되는지 확인합니다. 자동 크기 조정 기능을 위한 [가상 머신 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)을 사용하는 것이 좋습니다.
 
@@ -179,7 +179,7 @@ DDoS 대응 팀의 경우 서비스의 가용성과 연속성 계획의 일환�
 
 ### <a name="alerts-during-an-attack"></a>공격 진행 중 경고
 
-Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호되는 공용 IP에 대한 활성 완화가 발생할 때 알림을 받으려면 **DDoS 공격 진행 여부** 메트릭에서 [경고를 구성](/azure/virtual-network/ddos-protection-manage-portal)합니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
+Azure DDoS Protection 표준은 사용자 개입 없이 DDoS 공격을 식별하여 완화합니다. 보호되는 공용 IP에 대한 활성 완화가 발생할 때 알림을 받으려면 [DDoS 공격 진행 여부](/azure/virtual-network/ddos-protection-manage-portal) 메트릭에서 **경고를 구성**합니다. 다른 DDoS 메트릭에 대한 경고를 만들어서 공격의 규모, 손실되는 트래픽 및 기타 세부 내용을 이해할 수 있습니다.
 
 #### <a name="when-to-contact-microsoft-support"></a>Microsoft 지원에 문의해야 하는 경우
 
@@ -227,7 +227,7 @@ DDoS Protection Standard는 [가상 네트워크에 배포되는 서비스](/azu
 
 #### <a name="application-running-on-windows-n-tier"></a>Windows N 계층에서 실행 중인 애플리케이션
 
-N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. 다음 다이어그램은 일반적인 3계층 웹 애플리케이션을 보여줍니다. 이 아키텍처는 [부하가 분산된 VM을 실행하여 확장성 및 가용성 확보](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm) 아티클을 기반으로 합니다. 웹 및 비즈니스 계층은 부하 분산된 VM을 사용합니다.
+n 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. 다음 다이어그램은 일반적인 3계층 웹 애플리케이션을 보여줍니다. 이 아키텍처는 [부하가 분산된 VM을 실행하여 확장성 및 가용성 확보](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm) 아티클을 기반으로 합니다. 웹 및 비즈니스 계층은 부하 분산된 VM을 사용합니다.
 
 ![Windows N 계층에서 실행 중인 애플리케이션에 대한 참조 아키텍처 다이어그램](./media/ddos-best-practices/image10.png)
 

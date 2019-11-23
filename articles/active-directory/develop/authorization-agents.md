@@ -24,13 +24,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 09/30/2019
 ms.locfileid: "71679816"
 ---
-# <a name="authorization-agents-android"></a>권한 부여 에이전트 (Android)
+# <a name="authorization-agents-android"></a>권한 부여 에이전트(Android)
 
 이 문서에서는 MSAL (Microsoft 인증 라이브러리)에서 앱을 사용할 수 있도록 허용 하는 다양 한 권한 부여 에이전트와 앱을 사용 하도록 설정 하는 방법을 설명 합니다.
 
 권한 부여 에이전트에 대 한 특정 전략 선택은 선택 사항이 며 앱에서 사용자 지정할 수 있는 추가 기능을 나타냅니다. 대부분의 앱은 MSAL 기본값을 사용 합니다. 다양 한 기본값을 보려면 [ANDROID msal 구성 파일 이해](msal-configuration.md) 를 참조 하세요.
 
-MSAL은 `WebView` 또는 시스템 브라우저를 사용 하 여 권한 부여를 지원 합니다.  아래 이미지는 `WebView` 또는 CustomTabs를 사용 하는 시스템 브라우저를 사용 하거나 CustomTabs를 사용 하지 않는 시스템 브라우저를 사용 하는 방법을 보여 줍니다.
+MSAL은 `WebView`또는 시스템 브라우저를 사용 하 여 권한 부여를 지원 합니다.  다음 이미지는 `WebView`또는 CustomTabs이 있는 시스템 브라우저 또는 CustomTabs를 사용 하는 방법을 보여 줍니다.
 
 ![MSAL 로그인 예](./media/authorization-agents/sign-in-ui.jpg)
 
@@ -50,13 +50,13 @@ MSAL은 `WebView` 또는 시스템 브라우저를 사용 하 여 권한 부여�
 "authorization_user_agent" : "WEBVIEW"
 ```
 
-앱 내 `WebView`을 사용 하는 경우 사용자는 앱에 직접 로그인 합니다. 토큰은 앱의 샌드박스 내에 유지 되 고 앱의 쿠키 jar 외부에서 사용할 수 없습니다. 따라서 앱이 인증자 또는 회사 포털와 통합 되지 않은 경우 사용자는 응용 프로그램 간에 SSO 환경을 사용할 수 없습니다.
+앱 내 `WebView`를 사용 하는 경우 사용자는 앱에 직접 로그인 합니다. 토큰은 앱의 샌드박스 내에 유지 되 고 앱의 쿠키 jar 외부에서 사용할 수 없습니다. 따라서 앱이 인증자 또는 회사 포털와 통합 되지 않은 경우 사용자는 응용 프로그램 간에 SSO 환경을 사용할 수 없습니다.
 
-그러나 `WebView`은 로그인 UI의 모양과 느낌을 사용자 지정 하는 기능을 제공 합니다. 이 사용자 지정을 수행 하는 방법에 대 한 자세한 내용은 [Android 웹 보기](https://developer.android.com/reference/android/webkit/WebView) 를 참조 하세요.
+그러나 `WebView`는 로그인 UI의 모양과 느낌을 사용자 지정 하는 기능을 제공 합니다. 이 사용자 지정을 수행 하는 방법에 대 한 자세한 내용은 [Android 웹 보기](https://developer.android.com/reference/android/webkit/WebView) 를 참조 하세요.
 
 ## <a name="default-browser-plus-custom-tabs"></a>기본 브라우저 및 사용자 지정 탭
 
-기본적으로 MSAL은 브라우저와 [사용자 지정 탭](https://developer.chrome.com/multidevice/android/customtabs) 전략을 사용 합니다. 사용자 지정 구성 파일에서 다음 JSON 구성을 사용 하 여 이후 릴리스가 `DEFAULT`으로 변경 되는 것을 방지 하기 위해 명시적으로이 전략을 지정할 수 있습니다.
+기본적으로 MSAL은 브라우저와 [사용자 지정 탭](https://developer.chrome.com/multidevice/android/customtabs) 전략을 사용 합니다. 사용자 지정 구성 파일에서 다음 JSON 구성을 사용 하 여 `DEFAULT`에 대 한 이후 릴리스가 변경 되는 것을 방지 하기 위해 명시적으로이 전략을 지정할 수 있습니다.
 
 ```json
 "authorization_user_agent" : "BROWSER"
@@ -68,9 +68,9 @@ MSAL은 `WebView` 또는 시스템 브라우저를 사용 하 여 권한 부여�
 
 MSAL은 다양 한 Android 휴대폰 배열에서 사용할 정확한 브라우저 패키지를 지정 하는 것이 불가능 하기 때문에 MSAL은 가장 적합 한 장치 간 SSO를 제공 하려고 하는 브라우저 선택 추론을 구현 합니다.
 
-MSAL은 장치에 설치 된 브라우저의 전체 목록을 검색 하 여 사용할 브라우저를 선택 합니다. 목록은 패키지 관리자에서 반환 된 순서 대로 표시 되며 사용자의 기본 설정을 간접적으로 반영 합니다. 예를 들어 기본 브라우저 (설정 된 경우)는 목록의 첫 번째 항목입니다. 목록의 _첫 번째_ 브라우저는 사용자 지정 탭을 지원 하는지 여부에 관계 없이 선택 됩니다. 브라우저에서 사용자 지정 탭을 지 원하는 경우 MSAL은 사용자 지정 탭을 시작 합니다. 사용자 지정 탭은 앱 내 `WebView`에 가까이 있으며 기본 UI 사용자 지정을 허용 합니다. 자세히 알아보려면 [Android의 사용자 지정 탭](https://developer.chrome.com/multidevice/android/customtabs) 을 참조 하세요.
+MSAL은 장치에 설치 된 브라우저의 전체 목록을 검색 하 여 사용할 브라우저를 선택 합니다. 목록은 패키지 관리자에서 반환 된 순서 대로 표시 되며 사용자의 기본 설정을 간접적으로 반영 합니다. 예를 들어 기본 브라우저 (설정 된 경우)는 목록의 첫 번째 항목입니다. 목록의 _첫 번째_ 브라우저는 사용자 지정 탭을 지원 하는지 여부에 관계 없이 선택 됩니다. 브라우저에서 사용자 지정 탭을 지 원하는 경우 MSAL이 사용자 지정 탭을 시작 합니다. 사용자 지정 탭을 사용 하면 앱 내 `WebView`에 더 가깝게 표시 되 고 기본 UI 사용자 지정이 가능 합니다. 자세히 알아보려면 [Android의 사용자 지정 탭](https://developer.chrome.com/multidevice/android/customtabs) 을 참조 하세요.
 
-장치에 브라우저 패키지가 없는 경우 MSAL은 앱 내 `WebView`을 사용 합니다.
+장치에 브라우저 패키지가 없으면 MSAL은 앱 내 `WebView`을 사용 합니다.
 
 브라우저 목록의 브라우저 순서는 운영 체제에 의해 결정 됩니다. 가장 선호 하는 순서 대로 정렬 됩니다. 장치 기본 설정이 변경 되지 않은 경우 SSO 환경을 보장 하기 위해 각 로그인에 대해 동일한 브라우저를 시작 해야 합니다.
 
@@ -79,7 +79,7 @@ MSAL은 장치에 설치 된 브라우저의 전체 목록을 검색 하 여 사
 
 ### <a name="tested-browsers"></a>테스트 된 브라우저
 
-다음 브라우저는 구성 파일에 지정 된 @no__t 0으로 올바르게 리디렉션해야 하는지 확인 하기 위해 테스트 되었습니다.
+다음 브라우저는 구성 파일에 지정 된 `"redirect_uri"`에 올바르게 리디렉션해야 하는지 확인 하기 위해 테스트 되었습니다.
 
 | | 기본 제공 브라우저 | Chrome | Opera  | Microsoft Edge | UC 브라우저 | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
@@ -91,7 +91,7 @@ MSAL은 장치에 설치 된 브라우저의 전체 목록을 검색 하 여 사
 | Oppo | 전달을 | 해당 사항 없음 * * * |해당 없음  |해당 없음 |해당 없음 | 해당 없음|
 | OnePlus (API 25) |전달을 | 전달을 | 전달을 | 전달을 | 통과 |전달을 |
 | Nexus (API 28) |전달을 | 전달을 | 전달을 | 전달을 | 통과 |전달을 |
-|MI | 전달을 | 전달을 | 전달을 | 전달을 | 통과 |전달을 |
+|미 | 전달을 | 전달을 | 전달을 | 전달을 | 통과 |전달을 |
 
 \* Samsung의 기본 제공 브라우저는 Samsung Internet입니다.  
 \* * Huawei의 기본 제공 브라우저는 Huawei Browser입니다.  

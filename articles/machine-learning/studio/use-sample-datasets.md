@@ -367,14 +367,14 @@ Azure Machine Learning Studio의 클래식 버전에 업로드 하기 전에 데
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_test.csv">lyrl2004_tokens_test.csv</a></td>
   <td>
-RCV1-V2 Reuters 뉴스 데이터 세트에 있는 테스트 예제 기능입니다. 이 데이터 세트에는 781,000개의 뉴스 기사가 해당 ID(데이터 세트의 첫 번째 열)와 함께 나옵니다. 각 기사는 토큰화, 중지 단어 지정, 형태소 분석됩니다. 이 데이터 세트는 David. D. Lewis가 제공했습니다.
+RCV1-V2 Reuters 뉴스 데이터 세트에 있는 테스트 예제 기능입니다. 이 데이터 세트에는 781,000개의 뉴스 기사가 해당 ID(데이터 세트의 첫 번째 열)와 함께 나옵니다. 각 기사는 토큰화, 중지 단어 지정, 형태소 분석됩니다. 이 데이터 세트는 David. 4\. Lewis가 제공했습니다.
   </td>
 </tr>
 
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/lyrl2004_tokens_train.csv">lyrl2004_tokens_train.csv</a></td>
   <td>
-RCV1-V2 Reuters 뉴스 데이터 세트에 있는 학습 예제의 기능입니다. 이 데이터 세트에는 23,000개의 뉴스 기사가 해당 ID(데이터 세트의 첫 번째 열)와 함께 나옵니다. 각 기사는 토큰화, 중지 단어 지정, 형태소 분석됩니다. 이 데이터 세트는 David. D. Lewis가 제공했습니다.
+RCV1-V2 Reuters 뉴스 데이터 세트에 있는 학습 예제의 기능입니다. 이 데이터 세트에는 23,000개의 뉴스 기사가 해당 ID(데이터 세트의 첫 번째 열)와 함께 나옵니다. 각 기사는 토큰화, 중지 단어 지정, 형태소 분석됩니다. 이 데이터 세트는 David. 4\. Lewis가 제공했습니다.
   </td>
 </tr>
 
@@ -390,7 +390,7 @@ KDD Cup 1999 지식 검색 및 데이터 마이닝 도구 경합(<a href="https:
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/rcv1-v2.topics.qrels.csv">rcv1-v2.topics.qrels.csv</a></td>
   <td>
-RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은 "&lt;항목 이름&gt; &lt;문서 ID&gt; 1"입니다. 이 데이터 세트에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 세트는 David. D. Lewis가 제공했습니다.
+RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당입니다. 하나의 뉴스 기사를 여러 항목에 할당할 수 있습니다. 각 행의 형식은 "&lt;항목 이름&gt; &lt;문서 ID&gt; 1"입니다. 이 데이터 세트에는 260만 개의 항목 할당이 포함됩니다. 이 데이터 세트는 David. 4\. Lewis가 제공했습니다.
   </td>
 </tr>
 

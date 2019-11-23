@@ -17,7 +17,7 @@ ms.locfileid: "71844721"
 
 Azure Portal에서 [Azure Database for MariaDB 저속 쿼리 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 이 문서의 단계를 수행 하려면 [Azure Database for MariaDB 서버가](quickstart-create-mariadb-server-database-using-azure-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
@@ -28,11 +28,11 @@ Azure Portal에서 [Azure Database for MariaDB 저속 쿼리 로그](concepts-se
 2. Azure Database for MariaDB 서버를 선택합니다.
 
 3. 사이드바의 **모니터링** 섹션에서 **서버 로그**를 선택 합니다. 
-   ![Screenshot logs 옵션의 스크린샷 @ no__t-1
+   서버 로그 옵션 ![스크린샷](./media/howto-configure-server-logs-portal/1-select-server-logs-configure.png)
 
 4. 서버 매개 변수를 보려면 로그를 **사용 하도록 설정 하 고 로그 매개 변수를 구성 하려면 여기를 클릭**하십시오 .를 선택 합니다.
 
-5. **Slow_query_log** 를 **ON**으로 설정 하 여 조정 해야 하는 매개 변수를 변경 합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
+5. **Slow_query_log** 를 **켜기**로 설정 하 여 조정 해야 하는 매개 변수를 변경 합니다. 이 세션에서 변경할 내용은 모두 자주색으로 강조 표시되어 있습니다. 
 
    매개 변수를 변경한 후 **저장**을 선택 합니다. 또는 변경 내용을 취소할 수 있습니다.
 
@@ -71,10 +71,10 @@ Azure Portal에서 [Azure Database for MariaDB 저속 쿼리 로그](concepts-se
 1. 저속 쿼리 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 또는 Log Analytics 작업 영역)를 지정 합니다.
 
 1. 로그 형식으로 **MySqlSlowLogs** 를 선택 합니다.
-![ 진단 설정 구성 옵션의 스크린샷 @ no__t-1
+진단 설정 구성 옵션의 ![스크린샷](./media/howto-configure-server-logs-portal/configure-diagnostic-setting.png)
 
 1. 저속 쿼리 로그를 파이프 하도록 데이터 싱크를 구성한 후 **저장**을 선택 합니다.
-![ 저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷 @ no__t-1
+저장이 강조 표시 된 진단 설정 구성 옵션의 스크린샷 ![](./media/howto-configure-server-logs-portal/save-diagnostic-setting.png)
 
 1. 구성 된 데이터 싱크에서 탐색 하 여 느리게 쿼리 로그에 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 

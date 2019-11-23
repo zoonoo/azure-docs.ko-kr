@@ -35,7 +35,7 @@ Computer Vision는 개발자가 소프트웨어에서 이러한 이미지의 표
 
 ## <a name="use-the-api"></a>API 사용
 
-[분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용 하 여 성인 콘텐츠를 검색할 수 있습니다. @No__t-0 값을 **Visualfeatures** 쿼리 매개 변수에 추가 하면 API는 JSON 응답에서 3 개의 부울 속성 @ no__t-2 @ no__t-3, `isRacyContent` 및 `isGoryContent` @ no__t-6in를 반환 합니다. 또한이 메서드는 해당 하는 속성 @ no__t-0 @ no__t-1, `racyScore` 및 각 각 범주에 대해 0과 1 사이의 신뢰 점수를 나타내는 `goreScore` @ no__t-4를 반환 합니다.
+[분석 이미지](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) API를 사용 하 여 성인 콘텐츠를 검색할 수 있습니다. `Adult` 값을 **Visualfeatures** 쿼리 매개 변수에 추가 하는 경우 API는 JSON 응답에서 `isAdultContent`, `isRacyContent`및 `isGoryContent`&mdash;&mdash;세 가지 부울 속성을 반환 합니다. 또한이 메서드는&mdash;`adultScore`, `racyScore`, `goreScore`&mdash;해당 하는 속성을 반환 합니다 .이 속성은 각각의 각 범주에 대해 0과 1 사이의 신뢰도 점수를 나타냅니다.
 
-- [빠른 시작: 이미지 분석(.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
-- [빠른 시작: 이미지 분석(REST API)](./quickstarts/csharp-analyze.md)
+- [빠른 시작: 이미지 분석 (.NET SDK)](./quickstarts-sdk/csharp-analyze-sdk.md)
+- [빠른 시작: 이미지 분석 (REST API)](./quickstarts/csharp-analyze.md)

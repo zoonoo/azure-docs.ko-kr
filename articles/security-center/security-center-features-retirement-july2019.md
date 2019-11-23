@@ -53,7 +53,7 @@ Security Center은 Microsoft Monitoring Agent를 사용 하 여 컴퓨터에서 
 
 Azure Log Analytics의 기본 기능을 사용 하 여 작업 영역에서 주목할 만한 이벤트를 확인 하는 것이 좋습니다.
 
-Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역 선택**@no__t-**저장 된 검색**1 개로 이동 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
+Security Center에서 사용자 지정 주목할 만한 이벤트를 만든 경우 액세스할 수 있습니다. Log Analytics에서 **작업 영역 선택** > **저장 된 검색**으로 이동 합니다. 데이터가 손실 되거나 수정 되지 않습니다. 기본 주목할 만한 이벤트는 Log Analytics 동일한 화면에서 사용할 수도 있습니다.
 
 ![작업 영역 저장 된 검색][3]
 

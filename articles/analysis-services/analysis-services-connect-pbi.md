@@ -46,7 +46,7 @@ Azure에서 서버를 만들고 테이블 형식 모델을 배포하면 조직�
 1. 서버의 모델에 대한 라이브 연결을 포함하는 Power BI Desktop 파일을 만듭니다.
 2. [Power BI](https://powerbi.microsoft.com)에서 **데이터 가져오기** > **파일**을 클릭한 다음, .pbix 파일을 찾아서 선택합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 [Azure Analysis Services에 연결](analysis-services-connect.md)   
 [클라이언트 라이브러리](analysis-services-data-providers.md)
 

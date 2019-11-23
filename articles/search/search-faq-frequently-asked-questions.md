@@ -1,5 +1,5 @@
 ---
-title: FAQ(질문과 대답)
+title: 질문과 대답(FAQ)
 titleSuffix: Azure Cognitive Search
 description: Microsoft Azure에서 클라우드 호스트 검색 서비스인 Microsoft Azure Cognitive Search 서비스에 대 한 일반적인 질문에 대 한 답변을 확인 하세요.
 manager: nitinme
@@ -23,7 +23,7 @@ ms.locfileid: "72792906"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>내 DBMS에서 Azure Cognitive Search 전체 텍스트 검색과 어떻게 다른가?
 
-Azure Cognitive Search는 여러 데이터 원본, [다양 한 언어에 대 한 언어 분석](https://docs.microsoft.com/rest/api/searchservice/language-support), [흥미롭고 이상한 데이터 입력에 대 한 사용자 지정 분석](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 통한 순위 제어 검색, 사용자 환경 지원 형식 미리, 적중 항목 강조 표시, 패싯 탐색 등의 기능이 있습니다. 또한 동의어 및 다양한 쿼리 구문 등과 같은 다른 기능도 지원하지만 보통은 차별화된 기능이 아닙니다.
+Azure Cognitive Search는 여러 데이터 원본, [다양 한 언어에 대 한 언어 분석](https://docs.microsoft.com/rest/api/searchservice/language-support), [흥미롭고 이상한 데이터 입력에 대 한 사용자 지정 분석](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)을 통한 순위 제어 검색, 사용자 환경 기능 (예: 미리 입력, 적중 항목 강조 표시, 패싯 탐색)을 지원 합니다. 또한 동의어 및 다양한 쿼리 구문 등과 같은 다른 기능도 지원하지만 보통은 차별화된 기능이 아닙니다.
 
 ### <a name="what-is-the-difference-between-azure-cognitive-search-and-elasticsearch"></a>Azure Cognitive Search와 Elasticsearch의 차이점은 무엇 인가요?
 
@@ -75,7 +75,7 @@ Azure Cognitive Search REST API를 사용 하 여 언제 든 지 [인덱스 정�
 
 ### <a name="can-i-restrict-search-index-access-by-user-identity"></a>사용자 id로 검색 인덱스 액세스를 제한할 수 있나요?
 
-`search.in()` 필터를 사용하여 [보안 필터](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)를 구현할 수 있습니다. 이 필터는 [AAD(Azure Active Directory) 등의 ID 관리 서비스](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad)를 사용하여 정의된 사용자 그룹 멤버 자격에 따라 검색 결과를 자릅니다.
+[ 필터를 사용하여 ](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search)보안 필터`search.in()`를 구현할 수 있습니다. 이 필터는 [AAD(Azure Active Directory) 등의 ID 관리 서비스](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad)를 사용하여 정의된 사용자 그룹 멤버 자격에 따라 검색 결과를 자릅니다.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>유효하다고 알고 있는 용어에 대해 일치가 0인 이유는 무엇인가요?
 
@@ -103,8 +103,8 @@ Azure Cognitive Search REST API를 사용 하 여 언제 든 지 [인덱스 정�
 
 없는 기능 또는 특징에 대해 질문이 있으면 [사용자 의견 웹 사이트](https://feedback.azure.com/forums/263029-azure-search)에서 요청하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
  [Stackoverflow: Azure Cognitive Search](https://stackoverflow.com/questions/tagged/azure-search)   
  [Azure Cognitive Search에서 전체 텍스트 검색이 작동 하는 방식](search-lucene-query-architecture.md)  
- [Azure Cognitive Search 이란?](search-what-is-azure-search.md)
+ [Azure Cognitive Search란?](search-what-is-azure-search.md)

@@ -42,7 +42,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은 ```kind```, ```dataType```, ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은 ```kind```, ```dataType```및 ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -96,7 +96,7 @@ Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱�
     }
 ```
 
-이 인덱싱 정책은 ```kind```, ```dataType```, ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
+이 인덱싱 정책은 ```kind```, ```dataType```및 ```precision```를 기본값으로 수동으로 설정 하는 아래와 동일 합니다. 이러한 속성은 더 이상 명시적으로 설정할 필요가 없으며, 위의 예제와 같이 인덱싱 정책에서 완전히 생략할 수 있습니다.
 
 ```json
     {
@@ -320,7 +320,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="no-indexing"></a>인덱싱 안 함
 
-이 정책은 인덱싱이 해제 됩니다. @No__t-0이 `none`로 설정 된 경우에는 컨테이너에 TTL을 설정할 수 없습니다.
+이 정책은 인덱싱이 해제 됩니다. `indexingMode`을 `none`로 설정 하면 컨테이너에서 TTL을 설정할 수 없습니다.
 
 ```json
     {
@@ -342,7 +342,7 @@ Azure Cosmos DB에서 인덱싱 정책은 아래 방법 중 하나를 사용 하
 > [!NOTE]
 > 인덱싱 정책을 업데이트할 때 Azure Cosmos DB에 대 한 쓰기는 중단 되지 않습니다. 인덱스를 업데이트 하는 동안 쿼리는 다시 인덱싱하는 동안 일부 결과를 반환할 수 있습니다.
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 
 Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 직접 편집할 수 있는 JSON 문서로 저장합니다.
 
@@ -370,7 +370,7 @@ Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 �
 
 ## <a name="use-the-net-sdk-v2"></a>.NET SDK V2 사용
 
-[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 `DocumentCollection` 개체는 `IndexingMode`을 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`를 추가 하거나 제거할 수 있는 `IndexingPolicy` 속성을 노출 합니다.
+[.NET SDK v2](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) 의 `DocumentCollection` 개체는 `IndexingMode`를 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`를 추가 하거나 제거할 수 있는 `IndexingPolicy` 속성을 노출 합니다.
 
 ```csharp
 // Retrieve the container's details
@@ -389,7 +389,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 진행률을 추적하려면 `PopulateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달합니다.
+인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `PopulateQuotaInfo`로 설정하는 `true` 개체를 전달합니다.
 
 ```csharp
 // retrieve the container's details
@@ -400,7 +400,7 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 
 ## <a name="use-the-net-sdk-v3"></a>.NET SDK V3 사용
 
-[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) 의 @no__t 개체 (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)는 `IndexingMode`를 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`을 추가 하거나 제거할 수 있는 @no__t 3 속성을 제공 합니다.
+[.NET SDK v3](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) (사용법에 관한 [이 빠른](create-sql-api-dotnet.md) 시작 참조)의 `ContainerProperties` 개체는 `IndexingMode`를 변경 하 고 `IncludedPaths` 및 `ExcludedPaths`를 추가 하거나 제거할 수 있는 `IndexingPolicy` 속성을 제공 합니다.
 
 ```csharp
 // Retrieve the container's details
@@ -424,7 +424,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.GetContainer("database", "container").ReplaceContainerAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 진행률을 추적 하려면 `PopulateQuotaInfo` 속성을 설정 하는 `RequestOptions` 개체를 `true`로 전달한 다음 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
+인덱스 변환 진행률을 추적 하려면 `PopulateQuotaInfo` 속성을 `true`로 설정 하는 `RequestOptions` 개체를 전달 하 고 `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색 합니다.
 
 ```csharp
 // retrieve the container's details
@@ -457,7 +457,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Java SDK 사용
 
-[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-java.md) 참조)의 `DocumentCollection` 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
+`DocumentCollection`Java SDK[(해당 사용법에 관한 ](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)이 빠른 시작[ 참조)의 ](create-sql-api-java.md) 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
 
 ```java
 // Retrieve the container's details
@@ -539,7 +539,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>Node.js SDK 사용
 
-[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-nodejs.md) 참조)의 `ContainerDefinition` 인터페이스는 `indexingMode`를 변경하고 `includedPaths` 및 `excludedPaths`를 제거할 수 있는 `indexingPolicy` 개체를 표시합니다.
+`ContainerDefinition`Node.js SDK[(해당 사용법에 관한 ](https://www.npmjs.com/package/@azure/cosmos)이 빠른 시작[ 참조)의 ](create-sql-api-nodejs.md) 인터페이스는 `indexingPolicy`를 변경하고 `indexingMode` 및 `includedPaths`를 제거할 수 있는 `excludedPaths` 개체를 표시합니다.
 
 컨테이너의 세부 정보를 검색 합니다.
 
@@ -596,7 +596,7 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `populateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
+컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `populateQuotaInfo`로 설정하는 `true` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
 
 ```javascript
 // retrieve the container's details

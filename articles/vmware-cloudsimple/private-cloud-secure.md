@@ -33,12 +33,12 @@ RBAC에 대 한 자세한 내용은 [Azure 리소스에 대 한 rbac (역할 기
 
 ## <a name="rbac-for-private-cloud-vcenter"></a>사설 클라우드 vCenter 용 RBAC
 
-기본 사용자 `CloudOwner@cloudsimple.local`은 사설 클라우드를 만들 때 vCenter SSO 도메인에 생성 됩니다.  CloudOwner 사용자에 게 vCenter를 관리할 권한이 있습니다. 다른 사용자에 게 액세스를 제공 하기 위해 추가 id 소스가 vCenter SSO에 추가 됩니다.  미리 정의 된 역할 및 그룹은 사용자를 추가 하는 데 사용할 수 있는 vCenter에 설정 됩니다.
+사설 클라우드를 만들 때 vCenter SSO 도메인에 기본 사용자 `CloudOwner@cloudsimple.local` 만들어집니다.  CloudOwner 사용자에 게 vCenter를 관리할 권한이 있습니다. 다른 사용자에 게 액세스를 제공 하기 위해 추가 id 소스가 vCenter SSO에 추가 됩니다.  미리 정의 된 역할 및 그룹은 사용자를 추가 하는 데 사용할 수 있는 vCenter에 설정 됩니다.
 
 ### <a name="add-new-users-to-vcenter"></a>VCenter에 새 사용자 추가
 
-1. 사설 클라우드에서 **@no__t 2** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
-2. **@No__t-1** 을 사용 하 여 vCenter에 로그인
+1. 사설 클라우드의 **CloudOwner@cloudsimple.local** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
+2. **CloudOwner@cloudsimple.local** 를 사용 하 여 vCenter에 로그인
 3. [VCenter Single Sign-on 사용자를 추가](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-72BFF98C-C530-4C50-BF31-B5779D2A4BBB.html)합니다.
 4. [VCenter Single Sign-On 그룹](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 사용자를 추가 합니다.
 
@@ -51,8 +51,8 @@ RBAC에 대 한 자세한 내용은 [Azure 리소스에 대 한 rbac (역할 기
 * 사설 클라우드 vCenter에서 [id 공급자로 Active Directory를 사용](set-vcenter-identity.md) 합니다.
 * 사설 클라우드 vCenter에서 [AZURE AD를 id 공급자로 사용](azure-ad.md)
 
-1. 사설 클라우드에서 **@no__t 2** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
-2. **@No__t-1** 을 사용 하 여 vCenter에 로그인
+1. 사설 클라우드의 **CloudOwner@cloudsimple.local** 사용자에 대 한 [권한을 에스컬레이션](escalate-private-cloud-privileges.md) 합니다.
+2. **CloudOwner@cloudsimple.local** 를 사용 하 여 vCenter에 로그인
 3. Id 공급자의 사용자를 [vCenter Single Sign-On 그룹](https://docs.vmware.com/en/VMware-vSphere/5.5/com.vmware.vsphere.security.doc/GUID-CDEA6F32-7581-4615-8572-E0B44C11D80D.html)에 추가 합니다.
 
 ## <a name="secure-network-on-your-private-cloud-environment"></a>사설 클라우드 환경의 보안 네트워크

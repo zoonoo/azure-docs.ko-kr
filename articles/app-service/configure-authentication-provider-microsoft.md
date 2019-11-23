@@ -31,7 +31,7 @@ ms.locfileid: "72176944"
 
 1. Azure Portal [**앱 등록**](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 으로 이동 합니다. 필요한 경우 Microsoft 계정를 사용 하 여 로그인 합니다.
 1. **새 등록**을 선택 하 고 응용 프로그램 이름을 입력 합니다.
-1. **리디렉션 uri**에서 **웹**을 선택한 다음 `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`를 입력 합니다. *@No__t-1app-name >* 를 앱의 도메인 이름으로 바꿉니다.  예를 들어, `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`을 입력합니다. URL에서 HTTPS 체계를 사용 해야 합니다.
+1. **리디렉션 uri**에서 **웹**을 선택한 다음 `https://<app-domain-name>/.auth/login/microsoftaccount/callback supply the endpoint for your application`를 입력 합니다. *\<앱 도메인 이름 >* 를 앱의 도메인 이름으로 바꿉니다.  `https://contoso.azurewebsites.net/.auth/login/microsoftaccount/callback`) 을 입력합니다. URL에서 HTTPS 체계를 사용 해야 합니다.
 
 1. **등록**을 선택합니다.
 1. **응용 프로그램 (클라이언트) ID**를 복사 합니다. 나중에 필요합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "72176944"
 ## <a name="secrets"></a>App Service 애플리케이션에 Microsoft 계정 정보 추가
 
 1. [Azure Portal]에서 응용 프로그램으로 이동 합니다.
-1. 설정 @no__t 1**인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정**되어 있는지 확인 **합니다.**
+1. 설정 > **인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정** 되어 있는지 확인 **합니다.**
 1. **인증 공급자**아래에서 **Microsoft 계정**을 선택 합니다. 이전에 얻은 응용 프로그램 (클라이언트) ID와 클라이언트 암호를 붙여넣습니다. 응용 프로그램에 필요한 모든 범위를 사용 하도록 설정 합니다.
 1. **확인**을 선택합니다.
 

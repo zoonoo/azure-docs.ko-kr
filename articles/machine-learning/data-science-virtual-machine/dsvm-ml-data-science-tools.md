@@ -27,11 +27,11 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Azure Machine Learning은 기계 학습 모델을 개발 하 고 배포 하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
+| 어떤 도구인가요?   |   Azure Machine Learning은 기계 학습 모델을 개발 하 고 배포 하는 데 사용할 수 있는 클라우드 서비스입니다. Python SDK를 사용하여 모델을 빌드, 학습, 확장 및 관리하는 대로 추적할 수 있습니다. 모델을 컨테이너로 배포하고 클라우드, 온-프레미스 또는 Azure IoT Edge에서 실행합니다.   |
 | 지원되는 버전     | Windows(Conda 환경: AzureML), Linux(Conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 기계 학습 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
+| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 *으로 활성화합니다.* `py36`      |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
 | 관련 도구      | Visual Studio Code, Jupyter   |
 
@@ -39,7 +39,7 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 메모리 내, 분산, 빠르고 확장 가능한 기계 학습을 지 원하는 오픈 소스 AI 플랫폼입니다.  |
+| 어떤 도구인가요?   | 메모리 내, 분산, 빠르고 확장 가능한 기계 학습을 지 원하는 오픈 소스 AI 플랫폼입니다.  |
 | 지원되는 버전      | Linux   |
 | 일반적인 사용 용도      | 범용 분산 확장 가능 기계 학습   |
 | 구성/설치 방법      | H2O는 `/dsvm/tools/h2o`에 설치됩니다.      |
@@ -47,13 +47,13 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 | 샘플에 대한 링크      | 샘플은 VM의 `h2o` 디렉터리 아래 Jupyter에서 사용할 수 있습니다.      |
 | 관련 도구      | Apache Spark, MXNet, XGBoost, Sparkling Water, Deep Water    |
 
-DSVMs에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 있는 `scikit-learn` 패키지와 같은 몇 가지 다른 기계 학습 라이브러리가 있습니다. Python, R, 및 Julia에서 사용할 수 있는 패키지 목록을 확인하려면 개별 패키지 관리자를 실행하세요.
+Dsvms에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 있는 `scikit-learn` 패키지와 같은 몇 가지 다른 기계 학습 라이브러리가 있습니다. Python, R, 및 Julia에서 사용할 수 있는 패키지 목록을 확인하려면 개별 패키지 관리자를 실행하세요.
 
 ## <a name="lightgbm"></a>LightGBM
 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   | 의사 결정 트리 알고리즘을 기반으로 하는 신속 하 고 분산 된 고성능 그라데이션 향상 (GBDT, GBRT, G강화 또는 마트) 프레임 워크입니다. 순위, 분류 및 기타 많은 기계 학습 작업에 사용 됩니다.    |
+| 어떤 도구인가요?   | 의사 결정 트리 알고리즘을 기반으로 하는 신속 하 고 분산 된 고성능 그라데이션 향상 (GBDT, GBRT, G강화 또는 마트) 프레임 워크입니다. 순위, 분류 및 기타 많은 기계 학습 작업에 사용 됩니다.    |
 | 지원되는 버전      | Windows, Linux    |
 | 일반적인 사용 용도      | 범용 그라데이션-프레임 워크 올리기      |
 | 구성/설치 방법      | Windows에서 LightGBM가 Python 패키지로 설치됩니다. Linux에서 명령줄 실행 파일은 `/opt/LightGBM/lightgbm`에 있으며, R 패키지가 설치되고, Python 패키지도 설치됩니다.     |
@@ -63,17 +63,17 @@ DSVMs에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 있는 `
 ## <a name="rattle"></a>Rattle
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   R을 사용 하 여 데이터 마이닝을 위한 그래픽 사용자 인터페이스입니다.   |
+| 어떤 도구인가요?   |   R을 사용 하 여 데이터 마이닝을 위한 그래픽 사용자 인터페이스입니다.   |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | R에 대 한 일반 UI 데이터 마이닝 도구    |
-| 사용/실행 방법      | UI 도구로 Windows에서 명령 프롬프트를 시작 하 고 R을 실행 한 다음 R 내에서 `rattle()`을 실행 합니다. Linux에서 X2Go를 사용 하 여 연결 하 고, 터미널을 시작 하 고, R을 실행 한 후 R 내에서 `rattle()`을 실행 합니다. |
+| 사용/실행 방법      | UI 도구로 Windows에서 명령 프롬프트를 시작 하 고 R을 실행 한 다음 R 내에서 `rattle()`를 실행 합니다. Linux에서 X2Go를 사용 하 여 연결 하 고, 터미널을 시작 하 고, R을 실행 한 후 R 내에서 `rattle()`를 실행 합니다. |
 | 샘플에 대한 링크      | [Rattle](https://togaware.com/onepager/) |
 | 관련 도구      |LightGBM, Weka, XGBoost   |
 
 ## <a name="vowpal-wabbit"></a>Vowpal Wabbit
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   고속 오픈 소스, 핵심 학습 시스템 라이브러리    |
+| 어떤 도구인가요?   |   고속 오픈 소스, 핵심 학습 시스템 라이브러리    |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 라이브러리      |
 | 구성/설치 방법      |  Windows: msi 설치 관리자<br/>Linux: apt-get |
@@ -85,7 +85,7 @@ DSVMs에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 있는 `
 ## <a name="weka"></a>Weka
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |  데이터 마이닝 작업에 대 한 기계 학습 알고리즘의 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
+| 어떤 도구인가요?   |  데이터 마이닝 작업에 대 한 기계 학습 알고리즘의 컬렉션입니다. 알고리즘은 데이터 집합에 직접 적용하거나 사용자 고유의 Java 코드에서 호출할 수 있습니다. Weka는 데이터 전처리 작업, 분류, 회귀, 클러스터링, 연결 규칙 및 시각화를 위한 도구를 포함합니다. |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 도구     |
 | 사용/실행 방법      | Windows의 **시작** 메뉴에서 weka을 검색 합니다. Linux의 경우 X2Go로 로그인한 다음, **Applications** >   **Development**  >  **Weka**로 이동합니다. |
@@ -95,11 +95,11 @@ DSVMs에는 DSVMs에 대 한 Anaconda Python 배포의 일부인 인기 있는 `
 ## <a name="xgboost"></a>XGBoost 
 |    |           |
 | ------------- | ------------- |
-| 무엇인가요?   |   Python, R, Java, Scala, C++등을 위한 신속 하 고 이식 가능 하며 분산 된 그라데이션 향상 (gbdt, GBRT 또는 g) 라이브러리입니다. 단일 컴퓨터에서 실행 되 고 Apache Hadoop 및 Spark에서 실행 됩니다.    |
+| 어떤 도구인가요?   |   Python, R, Java, Scala, C++등을 위한 신속 하 고 이식 가능 하며 분산 된 그라데이션 향상 (gbdt, GBRT 또는 g) 라이브러리입니다. 단일 컴퓨터에서 실행 되 고 Apache Hadoop 및 Spark에서 실행 됩니다.    |
 | 지원되는 버전     | Windows, Linux     |
 | 일반적인 사용 용도      | 일반 기계 학습 라이브러리      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.5), R 패키지 및 경로 명령줄 도구 (Windows의 경우 @no__t 0, Linux의 경우 `/dsvm/tools/xgboost/xgboost`)    |
+| 사용/실행 방법      | Python 라이브러리 (2.7 및 3.5), R 패키지 및 경로 명령줄 도구 (Windows 용`C:\dsvm\tools\xgboost\bin\xgboost.exe` 및 Linux 용 `/dsvm/tools/xgboost/xgboost`)    |
 | 샘플에 대한 링크      | 샘플은 VM에, linux인 경우 `/dsvm/tools/xgboost/demo`, Windows인 경우 `C:\dsvm\tools\xgboost\demo`에 포함됩니다.   |
 | 관련 도구      | LightGBM, MXNet   |
 

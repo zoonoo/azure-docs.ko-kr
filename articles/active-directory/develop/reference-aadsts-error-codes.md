@@ -34,13 +34,13 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 > 이 설명서는 개발자 및 관리 지침에 제공 되지만 클라이언트 자체에서 사용해 서는 안 됩니다. 오류 코드는 개발자가 응용 프로그램을 빌드하는 동안 도움을 주기 위해 사용할 수 있는 보다 세부적인 오류 메시지를 제공 하기 위해 언제 든 지 변경 될 수 있습니다. 텍스트 또는 오류 코드 번호에 대 한 종속성을 사용 하는 앱은 시간이 지남에 따라 분할 됩니다.
 
 ## <a name="lookup-current-error-code-information"></a>현재 오류 코드 정보 조회
-오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보를 보려면 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 페이지에서 AADSTS 오류 설명, 픽스 및 몇 가지 제안 된 해결 방법을 살펴보세요.  
+오류 코드와 메시지는 변경 될 수 있습니다.  최신 정보는 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 페이지를 확인 하 여 AADSTS 오류 설명, 수정 사항 및 제안 된 몇 가지 해결 방법을 찾아보십시오.  
 
-반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 "16000" [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 에 대해 검색을 수행 합니다.  URL에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다 [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000).
+반환 된 오류 코드의 숫자 부분을 검색 합니다.  예를 들어 "AADSTS16000" 오류 코드를 받은 경우 "16000"에 대 한 [https://login.microsoftonline.com/error](https://login.microsoftonline.com/error) 검색을 수행 합니다.  URL: [https://login.microsoftonline.com/error?code=16000](https://login.microsoftonline.com/error?code=16000)에 오류 코드 번호를 추가 하 여 특정 오류에 직접 연결할 수도 있습니다.
 
 ## <a name="aadsts-error-codes"></a>AADSTS 오류 코드
 
-| Error | Description |
+| Error | 설명 |
 |---|---|
 | AADSTS16000 | SelectUserAccount - 이것은 Azure AD에 의해 throw된 인터럽트로, 사용자가 여러 개의 유효한 SSO 세션 중에서 선택할 수 있는 UI가 나타납니다. 이 오류는 매우 일반적이며 `prompt=none`이 지정된 경우 애플리케이션에 반환될 수 있습니다. |
 | AADSTS16001 | UserAccountSelectionInvalid - 사용자가 세션 선택 논리가 거부한 타일을 클릭하면 이 오류가 표시됩니다. 이 오류가 트리거되면 사용자는 업데이트된 타일/세션 목록에서 선택하거나 다른 계정을 선택하여 복구할 수 있습니다. 이 오류는 코드 결함 또는 경합 상태로 인해 발생할 수 있습니다. |
@@ -169,7 +169,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS75011 | NoMatchedAuthnContextInOutputClaims - 사용자가 서비스를 통해 인증하는 인증 방법이 요청한 인증 방법과 일치하지 않습니다. |
 | AADSTS75016 | Saml2AuthenticationRequestInvalidNameIDPolicy - SAML2 인증 요청에 잘못된 NameIdPolicy가 있습니다. |
 | AADSTS80001 | OnPremiseStoreIsNotAvailable - 인증 에이전트가 Active Directory에 연결할 수 없습니다. 에이전트 서버가 자신의 암호에 대한 유효성이 검사되어야 하는 사용자와 동일한 AD 포리스트의 멤버이고 Active Directory에 연결할 수 있는지 확인합니다. |
-| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout - 암호 유효성 검사 요청 시간이 초과되었습니다. Active Directory를 사용할 수 있고 에이전트의 요청에 응답하는지 확인합니다. |
+| AADSTS80002 | OnPremisePasswordValidatorRequestTimedout-암호 유효성 검사 요청 시간이 초과 되었습니다. Active Directory 사용 가능 하 고 에이전트의 요청에 응답 하는지 확인 합니다. |
 | AADSTS80005 | OnPremisePasswordValidatorUnpredictableWebException - 인증 에이전트에서 응답을 처리하는 동안 알 수 없는 오류가 발생했습니다. 요청을 다시 시도하십시오. 계속 실패하는 경우 오류에 대한 자세한 내용을 확인하려면 [지원 티켓을 여세요](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS80007 | OnPremisePasswordValidatorErrorOccurredOnPrem - 인증 에이전트에서 사용자 암호의 유효성을 검사할 수 없습니다. 에이전트 로그에서 자세한 정보를 확인하고 Active Directory가 예상대로 작동하는지 확인합니다. |
 | AADSTS80010 | OnPremisePasswordValidationEncryptionException - 인증 에이전트가 암호를 해독할 수 없습니다. |
@@ -221,7 +221,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS90093 | GraphUserUnauthorized - 요청에 대해 사용할 수 없는 오류 코드와 함께 반환된 그래프입니다. |
 | AADSTS90094 | AdminConsentRequired - 관리자 동의가 필요합니다. |
 | AADSTS90100 | InvalidRequestParameter - 매개 변수가 비어 있거나 잘못되었습니다. |
-| AADSTS901002 | AADSTS901002: ' Resource ' 요청 매개 변수는 지원 되지 않습니다. |
+| AADSTS901002 | AADSTS901002: ' resource ' 요청 매개 변수는 지원 되지 않습니다. |
 | AADSTS90101 | InvalidEmailAddress - 제공한 데이터가 유효한 메일 주소가 아닙니다. 메일 주소는 `someone@example.com` 형식이어야 합니다. |
 | AADSTS90102 | InvalidUriParameter - 값이 유효한 절대 URI여야 합니다. |
 | AADSTS90107 | InvalidXml - 요청이 잘못되었습니다. 데이터에 잘못된 문자가 없는지 확인합니다.|

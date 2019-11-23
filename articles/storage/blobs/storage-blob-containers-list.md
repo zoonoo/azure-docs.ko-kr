@@ -32,7 +32,7 @@ ms.locfileid: "72598115"
 
 기본적으로 목록 작업은 한 번에 최대 5000 개의 결과를 반환 합니다. 더 작은 결과 집합을 반환 하려면 **ListContainerSegmented** 메서드 중 하나를 호출할 때 `maxresults` 매개 변수에 대 한 0이 아닌 값을 제공 합니다.
 
-저장소 계정에 5000 개 이상의 컨테이너가 포함 된 경우 또는 목록 작업이 저장소 계정에서 컨테이너의 하위 집합을 반환 하도록 `maxresults` 값을 지정한 경우 *에는 Azure Storage* 컨테이너가. 연속 토큰은 Azure Storage에서 다음 결과 집합을 검색 하는 데 사용할 수 있는 불투명 값입니다.
+저장소 계정에 5000 개 이상의 컨테이너가 포함 된 경우 또는 목록 작업이 저장소 계정에서 컨테이너의 하위 집합을 반환 하도록 `maxresults` 값을 지정한 경우 Azure Storage는 컨테이너 목록과 함께 *연속 토큰* 을 반환 합니다. 연속 토큰은 Azure Storage에서 다음 결과 집합을 검색 하는 데 사용할 수 있는 불투명 값입니다.
 
 코드에서 연속 토큰의 값을 확인 하 여 null 인지 여부를 확인 합니다. 연속 토큰이 null 이면 결과 집합이 완료 됩니다. 연속 토큰이 null이 아닌 경우 연속 토큰이 null이 될 때까지 연속 토큰을 전달 하 여 다음 결과 집합을 검색 하는 **ListContainersSegmented** 또는 **ListContainersSegmentedAsync** 를 다시 호출 합니다.
 
@@ -97,7 +97,7 @@ private static async Task ListContainersWithPrefixAsync(CloudBlobClient blobClie
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 
-[컨테이너 나열](/rest/api/storageservices/list-containers2) 
-[Blob 리소스 열거](/rest/api/storageservices/enumerating-blob-resources)
+[Blob 리소스를 열거하는](/rest/api/storageservices/list-containers2)
+[ 컨테이너 나열](/rest/api/storageservices/enumerating-blob-resources)

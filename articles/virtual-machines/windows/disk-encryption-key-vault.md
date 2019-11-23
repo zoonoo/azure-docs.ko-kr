@@ -29,8 +29,8 @@ Azure Disk Encryption 사용할 키 자격 증명 모음을 만들고 구성 하
 
 이러한 단계는 다음 퀵 스타트에 설명 되어 있습니다.
 
-- [Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
-- [Azure PowerShell를 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [Azure CLI를 사용하여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
+- [Azure PowerShell을 사용하여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
 
 KEK (키 암호화 키)를 생성 하거나 가져올 수도 있습니다.
 
@@ -41,7 +41,7 @@ KEK (키 암호화 키)를 생성 하거나 가져올 수도 있습니다.
 
 이 문서의 단계는 [Azure CLI](/cli/azure/), [Azure PowerShell Az module](/powershell/azure/overview)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 완료할 수 있습니다.
 
-브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 하 고 로컬 설치가 필요 Azure PowerShell. Windows 용 Azure Disk Encryption [을 참조 하세요. 자세한 내용은 도구 @ no__t-0을 설치 합니다.
+브라우저를 통해 포털에 액세스할 수 있지만 Azure CLI 하 고 로컬 설치가 필요 Azure PowerShell. 자세한 내용은 [Windows Azure Disk Encryption: 설치 도구를](disk-encryption-windows.md#install-tools-and-connect-to-azure) 참조 하세요.
 
 ### <a name="connect-to-your-azure-account"></a>Azure 계정에 연결
 

@@ -15,7 +15,7 @@ ms.locfileid: "72326634"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
 
-선택적 WHERE 절 (`WHERE <filter_condition>`)은 쿼리가 결과에 포함 하기 위해 쿼리에 대해 충족 해야 하는 조건을 지정 합니다. JSON 항목은 지정 된 조건을 평가 하 여 결과에 대 한 `true`으로 간주 해야 합니다. 인덱스 계층은 WHERE 절을 사용 하 여 결과에 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 결정 합니다.
+선택적 WHERE 절 (`WHERE <filter_condition>`)은 쿼리를 결과에 포함 하기 위해 원본 JSON 항목이 충족 해야 하는 조건을 지정 합니다. JSON 항목은 지정 된 조건을 평가 하 여 결과에 대해 고려 되도록 `true` 해야 합니다. 인덱스 계층은 WHERE 절을 사용 하 여 결과에 포함 될 수 있는 소스 항목의 가장 작은 하위 집합을 결정 합니다.
   
 ## <a name="syntax"></a>구문
   
@@ -40,9 +40,9 @@ WHERE <filter_condition>
   
   문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다. 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
-다음 쿼리는 값 @no__t이-1 인 `id` 속성을 포함 하는 항목을 요청 합니다. @No__t-0 속성이 없거나 값이-1 @no__t 일치 하지 않는 모든 항목을 제외 합니다.
+다음 쿼리는 값이 `AndersenFamily`되는 `id` 속성을 포함 하는 항목을 요청 합니다. `id` 속성이 없거나 해당 값이 `AndersenFamily`일치 하지 않는 항목은 제외 됩니다.
 
 ```sql
     SELECT f.address
@@ -74,7 +74,7 @@ WHERE <filter_condition>
 |비트    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
 |논리    | AND, OR, NOT      |
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|string     |  \|\|(연결) |
+|문자열     |  \|\|(연결) |
 
 다음 쿼리는 이항 연산자를 사용 합니다.
 
@@ -104,7 +104,7 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`은 `true`와 같은 값을 갖는 @no__t 속성을 포함 하는 JSON 항목을 반환 합니다. @No__t-0, `null`, `Undefined`, `<number>`, `<string>`, `<object>` 또는 `<array>`과 같은 다른 값은 결과에서 항목을 제외 합니다. 
+쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`은 `true`와 같은 값을 가진 `isRegistered` 속성을 포함 하는 JSON 항목을 반환 합니다. `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`또는 `<array>`와 같은 다른 값은 결과에서 항목을 제외 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

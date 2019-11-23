@@ -31,7 +31,7 @@ Azure Storage 애플리케이션에서 보안 주체를 인증하려면 먼저 �
 
 Azure AD를 사용 하 여 저장소 리소스에 대 한 액세스 권한을 부여 하는 첫 번째 단계는 클라이언트 응용 프로그램을 [Azure Portal](https://portal.azure.com)의 azure ad 테 넌 트에 등록 하는 것입니다. 클라이언트 응용 프로그램을 등록할 때 응용 프로그램에 대 한 정보를 Azure AD에 제공 합니다. 그러면 Azure AD는 런타임 시 애플리케이션을 Azure AD와 연결하는 데 사용하는 클라이언트 ID(*애플리케이션 ID*라고도 함)를 제공합니다. 클라이언트 ID에 대한 자세한 내용은 [Azure Active Directory의 애플리케이션 및 서비스 사용자 개체](../../active-directory/develop/app-objects-and-service-principals.md)를 참조하세요.
 
-Azure Storage 응용 프로그램을 등록 하려면 [Quickstart 스타트에 표시 된 단계를 따르세요. Microsoft id platform @ no__t-0을 사용 하 여 응용 프로그램을 등록 합니다. 다음 이미지는 웹 응용 프로그램을 등록 하는 일반적인 설정을 보여 줍니다.
+Azure Storage 응용 프로그램을 등록 하려면 [퀵 스타트: Microsoft id 플랫폼에 응용 프로그램 등록](../../active-directory/develop/quickstart-configure-app-access-web-apis.md)에 표시 된 단계를 따르세요. 다음 이미지는 웹 응용 프로그램을 등록 하는 일반적인 설정을 보여 줍니다.
 
 ![Azure AD를 사용 하 여 저장소 응용 프로그램을 등록 하는 방법을 보여 주는 스크린샷](./media/storage-auth-aad-app/app-registration.png)
 
@@ -52,7 +52,7 @@ Azure AD에서 애플리케이션을 등록하는 방법에 대한 자세한 정
 1. **API 사용 권한** 섹션에서 **권한 추가** 를 선택 하 고 **Microsoft api**를 선택 합니다.
 1. 결과 목록에서 **Azure Storage** 을 선택 하 여 **API 권한 요청** 창을 표시 합니다.
 1. **응용 프로그램에 필요한 사용 권한 유형**에서 사용 가능한 권한 유형이 **위임 된 권한**인지 확인 합니다. 이 옵션은 기본적으로 선택 되어 있습니다.
-1. **API 권한 요청** 창의 **권한 선택** 섹션에서 **user_impersonation**옆에 있는 확인란을 선택 하 고 **사용 권한 추가**를 클릭 합니다.
+1. **API 권한 요청** 창의 **권한 선택** 섹션에서 **user_impersonation**옆의 확인란을 선택 하 고 **사용 권한 추가**를 클릭 합니다.
 
     ![저장소에 대 한 사용 권한을 보여 주는 스크린샷](media/storage-auth-aad-app/registered-app-permissions-1.png)
 

@@ -25,7 +25,7 @@ ms.locfileid: "71720009"
 # <a name="azure-proximity-placement-groups-for-optimal-network-latency-with-sap-applications"></a>SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위한 Azure 근접 배치 그룹
 Sap NetWeaver 또는 SAP S/4HANA 아키텍처를 기반으로 하는 SAP 응용 프로그램은 SAP 응용 프로그램 계층과 SAP 데이터베이스 계층 간의 네트워크 대기 시간을 구분 합니다. 이러한 민감도는 응용 프로그램 계층에서 실행 되는 대부분의 비즈니스 논리에 대 한 결과입니다. SAP 응용 프로그램 계층은 비즈니스 논리를 실행 하기 때문에 데이터베이스 계층에 대 한 쿼리를 초당 수천 또는 수만 개의 속도로 데이터베이스 계층에 보냅니다. 대부분의 경우 이러한 쿼리의 특성은 간단 합니다. 500 마이크로초 이하로 데이터베이스 계층에서 실행 되는 경우가 많습니다.
 
-응용 프로그램 계층에서 데이터베이스 계층으로 이러한 쿼리를 전송 하 고 결과 집합을 다시 수신 하는 데 네트워크에서 소요 되는 시간은 비즈니스 프로세스를 실행 하는 데 걸리는 시간에 큰 영향을 줍니다. 네트워크 대기 시간으로 인 한 이러한 민감도는 SAP 배포 프로젝트에서 최적의 네트워크 대기 시간을 확보 해야 하는 이유입니다. @No__t-0SAP Note #1100926-FAQ를 참조 하세요. 네트워크 대기 시간을 분류 하는 방법에 대 한 지침은 네트워크 성능 @ no__t-0입니다.
+응용 프로그램 계층에서 데이터베이스 계층으로 이러한 쿼리를 전송 하 고 결과 집합을 다시 수신 하는 데 네트워크에서 소요 되는 시간은 비즈니스 프로세스를 실행 하는 데 걸리는 시간에 큰 영향을 줍니다. 네트워크 대기 시간으로 인 한 이러한 민감도는 SAP 배포 프로젝트에서 최적의 네트워크 대기 시간을 확보 해야 하는 이유입니다. 네트워크 대기 시간을 분류 하는 방법에 대 한 지침은 [SAP Note #1100926-FAQ: 네트워크 성능](https://launchpad.support.sap.com/#/notes/1100926/E) 을 참조 하세요.
 
 많은 Azure 지역에서 데이터 센터 수가 증가 했습니다. 이러한 증가는 가용성 영역 도입에 의해 트리거됩니다. 이와 동시에, 특히 고성능 SAP 시스템에 대 한 고객은 M 시리즈 제품군 또는 HANA 큰 인스턴스에서 더 특수 한 VM Sku를 사용 하 고 있습니다. 이러한 Azure virtual machine 유형은 특정 Azure 지역에 있는 모든 데이터 센터에서 사용할 수 없습니다. 이러한 두 성향을 인해 고객은 최적의 범위에 없는 네트워크 대기 시간을 경험 했습니다. 경우에 따라이 대기 시간으로 인해 SAP 시스템의 성능이 저하 될 수도 있습니다.
 
@@ -65,7 +65,7 @@ Azure에서 대부분의 SAP NetWeaver 및 S/4HANA 시스템 배포는 [HANA 큰
 이 경우 단일 SAP 시스템은 각각 하나의 근접 배치 그룹을 포함 하는 하나의 리소스 그룹으로 그룹화 됩니다. HANA 확장 또는 DBMS 확장 구성을 사용 하는지 여부에 대 한 종속성은 없습니다.
 
 ## <a name="proximity-placement-groups-and-hana-large-instances"></a>근접 배치 그룹 및 HANA Large Instances
-일부 SAP 시스템이 응용 프로그램 계층에 대해 [Hana 큰 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 를 사용 하는 경우 hana 큰 인스턴스 단위를 사용 하는 경우 hana 큰 인스턴스 단위와 Azure vm 간의 네트워크 대기 시간이 크게 향상 될 수 있습니다. [수정 버전 4 행 또는 스탬프](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)에 배포 됩니다. 한 가지 향상 된 것은 HANA Large Instances 단위가 배포 되 면 근접 배치 그룹을 사용 하 여 배포 하는 것입니다. 이러한 근접 배치 그룹을 사용 하 여 응용 프로그램 계층 Vm을 배포할 수 있습니다. 따라서 이러한 Vm은 HANA Large Instances 단위를 호스트 하는 동일한 데이터 센터에 배포 됩니다.
+일부 SAP 시스템이 응용 프로그램 계층에 대해 [Hana 큰 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 를 사용 하는 경우 [수정 버전 4 행 또는 스탬프](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)에 배포 된 hana 큰 인스턴스 단위를 사용 하는 경우 hana 큰 인스턴스 단위와 Azure vm 간의 네트워크 대기 시간이 크게 향상 될 수 있습니다. 한 가지 향상 된 것은 HANA Large Instances 단위가 배포 되 면 근접 배치 그룹을 사용 하 여 배포 하는 것입니다. 이러한 근접 배치 그룹을 사용 하 여 응용 프로그램 계층 Vm을 배포할 수 있습니다. 따라서 이러한 Vm은 HANA Large Instances 단위를 호스트 하는 동일한 데이터 센터에 배포 됩니다.
 
 HANA 대량 인스턴스 단위가 수정 버전 4 스탬프 또는 행에 배포 되었는지 확인 하려면 [Azure Portal를 통해 AZURE Hana Large instances 제어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-li-portal#look-at-attributes-of-single-hli-unit)문서를 확인 합니다. Hana Large Instances 단위의 특성 개요에서 HANA 대량 인스턴스 단위가 배포 될 때 생성 되었으므로 근접 배치 그룹의 이름도 확인할 수 있습니다. 특성 개요에 표시 되는 이름은 응용 프로그램 계층 Vm을 배포 해야 하는 근접 배치 그룹의 이름입니다.
 
@@ -163,7 +163,7 @@ SAP 시스템을 이미 배포한 경우에는 중요 한 시스템 중 일부�
 설명서를 확인 하세요.
 
 - [Azure의 SAP 워크 로드: 계획 및 배포 검사 목록](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-deployment-checklist)
-- [미리 보기: Azure CLI를 사용 하 여 근접 배치 그룹에 Vm 배포](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
+- [미리 보기: Azure CLI을 사용 하 여 근접 배치 그룹에 Vm 배포](https://docs.microsoft.com/azure/virtual-machines/linux/proximity-placement-groups)
 - [미리 보기: PowerShell을 사용 하 여 근접 배치 그룹에 Vm 배포](https://docs.microsoft.com/azure/virtual-machines/windows/proximity-placement-groups)
 - [SAP 워크 로드에 대 한 Azure Virtual Machines DBMS 배포에 대 한 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general)
 

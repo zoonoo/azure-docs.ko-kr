@@ -20,7 +20,7 @@ ms.locfileid: "71803069"
 
 이 문서에서는 인증 헤더를 구성 하는 방법을 비롯 하 여 Azure Storage REST Api를 호출 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 작업을 호출 하는 방법을 파악 한 후에는이 정보를 활용 하 여 다른 Azure Storage REST 작업을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
@@ -58,13 +58,13 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 [BLOB 서비스 REST API](/rest/api/storageservices/Blob-Service-REST-API)를 보시면, Blob Storage에서 수행할 수 있는 모든 작업이 있습니다. 스토리지 클라이언트 라이브러리는 REST API를 감싸고 이는 래퍼로, REST API를 직접 사용하지 않고도 간단하게 스토리지에 액세스할 수 있게 해줍니다. 하지만 위에서 언급했듯이, 가끔 스토리지 클라이언트 라이브러리 대신 REST API를 사용하는 경우가 있습니다.
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API 참조: 컨테이너 나열 API
+## <a name="rest-api-reference-list-containers-api"></a>REST API 참조: 목록 컨테이너 API
 
 [Listcontainers](/rest/api/storageservices/List-Containers2) 작업에 대 한 REST API 참조의 페이지를 살펴보세요. 이 정보는 요청 및 응답에서 일부 필드가 제공 되는 위치를 이해 하는 데 도움이 됩니다.
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
-**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  요청 URI는 blob storage 계정 끝점 `http://myaccount.blob.core.windows.net` 및 리소스 문자열 `/?comp=list`로 생성 됩니다.
+**요청 URI**: `https://myaccount.blob.core.windows.net/?comp=list`.  요청 URI는 blob storage 계정 끝점 `http://myaccount.blob.core.windows.net`에서 만들어지고 리소스 문자열 `/?comp=list`됩니다.
 
 [URI 매개 변수](/rest/api/storageservices/List-Containers2#uri-parameters): ListContainers를 호출할 때 사용할 수 있는 추가 쿼리 매개 변수가 있습니다. 이러한 매개 변수 중 일부는 필터링에 사용되는 호출 *timeout*(초) 및 *prefix*입니다.
 
@@ -82,9 +82,9 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 [응답 상태 코드](/rest/api/storageservices/List-Containers2#status-code) **:** 개발자가 알아야 하는 상태 코드를 알려줍니다. 이 예제에서는 HTTP 상태 코드 200이 정상입니다. HTTP 상태 코드의 전체 목록은 [상태 코드 정의](https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html)를 참조하세요. Storage REST API에 대한 오류 코드를 보려면 [공통 REST API 오류 코드](/rest/api/storageservices/common-rest-api-error-codes)를 참조하세요.
 
-[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers) **:** 여기에는 *내용 유형이*포함 됩니다. 전달 된 요청 ID 인 *x-y (요청 id)* 입니다. 사용 되는 Blob service 버전을 나타내는 *x m s-버전* 그리고 UTC *날짜*이며 요청이 수행 된 시간을 알려 줍니다.
+[응답 헤더](/rest/api/storageservices/List-Containers2#response-headers) **:** *내용 유형을*포함 합니다. 전달 된 요청 ID 인 *x-y (요청 id)* 입니다. 사용 되는 Blob service 버전을 나타내는 *x m s-버전* 그리고 UTC *날짜*이며 요청이 수행 된 시간을 알려 줍니다.
 
-[응답 본문](/rest/api/storageservices/List-Containers2#response-body): 이 필드는 요청한 데이터를 제공하는 XML 구조입니다. 이 예제에서 응답은 컨테이너 및 해당 속성의 목록입니다.
+[응답 본문](/rest/api/storageservices/List-Containers2#response-body):이 필드는 요청한 데이터를 제공하는 XML 구조입니다. 이 예제에서 응답은 컨테이너 및 해당 속성의 목록입니다.
 
 ## <a name="creating-the-rest-request"></a>REST 요청 만들기
 
@@ -129,7 +129,7 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 {
 ```
 
-@No__t-0에 대 한 요청 헤더를 추가 하 고-1을 @no__t 합니다. 코드의 이 위치는 호출에 필요한 추가 요청 헤더를 추가하는 위치이기도 합니다. 이 예에는 추가 헤더가 없습니다. 추가 헤더를 전달 하는 API의 예로는 컨테이너 ACL 설정 작업이 있습니다. 이 API 호출은 "x-y-공용-액세스" 라는 헤더와 액세스 수준에 대 한 값을 추가 합니다.
+`x-ms-date` 및 `x-ms-version`에 대 한 요청 헤더를 추가 합니다. 코드의 이 위치는 호출에 필요한 추가 요청 헤더를 추가하는 위치이기도 합니다. 이 예에는 추가 헤더가 없습니다. 추가 헤더를 전달 하는 API의 예로는 컨테이너 ACL 설정 작업이 있습니다. 이 API 호출은 "x-y-공용-액세스" 라는 헤더와 액세스 수준에 대 한 값을 추가 합니다.
 
 ```csharp
     // Add the request headers for x-ms-date and x-ms-version.
@@ -204,7 +204,7 @@ Date: Fri, 17 Nov 2017 00:23:42 GMT
 Content-Length: 1511
 ```
 
-**응답 본문(XML)** : 컨테이너 나열 작업의 경우 컨테이너 및 해당 속성의 목록이 표시 됩니다.
+**응답 본문 (XML):** 컨테이너 나열 작업의 경우 컨테이너 및 해당 속성의 목록이 표시 됩니다.
 
 ```xml  
 <?xml version="1.0" encoding="utf-8"?>
@@ -301,7 +301,7 @@ StringToSign = VERB + "\n" +
 
 대부분의 이러한 필드는 거의 사용되지 않습니다. Blob Storage의 경우 VERB, md5, 콘텐츠 길이, 정식화 헤더 및 정식화 리소스를 지정합니다. 다른 항목은 비워 두어도 됩니다(하지만 비어 있다는 것을 알 수 있도록 `\n` 삽입).
 
-CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정규화에 대한 Wikipedia의 설명에 대한 Wikipedia의 설명](https://en.wikipedia.org/wiki/Canonicalization)은 다음과 같습니다. ‘컴퓨터 공학에서 말하는 정규화(경우에 따라 표준화 또는 일반화라고 부르기도 함)는 둘 이상의 가능한 표현이 있는 데이터를 하나의 “표준”, “일반” 또는 정규 양식으로 변환하는 프로세스를 의미합니다.’ 다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
+CanonicalizedHeaders 및 CanonicalizedResource란 무엇인가요? 좋은 질문입니다. 정식화의 의미가 무엇일까요? Microsoft Word에서는 이 단어를 인지하지도 못합니다. [정식화에 대한 Wikipedia의 설명](https://en.wikipedia.org/wiki/Canonicalization)을 보면, *컴퓨터 공학에서 말하는 정식화(경우에 따라 표준화 또는 정규화라고 부르기도 함)는 둘 이상의 표현을 하나의 "표준", "일반" 또는 정규 양식으로 변환하는 프로세스를 의미합니다.* 다시 말해서, 항목 목록(예: 정식화 헤더인 경우에는 헤더)을 가져와서 필요한 형식으로 표준화하는 것입니다. 기본적으로 Microsoft에서 형식을 결정하면 개발자가 그에 맞춰야 합니다.
 
 인증 헤더를 만드는 데 필요한 두 정식화 필드부터 알아보겠습니다.
 
@@ -430,7 +430,7 @@ AuthorizationHeader는 응답을 게시하기 전에 요청 헤더에 배치되�
 
 여기에는 저장소 서비스 REST Api를 호출 하는 요청을 만들 수 있는 클래스를 포함 하는 데 필요한 모든 것이 포함 되어 있습니다.
 
-## <a name="example-list-blobs"></a>예: Blob 나열
+## <a name="example-list-blobs"></a>예: blob 나열
 
 컨테이너 *컨테이너-1*에 대 한 blob 목록 작업을 호출 하는 코드를 변경 하는 방법을 살펴보겠습니다. 이 코드는 컨테이너를 나열 하는 코드와 거의 동일 하며, URI 및 응답을 구문 분석 하는 방법만 다릅니다.
 
@@ -515,7 +515,7 @@ Date: Fri, 17 Nov 2017 05:20:21 GMT
 Content-Length: 1135
 ```
 
-**응답 본문(XML)** : 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다. 
+**응답 본문(XML):** 이 XML 응답은 BLOB 및 해당 속성의 목록을 보여 줍니다. 
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

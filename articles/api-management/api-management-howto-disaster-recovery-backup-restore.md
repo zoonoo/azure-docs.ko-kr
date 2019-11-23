@@ -66,10 +66,10 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 4. 애플리케이션의 이름을 입력합니다.
 5. 애플리케이션 형식에서 **네이티브**를 선택합니다.
-6. **리디렉션 URI**로 `http://resources`와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면 이 확인란을 클릭합니다.
+6. `http://resources`리디렉션 URI**로** 와 같은 자리 표시자 URL을 입력하고, 필수 필드지만 값은 나중에 사용되지 않습니다. 애플리케이션을 저장하려면이 확인란을 클릭합니다.
 7. **만들기**를 클릭합니다.
 
-### <a name="add-an-application"></a>응용 프로그램 추가
+### <a name="add-an-application"></a>애플리케이션 추가
 
 1. 애플리케이션을 만들면 **설정**을 클릭합니다.
 2. **필수 사용 권한**을 클릭합니다.
@@ -82,7 +82,7 @@ Azure Resource Manager를 사용하여 리소스에서 수행하는 모든 작�
 
 7. 새로 추가된 애플리케이션 옆에 있는 **위임된 권한**을 클릭하고, **Azure 서비스 관리 액세스(미리 보기)** 에서 상자를 선택합니다.
 8. **선택**을 누릅니다.
-9. **사용 권한 부여**를 클릭합니다.
+9. **권한 부여**를 클릭합니다.
 
 ### <a name="configuring-your-app"></a>앱 구성
 
@@ -119,7 +119,7 @@ namespace GetTokenResourceManagerRequests
 
     ![엔드포인트][api-management-endpoint]
 
-2. **설정** 페이지로 이동하여 `{application id}`를 가져온 값으로 바꿉니다.
+2. `{application id}`설정**페이지로 이동하여**를 가져온 값으로 바꿉니다.
 3. `{redirect uri}`를 Azure Active Directory 애플리케이션의 **리디렉션 URI** 탭에 있는 값으로 바꿉니다.
 
     값이 지정되면 코드 예제에서는 다음 예제와 유사한 토큰을 반환해야 합니다.
@@ -152,7 +152,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업하려는 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - Azure API Management 서비스의 리소스 그룹 이름입니다.
 -   `serviceName` - 백업을 만드는 API Management 서비스를 만들 때 지정하는 이름입니다.
--   `api-version`-`2018-06-01-preview`로 바꿉니다.
+-   `api-version` `2018-06-01-preview`으로 바꾸기
 
 요청 본문에서 대상 Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 지정합니다.
 
@@ -167,7 +167,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
 
-백업은 완료하는 데 1분 이상 걸릴 수 있는 장기 실행 작업입니다. 요청이 성공하고 백업 프로세스가 시작된 경우 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 백업이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 백업 작업이 정상적으로 완료된 것입니다.
+백업은 완료하는 데 1분 이상 걸릴 수 있는 장기 실행 작업입니다. 요청이 성공하고 백업 프로세스가 시작된 경우 `202 Accepted` 헤더가 포함된 `Location` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 백업이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 백업 작업이 정상적으로 완료된 것입니다.
 
 백업 요청을 수행할 때는 다음의 제약 조건에 유의하세요.
 
@@ -193,7 +193,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 -   `subscriptionId` - 백업을 복원할 API Management 서비스를 포함하는 구독의 ID입니다.
 -   `resourceGroupName` - 백업을 복원할 Azure API Management 서비스를 포함하는 리소스 그룹의 이름입니다.
 -   `serviceName` - 백업을 복원할 API Management 서비스를 만들 때 지정한 이름입니다.
--   `api-version`-`2018-06-01-preview`로 바꿉니다.
+-   `api-version` `2018-06-01-preview`으로 바꾸기
 
 요청 본문에서 백업 파일 위치를 지정합니다. 즉, Azure Storage 계정 이름, 액세스 키, Blob 컨테이너 이름 및 백업 이름을 추가합니다.
 
@@ -208,7 +208,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 
 `Content-Type` 요청 헤더의 값을 `application/json`으로 설정합니다.
 
-복원은 오랫동안 실행되는 작업으로, 완료되려면 30분 이상이 걸릴 수 있습니다. 요청이 성공하고 복원 프로세스가 시작된 경우 `Location` 헤더가 포함된 `202 Accepted` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 복원이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 복원 작업이 정상적으로 완료된 것입니다.
+복원은 오랫동안 실행되는 작업으로, 완료되려면 30분 이상이 걸릴 수 있습니다. 요청이 성공하고 복원 프로세스가 시작된 경우 `202 Accepted` 헤더가 포함된 `Location` 응답 상태 코드를 받게 됩니다. `Location` 헤더에서 URL에 대한 'GET' 요청을 수행하면 작업 상태를 확인할 수 있습니다. 복원이 진행 중인 동안에는 '202 수락됨' 상태 코드가 계속 수신됩니다. 응답 코드가 `200 OK` 이면 복원 작업이 정상적으로 완료된 것입니다.
 
 > [!IMPORTANT]
 > 백업을 복원할 서비스의 **SKU**는 복원하려는 백업된 서비스의 SKU와 **일치해야** 합니다.

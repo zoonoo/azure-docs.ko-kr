@@ -26,7 +26,7 @@ ms.locfileid: "71212538"
 고 **지 사항:** *이 가이드는 성공적으로 작동 하는 Microsoft HANA Large Instances 환경에서 설정을 테스트 하 여 파생 되었습니다. HANA Large Instances에 대 한 Microsoft 서비스 관리 팀에서 운영 체제를 지원 하지 않으므로 운영 체제 계층에 대 한 추가 문제 해결 또는 설명이 필요한 경우 SUSE에 문의 해야 할 수 있습니다. Microsoft 서비스 관리 팀은 STONITH 장치를 설정 하 고 완벽 하 게 지원 되며 STONITH 장치 문제에 대 한 문제 해결에 관련 될 수 있습니다.*
 ## <a name="overview"></a>개요
 SUSE 클러스터링을 사용하여 고가용성을 설정하려면 다음 필수 구성 요소를 충족해야 합니다.
-### <a name="pre-requisites"></a>필수 조건
+### <a name="pre-requisites"></a>필수 구성 요소
 - HANA 대규모 인스턴스를 프로비전
 - 운영 체제 등록
 - 패치/패키지를 가져오기 위해 HANA 대규모 인스턴스 서버를 SMT 서버에 연결
@@ -154,7 +154,7 @@ halk2 패키지가 이미 설치되었으므로 **취소**를 클릭합니다.
 
 ![yast-key-file.png](media/HowToHLI/HASetupWithStonith/yast-key-file.png)
 
-**확인**
+**확인** 을 클릭합니다.
 
 IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합니다. csync2 -k /etc/csync2/key_hagroup을 사용하여 키 파일을 생성합니다. key_hagroup 파일을 생성한 후 클러스터의 모든 멤버에 수동으로 복사해야 합니다. **반드시 노드 1에서 노드 2로 파일을 복사해야 합니다**.
 
@@ -169,13 +169,13 @@ IP 주소 및 Csync2의 미리 공유한 키를 사용하여 인증을 수행합
 ## <a name="4---setting-up-the-softdog-watchdog"></a>4. 소프트 Dog Watchdog 설정
 이 섹션에서는 Watchdog(softdog) 구성을 설명합니다.
 
-4.1 두 노드에서 **모두** 다음 줄을 */etc/init.d/boot.local*에 추가합니다.
+4.1 두 노드에서 *모두* 다음 줄을 **/etc/init.d/boot.local**에 추가합니다.
 ```
 modprobe softdog
 ```
 ![modprobe-softdog.png](media/HowToHLI/HASetupWithStonith/modprobe-softdog.png)
 
-4.2 아래와 같이 두 노드에서 **모두** */etc/sysconfig/sbd*를 업데이트합니다.
+4.2 아래와 같이 두 노드에서 *모두* **/etc/sysconfig/sbd**를 업데이트합니다.
 ```
 SBD_DEVICE="<SBD Device Name>"
 ```
@@ -253,11 +253,11 @@ systemctl start pacemaker
 ```
 ![systemctl-status-pacemaker.png](media/HowToHLI/HASetupWithStonith/systemctl-status-pacemaker.png)
 ### <a name="62-monitor-the-status"></a>6.2 상태 모니터링
-두 노드에서 **모두** *crm_mon* 명령을 실행하여 노드가 온라인인지 확인합니다. 이 작업은 클러스터의 **임의 노드**에서 실행할 수 있습니다.
+두 노드에서 *모두* **crm_mon** 명령을 실행하여 노드가 온라인인지 확인합니다. 이 작업은 클러스터의 **임의 노드**에서 실행할 수 있습니다.
 ```
 crm_mon
 ```
-![crm mon .png ](media/HowToHLI/HASetupWithStonith/crm-mon.png) hawk에 로그인 하 여 클러스터 상태 *https://\<node IP >: 7630*를 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
+crm-mon](media/HowToHLI/HASetupWithStonith/crm-mon.png) ![하 여 hawk에 로그인 하 여 클러스터 상태 *https://\<노드 IP >: 7630*를 확인할 수도 있습니다. 기본 사용자는 hacluster이며 암호는 linux입니다. 필요한 경우 *passwd* 명령을 사용하여 암호를 변경할 수 있습니다.
 
 ## <a name="7-configure-cluster-properties-and-resources"></a>7. 클러스터 속성 및 리소스 구성 
 이 섹션에서는 클러스터 리소스를 구성하는 단계를 설명합니다.
@@ -322,7 +322,7 @@ crm configure load update crm-vip.txt
 *crm_mon* 명령을 실행하면 다음 두 리소스를 확인할 수 있습니다.
 ![crm_mon_command.png](media/HowToHLI/HASetupWithStonith/crm_mon_command.png)
 
-*Https://\<node IP 주소 >: 7630/cib/live/state* 에서 상태를 확인할 수도 있습니다.
+*Https://\<노드 IP 주소 >: 7630/cib/live/state* 에서 상태를 확인할 수도 있습니다.
 
 ![hawlk-status-page.png](media/HowToHLI/HASetupWithStonith/hawlk-status-page.png)
 
@@ -334,11 +334,11 @@ Service pacemaker stop
 이제 **노드 2**에서 Pacemaker 서비스를 중단하고 리소스를 **노드 1**에 대해 장애 조치합니다.
 
 **장애 조치(failover) 전**  
-![Before) .png ](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
+![Before-failover](media/HowToHLI/HASetupWithStonith/Before-failover.png)  
 
 **장애 조치(failover) 후**  
-![after) .png ](media/HowToHLI/HASetupWithStonith/after-failover.png)  
-![crm) .png (](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png))  
+![after-failover](media/HowToHLI/HASetupWithStonith/after-failover.png)  
+![crm-mon-after-failover](media/HowToHLI/HASetupWithStonith/crm-mon-after-failover.png)  
 
 
 ## <a name="9-troubleshooting"></a>9. 문제 해결

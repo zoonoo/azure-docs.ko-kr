@@ -95,7 +95,7 @@ $vmMap = $RecoveryPlanContext.VmMap
 
 
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - Azure Automation를 처음 접하는 경우 [등록](https://azure.microsoft.com/services/automation/) 하 고 [샘플 스크립트를 다운로드할](https://azure.microsoft.com/documentation/scripts/)수 있습니다.
 - Automation 계정에 다음 모듈이 있는지 확인합니다.
@@ -112,12 +112,12 @@ $vmMap = $RecoveryPlanContext.VmMap
 ## <a name="customize-the-recovery-plan"></a>복구 계획 사용자 지정
 
 1. 자격 증명 모음에서 **복구 계획 (Site Recovery)** 을 선택 합니다.
-2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아보기](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
+2. 복구 계획을 만들려면 **+ 복구 계획**을 클릭 합니다. [자세히 알아봅니다](site-recovery-create-recovery-plans.md). 복구 계획이 이미 있는 경우이를 선택 하 여 엽니다.
 3. 복구 계획 페이지에서 **사용자 지정**을 클릭 합니다.
 
     ![[사용자 지정] 단추 클릭](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. @No__t-0Group 1 옆에 있는 줄임표 (...)를 클릭 합니다. Start @ no__t-0 @ no__t-1**사후 작업 추가**를 시작 합니다.
+2. **그룹 1: 시작** > **사후 작업 추가**옆에 있는 줄임표 (...)를 클릭 합니다.
 3. **삽입 동작**에서 **스크립트** 가 선택 되어 있는지 확인 하 고 스크립트 이름 (**Hello World**)을 지정 합니다.
 4. Automation 계정을 지정 하 고 runbook을 선택 합니다. 스크립트를 저장하려면 **확인**을 클릭합니다. 스크립트가 **그룹 1: 사후 단계**에 추가됩니다.
 

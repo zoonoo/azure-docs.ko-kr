@@ -47,7 +47,7 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
       }
     }
 ```
-이 속성은 (Azure Resource Manager 및 관리 되는 Id와 Service Fabric 리소스 공급자를 각각 선언 하며,이 리소스는 암시적 (@no__t 0) 관리 id를 포함 해야 합니다.
+이 속성은 (Azure Resource Manager 및 관리 되는 Id와 Service Fabric 리소스 공급자를 각각 선언 하며,이 리소스는 암시적 (`system assigned`) 관리 id를 포함 해야 합니다.
 
 ### <a name="application-and-service-package"></a>응용 프로그램 및 서비스 패키지
 
@@ -76,9 +76,9 @@ Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스
         </ServiceManifestImport>
       ```
 
-    이 요소는 응용 프로그램의 id를 서비스에 할당 합니다. 이 할당을 사용 하지 않으면 서비스에서 응용 프로그램의 id에 액세스할 수 없게 됩니다. 위의 코드 조각에서 `SystemAssigned` id (예약 된 키워드)는 이름 `WebAdmin` 인 서비스의 정의에 매핑됩니다.
+    이 요소는 응용 프로그램의 id를 서비스에 할당 합니다. 이 할당을 사용 하지 않으면 서비스에서 응용 프로그램의 id에 액세스할 수 없게 됩니다. 위의 코드 조각에서 `SystemAssigned` id (예약 된 키워드)는 이름 `WebAdmin`의 서비스 정의에 매핑됩니다.
 
-3. 응용 프로그램 매니페스트의 @no__t 3 정의에서 `ServiceIdentityRef` 설정의 값과 일치 하는 이름을 사용 하 여 **리소스** 섹션 내에 **microsoft.managedidentity** 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
+3. 응용 프로그램 매니페스트의 `IdentityBindingPolicy` 정의에서 `ServiceIdentityRef` 설정의 값과 일치 하는 이름을 사용 하 여 **리소스** 섹션 내에 **microsoft.managedidentity** 요소를 추가 하도록 서비스 매니페스트를 업데이트 합니다.
 
     **Servicemanifest.xml**
 

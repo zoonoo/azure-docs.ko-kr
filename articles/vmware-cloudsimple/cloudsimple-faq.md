@@ -33,7 +33,7 @@ CloudSimple은 추가 지역이 출시 될 미국 동부, 미국 서 부 및 유
 
 **CloudSimple에 대해 내 구독을 사용 하도록 설정 어떻게 할까요??**
 
-[@No__t-1](mailto:azurevmwaresales@microsoft.com) 에서 Microsoft 계정 담당자에 게 연락 하 여 cloudsimple 서비스에 대 한 구독을 사용 하도록 설정할 수 있습니다. CloudSimple 서비스를 사용 하도록 설정할 전자 메일에 구독 ID를 제공 합니다.  
+[azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) 에서 Microsoft 계정 담당자에 게 연락 하 여 cloudsimple 서비스에 대 한 구독을 사용 하도록 설정할 수 있습니다. CloudSimple 서비스를 사용 하도록 설정할 전자 메일에 구독 ID를 제공 합니다.  
 
 **CloudSimple 포털에 액세스할 어떻게 할까요? 있나요?**
 
@@ -68,7 +68,7 @@ CloudSimple 포털에서 사설 클라우드의 세부 정보를 볼 수 있습�
 
 Azure Express 경로 회로는 고속, 짧은 대기 시간, 보안 연결입니다.  CloudSimple은 고객 당 지역 당 전용 Express 경로 회로를 제공 합니다.  이 회로를 사용 하 여 온-프레미스 또는 Azure 구독에서 보안 연결을 설정할 수 있습니다.
 
-@no__t CloudSimple에 연결 하는 데 드는 네트워크 비용은 어떻습니까?  CloudSimple과 Azure 간에 또는 지역 간에 송신 요금이 적용 되나요? **
+**CloudSimple에 연결 하기 위한 네트워크 비용은 무엇 인가요?  CloudSimple과 Azure 간에 또는 지역 간에 송신 요금이 적용 되나요?**
 
 네트워크 송신에 대 한 CloudSimple 요금은 없습니다.  Azure 표준 요금은 가상 네트워크 또는 온-프레미스 Express 경로 회로에서 송신 트래픽에 적용 됩니다.
 
@@ -106,9 +106,9 @@ CloudSimple은 사설 클라우드 환경을 보호 하기 위한 다음과 같�
 
 CloudSimple은 다음과 같은 호스트 유형을 제공 합니다.
 
-* **CS28 노드:** CPU: 2, 2.2 g h z, 총 28 코어, 48 HT.  RAM: 256 GB  스토리지: 1600 GB NVMe 캐시, 5760 GB 데이터 (모두-플래시). 네트워크: 4x25Gbe NIC
-* **CS36 노드:** CPU 2x 2.3 g h z, 총 36 코어, 72 HT.  RAM: 512 GB  스토리지: 3200 GB NVMe cache 11520 GB 데이터 (모두-플래시).  네트워크: 4x25Gbe NIC
-* **CS36m 노드:** CPU 2x 2.3 g h z, 총 36 코어, 72 HT.  RAM: 576 GB  스토리지: 3200 GB NVMe cache 13360 GB 데이터 (모두-플래시).  네트워크: 4x25Gbe NIC
+* **CS28 노드:** CPU: 2, 2.2 g h z, 총 28 코어, 48 HT.  RAM: 256 G B.  저장소: 1600 GB NVMe 캐시, 5760 GB 데이터 (모두-플래시). 네트워크: 4x25Gbe NIC
+* **CS36 노드:** CPU 2x 2.3 g h z, 총 36 코어, 72 HT.  RAM: 512 G B.  저장소: 3200 GB NVMe cache 11520 GB 데이터 (모두-플래시).  네트워크: 4x25Gbe NIC
+* **CS36m 노드:** CPU 2x 2.3 g h z, 총 36 코어, 72 HT.  RAM: 576 G B.  저장소: 3200 GB NVMe cache 13360 GB 데이터 (모두-플래시).  네트워크: 4x25Gbe NIC
 
 **하드웨어 오류는 어떻게 처리 되나요?**
 
@@ -131,7 +131,7 @@ CloudSimple은 사설 클라우드의 모든 하드웨어 구성 요소를 지�
 
 **온-프레미스에서 응용 프로그램 및 데이터의 대규모 업로드 또는 마이그레이션을 수행할 어떻게 할까요? 있나요?**
 
-CloudSimple은 네이티브 VMware vSphere 솔루션을 제공 합니다.  대량 데이터 마이그레이션을 위한 모든 VMware 도구는 사설 클라우드와 함께 사용할 수 있습니다.  다음 옵션을 사용할 수 있습니다.
+CloudSimple은 네이티브 VMware vSphere 솔루션을 제공 합니다.  대량 데이터 마이그레이션을 위한 모든 VMware 도구는 사설 클라우드와 함께 사용할 수 있습니다.  옵션은 다음과 같습니다.
 
 * 데이터를 대량으로 마이그레이션하기 위한 VMware HCX
 * 온-프레미스에서 CloudSimple로 저장소 vMotion를 사용 하 여 데이터의 콜드 마이그레이션.

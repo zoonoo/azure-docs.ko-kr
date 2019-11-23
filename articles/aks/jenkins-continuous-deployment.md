@@ -27,7 +27,7 @@ ms.locfileid: "72263934"
 > * 자동화된 빌드를 위한 Jenkins 빌드 작업 및 GitHub 웹후크를 만듭니다.
 > * CI/CD 파이프라인을 테스트하여 GitHub 코드 커밋에 따라 AKS에서 애플리케이션을 업데이트합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -66,7 +66,7 @@ git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-애플리케이션 예제에 필요한 컨테이너 이미지를 만들려면 `docker-compose`와 함께 *docker-compose.yaml* 파일을 사용합니다.
+애플리케이션 예제에 필요한 컨테이너 이미지를 만들려면 *와 함께* docker-compose.yaml`docker-compose` 파일을 사용합니다.
 
 ```console
 docker-compose up -d
@@ -89,7 +89,7 @@ tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-[Docker tag][docker-tag] 명령을 사용 하 여 ACR 로그인 서버 이름 및 `v1`의 버전 번호를 사용 하 여 이미지에 태그를 표시 합니다. 이전 단계에서 가져온 고유한 `<acrLoginServer>` 이름을 입력합니다.
+[Docker tag][docker-tag] 명령을 사용 하 여 ACR 로그인 서버 이름 및 `v1`버전 번호를 사용 하 여 이미지에 태그를 표시 합니다. 이전 단계에서 가져온 고유한 `<acrLoginServer>` 이름을 입력합니다.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -103,7 +103,7 @@ docker push <acrLoginServer>/azure-vote-front:v1
 
 ## <a name="deploy-the-sample-application-to-aks"></a>AKS에 애플리케이션 예제 배포
 
-애플리케이션 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. `vi` 같은 편집기로 *azure-vote-all-in-one-redis.yaml* 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
+애플리케이션 예제를 AKS 클러스터에 배포하려면 Azure 투표 리포지토리의 루트에 있는 Kubernetes 매니페스트 파일을 사용하면 됩니다. *같은 편집기로*azure-vote-all-in-one-redis.yaml`vi` 매니페스트 파일을 엽니다. `microsoft`를 ACR 로그인 서버 이름으로 바꿉니다. 이 값은 매니페스트 파일의 줄 **47**에 있습니다.
 
 ```yaml
 containers:
@@ -117,7 +117,7 @@ containers:
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Kubernetes 부하 분산 장치 서비스는 애플리케이션을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행률을 모니터링 하려면 `--watch` 인수를 사용 하 여 [kubectl get service][kubectl-get] 명령을 사용 합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
+Kubernetes 부하 분산 장치 서비스는 애플리케이션을 인터넷에 노출하기 위해 만들어집니다. 이 프로세스는 몇 분 정도 걸릴 수 있습니다. 부하 분산 장치 배포의 진행률을 모니터링 하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용 합니다. *EXTERNAL-IP* 주소가 *보류 중*에서 *IP 주소*로 변경되면 `Control + C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -230,13 +230,13 @@ Azure에서 만든 역할 할당을 사용하여 이제 ACR 자격 증명을 Jen
 Jenkins 포털 홈페이지의 왼쪽에 있는 **새 항목**을 선택합니다.
 
 1. *azure-vote*를 작업 이름으로 입력합니다. **프리스타일 프로젝트**를 선택한 후 **확인**을 선택합니다.
-1. **일반** 섹션에서 **GitHub 프로젝트** 를 선택 하 고 분기 리포지토리 URL을 입력 합니다 (예: *https: \//github .com/@no__t-no__t @-5/azure-투표-redis).*
-1. **소스 코드 관리** 섹션에서 **git**을 선택 하 고 분기를 입력 *합니다. git* URL (예: *https: \//github .com/\<-github-account @ no__t-6/azure-voting-app-redis*
+1. **일반** 섹션에서 **github 프로젝트** 를 선택 하 고 분기 리포지토리 URL (예: *github.com/\<\>)* 을 입력 합니다\/.
+1. **소스 코드 관리** 섹션 아래에서 **Git**을 선택 하 고 분기\<를 입력 *합니다. git* URL (예: *https:\//github.com/-github-계정\>/azure-voting-app-redis.git*
 
 1. **빌드 트리거** 섹션에서 **GITscm 폴링에 대한 GitHub 후크 트리거**를 선택합니다.
 1. **빌드 환경**에서 **비밀 텍스트 또는 파일 사용**을 선택합니다.
 1. **바인딩**에서 **추가** > **사용자 이름 및 암호(구분)** 를 선택합니다.
-   - **사용자 이름 변수**에 `ACR_ID`를 입력하고, **암호 변수**에 `ACR_PASSWORD`를 입력합니다.
+   - `ACR_ID`사용자 이름 변수**에** 를 입력하고, `ACR_PASSWORD`암호 변수**에** 를 입력합니다.
 
      ![Jenkins 바인딩](media/aks-jenkins/bindings.png)
 
@@ -280,7 +280,7 @@ GitHub 커밋을 기반으로 작업을 자동화하기 전에 먼저 수동으�
 
 1. 웹 브라우저에서 포크된 GitHub 리포지토리로 이동합니다.
 1. **설정**을 선택한 다음, 왼쪽에 있는 **웹후크**를 선택합니다.
-1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 `http://<publicIp:8080>/github-webhook/`를 입력합니다. 여기서 `<publicIp>`는 Jenkins 서버의 IP 주소입니다. 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
+1. **웹후크 추가**를 선택합니다. ‘페이로드 URL’에 *를 입력합니다. 여기서* 는 Jenkins 서버의 IP 주소입니다.`http://<publicIp:8080>/github-webhook/``<publicIp>` 후행 슬래시(/)를 포함해야 합니다. 콘텐츠 형식에 대한 다른 기본값을 그대로 두고 *푸시* 이벤트를 트리거합니다.
 1. **웹후크 추가**를 선택합니다.
 
     ![Jenkins의 GitHub 웹후크 만들기](media/aks-jenkins/webhook.png)

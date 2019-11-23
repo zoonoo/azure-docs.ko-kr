@@ -32,7 +32,7 @@ ms.locfileid: "72244303"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos 및 Data Science Virtual Machine (DSVM)를 사용 하 여 TDSP 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 개별 참여자 작업은 동일 하지만이 작업을 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md), [팀 리더](team-lead-tasks.md)및 [프로젝트 리더가](project-lead-tasks.md)다음 리소스 및 사용 권한을 설정 했다고 가정 합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "72244303"
 
 로컬로 리포지토리를 사용 하 고 변경 내용을 공유 팀 및 프로젝트 리포지토리에 푸시 하려면 먼저 로컬 컴퓨터에 리포지토리를 복사 하거나 *복제* 합니다. 
 
-1. Azure DevOps에서 no__t의 팀 프로젝트 요약 페이지로 이동 합니다 *. https: \/ @-2 @ no__t-3server name >/\<organization 이름 >/\< 팀 이름 >* (예: **https: \//DataScienceUnit/myteam**)로 이동 합니다.
+1. Azure DevOps에서 *https:\//\<서버 이름 >/\<조직 이름 >/\<팀 이름 >* (예 **: https:\//dev.azure.com/DataScienceUnit/MyTeam**)에서 팀의 프로젝트 요약 페이지로 이동 합니다.
    
 1. 왼쪽 탐색 영역에서 **리포지토리** 를 선택 하 고 페이지 맨 위에서 복제할 리포지토리를 선택 합니다.
    
@@ -67,12 +67,12 @@ ms.locfileid: "72244303"
    
 1. 로컬 컴퓨터 또는 DSVM에서 다음 디렉터리를 만듭니다.
    
-   - Windows의 경우: **C:\GitRepos**
+   - Windows: **C:\GitRepos**
    - Linux: **$home/gitrepos**
    
 1. 만든 디렉터리로 변경 합니다.
    
-1. Git Bash에서 복제 하려는 각 리포지토리에 대해-0 @no__t 명령을 실행 합니다. 
+1. Git Bash에서 복제 하려는 각 리포지토리에 대해 명령 `git clone <clone URL>`를 실행 합니다. 
    
    예를 들어 다음 명령은 **Teamutilities** 리포지토리를 로컬 컴퓨터의 *myteam* 디렉터리에 복제 합니다. 
    

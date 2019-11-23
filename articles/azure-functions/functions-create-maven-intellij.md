@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function with Java and IntelliJ
+title: Java 및 IntelliJ를 사용 하 여 Azure 함수 만들기
 description: Java 및 IntelliJ로 간단한 HTTP 트리거 서버리스 앱을 만들어 Azure에 게시하는 방법을 알아봅니다.
 author: jeffhollan
 ms.topic: conceptual
@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74230718"
 ---
-# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Create your first Azure function with Java and IntelliJ
+# <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
 이 문서에서는 다음을 안내합니다.
 - IntelliJ IDEA 및 Apache Maven을 사용하여 [서버리스](https://azure.microsoft.com/overview/serverless-computing/) 함수 프로젝트를 만드는 방법
@@ -42,12 +42,12 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
 
 1. IntelliJ IDEA에서 **새 프로젝트 만들기**를 선택합니다.  
 1. **새 프로젝트** 창의 왼쪽 창에서 **Maven**을 선택합니다.
-1. **archetype에서 만들기** 확인란을 선택한 다음, [azure-functions-archetype](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)으로 **Archetype 추가**를 선택합니다.
+1. **archetype에서 만들기** 확인란을 선택한 다음, **azure-functions-archetype**으로 [Archetype 추가](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)를 선택합니다.
 1. **Archetype 추가** 창에서 다음과 같이 필드를 완성합니다.
     - _GroupId_: com.microsoft.azure
     - _ArtifactId_: azure-functions-archetype
-    - _Version_: Use the latest version **1.22** from [the central repository](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype)
-    ![Create a Maven project from archetype in IntelliJ IDEA](media/functions-create-first-java-intellij/functions-create-intellij.png)  
+    - _버전_: ![
+    [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전 **1.22** 을 사용 하 여 원형에서 IntelliJ 아이디어로 Maven 프로젝트를 만듭니다](media/functions-create-first-java-intellij/functions-create-intellij.png)  
 1. **확인**을 선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
@@ -87,7 +87,7 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 
 ## <a name="deploy-the-function-to-azure"></a>Azure에 함수 배포
 
-1. Before you can deploy your function to Azure, you must [sign in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. 함수를 Azure에 배포 하려면 먼저 [Azure CLI를 사용 하 여 로그인](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)해야 합니다.
 
    ``` azurecli
    az login

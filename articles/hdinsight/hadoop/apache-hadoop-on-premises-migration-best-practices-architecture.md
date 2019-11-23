@@ -25,12 +25,12 @@ ms.locfileid: "73499260"
 
 Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되었습니다. 여러 클러스터에서 스토리지를 공유할 수 있기 때문에 다양한 작업의 요구를 충족하기 위해 여러 개의 워크로드 최적화 컴퓨팅 클러스터를 만들 수 있습니다. 클러스터 유형마다 해당 특정 워크로드에 대한 최적 구성이 있습니다. 다음 표에는 HDInsight에서 지원되는 클러스터 유형 및 해당 워크로드가 나와 있습니다.
 
-|**워크로드**|**HDInsight 클러스터 유형**|
+|**작업**|**HDInsight 클러스터 유형**|
 |---|---|
 |일괄 처리(ETL/ELT)|Hadoop, Spark|
 |데이터 웨어하우징|Hadoop, Spark, 대화형 쿼리|
 |IoT/스트리밍|Kafka, Storm, Spark|
-|NoSQL 트랜잭션 처리|HBase|
+|NoSQL 트랜잭션 처리|HBase:|
 |메모리 내 캐싱을 사용한 보다 신속한 대화형 쿼리|대화형 쿼리|
 |데이터 과학|ML Services, Spark|
 
@@ -39,7 +39,7 @@ Azure HDInsight 클러스터는 특정 유형의 컴퓨팅 용도로 설계되�
 |**도구**|**브라우저 기반**|**명령줄**|**REST API**|**SDK**|
 |---|---|---|---|---|
 |[Azure Portal](../hdinsight-hadoop-create-linux-clusters-portal.md)|X||||
-|[Azure 데이터 팩터리](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
+|[Azure Data Factory](../hdinsight-hadoop-create-linux-clusters-adf.md)|X|X|X|X|
 |[Azure CLI(버전 1.0)](../hdinsight-hadoop-create-linux-clusters-azure-cli.md)||X|||
 |[Azure PowerShell](../hdinsight-hadoop-create-linux-clusters-azure-powershell.md)||X|||
 |[cURL](../hdinsight-hadoop-create-linux-clusters-curl-rest.md)||X|X||
@@ -105,7 +105,7 @@ HDInsight는 Hive 및 Oozie metastore에 Azure SQL Database를 사용합니다. 
 - 사용자 지정 metastore를 정기적으로 백업합니다.
 - metastore와 HDInsight 클러스터를 동일한 영역에 유지합니다.
 - Azure Portal 또는 Azure Monitor 로그와 같은 Azure SQL Database 모니터링 도구를 사용 하 여 성능 및 가용성에 대 한 metastore를 모니터링 합니다.
-- 필요에 따라 **ANALYZE TABLE** 명령을 실행하여 테이블 및 열에 대한 통계를 생성합니다. 예: `ANALYZE TABLE [table_name] COMPUTE STATISTICS`
+- 필요에 따라 **ANALYZE TABLE** 명령을 실행하여 테이블 및 열에 대한 통계를 생성합니다. `ANALYZE TABLE [table_name] COMPUTE STATISTICS`) 을 입력합니다.
 
 ## <a name="best-practices-for-different-workloads"></a>다양한 워크로드에 대한 모범 사례
 

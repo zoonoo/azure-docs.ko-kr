@@ -37,7 +37,7 @@ Virtual Machine 구성을 사용하여 Azure Batch 풀을 만들 경우 풀에�
 * **사용자 지정 이미지 보다 성능이 우수 합니다.** 공유 이미지를 사용 하는 경우 풀이 안정 된 상태에 도달 하는 데 걸리는 시간은 최대 25% 더 빠르며 VM 유휴 대기 시간은 최대 30% 더 짧습니다.
 * **보다 쉽게 관리할 수 있도록 이미지 버전 관리 및 그룹화** 이미지 그룹화 정의에는 이미지를 만든 이유에 대 한 정보, 사용 중인 OS 및 이미지 사용에 대 한 정보가 포함 되어 있습니다. 이미지를 그룹화 하면 이미지를 쉽게 관리할 수 있습니다. 자세한 내용은 [이미지 정의](../virtual-machines/windows/shared-image-galleries.md#image-definitions)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 * **Azure Batch 계정.** Batch 계정을 만들려면 [Azure Portal](quick-create-portal.md) 또는 [Azure CLI](quick-create-cli.md)를 사용 하 여 일괄 처리 퀵 스타트를 참조 하세요.
 
@@ -79,13 +79,13 @@ Azure에서 관리 되는 이미지를 준비 하려면 다음을 수행 합니�
 
 스냅샷에서 관리되는 이미지를 만들려면 [az image create](/cli/azure/image) 명령과 같은 Azure 명령줄 도구를 사용합니다. OS 디스크 스냅숏과 선택적으로 하나 이상의 데이터 디스크 스냅숏을 지정 하 여 이미지를 만듭니다.
 
-### <a name="create-a-shared-image-gallery"></a>공유 이미지 갤러리 만들기
+### <a name="create-a-shared-image-gallery"></a>Shared Image Gallery 만들기
 
 관리 이미지를 성공적으로 만들었으면 공유 이미지 갤러리를 만들어 사용자 지정 이미지를 사용할 수 있도록 해야 합니다. 이미지에 대 한 공유 이미지 갤러리를 만드는 방법을 알아보려면 [Azure CLI를 사용 하 여 공유 이미지 갤러리 만들기](../virtual-machines/linux/shared-images.md) 또는 [Azure Portal를 사용 하 여 공유 이미지 갤러리 만들기](../virtual-machines/linux/shared-images-portal.md)를 참조 하세요.
 
 ## <a name="create-a-pool-from-a-shared-image-using-the-azure-cli"></a>Azure CLI를 사용 하 여 공유 이미지에서 풀 만들기
 
-Azure CLI를 사용 하 여 공유 이미지에서 풀을 만들려면 `az batch pool create` 명령을 사용 합니다. @No__t-0 필드에서 공유 이미지 ID를 지정 합니다. OS 유형 및 SKU가 @no__t에 지정 된 버전과 일치 하는지 확인 합니다.-0
+Azure CLI를 사용 하 여 공유 이미지에서 풀을 만들려면 `az batch pool create` 명령을 사용 합니다. `--image` 필드에서 공유 이미지 ID를 지정 합니다. OS 유형 및 SKU가 `--node-agent-sku-id`에 지정 된 버전과 일치 하는지 확인 합니다.
 
 ```azurecli
 az batch pool create \
@@ -133,7 +133,7 @@ private static void CreateBatchPool(BatchClient batchClient, VirtualMachineConfi
 
 Azure Portal에서 공유 이미지를 사용 하 여 풀을 만들려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com)을 엽니다.
+1. [Azure 포털](https://portal.azure.com)을 엽니다.
 1. **Batch 계정** 으로 이동 하 여 계정을 선택 합니다.
 1. **풀** 을 선택한 다음 **추가** 를 클릭 하 여 새 풀을 만듭니다.
 1. **이미지 형식** 섹션에서 **공유 이미지 갤러리**를 선택 합니다.

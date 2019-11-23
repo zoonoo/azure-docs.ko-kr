@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 Wrike 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Wrike 구성 | Microsoft Docs'
 description: 사용자 계정을 Wrike로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ ms.locfileid: "71840320"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -113,7 +113,7 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
 ### <a name="configure-automatic-user-provisioning-for-wrike-in-azure-ad"></a>Azure AD에서 Wrike에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**@no__t**모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 응용**프로그램 > **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 
     ![모든 응용 프로그램](common/enterprise-applications.png)
 
@@ -155,7 +155,7 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
 13. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Wrike에 프로 비전 할 사용자 또는 그룹을 정의 합니다.
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 14. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
 

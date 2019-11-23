@@ -5,7 +5,7 @@ ms.date: 09/05/2019
 ms.topic: conceptual
 ms.openlocfilehash: 788c52ee9a2bf9a0a2c506c2a34d221ff08bd0af
 ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2019
 ms.locfileid: "74038406"
@@ -19,7 +19,7 @@ ms.locfileid: "74038406"
 > - 샘플 사본을 **게시됨**으로 표시
 > - 기존 구독에 청사진 사본 할당
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="create-blueprint-from-sample"></a>샘플에서 청사진 만들기
 
@@ -99,9 +99,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 |\[미리 보기\]: Windows VM용 Log Analytics 에이전트 배포 |정책 할당 |Windows VM용 Log Analytics 작업 영역 |자세한 내용은 [Azure Portal에서 Log Analytics 작업 영역 만들기](../../../../azure-monitor/learn/quick-create-workspace.md)를 참조 하세요. |
 |\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |VM을 구성해야 하는 Log Analytics 작업 영역 ID |VM을 구성해야 하는 Log Analytics 작업 영역의 ID(GUID)입니다. |
 |\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |진단 로그를 사용해야 하는 리소스 종류 목록 |진단 로그 설정이 사용 하도록 설정 되지 않은 경우 감사할 리소스 종류 목록입니다. 허용되는 값은 [Azure Monitor 진단 로그 스키마](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type)에서 확인할 수 있습니다. |
-|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예제: `Administrator; myUser1; myUser2` |
-|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예제: `Administrator; myUser1; myUser2` |
-|스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |결과 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Administrators 그룹 |그룹. 예: `Administrator; myUser1; myUser2` |
+|\[Preview\]: 캐나다 연방 PMM 컨트롤 감사 및 감사 요구 사항을 지원 하도록 특정 VM 확장 배포 |정책 할당 |Windows VM 관리자 그룹에 포함해야 하는 사용자 목록 |관리자 로컬 그룹에 포함해야 하는 구성원의 세미콜론으로 구분된 목록입니다. 예: `Administrator; myUser1; myUser2` |
+|스토리지 계정에 Advanced Threat Protection 배포 |정책 할당 |영향 |정책 효과에 대 한 정보는 [Azure Policy 효과 이해](../../../policy/concepts/effects.md)에서 확인할 수 있습니다. |
 |SQL Server에 감사 배포 |정책 할당 |보존 기간 값(일)(0은 보존 기간에 제한이 없음을 표시) |보존 일 수 (선택 사항, 지정 되지 않은 경우 _180_ 일) |
 |SQL Server에 감사 배포 |정책 할당 |SQL 서버 감사를 위한 스토리지 계정의 리소스 그룹 이름 |감사는 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 씁니다. 저장소 계정은 해당 지역의 모든 서버에서 공유 하는 SQL Server 생성 된 각 지역에서 만들어집니다. 중요-감사를 적절 하 게 수행 하려면 리소스 그룹 또는 저장소 계정을 삭제 하거나 이름을 변경 하지 마십시오. |
 |네트워크 보안 그룹에 대한 진단 설정 배포 |정책 할당 |네트워크 보안 그룹 진단을 위한 스토리지 계정 접두사 |이 접두사는 생성 된 저장소 계정 이름을 구성 하기 위해 네트워크 보안 그룹 위치와 결합 됩니다. |

@@ -58,8 +58,8 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | --- | --- | --- | --- |
 | 보안 그룹 멤버</br>사무실 그룹 멤버 | 지정된 검토자</br>그룹 소유자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 그룹 | 액세스 패널 |
 | 연결된 앱에 할당됨 | 지정된 검토자</br>자동 검토 | Azure AD 액세스 검토</br>Azure AD 엔터프라이즈 앱(미리 보기) | 액세스 패널 |
-| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Azure AD 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
+| Azure 리소스 역할 | 지정된 검토자</br>자동 검토 | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure 포털 |
 
 
 ## <a name="onboard-access-reviews"></a>액세스 검토 등록
@@ -97,7 +97,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 
 ### <a name="which-users-must-have-licenses"></a>어떤 사용자에게 라이선스가 있어야 하나요?
 
-액세스 검토와 상호 작용 하는 각 사용자에 게는 유료 Azure AD Premium P2 라이선스가 있어야 합니다. 다음은 이러한 템플릿의 예입니다.
+액세스 검토와 상호 작용 하는 각 사용자에 게는 유료 Azure AD Premium P2 라이선스가 있어야 합니다. 예를 들면 다음과 같습니다.
 
 - 액세스 검토를 만드는 관리자
 - 액세스 검토를 수행 하는 그룹 소유자
@@ -113,7 +113,7 @@ Azure AD를 사용하면 조직 내에서 내부적으로, 또한 파트너와 �
 | 관리자가 500 사용자로 그룹 A에 대 한 액세스 검토를 만듭니다. 3 개의 그룹 소유자를 검토자로 할당 합니다. | 각 그룹 소유자에 대 한 관리자 + 3 라이선스에 대 한 라이선스 1 개 (검토자) | 4 |
 | 관리자가 500 사용자로 그룹 A에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 각 사용자의 관리자 + 500 라이선스에 대 한 라이선스 1 개 (자체 검토자) | 501 |
 | 관리자는 5 명의 사용자와 25 명의 게스트 사용자를 사용 하 여 그룹 B에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 각 사용자의 관리자 + 5 라이선스에 대 한 라이선스 1 개 (자체 검토자)<br/>(게스트 사용자는 필요한 1:5 비율로 적용 됩니다.) | 6 |
-| 관리자가 사용자 5 명 및 108 게스트 사용자를 사용 하 여 그룹 C에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 1 각 사용자의 관리자 + 5 라이선스에 대 한 라이선스는 모든 108 게스트 사용자에 게 필요한 1:5 비율의 모든 게스트 사용자를 처리할 수 있는 자체 검토자 + 16 추가 라이선스입니다.<br/>1 + 5 = 6 라이선스 (5 @ no__t-06 = 30 게스트 사용자)를 포함 합니다. 나머지 (108-5 @ no__t-06) = 78 게스트 사용자의 경우 78/5 = 16 추가 라이선스가 필요 합니다. 따라서 총 6 + 16 = 22 개의 라이선스가 필요 합니다. | 22 |
+| 관리자가 사용자 5 명 및 108 게스트 사용자를 사용 하 여 그룹 C에 대 한 액세스 검토를 만듭니다. 자체 검토를 수행 합니다. | 1 각 사용자의 관리자 + 5 라이선스에 대 한 라이선스는 모든 108 게스트 사용자에 게 필요한 1:5 비율의 모든 게스트 사용자를 처리할 수 있는 자체 검토자 + 16 추가 라이선스입니다.<br/>1 + 5 = 6 라이선스 (5\*6 = 30 게스트 사용자)를 포함 합니다. 나머지 (108-5\*6) = 78 게스트 사용자의 경우 78/5 = 16 추가 라이선스가 필요 합니다. 따라서 총 6 + 16 = 22 개의 라이선스가 필요 합니다. | 22 |
 
 사용자에게 라이선스를 할당하는 방법에 대한 내용은 [Azure Active Directory 포털을 사용하여 라이선스 할당 또는 제거](../fundamentals/license-users-groups.md)를 참조하세요.
 

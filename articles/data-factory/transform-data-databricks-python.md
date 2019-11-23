@@ -65,12 +65,12 @@ Databricks Python 작업에 대한 샘플 JSON 정의는 다음과 같습니다.
 |속성|설명|필수|
 |---|---|---|
 |name|파이프라인의 작업 이름입니다.|예|
-|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니요|
+|설명|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니오|
 |type|Databricks Python 작업의 경우 작업 형식은 DatabricksSparkPython입니다.|예|
 |linkedServiceName|Python 작업이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
 |pythonFile|실행할 Python 파일의 URI입니다. DBFS 경로만이 지원됩니다.|예|
-|매개 변수|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니요|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니요|
+|parameters|Python 파일에 전달되는 명령줄 매개 변수입니다. 문자열의 배열입니다.|아니오|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. <문자열, 개체>의 배열일 수 있습니다.|아니오|
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동에 지원되는 라이브러리
 

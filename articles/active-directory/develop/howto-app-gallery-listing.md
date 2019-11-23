@@ -38,7 +38,7 @@ ms.locfileid: "72374080"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
 - Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](consent-framework.md) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
@@ -114,7 +114,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ## <a name="list-requests-by-customers"></a>고객 별 요청 나열
 
-고객은 고객이**새 요청을 제출**하는 @no__t **앱 요청**을 선택 하 여 응용 프로그램을 나열 하는 요청을 제출할 수 있습니다.
+고객은 고객이 **새 요청을 제출**하 > **앱 요청** 을 선택 하 여 응용 프로그램을 나열 하는 요청을 제출할 수 있습니다.
 
 ![고객이 요청한 앱 타일을 표시 합니다.](./media/howto-app-gallery-listing/customer-submit-request.png)
 
@@ -134,4 +134,4 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ## <a name="escalations"></a>에스컬레이션
 
-에스컬레이션의 경우 SaaSApplicationIntegrations@service.microsoft.com에서 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com) 에 전자 메일을 보내면 가능한 한 빨리 응답 합니다.
+모든 에스컬레이션에 대해 SaaSApplicationIntegrations@service.microsoft.com에서 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com) 에 전자 메일을 보내면 가능한 한 빨리 응답 합니다.

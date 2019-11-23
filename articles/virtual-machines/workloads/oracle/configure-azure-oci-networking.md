@@ -31,7 +31,7 @@ ms.locfileid: "71802204"
 
 ![클라우드 간 네트워크 연결](media/configure-azure-oci-networking/azure-oci-connect.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 * Azure와 OCI 간에 연결을 설정 하려면 활성 Azure 구독 및 활성 OCI 테 넌 트가 있어야 합니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "71802204"
     * Express 경로를 만드는 동안 서비스 공급자로 **Oracle Cloud FastConnect** 를 선택 합니다. Express 경로 회로를 만들려면 단계별 [가이드](../../../expressroute/expressroute-howto-circuit-portal-resource-manager.md)를 참조 하세요.
     * Azure Express 경로 회로는 세분화 된 대역폭 옵션을 제공 하는 반면 FastConnect는 1, 2, 5 또는 10gbps를 지원 합니다. 따라서 Express 경로 아래에서 이러한 일치 하는 대역폭 옵션 중 하나를 선택 하는 것이 좋습니다.
 
-    ![ExpressRoute 회로 만들기](media/configure-azure-oci-networking/exr-create-new.png)
+    ![Express 경로 회로 만들기](media/configure-azure-oci-networking/exr-create-new.png)
 1. Express 경로 **서비스 키**를 적어둡니다. FastConnect 회로를 구성 하는 동안 키를 제공 해야 합니다.
 
     ![Express 경로 서비스 키](media/configure-azure-oci-networking/exr-service-key.png)
@@ -57,7 +57,7 @@ ms.locfileid: "71802204"
 1. DRG (동적 라우팅 게이트웨이)를 만듭니다. FastConnect 회로를 만들 때 필요 합니다. 자세한 내용은 [동적 라우팅 게이트웨이](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) 설명서를 참조 하세요.
 1. Oracle 테 넌 트에서 FastConnect 회로를 만듭니다. 자세한 내용은 [Oracle 설명서](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm)를 참조 하십시오.
   
-    * FastConnect 구성에서 **Microsoft Azure를 선택 합니다. 공급자 인 Express 경로 이름 @ no__t-0
+    * FastConnect 구성에서 공급자로 **Microsoft Azure: express** 경로를 선택 합니다.
     * 이전 단계에서 프로 비전 한 동적 라우팅 게이트웨이를 선택 합니다.
     * 프로 비전 할 대역폭을 선택 합니다. 성능을 최적화 하기 위해 대역폭은 Express 경로 회로를 만들 때 선택한 대역폭과 일치 해야 합니다.
     * **공급자 서비스 키**에 express 경로 서비스 키를 붙여넣습니다.

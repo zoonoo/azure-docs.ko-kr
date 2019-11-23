@@ -27,13 +27,13 @@ ms.locfileid: "72176976"
 
 이 항목에서는 Google을 인증 공급자로 사용하도록 Azure App Service를 구성하는 방법을 보여 줍니다.
 
-이 항목의 절차를 완료하려면 검증된 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)으로 이동하십시오.
+이 항목의 절차를 완료하려면 검증된 전자 메일 주소가 포함된 Google 계정이 있어야 합니다. 새 Google 계정을 만들려면 [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302)으로 이동하십시오.
 
 ## <a name="register"></a>Google을 사용하여 애플리케이션 등록
 
 1. [서버 쪽 앱에 대 한 Google 로그인](https://developers.google.com/identity/sign-in/web/server-side-flow) 의 google 설명서에 따라 클라이언트 ID 및 클라이언트 암호를 만듭니다. 코드를 변경할 필요가 없습니다. 다음 정보를 사용 하면 됩니다.
-    - **권한 있는 JavaScript 원본**에 대해 *\<app-name >* 에서 앱 이름으로 `https://<app-name>.azurewebsites.net`을 사용 합니다.
-    - **권한 있는 리디렉션 URI**의 경우 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`을 사용 합니다.
+    - **권한 있는 JavaScript 원본**에 대해 *\<앱 이름 >* 에서 앱 이름과 함께 `https://<app-name>.azurewebsites.net`를 사용 합니다.
+    - **권한 있는 리디렉션 URI**의 경우 `https://<app-name>.azurewebsites.net/.auth/login/google/callback`를 사용 합니다.
 1. 앱 ID 및 앱 암호 값을 복사 합니다.
 
     > [!IMPORTANT]
@@ -42,7 +42,7 @@ ms.locfileid: "72176976"
 ## <a name="secrets"></a>애플리케이션에 Google 정보 추가
 
 1. [Azure Portal]에서 App Service 앱으로 이동 합니다.
-1. 설정 @no__t 1**인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정**되어 있는지 확인 **합니다.**
+1. 설정 > **인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정** 되어 있는지 확인 **합니다.**
 1. **Google**을 선택한 다음 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 응용 프로그램에 필요한 모든 범위를 사용 하도록 설정 합니다.
 1. **확인**을 선택합니다.
 

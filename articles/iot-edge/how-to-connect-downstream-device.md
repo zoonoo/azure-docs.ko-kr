@@ -34,7 +34,7 @@ ms.locfileid: "72176802"
 
 이 문서에서 *게이트웨이* 및  *IoT Edge 게이트웨이*라는 용어는 투명한 게이트웨이로 사용되는 IoT Edge 디바이스를 의미합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>선행 조건 
 
 에서 생성 된 **azure-iot-test-only** 인증서 파일을 사용 하 여 다운스트림 장치에서 사용 가능한 [투명 게이트웨이 역할을 하는 IoT Edge 장치를 구성](how-to-create-transparent-gateway.md) 합니다. 다운스트림 장치는이 인증서를 사용 하 여 게이트웨이 장치 id의 유효성을 검사 합니다. 
 
@@ -88,7 +88,7 @@ sudo cp <path>/azure-iot-test-only.root.ca.cert.pem /usr/local/share/ca-certific
 sudo update-ca-certificates
 ```
 
-다음과 같은 메시지가 표시됩니다. “/etc/ssl/certs에 인증서 업데이트 중... 1개 추가됨, 0개 제거됨. 완료."
+"/Etc/ssl/certs...에서 인증서 업데이트" 라는 메시지가 표시 됩니다. 1 개 추가 됨, 0 개 제거 됨 완료 되었습니다. "
 
 ### <a name="windows"></a>Windows
 
@@ -121,13 +121,13 @@ import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorel
 
 * 다운스트림 디바이스의 어딘가에 복사 및 저장한 루트 CA 인증서에 대한 전체 경로.
 
-    예를 들어, `<path>/azure-iot-test-only.root.ca.cert.pem`을 입력합니다. 
+    `<path>/azure-iot-test-only.root.ca.cert.pem`) 을 입력합니다. 
 
 ### <a name="nodejs"></a>NodeJS
 
 이 섹션에서는 Azure IoT NodeJS 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 제공합니다. NodeJS 응용 프로그램의 경우 여기에 표시 된 것 처럼 응용 프로그램 수준에서 루트 CA 인증서를 설치 해야 합니다. NodeJS 응용 프로그램은 시스템의 인증서 저장소를 사용 하지 않습니다. 
 
-1. [Node.js용 Azure IoT 디바이스 SDK 샘플 리포지토리](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)에서 **edge_downstream_device.js**에 대한 샘플을 가져옵니다. 
+1. **Node.js용 Azure IoT 디바이스 SDK 샘플 리포지토리**에서 [edge_downstream_device.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples)에 대한 샘플을 가져옵니다. 
 2. **readme.md** 파일을 검토하여 샘플을 실행하기 위한 모든 필수 구성 요소가 있는지 확인합니다. 
 3. edge_downstream_device.js 파일에서 **connectionString** 및 **edge_ca_cert_path** 변수를 업데이트합니다. 
 4. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요. 
@@ -146,7 +146,7 @@ var options = {
 
 이 섹션에서는 Azure IoT .NET 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. 그러나 .NET 애플리케이션은 자동으로 Linux 및 Windows 호스트 모두에서 시스템의 인증서 스토리지에 설치된 모든 인증서를 사용할 수 있습니다.
 
-1. [IoT Edge .NET 샘플 폴더](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice)에서 **EdgeDownstreamDevice**에 대한 샘플을 가져옵니다. 
+1. **IoT Edge .NET 샘플 폴더**에서 [EdgeDownstreamDevice](https://github.com/Azure/iotedge/tree/master/samples/dotnet/EdgeDownstreamDevice)에 대한 샘플을 가져옵니다. 
 2. **readme.md** 파일을 검토하여 샘플을 실행하기 위한 모든 필수 구성 요소가 있는지 확인합니다. 
 3. **Properties / launchSettings.json** 파일에서 **DEVICE_CONNECTION_STRING** 및 **CA_CERTIFICATE_PATH** 변수를 업데이트합니다. 호스트 시스템에서 신뢰할 수 있는 인증서 스토리지에 설치된 인증서를 사용하려는 경우 이 변수를 비워 둡니다. 
 4. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요. 
@@ -157,7 +157,7 @@ var options = {
 
 이 섹션에서는 Azure IoT C 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. C SDK는 OpenSSL, WolfSSL 및 Schannel을 포함한 많은 TLS 라이브러리를 사용하여 작동할 수 있습니다. 자세한 내용은 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c)를 참조하세요. 
 
-1. [C용 Azure IoT 디바이스 SDK 샘플](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples)에서 **iotedge_downstream_device_sample** 애플리케이션을 가져옵니다. 
+1. **C용 Azure IoT 디바이스 SDK 샘플**에서 [iotedge_downstream_device_sample](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples) 애플리케이션을 가져옵니다. 
 2. **readme.md** 파일을 검토하여 샘플을 실행하기 위한 모든 필수 구성 요소가 있는지 확인합니다. 
 3. iotedge_downstream_device_sample.c 파일에서 **connectionString** 및 **edge_ca_cert_path** 변수를 업데이트합니다. 
 4. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요. 
@@ -174,7 +174,7 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 
 이 섹션에서는 Azure IoT Java 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. 
 
-1. [Java용 Azure IoT 디바이스 SDK 샘플](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)에서 **Send-event**에 대한 샘플을 가져옵니다. 
+1. **Java용 Azure IoT 디바이스 SDK 샘플**에서 [Send-event](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples)에 대한 샘플을 가져옵니다. 
 2. **readme.md** 파일을 검토하여 샘플을 실행하기 위한 모든 필수 구성 요소가 있는지 확인합니다. 
 3. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요.
 
@@ -182,8 +182,8 @@ Windows 호스트에서 OpenSSL 또는 다른 TLS 라이브러리를 사용하�
 
 이 섹션에서는 Azure IoT Python 디바이스 클라이언트를 IoT Edge 게이트웨이에 연결하기 위한 샘플 애플리케이션을 소개합니다. 
 
-1. [Python 샘플에 대 한 Azure IoT 장치 SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)에서 **send_message** 샘플을 가져옵니다. 
-2. IoT Edge 컨테이너에서 실행 되 고 있는지 또는 디버그 시나리오에서 @no__t 0 및 @no__t 1 환경 변수가 설정 되어 있는지 확인 합니다.
+1. [Python 용 Azure IoT 장치 SDK 샘플](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/advanced-edge-scenarios)의 **send_message** 에 대 한 샘플을 가져옵니다. 
+2. IoT Edge 컨테이너에서 실행 중인지 또는 디버그 시나리오에서 `EdgeHubConnectionString` 및 `EdgeModuleCACertificateFile` 환경 변수가 설정 되어 있는지 확인 합니다.
 3. 디바이스에서 샘플을 실행하는 방법에 대한 지침은 SDK 설명서를 참조하세요. 
 
 
@@ -197,7 +197,7 @@ openssl s_client -connect mygateway.contoso.com:8883 -CAfile <CERTDIR>/certs/azu
 
 이 명령은 MQTTS (포트 8883)를 통한 연결을 테스트 합니다. 다른 프로토콜을 사용 하는 경우 필요에 따라 AMQPS (5671) 또는 HTTPS (433)에 대해 명령을 조정 합니다.
 
-체인의 모든 인증서에 대 한 정보를 포함 하 여이 명령의 출력은 길어질 수 있습니다. 연결에 성공 하면 `Verification: OK` 또는 `Verify return code: 0 (ok)`과 같은 줄이 표시 됩니다.
+체인의 모든 인증서에 대 한 정보를 포함 하 여이 명령의 출력은 길어질 수 있습니다. 연결에 성공 하면 `Verification: OK` 또는 `Verify return code: 0 (ok)`와 같은 줄이 표시 됩니다.
 
 ![게이트웨이 연결 확인](./media/how-to-connect-downstream-device/verification-ok.png)
 

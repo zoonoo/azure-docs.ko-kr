@@ -70,28 +70,28 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 | SAP note | 설명 |
 | --- | --- |
-| [1928533] | Azure의 SAP 응용 프로그램: 지원 제품 및 Azure VM 유형 |
-| [2015553] | Azure의 SAP: 필수 구성 요소 지원 |
+| [1928533] | Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
+| [2015553] | Azure의 SAP: 지원 필수 조건 |
 | [2178632] | Azure의 SAP 용 주요 모니터링 메트릭 |
-| [2191498] | Azure 포함 Linux의 SAP: 고급 모니터링 |
+| [2191498] | Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
 | [2243692] | Azure의 Linux (IaaS) VM: SAP 라이선스 문제 |
 | [2002167] | Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
 | [2694118] | Azure에서 HA 추가 기능 Red Hat Enterprise Linux |
 | [1999351] | SAP용 고급 Azure 모니터링 문제 해결 |
 | [2233094] | DB6: Linux, UNIX 및 Windows 용 IBM Db2를 사용 하는 Azure의 SAP 응용 프로그램-추가 정보 |
-| [1612105] | DB6: D b 2에서 HADR에 대 한 FAQ |
+| [1612105] | DB6: d b 2에서 HADR에 대 한 FAQ |
 
 
 | 설명서 | 
 | --- |
-| [SAP 커뮤니티 Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 필요한 모든 SAP note를 포함 합니다. |
+| [Sap Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 필요한 모든 sap note |
 | [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드 |
 | [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide] (이 문서) |
 | [Linux에서 SAP 용 Azure VIRTUAL MACHINES DBMS (데이터베이스 관리 시스템) 배포][dbms-guide] 가이드 |
 | [Azure의 SAP 워크 로드 계획 및 배포 검사 목록][azr-sap-plancheck] |
 | [Red Hat Enterprise Linux 7에 대 한 고가용성 추가 기능 개요][rhel-ha-addon] |
 | [High Availability Add-On Administration][rhel-ha-admin](고가용성 추가 기능 관리) |
-| [High Availability Add-On Reference][rhel-ha-ref](고가용성 추가 기능 참조) |
+| [고가용성 추가 기능 참조][rhel-ha-ref] |
 | [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members][rhel-azr-supp](RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
 | [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure][rhel-azr-inst](Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
 | [SAP 워크 로드에 대 한 IBM Db2 Azure Virtual Machines DBMS 배포][dbms-db2] |
@@ -148,7 +148,7 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 | IBM Db2 LUW을 호스트 하는 가상 머신 | VM 크기, 저장소, 네트워킹, IP 주소입니다. |
 | IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **db-virt-hostname**, **db-virt-ip**. |
 | Azure 펜스 | 분할을 방지 하는 메서드를 사용 하는 것이 금지 됩니다. |
-| Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
+| Azure 부하 분산 장치 | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
 | 이름 확인| 환경에서 이름 확인이 작동 하는 방식입니다. DNS 서비스는 매우 권장 됩니다. 로컬 호스트 파일을 사용할 수 있습니다. |
     
 Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요.
@@ -157,7 +157,7 @@ Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker o
 
 IBM Db2 LUW의 리소스 에이전트는 Red Hat Enterprise Linux Server HA 추가 기능에 포함 되어 있습니다. 이 문서에서 설명 하는 설치의 경우 SAP 용 Red Hat Enterprise Linux를 사용 해야 합니다. Azure Marketplace에는 새 Azure 가상 컴퓨터를 배포 하는 데 사용할 수 있는 SAP 용 Red Hat Enterprise Linux 7.4의 이미지가 포함 되어 있습니다. Azure VM Marketplace에서 VM 이미지를 선택할 때 Azure Marketplace를 통해 Red Hat에서 제공 하는 다양 한 지원 또는 서비스 모델에 대해 알고 있어야 합니다.
 
-### <a name="hosts-dns-updates"></a>호스팅해야 DNS 업데이트
+### <a name="hosts-dns-updates"></a>호스트: DNS 업데이트
 호스트 이름 확인을 위한 적절 한 IP 주소를 사용 하도록 DNS 서버를 업데이트 하 고 가상 호스트 이름을 비롯 한 모든 호스트 이름 목록을 만듭니다. DNS 서버가 없거나 DNS 항목을 업데이트 하거나 만들 수 없는 경우이 시나리오에 참여 하는 개별 Vm의 로컬 호스트 파일을 사용 해야 합니다. 호스트 파일 항목을 사용 하는 경우에는 SAP 시스템 환경의 모든 Vm에 항목이 적용 되는지 확인 합니다. 그러나 이상적으로는 Azure로 확장 되는 DNS를 사용 하는 것이 좋습니다.
 
 
@@ -195,7 +195,7 @@ IBM Db2 LUW에 NetWeaver 기반 응용 프로그램을 설치 하는 방법에 �
 Sap [설치 가이드 Finder][sap-instfind]를 사용 하 여 sap 도움말 포털에서 가이드를 찾을 수 있습니다.
 
 다음 필터를 설정 하 여 포털에 표시 되는 가이드 수를 줄일 수 있습니다.
-- 하고 싶어요: "새 시스템 설치"
+- "새 시스템 설치"를 선택 합니다.
 - 내 데이터베이스: "Linux, Unix 및 Windows 용 IBM Db2"
 - SAP NetWeaver 버전, 스택 구성 또는 운영 체제에 대 한 추가 필터
 
@@ -227,11 +227,11 @@ sudo firewall-cmd --add-port=4237/tcp</code></pre>
 초기 장애 조치/인수 테스트에 따라 앞의 매개 변수를 사용 하는 것이 좋습니다. 이러한 매개 변수 설정을 사용 하 여 장애 조치 (failover) 및 인수의 적절 한 기능을 테스트 해야 합니다. 개별 구성은 다를 수 있으므로 매개 변수를 조정 해야 할 수도 있습니다. 
 
 > [!NOTE]
-> 일반 시작이 포함 된 HADR 구성에서 IBM d b 2에만 해당: 주 데이터베이스 인스턴스를 시작 하기 전에 보조 또는 대기 데이터베이스 인스턴스가 실행 중 이어야 합니다.
+> 일반 시작이 포함 된 HADR 구성을 사용한 IBM Db2와 관련 하 여 주 데이터베이스 인스턴스를 시작 하기 전에 보조 또는 대기 데이터베이스 인스턴스가 실행 중 이어야 합니다.
 
    
 > [!NOTE]
-> Azure 및 Pacemaker와 관련 된 설치 및 구성: SAP 소프트웨어 프로 비전 관리자를 사용 하 여 설치 절차를 진행 하는 동안 IBM Db2 LUW의 고가용성에 대 한 명시적인 질문이 있습니다.
+> Azure 및 Pacemaker와 관련 된 설치 및 구성의 경우: SAP 소프트웨어 프로 비전 관리자를 통해 설치 절차를 진행 하는 동안 IBM Db2 LUW의 고가용성에 대 한 명시적인 질문이 있습니다.
 >+ **IBM Db2 pureScale**는 선택 하지 마세요.
 >+ **다중 플랫폼용 IBM Tivoli 시스템 자동화 설치**를 선택 하지 마십시오.
 >+ **클러스터 구성 파일 생성**을 선택 하지 않습니다.
@@ -240,7 +240,7 @@ sudo firewall-cmd --add-port=4237/tcp</code></pre>
 
 SAP 유형이 같은 시스템 복사 프로시저를 사용 하 여 대기 데이터베이스 서버를 설정 하려면 다음 단계를 실행 합니다.
 
-1. **대상 시스템** **배포 데이터베이스 인스턴스**> 시스템 복사 옵션을 선택 합니다. >  > 
+1. **배포** > **데이터베이스 인스턴스** > **대상 시스템** > **시스템 복사** 옵션을 선택 합니다.
 1. Backup을 사용 하 여 대기 서버 인스턴스에서 백업을 복원할 수 있도록 복사 방법으로 같은 **시스템** 을 선택 합니다.
 1. 동일한 시스템 복사를 위해 데이터베이스를 복원 하는 종료 단계에 도달 하면 설치 관리자를 종료 합니다. 주 호스트의 백업에서 데이터베이스를 복원 합니다. 주 데이터베이스 서버에서 모든 후속 설치 단계가 이미 실행 되었습니다.
 
@@ -371,7 +371,7 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 - **[2]** : 노드 2에만 적용 가능
 
 **[A]** Pacemaker 구성에 대 한 필수 조건:
-1. Db2stop를 사용 하 여 > 사용자 db2\<sid를 사용 하 여 두 데이터베이스 서버를 종료 합니다.
+1. Db2stop를 사용 하 여 사용자 db2\<sid >를 사용 하 여 두 데이터베이스 서버를 종료 합니다.
 1. Db2\<sid > 사용자에 대 한 셸 환경을 */bin/ksh*로 변경 합니다.
 <pre><code># Install korn shell:
 sudo yum install ksh
@@ -423,7 +423,7 @@ sudo pcs property set maintenance-mode=false</pre></code>
 
 전체 리소스 목록:
 
- rsc_st_azure   (stonith:fence_azure_arm):      시작 az-idb01 Master/슬레이브 Set: Db2_HADR_ID2 [Db2_HADR_ID2] Masters: [az-idb01] 슬레이브: [az-idb02] 리소스 그룹: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (ocf:: 하트 비트: IPaddr2):       시작 az-idb01 nc_db2id2_ID2 (ocf:: 하트 비트: azure-lb):      시작 됨 az-idb01
+ rsc_st_azure (stonith: fence_azure_arm): 시작 az-idb01 Master/슬레이브 Set: Db2_HADR_ID2-Master [Db2_HADR_ID2] Masters: [az-idb01] 슬레이브: [az-idb02] 리소스 그룹: g_ipnc_db2id2_ID2 vip_db2id2_ID2 (ocf:: 하트 비트: IPaddr2): Started az-idb01 nc_db2id2_ID2 (ocf:: 하트 비트: azure-lb): Started az-idb01
 
 디먼 상태: corosync: 활성/사용 안 함 pacemaker: 활성/사용 안 함 pcsd: 활성/사용
 </pre>
@@ -537,7 +537,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유 또는 GlusterFS를 구성 하는 것이 좋습니다. NFS 공유 또는 GlusterFS는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은
 
 - [SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS][glusterfs] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성][anf-rhel]
@@ -547,7 +547,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 이 섹션에서는 Db2 HADR 설치 프로그램을 테스트 하는 방법을 설명 합니다. 모든 테스트에서는 *az-idb01* 가상 머신에서 IBM Db2 주 데이터베이스가 실행 되 고 있다고 가정 합니다. Sudo 권한 또는 루트 (권장 하지 않음)를 사용 하는 사용자를 사용 해야 합니다.
 
-모든 테스트 사례의 초기 상태는 (crm_mon-r 또는 pc 상태)에서 설명 합니다.
+모든 테스트 사례의 초기 상태는 (crm_mon-r 또는 pc 상태)에 설명 되어 있습니다.
 
 - **pc 상태** 는 실행 시 Pacemaker 상태에 대 한 스냅숏입니다. 
 - **crm_mon-r** 은 Pacemaker 상태의 연속 출력입니다.
@@ -644,7 +644,7 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 </code></pre>
 
 - **pc 리소스 이동 \<res_name > <host>:** 위치 제약 조건을 만들고 인수와 관련 된 문제를 발생 시킬 수 있습니다.
-- **pc 리소스 clear \<res_name >** : 위치 제약 조건 지우기
+- **pc 리소스 지우기 \<res_name >** : 위치 제약 조건 지우기
 - **pc 리소스 정리 \<res_name >** : 리소스의 모든 오류를 지웁니다.
 
 ### <a name="test-a-manual-takeover"></a>수동 인수 테스트
@@ -740,7 +740,7 @@ Db2 인스턴스는 이전에 할당 한 보조 역할에서 다시 시작 됩�
 
 ### <a name="stop-db-via-db2stop-force-on-the-node-that-runs-the-hadr-primary-database-instance"></a>HADR 주 데이터베이스 인스턴스를 실행 하는 노드에서 db2stop force를 통해 DB를 중지 합니다.
 
-User db2\<sid로 db2stop 명령을 실행 >.
+사용자 db2\<sid > 명령을 실행 db2stop force:
 <pre><code>az-idb01:db2ptr> db2stop force</code></pre>
 
 검색 된 오류:

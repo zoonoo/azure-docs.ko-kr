@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 Visitly 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Visitly 구성 | Microsoft Docs'
 description: 사용자 계정을 Visitly로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ ms.locfileid: "71840158"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -100,7 +100,7 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
 ### <a name="configure-automatic-user-provisioning-for-visitly-in-azure-ad"></a>Azure AD에서 Visitly에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**@no__t**모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 응용**프로그램 > **엔터프라이즈 응용 프로그램** 을 선택 합니다.
 
     ![모든 응용 프로그램](common/enterprise-applications.png)
 
@@ -116,7 +116,7 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
     ![프로 비전 모드를 자동으로 설정](common/provisioning-automatic.png)
 
-5. 관리자 자격 증명 섹션 아래에서 먼저 **테 넌 트 URL** 및 **암호 토큰**에서 검색 된 @no__t 0 및 **API 키** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Visitly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Visitly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. 관리자 자격 증명 섹션 아래에서 **테 넌 트 URL** 및 **암호 토큰**에서 각각 검색 된 `https://api.visitly.io/v1/usersync/SCIM` 및 **API 키** 값을 입력 합니다. **연결 테스트** 를 선택 하 여 Azure AD가 Visitly에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Visitly 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -142,7 +142,7 @@ Azure AD 응용 프로그램 갤러리에서 Visitly를 추가 하려면 다음 
 
 12. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 Visitly에 프로 비전 할 사용자 또는 그룹을 정의 합니다.
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 13. 프로 비전 할 준비가 되 면 **저장**을 선택 합니다.
 

@@ -116,7 +116,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     사용자 지정 역할 정의를 만들기 위한 HTTP 요청입니다.
 
-    POST
+    올리기
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
@@ -145,7 +145,7 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 
     사용자 지정 역할 정의를 만들기 위한 HTTP 요청입니다.
 
-    POST
+    올리기
 
     ``` HTTP
     https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments

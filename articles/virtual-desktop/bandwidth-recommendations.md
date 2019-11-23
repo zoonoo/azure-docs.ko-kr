@@ -25,12 +25,12 @@ ms.locfileid: "71802622"
 
 다음 표에서는 원활한 사용자 환경에 권장 되는 최소 대역폭을 보여 줍니다. 
 
-|작업        |샘플 애플리케이션                                                                                           |권장 대역폭|
+|워크로드        |샘플 애플리케이션                                                                                           |권장 대역폭|
 |----------------|--------------------------------------------------------------------------------------------------------------|---------------------|
-|비사무직 근로자     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5 @ no__t-0Mbps        |
-|Office 작업자   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어                                        |3 @ no__t-0Mbps          |
-|지식 근로자|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어, Java                                  |5 @ no__t-0Mbps          |
-|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어, Java, CAD/CAM, 그림/게시|15 @ no__t-0Mbps         |
+|비사무직 근로자     |Microsoft Word, Outlook, Excel, Adobe Reader                                                                  |1.5&nbsp;Mbps        |
+|Office 작업자   |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어                                        |3&nbsp;Mbps          |
+|지식 근로자|Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어, Java                                  |5&nbsp;Mbps          |
+|Power worker    |Microsoft Word, Outlook, Excel, Adobe Reader, PowerPoint, 사진 뷰어, Java, CAD/CAM, 그림/게시|15&nbsp;Mbps         |
 
 >[!NOTE]
 >이러한 권장 사항은 세션에 있는 사용자 수에 관계 없이 적용 됩니다.

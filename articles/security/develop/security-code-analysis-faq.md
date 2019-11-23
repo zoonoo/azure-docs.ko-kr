@@ -48,7 +48,7 @@ ms.locfileid: "71828242"
 
 눈에 띄는 차이점:
 
-- 도구는 에이전트 $ (빌드용 디렉터리)의 원본 폴더 또는% BUILD_SOURCESDIRECTORY%에서 실행 됩니다. 예: C:\agent @ no__t-0work\1\s.
+- 도구는 에이전트 $ (빌드용 디렉터리)의 원본 폴더 또는% BUILD_SOURCESDIRECTORY%에서 실행 됩니다. 예를 들면 C:\agent\_s\\s\s\s\s\ss
 - 인수의 경로는 이전에 나열 된 원본 디렉터리의 루트를 기준으로 할 수 있습니다. 경로는 절대 경로일 수 있습니다. Azure DevOps 빌드 변수를 사용 하거나 로컬 리소스의 알려진 배포 위치를 사용 하 여 온-프레미스 에이전트를 실행 하 여 절대 경로를 가져옵니다.
 - 도구는 출력 파일 경로 또는 폴더를 자동으로 제공 합니다. 빌드 작업에 대 한 출력 위치를 제공 하는 경우 해당 위치는 빌드 에이전트의 잘 알려진 로그 위치에 대 한 경로로 바뀝니다.
 - 일부 도구에 대해 몇 가지 추가 명령줄 인수를 변경 했습니다. 한 가지 예는 GUI를 시작 하지 않도록 하는 옵션을 추가 하거나 제거 하는 것입니다.
@@ -63,7 +63,7 @@ ms.locfileid: "71828242"
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>도구에서 생성 된 출력 파일은 어디에 저장 되나요? 
 
-빌드 작업은 빌드 에이전트의 잘 알려진이 위치에 대 한 출력 경로를 자동으로 추가 합니다. $ (에이전트로 디렉터리) \_sdt \ 로그. 이 위치를 표준화 하기 때문에 코드 분석 로그를 생성 하거나 소비 하는 모든 팀이 출력에 액세스할 수 있습니다.
+빌드 작업은 빌드 에이전트의 잘 알려진이 위치에 대 한 출력 경로를 자동으로 추가 합니다. $ (에이전트로 디렉터리)\_sdt\logss 이 위치를 표준화 하기 때문에 코드 분석 로그를 생성 하거나 소비 하는 모든 팀이 출력에 액세스할 수 있습니다.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>호스트 된 빌드 에이전트에서 이러한 작업을 실행 하기 위해 빌드를 큐에 대기 시킬 수 있나요? 
 
@@ -170,15 +170,15 @@ ms.locfileid: "71828242"
 
 콘텐츠 검색자는 다음과 같이 정의 됩니다.
 
-- **Name**: 자격 증명 스캐너 출력 파일에서 사용 되는 설명이 포함 된 검색자 이름입니다. 검색자 이름에 카멜식 대/소문자 명명 규칙을 사용 하는 것이 좋습니다.
-- **RuleId**: 인 검색자의 안정 된 불투명 ID입니다.
+- **이름**: 자격 증명 스캐너 출력 파일에서 사용 되는 설명이 포함 된 검색자 이름입니다. 검색자 이름에 카멜식 대/소문자 명명 규칙을 사용 하는 것이 좋습니다.
+- **RuleId**: 검색자의 안정 된 불투명 ID:
     - 자격 증명 스캐너 기본 검색 프로그램에는 CSCAN0010, CSCAN0020 또는 CSCAN0030와 같은 **RuleId** 값이 할당 됩니다. 마지막 숫자는 정규식 (regex)을 통해 검색자 그룹을 병합 하거나 분리 하기 위해 예약 되어 있습니다.
-    - 사용자 지정 된 사용자에 대 한 **RuleId** 값에는 고유한 네임 스페이스가 있어야 합니다. 예를 들면 CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 및 CSCAN-\<Namespace @ no__t-50030가 포함 됩니다.
+    - 사용자 지정 된 사용자에 대 한 **RuleId** 값에는 고유한 네임 스페이스가 있어야 합니다. 이러한 예로는 CSCAN\<Namespace\>mylnxcn-0006 mylnxcn-0010, CSCAN-\<Namespace\>0020 및 CSCAN-\<Namespace\>0030가 있습니다.
     - 정규화 된 검색자 이름은 **RuleId** 값과 검색자 이름의 조합입니다. 예를 들면 CSCAN0010이 있습니다. KeyStoreFiles 및 CSCAN0020. Base64EncodedCertificate.
-- **Resourcematchpattern**: 검색자에 대해 확인할 파일 확장명의 Regex입니다.
-- **Contentsearchpatterns**: 일치 시킬 regex 문을 포함 하는 문자열의 배열입니다. 검색 패턴이 정의 되지 않은 경우에는 **Resourcematchpattern** 값과 일치 하는 모든 파일이 반환 됩니다.
-- **Contentsearchfilters**: Regex 관련 가양성을 필터링 하기 위한 regex 문을 포함 하는 문자열의 배열입니다.
-- **Matchdetails**: 각 검색 프로그램과 일치 하는 설명 메시지, 완화 지침 또는 둘 다를 추가 합니다.
+- **Resourcematchpattern**: 검색할 파일 확장명의 Regex를 확인 합니다.
+- **Contentsearchpatterns**: 일치 하는 regex 문을 포함 하는 문자열의 배열입니다. 검색 패턴이 정의 되지 않은 경우에는 **Resourcematchpattern** 값과 일치 하는 모든 파일이 반환 됩니다.
+- **Contentsearchfilters**: regex 관련 가양성을 필터링 하는 regex 문을 포함 하는 문자열의 배열입니다.
+- **Matchdetails**: 검색 하는 각 일치 항목에 대해 설명 메시지, 완화 지침 또는 둘 다를 추가 합니다.
 - **권장 사항**: PREfast 보고서 형식을 사용 하 여 일치 항목에 대 한 제안 필드 내용입니다.
 - **심각도**: 문제의 심각도 수준을 반영 하는 정수입니다. 가장 높은 심각도 수준의 값은 1입니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "71828242"
 
 전체 오류 메시지:
 
-"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*를 사용 하 여 복원 되었지만 현재 설정이 사용 됩니다. 이 문제를 해결 하려면 동일한 설정이 복원에 사용 되 고 빌드 또는 게시와 같은 후속 작업에 사용 되는지 확인 합니다. 일반적으로이 문제는 RuntimeIdentifier 속성이 빌드 중에 설정 되었지만 복원 중에는 설정 되지 않은 경우 발생할 수 있습니다. "
+"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는 이 문제를 해결 하려면 동일한 설정이 복원에 사용 되 고 빌드 또는 게시와 같은 후속 작업에 사용 되는지 확인 합니다. 일반적으로이 문제는 RuntimeIdentifier 속성이 빌드 중에 설정 되었지만 복원 중에는 설정 되지 않은 경우 발생할 수 있습니다. "
 
 Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌드 컴퓨터의 소스 트리가 빌드 가능한 상태 여야 합니다.
 
@@ -202,13 +202,13 @@ Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌
 
 전체 오류 메시지:
 
-"csc.exe '이 (가) 종료 되었습니다 (오류 코드 1--C: \\*bbbb*. .dll: 파일 또는 어셈블리 ' 31bf3856ad364e35, Version = x. x. x. x. x X X. x. x X X. x. x X X. x. x*X x*. 시스템은 지정된 파일을 찾을 수 없습니다."
+오류 코드 1 (으)로 인해 "csc.exe"가 종료 되었습니다. 31bf3856ad364e35는 C:\\*Bbbb*.dll에서 만들 수 없습니다. 파일 또는 어셈블리 ' Microsoft codeanalysis, Version =*x. x*. x, Culture = 중립, PublicKeyToken = ' 또는 해당 종속성 중 하나를 *로드할 수 없습니다* . 시스템은 지정된 파일을 찾을 수 없습니다."
 
 컴파일러가 Roslyn 분석기를 지원 하는지 확인 합니다. **Csc.exe/version** 명령을 실행 하면 2.6 이상 버전 값을 보고 해야 합니다.
 
 경우에 따라 .csproj 파일은 Microsoft.Net에서 패키지를 참조 하 여 빌드 컴퓨터의 Visual Studio 설치를 재정의할 수 있습니다. 특정 버전의 컴파일러를 사용 하지 않으려는 경우 Microsoft.Net에 대 한 참조를 제거 합니다. 그렇지 않으면 참조 된 패키지의 버전도 2.6 이상 인지 확인 합니다.
 
-**Csc.exe/** 오류 로그 옵션에 지정 된 오류 로그 경로를 가져오려고 시도 합니다. 옵션 및 경로는 Roslyn 분석기 빌드 작업에 대 한 로그에 표시 됩니다. 다음과 같이 표시 될 수 있습니다 **./CF:\ts-services-123 @ no__t-1work\456\s\Some\Project\Code\Code.csproj.sarif**
+**Csc.exe/** 오류 로그 옵션에 지정 된 오류 로그 경로를 가져오려고 시도 합니다. 옵션 및 경로는 Roslyn 분석기 빌드 작업에 대 한 로그에 표시 됩니다. 다음과 같이 표시 될 수 있습니다 **./Cf:\ts-services-123\_work\456\s\Some\Project\Code\Code.csproj.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# 컴파일러 버전이 최신 버전이 아닙니다.
 
@@ -222,9 +222,9 @@ Roslyn 분석기 빌드 작업은 MSBuild 빌드 작업에서 MSBuild 로그에 
 
 추가 지원이 필요한 경우 Microsoft 보안 코드 분석 지원은 월요일부터 금요일 오전 9:00 시부터 오후 5:00 시 태평양 표준시로 제공 됩니다.
 
-  - 온보딩: 시작 하려면 기술 계정 관리자에 게 문의 하세요.
+  - 온 보 딩: 시작 하려면 기술 계정 관리자에 게 문의 하세요.
   
-  - 지원은 [Microsoft 보안 코드 분석 지원](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)팀에 전자 메일을 보내세요.
+  - 지원: [Microsoft 보안 코드 분석 지원](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)팀에 전자 메일을 보내세요.
 
   >[!NOTE] 
   >Microsoft와 유료 지원 관계가 없을 수 있습니다. 또는 Phoenix 카탈로그에서 서비스를 구입 하지 못하도록 하는 지원 제공이 있을 수 있습니다. 이러한 조건 중 하나에 해당 하는 경우 자세한 내용은 [지원 서비스 홈 페이지](https://www.microsoft.com/enterprise/services/support) 를 참조 하세요.

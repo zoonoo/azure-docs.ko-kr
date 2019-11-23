@@ -17,14 +17,14 @@ ms.locfileid: "72030625"
 # <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용 하 여 느리게 쿼리 로그 구성 및 액세스
 Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for MySQL 느리게 쿼리 로그를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
 
 ## <a name="configure-logging"></a>로깅 구성
 다음 단계를 수행하여 MySQL 느린 쿼리 로그에 액세스하도록 서버를 구성할 수 있습니다.
-1. **저속 @ no__t-1query @ no__t-2log** 매개 변수를 on으로 설정 하 여 쿼리 로깅 속도를 설정 합니다.
+1. **저속\_쿼리\_log** 매개 변수를 on으로 설정 하 여 쿼리 로깅 속도를 설정 합니다.
 2. **long\_query\_time** 및 **log\_slow\_admin\_statements**와 같은 다른 매개 변수를 조정합니다.
 
 Azure CLI를 통해 이러한 매개 변수 값을 설정하는 방법을 알아보려면 [서버 매개 변수를 구성하는 방법](howto-configure-server-parameters-using-cli.md)을 참조하세요.

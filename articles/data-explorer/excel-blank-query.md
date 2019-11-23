@@ -18,11 +18,11 @@ ms.locfileid: "70173730"
 
 Azure 데이터 탐색기는 Excel에서 데이터에 연결 하는 두 가지 옵션을 제공 합니다. 기본 커넥터를 사용 하거나 Azure 데이터 탐색기에서 쿼리를 가져옵니다. 이 문서에서는 Azure 데이터 탐색기에서 Excel로 쿼리를 가져와서 데이터를 시각화 하는 방법을 보여 줍니다. 데이터에 대 한 추가 계산 또는 시각화를 수행 하려면 Kusto query를 Excel 데이터 원본으로 추가 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure [데이터 탐색기 도움말 클러스터](https://dataexplorer.azure.com/clusters/help/databases/Samples) 에 연결할 수 있도록 azure Active directory의 구성원 인 조직 전자 메일 계정 
-<br>로 구분하거나 여러</br>
+<br>or</br>
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-portal.md) 를 만들고 [AZURE 데이터 탐색기 웹 UI 응용 프로그램](https://dataexplorer.azure.com/)에 로그인 합니다.
 
 ## <a name="define-kusto-query-as-an-excel-data-source"></a>Kusto query를 Excel 데이터 원본으로 정의
@@ -39,7 +39,7 @@ Azure 데이터 탐색기는 Excel에서 데이터에 연결 하는 두 가지 �
 
 1. **Microsoft Excel**을 엽니다.
 
-1. **데이터** 탭에서 > **기타**원본 > 에서 **데이터 가져오기** **빈 쿼리**를 선택 합니다.
+1. **데이터** 탭에서 **기타 원본에서** **데이터 가져오기** >  > **빈 쿼리**를 선택 합니다.
 
     ![데이터 가져오기 및 빈 쿼리 선택](media/excel-blank-query/get-data-blank-query.png)
 

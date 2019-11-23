@@ -33,9 +33,9 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하 여 Windo
 - VHD 형식으로 이미지 만들기
  
 
-## <a name="regions"></a>개 지역
+## <a name="regions"></a>Regions
 이러한 지역에서 Azure 이미지 작성기 서비스를 미리 볼 수 있습니다. 이미지는 이러한 영역 외부에 배포할 수 있습니다.
-- 미국 동부
+- East US
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -58,7 +58,7 @@ AIB은 다음에 대 한 소스로 RHEL ISO의를 지원 합니다.
 
 RHEL 7.6 Iso은 지원 되지 않지만 테스트 되 고 있습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 
 ![Azure 이미지 작성기의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -72,9 +72,9 @@ Azure 이미지 작성기는 Azure 리소스 공급자가 액세스할 수 있�
 ![Azure 이미지 작성기 프로세스의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder-process.png)
 
 1. 이미지 템플릿을 json 파일로 만듭니다. 이 json 파일에는 이미지 원본, 사용자 지정 및 배포에 대 한 정보가 포함 되어 있습니다. [Azure 이미지 작성기 GitHub 리포지토리에](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)는 여러 예제가 있습니다.
-1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName >. 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM (D1v2), 네트워크, 공용 IP 및 저장소를 IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName > 리소스 그룹에 만듭니다.
-1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 프로세스에 대해 만들어진 IT_ @ no__t-0DestinationResourceGroup > _ @ no__t-1TemplateName > 리소스 그룹의 추가 리소스를 삭제 합니다.
+1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_\<DestinationResourceGroup > _\<TemplateName > 형식입니다. 
+1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경에서 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹에 VM (D1v2), 네트워크, 공용 IP 및 저장소를 만듭니다.
+1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 프로세스에 대해 만들어진 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹의 추가 리소스를 삭제 합니다.
 
 
 ## <a name="permissions"></a>권한
@@ -98,7 +98,7 @@ az role assignment create \
 ## <a name="costs"></a>비용
 Azure 이미지 작성기를 사용 하 여 이미지를 만들고, 빌드하고, 저장 하는 경우 몇 가지 계산, 네트워킹 및 저장소 비용이 발생 합니다. 이러한 비용은 사용자 지정 이미지를 수동으로 만들 때 발생 하는 비용과 비슷합니다. 리소스의 경우 Azure 요금이 청구 됩니다. 
 
-이미지를 만드는 과정에서 파일은 `IT_<DestinationResourceGroup>_<TemplateName>` 리소스 그룹에 다운로드 되어 저장 되며,이로 인해 저장소 비용이 절감 됩니다. 이러한 내용을 유지 하지 않으려면 이미지를 빌드한 후에 **이미지 템플릿을** 삭제 합니다.
+이미지를 만드는 과정에서 파일은 다운로드 되어 `IT_<DestinationResourceGroup>_<TemplateName>` 리소스 그룹에 저장 되며,이로 인해 저장소 비용이 적게 듭니다. 이러한 내용을 유지 하지 않으려면 이미지를 빌드한 후에 **이미지 템플릿을** 삭제 합니다.
  
 이미지 작성기는 vm에 필요한 D1v2 VM 크기, 저장소 및 네트워킹을 사용 하 여 VM을 만듭니다. 이러한 리소스는 빌드 프로세스가 지속 되는 동안 지속 되며, 이미지 작성기에서 이미지 만들기를 완료 하면 삭제 됩니다. 
  

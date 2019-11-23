@@ -49,7 +49,7 @@ Azure Disk Encryption은 프리미엄 저장소가 있는 Vm에도 사용할 수
 
 ## <a name="networking-requirements"></a>네트워킹 요구 사항
 Azure Disk Encryption를 사용 하도록 설정 하려면 Vm이 다음 네트워크 끝점 구성 요구 사항을 충족 해야 합니다.
-  - 키 자격 증명 모음에 연결 하는 토큰을 가져오려면 Windows VM이 Azure Active Directory 끝점 @no__t microsoftonline @ no__t-1에 연결할 수 있어야 합니다.
+  - 키 자격 증명 모음에 연결 하는 토큰을 가져오려면 Windows VM이 Azure Active Directory 끝점 \[login.microsoftonline.com\]에 연결할 수 있어야 합니다.
   - 키 자격 증명 모음에 암호화 키를 쓰려면 Windows VM에서 키 자격 증명 모음 끝점에 연결할 수 있어야 합니다.
   - Windows VM은 Azure 확장 리포지토리를 호스팅하는 Azure storage 끝점 및 VHD 파일을 호스팅하는 Azure storage 계정에 연결할 수 있어야 합니다.
   -  보안 정책이 Azure VM에서 인터넷으로 액세스를 제한하는 경우 이전 URI를 확인하고 IP에 대한 아웃바운드 연결을 허용하도록 특정 규칙을 구성할 수 있습니다. 자세한 내용은 [방화벽 뒤에 있는 Azure Key Vault](../../key-vault/key-vault-access-behind-firewall.md)를 참조하세요.    
@@ -85,9 +85,9 @@ Azure Disk Encryption에서 디스크 암호화 키와 암호를 제어 하 고 
 
 - [빠른 시작-Azure CLI를 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-cli-quickstart.md)
 - [빠른 시작-Azure Powershell을 사용 하 여 Windows VM 만들기 및 암호화](disk-encryption-powershell-quickstart.md)
-- [Windows Vm에 대 한 Azure Disk Encryption 시나리오](disk-encryption-windows.md)
+- [Windows VM에 대한 Azure Disk Encryption 시나리오](disk-encryption-windows.md)
 - [Azure Disk Encryption 필수 구성 요소 CLI 스크립트](https://github.com/ejarvi/ade-cli-getting-started)
 - [필수 조건 PowerShell 스크립트 Azure Disk Encryption](https://github.com/Azure/azure-powershell/tree/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts)
-- [Azure Disk Encryption 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
+- [Azure Disk Encryption을 위한 키 자격 증명 모음 만들기 및 구성](disk-encryption-key-vault.md)
 
 

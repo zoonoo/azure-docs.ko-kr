@@ -5,7 +5,7 @@ ms.date: 06/24/2019
 ms.topic: conceptual
 ms.openlocfilehash: b29a1a66b7407558769e506deed5e65f7ecb064c
 ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/13/2019
 ms.locfileid: "74037248"
@@ -19,7 +19,7 @@ Azure 청사진 PCI DSS v 3.2.1 청사진 샘플을 배포 하려면 다음 단�
 > - 샘플 사본을 **게시됨**으로 표시
 > - 기존 구독에 청사진 사본 할당
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="create-blueprint-from-sample"></a>샘플에서 청사진 만들기
 

@@ -18,7 +18,7 @@ ms.locfileid: "71329332"
 
 [Azure NetApp Files][anf] 은 Azure에서 실행 되는 엔터프라이즈급의 고성능의 요금제 파일 저장소 서비스입니다. 이 문서에서는 Azure Kubernetes 서비스 (AKS)와 Azure NetApp Files를 통합 하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
 > [!IMPORTANT]
@@ -143,7 +143,7 @@ $ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $AN
 }
 ```
 
-PersistentVolume를 정의 하는 `pv-nfs.yaml`을 만듭니다. @No__t-0을 이전 명령에서 *ipAddress* 를 사용 하 여 *creationToken* 및 `server`로 바꿉니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+PersistentVolume를 정의 하는 `pv-nfs.yaml`을 만듭니다. `path`을 이전 명령의 *ipAddress* 인 *creationToken* 및 `server`으로 바꿉니다. 예를 들어:
 
 ```yaml
 ---
@@ -175,7 +175,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>PersistentVolumeClaim 만들기
 
-PersistentVolume를 정의 하는 `pvc-nfs.yaml`을 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+PersistentVolume를 정의 하는 `pvc-nfs.yaml`을 만듭니다. 예를 들어:
 
 ```yaml
 apiVersion: v1
@@ -205,7 +205,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Pod를 사용 하 여 탑재
 
-PersistentVolumeClaim를 사용 하는 pod를 정의 하는 `nginx-nfs.yaml`을 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+PersistentVolumeClaim를 사용 하는 pod를 정의 하는 `nginx-nfs.yaml`을 만듭니다. 예를 들어:
 
 ```yaml
 kind: Pod
@@ -241,7 +241,7 @@ kubectl apply -f nginx-nfs.yaml
 kubectl describe pod nginx-nfs
 ```
 
-Kubectl exec를 사용 하 여 pod에 연결한 @no__t 후 [exec][kubectl-exec] 를 사용 하 여 볼륨이 탑재 되었는지 확인 합니다.
+[Kubectl exec][kubectl-exec] 를 사용 하 여 pod에 연결 하 여 해당 볼륨이 탑재 되었는지 확인 하 고 `df -h` 하 여 해당 볼륨이 탑재 되었는지 확인 합니다.
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash

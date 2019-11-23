@@ -159,7 +159,7 @@ ms.locfileid: "73824264"
    예, 스토리지 동기화 서비스 및/또는 스토리지 계정은 기존 Azure AD 테넌트 내의 다른 리소스 그룹 또는 구독으로 이동할 수 있습니다. 스토리지 계정이 이동되는 경우 스토리지 계정에 대한 액세스 권한을 하이브리드 파일 동기화 서비스에 부여해야 합니다([Azure 파일 동기화가 스토리지 계정에 액세스할 수 있는지 확인합니다.](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac) 참조).
 
     > [!Note]  
-    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동하는 작업을 지원하지 않습니다.
+    > Azure 파일 동기화는 구독을 다른 Azure AD 테넌트로 이동할 수 없습니다.
     
 * <a id="afs-ntfs-acls"></a>
   **Azure 파일 동기화는 Azure Files에 저장된 데이터와 함께 디렉터리/파일 수준 NTFS ACL을 보존하나요?**
@@ -274,7 +274,7 @@ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 �
 
 * <a id="snapshot-limits"></a>
 **사용할 수 있는 공유 스냅샷 수에 제한이 있나요?**  
-    예. Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 다만 스토리지 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
+    예. Azure Files는 최대 200개의 공유 스냅샷을 유지할 수 있습니다. 공유 스냅샷은 공유 할당량에 포함되지 않으므로 모든 공유 스냅샷에서 사용되는 총 공간에 대한 공유별 제한은 없습니다. 스토리지 계정 제한은 여전히 적용됩니다. 공유 스냅샷이 200개를 넘는 경우 새 공유 스냅샷을 생성하려면 이전 스냅샷을 삭제해야 합니다.
 
 * <a id="snapshot-cost"></a>
 **스냅샷 공유 비용은 얼마나 되나요?**  
@@ -384,7 +384,7 @@ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 �
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  
     IBM은 IBM MQ 고객이 IBM 서비스로 Azure Files를 구성할 수 있도록 돕는 문서를 발표했습니다. 자세한 내용은 [Microsoft Azure 파일 서비스와 IBM MQ 다중 인스턴스 큐 관리자를 설치하는 방법](https://github.com/ibm-messaging/mq-azure/wiki/How-to-setup-IBM-MQ-Multi-instance-queue-manager-with-Microsoft-Azure-File-Service)을 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고 항목:
 * [Windows에서 Azure Files 문제 해결](storage-troubleshoot-windows-file-connection-problems.md)
 * [Linux에서 Azure Files 문제 해결](storage-troubleshoot-linux-file-connection-problems.md)
 * [Azure 파일 동기화 문제 해결](storage-sync-files-troubleshoot.md)

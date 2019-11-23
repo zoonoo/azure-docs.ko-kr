@@ -20,12 +20,12 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 Apache Hive batch 작�
 
 Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는 플랫폼에 Spark & Hive 도구를 설치할 수 있습니다. 다른 플랫폼에 대 한 다음 필수 구성 요소를 확인 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 문서의 단계를 완료하려면 다음 항목이 필요합니다.
 
 - Azure HDInsight 클러스터를 만듭니다. 클러스터를 만들려면 [HDInsight 시작](hadoop/apache-hadoop-linux-create-cluster-get-started-portal.md)을 참조하세요. 또는 Apache Livy 끝점을 지 원하는 Spark 및 Hive 클러스터를 사용 합니다.
-- 및[Visual Studio Code](https://code.visualstudio.com/)가 있습니다.
+- [Visual Studio Code](https://code.visualstudio.com/) -
 - [Mono](https://www.mono-project.com/docs/getting-started/install/). Mono는 Linux 및 macOS에만 필요 합니다.
 - [Visual Studio Code에 대 한 PySpark 대화형 환경](set-up-pyspark-interactive-environment.md)입니다.
 - 로컬 디렉터리입니다. 이 문서에서는 **C:\HD\HDexample**을 사용합니다.
@@ -50,20 +50,20 @@ Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는
 
 작업 폴더를 열고 Visual Studio Code 파일을 만들려면 다음 단계를 수행 합니다.
 
-1. 메뉴 모음에서 **파일** > **폴더 열기** ...로 이동 합니다. @no__t 3**C:\HD\HDexample** **폴더 선택** 단추를 선택 합니다. 왼쪽의 **탐색기** 뷰에 폴더가 나타납니다.
+1. 메뉴 모음에서 **파일** > **폴더 열기** ... > **C:\HD\HDexample**으로 이동한 다음 **폴더 선택** 단추를 선택 합니다. 왼쪽의 **탐색기** 뷰에 폴더가 나타납니다.
 
 2. **탐색기** 보기에서 **hdexample** 대상 폴더를 선택 하 고 작업 폴더 옆의 **새 파일** 아이콘을 선택 합니다.
 
    ![visual studio code 새 파일 아이콘](./media/hdinsight-for-vscode/visual-studio-code-new-file.png)
 
-3. @No__t-0 (Hive 쿼리) 또는 `.py` (Spark 스크립트) 파일 확장명 중 하나를 사용 하 여 새 파일의 이름을로 합니다. 이 예제에서는 **HelloWorld.hql**을 사용합니다.
+3. `.hql` (Hive 쿼리) 또는 `.py` (Spark 스크립트) 파일 확장명 중 하나를 사용 하 여 새 파일의 이름을로 합니다. 이 예제에서는 **HelloWorld.hql**을 사용합니다.
 
 ## <a name="set-the-azure-environment"></a>Azure 환경 설정
 
-국가별 클라우드 사용자의 경우 다음 단계에 따라 먼저 Azure 환경을 설정 하 고 **Azure를 사용 합니다. 로그인 @ no__t-0 명령을 Azure에 로그인 합니다.
+국가별 클라우드 사용자의 경우 다음 단계에 따라 먼저 Azure 환경을 설정 하 고 azure **: 로그인** 명령을 사용 하 여 azure에 로그인 합니다.
 
-1. **File** > **기본 설정** > **설정**으로 이동 합니다.
-2. 다음 문자열을 검색 합니다. **Azure: Cloud @ no__t-0.
+1. **파일** > **기본** 설정 > **설정**으로 이동 합니다.
+2. 다음 문자열을 검색 합니다. **Azure: Cloud**.
 3. 목록에서 국가 클라우드를 선택 합니다.
 
    ![기본 로그인 항목 구성 설정](./media/hdinsight-for-vscode/set-default-login-entry-configuration.png)
@@ -72,7 +72,7 @@ Windows, Linux 및 macOS를 포함 하는 Visual Studio Code에서 지원 되는
 
 Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저 Azure 계정에 연결 하거나 클러스터를 연결 해야 합니다 (Apache Ambari 사용자 이름 및 암호 자격 증명 또는 도메인 가입 계정 사용). Azure에 연결 하려면 다음 단계를 따르세요.
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 **azure를 입력 합니다. 로그인 @ no__t-0:
+1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 고 **Azure: 로그인**을 입력 합니다.
 
     ![Visual Studio Code 로그인에 대 한 Spark & Hive 도구](./media/hdinsight-for-vscode/hdinsight-for-vscode-extension-login.png)
 
@@ -80,11 +80,11 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 ## <a name="link-a-cluster"></a>클러스터 연결
 
-### <a name="link-azure-hdinsight"></a>링크나 Azure HDInsight
+### <a name="link-azure-hdinsight"></a>링크: Azure HDInsight
 
 [Apache Ambari](https://ambari.apache.org/)관리 사용자 이름을 사용 하 여 일반 클러스터를 연결 하거나, 도메인 사용자 이름 (예: `user1@contoso.com`)을 사용 하 여 엔터프라이즈 보안 팩 보안 Hadoop 클러스터를 연결할 수 있습니다.
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 **spark/Hive를 입력 합니다. Link a Cluster**를 입력합니다.
+1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 고 **Spark/Hive: 클러스터 연결**을 입력 합니다.
 
    ![명령 팔레트 링크 클러스터 명령](./media/hdinsight-for-vscode/link-cluster-command.png)
 
@@ -105,13 +105,13 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
    > [!NOTE]  
    > 클러스터가 Azure 구독에 로그인 하 고 클러스터에 연결 된 경우 연결 된 사용자 이름 및 암호가 사용 됩니다.  
 
-### <a name="link-generic-livy-endpoint"></a>링크나 일반 Livy 끝점
+### <a name="link-generic-livy-endpoint"></a>링크: 제네릭 Livy 끝점
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 **spark/Hive를 입력 합니다. Link a Cluster**를 입력합니다.
+1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 고 **Spark/Hive: 클러스터 연결**을 입력 합니다.
 
 2. 연결된 클러스터 유형 **일반 Livy 엔드포인트**를 선택합니다.
 
-3. 제네릭 Livy 끝점을 입력 합니다. 예: http @ no__t-0//10.172.41.42:18080.
+3. 제네릭 Livy 끝점을 입력 합니다. 예: http\://10.172.41.42:18080.
 
 4. 인증 형식 **기본** 또는 **없음**을 선택합니다.  **기본**을 선택 하는 경우:  
     &emsp;a. Ambari 사용자 이름을 입력 합니다. 기본값은 **admin**입니다.  
@@ -121,7 +121,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 ## <a name="list-clusters"></a>클러스터 나열
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 **spark/Hive를 입력 합니다. List Cluster**를 입력합니다.
+1. 메뉴 모음에서 **보기** > **명령 팔레트 ...** 로 이동 하 여 **Spark/Hive: List Cluster**를 입력 합니다.
 
 2. 원하는 구독을 선택 합니다.
 
@@ -135,7 +135,7 @@ Visual Studio Code에서 클러스터에 스크립트를 제출 하려면 먼저
 
 2. [앞](#open-a-work-folder)에서 만든 **hql** 파일을 선택 합니다. 스크립트 편집기에서 열립니다.
 
-3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark/Hive를 선택 합니다. Set Default Cluster**를 선택합니다.  
+3. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark/Hive: 기본 클러스터 설정**을 선택 합니다.  
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
@@ -159,7 +159,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 하 고 **Hive를 선택 합니다. 대화형 @ no__t-0을 사용 하 여 쿼리를 제출 하거나 Ctrl + Alt + I 바로 가기 키를 사용 합니다.  @No__t-0Hive를 선택 합니다. Batch @ no__t-0-스크립트를 제출 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.  
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 하 고 **Hive: Interactive** 를 선택 하 여 쿼리를 제출 하거나 Ctrl + Alt + I 바로 가기 키를 사용 합니다.  **Hive: Batch** 를 선택 하 여 스크립트를 제출 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.  
 
 6. 기본 클러스터를 지정 하지 않은 경우 클러스터를 선택 합니다. 또한이 도구를 사용 하면 상황에 맞는 메뉴를 사용 하 여 전체 스크립트 파일 대신 코드 블록을 제출할 수 있습니다. 잠시 후 쿼리 결과가 새 탭에 나타납니다.
 
@@ -195,7 +195,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark를 선택 합니다. PySpark 대화형 @ no__t-0을 통해 쿼리를 제출 합니다. 또는 Ctrl + Alt + I 바로 가기를 사용 합니다.
+5. 모든 코드를 선택 하 고 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark Interactive** 를 선택 하 여 쿼리를 제출 합니다. 또는 Ctrl + Alt + I 바로 가기를 사용 합니다.
 
    ![pyspark 대화형 상황에 맞는 메뉴](./media/hdinsight-for-vscode/pyspark-interactive-right-click.png)
 
@@ -250,7 +250,7 @@ Visual Studio Code Spark & Hive 도구를 사용 하 여 대화형 Hive 쿼리 �
 
 4. 아직 수행 하지 않은 경우 Azure 계정에 [연결](#connect-to-an-azure-account) 하거나 클러스터를 연결 합니다.
 
-5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark를 선택 합니다. PySpark Batch @ no__t-0을 사용 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.
+5. 스크립트 편집기를 마우스 오른쪽 단추로 클릭 한 다음 **Spark: PySpark Batch**를 선택 하거나 Ctrl + Alt + H 바로 가기 키를 사용 합니다.
 
 6. PySpark 작업을 제출할 클러스터를 선택 합니다.
 
@@ -266,7 +266,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 방법 1  
 1. 메뉴 모음에서 **파일** > **기본 설정** > **설정**으로 이동합니다.
-2. **검색 설정** 상자에 **Hdinsight 작업 제출을 입력 합니다. Livy Conf**를 입력합니다.  
+2. **검색 설정** 상자에 **HDInsight 작업 제출: Livy 회의**를 입력 합니다.  
 3. 관련 검색 결과에 대해 **settings.json에서 편집**을 선택합니다.
 
 방법 2 파일을 제출 합니다. vscode 폴더가 작업 폴더에 자동으로 추가 되는 것을 볼 수 있습니다. Livy 구성은 **.vscode\settings.s**를 선택 하 여 볼 수 있습니다.
@@ -276,36 +276,36 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
     ![HDInsight Apache Livy 구성](./media/hdinsight-for-vscode/hdi-apache-livy-config.png)
 
     >[!NOTE]
-    >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 1g 또는 1024m.
+    >**Drivermemory** 및 **executormemory** 설정에 대해 값과 단위를 설정 합니다. 예: 1g 또는 1024m.
 
 + 지원 되는 Livy 구성:
 
     **사후 배치/일괄 처리** 요청 본문
 
-    | name | description | type |
+    | name | 설명 | type |
     | :- | :- | :- |
-    | files | 실행할 애플리케이션을 포함하는 파일 | Path (필수) |
+    | file | 실행할 애플리케이션을 포함하는 파일 | Path (필수) |
     | proxyUser | 작업을 실행할 때 가장하는 사용자 | 문자열 |
     | className | 애플리케이션 Java/Spark 주 클래스 | 문자열 |
     | args | 응용 프로그램에 대 한 명령줄 인수 | 문자열 목록 |
-    | jars | 이 세션에서 사용할 jar | 문자열 목록 | 
+    | ./jars | 이 세션에서 사용할 jar | 문자열 목록 | 
     | pyFiles | 이 세션에 사용할 Python 파일 | 문자열 목록 |
-    | files | 이 세션에 사용할 파일입니다. | 문자열 목록 |
+    | 업로드 | 이 세션에 사용할 파일입니다. | 문자열 목록 |
     | driverMemory | 드라이버 프로세스에 사용할 메모리의 양 | 문자열 |
-    | driverCores | 드라이버 프로세스에 사용할 코어 수 | Int |
+    | driverCores | 드라이버 프로세스에 사용할 코어 수 | int |
     | executorMemory | 실행기 프로세스당 사용할 메모리의 양 | 문자열 |
-    | executorCores | 각 실행기에 사용할 코어 수 | Int |
-    | numExecutors | 이 세션에 대해 시작할 실행기 수 | Int |
-    | archives | 이 세션에 사용할 아카이브 | 문자열 목록 |
-    | queue | 제출할 YARN 큐의 이름입니다.| 문자열 |
+    | executorCores | 각 실행기에 사용할 코어 수 | int |
+    | numExecutors | 이 세션에 대해 시작할 실행기 수 | int |
+    | 아카이브 | 이 세션에 사용할 아카이브 | 문자열 목록 |
+    | 큐 | 제출할 YARN 큐의 이름입니다.| 문자열 |
     | name | 이 세션의 이름 | 문자열 |
     | conf | Spark 구성 속성 | key=val의 맵 |
 
     응답 본문 생성 된 일괄 처리 개체입니다.
 
-    | name | description | type |
+    | name | 설명 | type |
     | :- | :- | :- |
-    | id | 세션 ID | Int |
+    | id | 세션 ID | int |
     | appId | 이 세션의 응용 프로그램 id | 문자열 |
     | appInfo | 자세한 응용 프로그램 정보 | key=val의 맵 |
     | log | 로그 줄 | 문자열 목록 |
@@ -322,7 +322,7 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
 
 2. 맨 왼쪽 열에서 **Azure** 아이콘을 선택 합니다.
 
-3. 왼쪽 창에서 **AZURE를 확장 합니다. HDINSIGHT @ NO__T-0 사용 가능한 구독과 클러스터가 나열 됩니다.
+3. 왼쪽 창에서 **AZURE: HDINSIGHT**를 확장 합니다. 사용 가능한 구독과 클러스터가 나열 됩니다.
 
 4. 클러스터를 확장 하 여 Hive 메타 데이터 데이터베이스 및 테이블 스키마를 확인 합니다.
 
@@ -339,8 +339,8 @@ Python 작업을 제출한 후 전송 로그가 Visual Studio Code의 **출력**
    전체 결과를 CSV, JSON 또는 Excel 파일로 로컬 경로에 저장 하거나 여러 줄을 선택할 수 있습니다.
 
 - 메시지 패널
-   1. 테이블의 행 수가 100 보다 큰 경우 다음 메시지가 표시 됩니다. "Hive 테이블에 대해 처음 100 행이 표시 됩니다."
-   2. 테이블의 행 수가 100 보다 작거나 같으면 다음과 같은 메시지가 표시 됩니다. 60 "Hive 테이블에 대해 행이 표시 됩니다."
+   1. 테이블의 행 수가 100 보다 큰 경우 "Hive 테이블에 대해 첫 번째 100 행이 표시 됩니다." 라는 메시지가 표시 됩니다.
+   2. 테이블의 행 수가 100 보다 작거나 같으면 다음과 같은 메시지가 표시 됩니다. "Hive 테이블에 대해 60 행이 표시 됩니다."
    3. 테이블에 내용이 없는 경우 다음 메시지가 표시 됩니다. "Hive 테이블에 대해 0 개의 행이 표시 됩니다."
 
         >[!NOTE]
@@ -385,7 +385,7 @@ HDInsight 클러스터에 작업을 제출 하는 경우 클러스터에 대 한
 
   > [!NOTE]
   >
-  >@No__t-0을 사용 하 여 연결 된 클러스터를 확인할 수 있습니다.
+  >`Spark / Hive: List Cluster`를 사용 하 여 연결 된 클러스터를 확인할 수 있습니다.
   >
   >![연결 된 Visual Studio Code 판독기 용 Spark & Hive 도구](./media/hdinsight-for-vscode/list-cluster-result1.png)
 
@@ -407,7 +407,7 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 
 ## <a name="unlink-cluster"></a>클러스터 링크 해제
 
-1. 메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 **spark/Hive를 입력 합니다. Unlink a Cluster**를 입력합니다.  
+1. 메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 **Spark/Hive: 클러스터 연결 해제**를 입력 합니다.  
 
 2. 연결을 끊을 클러스터를 선택 합니다.  
 
@@ -415,7 +415,7 @@ Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터에 작업을 제
 
 ## <a name="sign-out"></a>로그아웃  
 
-메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 **azure를 입력 합니다. 로그 아웃 @ no__t-0.
+메뉴 모음에서 **보기** > **명령 팔레트**로 이동한 다음 **Azure: 로그 아웃**을 입력 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
