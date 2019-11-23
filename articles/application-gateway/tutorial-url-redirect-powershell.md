@@ -1,18 +1,18 @@
 ---
-title: URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure PowerShell
+title: PowerShell을 사용한 URL 경로 기반 리디렉션 - Azure Application Gateway
 description: Azure PowerShell을 사용하여 URL 경로 기반 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
-ms.date: 4/3/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.topic: tutorial
-ms.openlocfilehash: 6a73cbe9ef2302a8195f67b645a3e48b7ee6b1f2
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 04cd390681d0492dc28308c3304753a6ecaf1c3c
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67618878"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74047604"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Azure PowerShell을 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 

@@ -1,22 +1,21 @@
 ---
-title: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정 | Microsoft Docs
-description: Azure Portal에서 IoT Hub 자동 디바이스 프로비전
+title: '자습서: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정'
+description: '자습서: IoT Hub Device DPS(Provisioning Service)를 사용하여 [Azure Portal](https://portal.azure.com)에서 디바이스 프로비저닝을 위한 클라우드 리소스 설정'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 41689b7596c9da350a9e0fec619e49d332a36d5b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826189"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112800"
 ---
-# <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
+# <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
 
 이 자습서에서는 IoT Hub Device Provisioning Service를 사용하여 자동 디바이스 프로비전을 위해 클라우드를 설정하는 방법을 보여줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -48,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    | ------------ | ------------------ | ------------------------------------------------- | 
    | **Name** | 고유한 이름 | -- | 
    | **구독** | 사용자의 구독  | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
-   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+   | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
    | **위치** | 유효한 위치 | 지역에 대한 자세한 내용은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. |   
 
    ![포털에서 Device Provisioning Service에 대한 기본 정보 입력](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)

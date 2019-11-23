@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 25846bb7a19d29a3a72146d4046b5205183a247e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720855"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132573"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -257,6 +257,16 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
     ```
 
 1. F5 키를 선택하여 애플리케이션을 실행합니다.
+
+   > [!NOTE]
+   > "503 서비스를 사용할 수 없는 예외"가 표시되면 직접 모드에 필요한 [포트](performance-tips.md#networking)가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 필요한 [포트](performance-tips.md#networking)를 열거나 아래와 같이 게이트웨이 모드를 사용합니다.
+   ```csharp
+     // Create a new instance of the Cosmos Client in Gateway mode
+     this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()
+            {
+                ConnectionMode = ConnectionMode.Gateway
+            });
+   ```
 
 축하합니다! Azure Cosmos 데이터베이스가 성공적으로 만들어졌습니다.  
 

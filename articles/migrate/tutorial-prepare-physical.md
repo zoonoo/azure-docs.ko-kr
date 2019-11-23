@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/07/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: df425f723aa6a5e261ed6dcd15abfe87b367ad68
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747963"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091911"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
@@ -99,25 +99,25 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 
 ### <a name="verify-physical-server-settings"></a>물리적 서버 설정 확인
 
-1. 서버 평가에 대한 [물리적 서버 요구 사항](migrate-support-matrix-hyper-v.md#assessment-hyper-v-host-requirements)을 확인합니다.
-2. 물리적 서버에서 [필요한 포트](migrate-support-matrix-hyper-v.md#assessment-port-requirements)가 열려 있는지 확인합니다.
+1. 서버 평가에 대한 [물리적 서버 요구 사항](migrate-support-matrix-physical.md#assessment-physical-server-requirements)을 확인합니다.
+2. 물리적 서버에서 [필요한 포트](migrate-support-matrix-physical.md#assessment-port-requirements)가 열려 있는지 확인합니다.
 
 
 ### <a name="verify-appliance-settings"></a>어플라이언스 설정 확인
 
 Azure Migrate 어플라이언스를 설정하고 다음 자습서에서 평가를 시작하기 전에 어플라이언스 배포를 준비합니다.
 
-1. 어플라이언스 요구 사항을 [확인](migrate-support-matrix-hyper-v.md#assessment-appliance-requirements)합니다.
-2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-hyper-v.md#assessment-appliance-url-access)합니다.
+1. 어플라이언스 요구 사항을 [확인](migrate-support-matrix-physical.md#assessment-appliance-requirements)합니다.
+2. 어플라이언스에서 액세스해야 하는 Azure URL을 [검토](migrate-support-matrix-physical.md#assessment-appliance-url-access)합니다.
 3. 검색 및 평가 중에 어플라이언스가 수집할 데이터를 검토합니다.
-4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-hyper-v.md#assessment-port-requirements)하세요.
+4. 어플라이언스에 대한 포트 액세스 요구 사항에 [유의](migrate-support-matrix-physical.md#assessment-port-requirements)하세요.
 
 
 ### <a name="set-up-an-account-for-physical-server-discovery"></a>물리적 서버 검색을 위한 계정 설정
 
 Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 필요합니다.
 
-- **Windows:** 검색에 포함하려는 모든 Windows 서버에 로컬 사용자 계정을 설정합니다. 다음 그룹에 사용자 계정을 추가해야 합니다.       - Remote Desktop Users       - Performance Monitor Users       - Performance Log users
+- **Windows:** 검색에 포함하려는 모든 Windows 서버에 로컬 사용자 계정을 설정합니다. 다음 그룹에 사용자 계정을 추가해야 합니다.       - Remote Management Users       - Performance Monitor Users       - Performance Log users
 - **Linux:** 검색하려는 Linux 서버의 루트 계정이 필요합니다.
 
 

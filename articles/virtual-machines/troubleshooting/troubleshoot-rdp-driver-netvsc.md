@@ -21,7 +21,7 @@ ms.locfileid: "71057981"
 ---
 # <a name="cannot-connect-remotely-to-a-windows-10-or-windows-server-2016-vm-in-azure-because-of-netvscsys"></a>netvsc.sys로 인해 Windows 10 또는 Azure의 Windows Server 2016 VM에 원격으로 연결할 수 없습니다.
 
-이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크가 연결되지 않는 문제를 해결하는 방법을 설명합니다.
+이 문서에서는 Hyper-V Server 2016 호스트에서 Windows 10 또는 Windows Server 2016 Datacenter VM(가상 머신)에 연결할 때 네트워크 연결이 없는 문제를 해결하는 방법을 설명합니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -34,7 +34,7 @@ ms.locfileid: "71057981"
 이 문제는 설치된 netvsc.sys 시스템 파일의 버전이 **10.0.14393.594** 또는 **10.0.15063.0**일 때 발생할 수 있습니다. 이러한 버전의 netvsc.sys는 시스템이 Azure 플랫폼과 상호 작용하지 못하게 할 수 있습니다.
 
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 다음 단계를 따르기 전에 영향을 받는 VM의 [시스템 디스크 스냅샷을 백업으로 만듭니다](../windows/snapshot-copy-managed-disk.md). 이 문제를 해결하려면 직렬 콘솔을 사용하거나 VM의 시스템 디스크를 복구 VM에 연결하여 [오프라인으로 VM을 복구](#repair-the-vm-offline)합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "71057981"
 
 2. 동일한 지역에서 작동하는 VM에 연결된 새 데이터 디스크 또는 기존 데이터 디스크에 적절한 업데이트를 다운로드합니다.
 
-   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상 업데이트
+   - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)  이상 업데이트
    - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상 업데이트
 
 3. 작동하는 VM에서 유틸리티 디스크를 분리하고 손상된 VM에 연결합니다.
@@ -69,7 +69,7 @@ ms.locfileid: "71057981"
 
 ### <a name="repair-the-vm-offline"></a>오프라인으로 VM 복구
 
-1. [복구 VM에 OS 디스크를 연결합니다](../windows/troubleshoot-recovery-disks-portal.md).
+1. [복구 VM에 시스템 디스크 연결](../windows/troubleshoot-recovery-disks-portal.md)
 
 2. 복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "71057981"
 
 12. 적절한 업데이트를 다운로드합니다.
 
-    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562) 이상 업데이트
+    - **10.0.14393.594**: [KB4073562](https://support.microsoft.com/help/4073562)  이상 업데이트
     - **10.0.15063.0**: [KB4016240](https://support.microsoft.com/help/4016240) 이상 업데이트
 
 13. 시스템 디스크를 업데이트를 다운로드할 수 있는 복구 VM에 데이터 디스크로 연결합니다.
@@ -116,6 +116,6 @@ ms.locfileid: "71057981"
 
 16. [시스템 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md).
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원 문의
+## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원 문의
 
 추가 도움이 필요한 경우 [Azure 지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

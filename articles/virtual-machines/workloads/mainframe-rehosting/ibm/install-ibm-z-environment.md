@@ -39,7 +39,7 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 이 문서에서는 Azure에서 Z 개발 및 테스트 환경 (zD & T) Enterprise Edition을 설정 하는 방법을 보여 줍니다. 그런 다음 zD & T Enterprise Edition 웹 서버를 사용 하 여 Azure에서 Z 기반 환경을 만들고 관리할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 > [!NOTE]
 > IBM에서는 zD & T Enterprise Edition을 개발/테스트 환경에만 설치할 수 있으며 프로덕션 환경에서는 설치할 수*없습니다* .
@@ -62,11 +62,11 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 3. **연결** 단추를 통해 VM의 **개요** 블레이드에 표시 된 SSH 자격 증명을 가져옵니다. **Ssh** 탭을 선택 하 고 ssh logon 명령을 클립보드에 복사 합니다.
 
-4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. **Ssh @ no__t-1 사용자 id @ no__t-2 @ no__t-3 @ no__t-4IP 주소 @ no__t-5**형식으로 됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
+4. 로컬 PC에서 [Bash 셸에](/azure/cloud-shell/quickstart) 로그온 하 여 명령을 붙여넣습니다. **Ssh\<사용자 id\>\@\<IP 주소\>** 형식으로 됩니다. 자격 증명을 입력 하 라는 메시지가 표시 되 면 해당 자격 증명을 입력 하 여 홈 디렉터리에 대 한 연결을 설정 합니다.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>서버에 설치 파일을 복사 합니다.
 
-웹 서버의 설치 파일은 **Zdt @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**입니다. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
+웹 서버의 설치 파일은 **Zdt\_설치\_EE\_v 12.0.0.1. tgz**. IBM에서 제공 하는 미디어에 포함 되어 있습니다. Ubuntu VM에이 파일을 업로드 해야 합니다.
 
 1. 명령줄에서 다음 명령을 입력 하 여 새로 만든 이미지에서 모든 항목이 최신 상태 인지 확인 합니다.
 
@@ -91,7 +91,7 @@ ZD & T의 모든 버전은 Windows Server가 아닌 x86 Linux 시스템 에서�
 
 ## <a name="install-the-enterprise-edition"></a>Enterprise Edition 설치
 
-1. 다음 명령을 사용 하 여 ZDT 디렉터리로 이동 하 고 ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz 파일의 압축을 해제 합니다.
+1. 다음 명령을 사용 하 여 ZDT 디렉터리로 이동 하 고 ZDT\_압축을 풀고\_EE\_V 12.0.0.1. tgz 파일을 설치 합니다.
 
     ```
     cd ZDT

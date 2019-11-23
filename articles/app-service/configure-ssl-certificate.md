@@ -13,12 +13,12 @@ ms.date: 10/25/2019
 ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 12b8d6dff571c074d1f1422f75e33a8b12761bd9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 48c8390eff52466d11f781447c448d04ba567f31
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572147"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907129"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
 
@@ -68,6 +68,10 @@ SSL 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 - 와일드카드 인증서를 지원하지 않습니다.
 - 네이키드 도메인을 지원하지 않습니다.
 - 내보낼 수 없습니다.
+
+> [!NOTE]
+> 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.
+> 
 
 무료 App Service Managed Certificate를 만드는 방법은 다음과 같습니다.
 
@@ -344,7 +348,7 @@ az keyvault secret download \
     --encoding base64
 ```
 
-다운로드한 *appservicecertificate.pfx* 파일은 공용 인증서와 프라이빗 인증서를 모두 포함하는 원시 PKCS12 파일입니다. 메시지가 표시될 때마다 가져오기 암호와 PEM 암호는 빈 문자열입니다.
+다운로드한 *appservicecertificate.pfx* 파일은 공용 인증서와 프라이빗 인증서를 모두 포함하는 원시 PKCS12 파일입니다. 각 프롬프트에서 가져오기 암호 및 PEM 전달 구에 빈 문자열을 사용합니다.
 
 ### <a name="delete-certificate"></a>인증서 삭제 
 

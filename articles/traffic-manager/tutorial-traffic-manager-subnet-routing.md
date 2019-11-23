@@ -1,5 +1,5 @@
 ---
-title: Azure Traffic Manager를 사용하여 서브넷 트래픽을 라우팅하는 방법 구성
+title: '자습서: 서브넷 트래픽 라우팅 구성 - Azure Traffic Manager'
 description: 이 문서에서는 사용자 서브넷에서 특정 엔드포인트로 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: allensu
-ms.openlocfilehash: da2d4816f3f7a99ac2d213d72d7e801cf630e165
-ms.sourcegitcommit: 009334a842d08b1c83ee183b5830092e067f4374
+ms.openlocfilehash: c2fbb4a85347c8ee68376069474add865cc06c43
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/29/2019
-ms.locfileid: "66304942"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048820"
 ---
-# <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
+# <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
 
 이 문서에서는 서브넷 트래픽 라우팅 방법을 구성하는 방법을 설명합니다. **서브넷** 트래픽 라우팅 방법을 사용하면 일련의 IP 주소 범위를 특정 엔드포인트에 매핑할 수 있으며 Traffic Manager가 요청을 받으면 요청의 원본 IP를 검사하고 해당 요청과 연결된 엔드포인트를 반환합니다.
 
@@ -47,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
@@ -156,8 +156,8 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     | ---                     | ---                                                |
     | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **서브넷** 라우팅 방법을 선택합니다.                                       |
-    | 구독            | 구독을 선택합니다.                          |
-    | 리소스 그룹          | **기존**을 선택하고, *myResourceGroupTM1*을 입력합니다. |
+    | Subscription            | 구독을 선택합니다.                          |
+    | Resource group          | **기존**을 선택하고, *myResourceGroupTM1*을 입력합니다. |
     | |                              |
     |
 

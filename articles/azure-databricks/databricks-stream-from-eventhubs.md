@@ -10,17 +10,14 @@ ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/23/2019
 ms.author: alehall
-ms.openlocfilehash: 0ea85e60a84b540af2c772f81326dd8c45f61d4d
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 2e6bfa9188034c602660eaff34bf86ea711dc7b3
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72784014"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121268"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>자습서: Event Hubs를 사용하여 Azure Databricks로 데이터 스트리밍
-
-> [!IMPORTANT]
-> 이 자습서는 Azure Databricks 런타임 5.2 버전에서 작동합니다.
 
 이 자습서에서는 데이터 수집 시스템을 Azure Databricks와 연결하여 데이터를 거의 실시간으로 Apache Spark 클러스터로 스트리밍합니다. Azure Event Hubs를 사용하여 데이터 수집 시스템을 설정한 다음, Azure Databricks에 연결하여 들어오는 메시지를 처리합니다. 데이터 스트림에 액세스하려면 Twitter API를 사용하여 트윗을 Event Hubs로 수집합니다. Azure Databricks에 데이터가 있으면 분석 작업을 실행하여 데이터를 자세히 분석할 수 있습니다.
 
@@ -104,10 +101,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     다음 항목 이외의 다른 모든 기본값을 허용합니다.
 
    * 클러스터의 이름을 입력합니다.
-   * 이 문서에서는 **5.2** 런타임을 사용하여 클러스터를 만듭니다.
+   * 이 문서에서는 **6.0* 런타임을 사용하여 클러스터를 만듭니다.
    * **비활성 \_\_분 후 종료** 확인란을 선택했는지 확인합니다. 클러스터를 사용하지 않는 경우 클러스터를 종료하는 기간(분)을 제공합니다.
 
-   기술 조건 및 [예산](https://azure.microsoft.com/en-us/pricing/details/databricks/)에 적합한 클러스터 작업자 및 드라이버 노드 크기를 선택합니다.
+   기술 조건 및 [예산](https://azure.microsoft.com/pricing/details/databricks/)에 적합한 클러스터 작업자 및 드라이버 노드 크기를 선택합니다.
 
      **클러스터 만들기**를 선택합니다. 클러스터가 실행되면 노트북을 클러스터에 첨부하고 Spark 작업을 실행할 수 있습니다.
 

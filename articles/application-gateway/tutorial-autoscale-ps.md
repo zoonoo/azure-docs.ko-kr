@@ -1,19 +1,19 @@
 ---
-title: '자습서: 예약된 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이 만들기 - Azure PowerShell'
+title: '자습서: 웹 애플리케이션 액세스 향상 - Azure Application Gateway'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 예약된 IP 주소로 자동 크기 조정, 영역 중복 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 2/14/2019
+ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8ee43a54df019b862d1f8698363d8b0a022bdcb4
-ms.sourcegitcommit: ed66a704d8e2990df8aa160921b9b69d65c1d887
+ms.openlocfilehash: e07fc34c7177e3a1dace34ab298b64dc3aa6a06a
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64947137"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74011357"
 ---
 # <a name="tutorial-create-an-application-gateway-that-improves-web-application-access"></a>자습서: 웹 애플리케이션 액세스를 향상시키는 애플리케이션 게이트웨이 만들기
 

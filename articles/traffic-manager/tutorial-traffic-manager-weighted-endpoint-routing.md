@@ -1,5 +1,5 @@
 ---
-title: 자습서 -가중 엔드포인트로 트래픽 라우팅 - Azure Traffic Manager
+title: '자습서: 가중 엔드포인트로 트래픽 라우팅 - Azure Traffic Manager'
 description: 이 자습서 문서에서는 Traffic Manager를 사용하여 가중 엔드포인트로 트래픽을 라우팅하는 방법에 대해 설명합니다.
 services: traffic-manager
 author: asudbring
@@ -8,12 +8,12 @@ ms.service: traffic-manager
 ms.topic: tutorial
 ms.date: 10/15/2018
 ms.author: allensu
-ms.openlocfilehash: f9e2b6f6a45279c52e19a63509c57fb34e739330
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 45ece08599722e04c4e6799fa5c3589cba1fca42
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258383"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037926"
 ---
 # <a name="tutorial-control-traffic-routing-with-weighted-endpoints-by-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 가중 엔드포인트에서 트래픽 라우팅 제어
 
@@ -141,8 +141,8 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     | ---                     | ---                                                |
     | Name                   | trafficmanager.net 영역 내에서 고유한 이름을 입력합니다. 이는 Traffic Manager 프로필에 액세스하는 데 사용되는 DNS 이름 trafficmanager.net이 됩니다.                                   |
     | 라우팅 방법          | **가중** 라우팅 방법을 선택합니다.                                       |
-    | 구독            | 구독을 선택합니다.                          |
-    | 리소스 그룹          | **기존 항목 사용**을 선택한 다음, **myResourceGroupTM1**을 선택합니다. |
+    | Subscription            | 구독을 선택합니다.                          |
+    | Resource group          | **기존 항목 사용**을 선택한 다음, **myResourceGroupTM1**을 선택합니다. |
     |        |   |
 
     ![Traffic Manager 프로필 만들기](./media/tutorial-traffic-manager-weighted-endpoint-routing/create-traffic-manager-profile.png)

@@ -1,5 +1,5 @@
 ---
-title: 일반화된 VHD를 Azure PowerShell 스크립트 샘플에 업로드 | Microsoft Docs
+title: 일반화된 VHD를 Azure PowerShell 스크립트 샘플에 업로드
 description: 리소스 관리자 배포 모델과 Managed Disks를 사용하여 Azure에 일반화된 VHD를 업로드하고 새 VM을 만드는 PowerShell 샘플 스크립트입니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 01/02/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: bd1be056576275194a013671cf0aae1f7855df69
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f2c739d90917bd00bbde5d680a20a18271a581cc
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749712"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038895"
 ---
 # <a name="sample-script-to-upload-a-vhd-to-azure-and-create-a-new-vm"></a>Azure에 VHD를 업로드하고 새 VM을 만드는 샘플 스크립트
 

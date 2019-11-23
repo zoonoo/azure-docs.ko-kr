@@ -1,37 +1,35 @@
 ---
-title: Terraform에 대한 Azure Cloud Shell 구성
+title: 자습서 - Terraform에 대한 Azure Cloud Shell 구성
 description: Azure Cloud Shell로 Terraform을 사용하여 인증 및 템플릿 구성을 간소합니다.
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 확장 집합, 가상 머신, 네트워크, 스토리지, 모듈
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: e0a59697a3e4da97cf082c4c771fe93ad33b6035
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 10/26/2019
+ms.openlocfilehash: 1259d5004bd547e33f65571333b6d0721d1253c0
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173547"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74078718"
 ---
-# <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell 개발 
+# <a name="tutorial-configure-azure-cloud-shell-for-terraform"></a>자습서: Terraform에 대한 Azure Cloud Shell 구성
 
-Terraform은 macOS 터미널이나 Windows 또는 Linux의 Bash와 같은 Bash 명령줄에서 원활하게 작동합니다. [Azure Cloud Shell](/azure/cloud-shell/overview)의 Bash 환경에서 Terraform 구성을 실행하면 개발 주기를 단축할 수 있는 몇 가지 고유한 장점이 있습니다.
-
-이 개념 문서에서는 Azure에 배포하는 Terraform 스크립트를 작성하는 데 도움이 되는 Cloud Shell 기능에 대해 설명합니다.
+Terraform은 macOS, Windows 또는 Linux의 Bash 명령줄에서 잘 작동합니다. [Azure Cloud Shell](/azure/cloud-shell/overview)의 Bash 환경에서 Terraform 구성을 실행하면 몇 가지 고유한 장점이 있습니다. 이 자습서에서는 Cloud Shell를 사용하여 Azure에 배포하는 Terraform 스크립트를 작성하는 방법을 보여 줍니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
 ## <a name="automatic-credential-configuration"></a>자동 자격 증명 구성
 
-Terraform이 설치되면 Cloud Shell에서 즉시 사용할 수 있습니다. Terraform 스크립트는 추가 구성없이 인프라를 관리하기 위해 Cloud Shell에 로그인할 때 Azure로 인증합니다. 자동 인증을 사용하면 수동으로 Active Directory 서비스 주체를 만들고 Azure Terraform 공급자 변수를 구성할 필요가 없습니다.
+Terraform이 설치되면 Cloud Shell에서 즉시 사용할 수 있습니다. Terraform 스크립트는 추가 구성없이 인프라를 관리하기 위해 Cloud Shell에 로그인할 때 Azure로 인증합니다. 자동 인증은 다음과 같은 두 가지 수동 프로세스를 무시합니다.
+- Azure Active Directory 서비스 주체 만들기
+- Azure Terraform 공급자 변수 구성
 
 
-## <a name="using-modules-and-providers"></a>모듈 및 공급자 사용
+## <a name="use-modules-and-providers"></a>모듈 및 공급자 사용
 
-Azure Terraform 모듈이 Azure 구독에 있는 리소스에 액세스하고 변경하려면 자격 증명이 필요합니다. Cloud Shell에서 작업할 때 다음 코드를 스크립트에 추가하여 Cloud Shell에서 Azure Terraform 모듈을 사용하십시오.
+Azure Terraform 모듈에는 Azure 리소스에 액세스하고 수정하기 위한 자격 증명이 필요합니다. Cloud Shell에서 Terraform 모듈을 사용하려면 다음 코드를 추가합니다.
+
 
 ```hcl
 # Configure the Microsoft Azure Provider
@@ -50,5 +48,5 @@ Azure CLI는 Cloud Shell에서 사용할 수 있으며 `terraform apply` 또는 
 
 ## <a name="next-steps"></a>다음 단계
 
-[모듈 레지스트리를 사용하여 작은 VM 클러스터 만들기](terraform-create-vm-cluster-module.md)
-[사용자 지정 HCL 사용하여 작은 VM 클러스터 만들기](terraform-create-vm-cluster-with-infrastructure.md)
+> [!div class="nextstepaction"]
+> [모듈 레지스트리를 사용하여 작은 VM 클러스터 만들기](terraform-create-vm-cluster-module.md)

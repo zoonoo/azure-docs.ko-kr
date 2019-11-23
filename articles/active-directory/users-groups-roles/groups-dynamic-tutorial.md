@@ -1,26 +1,25 @@
 ---
-title: 동적 그룹 구성원 사용자 추가 또는 제거 - 자습서 - Azure Active Directory
+title: 동적 그룹에 사용자 추가 - 자습서 - Azure AD | Microsoft Docs
 description: 이 자습서에서는 사용자 멤버 자격 규칙과 함께 그룹을 사용하여 자동을 사용자를 추가 또는 제거합니다.
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
-editor: ''
+manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: tutorial
-ms.date: 03/18/2019
+ms.date: 11/08/2019
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1429841ca1376d67c7372f36bd35694afd4cd7ce
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 382f3b59142aee7ddfbec4aceb153a174874ac1a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71102638"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74027101"
 ---
 # <a name="tutorial-add-or-remove-group-members-automatically"></a>자습서: 자동으로 그룹 구성원 추가 또는 제거
 

@@ -1,19 +1,18 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 Azure Government와 공용 Azure 지역 간에 Azure IaaS VM 이동 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure Government와 공용 Azure 지역 간에 Azure IaaS VM을 이동합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 정부와 공용 지역 간에 Azure VM 이동
+description: Azure Site Recovery를 사용하여 Azure 정부와 공용 지역 간에 Azure VM을 이동합니다.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: bff6268507c0d2ec0aa1eac0c7e2e9d2513ded58
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 2a749e9345fec0e91751641cd15805d7f7d62d95
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376134"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73961405"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 

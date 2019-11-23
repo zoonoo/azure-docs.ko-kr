@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Ansible을 사용하여 Azure에서 Linux 가상 머신 구성 | Microsoft Docs
+title: 빠른 시작 - Ansible을 사용하여 Azure에서 Linux 가상 머신 구성
 description: 이 빠른 시작에서는 Ansible을 사용하여 Azure에서 Linux 가상 머신을 만드는 방법을 알아봅니다.
 keywords: ansible, azure, devops, 가상 머신
 ms.topic: tutorial
@@ -8,12 +8,12 @@ author: tomarchermsft
 manager: gwallace
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 32d4486138f21bd99c3d75ee72ae5dd0df667e41
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 325b581910bc343f57a2da00ab3ed6e447c1e9e3
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67668638"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74037084"
 ---
 # <a name="quickstart-configure-linux-virtual-machines-in-azure-using-ansible"></a>빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성
 

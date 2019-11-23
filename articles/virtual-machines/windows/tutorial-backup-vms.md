@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Portal에서 Windows 가상 머신 백업 | Microsoft Docs
+title: 자습서 - Azure Portal에서 Windows 가상 머신 백업
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Backup으로 Windows 가상 머신을 보호하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8eaa96dd92ab0f18b590b284d59dd7b775738602
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 603bffe3d28214dbdcd51888925c3c653d0759e7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101729"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068175"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-windows-virtual-machines-in-azure"></a>자습서: Azure의 Windows 가상 머신을 위한 파일 백업 및 복원
 

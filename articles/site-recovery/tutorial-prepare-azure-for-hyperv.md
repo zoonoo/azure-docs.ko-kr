@@ -1,21 +1,21 @@
 ---
-title: 온-프레미스 재해 복구를 위한 Azure 리소스 준비
+title: Azure Site Recovery를 사용하여 Hyper-V 재해 복구를 위한 Azure 준비
 description: Azure Site Recovery를 사용하여 온-프레미스 Hyper-V VM 재해 복구를 위해 Azure를 준비하는 방법 알아보기
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 6064c32e14ffba7edd51c2dae7787067d14e33c9
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: ef623b95e104b485c6bfc8b2f489afeca436d81e
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814342"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084184"
 ---
-# <a name="prepare-azure-resources-for-disaster-recovery-of-on-premises-machines"></a>온-프레미스 재해 복구를 위한 Azure 리소스 준비
+# <a name="prepare-azure-resources-for-hyper-v-disaster-recovery"></a>Hyper-V 재해 복구를 위한 Azure 리소스 준비
 
  [Azure Site Recovery](site-recovery-overview.md)는 계획적 및 비계획적 작동 중단 동안 비즈니스 앱이 계속 실행되도록 하여 BCDR(비즈니스 연속성 및 재해 복구)를 지원합니다. Site Recovery는 복제, 장애 조치(failover), 복구를 포함하여 온-프레미스 컴퓨터 및 Azure VM(Virtual Machines)의 재해 복구를 오케스트레이션합니다.
 

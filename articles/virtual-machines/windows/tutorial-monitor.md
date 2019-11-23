@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Windows 가상 머신 모니터링 | Microsoft Docs
+title: 자습서 - Azure에서 Windows 가상 머신 모니터링
 description: 이 자습서에서는 Windows 가상 머신에서 실행되는 성능 및 검색된 애플리케이션 구성 요소를 모니터링하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2018
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: a2f4083841c801db3edf1b2838b8d3271b700731
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9e807927a10399b02c2c89359c2ffffaf87ba57b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679336"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112495"
 ---
 # <a name="tutorial-monitor-a-windows-virtual-machine-in-azure"></a>자습서: Azure에서 Windows 가상 머신 모니터링
 
@@ -91,7 +91,7 @@ VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 
 
 3. **인사이트(미리 보기)** 페이지에서 **지금 시도해 보기**를 선택합니다.
 
-    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. **Azure Monitor Insights 등록** 페이지에서 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
 

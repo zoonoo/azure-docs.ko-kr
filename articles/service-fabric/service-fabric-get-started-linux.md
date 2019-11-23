@@ -29,14 +29,14 @@ ms.locfileid: "72170615"
 >
 >  
 
-Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md)을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
+Linux 개발 컴퓨터에서 [Azure Service Fabric 애플리케이션](service-fabric-application-model.md) 을 배포하고 실행하려면 런타임 및 일반적인 SDK를 설치해야 합니다. 또한 Java 및 .NET Core 배포에 선택적 SDK를 설치할 수 있습니다. 
 
 이 문서의 단계에서는 기본적으로 Linux에 설치하거나 Service Fabric OneBox 컨테이너 이미지 `microsoft/service-fabric-onebox`를 사용한다고 가정합니다.
 
 Linux용 Windows 하위 시스템에 Service Fabric 런타임 및 SDK를 설치하는 것은 지원되지 않습니다. 지원되는 Azure Service Fabric CLI(명령줄 인터페이스)를 사용하여 클라우드 또는 온-프레미스의 다른 곳에서 호스팅된 Service Fabric 엔터티를 관리할 수 있습니다. CLI를 설치하는 방법에 대한 정보는 [Service Fabric CLI 설정](./service-fabric-cli.md)을 참조하세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 개발을 위해 이러한 운영 체제 버전이 지원됩니다.
 
@@ -272,7 +272,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 > 
 > Ubuntu의 경우 패키지 설치 관리자(`apt` 또는 `apt-get`)를 사용하는 대신 Eclipse 사이트에서 직접 설치하는 것이 좋습니다. 이렇게 하면 최신 버전의 Eclipse를 확보할 수 있습니다. Java 개발자용 또는 Java EE 개발자용 Eclipse IDE를 설치할 수 있습니다.
 
-1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse Buildship: Gradle @ no__t에 대 한 Eclipse 플러그 인-0.
+1. Eclipse에서 Eclipse Neon 이상 및 Buildship 버전 2.2.1 이상이 설치되어 있는지 확인합니다. **도움말** > **Eclipse정보** > **설치 세부 정보**를 차례로 선택하여 설치된 구성 요소의 버전을 확인합니다. [Eclipse buildship: Eclipse 플러그 인 For Gradle의][buildship-update]지침을 사용 하 여 buildship를 업데이트할 수 있습니다.
 
 2. Service Fabric 플러그 인을 설치하려면 **도움말** > **새 소프트웨어 설치**를 차례로 선택합니다.
 
@@ -286,7 +286,7 @@ Java 개발자용 또는 Java EE 개발자용 Eclipse IDE 내에서 Service Fabr
 
 6. 설치 단계를 수행합니다. 최종 사용자 라이선스 계약에 동의합니다.
 
-Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보**를 선택하여 확인합니다. 그런 다음, 설치된 플러그 인 목록에서 Service Fabric을 검색합니다. 최신 버전을 사용할 수 있는 경우 **업데이트**를 선택합니다.
+Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버전인지 확인합니다. **도움말** > **Eclipse 정보** > **설치 세부 정보**를 선택하여 확인합니다. 그런 다음 설치 된 플러그 인 목록에서 Service Fabric을 검색 합니다. 최신 버전을 사용할 수 있는 경우 **업데이트** 를 선택 합니다.
 
 자세한 내용은 [Eclipse Java 애플리케이션 배포를 위한 Azure Service Fabric 플러그 인](service-fabric-get-started-eclipse.md)을 참조하세요.
 
@@ -298,7 +298,7 @@ Service Fabric Eclipse 플러그 인이 이미 설치되어 있으면 최신 버
 sudo apt-get update
 sudo apt-get install servicefabric servicefabricsdkcommon
 ```
-Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 [Service Fabric 시작 샘플](https://github.com/Azure-Samples/service-fabric-java-getting-started)에서 모든 ``build.gradle`` 파일을 참조하면 됩니다.
+Maven에서 Java SDK 이진 파일을 업데이트하려면 최신 버전을 가리키도록 ``build.gradle`` 파일에서 해당 이진 파일의 버전 정보를 업데이트해야 합니다. 버전을 업데이트해야 하는 위치를 알려면 ``build.gradle``Service Fabric 시작 샘플[에서 모든 ](https://github.com/Azure-Samples/service-fabric-java-getting-started) 파일을 참조하면 됩니다.
 
 > [!NOTE]
 > 패키지를 업데이트하면 로컬 개발 클러스터의 실행이 중지될 수 있습니다. 이 문서의 지침에 따라 업그레이드한 후에 로컬 클러스터를 다시 시작합니다.

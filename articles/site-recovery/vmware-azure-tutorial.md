@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM에 대한 재해 복구 설정
+title: Azure Site Recovery를 사용하여 Azure로 VMware VM 재해 복구 설정
 description: Azure Site Recovery를 사용하여 Azure에 온-프레미스 VMware VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e07b1d7e01d743bb46c8d5a21664bf68184c97dd
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cfdb39fd3585eeeb2afb27749b42b0eaed1dfc33
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488467"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953635"
 ---
 # <a name="set-up-disaster-recovery-to-azure-for-on-premises-vmware-vms"></a>Azure에 온-프레미스 VMware VM 재해 복구 설정
 

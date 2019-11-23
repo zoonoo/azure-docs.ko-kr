@@ -1,22 +1,22 @@
 ---
-title: Azure Maps를 사용하여 지오펜스 만들기 | Microsoft Docs
-description: Azure Maps를 사용하여 지오펜스를 설정합니다.
+title: '자습서: Azure Maps를 사용하여 지오펜스 만들기'
+description: '자습서: Azure Maps를 사용하여 지오펜스를 설정합니다.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 02/14/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 62005546c653796773083eaf625820ab532a8a2c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694918"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107104"
 ---
-# <a name="set-up-a-geofence-by-using-azure-maps"></a>Azure Maps를 사용하여 지오펜스 설정
+# <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. 이 자습서에서 다루는 시나리오는 건설 현장 관리자가 지정된 건설 지역을 벗어나 이동할 수 있는 잠재적인 위험한 장비를 모니터링하는 데 도움이 됩니다. 건설 현장은 값비싼 장비와 규제를 수반합니다. 일반적으로 장비는 건설 현장 내에 머무르고 허가 없이 떠나지 않아야 합니다.
 

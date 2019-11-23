@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 3ae3c3f66ce7301023217a91cd8c79783f3ef833
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509847"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839516"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>CLI를 사용하여 Internet Analyzer 테스트 만들기(미리 보기)
 
@@ -79,7 +79,7 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
     az internet-analyzer test create --resource-group "MyInternetAnalyzerResourceGroup" --profile-name "MyInternetAnalyzerProfile" --endpoint-a-name "contoso" --endpoint-a-endpoint "www.contoso.com/some/path/to/trans.gif" --endpoint-b-name "microsoft" --endpoint-b-endpoint "www.microsoft.com/another/path/to/trans.gif" --name "MyFirstInternetAnalyzerTest" --enabled-state Enabled
     ```
 
-    위의 명령은 www.contoso.com과 www.microsoft.com이 모두 사용자 지정 경로에서 1픽셀 이미지([trans.gif](https://fpc.msedge.net/apc/trans.gif))를 호스트한다고 가정합니다. 개체 경로를 지정하지 않으면 Internet Analyzer는 `/apc/trans.gif`를 기본 개체 경로로 사용합니다. 이 경우 미리 구성된 엔드포인트가 1픽셀 이미지를 호스트합니다. 또한 스키마(https/http)는 지정할 필요가 없습니다. Internet Analyzer는 HTTPS 엔드포인트만 지원하므로 스키마가 HTTPS라고 간주합니다.
+    위의 명령은 `www.contoso.com`과 `www.microsoft.com`이 모두 사용자 지정 경로에서 1픽셀 이미지([trans.gif](https://fpc.msedge.net/apc/trans.gif))를 호스팅한다고 가정합니다. 개체 경로를 지정하지 않으면 Internet Analyzer는 `/apc/trans.gif`를 기본 개체 경로로 사용합니다. 이 경우 미리 구성된 엔드포인트가 1픽셀 이미지를 호스트합니다. 또한 스키마(https/http)는 지정할 필요가 없습니다. Internet Analyzer는 HTTPS 엔드포인트만 지원하므로 스키마가 HTTPS라고 간주합니다.
 
 11. 새 테스트는 Internet Analyzer 프로필 아래에 나타납니다.
     ```azurecli-interactive
@@ -133,4 +133,4 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 ## <a name="next-steps"></a>다음 단계
 
 * [Internet Analyzer FAQ](internet-analyzer-faq.md) 읽기
-* [Internet Analyzer Client](internet-analyzer-embed-client.md)를 포함하고 [사용자 지정 엔드포인트](internet-analyzer-custom-endpoint.md)를 만드는 방법에 대해 자세히 알아보세요. 
+* [Internet Analyzer 클라이언트](internet-analyzer-embed-client.md)를 포함하고 [사용자 지정 엔드포인트](internet-analyzer-custom-endpoint.md)를 만드는 방법에 대해 자세히 알아보세요. 

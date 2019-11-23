@@ -1,34 +1,23 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역으로 Azure IaaS VM 이동 | Microsoft Docs
-description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
-services: site-recovery
+title: Azure Site Recovery를 사용하여 Azure VM을 다른 지역으로 이동
+description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure VM을 이동합니다.
 author: rajani-janaki-ram
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: dc49b33fd3e6d582b31af5fe0507884e60205757
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: 05d0fcb9e689b8954bffaff402475762344c023d
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58078009"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091949"
 ---
-# <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
+# <a name="moving-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
-Azure는 고객 기반과 더불어 성장하고 있으며 증가하는 요구에 맞춰 새로운 지역에 대한 지원을 추가하고 있습니다. 서비스 전반에 걸쳐 매월 새로운 기능도 추가됩니다. 가용성을 높이려면 VM(가상 머신)을 다른 지역이나 가용 영역으로 이동하는 것이 좋습니다.
+이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 Azure VM을 다른 Azure 지역으로 이동하는 데 필요한 이유와 단계에 대한 개요를 제공합니다. 
 
-이 자습서에서는 VM을 이동해야 하는 다양한 시나리오에 대해 설명합니다. 가용성을 높이기 위해 대상 지역에서 아키텍처를 구성하는 방법에 대해서도 설명합니다. 
-
-이 자습서에서는 다음 사항에 대해 알아봅니다.
-
-> [!div class="checklist"]
-> 
-> * VM을 이동하는 이유
-> * 일반적인 아키텍처
-> * VM을 대상 지역에 그대로 이동
-> * VM을 이동하여 가용성 향상
 
 ## <a name="reasons-to-move-azure-vms"></a>Azure VM을 이동하는 이유
 

@@ -36,7 +36,7 @@ ms.locfileid: "73903717"
 
 `https://<cluster DNS name>/stormui`
 
-예제: `https://stormcluster.azurehdinsight.net/stormui`
+예: `https://stormcluster.azurehdinsight.net/stormui`
 
 ## <a name="how-do-i-transfer-storm-event-hub-spout-checkpoint-information-from-one-topology-to-another"></a>한 토폴로지에서 다른 토폴로지로 Storm 이벤트 허브 Spout 검사점 정보를 전송하는 방법
 

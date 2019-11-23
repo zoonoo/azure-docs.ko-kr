@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 Elium 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Elium 구성 | Microsoft Docs'
 description: 사용자 계정을 Elium로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ ms.locfileid: "71709527"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 미리 보기의 Azure 기능에 대 한 일반적인 사용 약관은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에서는 사용자에 게 이미 다음과 같은 필수 구성 요소가 있다고 가정 합니다.
 
@@ -112,13 +112,13 @@ Azure AD에서 Elium에 대 한 자동 사용자 프로 비전을 구성 하려�
 
     ![프로 비전 모드 자동 설정](common/provisioning-automatic.png)
 
-1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 **\<tenantURL @ no__t-3/scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+1. **관리자 자격 증명** 섹션에 있는 **테 넌 트 URL** 필드에 **\<l\>/scim/v2** 를 입력 합니다. **L** 는 Elium 관리 콘솔에서 이전에 검색 한 값입니다. 또한 **비밀 토큰** 필드에 Elium **secret token** 값을 입력 합니다. 마지막으로 **연결 테스트** 를 선택 하 여 Azure AD가 Elium에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Elium 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![관리자 자격 증명의 테 넌 트 URL 및 암호 토큰 필드](common/provisioning-testconnection-tenanturltoken.png)
 
 1. **알림 전자 메일** 필드에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 합니다. 그런 다음 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![알림 이메일](common/provisioning-notification-email.png)
 
 1. **저장**을 클릭합니다.
 

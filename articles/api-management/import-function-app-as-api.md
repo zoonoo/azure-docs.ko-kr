@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 06/28/2019
 ms.author: apimpm
-ms.openlocfilehash: 7e9215d7250628ed9177e097d127a1554a1f0ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c4a95669eea1b98baea5f9a866598e000c0923c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073345"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107853"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Azure API Management에서 Azure 함수 앱을 API로 가져오기
 
@@ -142,7 +142,7 @@ Azure API Management 인스턴스로 이동하고, 왼쪽 메뉴에서 **명명�
 
 ![함수 앱에서 추가](./media/import-function-app-as-api/keys-01.png)
 
-## <a name="test-in-azure-portal"></a> Azure Portal에서 새 API Management API 테스트
+## <a name="test-in-azure-portal"></a> Azure Portal에서 새 API 테스트
 
 Azure Portal에서 작업을 직접 호출할 수 있습니다. Azure Portal을 사용하는 것은 API의 작업을 보고 테스트하는 편리한 방법입니다.  
 
@@ -157,26 +157,6 @@ Azure Portal에서 작업을 직접 호출할 수 있습니다. Azure Portal을 
 4. **보내기**를 선택합니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
-
-## <a name="test-in-developer-portal"></a> 개발자 포털에서 작업 호출
-
-개발자 포털에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
-
-1. [백 엔드 API 가져오기 및 게시]에서 만든 API를 선택합니다.
-
-2. **개발자 포털**을 선택합니다.
-
-    개발자 포털 사이트가 열립니다.
-
-3. 만든 **API**를 선택합니다.
-
-4. 테스트할 작업을 선택합니다.
-
-5. **사용해보기**를 선택합니다.
-
-6. **보내기**를 선택합니다.
-    
-    작업 호출 후에는 개발자 포털에 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

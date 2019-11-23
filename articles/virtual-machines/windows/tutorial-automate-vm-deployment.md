@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Windows VM에 애플리케이션 설치 | Microsoft Docs
+title: 자습서 - Azure에서 Windows VM에 애플리케이션 설치
 description: 이 자습서에서는 사용자 지정 스크립트 확장을 사용하여 스크립트를 실행하고 Azure에서 Windows 가상 머신에 애플리케이션을 배포하는 방법을 배웁니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 02c038a1eefefb62dceb42e511b9a895691ef47b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 610f8efad473b5f4bed1abc6b2c063ec0ead66ed
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101715"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74065357"
 ---
 # <a name="tutorial---deploy-applications-to-a-windows-virtual-machine-in-azure-with-the-custom-script-extension"></a>자습서 - 사용자 지정 스크립트 확장을 사용하여 Azure에서 Windows 가상 머신에 애플리케이션 배포
 

@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/04/2019
 ms.locfileid: "73573442"
 ---
-# <a name="backup-and-restore"></a>Backup 및 복원
+# <a name="backup-and-restore"></a>Backup 및 Restore 메서드
 
 Azure Analysis Services에서 테이블 형식 모델 데이터베이스를 백업하는 것은 온-프레미스 Analysis Services의 경우와 매우 유사합니다. 주요 차이점은 백업 파일을 저장하는 위치입니다. Backup 파일은 [Azure Storage 계정](../storage/common/storage-create-storage-account.md)의 컨테이너에 저장해야 합니다. 이미 있는 스토리지 계정과 컨테이너를 사용하거나 서버에 대한 스토리지 설정을 구성할 때 만들 수 있습니다.
 

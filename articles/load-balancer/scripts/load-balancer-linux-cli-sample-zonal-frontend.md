@@ -1,12 +1,10 @@
 ---
-title: CLI 예제 - 영역 내부의 Load Balancer VM - Azure | Microsoft Docs
+title: 영역 내에 VM 부하 분산 - Azure CLI
 description: 이 Azure CLI 스크립트 예제는 특정 가용성 영역 내의 VM에 트래픽을 부하 분산하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
+manager: kumudD
 Customer intent: As an IT administrator, I want to create a load balancer that load balances incoming internet traffic to virtual machines within a specific zone in a region.
 ms.assetid: ''
 ms.service: load-balancer
@@ -16,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 06/14/2018
 ms.author: allensu
-ms.openlocfilehash: 29671283a1ef2906e03685a59d62ccc13c1307fe
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c99e232243e95d3aa0a85e09c2534973114e28ea
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273728"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068756"
 ---
-# <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 스크립트 예제: 고가용성을 위해 VM에 트래픽 부하 분산
+# <a name="azure-cli-script-example-load-balance-traffic-to-vms-within-a-specific-availability-zone"></a>Azure CLI 스크립트 예제: 특정 가용성 영역 내에 VM에 대한 트래픽 부하 분산
 
 이 Azure CLI 스크립트 예제에서는 특정 가용성 영역 내에서 항상 사용 가능하고 부하 분산된 구성에서 구성된 여러 Ubuntu 가상 머신을 실행하는 데 필요한 모든 항목을 만듭니다. 스크립트를 실행하면 Azure 표준 Load Balancer를 통해 액세스할 수 있는 지역 내의 단일 가용성 집합에 3개의 가상 머신이 생성됩니다. 
 

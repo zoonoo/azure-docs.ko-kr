@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Digital Twins 공간으로부터 이벤트 캡처 | Microsoft Docs'
+title: '자습서: Azure Digital Twins 공간에서 이벤트 캡처'
 description: 이 자습서의 단계에 따라 Azure Digital Twins를 Logic Apps와 통합하여 공간에서 알림을 받는 방법을 알아봅니다.
 services: digital-twins
 ms.author: alinast
@@ -8,13 +8,13 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: 26976956722d77e2dfb8c17734c207b2667c0126
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 545e1757f4f3669957d8f6755cdbd9a2b29513b6
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949169"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74129171"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -38,7 +38,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 - 실행 중인 Digital Twins 인스턴스.
 - 작업 머신에 다운로드하여 추출한 [Digital Twins C# 샘플](https://github.com/Azure-Samples/digital-twins-samples-csharp).
 - 샘플을 실행하기 위해 개발 머신에 설치된 [.NET Core SDK 버전 2.1.403 이상](https://www.microsoft.com/net/download) 올바른 버전이 설치되어 있는지 확인하려면 `dotnet --version` 명령을 실행합니다.
-- 알림 이메일을 보내는 Office 365 계정.
+- 알림 이메일을 보내는 [Office 365](https://products.office.com/home) 계정입니다.
 
 > [!TIP]
 > 새 인스턴스를 프로비저닝하는 경우 고유한 Digital Twins 인스턴스 이름을 사용합니다.
@@ -63,7 +63,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. 리소스 그룹에서 Event Grid 토픽으로 이동하고, **개요**를 선택하고, **토픽 엔드포인트**의 값을 임시 파일에 복사합니다. 다음 섹션에서 이 URL이 필요합니다. 
 
-1. **액세스 키**를 선택하고, **YOUR_KEY_1** 및 **YOUR_KEY_2**를 임시 파일에 복사합니다. 다음 섹션에서 엔드포인트를 만들려면 이러한 값이 필요합니다.
+1. **액세스 키**를 선택하고, **키 1** 및 **키 2**를 임시 파일에 복사합니다. 다음 섹션에서 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
     [![Event Grid 키](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
@@ -85,9 +85,9 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
       path: <Event Grid Topic Name without https:// and /api/events, e.g. eventgridname.region.eventgrid.azure.net>
     ```
 
-1. 자리 표시자 `<Primary connection string for your Event Grid>`를 **YOUR_KEY_1** 값으로 바꿉니다.
+1. 자리 표시자 `<Primary connection string for your Event Grid>`를 **Key 1** 값으로 바꿉니다.
 
-1. 자리 표시자 `<Secondary connection string for your Event Grid>`를 **YOUR_KEY_2** 값으로 바꿉니다.
+1. 자리 표시자 `<Secondary connection string for your Event Grid>`를 **Key 2** 값으로 바꿉니다.
 
 1. **경로**의 자리 표시자를 이벤트 그리드 항목의 경로로 바꿉니다. **토픽 엔드포인트** URL에서 **https://** 및 후행 리소스 경로를 제거하여 이 경로를 가져옵니다. *yourEventGridName.yourLocation.eventgrid.azure.net*과 비슷한 형식입니다.
 
@@ -178,7 +178,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    a. **작업 추가**를 선택하고, **Office 365 Outlook**을 선택합니다.
 
-   b. **작업** 목록에서 **이메일 보내기**를 선택합니다. **로그인**을 선택하고 이메일 계정 자격 증명을 사용합니다. 메시지가 표시되면 **액세스 허용**을 선택합니다.
+   b. **작업** 목록에서 **이메일 보내기(V2)** 를 선택합니다. **로그인**을 선택하고 이메일 계정 자격 증명을 사용합니다. 메시지가 표시되면 **액세스 허용**을 선택합니다.
 
    다. **받는 사람** 상자에서 알림을 받을 이메일 ID를 입력합니다. **주체**에서 **공간의 공기질 저하에 대한 Digital Twins 알림** 텍스트를 입력합니다. 그런 다음, **JSON 구문 분석**의 **동적 콘텐츠** 목록에서 **TopologyObjectId**를 선택합니다.
 

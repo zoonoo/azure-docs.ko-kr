@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Windows VM을 위한 고가용성 | Microsoft Docs
+title: 자습서 - Azure에서 Windows VM을 위한 고가용성
 description: 이 자습서에서는 Azure PowerShell을 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아봅니다.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b943a4476a6b0d639353816337deea96eb14fe24
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0f94f4d312cefec80a0f294e256ee1ad908b903c
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101697"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74068126"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 고가용성 가상 머신 만들기 및 배포
 

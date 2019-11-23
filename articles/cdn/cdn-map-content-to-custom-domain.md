@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/11/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 81db1a7dc01b3d60ee6384f2026ed5ce692ff140
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: 22283833ebb414372de16cbe4ce7d3986cd400a9
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67666088"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837408"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>자습서: Azure CDN 엔드포인트에 사용자 지정 도메인 추가
 이 자습서에서는 Azure CDN(Content Delivery Network) 엔드포인트에 사용자 지정 도메인을 추가하는 방법을 보여줍니다. CDN 엔드포인트를 사용하여 콘텐츠를 제공할 때 고유한 도메인 이름을 CDN URL에 표시하려는 경우 사용자 지정 도메인이 필요합니다. 볼 수 있는 도메인 이름이 있다면 고객에게 편리하고 브랜딩 목적상 유용합니다. 
@@ -145,7 +145,7 @@ cdnverify 하위 도메인에서 CNAME 레코드를 만들려면:
  
 1. 엔드포인트에 캐시된 공용 콘텐츠가 있는지 확인합니다. 예를 들어 CDN 엔드포인트가 스토리지 계정과 연결되어 있는 경우 Azure CDN은 공용 컨테이너에 콘텐츠를 캐시합니다. 사용자 지정 도메인을 테스트하려면 컨테이너가 공용 액세스를 허용하도록 설정되고 파일을 하나 이상 포함하는지 확인합니다.
 
-2. 브라우저에서 사용자 지정 도메인을 사용하는 파일의 주소로 이동합니다. 예를 들어 사용자 지정 도메인이 [www.contoso.com]\(www.contoso.com) 인 경우 캐시된 Blob에 대한 URL은 다음 URL(http:\//www.cdn.contoso.com/my-public-container/my-file.jpg)과 유사합니다. 결과가 *&lt;endpoint hostname&gt;* .azureedge.net에서 CDN 엔드포인트에 직접 액세스하는 경우와 동일한지 확인합니다.
+2. 브라우저에서 사용자 지정 도메인을 사용하는 파일의 주소로 이동합니다. 예를 들어, 사용자 지정 도메인이 `www.contoso.com`인 경우 캐시된 파일의 URL은 URL `http://www.contoso.com/my-public-container/my-file.jpg`와 유사하게 됩니다. 결과가 *&lt;endpoint hostname&gt;* .azureedge.net에서 CDN 엔드포인트에 직접 액세스하는 경우와 동일한지 확인합니다.
 
 
 ## <a name="map-the-permanent-custom-domain"></a>영구 사용자 지정 도메인 매핑

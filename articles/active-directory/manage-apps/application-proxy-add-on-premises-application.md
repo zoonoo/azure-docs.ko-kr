@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/30/2019
+ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3f3d7eb0fe544316aec1ce1ece45b2c7c1d9085
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: f0399f084e663ab891d59384af263a7faac2f42e
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694725"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73943824"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>자습서: Azure Active Directory에서 애플리케이션 프록시를 통한 원격 액세스를 위해 온-프레미스 애플리케이션 추가
 
@@ -45,6 +45,12 @@ Azure AD에 온-프레미스 애플리케이션을 추가하려면 다음이 필
 애플리케이션 프록시를 사용하려면 Windows Server 2012 R2 이상을 실행하는 Windows 서버가 필요합니다. 서버에 애플리케이션 프록시 커넥터를 설치합니다. 이 커넥터 서버는 Azure의 애플리케이션 프록시 서비스 및 게시할 예정인 온-프레미스 애플리케이션에 연결해야 합니다.
 
 프로덕션 환경의 고가용성을 위해 둘 이상의 Windows Server를 사용하는 것이 좋습니다. 이 자습서에서는 하나의 Windows Server로 충분합니다.
+
+> [!IMPORTANT]
+> Windows Server 2019에 커넥터를 설치하는 경우 HTTP2 제한이 있습니다. 이 버전에서 커넥터를 사용하는 해결 방법은 다음 레지스트리 키를 추가하고 서버를 다시 시작하는 것입니다. 참고: 이는 머신 레지스트리 전체 키입니다. 
+    ```
+    HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Internet Settings\WinHttp\EnableDefaultHttp2 (DWORD) Value: 0 
+    ```
 
 #### <a name="recommendations-for-the-connector-server"></a>커넥터 서버에 대한 권장 사항
 
@@ -142,7 +148,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 1. 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택한 후 **관리** 섹션 아래에서 **애플리케이션 프록시**를 선택합니다. 모든 커넥터 및 커넥터 그룹이 이 페이지에 나타납니다.
 1. 커넥터를 검토하여 세부 정보를 확인합니다. 커넥터는 기본적으로 확장되어 있습니다. 보려는 커넥터가 확장되지 않는 경우 커넥터를 확장하여 세부 정보를 확인합니다. 활성 녹색 레이블은 커넥터 서비스에 연결할 수 있음을 나타냅니다. 그러나 레이블이 녹색인 경우에도 네트워크 문제로 인해 커넥터에서 메시지를 수신하지 않도록 차단할 수 있습니다.
 
-    ![Azure AD 애플리케이션 프록시 커넥터](./media/application-proxy-connectors/app-proxy-connectors.png)
+    ![Azure AD 애플리케이션 프록시 커넥터](./media/application-proxy-add-on-premises-application/app-proxy-connectors.png)
 
 커넥터를 설치하는 자세한 도움말은 [애플리케이션 프록시 커넥터 설치 문제](application-proxy-connector-installation-problem.md)를 참조하세요.
 
@@ -155,7 +161,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
    - **Microsoft AAD Application Proxy Connector**는 연결을 사용하도록 설정합니다.
    - **Microsoft AAD Application Proxy Connector Updater**는 자동화된 업데이트 서비스입니다. 업데이터에서 새 버전의 커넥터가 있는지 확인하고 필요에 따라 커넥터를 업데이트합니다.
 
-     ![앱 프록시 커넥터 서비스 - 스크린샷](./media/application-proxy-enable/app_proxy_services.png)
+     ![앱 프록시 커넥터 서비스 - 스크린샷](./media/application-proxy-add-on-premises-application/app_proxy_services.png)
 
 1. 서비스의 상태가 **실행 중**이 아닌 경우 각 서비스를 마우스 오른쪽 단추로 클릭하고 **시작**을 선택합니다.
 
@@ -164,10 +170,10 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 이제 환경을 준비하고 커넥터를 설치했으므로 Azure AD에 온-프레미스 애플리케이션을 추가할 준비가 되었습니다.  
 
 1. [Azure Portal](https://portal.azure.com/)에서 관리자로 로그인합니다.
-1. 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
-1. **엔터프라이즈 애플리케이션**, **새 애플리케이션**을 차례로 선택합니다.
-1. **온-프레미스 애플리케이션**을 선택합니다.  
-1. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
+2. 왼쪽 탐색 패널에서 **Azure Active Directory**를 선택합니다.
+3. **엔터프라이즈 애플리케이션**, **새 애플리케이션**을 차례로 선택합니다.
+4. **온-프레미스 애플리케이션** 섹션에서 **온-프레미스 애플리케이션 추가**를 선택합니다.
+5. **사용자 고유의 온-프레미스 애플리케이션 추가** 섹션에서 애플리케이션에 대해 다음 정보를 제공합니다.
 
     | 필드 | 설명 |
     | :---- | :---------- |
@@ -177,7 +183,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | **사전 인증** | 애플리케이션 프록시가 사용자에게 애플리케이션에 대한 액세스 권한을 부여하기 전에 사용자를 확인하는 방법입니다.<br><br>**Azure Active Directory** - 애플리케이션 프록시는 Azure AD를 사용하여 로그인하도록 사용자를 리디렉션하여 디렉터리와 애플리케이션에 대한 사용 권한을 인증합니다. 조건부 액세스 및 Multi-Factor Authentication과 같은 Azure AD 보안 기능을 활용할 수 있도록 이 옵션을 기본값으로 유지하는 것이 좋습니다. **Azure Active Directory**는 Microsoft 클라우드 애플리케이션 보안을 사용하여 애플리케이션을 모니터링하는 데 필요합니다.<br><br>**통과** - 사용자는 애플리케이션에 액세스하기 위해 Azure AD에 대해 인증할 필요가 없습니다. 백 엔드에 대한 인증 요구 사항은 여전히 설정할 수 있습니다. |
     | **커넥터 그룹** | 커넥터는 애플리케이션에 대한 원격 액세스를 처리하고, 커넥터 그룹은 지역, 네트워크 또는 용도별로 커넥터와 앱을 구성하는 데 도움을 줍니다. 아직 만든 커넥터 그룹이 없는 경우 앱이 **Default**(기본값)로 할당됩니다.<br><br>애플리케이션에서 연결에 Websocket을 사용하는 경우 그룹의 모든 커넥터는 버전 1.5.612.0 이상이어야 합니다.|
 
-1. 필요한 경우 **추가 설정**을 구성합니다. 대부분의 애플리케이션에서는 다음과 같은 설정을 기본 상태로 유지해야 합니다. 
+6. 필요한 경우 **추가 설정**을 구성합니다. 대부분의 애플리케이션에서는 다음과 같은 설정을 기본 상태로 유지해야 합니다. 
 
     | 필드 | 설명 |
     | :---- | :---------- |
@@ -188,7 +194,7 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
     | **헤더의 URL 변환** | 애플리케이션이 인증 요청에서 원래 호스트 헤더를 요구하지 않는 한 이 값을 **예**로 유지합니다. |
     | **애플리케이션 본문의 URL 변환** | 다른 온-프레미스 애플리케이션에 HTML 링크를 하드 코드하지 않고 사용자 지정 도메인을 사용하지 않는 한 이 값을 **아니요**로 유지합니다. 자세한 내용은 [애플리케이션 프록시를 사용한 링크 변환](application-proxy-configure-hard-coded-link-translation.md)을 참조하세요.<br><br>MCAS(Microsoft Cloud App Security)를 사용하여 이 애플리케이션을 모니터링하려는 경우 이 값을 **예**로 설정합니다. 자세한 내용은 [Microsoft Cloud App Security와 Azure Active Directory를 사용하여 실시간 애플리케이션 액세스 모니터링 구성](application-proxy-integrate-with-microsoft-cloud-application-security.md)을 참조하세요. |
 
-1. **추가**를 선택합니다.
+7. **추가**를 선택합니다.
 
 ## <a name="test-the-application"></a>애플리케이션 테스트
 
@@ -201,11 +207,11 @@ Azure Portal 또는 Windows Server를 사용하여 새 커넥터가 올바르게
 테스트 사용자를 추가히려면:
 
 1. **엔터프라이즈 애플리케이션**을 선택한 후 테스트하려는 애플리케이션을 선택합니다.
-1. **시작**을 선택한 후 **테스트할 사용자 지정**을 선택합니다.
-1. **사용자 및 그룹**에서 **사용자 추가**를 선택합니다.
-1. **할당 추가**에서 **사용자 및 그룹**을 선택합니다. **사용자 및 그룹** 섹션이 나타납니다.
-1. 추가하려는 계정을 선택합니다.
-1. **선택**을 선택한 후 **할당**을 선택합니다.
+2. **시작**을 선택한 후 **테스트할 사용자 지정**을 선택합니다.
+3. **사용자 및 그룹**에서 **사용자 추가**를 선택합니다.
+4. **할당 추가**에서 **사용자 및 그룹**을 선택합니다. **사용자 및 그룹** 섹션이 나타납니다.
+5. 추가하려는 계정을 선택합니다.
+6. **선택**을 선택한 후 **할당**을 선택합니다.
 
 ### <a name="test-the-sign-on"></a>로그온 테스트
 

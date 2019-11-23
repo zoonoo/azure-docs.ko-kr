@@ -48,7 +48,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
     ![Azure Cosmos DB ODBC 데이터 원본 관리자](./media/odbc-driver/odbc-driver.png)
 
-## <a id="connect"></a>2단계: Azure Cosmos 데이터베이스에 연결
+## <a id="connect"></a>2 단계: Azure Cosmos 데이터베이스에 연결
 
 1. [Azure Cosmos DB ODBC 드라이버를 설치](#install)한 후 **ODBC 데이터 원본 관리자** 창에서 **추가**를 클릭합니다. 사용자 또는 시스템 DSN을 만들 수 있습니다. 이 예제에서는 사용자 DSN을 만듭니다.
 
@@ -67,16 +67,16 @@ ODBC 드라이버를 살펴보겠습니다.
 1. Azure Cosmos DB 계정에 연결할 수 있는지 확인하려면 **테스트** 단추를 클릭합니다. 
 
 1.  **고급 옵션**을 클릭하고 다음 값을 설정합니다.
-    *  **REST API 버전**: 작업의 [REST API 버전](https://docs.microsoft.com/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
+    *  **REST API 버전**: 작업에 대 한 [REST API 버전](https://docs.microsoft.com/rest/api/cosmos-db/) 을 선택 합니다. 기본값은 2015-12-16입니다. [파티션이 크고](large-partition-keys.md) REST API 버전 2018-12-31이 필요한 컨테이너가 있는 경우:
         - REST API 버전에 **2018-12-31** 을 입력 합니다.
         - **시작** 메뉴에서 "regedit"를 입력 하 여 **레지스트리 편집기** 응용 프로그램을 찾아 엽니다.
-        - 레지스트리 편집기에서 다음 경로로 이동 합니다. **Computer\HKEY_LOCAL_MACHINE\SOFTWARE\ODBC\ODBC. WIN.INI**
-        - DSN과 동일한 이름으로 새 하위 키를 만듭니다 (예:). "Contoso 계정 ODBC DSN"을 말합니다.
+        - 레지스트리 편집기에서 **Computer \ HKEY_LOCAL_MACHINE \software\odbc\odbc. 경로로 이동 합니다. INI**
+        - DSN과 같은 이름으로 새 하위 키를 만듭니다 (예: "Contoso Account ODBC DSN").
         - "Contoso 계정 ODBC DSN" 하위 키로 이동 합니다.
         - 마우스 오른쪽 단추를 클릭 하 여 새 **문자열** 값을 추가 합니다.
-            - 값 이름: **IgnoreSessionToken**
-            - 방법 2 **1**
-             @ No__t-2Registry 편집기 설정 @ no__t-3
+            - 값 이름: **Ignoresessiontoken**
+            - 값 데이터: **1**
+            ![레지스트리 편집기 설정](./media/odbc-driver/cosmos-odbc-edit-registry.png)
     - **쿼리 일관성**: 작업에 대해 [일관성 수준](consistency-levels.md)을 선택합니다. 기본값은 세션입니다.
     - **재시도 횟수**: 초기 요청이 서비스 속도 제한으로 인해 완료되지 않은 경우 작업을 다시 시도할 횟수를 입력합니다.
     - **스키마 파일**: 다양한 옵션이 있습니다.
@@ -88,7 +88,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
     ![사용자 DSN 탭의 새 Azure Cosmos DB ODBC DSN](./media/odbc-driver/odbc-driver-user-dsn.png)
 
-## <a id="#container-mapping"></a>3단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
+## <a id="#container-mapping"></a>3 단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
 
 사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호**입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 아래 단계는 컨테이너 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 이 샘플링 방법은 컨테이너의 페이지에서 데이터를 검색 하 여 데이터의 구조를 확인 합니다. 컨테이너를 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컨테이너의 데이터가 동일한 경우 효율적이 고 빠릅니다. 컨테이너에 다른 유형의 형식의 데이터가 포함 되어 있는 경우 [테이블 구분 기호 매핑 방법을](#table-mapping) 사용 하 여 컨테이너의 데이터 구조를 확인 하는 보다 강력한 샘플링 방법을 제공 하는 것이 좋습니다. 
 
@@ -143,7 +143,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 연결된 서버 연결을 설정하여 SSMS(SQL Server Management Studio)에서 Azure Cosmos DB를 쿼리할 수 있습니다.
 
-1. 예를 들어 `SDS Name`으로 명명된 [2단계](#connect)에서 설명된 대로 시스템 데이터 원본을 만듭니다.
+1. 예를 들어 [으로 명명된 ](#connect)2단계`SDS Name`에서 설명된 대로 시스템 데이터 원본을 만듭니다.
 
 1. [SQL Server Management Studio를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)하고 서버에 연결합니다. 
 
@@ -166,7 +166,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 ### <a name="query-linked-database"></a>연결된 데이터베이스 쿼리
 
-연결된 데이터베이스를 쿼리하려면 SSMS 쿼리를 입력합니다. 이 예제에서 쿼리는 `customers` 이라는 컨테이너의 테이블에서 선택 합니다.
+연결된 데이터베이스를 쿼리하려면 SSMS 쿼리를 입력합니다. 이 예제에서 쿼리는 `customers`이라는 컨테이너의 테이블에서 선택 합니다.
 
 ```sql
 SELECT * FROM OPENQUERY(DEMOCOSMOS, 'SELECT *  FROM [customers].[customers]')
@@ -241,7 +241,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 ## <a name="troubleshooting"></a>문제 해결
 
-다음 오류가 표시되면 [2단계](#connect)에서 Azure Portal로부터 복사한 **호스트** 및 **액세스 키** 값이 올바른지 확인하고 다시 시도하세요. Azure Portal의 **호스트** 및 **액세스 키** 값 오른쪽에 있는 복사 단추를 사용하여 올바른 값을 복사합니다.
+다음 오류가 표시되면 **2단계**에서 Azure Portal로부터 복사한 **호스트** 및 [액세스 키](#connect) 값이 올바른지 확인하고 다시 시도하세요. Azure Portal의 **호스트** 및 **액세스 키** 값 오른쪽에 있는 복사 단추를 사용하여 올바른 값을 복사합니다.
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 

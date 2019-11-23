@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure Portal에서 Linux 가상 머신 백업 | Microsoft Docs
+title: 자습서 - Azure Portal에서 Linux 가상 머신 백업
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Backup으로 Linux 가상 머신을 보호하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 890d4ab0dcbaa814b4ce3365025e4c35e4ba4c6b
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2a53086b959f5b93d17d307a59682a44fe1f33a8
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103534"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034594"
 ---
 # <a name="tutorial-back-up-and-restore-files-for-linux-virtual-machines-in-azure"></a>자습서: Azure의 Linux 가상 머신을 위한 파일 백업 및 복원
 

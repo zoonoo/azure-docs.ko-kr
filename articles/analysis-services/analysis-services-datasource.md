@@ -23,7 +23,7 @@ Visual Studio에서 데이터 가져오기 또는 마법사 가져오기에 표�
 |데이터 원본  |메모리 내  |DirectQuery  |
 |---------|---------|---------|
 |Azure SQL Database<sup>[2](#azsqlmanaged)</sup>     |   예      |    예      |
-|Azure SQL Data Warehouse     |   예      |   예       |
+|Azure SQL 데이터 웨어하우스     |   예      |   예       |
 |Azure Blob Storage<sup>[1](#tab1400a)</sup>     |   예       |    아니오      |
 |Azure Table Storage<sup>[1](#tab1400a)</sup>    |   예       |    아니오      |
 |Azure Cosmos DB<sup>[1](#tab1400a)</sup>     |  예        |  아니오        |

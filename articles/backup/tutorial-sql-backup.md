@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 28a804a57a4113b22efd5274ad00b3a216b700aa
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 96a9940826570bd687fdef5726bdc103139f9902
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747035"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074651"
 ---
 # <a name="back-up-a-sql-server-database-in-an-azure-vm"></a>Azure VM에서 SQL Server 데이터베이스 백업
 
@@ -23,7 +23,7 @@ ms.locfileid: "73747035"
 > * 자격 증명 모음을 만들고 구성합니다.
 > * 데이터베이스를 검색하고 백업을 설정합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
-> * 임시 백업을 실행합니다.
+> * 주문형 백업을 실행합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -215,7 +215,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 
 14. 백업 정책 편집을 완료 한 후, **확인**을 선택합니다.
 
-## <a name="run-an-ad-hoc-backup"></a>임시 백업 실행
+## <a name="run-an-on-demand-backup"></a>요청 시 백업 실행
 
 1. Recovery Services 자격 증명 모음에서 백업 항목을 선택합니다.
 2. "Azure VM의 SQL"을 클릭합니다.
@@ -233,7 +233,7 @@ VM에서 실행되는 데이터베이스를 검색합니다.
 > * 자격 증명 모음을 만들고 구성합니다.
 > * 데이터베이스를 검색하고 백업을 설정합니다.
 > * 데이터베이스에 대한 자동 보호를 설정합니다.
-> * 임시 백업을 실행합니다.
+> * 주문형 백업을 실행합니다.
 
 디스크에서 Azure 가상 머신을 복원하려면 다음 자습서를 계속 진행합니다.
 

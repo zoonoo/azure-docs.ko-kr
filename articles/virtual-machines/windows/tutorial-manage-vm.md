@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 Windows VM 만들기 및 관리 | Microsoft Docs
+title: '자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리'
 description: 이 자습서에서는 Azure PowerShell을 사용하여 Azure에서 Windows VM을 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/06/2019
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0c60cd335e9d280d59fd872d1d0724f2eabd3afb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c48d5e514d854568043d001a22411b6a67f79e6a
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101584"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74067803"
 ---
 # <a name="tutorial-create-and-manage-windows-vms-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM 만들기 및 관리
 

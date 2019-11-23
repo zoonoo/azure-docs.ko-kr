@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Linux VM을 위한 고가용성 | Microsoft Docs
+title: 자습서 - Azure에서 Linux VM을 위한 고가용성
 description: 이 자습서에서는 Azure CLI를 사용하여 가용성 집합에서 고가용성 가상 머신을 배포하는 방법을 알아보세요.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 10458e3c5f1e4dc9034206470fdfec19e13417fb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: cd0366a0029ccc4816308e280ac93b7c724bb82a
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299439"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034621"
 ---
 # <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 고가용성 가상 머신 만들기 및 배포
 

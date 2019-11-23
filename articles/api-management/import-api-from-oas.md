@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: b96cfe9813eef9caf1f1f21e43470a23c7032cb1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072118"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108517"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 
@@ -43,6 +43,7 @@ ms.locfileid: "70072118"
 
 1. **API Management**에서 **API**를 선택합니다.
 2. **새 API 추가** 목록에서 **OpenAPI 사양**을 선택합니다.
+
     ![OpenAPI 사양](./media/import-api-from-oas/oas-api.png)
 3. 적절한 설정을 입력합니다. 만드는 동안 모든 API 값을 설정할 수 있습니다. 또는 **설정** 탭으로 이동하여 일부를 나중에 설정할 수 있습니다. <br/> **탭** 키를 누르면 일부(또는 모든) 필드가 지정된 백 엔드 서비스의 정보로 채워집니다.
 
@@ -63,40 +64,18 @@ ms.locfileid: "70072118"
 > [!NOTE]
 > API 가져오기 제한 사항은 [다른 문서](api-management-api-import-restrictions.md)에 설명되어 있습니다.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
+
+![API 맵 테스트](./media/api-management-get-started/01-import-first-api-01.png)
 
 dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.
 
-![API 테스트](./media/api-management-get-started/01-import-first-api-01.png)
-
-1. 이전 단계에서 만든 API를 선택합니다.
+1. 이전 단계에서(**API** 탭에서) 만든 API를 선택합니다.
 2. **테스트** 탭을 누릅니다.
-3. **GetSpeakers**를 클릭합니다.
-
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
+3. **GetSpeakers**를 클릭합니다. 페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. 키가 자동으로 채워집니다.
 4. **보내기**를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
-
-## <a name="call-operation"> </a>개발자 포털에서 작업 호출
-
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다.
-
-1. "백 엔드 API 가져오기 및 게시" 단계에서 만든 API를 선택합니다.
-2. **개발자 포털**을 누릅니다.
-
-    ![개발자 포털에서 테스트](./media/api-management-get-started/developer-portal.png)
-
-    "개발자 포털" 사이트가 열립니다.
-3. **API**를 선택합니다.
-4. **데모 회의 API**를 선택합니다.
-5. **GetSpeakers**를 클릭합니다.
-
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되지만 이 경우에는 아무 필드도 표시되지 않습니다. 페이지에는 헤더에 대한 필드도 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
-6. **시도**를 누릅니다.
-7. **보내기**를 누릅니다.
-
-    작업 호출 후에는 개발자 포털에 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

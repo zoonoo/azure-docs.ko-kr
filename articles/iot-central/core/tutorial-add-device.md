@@ -1,20 +1,20 @@
 ---
-title: Azure IoT Central 애플리케이션에 실제 디바이스 추가 | Microsoft Docs
-description: Azure IoT Central 애플리케이션에서 실제 디바이스를 추가하고 구성하는 방법을 알아봅니다. 실제 디바이스에 있는 코드에 대해서도 알아볼 수 있습니다.
+title: '자습서: Azure IoT Central 애플리케이션에 실제 디바이스 추가'
+description: '자습서: Azure IoT Central 애플리케이션에서 실제 디바이스를 추가하고 구성하는 방법을 알아봅니다. 실제 디바이스에 있는 코드에 대해서도 알아볼 수 있습니다.'
 author: sandeeppujar
 ms.author: sandeepu
-ms.date: 08/23/2019
+ms.date: 11/13/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fce5be4d059d7b3698f1e76a4ec6ff46c4ce3c0b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5234c371cc4a7238148915f4dcca1faac564f608
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824620"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108963"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에 실제 디바이스 추가
 

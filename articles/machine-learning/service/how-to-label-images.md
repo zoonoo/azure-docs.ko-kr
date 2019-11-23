@@ -7,16 +7,16 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: af12361ed11d0a16e5a5d0cfe5989bb3918ce154
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 9cbebb905ba39dabaf905be2fa741702bd1a0088
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585589"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838952"
 ---
 # <a name="how-to-tag-images-in-a-labeling-project"></a>레이블 지정 프로젝트에서 이미지에 태그를 지정하는 방법
 
-프로젝트 관리자가 Azure Machine Learning Studio에서 레이블 지정 프로젝트를 만든 후에는 레이블 지정 도구를 사용하여 기계 학습 프로젝트에 사용할 데이터를 신속하게 준비할 수 있습니다. 
+프로젝트 관리자가 Azure Machine Learning에서 레이블 지정 프로젝트를 만든 후에는 레이블 지정 도구를 사용하여 기계 학습 프로젝트에 사용할 데이터를 신속하게 준비할 수 있습니다. 
 
 > [!div class="checklist"]
 > * 레이블 지정 프로젝트에 액세스하는 방법

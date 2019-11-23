@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Linux 가상 머신에 LAMP 배포 | Microsoft Docs
+title: 자습서 - Azure에서 Linux 가상 머신에 LAMP 배포
 description: 이 자습서에서는 Azure에서 Linux 가상 머신에 LAMP 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 893fba20af12bbbeeab2f0393177cd6f0daa6452
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 3b1f4ef9d4e36c35cc72716125392aaff05eab6d
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299424"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034465"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신에 LAMP 웹 서버 설치
 

@@ -1,18 +1,19 @@
 ---
-title: 자습서 - 영역에서 리소스 레코드를 참조하는 Azure DNS 별칭 레코드를 만듭니다.
+title: '자습서: 영역의 리소스 레코드를 참조하는 별칭 레코드 만들기'
+titleSuffix: Azure DNS
 description: 이 자습서에서는 영역 내에서 리소스 레코드를 참조하도록 Azure DNS 별칭 레코드를 구성하는 방법을 보여줍니다.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: victorh
-ms.openlocfilehash: 3b4ee688d6a5606ab6008b459fcf6331c24afaae
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.author: allensu
+ms.openlocfilehash: 59ffe9781d97880044da5eedbdf84181bf1b2fa1
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50091643"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74082885"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>자습서: 영역 리소스 레코드를 참조하는 별칭 레코드 만들기
 
@@ -25,12 +26,12 @@ ms.locfileid: "50091643"
 > * 별칭 레코드 테스트.
 
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
-Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure DNS에 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
+Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
 
 
 ## <a name="create-an-alias-record"></a>별칭 레코드 만들기

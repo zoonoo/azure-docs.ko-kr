@@ -23,11 +23,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72025666"
 ---
-# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: 질문과 대답
+# <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory Seamless Single Sign-On: FAQ(질문과 대답)
 
-이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On)에 대한 질문과 대답을 다룹니다. 새로운 내용을 계속 확인해 주세요.
+이 문서에서는 Azure Active Directory Seamless SSO(Seamless Single Sign-On)에 대한 질문과 대답을 다룹니다. 새로운 내용에 대해 계속 확인해 주세요.
 
-**Q: @ No__t를 사용 하 여 원활한 SSO 작업을 수행 하는 로그인 방법-0
+**Q: 원활한 SSO를 사용 하는 로그인 방법**
 
 Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchronization.md) 또는 [통과 인증](how-to-connect-pta.md) 로그인 방법과 결합할 수 있습니다. 그러나 AD FS(Active Directory Federation Services)에는 이 기능을 사용할 수 없습니다.
 
@@ -39,30 +39,30 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 아니요. Seamless SSO는 Azure AD의 전 세계 인스턴스에서만 사용할 수 있습니다.
 
-**Q: 원활한 SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용 하는 응용 프로그램은 무엇입니까?**
+**Q: 원활한 SSO의 `domain_hint` 또는 `login_hint` 매개 변수 기능을 활용 하는 응용 프로그램은 무엇 인가요?**
 
 다음은 이러한 매개 변수를 Azure AD에 전송할 수 있는 애플리케이션의 부분 목록으로, Seamless SSO를 사용하여 자동 로그온 환경을 제공합니다(예: 사용자가 사용자 이름 또는 암호를 입력할 필요가 없음).
 
-| 응용 프로그램 이름 | 사용할 애플리케이션 URL |
+| 애플리케이션 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
 | 액세스 패널 | https:\//myapps.microsoft.com/contoso.com |
 | 웹용 Outlook | https:\//outlook.office365.com/contoso.com |
 | Office 365 포털 | https:\//portal.office.com?domain_hint=contoso.com, https:\//www.office.com?domain_hint=contoso.com |
 
-또한 응용 프로그램이 테 넌 트 (즉, https: \//microsoftonline/<)로 설정 된 Azure AD의 끝점에 로그인 요청을 전송 하는 경우 사용자는 자동 로그온 환경을 이용할 수 있습니다. > 또는 https: \//microsoftonline/< tenant_ID >/<. >-Azure AD의 공통 끝점 (즉, https: @no__t/microsoftonline/common/< ... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
+또한 응용 프로그램이 테 넌 트 (즉, https:\//login.microsoftonline.com/contoso.com/<)로 설정 된 Azure AD의 끝점에 로그인 요청을 전송 하는 경우 사용자는 자동 로그온 환경을 이용할 수 있습니다. > 또는 https:\//login.microsoftonline.com/<tenant_ID>/<.. >-Azure AD의 공통 끝점 (즉, https:\//login.microsoftonline.com/common/<) 대신 ... >. 이러한 형식의 로그인을 요청하는 애플리케이션의 부분 목록이 아래에 나열됩니다.
 
-| 응용 프로그램 이름 | 사용할 애플리케이션 URL |
+| 애플리케이션 이름 | 사용할 애플리케이션 URL |
 | -- | -- |
 | SharePoint Online | https:\//contoso.sharepoint.com |
-| Azure Portal | https:\//portal.azure.com/contoso.com |
+| Azure 포털 | https:\//portal.azure.com/contoso.com |
 
 위 표에 나오는 "contoso.com"을 도메인 이름으로 바꾸어 테넌트에 적절한 애플리케이션 URL로 이동합니다.
 
 다른 애플리케이션에서 자동 로그온 환경을 사용하려는 경우 사용자 의견 섹션에서 알려주십시오.
 
-**Q: 는 `userPrincipalName`?** 가 아닌 사용자 이름으로 `Alternate ID`을 원활 하 게 지원 합니다.
+**Q: 원활한 SSO 지원이 `userPrincipalName`대신 사용자 이름으로 `Alternate ID` 합니다.**
 
-예. Seamless SSO는 [여기서](how-to-connect-install-custom.md) 보여주듯이 Azure AD Connect에서 구성할 때 `Alternate ID`를 사용자 이름으로 지원합니다. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
+예. Seamless SSO는 `Alternate ID`여기서[ 보여주듯이 Azure AD Connect에서 구성할 때 ](how-to-connect-install-custom.md)를 사용자 이름으로 지원합니다. 모든 Office 365 애플리케이션에서 `Alternate ID`를 지원하지는 않습니다. 지원 내용은 특정 애플리케이션의 설명서를 참조하세요.
 
 **Q: [AZURE AD 조인](../active-directory-azureadjoin-overview.md) 및 원활한 SSO에서 제공 하는 Single Sign-On 환경 간의 차이는 무엇 인가요?**
 
@@ -70,11 +70,11 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 테넌트에서 Azure AD 조인 및 Seamless SSO를 사용할 수 있습니다. 이러한 두 기능은 상호 보완적입니다. 두 기능이 모두 설정되어 있으면 Azure AD Join에서 SSO는 Seamless SSO보다 우선합니다.
 
-**Q: AD FS를 사용하지 않고 비Windows 10 디바이스를 Azure AD에 등록하려고 합니다. 대신 원활한 SSO를 사용할 수 있나요?**
+**Q: AD FS를 사용 하지 않고 Azure AD를 사용 하 여 비 Windows 10 장치를 등록 하려고 합니다. 대신 원활한 SSO를 사용할 수 있나요?**
 
 예, 이 시나리오에는 [작업 공간 연결 클라이언트](https://www.microsoft.com/download/details.aspx?id=53554) 버전 2.1 이상이 필요합니다.
 
-**Q: @No__t-0 컴퓨터 계정의 Kerberos 암호 해독 키를 롤오버 하려면 어떻게 해야 하나요?**
+**Q: `AZUREADSSOACC` 컴퓨터 계정의 Kerberos 암호 해독 키를 롤오버 하려면 어떻게 해야 하나요?**
 
 온-프레미스 AD 포리스트에 만든 `AZUREADSSOACC` 컴퓨터 계정(Azure AD를 나타냄)의 Kerberos 암호 해독 키를 자주 롤오버하는 것이 중요합니다.
 
@@ -83,17 +83,17 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 따릅니다.
 
-   ** 단계 1. 원활한 SSO가 사용 하도록 설정 된 AD 포리스트 목록 가져오기 @ no__t-0
+   **1 단계. 원활한 SSO가 사용 하도록 설정 된 AD 포리스트 목록 가져오기**
 
    1. 먼저 [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview)을 다운로드한 후 설치합니다.
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-   5. `Get-AzureADSSOStatus | ConvertFrom-Json`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
+   5. `Get-AzureADSSOStatus | ConvertFrom-Json`을 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
 
-   ** 단계 2. @ No__t에 설정 된 각 AD 포리스트에서 Kerberos 암호 해독 키를 업데이트 합니다.
+   **2 단계. 설정 된 각 AD 포리스트에서 Kerberos 암호 해독 키를 업데이트 합니다.**
 
-   1. `$creds = Get-Credential`를 호출합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
+   1. `$creds = Get-Credential`을 호출합니다. 메시지가 표시되면 의도한 AD 포리스트에 대한 도메인 관리자 자격 증명을 입력합니다.
 
    > [!NOTE]
    >도메인 관리자 자격 증명 사용자 이름은 SAM 계정 이름 형식 (예 contoso\johndoe 또는 com\johndoe)으로 입력 해야 합니다. 사용자 이름의 도메인 부분을 사용 하 여 DNS를 사용 하는 도메인 관리자의 도메인 컨트롤러를 찾습니다.
@@ -101,17 +101,17 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    >[!NOTE]
    >사용 되는 도메인 관리자 계정은 보호 된 사용자 그룹의 구성원이 아니어야 합니다. 이 경우 작업이 실패 합니다.
 
-   2. `Update-AzureADSSOForest -OnPremCredentials $creds`를 호출합니다. 이 명령은 이 특정 AD 포리스트에서 `AZUREADSSOACC` 컴퓨터 계정에 대한 Kerberos 암호 해독 키를 업데이트하고 Azure AD에서 키를 업데이트 합니다.
+   2. `Update-AzureADSSOForest -OnPremCredentials $creds`을 호출합니다. 이 명령은 이 특정 AD 포리스트에서 `AZUREADSSOACC` 컴퓨터 계정에 대한 Kerberos 암호 해독 키를 업데이트하고 Azure AD에서 키를 업데이트 합니다.
    3. 기능을 설정한 각 AD 포리스트에 대해 위의 단계를 반복합니다.
 
    >[!IMPORTANT]
-   >`Update-AzureADSSOForest` 명령을 두 번 이상 실행하지 _않아야 합니다_. 그렇지 않으면 해당 기능은 사용자의 Kerberos 티켓이 만료되고 온-프레미스 Active Directory에 의해 재발급될 때까지 작동하지 않습니다.
+   >_명령을 두 번 이상 실행하지_않아야 합니다`Update-AzureADSSOForest`. 그렇지 않으면 해당 기능은 사용자의 Kerberos 티켓이 만료되고 온-프레미스 Active Directory에 의해 재발급될 때까지 작동하지 않습니다.
 
 **Q: 원활한 SSO를 사용 하지 않도록 설정 하려면 어떻게 해야 하나요?**
 
-   ** 단계 1. 테 넌 트에서 기능을 사용 하지 않도록 설정 @ no__t-0
+   **1 단계. 테 넌 트에서 기능을 사용 하지 않도록 설정**
 
-   **옵션 A: Azure AD Connect @ no__t를 사용 하지 않도록 설정-0
+   **옵션 A: Azure AD Connect 사용 안 함**
     
    1. Azure AD Connect를 실행하고 **사용자 로그인 페이지 변경**을 선택하고 **다음**을 클릭합니다.
    2. **Single Sign-On 사용** 옵션의 선택을 취소합니다. 마법사를 계속 진행합니다.
@@ -122,7 +122,7 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
 
    정리 과정을 완료하려면 Azure AD Connect를 실행 중인 온-프레미스 서버에서 2단계 및 3단계를 따릅니다.
 
-   **옵션 B: PowerShell을 사용 하 여 사용 안 함 @ no__t-0
+   **옵션 B: PowerShell을 사용 하지 않도록 설정**
 
    Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를 실행합니다.
 
@@ -130,12 +130,12 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-   5. `Enable-AzureADSSO -Enable $false`를 호출합니다.
+   5. `Enable-AzureADSSO -Enable $false`을 호출합니다.
 
    >[!IMPORTANT]
    >PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정하면 Azure AD Connect의 상태를 변경하지 않습니다. Seamless SSO는 **사용자 로그인 변경** 페이지에서 사용하도록 설정된 것으로 표시됩니다.
 
-   ** 단계 2. 원활한 SSO가 사용 하도록 설정 된 AD 포리스트 목록 가져오기 @ no__t-0
+   **2 단계. 원활한 SSO가 사용 하도록 설정 된 AD 포리스트 목록 가져오기**
 
    Azure AD Connect를 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 1-4를 따릅니다. 대신 PowerShell을 사용하여 Seamless SSO를 사용하지 않도록 설정한 경우 아래의 태스크 5를 이동합니다.
 
@@ -143,9 +143,9 @@ Azure AD Connect를 실행 중인 온-프레미스 서버에서 다음 단계를
    2. `%programfiles%\Microsoft Azure Active Directory Connect` 폴더로 이동합니다.
    3. 다음 명령을 사용하여 Seamless SSO PowerShell 모듈을 가져옵니다. `Import-Module .\AzureADSSO.psd1`
    4. 관리자 권한으로 PowerShell을 실행합니다. PowerShell에서 `New-AzureADSSOAuthenticationContext`를 호출합니다. 이 명령으로 테넌트의 전역 관리자 자격 증명을 입력하라는 팝업 메시지가 표시됩니다.
-   5. `Get-AzureADSSOStatus | ConvertFrom-Json`를 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
+   5. `Get-AzureADSSOStatus | ConvertFrom-Json`을 호출합니다. 사용하도록 설정된 AD 포리스트 목록("도메인" 목록에 있음)이 표시됩니다.
 
-   **3 단계: 표시 된 각 AD 포리스트에서 `AZUREADSSOACCT` 컴퓨터 계정을 수동으로 삭제 합니다.**
+   **3 단계. 표시 된 각 AD 포리스트에서 `AZUREADSSOACCT` 컴퓨터 계정을 수동으로 삭제 합니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

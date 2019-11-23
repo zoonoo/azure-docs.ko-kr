@@ -1,20 +1,19 @@
 ---
-title: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용 | Microsoft Docs
-description: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
+title: Azure IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
+description: Azure IoT 허브를 사용하여 메트릭 및 진단 로그를 설정하고 사용하는 방법을 알아봅니다. 이렇게 하면 허브에서 발생할 수 있는 문제를 진단하는 데 도움이 되는 분석 데이터를 제공합니다.
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 7349287945a56bb7674e364f515d0b763015ed59
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 88101aacab8b4745ce6bc9180521e66500086edd
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262310"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084370"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기 | Microsoft Docs
+title: 자습서 - Azure의 Linux 가상 머신에 MEAN 스택 만들기
 description: 이 자습서에서는 Azure의 Linux VM에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5a1d1f738d8f32777bc4a6ea7d04fb0abf2accf7
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 50ccf0d6db5a50f7dd89732bc870ced6bcf1c2d7
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300811"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034396"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>자습서: Azure의 Linux 가상 머신에서 MEAN(MongoDB, Express, AngularJS 및 Node.js) 스택 만들기
 

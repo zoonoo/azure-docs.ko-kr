@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/29/2019
+ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b038eca3d4e6beb6b1d226a4a7b1e20bfe3bb55a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121427"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074647"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>자습서: Lesson.ly와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -65,10 +65,10 @@ Lesson.ly의 Azure AD 통합을 구성하려면 갤러리의 Lesson.ly를 관리
 Lesson.ly에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[Lesson.ly SSO 구성](#configure-lessonly-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[Lesson.ly 테스트 사용자 만들기](#create-lessonly-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Lesson.ly에 만듭니다.
+    * **[Lesson.ly 테스트 사용자 만들기](#create-lessonly-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 Lesson.ly에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -92,6 +92,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:support@lessonly.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+
+1. Lesson.ly 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/default-attributes.png)
+
+1. 위에서 언급한 특성 외에도 Lesson.ly 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+
+    | Name | 원본 특성|
+    | ---------------  | ----------------|
+    | urn:oid:2.5.4.42 | user.givenname |
+    | urn:oid:2.5.4.4  | user.surname |
+    | urn:oid:0.9.2342.19200300.100.1.3 | user.mail |
+    | urn:oid:1.3.6.1.4.1.5923.1.1.1.10 | user.objectid |
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(Base64)** 를 찾은 후 **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -137,7 +150,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-lessonly-test-user"></a>Lesson.ly 테스트 사용자 만들기
 
-이 섹션은 Lessonly.com에서 Britta Simon이라는 사용자를 만들기 위한 것입니다. Lessonly.com은 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
+이 섹션은 Lessonly.com에서 B.Simon이라는 사용자를 만들기 위한 것입니다. Lessonly.com은 Just-In-Time 프로비전을 지원하며 기본적으로 사용하도록 설정합니다.
 
 이 섹션에 작업 항목이 없습니다. 새 사용자가 아직 존재하지 않는 경우 Lessonly.com에 액세스하는 동안 만들어질 수 있습니다.
 

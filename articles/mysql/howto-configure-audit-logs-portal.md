@@ -20,7 +20,7 @@ Azure Portal에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.
 > [!IMPORTANT]
 > 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -38,13 +38,13 @@ Azure Portal에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.
     ![서버 매개 변수](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
 1. **Audit_log_enabled** 매개 변수를 ON으로 업데이트 합니다.
-    ![ 감사 로그 사용 @ no__t-1
+    감사 로그를 사용 하도록 설정 ![](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
 
 1. **Audit_log_events** 매개 변수를 업데이트 하 여 로깅할 [이벤트 유형을](concepts-audit-logs.md#configure-audit-logging) 선택 합니다.
-    ![ 감사 로그 이벤트 @ no__t-1
+    감사 로그 이벤트를 ![](./media/howto-configure-audit-logs-portal/audit-log-events.png)
 
 1. **Audit_log_exclude_users** 매개 변수를 업데이트 하 여 로그에서 제외할 MySQL 사용자를 추가 합니다. MySQL 사용자 이름을 제공 하 여 사용자를 지정 합니다.
-    ![ 감사 로그 제외 사용자 @ no__t-1
+    감사 로그 ![사용자를 제외](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
 
 1. 매개 변수를 변경한 다음 **저장**을 클릭합니다. 또는 변경 사항을 **취소**할 수 있습니다.
     ![저장](./media/howto-configure-audit-logs-portal/save-parameters.png)
@@ -53,17 +53,17 @@ Azure Portal에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.
 
 1. 사이드바의 **모니터링** 섹션에서 **진단 설정**을 선택 합니다.
 
-1. "+ 진단 설정 추가" ![ 추가 진단 설정 @ no__t-1을 클릭 합니다.
+1. 진단 설정 추가 !["+ 진단 설정 추가"를 클릭](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
 
 1. 진단 설정 이름을 제공 합니다.
 
 1. 감사 로그를 보낼 데이터 싱크 (저장소 계정, 이벤트 허브 및/또는 Log Analytics 작업 영역)를 지정 합니다.
 
 1. 로그 형식으로 "MySqlAuditLogs"을 선택 합니다.
-![ 진단 설정 구성 @ no__t-1
+진단 설정 구성 ![](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
 
 1. 감사 로그를 파이프 하도록 데이터 싱크를 구성한 후에는 **저장**을 클릭할 수 있습니다.
-![ 진단 설정 저장 @ no__t-1
+진단 설정 저장 ![](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
 
 1. 구성 된 데이터 싱크에서 감사 로그를 탐색 하 여 액세스 합니다. 로그가 표시 되는 데 최대 10 분이 소요 될 수 있습니다.
 

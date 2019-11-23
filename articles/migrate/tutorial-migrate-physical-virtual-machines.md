@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ffa072f593a06a38e6e3d121fb76806e41bf568e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 28705ea8a552f4d2e6653857c69ebb8d5f87b962
+ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605543"
+ms.lasthandoff: 11/11/2019
+ms.locfileid: "73907119"
 ---
 # <a name="migrate-physical-or-virtualized-servers-to-azure"></a>물리적 서버 또는 가상화된 서버를 Azure로 마이그레이션 
 
@@ -123,7 +123,7 @@ Azure Migrate 프로젝트가 있는 리소스 그룹에 대해 다음과 같이
 > [!NOTE]
 > Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
 
-1. VMware 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)합니다.
+1. 서버 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-server-requirements)합니다.
 2. 마이그레이션에 대한 VM 지원 요구 사항을 [확인](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)합니다.
 3. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 VM은 [Azure VM 요구 사항](migrate-support-matrix-vmware.md#azure-vm-requirements)을 준수해야 합니다.
 
@@ -265,7 +265,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
     ![VM 복제](./media/tutorial-migrate-physical-virtual-machines/select-replicate.png)
 
-2. **복제** > **원본 설정** > **머신이 가상화되어 있습니까?** 에서 **예, VMware vSphere 사용**을 선택합니다.
+2. **복제** > **원본 설정** > **머신이 가상화되어 있나요?** 에서 **가상화되지 않음/기타**를 선택합니다.
 3. **온-프레미스 어플라이언스**에서 설정한 Azure Migrate 어플라이언스의 이름을 선택합니다.
 4. **vCenter 서버**에서 VM을 관리하는 vCenter 서버 또는 VM이 호스팅되는 vSphere 서버의 이름을 지정합니다.
 5. **프로세스 서버**에서 복제 어플라이언스의 이름을 선택합니다.

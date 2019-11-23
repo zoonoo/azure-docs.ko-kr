@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
-ms.date: 06/04/2019
+ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300907"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73904918"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>자습서: 관리 도구 배포
 
@@ -103,9 +103,14 @@ GitHub Azure Resource Manager 템플릿을 완료하면 두 개의 앱 서비스
 1. 템플릿에서 제공한 이름을 가진(예: Apr3UX) Azure App Services 리소스를 선택하고, 해당 리소스와 연결된 URL(예: <https://rdmimgmtweb-210520190304.azurewebsites.net>)로 이동합니다.
 2. Windows Virtual Desktop 자격 증명을 사용하여 로그인합니다.
 3. 테넌트 그룹을 선택하라는 메시지가 표시되면 드롭다운 목록에서 **기본 테넌트 그룹**을 선택합니다.
+4. 기본 테넌트 그룹을 선택하면 창의 오른쪽에 메뉴가 나타납니다. 이 메뉴에서 테넌트 그룹의 이름을 찾아서 선택합니다.
 
 > [!NOTE]
 > 사용자 지정 테넌트 그룹이 있는 경우 드롭다운 목록에서 선택하지 말고 수동으로 이름을 입력합니다.
+
+## <a name="report-issues"></a>문제 보고
+
+관리 도구 또는 기타 Windows Virtual Desktop 도구에 문제가 발생하는 경우 [Remote Desktop Services용 ARM 템플릿](https://github.com/Azure/RDS-Templates/blob/master/README.md)의 지침에 따라 GitHub에 보고합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

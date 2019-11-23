@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
-ms.date: 04/15/2019
-ms.openlocfilehash: 9afb65b320b440920a1fca1dec7146073ba05821
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.date: 11/08/2019
+ms.openlocfilehash: 14d7c6c6352528207a20071908c31ea684dde19d
+ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074914"
+ms.lasthandoff: 11/10/2019
+ms.locfileid: "73903629"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Python 샘플
 
@@ -22,24 +22,23 @@ ms.locfileid: "71074914"
 > * [Java 예제](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
 
-
 이 문서는 다음을 제공합니다.
 
 * 클러스터 만들기 작업용 샘플에 연결합니다.
 * 다른 관리 작업을 위한 참조 콘텐츠에 연결합니다.
 
-## <a name="prerequisites"></a>필수 조건
-
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-- [Python용 Azure HDInsight SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
+## <a name="prerequisites"></a>필수 조건
+
+[Python용 Azure HDInsight SDK](https://docs.microsoft.com/python/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>클러스터 관리 - 만들기
 
-* [Kafka 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
-* [Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
-* [Azure Data Lake Storage Gen2로 Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
-* [ESP(Enterprise Security Package)를 사용하여 Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
+* [Apache Kafka 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_kafka_cluster_sample.py)
+* [Apache Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_spark_cluster_sample.py)
+* [Azure Data Lake Storage Gen2로 Apache Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_hadoop_cluster_with_adls_gen2_sample.py)
+* [ESP(Enterprise Security Package)를 사용하여 Apache Spark 클러스터 만들기](https://github.com/Azure-Samples/hdinsight-python-sdk-samples/blob/master/samples/create_esp_cluster_sample.py)
 
 [hdinsight-python-sdk-samples](https://github.com/Azure-Samples/hdinsight-python-sdk-samples) GitHub 리포지토리를 복제를 통해 Python용 샘플을 가져올 수 있습니다.
 

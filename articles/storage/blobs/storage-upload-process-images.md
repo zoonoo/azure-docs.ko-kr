@@ -1,19 +1,19 @@
 ---
 title: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드 | Microsoft Docs
 description: 웹앱에서 Azure Blob Storage를 사용하여 앱 데이터를 저장합니다.
-author: normesta
+author: mhopkins-msft
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 11/26/2018
+ms.date: 11/16/2019
 ms.author: mhopkins
 ms.reviewer: dineshm
-ms.openlocfilehash: afa4672d2a8f65b61d634b95b695d1c9814bf991
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 1c06cf12ac3264e77934a71426f9194136074e71
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053443"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132979"
 ---
 # <a name="tutorial-upload-image-data-in-the-cloud-with-azure-storage"></a>자습서: Azure Storage를 사용하여 클라우드에 이미지 데이터 업로드
 
@@ -55,7 +55,8 @@ CLI를 로컬로 설치하여 사용하려면 이 자습서에서 Azure CLI 버�
 다음 예제에서는 `myResourceGroup`이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
-az group create --name myResourceGroup --location southeastasia 
+az group create --name myResourceGroup --location southeastasia
+
 ```
 
 ## <a name="create-a-storage-account"></a>스토리지 계정 만들기
@@ -65,14 +66,13 @@ az group create --name myResourceGroup --location southeastasia
 > [!IMPORTANT]
 > 자습서의 2부에서는 Blob 스토리지에서 Azure Event Grid를 사용합니다. 스토리지 계정은 Event Grid를 지원하는 Azure 지역에 만듭니다. 지원되는 지역 목록은 [지역별 Azure 제품](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all)을 참조하세요.
 
-다음 명령에서 `<blob_storage_account>` 자리 표시자가 표시되는 Blob Storage 계정에 대해 글로벌로 고유한 이름으로 바꿉니다.  
+다음 명령에서 `<blob_storage_account>` 자리 표시자가 표시되는 Blob Storage 계정에 대해 글로벌로 고유한 이름으로 바꿉니다.
 
 ```azurecli-interactive
-blobStorageAccount=<blob_storage_account>
+$blobStorageAccount="<blob_storage_account>"
 
-az storage account create --name $blobStorageAccount \
---location southeastasia --resource-group myResourceGroup \
---sku Standard_LRS --kind blobstorage --access-tier hot 
+az storage account create --name $blobStorageAccount --location southeastasia --resource-group myResourceGroup --sku Standard_LRS --kind blobstorage --access-tier hot
+
 ```
 
 ## <a name="create-blob-storage-containers"></a>Blob 스토리지 컨테이너 만들기
@@ -84,17 +84,15 @@ az storage account create --name $blobStorageAccount \
 *images* 컨테이너의 공용 액세스는 `off`로 설정되고, *thumbnails* 컨테이너의 공용 액세스는 `container`로 설정됩니다. `container` 공용 액세스 설정을 사용하면 웹 페이지를 방문하는 사용자가 썸네일을 볼 수 있습니다.
 
 ```azurecli-interactive
-blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
--n $blobStorageAccount --query [0].value --output tsv)
+$blobStorageAccountKey=$(az storage account keys list -g myResourceGroup -n $blobStorageAccount --query [0].value --output tsv)
 
-az storage container create -n images --account-name $blobStorageAccount \
---account-key $blobStorageAccountKey --public-access off
+az storage container create -n images --account-name $blobStorageAccount --account-key $blobStorageAccountKey --public-access off
 
-az storage container create -n thumbnails --account-name $blobStorageAccount \
---account-key $blobStorageAccountKey --public-access container
+az storage container create -n thumbnails --account-name $blobStorageAccount --account-key $blobStorageAccountKey --public-access container
 
 echo "Make a note of your Blob storage account key..."
 echo $blobStorageAccountKey
+
 ```
 
 Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이러한 설정을 통해 스토리지 계정에 연결하여 이미지를 업로드합니다. 
@@ -109,6 +107,7 @@ Blob 스토리지 계정 이름과 키를 적어 두세요. 샘플 앱에서 이
 
 ```azurecli-interactive
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku Free
+
 ```
 
 ## <a name="create-a-web-app"></a>웹앱 만들기
@@ -118,9 +117,10 @@ az appservice plan create --name myAppServicePlan --resource-group myResourceGro
 다음 명령에서 `<web_app>`을 고유한 이름으로 바꿉니다. 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. `<web_app>`이 고유하지 않으면 다음 오류 메시지가 표시됩니다. _이름이 `<web_app>`인 웹 사이트가 이미 있습니다._ 웹앱의 기본 URL은 `https://<web_app>.azurewebsites.net`입니다.  
 
 ```azurecli-interactive
-webapp=<web_app>
+$webapp="<web_app>"
 
 az webapp create --name $webapp --resource-group myResourceGroup --plan myAppServicePlan
+
 ```
 
 ## <a name="deploy-the-sample-app-from-the-github-repository"></a>GitHub 리포지토리에서 샘플 앱 배포
@@ -132,27 +132,24 @@ App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지�
 샘플 프로젝트에는 [ASP.NET MVC](https://www.asp.net/mvc) 앱이 포함되어 있습니다. 이 앱은 이미지를 받아들이고, 스토리지 계정에 저장하고, 썸네일 이미지 컨테이너에서 이미지를 표시합니다. 웹앱은 Azure Storage 클라이언트 라이브러리의 [Microsoft.Azure.Storage](/dotnet/api/overview/azure/storage), [Microsoft.Azure.Storage.Blob](/dotnet/api/microsoft.azure.storage.blob) 및 Microsoft.Azure.Storage.Auth 네임스페이스를 사용하여 Azure 스토리지와 상호 작용합니다.
 
 ```azurecli-interactive
-az webapp deployment source config --name $webapp \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp
+
 ```
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. 
 
 ```azurecli-interactive
-az webapp deployment source config --name $webapp \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node
+
 ```
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
 App Service는 웹앱에 콘텐츠를 배포하는 여러 가지 방법을 지원합니다. 이 자습서에서는 [공용 GitHub 샘플 리포지토리](https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10)에서 웹앱을 배포합니다. [az webapp deployment source config](/cli/azure/webapp/deployment/source) 명령을 사용하여 웹앱에 대한 Git 배포를 구성합니다. 
 
 ```azurecli-interactive
-az webapp deployment source config --name $webapp \
---resource-group myResourceGroup --branch master --manual-integration \
---repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+az webapp deployment source config --name $webapp --resource-group myResourceGroup --branch master --manual-integration --repo-url https://github.com/Azure-Samples/storage-blob-upload-from-webapp-node-v10
+
 ```
 
 ---
@@ -164,11 +161,8 @@ az webapp deployment source config --name $webapp \
 샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](/dotnet/api/overview/azure/storage)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```azurecli-interactive
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
---settings AzureStorageConfig__AccountName=$blobStorageAccount \
-AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbnails \
-AzureStorageConfig__AccountKey=$blobStorageAccountKey  
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AzureStorageConfig__AccountName=$blobStorageAccount AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountKey=$blobStorageAccountKey
+
 ```
 
 # <a name="nodejs-v2-sdktabnodejs"></a>[Node.js V2 SDK](#tab/nodejs)
@@ -176,15 +170,10 @@ AzureStorageConfig__AccountKey=$blobStorageAccountKey
 샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](https://docs.microsoft.com/javascript/api/azure-storage)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName \
---name $blobStorageAccount --query connectionString --output tsv)
+$storageConnectionString=$(az storage account show-connection-string --resource-group $resourceGroupName --name $blobStorageAccount --query connectionString --output tsv)
 
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
---settings AzureStorageConfig__ImageContainer=images  \
-AzureStorageConfig__ThumbnailContainer=thumbnails \
-AzureStorageConfig__AccountName=$blobStorageAccount \
-AzureStorageConfig__AccountKey=$blobStorageAccountKey \
-AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AzureStorageConfig__ImageContainer=images AzureStorageConfig__ThumbnailContainer=thumbnails AzureStorageConfig__AccountName=$blobStorageAccount AzureStorageConfig__AccountKey=$blobStorageAccountKey AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
+
 ```
 
 # <a name="nodejs-v10-sdktabnodejsv10"></a>[Node.js V10 SDK](#tab/nodejsv10)
@@ -192,9 +181,8 @@ AZURE_STORAGE_CONNECTION_STRING=$storageConnectionString
 샘플 웹앱은 [Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-js)를 사용하여 이미지 업로드에 사용되는 액세스 토큰을 요청합니다. Storage SDK에서 사용되는 스토리지 계정 자격 증명은 웹앱에 대한 앱 설정에 설정됩니다. [az webapp config appsettings set](/cli/azure/webapp/config/appsettings) 명령을 사용하여 배포된 앱에 앱 설정을 추가합니다.
 
 ```azurecli-interactive
-az webapp config appsettings set --name $webapp --resource-group myResourceGroup \
---settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount \
-AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
+az webapp config appsettings set --name $webapp --resource-group myResourceGroup --settings AZURE_STORAGE_ACCOUNT_NAME=$blobStorageAccount AZURE_STORAGE_ACCOUNT_ACCESS_KEY=$blobStorageAccountKey
+
 ```
 
 ---
@@ -394,7 +382,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 ## <a name="verify-the-image-is-shown-in-the-storage-account"></a>스토리지 계정에서 이미지가 표시되는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service** 아래에서 **Blob**을 선택한 다음, **images** 컨테이너를 선택합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너**를 선택한 다음, **이미지** 컨테이너를 선택합니다.
 
 컨테이너에 이미지가 표시되는지 확인합니다.
 
@@ -404,7 +392,7 @@ router.post('/', uploadStrategy, async (req, res) => {
 
 썸네일 보기를 테스트하려면 이미지를 **thumbnails** 컨테이너에 업로드하여 앱에서 **thumbnails** 컨테이너를 읽을 수 있는지 확인합니다.
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **Blob Service**에서 **Blob**을 선택한 다음, **thumbnails** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다. 왼쪽 메뉴에서 **스토리지 계정**을 선택하고 스토리지 계정의 이름을 선택합니다. **컨테이너**를 선택한 다음, **썸네일** 컨테이너를 선택합니다. **업로드**를 선택하여 **blob 업로드** 창을 엽니다.
 
 파일 선택기를 사용하여 파일을 선택하고, **업로드**를 선택합니다.
 

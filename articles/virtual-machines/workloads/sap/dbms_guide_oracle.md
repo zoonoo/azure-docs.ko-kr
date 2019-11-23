@@ -320,12 +320,12 @@ Oracle 소프트웨어는 Microsoft Azure에서 실행되도록 Oracle에서 지
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
+| [1928533] |Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 지원 필수 구성 요소 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [2191498] |Azure 포함 Linux의 SAP: 고급 모니터링 |
-| [2039619] |Oracle Database를 사용하는 Microsoft Azure의 SAP 애플리케이션: 지원되는 제품 및 버전 |
+| [2191498] |Azure를 사용 하는 Linux의 SAP: 향상 된 모니터링 |
+| [2039619] |Oracle 데이터베이스를 사용 하는 Microsoft Azure의 SAP 응용 프로그램: 지원 되는 제품 및 버전 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
 | [2069760] |Oracle Linux 7.x SAP 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
@@ -352,12 +352,12 @@ SAP 설치 설명서에 따라 모든 Oracle 관련 파일을 VM의 OS 디스크
 
 tempfiles를 위한 적절한 양의 공간 크기를 결정하려면 기존 시스템의 tempfiles 크기를 확인할 수 있습니다.
 
-### <a name="storage-configuration"></a>스토리지 구성
+### <a name="storage-configuration"></a>Storage 구성
 NTFS로 포맷된 디스크를 사용하는 하나의 Oracle 인스턴스만 지원됩니다. 모든 데이터베이스 파일은 Managed Disks(권장) 또는 VHD의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) 또는 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 기준으로 합니다. 
 
 [Azure Managed Disks](https://docs.microsoft.com/azure/storage/storage-managed-disks-overview)를 사용하는 것이 좋습니다. 또한 Oracle Database 배포에는 [프리미엄 SSD](../../windows/disks-types.md)를 사용하는 것이 좋습니다.
 
-네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은 다음을 참조하세요.
+네트워크 드라이브 또는 Azure 파일 서비스와 같은 원격 공유는 Oracle Database 파일에 대해 지원되지 않습니다. 자세한 내용은
 
 - [Microsoft Azure 파일 서비스 소개](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 
@@ -418,7 +418,7 @@ Azure M 시리즈 VM의 경우 Azure Write Accelerator를 사용하면 Azure Pre
 
 Azure의 Oracle 데이터베이스 재해 복구에 대한 자세한 내용은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery)를 참조하세요.
 
-### <a name="accelerated-networking"></a>가속화된 네트워킹
+### <a name="accelerated-networking"></a>가속된 네트워킹
 Windows의 Oracle 배포에서는 [Azure 가속 네트워킹](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)에 설명된 대로 가속 네트워킹을 사용하는 것이 좋습니다. 또한 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)도 고려하세요. 
 ### <a name="other"></a>기타
 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서는 Azure 가용성 집합 및 SAP 모니터링을 비롯하여 Oracle Database를 사용하는 VM 배포와 관련된 기타 중요 개념을 설명합니다.
@@ -440,7 +440,7 @@ SAP 설치 설명서에 따라 Oracle 관련 파일을 VM의 부팅 디스크용
 이 경우에는 Oracle 홈, 단계, saptrace, saparch, sapbackup, sapcheck 또는 sapreorg를 부팅 디스크에 설치/배치하는 것이 좋습니다. Oracle DBMS 구성 요소의 이러한 부분은 I/O 및 I/O 처리량에 무리는 아닙니다. 따라서 OS 디스크는 I/O 요구 사항을 처리할 수 있습니다. OS 디스크의 기본 크기는 30GB입니다. Azure Portal, PowerShell 또는 CLI를 통해 부팅 디스크를 확장할 수 있습니다. 부팅 디스크를 확장한 후 Oracle 이진 파일에 대한 추가 파티션을 추가할 수 있습니다.
 
 
-### <a name="storage-configuration"></a>스토리지 구성
+### <a name="storage-configuration"></a>Storage 구성
 
 ext4, xfs 또는 Oracle ASM의 파일 시스템은 Azure에서 Oracle Database 파일에 대해 지원됩니다. 모든 데이터베이스 파일은 VHD 또는 Managed Disks 기반의 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, [Azure 페이지 Blob 스토리지](<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 [Azure Managed Disks](../../windows/managed-disks-overview.md)를 기준으로 합니다.
 
@@ -489,7 +489,7 @@ Oracle의 온라인 다시 실행 로그를 호스팅하기 위한 디스크 선
 
 *제거: RAID0를 사용한 LVM 스트라이프 또는 MDADM
 
-*(n+1): SYSTEM, TEMP 및 UNDO 테이블스페이스를 호스트합니다. I/O 패턴의 시스템 및 Undo 테이블스페이스는 애플리케이션 데이터를 호스팅하는 다른 테이블스페이스와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
+\* (n + 1): 호스팅 시스템, 임시 및 실행 취소 테이블: 시스템의 i/o 패턴 및 실행 테이블은 다른 테이블 스페이스 호스팅 응용 프로그램 데이터와 다릅니다. 캐싱 없음이 시스템의 성능 및 Undo 테이블스페이스에 최적의 옵션입니다.
 
 \* oraarch: 성능 관점에서 스토리지 풀이 필요하지 않습니다.
 
@@ -512,7 +512,7 @@ Azure M 시리즈 VM의 경우, Azure Write Accelerator를 사용하면 Azure Pr
 
 Azure의 Oracle 데이터베이스에 대한 재해 복구 측면은 [Azure 환경의 Oracle Database 12c 데이터베이스 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/oracle/oracle-disaster-recovery) 문서에 나와 있습니다.
 
-### <a name="accelerated-networking"></a>가속화된 네트워킹
+### <a name="accelerated-networking"></a>가속된 네트워킹
 Oracle Linux에서 Azure 가속 네트워킹에 대한 지원은 Oracle Linux 7 업데이트 5(Oracle Linux 7.5)와 함께 제공됩니다. 최신 Oracle Linux 7.5 릴리스로 업그레이드할 수 없는 경우 Oracle UEK 커널 대신 RHCK(RedHat Compatible Kernel)를 사용하여 해결할 수 있습니다. 
 
 Oracle Linux 내에서 RHEL 커널을 사용하는 것은 SAP Note [#1565179](https://launchpad.support.sap.com/#/notes/1565179)에 따라 지원됩니다. Azure 가속 네트워킹의 경우 최소 RHCKL 커널 릴리스는 3.10.0-862.13.1.el7이어야 합니다. [Azure Accelerated Networking](https://azure.microsoft.com/blog/maximize-your-vm-s-performance-with-accelerated-networking-now-generally-available-for-both-windows-and-linux/)과 함께 Oracle Linux의 UEK 커널을 사용하는 경우 Oracle UEK 커널 버전 5를 사용해야 합니다.

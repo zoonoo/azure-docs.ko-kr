@@ -1,18 +1,18 @@
 ---
-title: 자습서 - SSL 종료로 애플리케이션 게이트웨이 구성 - Azure Portal
+title: '자습서: 포털에서 SSL 종료 구성 - Azure Application Gateway'
 description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이를 구성하고 SSL 종료를 위한 인증서를 추가하는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/27/2019
+ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: afdb5d256c33042655c122e9c84a4ab07c94f14c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4278fc6d44f32921713681cb094b659901cc87c
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470043"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74012314"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 SSL 종료로 애플리케이션 게이트웨이 구성
 

@@ -1,19 +1,20 @@
 ---
-title: 자습서 - URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기 - Azure CLI
+title: '자습서: CLI를 사용한 URL 경로 기반 리디렉션'
+titleSuffix: Azure Application Gateway
 description: 이 자습서에서는 Azure CLI를 사용하여 URL 경로 기반 리디렉션된 트래픽으로 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 7/30/2019
+ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 23ddbdc62b2592a8fbfb7cdccaca52cbfe9aee62
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315945"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074435"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>자습서: Azure CLI를 사용하여 URL 경로 기반 리디렉션으로 애플리케이션 게이트웨이 만들기
 

@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: fdd1aeea20160bb1a9f91de934bd9268a179648a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: c098b67ab2782fa3cf29b5b19aa198f899ba69c0
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72529243"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890610"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C IoT Edge 모듈 개발
 
@@ -134,7 +134,7 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
       )
       ```
 
-   3. CMakeLists.txt 파일의 **target_link_libraries** 섹션에 있는 라이브러리 목록에 **my_parson**을 추가합니다.
+   3. CMakeLists.txt 파일의 **target_link_libraries** 섹션에 있는 라이브러리 목록에 `my_parson`을 추가합니다.
 
    4. **CMakeLists.txt** 파일을 저장합니다.
 
@@ -174,6 +174,14 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
 4. `InputQueue1Callback` 함수를 찾고 전체 함수를 다음 코드로 바꿉니다. 이 함수는 실제 메시지 필터를 구현합니다. 메시지가 수신되면 보고된 온도가 임계값을 초과하는지 여부를 확인합니다. 그렇다면 해당 출력 큐를 통해 메시지를 전달합니다. 그렇지 않은 경우에는 메시지가 무시됩니다. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -183,7 +191,10 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }

@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 05/20/2019
+ms.date: 06/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 03998d214c1fb977741976eca7b878d0c6b577aa
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c733873a5545bb01f03abd8178ed2f371e2dd3aa
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160378"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074077"
 ---
 # <a name="tutorial-integrate-myworkdrive-with-azure-active-directory"></a>자습서: MyWorkDrive와 Azure Active Directory 통합
 
@@ -100,9 +100,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="configure-myworkdrive-sso"></a>MyWorkDrive SSO 구성
 
-1. 다른 웹 브라우저 창에서 MyWorkDrive에 보안 관리자 권한으로 로그인합니다.
+1. MyWorkDrive 내에서 구성을 자동화하려면 **확장 설치**를 클릭하여 **내 앱 보안 로그인 브라우저 확장**을 설치해야 합니다.
 
-2. 관리자 패널의 MyWorkDrive 서버에서 **ENTERPRISE**를 클릭하고 다음 단계를 수행합니다.
+    ![내 앱 확장](common/install-myappssecure-extension.png)
+
+1. 브라우저에 확장을 추가한 후 **MyWorkDrive 설정**을 클릭하면 MyWorkDrive 애플리케이션으로 이동됩니다. 여기서 관리자 자격 증명을 입력하여 MyWorkDrive에 로그인합니다. 브라우저 확장이 애플리케이션을 자동으로 구성하고 3-4단계를 자동으로 수행합니다.
+
+    ![구성 설정](common/setup-sso.png)
+
+1. MyWorkDrive를 수동으로 설정하려면 다른 웹 브라우저 창에서 MyWorkDrive에 보안 관리자 권한으로 로그인합니다.
+
+1. 관리자 패널의 MyWorkDrive 서버에서 **ENTERPRISE**를 클릭하고 다음 단계를 수행합니다.
 
     ![관리자](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 

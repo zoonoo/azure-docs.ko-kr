@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션에서 디바이스 문제 감지 자습서 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션을 사용하여 디바이스 문제 감지 - Azure | Microsoft Docs
 description: 이 자습서에서는 규칙 및 작업을 사용하여 원격 모니터링 솔루션에서 임계값 기반 디바이스 문제를 자동으로 감지하는 방법을 보여줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 11/08/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 91ee5087e5f41cda3648c2ecadcfcf16fd32a249
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.openlocfilehash: 676f1133a516174478a456a97bc467e7770fe6e7
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53598685"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888885"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스를 사용하여 문제 감지
 
@@ -24,7 +24,7 @@ ms.locfileid: "53598685"
 
 또한 지난 5분 동안 디바이스의 평균 습도가 80%보다 크고 디바이스의 온도가 화씨 75도보다 큰 경우 냉각기에 대한 중요한 경고를 만들도록 요청받게 됩니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 솔루션에서 규칙 보기

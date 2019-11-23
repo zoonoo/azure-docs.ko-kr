@@ -1,5 +1,6 @@
 ---
-title: 자습서 - Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 만들기
+title: '자습서: Azure Portal를 사용하여 여러 웹 사이트 호스트'
+titleSuffix: Azure Application Gateway
 description: 이 자습서에서는 Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
@@ -7,12 +8,12 @@ ms.service: application-gateway
 ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: victorh
-ms.openlocfilehash: 73a313a6244971b65ba89fb7b676610d88acabfa
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: ca6be666a9b77532b4f1c61f6e3391c239e82c91
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498446"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075143"
 ---
 # <a name="tutorial-create-and-configure-an-application-gateway-to-host-multiple-web-sites-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 여러 웹 사이트를 호스트하는 애플리케이션 게이트웨이 생성 및 구성
 
@@ -219,7 +220,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="test-the-application-gateway"></a>애플리케이션 게이트웨이 테스트
 
-1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: http://www.contoso.com
+1. 브라우저의 주소 표시줄에 도메인 이름을 입력합니다. 예: `http://www.contoso.com`
 
     ![애플리케이션 게이트웨이에서 contoso 사이트 테스트](./media/create-multiple-sites-portal/application-gateway-iistest.png)
 

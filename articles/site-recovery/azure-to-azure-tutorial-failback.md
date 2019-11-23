@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 재해 복구용 보조 Azure 지역에 복제된 Azure VM을 장애 복구(failback)합니다.
-description: Azure Site Recovery 서비스를 사용하여 Azure VM을 장애 복구(failback)하는 방법을 알아봅니다.
+title: Azure Site Recovery 서비스를 사용하여 주 지역으로 Azure VM을 장애 복구(failback)합니다.
+description: Azure Site Recovery 서비스를 사용하여 주 지역으로 Azure VM을 장애 복구(failback)하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: c8be547790452774992b9226ca8010532263aaff
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: c27b7bf29e5f124fdcfb886b658fd8e9d4cc48fe
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814524"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74091355"
 ---
 # <a name="fail-back-an-azure-vm-between-azure-regions"></a>Azure 지역 간에 Azure VM 장애 복구(failback)
 
@@ -56,6 +56,9 @@ VM이 다시 보호되면 필요에 따라 주 지역으로 장애 복구(failba
 8. VM이 장애 조치(failover) 및 장애 복구(failback)된 것으로 표시됩니다.
 
     ![주 지역 및 보조 지역의 VM](./media/site-recovery-azure-to-azure-failback/azure-to-azure-failback-vm-view.png)
+
+> [!NOTE]
+> Site Recovery 확장 버전 9.28.x.x 이상을 실행하는 머신의 경우 [업데이트 롤업 40](https://support.microsoft.com/help/4521530/update-rollup-40-for-azure-site-recovery) Site Recovery는 장애 복구(failback)가 완료되고 VM이 다시 보호된 후 보조 재해 복구 지역에서 머신을 정리합니다. 보조 지역에서 VM 및 NIC를 수동으로 삭제할 필요가 없습니다. 장애 복구(failback) 후 복제를 완전히 사용하지 않도록 설정하는 경우 Site Recovery는 VM 및 NIC 외에 재해 복구 지역의 디스크를 정리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

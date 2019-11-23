@@ -1,5 +1,5 @@
 ---
-title: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역으로 Azure IaaS VM 이동 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 Azure VM을 다른 지역으로 이동
 description: Azure Site Recovery를 사용하여 Azure 지역 간에 Azure IaaS VM을 이동합니다.
 services: site-recovery
 author: rajani-janaki-ram
@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: ec78e4c260c2ca5e0469f9373f60d8bca29ada7f
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 92388c54804d85d2825a25abd0c234081670e8d4
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375725"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092175"
 ---
-# <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
+# <a name="move-azure-vms-to-another-azure-region"></a>다른 Azure 지역으로 Azure VM 이동
 
 안정성, 가용성, 관리 또는 거버넌스를 개선하기 위해 Azure IaaS(Infrastructure As a Service) 가상 머신을 한 지역에서 다른 지역으로 이동하고 싶을 수 있습니다. 이 자습서에서는 Azure Site Recovery를 사용하여 VM을 다른 Azure 지역으로 이동하는 방법을 보여줍니다. 이 문서에서 배울 내용은 다음과 같습니다.
 

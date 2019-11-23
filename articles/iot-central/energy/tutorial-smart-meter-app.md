@@ -1,19 +1,19 @@
 ---
-title: IoT Central을 사용하여 스마트 미터 분석 앱 만들기 | Microsoft Docs
-description: Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 미터 모니터링 애플리케이션을 만드는 방법에 대해 알아봅니다.
+title: '자습서: IoT Central을 사용하여 스마트 미터 분석 앱 만들기'
+description: '자습서: Azure IoT Central 애플리케이션 템플릿을 사용하여 스마트 미터 모니터링 애플리케이션을 만드는 방법에 대해 알아봅니다.'
 author: op-ravi
 ms.author: omravi
-ms.date: 10/23/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: c7bb35e7de6400a0fad13845a3faa38ad21b6de7
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a73f4d75811a384eb822d1f8594a22506509d560
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581251"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112548"
 ---
 # <a name="tutorial-create-and-walk-through-the-smart-meter-monitoring-app-template"></a>자습서: 스마트 미터 모니터링 앱 템플릿 만들기 및 연습 
 

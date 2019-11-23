@@ -20,7 +20,7 @@ ms.locfileid: "72025781"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>CORS 문제 Azure Active Directory 응용 프로그램 프록시 이해 및 해결
 
-[CORS (크로스-원본 자원 공유)](https://www.w3.org/TR/cors/) 은 Azure Active Directory 응용 프로그램 프록시를 통해 게시 하는 앱 및 api에 대 한 문제를 종종 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
+[CORS (크로스-원본 자원 공유)](https://www.w3.org/TR/cors/) 는 Azure Active Directory 응용 프로그램 프록시를 통해 게시 하는 앱 및 api에 대 한 문제를 일으킬 수 있습니다. 이 문서에서는 Azure AD 응용 프로그램 프록시 CORS 문제 및 해결 방법에 대해 설명 합니다.
 
 브라우저 보안은 일반적으로 웹 페이지에서 다른 도메인에 대 한 AJAX 요청을 수행 하지 못하도록 합니다. 이 제약 사항을 *동일 원본 정책(Same-Origin Policy)* 이라고 부르며, 악의적인 사이트가 다른 사이트의 민감한 데이터를 무차별적으로 읽는 것을 방지합니다. 그러나 경우에 따라 다른 사이트에서 web API를 호출 하도록 할 수도 있습니다. CORS는 서버에서 동일한 원본 정책을 완화 하 고 일부 원본 간 요청을 허용 하 여 다른 사용자를 거부할 수 있게 해 주는 W3C 표준입니다.
 
@@ -33,10 +33,10 @@ ms.locfileid: "72025781"
 
 다음 Url의 원본이 이전 두의 원본과 다릅니다.
 
--   http: \//contoso.com-다른 도메인
--   http: \//contoso.com:9000/foo.html-다른 포트
--   https: @no__t 0/contoso.com/foo.html-다른 체계
--   http: \//www.contoso.com/foo.html-다른 하위 도메인
+-   http:\//contoso.net-다른 도메인
+-   http:\//contoso.com:9000/foo.html-다른 포트
+-   https:\//contoso.com/foo.html-다른 체계
+-   http:\//www.contoso.com/foo.html-다른 하위 도메인
 
 동일한 원본 정책은 올바른 액세스 제어 헤더를 사용 하지 않는 한 앱이 다른 원본에서 리소스에 액세스할 수 없도록 합니다. CORS 헤더가 없거나 잘못 된 경우 크로스-원본 요청이 실패 합니다. 
 
@@ -46,7 +46,7 @@ ms.locfileid: "72025781"
 1. **F12** 키를 눌러 디버그 콘솔을 엽니다.
 1. 트랜잭션을 재현 하 고 콘솔 메시지를 검토 하십시오. CORS 위반으로 인해 원본에 대 한 콘솔 오류가 생성 됩니다.
 
-다음 스크린샷에는 **사용해 보기** 단추를 선택 하면 https: \//corswebclient-contoso. msappproxy가 액세스 제어-허용-원본 헤더에 없습니다.
+다음 스크린샷에는 **사용해 보기** 단추를 선택 하면 corswebclient-contoso.msappproxy.net 헤더에서 https:\//을 찾을 수 없다는 CORS 오류 메시지가 발생 했습니다.
 
 ![CORS 문제](./media/application-proxy-understand-cors-issues/image3.png)
 
@@ -93,18 +93,18 @@ CORSWebClient 앱은 온-프레미스에서 호스트 하는 경우 작동 하�
 
 이 수정 작업에는 코드 변경이 필요 하지 않습니다. Fiddler 추적에서 확인할 수 있습니다.
 
-**헤더 추가 \을 게시 합니다**.
+**헤더 더하기\ 게시**
 HTTP/1.1 200 OK\
 Cache-control: 캐시 안 함 \
 Pragma: no cache \
 Content-type: 텍스트/일반 형식입니다. charset = utf-8 \
 Expires: -1\
-날 Accept-Encoding\
-서버:  Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0\
-**액세스 제어-허용-원본: https @ no__t-1//corswebclient-contoso. msappproxy proxy.config**-2
-X-AspNet-Version: 4.0.30319\
-X-Powered-By: ASP.NET\
-Content-length: 17
+Vary: Accept-Encoding \
+서버: Microsoft-IIS/8.5 Microsoft-HTTPAPI.DLL/2.0 \
+**액세스 제어-허용-원본: https\://corswebclient-contoso.msappproxy.net**\
+X-AspNet-버전: 4.0.30319 \
+X-구동: ASP.NET \
+콘텐츠-길이: 17
 
 ### <a name="option-4-modify-the-app"></a>옵션 4: 앱 수정
 
@@ -114,7 +114,7 @@ Content-length: 17
 
 앱이 인증을 위해 *login.microsoftonline.com* 로 리디렉션되고 액세스 토큰이 만료 되는 경우와 같이 일부 CORS 문제는 해결할 수 없습니다. 그런 다음 CORS 호출이 실패 합니다. 이 시나리오에 대 한 해결 방법은 사용자 세션 중에 만료 되지 않도록 액세스 토큰의 수명을 연장 하는 것입니다. 이 작업을 수행 하는 방법에 대 한 자세한 내용은 [AZURE AD의 구성 가능한 토큰 수명](../develop/active-directory-configurable-token-lifetimes.md)을 참조 하세요.
 
-## <a name="see-also"></a>참조
-- [자습서: Azure Active Directory @ no__t에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램을 추가 합니다.-0 
+## <a name="see-also"></a>참고 항목:
+- [자습서: Azure Active Directory에서 응용 프로그램 프록시를 통해 원격 액세스를 위한 온-프레미스 응용 프로그램 추가](application-proxy-add-on-premises-application.md) 
 - [Azure AD 응용 프로그램 프록시 배포 계획](application-proxy-deployment-plan.md) 
 - [Azure Active Directory 응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md) 

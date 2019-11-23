@@ -338,7 +338,7 @@ SAP MaxDB에 대한 Azure 스토리지 모범 사례는 [RDBMS 배포를 위한 
 
 한마디로 다음을 수행해야 합니다.
 
-* Azure Storage 계정을 사용하는 경우 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 **LRS(로컬 중복 저장소)** 로 설정합니다.
+* Azure Storage 계정을 사용하는 경우 **SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항**에서 지정한 대로 SAP MaxDB 데이터 및 로그 볼륨(데이터 및 로그 파일)을 유지하는 Azure Storage 계정을 [LRS(로컬 중복 스토리지)](dbms_guide_general.md)로 설정합니다.
 * 로그 볼륨(로그 파일)에 대한 IO 경로에서 SAP MaxDB 데이터 볼륨(데이터 파일)에 대한 IO 경로를 분리합니다. 즉, 하나의 논리 드라이브에 SAP MaxDB 데이터 볼륨(데이터 파일)을 설치하고, 다른 논리 드라이브에 SAP MaxDB 로그 볼륨(로그 파일)을 설치해야 합니다.
 * [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md)에서 설명한 대로, SAP MaxDB 데이터 또는 로그 볼륨(데이터 및 로그 파일)을 사용하는지와 Azure Standard 또는 Azure Premium Storage를 사용하는지 여부에 따라 각 디스크에 적절한 캐싱 유형을 설정합니다.
 * 디스크당 현재 IOPS 할당량이 요구 사항을 충족하는 경우 탑재된 단일 디스크의 모든 데이터 볼륨을 저장하고 다른 탑재된 단일 디스크에 모든 데이터베이스 로그 볼륨을 저장할 수 있습니다.

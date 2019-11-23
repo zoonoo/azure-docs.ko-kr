@@ -1,22 +1,22 @@
 ---
-title: Azure Notebooks를 사용하여 전기 차량 라우팅(Python) | Microsoft Docs
-description: Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.
+title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)'
+description: '자습서: Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 10/01/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 9cc7fc1ba8c7f55700505ea8fca0dea4f836e333
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 0f5964472b738bd3868bbf361b85fa4ad1f13b5c
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243295"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109611"
 ---
-# <a name="route-electric-vehicles-by-using-azure-notebooks-python"></a>Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
+# <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
 Azure Maps는 기본적으로 Azure에 통합된 지리 공간적 서비스 API의 포트폴리오입니다. 이러한 API를 통해 개발자, 엔터프라이즈 및 ISV에서 위치 인식 앱 및 IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있습니다. 
 
@@ -41,7 +41,7 @@ Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 �
 
 S1 가격 책정 계층에서 Azure Maps 계정 구독을 만들려면 [Azure Maps 계정 관리](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account)의 지침을 따릅니다. 
 
-계정에 대한 기본 구독 키를 가져오려면 [Azure Maps를 사용하여 주변 관심 지점 검색](./tutorial-search-location.md#getkey)의 지침을 따릅니다.
+계정에 대한 기본 구독 키를 가져오려면 [계정 만들기 및 키 가져오기](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-account-and-get-your-key)의 지침을 따릅니다.
 
 ## <a name="create-an-azure-notebook"></a>Azure Notebook 만들기
 
@@ -281,7 +281,7 @@ display(Image(poiRangeMap))
 
 도달 가능한 범위 내에서 모든 잠재적인 충전소가 결정되면 가장 짧은 시간 내에 도달할 수 있는 충전소를 알려고 합니다. 
 
-다음 스크립트는 Azure Maps [경로 매트릭스 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)를 호출하여 지정된 차량 위치에 대해 각 충전소까지의 주행 시간과 거리를 반환합니다. 다음 셀의 스크립트는 응답을 구문 분석하여 시간을 기준으로 가장 가까운 도달 가능한 충전소를 찾습니다.
+다음 스크립트는 Azure Maps [경로 매트릭스 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)를 호출하여 지정된 차량 위치에 대해 각 충전소까지의 주행 시간과 거리를 반환합니다. 다음 셀의 스크립트는 응답을 구문 분석하여 시간을 기준으로 가장 가까운 도달 가능한 충전소를 찾습니다.
 
 가장 짧은 시간 내에 도달할 수 있는 가장 가까운 충전소를 찾으려면 다음 셀의 스크립트를 실행합니다.
 
@@ -395,7 +395,7 @@ display(Image(staticMapImage))
 * [기하 도형 내 사후 검색](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)
 * [데이터 업로드](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)
 * [렌더링 - 지도 이미지 가져오기](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
-* [경로 매트릭스 게시](https://docs.microsoft.com/rest/api/maps/route/postroutematrixpreview)
+* [경로 매트릭스 게시](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)
 * [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)
 
 Azure Maps REST API의 전체 목록은 [Azure Maps REST API](https://docs.microsoft.com/azure/azure-maps/#reference)를 참조하세요.

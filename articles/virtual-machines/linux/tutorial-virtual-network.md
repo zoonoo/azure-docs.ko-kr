@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Linux VM을 위한 Azure 가상 네트워크 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Linux VM용 Azure 가상 네트워크 만들기 및 관리
 description: 이 자습서에서는 Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크를 만들고 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b2255e75843f4ddadd44e7780054de4fc45e6449
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d6624b9d5d77a8552584049463b63738bbf17627
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72300719"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034344"
 ---
 # <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 Linux 가상 머신을 위한 Azure 가상 네트워크 만들기 및 관리
 

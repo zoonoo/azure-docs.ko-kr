@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용하여 온-프레미스 사이트 간의 Hyper-V VM 재해 복구 설정
+title: Azure Site Recovery를 사용하는 보조 사이트로 Hyper-V 재해 복구 설정
 description: Azure Site Recovery를 사용하여 온-프레미스 사이트 간의 Hyper-V VM에 대한 재해 복구를 설정하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 09/09/2019
+ms.date: 11/14/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: a2eb8bf10454ee01953ddd37025f0c0048d00a0a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 8d89c7eda845f0e5ed9bc8ccc7b6b3812ba275f9
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813750"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132997"
 ---
 # <a name="set-up-disaster-recovery-for-hyper-v-vms-to-a-secondary-on-premises-site"></a>보조 온-프레미스 사이트에 Hyper-V VM 재해 복구 설정
 
@@ -28,6 +28,7 @@ ms.locfileid: "70813750"
 > * 네트워크 매핑 설정 
 > * 복제 정책 만들기
 > * VM에 대한 복제 사용
+
 
 ## <a name="prerequisites"></a>필수 조건
 

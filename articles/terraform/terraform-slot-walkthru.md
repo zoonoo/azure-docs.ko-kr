@@ -1,26 +1,23 @@
 ---
-title: Azure 공급자 배포 슬롯과 Terraform
+title: 자습서 - Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 description: Azure 공급자 배포 슬롯에서 Terraform을 사용하는 방법에 대한 자습서
-services: terraform
-ms.service: azure
-keywords: terraform, devops, 가상 머신, Azure, 배포 슬롯
+ms.service: terraform
 author: tomarchermsft
-manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 09/20/2019
-ms.openlocfilehash: ec2ed1da46df2793a241c9c89d168a6c5d462b9d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.date: 11/07/2019
+ms.openlocfilehash: 0bfd10325f1a62e74f0d3573f052d114069491a3
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169814"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73838053"
 ---
-# <a name="use-terraform-to-provision-infrastructure-with-azure-deployment-slots"></a>Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
+# <a name="tutorial-provision-infrastructure-with-azure-deployment-slots-using-terraform"></a>자습서: Terraform을 사용하여 Azure 배포 슬롯으로 인프라 프로비전
 
 [Azure 배포 슬롯](/azure/app-service/deploy-staging-slots)을 사용하여 여러 다른 앱 버전 간을 전환할 수 있습니다. 이 기능을 사용하면 손상된 배포의 영향을 최소화할 수 있습니다. 
 
-이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱이 프로덕션 슬롯에 호스트됩니다. 두 번째 앱은 스테이징 슬롯에 호스트됩니다. ("프로덕션" 및 "스테이징"은 임의의 이름이며 시나리오를 나타내는 이름을 원하는 대로 사용할 수 있습니다.) 배포 슬롯을 구성한 후, 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환할 수 있습니다.
+이 문서에서는 GitHub 및 Azure를 통해 두 개의 앱을 배포하는 과정을 안내하면서 배포 슬롯을 사용하는 예를 보여줍니다. 하나의 앱이 프로덕션 슬롯에 호스트됩니다. 두 번째 앱은 스테이징 슬롯에 호스트됩니다. ("production" 및 "staging"은 임의의 이름입니다. 시나리오에 적합한 모든 것이 될 수 있습니다.) 배포 슬롯을 구성한 후 필요에 따라 Terraform을 사용하여 두 슬롯 사이를 전환합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,13 +61,11 @@ ms.locfileid: "71169814"
     cd deploy
     ```
 
-1. [vi 편집기](https://www.debian.org/doc/manuals/debian-tutorial/ch-editor.html)를 사용하여 이름이 `deploy.tf`인 파일을 만듭니다. 이 파일에는 [Terraform 구성](https://www.terraform.io/docs/configuration/index.html)이 포함됩니다.
+1. Cloud Shell에서 이름이 `deploy.tf`인 파일을 만듭니다.
 
     ```bash
-    vi deploy.tf
+    code deploy.tf
     ```
-
-1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -85,8 +80,8 @@ ms.locfileid: "71169814"
 
     resource "azurerm_app_service_plan" "slotDemo" {
         name                = "slotAppServicePlan"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
         sku {
             tier = "Standard"
             size = "S1"
@@ -95,27 +90,21 @@ ms.locfileid: "71169814"
 
     resource "azurerm_app_service" "slotDemo" {
         name                = "slotAppService"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
     }
 
     resource "azurerm_app_service_slot" "slotDemo" {
         name                = "slotAppServiceSlotOne"
-        location            = "${azurerm_resource_group.slotDemo.location}"
-        resource_group_name = "${azurerm_resource_group.slotDemo.name}"
-        app_service_plan_id = "${azurerm_app_service_plan.slotDemo.id}"
-        app_service_name    = "${azurerm_app_service.slotDemo.name}"
+        location            = azurerm_resource_group.slotDemo.location
+        resource_group_name = azurerm_resource_group.slotDemo.name
+        app_service_plan_id = azurerm_app_service_plan.slotDemo.id
+        app_service_name    = azurerm_app_service.slotDemo.name
     }
     ```
 
-1. Esc 키를 선택하여 삽입 모드를 종료합니다.
-
-1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
-
-    ```bash
-    :wq
-    ```
+1. 파일을 저장( **&lt;Ctrl>S**)하고 편집기를 종료( **&lt;Ctrl>Q**)합니다.
 
 1. 파일을 만들었으므로 해당 내용을 확인합니다.
 
@@ -207,7 +196,7 @@ ms.locfileid: "71169814"
 
 1. **배포 옵션** 탭에서 **확인**을 선택합니다.
 
-이 시점에서 프로덕션 슬롯을 배포했습니다. 스테이징 슬롯을 배포하려면 다음 수정 내용으로 이 섹션의 이전 단계를 모두 수행합니다.
+이 시점에서 프로덕션 슬롯을 배포했습니다. 스테이징 슬롯을 배포하려면 다음 수정 사항을 사용하여 이전 단계를 수행합니다.
 
 - 3단계에서 **slotAppServiceSlotOne** 리소스를 선택합니다.
 
@@ -219,8 +208,6 @@ ms.locfileid: "71169814"
 
 이전 섹션에서는 GitHub의 다른 분기에서 배포할 두 개의 슬롯인 **slotAppService** 및 **slotAppServiceSlotOne**을 설정했습니다. 웹앱을 미리 보면서 성공적으로 배포되었는지 확인합니다.
 
-다음 단계를 두 번 수행합니다. 3단계에서 첫 번째에서 **slotAppService**를 선택한 다음, 두 번째에서 **slotAppServiceSlotOne**을 선택합니다.
-
 1. Azure Portal의 주 메뉴에서 **리소스 그룹**을 선택합니다.
 
 1. **slotDemoResourceGroup**을 선택합니다.
@@ -231,18 +218,15 @@ ms.locfileid: "71169814"
 
     ![개요 탭에서 URL을 선택하여 앱을 렌더링합니다.](./media/terraform-slot-walkthru/resource-url.png)
 
-> [!NOTE]
-> Azure가 GitHub에서 사이트를 만들고 배포하는 데 몇 분이 걸릴 수 있습니다.
->
->
+1. 선택한 앱에 따라 다음과 같은 결과가 표시됩니다.
+    - **slotAppService** 웹앱 - 페이지 제목이 **Slot Demo App 1**인 파란색 페이지입니다. 
+    - **slotAppServiceSlotOne** 웹앱 - 페이지 제목이 **Slot Demo App 2**인 녹색 페이지입니다.
 
-**slotAppService** 웹앱의 경우 페이지 제목이 **Slot Demo App 1**인 파란색 페이지가 표시됩니다. **slotAppServiceSlotOne** 웹앱의 경우 페이지 제목이 **Slot Demo App 2**인 녹색 페이지가 표시됩니다.
-
-![앱을 미리 보면서 앱이 올바르게 배포되었는지 테스트합니다.](./media/terraform-slot-walkthru/app-preview.png)
+    ![앱을 미리 보면서 앱이 올바르게 배포되었는지 테스트합니다.](./media/terraform-slot-walkthru/app-preview.png)
 
 ## <a name="swap-the-two-deployment-slots"></a>두 개의 배포 슬롯 교환
 
-두 개의 배포 슬롯을 서로 교환하려면 다음 단계를 수행합니다.
+두 개의 배포 슬롯 교환을 테스트하려면 다음 단계를 수행합니다.
  
 1. **slotAppService**(파란색 페이지가 있는 앱)가 실행 중인 브라우저 탭으로 전환합니다. 
 
@@ -256,13 +240,11 @@ ms.locfileid: "71169814"
     cd clouddrive/swap
     ```
 
-1. vi 편집기를 사용하여 이름이 `swap.tf`인 파일을 만듭니다.
+1. Cloud Shell에서 이름이 `swap.tf`인 파일을 만듭니다.
 
     ```bash
-    vi swap.tf
+    code swap.tf
     ```
-
-1. I 키를 선택하여 삽입 모드를 시작합니다.
 
 1. 다음 코드를 편집기에 붙여 넣습니다.
 
@@ -278,13 +260,7 @@ ms.locfileid: "71169814"
     }
     ```
 
-1. Esc 키를 선택하여 삽입 모드를 종료합니다.
-
-1. 파일을 저장하고 다음 명령을 입력하여 vi 편집기를 종료합니다.
-
-    ```bash
-    :wq
-    ```
+1. 파일을 저장( **&lt;Ctrl>S**)하고 편집기를 종료( **&lt;Ctrl>Q**)합니다.
 
 1. Terraform을 초기화합니다.
 
@@ -304,7 +280,7 @@ ms.locfileid: "71169814"
     terraform apply
     ```
 
-1. Terraform에서 슬롯 교환을 마치면 **slotAppService** 웹앱을 렌더링하는 브라우저로 돌아가서 페이지를 새로 고칩니다. 
+1. Terraform에서 슬롯을 바꾼 후 브라우저로 돌아갑니다. 페이지를 새로 고칩니다. 
 
 **slotAppServiceSlotOne** 스테이징 슬롯의 웹앱이 프로덕션 슬롯으로 교환되고 녹색으로 렌더링됩니다. 
 
@@ -317,3 +293,8 @@ terraform apply
 ```
 
 앱이 교환되면 원래 구성이 표시됩니다.
+
+## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"] 
+> [Azure에서 Terraform을 사용하는 방법에 대해 자세히 알아보기](/azure/terraform)

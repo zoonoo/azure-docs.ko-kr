@@ -5,16 +5,16 @@ services: iot-edge
 author: shizn
 manager: philmea
 ms.author: xshi
-ms.date: 08/23/2019
+ms.date: 11/07/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 581d2e03474eb7e740f9d0468022269bdb20b663
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: f610ad50daadf5bef1f43f3991792869c7dae6af
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813806"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890581"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C IoT Edge 모듈 개발
 
@@ -114,7 +114,7 @@ C에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를
       )
       ```
 
-   3. **my_parson**을 CMakeLists.txt의 **target_link_libraries** 함수에 있는 라이브러리 목록에 추가합니다.
+   3. `my_parson`을 CMakeLists.txt의 **target_link_libraries** 함수에 있는 라이브러리 목록에 추가합니다.
 
    4. **CMakeLists.txt** 파일을 저장합니다.
 
@@ -154,6 +154,14 @@ C에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를
 1. `InputQueue1Callback` 함수 전체를 다음 코드로 바꿉니다. 이 함수는 실제 메시지 필터를 구현합니다. 메시지가 수신되면 보고된 온도가 임계값을 초과하는지 여부를 확인합니다. 그렇다면 해당 출력 큐를 통해 메시지를 전달합니다. 그렇지 않은 경우에는 메시지가 무시됩니다. 
 
     ```c
+    static unsigned char *bytearray_to_str(const unsigned char *buffer, size_t len)
+    {
+        unsigned char *ret = (unsigned char *)malloc(len + 1);
+        memcpy(ret, buffer, len);
+        ret[len] = '\0';
+        return ret;
+    }
+
     static IOTHUBMESSAGE_DISPOSITION_RESULT InputQueue1Callback(IOTHUB_MESSAGE_HANDLE message, void* userContextCallback)
     {
         IOTHUBMESSAGE_DISPOSITION_RESULT result;
@@ -163,7 +171,10 @@ C에서 IoT Edge 모듈을 개발하려면 다음 추가 필수 구성 요소를
         unsigned const char* messageBody;
         size_t contentSize;
 
-        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) != IOTHUB_MESSAGE_OK)
+        if (IoTHubMessage_GetByteArray(message, &messageBody, &contentSize) == IOTHUB_MESSAGE_OK)
+        {
+            messageBody = bytearray_to_str(messageBody, contentSize);
+        } else
         {
             messageBody = "<null>";
         }

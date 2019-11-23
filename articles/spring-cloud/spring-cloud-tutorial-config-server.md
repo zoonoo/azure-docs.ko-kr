@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.author: jeconnoc
 author: jpconnock
 ms.date: 10/18/2019
-ms.openlocfilehash: 6cf7b4a52ba3a7dbda5fa3fa558c4b68d09f4eb2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 6742e1a5924fdcd1fe00f49ac790209a907d1bac
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646717"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74132783"
 ---
 # <a name="tutorial-set-up-a-spring-cloud-config-server-for-your-service"></a>자습서: 서비스용 Spring Cloud Config 서버 설정
 
@@ -95,7 +95,7 @@ Azure Spring Cloud는 Config 서버 파일을 저장하기 위해 Azure DevOps, 
 | `password`      | `no`     | `Git` 리포지토리 서버에 액세스하는 데 사용되는 암호이며, `Git` 리포지토리 서버에서 `Http Basic Authentication`을 지원하는 데 __필요합니다__. |
 
 > [!NOTE]
-> GitHub와 같은 일부 `Git` 리포지토리 서버는 `HTTP Basic Authentication`의 암호로 "개인 토큰" 또는 "액세스 토큰"을 지원합니다. 여기서도 이러한 토큰을 암호로 사용할 수 있으며, "개인 토큰" 또는 "액세스 토큰"은 만료되지 않습니다. 그러나 BitBucket 및 Azure DevOps와 같은 Git 리포지토리 서버의 경우 토큰이 1~2시간 후에 만료되므로 Azure Spring Cloud에서는 이 옵션을 사용할 수 없습니다.
+> 많은 `Git` 리포지토리 서버는 `HTTP Basic Authentication`에 대한 암호 대신 토큰 사용을 지원합니다. GitHub와 같은 일부 리포지토리는 토큰을 무기한으로 유지할 수 있도록 허용합니다. 그러나 Azure DevOps를 비롯한 일부 Git 리포지토리 서버는 몇 시간 안에 토큰을 강제로 만료시킵니다. 토큰이 만료되는 리포지토리는 Azure Spring Cloud에서 토큰 기반 인증을 사용하면 안 됩니다.
 
 ### <a name="git-repositories-with-pattern"></a>패턴을 사용하는 Git 리포지토리
 
@@ -127,7 +127,9 @@ Azure Spring Cloud는 Config 서버 파일을 저장하기 위해 Azure DevOps, 
 
 1. Azure Spring Cloud **개요** 페이지로 이동합니다.
 
-1. 왼쪽 메뉴에서 **설정** 제목 아래의 **Config 서버** 탭으로 이동합니다.
+1. 구성할 서비스를 선택합니다.
+
+1. 서비스의 왼쪽 메뉴에 있는 **설정** 제목 아래의 **구성 서버** 탭을 선택합니다.
 
 ![창 스크린샷](media/spring-cloud-tutorial-config-server/portal-config-server.png)
 

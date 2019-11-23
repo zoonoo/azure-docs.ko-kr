@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/21/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: e14a3ba50d75161afa3325b3b7bcbfe96ea24cc3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f2890948dd15fa972104e4ef11001e83a2abd4f8
+ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325620"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73846590"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
@@ -37,7 +37,9 @@ ms.locfileid: "68325620"
 
 ### <a name="get-registry-credentials"></a>레지스트리 자격 증명 가져오기
 
-[두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 프라이빗 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)에 나온 대로 여러 시나리오에서 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 사용 권한을 가진 서비스 주체를 만들려면 샘플 스크립트에 대한 문서를 참조하세요. 서비스 주체 ID 및 서비스 주체 암호를 적어둡니다. 컨테이너를 배포하는 경우 이러한 자격 증명을 사용합니다.
+[두 번째 자습서](container-instances-tutorial-prepare-acr.md)에서 만든 이미지처럼 프라이빗 Azure 컨테이너 레지스트리에 호스트되는 이미지를 배포하는 경우 레지스트리에 액세스하기 위한 자격 증명을 제공해야 합니다. 
+
+많은 시나리오에 대한 모범 사례는 레지스트리에 *끌어오기* 사용 권한이 있는 Azure Active Directory 서비스 주체를 만들고 구성하는 것입니다. 필요한 권한이 있는 서비스 주체를 생성하는 샘플 스크립트는 [Azure Container Instances의 Azure Container Registry를 사용하여 인증](../container-registry/container-registry-auth-aci.md)을 참조하세요. *서비스 주체 ID* 및 *서비스 주체 암호*를 적어둡니다. 컨테이너를 배포할 때 이러한 자격 증명을 사용하여 레지스트리에 액세스합니다.
 
 또한 컨테이너 레지스트리 로그인 서버의 전체 이름이 필요합니다(`<acrName>`을 레지스트리 이름으로 바꾸기).
 

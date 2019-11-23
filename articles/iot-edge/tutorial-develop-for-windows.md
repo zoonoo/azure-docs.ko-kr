@@ -1,20 +1,20 @@
 ---
-title: Windows 디바이스용 모듈 개발 - Azure IoT Edge | Microsoft Docs
+title: '자습서: Windows 디바이스용 모듈 개발 - Azure IoT Edge'
 description: 이 자습서에서는 Windows 디바이스용 Windows 컨테이너를 사용하여 IoT Edge 모듈을 개발하기 위해 개발 컴퓨터 및 클라우드 리소스를 설정하는 과정을 설명합니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 08/15/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 755290997cb6aab328cd38ce81a21c598c737b5f
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 67a80178c5cd800ea08d9f5493efd0f37422fe36
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429015"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113988"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>자습서: Windows 디바이스를 위한 IoT Edge 모듈 개발
 

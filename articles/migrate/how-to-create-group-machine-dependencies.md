@@ -15,11 +15,11 @@ ms.locfileid: "72177941"
 ---
 # <a name="set-up-dependency-visualization-for-assessment"></a>평가에 대 한 종속성 시각화 설정
 
-이 문서에서는 Azure Migrate에서 종속성 매핑을 설정 하는 방법을 설명 합니다. 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다.
+이 문서에서는 Azure Migrate: 서버 평가에서 종속성 매핑을 설정 하는 방법을 설명 합니다.
 
 종속성 매핑은 평가 하 고 마이그레이션하려는 컴퓨터 간의 종속성을 시각화 하는 데 도움이 됩니다.
 
-- Azure Migrate: 서버 평가를 통해 평가를 위해 컴퓨터를 함께 수집 합니다. 일반적으로 함께 마이그레이션해야 하는 컴퓨터입니다.
+- Azure Migrate: 서버 평가에서 평가를 위해 컴퓨터를 함께 수집 합니다. 일반적으로 함께 마이그레이션해야 하는 컴퓨터입니다.
 - 신뢰 수준이 높은 그룹을 평가 하려는 경우 일반적으로 종속성 매핑을 사용 합니다.
 - 종속성 매핑은 평가 및 마이그레이션을 실행 하기 전에 컴퓨터 종속성을 교차 확인 하는 데 도움이 됩니다.
 - 종속성 매핑 및 시각화를 통해 Azure로의 마이그레이션을 효과적으로 계획할 수 있습니다. 이 기능을 사용 하면 아무것도 유지 되지 않으므로 마이그레이션하는 동안 예기치 않은 중단이 발생 하지 않습니다.
@@ -27,18 +27,18 @@ ms.locfileid: "72177941"
 
 종속성 시각화에 [대해 자세히 알아보세요](concepts-dependency-visualization.md#how-does-it-work) .
 
-## <a name="before-you-start"></a>시작하기 전 주의 사항
+## <a name="before-you-start"></a>시작하기 전에
 
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
-- 프로젝트를 이미 만든 경우 Azure Migrate을 [추가](how-to-assess.md) 했는지 확인 합니다. 서버 평가 도구를 사용하여 온-프레미스 VMware VM을 평가하는 방법을 보여 줍니다.
-- Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다. [자세히 알아보기](migrate-appliance.md).
+- 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
+- Azure Migrate에서 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
 
 
 **기능** | **참고**
 --- | ---
 가용성 | Azure Government에서 종속성 시각화를 사용할 수 없습니다.
 서비스 맵 | 종속성 시각화는 Azure Monitor에서 서비스 맵 솔루션을 사용 합니다. [서비스 맵](../azure-monitor/insights/service-map.md) 는 서버 간의 연결을 자동으로 검색 하 고 표시 합니다.
-에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 다음 에이전트를 설치 합니다.<br/> - [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함).<br/> - [서비스 맵 종속성 에이전트](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)입니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager와 같은 배포 도구를 사용할 수 있습니다.
+에이전트 | 종속성 시각화를 사용 하려면 매핑할 컴퓨터에 다음 에이전트를 설치 합니다.<br/> - [Log Analytics 에이전트](../azure-monitor/platform/log-analytics-agent.md) 에이전트 (이전에는 MICROSOFT MONITORING AGENT (MMA) 이라고 함)<br/> [서비스 맵 종속성 에이전트](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent)를 - 합니다.<br/><br/> 에이전트 설치를 자동화 하려면 Azure Migrate에 대 한 에이전트 배포 솔루션이 있는 System Center Configuration Manager와 같은 배포 도구를 사용할 수 있습니다.
 종속성 에이전트 | Windows 및 Linux에 대 한 [종속성 에이전트 지원](../azure-monitor/insights/vminsights-enable-overview.md#the-microsoft-dependency-agent) 을 검토 합니다.<br/><br/> 스크립트를 사용 하 여 종속성 에이전트를 설치 하는 방법에 [대해 자세히 알아보세요](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples) .
 Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#install-and-configure-agent) .<br/><br/> System Center Operations Manager 2012 R2 이상에서 모니터링 하는 컴퓨터의 경우 MMA 에이전트를 설치할 필요가 없습니다. 서비스 맵 Operations Manager와 통합 됩니다. [여기](https://docs.microsoft.com/azure/azure-monitor/insights/service-map-scom#prerequisites)에서 지침에 따라 통합을 사용하도록 설정할 수 있습니다. 그러나 종속성 에이전트는 이러한 컴퓨터에 설치 되어야 합니다.<br/><br/> Log Analytics 에이전트에서 지 원하는 Linux 운영 체제를 [검토](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 합니다.
 평가 그룹 | 종속성을 시각화하려는 그룹에는 10개 이하의 컴퓨터만 포함되어 있어야 합니다. 컴퓨터가 10 대 이상인 경우 종속성을 시각화 하기 위해 작은 그룹으로 분할 합니다.
@@ -50,11 +50,11 @@ Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아
 - Azure Migrate 프로젝트 구독 에서만 작업 영역을 연결할 수 있습니다.
 - 기존 작업 영역을 연결 하거나 새 작업 영역을 만들 수 있습니다.
 - 컴퓨터에 대 한 종속성 시각화를 처음 설정할 때 작업 영역을 연결 합니다.
-- Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate으로 보냅니다. 서버 평가를 사용하여 만들 수 있는 평가에는 두 가지 유형이 있습니다. [자세히 알아보기](migrate-appliance.md).
+- Azure Migrate 프로젝트에서 컴퓨터를 검색 한 후에만 작업 영역을 연결할 수 있습니다. [VMware](how-to-set-up-appliance-vmware.md) 또는 [hyper-v](how-to-set-up-appliance-hyper-v.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
 
 다음과 같이 작업 영역을 연결 합니다.
 
-1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0을 클릭 하 고 **개요**를 클릭 합니다. 서버 평가 도구를 아직 추가 하지 않은 경우이를 [먼저 수행](how-to-assess.md)합니다.
+1. **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다. 서버 평가 도구를 아직 추가 하지 않은 경우이를 [먼저 수행](how-to-assess.md)합니다.
 2. **개요**에서 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
 3. **OMS 작업 영역**에서 **구성 필요**를 클릭 합니다.
 4. **작업 영역 구성**에서 새 작업 영역을 만들지 아니면 기존 작업 영역을 사용할지를 지정 합니다.
@@ -70,7 +70,7 @@ Log Analytics 에이전트 (MMA) | MMA 설치 방법에 [대해 자세히 알아
 
 종속성 매핑을 사용 하 여 시각화 하려는 각 온-프레미스 컴퓨터에 에이전트를 다운로드 하 여 설치 합니다.
 
-1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0, **검색 된 서버**를 클릭 합니다.
+1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. 종속성 시각화를 사용 하려는 각 컴퓨터에 대해 **에이전트 설치 필요**를 클릭 합니다.
 3. **MMA를 다운로드 하 여 설치**하 > 컴퓨터의 **종속성** 페이지에서 적절 한 에이전트를 다운로드 하 고 아래 설명에 따라 설치 합니다.
 4. **종속성 에이전트 다운로드 및 설치**에서 적절 한 에이전트를 다운로드 하 고 아래 설명에 따라 설치 합니다.
@@ -104,7 +104,7 @@ Linux 컴퓨터에 에이전트를 설치하려면
 MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#supported-linux-operating-systems)해 보세요. 
 
 ### <a name="install-the-dependency-agent"></a>종속성 에이전트 설치
-1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 더블 클릭한 후 마법사를 따릅니다.
+1. Windows 컴퓨터에 종속성 에이전트를 설치하려면 설치 파일을 두 x 누르고 마법사를 따릅니다.
 2. Linux 컴퓨터에 종속성 에이전트를 설치하려면 다음 명령을 사용하여 루트로 설치합니다.
 
     ```sh InstallDependencyAgent-Linux64.bin```
@@ -116,7 +116,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 
 ## <a name="create-a-group-using-dependency-visualization"></a>종속성 시각화를 사용 하 여 그룹 만들기
 
-1. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0, **검색 된 서버**를 클릭 합니다.
+1. **Azure Migrate: 서버 평가**에서 검색 된 **서버**를 클릭 합니다.
 2. **종속성** 열에서 검토 하려는 각 컴퓨터에 대 한 **종속성 보기** 를 클릭 합니다.
 3. 종속성 맵에서 다음을 확인할 수 있습니다.
     - 컴퓨터와의 인바운드 (클라이언트) 및 아웃 바운드 (서버) TCP 연결
@@ -134,7 +134,7 @@ MMA에서 지원하는 Linux 운영 체제 목록을 [자세히 확인](https://
 6. 그룹 이름을 지정합니다.
 7. Azure Migrate에서 종속 컴퓨터가 검색되는지 확인합니다.
 
-    - Azure Migrate에서 종속 컴퓨터를 검색 하지 않는 경우: 서버 평가, 그룹에 추가할 수 없습니다.
+    - Azure Migrate: 서버 평가에서 종속 컴퓨터를 검색 하지 않는 경우 그룹에 추가할 수 없습니다.
     - 컴퓨터를 추가 하려면 검색을 다시 실행 하 고 컴퓨터가 검색 되는지 확인 합니다.
 
 8. 이 그룹에 대한 평가를 만들려면 그룹에 대한 새 평가를 만드는 확인란을 선택합니다.
@@ -152,7 +152,7 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 다음과 같이 종속성 데이터에 대 한 쿼리를 실행 합니다.
 
 1. 에이전트를 설치한 후 포털로 이동하고 **개요**를 클릭합니다.
-2. @No__t-0Azure 마이그레이션: 서버 평가 @ no__t-0을 클릭 하 고 **개요**를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
+2. **Azure Migrate: 서버 평가**에서 **개요**를 클릭 합니다. 아래쪽 화살표를 클릭 하 여 **Essentials**를 확장 합니다.
 3. **OMS 작업 영역**에서 작업 영역 이름을 클릭 합니다.
 3. Log Analytics 작업 영역 페이지에서 **일반**> **로그**를 클릭 합니다.
 4. 쿼리를 작성 하 고 **실행**을 클릭 합니다.
@@ -161,7 +161,7 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 
 종속성 데이터를 추출 하는 데 사용할 수 있는 숫자 샘플 쿼리를 제공 합니다.
 
-- 원하는 데이터 요소를 추출하기 위해 해당 쿼리를 수정할 수 있습니다.
+- 선호하는 데이터 요소를 추출하도록 쿼리를 수정할 수 있습니다.
 - 종속성 데이터 레코드의 전체 목록을 [검토](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#log-analytics-records) 합니다.
 - 추가 샘플 쿼리를 [검토](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#sample-log-searches) 합니다.
 
@@ -170,7 +170,7 @@ Azure Migrate 프로젝트와 연결 된 Log Analytics 작업 영역에서 서�
 Vm 집합의 인바운드 연결을 검토 합니다.
 
 - 연결 메트릭에 대 한 테이블의 레코드 (VMConnection)는 개별 실제 네트워크 연결을 나타내지 않습니다.
-- 여러 실제 네트워크 연결은 논리적 연결로 그룹화됩니다.
+- 여러 물리적 네트워크 연결은 논리적 연결로 그룹화됩니다.
 - VMConnection에서 실제 네트워크 연결 데이터를 집계 하는 방법에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#connections) .
 
 ```
@@ -187,7 +187,7 @@ VMConnection
 | summarize sum(LinksEstablished) by Computer, Direction, SourceIp, DestinationIp, DestinationPort
 ```
 
-#### <a name="sample-summarize-sent-and-received-data"></a>샘플: 전송 및 수신 데이터 요약
+#### <a name="sample-summarize-sent-and-received-data"></a>샘플: 보내고 받은 데이터 요약
 
 이 샘플은 컴퓨터 집합 간의 인바운드 연결에서 송수신 되는 데이터의 양을 요약 합니다.
 

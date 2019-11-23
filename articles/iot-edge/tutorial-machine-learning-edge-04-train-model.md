@@ -1,19 +1,19 @@
 ---
-title: 모델 학습 및 배포 - Azure IoT Edge의 Machine Learning | Microsoft Docs
-description: Azure Machine Learning을 사용하여 기계 학습 모델을 학습한 후 Azure IoT Edge 모듈로 배포할 수 있는 컨테이너 이미지로 모델을 패키지화합니다.
+title: '자습서: 모델 학습 및 배포 - Azure IoT Edge의 Machine Learning'
+description: '자습서: Azure Machine Learning을 사용하여 기계 학습 모델을 학습한 후 Azure IoT Edge 모듈로 배포할 수 있는 컨테이너 이미지로 모델을 패키지화합니다.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e1ee1fda658ef0884975e4055891f705c4f5058
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8cb3d0329c41256823a66fc3276711c43da61cdd
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493987"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112475"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 

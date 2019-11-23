@@ -27,7 +27,7 @@ Analysis Services에서 서비스 사용자는 일반적인 작업을 자동화�
 서비스 사용자는 Azure Portal에서 또는 PowerShell을 사용하여 만들 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 [서비스 사용자 만들기 - Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md)   
-[서비스 주체 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
+[서비스 사용자 만들기 - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="store-credential-and-certificate-assets-in-azure-automation"></a>Azure Automation에서 자격 증명 및 인증서 자산 저장
 

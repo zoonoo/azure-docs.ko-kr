@@ -310,7 +310,7 @@ ms.locfileid: "70099999"
 
 
 Microsoft Azure를 사용 하 여 Linux, UNIX 및 Windows 용 IBM Db2 (LUW)에서 실행 되는 기존 SAP 응용 프로그램을 Azure virtual machines로 마이그레이션할 수 있습니다. LUW 용 IBM d b 2에서 SAP를 사용 하면 관리자와 개발자가 온-프레미스에서 사용할 수 있는 것과 동일한 개발 및 관리 도구를 계속 사용할 수 있습니다.
-LUW 용 IBM d b 2에서 SAP Business Suite를 실행 하는 방법에 대 한 일반적인 정보는의 SCN ( <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>sap Community Network)에서 찾을 수 있습니다.
+LUW 용 IBM d b 2에서 SAP Business Suite를 실행 하는 방법에 대 한 일반적인 정보는 <https://www.sap.com/community/topic/db2-for-linux-unix-and-windows.html>의 SAP 커뮤니티 네트워크 (SCN)에서 찾을 수 있습니다.
 
 Azure의 LUW 용 d b 2에 대 한 자세한 내용 및 업데이트는 SAP Note [2233094]을 참조 하세요. 
 
@@ -320,19 +320,19 @@ Azure의 LUW 용 d b 2에 대 한 자세한 내용 및 업데이트는 SAP Note 
 
 | Note 번호 | 제목 |
 | --- | --- |
-| [1928533] |Azure의 SAP 애플리케이션: 지원되는 제품 및 Azure VM 유형 |
-| [2015553] |Microsoft Azure의 SAP: 필수 구성 요소 지원 |
+| [1928533] |Azure의 SAP 애플리케이션: 지원 제품 및 Azure VM 유형 |
+| [2015553] |Microsoft Azure의 SAP: 지원 필수 조건 |
 | [1999351] |SAP용 고급 Azure 모니터링 문제 해결 |
 | [2178632] |Microsoft Azure의 SAP용 주요 모니터링 메트릭 |
-| [1409604] |Windows에서의 가상화: 고급 모니터링 |
-| [2191498] |Azure 포함 Linux의 SAP: 고급 모니터링 |
-| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 Azure의 SAP 애플리케이션 - 추가 정보 |
+| [1409604] |Windows에서의 가상화: 향상된 모니터링 |
+| [2191498] |Azure와 Linux의 SAP: 향상된 모니터링 |
+| [2233094] |DB6: Linux, UNIX 및 Windows용 IBM DB2를 사용하는 SAP 애플리케이션 - 추가 정보 |
 | [2243692] |Microsoft Azure(IaaS) VM의 Linux: SAP 라이선스 문제 |
-| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 사항 |
+| [1984787] |SUSE LINUX Enterprise Server 12: 설치 참고 |
 | [2002167] |Red Hat Enterprise Linux 7.x: 설치 및 업그레이드 |
 | [1597355] |Linux에 대한 스왑 공간 권장 사항 |
 
-이 문서를 시작하기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 시 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)에 나오는 다른 가이드를 참조해야 합니다. 
+이 문서를 시작하기 전에 [SAP 워크로드용 Azure Virtual Machines DBMS 배포 고려 사항](dbms_guide_general.md) 문서 및 [Azure의 SAP 워크로드 설명서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)의 다른 가이드를 읽어야 합니다. 
 
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-version-support"></a>Linux, UNIX 및 Windows 용 IBM Db2 지원
@@ -341,7 +341,7 @@ LUW에 대 한 IBM Db2의 SAP는 Db2 버전 10.5 Microsoft Azure에서 지원 �
 지원되는 SAP 제품 및 Azure VM 형식에 대한 내용은 SAP Note [1928533]을 참조하세요.
 
 ## <a name="ibm-db2-for-linux-unix-and-windows-configuration-guidelines-for-sap-installations-in-azure-vms"></a>Azure Vm의 SAP 설치에 대 한 Linux, UNIX 및 Windows 용 IBM Db2 구성 지침
-### <a name="storage-configuration"></a>저장소 구성
+### <a name="storage-configuration"></a>스토리지 구성
 모든 데이터베이스 파일은 직접 연결된 디스크 기반의 NTFS 파일 시스템에 저장되어야 합니다. 이러한 디스크는 Azure VM에 탑재되며, Azure 페이지 Blob Storage(<https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs>) 또는 Managed Disks(<https://docs.microsoft.com/azure/storage/storage-managed-disks-overview>)를 기반으로 합니다. 모든 종류의 네트워크 드라이브 또는 다음 Azure 파일 서비스 같은 원격 공유는 데이터베이스 파일에 대해 지원되지 **않습니다** . 
 
 * <https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx>
@@ -361,7 +361,7 @@ SAP 설치 가이드의 ‘데이터베이스 디렉터리의 데이터 보안 �
 
 Sapdata 및 saptmp 디렉터리에 대 한 Db2 저장소 경로를 포함 하는 디스크의 경우 실제 디스크 섹터 크기를 512 KB로 지정 해야 합니다. Windows 스토리지 풀을 사용하는 경우 `-LogicalSectorSizeDefault` 매개 변수를 사용하여 명령줄 인터페이스를 통해 수동으로 스토리지 풀을 만들어야 합니다. 자세한 내용은 <https://technet.microsoft.com/itpro/powershell/windows/storage/new-storagepool>을 참조하세요.
 
-Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 따라서 Db2 트랜잭션 로그에 대 한 볼륨을 구성 하는 VHD에 대해 Azure 쓰기 가속기를 배포 해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서에서 참조할 수 있습니다.
+Azure M-Series VM의 경우, Azure Write Accelerator를 사용하면 Azure Premium Storage 성능과 비교하여 요소에 의해 트랜잭션 로그에 대한 기록 대기 시간을 줄일 수 있습니다. 따라서 Db2 트랜잭션 로그에 대 한 볼륨을 구성 하는 VHD에 대해 Azure 쓰기 가속기를 배포 해야 합니다. 자세한 내용은 [Write Accelerator](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-enable-write-accelerator) 문서를 참조하세요.
 
 ### <a name="backuprestore"></a>Backup/복원
 LUW 용 IBM d b 2의 백업/복원 기능은 표준 Windows Server 운영 체제 및 Hyper-v와 동일한 방법으로 지원 됩니다.

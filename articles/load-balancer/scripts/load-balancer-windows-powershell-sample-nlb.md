@@ -1,6 +1,6 @@
 ---
-title: PowerShell 예제 - 고가용성을 위해 VM에 트래픽 부하 분산 - Azure
-titlesuffix: Azure Load Balancer
+title: HA용 VM에 트래픽 부하 분산 - Azure PowerShell
+titleSuffix: Azure Load Balancer
 description: 이 Azure PowerShell 스크립트 예제는 고가용성을 위해 VM에 트래픽을 부하 분산하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: load-balancer
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 956a67897fa08fdd2c0d602ba514fcf58fabc292
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: ccc9ed364ce7ec5b18d04a71a8215675f7876b81
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273528"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075917"
 ---
 # <a name="azure-powershell-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure PowerShell 스크립트 예제: 고가용성을 위해 VM에 트래픽 부하 분산
 

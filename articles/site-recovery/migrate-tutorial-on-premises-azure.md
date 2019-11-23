@@ -1,19 +1,19 @@
 ---
-title: Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터 마이그레이션 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 온-프레미스 머신 마이그레이션
 description: 이 문서에서는 Azure Site Recovery를 사용하여 Azure로 온-프레미스 컴퓨터를 마이그레이션하는 방법을 설명합니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 05/30/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 7534313a5862ececf4757be807e59b6df39f6430
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 24015810a295ef88b7d3e63bfc464ddddef6b55f
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873352"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73939630"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Azure로 온-프레미스 컴퓨터 마이그레이션
 
@@ -32,8 +32,7 @@ ms.locfileid: "70873352"
 
 
 > [!TIP]
-> Azure Migrate 서비스는 이제 VMware VM을 Azure로 마이그레이션하는 데 사용되는 새로운 에이전트리스 환경의 미리 보기를 제공합니다. [자세히 알아보기](https://aka.ms/migrateVMs-signup).
-
+> 이제 Azure Migrate 서비스를 사용하여 온-프레미스 서버를 Azure로 마이그레이션할 수 있습니다. [자세히 알아보기](../migrate/migrate-services-overview.md)
 
 ## <a name="before-you-start"></a>시작하기 전에
 

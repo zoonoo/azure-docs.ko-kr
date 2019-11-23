@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 및 Azure Portal을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성 | Microsoft Docs
+title: Azure CLI를 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 description: Azure CLI 및 Azure Portal을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 author: robinsh
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/12/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 5019951ca9628bc3beb849bdb2b148b575bc8618
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 38a40d628b883c0e7ada824d47d3fdf3d29caf93
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535128"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084376"
 ---
 # <a name="tutorial-use-the-azure-cli-and-azure-portal-to-configure-iot-hub-message-routing"></a>자습서: Azure CLI 및 Azure Portal을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -26,11 +26,13 @@ ms.locfileid: "69535128"
 
 이 자습서에서는 Azure CLI를 사용하여 기본 리소스를 만든 다음, [Azure Portal](https://portal.azure.com)을 사용하여 메시지 라우팅을 구성하고 테스트용 가상 디바이스를 설정하는 방법을 보여줍니다.
 
-몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다.
-
 아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 이 스크립트는 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다.
 
-디버깅에 대한 메모: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 백슬래시 뒤에 공백이 없는지 확인하세요.
+몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다.
+
+> [!TIP]
+> 디버깅 팁: 이 스크립트는 연속 기호(백슬래시 `\`)를 사용하여 스크립트를 더 읽기 쉽게 만듭니다. 스크립트를 실행하는 데 문제가 있으면 Cloud Shell 세션이 `bash`를 실행 중이고 백슬래시 뒤에 공백이 없는지 확인하세요.
+>
 
 ```azurecli-interactive
 # This retrieves the subscription id of the account 

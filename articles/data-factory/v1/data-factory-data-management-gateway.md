@@ -22,7 +22,7 @@ ms.locfileid: "73682723"
 ---
 # <a name="data-management-gateway"></a>데이터 관리 게이트웨이
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 문서의 내용은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 > [!NOTE]
 > 데이터 관리 게이트웨이를 이제는 자체 호스트 Integration Runtime이라고 합니다.
@@ -72,7 +72,7 @@ ms.locfileid: "73682723"
 * 데이터 저장소가 **Azure IaaS VM**의 클라우드에 있더라도 **게이트웨이를 사용**해야 합니다.
 
 ## <a name="installation"></a>설치
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>선행 조건
 * 지원되는 **운영 체제** 버전은 Windows 7, Windows 8/8.1, Windows 10, Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2입니다. 현재 도메인 컨트롤러에 데이터 관리 게이트웨이를 설치하도록 지원되지 않습니다.
 * .NET Framework 4.5.1 이상이 필요합니다. Windows 7 컴퓨터에 게이트웨이를 설치하는 경우 .NET Framework 4.5 이상을 설치하세요. 자세한 내용은 [.NET Framework 시스템 요구 사항](https://msdn.microsoft.com/library/8z6watww.aspx)을 참조하세요.
 * 게이트웨이 컴퓨터에 대한 권장 **구성**은 최소 2GHz, 4개 코어, 8GB RAM 및 80GB 디스크입니다.
@@ -99,12 +99,12 @@ ms.locfileid: "73682723"
 5. 최종 사용자 라이선스 규약에 **동의**하고 **다음**을 클릭합니다.
 6. **폴더**를 선택하여 게이트웨이를 설치하고 **다음**을 클릭합니다.
 7. **설치 준비 완료** 페이지에서 **설치**를 클릭합니다.
-8. **마침**을 클릭하고 설치를 완료합니다.
+8. **마침** 을 클릭하고 설치를 완료합니다.
 9. Azure Portal에서 키를 가져옵니다. 단계별 지침은 다음 섹션을 참조하세요.
 10. 컴퓨터에서 실행 중인 **데이터 관리 게이트웨이 구성 관리자**의 **게이트웨이 등록** 페이지에서 다음 단계를 수행합니다.
     1. 텍스트에 키를 붙여넣습니다.
     2. 필요에 따라 **게이트웨이 키 표시**를 클릭하여 키 텍스트를 확인합니다.
-    3. **등록**을 클릭합니다.
+    3. **Register**를 클릭합니다.
 
 ### <a name="register-gateway-using-key"></a>키를 사용하여 게이트웨이 등록
 #### <a name="if-you-havent-already-created-a-logical-gateway-in-the-portal"></a>포털에서 논리 게이트웨이를 아직 만들지 않은 경우
@@ -250,7 +250,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
     msiexec /q /i DataManagementGateway.msi NOFIREWALL=1
 
-게이트웨이 머신에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 스토리지 자격 증명을 구성합니다. 예를 들어 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
+게이트웨이 컴퓨터에서 포트 8050을 열지 않는 경우 **자격 증명 설정** 애플리케이션을 사용하는 방식 이외의 메커니즘을 사용하여 데이터 저장소 자격 증명을 구성합니다. 예를 들어 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용할 수 있습니다. 데이터 저장소 자격 증명을 설정할 수 있는 방법은 자격 증명 및 보안 설정 섹션을 참조하세요.
 
 ## <a name="update"></a>업데이트
 기본적으로 데이터 관리 게이트웨이는 게이트웨이의 새 버전을 사용할 수 있을 때 자동으로 업데이트됩니다. 게이트웨이는 모든 예약된 작업이 완료될 때까지 업데이트되지 않습니다. 업데이트 작업이 완료될 때까지 게이트웨이가 더 이상 작업을 처리하지 않습니다. 업데이트가 실패하면 게이트웨이는 이전 버전으로 다시 롤백됩니다.
@@ -263,7 +263,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 
 데이터 관리 게이트웨이 구성 관리자의 홈 탭에 업데이트 일정 및 게이트웨이가 마지막 설치/업데이트된 시간이 표시됩니다.
 
-![업데이트를 예약](media/data-factory-data-management-gateway/UpdateSection.png)
+![업데이트 예약](media/data-factory-data-management-gateway/UpdateSection.png)
 
 업데이트를 즉시 설치할 수도 있고, 게이트웨이가 예약된 시간에 자동으로 업데이트되도록 기다릴 수도 있습니다. 예를 들어 다음 이미지에는 게이트웨이 구성 관리자에 표시된 알림 메시지와, 업데이트를 즉시 설치하려는 경우 클릭할 수 있는 업데이트 단추가 나와 있습니다.
 
@@ -318,7 +318,7 @@ Azure Portal에서 온-프레미스 연결된 서비스를 설정할 때 **자�
 * 게이트웨이의 상태를 봅니다(클라우드 서비스에 연결되어 있는지 등).
 * **Register** 합니다.
 * 게이트웨이 컴퓨터에서 **데이터 관리 게이트웨이 호스트 서비스**를 **중지**하고 시작합니다.
-* **업데이트를 예약**합니다.
+* **업데이트를 예약** 합니다.
 * 게이트웨이가 **마지막으로 업데이트된** 날짜를 봅니다.
 
 ### <a name="settings-page"></a>설정 페이지
@@ -365,7 +365,7 @@ Azure Portal에서 게이트웨이 컴퓨터의 리소스 사용률(CPU, 메모�
 
 모니터링 속성 | 설명
 :------------------ | :----------
-Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
+이름 | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다. 노드는 게이트웨이가 설치되는 온-프레미스 Windows 컴퓨터입니다. 단일 논리 게이트웨이에서 하나 이상의 노드(최대 4개의 노드)를 포함하는 방법은 [데이터 관리 게이트웨이 - 고가용성 및 확장성](data-factory-data-management-gateway-high-availability-scalability.md)을 참조하세요.
 가동 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요.
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만).
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다.
@@ -383,7 +383,7 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 :------- | :------------------
 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다.
 오프라인 | 노드가 오프라인 상태입니다.
-업그레이드 중 | 노드가 자동 업데이트 중입니다.
+업그레이드 | 노드가 자동 업데이트 중입니다.
 제한 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다.
 비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다.<br/><br/> 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다.
 
@@ -428,13 +428,13 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 7. 컴퓨터의 **데이터 관리 게이트웨이 구성 관리자**의 **게이트웨이 등록** 페이지에서 **키**를 텍스트 상자에 붙여 넣습니다. (선택 사항) **게이트웨이 키 표시** 확인란을 클릭하여 키 텍스트를 확인합니다.
 
     ![키 복사 및 등록](./media/data-factory-data-management-gateway/CopyKeyAndRegister.png)
-8. **등록**을 클릭하여 클라우드 서비스에 게이트웨이를 등록합니다.
+8. **등록** 을 클릭하여 클라우드 서비스에 게이트웨이를 등록합니다.
 9. **설정** 탭에서 **변경**을 클릭하여 이전 게이트웨이에 사용된 것과 동일한 인증서를 선택하고 **암호**를 입력한 다음 **마침**을 클릭합니다.
 
    ![인증서 지정](./media/data-factory-data-management-gateway/SpecifyCertificate.png)
 
    이전 게이트웨이에서 인증서를 내보낼 수 있습니다. 이전 컴퓨터에서 데이터 관리 게이트웨이 구성 관리자를 시작하고 **인증서** 탭으로 전환한 후 **내보내기** 단추를 클릭하고 지침을 따르면 됩니다.
-10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈페이지에 **등록**이 **등록됨**으로 설정되고 **상태**가 **시작됨**으로 설정됩니다.
+10. 게이트웨이 등록에 성공하면 게이트웨이 구성 관리자의 홈 페이지에 **등록**이 **등록됨**으로 설정되고 **상태**가 **시작됨**으로 설정됩니다.
 
 ## <a name="encrypting-credentials"></a>자격 증명 암호화
 Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계를 수행합니다.
@@ -469,7 +469,7 @@ Data Factory 편집기에서 자격 증명을 암호화하려면 다음 단계�
     ```
    게이트웨이 컴퓨터와 다른 컴퓨터에서 포털에 액세스하는 경우 자격 증명 관리자 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 있는지 확인해야 합니다. 애플리케이션이 게이트웨이 컴퓨터에 연결할 수 없는 경우, 데이터 원본에 대한 자격 증명을 설정하고 데이터 원본에 대한 연결을 테스트할 수 없습니다.
 
-**자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 머신에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
+**자격 증명 설정** 애플리케이션을 사용하는 경우 포털은 게이트웨이 컴퓨터에서 **게이트웨이 구성 관리자**의 **인증서** 탭에 지정한 인증서를 사용하여 자격 증명을 암호화합니다.
 
 자격 증명을 암호화 하기 위한 API 기반 접근 방식을 찾고 있는 경우 [AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) PowerShell cmdlet을 사용 하 여 자격 증명을 암호화할 수 있습니다. Cmdlet은 해당 게이트웨이 구성하는 인증서를 사용하여 자격 증명을 암호화를 사용합니다. 암호화된 자격 증명을 JSON에서 **connectionString**의 **EncryptedCredential** 요소에 추가합니다. [AzDataFactoryLinkedService](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactorylinkedservice) cmdlet 또는 Data Factory 편집기에서 JSON을 사용 합니다.
 

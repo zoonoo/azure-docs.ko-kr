@@ -191,7 +191,7 @@ public static void GracefulShutdownDemo(
 새 큐 메시지를 만드는 함수를 작성하려면 **Queue** 특성을 사용합니다. **QueueTrigger**와 마찬가지로 큐 이름을 문자열로 전달하거나, [동적으로 큐 이름을 설정](#how-to-set-configuration-options)할 수 있습니다.
 
 ### <a name="string-queue-messages"></a>문자열 큐 메시지
-다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **Iasynccollector @ no__t-1T >** 를 사용 합니다.
+다음 비동기가 아닌 코드 샘플에서는 "inputqueue"라는 큐에 수신된 큐 메시지와 동일한 콘텐츠를 가진 새로운 큐 메시지를 "outputqueue"라는 큐에 만듭니다. 비동기 함수의 경우이 단원의 뒷부분에 나와 있는 것 처럼 **>\<Iasynccollector** 를 사용 합니다.
 
 ```csharp
 public static void CreateQueueMessage(
@@ -217,7 +217,7 @@ public static void CreateQueueMessage(
 SDK에서 자동으로 개체를 JSON으로 serialize합니다. 개체가 null인 경우에도 항상 큐 메시지가 생성됩니다.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>여러 메시지 만들기 또는 비동기 함수로 큐 메시지 만들기
-여러 메시지를 만들려면 다음 예제와 같이 출력 큐 **ICollector @ no__t-1t >** 또는 **iasynccollector @ No__t-3t >** 에 대 한 매개 변수 형식을 설정 합니다.
+여러 메시지를 만들려면 다음 예제와 같이 **\<t >** 또는 **iasynccollector\<t >** 출력 큐에 대 한 매개 변수 형식을 설정 합니다.
 
 ```csharp
 public static void CreateQueueMessages(

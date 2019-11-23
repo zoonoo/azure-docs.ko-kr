@@ -69,7 +69,7 @@ EXEC sp_drop_feature_restriction N'ErrorMessages', N'User', N'MyUser'
 | object      | nvarchar(256) | 제한이 적용 되는 개체의 이름입니다. |
 | 기능과     | nvarchar(128) | 제한 된 기능 |
 
-## <a name="feature-restrictions"></a>기능 제한 사항
+## <a name="feature-restrictions"></a>기능 제한
 
 ### <a name="error-messages-feature-restriction"></a>오류 메시지 기능 제한
 

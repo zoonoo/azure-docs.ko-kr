@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 SQL, IIS, .NET 스택을 실행하는 VM 만들기 | Microsoft Docs
+title: 자습서 - Azure에서 SQL, IIS, .NET 스택을 실행하는 VM 만들기
 description: 이 자습서에서는 Azure에서 Windows 가상 머신에 Azure SQL, IIS, .NET 스택을 설치하는 방법을 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8b2cf6f5475966426ee75cf73ce7bd84abc9ba42
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 286d00ce718a34dea15a075984cc3b2a5e4cfec3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101620"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74064671"
 ---
 # <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Windows VM에 SQL, IIS, .NET 스택 설치
 

@@ -1,24 +1,20 @@
 ---
 title: Azure IoT Hub에서 디바이스 상태 동기화 | Microsoft Docs
-description: 디바이스 쌍을 사용하여 디바이스와 IoT 허브 간의 상태를 동기화합니다.
+description: 디바이스 쌍을 사용하여 클라우드에서 디바이스를 구성하고 디바이스에서 상태 및 규정 준수 데이터를 수신하는 방법을 알아봅니다.
 services: iot-hub
-documentationcenter: ''
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/21/2019
 ms.custom: mvc
-ms.openlocfilehash: 4ad3013f6914abbf4c75676e7423848dff9d5e9a
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: 647182389ec0ad4cb2b80a0676812961cb9be770
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330368"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890421"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -39,7 +35,7 @@ ms.locfileid: "67330368"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

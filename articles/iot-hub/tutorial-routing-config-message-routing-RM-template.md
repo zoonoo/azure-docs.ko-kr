@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성| Microsoft Docs
+title: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 description: Azure Resource Manager 템플릿을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
 author: robinsh
 manager: philmeagit st
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: d7b8c0685cf92341241575d3e67c09a759f5c190
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8f245653a8b84944e1e8a3f48a49992f0065be58
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66163299"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084399"
 ---
 # <a name="tutorial-use-an-azure-resource-manager-template-to-configure-iot-hub-message-routing"></a>자습서: Azure Resource Manager 템플릿을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -370,7 +370,7 @@ Cloud Shell 인스턴스에 사용되는 공유에 파일이 업로드됩니다.
 
 스크립트를 실행하여 배포를 수행합니다. 이 스크립트의 마지막 줄은 반환하도록 설정된 변수를 검색합니다(Service Bus 큐 연결 문자열).
 
-이 스크립트에서 다음과 같은 변수가 설정됩니다.
+이 스크립트는 다음 변수를 설정하여 사용합니다.
 
 **$RGName**은 템플릿을 배포할 리소스 그룹 이름입니다. 이 필드는 템플릿을 배포하기 전에 생성됩니다.
 

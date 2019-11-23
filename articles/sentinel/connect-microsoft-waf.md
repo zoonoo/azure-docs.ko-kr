@@ -29,7 +29,7 @@ ms.locfileid: "72029778"
 Azure 애플리케이션 게이트웨이의 Microsoft 웹 응용 프로그램 방화벽 (WAF)에서 로그를 스트리밍할 수 있습니다. 이 WAF는 SQL 삽입 및 교차 사이트 스크립팅 같은 일반적인 웹 취약점 으로부터 응용 프로그램을 보호 하 고 가양성을 줄이기 위해 규칙을 사용자 지정할 수 있도록 합니다. Microsoft 웹 응용 프로그램 방화벽 로그를 Azure 센티널로 스트리밍하려면 다음 지침을 따르세요.
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 - 기존 application gateway 리소스
 
@@ -40,12 +40,12 @@ Microsoft 웹 응용 프로그램 방화벽을 배포 하 고 데이터를 가�
     
 1. Azure 센티널 포털에서 **데이터 커넥터**를 선택 합니다.
 1. 데이터 커넥터 페이지에서 **Waf** 타일을 선택 합니다.
-1. [Application Gateway 리소스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) and 이동한 후 waf를 선택 합니다.
+1. [Application Gateway 리소스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) 으로 이동한 후 waf를 선택 합니다.
     1. **진단 설정**을 선택합니다.
     1. 테이블에서 **+ 진단 설정 추가** 를 선택 합니다.
     1. **진단 설정** 페이지에서 **이름을** 입력 하 고 **Log Analytics 보내기를**선택 합니다.
     1. **Log Analytics 작업 영역** 에서 Azure 센티널 작업 영역을 선택 합니다.
-    1. 분석 하려는 로그 유형을 선택 합니다. 권장 사항: ApplicationGatewayAccessLog 및 ApplicationGatewayFirewallLog.
+    1. 분석 하려는 로그 유형을 선택 합니다. ApplicationGatewayAccessLog 및 ApplicationGatewayFirewallLog를 권장 합니다.
 1. Microsoft 웹 응용 프로그램 방화벽 경고에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **Azurediagnostics**를 검색 합니다.
 
 ## <a name="next-steps"></a>다음 단계

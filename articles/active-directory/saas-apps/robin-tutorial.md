@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2019
+ms.date: 10/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82e1f0b72b4f2f3053a13a305df9d0e277894156
-ms.sourcegitcommit: ac29357a47cc05afdf0f84834de5277598f4d87c
+ms.openlocfilehash: 0f8278f9c0b478d940a629d3308fd73ea474a4aa
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70213557"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081658"
 ---
 # <a name="tutorial-integrate-robin-with-azure-active-directory"></a>자습서: Robin과 Azure Active Directory 통합
 
@@ -37,7 +37,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 시작하려면 다음 항목이 필요합니다.
 
-* Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
+* Azure AD 구독 구독이 없는 경우 [여기](https://azure.microsoft.com/pricing/free-trial/)에서 1개월 평가판을 다운로드할 수 있습니다.
 * Robin SSO(Single Sign-On)가 설정된 구독
 
 ## <a name="scenario-description"></a>시나리오 설명
@@ -58,7 +58,6 @@ Robin의 Azure AD 통합을 구성하려면 갤러리의 Robin을 관리형 SaaS
 1. **갤러리에서 추가** 섹션의 검색 상자에 **Robin**을 입력합니다.
 1. 결과 패널에서 **Robin**을 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Azure AD Single Sign-On 구성 및 테스트
 
 **B.Simon**이라는 테스트 사용자를 사용하여 Robin에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 Robin의 관련 사용자 간에 연결 관계를 설정해야 합니다.
@@ -66,11 +65,11 @@ Robin의 Azure AD 통합을 구성하려면 갤러리의 Robin을 관리형 SaaS
 Robin에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-2. **[Robin SSO 구성](#configure-robin-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-3. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-4. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
-5. **[Robin 테스트 사용자 만들기](#create-robin-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Robin에 만듭니다.
-6. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+1. **[Robin SSO 구성](#configure-robin-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
+    * **[Robin 테스트 사용자 만들기](#create-robin-test-user)** - Britta Simon의 Azure AD 표현과 연결된 해당 사용자를 Robin에 만듭니다.
+1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ### <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -84,45 +83,33 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 애플리케이션은 **IDP** 시작 모드로 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
 
+    ![Robin 도메인 및 URL Single Sign-On 정보](common/preintegrated.png)
+
 1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그온 URL** 텍스트 상자에 `https://dashboard.robinpowered.com/` URL을 입력합니다.
 
-5. Robin 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다. **편집** 아이콘을 클릭하여 사용자 특성 대화 상자를 엽니다.
+1. Robin 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![이미지](common/default-attributes.png)
 
-6. 위에서 언급한 특성 외에도, Robin 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. [사용자 특성] 대화 상자의 [사용자 클레임] 섹션에서 다음 단계를 수행하여 아래 표와 같은 SAML 토큰 특성을 추가합니다. 
+1. 위에서 언급한 특성 외에도 Robin 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
     | Name | 원본 특성|
-    | ---------------| --------- |
-    | FirstName | user.givenname |
-    | LastName | user.surname |
-    | Email | user.mail |
+    | ---------------|  --------- |
+    | Email | user.userprincipalname |
+    | FirstName |  user.givenname |
+    | LastName |  user.surname |
 
-    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
-
-    다. **네임스페이스**를 비워 둡니다.
-
-    d. 원본을 **특성**으로 선택합니다.
-
-    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
-
-    f. **저장**을 클릭합니다.
-
-4. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
     ![인증서 다운로드 링크](common/certificateraw.png)
 
-6. **Robin 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
+1. **Robin 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
 
     ![구성 URL 복사](common/copy-configuration-urls.png)
 
-### <a name="configure-robin-sso"></a>Robin SSO 구성
-
-**Robin** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 적절히 복사한 URL을 [Robin 지원 팀](mailto:support@robinpowered.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
 이 섹션에서는 Azure Portal에서 B.Simon이라는 테스트 사용자를 만듭니다.
@@ -153,6 +140,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
 
+## <a name="configure-robin-sso"></a>Robin SSO 구성
+
+**Robin** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 적절히 복사한 URL을 [Robin 지원 팀](mailto:support@robinpowered.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+
 ### <a name="create-robin-test-user"></a>Robin 테스트 사용자 만들기
 
 이 섹션에서는 Robin에서 B.Simon이라는 사용자를 만듭니다. Robin은 기본적으로 사용하도록 설정되는 Just-In-Time 사용자 프로비저닝을 지원합니다. 이 섹션에 작업 항목이 없습니다. Robin에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
@@ -171,3 +162,4 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
+- [Azure AD로 Robin 사용해보기](https://aad.portal.azure.com/)

@@ -1,19 +1,19 @@
 ---
 title: 자동 완성 및 제안에 대한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 자동 완성 및 제안 기능을 추가합니다. 풍부한 사용자 환경을 구축하는 것이 목표입니다. 드롭다운 제안 목록을 인라인 자동 완성과 결합하는 방법을 알아봅니다.
+description: 이 자습서에서는 드롭다운 목록을 사용하여 사용자로부터 검색어 입력을 수집하는 방법으로 자동 완성 및 제안을 보여줍니다. 기존 호텔 프로젝트를 기반으로 빌드됩니다.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 959ae749f9ab8a025ec9c78d75640e2108868372
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: b542476ac1c9b6d4368d97eb4db76518eb2dba03
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786497"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74114568"
 ---
 # <a name="c-tutorial-add-autocompletion-and-suggestions---azure-cognitive-search"></a>C# 자습서: 자동 완성 및 제안 기능 추가 - Azure Cognitive Search
 

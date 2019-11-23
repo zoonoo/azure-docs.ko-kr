@@ -8,14 +8,14 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: d83db424ee6e9a009353ca568232b38260883a4c
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 4e8097eeb07420bee4ba30eb0fedbe5d4db2db9d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793613"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113315"
 ---
-# <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-cognitive-search-indexers"></a>C# 자습서: Azure Cognitive Search 인덱서를 사용하여 Azure SQL 데이터베이스 탐색
+# <a name="c-tutorial-import-azure-sql-database-using-azure-cognitive-search-indexers"></a>C# 자습서: Azure Cognitive Search 인덱서를 사용하여 Azure SQL 데이터베이스 가져오기
 
 Azure SQL 데이터베이스 샘플에서 검색할 수 있는 데이터를 추출하기 위해 인덱서를 구성하는 방법을 알아봅니다. [인덱서](search-indexer-overview.md)는 외부 데이터 원본을 탐색하는 Azure Cognitive Search의 구성 요소이며 콘텐츠로 [검색 인덱스](search-what-is-an-index.md)를 채웁니다. 모든 인덱서 중에 Azure SQL Database의 인덱서가 가장 널리 사용됩니다. 
 

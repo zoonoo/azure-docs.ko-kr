@@ -1,5 +1,5 @@
 ---
-title: 'REST 자습서: AI 보강 파이프라인을 빌드하여 JSON Blob에서 텍스트 및 구조 추출'
+title: '자습서: JSON Blob에서 텍스트 및 구조 추출'
 titleSuffix: Azure Cognitive Search
 description: Postman 및 Azure Cognitive Search REST API를 사용하여 JSON Blob의 콘텐츠에서 텍스트를 추출하고 자연어를 처리하는 예제를 단계별로 실행합니다.
 manager: nitinme
@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: cb05d85c32d7eaed002d3e3bacbe7fdbd17310eb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5dffafba0f0dc0dc108bf2c82929c157018d8dbb
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790186"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113665"
 ---
-# <a name="tutorial-add-structure-to-unstructured-content-with-ai-enrichment"></a>자습서: AI 보강을 사용하여 "비정형 콘텐츠"에 구조 추가
+# <a name="tutorial-extract-text-and-structure-from-json-blobs-in-azure-using-rest-apis-azure-cognitive-search"></a>자습서: REST API(Azure Cognitive Search)를 사용하여 Azure의 JSON Blob에서 텍스트 및 구조 추출
 
-비정형 텍스트 또는 이미지 콘텐츠가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 사용하면 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인은 이미지 파일(JPG, PNG, TIFF)을 처리할 수 있지만, 이 자습서에서는 단어 기반 콘텐츠에 집중하고 언어 감지 및 텍스트 분석을 적용하여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드와 정보를 만듭니다.
+Azure Blob 스토리지에 비정형 텍스트 또는 이미지 콘텐츠가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md)을 사용하면 정보를 추출하여 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 파이프라인은 이미지 파일(JPG, PNG, TIFF)을 처리할 수 있지만, 이 자습서에서는 단어 기반 콘텐츠에 집중하고 언어 감지 및 텍스트 분석을 적용하여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드와 정보를 만듭니다.
 
 > [!div class="checklist"]
 > * Azure Blob 스토리지에서 PDF, MD, DOCX 및 PPTX와 같은 전체 문서(비정형 텍스트)로 시작합니다.

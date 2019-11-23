@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
 ms.author: apimpm
-ms.openlocfilehash: e1534a562c81fc92fdf0c21452458c51b10f0bc9
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a2bec6401ae3ac53f46e92e9be38abf57a92163d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074234"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108108"
 ---
 # <a name="import-a-soap-api-and-convert-to-rest"></a>SOAP API 가져오기 및 REST로 변환
 
@@ -61,7 +61,7 @@ ms.locfileid: "70074234"
     * **무제한**   
 10. **만들기**를 선택합니다.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 
 dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사용하면 편리한 방법으로 API의 작업을 보고 테스트할 수 있습니다.  
 
@@ -73,21 +73,6 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 1. **보내기**를 누릅니다.
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
-
-## <a name="call-operation"> </a>개발자 포털에서 작업 호출
-
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다. 
-
-1. "백 엔드 API 가져오기 및 게시" 단계에서 만든 API를 선택합니다.
-2. **개발자 포털**을 누릅니다.
-
-    "개발자 포털" 사이트가 열립니다.
-3. 만든 **API**를 선택합니다.
-4. 테스트할 작업을 클릭합니다.
-5. **시도**를 누릅니다.
-6. **보내기**를 누릅니다.
-    
-    작업 호출 후에는 개발자 포털에 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 

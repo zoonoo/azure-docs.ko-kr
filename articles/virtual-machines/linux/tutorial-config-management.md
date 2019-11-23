@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Linux 가상 머신 구성 관리 | Microsoft Docs
+title: 자습서 - Azure에서 Linux 가상 머신 구성 관리
 description: 이 자습서에서는 Linux 가상 머신에서 변경 내용을 식별하고 패키지 업데이트를 관리하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: bc5029e0ea2d743fffe258af8e66728269d0933e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 5dd35ed2f4533d19cc3a59788d6422416dce13f5
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374334"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034549"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 변경 내용 및 업데이트 모니터링
 

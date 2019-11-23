@@ -1,19 +1,19 @@
 ---
 title: 결과 정렬에 대한 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 이 자습서는 "검색 결과 페이지 매김 - Azure Cognitive Search" 프로젝트를 기반으로 하여 검색 결과의 정렬을 추가합니다. 기본 속성에 대한 결과를 정렬하는 방법 및 기본 속성이 동일한 결과의 경우 보조 속성에 대한 결과를 정렬하는 방법을 알아봅니다. 마지막으로, 점수 매기기 프로필에 따라 결과를 정렬하는 방법을 알아봅니다.
+description: 이 자습서에서는 검색 결과를 정렬하는 방법을 보여줍니다. 이전의 호텔 프로젝트를 기반으로 기본 속성, 보조 속성을 정렬하며 부스팅 기준을 추가하는 점수 매기기 프로필을 포함합니다.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d0c8e2a4467fe56cc0633a7d501af0c6aeed22a
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 9230e555f9ea56ca4cda3fcabe1f9719e36a8f62
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794044"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112673"
 ---
 # <a name="c-tutorial-order-the-results---azure-cognitive-search"></a>C# 자습서: 결과 정렬 - Azure Cognitive Search
 

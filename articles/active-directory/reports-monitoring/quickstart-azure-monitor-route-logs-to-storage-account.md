@@ -1,9 +1,9 @@
 ---
-title: 자습서 - 스토리지 계정에 Azure Active Directory 로그 보관 | Microsoft Docs
+title: 자습서 - 스토리지 계정에 디렉터리 로그 보관 | Microsoft Docs
 description: 스토리지 계정으로 Azure Active Directory 로그를 푸시하도록 Azure Diagnostics를 설정하는 방법 알아보기
 services: active-directory
 documentationcenter: ''
-author: cawrites
+author: MarkusVi
 manager: daveba
 editor: ''
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
 ms.date: 04/18/2019
-ms.author: chadam
+ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d98fb0677b864fccfb5abd2b08381db1bd1c9c8f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: fa2cac7c89a2cb1bd99675727bcd51e82c4a18ef
+ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989730"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74007854"
 ---
 # <a name="tutorial-archive-azure-ad-logs-to-an-azure-storage-account"></a>자습서: Azure 스토리지 계정에 Azure AD 로그 보관
 

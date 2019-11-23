@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: apimpm
-ms.openlocfilehash: 6a1ae2966e8d5535a5fd9aeffb5ddc3a788f85ee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bae762b4603b2f5f80447a16671fed4e37e62b95
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072114"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74108547"
 ---
 # <a name="import-and-publish-your-first-api"></a>첫 번째 API 가져오기 및 게시 
 
@@ -75,7 +75,7 @@ ms.locfileid: "70072114"
 > [!TIP]
 > 사용자 고유의 API 정의를 가져오는 데 문제가 있는 경우 [알려진 문제 및 제한 사항 목록](api-management-api-import-restrictions.md)을 참조하세요.
 
-## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Azure Portal에서 새 APIM API 테스트
+## <a name="test-the-new-api-in-the-azure-portal"></a>Azure Portal에서 새 API 테스트
 
 ![API 맵 테스트](./media/api-management-get-started/01-import-first-api-01.png)
 
@@ -88,23 +88,6 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 
     백 엔드는 **200 정상** 및 일부 데이터로 응답합니다.
 
-## <a name="call-operation"> </a>개발자 포털에서 작업 호출
-
-**개발자 포털**에서 작업을 호출하여 API를 테스트할 수도 있습니다.
-
-1. **개발자 포털**로 이동합니다.
-
-    ![개발자 포털](./media/api-management-get-started/developer-portal.png)
-
-2. **API**를 선택하고 **데모 회의 API** 및 **GetSpeakers**를 차례로 클릭합니다.
-
-    페이지에는 쿼리 매개 변수에 대한 필드가 표시되며, 이 경우에는 헤더 필드만 표시됩니다. 헤더 중 하나는 이 API와 연결된 제품의 구독 키에 대한 "Ocp-Apim-Subscription-Key"입니다. APIM 인스턴스를 만든 경우 사용자는 이미 관리자이므로 키가 자동으로 채워집니다.
-
-3. **시도**를 누릅니다.
-4. **보내기**를 누릅니다.
-
-    작업이 호출되면 개발자 포털에 응답이 표시됩니다.  
-
 ## <a name="next-steps"> </a>다음 단계
 
 이 자습서에서는 다음 방법에 대해 알아보았습니다.
@@ -112,7 +95,6 @@ dAzure Portal에서 직접 작업을 호출할 수 있으며, 이 포털을 사�
 > [!div class="checklist"]
 > * 첫 번째 API 가져오기
 > * Azure Portal에서 API 테스트
-> * 개발자 포털에서 API 테스트
 
 다음 자습서를 진행합니다.
 

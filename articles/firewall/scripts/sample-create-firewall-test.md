@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 6e85bd6ec51cff27fed6d0b2d9e73f94325e4d4f
-ms.sourcegitcommit: f24fdd1ab23927c73595c960d8a26a74e1d12f5d
+ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58500239"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73839274"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "58500239"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-방화벽은 AzureFirewallSubnet에 있으며, www.microsoft.com에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션으로 구성됩니다.
+방화벽은 AzureFirewallSubnet에 있으며, `www.microsoft.com`에 대한 액세스를 허용하는 단일 규칙이 포함된 애플리케이션 규칙 컬렉션으로 구성됩니다.
 
 방화벽 규칙이 적용된 방화벽을 통해 ServersSubnet에서 네트워크 트래픽을 가리키는 사용자 정의 경로가 만들어집니다.
 

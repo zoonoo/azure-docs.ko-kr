@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Linux 가상 머신 모니터링 | Microsoft Docs
+title: 자습서 - Azure에서 Linux 가상 머신 모니터링
 description: 이 자습서에서는 Linux 가상 머신에서 실행되는 성능 및 검색된 애플리케이션 구성 요소를 모니터링하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/30/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 9c6458eea2b1352e7d13ea6691eac4498182ecd3
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 4d338708b143c88f8f416185e351531e74963bba
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "71679404"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111997"
 ---
 # <a name="tutorial-monitor-a-linux-virtual-machine-in-azure"></a>자습서: Azure에서 Linux 가상 머신 모니터링
 
@@ -133,7 +133,7 @@ VM용 Azure Monitor를 사용하여 Azure VM의 모니터링을 사용하도록 
 
 3. **인사이트(미리 보기)** 페이지에서 **지금 시도해 보기**를 선택합니다.
 
-    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal-01.png)
+    ![VM에 대해 VM용 Azure Monitor를 사용하도록 설정](../../azure-monitor/insights/media/vminsights-enable-single-vm/enable-vminsights-vm-portal.png)
 
 4. **Azure Monitor Insights 등록** 페이지에서 동일한 구독에 기존 Log Analytics 작업 영역이 있는 경우 드롭다운 목록에서 해당 작업 영역을 선택합니다.  
 

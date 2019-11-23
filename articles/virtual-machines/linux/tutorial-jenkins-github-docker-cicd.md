@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Jenkins를 사용하여 개발 파이프라인 만들기 | Microsoft Docs
+title: 자습서 - Azure에서 Jenkins를 사용하여 개발 파이프라인 만들기
 description: 자습서 - 이 자습서에서는 각 코드 커밋의 GitHub에서 가져오고 앱을 실행하기 위해 새 Docker 컨테이너를 빌드하는 Azure에서 Jenkins 가상 머신을 만드는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 875285b6a168d9aa9820d660d9c366a36545d319
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 6b755ac015095e537134f1ff5c076c23a432ec91
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299417"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034478"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>자습서: Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기
 

@@ -1,23 +1,20 @@
 ---
 title: Azure IoT Hub를 통해 디바이스 펌웨어 업데이트 | Microsoft Docs
-description: 작업 및 디바이스 쌍을 사용하여 디바이스 펌웨어 업데이트 프로세스를 구현합니다.
+description: IoT 허브에 연결된 백 엔드 애플리케이션에서 트리거할 수 있는 디바이스 펌웨어 업데이트 프로세스를 구현하는 방법에 대해 알아봅니다.
 services: iot-hub
 author: wesmc7777
-manager: philmea
 ms.author: wesmc
 ms.service: iot-hub
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 06/28/2019
 ms.custom: mvc
-ms.openlocfilehash: be1b23991a8dc4d8f29e961e33ba97153d8c5355
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0665a20bfd8253b28936044abe515862b32f1b43
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755828"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73888754"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>자습서: 디바이스 펌웨어 업데이트 프로세스 구현
 

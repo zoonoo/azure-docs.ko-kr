@@ -1,19 +1,19 @@
 ---
 title: 첫 번째 앱 만들기 C# 자습서
 titleSuffix: Azure Cognitive Search
-description: 첫 번째 검색 앱을 단계별로 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 GitHub의 작동하는 앱 링크와 앱을 처음부터 빌드하는 전체 프로세스의 링크를 제공합니다. Azure Cognitive Search의 필수 구성 요소에 대해 알아봅니다.
+description: 첫 번째 C# 검색 앱을 단계별로 빌드하는 방법에 대해 알아봅니다. 이 자습서에서는 GitHub의 작동하는 앱 링크와 앱을 처음부터 빌드하는 전체 프로세스의 링크를 제공합니다. Azure Cognitive Search의 필수 구성 요소에 대해 알아봅니다.
 manager: nitinme
 author: PeterTurcan
 ms.author: v-pettur
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 3f234a11aeaf7af4e47fb0cf6310ecd68d35e4da
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: fc3d9d52ca6eb3d35138323908c73eb0d09cf519
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794144"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112240"
 ---
 # <a name="c-tutorial-create-your-first-app---azure-cognitive-search"></a>C# 자습서: 첫 번째 앱 만들기 - Azure Cognitive Search
 

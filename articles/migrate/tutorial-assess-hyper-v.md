@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 08/11/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b93d9ee65850749e79714b632584f1977ca88c81
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ff46ec437de671d5804eeb31a5d1fb0284a8946
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639996"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123523"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -223,7 +223,7 @@ Enable-WSManCredSSP -Role Client -DelegateComputer HyperVHost1.contoso.com Hyper
     - 클러스터의 특정 호스트에 문제가 있는 경우에도 클러스터를 추가할 수 있습니다.
 4. 유효성 검사가 완료되면 **저장 및 검색 시작**을 클릭하여 검색 프로세스를 시작합니다.
 
-그러면 검색을 시작합니다. 검색된 VM의 메타데이터가 Azure Portal에 표시되는 데 약 15분이 걸립니다.
+그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 호스트당 약 1.5분이 걸립니다. 
 
 ### <a name="verify-vms-in-the-portal"></a>포털에서 VM 확인
 
@@ -337,7 +337,7 @@ Azure Migrate 서버 평가를 사용하여 실행할 수 있는 평가에는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Migrate 어플라이언스 설정

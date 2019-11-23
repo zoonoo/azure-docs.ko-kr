@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/17/2019
+ms.date: 10/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ed1f1b6973d96fdc0bce560877720adfc5e33081
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: f2fea3bca40d8a5783448e68ea89c3b238a0104d
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170894"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074028"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -81,7 +81,6 @@ Azure AD에 AWS(Amazon Web Services)를 통합하도록 구성하려면 갤러�
 1. **갤러리에서 추가** 섹션의 검색 상자에 **AWS(Amazon Web Services)** 를 입력합니다.
 1. 결과 창에서 **AWS(Amazon Web Services)** 를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
 
-
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-amazon-web-services-aws"></a>AWS(Amazon Web Services)에 대한 Azure AD Single Sign-On 구성 및 테스트
 
 **B. Simon**이라는 테스트 사용자를 사용하여 AWS(Amazon Web Services)에서 Azure AD SSO를 구성하고 테스트합니다. SSO가 작동하려면 Azure AD 사용자와 AWS(Amazon Web Services)의 관련 사용자 간에 연결 관계가 설정되어야 합니다.
@@ -93,6 +92,7 @@ AWS(Amazon Web Services)에서 Azure AD SSO를 구성하고 테스트하려면 �
     1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[AWS(Amazon Web Services) SSO 구성](#configure-amazon-web-services-aws-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
     1. **[AWS(Amazon Web Services) 테스트 사용자 만들기](#create-amazon-web-services-aws-test-user)** - B.Simon의 Azure AD 표현과 연결되는 대응 사용자를 AWS(Amazon Web Services)에 만듭니다.
+    1. **[AWS(Amazon Web Services)에서 역할 프로비저닝을 구성하는 방법](#how-to-configure-role-provisioning-in-amazon-web-services-aws)**
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -312,11 +312,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     다. **닫기**를 선택합니다.
 
-21. Azure AD 관리 포털의 AWS 앱에서 **프로비저닝**으로 이동합니다.
+### <a name="how-to-configure-role-provisioning-in-amazon-web-services-aws"></a>AWS(Amazon Web Services)에서 역할 프로비저닝을 구성하는 방법
+
+1. Azure AD 관리 포털의 AWS 앱에서 **프로비저닝**으로 이동합니다.
 
     ![프로비저닝이 강조 표시된 AWS 앱의 스크린샷](./media/amazon-web-service-tutorial/provisioning.png)
 
-22. **clientsecret** 및 **비밀 토큰** 필드에서 각각 액세스 키와 비밀을 입력합니다.
+2. **clientsecret** 및 **비밀 토큰** 필드에서 각각 액세스 키와 비밀을 입력합니다.
 
     ![관리자 자격 증명 대화 상자의 스크린샷](./media/amazon-web-service-tutorial/provisioning1.png)
 
@@ -328,7 +330,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     d. **저장**을 선택하여 설정을 저장합니다.
 
-23. **설정** 섹션에서 **프로비저닝 상태**에 대해 **켜기**를 선택합니다. 그런 다음 **저장**을 선택합니다.
+3. **설정** 섹션에서 **프로비저닝 상태**에 대해 **켜기**를 선택합니다. 그런 다음 **저장**을 선택합니다.
 
     ![켜기가 강조 표시된 설정 섹션의 스크린샷](./media/amazon-web-service-tutorial/provisioning2.png)
 

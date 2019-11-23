@@ -1,5 +1,5 @@
 ---
-title: '자습서: 설치된 Azure Digital Twins에서 이벤트 분석 | Microsoft Docs'
+title: '자습서: 설치된 Azure Digital Twins에서 이벤트 분석'
 description: 이 자습서의 단계에 따라 Azure Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트를 시각화하고 분석하는 방법을 알아봅니다.
 services: digital-twins
 ms.author: alinast
@@ -8,15 +8,15 @@ manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 09/23/2019
-ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.date: 11/12/2019
+ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949812"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74107671"
 ---
-# <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트 시각화 및 분석
+# <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins의 이벤트 시각화 및 분석
 
 Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 특정 조건을 모니터링하는 사용자 지정 함수를 구현한 후에 공간에서 오는 이벤트 및 데이터를 시각화하여 추세와 비정상 상태를 살펴볼 수 있습니다.
 

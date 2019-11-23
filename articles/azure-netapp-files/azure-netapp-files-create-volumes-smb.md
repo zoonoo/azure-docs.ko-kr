@@ -25,7 +25,7 @@ ms.locfileid: "72300535"
 
 Azure NetApp Files는 NFS 및 SMBv3 볼륨을 지원 합니다. 볼륨의 용량 소비는 해당 풀의 프로비전된 용량에 대해 계산됩니다. 이 문서에서는 SMBv3 볼륨을 만드는 방법을 보여 줍니다. NFS 볼륨을 만들려면 [Azure NetApp Files에 대 한 nfs 볼륨 만들기](azure-netapp-files-create-volumes.md)를 참조 하세요. 
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항 
+## <a name="before-you-begin"></a>시작하기 전에 
 용량 풀을 설정해야 합니다.   
 [용량 풀 설정](azure-netapp-files-set-up-capacity-pool.md)   
 Azure NetApp Files에 서브넷을 위임해야 합니다.  
@@ -45,7 +45,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    해당 사항 없음       |    Echo Reply    |
+    |    ICMPv4             |    해당 없음       |    Echo Reply    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -100,7 +100,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     * **조직 구성 단위 경로**  
         SMB 서버 컴퓨터 계정이 생성 되는 OU (조직 구성 단위)에 대 한 LDAP 경로입니다. 즉, OU = second level, OU = first level입니다. 
 
-        Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로는 0 @no__t 됩니다.
+        Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는 경우 NetApp 계정에 대 한 Active Directory를 구성할 때 조직 구성 단위 경로가 `OU=AADDC Computers` 됩니다.
         
     * **사용자 이름** 및 **암호** 를 포함 한 자격 증명
 
@@ -130,7 +130,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
         볼륨 이름은 각 용량 풀 내에서 고유 해야 합니다. 3자 이상이어야 합니다. 모든 영숫자 문자를 사용할 수 있습니다.   
 
-        볼륨 이름으로는 `default`을 사용할 수 없습니다.
+        `default`를 볼륨 이름으로 사용할 수 없습니다.
 
     * **용량 풀**  
         볼륨을 만들 용량 풀을 지정 합니다.

@@ -14,12 +14,12 @@ ms.author: jmprieur
 ms.reviewer: oldalton
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2474f86c0f293b98ab7bc9faec8ff8519a25e96b
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0e3892a03ffe097a51f294e698168f00e1359f92
+ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309366"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73960657"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-ios-or-macos-app"></a>iOS 또는 macOS 앱에서 사용자를 로그인하고 Microsoft Graph 호출
 
@@ -137,15 +137,15 @@ import MSAL
 let kClientID = "Your_Application_Id_Here"
 
 // Additional variables for Auth and Graph API
-let kGraphURI = "https://graph.microsoft.com/v1.0/me/"
-let kScopes: [String] = ["https://graph.microsoft.com/user.read"]
-let kAuthority = "https://login.microsoftonline.com/common"
+let kGraphURI = "https://graph.microsoft.com/v1.0/me/" // the Microsoft Graph endpoint
+let kScopes: [String] = ["https://graph.microsoft.com/user.read"] // request permission to read the profile of the signed-in user
+let kAuthority = "https://login.microsoftonline.com/common" // this authority allows a personal Microsoft account and a work or school account in any organization’s Azure AD tenant to sign in
 var accessToken = String()
 var applicationContext : MSALPublicClientApplication?
-var webViewParamaters : MSALWebviewParameters?
+var webViewParameters : MSALWebviewParameters?
 ```
 
-`kClientID`에 할당된 값을 애플리케이션 ID로 수정합니다. 이 값은 이 자습서의 시작 부분에서 애플리케이션을 Azure Portal에 등록하는 단계에서 저장한 MSAL 구성 데이터의 일부입니다.
+위에서 수정해야 하는 값은 [애플리케이션 ID](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#application-id-client-id)`kClientID`에 할당된 값뿐입니다. 이 값은 이 자습서의 시작 부분에서 애플리케이션을 Azure Portal에 등록하는 단계에서 저장한 MSAL 구성 데이터의 일부입니다.
 
 ## <a name="for-ios-only-configure-url-schemes"></a>iOS의 경우에만 URL 스키마 구성
 
@@ -322,7 +322,7 @@ func initUI() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters(parentViewController: self)
+        self.webViewParameters = MSALWebviewParameters(parentViewController: self)
     }
 ```
 
@@ -330,8 +330,8 @@ func initWebViewParams() {
 
 ```swift
 func initWebViewParams() {
-        self.webViewParamaters = MSALWebviewParameters()
-        self.webViewParamaters?.webviewType = .wkWebView
+        self.webViewParameters = MSALWebviewParameters()
+        self.webViewParameters?.webviewType = .wkWebView
     }
 ```
 
@@ -425,7 +425,7 @@ MSAL은 토큰을 가져오기 위한 두 가지 기본 메서드 `acquireTokenS
 func acquireTokenInteractively() {
         
     guard let applicationContext = self.applicationContext else { return }
-    guard let webViewParameters = self.webViewParamaters else { return }
+    guard let webViewParameters = self.webViewParameters else { return }
         
     // #1
     let parameters = MSALInteractiveTokenParameters(scopes: kScopes, webviewParameters: webViewParameters)

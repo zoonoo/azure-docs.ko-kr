@@ -1,26 +1,18 @@
 ---
-title: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만들기 위한 자습서 | Microsoft Docs
+title: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만들기 위한 자습서
 description: 캐시 배제 패턴을 사용하는 Azure Cache for Redis로 웹앱을 만드는 방법에 대해 알아봅니다.
-services: cache
-documentationcenter: ''
 author: yegu-ms
-manager: jhubbard
-editor: ''
-ms.assetid: ''
 ms.service: cache
-ms.workload: tbd
-ms.tgt_pltfrm: cache
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 03/30/2018
 ms.author: yegu
-ms.openlocfilehash: 8ca24e8556ee53e9d12eaea8fd9eddb07ebed490
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: dbd8250da46e640aaa9403430ae0fbfaa9b181c8
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826404"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74121520"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>자습서: ASP.NET에서 캐시 배제 순위표 만들기
 
@@ -671,7 +663,7 @@ Azure Cache for Redis를 사용하려는 경우 팀 통계를 여러 형식으�
 
    | 설정       | 제안 값 | 설명 |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/cloud-adoption-framework/ready/azure-best-practices/naming-and-tagging)을 참조하세요. |
+   | **서버 이름** | 전역적으로 고유한 이름 | 유효한 서버 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
    | **서버 관리자 로그인** | 유효한 이름 | 유효한 로그인 이름은 [데이터베이스 식별자](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers)를 참조하세요. |
    | **암호** | 유효한 암호 | 암호는 8자 이상이어야 하며 대문자, 소문자, 숫자 및 영숫자가 아닌 문자 범주 중 세 가지 범주의 문자를 포함해야 합니다. |
    | **위치** | *미국 동부* | 캐시와 App Service를 만든 것과 동일한 지역을 선택합니다. |

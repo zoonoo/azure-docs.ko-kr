@@ -1,5 +1,5 @@
 ---
-title: 원격 모니터링 솔루션에서 디바이스 구성 자습서 - Azure | Microsoft Docs
+title: 원격 모니터링 솔루션에서 디바이스 구성 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션 가속기에 연결된 디바이스를 구성하는 방법을 보여 줍니다.
 author: dominicbetts
 manager: timlt
@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d23b7c8fa10127094fec67535333ae169f0f38f0
-ms.sourcegitcommit: 5839af386c5a2ad46aaaeb90a13065ef94e61e74
+ms.openlocfilehash: e4236952bd41c4955e337813ff6d706263b8ef47
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/19/2019
-ms.locfileid: "58183393"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890912"
 ---
 # <a name="tutorial-configure-devices-connected-to-your-monitoring-solution"></a>자습서: 모니터링 솔루션에 연결된 디바이스 구성
 
@@ -22,7 +22,7 @@ ms.locfileid: "58183393"
 
 Contoso는 해당 시설 중 하나를 확장하기 위해 새로운 기계를 주문했습니다. 배달될 새 기계를 기다리는 동안 솔루션의 동작을 테스트하는 시뮬레이션을 실행하려고 합니다. 시뮬레이션을 실행하려면 원격 모니터링 솔루션 가속기에 시뮬레이션된 새 엔진 디바이스를 추가하고, 이 시뮬레이션된 디바이스에서 구성 업데이트에 올바르게 응답하는지 테스트합니다. 이 자습서에서는 시뮬레이션된 디바이스를 사용하지만 디바이스 개발자가 [원격 모니터링 솔루션 가속기에 연결된 실제 디바이스](iot-accelerators-connecting-devices.md)에 직접 메서드를 구현할 수 있습니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 시뮬레이트된 디바이스 프로비전

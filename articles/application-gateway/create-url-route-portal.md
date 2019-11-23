@@ -1,18 +1,18 @@
 ---
-title: 자습서 - URL 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기 - Azure Portal
+title: '자습서: 포털을 사용하는 URL 경로 기반 라우팅 규칙 - Azure Application Gateway'
 description: 이 자습서에서는 Azure Portal을 사용하여 애플리케이션 게이트웨이 및 가상 머신 확장 집합에 대한 URL 경로 기반 회람 규칙을 만드는 방법을 알아봅니다.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 09/10/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 2cb21eb98e698ab44d73ada195fdcb7d7aac8839
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: bc810ac7901d83f03d3f3ac2199561225326d261
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844647"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048131"
 ---
 # <a name="tutorial-create-an-application-gateway-with-path-based-routing-rules-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 기반 회람 규칙을 사용하여 애플리케이션 게이트웨이 만들기
 

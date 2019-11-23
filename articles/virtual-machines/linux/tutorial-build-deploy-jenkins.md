@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure DevOps Services를 사용하여 Jenkins에서 Azure VM으로 CI/CD | Microsoft Docs
+title: 자습서 - Azure DevOps Services를 사용하여 Jenkins에서 Azure VM으로 CI/CD
 description: 이 자습서에서는 Jenkins를 사용하여 Node.js 앱을 Visual Studio Team Services 또는 Microsoft Team Foundation Server의 Release Management에서 Azure VM으로 CI(연속 통합) 및 CD(연속 배포)를 설정하는 방법을 알아봅니다.
 author: tomarchermsft
 manager: jpconnock
@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 734b0a516d4a9fe882545dd5cde5a57d8af719cb
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828437"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034577"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>자습서: Jenkins 및 Azure DevOps Services를 사용하여 Azure에서 Linux 가상 머신에 앱 배포
 

@@ -7,18 +7,18 @@ ms.author: laobri
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 76f995901814c90ff9fd78585c98d56b3478e8b4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: ca3486610d6cf71ba315e407b58a2a2551ad6ee1
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73612762"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73837478"
 ---
 # <a name="get-labels-for-data"></a>데이터 레이블 가져오기
 
 많은 양의 데이터에 레이블을 지정하는 것은 기계 학습 프로젝트에서 골칫거리인 경우가 많습니다. 이미지 분류 또는 개체 감지와 같은 컴퓨터 비전 구성 요소가 있는 ML 프로젝트에는 일반적으로 수천 개의 이미지와 해당 레이블이 필요합니다. 
  
-Azure Machine Learning Studio는 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링할 수 있는 중앙 위치를 제공합니다. 레이블 지정 프로젝트를 사용하면 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 더 효율적으로 관리할 수 있습니다. 현재 지원되는 작업은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 사용하는 개체 식별입니다.
+Azure Machine Learning은 레이블 지정 프로젝트를 만들고, 관리하고, 모니터링할 수 있는 중앙 위치를 제공합니다. 레이블 지정 프로젝트를 사용하면 데이터, 레이블 및 팀 멤버를 조정하여 레이블 지정 작업을 더 효율적으로 관리할 수 있습니다. 현재 지원되는 작업은 이미지 분류(다중 레이블 또는 다중 클래스) 및 경계 상자를 사용하는 개체 식별입니다.
 
 Azure는 진행 상황을 추적하고 불완전한 레이블 지정 작업의 큐를 유지 관리합니다. 레이블 지정자에는 Azure 계정이 참여할 필요가 없습니다. MSA(Microsoft 계정) 또는 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis)를 사용하여 인증되면 시간이 허용하는 범위 내에서 레이블을 지정할 수 있습니다. 바로 가기 키를 사용하여 레이블을 할당하고 변경할 수 있습니다. 
 
@@ -43,7 +43,7 @@ Azure는 진행 상황을 추적하고 불완전한 레이블 지정 작업의 �
 
 ## <a name="create-a-labeling-project"></a>레이블 지정 프로젝트 만들기
 
-레이블 지정 프로젝트는 [Azure Machine Learning Studio](https://ml.azure.com/)에서 관리됩니다. **레이블 지정 프로젝트** 페이지에서는 프로젝트, 팀 및 사용자를 관리할 수 있습니다. 프로젝트에는 하나 이상의 팀이 할당되고, 팀에는 한 명 이상의 사용자가 할당됩니다. 
+레이블 지정 프로젝트는 [Azure Machine Learning](https://ml.azure.com/)에서 관리됩니다. **레이블 지정 프로젝트** 페이지에서는 프로젝트, 팀 및 사용자를 관리할 수 있습니다. 프로젝트에는 하나 이상의 팀이 할당되고, 팀에는 한 명 이상의 사용자가 할당됩니다. 
 
 데이터가 이미 Azure Blob 스토리지에 저장된 경우 레이블 지정 프로젝트를 만들기 전에 해당 데이터를 데이터 저장소로 사용할 수 있도록 해야 합니다. 자세한 내용은 [데이터 저장소 만들기 및 등록](https://docs.microsoft.com/azure/machine-learning/service/how-to-access-data#create-and-register-datastores)을 참조하세요. 
 
@@ -149,7 +149,7 @@ Azure Blob 스토리지에 이미 저장한 데이터에서 데이터 세트를 
 
 기계 학습 실험을 위해 언제든지 레이블 데이터를 내보낼 수 있습니다. 이미지 레이블은 [COCO 형식](http://cocodataset.org/#format-data) 또는 Azure ML 데이터 세트로 내보낼 수 있습니다. 레이블 지정 프로젝트의 **프로젝트 세부 정보** 페이지에서 **내보내기** 단추를 찾을 수 있습니다.
 
-COCO 파일은 **export/coco** 내의 폴더에 있는 Azure ML 작업 영역의 기본 Blob 저장소에 만들어집니다. 내보낸 Azure ML 데이터 세트는 Studio의 **데이터 세트** 섹션 아래에서 액세스할 수 있습니다. 데이터 세트 세부 정보 페이지에는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 있습니다.
+COCO 파일은 **export/coco** 내의 폴더에 있는 Azure ML 작업 영역의 기본 Blob 저장소에 만들어집니다. 내보낸 Azure ML 데이터 세트는 Azure Machine Learning의 **데이터 세트** 섹션 아래에서 액세스할 수 있습니다. 데이터 세트 세부 정보 페이지에는 Python에서 레이블에 액세스할 수 있는 샘플 코드도 있습니다.
 
 ![내보낸 데이터 세트](media/how-to-create-labeling-projects/exported-dataset.png)
 

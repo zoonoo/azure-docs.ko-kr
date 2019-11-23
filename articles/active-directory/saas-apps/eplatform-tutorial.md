@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a822f1f5d781576102d874f33b31b698f4907a7d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b9dd7781263887a21597f32c74bd51854cc0dcfc
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121559"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74081923"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eplatform"></a>자습서: ePlatform과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -67,10 +67,10 @@ ePlatform의 Azure AD 통합을 구성하려면 갤러리의 ePlatform을 관리
 ePlatform에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[ePlatform SSO 구성](#configure-eplatform-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    1. **[ePlatform 테스트 사용자 만들기](#create-eplatform-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 ePlatform에 만듭니다.
+    * **[ePlatform 테스트 사용자 만들기](#create-eplatform-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 ePlatform에 만듭니다.
 1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -84,6 +84,16 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **기본 SAML 구성** 섹션에서 애플리케이션은 미리 구성되어 있으며 필요한 URL은 이미 Azure로 미리 채워져 있습니다. 사용자는 **저장** 단추를 클릭하여 구성을 저장해야 합니다.
+
+1. ePlatform 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며 이는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+
+    ![이미지](common/default-attributes.png)
+
+1. 위에서 언급한 특성 외에도 ePlatform 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+
+    | Name | 원본 특성 |
+    | ---------------| --------------- |
+    | upn | user.userprincipalname |
 
 1. **SAML 서명 인증서** 섹션에서 **편집** 단추를 클릭하여 **SAML 서명 인증서** 대화 상자를 엽니다.
 
@@ -135,7 +145,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 이 섹션에서는 ePlatform에 B.Simon이라는 사용자를 만듭니다. ePlatform 플랫폼에서 사용자를 추가하려면  [ePlatform 지원 팀](https://help.eplatform.co/hc/en-us)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

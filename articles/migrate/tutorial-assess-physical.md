@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 7574e80101784961448ff3c3b5a49d9e2c2f9807
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9339a03fcb3f67402c0aab030cb69a45e1b42b45
+ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720220"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74123502"
 ---
 # <a name="assess-physical-servers-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 물리적 서버 평가: Server Assessment
 
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 이 시리즈의 첫 번째 자습서를 [완료](tutorial-prepare-physical.md)합니다. 그렇지 않으면 이 자습서의 지침이 작동하지 않습니다.
 - 첫 번째 자습서에서 수행해야 하는 작업은 다음과 같습니다.
     - Azure Migrate에 대한 [Azure 권한을 설정](tutorial-prepare-physical.md#prepare-azure)합니다.
-    - 평가할 [물리적 서버를 준비](tutorial-prepare-physical.md#prepare-azure)합니다. 어플라이언스 요구 사항을 확인해야 합니다. 또한 물리적 서버 검색에 사용할 계정을 설정해야 합니다. 필요한 포트를 사용할 수 있어야 하고, Azure에 액세스하는 데 필요한 URL을 알고 있어야 합니다.
+    - 평가할 [물리적 서버를 준비](tutorial-prepare-physical.md#prepare-for-physical-server-assessment)합니다. 어플라이언스 요구 사항을 확인해야 합니다. 또한 물리적 서버 검색에 사용할 계정을 설정해야 합니다. 필요한 포트를 사용할 수 있어야 하고, Azure에 액세스하는 데 필요한 URL을 알고 있어야 합니다.
 
 
 ## <a name="set-up-an-azure-migrate-project"></a>Azure Migrate 프로젝트 설정
@@ -104,9 +104,10 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
 배포하기 전에 압축된 파일이 안전한지 확인합니다.
 
 1. 파일을 다운로드한 컴퓨터에서 관리자 명령 창을 엽니다.
-2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
+2. 다음 명령을 실행하여 압축된 파일의 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+    - 사용 예: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller\AzureMigrateInstaller.ps1 SHA256```
+
 3.  1\.19.05.10 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
 
   **알고리즘** | **해시 값**
@@ -114,27 +115,32 @@ Azure Migrate: 서버 평가는 경량 어플라이언스를 실행합니다.
   SHA256 | 598d2e286f9c972bb7f7382885e79e768eddedfe8a3d3460d6b8a775af7d7f79
 
 ### <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
-설치 프로그램 스크립트에서 수행하는 작업은 다음과 같습니다.
+
+설치 프로그램 스크립트는 다음을 수행합니다.
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
 - IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
-    - **구성 파일**: %Programdata%\Microsoft Azure\Config
-    - **로그 파일**: %Programdata%\Microsoft Azure\Logs
+    - **구성 파일**: %ProgramData%\Microsoft Azure\Config
+    - **로그 파일**: %ProgramData%\Microsoft Azure\Logs
 
 스크립트를 다음과 같이 실행합니다.
 
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 스크립트를 실행합니다.
+4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1**이라는 스크립트를 실행합니다.
     ```
-    PS C:\Users\Administrators\Desktop> AzureMigrateInstaller-physical.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
-스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
+스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다. 
 
+문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log 스크립트 로그에 액세스할 수 있습니다.
+
+> [!NOTE]
+> 기존 Azure Migrate 어플라이언스에서 Azure Migrate 설치 프로그램 스크립트를 실행하지 마세요.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 
@@ -182,7 +188,7 @@ Windows 및 Linux 서버에 대해 각각 자격 증명 집합 하나를 추가�
     - 서버를 제거하려면 > **삭제**를 선택합니다.
 4. 유효성 검사가 완료되면 **저장 및 검색 시작**을 클릭하여 검색 프로세스를 시작합니다.
 
-그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 약 15분이 걸립니다. 
+그러면 검색을 시작합니다. 검색된 서버의 메타데이터가 Azure Portal에 표시되는 데 서버 당 약 1.5분이 걸립니다. 
 
 ### <a name="verify-servers-in-the-portal"></a>포털에서 서버 확인
 

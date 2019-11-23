@@ -1,23 +1,23 @@
 ---
-title: Java 및 등록 그룹을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전 | Microsoft Docs
+title: '자습서: Java 및 등록 그룹을 사용하여 Azure IoT Hub에 시뮬레이션된 X.509 디바이스 프로비전'
 description: Azure 자습서 - IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 author: wesmc7777
 ms.author: wesmc
-ms.date: 01/04/2018
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: 8e926c3ff7c3d7abc9467291e9b1de77781f664e
-ms.sourcegitcommit: 7f7c2fe58c6cd3ba4fd2280e79dfa4f235c55ac8
+ms.openlocfilehash: b3cb506b241adab44df490e2fe7f363d35f0f747
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2019
-ms.locfileid: "56805056"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112439"
 ---
-# <a name="create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
+# <a name="tutorial-create-and-provision-a-simulated-x509-device-using-java-device-and-service-sdk-and-group-enrollments-for-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service용 Java 디바이스 및 서비스 SDK 및 등록 그룹을 사용하여 시뮬레이션된 X.509 디바이스 만들기 및 프로비전
 
 다음 단계에서는 Windows OS를 실행 중인 개발 머신에서 X.509 디바이스를 시뮬레이션하고, 코드 샘플을 사용하여 등록 그룹을 통해 이 시뮬레이션된 디바이스를 Device Provisioning Service 및 IoT Hub와 연결하는 방법을 보여줍니다. 
 
@@ -171,7 +171,7 @@ ms.locfileid: "56805056"
     private static final String leafPrivateKey = "<Your Private PEM Key here>";
     ```
 
-1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 개인 디바이스 인증서로 업데이트합니다.
+1. `leafPublicPem` 및 `leafPrivateKey` 변수를 공용 및 프라이빗 디바이스 인증서로 업데이트합니다.
 
     PowerShell을 사용하여 디바이스 인증서를 생성한 경우 mydevice* 파일에 디바이스에 대한 공개 키, 프라이빗 키 및 PFX가 포함됩니다.
 

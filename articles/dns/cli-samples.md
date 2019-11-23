@@ -1,18 +1,18 @@
 ---
-title: DNS용 Azure CLI 샘플
-description: DNS용 Azure CLI 샘플
+title: DNS용 Azure CLI 샘플 - Azure DNS
+description: 이 샘플에서는 Azure CLI를 사용하여 Azure DNS에서 DNS 영역 및 레코드를 만듭니다.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: sample
 ms.date: 09/20/2019
 ms.author: victorh
-ms.openlocfilehash: e51b198bc92afdf22269478b96e364934e63c191
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 31f34c6713d97c9019c23ae1c5c36d513a9c323c
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154696"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74030344"
 ---
 # <a name="azure-cli-examples-for-azure-dns"></a>Azure DNS에 대한 Azure CLI 예제
 

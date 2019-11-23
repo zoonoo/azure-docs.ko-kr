@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e4449ac3519757bb9670d2d7fec53cb5f3ce152
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 66d8e13a4e042146ef2b99728e41e14f1dcb3435
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948292"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73885369"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>자습서: G Suite와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -250,7 +250,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-g-suite-test-user"></a>G Suite 테스트 사용자 만들기
 
-이 섹션의 목적은 G Suite 소프트웨어에서 B.Simon이라는 사용자를 만드는 것입니다. G Suite는 자동 프로비전을 지원하며 기본적으로 사용하도록 설정됩니다. 이 섹션에는 사용자의 작업이 없습니다. G Suite Software에 사용자가 없는 경우 G Suite Software에 액세스하려고 하면 새 사용자가 만들어집니다.
+이 섹션은 B.Simon이라는 [G Suite에서 사용자를 만들기](https://support.google.com/a/answer/33310?hl=en) 위한 것입니다. 사용자가 G Suite에서 수동으로 생성된 후 이제 사용자가 Office 365 로그인 자격 증명을 사용하여 로그인 할 수 있습니다.
+
+G Suite는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자 프로비저닝을 구성하려면 먼저 [자동 사용자 프로비저닝을 위한 G Suite를 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)해야 합니다.
 
 > [!NOTE]
 > Single Sign-On을 테스트하기 전에 Azure AD에서 프로비전을 설정하지 않은 경우 G Suite에 사용자가 이미 있는지 확인하세요.

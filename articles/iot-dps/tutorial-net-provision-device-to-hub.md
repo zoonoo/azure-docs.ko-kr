@@ -1,23 +1,23 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전(.NET) | Microsoft Docs
-description: Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 디바이스를 프로비전(.NET)
+title: '자습서: Azure IoT Hub Device Provisioning Service(.NET)를 사용하여 디바이스 프로비전'
+description: '자습서: Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT Hub에 디바이스를 프로비전(.NET)'
 author: wesmc7777
 ms.author: wesmc
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 4a6a074c3f677023928fefa5c09eb305b5441dfe
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 02995549590f6f53feff92fe45bfb6cc3d543334
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303986"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112804"
 ---
-# <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 디바이스를 등록(.NET)
+# <a name="tutorial-enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>자습서: Azure IoT Hub Device Provisioning Service 클라이언트를 사용하여 IoT Hub에 디바이스를 등록(.NET)
 
 이전 자습서에서 Device Provisioning Service에 연결하기 위해 디바이스를 설정하는 방법을 배웠습니다. 이 자습서에서는 이 서비스를 사용하여 **_개별 등록_** 및 **_등록 그룹_** 을 모두 사용하는 단일 IoT Hub에 디바이스를 프로비전하는 방법을 배웁니다. 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 

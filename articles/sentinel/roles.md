@@ -24,21 +24,21 @@ ms.locfileid: "71316794"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
-Azure 센티널은 [RBAC (역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 azure의 사용자, 그룹 및 서비스에 할당할 수 있는 [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 제공 합니다.
+Azure 센티널은 [RBAC (역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 Azure의 사용자, 그룹 및 서비스에 할당할 수 있는  [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 제공 합니다.
 
 RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 Azure 센티널에 적절 한 액세스 권한을 부여할 수 있습니다. 역할에 따라 Azure 센티널에 대 한 액세스 권한이 있는 사용자가 볼 수 있는 기능을 세분화 하 여 제어할 수 있습니다. Azure 센티널 작업 영역에서 직접 또는 작업 영역이 속한 구독 또는 리소스 그룹에 RBAC 역할을 할당할 수 있습니다.
 
 세 가지 기본 제공 Azure 센티널 역할이 있습니다.  
 **모든 Azure 센티널 기본 제공 역할은 Azure 센티널 작업 영역에서 데이터에 대 한 읽기 액세스 권한을 부여 합니다.**
-- **Azure 센티널 판독기**: 이 역할을 사용 하 여 할당 된 사용자에 게는 Azure 센티널에 대 한 보기 권한이 있습니다. 사용자는 인시던트 및 데이터를 볼 수 있지만 변경할 수는 없습니다.
-- **Azure 센티널 응답자**: 이 역할을 사용 하 여 할당 된 사용자는 할당 및 심각도 변경과 같은 인시던트를 읽고 작업을 수행할 수 있습니다.
-- **Azure 센티널 참여자**: 이 역할을 사용 하 여 할당 된 사용자는 인시던트를 읽고 작업을 수행 하 고 분석 규칙을 생성 및 삭제할 수 있습니다.
+- **Azure 센티널 판독기**:이 역할을 사용 하 여 할당 된 사용자에 게는 azure 센티널에 대 한 보기 권한이 있습니다. 사용자는 인시던트 및 데이터를 볼 수 있지만 변경할 수는 없습니다.
+- **Azure 센티널 응답자**:이 역할이 할당 된 사용자는 할당 및 심각도 변경과 같은 인시던트를 읽고 작업을 수행할 수 있습니다.
+- **Azure 센티널 참여자**:이 역할이 할당 된 사용자는 인시던트를 읽고 작업을 수행 하 고 분석 규칙을 생성 및 삭제할 수 있습니다.
 
 Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할은 Azure 센티널 작업 영역 및 기타 리소스에 대 한 액세스를 포함 하는 광범위 한 사용 권한 집합을 부여할 수 있습니다.
 
 - **Azure 역할:** [소유자](../role-based-access-control/built-in-roles.md#owner), [참가자](../role-based-access-control/built-in-roles.md#contributor)및 [읽기 권한자](../role-based-access-control/built-in-roles.md#reader)입니다. Azure 역할은 Log Analytics 작업 영역 및 Azure 센티널 리소스를 포함 하 여 모든 Azure 리소스에 대 한 액세스 권한을 부여 합니다.
 
--   **Log Analytics 역할:** [Log Analytics 참가자](../role-based-access-control/built-in-roles.md#log-analytics-contributor) [Log Analytics 읽기 권한자](../role-based-access-control/built-in-roles.md#log-analytics-reader)입니다. Log Analytics 역할은 모든 Log Analytics 작업 영역에서 액세스 권한을 부여 합니다. 
+-   **역할 Log Analytics:** [Log Analytics 참가자](../role-based-access-control/built-in-roles.md#log-analytics-contributor) [Log Analytics 읽기 권한자](../role-based-access-control/built-in-roles.md#log-analytics-reader)입니다. Log Analytics 역할은 모든 Log Analytics 작업 영역에서 액세스 권한을 부여 합니다. 
 
 > [!NOTE]
 > 또한 Log Analytics 역할은 모든 Azure 리소스에 대 한 읽기 액세스 권한을 부여 하지만 Log Analytics 리소스에 대 한 쓰기 권한만 할당 합니다.

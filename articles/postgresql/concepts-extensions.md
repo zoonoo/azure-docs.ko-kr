@@ -210,12 +210,12 @@ Pg_stat_statements 확장은 SQL 문의 실행 통계를 추적 하는 방법을
 pg_stat_statements를 통해 제공되는 쿼리 실행 정보와 각 SQL 문을 기록할 때 서버 성능에 미치는 영향 사이에는 상충 관계가 있습니다. pg_stat_statements 확장을 적극적으로 사용하지 않는 경우에는 `pg_stat_statements.track`을 `none`으로 설정하는 것이 좋습니다. 일부 타사 모니터링 서비스가 pg_stat_statements에 기반하여 쿼리 성능 정보를 제공할 수 있으므로 여기에 해당하는 경우인지 여부를 확인하십시오.
 
 ## <a name="dblink-and-postgres_fdw"></a>ablink 및 postgres_fdw
-dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스 방문 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스 방문 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대 한 액세스 허용"을 설정 하면 모든 Azure Ip가 허용 목록에 배치 됩니다.
+dblink 및 postgres_fdw를 사용하여 한 PostgreSQL 서버에서 다른 PostgreSQL 서버로 또는 동일한 서버의 다른 데이터베이스로 연결할 수 있습니다. 받는 서버는 해당 방화벽을 통한 보내는 서버의 연결을 허용해야 합니다. 이러한 확장을 사용하여 Azure Database for PostgreSQL 서버 간을 연결하는 경우 "Azure 서비스에 대한 액세스 허용"을 켜기로 설정하여 이 작업을 수행할 수 있습니다. 확장을 사용하여 동일한 서버로 루프백하는 데도 이 작업이 필요합니다. "Azure 서비스에 대한 액세스 허용" 설정은 Postgres 서버의 Azure Portal 페이지에서 연결 보안 아래에 있습니다. "Azure 서비스에 대 한 액세스 허용"을 설정 하면 모든 Azure Ip가 허용 목록에 배치 됩니다.
 
-다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외 하고, 현재 PostgreSQL 용 Azure Database에서 아웃 바운드 연결은 지원 되지 않습니다.
+다른 Azure Database for PostgreSQL 서버에 대한 연결을 제외하고, 현재 Azure Database for PostgreSQL에서 아웃바운드 연결은 지원되지 않습니다.
 
 ## <a name="uuid"></a>uuid
-Uuid-ossp 확장에서 `uuid_generate_v4()`을 사용 하려는 경우 성능 이점을 위해 pgcrypto 확장의 `gen_random_uuid()`과 비교 하는 것이 좋습니다.
+Uuid-ossp 확장의 `uuid_generate_v4()`를 사용 하려는 경우 성능 이점을 위해 pgcrypto 확장의 `gen_random_uuid()`와 비교 하는 것이 좋습니다.
 
 
 ## <a name="pgaudit"></a>pgAudit
@@ -224,7 +224,7 @@ PgAudit 확장은 세션 및 개체 감사 로깅을 제공 합니다. Azure Dat
 ## <a name="timescaledb"></a>TimescaleDB
 TimescaleDB는 PostgreSQL에 대한 확장으로 패키지되는 시계열 데이터베이스입니다. TimescaleDB는 시간 지향적인 분석 함수, 최적화를 제공하고 시계열 작업용 Postgres를 확장합니다.
 
-[Timescale, Inc.](https://www.timescale.com/)의 등록 상표인 [TimescaleDB에 대해 자세히 알아보세요](https://docs.timescale.com/latest).
+[Timescale, Inc.](https://docs.timescale.com/latest)의 등록 상표인 [TimescaleDB에 대해 자세히 알아보세요](https://www.timescale.com/).
 
 ### <a name="installing-timescaledb"></a>TimescaleDB 설치
 TimescaleDB를 설치하려면 서버의 공유 미리 로드 라이브러리에 포함해야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경 하려면 **서버를 다시 시작** 해야 적용 됩니다. [Azure Portal](howto-configure-server-parameters-using-portal.md) 또는 [Azure CLI](howto-configure-server-parameters-using-cli.md)를 사용 하 여 매개 변수를 변경할 수 있습니다.

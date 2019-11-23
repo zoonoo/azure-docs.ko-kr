@@ -1,19 +1,19 @@
 ---
-title: VMware VM을 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비 | Microsoft Docs
+title: Azure Site Recovery를 사용하여 VMware VM 재해 복구 준비
 description: Azure Site Recovery 서비스를 사용하여 Azure에 재해 복구하기 위해 온-프레미스 VMware 서버를 준비하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 08/22/2019
+ms.date: 11/12/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0f62ee1a79126f456b993c7caf2de3741637f710
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: c82f8130340dfc3848159a6f88db0a304a3ab149
+ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147800"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73953739"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Azure에 재해 복구하기 위해 온-프레미스 VMware 서버 준비
 

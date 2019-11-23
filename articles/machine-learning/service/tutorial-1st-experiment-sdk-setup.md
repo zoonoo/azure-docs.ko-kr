@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/25/2019
-ms.openlocfilehash: 59844c5989abb03bbe5134c83c9653290c17d0a9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: b2434102e0355d5c26c501588c360f74eb98404d
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582488"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049132"
 ---
 # <a name="tutorial-get-started-creating-your-first-ml-experiment-with-the-python-sdk"></a>자습서: Python SDK로 첫 번째 ML 실험 만들기 시작
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -81,7 +81,7 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 위쪽 바에서 Notebook을 실행하는 데 사용할 Notebook VM을 선택합니다. 이러한 VM은 Azure Machine Learning을 실행하는 데 필요한 모든 항목을 사용하여 미리 구성됩니다. 작업 영역의 사용자가 만든 VM 중에서 선택할 수 있습니다. 
 
-1. VM을 찾을 수 없는 경우 **+컴퓨팅 추가**를 선택하여 VM을 만듭니다.
+1. VM을 찾을 수 없는 경우 **+ VM 추가**를 선택하여 VM을 만듭니다. 
 
     1. VM을 만들 때 이름을 입력합니다.  이름은 2~16자 사이여야 합니다. 유효한 문자는 문자, 숫자 및 문자이며 Azure 구독에서 고유해야 합니다.
 

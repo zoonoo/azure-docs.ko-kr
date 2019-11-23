@@ -1,19 +1,19 @@
 ---
-title: IoT Edge 디바이스 구성 - Azure IoT Edge의 Machine Learning | Microsoft Docs
-description: Linux를 실행하는 Azure Virtual Machine을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다.
+title: '자습서: IoT Edge 디바이스 구성 - Azure IoT Edge의 Machine Learning'
+description: '자습서: Linux를 실행하는 Azure Virtual Machine을 투명 게이트웨이로 작동하는 Azure IoT Edge 디바이스로 구성합니다.'
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 06/13/2019
+ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6d8f67cf94e143cd67a525fa2cc675650fb59e65
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 714f0c335e2871fa1afe2f99d08870f0e39c488e
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494017"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113974"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 

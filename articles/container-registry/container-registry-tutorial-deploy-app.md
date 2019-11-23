@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 지리적 복제 Docker 레지스트리에서 앱 배포
+title: 자습서 - 지리적 복제 Azure Container Registry에서 앱 배포
 description: 지리적 복제 Azure Container Registry의 컨테이너 이미지를 사용하여 두 개의 다른 Azure 지역에 Linux 기반 웹앱을 배포합니다. 3부로 구성된 시리즈 중 제2부입니다.
 services: container-registry
 author: dlepow
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/20/2018
 ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: ac4d78147820c2cf56549abbec7e1fbc873ea260
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0aebc31e1b8e6849d4cc0aeccc0e0a79edf0e65d
+ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146909"
+ms.lasthandoff: 11/12/2019
+ms.locfileid: "73931404"
 ---
 # <a name="tutorial-deploy-a-web-app-from-a-geo-replicated-azure-container-registry"></a>자습서: 지리적 복제 Azure Container Registry에서 웹앱 배포
 

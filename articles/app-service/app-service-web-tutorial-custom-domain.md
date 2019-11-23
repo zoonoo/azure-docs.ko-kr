@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/06/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 52394eb150a4206b7fb31cdf4b801762511e1a8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471352"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73835867"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 
@@ -330,7 +330,7 @@ App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리�
 
 ![가상 디렉터리 사용자 지정](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
 
-작업이 완료되면 앱은 루트 경로(예를 들어 http://contoso.com) )에서 오른쪽 페이지를 반환해야 합니다.
+작업이 완료되면 앱은 루트 경로(예: `http://contoso.com`)에서 오른쪽 페이지를 반환해야 합니다.
 
 ## <a name="automate-with-scripts"></a>스크립트를 사용하여 자동화
 

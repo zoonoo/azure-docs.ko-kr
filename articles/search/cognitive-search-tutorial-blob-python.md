@@ -1,5 +1,5 @@
 ---
-title: 'Python 자습서: AI 보강 파이프라인에서 Cognitive Services 호출'
+title: '자습서: REST API를 사용하여 Python에서 기술 세트 만들기'
 titleSuffix: Azure Cognitive Search
 description: Jupyter Python Notebook을 사용하여 Azure Cognitive Search의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 안내합니다. 추출된 데이터는 인덱싱되고 쿼리로 쉽게 액세스할 수 있습니다.
 manager: nitinme
@@ -9,14 +9,14 @@ ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: bb36ae551c48fc53756933e78ff0212f8ec1cdeb
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790215"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74113687"
 ---
-# <a name="python-tutorial-call-cognitive-services-apis-in-an-azure-cognitive-search-enrichment-pipeline"></a>Python 자습서: Azure Cognitive Search 강화 파이프라인에서 Cognitive Services API 호출
+# <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>자습서: REST 및 Python을 사용하여 AI 보강 파이프라인 만들기
 
 이 자습서에서는 *인지 기술*을 사용하여 Azure Cognitive Search에서 데이터 보강을 프로그래밍하는 메커니즘을 알아봅니다. 기술은 Cognitive Services의 NLP(자연어 처리) 및 이미지 분석 기능에 의해 지원됩니다. 기술 세트 컴퍼지션 및 구성을 통해 이미지 또는 스캔한 문서 파일의 텍스트 및 텍스트 표현을 추출할 수 있습니다. 언어, 엔터티, 핵심 문구 등을 검색할 수도 있습니다. 따라서 인덱싱 파이프라인의 향상된 AI를 통해 Search 인덱스에 풍부한 추가 콘텐츠가 생성됩니다. 
 

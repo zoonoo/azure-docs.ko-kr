@@ -138,7 +138,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에는 다음 GitHub 리포지토리 설정이 표시 됩니다.
 
-| **설정** | **설명**  | **값**  |
+| **설정** | **설명**  | **Value**  |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다. | GitHub |
 | **GitHub Enterprise 사용** | GitHub Enterprise를 선택하기 위한 확인란 | 선택 하지 않음 (기본값) |

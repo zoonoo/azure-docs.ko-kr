@@ -1,6 +1,6 @@
 ---
-title: Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성 | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+title: Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅 구성
+description: Azure PowerShell을 사용하여 Azure IoT Hub에 대한 메시지 라우팅을 구성합니다. 메시지의 속성에 따라 스토리지 계정 또는 Service Bus 큐로 라우팅합니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 2c0e66bfe5ec332d25b93305cb2ac8d172ca130d
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 68338c56419316e561bb072c1a0555e89d3de85b
+ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535139"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74084430"
 ---
 # <a name="tutorial-use-azure-powershell-to-configure-iot-hub-message-routing"></a>자습서: Azure PowerShell을 사용하여 IoT Hub 메시지 라우팅 구성
 
@@ -34,13 +34,13 @@ ms.locfileid: "69535139"
 
 ### <a name="use-powershell-to-create-your-base-resources"></a>PowerShell을 사용하여 기본 리소스 만들기
 
+아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 스크립트의 첫 번째 섹션은 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다. 자습서를 진행하면서 스크립트의 각 블록을 복사하여 Cloud Shell에 붙여넣고 실행합니다.
+
 몇 가지 리소스 이름(예: IoT Hub 이름 및 스토리지 계정 이름)은 전역적으로 고유해야 합니다. 이를 위해 해당 리소스 이름에는 *randomValue*라는 임의의 영숫자 값이 추가됩니다. randomValue는 스크립트의 맨 위에 한 번 생성되고 전체 스크립트에서 필요에 따라 리소스에 추가됩니다. 임의로 설정하지 않으려면 빈 문자열이나 특정 값으로 설정할 수 있습니다. 
 
 > [!IMPORTANT]
 > 초기 스크립트에 설정된 변수는 라우팅 스크립트에도 사용되기 때문에 모든 스크립트를 동일한 Cloud Shell 세션에서 실행합니다. 새 세션을 열어서 라우팅을 설정하기 위한 스크립트를 실행하면, 여러 변수가 누락된 값이 됩니다. 
 >
-
-아래 스크립트를 복사하여 Cloud Shell에 붙여넣고 Enter 키를 누릅니다. 스크립트가 한 번에 한 줄씩 실행됩니다. 스크립트의 첫 번째 섹션은 이 자습서의 기본 리소스(스토리지 계정, IoT Hub, Service Bus 네임스페이스 및 Service Bus 큐)를 만듭니다. 자습서를 진행하면서 스크립트의 각 블록을 복사하여 Cloud Shell에 붙여넣고 실행합니다.
 
 ```azurepowershell-interactive
 # This command retrieves the subscription id of the current Azure account.
@@ -140,7 +140,7 @@ New-AzServiceBusQueue -ResourceGroupName $resourceGroup `
 
 [!INCLUDE [iot-hub-include-blob-storage-format](../../includes/iot-hub-include-blob-storage-format.md)]
 
-이러한 변수는 다음과 같이 설정됩니다.
+Cloud Shell 세션 내에서 설정해야 하는 스크립트에 사용되는 변수는 다음과 같습니다.
 
 **resourceGroup**: 이 필드는 두 번 발생합니다. 둘 다 리소스 그룹에 설정합니다.
 
@@ -232,7 +232,7 @@ $sbqkey = Get-AzServiceBusKey `
     -Name "sbauthrule"
 ```
 
-이제 Service Bus 큐에 대한 메시지 경로와 라우팅 엔드포인트를 설정합니다. 이러한 변수는 다음과 같이 설정됩니다.
+이제 Service Bus 큐에 대한 메시지 경로와 라우팅 엔드포인트를 설정합니다. Cloud Shell 세션 내에서 설정해야 하는 스크립트에 사용되는 변수는 다음과 같습니다.
 
 **endpointName**: 이 필드는 엔드포인트를 식별하는 이름입니다. 
 

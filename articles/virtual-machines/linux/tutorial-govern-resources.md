@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 Azure 가상 머신 제어 | Microsoft Docs
+title: 자습서 - Azure CLI를 사용하여 Azure 가상 머신 제어
 description: 이 자습서에서는 Azure CLI를 사용하여 RBAC, 정책, 잠금 및 태그를 적용해 Azure 가상 머신을 관리하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 5fa14ef30d45a9a28cc690761ec33b5bfaaac6a7
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e9475f4226a65ad06d45170e0ab802c6cdb79d8f
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676513"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034536"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>자습서: Azure CLI를 사용한 Linux 가상 머신 거버넌스에 대해 알아보기
 

@@ -1,22 +1,22 @@
 ---
-title: 자습서 - 첫 번째 Azure Resource Manager 템플릿 만들기 및 배포
-description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 설명합니다. 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
+title: 자습서 - Azure Resource Manager 템플릿 만들기 및 배포
+description: 첫 번째 Azure Resource Manager 템플릿을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
 manager: carmonmills
 ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e84c3bfa5a5f43ec652f12d70718ab63bd7a19e5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029541"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74074367"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 
-이 자습서에서는 Resource Manager 템플릿을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
+이 자습서에서는 Azure Resource Manager 템플릿을 소개합니다. 시작 템플릿을 만들어 Azure에 배포하는 방법을 보여 줍니다. 템플릿의 구조와 템플릿을 사용하는 데 필요한 도구에 대해 알아봅니다. 이 자습서를 완료하는 데 약 **12분** 정도 걸리지만, 실제 시간은 설치해야 하는 도구 수에 따라 달라집니다.
 
 이 자습서는 시리즈의 첫 번째 자습서입니다. 시리즈를 진행하면서 Resource Manager 템플릿의 모든 핵심 부분을 살펴볼 때까지 시작 템플릿을 단계별로 수정합니다. 이러한 요소는 훨씬 더 복잡한 템플릿의 구성 요소입니다. 시리즈가 끝날 때쯤에는 자신만의 고유한 템플릿을 만들고, 이 템플릿을 사용하여 배포를 자동화할 준비가 됩니다.
 
@@ -156,7 +156,7 @@ az group deployment create \
 
 ## <a name="verify-deployment"></a>배포 확인
 
-Azure Portal에서 리소스 그룹을 검색하여 배포를 확인할 수 있습니다.
+Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

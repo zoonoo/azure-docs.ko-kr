@@ -1,26 +1,22 @@
 ---
-title: CLI 예제 - 고가용성을 위해 VM에 트래픽 부하 분산 - Azure | Microsoft Docs
+title: HA용 VM에 트래픽 부하 분산 - Azure CLI - Azure Load Balancer
 description: 이 Azure CLI 스크립트 예제는 고가용성을 위해 VM에 트래픽을 부하 분산하는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: load-balancer
 author: asudbring
-manager: jeconnoc
-editor: tysonn
-tags: ''
-ms.assetid: ''
+manager: kumudD
 ms.service: load-balancer
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed3f0899d6a378285c9799b57e2aad76348c45d
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: c0bfb5705989c99d3626d6e728b764e94f83fffe
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273824"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048921"
 ---
 # <a name="azure-cli-script-example-load-balance-traffic-to-vms-for-high-availability"></a>Azure CLI 스크립트 예제: 고가용성을 위해 VM에 트래픽 부하 분산
 

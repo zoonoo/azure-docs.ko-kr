@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure에서 Linux VM을 위한 Azure Security Center 사용 | Microsoft Docs
+title: 자습서 - Azure에서 Linux VM을 위한 Azure Security Center 사용
 description: 이 자습서에서는 Azure에서 Linux 가상 머신을 보호하고 안전하게 하는 데 유용한 Azure Security Center 기능에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0ac5c95fa51ca5032f5d3e057af2064f872ea15c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081706"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74034599"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Linux 가상 머신 모니터링
 

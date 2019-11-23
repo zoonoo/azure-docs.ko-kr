@@ -1,22 +1,22 @@
 ---
-title: Azure Maps를 사용하여 검색 | Microsoft Docs
-description: Azure Maps를 사용하여 주변 관심 지점 검색
+title: '자습서: Azure Maps로 검색'
+description: '자습서: Azure Maps를 사용하여 주변 관심 지점 검색'
 author: walsehgal
 ms.author: v-musehg
-ms.date: 03/07/2019
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8945ccef1dd44570f4f59c7c91c2fe05b222c5bb
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 86ba98bfb4003a723cfaaf2d1c51301314ca47cf
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576935"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74109521"
 ---
-# <a name="search-nearby-points-of-interest-using-azure-maps"></a>Azure Maps를 사용하여 주변 관심 지점 검색
+# <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
 이 자습서에서는 Azure Maps를 사용하여 계정을 설정한 다음, Maps API를 사용하여 관심 지점을 검색하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

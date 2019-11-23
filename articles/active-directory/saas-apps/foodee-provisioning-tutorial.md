@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 Foodee 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Foodee 구성 Microsoft Docs'
 description: 사용자 계정을 Foodee로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -31,7 +31,7 @@ ms.locfileid: "72170081"
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 미리 보기 기능에 대 한 Azure 사용 약관 기능에 대 한 자세한 내용은 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>선행 조건
 
 이 자습서에서는 다음과 같은 필수 구성 요소를 충족 한다고 가정 합니다.
 
@@ -100,7 +100,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 다음을 수행 하 여 Azure AD에서 Foodee에 대 한 자동 사용자 프로 비전을 구성 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램**@no__t**모든 응용 프로그램**을 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에서 **엔터프라이즈 응용 프로그램** > **모든 응용**프로그램을 선택 합니다.
 
     ![Enterprise 애플리케이션 창](common/enterprise-applications.png)
 
@@ -118,7 +118,7 @@ Azure AD 응용 프로그램 갤러리에서 Foodee를 추가 하려면 다음�
 
 1. **관리자 자격 증명**아래에서 다음을 수행 합니다.
 
-   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https: \//concierge/v2 im/v2** 값을 입력 합니다.
+   a. **테 넌 트 URL** 상자에 이전에 검색 한 **https:\//concierge.food.ee/scim/v2** 값을 입력 합니다.
 
    b. **비밀 토큰** 상자에 이전에 검색 한 **API 토큰** 값을 입력 합니다.
    
