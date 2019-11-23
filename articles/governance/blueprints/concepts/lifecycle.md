@@ -1,14 +1,14 @@
 ---
-title: 청사진의 수명 주기 이해
-description: 청사진이 거치는 수명 주기 및 각 단계의 세부 정보를 알아봅니다.
+title: 청사진 수명 주기 이해
+description: Learn about the lifecycle that a blueprint definition goes through and details about each stage, including updating and removing blueprint assignments.
 ms.date: 07/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: d071a2af985d294bc87a5363d9e7566762e0fd8a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 4dd5cb7d085744377cf12998f14c994fb1dcd2d7
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960501"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404585"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Azure Blueprint의 수명 주기 이해
 
@@ -29,14 +29,13 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 청사진을 만들 때 아티팩트를 추가하고, 관리 그룹 또는 구독에 저장하고, 고유 이름과 고유 버전을 제공합니다. 청사진은 이제 **초안** 모드에 있으며 아직 할당될 수 없습니다. **초안** 모드에 있는 동안 계속해서 업데이트 및 변경될 수 있습니다.
 
-절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. **최신 버전** 은 게시 되지 않은 청사진에 대 한 **초안** 으로 표시 됩니다.
+절대 게시되지 않는 **초안** 모드의 청사진은 **게시된** 것과 다른 아이콘을 **청사진 정의** 페이지에 표시합니다. The **Latest Version** is displayed as **Draft** for these never published blueprints.
 
 [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) 또는 [REST API](../create-blueprint-rest-api.md#create-a-blueprint)를 사용하여 청사진을 만들고 편집합니다.
 
 ## <a name="publishing-a-blueprint"></a>청사진 게시
 
-**초안** 모드의 청사진에 계획된 모든 변경 내용이 적용되면 **게시**되고 할당에 사용될 수 있습니다. 청사진의 **게시된** 버전은 변경될 수 없습니다.
-**게시**되면 청사진은 **초안** 청사진과 다른 아이콘으로 표시되고 **최신 버전** 열에서 제공된 버전 번호를 표시합니다.
+**초안** 모드의 청사진에 계획된 모든 변경 내용이 적용되면 **게시**되고 할당에 사용될 수 있습니다. 청사진의 **게시된** 버전은 변경될 수 없습니다. **게시**되면 청사진은 **초안** 청사진과 다른 아이콘으로 표시되고 **최신 버전** 열에서 제공된 버전 번호를 표시합니다.
 
 [Azure Portal](../create-blueprint-portal.md#publish-a-blueprint) 또는 [REST API](../create-blueprint-rest-api.md#publish-a-blueprint)를 사용하여 청사진을 게시합니다.
 
@@ -64,11 +63,11 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. 왼쪽 페이지에서 **청사진 정의** 를 선택 하 고 필터 옵션을 사용 하 여 버전을 삭제 하려는 청사진을 찾습니다. 편집 페이지를 열려면 클릭합니다.
+1. Select **Blueprint definitions** from the page on the left and use the filter options to locate the blueprint you want to delete a version of. Select it to open the edit page.
 
-1. **게시된 버전** 탭을 클릭하고 삭제하려는 버전을 찾습니다.
+1. Select the **Published versions** tab and locate the version you wish to delete.
 
-1. 삭제할 버전을 마우스 오른쪽 단추로 클릭 하 고 **이 버전 삭제**를 선택 합니다.
+1. Right-click on the version to delete and select **Delete this version**.
 
 ## <a name="deleting-the-blueprint"></a>청사진 삭제
 
@@ -95,16 +94,16 @@ Blueprints는 표준 수명 주기 작업을 지원합니다. Blueprint는 이�
 
 방법을 알아보려면 [기존 할당 업데이트](../how-to/update-existing-assignments.md)를 참조하세요.
 
-### <a name="unassigning-assignments"></a>할당 취소
+### <a name="unassigning-assignments"></a>Unassigning assignments
 
-청사진은 더 이상 필요 하지 않은 경우 관리 그룹 또는 구독에서 할당을 제거할 수 있습니다. 청사진 할당을 수행 하는 동안 다음 작업이 수행 됩니다.
+If the blueprint is no longer needed, it can be unassigned from the management group or subscription. During blueprint unassignment, the following occurs:
 
-- [청사진 리소스 잠금](resource-locking.md) 제거
-- 청사진 할당 개체 삭제
-- Defined **시스템 할당 관리 id** 를 사용한 경우에도 삭제 됩니다.
+- Removal of [blueprint resource locking](resource-locking.md)
+- Deletion of the blueprint assignment object
+- (Conditional) If a **system-assigned managed identity** was used, it's also deleted
 
 > [!NOTE]
-> 청사진 할당을 통해 배포 된 모든 리소스는 그대로 유지 되지만 더 이상 Azure 청사진으로 보호 되지 않습니다.
+> All resources deployed by the blueprint assignment remain in place, but are no longer protected by Azure Blueprints.
 
 ## <a name="next-steps"></a>다음 단계
 

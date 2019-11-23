@@ -1,19 +1,19 @@
 ---
 title: Azure HDInsight의 Spark Streaming
-description: HDInsight Spark 클러스터에서 Apache Spark 스트리밍 응용 프로그램을 사용 하는 방법입니다.
-ms.service: hdinsight
+description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.custom: hdinsightactive
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 03/11/2019
-ms.openlocfilehash: f990e5eb2761f1743c2731f499ecc341990edf53
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.custom: hdinsightactive
+ms.date: 11/20/2019
+ms.openlocfilehash: 521d72642a27995d096402a4ca0e4af632b0788c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70813984"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406290"
 ---
 # <a name="overview-of-apache-spark-streaming"></a>Apache Spark Streaming 개요
 
@@ -27,9 +27,9 @@ Spark Streaming 애플리케이션은 처리를 위해 해당 일괄 처리를 �
 
 Spark 스트리밍은 DStream이라는 *불연속화 스트림*을 사용하여 들어오는 데이터의 연속 스트림을 나타냅니다. DStream은 Event Hubs 또는 Kafka와 같은 입력 원본에서 또는 다른 DStream에 변환을 적용하여 만들 수 있습니다.
 
-DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을 제공합니다. 
+DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을 제공합니다.
 
-단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. 이 이벤트가 Spark Streaming 애플리케이션에 도착하면 이벤트는 신뢰할 수 있는 방식으로, 즉 여러 노드에 복제되어 저장됩니다. 이 내결함성을 통해 단일 노드 실패로 인해 이벤트 손실이 발생되지 않도록 합니다. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
+단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
 
 각 RDD는 *일괄 처리 간격*이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. RDD의 연속 집합은 DStream으로 수집됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
@@ -139,13 +139,13 @@ stream.foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
         .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
 ```
 
-위에서 응용 프로그램을 시작한 후 30 초 정도 기다립니다.  그런 다음 데이터 프레임을 정기적으로 쿼리하여 일괄 처리에 있는 값의 현재 집합을 확인할 수 있습니다. 예를 들어 다음 SQL 쿼리를 사용할 수 있습니다.
+Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 결과 출력은 다음과 같이 표시됩니다.
 
-| 값 | 실시간 |
+| 값 | time |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -214,7 +214,7 @@ stream.window(org.apache.spark.streaming.Minutes(1)).foreachRDD { rdd =>
     val _sqlContext = org.apache.spark.sql.SQLContext.getOrCreate(rdd.sparkContext)
     _sqlContext.createDataFrame(rdd).toDF("value", "time")
     .registerTempTable("demo_numbers")
-} 
+}
 
 // Start the stream processing
 ssc.start()
@@ -222,7 +222,7 @@ ssc.start()
 
 처음 1분 후 12개 항목(윈도우에서 수집한 두 개의 각 일괄 처리에서 6개 항목)이 생성됩니다.
 
-| 값 | 실시간 |
+| 값 | time |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158

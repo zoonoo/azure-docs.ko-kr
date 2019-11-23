@@ -1,14 +1,14 @@
 ---
 title: Blueprint 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 09/24/2019
+ms.date: 11/22/2019
 ms.topic: sample
-ms.openlocfilehash: 1f3650fe85ac554db5988892cee35ffaa2a47144
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: ea8759db0fde7d6686acd3c58006be3f59adf6fd
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128742"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404123"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 

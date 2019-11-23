@@ -1,6 +1,6 @@
 ---
 title: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리 | Microsoft Docs
-description: RBAC (역할 기반 액세스 제어) 및 Azure PowerShell를 사용 하 여 사용자, 그룹 및 응용 프로그램에 대 한 Azure 리소스에 대 한 액세스를 관리 하는 방법을 알아봅니다. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
+description: Learn how to manage access to Azure resources for users, groups, and applications using role-based access control (RBAC) and Azure PowerShell. 여기에는 액세스 권한을 나열, 부여 및 제거하는 방법이 포함됩니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/22/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5de62fd52360511fe660255dc023721a2837fe85
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: c92cf6ae8777a343432d9d54dd7fcbedbb6b210c
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819785"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384004"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-powershell"></a>RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 액세스 관리
 
@@ -81,11 +81,11 @@ NotDataActions   : {}
 AssignableScopes : {/}
 ```
 
-## <a name="list-a-role-definition"></a>역할 정의 나열
+## <a name="list-a-role-definition"></a>List a role definition
 
-### <a name="list-a-role-definition-in-json-format"></a>JSON 형식의 역할 정의를 나열 합니다.
+### <a name="list-a-role-definition-in-json-format"></a>List a role definition in JSON format
 
-JSON 형식으로 역할 정의를 나열 하려면 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition)를 사용 합니다.
+To list a role definition in JSON format, use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition).
 
 ```azurepowershell
 Get-AzRoleDefinition <role_name> | ConvertTo-Json
@@ -157,9 +157,9 @@ Microsoft.Network/loadBalancers/backendAddressPools/join/action
 
 RBAC에서 역할 할당을 나열하면 액세스 권한이 나열됩니다.
 
-### <a name="list-all-role-assignments-in-a-subscription"></a>구독의 모든 역할 할당 나열
+### <a name="list-all-role-assignments-in-a-subscription"></a>List all role assignments in a subscription
 
-현재 구독의 모든 역할 할당 목록을 가져오는 가장 쉬운 방법은 (루트 및 관리 그룹에서 상속 된 역할 할당 포함) 매개 변수 없이 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) 를 사용 하는 것입니다.
+The easiest way to get a list of all the role assignments in the current subscription (including inherited role assignments from root and management groups) is to use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment) without any parameters.
 
 ```azurepowershell
 Get-AzRoleAssignment
@@ -217,9 +217,9 @@ Get-AzRoleAssignment -SignInName <email_or_userprincipalname> -ExpandPrincipalGr
 Get-AzRoleAssignment -SignInName isabella@example.com -ExpandPrincipalGroups | FL DisplayName, RoleDefinitionName, Scope
 ```
 
-### <a name="list-role-assignments-at-a-resource-group-scope"></a>리소스 그룹 범위에서 역할 할당 나열
+### <a name="list-role-assignments-at-a-resource-group-scope"></a>List role assignments at a resource group scope
 
-리소스 그룹 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다.
+To list all role assignments at a resource group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment).
 
 ```azurepowershell
 Get-AzRoleAssignment -ResourceGroupName <resource_group_name>
@@ -241,9 +241,9 @@ RoleDefinitionName : Virtual Machine Contributor
 Scope              : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
 ```
 
-### <a name="list-role-assignments-at-a-subscription-scope"></a>구독 범위에서 역할 할당 나열
+### <a name="list-role-assignments-at-a-subscription-scope"></a>List role assignments at a subscription scope
 
-구독 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다. 구독 ID를 가져오려면 Azure Portal의 **구독** 블레이드에서 찾거나 [AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)를 사용할 수 있습니다.
+To list all role assignments at a subscription scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the subscription ID, you can find it on the **Subscriptions** blade in the Azure portal or you can use [Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
@@ -253,9 +253,9 @@ Get-AzRoleAssignment -Scope /subscriptions/<subscription_id>
 PS C:\> Get-AzRoleAssignment -Scope /subscriptions/00000000-0000-0000-0000-000000000000
 ```
 
-### <a name="list-role-assignments-at-a-management-group-scope"></a>관리 그룹 범위에서 역할 할당 나열
+### <a name="list-role-assignments-at-a-management-group-scope"></a>List role assignments at a management group scope
 
-관리 그룹 범위에서 모든 역할 할당을 나열 하려면 [AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment)를 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)를 사용할 수 있습니다.
+To list all role assignments at a management group scope, use [Get-AzRoleAssignment](/powershell/module/az.resources/get-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -273,37 +273,44 @@ PS C:\> Get-AzRoleAssignment -Scope /providers/Microsoft.Management/managementGr
 Get-AzRoleAssignment -IncludeClassicAdministrators
 ```
 
+## <a name="get-object-ids"></a>Get object IDs
+
+To list, add, or remove role assignments, you might need to specify the unique ID of an object. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal or Azure PowerShell.
+
+### <a name="user"></a>사용자
+
+To get the object ID for an Azure AD user, you can use [Get-AzADUser](/powershell/module/az.resources/get-azaduser).
+
+```azurepowershell
+Get-AzADUser -StartsWith <string_in_quotes>
+(Get-AzADUser -DisplayName <name_in_quotes>).id
+```
+
+### <a name="group"></a>그룹
+
+To get the object ID for an Azure AD group, you can use [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup).
+
+```azurepowershell
+Get-AzADGroup -SearchString <group_name_in_quotes>
+(Get-AzADGroup -DisplayName <group_name_in_quotes>).id
+```
+
+### <a name="application"></a>애플리케이션
+
+To get the object ID for an Azure AD service principal (identity used by an application), you can use [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal). For a service principal, use the object ID and **not** the application ID.
+
+```azurepowershell
+Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
+(Get-AzADServicePrincipal -DisplayName <service_name_in_quotes>).id
+```
+
 ## <a name="grant-access"></a>액세스 권한 부여
 
 RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다.
 
-### <a name="search-for-object-ids"></a>개체 ID 검색
-
-역할을 할당하려면 개체(사용자, 그룹 또는 애플리케이션)와 범위 둘 다를 식별해야 합니다.
-
-구독 ID를 가져오려면 Azure Portal의 **구독** 블레이드에서 찾거나 [AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription)를 사용할 수 있습니다.
-
-Azure AD 사용자의 개체 ID를 가져오려면 [AzADUser](/powershell/module/az.resources/get-azaduser)을 사용 합니다.
-
-```azurepowershell
-Get-AzADUser -StartsWith <string_in_quotes>
-```
-
-Azure AD 그룹의 개체 ID를 가져오려면 [AzADGroup](/powershell/module/az.resources/get-azadgroup)을 사용 합니다.
-
-```azurepowershell
-Get-AzADGroup -SearchString <group_name_in_quotes>
-```
-
-Azure AD 서비스 주체 또는 애플리케이션에 대한 개체 ID를 가져오려면 [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal)을 사용합니다.
-
-```azurepowershell
-Get-AzADServicePrincipal -SearchString <service_name_in_quotes>
-```
-
 ### <a name="create-a-role-assignment-for-a-user-at-a-resource-group-scope"></a>리소스 그룹 범위에서 사용자에 대한 역할 할당 만들기
 
-리소스 그룹 범위에서 사용자에 게 액세스 권한을 부여 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)을 사용 합니다.
+To grant access to a user at a resource group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -ResourceGroupName <resource_group_name>
@@ -325,26 +332,26 @@ ObjectType         : User
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-using-the-unique-role-id"></a>고유한 역할 ID를 사용 하 여 역할 할당 만들기
+### <a name="create-a-role-assignment-using-the-unique-role-id"></a>Create a role assignment using the unique role ID
 
-역할 이름이 변경 될 수 있는 몇 가지 경우가 있습니다. 예를 들면 다음과 같습니다.
+There are a couple of times when a role name might change, for example:
 
-- 사용자 고유의 사용자 지정 역할을 사용 하 고 있으며 이름을 변경 하기로 결정 했습니다.
-- 이름에 **(미리 보기)** 가 있는 미리 보기 역할을 사용 하 고 있습니다. 역할을 해제 하면 역할의 이름이 바뀝니다.
+- You are using your own custom role and you decide to change the name.
+- You are using a preview role that has **(Preview)** in the name. When the role is released, the role is renamed.
 
 > [!IMPORTANT]
-> 미리 보기 버전은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
+> A preview version is provided without a service level agreement, and it's not recommended for production workloads. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
 > 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-역할의 이름이 바뀐 경우에도 역할 ID는 변경 되지 않습니다. 스크립트 또는 자동화를 사용 하 여 역할 할당을 만드는 경우 역할 이름 대신 고유한 역할 ID를 사용 하는 것이 좋습니다. 따라서 역할의 이름을 바꾸면 스크립트가 작동할 가능성이 높습니다.
+Even if a role is renamed, the role ID does not change. If you are using scripts or automation to create your role assignments, it's a best practice to use the unique role ID instead of the role name. Therefore, if a role is renamed, your scripts are more likely to work.
 
-역할 이름 대신 고유한 역할 ID를 사용 하 여 역할 할당을 만들려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용 합니다.
+To create a role assignment using the unique role ID instead of the role name, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionId <role_id> -ResourceGroupName <resource_group_name>
 ```
 
-다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹 범위에서 *alain@example.com* 사용자에 게 [가상 컴퓨터 참가자](built-in-roles.md#virtual-machine-contributor) 역할을 할당 합니다. 고유한 역할 ID를 얻기 위해 [AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) 를 사용 하거나 [Azure 리소스에 대 한 기본 제공 역할](built-in-roles.md)을 확인할 수 있습니다.
+The following example assigns the [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) role to *alain\@example.com* user at the *pharma-sales* resource group scope. To get the unique role ID, you can use [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) or see [Built-in roles for Azure resources](built-in-roles.md).
 
 ```Example
 PS C:\> New-AzRoleAssignment -ObjectId 44444444-4444-4444-4444-444444444444 -RoleDefinitionId 9980e02c-c2be-4d73-94e8-173b1dc7cf3c -Scope /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/pharma-sales
@@ -362,7 +369,7 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-a-group-at-a-resource-scope"></a>리소스 범위에서 그룹에 대한 역할 할당 만들기
 
-리소스 범위에서 그룹에 대 한 액세스 권한을 부여 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용 합니다.
+To grant access to a group at a resource scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the group, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
 New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -ResourceName <resource_name> -ResourceType <resource_type> -ParentResource <parent resource> -ResourceGroupName <resource_group_name>
@@ -393,10 +400,10 @@ CanDelegate        : False
 
 ### <a name="create-a-role-assignment-for-an-application-at-a-subscription-scope"></a>구독 범위에서 애플리케이션에 대한 역할 할당 만들기
 
-구독 범위에서 응용 프로그램에 대 한 액세스 권한을 부여 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용 합니다.
+To grant access to an application at a subscription scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). For information about how to get the object ID of the application, see [Get object IDs](#get-object-ids).
 
 ```azurepowershell
-New-AzRoleAssignment -ObjectId <application_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
+New-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
 ```Example
@@ -413,9 +420,9 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>관리 그룹 범위에서 사용자에 대 한 역할 할당 만들기
+### <a name="create-a-role-assignment-for-a-user-at-a-management-group-scope"></a>Create a role assignment for a user at a management group scope
 
-관리 그룹 범위에서 사용자에 게 액세스 권한을 부여 하려면 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)을 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup)를 사용할 수 있습니다.
+To grant access to a user at a management group scope, use [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment). To get the management group ID, you can find it on the **Management groups** blade in the Azure portal or you can use [Get-AzManagementGroup](/powershell/module/az.resources/get-azmanagementgroup).
 
 ```azurepowershell
 New-AzRoleAssignment -SignInName <email_or_userprincipalname> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -439,28 +446,28 @@ CanDelegate        : False
 
 RBAC에서 액세스 권한을 제거하려면 [Remove-AzRoleAssignment](/powershell/module/az.resources/remove-azroleassignment)를 사용하여 역할 할당을 제거합니다.
 
-다음 예에서는 *pharma-sales-projectforcast* 리소스 그룹의 *alain \@example .Com* 사용자에서 *가상 컴퓨터 참가자* 역할 할당을 제거 합니다.
+The following example removes the *Virtual Machine Contributor* role assignment from the *alain\@example.com* user on the *pharma-sales* resource group:
 
 ```Example
 PS C:\> Remove-AzRoleAssignment -SignInName alain@example.com -RoleDefinitionName "Virtual Machine Contributor" -ResourceGroupName pharma-sales
 ```
 
-다음 예에서는 구독 범위에서 < object_id >에서 < role_name > 역할을 제거 합니다.
+The following example removes the <role_name> role from <object_id> at a subscription scope.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /subscriptions/<subscription_id>
 ```
 
-다음 예에서는 관리 그룹 범위의 < object_id >에서 < role_name > 역할을 제거 합니다.
+The following example removes the <role_name> role from <object_id> at the management group scope.
 
 ```azurepowershell
 Remove-AzRoleAssignment -ObjectId <object_id> -RoleDefinitionName <role_name> -Scope /providers/Microsoft.Management/managementGroups/<group_id>
 ```
 
-"제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 되는 경우 `-Scope` 또는 `-ResourceGroupName` 매개 변수도 지정 해야 합니다. 자세한 내용은 [Azure 리소스에 대 한 RBAC 문제 해결](troubleshooting.md#role-assignments-with-unknown-security-principal)을 참조 하세요.
+If you get the error message: "The provided information does not map to a role assignment", make sure that you also specify the `-Scope` or `-ResourceGroupName` parameters. For more information, see [Troubleshoot RBAC for Azure resources](troubleshooting.md#role-assignments-with-unknown-security-principal).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: RBAC 및 Azure PowerShell를 사용 하 여 Azure 리소스에 대 한 그룹 액세스 권한 부여](tutorial-role-assignments-group-powershell.md)
-- [자습서: Azure PowerShell을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-powershell.md)
+- [Tutorial: Grant a group access to Azure resources using RBAC and Azure PowerShell](tutorial-role-assignments-group-powershell.md)
+- [Tutorial: Create a custom role for Azure resources using Azure PowerShell](tutorial-custom-role-powershell.md)
 - [Azure PowerShell을 사용하여 리소스 관리](../azure-resource-manager/manage-resources-powershell.md)

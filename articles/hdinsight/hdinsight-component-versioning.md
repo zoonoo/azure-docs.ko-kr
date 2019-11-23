@@ -1,20 +1,20 @@
 ---
 title: Apache Hadoop 구성 요소 및 버전 - Azure HDInsight
-description: Azure HDInsight의 Apache Hadoop 구성 요소 및 버전에 대해 알아봅니다.
+description: Learn the Apache Hadoop components and versions in Azure HDInsight.
 keywords: hadoop 버전, hadoop 에코시스템 구성 요소, hadoop 구성 요소, hadoop 버전을 확인하는 방법
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 11/13/2019
-ms.openlocfilehash: 598f423bdb15b1d4975633db19c28b399fde484b
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/21/2019
+ms.openlocfilehash: 451d47f4fee50764783c9ce7be79cf34fef96756
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74166795"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406786"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -22,9 +22,9 @@ Enterprise Security Package뿐만 아니라 Microsoft Azure HDInsight의 [Apache
 
 ## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>각 HDInsight 버전에서 사용할 수 있는 Apache Hadoop 구성 요소
 
-Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. 2017 4 월 4 일을 기준으로 Azure HDInsight에서 사용 하는 기본 클러스터 버전은 3.6입니다.
+Azure HDInsight는 언제든 배포할 수 있는 여러 Hadoop 클러스터 버전을 지원합니다. As of April 4, 2017, the default cluster version used by Azure HDInsight is 3.6.
 
-HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 나열되어 있습니다. 
+HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에 나열되어 있습니다.
 
 > [!NOTE]  
 > HDInsight 서비스의 기본 버전은 예고 없이 변경될 수 있습니다. 버전 종속성이 있는 경우 Azure PowerShell 및 Azure 클래식 CLI를 사용하여 .NET SDK에서 클러스터를 만들 때 HDInsight 버전을 지정합니다.
@@ -56,7 +56,7 @@ HDInsight 클러스터 버전과 연결된 구성 요소 버전은 다음 표에
 
 ## <a name="check-for-current-hadoop-component-version-information"></a>현재 Hadoop 구성 요소 버전 정보 확인
 
-HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 버전은 HDInsight에 대한 업데이트로 변경될 수 있습니다. Hadoop 구성 요소를 확인하고 클러스터에 대해 사용 중인 버전을 확인하려면 Ambari REST API를 사용합니다. **GetComponentInformation** 명령은 서비스 구성 요소에 대한 정보를 검색합니다. 자세한 내용은 [Apache Ambari 설명서](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)를 참조 하세요.
+HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 버전은 HDInsight에 대한 업데이트로 변경될 수 있습니다. Hadoop 구성 요소를 확인하고 클러스터에 대해 사용 중인 버전을 확인하려면 Ambari REST API를 사용합니다. **GetComponentInformation** 명령은 서비스 구성 요소에 대한 정보를 검색합니다. For details, see the [Apache Ambari documentation](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
 
 ### <a name="release-notes"></a>릴리스 정보
 
@@ -70,31 +70,31 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
 다음 표에는 PowerShell 및 .NET SDK와 같은 다른 배포 메서드를 비롯하여 Azure Portal에서 사용할 수 있는 HDInsight 버전이 나열되어 있습니다.
 
-| HDInsight 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에서 사용 가능 | 
+| HDInsight 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Availability in the Azure portal |
 | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |예 |예 |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | 2020 년 6 월 30 일 |2020 년 12 월 31 일 |예 |예 |
+| HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |yes |yes |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | December 31, 2020 |June 30, 2021 |yes |yes |
 
+Spark 2.1, 2.2 & Kafka 1.0 support will expire on June 30th, 2020 and retirement on Dec 31st 2020.
 
 > [!NOTE]  
-> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell `Version`New-AzHDInsightCluster[ 명령의 ](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.
->
+> 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell [New-AzHDInsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 명령의 `Version` 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.
 
 ### <a name="retired-versions"></a>사용 중지된 버전
 
 다음 표에는 현재 Azure Portal에서 사용할 수 **없는** HDInsight 버전이 나열되어 있습니다.
 
-| HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 | 
+| HDInsight 버전 | HDP 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에 대한 사용 가용성 |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016년 9월 30일 |2017년 9월 5일 |2018년 6월 28일 |예 |아니오 |
-| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016년 3월 29일 |2016년 12월 29일 |2018년 1월 9일 |예 |아니오 |
-| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |예 |아니오 |
-| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015년 12월 2일 |2016년 6월 27일 |2017년 7월 31일 |예 |아니오 |
-| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |2015년 2월 18일 |2016년 3월 1일 |2017년 4월 1일 |예 |아니오 |
-| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |예 |아니오 |
-| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |예 |아니오 |
-| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |예 |아니오 |
-| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아니오 |아니오 |
+| HDInsight 3.5 |HDP 2.5 |Ubuntu 16.0.4 LTS |2016년 9월 30일 |2017년 9월 5일 |2018년 6월 28일 |yes |아닙니다. |
+| HDInsight 3.4 |HDP 2.4 |Ubuntu 14.0.4 LTS |2016년 3월 29일 |2016년 12월 29일 |2018년 1월 9일 |yes |아닙니다. |
+| HDInsight 3.3 |HDP 2.3 |Windows Server 2012 R2 |2015년 12월 2일 |2016년 6월 27일 |2018년 7월 31일 |yes |아닙니다. |
+| HDInsight 3.3 |HDP 2.3 |Ubuntu 14.0.4 LTS |2015년 12월 2일 |2016년 6월 27일 |2017년 7월 31일 |yes |아닙니다. |
+| HDInsight 3.2 |HDP 2.2 |Ubuntu 12.04 LTS 또는 Windows Server 2012 R2 |2015년 2월 18일 |2016년 3월 1일 |2017년 4월 1일 |yes |아닙니다. |
+| HDInsight 3.1 |HDP 2.1 |Windows Server 2012 R2 |2014년 6월 24일 |2015년 5월 18일 |2016년 6월 30일 |yes |아닙니다. |
+| HDInsight 3.0 |HDP 2.0 |Windows Server 2012 R2 |2014년 2월 11일 |2014년 9월 17일 |2015년 6월 30일 |yes |아닙니다. |
+| HDInsight 2.1 |HDP 1.3 |Windows Server 2012 R2 |2013년 10월 28일 |2014년 5월 12일 |2015년 5월 31일 |yes |아닙니다. |
+| HDInsight 1.6 |HDP 1.1 | |2013년 10월 28일 |2014년 4월 26일 |2015년 5월 31일 |아닙니다. |아닙니다. |
 
 > [!NOTE]  
 > 헤드 노드가 2개 있는 고가용성 클러스터는 기본적으로 HDInsight 버전 2.1 이상에 배포됩니다. HDInsight 버전 1.6 클러스터에서는 사용할 수 없습니다.
@@ -105,7 +105,7 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
 - 인증을 위한 Active Directory와 통합
 
-    이전에 로컬 관리 사용자 및 로컬 SSH 사용자인 경우에만 HDInsight 클러스터를 만들 수 있었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  엔터프라이즈 보안 패키지에서 HDInsight 클러스터를 고유한 Active Directory와 통합하여 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 온-프레미스 Active Directory, Azure Active Directory Domain Services 또는 IaaS 가상 머신의 Active Directory가 포함됩니다. 클러스터의 도메인 관리자는 사용자가 클러스터에 액세스하도록 고유한 회사 (도메인) 사용자 이름 및 암호를 부여할 수 있습니다. 
+    이전에 로컬 관리 사용자 및 로컬 SSH 사용자인 경우에만 HDInsight 클러스터를 만들 수 있었습니다. 로컬 관리 사용자는 모든 파일, 폴더, 테이블 및 열에 액세스할 수 있습니다.  엔터프라이즈 보안 패키지에서 HDInsight 클러스터를 고유한 Active Directory와 통합하여 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 온-프레미스 Active Directory, Azure Active Directory Domain Services 또는 IaaS 가상 머신의 Active Directory가 포함됩니다. 클러스터의 도메인 관리자는 사용자가 클러스터에 액세스하도록 고유한 회사 (도메인) 사용자 이름 및 암호를 부여할 수 있습니다.
 
     자세한 내용은
 
@@ -123,7 +123,7 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
   - [도메인에 가입된 HDInsight에서 Apache Hive 정책 구성](./domain-joined/apache-domain-joined-run-hive.md)
 
-- 감사 로그를 보고 액세스 및 구성된 정책을 모니터링합니다. 
+- 감사 로그를 보고 액세스 및 구성된 정책을 모니터링합니다.
 
 ### <a name="supported-cluster-types"></a>지원되는 클러스터 형식
 
@@ -137,19 +137,18 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 
 엔터프라이즈 보안 패키지는 Azure Data Lake Storage를 기본 스토리지 및 추가 기능 스토리지 둘 다로 사용할 수 있도록 지원합니다.
 
-### <a name="pricing-and-service-level-agreement"></a>가격 책정 및 서비스 수준 계약
+### <a name="pricing-and-service-level-agreement"></a>Pricing and service level agreement
 
 엔터프라이즈 보안 패키지의 가격 책정 및 SLA에 대한 자세한 내용은 [HDInsight 가격 책정](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
-
 
 ## <a name="service-level-agreement-for-hdinsight-cluster-versions"></a>HDInsight 클러스터 버전의 서비스 수준 약정
 
 SLA(서비스 수준 약정)는 _지원 기간_ 면에서 정의됩니다. 지원 기간은 Microsoft 고객 지원에서 HDInsight 클러스터 버전을 지원하는 기간을 나타냅니다. 버전의 _지원 만료 날짜_가 날짜를 지난 경우 HDInsight 클러스터는 지원 기간이 종료된 것입니다. 새로운 X+1 버전이 사용 가능해진 후에 지정된 HDInsight 버전의 지원 만료 날짜는 다음 수식 중 후자로 계산됩니다.  
 
-* 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
-* 수식 2: HDInsight 클러스터 버전 X+1이 Azure Portal에서 사용 가능한 날짜에 90일을 추가합니다.
+- 수식 1: HDInsight 클러스터 버전 X가 릴리스된 날짜에 180일을 추가합니다.
+- 수식 2: HDInsight 클러스터 버전 X+1이 Azure Portal에서 사용 가능한 날짜에 90일을 추가합니다.
 
-_사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중지 날짜 이후에는 HDInsight 클러스터의 크기를 조정할 수 없습니다. 
+_사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 수 없게 되는 날짜입니다. 2017년 7월 31일부터 사용 중지 날짜 이후에는 HDInsight 클러스터의 크기를 조정할 수 없습니다.
 
 > [!NOTE]  
 > HDInsight Windows 클러스터(버전 2.1, 3.0, 3.1, 3.2 및 3.3 포함)는 Azure 게스트 OS 제품군 버전 4에서 실행되고 64비트 버전의 Windows Server 2012 R2를 사용합니다. Azure 게스트 OS 제품군 버전 4는 .NET Framework 버전 4.0, 4.5, 4.5.1 및 4.5.2를 지원합니다.
@@ -165,19 +164,20 @@ _사용 중지 날짜_는 HDInsight에서 해당 클러스터 버전을 만들 �
 
   * [Apache Storm 릴리스 정보](https://storm.apache.org/2015/11/05/storm0100-released.html)는 Apache 웹 사이트에서 사용할 수 있습니다.
   * [Apache Hive 릴리스 정보](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12332384&styleName=Text&projectId=12310843)는 Apache 웹 사이트에서 사용할 수 있습니다.
-* HDInsight 클러스터 버전 3.2은 [Hortonworks Data Platform 2.2][hdp-2-2]을 기반으로 하는 Hadoop 배포를 사용 합니다.
+* HDInsight cluster version 3.2 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.2][hdp-2-2].
 
   * 특정 Apache 구성 요소에 대한 릴리스 정보는 다음과 같이 사용할 수 있습니다. [Hive 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310843&version=12326450), [Pig 0.14](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310730&version=12326954), [HBase 0.98.4](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310753&version=12326810), [Phoenix 4.2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12315120&version=12327581), [M/R 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310941&version=12327180), [HDFS 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310942&version=12327181), [YARN 2.6](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12313722&version=12327197), [Common](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12310240&version=12327179), [Tez 0.5.2](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314426&version=12328742), [Ambari 2.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12312020&version=12327486), [Storm 0.9.3](https://issues.apache.org/jira/secure/ReleaseNote.jspa?projectId=12314820&version=12327112), [Oozie 4.1.0](https://issues.apache.org/jira/secure/ReleaseNote.jspa?version=12324960&projectId=12311620).
-* HDInsight 클러스터 버전 3.1은 [Hortonworks Data Platform 2.1.7][hdp-2-1-7]를 기반으로 하는 Hadoop 배포를 사용 합니다. 3\.1 년 11 월 7 2014 일 이전에 만든 HDInsight 클러스터는 [Hortonworks Data Platform 2.1.1][hdp-2-1-1]를 기반으로 합니다.
-* HDInsight 클러스터 버전 3.0은 [Hortonworks Data Platform 2.0][hdp-2-0-8]을 기반으로 하는 Hadoop 배포를 사용 합니다.
-* HDInsight 클러스터 버전 2.1은 [Hortonworks Data Platform 1.3][hdp-1-3-0]을 기반으로 하는 Hadoop 배포를 사용 합니다.
-* HDInsight 클러스터 버전 1.6은 [Hortonworks Data Platform 1.1][hdp-1-1-0]을 기반으로 하는 Hadoop 배포를 사용 합니다.
+* HDInsight cluster version 3.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.1.7][hdp-2-1-7]. HDInsight 3.1 clusters created before November, 7, 2014, are based on [Hortonworks Data Platform 2.1.1][hdp-2-1-1].
+* HDInsight cluster version 3.0 uses a Hadoop distribution that is based on [Hortonworks Data Platform 2.0][hdp-2-0-8].
+* HDInsight cluster version 2.1 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.3][hdp-1-3-0].
+* HDInsight cluster version 1.6 uses a Hadoop distribution that is based on [Hortonworks Data Platform 1.1][hdp-1-1-0].
 
 ## <a name="default-node-configuration-and-virtual-machine-sizes-for-clusters"></a>클러스터에 대한 기본 노드 구성 및 가상 머신 크기
 
-클러스터에 대해 선택할 가상 컴퓨터 Sku에 대 한 자세한 내용은 [Azure HDInsight 클러스터 구성 세부 정보](hdinsight-supported-node-configuration.md)를 참조 하세요.
+For more information on which virtual machine SKUs to select for your cluster, see [Azure HDInsight cluster configuration details](hdinsight-supported-node-configuration.md).
 
 ## <a name="next-steps"></a>다음 단계
+
 - [HDInsight의 Apache Hadoop, Spark 등에 대한 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)
 - [Windows PC의 HDInsight에서 Apache Hadoop 작업](hdinsight-hadoop-windows-tools.md)
 

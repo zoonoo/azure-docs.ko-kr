@@ -3,12 +3,12 @@ title: 캐나다 연방 PBMM 청사진 샘플 - 개요
 description: 캐나다 연방 PBMM 청사진 샘플에 대한 개요입니다. 이 청사진 샘플은 고객이 특정 캐나다 연방 PBMM 컨트롤을 평가하는 데 도움이 됩니다.
 ms.date: 09/04/2019
 ms.topic: sample
-ms.openlocfilehash: 5bfe1fe4916f47e678899159d86d1679def3610a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2640ba05be69cdb9432307b89027c30a27b4ad1c
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038391"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406298"
 ---
 # <a name="overview-of-the-canada-federal-pbmm-blueprint-sample"></a>캐나다 연방 PBMM 청사진 샘플 개요
 

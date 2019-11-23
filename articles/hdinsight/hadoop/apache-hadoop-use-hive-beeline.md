@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 10/03/2019
-ms.openlocfilehash: d97470494af0d64cc20d78d69957d84a8acebc16
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 11/21/2019
+ms.openlocfilehash: 26a166e61086af8cf10f761b608fcf66eb8734fd
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494904"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406260"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Apache Hive와 Apache Beeline 클라이언트 사용
 
@@ -20,11 +20,11 @@ ms.locfileid: "73494904"
 
 Beeline은 HDInsight 클러스터의 헤드 노드에 포함된 Hive 클라이언트입니다. Beeline은 JDBC를 사용하여 HDInsight 클러스터에서 호스팅되는 서비스인 HiveServer2에 연결합니다. 또한 Beeline을 사용하면 인터넷을 통해 HDInsight의 Hive에 원격으로 액세스할 수 있습니다. 다음 예에서는 Beeline에서 HDInsight에 연결하는 데 사용되는 가장 일반적인 연결 문자열을 제공합니다.
 
-## <a name="types-of-connections"></a>연결 유형
+## <a name="types-of-connections"></a>Types of connections
 
-### <a name="from-an-ssh-session"></a>SSH 세션에서
+### <a name="from-an-ssh-session"></a>From an SSH session
 
-SSH 세션에서 클러스터 헤드 노드에 연결 하는 경우 포트 `10001`에서 `headnodehost` 주소에 연결할 수 있습니다.
+When connecting from an SSH session to a cluster headnode, you can then connect to the `headnodehost` address on port `10001`:
 
 ```bash
 beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -32,48 +32,48 @@ beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
 
 ---
 
-### <a name="over-an-azure-virtual-network"></a>Azure Virtual Network에서
+### <a name="over-an-azure-virtual-network"></a>Over an Azure Virtual Network
 
-Azure Virtual Network를 통해 클라이언트에서 HDInsight로 연결 하는 경우 클러스터 헤드 노드의 FQDN (정규화 된 도메인 이름)을 제공 해야 합니다. 이 연결은 클러스터 노드로 직접 설정되므로 연결은 포트 `10001`을 사용합니다.
+When connecting from a client to HDInsight over an Azure Virtual Network, you must provide the fully qualified domain name (FQDN) of a cluster head node. 이 연결은 클러스터 노드로 직접 설정되므로 연결은 포트 `10001`을 사용합니다.
 
 ```bash
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/;transportMode=http'
 ```
 
-`<headnode-FQDN>`를 클러스터 헤드 노드의 정규화 된 도메인 이름으로 바꿉니다. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
+Replace `<headnode-FQDN>` with the fully qualified domain name of a cluster headnode. 헤드 노드의 정규화된 도메인 이름을 찾으려면 [Apache Ambari REST API를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) 문서의 정보를 사용합니다.
 
 ---
 
-### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>Kerberos를 사용 하는 HDInsight Enterprise Security Package (ESP) 클러스터
+### <a name="to-hdinsight-enterprise-security-package-esp-cluster-using-kerberos"></a>To HDInsight Enterprise Security Package (ESP) cluster using Kerberos
 
-클라이언트에서 클러스터의 동일한 영역에 있는 컴퓨터의 Azure Active Directory (AAD)-DS에 연결 된 Enterprise Security Package (ESP) 클러스터에 연결 하는 경우 도메인 이름 `<AAD-Domain>` 및 사용 권한이 있는 도메인 사용자 계정의 이름을 지정 해야 합니다. 클러스터 `<username>`에 액세스 합니다.
+When connecting from a client to an Enterprise Security Package (ESP) cluster joined to Azure Active Directory (AAD)-DS on a machine in same realm of the cluster, you must also specify the domain name `<AAD-Domain>` and the name of a domain user account with permissions to access the cluster `<username>`:
 
 ```bash
 kinit <username>
 beeline -u 'jdbc:hive2://<headnode-FQDN>:10001/default;principal=hive/_HOST@<AAD-Domain>;auth-kerberos;transportMode=http' -n <username>
 ```
 
-`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. `<AAD-DOMAIN>`를 클러스터가 조인 된 Azure Active Directory (AAD)의 이름으로 바꿉니다. `<AAD-DOMAIN>` 값에 대문자 문자열을 사용 합니다. 그렇지 않으면 자격 증명을 찾을 수 없습니다. 필요한 경우 영역 이름 `/etc/krb5.conf`을 확인 합니다.
+`<username>`을 클러스터에 액세스할 수 있는 권한이 있는 도메인의 계정 이름으로 바꿉니다. Replace `<AAD-DOMAIN>` with the name of the Azure Active Directory (AAD) that the cluster is joined to. Use an uppercase string for the `<AAD-DOMAIN>` value, otherwise the credential won't be found. Check `/etc/krb5.conf` for the realm names if needed.
 
 ---
 
-### <a name="over-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
+### <a name="over-public-or-private-endpoints"></a>Over public or private endpoints
 
-공용 또는 개인 끝점을 사용 하 여 클러스터에 연결 하는 경우 클러스터 로그인 계정 이름 (기본값 `admin`) 및 암호를 제공 해야 합니다. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
+When connecting to a cluster using the public or private endpoints, you must provide the cluster login account name (default `admin`) and password. 예를 들어 클라이언트 시스템에서 Beeline을 사용하여 `<clustername>.azurehdinsight.net` 주소에 연결합니다. 이 연결은 `443` 포트를 통해 이루어지며 SSL을 사용하여 암호화됩니다.
 
 ```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-또는 개인 끝점의 경우:
+or for private endpoint:
 
 ```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/hive2' -n <username> -p password
 ```
 
-`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. 참고로, ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
+`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. For ESP clusters, use the full UPN (e.g. user@domain.com). `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
-개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
@@ -81,29 +81,29 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 Apache Spark는 자체적으로 HiveServer2를 구현하며, HiveServer2는 종종 Spark Thrift 서버라고 합니다. 이 서비스는 Hive 대신 Spark SQL을 사용하여 쿼리를 해결하고, 쿼리에 따라 더 나은 성능을 제공할 수 있습니다.
 
-#### <a name="through-public-or-private-endpoints"></a>공용 또는 개인 끝점을 통해
+#### <a name="through-public-or-private-endpoints"></a>Through public or private endpoints
 
-사용 된 연결 문자열은 약간 다릅니다. `httpPath=/hive2`를 포함 하는 대신 `httpPath/sparkhive2`합니다.
+The connection string used  is slightly different. Instead of containing `httpPath=/hive2` it's `httpPath/sparkhive2`:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-또는 개인 끝점의 경우:
+or for private endpoint:
 
-```bash 
+```bash
 beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transportMode=http;httpPath=/sparkhive2' -n <username> -p password
 ```
 
-`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. 참고로, ESP 클러스터의 경우 전체 UPN (예: user@domain.com)을 사용 합니다. `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
+`clustername`을 HDInsight 클러스터 이름으로 바꿉니다. `<username>`을 클러스터의 클러스터 로그인 계정으로 바꿉니다. For ESP clusters, use the full UPN (e.g. user@domain.com). `password`를 클러스터 로그인 계정의 암호로 바꿉니다.
 
-개인 끝점은 동일한 지역의 Vnet 피어 링 에서만 액세스할 수 있는 기본 부하 분산 장치를 가리킵니다. 자세한 정보는 [글로벌 VNet 피어 링 및 부하 분산 장치에 대 한 제약 조건](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) 을 참조 하세요. Beeline를 사용 하기 전에 `-v` 옵션과 함께 `curl` 명령을 사용 하 여 공용 또는 개인 끝점의 연결 문제를 해결할 수 있습니다.
+Private endpoints point to a basic load balancer, which can only be accessed from the VNETs peered in the same region. See [constraints on global VNet peering and load balancers](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) for more info. You can use the `curl` command with `-v` option to troubleshoot any connectivity problems with public or private endpoints before using beeline.
 
 ---
 
-#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>Apache Spark를 사용 하 여 클러스터 헤드 또는 Azure Virtual Network 내에서
+#### <a name="from-cluster-head-or-inside-azure-virtual-network-with-apache-spark"></a>From cluster head or inside Azure Virtual Network with Apache Spark
 
-클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10002` 포트 대신 `10001` 포트를 Spark Thrift 서버에 사용해야 합니다. 다음 예제에서는 헤드 노드에 직접 연결 하는 방법을 보여 줍니다.
+클러스터 헤드 노드에서 직접 연결하거나 HDInsight 클러스터와 동일한 Azure Virtual Network 내부의 리소스에서 연결하는 경우 `10001` 포트 대신 `10002` 포트를 Spark Thrift 서버에 사용해야 합니다. The following example shows how to connect directly to the head node:
 
 ```bash
 /usr/hdp/current/spark2-client/bin/beeline -u 'jdbc:hive2://headnodehost:10002/;transportMode=http'
@@ -113,25 +113,25 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a id="prereq"></a>필수 조건
 
-* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* A Hadoop cluster on HDInsight. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 
-* 클러스터의 기본 저장소에 대 한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme) 를 확인 합니다. 예를 들어 Azure Storage, Azure Data Lake Storage Gen2 `abfs://`, `adl://`의 Azure Data Lake Storage Gen1에 대 한 `wasb://` 합니다. Azure Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://`됩니다. 자세한 내용은 [보안 전송](../../storage/common/storage-require-secure-transfer.md)을 참조 하세요.
+* Notice the [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme) for your cluster's primary storage. For example,  `wasb://` for Azure Storage, `abfs://` for Azure Data Lake Storage Gen2, or `adl://` for Azure Data Lake Storage Gen1. If secure transfer is enabled for Azure Storage, the URI is `wasbs://`. For more information, see [secure transfer](../../storage/common/storage-require-secure-transfer.md).
 
-* 옵션 1: SSH 클라이언트 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. 이 문서의 단계는 대부분 SSH 세션에서 클러스터로 Beeline를 사용 하 고 있다고 가정 합니다.
+* Option 1: An SSH client. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요. Most of the steps in this document assume that you're using Beeline from an SSH session to the cluster.
 
-* 옵션 2: 로컬 Beeline 클라이언트
+* Option 2:  A local Beeline client.
 
-## <a id="beeline"></a>Hive 쿼리 실행
+## <a id="beeline"></a>HIVE 쿼리 실행
 
-이 예제는 SSH 연결에서 Beeline client를 사용 하는 것을 기반으로 합니다.
+This example is based on using the Beeline client from an SSH connection.
 
-1. 아래 코드를 사용 하 여 클러스터에 대 한 SSH 연결을 엽니다. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. 메시지가 표시 되 면 SSH 사용자 계정에 대 한 암호를 입력 합니다.
+1. Open an SSH connection to the cluster with the code below. `sshuser`은 클러스터의 SSH 사용자로, `CLUSTERNAME`은 클러스터 이름으로 바꿉니다. When prompted, enter the password for the SSH user account.
 
     ```cmd
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. 다음 명령을 입력 하 여 열려 있는 SSH 세션에서 Beeline 클라이언트를 사용 하 여 HiveServer2에 연결 합니다.
+2. Connect to HiveServer2 with your Beeline client from your open SSH session by entering the following command:
 
     ```bash
     beeline -u 'jdbc:hive2://headnodehost:10001/;transportMode=http'
@@ -139,7 +139,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 3. Beeline 명령은 일반적으로 `!` 문자로 시작합니다. 예를 들어 `!help`는 도움말을 표시합니다. 그러나 일부 명령에서는 `!`를 생략할 수 있습니다. 예를 들어 `help`도 작동합니다.
 
-    HiveQL 문을 실행 하는 데 사용 되는 `!sql`이 있습니다. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
+    There's `!sql`, which is used to execute HiveQL statements. 그러나 HiveQL은 너무 일반적으로 사용되어 이전의 `!sql`를 생략할 수 있습니다. 다음 두 문은 동일합니다.
 
     ```hiveql
     !sql show tables;
@@ -174,7 +174,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     이 정보는 테이블의 열을 설명합니다.
 
-5. 다음 문을 입력 하 여 HDInsight 클러스터와 함께 제공 되는 샘플 데이터를 사용 하 여 **log4jLogs** 라는 테이블을 만듭니다. [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)에 따라 필요에 따라 수정 합니다.
+5. Enter the following statements to create a table named **log4jLogs** by using sample data provided with the HDInsight cluster: (Revise as needed based on your [URI scheme](../hdinsight-hadoop-linux-information.md#URI-and-scheme).)
 
     ```hiveql
     DROP TABLE log4jLogs;
@@ -193,9 +193,9 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         GROUP BY t4;
     ```
 
-    이러한 문은 다음 작업을 수행합니다.
+    These statements do the following actions:
 
-    * `DROP TABLE`-테이블이 있으면 삭제 됩니다.
+    * `DROP TABLE` - If the table exists, it's deleted.
 
     * `CREATE EXTERNAL TABLE` - Hive에서 **외부** 테이블을 만듭니다. 외부 테이블만 테이블 정의를 Hive에 저장합니다. 데이터는 원래 위치에 그대로 유지됩니다.
 
@@ -205,7 +205,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
     * `SELECT` - 열 **t4**에 값 **[ERROR]** 가 포함된 모든 행의 수를 선택합니다. 이 값을 포함하는 세 개의 행이 있으므로 이 쿼리는 **3** 값을 반환합니다.
 
-    * `INPUT__FILE__NAME LIKE '%.log'` - Hive는 디렉터리의 모든 파일에 스키마를 적용하려고 합니다. 이 경우 디렉터리에는 스키마와 일치 하지 않는 파일이 포함 됩니다. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
+    * `INPUT__FILE__NAME LIKE '%.log'` - Hive는 디렉터리의 모든 파일에 스키마를 적용하려고 합니다. In this case, the directory contains files that don't match the schema. 결과에 가비지 데이터가 나타나는 것을 방지하기 위해 이 명령문은 .log로 끝나는 파일의 데이터만 반환해야 함을 Hive에게 알립니다.
 
    > [!NOTE]  
    > 외부 원본에서 기본 데이터를 업데이트하길 원하는 경우에는 외부 테이블을 사용해야 합니다. 예를 들어 자동화된 데이터 업로드 프로세스 또는 MapReduce 작업이 있습니다.
@@ -240,7 +240,7 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
 
 ## <a id="file"></a>HiveQL 파일 실행
 
-이전 예제에서 연속 된 작업입니다. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
+This is a continuation from the prior example. 다음 단계를 사용하여 파일을 만든 다음 Beeline를 사용하여 실행합니다.
 
 1. 다음 명령을 사용하여 **query.hql**이라는 파일을 만듭니다.
 
@@ -255,16 +255,16 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
     INSERT OVERWRITE TABLE errorLogs SELECT t1, t2, t3, t4, t5, t6, t7 FROM log4jLogs WHERE t4 = '[ERROR]' AND INPUT__FILE__NAME LIKE '%.log';
     ```
 
-    이러한 문은 다음 작업을 수행합니다.
+    These statements do the following actions:
 
-   * **CREATE TABLE 존재 하지 않는 경우** -테이블이 아직 없으면 만들어집니다. **EXTERNAL** 키워드가 사용 되지 않으므로이 문은 내부 테이블을 만듭니다. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.
+   * **CREATE TABLE IF NOT EXISTS** - If the table doesn't already exist, it's created. Since the **EXTERNAL** keyword isn't used, this statement creates an internal table. 내부 테이블은 Hive 데이터 웨어하우스에 저장되며 Hive에 서 완전히 관리됩니다.
    * **STORED AS ORC** - 데이터를 ORC(Optimized Row Columnar) 형식으로 저장합니다. ORC 형식은 Hive 데이터를 저장하기 위해 고도로 최적화되고 효율적인 형식입니다.
-   * **덮어쓰기 삽입 ... SELECT** - **[ERROR]** 가 포함 된 **log4jLogs** 테이블에서 행을 선택한 다음 **errorLogs** 테이블에 데이터를 삽입 합니다.
+   * **INSERT OVERWRITE ... SELECT** - Selects rows from the **log4jLogs** table that contain **[ERROR]** , then inserts the data into the **errorLogs** table.
 
     > [!NOTE]  
     > 외부 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
-3. 파일을 저장하려면 **Ctrl**+ **_X**을 사용한 다음 **Y**를 입력하고 마지막으로 **Enter** 키를 누릅니다.
+3. To save the file, use **Ctrl**+**X**, then enter **Y**, and finally **Enter**.
 
 4. 다음을 사용하여 Beeline을 통해 파일을 실행합니다.
 
@@ -290,15 +290,10 @@ beeline -u 'jdbc:hive2://clustername-int.azurehdinsight.net:443/;ssl=true;transp
         | 2012-02-03    | 18:55:54      | SampleClass1  | [ERROR]       | incorrect     | id            |               |
         | 2012-02-03    | 19:25:27      | SampleClass4  | [ERROR]       | incorrect     | id            |               |
         +---------------+---------------+---------------+---------------+---------------+---------------+---------------+--+
-        3 rows selected (1.538 seconds)
+        3 rows selected (0.813 seconds)
 
 ## <a id="summary"></a><a id="nextsteps"></a>다음 단계
 
-HDInsight의 Hive에 대한 보다 일반적인 내용은 다음 문서를 참조하세요.
+* For more general information on Hive in HDInsight, see [Use Apache Hive with Apache Hadoop on HDInsight](hdinsight-use-hive.md)
 
-* [HDInsight에서 Apache Hadoop과 함께 Apache Hive 사용](hdinsight-use-hive.md)
-
-HDInsight에서 Hadoop을 사용하여 작업할 수 있는 다른 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-* [HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용](hdinsight-use-pig.md)
-* [HDInsight에서 Apache Hadoop과 MapReduce 사용](hdinsight-use-mapreduce.md)
+* For more information on other ways you can work with Hadoop on HDInsight, see [Use MapReduce with Apache Hadoop on HDInsight](hdinsight-use-mapreduce.md)

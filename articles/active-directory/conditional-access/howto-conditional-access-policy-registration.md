@@ -1,6 +1,6 @@
 ---
-title: 조건부 액세스-결합 된 보안 정보-Azure Active Directory
-description: 보안 정보 등록을 위해 신뢰할 수 있는 위치를 요구 하는 사용자 지정 조건부 액세스 정책 만들기
+title: Conditional Access - Combined security information - Azure Active Directory
+description: Create a custom Conditional Access policy to require a trusted location for security info registration
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -11,44 +11,44 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 771e4e0ecbda4baf1f38aacd1f39397875bbd0dc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150769"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74322745"
 ---
-# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>조건부 액세스: MFA 등록을 위해 신뢰할 수 있는 위치 필요
+# <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>Conditional Access: Require trusted location for MFA registration
 
-이제 조건부 액세스 정책의 사용자 작업을 통해 사용자가 Azure Multi-Factor Authentication 및 셀프 서비스 암호 재설정에 등록 하는 시기 및 방법에 대 한 보안을 설정할 수 있습니다. 이 미리 보기 기능은 [결합 된 등록 미리 보기](../authentication/concept-registration-mfa-sspr-combined.md)를 사용 하도록 설정한 조직에서 사용할 수 있습니다. 이 기능은 사용자가 HR 온 보 딩 중에 신뢰할 수 있는 네트워크 위치와 같은 중앙 위치에서 Azure Multi-Factor Authentication에 등록 하 고 SSPR 하는 조직에서 사용 하도록 설정할 수 있습니다. 조건부 액세스에서 신뢰할 수 있는 위치를 만드는 방법에 대 한 자세한 내용은 [Azure Active Directory 조건부 액세스의 위치 조건 이란?](../conditional-access/location-condition.md#named-locations) 문서를 참조 하세요.
+Securing when and how users register for Azure Multi-Factor Authentication and self-service password reset is now possible with user actions in Conditional Access policy. This preview feature is available to organizations who have enabled the [combined registration preview](../authentication/concept-registration-mfa-sspr-combined.md). This functionality may be enabled in organizations where they want users to register for Azure Multi-Factor Authentication and SSPR from a central location such as a trusted network location during HR onboarding. For more information about creating trusted locations in Conditional Access, see the article [What is the location condition in Azure Active Directory Conditional Access?](../conditional-access/location-condition.md#named-locations)
 
-## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>신뢰할 수 있는 위치에서 등록을 요구 하는 정책 만들기
+## <a name="create-a-policy-to-require-registration-from-a-trusted-location"></a>Create a policy to require registration from a trusted location
 
-다음 정책은 모든 선택한 사용자에 게 적용 되며, 결합 된 등록 환경을 사용 하 여 등록을 시도 하 고, 신뢰할 수 있는 네트워크로 표시 된 위치에서 연결 하지 않는 한 액세스를 차단 합니다.
+The following policy applies to all selected users, who attempt to register using the combined registration experience, and blocks access unless they are connecting from a location marked as trusted network.
 
-1. **Azure Portal**에서 **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
+1. In the **Azure portal**, browse to **Azure Active Directory** > **Conditional Access**.
 1. **새 정책**을 선택합니다.
-1. 이름에이 정책의 이름을 입력 합니다. 예를 들어 **신뢰할 수 있는 네트워크에 대 한 보안 정보 등록이 결합**되어 있습니다.
-1. **할당**에서 **사용자 및 그룹**을 클릭 하 고이 정책을 적용할 사용자 및 그룹을 선택 합니다.
+1. In Name, Enter a Name for this policy. For example, **Combined Security Info Registration on Trusted Networks**.
+1. Under **Assignments**, click **Users and groups**, and select the users and groups you want this policy to apply to.
 
    > [!WARNING]
-   > 사용자는 [결합 된 등록 미리 보기](../authentication/howto-registration-mfa-sspr-combined.md)를 사용 하도록 설정 해야 합니다.
+   > Users must be enabled for the [combined registration preview](../authentication/howto-registration-mfa-sspr-combined.md).
 
-1. **클라우드 앱 또는 작업**에서 **사용자 작업**을 선택 하 고 **보안 정보 등록 (미리 보기)** 을 선택 합니다.
-1. **조건** > **위치**에 있습니다.
-   1. **예**를 구성 합니다.
-   1. **모든 위치**를 포함 합니다.
-   1. **모든 신뢰할 수 있는 위치**를 제외 합니다.
-   1. 위치 블레이드에서 **완료** 를 클릭 합니다.
-   1. 조건 블레이드에서 **완료** 를 클릭 합니다.
-1. **액세스 제어** 에서 **Grant** > 합니다.
-   1. **액세스 차단**을 클릭 합니다.
+1. Under **Cloud apps or actions**, select **User actions**, check **Register security information (preview)** .
+1. Under **Conditions** > **Locations**.
+   1. Configure **Yes**.
+   1. Include **Any location**.
+   1. Exclude **All trusted locations**.
+   1. Click **Done** on the Locations blade.
+   1. Click **Done** on the Conditions blade.
+1. Under **Access controls** > **Grant**.
+   1. Click **Block access**.
    1. 그런 다음 **선택**을 클릭합니다.
-1. **정책 사용** 을 **켜기**로 설정 합니다.
-1. 그런 다음, **만들기**를 클릭합니다.
+1. Set **Enable policy** to **On**.
+1. 그런 다음 **Save**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[조건부 액세스 공통 정책](concept-conditional-access-policy-common.md)
+[Conditional Access common policies](concept-conditional-access-policy-common.md)
 
-[조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
+[Simulate sign in behavior using the Conditional Access What If tool](troubleshoot-conditional-access-what-if.md)

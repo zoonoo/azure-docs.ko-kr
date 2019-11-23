@@ -1,5 +1,5 @@
 ---
-title: Azure DevTest Labs에서 클레임 할 수 있는 Vm 만들기 및 관리 Microsoft Docs
+title: Create and manage claimable VMs in Azure DevTest Labs | Microsoft Docs
 description: Azure DevTest Labs에서 랩에 클레임할 수 있는 가상 머신을 추가하는 방법 알아보기
 services: devtest-lab,virtual-machines
 documentationcenter: na
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2019
 ms.author: spelluru
-ms.openlocfilehash: a3b8085a4dd2ece384ece72578ffafbd0e2e0b9d
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 13d642597fdf5d0eae6c6fd4f0cab16181f033c2
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184285"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383967"
 ---
 # <a name="create-and-manage-claimable-vms-in-azure-devtest-labs"></a>Azure DevTest Labs에서 클레임할 수 있는 VM 생성 및 관리
-클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로(*사용자 지정 이미지*, [수식](devtest-lab-create-template.md) 또는 [Marketplace 이미지](devtest-lab-manage-formulas.md)를 [기반](devtest-lab-configure-marketplace-images.md)으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
+클레임할 수 있는 VM은 [표준 VM을 추가](devtest-lab-add-vm.md)하는 것과 유사한 방식으로([사용자 지정 이미지](devtest-lab-create-template.md), [수식](devtest-lab-manage-formulas.md) 또는 [Marketplace 이미지](devtest-lab-configure-marketplace-images.md)를 *기반*으로) 랩에 추가합니다. 이 자습서에서는 Azure Portal을 사용하여 클레임할 수 있는 VM을 DevTest Labs의 랩에 추가하는 단계를 안내하고 VM을 클레임 및 클레임 취소하기 위해 따라야 하는 프로세스를 보여줍니다.
 
 ## <a name="steps-to-add-a-claimable-vm-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩에 클레임할 수 있는 VM을 추가하는 단계
-1. [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
+1. [Azure portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에 로그인합니다.
 1. **모든 서비스**를 선택한 다음, **DEVOPS** 섹션에서 **DevTest Labs**를 선택합니다. **DEVOPS** 섹션에서 **DevTest Labs** 옆에 있는 *(별표)를 선택하는 경우입니다. 이 작업을 수행하면 다음에 쉽게 액세스할 수 있도록 **DevTest Labs**가 왼쪽 탐색 메뉴에 추가됩니다. 그러면 왼쪽 탐색 메뉴에서 **DevTest Labs**를 선택할 수 있습니다.
 
     ![모든 서비스 - DevTest Labs 선택](./media/devtest-lab-create-lab/all-services-select.png)
@@ -72,7 +72,7 @@ ms.locfileid: "74184285"
   ![클레임할 수 있는 임의의 VM을 요청합니다.](./media/devtest-lab-add-vm/devtestlab-claim-any.png)
 
 
-사용자가 VM을 클레임 한 후 DevTest Labs는 컴퓨터를 시작 하 고 랩 사용자의 "내 가상 머신" 목록으로 이동 합니다. 즉, 랩 사용자는 이제이 mahcine에 대 한 소유자 privilegdes를 갖게 됩니다. 이 단계에 필요한 시간은 시작 시간 및 클레임 이벤트 중 수행 되는 다른 사용자 지정 작업에 따라 달라질 수 있습니다. 요청 된 후에는 더 이상 클레임 할 수 있는 풀에서 컴퓨터를 사용할 수 없습니다.  
+After a user claims a VM, DevTest Labs will start the machine and move it up into lab user's list of "My virtual machines". This means the lab user will now have owner privileges on this machine. The time required for this step may vary depending on start up times as well as any other custom actions being performed during the claim event. Once claimed, the machine is no longer available in the claimable pool.  
 
 ## <a name="unclaim-a-vm"></a>VM 클레임 취소
 
@@ -86,7 +86,7 @@ ms.locfileid: "74184285"
 
   ![VM의 관리 창에서 VM 클레임을 취소합니다.](./media/devtest-lab-add-vm/devtestlab-unclaim-VM.png)
 
-사용자가 VM에 대 한 클레임을 해제 하면 해당 랩 VM에 대 한 소유자 권한이 더 이상 없으며, 풀에 retured 된 상태에서 다른 랩 사용자가이를 요구할 수 있습니다. 
+When a user unclaims a VM, they no longer have owner permissions for that specific lab VM and it is available to be claimed by any other lab user in the state that it was retured to the pool. 
 
 ### <a name="transferring-the-data-disk"></a>데이터 디스크 전송
 클레임할 수 있는 VM에 연결된 데이터 디스크가 있고 사용자가 그에 대한 클레임을 취소하면 데이터 디스크기 VM에 유지됩니다. 그런 다음 또 다른 사용자가 해당 VM을 클레임하면 이 새로운 사용자가 VM은 물론 데이터 디스크를 클레임합니다.

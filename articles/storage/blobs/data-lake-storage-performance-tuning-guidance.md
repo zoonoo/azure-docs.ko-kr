@@ -1,21 +1,21 @@
 ---
-title: Azure Data Lake Storage Gen2 성능 튜닝 지침 | Microsoft Docs
+title: Optimize Azure Data Lake Storage Gen2 for performance | Microsoft Docs
 description: Azure Data Lake Storage Gen2의 성능 튜닝에 대한 지침입니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 11/18/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: b134842303bebdf10efdf388057c8ad7b3be61be
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f1a16228b72d7e0f45048669ade94a0c78d9ac52
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855584"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327937"
 ---
-# <a name="tuning-azure-data-lake-storage-gen2-for-performance"></a>Azure Data Lake Storage Gen2의 성능 튜닝
+# <a name="optimize-azure-data-lake-storage-gen2-for-performance"></a>Optimize Azure Data Lake Storage Gen2 for performance
 
 Azure Data Lake Storage Gen2는 I/O 집약적 분석 및 데이터 이동에 대한 높은 처리량을 지원합니다.  Data Lake Storage Gen2에서 최상의 성능을 얻으려면 사용 가능한 모든 처리량(초당 읽거나 쓸 수 있는 데이터 양)을 사용해야 합니다.  이를 위해 최대한 많은 읽기와 쓰기를 병렬로 수행합니다.
 
@@ -43,7 +43,7 @@ Azure의 VM 또는 온-프레미스 컴퓨터를 사용하는 경우 적절한 �
 
 위의 원본 하드웨어 및 네트워크 연결 병목 상태를 해결했으면 수집 도구를 구성할 준비가 되었습니다. 다음 표에는 몇 가지 일반적인 수집 도구에 대한 주요 설정이 요약되어 있으며, 각 도구에 대한 심층 분석 성능 튜닝 문서가 제공됩니다.  시나리오에 사용할 도구에 대한 자세한 내용은 이 [문서](data-lake-storage-data-scenarios.md)를 참조하세요.
 
-| 도구               | 설정     | 자세한 내용                                                                 |
+| 도구               | 설정     | 자세한 정보                                                                 |
 |--------------------|------------------------------------------------------|------------------------------|
 | DistCp            | -m(mapper)   | [링크](data-lake-storage-use-distcp.md#performance-considerations-while-using-distcp)                             |
 | Azure Data Factory| parallelCopies    | [링크](../../data-factory/copy-activity-performance.md)                          |
@@ -138,5 +138,5 @@ HDInsight 클러스터 내에 있는 3개의 계층을 튜닝하여 컨테이너
 | [HDInsight의 MapReduce](data-lake-storage-performance-tuning-mapreduce.md) | <ul><li>Mapreduce.map.memory</li><li>Mapreduce.job.maps</li><li>Mapreduce.reduce.memory</li><li>Mapreduce.job.reduces</li></ul> |
 | [HDInsight의 Storm](data-lake-storage-performance-tuning-storm.md)| <ul><li>작업자 프로세스 수</li><li>Spout 실행자 인스턴스 수</li><li>Bolt 실행자 인스턴스 수 </li><li>Spout 작업 수</li><li>Bolt 작업 수</li></ul>|
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Azure Data Lake Storage Gen2 개요](data-lake-storage-introduction.md)

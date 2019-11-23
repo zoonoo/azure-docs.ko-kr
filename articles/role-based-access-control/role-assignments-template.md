@@ -10,30 +10,70 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/20/2019
+ms.date: 11/21/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 5f57ea658df0569c4e69e476513863abe6940471
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72692900"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383987"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md)사용 하 여 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 RBAC 및 템플릿을 사용하여 액세스를 관리할 수 있는 방법을 설명합니다.
+[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. In addition to using Azure PowerShell or the Azure CLI, you can manage access to Azure resources using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 RBAC 및 템플릿을 사용하여 액세스를 관리할 수 있는 방법을 설명합니다.
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>리소스 그룹 범위 (매개 변수 제외)에서 역할 할당 만들기
+## <a name="get-object-ids"></a>Get object IDs
 
-RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다. 다음 템플릿에서는 역할 할당을 만드는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정 됩니다. 다음 템플릿은 다음을 보여줍니다.
+To assign a role, you need to specify the ID of the user, group, or application you want to assign the role to. The ID has the format: `11111111-1111-1111-1111-111111111111`. You can get the ID using the Azure portal, Azure PowerShell, or Azure CLI.
 
--  리소스 그룹 범위에서 사용자, 그룹 또는 응용 프로그램에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 하는 방법
+### <a name="user"></a>사용자
 
-템플릿을 사용 하려면 다음을 수행 해야 합니다.
+To get the ID of a user, you can use the [Get-AzADUser](/powershell/module/az.resources/get-azaduser) or [az ad user show](/cli/azure/ad/user#az-ad-user-show) commands.
 
-- 새 JSON 파일을 만들고 템플릿을 복사 합니다.
-- @No__t_0을 사용자, 그룹 또는 응용 프로그램의 고유 식별자로 대체 하 여 역할을 할당 합니다. 식별자의 형식은 `11111111-1111-1111-1111-111111111111`입니다.
+```azurepowershell
+$objectid = (Get-AzADUser -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad user show --id "{email}" --query objectId --output tsv)
+```
+
+### <a name="group"></a>그룹
+
+To get the ID of a group, you can use the [Get-AzADGroup](/powershell/module/az.resources/get-azadgroup) or [az ad group show](/cli/azure/ad/group#az-ad-group-show) commands.
+
+```azurepowershell
+$objectid = (Get-AzADGroup -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad group show --group "{name}" --query objectId --output tsv)
+```
+
+### <a name="application"></a>애플리케이션
+
+To get the ID of a service principal (identity used by an application), you can use the [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal) or [az ad sp list](/cli/azure/ad/sp#az-ad-sp-list) commands. For a service principal, use the object ID and **not** the application ID.
+
+```azurepowershell
+$objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
+```
+
+```azurecli
+objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
+```
+
+## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>Create a role assignment at a resource group scope (without parameters)
+
+RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다. The following template shows a basic way to create a role assignment. Some values are specified within the template. 다음 템플릿은 다음을 보여줍니다.
+
+-  How to assign the [Reader](built-in-roles.md#reader) role to a user, group, or application at a resource group scope
+
+To use the template, you must do the following:
+
+- Create a new JSON file and copy the template
+- Replace `<your-principal-id>` with the ID of a user, group, or application to assign the role to
 
 ```json
 {
@@ -53,7 +93,7 @@ RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다
 }
 ```
 
-ExampleGroup 이라는 리소스 그룹에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령의 예는 다음과 같습니다.
+Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment in a resource group named ExampleGroup.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json
@@ -63,22 +103,21 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac
 az group deployment create --resource-group ExampleGroup --template-file rbac-test.json
 ```
 
-다음은 템플릿을 배포한 후 리소스 그룹의 사용자에 대 한 읽기 권한자 역할 할당의 예를 보여 줍니다.
+The following shows an example of the Reader role assignment to a user for a resource group after deploying the template.
 
-![리소스 그룹 범위에서 역할 할당](./media/role-assignments-template/role-assignment-template.png)
+![Role assignment at resource group scope](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>리소스 그룹 또는 구독 범위에서 역할 할당 만들기
+## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>Create a role assignment at a resource group or subscription scope
 
-이전 템플릿은 매우 유연 하지 않습니다. 다음 템플릿에서는 매개 변수를 사용 하 고 다양 한 범위에서 사용할 수 있습니다. 다음 템플릿은 다음을 보여줍니다.
+The previous template isn't very flexible. The following template uses parameters and can be used at different scopes. 다음 템플릿은 다음을 보여줍니다.
 
-- 리소스 그룹 또는 구독 범위에서 사용자, 그룹 또는 응용 프로그램에 역할을 할당 하는 방법
+- How to assign a role to a user, group, or application at either a resource group or subscription scope
 - 매개 변수로 소유자, 기여자 및 읽기 권한자 역할 지정하는 방법
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 
-- 역할을 할당하기 위한 사용자, 그룹 또는 애플리케이션의 고유 식별자
-- 할당할 역할
-- 역할 할당에 사용 되는 고유 식별자입니다. 또는 기본 식별자를 사용할 수 있습니다.
+- The ID of a user, group, or application to assign the role to
+- A unique ID that will be used for the role assignment, or you can use the default ID
 
 ```json
 {
@@ -129,44 +168,34 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 }
 ```
 
-역할을 할당할 사용자의 고유 식별자를 가져오려면 [AzADUser](/powershell/module/az.resources/get-azaduser) 또는 [az ad user show](/cli/azure/ad/user#az-ad-user-show) 명령을 사용할 수 있습니다.
-
-```azurepowershell
-$userid = (Get-AzADUser -DisplayName "{name}").id
-```
-
-```azurecli
-userid=$(az ad user show --upn-or-object-id "{email}" --query objectId --output tsv)
-```
-
-역할 할당의 범위는 배포 수준에서 결정 됩니다. 다음은 리소스 그룹 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령의 예입니다.
-
-```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
-```
-
-```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
-```
-
-다음은 구독 범위에서 배포를 시작 하 고 위치를 지정 하는 방법에 대 한 [AzDeployment](/powershell/module/az.resources/new-azdeployment) 및 [az deployment create](/cli/azure/deployment#az-deployment-create) 명령의 예입니다.
-
-```azurepowershell
-New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Reader
-```
-
-```azurecli
-az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
-```
-
 > [!NOTE]
-> 동일한 `roleNameGuid` 값이 템플릿의 각 배포에 대 한 매개 변수로 제공 되지 않는 한이 템플릿은 idempotent 되지 않습니다. @No__t_0를 제공 하지 않으면 기본적으로 각 배포에 새 GUID가 생성 되 고 후속 배포는 `Conflict: RoleAssignmentExists` 오류로 인해 실패 합니다.
+> This template is not idempotent unless the same `roleNameGuid` value is provided as a parameter for each deployment of the template. If no `roleNameGuid` is provided, by default a new GUID is generated on each deployment and subsequent deployments will fail with a `Conflict: RoleAssignmentExists` error.
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>리소스 범위에서 역할 할당 만들기
+The scope of the role assignment is determined from the level of the deployment. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
 
-리소스 수준에서 역할 할당을 만들어야 하는 경우 역할 할당의 형식이 다릅니다. 역할을 할당할 리소스의 리소스 공급자 네임 스페이스 및 리소스 형식을 제공 합니다. 또한 역할 할당 이름에 리소스 이름을 포함 합니다.
+```azurepowershell
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
+```
 
-역할 할당의 유형 및 이름에는 다음 형식을 사용 합니다.
+```azurecli
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+```
+
+Here are example [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) and [az deployment create](/cli/azure/deployment#az-deployment-create) commands for how to start the deployment at a subscription scope and specify the location.
+
+```azurepowershell
+New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Reader
+```
+
+```azurecli
+az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
+```
+
+## <a name="create-a-role-assignment-at-a-resource-scope"></a>Create a role assignment at a resource scope
+
+If you need to create a role assignment at the level of a resource, the format of the role assignment is different. You provide the resource provider namespace and resource type of the resource to assign the role to. You also include the name of the resource in the name of the role assignment.
+
+For the type and name of the role assignment, use the following format:
 
 ```json
 "type": "{resource-provider-namespace}/{resource-type}/providers/roleAssignments",
@@ -176,13 +205,12 @@ az deployment create --location centralus --template-file rbac-test.json --param
 다음 템플릿은 다음을 보여줍니다.
 
 - 새 스토리지 계정을 만드는 방법
-- 저장소 계정 범위에서 사용자, 그룹 또는 응용 프로그램에 역할을 할당 하는 방법
+- How to assign a role to a user, group, or application at the storage account scope
 - 매개 변수로 소유자, 기여자 및 읽기 권한자 역할 지정하는 방법
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 
-- 역할을 할당하기 위한 사용자, 그룹 또는 애플리케이션의 고유 식별자
-- 할당할 역할
+- The ID of a user, group, or application to assign the role to
 
 ```json
 {
@@ -245,33 +273,33 @@ az deployment create --location centralus --template-file rbac-test.json --param
 }
 ```
 
-이전 템플릿을 배포 하려면 리소스 그룹 명령을 사용 합니다. 다음은 리소스 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령의 예입니다.
+To deploy the previous template, you use the resource group commands. Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource scope.
 
 ```azurepowershell
-New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $userid -builtInRoleType Contributor
+New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateFile rbac-test.json -principalId $objectid -builtInRoleType Contributor
 ```
 
 ```azurecli
-az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Contributor
+az group deployment create --resource-group ExampleGroup --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Contributor
 ```
 
-다음은 템플릿을 배포한 후 사용자에 게 저장소 계정에 대 한 참가자 역할 할당의 예를 보여 줍니다.
+The following shows an example of the Contributor role assignment to a user for a storage account after deploying the template.
 
-![리소스 범위에서 역할 할당](./media/role-assignments-template/role-assignment-template-resource.png)
+![Role assignment at resource scope](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>새 서비스 사용자에 대 한 역할 할당 만들기
+## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Create a role assignment for a new service principal
 
-새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당 하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다. 예를 들어 관리 되는 id를 새로 만든 다음 동일한 Azure Resource Manager 템플릿에서 해당 서비스 주체에 역할을 할당 하려고 하면 역할 할당이 실패할 수 있습니다. 이 오류가 발생 하는 이유는 복제 지연 일 수 있습니다. 서비스 사용자는 한 지역에 생성 됩니다. 그러나 서비스 사용자를 아직 복제 하지 않은 다른 지역에서 역할 할당이 발생할 수 있습니다. 이 시나리오를 해결 하려면 역할 할당을 만들 때 `principalType` 속성을 `ServicePrincipal`으로 설정 해야 합니다.
+If you create a new service principal and immediately try to assign a role to that service principal, that role assignment can fail in some cases. For example, if you create a new managed identity and then try to assign a role to that service principal in the same Azure Resource Manager template, the role assignment might fail. The reason for this failure is likely a replication delay. The service principal is created in one region; however, the role assignment might occur in a different region that hasn't replicated the service principal yet. To address this scenario, you should set the `principalType` property to `ServicePrincipal` when creating the role assignment.
 
 다음 템플릿은 다음을 보여줍니다.
 
-- 새 관리 id 서비스 주체를 만드는 방법
-- @No__t_0 지정 하는 방법
-- 리소스 그룹 범위에서 해당 서비스 사용자에 게 참가자 역할을 할당 하는 방법
+- How to create a new managed identity service principal
+- How to specify the `principalType`
+- How to assign the Contributor role to that service principal at a resource group scope
 
 템플릿을 사용하려면 다음 입력을 지정해야 합니다.
 
-- 관리 id의 기본 이름 이거나, 기본 문자열을 사용할 수 있습니다.
+- The base name of the managed identity, or you can use the default string
 
 ```json
 {
@@ -313,7 +341,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 }
 ```
 
-다음은 리소스 그룹 범위에서 배포를 시작 하는 방법에 대 한 [AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) 및 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) 명령의 예입니다.
+Here are example [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) and [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create) commands for how to start the deployment at a resource group scope.
 
 ```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rbac-test.json
@@ -323,13 +351,13 @@ New-AzResourceGroupDeployment -ResourceGroupName ExampleGroup2 -TemplateFile rba
 az group deployment create --resource-group ExampleGroup2 --template-file rbac-test.json
 ```
 
-다음은 템플릿을 배포한 후 새 관리 id 서비스 주체에 대 한 참가자 역할 할당의 예를 보여 줍니다.
+The following shows an example of the Contributor role assignment to a new managed identity service principal after deploying the template.
 
-![새 관리 되는 id 서비스 사용자에 대 한 역할 할당](./media/role-assignments-template/role-assignment-template-msi.png)
+![Role assignment for a new managed identity service principal](./media/role-assignments-template/role-assignment-template-msi.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: Azure Portal을 사용하여 Azure Resource Manager 템플릿 만들기 및 배포](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 - [Azure Resource Manager 템플릿의 구조 및 구문 이해](../azure-resource-manager/resource-group-authoring-templates.md)
-- [구독 수준에서 리소스 그룹 및 리소스 만들기](../azure-resource-manager/deploy-to-subscription.md)
+- [Create resource groups and resources at the subscription level](../azure-resource-manager/deploy-to-subscription.md)
 - [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/?term=rbac)

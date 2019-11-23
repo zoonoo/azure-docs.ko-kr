@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 038178b3b73e9b07ce96e079403cb641f8efe8b1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210064"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405670"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -30,18 +30,21 @@ ASE 아웃바운드 종속성은 거의 전적으로 뒤에 고정 주소가 없
 
 아웃바운드 주소를 보호하는 솔루션은 도메인 이름에 따라 아웃바운드 트래픽을 제어할 수 있는 방화벽 디바이스를 사용하는 것입니다. Azure Firewall은 대상의 FQDN을 기반으로 아웃바운드 HTTP 및 HTTPS 트래픽을 제한할 수 있습니다.  
 
+> [!NOTE]
+> At this moment, we can't fully lockdown the outbound connection currently.
+
 ## <a name="system-architecture"></a>시스템 아키텍처
 
-방화벽 장치를 통과 하는 아웃 바운드 트래픽을 사용 하 여 ASE를 배포 하려면 ASE 서브넷에서 경로를 변경 해야 합니다. 경로는 IP 수준에서 작동 합니다. 경로를 정의 하는 데 주의 하지 않으면 다른 주소에서 TCP 회신 트래픽을 원본에 강제로 적용할 수 있습니다. 회신 주소가 전송 된 주소와 다른 경우 문제를 비대칭 라우팅 이라고 하 고 TCP를 중단 합니다.
+Deploying an ASE with outbound traffic going through a firewall device requires changing routes on the ASE subnet. Routes operate at an IP level. If you are not careful in defining your routes, you can force TCP reply traffic to source from another address. When your reply address is different from the address traffic was sent to, the problem is called asymmetric routing and it will break TCP.
 
-ASE에 대 한 인바운드 트래픽이 트래픽이 발생 하는 것과 동일한 방식으로 다시 응답할 수 있도록 정의 된 경로가 있어야 합니다. 인바운드 관리 요청 및 인바운드 응용 프로그램 요청에 대 한 경로를 정의 해야 합니다.
+There must be routes defined so that inbound traffic to the ASE can reply back the same way the traffic came in. Routes must be defined for inbound management requests and for inbound application requests.
 
-ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합니다.
+The traffic to and from an ASE must abide by the following conventions
 
-* Azure SQL, 저장소 및 이벤트 허브에 대 한 트래픽은 방화벽 장치를 사용 하 여 지원 되지 않습니다. 이러한 트래픽은 해당 서비스로 직접 전송 되어야 합니다. 이를 수행 하는 방법은 해당 세 서비스에 대 한 서비스 끝점을 구성 하는 것입니다. 
-* 들어오는 위치에서 인바운드 관리 트래픽을 다시 보내는 경로 테이블 규칙을 정의 해야 합니다.
-* 들어오는 위치에서 인바운드 응용 프로그램 트래픽을 다시 보내는 경로 테이블 규칙을 정의 해야 합니다. 
-* ASE를 종료 하는 다른 모든 트래픽은 경로 테이블 규칙을 사용 하 여 방화벽 장치로 보낼 수 있습니다.
+* The traffic to Azure SQL, Storage, and Event Hub are not supported with use of a firewall device. This traffic must be sent directly to those services. The way to make that happen is to configure service endpoints for those three services. 
+* Route table rules must be defined that send inbound management traffic back from where it came.
+* Route table rules must be defined that send inbound application traffic back from where it came. 
+* All other traffic leaving the ASE can be sent to your firewall device with a route table rule.
 
 ![Azure Firewall 연결 흐름 포함 ASE][5]
 
@@ -49,7 +52,7 @@ ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합
 
 Azure Firewall을 사용하여 기존 ASE의 송신을 잠그는 단계는 다음과 같습니다.
 
-1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. 서비스 끝점을 사용 하도록 설정 하려면 네트워킹 포털 > 서브넷으로 이동 하 여 서비스 끝점 드롭다운에서 microsoft EventHub, Microsoft .SQL 및 Microsoft Storage를 선택 합니다. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
+1. ASE 서브넷에서 서비스 엔드포인트를 SQL, Storage 및 Event Hub에 사용하도록 설정합니다. To enable service endpoints, go into the networking portal > subnets and select Microsoft.EventHub, Microsoft.SQL and Microsoft.Storage from the Service endpoints dropdown. 서비스 엔드포인트를 Azure SQL에 사용하도록 설정하면 앱에 있는 Azure SQL 종속성도 서비스 엔드포인트로 구성되어야 합니다. 
 
    ![서비스 엔드포인트 선택][2]
   
@@ -91,7 +94,7 @@ Azure Firewall은 로그를 Azure Storage, Event Hub 또는 Azure Monitor 로그
 
     AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
  
-Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그램의 모든 종속성을 인식 하지 못할 때 응용 프로그램을 처음 사용할 때 유용 합니다. [Azure Monitor에서 로그 데이터 분석](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)의 Azure Monitor 로그에 대해 자세히 알아볼 수 있습니다.
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
  
 ## <a name="dependencies"></a>종속성
 
@@ -109,22 +112,22 @@ Azure 방화벽을 Azure Monitor 로그와 통합 하는 것은 응용 프로그
 |----------|
 | Azure SQL |
 | Azure Storage |
-| AZURE 이벤트 허브 |
+| Azure 이벤트 허브 |
 
 #### <a name="ip-address-dependencies"></a>IP 주소 종속성
 
 | 엔드포인트 | 세부 정보 |
 |----------| ----- |
 | \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
-| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단 된 경우 일부 문제는 심사 하기 어려우므로 ASE는 계속 작동 합니다. |
-| 40.77.24.27:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 40.77.24.27:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 13.90.249.229:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 13.90.249.229:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 104.45.230.69:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 104.45.230.69:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 13.82.184.151:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
-| 13.82.184.151:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. If blocked, then some issues will be harder to triage but your ASE will continue to operate |
+| 40.77.24.27:80 | Needed to monitor and alert on ASE problems |
+| 40.77.24.27:443 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:80 | Needed to monitor and alert on ASE problems |
+| 13.90.249.229:443 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:80 | Needed to monitor and alert on ASE problems |
+| 104.45.230.69:443 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
+| 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
 
 Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동으로 가져옵니다. 
 
@@ -217,7 +220,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
-| \*. identity.azure.net:443 |
+| \*.identity.azure.net:443 |
 
 #### <a name="linux-dependencies"></a>Linux 종속성 
 
@@ -232,7 +235,7 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |download.mono-project.com:80 |
 |packages.treasuredata.com:80|
 |security.ubuntu.com:80 |
-| \*. cdn.mscr.io:443 |
+| \*.cdn.mscr.io:443 |
 |mcr.microsoft.com:443 |
 |packages.fluentbit.io:80 |
 |packages.fluentbit.io:443 |
@@ -249,15 +252,15 @@ Azure Firewall을 사용하면 FQDN 태그로 구성된 모든 항목을 자동�
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## <a name="us-gov-dependencies"></a>US Gov 종속성
+## <a name="us-gov-dependencies"></a>US Gov dependencies
 
-US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드포인트를 설정 해야 합니다.  이 문서의 앞부분에 나오는 지침에 따라 Azure 방화벽을 사용할 수도 있습니다. 사용자 고유의 송신 방화벽 장치를 사용 해야 하는 경우 끝점은 아래에 나열 되어 있습니다.
+For US Gov you still need to set service endpoints for Storage, SQL and Event Hub.  You can also use Azure Firewall with the instructions earlier in this document. If you need to use your own egress firewall device, the endpoints are listed below.
 
 | 엔드포인트 |
 |----------|
-| \*. ctldl.windowsupdate.com:80 |
-| \*. management.usgovcloudapi.net:80 |
-| \*. update.microsoft.com:80 |
+| \*.ctldl.windowsupdate.com:80 |
+| \*.management.usgovcloudapi.net:80 |
+| \*.update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -300,9 +303,9 @@ US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드
 |management.usgovcloudapi.net:80 |
 |maupdateaccountff.blob.core.usgovcloudapi.net:80 |
 |mscrl.microsoft.com
-|digicert. 0 |
+|ocsp.digicert.0 |
 |ocsp.msocsp.co|
-|ocsp. verisign. 0 |
+|ocsp.verisign.0 |
 |rteventse.trafficmanager.net:80 |
 |settings-n.data.microsoft.com:80 |
 |shavamafestcdnprod1.azureedge.net:80 |
@@ -314,7 +317,7 @@ US Gov의 경우 저장소, SQL 및 이벤트 허브에 대 한 서비스 엔드
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
 |\*ctldl.windowsupdate.com:443 |
-|\*. management.usgovcloudapi.net:443 |
+|\*.management.usgovcloudapi.net:443 |
 |\*.update.microsoft.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |

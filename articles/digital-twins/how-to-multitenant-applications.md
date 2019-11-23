@@ -1,5 +1,5 @@
 ---
-title: 다중 테 넌 트 응용 프로그램 사용-Azure Digital Twins | Microsoft Docs
+title: Enable multitenant applications - Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins에 대한 다중 테넌트 Azure Active Directory 애플리케이션을 구성하는 방법
 ms.author: alinast
 author: alinamstanciu
@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 6394d519b93b55358ef9d528f89978d5a3cf3007
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/21/2019
+ms.openlocfilehash: 65e1fa3fe371766566eeeaaa2d33479ea0243d61
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005911"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383356"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Azure Digital Twins에서 다중 테넌트 애플리케이션 사용
 
@@ -54,16 +54,16 @@ Azure Digital Twins를 빌드하는 솔루션 개발자는 단일 서비스 또�
 
 - [Azure Portal](https://portal.azure.com)에서 **고객**의 Azure Active Directory 테넌트 관리자는 다음 단계를 수행합니다.
 
-  1. **구독**을 엽니다.
+  1. Search for **Subscriptions** in the top Azure search field. **구독**을 선택합니다.
   1. **개발자**의 애플리케이션에서 사용할 수 있는 Azure Active Directory 테넌트를 포함한 구독을 선택합니다.
 
-     [![Azure Active Directory 구독](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
+     [![Azure Active Directory subscriptions](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. **리소스 공급자**를 선택합니다.
   1. **Microsoft.IoTSpaces**를 검색합니다.
   1. **등록**을 선택합니다.
 
-     [![Azure Active Directory 리소스 공급자](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
+     [![Azure Active Directory resource providers](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>다음 단계
 

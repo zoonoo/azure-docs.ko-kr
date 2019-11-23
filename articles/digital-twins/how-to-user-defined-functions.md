@@ -1,5 +1,5 @@
 ---
-title: Azure Digital Twins에서 사용자 정의 함수를 만드는 방법 | Microsoft Docs
+title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
 description: Azure Digital Twins를 사용하여 사용자 정의 함수, 검사기 및 역할 할당을 만드는 방법입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 11/07/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 4db6f0052c92d4532917a996eda82a27d97d3063
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 824fe611867216233e223e505f5321b23b7406fb
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74009561"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383307"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Azure Digital Twins에서 사용자 정의 함수를 만드는 방법
 
@@ -46,7 +46,7 @@ ms.locfileid: "74009561"
 
 다음 예제 검사기에서는 `"Temperature"`를 해당 데이터 형식 값으로 사용하는 센서 원격 분석 이벤트에서 true로 평가합니다. HTTP POST 요청을 수행하여 사용자 정의 함수에서 여러 검사기를 만들 수 있습니다.
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/matchers
 ```
 
@@ -69,7 +69,7 @@ JSON 본문:
 }
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 인스턴스를 호스팅하는 서버 지역 |
 
@@ -81,7 +81,7 @@ JSON 본문:
 
 검사기를 만든 후 다음 인증된 다중 파트 HTTP POST 요청을 사용하여 함수 코드 조각을 업로드합니다.
 
-```plaintext
+```URL
 YOUR_MANAGEMENT_API_URL/userdefinedfunctions
 ```
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 다중 파트 콘텐츠 경계 이름 |
 | YOUR_SPACE_IDENTIFIER | 공간 식별자  |
@@ -126,7 +126,7 @@ function process(telemetry, executionContext) {
 
 ### <a name="example-functions"></a>예제 함수
 
-**에 해당하는** Temperature`sensor.DataType` 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
+`sensor.DataType`에 해당하는 **Temperature** 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -201,26 +201,26 @@ function process(telemetry, executionContext) {
 
 1. 모든 역할에 대한 [시스템 API를 쿼리](./security-create-manage-role-assignments.md#retrieve-all-roles)하여 사용자 정의 함수에 할당할 역할 ID를 가져옵니다. 인증된 HTTP GET 요청을 수행함으로써 할 수 있습니다.
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
 
 1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
-1. **로 공백을 쿼리하여** path`YOUR_ACCESS_CONTROL_PATH`(`fullpath`) 값을 찾습니다.
+1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_SPACE_NAME | 사용할 공간의 이름 |
 
 1. 인증된 HTTP POST 요청을 수행하여 반환된 `spacePaths` 값을 **경로**에 붙여넣고 사용자 정의 함수 역할 할당을 만듭니다.
 
-    ```plaintext
+    ```URL
     YOUR_MANAGEMENT_API_URL/roleassignments
     ```
     JSON 본문:
@@ -234,11 +234,11 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 원하는 역할의 식별자 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 사용하려는 사용자 정의 함수에 대한 ID |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 사용자 정의 함수 유형을 지정하는 ID |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
     | YOUR_ACCESS_CONTROL_PATH | 액세스 제어 경로 |
 
 >[!TIP]

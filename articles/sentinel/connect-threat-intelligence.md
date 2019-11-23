@@ -1,8 +1,8 @@
 ---
-title: Azure 센티널에 위협 인텔리전스 데이터 연결 | Microsoft Docs
-description: Azure 센티널에 위협 인텔리전스 데이터를 연결 하는 방법에 대해 알아봅니다.
+title: Connect threat intelligence data to Azure Sentinel| Microsoft Docs
+description: Learn about how to connect threat intelligence data to Azure Sentinel.
 documentationcenter: na
-author: rkarlin
+author: cabailey
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -10,77 +10,103 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: 44b3830465bf2b5aa06612aa868b086b120f1ece
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.date: 11/22/2019
+ms.author: cabailey
+ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372270"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384132"
 ---
-# <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
+# <a name="connect-data-from-threat-intelligence-providers"></a>Connect data from threat intelligence providers
 
 > [!IMPORTANT]
-> Azure 센티널의 위협 인텔리전스 플랫폼 데이터 커넥터는 현재 공개 미리 보기로 제공 됩니다.
-> 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+> The Threat Intelligence data connectors in Azure Sentinel are currently in public preview.
+> This feature is provided without a service level agreement, and it's not recommended for production workloads. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-Azure 센티널을 사용 하면 조직에서 사용 하는 위협 지표를 가져올 수 있습니다. 이렇게 하면 보안 분석가가 알려진 위협을 검색 하 고 우선 순위를 정하는 기능을 향상 시킬 수 있습니다. Azure 센티널의 여러 기능을 사용할 수 있게 되거나 향상 됩니다.
+Azure Sentinel lets you import the threat indicators your organization is using, which can enhance your security analysts' ability to detect and prioritize known threats. Several features from Azure Sentinel then become available or are enhanced:
 
-- **분석** 에는 위협 지표의 로그 이벤트 일치를 기반으로 하는 경고 및 인시던트를 생성 하는 데 사용할 수 있는 예약 된 규칙 템플릿 집합이 포함 되어 있습니다.
+- **Analytics** includes a set of scheduled rule templates you can enable to generate alerts and incidents based on matches of log events from your threat indicators.
 
-- **통합 문서** 는 Azure 센티널로 가져온 위협 표시기와 위협 표시기와 일치 하는 분석 규칙에서 생성 된 모든 경고에 대 한 요약 정보를 제공 합니다.
+- **Workbooks** provide summarized information about the threat indicators imported into Azure Sentinel and any alerts generated from analytics rules that match your threat indicators.
 
-- **구하기** 쿼리를 통해 보안 사관는 일반적인 구하기 시나리오의 컨텍스트 내에서 위협 지표를 사용할 수 있습니다.
+- **Hunting** queries allow security investigators to use threat indicators within the context of common hunting scenarios.
 
-- **노트북** 은 비정상을 조사 하 고 악의적인 행동을 사냥 하는 경우 위협 지표를 사용할 수 있습니다.
+- **Notebooks** can use threat indicators when you investigate anomalies and hunt for malicious behaviors.
 
-다음 섹션에 나열 된 통합 된 위협 인텔리전스 플랫폼 (TIP) 제품 중 하나를 사용 하거나 [Microsoft Graph Security tiIndicators API](https://aka.ms/graphsecuritytiindicators)와의 직접 통합을 사용 하 여 Azure 센티널에 위협 지표를 스트리밍할 수 있습니다.
+You can stream threat indicators to Azure Sentinel by using one of the integrated threat intelligence platform (TIP) products listed in the next section, connecting to TAXII servers, or by using direct integration with the [Microsoft Graph Security tiIndicators API](https://aka.ms/graphsecuritytiindicators).
 
-## <a name="integrated-threat-intelligence-platform-products"></a>통합 위협 인텔리전스 플랫폼 제품
+## <a name="integrated-threat-intelligence-platform-products"></a>Integrated threat intelligence platform products
 
-- [오픈 소스 위협 인텔리전스 플랫폼](https://www.misp-project.org/)
+- [MISP Open Source Threat Intelligence Platform](https://www.misp-project.org/)
     
-    클라이언트에 잘못 된 p 인스턴스를 제공 하 여 위협 표시기를 Microsoft Graph 보안 API로 마이그레이션하는 샘플 스크립트는 [Microsoft Graph 보안 스크립트에](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP)대 한 잘못 된 항목을 참조 하세요.
+    For a sample script that provides clients with MISP instances to migrate threat indicators to the Microsoft Graph Security API, see the [MISP to Microsoft Graph Security Script](https://github.com/microsoftgraph/security-api-solutions/tree/master/Samples/MISP).
 
 - [Palo Alto Networks MineMeld](https://www.paloaltonetworks.com/products/secure-the-network/subscriptions/minemeld)
     
-    단계별 지침은 [MineMeld를 사용 하 여 Microsoft Graph 보안 API로 IOCs 전송](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540)을 참조 하세요.
+    For guided instructions, see [Sending IOCs to the Microsoft Graph Security API using MineMeld](https://live.paloaltonetworks.com/t5/MineMeld-Articles/Sending-IOCs-to-the-Microsoft-Graph-Security-API-using-MineMeld/ta-p/258540).
 
-- [ThreatConnect 플랫폼](https://threatconnect.com/solution/)
+- [ThreatConnect Platform](https://threatconnect.com/solution/)
 
+    For information, see [ThreatConnect Integrations](https://threatconnect.com/integrations/) and look for Microsoft Graph Security API on the page.
+
+
+## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Connect Azure Sentinel to your threat intelligence platform
 
 ## <a name="prerequisites"></a>전제 조건  
 
-- 전역 관리자 또는 보안 관리자의 Azure AD 역할로, Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 사용자 지정 응용 프로그램 또는 팁 제품에 대 한 사용 권한을 부여 합니다.
+- Azure AD role of either Global administrator or Security administrator to grant permissions to your TIP product or custom application that uses direct integration with the Microsoft Graph Security tiIndicators API.
 
-- Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한으로 위협 지표를 저장 합니다.
+- Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
 
-## <a name="connect-azure-sentinel-to-your-threat-intelligence-provider"></a>Azure 센티널을 위협 인텔리전스 공급자에 연결
+## <a name="instructions"></a>지침
 
-1. 응용 프로그램 ID, 응용 프로그램 암호 및 Azure Active Directory 테 넌 트 ID를 가져오려면 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-v2-service#1-register-your-app) 합니다. Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 통합 팁 제품 또는 앱을 구성 하는 경우에 이러한 값이 필요 합니다.
+1. [Register an application](/graph/auth-v2-service#1-register-your-app) in Azure Active Directory to get an application ID, application secret, and Azure Active Directory tenant ID. You need these values for when you configure your integrated TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API.
 
-2. 등록 된 응용 프로그램에 대 한 [API 권한 구성](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) : Microsoft Graph 응용 프로그램 권한 **ThreatIndicators** 을 등록 된 응용 프로그램에 추가 합니다.
+2. [Configure API permissions](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) for the registered application: Add the Microsoft Graph Application permission **ThreatIndicators.ReadWrite.OwnedBy** to your registered application.
 
-3. Azure Active Directory 테 넌 트 관리자에 게 문의 하 여 조직에 등록 된 응용 프로그램에 관리자 동의를 부여 합니다. Azure Portal: **Azure Active Directory** > **앱 등록** >  @no__t-**5_앱 이름_>**  > **View API Permissions**0 @no__t**에 대 한 관리자 동의 부여-12_테 넌 트 이름_ 4**.
+3. Ask your Azure Active Directory tenant administrator to grant admin consent to the registered application for your organization. From the Azure portal: **Azure Active Directory** > **App registrations** >  **\<_app name_>**  > **View API Permissions** > **Grant admin consent for \<_tenant name_>** .
 
-4. 다음을 지정 하 여 Azure 센티널에 표시기를 보내도록 Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 TIP 제품 또는 앱을 구성 합니다.
+4. Configure your TIP product or app that uses direct integration with Microsoft Graph Security tiIndicators API to send indicators to Azure Sentinel by specifying the following:
     
-    a. 등록 된 응용 프로그램의 ID, 비밀 및 테 넌 트 ID에 대 한 값입니다.
+    a. The values for the registered application's ID, secret, and tenant ID.
     
-    b. 대상 제품의 경우 Azure 센티널을 지정 합니다.
+    b. For the target product, specify Azure Sentinel.
     
-    다. 작업의 경우 경고를 지정 합니다.
+    다. For the action, specify alert.
 
-5. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 다음, **위협 인텔리전스 플랫폼 (미리 보기)** 커넥터를 선택 합니다.
+5. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence Platforms (Preview)** connector.
 
-6. **커넥터 페이지 열기**를 선택한 다음 **연결**을 선택 합니다.
+6. Select **Open connector page**, and then **Connect**.
 
-7. Azure 센티널로 가져온 위협 지표를 보려면 **Azure 센티널-Logs** > **securityinsights**로 이동한 다음 **ThreatIntelligenceIndicator**를 확장 합니다.
+7. To view the threat indicators imported into Azure Sentinel, navigate to **Azure Sentinel - Logs** > **SecurityInsights**, and then expand **ThreatIntelligenceIndicator**.
+
+## <a name="connect-azure-sentinel-to-taxii-servers"></a>Connect Azure Sentinel to TAXII servers
+
+## <a name="prerequisites"></a>전제 조건  
+
+- Read and write permissions to the Azure Sentinel workspace to store your threat indicators.
+
+- TAXII 2.0 server URI and Collection ID.
+
+## <a name="instructions"></a>지침
+
+1. In the Azure portal, navigate to **Azure Sentinel** > **Data connectors** and then select the **Threat Intelligence - TAXII (Preview)** connector.
+
+2. Select **Open connector page**.
+
+3. Specify the required and optional information in the text boxes.
+
+4. Select **Add** to enable the connection to the TAXII 2.0 server.
+
+5. If you have additional TAXII 2.0 servers: Repeat steps 3 and 4.
+
+6. To view the threat indicators imported into Azure Sentinel, navigate to **Azure Sentinel - Logs** > **SecurityInsights**, and then expand **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure 센티널에 위협 인텔리전스 공급자를 연결 하는 방법을 알아보았습니다. Azure 센티널에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+In this document, you learned how to connect your threat intelligence provider to Azure Sentinel. To learn more about Azure Sentinel, see the following articles.
 
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats.md)시작 합니다.
+- Learn how to [get visibility into your data, and potential threats](quickstart-get-visibility.md).
+- Get started [detecting threats with Azure Sentinel](tutorial-detect-threats.md).

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bb63b25ee9257a402a9887bc8ed8aa83370f3ea0
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066419"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405586"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]
@@ -42,7 +42,7 @@ Azure Traffic Manager는 4가지의 다른 라우팅 방법을 사용합니다. 
 자세한 내용은 [Traffic Manager 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md)을 참조하세요.
 
 ## <a name="app-service-and-traffic-manager-profiles"></a>App Service 및 Traffic Manager 프로필
-앱 트래픽 App Service 제어를 구성 하려면 앞에서 설명한 4 가지 부하 분산 방법 중 하나를 사용 하는 Azure Traffic Manager에서 프로필을 만든 다음, 트래픽을 제어 하려는 끝점 (이 경우 App Service)을 추가 합니다. profile. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
+To configure the control of App Service app traffic, you create a profile in Azure Traffic Manager that uses one of the four load balancing methods described previously, and then add the endpoints (in this case, App Service) for which you want to control traffic to the profile. 앱 상태(실행 중, 중지됨 또는 삭제됨)가 정기적으로 프로필에 전달되므로 Azure Traffic Manager가 상태에 따라 트래픽을 보낼 수 있습니다.
 
 Azure에서 Azure Traffic Manager를 사용할 경우 다음 사항에 유의하십시오.
 
@@ -57,5 +57,4 @@ Azure에서 Azure Traffic Manager를 사용할 경우 다음 사항에 유의하
 ## <a name="next-steps"></a>다음 단계
 Azure Traffic Manager의 개념 및 기술 개요에 대해서는 [Traffic Manager 개요](../traffic-manager/traffic-manager-overview.md)를 참조하십시오.
 
-App Service에서 Traffic Manager를 사용하는 방법에 대한 자세한 내용은 블로그 게시물 [Azure 웹 사이트에서 Azure Traffic Manager 사용](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) 및 [이제 Azure Traffic Manager를 Azure 웹 사이트와 통합할 수 있음](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/)을 참조하세요.
 

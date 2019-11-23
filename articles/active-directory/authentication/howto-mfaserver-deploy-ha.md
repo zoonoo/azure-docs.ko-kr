@@ -1,35 +1,35 @@
 ---
-title: 고가용성-Azure Active Directory에 대 한 Azure MFA 서버를 구성 합니다.
+title: High availability for Azure MFA Server - Azure Active Directory
 description: 고가용성을 제공하는 구성에서 Azure Multi-Factor Authentication 서버의 여러 인스턴스를 배포합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43154e428c3208f5d990688554407777d09f2f1b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 18f56665041fed301faf3b4b5f99c78c1d468f8e
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056037"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74404296"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>고가용성을 위한 Azure Multi-Factor Authentication 서버 구성
 
 Azure 서버 MFA 배포로 고가용성을 달성하려면 여러 MFA 서버를 배포해야 합니다. 이 섹션에서는 Azure MFS 서버 배포에서 고가용성 목표를 달성하기 위한 부하가 분산된 디자인에 대한 정보를 제공합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
 
 ## <a name="mfa-server-overview"></a>MFA 서버 개요
 
 다음 다이어그램에 표시된 것처럼 Azure MFA 서버 서비스 아키텍처는 여러 가지 구성 요소로 이루어집니다.
 
- ![MFA 서버 아키텍처 구성 요소](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA 서버는 Azure Multi-Factor Authentication 소프트웨어가 설치되어 있는 Windows Server입니다. MFA 서버 인스턴스가 작동하려면 Azure에서 MFA 서비스에 의해 활성화되어야 합니다. 온-프레미스에는 둘 이상의 MFA 서버를 설치할 수 있습니다.
 
@@ -39,7 +39,7 @@ MFA 마스터와 하위 MFA 서버는 모두 2단계 인증이 필요한 경우 
 
 AD와 성공적으로 인증된 후 MFA 서버는 MFA 서비스와 통신합니다. MFA 서버는 애플리케이션에 대한 사용자 액세스를 허용하거나 거부하는 MFA 서비스 알림을 기다립니다.
 
-MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (예: 사용자, 셀프 서비스 PIN 변경, 변경 사용자 정보 또는 사용자 포털에 대 한 액세스 추가)
+MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (Examples include: the addition of users, self-service PIN changes, changing user information, or access to the user portal)
 
 ## <a name="deployment"></a>배포
 
