@@ -11,20 +11,16 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/26/2019
-ms.openlocfilehash: 2a16735e65201314328d2315479ccc467b9d555e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8d4917bb8956185e0cb557368fbb0c64343c0ac6
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73820993"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422550"
 ---
 # <a name="scale-single-database-resources-in-azure-sql-database"></a>Azure SQL Database에서 단일 데이터베이스 리소스 크기 조정
 
 이 문서에서는 프로 비전 된 계산 계층에서 Azure SQL Database 사용할 수 있는 계산 및 저장소 리소스의 크기를 조정 하는 방법을 설명 합니다. 또는 서버 리스 [계산 계층이](sql-database-serverless.md) 사용 된 계산에 대 한 초당 계산 자동 크기 조정 및 요금 청구를 제공 합니다.
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-> [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 ## <a name="change-compute-size-vcores-or-dtus"></a>계산 크기 변경 (vCores 또는 Dtu)
 
@@ -33,7 +29,6 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](sql-databas
 다음 비디오에서는 서비스 계층 및 컴퓨팅 크기를 동적으로 변경하여 단일 데이터베이스에 대해 사용 가능한 DTU를 늘리는 방법을 보여줍니다.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down/player]
->
 
 > [!IMPORTANT]
 > 경우에 따라 사용하지 않는 공간을 회수하기 위해 데이터베이스를 축소해야 할 수도 있습니다. 자세한 내용은 [Azure SQL Database의 파일 공간 관리](sql-database-file-space-management.md)를 참조하세요.
@@ -82,19 +77,17 @@ VCores 또는 Dtu 수를 처음 선택 하 고 나면 [Azure Portal](sql-databas
 
 #### <a name="powershell"></a>PowerShell
 
-PowerShell 명령 프롬프트에서 `$ResourceGroupName`, `$ServerName`및 `$DatabaseName`를 설정 하 고 다음 명령을 실행 합니다.
+PowerShell 명령 프롬프트에서 `$resourceGroupName`, `$serverName`및 `$databaseName`를 설정 하 고 다음 명령을 실행 합니다.
 
-```PowerShell
-$OperationName = (az sql db op list --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --query "[?state=='InProgress'].name" --out tsv)
-if(-not [string]::IsNullOrEmpty($OperationName))
-    {
-        (az sql db op cancel --resource-group $ResourceGroupName --server $ServerName --database $DatabaseName --name $OperationName)
-        "Operation " + $OperationName + " has been canceled"
-    }
-    else
-    {
-        "No service tier change or compute rescaling operation found"
-    }
+```powershell
+$operationName = (az sql db op list --resource-group $resourceGroupName --server $serverName --database $databaseName --query "[?state=='InProgress'].name" --out tsv)
+if (-not [string]::IsNullOrEmpty($operationName)) {
+    (az sql db op cancel --resource-group $resourceGroupName --server $serverName --database $databaseName --name $operationName)
+        "Operation " + $operationName + " has been canceled"
+}
+else {
+    "No service tier change or compute rescaling operation found"
+}
 ```
 
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경 시 추가 고려 사항
