@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: ab55441650085f6ca89f05613fe74dd4ae3cba54
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: b1252c455c2dfad2963f914ee746bcb932e59aa9
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182589"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451436"
 ---
 1. 리소스 또는 리소스 그룹에 대한 태그를 보려면 개요에서 기존 태그를 찾습니다. 이전에 태그를 적용하지 않은 경우 목록이 비어 있습니다.
    
@@ -52,9 +52,9 @@ ms.locfileid: "67182589"
 
 태그가 있는 모든 리소스를 보려면
 
-1. **모든 서비스** 및 **태그**를 선택합니다.
+1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
 
-     ![태그로 찾기](./media/resource-manager-tag-resources/find-tags.png)
+     ![태그로 찾기](./media/resource-manager-tag-resources/find-tags-general.png)
 
 1. 리소스를 보기 위한 태그를 선택합니다.
 
@@ -70,4 +70,4 @@ ms.locfileid: "67182589"
 
 1. 대시보드에서 해당 보기를 사용할 수 있습니다.
 
-     ![대시보드](./media/resource-manager-tag-resources/dashboard.png)
+     ![대시보드](./media/resource-manager-tag-resources/dashboard-with-view.png)
