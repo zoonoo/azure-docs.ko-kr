@@ -86,6 +86,8 @@
           href: groups-members-owners-search.md
         - name: 그룹 만들기(Azure Portal)
           href: /azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context
+        - name: 민감도 레이블 할당(미리 보기)
+          href: groups-assign-sensitivity-labels.md
         - name: PowerShell for Graph(v2) 그룹 관리
           href: groups-settings-v2-cmdlets.md
         - name: PowerShell MSOnline 그룹 관리

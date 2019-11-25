@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: b99b45427cf793eec4f6257190823c102b838cfa
-  ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+  ms.openlocfilehash: cbd3a4dbaa80119d72cd54efa7dd2dc751b91b40
+  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/10/2019
-  ms.locfileid: "73903341"
+  ms.lasthandoff: 11/23/2019
+  ms.locfileid: "74422823"
 highlightedContent:
   items:
   - title: Azure IoT란?
@@ -40,7 +40,7 @@ conceptualContent:
   title: IoT 솔루션 빌드 시작
   summary: Azure IoT는 클라우드 및 에지 IoT 플랫폼과 완전 관리형 IoT 솔루션을 제공합니다.
   items:
-  - title: Azure IoT Hub를 사용하여 사용자 고유의 IoT 솔루션 빌드
+  - title: 자체 IoT 클라우드 솔루션 빌드
     links:
     - url: ../iot-hub/about-iot-hub.md
       itemType: overview
@@ -54,7 +54,7 @@ conceptualContent:
     footerLink:
       url: ../iot-hub/index.yml
       text: 자세히 보기
-  - title: Azure IoT Central을 사용하여 완전 관리형 IoT 솔루션 배포
+  - title: 완전 관리형 IoT 솔루션 배포
     links:
     - url: ../iot-central/core/overview-iot-central.md
       itemType: overview
@@ -68,7 +68,7 @@ conceptualContent:
     footerLink:
       url: ../iot-central/core/index.yml
       text: 자세히 보기
-  - title: Azure IoT 솔루션 가속기를 사용하여 미리 작성된 IoT 솔루션 사용자 지정
+  - title: 미리 빌드된 IoT 솔루션 사용자 지정
     links:
     - url: ../iot-accelerators/about-iot-accelerators.md
       itemType: overview
@@ -82,7 +82,7 @@ conceptualContent:
     footerLink:
       url: ../iot-accelerators/index.md
       text: 자세히 보기
-  - title: Azure IoT Edge를 사용하여 디바이스에서 클라우드 인텔리전스 실행
+  - title: 에지 디바이스에서 클라우드 인텔리전스 실행
     links:
     - url: ../iot-edge/about-iot-edge.md
       itemType: overview
@@ -96,7 +96,7 @@ conceptualContent:
     footerLink:
       url: ../iot-edge/index.yml
       text: 자세히 보기
-  - title: Azure Digital Twins를 사용하여 연결된 스마트 인프라 만들기
+  - title: 연결된 스마트 인프라 만들기
     links:
     - url: ../digital-twins/about-digital-twins.md
       itemType: overview
@@ -110,7 +110,7 @@ conceptualContent:
     footerLink:
       url: ../digital-twins/index.yml
       text: 자세히 보기
-  - title: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스를 안전하게 프로비저닝
+  - title: 규모에 맞게 디바이스를 안전하게 프로비저닝
     links:
     - url: ../iot-dps/about-iot-dps.md
       itemType: overview
@@ -124,7 +124,7 @@ conceptualContent:
     footerLink:
       url: ../iot-dps/index.yml
       text: 자세히 보기
-  - title: Azure Time Series Insights를 사용하여 디바이스 데이터 탐색 및 분석
+  - title: 디바이스 데이터 탐색 및 분석
     links:
     - url: ../time-series-insights/time-series-insights-update-overview.md
       itemType: overview
@@ -138,7 +138,7 @@ conceptualContent:
     footerLink:
       url: ../time-series-insights/index.yml
       text: 자세히 보기
-  - title: Azure Maps를 사용하여 기업에서 이동성 향상
+  - title: 기업 내 이동성 활성화
     links:
     - url: ../azure-maps/about-azure-maps.md
       itemType: overview

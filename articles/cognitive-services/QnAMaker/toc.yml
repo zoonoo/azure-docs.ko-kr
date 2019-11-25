@@ -12,12 +12,8 @@
       href: quickstarts/create-publish-knowledge-base.md
     - name: 메타데이터를 사용하여 질문 추가
       href: quickstarts/add-question-metadata-portal.md
-    - name: 답변 구하기
-      items:
-        - name: Postman 사용
-          href: Quickstarts/get-answer-from-kb-using-postman.md
-        - name: cURL 사용
-          href: Quickstarts/get-answer-from-kb-using-cURL.md
+    - name: Postman 또는 cURL을 사용하여 답변 가져오기
+      href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
     - name: REST API 사용
       items:
         - name: 새 기술 자료 만들기

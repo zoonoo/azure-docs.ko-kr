@@ -173,11 +173,14 @@
           href: troubleshoot-recovery-disks-linux.md
         - name: Azure portal
           href: troubleshoot-recovery-disks-portal-linux.md
-- name: 부트 오류
-  href: boot-error-troubleshoot.md
+- name: 부팅 오류 Linux
+  href: boot-error-troubleshoot-linux.md
   items:
     - name: Grub 복구
       href: troubleshoot-vm-boot-error.md
+- name: 부팅 오류 Windows
+  href: boot-error-troubleshoot.md
+  items:
     - name: 부트 진단
       href: boot-diagnostics.md
     - name: BitLocker 오류

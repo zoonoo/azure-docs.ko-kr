@@ -1,22 +1,29 @@
 ---
-title: 기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
+title: 레거시 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
+titleSuffix: Azure DNS
 description: 이 가이드에서는 기존의 프라이빗 DNS 영역을 최신 리소스 모델로 마이그레이션하는 방법에 대한 단계별 지침을 제공합니다.
 services: dns
-author: rohinkoul
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: rohink
-ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.author: allensu
+ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960564"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076723"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
-현재 Azure DNS 프라이빗 영역 릴리스는 새로운 기능을 제공하고 초기 공개 미리 보기의 몇 가지 제한 사항을 제거합니다. 하지만 미리 보기 API를 사용하여 생성된 프라이빗 DNS 영역에서는 이러한 이점을 사용할 수 없습니다. 새 릴리스의 이점을 얻으려면 기존 프라이빗 DNS 영역 리소스를 새 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
+공개 미리 보기 중에 “zoneType” 속성이 “Private”으로 설정된 “dnszones” 리소스를 사용하여 프라이빗 DNS 영역을 만들었습니다. 이러한 영역은 2019년 12월 31일 이후에는 지원되지 않으며 “dnszones” 대신 “privateDnsZones” 리소스 유형을 사용하는 GA 리소스 모델로 마이그레이션해야 합니다. 마이그레이션 프로세스는 간단하며, 이 프로세스를 자동화하는 PowerShell 스크립트가 제공됩니다. 이 가이드에서는 Azure DNS 프라이빗 영역을 새 리소스 모델로 마이그레이션하는 단계별 지침을 제공합니다.
+
+마이그레이션이 필요한 dnszones 리소스를 확인하려면 Azure CLI에서 아래 명령을 실행합니다.
+```azurecli
+az account set --subscription <SubscriptionId>
+az network dns zone list --query "[?zoneType=='Private']"
+```
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -25,7 +32,7 @@ ms.locfileid: "71960564"
 Azure PowerShell용 Az.PrivateDns 모듈을 설치했는지 확인합니다. 이 모듈을 설치하려면 관리자 권한으로 실행되는 PowerShell 창(관리 모드)을 열고 다음 명령을 입력합니다.
 
 ```powershell
-Install-Module -Name Az.PrivateDns -AllowPrerelease
+Install-Module -Name Az.PrivateDns
 ```
 
 >[!IMPORTANT]
@@ -44,6 +51,9 @@ install-script PrivateDnsMigrationScript
 ![스크립트 설치](./media/private-dns-migration-guide/install-migration-script.png)
 
 [https://www.powershellgallery.com/packages/PrivateDnsMigrationScript](https://www.powershellgallery.com/packages/PrivateDnsMigrationScript ) 에서 최신 버전의 PowerShell 스크립트를 수동으로 받을 수 있습니다.
+
+>[!IMPORTANT]
+>마이그레이션 스크립트는 Azure 클라우드 셸에서 실행해서는 안 되며, 인터넷에 연결된 VM 또는 로컬 머신에서 실행해야 합니다.
 
 ## <a name="running-the-script"></a>스크립트 실행
 

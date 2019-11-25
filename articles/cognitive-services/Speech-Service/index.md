@@ -4,12 +4,12 @@ ms.date: 10-19-2019
 ms.topic: hub-page
 title: Speech Service 설명서
 description: Speech Service를 시작합니다.
-ms.openlocfilehash: 0a07125764908b661216c20279ab4bdf80ae91ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580325"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406185"
 ---
 <div id="main" class="v2">    
     <div class="container">
@@ -271,7 +271,7 @@ ms.locfileid: "73580325"
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>음성, 의도 및 엔터티 인식</h3>
-                                                    <p>음성 SDK 및 LUIS를 사용하여 음성, 의도 및 엔터티를 인식합니다.</p>
+                                                    <p>Speech SDK 및 LUIS(Language Understanding)를 사용하여 음성, 의도 및 엔터티를 인식합니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -289,7 +289,7 @@ ms.locfileid: "73580325"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS 설명서</h3>
+                                                    <h3>LUIS(Language Understanding) 설명서</h3>
                                                     <p>LUIS(Language Understanding Service) 및 NLP(자연어 처리)에 대해 자세히 알아봅니다.</p>
                                                 </div>
                                             </div>
@@ -308,7 +308,7 @@ ms.locfileid: "73580325"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>LUIS 포털</h3>
+                                                    <h3>LUIS(Language Understanding) 포털</h3>
                                                     <p>자연어를 앱, 봇 및 IoT 디바이스에 빌드합니다.</p>
                                                 </div>
                                             </div>

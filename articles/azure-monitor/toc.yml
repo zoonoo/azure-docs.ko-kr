@@ -836,8 +836,10 @@
               href: insights/container-insights-update-metrics.md
             - name: 상태 모니터링 구성
               href: insights/container-insights-health-monitors-config.md
-            - name: 모니터링 사용 안 함
+            - name: AKS 모니터링 사용 안 함
               href: insights/container-insights-optout.md
+            - name: Red Hat OpenShift 모니터링 사용 안 함
+              href: insights/container-insights-optout-openshift.md
             - name: 문제 해결
               href: insights/container-insights-troubleshoot.md
         - name: Docker 및 Windows 컨테이너 모니터링

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 샘플 - 스냅샷을 다른 지역의 스토리지 계정에 복사 | Microsoft Docs
+title: Azure CLI 샘플 - 스냅샷을 다른 지역의 스토리지 계정에 복사
 description: Azure CLI 스크립트 샘플 - 스냅샷을 VHD로 동일한 지역 또는 다른 지역의 스토리지 계정으로 내보내기/복사합니다.
 services: virtual-machines-linux
 documentationcenter: storage
@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc,seodec18
-ms.openlocfilehash: 2ca70eae4a7ab14be9eba82324d41f9e5a24bcff
-ms.sourcegitcommit: 3aa0fbfdde618656d66edf7e469e543c2aa29a57
+ms.openlocfilehash: e9390d6854ecfa43542d1713bae7d7e8fd8439ee
+ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2019
-ms.locfileid: "55727675"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74038254"
 ---
 # <a name="exportcopy-a-snapshot-to-a-storage-account-in-different-region-with-cli"></a>CLI를 사용하여 스냅샷을 다른 지역의 스토리지 계정으로 내보내기/복사
 

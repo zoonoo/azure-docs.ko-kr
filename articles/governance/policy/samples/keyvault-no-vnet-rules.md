@@ -1,21 +1,18 @@
 ---
 title: 샘플 - vNet 엔드포인트가 없는 Key Vaults
 description: 이 샘플 정책 정의에서는 Key Vault 자격 증명 모음을 감사하여 가상 네트워크 서비스 엔드포인트가 없는 인스턴스를 검색합니다.
-author: DCtheGeek
-ms.service: azure-policy
-ms.topic: sample
 ms.date: 01/26/2019
-ms.author: dacoulte
-ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.topic: sample
+ms.openlocfilehash: 078a781ca96df421d52179f5e8d25650def8a2f3
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255733"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74076196"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>샘플 - 가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음
 
-이 정책은 가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음을 감사합니다. 보안 요구 사항을 적용하려면 이 정책을 사용하세요. 자세한 내용은 [Key Vault의 가상 네트워크 서비스 엔드포인트](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)를 참조하세요.
+이 예제는 가상 네트워크 엔드포인트가 없는 Key Vault에 대해 [Key Vault를 Azure Policy와 통합](../../../key-vault/azure-policy.md)을 감사하는 방법입니다. 보안 요구 사항을 적용하려면 이 정책을 사용하세요. 자세한 내용은 [Key Vault의 가상 네트워크 서비스 엔드포인트](../../../key-vault/key-vault-overview-vnet-service-endpoints.md)를 참조하세요.
 
 다음 방법을 사용하여 이 샘플 정책을 배포할 수 있습니다.
 
@@ -187,4 +184,5 @@ az policy definition delete --name `echo $definition | jq '.name' -r`
 ## <a name="next-steps"></a>다음 단계
 
 - 추가 [Azure Policy 샘플](index.md) 검토
+- [Azure Policy와 Key Vault를 통합](../../../key-vault/azure-policy.md)하는 방법에 대해 알아봅니다.
 - [Azure Policy 정의 구조](../concepts/definition-structure.md) 검토

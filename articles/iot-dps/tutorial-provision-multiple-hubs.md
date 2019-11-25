@@ -1,22 +1,22 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT Hub 간 디바이스 프로비전 | Microsoft Docs
-description: Azure Portal에서 부하가 분산된 IoT Hub에 Device Provisioning Service 자동 디바이스 프로비저닝
+title: '자습서: Azure IoT Hub Device Provisioning Service를 사용하여 부하가 분산된 IoT 허브 간 디바이스 프로비전'
+description: '자습서: Azure Portal에서 부하가 분산된 IoT Hub에 Device Provisioning Service 자동 디바이스 프로비저닝'
 author: sethmanheim
 ms.author: sethm
-ms.date: 09/05/2017
+ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 8ed1b128fc2663cfc09c40f001bd0b14663a728e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6cd5dcb1fd96ac0fda75bf89dcf7259695cf971d
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486016"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74112772"
 ---
-# <a name="provision-devices-across-load-balanced-iot-hubs"></a>부하가 분산된 IoT Hub 간 디바이스 프로비전
+# <a name="tutorial-provision-devices-across-load-balanced-iot-hubs"></a>자습서: 부하가 분산된 IoT Hub 간 디바이스 프로비전
 
 이 자습서에서는 Device Provisioning Service를 사용하여 부하가 분산된 여러 IoT Hub에 대해 디바이스를 프로비전하는 방법을 보여 줍니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 

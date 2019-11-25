@@ -1,18 +1,18 @@
 ---
-title: 자습서 - 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이 만들기 - Azure Portal
+title: '자습서: 포털을 사용하여 만들기 - Web Application Firewall'
 description: 이 자습서에서는 Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만드는 방법을 알아봅니다.
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: tutorial
-ms.date: 10/17/2019
+ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: d439703f1637282c73cd960923733460502c55bc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 68a9f051bf3d59cbf32377cb503e9ded0a54d5e9
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509747"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74049231"
 ---
 # <a name="tutorial-create-an-application-gateway-with-a-web-application-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 웹 애플리케이션 방화벽이 있는 애플리케이션 게이트웨이를 만듭니다.
 
