@@ -8,43 +8,42 @@ ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 37d5288389c7b602eb0d13a736e289010d7e0f80
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 0d315c7955fff854fc52f73de16eda71b9296b40
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208196"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452457"
 ---
 # <a name="security-standards-for-azure-iot-edge"></a>Azure IoT Edge에 대한 보안 표준
 
-Azure IoT Edge은 데이터와 분석을 지능형에 지로 이동할 때 내재 된 위험을 해결 합니다. IoT Edge 보안 표준은 모든 Azure 서비스에서 필요한 보호를 사용 하 여 다양 한 배포 시나리오에 대 한 유연성을 분산 합니다. 
+Azure IoT Edge addresses the risks that are inherent when moving your data and analytics to the intelligent edge. The IoT Edge security standards balance flexibility for different deployment scenarios with the protection that you expect from all Azure services. 
 
-IoT Edge은 다양 한 하드웨어 및 모델에서 실행 되며 여러 운영 체제를 지원 하며 다양 한 배포 시나리오에 적용 됩니다. 배포 시나리오의 위험은 솔루션 소유권, 배포 지리, 데이터 민감도, 개인 정보, 응용 프로그램 수직 및 규정 요구 사항을 포함 하는 요인에 따라 달라 집니다. 특정 시나리오에 대 한 구체적인 솔루션을 제공 하는 대신 IoT Edge은 규모를 위해 설계 된 잘 접지 된 원칙을 기반으로 하는 확장 가능한 보안 프레임 워크입니다. 
+IoT Edge runs on various makes and models of hardware, supports several operating systems, and applies to diverse deployment scenarios. The risk of a deployment scenario depends on factors that include solution ownership, deployment geography, data sensitivity, privacy, application vertical, and regulatory requirements. Rather than offering concrete solutions for specific scenarios, IoT Edge is an extensible security framework based on well-grounded principles that are designed for scale. 
  
-이 문서에서는 IoT Edge 보안 프레임워크의 개요를 제공합니다. 자세한 내용은 [지능형 Edge 보안](https://azure.microsoft.com/blog/securing-the-intelligent-edge/)설정을 참조 하세요.
+이 문서에서는 IoT Edge 보안 프레임워크의 개요를 제공합니다. For more information, see [Securing the intelligent edge](https://azure.microsoft.com/blog/securing-the-intelligent-edge/).
 
 ## <a name="standards"></a>표준
 
-표준에서는 보안의 특징인 감시의 용이성과 구현의 용이성이 증진됩니다. 보안 솔루션은 신뢰를 구축 하기 위해 평가 하는 것에 대 한 조사를 구현 하 고 배포 하는 데 장애물 해서는 안 됩니다. Azure IoT Edge를 보호 하기 위한 프레임 워크의 디자인은 친숙 하 고 재사용 하기 위해 시간이 테스트 되 고 업계에서 입증 된 보안 프로토콜을 기반으로 합니다. 
+표준에서는 보안의 특징인 감시의 용이성과 구현의 용이성이 증진됩니다. A security solution should lend itself to scrutiny under evaluation to build trust and shouldn't be a hurdle to deployment. The design of the framework to secure Azure IoT Edge is based on time-tested and industry proven security protocols for familiarity and reuse. 
 
-## <a name="authentication"></a>인증
+## <a name="authentication"></a>Authentication
 
-IoT 솔루션을 배포할 때 신뢰할 수 있는 행위자, 장치 및 모듈만 솔루션에 액세스할 수 있다는 것을 알고 있어야 합니다. 인증서 기반 인증은 Azure IoT Edge 플랫폼의 인증을 위한 기본 메커니즘입니다. 이 메커니즘은 IETF (Internet 공학적 작업 Force)에서 Pki (공개 키 인프라)를 관리 하는 표준 집합에서 파생 됩니다.     
+When you deploy an IoT solution, you need to know that only trusted actors, devices, and modules have access to your solution. Certificate-based authentication is the primary mechanism for authentication for the Azure IoT Edge platform. This mechanism is derived from a set of standards governing Public Key Infrastructure (PKiX) by the Internet Engineering Task Force (IETF).     
 
-물리적 또는 네트워크 연결을 통해 Azure IoT Edge 디바이스와 상호 작용하는 모든 디바이스, 모듈 및 행위자는 고유한 인증서 ID가 있어야 합니다. 모든 시나리오 또는 구성 요소가 인증서 기반 인증에 자체 제공할 수 있는 것은 아니므로 보안 프레임 워크의 확장성은 보안 대안을 제공 합니다. 
+물리적 또는 네트워크 연결을 통해 Azure IoT Edge 디바이스와 상호 작용하는 모든 디바이스, 모듈 및 행위자는 고유한 인증서 ID가 있어야 합니다. Not every scenario or component may lend itself to certificate-based authentication, so the extensibility of the security framework offers secure alternatives. 
 
-자세한 내용은 [Azure IoT Edge 인증서 사용](iot-edge-certs.md)을 참조 하세요.
+For more information, see [Azure IoT Edge certificate usage](iot-edge-certs.md).
 
 ## <a name="authorization"></a>권한 부여
 
-최소 권한의 원칙은 사용자 및 시스템 구성 요소가 해당 역할을 수행하는 데 필요한 최소한의 리소스 및 데이터 세트에만 액세스해야 한다고 지정합니다. 디바이스, 모듈 및 작업자는 권한 범위 내에서 구조적으로 허용되는 경우에만 해당 리소스 및 데이터에 대한 액세스 권한을 얻을 수 있습니다. 일부 권한은 충분 한 권한을 사용 하 여 구성 가능 하며 다른 권한은 아키텍처에 따라 적용 됩니다.  예를 들어 일부 모듈은 Azure IoT Hub에 연결할 수 있는 권한이 있을 수 있습니다. 그러나 한 IoT Edge 장치의 모듈이 다른 IoT Edge 장치의 모듈 쌍에 액세스 해야 하는 이유는 없습니다.
+최소 권한의 원칙은 사용자 및 시스템 구성 요소가 해당 역할을 수행하는 데 필요한 최소한의 리소스 및 데이터 세트에만 액세스해야 한다고 지정합니다. 디바이스, 모듈 및 작업자는 권한 범위 내에서 구조적으로 허용되는 경우에만 해당 리소스 및 데이터에 대한 액세스 권한을 얻을 수 있습니다. Some permissions are configurable with sufficient privileges and others are architecturally enforced.  For example, some modules may be authorized to connect to Azure IoT Hub. However, there is no reason why a module in one IoT Edge device should access the twin of a module in another IoT Edge device.
 
-다른 권한 부여 체계에는 인증서 서명 권한 및 RBAC (역할 기반 액세스 제어)가 포함 됩니다. 
+Other authorization schemes include certificate signing rights and role-based access control (RBAC). 
 
 ## <a name="attestation"></a>증명
 
-증명은 소프트웨어 비트의 무결성을 보장 하며, 맬웨어를 검색 하 고 방지 하는 데 중요 합니다.  Azure IoT Edge 보안 프레임 워크는 다음과 같은 세 가지 주요 범주로 증명을 분류 합니다.
+Attestation ensures the integrity of software bits, which is important for detecting and preventing malware.  The Azure IoT Edge security framework classifies attestation under three main categories:
 
 * 정적 증명
 * 런타임 증명
@@ -52,34 +51,34 @@ IoT 솔루션을 배포할 때 신뢰할 수 있는 행위자, 장치 및 모듈
 
 ### <a name="static-attestation"></a>정적 증명
 
-정적 증명은 운영 체제, 모든 런타임 및 구성 정보를 포함 하 여 전원을 켤 때 장치에 있는 모든 소프트웨어의 무결성을 확인 합니다. 정적 증명은 전원을 켤 때 발생 하므로 주로 보안 부팅 이라고 합니다. IoT Edge 장치용 보안 프레임 워크는 제조업체에 확장 되며 정적 증명 프로세스를 보장 하는 보안 하드웨어 기능을 통합 합니다. 이러한 프로세스에는 보안 부팅 및 보안 펌웨어 업그레이드가 포함 됩니다.  실리콘 공급 업체와 긴밀 하 게 공동 작업을 수행 하면 불필요 한 펌웨어 계층이 제거 되므로 위협 영역이 최소화 됩니다. 
+Static attestation verifies the integrity of all software on a device during power-up, including the operating system, all runtimes, and configuration information. Because static attestation occurs during power-up, it's often referred to as secure boot. The security framework for IoT Edge devices extends to manufacturers and incorporates secure hardware capabilities that assure static attestation processes. These processes include secure boot and secure firmware upgrade.  Working in close collaboration with silicon vendors eliminates superfluous firmware layers, so minimizes the threat surface. 
 
 ### <a name="runtime-attestation"></a>런타임 증명
 
-시스템이 보안 부팅 프로세스를 완료 하면 잘 설계 된 시스템은 맬웨어 삽입 시도를 감지 하 고 적절 한 대책을 사용 합니다. 맬웨어 공격은 시스템의 포트 및 인터페이스를 대상으로 할 수 있습니다. 악의적인 행위자가 장치에 물리적으로 액세스할 수 있는 경우 장치 자체를 무단으로 조작 하거나 액세스 권한을 얻기 위해 측면 채널 공격을 사용할 수 있습니다. 이러한 형태일는 부팅 프로세스 후에 삽입 되기 때문에, 맬웨어 또는 무단 구성 변경을 정적 증명에서 검색할 수 없습니다. 디바이스의 하드웨어가 제공하거나 시행하는 대책을 통해 이러한 위협에서 벗어날 수 있습니다.  IoT Edge에 대 한 보안 프레임 워크는 런타임 위협을 해결 하는 확장을 명시적으로 호출 합니다.  
+Once a system has completed a secure boot process, well-designed systems should detect attempts to inject malware and take proper countermeasures. Malware attacks may target the system's ports and interfaces. If malicious actors have physical access to a device, they may tamper with the device itself or use side-channel attacks to gain access. Such malcontent, whether malware or unauthorized configuration changes, can't be detected by static attestation because it is injected after the boot process. 디바이스의 하드웨어가 제공하거나 시행하는 대책을 통해 이러한 위협에서 벗어날 수 있습니다.  The security framework for IoT Edge explicitly calls for extensions that combat runtime threats.  
 
 ### <a name="software-attestation"></a>소프트웨어 증명
 
-지능형에 지 시스템을 비롯 한 모든 정상 시스템에는 패치 및 업그레이드가 필요 합니다.  업데이트 프로세스에는 보안이 중요 합니다. 그렇지 않으면 잠재적인 위협 벡터가 될 수 있습니다.  IoT Edge의 보안 프레임 워크는 측정 및 서명 된 패키지를 통해 업데이트를 호출 하 여의 무결성을 보장 하 고 패키지 원본을 인증 합니다.  이 표준은 모든 운영 체제 및 응용 프로그램 소프트웨어 비트에 적용 됩니다. 
+All healthy systems, including intelligent edge systems, need patches and upgrades.  Security is important for update processes, otherwise they can be potential threat vectors.  The security framework for IoT Edge calls for updates through measured and signed packages to assure the integrity of and authenticate the source of the packages.  This standard applies to all operating systems and application software bits. 
 
 ## <a name="hardware-root-of-trust"></a>신뢰할 수 있는 하드웨어 루트
 
-특히 잠재적 악성 행위자가 물리적으로 액세스할 수 있는 많은 지능형 edge 장치에 대해 하드웨어 보안이 보호를 위한 마지막 방어입니다. 변조 방지 하드웨어는 이러한 배포에 매우 중요 합니다. Azure IoT Edge 다양 한 위험 프로필 및 배포 시나리오를 수용 하기 위해 안전한 실리콘 하드웨어 공급 업체에 다양 한 수준의 하드웨어 루트를 제공 하도록 권장 합니다. 하드웨어 트러스트는 신뢰할 수 있는 플랫폼 모듈(ISO/IEC 11889) 및 신뢰할 수 있는 컴퓨팅 그룹의 DICE(Device Identifier Composition Engine)와 같은 일반적인 보안 프로토콜 표준을 통해 얻을 수 있습니다. TrustZones 및 SGX (Software Guard Extensions)와 같은 안전한 enclave 기술은 하드웨어 트러스트도 제공 합니다. 
+For many intelligent edge devices, especially devices that can be physically accessed by potential malicious actors, hardware security is the last defense for protection. Tamper resistant hardware is crucial for such deployments. Azure IoT Edge encourages secure silicon hardware vendors to offer different flavors of hardware root of trust to accommodate various risk profiles and deployment scenarios. 하드웨어 트러스트는 신뢰할 수 있는 플랫폼 모듈(ISO/IEC 11889) 및 신뢰할 수 있는 컴퓨팅 그룹의 DICE(Device Identifier Composition Engine)와 같은 일반적인 보안 프로토콜 표준을 통해 얻을 수 있습니다. Secure enclave technologies like TrustZones and Software Guard Extensions (SGX) also provide hardware trust. 
 
 ## <a name="certification"></a>인증
 
-고객이 배포를 위해 Azure IoT Edge 장치를 확보 때 고객에 게 합리적인 결정을 내릴 수 있도록 IoT Edge 프레임 워크에는 인증 요구 사항이 포함 되어 있습니다.  이러한 요구 사항에 대 한 기본은 보안 클레임에 대 한 인증 및 보안 구현의 유효성 검사와 관련 된 인증입니다.  예를 들어 보안 클레임 인증 이란 IoT Edge 장치가 부팅 공격을 방지 하는 데 알려진 보안 하드웨어를 사용 하는 것을 의미 합니다. 유효성 검사 인증은 장치에이 값을 제공 하기 위해 보안 하드웨어가 제대로 구현 되었음을 의미 합니다.  간단한 원칙을 염두에 두고 프레임 워크는 인증 부담을 최소화 하려고 합니다.   
+To help customers make informed decisions when procuring Azure IoT Edge devices for their deployment, the IoT Edge framework includes certification requirements.  Foundational to these requirements are certifications pertaining to security claims and certifications pertaining to validation of the security implementation.  For example, a security claim certification means that the IoT Edge device uses secure hardware known to resist boot attacks. A validation certification means that the secure hardware was properly implemented to offer this value in the device.  In keeping with the principle of simplicity, the framework tries to keep the burden of certification minimal.   
 
 ## <a name="extensibility"></a>확장성
 
-IoT 기술을 사용 하 여 다양 한 유형의 비즈니스 변환을 추진 하는 보안은 새로운 시나리오를 해결 하기 위해 병렬로 발전 해야 합니다.  Azure IoT Edge 보안 프레임 워크는 다음과 같이 확장할 수 있는 다양 한 차원으로 빌드되는 견고한 기반으로 시작 합니다. 
+With IoT technology driving different types of business transformations, security should evolve in parallel to address emerging scenarios.  The Azure IoT Edge security framework starts with a solid foundation on which it builds in extensibility into different dimensions to include: 
 
 * Azure IoT Hub용 Device Provisioning Service와 같은 당사 보안 서비스
-* 다양 한 응용 프로그램 감축할 (예: 산업용 또는 의료) 또는 기술 중심 (예: 메시 네트워크의 보안 모니터링 또는 실리콘 하드웨어 증명 서비스)에 대 한 관리 되는 보안 서비스와 같은 타사 서비스를 통해 다양 한 네트워크를 통해 귀사.
+* Third-party services like managed security services for different application verticals (like industrial or healthcare) or technology focus (like security monitoring in mesh networks, or silicon hardware attestation services) through a rich network of partners.
 * 인증 및 ID 관리를 위한 인증서 이외의 보안 기술 사용과 같은 대체 보안 전략으로 수정을 포함하는 기존 시스템
 * 새로운 보안 하드웨어 기술 및 실리콘 파트너의 적용을 채택하는 안전한 하드웨어
 
-마지막으로, 지능형에 지를 보호 하려면 IoT 보안에서 공통적으로 사용 되는 오픈 커뮤니티의 공동 작업에 기여 해야 합니다.  이러한 기여는 보안 기술 또는 서비스의 형태가 될 수 있습니다.  Azure IoT Edge 보안 프레임 워크는 Azure cloud와 마찬가지로 지능형에 지에서 동일한 수준의 신뢰 및 무결성을 제공 하기 위해 확장 가능한 보안을 위한 견고한 기반을 제공 합니다.  
+In the end, securing the intelligent edge requires collaborative contributions from an open community driven by the common interest in securing IoT.  These contributions might be in the form of secure technologies or services.  The Azure IoT Edge security framework offers a solid foundation for security that is extensible for the maximum coverage to offer the same level of trust and integrity in the intelligent edge as with Azure cloud.  
 
 ## <a name="next-steps"></a>다음 단계
 

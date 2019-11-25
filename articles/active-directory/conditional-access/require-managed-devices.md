@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 11/22/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31b7aa906cbefc0ffda707a228f2a9d50be351a8
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0caf8e8d5e18efc0a7332f97acccc394051ed360
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380039"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452404"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>How To: Require managed devices for cloud app access with Conditional Access
 
@@ -90,6 +90,9 @@ In your Conditional Access policy, you can select **Require Hybrid Azure AD join
 - 직원이 사용하는 모바일 앱이 관리됩니다.
 - 직원이 정보에 액세스하고 공유하는 방식을 제어함으로써 회사 정보가 보호됩니다.
 - 디바이스와 해당 앱은 회사 보안 요구 사항을 준수합니다.
+
+> [!NOTE]
+> If you configure a policy to require compliant devices users may be prompted on Mac, iOS, and Android to select a device certificate during policy evaluation. This is a known behavior.
 
 ## <a name="next-steps"></a>다음 단계
 

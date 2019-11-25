@@ -1,113 +1,108 @@
 ---
-title: 상태 검사에 대 한 오류 참조-Azure Container Registry
-description: Azure Container Registry에서 az acr check 상태 진단 명령을 실행 하 여 발견 된 문제에 대 한 오류 코드 및 가능한 해결 방법
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Error reference for health checks
+description: Error codes and possible solutions to problems found by running the az acr check-health diagnostic command in Azure Container Registry
 ms.topic: article
 ms.date: 07/02/2019
-ms.author: danlep
-ms.openlocfilehash: 3bb81f33823fff5fb47f5bbbf6bb9b798b26d8af
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: a921d17ad7d01b134f5bfa33a1d9a768d3ea94df
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840362"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455040"
 ---
-# <a name="health-check-error-reference"></a>상태 검사 오류 참조
+# <a name="health-check-error-reference"></a>Health check error reference
 
-다음은 [az acr check 상태][az-acr-check-health] 명령에서 반환 하는 오류 코드에 대 한 세부 정보입니다. 각 오류에 대해 가능한 해결 방법이 나열 됩니다.
+Following are details about error codes returned by the [az acr check-health][az-acr-check-health] command. For each error, possible solutions are listed.
 
 ## <a name="docker_command_error"></a>DOCKER_COMMAND_ERROR
 
-이 오류는 CLI 용 Docker 클라이언트를 찾을 수 없음을 의미 합니다. 따라서 다음과 같은 추가 검사는 실행 되지 않습니다. Docker 버전 찾기, Docker 데몬 상태 평가 및 Docker pull 명령 실행.
+This error means that Docker client for CLI could not be found. As a result, the following additional checks are not run: finding Docker version, evaluating Docker daemon status, and running a Docker pull command.
 
-*잠재적 해결 방법*: Docker 클라이언트를 설치 합니다. 시스템 변수에 Docker 경로를 추가 합니다.
+*Potential solutions*: Install Docker client; add Docker path to the system variables.
 
 ## <a name="docker_daemon_error"></a>DOCKER_DAEMON_ERROR
 
-이 오류는 Docker 디먼 상태를 사용할 수 없거나 CLI를 사용 하 여 연결할 수 없음을 의미 합니다. 따라서 CLI를 통해 Docker 작업 (예: `docker login` 및 `docker pull`)을 사용할 수 없습니다.
+This error means that the Docker daemon status is unavailable, or that it could not be reached using the CLI. As a result, Docker operations (such as `docker login` and `docker pull`) are unavailable through the CLI.
 
-*잠재적 해결 방법*: Docker 디먼을 다시 시작 하거나 제대로 설치 되었는지 확인 합니다.
+*Potential solutions*: Restart Docker daemon, or validate that it is properly installed.
 
 ## <a name="docker_version_error"></a>DOCKER_VERSION_ERROR
 
-이 오류는 CLI에서 명령을 `docker --version`실행할 수 없음을 의미 합니다.
+This error means that CLI was not able to run the command `docker --version`.
 
-*잠재적 해결 방법*: 명령을 수동으로 실행 하 고, 최신 CLI 버전이 있는지 확인 하 고, 오류 메시지를 조사 하십시오.
+*Potential solutions*: Try running the command manually, make sure you have the latest CLI version, and investigate the error message.
 
 ## <a name="docker_pull_error"></a>DOCKER_PULL_ERROR
 
-이 오류는 CLI가 샘플 이미지를 환경으로 끌어올 수 없음을 의미 합니다.
+This error means that the CLI was not able to pull a sample image to your environment.
 
-*잠재적 해결 방법*: 이미지를 가져오는 데 필요한 모든 구성 요소가 제대로 실행 되 고 있는지 확인 합니다.
+*Potential solutions*: Validate that all components necessary to pull an image are running properly.
 
 ## <a name="helm_command_error"></a>HELM_COMMAND_ERROR
 
-이 오류는 다른 투구 작업을 불가능 하 게 하는 CLI에서 투구 클라이언트를 찾을 수 없음을 의미 합니다.
+This error means that Helm client could not be found by the CLI, which precludes other Helm operations.
 
-*잠재적 해결 방법*: 투구 client가 설치 되어 있고 해당 경로가 시스템 환경 변수에 추가 되었는지 확인 합니다.
+*Potential solutions*: Verify that Helm client is installed, and that its path is added to the system environment variables.
 
 ## <a name="helm_version_error"></a>HELM_VERSION_ERROR
 
-이 오류는 CLI가 설치 된 투구 버전을 확인할 수 없음을 의미 합니다. 이 문제는 사용 중인 Azure CLI 버전 (또는 투구 버전)이 사용 되지 않는 경우에 발생할 수 있습니다.
+This error means that the CLI was unable to determine the Helm version installed. This can happen if the Azure CLI version (or if the Helm version) being used is obsolete.
 
-*잠재적 해결 방법*: 최신 Azure CLI 버전 또는 권장 되는 투구 버전으로 업데이트 합니다. 명령을 수동으로 실행 하 고 오류 메시지를 조사 합니다.
+*Potential solutions*: Update to the latest Azure CLI version or to the recommended Helm version; run the command manually and investigate the error message.
 
 ## <a name="connectivity_dns_error"></a>CONNECTIVITY_DNS_ERROR
 
-이 오류는 지정 된 레지스트리 로그인 서버에 대 한 DNS를 ping 했지만 응답 하지 않았음을 의미 합니다. 즉, 사용할 수 없습니다. 이는 일부 연결 문제를 나타낼 수 있습니다. 또는 레지스트리가 없거나, 사용자에 게 레지스트리에 대 한 권한이 없거나 (로그인 서버를 제대로 검색할 수 있음), 대상 레지스트리가 Azure CLI에 사용 된 것과 다른 클라우드에 있는 것일 수 있습니다.
+This error means that the DNS for the given registry login server was pinged but did not respond, which means it is unavailable. This can indicate some connectivity issues. Alternatively, the registry might not exist, the user might not have the permissions on the registry (to retrieve its login server properly), or the target registry is in a different cloud than the one used in the Azure CLI.
 
-*잠재적 해결 방법*: 연결 유효성 검사 레지스트리의 철자와 레지스트리가 있는지 확인 합니다. 사용자에 게이에 대 한 적절 한 권한이 있는지 확인 하 고 레지스트리의 클라우드가 Azure CLI에 사용 된 것과 동일한 지 확인 합니다.
+*Potential solutions*: Validate connectivity; verify spelling of the registry, and that registry exists; verify that the user has the right permissions on it and that the registry's cloud is the same that is used in the Azure CLI.
 
 ## <a name="connectivity_forbidden_error"></a>CONNECTIVITY_FORBIDDEN_ERROR
 
-이 오류는 지정 된 레지스트리에 대 한 챌린지 끝점이 403 사용할 수 없음 HTTP 상태로 응답 했음을 의미 합니다. 이 오류는 사용자가 레지스트리에 액세스할 수 없음을 의미 합니다. 가상 네트워크 구성 때문입니다. 현재 구성 된 방화벽 규칙을 보려면를 실행 `az acr show --query networkRuleSet --name <registry>`합니다.
+This error means that the challenge endpoint for the given registry responded with a 403 Forbidden HTTP status. This error means that users don't have access to the registry, most likely because of a virtual network configuration. To see the currently configured firewall rules, run `az acr show --query networkRuleSet --name <registry>`.
 
-*잠재적 해결 방법*: 가상 네트워크 규칙을 제거 하거나 현재 클라이언트 IP 주소를 허용 목록에 추가 하십시오.
+*Potential solutions*: Remove virtual network rules, or add the current client IP address to the allowed list.
 
 ## <a name="connectivity_challenge_error"></a>CONNECTIVITY_CHALLENGE_ERROR
 
-이 오류는 대상 레지스트리의 챌린지 끝점에서 챌린지를 발행 하지 않았음을 의미 합니다.
+This error means that the challenge endpoint of the target registry did not issue a challenge.
 
-*잠재적 해결 방법*: 잠시 후 다시 시도 하세요. 오류가 계속 발생 하면에서 https://aka.ms/acr/issues 문제를 엽니다.
+*Potential solutions*: Try again after some time. If the error persists, open an issue at https://aka.ms/acr/issues.
 
 ## <a name="connectivity_aad_login_error"></a>CONNECTIVITY_AAD_LOGIN_ERROR
 
-이 오류는 대상 레지스트리의 챌린지 끝점에서 챌린지를 발행 했지만 레지스트리가 Azure Active Directory 인증을 지원 하지 않음을 의미 합니다.
+This error means that the challenge endpoint of the target registry issued a challenge, but the registry does not support Azure Active Directory authentication.
 
-*잠재적 해결 방법*: 예를 들어 관리자 자격 증명을 사용 하 여 인증 하는 다른 방법을 사용해 보세요. 사용자가 Azure Active Directory를 사용 하 여 인증 해야 하는 경우 https://aka.ms/acr/issues 에서 문제를 여세요.
+*Potential solutions*: Try a different way to authenticate, for example, with admin credentials. If users need  to authenticate using Azure Active Directory, open an issue at https://aka.ms/acr/issues.
 
 ## <a name="connectivity_refresh_token_error"></a>CONNECTIVITY_REFRESH_TOKEN_ERROR
 
-이 오류는 레지스트리 로그인 서버에서 새로 고침 토큰을 사용 하 여 응답 하지 않아 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 합니다. 이 오류는 사용자에 게 레지스트리에 대 한 적절 한 권한이 없거나 Azure CLI에 대 한 사용자 자격 증명이 유효 하지 않은 경우에 발생할 수 있습니다.
+This error means that the registry login server did not respond with a refresh token, so access to the target registry was denied. This error can occur if the user does not have the right permissions on the registry or if the user credentials for the  Azure CLI are stale.
 
-*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 `az login` 실행 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
+*Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
 
 ## <a name="connectivity_access_token_error"></a>CONNECTIVITY_ACCESS_TOKEN_ERROR
 
-이 오류는 레지스트리 로그인 서버에서 액세스 토큰을 사용 하 여 응답 하지 않아 대상 레지스트리에 대 한 액세스가 거부 되었음을 의미 합니다. 이 오류는 사용자에 게 레지스트리에 대 한 적절 한 권한이 없거나 Azure CLI에 대 한 사용자 자격 증명이 유효 하지 않은 경우에 발생할 수 있습니다.
+This error means that the registry login server did not respond with an access token, so that the access to the target registry was denied. This error can occur if the user does not have the right permissions on the registry or if the user credentials for the Azure CLI are stale.
 
-*잠재적 해결 방법*: 사용자에 게 레지스트리에 대 한 적절 한 권한이 있는지 확인 합니다. 을 `az login` 실행 하 여 사용 권한, 토큰 및 자격 증명을 새로 고칩니다.
+*Potential solutions*: Verify if the user has the right permissions on the registry; run `az login` to refresh permissions, tokens, and credentials.
 
 ## <a name="connectivity_ssl_error"></a>CONNECTIVITY_SSL_ERROR
 
-이 오류는 클라이언트에서 컨테이너 레지스트리에 대 한 보안 연결을 설정할 수 없음을 의미 합니다. 이 오류는 일반적으로 또는 프록시 서버를 사용 하 여 실행 하는 경우에 발생 합니다.
+This error means that the client was unable to establish a secure connection to the container registry. This error generally occurs if you're running or using a proxy server.
 
-*잠재적 해결 방법*: 프록시를 사용 하는 방법에 대 한 자세한 내용은 [여기를 참조](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy)하세요.
+*Potential solutions*: More information on working behind a proxy can be [found here](https://github.com/Azure/azure-cli/blob/master/doc/use_cli_effectively.md#working-behind-a-proxy).
 
 ## <a name="login_server_error"></a>LOGIN_SERVER_ERROR
 
-이 오류는 CLI가 지정 된 레지스트리의 로그인 서버를 찾을 수 없고 현재 클라우드에 대 한 기본 접미사를 찾지 못했음을 의미 합니다. 레지스트리에 대 한 적절 한 권한이 사용자에 게 없거나, 레지스트리의 클라우드와 현재 Azure CLI 클라우드가 일치 하지 않거나, Azure CLI 버전이 사용 되지 않는 경우이 오류가 발생할 수 있습니다.
+This error means that the CLI was unable to find the login server of the given registry, and no default suffix was found for the current cloud. This error can occur if the registry does not exist, if the user does not have the right permissions on the registry, if the registry's cloud and the current Azure CLI cloud do not match, or if the Azure CLI version is obsolete.
 
-*잠재적 해결 방법*: 철자가 올바른지와 레지스트리가 있는지 확인 합니다. 사용자에 게 레지스트리에 대 한 올바른 사용 권한이 있는지 확인 하 고 레지스트리 및 CLI 환경의 클라우드가 일치 하는지 확인 합니다. Azure CLI를 최신 버전으로 업데이트 합니다.
+*Potential solutions*: Verify that the spelling is correct and that the registry exists; verify that user has the right permissions on the registry, and that the clouds of the registry and the CLI environment match; update Azure CLI to the latest version.
 
 ## <a name="next-steps"></a>다음 단계
 
-레지스트리의 상태를 확인 하는 옵션은 [Azure container registry의 상태 확인](container-registry-check-health.md)을 참조 하세요.
+For options to check the health of a registry, see [Check the health of an Azure container registry](container-registry-check-health.md).
 
-Azure Container Registry에 대 한 질문과 대답 및 기타 알려진 문제에 대 한 [FAQ](container-registry-faq.md) 를 참조 하세요.
+See the [FAQ](container-registry-faq.md) for frequently asked questions and other known issues about Azure Container Registry.
 
 
 

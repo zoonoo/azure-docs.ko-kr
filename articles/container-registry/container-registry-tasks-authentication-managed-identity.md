@@ -1,6 +1,6 @@
 ---
-title: Azure Container Registry 작업과 함께 관리 되는 id 사용
-description: 작업에서 다른 개인 컨테이너 레지스트리를 비롯 한 다른 Azure 리소스에 액세스할 수 있도록 Azure Container Registry 작업에서 Azure 리소스에 대해 관리 되는 id를 사용 하도록 설정 합니다.
+title: Managed identity in ACR task
+description: Enable a managed identity for Azure Resources in an Azure Container Registry task to allow the task to access other Azure resources including other private container registries.
 services: container-registry
 author: dlepow
 manager: gwallace
@@ -8,51 +8,51 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: danlep
-ms.openlocfilehash: 9f7c083a079e42172a9e2865f90293fa4d6813d8
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: c86553d7658e57032393c682628d4b12d6945381
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68640421"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454724"
 ---
-# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>ACR 작업에서 Azure 관리 id 사용 
+# <a name="use-an-azure-managed-identity-in-acr-tasks"></a>Use an Azure-managed identity in ACR Tasks 
 
-자격 증명을 제공 하거나 관리 하지 않고도 작업에서 다른 Azure 리소스에 액세스할 수 있도록 [ACR 작업](container-registry-tasks-overview.md)에서 [azure 리소스에 대해 관리 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하도록 설정 합니다. 예를 들어 관리 되는 id를 사용 하 여 작업 단계에서 컨테이너 이미지를 끌어오거나 다른 레지스트리로 푸시할 수 있습니다.
+Enable a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md) in an [ACR task](container-registry-tasks-overview.md), so the task can access other Azure resources, without needing to provide or manage credentials. For example, use a managed identity to enable a task step to pull or push container images to another registry.
 
-이 문서에서는 Azure CLI를 사용 하 여 ACR 작업에서 사용자 할당 또는 시스템 할당 관리 id를 사용 하도록 설정 하는 방법에 대해 알아봅니다. Azure Cloud Shell 또는 Azure CLI의 로컬 설치를 사용할 수 있습니다. 로컬에서 사용 하려는 경우 버전 2.0.68 이상이 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
+In this article, you learn how to use the Azure CLI to enable a user-assigned or system-assigned managed identity on an ACR task. You can use the Azure Cloud Shell or a local installation of the Azure CLI. If you'd like to use it locally, version 2.0.68 or later is required. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-관리 id를 사용 하 여 ACR 작업에서 보안 된 리소스에 액세스 하는 시나리오는 다음을 참조 하세요.
+For scenarios to access secured resources from an ACR task using a managed identity, see:
 
-* [크로스 레지스트리 인증](container-registry-tasks-cross-registry-authentication.md)
-* [Azure Key Vault에 저장 된 암호를 사용 하 여 외부 리소스에 액세스](container-registry-tasks-authentication-key-vault.md)
+* [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 ## <a name="why-use-a-managed-identity"></a>관리 ID를 사용하는 이유
 
-Azure 리소스에 대 한 관리 id는 Azure Active Directory (Azure AD)에서 자동으로 관리 되는 id를 사용 하 여 선택한 Azure 서비스를 제공 합니다. 작업 단계에서 자격 증명을 전달 하지 않고도 작업에서 다른 보안 된 Azure 리소스에 액세스할 수 있도록 ACR 작업을 관리 되는 id로 구성할 수 있습니다.
+A managed identity for Azure resources provides selected Azure services with an automatically managed identity in Azure Active Directory (Azure AD). You can configure an ACR task with a managed identity so that the task can access other secured Azure resources, without passing credentials in the task steps.
 
 관리 ID에는 다음과 같은 두 가지 유형이 있습니다.
 
-* *사용자 할당 id*-여러 리소스에 할당 하 고 원하는 기간 동안 유지할 수 있습니다. 사용자 할당 ID는 현재 미리 보기 중입니다.
+* *User-assigned identities*, which you can assign to multiple resources and persist for as long as you want. 사용자 할당 ID는 현재 미리 보기 중입니다.
 
-* ACR 작업과 같이 특정 리소스에 대해 고유 하 고 해당 리소스의 수명 동안 지속 되는 *시스템 할당 id*입니다.
+* A *system-assigned identity*, which is unique to a specific resource such as an ACR task and lasts for the lifetime of that resource.
 
-ACR 작업에서 두 유형의 id를 모두 사용 하도록 설정할 수 있습니다. 모든 보안 주체와 마찬가지로 id에 다른 리소스에 대 한 액세스 권한을 부여 합니다. 태스크가 실행 될 때 id를 사용 하 여 액세스 해야 하는 작업 단계에서 리소스에 액세스 합니다.
+You can enable either or both types of identity in an ACR task. Grant the identity access to another resource, just like any security principal. When the task runs, it uses the identity to access the resource in any task steps that require access.
 
-## <a name="steps-to-use-a-managed-identity"></a>관리 id를 사용 하는 단계
+## <a name="steps-to-use-a-managed-identity"></a>Steps to use a managed identity
 
-이러한 개략적인 단계에 따라 ACR 작업에서 관리 되는 id를 사용 합니다.
+Follow these high-level steps to use a managed identity with an ACR task.
 
-### <a name="1-optional-create-a-user-assigned-identity"></a>1. 필드 사용자 할당 id 만들기
+### <a name="1-optional-create-a-user-assigned-identity"></a>1. (Optional) Create a user-assigned identity
 
-사용자 할당 id를 사용할 계획인 경우 기존 id를 사용할 수 있습니다. 또는 Azure CLI 또는 다른 Azure 도구를 사용 하 여 id를 만듭니다. 예를 들어 [az identity create][az-identity-create] 명령을 사용 합니다. 
+If you plan to use a user-assigned identity, you can use an existing identity. Or, create the identity using the Azure CLI or other Azure tools. For example, use the [az identity create][az-identity-create] command. 
 
-시스템 할당 id만 사용 하려는 경우이 단계를 건너뜁니다. ACR 작업을 만들 때 시스템 할당 id를 만들 수 있습니다.
+If you plan to use only a system-assigned identity, skip this step. You can create a system-assigned identity when you create the ACR task.
 
-### <a name="2-enable-identity-on-an-acr-task"></a>2. ACR 작업에서 id 사용
+### <a name="2-enable-identity-on-an-acr-task"></a>2. Enable identity on an ACR task
 
-ACR 작업을 만들 때 필요에 따라 사용자 할당 id, 시스템 할당 id 또는 둘 다를 사용 하도록 설정 합니다. 예를 들어 Azure CLI에서 `--assign-identity` [az acr task create][az-acr-task-create] 명령을 실행할 때 매개 변수를 전달 합니다.
+When you create an ACR task, optionally enable a user-assigned identity, a system-assigned identity, or both. For example, pass the `--assign-identity` parameter when you run the [az acr task create][az-acr-task-create] command in the Azure CLI.
 
-시스템이 할당 한 id를 사용 하도록 설정 하려면 `--assign-identity` 또는 `assign-identity [system]`를 값 없이 전달 합니다. 다음 명령은 Git 커밋 트리거와 시스템 할당 관리 id를 사용 하 여 이미지를 `hello-world` 작성 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
+To enable a system-assigned identity, pass `--assign-identity` with no value or `assign-identity [system]`. The following command creates a Linux task from a public GitHub repository which builds the `hello-world` image with a Git commit trigger and with a system-assigned managed identity:
 
 ```azurecli
 az acr task create \
@@ -63,7 +63,7 @@ az acr task create \
     --assign-identity
 ```
 
-사용자 할당 id를 사용 하도록 설정 하려면 id `--assign-identity` 의 *리소스 id* 값과 함께 전달 합니다. 다음 명령은 Git 커밋 트리거와 사용자 할당 관리 id를 사용 하 여 이미지를 `hello-world` 작성 하는 공개 GitHub 리포지토리에서 Linux 작업을 만듭니다.
+To enable a user-assigned identity, pass `--assign-identity` with a value of the *resource ID* of the identity. The following command creates a Linux task from a public GitHub repository which builds the `hello-world` image with a Git commit trigger and with a user-assigned managed identity:
 
 ```azurecli
 az acr task create \
@@ -74,33 +74,33 @@ az acr task create \
     --assign-identity <resourceID>
 ```
 
-[Az identity show][az-identity-show] 명령을 실행 하 여 id의 리소스 id를 가져올 수 있습니다. 리소스 그룹 *Myresourcegroup* 의 ID *myUserAssignedIdentity* 에 대 한 리소스 id는 형식입니다. 
+You can get the resource ID of the identity by running the [az identity show][az-identity-show] command. The resource ID for the ID *myUserAssignedIdentity* in resource group *myResourceGroup* is of the form. 
 
 ```
 "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.ManagedIdentity/userAssignedIdentities/myUserAssignedIdentity"
 ```
 
-### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. 다른 Azure 리소스에 액세스할 수 있는 id 사용 권한 부여
+### <a name="3-grant-the-identity-permissions-to-access-other-azure-resources"></a>3. Grant the identity permissions to access other Azure resources
 
-작업 요구 사항에 따라 id 권한을 부여 하 여 다른 Azure 리소스에 액세스할 수 있습니다. 예를 들어 다음과 같습니다.
+Depending on the requirements of your task, grant the identity permissions to access other Azure resources. 다음은 이러한 템플릿의 예입니다.
 
-* Azure의 대상 컨테이너 레지스트리에 끌어오기, 푸시 및 끌어오기 또는 기타 권한을 사용 하 여 관리 되는 id 역할을 할당 합니다. 레지스트리 역할의 전체 목록은 [Azure Container Registry 역할 및 사용 권한](container-registry-roles.md)을 참조 하세요. 
-* Azure 주요 자격 증명 모음에서 암호를 읽도록 관리 되는 id를 할당 합니다.
+* Assign the managed identity a role with pull, push and pull, or other permissions to a target container registry in Azure. For a complete list of registry roles, see [Azure Container Registry roles and permissions](container-registry-roles.md). 
+* Assign the managed identity a role to read secrets in an Azure key vault.
 
-[Azure CLI](../role-based-access-control/role-assignments-cli.md) 또는 다른 Azure 도구를 사용 하 여 리소스에 대 한 역할 기반 액세스를 관리 합니다. 예를 들어 [az role assign create][az-role-assignment-create] 명령을 실행 하 여 id에 역할을 할당 합니다. 
+Use the [Azure CLI](../role-based-access-control/role-assignments-cli.md) or other Azure tools to manage role-based access to resources. For example, run the [az role assignment create][az-role-assignment-create] command to assign the identity a role to the identity. 
 
-다음 예제에서는 관리 되는 id를 컨테이너 레지스트리에서 끌어올 수 있는 권한으로 할당 합니다. 이 명령은 id의 *서비스 사용자 id* 와 대상 레지스트리의 *리소스 id* 를 지정 합니다.
+The following example assigns a managed identity the permissions to pull from a container registry. The command specifies the *service principal ID* of the identity and the *resource ID* of the target registry.
 
 
 ```azurecli
 az role assignment create --assignee <servicePrincipalID> --scope <registryID> --role acrpull
 ```
 
-### <a name="4-optional-add-credentials-to-the-task"></a>4. 필드 작업에 자격 증명 추가
+### <a name="4-optional-add-credentials-to-the-task"></a>4. (Optional) Add credentials to the task
 
-태스크가 이미지를 다른 Azure container registry로 끌어오고 푸시하는 경우 인증을 위해 id에 대 한 작업에 자격 증명을 추가 합니다. [Az acr task credential add][az-acr-task-credential-add] 명령을 실행 하 고 `--use-identity` 매개 변수를 전달 하 여 id의 자격 증명을 작업에 추가 합니다. 
+If your task pulls or pushes images to another Azure container registry, add credentials to the task for the identity to authenticate. Run the [az acr task credential add][az-acr-task-credential-add] command and pass the `--use-identity` parameter to add the identity's credentials to the task. 
 
-예를 들어 레지스트리 *targetregistry*를 사용 하 여 인증 하기 위해 시스템 할당 id에 대 한 자격 증명 `use-identity [system]`을 추가 하려면 다음을 전달 합니다.
+For example, to add credentials for a system-assigned identity to authenticate with the registry *targetregistry*, pass `use-identity [system]`:
 
 ```azurecli
 az acr task credential add \
@@ -110,7 +110,7 @@ az acr task credential add \
     --use-identity [system]
 ```
 
-레지스트리 *targetregistry*를 사용 하 여 인증할 사용자 할당 id에 대 한 자격 증명을 추가 `use-identity` 하려면 id의 *클라이언트 id* 값으로을 전달 합니다. 예를 들어:
+To add credentials for a user-assigned identity to authenticate with the registry *targetregistry*, pass `use-identity` with a value of the *client ID* of the identity. 다음은 그 예입니다.
 
 ```azurecli
 az acr task credential add \
@@ -120,14 +120,14 @@ az acr task credential add \
     --use-identity <clientID>
 ```
 
-[Az identity show][az-identity-show] 명령을 실행 하 여 id의 클라이언트 id를 가져올 수 있습니다. 클라이언트 ID는 형식의 `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`GUID입니다.
+You can get the client ID of the identity by running the [az identity show][az-identity-show] command. The client ID is a GUID of the form `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 ACR 작업에서 사용자 할당 또는 시스템 할당 관리 id를 사용 하도록 설정 하 고 사용 하는 방법을 배웠습니다. 관리 id를 사용 하 여 ACR 작업에서 보안 된 리소스에 액세스 하는 시나리오는 다음을 참조 하세요.
+In this article, you learned how to enable and use a user-assigned or system-assigned managed identity on an ACR task. For scenarios to access secured resources from an ACR task using a managed identity, see:
 
-* [크로스 레지스트리 인증](container-registry-tasks-cross-registry-authentication.md)
-* [Azure Key Vault에 저장 된 암호를 사용 하 여 외부 리소스에 액세스](container-registry-tasks-authentication-key-vault.md)
+* [Cross-registry authentication](container-registry-tasks-cross-registry-authentication.md)
+* [Access external resources with secrets stored in Azure Key Vault](container-registry-tasks-authentication-key-vault.md)
 
 
 <!-- LINKS - Internal -->

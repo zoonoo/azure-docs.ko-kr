@@ -1,47 +1,42 @@
 ---
-title: Azure Container Registry에서 이미지 잠그기
-description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 설정 하 여 Azure container registry에서 삭제 하거나 덮어쓸 수 없습니다.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: 이미지 잠그기
+description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
 ms.topic: article
 ms.date: 09/30/2019
-ms.author: danlep
-ms.openlocfilehash: 1ef6d5366e5db07a7f03bac251c24b1ff76a13e9
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 9e55a6688be9f51f1c1b237ae86bd57692a86592
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949511"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456319"
 ---
-# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
+# <a name="lock-a-container-image-in-an-azure-container-registry"></a>Lock a container image in an Azure container registry
 
-Azure container registry에서 이미지 버전 또는 리포지토리를 잠가 삭제 하거나 업데이트할 수 없습니다. 이미지나 리포지토리를 잠그려면 Azure CLI 명령 [az acr repository update][az-acr-repository-update]를 사용 하 여 해당 특성을 업데이트 합니다. 
+In an Azure container registry, you can lock an image version or a repository so that it can't be deleted or updated. To lock an image or a repository, update its attributes using the Azure CLI command [az acr repository update][az-acr-repository-update]. 
 
-이 문서에서는 Azure Cloud Shell 또는 로컬 (버전 2.0.55 이상 권장)에서 Azure CLI를 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
+This article requires that you run the Azure CLI in Azure Cloud Shell or locally (version 2.0.55 or later recommended). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
 > [!IMPORTANT]
-> 이 문서는 Azure Portal의 **설정 > 잠금** 또는 Azure CLI `az lock` 명령을 사용 하는 등 전체 레지스트리를 잠그는 경우에는 적용 되지 않습니다. 레지스트리 리소스를 잠그면 리포지토리에서 데이터를 생성, 업데이트 또는 삭제할 수 없습니다. 레지스트리를 잠그면 복제를 추가 또는 삭제 하거나 레지스트리 자체를 삭제 하는 등의 관리 작업에만 영향을 줍니다. [예기치 않은 변경을 방지 하기 위해 리소스 잠금](../azure-resource-manager/resource-group-lock-resources.md)에 대 한 자세한 정보.
+> This article doesn't apply to locking an entire registry, for example, using **Settings > Locks** in the Azure portal, or `az lock` commands in the Azure CLI. Locking a registry resource doesn't prevent you from creating, updating, or deleting data in repositories. Locking a registry only affects management operations such as adding or deleting replications, or deleting the registry itself. More information in [Lock resources to prevent unexpected changes](../azure-resource-manager/resource-group-lock-resources.md).
 
 ## <a name="scenarios"></a>시나리오
 
-기본적으로 Azure Container Registry의 태그가 지정 된 이미지는 *변경*가능 하므로 적절 한 사용 권한이 있으면 동일한 태그가 있는 이미지를 반복적으로 업데이트 하 고 레지스트리로 푸시할 수 있습니다. 필요에 따라 컨테이너 이미지를 [삭제할](container-registry-delete.md) 수도 있습니다. 이 동작은 이미지를 개발할 때 레지스트리의 크기를 유지 해야 하는 경우에 유용 합니다.
+By default, a tagged image in Azure Container Registry is *mutable*, so with appropriate permissions you can repeatedly update and push an image with the same tag to a registry. Container images can also be [deleted](container-registry-delete.md) as needed. This behavior is useful when you develop images and need to maintain a size for your registry.
 
-그러나 컨테이너 이미지를 프로덕션 환경에 배포 하는 경우에는 *변경할* 수 없는 컨테이너 이미지가 필요할 수 있습니다. 변경할 수 없는 이미지는 실수로 삭제 하거나 덮어쓸 수 없는 이미지입니다. [Az acr repository update][az-acr-repository-update] 명령을 사용 하 여 리포지토리 특성을 설정 하 여 다음을 수행할 수 있습니다.
+However, when you deploy a container image to production, you might need an *immutable* container image. An immutable image is one that you can't accidentally delete or overwrite. Use the [az acr repository update][az-acr-repository-update] command to set repository attributes so you can:
 
-* 이미지 버전 또는 전체 리포지토리 잠그기
+* Lock an image version, or an entire repository
 
-* 이미지 버전 또는 리포지토리를 삭제 하지 않고 보호 하지만 업데이트 허용
+* Protect an image version or repository from deletion, but allow updates
 
-* 이미지 버전 또는 전체 리포지토리에서 읽기 (끌어오기) 작업 차단
+* Prevent read (pull) operations on an image version, or an entire repository
 
-예제는 다음 섹션을 참조 하세요.
+See the following sections for examples.
 
-## <a name="lock-an-image-or-repository"></a>이미지 또는 리포지토리 잠금 
+## <a name="lock-an-image-or-repository"></a>Lock an image or repository 
 
-### <a name="show-the-current-repository-attributes"></a>현재 리포지토리 특성 표시
-리포지토리의 현재 특성을 보려면 다음 [az acr repository show][az-acr-repository-show] 명령을 실행 합니다.
+### <a name="show-the-current-repository-attributes"></a>Show the current repository attributes
+To see the current attributes of a repository, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
 az acr repository show \
@@ -49,8 +44,8 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="show-the-current-image-attributes"></a>현재 이미지 특성 표시
-태그의 현재 특성을 보려면 다음 [az acr repository show][az-acr-repository-show] 명령을 실행 합니다.
+### <a name="show-the-current-image-attributes"></a>Show the current image attributes
+To see the current attributes of a tag, run the following [az acr repository show][az-acr-repository-show] command:
 
 ```azurecli
 az acr repository show \
@@ -58,9 +53,9 @@ az acr repository show \
     --output jsonc
 ```
 
-### <a name="lock-an-image-by-tag"></a>태그로 이미지 잠그기
+### <a name="lock-an-image-by-tag"></a>Lock an image by tag
 
-Myrepo */myrepo:* *myrepo*의 태그 이미지를 잠그려면 다음 [az acr repository update][az-acr-repository-update] 명령을 실행 합니다.
+To lock the *myrepo/myimage:tag* image in *myregistry*, run the following [az acr repository update][az-acr-repository-update] command:
 
 ```azurecli
 az acr repository update \
@@ -68,9 +63,9 @@ az acr repository update \
     --write-enabled false
 ```
 
-### <a name="lock-an-image-by-manifest-digest"></a>매니페스트 다이제스트로 이미지 잠그기
+### <a name="lock-an-image-by-manifest-digest"></a>Lock an image by manifest digest
 
-매니페스트 다이제스트 256 (`sha256:...`로 표시 됨)로 식별 되는 *myrepo/myrepo* 이미지를 잠그려면 다음 명령을 실행 합니다. 하나 이상의 이미지 태그와 연결 된 매니페스트 다이제스트를 찾으려면 [az acr repository show-manifest][az-acr-repository-show-manifests] 명령을 실행 합니다.
+To lock a *myrepo/myimage* image identified by manifest digest (SHA-256 hash, represented as `sha256:...`), run the following command. (To find the manifest digest associated with one or more image tags, run the [az acr repository show-manifests][az-acr-repository-show-manifests] command.)
 
 ```azurecli
 az acr repository update \
@@ -78,9 +73,9 @@ az acr repository update \
     --write-enabled false
 ```
 
-### <a name="lock-a-repository"></a>리포지토리 잠금
+### <a name="lock-a-repository"></a>Lock a repository
 
-*Myrepo/myrepo* 리포지토리 및 모든 이미지를 잠그려면 다음 명령을 실행 합니다.
+To lock the *myrepo/myimage* repository and all images in it, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -88,11 +83,11 @@ az acr repository update \
     --write-enabled false
 ```
 
-## <a name="protect-an-image-or-repository-from-deletion"></a>삭제할 이미지 또는 리포지토리 보호
+## <a name="protect-an-image-or-repository-from-deletion"></a>Protect an image or repository from deletion
 
-### <a name="protect-an-image-from-deletion"></a>삭제에서 이미지 보호
+### <a name="protect-an-image-from-deletion"></a>Protect an image from deletion
 
-*Myrepo/myrepo: 태그* 이미지를 업데이트 하지만 삭제 하지 않도록 허용 하려면 다음 명령을 실행 합니다.
+To allow the *myrepo/myimage:tag* image to be updated but not deleted, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -100,9 +95,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-### <a name="protect-a-repository-from-deletion"></a>저장소에서 삭제 방지
+### <a name="protect-a-repository-from-deletion"></a>Protect a repository from deletion
 
-다음 명령은 *myrepo/myrepo* 리포지토리를 삭제할 수 없도록 설정 합니다. 개별 이미지를 여전히 업데이트 하거나 삭제할 수 있습니다.
+The following command sets the *myrepo/myimage* repository so it can't be deleted. Individual images can still be updated or deleted.
 
 ```azurecli
 az acr repository update \
@@ -110,9 +105,9 @@ az acr repository update \
     --delete-enabled false --write-enabled true
 ```
 
-## <a name="prevent-read-operations-on-an-image-or-repository"></a>이미지 또는 리포지토리에 대 한 읽기 작업 방지
+## <a name="prevent-read-operations-on-an-image-or-repository"></a>Prevent read operations on an image or repository
 
-*Myrepo/myrepo: tag* 이미지에서 읽기 (끌어오기) 작업을 방지 하려면 다음 명령을 실행 합니다.
+To prevent read (pull) operations on the *myrepo/myimage:tag* image, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -120,7 +115,7 @@ az acr repository update \
     --read-enabled false
 ```
 
-*Myrepo/myrepo* 리포지토리의 모든 이미지에 대 한 읽기 작업을 방지 하려면 다음 명령을 실행 합니다.
+To prevent read operations on all images in the *myrepo/myimage* repository, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -128,9 +123,9 @@ az acr repository update \
     --read-enabled false
 ```
 
-## <a name="unlock-an-image-or-repository"></a>이미지 또는 리포지토리 잠금 해제
+## <a name="unlock-an-image-or-repository"></a>Unlock an image or repository
 
-삭제 하 고 업데이트할 수 있도록 *myrepo/myrepo: tag* 이미지의 기본 동작을 복원 하려면 다음 명령을 실행 합니다.
+To restore the default behavior of the *myrepo/myimage:tag* image so that it can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -138,7 +133,7 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-삭제 및 업데이트할 수 있도록 *myrepo/myrepo* 리포지토리 및 모든 이미지의 기본 동작을 복원 하려면 다음 명령을 실행 합니다.
+To restore the default behavior of the *myrepo/myimage* repository and all images so that they can be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
@@ -148,11 +143,11 @@ az acr repository update \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 [az acr repository update][az-acr-repository-update] 명령을 사용 하 여 리포지토리의 이미지 버전 삭제 또는 업데이트를 방지 하는 방법을 배웠습니다. 추가 특성을 설정 하려면 [az acr repository update][az-acr-repository-update] 명령 참조를 참조 하세요.
+In this article, you learned about using the [az acr repository update][az-acr-repository-update] command to prevent deletion or updating of image versions in a repository. To set additional attributes, see the [az acr repository update][az-acr-repository-update] command reference.
 
-이미지 버전 또는 리포지토리에 대해 설정 된 특성을 보려면 [az acr repository show][az-acr-repository-show] 명령을 사용 합니다.
+To see the attributes set for an image version or repository, use the [az acr repository show][az-acr-repository-show] command.
 
-삭제 작업에 대 한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제][container-registry-delete]를 참조 하세요.
+For details about delete operations, see [Delete container images in Azure Container Registry][container-registry-delete].
 
 <!-- LINKS - Internal -->
 [az-acr-repository-update]: /cli/azure/acr/repository#az-acr-repository-update
