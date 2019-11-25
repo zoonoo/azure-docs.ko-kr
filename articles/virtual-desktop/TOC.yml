@@ -72,6 +72,8 @@
       href: customize-feed-for-virtual-desktop-users.md
     - name: 진단 도구 배포
       href: deploy-diagnostics.md
+    - name: 앱 게시
+      href: publish-apps.md
     - name: MSIX 앱 연결 설정
       href: app-attach.md
 - name: 개념
@@ -128,6 +130,8 @@
       href: 'https://azure.microsoft.com/services/virtual-desktop/assessment/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
+    - name: 학습 경로
+      href: 'https://docs.microsoft.com/learn/paths/m365-wvd/'
     - name: 기술 커뮤니티 지원 그룹
       href: 'https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop'
     - name: UserVoice 포럼

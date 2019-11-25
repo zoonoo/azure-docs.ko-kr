@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure Portal을 사용하여 Azure Load Balancer에서 포트 전달 구성'
-titlesuffix: Azure Load Balancer
+title: '자습서: 포트 전달 구성 - Azure Portal'
+titleSuffix: Azure Load Balancer
 description: 이 자습서에서는 Azure Load Balancer를 사용하여 Azure 가상 네트워크의 VM에 대한 연결을 설정하도록 포트 전달을 구성하는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 6dda01543a6a7f447adefcc6cc3cfa3ea5da5492
+ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72428231"
+ms.lasthandoff: 11/13/2019
+ms.locfileid: "74048856"
 ---
 # <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>자습서: 포털을 사용하여 Azure Load Balancer에서 포트 전달 구성
 
