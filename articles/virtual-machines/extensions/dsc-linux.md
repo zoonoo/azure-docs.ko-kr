@@ -1,5 +1,5 @@
 ---
-title: Linux용 Azure DSC 확장
+title: Azure DSC extension for Linux
 description: Desired State Configuration을 사용하여 Azure Linux VM을 구성할 수 있도록 OMI 및 DSC 패키지를 설치합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -13,77 +13,78 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 1825f9f0f5d525c0129341d800ca5949136ae633
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: b631a370c64522c201f1208819b5a76895d83b09
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73750082"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457512"
 ---
-# <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux용 DSC 확장(Microsoft.OSTCExtensions.DSCForLinux)
+# <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC extension for Linux (Microsoft.OSTCExtensions.DSCForLinux)
 
-DSC(Desired State Configuration)는 구성을 코드로 사용하여 IT 및 개발 인프라를 관리할 수 있게 하는 관리 플랫폼입니다.
+Desired State Configuration (DSC) is a management platform that you can use to manage your IT and development infrastructure with configuration as code.
 
-> ! 참고 Linux 용 DSC 확장 및 [linux 용 Azure Monitor 가상 머신 확장](/azure/virtual-machines/extensions/oms-linux) 은 현재 충돌을 제공 하며 side-by-side 구성에서 지원 되지 않습니다.  즉, 동일한 VM에서 두 솔루션을 함께 사용 하면 안 됩니다.
+> [!NOTE]
+> The DSC extension for Linux and the [Azure Monitor virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux) currently present a conflict and aren't supported in a side-by-side configuration. Don't use the two solutions together on the same VM.
 
-DSCForLinux 확장은 Microsoft에서 게시하고 지원합니다. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. DSC 확장에서는 다음 작업도 수행할 수 있습니다.
+The DSCForLinux extension is published and supported by Microsoft. 확장은 OMI 및 DSC 에이전트를 Azure 가상 머신에 설치합니다. The DSC extension can also do the following actions:
 
 
-- Linux VM을 Azure Automation 계정에 등록하여 Azure Automation 서비스에서 구성을 가져옵니다(ExtensionAction 등록).
-- MOF 구성을 Linux VM에 푸시합니다(ExtensionAction 푸시).
-- Meta MOF 구성을 Linux VM에 적용하여 노드 구성을 끌어오도록 끌어오기 서버를 구성합니다(ExtensionAction 끌어오기).
-- Linux VM에 사용자 지정 DSC 모듈을 설치합니다(ExtensionAction 설치).
-- Linux VM에서 사용자 지정 DSC 모듈을 제거합니다(ExtensionAction 제거).
+- Register the Linux VM to an Azure Automation account to pull configurations from the Azure Automation service (Register ExtensionAction).
+- Push MOF configurations to the Linux VM (Push ExtensionAction).
+- Apply meta MOF configuration to the Linux VM to configure a pull server in order to pull node configuration (Pull ExtensionAction).
+- Install custom DSC modules to the Linux VM (Install ExtensionAction).
+- Remove custom DSC modules from the Linux VM (Remove ExtensionAction).
 
  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="operating-system"></a>운영 체제
 
 DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
 
-| 배포 | 버전 |
+| 유통 | 버전 |
 |---|---|
 | Debian | 모든 버전 |
 | Ubuntu| 18.04 |
  
 ### <a name="internet-connectivity"></a>인터넷 연결
 
-DSCForLinux 확장을 사용하려면 대상 가상 머신이 인터넷에 연결되어 있어야 합니다. 예를 들어 등록 확장에는 Automation 서비스에 대한 연결이 필요합니다. Push, Pull, Install과 같은 다른 작업의 경우 Azure 스토리지/Github에 연결해야 합니다. 이러한 연결은 고객이 제공하는 설정에 따라 달라집니다.
+The DSCForLinux extension requires the target virtual machine to be connected to the internet. For example, the Register extension requires connectivity to the Automation service. For other actions such as Pull, Pull, Install requires connectivity to Azure Storage and GitHub. It depends on settings provided by the customer.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-### <a name="11-public-configuration"></a>1.1 공용 구성
+### <a name="public-configuration"></a>공용 구성
 
 지원되는 모든 공용 구성 매개 변수는 다음과 같습니다.
 
-* `FileUri`: (선택 사항, 문자열) MOF 파일/메타 MOF 파일/사용자 지정 리소스 ZIP 파일의 URI
-* `ResourceName`: (선택 사항, 문자열) 사용자 지정 리소스 모듈의 이름
-* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. 유효한 값: Register, Push, Pull, Install, Remove. 지정하지 않으면 기본적으로 푸시 작업으로 간주됩니다.
-* `NodeConfigurationName`: (선택 사항, 문자열) 적용할 노드 구성의 이름
-* `RefreshFrequencyMins`: (선택 사항, 정수) DSC가 끌어오기 서버에서 구성을 가져오려고 시도하는 빈도(분)를 지정합니다. 
-       끌어오기 서버의 구성이 대상 노드의 현재 구성과 다르면 보류 중인 저장소에 복사되고 적용됩니다.
-* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. 유효한 값: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect
+* `FileUri`: (optional, string) The uri of the MOF file, meta MOF file, or custom resource zip file.
+* `ResourceName`: (optional, string) The name of the custom resource module.
+* `ExtensionAction`: (선택 사항, 문자열) 확장에서 수행할 작업을 지정합니다. Valid values are Register, Push, Pull, Install, and Remove. If not specified, it's considered a Push Action by default.
+* `NodeConfigurationName`: (optional, string) The name of a node configuration to apply.
+* `RefreshFrequencyMins`: (optional, int) Specifies how often (in minutes) that DSC attempts to obtain the configuration from the pull server. 
+       If configuration on the pull server differs from the current one on the target node, it's copied to the pending store and applied.
+* `ConfigurationMode`: (선택 사항, 문자열) DSC에서 구성을 적용해야 하는 방법을 지정합니다. Valid values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
 * `ConfigurationModeFrequencyMins`: (선택 사항, 정수) DSC에서 구성이 원하는 상태에 있는지 확인하는 빈도(분)를 지정합니다.
 
 > [!NOTE]
-> 2\.3 버전 미만을 사용하는 경우 mode 매개 변수는 ExtensionAction과 동일합니다. 모드는 오버 로드 된 용어입니다. 따라서 혼동을 방지하기 위해 ExtensionAction이 2.3 버전 이후부터 사용되고 있습니다. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
+> If you use a version earlier than 2.3, the mode parameter is the same as ExtensionAction. Mode seems to be an overloaded term. To avoid confusion, ExtensionAction is used from version 2.3 onward. 이전 버전과의 호환성을 위해 확장은 mode와 ExtensionAction을 모두 지원합니다. 
 >
 
-### <a name="12-protected-configuration"></a>1.2 보호된 구성
+### <a name="protected-configuration"></a>보호된 구성
 
 지원되는 모든 보호된 구성 매개 변수는 다음과 같습니다.
 
-* `StorageAccountName`: (선택 사항, 문자열) 파일이 포함된 스토리지 계정의 이름
-* `StorageAccountKey`: (선택 사항, 문자열) 파일이 포함된 스토리지 계정의 키
-* `RegistrationUrl`: (선택 사항, 문자열) Azure Automation 계정의 URL
-* `RegistrationKey`: (선택 사항, 문자열) Azure Automation 계정의 액세스 키
+* `StorageAccountName`: (optional, string) The name of the storage account that contains the file
+* `StorageAccountKey`: (optional, string) The key of the storage account that contains the file
+* `RegistrationUrl`: (optional, string) The URL of the Azure Automation account
+* `RegistrationKey`: (optional, string) The access key of the Azure Automation account
 
 
 ## <a name="scenarios"></a>시나리오
 
-### <a name="register-to-azure-automation-account"></a>Azure Automation 계정에 등록
+### <a name="register-an-azure-automation-account"></a>Register an Azure Automation account
 protected.json
 ```json
 {
@@ -102,7 +103,7 @@ public.json
 }
 ```
 
-PowerShell 형식
+PowerShell format
 ```powershell
 $privateConfig = '{
   "RegistrationUrl": "<azure-automation-account-url>",
@@ -118,7 +119,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>VM에 MOF 구성 파일(Azure Storage 계정에 있음) 적용
+### <a name="apply-an-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Apply an MOF configuration file (in an Azure storage account) to the VM
 
 protected.json
 ```json
@@ -136,7 +137,7 @@ public.json
 }
 ```
 
-PowerShell 형식
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -150,7 +151,7 @@ $publicConfig = '{
 ```
 
 
-### <a name="apply-a-mof-configuration-file-in-public-storage-to-the-vm"></a>VM에 MOF 구성 파일(공용 스토리지에 있음) 적용
+### <a name="apply-an-mof-configuration-file-in-public-storage-to-the-vm"></a>Apply an MOF configuration file (in public storage) to the VM
 
 public.json
 ```json
@@ -159,14 +160,14 @@ public.json
 }
 ```
 
-PowerShell 형식
+PowerShell format
 ```powershell
 $publicConfig = '{
   "FileUri": "<mof-file-uri>"
 }'
 ```
 
-### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>VM에 메타 MOF 구성 파일(Azure Storage 계정에 있음) 적용
+### <a name="apply-a-meta-mof-configuration-file-in-an-azure-storage-account-to-the-vm"></a>Apply a meta MOF configuration file (in an Azure storage account) to the VM
 
 protected.json
 ```json
@@ -184,7 +185,7 @@ public.json
 }
 ```
 
-PowerShell 형식
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -205,7 +206,7 @@ public.json
   "ExtensionAction": "Pull"
 }
 ```
-PowerShell 형식
+PowerShell format
 ```powershell
 $publicConfig = '{
   "FileUri": "<meta-mof-file-uri>",
@@ -213,7 +214,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>VM에 사용자 지정 리소스 모듈(Azure Storage 계정에 있는 ZIP 파일) 설치
+### <a name="install-a-custom-resource-module-a-zip-file-in-an-azure-storage-account-to-the-vm"></a>Install a custom resource module (a zip file in an Azure storage account) to the VM
 protected.json
 ```json
 {
@@ -229,7 +230,7 @@ public.json
 }
 ```
 
-PowerShell 형식
+PowerShell format
 ```powershell
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -242,7 +243,7 @@ $publicConfig = '{
 }'
 ```
 
-### <a name="install-a-custom-resource-module-zip-file-in-public-storage-to-the-vm"></a>VM에 사용자 지정 리소스 모듈(공용 스토리지에 있는 ZIP 파일) 설치
+### <a name="install-a-custom-resource-module-a-zip-file-in-public-storage-to-the-vm"></a>Install a custom resource module (a zip file in public storage) to the VM
 public.json
 ```json
 {
@@ -250,7 +251,7 @@ public.json
   "FileUri": "<resource-zip-file-uri>"
 }
 ```
-PowerShell 형식
+PowerShell format
 ```powershell
 $publicConfig = '{
   "ExtensionAction": "Install",
@@ -266,7 +267,7 @@ public.json
   "ExtensionAction": "Remove"
 }
 ```
-PowerShell 형식
+PowerShell format
 ```powershell
 $publicConfig = '{
   "ResourceName": "<resource-name>",
@@ -276,25 +277,25 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>템플릿 배포
 
-Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Azure Automation에 등록하는 것처럼 배포 후 구성이 필요한 하나 이상의 가상 머신을 배포하는 경우 템플릿을 사용하는 것이 좋습니다. 
+Azure Resource Manager 템플릿을 사용하여 Azure VM 확장을 배포할 수 있습니다. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration, such as onboarding to Azure Automation. 
 
 Resource Manager 템플릿 샘플은 [201-dsc-linux-azure-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) 및 [201-dsc-linux-public-storage-on-ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu)입니다.
 
-Azure Resource Manager 템플릿에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](../../azure-resource-manager/resource-group-authoring-templates.md)을 참조하세요.
+For more information about the Azure Resource Manager template, see [Authoring Azure Resource Manager templates](../../azure-resource-manager/resource-group-authoring-templates.md).
 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI 배포
 
-### <a name="21-using-azure-cliazure-cli"></a>2.1. [**Azure CLI**][azure-cli] 사용
-DSCForLinux 확장을 배포하기 전에 섹션 3의 다양한 시나리오에 따라 `public.json`과 `protected.json`을 구성해야 합니다.
+### <a name="use-azure-cliazure-cli"></a>Use [Azure CLI][azure-cli]
+Before you deploy the DSCForLinux extension, configure your `public.json` and `protected.json` according to the different scenarios in section 3.
 
-#### <a name="211-classic"></a>2.1.1. 클래식
-클래식 모드는 Azure 서비스 관리 모드라고도 합니다. 다음을 실행하여 클래식 모드로 전환할 수 있습니다.
+#### <a name="classic"></a>클래식
+The classic deployment mode is also called Azure Service Management mode. 다음을 실행하여 클래식 모드로 전환할 수 있습니다.
 ```
 $ azure config mode asm
 ```
 
-다음을 실행하여 DSCForLinux 확장을 배포할 수 있습니다.
+You can deploy the DSCForLinux extension by running:
 ```
 $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
@@ -305,33 +306,33 @@ $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>2.1.2. 리소스 관리자
+#### <a name="resource-manager"></a>Resource Manager
 다음을 실행하여 Azure Resource Manager 모드로 전환할 수 있습니다.
 ```
 $ azure config mode arm
 ```
 
-다음을 실행하여 DSCForLinux 확장을 배포할 수 있습니다.
+You can deploy the DSCForLinux extension by running:
 ```
 $ azure vm extension set <resource-group> <vm-name> \
 DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> `azure vm extension list`는 현재 Azure Resource Manager 모드에서 사용할 수 없습니다.
+> In Azure Resource Manager mode, `azure vm extension list` isn't available for now.
 >
 
-### <a name="22-using-azure-powershellazure-powershell"></a>2.2. [**Azure PowerShell**][azure-powershell] 사용
+### <a name="use-azure-powershellazure-powershell"></a>Use [Azure PowerShell][azure-powershell]
 
-#### <a name="221-classic"></a>2.2.1 클래식
+#### <a name="classic"></a>클래식
 
-다음을 실행하여 Azure 계정(Azure 서비스 관리 모드)에 로그인할 수 있습니다.
+You can sign in to your Azure account in Azure Service Management mode by running:
 
 ```powershell>
 Add-AzureAccount
 ```
 
-다음을 실행하여 DSCForLinux 확장을 배포합니다.
+And deploy the DSCForLinux extension by running:
 
 ```powershell>
 $vmname = '<vm-name>'
@@ -341,7 +342,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-위의 섹션에서 다양한 시나리오에 따라 $privateConfig 및 $publicConfig의 내용을 변경해야 합니다 
+Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -362,17 +363,17 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="222resource-manager"></a>2.2.2. Resource Manager
+#### <a name="resource-manager"></a>Resource Manager
 
-다음을 실행하여 Azure 계정(Azure Resource Manager 모드)에 로그인할 수 있습니다.
+You can sign in to your Azure account in Azure Resource Manager mode by running:
 
 ```powershell>
 Login-AzAccount
 ```
 
-Azure Resource Manager에서 Azure PowerShell을 사용하는 방법에 대한 자세한 내용은 [**여기**](../../azure-resource-manager/manage-resources-powershell.md)를 클릭하세요.
+To learn more about how to use Azure PowerShell with Azure Resource Manager, see [Manage Azure resources by using Azure PowerShell](../../azure-resource-manager/manage-resources-powershell.md).
 
-다음을 실행하여 DSCForLinux 확장을 배포할 수 있습니다.
+You can deploy the DSCForLinux extension by running:
 
 ```powershell>
 $rgName = '<resource-group-name>'
@@ -383,7 +384,7 @@ $publisher = 'Microsoft.OSTCExtensions'
 $version = '< version>'
 ```
 
-위의 섹션에서 다양한 시나리오에 따라 $privateConfig 및 $publicConfig의 내용을 변경해야 합니다 
+Change the content of $privateConfig and $publicConfig according to different scenarios in the previous section.
 ```
 $privateConfig = '{
   "StorageAccountName": "<storage-account-name>",
@@ -408,7 +409,7 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
 
 ### <a name="troubleshoot"></a>문제 해결
 
-확장 배포 상태에 대한 데이터는 Azure CLI를 사용하여 Azure Portal에서 검색할 수 있습니다. 지정된 VM에 대한 확장의 배포 상태를 보려면 Azure CLI를 사용하여 다음 명령을 실행합니다.
+Data about the state of extension deployments can be retrieved from the Azure portal and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command by using the Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
@@ -420,14 +421,14 @@ az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-오류 코드: 51은 지원되지 않는 배포판 또는 지원되지 않는 확장 작업을 나타냅니다.
-OMI의 상위 버전이 이미 컴퓨터에 있으면 경우에 따라 DSC Linux 확장에서 OMI를 설치하지 못합니다. [오류 응답: (000003) 다운그레이드가 허용되지 않음]
+Error code: 51 represents either unsupported distribution or unsupported extension action.
+In some cases, DSC Linux extension fails to install OMI when a higher version of OMI already exists in the machine. [오류 응답: (000003) 다운그레이드가 허용되지 않음]
 
 
 
 ### <a name="support"></a>지원
 
-이 문서의 어디에서든 도움이 필요한 경우 [MSDN Azure 및 Stack Overflow 포럼](https://azure.microsoft.com/support/community/)에서 Azure 전문가에게 문의할 수 있습니다. 또는 Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/)로 가서 지원 받기를 선택합니다. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
+If you need more help at any point in this article, contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/support/community/). Alternatively, you can file an Azure Support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get support**. Azure 지원을 사용하는 방법에 대한 자세한 내용은 [Microsoft Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 확장에 대한 자세한 내용은 [Linux용 가상 머신 확장 및 기능](features-linux.md)을 참조하세요.

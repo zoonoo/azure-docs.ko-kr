@@ -1,5 +1,5 @@
 ---
-title: DPS를 사용 하 여 Linux 장치를 자동으로 프로 비전-Azure IoT Edge | Microsoft Docs
+title: Automatically provision Linux devices with DPS - Azure IoT Edge | Microsoft Docs
 description: Linux VM에서 시뮬레이션된 TPM을 사용하여 Azure IoT Edge에 대한 Azure Device Provisioning Service 테스트
 author: kgremban
 manager: philmea
@@ -8,19 +8,18 @@ ms.date: 03/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 228851a0d528bfb222e5aa19880f856424e95ad1
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 292ae570d4f2ddd0c09e667860ee2ba01b9fc6b8
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828121"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457179"
 ---
-# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Linux 가상 머신에서 가상 TPM을 사용 하 여 IoT Edge 장치 만들기 및 프로 비전
+# <a name="create-and-provision-an-iot-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Create and provision an IoT Edge device with a virtual TPM on a Linux virtual machine
 
-[장치 프로 비전 서비스](../iot-dps/index.yml)를 사용 하 여 Azure IoT Edge 장치를 자동으로 프로 비전 할 수 있습니다. 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
+Azure IoT Edge devices can be automatically provisioned using the [Device Provisioning Service](../iot-dps/index.yml). 자동 프로비전 프로세스에 익숙하지 않은 경우 계속하기 전에 [자동 프로비전 개념](../iot-dps/concepts-auto-provisioning.md)을 검토하세요.
 
-이 문서에서는 다음 단계를 사용 하 여 시뮬레이트된 IoT Edge 장치에서 자동 프로 비전을 테스트 하는 방법을 보여 줍니다.
+This article shows you how to test auto-provisioning on a simulated IoT Edge device with the following steps:
 
 * 하드웨어 보안을 위해 시뮬레이션된 TPM(신뢰할 수 있는 플랫폼 모듈)을 사용하여 Hyper-v에서 Linux 가상 머신(VM)을 만듭니다.
 * IoT Hub DPS(Device Provisioning Service)의 인스턴스를 만듭니다.
@@ -28,28 +27,28 @@ ms.locfileid: "71828121"
 * IoT Edge 런타임 설치 및 IoT Hub에 디바이스 연결
 
 > [!NOTE]
-> Tpm 2.0는 DPS에서 TPM 증명을 사용 하는 경우 필요 하며, 개별 그룹, 등록 그룹을 만드는 데만 사용할 수 있습니다.
+> TPM 2.0 is required when using TPM attestation with DPS and can only be used to create individual, not group, enrollments.
 
 > [!TIP]
-> 이 문서에서는 TPM 시뮬레이터를 사용 하 여 DPS 프로 비전을 테스트 하는 방법을 설명 하지만 대부분의 [BROADCOMM OPTIGA&trade; tpm](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), IoT용 Azure Certified 장치와 같은 실제 tpm 하드웨어에 적용 됩니다.
+> This article describes how to test DPS provisioning using a TPM simulator, but much of it applies to physical TPM hardware such as the [Infineon OPTIGA&trade; TPM](https://catalog.azureiotsolutions.com/details?title=OPTIGA-TPM-SLB-9670-Iridium-Board), an Azure Certified for IoT device.
 >
-> 물리적 장치를 사용 하는 경우이 문서의 [물리적 장치에서 프로 비전 정보 검색](#retrieve-provisioning-information-from-a-physical-device) 섹션으로 건너뛸 수 있습니다.
+> If you're using a physical device, you can skip ahead to the [Retrieve provisioning information from a physical device](#retrieve-provisioning-information-from-a-physical-device) section in this article.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [Hyper-V를 사용하도록 설정된](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v) Windows 개발 컴퓨터. 이 문서에서는 Ubuntu Server VM을 실행하는 Windows 10을 사용합니다.
 * 활성 IoT Hub.
-* 시뮬레이션 된 TPM을 사용 하는 경우 ' 워크 로드 [를 C++사용한 데스크톱 개발 '](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) 워크 로드와 함께 [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 이상 버전을 사용할 수 있습니다.
+* If using a simulated TPM, [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 or later with the ['Desktop development with C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) workload enabled.
 
 ## <a name="create-a-linux-virtual-machine-with-a-virtual-tpm"></a>가상 TPM을 사용하여 Linux 가상 머신 만들기
 
-이 섹션에서는 Hyper-v에서 새 Linux 가상 머신을 만듭니다. 자동 프로비저닝이 IoT Edge와 작동 하는 방식을 테스트 하는 데 사용할 수 있도록 시뮬레이션 된 TPM을 사용 하 여이 가상 머신을 구성 했습니다. 
+In this section, you create a new Linux virtual machine on Hyper-V. You configured this virtual machine with a simulated TPM so that you can use it for testing how automatic provisioning works with IoT Edge. 
 
 ### <a name="create-a-virtual-switch"></a>가상 스위치 만들기
 
 가상 스위치를 사용하면 가상 머신을 실제 네트워크에 연결할 수 있습니다.
 
-1. Windows 컴퓨터에서 Hyper-v 관리자를 엽니다. 
+1. Open Hyper-V Manager on your Windows machine. 
 
 2. **작업** 메뉴에서 **가상 스위치 관리자**를 선택합니다. 
 
@@ -61,27 +60,27 @@ ms.locfileid: "71828121"
 
 새 가상 스위치를 만드는 동안 오류가 표시되는 경우 다른 스위치가 이더넷 어댑터를 사용하고 있지 않은지 그리고 동일한 이름을 사용하지 않는지 확인합니다. 
 
-### <a name="create-virtual-machine"></a>가상 머신 만들기
+### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
 1. 가상 머신에 사용하기 위해 디스크 이미지 파일을 다운로드하고 로컬로 저장합니다. 예를 들어 [Ubuntu server](https://www.ubuntu.com/download/server). 
 
-2. Hyper-v 관리자의 **작업** 메뉴에서 **새로 만들기** > **가상 컴퓨터** 를 선택 합니다.
+2. In Hyper-V Manager again, select **New** > **Virtual Machine** in the **Actions** menu.
 
 3. 다음 특정 구성으로 **새 Virtual Machine 마법사**를 완료합니다.
 
-   1. **세대 지정**: **2세대**를 선택합니다. 2 세대 가상 컴퓨터에는 가상 컴퓨터에서 IoT Edge를 실행 하는 데 필요한 중첩 된 가상화가 사용 하도록 설정 되어 있습니다.
+   1. **세대 지정**: **2세대**를 선택합니다. Generation 2 virtual machines have nested virtualization enabled, which is required to run IoT Edge on a virtual machine.
    2. **네트워킹 구성**: 이전 섹션에서 만든 가상 스위치에 **연결** 값을 설정합니다. 
    3. **설치 옵션**: **부팅 가능한 이미지 파일에서 운영 체제 설치**를 선택하고, 로컬에 저장한 디스크 이미지 파일을 찾습니다.
 
-4. 마법사에서 **마침** 을 선택 하 여 가상 컴퓨터를 만듭니다.
+4. Select **Finish** in the wizard to create the virtual machine.
 
 새 VM을 만드는 데 몇 분이 걸릴 수 있습니다. 
 
 ### <a name="enable-virtual-tpm"></a>가상 TPM 사용
 
-VM을 만든 후에는 해당 설정을 열어 장치를 자동으로 프로 비전 할 수 있는 TPM (가상 신뢰할 수 있는 플랫폼 모듈)을 사용 하도록 설정 합니다.
+Once your VM is created, open its settings to enable the virtual trusted platform module (TPM) that lets you auto-provision the device.
 
-1. 가상 컴퓨터를 선택한 다음 해당 **설정을**엽니다.
+1. Select the virtual machine, then open its **Settings**.
 
 2. **보안**으로 이동합니다. 
 
@@ -93,18 +92,18 @@ VM을 만든 후에는 해당 설정을 열어 장치를 자동으로 프로 비
 
 ### <a name="start-the-virtual-machine-and-collect-tpm-data"></a>가상 머신 시작 및 TPM 데이터 수집
 
-가상 머신에서 장치의 **등록 ID** 및 **인증 키**를 검색 하는 데 사용할 수 있는 도구를 빌드합니다.
+In the virtual machine, build a tool that you can use to retrieve the device's **Registration ID** and **Endorsement key**.
 
-1. 가상 컴퓨터를 시작 하 고 연결 합니다.
+1. Start your virtual machine and connect to it.
 
-1. 가상 컴퓨터 내의 메시지에 따라 설치 프로세스를 완료 하 고 컴퓨터를 다시 부팅 합니다.
+1. Follow the prompts within the virtual machine to finish the installation process and reboot the machine.
 
-1. VM에 로그인 한 다음 [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) 의 단계에 따라 C 용 Azure IOT 장치 SDK를 설치 하 고 빌드합니다.
+1. Sign in to your VM, then follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
    >[!TIP]
-   >이 문서에서는 Hyper-v 관리자 연결 응용 프로그램을 통해 쉽게 찾을 수 없는 가상 머신에서 복사 하 여 붙여 넣습니다. Hyper-v 관리자를 통해 가상 컴퓨터에 연결 하 여 IP 주소를 검색 하는 것을 한 번 `ifconfig`수 있습니다. 그런 다음 IP 주소를 사용 하 여 SSH: `ssh <username>@<ipaddress>`을 통해 연결할 수 있습니다.
+   >In the course of this article, you'll copy to and paste from the virtual machine, which is not easy through the Hyper-V Manager connection application. You may want to connect to the virtual machine through Hyper-V Manager once to retrieve its IP address: `ifconfig`. Then, you can use the IP address to connect through SSH: `ssh <username>@<ipaddress>`.
 
-1. 다음 명령을 실행 하 여 TPM 시뮬레이터에서 장치 프로 비전 정보를 검색 하는 SDK 도구를 빌드합니다.
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM simulator.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -114,27 +113,27 @@ VM을 만든 후에는 해당 설정을 열어 장치를 자동으로 프로 비
    sudo ./tpm_device_provision
    ```
 
-1. 명령 창에서 `azure-iot-sdk-c` 디렉터리로 이동 하 고 TPM 시뮬레이터를 실행 합니다. 포트 2321 및 2322에서 소켓을 수신 대기합니다. 이 명령 창을 닫지 마십시오. 이 시뮬레이터는 계속 실행 해야 합니다.
+1. From a command window, navigate to the `azure-iot-sdk-c` directory and run the TPM simulator. 포트 2321 및 2322에서 소켓을 수신 대기합니다. Do not close this command window; you will need to keep this simulator running.
 
-   `azure-iot-sdk-c` 디렉터리에서 다음 명령을 실행 하 여 시뮬레이터를 시작 합니다.
+   From the `azure-iot-sdk-c` directory, run the following command to start the simulator:
 
    ```bash
    ./provisioning_client/deps/utpm/tools/tpm_simulator/Simulator.exe
    ```
 
-1. Visual Studio를 사용 하 여 `azure_iot_sdks.sln`이라는 `cmake` 디렉터리에 생성 된 솔루션을 열고 빌드 메뉴에서 **솔루션 빌드** 명령을 사용 하 여 **빌드합니다.**
+1. Using Visual Studio, open the solution generated in the `cmake` directory named `azure_iot_sdks.sln`, and build it using the **Build solution** command on the **Build** menu.
 
 1. Visual Studio의 **솔루션 탐색기** 창에서 **Provision\_Tools** 폴더로 이동합니다. **tpm_device_provision** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **시작 프로젝트로 설정**을 선택합니다.
 
-1. **디버그** 메뉴에서 **시작** 명령 중 하나를 사용 하 여 솔루션을 실행 합니다. 출력 창에는 TPM 시뮬레이터의 **등록 id** 및 **인증 키**가 표시 됩니다. 나중에 장치에 대 한 개별 등록을 만들 때이 창을 닫을 때 (등록 ID 및 인증 키 사용) tpm 시뮬레이터 창이 실행 되는 상태로 유지할 수 있습니다.
+1. Run the solution using either of the **Start** commands on the **Debug** menu. The output window displays the TPM simulator's **Registration ID** and the **Endorsement key**, which you should copy for use later when you create an individual enrollment for your device in You can close this window (with Registration ID and Endorsement key), but leave the TPM simulator window running.
 
-## <a name="retrieve-provisioning-information-from-a-physical-device"></a>물리적 장치에서 프로 비전 정보 검색
+## <a name="retrieve-provisioning-information-from-a-physical-device"></a>Retrieve provisioning information from a physical device
 
-장치에서 장치의 프로 비전 정보를 검색 하는 데 사용할 수 있는 도구를 빌드합니다.
+On your device, build a tool that you can use to retrieve the device's provisioning information.
 
-1. [Linux 개발 환경 설정](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) 의 단계에 따라 C 용 Azure IOT 장치 SDK를 설치 하 고 빌드합니다.
+1. Follow the steps in [Set up a Linux development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux) to install and build the Azure IoT device SDK for C.
 
-1. 다음 명령을 실행 하 여 TPM 장치에서 장치 프로 비전 정보를 검색 하는 SDK 도구를 빌드합니다.
+1. Run the following commands to build the SDK tool that retrieves your device provisioning information from the TPM device.
 
    ```bash
    cd azure-iot-sdk-c/cmake
@@ -144,7 +143,7 @@ VM을 만든 후에는 해당 설정을 열어 장치를 자동으로 프로 비
    sudo ./tpm_device_provision
    ```
 
-1. **등록 ID** 및 **인증 키**에 대 한 값을 복사 합니다. 이러한 값을 사용하여 DPS에서 디바이스에 대한 개별 등록을 만듭니다.
+1. Copy the values for **Registration ID** and **Endorsement key**. 이러한 값을 사용하여 DPS에서 디바이스에 대한 개별 등록을 만듭니다.
 
 ## <a name="set-up-the-iot-hub-device-provisioning-service"></a>IoT Hub Device Provisioning Service 설정
 
@@ -158,7 +157,7 @@ Device Provisioning Service를 실행한 후 개요 페이지에서 **ID 범위*
 
 DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 기회가 있습니다. 디바이스 쌍에서 지역, 환경, 위치 또는 디바이스 유형 같은 솔루션에 필요한 모든 메트릭으로 디바이스 그룹에 태그를 설정할 수 있습니다. 이러한 태그는 [자동 배포](how-to-deploy-monitor.md)를 만드는 데 사용됩니다. 
 
-1. [Azure Portal](https://portal.azure.com)에서 IoT Hub Device Provisioning Service 인스턴스로 이동 합니다. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your instance of IoT Hub Device Provisioning Service. 
 
 2. **설정**에서 **등록 관리**를 선택합니다. 
 
@@ -166,18 +165,18 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    1. **메커니즘**의 경우 **TPM**을 선택합니다. 
 
-   2. 가상 머신에서 복사한 **인증 키** 및 **등록 ID** 를 제공 합니다.
+   2. Provide the **Endorsement key** and **Registration ID** that you copied from your virtual machine.
 
       > [!TIP]
-      > 물리적 TPM 장치를 사용 하는 경우 각 TPM 칩에 고유한 **인증 키**를 확인 해야 하며,이는 연결 된 tpm 칩 제조업체에서 가져옵니다. 예를 들어 인증 키의 SHA-256 해시를 만들어 TPM 장치에 대 한 고유한 **등록 ID** 를 파생할 수 있습니다.
+      > If you're using a physical TPM device, you need to determine the **Endorsement key**, which is unique to each TPM chip and is obtained from the TPM chip manufacturer associated with it. You can derive a unique **Registration ID** for your TPM device by, for example, creating an SHA-256 hash of the endorsement key.
 
-   3. 이 가상 머신이 IoT Edge 장치 임을 선언 하려면 **True** 를 선택 합니다. 
+   3. Select **True** to declare that this virtual machine is an IoT Edge device. 
 
-   4. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. 여러 허브를 선택할 수 있으며, 선택한 할당 정책에 따라 장치 중 하나에 장치가 할당 됩니다. 
+   4. 디바이스를 연결하려는 링크된 **IoT Hub**를 선택합니다. You can choose multiple hubs, and the device will be assigned to one of them according to the selected allocation policy. 
 
-   5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. 장치 ID를 제공 하지 않으면 등록 ID가 사용 됩니다.
+   5. 원하는 경우 디바이스에 대한 ID를 제공합니다. 디바이스 ID를 사용하여 모듈 배포에 대한 개별 디바이스를 대상으로 할 수 있습니다. If you don't provide a device ID, the registration ID is used.
 
-   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 예를 들어: 
+   6. 원하는 경우 **초기 디바이스 쌍 상태**에 태그 값을 추가합니다. 태그를 사용하여 모듈 배포에 대한 디바이스 그룹을 대상으로 할 수 있습니다. 다음은 그 예입니다. 
 
       ```json
       {
@@ -192,7 +191,7 @@ DPS에서 등록을 만들 때 **초기 디바이스 쌍 상태**를 선언할 �
 
    7. **저장**을 선택합니다. 
 
-이제이 장치에 대 한 등록이 있으므로 IoT Edge 런타임은 설치 중에 장치를 자동으로 프로 비전 할 수 있습니다. 
+Now that an enrollment exists for this device, the IoT Edge runtime can automatically provision the device during installation. 
 
 ## <a name="install-the-iot-edge-runtime"></a>IoT Edge 런타임 설치
 
@@ -200,7 +199,7 @@ IoT Edge 런타임은 모든 IoT Edge 디바이스에 배포되며, 해당 구�
 
 디바이스 유형과 일치하는 문서를 시작하기 전에 DPS **ID 범위** 및 디바이스 **등록 ID**를 알아야 합니다. 예제 Ubuntu 서버를 설치했으면 **x64** 지침을 사용합니다. 수동이 아닌 자동 프로비전에 대한 IoT Edge 런타임을 구성해야 합니다. 
 
-[Linux에 Azure IoT Edge 런타임 설치](how-to-install-iot-edge-linux.md)
+[Install the Azure IoT Edge runtime on Linux](how-to-install-iot-edge-linux.md)
 
 ## <a name="give-iot-edge-access-to-the-tpm"></a>TPM에 대한 IoT Edge 액세스 권한 부여
 
@@ -299,8 +298,8 @@ journalctl -u iotedge --no-pager --no-full
 iotedge list
 ```
 
-장치 프로 비전 서비스에서 만든 개별 등록이 사용 되었는지 확인할 수 있습니다. Azure Portal에서 장치 프로 비전 서비스 인스턴스로 이동 합니다. 만든 개별 등록에 대 한 등록 정보를 엽니다. 등록 상태가 **할당** 되 고 장치 ID가 나열 됩니다. 
+You can verify that the individual enrollment that you created in Device Provisioning Service was used. Navigate to your Device Provisioning Service instance in the Azure portal. Open the enrollment details for the individual enrollment that you created. Notice that the status of the enrollment is **assigned** and the device ID is listed. 
 
 ## <a name="next-steps"></a>다음 단계
 
-Device Provisioning Service 등록 프로세스를 사용하면 새 디바이스를 프로비전할 때 디바이스 ID 및 디바이스 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor-cli.md)하는 방법을 알아봅니다.
+Device Provisioning Service 등록 프로세스를 사용하면 새 디바이스를 프로비전할 때 디바이스 ID 및 디바이스 쌍 태그를 동시에 설정할 수 있습니다. 자동 디바이스 관리를 사용하여 개별 디바이스 또는 디바이스 그룹을 대상으로 하려면 이러한 값을 사용할 수 있습니다. [Azure CLI를 사용](how-to-deploy-monitor-cli.md)하거나 [Azure Portal을 사용하여 대규모로 IoT Edge 모듈을 배포하고 모니터링](how-to-deploy-monitor.md)하는 방법을 알아봅니다.

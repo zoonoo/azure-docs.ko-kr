@@ -1,63 +1,61 @@
 ---
-title: Azure Container Registry의 태그 및 버전 이미지
-description: Azure container registry에 이미지를 푸시 하 고 이미지를 끌어올 때 Docker 컨테이너 이미지를 태그 지정 하 고 버전을 관리 하기 위한 모범 사례
-services: container-registry
+title: Image tag best practices
+description: Best practices for tagging and versioning Docker container images when pushing images to and pulling images from an Azure container registry
 author: stevelasker
-ms.service: container-registry
 ms.topic: article
 ms.date: 07/10/2019
 ms.author: stevelas
-ms.openlocfilehash: 41013fb5831d09d7a4334e94d2b8b39e0cafe4d2
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2d407f041456ea3856fbeedf98147356eaeb61d6
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931572"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455007"
 ---
-# <a name="recommendations-for-tagging-and-versioning-container-images"></a>컨테이너 이미지 태그 지정 및 버전 관리에 대 한 권장 사항
+# <a name="recommendations-for-tagging-and-versioning-container-images"></a>Recommendations for tagging and versioning container images
 
-컨테이너 레지스트리에 컨테이너 이미지를 배포 하 고 배포 하는 경우 이미지 태그 지정 및 버전 관리에 대 한 전략이 필요 합니다. 이 문서에서는 두 가지 방법과 컨테이너 수명 주기 동안 각각에 맞는 위치에 대해 설명 합니다.
+When pushing deploying container images to a container registry and then deploying them, you need a strategy for image tagging and versioning. This article discusses two approaches and where each fits during the container lifecycle:
 
-* **안정적인 태그** -예를 들어 *mycontainerimage: 1.0*과 같은 주 버전 또는 부 버전을 나타내기 위해 다시 사용 하는 태그입니다.
-* **고유 태그** - *mycontainerimage: abc123*와 같이 레지스트리에 푸시하는 각 이미지에 대 한 다른 태그입니다.
+* **Stable tags** - Tags that you reuse, for example, to indicate a major or minor version such as *mycontainerimage:1.0*.
+* **Unique tags** - A different tag for each image you push to a registry, such as *mycontainerimage:abc123*.
 
-## <a name="stable-tags"></a>안정적인 태그
+## <a name="stable-tags"></a>Stable tags
 
-**권장 사항**: 안정적인 태그를 사용 하 여 컨테이너 빌드에 대 한 **기본 이미지** 를 유지 합니다. 이러한 태그는 계속 업데이트를 수신 하 고 프로덕션 환경에서 불일치를 발생 시킬 수 있으므로 안정적인 태그로 배포 하지 마십시오.
+**Recommendation**: Use stable tags to maintain **base images** for your container builds. Avoid deployments with stable tags, because those tags continue to receive updates and can introduce inconsistencies in production environments.
 
-*안정적인 태그* 는 개발자 (또는 빌드 시스템)가 계속 해 서 특정 태그를 끌어올 수 있으며, 계속 해 서 업데이트를 받습니다. 안정성은 콘텐츠가 고정 되어 있음을 의미 하지 않습니다. 대신, 안정화는 이미지를 해당 버전의 의도에 대 한 안정적인 것으로 암시 합니다. "안정적인" 상태를 유지 하기 위해 보안 패치 또는 프레임 워크 업데이트를 적용 하도록 서비스를 제공할 수 있습니다.
+*Stable tags* mean a developer, or a build system, can continue to pull a specific tag, which continues to get updates. Stable doesn’t mean the contents are frozen. Rather, stable implies the image should be stable for the intent of that version. To stay “stable”, it might be serviced to apply security patches or framework updates.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
-프레임 워크 팀은 버전 1.0을 제공 합니다. 사소한 업데이트를 포함 하 여 업데이트를 제공 한다는 것을 알고 있습니다. 지정 된 주 버전 및 부 버전에 대해 안정적인 태그를 지원 하기 위해 두 개의 안정적인 태그 집합이 있습니다.
+A framework team ships version 1.0. They know they’ll ship updates, including minor updates. To support stable tags for a given major and minor version, they have two sets of stable tags.
 
-* `:1` – 주 버전에 대 한 안정적인 태그입니다. `1` "최신" 또는 "최신" 1. * 버전을 나타냅니다.
-* `:1.0`-버전 1.0에 대 한 안정적인 태그를 제공 하 여 개발자가 1.0 업데이트에 바인딩할 수 있도록 하 고, 릴리스 시 1.1로 롤포워드할 수 없도록 합니다.
+* `:1` – a stable tag for the major version. `1` represents the “newest” or “latest” 1.* version.
+* `:1.0`- a stable tag for version 1.0, allowing a developer to bind to updates of 1.0, and not be rolled forward to 1.1 when it is released.
 
-또한 팀은 현재 주 버전에 관계 없이 안정적인 최신 태그를 가리키는 `:latest` 태그를 사용 합니다.
+The team also uses the `:latest` tag, which points to the latest stable tag, no matter what the current major version is.
 
-기본 이미지 업데이트를 사용할 수 있는 경우 또는 프레임 워크의 모든 유형에 서 안정적인 태그가 있는 이미지는 해당 버전의 최신 안정적인 릴리스를 나타내는 최신 다이제스트로 업데이트 됩니다.
+When base image updates are available, or any type of servicing release of the framework, images with the stable tags are updated to the newest digest that represents the most current stable release of that version.
 
-이 경우 주 태그와 보조 태그는 계속 해 서 처리 됩니다. 기본 이미지 시나리오에서 이미지 소유자는 서비스 이미지를 제공할 수 있습니다.
+In this case, both the major and minor tags are continually being serviced. From a base image scenario, this allows the image owner to provide serviced images.
 
-## <a name="unique-tags"></a>고유 태그
+## <a name="unique-tags"></a>Unique tags
 
-**권장 사항**: 특히 여러 노드에서 확장할 수 있는 환경에서 **배포**에 고유한 태그를 사용 합니다. 일관 된 버전의 구성 요소를 의도적으로 배포 하려는 경우가 있습니다. 컨테이너가 다시 시작 되거나 오 케 스트레이 터가 더 많은 인스턴스를 확장 하는 경우 호스트는 실수로 최신 버전을 풀 하지 않으며 다른 노드와 일치 하지 않습니다.
+**Recommendation**: Use unique tags for **deployments**, especially in an environment that could scale on multiple nodes. You likely want deliberate deployments of a consistent version of components. If your container restarts or an orchestrator scales out more instances, your hosts won’t accidentally pull a newer version, inconsistent with the other nodes.
 
-고유한 태깅 이란 단지 레지스트리에 푸시된 모든 이미지에 고유한 태그가 있음을 의미 합니다. 태그는 다시 사용 되지 않습니다. 다음을 포함 하 여 고유한 태그를 생성 하기 위해 수행할 수 있는 몇 가지 패턴이 있습니다.
+Unique tagging simply means that every image pushed to a registry has a unique tag. Tags are not reused. There are several patterns you can follow to generate unique tags, including:
 
-* **날짜-시간 스탬프** -이미지가 작성 된 시기를 명확 하 게 알 수 있으므로이 방법은 매우 일반적입니다. 그러나 빌드 시스템에 다시 연결 하는 방법 동시에 완료 된 빌드를 찾아야 하나요? 어떤 표준 시간대를 사용할 수 있나요? 모든 빌드 시스템이 UTC로 보정 되나요?
-* **Git 커밋** –이 방법은 기본 이미지 업데이트 지원을 시작할 때까지 작동 합니다. 기본 이미지 업데이트가 발생 하면 이전 빌드와 동일한 Git 커밋을 사용 하 여 빌드 시스템이 시작 됩니다. 그러나 기본 이미지에는 새 콘텐츠가 있습니다. 일반적으로 Git 커밋은 *반*안정적인 태그를 제공 합니다.
-* **매니페스트 다이제스트** -컨테이너 레지스트리에 푸시되는 각 컨테이너 이미지는 고유한 SHA-256 해시 또는 다이제스트로 식별 되는 매니페스트와 연결 됩니다. 고유 하지만 다이제스트는 긴 하지만 읽기 어렵고 빌드 환경에서 상관 관계가 없는 됩니다.
-* **빌드 ID** -이 옵션은 증분 가능성이 있으므로이 옵션을 사용 하는 것이 가장 좋을 수 있으며, 모든 아티팩트와 로그를 찾기 위해 특정 빌드와 다시 연관 시킬 수 있습니다. 그러나 매니페스트 다이제스트와 마찬가지로 사람이 읽기 어려울 수 있습니다.
+* **Date-time stamp** - This approach is fairly common, since you can clearly tell when the image was built. But, how to correlate it back to your build system? Do you have to find the build that was completed at the same time? What time zone are you in? Are all your build systems calibrated to UTC?
+* **Git commit**  – This approach works until you start supporting base image updates. If a base image update happens, your build system  kicks off with the same Git commit as the previous build. However, the base image has new content. In general, a Git commit provides a *semi*-stable tag.
+* **Manifest digest** - Each container image pushed to a container registry is associated with a manifest, identified by a unique SHA-256 hash, or digest. While unique, the digest is long, difficult to read, and uncorrelated with your build environment.
+* **Build ID** - This option may be best since it's likely incremental, and it allows you to correlate back to the specific build to find all the artifacts and logs. However, like a manifest digest, it might be difficult for a human to read.
 
-  조직에 여러 빌드 시스템이 있는 경우, 빌드 시스템 이름으로 태그를 접두사로 사용 하는 것은이 옵션의 변형 `<build-system>-<build-id>`입니다. 예를 들어 API 팀의 Jenkins 빌드 시스템과 웹 팀의 Azure Pipelines 빌드 시스템의 빌드를 구분할 수 있습니다.
+  If your organization has several build systems, prefixing the tag with the build system name is a variation on this option: `<build-system>-<build-id>`. For example, you could differentiate builds from the API team’s Jenkins build system and the web team's Azure Pipelines build system.
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서의 개념에 대 한 자세한 내용은 [Docker 태깅 블로그 게시물 docker 이미지 태그 지정 및 버전 관리에 대 한 모범 사례](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/)를 참조 하세요.
+For a more detailed discussion of the concepts in this article, see the blog post [Docker Tagging: Best practices for tagging and versioning docker images](https://stevelasker.blog/2018/03/01/docker-tagging-best-practices-for-tagging-and-versioning-docker-images/).
 
-Azure container registry의 성능 및 비용 효율적 사용을 최대화 하려면 [Azure Container Registry에 대 한 모범 사례](container-registry-best-practices.md)를 참조 하세요.
+To help maximize the performance and cost-effective use of your Azure container registry, see [Best practices for Azure Container Registry](container-registry-best-practices.md).
 
 <!-- IMAGES -->
 

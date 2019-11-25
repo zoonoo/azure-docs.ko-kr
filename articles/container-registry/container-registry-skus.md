@@ -1,19 +1,14 @@
 ---
-title: Azure Container Registry SKU
-description: Azure Container Registry의 기본, 표준 및 프리미엄 서비스 계층 (Sku)의 기능 및 제한 사항에 대해 알아봅니다.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
+title: Service tiers and SKUs
+description: Learn about the features and limits in the Basic, Standard, and Premium service tiers (SKUs) of Azure Container Registry.
 ms.topic: article
 ms.date: 11/05/2019
-ms.author: danlep
-ms.openlocfilehash: 19b1fb78413f82d422779b12227b4a5e2361d813
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1ebe5339b7523a4463dee45b126244d7ec5b2e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681822"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456278"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry SKU
 
@@ -21,13 +16,13 @@ ACR(Azure Container Registry)은 다중 서비스 계층(즉, SKU)에서 사용 
 
 | SKU | 설명 |
 | --- | ----------- |
-| **Basic** | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. 기본 레지스트리는 Standard 및 Premium과 동일한 프로그래밍 기능을 제공 합니다 (예: Azure Active Directory [인증 통합](container-registry-authentication.md#individual-login-with-azure-ad), [이미지 삭제][container-registry-delete]및 [웹 후크][container-registry-webhook]). 그렇지만 포함된 스토리지 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
+| **Basic** | 개발자가 Azure Container Registry에 대해 배울 수 있는 비용 최적화된 진입점입니다. Basic registries have the same programmatic capabilities as Standard and Premium (such as Azure Active Directory [authentication integration](container-registry-authentication.md#individual-login-with-azure-ad), [image deletion][container-registry-delete], and [webhooks][container-registry-webhook]). 그렇지만 포함된 스토리지 및 이미지 처리량은 더 낮은 사용량 시나리오에 가장 적합합니다. |
 | **Standard** | Standard 레지스트리는 Basic과 동일한 성능을 제공하되, 포함된 스토리지 제한과 이미지 처리량은 더 높습니다. Standard 레지스트리는 대부분의 프로덕션 시나리오 요구를 충족합니다. |
-| **Premium** | Premium 레지스트리는 포함된 스토리지 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. Premium은 더 높은 이미지 처리량 외에도, 여러 지역에서 단일 레지스트리를 관리 하기 위한 [지역 복제][container-registry-geo-replication] , 이미지 태그 서명에 대 한 [콘텐츠 신뢰](container-registry-content-trust.md) , [방화벽 및 가상 네트워크 (미리 보기)](container-registry-vnet.md) 와 같은 기능을 추가 합니다. 레지스트리에 대 한 액세스를 제한 합니다. |
+| **Premium** | Premium 레지스트리는 포함된 스토리지 및 동시 작업 수가 가장 높으며 고용량 시나리오를 지원합니다. In addition to higher image throughput, Premium adds features such as [geo-replication][container-registry-geo-replication] for managing a single registry across multiple regions, [content trust](container-registry-content-trust.md) for image tag signing, [firewalls and virtual networks (preview)](container-registry-vnet.md) to restrict access to the registry. |
 
-Basic, Standard 및 Premium Sku는 모두 동일한 프로그래밍 기능을 제공 합니다. 또한 Azure에서 완전히 관리 하는 [이미지 저장소][container-registry-storage] 를 활용 합니다. 더 높은 수준의 SKU를 선택하면 향상된 성능과 규모를 제공합니다. 여러 서비스 계층을 사용하여 Basic로 시작한 다음, 레지스트리 사용량 증가에 따라 Standard 및 Premium으로 변환할 수 있습니다.
+The Basic, Standard, and Premium SKUs all provide the same programmatic capabilities. They also all benefit from [image storage][container-registry-storage] managed entirely by Azure. 더 높은 수준의 SKU를 선택하면 향상된 성능과 규모를 제공합니다. 여러 서비스 계층을 사용하여 Basic로 시작한 다음, 레지스트리 사용량 증가에 따라 Standard 및 Premium으로 변환할 수 있습니다.
 
-## <a name="sku-features-and-limits"></a>SKU 기능 및 제한
+## <a name="sku-features-and-limits"></a>SKU features and limits
 
 다음 표에는 Basic, Standard 및 Premium 서비스 계층의 기능 및 한계에 대해 자세히 나와 있습니다.
 
@@ -35,17 +30,17 @@ Basic, Standard 및 Premium Sku는 모두 동일한 프로그래밍 기능을 �
 
 ## <a name="changing-skus"></a>SKU 변경
 
-Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 SKU를 변경할 수 있습니다. 전환 하는 SKU에 필요한 최대 저장소 용량이 있으면 Sku 간에 자유롭게 이동할 수 있습니다. 
+Azure CLI를 사용하거나 Azure Portal에서 레지스트리의 SKU를 변경할 수 있습니다. You can move freely between SKUs as long as the SKU you're switching to has the required maximum storage capacity. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI에서 Sku 간을 이동 하려면 [az acr update][az-acr-update] 명령을 사용 합니다. 예를 들어 Premium으로 전환하려면:
+To move between SKUs in the Azure CLI, use the [az acr update][az-acr-update] command. 예를 들어 Premium으로 전환하려면:
 
 ```azurecli
 az acr update --name myregistry --sku Premium
 ```
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal의 컨테이너 레지스트리 **개요**에서 **업데이트**를 선택한 다음, SKU 드롭다운에서 새로운 **SKU**를 선택합니다.
 

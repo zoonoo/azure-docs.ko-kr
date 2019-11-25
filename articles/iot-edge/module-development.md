@@ -8,13 +8,12 @@ ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 9d983dc4a2623e7f2a272ea2a320d2658d784dee
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 37f55165d1fea8a69d10003baeb0006199326cba
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003595"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456607"
 ---
 # <a name="develop-your-own-iot-edge-modules"></a>사용자 고유의 IoT Edge 모듈 개발
 
@@ -48,7 +47,7 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 
 마지막으로 Edge 허브에서 처리하는 디바이스-클라우드 메시지는 다음 시스템 속성으로 스탬프 처리됩니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 | -------- | ----------- |
 | $connectionDeviceId | 메시지를 보낸 클라이언트의 디바이스 ID입니다. |
 | $connectionModuleId | 메시지를 보낸 모듈의 모듈 ID입니다. |
@@ -60,42 +59,42 @@ IoT Edge는 경로 만들기를 간소화하기 위해 모듈 *입력* 및 *출�
 1. 애플리케이션에서 ModuleClient 인스턴스를 만듭니다.
 2. 애플리케이션이 해당 디바이스의 IoT Edge 허브에서 제공한 인증서를 허용하는지 확인합니다.
 
-DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법과 비슷하게 디바이스에서 실행 중인 IoT Edge 허브에 모듈을 연결하는 ModuleClient 인스턴스를 만듭니다. ModuleClient 클래스 및 해당 통신 메서드에 대한 자세한 내용은 원하는 SDK 언어에 대한 API 참조를 참조하세요. [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable)또는 [node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
+DeviceClient 인스턴스가 IoT Hub에 IoT 디바이스를 연결하는 방법과 비슷하게 디바이스에서 실행 중인 IoT Edge 허브에 모듈을 연결하는 ModuleClient 인스턴스를 만듭니다. For more information about the ModuleClient class and its communication methods, see the API reference for your preferred SDK language: [C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet), [C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/iothub-module-client-h), [Python](https://docs.microsoft.com/python/api/azure-iot-device/azure.iot.device.iothubmoduleclient?view=azure-python), [Java](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.moduleclient?view=azure-java-stable), or [Node.js](https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest).
 
-## <a name="language-and-architecture-support"></a>언어 및 아키텍처 지원
+## <a name="language-and-architecture-support"></a>Language and architecture support
 
-IoT Edge는 요구 사항과 일치 하는 시나리오를 구축할 수 있도록 여러 운영 체제, 장치 아키텍처 및 개발 언어를 지원 합니다. 이 섹션을 사용 하 여 사용자 지정 IoT Edge 모듈을 개발 하기 위한 옵션을 이해할 수 있습니다. [IoT Edge에 대 한 개발 및 테스트 환경 준비](development-environment.md)에서 각 언어에 대 한 도구 지원 및 요구 사항에 대해 자세히 알아볼 수 있습니다.
+IoT Edge supports multiple operating systems, device architectures, and development languages so that you can build the scenario that matches your needs. Use this section to understand your options for developing custom IoT Edge modules. You can learn more about tooling support and requirements for each language in [Prepare your development and test environment for IoT Edge](development-environment.md).
 
 ### <a name="linux"></a>Linux
 
-다음 표의 모든 언어에 대해 IoT Edge는 AMD64 및 ARM32 Linux 장치에 대 한 개발을 지원 합니다. 
+For all languages in the following table, IoT Edge supports development for AMD64 and ARM32 Linux devices. 
 
 | 개발 언어 | 개발 도구 |
 | -------------------- | ----------------- |
-| C | Visual Studio 코드<br>Visual Studio 2017/2019 |
-| C# | Visual Studio 코드<br>Visual Studio 2017/2019 |
-| Java | Visual Studio 코드 |
-| Node.js | Visual Studio 코드 |
-| Python | Visual Studio 코드 |
+| C | Visual Studio Code<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code<br>Visual Studio 2017/2019 |
+| Java | Visual Studio Code |
+| Node.js | Visual Studio Code |
+| 파이썬 | Visual Studio Code |
 
 >[!NOTE]
->ARM64 Linux 장치에 대 한 개발 및 디버깅은 [공개 미리 보기로](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)제공 됩니다. 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
+>Develop and debugging support for ARM64 Linux devices is in [public preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 자세한 내용은 [Visual Studio Code(미리 보기)에서 ARM64 IoT Edge 모듈 개발 및 디버그](https://devblogs.microsoft.com/iotdev/develop-and-debug-arm64-iot-edge-modules-in-visual-studio-code-preview)를 참조하세요.
 
 ### <a name="windows"></a>Windows
 
-다음 표의 모든 언어에 대해 IoT Edge는 AMD64 Windows 장치 개발을 지원 합니다.
+For all languages in the following table, IoT Edge supports development for AMD64 Windows devices.
 
 | 개발 언어 | 개발 도구 |
 | -------------------- | ----------------- |
 | C | Visual Studio 2017/2019 |
-| C# | Visual Studio Code (디버깅 기능 없음)<br>Visual Studio 2017/2019 |
+| C# | Visual Studio Code (no debugging capabilities)<br>Visual Studio 2017/2019 |
 
 ## <a name="next-steps"></a>다음 단계
 
-[IoT Edge에 대 한 개발 및 테스트 환경 준비](development-environment.md)
+[Prepare your development and test environment for IoT Edge](development-environment.md)
 
-[Visual Studio를 사용 하 C# 여 IoT Edge 모듈 개발](how-to-visual-studio-develop-module.md)
+[Use Visual Studio to develop C# modules for IoT Edge](how-to-visual-studio-develop-module.md)
 
-[Visual Studio Code를 사용 하 여 IoT Edge 모듈 개발](how-to-vs-code-develop-module.md)
+[Use Visual Studio Code to develop modules for IoT Edge](how-to-vs-code-develop-module.md)
 
-[Azure IoT Hub Sdk 이해 및 사용](../iot-hub/iot-hub-devguide-sdks.md)
+[Understand and use Azure IoT Hub SDKs](../iot-hub/iot-hub-devguide-sdks.md)

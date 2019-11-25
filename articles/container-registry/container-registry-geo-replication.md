@@ -1,21 +1,18 @@
 ---
-title: Azure Container Registry의 지리적 복제
-description: 레지스트리가 다중 마스터 지역 복제본을 사용 하 여 여러 지역을 제공할 수 있도록 하는 지리적 복제 Azure container registry 만들기 및 관리를 시작 합니다.
-services: container-registry
+title: 레지스트리 지역 복제
+description: Get started creating and managing a geo-replicated Azure container registry, which enables the registry to serve multiple regions with multi-master regional replicas.
 author: stevelas
-manager: gwallace
-ms.service: container-registry
 ms.topic: article
 ms.date: 08/16/2019
 ms.author: stevelas
-ms.openlocfilehash: cddd55d3dfc2609b7a32a276e106e152f0868b32
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: d238de30e458261a11c941c03ac127c732ca8d3d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931644"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456452"
 ---
-# <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지리적 복제
+# <a name="geo-replication-in-azure-container-registry"></a>Azure Container Registry의 지역에서 복제
 
 로컬 상태나 핫 백업이 필요한 기업은 둘 이상의 Azure 지역에서 서비스를 실행하도록 선택할 수 있습니다. 이미지가 실행되는 각 지역에 컨테이너 레지스트리를 배치하면 네트워크와 가까운 곳에서 작업하여 이미지 레이어를 빠르고 안정적으로 전송할 수 있습니다. 지리적 복제를 사용하면 Azure Container Registry가 단일 레지스트리로 기능하여 다중 마스터 지역 레지스트리가 있는 둘 이상의 지역에 서비스를 제공할 수 있습니다. 
 
@@ -64,7 +61,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 ## <a name="configure-geo-replication"></a>지역에서 복제 구성
 
-지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. Azure CLI에서 [az acr replication](/cli/azure/acr/replication) 명령을 비롯 한 도구를 사용 하 여 지역에서 복제를 관리 하거나 [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication)사용 하 여 지역에서 복제를 위해 사용 하도록 설정 된 레지스트리를 배포할 수도 있습니다.
+지도에서 해당 지역을 클릭하여 간편하게 지리적 복제를 구성할 수 있습니다. You can also manage geo-replication using tools including the [az acr replication](/cli/azure/acr/replication) commands in the Azure CLI, or deploy a registry enabled for geo-replication with an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-container-registry-geo-replication).
 
 지리적 복제는 [Premium 레지스트리](container-registry-skus.md) 전용 기능입니다. Basic 및 Standard 레지스트리를 사용 중인 경우, [Azure Portal](https://portal.azure.com)에서 Premium으로 변경할 수 있습니다.
 
@@ -74,7 +71,7 @@ Azure Container Registry의 지리적 복제 기능을 사용하면 다음과 �
 
 Azure Container Registry로 이동하여 **복제**:
 
-![Azure Portal 컨테이너 레지스트리 UI의 복제를 선택합니다.](media/container-registry-geo-replication/registry-services.png)
+![Azure Portal 컨테이너 레지스트리 UI의 복제](media/container-registry-geo-replication/registry-services.png)
 
 기존 Azure 지역이 모두 표시된 지도가 나타납니다.
 
@@ -97,19 +94,19 @@ ACR이 구성된 복제본 사이의 이미지 동기화를 시작합니다. 동
 * 지역 복제 레지스트리의 각 Azure 지역은 일단 설정되면 서로 독립적입니다. 지역 복제된 각 Azure 지역에는 Azure Container Registry SLA가 적용됩니다.
 * 지역 복제된 레지스트리의 이미지를 푸시 또는 풀하면 백그라운드의 Azure Traffic Manager는 가장 가까운 레지스트리에 요청을 보냅니다.
 * 가장 가까운 Azure 지역에 이미지 또는 태그 업데이트를 푸시한 후 Azure Container Registry가 매니페스트 및 레이어를 사용자가 옵트인한 나머지 Azure 지역에 복제할 때까지 어느 정도 시간이 걸립니다. 큰 이미지는 작은 이미지보다 복제 시간이 오래 걸립니다. 이미지 및 태그는 최종 일관성 모델을 사용하여 복제 지역에서 동기화됩니다.
-* 지역에서 복제 된 푸시 업데이트에 종속 되는 워크플로를 관리 하려면 푸시 이벤트에 응답 하도록 [웹 후크](container-registry-webhook.md) 를 구성 하는 것이 좋습니다. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
+* To manage workflows that depend on push updates to a geo-replicated , we recommend that you configure [webhooks](container-registry-webhook.md) to respond to the push events. 지역 복제된 Azure 지역에서 완료되는 푸시 이벤트를 추적하도록 지역 복제된 레지스트리 내부에 지역별 webhook를 설정할 수 있습니다.
 
 ## <a name="delete-a-replica"></a>복제본 삭제
 
-레지스트리에 대 한 복제본을 구성한 후에는 언제 든 지 더 이상 필요 하지 않은 복제본을 삭제할 수 있습니다. Azure Portal 또는 Azure CLI의 [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) 명령과 같은 기타 도구를 사용 하 여 복제본을 삭제 합니다.
+After you've configured a replica for your registry, you can delete it at any time if it's no longer needed. Delete a replica using the Azure portal or other tools such as the [az acr replication delete](/cli/azure/acr/replication#az-acr-replication-delete) command in the Azure CLI.
 
-Azure Portal에서 복제본을 삭제 하려면 다음을 수행 합니다.
+To delete a replica in the Azure portal:
 
-1. Azure Container Registry로 이동 하 고 **복제**를 선택 합니다.
-1. 복제본의 이름을 선택 하 고 **삭제**를 선택 합니다. 복제본을 삭제할 것인지 확인 합니다.
+1. Navigate to your Azure Container Registry, and select **Replications**.
+1. Select the name of a replica, and select **Delete**. Confirm that you want to delete the replica.
 
 > [!NOTE]
-> 레지스트리의 *홈 지역* , 즉 레지스트리를 만든 위치에 있는 레지스트리 복제본은 삭제할 수 없습니다. 레지스트리 자체를 삭제 하 여 홈 복제본만 삭제할 수 있습니다.
+> You can't delete the registry replica in the *home region* of the registry, that is, the location where you created the registry. You can only delete the home replica by deleting the registry itself.
 
 ## <a name="geo-replication-pricing"></a>지역에서 복제 가격 책정
 

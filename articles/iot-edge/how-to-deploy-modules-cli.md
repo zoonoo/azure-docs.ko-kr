@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: c8cd6e2d13e252f9a7560b55eca58341e791db5a
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 72535b69c81aee880eb16bf5d10e11dedb36f3a7
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964935"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457467"
 ---
 # <a name="deploy-azure-iot-edge-modules-with-azure-cli"></a>Azure CLI를 사용하여 Azure IoT Edge 모듈 배포
 
@@ -116,7 +115,7 @@ Azure CLI를 사용하여 모듈을 배포하려면 배포 매니페스트를 �
    az iot edge set-modules --device-id [device id] --hub-name [hub name] --content [file path]
    ```
 
-장치 ID 매개 변수는 대/소문자를 구분 합니다. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
+The device ID parameter is case-sensitive. 콘텐츠 매개 변수는 저장한 배포 매니페스트 파일을 가리킵니다.
 
    ![az iot edge set-modules output](./media/how-to-deploy-cli/set-modules.png)
 
@@ -130,7 +129,7 @@ IoT Edge 디바이스의 모듈 보기:
    az iot hub module-identity list --device-id [device id] --hub-name [hub name]
    ```
 
-장치 ID 매개 변수는 대/소문자를 구분 합니다.
+The device ID parameter is case-sensitive.
 
    ![az iot hub module-identity list output](./media/how-to-deploy-cli/list-modules.png)
 

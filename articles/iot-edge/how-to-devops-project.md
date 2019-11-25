@@ -2,21 +2,19 @@
 title: Azure DevOps Projects - Azure IoT Edge를 사용한 CI/CD 파이프라인 | Microsoft Docs
 description: Azure DevOps Projects를 사용하면 Azure를 쉽게 시작할 수 있습니다. 몇 단계로 원하는 Azure IoT Edge 앱을 시작할 수 있습니다.
 author: shizn
-manager: ''
 ms.author: xshi
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: daa4bc7b1584dc2159d4128fa4b44056df347ecb
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: ccf6ea567143180daa848566d1e7e1420c181c5f
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72253032"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457386"
 ---
-# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Azure DevOps Projects를 사용 하 여 IoT Edge에 대 한 CI/CD 파이프라인 만들기
+# <a name="create-a-cicd-pipeline-for-iot-edge-with-azure-devops-projects"></a>Create a CI/CD pipeline for IoT Edge with Azure DevOps Projects
 
 DevOps 프로젝트를 사용하여 IoT Edge 애플리케이션에 대한 지속적인 통합(CI) 및 지속적인 업데이트(CD)를 구성합니다. DevOps Projects는 Azure Pipelines에서 빌드 및 릴리스 파이프라인의 초기 구성을 간소화합니다.
 
@@ -38,7 +36,7 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
    ![언어를 선택하여 새 애플리케이션을 만듭니다.](./media/how-to-devops-project/select-language.png)
 
-2. 응용 프로그램 프레임 워크로 **단순 IoT** 를 선택 하 고 **다음**을 선택 합니다.
+2. Select **Simple IoT** as your application framework, and then select **Next**.
 
    ![Simple IoT 프레임 워크 선택](media/how-to-devops-project/select-iot.png)
 
@@ -56,7 +54,7 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
    4. 프로젝트 이름으로 생성된 IoT Hub를 사용하거나 직접 이름을 입력합니다.
 
-   5. 기본 위치를 그대로 적용 하거나 사용자 중 하나를 선택 합니다. 
+   5. Accept the default location, or choose one close to you. 
 
    5. **추가 설정**을 선택하여 DevOps Projects에서 자동으로 만드는 Azure 리소스를 구성합니다.
 
@@ -66,7 +64,7 @@ DevOps Projects는 Azure DevOps에 CI/CD 파이프라인을 만듭니다. 새 Az
 
 잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 진행률을 보려면 프로젝트 이름을 선택합니다. 페이지를 새로 고쳐야 할 수도 있습니다. 샘플 IoT Edge 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 IoT Edge 디바이스에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
 
-   ![Azure Portal에서 응용 프로그램 보기](./media/how-to-devops-project/devops-portal.png)
+   ![View application in Azure portal](./media/how-to-devops-project/devops-portal.png)
 
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
@@ -79,16 +77,16 @@ DevOps Projects에서 Azure Repos에 프로젝트의 Git 리포지토리를 만�
 
 2. 다음은 웹 브라우저를 사용하여 코드를 변경하는 단계입니다. 리포지토리를 로컬로 복제하려면 창의 오른쪽 위에서 **복제**를 선택합니다. 제공된 URL을 사용하여 Visual Studio Code 또는 원하는 개발 도구에 Git 리포지토리를 복제합니다. 
 
-3. 리포지토리에는 생성 프로세스에서 선택한 응용 프로그램 언어에 따라 **filtermodule** 이라는 모듈의 코드가 이미 포함 되어 있습니다. **Modules/FilterModule/module json** 파일을 엽니다.
+3. The repository already contains code for a module called **FilterModule** based on the application language that you chose in the creation process. Open the **modules/FilterModule/module.json** file.
 
    ![Azure Repos에서 module.json 파일 열기](./media/how-to-devops-project/open-module-json.png)
 
-4. 이 파일은 **버전** 매개 변수에서 [Azure devops 빌드 변수](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) 를 사용 합니다. 이 구성을 사용 하면 새 빌드가 실행 될 때마다 모듈의 새 버전이 생성 됩니다. 
+4. Notice that this file uses [Azure DevOps build variables](https://docs.microsoft.com/azure/devops/pipelines/build/variables?view=vsts#build-variables) in the **version** parameter. This configuration ensures that a new version of the module will be created every time a new build runs. 
 
 
 ## <a name="examine-the-cicd-pipeline"></a>CD 파이프라인 검토
 
-이전 섹션에서는 Azure DevOps Projects가 IoT Edge 애플리케이션에 대한 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. 다음 단계를 사용 하 여 Azure DevOps 빌드 및 릴리스 파이프라인을 숙지 합니다.
+이전 섹션에서는 Azure DevOps Projects가 IoT Edge 애플리케이션에 대한 전체 CI/CD 파이프라인을 자동으로 구성했습니다. 이제 필요에 따라 파이프라인을 살펴보고 사용자 지정합니다. Use the following steps to familiarize yourself with the Azure DevOps build and release pipelines.
 
 1. DevOps 프로젝트에서 빌드 파이프라인을 보려면 프로젝트 대시보드 메뉴에서 **빌드 파이프라인**을 선택합니다. 이 링크는 브라우저 탭 및 새 프로젝트에 대한 Azure DevOps 빌드 파이프라인을 엽니다.
 
@@ -106,7 +104,7 @@ DevOps Projects에서 Azure Repos에 프로젝트의 Git 리포지토리를 만�
 
 5. **저장 및 큐**를 선택한 다음, **저장**을 선택합니다.
 
-6. 파이프라인 빌드 메뉴에서 **트리거** 를 선택 합니다. DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
+6. Select **Triggers** from the build pipeline menu. DevOps Projects는 CI 트리거를 자동으로 생성하며, 리포지토리에 대한 모든 커밋이 새 빌드를 시작합니다.  필요에 따라 CI 프로세스에서 분기를 포함할지를 선택할 수 있습니다.
 
 7. **보존**을 선택합니다. 시나리오에 따라 특정 수의 빌드를 유지하거나 제거하는 정책을 지정할 수 있습니다.
 

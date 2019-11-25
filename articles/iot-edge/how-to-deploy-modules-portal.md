@@ -9,13 +9,12 @@ ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 4c2adc8ef0d426617dc85dd507907d612bbdabaa
-ms.sourcegitcommit: c4700ac4ddbb0ecc2f10a6119a4631b13c6f946a
+ms.openlocfilehash: 6d915145e64a5f1a097f38cf79b19426c3acbaf2
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72964912"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457434"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-the-azure-portal"></a>Azure Portal에서 Azure IoT Edge 모듈 배포
 
@@ -43,9 +42,9 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 ### <a name="add-modules"></a>모듈 추가
 
-1. 페이지의 **Container Registry 설정** 섹션에서 모듈 이미지를 포함 하는 개인 컨테이너 레지스트리에 액세스 하기 위한 자격 증명을 제공 합니다.
+1. In the **Container Registry Settings** section of the page, provide the credentials to access any private container registries that contain your module images.
 
-1. 페이지의 **배포 모듈** 섹션에서 **추가**를 선택 합니다.
+1. In the **Deployment Modules** section of the page, select **Add**.
 
 1. 드롭다운 목록에서 모듈 형식을 살펴봅니다.
 
@@ -57,7 +56,7 @@ Azure Portal에는 JSON 문서를 수동으로 빌드하지 않고 배포 매니
 
 1. 모듈에 이름을 입력한 다음, 컨테이너 이미지를 지정합니다. 다음은 그 예입니다.
 
-   * **이름** -SimulatedTemperatureSensor
+   * **Name** - SimulatedTemperatureSensor
    * **이미지 URI** - mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0
 
 1. 필요한 경우 선택적 필드를 작성합니다. 컨테이너 생성 옵션, 다시 시작 정책 및 원하는 상태에 대한 자세한 내용은 [EdgeAgent desired 속성](module-edgeagent-edgehub.md#edgeagent-desired-properties)을 참조하세요. 모듈 쌍에 대한 자세한 내용은 [desired 속성 정의 또는 업데이트](module-composition.md#define-or-update-desired-properties)을 참조하세요.
@@ -92,7 +91,7 @@ Azure Marketplace 또는 Azure Portal에서 IoT Edge 모듈을 설치할 수 있
 
 1. 모듈을 찾고 배포 프로세스를 시작합니다.
 
-   * Azure Portal: 모듈을 찾고 **만들기**를 선택 합니다.
+   * Azure portal: Find a module and select **Create**.
 
    * Azure Marketplace:
 

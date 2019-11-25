@@ -1,21 +1,21 @@
 ---
-title: 송신 및 끝점-Azure Digital Twins | Microsoft Docs
-description: Azure Digital Twins에서 이벤트 끝점을 만들고 수신 하는 방법에 대해 알아봅니다.
+title: Egress and endpoints - Azure Digital Twins | Microsoft Docs
+description: Learn how to create and egress event endpoints in Azure Digital Twins.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: 33e8a6a281fbc6620a4608c7b0821b196043423e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/22/2019
+ms.openlocfilehash: 95dbed72aeca639041d259e9c92c2a3b73ef63fe
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010063"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456920"
 ---
-# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Azure Digital Twins의 송신 및 끝점
+# <a name="egress-and-endpoints-in-azure-digital-twins"></a>Egress and endpoints in Azure Digital Twins
 
 Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지 또는 이벤트 브로커를 나타냅니다. 이벤트 및 메시지를 Azure Event Hubs, Azure Event Grid 및 Azure Service Bus 토픽으로 전송할 수 있습니다.
 
@@ -47,16 +47,16 @@ Azure Digital Twins *엔드포인트*는 사용자의 Azure 구독 내 메시지
 }
 ```
 
-| 특성 | 형식 | 설명 |
+| 특성 | Type | 설명 |
 | --- | --- | --- |
-| id | string | 이벤트에 대한 고유 식별자입니다. |
-| subject | string | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
+| id | 문자열 | 이벤트에 대한 고유 식별자입니다. |
+| 제목 | 문자열 | 게시자가 정의한 이벤트 주체에 대한 경로입니다. |
 | 데이터 | object | 특정 리소스 공급자에 대한 이벤트 데이터입니다. |
-| eventType | string | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
-| eventTime | string | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
-| dataVersion | string | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
-| metadataVersion | string | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
-| 토픽 | string | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
+| eventType | 문자열 | 이 이벤트 원본에 대해 등록된 이벤트 유형 중 하나입니다. |
+| eventTime | 문자열 | 공급자의 UTC 시간을 기준으로 이벤트가 생성되는 시간입니다. |
+| dataVersion | 문자열 | 데이터 개체의 스키마 버전입니다. 게시자가 스키마 버전을 정의합니다. |
+| metadataVersion | 문자열 | 이벤트 메타데이터의 스키마 버전입니다. Event Grid는 최상위 속성의 스키마를 정의합니다. Event Grid는 이 값을 제공합니다. |
+| 토픽 | 문자열 | 이벤트 원본에 대한 전체 리소스 경로입니다. 이 필드는 쓸 수 없습니다. Event Grid는 이 값을 제공합니다. |
 
 Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -90,7 +90,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - 센서
 - SensorBlobMetadata
 - SensorExtendedProperty
-- 공백
+- 우주
 - SpaceBlobMetadata
 - SpaceExtendedProperty
 - SpaceResource
@@ -100,7 +100,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 - UserBlobMetadata
 - UserExtendedProperty
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -122,7 +122,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 }
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 사용자 지정 항목의 이름 |
 
@@ -133,7 +133,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 > [!IMPORTANT]  
 > 이 이벤트는 UDF 자체에서 명시적으로 전송해야 합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -153,7 +153,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 }
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 사용자 지정 항목의 이름 |
 
@@ -161,7 +161,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SensorChange**는 원격 분석 변경 내용을 기반으로 하는 센서의 상태 업데이트입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -188,7 +188,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 }
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 사용자 지정 항목의 이름 |
 
@@ -196,7 +196,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 
 **SpaceChange**는 원격 분석 변경 내용을 기반으로 하는 공간의 상태 업데이트입니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```JSON
 {
@@ -223,7 +223,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 }
 ```
 
-| 값 | 다음 항목으로 교체 |
+| Value | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_TOPIC_NAME | 사용자 지정 항목의 이름 |
 
@@ -246,7 +246,7 @@ Event Grid 이벤트 스키마에 대한 자세한 내용은 다음을 참조하
 >[!IMPORTANT]
 > **eventTypes** 특성에 유의합니다. 이 특성은 엔드포인트가 처리하는 이벤트 유형을 정의하고 해당 라우팅을 결정합니다.
 
-다음에 대 한 인증 된 HTTP POST 요청:
+An authenticated HTTP POST request against:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/endpoints
@@ -268,7 +268,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_NAMESPACE | 엔드포인트의 네임스페이스 |
     | YOUR_PRIMARY_KEY | 인증에 사용되는 기본 연결 문자열 |
@@ -291,7 +291,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_PRIMARY_KEY | 인증에 사용되는 기본 연결 문자열|
     | YOUR_SECONDARY_KEY | 인증에 사용되는 보조 연결 문자열 |
@@ -313,7 +313,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_NAMESPACE | 엔드포인트의 네임스페이스 |
     | YOUR_PRIMARY_KEY | 인증에 사용되는 기본 연결 문자열 |
@@ -334,7 +334,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
   }
   ```
 
-    | 값 | 다음 항목으로 교체 |
+    | Value | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_NAMESPACE | 엔드포인트의 네임스페이스 |
     | YOUR_PRIMARY_KEY | 인증에 사용되는 기본 연결 문자열 |

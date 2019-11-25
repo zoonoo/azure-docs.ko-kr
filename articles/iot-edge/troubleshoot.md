@@ -8,23 +8,22 @@ ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 61c75c011ce25c3c7238ec75cf5ed579e677531f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: cc05d820a409500e66e2525654954e4dddf48e4b
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091384"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74457253"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
 작업 환경에서 Azure IoT Edge를 실행하는 동안 문제가 발생할 경우 이 문서에서 문제 해결 방법을 참조하세요.
 
-## <a name="run-the-iotedge-check-command"></a>Iotedge ' check ' 명령을 실행 합니다.
+## <a name="run-the-iotedge-check-command"></a>Run the iotedge 'check' command
 
-IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 `check` 문제에 대 한 구성 및 연결 테스트 모음을 수행 하는 명령을 사용 하는 것입니다. 이 `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
+Your first step when troubleshooting IoT Edge should be to use the `check` command, which performs a collection of configuration and connectivity tests for common issues. The `check` command is available in [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) and later.
 
-다음과 같이 `check` 명령을 실행 하거나 플래그를 `--help` 포함 하 여 전체 옵션 목록을 볼 수 있습니다.
+You can run the `check` command as follows, or include the `--help` flag to see a complete list of options:
 
 * Linux에서:
 
@@ -38,19 +37,19 @@ IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 `check` 문�
   iotedge check
   ```
 
-도구에 의해 실행 되는 검사 형식은 다음과 같이 분류할 수 있습니다.
+The types of checks run by the tool can be classified as:
 
-* 구성 검사: *구성. yaml* 및 컨테이너 엔진과 관련 된 문제를 포함 하 여에 지 장치가 클라우드에 연결 되지 못하게 하는 세부 정보를 검사 합니다.
-* 연결 확인: IoT Edge 런타임이 호스트 장치의 포트에 액세스할 수 있는지 확인 하 고 모든 IoT Edge 구성 요소가 IoT Hub에 연결할 수 있는지 확인 합니다.
-* 프로덕션 준비 검사: 장치 인증 기관 (CA) 인증서 및 모듈 로그 파일 구성의 상태와 같은 권장 프로덕션 모범 사례를 찾습니다.
+* Configuration checks: Examines details that could prevent Edge devices from connecting to the cloud, including issues with *config.yaml* and the container engine.
+* Connection checks: Verifies the IoT Edge runtime can access ports on the host device and all the IoT Edge components can connect to the IoT Hub.
+* Production readiness checks: Looks for recommended production best practices, such as the state of device certificate authority (CA) certificates and module log file configuration.
 
-진단 검사의 전체 목록은 [기본 제공 문제 해결 기능](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md)을 참조 하세요.
+For a complete list of diagnostic checks, see [Built-in troubleshooting functionality](https://github.com/Azure/iotedge/blob/master/doc/troubleshoot-checks.md).
 
 ## <a name="standard-diagnostic-steps"></a>표준 진단 단계
 
-문제가 발생 하는 경우 장치에 전달 되는 메시지 및 컨테이너 로그를 검토 하 여 IoT Edge 장치의 상태에 대 한 자세한 정보를 확인할 수 있습니다. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다.
+If you encounter an issue, you can learn more about the state of your IoT Edge device by reviewing the container logs and the messages that pass to and from the device. 이 섹션의 명령 및 도구를 사용하여 정보를 수집합니다.
 
-### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>IoT Edge 보안 관리자 및 해당 로그의 상태를 확인 합니다.
+### <a name="check-the-status-of-the-iot-edge-security-manager-and-its-logs"></a>Check the status of the IoT Edge Security Manager and its logs
 
 Linux에서:
 - IoT Edge 보안 관리자의 상태를 보려면:
@@ -104,7 +103,7 @@ Windows에서:
 ### <a name="if-the-iot-edge-security-manager-is-not-running-verify-your-yaml-configuration-file"></a>IoT Edge 보안 관리자가 실행되지 않는 경우 yaml 구성 파일을 확인합니다.
 
 > [!WARNING]
-> YAML 파일은 탭을 들여쓰기로 포함할 수 없습니다. 2 공백을 대신 사용합니다.
+> YAML files cannot contain tabs as indentation. 2 공백을 대신 사용합니다.
 
 Linux에서:
 
@@ -120,15 +119,15 @@ Windows에서:
 
 ### <a name="check-container-logs-for-issues"></a>문제에 대한 컨테이너 로그 확인
 
-IoT Edge 보안 디먼이 실행되면 컨테이너의 로그를 확인하여 문제를 검색합니다. 배포 된 컨테이너에서 시작 하 고 IoT Edge 런타임을 구성 하는 컨테이너 (edgeAgent 및 edgeHub)를 확인 합니다. IoT Edge 에이전트 로그는 일반적으로 각 컨테이너의 수명 주기에 대 한 정보를 제공 합니다. IoT Edge 허브 로그는 메시징 및 라우팅에 대 한 정보를 제공 합니다. 
+IoT Edge 보안 디먼이 실행되면 컨테이너의 로그를 확인하여 문제를 검색합니다. Start with your deployed containers, then look at the containers that make up the IoT Edge runtime: edgeAgent and edgeHub. The IoT Edge agent logs typically provide info on the lifecycle of each container. The IoT Edge hub logs provide info on messaging and routing. 
 
    ```cmd
    iotedge logs <container name>
    ```
 
-### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>IoT Edge 허브를 통과 하는 메시지 보기
+### <a name="view-the-messages-going-through-the-iot-edge-hub"></a>View the messages going through the IoT Edge hub
 
-IoT Edge 허브를 통과 하는 메시지를 보고 런타임 컨테이너의 자세한 로그에서 정보를 수집할 수 있습니다. 이러한 컨테이너에서 자세한 로그를 켜려면 yaml 구성 파일에서 `RuntimeLogLevel`을 설정합니다. 파일을 열려면:
+You can view the messages going through the IoT Edge hub, and gather insights from verbose logs from the runtime containers. 이러한 컨테이너에서 자세한 로그를 켜려면 yaml 구성 파일에서 `RuntimeLogLevel`을 설정합니다. 파일을 열려면:
 
 Linux에서:
 
@@ -199,11 +198,11 @@ Windows에서:
    Start-Service iotedge
    ```
 
-## <a name="iot-edge-agent-stops-after-about-a-minute"></a>1 분 후 IoT Edge 에이전트가 중지 됨
+## <a name="iot-edge-agent-stops-after-about-a-minute"></a>IoT Edge agent stops after about a minute
 
-EdgeAgent 모듈은 약 1 분 동안 성공적으로 시작 되 고 실행 된 후 중지 됩니다. 로그는 IoT Edge 에이전트가 AMQP를 통해 IoT Hub에 연결 하려고 시도 하 고 WebSocket을 통해 AMQP를 사용 하 여 연결을 시도 함을 표시 합니다. 이 작업이 실패 하면 IoT Edge 에이전트가 종료 됩니다. 
+The edgeAgent module starts and runs successfully for about a minute, then stops. The logs indicate that the IoT Edge agent attempts to connect to IoT Hub over AMQP, and then attempts to connect using AMQP over WebSocket. When that fails, the IoT Edge agent exits. 
 
-예제 edgeAgent 로그:
+Example edgeAgent logs:
 
 ```output
 2017-11-28 18:46:19 [INF] - Starting module management agent. 
@@ -212,9 +211,9 @@ EdgeAgent 모듈은 약 1 분 동안 성공적으로 시작 되 고 실행 된 �
 2017-11-28 18:46:49 [INF] - Edge agent attempting to connect to IoT Hub via AMQP over WebSocket... 
 ```
 
-**근본 원인**
+**Root cause**
 
-호스트 네트워크의 네트워킹 구성으로 인해 IoT Edge 에이전트가 네트워크에 연결할 수 없습니다. 에이전트는 AMQP(포트 5671)를 통해 먼저 연결을 시도합니다. 이 연결이 실패하면 WebSockets(포트 443)을 시도합니다.
+A networking configuration on the host network is preventing the IoT Edge agent from reaching the network. 에이전트는 AMQP(포트 5671)를 통해 먼저 연결을 시도합니다. 이 연결이 실패하면 WebSockets(포트 443)을 시도합니다.
 
 IoT Edge 런타임은 각 모듈이 통신할 네트워크를 설정합니다. Linux에서 이 네트워크는 브리지 네트워크입니다. Windows에서는 NAT를 사용합니다. 이 문제는 NAT 네트워크를 사용하는 Windows 컨테이너를 사용하는 Windows 디바이스에서 좀 더 자주 발생합니다. 
 
@@ -222,9 +221,9 @@ IoT Edge 런타임은 각 모듈이 통신할 네트워크를 설정합니다. L
 
 이 브리지/NAT 네트워크에 할당된 IP 주소가 인터넷에 연결되는 경로가 있는지 확인합니다. 경우에 따라 호스트의 VPN 구성은 IoT Edge 네트워크를 재정의합니다. 
 
-## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge 허브가 시작 되지 않음
+## <a name="iot-edge-hub-fails-to-start"></a>IoT Edge hub fails to start
 
-EdgeHub 모듈을 시작 하지 못하고 로그에 다음 메시지를 출력 합니다. 
+The edgeHub module fails to start, and prints the following message to the logs: 
 
 ```output
 One or more errors occurred. 
@@ -233,20 +232,20 @@ One or more errors occurred.
 Error starting userland proxy: Bind for 0.0.0.0:443 failed: port is already allocated\"}\n) 
 ```
 
-**근본 원인**
+**Root cause**
 
-호스트 컴퓨터의 일부 다른 프로세스가 포트 443에 바인딩되어 있습니다. IoT Edge 허브는 게이트웨이 시나리오에서 사용 하기 위해 포트 5671 및 443를 매핑합니다. 다른 프로세스가 이미 포트에 바인딩되어 있으면 이 포트 매핑은 실패합니다. 
+호스트 컴퓨터의 일부 다른 프로세스가 포트 443에 바인딩되어 있습니다. The IoT Edge hub maps ports 5671 and 443 for use in gateway scenarios. 다른 프로세스가 이미 포트에 바인딩되어 있으면 이 포트 매핑은 실패합니다. 
 
 **해결 방법**
 
 포트 443을 사용하는 프로세스를 찾아 중지합니다. 이 프로세스는 일반적으로 웹 서버입니다.
 
-## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge 에이전트가 모듈의 이미지에 액세스할 수 없습니다. (403)
-컨테이너가 실행 되지 않고 edgeAgent 로그에 403 오류가 표시 됩니다. 
+## <a name="iot-edge-agent-cant-access-a-modules-image-403"></a>IoT Edge agent can't access a module's image (403)
+A container fails to run, and the edgeAgent logs show a 403 error. 
 
-**근본 원인**
+**Root cause**
 
-Iot Edge 에이전트에는 모듈의 이미지에 액세스할 수 있는 권한이 없습니다. 
+The Iot Edge agent doesn't have permissions to access a module's image. 
 
 **해결 방법**
 
@@ -260,7 +259,7 @@ Iot Edge 에이전트에는 모듈의 이미지에 액세스할 수 있는 권�
 Error parsing user input data: invalid hostname. Hostname cannot be empty or greater than 64 characters
 ```
 
-**근본 원인**
+**Root cause**
 
 IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있습니다. 물리적 머신은 일반적으로 긴 호스트 이름을 사용하지 않지만 문제는 가상 머신에서 자주 발생합니다. 특히 Azure에서 호스팅되는 Windows 가상 머신에 자동으로 생성된 호스트 이름이 너무 긴 경향이 있습니다. 
 
@@ -292,21 +291,21 @@ IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있�
 ## <a name="stability-issues-on-resource-constrained-devices"></a>리소스가 제한된 디바이스의 안정성 문제 
 Raspberry Pi와 같이 제한된 디바이스를 사용하는 경우, 특히 이 디바이스를 게이트웨이로 사용하는 경우에는 안정성 문제가 발생할 수 있습니다. 증상에는 에지 허브 모듈의 메모리 부족 예외가 있으며, 다운스트림 디바이스를 연결할 수 없거나 몇 시간 후 디바이스가 원격 분석 메시지를 보내지 않습니다.
 
-**근본 원인**
+**Root cause**
 
-IoT Edge 런타임의 일부인 IoT Edge 허브는 기본적으로 성능에 맞게 최적화 되 고 많은 양의 메모리를 할당 하려고 시도 합니다. 이 최적화는 제한된 에지 디바이스에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
+The IoT Edge hub, which is part of the IoT Edge runtime, is optimized for performance by default and attempts to allocate large chunks of memory. 이 최적화는 제한된 에지 디바이스에 대해 이상적이지 않으며 안정성 문제를 유발할 수 있습니다.
 
 **해결 방법**
 
-IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false**로 설정 합니다. 이때 다음과 같은 두 가지 방법을 사용할 수 있습니다.
+For the IoT Edge hub, set an environment variable **OptimizeForPerformance** to **false**. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
 
 UI의 경우: 
 
-포털에서 **장치 세부 정보** > 로 이동 하 여**모듈** > 설정**고급 Edge 런타임 설정을 구성**합니다. *False*로 설정 된 *OptimizeForPerformance* 이라는 Edge Hub 모듈에 대 한 환경 변수를 만듭니다.
+In the portal, navigate to **Device Details** > **Set Modules** > **Configure advanced Edge Runtime settings**. Create an environment variable for the Edge Hub module called *OptimizeForPerformance* that is set to *false*.
 
 ![OptimizeForPerformance를 false로 설정](./media/troubleshoot/optimizeforperformance-false.png)
 
-**OR**
+**또는**
 
 배포 매니페스트의 경우:
 
@@ -326,7 +325,7 @@ UI의 경우:
 ## <a name="cant-get-the-iot-edge-daemon-logs-on-windows"></a>Windows에서 IoT Edge 디먼 로그를 가져올 수 없습니다.
 Windows에서 `Get-WinEvent`를 사용할 때 EventLogException을 가져오면 레지스트리 항목을 확인합니다.
 
-**근본 원인**
+**Root cause**
 
 `Get-WinEvent` PowerShell 명령은 특정 `ProviderName`별로 로그를 찾기 위해 표시된 레지스트리 항목을 사용합니다.
 
@@ -351,42 +350,42 @@ Windows Registry Editor Version 5.00
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
-**근본 원인**
+**Root cause**
 
 IoT Edge 디먼은 보안상의 이유로 edgeHub에 연결하는 모든 모듈에 대해 프로세스 확인을 적용합니다. 이 디먼은 모듈이 전송하는 모든 메시지가 해당 모듈의 기본 프로세스 ID에서 온 것인지 확인합니다. 메시지가 처음에 설정한 것과는 다른 프로세스 ID의 모듈에서 전송될 경우 404 오류 메시지가 표시되며 거부됩니다.
 
 **해결 방법**
 
-버전 1.0.7 모든 모듈 프로세스에 연결할 수 있는 권한이 부여 됩니다. 1\.0.7로 업그레이드할 수 없는 경우 다음 단계를 완료 합니다. 자세한 내용은 [1.0.7 릴리스 변경 로그](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1)를 참조 하세요.
+As of version 1.0.7, all module processes are authorized to connect. If upgrading to 1.0.7 isn't possible, complete the following steps. For more information, see the [1.0.7 release changelog](https://github.com/Azure/iotedge/blob/master/CHANGELOG.md#iotedged-1).
 
-사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. 예를 들어 `ENTRYPOINT` , Docker 파일의 `CMD` 명령 대신, `CMD` 이 모듈에 대 한 프로세스 id와 주 프로그램을 실행 하는 bash 명령에 대 한 다른 프로세스 id가 발생 하는 반면 `ENTRYPOINT` ,는 단일 프로세스 ID입니다.
+사용자 지정 IoT Edge 모듈이 edgeHub에 메시지를 보내는 데 항상 동일한 프로세스 ID를 사용하는지 확인합니다. For instance, make sure to `ENTRYPOINT` instead of `CMD` command in your Docker file, since `CMD` will lead to one process ID for the module and another process ID for the bash command running the main program whereas `ENTRYPOINT` will lead to a single process ID.
 
 
 ## <a name="firewall-and-port-configuration-rules-for-iot-edge-deployment"></a>IoT Edge 배포에 대한 방화벽 및 포트 구성 규칙
-지원 되는 IoT Hub 프로토콜을 사용 하 여 온-프레미스 서버에서 Azure 클라우드로의 통신을 허용 Azure IoT Edge [통신 프로토콜 선택](../iot-hub/iot-hub-devguide-protocols.md)을 참조 하세요. 보안 향상된을 위해 Azure IoT Edge 및 Azure IoT Hub 간의 통신 채널은 항상 아웃바운드되도록 구성됩니다. 이 구성은 [서비스 보조 통신 패턴](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)을 기반으로 합니다. 그러면 탐색할 악의적인 엔터티에 대한 공격 노출 영역을 최소화합니다. 인바운드 통신은 Azure IoT Hub에서 메시지를 Azure IoT Edge 디바이스에 푸시해야 하는 특정 시나리오에만 필요합니다. 클라우드-디바이스 메시지는 보안 TLS 채널을 사용하여 보호되고 X.509 인증서 및 TPM 디바이스 모듈을 사용하여 추가로 보호될 수 있습니다. Azure IoT Edge 보안 관리자는 이 통신을 설정하는 방법을 관리합니다. [IoT Edge 보안 관리자](../iot-edge/iot-edge-security-manager.md)를 참조하세요.
+Azure IoT Edge allows communication from an on-premises server to Azure cloud using supported IoT Hub protocols, see [choosing a communication protocol](../iot-hub/iot-hub-devguide-protocols.md). 보안 향상된을 위해 Azure IoT Edge 및 Azure IoT Hub 간의 통신 채널은 항상 아웃바운드되도록 구성됩니다. 이 구성은 [서비스 보조 통신 패턴](https://blogs.msdn.microsoft.com/clemensv/2014/02/09/service-assisted-communication-for-connected-devices/)을 기반으로 합니다. 그러면 탐색할 악의적인 엔터티에 대한 공격 노출 영역을 최소화합니다. 인바운드 통신은 Azure IoT Hub에서 메시지를 Azure IoT Edge 디바이스에 푸시해야 하는 특정 시나리오에만 필요합니다. 클라우드-디바이스 메시지는 보안 TLS 채널을 사용하여 보호되고 X.509 인증서 및 TPM 디바이스 모듈을 사용하여 추가로 보호될 수 있습니다. Azure IoT Edge 보안 관리자는 이 통신을 설정하는 방법을 관리합니다. [IoT Edge 보안 관리자](../iot-edge/iot-edge-security-manager.md)를 참조하세요.
 
-IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. 따라서 적절 한 네트워크 및 방화벽 규칙이 안전한 edge에서 클라우드 통신에 대해 설정 되었는지 확인 해야 합니다. 다음 표는 Azure IoT Edge 런타임이 호스트 되는 기본 서버에 대 한 구성 방화벽 규칙을 사용 하는 경우 지침으로 사용할 수 있습니다.
+IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해 향상된 구성을 제공하지만, 기본 컴퓨터 및 네트워크 구성에 여전히 종속됩니다. Hence, it is imperative to ensure proper network and firewall rules are set up for secure edge to cloud communication. The following table can be used as a guideline when configuration firewall rules for the underlying servers where Azure IoT Edge runtime is hosted:
 
-|프로토콜|포트|수신|나가는 포트|지침|
+|프로토콜|Port|수신|발신|인도|
 |--|--|--|--|--|
 |MQTT|8883|BLOCKED(기본값)|BLOCKED(기본값)|<ul> <li>통신 프로토콜로 MQTT를 사용하는 경우 발신(아웃바운드)이 Open이 되도록 구성합니다.<li>MQTT에 대한 1883은 IoT Edge에서 지원되지 않습니다. <li>수신(인바운드) 연결을 차단해야 합니다.</ul>|
 |AMQP|5671|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge의 기본 통신 프로토콜입니다. <li> Azure IoT Edge는 지원되는 다른 프로토콜에 대해 구성되지 않았거나 AMQP가 원하는 통신 프로토콜인 경우 Open으로 구성해야 합니다.<li>AMQP에 대한 5672는 IoT Edge에서 지원되지 않습니다.<li>Azure IoT Edge가 다른 IoT Hub 지원 프로토콜을 사용하는 경우 이 포트를 차단합니다.<li>수신(인바운드) 연결을 차단해야 합니다.</ul></ul>|
 |HTTPS|443|BLOCKED(기본값)|OPEN(기본값)|<ul> <li>IoT Edge 프로비전을 위해 443에서 발신(아웃바운드)을 보내는 열기로 구성합니다. 수동 스크립트 또는 Azure IoT DPS(디바이스 프로비저닝 서비스)를 사용하는 경우 이 구성이 필요합니다. <li>다음과 같은 특정 시나리오의 경우에만 수신(인바운드) 연결이 Open 상태여야 합니다. <ul> <li>  메서드 요청을 보낼 수 있는 리프 디바이스에 대한 투명 게이트웨이가 있는 경우. 이 경우 IoTHub에 연결하거나 Azure IoT Edge를 통해 IoTHub 서비스를 제공하기 위해 포트 443을 외부 네트워크로 열어둘 필요가 없습니다. 따라서 수신 규칙은 내부 네트워크에서의 수신(인바운드)만 열도록 제한될 수 있습니다. <li> 클라이언트-디바이스(C2D) 시나리오의 경우</ul><li>HTTP에 대한 80은 IoT Edge에서 지원되지 않습니다.<li>비 HTTP 프로토콜(예: AMQP 또는 MQTT)을 엔터프라이즈에서 구성할 수 없는 경우 WebSockets을 통해 메시지를 보낼 수 있습니다. 이 경우 WebSocket 통신에 포트 443이 사용됩니다.</ul>|
 
-## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge 에이전트 모듈은 ' 빈 구성 파일 '을 계속 보고 하 고 장치에서 시작 하는 모듈은 없습니다.
+## <a name="edge-agent-module-continually-reports-empty-config-file-and-no-modules-start-on-the-device"></a>Edge Agent module continually reports 'empty config file' and no modules start on the device
 
-장치에서 배포에 정의 된 모듈을 시작 하는 데 문제가 있습니다. EdgeAgent 실행 중이지만 ' 빈 구성 파일 ... '을 계속 보고 합니다.
+The device has trouble starting modules defined in the deployment. Only the edgeAgent is running but continually reporting 'empty config file...'.
 
-**근본 원인**
+**Root cause**
 
-기본적으로 IoT Edge는 자체 격리 된 컨테이너 네트워크에서 모듈을 시작 합니다. 장치가이 개인 네트워크 내에서 DNS 이름 확인에 문제가 있을 수 있습니다.
+By default, IoT Edge starts modules in their own isolated container network. The device may be having trouble with DNS name resolution within this private network.
 
 **해결 방법**
 
 
-**옵션 1: 컨테이너 엔진 설정에서 DNS 서버 설정**
+**Option 1: Set DNS server in container engine settings**
 
-엔진에서 시작 하는 모든 컨테이너 모듈에 적용 되는 컨테이너 엔진 설정에서 사용자 환경에 대 한 DNS 서버를 지정 합니다. 사용할 DNS 서버를 `daemon.json` 지정 하는 라는 파일을 만듭니다. 예를 들어:
+Specify the DNS server for your environment in the container engine settings which will apply to all container modules started by the engine. Create a file named `daemon.json` specifying the DNS server to use. 다음은 그 예입니다.
 
 ```
 {
@@ -394,27 +393,27 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 }
 ```
 
-위의 예에서는 DNS 서버를 공개적으로 액세스할 수 있는 DNS 서비스로 설정 합니다. 에 지 장치가 해당 환경에서이 IP에 액세스할 수 없는 경우 액세스할 수 있는 DNS 서버 주소로 대체 합니다.
+The above example sets the DNS server to a publicly accessible DNS service. If the edge device cannot access this IP from its environment, replace it with DNS server address that is accessible.
 
-플랫폼 `daemon.json` 의 올바른 위치에 배치 합니다. 
+Place `daemon.json` in the right location for your platform: 
 
 | 플랫폼 | 위치 |
 | --------- | -------- |
 | Linux | `/etc/docker` |
-| Windows 컨테이너를 사용 하는 windows 호스트 | `C:\ProgramData\iotedge-moby\config` |
+| Windows host with Windows containers | `C:\ProgramData\iotedge-moby\config` |
 
-위치에 이미 파일이 있는 `daemon.json` 경우 **dns** 키를 추가 하 고 파일을 저장 합니다.
+If the location already contains `daemon.json` file, add the **dns** key to it and save the file.
 
-*업데이트를 적용 하려면 컨테이너 엔진을 다시 시작 합니다.*
+*Restart the container engine for the updates to take effect*
 
 | 플랫폼 | 명령 |
 | --------- | -------- |
 | Linux | `sudo systemctl restart docker` |
-| Windows (관리자 Powershell) | `Restart-Service iotedge-moby -Force` |
+| Windows (Admin Powershell) | `Restart-Service iotedge-moby -Force` |
 
-**옵션 2: 모듈 당 IoT Edge 배포에서 DNS 서버 설정**
+**Option 2: Set DNS server in IoT Edge deployment per module**
 
-IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설정할 수 있습니다. 예:
+You can set DNS server for each module's *createOptions* in the IoT Edge deployment. 다음은 그 예입니다.
 
 ```
 "createOptions": {
@@ -426,7 +425,7 @@ IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설
 }
 ```
 
-*EdgeAgent* 및 *edgeHub* 모듈에 대해서도이를 설정 해야 합니다. 
+Be sure to set this for the *edgeAgent* and *edgeHub* modules as well. 
 
 ## <a name="next-steps"></a>다음 단계
 IoT Edge 플랫폼에서 버그를 찾았나요? 지속적인 제품 개선을 위해 [문제를 제출](https://github.com/Azure/iotedge/issues)하세요. 
