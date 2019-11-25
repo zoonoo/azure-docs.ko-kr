@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 4c26431ee0d506dda547fb4027845baa15c9a134
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997875"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74075654"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -416,6 +416,24 @@ cd $env:LOCALAPPDATA\CosmosDBEmulator\bind-mount
 데이터 탐색기를 열려면 브라우저에서 다음 URL로 이동합니다. 에뮬레이터 엔드포인트가 위에 표시된 응답 메시지에 제공됩니다.
 
     https://<emulator endpoint provided in response>/_explorer/index.html
+
+Linux docker 컨테이너에서 실행 중인 .NET 클라이언트 애플리케이션이 있고 호스트 머신에서 Azure Cosmos 에뮬레이터를 실행 중인 경우, 에뮬레이터에서 Azure Cosmos 계정에 연결할 수 없습니다. 앱이 호스트 머신에서 실행되고 있지 않기 때문에 에뮬레이터의 엔드포인트와 일치하는 Linux 컨테이너에 등록된 인증서를 추가할 수 없습니다. 
+
+이 문제를 해결하기 위해 다음 .Net 코드 샘플에 표시된 대로 `HttpClientHandler` 인스턴스를 전달하여 클라이언트 애플리케이션에서 서버의 SSL 인증서 유효성 검사를 사용하지 않도록 설정할 수 있습니다. 이 해결 방법은 `Microsoft.Azure.DocumentDB` Nuget 패키지를 사용하는 경우에만 적용되며 `Microsoft.Azure.Cosmos` Nuget 패키지에서 지원되지 않습니다.
+ 
+ ```csharp
+var httpHandler = new HttpClientHandler()
+{
+    ServerCertificateCustomValidationCallback = (req,cert,chain,errors) => true
+};
+ 
+using (DocumentClient client = new DocumentClient(new Uri(strEndpoint), strKey, httpHandler))
+{
+    RunDatabaseDemo(client).GetAwaiter().GetResult();
+}
+```
+
+SSL 인증서 유효성 검사를 사용하지 않도록 설정하는 것 외에도 `/allownetworkaccess` 옵션을 사용하여 에뮬레이터를 시작하고 애뮬레이터의 엔드포인트는 `host.docker.internal` DNS 대신 호스트 IP 주소에서 액세스할 수 있어야 합니다.
 
 ## Mac 또는 Linux에서 실행<a id="mac"></a>
 

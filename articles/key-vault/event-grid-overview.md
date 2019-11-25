@@ -1,42 +1,42 @@
 ---
-title: Azure Event Grid로 Key Vault 모니터링
-description: Azure Event Grid를 사용 하 여 Key Vault 이벤트 구독
+title: '자습서: Azure Event Grid를 사용하여 Key Vault 모니터링'
+description: '자습서: Azure Event Grid를 사용하여 Key Vault 이벤트 구독'
 services: media-services
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: article
-ms.date: 10/25/2019
+ms.topic: tutorial
+ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 1fa554e03188c4d8d6227a6d2c0a560c3080b0fe
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
-ms.translationtype: MT
+ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
+ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73033499"
+ms.lasthandoff: 11/16/2019
+ms.locfileid: "74133354"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Azure Event Grid를 사용 하 여 Key Vault 모니터링 (미리 보기)
+# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>자습서: Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)
 
-Event Grid와 Key Vault 통합은 현재 미리 보기로 제공 됩니다. 키 자격 증명 모음에 저장 된 암호의 상태가 변경 되 면 사용자에 게 알릴 수 있습니다. 상태 변경은 만료 되는 암호 (30 일 이내), 만료 된 비밀 또는 사용 가능한 새 버전의 암호로 정의 됩니다. 세 가지 비밀 유형 (키, 인증서 및 비밀)에 대 한 알림이 모두 지원 됩니다.
+Event Grid와 Key Vault 통합은 현재 미리 보기로 제공됩니다. Key Vault에 저장된 비밀의 상태가 변경되었을 때 사용자에게 알릴 수 있습니다. 상태 변경은 만료되려고 하는 비밀(30일 이내), 만료된 비밀 또는 사용 가능한 새 버전이 있는 비밀로 정의됩니다. 세 가지 비밀 유형(키, 인증서 및 비밀)에 대한 알림이 모두 지원됩니다.
 
-응용 프로그램은 복잡 한 코드 또는 비용이 많이 들고 비효율적인 폴링 서비스가 없어도 최신 서버를 사용 하지 않는 아키텍처를 사용 하 여 이러한 이벤트에 반응할 수 있습니다. 이벤트는 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), 사용자의 Webhook와 같은 이벤트 처리기에 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) 를 통해 푸시되 며 사용한 만큼만 요금을 지불 합니다. 가격 책정에 대한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조하세요.
+애플리케이션은 복잡한 코드나 고가의 비효율적인 폴링 서비스 없이도 최신 서버리스 아키텍처를 사용하여 이러한 이벤트에 대응할 수 있습니다. 이벤트는 [Azure Event Grid](https://azure.microsoft.com/services/event-grid/)를 통해 [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)와 같은 이벤트 처리기로 푸시되거나 Webhook으로도 푸시되며, 요금은 사용한 만큼만 청구됩니다. 가격 책정에 대한 자세한 내용은 [Event Grid 가격 책정](https://azure.microsoft.com/pricing/details/event-grid/)을 참조하세요.
 
-## <a name="key-vault-events-and-schemas"></a>이벤트 및 스키마 Key Vault
+## <a name="key-vault-events-and-schemas"></a>Key Vault 이벤트 및 스키마
 
-Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Key Vault 이벤트에는 데이터 변경 내용에 응답 하는 데 필요한 모든 정보가 포함 되어 있습니다. EventType 속성이 "Microsoft. KeyVault"로 시작 하므로 Key Vault 이벤트를 식별할 수 있습니다.
+Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)을 사용하여 이벤트 메시지를 구독자에게 라우팅합니다. Key Vault 이벤트에는 데이터 변경에 대응하는 데 필요한 모든 정보가 포함되어 있습니다. eventType 속성이 "Microsoft.KeyVault"로 시작하므로 Key Vault 이벤트를 식별할 수 있습니다.
 
-자세한 내용은 [Key Vault 이벤트 스키마](../event-grid/event-schema-key-vault.md)를 참조 하세요.
+자세한 내용은 [Key Vault 이벤트 스키마](../event-grid/event-schema-key-vault.md)를 참조하세요.
 
 > [!NOTE]
-> 이벤트는 구독이 설정 된 후에 생성 된 암호 버전 (세 유형 모두)에 대해서만 트리거됩니다.
+> 이벤트는 구독이 설정된 후에 생성된 비밀 버전(세 유형 모두)에 대해서만 트리거됩니다.
 >
-> 기존 암호의 경우 새 버전을 생성 해야 합니다.
+> 기존 비밀의 경우 새 버전을 생성해야 합니다.
 
 ## <a name="practices-for-consuming-events"></a>이벤트 사용에 관한 지침
 
-Key Vault 이벤트를 처리 하는 응용 프로그램은 다음과 같은 몇 가지 권장 방법을 따라야 합니다.
+Key Vault 이벤트를 처리하는 애플리케이션은 다음에 권장되는 몇 가지 지침을 따라야 합니다.
 
-* 이벤트를 동일한 이벤트 처리기로 라우팅하도록 여러 구독을 구성할 수 있습니다. 이벤트를 특정 원본에서 가져온 것으로 가정 하지 않는 것이 중요 합니다. 단, 메시지의 항목을 확인 하 여 예상 되는 주요 자격 증명 모음에서 가져온 것인지 확인 해야 합니다.
+* 이벤트를 동일한 이벤트 처리기로 라우팅하도록 여러 구독을 구성할 수 있습니다. 이벤트가 특정 원본에서 온 것으로 가정하는 것이 아니라 메시지의 항목을 확인하여 예상하는 Key Vault에서 기인한 것인지 확인하는 것이 중요합니다.
 * 마찬가지로, eventType이 본인이 처리하려는 형식인지 확인하고, 수신된 모든 이벤트가 예상하는 형식일 것이라고 간주하지 않도록 합니다.
 * 이해할 수 없는 필드는 무시합니다.  이 지침은 나중에 추가될 수 있는 새로운 기능에 적용하는 데도 도움이 됩니다.
 * "제목" 접두사 및 접미사 일치를 사용하여 이벤트를 특정 이벤트로 제한합니다.
@@ -45,6 +45,7 @@ Key Vault 이벤트를 처리 하는 응용 프로그램은 다음과 같은 몇
 
 - [Azure Key Vault 개요](key-vault-overview.md)
 - [Azure Event Grid 개요](../event-grid/overview.md)
-- [방법: Automation Runbook으로 Key Vault 이벤트 라우팅 (미리 보기)](event-grid-tutorial.md)
-- [Azure Key Vault에 대 한 Azure Event Grid 이벤트 스키마 (미리 보기)](../event-grid/event-schema-key-vault.md)
+- 방법: [Key Vault 이벤트를 Automation Runbook으로 라우팅(미리 보기)](event-grid-tutorial.md)합니다.
+- 방법: [Key Vault 비밀 변경 시 이메일 받기](event-grid-logicapps.md)
+- [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation 개요](../automation/index.yml)

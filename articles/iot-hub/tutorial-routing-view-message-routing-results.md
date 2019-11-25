@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 메시지 라우팅 결과 보기(.NET) | Microsoft Docs
-description: Azure IoT Hub 메시지 라우팅 결과 보기
+description: 자습서의 1부를 사용하여 모든 리소스를 설정한 후 메시지를 Azure Stream Analytics로 라우팅하고 PowerBI에서 결과를 볼 수 있는 기능을 추가합니다.
 author: robinsh
 manager: philmea
 ms.service: iot-hub
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 03/25/2018
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: f34799bbf2142ba07c29915deae5b5dbe590c9fc
-ms.sourcegitcommit: 08138eab740c12bf68c787062b101a4333292075
+ms.openlocfilehash: bfee4e64070e5f37eaa3d63280409f00c0ed8672
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/22/2019
-ms.locfileid: "67330551"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890402"
 ---
 # <a name="tutorial-part-2---view-the-routed-messages"></a>자습서: 2부 - 라우팅된 메시지 보기
 
@@ -52,9 +52,11 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
 
    ![논리 앱 만들기 화면](./media/tutorial-routing-view-message-routing-results/create-logic-app.png)
 
-   **만들기**를 선택합니다.
+   **만들기**를 선택합니다. 앱을 배포하는 데 몇 분 정도 걸릴 수 있습니다.
 
-2. 이제 Logic App으로 이동합니다. Logic App을 가장 쉽게 가져오려면 **리소스 그룹**을 선택하고, 사용자의 리소스 그룹을 선택(이 자습서에서는 **ContosoResources** 사용)한 다음, 리소스의 목록에서 Logic App을 선택합니다. Logic Apps 디자이너 페이지가 표시됩니다(전체 페이지를 표시하려면 오른쪽으로 스크롤해야 함). Logic Apps 디자이너 페이지에서 **빈 Logic App +** 이라는 타일이 표시될 때까지 아래로 스크롤한 후 선택합니다. 기본 탭은 "사용자용"입니다. 이 창이 비어 있으면 **모두**를 선택하여 사용 가능한 커넥터와 트리거를 모두 표시합니다.
+2. 이제 Logic App으로 이동합니다. Logic App을 가장 쉽게 가져오려면 **리소스 그룹**을 선택하고, 사용자의 리소스 그룹을 선택(이 자습서에서는 **ContosoResources** 사용)한 다음, 리소스의 목록에서 Logic App을 선택합니다. 
+
+    Logic Apps 디자이너 페이지가 표시됩니다(전체 페이지를 표시하려면 오른쪽으로 스크롤해야 함). Logic Apps 디자이너 페이지에서 **빈 Logic App +** 이라는 타일이 표시될 때까지 아래로 스크롤한 후 선택합니다. 기본 탭은 "사용자용"입니다. 이 창이 비어 있으면 **모두**를 선택하여 사용 가능한 커넥터와 트리거를 모두 표시합니다.
 
 3. 커넥터 목록에서 **Service Bus**를 선택합니다.
 
@@ -76,7 +78,7 @@ Service Bus 큐는 중요한 것으로 지정된 메시지를 받는 데 사용�
 
    ![큐 옵션](./media/tutorial-routing-view-message-routing-results/logic-app-queue-options.png)
 
-7. 이제 메시지가 큐에 수신되면 이메일을 보내는 동작을 설정합니다. Logic Apps 디자이너에서 **+ 새 단계**를 선택하여 단계를 추가한 다음, **모두**를 선택하여 사용 가능한 모든 옵션을 표시합니다. **동작 선택** 창에서 **Office 365 Outlook**을 찾아서 선택합니다. 트리거 화면에서 **이메일 보내기/Office 365 Outlook**을 선택합니다.  
+7. 이제 메시지가 큐에 수신되면 이메일을 보내는 동작을 설정합니다. Logic Apps 디자이너에서 **+ 새 단계**를 선택하여 단계를 추가한 다음, **모두**를 선택하여 사용 가능한 모든 옵션을 표시합니다. **동작 선택** 창에서 **Office 365 Outlook**을 찾아서 선택합니다. 작업 화면에서 **이메일 보내기 / Office 365 Outlook**을 선택합니다.  
 
    ![Office365 옵션](./media/tutorial-routing-view-message-routing-results/logic-app-select-outlook.png)
 
@@ -108,13 +110,15 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    ![Stream Analytics 작업 만들기](./media/tutorial-routing-view-message-routing-results/stream-analytics-create-job.png)
 
-3. **만들기**를 선택하여 작업을 만듭니다. 작업으로 돌아가려면 **리소스 그룹**을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 그룹을 선택한 후 리소스 목록에 있는 Stream Analytics 작업을 선택합니다.
+3. **만들기**를 선택하여 작업을 만듭니다. 배포하는 데 몇 분이 걸릴 수 있습니다.
+
+    작업으로 돌아가려면 **리소스 그룹**을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 리소스 그룹을 선택한 후 리소스 목록에 있는 Stream Analytics 작업을 선택합니다.
 
 ### <a name="add-an-input-to-the-stream-analytics-job"></a>Stream Analytics 작업에 입력 추가
 
-4. **작업 토폴로지**에서 **입력**을 선택합니다.
+1. **작업 토폴로지**에서 **입력**을 선택합니다.
 
-5. **입력** 창에서 **스트림 입력 추가**를 선택하고 IoT Hub를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
+2. **입력** 창에서 **스트림 입력 추가**를 선택하고 IoT Hub를 선택합니다. 나타난 화면에서 다음 필드를 입력합니다.
 
    **입력 별칭**: 이 자습서에서는 **contosoinputs**를 사용합니다.
 
@@ -122,19 +126,19 @@ Power BI 시각화에서 데이터를 보려면 먼저 데이터를 검색하는
 
    **구독**: 이 자습서를 위해 사용 중인 Azure 구독을 선택합니다.
 
-   **IoT Hub**: IoT Hub를 선택합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다.
+   **IoT Hub**: IoT 허브를 선택합니다. 이 자습서에서는 **ContosoTestHub**를 사용합니다.
 
    **엔드포인트**: **메시징**을 선택합니다. (작업 모니터링을 선택하는 경우 전송하는 데이터가 아닌 IoT Hub에 대한 원격 분석 데이터를 얻게 됩니다.) 
 
    **공유 액세스 정책 이름**: **서비스**를 선택합니다. 포털에서 사용자를 위한 공유 액세스 정책 키가 채워집니다.
 
-   **소비자 그룹**: 이 자습서의 1단계에서 설정한 소비자 그룹을 선택합니다. 이 자습서에서는 **contosoconsumers**를 사용합니다.
+   **소비자 그룹**: 이 자습서의 1부에서 설정한 소비자 그룹을 선택합니다. 이 자습서에서는 **contosoconsumers**를 사용합니다.
    
    나머지 필드는 기본값을 그대로 사용합니다. 
 
    ![Stream Analytics 작업에 대한 입력 설정](./media/tutorial-routing-view-message-routing-results/stream-analytics-job-inputs.png)
 
-6. **저장**을 선택합니다.
+3. **저장**을 선택합니다.
 
 ### <a name="add-an-output-to-the-stream-analytics-job"></a>Stream Analytics 작업에 출력 추가
 
@@ -178,20 +182,20 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
 ## <a name="run-simulated-device-app"></a>시뮬레이션된 디바이스 앱 실행
 
-이 자습서의 1부에서 IoT 디바이스를 사용하여 시뮬레이션할 디바이스를 설정했습니다. 이 섹션에서는 이 자습서의 1부에서 앱과 리소스를 다운로드하지 않았다는 가정 하에, IoT 허브에 디바이스-클라우드 메시지를 보내는 디바이스를 시뮬레이션하는 NET 콘솔 앱을 다운로드합니다.
+이 자습서의 1부에서 IoT 디바이스를 사용하여 시뮬레이션할 디바이스를 설정합니다. 이 섹션에서는 IoT 허브에 디바이스-클라우드 메시지를 보내는 디바이스를 시뮬레이션하는 .NET 콘솔 앱을 다운로드합니다(1부에서 앱과 리소스를 아직 다운로드하지 않았다고 가정).
 
 이 애플리케이션은 다양한 메시지 라우팅 메서드에 대해 메시지를 보냅니다. 이 다운로드에는 전체 Azure Resource Manager 템플릿과 매개 변수 파일은 물론 Azure CLI와 PowerShell 스크립트가 포함된 폴더도 있습니다.
 
-이 자습서의 1단계에서 리포지토리의 파일을 다운로드하지 않은 경우 [IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 다운로드하세요. 이 링크를 선택하면 여러 애플리케이션이 포함된 리포지토리가 다운로드됩니다. 필요한 솔루션은 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln입니다. 
+이 자습서의 1부에서 리포지토리의 파일을 다운로드하지 않은 경우 [IoT 디바이스 시뮬레이션](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 다운로드하세요. 이 링크를 선택하면 여러 애플리케이션이 포함된 리포지토리가 다운로드됩니다. 필요한 솔루션은 iot-hub/Tutorials/Routing/IoT_SimulatedDevice.sln입니다. 
 
-솔루션 파일(IoT_SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{iot hub hostname}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
+솔루션 파일(IoT_SimulatedDevice.sln)을 두 번 클릭하여 Visual Studio에서 코드를 연 다음, Program.cs를 엽니다. `{your hub name}`을 IoT Hub 호스트 이름으로 대체합니다. IoT Hub 호스트 이름의 형식은 **{iot-hub-name}.azure-devices.net**입니다. 이 자습서의 경우 허브 호스트 이름은 **ContosoTestHub.azure-devices.net**입니다. 다음으로, `{your device key}`를 이전에 시뮬레이션된 디바이스를 설정할 때 저장했던 디바이스 키로 대체합니다. 
 
    ```csharp
-        static string myDeviceId = "contoso-test-device";
-        static string iotHubUri = "ContosoTestHub.azure-devices.net";
+        static string s_myDeviceId = "Contoso-Test-Device";
+        static string s_iotHubUri = "ContosoTestHub.azure-devices.net";
         // This is the primary key for the device. This is in the portal. 
         // Find your IoT hub in the portal > IoT devices > select your device > copy the key. 
-        static string deviceKey = "{your device key here}";
+        static string s_deviceKey = "{your device key}";
    ```
 
 ## <a name="run-and-test"></a>실행 및 테스트
@@ -212,7 +216,9 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
    * Service Bus 큐의 메시지를 검색하는 Logic App이 제대로 작동합니다.
    * Outlook에 대한 Logic App 커넥터가 제대로 작동합니다. 
 
-2. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 선택하고 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 스토리지 계정을 선택하고 **Blob**을 선택한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 스토리지 계정으로 라우팅된 항목이 포함되어 있습니다. 
+2. [Azure Portal](https://portal.azure.com)에서 **리소스 그룹**을 선택하고 리소스 그룹을 선택합니다. 이 자습서에서는 **ContosoResources**를 사용합니다. 
+
+    스토리지 계정을 선택하고 **Containers**를 선택한 다음, 컨테이너를 선택합니다. 이 자습서에서는 **contosoresults**를 사용합니다. 폴더를 확인하고 하나 이상의 파일이 표시될 때까지 디렉터리를 드릴다운할 수 있습니다. 이러한 파일 중 하나를 열면 스토리지 계정으로 라우팅된 항목이 포함되어 있습니다. 
 
    ![스토리지의 결과 파일](./media/tutorial-routing-view-message-routing-results/results-in-storage.png)
 
@@ -250,11 +256,11 @@ Power BI 보고서를 설정하려면 디바이스를 만들고 디바이스 시
 
    꺾은선형 차트가 만들어집니다. x축은 UTC 표준 시간대의 날짜와 시간을 표시하고, y축은 센서의 온도를 표시합니다.
 
-6. 시간이 지남에 따라 실시간 습도를 표시하는 꺾은선형 차트를 만듭니다. 두 번째 차트를 설정하려면 위와 동일한 단계를 수행하고 **EventEnqueuedUtcTime**을 x축에, **습도**를 y축에 배치합니다.
+6. 시간이 지남에 따라 실시간 습도를 표시하는 꺾은선형 차트를 만듭니다. 두 번째 차트를 설정하려면 첫 번째 차트에서 동일한 프로세스를 수행하여 **EventEnqueuedUtcTime**을 x축(**Axis**)에 배치하고 **습도**를 y축(**Values**)에 배치합니다.
 
    ![두 개의 차트가 있는 최종 Power BI 보고서](./media/tutorial-routing-view-message-routing-results/power-bi-report.png)
 
-7. **저장**을 선택하여 보고서를 저장합니다.
+7. 보고서를 저장하려면 **저장**을 선택하고, 메시지가 표시되면 보고서의 이름을 입력합니다.
 
 두 차트 모두에서 데이터를 볼 수 있습니다. 이 결과는 다음 내용이 참이라는 의미입니다.
 
@@ -266,7 +272,7 @@ Power BI 창 위쪽의 새로 고침 단추를 선택하면 차트를 새로 고
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 
-이 자습서의 두 부분을 통해 만든 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT Hub, Service Bus 네임스페이스 및 큐, Logic App, 스토리지 계정 및 리소스 그룹 자체가 제거됩니다. 
+이 자습서의 두 부분을 통해 만든 Azure 리소스를 모두 제거하려면 리소스 그룹을 삭제합니다. 이렇게 하면 그룹 내에 포함된 모든 리소스가 삭제됩니다. 이 경우 IoT Hub, Service Bus 네임스페이스 및 큐, Logic App, 스토리지 계정 및 리소스 그룹 자체가 제거됩니다. Power BI 리소스를 제거하고 자습서 중에 보낸 이메일을 지울 수도 있습니다.
 
 ### <a name="clean-up-resources-in-the-power-bi-visualization"></a>Power BI 시각화에서 리소스 정리
 
@@ -287,6 +293,10 @@ az group delete --name $resourceGroup
 ```azurepowershell-interactive
 Remove-AzResourceGroup -Name $resourceGroup
 ```
+
+### <a name="clean-up-test-emails"></a>테스트 이메일 정리
+
+디바이스 애플리케이션이 실행되는 동안 Logic App을 통해 생성된 수신함의 이메일 수량을 삭제할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

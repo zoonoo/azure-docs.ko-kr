@@ -10,12 +10,12 @@ ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: 9f0bdbf69336f792479c0089be351e468d3babe2
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
+ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128698"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74092072"
 ---
 ::: zone target="chromeless"
 
@@ -133,15 +133,29 @@ ms.locfileid: "71128698"
 
 ### <a name="in-singaporetabin-singapore"></a>[싱가포르에서](#tab/in-singapore)
 
-1. 포장용 레이블을 인쇄하고 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
+1. 배송 레이블을 인쇄하여 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
     - **개요 > 배송 레이블 다운로드**로 이동하여 반송 포장용 레이블을 가져옵니다.
     - 디바이스에 레이블을 부착합니다. 레이블이 보이는지 확인합니다.
 
-2. 픽업을 요청하려면 다음을 수행합니다.
-    - **SingPost** 핫라인 **6845 6485**로 근무 시간(월요일~금요일 오전 9시 ~ 오후 5시) 내에 연락합니다.  
-    - *Microsoft Azure 픽업* 및 서비스 요청 번호(반송 포장용 레이블의 추적 번호)를 알려주고 수거를 준비합니다. 
-    - 픽업 일정에 대한 구두 확인 메시지를 받게 됩니다. 
-    - 택배 회사에서 수거하러 오지 않으면 **SingPost** **6845 6485**로 전화를 걸어 대체 예약을 요청합니다. 
+2. 픽업을 요청하려면 추적 번호와 함께 다음 템플릿을 사용하여 SingPost 고객 서비스에 이메일을 보냅니다(추적 번호는 전달된 패키지에 제공된 반환 레이블에서 찾을 수 있음).
+
+    ```
+    To: kadcustcare@singpost.com
+    Subject: Microsoft Azure Pick-up - XZ00001234567 
+    Body: 
+     a. Requestor name
+     b. Requestor contact number
+     c. Requestor collection address
+     d. Preferred collection date
+    ```
+
+   > [!NOTE]
+   > 영업일에 수신된 예약 요청:
+   > - 오후 3시 이전에는 오전 9시에서 오후 1시 사이에 다음 영업일에 픽업합니다.
+   > - 오후 3시 이후에는 오후 2시에서 오후 6시 사이에 다음 영업일에 픽업합니다.
+
+   문제가 발생하는 경우 adbo@microsoft.com에 있는 Data Box Operations Asia에 문의하세요. 제목 헤더에 작업 이름과 발생한 문제를 입력합니다.
+
 3. 택배 회사에 전달합니다. 
 
 
