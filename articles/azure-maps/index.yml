@@ -45,6 +45,8 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">지오펜스 설정</a>
+          - html: <a href="/azure-maps/tutorial-iot-hub-maps">공간 분석</a>
+          - html: <a href=/azure/azure-maps/tutorial-ev-routing">Azure Notebooks(Python)를 사용한 EV 라우팅</a>
   - title: 참고 자료
     items:
       - type: list
@@ -52,6 +54,6 @@ sections:
         className: cardsW
         items:
           - title: JavaScript
-            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">지도 컨트롤</a></p>'
+            html: '<p><a href="https://docs.microsoft.com/javascript/api/azure-maps-javascript/">지도 컨트롤</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/">그리기 도구 모듈</a></p><p><a href="https://docs.microsoft.com/javascript/api/azure-maps-rest/">서비스 모듈</a></p>'
           - title: REST (영문)
             html: '<p><a href="https://docs.microsoft.com/rest/api/maps/data">데이터 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/geolocation">지리적 위치 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/mobility">모바일 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/render">Render Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/route">Route Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/search">Search Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/spatial">공간 서비스</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/timezone">Timezone Service</a></p><p><a href="https://docs.microsoft.com/rest/api/maps/traffic">Traffic Service</a></p>'
