@@ -127,7 +127,7 @@
               href: map-add-custom-html.md
             - name: 트래픽 표시
               href: map-show-traffic.md
-            - name: 마우스 이벤트와 상호 작용
+            - name: 이벤트에 반응
               href: map-events.md
             - name: 앱에 액세스할 수 있게 만들기
               href: map-accessibility.md

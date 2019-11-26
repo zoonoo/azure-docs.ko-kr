@@ -71,6 +71,8 @@
           href: howto-version-device-template.md
         - name: 디바이스 관리
           href: howto-manage-devices.md
+        - name: 규칙 구성
+          href: howto-configure-rules.md
         - name: 디바이스 데이터 분석
           href: howto-create-analytics.md
         - name: 대시보드에 타일 추가

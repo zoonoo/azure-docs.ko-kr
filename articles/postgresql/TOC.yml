@@ -84,16 +84,18 @@
               href: concepts-limits.md
         - name: 데이터 액세스 및 보안
           items:
-            - name: 방화벽 규칙
-              href: concepts-firewall-rules.md
+            - name: 보안 개요
+              href: concepts-security.md
             - name: SSL 구성
               href: concepts-ssl-connection-security.md
-            - name: 고급 위협 보호
-              href: concepts-data-access-and-security-threat-protection.md
-            - name: 가상 네트워크
-              href: concepts-data-access-and-security-vnet.md
             - name: 연결 아키텍처
               href: concepts-connectivity-architecture.md
+            - name: 방화벽 규칙
+              href: concepts-firewall-rules.md
+            - name: 가상 네트워크
+              href: concepts-data-access-and-security-vnet.md
+            - name: 고급 위협 보호
+              href: concepts-data-access-and-security-threat-protection.md
             - name: Azure AD 인증
               href: concepts-aad-authentication.md
         - name: 비즈니스 연속성

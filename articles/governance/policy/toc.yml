@@ -2,7 +2,7 @@
   href: index.yml
 - name: 개요
   items:
-    - name: Azure 정책 개요
+    - name: Azure Policy이란?
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
 - name: 빠른 시작
