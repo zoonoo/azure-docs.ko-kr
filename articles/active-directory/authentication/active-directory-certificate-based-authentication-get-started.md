@@ -1,5 +1,5 @@
 ---
-title: Certificate-based authentication - Azure Active Directory
+title: 인증서 기반 인증-Azure Active Directory
 description: 사용자 환경에서 인증서 기반 인증을 구성하는 방법 알아보기
 services: active-directory
 ms.service: active-directory
@@ -166,7 +166,7 @@ Azure Active Directory에서 인증 기관을 구성하려면 각 인증 기관�
 
 ### <a name="testing-your-certificate"></a>인증서 테스트
 
-첫 번째 구성 테스트로 **디바이스의 브라우저**를 사용하여 [Outlook Web Access](https://outlook.office365.com) 또는 [SharePoint Online](https://microsoft.sharepoint.com)에 로그인을 시도해야 합니다.
+첫 번째 구성 테스트로 [디바이스의 브라우저](https://outlook.office365.com)를 사용하여 [Outlook Web Access](https://microsoft.sharepoint.com) 또는 **SharePoint Online**에 로그인을 시도해야 합니다.
 
 로그인에 성공했으면 다음을 의미합니다.
 

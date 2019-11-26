@@ -1,6 +1,6 @@
 ---
-title: Backends and backend pools in Azure Front Door Service | Microsoft Docs
-description: This article describes what backends and backend pools are in Front Door configuration.
+title: Azure Front 도어 서비스의 백 엔드 및 백 엔드 풀 | Microsoft Docs
+description: 이 문서에서는 프런트 도어 구성에 있는 백 엔드 및 백 엔드 풀을 설명 합니다.
 services: front-door
 documentationcenter: ''
 author: sharad4u
@@ -19,77 +19,77 @@ ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229026"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door-service"></a>Azure Front Door Service의 백 엔드 및 백 엔드 풀
-This article describes concepts about how to map your app deployment with Azure Front Door Service. It also explains the different terms in Front Door configuration around app backends.
+이 문서에서는 Azure Front 도어 서비스를 사용 하 여 앱 배포를 매핑하는 방법에 대 한 개념을 설명 합니다. 또한 앱 백 엔드에 대 한 Front 도어 구성의 다양 한 용어에 대해 설명 합니다.
 
 ## <a name="backends"></a>백 엔드
-A backend is equal to an app's deployment instance in a region. Front Door Service supports both Azure and non-Azure backends, so the region isn't only restricted to Azure regions. Also, it can be your on-premises datacenter or an app instance in another cloud.
+백 엔드는 한 지역의 앱 배포 인스턴스와 같습니다. 프런트 도어 서비스는 azure 및 비 Azure 백 엔드를 모두 지원 하므로 지역은 Azure 지역으로 제한 되지 않습니다. 또한 온-프레미스 데이터 센터 또는 다른 클라우드의 앱 인스턴스일 수 있습니다.
 
-Front Door Service backends refer to the host name or public IP of your app, which can serve client requests. Backends shouldn't be confused with your database tier, storage tier, and so on. Backends should be viewed as the public endpoint of your app backend. When you add a backend in a Front Door backend pool, you must also add the following:
+프런트 도어 서비스 백 엔드는 클라이언트 요청을 처리할 수 있는 앱의 호스트 이름 또는 공용 IP를 나타냅니다. 백 엔드는 데이터베이스 계층, 저장소 계층 등과 혼동 해서는 안 됩니다. 백 엔드는 앱 백 엔드의 공용 끝점으로 표시 되어야 합니다. 프런트 도어 백 엔드 풀에 백 엔드를 추가 하는 경우 다음도 추가 해야 합니다.
 
-- **Backend host type**. The type of resource you want to add. Front Door Service supports autodiscovery of your app backends from app service, cloud service, or storage. If you want a different resource in Azure or even a non-Azure backend, select **Custom host**.
+- **백 엔드 호스트 유형**입니다. 추가 하려는 리소스의 형식입니다. 프런트 도어 서비스는 app service, cloud service 또는 storage에서 앱 백 엔드의 자동 검색을 지원 합니다. Azure 또는 비 Azure 백 엔드에서 다른 리소스를 원하는 경우 **사용자 지정 호스트**를 선택 합니다.
 
     >[!IMPORTANT]
-    >During configuration, APIs don't validate if the backend is inaccessible from Front Door environments. Make sure that Front Door can reach your backend.
+    >구성 하는 동안 Api는 프런트 도어 환경에서 백 엔드에 액세스할 수 없는지 확인 하지 않습니다. 프런트 도어가 백 엔드에 연결할 수 있는지 확인 합니다.
 
-- **Subscription and Backend host name**. If you haven't selected **Custom host** for backend host type, select your backend by choosing the appropriate subscription and the corresponding backend host name in the UI.
+- **구독 및 백 엔드 호스트 이름** 백 엔드 호스트 유형으로 **사용자 지정 호스트** 를 선택 하지 않은 경우 UI에서 적절 한 구독 및 해당 백 엔드 호스트 이름을 선택 하 여 백 엔드를 선택 합니다.
 
-- **Backend host header**. The host header value sent to the backend for each request. For more information, see [Backend host header](#hostheader).
+- **백 엔드 호스트 헤더**입니다. 각 요청에 대해 백 엔드에 전송 된 호스트 헤더 값입니다. 자세한 내용은 [백 엔드 호스트 헤더](#hostheader)를 참조 하세요.
 
-- **우선 순위**. Assign priorities to your different backends when you want to use a primary service backend for all traffic. Also, provide backups if the primary or the backup backends are unavailable. For more information, see [Priority](front-door-routing-methods.md#priority).
+- **우선 순위**. 모든 트래픽에 대해 기본 서비스 백 엔드를 사용 하려는 경우 다른 백 엔드에 우선 순위를 할당 합니다. 또한 기본 또는 백업 백 엔드를 사용할 수 없는 경우 백업을 제공 합니다. 자세한 내용은 [우선 순위](front-door-routing-methods.md#priority)를 참조 하세요.
 
-- **Weight**. Assign weights to your different backends to distribute traffic across a set of backends, either evenly or according to weight coefficients. For more information, see [Weights](front-door-routing-methods.md#weighted).
+- **가중치**. 여러 백 엔드에 가중치를 할당 하 여 백 엔드 집합에서 균등 하 게 또는 가중치 계수에 따라 트래픽을 분산 합니다. 자세한 내용은 [가중치](front-door-routing-methods.md#weighted)를 참조 하세요.
 
 ### <a name = "hostheader"></a>백 엔드 호스트 헤더
 
-Requests forwarded by Front Door to a backend include a host header field that the backend uses to retrieve the targeted resource. 이 필드의 값은 일반적으로 백 엔드 URI에서 제공되며 호스트 및 포트를 포함합니다.
+프런트 도어로 백 엔드에 전달 된 요청에는 백 엔드가 대상 리소스를 검색 하는 데 사용 하는 호스트 헤더 필드가 포함 됩니다. 이 필드의 값은 일반적으로 백 엔드 URI에서 제공되며 호스트 및 포트를 포함합니다.
 
-For example, a request made for www\.contoso.com will have the host header www\.contoso.com. If you use Azure portal to configure your backend, the default value for this field is the host name of the backend. If your backend is contoso-westus.azurewebsites.net, in the Azure portal, the autopopulated value for the backend host header will be contoso-westus.azurewebsites.net. However, if you use Azure Resource Manager templates or another method without explicitly setting this field, Front Door Service will send the incoming host name as the value for the host header. If the request was made for www\.contoso.com, and your backend is contoso-westus.azurewebsites.net that has an empty header field, Front Door Service will set the host header as www\.contoso.com.
+예를 들어 www\.contoso.com에 대 한 요청에는 호스트 헤더 www\.contoso.com이 포함 됩니다. Azure Portal를 사용 하 여 백 엔드를 구성 하는 경우이 필드의 기본값은 백 엔드의 호스트 이름입니다. 백 엔드가 contoso-westus.azurewebsites.net 인 경우 Azure Portal에 백 엔드 호스트 헤더에 대 한 채워집니다 값이 contoso-westus.azurewebsites.net 됩니다. 그러나이 필드를 명시적으로 설정 하지 않고 Azure Resource Manager 템플릿 또는 다른 방법을 사용 하는 경우 Front 도어 서비스는 들어오는 호스트 이름을 호스트 헤더에 대 한 값으로 보냅니다. Www\.contoso.com에 대 한 요청이 수행 되 고 백 엔드가 contoso-westus.azurewebsites.net 빈 헤더 필드가 있는 경우, 프런트 도어 서비스는 호스트 헤더를 www\.contoso.com로 설정 합니다.
 
-Most app backends (Azure Web Apps, Blob storage, and Cloud Services) require the host header to match the domain of the backend. However, the frontend host that routes to your backend will use a different hostname such as www\.contoso.azurefd.net.
+대부분의 앱 백 엔드 (Azure Web Apps, Blob storage 및 Cloud Services)에서는 호스트 헤더가 백 엔드의 도메인과 일치 해야 합니다. 그러나 백엔드로 라우팅하는 프런트 엔드 호스트에는 www\.contoso.azurefd.net와 같은 다른 호스트 이름이 사용 됩니다.
 
-If your backend requires the host header to match the backend host name, make sure that the backend host header includes the host name backend.
+백 엔드에서 백 엔드 호스트 이름과 일치 하는 호스트 헤더를 요구 하는 경우 백 엔드 호스트 헤더에 호스트 이름 백엔드가 포함 되어 있는지 확인 합니다.
 
 #### <a name="configuring-the-backend-host-header-for-the-backend"></a>백 엔드에 대한 백 엔드 호스트 헤더 구성
 
-To configure the **backend host header** field for a backend in the backend pool section:
+백 엔드 풀 섹션에서 백 엔드에 대 한 **백 엔드 호스트 헤더** 필드를 구성 하려면 다음을 수행 합니다.
 
-1. Open your Front Door resource and select the backend pool with the backend to configure.
+1. 프런트 도어 리소스를 열고 백 엔드가 구성 될 백 엔드 풀을 선택 합니다.
 
-2. Add a backend if you haven't done so, or edit an existing one.
+2. 백 엔드를 추가 하지 않은 경우 추가 하거나 기존 백 엔드를 편집 합니다.
 
-3. Set the backend host header field to a custom value or leave it blank. The hostname for the incoming request will be used as the host header value.
+3. 백 엔드 호스트 헤더 필드를 사용자 지정 값으로 설정 하거나 비워 둡니다. 들어오는 요청에 대 한 호스트 이름이 호스트 헤더 값으로 사용 됩니다.
 
-## <a name="backend-pools"></a>Backend pools
-A backend pool in Front Door Service refers to the set of backends that receive similar traffic for their app. In other words, it's a logical grouping of your app instances across the world that receive the same traffic and respond with expected behavior. These backends are deployed across different regions or within the same region. All backends can be in Active/Active deployment mode or what is defined as Active/Passive configuration.
+## <a name="backend-pools"></a>백 엔드 풀
+프런트 도어 서비스의 백 엔드 풀은 앱에 대해 비슷한 트래픽을 수신 하는 백 엔드 집합을 참조 합니다. 즉, 동일한 트래픽을 수신 하 고 예상 된 동작으로 응답 하는 전 세계에서 앱 인스턴스의 논리적 그룹화입니다. 이러한 백 엔드는 서로 다른 지역 또는 동일한 지역에 배포 됩니다. 모든 백 엔드는 능동/능동 배포 모드 이거나 활성/수동 구성으로 정의 된 것입니다.
 
-A backend pool defines how the different backends should be evaluated via health probes. It also defines how load balancing occurs between them.
+백 엔드 풀은 상태 프로브를 통해 여러 백 엔드를 평가 하는 방법을 정의 합니다. 또한 부하 분산이 이러한 항목 간에 발생 하는 방식을 정의 합니다.
 
 ### <a name="health-probes"></a>상태 프로브
-Front Door Service sends periodic HTTP/HTTPS probe requests to each of your configured backends. Probe requests determine the proximity and health of each backend to load balance your end-user requests. Health probe settings for a backend pool define how we poll the health status of app backends. The following settings are available for load-balancing configuration:
+프런트 도어 서비스는 구성 된 각 백 엔드에 주기적으로 HTTP/HTTPS 프로브 요청을 보냅니다. 프로브 요청은 최종 사용자 요청의 부하를 분산 하기 위해 각 백 엔드의 근접성과 상태를 결정 합니다. 백 엔드 풀에 대 한 상태 프로브 설정은 앱 백 엔드의 상태를 폴링하는 방법을 정의 합니다. 다음 설정은 부하 분산 구성에 사용할 수 있습니다.
 
-- **경로**. The URL used for probe requests for all the backends in the backend pool. For example, if one of your backends is contoso-westus.azurewebsites.net and the path is set to /probe/test.aspx, then Front Door Service environments, assuming the protocol is set to HTTP, will send health probe requests to http\://contoso-westus.azurewebsites.net/probe/test.aspx.
+- **경로**. 백 엔드 풀의 모든 백 엔드에 대 한 프로브 요청에 사용 되는 URL입니다. 예를 들어 백 엔드 중 하나가 contoso-westus.azurewebsites.net이 고 경로가/probe/test.aspx로 설정 된 경우에는 프로토콜이 HTTP로 설정 된 것으로 가정 하는 프런트 도어 서비스 환경에서 http\://contoso-westus.azurewebsites.net/probe/test.aspx로 상태 프로브 요청을 보냅니다.
 
-- **프로토콜**. Defines whether to send the health probe requests from Front Door Service to your backends with HTTP or HTTPS protocol.
+- **프로토콜**. HTTP 또는 HTTPS 프로토콜을 사용 하 여 Front 도어 서비스에서 백 엔드로 상태 프로브 요청을 보낼지 여부를 정의 합니다.
 
-- **Interval (seconds)** . Defines the frequency of health probes to your backends, or the intervals in which each of the Front Door environments sends a probe.
+- **간격 (초)** 입니다. 백 엔드에 대 한 상태 프로브의 빈도 또는 각 프런트 도어 환경에서 프로브를 전송 하는 간격을 정의 합니다.
 
     >[!NOTE]
-    >For faster failovers, set the interval to a lower value. The lower the value, the higher the health probe volume your backends receive. For example, if the interval is set to 30 seconds with 90 Front Door environments or POPs globally, each backend will receive about 3-5 probe requests per second.
+    >더 빠른 장애 조치 (failover)를 위해 간격을 더 낮은 값으로 설정 합니다. 값이 낮을수록 백 엔드가 수신 하는 상태 프로브 볼륨이 높아집니다. 예를 들어, 간격을 30 초로 설정 하 고 90 앞면 도어 환경 또는 Pop를 전역적으로 설정 하면 각 백 엔드는 초당 약 3-5 프로브 요청을 수신 합니다.
 
-For more information, see [Health probes](front-door-health-probes.md).
+자세한 내용은 [상태 프로브](front-door-health-probes.md)를 참조 하세요.
 
-### <a name="load-balancing-settings"></a>Load-balancing settings
-Load-balancing settings for the backend pool define how we evaluate health probes. These settings determine if the backend is healthy or unhealthy. They also check how to load-balance traffic between different backends in the backend pool. The following settings are available for load-balancing configuration:
+### <a name="load-balancing-settings"></a>부하 분산 설정
+백 엔드 풀에 대 한 부하 분산 설정은 상태 프로브를 평가 하는 방법을 정의 합니다. 이러한 설정은 백 엔드가 정상 인지 비정상 인지를 결정 합니다. 또한 백 엔드 풀의 서로 다른 백 엔드 간에 트래픽 부하를 분산 하는 방법을 확인 합니다. 다음 설정은 부하 분산 구성에 사용할 수 있습니다.
 
-- **Sample size**. Identifies how many samples of health probes we need to consider for backend health evaluation.
+- **샘플 크기**입니다. 백 엔드 상태 평가에 대해 고려해 야 하는 상태 프로브 샘플 수를 식별 합니다.
 
-- **Successful sample size**. Defines the sample size as previously mentioned, the number of successful samples needed to call the backend healthy. For example, assume a Front Door health probe interval is 30 seconds, sample size is 5, and successful sample size is 3. Each time we evaluate the health probes for your backend, we look at the last five samples over 150 seconds (5 x 30). At least three successful probes are required to declare the backend as healthy.
+- **성공적인 샘플 크기**입니다. 앞에서 설명한 것 처럼 샘플 크기를 정의 합니다. 백 엔드를 정상적으로 호출 하는 데 필요한 성공한 샘플 수가 표시 됩니다. 예를 들어, 전면 도어 상태 프로브 간격이 30 초이 고, 샘플 크기가 5이 고, 성공한 샘플 크기는 3 이라고 가정 합니다. 백 엔드에 대 한 상태 프로브를 평가할 때마다 150 초 (5 x 30) 이상 지난 5 개 샘플을 살펴보겠습니다. 백 엔드를 정상으로 선언 하려면 적어도 3 개의 성공한 프로브가 필요 합니다.
 
-- **Latency sensitivity (additional latency)** . Defines whether you want Front Door to send the request to backends within the latency measurement sensitivity range or forward the request to the closest backend.
+- **대기 시간 민감도 (추가 대기 시간)** . 프런트 도어를 대기 시간 측정 민감도 범위 내에서 백 엔드에 요청을 보낼지 아니면 가장 가까운 백 엔드로 요청을 전송할지를 정의 합니다.
 
-For more information, see [Least latency based routing method](front-door-routing-methods.md#latency).
+자세한 내용은 [최소 대기 시간 기반 라우팅 방법](front-door-routing-methods.md#latency)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Create a Front Door profile](quickstart-create-front-door.md)
-- [How Front Door works](front-door-routing-architecture.md)
+- [프런트 도어 프로필 만들기](quickstart-create-front-door.md)
+- [프런트 도어 작동 방법](front-door-routing-architecture.md)

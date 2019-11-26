@@ -1,5 +1,5 @@
 ---
-title: Guidance for developing Azure Functions
+title: Azure Functions 개발 지침
 description: 프로그래밍 언어 및 바인딩에 관계 없이 Azure에서 함수를 개발하는 데 필요한 Azure Functions 개념 및 기술에 대해 알아봅니다.
 ms.assetid: d8efe41a-bef8-4167-ba97-f3e016fcd39e
 ms.topic: conceptual
@@ -40,14 +40,14 @@ function.json 파일은 함수의 트리거, 바인딩 및 기타 구성 설정�
 
 `bindings` 속성은 트리거와 바인딩을 모두 구성하는 곳에 위치합니다. 각 바인딩은 몇 가지 공통적인 설정과 특정한 바인딩 형식에 해당하는 일부 설정을 공유합니다. 모든 바인딩에는 다음 설정이 필요합니다.
 
-| 자산 | 값/형식 | 의견 |
+| 속성 | 값/형식 | 설명 |
 | --- | --- | --- |
-| `type` |문자열 |바인딩 형식 예: `queueTrigger` |
+| `type` |string |바인딩 형식입니다. 예: `queueTrigger`. |
 | `direction` |'in', 'out' |함수 안으로 데이터를 수신할 바인딩인지 또는 함수의 데이터를 전송할 바인딩인지를 나타냅니다. |
-| `name` |문자열 |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
+| `name` |string |함수에서 바인딩 데이터에 사용되는 이름입니다. C#의 경우 인수 이름이며, JavaScript의 경우 키/값 목록의 키입니다. |
 
 ## <a name="function-app"></a>함수 앱
-함수 앱은 함수가 실행되는 Azure의 실행 컨텍스트를 제공합니다. As such, it is the unit of deployment and management for your functions. 함수 앱은 함께 관리, 배포 및 크기 조정되는 하나 이상의 개별 함수로 구성됩니다. All of the functions in a function app share the same pricing plan, deployment method, and runtime version. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. To learn more, see [How to manage a function app](functions-how-to-use-azure-function-app-settings.md). 
+함수 앱은 함수가 실행되는 Azure의 실행 컨텍스트를 제공합니다. 이는 함수에 대 한 배포 및 관리 단위입니다. 함수 앱은 함께 관리, 배포 및 크기 조정되는 하나 이상의 개별 함수로 구성됩니다. 함수 앱의 모든 함수는 동일한 가격 책정 계획, 배포 방법 및 런타임 버전을 공유 합니다. 함수 앱을 함수를 구성하고 전체적으로 관리하는 방법으로 생각합니다. 자세히 알아보려면 [함수 앱을 관리 하는 방법](functions-how-to-use-azure-function-app-settings.md)을 참조 하세요. 
 
 > [!NOTE]
 > 함수 앱의 모든 함수는 동일한 언어로 작성되어야 합니다. [이전 버전](functions-versions.md)의 Azure Functions 런타임에서는 이러한 요구 사항이 필요하지 않았습니다.
@@ -55,7 +55,7 @@ function.json 파일은 함수의 트리거, 바인딩 및 기타 구성 설정�
 ## <a name="folder-structure"></a>폴더 구조
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-위 그림은 함수 앱의 기본(및 권장) 폴더 구조입니다. 함수 코드의 파일 위치를 변경하려면 _function.json_ 파일의 `scriptFile` 섹션을 수정합니다. 또한 [패키지 배포](deployment-zip-push.md)를 사용하여 Azure의 함수 앱에 프로젝트를 배포하는 것이 좋습니다. [연속 통합 및 지속적인 배포](functions-continuous-deployment.md), Azure DevOps 등의 기존 도구를 사용할 수도 있습니다.
+위 그림은 함수 앱의 기본(및 권장) 폴더 구조입니다. 함수 코드의 파일 위치를 변경하려면 `scriptFile`function.json_파일의_ 섹션을 수정합니다. 또한 [패키지 배포](deployment-zip-push.md)를 사용하여 Azure의 함수 앱에 프로젝트를 배포하는 것이 좋습니다. [연속 통합 및 지속적인 배포](functions-continuous-deployment.md), Azure DevOps 등의 기존 도구를 사용할 수도 있습니다.
 
 > [!NOTE]
 > 패키지를 수동으로 배포하는 경우 _host.json_ 파일과 함수 폴더를 `wwwroot` 폴더에 직접 배포해야 합니다. 배포에 `wwwroot` 폴더를 포함하지 마세요. 그렇지 않으면 `wwwroot\wwwroot` 폴더가 만들어집니다.
@@ -78,7 +78,7 @@ Azure Portal에 기본 제공된 함수 편집기를 사용하면 코드와 *fun
 ## <a name="repositories"></a>리포지토리
 Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리에 저장됩니다.
 
-* [Azure Functions](https://github.com/Azure/Azure-Functions)
+* [Azure 기능](https://github.com/Azure/Azure-Functions)
 * [Azure Functions 호스트](https://github.com/Azure/azure-functions-host/)
 * [Azure Functions 포털](https://github.com/azure/azure-functions-ux)
 * [Azure Functions 템플릿](https://github.com/azure/azure-functions-templates)
@@ -96,7 +96,7 @@ Azure Functions에 대한 코드는 공개 소스이며 GitHub 리포지토리�
 [!INCLUDE [Reporting Issues](../../includes/functions-reporting-issues.md)]
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 * [Azure Functions를 로컬에서 코딩 및 테스트](./functions-develop-local.md)

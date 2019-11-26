@@ -95,7 +95,7 @@ Azure에 로그인하거나 연결할 때 사용하는 계정이 [권한](../rol
 - Azure CLI: [az network vnet subnet delete](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-delete)
 - PowerShell: [AzVirtualNetworkSubnetConfig](/powershell/module/az.network/remove-azvirtualnetworksubnetconfig?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 서브넷에 대한 작업을 수행하려면 다음 표에 나열된 적절한 작업이 할당된 [사용자 지정](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [네트워크 참가자](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 계정이 할당되어야 합니다.
 

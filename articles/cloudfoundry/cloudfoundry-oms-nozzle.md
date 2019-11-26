@@ -101,7 +101,7 @@ PCF Ops Manager를 사용하지 않는 경우 Nozzle을 애플리케이션으로
 
 #### <a name="sign-in-to-your-cf-deployment-as-an-admin-through-cf-cli"></a>CF CLI를 통해 관리자로 CF 배포에 로그인
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 cf login -a https://api.${SYSTEM_DOMAIN} -u ${CF_USER} --skip-ssl-validation
 ```
@@ -125,7 +125,7 @@ uaac member add doppler.firehose ${FIREHOSE_USER}
 
 #### <a name="download-the-latest-log-analytics-nozzle-release"></a>최신 Log Analytics Nozzle 릴리스 다운로드
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 ```
 git clone https://github.com/Azure/oms-log-analytics-firehose-nozzle.git
 cd oms-log-analytics-firehose-nozzle
@@ -156,7 +156,7 @@ LOG_EVENT_COUNT_INTERVAL  : The time interval of the logging event count to Azur
 
 ### <a name="push-the-application-from-your-development-computer"></a>개발 컴퓨터에서 애플리케이션 푸시
 
-현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령을 실행합니다.
+현재 위치가 oms-log-analytics-firehose-nozzle 폴더인지 확인합니다. 다음 명령 실행:
 ```
 cf push
 ```
@@ -205,7 +205,7 @@ OMS 포털에서 **뷰 디자이너** > **가져오기** > **찾아보기**로 �
 | Type=CF_ValueMetric_CL Name_s=slowConsumerAlert                               | 결과 수 > 0   | 노즐은 loggregator에서 저속 소비자 경고를 받으면 **slowConsumerAlert** ValueMetric를 Azure Monitor 로그에 보냅니다. |
 | Type=CF_CounterEvent_CL Job_s=nozzle Name_s=eventsLost Delta_d>0              | 결과 수 > 0   | 손실된 이벤트의 델타 번호가 임계값에 도달하는 경우 Nozzle 실행과 관련하여 문제가 있을 수 있습니다. |
 
-## <a name="scale"></a>소수 자릿수
+## <a name="scale"></a>크기 조정
 
 Nozzle과 Loggregator를 확장할 수 있습니다.
 

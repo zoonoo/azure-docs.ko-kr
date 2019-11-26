@@ -65,7 +65,7 @@ ms.locfileid: "74272129"
    ![새 사용 약관을 보여 주는 스크린샷](media/redemption-experience/terms-of-use-accept.png) 
 
    > [!NOTE]
-   > 조직 관계 [관리사용](../governance/active-directory-tou.md)약관 > 에서 **사용** > **약관**보기를 구성할 수 있습니다.
+   >  > **사용 약관** > **조직 관계** **관리** 에서 [사용 약관](../governance/active-directory-tou.md) 보기를 구성할 수 있습니다.
 
 3. 달리 지정 하지 않는 한 게스트는 게스트가 액세스할 수 있는 응용 프로그램을 나열 하는 앱 액세스 패널로 리디렉션됩니다.
 

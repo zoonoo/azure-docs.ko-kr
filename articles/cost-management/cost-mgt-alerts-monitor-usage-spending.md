@@ -35,21 +35,21 @@ Azure Portal에서는 비용을 통해 예산이 정의됩니다. Azure Consumpt
 
 부서 지출 할당량 경고는 부서 지출이 할당량의 정해진 임계값에 도달할 때 알립니다. 지출 할당량은 EA 포털에서 구성됩니다. 임계값이 충족될 때마다 부서 소유자에게 전송되는 메일이 생성되고 비용 경고에 표시됩니다. 예를 들어 할당량의 50% 또는 75%입니다.
 
-## <a name="supported-alert-features-by-offer-categories"></a>Supported alert features by offer categories
+## <a name="supported-alert-features-by-offer-categories"></a>제안 범주별 지원 되는 경고 기능
 
-Support for alert types depends on the type of Azure account that you have (Microsoft offer). The following table shows the alert features that are supported by various Microsoft offers. You can view the full list of Microsoft offers at [Understand Cost Management data](understand-cost-mgt-data.md).
+경고 유형에 대 한 지원은 사용자가 보유 한 Azure 계정 (Microsoft 제품)의 유형에 따라 달라 집니다. 다음 표에서는 다양 한 Microsoft 제품에서 지원 되는 경고 기능을 보여 줍니다. [Cost Management 데이터](understand-cost-mgt-data.md)에 대 한 이해에서 Microsoft 제품의 전체 목록을 볼 수 있습니다.
 
-| 경고 유형 | 기업계약 | Microsoft 고객 계약 | Web direct/Pay-As-You-Go |
+| 경고 유형 | 기업 계약 | Microsoft 고객 계약 | 웹 직접/종 량 제 |
 |---|---|---|---|
 | Budget | ✔ | ✔ | ✔ |
 | 크레딧 | ✔ |✘ | ✘ |
-| Department spending quota | ✔ | ✘ | ✘ |
+| 부서 지출 할당량 | ✔ | ✘ | ✘ |
 
 
 
 ## <a name="view-cost-alerts"></a>비용 경고 보기
 
-To view cost alerts, open the desired scope in the Azure portal and select **Budgets** in the menu. Use the **Scope** pill to switch to a different scope. Select **Cost alerts** in the menu. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
+비용 경고를 보려면 Azure Portal에서 원하는 범위를 열고 메뉴에서 **예산** 을 선택 합니다. 약 **범위** 를 사용 하 여 다른 범위로 전환 합니다. 메뉴에서 **비용 경고** 를 선택 합니다. 범위에 대한 자세한 내용은 [범위 이해 및 작업](understand-work-scopes.md)을 참조하세요.
 
 ![Cost Management에 표시된 경고의 예제 이미지](./media/cost-mgt-alerts-monitor-usage-spending/budget-alerts-fullscreen.png)
 
@@ -67,6 +67,6 @@ To view cost alerts, open the desired scope in the Azure portal and select **Bud
 
 ![해제 및 다시 활성화 옵션이 표시된 예제 이미지](./media/cost-mgt-alerts-monitor-usage-spending/Dismiss-reactivate-options.png)
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 - 예산을 만들지 않았거나 예산에 대한 경고 조건을 설정하지 않은 경우 [예산 만들기 및 관리](tutorial-acm-create-budgets.md) 자습서를 완료합니다.

@@ -10,7 +10,7 @@ ms.reviewer: artek
 ms.subservice: common
 ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
 ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74186608"
@@ -150,7 +150,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고자료
 
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

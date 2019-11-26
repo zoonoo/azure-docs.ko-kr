@@ -146,7 +146,7 @@ Cloudyn에는 다음과 같은 보고서 및 보고 기능이 포함되어 있�
 
 - 연간 지원 요금
 - 연간 보안 구성 요소 요금
-- 예약 인스턴스 구매 요금
+- 예약 인스턴스 구입 요금
 - 일부 Azure Marketplace 항목
 
 청구 파일에서 일회성 요금은 서비스 사용 시작 및 종료 날짜(타임스탬프)가 동일한 값을 가진다는 특징이 있습니다. 그러면 Cloudyn 서비스는 해당 요금을 분할 상환되는 일회성 요금으로 인식합니다. 주문형 사용량 비용을 이용하는 다른 사용량 기반 서비스는 분할 상환되지 않습니다.
@@ -198,7 +198,7 @@ Cloudyn은 _계정 선호도_를 적용하여 할당이 각 연결된 계정의 
 7. **날짜**에서 일회성 요금을 선택한 경우 **적용 날짜**에 요금이 결제되는 날짜를 입력합니다. 반복 청구 요금을 선택한 경우 청구 시작 날짜와 종료 날짜를 포함하는 날짜 범위를 입력합니다.
 8. **엔터티 트리**에서 요금을 적용하려는 엔터티를 선택한 후 **On**(설정)을 선택합니다.
 
-_When charges are assigned to an entity, users can't change them. Charges that are added by an administrator to a parent entity are read-only._
+_요금은 엔터티에 할당 될 때 사용자가 변경할 수 없습니다. 부모 엔터티에 대해 관리자가 추가한 요금은 읽기 전용입니다._
 
 사용자 지정 요금을 보려면
 
@@ -210,9 +210,9 @@ Cost Allocation 360을 사용하여 소비된 클라우드 리소스에 비용�
 
 사용자 지정 비용 모델을 만드는 방법에 대한 자세한 내용은 [자습서: Cloudyn을 사용한 비용 관리](tutorial-manage-costs.md)를 참조하세요.
 
-### <a name="cost-vs-budget-over-time-report"></a>Cost vs. Budget Over Time report
+### <a name="cost-vs-budget-over-time-report"></a>비용 대비 시간당 예산 보고서
 
-The Cost vs. Budget Over Time report allows you to compare the main cost contributors against your budget. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
+비용과 예산에 따른 예산 보고서를 사용 하면 기본 비용 참가자를 예산과 비교할 수 있습니다. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
 
 ### <a name="current-month-projected-cost-report"></a>이번 달 예상 비용 보고서
 
@@ -246,7 +246,7 @@ The Cost vs. Budget Over Time report allows you to compare the main cost contrib
 
 완료된 예산을 CSV 파일로 내보내려면 **작업**에서 **내보내기**를 선택하여 파일을 다운로드합니다.
 
-When completed, your budget is shown in Cost Analysis reports and in the Cost vs. Budget Over Time report. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
+완료 되 면 예산이 비용 분석 보고서 및 시간에 따른 비용 보고서에 표시 됩니다. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
 
 ### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer 보고서
 

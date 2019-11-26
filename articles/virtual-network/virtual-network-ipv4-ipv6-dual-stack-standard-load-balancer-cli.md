@@ -113,7 +113,7 @@ az network public-ip create \
 
 ### <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
-[DsLbFrontEnd_v4](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 라는 프런트 엔드 풀을 포함 하는라는 프런트 엔드 풀을 포함 하는 **dsLbBackEndPool_v4**이라는**dsLB**라는 **az network lb create**를 사용 하 여 표준 Load Balancer를 만듭니다. 이전 단계에서 만든 **dsPublicIP_v4**입니다. 
+이전 단계에서 만든 **DsPublicIP_v4** IPV4 공용 IP 주소와 연결 된 **dsLbBackEndPool_v4** 이라는 백 엔드 풀 인 **dsLbFrontEnd_v4**라는 프런트 엔드 풀을 포함 하는 이름이 **eslb** 인 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 표준 Load Balancer를 만듭니다. 
 
 ```azurecli
 az network lb create \

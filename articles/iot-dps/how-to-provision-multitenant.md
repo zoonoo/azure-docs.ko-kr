@@ -1,5 +1,5 @@
 ---
-title: How to provision devices for multitenancy in Azure IoT Hub Device Provisioning Service
+title: Azure IoT Hub 장치 프로 비전 서비스에서 배포할지에에 대 한 장치를 프로 비전 하는 방법
 description: 디바이스 프로비저닝 서비스 인스턴스를 사용하여 다중 테넌트를 지원하기 위해 디바이스를 프로비저닝하는 방법
 author: wesmc7777
 ms.author: wesmc
@@ -36,7 +36,7 @@ ms.locfileid: "74228786"
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 빠른 시작을 완료해야 합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "74228786"
     az group create --name contoso-us-resource-group --location eastus
     ```
 
-2. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 **eastus** 지역에 IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group*에 추가됩니다.
+2. Azure Cloud Shell에서 **az iot hub create** 명령을 사용하여 [eastus](/cli/azure/iot/hub#az-iot-hub-create) 지역에 IoT Hub를 만듭니다. IoT Hub는 *contoso-us-resource-group*에 추가됩니다.
 
     다음 예제에서는 *eastus* 위치에 *contoso-east-hub*라는 IoT Hub를 만듭니다. **contoso-east-hub** 대신 고유한 허브 이름을 사용해야 합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "74228786"
     
     이 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다.
 
-3. Azure Cloud Shell에서 [az iot hub create](/cli/azure/iot/hub#az-iot-hub-create) 명령을 사용하여 **westus** 지역에 IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group*에 추가됩니다.
+3. Azure Cloud Shell에서 **az iot hub create** 명령을 사용하여 [westus](/cli/azure/iot/hub#az-iot-hub-create) 지역에 IoT Hub를 만듭니다. 이 IoT Hub도 *contoso-us-resource-group*에 추가됩니다.
 
     다음 예제에서는 *eastus* 위치에 *contoso-west-hub*라는 IoT Hub를 만듭니다. **contoso-west-hub** 대신 고유한 허브 이름을 사용해야 합니다.
 
@@ -326,7 +326,7 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
     hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
-1. 두 VM에서 모두 **prov\_dev\_client\_sample.c**에서 주석으로 처리된 `prov_dev_set_symmetric_key_info()` 호출을 찾습니다.
+1. 두 VM에서 모두 `prov_dev_set_symmetric_key_info()`prov**dev\_client\_sample.c\_에서 주석으로 처리된**  호출을 찾습니다.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -415,12 +415,12 @@ J5n4NY2GiBYy7Mp4lDDa5CbEe6zDU/c62rhjCuFWxnc=
 
 3. 결과 목록의 리소스 그룹 오른쪽에서 **...** 를 클릭한 다음, **리소스 그룹 삭제**를 클릭합니다.
 
-4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후, 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
+4. 리소스 그룹을 삭제할지 확인하는 메시지가 표시됩니다. 리소스 그룹의 이름을 다시 입력하여 확인한 다음, **삭제**를 클릭합니다. 잠시 후 리소스 그룹 및 해당 그룹에 포함된 모든 리소스가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- To learn more Reprovisioning, see [IoT Hub Device reprovisioning concepts](concepts-device-reprovision.md) 
-- To learn more Deprovisioning, see [How to deprovision devices that were previously auto-provisioned](how-to-unprovision-devices.md) 
+- 다시 프로 비전에 대 한 자세한 내용은 [IoT Hub Device 다시 프로 비전 개념](concepts-device-reprovision.md) 을 참조 하세요. 
+- 프로 비전 해제에 대 한 자세한 내용은 [이전에 자동 프로 비전 된 장치의 프로 비전](how-to-unprovision-devices.md) 을 해제 하는 방법 
 
 
 

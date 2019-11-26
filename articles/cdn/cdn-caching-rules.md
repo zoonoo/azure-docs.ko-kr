@@ -113,7 +113,7 @@ Azure CDN(콘텐츠 전송 네트워크)에는 파일을 캐시하는 방법을 
 > - **Verizon의 Azure CDN Standard** 프로필의 경우 일반적으로 10분 후 전파가 완료됩니다.  
 >
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고자료
 
 - [캐싱 동작 방식](cdn-how-caching-works.md)
 - [자습서: Azure CDN 캐싱 규칙 설정](cdn-caching-rules-tutorial.md)

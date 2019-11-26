@@ -23,7 +23,7 @@ ms.locfileid: "74211709"
 # <a name="how-to-manage-dns-zones-using-powershell"></a>PowerShell을 사용하여 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
-> * [Portal](dns-operations-dnszones-portal.md)
+> * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
@@ -140,7 +140,7 @@ Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### <a name="specify-the-zone-using-a-zone-object"></a>$zone 개체를 사용하여 영역을 지정합니다.
 
-`Get-AzureRmDnsZone`에서 반환된 `$zone` 개체를 사용하여 삭제될 영역을 지정할 수 있습니다.
+`$zone`에서 반환된 `Get-AzureRmDnsZone` 개체를 사용하여 삭제될 영역을 지정할 수 있습니다.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -160,11 +160,11 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 `New-AzureRmDnsZone`, `Set-AzureRmDnsZone` 및 `Remove-AzureRmDnsZone` cmdlet은 모두 확인 메시지를 표시하도록 지원합니다.
 
-`$ConfirmPreference` PowerShell 기본 설정 변수 값에 `Medium` 이하의 값이 있는 경우 `New-AzureRmDnsZone` 및 `Set-AzureRmDnsZone`은 확인 메시지를 표시합니다. DNS 영역을 삭제할 경우 미치는 영향이 클 수 있으므로 `Remove-AzureRmDnsZone` cmdlet은 `$ConfirmPreference` PowerShell 변수가 `None` 이외의 값을 갖는 경우 확인 메시지를 표시합니다.
+`New-AzureRmDnsZone` PowerShell 기본 설정 변수 값에 `Set-AzureRmDnsZone` 이하의 값이 있는 경우 `$ConfirmPreference` 및 `Medium`은 확인 메시지를 표시합니다. DNS 영역을 삭제할 경우 미치는 영향이 클 수 있으므로 `Remove-AzureRmDnsZone` cmdlet은 `$ConfirmPreference` PowerShell 변수가 `None` 이외의 값을 갖는 경우 확인 메시지를 표시합니다.
 
 `$ConfirmPreference`의 기본값은 `High`이므로 `Remove-AzureRmDnsZone`는 기본적으로 확인 메시지를 표시합니다.
 
-`-Confirm` 매개 변수를 사용하여 현재 `$ConfirmPreference` 설정을 재정의할 수 있습니다. `-Confirm` 또는 `-Confirm:$True`를 지정하는 경우 cmdlet은 실행하기 전에 확인을 위한 메시지를 표시합니다. `-Confirm:$False`을 지정하는 경우 cmdlet은 확인을 위한 메시지를 표시하지 않습니다.
+`$ConfirmPreference` 매개 변수를 사용하여 현재 `-Confirm` 설정을 재정의할 수 있습니다. `-Confirm` 또는 `-Confirm:$True`를 지정하는 경우 cmdlet은 실행하기 전에 확인을 위한 메시지를 표시합니다. `-Confirm:$False`을 지정하는 경우 cmdlet은 확인을 위한 메시지를 표시하지 않습니다.
 
 `-Confirm` 및 `$ConfirmPreference`에 대한 자세한 내용은 [기본 설정 변수 정보](/powershell/module/microsoft.powershell.core/about/about_preference_variables)를 참조하세요.
 

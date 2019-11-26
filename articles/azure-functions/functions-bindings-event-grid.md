@@ -36,7 +36,7 @@ Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://w
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 Event Grid 트리거에 대한 다음과 같은 언어별 예제를 참조하세요.
 
@@ -50,7 +50,7 @@ HTTP 트리거 예제에 대해서는 이 문서 뒷부분에 나오는 [HTTP �
 
 ### <a name="c-2x"></a>C#(2.x)
 
-다음 예제에서는 `EventGridEvent`에 바인딩되는 Functions 2.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [에 바인딩되는 Functions 2.x ](functions-dotnet-class-library.md)C# 함수`EventGridEvent`를 보여줍니다.
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -76,7 +76,7 @@ namespace Company.Function
 
 ### <a name="c-version-1x"></a>C#(버전 1.x)
 
-다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [에 바인딩되는 Functions 1.x ](functions-dotnet-class-library.md)C# 함수`JObject`를 보여줍니다.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -184,7 +184,7 @@ module.exports = function (context, eventGridEvent) {
 
 ### <a name="python-example"></a>Python 예제
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -223,7 +223,7 @@ def main(event: func.EventGridEvent):
 * [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter-java)
 * [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter-java)
 
-다음 예제에서는 *function.json* 파일의 트리거 바인딩과 이 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이 이벤트를 ```String```으로 수신하고, 두 번째로는 POJO로 수신하는 [Java 함수](functions-reference-java.md)를 보여 줍니다.
+다음 예제에서는 *function.json* 파일의 트리거 바인딩과 이 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이 이벤트를 [으로 수신하고, 두 번째로는 POJO로 수신하는 ](functions-reference-java.md)Java 함수```String```를 보여 줍니다.
 
 ```json
 {
@@ -291,7 +291,7 @@ public class EventSchema {
   }
 ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 EventGrid에서 제공되는 매개 변수에 대한 `EventGridTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 ## <a name="attributes"></a>특성
 
@@ -315,11 +315,11 @@ public static void EventGridTest([EventGridTrigger] JObject eventGridEvent, ILog
 
 |function.json 속성 |설명|
 |---------|---------|
-| **type** | 필수 - `eventGridTrigger`으로 설정해야 합니다. |
-| **direction** | 필수 - `in`으로 설정해야 합니다. |
+| **type** | 필수 - `eventGridTrigger`로 설정해야 합니다. |
+| **direction** | 필수 - `in`로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용법
 
 Azure Functions 1.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해 다음 매개 변수 형식을 사용할 수 있습니다.
 
@@ -331,7 +331,7 @@ Azure Functions 2.x의 C# 및 C# 함수의 경우 Event Grid 트리거에 대해
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
-> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
+> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `EventGridEvent`를 접두사로 사용하여 `Microsoft.Azure.EventGrid.Models` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
 JavaScript 함수의 경우 *function.json* `name` 속성에 따라 명명되는 매개 변수가 이벤트 개체를 참조합니다.
 
@@ -377,7 +377,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드포인트 URL을 지정하는 Event Grid 구독을 만듭니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수에 대해 **Event Grid 구독 추가**를 선택합니다.
 
@@ -521,14 +521,14 @@ Event Grid 함수를 로컬로 실행합니다.
 * `Content-Type: application/json` 헤더를 설정합니다.
 * `aeg-event-type: Notification` 헤더를 설정합니다.
 * 요청 본문에 RequestBin 데이터를 붙여 넣습니다.
-* Post to the URL of your Event Grid trigger function.
-  * For 2.x use the following pattern:
+* Event Grid 트리거 함수의 URL에 게시 합니다.
+  * 2\.x의 경우 다음 패턴을 사용 합니다.
 
     ```
     http://localhost:7071/runtime/webhooks/eventgrid?functionName={FUNCTION_NAME}
     ```
 
-  * For 1.x use:
+  * 1\.x의 경우 다음을 사용 합니다.
 
     ```
     http://localhost:7071/admin/extensions/EventGridExtensionConfig?functionName={FUNCTION_NAME}
@@ -548,7 +548,7 @@ Event Grid 트리거 함수가 실행되고, 다음 예제와 비슷한 결과�
 
 ## <a name="local-testing-with-ngrok"></a>ngrok를 사용한 로컬 테스트
 
-Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. You can do that with a tool like [ngrok](https://ngrok.com/):
+Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 개발 컴퓨터 간의 HTTP 연결을 자동화하는 것입니다. [Ngrok](https://ngrok.com/)와 같은 도구를 사용 하 여이 작업을 수행할 수 있습니다.
 
 1. [ngrok 엔드포인트를 만듭니다](#create-an-ngrok-endpoint).
 1. [Event Grid 트리거 함수를 실행](#run-the-event-grid-trigger-function)합니다.
@@ -559,7 +559,7 @@ Event Grid 트리거를 로컬로 테스트하는 다른 방법은 인터넷과 
 
 ### <a name="create-an-ngrok-endpoint"></a>ngrok 엔드포인트 만들기
 
-[ngrok](https://ngrok.com/)에서 *ngrok.exe*를 다운로드하고 다음 명령을 사용해서 실행합니다.
+*ngrok*에서 [ngrok.exe](https://ngrok.com/)를 다운로드하고 다음 명령을 사용해서 실행합니다.
 
 ```
 ngrok http -host-header=localhost 7071

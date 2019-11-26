@@ -51,7 +51,7 @@ ms.locfileid: "74184234"
   
 1. Power BI Desktop 앱을 열고 왼쪽 위 모서리에서 "데이터 가져오기"를 클릭합니다. 
 
-    ![데이터 가져오기](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
+    ![Get Data](./media/iot-accelerators-integrate-data-powerbi/get_data.png)
 
 2. 데이터를 입력하라는 메시지가 표시되면 "Azure Cosmos DB"를 검색하고 이 커넥터를 선택합니다. 이 커넥터는 기본적으로 Azure IoT 솔루션의 Cosmos 데이터베이스에서 데이터를 바로 끌어옵니다.
   

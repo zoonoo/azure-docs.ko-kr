@@ -1,6 +1,6 @@
 ---
-title: Overview of reverse DNS in Azure - Azure DNS
-description: In this learning path, get started learning how reverse DNS works and how it can be used in Azure
+title: Azure의 역방향 DNS 개요-Azure DNS
+description: 이 학습 경로에서 역방향 DNS가 작동 하는 방법 및 Azure에서 사용 하는 방법에 대 한 학습을 시작 합니다.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -33,7 +33,7 @@ ms.locfileid: "74211025"
 
 역방향 DNS 레코드는 'ARPA' 영역이라는 특수한 DNS 영역에서 호스팅됩니다.  이러한 영역은 'contoso.com'과 같은 일반적인 계층 구조 호스팅 도메인과 병렬로 별도의 DNS 계층 구조를 형성합니다.
 
-예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  The reverse lookup is implemented separately, using a 'PTR' record named '100' in the zone '6.4.64.in-addr.arpa' (note that IP addresses are reversed in ARPA zones.)  This PTR record, if it has been configured correctly, points to the name 'www.contoso.com'.
+예를 들어 DNS 레코드 'www.contoso.com'은 영역 'contoso.com'에 이름 'www'를 포함하는 DNS 'A' 레코드를 사용하여 구현됩니다.  이 A 레코드는 해당 IP 주소(이 경우 64.4.6.100)를 가리킵니다.  역방향 조회는 ' 6.4.64.in-addr ' 영역에서 ' 100 ' 이라는 ' PTR ' 레코드를 사용 하 여 개별적으로 구현 됩니다 (IP 주소는 node.js 영역에서 반전 됨).  이 PTR 레코드는 올바르게 구성 된 경우 ' www.contoso.com ' 이름을 가리킵니다.
 
 조직에 IP 주소 블록이 할당되면 해당 ARPA 영역을 관리할 권한도 획득하게 됩니다. Azure에 사용되는 IP 주소 블록에 해당되는 ARPA 영역은 Microsoft에서 호스트 및 관리합니다. ISP는 사용자 고유의 IP 주소에 대한 ARPA 영역을 호스트하거나 사용자가 Azure DNS와 같은 선택한 DNS 서비스에서 ARPA 영역을 호스트하도록 할 수 있습니다.
 

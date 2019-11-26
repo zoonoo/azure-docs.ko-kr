@@ -1,6 +1,6 @@
 ---
-title: Security controls for Azure Load Balancer
-description: A checklist of security controls for evaluating Load Balancer
+title: Azure Load Balancer에 대 한 보안 제어
+description: Load Balancer 평가를 위한 보안 컨트롤의 검사 목록
 services: load-balancer
 author: asudbring
 manager: KumudD
@@ -15,52 +15,52 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214893"
 ---
-# <a name="security-controls-for-azure-load-balancer"></a>Security controls for Azure Load Balancer
+# <a name="security-controls-for-azure-load-balancer"></a>Azure Load Balancer에 대 한 보안 제어
 
-This article documents the security controls built into Azure Load Balancer.
+이 문서에서는 Azure Load Balancer에 기본 제공 되는 보안 컨트롤을 설명 합니다.
 
 [!INCLUDE [Security controls Header](../../includes/security-controls-header.md)]
 
 ## <a name="network"></a>네트워크
 
-| Security control | 예/아니요 | 참고 |
+| 보안 제어 | 예/아니요 | 참고 사항 |
 |---|---|--|
-| Service endpoint support| N/A | |
-| VNet injection support| N/A | |
-| Network Isolation and Firewalling support| N/A |  |
-| Forced tunneling support| N/A | |
+| 서비스 엔드포인트 지원| 해당 없음 | |
+| VNet 삽입 지원| 해당 없음 | |
+| 네트워크 격리 및 방화벽 지원| 해당 없음 |  |
+| 강제 터널링 지원| 해당 없음 | |
 
-## <a name="monitoring--logging"></a>Monitoring & logging
+## <a name="monitoring--logging"></a>& 로깅 모니터링
 
-| Security control | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| Azure monitoring support (Log analytics, App insights, etc.)| yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
-| Control and management plane logging and audit| yes | See [Azure Monitor logs for public Basic Load Balancer](load-balancer-monitor-log.md). |
-| Data plane logging and audit | N/A |  |
+| Azure 모니터링 지원 (Log analytics, App insights 등)| 예 | [Azure Monitor logs for Public Basic Load Balancer을](load-balancer-monitor-log.md)참조 하세요. |
+| 제어 및 관리 평면 로깅 및 감사| 예 | [Azure Monitor logs for Public Basic Load Balancer을](load-balancer-monitor-log.md)참조 하세요. |
+| 데이터 평면 로깅 및 감사 | 해당 없음 |  |
 
 ## <a name="identity"></a>ID
 
-| Security control | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| Authentication| N/A |  |
-| 권한 부여| N/A |  |
+| 인증| 해당 없음 |  |
+| Authorization| 해당 없음 |  |
 
 ## <a name="data-protection"></a>데이터 보호
 
-| Security control | 예/아니요 | 참고 |
+| 보안 제어 | 예/아니요 | 참고 사항 |
 |---|---|--|
-| Server-side encryption at rest: Microsoft-managed keys | N/A | |
-| Encryption in transit (such as ExpressRoute encryption, in VNet encryption, and VNet-VNet encryption )| N/A | |
-| Server-side encryption at rest: customer-managed keys (BYOK) | N/A | |
-| Column level encryption (Azure Data Services)| N/A | |
-| API 호출 암호화| yes | Via the [Azure Resource Manager](../azure-resource-manager/index.yml). |
+| 미사용 서버 쪽 암호화: Microsoft 관리 키 | 해당 없음 | |
+| 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 해당 없음 | |
+| 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 해당 없음 | |
+| 열 수준 암호화 (Azure Data Services)| 해당 없음 | |
+| API 호출 암호화| 예 | [Azure Resource Manager](../azure-resource-manager/index.yml)를 통해. |
 
-## <a name="configuration-management"></a>Configuration Management
+## <a name="configuration-management"></a>구성 관리
 
-| Security control | 예/아니요 | 참고|
+| 보안 제어 | 예/아니요 | 참고 사항|
 |---|---|--|
-| Configuration management support (versioning of configuration, etc.)| N/A |  | 
+| 구성 관리 지원 (구성의 버전 관리 등)| 해당 없음 |  | 
 
 ## <a name="next-steps"></a>다음 단계
 
-- Learn more about the [built-in security controls across Azure services](../security/fundamentals/security-controls.md).
+- [Azure 서비스에서 기본 제공 되는 보안 컨트롤](../security/fundamentals/security-controls.md)에 대해 자세히 알아보세요.

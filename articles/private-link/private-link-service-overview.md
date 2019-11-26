@@ -1,6 +1,6 @@
 ---
-title: What is Azure Private Link service?
-description: Learn about Azure Private Link service.
+title: Azure 개인 링크 서비스 란?
+description: Azure 개인 링크 서비스에 대해 알아봅니다.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -14,97 +14,97 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228055"
 ---
-# <a name="what-is-azure-private-link-service"></a>What is Azure Private Link service?
+# <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
-Azure Private Link service is the reference to your own service that is powered by Azure Private Link. Your service that is running behind [Azure Standard Load Balancer](../load-balancer/load-balancer-standard-overview.md) can be enabled for Private Link access so that consumers to your service can access it privately from their own VNets. Your customers can create a private endpoint inside their VNet and map it to this service. This article explains concepts related to the service provider side. 
+Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 서비스에 대 한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
 
 ## <a name="workflow"></a>워크플로
 
-![Private Link service workflow](media/private-link-service-overview/private-link-service-workflow.png)
+![개인 링크 서비스 워크플로](media/private-link-service-overview/private-link-service-workflow.png)
 
-### <a name="create-your-private-link-service"></a>Create your Private Link Service
+### <a name="create-your-private-link-service"></a>개인 링크 서비스 만들기
 
-- Configure your application to run behind a standard load balancer in your virtual network. If you already have your application configured behind a standard load balancer, you can skip this step.   
-- Create a Private Link Service referencing the load balancer above. In the load balancer selection process, choose the frontend IP configuration where you want to receive the traffic. Choose a subnet for NAT IP addresses for the Private Link Service. It is recommended to have at least eight NAT IP addresses available in the subnet. All consumer traffic will appear to originate from this pool of private IP addresses to the service provider. Choose the appropriate properties/settings for the Private Link Service.    
+- 가상 네트워크의 표준 부하 분산 장치 뒤에서 실행 되도록 응용 프로그램을 구성 합니다. 표준 부하 분산 장치 뒤에 응용 프로그램을 이미 구성한 경우이 단계를 건너뛸 수 있습니다.   
+- 위의 부하 분산 장치를 참조 하는 개인 링크 서비스를 만듭니다. 부하 분산 장치 선택 프로세스에서 트래픽을 수신 하려는 프런트 엔드 IP 구성을 선택 합니다. 개인 링크 서비스에 대 한 NAT IP 주소에 대 한 서브넷을 선택 합니다. 서브넷에서 사용 가능한 NAT IP 주소를 8 개 이상 사용 하는 것이 좋습니다. 모든 소비자 트래픽은이 개인 IP 주소 풀에서 서비스 공급자로 시작 된 것으로 나타납니다. 개인 링크 서비스에 대 한 적절 한 속성/설정을 선택 합니다.    
 
     > [!NOTE]
-    > Azure Private Link Service is only supported on Standard Load Balancer. 
+    > Azure 개인 링크 서비스는 표준 Load Balancer 에서만 지원 됩니다. 
     
-### <a name="share-your-service"></a>Share your service
+### <a name="share-your-service"></a>서비스 공유
 
-After you create a Private Link service, Azure will generate a globally unique named moniker called "alias" based on the name you provide for your service. You can share either the alias or resource URI of your service with your customers offline. Consumers can start a Private Link connection using the alias or the resource URI.
+개인 링크 서비스를 만든 후에는 서비스에 제공 하는 이름을 기반으로 "별칭" 이라는 전역적으로 이름이 지정 된 모니커를 Azure에서 생성 합니다. 서비스의 별칭 또는 리소스 URI를 고객과 오프 라인으로 공유할 수 있습니다. 소비자는 별칭 또는 리소스 URI를 사용 하 여 개인 링크 연결을 시작할 수 있습니다.
  
-### <a name="manage-your-connection-requests"></a>Manage your connection requests
+### <a name="manage-your-connection-requests"></a>연결 요청 관리
 
-After a consumer initiates a connection, the service provider can accept or reject the connection request. All connection requests will be listed under the **privateendpointconnections** property on the Private Link service.
+소비자가 연결을 시작한 후에는 서비스 공급자가 연결 요청을 수락 하거나 거부할 수 있습니다. 모든 연결 요청은 개인 링크 서비스의 **privateendpointconnections** 속성 아래에 나열 됩니다.
  
-### <a name="delete-your-service"></a>Delete your service
+### <a name="delete-your-service"></a>서비스 삭제
 
-If the Private Link service is no longer in use, you can delete it. However, before your delete the service, ensure that there are no private endpoint connections associated with it. You can reject all connections and delete the service.
+개인 링크 서비스를 더 이상 사용 하지 않는 경우 해당 서비스를 삭제할 수 있습니다. 그러나 서비스를 삭제 하기 전에 연결 된 개인 끝점 연결이 없는지 확인 합니다. 모든 연결을 거부 하 고 서비스를 삭제할 수 있습니다.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>속성
 
-A Private Link service specifies the following properties: 
+개인 링크 서비스는 다음 속성을 지정 합니다. 
 
-|자산 |설명  |
+|속성 |설명  |
 |---------|---------|
-|Provisioning State (provisioningState)  |A read-only property that lists the current provisioning state for Private Link service. Applicable provisioning states are: "Deleting; Failed; Succeeded; Updating". When the provisioning state is "Succeeded", you have successfully provisioned your Private Link service.        |
-|Alias (alias)     | Alias is a globally unique read-only string for your service. It helps you mask the customer data for your service and at the same time creates an easy-to-share name for your service. When you create a Private Link service, Azure generates the alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.          |
-|Visibility (visibility)     | Visibility is the property that controls the exposure settings for your Private Link service. Service providers can choose to limit the exposure to their service to subscriptions with role-based access control (RBAC) permissions, a restricted set of subscriptions, or all Azure subscriptions.          |
-|Auto Approval (autoApproval)    |   Auto-approval controls the automated access to the Private Link service. The subscriptions specified in the auto-approval list are approved automatically when a connection is requested from private endpoints in those subscriptions.          |
-|Load Balancer Frontend IP Configuration (loadBalancerFrontendIpConfigurations)    |    Private Link service is tied to the frontend IP address of a Standard Load Balancer. All traffic destined for the service will reach the frontend of the SLB. You can configure SLB rules to direct this traffic to appropriate backend pools where your applications are running. Load balancer frontend IP configurations are different than NAT IP configurations.      |
-|NAT IP Configuration (ipConfigurations)    |    This property refers to the NAT (Network Address Translation) IP configuration for the Private Link service. The NAT IP can be chosen from any subnet in a service provider's virtual network. Private Link service performs destination side NAT-ing on the Private Link traffic. This ensures that there is no IP conflict between source (consumer side) and destination (service provider) address space. On the destination side (service provider side), the NAT IP address will show up as Source IP for all packets received by your service and destination IP for all packets sent by your service.       |
-|Private endpoint connections (privateEndpointConnections)     |  This property lists the private endpoints connecting to Private Link service. Multiple private endpoints can connect to the same Private Link service and the service provider can control the state for individual private endpoints.        |
+|프로 비전 상태 (provisioningState)  |개인 링크 서비스에 대 한 현재 프로 비전 상태를 나열 하는 읽기 전용 속성입니다. 적용 가능한 프로 비전 상태는 "삭제 중;입니다. 오류가 열었습니다 업데이트 중 ". 프로 비전 상태가 "성공" 인 경우 개인 링크 서비스를 프로 비전 했습니다.        |
+|별칭 (별칭)     | 별칭은 서비스에 대 한 전역적으로 고유한 읽기 전용 문자열입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.          |
+|표시 유형 (표시 유형)     | 표시 유형은 개인 링크 서비스에 대 한 노출 설정을 제어 하는 속성입니다. 서비스 공급자는 RBAC (역할 기반 액세스 제어) 권한, 제한 된 구독 집합 또는 모든 Azure 구독을 사용 하 여 해당 서비스에 대 한 구독에 대 한 노출을 제한 하도록 선택할 수 있습니다.          |
+|자동 승인 (autoApproval)    |   자동 승인은 개인 링크 서비스에 대 한 자동화 된 액세스를 제어 합니다. 자동 승인 목록에 지정 된 구독은 해당 구독의 개인 끝점에서 연결이 요청 될 때 자동으로 승인 됩니다.          |
+|Load Balancer 프런트 엔드 IP 구성 (loadBalancerFrontendIpConfigurations)    |    개인 링크 서비스는 표준 Load Balancer의 프런트 엔드 IP 주소에 연결 됩니다. 서비스를 대상으로 하는 모든 트래픽은 SLB의 프런트 엔드에 도달 합니다. 응용 프로그램이 실행 되 고 있는 적절 한 백 엔드 풀로이 트래픽을 보내도록 SLB 규칙을 구성할 수 있습니다. 부하 분산 장치 프런트 엔드 IP 구성은 NAT IP 구성과 다릅니다.      |
+|NAT IP 구성 (ipConfigurations)    |    이 속성은 개인 링크 서비스에 대 한 NAT (네트워크 주소 변환) IP 구성을 참조 합니다. NAT IP는 서비스 공급자의 가상 네트워크에 있는 모든 서브넷에서 선택할 수 있습니다. 개인 링크 서비스는 개인 링크 트래픽에 대 한 대상 측 NAT를 수행 합니다. 이렇게 하면 소스 (소비자 측)와 대상 (서비스 공급자) 주소 공간 간에 IP 충돌이 발생 하지 않습니다. 대상 측 (서비스 공급자 쪽)에서, 서비스에서 받는 모든 패킷에 대해 NAT IP 주소는 서비스에서 받는 모든 패킷에 대해 원본 IP로 표시 되 고, 서비스에서 보낸 모든 패킷에 대 한 대상 IP로 표시 됩니다.       |
+|개인 끝점 연결 (privateEndpointConnections)     |  이 속성은 개인 링크 서비스에 연결 하는 개인 끝점을 나열 합니다. 여러 개인 끝점은 동일한 개인 링크 서비스에 연결할 수 있으며, 서비스 공급자는 개별 개인 끝점의 상태를 제어할 수 있습니다.        |
 |||
 
 
 ### <a name="details"></a>세부 정보
 
-- Private Link service can be accessed from approved private endpoints in the same region. The private endpoint can be reached from the same virtual network, regionally peered VNets, globally peered VNets and on premises using private VPN or ExpressRoute connections. 
+- 개인 링크 서비스는 동일한 지역의 승인 된 개인 끝점에서 액세스할 수 있습니다. 개인 VPN 또는 Express 경로 연결을 사용 하 여 동일한 가상 네트워크, 지역적으로 피어 링 Vnet, 글로벌 피어 링 Vnet 및 온-프레미스에서 개인 끝점에 연결할 수 있습니다. 
  
-- When creating a Private Link Service, a network interface is created for the lifecycle of the resource. This interface is not manageable by the customer.
+- 개인 링크 서비스를 만들 때 리소스 수명 주기에 대 한 네트워크 인터페이스가 생성 됩니다. 이 인터페이스는 고객이 관리할 수 없습니다.
  
-- The Private Link Service must be deployed in the same region as the virtual network and the Standard Load Balancer.  
+- 개인 링크 서비스는 가상 네트워크 및 표준 Load Balancer와 동일한 지역에 배포 되어야 합니다.  
  
-- A single Private Link Service can be accessed from multiple Private Endpoints belonging to different VNets, subscriptions and/or Active Directory tenants. The connection is established through a connection workflow. 
+- 여러 Vnet, 구독 및/또는 Active Directory 테 넌 트에 속하는 여러 개인 끝점에서 단일 개인 링크 서비스에 액세스할 수 있습니다. 연결은 연결 워크플로를 통해 설정 됩니다. 
  
-- Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits).
+- 다른 프런트 엔드 IP 구성을 사용 하 여 동일한 표준 Load Balancer에 여러 개인 링크 서비스를 만들 수 있습니다. 표준 Load Balancer 및 구독 당 만들 수 있는 개인 링크 서비스 수에는 제한이 있습니다. 자세한 내용은 [Azure 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#networking-limits)을 참조 하세요.
  
-- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link service, you can't delete the NAT IP addresses. This is done to ensure that active connections are not impacted while deleting the NAT IP addresses.
+- 개인 링크 서비스는 둘 이상의 NAT IP 구성을 연결할 수 있습니다. NAT IP 구성을 두 개 이상 선택 하면 서비스 공급자가 크기를 조정 하는 데 도움이 될 수 있습니다. 현재, 서비스 공급자는 개인 링크 서비스 당 최대 8 개의 NAT IP 주소를 할당할 수 있습니다. 각 NAT IP 주소를 사용 하 여 TCP 연결에 더 많은 포트를 할당 하 고 확장할 수 있습니다. 개인 링크 서비스에 여러 NAT IP 주소를 추가한 후에는 NAT IP 주소를 삭제할 수 없습니다. NAT IP 주소를 삭제 하는 동안 활성 연결에 영향을 주지 않도록 하기 위한 작업입니다.
 
 
 ## <a name="alias"></a>Alias
 
-**Alias** is a globally unique name for your service. It helps you mask the customer data for your service and at the same time creates an easy-to-share name for your service. When you create a Private Link service, Azure generates an alias for your service that you can share with your customers. Your customers can use this alias to request a connection to your service.
+**별칭** 은 서비스에 대 한 전역적으로 고유한 이름입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.
 
-The alias is composed of three parts: *Prefix*.*GUID*.*Suffix*
+별칭은 *접두사*라는 세 부분으로 구성 됩니다. *GUID*입니다. *접미사*
 
-- Prefix is the service name. You can pick you own prefix. After "Alias" is created, you can't change it, so select your prefix appropriately.  
-- GUID will be provided by platform. This helps make the name globally unique. 
-- Suffix is appended by Azure: *region*.azure.privatelinkservice 
+- 접두사는 서비스 이름입니다. 사용자 고유의 접두사를 선택할 수 있습니다. "별칭"을 만든 후에는 변경할 수 없으므로 접두사를 적절 하 게 선택 합니다.  
+- GUID는 플랫폼에서 제공 됩니다. 이렇게 하면 이름을 전역적으로 고유 하 게 만들 수 있습니다. 
+- Azure: privatelinkservice에서 접미사를 추가 *합니다.* 
 
-Complete alias:  *Prefix*. {GUID}.*region*.azure.privatelinkservice  
+전체 별칭: *접두사*입니다. {GUID}.privatelinkservice  
 
-## <a name="control-service-exposure"></a>Control service exposure
+## <a name="control-service-exposure"></a>제어 서비스 노출
 
-Private Link service provides you options to control the exposure of your service through "Visibility" setting. You can make the service private for consumption from different VNets you own (RBAC permissions only), restrict the exposure to a limited set of subscriptions that you trust, or make it public so that all Azure subscriptions can request connections on the Private Link service. Your visibility settings decide whether a consumer can connect to your service or not. 
+개인 링크 서비스는 "가시성" 설정을 통해 서비스의 노출을 제어 하는 옵션을 제공 합니다. 소유 하는 다른 Vnet (RBAC 권한만 해당)에서 서비스를 전용으로 사용 하거나, 신뢰 하는 제한 된 구독 집합으로 노출을 제한 하거나, 모든 Azure 구독이 개인 링크에 대 한 연결을 요청할 수 있도록 공개로 설정할 수 있습니다. 출력소. 표시 유형 설정은 소비자가 서비스에 연결할 수 있는지 여부를 결정 합니다. 
 
-## <a name="control-service-access"></a>Control service access
+## <a name="control-service-access"></a>서비스 액세스 제어
 
-Consumers having exposure (controlled by visibility setting) to your Private Link service can create a private endpoint in their VNets and request a connection to your Private Link service. The private endpoint connection will be created in a "Pending" state on the Private Link service object. The service provider is responsible for acting on the connection request. You can either approve the connection, reject the connection, or delete the connection. Only connections that are approved can send traffic to the Private Link service.
+개인 링크 서비스에 대 한 노출 (표시 유형 설정에 의해 제어 됨)이 있는 소비자는 자신의 Vnet에 개인 끝점을 만들고 개인 링크 서비스에 대 한 연결을 요청할 수 있습니다. 개인 끝점 연결은 개인 링크 서비스 개체에 대 한 "보류 중" 상태로 생성 됩니다. 서비스 공급자는 연결 요청에 대 한 동작을 담당 합니다. 연결을 승인 하거나, 연결을 거부 하거나, 연결을 삭제할 수 있습니다. 승인 된 연결만 개인 링크 서비스로 트래픽을 보낼 수 있습니다.
 
-The action of approving the connections can be automated by using the auto-approval property on the Private Link service. Auto-Approval is an ability for service providers to preapprove a set of subscriptions for automated access to their service. Customers will need to share their subscriptions offline for service providers to add to the auto-approval list. Auto-approval is a subset of the visibility array. Visibility controls the exposure settings whereas auto-approval controls the approval settings for your service. If a customer requests a connection from a subscription in the auto-approval list, the connection is automatically approved and the connection is established. Service providers don’t need to manually approve the request anymore. On the other hand, if a customer requests a connection from a subscription in the visibility array and not in the auto-approval array, the request will reach the service provider but the service provider has to manually approve the connections.
+개인 링크 서비스의 자동 승인 속성을 사용 하 여 연결 승인 작업을 자동화할 수 있습니다. 자동 승인은 서비스 공급자가 서비스에 대 한 자동화 된 액세스를 위해 구독 집합을 사전 승인 하는 기능입니다. 고객은 서비스 공급자가 자동 승인 목록에 추가 하기 위해 구독을 오프 라인으로 공유 해야 합니다. 자동 승인은 표시 유형 배열의 하위 집합입니다. 표시 유형은 노출 설정을 제어 하는 반면 자동 승인은 서비스에 대 한 승인 설정을 제어 합니다. 고객이 자동 승인 목록의 구독에서 연결을 요청 하면 연결이 자동으로 승인 되 고 연결이 설정 됩니다. 서비스 공급자는 더 이상 요청을 수동으로 승인할 필요가 없습니다. 반면, 고객이 자동 승인 배열이 아닌 표시 유형 배열의 구독에서 연결을 요청 하는 경우 요청은 서비스 공급자에 도달 하지만 서비스 공급자는 연결을 수동으로 승인 해야 합니다.
 
 ## <a name="limitations"></a>제한 사항
 
-The following are the known limitations when using the Private Link service:
-- Supported only on Standard Load Balancer 
-- Supports IPv4 traffic only
-- Supports TCP traffic only
-- Only reachable from private endpoints in the same region
-- Create and Manage experience from Azure portal is not supported
-- Clients connection information using proxy protocol is not available to service provider
+다음은 개인 링크 서비스를 사용할 때의 알려진 제한 사항입니다.
+- 표준 Load Balancer 에서만 지원 됨 
+- IPv4 트래픽만 지원 합니다.
+- TCP 트래픽만 지원 합니다.
+- 동일한 지역의 개인 끝점 에서만 연결할 수 있습니다.
+- Azure Portal에서 환경 만들기 및 관리가 지원 되지 않음
+- 프록시 프로토콜을 사용 하는 클라이언트 연결 정보를 서비스 공급자가 사용할 수 없음
 
 ## <a name="next-steps"></a>다음 단계
-- [Create a private link service using Azure PowerShell](create-private-link-service-powershell.md)
-- [Create a private link service using Azure CLI](create-private-link-service-cli.md)
+- [Azure PowerShell를 사용 하 여 개인 링크 서비스 만들기](create-private-link-service-powershell.md)
+- [Azure CLI를 사용 하 여 개인 링크 서비스 만들기](create-private-link-service-cli.md)

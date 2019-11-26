@@ -42,7 +42,7 @@ Azure DNS의 DNS 레코드에 대한 자세한 내용은 [DNS 영역 및 레코�
 
 ## <a name="create-a-dns-record"></a>DNS 레코드 만들기
 
-DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt, etc.) For help, see `az network dns record-set --help`.
+DNS 레코드를 만들려면 `az network dns record-set <record-type> add-record` 명령을 사용합니다(여기서 `<record-type>`은 a, srv, txt 등) 도움말은 `az network dns record-set --help`를 참조 하세요.
 
 레코드를 만드는 경우 리소스 그룹 이름, 영역 이름, 레코드 집합 이름, 레코드 유형 및 만드는 레코드의 세부 정보를 지정해야 합니다. 레코드 집합 이름은 *상대* 이름이어야 합니다. 즉, 영역 이름을 제외해야 합니다.
 
@@ -82,7 +82,7 @@ az network dns record-set a create --resource-group myresourcegroup --zone-name 
 az network dns record-set a create --resource-group myresourcegroup --zone-name contoso.com --name www --metadata "dept=finance" "environment=production"
 ```
 
-비어 있는 레코드 집합을 만들었으므로 [DNS 레코드 만들기](#create-a-dns-record)에 설명된 대로 `azure network dns record-set <record-type> add-record`를 사용하여 레코드를 추가할 수 있습니다.
+비어 있는 레코드 집합을 만들었으므로 `azure network dns record-set <record-type> add-record`DNS 레코드 만들기[에 설명된 대로 ](#create-a-dns-record)를 사용하여 레코드를 추가할 수 있습니다.
 
 ## <a name="create-records-of-other-types"></a>다른 형식의 레코드 만들기
 

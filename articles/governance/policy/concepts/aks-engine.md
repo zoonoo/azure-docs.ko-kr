@@ -24,7 +24,7 @@ Azure Policy는 Azure에서 자체 관리 되는 Kubernetes 클러스터를 신�
 
 Azure의 자체 관리 Kubernetes 클러스터에서 AKS 엔진에 대 한 Azure Policy를 사용 하도록 설정 하 고 사용 하려면 다음 작업을 수행 합니다.
 
-- [필수 구성 요소](#prerequisites)
+- [필수 조건](#prerequisites)
 - [Azure Policy 추가 기능 설치](#installing-the-add-on)
 - [AKS 엔진에 대 한 정책 정의 할당](#built-in-policies)
 - [유효성 검사 대기](#validation-and-reporting-frequency)

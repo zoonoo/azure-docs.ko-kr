@@ -72,7 +72,7 @@ DB2 연결된 서비스에 다음 속성이 지원됩니다.
 |:--- |:--- |:--- |
 | type | 형식 속성은 **Db2**로 설정해야 합니다. | 예 |
 | 서버 |DB2 서버의 이름입니다. 콜론으로 구분된 서버 이름 뒤에 포트 번호를 지정할 수 있습니다(예: `server:port`). |예 |
-| database |DB2 데이터베이스의 이름입니다. |예 |
+| 데이터베이스 |DB2 데이터베이스의 이름입니다. |예 |
 | authenticationType |DB2 데이터베이스에 연결하는 데 사용되는 인증 형식입니다.<br/>허용되는 값은 **Basic**입니다. |예 |
 | 사용자 이름 |DB2 데이터베이스에 연결할 사용자 이름을 지정합니다. |예 |
 | password |사용자 이름에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. |예 |
@@ -115,7 +115,7 @@ DB2에서 데이터를 복사 하려면 다음 속성이 지원 됩니다.
 |:--- |:--- |:--- |
 | type | 데이터 집합의 type 속성은 **Db2Table** 로 설정 해야 합니다. | 예 |
 | schema | 스키마의 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
-| 테이블 | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
+| table | 테이블 이름입니다. |아니요(작업 원본에서 "query"가 지정된 경우)  |
 | tableName | 스키마가 있는 테이블의 이름입니다. 이 속성은 이전 버전과의 호환성을 위해 지원 됩니다. 새 워크 로드에 `schema` 및 `table`를 사용 합니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -149,7 +149,7 @@ DB2에서 데이터를 복사 하기 위해 복사 작업 **원본** 섹션에�
 | 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 원본의 type 속성은 **Db2Source** 로 설정 해야 합니다. | 예 |
-| query | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예를 들어 `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""`을 참조하십시오. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"query": "SELECT * FROM \"DB2ADMIN\".\"Customers\""` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
 **예:**
 
@@ -192,7 +192,7 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | DB2 데이터베이스 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
 | BigInt |Int64 |
-| Binary |Byte[] |
+| 이진 |Byte[] |
 | Blob |Byte[] |
 | Char |문자열 |
 | Clob |문자열 |
@@ -202,16 +202,16 @@ DB2에서 데이터를 복사하는 경우 DB2 데이터 형식에서 Azure Data
 | DECIMAL |DECIMAL |
 | DecimalFloat |DECIMAL |
 | Double |Double |
-| Float |Double |
+| 부동 |Double |
 | Graphic |문자열 |
-| String |Int32 |
+| 정수, |Int32 |
 | LongVarBinary |Byte[] |
 | LongVarChar |문자열 |
 | LongVarGraphic |문자열 |
 | 숫자 |DECIMAL |
 | Real |단일 |
 | SmallInt |Int16 |
-| Time |TimeSpan |
+| Time |timespan |
 | 타임 스탬프 |DateTime |
 | VarBinary |Byte[] |
 | VarChar |문자열 |

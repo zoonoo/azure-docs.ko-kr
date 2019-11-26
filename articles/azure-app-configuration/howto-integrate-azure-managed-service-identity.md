@@ -26,7 +26,7 @@ Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-direc
 
 Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 기본적으로 제공 되는 관리 id 지원이 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
 
-이 자습서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
+이 자습서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 도입된 웹 앱에 빌드합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
 
 또한이 자습서에서는 선택적으로 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 이렇게 하면 Key Vault에 저장 된 암호 및 앱 구성의 구성 값에 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
 

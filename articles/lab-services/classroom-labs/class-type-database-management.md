@@ -1,6 +1,6 @@
 ---
-title: Set up a lab to teach database management for relational databases | Microsoft Docs
-description: Learn how to set up a lab to teach the management of relational databases.
+title: 관계형 데이터베이스에 대 한 데이터베이스 관리를 학습 하는 랩 설정 | Microsoft Docs
+description: 관계형 데이터베이스를 관리 하는 방법을 설명 하는 랩을 설정 하는 방법에 대해 알아봅니다.
 services: lab-services
 documentationcenter: na
 author: emaher
@@ -20,59 +20,59 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233767"
 ---
-# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>Set up a lab to teach database management for relational databases
+# <a name="set-up-a-lab-to-teach-database-management-for-relational-databases"></a>관계형 데이터베이스에 대 한 데이터베이스 관리를 학습 하는 랩 설정
 
-This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
+이 문서에서는 Azure Lab Services에서 기본 데이터베이스 관리 클래스에 대 한 랩을 설정 하는 방법을 설명 합니다. 데이터베이스 개념은 대학에서 대부분의 컴퓨터 과학 부서를 학습 하는 소개 과정 중 하나입니다. 구조적 쿼리 언어 (SQL)은 국제 표준입니다. SQL은 데이터베이스의 콘텐츠 추가, 액세스 및 관리를 포함 하 여 데이터베이스 관리와 관련 된 표준 언어입니다.  이는 빠른 처리, 검증 된 안정성, 편의성 및 사용의 유연성에 가장 많이 사용 됩니다.
 
-In this article, we'll show how to set up a virtual machine template in a lab with both MySQL Database Server and SQL Server 2019 server.  [MySQL](https://www.mysql.com/) is a freely available open source Relational Database Management System (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) is the latest version of Microsoft’s RDBMS.
+이 문서에서는 MySQL 데이터베이스 서버와 SQL Server 2019 Server를 모두 사용 하 여 랩에서 가상 머신 템플릿을 설정 하는 방법을 보여 줍니다.  [MySQL](https://www.mysql.com/) 은 무료로 사용할 수 있는 오픈 소스 RDBMS (관계형 데이터베이스 관리 시스템)입니다.  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) 은 최신 버전의 Microsoft RDBMS입니다.
 
 ## <a name="lab-configuration"></a>랩 구성
 
-To set up this lab, you need an Azure subscription and lab account to get started. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+이 랩을 설정 하려면 시작 하려면 Azure 구독 및 랩 계정이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다. Azure 구독을 받은 후 Azure Lab Services에서 새 랩 계정을 만들 수 있습니다. 새 랩 계정을 만드는 방법에 대 한 자세한 내용은 자습서를 참조 [하 여 랩 계정 설정](tutorial-setup-lab-account.md)을 참조 하세요.  기존 랩 계정을 사용할 수도 있습니다.
 
-### <a name="lab-account-settings"></a>Lab account settings
+### <a name="lab-account-settings"></a>랩 계정 설정
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators).
+랩 계정에 대해 아래 표에 설명 된 설정을 사용 하도록 설정 합니다. Marketplace 이미지를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [랩 작성자에 게 제공 되는 marketplace 이미지 지정](https://docs.microsoft.com/azure/lab-services/classroom-labs/tutorial-setup-lab-account#specify-marketplace-images-available-to-lab-creators)을 참조 하세요.
 
-| Lab account setting | 지침 |
+| 랩 계정 설정 | 지침 |
 | ------------------- | ------------ |
-|Marketplace image| Enable the ‘SQL Server 2019 Standard on Windows Server 2019’ image for use within your lab account.|
+|Marketplace 이미지| 랩 계정 내에서 사용 하기 위해 Windows Server 2019에서 ' SQL Server 2019 Standard 사용 ' 이미지를 사용 하도록 설정 합니다.|
 
-### <a name="lab-settings"></a>Lab settings
+### <a name="lab-settings"></a>랩 설정
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+클래스 룸 랩을 설정 하는 경우 아래 표의 설정을 사용 합니다.  교실 랩을 만드는 방법에 대 한 자세한 내용은 [교실 랩 설정 자습서](tutorial-setup-classroom-lab.md)를 참조 하세요.
 
-| Lab settings | Value/instructions |
+| 랩 설정 | 값/지침 |
 | ------------ | ------------------ |
-|Virtual Machine 크기| 중간. This size is best suited for relational databases, in-memory caching, and analytics.|
-|Virtual Machine Image| SQL Server 2019 Standard on Windows Server 2019|
+|Virtual Machine 크기| 중간. 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다.|
+|가상 컴퓨터 이미지| Windows Server 2019 SQL Server 2019 Standard|
 
-## <a name="template-machine-configuration"></a>Template machine configuration
+## <a name="template-machine-configuration"></a>템플릿 컴퓨터 구성
 
-To install MySQL on Windows Server 2019, you can follow the steps mentioned in [Install and Run MySQL Community Server on a Virtual Machine](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine).
+Windows Server 2019에 MySQL을 설치 하려면 [가상 머신에서 Mysql 커뮤니티 서버 설치 및 실행](https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/mysql-2008r2?toc=%2Fazure%2Fvirtual-machines%2Fwindows%2Fclassic%2Ftoc.json#install-and-run-mysql-community-server-on-the-virtual-machine)에 설명 된 단계를 수행 하면 됩니다.
 
-SQL Server 2019 is pre-installed in the virtual machine image we chose when creating the new lab.
+SQL Server 2019는 새 랩을 만들 때 선택한 가상 머신 이미지에 사전 설치 되어 있습니다.
 
 ## <a name="cost-estimate"></a>비용 추정
 
-Let's cover a possible cost estimate for this class.  We'll use a class of 25 students.  There are 20 hours of scheduled class time.  Also, each student gets 10 hours quota for homework or assignments outside scheduled class time.  The virtual machine size we chose was medium, which is 42 lab units.
+이 클래스에 대해 가능한 예상 비용을 살펴보겠습니다.  25 명의 학생 클래스를 사용 합니다.  예약 된 클래스 시간은 20 시간입니다.  또한 각 학생은 예약 된 클래스 시간 외에도 과제 또는 배정에 대해 10 시간 할당량을 얻습니다.  선택한 가상 컴퓨터 크기는 42 lab 단위인 medium입니다.
 
-Here is an example of a possible cost estimate for this class:
+이 클래스에 대 한 예상 비용 예상 예는 다음과 같습니다.
 
-25 students \* (20 scheduled hours + 10 quota hours) \* 0.42 USD per hour  = 315.00 USD
+학생 수가 25 개인 \* (20 개의 예약 된 시간 + 10 할당량 시간) \* 시간당 0.42 USD = 315.00 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+가격 책정에 대 한 추가 세부 정보는 [Azure Lab Services 가격 책정](https://azure.microsoft.com/pricing/details/lab-services/)을 참조 하세요.
 
 ## <a name="conclusion"></a>결론
 
-This article walked you through the steps necessary to create a lab for basic database management concepts using both MySQL and SQL Server. You can use a similar setup for other databases classes.
+이 문서에서는 MySQL과 SQL Server를 모두 사용 하 여 기본적인 데이터베이스 관리 개념을 위한 랩을 만드는 데 필요한 단계를 안내 합니다. 다른 데이터베이스 클래스에 대해 유사한 설정을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Next steps are common to setting up any lab.
+다음 단계는 랩을 설정 하는 데 일반적입니다.
 
-- [Create and manage a template](how-to-create-manage-template.md)
+- [템플릿 만들기 및 관리](how-to-create-manage-template.md)
 - [사용자 추가](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
-- [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
-- [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)
+- [할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)
+- [일정 설정](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [학생에 대 한 전자 메일 등록 링크](how-to-configure-student-usage.md#send-invitations-to-users)

@@ -1,5 +1,5 @@
 ---
-title: Location condition in Azure Active Directory Conditional Access
+title: Azure Active Directory 조건부 액세스의 위치 조건
 description: 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -19,71 +19,71 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380289"
 ---
-# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>What is the location condition in Azure Active Directory Conditional Access? 
+# <a name="what-is-the-location-condition-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 위치 조건은 무엇 인가요? 
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users can access your cloud apps. The location condition of a Conditional Access policy enables you to tie access controls settings to the network locations of your users.
+[Azure Active Directory (AZURE AD) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용 하 여 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있습니다. 조건부 액세스 정책의 위치 조건을 사용 하 여 액세스 제어 설정을 사용자의 네트워크 위치에 연결할 수 있습니다.
 
 이 문서에서는 위치 조건을 구성하는 데 필요한 정보를 제공합니다.
 
 ## <a name="locations"></a>위치
 
-Azure AD enables single sign-on to devices, apps, and services from anywhere on the public internet. 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어할 수 있습니다. 위치 조건에 대한 일반적인 사용 사례는 다음과 같습니다.
+Azure AD는 공용 인터넷의 어디에서 나 장치, 앱 및 서비스에 대 한 Single Sign-On를 가능 하 게 합니다. 위치 조건을 사용하여 사용자의 네트워크 위치를 기준으로 클라우드 앱에 대한 액세스를 제어할 수 있습니다. 위치 조건에 대한 일반적인 사용 사례는 다음과 같습니다.
 
 - 서비스에 액세스하는 사용자가 회사 네트워크 외부에 있는 경우 다단계 인증을 요구합니다.
 - 특정 국가 또는 지역에서 서비스에 액세스하는 사용자에 대한 액세스 차단
 
-A location is a label for a network location that either represents a named location or multi-factor authentication Trusted IPs.
+위치는 명명 된 위치 또는 multi-factor authentication 신뢰할 수 있는 Ip를 나타내는 네트워크 위치의 레이블입니다.
 
 ## <a name="named-locations"></a>명명된 위치
 
-With named locations, you can create logical groupings of IP address ranges or countries and regions.
+명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가 및 지역의 논리적 그룹을 만들 수 있습니다.
 
-You can access your named locations in the **Manage** section of the Conditional Access page.
+조건부 액세스 페이지의 **관리** 섹션에서 명명 된 위치에 액세스할 수 있습니다.
 
-![Named locations in Conditional Access](./media/location-condition/02.png)
+![조건부 액세스의 명명 된 위치](./media/location-condition/02.png)
 
 명명된 위치의 구성 요소는 다음과 같습니다.
 
-![Create a new named location](./media/location-condition/42.png)
+![새 명명 된 위치 만들기](./media/location-condition/42.png)
 
 - **이름** - 명명된 위치의 표시 이름입니다.
-- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IPv4 주소 범위입니다. Specifying an IPv6 address range is not supported.
+- **IP 범위** - CIDR 형식으로 나타낸 하나 이상의 IPv4 주소 범위입니다. IPv6 주소 범위 지정은 지원 되지 않습니다.
 
    > [!NOTE]
-   > IPv6 address ranges cannot currently be included in a named location. This means IPv6 ranges cannot be excluded from a Conditional Access policy.
+   > IPv6 주소 범위는 현재 명명 된 위치에 포함할 수 없습니다. 즉, IPv6 범위는 조건부 액세스 정책에서 제외할 수 없습니다.
 
-- **신뢰할 수 있는 위치로 표시** - 신뢰할 수 있는 위치를 나타내기 위해 명명된 위치에 대해 설정할 수 있는 플래그입니다. 일반적으로 신뢰할 수 있는 위치는 IT 부서에서 제어하는 네트워크 영역입니다. In addition to Conditional Access, trusted named locations are also used by Azure Identity Protection and Azure AD security reports to reduce [false positives](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1).
+- **신뢰할 수 있는 위치로 표시** - 신뢰할 수 있는 위치를 나타내기 위해 명명된 위치에 대해 설정할 수 있는 플래그입니다. 일반적으로 신뢰할 수 있는 위치는 IT 부서에서 제어하는 네트워크 영역입니다. 조건부 액세스 외에도 신뢰할 수 있는 명명 된 위치는 [가양성](../reports-monitoring/concept-risk-events.md#impossible-travel-to-atypical-locations-1)을 줄이기 위해 Azure id 보호 및 azure AD 보안 보고서에서 사용 됩니다.
 - **국가/지역** - 이 옵션을 사용하여 명명된 위치를 정의할 하나 이상의 국가를 선택할 수 있습니다.
-- **Include unknown areas** - Some IP addresses are not mapped to a specific country or region. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
+- **알 수 없는 영역 포함** -일부 IP 주소는 특정 국가나 지역에 매핑되지 않습니다. 이 옵션을 사용하면 이러한 IP 주소를 명명된 위치에 포함할지를 선택할 수 있습니다. 명명된 위치를 사용하는 정책이 알 수 없는 위치에 적용되어야 하는 경우 이 설정을 사용합니다.
 
-구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. You can configure locations based on of the following limitations:
+구성할 수 있는 명명된 위치의 수는 Azure AD에서 관련된 개체의 크기에 따라 제한됩니다. 다음 제한 사항에 따라 위치를 구성할 수 있습니다.
 
 - 최대 1,200개 IP 범위로 명명된 하나의 위치
 - 각각에 한 개의 IP 범위로 할당된 최대 90개의 명명된 위치
 
-Conditional Access policy applies to IPv4 and IPv6 traffic. Currently named locations do not allow IPv6 ranges to be configured. This limitation causes the following situations:
+조건부 액세스 정책은 IPv4 및 IPv6 트래픽에 적용 됩니다. 현재 명명 된 위치는 IPv6 범위를 구성 하는 것을 허용 하지 않습니다. 이러한 제한으로 인해 다음과 같은 상황이 발생 합니다.
 
-- Conditional Access policy cannot be targeted to specific IPv6 ranges
-- Conditional Access policy cannot exclude specific IPV6 ranges
+- 조건부 액세스 정책은 특정 IPv6 범위를 대상으로 지정할 수 없습니다.
+- 조건부 액세스 정책은 특정 IPV6 범위를 제외할 수 없습니다.
 
-If a policy is configured to apply to “Any location”, it will apply to IPv4 and IPv6 traffic. Named locations configured for specified countries and regions only support IPv4 addresses. IPv6 traffic is only included if the option to “include unknown areas” selected.
+정책이 "모든 위치"에 적용 되도록 구성 된 경우 IPv4 및 IPv6 트래픽에 적용 됩니다. 지정 된 국가 및 지역에 대해 구성 된 명명 된 위치는 IPv4 주소만 지원 합니다. IPv6 트래픽은 "알 수 없는 영역 포함" 옵션을 선택한 경우에만 포함 됩니다.
 
 ## <a name="trusted-ips"></a>신뢰할 수 있는 IP
 
-[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. For more information, see [Trusted IPs](../authentication/howto-mfa-mfasettings.md#trusted-ips).  
+[다단계 인증 서비스 설정](https://account.activedirectory.windowsazure.com/usermanagement/mfasettings.aspx)에서 조직의 로컬 인트라넷을 나타내는 IP 주소 범위를 구성할 수도 있습니다. 이 기능을 사용하면 최대 50개의 IP 주소 범위를 구성할 수 있습니다. IP 주소 범위는 CIDR 형식입니다. 자세한 내용은 [신뢰할 수 있는 ip](../authentication/howto-mfa-mfasettings.md#trusted-ips)를 참조 하세요.  
 
-If you have Trusted IPs configured, they show up as **MFA Trusted IPS** in the list of locations for the location condition.
+신뢰할 수 있는 Ip가 구성 된 경우 위치 조건에 대 한 위치 목록에 **MFA 신뢰할 수 있는 ip** 로 표시 됩니다.
 
 ### <a name="skipping-multi-factor-authentication"></a>다단계 인증 건너뛰기
 
-다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. For more information, see [Enable the Trusted IPs feature by using Conditional Access](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access).
+다단계 인증 서비스 설정 페이지에서 **인트라넷의 페더레이션 사용자로부터 발생한 요청인 경우 다단계 인증 건너뛰기**를 선택하여 회사 인트라넷 사용자를 식별할 수 있습니다. 이 설정은 AD FS에서 발급한 내부 회사 네트워크 클레임이 신뢰되며, 사용자를 회사 네트워크에 있는 것으로 식별하는 데 사용됨을 나타냅니다. 자세한 내용은 [조건부 액세스를 사용 하 여 신뢰할 수 있는 ip 기능 사용](../authentication/howto-mfa-mfasettings.md#enable-the-trusted-ips-feature-by-using-conditional-access)을 참조 하세요.
 
-After checking this option, including the named location **MFA Trusted IPS** will apply to any policies with this option selected.
+이 옵션을 선택한 후에는이 옵션을 선택한 상태에서 **MFA 신뢰할 수 있는 ip** 를 포함 하는 모든 정책에이 옵션을 적용 합니다.
 
-For mobile and desktop applications, which have long lived session lifetimes, Conditional Access is periodically reevaluated. 기본값은 1시간에 한 번입니다. 내부 회사 네트워크 클레임이 초기 인증 시에만 발급되면 Azure AD에 신뢰할 수 있는 IP 범위 목록이 없을 수 있습니다. 이 경우 사용자가 여전히 회사 네트워크에 있는지를 확인하는 것이 더 어렵습니다.
+세션 수명이 긴 모바일 및 데스크톱 응용 프로그램의 경우 조건부 액세스가 정기적으로 다시 평가 됩니다. 기본값은 1시간에 한 번입니다. 내부 회사 네트워크 클레임이 초기 인증 시에만 발급되면 Azure AD에 신뢰할 수 있는 IP 범위 목록이 없을 수 있습니다. 이 경우 사용자가 여전히 회사 네트워크에 있는지를 확인하는 것이 더 어렵습니다.
 
 1. 사용자의 IP 주소가 신뢰할 수 있는 IP 범위 중 하나에 있는지 여부를 확인합니다.
-2. Check whether the first three octets of the user’s IP address match the first three octets of the IP address of the initial authentication. The IP address is compared with the initial authentication when the inside corporate network claim was originally issued and the user location was validated.
+2. 사용자 IP 주소의 처음 3 개 8 진수가 초기 인증 IP 주소의 처음 3 개 옥텟과 일치 하는지 여부를 확인 합니다. 내부 회사 네트워크 클레임이 원래 발급 되었고 사용자 위치의 유효성이 검사 된 경우 IP 주소는 초기 인증과 비교 됩니다.
 
 두 단계가 모두 실패하는 경우 사용자는 더 이상 신뢰할 수 있는 IP에 있다고 간주되지 않습니다.
 
@@ -116,21 +116,21 @@ For mobile and desktop applications, which have long lived session lifetimes, Co
 
 ### <a name="when-is-a-location-evaluated"></a>위치가 평가되는 시기
 
-Conditional Access policies are evaluated when:
+조건부 액세스 정책은 다음 경우에 평가 됩니다.
 
 - 사용자가 웹앱, 모바일 또는 데스크톱 애플리케이션에 처음 로그인합니다.
-- 최신 인증을 사용하는 모바일 또는 데스크톱 애플리케이션에서 새로 고침 토큰을 사용하여 새 액세스 토큰을 확보합니다. By default this check is once an hour.
+- 최신 인증을 사용하는 모바일 또는 데스크톱 애플리케이션에서 새로 고침 토큰을 사용하여 새 액세스 토큰을 확보합니다. 기본적으로이 확인은 한 시간에 한 번입니다.
 
-This check means for mobile and desktop applications using modern authentication, a change in location would be detected within an hour of changing the network location. 최신 인증을 사용하지 않는 모바일 및 데스크톱 애플리케이션의 경우 토큰 요청마다 정책이 적용됩니다. 요청 빈도는 애플리케이션에 따라 다를 수 있습니다. 마찬가지로 웹 애플리케이션의 경우 정책은 처음 로그인할 때 적용되며 웹 애플리케이션 세션 수명 기간 동안 유효합니다. 애플리케이션 간에 세션 수명이 달라서 정책 평가 사이의 시간도 달라질 수 있습니다. 애플리케이션이 새 로그인 토큰을 요청할 때마다 정책이 적용됩니다.
+이 확인은 최신 인증을 사용 하는 모바일 및 데스크톱 응용 프로그램의 경우 네트워크 위치를 변경한 후 1 시간 이내에 위치 변경을 검색 합니다. 최신 인증을 사용하지 않는 모바일 및 데스크톱 애플리케이션의 경우 토큰 요청마다 정책이 적용됩니다. 요청 빈도는 애플리케이션에 따라 다를 수 있습니다. 마찬가지로 웹 애플리케이션의 경우 정책은 처음 로그인할 때 적용되며 웹 애플리케이션 세션 수명 기간 동안 유효합니다. 애플리케이션 간에 세션 수명이 달라서 정책 평가 사이의 시간도 달라질 수 있습니다. 애플리케이션이 새 로그인 토큰을 요청할 때마다 정책이 적용됩니다.
 
 기본적으로 Azure AD는 시간 단위로 토큰을 발급합니다. 회사 네트워크 외부로 이동한 후 1시간 이내에 최신 인증을 사용하는 애플리케이션에 대해 정책이 적용됩니다.
 
 ### <a name="user-ip-address"></a>사용자 IP 주소
 
-정책 평가에 사용되는 IP 주소는 사용자의 공용 IP 주소입니다. For devices on a private network, this IP address is not the client IP of the user’s device on the intranet, it is the address used by the network to connect to the public internet.
+정책 평가에 사용되는 IP 주소는 사용자의 공용 IP 주소입니다. 개인 네트워크에 있는 장치의 경우이 IP 주소는 인트라넷에 있는 사용자 장치의 클라이언트 IP가 아니라 네트워크에서 공용 인터넷에 연결 하는 데 사용 하는 주소입니다.
 
 > [!WARNING]
-> If your device has only an IPv6 address, configuring the location condition is not supported.
+> 장치에 IPv6 주소만 있는 경우 위치 조건을 구성 하는 것은 지원 되지 않습니다.
 
 ### <a name="bulk-uploading-and-downloading-of-named-locations"></a>명명된 위치의 대량 업로드 및 다운로드
 
@@ -144,7 +144,7 @@ This check means for mobile and desktop applications using modern authentication
 
 ### <a name="api-support-and-powershell"></a>API 지원 및 PowerShell
 
-API and PowerShell is not yet supported for named locations, or for Conditional Access policies.
+API 및 PowerShell은 명명 된 위치 또는 조건부 액세스 정책에 대해 아직 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

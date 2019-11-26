@@ -20,22 +20,22 @@ ms.locfileid: "74231622"
 
 Azure Automation에서 사용자 고유의 Runbook 및 모듈을 만드는 대신 Microsoft 및 커뮤니티에서 이미 빌드한 시나리오에 액세스할 수 있습니다.
 
-You can get PowerShell runbooks and [modules](#modules-in-powershell-gallery) from the PowerShell Gallery and [Python runbooks](#python-runbooks) from the Script Center Gallery. You can also contribute to the community by sharing scenarios that you develop, see Adding a runbook to the gallery
+스크립트 센터 갤러리에서 PowerShell 갤러리 및 [Python runbook](#python-runbooks) 의 PowerShell runbook 및 [모듈](#modules-in-powershell-gallery) 을 가져올 수 있습니다. 개발 하는 시나리오를 공유 하 여 커뮤니티에 기여할 수도 있습니다. 갤러리에 runbook 추가를 참조 하세요.
 
-## <a name="runbooks-in-powershell-gallery"></a>Runbooks in PowerShell Gallery
+## <a name="runbooks-in-powershell-gallery"></a>PowerShell 갤러리의 runbook
 
-The [PowerShell Gallery](https://www.powershellgallery.com/packages) provides a variety of runbooks from Microsoft and the community that you can import into Azure Automation. To use one, download a runbook from the gallery, or you can directly import runbooks from the gallery, or from your Automation Account in the Azure portal.
+[PowerShell 갤러리](https://www.powershellgallery.com/packages) 는 Microsoft와 커뮤니티에서 Azure Automation으로 가져올 수 있는 다양 한 runbook을 제공 합니다. 하나를 사용 하려면 갤러리에서 runbook을 다운로드 하거나 갤러리 또는 Azure Portal의 Automation 계정에서 runbook을 직접 가져올 수 있습니다.
 
-You can only import directly from the PowerShell Gallery using the Azure portal. You cannot perform this function using PowerShell.
+Azure Portal를 사용 하 여 PowerShell 갤러리에서 직접 가져올 수 있습니다. PowerShell을 사용 하 여이 기능을 수행할 수 없습니다.
 
 > [!NOTE]
-> You should validate the contents of any runbooks that you get from the PowerShell Gallery and use extreme caution in installing and running them in a production environment.
+> PowerShell 갤러리에서 가져온 모든 runbook 내용의 유효성을 검사 하 고 프로덕션 환경에서 설치 및 실행 하는 데 매우 주의 해야 합니다.
 
-### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>To import a PowerShell runbook from the Runbook Gallery with the Azure portal
+### <a name="to-import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Azure Portal를 사용 하 여 Runbook 갤러리에서 PowerShell runbook을 가져오려면
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. **프로세스 자동화**에서 **Runbook 갤러리**를 클릭합니다.
-3. Select **Source: PowerShell Gallery**.
+3. **원본: PowerShell 갤러리**을 선택 합니다.
 4. 원하는 갤러리 항목을 찾아 선택하여 세부 정보를 확인합니다. 왼쪽에서 게시자 및 형식에 대한 추가 검색 매개 변수를 입력할 수 있습니다.
 
    ![갤러리 찾아보기](media/automation-runbook-gallery/browse-gallery.png)
@@ -48,12 +48,12 @@ You can only import directly from the PowerShell Gallery using the Azure portal.
 7. 선택적으로 Runbook의 이름을 변경한 다음 **확인** 을 클릭하여 해당 Runbook을 가져옵니다.
 8. 이 Runbook은 Automation 계정의 **Runbook** 탭에 표시됩니다.
 
-### <a name="adding-a-powershell-runbook-to-the-gallery"></a>Adding a PowerShell runbook to the gallery
+### <a name="adding-a-powershell-runbook-to-the-gallery"></a>갤러리에 PowerShell runbook 추가
 
-Microsoft encourages you to add runbooks to the PowerShell Gallery that you think would be useful to other customers. The PowerShell Gallery accepts PowerShell modules and PowerShell scripts. You can add a runbook by [uploading it to the PowerShell Gallery](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package).
+다른 고객에 게 유용 하다 고 생각 되는 PowerShell 갤러리에 runbook을 추가 하는 것이 좋습니다. PowerShell 갤러리은 PowerShell 모듈 및 PowerShell 스크립트를 허용 합니다. Runbook을 [PowerShell 갤러리에 업로드](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package)하 여 추가할 수 있습니다.
 
 > [!NOTE]
-> Graphical runbooks are not supported in PowerShell Gallery.
+> 그래픽 runbook은 PowerShell 갤러리에서 지원 되지 않습니다.
 
 ## <a name="modules-in-powershell-gallery"></a>PowerShell 갤러리의 모듈
 
@@ -91,26 +91,26 @@ PowerShell 모듈에는 Runbook에 사용할 수 있는 cmdlet이 있으며, Azu
 
 ## <a name="python-runbooks"></a>Python Runbooks
 
-Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)에서 사용할 수 있습니다. You can contribute Python runbooks to the Script Center gallery by clicking **Upload a contribution**. 이를 제공할 경우 제공 업로드 시 태그 **Python**을 추가해야 합니다.
+Python Runbooks는 [스크립트 센터 갤러리](https://gallery.technet.microsoft.com/scriptcenter/site/search?f%5B0%5D.Type=RootCategory&f%5B0%5D.Value=WindowsAzure&f%5B1%5D.Type=ProgrammingLanguage&f%5B1%5D.Value=Python&f%5B1%5D.Text=Python&sortBy=Date&username=)에서 사용할 수 있습니다. **기여 업로드**를 클릭 하 여 스크립트 센터 갤러리에 Python runbook을 제공할 수 있습니다. 이를 제공할 경우 제공 업로드 시 태그 **Python**을 추가해야 합니다.
 
 > [!NOTE]
-> In order to upload content to [Script Center](https://gallery.technet.microsoft.com/scriptcenter) a minimum of 100 points is required.
+> [스크립트 센터](https://gallery.technet.microsoft.com/scriptcenter) 에 콘텐츠를 업로드 하기 위해 최소 100 포인트가 필요 합니다.
 
 ## <a name="requesting-a-runbook-or-module"></a>Runbook 또는 모듈 요청 중
 
 [사용자 음성](https://feedback.azure.com/forums/246290-azure-automation/)에 요청을 보낼 수 있습니다.  Runbook을 작성하는 데 도움이 필요하거나 PowerShell에 대한 질문이 있으면 [포럼](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=azureautomation&filter=alltypes&sort=lastpostdesc)에 질문을 게시하세요.
 
-## <a name="common-solutions-available-in-the-runbook-gallery"></a>Common solutions available in the runbook gallery
+## <a name="common-solutions-available-in-the-runbook-gallery"></a>Runbook 갤러리에서 사용할 수 있는 일반 솔루션
 
-The list below contains a few runbooks that provide solutions to common scenarios. For a full list of runbooks created by the Azure Automation team, see [AzureAutomationTeam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam).
+아래 목록에는 일반적인 시나리오에 대 한 솔루션을 제공 하는 몇 가지 runbook이 포함 되어 있습니다. Azure Automation 팀에서 만든 runbook의 전체 목록은 [Azureautomationteam profile](https://www.powershellgallery.com/profiles/AzureAutomationTeam)을 참조 하세요.
 
-* [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) - Imports the latest version on PowerShell Gallery of all modules in an Automation account.
-* [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) - This script configures Azure Diagnostics and Log Analytics to receive Azure Automation logs containing job status and job streams.
-* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) - This runbook copies a remote file from a Windows Azure virtual machine.
-* [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) - This runbook copies a local file to an Azure virtual machine.
+* [ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/) -Automation 계정에 있는 모든 모듈의 PowerShell 갤러리에 대 한 최신 버전을 가져옵니다.
+* [-AzureDiagnostics 사용](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/) -이 스크립트는 Azure 진단를 구성 하 고 작업 상태 및 작업 스트림을 포함 하는 Azure Automation 로그를 받도록 Log Analytics 합니다.
+* [ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/) -이 Runbook은 Windows Azure 가상 컴퓨터에서 원격 파일을 복사 합니다.
+* [ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) -이 Runbook은 Azure 가상 컴퓨터에 로컬 파일을 복사 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * Runbook을 시작하려면 [Azure Automation에서 Runbook 관리](manage-runbooks.md)를 참조하세요.
 * Runbook용 PowerShell 및 PowerShell 워크플로 간의 차이점을 이해하려면 [PowerShell 워크플로 학습](automation-powershell-workflow.md)
-* For more information on PowerShell, including language reference and learning modules, refer to the [PowerShell Docs](https://docs.microsoft.com/powershell/scripting/overview).
+* 언어 참조 및 학습 모듈을 비롯 한 PowerShell에 대 한 자세한 내용은 [Powershell 문서](https://docs.microsoft.com/powershell/scripting/overview)를 참조 하세요.

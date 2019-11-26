@@ -17,7 +17,7 @@ ms.locfileid: "74456573"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Azure IoT Edge 모듈 이해
 
-Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. To understand how modules are developed, deployed, and maintained, it helps to think of the four conceptual elements of a module:
+Azure IoT Edge를 사용하면 에지에서 비즈니스 논리를 *모듈* 형태로 배포하고 관리할 수 있습니다. Azure IoT Edge 모듈은 IoT Edge가 관리하는 계산의 최소 단위이며 Azure 서비스(예: Azure Stream Analytics) 또는 고유한 솔루션별 코드를 포함할 수 있습니다. 모듈을 개발, 배포 및 유지 관리 하는 방법을 이해 하기 위해 모듈의 네 가지 개념적 요소를 고려 하는 것이 좋습니다.
 
 * **모듈 이미지**는 모듈을 정의하는 소프트웨어가 포함된 패키지입니다.
 * **모듈 인스턴스**는 IoT Edge 디바이스에서 모듈 이미지를 실행하는 특정 계산 단위입니다. 모듈 인스턴스는 IoT Edge 런타임에 의해 시작됩니다.
@@ -68,7 +68,7 @@ Twin twin = await client.GetTwinAsync(); 
 
 ## <a name="offline-capabilities"></a>오프라인 기능
 
-Azure IoT Edge modules can operate offline indefinitely after syncing with IoT Hub at least once. IoT Edge devices can also extend this offline capability to other IoT devices. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
+Azure IoT Edge 모듈은 한 번 이상 IoT Hub와 동기화 한 후 무기한으로 작업할 수 있습니다. IoT Edge 장치는이 오프 라인 기능을 다른 IoT 장치로 확장할 수도 있습니다. 자세한 내용은 [IoT Edge 디바이스, 모듈 및 하위 디바이스용 확장 오프라인 기능 이해](offline-capabilities.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
  - [IoT Edge 모듈을 개발하기 위한 요구 사항 및 도구 이해](module-development.md)

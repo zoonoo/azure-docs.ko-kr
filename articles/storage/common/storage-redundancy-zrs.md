@@ -163,7 +163,7 @@ CLI를 사용 하 여 ZRS로 업그레이드 하려면 다음 명령을 호출 �
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고자료
 - [Azure Storage 복제](storage-redundancy.md)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](storage-redundancy-lrs.md)
 - [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)

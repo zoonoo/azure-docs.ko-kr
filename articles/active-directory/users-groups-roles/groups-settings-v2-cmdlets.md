@@ -1,5 +1,5 @@
 ---
-title: PowerShell V2 examples for managing groups - Azure AD  | Microsoft Docs
+title: 그룹 관리를 위한 PowerShell V2 예제-Azure AD | Microsoft Docs
 description: 이 페이지에는 Azure Active Directory에서 그룹을 관리하는 데 도움이 되는 PowerShell 예제가 나와 있습니다.
 keywords: Azure AD, Azure Active Directory, PowerShell, 그룹, 그룹 관리
 services: active-directory
@@ -24,7 +24,7 @@ ms.locfileid: "74233108"
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>그룹 관리를 위한 Azure Active Directory 버전 2 cmdlet
 
 > [!div class="op_single_selector"]
-> - [Azure 포털](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Azure Portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -130,7 +130,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
 ```
 
 > [!NOTE]
-> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 [OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)의 **$filter**를 참조하세요.
+> Azure AD PowerShell cmdlet에서는 OData 쿼리 표준을 구현합니다. 자세한 내용은 **OData 엔드포인트를 사용하는 OData 시스템 쿼리 옵션**의 [$filter](https://msdn.microsoft.com/library/gg309461.aspx#BKMK_filter)를 참조하세요.
 
 ## <a name="create-groups"></a>그룹 만들기
 
@@ -170,7 +170,7 @@ Azure AD PowerShell cmdlet을 사용하여 그룹 관리를 시작하기 전에 
     PS C:\Windows\system32> Set-AzureADGroup -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -Description "Intune Device Administrators"
 ```
 
-Now, if we find the group again, we see the Description property is updated to reflect the new value:
+이제 그룹을 다시 찾으면 설명 속성이 새 값을 반영 하도록 업데이트 됩니다 .가 표시 됩니다.
 
 ```powershell
     PS C:\Windows\system32> Get-AzureADGroup -Filter "DisplayName eq 'Intune Administrators'"
@@ -284,7 +284,7 @@ Now, if we find the group again, we see the Description property is updated to r
     PS C:\Windows\system32> Add-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df -RefObjectId 72cd4bbd-2594-40a2-935c-016f3cfeeeea
 ```
 
-The -ObjectId parameter is the ObjectID of the group to which we want to add an owner, and the -RefObjectId is the ObjectID of the user or service principal we want to add as an owner of the group.
+-ObjectId 매개 변수는 소유자를 추가 하려는 그룹의 ObjectID 이며,-RefObjectId는 그룹 소유자로 추가 하려는 사용자 또는 서비스 주체의 ObjectID입니다.
 
 그룹의 소유자를 검색하려면 Get-AzureADGroupOwner cmdlet을 사용합니다.
 
@@ -292,7 +292,7 @@ The -ObjectId parameter is the ObjectID of the group to which we want to add an 
     PS C:\Windows\system32> Get-AzureADGroupOwner -ObjectId 31f1ff6c-d48c-4f8a-b2e1-abca7fd399df
 ```
 
-The cmdlet returns the list of owners (users and service principals) for the specified group:
+Cmdlet은 지정 된 그룹에 대 한 소유자 (사용자 및 서비스 사용자) 목록을 반환 합니다.
 
 ```powershell
     DeletionTimeStamp ObjectId                             ObjectType
@@ -308,29 +308,29 @@ The cmdlet returns the list of owners (users and service principals) for the spe
 
 ## <a name="reserved-aliases"></a>예약된 별칭
 
-그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. Groups with the following highly privileged email aliases can only be created by an Azure AD global administrator. 
+그룹을 만들 때 특정 엔드포인트는 최종 사용자가 mailNickname 또는 별칭이 그룹의 전자 메일 주소의 일부로 사용되도록 지정할 수 있게 합니다. Azure AD 전역 관리자는 다음과 같은 높은 권한이 있는 메일 별칭을 사용 하는 그룹을 만들 수 있습니다. 
   
 * abuse
-* 관리자
+* admin
 * administrator
 * hostmaster
 * majordomo
 * postmaster
 * root
-* 안전성
-* 보안
+* secure
+* security
 * ssl-admin
 * webmaster
 
-## <a name="group-writeback-to-on-premises-preview"></a>Group writeback to on-premises (preview)
+## <a name="group-writeback-to-on-premises-preview"></a>쓰기 저장을 온-프레미스로 그룹화 (미리 보기)
 
-Today, many groups are still managed in on-premises Active Directory. To answer requests to sync cloud groups back to on-premises, Office 365 groups writeback feature for Azure AD is now available for preview.
+오늘날 대부분의 그룹은 온-프레미스 Active Directory에서 계속 관리 됩니다. 클라우드 그룹을 온-프레미스로 다시 동기화 하도록 요청에 응답 하기 위해 Azure AD에 대 한 Office 365 그룹 쓰기 저장 기능을 이제 미리 볼 수 있습니다.
 
-Office 365 groups are created and managed in the cloud. The writeback capability allows you to write back Office 365 groups as distribution groups to an Active Directory forest with Exchange installed. Users with on-premises Exchange mailboxes can then send and receive emails from these groups. The group writeback feature doesn't support Azure AD security groups or distribution groups.
+Office 365 그룹은 클라우드에서 만들어지고 관리 됩니다. 쓰기 저장 기능을 사용 하면 Exchange가 설치 된 Active Directory 포리스트에 Office 365 그룹을 메일 그룹으로 다시 작성할 수 있습니다. 그러면 온-프레미스 Exchange 사서함이 있는 사용자가 이러한 그룹에서 전자 메일을 보내고 받을 수 있습니다. 그룹 쓰기 저장 기능은 Azure AD 보안 그룹 또는 배포 그룹을 지원 하지 않습니다.
 
-For more details, please refer to documentation for the [Azure AD Connect sync service](../hybrid/how-to-connect-syncservice-features.md).
+자세한 내용은 [Azure AD Connect sync 서비스](../hybrid/how-to-connect-syncservice-features.md)에 대 한 설명서를 참조 하세요.
 
-Office 365 group writeback is a public preview feature of Azure Active Directory (Azure AD) and is available with any paid Azure AD license plan. For some legal information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Office 365 그룹 쓰기 저장은 Azure Active Directory (Azure AD)의 공개 미리 보기 기능으로, 유료 Azure AD 라이선스 계획과 함께 사용할 수 있습니다. 미리 보기에 대 한 몇 가지 법적 정보는 [Microsoft Azure 미리 보기의 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

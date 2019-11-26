@@ -1,6 +1,6 @@
 ---
-title: Azure Files performance troubleshooting guide
-description: Known performance issues with Azure file shares and associated workarounds.
+title: Azure Files 성능 문제 해결 가이드
+description: Azure 파일 공유와 관련 된 해결 방법의 알려진 성능 문제
 author: gunjanj
 ms.service: storage
 ms.topic: conceptual
@@ -14,157 +14,157 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227819"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Troubleshoot Azure Files performance issues
+# <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
-This article lists some common problems related to Azure file shares. It provides potential causes and workarounds when these problems are encountered.
+이 문서에서는 Azure 파일 공유와 관련 된 몇 가지 일반적인 문제를 나열 합니다. 이러한 문제가 발생 하는 경우 잠재적 원인과 해결 방법을 제공 합니다.
 
-## <a name="high-latency-low-throughput-and-general-performance-issues"></a>High latency, low throughput, and general performance issues
+## <a name="high-latency-low-throughput-and-general-performance-issues"></a>대기 시간이 짧고 처리량이 높고 일반 성능 문제가 발생 합니다.
 
-### <a name="cause-1-share-experiencing-throttling"></a>Cause 1: Share experiencing throttling
+### <a name="cause-1-share-experiencing-throttling"></a>원인 1: 제한 발생 공유
 
-The default quota on a premium share is 100 GiB, which provides 100 baseline IOPS (with a potential to burst up to 300 for an hour). For more information about provisioning and its relationship to IOPS, see the [Provisioned shares](storage-files-planning.md#provisioned-shares) section of the planning guide.
+프리미엄 공유의 기본 할당량은 100 GiB, 100 기준선 IOPS를 제공 합니다 (한 시간 동안 300까지 증가 시킬 수 있음). 프로 비전 및 IOPS와의 관계에 대 한 자세한 내용은 계획 가이드의 [프로 비전 된 공유](storage-files-planning.md#provisioned-shares) 섹션을 참조 하십시오.
 
-To confirm if your share is being throttled, you can leverage Azure Metrics in the portal.
+공유를 제한 하 고 있는지 확인 하려면 포털에서 Azure 메트릭을 활용할 수 있습니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Select **All services** and then search for **Metrics**.
+1. **모든 서비스** 를 선택한 다음 **메트릭을**검색 합니다.
 
 1. **메트릭**을 선택합니다.
 
-1. Select your storage account as the resource.
+1. 저장소 계정을 리소스로 선택 합니다.
 
-1. Select **File** as the metric namespace.
+1. 메트릭 네임 스페이스로 **파일** 을 선택 합니다.
 
-1. Select **Transactions** as the metric.
+1. **트랜잭션을** 메트릭으로 선택 합니다.
 
-1. Add a filter for **ResponseType** and check to see if any requests have a response code of **SuccessWithThrottling** (for SMB) or **ClientThrottlingError** (for REST).
+1. **Responsetype** 에 대 한 필터를 추가 하 고 요청에 **SuccessWithThrottling** (SMB 용) 또는 **ClientThrottlingError** (REST)의 응답 코드가 있는지 확인 합니다.
 
-![Metrics options for premium fileshares](media/storage-troubleshooting-premium-fileshares/metrics.png)
+![프리미엄 파일 공유 메트릭 옵션](media/storage-troubleshooting-premium-fileshares/metrics.png)
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-- Increase share provisioned capacity by specifying a higher quota on your share.
+- 공유에서 더 높은 할당량을 지정 하 여 공유 프로 비전 된 용량을 늘립니다.
 
-### <a name="cause-2-metadatanamespace-heavy-workload"></a>Cause 2: Metadata/namespace heavy workload
+### <a name="cause-2-metadatanamespace-heavy-workload"></a>원인 2: 메타 데이터/네임 스페이스 작업량이 많은 작업
 
-If the majority of your requests are metadata centric, (such as createfile/openfile/closefile/queryinfo/querydirectory) then the latency will be worse when compared to read/write operations.
+대부분의 요청이 메타 데이터 중심 (예: createfile/system.windows.forms.openfiledialog.openfile/closefile/queryinfo/queryinfo) 이면 읽기/쓰기 작업과 비교할 때 대기 시간이 더 나빠질 수 있습니다.
 
-To confirm if most of your requests are metadata centric, you can use the same steps as above. Except instead of adding a filter for **ResponseType**, add a filter for **API Name**.
+대부분의 요청이 메타 데이터 중심 인지 확인 하기 위해 위와 동일한 단계를 사용할 수 있습니다. **Responsetype**에 대 한 필터를 추가 하는 대신 **API 이름**에 대 한 필터를 추가 합니다.
 
-![Filter for API Name in your metrics](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
+![메트릭의 API 이름 필터링](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
 ### <a name="workaround"></a>해결 방법
 
-- Check if the application can be modified to reduce the number of metadata operations.
-- Add a VHD on the file share and mount VHD over SMB from the client to perform files operations against the data. This approach works for single writer and multiple readers scenarios and allows metadata operations to be local, offering performance similar to a local direct-attached storage.
+- 메타 데이터 작업의 수를 줄이도록 응용 프로그램을 수정할 수 있는지 확인 합니다.
+- 파일 공유에 VHD를 추가 하 고 클라이언트에서 SMB를 통해 VHD를 탑재 하 여 데이터에 대 한 파일 작업을 수행 합니다. 이 방법은 단일 작성기 및 다중 판독기 시나리오에서 작동 하며 메타 데이터 작업을 로컬으로 허용 하 여 로컬 직접 연결 된 저장소와 비슷한 성능을 제공 합니다.
 
-### <a name="cause-3-single-threaded-application"></a>Cause 3: Single-threaded application
+### <a name="cause-3-single-threaded-application"></a>원인 3: 단일 스레드 응용 프로그램
 
-If the application being used by the customer is single-threaded, this can result in significantly lower IOPS/throughput than the maximum possible based on your provisioned share size.
+고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-- Increase application parallelism by increasing the number of threads.
-- Switch to applications where parallelism is possible. For example, for copy operations, customers could use AzCopy or RoboCopy from Windows clients or the **parallel** command on Linux clients.
+- 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
+- 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
 
-## <a name="very-high-latency-for-requests"></a>Very high latency for requests
+## <a name="very-high-latency-for-requests"></a>요청에 대 한 대기 시간 매우 높음
 
 ### <a name="cause"></a>원인
 
-The client VM could be located in a different region than the file share.
+클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
-- Run the application from a VM that is located in the same region as the file share.
+- 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
-## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>Client unable to achieve maximum throughput supported by the network
+## <a name="client-unable-to-achieve-maximum-throughput-supported-by-the-network"></a>클라이언트에서 네트워크에 의해 지원 되는 최대 처리량을 달성할 수 없습니다.
 
-One potential cause of this is a lack fo SMB multi-channel support. Currently, Azure file shares only support single channel, so there is only one connection from the client VM to the server. This single connection is pegged to a single core on the client VM, so the maximum throughput achievable from a VM is bound by a single core.
+이에 대 한 한 가지 잠재적인 원인은 SMB 다중 채널 지원 부족입니다. 현재 Azure 파일 공유는 단일 채널만 지원 하므로 클라이언트 VM에서 서버로의 연결은 하나 뿐입니다. 이 단일 연결은 클라이언트 VM의 단일 코어로 해석 VM에서 달성 가능한 최대 처리량은 단일 코어에 의해 바인딩됩니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- Obtaining a VM with a bigger core may help improve throughput.
-- Running the client application from multiple VMs will increase throughput.
+- 코어 크기가 더 큰 VM을 가져오면 처리량을 향상 시킬 수 있습니다.
+- 여러 Vm에서 클라이언트 응용 프로그램을 실행 하면 처리량이 증가 합니다.
 
-- Use REST APIs where possible.
+- 가능한 경우 REST Api를 사용 합니다.
 
-## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Throughput on Linux clients is significantly lower when compared to Windows clients.
+## <a name="throughput-on-linux-clients-is-significantly-lower-when-compared-to-windows-clients"></a>Windows 클라이언트에 비해 Linux 클라이언트의 처리량은 훨씬 낮습니다.
 
 ### <a name="cause"></a>원인
 
-This is a known issue with the implementation of SMB client on Linux.
+Linux에서 SMB 클라이언트를 구현 하는 것과 관련 하 여 알려진 문제입니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- Spread the load across multiple VMs.
-- On the same VM, use multiple mount points with **nosharesock** option, and spread the load across these mount points.
-- On Linux, try mounting with **nostrictsync** option to avoid forcing SMB flush on every fsync call. For Azure Files, this option does not interfere with data consistentcy, but may result in stale file metadata on directory listing (**ls -l** command). Directly querying metadata of file (**stat** command) will return the most up-to date file metadata.
+- 부하를 여러 Vm에 분산 합니다.
+- 동일한 VM에서 **nosharesock** 옵션을 사용 하 여 여러 탑재 위치를 사용 하 고 이러한 탑재 지점의 부하를 분산 합니다.
+- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 fsync 호출에서 SMB 플러시를 방지 합니다. Azure Files의 경우이 옵션은 데이터 consistentcy을 방해 하지 않지만 디렉터리 목록 (**ls-l** 명령)에서 오래 된 파일 메타 데이터를 생성 하 게 될 수 있습니다. 파일의 메타 데이터를 직접 쿼리하면 (**stat** 명령) 최신 파일 메타 데이터가 반환 됩니다.
 
-## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>High latencies for metadata heavy workloads involving extensive open/close operations.
+## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>광범위 한 열기/닫기 작업을 포함 하는 메타 데이터 사용량이 많은 작업에 대 한 대기 시간이 깁니다.
 
 ### <a name="cause"></a>원인
 
-Lack of support for directory leases.
+디렉터리 임대에 대 한 지원이 부족 합니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- If possible, avoid excessive opening/closing handle on the same directory within a short period of time.
-- For Linux VMs, increase the directory entry cache timeout by specifying **actimeo=\<sec>** as a mount option. By default, it is one second, so a larger value like three or five might help.
-- For Linux VMs, upgrade the kernel to 4.20 or higher.
+- 가능 하면 짧은 시간 내에 동일한 디렉터리에 대 한 과도 한 열기/닫기 핸들을 사용 하지 마십시오.
+- Linux Vm의 경우 **actimeo =\<sec >** 를 탑재 옵션으로 지정 하 여 디렉터리 항목 캐시 제한 시간을 늘립니다. 기본적으로 1 초 이므로 3 또는 5와 같은 큰 값이 도움이 될 수 있습니다.
+- Linux Vm의 경우 커널을 4.20 이상으로 업그레이드 합니다.
 
-## <a name="low-iops-on-centosrhel"></a>Low IOPS on CentOS/RHEL
+## <a name="low-iops-on-centosrhel"></a>CentOS/RHEL의 낮은 IOPS
 
 ### <a name="cause"></a>원인
 
-IO depth greater than one is not supported on CentOS/RHEL.
+CentOS/RHEL에서 1 보다 큰 IO 깊이가 지원 되지 않습니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- Upgrade to CentOS 8 / RHEL 8.
-- Change to Ubuntu.
+- CentOS 8/RHEL 8로 업그레이드 합니다.
+- Ubuntu로 변경 합니다.
 
 ## <a name="slow-file-copying-to-and-from-azure-files-in-linux"></a>Linux에서 Azure Files와 서로 파일을 복사하는 속도 느림
 
-If you are experiencing slow file copying to and from Azure Files, take a look at the [Slow file copying to and from Azure Files in Linux](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) section in the Linux troubleshooting guide.
+Azure Files에 대 한 파일 복사 속도가 느려지는 경우 Linux 문제 해결 가이드의 [linux의 Azure Files에 대 한 저속 파일 복사](storage-troubleshoot-linux-file-connection-problems.md#slow-file-copying-to-and-from-azure-files-in-linux) 섹션을 참조 하세요.
 
-## <a name="jitterysaw-tooth-pattern-for-iops"></a>Jittery/saw-tooth pattern for IOPS
-
-### <a name="cause"></a>원인
-
-Client application consistently exceeds baseline IOPS. Currently, there is no service side smoothing of the request load, so if the client exceeds baseline IOPS, it will get throttled by the service. That throttling can result in the client experiencing a jittery/saw-tooth IOPS pattern. In this case, average IOPS achieved by the client might be lower than the baseline IOPS.
-
-### <a name="workaround"></a>해결 방법
-
-- Reduce the request load from the client application, so that the share does not get throttled.
-- Increase the quota of the share so that the share does not get throttled.
-
-## <a name="excessive-directoryopendirectoryclose-calls"></a>Excessive DirectoryOpen/DirectoryClose calls
+## <a name="jitterysaw-tooth-pattern-for-iops"></a>떨림/톱-IOPS의 이빨 패턴
 
 ### <a name="cause"></a>원인
 
-If the number of DirectoryOpen/DirectoryClose calls is among the top API calls and you don't expect the client to be making that many calls, it may be an issue with the antivirus installed on the Azure client VM.
+클라이언트 응용 프로그램이 지속적으로 기준선 IOPS를 초과 합니다. 현재, 클라이언트에서 기준선 IOPS를 초과 하는 경우 서비스에 의해 제한 되는 요청 로드의 서비스 측 다듬기는 없습니다. 이렇게 조정 하면 클라이언트에서 떨림/톱 IOPS 패턴이 발생할 수 있습니다. 이 경우 클라이언트에서 달성 한 평균 IOPS는 기준선 IOPS 보다 낮을 수 있습니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- A fix for this issue is available in the [April Platform Update for Windows](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform).
+- 공유가 제한 되지 않도록 클라이언트 응용 프로그램에서 요청 부하를 줄입니다.
+- 공유가 제한 되지 않도록 공유의 할당량을 늘립니다.
 
-## <a name="file-creation-is-slower-than-expected"></a>File creation is slower than expected
+## <a name="excessive-directoryopendirectoryclose-calls"></a>과도 한 DirectoryOpen/Directoryopen 호출
 
 ### <a name="cause"></a>원인
 
-Workloads that rely on creating a large number of files will not see a substantial difference between the performance of premium file shares and standard file shares.
+DirectoryOpen/Directoryopen 호출 수가 최상위 API 호출 중에 있고 클라이언트에서 많은 호출을 수행 하지 않을 것으로 생각 되는 경우 Azure 클라이언트 VM에 설치 된 바이러스 백신에 문제가 있을 수 있습니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- 없음.
+- 이 문제에 대 한 해결 방법은 [Windows 용 4 월 플랫폼 업데이트](https://support.microsoft.com/help/4052623/update-for-windows-defender-antimalware-platform)에서 확인할 수 있습니다.
 
-## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Slow performance from Windows 8.1 or Server 2012 R2
+## <a name="file-creation-is-slower-than-expected"></a>파일 만들기가 예상 보다 느립니다.
 
 ### <a name="cause"></a>원인
 
-Higher than expected latency accessing Azure Files for IO intensive workloads.
+많은 수의 파일을 만드는 데 사용 하는 워크 로드는 프리미엄 파일 공유와 표준 파일 공유의 성능 간에 상당한 차이를 표시 하지 않습니다.
 
 ### <a name="workaround"></a>해결 방법
 
-- Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
+- 없음
+
+## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Windows 8.1 또는 Server 2012 r 2의 성능 저하
+
+### <a name="cause"></a>원인
+
+IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 예상 되는 대기 시간
+
+### <a name="workaround"></a>해결 방법
+
+- 사용 가능한 [핫픽스](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1)를 설치 합니다.

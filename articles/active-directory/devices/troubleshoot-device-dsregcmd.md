@@ -1,6 +1,6 @@
 ---
-title: Troubleshoot using the dsregcmd command - Azure Active Directory
-description: Using the output from dsregcmd to understand the state of devices in Azure AD
+title: Dsregcmd.exe 명령을 사용 하 여 문제 해결-Azure Active Directory
+description: Dsregcmd.exe의 출력을 사용 하 여 Azure AD의 장치 상태 이해
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -18,30 +18,30 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379195"
 ---
-# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Troubleshooting devices using the dsregcmd command
+# <a name="troubleshooting-devices-using-the-dsregcmd-command"></a>Dsregcmd.exe 명령을 사용 하 여 장치 문제 해결
 
-The dsregcmd /status utility must be run as a domain user account.
+Dsregcmd.exe/status 유틸리티는 도메인 사용자 계정으로 실행 해야 합니다.
 
 ## <a name="device-state"></a>디바이스 상태
 
-This section lists the device join state parameters. The table below lists the criteria for the device to be in various join states.
+이 섹션에는 장치 연결 상태 매개 변수가 나열 됩니다. 다음 표에서는 다양 한 조인 상태에 있는 장치에 대 한 조건을 나열 합니다.
 
-| AzureAdJoined | EnterpriseJoined | DomainJoined | 디바이스 상태 |
+| AzureAdJoined | EnterpriseJoined 됨 | DomainJoined | 디바이스 상태 |
 | ---   | ---   | ---   | ---   |
-| 예 | 아니요 | 아니요 | Azure AD Joined |
-| 아니요 | 아니요 | 예 | Domain Joined |
-| 예 | 아니요 | 예 | Hybrid AD Joined |
-| 아니요 | 예 | 예 | On-premises DRS Joined |
+| 예 | 아니요 | 아니요 | Azure AD 조인 됨 |
+| 아니요 | 아니요 | 예 | 도메인 가입 |
+| 예 | 아니요 | 예 | 하이브리드 AD 조인 됨 |
+| 아니요 | 예 | 예 | 온-프레미스 DRS 조인 됨 |
 
 > [!NOTE]
-> Workplace Join (Azure AD registered) state is displayed in the "User State" section
+> "사용자 상태" 섹션에 Workplace Join (Azure AD 등록 됨) 상태가 표시 됩니다.
 
-- **AzureAdJoined:** - Set to “YES” if the device is Joined to Azure AD. “NO” otherwise.
-- **EnterpriseJoined:** - Set to “YES” if the device is Joined to an on-premises DRS. A device cannot be both EnterpriseJoined and AzureAdJoined.
-- **DomainJoined:** - Set to “YES” if the device is joined to a domain (AD).
-- **DomainName:** - Set to the name of the domain if the device is joined to a domain.
+- **AzureAdJoined:** -장치가 Azure AD에 가입 되어 있는 경우 "예"로 설정 합니다. 그렇지 않으면 "NO"입니다.
+- **Enterprisejoined 됨:** 장치가 온-프레미스 DRS에 가입 되어 있는 경우 "예"로 설정 합니다. 장치는 EnterpriseJoined 되 고 AzureAdJoined 수 없습니다.
+- **Domainjoined:** -장치가 도메인 (AD)에 가입 되어 있는 경우 "예"로 설정 합니다.
+- **DomainName:** -장치가 도메인에 가입 되어 있는 경우 도메인의 이름으로 설정 합니다.
 
-### <a name="sample-device-state-output"></a>Sample device state output
+### <a name="sample-device-state-output"></a>샘플 장치 상태 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -56,16 +56,16 @@ This section lists the device join state parameters. The table below lists the c
 
 ## <a name="device-details"></a>디바이스 세부 정보
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists device identifying details stored in the cloud.
+장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에는 클라우드에 저장 된 장치 식별 정보가 나열 됩니다.
 
-- **DeviceId:** - Unique ID of the device in the Azure AD tenant
-- **Thumbprint:** - Thumbprint of the device certificate 
-- **DeviceCertificateValidity:** - Validity of the device certificate
-- **KeyContainerId:** - ContainerId of the device private key associated with the device certificate
-- **KeyProvider:** - KeyProvider (Hardware/Software) used to store the device private key.
-- **TpmProtected:** - “YES” if the device private key is stored in a Hardware TPM.
+- **DeviceId:** -Azure AD 테 넌 트에서 장치의 고유 ID
+- **지문:** -장치 인증서의 지문 
+- **DeviceCertificateValidity:** -장치 인증서의 유효성을 검사 합니다.
+- **Keycontainerid:** -장치 인증서와 연결 된 장치 개인 키의 ContainerId
+- **Keyprovider:** -Keyprovider (하드웨어/소프트웨어) 장치 개인 키를 저장 하는 데 사용 됩니다.
+- **Tpmprotected:** -"예"를 입력 하면 장치 개인 키가 하드웨어 TPM에 저장 됩니다.
 
-### <a name="sample-device-details-output"></a>Sample device details output
+### <a name="sample-device-details-output"></a>샘플 장치 세부 정보 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -81,17 +81,17 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 +----------------------------------------------------------------------+
 ```
 
-## <a name="tenant-details"></a>Tenant details
+## <a name="tenant-details"></a>테 넌 트 세부 정보
 
-Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not Azure AD registered). This section lists the common tenant details when a device is joined to Azure AD.
-
-> [!NOTE]
-> If the MDM URLs in this section are empty, it indicates that the MDM was either not configured or current user is not in scope of MDM enrollment. Check the Mobility settings in Azure AD to review your MDM configuration.
+장치가 Azure AD에 가입 된 경우 또는 하이브리드 Azure AD에 가입 된 경우에만 표시 됩니다 (Azure AD가 등록 되지 않음). 이 섹션에서는 장치가 Azure AD에 가입 된 경우 일반적인 테 넌 트 세부 정보를 나열 합니다.
 
 > [!NOTE]
-> Even if you see MDM URLs this does not mean that the device is managed by an MDM. The information is displayed if the tenant has MDM configuration for auto-enrollment even if the device itself is not managed. 
+> 이 섹션에서 MDM Url이 비어 있으면 MDM이 구성 되지 않았거나 현재 사용자가 MDM 등록 범위에 있지 않음을 나타냅니다. Azure AD의 모바일 설정을 확인 하 여 MDM 구성을 검토 합니다.
 
-### <a name="sample-tenant-details-output"></a>Sample tenant details output
+> [!NOTE]
+> MDM Url이 표시 되는 경우에도 장치가 MDM에서 관리 되는 것을 의미 하지는 않습니다. 장치 자체를 관리 하지 않는 경우에도 테 넌 트에 자동 등록에 대 한 MDM 구성이 있으면 정보가 표시 됩니다. 
+
+### <a name="sample-tenant-details-output"></a>샘플 테 넌 트 세부 정보 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -124,22 +124,22 @@ Displayed only when the device is Azure AD joined or hybrid Azure AD joined (not
 
 ## <a name="user-state"></a>사용자 상태
 
-This section lists the status of various attributes for the user currently logged into the device.
+이 섹션에는 현재 장치에 로그인 한 사용자에 대 한 다양 한 특성의 상태가 나열 됩니다.
 
 > [!NOTE]
-> The command must run in a user context to retrieve valid status.
+> 유효한 상태를 검색 하려면 명령을 사용자 컨텍스트에서 실행 해야 합니다.
 
-- **NgcSet:** - Set to “YES” if a Windows Hello key is set for the current logged on user.
-- **NgcKeyId:** - ID of the Windows Hello key if one is set for the current logged on user.
-- **CanReset:** - Denotes if the Windows Hello key can be reset by the user. 
-- **Possible values:** - DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive, or Unknown if error. 
-- **WorkplaceJoined:** - Set to “YES” if Azure AD registered accounts have been added to the device in the current NTUSER context.
-- **WamDefaultSet:** - Set to “YES” if a WAM default WebAccount is created for the logged in user. This field could display an error if dsreg /status is run in admin context. 
-- **WamDefaultAuthority:** - Set to “organizations” for Azure AD.
-- **WamDefaultId:** - Always “https://login.microsoft.com” for Azure AD.
-- **WamDefaultGUID:** - The WAM provider’s (Azure AD/Microsoft account) GUID for the default WAM WebAccount. 
+- **NgcSet:** -현재 로그온 한 사용자에 대해 Windows Hello 키가 설정 된 경우 "예"로 설정 합니다.
+- **NgcKeyId:** -현재 로그온 한 사용자에 대해 설정 된 Windows Hello 키의 ID입니다.
+- **Canreset:** -사용자가 Windows Hello 키를 다시 설정할 수 있는지 여부를 나타냅니다. 
+- **가능한 값은 다음과 같습니다.** -DestructiveOnly, NonDestructiveOnly, DestructiveAndNonDestructive 또는 Unknown (오류가 발생 한 경우). 
+- **WorkplaceJoined:** -Azure AD 등록 된 계정이 현재 ntuser.man 파일 컨텍스트의 장치에 추가 된 경우 "예"로 설정 합니다.
+- **WamDefaultSet:** -로그인 한 사용자에 대해 WAM default WebAccount가 생성 되 면 "예"로 설정 합니다. Dsreg/status를 관리자 컨텍스트에서 실행 하는 경우이 필드에 오류가 표시 될 수 있습니다. 
+- **WamDefaultAuthority:** -Azure AD의 "조직"으로 설정 합니다.
+- **WamDefaultId:** -Azure AD의 경우 항상 "https://login.microsoft.com"입니다.
+- **고 wamdefaultguid:** -기본 WAM WebAccount에 대 한 WAM 공급자의 (Azure AD/MICROSOFT 계정) GUID입니다. 
 
-### <a name="sample-user-state-output"></a>Sample user state output
+### <a name="sample-user-state-output"></a>샘플 사용자 상태 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -158,23 +158,23 @@ This section lists the status of various attributes for the user currently logge
 +----------------------------------------------------------------------+
 ```
 
-## <a name="sso-state"></a>SSO state
+## <a name="sso-state"></a>SSO 상태
 
-This section can be ignored for Azure AD registered devices.
+이 섹션은 Azure AD 등록 장치에 대해 무시할 수 있습니다.
 
 > [!NOTE]
-> The command must run in a user context to retrieve valid status for that user.
+> 해당 사용자에 대 한 유효한 상태를 검색 하려면 명령을 사용자 컨텍스트에서 실행 해야 합니다.
 
-- **AzureAdPrt:** - Set to “YES” if a PRT is present on the device for the logged-on user.
-- **AzureAdPrtUpdateTime:** - Set to the time in UTC when the PRT was last updated.
-- **AzureAdPrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-- **AzureAdPrtAuthority:** - Azure AD authority URL
-- **EnterprisePrt:** - Set to “YES” if the device has PRT from on-premises ADFS. For hybrid Azure AD joined devices the device could have PRT from both Azure AD and on-premises AD simultaneously. On-premises joined devices will only have an Enterprise PRT.
-- **EnterprisePrtUpdateTime:** - Set to the time in UTC when the Enterprise PRT was last updated.
-- **EnterprisePrtExpiryTime:** - Set to the time in UTC when the PRT is going to expire if it is not renewed.
-- **EnterprisePrtAuthority:** - ADFS authority URL
+- **AzureAdPrt:** -로그온 한 사용자의 장치에 PRT가 있는 경우 "예"로 설정 합니다.
+- **AzureAdPrtUpdateTime:** -PRT가 마지막으로 업데이트 된 UTC 시간으로 설정 합니다.
+- **AzureAdPrtExpiryTime:** -갱신 되지 않은 경우 PRT가 만료 되는 시간 (UTC)으로 설정 합니다.
+- **AzureAdPrtAuthority:** -Azure AD 기관 URL
+- **Enterpriseprt:** -장치에 온-프레미스 ADFS의 PRT가 있는 경우 "예"로 설정 합니다. 하이브리드 Azure AD 가입 장치의 경우 장치는 Azure AD와 온-프레미스 AD의 PRT를 동시에 가질 수 있습니다. 온-프레미스에 가입 된 장치에는 Enterprise PRT만 있습니다.
+- **EnterprisePrtUpdateTime:** -Enterprise PRT가 마지막으로 업데이트 된 UTC 시간으로 설정 합니다.
+- **EnterprisePrtExpiryTime:** -갱신 되지 않은 경우 PRT가 만료 되는 시간 (UTC)으로 설정 합니다.
+- **EnterprisePrtAuthority:** -ADFS 기관 URL
 
-### <a name="sample-sso-state-output"></a>Sample SSO state output
+### <a name="sample-sso-state-output"></a>샘플 SSO 상태 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -195,35 +195,35 @@ This section can be ignored for Azure AD registered devices.
 
 ## <a name="diagnostic-data"></a>진단 데이터
 
-### <a name="pre-join-diagnostics"></a>Pre-join diagnostics
+### <a name="pre-join-diagnostics"></a>사전 조인 진단
 
-This section is displayed only if the device is domain joined and is unable to hybrid Azure AD join.
+이 섹션은 장치가 도메인에 가입 되어 있으며 Azure AD 조인을 하이브리드 할 수 없는 경우에만 표시 됩니다.
 
-This section performs various tests to help diagnose join failures. This section also includes the details of the previous (?). This information includes the error phase, the error code, the server request ID, server response http status, server response error message.
+이 섹션에서는 조인 실패를 진단 하는 데 도움이 되는 다양 한 테스트를 수행 합니다. 또한이 섹션에는 이전 (?)의 세부 정보가 포함 되어 있습니다. 이 정보에는 오류 단계, 오류 코드, 서버 요청 ID, 서버 응답 http 상태, 서버 응답 오류 메시지가 포함 됩니다.
 
-- **User Context:** - The context in which the diagnostics are run. Possible values: SYSTEM, UN-ELEVATED User, ELEVATED User. 
+- **사용자 컨텍스트:** 진단이 실행 되는 컨텍스트입니다. 가능한 값: 시스템, 관리자 권한 없는 사용자, 관리자 권한 
 
    > [!NOTE]
-   > Since the actual join is performed in SYSTEM context, running the diagnostics in SYSTEM context is closest to the actual join scenario. To run diagnostics in SYSTEM context, the dsregcmd /status command must be run from an elevated command prompt.
+   > 실제 조인은 시스템 컨텍스트에서 수행 되므로 시스템 컨텍스트에서 진단 실행은 실제 조인 시나리오와 가장 가깝습니다. 시스템 컨텍스트에서 진단을 실행 하려면 관리자 권한 명령 프롬프트에서 dsregcmd.exe/status 명령을 실행 해야 합니다.
 
-- **Client Time:** - The system time in UTC.
-- **AD Connectivity Test:** - Test performs a connectivity test to the domain controller. Error in this test will likely result in Join errors in pre-check phase.
-- **AD Configuration Test:** - Test reads and verifies whether the SCP object is configured properly in the on-premises AD forest. Errors in this test would likely result in Join errors in the discover phase with the error code 0x801c001d.
-- **DRS Discovery Test:** - Test gets the DRS endpoints from discovery metadata endpoint and performs a user realm request. Errors in this test would likely result in Join errors in the discover phase.
-- **DRS Connectivity Test:** - Test performs basic connectivity test to the DRS endpoint.
-- **Token acquisition Test:** - Test tries to get an Azure AD authentication token if the user tenant is federated. Errors in this test would likely result in Join errors in the auth phase. If auth fails sync join will be attempted as fallback, unless fallback is explicitly disabled with a registry key.
-- **Fallback to Sync-Join:** - Set to “Enabled” if the registry key, to prevent the fallback to sync join with auth failures, is NOT present. This option is available from Windows 10 1803 and later.
-- **Previous Registration:** - Time the previous Join attempt occurred. Only failed Join attempts are logged.
-- **Error Phase:** - The stage of the join in which it was aborted. Possible values are pre-check, discover, auth, join.
-- **Client ErrorCode:** - Client error code returned (HRESULT).
-- **Server ErrorCode:** - Server error code if a request was sent to the server and server responded back with an error code. 
-- **Server Message:** - Server message returned along with the error code.
-- **Https Status:** - Http status returned by the server.
-- **Request ID:** - The client requestId sent to the server. Useful to correlate with server-side logs.
+- **클라이언트 시간:** 시스템 시간 (UTC)입니다.
+- **AD 연결 테스트:** -테스트는 도메인 컨트롤러에 대 한 연결 테스트를 수행 합니다. 이 테스트에 오류가 발생 하면 사전 검사 단계에서 조인 오류가 발생할 수 있습니다.
+- **AD 구성 테스트:** -테스트는 SCP 개체가 온-프레미스 AD 포리스트에서 올바르게 구성 되었는지 여부를 읽고 확인 합니다. 이 테스트의 오류는 검색 단계에서 오류 코드 0x801c001d와 함께 조인 오류가 발생할 수 있습니다.
+- **DRS 검색 테스트:** -테스트는 검색 메타 데이터 끝점에서 DRS 끝점을 가져오고 사용자 영역 요청을 수행 합니다. 이 테스트의 오류는 검색 단계에서 조인 오류가 발생할 수 있습니다.
+- **Drs 연결 테스트:** -테스트는 DRS 끝점에 대 한 기본 연결 테스트를 수행 합니다.
+- **토큰 획득 테스트:** -테스트 사용자 테 넌 트가 페더레이션 된 경우 Azure AD 인증 토큰을 가져오려고 시도 합니다. 이 테스트에서 오류가 발생 하면 인증 단계에서 조인 오류가 발생할 수 있습니다. 키를 사용 하 여 명시적으로 사용 하지 않도록 설정 된 경우를 제외 하 고 인증 실패 동기화 조인은 대체 (fallback)로 시도 됩니다.
+- **Sync로 대체-조인:** -대체가 인증 실패와의 동기화를 방지 하기 위해 레지스트리 키가 없는 경우 "사용"으로 설정 합니다. 이 옵션은 Windows 10 1803 이상에서 사용할 수 있습니다.
+- **이전 등록:** -이전 조인 시도가 발생 한 시간입니다. 실패 한 조인 시도만 로깅됩니다.
+- **오류 단계:** -중단 된 조인의 단계입니다. 가능한 값은 사전 검사, 검색, 인증, 조인입니다.
+- **클라이언트 ErrorCode:** -클라이언트 오류 코드가 반환 되었습니다 (HRESULT).
+- **서버 ErrorCode:** -서버에 요청을 보내고 서버에서 오류 코드와 함께 응답 한 경우 서버 오류 코드입니다. 
+- **서버 메시지:** -오류 코드와 함께 반환 되는 서버 메시지입니다.
+- **Https 상태:** -서버에서 반환 된 Http 상태입니다.
+- **요청 ID:** -서버에 전송 되는 클라이언트 requestId입니다. 서버 쪽 로그와의 상관 관계를 파악 하는 데 유용 합니다.
 
-### <a name="sample-pre-join-diagnostics-output"></a>Sample pre-join diagnostics output
+### <a name="sample-pre-join-diagnostics-output"></a>샘플 사전 조인 진단 출력
 
-The following example shows diagnostics test failing with a discovery error.
+다음 예제에서는 검색 오류로 인해 진단 테스트가 실패 하는 것을 보여 줍니다.
 
 ```
 +----------------------------------------------------------------------+
@@ -247,7 +247,7 @@ The following example shows diagnostics test failing with a discovery error.
 +----------------------------------------------------------------------+
 ```
 
-The following example shows diagnostics tests are passing but the registration attempt failed with a directory error, which is expected for sync join. Once the Azure AD Connect synchronization job completes, the device will be able to join.
+다음 예에서는 진단 테스트가 통과 하지만 동기화 조인에 필요한 디렉터리 오류로 인해 등록 시도가 실패 한 경우를 보여 줍니다. Azure AD Connect 동기화 작업이 완료 되 면 장치를 조인할 수 있습니다.
 
 ```
 +----------------------------------------------------------------------+
@@ -276,14 +276,14 @@ The following example shows diagnostics tests are passing but the registration a
 +----------------------------------------------------------------------+
 ```
 
-### <a name="post-join-diagnostics"></a>Post-join diagnostics
+### <a name="post-join-diagnostics"></a>사후 조인 진단
 
-This section displays the output of sanity checks performed on a device joined to the cloud.
+이 섹션에는 클라우드에 연결 된 장치에서 수행 된 온전성 검사의 출력이 표시 됩니다.
 
-- **AadRecoveryEnabled:** - If “YES”, the keys stored in the device are not usable and the device is marked for recovery. The next sign in will trigger the recovery flow and re-register the device.
-- **KeySignTest:** - If “PASSED” the device keys are in good health. If KeySignTest fails, the device will usually be marked for recovery. The next sign in will trigger the recovery flow and re-register the device. For hybrid Azure AD joined devices the recovery is silent. While Azure AD joined or Azure AD registered, devices will prompt for user authentication to recover and re-register the device if necessary. **The KeySignTest requires elevated privileges.**
+- **AadRecoveryEnabled:** -"YES" 인 경우 장치에 저장 된 키를 사용할 수 없으며 장치가 복구 하도록 표시 됩니다. 다음에 로그인 하면 복구 흐름이 트리거되고 장치를 다시 등록 합니다.
+- **Keysigntest:** -"통과" 장치 키의 상태가 정상입니다. KeySignTest가 실패 하면 장치는 일반적으로 복구를 위해 표시 됩니다. 다음에 로그인 하면 복구 흐름이 트리거되고 장치를 다시 등록 합니다. 하이브리드 Azure AD 조인 장치의 경우 복구는 자동입니다. Azure AD 조인 또는 Azure AD가 등록 되는 동안 장치는 필요한 경우 장치를 복구 하 고 다시 등록 하기 위해 사용자 인증을 요청 합니다. **KeySignTest에는 상승 된 권한이 필요 합니다.**
 
-#### <a name="sample-post-join-diagnostics-output"></a>Sample post-join diagnostics output
+#### <a name="sample-post-join-diagnostics-output"></a>샘플 사후 조인 진단 출력
 
 ```
 +----------------------------------------------------------------------+
@@ -295,14 +295,14 @@ This section displays the output of sanity checks performed on a device joined t
 +----------------------------------------------------------------------+
 ```
 
-## <a name="ngc-prerequisite-check"></a>NGC prerequisite check
+## <a name="ngc-prerequisite-check"></a>NGC 필수 구성 요소 확인
 
-This section performs the perquisite checks for the provisioning of an NGC key. 
+이 섹션에서는 NGC 키의 프로 비전에 대 한 필수 검사를 수행 합니다. 
 
 > [!NOTE]
-> You may not see NGC pre-requisite check details in dsregcmd /status if the user already successfully configured NGC credentials.
+> 사용자가 이미 NGC 자격 증명을 구성 했으면 dsregcmd.exe/status에서 NGC 필수 구성 요소 확인 세부 정보를 볼 수 없습니다.
 
-### <a name="sample-ngc-prerequisite-check-output"></a>Sample NGC prerequisite check output
+### <a name="sample-ngc-prerequisite-check-output"></a>샘플 NGC 필수 구성 요소 검사 출력
 
 ```
 +----------------------------------------------------------------------+

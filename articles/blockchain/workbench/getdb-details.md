@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench 데이터베이스 세부 정보 가져오기
-description: Learn how to get Azure Blockchain Workbench Preview database and database server information.
+description: Azure Blockchain 워크 벤치 미리 보기 데이터베이스 및 데이터베이스 서버 정보를 가져오는 방법에 대해 알아봅니다.
 ms.date: 09/05/2019
 ms.topic: article
 ms.reviewer: mmercuri
@@ -13,7 +13,7 @@ ms.locfileid: "74324698"
 ---
 # <a name="get-information-about-your-azure-blockchain-workbench-database"></a>Azure Blockchain Workbench 데이터베이스에 대한 정보 가져오기
 
-This article shows how to get detailed information about your Azure Blockchain Workbench Preview database.
+이 문서에서는 Azure Blockchain 워크 벤치 미리 보기 데이터베이스에 대 한 자세한 정보를 가져오는 방법을 보여 줍니다.
 
 ## <a name="overview"></a>개요
 

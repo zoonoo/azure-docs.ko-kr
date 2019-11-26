@@ -1,6 +1,6 @@
 ---
-title: Using Private Endpoints with Azure Storage | Microsoft Docs
-description: Overview of private endpoints for secure access to storage accounts from virtual networks.
+title: Azure Storage에서 전용 끝점 사용 | Microsoft Docs
+description: 가상 네트워크에서 저장소 계정에 안전 하 게 액세스 하기 위한 개인 끝점의 개요입니다.
 services: storage
 author: santoshc
 ms.service: storage
@@ -16,105 +16,105 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227892"
 ---
-# <a name="using-private-endpoints-for-azure-storage-preview"></a>Using Private Endpoints for Azure Storage (Preview)
+# <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
 
-You can use [Private Endpoints](../../private-link/private-endpoint-overview.md) for your Azure Storage accounts to allow clients on a virtual network (VNet) to securely access data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses an IP address from the VNet address space for your storage account service. Network traffic between the clients on the VNet and the storage account traverses over the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
+Azure Storage 계정에 대해 [개인 끝점](../../private-link/private-endpoint-overview.md) 을 사용 하 여 VNet (가상 네트워크)의 클라이언트가 [개인 링크](../../private-link/private-link-overview.md)를 통해 안전 하 게 데이터에 액세스할 수 있도록 할 수 있습니다. 개인 끝점은 저장소 계정 서비스에 대 한 VNet 주소 공간의 IP 주소를 사용 합니다. VNet 및 저장소 계정의 클라이언트 간의 네트워크 트래픽은 VNet을 통해 이동 하 여 공용 인터넷에서 노출 되는 것을 제거 하는 Microsoft 백본 네트워크의 개인 링크를 통해 이동 합니다.
 
-Using private endpoints for your storage account enables you to:
-- Secure your storage account by configuring the storage firewall to block all connections on the public endpoint for the storage service.
-- Increase security for the virtual network (VNet), by enabling you to block exfiltration of data from the VNet.
-- Securely connect to storage accounts from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
+저장소 계정에 대해 개인 끝점을 사용 하면 다음 작업을 수행할 수 있습니다.
+- 저장소 서비스에 대 한 공용 끝점의 모든 연결을 차단 하도록 저장소 방화벽을 구성 하 여 저장소 계정을 보호 합니다.
+- Vnet에서 데이터의 반출을 차단할 수 있도록 하 여 vnet (가상 네트워크)에 대 한 보안을 강화 합니다.
+- 개인 피어 링을 사용 하 여 [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 저장소 계정에 안전 하 게 연결 합니다.
 
-## <a name="conceptual-overview"></a>Conceptual Overview
-![Private Endpoints for Azure Storage Overview](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
+## <a name="conceptual-overview"></a>개념적 개요
+![Azure Storage 개요에 대 한 개인 끝점](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
-A Private Endpoint is a special network interface for an Azure service in your [Virtual Network](../../virtual-network/virtual-networks-overview.md) (VNet). When you create a private endpoint for your storage account, it provides secure connectivity between clients on your VNet and your storage. The private endpoint is assigned an IP address from the IP address range of your VNet. The connection between the private endpoint and the storage service uses a secure private link.
+개인 끝점은 VNet ( [Virtual Network](../../virtual-network/virtual-networks-overview.md) )의 Azure 서비스에 대 한 특별 한 네트워크 인터페이스입니다. 저장소 계정에 대 한 개인 끝점을 만들 때 VNet 및 저장소의 클라이언트 간에 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 저장소 서비스 간의 연결은 보안 개인 링크를 사용 합니다.
 
-Applications in the VNet can connect to the storage service over the private endpoint seamlessly, **using the same connection strings and authorization mechanisms that they would use otherwise**. Private endpoints can be used with all protocols supported by the storage account, including REST and SMB.
+VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여**개인 끝점을 통해 저장소 서비스에 원활 하 게 연결할 수 있습니다. 개인 끝점은 REST 및 SMB를 포함 하 여 저장소 계정에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
 
-When you create a private endpoint for a storage service in your VNet, a consent request is sent for approval to the storage account owner. If the user requesting the creation of the private endpoint is also an owner of the storage account, this consent request is automatically approved.
+VNet에서 저장소 서비스에 대 한 개인 끝점을 만드는 경우 승인 요청이 저장소 계정 소유자에 게 전송 됩니다. 개인 끝점의 생성을 요청 하는 사용자가 저장소 계정의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다.
 
-Storage account owners can manage consent requests and the private endpoints, through the '*Private Endpoints*' tab for the storage account in the [Azure portal](https://portal.azure.com).
-
-> [!TIP]
-> If you want to restrict access to your storage account through the private endpoint only, configure the storage firewall to deny or control access through the public endpoint.
-
-You can secure your storage account to only accept connections from your VNet, by [configuring the storage firewall](storage-network-security.md#change-the-default-network-access-rule) to deny access through its public endpoint by default. You don't need a firewall rule to allow traffic from a VNet that has a private endpoint, since the storage firewall only controls access through the public endpoint. Private endpoints instead rely on the consent flow for granting subnets access to the storage service.
-
-### <a name="private-endpoints-for-storage-service"></a>Private Endpoints for Storage Service
-
-When creating the private endpoint, you must specify the storage account and the storage service to which it connects. You need a separate private endpoint for each storage service in a storage account that you need to access, namely [Blobs](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [Files](../files/storage-files-introduction.md), [Queues](../queues/storage-queues-introduction.md), [Tables](../tables/table-storage-overview.md), or [Static Websites](../blobs/storage-blob-static-website.md).
+저장소 계정 소유자는 [Azure Portal](https://portal.azure.com)의 저장소 계정에 대 한 '*개인 끝점*' 탭을 통해 동의 요청 및 개인 끝점을 관리할 수 있습니다.
 
 > [!TIP]
-> Create a separate private endpoint for the secondary instance of the storage service for better read performance on RA-GRS accounts.
+> 개인 끝점을 통해서만 저장소 계정에 대 한 액세스를 제한 하려는 경우 공용 끝점을 통해 액세스를 거부 하거나 제어 하도록 저장소 방화벽을 구성 합니다.
 
-For read availability on a [read-access geo redundant storage account](storage-redundancy-grs.md#read-access-geo-redundant-storage), you need separate private endpoints for both the primary and secondary instances of the service. You don't need to create a private endpoint for the secondary instance for **failover**. The private endpoint will automatically connect to the new primary instance after failover.
+기본적으로 공용 끝점을 통해 액세스를 거부 하도록 [저장소 방화벽을 구성](storage-network-security.md#change-the-default-network-access-rule) 하 여 VNet의 연결만 허용 하도록 저장소 계정을 보호할 수 있습니다. 저장소 방화벽은 공용 끝점을 통해서만 액세스를 제어 하므로 개인 끝점이 있는 VNet의 트래픽을 허용 하는 방화벽 규칙이 필요 하지 않습니다. 대신 개인 끝점은 서브넷에 저장소 서비스에 대 한 액세스 권한을 부여 하는 동의 흐름을 사용 합니다.
+
+### <a name="private-endpoints-for-storage-service"></a>저장소 서비스에 대 한 개인 끝점
+
+개인 끝점을 만들 때 저장소 계정 및 해당 끝점을 연결 하는 저장소 서비스를 지정 해야 합니다. 액세스 해야 하는 저장소 계정 (즉, [blob](../blobs/storage-blobs-overview.md), [Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md), [파일](../files/storage-files-introduction.md), [큐](../queues/storage-queues-introduction.md), [테이블](../tables/table-storage-overview.md)또는 [정적 웹 사이트](../blobs/storage-blob-static-website.md))의 각 저장소 서비스에 대해 별도의 개인 끝점이 필요 합니다.
+
+> [!TIP]
+> RA GRS 계정에 대 한 읽기 성능을 향상 시키기 위해 저장소 서비스의 보조 인스턴스에 대 한 별도의 개인 끝점을 만듭니다.
+
+[읽기 액세스 지역 중복 저장소 계정](storage-redundancy-grs.md#read-access-geo-redundant-storage)에 대 한 읽기 가용성을 위해 서비스의 주 인스턴스와 보조 인스턴스 모두에 대해 별도의 개인 끝점이 필요 합니다. **장애 조치 (failover)** 를 위해 보조 인스턴스의 개인 끝점을 만들 필요가 없습니다. 장애 조치 (failover) 후 개인 끝점은 새 주 인스턴스에 자동으로 연결 됩니다.
 
 #### <a name="resources"></a>리소스
 
-For more detailed information on creating a private endpoint for your storage account, refer to the following articles:
+저장소 계정에 대 한 개인 끝점을 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Connect privately to a storage account from the Storage Account experience in the Azure portal](../../private-link/create-private-endpoint-storage-portal.md)
-- [Create a private endpoint using the Private Link Center in the Azure portal](../../private-link/create-private-endpoint-portal.md)
-- [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md)
-- [Create a private endpoint using Azure PowerShell](../../private-link/create-private-endpoint-powershell.md)
+- [Azure Portal의 저장소 계정 환경에서 저장소 계정에 비공개로 연결](../../private-link/create-private-endpoint-storage-portal.md)
+- [Azure Portal에서 개인 링크 센터를 사용 하 여 개인 끝점을 만듭니다.](../../private-link/create-private-endpoint-portal.md)
+- [Azure CLI를 사용 하 여 개인 끝점 만들기](../../private-link/create-private-endpoint-cli.md)
+- [Azure PowerShell를 사용 하 여 개인 끝점 만들기](../../private-link/create-private-endpoint-powershell.md)
 
-### <a name="connecting-to-private-endpoints"></a>Connecting to Private Endpoints
+### <a name="connecting-to-private-endpoints"></a>전용 끝점에 연결
 
-Clients on a VNet using the private endpoint should use the same connection string for the storage account, as clients connecting to the public endpoint. We rely upon DNS resolution to automatically route the connections from the VNet to the storage account over a private link.
+개인 끝점을 사용 하는 VNet의 클라이언트는 공용 끝점에 연결 하는 클라이언트와 동일한 저장소 계정 연결 문자열을 사용 해야 합니다. DNS 확인에 의존 하 여 개인 링크를 통해 VNet에서 저장소 계정으로 연결을 자동으로 라우팅합니다.
 
 > [!IMPORTANT]
-> Use the same connection string to connect to the storage account using private endpoints, as you'd use otherwise. Please don't connect to the storage account using its '*privatelink*' subdomain URL.
+> 다른 방법으로는 동일한 연결 문자열을 사용 하 여 개인 끝점을 통해 저장소 계정에 연결 합니다. '*Privatelink*' 하위 도메인 URL을 사용 하 여 저장소 계정에 연결 하지 마세요.
 
-We create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet with the necessary updates for the private endpoints, by default. However, if you're using your own DNS server, you may need to make additional changes to your DNS configuration. The section on [DNS changes](#dns-changes-for-private-endpoints) below describes the updates required for private endpoints.
+기본적으로 개인 끝점에 대 한 필수 업데이트를 사용 하 여 VNet에 연결 된 [개인 DNS 영역](../../dns/private-dns-overview.md) 을 만듭니다. 그러나 사용자 고유의 DNS 서버를 사용 하는 경우 DNS 구성을 추가로 변경 해야 할 수 있습니다. 아래 [DNS 변경](#dns-changes-for-private-endpoints) 에 대 한 섹션에서는 개인 끝점에 필요한 업데이트에 대해 설명 합니다.
 
-## <a name="dns-changes-for-private-endpoints"></a>DNS changes for Private Endpoints
+## <a name="dns-changes-for-private-endpoints"></a>전용 끝점에 대 한 DNS 변경
 
-The DNS CNAME resource record for a storage account with a private endpoint is updated to an alias in a subdomain with the prefix '*privatelink*'. By default, we also create a [private DNS zone](../../dns/private-dns-overview.md) attached to the VNet that corresponds to the subdomain with the prefix '*privatelink*', and contains the DNS A resource records for the private endpoints.
+개인 끝점이 있는 저장소 계정에 대 한 DNS CNAME 리소스 레코드는 접두사가 '*privatelink*' 인 하위 도메인의 별칭으로 업데이트 됩니다. 또한 기본적으로 접두사 '*privatelink*'를 사용 하 여 하위 도메인에 해당 하는 VNet에 연결 된 [개인 DNS 영역](../../dns/private-dns-overview.md) 을 만들고 개인 끝점에 대 한 DNS a 리소스 레코드를 포함 합니다.
 
-When you resolve the storage endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the storage service. When resolved from the VNet hosting the private endpoint, the storage endpoint URL resolves to the private endpoint's IP address.
+개인 끝점을 사용 하 여 VNet 외부에서 저장소 끝점 URL을 확인 하면 저장소 서비스의 공용 끝점으로 확인 됩니다. 개인 끝점을 호스트 하는 VNet에서 확인 되 면 저장소 끝점 URL은 개인 끝점의 IP 주소로 확인 됩니다.
 
-For the illustrated example above, the DNS resource records for the storage account 'StorageAccountA', when resolved from outside the VNet hosting the private endpoint, will be:
+위의 예에서는 개인 끝점을 호스트 하는 VNet 외부에서 확인 되는 경우 저장소 계정 ' StorageAccountA '에 대 한 DNS 리소스 레코드는 다음과 같습니다.
 
-| name                                                  | Type  | Value                                                 |
+| 이름                                                  | 에  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | \<storage service public endpoint\>                   |
-| \<storage service public endpoint\>                   | 문자열(UTF-8 형식) 또는     | \<storage service public IP address\>                 |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | CNAME | 저장소 서비스 공용 끝점을 \<\>                   |
+| 저장소 서비스 공용 끝점을 \<\>                   | 변수를 잠그기 위한     | 저장소 서비스 공용 IP 주소를 \<\>                 |
 
-As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the storage firewall.
+앞에서 설명한 것 처럼 저장소 방화벽을 사용 하 여 공용 끝점을 통해 VNet 외부의 클라이언트에 대 한 액세스를 거부 하거나 제어할 수 있습니다.
 
-The DNS resource records for StorageAccountA, when resolved by a client in the VNet hosting the private endpoint, will be:
+StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트 하는 VNet의 클라이언트에서 확인 되는 경우 다음과 같습니다.
 
-| name                                                  | Type  | Value                                                 |
+| 이름                                                  | 에  | 값                                                 |
 | :---------------------------------------------------- | :---: | :---------------------------------------------------- |
 | ``StorageAccountA.blob.core.windows.net``             | CNAME | ``StorageAccountA.privatelink.blob.core.windows.net`` |
-| ``StorageAccountA.privatelink.blob.core.windows.net`` | 문자열(UTF-8 형식) 또는     | 10.1.1.5                                              |
+| ``StorageAccountA.privatelink.blob.core.windows.net`` | 변수를 잠그기 위한     | 10.1.1.5                                              |
 
-This approach enables access to the storage account **using the same connection string** for clients on the VNet hosting the private endpoints, as well as clients outside the VNet.
+이 접근 방식을 사용 하면 개인 끝점을 호스트 하는 VNet의 클라이언트와 VNet 외부의 클라이언트에 **동일한 연결 문자열을 사용 하** 여 저장소 계정에 액세스할 수 있습니다.
 
-If you are using a custom DNS server on your network, clients must be able to resolve the FQDN for the storage account endpoint to the private endpoint IP address. For this, you must configure your DNS server to delegate your private link subdomain to the private DNS zone for the VNet, or configure the A records for '*StorageAccountA.privatelink.blob.core.windows.net*' with the private endpoint IP address. 
+네트워크에서 사용자 지정 DNS 서버를 사용 하는 경우 클라이언트는 개인 끝점 IP 주소에 대 한 저장소 계정 끝점의 FQDN을 확인할 수 있어야 합니다. 이렇게 하려면 개인 링크 하위 도메인을 VNet의 개인 DNS 영역에 위임 하도록 DNS 서버를 구성 하거나 개인 끝점 IP 주소를 사용 하 여 '*StorageAccountA.privatelink.blob.core.windows.net*'에 대 한 A 레코드를 구성 해야 합니다. 
 
 > [!TIP]
-> When using a custom or on-premises DNS server, you should configure your DNS server to resolve the storage account name in the 'privatelink' subdomain to the private endpoint IP address. You can do this by delegating the 'privatelink' subdomain to the private DNS zone of the VNet, or configuring the DNS zone on your DNS server and adding the DNS A records.
+> 사용자 지정 또는 온-프레미스 DNS 서버를 사용 하는 경우 ' privatelink ' 하위 도메인의 저장소 계정 이름을 개인 끝점 IP 주소로 확인 하도록 DNS 서버를 구성 해야 합니다. 이렇게 하려면 ' privatelink ' 하위 도메인을 VNet의 개인 DNS 영역에 위임 하거나 DNS 서버에서 DNS 영역을 구성 하 고 DNS A 레코드를 추가 합니다.
 
-The recommended DNS zone names for private endpoints for storage services are:
+저장소 서비스에 대 한 개인 끝점의 권장 DNS 영역 이름은 다음과 같습니다.
 
-| Storage service        | Zone name                            |
+| 저장소 서비스        | 영역 이름                            |
 | :--------------------- | :----------------------------------- |
 | Blob service           | `privatelink.blob.core.windows.net`  |
 | Data Lake Storage Gen2 | `privatelink.dfs.core.windows.net`   |
-| File service           | `privatelink.file.core.windows.net`  |
-| Queue service          | `privatelink.queue.core.windows.net` |
+| 파일 서비스           | `privatelink.file.core.windows.net`  |
+| 큐 서비스          | `privatelink.queue.core.windows.net` |
 | Table service          | `privatelink.table.core.windows.net` |
-| Static Websites        | `privatelink.web.core.windows.net`   |
+| 정적 웹 사이트        | `privatelink.web.core.windows.net`   |
 
 #### <a name="resources"></a>리소스
 
-For additional guidance on configuring your own DNS server to support private endpoints, refer to the following articles:
+전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 추가 지침은 다음 문서를 참조 하세요.
 
 - [Azure 가상 네트워크의 리소스 이름 확인](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [DNS configuration for Private Endpoints](/private-link/private-endpoint-overview#dns-configuration)
+- [전용 끝점에 대 한 DNS 구성](/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>가격
 
@@ -122,19 +122,19 @@ For additional guidance on configuring your own DNS server to support private en
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="copy-blob-support"></a>Copy Blob support
+### <a name="copy-blob-support"></a>Blob 복사 지원
 
-During the preview, we don't support [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) commands issued to storage accounts accessed through private endpoints when the source storage account is protected by a firewall.
+미리 보기 중에는 원본 저장소 계정이 방화벽으로 보호 되는 경우 개인 끝점을 통해 액세스 되는 저장소 계정에 발급 된 [Blob 복사](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob) 명령을 지원 하지 않습니다.
 
-### <a name="subnets-with-service-endpoints"></a>Subnets with Service Endpoints
-Currently, you can't create a private endpoint in a subnet that has service endpoints. As a workaround, you can create separate subnets in the same VNet for service endpoints and private endpoints.
+### <a name="subnets-with-service-endpoints"></a>서비스 끝점이 있는 서브넷
+현재는 서비스 끝점이 있는 서브넷에서 개인 끝점을 만들 수 없습니다. 해결 방법으로, 서비스 끝점과 개인 끝점에 대해 동일한 VNet에서 별도의 서브넷을 만들 수 있습니다.
 
-### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>Storage access constraints for clients in VNets with Private Endpoints
+### <a name="storage-access-constraints-for-clients-in-vnets-with-private-endpoints"></a>전용 끝점을 사용 하는 Vnet의 클라이언트에 대 한 저장소 액세스 제약 조건
 
-Clients in VNets with existing private endpoints face constraints when accessing other storage accounts that have private endpoints. For instance, suppose a VNet N1 has a private endpoint for a storage account A1 for, say, the blob service. If storage account A2 has a private endpoint in a VNet N2 for the blob service, then clients in VNet N1 must also access the blob service of account A2 using a private endpoint. If storage account A2 does not have any private endpoints for the blob service, then clients in VNet N1 can access its blob service without a private endpoint.
+기존 개인 끝점을 사용 하는 Vnet의 클라이언트는 개인 끝점이 있는 다른 저장소 계정에 액세스할 때 제약 조건을 사용 합니다. 예를 들어 VNet N1에 blob 서비스에 대 한 저장소 계정 A1에 대 한 개인 끝점이 있다고 가정 합니다. 저장소 계정 A2에 blob 서비스에 대 한 VNet N2의 개인 끝점이 있는 경우 VNet N1의 클라이언트는 개인 끝점을 사용 하 여 계정 A2의 blob 서비스에도 액세스 해야 합니다. Storage 계정 A2에 blob service에 대 한 개인 끝점이 없는 경우 VNet N1의 클라이언트는 개인 끝점 없이 blob 서비스에 액세스할 수 있습니다.
 
-This constraint is a result of the DNS changes made when account A2 creates a private endpoint.
+이 제약 조건은 계정 A2가 개인 끝점을 만들 때 적용 되는 DNS 변경의 결과입니다.
 
-### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>Network Security Group rules for subnets with private endpoints
+### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>전용 끝점을 사용 하는 서브넷에 대 한 네트워크 보안 그룹 규칙
 
-Currently, you can't configure [Network Security Group](../../virtual-network/security-overview.md) (NSG) rules for subnets with private endpoints. A limited workaround for this issue is to implement your access rules for private endpoints on the source subnets, though this approach may require a higher management overhead.
+현재 개인 끝점을 사용 하는 서브넷에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙을 구성할 수 없습니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.

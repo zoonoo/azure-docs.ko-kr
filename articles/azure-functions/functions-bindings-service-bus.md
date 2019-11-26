@@ -27,10 +27,10 @@ Service Bus 바인딩은 [Microsoft.Azure.WebJobs.ServiceBus](https://www.nuget.
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-Service Bus 바인딩은 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 패키지 버전 3.x에서 제공됩니다. Source code for the package is in the [azure-functions-servicebus-extension](https://github.com/Azure/azure-functions-servicebus-extension) GitHub repository.
+Service Bus 바인딩은 [Microsoft.Azure.WebJobs.Extensions.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus) NuGet 패키지 버전 3.x에서 제공됩니다. 패키지에 대 한 소스 코드는 [servicebus](https://github.com/Azure/azure-functions-servicebus-extension) GitHub 리포지토리에 있습니다.
 
 > [!NOTE]
-> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
+> 버전 2.x는 `ServiceBusTrigger` 인스턴스에 구성 된 토픽 또는 구독을 만들지 않습니다. 2\.x 버전은 [ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) 를 기반으로 하며 큐 관리를 처리 하지 않습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
@@ -51,7 +51,7 @@ Service Bus 트리거를 사용하여 Service Bus 큐 또는 토픽의 메시지
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 [메시지 메타데이터](#trigger---message-metadata)를 읽고 Service Bus 큐 메시지를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [메시지 메타데이터](functions-dotnet-class-library.md)를 읽고 Service Bus 큐 메시지를 기록하는 [C# 함수](#trigger---message-metadata)를 보여줍니다.
 
 ```cs
 [FunctionName("ServiceBusQueueTriggerCSharp")]                    
@@ -140,7 +140,7 @@ let Run(myQueueItem: string, log: ILogger) =
 
 ### <a name="trigger---java-example"></a>트리거 - Java 예제
 
-The following Java function uses the `@ServiceBusQueueTrigger` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to describe the configuration for a Service Bus queue trigger. The  function grabs the message placed on the queue and adds it to the logs.
+다음 Java 함수는 [java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@ServiceBusQueueTrigger` 주석을 사용 하 여 Service Bus queue 트리거의 구성을 설명 합니다. 함수는 큐에 배치 된 메시지를 가져와 하 고 로그에 추가 합니다.
 
 ```java
 @FunctionName("sbprocessor")
@@ -154,7 +154,7 @@ The following Java function uses the `@ServiceBusQueueTrigger` annotation from t
  }
 ```
 
-Java functions can also be triggered when a message is added to a Service Bus topic. The following example uses the `@ServiceBusTopicTrigger` annotation to describe the trigger configuration.
+Service Bus 토픽에 메시지가 추가 될 때도 Java 함수를 트리거할 수 있습니다. 다음 예에서는 `@ServiceBusTopicTrigger` 주석을 사용 하 여 트리거 구성을 설명 합니다.
 
 ```java
 @FunctionName("sbtopicprocessor")
@@ -206,9 +206,9 @@ module.exports = function(context, myQueueItem) {
 
 ### <a name="trigger---python-example"></a>트리거 - Python 예제
 
-The following example demonstrates how to read a ServiceBus queue message via a trigger.
+다음 예에서는 트리거를 통해 ServiceBus queue 메시지를 읽는 방법을 보여 줍니다.
 
-A ServiceBus binding is defined in *function.json* where *type* is set to `serviceBusTrigger`.
+ServiceBus 바인딩은 *형식이* `serviceBusTrigger`로 설정 된 *함수인 json* 에 정의 됩니다.
 
 ```json
 {
@@ -225,7 +225,7 @@ A ServiceBus binding is defined in *function.json* where *type* is set to `servi
 }
 ```
 
-The code in *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+*_\_init_\_py* 의 코드는 함수에서 큐 메시지를 읽을 수 있는 `func.ServiceBusMessage` 매개 변수를 선언 합니다.
 
 ```python
 import azure.functions as func
@@ -309,7 +309,7 @@ def main(msg: func.ServiceBusMessage):
 사용할 Service Bus 계정은 다음과 같은 순서로 결정됩니다.
 
 * `ServiceBusTrigger` 특성의 `Connection` 속성
-* `ServiceBusTrigger` 특성과 동일한 매개 변수에 적용된 `ServiceBusAccount` 특성
+* `ServiceBusAccount` 특성과 동일한 매개 변수에 적용된 `ServiceBusTrigger` 특성
 * 함수에 적용된 `ServiceBusAccount` 특성
 * 클래스에 적용된 `ServiceBusAccount` 특성
 * "AzureWebJobsServiceBus" 앱 설정입니다.
@@ -327,7 +327,7 @@ def main(msg: func.ServiceBusMessage):
 |**topicName**|**TopicName**|모니터링할 토픽의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
 |**subscriptionName**|**SubscriptionName**|모니터링할 구독의 이름입니다. 큐가 아닌 토픽을 모니터링하는 경우에만 설정합니다.|
 |**연결**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyServiceBus"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyServiceBus"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다. |
-|**accessRights**|**Access**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x에서는 최신 버전의 Storage SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
+|**accessRights**|**액세스**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x에서는 최신 버전의 Storage SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -338,9 +338,9 @@ C# 및 C# 스크립트에서 큐 또는 토픽 메시지에 대해 다음 매개
 * `string` - 메시지가 텍스트인 경우
 * `byte[]` - 이진 데이터에 유용합니다.
 * 사용자 지정 형식 - 메시지에 JSON이 포함된 경우 Azure Functions는 JSON 데이터를 역직렬화하려고 합니다.
-* `BrokeredMessage` - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
+* `BrokeredMessage`- [BrokeredMessage\<t > ()](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody?view=azure-dotnet#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) 메서드를 사용 하 여 deserialize 된 메시지를 제공 합니다.
 
-이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 `BrokeredMessage` 대신 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)를 사용합니다.
+이러한 매개 변수는 Azure Functions 버전 1.x용이므로 2.x의 경우 [ 대신 `Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message)`BrokeredMessage`를 사용합니다.
 
 JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽 메시지에 액세스합니다. Service Bus 메시지가 문자열 또는 JSON 개체로 함수에 전달됩니다.
 
@@ -352,13 +352,13 @@ JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 �
 
 Functions 런타임은 [PeekLock 모드](../service-bus-messaging/service-bus-performance-improvements.md#receive-mode)로 메시지를 수신합니다. 함수가 성공적으로 완료된 경우 메시지에서 `Complete`를 호출하고, 함수가 실패한 경우 `Abandon`을 호출합니다. 함수가 `PeekLock` 시간 제한보다 오래 실행되는 경우 함수가 실행되면 잠금이 자동으로 갱신됩니다. 
 
-`maxAutoRenewDuration`은 [OnMessageOptions.MaxAutoRenewDuration](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet)에 매핑되는 *host.json*에서 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
+`maxAutoRenewDuration`은 *OnMessageOptions.MaxAutoRenewDuration*에 매핑되는 [host.json](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.messagehandleroptions.maxautorenewduration?view=azure-dotnet)에서 구성할 수 있습니다. 이 설정에 대해 허용되는 최대값음 Service Bus 설명서에 따라 5분입니다. 반면 함수 제한 시간 기본값은 5분에서 10분으로 늘릴 수 있습니다. Service Bus 함수의 경우 Service Bus 갱신 제한을 초과하기 때문에 이 작업을 하지 않는 것이 좋습니다.
 
 ## <a name="trigger---message-metadata"></a>트리거 - 메시지 메타데이터
 
 Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) 클래스의 속성은 다음과 같습니다.
 
-|자산|Type|설명|
+|속성|에|설명|
 |--------|----|-----------|
 |`DeliveryCount`|`Int32`|배달 수입니다.|
 |`DeadLetterSource`|`string`|배달 못한 편지 원본입니다.|
@@ -373,7 +373,7 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 |`CorrelationId`|`string`|상관관계 ID입니다.|
 
 > [!NOTE]
-> Currently, Service bus trigger that works with session enabled queues and subscriptions is in preview. Please track [this item](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) for any further updates regarding this. 
+> 현재 세션 사용 큐와 함께 작동 하는 Service bus 트리거는 미리 보기 상태입니다. 이 항목에 대 한 추가 업데이트를 위해 [이 항목](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) 을 추적 하세요. 
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
 
@@ -512,7 +512,7 @@ public String pushToQueue(
 
  [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Service Bus 큐에 기록될 함수 매개 변수에 대한 `@QueueOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO의 원시 Java 형식입니다.
 
-Java functions can also write to a Service Bus topic. The following example uses the `@ServiceBusTopicOutput` annotation to describe the configuration for the output binding. 
+Java 함수는 Service Bus 토픽에도 쓸 수 있습니다. 다음 예제에서는 `@ServiceBusTopicOutput` 주석을 사용 하 여 출력 바인딩에 대 한 구성을 설명 합니다. 
 
 ```java
 @FunctionName("sbtopicsend")
@@ -583,9 +583,9 @@ module.exports = function (context, myTimer) {
 
 ### <a name="output---python-example"></a>출력 - Python 예제
 
-The following example demonstrates how to write out to a ServiceBus queue in Python.
+다음 예제에서는 Python에서 ServiceBus 큐에 쓰는 방법을 보여 줍니다.
 
-A ServiceBue binding definition is defined in *function.json* where *type* is set to `serviceBus`.
+ServiceBue 바인딩 정의는 *type* 이 `serviceBus`로 설정 된 *함수인 json* 에 정의 되어 있습니다.
 
 ```json
 {
@@ -617,7 +617,7 @@ A ServiceBue binding definition is defined in *function.json* where *type* is se
 }
 ```
 
-In *_\_init_\_.py*, you can write out a message to the queue by passing a value to the `set` method.
+*_\_\_init_ py*에서 `set` 메서드에 값을 전달 하 여 큐에 메시지를 작성할 수 있습니다.
 
 ```python
 import azure.functions as func
@@ -673,7 +673,7 @@ public static string Run([HttpTrigger] dynamic input, ILogger log)
 |**queueName**|**QueueName**|큐의 이름입니다.  토픽이 아닌 큐 메시지를 보내는 경우에만 설정합니다.
 |**topicName**|**TopicName**|모니터링할 토픽의 이름입니다. 큐가 아닌 토픽 메시지를 보내는 경우에만 설정합니다.|
 |**연결**|**연결**|이 바인딩에 사용할 Service Bus 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyServiceBus"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyServiceBus"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 "AzureWebJobsServiceBus"라는 앱 설정에서 기본 Service Bus 연결 문자열을 사용합니다.<br><br>연결 문자열을 얻으려면 [관리 자격 증명 가져오기](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string)에 나온 단계를 따릅니다. 연결 문자열은 Service Bus 네임스페이스에 대한 것이어야 하며, 특정 큐 또는 항목으로 제한되지 않습니다.|
-|**accessRights**|**Access**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x에서는 최신 버전의 Storage SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
+|**accessRights**|**액세스**|연결 문자열에 대한 액세스 권한입니다. 사용 가능한 값은 `manage` 및 `listen`입니다. 기본값은 `manage`이며, `connection`에 **관리** 권한이 있음을 의미합니다. **관리** 권한이 없는 연결 문자열을 사용하는 경우 `accessRights`을 "listen"으로 설정합니다. 그렇지 않으면 함수 런타임은 관리 권한이 필요한 작업 시도를 실패할 수 있습니다. Azure Functions 버전 2.x에서는 최신 버전의 Storage SDK가 관리 작업을 지원하지 않으므로 이 속성을 사용할 수 없습니다.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -686,19 +686,19 @@ C# 및 C# 스크립트에서 출력 바인딩에 대해 다음 매개 변수 형
 * `out T paramName` - `T`는 JSON 직렬화 가능 형식일 수 있습니다. 함수가 종료될 때 매개 변수 값이 null이면 함수는 null 개체와 메시지를 만듭니다.
 * `out string` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
 * `out byte[]` - 함수가 종료될 때 매개 변수 값이 null인 경우 함수는 메시지를 만들지 않습니다.
-* `out BrokeredMessage` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 1.x)
-* `out Message` - If the parameter value is null when the function exits, Functions does not create a message (for Functions 2.x)
+* `out BrokeredMessage`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 1. x 함수에 대 한 메시지를 생성 하지 않습니다.
+* `out Message`-함수가 종료 될 때 매개 변수 값이 null 이면 함수는 2.x 함수에 대해 메시지를 만들지 않습니다.
 * `ICollector<T>` 또는 `IAsyncCollector<T>` - 여러 개의 메시지를 만들려는 경우. 메시지는 `Add` 메서드를 호출할 때 생성됩니다.
 
-When working with C# functions:
+함수를 사용 C# 하는 경우:
 
-* Async functions need a return value or `IAsyncCollector` instead of an `out` parameter.
+* 비동기 함수에는 `out` 매개 변수 대신 반환 값 또는 `IAsyncCollector` 필요 합니다.
 
-* To access the session ID, bind to a [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) type and use the `sessionId` property.
+* 세션 ID에 액세스 하려면 [`Message`](https://docs.microsoft.com/dotnet/api/microsoft.azure.servicebus.message) 형식에 바인딩하고 `sessionId` 속성을 사용 합니다.
 
-JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. You can assign a string, a byte array, or a JavaScript object (deserialized into JSON) to `context.binding.<name>`.
+JavaScript에서 `context.bindings.<name from function.json>`를 사용하여 큐 또는 토픽에 액세스합니다. 문자열, 바이트 배열 또는 JavaScript 개체 (JSON으로 deserialize)를 `context.binding.<name>`에 할당할 수 있습니다.
 
-To send a message to a session-enabled queue in non-C# languages, use the [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) rather than the built-in output binding.
+비C# 언어에서 세션 사용 큐로 메시지를 보내려면 기본 제공 출력 바인딩이 아닌 [Azure Service Bus SDK](https://docs.microsoft.com/azure/service-bus-messaging) 를 사용 합니다.
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
@@ -732,7 +732,7 @@ To send a message to a session-enabled queue in non-C# languages, use the [Azure
 }
 ```
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
 |maxAutoRenewDuration|00:05:00|메시지 잠금이 자동으로 갱신되는 최대 기간입니다.|
 |autoComplete|true|트리거에서 즉시 완료(자동 완성)로 표시해야 할지 처리가 완료될 때까지 기다려야 하는지 여부입니다.|

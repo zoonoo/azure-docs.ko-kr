@@ -108,7 +108,7 @@ az network private-link-service create \
  
 다음으로 Azure CLI를 사용 하 여이 서비스를 다른 가상 네트워크의 개인 끝점에 매핑하는 방법을 설명 합니다. 이 예제는 개인 끝점을 만들고 Azure CLI를 사용 하 여 위에서 만든 개인 링크 서비스에 연결 하는 것으로 제한 됩니다. 또한 가상 네트워크에서 가상 컴퓨터를 만들어 개인 끝점으로 트래픽을 보내고 받을 수 있습니다.        
  
-## <a name="private-endpoints"></a>전용 끝점
+## <a name="private-endpoints"></a>프라이빗 엔드포인트
 
 ### <a name="create-the-virtual-network"></a>가상 네트워크 만들기 
  [Az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용 하 여 가상 네트워크를 만듭니다. 이 예제에서는 *Myresourcegroup*이라는 리소스 그룹에  *myPEVNet* 라는 가상 네트워크를 만듭니다. 

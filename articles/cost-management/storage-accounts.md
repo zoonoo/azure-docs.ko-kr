@@ -23,7 +23,7 @@ ms.locfileid: "74229919"
 
 Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 스토리지 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 스토리지에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 스토리지 버킷을 구성하는 데 도움을 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure Storage 계정 또는 Amazon 스토리지 버킷이 있어야 합니다.
 
@@ -35,12 +35,12 @@ AWS 단순 스토리지 서비스(S3) 버킷이 없는 경우 만들어야 합�
 
 Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 스토리지 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **스토리지 계정**을 선택한 후 사용하려는 스토리지 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 스토리지 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **스토리지 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  
    ![스토리지 계정 이름 및 연결 문자열 복사](./media/storage-accounts/azure-storage-access-keys.png)  
-5. Azure Portal에서 Cloudyn 포털을 열거나 [https://azure.cloudyn.com](https://azure.cloudyn.com ) 으로 이동하여 로그인합니다.
+5. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 6. 톱니 기호를 클릭한 다음 **보고서 스토리지 관리**를 선택합니다.
 7. **새로 추가 +** 를 클릭하고 Microsoft Azure가 선택되어 있는지 확인합니다. Azure Storage 계정 이름을 **이름** 영역에 붙여 넣습니다. **연결 문자열**을 해당 영역에 붙여 넣습니다. 컨테이너 이름을 입력한 다음 **저장**을 클릭합니다.  
    ![새 보고서 스토리지 추가 상자에서 Azure Storage 계정 이름 및 연결 문자열 붙여넣기](./media/storage-accounts/azure-cloudyn-storage.png)
@@ -65,7 +65,7 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 2. 서비스 목록에서 **IAM**을 선택합니다.
 3. 콘솔 왼쪽의 **정책**을 선택하고 **정책 만들기**를 클릭합니다.
 4. **JSON** 탭을 클릭합니다.
-5. 다음 정책을 사용하여 S3 버킷에 보고서를 저장할 수 있습니다. Copy and paste the following policy example to the **JSON** tab. Replace &lt;bucketname&gt; with your bucket name.
+5. 다음 정책을 사용하여 S3 버킷에 보고서를 저장할 수 있습니다. 다음 정책 예제를 복사 하 여 **JSON** 탭에 붙여 넣습니다. &lt;bucketname&gt;를 버킷 이름으로 바꿉니다.
 
    ```json
    {
@@ -148,7 +148,7 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 
 ### <a name="add-aws-report-storage-to-cloudyn"></a>Cloudyn에 AWS 보고서 스토리지 추가
 
-1. Azure Portal에서 Cloudyn 포털을 열거나 [https://azure.cloudyn.com](https://azure.cloudyn.com ) 으로 이동하여 로그인합니다.
+1. Azure Portal에서 Cloudyn 포털을 열거나 https://azure.cloudyn.com으로 이동하여 로그인합니다.
 2. 톱니 기호를 클릭한 다음 **보고서 스토리지 관리**를 선택합니다.
 3. **새로 추가 +** 를 클릭하고 AWS가 선택되어 있는지 확인합니다.
 4. 계정 및 스토리지 버킷을 선택합니다. AWS 스토리지 버킷의 이름이 자동으로 채워집니다.  

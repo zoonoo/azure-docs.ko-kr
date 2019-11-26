@@ -70,7 +70,7 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 GET https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mediaresources/providers/Microsoft.Media/mediaServices/amstestaccount/assets?api-version=2018-07-01$orderby=properties/created%20gt%202018-05-11T17:39:08.387Z
 ```
 
-결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc`을 공백으로 구분 하 여 추가 합니다. 예를 들어 `$orderby properties/created desc`을 참조하십시오.
+결과를 오름차순 또는 내림차순으로 정렬 하려면 필드 이름에 `asc` 또는 `desc`을 공백으로 구분 하 여 추가 합니다. 예: `$orderby properties/created desc`
 
 ## <a name="skip-token"></a>토큰 건너뛰기
 

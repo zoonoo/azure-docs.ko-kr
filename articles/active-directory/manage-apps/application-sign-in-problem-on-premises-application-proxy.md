@@ -1,5 +1,5 @@
 ---
-title: Problem signing in to on-premises app using Azure AD app proxy | Microsoft Docs
+title: Azure AD 앱 프록시를 사용 하 여 온-프레미스 앱에 로그인 하는 문제 | Microsoft Docs
 description: Azure AD 애플리케이션 프록시를 사용하여 Azure AD와 통합된 온-프레미스 애플리케이션에 로그인할 수 없을 때 직면하는 일반적인 문제 해결
 services: active-directory
 documentationcenter: ''

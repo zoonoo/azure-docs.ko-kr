@@ -92,7 +92,7 @@ HDInsight 클러스터에서 서비스 태그 사용을 시작 하는 가장 쉬
 | &nbsp; | 미국 동부 | HDInsight. EastUS |
 | &nbsp; | 미국 서부 | WestUS |
 | 일본 | 일본 동부 | JapanEast |
-| Europe | 유럽 북부 | NorthEurope |
+| 유럽 | 유럽 북부 | NorthEurope |
 | &nbsp; | 서유럽| WestEurope |
 | 아시아 | 동아시아 | HDInsight. E한글 |
 | &nbsp; | 동남아시아 | SoutheastAsia |

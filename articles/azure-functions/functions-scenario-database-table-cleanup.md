@@ -1,5 +1,5 @@
 ---
-title: Use Azure Functions to perform a database clean up task
+title: Azure Functions를 사용 하 여 데이터베이스 정리 작업 수행
 description: Azure Functions를 사용하여 Azure SQL Database에 연결하여 행을 주기적으로 정리하는 작업을 예약합니다.
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.topic: conceptual
@@ -13,11 +13,11 @@ ms.locfileid: "74230393"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Azure Functions를 사용하여 Azure SQL Database에 연결
 
-This article shows you how to use Azure Functions to create a scheduled job that connects to an Azure SQL Database or Azure SQL Managed Instance. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. The new C# function is created based on a pre-defined timer trigger template in Visual Studio 2019. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. For Azure SQL Managed Instance you need to [enable public endpoint](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) to be able to connect from Azure Functions. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
+이 문서에서는 Azure Functions를 사용 하 여 Azure SQL Database 또는 Azure SQL Managed Instance에 연결 하는 예약 된 작업을 만드는 방법을 보여 줍니다. 함수 코드는 데이터베이스의 테이블에 있는 행을 정리합니다. 새 C# 함수는 Visual Studio 2019의 미리 정의 된 타이머 트리거 템플릿을 기반으로 생성 됩니다. 이 시나리오를 지원하려면 함수 앱에서 데이터베이스 연결 문자열을 앱 설정으로 설정해야 합니다. Azure SQL Managed Instance의 경우 Azure Functions에서 연결할 수 있도록 [공용 끝점을 설정](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) 해야 합니다. 이 시나리오는 데이터베이스에 대한 대량 작업을 사용합니다. 
 
 C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](functions-dotnet-class-library.md)를 참고해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 + [Visual Studio를 사용하여 첫 번째 함수 만들기](functions-create-your-first-function-visual-studio.md) 문서의 단계를 완료하여 버전 2.x 런타임을 대상으로 하는 로컬 함수 앱을 만듭니다. 또한 프로젝트를 Azure의 함수 앱에 게시했어야 합니다.
 
@@ -29,11 +29,11 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 [Azure Portal에서 Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)를 완료하면 만든 데이터베이스에 대한 연결 문자열을 가져와야 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 왼쪽 메뉴에서 **SQL Database**를 선택하고 **SQL Database** 페이지에서 데이터베이스를 선택합니다.
 
-1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. For Azure SQL Managed Instance copy connection string for public endpoint.
+1. **설정** 아래에서 **연결 문자열**을 선택하고, 전체 **ADO.NET** 연결 문자열을 복사합니다. Azure SQL Managed Instance 공용 끝점에 대 한 연결 문자열을 복사 합니다.
 
     ![ADO.NET 연결 문자열을 복사합니다.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -43,7 +43,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 이전에 Azure에 앱을 게시했어야 합니다. 아직 이렇게 수행하지 않은 경우 [함수 앱을 Azure에 게시](functions-develop-vs.md#publish-to-azure)합니다.
 
-1. In Solution Explorer, right-click the function app project and choose **Publish** > **Manage application settings...** . Select **Add setting**, in **New app setting name**, type `sqldb_connection`, and select **OK**.
+1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시** > **응용 프로그램 설정 관리**...를 선택 합니다. **설정 추가**를 선택 하 고 **새 앱 설정 이름**에 `sqldb_connection`를 입력 한 다음 **확인**을 선택 합니다.
 
     ![함수 앱에 대한 애플리케이션 설정입니다.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
@@ -57,7 +57,7 @@ C# 함수를 처음 사용하는 경우 [Azure Functions C# 개발자 참조](fu
 
 SqlClient 라이브러리를 포함하는 NuGet 패키지를 추가해야 합니다. 이 데이터 액세스 라이브러리는 SQL 데이터베이스에 연결하는 데 필요합니다.
 
-1. Open your local function app project in Visual Studio 2019.
+1. Visual Studio 2019에서 로컬 함수 앱 프로젝트를 엽니다.
 
 1. 솔루션 탐색기에서 함수 앱 프로젝트를 마우스 오른쪽 단추로 클릭하고, **NuGet 패키지 관리**를 선택합니다.
 

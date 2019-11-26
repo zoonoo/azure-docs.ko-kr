@@ -310,9 +310,9 @@ public static object Run(
 
 C# 스크립트 함수에서 `out object` 형식의 명명된 출력 매개 변수를 사용하여 출력 레코드에 액세스합니다. C# 클래스 라이브러리에서 `MobileTable` 특성은 다음 유형 중 하나와 함께 사용할 수 있습니다.
 
-* `T`가 `JObject` 또는 `public string Id` 속성이 있는 type인 경우, `ICollector<T>` 또는 `IAsyncCollector<T>`.
+* `ICollector<T>`가 `IAsyncCollector<T>` 또는 `T` 속성이 있는 type인 경우, `JObject` 또는 `public string Id`.
 * `out JObject`
-* `T`가 `public string Id` 속성이 있는 type인 경우, `out T` 또는 `out T[]`.
+* `out T`가 `out T[]` 속성이 있는 type인 경우, `T` 또는 `public string Id`.
 
 Node.js 함수에서 `context.bindings.<name>`을 사용하여 출력 레코드에 액세스합니다.
 

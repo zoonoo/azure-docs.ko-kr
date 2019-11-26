@@ -1,6 +1,6 @@
 ---
-title: Scenarios for Private Zones - Azure DNS
-description: In this article, learn about common scenarios for using Azure DNS Private Zones.
+title: 전용 영역에 대 한 시나리오-Azure DNS
+description: 이 문서에서는 Azure DNS Private Zones 사용에 대 한 일반적인 시나리오에 대해 알아봅니다.
 services: dns
 author: asudbring
 ms.service: dns
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74210469"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private zones scenarios
+# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 전용 영역 시나리오
 
 Azure DNS Private Zones는 가상 네트워크 간뿐 아니라 가상 네트워크 내에서의 이름 확인을 제공합니다. 이 문서에서는 이 기능을 사용하여 실현할 수 있는 몇 가지 일반적인 시나리오를 살펴봅니다.
 
@@ -54,5 +54,5 @@ Azure DNS에서 [프라이빗 DNS 영역을 만드는](./private-dns-getstarted-
 
 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-Azure의 다른 키 [네트워킹 기능](../networking/networking-overview.md) 중 일부에 대해 자세히 알아봅니다.
+Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 

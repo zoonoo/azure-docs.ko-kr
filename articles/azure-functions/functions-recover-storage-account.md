@@ -59,7 +59,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 ### <a name="guidance"></a>인도
 
 * 이러한 설정에 대해서는 "슬롯 설정"을 선택하지 않습니다. 배포 슬롯을 교환하면 함수가 손상됩니다.
-* Do not modify these settings as part of automated deployments.
+* 이러한 설정은 자동 배포의 일부로 수정 하지 마십시오.
 * 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함하지 않는 자동화된 배포를 사용하는 경우 나중에 설정을 추가하더라도 앱이 작동하지 않습니다.
 
 ## <a name="storage-account-credentials-invalid"></a>스토리지 계정 자격 증명이 잘못됨
@@ -85,7 +85,7 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 이제 함수 앱이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
 
-* [첫 번째 Azure 함수 만들기](functions-create-first-azure-function.md)  
+* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
   Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
 * [Azure Functions 개발자 참조](functions-reference.md)  
   Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.

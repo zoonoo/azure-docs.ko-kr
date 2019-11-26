@@ -1,6 +1,6 @@
 ---
 title: Azure Files 배포에 대한 계획 | Microsoft Docs
-description: Azure Files 배포를 계획할 때 고려할 사항을 알아봅니다.
+description: Azure Files 배포에 대한 계획 시 고려해야 할 사항에 대해 알아봅니다.
 author: roygara
 ms.service: storage
 ms.topic: conceptual
@@ -14,7 +14,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74227877"
 ---
-# <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
+# <a name="planning-for-an-azure-files-deployment"></a>Azure 파일 배포에 대한 계획
 
 [Azure Files](storage-files-introduction.md)는 산업 표준 SMB 프로토콜을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure Files은 완벽하게 관리되기 때문에 프로덕션 시나리오에서 이를 배포하면 파일 서버 또는 NAS 디바이스를 훨씬 쉽게 배포하고 관리할 수 있습니다. 이 문서에서는 조직 내에서 프로덕션 용도로 Azure 파일 공유를 배포할 때 고려해야 할 항목을 다룹니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "74227877"
 
 * **Storage 계정**: Azure Storage에 대한 모든 액세스는 Storage 계정을 통해 수행됩니다. 스토리지 계정 용량에 대한 자세한 내용은 [확장성 및 성능 목표](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)를 참조하세요.
 
-* **공유**: File Storage 공유는 Azure의 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. An account can contain an unlimited number of shares and a share can store an unlimited number of files, up to the total capacity of the file share. The total capacity for premium and standard file shares is 100 TiB.
+* **공유**: File Storage 공유는 Azure의 SMB 파일 공유입니다. 모든 디렉터리 및 파일을 부모 공유에 만들어야 합니다. 계정에는 공유를 무제한 포함할 수 있으며, 공유는 파일 공유의 총 용량까지 파일 수에 제한 없이 저장할 수 있습니다. 프리미엄 및 표준 파일 공유에 대 한 총 용량은 100 TiB입니다.
 
 * **디렉터리**: 선택적인 디렉터리 계층 구조입니다.
 
@@ -58,11 +58,11 @@ Azure Files는 두 가지의 편리한 데이터 액세스 방법을 기본 제�
 Azure Files에는 데이터 보안을 위한 몇 가지 기본 제공 옵션이 있습니다.
 
 * 두 네트워크 상 프로토콜에서 암호화 지원: SMB 3.0 암호화 및 HTTPS를 통한 파일 REST입니다. 기본적으로: 
-    * Clients that support SMB 3.0 encryption send and receive data over an encrypted channel.
-    * Clients that do not support SMB 3.0 with encryption can communicate intra-datacenter over SMB 2.1 or SMB 3.0 without encryption. SMB 클라이언트는 암호화 기능이 없는 SMB 3.0 또는 SMB 2.1을 통해 데이터 센터 내에서 통신할 수 없습니다.
+    * SMB 3.0 암호화를 지 원하는 클라이언트는 암호화 된 채널을 통해 데이터를 보내고 받습니다.
+    * 암호화를 사용 하 여 SMB 3.0을 지원 하지 않는 클라이언트는 암호화 되지 않은 smb 2.1 또는 SMB 3.0를 통해 데이터 센터 내에서 통신할 수 있습니다. SMB 클라이언트는 암호화 기능이 없는 SMB 3.0 또는 SMB 2.1을 통해 데이터 센터 내에서 통신할 수 없습니다.
     * 클라이언트는 HTTP 또는 HTTPS를 사용하여 파일 REST를 통해 통신할 수 있습니다.
 * 미사용 데이터 암호화([Azure Storage 서비스 암호화](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): SSE(스토리지 서비스 암호화)는 모든 스토리지 계정에 대해 사용되도록 설정됩니다. 미사용 데이터는 완전히 관리되는 키로 암호화됩니다. 미사용 암호화를 사용할 경우 스토리지 비용이 증가하거나 성능이 저하되지 않습니다. 
-* Optional requirement of encrypted data in-transit: when selected, Azure Files rejects access to the data over unencrypted channels. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
+* 암호화 된 데이터 전송 시 선택적 요구 사항:이 옵션을 선택 하면 암호화 되지 않은 채널을 통해 데이터에 대 한 액세스를 거부 Azure Files. 구체적으로 말하면, 암호화 연결을 통한 HTTPS 및 SMB 3.0만 허용됩니다.
 
     > [!Important]  
     > 데이터의 보안 전송이 필요한 경우 암호화된 SMB 3.0과 통신할 수 없는 이전 버전의 SMB 클라이언트는 실패합니다. 자세한 내용은 [Windows에 탑재](storage-how-to-use-files-windows.md), [Linux에 탑재](storage-how-to-use-files-linux.md) 및 [macOS에 탑재](storage-how-to-use-files-mac.md)를 참조하세요.
@@ -73,29 +73,29 @@ Azure 파일 공유에 액세스하기 위해 Azure 파일 동기화를 사용�
 
 ## <a name="file-share-performance-tiers"></a>파일 공유 성능 계층
 
-Azure Files offers two performance tiers: standard and premium.
+Azure Files는 standard 및 premium의 두 가지 성능 계층을 제공 합니다.
 
 ### <a name="standard-file-shares"></a>표준 파일 공유
 
-Standard file shares are backed by hard disk drives (HDDs). Standard file shares provide reliable performance for IO workloads that are less sensitive to performance variability such as general-purpose file shares and dev/test environments. 종량제 청구 모델에서만 제공됩니다.
+표준 파일 공유는 Hdd (하드 디스크 드라이브)로 지원 됩니다. 표준 파일 공유는 일반적인 용도의 파일 공유 및 개발/테스트 환경과 같은 성능 변동에 대 한 낮은 수준의 IO 작업 부하에 대 한 안정적인 성능을 제공 합니다. 종량제 청구 모델에서만 제공됩니다.
 
 > [!IMPORTANT]
-> If you want to use file shares larger than 5 TiB, see the [Onboard to larger file shares (standard tier)](#onboard-to-larger-file-shares-standard-tier) section for steps to onboard, as well as regional availability and restrictions.
+> 5 TiB 보다 큰 파일 공유를 사용 하려면 온보드 단계와 지역 가용성 및 제한 사항에 대해 [더 큰 파일 공유에 등록 (표준 계층)](#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하세요.
 
-### <a name="premium-file-shares"></a>Premium file shares
+### <a name="premium-file-shares"></a>프리미엄 파일 공유
 
-Premium file shares are backed by solid-state drives (SSDs). Premium file shares provide consistent high performance and low latency, within single-digit milliseconds for most IO operations, for IO-intensive workloads. This makes them suitable for a wide variety of workloads like databases, web site hosting, and development environments. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. Premium file shares use a deployment model separate from standard file shares.
+프리미엄 파일 공유는 Ssd (반도체 드라이브)에서 지원 됩니다. 프리미엄 파일 공유는 IO 집약적 워크 로드에 대해 대부분의 IO 작업에 대해 단일 자릿수 밀리초 내에 일관 된 고성능 및 짧은 대기 시간을 제공 합니다. 이를 통해 데이터베이스, 웹 사이트 호스팅, 개발 환경 등 다양 한 워크 로드에 적합 합니다. 프리미엄 파일 공유는 프로비전된 청구 모델에서만 제공됩니다. 프리미엄 파일 공유는 표준 파일 공유와는 별도의 배포 모델을 사용 합니다.
 
-Azure Backup is available for premium file shares and Azure Kubernetes Service supports premium file shares in version 1.13 and above.
+Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kubernetes Service는 1.13 이상 버전에서 프리미엄 파일 공유를 지원 합니다.
 
-If you'd like to learn how to create a premium file share, see our article on the subject: [How to create an Azure premium file storage account](storage-how-to-create-premium-fileshare.md).
+프리미엄 파일 공유를 만드는 방법을 알아보려면 [Azure premium file storage 계정을 만드는 방법](storage-how-to-create-premium-fileshare.md)에 대 한 문서를 참조 하세요.
 
-Currently, you cannot directly convert between a standard file share and a premium file share. If you would like to switch to either tier, you must create a new file share in that tier and manually copy the data from your original share to the new share you created. You can do this using any of the Azure Files supported copy tools, such as Robocopy or AzCopy.
+현재 표준 파일 공유와 프리미엄 파일 공유 사이에서 직접 변환할 수 없습니다. 두 계층으로 전환 하려는 경우 해당 계층에서 새 파일 공유를 만들고 원래 공유에서 만든 새 공유로 데이터를 수동으로 복사 해야 합니다. Azure Files 지원 되는 복사 도구 (예: Robocopy 또는 AzCopy)를 사용 하 여이 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> Premium file shares are available with LRS in most regions that offer storage accounts and with ZRS in a smaller subset of regions. To find out if premium file shares are currently available in your region, see the [products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) page for Azure. To find out what regions support ZRS, see [Support coverage and regional availability](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+> 프리미엄 파일 공유는 저장소 계정을 제공 하는 대부분의 지역에서 더 작은 하위 집합의 ZRS로 LRS와 함께 사용할 수 있습니다. 현재 지역에서 프리미엄 파일 공유를 사용할 수 있는지 확인 하려면 Azure에 대 한 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=storage) 페이지를 참조 하세요. ZRS를 지 원하는 지역을 알아보려면 [지원 범위 및 지역 가용성](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability)을 참조 하세요.
 >
-> To help us prioritize new regions and premium tier features, please fill out this [survey](https://aka.ms/pfsfeedback).
+> 새 지역 및 프리미엄 계층 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/pfsfeedback)를 작성해 주세요.
 
 #### <a name="provisioned-shares"></a>프로비전된 공유
 
@@ -103,61 +103,61 @@ Currently, you cannot directly convert between a standard file share and a premi
 
 최상의 노력 원칙에 따라 모든 공유는 60분 이상의 기간 동안(공유 크기별로 다름) 프로비전된 스토리지 용량(GiB)당 IOPS를 3개까지 버스트할 수 있습니다. 새 공유에는 프로비전된 용량을 기준으로 전체 버스트 크레딧이 초기 제공됩니다.
 
-Shares must be provisioned in 1 GiB increments. Minimum size is 100 GiB, next size is 101 GiB and so on.
+공유는 1 GiB 증분 단위로 프로 비전 되어야 합니다. 최소 크기는 100 GiB, 다음 크기는 101 GiB 등입니다.
 
 > [!TIP]
-> Baseline IOPS = 1 * provisioned GiB. (Up to a max of 100,000 IOPS).
+> 기준 IOPS = 1 * 프로 비전 된 GiB. (최대 10만 IOPS).
 >
-> Burst Limit = 3 * Baseline IOPS. (Up to a max of 100,000 IOPS).
+> 버스트 제한 = 3 * 기준선 IOPS. (최대 10만 IOPS).
 >
-> egress rate = 60 MiB/s + 0.06 * provisioned GiB
+> 송신 율 = 60 MiB/s + 0.06 * 프로 비전 된 GiB
 >
-> ingress rate = 40 MiB/s + 0.04 * provisioned GiB
+> 수신 율 = 40 MiB/s + 0.04 * 프로 비전 된 GiB
 
-Provisioned share size is specified by share quota. Share quota can be increased at any time but can be decreased only after 24 hours since the last increase. After waiting for 24 hours without a quota increase, you can decrease the share quota as many times as you like, until you increase it again. IOPS/Throughput scale changes will be effective within a few minutes after the size change.
+프로 비전 된 공유 크기는 공유 할당량에 의해 지정 됩니다. 공유 할당량은 언제 든 지 늘릴 수 있지만 마지막 증가 이후 24 시간 후에만 감소할 수 있습니다. 할당량 증가 없이 24 시간 동안 기다린 후에는 다시 늘릴 때까지 공유 할당량을 원하는 횟수 만큼 줄일 수 있습니다. IOPS/처리량 크기 변경은 크기가 변경 된 후 몇 분 내에 적용 됩니다.
 
-It is possible to decrease the size of your provisioned share below your used GiB. If you do this, you will not lose data but, you will still be billed for the size used and receive the performance (baseline IOPS, throughput, and burst IOPS) of the provisioned share, not the size used.
+사용 된 GiB에서 프로 비전 된 공유의 크기를 줄일 수 있습니다. 이 작업을 수행 하는 경우 데이터가 손실 되지 않지만 사용 된 크기에 대 한 요금이 청구 되며, 사용 되는 크기가 아니라 프로 비전 된 공유의 성능 (기준선 IOPS, 처리량 및 버스트 IOPS)을 수신 하 게 됩니다.
 
-The following table illustrates a few examples of these formulae for the provisioned share sizes:
+다음 표에서는 프로 비전 된 공유 크기에 대 한 이러한 열의 공식을의 몇 가지 예를 보여 줍니다.
 
-|Capacity (GiB) | 기준 IOPS | Burst IOPS | Egress (MiB/s) | Ingress (MiB/s) |
+|용량 (GiB) | 기준 IOPS | 버스트 IOPS | 송신 (MiB/s) | 수신 (MiB/s) |
 |---------|---------|---------|---------|---------|
 |100         | 100     | 최대 300     | 66   | 44   |
-|500         | 500     | Up to 1,500   | 90   | 60   |
-|1,024       | 1,024   | Up to 3,072   | 122   | 81   |
-|5,120       | 5,120   | Up to 15,360  | 368   | 245   |
-|10,240      | 10,240  | Up to 30,720  | 675 | 450   |
-|33,792      | 33,792  | Up to 100,000 | 2,088 | 1,392   |
-|51,200      | 51,200  | Up to 100,000 | 3,132 | 2,088   |
-|102,400     | 100,000개의 | Up to 100,000 | 6,204 | 4,136   |
+|500         | 500     | 최대 1500   | 90   | 60   |
+|1,024       | 1,024   | 최대 3072   | 122   | 81   |
+|5,120       | 5,120   | 최대 15360  | 368   | 245   |
+|10,240      | 10,240  | 최대 30720  | 675 | 450   |
+|33,792      | 33,792  | 최대 10만 | 2088 | 1,392   |
+|51,200      | 51,200  | 최대 10만 | 3,132 | 2088   |
+|102,400     | 100,000 | 최대 10만 | 6204 | 4136   |
 
 > [!NOTE]
-> File shares performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. To achieve maximum performance scale, spread the load across multiple VMs. Please refer [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
+> 파일 공유 성능에는 컴퓨터 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 등 많은 요인이 적용 됩니다. 예를 들어, KiB 읽기/쓰기 IO 크기가 8 인 내부 테스트를 기반으로 SMB를 통한 프리미엄 파일 공유에 연결 된 단일 Windows 가상 머신, *표준 F16s_v2*는 20K 읽기 Iops 및 15K 쓰기 iops를 달성할 수 있습니다. 512 MiB 읽기/쓰기 IO 크기를 사용 하는 경우 동일한 VM이 1.1 GiB/s 송신 및 370 MiB/s 수신 처리량을 달성할 수 있습니다. 최대 성능 확장을 얻으려면 부하를 여러 Vm에 분산 합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 를 참조 하세요.
 
-#### <a name="bursting"></a>Bursting
+#### <a name="bursting"></a>화
 
-Premium file shares can burst their IOPS up to a factor of three. Bursting is automated and operates based on a credit system. Bursting works on a best effort basis and the burst limit is not a guarantee, file shares can burst *up to* the limit.
+프리미엄 파일 공유는 IOPS를 3 배까지 버스트 할 수 있습니다. 버스트는 자동화 되며 신용 시스템을 기반으로 작동 합니다. 버스트는 최상의 노력을 기반으로 작동 하며 버스트 제한은 보장 되지 않습니다. 파일 공유는 제한 *까지* 버스트 될 수 있습니다.
 
-Credits accumulate in a burst bucket whenever traffic for your file share is below baseline IOPS. For example, a 100 GiB share has 100 baseline IOPS. If actual traffic on the share was 40 IOPS for a specific 1-second interval, then the 60 unused IOPS are credited to a burst bucket. These credits will then be used later when operations would exceed the baseline IOPs.
+크레딧은 파일 공유에 대 한 트래픽이 기준선 IOPS 미만이 될 때마다 버스트 버킷에 누적 됩니다. 예를 들어 100 GiB 공유에는 100 기준선 IOPS가 있습니다. 공유의 실제 트래픽이 1 초 간격으로 40 IOPS 인 경우 60 사용 하지 않는 IOPS는 버스트 버킷으로 제공한 됩니다. 이러한 크레딧은 나중에 작업이 기준선 IOPs를 초과 하는 경우에 사용 됩니다.
 
 > [!TIP]
-> Size of the burst bucket = Baseline IOPS * 2 * 3600.
+> 버스트 버킷의 크기 = 기준선 IOPS * 2 * 3600.
 
-Whenever a share exceeds the baseline IOPS and has credits in a burst bucket, it will burst. Shares can continue to burst as long as credits are remaining, though shares smaller than 50 TiB will only stay at the burst limit for up to an hour. Shares larger than 50 TiB can technically exceed this one hour limit, up to two hours but, this is based on the number of burst credits accrued. Each IO beyond baseline IOPS consumes one credit and once all credits are consumed the share would return to baseline IOPS.
+공유가 기준선 IOPS를 초과 하 고 버스트 버킷에 크레딧을 가질 때마다 버스트 됩니다. 크레딧이 남아 있는 한 공유는 지속 될 수 있지만, 50 TiB 보다 작은 공유는 최대 1 시간 동안 버스트 제한에만 유지 됩니다. 50 보다 큰 공유는 기술적으로 1 시간 제한 (최대 2 시간)을 TiB 수 있지만이는 발생 하는 버스트 크레딧 수를 기준으로 합니다. 기준 IOPS를 초과 하는 각 IO는 하나의 크레딧을 사용 하며, 모든 크레딧이 사용 되 면 공유는 기준선 IOPS로 돌아옵니다.
 
-Share credits have three states:
+공유 크레딧에는 세 가지 상태가 있습니다.
 
-- Accruing, when the file share is using less than the baseline IOPS.
-- Declining, when the file share is bursting.
-- Remaining constant, when there are either no credits or baseline IOPS are in use.
+- 발생 파일 공유에서 기준선 IOPS 보다 작은 값을 사용 하는 경우입니다.
+- 파일 공유가 버스트 인 경우 거절
+- 남은 상수 (크레딧을 사용 하지 않거나 기준선 IOPS가 사용 중인 경우)
 
-New file shares start with the full number of credits in its burst bucket. Burst credits will not be accrued if the share IOPS fall below baseline IOPS due to throttling by the server.
+새 파일 공유는 버스트 버킷의 전체 크레딧 수로 시작 합니다. 서버 제한으로 인해 공유 IOPS가 기준선 IOPS 미만이 면 버스트 크레딧을 계산 하지 않습니다.
 
 ## <a name="file-share-redundancy"></a>파일 공유 중복성
 
-Azure Files standard shares supports four data redundancy options: locally redundant storage (LRS), zone redundant storage (ZRS), geo-redundant storage (GRS), and geo-zone-redundant storage (GZRS) (preview).
+Azure Files 표준 공유는 LRS (로컬 중복 저장소), ZRS (영역 중복 저장소), GRS (지역 중복 저장소) 및 GZRS (지역 중복 저장소) (미리 보기)의 4 가지 데이터 중복성 옵션을 지원 합니다.
 
-Azure Files premium shares support both LRS and ZRS, ZRS is currently available in a smaller subset of regions.
+프리미엄 공유 Azure Files LRS와 ZRS를 모두 지원 하며, ZRS는 현재 더 작은 하위 집합에서 사용할 수 있습니다.
 
 다음 섹션에서는 서로 다른 중복 옵션의 차이점에 대해 설명합니다.
 
@@ -172,71 +172,71 @@ Azure Files premium shares support both LRS and ZRS, ZRS is currently available 
 ### <a name="geo-redundant-storage"></a>지역 중복 스토리지
 
 > [!Warning]  
-> Azure 파일 공유를 GRS 스토리지 계정의 클라우드 엔드포인트로 사용하는 경우 스토리지 계정 장애 조치(failover)를 시작하면 안 됩니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역이 손실되는 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(failover)를 트리거합니다.
+> Azure 파일 공유를 GRS 스토리지 계정에 클라우드 엔드포인트로 사용하는 경우 스토리지 계정의 장애 조치(Failover)를 시작하지 않아야 합니다. 이러한 계정을 장애 조치(failover)하면 동기화가 더 이상 진행되지 않고, 새로 계층화된 파일의 경우 예기치 않은 데이터 손실이 발생할 수도 있습니다. Azure 지역의 손실의 경우 Microsoft는 Azure 파일 동기화와 호환되는 방식으로 스토리지 계정의 장애 조치(Failover)를 트리거합니다.
 
 GRS(지역 중복 스토리지)는 기본 지역에서 수백 마일 떨어진 보조 지역에 데이터를 복제하여 지정된 1년에 걸쳐 99.99999999999999%(16개의 9) 이상의 개체 내구성을 제공하도록 설계되었습니다. 스토리지 계정에서 GRS를 활성화하면 전체 지역 가동 중단 또는 기본 지역을 복구할 수 없는 재해의 경우라도 데이터는 지속됩니다.
 
-If you opt for read-access geo-redundant storage (RA-GRS), you should know that Azure File does not support read-access geo-redundant storage (RA-GRS) in any region at this time. File shares in the RA-GRS storage account work like they would in GRS accounts and are charged GRS prices.
+읽기 액세스 지역 중복 저장소 (RA-GRS)를 옵트인 (opt in) 하는 경우 Azure 파일이 현재 모든 지역에서 읽기 액세스 지역 중복 저장소 (RA-GRS)를 지원 하지 않는다는 것을 알아야 합니다. RA-GRS 저장소 계정의 파일 공유는 GRS 계정에서와 같이 작동 하며 GRS 가격이 청구 됩니다.
 
 GRS는 데이터를 보조 지역의 다른 데이터 센터에 복제하지만, Microsoft에서 주 지역에서 보조 지역으로 장애 조치를 시작하는 경우에만 해당 데이터를 읽을 수 있습니다.
 
-For a storage account with GRS enabled, all data is first replicated with locally redundant storage (LRS). 업데이트는 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 GRS를 사용하여 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
+GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (로컬 중복 저장소)를 사용 하 여 복제 됩니다. 업데이트는 먼저 기본 위치에 커밋되고 LRS를 사용하여 복제됩니다. 그런 다음, 업데이트는 GRS를 사용하여 보조 지역에 비동기적으로 복제됩니다. 데이터가 보조 위치에 기록되는 경우 LRS를 사용하여 해당 위치 내에도 복제됩니다.
 
 주 지역 및 보조 지역에서 모두 별도의 장애 도메인에서 복제본을 관리하고, 스토리지 배율 단위 내에서 도메인을 업그레이드합니다. 스토리지 배율 단위는 데이터 센터 내의 기본 복제 단위입니다. 이 수준의 복제는 LRS에서 제공합니다. 자세한 내용은 [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](../common/storage-redundancy-lrs.md)을 참조하세요.
 
 사용할 복제 옵션을 결정할 때 다음 사항에 유의하세요.
 
-* Geo-zone-redundant storage (GZRS) (preview) provides high availability together with maximum durability by replicating data synchronously across three Azure availability zones and then replicating data asynchronously to the secondary region. You can also enable read access to the secondary region. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year. For more information on GZRS, see [Geo-zone-redundant storage for highly availability and maximum durability (preview)](../common/storage-redundancy-gzrs.md).
-* Zone-redundant storage (ZRS) provides highly availability with synchronous replication and may be a better choice for some scenarios than GRS. ZRS에 대한 자세한 내용은 [ZRS](../common/storage-redundancy-zrs.md)를 참조하세요.
+* GZRS (지역 중복 저장소) (미리 보기)는 세 개의 Azure 가용성 영역에서 데이터를 동기적으로 복제 한 다음 데이터를 보조 지역에 비동기적으로 복제 하 여 고가용성과 함께 고가용성을 제공 합니다. 보조 지역에 대 한 읽기 액세스를 사용 하도록 설정할 수도 있습니다. GZRS는 지정 된 연도 동안 최소 99.99999999999999% (16 9의) 개체 내 구성을 제공 하도록 설계 되었습니다. GZRS에 대 한 자세한 내용은 고가용성 [및 최대 내구성 (미리 보기)을 위한 지리적 영역 중복 저장소](../common/storage-redundancy-gzrs.md)를 참조 하세요.
+* ZRS (영역 중복 저장소)는 동기식 복제를 사용 하 여 고가용성을 제공 하며, GRS 보다는 일부 시나리오에서 더 나은 선택이 될 수 있습니다. ZRS에 대한 자세한 내용은 [ZRS](../common/storage-redundancy-zrs.md)를 참조하세요.
 * 비동기 복제에는 데이터가 주 지역에 기록되는 시간에서 보조 지역으로 복제되는 시간까지의 지연이 발생합니다. 지역 재해의 경우 주 지역에서 해당 데이터를 복구할 수 없으면 보조 지역에 아직 복제되지 않은 변경 내용이 손실될 수 있습니다.
 * GRS를 사용하면 Microsoft에서 보조 지역으로 장애 조치(failover)를 시작하지 않는 한 읽기 또는 쓰기를 위해 복제본에 액세스할 수 없습니다. 장애 조치(failover)의 경우 장애 조치가 완료된 후 해당 데이터에 대한 읽기 및 쓰기 액세스 권한이 생성됩니다. 자세한 내용은 [재해 복구 지침](../common/storage-disaster-recovery-guidance.md)을 참조하세요.
 
-## <a name="onboard-to-larger-file-shares-standard-tier"></a>Onboard to larger file shares (standard tier)
+## <a name="onboard-to-larger-file-shares-standard-tier"></a>더 큰 파일 공유에 등록 (표준 계층)
 
-This section only applies to the standard file shares. All premium file shares are available with 100 TiB capacity.
+이 섹션은 표준 파일 공유에만 적용 됩니다. 모든 프리미엄 파일 공유는 100 TiB 용량으로 제공 됩니다.
 
 ### <a name="restrictions"></a>제한
 
-- LRS/ZRS to GRS/GZRS account conversion will not be possible for any storage account with large file shares enabled.
+- LRS/ZRS to GRS/GZRS 계정 변환은 대량 파일 공유를 사용 하는 모든 저장소 계정에 사용할 수 없습니다.
 
-### <a name="regional-availability"></a>지역별 가용성
+### <a name="regional-availability"></a>국가별 가용성
 
-Standard file shares are available in all regions up to 5 TiB. In certain regions, they are available with a 100 TiB limit, those regions are listed in the following table:
+표준 파일 공유는 최대 5 TiB의 모든 지역에서 사용할 수 있습니다. 특정 지역에서는 100 TiB 한도를 사용할 수 있습니다. 이러한 지역은 다음 표에 나와 있습니다.
 
-|지역 |Supported redundancy |
+|Region |지원 되는 중복성 |
 |-------|---------|
 |오스트레일리아 동부 |LRS     |
 |오스트레일리아 남동부|LRS |
 |캐나다 중부  |LRS     |
 |캐나다 동부     |LRS     |
 |인도 중부  |LRS     |
-|Central US*   |LRS     |
+|미국 중부 *   |LRS     |
 |동아시아      |LRS     |
-|East US*        |LRS     |
-|East US 2*      |LRS     |
+|미국 동부 *        |LRS     |
+|미국 동부 2 *      |LRS     |
 |프랑스 중부 |LRS, ZRS|
 |프랑스 남부   |LRS     |
-|북유럽   |LRS     |
+|유럽 북부   |LRS     |
 |인도 남부    |LRS     |
 |동남아시아 |LRS, ZRS|
 |미국 중서부|LRS     |
-|West Europe*    |LRS, ZRS|
-|West US*        |LRS     |
+|유럽 서부 *    |LRS, ZRS|
+|미국 서 부 *        |LRS     |
 |미국 서부 2      |LRS, ZRS|
 
-\* Supported for new accounts, not all existing accounts have completed the upgrade process. You can check if your existing storage accounts have completed the upgrade process by attempting to [Enable large file shares](storage-files-how-to-create-large-file-share.md).
+새 계정에 대해 지원 \*. 기존 계정이 모두 업그레이드 프로세스를 완료 한 것은 아닙니다. 기존 저장소 계정이 [대량 파일 공유를 사용 하도록 설정](storage-files-how-to-create-large-file-share.md)하 여 업그레이드 프로세스를 완료 했는지 여부를 확인할 수 있습니다.
 
-To help us prioritize new regions and features, please fill out this [survey](https://aka.ms/azurefilesatscalesurvey).
+새 지역과 기능의 우선 순위를 지정 하는 데 도움이 되도록이 [설문 조사](https://aka.ms/azurefilesatscalesurvey)를 작성해 주세요.
 
-### <a name="enable-and-create-larger-file-shares"></a>Enable and create larger file shares
+### <a name="enable-and-create-larger-file-shares"></a>더 큰 파일 공유 사용 및 만들기
 
-To begin using larger file shares, see our article [How to enable and create large file shares](storage-files-how-to-create-large-file-share.md).
+큰 파일 공유 사용을 시작 하려면 [큰 파일 공유를 사용 하도록 설정 하 고 만드는 방법](storage-files-how-to-create-large-file-share.md)문서를 참조 하세요.
 
 ## <a name="data-growth-pattern"></a>데이터 증가 패턴
 
-Today, the maximum size for an Azure file share is 100 TiB. 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
+현재 Azure 파일 공유의 최대 크기는 100 TiB입니다. 현재 이 제한으로 인해 Azure 파일 공유를 배포할 때 예상되는 데이터 증가를 고려해야 합니다.
 
-It is possible to sync multiple Azure file shares to a single Windows File Server with Azure File Sync. This allows you to ensure that older, large file shares that you may have on-premises can be brought into Azure File Sync. For more information, see [Planning for an Azure File Sync Deployment](storage-files-planning.md).
+Azure File Sync를 사용 하 여 여러 Azure 파일 공유를 단일 Windows 파일 서버에 동기화 할 수 있습니다. 이를 통해 온-프레미스에 있을 수 있는 오래 된 대량 파일 공유를 Azure File Sync으로 가져올 수 있습니다. 자세한 내용은 [Azure File Sync 배포 계획](storage-files-planning.md)을 참조 하세요.
 
 ## <a name="data-transfer-method"></a>데이터 전송 방법
 

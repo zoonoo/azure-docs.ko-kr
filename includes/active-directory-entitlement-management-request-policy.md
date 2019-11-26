@@ -15,187 +15,187 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74260800"
 ---
-## <a name="for-users-in-your-directory"></a>For users in your directory
+## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
-Follow these steps if you want to allow users in your directory to be able to request this access package. When defining the request policy, you can specify individual users, or more commonly groups of users. For example, your organization may already have a group such as **All employees**.  If that group is added in the policy for users who can request access, then any member of that group can then request access.
+디렉터리의 사용자가이 액세스 패키지를 요청할 수 있도록 하려면 다음 단계를 수행 합니다. 요청 정책을 정의할 때 개별 사용자 또는 보다 일반적으로 사용자 그룹을 지정할 수 있습니다. 예를 들어 조직에 이미 **모든 직원과**같은 그룹이 있을 수 있습니다.  액세스를 요청할 수 있는 사용자에 대 한 정책에 해당 그룹이 추가 되 면 해당 그룹의 모든 멤버는 액세스를 요청할 수 있습니다.
 
 1. **Users who can request access**(액세스를 요청할 수 있는 사용자) 섹션에서 **For users in your directory**(디렉터리에 있는 사용자의 경우) 클릭합니다.
 
-    When you select this option, new options appear to further refine who in your directory can request this access package.
+    이 옵션을 선택 하면 디렉터리에서이 액세스 패키지를 요청할 수 있는 사용자를 보다 구체화 하는 새로운 옵션이 표시 됩니다.
 
-    ![Access package - Requests - For users in your directory](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
+    ![액세스 패키지-요청-디렉터리의 사용자](./media/active-directory-entitlement-management-request-policy/for-users-in-your-directory.png)
 
 1. 다음 옵션 중 하나를 선택합니다.
 
     |  |  |
     | --- | --- |
-    | **Specific users and groups** | Choose this option if you want only the users and groups in your directory that you specify to be able to request this access package. |
-    | **All members (excluding guests)** | Choose this option if you want all member users in your directory to be able to request this access package. This option doesn't include any guest users you might have invited into your directory. |
-    | **All users (including guests)** | Choose this option if you want all member users and guest users in your directory to be able to request this access package. |
+    | **특정 사용자 및 그룹** | 이 액세스 패키지를 요청할 수 있도록 지정 하는 디렉터리의 사용자 및 그룹만 하려면이 옵션을 선택 합니다. |
+    | **모든 구성원 (게스트 제외)** | 디렉터리의 모든 구성원 사용자가이 액세스 패키지를 요청할 수 있도록 하려면이 옵션을 선택 합니다. 이 옵션에는 디렉터리에 초대 했을 수 있는 게스트 사용자가 포함 되지 않습니다. |
+    | **모든 사용자 (게스트 포함)** | 디렉터리의 모든 구성원 사용자와 게스트 사용자가이 액세스 패키지를 요청할 수 있도록 하려면이 옵션을 선택 합니다. |
 
-    Guest users refer to external users that have been invited into your directory with [Azure AD B2B](../articles/active-directory/b2b/what-is-b2b.md). For more information about the differences between member users and guest users, see [What are the default user permissions in Azure Active Directory?](../articles/active-directory/fundamentals/users-default-permissions.md).
+    게스트 사용자는 [AZURE AD B2B](../articles/active-directory/b2b/what-is-b2b.md)를 사용 하 여 디렉터리에 초대 된 외부 사용자를 참조 합니다. 멤버 사용자와 게스트 사용자 간의 차이점에 대 한 자세한 내용은 [Azure Active Directory?의 기본 사용자 권한](../articles/active-directory/fundamentals/users-default-permissions.md)을 참조 하십시오.
 
-1. If you selected **Specific users and groups**, click **Add users and groups**.
+1. **특정 사용자 및 그룹**을 선택한 경우 **사용자 및 그룹 추가**를 클릭 합니다.
 
-1. In the Select users and groups pane, select the users and groups you want to add.
+1. 사용자 및 그룹 선택 창에서 추가 하려는 사용자 및 그룹을 선택 합니다.
 
-    ![Access package - Requests - Select users and groups](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
+    ![액세스 패키지-요청-사용자 및 그룹 선택](./media/active-directory-entitlement-management-request-policy/select-users-groups.png)
 
-1. Click **Select** to add the users and groups.
+1. **선택** 을 클릭 하 여 사용자 및 그룹을 추가 합니다.
 
-1. Skip down to the [Approval](#approval) section.
+1. [승인](#approval) 섹션으로 건너뜁니다.
 
-## <a name="for-users-not-in-your-directory"></a>For users not in your directory
+## <a name="for-users-not-in-your-directory"></a>디렉터리에 없는 사용자의 경우
 
- **Users not in your directory** refers to users who are in another Azure AD directory or domain. These users may not have yet been invited into your directory. Azure AD directories must be configured to be allow invitations in **Collaboration restrictions**. For more information, see [Enable B2B external collaboration and manage who can invite guests](../articles/active-directory/b2b/delegate-invitations.md).
+ **디렉터리에 없는 사용자** 는 다른 Azure AD 디렉터리 또는 도메인에 있는 사용자를 의미 합니다. 이러한 사용자는 아직 디렉터리에 초대 되지 않았을 수 있습니다. **공동 작업 제한**에서 초대를 허용 하도록 Azure AD 디렉터리를 구성 해야 합니다. 자세한 내용은 [B2B 외부 공동 작업 사용 및 게스트를 초대할 수 있는 사용자 관리](../articles/active-directory/b2b/delegate-invitations.md)를 참조 하세요.
 
 > [!NOTE]
-> A guest user account will be created for a user not yet in your directory whose request is approved or auto-approved. The guest will be invited, but will not receive an invite email. Instead, they will receive an email when their access package assignment is delivered. By default, later when that guest user no longer has any access package assignments, because their last assignment has expired or been cancelled, that guest user account will be blocked from sign in and subsequently deleted. If you want to have guest users remain in your directory indefinitely, even if they have no access package assignments, you can change the settings for your entitlement management configuration. For more information about the guest user object, see [Properties of an Azure Active Directory B2B collaboration user](../articles/active-directory/b2b/user-properties.md).
+> 요청을 승인 하거나 자동으로 승인 하는 디렉터리에 아직 없는 사용자에 대 한 게스트 사용자 계정이 생성 됩니다. 게스트가 초대 되지만 초대 전자 메일은 수신 되지 않습니다. 대신, 액세스 패키지 할당이 전달 되 면 전자 메일을 받게 됩니다. 기본적으로 나중에 해당 게스트 사용자에 게 액세스 패키지 할당이 더 이상 없는 경우 마지막 할당이 만료 되었거나 취소 되었으므로 게스트 사용자 계정은 로그인 하 여 이후에 삭제 됩니다. 게스트 사용자에 게 무제한으로 디렉터리에 남아 있는 경우 액세스 패키지 할당이 없더라도 자격 관리 구성에 대 한 설정을 변경할 수 있습니다. 게스트 사용자 개체에 대 한 자세한 내용은 [AZURE ACTIVE DIRECTORY B2B 공동 작업 사용자의 속성](../articles/active-directory/b2b/user-properties.md)을 참조 하세요.
 
-Follow these steps if you want to allow users not in your directory to request this access package:
+디렉터리에 없는 사용자가이 액세스 패키지를 요청할 수 있도록 허용 하려면 다음 단계를 수행 합니다.
 
-1. In the **Users who can request access** section, click **For users not in your directory**.
+1. 액세스를 **요청할 수 있는 사용자** 섹션에서 **디렉터리에 없는 사용자를**클릭 합니다.
 
-    When you select this option, new options appear.
+    이 옵션을 선택 하면 새 옵션이 표시 됩니다.
 
-    ![Access package - Requests - For users not in your directory](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
+    ![액세스 패키지-요청-디렉터리에 없는 사용자](./media/active-directory-entitlement-management-request-policy/for-users-not-in-your-directory.png)
 
 1. 다음 옵션 중 하나를 선택합니다.
 
     |  |  |
     | --- | --- |
-    | **Specific connected organizations** | Choose this option if you want to select from a list of organizations that your administrator previously added. All users from the selected organizations can request this access package. |
-    | **All connected organizations** | Choose this option if all users from all your connected organizations can request this access package. |
+    | **연결 된 특정 조직** | 관리자가 이전에 추가한 조직 목록에서 선택 하려면이 옵션을 선택 합니다. 선택한 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. |
+    | **연결 된 모든 조직** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있는 경우이 옵션을 선택 합니다. |
 
-    A connected organization is an external Azure AD directory or domain that you have a relationship with.
+    연결 된 조직은 외부 Azure AD 디렉터리 또는 관계가 있는 도메인입니다.
 
-1. If you selected **Specific connected organizations**, click **Add directories** to select from a list of connected organizations that your administrator previously added.
+1. **연결 된 특정 조직을**선택한 경우 **디렉터리 추가** 를 클릭 하 여 관리자가 이전에 추가한 연결 된 조직의 목록에서 선택 합니다.
 
-1. Type the name or domain name to search for a previously connected organization.
+1. 이전에 연결 된 조직을 검색할 이름 또는 도메인 이름을 입력 합니다.
 
-    ![Access package - Requests - Select directories](./media/active-directory-entitlement-management-request-policy/select-directories.png)
+    ![액세스 패키지-요청-디렉터리 선택](./media/active-directory-entitlement-management-request-policy/select-directories.png)
 
-    If the organization you want to collaborate with isn't in the list, you can ask your administrator to add it as a connected organization. For more information, see [Add a connected organization](../articles/active-directory/governance/entitlement-management-organization.md).
+    공동 작업 하려는 조직이 목록에 없는 경우 관리자에 게 연결 된 조직으로 추가 하도록 요청할 수 있습니다. 자세한 내용은 [연결 된 조직 추가](../articles/active-directory/governance/entitlement-management-organization.md)를 참조 하세요.
 
-1. Once you've selected all your connected organizations, click **Select**.
+1. 모든 연결 된 조직을 선택 했으면 **선택**을 클릭 합니다.
 
     > [!NOTE]
-    > All users from the selected connected organizations will be able to request this access package. This includes users in Azure AD from all subdomains associated with the organization, unless those domains are blocked by the Azure B2B allow or deny list. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../articles/active-directory/b2b/allow-deny-list.md)을 참조하세요.
+    > 선택한 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. 이러한 도메인은 Azure B2B 허용 또는 거부 목록에 의해 차단 되는 경우를 제외 하 고 조직과 연결 된 모든 하위 도메인에서 Azure AD의 사용자를 포함 합니다. 자세한 내용은 [특정 조직의 B2B 사용자 초대 허용 또는 차단](../articles/active-directory/b2b/allow-deny-list.md)을 참조하세요.
 
-1. Skip down to the [Approval](#approval) section.
+1. [승인](#approval) 섹션으로 건너뜁니다.
 
-## <a name="none-administrator-direct-assignments-only"></a>None (administrator direct assignments only)
+## <a name="none-administrator-direct-assignments-only"></a>없음 (관리자 직접 할당에만 해당)
 
-Follow these steps if you want to bypass access requests and allow administrators to directly assign specific users to this access package. Users won't have to request the access package. You can still set lifecycle settings, but there are no request settings.
+액세스 요청을 무시 하 고 관리자가이 액세스 패키지에 특정 사용자를 직접 할당할 수 있게 하려면 다음 단계를 수행 합니다. 사용자는 액세스 패키지를 요청할 필요가 없습니다. 계속 해 서 수명 주기 설정을 지정할 수 있지만 요청 설정이 없습니다.
 
-1. In the **Users who can request access** section, click **None (administrator direct assignments only**.
+1. 액세스를 **요청할 수 있는 사용자** 섹션에서 없음을 클릭 합니다 **(관리자 직접 할당에만 해당)** .
 
-    ![Access package - Requests - None administrator direct assignments only](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
+    ![액세스 패키지-요청-없음 관리자 직접 할당만](./media/active-directory-entitlement-management-request-policy/none-admin-direct-assignments-only.png)
 
-    After you create the access package, you can directly assign specific internal and external users to the access package. If you specify an external user, a guest user account will be created in your directory. For information about directly assigning a user, see [View, add, and remove assignments for an access package](../articles/active-directory/governance/entitlement-management-access-package-assignments.md).
+    액세스 패키지를 만든 후에는 액세스 패키지에 특정 내부 및 외부 사용자를 직접 할당할 수 있습니다. 외부 사용자를 지정 하는 경우 게스트 사용자 계정이 디렉터리에 생성 됩니다. 사용자를 직접 할당 하는 방법에 대 한 자세한 내용은 [액세스 패키지에 대 한 할당 보기, 추가 및 제거](../articles/active-directory/governance/entitlement-management-access-package-assignments.md)를 참조 하세요.
 
-1. Skip down to the [Enable requests](#enable-requests) section.
+1. [요청 활성화](#enable-requests) 섹션으로 건너뜁니다.
 
 ## <a name="approval"></a>승인
 
-In the Approval section, you specify whether an approval is required when users request this access package. The approval settings work in the following way:
+승인 섹션에서 사용자가이 액세스 패키지를 요청할 때 승인이 필요한 지 여부를 지정 합니다. 승인 설정은 다음과 같은 방식으로 작동 합니다.
 
-- Only one of the selected approvers or fallback approvers needs to approve a request for single-stage approval. 
-- Only one of the selected approvers from each stage needs to approve a request for 2-stage approval.
-- The approver can be a Manager, Internal sponsor, or External sponsor depending on who the policy is governing access.
-- Approval from every selected approver isn't required for single or 2-stage approval.
-- The approval decision is based on whichever approver reviews the request first.
+- 선택한 승인자 또는 대체 승인자 중 하나만 단일 단계 승인 요청을 승인 해야 합니다. 
+- 각 단계에서 선택한 승인자 중 하나만 2 단계 승인 요청을 승인 해야 합니다.
+- 승인자는 정책을 통해 액세스를 관리 하는 사람에 따라 관리자, 내부 스폰서 또는 외부 스폰서 일 수 있습니다.
+- 단일 또는 2 단계 승인에는 선택한 모든 승인자의 승인이 필요 하지 않습니다.
+- 승인 결정은 먼저 요청을 검토 하는 승인자에 따라 결정 됩니다.
 
-Follow these steps to specify the approval settings for requests for the access package:
+액세스 패키지에 대 한 요청에 대 한 승인 설정을 지정 하려면 다음 단계를 수행 합니다.
 
-1. To require approval for requests from the selected users, set the **Require approval** toggle to **Yes**. Or, to have requests automatically approved, set the toggle to **No**.
+1. 선택한 사용자의 요청에 대 한 승인을 요청 하려면 **승인 필요** 를 **예**로 설정 합니다. 또는 요청을 자동으로 승인 하려면 토글을 **아니요**로 설정 합니다.
 
-1. To require users to provide a justification to request the access package, set the **Require requestor justification** toggle to **Yes**.
+1. 사용자가 액세스 패키지를 요청 하는 근거를 제공 하도록 요구 하려면 **요청자 사유 필요** 를 **예**로 설정 합니다.
     
-1. Now determine if requests will require single or 2-stage approval. Set the **How many stages** toggle to **1** for single stage approval or set the toggle to **2** for 2-stage approval.
+1. 이제 요청에 단일 또는 2 단계 승인이 필요한 지 확인 합니다. 단일 단계 승인에 대해 **단계 수** 를 **1** 로 설정 하거나 2 단계 승인의 경우 토글을 **2** 로 설정 합니다.
 
-    ![Access package - Requests - Approval settings](./media/active-directory-entitlement-management-request-policy/approval.png)
+    ![액세스 패키지-요청-승인 설정](./media/active-directory-entitlement-management-request-policy/approval.png)
 
 
-Use the following steps to add approvers after selecting how many stages you require: 
+다음 단계를 사용 하 여 필요한 단계 수를 선택한 후 승인자를 추가 합니다. 
 
-### <a name="single-stage-approval"></a>Single-stage approval
+### <a name="single-stage-approval"></a>단일 단계 승인
 
-1. Add the **First Approver**:
+1. **첫 번째 승인자**를 추가 합니다.
     
-    If the policy is set to govern access for users in your directory, you can select **Manager as approver**. Or, add a specific user by clicking **Add approvers** after selecting Choose specific approvers from the dropdown menu.
+    디렉터리의 사용자에 대 한 액세스를 제어 하도록 정책이 설정 된 경우 **관리자를 승인자로**선택할 수 있습니다. 또는 드롭다운 메뉴에서 특정 승인자 선택을 선택한 후 **승인자 추가** 를 클릭 하 여 특정 사용자를 추가 합니다.
     
-    ![Access package - Requests - For users in directory - First Approver](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
+    ![액세스 패키지-요청-디렉터리 우선 승인자의 사용자 용](./media/active-directory-entitlement-management-request-policy/approval-single-stage-first-approver-manager.png)
 
-    If this policy is set to govern access for users not in your directory, you can select **External sponsor** or **Internal sponsor**. Or, add a specific user by clicking **Add approvers** or groups under Choose specific approvers.
+    이 정책이 디렉터리에 없는 사용자에 대 한 액세스를 제어 하도록 설정 된 경우 **외부 스폰서** 또는 **내부 스폰서**를 선택할 수 있습니다. 또는 특정 승인자 선택에서 승인자 또는 그룹 **추가** 를 클릭 하 여 특정 사용자를 추가 합니다.
     
-    ![Access package - Requests - For users out of directory - First Approver](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
+    ![액세스 패키지-요청-사용자에 대 한 디렉터리 우선 승인자](./media/active-directory-entitlement-management-request-policy/out-directory-first-approver.png)
     
-1. If you selected **Manager** as the first approver, click **Add fallback** to select one or more users or groups in your directory to be a fallback approver. Fallback approvers receive the request if entitlement management can't find the manager for the user requesting access.
+1. 첫 번째 승인자로 **관리자** 를 선택한 경우 대체 ( **fallback) 추가** 를 클릭 하 여 대체 승인자가 될 디렉터리에서 하나 이상의 사용자 또는 그룹을 선택 합니다. 자격 관리 승인자는 액세스를 요청 하는 사용자에 대 한 관리자를 찾을 수 없는 경우 요청을 받습니다.
 
-    The manager is found by entitlement management using the **Manager** attribute. The attribute is in the user's profile in Azure AD. For more information, see [Add or update a user's profile information using Azure Active Directory](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
+    관리자는 **관리자** 특성을 사용 하 여 권한 관리에서 찾을 수 있습니다. 특성은 Azure AD의 사용자 프로필에 있습니다. 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자의 프로필 정보 추가 또는 업데이트](../articles/active-directory/fundamentals/active-directory-users-profile-azure-portal.md)를 참조 하세요.
 
-1. If you selected **Choose specific approvers**, click **Add approvers** to select one or more users or groups in your directory to be approvers.
+1. **특정 승인자 선택**을 선택한 경우 승인자 **추가** 를 클릭 하 여 승인자가 될 디렉터리에서 하나 이상의 사용자 또는 그룹을 선택 합니다.
 
-1. In the box under **Decision must be made in how many days?** , specify the number of days that an approver has to review a request for this access package.
+1. 결정 아래의 상자에서 **일 수를 결정 해야 합니다**. 상자에서 승인자가이 액세스 패키지에 대 한 요청을 검토 해야 하는 일 수를 지정 합니다.
 
-    If a request isn't approved within this time period, it will be automatically denied. The user will have to submit another request for the access package.
+    이 기간 내에 승인 되지 않은 요청은 자동으로 거부 됩니다. 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다.
 
-1. To require approvers to provide a justification for their decision, set Require approver justification to **Yes**.
+1. 승인자가 결정에 대 한 근거를 제공 하도록 요구 하려면 승인자 사유 필요를 **예**로 설정 합니다.
 
-    The justification is visible to other approvers and the requestor.
+    다른 승인자 및 요청자에 게 근거를 표시 합니다.
 
-### <a name="2-stage-approval-preview"></a>2-stage approval (Preview)
+### <a name="2-stage-approval-preview"></a>2 단계 승인 (미리 보기)
 
-If you selected a 2-stage approval, you'll need to add a second approver.
+2 단계 승인을 선택한 경우 두 번째 승인자를 추가 해야 합니다.
 
-1. Add the **Second Approver**: 
+1. **두 번째 승인자**를 추가 합니다. 
     
-    If the users are in your directory, add a specific user as the second approver by clicking **Add approvers** under Choose specific approvers.
+    사용자가 디렉터리에 있는 경우 특정 승인자 선택에서 **승인자 추가** 를 클릭 하 여 두 번째 승인자로 특정 사용자를 추가 합니다.
 
-    ![Access package - Requests - For users in directory - Second Approver](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
+    ![액세스 패키지-요청-디렉터리-초 승인자의 사용자](./media/active-directory-entitlement-management-request-policy/in-directory-second-approver.png)
 
-    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the second approver. After selecting the approver, add the fallback approvers.
+    사용자가 디렉터리에 없는 경우 **내부 스폰서** 또는 **외부 스폰서** 를 두 번째 승인자로 선택 합니다. 승인자를 선택한 후 대체 승인자를 추가 합니다.
 
-    ![Access package - Requests - For users out of directory - Second Approver](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
+    ![액세스 패키지-요청-사용자에 대 한 디렉터리-초 승인자](./media/active-directory-entitlement-management-request-policy/out-directory-second-approver.png) 
 
-1. Specify the number of days the second approver has to approve the request in the box under **Decision must be made in how many days?** . 
+1. 두 번째 승인자가 결정 하는 상자에서 요청을 승인 **해야**하는 일 수를 지정 합니다. 
 
-1. Set the Require approver justification toggle to **Yes** or **No**.
+1. 승인자 사유 필요를 **예** 또는 **아니요**로 설정 합니다.
 
-### <a name="alternate-approvers"></a>Alternate approvers
+### <a name="alternate-approvers"></a>대체 승인자
 
-You can specify alternate approvers, similar to specifying the first and second approvers who can approve requests. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers the first approver and second approver for 2-stage approval. 
+요청을 승인할 수 있는 첫 번째와 두 번째 승인자를 지정 하는 것과 유사 하 게 대체 승인자를 지정할 수 있습니다. 대체 승인자가 있으면 요청이 만료 되기 전에 승인 또는 거부 되는지 확인 하는 데 도움이 됩니다 (시간 제한). 2 단계 승인에 대해 첫 번째 승인자와 두 번째 승인자 인 대체 승인자를 나열할 수 있습니다. 
 
-By specifying alternate approvers, in the event that the first or second approvers were unable to approve or deny the request, the pending request gets forwarded to the alternate approvers, per the forwarding schedule you specified during policy setup. They receive an email to approve or deny the pending request.
+첫 번째 또는 두 번째 승인자가 요청을 승인 하거나 거부할 수 없는 경우 대체 승인자를 지정 하 여 보류 중인 요청을 정책 설정 중에 지정한 전달 일정에 따라 대체 승인자에 게 전달 합니다. 보류 중인 요청을 승인 하거나 거부 하는 전자 메일을 받습니다.
 
-After the request is forwarded to the alternate approvers, the first or second approvers can still approve or deny the request. Alternate approvers use the same My Access site to approve or deny the pending request.
+요청을 대체 승인자에 게 전달한 후에는 첫 번째 또는 두 번째 승인자가 요청을 승인 하거나 거부할 수 있습니다. 대체 승인자는 동일한 내 액세스 사이트를 사용 하 여 보류 중인 요청을 승인 하거나 거부 합니다.
 
-We can list people or groups of people to be approvers and alternate approvers. Please ensure that you list different sets of people to be the first, second, and alternate approvers.
-For example, if you listed Alice and Bob as the First Approver(s), list Carol and Dave as the alternate approvers. Use the following steps to add alternate approvers to an access package:
+승인자 및 대체 승인자가 될 사람 또는 사람 그룹을 나열할 수 있습니다. 첫 번째, 두 번째 및 대체 승인자가 될 여러 사용자 집합을 나열 하세요.
+예를 들어 첫 번째 승인자로 Alice와 Bob을 나열 하는 경우 대체 승인자에 게 고 Dave를 나열 합니다. 다음 단계를 사용 하 여 액세스 패키지에 대체 승인자를 추가 합니다.
 
-1. Under the First Approver, Second Approver, or both, click **Show advanced request settings**.
+1. 첫 번째 승인자, 두 번째 승인자 또는 둘 다에서 **고급 요청 설정 표시**를 클릭 합니다.
 
-    ![Access package - Policy - Show advanced request settings](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
+    ![액세스 패키지-정책-고급 요청 설정 표시](./media/active-directory-entitlement-management-request-policy/alternate-approvers-click-advanced-request.png)
 
-1. Set **If no action taken, forward to alternate approvers?** toggle to **Yes**.
+1. **수행 된 작업이 없는 경우를 설정 하 고, 다른 승인자에 게 전달 하 시겠습니까?** **예**로 전환 합니다.
 
-1. Click **Add alternate approvers** and select the alternate approver(s) from the list.
+1. **대체 승인자 추가** 를 클릭 하 고 목록에서 대체 승인자를 선택 합니다.
 
-    ![Access package - Policy - Add Alternate Approvers](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
+    ![액세스 패키지-정책-대체 승인자 추가](./media/active-directory-entitlement-management-request-policy/alternate-approvers-add.png)
 
-1. In the **Forward to alternate approver(s) after how many days** box, put in the number of days the approvers have to approve or deny a request. If no approvers have approved or denied the request before the request duration, the request expires (timeout), and the user will have to submit another request for the access package. 
+1. **남은 승인자 (일 수) 후의 대체 승인자** 에서 요청을 승인 하거나 거부 해야 하는 일 수를 입력 합니다. 요청 기간 전에 요청을 승인 하거나 거부 한 승인자가 없는 경우 요청은 만료 됩니다 (시간 제한). 사용자는 액세스 패키지에 대 한 다른 요청을 제출 해야 합니다. 
 
-    Requests can only be forwarded to alternate approvers a day after the request duration reaches half-life. In this example, the duration of the request is 14 days. So, the request duration reaches half-life at day 7. So the request can't be forwarded earlier than day 8. Also, requests can't be forwarded on the last day of the request duration. So in the example, the latest the request can be forwarded is day 13.
+    요청 기간이 반기에 도달 하면 하루 종일 요청을 대체 승인자에 게 전달할 수 있습니다. 이 예제에서 요청 기간은 14 일입니다. 따라서 요청 기간은 7 일에 반기에 도달 합니다. 따라서 요청을 8 일 이전에 전달할 수 없습니다. 또한 요청 기간의 마지막 날에 요청을 전달할 수 없습니다. 따라서이 예제에서는 최신 요청을 전달할 수 있습니다.
 
-## <a name="enable-requests"></a>Enable requests
+## <a name="enable-requests"></a>요청 사용
 
-1. If you want the access package to be made immediately available for users in the request policy to request, click **Yes** to enable.
+1. 요청할 요청 정책에 있는 사용자가 액세스 패키지를 즉시 사용할 수 있도록 하려면 **예** 를 클릭 하 여 사용 하도록 설정 합니다.
 
-    You can always enable it in the future after you have finished creating the access package.
+    액세스 패키지 만들기를 완료 한 후에는 나중에 언제 든 지 사용할 수 있습니다.
 
-    If you selected **None (administrator direct assignments only)** and you set enable to **No**, then administrators can't directly assign this access package.
+    **없음 (관리자 직접 할당에만 해당)** 을 선택 하 고 사용을 **아니요**로 설정 하면 관리자가이 액세스 패키지를 직접 할당할 수 없습니다.
 
-    ![Access package - Policy- Enable policy setting](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
+    ![액세스 패키지-정책-정책 설정 사용](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. **다음**을 누릅니다.

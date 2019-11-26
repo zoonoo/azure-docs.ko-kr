@@ -12,7 +12,7 @@ author: cody-dkdc
 ms.date: 11/04/2019
 ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
 ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74276769"
@@ -45,7 +45,7 @@ Azure Machine Learning를 사용 하 여 데이터 드리프트는 데이터 집
 
 ## <a name="prerequisites"></a>선행 조건
 
-- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure 구독. 계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Python용 Azure Machine Learning SDK가 설치되었습니다. [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)의 지침에 따라 다음 작업을 수행합니다.
 

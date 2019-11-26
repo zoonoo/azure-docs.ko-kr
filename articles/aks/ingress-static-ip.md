@@ -392,7 +392,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 - [투구 CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
-- [cert-manager][cert-manager]
+- [인증서-관리자][cert-manager]
 
 또한 다음을 수행할 수 있습니다.
 

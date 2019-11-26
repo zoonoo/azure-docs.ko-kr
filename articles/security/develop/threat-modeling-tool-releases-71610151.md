@@ -21,39 +21,39 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233832"
 ---
-# <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool update release 7.1.61015.1 - 10/16/2019
+# <a name="threat-modeling-tool-update-release-71610151---10162019"></a>Threat Modeling Tool 업데이트 릴리스 7.1.61015.1 - 2019/10/16
 
-Version 7.1.61015.1 of the Microsoft Threat Modeling Tool (TMT) was released on October 16 2019 and contains the following changes:
+TMT (Microsoft Threat Modeling Tool 버전 7.1.61015.1)는 10 월 16 2019 일에 출시 되었으며 다음과 같은 변경 내용이 포함 되어 있습니다.
 
-- Accessibility improvements
+- 내게 필요한 옵션 개선 사항
 - 버그 수정
-- New stencils for Azure Logic Apps and Azure Data Explorer
+- Azure Logic Apps 및 Azure 데이터 탐색기에 대 한 새 스텐실
 
-## <a name="notable-bug-fixes"></a>Notable bug fixes
+## <a name="notable-bug-fixes"></a>주목할 만한 버그 수정
 
-### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>Improved backward compatibility with files created in "Threat Modeling Tool 2016"
+### <a name="improved-backward-compatibility-with-files-created-in-threat-modeling-tool-2016"></a>"Threat Modeling Tool 2016"에서 만든 파일과의 이전 버전과의 호환성이 향상 되었습니다.
 
-Several bugs related to the opening or display of threat model files created in "Threat Modeling Tool 2016" have been fixed.
+"Threat Modeling Tool 2016"에서 만든 위협 모델 파일의 열거나 표시와 관련 된 몇 가지 버그가 수정 되었습니다.
 
-## <a name="feature-enhancements"></a>Feature enhancements
+## <a name="feature-enhancements"></a>향상 된 기능
 
-### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>New stencils for Azure Logic Apps and Azure Data Explorer
+### <a name="new-stencils-for-azure-logic-apps-and-azure-data-explorer"></a>Azure Logic Apps 및 Azure 데이터 탐색기에 대 한 새 스텐실
 
-New stencils for Azure Logic Apps and Azure Data Explorer were added to the Azure Stencil along with their associated threats and mitigations.
+Azure Logic Apps 및 Azure 데이터 탐색기에 대 한 새 스텐실이 관련 위협과 완화와 함께 Azure 스텐실에 추가 되었습니다.
 
-![Azure Logic Apps and Azure Data Explorer Stencils](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
+![Azure Logic Apps 및 Azure 데이터 탐색기 스텐실](./media/threat-modeling-tool-releases-71610151/tmt-logic-apps.png)
 
 ## <a name="known-issues"></a>알려진 문제
 
-### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>Errors related to priority values outside of the expected ranges
+### <a name="errors-related-to-priority-values-outside-of-the-expected-ranges"></a>예상 범위를 벗어난 우선 순위 값과 관련 된 오류
 
-Some customers have reported receiving the following error message when opening files created in the "Threat Modeling Tool 2016" or custom templates:
+일부 고객은 "Threat Modeling Tool 2016" 또는 사용자 지정 템플릿에서 생성 된 파일을 열 때 다음 오류 메시지를 보고 했습니다.
 
     System.InvalidOperationException: Invalid Priority value. Accepted values are [0..4] and 'High', 'Medium', 'Low' at ThreatModeling.Model.Threat.get_Priority()
     
     System.ArgumentOutOfRangeException: Accepted values are 'High', 'Medium', and 'Low' Parameter name: value Actual value was 5.6. at ThreatModeling.Model.Threat.set_Priority(String value)
 
-This issue is under investigation
+이 문제는 조사 중입니다.
 
 ## <a name="system-requirements"></a>시스템 요구 사항
 

@@ -1,7 +1,7 @@
 ---
-title: Configure load balancing and outbound rules by using Azure PowerShell
+title: Azure PowerShell를 사용 하 여 부하 분산 및 아웃 바운드 규칙 구성
 titleSuffix: Azure Load Balancer
-description: This article shows how to configure load balancing and outbound rules in Standard Load Balancer by using Azure PowerShell.
+description: 이 문서에서는 Azure PowerShell를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙을 구성 하는 방법을 보여 줍니다.
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -15,15 +15,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74225434"
 ---
-# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Configure load balancing and outbound rules in Standard Load Balancer by using Azure PowerShell
+# <a name="configure-load-balancing-and-outbound-rules-in-standard-load-balancer-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 표준 Load Balancer에서 부하 분산 및 아웃 바운드 규칙 구성
 
-This article shows you how to configure outbound rules in Standard Load Balancer by using Azure PowerShell.  
+이 문서에서는 Azure PowerShell를 사용 하 여 표준 Load Balancer에서 아웃 바운드 규칙을 구성 하는 방법을 보여 줍니다.  
 
-When you finish this article's scenario, the load balancer resource contains two front ends and their associated rules. You have one front end for inbound traffic and another front end for outbound traffic.  
+이 문서의 시나리오를 완료 하는 경우 부하 분산 장치 리소스에는 프런트 엔드 두 개와 연결 된 규칙이 포함 됩니다. 인바운드 트래픽에 대해 프런트 엔드가 하나 있고 아웃 바운드 트래픽에 대 한 다른 프런트 엔드가 있습니다.  
 
-Each front end references a public IP address. In this scenario, the public IP address for inbound traffic is different from the address for outbound traffic.   The load-balancing rule provides only inbound load balancing. The outbound rule controls the outbound network address translation (NAT) for the VM.  
+각 프런트 엔드는 공용 IP 주소를 참조 합니다. 이 시나리오에서 인바운드 트래픽에 대 한 공용 IP 주소는 아웃 바운드 트래픽의 주소와 다릅니다.   부하 분산 규칙은 인바운드 부하 분산만 제공 합니다. 아웃 바운드 규칙은 VM에 대 한 아웃 바운드 NAT (네트워크 주소 변환)를 제어 합니다.  
 
-The scenario uses two back-end pools: one for inbound traffic and one for outbound traffic. These pools illustrate capability and provide flexibility for the scenario.
+이 시나리오에서는 두 개의 백 엔드 풀을 사용 합니다. 하나는 인바운드 트래픽과 아웃 바운드 트래픽용으로 하나입니다. 이러한 풀은 기능을 설명 하 고 시나리오에 대 한 유연성을 제공 합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
@@ -37,7 +37,7 @@ Connect-AzAccount
 ```
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
-Create a resource group by using [New-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0). An Azure resource group is a logical container into which Azure resources are deployed. The resources are then managed from the group.
+[AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/new-azresourcegroup?view=azps-2.6.0)를 사용 하 여 리소스 그룹을 만듭니다. Azure 리소스 그룹은 Azure 리소스가 배포 되는 논리적 컨테이너입니다. 그런 다음 리소스는 그룹에서 관리 됩니다.
 
 다음 예제에서는 *eastus2* 위치에 *myresourcegroupoutbound*라는 리소스 그룹을 만듭니다.
 
@@ -45,7 +45,7 @@ Create a resource group by using [New-AzResourceGroup](https://docs.microsoft.co
 New-AzResourceGroup -Name myresourcegroupoutbound -Location eastus
 ```
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
-Create a virtual network named *myvnetoutbound*. Name its subnet *mysubnetoutbound*. Place it in *myresourcegroupoutbound* by using [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=azps-2.6.0) and [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=azps-2.6.0).
+*Myvnetoutbound*이라는 가상 네트워크를 만듭니다. 해당 서브넷의 이름을 *mysubnetoutbound*로 합니다. [AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork?view=azps-2.6.0) 및 [AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig?view=azps-2.6.0)를 사용 하 여 *myresourcegroupoutbound 바운드* 에 저장 합니다.
 
 ```azurepowershell-interactive
 $subnet = New-AzVirtualNetworkSubnetConfig -Name mysubnetoutbound -AddressPrefix "192.168.0.0/24"
@@ -53,19 +53,19 @@ $subnet = New-AzVirtualNetworkSubnetConfig -Name mysubnetoutbound -AddressPrefix
 New-AzVirtualNetwork -Name myvnetoutbound -ResourceGroupName myresourcegroupoutbound -Location eastus -AddressPrefix "192.168.0.0/16" -Subnet $subnet
 ```
 
-## <a name="create-an-inbound-public-ip-address"></a>Create an inbound public IP address 
+## <a name="create-an-inbound-public-ip-address"></a>인바운드 공용 IP 주소 만들기 
 
-To access your web app on the internet, you need a public IP address for the load balancer. Standard Load Balancer supports only standard public IP addresses. 
+인터넷에서 웹 앱에 액세스 하려면 부하 분산 장치에 대 한 공용 IP 주소가 필요 합니다. 표준 Load Balancer는 표준 공용 IP 주소만 지원 합니다. 
 
-Use [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0) to create a standard public IP address named *mypublicipinbound* in *myresourcegroupoutbound*.
+[AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0) 를 사용 하 여 *myresourcegroupoutbound*에 *mypublicipinbound* 이라는 표준 공용 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $pubIPin = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipinbound -AllocationMethod Static -Sku Standard -Location eastus
 ```
 
-## <a name="create-an-outbound-public-ip-address"></a>Create an outbound public IP address 
+## <a name="create-an-outbound-public-ip-address"></a>아웃 바운드 공용 IP 주소 만들기 
 
-Create a standard IP address for the load balancer's front-end outbound configuration by using [New-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0).
+[AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/new-azpublicipaddress?view=azps-2.6.0)를 사용 하 여 부하 분산 장치의 프런트 엔드 아웃 바운드 구성에 대 한 표준 IP 주소를 만듭니다.
 
 ```azurepowershell-interactive
 $pubIPout = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Name mypublicipoutbound -AllocationMethod Static -Sku Standard -Location eastus
@@ -73,37 +73,37 @@ $pubIPout = New-AzPublicIpAddress -ResourceGroupName myresourcegroupoutbound -Na
 
 ## <a name="create-an-azure-load-balancer"></a>Azure Load Balancer 만들기
 
-This section explains how to create and configure the following components of the load balancer:
-  - A front-end IP that receives the incoming network traffic on the load balancer
-  - A back-end pool where the front-end IP sends the load-balanced network traffic
-  - A back-end pool for outbound connectivity
-  - A health probe that determines the health of the back-end VM instances
-  - A load-balancer inbound rule that defines how traffic is distributed to the VMs
-  - A load-balancer outbound rule that defines how traffic is distributed from the VMs
+이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성 하는 방법을 설명 합니다.
+  - 부하 분산 장치에서 들어오는 네트워크 트래픽을 수신 하는 프런트 엔드 IP
+  - 프런트 엔드 IP가 부하 분산 된 네트워크 트래픽을 전송 하는 백 엔드 풀
+  - 아웃 바운드 연결용 백 엔드 풀
+  - 백 엔드 VM 인스턴스의 상태를 결정 하는 상태 프로브
+  - 트래픽을 Vm에 분산 하는 방법을 정의 하는 부하 분산 장치 인바운드 규칙
+  - Vm에서 트래픽이 분산 되는 방법을 정의 하는 부하 분산 장치 아웃 바운드 규칙
 
-### <a name="create-an-inbound-front-end-ip"></a>Create an inbound front-end IP
-Create the inbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). The load balancer should include an inbound front-end IP configuration named *myfrontendinbound*. Associate this configuration with the public IP address *mypublicipinbound*.
+### <a name="create-an-inbound-front-end-ip"></a>인바운드 프런트 엔드 IP 만들기
+[AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0)를 사용 하 여 부하 분산 장치에 대 한 인바운드 프런트 엔드 IP 구성을 만듭니다. 부하 분산 장치는 *myfrontendinbound*라는 인바운드 프런트 엔드 IP 구성을 포함 해야 합니다. 이 구성을 공용 IP 주소 *mypublicipinbound*연결 합니다.
 
 ```azurepowershell-interactive
 $frontendIPin = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendinbound" -PublicIpAddress $pubIPin
 ```
-### <a name="create-an-outbound-front-end-ip"></a>Create an outbound front-end IP
-Create the outbound front-end IP configuration for the load balancer by using [New-AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0). This load balancer should include an outbound front-end IP configuration named *myfrontendoutbound*. Associate this configuration with the public IP address *mypublicipoutbound*.
+### <a name="create-an-outbound-front-end-ip"></a>아웃 바운드 프런트 엔드 IP 만들기
+[AzLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerfrontendipconfig?view=azps-2.6.0)를 사용 하 여 부하 분산 장치에 대 한 아웃 바운드 프런트 엔드 IP 구성을 만듭니다. 이 부하 분산 장치는 *myfrontendoutbound*라는 아웃 바운드 프런트 엔드 IP 구성을 포함 해야 합니다. 이 구성을 공용 IP 주소 *mypublicipoutbound*연결 합니다.
 
 ```azurepowershell-interactive
 $frontendIPout = New-AzLoadBalancerFrontendIPConfig -Name "myfrontendoutbound" -PublicIpAddress $pubIPout
 ```
-### <a name="create-an-inbound-back-end-pool"></a>Create an inbound back-end pool
-Create the back-end inbound pool for the load balancer by using [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0). Name the pool *bepoolinbound*.
+### <a name="create-an-inbound-back-end-pool"></a>인바운드 백 엔드 풀 만들기
+[AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0)를 사용 하 여 부하 분산 장치에 대 한 백 엔드 인바운드 풀을 만듭니다. 풀 이름을 *bepoolinbound*로 합니다.
 
 ```azurepowershell-interactive
 $bepoolin = New-AzLoadBalancerBackendAddressPoolConfig -Name bepoolinbound
 ``` 
 
-### <a name="create-an-outbound-back-end-pool"></a>Create an outbound back-end pool
-Use the following command to create another back-end address pool to define outbound connectivity for a pool of VMs by using [New-AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0). Name this pool *bepooloutbound*. 
+### <a name="create-an-outbound-back-end-pool"></a>아웃 바운드 백 엔드 풀 만들기
+다음 명령을 사용 하 여 [AzLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig?view=azps-2.6.0)를 사용 하 여 vm의 풀에 대 한 아웃 바운드 연결을 정의 하는 다른 백 엔드 주소 풀을 만듭니다. 이 풀의 이름을 *bepooloutbound*로 합니다. 
 
-By creating a separate outbound pool, you provide maximum flexibility. But you can omit this step and use only the inbound *bepoolinbound* if you prefer.  
+별도의 아웃 바운드 풀을 만들면 최대한의 유연성을 제공 합니다. 하지만 원하는 경우이 단계를 생략 하 고 인바운드 *bepoolinbound* 만 사용할 수 있습니다.  
 
 ```azurepowershell-interactive
 $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
@@ -111,56 +111,56 @@ $bepoolout = New-AzLoadBalancerBackendAddressPoolConfig -Name bepooloutbound
 
 ### <a name="create-a-health-probe"></a>상태 프로브 만들기
 
-A health probe checks all VM instances to make sure they can send network traffic. The VM instance that fails the probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy. 
+상태 프로브는 모든 VM 인스턴스를 검사 하 여 네트워크 트래픽을 보낼 수 있는지 확인 합니다. 프로브 검사에 실패 한 VM 인스턴스는 다시 온라인 상태가 되 고 프로브 검사에서 정상 상태가 되는 것으로 확인 될 때까지 부하 분산 장치에서 제거 됩니다. 
 
-To monitor the health of the VMs, create a health probe by using [New-AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig?view=azps-2.6.0). 
+Vm의 상태를 모니터링 하려면 [AzLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerprobeconfig?view=azps-2.6.0)를 사용 하 여 상태 프로브를 만듭니다. 
 
 ```azurepowershell-interactive
 $probe = New-AzLoadBalancerProbeConfig -Name http -Protocol "http" -Port 80 -IntervalInSeconds 15 -ProbeCount 2 -RequestPath /
 ```
-### <a name="create-a-load-balancer-rule"></a>Create a load-balancer rule
+### <a name="create-a-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-A load-balancer rule defines the front-end IP configuration for the incoming traffic and the back-end pool to receive the traffic. It also defines the required source and destination port. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대 한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 풀을 정의 합니다. 또한 필요한 원본 및 대상 포트를 정의 합니다. 
 
-Create a load-balancer rule named *myinboundlbrule* by using [New-AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig?view=azps-2.6.0). This rule will listen to port 80 in the front-end pool *myfrontendinbound*. It will also use port 80 to send load-balanced network traffic to the back-end address pool *bepoolinbound*. 
+[AzLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancerruleconfig?view=azps-2.6.0)를 사용 하 여 *myinboundlbrule* 이라는 부하 분산 장치 규칙을 만듭니다. 이 규칙은 프런트 엔드 풀 *myfrontendinbound*에서 80 포트를 수신 대기 합니다. 또한 포트 80을 사용 하 여 부하 분산 된 네트워크 트래픽을 백 엔드 주소 풀 *bepoolinbound*에 전송 합니다. 
 
 ```azurepowershell-interactive
 $inboundRule = New-AzLoadBalancerRuleConfig -Name inboundlbrule -FrontendIPConfiguration $frontendIPin -BackendAddressPool $bepoolin -Probe $probe -Protocol "Tcp" -FrontendPort 80 -BackendPort 80 -IdleTimeoutInMinutes 15 -EnableFloatingIP -LoadDistribution SourceIP -DisableOutboundSNAT
 ```
 
 >[!NOTE]
->This load-balancing rule disables automatic outbound secure NAT (SNAT) because of the **-DisableOutboundSNAT** parameter. Outbound NAT is provided only by the outbound rule.
+>이 부하 분산 규칙은 **-disableoutboundsnat 추가 됨** 매개 변수로 인해 자동 아웃 바운드 SNAT (secure NAT)를 사용 하지 않도록 설정 합니다. 아웃 바운드 NAT는 아웃 바운드 규칙에 의해서만 제공 됩니다.
 
 ### <a name="create-an-outbound-rule"></a>아웃바운드 규칙 만들기
 
-An outbound rule defines the front-end public IP, which is represented by the front-end *myfrontendoutbound*. This front end will be used for all outbound NAT traffic as well as the back-end pool to which the rule applies.  
+아웃 바운드 규칙은 프런트 엔드 *myfrontendoutbound*으로 표현 되는 프런트 엔드 공용 IP를 정의 합니다. 이 프런트 엔드는 규칙이 적용 되는 백 엔드 풀 뿐만 아니라 모든 아웃 바운드 NAT 트래픽에 사용 됩니다.  
 
-Use the following command to create an outbound rule *myoutboundrule* for outbound network translation of all VMs (in NIC IP configurations) in the *bepool* back-end pool.  The command changes the outbound idle time-out from 4 to 15 minutes. It allocates 10,000 SNAT ports instead of 1,024. For more information, see [New-AzLoadBalancerOutboundRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalanceroutboundruleconfig?view=azps-2.7.0).
+다음 명령을 사용 하 여 *bepool* 백 엔드 풀에 있는 모든 VM (NIC IP 구성)의 아웃 바운드 네트워크 변환에 대 한 아웃 바운드 규칙 *myoutboundrule* 을 만듭니다.  이 명령은 아웃 바운드 유휴 시간 제한 시간을 4 분에서 15 분으로 변경 합니다. 1024 대신 1만 SNAT 포트를 할당 합니다. 자세한 내용은 [AzLoadBalancerOutboundRuleConfig](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalanceroutboundruleconfig?view=azps-2.7.0)를 참조 하세요.
 
 ```azurepowershell-interactive
  $outboundRule = New-AzLoadBalancerOutBoundRuleConfig -Name outboundrule -FrontendIPConfiguration $frontendIPout -BackendAddressPool $bepoolout -Protocol All -IdleTimeoutInMinutes 15 -AllocatedOutboundPort 10000
 ```
-If you don't want to use a separate outbound pool, you can change the address pool argument in the preceding command to specify *$bepoolin* instead.  We recommend using separate pools to make the resulting configuration flexible and readable.
+별도의 아웃 바운드 풀을 사용 하지 않으려면 앞의 명령에서 주소 풀 인수를 변경 하 여 *$bepoolin* 를 대신 지정할 수 있습니다.  별도의 풀을 사용 하 여 결과 구성을 유연 하 고 읽을 수 있도록 하는 것이 좋습니다.
 
 ### <a name="create-a-load-balancer"></a>부하 분산 장치 만들기
 
-Use the following command to create a load balancer for the inbound IP address by using [New-AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0). Name the load balancer *lb*. It should include an inbound front-end IP configuration. Its back-end pool *bepoolinbound* should be associated with the public IP address *mypublicipinbound* that you created in the preceding step.
+다음 명령을 사용 하 여 [AzLoadBalancer](https://docs.microsoft.com/powershell/module/az.network/new-azloadbalancer?view=azps-2.6.0)를 사용 하 여 인바운드 IP 주소에 대 한 부하 분산 장치를 만듭니다. 부하 분산 장치에 이름을 *lb*로 합니다. 인바운드 프런트 엔드 IP 구성을 포함 해야 합니다. 백 엔드 풀 *bepoolinbound* 은 이전 단계에서 만든 공용 IP 주소 *mypublicipinbound* 연결 해야 합니다.
 
 ```azurepowershell-interactive
 New-AzLoadBalancer -Name lb -Sku Standard -ResourceGroupName myresourcegroupoutbound -Location eastus -FrontendIpConfiguration $frontendIPin,$frontendIPout -BackendAddressPool $bepoolin,$bepoolout -Probe $probe -LoadBalancingRule $inboundrule -OutboundRule $outboundrule 
 ```
 
-At this point, you can continue adding your VMs to both *bepoolinbound* and *bepooloutbound* back-end pools by updating the IP configuration of the respective NIC resources. Update the resource configuration by using [Add-AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest).
+이 시점에서 각 NIC 리소스의 IP 구성을 업데이트 하 여 *bepoolinbound* 및 *bepoolinbound* 백 엔드 풀 모두에 vm을 계속 추가할 수 있습니다. [AzNetworkInterfaceIpConfig](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용 하 여 리소스 구성을 업데이트 합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-When you no longer need the resource group, load balancer, and related resources, you can remove them by using [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0).
+리소스 그룹, 부하 분산 장치 및 관련 리소스가 더 이상 필요 하지 않은 경우 [AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=azps-2.7.0)를 사용 하 여 제거할 수 있습니다.
 
 ```azurepowershell-interactive 
   Remove-AzResourceGroup -Name myresourcegroupoutbound
 ```
 
 ## <a name="next-steps"></a>다음 단계
-In this article, you created a standard load balancer, configured both inbound and outbound load-balancer traffic rules, and configured a health probe for the VMs in the back-end pool. 
+이 문서에서는 표준 부하 분산 장치를 만들고, 인바운드 및 아웃 바운드 부하 분산 장치 트래픽 규칙을 모두 구성 하 고, 백 엔드 풀의 Vm에 대 한 상태 프로브를 구성 했습니다. 
 
-To learn more, continue to the [tutorials for Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md).
+자세히 알아보려면 [Azure Load Balancer의 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)를 계속 진행 하세요.

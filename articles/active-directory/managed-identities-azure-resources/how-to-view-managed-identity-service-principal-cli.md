@@ -1,5 +1,5 @@
 ---
-title: View service principal of a managed identity - Azure CLI - Azure AD
+title: 관리 id의 서비스 사용자 보기-Azure CLI-Azure AD
 description: Azure CLI를 사용하여 관리 ID의 서비스 주체를 보기 위한 단계별 지침입니다.
 services: active-directory
 documentationcenter: ''
@@ -28,7 +28,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 이 문서에서는 Azure CLI를 사용하여 관리 ID의 서비스 주체를 보는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요.
 - 아직 Azure 계정이 없는 경우 [체험 계정에 가입](https://azure.microsoft.com/free/)합니다.
@@ -36,7 +36,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 - CLI 스크립트 예제는 다음의 세 가지 옵션 중 하나로 실행할 수 있습니다.
     - Azure Portal에서 [Azure Cloud Shell](../../cloud-shell/overview.md)을 사용합니다(다음 섹션 참조).
     - 각 코드 블록의 오른쪽 위에 있는 "사용해 보세요." 단추를 통해 포함된 Azure Cloud Shell을 사용합니다.
-    - 로컬 CLI 콘솔을 사용하고 `az login`을 사용하여 Azure에 로그인하려는 경우 [Azure CLI의 최신 버전을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
+    - 로컬 CLI 콘솔을 사용하고 [을 사용하여 Azure에 로그인하려는 경우 ](https://docs.microsoft.com/cli/azure/install-azure-cli)Azure CLI의 최신 버전을 설치`az login`합니다.
  
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

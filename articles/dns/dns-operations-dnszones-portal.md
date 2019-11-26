@@ -22,7 +22,7 @@ ms.locfileid: "74211905"
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Azure Portal에서 DNS 영역을 관리하는 방법
 
 > [!div class="op_single_selector"]
-> * [Portal](dns-operations-dnszones-portal.md)
+> * [포털](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure 클래식 CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Azure CLI](dns-operations-dnszones-cli.md)
@@ -31,7 +31,7 @@ ms.locfileid: "74211905"
 
 ## <a name="create-a-dns-zone"></a>DNS 영역 만들기
 
-1. Azure Portal에 로그인
+1. Azure 포털에 로그인합니다.
 2. 허브 메뉴에서 **리소스 만들기 > 네트워킹 > DNS 영역**으로 이동하여 **DNS 영역 만들기** 블레이드를 엽니다.
 
     ![DNS 영역](./media/dns-operations-dnszones-portal/openzone650.png)

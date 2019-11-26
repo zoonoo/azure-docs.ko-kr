@@ -1,7 +1,7 @@
 ---
 title: 내부 기본 Load Balancer 만들기 - Azure CLI
 titleSuffix: Azure Load Balancer
-description: In this article, learn how to create an internal load balancer using Azure CLI
+description: 이 문서에서는 Azure CLI를 사용 하 여 내부 부하 분산 장치를 만드는 방법을 알아봅니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -26,7 +26,7 @@ ms.locfileid: "74215327"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서에서는 Azure CLI 버전 2.0.28 이상을 실행해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -41,7 +41,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ```
 ## <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](https://docs.microsoft.com/cli/azure/network/vnet) 명령을 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 *myVnet*이라는 가상 네트워크를 만듭니다.
+*az network vnet create* 명령을 사용하여 *myResourceGroup*에 *mySubnet*이라는 서브넷이 있는 [myVnet](https://docs.microsoft.com/cli/azure/network/vnet)이라는 가상 네트워크를 만듭니다.
 
 ```azurecli-interactive
   az network vnet create \
@@ -52,15 +52,15 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 ```
 ## <a name="create-basic-load-balancer"></a>기본 부하 분산 장치 만들기
 
-이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
+이 섹션에서는 부하 분산 장치의 다음 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다.
   - 부하 분산 장치에서 들어오는 네트워크 트래픽을 받는 프런트 엔드 IP 구성
-  - 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 보내는 백 엔드 IP 풀
+  - 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 전송하는 백 엔드 IP 풀.
   - 백 엔드 VM 인스턴스의 상태를 확인하는 상태 프로브
   - 트래픽이 VM에 분산되는 방법을 정의하는 부하 분산 장치 규칙
 
 ### <a name="create-the-load-balancer"></a>부하 분산 장치 만들기
 
-Create an internal Load Balancer with [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) named **myLoadBalancer** that includes a frontend IP configuration named **myFrontEnd**, a back-end pool named **myBackEndPool** that is associated with a private IP address **10.0.0.7.
+**Myloadbalancer**엔드 라는 프런트 엔드 IP 구성을 포함 하는 **myloadbalancer** 라는 [az network lb create](https://docs.microsoft.com/cli/azure/network/lb?view=azure-cli-latest) 를 사용 하 여 내부 Load Balancer를 만듭니다. 여기에는 개인 IP 주소 * * 10.0.0.7와 연결 된 **myBackEndPool** 라는 백 엔드 풀이 포함 됩니다.
 
 ```azurecli-interactive
   az network lb create \
@@ -74,7 +74,7 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
   ```
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 
-상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest) 명령을 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
+상태 프로브는 모든 가상 머신 인스턴스를 검사하여 네트워크 트래픽을 받을 수 있는지 확인합니다. 프로브 검사에 실패한 가상 머신 인스턴스는 다시 온라인 상태가 되어 프로브 검사가 정상으로 나올 때까지 부하 분산 장치에서 제거됩니다. [az network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe?view=azure-cli-latest)를 사용하여 가상 머신의 상태를 모니터링하는 상태 프로브를 만듭니다. 
 
 ```azurecli-interactive
   az network lb probe create \
@@ -87,7 +87,7 @@ Create an internal Load Balancer with [az network lb create](https://docs.micros
 
 ### <a name="create-the-load-balancer-rule"></a>부하 분산 장치 규칙 만들기
 
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest)를 사용하여 *myFrontEnd* 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. *az network lb rule create*를 사용하여 [myFrontEnd](https://docs.microsoft.com/cli/azure/network/lb/rule?view=azure-cli-latest) 프런트 엔드 풀의 80 포트에서 수신 대기하고, 마찬가지로 80 포트를 통해 부하 분산된 네트워크 트래픽을 *myBackEndPool* 백 엔드 주소 풀에 보내는 *myHTTPRule* 부하 분산 장치 규칙을 만듭니다. 
 
 ```azurecli-interactive
   az network lb rule create \

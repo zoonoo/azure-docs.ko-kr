@@ -62,7 +62,7 @@ Azure Media Services [자산](https://docs.microsoft.com/rest/api/media/assets) 
 > [!NOTE]
 > Datetime 형식의 자산 속성은 항상 UTC 형식입니다.
 
-#### <a name="rest"></a>REST(영문)
+#### <a name="rest"></a>REST
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01

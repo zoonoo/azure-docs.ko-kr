@@ -27,7 +27,7 @@ ms.locfileid: "74232443"
 
 ## <a name="dynatrace"></a>Dynatrace
 
-Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. Check out more of the features listed in the [announcement](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) and [instructions](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) to enable Dynatrace on your cluster. 
+Dynatrace와의 통합은 Service Fabric 클러스터를 모니터링하는 대부분의 기본 제공 기능을 제공합니다. VMSS 인스턴스에 Dynatrace OneAgent를 설치하면 해당 앱 수준까지 성능 카운터 및 Service Fabric 배포의 토폴로지를 제공합니다. Dynatrace는 온-프레미스 모니터링에도 적합합니다. 클러스터에서 Dynatrace를 사용 하도록 설정 하려면 [공지 사항](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 및 [지침](https://www.dynatrace.com/news/blog/automatic-end-to-end-service-fabric-monitoring-with-dynatrace/) 에 나열 된 기능을 자세히 확인 하세요. 
 
 ## <a name="datadog"></a>Datadog
 
@@ -47,7 +47,7 @@ ELK 스택은 오픈 소스 기술의 컬렉션입니다. Elasticsearch, Logstas
 
 ## <a name="humio"></a>Humio
 
-Humio is a log collection service that can gather logs from your applications and events from Service Fabric in the cloud or on-premises in real time. In addition to live observability, Humio offers state of the art analysis and visualization capabilities for viewing and collecting insights from your diagnostics. Humio has cost effective pricing plans and is built to scale while retaining it's lightening fast speed. It directly integrates with Service Fabric platform events and Application telemetry. You can read more about the Humio and Service Fabric integration [here](https://github.com/humio/service-fabric-humio).
+Humio은 클라우드 또는 온-프레미스의 Service Fabric에서 응용 프로그램 및 이벤트의 로그를 실시간으로 수집할 수 있는 로그 수집 서비스입니다. Live 관찰성 외에도 Humio는 진단에서 정보를 보고 수집 하기 위한 art 분석 및 시각화 기능의 상태를 제공 합니다. Humio는 비용 효율적인 요금제를 보유 하 고 있으며 빠른 속도를 유지 하면서 확장할 수 있습니다. Service Fabric 플랫폼 이벤트와 응용 프로그램 원격 분석과 직접 통합 됩니다. [여기](https://github.com/humio/service-fabric-humio)에서 Humio 및 Service Fabric 통합에 대해 자세히 알아볼 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

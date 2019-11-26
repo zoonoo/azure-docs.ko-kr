@@ -301,7 +301,7 @@ SAP를 설정 하 여 일괄 처리 또는 IDOCs 그룹인 [패킷으로 IDOCs�
 
 1. 시작 하기 전에 SAP 트리거를 사용 하는 논리 앱이 필요 합니다. 이 논리 앱이 아직 없는 경우이 항목의 이전 단계를 수행 하 여 [SAP 트리거를 사용 하 여 논리 앱을 설정](#receive-from-sap)합니다.
 
-   예:
+   예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    ![논리 앱에 SAP 트리거 추가](./media/logic-apps-using-sap-connector/first-step-trigger.png)
 

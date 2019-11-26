@@ -1,6 +1,6 @@
 ---
-title: Manage your connected devices from the My Account portal - Azure AD
-description: How to view and disable devices connected to your work or school account from the Devices page of the My Account portal.
+title: 내 계정 포털에서 연결 된 장치 관리-Azure AD
+description: 내 계정 포털의 장치 페이지에서 회사 또는 학교 계정에 연결 된 장치를 확인 하 고 사용 하지 않도록 설정 하는 방법입니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -19,13 +19,13 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233212"
 ---
-# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>Manage devices connected to your work or school account from the Devices page
+# <a name="manage-devices-connected-to-your-work-or-school-account-from-the-devices-page"></a>장치 페이지에서 회사 또는 학교 계정에 연결 된 장치 관리
 
-From the **Devices** page of the **My Account** portal, you can:
+**내 계정** 포털의 **장치** 페이지에서 다음을 수행할 수 있습니다.
 
-- View your work or school account-connected devices.
+- 회사 또는 학교 계정에 연결 된 장치를 확인 합니다.
 
-- Disable any devices you no longer own, have lost, or that have been stolen.
+- 더 이상 소유 하지 않거나 분실 하거나 도난당 한 장치를 사용 하지 않도록 설정 합니다.
 
 ## <a name="view-your-connected-devices"></a>연결된 디바이스 보기
 
@@ -33,7 +33,7 @@ From the **Devices** page of the **My Account** portal, you can:
 
 2. 왼쪽 탐색 창에서 **디바이스**를 선택하거나 **디바이스** 블록에서 **디바이스 관리** 링크를 선택합니다.
 
-    ![My Account page, showing highlighted Devices links](media/my-account-portal/my-account-portal-devices.png)
+    ![내 계정 페이지, 강조 표시 된 장치 링크 표시](media/my-account-portal/my-account-portal-devices.png)
 
 3. 연결된 디바이스에 대한 정보를 검토하여 모든 디바이스를 인식하는지 확인합니다.
 
@@ -41,7 +41,7 @@ From the **Devices** page of the **My Account** portal, you can:
 
 ## <a name="disable-a-device"></a>디바이스 사용 안 함
 
-언제든지 연결된 디바이스를 비활성화할 수 있습니다. 디바이스가 익숙하지 않거나 디바이스를 분실 또는 도난당한 경우에 특히 중요합니다. After you disable a device, it can no longer be authenticated by your organization, and will be unable to access any of your organization's resources.
+언제든지 연결된 디바이스를 비활성화할 수 있습니다. 디바이스가 익숙하지 않거나 디바이스를 분실 또는 도난당한 경우에 특히 중요합니다. 장치를 사용 하지 않도록 설정한 후에는 조직에서 더 이상 인증할 수 없으며 조직의 리소스에 액세스할 수 없습니다.
 
 >[!Important]
 >실수로 디바이스를 사용 중지하면 실행 취소할 수 없습니다. 디바이스를 추가하려면 조직의 관리자에게 문의해야 합니다.
@@ -52,24 +52,24 @@ From the **Devices** page of the **My Account** portal, you can:
 
 2. **예**를 선택하여 디바이스를 사용하지 않도록 설정할지 확인합니다.
 
-## <a name="view-a-bitlocker-key"></a>View a BitLocker key
+## <a name="view-a-bitlocker-key"></a>BitLocker 키 보기
 
-If you're locked out of your device or have a fatal error, you can go to another device and view your BitLocker key from the **My Account** portal.
+장치를 잠그거나 오류가 발생 한 경우 다른 장치로 이동 하 여 **내 계정** 포털에서 BitLocker 키를 볼 수 있습니다.
 
-1. On another device, where you're not locked out, go to the **Devices** page of the **My Account** portal.
+1. 잠겨 있지 않은 다른 장치에서 **내 계정** 포털의 **장치** 페이지로 이동 합니다.
 
-    ![Device page with BitLocker key option](media/my-account-portal/my-account-portal-devices-bitlocker.png)
+    ![BitLocker 키가 있는 장치 페이지 옵션](media/my-account-portal/my-account-portal-devices-bitlocker.png)
 
-2. Select **View Bitlocker Keys** for the locked out device and write down the BitLocker key for your locked device.
+2. 잠긴 장치에 대 한 **Bitlocker 키 보기** 를 선택 하 고 잠긴 장치에 대 한 bitlocker 키를 적어둡니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-After viewing your connected devices, you can:
+연결 된 장치를 확인 한 후 다음을 수행할 수 있습니다.
 
-- Select to view or manage your [security info](user-help-security-info-overview.md).
+- [보안 정보](user-help-security-info-overview.md)를 보거나 관리 하려면 선택 합니다.
 
-- View and manage your [organizations](my-account-portal-organizations-page.md).
+- [조직을](my-account-portal-organizations-page.md)보고 관리 합니다.
 
-- View your [sign-in activity](my-account-portal-sign-ins-page.md).
+- [로그인 활동](my-account-portal-sign-ins-page.md)을 봅니다.
 
-- View how your organization [uses your privacy-related data](my-account-portal-privacy-page.md).
+- 조직에서 [개인 정보 관련 데이터를 사용](my-account-portal-privacy-page.md)하는 방법을 확인 합니다.

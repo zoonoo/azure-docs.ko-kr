@@ -101,7 +101,7 @@ Google 게스트 사용자에 게 응용 프로그램 또는 리소스에 대 �
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
 2. 다음 명령을 실행합니다. `Connect-AzureAD`
 3. 로그인 프롬프트에서 관리되는 글로벌 관리자 계정으로 로그인합니다.  
-4. 다음 명령을 실행합니다. 
+4. 다음 명령 실행: 
    
    `New-AzureADMSIdentityProvider -Type Google -Name Google -ClientId [Client ID] -ClientSecret [Client secret]`
  

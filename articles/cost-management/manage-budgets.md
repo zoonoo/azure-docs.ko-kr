@@ -1,5 +1,5 @@
 ---
-title: Manage Cloudyn budgets in Azure
+title: Azure에서 Cloudyn 예산 관리
 description: 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
 services: cost-management
 keywords: ''
@@ -54,7 +54,7 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 
 ## <a name="view-budget-in-reports"></a>보고서의 예산 보기
 
-When completed, your budget is shown in most Cost reports under **Costs** &gt; **Cost Analysis** and in the Cost vs. Budget Over Time report. 또한 **작업**을 사용하여 예산 임계값을 기반으로 보고서를 예약할 수 있습니다.
+완료 되 **면 비용은 비용 &gt;** **비용 분석** 및 시간에 따른 비용 및 시간당 예산 보고서에서 대부분의 비용 보고서에 표시 됩니다. 또한 **작업**을 사용하여 예산 임계값을 기반으로 보고서를 예약할 수 있습니다.
 
 다음은 비용 분석 보고서의 예입니다. 해당 연도가 시작된 이후 총 예산 및 비용을 워크로드 및 사용 현황 유형별로 보여 줍니다.
 
@@ -64,7 +64,7 @@ When completed, your budget is shown in most Cost reports under **Costs** &gt; *
 
 보고서를 보는 다른 방법은 누적된 비용 대 예산을 살펴보는 것입니다. 누적된 비용을 확인하려면 **필드 표시/숨기기**에서 **누적 비용** 및 **총 예산**을 선택합니다. 해당 연도가 시작된 이후 누적된 비용을 보여 주는 예제는 다음과 같습니다.
 
-![Example accumulated cost and total budget shown in the Cost vs. Budget Over Time report](./media/manage-budgets/accumulated-budget.png)
+![비용 대비 시간당 예산 보고서에 표시 되는 누적 비용 및 총 예산 예제](./media/manage-budgets/accumulated-budget.png)
 
 나중에 누적된 비용이 예산을 초과할 수도 있습니다. 차트 뷰를 _꺾은선형_ 유형으로 변경하면 더 쉽게 확인할 수 있습니다.
 
@@ -79,7 +79,7 @@ When completed, your budget is shown in most Cost reports under **Costs** &gt; *
 
 예제를 살펴보겠습니다.
 
-In the Cost vs. Budget Over Time report, click **Actions** and then select **Schedule report**. 임계값 탭에서 임계값 메트릭을 선택합니다. 예를 들어 **비용 백분율 대 예산**을 선택합니다. 경고 유형을 선택하고 예산의 백분율 값을 입력합니다. 한 번만 알림을 수신하도록 하려면 **연속 경고 수**를 선택한 다음, _1_을 입력합니다. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+비용 대비 시간당 예산 보고서에서 **작업** 을 클릭 하 고 **보고서 예약**을 선택 합니다. 임계값 탭에서 임계값 메트릭을 선택합니다. 예를 들어 **비용 백분율 대 예산**을 선택합니다. 경고 유형을 선택하고 예산의 백분율 값을 입력합니다. 한 번만 알림을 수신하도록 하려면 **연속 경고 수**를 선택한 다음, _1_을 입력합니다. **Save**를 클릭합니다.
 
 ![이 보고서 저장 또는 예약 상자에 예산 경고 만들기](./media/manage-budgets/budget-alert.png)
 

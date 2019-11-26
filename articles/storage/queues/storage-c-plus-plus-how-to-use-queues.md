@@ -1,6 +1,6 @@
 ---
-title: How to use Queue storage (C++) - Azure Storage
-description: Learn how to use the Queue storage service in Azure. 샘플은 C++로 작성되었습니다.
+title: Queue storage를 사용 하는C++방법 ()-Azure Storage
+description: Azure에서 Queue storage 서비스를 사용 하는 방법에 대해 알아봅니다. 샘플은 C++로 작성되었습니다.
 author: mhopkins-msft
 ms.author: mhopkins
 ms.date: 05/11/2017
@@ -39,14 +39,14 @@ ms.locfileid: "74227797"
 
 Azure Storage Client Library for C++를 설치하려면 다음 메서드를 사용할 수 있습니다.
 
-* **Linux:** Follow the instructions given in the [Azure Storage Client Library for C++ README: Getting Started on Linux](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) page.
-* **Windows:** On Windows, use [vcpkg](https://github.com/microsoft/vcpkg) as the dependency manager. Follow the [quick-start](https://github.com/microsoft/vcpkg#quick-start) to initialize vcpkg. Then, use the following command to install the library:
+* **Linux:** [추가 정보에 대 한 C++ Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp#getting-started-on-linux) 에서 제공 하는 지침에 따라 Linux에서 시작 페이지 합니다.
+* **Windows:** Windows에서는 종속성 관리자로 [vcpkg](https://github.com/microsoft/vcpkg) 을 사용 합니다. Vcpkg를 초기화 하려면 [빠른 시작](https://github.com/microsoft/vcpkg#quick-start) 을 따르세요. 그런 다음, 다음 명령을 사용 하 여 라이브러리를 설치 합니다.
 
 ```powershell
 .\vcpkg.exe install azure-storage-cpp
 ```
 
-You can find a guide for how to build the source code and export to Nuget in the [README](https://github.com/Azure/azure-storage-cpp#download--install) file.
+소스 코드를 빌드하고 [추가 정보](https://github.com/Azure/azure-storage-cpp#download--install) 파일에서 Nuget로 내보내는 방법에 대 한 지침을 찾을 수 있습니다.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Queue Storage에 액세스하도록 애플리케이션 구성
 Azure Storage API를 사용하여 큐에 액세스하려는 C++ 파일의 맨 위에 다음 include 문을 추가합니다.  
@@ -64,7 +64,7 @@ Azure Storage 클라이언트는 스토리지 연결 문자열을 사용하여 �
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=your_storage_account;AccountKey=your_storage_account_key"));
 ```
 
-로컬 Windows 컴퓨터에서 애플리케이션을 테스트하려면 [Azure SDK](https://azure.microsoft.com/downloads/)와 함께 설치된 Microsoft Azure [스토리지 에뮬레이터](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
+로컬 Windows 컴퓨터에서 애플리케이션을 테스트 하려면 [Azure SDK](../common/storage-use-emulator.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json)와 함께 설치된 Microsoft Azure [Storage 에뮬레이터](https://azure.microsoft.com/downloads/)를 사용할 수 있습니다. 스토리지 에뮬레이터는 로컬 개발 컴퓨터의Azure에서 사용할 수 있는 Blob, 큐 및 Table service를 시뮬레이션하는 유틸리티입니다. 다음 예제에서는 로컬 스토리지 에뮬레이터에 연결 문자열을 포함할 수 있도록 정적 필드를 선언하는 방법을 보여줍니다.  
 
 ```cpp
 // Define the connection-string with Azure Storage Emulator.

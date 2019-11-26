@@ -1,5 +1,5 @@
 ---
-title: OpenAPI metadata in Azure Functions
+title: Azure Functions의 OpenAPI 메타 데이터
 description: Azure Functions에서 OpenAPI 지원 개요
 author: alexkarcher-msft
 ms.topic: conceptual
@@ -40,7 +40,7 @@ Azure Functions의 OpenAPI 2.0(이전의 Swagger) 메타데이터 지원은 함�
 
 ### <a name="templates"></a>사용 가능한 템플릿
 
-|name| 설명 |
+|이름| 설명 |
 |:-----|:-----|
 |생성된 정의|최대 정보량을 포함하여 함수의 기존 메타데이터에서 유추할 수 있는 OpenAPI 정의|
 

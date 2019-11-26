@@ -1,6 +1,6 @@
 ---
-title: Register Azure Functions binding extensions
-description: Learn to register an Azure Functions binding extension based on your environment.
+title: Azure Functions 바인딩 확장 등록
+description: 사용자 환경에 따라 Azure Functions 바인딩 확장을 등록 하는 방법에 대해 알아봅니다.
 author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
@@ -12,61 +12,61 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231104"
 ---
-# <a name="register-azure-functions-binding-extensions"></a>Register Azure Functions binding extensions
+# <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
-In Azure Functions version 2.x, [bindings](./functions-triggers-bindings.md) are available as separate packages from the functions runtime. While .NET functions access bindings through NuGet packages, extension bundles allow other functions access to all bindings through a configuration setting.
+Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md) 함수 런타임과 별도의 패키지로 사용할 수 있습니다. .NET 함수는 NuGet 패키지를 통해 바인딩에 액세스 하지만, 확장 번들을 사용 하면 다른 함수에서 구성 설정을 통해 모든 바인딩에 액세스할 수 있습니다.
 
-Consider the following items related to binding extensions:
+바인딩 확장과 관련 된 다음 항목을 고려 합니다.
 
-- Binding extensions aren't explicitly registered in Functions 1.x except when [creating a C# class library using Visual Studio](#local-csharp).
+- 바인딩 확장 [은 Visual Studio를 사용 하 여 클래스 라이브러리 C# 를 만드는](#local-csharp)경우를 제외 하 고는 함수 1. x에 명시적으로 등록 되지 않습니다.
 
-- HTTP and timer triggers are supported by default and don't require an extension.
+- HTTP 및 타이머 트리거는 기본적으로 지원 되며 확장이 필요 하지 않습니다.
 
-The following table indicates when and how you register bindings.
+다음 표는 바인딩을 등록 하는 시기와 방법을 나타냅니다.
 
 | 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure Portal|자동|자동|
-|Non-.NET languages or local Azure Core Tools development|자동|[Use Azure Functions Core Tools and extension bundles](#extension-bundles)|
-|C# class library using Visual Studio|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|N/A|[.NET Core CLI 사용](#vs-code)|
+|Azure 포털|자동|자동|
+|Non-.NET 언어 또는 로컬 Azure 핵심 도구 개발|자동|[Azure Functions Core Tools 및 확장 번들 사용](#extension-bundles)|
+|C#Visual Studio를 사용 하는 클래스 라이브러리|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#vs-code)|
 
-## <a name="extension-bundles"></a>Extension bundles for local development
+## <a name="extension-bundles"></a>로컬 개발용 확장 번들
 
-Extension bundles is a deployment technology that lets you add a compatible set of Functions binding extensions to your function app. A predefined set of extensions are added when you build your app. Extension packages defined in a bundle are compatible with each other, which helps you avoid conflicts between packages. You enable extension bundles in the app's host.json file.  
+확장 번들은 함수 앱에 호환 되는 함수 바인딩 확장 집합을 추가할 수 있는 배포 기술입니다. 앱을 빌드할 때 미리 정의 된 확장 집합이 추가 됩니다. 번들에 정의 된 확장 패키지는 서로 호환 되므로 패키지 간의 충돌을 방지할 수 있습니다. 앱의 호스트나 json 파일에서 확장 번들을 사용 하도록 설정 합니다.  
 
-You can use extension bundles with version 2.x and later versions of the Functions runtime. When developing locally, make sure you are using the latest version of [Azure Functions Core Tools](functions-run-local.md#v2).
+버전 2.x 이상 버전의 함수 런타임에서 확장 번들을 사용할 수 있습니다. 로컬로 개발 하는 경우 최신 버전의 [Azure Functions Core Tools](functions-run-local.md#v2)을 사용 하 고 있는지 확인 합니다.
 
-Use extension bundles for local development using Azure Functions Core Tools, Visual Studio Code, and when you build remotely.
+원격으로 빌드할 때 Azure Functions Core Tools, Visual Studio Code 및를 사용 하 여 로컬 개발을 위해 확장 번들을 사용 합니다.
 
-If you don't use extension bundles, you must install the .NET Core 2.x SDK on your local computer before you install any binding extensions. Extension bundles removes this requirement for local development. 
+확장 번들을 사용 하지 않는 경우 바인딩 확장을 설치 하기 전에 로컬 컴퓨터에 .NET Core 2.x SDK를 설치 해야 합니다. 확장 번들은 로컬 개발을 위한 이러한 요구 사항을 제거 합니다. 
 
-To use extension bundles, update the *host.json* file to include the following entry for `extensionBundle`:
+확장 번들을 사용 하려면 `extensionBundle`에 대 한 다음 항목을 포함 하도록 *호스트나 json* 파일을 업데이트 합니다.
  
 [!INCLUDE [functions-extension-bundles-json](../../includes/functions-extension-bundles-json.md)]
 
 <a name="local-csharp"></a>
 
-## <a name="vs"></a> C\# class library with Visual Studio
+## <a name="vs"></a>Visual Studio를 사용 하는 C\# 클래스 라이브러리
 
-In **Visual Studio**, you can install packages from the Package Manager Console using the [Install-Package](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) command, as shown in the following example:
+다음 예제와 같이 **Visual Studio**에서 패키지 관리자 콘솔을 사용 하 여 패키지 [를 설치할 수](https://docs.microsoft.com/nuget/tools/ps-ref-install-package) 있습니다.
 
 ```powershell
 Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_VERSION>
 ```
 
-The name of the package used for a given binding is provided in the reference article for that binding. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
+지정 된 바인딩에 사용 되는 패키지의 이름은 해당 바인딩에 대 한 참조 문서에서 제공 됩니다. 예를 들어 [Service Bus 바인딩 참조 문서의 패키지 섹션](functions-bindings-service-bus.md#packages---functions-1x)을 참조하세요.
 
-예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열 되어 있습니다. 런타임 1.x 또는 2.x 함수에 해당 하는 주 버전은 바인딩에 대 한 참조 문서에 지정 되어 있습니다.
 
-If you use `Install-Package` to reference a binding, you don't need to use [extension bundles](#extension-bundles). This approach is specific for class libraries built in Visual Studio.
+`Install-Package`를 사용 하 여 바인딩을 참조 하는 경우에는 [확장 번들](#extension-bundles)을 사용할 필요가 없습니다. 이 방법은 Visual Studio에서 빌드된 클래스 라이브러리에만 적용 됩니다.
 
-## <a name="vs-code"></a> C# class library with Visual Studio Code
+## <a name="vs-code"></a>C# Visual Studio Code를 포함 하는 클래스 라이브러리
 
 > [!NOTE]
-> We recommend using [extension bundles](#extension-bundles) to have Functions automatically install a compatible set of binding extension packages. 
+> [확장 번들](#extension-bundles) 을 사용 하 여 함수에서 호환 되는 바인딩 확장 패키지 집합을 자동으로 설치 하는 것이 좋습니다. 
 
-In **Visual Studio Code**, install packages for a C# class library project from the command prompt using the [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) command in the .NET Core CLI. The following example demonstrates how you add a  binding:
+**Visual Studio Code**에서 .NET Core CLI의 C# [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용 하 여 명령 프롬프트에서 클래스 라이브러리 프로젝트에 대 한 패키지를 설치 합니다. 다음 예제에서는 바인딩을 추가 하는 방법을 보여 줍니다.
 
 ```terminal
 dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --version <TARGET_VERSION>
@@ -74,10 +74,10 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.<BINDING_TYPE_NAME> --vers
 
 .NET Core CLI는 Azure Functions 2.x 개발에만 사용할 수 있습니다.
 
-Replace `<BINDING_TYPE_NAME>` with the name of the package that contains the binding you need. You can find the desired binding reference article in the [list of supported bindings](./functions-triggers-bindings.md#supported-bindings).
+`<BINDING_TYPE_NAME>`은 필요한 바인딩을 포함 하는 패키지의 이름으로 바꿉니다. [지원 되](./functions-triggers-bindings.md#supported-bindings)는 바인딩 목록에서 원하는 바인딩 참조 문서를 찾을 수 있습니다.
 
-예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. Valid versions are listed on the individual package pages at [NuGet.org](https://nuget.org). The major versions that correspond to Functions runtime 1.x or 2.x are specified in the reference article for the binding.
+예제의 `<TARGET_VERSION>`을 패키지의 특정 버전(예: `3.0.0-beta5`)으로 바꿉니다. 유효한 버전은 [NuGet.org](https://nuget.org)의 개별 패키지 페이지에 나열 되어 있습니다. 런타임 1.x 또는 2.x 함수에 해당 하는 주 버전은 바인딩에 대 한 참조 문서에 지정 되어 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [Azure Function trigger and binding example](./functions-bindings-example.md)
+> [Azure 함수 트리거 및 바인딩 예제](./functions-bindings-example.md)

@@ -1,6 +1,6 @@
 ---
-title: Delegate a subdomain - Azure DNS
-description: With this learning path, get started delegating an Azure DNS subdomain.
+title: 하위 도메인 위임-Azure DNS
+description: 이 학습 경로를 사용 하 여 Azure DNS 하위 도메인을 위임 하기 시작 합니다.
 services: dns
 author: asudbring
 ms.service: dns
@@ -20,7 +20,7 @@ Azure Portal을 사용하여 DNS 하위 도메인을 위임할 수 있습니다.
 
 원하는 경우 [Azure PowerShell](delegate-subdomain-ps.md)을 사용하여 하위 도메인을 위임할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure DNS 하위 도메인을 위임하려면 먼저 공용 도메인을 Azure DNS에 위임해야 합니다. 위임에 대한 이름 서버를 구성하는 방법에 대한 지침은 [Azure DNS에 도메인 위임](./dns-delegate-domain-azure-dns.md)을 참조하세요. 도메인이 Azure DNS 영역에 위임되면 하위 도메인을 위임할 수 있습니다.
 

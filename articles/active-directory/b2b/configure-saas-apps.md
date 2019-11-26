@@ -81,7 +81,7 @@ SAML 프로토콜 기반의 페더레이션을 사용하여 사용자의 Azure A
 
    ![Single Sign-On 구성 설정을 보여 주는 스크린샷](media/configure-saas-apps/configure-box-sso.png)
 
-   a. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 *https://.box.com* 명명 규칙을 따라야 합니다.  
+   가. **로그온 URL** 상자에서 Azure Portal의 Box에 대해 로그온 URL이 적합하게 설정되었는지 확인합니다. 이 URL은 Box.com 테넌트의 URL이며 *https://.box.com* 명명 규칙을 따라야 합니다.  
    **식별자**는 이 앱에 적용되지 않지만 여전히 필수 필드로 표시됩니다.
 
    b. **사용자 식별자** 상자에 **user.mail**(게스트 계정의 SSO에 대한)을 입력합니다.

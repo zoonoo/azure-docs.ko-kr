@@ -11,18 +11,18 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74224505"
 ---
-| 계층 | 체험판 | Basic | Standard |
+| 계층 | 무료 | Basic | Standard |
 | --- | --- | --- | --- |
-| API 호출 |500,000 |1.5 million per unit |15 million per unit |
-| Active devices |500 |제한 없음 |제한 없음 |
-| 확장성 |N/A |최대 6개 |단위 무제한 |
-| 푸시 알림 |Azure Notification Hubs Free tier included, up to 1 million pushes |Notification Hubs Basic tier included, up to 10 million pushes |Notification Hubs Standard tier included, up to 10 million pushes |
-| Real-time messaging/<br/>WebSocket |제한적 |350 per mobile service |제한 없음 |
-| 오프라인 동기화 |제한적 |포함 항목 |포함 항목 |
-| Scheduled jobs |제한적 |포함 항목 |포함 항목 |
-| Azure SQL Database (required) <br/>추가 용량에 대해 표준 요금 적용 |20 MB 포함 |20 MB 포함 |20 MB 포함 |
-| CPU 용량 |60 minutes per day |제한 없음 |제한 없음 |
-| 아웃바운드 데이터 전송 |165 MB per day (daily rollover) |포함 항목 |포함 항목 |
+| API 호출 |500,000 |단위당 150만 |단위당 1500만 |
+| 활성 장치 |500 |무제한 |무제한 |
+| 크기 조정 |해당 없음 |최대 6개 |무제한 단위 |
+| 푸시 알림 |Azure Notification Hubs 무료 계층 포함, 최대 100만 푸시 |Notification Hubs 기본 계층 포함, 최대 1000만 푸시 |Notification Hubs 표준 계층 포함, 최대 1000만 푸시 |
+| 실시간 메시징/<br/>웹 소켓 |제한 |350 모바일 서비스 |무제한 |
+| 오프라인 동기화 |제한 |포함됨 |포함됨 |
+| Scheduled jobs |제한 |포함됨 |포함됨 |
+| Azure SQL Database (필수) <br/>추가 용량에 대해 표준 요금 적용 |20 MB 포함 |20 MB 포함 |20 MB 포함 |
+| CPU 용량 |하루 60 분 |무제한 |무제한 |
+| 아웃바운드 데이터 전송 |하루 165 MB (일별 롤오버) |포함됨 |포함됨 |
 
-For more information on limits and pricing, see [Azure Mobile Services pricing](https://azure.microsoft.com/pricing/details/mobile-services/). 
+제한 및 가격 책정에 대 한 자세한 내용은 [Azure Mobile Services 가격 책정](https://azure.microsoft.com/pricing/details/mobile-services/)을 참조 하세요. 
 

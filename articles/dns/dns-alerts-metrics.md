@@ -1,6 +1,6 @@
 ---
-title: Metrics and alerts - Azure DNS
-description: With this learning path, get started with Azure DNS metrics and alerts.
+title: 메트릭 및 경고-Azure DNS
+description: 이 학습 경로를 사용 하 여 Azure DNS 메트릭 및 경고를 시작 하세요.
 services: dns
 documentationcenter: na
 author: asudbring
@@ -24,7 +24,7 @@ Azure DNS는 Microsoft Azure 인프라를 사용하여 이름 확인을 제공�
 
 ## <a name="azure-dns-metrics"></a>Azure DNS 메트릭
 
-Azure DNS provides metrics for customers to enable them to monitor specific aspects of their DNS zones hosted in the service. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../azure-monitor/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
+Azure DNS은 고객이 서비스에서 호스트 되는 DNS 영역의 특정 측면을 모니터링할 수 있도록 하는 메트릭을 제공 합니다. 또한 Azure DNS 메트릭을 사용하여 관심 조건에 따라 경고를 구성하고 받을 수 있습니다. 메트릭은 [Azure Monitor 서비스](../azure-monitor/index.yml)를 통해 제공됩니다. Azure DNS는 DNS 영역에 대한 Azure Monitor를 통해 다음 메트릭을 제공합니다.
 
 -   QueryVolume
 -   RecordSetCount
@@ -34,7 +34,7 @@ Azure Monitor 설명서 페이지에서 [이러한 메트릭의 정의](../azure
 >[!NOTE]
 > 이때 이러한 메트릭은 Azure DNS에서 호스트되는 공용 DNS 영역에만 사용할 수 있습니다. Azure DNS에서 호스트되는 프라이빗 영역을 사용하는 경우 이러한 메트릭은 해당 영역에 대한 데이터를 제공하지 않습니다. 또한 메트릭 및 경고 기능은 Azure 퍼블릭 클라우드에서만 지원됩니다. 소버린 클라우드에 대한 지원은 나중에 제공될 예정입니다. 
 
-The most granular element that you can see metrics for is a DNS zone. You cannot currently see metrics for individual resource records within a zone.
+메트릭을 볼 수 있는 가장 세분화 된 요소는 DNS 영역입니다. 현재 영역 내의 개별 리소스 레코드에 대 한 메트릭을 볼 수 없습니다.
 
 ### <a name="query-volume"></a>쿼리 볼륨
 

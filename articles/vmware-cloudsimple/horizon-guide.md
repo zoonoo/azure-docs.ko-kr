@@ -1,6 +1,6 @@
 ---
-title: Azure VMware Solution by CloudSimple - Use Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
-description: Describes how you can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+title: CloudSimple 별 Azure VMware 솔루션-사설 클라우드 사이트를 사용 하 여 VMware 수평을 통해 가상 데스크톱 인프라 호스팅
+description: CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평을 통해 가상 데스크톱 인프라를 호스트 하는 방법을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -15,129 +15,129 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74206550"
 ---
-# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>Use CloudSimple Private Cloud site to host a virtual desktop infrastructure using VMware Horizon
+# <a name="use-cloudsimple-private-cloud-site-to-host-a-virtual-desktop-infrastructure-using-vmware-horizon"></a>CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평으로 가상 데스크톱 인프라 호스팅
 
-You can use your CloudSimple Private Cloud site to host a virtual desktop infrastructure (VDI) using VMware Horizon 7.x. The following figure shows the logical solution architecture for the VDI.
+CloudSimple 사설 클라우드 사이트를 사용 하 여 VMware 수평 4.x를 사용 하 여 VDI (가상 데스크톱 인프라)를 호스트할 수 있습니다. 다음 그림은 VDI의 논리적 솔루션 아키텍처를 보여 줍니다.
 
-![Horizon deployment](media/horizon-deployment.png)
+![수평 배포](media/horizon-deployment.png)
 
-With this solution, you have full control over Horizon View Manager and App Volume. The familiar UI, API, and CLI interfaces enable use of your existing scripts and tools.
+이 솔루션을 사용 하면 수평 보기 관리자와 앱 볼륨을 완벽 하 게 제어할 수 있습니다. 친숙 한 UI, API 및 CLI 인터페이스를 사용 하면 기존 스크립트 및 도구를 사용할 수 있습니다.
 
-The CloudSimple solution requires you to do the following:
+CloudSimple 솔루션을 사용 하려면 다음을 수행 해야 합니다.
 
-* Install, configure, and manage VMware Horizon 7.x in your Private Cloud.
-* Provide your own Horizon licenses.
+* 사설 클라우드에서 VMware 수평 4.x를 설치, 구성 및 관리 합니다.
+* 사용자 고유의 가로 라이선스를 제공 합니다.
 
 ## <a name="deploy-the-solution"></a>솔루션 배포
 
-The following sections describe how to deploy a VDI solution using Horizon in your Private Cloud.
+다음 섹션에서는 사설 클라우드에서 수평을 사용 하 여 VDI 솔루션을 배포 하는 방법을 설명 합니다.
 
-1. [Verify that VMware product versions are compatible](#verify-that-vmware-product-versions-are-compatible)
-2. [Estimate the size of your desktop environment](#estimate-the-size-of-your-desktop-environment)
-3. [Create a Private Cloud for your environment](#create-a-private-cloud-for-your-environment)
-4. [Install VMware Horizon in your Private Cloud](#install-vmware-horizon-in-your-private-cloud)
+1. [VMware 제품 버전이 호환 되는지 확인 합니다.](#verify-that-vmware-product-versions-are-compatible)
+2. [데스크톱 환경의 크기 예측](#estimate-the-size-of-your-desktop-environment)
+3. [사용자 환경에 맞는 사설 클라우드 만들기](#create-a-private-cloud-for-your-environment)
+4. [사설 클라우드에 VMware 수평 설치](#install-vmware-horizon-in-your-private-cloud)
 
-### <a name="verify-that-vmware-product-versions-are-compatible"></a>Verify that VMware product versions are compatible
+### <a name="verify-that-vmware-product-versions-are-compatible"></a>VMware 제품 버전이 호환 되는지 확인 합니다.
 
-* Verify that your current and planned versions of Horizon, App Volumes, Unified Access Gateway, and User Environment Manager are compatible with each other and with vCenter and PSC in the Private Cloud. For compatibility information, see [VMware Compatibility Matrix for Horizon 7.5](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=).
-* To find out the current versions of vCenter and PSC in your Private Cloud, go to **Resources** in the [CloudSimple portal](access-cloudsimple-portal.md), select your Private Cloud, and click the **vSphere Management Network** tab.
+* 현재 및 계획 된 버전의 수평, 앱 볼륨, 통합 액세스 게이트웨이 및 사용자 환경 관리자가 사설 클라우드의 vCenter 및 PSC와 호환 되는지 확인 합니다. 호환성 정보는 [수평 7.5에 대 한 VMware 호환성 매트릭스](https://www.vmware.com/resources/compatibility/sim/interop_matrix.php#interop&260=2877&0=)를 참조 하세요.
+* 사설 클라우드에서 vCenter 및 PSC의 현재 버전을 확인 하려면 [Cloudsimple 포털](access-cloudsimple-portal.md)의 **리소스로** 이동 하 여 사설 클라우드를 선택 하 고 **vsphere 관리 네트워크** 탭을 클릭 합니다.
 
-![vCenter and PSC versions](media/private-cloud-vsphere-versions.png)
+![vCenter 및 PSC 버전](media/private-cloud-vsphere-versions.png)
 
-### <a name="estimate-the-size-of-your-desktop-environment"></a>Estimate the size of your desktop environment
+### <a name="estimate-the-size-of-your-desktop-environment"></a>데스크톱 환경의 크기 예측
 
-* Verify that your identified configuration is within VMware operational limits.
-* Estimate the resources that are needed in your DR site to protect your on-premises environment.
+* 식별 된 구성이 VMware 작동 제한 내에 있는지 확인 합니다.
+* DR 사이트에서 온-프레미스 환경을 보호 하는 데 필요한 리소스를 추정 합니다.
 
-### <a name="create-a-private-cloud-for-your-environment"></a>Create a Private Cloud for your environment
+### <a name="create-a-private-cloud-for-your-environment"></a>사용자 환경에 맞는 사설 클라우드 만들기
 
-1. Create a Private Cloud from the CloudSimple portal by following the instructions in [Configure a Private Cloud environment](quickstart-create-private-cloud.md).  CloudSimple creates a default vCenter user named 'cloudowner' in every newly created Private Cloud. For details on the default Private Cloud user and permission model, see [Learn the Private Cloud permissions model](learn-private-cloud-permissions.md).
-2. Create a VLAN in your Private Cloud for the Horizon management plane and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the solution components (Unified Access Gateway, Connection Server, App Volume Server, and User Environment Manager servers) will be installed.
-3. Decide if you want to use an external identity provider with your Private Cloud vCenter. If yes, choose one of these options:
-    * Use your on-premises Active Directory as the external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
-    * Set up an Active Directory server in the Private Cloud in Horizon management plane VLAN to use as your external identity provider. For instructions, see [vCenter Identity Sources](set-vcenter-identity.md).
-    * Set up a DHCP and DNS server in Horizon management plane VLAN in the Private Cloud. For instructions, see [Set up DNS and DHCP applications and workloads in your CloudSimple Private Cloud](dns-dhcp-setup.md).
-4. Configure DNS forwarding on the DNS server installed in the Private Cloud. For instructions, see [Create a Conditional Forwarder](on-premises-dns-setup.md#create-a-conditional-forwarder).
+1. [사설 클라우드 환경 구성](quickstart-create-private-cloud.md)의 지침에 따라 cloudsimple 포털에서 사설 클라우드를 만듭니다.  CloudSimple은 새로 만든 모든 사설 클라우드에서 ' cloudowner ' 라는 기본 vCenter 사용자를 만듭니다. 기본 사설 클라우드 사용자 및 사용 권한 모델에 대 한 자세한 내용은 [사설 클라우드 권한 모델 알아보기](learn-private-cloud-permissions.md)를 참조 하세요.
+2. 사설 클라우드에서 관리 평면에 대 한 VLAN을 만들어 서브넷 CIDR에 할당 합니다. 자세한 내용은 [vlan/서브넷 만들기 및 관리](create-vlan-subnet.md)를 참조 하세요. 모든 솔루션 구성 요소 (통합 액세스 게이트웨이, 연결 서버, 앱 볼륨 서버 및 사용자 환경 관리자 서버)가 설치 되는 네트워크입니다.
+3. 사설 클라우드 vCenter에서 외부 id 공급자를 사용할 것인지 결정 합니다. 그렇다면 다음 옵션 중 하나를 선택 합니다.
+    * 온-프레미스 Active Directory를 외부 id 공급자로 사용 합니다. 지침은 [VCenter Id 원본](set-vcenter-identity.md)을 참조 하세요.
+    * 외부 id 공급자로 사용할 규모 관리 평면 VLAN의 사설 클라우드에서 Active Directory 서버를 설정 합니다. 지침은 [VCenter Id 원본](set-vcenter-identity.md)을 참조 하세요.
+    * 사설 클라우드의 수평 관리 평면 VLAN에 DHCP 및 DNS 서버를 설정 합니다. 지침은 [CloudSimple 사설 클라우드에서 DNS 및 DHCP 응용 프로그램 및 작업 설정](dns-dhcp-setup.md)을 참조 하세요.
+4. 사설 클라우드에 설치 된 DNS 서버에서 DNS 전달을 구성 합니다. 자세한 내용은 [조건부 전달자 만들기](on-premises-dns-setup.md#create-a-conditional-forwarder)를 참조 하세요.
 
-### <a name="install-vmware-horizon-in-your-private-cloud"></a>Install VMware Horizon in your Private Cloud
+### <a name="install-vmware-horizon-in-your-private-cloud"></a>사설 클라우드에 VMware 수평 설치
 
-The following deployment diagram depicts a Horizon solution deployed in a Private Cloud. Unified Access Gateway, AD/DC, View, and App Volume Server are installed in user-created VLAN 234. Unified Access Gateway has an assigned public IP address that is reachable from the Internet. Horizon desktop pool VMs are deployed in VLAN 235 to provide additional isolation and security.
+다음 배포 다이어그램은 사설 클라우드에 배포 된 수평 솔루션을 보여 줍니다. 통합 액세스 게이트웨이, AD/DC, 보기 및 앱 볼륨 서버는 사용자가 만든 VLAN 234에 설치 됩니다. 통합 액세스 게이트웨이에 인터넷에서 연결할 수 있는 할당 된 공용 IP 주소가 있습니다. 수평 데스크톱 풀 Vm은 추가 격리 및 보안을 제공 하기 위해 VLAN 235에 배포 됩니다.
 
-![Horizon deployment in the Private Cloud](media/horizon-private-cloud.png)
+![사설 클라우드의 수평 배포](media/horizon-private-cloud.png)
 
-The following sections outline the instructions to set up a deployment similar to the one that is depicted in the figure. Before you begin, verify that you have the following:
+다음 섹션에서는 그림에 표시 된 것과 유사한 배포를 설정 하는 지침을 간략하게 설명 합니다. 시작 하기 전에 다음이 있는지 확인 합니다.
 
-* A Private Cloud created using the CloudSimple portal with sufficient capacity to run your desktop pools.
-* Sufficient bandwidth between your on-premises environment and the Private Cloud environment to support the network traffic for your desktops.
-* A Site-to-Site VPN tunnel set up between your on-premises datacenter and the Private Cloud.
-* IP reachability from end-user subnets in your on-premises environment to the CloudSimple Private Cloud subnets.
-* AD/DHCP/DNS installed for your Private Cloud.
+* 데스크톱 풀을 실행 하기에 충분 한 용량이 있는 CloudSimple 포털을 사용 하 여 만든 사설 클라우드.
+* 데스크톱에 대 한 네트워크 트래픽을 지원 하기 위해 온-프레미스 환경과 사설 클라우드 환경 간의 대역폭이 충분 합니다.
+* 온-프레미스 데이터 센터와 사설 클라우드 사이에서 사이트 간 VPN 터널을 설정 합니다.
+* 온-프레미스 환경의 최종 사용자 서브넷에서 CloudSimple 사설 클라우드 서브넷으로의 IP 연결입니다.
+* 사설 클라우드에 대해 설치 된 AD/DHCP/DNS.
 
-#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple portal: Create a dedicated VLAN/subnet for desktop pools
+#### <a name="cloudsimple-portal-create-a-dedicated-vlansubnet-for-desktop-pools"></a>CloudSimple 포털: 데스크톱 풀에 대 한 전용 VLAN/서브넷 만들기
 
-Create a VLAN for the Horizon desktop pools and assign it a subnet CIDR. For instructions, see [Create and manage VLANs/Subnets](create-vlan-subnet.md). This is the network where all the desktop virtual machines will run.
+수평 데스크톱 풀에 대해 VLAN을 만들고 서브넷 CIDR을 할당 합니다. 자세한 내용은 [vlan/서브넷 만들기 및 관리](create-vlan-subnet.md)를 참조 하세요. 모든 데스크톱 가상 컴퓨터가 실행 되는 네트워크입니다.
 
-Follow standard security best practices to secure your Horizon deployment:
+표준 보안 모범 사례에 따라 수평 배포를 보호 합니다.
 
-* Allow only desktop RDP traffic / SSH traffic to your desktop VMs.
-* Allow only management traffic between Horizon management plane VLAN and desktop pool VLAN.
-* Allow only management traffic from on-premises network.
+* 데스크톱 Vm에 대 한 데스크톱 RDP 트래픽/s s p 트래픽만 허용 합니다.
+* 수평 관리 평면 VLAN과 데스크톱 풀 VLAN 간의 관리 트래픽만 허용 합니다.
+* 온-프레미스 네트워크의 관리 트래픽만 허용 합니다.
 
-You can enforce these best practices by configuring [firewall rules](firewall.md) from the CloudSimple portal.
+CloudSimple 포털에서 [방화벽 규칙](firewall.md) 을 구성 하 여 이러한 모범 사례를 적용할 수 있습니다.
 
-#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple portal: Configure firewall rules to secure Horizon management plane
+#### <a name="cloudsimple-portal-configure-firewall-rules-to-secure-horizon-management-plane"></a>CloudSimple 포털: 보안 수평 관리 평면에 대 한 방화벽 규칙 구성
 
-Set up the following rules in the CloudSimple portal. For instructions, see [Set up firewall tables and rules](firewall.md).
+CloudSimple 포털에서 다음 규칙을 설정 합니다. 지침은 [방화벽 테이블 및 규칙 설정](firewall.md)을 참조 하세요.
 
-1. Configure firewall rules in the CloudSimple N-S firewall to allow communication between on-premises subnets and Horizon management VLAN so that only the network ports listed in the VMware document [Horizon port list](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) are allowed.
+1. VMware 문서 [수평 포트 목록](https://docs.vmware.com/en/VMware-Horizon-7/7.1/com.vmware.horizon-client-agent.security.doc/GUID-52807839-6BB0-4727-A9C7-EA73DE61ADAB.html) 에 나열 된 네트워크 포트만 허용 되도록 Cloudsimple N-S 방화벽에서 방화벽 규칙을 구성 하 여 온-프레미스 서브넷과 수평 관리 VLAN 간의 통신을 허용 합니다.
 
-2. Create E-W firewall rules between the Horizon management VLAN and desktop pool VLAN in the Private Cloud.
+2. 사설 클라우드의 수평 관리 VLAN과 데스크톱 풀 VLAN 간에 E-W 방화벽 규칙을 만듭니다.
 
-#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple portal: Create a public IP address for Unified Access Gateway
+#### <a name="cloudsimple-portal-create-a-public-ip-address-for-unified-access-gateway"></a>CloudSimple 포털: 통합 액세스 게이트웨이에 대 한 공용 IP 주소 만들기
 
-Create a public IP address for the Unified Access Gateway appliance to enable desktop client connections from the internet. For instructions, see [Allocate public IP addresses](public-ips.md).
+통합 액세스 게이트웨이 어플라이언스에 대 한 공용 IP 주소를 만들어 인터넷에서 데스크톱 클라이언트 연결을 사용 하도록 설정 합니다. 자세한 내용은 [공용 IP 주소 할당](public-ips.md)을 참조 하세요.
 
-When the setup is complete, the public IP address is assigned and listed on the Public IPs page.
+설치가 완료 되 면 공용 IP 주소가 할당 되 고 공용 IP 페이지에 나열 됩니다.
 
-#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple portal: Escalate privileges
+#### <a name="cloudsimple-portal-escalate-privileges"></a>CloudSimple 포털: 권한 상승
 
-The default 'cloudowner' user doesn't have sufficient privileges in the Private Cloud vCenter to install Horizon, so the user's vCenter privileges must be escalated. For more information, see [Escalate privileges](escalate-private-cloud-privileges.md).
+기본 ' cloudowner ' 사용자에 게는 설치를 위한 사설 클라우드 vCenter의 충분 한 권한이 없어 사용자의 vCenter 권한을 에스컬레이션 해야 합니다. 자세한 내용은 [에스컬레이션 권한](escalate-private-cloud-privileges.md)을 참조 하세요.
 
-#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI: Create a user in Private Cloud for Horizon installation
+#### <a name="vcenter-ui-create-a-user-in-private-cloud-for-horizon-installation"></a>vCenter UI: 수평 설치를 위한 사설 클라우드에서 사용자 만들기
 
-1. Sign in to vCenter using the 'cloudowner' user credentials.
-2. Create a new user, 'horizon-soln-admin', in vCenter and add the user to the administrators group in vCenter.
-3. Sign out of vCenter as the 'cloudowner' user and sign in as the 'horizon-soln-admin' user.
+1. ' Cloudowner ' 사용자 자격 증명을 사용 하 여 vCenter에 로그인 합니다.
+2. VCenter에서 새 사용자 ' 수평-고 n-관리자 '를 만들고 vCenter의 administrators 그룹에 사용자를 추가 합니다.
+3. ' Cloudowner ' 사용자로 vCenter에서 로그 아웃 하 고 ' ' 사용자로 로그인 합니다.
 
-#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI: Install VMware Horizon
+#### <a name="vcenter-ui-install-vmware-horizon"></a>vCenter UI: VMware 수평 설치
 
-As mentioned in the earlier logical architecture section, Horizon solution has the following components:
+이전 논리적 아키텍처 섹션에서 설명한 것 처럼 수평 솔루션에는 다음과 같은 구성 요소가 있습니다.
 
-* VMware Horizon View
-* VMware Unified Access Gateway
-* VMware App Volume Manager
-* VMware User Environment Manager
+* VMware 수평 보기
+* VMware 통합 액세스 게이트웨이
+* VMware 앱 볼륨 관리자
+* VMware 사용자 환경 관리자
 
-Install the components as follows:
+다음과 같이 구성 요소를 설치 합니다.
 
-1. Install and configure Unified Access Gateway by following the instructions provided in the VMware document [Deploying and Configuring VMware Unified Access Gateway](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html).
+1. Vmware 문서 [Vmware 통합 액세스 게이트웨이 배포 및 구성](https://docs.vmware.com/en/Unified-Access-Gateway/3.3.1/com.vmware.uag-331-deploy-config.doc/GUID-F5CE0D5E-BE85-4FA5-BBCF-0F86C9AB8A70.html)에 제공 된 지침에 따라 통합 액세스 게이트웨이를 설치 하 고 구성 합니다.
 
-2. Install Horizon View in the Private Cloud by following the instructions in [View Installation Guide](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html).
+2. [설치 가이드 보기](https://docs.vmware.com/en/VMware-Horizon-7/7.4/horizon-installation/GUID-37D39B4F-5870-4188-8B11-B6C41AE9133C.html)의 지침에 따라 사설 클라우드에 수평 보기를 설치 합니다.
 
-3. Install App Volume Manager by following the instructions in [Install and Configure VMware App Volumes](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html).
+3. [VMware 앱 볼륨 설치 및 구성](https://docs.vmware.com/en/VMware-App-Volumes/2.10/com.vmware.appvolumes.user.doc/GUID-5E8BAF8C-F5A6-412C-9424-266BA7109BA4.html)의 지침에 따라 앱 볼륨 관리자를 설치 합니다.
 
-4. Install and configure User Environment Manager by following the instructions in [About Installing and Configuring VMware User Environment Manager](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html).
+4. [VMware 사용자 환경 관리자 설치](https://docs.vmware.com/en/VMware-User-Environment-Manager/9.4/com.vmware.user.environment.manager-install-config/GUID-DBBC82E4-483F-4B28-9D49-4D28E08715BC.html)및 구성 정보의 지침에 따라 사용자 환경 관리자를 설치 하 고 구성 합니다.
 
-#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>File a support request to upload VMware Horizon pre-packaged app volumes
+#### <a name="file-a-support-request-to-upload-vmware-horizon-pre-packaged-app-volumes"></a>VMware 수평 사전 패키지 앱 볼륨을 업로드 하기 위한 지원 요청 파일
 
-As a part of the installation process, App Volume Manager uses pre-packaged volumes to provision app stacks and writable volumes. These volumes serve as templates for app stacks and writable volumes.
+설치 프로세스의 일부로, 앱 볼륨 관리자는 미리 패키지 된 볼륨을 사용 하 여 앱 스택과 쓰기 가능한 볼륨을 프로 비전 합니다. 이러한 볼륨은 앱 스택과 쓰기 가능한 볼륨의 템플릿으로 사용 됩니다.
 
-Uploading the volumes to the Private Cloud datastore requires the ESXi root password. For assistance, submit a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest). Attach the AppVolumes installer bundle so that CloudSimple support personnel can upload the templates to your Private Cloud environment.
+사설 클라우드 데이터 저장소에 볼륨을 업로드 하려면 ESXi 루트 암호가 필요 합니다. 지원을 받으려면 [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출 하세요. CloudSimple 지원 담당자가 개인 클라우드 환경에 템플릿을 업로드할 수 있도록 AppVolumes installer 번들을 연결 합니다.
 
-#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple portal: De-escalate privileges
+#### <a name="cloudsimple-portal-de-escalate-privileges"></a>CloudSimple 포털: 에스컬레이션 권한
 
-You can now [de-escalate the privileges](escalate-private-cloud-privileges.md#de-escalate-privileges) of the 'cloudowner' user.
+이제 ' cloudowner ' 사용자의 [권한을 에스컬레이션](escalate-private-cloud-privileges.md#de-escalate-privileges) 해제할 수 있습니다.
 
-## <a name="ongoing-management-of-your-horizon-solution"></a>Ongoing management of your Horizon solution
+## <a name="ongoing-management-of-your-horizon-solution"></a>수평 솔루션의 지속적인 관리
 
-You have full control over Horizon and App Volume Manager software in your Private Cloud environment and are expected to perform the necessary software lifecycle management. Ensure that any new versions of software are compatible with the Private Cloud vCenter and PSC before updating or upgrading Horizon or App Volume.
+사설 클라우드 환경에서 수평 및 앱 볼륨 관리자 소프트웨어를 완전히 제어할 수 있으며 필요한 소프트웨어 수명 주기 관리를 수행할 것으로 예상 됩니다. 수평 또는 앱 볼륨을 업데이트 하거나 업그레이드 하기 전에 새 버전의 소프트웨어가 사설 클라우드 vCenter 및 PSC와 호환 되는지 확인 합니다.

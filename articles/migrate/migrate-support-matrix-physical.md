@@ -24,7 +24,7 @@ ms.locfileid: "74196346"
 
 이 표에는 물리적 서버에 대해 지원 되는 시나리오가 요약 되어 있습니다.
 
-**배포** | **세부 정보***
+**배포웹사이트를** | **세부 정보***
 --- | ---
 **온-프레미스 물리적 서버 평가** | 첫 번째 평가를 [설정](tutorial-prepare-physical.md) 합니다.<br/><br/> 평가를 [실행](tutorial-assess-physical.md) 합니다.
 **Azure에 물리적 서버 마이그레이션** | Azure로의 마이그레이션을 [시도](tutorial-migrate-physical-virtual-machines.md) 합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "74196346"
   오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
   브라질 | 브라질 남부
   캐나다 | 캐나다 중부 또는 캐나다 동부
-  Europe | 북유럽 또는 유럽 서부
+  유럽 | 북유럽 또는 유럽 서부
   프랑스 | 프랑스 중부
   인도 | 인도 중부 또는 인도 남부
   일본 |  일본 동부 또는 일본 서 부
@@ -63,7 +63,7 @@ ms.locfileid: "74196346"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **Permissions**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
+| **권한**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
 | **운영 체제** | 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 다음을 제외 하 고 지원 됩니다.<br/> Windows Server 2003 <br/> SUSE Linux|
 
 

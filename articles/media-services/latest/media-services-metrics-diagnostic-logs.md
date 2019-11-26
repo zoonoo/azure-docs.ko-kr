@@ -42,7 +42,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 계정 메트릭을 모니터링할 수 있습니다.
 
-|메트릭 이름|Display name|설명|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |AssetCount|자산 수|계정의 자산입니다.|
 |AssetQuota|자산 할당량|계정의 자산 할당량입니다.|
@@ -60,7 +60,7 @@ Media Services는 다음 리소스에 대 한 모니터링 메트릭을 지원 �
 
 다음 Media Services [스트리밍 끝점](https://docs.microsoft.com/rest/api/media/streamingendpoints) 메트릭이 지원 됩니다.
 
-|메트릭 이름|Display name|설명|
+|메트릭 이름|표시 이름|설명|
 |---|---|---|
 |요청|요청|스트리밍 끝점에서 제공 하는 총 HTTP 요청 수를 제공 합니다.|
 |송신|송신|송신 바이트의 총 수입니다. 예를 들어 스트리밍 끝점에 의해 스트리밍되는 바이트입니다.|

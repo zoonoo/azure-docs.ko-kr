@@ -20,36 +20,36 @@ ms.locfileid: "74231549"
 
 이 문서에는 DSC(Desired State Configuration)에 관한 문제를 해결하는 방법에 대한 정보가 제공됩니다.
 
-## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>Steps to troubleshoot Desired State Configuration (DSC)
+## <a name="steps-to-troubleshoot-desired-state-configuration-dsc"></a>DSC (필요한 상태 구성) 문제를 해결 하는 단계
 
-When you have errors compiling or deploying configurations in Azure State Configuration, here are a few steps to help you diagnose the issue.
+Azure 상태 구성에서 구성을 컴파일하거나 배포 하는 동안 오류가 발생 하는 경우 문제를 진단 하는 데 도움이 되는 몇 가지 단계가 있습니다.
 
-1. **Ensure your configuration compiles successfully on your local machine:**  Azure State Configuration is built on PowerShell DSC. You can find the documentation for the DSC language and syntax in the [PowerShell DSC Docs](https://docs.microsoft.com/powershell/scripting/overview).
+1. **로컬 컴퓨터에서 구성이 성공적으로 컴파일되는지 확인 합니다.**  Azure 상태 구성은 PowerShell DSC를 기반으로 빌드됩니다. [POWERSHELL Dsc 문서](https://docs.microsoft.com/powershell/scripting/overview)에서 dsc 언어 및 구문에 대 한 설명서를 찾을 수 있습니다.
 
-   By compiling your DSC configuration on your local machine you can discover and resolve common errors, such as:
+   로컬 컴퓨터에서 DSC 구성을 컴파일하면 다음과 같은 일반적인 오류를 검색 하 고 해결할 수 있습니다.
 
-   - **Missing Modules**
-   - **Syntax Errors**
-   - **Logic Errors**
+   - **누락 된 모듈**
+   - **구문 오류**
+   - **논리 오류**
 
-2. **View DSC logs on your Node:** If your configuration compiles successfully, but fails when applied to a Node, you can find detailed information in the logs. For information about where to find DSC logs, see [Where are the DSC Event Logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs).
+2. **노드의 DSC 로그를 봅니다.** 구성이 성공적으로 컴파일되지만 노드에 적용 될 때 실패 하는 경우 로그에서 자세한 정보를 찾을 수 있습니다. DSC 로그를 찾을 수 있는 위치에 대 한 자세한 내용은 [Dsc 이벤트 로그 위치](/powershell/scripting/dsc/troubleshooting/troubleshooting#where-are-dsc-event-logs)를 참조 하세요.
 
-   Furthermore, the [xDscDiagnostics](https://github.com/PowerShell/xDscDiagnostics) can assist you in parsing detailed information from the DSC logs. If you contact support, they will require these logs to diagnose your issue.
+   또한 [Xdscdiagnostics](https://github.com/PowerShell/xDscDiagnostics) 는 DSC 로그에서 자세한 정보를 구문 분석 하는 데 도움이 될 수 있습니다. 지원 서비스에 문의 하는 경우 문제를 진단 하려면 이러한 로그가 필요 합니다.
 
-   You can install **xDscDiagnostics** on your local machine using the instructions found under [Install the stable version module](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module).
+   [안정적인 버전 모듈 설치](https://github.com/PowerShell/xDscDiagnostics#install-the-stable-version-module)에 나와 있는 지침을 사용 하 여 로컬 컴퓨터에 **xdscdiagnostics** 를 설치할 수 있습니다.
 
-   To install **xDscDiagnostics** on your Azure machine, you can use [az vm run-command](/cli/azure/vm/run-command) or [Invoke-AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand). You can also use the **Run command** option from the portal, by following the steps found in [Run PowerShell scripts in your Windows VM with Run Command](../../virtual-machines/windows/run-command.md).
+   Azure 컴퓨터에 **Xdscdiagnostics** 를 설치 하려면 [az vm run 명령을](/cli/azure/vm/run-command) 사용 하거나 [AzVMRunCommand](/powershell/module/azurerm.compute/invoke-azurermvmruncommand)를 사용 하면 됩니다. 실행 명령을 사용 하 여 [WINDOWS VM에서 PowerShell 스크립트 실행](../../virtual-machines/windows/run-command.md)에 있는 단계에 따라 포털에서 **실행 명령** 옵션을 사용할 수도 있습니다.
 
-   For information on using **xDscDiagnostics**, see [Using xDscDiagnostics to analyze DSC logs](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs), as well as [xDscDiagnostics Cmdlets](https://github.com/PowerShell/xDscDiagnostics#cmdlets).
-3. **Ensure your Nodes and Automation workspace have the required modules:** Desired State Configuration depends on modules installed on the Node.  When using Azure Automation State Configuration, import any required modules into your automation account using the steps listed in [Import Modules](../shared-resources/modules.md#import-modules). Configurations can also have a dependency on specific versions of modules.  For more information, see, [Troubleshoot Modules](shared-resources.md#modules).
+   **Xdscdiagnostics**사용에 대 한 자세한 내용은 Xdscdiagnostics를 [사용 하 여 DSC 로그 분석](/powershell/scripting/dsc/troubleshooting/troubleshooting#using-xdscdiagnostics-to-analyze-dsc-logs)및 [xdscdiagnostics cmdlet](https://github.com/PowerShell/xDscDiagnostics#cmdlets)을 참조 하세요.
+3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** 필요한 상태 구성은 노드에 설치 된 모듈에 따라 달라 집니다.  Azure Automation 상태 구성을 사용 하는 경우 [모듈 가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 필요한 모듈을 Automation 계정으로 가져옵니다. 구성도 모듈의 특정 버전에 대 한 종속성을 가질 수 있습니다.  자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
 
 ## <a name="common-errors-when-working-with-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성)으로 작업하는 경우 일반적인 오류 문제
 
-### <a name="unsupported-characters"></a>Scenario: A configuration with special characters cannot be deleted from the portal
+### <a name="unsupported-characters"></a>시나리오: 포털에서 특수 문자를 사용 하 여 구성을 삭제할 수 없습니다.
 
 #### <a name="issue"></a>문제
 
-When attempting to delete a DSC configuration from the portal, you see the following error:
+포털에서 DSC 구성을 삭제 하려고 하면 다음과 같은 오류가 표시 됩니다.
 
 ```error
 An error occurred while deleting the DSC configuration '<name>'.  Error-details: The argument configurationName with the value <name> is not valid.  Valid configuration names can contain only letters,  numbers, and underscores.  The name must start with a letter.  The length of the name must be between 1 and 64 characters.
@@ -57,19 +57,19 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 #### <a name="cause"></a>원인
 
-This error is a temporary issue that is planned to be resolved.
+이 오류는 해결 하기 위해 계획 된 일시적인 문제입니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-* Use the Az Cmdlet "Remove-AzAutomationDscConfiguration" to delete the configuration.
-* The documentation for this cmdlet hasn't been updated yet.  Until then, refer to the documentation for the AzureRM module.
-  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+* Az Cmdlet "AzAutomationDscConfiguration"를 사용 하 여 구성을 삭제 합니다.
+* 이 cmdlet에 대 한 설명서는 아직 업데이트 되지 않았습니다.  그때까지 AzureRM 모듈에 대 한 설명서를 참조 하세요.
+  * [Export-azurermautomationdscconfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
-### <a name="failed-to-register-agent"></a>Scenario: Failed to register Dsc Agent
+### <a name="failed-to-register-agent"></a>시나리오: Dsc 에이전트를 등록 하지 못했습니다.
 
 #### <a name="issue"></a>문제
 
-When attempting to run `Set-DscLocalConfigurationManager` or another DSC cmdlet you receive the error:
+`Set-DscLocalConfigurationManager` 또는 다른 DSC cmdlet을 실행 하려고 하면 다음과 같은 오류가 표시 됩니다.
 
 ```error
 Registration of the Dsc Agent with the server
@@ -84,11 +84,11 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 #### <a name="cause"></a>원인
 
-This error is normally caused by a firewall, the machine being behind a proxy server, or other network errors.
+이 오류는 일반적으로 방화벽, 컴퓨터가 프록시 서버 뒤에 있거나 기타 네트워크 오류로 인해 발생 합니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-Verify your machine has access to the proper endpoints for Azure Automation DSC and try again. For a list of ports and addresses needed, see [network planning](../automation-dsc-overview.md#network-planning)
+컴퓨터에 DSC Azure Automation의 적절 한 끝점에 대 한 액세스 권한이 있는지 확인 하 고 다시 시도 하세요. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning) 을 참조 하세요.
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 
@@ -104,13 +104,13 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 이 오류는 일반적으로 노드가 노드 구성 이름(예: ABC.WebServer) 대신 구성 이름(예: ABC)에 할당된 경우에 발생합니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-* Make sure that you're assigning the node with "node configuration name" and not the "configuration name".
+* "구성 이름"이 아니라 "노드 구성 이름"을 사용 하 여 노드를 할당 하 고 있는지 확인 합니다.
 * Azure 포털 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
 
-  * To assign a node configuration to a node using Azure portal, open the **DSC Nodes** page, then select a node and click on **Assign node configuration** button.
-  * To assign a node configuration to a node using PowerShell cmdlet, use **Set-AzureRmAutomationDscNode** cmdlet
+  * Azure Portal를 사용 하 여 노드 구성을 노드에 할당 하려면 **DSC 노드** 페이지를 연 다음 노드를 선택 하 고 **노드 구성 할당** 단추를 클릭 합니다.
+  * PowerShell cmdlet을 사용 하 여 노드 구성을 노드에 할당 하려면 **register-azurermautomationdscnode** cmdlet을 사용 합니다.
 
 ### <a name="no-mof-files"></a>시나리오: 구성이 컴파일될 때 생성된 노드 구성(mof 파일)이 없음
 
@@ -126,11 +126,11 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 DSC 구성에서 **Node** 키워드 다음에 오는 식이 `$null`로 평가되면 노드 구성이 생성되지 않습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
-* Make sure that the expression next to the **Node** keyword in the configuration definition isn't evaluating to $null.
+* 구성 정의에서 **Node** 키워드 옆의 식이 $null를 평가 하 고 있지 않은지 확인 합니다.
 * 구성을 컴파일할 때 ConfigurationData를 전달하는 경우 [ConfigurationData](../automation-dsc-compile.md)에서 구성에 필요한 값을 전달해야 합니다.
 
 ### <a name="dsc-in-progress"></a>시나리오: DSC 노드 보고서가 "진행 중" 상태로 중단됨
@@ -147,9 +147,9 @@ No instance found with given property values
 
 WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-To fix the issue, follow the instructions in the [DSC known issues and limitations](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) article.
+이 문제를 해결 하려면 [DSC의 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) 문서에 있는 지침을 따르세요.
 
 ### <a name="issue-using-credential"></a>시나리오: DSC 구성에서 자격 증명을 사용할 수 없습니다.
 
@@ -163,17 +163,17 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 #### <a name="cause"></a>원인
 
-You've used a credential in a configuration but didn’t provide proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration.
+구성에서 자격 증명을 사용 했지만 각 노드 구성에 대해 **PSDscAllowPlainTextPassword** 를 true로 설정 하는 적절 한 **ConfigurationData** 을 제공 하지 않았습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-* Make sure to pass in the proper **ConfigurationData** to set **PSDscAllowPlainTextPassword** to true for each node configuration that is mentioned in the configuration. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)을 참조하세요.
+* 구성에 설명 된 각 노드 구성에 대해 적절 한 **ConfigurationData** 를 전달 하 여 **PSDscAllowPlainTextPassword** 를 true로 설정 해야 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)을 참조하세요.
 
-### <a name="failure-processing-extension"></a>Scenario: Onboarding from dsc extension, "Failure processing extension" error
+### <a name="failure-processing-extension"></a>시나리오: dsc 확장에서 온 보 딩, "오류 처리 확장" 오류
 
 #### <a name="issue"></a>문제
 
-When onboarding using DSC extension, a failure occurs containing the error:
+DSC 확장을 사용 하 여 온 보 딩 하는 경우 오류를 포함 하는 오류가 발생 합니다.
 
 ```error
 VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. Error message: \"DSC COnfiguration 'RegistrationMetaConfigV2' completed with error(s). Following are the first few: Registration of the Dsc Agent with the server <url> failed. The underlying error is: The attempt to register Dsc Agent with Agent Id <ID> with the server <url> return unexpected response code BadRequest. .\".
@@ -181,18 +181,18 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 #### <a name="cause"></a>원인
 
-This error typically occurs when the node is assigned a node configuration name that does not exist in the service.
+일반적으로이 오류는 노드에 서비스에 없는 노드 구성 이름이 할당 될 때 발생 합니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-* Make sure that you're assigning the node with a node configuration name that exactly matches the name in the service.
-* You can choose to not include the node configuration name, which will result in onboarding the node but not assigning a node configuration
+* 서비스의 이름과 정확히 일치 하는 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
+* 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드를 온 보 딩 하지만 노드 구성을 할당 하지 않습니다.
 
-### <a name="failure-linux-temp-noexec"></a>Scenario: Applying a configuration in Linux, a failure occurs with a general error
+### <a name="failure-linux-temp-noexec"></a>시나리오: Linux에서 구성을 적용 하면 일반 오류로 인해 오류가 발생 합니다.
 
 #### <a name="issue"></a>문제
 
-When applying a configuration in Linux, a failure occurs containing the error:
+Linux에서 구성을 적용할 때 오류가 발생 하는 오류는 다음과 같습니다.
 
 ```error
 This event indicates that failure happens when LCM is processing the configuration. ErrorId is 1. ErrorDetail is The SendConfigurationApply function did not succeed.. ResourceId is [resource]name and SourceInfo is ::nnn::n::resource. ErrorMessage is A general error occurred, not covered by a more specific error code..
@@ -200,27 +200,27 @@ This event indicates that failure happens when LCM is processing the configurati
 
 #### <a name="cause"></a>원인
 
-Customers have identified that if the `/tmp` location is set to `noexec`, the current version of DSC will fail to apply configurations.
+`/tmp` 위치가 `noexec`으로 설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못하는 것으로 확인 되었습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-* Remove the `noexec` option from the `/tmp` location.
+* `/tmp` 위치에서 `noexec` 옵션을 제거 합니다.
 
-### <a name="compilation-node-name-overlap"></a>Scenario: Node configuration names that overlap could result in bad release
+### <a name="compilation-node-name-overlap"></a>시나리오: 중복 되는 노드 구성 이름이 잘못 된 릴리스를 발생 시킬 수 있습니다.
 
 #### <a name="issue"></a>문제
 
-If a single configuration script is used to generate multiple node configurations, and some of the node configurations have a name that is a subset of others, an issue in the compilation service could result in assigning the wrong configuration.  This only occurs when using a single script to generate configurations with configuration data per node, and only when the name overlap occurs at the beginning of the string.
+단일 구성 스크립트를 사용 하 여 여러 노드 구성을 생성 하 고 일부 노드 구성의 이름이 다른 하위 집합인 경우 컴파일 서비스의 문제로 인해 잘못 된 구성이 할당 될 수 있습니다.  이는 단일 스크립트를 사용 하 여 노드당 구성 데이터를 사용 하 여 구성을 생성 하는 경우에만 발생 하며, 문자열의 시작 부분에서 이름이 겹치는 경우에만 발생 합니다.
 
-Example, if a single configuration script is used to generate configurations based on node data passed as a hashtable using cmdlets, and the node data includes a server named "server" and "1server".
+예를 들어 cmdlet을 사용 하 여 hashtable로 전달 된 노드 데이터를 기반으로 구성을 생성 하는 단일 구성 스크립트를 사용 하는 경우 노드 데이터에는 "server" 및 "1server" 라는 서버가 포함 됩니다.
 
 #### <a name="cause"></a>원인
 
-Known issue with the compilation service.
+컴파일 서비스의 알려진 문제입니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-The best workaround would be to compile locally or in a CI/CD pipeline and upload the MOF files directly to the service.  If compilation in the service is a requirement, the next best workaround would be to split the compilation jobs so there is no overlap in names.
+가장 좋은 해결 방법은 로컬로 또는 CI/CD 파이프라인에서 컴파일하고 MOF 파일을 서비스에 직접 업로드 하는 것입니다.  서비스의 컴파일이 요구 사항인 경우 다음으로 가장 좋은 해결 방법은 이름에 겹치지 않도록 컴파일 작업을 분할 하는 것입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

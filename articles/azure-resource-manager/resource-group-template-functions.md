@@ -12,7 +12,7 @@ ms.locfileid: "74224177"
 ---
 # <a name="azure-resource-manager-template-functions"></a>Azure Resource Manager 템플릿 함수
 
-이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. For information about using functions in your template, see [template syntax](template-expressions.md).
+이 아티클에서는 Azure Resource Manager 템플릿에서 사용할 수 있는 모든 함수에 대해 설명합니다. 템플릿에서 함수를 사용 하는 방법에 대 한 자세한 내용은 [템플릿 구문](template-expressions.md)을 참조 하세요.
 
 함수를 직접 만들려면 [사용자 정의 함수](resource-group-authoring-templates.md#functions)를 참조하세요.
 
@@ -78,8 +78,8 @@ Resource Manager는 템플릿에서 비교를 수행하기 위한 몇 가지 함
 Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
 * [deployment](resource-group-template-functions-deployment.md#deployment)
-* [environment](resource-group-template-functions-deployment.md#environment)
-* [매개 변수](resource-group-template-functions-deployment.md#parameters)
+* [개발](resource-group-template-functions-deployment.md#environment)
+* [parameters](resource-group-template-functions-deployment.md#parameters)
 * [variables](resource-group-template-functions-deployment.md#variables)
 
 <a id="and" aria-hidden="true" />
@@ -203,7 +203,7 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * [padLeft](resource-group-template-functions-string.md#padleft)
 * [replace](resource-group-template-functions-string.md#replace)
 * [skip](resource-group-template-functions-string.md#skip)
-* [분할](resource-group-template-functions-string.md#split)
+* [split](resource-group-template-functions-string.md#split)
 * [startsWith](resource-group-template-functions-string.md#startswith)
 * [string](resource-group-template-functions-string.md#string)
 * [substring](resource-group-template-functions-string.md#substring)
@@ -222,4 +222,4 @@ Resource Manager는 문자열 작업을 위한 다음 함수를 제공합니다.
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)
 * 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure Resource Manager에서 리소스의 여러 인스턴스 만들기](resource-group-create-multiple.md)
-* To see how to deploy the template you've created, see [Deploy an application with Azure Resource Manager template](resource-group-template-deploy.md)
+* 만든 템플릿을 배포 하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용 하 여 응용 프로그램 배포](resource-group-template-deploy.md) 를 참조 하세요.

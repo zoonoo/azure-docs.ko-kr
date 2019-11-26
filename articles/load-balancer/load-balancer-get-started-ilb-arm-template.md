@@ -45,7 +45,7 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 1. Azure PowerShell을 처음 사용하는 경우 [Azure PowerShell을 설치 및 구성하는 방법](/powershell/azure/overview) 을 참조하고 지침을 끝까지 따르면서 Azure에 로그인하고 구독을 선택합니다.
 2. 매개 변수 파일을 로컬 디스크에 다운로드합니다.
 3. 파일을 편집하고 저장합니다.
-4. Run the **New-AzResourceGroupDeployment** cmdlet to create a resource group using the template.
+4. **AzResourceGroupDeployment** cmdlet을 실행 하 여 템플릿을 사용 하 여 리소스 그룹을 만듭니다.
 
     ```azurepowershell-interactive
     New-AzResourceGroupDeployment -Name TestRG -Location westus `
@@ -57,8 +57,8 @@ PowerShell을 사용하여 다운로드한 템플릿을 배포하려면 다음 �
 
 Azure CLI를 사용하여 템플릿을 배포하려면 아래 단계를 따르세요.
 
-1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md)을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
-2. 아래와 같이 **azure config mode** 명령을 실행하여 리소스 관리자 모드로 전환합니다.
+1. Azure CLI를 처음 사용하는 경우 [Azure CLI 설치 및 구성](../cli-install-nodejs.md) 을 참조하고 Azure 계정 및 구독을 선택하는 부분까지 관련 지침을 따릅니다.
+2. 아래와 같이 **azure config mode** 명령을 실행하여 Resource Manager 모드로 전환합니다.
 
     ```azurecli-interactive
     azure config mode arm

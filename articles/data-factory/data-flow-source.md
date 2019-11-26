@@ -1,6 +1,6 @@
 ---
-title: Source transformation in mapping data flow
-description: Learn how to set up a source transformation in mapping data flow.
+title: 매핑 데이터 흐름의 원본 변환
+description: 매핑 데이터 흐름에서 원본 변환을 설정 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
 manager: anandsub
@@ -15,176 +15,176 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74217741"
 ---
-# <a name="source-transformation-for-mapping-data-flow"></a>Source transformation for mapping data flow 
+# <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
-A source transformation configures your data source for the data flow. When designing data flows, your first step will always be configuring a source transformation. To add a source, click on the **Add Source** box in the data flow canvas.
+원본 변환은 데이터 흐름에 대 한 데이터 원본을 구성 합니다. 데이터 흐름을 디자인할 때 첫 번째 단계는 항상 원본 변환을 구성 합니다. 원본을 추가 하려면 데이터 흐름 캔버스에서 **원본 추가** 상자를 클릭 합니다.
 
-Every data flow requires at least one source transformation, but you can add as many sources as necessary to complete your data transformations. You can join those sources together with a join, lookup, or a union transformation.
+모든 데이터 흐름에는 하나 이상의 원본 변환이 필요 하지만 데이터 변환을 완료 하는 데 필요한 만큼의 원본을 추가할 수 있습니다. 이러한 소스를 조인, 조회 또는 공용 구조체 변환과 함께 조인할 수 있습니다.
 
-Each source transformation is associated with exactly one Data Factory dataset. The dataset defines the shape and location of the data you want to write to or read from. If using a file-based dataset, you can use wildcards and file lists in your source to work with more than one file at a time.
+각 원본 변환은 정확히 하나의 Data Factory 데이터 집합에 연결 됩니다. 데이터 집합은 쓰거나 읽고 싶은 데이터의 모양과 위치를 정의 합니다. 파일 기반 데이터 집합을 사용 하는 경우 소스에서 와일드 카드 및 파일 목록을 사용 하 여 한 번에 두 개 이상의 파일을 사용할 수 있습니다.
 
-## <a name="supported-connectors-in-mapping-data-flow"></a>Supported connectors in mapping data flow
+## <a name="supported-connectors-in-mapping-data-flow"></a>매핑 데이터 흐름에서 지원 되는 커넥터
 
-Mapping Data Flow follows an extract, load, transform (ELT) approach and works with *staging* datasets that are all in Azure. Currently the following datasets can be used in a source transformation:
+매핑 데이터 흐름은 ELT (추출, 로드, 변환) 접근 방식을 따르며, 모든 Azure의 *준비* 데이터 집합에서 작동 합니다. 현재 원본 변환에 사용할 수 있는 데이터 집합은 다음과 같습니다.
     
-* Azure Blob Storage (JSON, Avro, Text, Parquet)
-* Azure Data Lake Storage Gen1 (JSON, Avro, Text, Parquet)
-* Azure Data Lake Storage Gen2 (JSON, Avro, Text, Parquet)
-* Azure SQL Data Warehouse
+* Azure Blob Storage (JSON, Avro, 텍스트, Parquet)
+* Azure Data Lake Storage Gen1 (JSON, Avro, 텍스트, Parquet)
+* Azure Data Lake Storage Gen2 (JSON, Avro, 텍스트, Parquet)
+* Azure SQL 데이터 웨어하우스
 * Azure SQL Database
 * Azure CosmosDB
 
-Azure Data Factory has access to over 80 native connectors. To include data from those other sources in your data flow, use the Copy Activity to load that data into one of the supported staging areas.
+Azure Data Factory는 80 개의 기본 커넥터에 액세스할 수 있습니다. 데이터 흐름에 이러한 다른 원본의 데이터를 포함 하려면 복사 작업을 사용 하 여 지원 되는 준비 영역 중 하나에 해당 데이터를 로드 합니다.
 
 ## <a name="source-settings"></a>원본 설정
 
-Once you have added a source, configure via the **Source Settings** tab. Here you can pick or create the dataset your source points at. You can also select schema and sampling options for your data.
+소스를 추가한 후에는 **소스 설정** 탭을 통해를 구성 합니다. 여기서 원본 지점의 데이터 집합을 선택 하거나 만들 수 있습니다. 데이터에 대 한 스키마 및 샘플링 옵션을 선택할 수도 있습니다.
 
-![Source settings tab](media/data-flow/source1.png "Source settings tab")
+![원본 설정 탭](media/data-flow/source1.png "원본 설정 탭")
 
-**Schema drift:** [Schema Drift](concepts-data-flow-schema-drift.md) is data factory's ability to natively handle flexible schemas in your data flows without needing to explicitly define column changes.
+**스키마 드리프트:** [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 고유 하 게 처리 하는 data factory의 기능입니다.
 
-* Check the **Allow schema drift** box if the source columns will change often. This setting allows all incoming source fields to flow through the transformations to the sink.
+* 원본 열이 자주 변경 되는 경우에는 **스키마 드리프트 허용** 확인란을 선택 합니다. 이 설정을 사용 하면 들어오는 모든 원본 필드가 싱크로 변환을 통과할 수 있습니다.
 
-* Choosing **Infer drifted column types** will instruct data factory to detect and define data types for each new column discovered. With this feature turned off, all drifted columns will be of type string.
+* **데이터베이스가 드리프트 열 유형 유추** 는 검색 된 각 새 열의 데이터 형식을 검색 하 고 정의 하도록 데이터 팩터리에 지시 합니다. 이 기능을 끄면 모든 데이터베이스가 드리프트 열이 문자열 형식이 됩니다.
 
-**Validate schema:** If validate schema is selected, the data flow will fail to run if the incoming source data doesn't match the defined schema of the dataset.
+**스키마 유효성 검사:** 스키마 유효성 검사를 선택 하면 들어오는 원본 데이터가 데이터 집합의 정의 된 스키마와 일치 하지 않는 경우 데이터 흐름이 실행 되지 않습니다.
 
-**Skip line count:** The skip line count field specifies how many lines to ignore at the beginning of the dataset.
+**줄 수 건너뛰기:** 줄 수 건너뛰기 필드는 데이터 집합의 시작 부분에서 무시할 줄 수를 지정 합니다.
 
-**Sampling:** Enable sampling to limit the number of rows from your source. Use this setting when you test or sample data from your source for debugging purposes.
+**샘플링:** 샘플링을 사용 하 여 원본의 행 수를 제한 합니다. 디버깅을 위해 소스에서 데이터를 테스트 하거나 샘플링할 때이 설정을 사용 합니다.
 
-**Multiline rows:** Select multiline rows if your source text file contains string values that span multiple rows, i.e. newlines inside a value.
+**여러 줄 행:** 원본 텍스트 파일에 여러 행을 포함 하는 문자열 값 (예: 값 내 줄바꿈)이 포함 된 경우 여러 줄로 된 행을 선택 합니다.
 
-To validate your source is configured correctly, turn on debug mode and fetch a data preview. For more information, see [Debug mode](concepts-data-flow-debug-mode.md).
+소스가 올바르게 구성 되었는지 확인 하려면 디버그 모드를 설정 하 고 데이터 미리 보기를 인출 합니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조 하세요.
 
 > [!NOTE]
-> When debug mode is turned on, the row limit configuration in debug settings will overwrite the sampling setting in the source during data preview.
+> 디버그 모드가 설정 된 경우 디버그 설정의 행 제한 구성은 데이터 미리 보기 중에 원본의 샘플링 설정을 덮어씁니다.
 
-## <a name="file-based-source-options"></a>File-based source options
+## <a name="file-based-source-options"></a>파일 기반 원본 옵션
 
-If you're using a file-based dataset such as Azure Blob Storage or Azure Data Lake Storage, the **Source options** tab lets you manage how your source reads files.
+Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이터 집합을 사용 하는 경우 원본 **옵션** 탭을 사용 하 여 원본에서 파일을 읽는 방법을 관리할 수 있습니다.
 
-![Source options](media/data-flow/sourceOPtions1.png "Source options")
+![원본 옵션](media/data-flow/sourceOPtions1.png "원본 옵션")
 
-**Wildcard path:** Using a wildcard pattern will instruct ADF to loop through each matching folder and file in a single Source transformation. This is an effective way to process multiple files within a single flow. Add multiple wildcard matching patterns with the + sign that appears when hovering over your existing wildcard pattern.
+**와일드 카드 경로:** 와일드 카드 패턴을 사용 하면 ADF가 일치 하는 각 폴더와 파일을 단일 원본 변환에서 반복 하도록 지시할 수 있습니다. 단일 흐름 내에서 여러 파일을 처리 하는 효과적인 방법입니다. 기존 와일드 카드 패턴을 가리킬 때 표시 되는 + 기호를 사용 하 여 와일드 카드 일치 패턴을 여러 개 추가 합니다.
 
-From your source container, choose a series of files that match a pattern. Only container can be specified in the dataset. Your wildcard path must therefore also include your folder path from the root folder.
+소스 컨테이너에서 패턴과 일치 하는 일련의 파일을 선택 합니다. 데이터 집합에는 컨테이너만 지정할 수 있습니다. 따라서 와일드 카드 경로에도 루트 폴더의 폴더 경로가 포함 되어야 합니다.
 
-Wildcard examples:
+와일드 카드 예제:
 
-* ```*``` Represents any set of characters
-* ```**``` Represents recursive directory nesting
-* ```?``` Replaces one character
-* ```[]``` Matches one of more characters in the brackets
+* ```*```는 모든 문자 집합을 나타냅니다.
+* 재귀 디렉터리 중첩을 나타내는 ```**```
+* ```?``` 한 문자를 대체 합니다.
+* ```[]```는 대괄호 안에 있는 하나 이상의 문자를 찾습니다.
 
-* ```/data/sales/**/*.csv``` Gets all csv files under /data/sales
-* ```/data/sales/20??/**``` Gets all files in the 20th century
-* ```/data/sales/2004/*/12/[XY]1?.csv``` Gets all csv files in 2004 in December starting with X or Y prefixed by a two-digit number
+* />/> 아래에 있는 모든 csv 파일을 ```/data/sales/**/*.csv``` 가져옵니다.
+* ```/data/sales/20??/**``` 20 세기의 모든 파일을 가져옵니다.
+* 12 월 2004에 X 또는 Y 접두사가 2 자리 숫자로 시작 하는 모든 csv 파일을 ```/data/sales/2004/*/12/[XY]1?.csv``` 가져옵니다.
 
-**Partition Root Path:** If you have partitioned folders in your file source with  a ```key=value``` format (for example, year=2019), then you can assign the top level of that partition folder tree to a column name in your data flow data stream.
+**파티션 루트 경로:** 파일 원본에 ```key=value``` 형식으로 분할 된 폴더가 있는 경우 (예: year = 2019) 해당 파티션 폴더 트리의 최상위 수준을 데이터 흐름 데이터 스트림의 열 이름에 할당할 수 있습니다.
 
-First, set a wildcard to include all paths that are the partitioned folders plus the leaf files that you wish to read.
+먼저 분할 된 폴더와 읽으려는 리프 파일의 모든 경로를 포함 하도록 와일드 카드를 설정 합니다.
 
-![Partition source file settings](media/data-flow/partfile2.png "Partition file setting")
+![파티션 원본 파일 설정](media/data-flow/partfile2.png "파티션 파일 설정")
 
-Use the Partition Root Path setting to define what the top level of the folder structure is. When you view the contents of your data via a data preview, you'll see that ADF will add the resolved partitions found in each of your folder levels.
+파티션 루트 경로 설정을 사용 하 여 폴더 구조의 최상위 수준을 정의 합니다. 데이터 미리 보기를 통해 데이터의 내용을 볼 때 ADF가 각 폴더 수준에 있는 확인 된 파티션을 추가 하는 것을 볼 수 있습니다.
 
-![Partition root path](media/data-flow/partfile1.png "Partition root path preview")
+![파티션 루트 경로](media/data-flow/partfile1.png "파티션 루트 경로 미리 보기")
 
-**List of files:** This is a file set. Create a text file that includes a list of relative path files to process. Point to this text file.
+**파일 목록:** 이 파일은 파일 집합입니다. 처리할 상대 경로 파일 목록이 포함 된 텍스트 파일을 만듭니다. 이 텍스트 파일을 가리킵니다.
 
-**Column to store file name:** Store the name of the source file in a column in your data. Enter a new column name here to store the file name string.
+**저장할 열 파일 이름:** 원본 파일의 이름을 데이터의 열에 저장 합니다. 여기에 새 열 이름을 입력 하 여 파일 이름 문자열을 저장 합니다.
 
-**After completion:** Choose to do nothing with the source file after the data flow runs, delete the source file, or move the source file. The paths for the move are relative.
+**완료 후:** 데이터 흐름이 실행 된 후 원본 파일을 사용 하 여 아무 작업도 수행 하지 않도록 선택 하거나 원본 파일을 삭제 하거나 원본 파일을 이동 합니다. 이동 경로는 상대 경로입니다.
 
-To move source files to another location post-processing, first select "Move" for file operation. Then, set the "from" directory. If you're not using any wildcards for your path, then the "from" setting will be the same folder as your source folder.
+원본 파일을 다른 위치로 처리 후에 이동 하려면 먼저 파일 작업에 대해 "이동"을 선택 합니다. 그런 다음 "from" 디렉터리를 설정 합니다. 경로에 와일드 카드를 사용 하지 않는 경우 "보낸 사용자" 설정은 원본 폴더와 같은 폴더에 있습니다.
 
-If you have a source path with wildcard, your syntax will look like this below:
+와일드 카드가 있는 원본 경로를 사용 하는 경우 구문은 다음과 같습니다.
 
 ```/data/sales/20??/**/*.csv```
 
-You can specify "from" as
+다음으로 "시작"을 지정할 수 있습니다.
 
 ```/data/sales```
 
-And "to" as
+및 "to"로
 
 ```/backup/priorSales```
 
-In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
+이 경우/cv/ps 아래에서 소스인 모든 파일이/backup/priorSales.로 이동 됩니다.
 
 > [!NOTE]
-> File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
+> 파이프라인에서 데이터 흐름 실행 작업을 사용 하는 파이프라인 실행 (파이프라인 디버그 또는 실행 실행)에서 데이터 흐름을 시작 하는 경우에만 파일 작업이 실행 됩니다. 파일 작업은 데이터 흐름 디버그 모드에서 실행 *되지* 않습니다.
 
-**Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
+**마지막으로 수정한 사람 필터링:** 마지막으로 수정 된 날짜 범위를 지정 하 여 처리 하는 파일을 필터링 할 수 있습니다. 모든 날짜/시간은 UTC 시간입니다. 
 
 ### <a name="add-dynamic-content"></a>동적 콘텐츠 추가
 
-All source settings can be specified as expressions using the [Mapping Data flow's transformation expression language](data-flow-expression-functions.md). To add dynamic content, click or hover inside of the fields in the settings panel. Click the hyperlink for **Add dynamic content**. This will launch the expression builder where you can set values dynamically using expressions, static literal values, or parameters.
+모든 원본 설정은 [매핑 데이터 흐름의 변환 식 언어](data-flow-expression-functions.md)를 사용 하 여 식으로 지정할 수 있습니다. 동적 콘텐츠를 추가 하려면 설정 패널에서 필드 내부를 클릭 하거나 마우스로 가리킵니다. **동적 콘텐츠 추가**에 대 한 하이퍼링크를 클릭 합니다. 그러면 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 값을 설정할 수 있는 식 작성기가 시작 됩니다.
 
-![매개 변수](media/data-flow/params6.png "parameters")
+![매개 변수](media/data-flow/params6.png "매개 변수")
 
-## <a name="sql-source-options"></a>SQL source options
+## <a name="sql-source-options"></a>SQL 원본 옵션
 
-If your source is in SQL Database or SQL Data Warehouse, additional SQL-specific settings are available in the **Source Options** tab. 
+원본이 SQL Database 또는 SQL Data Warehouse 인 경우 **원본 옵션** 탭에서 추가 SQL 관련 설정을 사용할 수 있습니다. 
 
-**Input:** Select whether you point your source at a table (equivalent of ```Select * from <table-name>```) or enter a custom SQL query.
+**입력:** 원본 위치를 테이블에 표시할지 (```Select * from <table-name>```와 동일) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
 
-**Query**: If you select Query in the input field, enter a SQL query for your source. This setting overrides any table that you've chosen in the dataset. **Order By** clauses aren't supported here, but you can set a full SELECT FROM statement. You can also use user-defined table functions. **select * from udfGetData()** is a UDF in SQL that returns a table. This query will produce a source table that you can use in your data flow. Using queries is also a great way to reduce rows for testing or for lookups. 예: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법 이기도 합니다. 예제: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
-**Batch size**: Enter a batch size to chunk large data into reads.
+**일괄 처리 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
 
-**Isolation Level**: The default for SQL sources in mapping data flow is read uncommitted. You can change the isolation level here to one of these values:
-* Read Committed
-* Read Uncommitted
+**격리 수준**: 매핑 데이터 흐름에서 SQL 원본의 기본값은 커밋되지 않은 읽기입니다. 여기에서 격리 수준을 다음 값 중 하나로 변경할 수 있습니다.
+* 커밋된 읽기
+* 커밋되지 않은 읽기
 * 반복 가능한 읽기
-* Serializable
-* None (ignore isolation level)
+* 직렬화 가능
+* 없음 (격리 수준 무시)
 
-![Isolation Level](media/data-flow/isolationlevel.png "Isolation Level")
+![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
 
 ## <a name="projection"></a>프로젝션
 
-Like schemas in datasets, the projection in a source defines the data columns, types, and formats from the source data. For most dataset types such as SQL and Parquet, the projection in a source is fixed to reflect the schema defined in a dataset. When your source files aren't strongly typed (for example, flat csv files rather than Parquet files), you can define the data types for each field in the source transformation.
+데이터 집합의 스키마와 마찬가지로 원본의 프로젝션은 원본 데이터의 데이터 열, 형식 및 형식을 정의 합니다. SQL 및 Parquet와 같은 대부분의 데이터 집합 형식에 대해 원본 프로젝션은 데이터 집합에 정의 된 스키마를 반영 하도록 수정 됩니다. 원본 파일이 강력 하 게 형식화 되지 않은 경우 (예: Parquet 파일이 아닌 플랫 csv 파일) 원본 변환의 각 필드에 대 한 데이터 형식을 정의할 수 있습니다.
 
-![Settings on the Projection tab](media/data-flow/source3.png "프로젝션")
+![투영 탭의 설정](media/data-flow/source3.png "프로젝션")
 
-If your text file has no defined schema, select **Detect data type** so that Data Factory will sample and infer the data types. Select **Define default format** to autodetect the default data formats. 
+텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다. 
 
-You can modify the column data types in a down-stream derived-column transformation. Use a select transformation to modify the column names.
+하위 스트림 파생 열 변환에서 열 데이터 형식을 수정할 수 있습니다. 열 이름을 수정 하려면 선택 변환을 사용 합니다.
 
-### <a name="import-schema"></a>Import schema
+### <a name="import-schema"></a>스키마 가져오기
 
-Datasets like Avro and CosmosDB that support complex data structures do not require schema definitions to exist in the dataset. Therefore, you will be able to click the "Import Schema" button the Projection tab for these types of sources.
+복합 데이터 구조를 지 원하는 Avro 및 CosmosDB와 같은 데이터 집합은 스키마 정의가 데이터 집합에 존재 하지 않아도 됩니다. 따라서 "스키마 가져오기" 단추를 클릭 하 여 이러한 종류의 원본에 대 한 프로젝션 탭을 사용할 수 있습니다.
 
-## <a name="cosmosdb-specific-settings"></a>CosmosDB specific settings
+## <a name="cosmosdb-specific-settings"></a>CosmosDB 특정 설정
 
-When using CosmosDB as a source type, there are a few options to consider:
+CosmosDB를 원본 유형으로 사용 하는 경우 다음과 같은 몇 가지 옵션을 고려해 야 합니다.
 
-* Include system columns: If you check this, ```id```, ```_ts```, and other system columns will be included in your data flow metadata from CosmosDB. When updating collections, it is important to include this so that you can grab the existing row id.
-* Page size: The number of documents per page of the query result. Default is "-1" which uses the service dynamic page up to 1000.
-* Throughput: Set an optional value for the number of RUs you'd like to apply to your CosmosDB collection for each execution of this data flow during the read operation. Minimum is 400.
-* Preferred regions: You can choose the preferred read regions for this process.
+* 시스템 열 포함:이 확인란을 선택 하면 ```id```, ```_ts```및 기타 시스템 열이 CosmosDB의 데이터 흐름 메타 데이터에 포함 됩니다. 컬렉션을 업데이트할 때 기존 행 id를 가져올 수 있도록이를 포함 하는 것이 중요 합니다.
+* 페이지 크기: 쿼리 결과의 페이지당 문서 수입니다. 기본값은 서비스 동적 페이지를 1000까지 사용 하는 "-1"입니다.
+* 처리량: 읽기 작업 중에이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
+* 기본 설정 영역:이 프로세스에 대 한 기본 읽기 영역을 선택할 수 있습니다.
 
-## <a name="optimize-the-source-transformation"></a>Optimize the source transformation
+## <a name="optimize-the-source-transformation"></a>원본 변환 최적화
 
-On the **Optimize** tab for the source transformation, you might see a **Source** partition type. This option is available only when your source is Azure SQL Database. This is because Data Factory tries to make connections parallel to run large queries against your SQL Database source.
+원본 변환에 대 한 **최적화** 탭에서 **원본** 파티션 형식이 표시 될 수 있습니다. 이 옵션은 원본이 Azure SQL Database 경우에만 사용할 수 있습니다. 이는 Data Factory 연결을 설정 하 여 SQL Database 원본에 대해 많은 쿼리를 실행 하 려 하기 때문입니다.
 
-![Source partition settings](media/data-flow/sourcepart3.png "분할")
+![원본 파티션 설정](media/data-flow/sourcepart3.png "분할")
 
-You don't have to partition data on your SQL Database source, but partitions are useful for large queries. You can base your partition on a column or a query.
+SQL Database 원본에서 데이터를 분할할 필요가 없지만 파티션은 대량 쿼리에 유용 합니다. 열 또는 쿼리를 기반으로 파티션을 만들 수 있습니다.
 
-### <a name="use-a-column-to-partition-data"></a>Use a column to partition data
+### <a name="use-a-column-to-partition-data"></a>열을 사용 하 여 데이터 분할
 
-From your source table, select a column to partition on. Also set the number of partitions.
+원본 테이블에서 분할할 열을 선택 합니다. 또한 파티션 수를 설정 합니다.
 
-### <a name="use-a-query-to-partition-data"></a>Use a query to partition data
+### <a name="use-a-query-to-partition-data"></a>쿼리를 사용 하 여 데이터 분할
 
-You can choose to partition the connections based on a query. Enter the contents of a WHERE predicate. For example, enter year > 1980.
+쿼리에 따라 연결을 분할 하도록 선택할 수 있습니다. WHERE 조건자의 내용을 입력 합니다. 예를 들어 연도 > 1980를 입력 합니다.
 
-For more information on optimization within mapping data flow, see the [Optimize tab](concepts-data-flow-overview.md#optimize).
+데이터 흐름 매핑 내의 최적화에 대 한 자세한 내용은 [최적화 탭](concepts-data-flow-overview.md#optimize)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Begin building a [derived-column transformation](data-flow-derived-column.md) and a [select transformation](data-flow-select.md).
+[파생 열 변환과](data-flow-derived-column.md) [선택 변환](data-flow-select.md)의 작성을 시작 합니다.

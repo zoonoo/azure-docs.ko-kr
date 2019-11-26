@@ -80,7 +80,7 @@ Virtual Networks에 Service Bus를 바인딩하는 작업은 2단계 프로세�
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> 다음으로 변경:
 > ```json
 > "defaultAction": "Deny"
 > ```

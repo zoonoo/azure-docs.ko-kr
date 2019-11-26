@@ -1,6 +1,6 @@
 ---
-title: Create & publish single sign-on documentation for your application
-description: Guidance for independent software vendors on integrating with Azure Active Directory
+title: 응용 프로그램에 대 한 Single Sign-On 설명서 만들기 & 게시
+description: Azure Active Directory와의 통합에 대 한 독립 소프트웨어 공급 업체 지침
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -19,46 +19,46 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74232275"
 ---
-# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>Create and publish single sign-on documentation for your application   
+# <a name="create-and-publish-single-sign-on-documentation-for-your-application"></a>응용 프로그램에 대 한 Single Sign-On 문서 만들기 및 게시   
 
-## <a name="documentation-on-your-site"></a>Documentation on your site
+## <a name="documentation-on-your-site"></a>사이트에 대 한 설명서
 
-Ease of adoption is a significant factor in enterprise software decisions. Clear easy-to-follow documentation supports your customers in their adoption journey and reduces support costs. Working with thousands of software vendors, Microsoft has seen what works.
+도입의 용이성은 엔터프라이즈 소프트웨어 결정의 중요 한 요소입니다. 따르기 쉬운 설명서는 도입 과정에서 고객을 지원 하 고 지원 비용을 절감 합니다. Microsoft는 수천 개의 소프트웨어 공급 업체와 협력 하 여 작동 하는 것을 살펴보았습니다.
 
-We recommend that your documentation on your site at a minimum include the following items.
+사이트에 대 한 설명서는 최소한 다음 항목을 포함 하는 것이 좋습니다.
 
-* Introduction to your SSO functionality
+* SSO 기능 소개
 
-  * Protocols supported
+  * 지원 되는 프로토콜
 
-  * Version and SKU
+  * 버전 및 SKU
 
-  * Supported Identity Providers list with documentation links
+  * 설명서 링크를 사용 하 여 지원 되는 Id 공급자 목록
 
-* Licensing information for your application
+* 응용 프로그램에 대 한 라이선스 정보
 
-* Role-based access control for configuring SSO
+* SSO 구성을 위한 역할 기반 액세스 제어
 
-* SSO Configuration Steps
+* SSO 구성 단계
 
-  * UI configuration elements for SAML with expected values from the provider
+  * 공급자의 예상 값을 포함 하는 SAML의 UI 구성 요소
 
-  * Service provider information to be passed to identity providers
+  * Id 공급자에 전달할 서비스 공급자 정보입니다.
 
-* If OIDC/OAuth
+* OIDC/OAuth 인 경우
 
-  * List of permissions required for consent with business justifications
+  * 비즈니스 근거 승인에 필요한 사용 권한 목록
 
-* Testing steps for pilot users
+* 파일럿 사용자를 위한 테스트 단계
 
-* Troubleshooting information, including error codes and messages
+* 오류 코드 및 메시지를 비롯 한 문제 해결 정보
 
-* Support mechanisms for customers
+* 고객을 위한 지원 메커니즘
 
-## <a name="documentation-on-the-microsoft-site"></a>Documentation on the Microsoft Site
+## <a name="documentation-on-the-microsoft-site"></a>Microsoft 사이트 설명서
 
-When you list your application with the Azure Active Directory Application Gallery, which also publishes your application in the Azure Marketplace, Microsoft will generate documentation for our mutual customers explaining the step-by-step process. You can see an example [here](https://aka.ms/appstutorial). This documentation is created based on your submission to the gallery, and you can easily update it if you make changes to your application using your GitHub account.
+응용 프로그램을 Azure Marketplace에 게시 하는 Azure Active Directory 응용 프로그램 갤러리를 사용 하 여 응용 프로그램을 나열 하는 경우 Microsoft는 단계별 프로세스를 설명 하는 상호 고객에 대 한 설명서를 생성 합니다. [여기](https://aka.ms/appstutorial)에서 예제를 확인할 수 있습니다. 이 설명서는 갤러리에 대 한 제출에 따라 만들어지며, GitHub 계정을 사용 하 여 응용 프로그램을 변경 하는 경우 쉽게 업데이트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[List your application in the Azure AD Application Gallery](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)
+[Azure AD 응용 프로그램 갤러리에 응용 프로그램 나열](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx)

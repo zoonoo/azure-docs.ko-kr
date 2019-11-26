@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 자습서에서는 다음과 같은 서비스, 도구 및 데이터가 사용됩니다. 
 
-+ 샘플 데이터를 저장하기 위한 [Azure Storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 스토리지 계정이 Azure Cognitive Search와 동일한 지역에 있는지 확인합니다.
++ 샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 스토리지 계정이 Azure Cognitive Search와 동일한 지역에 있는지 확인합니다.
 
 + [샘플 데이터](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)는 여러 종류의 작은 파일 세트로 구성됩니다. 
 
@@ -69,7 +69,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인하고 Azure Storage 계정으로 이동한 후 **Blobs**를 클릭하고 **+ 컨테이너**를 클릭합니다.
 
-1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값 중 하나에 대한 공용 액세스 수준을 설정할 수 있습니다. 이 자습서에서는 컨테이너 이름이 "basic-demo-data-pr"이라고 가정합니다.
+1. 샘플 데이터가 포함되도록 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다. 이 자습서에서는 컨테이너 이름이 "basic-demo-data-pr"이라고 가정합니다.
 
 1. 컨테이너가 만들어지면 해당 컨테이너를 열고 명령 모음에서 **업로드**를 선택하여 [샘플 데이터](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)를 업로드합니다.
 

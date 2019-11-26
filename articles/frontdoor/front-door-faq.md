@@ -124,7 +124,7 @@ Azure Front 도어 서비스는 전역적으로 분산 된 다중 테 넌 트 �
 
 참고-사용자 지정 SSL 인증서 업데이트는 전역적으로 배포 하는 데 30 분 정도 걸립니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="can-azure-front-door-load-balance-or-route-traffic-within-a-virtual-network"></a>Azure Front 도어는 가상 네트워크 내에서 트래픽 부하를 분산 하거나 라우팅할 수 있나요?
 

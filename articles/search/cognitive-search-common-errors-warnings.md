@@ -37,7 +37,7 @@ API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원�
 | key | 오류 또는 경고의 영향을 받는 문서의 문서 id입니다. | https://coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
 | name | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e myOutputFieldName KnowledgeStore. myTableName |
 | message | 오류 또는 경고에 대 한 개략적인 설명입니다. | 웹 Api 요청이 실패 했으므로 기술을 실행할 수 없습니다. |
-| 세부 정보 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
+| details 정보 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
 | documentationLink | 문제를 디버그 하 고 해결 하기 위한 자세한 정보가 포함 된 관련 설명서에 대 한 링크입니다. 이 링크는 종종이 페이지에서 아래 섹션 중 하나를 가리킵니다. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -46,7 +46,7 @@ API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원�
 
 인덱서가 데이터 소스에서 문서를 읽을 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | 여러 문서에서 일치 하지 않는 필드 형식 | 값의 형식이 열 형식과 일치 하지 않습니다. 작성자 열에 `'{47.6,-122.1}'`를 저장할 수 없습니다.  필요한 형식은 JArray입니다. | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 DateTime이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
 | 데이터 원본의 기본 서비스에서 발생 한 오류 | (Cosmos DB) `{"Errors":["Request rate is large"]}` | 저장소 인스턴스를 확인 하 여 정상 상태 인지 확인 합니다. 크기 조정/분할을 조정 해야 할 수 있습니다. |
@@ -57,7 +57,7 @@ API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원�
 ## <a name="error-could-not-extract-document-content"></a>오류: 문서 콘텐츠를 추출할 수 없습니다.
 Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추출할 수 없습니다 (예: PDF 파일). 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | blob이 크기 제한을 초과 합니다. | 문서가 현재 서비스 계층의 문서 추출에 대 한 최대 크기 `'134217728'` 바이트를 초과 하는 `'150441598'` 바이트입니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다 `'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,7 +69,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 ## <a name="error-could-not-parse-document"></a>오류: 문서를 구문 분석할 수 없습니다.
 인덱서는 데이터 소스에서 문서를 읽었지만 문서 콘텐츠를 지정 된 필드 매핑 스키마로 변환 하는 동안 문제가 발생 했습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | 문서 키가 없습니다. | 문서 키를 누락 하거나 비워 둘 수 없습니다. | 모든 문서에 유효한 문서 키가 있는지 확인 |
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
@@ -81,7 +81,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 ## <a name="error-could-not-execute-skill"></a>오류: 기술을 실행할 수 없습니다.
 인덱서가 기술에서 기술을 실행할 수 없습니다.
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | 일시적인 연결 문제 | 일시적인 오류가 발생 했습니다. 나중에 다시 시도하세요. | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 | 잠재적 제품 버그 | 예기치 않은 오류가 발생했습니다. | 이것은 알 수 없는 오류 클래스를 나타내며 제품 버그가 있음을 의미할 수 있습니다. 도움을 받으려면 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오. |
@@ -140,7 +140,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
 | 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
@@ -156,7 +156,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 문서를 읽고 처리 했지만 인덱스 필드의 구성과 인덱서가 추출 하는 데이터의 특성이 일치 하지 않기 때문에 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제
+| Reason | 세부 정보/예제
 | --- | ---
 | 인덱서에 의해 추출 된 필드의 데이터 형식이 해당 대상 인덱스 필드의 데이터 모델과 호환 되지 않습니다. | '_Data_' 키가 있는 문서의 '_data_' 데이터 필드에 잘못 된 값 ' Type ' Edm. 문자열 ' '이 (가) 있습니다. 필요한 형식은 ' Collection (Edm. String) ' 이었습니다. |
 | 문자열 값에서 JSON 엔터티를 추출 하지 못했습니다. | '_Data_' 필드의 ' ' 형식 ' ' 값을 JSON 개체로 구문 분석할 수 없습니다. 오류: ' 값을 구문 분석 한 후 예기치 않은 문자가 발견 되었습니다. ' '. 경로 '_path_', 줄 1, 위치 3162. ' |
@@ -195,7 +195,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 }
 ```
 
-| 이유 | 세부 정보/예제 | 해결 방법 |
+| Reason | 세부 정보/예제 | 해결 방법 |
 | --- | --- | --- |
 | 기술 입력의 형식이 잘못 되었습니다. | 필요한 기술 입력 `X` `String`필요한 유형이 아닙니다. 필요한 기술 입력 `X`은 (는) 예상 된 형식이 아닙니다. | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment.md) 에는 `text` 문자열이 필요 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트를 확인 하 고 입력 `*` 올바른 위치에 있어야 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 배열에 대 한 `*`로 끝나야 합니다. |
 | 기술 입력이 누락 되었습니다. | 필요한 기술 입력 `X` 누락 되었습니다. | 모든 문서에서이 경고가 표시 되는 경우 입력 경로에 오타가 있을 가능성이 가장 높습니다. 경로에 대 한 속성 이름 대/소문자 구분, 추가 또는 누락 `*`, 데이터 원본에서의 문서는 필요한 입력을 정의 해야 합니다. |

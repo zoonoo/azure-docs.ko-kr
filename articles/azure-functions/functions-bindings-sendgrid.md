@@ -29,11 +29,11 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SendGrid) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.SendGrid/) GitHub 리포지토리에 있습니다.
 
 > [!NOTE]
-> Version 2.x does not create the topic or subscription configured in the `ServiceBusTrigger` instance. Version 2.x is based on [Microsoft.Azure.ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) and does not handle queue management.
+> 버전 2.x는 `ServiceBusTrigger` 인스턴스에 구성 된 토픽 또는 구독을 만들지 않습니다. 2\.x 버전은 [ServiceBus](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus) 를 기반으로 하며 큐 관리를 처리 하지 않습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 언어 관련 예제를 참조하세요.
 
@@ -162,7 +162,7 @@ public class Message
 
 ### <a name="java-example"></a>Java 예제
 
-The following example uses the `@SendGridOutput` annotation from the [Java functions runtime library](/java/api/overview/azure/functions/runtime) to send an email using the SendGrid output binding.
+다음 예제에서는 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime) 의 `@SendGridOutput` 주석을 사용 하 여 SendGrid 출력 바인딩을 사용 하는 전자 메일을 보냅니다.
 
 ```java
 @FunctionName("SendEmail")
@@ -253,8 +253,8 @@ public static void Run(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**|| 필수 - `sendGrid`으로 설정해야 합니다.|
-|**direction**|| 필수 - `out`으로 설정해야 합니다.|
+|**type**|| 필수 - `sendGrid`로 설정해야 합니다.|
+|**direction**|| 필수 - `out`로 설정해야 합니다.|
 |**name**|| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 ```$return```입니다. |
 |**apiKey**|**ApiKey**| API 키가 포함 된 앱 설정의 이름입니다. 설정되지 않은 경우 기본 앱 설정 이름은 "AzureWebJobsSendGridApiKey"입니다.|
 |**to**|**To**| 수신자의 전자 메일 주소입니다. |
@@ -284,7 +284,7 @@ public static void Run(
 }
 ```  
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
 |from|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 

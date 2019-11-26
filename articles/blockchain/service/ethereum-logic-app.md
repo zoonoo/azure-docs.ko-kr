@@ -1,5 +1,5 @@
 ---
-title: Use Ethereum Blockchain connector with Azure Logic Apps - Azure Blockchain Service
+title: Azure Logic Apps에서 Ethereum Blockchain 커넥터 사용-Azure Blockchain 서비스
 description: Azure Logic Apps에서 Ethereum 블록체인 커넥터를 사용하여 스마트 계약 함수를 트리거하고 스마트 계약 이벤트에 응답합니다.
 ms.date: 10/14/2019
 ms.topic: article
@@ -13,11 +13,11 @@ ms.locfileid: "74325214"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Azure Logic Apps에서 Ethereum 블록체인 커넥터 사용
 
-[Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/)에서 [Ethereum 블록체인 커넥터](https://docs.microsoft.com/connectors/blockchainethereum/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
+[Azure Logic Apps](https://docs.microsoft.com/connectors/blockchainethereum/)에서 [Ethereum 블록체인 커넥터](https://docs.microsoft.com/azure/logic-apps/)를 사용하여 스마트 계약 작업을 수행하고 스마트 계약 이벤트에 응답합니다. 예를 들어 블록체인 원장의 정보를 반환하는 REST 기반 마이크로서비스를 만들려고 한다고 가정해 보겠습니다. 논리 앱을 사용하면 블록체인 원장에 저장된 정보를 쿼리하는 HTTP 요청을 받을 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-Complete the optional prerequisite [Quickstart: Use Visual Studio Code to connect to an Azure Blockchain Service consortium network](connect-vscode.md). 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
+선택적 필수 조건 [빠른 시작: Visual Studio Code을 사용 하 여 Azure Blockchain Service consortium 네트워크에 연결](connect-vscode.md)합니다. 이 빠른 시작에서는 [Ethereum용 Azure Blockchain Development Kit](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)를 설치하고 블록체인 개발 환경을 설정하는 방법을 안내합니다.
 
 ## <a name="create-a-logic-app"></a>논리 앱 만들기
 
@@ -52,7 +52,7 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 
     ![Event(이벤트) 트리거 속성이 있는 Logic Apps 디자이너](./media/ethereum-logic-app/event-properties.png)
 
-    | 자산 | 설명 |
+    | 속성 | 설명 |
     |----------|-------------|
     | **계약 ABI** | 계약 ABI(애플리케이션 이진 인터페이스)는 스마트 계약 인터페이스를 정의합니다. 자세한 내용은 [계약 ABI 가져오기](#get-the-contract-abi)를 참조하세요. |
     | **스마트 계약 주소** | 계약 주소는 Ethereum 블록체인의 스마트 계약 대상 주소입니다. 자세한 내용은 [계약 주소 가져오기](#get-the-contract-address)를 참조하세요. |
@@ -78,7 +78,7 @@ Ethereum 블록체인 커넥터에는 하나의 트리거와 여러 작업이 �
 1. Azure Blockchain Service에 대한 [API 연결을 변경하거나 만듭니다](#create-an-api-connection).
 1. 선택한 작업에 따라 제공하는 스마트 계약 함수에 대한 세부 정보는 다음과 같습니다.
 
-    | 자산 | 설명 |
+    | 속성 | 설명 |
     |----------|-------------|
     | **계약 ABI** | 계약 ABI는 스마트 계약 인터페이스를 정의합니다. 자세한 내용은 [계약 ABI 가져오기](#get-the-contract-abi)를 참조하세요. |
     | **계약 바이트 코드** | 컴파일된 스마트 계약 바이트 코드입니다. 자세한 내용은 [계약 바이트 코드 가져오기](#get-the-contract-bytecode)를 참조하세요. |
@@ -153,10 +153,10 @@ Ethereum 블록체인 커넥터에는 블록체인에 대한 API 연결이 필�
 
 Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 되기 위해 시나리오에 따라 필요할 수 있는 속성의 목록은 다음과 같습니다.
 
-| 자산 | 설명 |
+| 속성 | 설명 |
 |----------|-------------|
-|**연결 이름** | API 연결의 이름입니다. 필수 사항입니다. |
-|**Ethereum RPC 엔드포인트** | Azure Blockchain Service 트랜잭션 노드의 HTTP 주소입니다. 필수 사항입니다. 자세한 내용은 [RPC 엔드포인트 가져오기](#get-the-rpc-endpoint)를 참조하세요. |
+|**연결 이름** | API 연결의 이름입니다. 필수입니다. |
+|**Ethereum RPC 엔드포인트** | Azure Blockchain Service 트랜잭션 노드의 HTTP 주소입니다. 필수입니다. 자세한 내용은 [RPC 엔드포인트 가져오기](#get-the-rpc-endpoint)를 참조하세요. |
 |**프라이빗 키** | Ethereum 계정 프라이빗 키입니다. 트랜잭션에는 프라이빗 키 또는 계정 주소와 암호가 필요합니다. 자세한 내용은 [프라이빗 키 가져오기](#get-the-private-key)를 참조하세요. |
 |**계정 주소** | Azure Blockchain Service 멤버의 계정 주소입니다. 트랜잭션에는 프라이빗 키 또는 계정 주소와 암호가 필요합니다. 자세한 내용은 [계정 주소 가져오기](#get-the-account-address)를 참조하세요. |
 |**계정 암호** | 계정 암호는 멤버를 만들 때 설정됩니다. 암호 재설정에 대한 자세한 내용은 [Ethereum 계정](consortium.md#ethereum-account)을 참조하세요.|
@@ -176,7 +176,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 
 **Azure Portal을 사용하려면,**
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
 
     ![기본 노드가 선택된 트랜잭션 노드 페이지](./media/ethereum-logic-app/transaction-nodes.png)
@@ -193,7 +193,7 @@ Azure Blockchain Service 멤버에 대한 연결을 설정하는 데 도움이 �
 트랜잭션을 블록체인에 보낼 때 Ethereum 계정의 프라이빗 키를 사용하여 인증할 수 있습니다. Ethereum 계정의 퍼블릭 키와 프라이빗 키는 12개 단어 니모닉에서 생성됩니다. Azure Blockchain Service 컨소시엄 멤버에 연결하면 Ethereum용 Azure Blockchain Development Kit에서 니모닉을 생성합니다. 개발 키트 확장을 사용하여 엔드포인트 주소를 가져올 수 있습니다.
 
 1. Visual Studio Code에서 명령 팔레트를 엽니다(F1).
-1. Select **Azure Blockchain: Retrieve private key**.
+1. **Azure Blockchain: 개인 키 검색**을 선택 합니다.
 1. 컨소시엄 멤버에 연결되면 저장한 니모닉을 선택합니다.
 
     ![니모닉을 선택하는 옵션이 있는 명령 팔레트](./media/ethereum-logic-app/private-key.png)

@@ -1,6 +1,6 @@
 ---
-title: Create a function app from the Azure Portal
-description: Create a new function app in Azure from the portal.
+title: Azure Portal에서 함수 앱 만들기
+description: Azure에서 포털을 통해 새 함수 앱을 만듭니다.
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.custom: mvc
@@ -13,7 +13,7 @@ ms.locfileid: "74230779"
 ---
 # <a name="create-a-function-app-from-the-azure-portal"></a>Azure Portal에서 함수 앱 만들기
 
-This topic shows you how to use Azure Functions to create a function app in the Azure portal. 함수 앱은 개별 함수의 실행을 호스팅하는 컨테이너입니다. 
+이 항목에서는 Azure Functions를 사용 하 여 Azure Portal에서 함수 앱을 만드는 방법을 보여 줍니다. 함수 앱은 개별 함수의 실행을 호스팅하는 컨테이너입니다. 
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
 
@@ -27,15 +27,15 @@ Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문�
 
 ## <a name="service-plans"></a>서비스 계획
 
-Azure Functions has three different service plans: Consumption plan, Premium plan, and Dedicated (App Service) plan. You must choose your service plan when your function app is created, and it cannot subsequently be changed. 자세한 내용은 [Azure Functions 호스팅 계획 선택](functions-scale.md)을 참조하세요.
+Azure Functions에는 소비 계획, 프리미엄 계획 및 전용 (App Service) 계획과 같은 세 가지 서비스 계획이 있습니다. 함수 앱을 만들 때 서비스 계획을 선택 해야 하며 이후에는 변경할 수 없습니다. 자세한 내용은 [Azure Functions 호스팅 계획 선택](functions-scale.md)을 참조하세요.
 
-If you are planning to run JavaScript functions on a Dedicated (App Service) plan, you should choose a plan with fewer cores. 자세한 내용은 [함수에 대한 JavaScript 참조](functions-reference-node.md#choose-single-vcpu-app-service-plans)를 참조하세요.
+전용 (App Service) 계획에서 JavaScript 함수를 실행 하려는 경우 코어 수가 더 작은 계획을 선택 해야 합니다. 자세한 내용은 [함수에 대한 JavaScript 참조](functions-reference-node.md#choose-single-vcpu-app-service-plans)를 참조하세요.
 
 <a name="storage-account-requirements"></a>
 
 ## <a name="storage-account-requirements"></a>Storage 계정 요구 사항
 
-When creating a function app, you must create or link to a general-purpose Azure Storage account that supports Blob, Queue, and Table storage. 내부적으로 함수는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Storage를 사용합니다. Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정과 같은 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정은 함수 앱을 만들 때 Storage 계정 블레이드에서 필터링됩니다.
+함수 앱을 만들 때 Blob, 큐 및 테이블 저장소를 지 원하는 범용 Azure Storage 계정을 만들거나 연결 해야 합니다. 내부적으로 함수는 트리거 관리 및 함수 실행 로깅 등의 작업을 위해 Storage를 사용합니다. Blob 전용 스토리지 계정, Azure Premium Storage 및 ZRS 복제를 포함한 범용 스토리지 계정과 같은 일부 스토리지 계정은 큐 및 테이블을 지원하지 않습니다. 이러한 계정은 함수 앱을 만들 때 Storage 계정 블레이드에서 필터링됩니다.
 
 >[!NOTE]
 >소비 호스팅 계획을 사용할 경우 함수 코드 및 바인딩 구성 파일은 기본 스토리지 계정의 Azure File Storage에 저장됩니다. 기본 스토리지 계정을 삭제하면 이 콘텐츠는 삭제되고 복구할 수 없습니다.

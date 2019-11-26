@@ -22,12 +22,12 @@ ms.locfileid: "74218807"
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
 
-- **Data Flow**: Execute a [Data Flow](concepts-data-flow-overview.md) in managed Azure compute environment.  
-- **Data movement**: Copy data across data stores in public network and data stores in private network (on-premises or virtual private network). 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
-- **Activity dispatch**:  Dispatch and monitor transformation activities running on a variety of compute services such as Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server, and more.
+- **데이터 흐름**: 관리 되는 Azure 계산 환경에서 [데이터 흐름](concepts-data-flow-overview.md) 을 실행 합니다.  
+- **데이터 이동**: 공용 네트워크의 데이터 저장소 및 개인 네트워크 (온-프레미스 또는 가상 사설망)의 데이터 저장소 간에 데이터를 복사 합니다. 기본 제공 커넥터, 형식 변환, 열 매핑 및 성능이 뛰어나고 확장 가능한 데이터 전송에 대한 지원을 제공합니다.
+- **활동 디스패치**: Azure Databricks, Azure HDInsight, Azure Machine Learning, Azure SQL Database, SQL Server 등 다양 한 계산 서비스에서 실행 되는 변환 작업을 디스패치 하 고 모니터링 합니다.
 - **SSIS 패키지 실행**: SSIS(SQL Server 통합 서비스) 패키지를 관리되는 Azure 컴퓨팅 환경에서 고유하게 실행합니다.
 
-Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  It is referenced by the linked service or activity, and provides the compute environment where the activity either runs on or gets dispatched from. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
+Data Factory에서 작업은 수행할 작업을 정의합니다. 연결된 서비스는 대상 데이터 저장소 또는 컴퓨팅 서비스를 정의합니다. 통합 런타임은 작업과 연결된 서비스 간의 브리지를 제공합니다.  이는 연결 된 서비스 또는 활동에서 참조 되며 활동이 실행 되거나 디스패치되는 계산 환경을 제공 합니다. 이러한 방식으로 보안 및 준수 요구를 충족하면서 가장 성능이 뛰어난 방법으로 대상 데이터 저장소 또는 컴퓨팅 서비스에 가능하면 가장 가까운 영역에서 작업을 수행할 수 있습니다.
 
 ## <a name="integration-runtime-types"></a>통합 런타임 유형
 Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합 기능 및 원하는 네트워크 환경 요구에 가장 적합한 유형을 선택해야 합니다.  세 유형은 다음과 같습니다.
@@ -40,7 +40,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | Data Flow<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
@@ -48,15 +48,15 @@ Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
 ![통합 런타임의 다양한 유형](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure Integration Runtime
+## <a name="azure-integration-runtime"></a>Azure 통합 런타임
 Azure 통합 런타임은 다음을 수행할 수 있습니다.
 
-- Running Data Flows in Azure 
+- Azure에서 데이터 흐름 실행 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- Dispatching the following transform activities in public network: Databricks Notebook/ Jar/ Python activity, HDInsight Hive activity, HDInsight Pig activity, HDInsight MapReduce activity, HDInsight Spark activity, HDInsight Streaming activity, Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, .NET custom activity, Web activity, Lookup activity, and Get Metadata activity.
+- 공용 네트워크에서 다음과 같은 변환 작업을 디스패치 합니다. Databricks 노트북/Jar/Python 작업, HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Machine 일괄 처리 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 학습 합니다.
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
-Azure Integration Runtime supports connecting to data stores and compute services with public accessible endpoints. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
+Azure Integration Runtime는 액세스 가능한 공용 끝점을 사용 하 여 데이터 저장소 및 계산 서비스에 대 한 연결을 지원 합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
 
 ### <a name="azure-ir-compute-resource-and-scaling"></a>Azure IR 컴퓨팅 리소스 및 크기 조정
 Azure 통합 런타임은 Azure에서 완전히 관리되고, 서버리스 컴퓨팅을 제공합니다.  인프라 프로비전, 소프트웨어 설치, 패치 또는 용량 크기 조정을 걱정할 필요가 없습니다.  또한 실제 사용 기간에 대해서만 지불합니다.
@@ -68,19 +68,19 @@ Azure 통합 런타임은 안전하고 안정적이고 고성능의 방법으로
 Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아래의 Azure IR 만들기 및 구성 방법을 참조하세요. 
 
 > [!NOTE] 
-> Azure Integration runtime has properties related to Data Flow runtime, which defines the underlying compute infrastructure that would be used to run the data flows on. 
+> Azure Integration runtime에는 데이터 흐름을 실행 하는 데 사용 되는 기본 계산 인프라를 정의 하는 데이터 흐름 런타임과 관련 된 속성이 있습니다. 
 
 ## <a name="self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임
 자체 호스팅 IR로 다음을 수행할 수 있습니다.
 
 - 클라우드 데이터 저장소와 프라이빗 네트워크의 데이터 저장소 간에 복사 작업을 실행합니다.
-- Dispatching the following transform activities against compute resources in on-premises or Azure Virtual Network: HDInsight Hive activity (BYOC-Bring Your Own Cluster), HDInsight Pig activity (BYOC), HDInsight MapReduce activity (BYOC), HDInsight Spark activity (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch Execution activity, Machine Learning Update Resource activities, Stored Procedure activity, Data Lake Analytics U-SQL activity, Custom activity (runs on Azure Batch), Lookup activity, and Get Metadata activity.
+- 온-프레미스 또는 Azure Virtual Network의 계산 리소스에 대해 다음과 같은 변환 작업을 디스패치 합니다. HDInsight Hive 작업 (BYOC-사용자 고유의 클러스터 가져오기), BYOC (hdinsight Pig activity), BYOC (hdinsight MapReduce 활동), HDInsight Spark 활동 (BYOC), HDInsight Streaming activity (BYOC), Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 활동, 저장 프로시저 활동, Data Lake Analytics U-SQL 활동, 사용자 지정 활동 (Azure Batch에서 실행), 조회 작업 및 메타 데이터 가져오기 작업을 제공 합니다.
 
 > [!NOTE] 
-> Use self-hosted integration runtime to support data stores that requires bring-your-own driver such as SAP Hana, MySQL, etc.  For more information, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
+> 자체 호스팅 integration runtime을 사용 하 여 SAP Hana, MySQL 등 자신의 드라이버를 사용 해야 하는 데이터 저장소를 지원할 수 있습니다.  자세한 내용은 [지원 되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조 하세요.
 
 > [!NOTE] 
-> Java Runtime Environment (JRE) is a dependency of Self Hosted IR. Please make sure you have JRE installed on the same host.
+> JRE (Java Runtime Environment)는 자체 호스트 IR의 종속성입니다. JRE가 동일한 호스트에 설치 되어 있는지 확인 하세요.
 
 ### <a name="self-hosted-ir-network-environment"></a>자체 호스팅 IR 네트워크 환경
 퍼블릭 클라우드 환경에서 직접 시야를 가지고 있지 않은 프라이빗 네트워크 환경에서 데이터 통합을 안전하게 수행하려면 회사 방화벽 뒤에 또는 가상 사설망 내에 온-프레미스 환경에 자체 호스팅 IR을 설치할 수 있습니다.  자체 호스팅 통합 런타임은 아웃바운드 HTTP 기반 연결만이 인터넷을 열게 만듭니다.
@@ -88,7 +88,7 @@ Azure IR 만들기 및 구성에 대한 자세한 내용은 방법 가이드 아
 ### <a name="self-hosted-ir-compute-resource-and-scaling"></a>자체 호스팅 IR 컴퓨팅 리소스 및 크기 조정
 자체 호스팅 IR은 온-프레미스 머신 또는 프라이빗 네트워크 내의 가상 머신에 설치해야 합니다. 현재 Windows 운영 체제에서만 자체 호스팅 IR의 실행을 지원합니다.  
 
-고가용성과 확장성을 위해 논리 인스턴스를 활성-활성 모드의 여러 온-프레미스 컴퓨터와 연결하여 자체 호스팅 IR을 확장할 수 있습니다.  For more information, see how to [create and configure self-hosted IR](create-self-hosted-integration-runtime.md) article under how to guides for details.
+고가용성과 확장성을 위해 논리 인스턴스를 활성-활성 모드의 여러 온-프레미스 컴퓨터와 연결하여 자체 호스팅 IR을 확장할 수 있습니다.  자세한 내용은 방법 가이드에서 [자체 호스팅 IR을 만들고 구성](create-self-hosted-integration-runtime.md) 하는 방법 문서를 참조 하세요.
 
 ## <a name="azure-ssis-integration-runtime"></a>Azure SSIS 통합 런타임
 기존 SSIS 워크로드를 올리고 이동하려면 SSIS 패키지를 고유하게 실행하는 Azure-SSIS IR을 만들 수 있습니다.
@@ -117,16 +117,16 @@ IR 위치는 해당 백 엔드 컴퓨팅의 위치, 즉 기본적으로 데이�
 ### <a name="azure-ir-location"></a>Azure IR 위치
 Azure IR의 특정 위치를 설정할 수 있으며, 데이터 이동 또는 작업 디스패치는 이 특정 영역에서 발생합니다. 
 
-If you choose to use the **auto-resolve Azure IR** which is the default, 
+기본값인 **자동 확인 Azure IR** 사용 하도록 선택 하는 경우 
 
 - 복사 작업에서는 ADF가 자동으로 싱크 및 원본 데이터 저장소를 검색하여 동일한 영역에서 최적의 위치를 선택하고(사용 가능한 경우), 데이터 팩터리 영역을 사용할 대안을 검색할 수 없는 경우에는 동일한 지리에서 가장 가까운 위치를 선택하기 위해 노력합니다.
 
-- For Lookup/GetMetadata/Delete activity execution (also known as Pipeline activities), transformation activity dispatching (also known as External activities), and authoring operations (test connection, browse folder list and table list, preview data), ADF will use the IR in the data factory region.
+- Lookup/GetMetadata/Delete 활동 실행 (파이프라인 활동이 라고도 함), 변환 활동 디스패치 (외부 활동) 및 제작 작업 (테스트 연결, 폴더 목록 및 테이블 목록 찾아보기, 데이터 미리 보기), ADF 는 data factory 지역에서 IR을 사용 합니다.
 
-- For Data Flow, ADF will use the IR in the data factory region. 
+- 데이터 흐름의 경우 ADF는 data factory 지역에서 IR을 사용 합니다. 
 
   > [!TIP] 
-  > A good practice would be to ensure Data flow runs in the same region as your corresponding data stores (if possible). You can either achieve this by auto-resolve Azure IR (if data store location is same as Data Factory location), or by creating a new Azure IR instance in the same region as your data stores and then execute the data flow on it. 
+  > 데이터 흐름이 해당 데이터 저장소와 동일한 지역에서 실행 되도록 하는 것이 좋습니다 (가능한 경우). Azure IR 자동 해결 (데이터 저장소 위치가 Data Factory 위치와 동일한 경우) 하거나 데이터 저장소와 동일한 지역에 새 Azure IR 인스턴스를 만든 다음 데이터 흐름에서 실행 하 여이를 달성할 수 있습니다. 
 
 UI 또는 작업 모니터링 페이로드에 대한 파이프라인 작업 모니터링 보기의 작업 실행 동안 어떤 IR 위치가 적용되는지 모니터링할 수 있습니다.
 
@@ -167,13 +167,13 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 각 변환 작업에는 통합 런타임을 가리키는 대상 컴퓨팅 연결 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
 
-### <a name="data-flow-activity"></a>Data Flow activity
+### <a name="data-flow-activity"></a>데이터 흐름 작업
 
-Data Flow activity is executed on the integration runtime associated to it. 
+데이터 흐름 작업은 연결 된 통합 런타임에 대해 실행 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
-- [Create Azure integration runtime](create-azure-integration-runtime.md)
+- [Azure 통합 런타임 만들기](create-azure-integration-runtime.md)
 - [자체 호스팅된 통합 런타임](create-self-hosted-integration-runtime.md)
 - [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 

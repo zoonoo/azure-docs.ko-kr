@@ -1,6 +1,6 @@
 ---
-title: Azure Security Center and Azure Container Registry
-description: Learn about Azure Security Center's integration with Azure Container Registry
+title: Azure Security Center 및 Azure Container Registry
+description: Azure Container Registry와 Azure Security Center의 통합에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -19,35 +19,35 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74229312"
 ---
-# <a name="azure-container-registry-integration-with-security-center-preview"></a>Azure Container Registry integration with Security Center (Preview)
+# <a name="azure-container-registry-integration-with-security-center-preview"></a>Security Center와 Azure Container Registry 통합 (미리 보기)
 
-Azure Container Registry (ACR) is a managed, private Docker registry service that stores and manages your container images for Azure deployments in a central registry. It's based on the open-source Docker Registry 2.0.
+ACR (Azure Container Registry)는 중앙 레지스트리에서 Azure 배포에 대 한 컨테이너 이미지를 저장 하 고 관리 하는 관리 되는 개인 Docker 레지스트리 서비스입니다. 오픈 소스 Docker 레지스트리 2.0을 기반으로 합니다.
 
-For deeper visibility into your registry and images' vulnerabilities, users of Azure Security Center's standard tier can enable the optional Container Registries bundle. 자세한 내용은 [가격 책정](security-center-pricing.md)을 참조하세요. With the bundle enabled, Security Center automatically scans images in your registry whenever an image is pushed to the registry.
+레지스트리 및 이미지의 취약성에 대 한 자세한 표시를 위해 Azure Security Center 표준 계층의 사용자는 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [가격 책정](security-center-pricing.md)을 참조하세요. 번들을 사용 하도록 설정 하면 이미지가 레지스트리에 푸시 될 때마다에서 자동으로 레지스트리의 이미지를 검색 Security Center.
 
 > [!NOTE]
-> Security Center's first scan of a registry will only occur after the Container Registries bundle is enabled and an image is pushed to the registry.
+> Security Center의 첫 번째 레지스트리 검사는 컨테이너 레지스트리 번들을 사용 하도록 설정 하 고 이미지가 레지스트리에 푸시되는 후에만 발생 합니다.
 
-When the scan completes (typically after approximately 10 minutes), findings are available in Security Center recommendations like this:
+검색이 완료 될 때 (일반적으로 약 10 분 후) 다음과 같은 Security Center 권장 사항에서 검색 결과를 사용할 수 있습니다.
 
-[![Sample Azure Security Center recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![샘플 Azure Security Center Azure Container Registry (ACR) 호스트 된 이미지에서 발견 된 취약성에 대 한 권장 사항](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
 
 ## <a name="benefits-of-integration"></a>통합의 이점
 
-Security Center identifies ACR registries in your subscription and seamlessly provides:
+Security Center는 구독에서 ACR 레지스트리를 식별 하 고 원활 하 게 제공 합니다.
 
-* **Azure-native vulnerability scanning** for all pushed Linux images. Security Center scans the image using a scanner from the industry-leading vulnerability scanning vendor, Qualys. This native solution is seamlessly integrated by default.
+* 푸시된 모든 Linux 이미지에 대 한 **Azure native 취약성 검색** Security Center 업계 최고의 취약점 검색 공급 업체 (Qualys)의 스캐너를 사용 하 여 이미지를 검색 합니다. 이 네이티브 솔루션은 기본적으로 원활 하 게 통합 됩니다.
 
-* **Security recommendations** for Linux images with known vulnerabilities. Security Center provides details of each reported vulnerability and a  severity classification. Additionally, it gives guidance for how to  remediate the specific vulnerabilities found on each image pushed to registry.
+* 알려진 취약성을 포함 하는 Linux 이미지에 대 한 **보안 권장 사항** Security Center 보고 된 각 취약점 및 심각도 분류의 세부 정보를 제공 합니다. 또한 레지스트리에 푸시되는 각 이미지에 있는 특정 취약점을 수정 하는 방법에 대 한 지침을 제공 합니다.
 
-![Azure Security Center and Azure Container Registry (ACR) high-level overview](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
+![ACR (Azure Security Center 및 Azure Container Registry) 개략적인 개요](./media/azure-container-registry-integration/aks-acr-integration-detailed.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-To learn more about Security Center's container security features, see:
+Security Center의 컨테이너 보안 기능에 대해 자세히 알아보려면 다음을 참조 하세요.
 
-* [Azure Security Center and container security](container-security.md)
+* [Azure Security Center 및 컨테이너 보안](container-security.md)
 
-* [Integration with Azure Kubernetes Service](azure-kubernetes-service-integration.md)
+* [Azure Kubernetes Service와 통합](azure-kubernetes-service-integration.md)
 
-* [Virtual Machine protection](security-center-virtual-machine-protection.md) - Describes Security Center's recommendations
+* [가상 컴퓨터 보호](security-center-virtual-machine-protection.md) -Security Center 권장 사항을 설명 합니다.

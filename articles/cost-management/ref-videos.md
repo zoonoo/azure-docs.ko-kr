@@ -21,7 +21,7 @@ ms.locfileid: "74229905"
 
 다음 동영상에서는 Cloudyn 사용을 시작하는 방법과 해당 기능을 사용하는 방법을 안내하는 데모를 제공합니다. Cloudyn은 Microsoft Azure, Amazon Web Services 및 Google Cloud Platform을 포함하는 다중 클라우드 비용 추적 및 최적화를 지원합니다.
 
-## <a name="overview-video"></a>개요 비디오
+## <a name="overview-video"></a>개요 동영상
 
 [Cloudyn 소개](https://youtu.be/NWIRny6Wpsk)
 

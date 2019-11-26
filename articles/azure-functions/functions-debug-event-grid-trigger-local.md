@@ -16,7 +16,7 @@ ms.locfileid: "74227077"
 
 이 문서에서는 스토리지 계정에서 발생하는 Azure Event Grid 이벤트를 처리하는 로컬 함수를 디버그하는 방법을 설명합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - 기존 함수 앱 만들기 또는 사용
 - 기존 스토리지 계정 만들기 또는 사용
@@ -54,7 +54,7 @@ ngrok http -host-header=localhost 7071
 
 ![ngrok 시작](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-ngrok.png)
 
-*ngrok*가 실행될 때 생성된 **HTTPS** URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
+**ngrok**가 실행될 때 생성된 *HTTPS* URL을 복사합니다. 이 값은 Event Grid 이벤트 엔드포인트를 구성할 때 사용됩니다.
 
 ## <a name="add-a-storage-event"></a>스토리지 이벤트 추가
 
@@ -70,7 +70,7 @@ Azure Portal을 열고 스토리지 계정으로 이동한 후 **이벤트** 옵
 
 ![엔드포인트 유형 선택](./media/functions-debug-event-grid-trigger-local/functions-debug-event-grid-trigger-local-event-subscription-endpoint.png)
 
-*구독자 엔드포인트* 값은 세 가지 다른 값으로 구성됩니다. 접두사는 *ngrok*에서 생성되는 HTTPS URL입니다. URL의 나머지는 함수 코드 파일에 있는 URL과 끝에 파일 이름을 추가하여 생성됩니다. 함수 코드 파일의 URL에서 시작하여, `http://localhost:7071` 대신 *ngrok* URL이 사용되고, `{functionname}` 대신 함수 이름이 사용됩니다.
+*구독자 엔드포인트* 값은 세 가지 다른 값으로 구성됩니다. 접두사는 *ngrok*에서 생성되는 HTTPS URL입니다. URL의 나머지는 함수 코드 파일에 있는 URL과 끝에 파일 이름을 추가하여 생성됩니다. 함수 코드 파일의 URL에서 시작하여, *대신*ngrok`http://localhost:7071` URL이 사용되고, `{functionname}` 대신 함수 이름이 사용됩니다.
 
 다음 스크린샷에서는 마지막 URL 모습을 보여 줍니다.
 

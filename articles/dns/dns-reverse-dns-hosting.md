@@ -33,7 +33,7 @@ Azure 서비스에 할당된 Azure 소유 IP 주소에 역방향 DNS를 구성�
 
 ## <a name="create-a-reverse-lookup-dns-zone"></a>역방향 조회 DNS 영역 만들기
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **허브** 메뉴에서 **새로 만들기** > **네트워킹**을 선택한 다음, **DNS 영역**을 선택합니다.
 
    !["DNS 영역" 선택](./media/dns-reverse-dns-hosting/figure1.png)
@@ -45,9 +45,9 @@ Azure 서비스에 할당된 Azure 소유 IP 주소에 역방향 DNS를 구성�
 IPv4 역방향 조회 영역의 이름은 나타내는 IP 범위를 기반으로 합니다. `<IPv4 network prefix in reverse order>.in-addr.arpa` 형식이어야 합니다. 예제는 [Azure의 역방향 DNS 및 지원 개요](dns-reverse-dns-overview.md#ipv4)를 참조하세요.
 
 > [!NOTE]
-> Azure DNS에서 클래스 없는 역방향 DNS 조회 영역을 만들 경우 영역 이름에 슬래시(`/`) 대신 하이픈(`-`)을 사용해야 합니다.
+> Azure DNS에서 클래스 없는 역방향 DNS 조회 영역을 만들 경우 영역 이름에 슬래시(`-`) 대신 하이픈(`/`)을 사용해야 합니다.
 >
-> 예를 들어 IP 범위 192.0.2.128/26에 대해 `128/26.2.0.192.in-addr.arpa` 대신 `128-26.2.0.192.in-addr.arpa`를 영역 이름으로 사용해야 합니다.
+> 예를 들어 IP 범위 192.0.2.128/26에 대해 `128-26.2.0.192.in-addr.arpa` 대신 `128/26.2.0.192.in-addr.arpa`를 영역 이름으로 사용해야 합니다.
 >
 > DNS 표준은 두 가지 방법을 모두 지원하지만 Azure DNS는 슬래시(`/`) 문자를 포함하는 DNS 영역 이름을 지원하지 않습니다.
 

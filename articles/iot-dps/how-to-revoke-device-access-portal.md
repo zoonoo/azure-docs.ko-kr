@@ -1,5 +1,5 @@
 ---
-title: Disenroll device from Azure IoT Hub Device Provisioning Service
+title: Azure IoT Hub 장치 프로 비전 서비스에서 장치 등록 해제
 description: Azure IoT Hub Device Provisioning 서비스를 통한 프로비전을 방지하기 위해 디바이스 등록을 해제하는 방법
 author: wesmc7777
 ms.author: wesmc
@@ -26,7 +26,7 @@ Device Provisioning Server에 등록하면 디바이스가 [자동 프로비전]
 
 ## <a name="blacklist-devices-by-using-an-individual-enrollment-entry"></a>개별 등록 항목을 사용하여 디바이스를 차단 목록에 등록
 
-개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). (Devices that use SAS tokens as their attestation mechanism can be provisioned only through an individual enrollment.) To blacklist a device that has an individual enrollment, you can either disable or delete its enrollment entry. 
+개별 등록은 단일 디바이스에 적용되며, X.509 인증서 또는 SAS 토큰을 증명 메커니즘으로 사용할 수 있습니다(실제 또는 가상 TPM에서). (SAS 토큰을 증명 메커니즘으로 사용 하는 장치는 개별 등록을 통해서만 프로 비전 할 수 있습니다.) 개별 등록이 있는 장치를 블랙 리스트에 포함 하려면 해당 등록 항목을 사용 하지 않도록 설정 하거나 삭제할 수 있습니다. 
 
 해당 등록 항목을 사용하지 않도록 설정하여 디바이스를 일시적으로 차단 목록에 추가하려면: 
 

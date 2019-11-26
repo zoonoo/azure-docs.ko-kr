@@ -40,7 +40,7 @@ Azure 파일 공유에서 파일을 삭제 하지 못하는 경우 다음과 같
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄입니다.
 
-## <a name="prerequisite"></a>사전 요구 사항
+## <a name="prerequisite"></a>필수 요소
 
 ### <a name="install-the-latest-azure-powershell-module"></a>최신 Azure PowerShell 모듈 설치
 

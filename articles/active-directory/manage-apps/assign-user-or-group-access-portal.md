@@ -57,7 +57,7 @@ ms.locfileid: "74274732"
 - 이 옵션을 예로 설정 하면 사용자가 먼저이 응용 프로그램에 할당 되어야 액세스할 수 있습니다.
 - 이 옵션을 아니요로 설정 하면 응용 프로그램 심층 링크 URL 또는 응용 프로그램 URL로 직접 이동 하는 모든 사용자에 게 액세스 권한이 부여 됩니다.
 - 응용 프로그램 액세스 패널에 응용 프로그램이 표시 되는지 여부에는 영향을 주지 않습니다. 애플리케이션을 액세스 패널에 표시하려면 애플리케이션에 적절한 사용자 또는 그룹을 할당해야 합니다.
-- SAML Single Sign-On 용으로 구성 된 클라우드 응용 프로그램을 사용 하는 응용 프로그램, Azure Active Directory 사전 인증을 사용 하는 응용 프로그램 프록시 응용 프로그램 또는 OAuth 2.0/를 사용 하는 Azure AD 응용 프로그램 플랫폼에 직접 빌드된 응용 프로그램 사용자 또는 관리자가 해당 응용 프로그램에 동의한 한 후에 Openid connect Connect 인증을 사용 합니다. [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요. [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
+- 사용자 또는 관리자가 해당 응용 프로그램에 동의한 한 후 OAuth 2.0/Openid connect Connect 인증을 사용 하는 Azure AD 응용 프로그램 플랫폼에서 직접 빌드된 Azure Active Directory 사전 인증 또는 응용 프로그램을 사용 하는 응용 프로그램 프록시 응용 프로그램을 사용 하는 클라우드 Single Sign-On 응용 프로그램의 기능만 [애플리케이션에 대한 Single Sign-On](what-is-single-sign-on.md)을 참조하세요. [최종 사용자가 애플리케이션에 동의하는 방법 구성](configure-user-consent.md)을 참조하세요.
 - 응용 프로그램이 다른 Single Sign-on 모드로 구성 된 경우에는이 옵션이 적용 되지 않습니다.
 
 ## <a name="assign-a-user-to-an-app---powershell"></a>앱에 사용자 할당 - PowerShell

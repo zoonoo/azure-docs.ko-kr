@@ -71,7 +71,7 @@ Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue storage 트리거
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-다음 예제에서는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [ 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 ](functions-dotnet-class-library.md)C# 함수`samples-workitems`를 보여줍니다.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -81,13 +81,13 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 `BlobTrigger` 특성에 대한 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
-The following example shows a blob trigger binding in a *function.json* file and code that uses the binding. 함수는 `samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
+다음 예제에서는 *함수. json* 파일의 blob 트리거 바인딩과 바인딩을 사용 하는 코드를 보여 줍니다. 함수는 `samples-workitems` [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
 
 *function.json* 파일의 바인딩 데이터는 다음과 같습니다.
 
@@ -106,7 +106,7 @@ The following example shows a blob trigger binding in a *function.json* file and
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -153,7 +153,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -188,7 +188,7 @@ module.exports = function(context) {
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -274,7 +274,7 @@ public void run(
   }
    ```
 
-  For a complete example, see [Trigger example](#trigger---example).
+  전체 예제는 [트리거 예](#trigger---example)를 참조 하세요.
 
 * [StorageAccountAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/StorageAccountAttribute.cs)
 
@@ -295,26 +295,26 @@ public void run(
 사용할 스토리지 계정은 다음과 같은 순서로 결정됩니다.
 
 * `BlobTrigger` 특성의 `Connection` 속성
-* `BlobTrigger` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
+* `StorageAccount` 특성과 동일한 매개 변수에 적용된 `BlobTrigger` 특성
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+스크립트에서 C# 특성을 지원 하지 않습니다.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
+`@BlobTrigger` 특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#trigger---example) 를 참조 하세요.
 
 ---
 
@@ -324,8 +324,8 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | n/a | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
+|**type** | n/a | `blobTrigger`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | n/a | `in`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
 |**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
 |**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
@@ -338,27 +338,27 @@ The `@BlobTrigger` attribute is used to give you access to the blob that trigger
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-trigger.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Access blob data using `context.bindings.<name from function.json>`.
+`context.bindings.<name from function.json>`를 사용 하 여 blob 데이터에 액세스 합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [trigger example](#trigger---example) for details.
+[InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [트리거 예](#trigger---example) 를 참조 하세요.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobTrigger` attribute is used to give you access to the blob that triggered the function. Refer to the [trigger example](#trigger---example) for details.
+`@BlobTrigger` 특성은 함수를 트리거한 blob에 대 한 액세스 권한을 제공 하는 데 사용 됩니다. 자세한 내용은 [트리거 예](#trigger---example) 를 참조 하세요.
 
 ---
 
 ## <a name="trigger---blob-name-patterns"></a>트리거 - Blob 이름 패턴
 
-*function.json*의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
+`path`function.json*의*  속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
 
 ### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
 
@@ -404,7 +404,7 @@ Blob의 이름이 *{20140101}-soundfile.mp3*인 경우 함수 코드에서 `name
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-trigger](../../includes/functions-bindings-blob-storage-metadata.md)]
 
@@ -419,11 +419,11 @@ module.exports = function (context, myBlob) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Metadata is not available in Python.
+Python에서는 메타 데이터를 사용할 수 없습니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-Metadata is not available in Java.
+메타 데이터는 Java에서 사용할 수 없습니다.
 
 ---
 
@@ -431,7 +431,7 @@ Metadata is not available in Java.
 
 Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 지정된 Blob 버전이 처리되었는지 확인하려면 *Blob 수신 확인*을 유지 관리합니다.
 
-Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts*라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
+Azure Functions는 사용자 함수 앱에서 사용하는(*앱 설정에서 지정됨) Azure Storage 계정의*azure-webjobs-hosts`AzureWebJobsStorage`라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
 * 트리거된 함수(" *&lt;함수 앱 이름>* .Functions. *&lt;함수 이름>* ", 예: "MyFunctionApp.Functions.CopyBlob")
 * 컨테이너 이름
@@ -439,7 +439,7 @@ Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage`
 * Blob 이름
 * ETag(Blob 버전 식별자, 예: "0x8D1DC6E70A277EF")
 
-Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. While reprocessing might not occur immediately, it's guaranteed to occur at a later point in time.
+Blob을 강제로 처리하려면 *azure-webjobs-hosts* 컨테이너에서 해당 Blob에 대한 Blob 수신 확인을 수동으로 삭제하면 됩니다. 다시 처리는 즉시 발생 하지 않을 수 있지만 나중에 발생 하는 것이 보장 됩니다.
 
 ## <a name="trigger---poison-blobs"></a>트리거 - 포이즌 Blob
 
@@ -463,7 +463,7 @@ JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수
 
 ## <a name="trigger---polling"></a>트리거 - 폴링
 
-If the blob container being monitored contains more than 10,000 blobs (across all containers), the Functions runtime scans log files to watch for new or changed blobs. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.
+모니터링 되는 blob 컨테이너가 모든 컨테이너에서 1만 개 이상의 blob을 포함 하는 경우 함수 런타임은 로그 파일을 스캔 하 여 새 blob 또는 변경 된 blob을 감시 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.
 
 > [!WARNING]
 > 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.
@@ -492,7 +492,7 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -649,7 +649,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
 * [HTTP 트리거, 쿼리 문자열에서 Blob 이름 조회](#http-trigger-look-up-blob-name-from-query-string)
 * [큐 트리거, 큐 메시지에서 Blob 이름 수신](#queue-trigger-receive-blob-name-from-queue-message)
 
-#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>HTTP trigger, look up blob name from query string
+#### <a name="http-trigger-look-up-blob-name-from-query-string"></a>쿼리 문자열에서 blob 이름을 조회 하는 HTTP 트리거
 
  다음 예제는 `HttpTrigger` 주석을 사용하여 Blob Storage 컨테이너에 있는 파일 이름을 포함하는 매개 변수를 수신하는 Java 함수를 보여 줍니다. 그런 다음, `BlobInput` 주석이 파일을 읽고 파일 내용을 함수에 `byte[]`로 전달합니다.
 
@@ -674,7 +674,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
   }
 ```
 
-#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>Queue trigger, receive blob name from queue message
+#### <a name="queue-trigger-receive-blob-name-from-queue-message"></a>큐 트리거, 큐 메시지에서 blob 이름 수신
 
  다음 예제는 `QueueTrigger` 주석을 사용하여 Blob Storage 컨테이너에 있는 파일 이름을 포함하는 메시지를 수신하는 Java 함수를 보여 줍니다. 그런 다음, `BlobInput` 주석이 파일을 읽고 파일 내용을 함수에 `byte[]`로 전달합니다.
 
@@ -696,7 +696,7 @@ def main(queuemsg: func.QueueMessage, inputblob: func.InputStream) -> func.Input
   }
 ```
 
-[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Blob에서 제공되는 매개 변수에 대한 `@BlobInput` 주석을 사용합니다.  `Optional<T>`를 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+[Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Blob에서 제공되는 매개 변수에 대한 `@BlobInput` 주석을 사용합니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
 ---
 
@@ -735,21 +735,21 @@ public static void Run(
 
 `StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+스크립트에서 C# 특성을 지원 하지 않습니다.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
+`@BlobInput` 특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType`를 `binary`로 설정 합니다. 자세한 내용은 [입력 예](#input---example) 를 참조 하세요.
 
 ---
 
@@ -759,12 +759,12 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | n/a | `blob`로 설정해야 합니다. |
-|**direction** | n/a | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
+|**type** | n/a | `blob`으로 설정해야 합니다. |
+|**direction** | n/a | `in`으로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
 |**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
-|n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
+|n/a | **액세스** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -774,21 +774,21 @@ The `@BlobInput` attribute gives you access to the blob that triggered the funct
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-input-usage.md](../../includes/functions-bindings-blob-storage-input-usage.md)]
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Access the blob data using `context.bindings.<name from function.json>`.
+`context.bindings.<name from function.json>`를 사용 하 여 blob 데이터에 액세스 합니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Access blob data via the parameter typed as [InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python). Refer to the [input example](#input---example) for details.
+[InputStream](https://docs.microsoft.com/python/api/azure-functions/azure.functions.inputstream?view=azure-python)으로 형식화 된 매개 변수를 통해 blob 데이터에 액세스 합니다. 자세한 내용은 [입력 예](#input---example) 를 참조 하세요.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobInput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [input example](#input---example) for details.
+`@BlobInput` 특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType`를 `binary`로 설정 합니다. 자세한 내용은 [입력 예](#input---example) 를 참조 하세요.
 
 ---
 
@@ -848,7 +848,7 @@ private static Dictionary<ImageSize, (int, int)> imageDimensionsTable = new Dict
 };
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 <!--Same example for input and output. -->
 
@@ -1098,25 +1098,25 @@ public static void Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+스크립트에서 C# 특성을 지원 하지 않습니다.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
-Attributes are not supported by JavaScript.
+JavaScript에서는 특성을 지원 하지 않습니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-Attributes are not supported by Python.
+Python에서 특성을 지원 하지 않습니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
+`@BlobOutput` 특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType`를 `binary`로 설정 합니다. 자세한 내용은 [출력 예제](#output---example) 를 참조 하십시오.
 
 ---
 
-For a complete example, see [Output example](#output---example).
+전체 예제는 [출력 예제](#output---example)를 참조 하세요.
 
 `StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
@@ -1126,12 +1126,12 @@ For a complete example, see [Output example](#output---example).
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | n/a | `blob`로 설정해야 합니다. |
+|**type** | n/a | `blob`으로 설정해야 합니다. |
 |**direction** | n/a | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
 |**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
-|**path** |**BlobPath** | The path to the blob container. |
+|**path** |**BlobPath** | Blob 컨테이너에 대 한 경로입니다. |
 |**연결** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
-|n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
+|n/a | **액세스** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1141,7 +1141,7 @@ For a complete example, see [Output example](#output---example).
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
-# <a name="c-scripttabcsharp-script"></a>[C# Script](#tab/csharp-script)
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 [!INCLUDE [functions-bindings-blob-storage-output-usage.md](../../includes/functions-bindings-blob-storage-output-usage.md)]
 
@@ -1151,16 +1151,16 @@ JavaScript에서는 `context.bindings.<name from function.json>`을 사용하여
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-You can declare function parameters as the following types to write out to blob storage:
+함수 매개 변수를 다음 형식으로 선언 하 여 blob 저장소에 쓸 수 있습니다.
 
-* Strings as `func.Out(str)`
-* Streams as `func.Out(func.InputStream)`
+* `func.Out(str)` 문자열
+* `func.Out(func.InputStream)`로 스트림
 
-Refer to the [output example](#output---example) for details.
+자세한 내용은 [출력 예제](#output---example) 를 참조 하십시오.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-The `@BlobOutput` attribute gives you access to the blob that triggered the function. If you use a byte array with the attribute, set `dataType` to `binary`. Refer to the [output example](#output---example) for details.
+`@BlobOutput` 특성은 함수를 트리거한 blob에 대 한 액세스를 제공 합니다. 특성에 바이트 배열을 사용 하는 경우 `dataType`를 `binary`로 설정 합니다. 자세한 내용은 [출력 예제](#output---example) 를 참조 하십시오.
 
 ---
 

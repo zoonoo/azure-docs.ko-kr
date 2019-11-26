@@ -1,5 +1,5 @@
 ---
-title: IP 주소 168.63.129.16 | Microsoft Docs
+title: IP 주소 168.63.129.16 | Microsoft 문서
 description: IP 주소 168.63.129.16을 소개하고 이 주소에서 리소스를 사용하는 방법에 대해 설명합니다.
 services: virtual-network
 documentationcenter: na

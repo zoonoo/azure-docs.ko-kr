@@ -1,5 +1,5 @@
 ---
-title: Fivetran quickstart
+title: Fivetran 빠른 시작
 description: Fivetran 및 Azure SQL Data Warehouse로 빨리 시작합니다.
 services: sql-data-warehouse
 author: mlee3gsd
@@ -81,5 +81,5 @@ Fivetran에 로그인하려면 SQL Data Warehouse에 액세스하는 데 사용�
 * 호스트(서버 이름).
 * 포트.
 * 데이터베이스.
-* User (the user name should be **fivetran\@_server_name_** where *server_name* is part of your Azure host URI: ***server_name*.database.windows.net**).
+* 사용자 이름은 Azure 호스트 URI (***server_name *.** fivetran)의 일부인 *server_name* 인  **_server_name_\@** 이어야 합니다.
 * Password.

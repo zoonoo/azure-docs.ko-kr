@@ -209,15 +209,15 @@ public void keepAlive(
 
 ---
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 다음 표에서는 *function.json* 파일 및 `TimerTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | 해당 없음 | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | 해당 없음 | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
-|**name** | 해당 없음 | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
+|**type** | n/a | "timerTrigger"로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | n/a | "in"으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**name** | n/a | 함수 코드에서 타이머 개체를 나타내는 변수의 이름입니다. | 
 |**schedule**|**ScheduleExpression**|[CRON 식](#ncrontab-expressions) 또는 [TimeSpan](#timespan) 값입니다. App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다. "%ScheduleAppSetting%" 예제와 같이 앱 설정에서 일정 식을 배치하고 이 속성을 **%** 기호에서 래핑된 앱 설정 이름으로 설정할 수 있습니다. |
 |**runOnStartup**|**RunOnStartup**|`true`인 경우 함수는 런타임이 시작될 때 호출됩니다. 예를 들어 비활성으로 인해 유휴 상태로 전환된 후에 함수 앱이 작동될 때 런타임이 시작됩니다. 함수 앱이 함수 변경으로 인해 다시 시작 되 고 함수 앱이 확장 될 때 따라서 **Runonstartup** 은 특히 프로덕션에서 `true`로 설정 되어 있는 경우에는 거의 없습니다. |
 |**useMonitor**|**UseMonitor**|`true` 또는 `false`로 설정하여 일정을 모니터링해야 하는지를 나타냅니다. 일정 모니터링은 일정 발생을 유지하여 함수 앱 인스턴스가 다시 시작하는 경우에도 일정을 올바르게 유지하도록 지원합니다. 명시적으로 설정 하지 않은 경우 되풀이 간격이 1 분 보다 크거나 같은 일정의 경우 기본값은 `true`입니다. 분당 한 번 넘게 트리거되는 일정에서 기본값은 `false`입니다.
@@ -227,7 +227,7 @@ public void keepAlive(
 > [!CAUTION]
 > 프로덕션 환경에서는 **runOnStartup**을 `true`로 설정하지 않는 것이 좋습니다. 이 설정을 사용하면 매우 예측할 수 없는 시간에 코드가 실행됩니다. 특정 프로덕션 환경에서 이러한 추가 실행으로 인해 소비 계획에서 호스팅되는 앱의 비용이 상당히 높아질 수 있습니다. 예를 들어 **Runonstartup** 을 사용 하도록 설정 하면 함수 앱이 확장 될 때마다 트리거가 호출 됩니다. 프로덕션 환경에서 **runOnStartup**을 사용하도록 설정하기 전에 함수의 프로덕션 동작을 완전히 이해했는지 확인하세요.   
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 타이머 트리거 함수를 호출 하면 timer 개체가 함수에 전달 됩니다. 다음 JSON은 타이머 개체의 예제 표현입니다.
 
@@ -254,7 +254,7 @@ Azure Functions [NCronTab](https://github.com/atifaziz/NCrontab) 라이브러리
 
 각 필드에는 다음과 같은 형식의 값 중 하나가 포함될 수 있습니다.
 
-|형식  |예  |트리거될 때  |
+|에  |예  |트리거될 때  |
 |---------|---------|---------|
 |특정 값 |<nobr>"0 5 * * * *"</nobr>|hh:05:00에서 hh는 매시간임(시간당 한 번)|
 |모든 값(`*`)|<nobr>"0 * 5 * * *"</nobr>|5:mm:00에서 mm은 해당 시간의 매분임(하루 60번)|
@@ -299,7 +299,7 @@ CRON 식과 함께 사용하는 기본 표준 시간대는 UTC(협정 세계시)
 
 `WEBSITE_TIME_ZONE`을 사용하는 경우 일광 절약 시간제와 같은 특정 표준 시간대에서 시간 변경에 대해 시간이 조정됩니다. 
 
-## <a name="timespan"></a>TimeSpan
+## <a name="timespan"></a>timespan
 
  App Service 계획에서 함수 앱을 실행 중인 경우에만 `TimeSpan`을 사용할 수 있습니다.
 

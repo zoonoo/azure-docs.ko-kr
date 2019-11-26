@@ -112,7 +112,7 @@ Windows Server 2012 이상 |54,400GB
 Windows Server 2008 R2 SP1 |1700 GB
 Windows Server 2008 SP2| 1700 GB
 Windows 8 이상| 54,400GB
-윈도우 7| 1700 GB
+Windows 7| 1700 GB
 
 ## <a name="supported-file-types-for-backup"></a>백업에 지원되는 파일 형식
 

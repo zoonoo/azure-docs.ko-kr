@@ -8,7 +8,7 @@ ms.date: 11/19/2019
 ms.author: raynew
 ms.openlocfilehash: 1676ad3dde5a97d2afdb64595d51f5502f9dcc3d
 ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/19/2019
 ms.locfileid: "74185927"
@@ -70,11 +70,11 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
     ![VHD 배포](./media/how-to-set-up-appliance-hyper-v/deploy-vhd.png)
 
 2. Virtual Machine 가져오기 마법사 > **시작하기 전에**에서 **다음**을 클릭합니다.
-3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그리고 **다음**을 클릭합니다.
+3. **폴더 찾기**에서 추출된 VHD가 포함된 폴더를 지정합니다. 그런 후 **다음**을 클릭합니다.
 1. **Virtual Machine 선택**에서 **다음**을 클릭합니다.
-2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그리고 **다음**을 클릭합니다.
-3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
-4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
+2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **다음**을 클릭합니다.
+3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 누릅니다.
+4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 누릅니다.
 5. **네트워크 선택**에서 VM에서 사용할 가상 스위치를 지정합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다.
 6. **요약** 에서 설정을 검토합니다. **마침**을 클릭합니다.
 7. Hyper-V 관리자 > **Virtual Machines**에서 VM을 시작합니다.

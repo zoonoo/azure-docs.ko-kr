@@ -1,7 +1,7 @@
 ---
-title: 'Designer: Classify, predict income example'
+title: 'Designer: 분류, 수익 예측 예제'
 titleSuffix: Azure Machine Learning
-description: Follow this example build a no-code classifier to predict income with Azure Machine Learning designer.
+description: 이 예제에 따라 코드를 작성 하지 않고 Azure Machine Learning designer를 사용 하 여 수입을 예측 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -17,57 +17,57 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74214108"
 ---
-# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>Build a classifier & use feature selection to predict income with Azure Machine Learning designer
+# <a name="build-a-classifier--use-feature-selection-to-predict-income-with-azure-machine-learning-designer"></a>기능 선택을 사용 하 여 Azure Machine Learning 디자이너와 수입을 예측 & 분류자 빌드
 
-**Designer (preview) sample 3**
+**Designer (미리 보기) 샘플 3**
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
-Learn how to build a machine learning classifier without writing a single line of code using the designer (preview). This sample trains a **two-class boosted decision tree** to predict adult census income (>=50K or <=50K).
+디자이너 (미리 보기)를 사용 하 여 코드를 한 줄도 작성 하지 않고 기계 학습 분류자를 빌드하는 방법에 대해 알아봅니다. 이 샘플은 성인용 인구 조사 수입 (> = 50K 또는 < = 50K)을 예측 하는 **2 클래스 승격 된 의사 결정 트리** 를 학습 합니다.
 
-Because the question is answering "Which one?" this is called a classification problem. However, you can apply the same fundamental process to tackle any type of machine learning problem whether it be regression, classification, clustering, and so on.
+질문에 대 한 응답은 이를 분류 문제 라고 합니다. 그러나 동일한 기본 프로세스를 적용 하 여 재발, 분류, 클러스터링 등의 모든 유형의 기계 학습 문제를 다룰 수 있습니다.
 
-Here's the final pipeline graph for this sample:
+이 샘플에 대 한 최종 파이프라인 그래프는 다음과 같습니다.
 
-![Graph of the pipeline](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
+![파이프라인 그래프](media/how-to-designer-sample-classification-predict-income/overall-graph.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [aml-ui-prereq](../../../includes/aml-ui-prereq.md)]
 
-4. Click the sample 3 to open it.
+4. 샘플 3을 클릭 하 여 엽니다.
 
 
 
-## <a name="data"></a>데이터
+## <a name="data"></a>Data
 
-The dataset contains 14 features and one label column. There are multiple types of features, including numerical and categorical. The following diagram shows an excerpt from the dataset: ![data](media/how-to-designer-sample-classification-predict-income/data.png)
-
-
-
-## <a name="pipeline-summary"></a>Pipeline summary
-
-Follow these steps to create the pipeline:
-
-1. Drag the Adult Census Income Binary dataset module into the pipeline canvas.
-1. Add a **Split Data** module to create the training and test sets. Set the fraction of rows in the first output dataset to 0.7. This setting specifies that 70% of the data will be output to the left port of the module and the rest to the right port. We use the left dataset for training and the right one for testing.
-1. Add the **Filter Based Feature Selection** module to select 5 features by PearsonCorreclation. 
-1. Add a **Two-Class Boosted Decision Tree** module to initialize a boosted decision tree classifier.
-1. Add a **Train Model** module. Connect the classifier from the previous step to the left input port of the **Train Model**. Connect the filtered dataset from Filter Based Feature Selection module as training dataset.  The **Train Model** will train the classifier.
-1. Add Select Columns Transformation and Apply Transformation module to apply the same transformation (filtered based feature selection) to test dataset.
-![apply-transformation](media/how-to-designer-sample-classification-predict-income/transformation.png)
-1. Add **Score Model** module and connect the **Train Model** module to it. Then add the test set (the output of Apply Transformation module which apply feature selection to test set too) to the **Score Model**. The **Score Model** will make the predictions. You can select its output port to see the predictions and the positive class probabilities.
+데이터 집합에는 14 개의 기능과 레이블 열이 포함 되어 있습니다. 숫자 및 범주를 비롯 한 여러 가지 유형의 기능이 있습니다. 다음 다이어그램에서는 데이터 집합의 발췌를 보여 줍니다. ![데이터](media/how-to-designer-sample-classification-predict-income/data.png)
 
 
-    This pipeline has two score modules, the one on the right has excluded label column before make the prediction. This is prepared to deploy a real-time endpoint, because the web service input will expect only features not label. 
 
-1. Add an **Evaluate Model** module and connect the scored dataset to its left input port. To see the evaluation results, select the output port of the **Evaluate Model** module and select **Visualize**.
+## <a name="pipeline-summary"></a>파이프라인 요약
+
+파이프라인을 만들려면 다음 단계를 수행 합니다.
+
+1. 성인용 인구 조사 수입 이진 데이터 집합 모듈을 파이프라인 캔버스로 끕니다.
+1. **데이터 분할** 모듈을 추가 하 여 학습 및 테스트 집합을 만듭니다. 첫 번째 출력 데이터 집합의 행 비율을 0.7로 설정 합니다. 이 설정은 데이터의 70%가 모듈의 왼쪽 포트에 출력 되 고 나머지는 오른쪽 포트에 출력 되도록 지정 합니다. 학습에 왼쪽 데이터 집합을 사용 하 고 테스트에 적합 한 데이터 집합을 사용 합니다.
+1. **필터 기반 기능 선택** 모듈을 추가 하 여 PearsonCorreclation에서 5 개의 기능을 선택 합니다. 
+1. **2 클래스 승격 된 의사 결정 트리** 모듈을 추가 하 여 승격 된 의사 결정 트리 분류자를 초기화 합니다.
+1. **모델 학습** 모듈을 추가 합니다. 이전 단계의 분류자를 **학습 모델**의 왼쪽 입력 포트에 연결 합니다. 필터 기반 기능 선택 모듈에서 필터링 된 데이터 집합을 학습 데이터 집합으로 연결 합니다.  **모델 학습** 은 분류자를 학습 합니다.
+1. 열 선택 변환 및 변환 모듈 적용을 추가 하 여 테스트 데이터 집합에 동일한 변환 (필터링 된 기반 기능 선택)을 적용 합니다.
+![적용-변환](media/how-to-designer-sample-classification-predict-income/transformation.png)
+1. **모델 점수 매기기** 모듈을 추가 하 고 **모델 학습** 모듈을 연결 합니다. 그런 다음 테스트 집합을 추가 하 고 (기능 선택을 테스트에 적용 하는 변형 모듈 적용의 출력) **점수 모델**에 추가 합니다. **점수 모델** 은 예측을 수행 합니다. 해당 출력 포트를 선택 하 여 예측 및 긍정 클래스 확률을 확인할 수 있습니다.
+
+
+    이 파이프라인에는 예측을 만들기 전에 레이블 열을 제외 하는 두 개의 점수 매기기 모듈이 있습니다. 이는 웹 서비스 입력에 레이블이 아닌 기능만 나타날 것 이기 때문에 실시간 끝점을 배포할 준비가 되었습니다. 
+
+1. **모델 평가** 모듈을 추가 하 고 점수가 매겨진 데이터 집합을 왼쪽 입력 포트에 연결 합니다. 평가 결과를 보려면 **모델 평가** 모듈의 출력 포트를 선택 하 고 **시각화**를 선택 합니다.
 
 ## <a name="results"></a>결과
 
 ![결과 평가](media/how-to-designer-sample-classification-predict-income/evaluate-result.png)
 
-In the evaluation results, you can see that the curves like ROC, Precision-recall and confusion metrics. 
+평가 결과에서 ROC, 전체 자릿수 리콜 및 혼동 메트릭과 같은 곡선이 표시 되는 것을 볼 수 있습니다. 
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -75,11 +75,11 @@ In the evaluation results, you can see that the curves like ROC, Precision-recal
 
 ## <a name="next-steps"></a>다음 단계
 
-Explore the other samples available for the designer:
+디자이너에 사용할 수 있는 다른 샘플을 탐색 합니다.
 
-- [Sample 1 - Regression: Predict an automobile's price](how-to-designer-sample-regression-automobile-price-basic.md)
-- [Sample 2 - Regression: Compare algorithms for automobile price prediction](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [Sample 4 - Classification: Predict credit risk (cost sensitive)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [Sample 5 - Classification: Predict churn](how-to-designer-sample-classification-churn.md)
-- [Sample 6 - Classification: Predict flight delays](how-to-designer-sample-classification-flight-delay.md)
-- [Sample 7 - Text Classification: Wikipedia SP 500 Dataset](how-to-designer-sample-text-classification.md)
+- [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
+- [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
+- [샘플 6-분류: 비행 지연 예측](how-to-designer-sample-classification-flight-delay.md)
+- [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)

@@ -1,5 +1,5 @@
 ---
-title: Manage device enrollments for Azure IoT Hub Device Provisioning Service in the Azure portal
+title: Azure Portal에서 Azure IoT Hub 장치 프로 비전 서비스에 대 한 장치 등록 관리
 description: Azure Portal에서 Device Provisioning Service에 대한 디바이스 등록을 관리하는 방법
 author: wesmc7777
 ms.author: wesmc
@@ -31,12 +31,12 @@ ms.locfileid: "74229726"
   1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.  
   1. 리소스의 목록 간에 디바이스를 등록하려는 디바이스 프로비전 서비스를 클릭합니다.  
   1. 프로비전 서비스에서 다음을 수행합니다.  
-     a. **등록 관리**를 클릭한 후 **등록 그룹** 탭을 선택합니다.  
+     가. **등록 관리**를 클릭한 후 **등록 그룹** 탭을 선택합니다.  
      b. 위쪽에 있는 **추가** 단추를 클릭합니다.  
-     다. "등록 그룹 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다.  **그룹 이름**이 필요합니다. 또한 **인증서 유형**에 대해 "CA 또는 중간"을 선택하고 디바이스 그룹에 대해 루트 **기본 인증서**를 업로드합니다.  
-     d. 페이지 맨 아래에 있는 **저장**을 참조하세요. 등록 그룹을 성공적으로 만들면 그룹 이름이 **등록 그룹** 탭 아래에 표시되어야 합니다.  
+     c. "등록 그룹 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다.  **그룹 이름**이 필요합니다. 또한 **인증서 유형**에 대해 "CA 또는 중간"을 선택하고 디바이스 그룹에 대해 루트 **기본 인증서**를 업로드합니다.  
+     d. **Save**를 클릭합니다. 등록 그룹을 성공적으로 만들면 그룹 이름이 **등록 그룹** 탭 아래에 표시되어야 합니다.  
 
-     [![Enrollment group in the portal](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
+     [포털에서 ![등록 그룹](./media/how-to-manage-enrollments/group-enrollment.png)](./media/how-to-manage-enrollments/group-enrollment.png#lightbox)
     
 
 * **개별 등록**은 등록할 수 있는 단일 디바이스에 대한 항목입니다. 개별 등록은 증명 메커니즘으로 x509 인증서 또는 SAS 토큰(실제 또는 가상 TPM) 중 하나를 사용할 수 있습니다. 고유한 초기 구성이 필요한 디바이스 또는 증명 메커니즘으로 TPM 또는 가상 TPM을 통해 SAS 토큰만을 사용할 수 있는 디바이스의 경우 개별 등록을 사용하는 것이 좋습니다. 개별 등록은 지정된 원하는 IoT Hub 디바이스 ID가 있을 수 있습니다.
@@ -46,10 +46,10 @@ ms.locfileid: "74229726"
     1. Azure Portal에 로그인하고 왼쪽 메뉴에서 **모든 리소스**를 클릭합니다.
     1. 리소스의 목록 간에 디바이스를 등록하려는 디바이스 프로비전 서비스를 클릭합니다.
     1. 프로비전 서비스에서 다음을 수행합니다.  
-       a. **등록 관리**를 클릭하고 **개별 등록** 탭을 선택합니다.  
+       가. **등록 관리**를 클릭하고 **개별 등록** 탭을 선택합니다.  
        b. 위쪽에 있는 **추가** 단추를 클릭합니다.   
-       다. "등록 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다. 먼저 디바이스에 대해 증명 **메커니즘**(X.509 또는 TPM)을 선택합니다. X.509 증명을 위해서는 디바이스의 리프 **기본 인증서**를 업로드해야 합니다. TPM에서는 디바이스의 **증명 키** 및 **등록 ID**를 입력해야 합니다.  
-       d. 페이지 맨 아래에 있는 **저장**을 참조하세요. 등록 그룹을 성공적으로 만들면 디바이스가 **개별 그룹** 탭 아래에 표시되어야 합니다.  
+       c. "등록 추가" 패널이 표시되면 등록 목록 항목에 대한 정보를 입력합니다. 먼저 디바이스에 대해 증명 **메커니즘**(X.509 또는 TPM)을 선택합니다. X.509 증명을 위해서는 디바이스의 리프 **기본 인증서**를 업로드해야 합니다. TPM에서는 디바이스의 **증명 키** 및 **등록 ID**를 입력해야 합니다.  
+       d. **Save**를 클릭합니다. 등록 그룹을 성공적으로 만들면 디바이스가 **개별 그룹** 탭 아래에 표시되어야 합니다.  
 
        [![포털의 개별 등록](./media/how-to-manage-enrollments/individual-enrollment.png)](./media/how-to-manage-enrollments/individual-enrollment.png#lightbox)
 

@@ -12,40 +12,40 @@ ms.locfileid: "74226545"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
-The major versions of the Azure Functions runtime are related to the version of .NET on which the runtime is based. The following table indicates the current version of the runtime, the release level, and the related .NET version. 
+Azure Functions 런타임의 주 버전은 런타임의 기반이 되는 .NET 버전과 관련이 있습니다. 다음 표는 최신 버전의 런타임, 릴리스 수준 및 관련 된 .NET 버전을 나타냅니다. 
 
-| 런타임 버전 | Release level<sup>1</sup> | .NET 버전 | 
+| 런타임 버전 | 릴리스 수준<sup>1</sup> | .NET 버전 | 
 | --------------- | ------------- | ------------ |
-| 3.x  | 미리 보기 | .NET Core 3.x | 
+| 3.x  | 미리 보기 | .NET Core 3(sp3) | 
 | 2.x | GA | .NET Core 2.2 |
 | 1.x | GA<sup>2</sup> | .NET Framework 4.6<sup>3</sup> |
 
-<sup>1</sup>GA releases are supported for production scenarios.   
-<sup>2</sup>Version 1.x is in maintenance mode. Enhancements are provided only in later versions.   
-<sup>3</sup>Only supports development in the Azure portal or locally on Windows computers.
+<sup>1</sup> GA 릴리스는 프로덕션 시나리오에 대해 지원 됩니다.   
+<sup>2</sup> 버전 1.x는 유지 관리 모드입니다. 향상 된 기능은 이후 버전 에서만 제공 됩니다.   
+<sup>3</sup> 는 Azure Portal 또는 Windows 컴퓨터에서 로컬로 개발을 지원 합니다.
 
 >[!NOTE]  
-> Version 3.x of the Functions runtime is in preview and isn't supported for production environments. For more information about trying out version 3.x, see [this announcement](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm).
+> 함수 런타임의 버전 3(sp3)은 미리 보기 상태 이며 프로덕션 환경에서 지원 되지 않습니다. 버전 3.x를 시도 하는 방법에 대 한 자세한 내용은 [이 공지](https://dev.to/azure/develop-azure-functions-using-net-core-3-0-gcm)를 참조 하십시오.
 
-This article details some of the differences between the various versions, how you can create each version, and how to change versions.
+이 문서에서는 다양 한 버전 간의 차이점, 각 버전을 만드는 방법 및 버전을 변경 하는 방법에 대해 자세히 설명 합니다.
 
 ## <a name="languages"></a>언어
 
-Starting with version 2.x, the runtime uses a language extensibility model, and all functions in a function app must share the same language. The language of functions in a function app is chosen when creating the app and is maintained in the [FUNCTIONS\_WORKER\_RUNTIME](functions-app-settings.md#functions_worker_runtime) setting. 
+버전 2.x부터 런타임은 언어 확장성 모델을 사용 하 고 함수 앱의 모든 함수는 동일한 언어를 공유 해야 합니다. 함수 앱의 함수 언어는 응용 프로그램을 만들 때 선택 되며 [\_작업자\_런타임 설정 기능](functions-app-settings.md#functions_worker_runtime) 에서 유지 관리 됩니다. 
 
-Azure Functions 1.x experimental languages can't use the new model, so they aren't supported in 2.x. 다음 표는 각 런타임 버전에서 현재 지원되는 프로그래밍 언어를 나타냅니다.
+Azure Functions 1.x 실험적 언어는 새 모델을 사용할 수 없으므로 2.x에서 지원 되지 않습니다. 다음 표는 각 런타임 버전에서 현재 지원되는 프로그래밍 언어를 나타냅니다.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 자세한 내용은 [지원되는 언어](supported-languages.md)를 참조하세요.
 
-## <a name="creating-1x-apps"></a>Run on a specific version
+## <a name="creating-1x-apps"></a>특정 버전에서 실행
 
-By default, function apps created in the Azure portal and by the Azure CLI are set to version 2.x. When possible, you should use this runtime version. 필요한 경우 버전 1.x 런타임에서 함수 앱을 계속 실행할 수 있습니다. 함수 앱을 만든 후, 함수를 추가하기 전에만 런타임 버전을 변경할 수 있습니다. 런타임 버전을 1.x로 고정하는 방법을 알아보려면 [현재 런타임 버전 확인 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조하세요.
+기본적으로 Azure Portal 및 Azure CLI에서 만든 함수 앱은 버전 2.x로 설정 됩니다. 가능 하면이 런타임 버전을 사용 해야 합니다. 필요한 경우 버전 1.x 런타임에서 함수 앱을 계속 실행할 수 있습니다. 함수 앱을 만든 후, 함수를 추가하기 전에만 런타임 버전을 변경할 수 있습니다. 런타임 버전을 1.x로 고정하는 방법을 알아보려면 [현재 런타임 버전 확인 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조하세요.
 
-You can also upgrade to version 3.x of the runtime, which is in preview. Do this if you need to be able to run your functions on .NET Core 3.x. To learn how to upgrade to 3.x, see [View and update the current runtime version](set-runtime-version.md#view-and-update-the-current-runtime-version).
+또한 미리 보기에 있는 런타임의 버전 2.x로 업그레이드할 수 있습니다. .NET Core 3.x에서 함수를 실행할 수 있어야 하는 경우이 작업을 수행 합니다. 3\. x로 업그레이드 하는 방법을 알아보려면 [현재 런타임 버전 보기 및 업데이트](set-runtime-version.md#view-and-update-the-current-runtime-version)를 참조 하세요.
 
-## <a name="migrating-from-1x-to-later-versions"></a>Migrating from 1.x to later versions
+## <a name="migrating-from-1x-to-later-versions"></a>1\.x에서 이후 버전으로 마이그레이션
 
 버전 1.x 런타임 사용하도록 작성된 기존 앱을 버전 2.x를 대신 사용하도록 마이그레이션할 수 있습니다. 수행해야 하는 대부분의 변경은 .NET Framework 4.7과 .NET Core 2 간의 C# API 변경과 같은 언어 런타임의 변경과 관련되어 있습니다. 또한 선택한 언어 런타임과 코드 및 라이브러리가 호환되는지 확인해야 합니다. 마지막으로 아래에 강조 표시된 트리거, 바인딩 및 기능의 변경 내용을 기록해 두어야 합니다. 최상의 마이그레이션 결과를 얻으려면 버전 2.x에 대한 새 함수 앱을 만들고 기존 버전 1.x 함수 코드를 새 앱으로 이식해야 합니다.  
 
@@ -115,7 +115,7 @@ Azure에 게시된 앱에서 사용하는 Functions 런타임 버전은 [`FUNCTI
 
 ## <a name="bindings"></a>바인딩
 
-Starting with version 2.x, the runtime uses a new [binding extensibility model](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) that offers these advantages:
+버전 2.x부터 런타임은 다음과 같은 이점을 제공 하는 새로운 [바인딩 확장성 모델](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) 을 사용 합니다.
 
 * 타사 바인딩 확장 지원.
 
@@ -133,7 +133,7 @@ HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 리소스를 참조하십시오.
 
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
 * [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)

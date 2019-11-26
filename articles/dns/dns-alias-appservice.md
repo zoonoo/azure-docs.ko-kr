@@ -16,17 +16,17 @@ ms.locfileid: "74212361"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 
-DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. An example is a redirect from contoso.com to www\.contoso.com. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
+DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다른 레코드의 할당을 방지합니다. 예제 영역 루트는 contoso.com입니다. 이 제한은 Traffic Manager 뒤에 워크로드가 분산된 애플리케이션 있는 애플리케이션 소유자의 문제를 나타냅니다. 영역 apex 레코드에서 Traffic Manager 프로필을 가리킬 수는 없습니다. 결과적으로, 애플리케이션 소유자는 해결 방법을 사용해야 합니다. 애플리케이션 계층에서 리디렉션을 수행하면 영역 apex에서 다른 도메인으로 리디렉션됩니다. 예는 contoso.com에서 www\.contoso.com로의 리디렉션입니다. 이 정렬은 리디렉션 함수에 대한 단일 실패 지점을 나타냅니다.
 
 별칭 레코드를 사용하면 이 문제가 더 이상 발생하지 않습니다. 이제 애플리케이션 소유자는 영역 apex 레코드에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리키도록 할 수 있습니다. 애플리케이션 소유자는 DNS 영역 내 다른 모든 도메인에 사용되는 Traffic Manager 프로필을 가리킬 수 있습니다.
 
-For example, contoso.com and www\.contoso.com can point to the same Traffic Manager profile. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
+예를 들어 contoso.com 및 www\.contoso.com는 동일한 Traffic Manager 프로필을 가리킬 수 있습니다. 단, Traffic Manager 프로필에 외부 엔드포인트만 구성되어 있어야 합니다.
 
 이 문서에서는 사용자 도메인 루트에 대한 별칭 레코드를 만들고, 웹앱에 대한 Traffic Manager 프로필 엔드포인트를 구성하는 방법을 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
@@ -43,7 +43,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 구성 정보에 대한 다음 표를 사용하여 리소스 그룹에 두 개의 웹 App Service 계획을 만듭니다. App Service 계획을 만드는 방법에 대한 자세한 내용은 [Azure에서 App Service 계획 관리](../app-service/app-service-plan-manage.md)를 참조하세요.
 
 
-|name  |운영 체제  |위치  |가격 책정 계층  |
+|이름  |운영 체제  |Location  |가격 책정 계층  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
@@ -52,24 +52,24 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 
 각 App Service 계획에 하나씩 두 개의 웹앱을 만듭니다.
 
-1. On upper left corner of the Azure portal page, select **Create a resource**.
+1. Azure Portal 페이지의 왼쪽 위 모서리에서 **리소스 만들기**를 선택 합니다.
 2. 검색 표시줄에 **웹앱**을 입력하고 Enter 키를 누릅니다.
-3. Select **Web App**.
+3. **웹 앱**을 선택 합니다.
 4. **만들기**를 선택합니다.
 5. 기본값을 적용하고, 다음 표를 사용하여 두 개의 웹앱을 구성합니다.
 
-   |name<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|지역|App Service 계획/위치
+   |이름<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|Region|App Service 계획/위치
    |---------|---------|-|-|-------|
-   |App-01|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01(D1)|
-   |App-02|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02(D1)|
+   |App-01|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01 (D1)|
+   |App-02|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02 (D1)|
 
 ### <a name="gather-some-details"></a>몇 가지 세부 정보 수집
 
-Now you need to note the IP address and host name for the web apps.
+이제 웹 앱의 IP 주소 및 호스트 이름을 확인 해야 합니다.
 
-1. Open your resource group and select your first web app (**App-01** in this example).
-2. In the left column, select **Properties**.
-3. **URL** 아래의 주소를 적어 두고, **아웃바운드 IP 주소** 아래에서 목록의 첫 번째 IP 주소를 적어 둡니다. You'll use this information later when you configure your Traffic Manager end points.
+1. 리소스 그룹을 열고 첫 번째 웹 앱을 선택 합니다 (이 예제에서는**앱-01** ).
+2. 왼쪽 열에서 **속성**을 선택 합니다.
+3. **URL** 아래의 주소를 적어 두고, **아웃바운드 IP 주소** 아래에서 목록의 첫 번째 IP 주소를 적어 둡니다. 나중에 Traffic Manager 끝점을 구성할 때이 정보를 사용 합니다.
 4. **App-02**에 대해 반복합니다.
 
 ## <a name="create-a-traffic-manager-profile"></a>Traffic Manager 프로필 만들기
@@ -82,12 +82,12 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 
 이제 두 개의 웹앱에 대한 엔드포인트를 만들 수 있습니다.
 
-1. Open your resource group and select your Traffic Manager profile.
-2. In the left column, select **Endpoints**.
+1. 리소스 그룹을 열고 Traffic Manager 프로필을 선택 합니다.
+2. 왼쪽 열에서 **끝점**을 선택 합니다.
 3. **추가**를 선택합니다.
 4. 다음 표를 사용하여 엔드포인트를 구성합니다.
 
-   |Type  |name  |대상 파악  |위치  |사용자 지정 헤더 설정|
+   |에  |이름  |대상  |Location  |사용자 지정 헤더 설정|
    |---------|---------|---------|---------|---------|
    |외부 엔드포인트     |End-01|App-01에 기록한 IP 주소|미국 동부|호스트:\<App-01에 기록한 URL\><br>예: **호스트:app-01.azurewebsites.net**|
    |외부 엔드포인트     |End-02|App-02에 기록한 IP 주소|미국 중부|호스트:\<App-02에 기록한 URL\><br>예: **호스트:app-02.azurewebsites.net**
@@ -96,50 +96,50 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 
 테스트에 기존 DNS 영역을 사용하거나 새 영역을 만들 수 있습니다. Azure에서 새 DNS 영역을 만들고 위임하려면 [자습서: Azure DNS에 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
 
-## <a name="add-a-txt-record-for-custom-domain-validation"></a>Add a TXT record for custom domain validation
+## <a name="add-a-txt-record-for-custom-domain-validation"></a>사용자 지정 도메인 유효성 검사에 대 한 TXT 레코드 추가
 
-When you add a custom hostname to your web apps, it will look for a specific TXT record to validate your domain.
+웹 앱에 사용자 지정 호스트 이름을 추가 하면 특정 TXT 레코드를 검색 하 여 도메인의 유효성을 검사 합니다.
 
-1. Open your resource group and select the DNS zone.
+1. 리소스 그룹을 열고 DNS 영역을 선택 합니다.
 2. **레코드 집합**을 선택합니다.
-3. Add the record set using the following table. For the value, use the actual web app URL that you previously recorded:
+3. 다음 표를 사용 하 여 레코드 집합을 추가 합니다. 값에 대해 이전에 기록한 실제 웹 앱 URL을 사용 합니다.
 
-   |name  |Type  |Value|
+   |이름  |에  |값|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
 
 ## <a name="add-a-custom-domain"></a>사용자 지정 도메인 추가
 
-Add a custom domain for both web apps.
+두 웹 앱에 대 한 사용자 지정 도메인을 추가 합니다.
 
-1. Open your resource group and select your first web app.
-2. In the left column, select **Custom domains**.
-3. Under **Custom Domains**, select **Add custom domain**.
-4. Under **Custom domain**, type your custom domain name. 예를 들어 contoso.com입니다.
+1. 리소스 그룹을 열고 첫 번째 웹 앱을 선택 합니다.
+2. 왼쪽 열에서 **사용자 지정 도메인**을 선택 합니다.
+3. **사용자 지정**도메인에서 **사용자 지정 도메인 추가**를 선택 합니다.
+4. **사용자 지정 도메인**에서 사용자 지정 도메인 이름을 입력 합니다. 예를 들어 contoso.com입니다.
 5. **유효성 검사**를 선택합니다.
 
-   Your domain should pass validation and show green check marks next to **Hostname availability** and **Domain ownership**.
+   도메인은 유효성 검사를 통과 하 고 **호스트 이름 가용성** 및 **도메인 소유권**옆에 녹색 확인 표시를 표시 해야 합니다.
 5. **사용자 지정 도메인 추가**를 선택합니다.
-6. **사이트에 할당된 호스트 이름** 아래에서 새 호스트 이름을 보려면 브라우저를 새로 고칩니다. The refresh on the page doesn't always show changes right away.
+6. **사이트에 할당된 호스트 이름** 아래에서 새 호스트 이름을 보려면 브라우저를 새로 고칩니다. 페이지의 새로 고침은 항상 변경 내용을 즉시 표시 하지는 않습니다.
 7. 두 번째 웹앱에 대해 이 절차를 반복합니다.
 
 ## <a name="add-the-alias-record-set"></a>별칭 레코드 집합 추가
 
-Now add an alias record for the zone apex.
+이제 apex 영역에 대 한 별칭 레코드를 추가 합니다.
 
-1. Open your resource group and select the DNS zone.
+1. 리소스 그룹을 열고 DNS 영역을 선택 합니다.
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용하여 레코드 집합을 추가합니다.
 
-   |name  |Type  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
+   |이름  |에  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
    |---------|---------|---------|---------|-----|
-   |@     |문자열(UTF-8 형식) 또는|yes|Azure 리소스|Traffic Manager - 프로필|
+   |@     |변수를 잠그기 위한|예|Azure 리소스|Traffic Manager - 프로필|
 
 
 ## <a name="test-your-web-apps"></a>웹앱 테스트
 
-Now you can test to make sure you can reach your web app and that it's being load balanced.
+이제 웹 앱에 연결할 수 있는지 테스트 하 고 부하를 분산 하 고 있음을 테스트할 수 있습니다.
 
 1. 웹 브라우저를 열고 도메인으로 이동합니다. 예를 들어 contoso.com입니다. 기본 웹앱 페이지가 표시됩니다.
 2. 첫 번째 웹앱을 중지합니다.
@@ -160,4 +160,4 @@ Now you can test to make sure you can reach your web app and that it's being loa
 - [자습서: Traffic Manager를 사용하여 apex 도메인 이름을 지원하도록 별칭 레코드 구성](tutorial-alias-tm.md)
 - [DNS FAQ](https://docs.microsoft.com/azure/dns/dns-faq#alias-records)
 
-To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+활성 DNS 이름을 마이그레이션하는 방법에 대 한 자세한 내용은 [Azure App Service에 활성 dns 이름 마이그레이션](../app-service/manage-custom-dns-migrate-domain.md)을 참조 하세요.

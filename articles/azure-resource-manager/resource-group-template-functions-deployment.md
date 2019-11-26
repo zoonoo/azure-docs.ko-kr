@@ -1,5 +1,5 @@
 ---
-title: Template functions - deployment
+title: 템플릿 함수-배포
 description: Azure Resource Manager 템플릿에서 배포 정보를 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 11/19/2019
@@ -15,13 +15,13 @@ ms.locfileid: "74230225"
 Resource Manager는 템플릿의 섹션에서 값을 가져오고 배포와 관련된 값을 가져오기 위한 다음 함수를 제공합니다.
 
 * [deployment](#deployment)
-* [environment](#environment)
-* [매개 변수](#parameters)
+* [개발](#environment)
+* [parameters](#parameters)
 * [variables](#variables)
 
 리소스, 리소스 그룹 또는 구독에서 값을 가져오려면 [리소스 함수](resource-group-template-functions-resource.md)를 참조하세요.
 
-## <a name="deployment"></a>배포
+## <a name="deployment"></a>deployment
 
 `deployment()`
 
@@ -89,7 +89,7 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 포털의 배포 기록에서 템플릿을 다시 배포하는 경우 템플릿은 로컬 파일로 배포됩니다. `templateLink` 속성은 배포 함수에 반환되지 않습니다. 템플릿이 `templateLink`를 사용하여 다른 템플릿과의 링크를 설정하는 경우 포털을 사용하여 다시 배포하지 마세요. 대신 처음에 템플릿을 배포하는 데 사용한 명령을 사용하세요.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/deployment.json)에서는 배포 개체를 반환합니다.
 
@@ -137,11 +137,11 @@ deployment()를 사용하여 부모 템플릿의 URI를 기반으로 하는 다�
 
 `environment()`
 
-Returns information about the Azure environment used for deployment.
+배포에 사용 되는 Azure 환경에 대 한 정보를 반환 합니다.
 
 ### <a name="return-value"></a>반환 값
 
-This function returns properties for the current Azure environment.
+이 함수는 현재 Azure 환경에 대 한 속성을 반환 합니다.
 
 ```json
 {
@@ -177,9 +177,9 @@ This function returns properties for the current Azure environment.
 }
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
-The following example template returns the environment object.
+다음 예제 템플릿에서는 환경 개체를 반환 합니다.
 
 ```json
 {
@@ -195,7 +195,7 @@ The following example template returns the environment object.
 }
 ```
 
-The preceding example returns the following object when deployed to global Azure:
+위의 예제는 글로벌 Azure에 배포 된 경우 다음 개체를 반환 합니다.
 
 ```json
 {
@@ -237,11 +237,11 @@ The preceding example returns the following object when deployed to global Azure
 
 매개 변수 값을 반환합니다. 템플릿의 매개 변수 섹션에서 지정된 매개 변수 이름을 정의해야 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | 에 | 설명 |
 |:--- |:--- |:--- |:--- |
-| parameterName |yes |문자열 |반환할 매개 변수의 이름입니다. |
+| parameterName |예 |string |반환할 매개 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -267,7 +267,7 @@ The preceding example returns the following object when deployed to global Azure
 ]
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/parameters.json)에서는 매개 변수 함수의 간소화된 사용을 보여줍니다.
 
@@ -326,15 +326,15 @@ The preceding example returns the following object when deployed to global Azure
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| name | Type | Value |
+| 이름 | 에 | 값 |
 | ---- | ---- | ----- |
-| stringOutput | string | 옵션 1 |
+| stringOutput | 문자열 | 옵션 1 |
 | intOutput | Int | 1 |
 | objectOutput | Object | {“one”: “a”, “two”: “b”} |
-| arrayOutput | 배열 | [1, 2, 3] |
-| crossOutput | string | 옵션 1 |
+| arrayOutput | String | [1, 2, 3] |
+| crossOutput | 문자열 | 옵션 1 |
 
-For more information about using parameters, see [Parameters in Azure Resource Manager template](template-parameters.md).
+매개 변수 사용에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 매개 변수](template-parameters.md)를 참조 하세요.
 
 ## <a name="variables"></a>variables
 
@@ -342,11 +342,11 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 변수의 값을 반환합니다. 템플릿의 변수 섹션에서 지정된 변수 이름을 정의해야 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>매개 변수
 
-| 매개 변수를 포함해야 합니다. | 필수 | Type | 설명 |
+| 매개 변수 | 필수 | 에 | 설명 |
 |:--- |:--- |:--- |:--- |
-| variableName |yes |string |반환할 변수의 이름입니다. |
+| variableName |예 |문자열 |반환할 변수의 이름입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -376,7 +376,7 @@ For more information about using parameters, see [Parameters in Azure Resource M
 ],
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/variables.json)은 각기 다른 변수 값을 반환합니다.
 
@@ -418,14 +418,14 @@ For more information about using parameters, see [Parameters in Azure Resource M
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| name | Type | Value |
+| 이름 | 에 | 값 |
 | ---- | ---- | ----- |
-| exampleOutput1 | string | myVariable |
-| exampleOutput2 | 배열 | [1, 2, 3, 4] |
-| exampleOutput3 | string | myVariable |
+| exampleOutput1 | 문자열 | myVariable |
+| exampleOutput2 | String | [1, 2, 3, 4] |
+| exampleOutput3 | 문자열 | myVariable |
 | exampleOutput4 |  Object | {“property1”: “value1”, “property2”: “value2”} |
 
-For more information about using variables, see [Variables in Azure Resource Manager template](template-variables.md).
+변수를 사용 하는 방법에 대 한 자세한 내용은 [Azure Resource Manager 템플릿에서 변수](template-variables.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.

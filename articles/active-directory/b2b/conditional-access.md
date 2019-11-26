@@ -57,7 +57,7 @@ B2B 협업 사용자에 대한 MFA를 설정하는 작업이 얼마나 간단한
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}
    ```
-   다음 예를 참조하세요.
+   다음은 예제입니다.
 
    ```
    Get-MsolUser | where { $_.StrongAuthenticationMethods} | select UserPrincipalName, @{n="Methods";e={($_.StrongAuthenticationMethods).MethodType}}

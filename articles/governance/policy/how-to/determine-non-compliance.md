@@ -81,7 +81,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 
 다음 행렬은 가능한 각 _이유_ 를 정책 정의의 책임 [조건](../concepts/definition-structure.md#conditions) 에 매핑합니다.
 
-|이유 | 조건 |
+|Reason | 조건 |
 |-|-|
 |현재 값은 대상 값을 키로 포함 해야 합니다. |containsKey 또는 **not** notContainsKey |
 |현재 값은 대상 값을 포함 해야 합니다. |contains 또는 **not** notcontains |

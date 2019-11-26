@@ -20,14 +20,14 @@ ms.locfileid: "74231015"
 
 ## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
 
-The SignalR Service bindings are provided in the [Microsoft.Azure.WebJobs.Extensions.SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet package, version 1.*. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
+SignalR 서비스 바인딩은 [WebJobs SignalRService](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.SignalRService) NuGet 패키지, 버전 1. *에 제공 됩니다. 이 패키지에 대한 소스 코드는 [azure-functions-signalrservice-extension](https://github.com/Azure/azure-functions-signalrservice-extension) GitHub 리포지토리에 있습니다.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2-manual-portal.md)]
 
 
-### <a name="java-annotations"></a>Java annotations
+### <a name="java-annotations"></a>Java 주석
 
-To use the SignalR Service annotations in Java functions, you need to add a dependency to the *azure-functions-java-library-signalr* artifact (version 1.0 or higher) to your pom.xml.
+Java 함수에서 SignalR 서비스 주석을 사용 하려면 pom .xml에 *SignalR* 아티팩트 (버전 1.0 이상)에 대 한 종속성을 추가 해야 합니다.
 
 ```xml
 <dependency>
@@ -40,9 +40,9 @@ To use the SignalR Service annotations in Java functions, you need to add a depe
 > [!NOTE]
 > Java에서 SignalR Service 바인딩을 사용하려면 Azure Functions Core Tools 버전 2.4.419 이상(호스트 버전 2.0.12332)을 사용하고 있는지 확인합니다.
 
-## <a name="using-signalr-service-with-azure-functions"></a>Using SignalR Service with Azure Functions
+## <a name="using-signalr-service-with-azure-functions"></a>Azure Functions에서 SignalR Service 사용
 
-For details on how to configure and use SignalR Service and Azure Functions together, refer to [Azure Functions development and configuration with Azure SignalR Service](../azure-signalr/signalr-concept-serverless-development-config.md).
+SignalR 서비스와 Azure Functions를 함께 구성 하 고 사용 하는 방법에 대 한 자세한 내용은 [Azure SignalR service를 사용 하 여 개발 및 구성 Azure Functions](../azure-signalr/signalr-concept-serverless-development-config.md)을 참조 하세요.
 
 ## <a name="signalr-connection-info-input-binding"></a>SignalR 연결 정보 입력 바인딩
 
@@ -54,9 +54,9 @@ For details on how to configure and use SignalR Service and Azure Functions toge
 * [2.x JavaScript](#2x-javascript-input-examples)
 * [2.x Java](#2x-java-input-examples)
 
-For more information on how this binding is used to create a "negotiate" function that can be consumed by a SignalR client SDK, see the [Azure Functions development and configuration article](../azure-signalr/signalr-concept-serverless-development-config.md) in the SignalR Service concepts documentation.
+이 바인딩을 사용 하 여 SignalR 클라이언트 SDK에서 사용할 수 있는 "negotiate" 함수를 만드는 방법에 대 한 자세한 내용은 SignalR 서비스 개념 설명서의 [Azure Functions 개발 및 구성 문서](../azure-signalr/signalr-concept-serverless-development-config.md) 를 참조 하세요.
 
-### <a name="2x-c-input-examples"></a>2.x C# input examples
+### <a name="2x-c-input-examples"></a>2.x C# 입력 예제
 
 다음 예제에서는 입력 바인딩을 사용하여 SignalR 연결 정보를 획득하고 HTTP를 통해 해당 정보를 반환하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -72,9 +72,9 @@ public static SignalRConnectionInfo Negotiate(
 
 #### <a name="authenticated-tokens"></a>인증된 토큰
 
-인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
+인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용 하 여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
 
-App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. [바인딩 식](./functions-bindings-expressions-patterns.md)을 사용하여 바인딩의 `UserId` 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
+App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. `UserId`바인딩 식[을 사용하여 바인딩의 ](./functions-bindings-expressions-patterns.md) 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
 
 ```cs
 [FunctionName("negotiate")]
@@ -89,7 +89,7 @@ public static SignalRConnectionInfo Negotiate(
 }
 ```
 
-### <a name="2x-javascript-input-examples"></a>2.x JavaScript input examples
+### <a name="2x-javascript-input-examples"></a>2.x JavaScript 입력 예제
 
 다음 예에서는 *function.json* 파일의 SignalR 연결 정보 입력 바인딩 및 바인딩을 사용하여 연결 정보를 반환하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다.
 
@@ -117,9 +117,9 @@ module.exports = async function (context, req, connectionInfo) {
 
 #### <a name="authenticated-tokens"></a>인증된 토큰
 
-인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
+인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용 하 여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
 
-App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. [바인딩 식](./functions-bindings-expressions-patterns.md)을 사용하여 바인딩의 `userId` 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
+App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. `userId`바인딩 식[을 사용하여 바인딩의 ](./functions-bindings-expressions-patterns.md) 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다. 
 
 예제 function.json:
 
@@ -144,9 +144,9 @@ module.exports = async function (context, req, connectionInfo) {
 };
 ```
 
-### <a name="2x-java-input-examples"></a>2.x Java input examples
+### <a name="2x-java-input-examples"></a>2.x Java 입력 예제
 
-The following example shows a [Java function](functions-reference-java.md) that acquires SignalR connection information using the input binding and returns it over HTTP.
+다음 예제에서는 입력 바인딩을 사용 하 여 SignalR 연결 정보를 획득 하 고 HTTP를 통해 반환 하는 [Java 함수](functions-reference-java.md) 를 보여 줍니다.
 
 ```java
 @FunctionName("negotiate")
@@ -164,9 +164,9 @@ public SignalRConnectionInfo negotiate(
 
 #### <a name="authenticated-tokens"></a>인증된 토큰
 
-인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. You can easily add authentication to a function app using [App Service Authentication](../app-service/overview-authentication-authorization.md).
+인증된 클라이언트에서 함수를 트리거하는 경우 생성된 토큰에 사용자 ID 클레임을 추가할 수 있습니다. [App Service 인증](../app-service/overview-authentication-authorization.md)을 사용 하 여 함수 앱에 인증을 쉽게 추가할 수 있습니다.
 
-App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. [바인딩 식](./functions-bindings-expressions-patterns.md)을 사용하여 바인딩의 `UserId` 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다.
+App Service 인증은 `x-ms-client-principal-id`라는 HTTP 헤더 및 인증된 사용자의 클라이언트 보안 주체 ID 및 이름 각각을 포함하는 `x-ms-client-principal-name`을 설정합니다. `UserId`바인딩 식[을 사용하여 바인딩의 ](./functions-bindings-expressions-patterns.md) 속성을 `{headers.x-ms-client-principal-id}` 또는 `{headers.x-ms-client-principal-name}` 헤더 중 하나의 값으로 설정할 수 있습니다.
 
 ```java
 @FunctionName("negotiate")
@@ -187,7 +187,7 @@ public SignalRConnectionInfo negotiate(
 
 Azure SignalR Service를 사용하여 하나 이상의 메시지를 보내려면 *SignalR* 출력 바인딩을 사용합니다. 연결된 모든 클라이언트에 메시지를 브로드캐스트할 수 있거나, 지정된 사용자에게 인증된 연결된 클라이언트에만 브로드캐스트할 수 있습니다.
 
-You can also use it to manage the groups that a user belongs to.
+또한 사용자가 속한 그룹을 관리 하는 데 사용할 수 있습니다.
 
 언어 관련 예제를 참조하세요.
 
@@ -195,7 +195,7 @@ You can also use it to manage the groups that a user belongs to.
 * [2.x JavaScript](#2x-javascript-send-message-output-examples)
 * [2.x Java](#2x-java-send-message-output-examples)
 
-### <a name="2x-c-send-message-output-examples"></a>2.x C# send message output examples
+### <a name="2x-c-send-message-output-examples"></a>C# 2.x 메시지 출력 예
 
 #### <a name="broadcast-to-all-clients"></a>모든 클라이언트에 브로드캐스트
 
@@ -237,9 +237,9 @@ public static Task SendMessage(
 }
 ```
 
-#### <a name="send-to-a-group"></a>Send to a group
+#### <a name="send-to-a-group"></a>그룹으로 보내기
 
-You can send a message only to connections that have been added to a group by setting the `GroupName` property of the SignalR message.
+SignalR 메시지의 `GroupName` 속성을 설정 하 여 그룹에 추가 된 연결에만 메시지를 보낼 수 있습니다.
 
 ```cs
 [FunctionName("SendMessage")]
@@ -258,13 +258,13 @@ public static Task SendMessage(
 }
 ```
 
-### <a name="2x-c-group-management-output-examples"></a>2.x C# group management output examples
+### <a name="2x-c-group-management-output-examples"></a>2.x C# 그룹 관리 출력 예제
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalRGroupAction` class with the `SignalR` output binding to manage a user's group membership.
+SignalR 서비스를 사용 하면 사용자를 그룹에 추가할 수 있습니다. 그런 다음 그룹에 메시지를 보낼 수 있습니다. `SignalR` 출력 바인딩과 함께 `SignalRGroupAction` 클래스를 사용 하 여 사용자의 그룹 멤버 자격을 관리할 수 있습니다.
 
-#### <a name="add-user-to-a-group"></a>Add user to a group
+#### <a name="add-user-to-a-group"></a>그룹에 사용자 추가
 
-The following example adds a user to a group.
+다음 예에서는 그룹에 사용자를 추가 합니다.
 
 ```csharp
 [FunctionName("addToGroup")]
@@ -285,9 +285,9 @@ public static Task AddToGroup(
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>Remove user from a group
+#### <a name="remove-user-from-a-group"></a>그룹에서 사용자 제거
 
-The following example removes a user from a group.
+다음 예에서는 그룹에서 사용자를 제거 합니다.
 
 ```csharp
 [FunctionName("removeFromGroup")]
@@ -309,9 +309,9 @@ public static Task RemoveFromGroup(
 ```
 
 > [!NOTE]
-> In order to get the `ClaimsPrincipal` correctly bound, you must have configured the authentication settings in Azure Functions.
+> `ClaimsPrincipal` 올바르게 바인딩되어 있도록 하려면 Azure Functions에서 인증 설정을 구성 해야 합니다.
 
-### <a name="2x-javascript-send-message-output-examples"></a>2.x JavaScript send message output examples
+### <a name="2x-javascript-send-message-output-examples"></a>2.x JavaScript send 메시지 출력 예제
 
 #### <a name="broadcast-to-all-clients"></a>모든 클라이언트에 브로드캐스트
 
@@ -359,9 +359,9 @@ module.exports = async function (context, req) {
 };
 ```
 
-#### <a name="send-to-a-group"></a>Send to a group
+#### <a name="send-to-a-group"></a>그룹으로 보내기
 
-You can send a message only to connections that have been added to a group by setting the `groupName` property of the SignalR message.
+SignalR 메시지의 `groupName` 속성을 설정 하 여 그룹에 추가 된 연결에만 메시지를 보낼 수 있습니다.
 
 *function.json*은 동일하게 유지됩니다. JavaScript 코드는 다음과 같습니다.
 
@@ -376,13 +376,13 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-javascript-group-management-output-examples"></a>2.x JavaScript group management output examples
+### <a name="2x-javascript-group-management-output-examples"></a>2.x JavaScript 그룹 관리 출력 예제
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalR` output binding to manage a user's group membership.
+SignalR 서비스를 사용 하면 사용자를 그룹에 추가할 수 있습니다. 그런 다음 그룹에 메시지를 보낼 수 있습니다. `SignalR` 출력 바인딩을 사용 하 여 사용자의 그룹 멤버 자격을 관리할 수 있습니다.
 
-#### <a name="add-user-to-a-group"></a>Add user to a group
+#### <a name="add-user-to-a-group"></a>그룹에 사용자 추가
 
-The following example adds a user to a group.
+다음 예에서는 그룹에 사용자를 추가 합니다.
 
 *function.json*
 
@@ -427,9 +427,9 @@ module.exports = async function (context, req) {
 };
 ```
 
-#### <a name="remove-user-from-a-group"></a>Remove user from a group
+#### <a name="remove-user-from-a-group"></a>그룹에서 사용자 제거
 
-The following example removes a user from a group.
+다음 예에서는 그룹에서 사용자를 제거 합니다.
 
 *function.json*
 
@@ -474,11 +474,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="2x-java-send-message-output-examples"></a>2.x Java send message output examples
+### <a name="2x-java-send-message-output-examples"></a>2.x Java 메시지 보내기 출력 예제
 
 #### <a name="broadcast-to-all-clients"></a>모든 클라이언트에 브로드캐스트
 
-The following example shows a [Java function](functions-reference-java.md) that sends a message using the output binding to all connected clients. `target`은 각 클라이언트에서 호출될 메서드의 이름입니다. `arguments` 속성은 클라이언트 메서드에 전달될 0개 이상의 개체 배열입니다.
+다음 예제에서는 모든 연결 된 클라이언트에 출력 바인딩을 사용 하 여 메시지를 보내는 [Java 함수](functions-reference-java.md) 를 보여 줍니다. `target`은 각 클라이언트에서 호출될 메서드의 이름입니다. `arguments` 속성은 클라이언트 메서드에 전달될 0개 이상의 개체 배열입니다.
 
 ```java
 @FunctionName("sendMessage")
@@ -517,9 +517,9 @@ public SignalRMessage sendMessage(
 }
 ```
 
-#### <a name="send-to-a-group"></a>Send to a group
+#### <a name="send-to-a-group"></a>그룹으로 보내기
 
-You can send a message only to connections that have been added to a group by setting the `groupName` property of the SignalR message.
+SignalR 메시지의 `groupName` 속성을 설정 하 여 그룹에 추가 된 연결에만 메시지를 보낼 수 있습니다.
 
 ```java
 @FunctionName("sendMessage")
@@ -538,13 +538,13 @@ public SignalRMessage sendMessage(
 }
 ```
 
-### <a name="2x-java-group-management-output-examples"></a>2.x Java group management output examples
+### <a name="2x-java-group-management-output-examples"></a>2.x Java 그룹 관리 출력 예제
 
-SignalR Service allows users to be added to groups. Messages can then be sent to a group. You can use the `SignalRGroupAction` class with the `SignalROutput` output binding to manage a user's group membership.
+SignalR 서비스를 사용 하면 사용자를 그룹에 추가할 수 있습니다. 그런 다음 그룹에 메시지를 보낼 수 있습니다. `SignalROutput` 출력 바인딩과 함께 `SignalRGroupAction` 클래스를 사용 하 여 사용자의 그룹 멤버 자격을 관리할 수 있습니다.
 
-#### <a name="add-user-to-a-group"></a>Add user to a group
+#### <a name="add-user-to-a-group"></a>그룹에 사용자 추가
 
-The following example adds a user to a group.
+다음 예에서는 그룹에 사용자를 추가 합니다.
 
 ```java
 @FunctionName("addToGroup")
@@ -564,9 +564,9 @@ public SignalRGroupAction addToGroup(
 }
 ```
 
-#### <a name="remove-user-from-a-group"></a>Remove user from a group
+#### <a name="remove-user-from-a-group"></a>그룹에서 사용자 제거
 
-The following example removes a user from a group.
+다음 예에서는 그룹에서 사용자를 제거 합니다.
 
 ```java
 @FunctionName("removeFromGroup")
@@ -594,8 +594,8 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**|| `signalRConnectionInfo`로 설정해야 합니다.|
-|**direction**|| `in`로 설정해야 합니다.|
+|**type**|| `signalRConnectionInfo`으로 설정해야 합니다.|
+|**direction**|| `in`으로 설정해야 합니다.|
 |**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
 |**userId**|**UserId**| 선택 사항: 액세스 키 토큰에서 설정될 사용자 식별자 클레임의 값입니다. |
@@ -607,8 +607,8 @@ public SignalRGroupAction removeFromGroup(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**|| `signalR`로 설정해야 합니다.|
-|**direction**|| `out`로 설정해야 합니다.|
+|**type**|| `signalR`으로 설정해야 합니다.|
+|**direction**|| `out`으로 설정해야 합니다.|
 |**name**|| 연결 정보 개체에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**hubName**|**HubName**| 이 값은 연결 정보가 생성되는 SignalR 허브의 이름으로 설정되어야 합니다.|
 |**connectionStringSetting**|**ConnectionStringSetting**| SignalR Service 연결 문자열("AzureSignalRConnectionString"에 대한 기본값)을 포함하는 앱 설정의 이름 |

@@ -87,7 +87,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 #### <a name="freehttpsazuremicrosoftcomfree"></a>[Free](https://azure.microsoft.com/free/)
 
-- 12개월 평가판 서비스
+- 12개월 동안 평가판 서비스
 - $200 크레딧으로 30일 간 서비스 체험하기
 - 25개 이상의 서비스 항상 무료
 
@@ -95,7 +95,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 - 최소 요금이나 약정 없음
 - 경쟁력 있는 가격
-- 사용한 양에 따른 요금 지불
+- 사용한 만큼만 요금 지불
 - 언제든지 취소 가능
 
 #### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
@@ -107,7 +107,7 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 인프라를 배포하기 전에, 솔루션 비용을 평가합니다. 평가를 수행하면 워크로드에 대한 조직의 예산을 미리 작성하는 데 도움이 됩니다. 그런 다음, 시간 경과에 따른 예산을 사용하여 초기 예측의 유효성을 벤치마킹할 수 있습니다. 또한 배포한 솔루션의 실제 비용과 비교할 수도 있습니다.
 
-### <a name="azure-pricing-calculator"></a>Azure 가격 계산기
+### <a name="azure-pricing-calculator"></a>Azure 요금 계산기
 
 Azure 가격 계산기를 사용하면 Azure 서비스의 다양한 조합을 시도하여 비용 견적을 확인할 수 있습니다. Azure에서 다양한 방법을 사용하여 솔루션을 구현할 수 있으며, 각 솔루션은 전체 지출에 영향을 미칠 수 있습니다. 클라우드 배포에 필요한 모든 인프라 요구 사항을 미리 고려하면 도구를 가장 효과적으로 사용하는 데 도움이 됩니다. Azure에 대한 예상 지출 견적을 구할 수 있습니다.
 

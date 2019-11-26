@@ -1,6 +1,6 @@
 ---
-title: Durable Functions versions overview - Azure Functions
-description: Learn about Durable Functions versions.
+title: Durable Functions 버전 개요-Azure Functions
+description: Durable Functions 버전에 대해 알아봅니다.
 author: cgillum
 ms.topic: conceptual
 ms.date: 10/30/2019
@@ -12,59 +12,59 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231187"
 ---
-# <a name="durable-functions-versions-overview"></a>Durable Functions versions overview
+# <a name="durable-functions-versions-overview"></a>Durable Functions 버전 개요
 
-*지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md) 및 [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다. If you are not already familiar with Durable Functions, see the [overview documentation](durable-functions-overview.md).
+*지속성 함수*는 서버를 사용하지 않는 환경에서 상태 저장 함수를 작성할 수 있게 하는 [Azure Functions](../functions-overview.md) 및 [Azure WebJobs](../../app-service/web-sites-create-web-jobs.md)의 확장입니다. 확장은 상태, 검사점 및 다시 시작을 관리합니다. Durable Functions에 익숙하지 않은 경우 [개요 설명서](durable-functions-overview.md)를 참조 하세요.
 
-## <a name="new-features-in-2x"></a>New features in 2.x
+## <a name="new-features-in-2x"></a>2\.x의 새로운 기능
 
-This section describes the features of Durable Functions that are added in version 2.x.
+이 섹션에서는 버전 2.x에 추가 된 Durable Functions 기능에 대해 설명 합니다.
 
-### <a name="durable-entities"></a>Durable entities
+### <a name="durable-entities"></a>지 속성 엔터티
 
-In Durable Functions 2.x, we introduced a new [entity functions](durable-functions-entities.md) concept.
+Durable Functions 2.x에서는 새로운 [엔터티 함수](durable-functions-entities.md) 개념을 도입 했습니다.
 
-엔터티 함수는 *지속성 엔터티*라고 하는 작은 상태 부분을 읽고 업데이트하는 작업을 정의합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. Unlike orchestrator functions, entity functions do not have any specific code constraints. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
+엔터티 함수는 *지속성 엔터티*라고 하는 작은 상태 부분을 읽고 업데이트하는 작업을 정의합니다. 오케스트레이터 함수와 마찬가지로 엔터티 함수는 특수 트리거 유형인 *엔터티 트리거*를 사용하는 함수입니다. Orchestrator 함수와 달리 entity 함수는 특정 코드 제약 조건을 포함 하지 않습니다. 또한 엔터티 함수는 제어 흐름을 통해 상태를 암시적으로 나타내지 않고 명시적으로 관리합니다.
 
-To learn more, see the [durable entities](durable-functions-entities.md) article.
+자세한 내용은 지 [속성 엔터티](durable-functions-entities.md) 문서를 참조 하세요.
 
-### <a name="durable-http"></a>Durable HTTP
+### <a name="durable-http"></a>지 속성 HTTP
 
-In Durable Functions 2.x, we introduced a new [Durable HTTP](durable-functions-http-features.md#consuming-http-apis) feature that allows you to:
+Durable Functions 2.x에는 다음을 수행할 수 있는 새로운 [내구성이 있는 HTTP](durable-functions-http-features.md#consuming-http-apis) 기능이 도입 되었습니다.
 
-* Call HTTP APIs directly from orchestration functions (with some documented limitations).
-* Implement automatic client-side HTTP 202 status polling.
-* Built-in support for [Azure Managed Identities](../../active-directory/managed-identities-azure-resources/overview.md).
+* 오케스트레이션 함수에서 직접 HTTP Api를 호출 합니다 (몇 가지 문서화 된 제한 사항 포함).
+* 자동 클라이언트 쪽 HTTP 202 상태 폴링을 구현 합니다.
+* [Azure 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)를 기본적으로 지원 합니다.
 
-To learn more, see the [HTTP features](durable-functions-http-features.md#consuming-http-apis) article.
+자세히 알아보려면 [HTTP 기능](durable-functions-http-features.md#consuming-http-apis) 문서를 참조 하세요.
 
-## <a name="migrate-from-1x-to-2x"></a>Migrate from 1.x to 2.x
+## <a name="migrate-from-1x-to-2x"></a>1\.x에서 2.x로 마이그레이션
 
-This section describes how to migrate your existing version 1.x Durable Functions to version 2.x to take advantage of the new features.
+이 섹션에서는 기존 버전 1.x Durable Functions를 버전 2.x로 마이그레이션하여 새로운 기능을 활용 하는 방법을 설명 합니다.
 
-### <a name="upgrade-the-extension"></a>Upgrade the extension
+### <a name="upgrade-the-extension"></a>확장 업그레이드
 
-Install version 2.x of the [Durable Functions bindings extension](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your project. See [Register Azure Functions binding extensions](../functions-bindings-register.md) for more information.
+프로젝트에 [Durable Functions 바인딩 확장](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) 의 2.x 버전을 설치 합니다. 자세한 내용은 [Azure Functions 바인딩 확장 등록](../functions-bindings-register.md) 을 참조 하세요.
 
-### <a name="update-your-code"></a>Update your code
+### <a name="update-your-code"></a>코드 업데이트
 
-Durable Functions 2.x introduces several breaking changes. Durable Functions 1.x applications are not compatible with Durable Functions 2.x without code changes. This section lists some of the changes you must make when upgrading your version 1.x functions to 2.x.
+Durable Functions 2.x에는 몇 가지 주요 변경 사항이 도입 되었습니다. Durable Functions 1.x 응용 프로그램은 코드를 변경 하지 않고 Durable Functions 2.x와 호환 되지 않습니다. 이 섹션에서는 버전 1.x 함수를 2.x로 업그레이드할 때 수행 해야 하는 몇 가지 변경 사항을 설명 합니다.
 
-#### <a name="hostjson-schema"></a>Host.json schema
+#### <a name="hostjson-schema"></a>Host. json 스키마
 
-Durable Functions 2.x uses a new host.json schema. The main changes from 1.x include:
+Durable Functions 2.x는 새 호스트 json 스키마를 사용 합니다. 1\.x의 주요 변경 내용에는 다음이 포함 됩니다.
 
-* `"storageProvider"` (and the `"azureStorage"` subsection) for storage-specific configuration.
-* `"tracking"` for tracking and logging configuration.
-* `"notifications"` (and the `"eventGrid"` subsection) for event grid notification configuration.
+* 저장소 관련 구성에 대 한 `"storageProvider"` (및 `"azureStorage"` 하위 섹션).
+* 구성 추적 및 로깅에 대 한 `"tracking"`입니다.
+* event grid 알림 구성의 `"notifications"` 및 `"eventGrid"` 하위 섹션).
 
-See the [Durable Functions host.json reference documentation](durable-functions-bindings.md#durable-functions-2-0-host-json) for details.
+자세한 내용은 [Durable Functions 호스트나 참조 설명서](durable-functions-bindings.md#durable-functions-2-0-host-json) 를 참조 하세요.
 
-#### <a name="public-interface-changes-net-only"></a>Public interface changes (.NET only)
+#### <a name="public-interface-changes-net-only"></a>공용 인터페이스 변경 (.NET만 해당)
 
-In version 1.x, the various _context_ objects supported by Durable Functions have abstract base classes intended for use in unit testing. As part of Durable Functions 2.x, these abstract base classes are replaced with interfaces.
+버전 1.x에서 Durable Functions에서 지 원하는 다양 한 _컨텍스트_ 개체는 단위 테스트에 사용 하기 위한 추상 기본 클래스를 포함 합니다. Durable Functions 2.x의 일부로 이러한 추상 기본 클래스는 인터페이스로 대체 됩니다.
 
-The following table represents the main changes:
+다음 표는 주요 변경 내용을 나타냅니다.
 
 | 1.x | 2.x |
 |----------|----------|
@@ -73,8 +73,8 @@ The following table represents the main changes:
 | `DurableActivityContext` 또는 `DurableActivityContextBase` | `IDurableActivityContext` |
 | `OrchestrationClientAttribute` | `DurableClientAttribute` |
 
-In the case where an abstract base class contained virtual methods, these virtual methods have been replaced by extension methods defined in `DurableContextExtensions`.
+추상 기본 클래스가 가상 메서드를 포함 하는 경우 이러한 가상 메서드는 `DurableContextExtensions`에 정의 된 확장 메서드로 대체 됩니다.
 
-#### <a name="functionjson-changes-javascript-and-c-script"></a>function.json changes (JavaScript and C# Script)
+#### <a name="functionjson-changes-javascript-and-c-script"></a>함수. json 변경 (JavaScript 및 C# 스크립트)
 
-In Durable Functions 1.x, the orchestration client binding uses a `type` of `orchestrationClient`. Version 2.x uses `durableClient` instead.
+Durable Functions 1.x에서 오케스트레이션 클라이언트 바인딩은 `orchestrationClient`의 `type`를 사용 합니다. 버전 2.x는 대신 `durableClient`를 사용 합니다.

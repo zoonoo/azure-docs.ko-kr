@@ -36,7 +36,7 @@ Microsoft는 HANA 대규모 인스턴스 단위를 배포하기 위해 다음 �
 - 모든 Azure 배포 지역의 경우:
     - Azure 가상 네트워크를 HANA 대규모 인스턴스에 연결하는 ER-P2P 연결에 대한 /29 IP 주소 범위
     - HANA 대규모 인스턴스 서버 IP 풀에 사용되는 /24 CIDR 블록
-    - Optional when using [ExpressRoute Global Reach](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) to enable direct routing from on-premises to HANA Large Instance units or routing between HANA Large Instance units in different Azure regions, you need to reserve another /29 IP address range. This particular range may not overlap with any of the other IP address ranges you defined before.
+    - [Global Reach express](https://docs.microsoft.com/azure/expressroute/expressroute-global-reach) 경로를 사용 하 여 온-프레미스에서 Hana 대량 인스턴스 단위나 다른 AZURE 지역의 Hana large instance 단위 간 라우팅을 사용 하도록 설정 하는 경우 다른/29 IP 주소 범위를 예약 해야 합니다. 이 특정 범위는 이전에 정의한 다른 IP 주소 범위와 겹칠 수 없습니다.
 - HANA 대규모 인스턴스에 연결하는 모든 Azure 가상 네트워크의 가상 네트워크 주소 공간 특성에 사용된 IP 주소 범위 값
 - 각 HANA 대규모 인스턴스 시스템에 대한 데이터:
   - 원하는 호스트 이름 - 정규화된 도메인 이름이 이상적.

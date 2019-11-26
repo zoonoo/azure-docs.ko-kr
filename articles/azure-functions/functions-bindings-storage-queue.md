@@ -33,7 +33,7 @@ Queue Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="encoding"></a>Encoding
+## <a name="encoding"></a>인코딩
 함수에 *base64*로 인코딩된 문자열이 필요합니다. 인코딩 형식에 대한 조정(데이터를 *base64*로 인코딩된 문자열로 준비하기 위해)은 호출 서비스에 구현되어야 합니다.
 
 ## <a name="trigger"></a>트리거
@@ -52,7 +52,7 @@ Queue Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://
 
 ### <a name="trigger---c-example"></a>트리거 - C# 예제
 
-다음 예제에서는 `myqueue-items` 큐를 폴링하고 큐 항목이 처리될 때마다 로그를 쓰는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [ 큐를 폴링하고 큐 항목이 처리될 때마다 로그를 쓰는 ](functions-dotnet-class-library.md)C# 함수`myqueue-items`를 보여줍니다.
 
 ```csharp
 public static class QueueFunctions
@@ -120,7 +120,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-[사용](#trigger---usage) 섹션은 function.json에서 `name` 속성에 의해 명명된 `myQueueItem`을 설명합니다.  [메시지 메타데이터 섹션](#trigger---message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
+[사용](#trigger---usage) 섹션은 function.json에서 `myQueueItem` 속성에 의해 명명된 `name`을 설명합니다.  [메시지 메타데이터 섹션](#trigger---message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
 
 ### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
 
@@ -165,7 +165,7 @@ module.exports = async function (context, message) {
 };
 ```
 
-[사용](#trigger---usage) 섹션은 function.json에서 `name` 속성에 의해 명명된 `myQueueItem`을 설명합니다.  [메시지 메타데이터 섹션](#trigger---message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
+[사용](#trigger---usage) 섹션은 function.json에서 `myQueueItem` 속성에 의해 명명된 `name`을 설명합니다.  [메시지 메타데이터 섹션](#trigger---message-metadata)에서는 표시된 다른 모든 변수를 설명합니다.
 
 ### <a name="trigger---java-example"></a>트리거 - Java 예제
 
@@ -185,9 +185,9 @@ module.exports = async function (context, message) {
 
 ### <a name="trigger---python-example"></a>트리거 - Python 예제
 
-The following example demonstrates how to read a queue message passed to a function via a trigger.
+다음 예에서는 트리거를 통해 함수에 전달 되는 큐 메시지를 읽는 방법을 보여 줍니다.
 
-A Storage queue trigger is defined in *function.json* where *type* is set to `queueTrigger`.
+저장소 큐 트리거는 *type* 이 `queueTrigger`로 설정 된 *함수인 json* 에 정의 되어 있습니다.
 
 ```json
 {
@@ -204,7 +204,7 @@ A Storage queue trigger is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-The code *_\_init_\_.py* declares a parameter as `func.ServiceBusMessage` which allows you to read the queue message in your function.
+Py 코드  *_\_init_\_* 는 함수에서 큐 메시지를 읽을 수 있는 `func.ServiceBusMessage` 매개 변수를 선언 합니다.
 
 ```python
 import logging
@@ -282,7 +282,7 @@ def main(msg: func.QueueMessage):
 사용할 스토리지 계정은 다음과 같은 순서로 결정됩니다.
 
 * `QueueTrigger` 특성의 `Connection` 속성
-* `QueueTrigger` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
+* `StorageAccount` 특성과 동일한 매개 변수에 적용된 `QueueTrigger` 특성
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
 * "AzureWebJobsStorage" 앱 설정
@@ -293,8 +293,8 @@ def main(msg: func.QueueMessage):
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | n/a| `queueTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction**| n/a | *function.json* 파일에서만 적용됩니다. `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**type** | n/a| `queueTrigger`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction**| n/a | *function.json* 파일에서만 적용됩니다. `in`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a |함수 코드에서 큐 항목 페이로드를 포함하는 변수 이름입니다.  |
 |**queueName** | **QueueName**| 폴링할 큐의 이름입니다. |
 |**연결** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
@@ -303,7 +303,7 @@ def main(msg: func.QueueMessage):
 
 ## <a name="trigger---usage"></a>트리거 - 사용
 
-C# 및 C# 스크립트에서는 `string paramName`과 같은 메서드 매개 변수를 사용하여 메시지 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
+C# 및 C# 스크립트에서는 `string paramName`과 같은 메서드 매개 변수를 사용하여 메시지 데이터에 액세스합니다. C# 스크립트에서 `paramName`은 `name`function.json*의*  속성에 지정된 값입니다. 다음 중 원하는 형식으로 바인딩할 수 있습니다.
 
 * 개체 - Functions 런타임은 JSON 페이로드를 코드에 정의된 임의 클래스 인스턴스로 역직렬화합니다. 
 * `string`
@@ -318,9 +318,9 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 큐 트리거는 몇 가지 [메타데이터 속성](./functions-bindings-expressions-patterns.md#trigger-metadata)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage) 클래스의 속성은 다음과 같습니다.
 
-|자산|Type|설명|
+|속성|에|설명|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드를 문자열로 사용하는 경우 `QueueTrigger`는 *function.json*에서 `name` 속성에 의해 명명된 변수와 동일한 값을 가집니다.|
+|`QueueTrigger`|`string`|큐 페이로드(유효한 문자열인 경우) 큐 메시지 페이로드를 문자열로 사용하는 경우 `QueueTrigger`는 `name`function.json*에서*  속성에 의해 명명된 변수와 동일한 값을 가집니다.|
 |`DequeueCount`|`int`|이 메시지가 큐에서 제거된 횟수입니다.|
 |`ExpirationTime`|`DateTimeOffset`|메시지가 만료되는 시간입니다.|
 |`Id`|`string`|큐 메시지 ID입니다.|
@@ -336,7 +336,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 ## <a name="trigger---polling-algorithm"></a>트리거 - 폴링 알고리즘
 
-큐 트리거는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 런타임은 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. 최대 대기 시간은 [host.json 파일](functions-host-json.md#queues)의 `maxPollingInterval` 속성을 통해 구성할 수 있습니다.
+큐 트리거는 무작위 지수 백오프 알고리즘을 구현하여 유휴 큐 폴링이 스토리지 트랜잭션 비용에 미치는 영향을 줄입니다.  메시지가 발견되면 런타임은 2초 대기하고 다른 메시지가 있는지 확인하며, 메시지가 발견되지 않으면 4초 정도 대기하고 나서 다시 시도합니다. 후속 시도로 큐 메시지를 가져오지 못하면 최대 대기 시간(기본값 1분)에 도달할 때까지 대기 시간이 계속 증가합니다. 최대 대기 시간은 `maxPollingInterval`host.json 파일[의 ](functions-host-json.md#queues) 속성을 통해 구성할 수 있습니다.
 
 ## <a name="trigger---concurrency"></a>트리거 - 동시성
 
@@ -348,7 +348,7 @@ JavaScript에서 `context.bindings.<name>`을 사용하여 큐 항목 페이로�
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
-[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. See the [host.json settings](#hostjson-settings) section for details regarding available settings.
+[host.json](functions-host-json.md#queues) 파일에는 큐 트리거 동작을 제어하는 설정이 포함됩니다. 사용 가능한 설정에 대 한 자세한 내용은 [host-a 설정](#hostjson-settings) 섹션을 참조 하세요.
 
 ## <a name="output"></a>출력
 
@@ -513,9 +513,9 @@ module.exports = function(context) {
 
 ### <a name="output---python-example"></a>출력 - Python 예제
 
-The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
+다음 예제에서는 단일 및 여러 값을 저장소 큐에 출력 하는 방법을 보여 줍니다. *함수. json* 에 필요한 구성은 두 방법 중 하나입니다.
 
-A Storage queue binding is defined in *function.json* where *type* is set to `queue`.
+저장소 큐 바인딩은 *형식이* `queue`로 설정 된 *함수인 json* 에 정의 됩니다.
 
 ```json
 {
@@ -547,7 +547,7 @@ A Storage queue binding is defined in *function.json* where *type* is set to `qu
 }
 ```
 
-To set a individual message on the queue, you pass a single value to the `set` method.
+큐에서 개별 메시지를 설정 하려면 `set` 메서드에 단일 값을 전달 합니다.
 
 ```python
 import azure.functions as func
@@ -561,7 +561,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-To create multiple messages on the queue, declare a parameter as the appropriate list type and pass an array of values (that match the list type) to the `set` method.
+큐에서 여러 메시지를 만들려면 매개 변수를 적절 한 목록 유형으로 선언 하 고 목록 유형과 일치 하는 값 배열을 `set` 메서드로 전달 합니다.
 
 ```python
 import azure.functions as func
@@ -610,8 +610,8 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** | n/a | `queue`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | n/a | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**type** | n/a | `queue`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | n/a | `out`으로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** | n/a | 함수 코드에서 큐를 나타내는 변수의 이름입니다. `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**queueName** |**QueueName** | 큐의 이름입니다. |
 |**연결** | **연결** |이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`을 "MyStorage"로 설정한 경우 함수 런타임 기능은 "AzureWebJobsMyStorage"라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.|
@@ -620,7 +620,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 ## <a name="output---usage"></a>출력 - 사용
 
-C# 및 C# 스크립트에서 `out T paramName`과 같은 메서드 매개 변수를 사용하여 단일 큐 메시지를 씁니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
+C# 및 C# 스크립트에서 `out T paramName`과 같은 메서드 매개 변수를 사용하여 단일 큐 메시지를 씁니다. C# 스크립트에서 `paramName`은 `name`function.json*의*  속성에 지정된 값입니다. `out` 매개 변수 대신 메서드 반환 형식을 사용할 수 있습니다. `T`는 다음 형식 중 하나일 수 있습니다.
 
 * JSON으로 직렬화 가능한 개체
 * `string`
@@ -641,7 +641,7 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 
 | 바인딩 |  참조 |
 |---|---|
-| Queue | [큐 오류 코드](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
+| 큐 | [큐 오류 코드](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Blob, 테이블, 큐 | [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, 테이블, 큐 |  [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
@@ -670,9 +670,9 @@ JavaScript 함수에서 `context.bindings.<name>`을 사용하여 출력 큐 메
 ```
 
 
-|자산  |기본값 | 설명 |
+|속성  |기본값 | 설명 |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. Minimum is 00:00:00.100 (100 ms) and increments up to 00:01:00 (1 min).  In 1.x the data type is milliseconds, and in 2.x it is a TimeSpan.|
+|maxPollingInterval|00:00:01|큐 폴링 사이의 최대 간격입니다. 최소는 00:00:00:00.100 (100 밀리초)이 고 최대 00:01:00 (1 분) 씩 증가 합니다.  1\.x에서 데이터 형식은 밀리초이 고, 2.x는 TimeSpan입니다.|
 |visibilityTimeout|00:00:00|메시지 처리가 실패하는 경우 재시도 사이의 간격입니다. |
 |batchSize|16|함수 런타임이 동시에 검색하고 병렬로 처리하는 큐 메시지 수입니다. 처리되는 개수가 `newBatchThreshold`로 감소하면 런타임은 다른 일괄 처리를 가져와 해당 메시지의 처리를 시작합니다. 따라서 함수당 처리되는 최대 동시 메시지 수는 `batchSize` + `newBatchThreshold`입니다. 이 제한은 큐 트리거 함수에 개별적으로 적용됩니다. <br><br>하나의 큐에 수신된 메시지에 대해 병렬 실행을 방지하려면 `batchSize`을 1로 설정합니다. 그러나 이 설정은 함수 앱이 단일 VM(가상 머신)에서 실행되는 동안에만 동시성을 제거합니다. 함수 앱이 여러 VM에 확장되면 각 VM은 각 큐 트리거 함수의 인스턴스 하나를 실행할 수 있습니다.<br><br>최대 `batchSize`은 32입니다. |
 |maxDequeueCount|5|포이즌 큐로 이동하기 전에 메시지 처리를 시도할 횟수입니다.|

@@ -1,6 +1,6 @@
 ---
-title: Plan a virtual network for Azure HDInsight
-description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
+title: Azure HDInsight에 대 한 가상 네트워크 계획
+description: Azure Virtual Network 배포를 계획 하 여 다른 클라우드 리소스 또는 데이터 센터의 리소스에 HDInsight를 연결 하는 방법에 대해 알아봅니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,9 +15,9 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74228988"
 ---
-# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Plan a virtual network for Azure HDInsight
+# <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
-This article provides background information on using [Azure Virtual Networks](../virtual-network/virtual-networks-overview.md) with Azure HDInsight. It also discusses design and implementation decisions that must be made before you can implement a virtual network for your HDInsight cluster. Once the planning phase is finished, you can proceed to [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md). For more information on HDInsight management IP addresses that are needed to properly configure network security groups and user-defined routes, see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+이 문서에서는 azure HDInsight에서 [Azure Virtual network](../virtual-network/virtual-networks-overview.md) 를 사용 하는 방법에 대 한 배경 정보를 제공 합니다. 또한 HDInsight 클러스터에 대 한 가상 네트워크를 구현 하기 위해 수행 해야 하는 디자인 및 구현 결정에 대해 설명 합니다. 계획 단계가 완료 되 면 [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 계속할 수 있습니다. 네트워크 보안 그룹 및 사용자 정의 경로를 올바르게 구성 하는 데 필요한 HDInsight 관리 IP 주소에 대 한 자세한 내용은 [hdinsight 관리 ip 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
 
 Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
@@ -26,9 +26,9 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 * 인터넷을 통해 공개적으로 사용할 수 없는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 직접 액세스합니다. 예: [Apache Kafka](https://kafka.apache.org/) API 또는 [Apache HBase](https://hbase.apache.org/) Java API.
 
 > [!IMPORTANT]
-> Creating an HDInsight cluster in a VNET will create several networking resources, such as NICs and load balancers. Do **not** delete these networking resources, as they are needed for your cluster to function correctly with the VNET.
+> VNET에서 HDInsight 클러스터를 만들면 Nic, 부하 분산 장치 등의 몇 가지 네트워킹 리소스가 생성 됩니다. 클러스터가 VNET에서 올바르게 작동 하는 데 필요 하므로 이러한 네트워킹 리소스를 삭제 **하지** 마세요.
 >
-> After Feb 28, 2019, the networking resources (such as NICs, LBs, etc) for NEW HDInsight clusters created in a VNET will be provisioned in the same HDInsight cluster resource group. Previously, these resources were provisioned in the VNET resource group. There is no change to the current running clusters and those clusters created without a VNET.
+> 2019 년 2 월 28 일 이후에 VNET에서 만든 새 HDInsight 클러스터에 대 한 네트워킹 리소스 (예: Nic, 등)는 동일한 HDInsight 클러스터 리소스 그룹에 프로 비전 됩니다. 이전에는 이러한 리소스가 VNET 리소스 그룹에 프로 비전 되었습니다. 현재 실행 중인 클러스터와 VNET 없이 만든 클러스터는 변경 되지 않습니다.
 
 ## <a name="planning"></a>계획
 
@@ -71,7 +71,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
     * 네트워크 보안 그룹
 
-        Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+        `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
     
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
@@ -88,7 +88,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
     * 사용자 정의 경로
 
-        Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+        `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
         ```powershell
         Get-AzRouteTable -ResourceGroupName "RESOURCEGROUP"
@@ -118,7 +118,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 * 인터넷에서 사용할 수 있는 모든 리소스. 예: microsoft.com, windowsupdate.com.
 
-* 리소스의 __내부 DNS 이름__을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. For example, when using the default name resolution, the following are examples of internal DNS names assigned to HDInsight worker nodes:
+* 리소스의 __내부 DNS 이름__을 사용하여 동일한 Azure Virtual Network에 있는 모든 리소스. 예를 들어 기본 이름 확인을 사용 하는 경우 HDInsight worker 노드에 할당 된 내부 DNS 이름의 예는 다음과 같습니다.
 
   * wn0-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
   * wn2-hdinsi.0owcbllr5hze3hxdja3mqlrhhe.ex.internal.cloudapp.net
@@ -174,7 +174,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 1. HDInsight 클러스터 노드의 내부 FQDN(정규화된 도메인 이름)을 검색하려면 다음 방법 중 하나를 사용합니다.
 
-    Replace `RESOURCEGROUP` with the name of the resource group that contains the virtual network, and then enter the command:
+    `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
 
     ```powershell
     $clusterNICs = Get-AzNetworkInterface -ResourceGroupName "RESOURCEGROUP" | where-object {$_.Name -like "*node*"}
@@ -203,43 +203,43 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
 ## <a id="networktraffic"></a> 네트워크 트래픽 제어
 
-### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>Techniques for controlling inbound and outbound traffic to HDInsight clusters
+### <a name="techniques-for-controlling-inbound-and-outbound-traffic-to-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 인바운드 및 아웃 바운드 트래픽을 제어 하는 기술
 
 Azure Virtual Networks의 네트워크 트래픽은 다음 방법을 사용하여 제어할 수 있습니다.
 
 * **NSG(네트워크 보안 그룹)** 를 통해 네트워크로의 인바운드 및 아웃바운드 트래픽을 필터링할 수 있습니다. 자세한 내용은 [네트워크 보안 그룹을 사용하여 네트워크 트래픽 필터링](../virtual-network/security-overview.md) 문서를 참조하세요.
 
-* **Network virtual appliances** (NVA) can be used with outbound traffic only. NVAs replicate the functionality of devices such as firewalls and routers. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
+* Nva ( **네트워크 가상 어플라이언스** )는 아웃 바운드 트래픽에만 사용할 수 있습니다. Nva는 방화벽 및 라우터와 같은 장치의 기능을 복제 합니다. 자세한 내용은 [네트워크 어플라이언스](https://azure.microsoft.com/solutions/network-appliances) 문서를 참조하세요.
 
-As a managed service, HDInsight requires unrestricted access to the HDInsight health and management services both for incoming and outgoing traffic from the VNET. When using NSGs, you must ensure that these services can still communicate with HDInsight cluster.
+관리 서비스인 HDInsight는 VNET에서 들어오고 나가는 트래픽에 대해 HDInsight 상태 및 관리 서비스에 대 한 무제한 액세스가 필요 합니다. NSGs를 사용 하는 경우 이러한 서비스가 HDInsight 클러스터와 계속 통신할 수 있는지 확인 해야 합니다.
 
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
+![Azure 사용자 지정 VNET에서 만든 HDInsight 엔터티 다이어그램](./media/hdinsight-plan-virtual-network-deployment/hdinsight-vnet-diagram.png)
 
-### <a name="hdinsight-with-network-security-groups"></a>HDInsight with network security groups
+### <a name="hdinsight-with-network-security-groups"></a>네트워크 보안 그룹을 사용 하는 HDInsight
 
-If you plan on using **network security groups** to control network traffic, perform the following actions before installing HDInsight:
+네트워크 **보안 그룹** 을 사용 하 여 네트워크 트래픽을 제어 하려는 경우 HDInsight를 설치 하기 전에 다음 작업을 수행 합니다.
 
 1. HDInsight에 대해 사용할 Azure 지역을 식별합니다.
 
-2. Identify the service tags required by HDInsight for your region. For more information, see [Network security group (NSG) service tags for Azure HDInsight](hdinsight-service-tags.md).
+2. 해당 지역에서 HDInsight에 필요한 서비스 태그를 확인 합니다. 자세한 내용은 [Azure HDInsight에 대 한 NSG (네트워크 보안 그룹) 서비스 태그](hdinsight-service-tags.md)를 참조 하세요.
 
-3. Create or modify the network security groups for the subnet that you plan to install HDInsight into.
+3. HDInsight를 설치 하려는 서브넷의 네트워크 보안 그룹을 만들거나 수정 합니다.
 
-    * __네트워크 보안 그룹__: IP 주소에서 포트 __443__에 __인바운드__ 트래픽을 허용합니다. This will ensure that HDInsight management services can reach the cluster from outside the virtual network.
+    * __네트워크 보안 그룹__: IP 주소에서 포트 __443__에 __인바운드__ 트래픽을 허용합니다. 이렇게 하면 HDInsight management services가 가상 네트워크 외부에서 클러스터에 연결할 수 있습니다.
 
-For more information on network security groups, see the [overview of network security groups](../virtual-network/security-overview.md).
+네트워크 보안 그룹에 대 한 자세한 내용은 [네트워크 보안 그룹 개요](../virtual-network/security-overview.md)를 참조 하세요.
 
-### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>Controlling outbound traffic from HDInsight clusters
+### <a name="controlling-outbound-traffic-from-hdinsight-clusters"></a>HDInsight 클러스터에서 아웃 바운드 트래픽 제어
 
-For more information on controlling outbound traffic from HDInsight clusters, see [Configure outbound network traffic restriction for Azure HDInsight clusters](hdinsight-restrict-outbound-traffic.md).
+HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법에 대 한 자세한 내용은 [Azure hdinsight 클러스터에 대 한 아웃 바운드 네트워크 트래픽 제한 구성](hdinsight-restrict-outbound-traffic.md)을 참조 하세요.
 
-#### <a name="forced-tunneling-to-on-premises"></a>Forced tunneling to on-premises
+#### <a name="forced-tunneling-to-on-premises"></a>온-프레미스로 강제 터널링
 
-강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight does __not__ support forced tunneling of traffic to on-premises networks. 
+강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight는 온-프레미스 네트워크에 대 한 트래픽 강제 터널링을 지원 __하지__ 않습니다. 
 
 ## <a id="hdinsight-ip"></a> 필수 IP 주소
 
-If you use network security groups or user-defined routes to control traffic, please see [HDInsight management IP addresses](hdinsight-management-ip-addresses.md).
+네트워크 보안 그룹 또는 사용자 정의 경로를 사용 하 여 트래픽을 제어 하는 경우 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
     
 ## <a id="hdinsight-ports"></a> 필수 포트
 
@@ -251,13 +251,13 @@ If you use network security groups or user-defined routes to control traffic, pl
 
 ## <a name="load-balancing"></a>부하 분산
 
-When you create an HDInsight cluster, a load balancer is created as well. The type of this load balancer is at the [basic SKU level](../load-balancer/load-balancer-overview.md#skus) which has certain constraints. One of these constraints is that if you have two virtual networks in different regions, you cannot connect to basic load balancers. See [virtual networks FAQ: constraints on global vnet peering](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers), for more information.
+HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/load-balancer-overview.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-* For code samples and examples of creating Azure Virtual Networks, see [Create virtual networks for Azure HDInsight clusters](hdinsight-create-virtual-network.md).
+* Azure 가상 네트워크를 만드는 코드 예제 및 예제는 [Azure HDInsight 클러스터용 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 참조 하세요.
 * 온-프레미스 네트워크에 연결하기 위해 HDInsight를 구성하는 엔드투엔드 예제는 [HDInsight를 온-프레미스 네트워크에 연결](./connect-on-premises-network.md)을 참조하세요.
-* For configuring Apache HBase clusters in Azure virtual networks, see [Create Apache HBase clusters on HDInsight in Azure Virtual Network](hbase/apache-hbase-provision-vnet.md).
+* Azure 가상 네트워크에서 Apache HBase 클러스터를 구성 하는 방법에 대 한 자세한 내용은 [azure Virtual Network에서 HDInsight의 Apache hbase 클러스터 만들기](hbase/apache-hbase-provision-vnet.md)를 참조 하세요.
 * Apache HBase 지리적 복제를 구성하려면 [Azure 가상 네트워크에서 Apache HBase 클러스터 복제 설정](hbase/apache-hbase-replication.md)을 참조하세요.
 * Azure 가상 네트워크에 대한 자세한 내용은 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)를 참조하세요.
 * 네트워크 보안 그룹에 대한 자세한 내용은 [네트워크 보안 그룹](../virtual-network/security-overview.md)을 참조하세요.

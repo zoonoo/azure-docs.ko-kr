@@ -25,7 +25,7 @@ ms.locfileid: "74279967"
 
 ## <a name="update-the-dev-spaces-cli-extension-and-command-line-tools"></a>Dev Spaces CLI 확장 및 명령줄 도구 업데이트
 
-다음 명령을 실행합니다.
+다음 명령 실행:
 
 ```cmd
 az aks use-dev-spaces -n <your-aks-cluster> -g <your-aks-cluster-resource-group> --update

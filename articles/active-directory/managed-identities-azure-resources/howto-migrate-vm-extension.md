@@ -166,7 +166,7 @@ Windows 및 특정 버전의 Linux에서 확장이 중지한 경우 다음 cmdle
 Set-AzVMExtension -Name <extension name>  -Type <extension Type>  -Location <location> -Publisher Microsoft.ManagedIdentity -VMName <vm name> -ResourceGroupName <resource group name> -ForceRerun <Any string different from any last value used>
 ```
 
-각 항목이 나타내는 의미는 다음과 같습니다. 
+여기서, 
 - Windows에 대 한 확장 이름 및 형식: `ManagedIdentityExtensionForWindows`
 - Linux에 대 한 확장 이름 및 형식: `ManagedIdentityExtensionForLinux`
 

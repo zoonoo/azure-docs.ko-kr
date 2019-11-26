@@ -1,6 +1,6 @@
 ---
-title: Developer's Guide to Durable Entities in .NET - Azure Functions
-description: How to work with durable entities in .NET with the Durable Functions extension for Azure Functions.
+title: .NET의 내구성이 있는 엔터티에 대 한 개발자 가이드-Azure Functions
+description: Azure Functions Durable Functions 확장을 사용 하 여 .NET에서 지속형 엔터티로 작업 하는 방법입니다.
 author: sebastianburckhardt
 ms.topic: conceptual
 ms.date: 10/06/2019
@@ -12,26 +12,26 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74231421"
 ---
-# <a name="developers-guide-to-durable-entities-in-net"></a>Developer's guide to durable entities in .NET
+# <a name="developers-guide-to-durable-entities-in-net"></a>.NET의 내구성이 있는 엔터티에 대 한 개발자 가이드
 
-In this article, we describe the available interfaces for developing durable entities with .NET in detail, including examples and general advice. 
+이 문서에서는 예제 및 일반적인 조언을 포함 하 여 .NET을 사용 하 여 내구성이 있는 엔터티를 개발 하는 데 사용할 수 있는 인터페이스에 대해 설명 합니다. 
 
-Entity functions provide serverless application developers with a convenient way to organize application state as a collection of fine-grained entities. For more detail about the underlying concepts, see the [Durable Entities: Concepts](durable-functions-entities.md) article.
+엔터티 함수는 서버를 사용 하지 않는 응용 프로그램 개발자에 게 응용 프로그램 상태를 세분화 된 엔터티의 컬렉션으로 구성 하는 편리한 방법을 제공 합니다. 기본 개념에 대 한 자세한 내용은 지 [속성 엔터티: 개념](durable-functions-entities.md) 문서를 참조 하세요.
 
-We currently offer two APIs for defining entities:
+현재 엔터티를 정의 하는 두 가지 Api를 제공 합니다.
 
-- The **class-based syntax** represents entities and operations as classes and methods. This syntax produces easily readable code and allows operations to be invoked in a type-checked manner through interfaces. 
+- **클래스 기반 구문은** 엔터티와 작업을 클래스 및 메서드로 나타냅니다. 이 구문은 쉽게 읽을 수 있는 코드를 생성 하 고 인터페이스를 통해 형식이 선택 된 방식으로 작업을 호출할 수 있도록 합니다. 
 
-- The **function-based syntax** is a lower-level interface that represents entities as functions. It provides precise control over how the entity operations are dispatched, and how the entity state is managed.  
+- **함수 기반 구문은** 엔터티를 함수로 나타내는 하위 수준 인터페이스입니다. 엔터티 작업을 디스패치 하는 방법 및 엔터티 상태를 관리 하는 방법을 정확 하 게 제어할 수 있습니다.  
 
-This article focuses primarily on the class-based syntax, as we expect it to be better suited for most applications. However, the [function-based syntax](#function-based-syntax) may be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate for implementing libraries that require genericity not currently supported by the class-based syntax. 
+이 문서에서는 대부분의 응용 프로그램에 더 적합 하기 때문에 주로 클래스 기반 구문에 중점을 둔 것으로 간주 합니다. 그러나 [함수 기반 구문은](#function-based-syntax) 엔터티 상태 및 작업에 대 한 자체 추상화를 정의 하거나 관리 하려는 응용 프로그램에 적합할 수 있습니다. 또한 클래스 기반 구문에서 현재 지원 되지 않는 genericity가 필요한 라이브러리를 구현 하는 데 적합할 수도 있습니다. 
 
 > [!NOTE]
-> The class-based syntax is just a layer on top of the function-based syntax, so both variants can be used interchangeably in the same application. 
+> 클래스 기반 구문은 단지 함수 기반 구문 위에 있는 계층 이므로 동일한 응용 프로그램에서 두 변형을 모두 교대로 사용할 수 있습니다. 
  
-## <a name="defining-entity-classes"></a>Defining entity classes
+## <a name="defining-entity-classes"></a>엔터티 클래스 정의
 
-The following example is an implementation of a `Counter` entity that stores a single value of type integer, and offers four operations `Add`, `Reset`, `Get`, and `Delete`.
+다음 예제는 정수 형식의 단일 값을 저장 하 고 `Add`, `Reset`, `Get`및 `Delete`의 네 가지 작업을 제공 하는 `Counter` 엔터티의 구현입니다.
 
 ```csharp
 [JsonObject(MemberSerialization.OptIn)]
@@ -67,38 +67,38 @@ public class Counter
 }
 ```
 
-The `Run` function contains the boilerplate required for using the class-based syntax. It must be a *static* Azure Function. It executes once for each operation message that is processed by the entity. When `DispatchAsync<T>` is called and the entity isn't already in memory, it constructs an object of type `T` and populates its fields from the last persisted JSON found in storage (if any). Then it invokes the method with the matching name.
+`Run` 함수는 클래스 기반 구문을 사용 하는 데 필요한 상용구를 포함 합니다. *정적* Azure 함수 여야 합니다. 엔터티에 의해 처리 되는 각 작업 메시지에 대해 한 번 실행 됩니다. `DispatchAsync<T>`를 호출 하 고 엔터티가 메모리에 없는 경우 `T` 형식의 개체를 생성 하 고 저장소에 있는 마지막으로 유지 된 JSON (있는 경우)에서 해당 필드를 채웁니다. 그런 다음 일치 하는 이름을 사용 하 여 메서드를 호출 합니다.
 
 > [!NOTE]
-> The state of a class-based entity is **created implicitly** before the entity processes an operation, and can be **deleted explicitly** in an operation by calling `Entity.Current.DeleteState()`.
+> 클래스 기반 엔터티의 상태는 엔터티가 작업을 처리 하기 전에 **암시적으로 생성** 되며 `Entity.Current.DeleteState()`를 호출 하 여 작업에서 **명시적으로 삭제할** 수 있습니다.
 
-### <a name="class-requirements"></a>Class Requirements
+### <a name="class-requirements"></a>클래스 요구 사항
  
-Entity classes are POCOs (plain old CLR objects) that require no special superclasses, interfaces, or attributes. However:
+엔터티 클래스는 특별 한 슈퍼 클래스, 인터페이스 또는 특성이 필요 하지 않은 POCOs (일반 이전 CLR 개체)입니다. 그러나
 
-- The class must be constructible (see [Entity construction](#entity-construction)).
-- The class must be JSON-serializable (see [Entity serialization](#entity-serialization)).
+- 클래스는 생성 가능 이어야 합니다 ( [엔터티 생성](#entity-construction)참조).
+- 클래스는 JSON serializable 이어야 합니다 ( [엔터티 serialization](#entity-serialization)참조).
 
-Also, any method that is intended to be invoked as an operation must satisfy additional requirements:
+또한 작업으로 호출 되는 모든 메서드는 추가 요구 사항을 충족 해야 합니다.
 
-- An operation must have at most one argument, and must not have any overloads or generic type arguments.
-- An operation meant to be called from an orchestration using an interface must return `Task` or `Task<T>`.
-- Arguments and return values must be serializable values or objects.
+- 작업에는 최대 하나의 인수만 사용할 수 있으며 오버 로드 또는 제네릭 형식 인수를 포함 하지 않아야 합니다.
+- 인터페이스를 사용 하 여 오케스트레이션에 서 호출 해야 하는 작업은 `Task` 또는 `Task<T>`를 반환 해야 합니다.
+- 인수 및 반환 값은 serialize 할 수 있는 값 또는 개체 여야 합니다.
 
-### <a name="what-can-operations-do"></a>What can operations do?
+### <a name="what-can-operations-do"></a>작업은 무엇을 수행할 수 있나요?
 
-All entity operations can read and update the entity state, and changes to the state are automatically persisted to storage. Moreover, operations can perform external I/O or other computations, within the general limits common to all Azure Functions.
+모든 엔터티 작업에서 엔터티 상태를 읽고 업데이트할 수 있으며, 상태에 대 한 변경 내용이 저장소에 자동으로 유지 됩니다. 또한 작업은 모든 Azure Functions 공통 된 일반 제한 내에서 외부 i/o 또는 기타 계산을 수행할 수 있습니다.
 
-Operations also have access to functionality provided by the `Entity.Current` context:
+작업은 `Entity.Current` 컨텍스트에서 제공 하는 기능에도 액세스할 수 있습니다.
 
-* `EntityName`: the name of the currently executing entity.
-* `EntityKey`: the key of the currently executing entity.
-* `EntityId`: the ID of the currently executing entity (includes name and key).
-* `SignalEntity`: sends a one-way message to an entity.
-* `CreateNewOrchestration`: starts a new orchestration.
-* `DeleteState`: deletes the state of this entity.
+* `EntityName`: 현재 실행 중인 엔터티의 이름입니다.
+* `EntityKey`: 현재 실행 중인 엔터티의 키입니다.
+* `EntityId`: 현재 실행 중인 엔터티 (이름 및 키 포함)의 ID입니다.
+* `SignalEntity`: 엔터티에 단방향 메시지를 보냅니다.
+* `CreateNewOrchestration`: 새 오케스트레이션을 시작 합니다.
+* `DeleteState`:이 엔터티의 상태를 삭제 합니다.
 
-For example, we can modify the counter entity so it starts an orchestration when the counter reaches 100 and passes the entity ID as an input argument:
+예를 들어 카운터가 100에 도달 하 여 엔터티 ID를 입력 인수로 전달할 때 오케스트레이션을 시작 하도록 counter 엔터티를 수정할 수 있습니다.
 
 ```csharp
     public void Add(int amount) 
@@ -111,16 +111,16 @@ For example, we can modify the counter entity so it starts an orchestration when
     }
 ```
 
-## <a name="accessing-entities-directly"></a>Accessing entities directly
+## <a name="accessing-entities-directly"></a>엔터티에 직접 액세스
 
-Class-based entities can be accessed directly, using explicit string names for the entity and its operations. We provide some examples below; for a deeper explanation of the underlying concepts (such as signals vs. calls) see the discussion in [Access entities](durable-functions-entities.md#access-entities). 
+클래스 기반 엔터티는 엔터티의 명시적 문자열 이름 및 해당 작업을 사용 하 여 직접 액세스할 수 있습니다. 몇 가지 예제를 제공 합니다. 기본 개념 (예: 신호와 호출)에 대 한 자세한 설명은 [액세스 엔터티에](durable-functions-entities.md#access-entities)대 한 설명을 참조 하세요. 
 
 > [!NOTE]
-> Where possible, we recommend [Accessing entities through interfaces](#accessing-entities-through-interfaces), because it provides more type checking.
+> 가능 하면 더 많은 형식 검사를 제공 하므로 [인터페이스를 통해 엔터티에 액세스](#accessing-entities-through-interfaces)하는 것이 좋습니다.
 
-### <a name="example-client-signals-entity"></a>Example: client signals entity
+### <a name="example-client-signals-entity"></a>예: 클라이언트 신호 엔터티
 
-The following Azure Http Function implements a DELETE operation using REST conventions. It sends a delete signal to the counter entity whose key is passed in the URL path.
+다음 Azure Http 함수는 REST 규칙을 사용 하 여 삭제 작업을 구현 합니다. URL 경로에서 키가 전달 된 카운터 엔터티에 삭제 신호를 보냅니다.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -135,9 +135,9 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-### <a name="example-client-reads-entity-state"></a>Example: client reads entity state
+### <a name="example-client-reads-entity-state"></a>예: 클라이언트가 엔터티 상태를 읽습니다.
 
-The following Azure Http Function implements a GET operation using REST conventions. It reads the current state of the counter entity whose key is passed in the URL path.
+다음 Azure Http 함수는 REST 규칙을 사용 하 여 GET 작업을 구현 합니다. URL 경로에서 키가 전달 된 카운터 엔터티의 현재 상태를 읽습니다.
 
 ```csharp
 [FunctionName("GetCounter")]
@@ -153,11 +153,11 @@ public static async Task<HttpResponseMessage> GetCounter(
 ```
 
 > [!NOTE]
-> The object returned by `ReadEntityStateAsync` is just a local copy, that is, a snapshot of the entity state from some earlier point in time. In particular, it may be stale, and modifying this object has no effect on the actual entity. 
+> `ReadEntityStateAsync`에서 반환 되는 개체는 단지 로컬 복사본, 즉 이전 특정 시점에서 엔터티 상태의 스냅숏입니다. 특히 오래 된 것일 수 있으며,이 개체를 수정 해도 실제 엔터티에는 영향을 주지 않습니다. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity"></a>Example: orchestration first signals, then calls entity
+### <a name="example-orchestration-first-signals-then-calls-entity"></a>예: 오케스트레이션 먼저 신호를 전달 하 고 엔터티를 호출 합니다.
 
-The following orchestration signals a counter entity to increment it, and then calls the same entity to read its latest value.
+다음 오케스트레이션은 카운터 엔터티를 증가 시키는 신호를 주고, 동일한 엔터티를 호출 하 여 최신 값을 읽습니다.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -176,11 +176,11 @@ public static async Task<int> Run(
 }
 ```
 
-## <a name="accessing-entities-through-interfaces"></a>Accessing entities through interfaces
+## <a name="accessing-entities-through-interfaces"></a>인터페이스를 통해 엔터티 액세스
 
-Interfaces can be used for accessing entities via generated proxy objects. This approach ensures that the name and argument type of an operation matches what is implemented. We recommend using interfaces for accessing entities whenever possible.
+인터페이스는 생성 된 프록시 개체를 통해 엔터티에 액세스 하는 데 사용할 수 있습니다. 이 방법을 사용 하면 작업의 이름과 인수 형식이 구현 된 항목과 일치 합니다. 가능 하면 항상 엔터티에 액세스 하기 위해 인터페이스를 사용 하는 것이 좋습니다.
 
-For example, we can modify the counter example as follows:
+예를 들어 다음과 같이 카운터 예를 수정할 수 있습니다.
 
 ```csharp
 public interface ICounter
@@ -197,13 +197,13 @@ public class Counter : ICounter
 }
 ```
 
-Entity classes and entity interfaces are similar to the grains and grain interfaces popularized by [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/). For a more information about similarities and differences between Durable Entities and Orleans, see [Comparison with virtual actors](durable-functions-entities.md#comparison-with-virtual-actors).
+엔터티 클래스 및 엔터티 인터페이스는 [Orleans](https://www.microsoft.com/research/project/orleans-virtual-actors/)에서 mvvm 하는 조직 및 그레인 인터페이스와 비슷합니다. 영 속 엔터티와 Orleans 간의 유사성 및 차이점에 대 한 자세한 내용은 [가상 행위자와 비교](durable-functions-entities.md#comparison-with-virtual-actors)를 참조 하세요.
 
-Besides providing type checking, interfaces are useful for a better separation of concerns within the application. For example, since an entity may implement multiple interfaces, a single entity can serve multiple roles. Also, since an interface may be implemented by multiple entities, general communication patterns can be implemented as reusable libraries.
+인터페이스는 형식 검사를 제공 하는 것 외에도 응용 프로그램 내에서 문제를 더 잘 분리 하는 데 유용 합니다. 예를 들어 엔터티가 여러 인터페이스를 구현할 수 있으므로 단일 엔터티가 여러 역할을 수행할 수 있습니다. 또한 인터페이스는 여러 엔터티에 의해 구현 될 수 있으므로 일반 통신 패턴을 재사용 가능한 라이브러리로 구현할 수 있습니다.
 
-### <a name="example-client-signals-entity-through-interface"></a>Example: client signals entity through interface
+### <a name="example-client-signals-entity-through-interface"></a>예: 클라이언트에서 인터페이스를 통해 신호를 보냅니다.
 
-Client code can use `SignalEntityAsync<TEntityInterface>` to send signals to entities that implement `TEntityInterface`. 다음은 그 예입니다.
+클라이언트 코드는 `SignalEntityAsync<TEntityInterface>`를 사용 하 여 `TEntityInterface`를 구현 하는 엔터티로 신호를 보낼 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```csharp
 [FunctionName("DeleteCounter")]
@@ -218,15 +218,15 @@ public static async Task<HttpResponseMessage> DeleteCounter(
 }
 ```
 
-In this example, the `proxy` parameter is a dynamically generated instance of `ICounter`, which internally translates the call to `Delete` into a signal.
+이 예제에서 `proxy` 매개 변수는 내부적으로 생성 되는 `ICounter`인스턴스이고, 내부적으로 `Delete`에 대 한 호출을 신호로 변환 합니다.
 
 > [!NOTE]
-> The `SignalEntityAsync` APIs can be used only for one-way operations. Even if an operation returns `Task<T>`, the value of the `T` parameter will always be null or `default`, not the actual result.
-For example, it doesn't make sense to signal the `Get` operation, as no value is returned. Instead, clients can use either `ReadStateAsync` to access the counter state directly, or can start an orchestrator function that calls the `Get` operation. 
+> `SignalEntityAsync` Api는 단방향 작업에만 사용할 수 있습니다. 작업이 `Task<T>`반환 하는 경우에도 `T` 매개 변수의 값은 항상 null 또는 `default`이며 실제 결과가 아닙니다.
+예를 들어 값이 반환 되지 않으므로 `Get` 작업에 신호를 보내는 것은 적절 하지 않습니다. 대신, 클라이언트는 `ReadStateAsync` 사용 하 여 카운터 상태에 직접 액세스 하거나 `Get` 작업을 호출 하는 orchestrator 함수를 시작할 수 있습니다. 
 
-### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>Example: orchestration first signals, then calls entity through proxy
+### <a name="example-orchestration-first-signals-then-calls-entity-through-proxy"></a>예: 오케스트레이션은 먼저 신호를 전달 하 고 프록시를 통해 엔터티를 호출 합니다.
 
-To call or signal an entity from within an orchestration, `CreateEntityProxy` can be used, along with the interface type, to generate a proxy for the entity. This proxy can then be used to call or signal operations:
+오케스트레이션 내에서 엔터티를 호출 하거나 신호를 보내기 위해 인터페이스 형식과 함께 `CreateEntityProxy`를 사용 하 여 엔터티에 대 한 프록시를 생성할 수 있습니다. 그런 다음이 프록시를 사용 하 여 작업을 호출 하거나 신호를 보낼 수 있습니다.
 
 ```csharp
 [FunctionName("IncrementThenGet")]
@@ -246,39 +246,39 @@ public static async Task<int> Run(
 }
 ```
 
-Implicitly, any operations that return `void` are signaled, and any operations that return `Task` or `Task<T>` are called. One can change this default behavior, and signal operations even if they return Task, by using the `SignalEntity<IInterfaceType>` method explicitly.
+암시적으로 `void`을 반환 하는 모든 작업에 신호를 보내고 `Task` 또는 `Task<T>`를 반환 하는 모든 작업을 호출 합니다. `SignalEntity<IInterfaceType>` 메서드를 명시적으로 사용 하 여이 기본 동작을 변경 하 고 작업을 반환 하는 경우에도 신호를 보낼 수 있습니다.
 
-### <a name="shorter-option-for-specifying-the-target"></a>Shorter option for specifying the target
+### <a name="shorter-option-for-specifying-the-target"></a>대상을 지정 하는 짧은 옵션
 
-When calling or signaling an entity using an interface, the first argument must specify the target entity. The target can be specified either by specifying the entity ID, or, in cases where there's just one class that implements the entity, just the entity key:
+인터페이스를 사용 하 여 엔터티를 호출 하거나 신호를 보내는 경우 첫 번째 인수는 대상 엔터티를 지정 해야 합니다. 엔터티 ID를 지정 하 여 대상을 지정 하거나, 엔터티를 구현 하는 클래스가 한 개만 있는 경우 엔터티 키만 지정할 수 있습니다.
 
 ```csharp
 context.SignalEntity<ICounter>(new EntityId(nameof(Counter), "myCounter"), ...);
 context.SignalEntity<ICounter>("myCounter", ...);
 ```
 
-If only the entity key is specified and a unique implementation can't be found at runtime, `InvalidOperationException` is thrown. 
+엔터티 키만 지정 하 고 런타임에 고유한 구현을 찾을 수 없으면 `InvalidOperationException`이 throw 됩니다. 
 
-### <a name="restrictions-on-entity-interfaces"></a>Restrictions on entity interfaces
+### <a name="restrictions-on-entity-interfaces"></a>엔터티 인터페이스에 대 한 제한 사항
 
-As usual, all parameter and return types must be JSON-serializable. Otherwise, serialization exceptions are thrown at runtime.
+일반적으로 모든 매개 변수 및 반환 형식은 JSON serializable 이어야 합니다. 그렇지 않으면 런타임에 serialization 예외가 throw 됩니다.
 
-We also enforce some additional rules:
-* Entity interfaces must only define methods.
-* Entity interfaces must not contain generic parameters.
-* Entity interface methods must not have more than one parameter.
-* Entity interface methods must return `void`, `Task`, or `Task<T>` 
+또한 다음과 같은 몇 가지 추가 규칙을 적용 합니다.
+* 엔터티 인터페이스는 메서드만 정의 해야 합니다.
+* 엔터티 인터페이스에 제네릭 매개 변수를 포함 하면 안 됩니다.
+* 엔터티 인터페이스 메서드에는 매개 변수를 둘 이상 사용할 수 없습니다.
+* 엔터티 인터페이스 메서드는 `void`, `Task`또는을 반환 해야 `Task<T>` 
 
-If any of these rules are violated, an `InvalidOperationException` is thrown at runtime when the interface is used as a type argument to `SignalEntity` or `CreateProxy`. The exception message explains which rule was broken.
+이러한 규칙을 위반 하는 경우 인터페이스를 `SignalEntity` 또는 `CreateProxy`하는 형식 인수로 사용 하는 경우 런타임에 `InvalidOperationException` 발생 합니다. 예외 메시지는 중단 된 규칙을 설명 합니다.
 
 > [!NOTE]
-> Interface methods returning `void` can only be signaled (one-way), not called (two-way). Interface methods returning `Task` or `Task<T>` can be either called or signalled. If called, they return the result of the operation, or re-throw exceptions thrown by the operation. However, when signalled, they do not return the actual result or exception from the operation, but just the default value.
+> `void`를 반환 하는 인터페이스 메서드는 호출 되지 않는 단방향 (단방향) 으로만 신호를 받을 수 있습니다 (양방향). `Task` 또는 `Task<T>`를 반환 하는 인터페이스 메서드를 호출 하거나 신호를 받을 수 있습니다. 호출 된 경우 작업의 결과를 반환 하거나 작업에서 throw 된 예외를 다시 throw 합니다. 그러나 신호를 보낸 경우 작업에서 실제 결과 또는 예외를 반환 하지 않고 기본값만 반환 합니다.
 
-## <a name="entity-serialization"></a>Entity serialization
+## <a name="entity-serialization"></a>엔터티 serialization
 
-Since the state of an entity is durably persisted, the entity class must be serializable. The Durable Functions runtime uses the [Json.NET](https://www.newtonsoft.com/json) library for this purpose, which supports a number of policies and attributes to control the serialization and deserialization process. Most commonly used C# data types (including arrays and collection types) are already serializable, and can easily be used for defining the state of durable entities.
+엔터티 상태는 지속적으로 지속형 이므로 엔터티 클래스를 serialize 할 수 있어야 합니다. Durable Functions 런타임은 serialization 및 deserialization 프로세스를 제어 하는 다양 한 정책 및 특성을 지 원하는이 용도의 [Json.NET](https://www.newtonsoft.com/json) 라이브러리를 사용 합니다. 가장 일반적으로 C# 사용 되는 데이터 형식 (배열 및 컬렉션 형식 포함)은 이미 serialize 가능 하며 내구성이 있는 엔터티의 상태를 정의 하는 데 쉽게 사용할 수 있습니다.
 
-For example, Json.NET can easily serialize and deserialize the following class:
+예를 들어, Json.NET는 다음 클래스를 쉽게 직렬화 및 deserialize 할 수 있습니다.
 
 ```csharp
 [JsonObject(MemberSerialization = MemberSerialization.OptIn)]
@@ -307,13 +307,13 @@ public class User
 }
 ```
 
-### <a name="serialization-attributes"></a>Serialization Attributes
+### <a name="serialization-attributes"></a>Serialization 특성
 
-In the example above, we chose to include several attributes to make the underlying serialization more visible:
-- We annotate the class with `[JsonObject(MemberSerialization.OptIn)]` to remind us that the class must be serializable, and to persist only members that are explicitly marked as JSON properties.
--  We annotate the fields to be persisted with `[JsonProperty("name")]` to remind us that a field is part of the persisted entity state, and to specify the property name to be used in the JSON representation.
+위의 예제에서는 기본 serialization이 더 표시 되도록 여러 특성을 포함 하도록 선택 했습니다.
+- 클래스를 serialize 할 수 있어야 함을 알려 주는 `[JsonObject(MemberSerialization.OptIn)]` 클래스에 주석을 달고 JSON 속성으로 명시적으로 표시 된 멤버만 유지 합니다.
+-  필드가 지속형 엔터티 상태의 일부임을 알리기 위해 `[JsonProperty("name")]`와 함께 유지 될 필드에 주석을 달고 JSON 표현에 사용할 속성 이름을 지정 합니다.
 
-However, these attributes aren't required; other conventions or attributes are permitted as long as they work with Json.NET. For example, one may use `[DataContract]` attributes, or no attributes at all:
+그러나 이러한 특성은 필요 하지 않습니다. 다른 규칙 또는 특성은 Json.NET에서 작동 하는 한 허용 됩니다. 예를 들어 `[DataContract]` 특성을 사용 하거나 특성을 전혀 사용 하지 않을 수 있습니다.
 
 ```csharp
 [DataContract]
@@ -331,29 +331,29 @@ public class Counter
 }
 ```
 
-By default, the name of the class is *not* stored as part of the JSON representation: that is, we use `TypeNameHandling.None` as the default setting. This default behavior can be overridden using `JsonObject` or `JsonProperty` attributes.
+기본적으로 클래스의 이름은 JSON 표현의 일부로 저장 *되지* 않습니다. 즉, `TypeNameHandling.None`를 기본 설정으로 사용 합니다. `JsonObject` 또는 `JsonProperty` 특성을 사용 하 여이 기본 동작을 재정의할 수 있습니다.
 
-### <a name="making-changes-to-class-definitions"></a>Making changes to class definitions
+### <a name="making-changes-to-class-definitions"></a>클래스 정의 변경
 
-Some care is required when making changes to a class definition after an application has been run, because the stored JSON object may no longer match the new class definition. Still, it is often possible to deal correctly with changing data formats as long as one understands the deserialization process used by `JsonConvert.PopulateObject`.
+저장 된 JSON 개체가 새 클래스 정의와 더 이상 일치 하지 않을 수 있기 때문에 응용 프로그램을 실행 한 후에 클래스 정의를 변경 하는 경우에는 주의 해야 합니다. 그러나 `JsonConvert.PopulateObject`에서 사용 하는 deserialization 프로세스를 이해 하는 한 데이터 형식을 변경 하는 것이 적절 한 경우도 있습니다.
 
-For example, here are some examples of changes and their effect:
+예를 들어 다음과 같은 몇 가지 변경 내용과 그 결과를 확인할 수 있습니다.
 
-1. If a new property is added, which is not present in the stored JSON, it assumes its default value.
-1. If a property is removed, which is present in the stored JSON, the previous content is lost.
-1. If a property is renamed, the effect is as if removing the old one and adding a new one.
-1. If the type of a property is changed so it can no longer be deserialized from the stored JSON, an exception is thrown.
-1. If the type of a property is changed, but it can still be deserialized from the stored JSON, it will do so.
+1. 저장 된 JSON에 없는 새 속성을 추가 하는 경우 기본값을 가정 합니다.
+1. 저장 된 JSON에 있는 속성이 제거 되 면 이전 내용이 손실 됩니다.
+1. 속성의 이름을 바꾸면 기존 항목을 제거 하 고 새 항목을 추가 하는 것 처럼 효과가 있습니다.
+1. 속성 형식이 변경 되어 저장 된 JSON에서 더 이상 deserialize 할 수 없는 경우 예외가 throw 됩니다.
+1. 속성의 형식이 변경 되었지만 저장 된 JSON에서 deserialize 할 수 있는 경우에는이 작업을 수행 합니다.
 
-There are many options available for customizing the behavior of Json.NET. For example, to force an exception if the stored JSON contains a field that is not present in the class, specify the attribute `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`. It is also possible to write custom code for deserialization that can read JSON stored in arbitrary formats.
+Json.NET의 동작을 사용자 지정 하는 데 사용할 수 있는 여러 가지 옵션이 있습니다. 예를 들어 저장 된 JSON에 클래스에 없는 필드가 포함 된 경우 예외를 강제로 적용 하려면 `JsonObject(MissingMemberHandling = MissingMemberHandling.Error)`특성을 지정 합니다. 임의의 형식으로 저장 된 JSON을 읽을 수 있는 deserialization에 대 한 사용자 지정 코드를 작성할 수도 있습니다.
 
-## <a name="entity-construction"></a>Entity construction
+## <a name="entity-construction"></a>엔터티 생성
 
-Sometimes we want to exert more control over how entity objects are constructed. We now describe several options for changing the default behavior when constructing entity objects. 
+경우에 따라 엔터티 개체가 생성 되는 방식을 보다 효과적으로 제어할 수 있습니다. 이제 엔터티 개체를 생성할 때 기본 동작을 변경 하기 위한 몇 가지 옵션을 설명 합니다. 
 
-### <a name="custom-initialization-on-first-access"></a>Custom initialization on first access
+### <a name="custom-initialization-on-first-access"></a>처음 액세스할 때 사용자 지정 초기화
 
-Occasionally we need to perform some special initialization before dispatching an operation to an entity that has never been accessed, or that has been deleted. To specify this behavior, one can add a conditional before the `DispatchAsync`:
+액세스 하지 않았거나 삭제 된 엔터티를 작업에 디스패치하기 전에 몇 가지 특수 한 초기화를 수행 해야 하는 경우도 있습니다. 이 동작을 지정 하기 위해 `DispatchAsync`전에 조건부를 추가할 수 있습니다.
 
 ```csharp
 [FunctionName(nameof(Counter))]
@@ -367,11 +367,11 @@ public static Task Run([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="bindings-in-entity-classes"></a>Bindings in entity classes
+### <a name="bindings-in-entity-classes"></a>엔터티 클래스의 바인딩
 
-Unlike regular functions, entity class methods don't have direct access to input and output bindings. 대신, 진입점 함수 선언에서 바인딩 데이터를 캡처한 다음, `DispatchAsync<T>` 메서드에 전달해야 합니다. `DispatchAsync<T>`에 전달된 모든 개체는 자동으로 엔터티 클래스 생성자에 인수로 전달됩니다.
+일반 함수와 달리, 엔터티 클래스 메서드는 입력 및 출력 바인딩에 직접 액세스할 수 없습니다. 대신, 진입점 함수 선언에서 바인딩 데이터를 캡처한 다음, `DispatchAsync<T>` 메서드에 전달해야 합니다. `DispatchAsync<T>`에 전달된 모든 개체는 자동으로 엔터티 클래스 생성자에 인수로 전달됩니다.
 
-다음 예제에서는 [Blob 입력 바인딩](../functions-bindings-storage-blob.md#input)의 `CloudBlobContainer` 참조를 클래스 기반 엔터티에 사용할 수 있게 하는 방법을 보여 줍니다.
+다음 예제에서는 `CloudBlobContainer`Blob 입력 바인딩[의 ](../functions-bindings-storage-blob.md#input) 참조를 클래스 기반 엔터티에 사용할 수 있게 하는 방법을 보여 줍니다.
 
 ```csharp
 public class BlobBackedEntity
@@ -400,7 +400,7 @@ public class BlobBackedEntity
 
 Azure Functions의 바인딩에 대한 자세한 내용은 [Azure Functions 트리거 및 바인딩](../functions-triggers-bindings.md) 설명서를 참조하세요.
 
-### <a name="dependency-injection-in-entity-classes"></a>Dependency injection in entity classes
+### <a name="dependency-injection-in-entity-classes"></a>엔터티 클래스의 종속성 주입
 
 엔터티 클래스는 [Azure Functions 종속성 주입](../functions-dotnet-dependency-injection.md)을 지원합니다. 다음 예제에서는 `IHttpClientFactory` 서비스를 클래스 기반 엔터티에 등록하는 방법을 보여 줍니다.
 
@@ -447,16 +447,16 @@ public class HttpEntity
 ```
 
 > [!NOTE]
-> To avoid issues with serialization, make sure to exclude fields meant to store injected values from the serialization.
+> Serialization 관련 문제를 방지 하려면 직렬화에서 삽입 된 값을 저장 하는 필드를 제외 해야 합니다.
 
 > [!NOTE]
-> 일반 .NET Azure Functions에서 생성자 주입을 사용하는 경우와 달리 클래스 기반 엔터티에 대한 함수 진입점 메서드를 `static`으로 *선언해야* 합니다. 비정적 함수 진입점을 선언하면 일반 Azure Functions 개체 이니셜라이저와 지속성 엔터티 개체 이니셜라이저 간에 충돌이 발생할 수 있습니다.
+> 일반 .NET Azure Functions에서 생성자 주입을 사용하는 경우와 달리 클래스 기반 엔터티에 대한 함수 진입점 메서드를 *으로* 선언해야`static` 합니다. 비정적 함수 진입점을 선언하면 일반 Azure Functions 개체 이니셜라이저와 지속성 엔터티 개체 이니셜라이저 간에 충돌이 발생할 수 있습니다.
 
-## <a name="function-based-syntax"></a>Function-based syntax
+## <a name="function-based-syntax"></a>함수 기반 구문
 
-So far we have focused on the class-based syntax, as we expect it to be better suited for most applications. However, the function-based syntax can be appropriate for applications that wish to define or manage their own abstractions for entity state and operations. Also, it may be appropriate when implementing libraries that require genericity not currently supported by the class-based syntax. 
+지금까지 대부분의 응용 프로그램에 더 적합 하다 고 생각 하는 클래스 기반 구문을 집중적으로 다루었습니다. 그러나 함수 기반 구문은 엔터티 상태 및 작업에 대 한 자체 추상화를 정의 하거나 관리 하려는 응용 프로그램에 적합할 수 있습니다. 또한 클래스 기반 구문에서 현재 지원 되지 않는 genericity를 필요로 하는 라이브러리를 구현할 때 적합할 수도 있습니다. 
 
-With the function-based syntax, the Entity Function explicitly handles the operation dispatch, and explicitly manages the state of the entity. For example, the following code shows the *Counter* entity implemented using the function-based syntax.  
+함수 기반 구문을 사용 하 여 Entity 함수는 작업 디스패치를 명시적으로 처리 하 고 엔터티의 상태를 명시적으로 관리 합니다. 예를 들어 다음 코드에서는 함수 기반 구문을 사용 하 여 구현 된 *카운터* 엔터티를 보여 줍니다.  
 
 ```csharp
 [FunctionName("Counter")]
@@ -480,34 +480,34 @@ public static void Counter([EntityTrigger] IDurableEntityContext ctx)
 }
 ```
 
-### <a name="the-entity-context-object"></a>The entity context object
+### <a name="the-entity-context-object"></a>엔터티 컨텍스트 개체입니다.
 
-Entity-specific functionality can be accessed via a context object of type `IDurableEntityContext`. This context object is available as a parameter to the entity function, and via the async-local property `Entity.Current`.
+`IDurableEntityContext`형식의 컨텍스트 개체를 통해 엔터티 관련 기능에 액세스할 수 있습니다. 이 컨텍스트 개체는 엔터티 함수에 대 한 매개 변수로 사용할 수 있으며 비동기-로컬 속성 `Entity.Current`를 통해 사용할 수 있습니다.
 
-The following members provide information about the current operation, and allow us to specify a return value. 
+다음 멤버는 현재 작업에 대 한 정보를 제공 하 고 반환 값을 지정할 수 있도록 합니다. 
 
-* `EntityName`: the name of the currently executing entity.
-* `EntityKey`: the key of the currently executing entity.
-* `EntityId`: the ID of the currently executing entity (includes name and key).
-* `OperationName`: the name of the current operation.
-* `GetInput<TInput>()`: gets the input for the current operation.
-* `Return(arg)`: returns a value to the orchestration that called the operation.
+* `EntityName`: 현재 실행 중인 엔터티의 이름입니다.
+* `EntityKey`: 현재 실행 중인 엔터티의 키입니다.
+* `EntityId`: 현재 실행 중인 엔터티 (이름 및 키 포함)의 ID입니다.
+* `OperationName`: 현재 작업의 이름입니다.
+* `GetInput<TInput>()`: 현재 작업에 대 한 입력을 가져옵니다.
+* `Return(arg)`: 작업을 호출한 오케스트레이션에 값을 반환 합니다.
 
-The following members manage the state of the entity (create, read, update, delete). 
+다음 멤버는 엔터티의 상태를 관리 합니다 (만들기, 읽기, 업데이트, 삭제). 
 
-* `HasState`: whether the entity exists, that is, has some state. 
-* `GetState<TState>()`: gets the current state of the entity. If it does not already exist, it is created.
-* `SetState(arg)`: creates or updates the state of the entity.
-* `DeleteState()`: deletes the state of the entity, if it exists. 
+* `HasState`: 엔터티가 존재 하는지 여부에 관계 없이 몇 가지 상태가 있습니다. 
+* `GetState<TState>()`: 엔터티의 현재 상태를 가져옵니다. 아직 존재 하지 않는 경우 생성 됩니다.
+* `SetState(arg)`: 엔터티의 상태를 만들거나 업데이트 합니다.
+* `DeleteState()`: 엔터티의 상태 (있는 경우)를 삭제 합니다. 
 
-If the state returned by `GetState` is an object, it can be directly modified by the application code. There is no need to call `SetState` again at the end (but also no harm). If `GetState<TState>` is called multiple times, the same type must be used.
+`GetState`에서 반환 된 상태가 개체 이면 응용 프로그램 코드에서 직접 수정할 수 있습니다. 종료 시에는 `SetState`을 다시 호출할 필요가 없습니다 (하지만 피해도 않음). `GetState<TState>` 여러 번 호출 되는 경우 동일한 형식을 사용 해야 합니다.
 
-Finally, the following members are used to signal other entities, or start new orchestrations:
+마지막으로, 다음 멤버를 사용 하 여 다른 엔터티에 신호를 보내거나 새 오케스트레이션을 시작 합니다.
 
-* `SignalEntity(EntityId, operation, input)`: sends a one-way message to an entity.
-* `CreateNewOrchestration(orchestratorFunctionName, input)`: starts a new orchestration.
+* `SignalEntity(EntityId, operation, input)`: 엔터티에 단방향 메시지를 보냅니다.
+* `CreateNewOrchestration(orchestratorFunctionName, input)`: 새 오케스트레이션을 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Learn about entity concepts](durable-functions-entities.md)
+> [엔터티 개념에 대 한 자세한 정보](durable-functions-entities.md)
