@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a1f377c3325797f2f55f051830014b1068c51327
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405586"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483373"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]
@@ -34,7 +34,7 @@ Azure Traffic Manager를 사용하면 웹 클라이언트의 요청을 Azure App
 ## <a name="routing-methods"></a>라우팅 방법
 Azure Traffic Manager는 4가지의 다른 라우팅 방법을 사용합니다. 이러한 방법은 Azure App Service와 관련된 다음 목록에서 설명합니다.
 
-* **[우선 순위](../traffic-manager/traffic-manager-routing-methods.md#priority):** 모든 트래픽에 대해 기본 앱을 사용하고 기본 또는 백업 앱을 사용할 수 없는 경우 백업을 제공합니다.
+* **[우선 순위](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method):** 모든 트래픽에 대해 기본 앱을 사용하고 기본 또는 백업 앱을 사용할 수 없는 경우 백업을 제공합니다.
 * **[가중](../traffic-manager/traffic-manager-routing-methods.md#weighted):** 앱 집합에 균일하게 또는 정의한 가중치에 따라 트래픽을 분산합니다.
 * **[성능](../traffic-manager/traffic-manager-routing-methods.md#performance):** 앱이 여러 지리적 위치에 있을 때 가장 낮은 네트워크 지연 시간을 기준으로 "가장 가까운" 앱을 사용합니다.
 * **[지리적](../traffic-manager/traffic-manager-routing-methods.md#geographic):** DNS 쿼리가 시작된 지리적 위치에 따라 특정 앱으로 사용자를 전송합니다. 

@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: dbfa1752f275417c19ada9a7f76e01be6f00397e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5e52d60a6cf1d6c8fc248ca8ad8ab7199f5ce885
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74214593"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483574"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -50,8 +50,8 @@ ms.locfileid: "74214593"
 
 | name | Multi-tenant limit | Integration service environment limit | 참고 |
 |------|--------------------|---------------------------------------|-------|
-| 실행 기간 | 90일 | 365일 | To change the default limit, see [change run duration](#change-duration). |
-| 스토리지 보존 | 실행 시작 시간부터 90일 | 365일 | To change the default limit, see [change storage retention](#change-retention). |
+| 실행 기간 | 90일 | 366 days | To change the default limit, see [change run duration](#change-duration). |
+| 스토리지 보존 | 실행 시작 시간부터 90일 | 366 days | To change the default limit, see [change storage retention](#change-retention). |
 | 최소 되풀이 간격 | 1초 | 1초 ||
 | 최대 되풀이 간격 | 500일 | 500일 ||
 |||||
@@ -61,13 +61,17 @@ ms.locfileid: "74214593"
 
 ### <a name="change-run-duration-and-storage-retention"></a>실행 기간 및 스토리지 보존 변경
 
-To change the default limit for run duration and storage retention, follow these steps. 최대 제한을 초과해야 하는 경우에는 [Logic Apps 팀에게 문의](mailto://logicappsemail@microsoft.com)하여 요구 사항에 대해 도움을 받으세요.
+To change the default limit for run duration and storage retention, follow these steps. To increase the maximum limit, [contact the Logic Apps team](mailto://logicappsemail@microsoft.com) for help with your requirements.
 
-1. Azure Portal의 논리 앱 메뉴에서 **워크플로 설정**을 선택합니다.
+1. In the Azure portal, on your logic app's menu, select **Workflow settings**.
 
-2. **런타임 옵션** 아래의 **실행 기록 보존 기간(일)** 목록에서 **사용자 지정**을 선택합니다.
+1. Under **Runtime options**, from the **Run history retention in days** list, select **Custom**.
 
-3. 원하는 일수를 입력하거나 슬라이더를 드래그합니다.
+1. Enter or drag the slider for the number of days that you want. 
+
+   > [!NOTE]
+   > For logic apps in multi-tenant Azure, the 90-day default limit is the same as the maximum limit. You can only decrease this value.
+   > For logic apps in an integration service environment, you can decreause or increase the 90-day default limit.
 
 <a name="looping-debatching-limits"></a>
 

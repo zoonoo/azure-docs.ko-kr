@@ -1,25 +1,20 @@
 ---
-title: Azure Container Instances를 Jenkins 빌드 에이전트로 사용
-description: Azure Container Instances에서 주문형 빌드 작업을 실행 하도록 Jenkins 서버를 구성 하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Jenkins build on container instance
+description: Learn how to configure a Jenkins server to run build jobs on-demand in Azure Container Instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: danlep
-ms.openlocfilehash: 7e93457a182598a2e8d739f4d626b49ff57b30fb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: e63ade82d4efeed40a9fba6f11d16131e8c728e7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150226"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484072"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Azure Container Instances를 Jenkins 빌드 에이전트로 사용
 
 ACI(Azure Container Instances)는 컨테이너화된 워크로드를 실행하기 위한 격리된 주문형, 버스터블 환경을 제공합니다. 이러한 특성 때문에 ACI는 Jenkins 빌드 작업을 대규모로 실행할 수 있는 우수한 플랫폼을 만들어 줍니다. 이 문서에서는 ACI를 통해 빌드 대상으로 미리 구성된 Jenkins 서버를 배포하고 사용하는 방법을 안내합니다.
 
-Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instances][about-aci]정보를 참조 하세요.
+For more information on Azure Container Instances, see [About Azure Container Instances][about-aci].
 
 ## <a name="deploy-a-jenkins-server"></a>Jenkins 서버 배포
 
@@ -48,7 +43,7 @@ Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instan
 
    ![Jenkins 포털 배포의 추가 설정](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. 서비스 사용자 통합의 경우 **자동 (MSI)** 을 선택 하 여 [Azure 리소스에 대 한 관리 id][managed-identities-azure-resources] 가 Jenkins 인스턴스에 대 한 인증 id를 자동으로 만듭니다. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
+4. For service principal integration, select **Auto(MSI)** to have [managed identities for Azure resources][managed-identities-azure-resources] automatically create an authentication identity for the Jenkins instance. 사용자 고유의 서비스 주체 자격 증명을 입력하려면 **수동**을 선택합니다.
 
 5. 클라우드 에이전트는 Jenkins 빌드 작업을 위한 클라우드 기반 플랫폼을 구성합니다. 이 문서에서는 **ACI**를 선택합니다. ACI 클라우드 에이전트를 사용하면 각 Jenkins 빌드 작업이 하나의 컨테이너 인스턴스에서 실행됩니다.
 
@@ -70,7 +65,7 @@ Azure Container Instances에 대 한 자세한 내용은 [Azure Container Instan
 
 4. 세션이 연결되면 다음 명령을 실행하여 초기 관리자 암호를 검색합니다.
 
-   ```
+   ```bash
    sudo cat /var/lib/jenkins/secrets/initialAdminPassword
    ```
 
@@ -134,7 +129,7 @@ Jenkins 플러그 인에서 버그가 발생하면 [Jenkins JIRA](https://issues
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure의 Jenkins에 대해 자세히 알아보려면 [azure 및 Jenkins][jenkins-azure]를 참조 하세요.
+To learn more about Jenkins on Azure, see [Azure and Jenkins][jenkins-azure].
 
 <!-- LINKS - internal -->
 [about-aci]: ./container-instances-overview.md

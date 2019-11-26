@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: a5a08bddb53afe8f698b0d96621cc116ee866070
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209165"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481024"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Management concepts for user accounts, passwords, and administration in Azure Active Directory Domain Services
 
@@ -59,7 +59,10 @@ For users synchronized from an on-premises AD DS environment using Azure AD Conn
 
 적절히 구성되면 사용 가능한 암호 해시가 Azure AD DS 관리형 도메인에 저장됩니다. Azure AD DS 관리형 도메인을 삭제하면 해당 지점에 저장된 암호 해시도 모두 삭제됩니다. Synchronized credential information in Azure AD can't be reused if you later create an Azure AD DS managed domain - you must reconfigure the password hash synchronization to store the password hashes again. 이전에는 도메인 조인 VM 또는 사용자가 즉시 인증할 수 없었으므로 Azure AD에서 암호 해시를 새 Azure AD DS 관리형 도메인에 생성하고 저장해야 합니다. 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][azure-ad-password-sync]를 참조하세요.
 
-## <a name="forests-and-trusts"></a>Forests and trusts
+> [!IMPORTANT]
+> Azure AD Connect should only be installed and configured for synchronization with on-premises AD DS environments. It's not supported to install Azure AD Connect in an Azure AD DS managed domain to synchronize objects back to Azure AD.
+
+## <a name="forests-and-trusts"></a>포리스트 및 트러스트
 
 A *forest* is a logical construct used by Active Directory Domain Services (AD DS) to group one or more *domains*. The domains then store objects for user or groups, and provide authentication services.
 

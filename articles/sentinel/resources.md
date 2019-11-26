@@ -1,6 +1,6 @@
 ---
-title: Azure 센티널로 작업할 때 유용한 리소스 | Microsoft Docs
-description: 이 문서에서는 Azure 센티널로 작업할 때 유용한 리소스 목록을 제공 합니다.
+title: Useful resources when working with Azure Sentinel| Microsoft Docs
+description: This document provides you with a list of useful resources when working with Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -13,42 +13,75 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 11/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: 6634920b1efa3cd24267aca8bcf53587754caa66
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 04c4192293cbfa96eefcc1c84083dd54042ebe8f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71239972"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484086"
 ---
-# <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
+# <a name="useful-resources-for-working-with-azure-sentinel"></a>Useful resources for working with Azure Sentinel
 
 
 
-이 문서에는 Azure 센티널 사용에 대 한 자세한 정보를 얻는 데 도움이 되는 리소스가 나열 되어 있습니다.
+This article lists resources that can help you get more information about working with Azure Sentinel.
 
-Azure Logic Apps 커넥터:<https://docs.microsoft.com/connectors/>
+Azure Logic Apps connectors: <https://docs.microsoft.com/connectors/>
 
 
 ## <a name="auditing-and-reporting"></a>감사 및 보고
-Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platform/activity-logs-overview.md)에서 유지 관리 됩니다.
+Audit logs of Azure Sentinel are maintained in [Azure Activity Logs](../azure-monitor/platform/activity-logs-overview.md).
+
+The following supported operations can be audited.
+
+|작업 이름|    리소스 종류|
+|----|----|
+|Create or update workbook  |Microsoft.Insights/workbooks|
+|Delete Workbook    |Microsoft.Insights/workbooks|
+|Set Workflow   |Microsoft.Logic/workflows|
+|Delete Workflow    |Microsoft.Logic/workflows|
+|Create Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Delete Saved Search    |Microsoft.OperationalInsights/workspaces/savedSearches|
+|Set Dashboard  |Microsoft.Portal/dashboards|
+|Delete Dashboard   |Microsoft.Portal/dashboards|
+|Update Alert Rules |Microsoft.SecurityInsights/alertRules|
+|Delete Alert Rules |Microsoft.SecurityInsights/alertRules|
+|Update Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
+|Delete Alert Rule Response Actions |Microsoft.SecurityInsights/alertRules|
+|Update Bookmarks   |Microsoft.SecurityInsights/bookmarks|
+|Delete Bookmarks   |Microsoft.SecurityInsights/bookmarks|
+|Update Cases   |Microsoft.SecurityInsights/Cases|
+|Update Case Investigation  |Microsoft.SecurityInsights/Cases|
+|Create Case Comments   |Microsoft.SecurityInsights/Cases|
+|Update Data Connectors |Microsoft.SecurityInsights/dataConnectors|
+|Delete Data Connectors |Microsoft.SecurityInsights/dataConnectors|
+|Update Settings    |Microsoft.SecurityInsights/settings|
+
+### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>View audit and reporting data in Azure Sentinel
+
+You can view this data by streaming it from the Azure Activity log into Azure Sentinel where you can then perform research and analytics on it.
+
+1. Connect the [Azure Activity](connect-azure-activity.md) data source. After doing this, audit events are streamed into a new table in the **Logs** screen called AzureActivity.
+2. Then, query the data using KQL, like you would any other table.
 
 
-## <a name="vendor-documentation"></a>공급 업체 설명서
 
-| **공급업체**  | **Azure 센티널에서 인시던트 사용** | **링크**|
+## <a name="vendor-documentation"></a>Vendor documentation
+
+| **공급업체**  | **Use incident in Azure Sentinel** | **링크**|
 |----|----|----|
-| GitHub| 커뮤니티 페이지에 액세스 하는 데 사용 됩니다.| <https://github.com/Azure/Azure-Sentinel> |
-| PaloAlto| CEF 구성| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
-| PluralSight | Kusto 쿼리 언어 과정| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
+| GitHub| Used to access Community page| <https://github.com/Azure/Azure-Sentinel> |
+| PaloAlto| Configure CEF| <https://www.paloaltonetworks.com/documentation/misc/cef.html>|
+| PluralSight | Kusto Query Language course| [https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch](https://www.pluralsight.com/courses/kusto-query-language-kql-from-scratch)|
 
-## <a name="blogs-and-forums"></a>블로그 및 포럼
+## <a name="blogs-and-forums"></a>Blogs and forums
 
-Azure 센티널의 [TechCommunity 공간](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) 에 질문을 게시 합니다.
+Post your questions on the [TechCommunity space](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bd-p/AzureSentinel) for Azure Sentinel.
 
-[TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) 및 [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/)에서 Azure 센티널 블로그 게시물을 확인 합니다.
+View Azure Sentinel blog posts from the [TechCommunity](https://techcommunity.microsoft.com/t5/Azure-Sentinel/bg-p/AzureSentinelBlog) and [Microsoft Azure](https://azure.microsoft.com/blog/tag/azure-sentinel/).
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널로 작업 하는 경우 유용한 리소스 목록을 얻었습니다. Azure 보안 및 규정 준수에 대 한 추가 정보는 [Microsoft Azure 보안 및 규정 준수 블로그](https://blogs.msdn.com/b/azuresecurity/)에서 확인할 수 있습니다.
+In this document, you got a list of resources that are useful when you're working with Azure Sentinel. You'll find additional information about Azure security and compliance on the [Microsoft Azure Security and Compliance blog](https://blogs.msdn.com/b/azuresecurity/).

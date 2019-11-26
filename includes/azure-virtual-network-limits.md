@@ -8,31 +8,32 @@ ms.topic: include
 ms.date: 06/25/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: a37280fddf34221a9d08501ef55c6b069cd877a4
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "70242717"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485513"
 ---
-<a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
+<a name="azure-resource-manager-virtual-networking-limits"></a>Networking limits - Azure Resource Manager The following limits apply only for networking resources managed through **Azure Resource Manager** per region per subscription. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 > [!NOTE]
-> 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. 최대 제한 열이 없는 경우 리소스는 조정 가능한 제한이 없습니다. 이전 지원으로 이러한 제한을 증가 시키고 다음 표에 업데이트 된 한도가 표시 되지 않는 경우 [무료로 온라인 고객 지원 요청을 여세요](../articles/azure-resource-manager/resource-manager-quota-errors.md) .
+> 최근에 모든 기본 제한을 최대 한계로 증가시켰습니다. If there's no maximum limit column, the resource doesn't have adjustable limits. If you had these limits increased by support in the past and don't see updated limits in the following tables, [open an online customer support request at no charge](../articles/azure-resource-manager/resource-manager-quota-errors.md)
 
-| 리소스 | 기본/최대 제한 | 
+| 리소스 | Default/maximum limit | 
 | --- | --- |
 | 가상 네트워크 |1,000 |
 | 가상 네트워크당 서브넷 |3,000 |
-| 가상 네트워크 당 가상 네트워크 피어 링 |500 |
-| 가상 네트워크 당 DNS 서버 |20 |
-| 가상 네트워크 당 개인 IP 주소 |65,536 |
-| 네트워크 인터페이스 당 개인 IP 주소 |256 |
-| 가상 머신 당 개인 IP 주소 |256 |
-| 네트워크 인터페이스 당 공용 IP 주소 |256 |
-| 가상 머신 당 공용 IP 주소 |256 |
+| Virtual network peerings per virtual network |500 |
+| [Virtual network gateways (VPN Gateways) per virtual network](../articles/vpn-gateway/vpn-gateway-about-vpngateways.md#gwsku) |30 |
+| DNS servers per virtual network |20 |
+| Private IP addresses per virtual network |65,536 |
+| Private IP addresses per network interface |256 |
+| Private IP addresses per virtual machine |256 |
+| Public IP addresses per network interface |256 |
+| Public IP addresses per virtual machine |256 |
 | 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500,000 |
-| 네트워크 인터페이스 카드 |65,536 |
+| Network interface cards |65,536 |
 | 네트워크 보안 그룹 |5,000 |
 | NSG당 NSG 규칙 |1,000 |
 | 보안 그룹에서 원본이나 대상에 지정된 IP 주소 및 범위 |4,000 |
@@ -40,54 +41,54 @@ ms.locfileid: "70242717"
 | IP 구성당, NIC당 애플리케이션 보안 그룹 |20 |
 | 애플리케이션 보안 그룹당 IP 구성 |4,000 |
 | 네트워크 보안 그룹의 모든 보안 규칙 내에서 지정할 수 있는 애플리케이션 보안 그룹 |100 |
-| 사용자 정의 경로 테이블 |200 |
-| 경로 테이블당 사용자 정의 경로 |400 |
-| Azure VPN Gateway에 대 한 지점 및 사이트 간 루트 인증서 |20 |
+| User-defined route tables |200 |
+| User-defined routes per route table |400 |
+| Point-to-site root certificates per Azure VPN Gateway |20 |
 | 가상 네트워크 탭 |100 |
 | 가상 네트워크 탭당 네트워크 인터페이스 탭 구성 |100 |
 
 #### <a name="publicip-address"></a>공용 IP 주소 구분
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 공용 IP 주소 - 동적 | 기본의 경우 1000입니다. |지원에 문의 |
-| 공용 IP 주소 - 고정 | 기본의 경우 1000입니다. |지원에 문의 |
-| 공용 IP 주소 - 고정 | 표준의 경우 1000입니다.|지원에 문의 |
-| 공용 IP 접두사 길이 | /28 | 지원에 문의 |
+| 공용 IP 주소 - 동적 | 1,000 for Basic. |지원에 문의하세요. |
+| 공용 IP 주소 - 고정 | 1,000 for Basic. |지원에 문의하세요. |
+| 공용 IP 주소 - 고정 | 1,000 for Standard.|지원에 문의하세요. |
+| Public IP prefix length | /28 | 지원에 문의하세요. |
 
-#### <a name="load-balancer"></a>부하 분산 장치 제한
+#### <a name="load-balancer"></a>Load balancer limits
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
-| 리소스 | 기본/최대 제한 |
+| 리소스 | Default/maximum limit |
 | --- | --- |
 | 부하 분산 장치 | 1,000 | 
 | 리소스당 규칙 수, 기본 | 250 |
 | 리소스당 규칙 수, 표준 | 1,500 | 
 | IP 구성당 규칙 수 | 299 |
 | NIC당 규칙 | 300 |
-| 프런트 엔드 IP 구성, 기본 | 200 |
-| 프런트 엔드 IP 구성, 표준 | 600 |
-| 백 엔드 풀, 기본 | 100, 단일 가용성 집합 |
-| 백 엔드 풀, 표준 | 1000, 단일 가상 네트워크 |
-| 부하 분산 장치당 백 엔드 리소스, 표준<sup>1</sup> | 150 |
-| 고가용성 포트, 표준 | 내부 프런트 엔드 당 1 |
+| Front-end IP configurations, Basic | 200 |
+| Front-end IP configurations, Standard | 600 |
+| Back-end pool, Basic | 100, single availability set |
+| Back-end pool, Standard | 1,000, single virtual network |
+| Back-end resources per load balancer, Standard<sup>1</sup> | 150 |
+| High-availability ports, Standard | 1 per internal front-end |
 
-<sup>1</sup> 이 제한은 독립 실행형 가상 머신 리소스, 가용성 집합 리소스 및 가상 머신 확장 집합 리소스의 조합에서 최대 150 리소스를 제공 합니다.
+<sup>1</sup>The limit is up to 150 resources, in any combination of standalone virtual machine resources, availability set resources, and virtual machine scale-set resources.
 
-#### <a name="virtual-networking-limits-classic"></a>다음 제한은 구독 당 **클래식** 배포 모델을 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
+#### <a name="virtual-networking-limits-classic"></a>The following limits apply only for networking resources managed through the **classic** deployment model per subscription. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 가상 네트워크 |100 |100 |
 | 로컬 네트워크 사이트 수 |20 |50 |
-| 가상 네트워크 당 DNS 서버 |20 |20 |
-| 가상 네트워크 당 개인 IP 주소 |4,096 |4,096 |
-| 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |50만, 둘 이상의 Nic의 경우 최대 100만입니다. |50만, 둘 이상의 Nic의 경우 최대 100만입니다. |
+| DNS servers per virtual network |20 |20 |
+| Private IP addresses per virtual network |4,096 |4,096 |
+| 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500,000, up to 1,000,000 for two or more NICs. |500,000, up to 1,000,000 for two or more NICs. |
 | NSG(네트워크 보안 그룹) |200 |200 |
 | NSG당 NSG 규칙 |1,000 |1,000 |
-| 사용자 정의 경로 테이블 |200 |200 |
-| 경로 테이블당 사용자 정의 경로 |400 |400 |
+| User-defined route tables |200 |200 |
+| User-defined routes per route table |400 |400 |
 | 공용 IP 주소(동적) |500 |500 |
 | 예약된 공용 IP 주소 |500 |500 |
-| 배포당 공용 VIP |5 |지원 문의 |
-| 배포 당 개인 VIP (내부 부하 분산) |1 |1 |
-| 끝점 액세스 제어 목록 (Acl) |50 |50 |
+| 배포당 공용 VIP |5 |고객 지원 |
+| Private VIP (internal load balancing) per deployment |1 |1 |
+| Endpoint access control lists (ACLs) |50 |50 |

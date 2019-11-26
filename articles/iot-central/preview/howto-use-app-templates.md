@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 응용 프로그램 내보내기 | Microsoft Docs
-description: 솔루션 관리자로 서 다시 사용할 수 있도록 응용 프로그램 템플릿을 내보내야 합니다.
+title: Export an Azure IoT Central application | Microsoft Docs
+description: As a solution manager, I want to export an application template to be able to reuse it.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/17/2019
@@ -8,89 +8,95 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 81e24712de186e2d5ec03e33ecabe485cc0d9f31
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894761"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480367"
 ---
-# <a name="export-your-application-preview-features"></a>응용 프로그램 내보내기 (미리 보기 기능)
+# <a name="export-your-application-preview-features"></a>Export your application (preview features)
 
 [!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
-이 문서에서는 솔루션 관리자가 IoT Central 응용 프로그램을 다시 사용할 수 있도록 내보내는 방법을 설명 합니다.
+This article describes how, as a solution manager, to export an IoT Central application to be able to reuse it.
 
 다음 두 가지 옵션을 사용할 수 있습니다.
 
-- 응용 프로그램의 복사본을 만들어야 하는 경우 응용 프로그램의 복사본을 만들 수 있습니다.
-- 여러 복사본을 만들 계획인 경우 응용 프로그램에서 응용 프로그램 템플릿을 만들 수 있습니다.
+- You can create a copy of your application if you just need to create a duplicate copy of your application.
+- You can create an application template from your application if you plan to create multiple copies.
 
-## <a name="copy-your-application"></a>응용 프로그램 복사
+## <a name="copy-your-application"></a>Copy your application
 
-모든 디바이스 인스턴스, 디바이스 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 이 복사본은 요금이 청구 되는 종 량 제 응용 프로그램입니다. 응용 프로그램을 복사 하 여 평가판 응용 프로그램을 만들 수 없습니다.
+모든 디바이스 인스턴스, 디바이스 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. The copy is a Pay-As-You-Go application that you'll be charged for. You can't create a Trial application by copying an application.
 
-**복사**를 선택 합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. 양식의 필드에 대해 자세히 알아보려면 [응용 프로그램 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조 하세요.
+Select **Copy**. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. Then select **Copy** to confirm that you want to continue. To learn more about the fields in the form, see the [Create an application](quick-deploy-iot-central.md) quickstart.
+
+> [!NOTE]
+> You can **Copy your application** to **Europe** and **US** locations only.
 
 ![애플리케이션 설정 페이지](media/howto-use-app-templates/appcopy2.png)
 
-앱 복사 작업이 성공 하면 링크를 사용 하 여 새 응용 프로그램으로 이동할 수 있습니다.
+After the app copy operation succeeds, you can navigate to the new application using the link.
 
 ![애플리케이션 설정 페이지](media/howto-use-app-templates/appcopy3a.png)
 
-응용 프로그램을 복사 하면 규칙 및 전자 메일 작업의 정의도 복사 됩니다. Flow 및 Logic Apps와 같은 일부 작업은 규칙 ID를 통해 특정 규칙에 연결 됩니다. 다른 응용 프로그램에 규칙을 복사 하는 경우 규칙 ID를 가져옵니다. 이 경우 사용자는 새 작업을 만든 후 새 작업을 연결 해야 합니다. 일반적으로 규칙 및 작업을 확인 하 여 새 앱에서 최신 상태 인지 확인 하는 것이 좋습니다.
+Copying an application also copies the definition of rules and email action. Some actions, such as Flow and  Logic Apps, are tied to specific rules via the Rule ID. When a rule is copied to a different application, it gets its own Rule ID. In this case, users will have to create a new action and then associate the new rule with it. In general, it's a good idea to check the rules and actions to make sure they're up-to-date in the new app.
 
 > [!WARNING]
-> 대시보드는 특정 장치에 대 한 정보를 표시 하는 타일을 포함 하는 경우 요청 된 리소스를 새 응용 프로그램에서 **찾을 수 없는** 타일로 표시 합니다. 새 응용 프로그램의 장치에 대 한 정보를 표시 하려면 이러한 타일을 다시 구성 해야 합니다.
+> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
-## <a name="create-an-application-template"></a>응용 프로그램 템플릿 만들기
+## <a name="create-an-application-template"></a>애플리케이션 템플릿 만들기
 
-Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 템플릿 중에서 선택할 수 있습니다. 기존 IoT Central 응용 프로그램에서 사용자 고유의 응용 프로그램 템플릿을 만들 수도 있습니다. 그런 다음 새 응용 프로그램을 만들 때 사용자 고유의 응용 프로그램 템플릿을 사용할 수 있습니다.
+When you create an Azure IoT Central application, you have a choice of built-in sample templates. You can also create your own application templates from existing IoT Central applications. You can then use your own application templates when you create new applications.
 
-응용 프로그램 템플릿을 만들면 기존 응용 프로그램에서 다음 항목이 포함 됩니다.
+When you create an application template, it includes the following items from your existing application:
 
-- 대시보드 레이아웃 및 정의한 모든 타일을 포함 하는 기본 응용 프로그램 대시보드
-- 측정, 설정, 속성, 명령 및 대시보드를 포함 한 장치 템플릿입니다.
-- 역할. 모든 규칙 정의가 포함 되어 있습니다. 그러나 전자 메일 작업을 제외한 작업은 포함 되지 않습니다.
-- 장치 집합은 해당 조건 및 대시보드를 포함 합니다.
+- The default application dashboard, including the dashboard layout and all the tiles you've defined.
+- Device templates, including measurements, settings, properties, commands, and dashboard.
+- Rules. All rule definitions are included. However actions, except for email actions, aren't included.
+- Device sets, including their conditions and dashboards.
 
 > [!WARNING]
-> 대시보드는 특정 장치에 대 한 정보를 표시 하는 타일을 포함 하는 경우 요청 된 리소스를 새 응용 프로그램에서 **찾을 수 없는** 타일로 표시 합니다. 새 응용 프로그램의 장치에 대 한 정보를 표시 하려면 이러한 타일을 다시 구성 해야 합니다.
+> If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.
 
-응용 프로그램 템플릿을 만들 때 다음 항목은 포함 되지 않습니다.
+When you create an application template, it doesn't include the following items:
 
 - 디바이스
 - 사용자
-- 작업 정의
-- 연속 데이터 내보내기 정의
+- Job definitions
+- Continuous data export definitions
 
-응용 프로그램 템플릿에서 만든 모든 응용 프로그램에 이러한 항목을 수동으로 추가 합니다.
+Add these items manually to any applications created from an application template.
 
-기존 IoT Central 응용 프로그램에서 응용 프로그램 템플릿을 만들려면 다음을 수행 합니다.
+To create an application template from an existing IoT Central application:
 
-1. 응용 프로그램의 **관리** 섹션으로 이동 합니다.
-1. **응용 프로그램 템플릿 내보내기**를 선택 합니다.
-1. **응용 프로그램 템플릿 내보내기** 페이지에서 템플릿의 이름 및 설명을 입력 합니다.
-1. 응용 프로그램 템플릿을 만들려면 **내보내기** 단추를 선택 합니다. 이제 다른 사용자가 템플릿에서 새 응용 프로그램을 만들 수 있도록 **공유 가능한 링크** 를 복사할 수 있습니다.
+1. Go to the **Administration** section in your application.
+1. Select **Application Template Export**.
+1. On the **Application Template Export** page, enter a name and description for your template.
+1. Select the **Export** button to create the application template. You can now copy the **Shareable Link** that enables someone to create a new application from the template:
 
-![응용 프로그램 템플릿 만들기](media/howto-use-app-templates/create-template.png)
+![애플리케이션 템플릿 만들기](media/howto-use-app-templates/create-template.png)
 
-### <a name="use-an-application-template"></a>응용 프로그램 템플릿 사용
+### <a name="use-an-application-template"></a>Use an application template
 
-응용 프로그램 템플릿을 사용 하 여 새 IoT Central 응용 프로그램을 만들려면 이전에 만든 공유 가능 **링크가**필요 합니다. 공유 가능한 **링크** 를 브라우저의 주소 표시줄에 붙여 넣습니다. **응용 프로그램 만들기** 페이지가 표시 되 고 사용자 지정 응용 프로그램 템플릿이 선택 됩니다.
+To use an application template to create a new IoT Central application, you need a previously created **Shareable Link**. Paste the **Shareable Link** into your browser's address bar. The **Create an application** page displays with your custom application template selected:
 
-![템플릿에서 응용 프로그램 만들기](media/howto-use-app-templates/create-app.png)
+![Create an application from a template](media/howto-use-app-templates/create-app.png)
 
-지불 계획을 선택 하 고 폼의 다른 필드를 작성 합니다. 그런 다음 **만들기** 를 선택 하 여 응용 프로그램 템플릿에서 새 IoT Central 응용 프로그램을 만듭니다.
+Select your payment plan and fill out the other fields on the form. Then select **Create** to create a new IoT Central application from the application template.
 
-### <a name="manage-application-templates"></a>응용 프로그램 템플릿 관리
+> [!NOTE]
+> When an application is created using **Shareable Link** the available locations are **Europe** and **US**.
 
-**응용 프로그램 템플릿 내보내기** 페이지에서 응용 프로그램 템플릿을 삭제 하거나 업데이트할 수 있습니다.
+### <a name="manage-application-templates"></a>Manage application templates
 
-응용 프로그램 템플릿을 삭제 하는 경우 더 이상 이전에 생성 된 공유 가능 링크를 사용 하 여 새 응용 프로그램을 만들 수 없습니다.
+On the **Application Template Export** page, you can delete or update the application template.
 
-응용 프로그램 템플릿을 업데이트 하려면 **응용 프로그램 템플릿 내보내기** 페이지에서 템플릿 이름이 나 설명을 변경 합니다. 그런 다음 **내보내기** 단추를 다시 선택 합니다. 이 작업은 공유 가능한 새 **링크** 를 생성 하 고 이전에 **공유 가능한 링크** URL을 무효화 합니다.
+If you delete an application template, you can no longer use the previously generated shareable link to create new applications.
+
+To update your application template, change the template name or description on the **Application Template Export** page. Then select the **Export** button again. This action generates a new **Shareable link** and invalidates any previous **Shareable link** URL.
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [Azure Portal에서 IoT Central를 관리](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) 하는 방법을 배우는 것입니다.
+Now that you've learned how to use application templates, the suggested next step is to learn how to [Manage IoT Central from the Azure portal](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json)

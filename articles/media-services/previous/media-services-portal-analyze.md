@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 26a951ffaf0253371ffe69c6df798120f0464082
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 0e49e90209c7337081458b7c214d27b37d3b4da1
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881907"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462624"
 ---
 # <a name="analyze-your-media-using-the-azure-portal"></a>Azure Portal을 사용하여 미디어를 분석 
 
 > [!IMPORTANT]
-> 일부 미디어 프로세서의 사용 중지 [계획](media-services-analytics-overview.md#retirement-plans) 을 검토 합니다.
+> Review the [retirement plans](media-services-analytics-overview.md#retirement-plans) of some media processors.
 
 ## <a name="overview"></a>개요
 Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음으로, 미디어 분석을 엔터프라이즈 규모, 규정 준수, 보안 및 전 세계 범위로 제공합니다. Azure Media Services Analytics에 대한 자세한 개요는 [이](media-services-analytics-overview.md) 항목을 참조하세요. 
@@ -54,15 +54,11 @@ Azure Media Services Analytics는 조직과 기업이 비디오 파일에서 실
 
 ### <a name="captions"></a>자막
 콘텐츠에서 생성할 자막 형식을 선택할 수 있습니다. 인덱싱 작업은 다음 형식의 선택 캡션 파일을 생성할 수 있습니다.  
-
-* **SAMI**
+ 
 * **TTML**
 * **WebVTT**
 
 이러한 형식의 CC(선택 캡션)는 청각 장애가 있는 사용자가 액세스할 수 있는 오디오 및 비디오 파일을 만드는 데 사용될 수 있습니다.
-
-### <a name="aib-file"></a>AIB 파일
-사용자 지정 SQL Server IFilter에 사용하기 위해 Audio Index Blob 파일을 생성하려는 경우 이 옵션을 선택합니다. 자세한 내용은 [이](https://azure.microsoft.com/blog/using-aib-files-with-azure-media-indexer-and-sql-server/) 블로그를 참조하세요.
 
 ### <a name="keywords"></a>키워드
 키워드 XML 파일을 생성하려는 경우 이 옵션을 선택합니다. 이 파일은 빈도 및 오프셋 정보를 포함하며 음성 콘텐츠에서 추출된 키워드를 포함합니다.

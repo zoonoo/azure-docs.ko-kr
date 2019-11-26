@@ -2,13 +2,13 @@
 title: 수정할 수 있는 정책 배포
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 10/11/2019
-ms.topic: overview
-ms.openlocfilehash: 662daeb305856fb36bfb84f98e80bedf48b22756
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 4522c9ebad741f5ec0cb7e56e68467312ef8f037
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132481"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463884"
 ---
 # <a name="deploy-a-policy-that-can-be-remediated-within-a-delegated-subscription"></a>위임된 구독 내에서 수정할 수 있는 정책 배포
 
@@ -22,7 +22,7 @@ Azure에서 위임된 리소스 관리를 위해 고객을 등록하는 경우 �
 
 고객이 등록된 후 이 권한 부여에서 만든 **principalId**는 이러한 기본 제공 역할을 고객 테넌트의 관리 ID에 할당할 수 있습니다. 그러나 일반적으로 사용자 액세스 관리자 역할에 연결된 다른 사용 권한이 없습니다.
 
-아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId**를 보여 줍니다. 이 사용자는 고객 테넌트에서 관리 ID에 두 가지 기본 제공 역할을 할당할 수 있습니다. 기여자 및 Log Analytics 기여자
+아래 예제에서는 사용자 액세스 관리자 역할을 보유하는 **principalId**를 보여 줍니다. This user will be able to assign two built-in roles to managed identities in the customer tenant: Contributor and Log Analytics Contributor.
 
 ```json
 {

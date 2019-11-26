@@ -1,58 +1,58 @@
 ---
 title: 청사진 배포 단계
-description: 배포 하는 동안 Azure Blueprint 서비스가 거치는 단계에 대해 알아봅니다.
+description: Learn the security and artifact related steps the Azure Blueprint services goes through while creating a blueprint assignment.
 ms.date: 11/13/2019
 ms.topic: conceptual
-ms.openlocfilehash: b329613e4e4954a1ea1452017a6e6c8b7343f2d3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 4c1d0cd47e0f43b73e3178e18a4ba5d705048a72
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048606"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463561"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>청사진 배포 단계
 
-청사진을 배포할 때 Azure 청사진 서비스에서 청사진에 정의 된 리소스를 배포 하는 일련의 작업을 수행 합니다. 이 문서에서는 각 단계에 대 한 세부 정보를 제공 합니다.
+When a blueprint gets deployed, a series of actions is taken by the Azure Blueprints service to deploy the resources defined in the blueprint. This article provides details about what each step involves.
 
-청사진 배포는 구독에 청사진을 할당 하거나 [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방식으로 트리거됩니다. 배포 하는 동안 청사진은 다음과 같은 개략적인 단계를 수행 합니다.
+Blueprint deployment is triggered by assigning a blueprint to a subscription or [updating an existing assignment](../how-to/update-existing-assignments.md). During the deployment, Blueprints takes the following high-level steps:
 
 > [!div class="checklist"]
-> - 청사진에 소유자 권한 부여
-> - 청사진 할당 개체가 만들어집니다.
-> - 선택 사항-청사진에서 **시스템 할당** 관리 id를 만듭니다.
-> - 관리 id가 청사진 아티팩트를 배포 합니다.
-> - 청사진 서비스 및 **시스템 할당** 관리 id 권한이 해지 됩니다.
+> - Blueprints granted owner rights
+> - The blueprint assignment object is created
+> - Optional - Blueprints creates **system-assigned** managed identity
+> - The managed identity deploys blueprint artifacts
+> - Blueprint service and **system-assigned** managed identity rights are revoked
 
-## <a name="blueprints-granted-owner-rights"></a>청사진에 소유자 권한 부여
+## <a name="blueprints-granted-owner-rights"></a>Blueprints granted owner rights
 
-[시스템 할당 관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 관리 id를 사용 하는 경우 Azure 청사진 서비스 주체에 게 할당 된 구독 또는 구독에 대 한 소유자 권한이 부여 됩니다. 부여 된 역할을 통해 청사진은 **시스템 할당** 관리 id를 만들고 나중에 해지할 수 있습니다. **사용자 할당** 관리 id를 사용 하는 경우 Azure 청사진 서비스 주체는 구독에 대 한 소유자 권한이 부여 되지 않으며 필요 하지 않습니다.
+The Azure Blueprints service principal is granted owner rights to the assigned subscription or subscriptions when a [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) managed identity is used. The granted role allows Blueprints to create, and later revoke, the **system-assigned** managed identity. If using a **user-assigned** managed identity, the Azure Blueprints service principal doesn't get and doesn't need owner rights on the subscription.
 
-포털을 통해 할당을 수행 하는 경우에는 권한이 자동으로 부여 됩니다. 그러나 REST API를 통해 할당을 수행 하는 경우 별도의 API 호출을 사용 하 여 권한을 부여 해야 합니다. Azure Blueprint AppId는 `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`있지만 서비스 사용자는 테 넌 트에 따라 다릅니다. [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) 및 REST 끝점 [serviceprincipals](/graph/api/resources/serviceprincipal) 을 사용 하 여 서비스 주체를 가져옵니다. 그런 다음 [포털](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md)또는 [리소스 관리자 템플릿을](../../../role-based-access-control/role-assignments-template.md)통해 Azure 청사진에 _소유자_ 역할을 부여 합니다.
+The rights are granted automatically if the assignment is done through the portal. However, if the assignment is done through the REST API, granting the rights needs to be done with a separate API call. The Azure Blueprint AppId is `f71766dc-90d9-4b7d-bd9d-4499c4331c3f`, but the service principal varies by tenant. Use [Azure Active Directory Graph API](../../../active-directory/develop/active-directory-graph-api.md) and REST endpoint [servicePrincipals](/graph/api/resources/serviceprincipal) to get the service principal. Then, grant the Azure Blueprints the _Owner_ role through the [Portal](../../../role-based-access-control/role-assignments-portal.md), [Azure CLI](../../../role-based-access-control/role-assignments-cli.md), [Azure PowerShell](../../../role-based-access-control/role-assignments-powershell.md), [REST API](../../../role-based-access-control/role-assignments-rest.md), or a [Resource Manager template](../../../role-based-access-control/role-assignments-template.md).
 
-청사진 서비스는 리소스를 직접 배포 하지 않습니다.
+The Blueprints service doesn't directly deploy the resources.
 
-## <a name="the-blueprint-assignment-object-is-created"></a>청사진 할당 개체가 만들어집니다.
+## <a name="the-blueprint-assignment-object-is-created"></a>The blueprint assignment object is created
 
-사용자, 그룹 또는 서비스 사용자가 청사진을 구독에 할당 합니다. 할당 개체는 청사진이 할당 된 구독 수준에 있습니다. 배포를 통해 생성 된 리소스는 배포 하는 엔터티의 컨텍스트에서 수행 되지 않습니다.
+A user, group, or service principal assigns a blueprint to a subscription. The assignment object exists at the subscription level where the blueprint was assigned. Resources created by the deployment aren't done in context of the deploying entity.
 
-청사진 할당을 만드는 동안 [관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 유형이 선택 됩니다. 기본값은 **시스템 할당** 관리 id입니다. **사용자 할당** 관리 id를 선택할 수 있습니다. **사용자 할당** 관리 id를 사용 하는 경우 청사진 할당을 만들기 전에 해당 id를 정의 하 고 권한을 부여 해야 합니다. [소유자](../../../role-based-access-control/built-in-roles.md#owner) 및 [청사진 연산자](../../../role-based-access-control/built-in-roles.md#blueprint-operator) 기본 제공 역할에는 **사용자 할당** 관리 id를 사용 하는 할당을 만드는 데 필요한 `blueprintAssignment/write` 권한이 있습니다.
+While creating the blueprint assignment, the type of [managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) is selected. The default is a **system-assigned** managed identity. A **user-assigned** managed identity can be chosen. When using a **user-assigned** managed identity, it must be defined and granted permissions before the blueprint assignment is created. Both the [Owner](../../../role-based-access-control/built-in-roles.md#owner) and [Blueprint Operator](../../../role-based-access-control/built-in-roles.md#blueprint-operator) built-in roles have the necessary `blueprintAssignment/write` permission to create an assignment that uses a **user-assigned** managed identity.
 
-## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>선택 사항-청사진에서 시스템 할당 관리 id를 만듭니다.
+## <a name="optional---blueprints-creates-system-assigned-managed-identity"></a>Optional - Blueprints creates system-assigned managed identity
 
-할당 중에 [시스템 할당 관리 id](../../../active-directory/managed-identities-azure-resources/overview.md) 를 선택 하면 청사진은 id를 만들고 관리 id에 [소유자](../../../role-based-access-control/built-in-roles.md#owner) 역할을 부여 합니다. [기존 할당이 업그레이드 되](../how-to/update-existing-assignments.md)면 청사진은 이전에 만든 관리 id를 사용 합니다.
+When [system-assigned managed identity](../../../active-directory/managed-identities-azure-resources/overview.md) is selected during assignment, Blueprints creates the identity and grants the managed identity the [owner](../../../role-based-access-control/built-in-roles.md#owner) role. If an [existing assignment is upgraded](../how-to/update-existing-assignments.md), Blueprints uses the previously created managed identity.
 
-청사진 할당과 관련 된 관리 id는 청사진에 정의 된 리소스를 배포 하거나 다시 배포 하는 데 사용 됩니다. 이 디자인은 실수로 서로 방해 하는 할당을 방지 합니다.
-또한이 디자인은 청사진에서 배포 된 각 리소스의 보안을 제어 하 여 [리소스 잠금](./resource-locking.md) 기능을 지원 합니다.
+The managed identity related to the blueprint assignment is used to deploy or redeploy the resources defined in the blueprint. This design avoids assignments inadvertently interfering with each other.
+This design also supports the [resource locking](./resource-locking.md) feature by controlling the security of each deployed resource from the blueprint.
 
-## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>관리 id가 청사진 아티팩트를 배포 합니다.
+## <a name="the-managed-identity-deploys-blueprint-artifacts"></a>The managed identity deploys blueprint artifacts
 
-그런 다음 관리 되는 id는 청사진 내에서 정의 된 [시퀀싱 순서로](./sequencing-order.md)아티팩트의 리소스 관리자 배포를 트리거합니다. 다른 아티팩트에 종속 된 아티팩트를 올바른 순서로 배포 하도록 순서를 조정할 수 있습니다.
+The managed identity then triggers the Resource Manager deployments of the artifacts within the blueprint in the defined [sequencing order](./sequencing-order.md). The order can be adjusted to ensure artifacts dependent on other artifacts are deployed in the correct order.
 
-배포에의 한 액세스 오류는 관리 되는 id에 부여 된 액세스 수준으로 인해 발생 하는 경우가 많습니다. 청사진 서비스는 **시스템 할당** 관리 id의 보안 수명 주기를 관리 합니다. 그러나 사용자는 **사용자 할당** 관리 id의 권한 및 수명 주기를 관리 해야 합니다.
+An access failure by a deployment is often the result of the level of access granted to the managed identity. The Blueprints service manages the security lifecycle of the **system-assigned** managed identity. However, the user is responsible for managing the rights and lifecycle of a **user-assigned** managed identity.
 
-## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>청사진 서비스 및 시스템 할당 관리 id 권한이 해지 됩니다.
+## <a name="blueprint-service-and-system-assigned-managed-identity-rights-are-revoked"></a>Blueprint service and system-assigned managed identity rights are revoked
 
-배포가 완료 되 면 청사진은 구독에서 **시스템 할당** 관리 id의 권한을 취소 합니다. 그런 다음 청사진 서비스는 구독에서 해당 권한을 해지 합니다. 권한 제거를 통해 청사진은 구독의 영구 소유자가 되지 않습니다.
+Once the deployments are completed, Blueprints revokes the rights of the **system-assigned** managed identity from the subscription. Then, the Blueprints service revokes its rights from the subscription. Rights removal prevents Blueprints from becoming a permanent owner on a subscription.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.service: cost-management-billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: ed08a457ac00da7b40dc267cc1eb3b61db9df297
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 08c459a3c32b44df2d9e5cf783087dd34d660292
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224390"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463320"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 한도, 할당량 및 제약 조건
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. Over time, the list will be expanded and updated to cover more services.
@@ -76,6 +76,7 @@ In the following list of limits, a new table reflects any differences in limits 
 * [Event Hubs](#event-hubs-limits)
 * [Front Door Service](#azure-front-door-service-limits)
 * [Identity Manager](#identity-manager-limits)
+* [IoT Central](#iot-central-limits)
 * [IoT Hub](#iot-hub-limits)
 * [IoT Hub Device Provisioning Service](#iot-hub-device-provisioning-service-limits)
 * [Key Vault](#key-vault-limits)
@@ -329,6 +330,9 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ### <a name="service-bus-limits"></a>Service Bus 제한
 [!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
+
+### <a name="iot-central-limits"></a>IoT Central limits
+[!INCLUDE [iot-central-limits](../includes/iot-central-limits.md)]
 
 ### <a name="iot-hub-limits"></a>IoT Hub 제한
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]

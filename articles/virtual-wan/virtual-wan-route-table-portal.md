@@ -1,6 +1,6 @@
 ---
-title: '가상 WAN: NVA에 대 한 가상 허브 경로 테이블 만들기: Azure Portal'
-description: 포털을 사용 하 여 네트워크 가상 어플라이언스로 트래픽을 유도 하는 가상 WAN 가상 허브 경로 테이블
+title: 'Virtual WAN: Create virtual hub route table to NVA: Azure portal'
+description: Virtual WAN virtual hub route table to steer traffic to a network virtual appliance using the portal.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 8f24b94226daffb769993c9f6659909fdff039b6
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014975"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482018"
 ---
-# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Nva에 대 한 가상 WAN 허브 경로 테이블 만들기: Azure Portal
+# <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Create a Virtual WAN hub route table for NVAs: Azure portal
 
-이 문서에서는 허브에서 NVA (네트워크 가상 어플라이언스)로 트래픽을 유도 하는 방법을 보여 줍니다.
+This article shows you how to steer traffic from a branch (on-premises site) connected to the Virtual WAN hub to a Spoke Vnet via a Network Virtual Appliance (NVA).
 
 ![Virtual WAN 다이어그램](./media/virtual-wan-route-table/vwanroute.png)
 
@@ -25,63 +25,63 @@ ms.locfileid: "74014975"
 
 다음 기준을 충족하는지 확인합니다.
 
-*  NVA (네트워크 가상 어플라이언스)가 있습니다. 네트워크 가상 어플라이언스는 일반적으로 가상 네트워크의 Azure Marketplace에서 프로 비전 되는 사용자가 선택한 타사 소프트웨어입니다.
+*  You have a Network Virtual Appliance (NVA). A Network Virtual Appliance is a third-party software of your choice that is typically provisioned from Azure Marketplace in a virtual network.
 
-    * 개인 IP 주소는 NVA 네트워크 인터페이스에 할당 되어야 합니다.
+    * A private IP address must be assigned to the NVA network interface.
 
-    * NVA는 가상 허브에 배포 되지 않습니다. 별도의 VNet에 배포해야 합니다.
+    * The NVA is not deployed in the virtual hub. 별도의 VNet에 배포해야 합니다.
 
-    *  NVA VNet에는 하나 이상의 가상 네트워크가 연결 되어 있을 수 있습니다. 이 문서에서는 NVA VNet을 ' 간접 스포크 VNet ' 이라고 지칭 합니다. 이러한 Vnet는 VNet 피어 링을 사용 하 여 NVA VNet에 연결할 수 있습니다.
-*  Vnet 2 개를 만들었습니다. 스포크 Vnet 사용 됩니다.
+    *  The NVA VNet may have one or many virtual networks connected to it. In this article, we refer to the NVA VNet as an 'indirect spoke VNet'. These VNets can be connected to the NVA VNet by using VNet peering. The Vnet Peering links are depicted by black arrows in the above figure.
+*  You have created 2 VNets. They will be used as spoke VNets.
 
-    * 이 연습에서 VNet 스포크 주소 공간은: VNet1:10.0.2.0/24 및 VNet2:10.0.3.0/24입니다. VNet을 만드는 방법에 대 한 정보가 필요한 경우 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md)를 참조 하세요.
+    * For this exercise, the VNet spoke address spaces are: VNet1: 10.0.2.0/24 and VNet2: 10.0.3.0/24. If you need information on how to create a VNet, see [Create a virtual network](../virtual-network/quick-create-portal.md).
 
-    * Vnet에 가상 네트워크 게이트웨이가 없는지 확인 합니다.
-    * 이 구성의 경우 이러한 Vnet에는 게이트웨이 서브넷이 필요 하지 않습니다.
+    * Ensure there are no virtual network gateways in any of the VNets.
+    * For this configuration, these VNets do not require a gateway subnet.
 
-## <a name="signin"></a>1. 로그인
+## <a name="signin"></a>1. Sign in
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-## <a name="vwan"></a>2. 가상 WAN 만들기
+## <a name="vwan"></a>2. Create a virtual WAN
 
-가상 WAN 만들기 이 연습에서는 다음 값을 사용할 수 있습니다.
+가상 WAN 만들기 For the purposes of this exercise, you can use the following values:
 
-* **가상 wan 이름:** myvirtualwan
-* **리소스 그룹:** testRG
-* **위치:** 미국 서 부
+* **Virtual WAN name:** myVirtualWAN
+* **Resource group:** testRG
+* **Location:** West US
 
 [!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-tutorial-vwan-include.md)]
 
-## <a name="hub"></a>3. 허브 만들기
+## <a name="hub"></a>3. Create a hub
 
-허브를 만듭니다. 이 연습에서는 다음 값을 사용할 수 있습니다.
+Create the hub. For the purposes of this exercise, you can use the following values:
 
-* **위치:** 미국 서 부
-* **이름:** westushub
-* **허브 개인 주소 공간:** 10.0.1.0/24
+* **Location:** West US
+* **Name:** westushub
+* **Hub private address space:** 10.0.1.0/24
 
 [!INCLUDE [Create a hub](../../includes/virtual-wan-tutorial-hub-include.md)]
 
-## <a name="route"></a>4. 허브 경로 테이블 만들기 및 적용
+## <a name="route"></a>4. Create and apply a hub route table
 
-허브 경로 테이블로 허브를 업데이트 합니다. 이 연습에서는 다음 값을 사용할 수 있습니다.
+Update the hub with a hub route table. For the purposes of this exercise, you can use the following values:
 
-* **간접 스포크 VNet 주소 공간:** (VNet1 및 VNet2) 10.0.2.0/24 및 10.0.3.0/24
-* **DMZ NVA 네트워크 인터페이스 개인 IP 주소:** 10.0.4.5
+* **Indirect spoke VNet address spaces:** (VNet1 and VNet2) 10.0.2.0/24 and 10.0.3.0/24
+* **DMZ NVA network interface private IP address:** 10.0.4.5
 
-1. 가상 WAN으로 이동 합니다.
-2. 경로 테이블을 만들려는 허브를 클릭 합니다.
-3. **...를 클릭**한 다음 **가상 허브 편집**을 클릭 합니다.
-4. **가상 허브 편집** 페이지에서 아래로 스크롤하여 **라우팅에 대 한 테이블 사용**확인란을 선택 합니다.
-5. **대상 접두사** 열에 주소 공간을 추가 합니다. **다음 홉으로 보내기** 열에서 DMZ nva 네트워크 인터페이스 개인 IP 주소를 추가 합니다.
-6. **확인** 을 클릭 하 여 경로 테이블 설정으로 허브 리소스를 업데이트 합니다.
+1. Navigate to your virtual WAN.
+2. Click the hub for which you want to create a route table.
+3. Click the **...** , and then click **Edit virtual hub**.
+4. On the **Edit virtual hub** page, scroll down and select the checkbox **Use table for routing**.
+5. In the **If destination prefix is** column, add the address spaces. In the **Send to next hop** column, add the DMZ NVA network interface private IP address.
+6. Click **Confirm** to update the hub resource with the route table settings.
 
-## <a name="connections"></a>5. VNet 연결 만들기
+## <a name="connections"></a>5. Create the VNet connections
 
-각 간접 스포크 VNet (VNet1 및 VNet2)에서 허브로의 연결을 만듭니다. 그런 다음 NVA VNet에서 허브로의 연결을 만듭니다.
+Create a connection from each indirect spoke VNet (VNet1 and VNet2) to the hub. Then, create a connection from the NVA VNet to the hub. These Vnet Connections are dipicted by blue arrows in the figure above. 
 
- 이 단계에서는 다음 값을 사용할 수 있습니다.
+ For this step, you can use the following values:
 
 | VNet 이름| 연결 이름|
 | --- | --- |
@@ -89,7 +89,7 @@ ms.locfileid: "74014975"
 | VNet2 | testconnection2 |
 | NVAVNet | testconnection3 |
 
-연결 하려는 각 VNet에 대해 다음 절차를 반복 합니다.
+Repeat the following procedure for each VNet that you want to connect.
 
 1. 가상 WAN에 대한 페이지에서 **가상 네트워크 연결**을 클릭합니다.
 2. 가상 네트워크 연결 페이지에서 **+연결 추가**를 클릭합니다.

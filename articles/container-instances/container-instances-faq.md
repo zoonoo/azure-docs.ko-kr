@@ -1,105 +1,101 @@
 ---
-title: Azure Container Instances-질문과 대답
-description: Azure Container Instances 서비스와 관련 된 faq (질문과 대답)
-services: container-instances
+title: FAQ(질문과 대답)
+description: Answers for frequently asked questions related to the Azure Container Instances service
 author: dkkapur
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 4/25/2019
-ms.author: dekapur
-ms.openlocfilehash: 29d31e2076e0ff5ddf4f84df13ac2eede482c052
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5888efe210ab0f3794895d350c5647b6f685880
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326003"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484127"
 ---
-# <a name="frequently-asked-questions-about-azure-container-instances"></a>Azure Container Instances에 대 한 질문과 대답
+# <a name="frequently-asked-questions-about-azure-container-instances"></a>Frequently asked questions about Azure Container Instances
 
-이 문서에서는 Azure Container Instances에 대 한 자주 묻는 질문을 해결 합니다.
+This article addresses frequently asked questions about Azure Container Instances.
 
 ## <a name="deployment"></a>배포
 
-### <a name="how-large-can-my-container-image-be"></a>컨테이너 이미지의 크기는 얼마나 되나요?
+### <a name="how-large-can-my-container-image-be"></a>How large can my container image be?
 
-Azure Container Instances에서 배포 가능한 컨테이너 이미지의 최대 크기는 15 GB입니다. 배포 하는 순간에 정확한 가용성에 따라 더 큰 이미지를 배포할 수 있지만이는 보장 되지 않습니다.
+The maximum size for a deployable container image on Azure Container Instances is 15 GB. You might be able to deploy larger images depending on the exact availability at the moment you deploy, but this is not guaranteed.
 
-컨테이너 이미지의 크기는 배포 하는 데 걸리는 시간에 영향을 주므로 일반적으로 컨테이너 이미지를 최대한 작게 유지 하려고 합니다.
+The size of your container image impacts how long it takes to deploy, so generally you want to keep your container images as small as possible.
 
-### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>내 컨테이너 배포를 가속화 하려면 어떻게 해야 하나요?
+### <a name="how-can-i-speed-up-the-deployment-of-my-container"></a>How can I speed up the deployment of my container?
 
-배포 시간의 주요 택배 중 하나는 이미지 크기 이므로 크기를 줄이는 방법을 찾아보십시오. 필요 하지 않은 계층을 제거 하거나 더 밝은 기본 OS 이미지를 선택 하 여 이미지의 계층 크기를 줄입니다. 예를 들어 Linux 컨테이너를 실행 하는 경우 전체 Ubuntu 서버가 아닌 기본 이미지로 알파인를 사용 하는 것이 좋습니다. 마찬가지로 Windows 컨테이너의 경우 가능 하면 Nano Server 기본 이미지를 사용 합니다. 
+Because one of the main determinants of deployment times is the image size, look for ways to reduce the size. Remove layers you don't need, or reduce the size of layers in the image (by picking a lighter base OS image). For example, if you're running Linux containers, consider using Alpine as your base image rather than a full Ubuntu Server. Similarly, for Windows containers, use a Nano Server base image if possible. 
 
-또한 [캐시 된 이미지 나열](/rest/api/container-instances/listcachedimages) API를 통해 사용할 수 있는 Azure Container images의 미리 캐시 된 이미지 목록을 확인 해야 합니다. 미리 캐시 된 이미지 중 하나에 대 한 이미지 계층을 전환할 수 있습니다. 
+You should also check the list of pre-cached images in Azure Container Images, available via the [List Cached Images](/rest/api/container-instances/listcachedimages) API. You might be able to switch out an image layer for one of the pre-cached images. 
 
-컨테이너 시작 시간을 줄이는 방법에 대 한 자세한 [지침](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) 을 참조 하세요.
+See more [detailed guidance](container-instances-troubleshooting.md#container-takes-a-long-time-to-start) on reducing container startup time.
 
-### <a name="what-windows-base-os-images-are-supported"></a>지원 되는 Windows 기반 OS 이미지는 무엇 인가요?
+### <a name="what-windows-base-os-images-are-supported"></a>What Windows base OS images are supported?
 
-#### <a name="windows-server-2016-base-images"></a>Windows Server 2016 기본 이미지
+#### <a name="windows-server-2016-base-images"></a>Windows Server 2016 base images
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`,`sac2016`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,`10.0.14393.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `10.0.14393.x`, `sac2016`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2016`,  `10.0.14393.x`
 
 > [!NOTE]
-> 반기 채널 릴리스 1709 또는 1803을 기반으로 하는 Windows 이미지는 지원 되지 않습니다.
+> Windows images based on Semi-Annual Channel release 1709 or 1803 are not supported.
 
-#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 및 클라이언트 기본 이미지 (미리 보기)
+#### <a name="windows-server-2019-and-client-base-images-preview"></a>Windows Server 2019 and client base images (preview)
 
-* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`,`10.0.17763.x`
-* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`,`10.0.17763.x`
+* [Nano Server](https://hub.docker.com/_/microsoft-windows-nanoserver): `1809`, `10.0.17763.x`
+* [Windows Server Core](https://hub.docker.com/_/microsoft-windows-servercore): `ltsc2019`, `1809`, `10.0.17763.x`
 * [Windows](https://hub.docker.com/_/microsoft-windows): `1809`, `10.0.17763.x` 
 
-### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>컨테이너에서 사용 해야 하는 .NET 또는 .NET Core 이미지 계층은 무엇 인가요? 
+### <a name="what-net-or-net-core-image-layer-should-i-use-in-my-container"></a>What .NET or .NET Core image layer should I use in my container? 
 
-요구 사항에 맞는 가장 작은 이미지를 사용 합니다. Linux의 경우 .NET Core 2.1의 릴리스 이후 지원 된 *런타임 알파인* .net Core 이미지를 사용할 수 있습니다. Windows의 경우 전체 .NET Framework를 사용 하는 경우 Windows Server Core 이미지 ( *4.7.2-windowsservercore-ltsc2016*와 같은 런타임 전용 이미지)를 사용 해야 합니다. 런타임 전용 이미지는 작지만 .NET SDK를 필요로 하는 워크 로드를 지원 하지 않습니다.
+Use the smallest image that satisfies your requirements. For Linux, you could use a *runtime-alpine* .NET Core image, which has been supported since the release of .NET Core 2.1. For Windows, if you are using the full .NET Framework, then you need to use a Windows Server Core image (runtime-only image, such as  *4.7.2-windowsservercore-ltsc2016*). Runtime-only images are smaller but do not support workloads that require the .NET SDK.
 
-## <a name="availability-and-quotas"></a>가용성 및 할당량
+## <a name="availability-and-quotas"></a>Availability and quotas
 
-### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>컨테이너 또는 컨테이너 그룹에 할당 해야 하는 코어 및 메모리는 몇 개입니까?
+### <a name="how-many-cores-and-memory-should-i-allocate-for-my-containers-or-the-container-group"></a>How many cores and memory should I allocate for my containers or the container group?
 
-이는 작업에 따라 크게 달라 집니다. 소규모 및 테스트 성능을 시작 하 여 컨테이너의 성능을 확인 합니다. [CPU 및 메모리 리소스 사용량을 모니터링](container-instances-monitor.md)한 다음 컨테이너에 배포 하는 프로세스 종류에 따라 코어 또는 메모리를 추가 합니다. 
+This really depends on your workload. Start small and test performance to see how your containers do. [Monitor CPU and memory resource usage](container-instances-monitor.md), and then add cores or memory based on the kind of processes that you deploy in the container. 
 
-또한 CPU 코어의 상한 및 컨테이너 그룹당 사용 가능한 메모리에 대해 배포 하는 지역의 [리소스 가용성](container-instances-region-availability.md#availability---general) 을 확인 해야 합니다. 
+Make sure also to check the [resource availability](container-instances-region-availability.md#availability---general) for the region you are deploying in for the upper bounds on CPU cores and memory available per container group. 
 
-### <a name="what-underlying-infrastructure-does-aci-run-on"></a>ACI를 실행 하는 기본 인프라는 무엇 인가요?
+### <a name="what-underlying-infrastructure-does-aci-run-on"></a>What underlying infrastructure does ACI run on?
 
-Azure Container Instances는 서버를 사용 하지 않는 컨테이너 주문형 서비스를 목표로 하므로 인프라에 대해 걱정 하지 않고 컨테이너 개발에 집중 하고자 합니다. 성능에 대 한 비교를 수행 하려는 경우 또는 주로 F 및 D 시리즈에서 다양 한 Sku의 Azure Vm 집합에 대해 ACI를 실행 합니다. 이는 서비스를 계속 개발 하 고 최적화 하기 위해 향후 변경 될 예정입니다. 
+Azure Container Instances aims to be a serverless containers-on-demand service, so we want you to be focused on developing your containers, and not worry about the infrastructure! For those that are curious or wanting to do comparisons on performance, ACI runs on sets of Azure VMs of various SKUs, primarily from the F and the D series. We expect this to change in the future as we continue to develop and optimize the service. 
 
-### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>ACI에 수천 개의 코어를 배포 하려는 경우 할당량을 늘릴 수 있나요?
+### <a name="i-want-to-deploy-thousand-of-cores-on-aci---can-i-get-my-quota-increased"></a>I want to deploy thousand of cores on ACI - can I get my quota increased?
  
-예 (경우에 따라). 현재 할당량에 대 한 [할당량 및 제한](container-instances-quotas.md) 문서와 요청에 따라 증가할 수 있는 제한을 참조 하세요.
+Yes (sometimes). See the [quotas and limits](container-instances-quotas.md) article for current quotas and which limits can be increased by request.
 
-### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>4 개 이상의 코어와 16gb RAM을 사용 하 여 배포할 수 있나요?
+### <a name="can-i-deploy-with-more-than-4-cores-and-16-gb-of-ram"></a>Can I deploy with more than 4 cores and 16 GB of RAM?
 
-아직 없습니다. 현재는 컨테이너 그룹에 대 한 최대값입니다. 특정 요구 사항 또는 요청에 대 한 Azure 지원에 문의 하세요. 
+아직 없습니다. Currently, these are the maximums for a container group. Contact Azure Support with specific requirements or requests. 
 
-### <a name="when-will-aci-be-in-a-specific-region"></a>언제 특정 지역에 있나요?
+### <a name="when-will-aci-be-in-a-specific-region"></a>When will ACI be in a specific region?
 
-현재 지역 가용성은 [여기](container-instances-region-availability.md#availability---general)에 게시 됩니다. 특정 지역에 대 한 요구 사항이 있는 경우 Azure 지원에 문의 하세요.
+Current region availability is published [here](container-instances-region-availability.md#availability---general). If you have a requirement for a specific region, contact Azure Support.
 
-## <a name="features-and-scenarios"></a>기능 및 시나리오
+## <a name="features-and-scenarios"></a>Features and scenarios
 
-### <a name="how-do-i-scale-a-container-group"></a>컨테이너 그룹의 크기를 조정할 어떻게 할까요? 있나요?
+### <a name="how-do-i-scale-a-container-group"></a>How do I scale a container group?
 
-현재 컨테이너 또는 컨테이너 그룹에 대해서는 크기 조정을 사용할 수 없습니다. 더 많은 인스턴스를 실행 해야 하는 경우 API를 사용 하 여 서비스에 대 한 컨테이너 그룹 만들기에 대 한 추가 요청을 자동화 하 고 만듭니다. 
+Currently, scaling is not available for containers or container groups. If you need to run more instances, use our API to automate and create more requests for container group creation to the service. 
 
-### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>사용자 지정 VNet에서 실행 되는 인스턴스에 사용할 수 있는 기능은 무엇 인가요?
+### <a name="what-features-are-available-to-instances-running-in-a-custom-vnet"></a>What features are available to instances running in a custom VNet?
 
-선택한 Azure virtual network에 컨테이너 그룹을 배포 하 고, 개인 Ip를 컨테이너 그룹에 위임 하 여 Azure 리소스를 통해 VNet 내에서 트래픽을 라우팅할 수 있습니다. 컨테이너 그룹을 가상 네트워크에 배포 하는 것은 현재 미리 보기 상태 이며 GA (일반 공급) 전에이 기능의 일부 측면이 변경 될 수 있습니다. 업데이트 된 정보는 [미리 보기 제한 사항](container-instances-vnet.md#preview-limitations) 을 참조 하세요.
+You can deploy container groups in an Azure virtual network of your choice, and delegate private IPs to the container groups to route traffic within the VNet across your Azure resources. Deployment of a container group into a virtual network is currently in preview, and some aspects of this feature may change prior to general availability (GA). See [Preview limitations](container-instances-vnet.md#preview-limitations) for updated information.
 
 ## <a name="pricing"></a>가격
 
-### <a name="when-does-the-meter-start-running"></a>측정기가 실행을 시작 하는 시기는 언제 입니까?
+### <a name="when-does-the-meter-start-running"></a>When does the meter start running?
 
-컨테이너 그룹 기간은 컨테이너 그룹이 중지 될 때까지 첫 번째 컨테이너 이미지를 끌어올 때 (새 배포의 경우) 또는 컨테이너 그룹이 다시 시작 (이미 배포 된 경우) 될 때까지 계산 됩니다. [Container Instances 가격 책정](https://azure.microsoft.com/pricing/details/container-instances/)에서 세부 정보를 참조 하세요.
+Container group duration is calculated from the time that we start to pull your first container's image (for a new deployment) or your container group is restarted (if already deployed), until the container group is stopped. See details at [Container Instances pricing](https://azure.microsoft.com/pricing/details/container-instances/).
 
-### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>컨테이너가 중지 될 때 요금은 중지 됩니까?
+### <a name="do-i-stop-being-charged-when-my-containers-are-stopped"></a>Do I stop being charged when my containers are stopped?
 
-전체 컨테이너 그룹이 중지 된 후에는 측정기 실행이 중지 됩니다. 컨테이너 그룹의 컨테이너가 실행 되는 동안 컨테이너를 다시 시작 하려는 경우에는 리소스를 보유 합니다. 
+Meters stop running once your entire container group is stopped. As long as a container in your container group is running, we hold the resources in case you want to start the containers up again. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* Azure Container Instances에 [대해 자세히 알아보세요](container-instances-overview.md) .
-* Azure Container Instances의 [일반적인 문제를 해결](container-instances-troubleshooting.md) 합니다.
+* [Learn more](container-instances-overview.md) about Azure Container Instances.
+* [Troubleshoot common issues](container-instances-troubleshooting.md) in Azure Container Instances.

@@ -1,59 +1,59 @@
 ---
-title: Windows 가상 데스크톱 MSIX 앱 연결-Azure
-description: Windows 가상 데스크톱에 대 한 MSIX 앱 연결을 설정 하는 방법입니다.
+title: Windows Virtual Desktop MSIX app attach - Azure
+description: How to set up MSIX app attach for Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: b6c56bbe86f2c81421a39ee85e06dec447382833
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74288712"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483814"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
 > [!IMPORTANT]
-> MSIX 앱 연결은 현재 공개 미리 보기로 제공 됩니다.
+> MSIX app attach is currently in public preview.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-이 항목에서는 Windows 가상 데스크톱 환경에서 MSIX 앱 연결을 설정 하는 방법을 안내 합니다.
+This topic will walk you through how to set up MSIX app attach in a Windows Virtual Desktop environment.
 
 ## <a name="requirements"></a>요구 사항
 
-시작 하기 전에 MSIX 앱 연결을 구성 하는 데 필요한 사항은 다음과 같습니다.
+Before you get started, here's what you need to configure MSIX app attach:
 
-- MSIX 앱 연결 Api를 지 원하는 windows 10 버전을 얻으려면 Windows 참가자 포털에 액세스 합니다.
-- 작동 하는 Windows 가상 데스크톱 배포. 자세한 내용은 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)를 참조 하세요.
-- MSIX 패키징 도구
-- MSIX 패키지가 저장 되는 Windows 가상 데스크톱 배포의 네트워크 공유
+- Access to the Windows Insider portal to obtain the version of Windows 10 with support for the MSIX app attach APIs.
+- A functioning Windows Virtual Desktop deployment. For information, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md).
+- The MSIX packaging tool
+- A network share in your Windows Virtual Desktop deployment where the MSIX package will be stored
 
-## <a name="get-the-os-image"></a>OS 이미지 가져오기
+## <a name="get-the-os-image"></a>Get the OS image
 
-먼저 MSIX 앱에 사용할 OS 이미지를 가져와야 합니다. OS 이미지를 가져오려면:
+First, you need to get the OS image you'll use for the MSIX app. To get the OS image:
 
-1. [Windows 참가자 포털](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) 을 열고 로그인 합니다.
+1. Open the [Windows Insider portal](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) and sign in.
 
      >[!NOTE]
-     >Windows Insider portal에 액세스 하려면 Windows Insider program의 구성원 이어야 합니다. Windows 참가자 프로그램에 대해 자세히 알아보려면 [Windows 참가자 설명서](https://docs.microsoft.com/windows-insider/at-home/)를 확인 하세요.
+     >You must be member of the Windows Insider program to access the Windows Insider portal. To learn more about the Windows Insider program, check out our [Windows Insider documentation](https://docs.microsoft.com/windows-insider/at-home/).
 
-2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build XXXXX**를 선택 합니다.
+2. Scroll down to the **Select edition** section and select **Windows 10 Insider Preview Enterprise (FAST) – Build XXXXX**.
 
-3. **확인**을 선택 하 고 사용 하려는 언어를 선택한 후에 다시 **확인** 을 선택 합니다.
+3. Select **Confirm**, then select the language you wish to use, and then select **Confirm** again.
     
      >[!NOTE]
-     >현재이 기능을 사용 하 여 테스트 한 언어는 영어 뿐입니다. 다른 언어를 선택할 수 있지만 의도 한 대로 표시 되지 않을 수 있습니다.
+     >At the moment, English is the only language that has been tested with the feature. You can select other languages, but they may not display as intended.
     
-4. 다운로드 링크가 생성 되 면 **64 비트 다운로드** 를 선택 하 여 로컬 하드 디스크에 저장 합니다.
+4. When the download link is generated, select the **64-bit Download** and save it to your local hard disk.
 
-## <a name="prepare-the-vhd-image-for-azure"></a>Azure에 대 한 VHD 이미지 준비 
+## <a name="prepare-the-vhd-image-for-azure"></a>Prepare the VHD image for Azure 
 
-시작 하기 전에 마스터 VHD 이미지를 만들어야 합니다. 마스터 VHD 이미지를 아직 만들지 않은 경우에는 [마스터 vhd 이미지 준비 및 사용자 지정](set-up-customize-master-image.md) 으로 이동 하 여 지침을 따르세요. 
+Before you get started, you'll need to create a master VHD image. If you haven't created your master VHD image yet, go to [Prepare and customize a master VHD image](set-up-customize-master-image.md) and follow the instructions there. 
 
-마스터 VHD 이미지를 만든 후에는 MSIX 앱 연결 응용 프로그램에 대 한 자동 업데이트를 사용 하지 않도록 설정 해야 합니다. 자동 업데이트를 사용 하지 않도록 설정 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 실행 해야 합니다.
+After you've created your master VHD image, you must disable automatic updates for MSIX app attach applications. To disable automatic updates, you'll need to run the following commands in an elevated command prompt:
 
 ```cmd
 rem Disable Store auto update:
@@ -73,144 +73,144 @@ rem Disable Windows Update:
 sc config wuauserv start=disabled
 ```
 
-그런 다음 Azure에 대 한 VM VHD를 준비 하 고 결과 VHD 디스크를 Azure에 업로드 합니다. 자세히 알아보려면 [마스터 VHD 이미지 준비 및 사용자 지정](set-up-customize-master-image.md)을 참조 하세요.
+Next, prepare the VM VHD for Azure and upload the resulting VHD disk to Azure. To learn more, see [Prepare and customize a master VHD image](set-up-customize-master-image.md).
 
-VHD를 Azure에 업로드 한 후에는 [Azure Marketplace 자습서를 사용 하 여 호스트 풀 만들기](create-host-pools-azure-marketplace.md) 의 지침에 따라이 새 이미지를 기반으로 하는 호스트 풀을 만듭니다.
+Once you've uploaded the VHD to Azure, create a host pool that's based on this new image by following the instructions in the [Create a host pool by using the Azure Marketplace](create-host-pools-azure-marketplace.md) tutorial.
 
-## <a name="prepare-the-application-for-msix-app-attach"></a>MSIX 앱 연결을 위한 응용 프로그램 준비 
+## <a name="prepare-the-application-for-msix-app-attach"></a>Prepare the application for MSIX app attach 
 
-MSIX 패키지가 이미 있는 경우 [Windows 가상 데스크톱 인프라 구성](#configure-windows-virtual-desktop-infrastructure)으로 건너뜁니다. 레거시 응용 프로그램을 테스트 하려면 [VM의 데스크톱 설치 관리자에서 MSIX 패키지 만들기](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) 의 지침에 따라 레거시 응용 프로그램을 msix 패키지로 변환 합니다.
+If you already have an MSIX package, skip ahead to [Configure Windows Virtual Desktop infrastructure](#configure-windows-virtual-desktop-infrastructure). If you want to test legacy applications, follow the instructions in [Create an MSIX package from a desktop installer on a VM](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) to convert the legacy application to an MSIX package.
 
-## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>MSIX 용 VHD 또는 VHDX 패키지 생성
+## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>Generate a VHD or VHDX package for MSIX
 
-패키지는 성능을 최적화 하기 위해 VHD 또는 VHDX 형식입니다. MSIX을 사용 하려면 VHD 또는 VHDX 패키지가 제대로 작동 해야 합니다.
+Packages are in VHD or VHDX format to optimize performance. MSIX requires VHD or VHDX packages to work properly.
 
-MSIX 용 VHD 또는 VHDX 패키지를 생성 하려면:
+To generate a VHD or VHDX package for MSIX:
 
-1. [Msixmgr 도구를 다운로드](https://aka.ms/msixmgr) 하 고 .zip 폴더를 세션 호스트 VM 내의 폴더에 저장 합니다.
+1. [Download the msixmgr tool](https://aka.ms/msixmgr) and save the .zip folder to a folder within a session host VM.
 
-2. Msixmgr tool .zip 폴더의 압축을 풉니다.
+2. Unzip the msixmgr tool .zip folder.
 
-3. 소스 MSIX 패키지를 msixmgr 도구의 압축을 푼 동일한 폴더에 넣습니다.
+3. Put the source MSIX package into the same folder where you unzipped the msixmgr tool.
 
-4. PowerShell에서 다음 cmdlet을 실행 하 여 VHD를 만듭니다.
+4. Run the following cmdlet in PowerShell to create a VHD:
 
     ```powershell
     New-VHD -SizeBytes <size>MB -Path c:\temp\<name>.vhd -Dynamic -Confirm:$false
     ```
 
     >[!NOTE]
-    >VHD의 크기가 확장 된 MSIX을 저장할 만큼 충분히 큰지 확인 합니다. *
+    >Make sure the size of VHD is large enough to hold the expanded MSIX.*
 
-5. 다음 cmdlet을 실행 하 여 새로 만든 VHD를 탑재 합니다.
+5. Run the following cmdlet to mount the newly created VHD:
 
     ```powershell
     $vhdObject = Mount-VHD c:\temp\<name>.vhd -Passthru
     ```
 
-6. 이 cmdlet을 실행 하 여 VHD를 초기화할 수 있습니다.
+6. Run this cmdlet to initialize the VHD:
 
     ```powershell
     $disk = Initialize-Disk -Passthru -Number $vhdObject.Number
     ```
 
-7. 이 cmdlet을 실행 하 여 새 파티션을 만들 수 있습니다.
+7. Run this cmdlet to create a new partition:
 
     ```powershell
     $partition = New-Partition -AssignDriveLetter -UseMaximumSize -DiskNumber $disk.Number
     ```
 
-8. 이 cmdlet을 실행 하 여 파티션을 포맷 합니다.
+8. Run this cmdlet to format the partition:
 
     ```powershell
     Format-Volume -FileSystem NTFS -Confirm:$false -DriveLetter $partition.DriveLetter -Force
     ```
 
-9. 탑재 된 VHD에 부모 폴더를 만듭니다. 이 단계는 MSIX 앱 연결에 부모 폴더가 필요 하므로 필수입니다. 부모 폴더의 이름을 원하는 대로 지정할 수 있습니다.
+9. Create a parent folder on the mounted VHD. This step is mandatory as the MSIX app attach requires a parent folder. You can name the parent folder whatever you like.
 
-### <a name="expand-msix"></a>MSIX 확장
+### <a name="expand-msix"></a>Expand MSIX
 
-그런 후에 압축을 풀고 MSIX 이미지를 "확장" 해야 합니다. MSIX 이미지의 압축을 풀려면:
+After that, you'll need to "expand" the MSIX image by unpacking it. To unpack the MSIX image:
 
-1. 관리자 권한으로 명령 프롬프트를 열고 msixmgr 도구를 다운로드 하 고 압축을 푼 폴더로 이동 합니다.
+1. Open a command prompt as Administrator and navigate to the folder where you downloaded and unzipped the msixmgr tool.
 
-2. 다음 cmdlet을 실행 하 여 이전 섹션에서 만들고 탑재 한 VHD에 MSIX의 압축을 풉니다.
+2. Run the following cmdlet to unpack the MSIX into the VHD you created and mounted in the previous section.
 
     ```powershell
     msixmgr.exe -Unpack -packagePath <package>.msix -destination "f:\<name of folder you created earlier>" -applyacls
     ```
 
-    다음 메시지는 압축 해제가 완료 되 면 표시 됩니다.
+    The following message should appear once unpacking is done:
 
     `Successfully unpacked and applied ACLs for package: <package name>.msix`
 
     >[!NOTE]
-    > 네트워크 내에서 또는 교육용 Microsoft Store의 패키지를 사용 하거나 인터넷에 연결 되지 않은 장치에서 패키지를 사용 하는 경우 스토어에서 패키지 라이선스를 가져온 후 앱을 성공적으로 실행 하기 위해 설치 해야 합니다. [오프 라인에서 패키지 사용](#use-packages-offline)을 참조 하세요.
+    > If using packages from the Microsoft Store for Business (or Education) within your network, or on devices that are not connected to the internet, you will need to obtain the package licenses from the Store and install them to run the app successfully. See [Use packages offline](#use-packages-offline).
 
-3. 탑재 된 VHD로 이동 하 여 앱 폴더를 열고 패키지 콘텐츠가 있는지 확인 합니다.
+3. Navigate to the mounted VHD and open the app folder and confirm package content is present.
 
-4. VHD를 분리 합니다.
+4. Unmount the VHD.
 
-## <a name="configure-windows-virtual-desktop-infrastructure"></a>Windows 가상 데스크톱 인프라 구성
+## <a name="configure-windows-virtual-desktop-infrastructure"></a>Configure Windows Virtual Desktop infrastructure
 
-기본적으로, 단일 MSIX 확장 된 패키지 (이전 섹션에서 만든 VHD)는 읽기 전용 모드에서 Vhd가 연결 될 때 여러 세션 호스트 Vm 간에 공유 될 수 있습니다.
+By design, a single MSIX expanded package (the VHD you created in the previous section) can be shared between multiple session host VMs as the VHDs are attached in read-only mode.
 
-시작 하기 전에 네트워크 공유가 다음과 같은 요구 사항을 충족 하는지 확인 합니다.
+Before you start, make sure your network share meets these requirements:
 
-- 공유가 SMB와 호환 됩니다.
-- 세션 호스트 풀의 일부인 Vm에는 공유에 대 한 NTFS 권한이 있습니다.
+- The share is SMB compatible.
+- The VMs that are part of the session host pool have NTFS permissions to the share.
 
-### <a name="set-up-an-msix-app-attach-share"></a>MSIX 앱 연결 공유 설정 
+### <a name="set-up-an-msix-app-attach-share"></a>Set up an MSIX app attach share 
 
-Windows 가상 데스크톱 환경에서 네트워크 공유를 만들고 해당 위치에서 패키지를 이동 합니다.
+In your Windows Virtual Desktop environment, create a network share and move the package there.
 
 >[!NOTE]
-> 네트워크 공유를 만드는 모범 사례는 NTFS 읽기 전용 권한을 사용 하 여 네트워크 공유를 설정 하는 것입니다.
+> The best practice for creating MSIX network shares is to set up the network share with NTFS read-only permissions.
 
-## <a name="install-certificates"></a>인증서 설치
+## <a name="install-certificates"></a>Install certificates
 
-앱이 공개적으로 신뢰할 수 없는 인증서 또는 자체 서명 된 인증서를 사용 하는 경우 설치 하는 방법은 다음과 같습니다.
+If your app uses a certificate that isn't public-trusted or was self-signed, here's how to install it:
 
-1. 패키지를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다.
-2. 표시 되는 창에서 **디지털 서명** 탭을 선택 합니다. 다음 그림에 표시 된 것 처럼 탭의 목록에는 하나의 항목만 있어야 합니다. 해당 항목을 선택 하 여 항목을 강조 표시 한 다음 * * De를 선택 합니다.
-3. 디지털 신호 정보 창이 표시 되 면 **일반** 탭을 선택 하 고 **인증서 설치**를 선택 합니다.
-4. 설치 관리자가 열리면 **로컬 컴퓨터** 를 저장소 위치로 선택 하 고 **다음**을 선택 합니다.
-5. 응용 프로그램에서 장치를 변경할 수 있도록 허용할지 묻는 메시지가 표시 되 면 **예**를 선택 합니다.
-6. **모든 인증서를 다음 저장소에**저장을 선택한 다음 **찾아보기**를 선택 합니다.
-7. 인증서 저장소 선택 창이 표시 되 면 **신뢰할 수 있는 사용자**를 선택 하 고 **확인**을 선택 합니다.
+1. Right-click the package and select **Properties**.
+2. In the window that appears, select the **Digital signatures** tab. There should be only one item in the list on the tab, as shown in the following image. Select that item to highlight the item, then select **De
+3. When the digital signal details window appears, select the **General** tab, then select **Install certificate**.
+4. When the installer opens, select **local machine** as your storage location, then select **Next**.
+5. If the installer asks you if you want to allow the app to make changes to your device, select **Yes**.
+6. Select **Place all certificates in the following store**, then select **Browse**.
+7. When the select certificate store window appears, select **Trusted people**, then select **OK**.
 8. **마침**을 선택합니다.
 
-## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>MSIX 앱 연결을 위한 PowerShell 스크립트 준비
+## <a name="prepare-powershell-scripts-for-msix-app-attach"></a>Prepare PowerShell scripts for MSIX app attach
 
-MSIX 앱 연결에는 다음 순서 대로 수행 해야 하는 4 개의 고유한 단계가 있습니다.
+MSIX app attach has four distinct phases that must be performed in the following order:
 
-1. 단계
+1. Stage
 2. 등록
-3. 취소할
-4. 디
+3. Deregister
+4. Destage
 
-각 단계에서 PowerShell 스크립트를 만듭니다. 각 단계에 대 한 샘플 스크립트는 [여기](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach)에서 사용할 수 있습니다.
+Each phase creates a PowerShell script. Sample scripts for each phase are available [here](https://github.com/Azure/RDS-Templates/tree/master/msix-app-attach).
 
-### <a name="stage-the-powershell-script"></a>PowerShell 스크립트 준비
+### <a name="stage-the-powershell-script"></a>Stage the PowerShell script
 
-PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 볼륨 GUID가 있는지 확인 합니다. 볼륨 GUID를 가져오려면:
+Before you update the PowerShell scripts, make sure you have the volume GUID of the volume in the VHD. To get the volume GUID:
 
-1.  스크립트를 실행할 VM 내에서 VHD가 있는 네트워크 공유를 엽니다.
+1.  Open the network share where the VHD is located inside the VM where you'll run the script.
 
-2.  VHD를 마우스 오른쪽 단추로 클릭 하 고 **탑재**를 선택 합니다. 그러면 VHD가 드라이브 문자에 탑재 됩니다.
+2.  Right-click the VHD and select **Mount**. This will mount the VHD to a drive letter.
 
-3.  VHD를 탑재 한 후에는 **파일 탐색기** 창이 열립니다. 부모 폴더를 캡처하고 **\$parentfolder** 변수를 업데이트 합니다.
+3.  After you mount the VHD, the **File Explorer** window will open. Capture the parent folder and update the **\$parentFolder** variable
 
     >[!NOTE]
-    >부모 폴더가 표시 되지 않으면 MSIX이 제대로 확장 되지 않았음을 의미 합니다. 이전 섹션을 다시 실행 하 고 다시 시도 하세요.
+    >If you don't see a parent folder, that means the MSIX wasn't expanded properly. Redo the previous section and try again.
 
-4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **\$packageName** 변수를 업데이트 합니다.
+4.  Open the parent folder. If correctly expanded, you'll see a folder with the same name as the package. Update the **\$packageName** variable to match the name of this folder.
 
-    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
 
-5.  명령 프롬프트를 열고 **mountvol**을 입력 합니다. 이 명령은 볼륨과 해당 Guid의 목록을 표시 합니다. 2 단계에서 드라이브 문자가 VHD를 탑재 한 드라이브와 일치 하는 볼륨의 GUID를 복사 합니다.
+5.  Open a command prompt and enter **mountvol**. This command will display a list of volumes and their GUIDs. Copy the GUID of the volume where the drive letter matches the drive you mounted your VHD to in step 2.
 
-    예를 들어, mountvol 명령에 대 한이 예제 출력에서 VHD를 C 드라이브에 탑재 한 경우 `C:\`위의 값을 복사 합니다.
+    For example, in this example output for the mountvol command, if you mounted your VHD to Drive C, you'll want to copy the value above `C:\`:
 
     ```cmd
     Possible values for VolumeName along with current mount points are:
@@ -227,9 +227,9 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
     ```
 
 
-6.  방금 복사한 볼륨 GUID를 사용 하 여 **\$volumeGuid** 변수를 업데이트 합니다.
+6.  Update the **\$volumeGuid** variable with the volume GUID you just copied.
 
-7. 관리자 PowerShell 프롬프트를 열고 사용자 환경에 적용 되는 변수를 사용 하 여 다음 PowerShell 스크립트를 업데이트 합니다.
+7. Open an Admin PowerShell prompt and update the following PowerShell script with the variables that apply to your environment.
 
     ```powershell
     #MSIX app attach staging sample
@@ -321,9 +321,9 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
     #endregion
     ```
 
-### <a name="register-powershell-script"></a>PowerShell 스크립트 등록
+### <a name="register-powershell-script"></a>Register PowerShell script
 
-등록 스크립트를 실행 하려면 자리 표시자 값을 사용자 환경에 적용 되는 값으로 대체 하 여 다음 PowerShell cmdlet을 실행 합니다.
+To run the register script, run the following PowerShell cmdlets with the placeholder values replaced with values that apply to your environment.
 
 ```powershell
 #MSIX app attach registration sample
@@ -343,9 +343,9 @@ Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
 #endregion
 ```
 
-### <a name="deregister-powershell-script"></a>PowerShell 스크립트 등록 취소
+### <a name="deregister-powershell-script"></a>Deregister PowerShell script
 
-이 스크립트의 경우 **\$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach deregistration sample
@@ -363,9 +363,9 @@ Remove-AppxPackage -PreserveRoamableApplicationData $packageName
 #endregion
 ```
 
-### <a name="destage-powershell-script"></a>디 스테이지 PowerShell 스크립트
+### <a name="destage-powershell-script"></a>Destage PowerShell script
 
-이 스크립트의 경우 **\$packageName** 의 자리 표시자를 테스트 중인 패키지의 이름으로 바꿉니다.
+For this script, replace the placeholder for **\$packageName** with the name of the package you're testing.
 
 ```powershell
 #MSIX app attach de staging sample
@@ -389,30 +389,30 @@ rmdir $packageName -Force -Verbose
 #endregion
 ```
 
-## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>MSIX 앱 연결 에이전트에 대 한 시뮬레이션 스크립트 설정
+## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>Set up simulation scripts for the MSIX app attach agent
 
-스크립트를 만든 후 사용자는 수동으로 실행 하거나 시작, 로그온, 로그 오프 및 종료 스크립트로 자동 실행 되도록 설정할 수 있습니다. 이러한 유형의 스크립트에 대 한 자세한 내용은 [그룹 정책 사용 sartup, 종료, 로그온 및 로그 오프 스크립트](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11))를 참조 하세요.
+After you create the scripts, users can manually run them or set them up to run automatically as startup, logon, logoff, and shutdown scripts. To learn more about these types of scripts, see [Using startup, shutdown, logon, and logoff scripts in Group Policy](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)).
 
-이러한 각 자동 스크립트는 앱 연결 스크립트의 한 단계를 실행 합니다.
+Each of these automatic scripts runs one phase of the app attach scripts:
 
-- 시작 스크립트는 단계 스크립트를 실행 합니다.
-- Logon 스크립트는 register 스크립트를 실행 합니다.
-- 로그 오프 스크립트는 등록 취소 스크립트를 실행 합니다.
-- 종료 스크립트는 디 스테이지 스크립트를 실행 합니다.
+- The startup script runs the stage script.
+- The logon script runs the register script.
+- The logoff script runs the deregister script.
+- The shutdown script runs the destage script.
 
-## <a name="use-packages-offline"></a>오프 라인으로 패키지 사용
+## <a name="use-packages-offline"></a>Use packages offline
 
-[회사의 Microsoft Store](https://businessstore.microsoft.com/) 또는 네트워크 내의 [교육용 Microsoft Store](https://educationstore.microsoft.com/) 또는 인터넷에 연결 되지 않은 장치에서 패키지를 사용 하는 경우 앱을 성공적으로 실행 하려면 Microsoft Store에서 패키지 라이선스를 가져온 후 장치에 설치 해야 합니다. 장치가 온라인 상태이 고 비즈니스용 Microsoft Store에 연결할 수 있는 경우 필요한 라이선스를 자동으로 다운로드 해야 하지만, 오프 라인 상태인 경우에는 라이선스를 수동으로 설정 해야 합니다. 
+If you're using packages from the [Microsoft Store for Business](https://businessstore.microsoft.com/) or the [Microsoft Store for Education](https://educationstore.microsoft.com/) within your network or on devices that aren't connected to the internet, you need to get the package licenses from the Microsoft Store and install them on your device to successfully run the app. If your device is online and can connect to the Microsoft Store for Business, the required licenses should download automatically, but if you're offline, you'll need to set up the licenses manually. 
 
-라이선스 파일을 설치 하려면 WMI 브리지 공급자에서 MDM_EnterpriseModernAppManagement_StoreLicenses02_01 클래스를 호출 하는 PowerShell 스크립트를 사용 해야 합니다.  
+To install the license files, you'll need to use a PowerShell script that calls the MDM_EnterpriseModernAppManagement_StoreLicenses02_01 class in the WMI Bridge Provider.  
 
-오프 라인 사용을 위해 라이선스를 설정 하는 방법은 다음과 같습니다. 
+Here's how to set up the licenses for offline use: 
 
-1. 비즈니스용 Microsoft Store에서 앱 패키지, 라이선스 및 필수 프레임 워크를 다운로드 합니다. 인코딩된 및 인코딩되지 않은 라이선스 파일이 모두 필요 합니다. 자세한 다운로드 지침은 [여기](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)에서 찾을 수 있습니다.
-2. 3 단계에 대 한 스크립트에서 다음 변수를 업데이트 합니다.
-      1. `$contentID`은 인코딩되지 않은 라이선스 파일 (.xml)의 ContentID 값입니다. 선택한 텍스트 편집기에서 라이선스 파일을 열 수 있습니다.
-      2. `$licenseBlob`은 인코딩된 라이선스 파일 (. bin)의 라이선스 blob에 대 한 전체 문자열입니다. 선택한 텍스트 편집기에서 인코딩된 라이선스 파일을 열 수 있습니다. 
-3. 관리자 PowerShell 프롬프트에서 다음 스크립트를 실행 합니다. [준비 스크립트](#stage-the-powershell-script) 의 끝 부분에는 관리자 프롬프트에서 실행 해야 하는 라이선스 설치를 수행 하는 것이 좋습니다.
+1. Download the app package, licenses, and required frameworks from the Microsoft Store for Business. You need both the encoded and unencoded license files. Detailed download instructions can be found [here](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app).
+2. Update the following variables in the script for step 3:
+      1. `$contentID` is the ContentID value from the Unencoded license file (.xml). You can open the license file in a text editor of your choice.
+      2. `$licenseBlob` is the entire string for the license blob in the Encoded license file (.bin). You can open the encoded license file in a text editor of your choice. 
+3. Run the following script from an Admin PowerShell prompt. A good place to perform license installation is at the end of the [staging script](#stage-the-powershell-script) that also needs to be run from an Admin prompt.
 
 ```powershell
 $namespaceName = "root\cimv2\mdm\dmmap"
@@ -450,6 +450,6 @@ catch [Exception]
 
 ## <a name="next-steps"></a>다음 단계
 
-이 기능은 현재 지원 되지 않지만 [Windows 가상 데스크톱 TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)커뮤니티에 질문할 수 있습니다.
+This feature isn't currently supported, but you can ask questions to the community at the [Windows Virtual Desktop TechCommunity](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop).
 
-또한 windows 가상 데스크톱 [피드백 허브](https://aka.ms/MRSFeedbackHub)에서 Windows 가상 데스크톱에 대 한 피드백을 유지 하거나 [msix 앱](https://aka.ms/msixappattachfeedback) 에 대 한 피드백 허브 및 [msix 패키징 도구 피드백](https://aka.ms/msixtoolfeedback)허브에서 msix 앱 및 패키징 도구에 대 한 피드백을 남길 수 있습니다.
+You can also leave feedback for Windows Virtual Desktop at the [Windows Virtual Desktop feedback hub](https://aka.ms/MRSFeedbackHub), or leave feedback for the MSIX app and packaging tool at the [MSIX app attach feedback hub](https://aka.ms/msixappattachfeedback) and the [MSIX packaging tool feedback hub](https://aka.ms/msixtoolfeedback).

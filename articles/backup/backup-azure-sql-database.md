@@ -3,12 +3,12 @@ title: Azure에 SQL Server 데이터베이스 백업
 description: 이 문서에서는 Azure에 SQL Server를 백업하는 방법을 설명합니다. SQL Server 복구에 대해서도 설명합니다.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: 811f04edb4d5f0326d0af629146b7cee10424df8
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 39f2348a95be95a03dada45d48952dce99ec4ec7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172642"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74462581"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Azure VM의 SQL Server 백업 정보
 
@@ -51,7 +51,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 * SQL Server 백업은 Azure Portal 또는 **PowerShell**에서 구성할 수 있습니다. CLI는 지원되지 않습니다.
 * 솔루션은 Azure Resource Manager VM과 클래식 VM의 두 종류 [배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model)에서 모두 지원됩니다.
 * SQL Server를 실행하는 VM에서 Azure 공용 IP 주소에 액세스하려면 인터넷 연결이 필요합니다.
-* SQL Server **장애 조치(failover) 클러스터 인스턴스(FCI)** 및 SQL Server Always On 장애 조치(failover) 클러스터 인스턴스는 지원되지 않습니다.
+* SQL Server **Failover Cluster Instance (FCI)** is not supported.
 * 미러 데이터베이스와 데이터베이스 스냅샷에 대한 백업 및 복원 작업은 지원되지 않습니다.
 * 백업 솔루션을 2개 이상 사용하여 독립 실행형 SQL Server 인스턴스 또는 SQL Always On 가용성 그룹을 백업하면 오류가 발생할 수 있으므로 그렇게 하지 말아야 합니다.
 * 같은 솔루션 또는 다른 솔루션을 사용하여 한 가용성 그룹의 두 노드를 개별적으로 백업해도 오류가 발생할 수 있습니다.
@@ -59,8 +59,8 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 * 많은 수의 파일이 있는 데이터베이스는 보호할 수 없습니다. 지원되는 최대 파일 수는 **1000**개입니다.  
 * 하나의 자격 증명 모음에 최대 **2,000**개의 SQL Server 데이터베이스를 백업할 수 있습니다. 데이터베이스 수가 이보다 더 많은 경우 자격 증명 모음을 여러 개 만들면 됩니다.
 * 한 번에 데이터베이스 **50**개까지 백업을 구성할 수 있습니다. 이 제한은 백업 부하 최적화에 도움이 됩니다.
-* 지원되는 최대 데이터베이스 크기는 **2TB**이며, 이보다 크면 성능 문제가 발생할 수 있습니다.
-* 서버당 보호할 수 있는 데이터베이스 수를 알 수 있도록 대역폭, VM 크기, 백업 빈도, 데이터베이스 크기 등의 요소를 고려해야 합니다. VM 리소스 및 백업 정책에 따라 서버당 사용할 수 있는 데이터베이스의 대략적인 수를 제공하는 Resource Planner를 [다운로드](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx)합니다.
+* We support databases up to **2 TB** in size; for sizes greater than that performance issues may come up.
+* To have a sense of as to how many databases can be protected per server, we need to consider factors such as bandwidth, VM size, backup frequency, database size, etc. [Download](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) the resource planner that gives the approximate number of databases you can have per server based on the VM resources and the backup policy.
 * 가용성 그룹의 경우 백업은 몇 가지 요소에 따라 다른 노드에서 수행됩니다. 아래는 가용성 그룹에 대한 백업 동작을 요약한 것입니다.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Always On 가용성 그룹의 백업 동작
@@ -74,7 +74,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 
 백업 기본 설정 및 백업 유형(전체/차등/로그/복사 전용 전체)에 따라 특정 노드(주/보조)에서 백업이 수행됩니다.
 
-* **백업 기본 설정: 주**
+* **Backup preference: Primary**
 
 **백업 유형** | **Node**
     --- | ---
@@ -83,7 +83,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
     로그 |  보조
     복사 전용 전체 |  보조
 
-* **백업 기본 설정: 보조만**
+* **Backup preference: Secondary Only**
 
 **백업 유형** | **Node**
 --- | ---
@@ -92,7 +92,7 @@ SQL Server 데이터베이스는 낮은 RPO(복구 지점 목표)와 장기 보�
 로그 |  주
 복사 전용 전체 |  주
 
-* **백업 기본 설정: 보조**
+* **Backup preference: Secondary**
 
 **백업 유형** | **Node**
 --- | ---
@@ -176,7 +176,7 @@ SQL Server 인스턴스에 **NT AUTHORITY\SYSTEM** 및 **NT Service\AzureWLBacku
 
 7. 확인을 클릭합니다.
 8. 동일한 일련의 단계(위의 1~7)를 반복하여 SQL Server 인스턴스에 NT Service\AzureWLBackupPluginSvc 로그인을 추가합니다. 로그인이 이미 있으면 sysadmin 서버 역할이 있는지 확인하고 상태에서 데이터베이스 엔진 연결 권한이 허용되고 로그인이 사용되는지 확인합니다.
-9. 권한을 부여한 후 포털에서 **DB를 다시 검색**합니다. 자격 증명 모음 **->** 백업 인프라 **->** Azure VM의 워크로드:
+9. After granting permission, **Rediscover DBs** in the portal: Vault **->** Backup Infrastructure **->** Workload in Azure VM:
 
     ![Azure Portal에서 DB 다시 검색](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

@@ -2,13 +2,13 @@
 title: Azure 위임 리소스 관리에 고객 등록
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 11/7/2019
-ms.topic: overview
-ms.openlocfilehash: 61b639a65d42d64a828db896b7c815c3d8f84734
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: fde0e82ff2dcf048643524b5a2d076d66a4f5a50
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131265"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463945"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -36,7 +36,7 @@ MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 
 
 이 정보가 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성**을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 구독의 ID를 찾으려면 "구독"을 검색한 다음, 적절한 구독 ID를 선택합니다.
 
@@ -238,7 +238,7 @@ az deployment create –-name <deploymentName \
 
 고객 구독이 Azure 위임 리소스 관리에 성공적으로 온보딩되면 서비스 공급자의 테넌트에 있는 사용자는 구독 및 해당 리소스를 볼 수 있습니다(개별적으로 또는 해당 권한이 있는 Azure AD 그룹의 멤버로서 위의 프로세스를 통해 액세스 권한이 부여된 경우). 이를 확인하려면 다음 방법 중 하나를 사용하여 구독이 표시되는지 확인합니다.  
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
 서비스 공급자의 테넌트에서 다음을 수행합니다.
 

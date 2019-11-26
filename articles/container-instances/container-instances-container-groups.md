@@ -1,28 +1,23 @@
 ---
-title: Azure Container Instances 컨테이너 그룹
-description: 저장소 및 네트워크와 같은 수명 주기 및 리소스를 공유 하는 인스턴스 컬렉션인 Azure Container Instances의 컨테이너 그룹에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Introduction to container groups
+description: Learn about container groups in Azure Container Instances, a collection of instances that share a lifecycle and resources such as storage and network
 ms.topic: article
 ms.date: 11/01/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ef6745e18a0df3ee0a572f106d1507d0fca32ac2
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 9fbf9fea7da0896ee6c0e248d18e18d52798fbd7
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150194"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482130"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
 Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니다. 이 문서에서는 컨테이너 그룹의 정의와 이들이 지원하는 시나리오 유형에 대해 설명합니다.
 
-## <a name="what-is-a-container-group"></a>컨테이너 그룹 이란?
+## <a name="what-is-a-container-group"></a>What is a container group?
 
-컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. 컨테이너 그룹의 컨테이너는 수명 주기, 리소스, 로컬 네트워크 및 저장소 볼륨을 공유 합니다. [Kubernetes][kubernetes-pod]의 *pod* 와 비슷합니다.
+컨테이너 그룹은 같은 호스트 컴퓨터에서 예약되어 있는 컨테이너 컬렉션입니다. The containers in a container group share a lifecycle, resources, local network, and storage volumes. It's similar in concept to a *pod* in [Kubernetes][kubernetes-pod].
 
 다음 다이어그램은 여러 컨테이너가 포함된 컨테이너 그룹의 예를 보여줍니다.
 
@@ -37,45 +32,45 @@ Azure Container Instances의 최상위 리소스는 *컨테이너 그룹*입니�
 * 볼륨 탑재로 2개의 Azure 파일 공유가 포함되어 있으며, 각 컨테이너는 공유 중 하나를 로컬에서 탑재합니다.
 
 > [!NOTE]
-> 다중 컨테이너 그룹은 현재 Linux 컨테이너만 지원 합니다. Windows 컨테이너의 경우 Azure Container Instances는 단일 인스턴스의 배포만 지원 합니다. Windows 컨테이너에 모든 기능을 제공 하기 위해 작업 하는 동안 서비스 [개요](container-instances-overview.md#linux-and-windows-containers)에서 현재 플랫폼 차이를 찾을 수 있습니다.
+> Multi-container groups currently support only Linux containers. For Windows containers, Azure Container Instances only supports deployment of a single instance. While we are working to bring all features to Windows containers, you can find current platform differences in the service [Overview](container-instances-overview.md#linux-and-windows-containers).
 
 ## <a name="deployment"></a>배포
 
-다중 컨테이너 그룹을 배포 하는 두 가지 일반적인 방법은 [리소스 관리자 템플릿][resource-manager template] 또는 [yaml 파일][yaml-file]을 사용 하는 것입니다. 컨테이너 인스턴스를 배포할 때 추가 Azure 서비스 리소스 (예: [Azure Files 공유][azure-files])를 배포 해야 하는 경우 리소스 관리자 템플릿을 권장 합니다. YAML 형식의 보다 간결한 특성으로 인해 배포에 컨테이너 인스턴스만 포함 된 경우에는 YAML 파일이 권장 됩니다. 설정할 수 있는 속성에 대 한 자세한 내용은 [리소스 관리자 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups) 또는 [yaml 참조](container-instances-reference-yaml.md) 설명서를 참조 하세요.
+Here are two common ways to deploy a multi-container group: use a [Resource Manager template][resource-manager template] or a [YAML file][yaml-file]. A Resource Manager template is recommended when you need to deploy additional Azure service resources (for example, an [Azure Files share][azure-files]) when you deploy the container instances. Due to the YAML format's more concise nature, a YAML file is recommended when your deployment includes only container instances. For details on properties you can set, see the [Resource Manager template reference](/azure/templates/microsoft.containerinstance/containergroups) or [YAML reference](container-instances-reference-yaml.md) documentation.
 
-컨테이너 그룹의 구성을 유지 하려면 Azure CLI 명령 [az container export][az-container-export]를 사용 하 여 해당 구성을 yaml 파일로 내보낼 수 있습니다. 내보내기를 사용 하면 컨테이너 그룹 구성을 "코드로 구성"을 위한 버전 제어로 저장할 수 있습니다. 또는 YAML에서 새 구성을 개발할 때 내보낸 파일을 시작점으로 사용할 수 있습니다.
+To preserve a container group's configuration, you can export the configuration to a YAML file by using the Azure CLI command [az container export][az-container-export]. Export allows you to store your container group configurations in version control for "configuration as code." 또는 YAML에서 새 구성을 개발할 때 내보낸 파일을 시작점으로 사용할 수 있습니다.
 
 
 
 ## <a name="resource-allocation"></a>리소스 할당
 
-Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청][resource-requests] 을 추가 하 여 cpu, 메모리, 선택적으로 [gpu][gpus] (미리 보기) 등의 리소스를 컨테이너 그룹에 할당 합니다. CPU 리소스를 예로 들어 두 개의 인스턴스를 사용 하 여 1 개의 CPU를 요청 하는 컨테이너 그룹을 만드는 경우 컨테이너 그룹에 2 개의 cpu가 할당 됩니다.
+Azure Container Instances allocates resources such as CPUs, memory, and optionally [GPUs][gpus] (preview) to a container group by adding the [resource requests][resource-requests] of the instances in the group. Taking CPU resources as an example, if you create a container group with two instances, each requesting 1 CPU, then the container group is allocated 2 CPUs.
 
-### <a name="resource-usage-by-instances"></a>인스턴스에의 한 리소스 사용
+### <a name="resource-usage-by-instances"></a>Resource usage by instances
 
-각 컨테이너 인스턴스에는 리소스 요청에 지정 된 리소스가 할당 됩니다. 그러나 그룹의 컨테이너 인스턴스에의 한 리소스 사용은 선택적 [리소스 제한][resource-limits] 속성을 구성 하는 방법에 따라 달라 집니다.
+Each container instance is allocated the resources specified in its resource request. However, the resource usage by a container instance in a group depends on how you configure its optional [resource limit][resource-limits] property.
 
-* 리소스 제한을 지정 하지 않는 경우 인스턴스의 최대 리소스 사용량은 해당 리소스 요청과 동일 합니다.
+* If you don't specify a resource limit, the instance's maximum resource usage is the same as its resource request.
 
-* 인스턴스에 대 한 리소스 제한을 지정 하는 경우 해당 작업에 대 한 인스턴스의 리소스 사용량을 조정 하 여 리소스 요청을 기준으로 사용량을 줄이거나 늘릴 수 있습니다. 설정할 수 있는 최대 리소스 제한은 그룹에 할당 된 총 리소스입니다.
+* If you specify a resource limit for an instance, you can adjust the instance's resource usage for its workload, either reducing or increasing usage relative to the resource request. The maximum resource limit you can set is the total resources allocated to the group.
     
-    예를 들어 1 개의 CPU를 요청 하는 두 개의 인스턴스가 있는 그룹에서 컨테이너 중 하나가 다른 작업 보다 더 많은 Cpu를 실행 해야 하는 작업을 실행할 수 있습니다.
+    For example, in a group with two instances requesting 1 CPU, one of your containers might run a workload that requires more CPUs to run than the other.
 
-    이 시나리오에서는 한 인스턴스에 대해 0.5 CPU의 리소스 제한을 설정 하 고 두 번째에 Cpu 제한인 2 개를 설정할 수 있습니다. 이 구성은 첫 번째 컨테이너의 리소스 사용량을 0.5 CPU로 제한 하 여 두 번째 컨테이너가 사용 가능한 경우 최대 2 개의 Cpu까지 사용할 수 있도록 합니다.
+    In this scenario, you could set a resource limit of 0.5 CPU for one instance, and a limit of 2 CPUs for the second. This configuration limits the first container's resource usage to 0.5 CPU, allowing the second container to use up to the full 2 CPUs if available.
 
-자세한 내용은 REST API 컨테이너 그룹의 [ResourceRequirements][resource-requirements] 속성을 참조 하세요.
+For more information, see the [ResourceRequirements][resource-requirements] property in the container groups REST API.
 
-### <a name="minimum-and-maximum-allocation"></a>최소 및 최대 할당
+### <a name="minimum-and-maximum-allocation"></a>Minimum and maximum allocation
 
-* **최소** 1 개의 CPU 및 1gb의 메모리를 컨테이너 그룹에 할당 합니다. 그룹 내의 개별 컨테이너 인스턴스는 1 개 미만의 CPU와 1gb의 메모리로 프로 비전 할 수 있습니다. 
+* Allocate a **minimum** of 1 CPU and 1 GB of memory to a container group. Individual container instances within a group can be provisioned with less than 1 CPU and 1 GB of memory. 
 
-* 컨테이너 그룹의 **최대** 리소스는 배포 지역에서 Azure Container Instances에 대 한 [리소스 가용성][region-availability] 을 참조 하세요.
+* For the **maximum** resources in a container group, see the [resource availability][region-availability] for Azure Container Instances in the deployment region.
 
 ## <a name="networking"></a>네트워킹
 
-컨테이너 그룹은 IP 주소와 해당 IP 주소에서 포트 네임스페이스를 공유합니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너는 포트 네임 스페이스를 공유 하기 때문에 포트 매핑이 지원 되지 않습니다. 그룹 내의 컨테이너는 해당 포트가 그룹의 IP 주소에서 외부에 노출 되지 않는 경우에도 노출 된 포트의 localhost를 통해 서로 연결할 수 있습니다.
+컨테이너 그룹은 IP 주소와 해당 IP 주소에서 포트 네임스페이스를 공유합니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. Because containers within the group share a port namespace, port mapping isn't supported. Containers within a group can reach each other via localhost on the ports that they have exposed, even if those ports aren't exposed externally on the group's IP address.
 
-필요에 따라 컨테이너 그룹을 [Azure virtual network][virtual-network] (미리 보기)에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
+Optionally deploy container groups into an [Azure virtual network][virtual-network] (preview) to allow containers to communicate securely with other resources in the virtual network.
 
 ## <a name="storage"></a>스토리지
 
@@ -90,7 +85,7 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 * 웹 애플리케이션을 처리하는 컨테이너와 원본 제어에서 최신 콘텐츠를 풀링하는 컨테이너
 * 애플리케이션 컨테이너 및 로깅 컨테이너. 로깅 컨테이너는 주 애플리케이션에서 출력한 로그 및 메트릭을 수집하여 장기 스토리지로 기록합니다.
 * 애플리케이션 컨테이너 및 모니터링 컨테이너. 모니터링 컨테이너는 애플리케이션이 올바르게 실행 중이고 응답하고 있는지 확인하기 위해 애플리케이션에 정기적으로 요청을 보내고, 그렇지 않은 경우 경고를 올립니다.
-* 프런트 엔드 컨테이너와 백 엔드 컨테이너 프런트 엔드는 데이터를 검색 하기 위해 백 엔드가 서비스를 실행 하는 웹 응용 프로그램을 제공할 수 있습니다. 
+* A front-end container and a back-end container. The front end might serve a web application, with the back end running a service to retrieve data. 
 
 ## <a name="next-steps"></a>다음 단계
 

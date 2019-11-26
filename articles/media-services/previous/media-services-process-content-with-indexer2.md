@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 60458365fd9ed3a9a72f5c2da82431fb55792a50
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309239"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464074"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
 
 > [!NOTE]
-> [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) 미디어 프로세서는 2020 년 1 월 1 일에 사용 중지 됩니다. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
+> The [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) media processor will be retired on January 1 of 2020. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) replaces this legacy media processor. For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](migrate-indexer-v1-v2.md).
 
 **Azure Media Indexer 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure Media Indexer 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure Media Indexer**에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "71309239"
 
 고려 사항은 다음과 같습니다.
  
-* 인덱서 2는 Azure 중국 21Vianet 및 Azure Government에서 지원 되지 않습니다.
+* Indexer 2 is not supported in Azure China 21Vianet and Azure Government.
 * 콘텐츠를 인덱싱할 때, 음성이 매우 분명한(배경 음악, 소음, 효과 또는 마이크 소음) 미디어 파일을 사용해야 합니다. 적절한 콘텐츠의 예로는 녹음된 회의, 강의 또는 프레젠테이션이 있습니다. 인덱싱에 적합하지 않을 수 있는 콘텐츠: 영화, TV 프로그램, 오디오 및 사운드 효과가 혼합된 콘텐츠, 배경 소음(기계 소음)이 들어간 녹음 품질이 좋지 않은 콘텐츠.
  
 ## <a name="input-and-output-files"></a>입력 및 출력 파일
@@ -46,7 +46,6 @@ ms.locfileid: "71309239"
 ### <a name="output-files"></a>출력 파일
 인덱싱 작업은 다음 형식의 선택 캡션 파일을 생성할 수 있습니다.  
 
-* **SAMI**
 * **TTML**
 * **WebVTT**
 
@@ -87,7 +86,7 @@ Azure Media Indexer 2 미리 보기는 다음 언어에 대한 음성-텍스트�
 * 일본어 [JaJp]
 * 러시아어[RuRu]
 * 영국 영어[EnGb]
-* 스페인어 (멕시코) [EsMx] 
+* Spanish (Mexico) [EsMx] 
 
 ## <a name="supported-file-types"></a>지원되는 파일 형식
 
@@ -295,10 +294,10 @@ namespace IndexContent
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

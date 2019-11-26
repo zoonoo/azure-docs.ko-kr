@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances에서 실행 중인 컨테이너에서 명령 실행
+title: Execute commands in running container instance
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/30/2018
-ms.author: danlep
-ms.openlocfilehash: a8583cf605891631a2bce6914b24525aebd59ea0
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 10d0ea0c2dfa60aad64d0ae11532aff24a7ce773
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325993"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481582"
 ---
 # <a name="execute-a-command-in-a-running-azure-container-instance"></a>실행 중인 Azure Container Instances에서 명령 실행
 
@@ -21,7 +16,7 @@ Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행�
 
 ## <a name="run-a-command-with-azure-cli"></a>Azure CLI를 사용하여 명령 실행
 
-[Azure CLI][azure-cli]에서 [az container exec][az-container-exec] 를 사용 하 여 실행 중인 컨테이너에서 명령을 실행 합니다.
+Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -83,9 +78,9 @@ Bye.
 az container exec --resource-group myResourceGroup --name mynginx --container-name nginx-app --exec-command "/bin/bash"
 ```
 
-## <a name="restrictions"></a>Restrictions
+## <a name="restrictions"></a>제한
 
-Azure Container Instances는 현재 [az Container exec][az-container-exec]를 사용 하 여 단일 프로세스를 시작 하도록 지원 하며 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
+Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

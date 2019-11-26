@@ -1,6 +1,6 @@
 ---
 title: vCore 모델 개요
-description: VCore 구매 모델을 통해 계산 및 저장소 리소스를 독립적으로 확장 하 고, 온-프레미스 성능과 일치 시키고, 가격을 최적화할 수 있습니다.
+description: The vCore purchasing model lets you independently scale compute and storage resources, match on-premises performance, and optimize price.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service
@@ -8,176 +8,176 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: 1bdd14841fc1c537046ee8dc3d0d6dc63b88ea25
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.date: 11/25/2019
+ms.openlocfilehash: 94728f2e4be6a16d048b4ff97bedefd5e32957ed
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196523"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481283"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 
-VCore (가상 코어) 모델은 다음과 같은 여러 가지 이점을 제공 합니다.
+The virtual core (vCore) model provides several benefits:
 
-- 더 높은 계산, 메모리, IO 및 저장소 제한이 있습니다.
-- 워크 로드에 대 한 계산 및 메모리 요구 사항을 더 잘 맞추려면 하드웨어 생성을 제어 합니다.
-- [Azure 하이브리드 혜택 (AHB)](sql-database-azure-hybrid-benefit.md) 및 [예약 인스턴스 (RI)](sql-database-reserved-capacity.md)의 가격 할인.
-- 계산을 지 원하는 하드웨어 세부 정보의 투명도 향상 온-프레미스 배포에서의 마이그레이션 계획을 용이 하 게 합니다.
+- Higher compute, memory, IO, and storage limits.
+- Control over the hardware generation to better match compute and memory requirements of the workload.
+- Pricing discounts for [Azure Hybrid Benefit (AHB)](sql-database-azure-hybrid-benefit.md) and [Reserved Instance (RI)](sql-database-reserved-capacity.md).
+- Greater transparency in the hardware details that power the compute; facilitates planning for migrations from on-premises deployments.
 
 ## <a name="service-tiers"></a>서비스 계층
 
-VCore 모델의 서비스 계층 옵션에는 범용, 중요 비즈니스용 및 Hyperscale이 포함 됩니다. 서비스 계층은 일반적으로 가용성 및 재해 복구와 관련 된 저장소 아키텍처, 공간 및 IO 제한 및 비즈니스 연속성 옵션을 정의 합니다.
+Service tier options in the vCore model include General Purpose, Business Critical, and Hyperscale. The service tier generally defines the storage architecture, space and IO limits, and business continuity options related to availability and disaster recovery.
 
-||**범용**|**업무상 중요**|**대규모**|
+||**범용**|**Business critical**|**Hyperscale**|
 |---|---|---|---|
-|적합한 대상|대부분의 비즈니스 워크로드. 는 예산 지향적이 고 균형이 조정 되며 확장 가능한 계산 및 저장소 옵션을 제공 합니다. |는 여러 개의 격리 된 복제본을 사용 하 여 비즈니스 응용 프로그램에서 오류에 대 한 가장 높은 복원 력을 제공 하 고, 데이터베이스 복제본 별로 최고 i/o 성능을 제공 합니다.|확장성이 뛰어난 저장소 및 읽기 확장 요구 사항에 대 한 대부분의 비즈니스 워크 로드.  에서는 둘 이상의 격리 된 데이터베이스 복제본의 구성을 허용 하 여 오류에 대 한 더 높은 복원 력을 제공 합니다. |
-|스토리지|원격 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB~4TB<br/>**서버**를 사용 하지 않는 계산:<br/>5GB-3TB<br/>**관리 되는 인스턴스**: 32 g b-8tb |로컬 SSD 저장소를 사용 합니다.<br/>**단일 데이터베이스 및 탄력적 풀이 프로 비전 된 계산**:<br/>5GB – 8TB<br/>**관리 되는 인스턴스**:<br/>32GB~4TB |필요에 따라 저장소를 유연 하 게 자동 증가 는 최대 100 TB의 저장소를 지원 합니다. 로컬 버퍼 풀 캐시 및 로컬 데이터 저장소에 로컬 SSD 저장소를 사용 합니다. Azure 원격 저장소를 최종 장기 데이터 저장소로 사용 합니다. |
-|I/o 처리량 (근사치)|**단일 데이터베이스 및 탄력적 풀**: vcore 당 500 iops 최대 4만 최대 iops입니다.<br/>**관리 되는 인스턴스**: [파일의 크기](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)에 따라 달라 집니다.|최대 32만의 vCore 당 5000 IOPS 최대 IOPS|Hyperscale은 여러 수준에서 캐싱을 사용 하는 다중 계층 아키텍처입니다. 유효 IOPs는 워크 로드에 따라 달라 집니다.|
-|가용성|복제본 1 개, 읽기 확장 복제본 없음|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>영역 중복 HA (고가용성)|1 읽기/쓰기 복제본 및 0-4 [읽기 확장 복제본](sql-database-read-scale-out.md)|
-|Backup|[읽기 액세스 지역 중복 저장소 (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 일 (기본적으로 7 일)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Azure 원격 저장소의 스냅숏 기반 백업 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. 백업은 즉시 수행 되며 계산 i/o 성능에 영향을 주지 않습니다. 복원은 빠르게 수행 하 고 데이터의 크기를 조정 하는 작업이 아닙니다 (몇 시간 또는 몇 일이 아닌 분 소요).|
-|메모리 내|지원되지 않음|지원됨|지원되지 않음|
+|적합한 대상|대부분의 비즈니스 워크로드. Offers budget-oriented, balanced, and scalable compute and storage options. |Offers business applications the highest resilience to failures by using several isolated replicas, and provides the highest I/O performance per database replica.|Most business workloads with highly scalable storage and read-scale requirements.  Offers higher resilience to failures by allowing configuration of more than one isolated database replica. |
+|스토리지|Uses remote storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5GB~4TB<br/>**Serverless compute**:<br/>5 GB - 3 TB<br/>**Managed instance**: 32 GB - 8 TB |Uses local SSD storage.<br/>**Single database and elastic pool provisioned compute**:<br/>5GB~4TB<br/>**Managed instance**:<br/>32GB~4TB |Flexible autogrow of storage as needed. Supports up to 100 TB of storage. Uses local SSD storage for local buffer-pool cache and local data storage. Uses Azure remote storage as final long-term data store. |
+|I/O throughput (approximate)|**Single database and elastic pool**: 500 IOPS per vCore up to 40000 maximum IOPS.<br/>**Managed instance**: Depends on [size of file](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes).|5000 IOPS per vCore up to 320,000 maximum IOPS|Hyperscale is a multi-tiered architecture with caching at multiple levels. Effective IOPs will depend on the workload.|
+|가용성|1 replica, no read-scale replicas|3개 복제본, 1개 [읽기 크기 조정 복제본](sql-database-read-scale-out.md),<br/>zone-redundant high availability (HA)|1 read-write replica, plus 0-4 [read-scale replicas](sql-database-read-scale-out.md)|
+|Backup|[Read-access geo-redundant storage (RA-GRS)](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35 days (7 days by default)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7-35일(기본값: 7일)|Snapshot-based backups in Azure remote storage. 복원은 빠른 복구를 위해 이러한 스냅샷을 사용합니다. Backups are instantaneous and don't impact compute I/O performance. Restores are fast and aren't a size-of-data operation (taking minutes rather than hours or days).|
+|메모리 내|지원하지 않음|지원됨|지원하지 않음|
 |||
 
 
 ### <a name="choosing-a-service-tier"></a>서비스 계층 선택
 
-특정 워크 로드에 대 한 서비스 계층을 선택 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+For information on selecting a service tier for your particular workload, see the following articles:
 
-- [범용 서비스 계층을 선택 하는 경우](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
-- [중요 비즈니스용 서비스 계층을 선택 하는 경우](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
-- [Hyperscale 서비스 계층을 선택 하는 경우](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
+- [When to choose the General purpose service tier](sql-database-service-tier-general-purpose.md#when-to-choose-this-service-tier)
+- [When to choose the Business Critical service tier](sql-database-service-tier-business-critical.md#when-to-choose-this-service-tier)
+- [When to choose the Hyperscale service tier](sql-database-service-tier-hyperscale.md#who-should-consider-the-hyperscale-service-tier)
 
 
-## <a name="compute-tiers"></a>Compute 계층
+## <a name="compute-tiers"></a>Compute tiers
 
-VCore 모델의 compute 계층 옵션에는 프로 비전 및 서버를 사용 하지 않는 계산 계층이 포함 됩니다.
+Compute tier options in the vCore model include the provisioned and serverless compute tiers.
 
 
 ### <a name="provisioned-compute"></a>프로비저닝된 컴퓨팅
 
-프로 비전 된 계산 계층은 작업 활동에 독립적으로 지속적으로 프로 비전 되는 특정 양의 계산 리소스를 제공 하 고 시간당 고정 된 가격으로 프로 비전 된 계산의 양에 대 한 요금을 제공 합니다.
+The provisioned compute tier provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour.
 
 
 ### <a name="serverless-compute"></a>서버리스 컴퓨팅
 
-서버를 사용 하지 않는 [계산 계층](sql-database-serverless.md) 은 작업 활동에 따라 계산 리소스를 자동으로 조정 하 고, 초당 사용 된 계산 양에 대 한 요금을 청구 합니다.
+The [serverless compute tier](sql-database-serverless.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
 
 
 
-## <a name="hardware-generations"></a>하드웨어 생성
+## <a name="hardware-generations"></a>Hardware generations
 
-VCore 모델의 하드웨어 생성 옵션에는 Gen 4/5, M 시리즈 (미리 보기) 및 Fsv2 시리즈 (미리 보기)가 포함 됩니다. 하드웨어 생성은 일반적으로 계산 및 메모리 제한과 작업의 성능에 영향을 주는 기타 특성을 정의 합니다.
+Hardware generation options in the vCore model include Gen 4/5, M-series (preview), and Fsv2-series (preview). The hardware generation generally defines the compute and memory limits and other characteristics that impact the performance of the workload.
 
 ### <a name="gen4gen5"></a>Gen4/Gen5
 
-- Gen4/Gen5 하드웨어는 균형 잡힌 계산 및 메모리 리소스를 제공 하며, Fsv2 시리즈 또는 M 시리즈에서 제공 되는 것과 같은 더 높은 메모리, 더 높은 vCore 또는 더 빠른 단일 vCore 요구 사항이 없는 대부분의 데이터베이스 작업에 적합 합니다.
+- Gen4/Gen5 hardware provides balanced compute and memory resources, and is suitable for most database workloads that do not have higher memory, higher vCore, or faster single vCore requirements as provided by Fsv2-series or M-series.
 
-Gen4/Gen5을 사용할 수 있는 지역의 경우 [Gen4/Gen5 availability](#gen4gen5-1)를 참조 하세요.
+For regions where Gen4/Gen5 is available, see [Gen4/Gen5 availability](#gen4gen5-1).
 
-### <a name="fsv2-seriespreview"></a>Fsv2 시리즈 (미리 보기)
+### <a name="fsv2-seriespreview"></a>Fsv2-series (preview)
 
-- Fsv2 시리즈는 cpu 대기 시간이 낮고 CPU가 까다로운 워크 로드에 대해 높은 클록 속도를 제공 하는 계산에 최적화 된 하드웨어 옵션입니다.
-- 워크 로드에 따라 Fsv2 시리즈는 Gen5 보다 vCore 당 더 많은 CPU 성능을 제공할 수 있으며, 72 vCore 크기는 Gen5에서 80 Vcore 보다 적은 비용으로 더 많은 CPU 성능을 제공할 수 있습니다. 
-- Fsv2는 다른 하드웨어 보다 vCore의 메모리와 tempdb를 더 작게 제공 하므로 이러한 한도에 영향을 주는 워크 로드는 Gen5 또는 M 시리즈를 대신 고려 하는 것이 좋습니다.  
+- Fsv2-series is a compute optimized hardware option delivering low CPU latency and high clock speed for the most CPU demanding workloads.
+- Depending on the workload, Fsv2-series can deliver more CPU performance per vCore than Gen5, and the 72 vCore size can provide more CPU performance for less cost than 80 vCores on Gen5. 
+- Fsv2 provides less memory and tempdb per vCore than other hardware so workloads sensitive to those limits may want to consider Gen5 or M-series instead.  
 
-Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용성](#fsv2-series)을 참조 하세요.
-
-
-### <a name="m-seriespreview"></a>M 시리즈 (미리 보기)
-
-- M 시리즈는 Gen5에서 제공 하는 것 보다 더 많은 메모리를 필요로 하는 워크 로드에 대 한 메모리 액세스에 최적화 된 하드웨어 옵션입니다.
-- M 시리즈는 vCore 및 128 Vcore 당 30GB를 제공 하 여 Gen5 by 8x를 기준으로 약 4 TB까지 메모리 제한을 늘립니다.
-
-구독과 지역에서 M 시리즈 하드웨어를 사용 하도록 설정 하려면 지원 요청을 열어야 합니다. 지원 요청이 승인 되 면 M 시리즈의 선택 및 프로 비전 환경은 다른 하드웨어 세대와 동일한 패턴을 따릅니다. M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
+For regions where Fsv2-series is available, see [Fsv2-series availability](#fsv2-series).
 
 
-### <a name="compute-and-memory-specifications"></a>계산 및 메모리 사양
+### <a name="m-seriespreview"></a>M-series (preview)
+
+- M-series is a memory optimized hardware option for workloads demanding more memory and higher compute limits than provided by Gen5.
+- M-series provides 29 GB per vCore and 128 vCores, which increases the memory limit relative to Gen5 by 8x to nearly 4 TB.
+
+To enable M-series hardware for a subscription and region, a support request must be open. If the support request is approved, then the selection and provisioning experience of M-series follows the same pattern as for other hardware generations. For regions where M-series is available, see [M-series availability](#m-series).
+
+
+### <a name="compute-and-memory-specifications"></a>Compute and memory specifications
 
 
 |하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|
-|Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
-|5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
-|Fsv2 시리즈     |-Intel Xeon Platinum 8168 (SkyLake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-136 GB 프로 비전|
-|M 시리즈     |-Intel Xeon E7-8890 v3 2.5 GHz 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
+|Gen4     |- Intel E5-2673 v3 (Haswell) 2.4 GHz processors<br>- Provision up to 24 vCores (1 vCore = 1 physical core)  |- 7 GB per vCore<br>- Provision up to 168 GB|
+|Gen5     |**프로비저닝된 컴퓨팅**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Provision up to 80 vCores (1 vCore = 1 hyper-thread)<br><br>**서버리스 컴퓨팅**<br>- Intel E5-2673 v4 (Broadwell) 2.3 GHz processors<br>- Auto-scale up to 16 vCores (1 vCore = 1 hyper-thread)|**프로비저닝된 컴퓨팅**<br>- 5.1 GB per vCore<br>- Provision up to 408 GB<br><br>**서버리스 컴퓨팅**<br>- Auto-scale up to 24 GB per vCore<br>- Auto-scale up to 48 GB max|
+|Fsv2 시리즈     |- Intel Xeon Platinum 8168 (SkyLake) processors<br>- Featuring a sustained all core turbo clock speed of 3.4 GHz and a maximum single core turbo clock speed of 3.7 GHz.<br>- Provision 72 vCores (1 vCore = 1 hyper-thread)|- 1.9 GB per vCore<br>- Provision 136 GB|
+|M 시리즈     |- Intel Xeon E7-8890 v3 2.5 GHz processors<br>- Provision 128 vCores (1 vCore = 1 hyper-thread)|- 29 GB per vCore<br>- Provision 3.7 TB|
 
 
-리소스 제한에 대 한 자세한 내용은 [단일 데이터베이스에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-single-databases.md)또는 [탄력적 풀에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.
+For more information on resource limits, see [Resource limits for single databases (vCore)](sql-database-vcore-resource-limits-single-databases.md), or [Resource limits for elastic pools (vCore)](sql-database-vcore-resource-limits-elastic-pools.md).
 
-### <a name="selecting-a-hardware-generation"></a>하드웨어 생성 선택
+### <a name="selecting-a-hardware-generation"></a>Selecting a hardware generation
 
-Azure Portal에서 만들 때 SQL database 또는 풀에 대 한 하드웨어 생성을 선택 하거나 기존 SQL 데이터베이스 또는 풀의 하드웨어 생성을 변경할 수 있습니다.
+In the Azure portal, you can select the hardware generation for a SQL database or pool at the time of creation, or you can change the hardware generation of an existing SQL database or pool.
 
-**SQL 데이터베이스 또는 풀을 만들 때 하드웨어 생성을 선택 하려면**
+**To select a hardware generation when creating a SQL database or pool**
 
-자세한 내용은 [SQL 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
+For detailed information, see [Create a SQL database](sql-database-single-database-get-started.md).
 
-**기본** 탭의 **Compute + storage** 섹션에서 **데이터베이스 구성** 링크를 선택 하 고 **구성 변경** 링크를 선택 합니다.
+On the **Basics** tab, select the **Configure database** link in the **Compute + storage** section, and then select the **Change configuration** link:
 
   ![데이터베이스 구성](media/sql-database-service-tiers-vcore/configure-sql-database.png)
 
-원하는 하드웨어 생성을 선택 합니다.
+Select the desired hardware generation:
 
-  ![하드웨어 선택](media/sql-database-service-tiers-vcore/select-hardware.png)
+  ![select hardware](media/sql-database-service-tiers-vcore/select-hardware.png)
 
 
-**기존 SQL 데이터베이스 또는 풀의 하드웨어 생성을 변경 하려면**
+**To change the hardware generation of an existing SQL database or pool**
 
-데이터베이스의 경우 개요 페이지에서 **가격 책정 계층** 링크를 선택 합니다.
+For a database, on the Overview page, select the **Pricing tier** link:
 
-  ![하드웨어 변경](media/sql-database-service-tiers-vcore/change-hardware.png)
+  ![change hardware](media/sql-database-service-tiers-vcore/change-hardware.png)
 
-풀의 경우 개요 페이지에서 **구성**을 선택 합니다.
+For a pool, on the Overview page, select **Configure**.
 
-단계에 따라 구성을 변경 하 고 이전 단계에서 설명한 대로 하드웨어 생성을 선택 합니다.
+Follow the steps to change configuration, and select the hardware generation as described in the previous steps.
 
-### <a name="hardware-availability"></a>하드웨어 가용성
+### <a name="hardware-availability"></a>Hardware availability
 
-#### <a name="gen4gen5-1"></a>Gen4/Gen5
+#### <a name="gen4gen5-1"></a> Gen4/Gen5
 
-새 Gen4 데이터베이스는 오스트레일리아 동부 또는 브라질 남부 지역에서 더 이상 지원 되지 않습니다. 
+New Gen4 databases are no longer supported in the Australia East or Brazil South regions. 
 
-Gen5는 전 세계 대부분의 지역에서 사용할 수 있습니다.
+Gen5 is available in most regions worldwide.
 
 #### <a name="fsv2-series"></a>Fsv2 시리즈
 
-Fsv2 시리즈는 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 동아시아, 미국 동부, 프랑스 중부, 인도 중부, 인도 서 부, 대한민국 중부, 한국 남부, 북부 지역에서 제공 됩니다. 유럽, 동남 공화국 북부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부 2
+Fsv2-series is available in the following regions: Australia Central, Australia Central 2, Australia East, Australia Southeast, Brazil South, Canada Central, East Asia, East Us, France Central, India Central, India West, Korea Central, Korea South, North Europe, South Africa North, Southeast Asia, UK South, UK West, West Europe, West Us 2.
 
 
 #### <a name="m-series"></a>M 시리즈
 
-M 시리즈는 미국 동부, 유럽 서 부, 유럽 서부, 미국 서 부 2 지역에서 사용할 수 있습니다.
-M 시리즈는 추가 지역의 가용성이 제한 될 수도 있습니다. 여기에 나열 된 것과 다른 지역을 요청할 수 있지만 다른 지역에서의 처리는 불가능 합니다.
+M-series is available in the following regions: East US, North Europe, West Europe, West US 2.
+M-series may also have limited availability in additional regions. You can request a different region than listed here, but fulfillment in a different region may not be possible.
 
-구독에서 M 시리즈 가용성을 사용 하도록 설정 하려면 [새 지원 요청](#create-a-support-request-to-enable-m-series)을 작성 하 여 액세스를 요청 해야 합니다.
+To enable M-series availability in a subscription, access must be requested by [filing a new support request](#create-a-support-request-to-enable-m-series).
 
 
-##### <a name="create-a-support-request-to-enable-m-series"></a>M 시리즈를 사용 하도록 지원 요청을 만듭니다. 
+##### <a name="create-a-support-request-to-enable-m-series"></a>Create a support request to enable M-series: 
 
-1. 포털에서 **도움말 + 지원** 을 선택 합니다.
+1. Select **Help + support** in the portal.
 2. **새 지원 요청**을 선택합니다.
 
-**기본 사항** 페이지에서 다음을 제공 합니다.
+On the **Basics** page, provide the following:
 
 1. **문제점 유형**에 대해 **서비스 및 구독 제한(할당량)** 를 선택합니다.
-2. **Subscription** = M 시리즈를 사용 하도록 설정할 구독을 선택 합니다.
-3. **할당량 유형**에서 **SQL database**를 선택 합니다.
-4. **다음** 을 선택 하 여 **세부 정보** 페이지로 이동 합니다.
+2. For **Subscription** = select the subscription to enable M-series.
+3. For **Quota type**, select **SQL database**.
+4. Select **Next** to go to the **Details** page.
 
-**세부 정보** 페이지에서 다음을 제공 합니다.
+On the **Details** page, provide the following:
 
-5. **문제 세부 정보** 섹션에서 **세부 정보 제공** 링크를 선택 합니다. 
-6. **SQL Database 할당량 유형** **으로 M 시리즈**를 선택 합니다.
-7. **지역**에서 M 시리즈를 사용할 지역을 선택 합니다.
-    M 시리즈를 사용할 수 있는 지역에 대해서는 [m 시리즈 가용성](#m-series)을 참조 하세요.
+5. In the **PROBLEM DETAILS** section select the **Provide details** link. 
+6. For **SQL Database quota type** select **M-series**.
+7. For **Region**, select the region to enable M-series.
+    For regions where M-series is available, see [M-series availability](#m-series).
 
-승인 된 지원 요청은 보통 5 영업일 이내에 수행 됩니다.
+Approved support requests are typically fulfilled within 5 business days.
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- SQL database를 만들려면 [Azure Portal를 사용 하 여 sql 데이터베이스 만들기](sql-database-single-database-get-started.md)를 참조 하세요.
-- 단일 데이터베이스에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목은 [단일 데이터베이스에 대 한 vCore 기반 리소스 제한 SQL Database](sql-database-vcore-resource-limits-single-databases.md)을 참조 하세요.
-- 탄력적 풀에 사용할 수 있는 특정 계산 크기 및 저장소 크기 선택 항목에 대해서는 [탄력적 풀에 대 한 SQL Database vCore 기반 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.
-- 가격 책정에 대 한 자세한 내용은 [Azure SQL Database 가격 책정 페이지](https://azure.microsoft.com/pricing/details/sql-database/single/)를 참조 하세요.
+- To create a SQL database, see [Creating a SQL database using the Azure portal](sql-database-single-database-get-started.md).
+- For the specific compute sizes and storage size choices available for single databases, see [SQL Database vCore-based resource limits for single databases](sql-database-vcore-resource-limits-single-databases.md).
+- For the specific compute sizes and storage size choices available for elastic pools, see [SQL Database vCore-based resource limits for elastic pools](sql-database-vcore-resource-limits-elastic-pools.md).
+- For pricing details, see the [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/).

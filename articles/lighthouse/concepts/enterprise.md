@@ -2,13 +2,13 @@
 title: 엔터프라이즈 시나리오의 Azure Lighthouse
 description: Azure Lighthouse의 기능은 여러 Azure AD 테넌트를 사용하는 엔터프라이즈 내에서 테넌트 간 관리를 간소화하는 데 사용할 수 있습니다.
 ms.date: 09/25/2019
-ms.topic: overview
-ms.openlocfilehash: ae2241048e6ae481e319154beedab74c23c91163
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: f610f943ed7faa0d2ad64ff2f1554cdd41d76ee8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132505"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463905"
 ---
 # <a name="azure-lighthouse-in-enterprise-scenarios"></a>엔터프라이즈 시나리오의 Azure Lighthouse
 
@@ -24,7 +24,7 @@ ms.locfileid: "74132505"
 
 여러 테넌트에 걸쳐 관리 작업을 중앙 집중화하는 경우 다른 테넌트에 대한 관리 작업을 수행하는 사용자가 포함될 테넌트를 결정해야 합니다. 즉, 다른 테넌트에 대한 관리 테넌트가 될 테넌트를 결정해야 합니다.
 
-예를 들어 조직에 *테넌트 A*라는 단일 테넌트가 있다고 가정합니다. 그러면 조직에서 *테넌트 B* 및 *테넌트 C*라는 두 개의 추가 테넌트를 획득하고, 이를 별도의 테넌트로 유지 관리해야 하는 비즈니스상의 이유가 있습니다.
+For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires two additional tenants, *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants.
 
 조직에서는 모든 테넌트에서 동일한 정책 정의, 백업 사례 및 보안 프로세스를 사용하려고 합니다. 테넌트 A 내에서 이러한 작업을 수행해야 하는 사용자(사용자 그룹 및 서비스 주체 포함)가 이미 있으므로 테넌트 B 및 테넌트 C 내의 모든 구독을 온보딩하여 테넌트 A의 동일한 사용자가 해당 작업을 수행할 수 있습니다.
 

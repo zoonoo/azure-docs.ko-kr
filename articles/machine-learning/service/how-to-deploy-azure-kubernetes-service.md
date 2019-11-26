@@ -1,7 +1,7 @@
 ---
-title: Azure Kubernetes Service에 모델을 배포 하는 방법
+title: How to deploy models to Azure Kubernetes Service
 titleSuffix: Azure Machine Learning
-description: Azure Kubernetes Service를 사용 하 여 Azure Machine Learning 모델을 웹 서비스로 배포 하는 방법을 알아봅니다.
+description: Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,68 +10,68 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 11/06/2019
-ms.openlocfilehash: 72ef43c4409fcc483f0fb0c862813fe6a67954ca
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8e4cc65ceb6e2a4f8093a094617cc7bb4f9e0c26
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276757"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482696"
 ---
-# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터에 모델 배포
+# <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Deploy a model to an Azure Kubernetes Service cluster
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Azure Machine Learning를 사용 하 여 AKS (Azure Kubernetes Service)에서 웹 서비스로 모델을 배포 하는 방법에 대해 알아봅니다. Azure Kubernetes 서비스는 대규모 프로덕션 배포에 적합 합니다. 다음 기능이 하나 이상 필요한 경우 Azure Kubernetes service를 사용 합니다.
+Learn how to use Azure Machine Learning to deploy a model as a web service on Azure Kubernetes Service (AKS). Azure Kubernetes Service is good for high-scale production deployments. Use Azure Kubernetes service if you need one or more of the following capabilities:
 
-- __빠른 응답 시간__.
-- 배포 __된 서비스의 자동__ 크기 조정.
-- GPU 및 필드 프로그래밍 가능 게이트 배열 (FPGA)과 같은 __하드웨어 가속__ 옵션입니다.
-
-> [!IMPORTANT]
-> 클러스터 크기 조정은 Azure Machine Learning SDK를 통해 제공 되지 않습니다. AKS 클러스터의 노드 크기를 조정 하는 방법에 대 한 자세한 내용은 [AKS 클러스터의 노드 수 크기 조정](../../aks/scale-cluster.md)을 참조 하세요.
-
-Azure Kubernetes Service에 배포 하는 경우 __작업 영역에 연결__된 AKS 클러스터에 배포 합니다. AKS 클러스터를 작업 영역에 연결 하는 방법에는 두 가지가 있습니다.
-
-* Azure Machine Learning SDK, Machine Learning CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 AKS 클러스터를 만듭니다. 이 프로세스는 클러스터를 작업 영역에 자동으로 연결 합니다.
-* 기존 AKS 클러스터를 Azure Machine Learning 작업 영역에 연결 합니다. Azure Machine Learning SDK, Machine Learning CLI 또는 Azure Machine Learning studio를 사용 하 여 클러스터를 연결할 수 있습니다.
+- __Fast response time__.
+- __Autoscaling__ of the deployed service.
+- __Hardware acceleration__ options such as GPU and field-programmable gate arrays (FPGA).
 
 > [!IMPORTANT]
-> 생성 또는 첨부 파일 프로세스는 일회성 작업입니다. AKS 클러스터가 작업 영역에 연결 되 면 배포에 사용할 수 있습니다. 더 이상 필요 하지 않은 경우 AKS 클러스터를 분리 하거나 삭제할 수 있습니다. Detatched 또는 삭제 된 후에는 더 이상 클러스터에 배포할 수 없습니다.
+> Cluster scaling is not provided through the Azure Machine Learning SDK. For more information on scaling the nodes in an AKS cluster, see [Scale the node count in an AKS cluster](../../aks/scale-cluster.md).
 
-## <a name="prerequisites"></a>선행 조건
+When deploying to Azure Kubernetes Service, you deploy to an AKS cluster that is __connected to your workspace__. There are two ways to connect an AKS cluster to your workspace:
 
-- Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+* Create the AKS cluster using the Azure Machine Learning SDK, the Machine Learning CLI, or [Azure Machine Learning studio](https://ml.azure.com). This process automatically connects the cluster to the workspace.
+* Attach an existing AKS cluster to your Azure Machine Learning workspace. A cluster can be attached using the Azure Machine Learning SDK, Machine Learning CLI, or Azure Machine Learning studio.
 
-- 작업 영역에 등록 된 machine learning 모델입니다. 등록 된 모델이 없는 경우 모델을 배포 하 [는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+> [!IMPORTANT]
+> The creation or attachment process is a one time task. Once an AKS cluster is connected to the workspace, you can use it for deployments. You can detach or delete the AKS cluster if you no longer need it. Once detatched or deleted, you will no longer be able to deploy to the cluster.
 
-- Machine Learning 서비스, [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)또는 [Azure Machine Learning Visual Studio Code 확장](how-to-vscode-tools.md) [에 대 한 Azure CLI 확장](reference-azure-machine-learning-cli.md)입니다.
+## <a name="prerequisites"></a>전제 조건
 
-- 이 문서의 __Python__ 코드 조각에서는 다음 변수가 설정 되었다고 가정 합니다.
+- Azure Machine Learning 작업 영역 For more information, see [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-    * `ws`-작업 영역으로 설정 합니다.
-    * `model`-등록 된 모델로 설정 합니다.
-    * `inference_config`-모델에 대 한 유추 구성으로 설정 합니다.
+- A machine learning model registered in your workspace. If you don't have a registered model, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-    이러한 변수를 설정 하는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+- The [Azure CLI extension for Machine Learning service](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py), or the [Azure Machine Learning Visual Studio Code extension](how-to-vscode-tools.md).
 
-- 이 문서의 __CLI__ 코드 조각에서는 `inferenceconfig.json` 문서를 만들었다고 가정 합니다. 이 문서를 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+- The __Python__ code snippets in this article assume that the following variables are set:
 
-## <a name="create-a-new-aks-cluster"></a>새 AKS 클러스터 만들기
+    * `ws` - Set to your workspace.
+    * `model` - Set to your registered model.
+    * `inference_config` - Set to the inference configuration for the model.
 
-**예상 시간**: 약 20 분.
+    For more information on setting these variables, see [How and where to deploy models](how-to-deploy-and-where.md).
 
-작업 영역에 대 한 일회성 프로세스는 AKS 클러스터를 만들거나 연결 하는 것입니다. 이 클러스터를 여러 배포에 재사용할 수 있습니다. 클러스터 또는 클러스터를 포함 하는 리소스 그룹을 삭제 하는 경우 다음에를 배포 해야 할 때 새 클러스터를 만들어야 합니다. 여러 AKS 클러스터를 작업 영역에 연결할 수 있습니다.
+- The __CLI__ snippets in this article assume that you've created an `inferenceconfig.json` document. For more information on creating this document, see [How and where to deploy models](how-to-deploy-and-where.md).
+
+## <a name="create-a-new-aks-cluster"></a>Create a new AKS cluster
+
+**Time estimate**: Approximately 20 minutes.
+
+Creating or attaching an AKS cluster is a one time process for your workspace. 이 클러스터를 여러 배포에 재사용할 수 있습니다. If you delete the cluster or the resource group that contains it, you must create a new cluster the next time you need to deploy. You can have multiple AKS clusters attached to your workspace.
 
 > [!TIP]
-> Azure Virtual Network를 사용 하 여 AKS 클러스터를 보호 하려면 먼저 가상 네트워크를 만들어야 합니다. 자세한 내용은 [Azure Virtual Network를 사용 하 여 보안 실험 및 유추](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요.
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
-프로덕션 대신 __개발__, __유효성 검사__및 __테스트__ 를 위해 AKS 클러스터를 만들려는 경우 개발 __테스트__에 대 한 __클러스터 목적__ 을 지정할 수 있습니다.
+If you want to create an AKS cluster for __development__, __validation__, and __testing__ instead of production, you can specify the __cluster purpose__ to __dev test__.
 
 > [!WARNING]
-> `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`를 설정 하는 경우 생성 되는 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다. 개발/테스트 클러스터에 2 개 이상의 가상 Cpu를 권장 합니다.
+> If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, the cluster that is created is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance. We recommend at least 2 virtual CPUs for dev/test clusters.
 
-다음 예에서는 SDK 및 CLI를 사용 하 여 새 AKS 클러스터를 만드는 방법을 보여 줍니다.
+The following examples demonstrate how to create a new AKS cluster using the SDK and CLI:
 
-**SDK 사용**
+**Using the SDK**
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -92,55 +92,55 @@ aks_target.wait_for_completion(show_output = True)
 ```
 
 > [!IMPORTANT]
-> [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py)의 경우 `agent_count` 및 `vm_size`에 대 한 사용자 지정 값을 선택 하 고 `cluster_purpose` `DEV_TEST`되지 않는 경우 `agent_count`에 `vm_size` 곱한 값이 12 개의 가상 cpu 보다 크거나 같은지 확인 해야 합니다. 예를 들어 가상 Cpu가 4 개 있는 `vm_size` "Standard_D3_v2"를 사용 하는 경우 3 이상의 `agent_count`를 선택 해야 합니다.
+> For [`provisioning_configuration()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py), if you pick custom values for `agent_count` and `vm_size`, and `cluster_purpose` is not `DEV_TEST`, then you need to make sure `agent_count` multiplied by `vm_size` is greater than or equal to 12 virtual CPUs. For example, if you use a `vm_size` of "Standard_D3_v2", which has 4 virtual CPUs, then you should pick an `agent_count` of 3 or greater.
 >
-> Azure Machine Learning SDK는 AKS 클러스터의 크기 조정을 지원 하지 않습니다. 클러스터의 노드 크기를 조정 하려면 Azure Machine Learning studio에서 AKS 클러스터에 대 한 UI를 사용 합니다. 클러스터의 VM 크기가 아니라 노드 수만 변경할 수 있습니다.
+> The Azure Machine Learning SDK does not provide support scaling an AKS cluster. To scale the nodes in the cluster, use the UI for your AKS cluster in the Azure Machine Learning studio. You can only change the node count, not the VM size of the cluster.
 
-이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
-* [ComputeTarget](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
-* [ComputeTarget wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
+* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
+* [AksCompute.provisioning_configuration](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
+* [ComputeTarget.create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeTarget.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#wait-for-completion-show-output-false-)
 
-**CLI 사용**
+**Using the CLI**
 
 ```azurecli
 az ml computetarget create aks -n myaks
 ```
 
-자세한 내용은 [az ml computetarget create ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference를 참조 하세요.
+For more information, see the [az ml computetarget create ask](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-create-aks) reference.
 
-## <a name="attach-an-existing-aks-cluster"></a>기존 AKS 클러스터 연결
+## <a name="attach-an-existing-aks-cluster"></a>Attach an existing AKS cluster
 
-**예상 시간:** 약 5 분.
+**Time estimate:** Approximately 5 minutes.
 
-Azure 구독에 AKS 클러스터가 이미 있고 버전 1.14 보다 낮은 경우 이미지를 배포 하는 데 사용할 수 있습니다.
+If you already have AKS cluster in your Azure subscription, and it is lower than version 1.14, you can use it to deploy your image.
 
 > [!TIP]
-> 기존 AKS 클러스터는 Azure Machine Learning 작업 영역 보다 Azure 지역에 있을 수 있습니다.
+> The existing AKS cluster can be in a Azure region other than your Azure Machine Learning workspace.
 >
-> Azure Virtual Network를 사용 하 여 AKS 클러스터를 보호 하려면 먼저 가상 네트워크를 만들어야 합니다. 자세한 내용은 [Azure Virtual Network를 사용 하 여 보안 실험 및 유추](how-to-enable-virtual-network.md#aksvnet)를 참조 하세요.
+> If you want to secure your AKS cluster using an Azure Virtual Network, you must create the virtual network first. For more information, see [Secure experimentation and inference with Azure Virtual Network](how-to-enable-virtual-network.md#aksvnet).
 
-AKS 클러스터를 작업 영역에 연결 하는 경우 `cluster_purpose` 매개 변수를 설정 하 여 클러스터를 사용 하는 방법을 정의할 수 있습니다.
+When attaching an AKS cluster to a workspace, you can define how you will use the cluster by setting the `cluster_purpose` parameter.
 
-`cluster_purpose` 매개 변수를 설정 하지 않거나 `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`를 설정한 경우 클러스터에는 사용 가능한 가상 Cpu가 12 개 이상 있어야 합니다.
+If you do not set the `cluster_purpose` parameter, or set `cluster_purpose = AksCompute.ClusterPurpose.FAST_PROD`, then the cluster must have at least 12 virtual CPUs available.
 
-`cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`를 설정 하는 경우 클러스터에는 12 개의 가상 Cpu가 필요 하지 않습니다. 개발/테스트에 2 개 이상의 가상 Cpu를 권장 합니다. 그러나 개발/테스트용으로 구성 된 클러스터는 프로덕션 수준 트래픽에 적합 하지 않으며 유추 시간이 늘어날 수 있습니다. 또한 개발/테스트 클러스터는 내결함성을 보장 하지 않습니다.
+If you set `cluster_purpose = AksCompute.ClusterPurpose.DEV_TEST`, then the cluster does not need to have 12 virtual CPUs. We recommend at least 2 virtual CPUs for dev/test. However a cluster that is configured for dev/test is not suitable for production level traffic and may increase inference times. Dev/test clusters also do not guarantee fault tolerance.
 
 > [!WARNING]
-> 작업 영역에서 동일한 AKS 클러스터에 대 한 동시 첨부 파일을 여러 개 만들지 마십시오. 예를 들어 두 개의 다른 이름을 사용 하 여 하나의 AKS 클러스터를 작업 영역에 연결 합니다. 새 첨부 파일은 이전의 기존 첨부 파일을 중단 합니다.
+> Do not create multiple, simultaneous attachments to the same AKS cluster from your workspace. For example, attaching one AKS cluster to a workspace using two different names. Each new attachment will break the previous existing attachment(s).
 >
-> SSL 또는 기타 클러스터 구성 설정을 변경 하는 등 AKS 클러스터를 다시 연결 하려면 먼저 [AksCompute ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--)를 사용 하 여 기존 첨부 파일을 제거 해야 합니다.
+> If you want to re-attach an AKS cluster, for example to change SSL or other cluster configuration setting, you must first remove the existing attachment by using [AksCompute.detach()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#detach--).
 
-Azure CLI 또는 포털을 사용 하 여 AKS 클러스터를 만드는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
+For more information on creating an AKS cluster using the Azure CLI or portal, see the following articles:
 
-* [AKS 클러스터 만들기 (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
-* [AKS 클러스터 만들기 (포털)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
+* [Create an AKS cluster (CLI)](https://docs.microsoft.com/cli/azure/aks?toc=%2Fazure%2Faks%2FTOC.json&bc=%2Fazure%2Fbread%2Ftoc.json&view=azure-cli-latest#az-aks-create)
+* [Create an AKS cluster (portal)](https://docs.microsoft.com/azure/aks/kubernetes-walkthrough-portal?view=azure-cli-latest)
 
-다음 예에서는 기존 AKS 클러스터를 작업 영역에 연결 하는 방법을 보여 줍니다.
+The following examples demonstrate how to attach an existing AKS cluster to your workspace:
 
-**SDK 사용**
+**Using the SDK**
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -157,15 +157,15 @@ attach_config = AksCompute.attach_configuration(resource_group = resource_group,
 aks_target = ComputeTarget.attach(ws, 'myaks', attach_config)
 ```
 
-이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
-* [AksCompute () attach_configuration ()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
+* [AksCompute.attach_configuration()](/python/api/azureml-core/azureml.core.compute.akscompute?view=azure-ml-py#attach-configuration-resource-group-none--cluster-name-none--resource-id-none--cluster-purpose-none--load-balancer-type-none-)
+* [AksCompute.ClusterPurpose](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute.clusterpurpose?view=azure-ml-py)
+* [AksCompute.attach](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py#attach-workspace--name--attach-configuration-)
 
-**CLI 사용**
+**Using the CLI**
 
-CLI를 사용 하 여 기존 클러스터를 연결 하려면 기존 클러스터의 리소스 ID를 가져와야 합니다. 이 값을 가져오려면 다음 명령을 사용 합니다. `myexistingcluster`을 AKS 클러스터의 이름으로 바꿉니다. `myresourcegroup`를 클러스터를 포함 하는 리소스 그룹으로 바꿉니다.
+To attach an existing cluster using the CLI, you need to get the resource ID of the existing cluster. To get this value, use the following command. Replace `myexistingcluster` with the name of your AKS cluster. Replace `myresourcegroup` with the resource group that contains the cluster:
 
 ```azurecli
 az aks show -n myexistingcluster -g myresourcegroup --query id
@@ -177,17 +177,17 @@ az aks show -n myexistingcluster -g myresourcegroup --query id
 /subscriptions/{GUID}/resourcegroups/{myresourcegroup}/providers/Microsoft.ContainerService/managedClusters/{myexistingcluster}
 ```
 
-기존 클러스터를 작업 영역에 연결 하려면 다음 명령을 사용 합니다. `aksresourceid`를 이전 명령에서 반환 된 값으로 바꿉니다. `myresourcegroup`를 작업 영역을 포함 하는 리소스 그룹으로 바꿉니다. `myworkspace`를 작업 영역 이름으로 바꿉니다.
+To attach the existing cluster to your workspace, use the following command. Replace `aksresourceid` with the value returned by the previous command. Replace `myresourcegroup` with the resource group that contains your workspace. Replace `myworkspace` with your workspace name.
 
 ```azurecli
 az ml computetarget attach aks -n myaks -i aksresourceid -g myresourcegroup -w myworkspace
 ```
 
-자세한 내용은 [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference를 참조 하세요.
+For more information, see the [az ml computetarget attach aks](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/attach?view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-attach-aks) reference.
 
 ## <a name="deploy-to-aks"></a>AKS에 배포
 
-Azure Kubernetes Service에 모델을 배포 하려면 필요한 계산 리소스를 설명 하는 __배포 구성을__ 만듭니다. 예를 들면 코어 수와 메모리입니다. 모델 및 웹 서비스를 호스트 하는 데 필요한 환경을 설명 하는 __유추 구성__도 필요 합니다. 유추 구성을 만드는 방법에 대 한 자세한 내용은 [모델을 배포 하는 방법 및 위치](how-to-deploy-and-where.md)를 참조 하세요.
+To deploy a model to Azure Kubernetes Service, create a __deployment configuration__ that describes the compute resources needed. For example, number of cores and memory. You also need an __inference configuration__, which describes the environment needed to host the model and web service. For more information on creating the inference configuration, see [How and where to deploy models](how-to-deploy-and-where.md).
 
 ### <a name="using-the-sdk"></a>SDK 사용
 
@@ -206,16 +206,16 @@ print(service.state)
 print(service.get_logs())
 ```
 
-이 예제에 사용 된 클래스, 메서드 및 매개 변수에 대 한 자세한 내용은 다음 참조 문서를 참조 하세요.
+For more information on the classes, methods, and parameters used in this example, see the following reference documents:
 
 * [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py)
-* [AksWebservice deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
-* [모델. 배포](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [웹 서비스. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
+* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)
+* [Model.deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#wait-for-deployment-show-output-false-)
 
 ### <a name="using-the-cli"></a>CLI 사용
 
-CLI를 사용 하 여 배포 하려면 다음 명령을 사용 합니다. `myaks`을 AKS 계산 대상의 이름으로 바꿉니다. `mymodel:1`를 등록 된 모델의 이름 및 버전으로 바꿉니다. `myservice`를이 서비스에 제공 하는 이름으로 바꿉니다.
+To deploy using the CLI, use the following command. Replace `myaks` with the name of the AKS compute target. Replace `mymodel:1` with the name and version of the registered model. Replace `myservice` with the name to give this service:
 
 ```azurecli-interactive
 az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json -dc deploymentconfig.json
@@ -223,20 +223,20 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../../includes/machine-learning-service-aks-deploy-config.md)]
 
-자세한 내용은 [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference를 참조 하세요. 
+For more information, see the [az ml model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) reference. 
 
 ### <a name="using-vs-code"></a>VS Code 사용
 
-VS Code 사용에 대 한 자세한 내용은 [VS Code 확장을 통해 AKS에 배포를](how-to-vscode-tools.md#deploy-and-manage-models)참조 하세요.
+For information on using VS Code, see [deploy to AKS via the VS Code extension](how-to-vscode-tools.md#deploy-and-manage-models).
 
 > [!IMPORTANT] 
-> VS Code를 통해 배포 하려면 AKS 클러스터를 미리 만들거나 작업 영역에 미리 연결 해야 합니다.
+> Deploying through VS Code requires the AKS cluster to be created or attached to your workspace in advance.
 
-## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>제어 된 롤아웃 (미리 보기)을 사용 하 여 AKS에 모델 배포
-끝점을 사용 하 여 제어 된 방식으로 모델 버전을 분석 하 고 승격 합니다. 단일 끝점 뒤에 최대 6 개의 버전을 배포 하 고 배포 된 각 버전에 대 한 점수 매기기 트래픽의%를 구성 합니다. App insights를 사용 하도록 설정 하 여 끝점 및 배포 된 버전의 작업 메트릭을 볼 수 있습니다.
+## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Deploy models to AKS using controlled rollout (preview)
+Analyze and promote model versions in a controlled fashion using endpoints. Deploy up to 6 versions behind a single endpoint and configure the % of scoring traffic to each deployed version. You can enable app insights to view operational metrics of endpoints and deployed versions.
 
 ### <a name="create-an-endpoint"></a>엔드포인트 만들기
-모델을 배포할 준비가 되 면 점수 매기기 끝점을 만들고 첫 번째 버전을 배포 합니다. 아래 단계에서는 SDK를 사용 하 여 끝점을 배포 하 고 만드는 방법을 보여 줍니다. 첫 번째 배포는 기본 버전으로 정의 됩니다. 즉, 모든 버전에서 지정 되지 않은 트래픽 백분위 수가 기본 버전으로 이동 합니다.  
+Once you are ready to deploy your models, create a scoring endpoint and deploy your first version. The step below shows you how to deploy and create the endpoint using the SDK. The first deployment will be defined as the default version which means that unspecified traffic percentile across all versions will go to the default version.  
 
 ```python
 import azureml.core,
@@ -260,9 +260,9 @@ endpoint_deployment_config = AksEndpoint.deploy_configuration(cpu_cores = 0.1, m
  endpoint = Model.deploy(ws, endpoint_name, [model], inference_config, endpoint_deployment_config, compute)
  ```
 
-### <a name="update-and-add-versions-to-an-endpoint"></a>끝점에 버전 업데이트 및 추가
+### <a name="update-and-add-versions-to-an-endpoint"></a>Update and add versions to an endpoint
 
-다른 버전을 끝점에 추가 하 고 버전으로 이동 하는 점수 매기기 트래픽 백분위 수를 구성 합니다. 두 가지 유형의 버전, 즉 컨트롤과 처리 버전이 있습니다. 단일 컨트롤 버전을 비교 하는 데 도움이 되는 처리 버전이 여러 개 있을 수 있습니다. 
+Add another version to your endpoint and configure the scoring traffic percentile going to the version. There are two types of versions, a control and a treatment version. There can be multiple treatment version to help compare against a single control version. 
 
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -277,7 +277,7 @@ endpoint.create_version(version_name = version_name_add,
                         traffic_percentile = 10)
 ```
 
-기존 버전을 업데이트 하거나 끝점에서 삭제 합니다. 버전의 기본 형식, 컨트롤 형식 및 트래픽 백분위 수를 변경할 수 있습니다. 
+Update existing versions or delete them in an endpoint. You can change the version's default type, control type, and the traffic percentile. 
  
  ```python
 from azureml.core.webservice import AksEndpoint
@@ -295,21 +295,21 @@ endpoint.delete_version(version_name="versionb")
 ```
 
 
-## <a name="web-service-authentication"></a>웹 서비스 인증
+## <a name="web-service-authentication"></a>Web service authentication
 
-Azure Kubernetes Service에 배포 하는 경우 __키 기반__ 인증은 기본적으로 사용 하도록 설정 됩니다. __토큰 기반__ 인증을 사용 하도록 설정할 수도 있습니다. 토큰 기반 인증을 사용 하려면 클라이언트가 Azure Active Directory 계정을 사용 하 여 배포 된 서비스에 대 한 요청을 수행 하는 데 사용 되는 인증 토큰을 요청 해야 합니다.
+When deploying to Azure Kubernetes Service, __key-based__ authentication is enabled by default. You can also enable __token-based__ authentication. Token-based authentication requires clients to use an Azure Active Directory account to request an authentication token, which is used to make requests to the deployed service.
 
-인증을 __사용 하지 않도록__ 설정 하려면 배포 구성을 만들 때 `auth_enabled=False` 매개 변수를 설정 합니다. 다음 예제에서는 SDK를 사용 하 여 인증을 사용 하지 않도록 설정 합니다.
+To __disable__ authentication, set the `auth_enabled=False` parameter when creating the deployment configuration. The following example disables authentication using the SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, auth_enabled=False)
 ```
 
-클라이언트 응용 프로그램에서 인증 하는 방법에 대 한 자세한 내용은 [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)을 참조 하세요.
+For information on authenticating from a client application, see the [Consume an Azure Machine Learning model deployed as a web service](how-to-consume-web-service.md).
 
-### <a name="authentication-with-keys"></a>키를 사용 하 여 인증
+### <a name="authentication-with-keys"></a>Authentication with keys
 
-키 인증을 사용 하는 경우 `get_keys` 메서드를 사용 하 여 기본 및 보조 인증 키를 검색할 수 있습니다.
+If key authentication is enabled, you can use the `get_keys` method to retrieve a primary and secondary authentication key:
 
 ```python
 primary, secondary = service.get_keys()
@@ -317,17 +317,17 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> 키를 다시 생성 해야 하는 경우 [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py) 사용
+> If you need to regenerate a key, use [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice(class)?view=azure-ml-py)
 
-### <a name="authentication-with-tokens"></a>토큰을 사용한 인증
+### <a name="authentication-with-tokens"></a>Authentication with tokens
 
-토큰 인증을 사용 하도록 설정 하려면 배포를 만들거나 업데이트할 때 `token_auth_enabled=True` 매개 변수를 설정 합니다. 다음 예제에서는 SDK를 사용 하 여 토큰 인증을 사용 하도록 설정 합니다.
+To enable token authentication, set the `token_auth_enabled=True` parameter when you are creating or updating a deployment. The following example enables token authentication using the SDK:
 
 ```python
 deployment_config = AksWebservice.deploy_configuration(cpu_cores=1, memory_gb=1, token_auth_enabled=True)
 ```
 
-토큰 인증을 사용 하는 경우 `get_token` 메서드를 사용 하 여 JWT 토큰 및 해당 토큰의 만료 시간을 검색할 수 있습니다.
+If token authentication is enabled, you can use the `get_token` method to retrieve a JWT token and that token's expiration time:
 
 ```python
 token, refresh_by = service.get_token()
@@ -335,9 +335,9 @@ print(token)
 ```
 
 > [!IMPORTANT]
-> 토큰의 `refresh_by` 시간 이후에 새 토큰을 요청 해야 합니다.
+> You will need to request a new token after the token's `refresh_by` time.
 >
-> Azure Kubernetes Service 클러스터와 동일한 지역에 Azure Machine Learning 작업 영역을 만드는 것이 좋습니다. 토큰을 사용 하 여 인증 하기 위해 웹 서비스는 Azure Machine Learning 작업 영역이 생성 되는 영역에 대 한 호출을 수행 합니다. 작업 영역을 사용할 수 없는 경우에는 클러스터가 작업 영역과 다른 지역에 있는 경우에도 웹 서비스에 대 한 토큰을 가져올 수 없습니다. 이로 인해 작업 영역을 다시 사용할 수 있을 때까지 토큰 기반 인증을 사용할 수 없습니다. 또한 클러스터의 지역과 작업 영역 영역 간의 거리가 클수록 토큰을 인출 하는 데 시간이 오래 걸립니다.
+> Microsoft strongly recommends that you create your Azure Machine Learning workspace in the same region as your Azure Kubernetes Service cluster. To authenticate with a token, the web service will make a call to the region in which your Azure Machine Learning workspace is created. If your workspace's region is unavailable, then you will not be able to fetch a token for your web service even, if your cluster is in a different region than your workspace. This effectively results in Token-based Authentication being unavailable until your workspace's region is available again. In addition, the greater the distance between your cluster's region and your workspace's region, the longer it will take to fetch a token.
 
 ## <a name="update-the-web-service"></a>웹 서비스 업데이트
 
@@ -345,9 +345,9 @@ print(token)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가상 네트워크의 보안 실험 및 유추](how-to-enable-virtual-network.md)
-* [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
-* [배포 문제 해결](how-to-troubleshoot-deployment.md)
+* [Secure experimentation and inference in a virtual network](how-to-enable-virtual-network.md)
+* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [Deployment troubleshooting](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)

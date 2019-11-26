@@ -1,6 +1,6 @@
 ---
-title: 사용자를 로그인 하는 웹 앱 (프로덕션으로 이동)-Microsoft identity platform
-description: 사용자를 로그인 하는 웹 앱을 빌드하는 방법 알아보기 (프로덕션으로 이동)
+title: Web app that signs in users (move to production) - Microsoft identity platform
+description: Learn how to build a web app that signs in users (move to production)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,38 +15,46 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd6717c132d32d54c16e7678695a09e35181a057
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: efcc7ed4f80d0e3e9750d19ff95d010052a08b87
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086542"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481882"
 ---
-# <a name="web-app-that-signs-in-users---move-to-production"></a>사용자가 로그인 하는 웹 앱-프로덕션으로 이동
+# <a name="web-app-that-signs-in-users-move-to-production"></a>Web app that signs in users: Move to production
 
-웹 Api를 호출 하는 토큰을 획득 하는 방법을 배웠으므로 이제 프로덕션으로 이동 하는 방법을 알아보세요.
+Now that you know how to get a token to call web APIs, learn how to move it to production.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
 ## <a name="next-steps"></a>다음 단계
 
-### <a name="calling-web-apis-scenario"></a>웹 Api 호출 시나리오
+### <a name="scenario-for-calling-web-apis"></a>Scenario for calling web APIs
 
-웹 앱이 로그인 하면 로그인 한 사용자를 대신 하 여 web Api를 호출할 수 있습니다. 웹 앱에서 웹 Api를 호출 하는 것은 다음 시나리오의 개체입니다.
+After your web app signs in users, it can call web APIs on behalf of the signed-in users. Calling web APIs from the web app is the object of the following scenario:
 
 > [!div class="nextstepaction"]
 > [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive---aspnet-core-web-app-tutorial"></a>심층 살펴보기-ASP.NET Core 웹 앱 자습서
+### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>Deep dive: ASP.NET Core web app tutorial
 
-ASP.NET Core 자습서: [aspnetcore-webapp-자습서](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial)를 사용 하 여 로그인 사용자의 다른 방법에 대해 알아봅니다. 이 샘플은의 계정을 사용 하 여 로그인을 추가 하는 방법을 포함 하 여 웹 앱에 대 한 프로덕션 준비 코드가 포함 된 프로그레시브 자습서입니다.
+Learn about other ways to sign in users with this ASP.NET Core tutorial: 
 
-- 조직,
-- 여러 조직,
-- 회사 또는 학교 계정 또는 개인 Microsoft 계정
-- [Azure AD B2C](https://aka.ms/aadb2c),
-- 또는 국가별 클라우드.
+> [!div class="nextstepaction"]
+> [Enable your web apps to sign in users and call APIs with the Microsoft identity platform for developers](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial) 
 
-### <a name="sample-code---java-web-app"></a>샘플 코드-Java 웹 앱
+This progressive tutorial has production-ready code for a web app, including how to add sign-in with accounts in:
 
-GitHub의 샘플에서 Java 웹 앱에 대해 자세히 알아보세요. [Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하 고를 호출 하는 Java 웹 응용 프로그램 Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)
+- Your organization
+- Multiple organizations
+- Work or school accounts, or personal Microsoft accounts
+- [Azure AD B2C](https://aka.ms/aadb2c)
+- National clouds
+
+### <a name="sample-code-java-web-app"></a>Sample code: Java web app
+
+Learn more about the Java web app from this sample on GitHub: 
+
+> [!div class="nextstepaction"]
+> [A Java Web application that signs in users with the Microsoft identity platform and calls Microsoft Graph](https://github.com/Azure-Samples/ms-identity-java-webapp)

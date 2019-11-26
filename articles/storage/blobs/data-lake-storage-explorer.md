@@ -1,6 +1,6 @@
 ---
 title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
-description: In this quickstart, you learn how to use Azure Storage Explorer to create a container in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
+description: Learn how to use Azure Storage Explorer to create a file system in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 53f43945b13a9dae44eba752f935eb34d7aa498b
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: b300d96408bed621a0687c04a9c94021af009f95
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327614"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484467"
 ---
 # <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
 
-이 빠른 시작에서는 [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)를 사용하여 디렉터리 및 Blob을 만드는 방법을 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
+In this article, you'll learn how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create a directory and a blob. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
 ## <a name="prerequisites"></a>전제 조건
 

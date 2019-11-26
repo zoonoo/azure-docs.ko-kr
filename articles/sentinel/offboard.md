@@ -1,6 +1,6 @@
 ---
-title: Offboard Azure 센티널 | Microsoft Docs
-description: Azure 센티널 인스턴스를 삭제 하는 방법
+title: Offboard Azure Sentinel| Microsoft Docs
+description: How to delete your Azure Sentinel instance.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,74 +14,74 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: d3b9284282a7ee14cde2461598c81e6dfdfd9f72
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316738"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74464130"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>테 넌 트에서 Azure 센티널 제거
+# <a name="remove-azure-sentinel-from-your-tenant"></a>Remove Azure Sentinel from your tenant
 
-Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서는 테 넌 트에서이를 제거 하는 방법을 설명 합니다.
+If you no longer want to use the Azure Sentinel, this article explains how to remove it from your tenant.
 
-## <a name="how-to-delete-azure-sentinel"></a>Azure 센티널을 삭제 하는 방법
+## <a name="how-to-delete-azure-sentinel"></a>How to delete Azure Sentinel
 
-백그라운드에서 Azure 센티널을 설치 하면 **Securityinsights** 솔루션이 선택한 작업 영역에 설치 됩니다. 따라서 먼저 **Securityinsights** 솔루션을 제거 해야 합니다.
+In the background, when you install Azure Sentinel, the **SecurityInsights** solution is installed on your selected workspace. So the first thing you need to do is remove the **SecurityInsights** solution.
 
-1.  **Azure 센티널**로 이동한 후 **구성**, **작업 영역 설정**, **솔루션**을 차례로 클릭 합니다.
+1.  Go to **Azure Sentinel**, followed by **Configuration**, followed by **Workspace settings**, and then **Solutions**.
 
-2.  이 `SecurityInsights` 를 선택 하 고 클릭 합니다.
+2.  Select `SecurityInsights` and click on it.
 
-    ![SecurityInsights 솔루션 찾기](media/offboard/find-solution.png)
+    ![Find the SecurityInsights solution](media/offboard/find-solution.png)
 
-3.  페이지 위쪽에서 **삭제**를 선택 합니다.
+3.  At the top of the page select **Delete**.
 
     > [!IMPORTANT]
-    > 작업 영역을 삭제 하면 작업 영역 및 Azure 센티널 Azure Monitor의 테 넌 트에서 제거 됩니다.
+    > If you remove the workspace, it may affect other solutions and data sources that are using this workspace, including Azure Monitor. To check which solutions are using this workspace, see [List installed monitoring solutions](../azure-monitor/insights/solutions.md#list-installed-monitoring-solutions). To check which solutions' data is being ingested into the workspace, see [Understanding ingested data volume](../azure-monitor/platform/manage-cost-storage.md#understanding-ingested-data-volume).
 
-    ![SecurityInsights 솔루션을 삭제 합니다.](media/offboard/delete-solution.png)
+    ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 
-## <a name="what-happens-behind-the-scenes"></a>백그라운드에서 수행 되는 작업은 무엇 인가요?
+## <a name="what-happens-behind-the-scenes"></a>What happens behind the scenes?
 
-솔루션을 삭제 하면 Azure 센티널에서 삭제 프로세스의 첫 번째 단계를 완료 하는 데 최대 48 시간이 소요 됩니다.
+When you delete the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
 
-연결이 끊어진 후에는 오프 보 딩 프로세스가 시작 됩니다.
+After the disconnection is identified, the offboarding process begins.
 
-**이러한 커넥터의 구성이 삭제 됩니다.**
--   Office 365
+**The configuration of these connectors is deleted:**
+-   PowerApps
 
 -   AWS
 
--   Microsoft 서비스 보안 경고 (Cloud Discovery 섀도 IT 보고, Azure AD ID 보호, Microsoft Defender ATP, Azure Security Center)를 포함 한 Microsoft Cloud App Security Azure ATP
+-   Microsoft services security alerts (Azure ATP, Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender ATP, Azure Security Center)
 
 -   위협 인텔리전스
 
--   일반적인 보안 로그 (CEF 기반 로그, Barracuda 및 Syslog 포함) (Azure Security Center 경우 이러한 로그는 계속 수집 됩니다.)
+-   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you have Azure Security Center, these logs will continue to be collected.)
 
--   Windows 보안 이벤트 (Azure Security Center 경우 이러한 로그는 계속 수집 됩니다.)
+-   Windows Security Events (If you have Azure Security Center, these logs will continue to be collected.)
 
-처음 48 시간 이내에 데이터 및 경고 규칙 (실시간 자동화 구성 포함)은 더 이상 Azure 센티널에서 액세스 하거나 쿼리할 수 없습니다.
+Within the first 48 hours, the data and alert rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
 
-**30 일 후에는 다음 리소스를 삭제 합니다.**
+**After 30 days these resources are deleted:**
 
--   인시던트 (조사 메타 데이터 포함)
+-   Incidents (including investigation metadata)
 
 -   경고 규칙
 
--   책갈피
+-   Bookmarks
 
-플레이 북, 저장 된 통합 문서, 저장 된 구하기 쿼리 및 노트북은 삭제 되지 않습니다. **제거 된 데이터로 인해 일부는 중단 될 수 있습니다. 수동으로 제거할 수 있습니다.**
+Your playbooks, saved workbooks, saved hunting queries, and notebooks are not deleted. **Some may break due to the removed data. You can remove those manually.**
 
-서비스를 제거 하 고 나면 30 일간의 유예 기간이 표시 됩니다 .이 기간 동안에는 솔루션을 다시 사용 하도록 설정 하 고 데이터 및 경고 규칙이 복원 되지만, 연결이 끊어진 구성 된 커넥터는 다시 연결 해야 합니다.
+After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and alert rules will be restored but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
-> 솔루션을 제거 하는 경우 구독은 Azure 센티널 리소스 공급자에 계속 등록 됩니다. **수동으로 제거할 수 있습니다.**
+> If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
 
 
 
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 센티널 서비스를 제거 하는 방법을 배웠습니다. 사용자의 점을 변경 하 고 다시 설치 하려면 다음을 수행 합니다.
-- [Azure 센티널을 온 보 딩](quickstart-onboard.md)하기 시작 합니다.
+In this document, you learned how to remove the Azure Sentinel service. If you change your mind and want to install it again:
+- Get started [on-boarding Azure Sentinel](quickstart-onboard.md).
 

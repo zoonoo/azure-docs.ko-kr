@@ -2,13 +2,13 @@
 title: 권장 보안 방법
 description: Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어를 고려하는 것이 중요합니다.
 ms.date: 07/11/2019
-ms.topic: overview
-ms.openlocfilehash: e0f0a9d4cdd56ff1bca9b9faf493d3e0d68e558c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: 18decc337722c1dc64fac94679d783dd55915ee6
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132459"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463892"
 ---
 # <a name="recommended-security-practices"></a>권장 보안 방법
 
@@ -30,10 +30,10 @@ Azure 위임 리소스 관리를 사용하는 경우 보안 및 액세스 제어
 
 |그룹 이름  |Type  |principalId  |역할 정의  |역할 정의 ID  |
 |---------|---------|---------|---------|---------|
-|설계자     |사용자 그룹         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|설계자     |사용자 그룹         |\<principalId\>         |기여자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 |평가     |사용자 그룹         |\<principalId\>         |판독기         |acdd72a7-3385-48ef-bd42-f606fba81ae7  |
 |VM 전문가     |사용자 그룹         |\<principalId\>         |VM 참가자         |9980e02c-c2be-4d73-94e8-173b1dc7cf3c  |
-|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |참가자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
+|Automation     |SPN(서비스 주체 이름)         |\<principalId\>         |기여자         |b24988ac-6180-42a0-ab88-20f7382dd24c  |
 
 이러한 그룹을 만든 후 필요에 따라 사용자를 할당할 수 있습니다. 실제로 액세스 권한이 필요한 사용자만 추가합니다. 그룹 멤버 자격을 정기적으로 검토하고 더 이상 적절하지 않거나 포함할 필요가 없는 모든 사용자를 제거해야 합니다.
 

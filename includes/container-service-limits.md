@@ -5,28 +5,31 @@ services: container-service
 author: dlepow
 ms.service: container-service
 ms.topic: include
-ms.date: 10/11/2018
+ms.date: 11/22/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: a2729af6a689daa551fc01f585324d53a8770a9b
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 0695416c65eed2bbf0a19d5ed1ea0c53a7ece332
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67182566"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74485547"
 ---
 | 리소스 | 기본 제한 |
 | --- | :--- |
-| 구독 당 최대 클러스터 수 | 100 |
-| 클러스터당 최대 노드 수 | 100 |
-| 노드당 최대 pod: Kubenet를 사용 하는 [기본 네트워킹][basic-networking] | 110 |
-| 노드당 최대 pod: Azure 컨테이너 네트워킹 인터페이스를 사용 하 여 [고급 네트워킹][advanced-networking] | Azure CLI 배포: 30<sup>1</sup><br />Azure Resource Manager 템플릿: 30<sup>1</sup><br />포털 배포: 30 |
+| Maximum clusters per subscription | 100 |
+| Maximum nodes per cluster with Virtual Machine Availability Sets and Basic Load Balancer SKU  | 100 |
+| Maximum nodes per cluster with Virtual Machine Scale Sets and [Standard Load Balancer SKU][standard-load-balancer] | 800 (100 nodes per [node pool][node-pool]) |
+| Maximum pods per node: [Basic networking][basic-networking] with Kubenet | 110 |
+| Maximum pods per node: [Advanced networking][advanced-networking] with Azure Container Networking Interface | Azure CLI 배포: 30<sup>1</sup><br />Azure Resource Manager template: 30<sup>1</sup><br />포털 배포: 30 |
 
-<sup>1</sup> Azure CLI 또는 리소스 관리자 템플릿을 사용 하 여 AKS (Azure Kubernetes Service) 클러스터를 배포 하는 경우이 값은 노드당 최대 250 pod로 구성할 수 있습니다. AKS 클러스터를 이미 배포한 후 또는 Azure Portal를 사용 하 여 클러스터를 배포 하는 경우 노드당 최대 pod을 구성할 수 없습니다.<br />
+<sup>1</sup>When you deploy an Azure Kubernetes Service (AKS) cluster with the Azure CLI or a Resource Manager template, this value is configurable up to 250 pods per node. You can't configure maximum pods per node after you've already deployed an AKS cluster, or if you deploy a cluster by using the Azure portal.<br />
 
 <!-- LINKS - Internal -->
 [basic-networking]: ../articles/aks/concepts-network.md#kubenet-basic-networking
 [advanced-networking]: ../articles/aks/concepts-network.md#azure-cni-advanced-networking
+[standard-load-balancer]: ../articles/load-balancer/load-balancer-standard-overview.md
+[node-pool]: ../articles/aks/use-multiple-node-pools.md
 
 <!-- LINKS - External -->
 [azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

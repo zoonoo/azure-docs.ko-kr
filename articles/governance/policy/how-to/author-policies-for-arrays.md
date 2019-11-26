@@ -1,32 +1,32 @@
 ---
-title: 리소스의 배열 속성에 대 한 작성자 정책
-description: 배열 매개 변수를 만들고, 배열 언어 식에 대 한 규칙을 만들고, [*] 별칭을 평가 하 고, Azure Policy 정의 규칙을 사용 하 여 기존 배열에 요소를 추가 하는 방법을 알아봅니다.
+title: Author policies for array properties on resources
+description: Learn to work with array parameters and array language expressions, evaluate the [*] alias, and to append elements with Azure Policy definition rules.
 ms.date: 03/06/2019
 ms.topic: conceptual
-ms.openlocfilehash: f28cffcf928f9c4da6b2dae2a0811200397c1f0d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959707"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463507"
 ---
-# <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대 한 작성자 정책
+# <a name="author-policies-for-array-properties-on-azure-resources"></a>Author policies for array properties on Azure resources
 
-Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의 됩니다. 일 대 다 관계가 있는 경우 대신 복합 속성이 배열로 정의 됩니다. Azure Policy 배열은 여러 가지 방법으로 사용 됩니다.
+Azure Resource Manager properties are commonly defined as strings and booleans. When a one-to-many relationship exists, complex properties are instead defined as arrays. In Azure Policy, arrays are used in several different ways:
 
-- 여러 옵션을 제공 하는 [정의 매개 변수의](../concepts/definition-structure.md#parameters)형식입니다.
-- 또는 **Notin** **의 조건을** 사용 하는 [정책 규칙](../concepts/definition-structure.md#policy-rule) 의 일부
-- [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias) 을 평가 하 여 **None**, **Any**또는 **All** 등의 특정 시나리오를 평가 하는 정책 규칙의 일부입니다.
-- 기존 배열에 바꾸기 또는 기존 배열에 추가에 대 한 추가 [효과](../concepts/effects.md#append)
+- The type of a [definition parameter](../concepts/definition-structure.md#parameters), to provide multiple options
+- Part of a [policy rule](../concepts/definition-structure.md#policy-rule) using the conditions **in** or **notIn**
+- Part of a policy rule that evaluates the [\[\*\] alias](../concepts/definition-structure.md#understanding-the--alias) to evaluate specific scenarios such as **None**, **Any**, or **All**
+- In the [append effect](../concepts/effects.md#append) to replace or add to an existing array
 
-이 문서에서는 Azure Policy의 각 사용에 대해 설명 하 고 몇 가지 예제 정의를 제공 합니다.
+This article covers each use by Azure Policy and provides several example definitions.
 
-## <a name="parameter-arrays"></a>매개 변수 배열
+## <a name="parameter-arrays"></a>Parameter arrays
 
-### <a name="define-a-parameter-array"></a>매개 변수 배열 정의
+### <a name="define-a-parameter-array"></a>Define a parameter array
 
-매개 변수를 배열로 정의 하면 둘 이상의 값이 필요한 경우 정책 유연성이 가능 합니다.
-이 정책 정의는 매개 변수 **allowedlocations** 에 대 한 단일 위치 및 기본값 _eastus2_를 허용 합니다.
+Defining a parameter as an array allows the policy flexibility when more than one value is needed.
+This policy definition allows any single location for the parameter **allowedLocations** and defaults to _eastus2_:
 
 ```json
 "parameters": {
@@ -42,9 +42,9 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의 
 }
 ```
 
-**Type** 은 _문자열_이므로 정책을 할당할 때 하나의 값만 설정할 수 있습니다. 이 정책이 할당 된 경우 범위의 리소스는 단일 Azure 지역 내 에서만 허용 됩니다. 대부분의 정책 정의는 승인 된 옵션 목록 (예: _eastus2_, _에서는 eastus_및 _westus2_허용)을 허용 해야 합니다.
+As **type** was _string_, only one value can be set when assigning the policy. If this policy is assigned, resources in scope are only allowed within a single Azure region. Most policies definitions need to allow for a list of approved options, such as allowing _eastus2_, _eastus_, and _westus2_.
 
-여러 옵션을 허용 하는 정책 정의를 만들려면 _배열_ **유형을**사용 합니다. 동일한 정책을 다음과 같이 다시 작성할 수 있습니다.
+To create the policy definition to allow multiple options, use the _array_ **type**. The same policy can be rewritten as follows:
 
 ```json
 "parameters": {
@@ -67,17 +67,17 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의 
 ```
 
 > [!NOTE]
-> 정책 정의를 저장 한 후에는 매개 변수의 **type** 속성을 변경할 수 없습니다.
+> Once a policy definition is saved, the **type** property on a parameter can't be changed.
 
-이 새 매개 변수 정의는 정책 할당 중에 둘 이상의 값을 사용 합니다. 배열 속성 **Allowedvalues** 가 정의 된 상태에서 할당 중에 사용할 수 있는 값은 미리 정의 된 선택 목록으로 추가로 제한 됩니다. **Allowedvalues** 의 사용은 선택 사항입니다.
+This new parameter definition takes more than one value during policy assignment. With the array property **allowedValues** defined, the values available during assignment are further limited to the predefined list of choices. Use of **allowedValues** is optional.
 
-### <a name="pass-values-to-a-parameter-array-during-assignment"></a>할당 하는 동안 매개 변수 배열에 값을 전달 합니다.
+### <a name="pass-values-to-a-parameter-array-during-assignment"></a>Pass values to a parameter array during assignment
 
-Azure Portal를 통해 정책을 할당할 때 _배열_ **형식의** 매개 변수는 단일 텍스트 상자로 표시 됩니다. 힌트는 "Use; 값을 구분 하려면입니다. (예: 런던;) 뉴욕) ". _Eastus2_, _에서는 eastus_및 _westus2_ 의 허용 되는 위치 값을 매개 변수에 전달 하려면 다음 문자열을 사용 합니다.
+When assigning the policy through the Azure portal, a parameter of **type** _array_ is displayed as a single textbox. The hint says "Use ; to separate values. (e.g. London;New York)". To pass the allowed location values of _eastus2_, _eastus_, and _westus2_ to the parameter, use the following string:
 
 `eastus2;eastus;westus2`
 
-매개 변수 값의 형식은 Azure CLI, Azure PowerShell 또는 REST API를 사용할 때 다릅니다. 값은 매개 변수의 이름도 포함 하는 JSON 문자열을 통해 전달 됩니다.
+The format for the parameter value is different when using Azure CLI, Azure PowerShell, or the REST API. The values are passed through a JSON string that also includes the name of the parameter.
 
 ```json
 {
@@ -91,18 +91,18 @@ Azure Portal를 통해 정책을 할당할 때 _배열_ **형식의** 매개 변
 }
 ```
 
-각 SDK에서이 문자열을 사용 하려면 다음 명령을 사용 합니다.
+To use this string with each SDK, use the following commands:
 
-- Azure CLI: 명령 [az policy 대입문](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
-- Azure PowerShell: Cmdlet [AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) **PolicyParameter** 매개 변수
-- REST API: _PUT_ [만들기](/rest/api/resources/policyassignments/create) 작업에서 요청 본문의 일부로 서 **속성. parameters** 속성 값으로 설정 합니다.
+- Azure CLI: Command [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) with parameter **params**
+- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) with parameter **PolicyParameter**
+- REST API: In the _PUT_ [create](/rest/api/resources/policyassignments/create) operation as part of the Request Body as the value of the **properties.parameters** property
 
-## <a name="policy-rules-and-arrays"></a>정책 규칙 및 배열
+## <a name="policy-rules-and-arrays"></a>Policy rules and arrays
 
-### <a name="array-conditions"></a>배열 조건
+### <a name="array-conditions"></a>Array conditions
 
-_배열_
-**형식의** 매개 변수를 사용할 수 있는 정책 규칙 [조건은](../concepts/definition-structure.md#conditions) `in` 및 `notIn`으로 제한 됩니다. 조건 `equals`를 사용 하 여 다음 정책 정의를 예로 들어 보겠습니다.
+The policy rule [conditions](../concepts/definition-structure.md#conditions) that an _array_
+**type** of parameter may be used with is limited to `in` and `notIn`. Take the following policy definition with condition `equals` as an example:
 
 ```json
 {
@@ -130,20 +130,20 @@ _배열_
 }
 ```
 
-Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메시지와 같은 오류가 발생 합니다.
+Attempting to create this policy definition through the Azure portal leads to an error such as this error message:
 
-- "유효성 검사 오류로 인해 ' {GUID} ' 정책을 매개 변수화 할 수 없습니다. 정책 매개 변수가 제대로 정의 되어 있는지 확인 하세요. 언어 식 ' [parameters (' allowedLocations ')] '의 내부 예외 평가 결과는 ' Array ' 형식입니다. 필요한 형식은 ' String '입니다. '. "
+- "The policy '{GUID}' could not be parameterized because of validation errors. Please check if policy parameters are properly defined. The inner exception 'Evaluation result of language expression '[parameters('allowedLocations')]' is type 'Array', expected type is 'String'.'."
 
-예상 되는 조건 **유형** `equals`는 _문자열_입니다. **Allowedlocations** **형식** _배열로_정의 되므로 정책 엔진은 언어 식을 평가 하 고 오류를 throw 합니다. `in` 및 `notIn` 조건을 사용 하 여 정책 엔진은 언어 식에서 **형식** _배열을_ 예상 합니다. 이 오류 메시지를 해결 하려면 `equals` `in` 또는 `notIn`으로 변경 합니다.
+The expected **type** of condition `equals` is _string_. Since **allowedLocations** is defined as **type** _array_, the policy engine evaluates the language expression and throws the error. With the `in` and `notIn` condition, the policy engine expects the **type** _array_ in the language expression. To resolve this error message, change `equals` to either `in` or `notIn`.
 
-### <a name="evaluating-the--alias"></a>[*] 별칭 평가
+### <a name="evaluating-the--alias"></a>Evaluating the [*] alias
 
-이름에 연결 된 **[\*]** 의 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **[\*]** 를 사용 하 여 배열의 각 요소를 평가할 수 있습니다. 항목 평가 별이 세 가지 시나리오는 없음, 모두 및 모두에 유용 합니다.
+Aliases that have **[\*]** attached to their name indicate the **type** is an _array_. Instead of evaluating the value of the entire array, **[\*]** makes it possible to evaluate each element of the array. There are three scenarios this per item evaluation is useful in: None, Any, and All.
 
-정책 엔진은 **if** 규칙이 true로 평가 되는 **경우에만** 의 **효과** 를 트리거합니다.
-이 사실은 **[\*]** 이 배열의 개별 요소를 평가 하는 방식을 이해 하는 데 중요 합니다.
+The policy engine triggers the **effect** in **then** only when the **if** rule evaluates as true.
+This fact is important to understand in context of the way **[\*]** evaluates each individual element of the array.
 
-아래 시나리오 테이블의 정책 규칙 예:
+The example policy rule for the scenario table below:
 
 ```json
 "policyRule": {
@@ -162,7 +162,7 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 }
 ```
 
-**IpRules** 배열은 아래 시나리오 테이블에 대해 다음과 같이 나타납니다.
+The **ipRules** array is as follows for the scenario table below:
 
 ```json
 "ipRules": [
@@ -177,35 +177,35 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 ]
 ```
 
-아래 각 조건 예에서는 `<field>`를 `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`으로 바꿉니다.
+For each condition example below, replace `<field>` with `"field": "Microsoft.Storage/storageAccounts/networkAcls.ipRules[*].value"`.
 
-다음 결과는 조건 및 예제 정책 규칙의 조합 및 위의 기존 값 배열에 대 한 결과입니다.
+The following outcomes are the result of the combination of the condition and the example policy rule and array of existing values above:
 
 |조건 |결과 |설명 |
 |-|-|-|
-|`{<field>,"notEquals":"127.0.0.1"}` |없는지 |한 배열 요소는 false (127.0.0.1! = 127.0.0.1)로 계산 되 고 1은 true (127.0.0.1! = 192.168.1.1)로 계산 되기 때문에 **참고** 요소는 _false_ 이며 효과가 트리거되지 않습니다. |
-|`{<field>,"notEquals":"10.0.4.1"}` |정책 효과 |두 배열 _요소는 모두_ true (10.0.4.1! = 127.0.0.1 and 10.0.4.1! = 192.168.1.1)로 평가 되므로 **참고** |
-|`"not":{<field>,"Equals":"127.0.0.1"}` |정책 효과 |한 배열 요소는 true (127.0.0.1 = = 127.0.0.1)로 계산 되 고 하나는 false (127.0.0.1 = = 192.168.1.1)로 계산 되므로 **Equals** 조건은 _false_입니다. 논리 연산자는 _false_가**아닌** true로 평가 되므로 효과가 트리거됩니다. |
-|`"not":{<field>,"Equals":"10.0.4.1"}` |정책 효과 |두 배열 요소는 모두 false (10.0.4.1 = = 127.0.0.1 and 10.0.4.1 = = 192.168.1.1)로 평가 되므로 **Equals** 조건은 _false_입니다. 논리 연산자는 _false_가**아닌** true로 평가 되므로 효과가 트리거됩니다. |
-|`"not":{<field>,"notEquals":"127.0.0.1" }` |정책 효과 |한 배열 요소는 false (127.0.0.1! = 127.0.0.1)로 계산 되 고 1은 true (127.0.0.1! = 192.168.1.1)로 계산 되므로 **참고** 요소는 _false_입니다. 논리 연산자는 _false_가**아닌** true로 평가 되므로 효과가 트리거됩니다. |
-|`"not":{<field>,"notEquals":"10.0.4.1"}` |없는지 |두 배열 _요소는 모두_true (10.0.4.1! = 127.0.0.1 and 10.0.4.1! = 192.168.1.1)로 평가 되므로 **참고** 로, 논리 연산자는 false (**not** _true_)로 계산 되므로 결과가 트리거되지 않습니다. |
-|`{<field>,"Equals":"127.0.0.1"}` |없는지 |한 배열 요소는 true (127.0.0.1 = = 127.0.0.1)로 계산 되 고 하나는 false (127.0.0.1 = = 192.168.1.1)로 계산 되므로 **Equals** 조건은 _false_ 이며 효과가 트리거되지 않습니다. |
-|`{<field>,"Equals":"10.0.4.1"}` |없는지 |두 배열 요소는 모두 false (10.0.4.1 = = 127.0.0.1 and 10.0.4.1 = = 192.168.1.1)로 평가 되므로 **Equals** 조건은 _false_ 이며 효과가 트리거되지 않습니다. |
+|`{<field>,"notEquals":"127.0.0.1"}` |Nothing |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"notEquals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_ and the effect is triggered. |
+|`"not":{<field>,"Equals":"127.0.0.1"}` |Policy effect |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"Equals":"10.0.4.1"}` |Policy effect |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"notEquals":"127.0.0.1" }` |Policy effect |One array element evaluates as false (127.0.0.1 != 127.0.0.1) and one as true (127.0.0.1 != 192.168.1.1), so the **notEquals** condition is _false_. The logical operator evaluates as true (**not** _false_), so the effect is triggered. |
+|`"not":{<field>,"notEquals":"10.0.4.1"}` |Nothing |Both array elements evaluate as true (10.0.4.1 != 127.0.0.1 and 10.0.4.1 != 192.168.1.1), so the **notEquals** condition is _true_. The logical operator evaluates as false (**not** _true_), so the effect isn't triggered. |
+|`{<field>,"Equals":"127.0.0.1"}` |Nothing |One array element evaluates as true (127.0.0.1 == 127.0.0.1) and one as false (127.0.0.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
+|`{<field>,"Equals":"10.0.4.1"}` |Nothing |Both array elements evaluate as false (10.0.4.1 == 127.0.0.1 and 10.0.4.1 == 192.168.1.1), so the **Equals** condition is _false_ and the effect isn't triggered. |
 
-## <a name="the-append-effect-and-arrays"></a>추가 효과 및 배열
+## <a name="the-append-effect-and-arrays"></a>The append effect and arrays
 
-[추가 효과](../concepts/effects.md#append) 는 details가 **[\*]** 별칭 인지 여부에 따라 다르게 동작 합니다 **.**
+The [append effect](../concepts/effects.md#append) behaves differently depending on if the **details.field** is a **[\*]** alias or not.
 
-- **[\*]** 별칭이 아니면 append는 전체 배열을 **value** 속성으로 바꿉니다.
-- **[\*]** 별칭이 면 append는 기존 배열에 **value** 속성을 추가 하거나 새 배열을 만듭니다.
+- When not a **[\*]** alias, append replaces the entire array with the **value** property
+- When a **[\*]** alias, append adds the **value** property to the existing array or creates the new array
 
-자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조 하세요.
+For more information, see the [append examples](../concepts/effects.md#append-examples).
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Policy 샘플](../samples/index.md)에서 예제를 검토 합니다.
+- Review examples at [Azure Policy samples](../samples/index.md).
 - [Azure Policy 정의 구조](../concepts/definition-structure.md)를 검토합니다.
 - [정책 효과 이해](../concepts/effects.md)를 검토합니다.
-- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 알아봅니다.
-- [비준수 리소스](remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
+- Understand how to [programmatically create policies](programmatically-create.md).
+- Learn how to [remediate non-compliant resources](remediate-resources.md).
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

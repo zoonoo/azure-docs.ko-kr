@@ -1,6 +1,6 @@
 ---
-title: 연결 아키텍처
-description: 이 문서에서는 azure 내부 또는 Azure 외부에서의 데이터베이스 연결에 대 한 Azure SQL 연결 아키텍처에 대해 설명 합니다.
+title: Connectivity Architecture
+description: This document explains the Azure SQL connectivity architecture for database connections from within Azure or from outside of Azure.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: b3b735f7ee644bb017756f3d6378e625fa66d448
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0ac9247f5156eb1b766aec7403b2dc8473114659
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280779"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483722"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Azure SQL 연결 아키텍처
 
@@ -39,9 +39,15 @@ ms.locfileid: "74280779"
 
 Azure SQL Database는 SQL Database 서버의 연결 정책 설정에 대한 다음 세 가지 옵션을 지원합니다.
 
-- **리디렉션(권장):** 클라이언트는 데이터베이스를 호스팅하는 노드로 직접 연결을 설정합니다. 연결을 사용 하도록 설정 하려면 클라이언트는 포트 1433의 Azure SQL Database 게이트웨이 IP 주소만이 아닌, 포트 11000-11999에 대 한 [서비스 태그](../virtual-network/security-overview.md#service-tags) 와 Nsg (네트워크 보안 그룹)를 사용 하 여 지역의 모든 Azure IP 주소에 대 한 아웃 바운드 방화벽 규칙을 허용 해야 합니다. 패킷은 데이터베이스로 직접 이동하므로 대기 시간 및 처리량의 성능이 향상됩니다.
-- **프록시:** 이 모드에서 모든 연결은 Azure SQL Database 게이트웨이를 통해 프록시됩니다. 연결을 활성화하려면 클라이언트는 Azure SQL Database 게이트웨이 IP 주소만 허용하는 아웃바운드 방화벽 규칙이 있어야 합니다(일반적으로 지역당 두 개의 IP 주소). 이 모드를 선택하면 워크로드의 특성에 따라 더 높은 대기 시간 및 더 낮은 처리량이 발생할 수 있습니다. 가장 낮은 대기 시간 및 높은 처리량을 위해 `Redirect` 연결 정책을 통해 `Proxy` 연결 정책을 사용하는 것이 좋습니다.
-- **기본값:** `Proxy` 또는 `Redirect`연결 정책을 명시적으로 변경 하지 않는 한 생성 후 모든 서버에 적용 되는 연결 정책입니다. 실제 정책은 Azure(`Redirect`) 내에서 또는 Azure(`Proxy`) 외부에서 연결이 발생하는지 여부에 따라 달라집니다.
+- **Redirect (recommended):** Clients establish connections directly to the node hosting the database, leading to reduced latency and improved throughout. For connections to use this mode clients need to
+   - Allow inbound and outbound communication from the client to all Azure IP addresses in the region on ports in the range of 11000 11999.  
+   - Allow inbound and outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+
+- **Proxy:** In this mode, all connections are proxied via the Azure SQL Database gateways,leading to increased latency and reduced throughout. For connections to use this mode clients need to allow inbound and outbound communication from the client to Azure SQL Database gateway IP addresses on port 1433.
+
+- **Default:** This is the connection policy in effect on all servers after creation unless you explicitly alter the connection policy to either `Proxy` or `Redirect`. The default policy is`Redirect` for all client connections originating inside of Azure (e.g. from an Azure Virtual Machine) and `Proxy`for all client connections originating inside ( e.g. connections from your local workstation)
+
+ We highly recommend the `Redirect` connection policy over the `Proxy` connection policy for the lowest latency and highest throughput.However, you will need to meet the additional requirements for allowing network traffic as outlined above. If the client is an Azure Virtual Machine you can accomplish this using Network Security Groups (NSG) with [service tags](../virtual-network/security-overview.md#service-tags). If the client is connecting from a workstation on-premises then you may need to work with your network admin to allow network traffic through your corporate firewall.
 
 ## <a name="connectivity-from-within-azure"></a>Azure 내부에서 연결
 
@@ -56,20 +62,20 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 ![아키텍처 개요](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 > [!IMPORTANT]
-> 또한 포트 14000-14999을 열어 [DAC와 연결할](https://docs.microsoft.com/en-us/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac) 수 있습니다.
+> Additionally open ports 14000-14999 to enable [Connecting with DAC](https://docs.microsoft.com/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators?view=sql-server-2017#connecting-with-dac)
 
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database 게이트웨이 IP 주소
 
-다음 표에서는 지역별 게이트웨이의 IP 주소를 나열 합니다. Azure SQL Database에 연결 하려면 네트워크 트래픽이 해당 지역에 대 한 **모든** 게이트웨이에서 & 하도록 허용 해야 합니다.
+The table below lists the IP Addresses of Gateways by region. To connect to an Azure SQL Database, you need to allow network traffic to & from **all** Gateways for the region.
 
-특정 지역의 새 게이트웨이로 트래픽을 마이그레이션하는 방법에 대 한 세부 정보는 다음 문서에 나와 있습니다. [최신 게이트웨이로의 트래픽 마이그레이션 Azure SQL Database](sql-database-gateway-migration.md)
+Details of how traffic shall be migrated to new Gateways in specific regions are in the following article: [Azure SQL Database traffic migration to newer Gateways](sql-database-gateway-migration.md)
 
 
-| 지역 이름          | 게이트웨이 IP 주소 |
+| 지역 이름          | Gateway IP Addresses |
 | --- | --- |
 | 오스트레일리아 중부    | 20.36.105.0 |
-| 오스트레일리아 Central2   | 20.36.113.0 |
+| Australia Central2   | 20.36.113.0 |
 | 오스트레일리아 동부       | 13.75.149.87, 40.79.161.1 |
 | 오스트레일리아 동남부 | 191.239.192.109, 13.73.109.251 |
 | 브라질 남부         | 104.41.11.5, 191.233.200.14 |
@@ -82,7 +88,7 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 중국 북부 2        | 40.73.50.0         |
 | 동아시아            | 191.234.2.139, 52.175.33.150, 13.75.32.4 |
 | 미국 동부              | 40.121.158.30, 40.79.153.12, 191.238.6.43, 40.78.225.32 |
-| 미국 동부 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0, 191.239.224.107, 104.208.150.3 | 
+| 미국 동부 2            | 40.79.84.180, 52.177.185.181, 52.167.104.0,  191.239.224.107, 104.208.150.3 | 
 | 프랑스 중부       | 40.79.137.0, 40.79.129.1 |
 | 독일 중부      | 51.4.144.100       |
 | 독일 북동부   | 51.5.144.179       |
@@ -94,9 +100,9 @@ Azure 외부에서 연결하는 경우 연결에는 기본적으로 `Proxy` 연�
 | 한국 중부        | 52.231.32.42       |
 | 한국 남부          | 52.231.200.86      |
 | 미국 중북부     | 23.96.178.199, 23.98.55.75, 52.162.104.33 |
-| 유럽 북부         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
+| 북유럽         | 40.113.93.91, 191.235.193.75, 52.138.224.1 | 
 | 남아프리카 공화국 북부   | 102.133.152.0      |
-| 남아프리카 서부    | 102.133.24.0       |
+| 남아프리카 공화국 서부    | 102.133.24.0       |
 | 미국 중남부     | 13.66.62.124, 23.98.162.75, 104.214.16.32   | 
 | 동남아시아      | 104.43.15.0, 23.100.117.95, 40.78.232.3   | 
 | 아랍에미리트 중부          | 20.37.72.64        |
@@ -120,7 +126,7 @@ Azure SQL Database 서버에 대한 Azure SQL Database 연결 정책을 변경�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 다음 스크립트에는 [Azure PowerShell 모듈이](/powershell/azure/install-az-ps)필요 합니다.
+> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. The following script requires the [Azure PowerShell module](/powershell/azure/install-az-ps).
 
 다음 PowerShell 스크립트에서는 연결 정책을 변경하는 방법을 보여줍니다.
 
@@ -143,12 +149,12 @@ Set-AzResource -ResourceId $id -Properties @{"connectionType" = "Proxy"} -f
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
 
-### <a name="azure-cli-in-a-bash-shell"></a>Bash 셸에서 Azure CLI
+### <a name="azure-cli-in-a-bash-shell"></a>Azure CLI in a bash shell
 
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
 
-다음 CLI 스크립트는 bash 셸에서 연결 정책을 변경 하는 방법을 보여 줍니다.
+The following CLI script shows how to change the connection policy in a bash shell.
 
 ```azurecli-interactive
 # Get SQL Server ID
@@ -164,12 +170,12 @@ az resource show --ids $ids
 az resource update --ids $ids --set properties.connectionType=Proxy
 ```
 
-### <a name="azure-cli-from-a-windows-command-prompt"></a>Windows 명령 프롬프트에서 Azure CLI
+### <a name="azure-cli-from-a-windows-command-prompt"></a>Azure CLI from a Windows command prompt
 
 > [!IMPORTANT]
 > 이 스크립트에는 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)가 필요합니다.
 
-다음 CLI 스크립트는 Windows 명령 프롬프트에서 연결 정책을 변경 하는 방법을 보여 줍니다 (Azure CLI 설치 됨).
+The following CLI script shows how to change the connection policy from a Windows command prompt (with Azure CLI installed).
 
 ```azurecli
 # Get SQL Server ID and set URI

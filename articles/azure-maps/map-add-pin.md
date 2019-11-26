@@ -1,6 +1,6 @@
 ---
 title: Azure Maps에 기호 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 기호를 추가 하는 방법입니다.
+description: How to add symbols to the Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,23 +9,31 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 10f6a7ef92bfd6558ed93e7fb40df9e48e1b92f5
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fff73801d20333a6df5e7952d02ed664c17fe40b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976170"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480621"
 ---
 # <a name="add-a-symbol-layer-to-a-map"></a>맵에 기호 계층 추가
 
-기호는 데이터 원본에 연결 하 여 지정 된 지점에서 아이콘 및/또는 텍스트를 렌더링 하는 데 사용할 수 있습니다. 기호 계층은 WebGL를 사용 하 여 렌더링 되며 지도에서 많은 지점의 컬렉션을 렌더링 하는 데 사용할 수 있습니다. 이 계층은 HTML 표식을 사용 하 여 달성할 수 있는 것 보다 뛰어난 성능으로 지도에 더 많은 점 데이터를 렌더링할 수 있습니다. 그러나 기호 계층은 스타일 지정을 위한 기존 CSS 및 HTML 요소를 지원 하지 않습니다.  
+A symbol can be connected up to a data source and used to render an icon and/or text at a given point. Symbol layers are rendered using WebGL and can be used to render large collections of points on the map. This layer can render a lot more point data on the map, with good performance, than what is achievable using HTML markers. However, the symbol layer doesn't support traditional CSS and HTML elements for styling.  
 
 > [!TIP]
-> 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. 점 기 하 도형 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을로 `['==', ['geometry-type'], 'Point']` 설정 하 고, `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` 다중 포인트 기능을 포함 하려는 경우로 설정 합니다.
+> 기본적으로 기호 계층은 데이터 원본에 있는 모든 도형의 좌표를 렌더링합니다. To limit the layer such that it only renders point geometry features set the `filter` property of the layer to `['==', ['geometry-type'], 'Point']` or `['any', ['==', ['geometry-type'], 'Point'], ['==', ['geometry-type'], 'MultiPoint']]` if you want to include MultiPoint features as well.
+
+The maps image sprite manager, which is used to load custom images used by the symbol layer supports the following image formats:
+
+- JPEG
+- PNG
+- SVG
+- BMP
+- GIF (no animations)
 
 ## <a name="add-a-symbol-layer"></a>기호 계층 추가
 
-지도에 기호 계층을 추가 하 고 데이터를 렌더링 하려면 먼저 데이터 원본을 만들어 맵을 추가 해야 합니다. 그런 다음 기호 계층을 만들고 데이터 소스에 전달 하 여 데이터를 검색할 수 있습니다. 마지막으로 데이터를 렌더링할 수 있도록 데이터를 데이터 소스에 추가 해야 합니다. 다음 코드에서는 기호 계층을 사용 하 여 맵에 단일 점을 렌더링 하기 위해 로드 한 후 맵에 추가 해야 하는 코드를 보여 줍니다. 
+To add a symbol layer to the map and render data, a data source first needs to be created and added the map. A symbol layer can then be created and passed in the data source to retrieve the data from. Finally, data needs to be added into the data source so that there is something to be rendered. The following code shows the code that should be added to the map after it has loaded to render a single point on the map using a symbol layer. 
 
 ```javascript
 //Create a data source and add it to the map.
@@ -42,14 +50,14 @@ map.layers.add(layer);
 dataSource.add(new atlas.data.Point([0, 0]));
 ```
 
-에는 다음과 같은 네 가지 유형의 지점 데이터를 추가할 수 있습니다.
+There are four different types of point data to that can be added to the map:
 
-- GeoJSON Point geometry-이 개체는 점의 좌표를 포함 하 고 다른 것은 포함 하지 않습니다. `atlas.data.Point` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- GeoJSON MultiPoint geometry-이 개체는 여러 점의 좌표를 포함 하지만 다른 요소는 포함 하지 않습니다. `atlas.data.MultiPoint` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- GeoJSON 기능-이 개체는 모든 GeoJSON 기 하 도형 및 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 됩니다. `atlas.data.Feature` 도우미 클래스를 사용 하 여 이러한 개체를 쉽게 만들 수 있습니다.
-- `atlas.Shape`클래스는 GeoJSON 형상과 기 하 도형에 연결 된 메타 데이터를 포함 하는 속성 집합으로 구성 된다는 점에서 GeoJSON 기능과 비슷합니다. GeoJSON 개체가 데이터 원본에 추가 되는 경우 계층에서 쉽게 렌더링 될 수 있지만 해당 GeoJSON 개체의 좌표계가 업데이트 되는 경우 JSON 개체에 업데이트를 트리거하는 메커니즘이 없기 때문에 데이터 원본 및 맵은 변경 되지 않습니다. Shape 클래스는 포함 된 데이터를 업데이트 하는 함수를 제공 하 고, 변경이 수행 되 면 데이터 원본 및 맵이 자동으로 알림 및 업데이트 됩니다. 
+- GeoJSON Point geometry - This object only contains a coordinate of a point and nothing else. The `atlas.data.Point` helper class can be used to easily create these objects.
+- GeoJSON MultiPoint geometry - This object contains the coordinates of multiple points but nothing else. The `atlas.data.MultiPoint` helper class can be used to easily create these objects.
+- GeoJSON Feature - This object consists of any GeoJSON geometry and a set of properties that contain metadata associated to the geometry. The `atlas.data.Feature` helper class can be used to easily create these objects.
+- `atlas.Shape` class is similar to the GeoJSON feature in that it consists of a GeoJSON geometry and a set of properties that contain metadata associated to the geometry. If a GeoJSON object is added to a data source it can easily be rendered in a layer, however, if the coordinates property of that GeoJSON object is updated, the data source and map don't change as there is no mechanism in the JSON object to trigger an update. The shape class provides functions for updating the data it contains, and when a change is made, the data source and map are automatically notified and updated. 
 
-다음 코드 샘플에서는 GeoJSON Point geometry를 만들고 `atlas.Shape` 클래스에 전달 하 여 쉽게 업데이트할 수 있게 합니다. 맵의 중심은 처음에 기호를 렌더링 하는 데 사용 됩니다. Click 이벤트는 맵에 추가 됩니다. 이렇게 하면 마우스를 클릭 한 위치의 좌표가 맵에서 기호의 위치를 업데이트 하는 shapes `setCoordinates` 함수와 함께 사용 됩니다.
+The following code sample creates a GeoJSON Point geometry and passes it into the `atlas.Shape` class to make it easy to update. The center of the map is used initially to render a symbol. A click event is added to the map such that when it fires, the coordinates of where the mouse was clicked are used with the shapes `setCoordinates` function that updates the location of the symbol on the map.
 
 <br/>
 
@@ -57,11 +65,11 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 기본적으로의 성능을 위해 기호 레이어는 겹치는 기호를 숨겨 기호 렌더링을 최적화 합니다. 확대 하면 숨겨진 기호가 표시 됩니다. 이 기능을 사용 하지 않도록 설정 하 고 모든 기호를 항상 렌더링 `allowOverlap` 하려면 `iconOptions` 옵션의 속성을 `true`로 설정 합니다.
+> By default, for performance, symbol layers optimize the rendering of symbols by hiding symbols that overlap. As you zoom in the hidden symbols become visible. To disable this feature and render all symbols at all times, set the `allowOverlap` property of the `iconOptions` options to `true`.
 
 ## <a name="add-a-custom-icon-to-a-symbol-layer"></a>기호 계층에 사용자 지정 아이콘 추가
 
-기호 계층은 WebGL을 사용하여 렌더링됩니다. 아이콘 이미지와 같은 이러한 모든 리소스는 WebGL 컨텍스트에 로드해야 하기 때문입니다. 이 샘플에서는 지도 리소스에 사용자 지정 아이콘을 추가한 다음이를 사용 하 여 지도에서 사용자 지정 기호를 사용 하 여 점 데이터를 렌더링 하는 방법을 보여 줍니다. 기호 계층의 `textField` 속성에는 식을 지정해야 합니다. 이 경우 온도 속성을 렌더링 하려고 하지만 숫자 이기 때문에 문자열로 변환 해야 합니다. 또한 "° F"를 추가 하려고 합니다. 식을 사용 하 여이 작업을 수행할 수 있습니다. `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
+기호 계층은 WebGL을 사용하여 렌더링됩니다. 아이콘 이미지와 같은 이러한 모든 리소스는 WebGL 컨텍스트에 로드해야 하기 때문입니다. This sample shows how to add a custom icon to the map resources and then use it to render point data with a custom symbol on the map. 기호 계층의 `textField` 속성에는 식을 지정해야 합니다. In this case, we want to render the temperature property but since it's a number, it needs to be converted to a string. Additionally we want to append the "°F" to it. An expression can be used to do this; `['concat', ['to-string', ['get', 'temperature']], '°F']`. 
 
 <br/>
 
@@ -69,7 +77,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> Azure Maps 웹 SDK는 기호 계층과 함께 사용할 수 있는 몇 가지 사용자 지정 가능 이미지 템플릿을 제공 합니다. 자세한 정보 [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md) 문서를 참조 하세요.
+> The Azure Maps web SDK provides several customizable image templates you can use with the symbol layer. For more infromation, see the [How to use image templates](how-to-use-image-templates-web-sdk.md) document.
 
 ## <a name="customize-a-symbol-layer"></a>기호 계층 사용자 지정 
 
@@ -81,7 +89,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 </iframe>
 
 > [!TIP]
-> 기호 레이어가 있는 텍스트만 렌더링 하려면 아이콘 옵션의 `image` 속성을로 `'none'`설정 하 여 아이콘을 숨길 수 있습니다.
+> When you only want to render text with a symbol layer, you can hide the icon by setting the `image` property of the icon options to `'none'`.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -102,7 +110,7 @@ dataSource.add(new atlas.data.Point([0, 0]));
 맵에 추가할 더 많은 코드 예제를 보려면 다음 문서를 참조하세요.
 
 > [!div class="nextstepaction"]
-> [데이터 원본 만들기](create-data-source-web-sdk.md)
+> [Create a data source](create-data-source-web-sdk.md)
 
 > [!div class="nextstepaction"]
 > [팝업 추가](map-add-popup.md)
@@ -111,13 +119,13 @@ dataSource.add(new atlas.data.Point([0, 0]));
 > [데이터 기반 스타일 식 사용](data-driven-style-expressions-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [이미지 템플릿을 사용 하는 방법](how-to-use-image-templates-web-sdk.md)
+> [How to use image templates](how-to-use-image-templates-web-sdk.md)
 
 > [!div class="nextstepaction"]
-> [선 계층 추가](map-add-line-layer.md)
+> [Add a line layer](map-add-line-layer.md)
 
 > [!div class="nextstepaction"]
-> [다각형 계층 추가](map-add-shape.md)
+> [Add a polygon layer](map-add-shape.md)
 
 > [!div class="nextstepaction"]
 > [거품형 계층 추가](map-add-bubble-layer.md)

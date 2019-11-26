@@ -1,6 +1,6 @@
 ---
 title: Azure Maps에 이미지 계층 추가 | Microsoft Docs
-description: Azure Maps 웹 SDK에 이미지 계층을 추가 하는 방법입니다.
+description: How to add an Image Layer to the Azure Maps Web SDK.
 author: rbrundritt
 ms.author: richbrun
 ms.date: 07/29/2019
@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 6c43ccaee473eca701d15a5a83f84814d65c6b7c
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: fadaaf7c64b11a6d6d94c68234f8288d1b3f8d07
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976155"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74480495"
 ---
 # <a name="add-an-image-layer-to-a-map"></a>맵에 이미지 계층 추가
 
@@ -29,9 +29,16 @@ ms.locfileid: "68976155"
 > [!TIP]
 > [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest)는 맵에 이미지를 오버레이할 수 있는 빠르고 쉬운 방법입니다. 그러나 이미지가 클 경우 브라우저는 이미지를 로드하느라 버거울 수 있습니다. 이 경우에는 이미지를 타일로 나눈 후 [TileLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.tilelayer?view=azure-iot-typescript-latest)로 맵에 로드해 보세요.
 
+The image layer supports the following image formats:
+
+- JPEG
+- PNG
+- BMP
+- GIF (no animations)
+
 ## <a name="add-an-image-layer"></a>이미지 계층 추가
 
-다음 코드에서는 map의 [1922에서 뉴어크 New Jersey의 map](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) 이미지를 오버레이 합니다. [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 는 이미지에 URL을 전달 하 고 네 모퉁이의 좌표를 형식 `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`으로 전달 하 여 만듭니다.
+In the following code overlays an image of a [map of Newark New Jersey from 1922](https://www.lib.utexas.edu/maps/historical/newark_nj_1922.jpg) on the map. An [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) is created by passing a URL to an image and coordinates for the four corners in the format `[Top Left Corner, Top Right Corner, Bottom Right Corner, Bottom Left Corner]`.
 
 ```javascript
 //Create an image layer and add it to the map.
@@ -46,7 +53,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 }));
 ```
 
-다음은 위의 기능을 실행 하는 전체 코드 샘플입니다.
+Below is the complete running code sample of the above functionality.
 
 <br/>
 
@@ -55,9 +62,9 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 ## <a name="import-a-kml-ground-overlay"></a>KML 지면 오버레이 가져오기
 
-이 샘플은 KML 지면 오버레이 정보를 맵에서 이미지 계층으로 오버레이하는 방법을 보여줍니다. KML 접지 오버레이는 북쪽, 남쪽, 동쪽 및 서 부 좌표와 반시계 방향 회전을 제공 하지만 이미지 계층은 이미지의 각 모퉁이에 대해 좌표가 필요 합니다. 이 샘플에서 KML 지면 오버레이는 출처가 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)인 샤르트르 대성당입니다.
+이 샘플은 KML 지면 오버레이 정보를 맵에서 이미지 계층으로 오버레이하는 방법을 보여줍니다. KML ground overlays provide north, south, east, and west coordinates and a counter-clockwise rotation, whereas the image layer expects coordinates for each corner of the image. 이 샘플에서 KML 지면 오버레이는 출처가 [Wikimedia](https://commons.wikimedia.org/wiki/File:Chartres.svg/overlay.kml)인 샤르트르 대성당입니다.
 
-다음 코드에서는 [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) 클래스의 `getCoordinatesFromEdges` 정적 함수를 사용 하 여 KML 그라운드 오버레이의 북부, 남부, 동부, 서 부 및 회전 정보에서 이미지의 네 모퉁이를 계산 합니다.
+The following code uses the static `getCoordinatesFromEdges` function of the [ImageLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.imagelayer?view=azure-iot-typescript-latest) class to calculate the four corners of the image from the north, south, east, west and rotation information from the KML ground overlay.
 
 <br/>
 
@@ -66,7 +73,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 ## <a name="customize-an-image-layer"></a>이미지 계층 사용자 지정
 
-이미지 계층에 여러 스타일 지정 옵션이 있습니다. 사용할 도구는 다음과 같습니다.
+이미지 계층에 여러 스타일 지정 옵션이 있습니다. 시도해볼 수 있는 도구는 다음과 같습니다.
 
 <br/>
 

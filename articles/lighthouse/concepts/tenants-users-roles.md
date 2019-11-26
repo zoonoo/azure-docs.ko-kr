@@ -2,13 +2,13 @@
 title: Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 description: Azure Active Directory 테넌트, 사용자 및 역할의 개념과 Azure Lighthouse 시나리오에서 이러한 항목을 사용하는 방법을 알아봅니다.
 ms.date: 11/05/2019
-ms.topic: overview
-ms.openlocfilehash: 73c5cd592f07a23edaad23796e498ea9243c5d26
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
-ms.translationtype: HT
+ms.topic: conceptual
+ms.openlocfilehash: a1ad004c79f90f4642640405da9e8876b9202e98
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131348"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463937"
 ---
 # <a name="tenants-roles-and-users-in-azure-lighthouse-scenarios"></a>Azure Lighthouse 시나리오의 테넌트, 역할 및 사용자
 

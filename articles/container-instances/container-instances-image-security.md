@@ -1,143 +1,138 @@
 ---
-title: Azure Container Instances 보안 고려 사항
-description: Azure Container Instances에 대 한 이미지 및 암호를 보호 하기 위한 권장 사항 및 컨테이너 플랫폼에 대 한 일반적인 보안 고려 사항
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: Security for container instances
+description: Recommendations to secure images and secrets for Azure Container Instances, and general security considerations for any container platform
 ms.topic: article
 ms.date: 04/29/2019
-ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 618d3a901698e46760d970f6d4fbc4157c5d2ea3
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b25cb4178ba211ff819ba512c9820165e0efbbf1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325918"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481705"
 ---
-# <a name="security-considerations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 고려 사항
+# <a name="security-considerations-for-azure-container-instances"></a>Security considerations for Azure Container Instances
 
-이 문서에서는 Azure Container Instances 사용 하 여 컨테이너 앱을 실행 하기 위한 보안 고려 사항을 소개 합니다. 다루는 주제는 다음과 같습니다.
+This article introduces security considerations for using Azure Container Instances to run container apps. 토픽은 다음과 같습니다.
 
 > [!div class="checklist"]
-> * Azure Container Instances에 대 한 이미지 및 암호 관리에 대 한 **보안 권장 사항**
-> * 컨테이너 플랫폼의 컨테이너 수명 주기 내내 컨테이너 **에코 시스템에 대 한 고려 사항**
+> * **Security recommendations** for managing images and secrets for Azure Container Instances
+> * **Considerations for the container ecosystem**  throughout the container lifecycle, for any container platform
 
-## <a name="security-recommendations-for-azure-container-instances"></a>Azure Container Instances에 대 한 보안 권장 사항
+## <a name="security-recommendations-for-azure-container-instances"></a>Security recommendations for Azure Container Instances
 
-### <a name="use-a-private-registry"></a>개인 레지스트리 사용
+### <a name="use-a-private-registry"></a>Use a private registry
 
-컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. 이러한 리포지토리는 [Docker Hub](https://hub.docker.com)와 같은 공용 레지스트리 또는 개인 레지스트리에 속할 수 있습니다. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. [Azure Container Registry](../container-registry/container-registry-intro.md)를 포함 하 여 클라우드 기반 개인 컨테이너 레지스트리 서비스를 사용할 수도 있습니다. 
+컨테이너는 하나 이상의 리포지토리에 저장된 이미지에서 작성됩니다. These repositories can belong to a public registry, like [Docker Hub](https://hub.docker.com), or to a private registry. 프라이빗 레지스트리의 예는 [Docker Trusted Registry](https://docs.docker.com/datacenter/dtr/2.0/)이며 온-프레미스 또는 가상 프라이빗 클라우드에 설치할 수 있습니다. You can also use cloud-based private container registry services, including [Azure Container Registry](../container-registry/container-registry-intro.md). 
 
-공개적으로 사용 가능한 컨테이너 이미지는 보안이 보장 되지 않습니다. 컨테이너 이미지는 여러 소프트웨어 계층으로 구성 되며 각 소프트웨어 계층에는 취약성이 있을 수 있습니다. 공격 위협을 줄이기 위해 Azure Container Registry 또는 Docker Trusted Registry와 같은 개인 레지스트리에서 이미지를 저장 하 고 검색 해야 합니다. 관리 되는 개인 레지스트리를 제공 하는 것 외에도 Azure Container Registry는 기본 인증 흐름에 대해 Azure Active Directory를 통해 [서비스 주체 기반 인증](../container-registry/container-registry-authentication.md) 을 지원 합니다. 이 인증에는 읽기 전용 (끌어오기), 쓰기 (푸시) 및 소유자 권한에 대 한 역할 기반 액세스가 포함 됩니다.
+A publicly available container image does not guarantee security. Container images consist of multiple software layers, and each software layer might have vulnerabilities. To help reduce the threat of attacks, you should store and retrieve images from a private registry, such as Azure Container Registry or Docker Trusted Registry. In addition to providing a managed private registry, Azure Container Registry supports [service principal-based authentication](../container-registry/container-registry-authentication.md) through Azure Active Directory for basic authentication flows. This authentication includes role-based access for read-only (pull), write (push), and owner permissions.
 
-### <a name="monitor-and-scan-container-images"></a>컨테이너 이미지 모니터링 및 검색
+### <a name="monitor-and-scan-container-images"></a>Monitor and scan container images
 
-[Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) 및 [바다색 보안과](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 같은 보안 모니터링 및 검사 솔루션은 Azure Marketplace를 통해 제공 됩니다. 이러한 항목을 사용 하 여 개인 레지스트리에서 컨테이너 이미지를 검색 하 고 잠재적 취약성을 식별할 수 있습니다. 여러 솔루션에서 제공 하는 검색의 깊이를 이해 하는 것이 중요 합니다. 
+Security monitoring and scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) are available through the Azure Marketplace. You can use them to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of scanning that the different solutions provide. 
 
-### <a name="protect-credentials"></a>자격 증명 보호
+### <a name="protect-credentials"></a>Protect credentials
 
-컨테이너는 여러 클러스터 및 Azure 지역에 걸쳐 분산 될 수 있습니다. 따라서 암호나 토큰 등의 로그인 또는 API 액세스에 필요한 자격 증명을 보호 해야 합니다. 권한 있는 사용자만 전송 중 및 휴지 상태의 컨테이너에 액세스할 수 있도록 합니다. 모든 자격 증명 암호를 인벤토리에 추가한 다음 개발자가 컨테이너 플랫폼용으로 설계 된 새로운 비밀 관리 도구를 사용 하도록 요구 합니다.  솔루션에 암호화 된 데이터베이스, 전송 중인 암호 데이터에 대 한 TLS 암호화 및 최소 권한 [역할 기반 액세스 제어](../role-based-access-control/overview.md)가 포함 되어 있는지 확인 합니다. [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) 는 컨테이너 화 된 응용 프로그램에 대 한 암호화 키와 비밀 (예: 인증서, 연결 문자열 및 암호)을 보호 하는 클라우드 서비스입니다. 이 데이터는 중요 하 고 업무상 중요 하기 때문에 인증 된 응용 프로그램 및 사용자만 액세스할 수 있도록 키 자격 증명 모음에 대 한 액세스를 보호 합니다.
+Containers can spread across several clusters and Azure regions. So, you must secure credentials required for logins or API access, such as passwords or tokens. Ensure that only privileged users can access those containers in transit and at rest. Inventory all credential secrets, and then require developers to use emerging secrets-management tools that are designed for container platforms.  Make sure that your solution includes encrypted databases, TLS encryption for secrets data in transit, and least-privilege [role-based access control](../role-based-access-control/overview.md). [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md) is a cloud service that safeguards encryption keys and secrets (such as certificates, connection strings, and passwords) for containerized applications. Because this data is sensitive and business critical, secure access to your key vaults so that only authorized applications and users can access them.
 
-## <a name="considerations-for-the-container-ecosystem"></a>컨테이너 에코 시스템에 대 한 고려 사항
+## <a name="considerations-for-the-container-ecosystem"></a>Considerations for the container ecosystem
 
-효과적으로 구현 되 고 관리 되는 다음과 같은 보안 조치는 컨테이너 에코 시스템을 보호 하 고 보호 하는 데 도움이 될 수 있습니다. 이러한 측정값은 컨테이너 수명 주기 전체에 적용 되며, 개발에서 프로덕션 배포까지, 그리고 컨테이너 orchestrator, 호스트 및 플랫폼의 범위에 적용 됩니다. 
+The following security measures, implemented well and managed effectively, can help you secure and protect your container ecosystem. These measures apply throughout the container lifecycle, from development through production deployment, and to a range of container orchestrators, hosts, and platforms. 
 
-### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>컨테이너 개발 수명 주기의 일부로 취약성 관리 사용 
+### <a name="use-vulnerability-management-as-part-of-your-container-development-lifecycle"></a>Use vulnerability management as part of your container development lifecycle 
 
-컨테이너 개발 수명 주기 전반에 걸쳐 효과적인 취약성 관리를 사용 하 여 보안 문제를 식별 하 고 해결 하는 것이 더 심각한 문제를 해결 하는 것을 개선 합니다. 
+By using effective vulnerability management throughout the container development lifecycle, you improve the odds that you identify and resolve security concerns before they become a more serious problem. 
 
-### <a name="scan-for-vulnerabilities"></a>취약성 검색 
+### <a name="scan-for-vulnerabilities"></a>Scan for vulnerabilities 
 
-새 취약점은 항상 검색 되므로 취약성을 검색 하 고 식별 하는 것은 지속적인 프로세스입니다. 컨테이너 수명 주기 전체에서 취약성 검사를 통합 합니다.
+New vulnerabilities are discovered all the time, so scanning for and identifying vulnerabilities is a continuous process. Incorporate vulnerability scanning throughout the container lifecycle:
 
-* 개발 파이프라인에서 최종 검사로, 공개 또는 개인 레지스트리에 이미지를 푸시 하기 전에 컨테이너에 대 한 취약성 검사를 수행 해야 합니다. 
-* 레지스트리의 컨테이너 이미지를 계속 검색 하 여 개발 중에 누락 된 결함을 식별 하 고 컨테이너 이미지에 사용 되는 코드에 있을 수 있는 새로 검색 된 취약점을 해결 합니다.  
+* As a final check in your development pipeline, you should perform a vulnerability scan on containers before pushing the images to a public or private registry. 
+* Continue to scan container images in the registry both to identify any flaws that were somehow missed during development and to address any newly discovered vulnerabilities that might exist in the code used in the container images.  
 
-### <a name="map-image-vulnerabilities-to-running-containers"></a>실행 중인 컨테이너에 이미지 취약점 매핑 
+### <a name="map-image-vulnerabilities-to-running-containers"></a>Map image vulnerabilities to running containers 
 
-컨테이너 이미지에 식별 된 취약성을 실행 중인 컨테이너에 매핑하여 보안 문제를 완화 하거나 해결할 수 있는 방법이 있어야 합니다.  
+You need to have a means of mapping vulnerabilities identified in container images to running containers, so security issues can be mitigated or resolved.  
 
-### <a name="ensure-that-only-approved-images-are-used-in-your-environment"></a>승인 된 이미지만 사용자 환경에서 사용 되는지 확인 합니다. 
+### <a name="ensure-that-only-approved-images-are-used-in-your-environment"></a>Ensure that only approved images are used in your environment 
 
-컨테이너 에코 시스템에는 알 수 없는 컨테이너를 허용 하지 않고 충분 한 변경 및 변동성 있습니다. 승인 된 컨테이너 이미지만 허용 합니다. 승인 되지 않은 컨테이너 이미지의 사용을 모니터링 하 고 방지 하기 위해 도구와 프로세스를 준비 해야 합니다. 
+There’s enough change and volatility in a container ecosystem without allowing unknown containers as well. Allow only approved container images. Have tools and processes in place to monitor for and prevent the use of unapproved container images. 
 
-공격 노출 영역을 줄이고 개발자가 중요 한 보안 실수를 만들지 못하도록 하는 효과적인 방법은 개발 환경으로 컨테이너 이미지의 흐름을 제어 하는 것입니다. 예를 들어 잠재적 공격에 대 한 노출 영역을 최소화 하기 위해 단일 Linux 배포를 기본 이미지로 사용 권한 부여 수 있습니다. 
+An effective way of reducing the attack surface and preventing developers from making critical security mistakes is to control the flow of container images into your development environment. For example, you might sanction a single Linux distribution as a base image, preferably one that is lean (Alpine or CoreOS rather than Ubuntu), to minimize the surface for potential attacks. 
 
-이미지 서명 또는 지문 인식을는 컨테이너의 무결성을 확인 하는 데 사용할 수 있는 관리 권의 체인을 제공할 수 있습니다. 예를 들어 Azure Container Registry는 이미지 게시자가 레지스트리에 푸시되는 이미지에 서명할 수 있도록 하 고, 이미지 소비자는 서명 된 이미지만 가져오도록 지 원하는 Docker의 [콘텐츠 신뢰](https://docs.docker.com/engine/security/trust/content_trust) 모델을 지원 합니다.
+Image signing or fingerprinting can provide a chain of custody that enables you to verify the integrity of the containers. For example, Azure Container Registry supports Docker's [content trust](https://docs.docker.com/engine/security/trust/content_trust) model, which allows image publishers to sign images that are pushed to a registry, and image consumers to pull only signed images.
 
-### <a name="permit-only-approved-registries"></a>승인 된 레지스트리만 허용 
+### <a name="permit-only-approved-registries"></a>Permit only approved registries 
 
-사용자 환경에서 승인 된 이미지만 사용 하도록 보장 하는 것은 승인 된 컨테이너 레지스트리를 사용 하도록 허용 하는 것입니다. 승인 된 컨테이너 레지스트리를 사용 하도록 요구 하면 알 수 없는 취약점 또는 보안 문제가 발생할 가능성을 제한 하 여 위험에 대 한 노출을 줄일 수 있습니다. 
+An extension of ensuring that your environment uses only approved images is to permit only the use of approved container registries. Requiring the use of approved container registries reduces your exposure to risk by limiting the potential for the introduction of unknown vulnerabilities or security issues. 
 
-### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>수명 주기 전체에서 이미지의 무결성 보장 
+### <a name="ensure-the-integrity-of-images-throughout-the-lifecycle"></a>Ensure the integrity of images throughout the lifecycle 
 
-컨테이너 수명 주기 전체에서 보안을 관리 하는 과정은 레지스트리에서 컨테이너 이미지의 무결성을 보장 하 고 프로덕션에 변경 되거나 배포 될 때입니다. 
+Part of managing security throughout the container lifecycle is to ensure the integrity of the container images in the registry and as they are altered or deployed into production. 
 
-* 취약성이 매우 적은 이미지는 프로덕션 환경에서 실행할 수 없습니다. 이상적으로는 프로덕션에 배포 된 모든 이미지를 선택 하 여 액세스할 수 있는 개인 레지스트리에 저장 해야 합니다. 효율적으로 관리할 수 있도록 프로덕션 이미지의 수를 작게 유지 합니다.
+* Images with vulnerabilities, even minor, should not be allowed to run in a production environment. Ideally, all images deployed in production should be saved in a private registry accessible to a select few. Keep the number of production images small to ensure that they can be managed effectively.
 
-* 공개적으로 사용 가능한 컨테이너 이미지에서 소프트웨어의 출처를 정확 하 게 파악 하기는 쉽지 않으므로 원본에서 이미지를 빌드하여 계층의 출처에 대 한 정보를 확인할 수 있습니다. 자체 구축된 컨테이너 이미지에 취약성이 있을 경우 고객은 보다 신속하게 해결 방법을 찾을 수 있습니다. 공용 이미지를 사용 하면 고객은 공용 이미지의 루트를 찾아 수정 하거나 게시자에서 다른 보안 이미지를 가져와야 합니다. 
+* Because it’s hard to pinpoint the origin of software from a publicly available container image, build images from the source to ensure knowledge of the origin of the layer. 자체 구축된 컨테이너 이미지에 취약성이 있을 경우 고객은 보다 신속하게 해결 방법을 찾을 수 있습니다. With a public image, customers would need to find the root of a public image to fix it or get another secure image from the publisher. 
 
-* 프로덕션에 배포 된 철저 하 게 스캔 된 이미지는 응용 프로그램의 수명 동안 최신 상태가 아닐 수도 있습니다. 보안 취약성은 이전에 알려지지 않았거나 프로덕션 배포 후에 도입 된 이미지 계층에 대해 보고될 수 있습니다. 
+* A thoroughly scanned image deployed in production is not guaranteed to be up-to-date for the lifetime of the application. 보안 취약성은 이전에 알려지지 않았거나 프로덕션 배포 후에 도입 된 이미지 계층에 대해 보고될 수 있습니다. 
 
-  프로덕션에 배포 된 이미지를 정기적으로 감사 하 여 오래 되었거나 업데이트 되지 않은 이미지를 식별 합니다. 가동 중지 시간 없이 컨테이너 이미지를 업데이트 하는 blue-녹색 배포 방법 및 롤링 업그레이드 메커니즘을 사용할 수 있습니다. 이전 섹션에서 설명한 도구를 사용 하 여 이미지를 스캔할 수 있습니다. 
+  Periodically audit images deployed in production to identify images that are out of date or have not been updated in a while. You might use blue-green deployment methodologies and rolling upgrade mechanisms to update container images without downtime. You can scan images by using tools described in the preceding section. 
 
-* 통합 보안 검색으로 CI (연속 통합) 파이프라인을 사용 하 여 보안 이미지를 빌드하고 개인 레지스트리에 푸시합니다. CI 솔루션에 기본 제공된 취약성 검색은 모든 테스트를 통과한 이미지가 프로덕션 워크로드가 배포된 프라이빗 레지스트리에 푸시되는지 확인합니다. 
+* Use a continuous integration (CI) pipeline with integrated security scanning to build secure images and push them to your private registry. CI 솔루션에 기본 제공된 취약성 검색은 모든 테스트를 통과한 이미지가 프로덕션 워크로드가 배포된 프라이빗 레지스트리에 푸시되는지 확인합니다. 
 
-  CI 파이프라인 오류는 취약 한 이미지가 프로덕션 워크 로드 배포에 사용 되는 개인 레지스트리에 푸시되 지 않도록 합니다. 또한 이미지 수가 많은 경우 이미지 보안 검색을 자동화 합니다. 그렇지 않고 이미지에서 보안 취약성을 수동으로 감사하는 것은 매우 번거롭고 오류가 발생하기 쉽습니다. 
+  A CI pipeline failure ensures that vulnerable images are not pushed to the private registry that’s used for production workload deployments. It also automates image security scanning if there’s a significant number of images. 그렇지 않고 이미지에서 보안 취약성을 수동으로 감사하는 것은 매우 번거롭고 오류가 발생하기 쉽습니다. 
 
-### <a name="enforce-least-privileges-in-runtime"></a>런타임에 최소 권한 적용 
+### <a name="enforce-least-privileges-in-runtime"></a>Enforce least privileges in runtime 
 
-최소 권한 개념은 컨테이너에도 적용 되는 기본적인 보안 모범 사례입니다. 취약점이 악용 되 면 일반적으로 공격자가 손상 된 응용 프로그램 또는 프로세스와 동일한 액세스 및 권한을 부여 합니다. 컨테이너에서 작업을 수행 하는 데 필요한 가장 낮은 권한 및 액세스를 작동 하도록 하면 위험에 노출 되는 정도를 줄일 수 있습니다. 
+The concept of least privileges is a basic security best practice that also applies to containers. When a vulnerability is exploited, it generally gives the attacker access and privileges equal to those of the compromised application or process. Ensuring that containers operate with the lowest privileges and access required to get the job done reduces your exposure to risk. 
 
-### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>불필요 한 권한을 제거 하 여 컨테이너 공격 노출 영역 축소 
+### <a name="reduce-the-container-attack-surface-by-removing-unneeded-privileges"></a>Reduce the container attack surface by removing unneeded privileges 
 
-컨테이너 런타임에서 사용 하지 않거나 불필요 한 프로세스나 권한을 제거 하 여 잠재적인 공격 노출 영역을 최소화할 수도 있습니다. 권한 있는 컨테이너는 루트로 실행 됩니다. 악의적인 사용자 또는 워크 로드가 권한 있는 컨테이너에서 이스케이프 되 면 컨테이너는 해당 시스템에서 루트로 실행 됩니다.
+You can also minimize the potential attack surface by removing any unused or unnecessary processes or privileges from the container runtime. Privileged containers run as root. If a malicious user or workload escapes in a privileged container, the container will then run as root on that system.
 
-### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>컨테이너에서 액세스 하거나 실행할 수 있는 파일 및 실행 파일 허용 목록 
+### <a name="whitelist-files-and-executables-that-the-container-is-allowed-to-access-or-run"></a>Whitelist files and executables that the container is allowed to access or run 
 
-변수나 알려지지 않은 수를 줄이면 안정적인 안정적인 환경을 유지 관리할 수 있습니다. 컨테이너를 제한 하 여 미리 승인 된 또는 허용 목록 파일만 액세스 하거나 실행할 수 있으며 실행 파일은 위험에 대 한 노출을 제한 하는 검증 된 방법입니다.  
+Reducing the number of variables or unknowns helps you maintain a stable, reliable environment. Limiting containers so they can access or run only preapproved or whitelisted files and executables is a proven method of limiting exposure to risk.  
 
-처음부터 구현 될 때 허용 목록를 관리 하는 것이 훨씬 쉽습니다. 허용 목록는 응용 프로그램이 제대로 작동 하는 데 필요한 파일 및 실행 파일을 배울 때 제어 및 관리 효율성을 측정 합니다. 
+It’s a lot easier to manage a whitelist when it’s implemented from the beginning. A whitelist provides a measure of control and manageability as you learn what files and executables are required for the application to function correctly. 
 
-허용 목록 공격 노출 영역을 줄일 수 있을 뿐만 아니라 변칙에 대 한 기준을 제공 하 고 "잡음이 있는 환경" 및 컨테이너 중단 시나리오의 사용 사례를 방지할 수도 있습니다. 
+A whitelist not only reduces the attack surface but can also provide a baseline for anomalies and prevent the use cases of the "noisy neighbor" and container breakout scenarios. 
 
-### <a name="enforce-network-segmentation-on-running-containers"></a>실행 중인 컨테이너에서 네트워크 조각화 적용  
+### <a name="enforce-network-segmentation-on-running-containers"></a>Enforce network segmentation on running containers  
 
-한 서브넷의 컨테이너를 다른 서브넷의 보안 위험 으로부터 보호 하려면 실행 중인 컨테이너 간에 네트워크 구분 (또는 nano 조각화) 또는 분리를 유지 관리 합니다. 규정 준수 조건을 충족 하는 데 필요한 업계의 컨테이너를 사용 하려면 네트워크 조각화를 유지 해야 할 수도 있습니다.  
+To help protect containers in one subnet from security risks in another subnet, maintain network segmentation (or nano-segmentation) or segregation between running containers. Maintaining network segmentation may also be necessary for using containers in industries that are required to meet compliance mandates.  
 
-예를 들어, 파트너 도구 [바다색](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) 은 nano 구분에 대 한 자동화 된 접근 방식을 제공 합니다. 바다색은 런타임에 컨테이너 네트워크 활동을 모니터링 합니다. 다른 컨테이너, 서비스, IP 주소 및 공용 인터넷에 대 한 모든 인바운드 및 아웃 바운드 네트워크 연결을 식별 합니다. Nano 조각화는 모니터링 되는 트래픽에 따라 자동으로 생성 됩니다. 
+For example, the partner tool [Aqua](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) provides an automated approach for nano-segmentation. Aqua monitors container network activities in runtime. It identifies all inbound and outbound network connections to/from other containers, services, IP addresses, and the public internet. Nano-segmentation is automatically created based on monitored traffic. 
 
-### <a name="monitor-container-activity-and-user-access"></a>컨테이너 작업 및 사용자 액세스 모니터링 
+### <a name="monitor-container-activity-and-user-access"></a>Monitor container activity and user access 
 
-모든 IT 환경에서와 마찬가지로, 컨테이너 에코 시스템에 대 한 활동 및 사용자 액세스를 일관 되 게 모니터링 하 여 의심 스러운 활동 또는 악의적인 활동을 신속 하 게 식별 해야 합니다. Azure는 다음을 비롯 한 컨테이너 모니터링 솔루션을 제공 합니다.
+As with any IT environment, you should consistently monitor activity and user access to your container ecosystem to quickly identify any suspicious or malicious activity. Azure provides container monitoring solutions including:
 
-* AKS (Azure Kubernetes Service)에서 호스트 되는 Kubernetes 환경에 배포 된 워크 로드의 성능을 모니터링 하는 [컨테이너에 대 한 Azure Monitor](../azure-monitor/insights/container-insights-overview.md) 합니다. 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
+* [Azure Monitor for containers](../azure-monitor/insights/container-insights-overview.md) to monitor the performance of your workloads deployed to Kubernetes environments hosted on Azure Kubernetes Service (AKS). 컨테이너용 Azure Monitor는 Metrics API를 통해 Kubernetes에서 사용할 수 있는 컨트롤러, 노드 및 컨테이너의 메모리 및 프로세서 메트릭을 수집하여 성능을 시각적으로 표시합니다. 
 
-* [Azure 컨테이너 모니터링 솔루션](../azure-monitor/insights/containers.md) 을 사용 하면 단일 위치에서 다른 Docker 및 Windows 컨테이너 호스트를 보고 관리할 수 있습니다. 예를 들어:
+* The [Azure Container Monitoring solution](../azure-monitor/insights/containers.md) helps you view and manage other Docker and Windows container hosts in a single location. 다음은 그 예입니다.
 
-  * 컨테이너에 사용 되는 명령을 보여 주는 자세한 감사 정보를 표시 합니다. 
-  * Docker 또는 Windows 호스트를 원격으로 보지 않고도 중앙화 된 로그를 보고 검색 하 여 컨테이너 문제를 해결 합니다.  
-  * 호스트에서 과도 한 리소스를 소비 하 고 소비할 수 있는 컨테이너를 찾습니다.
-  * 컨테이너에 대 한 중앙 집중식 CPU, 메모리, 저장소, 네트워크 사용량 및 성능 정보를 확인 합니다.  
+  * View detailed audit information that shows commands used with containers. 
+  * Troubleshoot containers by viewing and searching centralized logs without having to remotely view Docker or Windows hosts.  
+  * Find containers that may be noisy and consuming excess resources on a host.
+  * View centralized CPU, memory, storage, and network usage and performance information for containers.  
 
-  이 솔루션은 Docker Swarm, DC/OS, 관리 되지 않는 Kubernetes, Service Fabric 및 Red Hat OpenShift를 비롯 한 컨테이너 orchestrator 지원 합니다. 
+  The solution supports container orchestrators including Docker Swarm, DC/OS, unmanaged Kubernetes, Service Fabric, and Red Hat OpenShift. 
 
-### <a name="monitor-container-resource-activity"></a>컨테이너 리소스 작업 모니터 
+### <a name="monitor-container-resource-activity"></a>Monitor container resource activity 
 
-컨테이너에 액세스 하는 파일, 네트워크 및 기타 리소스와 같은 리소스 활동을 모니터링 합니다. 리소스 작업 및 소비 모니터링은 성능 모니터링과 보안 조치로 모두 유용 합니다. 
+Monitor your resource activity, like files, network, and other resources that your containers access. Monitoring resource activity and consumption is useful both for performance monitoring and as a security measure. 
 
 [Azure Monitor](../azure-monitor/overview.md)를 사용하면 메트릭, 활동 로그 및 진단 로그를 수집하도록 허용하여 Azure 서비스에 대한 핵심 모니터링을 수행할 수 있습니다. 예를 들어, 활동 로그는 새 리소스가 만들어지거나 수정되는 시기를 알려줍니다. 
 
-다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal에서 탐색기 중 하나를 사용하여 이 데이터를 보고 이러한 메트릭을 기반으로 경고를 만들 수 있습니다. Azure Monitor은 가장 빠른 메트릭 파이프라인 (5 분에서 1 분까지)을 제공 하므로 시간이 중요 한 경고 및 알림에 사용 해야 합니다. 
+다양한 리소스와 가상 머신 내부의 운영 체제에 대한 성능 통계를 제공하는 메트릭을 사용할 수 있습니다. Azure Portal에서 탐색기 중 하나를 사용하여 이 데이터를 보고 이러한 메트릭을 기반으로 경고를 만들 수 있습니다. Azure Monitor provides the fastest metrics pipeline (5 minutes down to 1 minute), so you should use it for time-critical alerts and notifications. 
 
-### <a name="log-all-container-administrative-user-access-for-auditing"></a>감사를 위해 모든 컨테이너 관리 사용자 액세스 기록 
+### <a name="log-all-container-administrative-user-access-for-auditing"></a>Log all container administrative user access for auditing 
 
-컨테이너 에코 시스템, 컨테이너 레지스트리 및 컨테이너 이미지에 대 한 관리 액세스의 정확한 감사 내역을 유지 관리 합니다. 이러한 로그는 감사 목적으로 필요할 수 있으며 보안 인시던트 후에 법정 증거로 사용 됩니다. 이러한 목적을 위해 [Azure Container Monitoring 솔루션](../azure-monitor/insights/containers.md) 을 사용할 수 있습니다. 
+Maintain an accurate audit trail of administrative access to your container ecosystem, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. You can use the [Azure Container Monitoring solution](../azure-monitor/insights/containers.md) to achieve this purpose. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) 및 [바다색 보안](https://www.aquasec.com/solutions/azure-container-security/)의 솔루션을 사용 하 여 컨테이너 취약점 관리에 대해 자세히 알아보세요.
+* Learn more about managing container vulnerabilities with solutions from [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) and [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).
 
-* [Azure의 컨테이너 보안](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/)에 대해 자세히 알아보세요.
+* Learn more about [container security in Azure](https://azure.microsoft.com/resources/container-security-in-microsoft-azure/).

@@ -1,24 +1,19 @@
 ---
-title: Azure Container Instances를 사용하여 컨테이너 로그 및 이벤트 가져오기
+title: Get container instance logs & events
 description: Azure Container Instances를 사용하여 컨테이너 로그 및 이벤트로 디버그하는 방법 알아보기
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 03/21/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 8ae7ab3f53f480f46165800504fbb1eb6649c3e2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 57d35b9423fd8c64e5a58ee4d8055aa3b238ba8c
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325962"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481756"
 ---
 # <a name="retrieve-container-logs-and-events-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 로그 및 이벤트 검색
 
-오동작 컨테이너를 사용 하는 경우 [az container logs][az-container-logs]를 사용 하 여 로그를 확인 하 고 [az container attach][az-container-attach]를 사용 하 여 표준 출력 및 표준 오류를 스트리밍하는 것부터 시작 합니다.
+When you have a misbehaving container, start by viewing its logs with [az container logs][az-container-logs], and streaming its standard out and standard error with [az container attach][az-container-attach].
 
 ## <a name="view-logs"></a>로그 보기
 
@@ -50,7 +45,7 @@ urllib.error.HTTPError: HTTP Error 404: Not Found
 
 ## <a name="attach-output-streams"></a>출력 스트림 연결
 
-[Az container attach][az-container-attach] 명령은 컨테이너를 시작 하는 동안 진단 정보를 제공 합니다. 컨테이너가 시작되면 로컬 콘솔에 STDOUT 및 STDERR을 스트리밍합니다.
+The [az container attach][az-container-attach] command provides diagnostic information during container startup. 컨테이너가 시작되면 로컬 콘솔에 STDOUT 및 STDERR을 스트리밍합니다.
 
 예를 들어 처리할 대규모 텍스트 파일의 잘못된 URL을 입력한 후에 [ACI에서 컨테이너화된 작업 실행](container-instances-restart-policy.md)에서 작업 기반 컨테이너의 로그 출력은 다음과 같습니다.
 

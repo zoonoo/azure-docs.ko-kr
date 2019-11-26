@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합니다.
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
-author: snehithm
-ms.author: snmuvva
-ms.date: 9/18/2018
+author: rboucher
+ms.author: robb
+ms.date: 11/18/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 4dd95d32bad76a610b88a4362e7887efdfaf6af0
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: b92b4233b6ecd8743f98f7f0dd13e07ad4c76c81
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972056"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484246"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -28,16 +28,16 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
-- 조건 형식: 정적
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원 되는 시간 집계는 Min, Max, Avg, Total, Count)입니다. 평균
-- 기간(확인할 메트릭 값에 대한 되돌아 보기 시간 범위): 지난 5분
-- 빈도(메트릭 경고에서 조건이 충족되는지 확인하는 빈도): 1분
-- 연산자: 초과
+- Condition Type: Static
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
 - 임계값: 70
 
 경고 규칙이 만들어진 시점 이후 모니터는 1분 간격으로 실행되며 지난 5분 간의 메트릭 값을 살펴 이 평균이 70을 초과하는지 확인합니다. 조건에 부합하면, 즉 지난 5분의 평균 백분율 CPU가 70을 초과하면 경고 규칙에서 활성화된 알림을 생성합니다. 경고 규칙과 연결된 작업 그룹에서 이메일이나 웹후크 작업을 구성한 경우 모두 활성화된 알림을 받게 됩니다.
 
-한 규칙에서 여러 조건을 사용 하는 경우 규칙은 조건을 함께 "ands" 합니다.  즉, 경고의 모든 조건이 true로 평가 되 고 조건 중 하나가 더 이상 true가 아니면 경고가 해결 될 때 경고가 발생 합니다. 이 경고 유형의 예는 "CPU가 90% 보다 큰 경우" 및 "큐 길이가 300 항목 초과" 일 때 경고를 발생 합니다. 
+When you are using multiple conditions in one rule, the rule "ands" the conditions together.  That is, the alert fires when all the conditions in the alert evaluate as true and resolve when one of the conditions is no longer true. And example of this type of alert would be alert when "CPU higher than 90%" and "queue length is over 300 items". 
 
 ### <a name="alert-rule-with-dynamic-condition-type"></a>동적 조건 형식이 있는 경고 규칙
 
@@ -45,14 +45,14 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 - 대상 리소스(모니터링할 Azure 리소스): myVM
 - 메트릭: 백분율 CPU
-- 조건 형식: Dynamic
-- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. 지원 되는 시간 집계는 Min, Max, Avg, Total, Count)입니다. 평균
-- 기간(확인할 메트릭 값에 대한 되돌아 보기 시간 범위): 지난 5분
-- 빈도(메트릭 경고에서 조건이 충족되는지 확인하는 빈도): 1분
-- 연산자: 초과
-- 민감도: 보통
-- 되돌아 보기 기간: 4
-- 위반 수: 4
+- Condition Type: Dynamic
+- 시간 집계(원시 메트릭 값에 대해 실행되는 통계. Supported time aggregations are Min, Max, Avg, Total, Count): Average
+- Period (The look back window over which metric values are checked): Over the last 5 mins
+- Frequency (The frequency with which the metric alert checks if the conditions are met): 1 min
+- Operator: Greater Than
+- Sensitivity: Medium
+- Look Back Periods: 4
+- Number of Violations: 4
 
 경고 규칙이 만들어지면 동적 임계값 기계 학습 알고리즘에서 사용 가능한 기록 데이터를 가져오고 메트릭 계열 동작 패턴에 가장 적합한 임계값을 계산하며, 새 데이터를 기반으로 하여 지속적으로 학습하여 임계값을 더 정확하게 만듭니다.
 
@@ -64,7 +64,7 @@ Azure Monitor에서 메트릭 경고는 다차원 메트릭을 기반으로 작�
 
 후속 검사에서 "myVM"의 사용량이 임계값을 계속 초과하면 해당 조건이 해결될 때까지 경고 규칙이 다시 실행되지 않습니다.
 
-시간이 지난 후에는 "myVM"의 사용량이 정상으로 복귀 됩니다 (임계값 아래로 이동). 경고 규칙은 해결 알림을 보내기 위해 두 번 이상 조건을 모니터링합니다. 조건이 유동적인 경우 소음을 줄이기 위해 세 번 연속 경고 조건에 부합하지 않으면 경고 규칙에서 해결/비활성화 메시지를 보냅니다.
+After some time, the usage on "myVM" comes back down to normal (goes below the threshold). 경고 규칙은 해결 알림을 보내기 위해 두 번 이상 조건을 모니터링합니다. 조건이 유동적인 경우 소음을 줄이기 위해 세 번 연속 경고 조건에 부합하지 않으면 경고 규칙에서 해결/비활성화 메시지를 보냅니다.
 
 해결됨 알림은 웹후크 또는 이메일을 통해 전송되므로 Azure Portal의 경고 인스턴스 상태(모니터 상태라고도 함)도 해결됨으로 설정됩니다.
 
@@ -76,13 +76,13 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - 대상 리소스: myAppServicePlan
 - 메트릭: 백분율 CPU
-- 조건 형식: 정적
+- Condition Type: Static
 - 차원
   - 인스턴스 = InstanceName1, InstanceName2
 - 시간 집계: 평균
 - 기간: 지난 5분
 - 빈도: 1분
-- 연산자: 보다큼
+- 연산자: GreaterThan
 - 임계값: 70
 
 이전과 같이 이 규칙은 최근 5분 동안 평균 CPU 사용량이 70%를 초과하는지 모니터링합니다. 그러나 같은 규칙으로 웹 사이트에서 실행되는 두 인스턴스를 모니터링할 수 있습니다. 각 인스턴스는 개별적으로 모니터링되며 알림도 개별적으로 받게 됩니다.
@@ -91,13 +91,13 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - 대상 리소스: myAppServicePlan
 - 메트릭: 백분율 CPU
-- 조건 형식: 정적
+- Condition Type: Static
 - 차원
   - 인스턴스 = *
 - 시간 집계: 평균
 - 기간: 지난 5분
 - 빈도: 1분
-- 연산자: 보다큼
+- 연산자: GreaterThan
 - 임계값: 70
 
 이 규칙은 자동으로 인스턴스의 모든 값을 모니터링합니다. 즉 메트릭 경고 규칙을 다시 수정하지 않고도 그대로 인스턴스를 모니터링할 수 있습니다.
@@ -108,16 +108,16 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 - 대상 리소스: myAppServicePlan
 - 메트릭: 백분율 CPU
-- 조건 형식: Dynamic
+- Condition Type: Dynamic
 - 차원
   - 인스턴스 = *
 - 시간 집계: 평균
 - 기간: 지난 5분
 - 빈도: 1분
-- 연산자: 보다큼
-- 민감도: 보통
-- 되돌아 보기 기간: 1
-- 위반 수: 1
+- 연산자: GreaterThan
+- Sensitivity: Medium
+- Look Back Periods: 1
+- Number of Violations: 1
 
 이 규칙은 지난 5분 동안의 평균 CPU 사용량이 각 인스턴스에 대해 예상된 동작을 초과하는지 모니터링합니다. 메트릭 경고 규칙을 다시 수정할 필요 없이 동일한 규칙에 따라 발생하는 인스턴스를 모니터링할 수 있습니다. 각 인스턴스에서 메트릭 계열 동작 패턴에 맞는 임계값을 가져오고, 새 데이터에 따라 지속적으로 변경되어 임계값을 더 정확하게 만듭니다. 이전과 마찬가지로 각 인스턴스는 개별적으로 모니터링되며 알림도 개별적으로 받게 됩니다.
 
@@ -143,41 +143,6 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 지원되는 리소스 종류의 전체 목록은 이 [문서](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에서 확인할 수 있습니다.
 
-현재는 클래식 메트릭 경고를 사용하는데 메트릭 경고가 사용 중인 모든 리소스 종류를 지원하는지를 확인하려는 경우 아래 표를 참조하세요. 이 표에는 클래식 메트릭 경고가 지원하는 리소스 종류, 그리고 이러한 리소스 종류가 현재 메트릭 경고에서 지원되는지 여부가 나와 있습니다.
-
-|클래식 메트릭 경고가 지원하는 리소스 종류 | 메트릭 경고의 지원 여부 |
-|-------------------------------------------------|----------------------------|
-| Microsoft.ApiManagement/service | 예 |
-| Microsoft.Batch/batchAccounts| 예|
-|Microsoft.Cache/redis| 예 |
-|Microsoft.ClassicCompute/virtualMachines | 아니요 |
-|Microsoft.ClassicCompute/domainNames/slots/roles | 아니요|
-|Microsoft.CognitiveServices/accounts | 아니요 |
-|Microsoft.Compute/virtualMachines | 예|
-|Microsoft.Compute/virtualMachineScaleSets| 예|
-|Microsoft.ClassicStorage/storageAccounts| 아니요 |
-|Microsoft.DataFactory/datafactories | 예|
-|Microsoft.DBforMySQL/servers| 예|
-|Microsoft.DBforPostgreSQL/servers| 예|
-|Microsoft.Devices/IotHubs | 아니요|
-|Microsoft.DocumentDB/databaseAccounts| 예|
-|Microsoft.EventHub/namespaces | 예|
-|Microsoft.Logic/workflows | 예|
-|Microsoft.Network/loadBalancers |예|
-|Microsoft.Network/publicIPAddresses| 예|
-|Microsoft.Network/applicationGateways| 예|
-|Microsoft.Network/expressRouteCircuits| 예|
-|Microsoft.Network/trafficManagerProfiles | 예|
-|Microsoft.Search/searchServices | 예|
-|Microsoft.ServiceBus/namespaces| 예 |
-|Microsoft.Storage/storageAccounts | 예|
-|Microsoft.StreamAnalytics/streamingjobs| 예|
-|Microsoft.TimeSeriesInsights/environments | 예|
-|Microsoft. Web/serverfarms | 예 |
-|Microsoft. Web/sites(함수 제외) | 예|
-|Microsoft. Web/hostingEnvironments/multiRolePools | 아니요|
-|Microsoft. Web/hostingEnvironments/workerPools| 아니요 |
-|Microsoft.SQL/Servers | 아니요 |
 
 ## <a name="next-steps"></a>다음 단계
 
