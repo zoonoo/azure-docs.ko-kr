@@ -45,6 +45,8 @@
       href: batch-api-basics.md
     - name: API 및 도구
       href: batch-apis-tools.md
+    - name: 모범 사례
+      href: best-practices.md
     - name: 할당량 및 제한
       href: batch-quota-limit.md
     - name: 지원되는 VM 크기

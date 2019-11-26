@@ -175,6 +175,10 @@
   items:
     - name: 단일 서버
       items:
+        - name: 서버 관리
+          items:
+            - name: Azure portal
+              href: howto-create-manage-server-portal.md
         - name: 인증
           items:
             - name: 사용자 만들기
