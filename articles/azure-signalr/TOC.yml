@@ -61,6 +61,8 @@
   items:
     - name: 확장
       items:
+        - name: 단일 인스턴스
+          href: signalr-howto-scale-signalr.md
         - name: 여러 인스턴스
           href: signalr-howto-scale-multi-instances.md
     - name: 보안
