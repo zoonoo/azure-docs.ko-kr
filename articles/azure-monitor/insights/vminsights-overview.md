@@ -1,5 +1,5 @@
 ---
-title: VM용 Azure Monitor(미리 보기)란? | Microsoft Docs
+title: VM용 Azure Monitor(미리 보기)란? | Microsoft 문서
 description: 응용 프로그램 구성 요소와 해당 종속성을 자동으로 검색 하 고 매핑하는 것 외에도 Azure Vm의 상태와 성능을 모니터링 하는 VM용 Azure Monitor에 대 한 개요입니다.
 ms.service: azure-monitor
 ms.subservice: ''

@@ -75,7 +75,7 @@ Resource Manager 템플릿에 정의된 모든 Log Analytics 리소스에는 리
 |:--- |:--- |
 | 카테고리 | 저장된 검색의 범주입니다.  같은 솔루션에 있는 저장된 검색은 종종 단일 범주를 공유하므로 콘솔에서 함께 그룹화됩니다. |
 | displayname | 포털에서 저장된 검색에 표시할 이름입니다. |
-| query | 실행할 쿼리입니다. |
+| 쿼리 | 실행할 쿼리입니다. |
 
 > [!NOTE]
 > JSON으로 해석될 수 있는 문자를 포함하고 있는 경우 쿼리에 이스케이프 문자를 사용해야 합니다. 예를 들어, 쿼리가 **AzureActivity | OperationName:“Microsoft.Compute/virtualMachines/write”** 이면 솔루션 파일에 **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"** 라고 써야 합니다.
@@ -114,8 +114,8 @@ Azure로 경고를 확장하는 사용자의 경우 작업은 이제 Azure 작�
 
 | 요소 이름 | 필수 | 설명 |
 |:--|:--|:--|
-| 사용       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
-| interval      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
+| enabled       | 예 | 경고를 만들 때 사용 여부를 지정합니다. |
+| 간격      | 예 | 쿼리가 실행되는 빈도(분)입니다. |
 | queryTimeSpan | 예 | 결과를 평가하는 시간의 길이(분)입니다. |
 
 일정 전에 저장된 검색이 생성되도록 일정 리소스는 저장된 검색에 따라 결정됩니다.

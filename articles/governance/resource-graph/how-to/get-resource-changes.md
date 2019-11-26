@@ -288,4 +288,4 @@ POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChan
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 살펴 보는](../concepts/explore-resources.md) 방법을 자세히 알아보세요.
+- [리소스 검색](../concepts/explore-resources.md) 방법에 대해 자세히 알아보기

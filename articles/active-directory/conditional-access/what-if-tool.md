@@ -1,6 +1,6 @@
 ---
-title: The Conditional Access What If tool - Azure Active Directory
-description: Learn how you can understand the impact of your Conditional Access policies on your environment.
+title: 조건부 액세스 What If 도구-Azure Active Directory
+description: 사용자 환경에서 조건부 액세스 정책의 영향을 이해 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,21 +18,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74379986"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Troubleshoot using the What If tool in Conditional Access
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용 하 여 문제 해결
 
-[Conditional Access](../active-directory-conditional-access-azure-portal.md) is a capability of Azure Active Directory (Azure AD) that enables you to control how authorized users access your cloud apps. How do you know what to expect from the Conditional Access policies in your environment? To answer this question, you can use the **Conditional Access What If tool**.
+[조건부 액세스](../active-directory-conditional-access-azure-portal.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있는 Azure AD (Azure Active Directory)의 기능입니다. 사용자 환경에서 조건부 액세스 정책에서 발생할 수 있는 작업을 어떻게 알 수 있나요? 이 질문에 대답 하기 위해 **조건부 액세스 What If 도구**를 사용할 수 있습니다.
 
-This article explains how you can use this tool to test your Conditional Access policies.
+이 문서에서는이 도구를 사용 하 여 조건부 액세스 정책을 테스트 하는 방법을 설명 합니다.
 
 ## <a name="what-it-is"></a>정의
 
-The **Conditional Access What If policy tool** allows you to understand the impact of your Conditional Access policies on your environment. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해 보는 대신, 이 도구를 사용하여 사용자의 시뮬레이션된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고 시뮬레이션 보고서를 생성합니다. The report does not only list the applied Conditional Access policies but also [classic policies](policy-migration.md#classic-policies) if they exist.    
+**조건부 액세스 What If 정책 도구** 를 사용 하 여 사용자 환경에 대 한 조건부 액세스 정책의 영향을 이해할 수 있습니다. 여러 번의 로그인을 수동으로 수행하여 정책을 시험 사용해보는 대신, 이 도구를 사용하여 사용자의 시뮬레이트된 로그인을 평가할 수 있습니다. 이 시뮬레이션은 이 로그인이 정책에 미치는 영향을 평가하고, 시뮬레이션 보고서를 생성합니다. 이 보고서에는 적용 된 조건부 액세스 정책 뿐만 아니라 [기존 정책](policy-migration.md#classic-policies) (있는 경우)도 나열 됩니다.    
 
-The **What If** tool provides a way to quickly determine the policies that apply to a specific user. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
+**What If** 도구는 특정 사용자에 게 적용 되는 정책을 신속 하 게 결정 하는 방법을 제공 합니다. 예를 들어 문제를 해결해야 하는 경우에 이 정보를 사용할 수 있습니다.    
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
-In the **Conditional Access What If tool**, you first need to configure the settings of the sign-in scenario you want to simulate. 이러한 설정에는 다음이 포함됩니다.
+**조건부 액세스 What If 도구**에서 먼저 시뮬레이트할 로그인 시나리오의 설정을 구성 해야 합니다. 이러한 설정에는 다음이 포함됩니다.
 
 - 테스트하려는 사용자 
 - 사용자가 액세스하려고 하는 클라우드 앱
@@ -44,9 +44,9 @@ In the **Conditional Access What If tool**, you first need to configure the sett
 
 ## <a name="running-the-tool"></a>도구 실행
 
-You can find the **What If** tool on the **[Conditional Access - Policies](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** page in the Azure portal.
+**What If** 도구는 Azure Portal의 **[조건부 액세스 정책](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies)** 페이지에서 찾을 수 있습니다.
 
-To start the tool, in the toolbar on top of the list of policies, click **What If**.
+도구를 시작 하려면 정책 목록 맨 위에 있는 도구 모음에서 **What If**를 클릭 합니다.
 
 ![What If](./media/what-if-tool/01.png)
 
@@ -86,9 +86,9 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 이 설정은 [로그인 위험 조건](conditions.md#sign-in-risk)을 모방합니다.   
 
-## <a name="evaluation"></a>평가 
+## <a name="evaluation"></a>Evaluation 
 
-You start an evaluation by clicking **What If**. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
+**What If**를 클릭 하 여 평가를 시작 합니다. 평가 결과는 다음으로 구성된 보고서를 제공합니다. 
 
 ![What If](./media/what-if-tool/03.png)
 

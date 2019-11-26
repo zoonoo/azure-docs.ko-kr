@@ -1,5 +1,5 @@
 ---
-title: Configure password writeback for SSPR - Azure Active Directory
+title: SSPR에 대 한 비밀 번호 쓰기 저장 구성-Azure Active Directory
 description: Azure AD와 Azure AD Connect를 사용하여 온-프레미스 디렉터리에 대한 비밀번호 쓰기 저장
 services: active-directory
 ms.service: active-directory
@@ -59,14 +59,14 @@ ms.locfileid: "74381148"
 > 독립 실행형 Office 365 라이선스 요금제는 *"셀프 서비스 암호 재설정/변경/온-프레미스 쓰기 저장으로 잠금 해제"를 지원하지 않습니다*. 이 기능을 사용하려면 위의 요금제 중 하나가 필요합니다.
 >
 
-## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory permissions and on-premises password complexity policies 
+## <a name="active-directory-permissions-and-on-premises-password-complexity-policies"></a>Active Directory 권한 및 온-프레미스 암호 복잡성 정책 
 
 SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계정에 다음 항목이 설정되어야 합니다.
 
 * **암호 다시 설정** 
 * **암호 변경** 
-* **쓰기 권한** 켜짐`lockoutTime`
-* **쓰기 권한** 켜짐`pwdLastSet`
+* **쓰기 권한** 켜짐 `lockoutTime`
+* **쓰기 권한** 켜짐 `pwdLastSet`
 * 다음에 대해 **확장 권한** 켜짐:
    * 포리스트에 있는 *각 도메인*의 루트 개체
    * SSPR 범위에 포함되도록 하려는 사용자 OU(조직 구성 단위)
@@ -99,7 +99,7 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
     * **pwdLastSet 쓰기**
 9. **적용/확인**을 선택하여 변경 내용을 적용하고 열려 있는 대화 상자를 모두 끝냅니다.
 
-Since the source of authority is on premises, the password complexity policies apply from the same connected data source. Make sure you've changed the existing group policies for "Minimum password age". The group policy shouldn't be set to 1, which means password should be at least a day old before it can be updated. You need make sure it's set to 0. These settings can be found in `gpmc.msc` under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies**. Run `gpupdate /force` to ensure that the change takes effect. 
+인증 원본이 온-프레미스에 있으므로 암호 복잡성 정책은 동일한 연결 된 데이터 원본에서 적용 됩니다. "최소 암호 사용 기간"에 대 한 기존 그룹 정책을 변경 했는지 확인 합니다. 그룹 정책은 1로 설정 해서는 안 됩니다. 즉, 암호를 업데이트 하려면 먼저 하루 이상 이전 이어야 합니다. 0으로 설정 되어 있는지 확인 해야 합니다. 이러한 설정은 **컴퓨터 구성 > 정책 > Windows 설정 > 보안 설정 > 계정 정책**`gpmc.msc`에서 찾을 수 있습니다. `gpupdate /force`를 실행 하 여 변경 내용이 적용 되도록 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

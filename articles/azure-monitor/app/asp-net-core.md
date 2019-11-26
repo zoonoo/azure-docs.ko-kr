@@ -50,7 +50,7 @@ ms.locfileid: "74286257"
 
 3. **시작**을 선택합니다. 이 선택의 텍스트는 사용자의 Visual Studio 버전에 따라 다를 수 있습니다. 일부 이전 버전에서는 대신 **시작** 사용 단추를 사용 합니다.
 
-4. 사용 중인 구독을 선택합니다. 그런 다음 **리소스** > **등록**을 선택 합니다.
+4. 구독을 선택합니다. 그런 다음 **리소스** > **등록**을 선택 합니다.
 
 5. 프로젝트에 Application Insights를 추가한 후 최신 안정적인 SDK 릴리스를 사용 하 고 있는지 확인 합니다. **프로젝트로** 이동 >  > **NuGet 패키지 관리** **AspNetCore**를 참조 하세요. 필요한 경우 **업데이트**를 선택 합니다.
 
@@ -107,7 +107,7 @@ ms.locfileid: "74286257"
 
     * `ApplicationInsights:InstrumentationKey`
 
-    예:
+    예를 들어 다음과 같은 가치를 제공해야 합니다.
 
     * `SET ApplicationInsights:InstrumentationKey=putinstrumentationkeyhere`
 

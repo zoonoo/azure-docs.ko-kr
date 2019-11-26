@@ -1,6 +1,6 @@
 ---
-title: Sign-in using authentication with a work or school account - Azure AD
-description: Learn how to sign in to your work or school account using the various two-factor verification methods.
+title: 회사 또는 학교 계정으로 인증을 사용 하 여 로그인-Azure AD
+description: 다양 한 2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 하는 방법을 알아봅니다.
 services: active-directory
 author: eross-msft
 manager: daveba
@@ -21,7 +21,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233223"
 ---
-# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Sign in to your work or school account using your two-factor verification method
+# <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 합니다.
 
 > [!NOTE]
 > 이 문서의 목적은 일반적인 로그인 환경을 연습해보는 것입니다. 로그인 관련 지원을 얻거나 문제를 해결하려면 [Azure Multi-Factor Authentication에 문제가 있는 경우](multi-factor-authentication-end-user-troubleshoot.md)를 참조하세요.

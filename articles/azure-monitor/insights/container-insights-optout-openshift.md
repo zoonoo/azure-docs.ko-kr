@@ -1,6 +1,6 @@
 ---
-title: How to stop monitoring your Azure Red Hat OpenShift cluster | Microsoft Docs
-description: This article describes how you can stop monitoring of your Azure Red Hat OpenShift cluster with Azure Monitor for containers.
+title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법 | Microsoft Docs
+description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
@@ -14,19 +14,19 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74384332"
 ---
-# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>How to stop monitoring your Azure Red Hat OpenShift cluster with Azure Monitor for containers
+# <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
-After you enable monitoring of your Azure Red Hat OpenShift cluster, you can stop monitoring the cluster if you decide you no longer want to monitor it. This article shows how to accomplish this using the provided Azure Resource Manager templates.  
+Azure Red Hat OpenShift 클러스터의 모니터링을 사용 하도록 설정한 후에는 더 이상 모니터링 하지 않으려는 클러스터의 모니터링을 중지할 수 있습니다. 이 문서에서는 제공 된 Azure Resource Manager 템플릿을 사용 하 여이를 수행 하는 방법을 보여 줍니다.  
 
 ## <a name="azure-resource-manager-template"></a>Azure Resource Manager 템플릿
 
-리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. One is a JSON template specifying the configuration to stop monitoring and the other contains parameter values that you configure to specify the OpenShift cluster resource ID and Azure region that the cluster is deployed in. 
+리소스 그룹에서 솔루션 리소스를 일관적이고 반복적인 방법으로 제거할 수 있는 두 가지 Azure Resource Manager 템플릿이 제공됩니다. 하나는 모니터링을 중지 하는 구성을 지정 하는 JSON 템플릿이 고, 다른 하나에는 클러스터를 배포 하는 OpenShift 클러스터 리소스 ID 및 Azure 지역을 지정 하도록 구성 하는 매개 변수 값이 포함 됩니다. 
 
 템플릿을 사용하여 리소스를 배포하는 개념에 익숙하지 않은 경우 다음을 참조하십시오.
 * [Resource Manager 템플릿과 Azure PowerShell로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy.md)
 * [Resource Manager 템플릿과 Azure CLI로 리소스 배포](../../azure-resource-manager/resource-group-template-deploy-cli.md)
 
-Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. You must be running the Azure CLI version 2.0.65 or later. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
+Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하고 사용해야 합니다. Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. Azure CLI를 설치하거나 업그레이드해야 하는 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요. 
 
 ### <a name="create-template"></a>템플릿 만들기
 
@@ -88,7 +88,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
     }
     ```
 
-4. Edit the values for **aroResourceId** and **aroResourceLocation** by using the values of the OpenShift cluster, which you can find on the **Properties** page for the selected cluster.
+4. 선택한 클러스터의 **속성** 페이지에서 찾을 수 있는 openshift 클러스터의 값을 사용 하 여 **Aroresourceid** 및 **aroresourceid** 에 대 한 값을 편집 합니다.
 
     ![컨테이너 속성 페이지](media/container-insights-optout-openshift/cluster-properties-page.png)
 
@@ -98,7 +98,7 @@ Azure CLI를 사용하도록 선택한 경우, 먼저 CLI를 로컬에 설치하
 
 ### <a name="remove-the-solution-using-azure-cli"></a>Azure CLI를 사용하여 솔루션 제거
 
-Execute the following command with Azure CLI on Linux to remove the solution and clean up the configuration on your cluster.
+Linux에서 Azure CLI를 사용 하 여 다음 명령을 실행 하 여 솔루션을 제거 하 고 클러스터의 구성을 정리 합니다.
 
 ```azurecli
 az login   
@@ -116,7 +116,7 @@ ProvisioningState       : Succeeded
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-Execute the following PowerShell commands in the folder containing the template to remove the solution and clean up the configuration from your cluster.    
+템플릿을 포함 하는 폴더에서 다음 PowerShell 명령을 실행 하 여 솔루션을 제거 하 고 클러스터에서 구성을 정리 합니다.    
 
 ```powershell
 Connect-AzAccount
@@ -132,4 +132,4 @@ ProvisioningState       : Succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. If you are not familiar with how to delete a workspace, see [Delete an Azure Log Analytics workspace](../../log-analytics/log-analytics-manage-del-workspace.md). 
+클러스터 모니터링을 지원하려는 목적으로만 작업 영역을 만들었으며 더 이상 필요하지 않은 경우 수동으로 삭제해야 합니다. 작업 영역을 삭제 하는 방법에 익숙하지 않은 경우 [Azure Log Analytics 작업 영역 삭제](../../log-analytics/log-analytics-manage-del-workspace.md)를 참조 하세요. 

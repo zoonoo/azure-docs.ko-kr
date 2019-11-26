@@ -181,7 +181,7 @@ async Task ExecuteQueries(IEnumerable<string> queries)
 }
 ```
 
-## <a name="pagination"></a>페이지 매김
+## <a name="pagination"></a>페이지 매기기
 
 Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목을 반환 하므로 원하는 전체 데이터 집합을 가져오기 위해 [쿼리를 시작](./work-with-data.md#paging-results) 해야 할 수 있습니다. 그러나 일부 Azure 리소스 그래프 클라이언트는 페이지 매김을 다른 방식으로 처리 합니다.
 
@@ -237,4 +237,4 @@ Azure 리소스 그래프가 단일 쿼리 응답에서 최대 1000 개 항목�
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 살펴 보는](explore-resources.md) 방법을 자세히 알아보세요.
+- [리소스 검색](explore-resources.md) 방법에 대해 자세히 알아보기

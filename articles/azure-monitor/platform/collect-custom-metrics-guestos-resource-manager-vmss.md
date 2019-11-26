@@ -246,7 +246,7 @@ Resource Manager 템플릿을 배포하려면 Azure PowerShell을 사용합니�
    ```powershell
    Select-AzSubscription -SubscriptionName "<Name of the subscription>" 
    ```
-1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령을 실행합니다. 
+1. 배포 중인 VM에 대한 새 리소스 그룹을 만듭니다. 다음 명령 실행: 
 
    ```powershell
     New-AzResourceGroup -Name "VMSSWADtestGrp" -Location "<Azure Region>" 

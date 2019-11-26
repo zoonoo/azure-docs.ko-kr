@@ -1,6 +1,6 @@
 ---
-title: Self-service password reset for Windows - Azure Active Directory
-description: How to enable self-service password reset using forgot password at the Windows login screen
+title: Windows 용 셀프 서비스 암호 재설정-Azure Active Directory
+description: Windows 로그인 화면에서 암호 찾기를 사용 하 여 셀프 서비스 암호 재설정을 사용 하도록 설정 하는 방법
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -18,19 +18,19 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74381242"
 ---
-# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>How to: Enable password reset from the Windows login screen
+# <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>방법: Windows 로그인 화면에서 암호 재설정 사용
 
-For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset their password at the Windows login screen. Users no longer have to find a device with a web browser to access the [SSPR portal](https://aka.ms/sspr).
+Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windows 로그인 화면에서 암호를 재설정할 수 있도록 설정할 수 있습니다. 사용자는 더 이상 [SSPR 포털](https://aka.ms/sspr)에 액세스할 수 있는 웹 브라우저가 포함 된 장치를 찾을 필요가 없습니다.
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![SSPR 링크가 표시 된 Windows 7 및 10 로그인 화면 예제](./media/howto-sspr-windows/windows-reset-password.png)
 
 ## <a name="general-limitations"></a>일반적인 제한 사항
 
-- Password reset is not currently supported from a Remote Desktop or from Hyper-V enhanced sessions.
+- 현재 원격 데스크톱 또는 Hyper-v 고급 세션에서 암호 재설정이 지원 되지 않습니다.
 - 이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
-- Hybrid Azure AD joined machines must have network connectivity line of sight to a domain controller to use the new password and update cached credentials.
-- If using an image, prior to running sysprep ensure that the web cache is cleared for the built-in Administrator prior to performing the CopyProfile step. More information about this step can be found in the support article [Performance poor when using custom default user profile](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
-- The following settings are known to interfere with the ability to use and reset passwords on Windows 10 devices
+- 새 암호를 사용 하 고 캐시 된 자격 증명을 업데이트 하려면 하이브리드 Azure AD 조인 컴퓨터에 도메인 컨트롤러에 대 한 네트워크 연결 회선이 있어야 합니다.
+- 이미지를 사용 하는 경우 sysprep를 실행 하기 전에 CopyProfile 단계를 수행 하기 전에 기본 제공 관리자에 대 한 웹 캐시가 지워지지 않았는지 확인 합니다. 이 단계에 대 한 자세한 내용은 [사용자 지정 기본 사용자 프로필을 사용할 때 지원 문서 성능 저하](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile)에서 찾을 수 있습니다.
+- 다음 설정은 Windows 10 장치에서 암호를 사용 하 고 다시 설정 하는 기능을 방해 하는 것으로 알려져 있습니다.
     - Windows 10 1809 이전 버전에서 정책이 Ctrl+Alt+Del을 요구하는 경우 **암호 재설정**이 작동하지 않습니다.
     - 잠금 화면 알림이 꺼진 경우 **암호 재설정**이 작동하지 않습니다.
     - HideFastUserSwitching이 사용하도록 설정 또는 1로 설정됨
@@ -38,28 +38,28 @@ For machines running Windows 7, 8, 8.1, and 10 you can enable users to reset the
     - NoLockScreen이 사용하도록 설정 또는 1로 설정됨
     - EnableLostMode가 디바이스에서 설정됨
     - Explorer.exe는 사용자 지정 셸로 바뀜
-- The combination of the following specific three settings can cause this feature to not work.
-    - Interactive logon: Do not require CTRL+ALT+DEL = Disabled
-    - DisableLockScreenAppNotifications = 1 or Enabled
-    - IsContentDeliveryPolicyEnforced = 1 or True
+- 다음 세 가지 설정을 조합 하면이 기능이 작동 하지 않을 수 있습니다.
+    - 대화형 로그온: CTRL + ALT + DEL = Disabled가 필요 하지 않습니다.
+    - DisableLockScreenAppNotifications = 1 또는 사용
+    - IsContentDeliveryPolicyEnforced = 1 또는 True
 
-## <a name="windows-10-password-reset"></a>Windows 10 password reset
+## <a name="windows-10-password-reset"></a>Windows 10 암호 재설정
 
-### <a name="windows-10-prerequisites"></a>Windows 10 prerequisites
+### <a name="windows-10-prerequisites"></a>Windows 10 필수 구성 요소
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 10 devices 
-       - Port 443 to `passwordreset.microsoftonline.com` and `ajax.aspnetcdn.com`
-       - Windows 10 devices only support machine-level proxy configuration
-- Run at least Windows 10, version April 2018 Update (v1803), and the devices must be either:
+- 관리자는 Azure Portal에서 Azure AD 셀프 서비스 암호 재설정을 사용 하도록 설정 해야 합니다.
+- **사용자는이 기능을 사용 하기 전에 SSPR에 등록 해야 합니다.**
+- 네트워크 프록시 요구 사항
+   - Windows 10 장치 
+       - `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대 한 포트 443
+       - Windows 10 장치는 컴퓨터 수준 프록시 구성만 지원 합니다.
+- Windows 10, 버전 4 월 2018 업데이트 (v1803) 이상을 실행 하 고 장치는 다음 중 하나 여야 합니다.
     - Azure AD 가입
     - 하이브리드 Azure AD 가입
 
-### <a name="enable-for-windows-10-using-intune"></a>Enable for Windows 10 using Intune
+### <a name="enable-for-windows-10-using-intune"></a>Intune을 사용 하 여 Windows 10 사용
 
-Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 디바이스의 Intune 등록이 필요합니다.
+Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 방법을 사용하려면 디바이스를 Intune에 등록해야 합니다.
 
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
 
@@ -78,10 +78,10 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
       - **값**을 **1**로 설정
       - **확인**
    - **확인**
-1. **만들기**
-1. This policy can be assigned to specific users, devices, or groups. More information can be found in the article [Assign user and device profiles in Microsoft Intune](https://docs.microsoft.com/intune/device-profile-assign).
+1. 갤러리 헤더에서 **만들기**
+1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
 
-### <a name="enable-for-windows-10-using-the-registry"></a>Enable for Windows 10 using the Registry
+### <a name="enable-for-windows-10-using-the-registry"></a>레지스트리를 사용 하 여 Windows 10 사용
 
 1. 관리 자격 증명을 사용하여 Windows PC에 로그인
 1. 관리자 권한으로 **regedit** 실행
@@ -89,37 +89,37 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
    - `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\AzureADAccount`
       - `"AllowPasswordReset"=dword:00000001`
 
-#### <a name="troubleshooting-windows-10-password-reset"></a>Troubleshooting Windows 10 password reset
+#### <a name="troubleshooting-windows-10-password-reset"></a>Windows 10 암호 재설정 문제 해결
 
 Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Azure AD 감사 로그의 Windows 7 암호 재설정 예](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
-When users reset their password from the login screen of a Windows 10 device, a low-privilege temporary account called `defaultuser1` is created. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. Multiple `defaultuser` profiles may exist but can be safely ignored.
+사용자가 Windows 10 장치의 로그인 화면에서 암호를 재설정 하면 `defaultuser1` 라는 낮은 권한 임시 계정이 만들어집니다. 이 계정은 암호 재설정 프로세스를 안전하게 유지하는 데 사용됩니다. 계정 자체는 무작위로 생성된 암호를 가지고 있으며, 디바이스 로그인 시 표시되지 않으며, 사용자가 암호를 설정하면 자동으로 제거됩니다. `defaultuser` 프로필이 여러 개 있을 수 있지만 안전 하 게 무시할 수 있습니다.
 
-## <a name="windows-7-8-and-81-password-reset"></a>Windows 7, 8, and 8.1 password reset
+## <a name="windows-7-8-and-81-password-reset"></a>Windows 7, 8 및 8.1 암호 재설정
 
-### <a name="windows-7-8-and-81-prerequisites"></a>Windows 7, 8, and 8.1 prerequisites
+### <a name="windows-7-8-and-81-prerequisites"></a>Windows 7, 8 및 8.1 필수 구성 요소
 
-- An administrator must enable Azure AD self-service password reset from the Azure portal.
-- **Users must register for SSPR before using this feature**
-- Network proxy requirements
-   - Windows 7, 8, and 8.1 devices
-       - Port 443 to `passwordreset.microsoftonline.com`
+- 관리자는 Azure Portal에서 Azure AD 셀프 서비스 암호 재설정을 사용 하도록 설정 해야 합니다.
+- **사용자는이 기능을 사용 하기 전에 SSPR에 등록 해야 합니다.**
+- 네트워크 프록시 요구 사항
+   - Windows 7, 8 및 8.1 장치
+       - `passwordreset.microsoftonline.com` 포트 443
 - 패치가 적용된 Windows 7 또는 Windows 8.1 운영 체제
 - [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-12)에 있는 지침을 사용하여 TLS 1.2 사용하도록 설정
-- If more than one 3rd party credential provider is enabled on your machine, users will see more than one user profile on the login screen.
+- 컴퓨터에 두 개 이상의 타사 자격 증명 공급자를 사용 하도록 설정 하면 사용자는 로그인 화면에서 둘 이상의 사용자 프로필을 볼 수 있습니다.
 
 > [!WARNING]
-> TLS 1.2 must be enabled, not just set to auto negotiate
+> 자동 negotiate로 설정 된 것이 아니라 TLS 1.2을 사용 하도록 설정 해야 합니다.
 
-### <a name="install"></a>Install
+### <a name="install"></a>설치
 
 1. 사용할 Windows 버전에 대해 적절한 설치 관리자를 다운로드합니다.
    - [https://aka.ms/sspraddin](https://aka.ms/sspraddin)의 Microsoft 다운로드 센터에서 소프트웨어를 지원합니다.
 1. 설치하고 설치 관리자를 실행할 머신에 로그인합니다.
 1. 설치 후에 다시 부팅하는 것이 좋습니다.
-1. After the reboot, at the login screen choose a user and click "Forgot password?" 암호 재설정 워크플로를 시작하려면
+1. 다시 부팅 한 후 로그인 화면에서 사용자를 선택 하 고 "암호 잊음?"를 클릭 합니다. 암호 재설정 워크플로를 시작하려면
 1. 암호를 재설정하는 화면 단계를 따라 워크플로를 완료합니다.
 
 ![예제 Windows 7 "암호 찾기" 클릭 SSPR flow](media/howto-sspr-windows/windows-7-sspr.png)
@@ -129,31 +129,31 @@ When users reset their password from the login screen of a Windows 10 device, a 
 - 자동 설치의 경우 "msiexec /i SsprWindowsLogon.PROD.msi /qn" 명령을 사용합니다.
 - 자동 제거의 경우 "msiexec /x SsprWindowsLogon.PROD.msi /qn" 명령을 사용합니다.
 
-#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Troubleshooting Windows 7, 8, and 8.1 password reset
+#### <a name="troubleshooting-windows-7-8-and-81-password-reset"></a>Windows 7, 8 및 8.1 암호 재설정 문제 해결
 
 머신 및 Azure AD 모두에 이벤트가 기록됩니다. Azure AD 이벤트에는 암호 재설정이 발생하는 IP 주소 및 ClientType에 대한 정보가 포함됩니다.
 
-![Example Windows 7 password reset in the Azure AD Audit log](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
+![Azure AD 감사 로그의 Windows 7 암호 재설정 예](media/howto-sspr-windows/windows-7-sspr-azure-ad-audit-log.png)
 
 추가 로깅이 필요한 경우 머신의 레지스트리 키를 변경하여 자세한 정보 표시 로깅을 사용할 수 있습니다. 문제 해결에 대해서만 자세한 정보 표시 로깅을 사용합니다.
 
 `HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\Credential Providers\{86D2F0AC-2171-46CF-9998-4E33B3D7FD4F}`
 
-- To enable verbose logging, create a `REG_DWORD: “EnableLogging”`, and set it to 1.
-- To disable verbose logging, change the `REG_DWORD: “EnableLogging”` to 0.
+- 자세한 정보 로깅을 사용 하도록 설정 하려면 `REG_DWORD: “EnableLogging”`을 만들고 1로 설정 합니다.
+- 자세한 정보 로깅을 사용 하지 않도록 설정 하려면 `REG_DWORD: “EnableLogging”`를 0으로 변경 합니다.
 
 ## <a name="what-do-users-see"></a>사용자에게 표시되는 내용
 
-Now that you have configured password reset for your Windows devices, what changes for the user? 로그인 화면에서 암호를 재설정할 수 있다는 사실을 사용자가 어떻게 알 수 있을까요?
+Windows 장치에 대 한 암호 재설정을 구성 했으므로 사용자에 대 한 변경 사항은 무엇 인가요? 로그인 화면에서 암호를 재설정할 수 있다는 사실을 사용자가 어떻게 알 수 있을까요?
 
-![Example Windows 7 and 10 login screens with SSPR link shown](./media/howto-sspr-windows/windows-reset-password.png)
+![SSPR 링크가 표시 된 Windows 7 및 10 로그인 화면 예제](./media/howto-sspr-windows/windows-reset-password.png)
 
-When users attempt to sign in, they now see a **Reset password** or **Forgot password** link that opens the self-service password reset experience at the login screen. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
+사용자가 로그인 하려고 하면 로그인 화면에서 셀프 서비스 암호 재설정 환경을 여는 **암호 다시 설정** 또는 **암호 찾기** 링크가 표시 됩니다. 사용자는 이 기능을 사용하면 다른 디바이스를 사용하여 웹 브라우저에 액세스할 필요 없이 암호를 재설정할 수 있습니다.
 
 이 기능을 사용하는 방법에 대한 지침은 [회사 또는 학교 암호 재설정](../user-help/active-directory-passwords-update-your-own-password.md)에서 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[Plan authentication methods to allow](concept-authentication-methods.md)
+[허용할 인증 방법 계획](concept-authentication-methods.md)
 
-[Configure Windows 10](https://docs.microsoft.com/windows/configuration/)
+[Windows 10 구성](https://docs.microsoft.com/windows/configuration/)

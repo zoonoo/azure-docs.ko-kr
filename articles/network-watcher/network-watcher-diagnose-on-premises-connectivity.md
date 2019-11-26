@@ -17,7 +17,7 @@ ms.date: 02/22/2017
 ms.author: kumud
 ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
 ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74275948"
@@ -82,7 +82,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 ### <a name="gateway"></a>게이트웨이
 
-| 오류 유형 | 이유 | Log|
+| 오류 유형 | Reason | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
@@ -97,7 +97,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 ### <a name="connection"></a>연결
 
-| 오류 유형 | 이유 | Log|
+| 오류 유형 | Reason | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|

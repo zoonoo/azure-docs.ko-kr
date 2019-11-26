@@ -1,5 +1,5 @@
 ---
-title: Configure private IP addresses for VMs - Azure CLI
+title: Vm에 대 한 개인 IP 주소 구성-Azure CLI
 description: Azure CLI(명령줄 인터페이스)를 사용하여 가상 머신에 대한 개인 IP 주소를 구성하는 방법에 대해 알아봅니다.
 services: virtual-network
 documentationcenter: na
@@ -30,7 +30,7 @@ ms.locfileid: "74404456"
 
 [!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
 
-이 문서에서는 리소스 관리자 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
+이 문서에서는 Resource Manager 배포 모델에 대해 설명합니다. [클래식 배포 모델에서 정적 개인 IP 주소를 관리](virtual-networks-static-private-ip-classic-cli.md)할 수도 있습니다.
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
@@ -120,7 +120,7 @@ ms.locfileid: "74404456"
     }
     ```
     
-    매개 변수
+    매개 변수:
 
     * `--private-ip-address`: NIC에 대한 고정 개인 IP 주소입니다.
     * `--vnet-name`: NIC가 만들어질 VNet의 이름입니다.
@@ -197,7 +197,7 @@ rivateIpAllocationMethod,PublicAddress:publicIpAddress}'
 
 ## <a name="remove-a-static-private-ip-address-from-a-vm"></a>VM에서 정적 개인 IP 주소 제거
 
-Azure Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 주소를 제거할 수 없습니다. 다음이 필요합니다.
+Azure Resource Manager 배포를 위해 Azure CLI의 NIC에서 고정 개인 IP 주소를 제거할 수 없습니다. 다음을 수행해야 합니다.
 - 동적 IP를 사용하는 새 NIC 만들기
 - VM의 NIC가 새로 만든 NIC를 수행하도록 설정합니다. 
 

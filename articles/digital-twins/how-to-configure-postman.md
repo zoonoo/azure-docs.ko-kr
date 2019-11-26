@@ -62,9 +62,9 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
     [새 Postman 리디렉션 URI를 구성 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. [앱이 **공용 클라이언트로**등록](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration)되었는지 확인 하려면 앱 등록에 대 한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **응용 프로그램을 공용 클라이언트로 처리**에 대해 **예** 를 선택 하 고 **저장**을 누릅니다.
+1. [앱이 **퍼블릭 클라이언트**로 등록되었는지](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration) 확인하려면 앱 등록을 위한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **공용 클라이언트로 애플리케이션 처리**에 **예**를 선택하고 **저장**을 누릅니다.
 
-    **액세스 토큰** 을 확인 하 여 **oauth2AllowImplicitFlow** 설정을 사용 하도록 설정 합니다.
+    **액세스 토큰**을 선택하여 Manifest.json에서 **oauth2AllowImplicitFlow** 설정을 사용하도록 설정합니다.
 
     [![공용 클라이언트 구성 설정](../../includes/media/digital-twins-permissions/aad-public-client.png)](../../includes/media/digital-twins-permissions/aad-public-client.png#lightbox)
 

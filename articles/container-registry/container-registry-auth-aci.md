@@ -1,5 +1,5 @@
 ---
-title: Access from Container Instances
+title: Container Instances에서 액세스
 description: Azure Active Directory 서비스 주체를 사용하여 Azure Container Instances에서 프라이빗 컨테이너 레지스트리에 있는 이미지에 대한 액세스 권한을 제공하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 04/23/2018

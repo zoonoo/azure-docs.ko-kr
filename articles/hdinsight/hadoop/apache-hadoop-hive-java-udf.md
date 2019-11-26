@@ -1,5 +1,5 @@
 ---
-title: Java user-defined function (UDF) with Apache Hive Azure HDInsight
+title: Apache Hive Azure HDInsight를 사용 하는 Java UDF (사용자 정의 함수)
 description: Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제 UDF는 텍스트 문자열 테이블을 소문자로 변환합니다.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -19,23 +19,23 @@ ms.locfileid: "74327202"
 
 Apache Hive와 함께 사용할 Java 기반 UDF(사용자 정의 함수)를 만드는 방법을 알아봅니다. 이 예제의 Java UDF는 텍스트 문자열 테이블을 모두 소문자로 변환합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* A Hadoop cluster on HDInsight. [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * [JDK(Java Developer Kit) 버전 8](https://aka.ms/azure-jdks)
-* Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html) [Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
-* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. This would be wasb:// for Azure Storage, abfs:// for Azure Data Lake Storage Gen2 or adl:// for Azure Data Lake Storage Gen1. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* Apache에 따라 올바르게 [설치된](https://maven.apache.org/download.cgi) [Apache Maven](https://maven.apache.org/install.html)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
+* 클러스터 기본 스토리지에 대한 [URI 체계](../hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Storage, abfs://에 대 한 wasb://입니다. Azure Storage에 대해 보안 전송이 활성화된 경우 URI는 `wasbs://`입니다.  [보안 전송](../../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 * 텍스트 편집기 또는 Java IDE
 
     > [!IMPORTANT]  
     > Windows 클라이언트에서 Python 파일을 만드는 경우 LF를 줄 끝으로 사용하는 편집기를 이용해야 합니다. 편집기에서 LF 또는 CRLF를 사용하는지 여부가 확실하지 않은 경우 CR 문자를 제거하는 단계는 [문제 해결](#troubleshooting) 섹션을 참조하세요.
 
-## <a name="test-environment"></a>Test environment
+## <a name="test-environment"></a>테스트 환경
 
-The environment used for this article was a computer running Windows 10.  The commands were executed in a command prompt, and the various files were edited with Notepad. Modify accordingly for your environment.
+이 문서에 사용 되는 환경은 Windows 10을 실행 하는 컴퓨터 였습니다.  명령은 명령 프롬프트에서 실행 되었으며 다양 한 파일이 메모장을 사용 하 여 편집 되었습니다. 사용자 환경에 맞게 수정 합니다.
 
-From a command prompt, enter the commands below to create a working environment:
+명령 프롬프트에서 아래 명령을 입력 하 여 작업 환경을 만듭니다.
 
 ```cmd
 IF NOT EXIST C:\HDI MKDIR C:\HDI
@@ -44,28 +44,28 @@ cd C:\HDI
 
 ## <a name="create-an-example-java-udf"></a>예제 Java UDF 만들기
 
-1. Create a new Maven project by entering the following command:
+1. 다음 명령을 입력 하 여 새 Maven 프로젝트를 만듭니다.
 
     ```cmd
     mvn archetype:generate -DgroupId=com.microsoft.examples -DartifactId=ExampleUDF -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
     ```
 
-    This command creates a directory named `exampleudf`, which contains the Maven project.
+    이 명령은 Maven 프로젝트를 포함 하는 `exampleudf`라는 디렉터리를 만듭니다.
 
-2. Once the project has been created, delete the `exampleudf/src/test` directory that was created as part of the project by entering the following command:
+2. 프로젝트를 만든 후에는 다음 명령을 입력 하 여 프로젝트의 일부로 만든 `exampleudf/src/test` 디렉터리를 삭제 합니다.
 
     ```cmd
     cd ExampleUDF
     rmdir /S /Q "src/test"
     ```
 
-3. Open `pom.xml` by entering the command below:
+3. 아래 명령을 입력 하 여 `pom.xml`를 엽니다.
 
     ```cmd
     notepad pom.xml
     ```
 
-    Then replace the existing `<dependencies>` entry with the following XML:
+    그런 다음 기존 `<dependencies>` 항목을 다음 XML로 바꿉니다.
 
     ```xml
     <dependencies>
@@ -86,7 +86,7 @@ cd C:\HDI
 
     이러한 항목은 HDInsight 3.6과 함께 포함된 Hadoop 및 Hive의 버전을 지정합니다. [HDInsight 구성 요소 버전 관리](../hdinsight-component-versioning.md) 문서에서 HDInsight를 제공하는 Hadoop 및 Hive의 버전에 대한 정보를 찾을 수 있습니다.
 
-    파일 끝의 `</project>` 줄 앞에 `<build>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
+    파일 끝의 `<build>` 줄 앞에 `</project>` 섹션을 추가합니다. 이 섹션에는 다음 XML이 포함되어야 합니다.
 
     ```xml
     <build>
@@ -144,13 +144,13 @@ cd C:\HDI
 
     변경이 완료되면 파일을 저장합니다.
 
-4. Enter the command below to create and open a new file `ExampleUDF.java`:
+4. 다음 명령을 입력 하 `ExampleUDF.java`새 파일을 만들고 엽니다.
 
     ```cmd
     notepad src/main/java/com/microsoft/examples/ExampleUDF.java
     ```
 
-    Then copy and paste the java code below into the new file. Then close the file.
+    그런 다음 아래 java 코드를 복사 하 여 새 파일에 붙여넣습니다. 그런 다음 파일을 닫습니다.
 
     ```java
     package com.microsoft.examples;
@@ -181,9 +181,9 @@ cd C:\HDI
 
 ## <a name="build-and-install-the-udf"></a>UDF 빌드 및 설치
 
-In the commands below, replace `sshuser` with the actual username if different. Replace `mycluster` with the actual cluster name.
+아래 명령에서 `sshuser`를 실제 사용자 이름 (다른 경우)으로 바꿉니다. `mycluster`를 실제 클러스터 이름으로 바꿉니다.
 
-1. Compile and package the UDF by entering the following command:
+1. 다음 명령을 입력 하 여 UDF를 컴파일하고 패키지 합니다.
 
     ```cmd
     mvn compile package
@@ -191,19 +191,19 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
     이 명령은 `exampleudf/target/ExampleUDF-1.0-SNAPSHOT.jar` 파일에 UDF를 빌드하고 패키지합니다.
 
-2. Use the `scp` command to copy the file to the HDInsight cluster by entering the following command:
+2. `scp` 명령을 사용 하 여 다음 명령을 입력 하 여 파일을 HDInsight 클러스터에 복사 합니다.
 
     ```cmd
     scp ./target/ExampleUDF-1.0-SNAPSHOT.jar sshuser@mycluster-ssh.azurehdinsight.net:
     ```
 
-3. Connect to the cluster using SSH by entering the following command:
+3. 다음 명령을 입력 하 여 SSH를 사용 하 여 클러스터에 연결 합니다.
 
     ```cmd
     ssh sshuser@mycluster-ssh.azurehdinsight.net
     ```
 
-4. From the open SSH session, copy the jar file to HDInsight storage.
+4. 열려 있는 SSH 세션에서 jar 파일을 HDInsight 저장소에 복사 합니다.
 
     ```bash
     hdfs dfs -put ExampleUDF-1.0-SNAPSHOT.jar /example/jars
@@ -211,7 +211,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 ## <a name="use-the-udf-from-hive"></a>Hive에서 UDF 사용
 
-1. Start the Beeline client from the SSH session by entering the following command:
+1. 다음 명령을 입력 하 여 SSH 세션에서 Beeline client를 시작 합니다.
 
     ```bash
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http'
@@ -232,7 +232,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
     SELECT tolower(state) AS ExampleUDF, state FROM hivesampletable LIMIT 10;
     ```
 
-    This query selects the state from the table, convert the string to lower case, and then display them along with the unmodified name. 출력은 다음 텍스트와 유사합니다.
+    이 쿼리는 테이블에서 상태를 선택 하 고 문자열을 소문자로 변환한 다음 수정 되지 않은 이름과 함께 표시 합니다. 출력은 다음 텍스트와 유사합니다.
 
         +---------------+---------------+--+
         |  exampleudf   |     state     |
@@ -251,7 +251,7 @@ In the commands below, replace `sshuser` with the actual username if different. 
 
 ## <a name="troubleshooting"></a>문제 해결
 
-When running the hive job, you may come across an error similar to the following text:
+Hive 작업을 실행 하는 경우 다음 텍스트와 유사한 오류가 발생할 수 있습니다.
 
     Caused by: org.apache.hadoop.hive.ql.metadata.HiveException: [Error 20001]: An error occurred while reading or writing to your custom script. It may have crashed with an error.
 

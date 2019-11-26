@@ -39,7 +39,7 @@ ms.locfileid: "74275608"
 > [!NOTE]
 > 사용자에게 게시된 응용 프로그램에 대한 액세스 권한을 제공하면 [Azure AD 액세스 패널](../user-help/my-apps-portal-end-user-access.md) 및 [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2016/09/27/introducing-the-new-office-365-app-launcher/)에 앱이 표시됩니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 홈페이지 URL을 설정하기 전에 다음 요구 사항에 유의하세요.
 

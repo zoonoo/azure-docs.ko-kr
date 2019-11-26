@@ -24,7 +24,7 @@ Azure Security Center는 다음 보안 제품을 사용할 수 있는 추가 Mic
 * [Azure WAF](#azure-waf)
 * [Azure DDoS Protection](#azure-ddos)
 
-## Azure WAF <a name="azure-waf"></a>
+## Azure WAF<a name="azure-waf"></a>
 
 Azure Application Gateway는 일반적인 악용 및 취약성으로부터 웹 애플리케이션을 중앙 집중식으로 보호하는 WAF(웹 애플리케이션 방화벽)를 제공합니다.
 

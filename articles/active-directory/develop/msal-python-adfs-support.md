@@ -1,7 +1,7 @@
 ---
-title: Azure AD FS support in Microsoft Authentication Library for Python
+title: Python 용 Microsoft 인증 라이브러리의 Azure AD FS 지원
 titleSuffix: Microsoft identity platform
-description: Learn about Active Directory Federation Services (AD FS) support in Microsoft Authentication Library for Python
+description: Python 용 Microsoft 인증 라이브러리의 AD FS (Active Directory Federation Services) 지원에 대해 알아보기
 services: active-directory
 documentationcenter: dev-center-name
 author: abhidnya13
@@ -25,45 +25,45 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485030"
 ---
-# <a name="active-directory-federation-services-support-in-msal-for-python"></a>Active Directory Federation Services support in MSAL for Python
+# <a name="active-directory-federation-services-support-in-msal-for-python"></a>Python 용 MSAL에서 지원 Active Directory Federation Services
 
-Active Directory Federation Services (AD FS) in Windows Server enables you to add OpenID Connect and OAuth 2.0 based authentication and authorization to your apps by using the Microsoft Authentication Library (MSAL) for Python. Using the MSAL for Python library, your app can authenticate users directly against AD FS. For more information about scenarios, see [AD FS Scenarios for Developers](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers).
+Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 Python 용 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 앱에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 앱은 Python 라이브러리에 대해 MSAL을 사용 하 여 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 시나리오에 대 한 자세한 내용은 [개발자를 위한 AD FS 시나리오](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)를 참조 하십시오.
 
-There are usually two ways of authenticating against AD FS:
+일반적으로 AD FS에 대해 인증 하는 방법에는 두 가지가 있습니다.
 
-- MSAL Python talks to Azure Active Directory, which itself is federated with other identity providers. The federation happens through AD FS. MSAL Python connects to Azure AD, which signs in users that are managed in Azure AD (managed users) or users managed by another identity provider such as AD FS (federated users). MSAL Python doesn't  know that a user is federated. It simply talks to Azure AD. The [authority](msal-client-application-configuration.md#authority) you use in this case is the usual authority (authority host name + tenant, common, or organizations).
-- MSAL Python talks directly to an AD FS authority. This is only supported by AD FS 2019 and later.
+- MSAL Python은 다른 id 공급자와 페더레이션 되는 Azure Active Directory에 대 한 통신을 제공 합니다. 페더레이션은 AD FS를 통해 발생 합니다. MSAL Python은 azure ad (관리 되는 사용자)에서 관리 되는 사용자 또는 AD FS (페더레이션된 사용자)와 같은 다른 id 공급자가 관리 하는 사용자에 게 로그인 하는 Azure AD에 연결 합니다. MSAL Python은 사용자가 페더레이션 임을 인식 하지 못합니다. 단지 Azure AD와만 통신 합니다. 이 경우 사용 하는 [기관은](msal-client-application-configuration.md#authority) 일반적인 인증 기관 (기관 호스트 이름 + 테 넌 트, 공용 또는 조직)입니다.
+- MSAL Python은 AD FS 기관에 직접 통신 합니다. AD FS 2019 이상 에서만 지원 됩니다.
 
-## <a name="connect-to-active-directory-federated-with-ad-fs"></a>Connect to Active Directory federated with AD FS
+## <a name="connect-to-active-directory-federated-with-ad-fs"></a>AD FS를 사용 하 여 페더레이션 Active Directory에 연결
 
-### <a name="acquire-a-token-interactively-for-a-federated-user"></a>Acquire a token interactively for a federated user
+### <a name="acquire-a-token-interactively-for-a-federated-user"></a>페더레이션된 사용자에 대해 대화형으로 토큰 획득
 
-The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
+다음은 Active Directory Federation Services (AD FS) 또는 Active Directory를 통해 직접 연결 하는지 여부에 적용 됩니다.
 
-When you call `acquire_token_by_authorization_code` or `acquire_token_by_device_flow`, the user experience is typically as follows:
+`acquire_token_by_authorization_code` 또는 `acquire_token_by_device_flow`를 호출 하는 경우 사용자 환경은 일반적으로 다음과 같습니다.
 
-1. The user enters their account ID.
-2. Azure AD displays briefly the message "Taking you to your organization's page" and the user is redirected to the sign-in page of the identity provider. The sign-in page is usually customized with the logo of the organization.
+1. 사용자가 자신의 계정 ID를 입력 합니다.
+2. Azure AD는 "조직의 페이지로 이동" 메시지를 잠깐 표시 하 고 사용자는 id 공급자의 로그인 페이지로 리디렉션됩니다. 로그인 페이지는 일반적으로 조직의 로고를 사용 하 여 사용자 지정 됩니다.
 
-The supported AD FS versions in this federated scenario are:
+이 페더레이션된 시나리오에서 지원 되는 AD FS 버전은 다음과 같습니다.
 - Active Directory Federation Services FS v2
 - Active Directory Federation Services v3 (Windows Server 2012 R2)
 - Active Directory Federation Services v4 (AD FS 2016)
 
-### <a name="acquire-a-token-via-username-and-password"></a>Acquire a token via username and password
+### <a name="acquire-a-token-via-username-and-password"></a>사용자 이름 및 암호를 통해 토큰 획득
 
-The following applies whether you connect directly to Active Directory Federation Services (AD FS) or through Active Directory.
+다음은 Active Directory Federation Services (AD FS) 또는 Active Directory를 통해 직접 연결 하는지 여부에 적용 됩니다.
 
-When you acquire a token using `acquire_token_by_username_password`, MSAL Python gets the identity provider to contact based on the username. MSAL Python gets a [SAML 1.1 token](reference-saml-tokens.md) from the identity provider, which it then provides to Azure AD which returns the JSON Web Token (JWT).
+`acquire_token_by_username_password`를 사용 하 여 토큰을 획득 하는 경우 MSAL Python은 사용자 이름에 따라 연락할 id 공급자를 가져옵니다. MSAL Python은 id 공급자 로부터 [SAML 1.1 토큰](reference-saml-tokens.md) 을 가져온 다음 JWT (JSON Web Token)를 반환 하는 Azure AD에 제공 합니다.
 
-## <a name="connecting-directly-to-ad-fs"></a>Connecting directly to AD FS
+## <a name="connecting-directly-to-ad-fs"></a>AD FS에 직접 연결
 
-When you connect directory to AD FS, the authority you'll want to use to build your application will be something like `https://somesite.contoso.com/adfs/`
+AD FS에 디렉터리를 연결 하는 경우 응용 프로그램을 빌드하는 데 사용 하려는 기관은 다음과 같습니다 `https://somesite.contoso.com/adfs/`
 
-MSAL Python supports ADFS 2019.
+MSAL Python은 ADFS 2019를 지원 합니다.
 
-It does not support a direct connection to ADFS 2016 or ADFS v2. If you need to support scenarios requiring a direct connection to ADFS 2016, use the latest version of ADAL Python. Once you have upgraded your on-premises system to ADFS 2019, you can use MSAL Python.
+ADFS 2016 또는 ADFS v2에 대 한 직접 연결을 지원 하지 않습니다. ADFS 2016에 대 한 직접 연결을 요구 하는 시나리오를 지원 해야 하는 경우 최신 버전의 ADAL Python을 사용 합니다. 온-프레미스 시스템을 ADFS 2019로 업그레이드 한 후 MSAL Python을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- For the federated case, see [Configure Azure Active Directory sign in behavior for an application by using a Home Realm Discovery policy](../manage-apps/configure-authentication-for-federated-users-portal.md)
+- 페더레이션된 사례는 [홈 영역 검색 정책을 사용 하 여 응용 프로그램에 대 한 Azure Active Directory 로그인 동작 구성](../manage-apps/configure-authentication-for-federated-users-portal.md) 을 참조 하세요.

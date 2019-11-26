@@ -1,6 +1,6 @@
 ---
-title: On-premises password writeback integration with Azure AD SSPR - Azure Active Directory
-description: Get cloud passwords written back to on-premises AD infrastructure
+title: Azure AD SSPR와 온-프레미스 비밀 번호 쓰기 저장 통합-Azure Active Directory
+description: 온-프레미스 AD 인프라에 다시 쓴 클라우드 암호 가져오기
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
@@ -43,7 +43,7 @@ ms.locfileid: "74420666"
 * **인바운드 방화벽 규칙 필요 없음**: 비밀번호 쓰기 저장은 Azure Service Bus 릴레이를 기본 통신 채널로 사용합니다. 모든 통신은 포트 443을 통해 아웃바운드됩니다.
 
 > [!NOTE]
-> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. Administrators can change their password in the cloud but cannot use password reset to reset a forgotten password. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
+> 온-프레미스 AD의 보호 그룹 내에 있는 관리자 계정은 비밀번호 쓰기 저장에 사용할 수 없습니다. 관리자는 클라우드에서 암호를 변경할 수 있지만 암호 재설정을 사용 하 여 잊어버린 암호를 재설정할 수 없습니다. 보호 그룹에 대한 자세한 내용은 [Active Directory의 보호 계정 및 그룹](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-c--protected-accounts-and-groups-in-active-directory)을 참조하세요.
 
 ## <a name="licensing-requirements-for-password-writeback"></a>비밀번호 쓰기 저장에 대한 라이선스 요구 사항
 
@@ -161,10 +161,10 @@ ms.locfileid: "74420666"
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
 * **지원되지 않는 관리자 작업**
    * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
-   * Any administrator-initiated end-user password reset from the [Microsoft 365 admin center](https://admin.microsoft.com)
+   * [Microsoft 365 관리 센터](https://admin.microsoft.com) 에서 관리자가 시작한 최종 사용자 암호 재설정
 
 > [!WARNING]
-> Use of the checkbox "User must change password at next logon" in on-premises Active Directory administrative tools like Active Directory Users and Computers or the Active Directory Administrative Center is supported as a preview feature of Azure AD Connect. For more information, see the article, [Implement password hash synchronization with Azure AD Connect sync](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon).
+> 사용자 및 컴퓨터 Active Directory 같은 온-프레미스 Active Directory 관리 도구에서 "다음 로그온 할 때 암호를 변경 해야 합니다." 확인란을 사용 Active Directory 관리 센터 하거나 Azure AD Connect의 미리 보기 기능으로 지원 됩니다. 자세한 내용은 [Azure AD Connect sync를 사용 하 여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-on-next-logon)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

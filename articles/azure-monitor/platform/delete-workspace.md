@@ -1,5 +1,5 @@
 ---
-title: Delete and recover Azure Log Analytics workspace | Microsoft Docs
+title: Azure Log Analytics 작업 영역 삭제 및 복구 | Microsoft Docs
 description: 개인 구독에서 작업 영역을 만들었거나 작업 영역 모델을 재구성한 경우 Log Analytics 작업 영역을 삭제하는 방법을 알아봅니다.
 ms.service: azure-monitor
 ms.subservice: logs
@@ -14,15 +14,15 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74326503"
 ---
-# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Delete and restore Azure Log Analytics workspace
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
-This article explains the concept of Azure Log Analytics workspace soft-delete and how to recover deleted workspace. 
+이 문서에서는 Azure Log Analytics 작업 영역 일시 삭제의 개념과 삭제 된 작업 영역을 복구 하는 방법을 설명 합니다. 
 
-## <a name="considerations-when-deleting-a-workspace"></a>Considerations when deleting a workspace
+## <a name="considerations-when-deleting-a-workspace"></a>작업 영역을 삭제할 때의 고려 사항
 
-When you delete a Log Analytics workspace, a soft-delete operation is performed to allow the recovery of the workspace including its data and connected agents within 14 days, whether the deletion was accidental or intentional. After the soft-delete period, the workspace and its data are non-recoverable – data is queued for permanent deletion within 30 days and the workspace name is available and can be used to create a new workspace.
+Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에이전트를 포함 하는 작업 영역을 14 일 내에 복구 하도록 허용 하기 위해 일시 삭제 작업이 수행 됩니다. 일시 삭제 기간이 지나면 작업 영역 및 해당 데이터는 복구할 수 없습니다. 데이터는 30 일 이내에 영구 삭제를 위해 큐에 대기 하 고 작업 영역 이름은 사용할 수 있으며 새 작업 영역을 만드는 데 사용할 수 있습니다.
 
-You want to exercise caution when you delete a workspace because there might be important data and configuration that may negatively impact your service operation. Review what agents, solutions, and other Azure services and sources that store their data in Log Analytics, such as:
+작업 영역을 삭제할 때 서비스 작업에 부정적인 영향을 줄 수 있는 중요 한 데이터 및 구성이 있을 수 있으므로 주의를 기울여야 합니다. 다음과 같이 Log Analytics에 데이터를 저장 하는 에이전트, 솔루션 및 기타 Azure 서비스와 소스를 검토 합니다.
 
 * 관리 솔루션
 * Azure Automation
@@ -30,40 +30,40 @@ You want to exercise caution when you delete a workspace because there might be 
 * 사용자 환경의 Windows 및 Linux 컴퓨터에서 실행되는 에이전트
 * System Center Operations Manager
 
-The soft-delete operation deletes the workspace resource and any associated users’ permission is broken. If users are associated with other workspaces, then they can continue using Log Analytics with those other workspaces.
+일시 삭제 작업은 작업 영역 리소스를 삭제 하 고 연결 된 사용자의 사용 권한은 중단 됩니다. 사용자가 다른 작업 영역과 연결 되어 있으면 다른 작업 영역과 함께 Log Analytics를 계속 사용할 수 있습니다.
 
 ## <a name="soft-delete-behavior"></a>일시 삭제 동작
 
-The workspace delete operation removes the workspace Resource Manager resource, but its configuration and data are kept for 14 days, while giving the appearance that the workspace is deleted. Any agents and System Center Operations Manager management groups configured to report to the workspace remain in an orphaned state during the soft-delete period. The service further provides a mechanism for recovering the deleted workspace including its data and connected resources, essentially undoing the deletion.
+작업 영역 삭제 작업은 작업 영역 리소스 관리자 리소스를 제거 하지만 해당 구성과 데이터는 14 일 동안 유지 되지만 작업 영역을 삭제 하는 모양을 제공 합니다. 작업 영역에 보고 하도록 구성 된 모든 에이전트와 System Center Operations Manager 관리 그룹은 일시 삭제 기간 동안 분리 된 상태로 유지 됩니다. 이 서비스는 데이터 및 연결 된 리소스를 포함 하 여 삭제 된 작업 영역을 복구 하는 메커니즘을 제공 하며, 기본적으로 삭제를 취소 합니다.
 
 > [!NOTE] 
-> Installed solutions and linked services like your Azure Automation account are permanently removed from the workspace at deletion time and can’t be recovered. These should be reconfigured after the recovery operation to bring the workspace to its previously configured state.
+> 설치 된 솔루션 및 Azure Automation 계정과 같은 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 복구할 수 없습니다. 이전에 구성 된 상태로 작업 영역을 가져오기 위해 복구 작업 후 다시 구성 해야 합니다.
 
-You can delete a workspace using [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete), or in the [Azure portal](https://portal.azure.com).
+[PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
 
-### <a name="delete-workspace-in-azure-portal"></a>Delete workspace in Azure portal
+### <a name="delete-workspace-in-azure-portal"></a>Azure Portal에서 작업 영역 삭제
 
-1. To sign in, go to the [Azure portal](https://portal.azure.com). 
+1. 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. 
 2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
-3. In the list of Log Analytics workspaces, select a workspace and then click **Delete**  from the top of the middle pane.
+3. Log Analytics 작업 영역 목록에서 작업 영역을 선택한 다음 가운데 창의 위쪽에서 **삭제** 를 클릭 합니다.
    ![작업 영역 속성 창에서 옵션 삭제](media/delete-workspace/log-analytics-delete-workspace.png)
 4. 작업 영역 삭제를 확인할지 묻는 확인 메시지 창이 나타나면 **예**를 클릭합니다.
    ![작업 영역 삭제 확인](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
 
-## <a name="recover-workspace"></a>Recover workspace
+## <a name="recover-workspace"></a>작업 영역 복구
 
-If you have Contributor permissions to the subscription and resource group where the workspace was associated before the soft-delete operation, you can recover it during its soft-delete period including its data, configuration and connected agents. After the soft-delete period, the workspace is non-recoverable and assigned for permanent deletion. Names of deleted workspaces are preserved during the soft-delete period and can't be used when attempting to create a new workspace.  
+일시 삭제 작업 이전에 작업 영역이 연결 된 구독 및 리소스 그룹에 대 한 참가자 권한이 있는 경우 해당 데이터, 구성 및 연결 된 에이전트를 포함 하 여 일시 삭제 기간 동안 복구할 수 있습니다. 일시 삭제 기간이 지나면 작업 영역은 복구 불가능 하 고 영구 삭제를 위해 할당 됩니다. 삭제 된 작업 영역의 이름은 일시 삭제 기간 동안 보존 되며 새 작업 영역을 만들려고 할 때 사용할 수 없습니다.  
 
-You can recover a workspace by re-creating it using the following workspace create methods: [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) or [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) as long as the following properties are populated with the deleted workspace details:
+다음 속성이 삭제 된 작업 영역 정보로 채워지는 경우 [PowerShell](https://docs.microsoft.com/powershell/module/az.operationalinsights/New-AzOperationalInsightsWorkspace) 또는 [REST API]( https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate) 작업 영역을 사용 하 여 작업 영역을 다시 만들면 작업 영역을 복구할 수 있습니다.
 
 * 구독 ID
 * 리소스 그룹 이름
 * 작업 영역 이름
-* 지역
+* Region
 
-The workspace and all its data are brought back after the recovery operation. Solutions and linked services were permanently removed from the workspace when it was deleted and these should be reconfigured to bring the workspace to its previously configured state. Some of the data may not be available for query after the workspace recovery until the associated solutions are re-installed and their schemas are added to the workspace.
+작업 영역 및 모든 해당 데이터는 복구 작업 후에 다시 가져옵니다. 솔루션 및 연결 된 서비스는 삭제 시 작업 영역에서 영구적으로 제거 되며 작업 영역을 이전에 구성 된 상태로 전환 하도록 다시 구성 해야 합니다. 연결 된 솔루션을 다시 설치 하 고 해당 스키마를 작업 영역에 추가할 때까지 작업 영역 복구 후에 일부 데이터를 쿼리에 사용할 수 없습니다.
 
 > [!NOTE]
-> * Workspace recovery isn't supported in the [Azure portal](https://portal.azure.com). 
-> * Re-creating a workspace during the soft-delete period gives an indication that this workspace name is already in use. 
+> * 작업 영역 복구는 [Azure Portal](https://portal.azure.com)에서 지원 되지 않습니다. 
+> * 일시 삭제 기간 동안 작업 영역을 다시 만들면이 작업 영역 이름이 이미 사용 중임을 나타냅니다. 
 > 

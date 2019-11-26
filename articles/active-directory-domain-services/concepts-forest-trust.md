@@ -1,6 +1,6 @@
 ---
-title: How trusts work for Azure AD Domain Services | Microsoft Docs
-description: Learn more about how forest trust work with Azure AD Domain Services
+title: Azure AD Domain Services에 대 한 트러스트 작동 방식 | Microsoft Docs
+description: 포리스트 트러스트가 Azure AD Domain Services와 작동 하는 방식에 대 한 자세한 정보
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -17,266 +17,266 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/20/2019
 ms.locfileid: "74233702"
 ---
-# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>How trust relationships work for resource forests in Azure Active Directory Domain Services
+# <a name="how-trust-relationships-work-for-resource-forests-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 리소스 포리스트에 대해 트러스트 관계가 작동 하는 방법
 
-Active Directory Domain Services (AD DS) provides security across multiple domains or forests through domain and forest trust relationships. Before authentication can occur across trusts, Windows must first check if the domain being requested by a user, computer, or service has a trust relationship with the domain of the requesting account.
+Active Directory Domain Services (AD DS)는 도메인 및 포리스트 트러스트 관계를 통해 여러 도메인 또는 포리스트에 걸쳐 보안을 제공 합니다. 트러스트에서 인증을 수행 하려면 먼저 사용자, 컴퓨터 또는 서비스에서 요청 하는 도메인에 요청 하는 계정의 도메인과 트러스트 관계가 있는지 확인 해야 합니다.
 
-To check for this trust relationship, the Windows security system computes a trust path between the domain controller (DC) for the server that receives the request and a DC in the domain of the requesting account.
+이 트러스트 관계를 확인 하기 위해 Windows 보안 시스템은 요청을 수신 하는 서버에 대 한 DC (도메인 컨트롤러)와 요청 계정 도메인의 DC 간에 트러스트 경로를 계산 합니다.
 
-The access control mechanisms provided by AD DS and the Windows distributed security model provide an environment for the operation of domain and forest trusts. For these trusts to work properly, every resource or computer must have a direct trust path to a DC in the domain in which it is located.
+AD DS에서 제공 하는 액세스 제어 메커니즘과 Windows 분산 보안 모델은 도메인 및 포리스트 트러스트 작업을 위한 환경을 제공 합니다. 이러한 트러스트가 제대로 작동 하려면 모든 리소스 또는 컴퓨터에 해당 컴퓨터가 있는 도메인의 DC에 대 한 직접 신뢰 경로가 있어야 합니다.
 
-The trust path is implemented by the Net Logon service using  an authenticated remote procedure call (RPC) connection to the trusted domain authority. A secured channel also extends to other AD DS domains through interdomain trust relationships. This secured channel is used to obtain and verify security information, including security identifiers (SIDs) for users and groups.
+트러스트 경로는 트러스트 된 도메인 기관에 대 한 인증 된 RPC (원격 프로시저 호출) 연결을 사용 하 여 Net Logon 서비스에 의해 구현 됩니다. 또한 보안 채널은 도메인간 트러스트 관계를 통해 다른 AD DS 도메인으로 확장 됩니다. 이 보안 채널은 사용자 및 그룹의 Sid (보안 식별자)를 비롯 하 여 보안 정보를 가져오고 확인 하는 데 사용 됩니다.
 
-## <a name="trust-relationship-flows"></a>Trust relationship flows
+## <a name="trust-relationship-flows"></a>신뢰 관계 흐름
 
-The flow of secured communications over trusts determines the elasticity of a trust. How you create or configure a trust determines how far the communication extends within or across forests.
+트러스트를 통한 보안 통신 흐름에 따라 트러스트의 탄력성 결정 됩니다. 트러스트를 만들거나 구성 하는 방법에 따라 포리스트 내에서 또는 포리스트 간에 통신이 확장 되는 정도가 결정 됩니다.
 
-The flow of communication over trusts is determined by the direction of the trust. Trusts can be one-way or two-way, and can be transitive or non-transitive.
+트러스트를 통한 통신의 흐름은 트러스트 방향에 따라 결정 됩니다. 트러스트는 단방향 또는 양방향 일 수 있으며 전이적 이거나 비 전이적 일 수 있습니다.
 
-The following diagram shows that all domains in *Tree 1* and *Tree 2* have transitive trust relationships by default. As a result, users in *Tree 1* can access resources in domains in *Tree 2* and users in *Tree 1* can access resources in *Tree 2*, when the proper permissions are assigned at the resource.
+다음 다이어그램에서는 *트리 1* 과 *트리 2* 의 모든 도메인이 기본적으로 전이적 트러스트 관계를 포함 하 고 있음을 보여 줍니다. 따라서 트리 *1* 의 사용자는 *트리 2* 의 도메인에 있는 리소스에 액세스할 수 있으며, *트리 1* 의 사용자는 리소스에 적절 한 사용 권한이 할당 된 경우 트리 *2*의 리소스에 액세스할 수 있습니다.
 
-![Diagram of trust relationships between two forests](./media/concepts-forest-trust/trust-relationships.png)
+![두 포리스트 간의 트러스트 관계 다이어그램](./media/concepts-forest-trust/trust-relationships.png)
 
-### <a name="one-way-and-two-way-trusts"></a>One-way and two-way trusts
+### <a name="one-way-and-two-way-trusts"></a>단방향 및 양방향 트러스트
 
-Trust relationships enable access to resources can be either one-way or two-way.
+트러스트 관계를 사용 하 여 리소스에 액세스할 수 있습니다.
 
-A one-way trust is a unidirectional authentication path created between two domains. In a one-way trust between *Domain A* and *Domain B*, users in *Domain A* can access resources in *Domain B*. However, users in *Domain B* can't access resources in *Domain A*.
+단방향 트러스트는 두 도메인 간에 만들어진 단방향 인증 경로입니다. 도메인 *a* 와 *도메인 b*간의 단방향 트러스트에서 *도메인 a* 의 사용자는 *도메인 b*의 리소스에 액세스할 수 있습니다. 그러나 *도메인 B* 의 사용자 *는 도메인 A*의 리소스에 액세스할 수 없습니다.
 
-Some one-way trusts can be either non-transitive or transitive depending on the type of trust being created.
+일부 단방향 트러스트는 만들어지는 신뢰 유형에 따라 비 전이적 이거나 전이적 일 수 있습니다.
 
-In a two-way trust, *Domain A* trusts *Domain B* and *Domain B* trusts *Domain A*. This configuration means that authentication requests can be passed between the two domains in both directions. Some two-way relationships can be non-transitive or transitive depending on the type of trust being created.
+양방향 트러스트에서 도메인 *A는* 도메인 *b* 를 트러스트 하 고 *도메인 b* 는 *도메인 a*를 트러스트 합니다. 이 구성은 두 도메인 간에 인증 요청을 양방향으로 전달할 수 있음을 의미 합니다. 일부 양방향 관계는 만들어지는 신뢰 유형에 따라 비 전이적 이거나 전이적 일 수 있습니다.
 
-All domain trusts in an AD DS forest are two-way, transitive trusts. When a new child domain is created, a two-way, transitive trust is automatically created between the new child domain and the parent domain.
+AD DS 포리스트의 모든 도메인 트러스트는 양방향 전이적 트러스트입니다. 새 자식 도메인을 만들면 새 자식 도메인과 부모 도메인 간에 양방향 전이적 트러스트가 자동으로 만들어집니다.
 
-### <a name="transitive-and-non-transitive-trusts"></a>Transitive and non-transitive trusts
+### <a name="transitive-and-non-transitive-trusts"></a>전이적 및 비 전이적 트러스트
 
-Transitivity determines whether a trust can be extended outside of the two domains with which it was formed.
+전이성은 구성 된 두 도메인 외부에서 트러스트를 확장할 수 있는지 여부를 결정 합니다.
 
-* A transitive trust can be used to extend trust relationships with other domains.
-* A non-transitive trust can be used to deny trust relationships with other domains.
+* 전이적 트러스트를 사용 하 여 다른 도메인과의 트러스트 관계를 확장할 수 있습니다.
+* 비 전이적 트러스트를 사용 하 여 다른 도메인과의 트러스트 관계를 거부할 수 있습니다.
 
-Each time you create a new domain in a forest, a two-way, transitive trust relationship is automatically created between the new domain and its parent domain. If child domains are added to the new domain, the trust path flows upward through the domain hierarchy extending the initial trust path created between the new domain and its parent domain. Transitive trust relationships flow upward through a domain tree as it is formed, creating transitive trusts between all domains in the domain tree.
+포리스트에 새 도메인을 만들 때마다 새 도메인과 해당 부모 도메인 간에 양방향 전이적 트러스트 관계가 자동으로 생성 됩니다. 자식 도메인이 새 도메인에 추가 되는 경우 트러스트 경로는 도메인 계층 구조를 통해 위쪽으로 이동 하 여 새 도메인과 해당 부모 도메인 간에 만들어진 초기 트러스트 경로를 확장 합니다. 전이적 트러스트 관계는 구성 된 도메인 트리에서 위쪽으로 이동 하 여 도메인 트리의 모든 도메인 간에 전이적 트러스트를 만듭니다.
 
-Authentication requests follow these trust paths, so accounts from any domain in the forest can be authenticated by any other domain in the forest. With a single logon process, accounts with the proper permissions can access resources in any domain in the forest.
+인증 요청은 이러한 신뢰 경로를 따르고 포리스트의 모든 도메인에 있는 계정을 포리스트의 다른 도메인에서 인증할 수 있습니다. 단일 로그온 프로세스를 사용 하 여 적절 한 권한이 있는 계정은 포리스트에 있는 모든 도메인의 리소스에 액세스할 수 있습니다.
 
-## <a name="forest-trusts"></a>Forest trusts
+## <a name="forest-trusts"></a>포리스트 트러스트
 
-Forest trusts help you to manage a segmented AD DS infrastructures and support access to resources and other objects across multiple forests. Forest trusts are useful for service providers, companies undergoing mergers or acquisitions, collaborative business extranets, and companies seeking a solution for administrative autonomy.
+포리스트 트러스트를 통해 분할 된 AD DS 인프라를 관리 하 고 여러 포리스트에 걸쳐 있는 리소스 및 기타 개체에 대 한 액세스를 지원할 수 있습니다. 포리스트 트러스트는 서비스 공급자, 합병 또는 인수를 담당 하는 회사, 공동 작업 비즈니스 엑스트라넷 및 관리 자율성을 위한 솔루션을 찾는 회사에 유용 합니다.
 
-Using forest trusts, you can link two different forests to form a one-way or two-way transitive trust relationship. A forest trust allows administrators to connect two AD DS forests with a single trust relationship to provide a seamless authentication and authorization experience across the forests.
+포리스트 트러스트를 사용 하 여 두 개의 서로 다른 포리스트를 연결 하 여 단방향 또는 양방향 전이적 트러스트 관계를 형성할 수 있습니다. 포리스트 트러스트를 사용 하면 관리자가 단일 트러스트 관계를 사용 하 여 두 AD DS 포리스트를 연결 하 여 포리스트 간에 원활한 인증 및 권한 부여 환경을 제공할 수 있습니다.
 
-A forest trust can only be created between a forest root domain in one forest and a forest root domain in another forest. Forest trusts can only be created between two forests and can't be implicitly extended to a third forest. This behavior means that if a forest trust is created between *Forest 1* and *Forest 2*, and another forest trust is created between *Forest 2* and *Forest 3*, *Forest 1* doesn't have an implicit trust with *Forest 3*.
+포리스트 트러스트는 한 포리스트의 포리스트 루트 도메인과 다른 포리스트의 포리스트 루트 도메인 간에만 만들 수 있습니다. 포리스트 트러스트는 두 포리스트 간에만 만들 수 있으며, 세 번째 포리스트로 암시적으로 확장할 수 없습니다. 이 동작은 포리스트 *1* 과 *포리스트 2*사이에 포리스트 트러스트를 만들고 *포리스트 2* 와 *포리스트 3*사이에 다른 포리스트 트러스트를 만든 경우 *포리스트 1* 에는 *포리스트 3*의 암시적 트러스트가 없다는 것을 의미 합니다.
 
-The following diagram shows two separate forest trust relationships between three AD DS forests in a single organization.
+다음 다이어그램에서는 단일 조직의 세 AD DS 포리스트 간에 두 개의 개별 포리스트 트러스트 관계를 보여 줍니다.
 
-![Diagram of forest trusts relationships within a single organization](./media/concepts-forest-trust/forest-trusts.png)
+![단일 조직 내의 포리스트 트러스트 관계 다이어그램](./media/concepts-forest-trust/forest-trusts.png)
 
-This example configuration provides the following access:
+이 예제 구성은 다음과 같은 액세스를 제공 합니다.
 
-* Users in *Forest 2* can access resources in any domain in either *Forest 1* or *Forest 3*
-* Users in *Forest 3* can access resources in any domain in *Forest 2*
-* Users in *Forest 1* can access resources in any domain in *Forest 2*
+* *포리스트 2* 의 사용자는 *포리스트 1* 또는 *포리스트 3* 의 모든 도메인에 있는 리소스에 액세스할 수 있습니다.
+* *포리스트 3* 의 사용자는 *포리스트 2* 의 모든 도메인에 있는 리소스에 액세스할 수 있습니다.
+* *포리스트 1* 의 사용자는 *포리스트 2* 의 모든 도메인에 있는 리소스에 액세스할 수 있습니다.
 
-This configuration doesn't allow users in *Forest 1* to access resources in *Forest 3* or vice versa. To allow users in both *Forest 1* and *Forest 3* to share resources, a two-way transitive trust must be created between the two forests.
+이 구성을 사용 하면 *포리스트 1* 의 사용자가 *포리스트 3* 의 리소스에 액세스할 수 없으며 그 반대의 경우도 마찬가지입니다. *포리스트 1* 과 *포리스트 3* 의 사용자가 리소스를 공유할 수 있도록 하려면 두 포리스트 간에 양방향 전이적 트러스트를 만들어야 합니다.
 
-If a one-way forest trust is created between two forests, members of the trusted forest can utilize resources located in the trusting forest. However, the trust operates in only one direction.
+두 포리스트 간에 단방향 포리스트 트러스트를 만들 경우 트러스트 된 포리스트의 구성원은 트러스팅 포리스트에 있는 리소스를 활용할 수 있습니다. 그러나 트러스트는 한 방향 으로만 작동 합니다.
 
-For example, when a one-way, forest trust is created between *Forest 1* (the trusted forest) and *Forest 2* (the trusting forest):
+예를 들어 포리스트 *1* (트러스트 된 포리스트) 및 *포리스트 2* (트러스팅 포리스트) 간에 단방향 포리스트 트러스트를 만들 때 다음을 수행 합니다.
 
-* Members of *Forest 1* can access resources located in *Forest 2*.
-* Members of *Forest 2* can't access resources located in *Forest 1* using the same trust.
+* *포리스트 1* 의 구성원은 *포리스트 2*에 있는 리소스에 액세스할 수 있습니다.
+* *포리스트 2* 의 구성원은 동일한 트러스트를 사용 하 여 *포리스트 1* 에 있는 리소스에 액세스할 수 없습니다.
 
 > [!IMPORTANT]
-> Azure AD Domain Services resource forest only supports a one-way forest trust to on-premises Active Directory.
+> Azure AD Domain Services 리소스 포리스트는 온-프레미스 Active Directory에 대 한 단방향 포리스트 트러스트만 지원 합니다.
 
-### <a name="forest-trust-requirements"></a>Forest trust requirements
+### <a name="forest-trust-requirements"></a>포리스트 트러스트 요구 사항
 
-Before you can create a forest trust, you need to verify you have the correct Domain Name System (DNS) infrastructure in place. Forest trusts can only be created when one of the following DNS configurations is available:
+포리스트 트러스트를 만들려면 올바른 DNS (Domain Name System) 인프라가 준비 되어 있는지 확인 해야 합니다. 포리스트 트러스트는 다음 DNS 구성 중 하나를 사용할 수 있는 경우에만 만들 수 있습니다.
 
-* A single root DNS server is the root DNS server for both forest DNS namespaces - the root zone contains delegations for each of the DNS namespaces and the root hints of all DNS servers include the root DNS server.
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace use DNS conditional forwarders for each DNS namespace to route queries for names in the other namespace.
+* 단일 루트 DNS 서버는 두 포리스트 DNS 네임 스페이스의 루트 DNS 서버입니다. 루트 영역에는 각 DNS 네임 스페이스에 대 한 위임이 포함 되 고 모든 DNS 서버의 루트 힌트에는 루트 DNS 서버가 포함 됩니다.
+* 공유 루트 DNS 서버가 없고 각 포리스트 DNS 네임 스페이스의 루트 DNS 서버에서 각 DNS 네임 스페이스에 대 한 DNS 조건부 전달자를 사용 하 여 다른 네임 스페이스의 이름에 대 한 쿼리를 라우팅합니다.
 
     > [!IMPORTANT]
-    > Azure AD Domain Services resource forest must use this DNS configuration. Hosting a DNS namespace other than the resource forest DNS namespace is not a feature of Azure AD Domain Services. Conditional forwarders is the proper configuration.
+    > Azure AD Domain Services 리소스 포리스트에서이 DNS 구성을 사용 해야 합니다. 리소스 포리스트 DNS 네임 스페이스 이외의 DNS 네임 스페이스를 호스트 하는 것은 Azure AD Domain Services의 기능이 아닙니다. 조건부 전달 자가 적절 한 구성입니다.
 
-* Where there is no shared root DNS server, and the root DNS servers for each forest DNS namespace are use DNS secondary zones are configured in each DNS namespace to route queries for names in the other namespace.
+* 공유 루트 DNS 서버가 없고 각 포리스트 DNS 네임 스페이스의 루트 DNS 서버를 사용 하는 경우 각 DNS 네임 스페이스에서 다른 네임 스페이스의 이름에 대 한 쿼리를 라우팅하기 위해 DNS 보조 영역을 구성 합니다.
 
-To create a forest trust, you must be a member of the Domain Admins group (in the forest root domain) or the Enterprise Admins group in Active Directory. Each trust is assigned a password that the administrators in both forests must know. Members of Enterprise Admins in both forests can create the trusts in both forests at once and, in this scenario, a password that is cryptographically random is automatically generated and written for both forests.
+포리스트 트러스트를 만들려면 도메인 관리자 그룹의 구성원 (포리스트 루트 도메인에 있는 경우) 또는 Active Directory Enterprise Admins 그룹의 구성원 이어야 합니다. 각 트러스트에는 두 포리스트의 관리자가 알고 있어야 하는 암호가 할당 됩니다. 두 포리스트의 Enterprise Admins 구성원은 두 포리스트에 모두 한 번에 트러스트를 만들 수 있습니다 .이 시나리오에서는 암호화 된 임의의 암호를 자동으로 생성 하 여 두 포리스트에 대해 모두 작성 합니다.
 
-The outbound forest trust for Azure AD Domain Services is created in the Azure portal. You don't manually create the trust with the managed domain itself. The incoming forest trust must be configured by a user with the privileges previously noted in the on-premises Active Directory.
+Azure AD Domain Services에 대 한 아웃 바운드 포리스트 트러스트가 Azure Portal에 생성 됩니다. 관리 되는 도메인 자체를 사용 하 여 트러스트를 수동으로 만들지는 않습니다. 들어오는 포리스트 트러스트는 온-프레미스 Active Directory에 이전에 언급 한 권한이 있는 사용자가 구성 해야 합니다.
 
-## <a name="trust-processes-and-interactions"></a>Trust processes and interactions
+## <a name="trust-processes-and-interactions"></a>신뢰 프로세스 및 상호 작용
 
-Many inter-domain and inter-forest transactions depend on domain or forest trusts in order to complete various tasks. This section describes the processes and interactions that occur as resources are accessed across trusts and authentication referrals are evaluated.
+여러 작업을 완료 하기 위해 도메인 간 및 포리스트 간 트랜잭션은 도메인 또는 포리스트 트러스트에 의존 합니다. 이 섹션에서는 트러스트에서 리소스에 액세스 하 고 인증 조회가 평가 될 때 발생 하는 프로세스 및 상호 작용에 대해 설명 합니다.
 
-### <a name="overview-of-authentication-referral-processing"></a>Overview of Authentication Referral Processing
+### <a name="overview-of-authentication-referral-processing"></a>인증 조회 처리 개요
 
-When a request for authentication is referred to a domain, the domain controller in that domain must determine whether a trust relationship exists with the domain from which the request comes. The direction of the trust and whether the trust is transitive or nontransitive must also be determined before it authenticates the user to access resources in the domain. The authentication process that occurs between trusted domains varies according to the authentication protocol in use. The Kerberos V5 and NTLM protocols process referrals for authentication to a domain differently
+인증에 대 한 요청을 도메인 이라고 하는 경우 해당 도메인의 도메인 컨트롤러는 요청이 발생 한 도메인과 트러스트 관계가 있는지 여부를 확인 해야 합니다. 트러스트 방향과 트러스트의 전이 여부는 도메인의 리소스에 액세스 하기 위해 사용자를 인증 하기 전에 확인 해야 합니다. 트러스트 된 도메인 간에 발생 하는 인증 프로세스는 사용 중인 인증 프로토콜에 따라 달라 집니다. Kerberos V5 및 NTLM 프로토콜은 도메인에 대 한 인증을 위한 조회를 다르게 처리 합니다.
 
-### <a name="kerberos-v5-referral-processing"></a>Kerberos V5 Referral Processing
+### <a name="kerberos-v5-referral-processing"></a>Kerberos V5 조회 처리
 
-The Kerberos V5 authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. The Kerberos protocol connects to an online Key Distribution Center (KDC) and the Active Directory account store for session tickets.
+Kerberos V5 인증 프로토콜은 클라이언트 인증 및 권한 부여 정보에 대 한 도메인 컨트롤러의 Net Logon 서비스에 종속 됩니다. Kerberos 프로토콜은 세션 티켓에 대 한 KDC (온라인 키 배포 센터) 및 Active Directory 계정 저장소에 연결 됩니다.
 
-The Kerberos protocol also uses trusts for cross-realm ticket-granting services (TGS) and to validate Privilege Attribute Certificates (PACs) across a secured channel. The Kerberos protocol performs cross-realm authentication only with non-Windows-brand operating system Kerberos realms such as an MIT Kerberos realm and does not need to interact with the Net Logon service.
+또한 Kerberos 프로토콜은 영역 간 TGS (TGS)에 대해 트러스트를 사용 하 고 보안 채널을 통해 Pac (권한 특성 인증서)의 유효성을 검사 합니다. Kerberos 프로토콜은 MIT Kerberos 영역과 같은 Windows 이외의 운영 체제 Kerberos 영역 에서만 영역 간 인증을 수행 하 고 Net Logon 서비스와 상호 작용할 필요가 없습니다.
 
-If the client uses Kerberos V5 for authentication, it requests a ticket to the server in the target domain from a domain controller in its account domain. The Kerberos KDC acts as a trusted intermediary between the client and server and provides a session key that enables the two parties to authenticate each other. If the target domain is different from the current domain, the KDC follows a logical process to determine whether an authentication request can be referred:
+클라이언트는 인증에 Kerberos V5를 사용 하는 경우 해당 계정 도메인의 도메인 컨트롤러에서 대상 도메인의 서버에 티켓을 요청 합니다. Kerberos KDC는 클라이언트와 서버 간의 신뢰할 수 있는 중개자 역할을 하며 두 당사자가 서로 인증할 수 있도록 하는 세션 키를 제공 합니다. 대상 도메인이 현재 도메인과 다른 경우 KDC는 논리적 프로세스에 따라 인증 요청을 참조할 수 있는지 여부를 확인 합니다.
 
-1. Is the current domain trusted directly by the domain of the server that is being requested?
-    * If yes, send the client a referral to the requested domain.
-    * If no, go to the next step.
+1. 현재 도메인은 요청 되는 서버의 도메인에서 직접 신뢰 하나요?
+    * 그렇다면 요청 된 도메인에 대 한 조회를 클라이언트에 보냅니다.
+    * 그렇지 않으면 다음 단계로 이동 합니다.
 
-2. Does a transitive trust relationship exist between the current domain and the next domain on the trust path?
-    * If yes, send the client a referral to the next domain on the trust path.
-    * If no, send the client a logon-denied message.
+2. 신뢰 경로에서 현재 도메인과 다음 도메인 간에 전이적 트러스트 관계가 존재 하나요?
+    * 그렇다면 클라이언트를 트러스트 경로의 다음 도메인으로 보냅니다.
+    * 그렇지 않으면 클라이언트에 게 로그온 거부 메시지를 보냅니다.
 
-### <a name="ntlm-referral-processing"></a>NTLM Referral Processing
+### <a name="ntlm-referral-processing"></a>NTLM 조회 처리
 
-The NTLM authentication protocol is dependent on the Net Logon service on domain controllers for client authentication and authorization information. This protocol authenticates clients that do not use Kerberos authentication. NTLM uses trusts to pass authentication requests between domains.
+NTLM 인증 프로토콜은 클라이언트 인증 및 권한 부여 정보에 대 한 도메인 컨트롤러의 Net Logon 서비스에 종속 됩니다. 이 프로토콜은 Kerberos 인증을 사용 하지 않는 클라이언트를 인증 합니다. NTLM은 트러스트를 사용 하 여 도메인 간에 인증 요청을 전달 합니다.
 
-If the client uses NTLM for authentication, the initial request for authentication goes directly from the client to the resource server in the target domain. This server creates a challenge to which the client responds. The server then sends the user's response to a domain controller in its computer account domain. This domain controller checks the user account against its security accounts database.
+클라이언트에서 인증에 NTLM을 사용 하는 경우 인증에 대 한 초기 요청이 클라이언트에서 대상 도메인의 리소스 서버로 직접 이동 합니다. 이 서버는 클라이언트가 응답 하는 챌린지를 만듭니다. 그런 다음 서버는 컴퓨터 계정 도메인의 도메인 컨트롤러에 사용자의 응답을 보냅니다. 이 도메인 컨트롤러는 보안 계정 데이터베이스에 대해 사용자 계정을 확인 합니다.
 
-If the account does not exist in the database, the domain controller determines whether to perform pass-through authentication, forward the request, or deny the request by using the following logic:
+계정이 데이터베이스에 없는 경우 도메인 컨트롤러는 통과 인증을 수행할지, 요청을 전달 하는지 또는 다음 논리를 사용 하 여 요청을 거부할지를 결정 합니다.
 
-1. Does the current domain have a direct trust relationship with the user's domain?
-    * If yes, the domain controller sends the credentials of the client to a domain controller in the user's domain for pass-through authentication.
-    * If no, go to the next step.
+1. 현재 도메인에 사용자의 도메인과 직접 트러스트 관계가 있나요?
+    * 그렇다면 도메인 컨트롤러는 통과 인증을 위해 클라이언트의 자격 증명을 사용자 도메인의 도메인 컨트롤러로 보냅니다.
+    * 그렇지 않으면 다음 단계로 이동 합니다.
 
-2. Does the current domain have a transitive trust relationship with the user's domain?
-    * If yes, pass the authentication request on to the next domain in the trust path. This domain controller repeats the process by checking the user's credentials against its own security accounts database.
-    * If no, send the client a logon-denied message.
+2. 현재 도메인이 사용자 도메인과 전이적 트러스트 관계에 있나요?
+    * 그렇다면 인증 요청을 신뢰 경로의 다음 도메인에 전달 합니다. 이 도메인 컨트롤러는 자체 보안 계정 데이터베이스에 대해 사용자 자격 증명을 확인 하 여 프로세스를 반복 합니다.
+    * 그렇지 않으면 클라이언트에 게 로그온 거부 메시지를 보냅니다.
 
-### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>Kerberos-Based Processing of Authentication Requests Over Forest Trusts
+### <a name="kerberos-based-processing-of-authentication-requests-over-forest-trusts"></a>포리스트 트러스트를 통한 인증 요청의 Kerberos 기반 처리
 
-When two forests are connected by a forest trust, authentication requests made using the Kerberos V5 or NTLM protocols can be routed between forests to provide access to resources in both forests.
+두 포리스트가 포리스트 트러스트에 의해 연결 되는 경우 Kerberos V5 또는 NTLM 프로토콜을 사용 하 여 만든 인증 요청은 두 포리스트의 리소스에 대 한 액세스를 제공 하기 위해 포리스트 간에 라우팅될 수 있습니다.
 
-When a forest trust is first established, each forest collects all of the trusted namespaces in its partner forest and stores the information in a [trusted domain object](#trusted-domain-object). Trusted namespaces include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces used in the other forest. TDO objects are replicated to the global catalog.
+포리스트 트러스트가 처음 설정 되 면 각 포리스트는 파트너 포리스트에 있는 모든 신뢰할 수 있는 네임 스페이스를 수집 하 고 해당 정보를 [트러스트 된 도메인 개체](#trusted-domain-object)에 저장 합니다. 신뢰할 수 있는 네임 스페이스에는 도메인 트리 이름, UPN (사용자 계정 이름) 접미사, SPN (서비스 사용자 이름) 접미사 및 다른 포리스트에서 사용 되는 SID (보안 ID) 네임 스페이스가 포함 됩니다. TDO 개체가 글로벌 카탈로그에 복제 됩니다.
 
-Before authentication protocols can follow the forest trust path, the service principal name (SPN) of the resource computer must be resolved to a location in the other forest. An SPN can be one of the following:
+인증 프로토콜이 포리스트 트러스트 경로를 따르도록 하려면 먼저 리소스 컴퓨터의 SPN (서비스 사용자 이름)을 다른 포리스트의 위치로 확인 해야 합니다. SPN은 다음 중 하나일 수 있습니다.
 
-* The DNS name of a host.
-* The DNS name of a domain.
-* The distinguished name of a service connection point object.
+* 호스트의 DNS 이름입니다.
+* 도메인의 DNS 이름입니다.
+* 서비스 연결 지점 개체의 고유 이름입니다.
 
-When a workstation in one forest attempts to access data on a resource computer in another forest, the Kerberos authentication process contacts the domain controller for a service ticket to the SPN of the resource computer. Once the domain controller queries the global catalog and determines that the SPN is not in the same forest as the domain controller, the domain controller sends a referral for its parent domain back to the workstation. At that point, the workstation queries the parent domain for the service ticket and continues to follow the referral chain until it reaches the domain where the resource is located.
+한 포리스트의 워크스테이션이 다른 포리스트의 리소스 컴퓨터에 있는 데이터에 액세스 하려고 하면 Kerberos 인증 프로세스는 서비스 티켓에 대 한 도메인 컨트롤러에 리소스 컴퓨터의 SPN을 연결 합니다. 도메인 컨트롤러에서 글로벌 카탈로그를 쿼리하고 SPN이 도메인 컨트롤러와 동일한 포리스트에 있지 않은 경우 도메인 컨트롤러는 부모 도메인에 대 한 조회를 워크스테이션에 다시 보냅니다. 이 시점에서 워크스테이션은 부모 도메인에서 서비스 티켓을 쿼리하고 리소스가 있는 도메인에 도달할 때까지 계속 조회 체인을 따르도록 합니다.
 
-The following diagram and steps provide a detailed description of the Kerberos authentication process that's used when computers running Windows attempt to access resources from a computer located in another forest.
+다음 다이어그램과 단계는 Windows를 실행 하는 컴퓨터에서 다른 포리스트에 있는 컴퓨터의 리소스에 액세스 하려고 할 때 사용 되는 Kerberos 인증 프로세스에 대 한 자세한 설명을 제공 합니다.
 
-![Diagram of the Kerberos process over a forest trust](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
+![포리스트 트러스트를 통한 Kerberos 프로세스 다이어그램](media/concepts-forest-trust/kerberos-over-forest-trust-process.png)
 
-1. *User1* logs on to *Workstation1* using credentials from the *europe.tailspintoys.com* domain. The user then attempts to access a shared resource on *FileServer1* located in the *usa.wingtiptoys.com* forest.
+1. *User1* 은 *europe.tailspintoys.com* 도메인의 자격 증명을 사용 하 여 *Workstation1* 에 로그온 합니다. 그런 다음 사용자는 *usa.wingtiptoys.com* 포리스트에 있는 *FileServer1* 의 공유 리소스에 대 한 액세스를 시도 합니다.
 
-2. *Workstation1* contacts the Kerberos KDC on a domain controller in its domain, *ChildDC1*, and requests a service ticket for the *FileServer1* SPN.
+2. *Workstation1* 도메인 컨트롤러의 Kerberos KDC에 연결 하 고, *ChildDC1*를 연결 하 고, *FileServer1* SPN에 대 한 서비스 티켓을 요청 합니다.
 
-3. *ChildDC1* does not find the SPN in its domain database and queries the global catalog to see if any domains in the *tailspintoys.com* forest contain this SPN. Because a global catalog is limited to its own forest, the SPN is not found.
+3. *ChildDC1* 는 도메인 데이터베이스에서 spn을 찾지 않으며 글로벌 카탈로그를 쿼리하여 *tailspintoys.com* 포리스트에 있는 도메인에이 spn이 포함 되어 있는지 확인 합니다. 글로벌 카탈로그가 자체 포리스트로 제한 되므로 SPN을 찾을 수 없습니다.
 
-    The global catalog then checks its database for information about any forest trusts that are established with its forest. If found, it compares the name suffixes listed in the forest trust trusted domain object (TDO) to the suffix of the target SPN to find a match. Once a match is found, the global catalog provides a routing hint back to *ChildDC1*.
+    그런 다음 글로벌 카탈로그는 해당 데이터베이스에서 해당 포리스트에 설정 된 포리스트 트러스트에 대 한 정보를 확인 합니다. 검색 된 경우 트러스트 된 포리스트 트러스트 된 도메인 개체 (TDO)에 나열 된 이름 접미사를 대상 SPN의 접미사로 비교 하 여 일치 하는 항목을 찾습니다. 일치 항목이 발견 되 면 글로벌 카탈로그는 *ChildDC1*에 대 한 라우팅 힌트를 제공 합니다.
 
-    Routing hints help direct authentication requests toward the destination forest. Hints are only used when all traditional authentication channels, such as local domain controller and then global catalog, fail to locate a SPN.
+    라우팅 힌트는 대상 포리스트에 직접 인증 요청을 전달 하는 데 도움이 됩니다. 힌트는 로컬 도메인 컨트롤러 및 글로벌 카탈로그와 같은 기존의 인증 채널이 모두 SPN을 찾지 못한 경우에만 사용 됩니다.
 
-4. *ChildDC1* sends a referral for its parent domain back to *Workstation1*.
+4. *ChildDC1* 는 부모 도메인에 대 한 조회를 *Workstation1*에 다시 보냅니다.
 
-5. *Workstation1* contacts a domain controller in *ForestRootDC1* (its parent domain) for a referral to a domain controller (*ForestRootDC2*) in the forest root domain of the *wingtiptoys.com* forest.
+5. *Workstation1* 는 *wingtiptoys.com* 포리스트의 포리스트 루트 도메인에 있는 도메인 컨트롤러 (*ForestRootDC2*)에 대 한 조회에 대 한 *ForestRootDC1* (부모 도메인)의 도메인 컨트롤러에 연결 합니다.
 
-6. *Workstation1* contacts *ForestRootDC2* in the *wingtiptoys.com* forest for a service ticket to the requested service.
+6. *Workstation1* 는 요청 된 서비스에 대 한 서비스 티켓에 대 한 *wingtiptoys.com* 포리스트의 *ForestRootDC2* 를 연결 합니다.
 
-7. *ForestRootDC2* contacts its global catalog to find the SPN, and the global catalog finds a match for the SPN and sends it back to *ForestRootDC2*.
+7. *ForestRootDC2* 는 글로벌 카탈로그에 연결 하 여 spn을 찾고, 글로벌 카탈로그는 spn에 대 한 일치 항목을 찾아 *ForestRootDC2*로 다시 보냅니다.
 
-8. *ForestRootDC2* then sends the referral to *usa.wingtiptoys.com* back to *Workstation1*.
+8. *ForestRootDC2* 는 *usa.wingtiptoys.com* 에 대 한 조회를 *Workstation1*로 다시 보냅니다.
 
-9. *Workstation1* contacts the KDC on *ChildDC2* and negotiates the ticket for *User1* to gain access to *FileServer1*.
+9. *Workstation1* 는 *ChildDC2* 에서 KDC에 *연결 하 고* u s e r 1의 티켓을 협상 하 여 *FileServer1*에 대 한 액세스 권한을 얻습니다.
 
-10. Once *Workstation1* has a service ticket, it sends the service ticket to *FileServer1*, which reads *User1*'s security credentials and constructs an access token accordingly.
+10. *Workstation1* 는 서비스 티켓을 포함 하 고 나면 서비스 티켓을 *FileServer1*로 보냅니다 .이 티켓은 *User1*의 보안 자격 증명을 읽고 그에 따라 액세스 토큰을 생성 합니다.
 
-## <a name="trusted-domain-object"></a>Trusted domain object
+## <a name="trusted-domain-object"></a>트러스트 된 도메인 개체
 
-Each domain or forest trust within an organization is represented by a Trusted Domain Object (TDO) stored in the *System* container within its domain.
+조직 내의 각 도메인 또는 포리스트 트러스트는 도메인 내의 *시스템* 컨테이너에 저장 된 TDO (트러스트 된 도메인 개체)로 표시 됩니다.
 
-### <a name="tdo-contents"></a>TDO contents
+### <a name="tdo-contents"></a>TDO 내용
 
-The information contained in a TDO varies depending on whether a TDO was created by a domain trust or by a forest trust.
+TDO에 포함 된 정보는 도메인 트러스트 또는 포리스트 트러스트를 통해 TDO를 만들었는지 여부에 따라 달라 집니다.
 
-When a domain trust is created, attributes such as the DNS domain name, domain SID, trust type, trust transitivity, and the reciprocal domain name are represented in the TDO. Forest trust TDOs store additional attributes to identify all of the trusted namespaces from the partner forest. These attributes include domain tree names, user principal name (UPN) suffixes, service principal name (SPN) suffixes, and security ID (SID) namespaces.
+도메인 트러스트를 만들 때 DNS 도메인 이름, 도메인 SID, 트러스트 유형, 트러스트 전이성 및 상호 도메인 이름과 같은 특성이 TDO에 표시 됩니다. 포리스트 트러스트 Tco 파트너 포리스트에서 모든 신뢰할 수 있는 네임 스페이스를 식별 하는 추가 특성을 저장 합니다. 이러한 특성에는 도메인 트리 이름, UPN (사용자 계정 이름) 접미사, SPN (서비스 사용자 이름) 접미사 및 SID (보안 ID) 네임 스페이스가 포함 됩니다.
 
-Because trusts are stored in Active Directory as TDOs, all domains in a forest have knowledge of the trust relationships that are in place throughout the forest. Similarly, when two or more forests are joined together through forest trusts, the forest root domains in each forest have knowledge of the trust relationships that are in place throughout all of the domains in trusted forests.
+트러스트는 Tco으로 Active Directory에 저장 되므로 포리스트의 모든 도메인은 포리스트 전체에 적용 되는 트러스트 관계를 알고 있습니다. 마찬가지로, 포리스트 트러스트를 통해 둘 이상의 포리스트를 조인 하는 경우 각 포리스트의 포리스트 루트 도메인은 트러스트 된 포리스트의 모든 도메인에서 발생 하는 트러스트 관계를 알고 있습니다.
 
-### <a name="tdo-password-changes"></a>TDO password changes
+### <a name="tdo-password-changes"></a>TDO 암호 변경
 
-Both domains in a trust relationship share a password, which is stored in the TDO object in Active Directory. As part of the account maintenance process, every 30 days the trusting domain controller changes the password stored in the TDO. Because all two-way trusts are actually two one-way trusts going in opposite directions, the process occurs twice for two-way trusts.
+트러스트 관계의 두 도메인은 모두 Active Directory의 TDO 개체에 저장 되는 암호를 공유 합니다. 계정 유지 관리 프로세스의 일부로 트러스팅 도메인 컨트롤러는 TDO에 저장 된 암호를 변경 합니다. 모든 양방향 트러스트는 실제로 2 1 방향 트러스트를 기반으로 하기 때문에 양방향 트러스트에 대해 프로세스가 두 번 발생 합니다.
 
-A trust has a trusting and a trusted side. On the trusted side, any writable domain controller can be used for the process. On the trusting side, the PDC emulator performs the password change.
+트러스트에는 트러스팅와 신뢰할 수 있는 측면이 있습니다. 트러스트 된 쪽에서 쓰기 가능한 모든 도메인 컨트롤러를 프로세스에 사용할 수 있습니다. 트러스팅 측에서 PDC 에뮬레이터는 암호 변경을 수행 합니다.
 
-To change a password, the domain controllers complete the following process:
+암호를 변경 하려면 도메인 컨트롤러에서 다음 프로세스를 완료 합니다.
 
-1. The primary domain controller (PDC) emulator in the trusting domain creates a new password. A domain controller in the trusted domain never initiates the password change. It's always initiated by the trusting domain PDC emulator.
+1. 트러스팅 도메인의 주 도메인 컨트롤러 (PDC) 에뮬레이터에서 새 암호를 만듭니다. 트러스트 된 도메인의 도메인 컨트롤러는 암호 변경을 시작 하지 않습니다. 이는 항상 트러스팅 도메인 PDC 에뮬레이터에 의해 시작 됩니다.
 
-2. The PDC emulator in the trusting domain sets the *OldPassword* field of the TDO object to the current *NewPassword* field.
+2. 트러스팅 도메인의 PDC 에뮬레이터는 TDO 개체의 *Oldpassword* 필드를 현재 *NewPassword* 필드로 설정 합니다.
 
-3. The PDC emulator in the trusting domain sets the *NewPassword* field of the TDO object to the new password. Keeping a copy of the previous password makes it possible to revert to the old password if the domain controller in the trusted domain fails to receive the change, or if the change is not replicated before a request is made that uses the new trust password.
+3. 트러스팅 도메인의 PDC 에뮬레이터는 TDO 개체의 *NewPassword* 필드를 새 암호로 설정 합니다. 이전 암호의 복사본을 유지 하면 트러스트 된 도메인의 도메인 컨트롤러에서 변경 내용이 수신 되지 않거나 새 트러스트 암호를 사용 하는 요청을 수행 하기 전에 변경 내용이 복제 되지 않은 경우 이전 암호로 되돌릴 수 있습니다.
 
-4. The PDC emulator in the trusting domain makes a remote call to a domain controller in the trusted domain asking it to set the password on the trust account to the new password.
+4. 트러스팅 도메인의 PDC 에뮬레이터는 트러스트 된 도메인의 도메인 컨트롤러에 대 한 원격 호출을 통해 트러스트 계정의 암호를 새 암호로 설정 하도록 요청 합니다.
 
-5. The domain controller in the trusted domain changes the trust password to the new password.
+5. 트러스트 된 도메인의 도메인 컨트롤러에서 트러스트 암호를 새 암호로 변경 합니다.
 
-6. On each side of the trust, the updates are replicated to the other domain controllers in the domain. In the trusting domain, the change triggers an urgent replication of the trusted domain object.
+6. 트러스트의 양쪽에서 업데이트는 도메인의 다른 도메인 컨트롤러에 복제 됩니다. 트러스팅 도메인에서 변경 내용은 트러스트 된 도메인 개체의 긴급 복제를 트리거합니다.
 
-The password is now changed on both domain controllers. Normal replication distributes the TDO objects to the other domain controllers in the domain. However, it's possible for the domain controller in the trusting domain to change the password without successfully updating a domain controller in the trusted domain. This scenario might occur because a secured channel, which is required to process the password change, couldn't be established. It's also possible that the domain controller in the trusted domain might be unavailable at some point during the process and might not receive the updated password.
+이제 두 도메인 컨트롤러에서 암호가 변경 됩니다. 정상적인 복제는 도메인의 다른 도메인 컨트롤러에 TDO 개체를 배포 합니다. 그러나 트러스트 된 도메인의 도메인 컨트롤러를 성공적으로 업데이트 하지 않고 트러스팅 도메인의 도메인 컨트롤러에서 암호를 변경할 수 있습니다. 이 시나리오는 암호 변경을 처리 하는 데 필요한 보안 채널을 설정할 수 없기 때문에 발생할 수 있습니다. 또한 프로세스 중 특정 지점에서 트러스트 된 도메인의 도메인 컨트롤러를 사용할 수 없어 업데이트 된 암호를 받지 못할 수 있습니다.
 
-To deal with situations in which the password change isn't successfully communicated, the domain controller in the trusting domain never changes the new password unless it has successfully authenticated (set up a secured channel) using the new password. This behavior is why both the old and new passwords are kept in the TDO object of the trusting domain.
+암호 변경이 성공적으로 통신 되지 않는 상황을 처리 하기 위해 트러스팅 도메인의 도메인 컨트롤러는 새 암호를 사용 하 여 성공적으로 인증 (보안 채널 설정) 하지 않는 한 새 암호를 변경 하지 않습니다. 이 동작은 이전 암호와 새 암호가 트러스팅 도메인의 TDO 개체에 유지 되는 것입니다.
 
-A password change isn't finalized until authentication using the password succeeds. The old, stored password can be used over the secured channel until the domain controller in the trusted domain receives the new password, thus enabling uninterrupted service.
+암호를 사용 하는 인증이 성공할 때까지 암호 변경이 완료 되지 않습니다. 이전에 저장 된 암호는 트러스트 된 도메인의 도메인 컨트롤러에서 새 암호를 받을 때까지 보안 채널을 통해 사용할 수 있으므로 중단 없이 서비스를 사용할 수 있습니다.
 
-If authentication using the new password fails because the password is invalid, the trusting domain controller tries to authenticate using the old password. If it authenticates successfully with the old password, it resumes the password change process within 15 minutes.
+암호가 잘못 되어 새 암호를 사용 하는 인증이 실패 하는 경우 트러스팅 도메인 컨트롤러는 이전 암호를 사용 하 여 인증을 시도 합니다. 이전 암호를 사용 하 여 성공적으로 인증 하는 경우 15 분 내에 암호 변경 프로세스를 다시 시작 합니다.
 
-Trust password updates need to replicate to the domain controllers of both sides of the trust within 30 days. If the trust password is changed after 30 days and a domain controller then only has the N-2 password, it cannot use the trust from the trusting side and cannot create a secure channel on the trusted side.
+트러스트 암호 업데이트는 30 일 이내에 트러스트의 양쪽 도메인 컨트롤러에 복제 해야 합니다. 30 일 후에 트러스트 암호가 변경 된 경우 도메인 컨트롤러는 해당 암호를 사용 하는 경우 신뢰 측에서 트러스트를 사용할 수 없으며 신뢰할 수 있는 쪽에서 보안 채널을 만들 수 없습니다.
 
-## <a name="network-ports-used-by-trusts"></a>Network ports used by trusts
+## <a name="network-ports-used-by-trusts"></a>트러스트에 사용 되는 네트워크 포트
 
-Because trusts must be deployed across various network boundaries, they might have to span one or more firewalls. When this is the case, you can either tunnel trust traffic across a firewall or open specific ports in the firewall to allow the traffic to pass through.
+트러스트는 다양 한 네트워크 경계를 넘어 배포 되어야 하므로 하나 이상의 방화벽을 확장 해야 할 수도 있습니다. 이 경우 방화벽을 통해 트래픽을 터널링 하거나 방화벽의 특정 포트를 열어 트래픽을 통과할 수 있습니다.
 
 > [!IMPORTANT]
-> Active Directory Domain Services does not support restricting Active Directory RPC traffic to specific ports.
+> Active Directory Domain Services는 특정 포트에 대 한 RPC 트래픽 Active Directory 제한을 지원 하지 않습니다.
 
-Read the **Windows Server 2008 and later versions** section of the Microsoft Support Article [How to configure a firewall for Active Directory domains and trusts](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) to learn about the ports needed for a forest trust.
+[Active Directory 도메인 및 트러스트를 위한 방화벽을 구성 하는 방법](https://support.microsoft.com/help/179442/how-to-configure-a-firewall-for-domains-and-trusts) Microsoft 지원 문서의 **Windows Server 2008 이상 버전** 섹션을 참조 하 여 포리스트 트러스트에 필요한 포트에 대해 알아보세요.
 
-## <a name="supporting-services-and-tools"></a>Supporting services and tools
+## <a name="supporting-services-and-tools"></a>지원 서비스 및 도구
 
-To support trusts and authentication, some additional features and management tools are used.
+트러스트와 인증을 지원 하기 위해 일부 추가 기능 및 관리 도구를 사용 합니다.
 
 ### <a name="net-logon"></a>Net Logon
 
-The Net Logon service maintains a secured channel from a Windows-based computer to a DC. It's also used in the following trust-related processes:
+Net Logon 서비스는 Windows 기반 컴퓨터에서 DC로 보안 채널을 유지 관리 합니다. 다음 트러스트 관련 프로세스에도 사용 됩니다.
 
-* Trust setup and management - Net Logon helps maintain trust passwords, gathers trust information, and verifies trusts by interacting with the LSA process and the TDO.
+* 트러스트 설정 및 관리-Net Logon은 트러스트 암호를 유지 하 고, 트러스트 정보를 수집 하 고, LSA 프로세스와 TDO와 상호 작용 하 여 트러스트를 확인 하는 데 도움이 됩니다.
 
-    For Forest trusts, the trust information includes the Forest Trust Information (*FTInfo*) record, which includes the set of namespaces that a trusted forest claims to manage, annotated with a field that indicates whether each claim is trusted by the trusting forest.
+    포리스트 트러스트의 경우 트러스트 정보에는 트러스트 된 포리스트가 관리할 네임 스페이스 집합이 포함 된*Ftinfo*(포리스트 트러스트 정보) 레코드가 포함 되며 각 클레임은 트러스팅 포리스트에서 신뢰 하는지 여부를 나타내는 필드로 주석이 추가 됩니다.
 
-* Authentication – Supplies user credentials over a secured channel to a domain controller and returns the domain SIDs and user rights for the user.
+* 인증 – 보안 채널을 통해 도메인 컨트롤러에 대 한 사용자 자격 증명을 제공 하 고 사용자에 대 한 도메인 Sid 및 사용자 권한을 반환 합니다.
 
-* Domain controller location – Helps with finding or locating domain controllers in a domain or across domains.
+* 도메인 컨트롤러 위치 – 도메인 또는 도메인에서 도메인 컨트롤러를 찾거나 찾는 데 도움이 됩니다.
 
-* Pass-through validation – Credentials of users in other domains are processed by Net Logon. When a trusting domain needs to verify the identity of a user, it passes the user's credentials through Net Logon to the trusted domain for verification.
+* 통과 유효성 검사 – 다른 도메인의 사용자 자격 증명은 Net Logon에 의해 처리 됩니다. 트러스팅 도메인은 사용자의 id를 확인 해야 하는 경우 확인을 위해 Net Logon을 통해 트러스트 된 도메인에 사용자 자격 증명을 전달 합니다.
 
-* Privilege Attribute Certificate (PAC) verification – When a server using the Kerberos protocol for authentication needs to verify the PAC in a service ticket, it sends the PAC across the secure channel to its domain controller for verification.
+* 권한 특성 인증서 (PAC) 확인 – 인증을 위해 Kerberos 프로토콜을 사용 하는 서버에서 서비스 티켓의 PAC를 확인 해야 하는 경우 확인을 위해 보안 채널을 통해 해당 도메인 컨트롤러에 PAC를 보냅니다.
 
-### <a name="local-security-authority"></a>Local Security Authority
+### <a name="local-security-authority"></a>로컬 보안 기관
 
-The Local Security Authority (LSA) is a protected subsystem that maintains information about all aspects of local security on a system. Collectively known as local security policy, the LSA provides various services for translation between names and identifiers.
+LSA (로컬 보안 기관)는 시스템에서 로컬 보안의 모든 측면에 대 한 정보를 유지 관리 하는 보호 된 하위 시스템입니다. 전체적으로 로컬 보안 정책 이라고 하는 LSA는 이름 및 식별자 간 변환에 다양 한 서비스를 제공 합니다.
 
-The LSA security subsystem provides services in both kernel mode and user mode for validating access to objects, checking user privileges, and generating audit messages. LSA is responsible for checking the validity of all session tickets presented by services in trusted or untrusted domains.
+LSA 보안 하위 시스템은 개체에 대 한 액세스의 유효성을 검사 하 고, 사용자 권한을 확인 하 고, 감사 메시지를 생성 하기 위한 커널 모드와 사용자 모드 모두에 서비스를 제공 LSA는 신뢰할 수 있는 도메인 또는 신뢰할 수 없는 도메인의 서비스에서 제공 하는 모든 세션 티켓의 유효성을 검사 합니다.
 
 ### <a name="management-tools"></a>관리 도구
 
-Administrators can use *Active Directory Domains and Trusts*, *Netdom* and *Nltest* to expose, create, remove, or modify trusts.
+관리자는 *Active Directory 도메인 및 트러스트*, *Netdom* , *Nltest* 를 사용 하 여 트러스트를 노출, 생성, 제거 또는 수정할 수 있습니다.
 
-* *Active Directory Domains and Trusts* is the Microsoft Management Console (MMC) that is used to administer domain trusts, domain and forest functional levels, and user principal name suffixes.
-* The *Netdom* and *Nltest* command-line tools can be used to find, display, create, and manage trusts. These tools communicate directly with the LSA authority on a domain controller.
+* *Active Directory 도메인 및 트러스트* 는 도메인 트러스트, 도메인 및 포리스트 기능 수준, 사용자 계정 이름 접미사를 관리 하는 데 사용 되는 MMC (Microsoft Management Console)입니다.
+* *Netdom* 및 *Nltest* 명령줄 도구는 트러스트를 찾고, 표시 하 고, 만들고, 관리 하는 데 사용할 수 있습니다. 이러한 도구는 도메인 컨트롤러에서 LSA 기관과 직접 통신 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-To learn more about resource forests, see [How do forest trusts work in Azure AD DS?][concepts-trust]
+리소스 포리스트에 대해 자세히 알아보려면 [Azure AD DS에서 포리스트 트러스트가 작동 하는 방법][concepts-trust] 을 참조 하세요.
 
-To get started with creating an Azure AD DS managed domain with a resource forest, see [Create and configure an Azure AD DS managed domain][tutorial-create-advanced]. You can then [Create an outbound forest trust to an on-premises domain (preview)][create-forest-trust].
+리소스 포리스트를 사용 하 여 Azure AD DS 관리 되는 도메인 만들기를 시작 하려면 [azure AD DS 관리 되는 도메인 만들기 및 구성][tutorial-create-advanced]을 참조 하세요. 그런 다음 [온-프레미스 도메인 (미리 보기)에 대 한 아웃 바운드 포리스트 트러스트를 만들][create-forest-trust]수 있습니다.
 
 <!-- LINKS - INTERNAL -->
 [concepts-trust]: concepts-forest-trust.md

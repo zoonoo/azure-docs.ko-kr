@@ -36,7 +36,7 @@ ms.locfileid: "74421039"
 
 파일은 **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x**라는 디렉터리에 저장됩니다. 여기서 *x.x.xxx.x*는 버전 번호를 나타냅니다. **content\splitmerge\service** 하위 디렉터리에서 분할/병합 서비스 파일을 찾고 **content\splitmerge\powershell** 하위 디렉터리에서 분할/병합 PowerShell 스크립트 및 필요한 클라이언트 dll을 찾습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 1. 분할/병합 상태 데이터베이스로 사용할 Azure SQL DB 데이터베이스를 만듭니다. [Azure 포털](https://portal.azure.com)로 이동합니다. 새 **SQL Database**를 만듭니다. 데이터베이스에 이름을 지정하고 새 관리자 및 암호를 만듭니다. 나중에 사용할 수 있도록 이름과 암호를 기록합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "74421039"
 
       `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<userId>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-1. Enter this connection string in the *.cscfg* file in both the **SplitMergeWeb** and **SplitMergeWorker** role sections in the ElasticScaleMetadata setting.
+1. ElasticScaleMetadata 설정에서 **SplitMergeWeb** 및 **SplitMergeWorker** role 섹션의 *.cscfg* 파일에이 연결 문자열을 입력 합니다.
 
 1. **SplitMergeWorker** 역할의 경우, **WorkerRoleSynchronizationStorageAccountConnectionString** 설정에 대해 Azure 스토리지에 유효한 연결 문자열을 입력합니다.
 
@@ -161,7 +161,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
 - 서버 이름이 **https://** 로 시작하지 않는지 확인합니다.
-- Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 이렇게 하려면 포털에서 데이터베이스를 열고 **Azure 서비스에 대한 액세스 허용** 설정이 **On** **로 설정되었는지 확인합니다.
+- Azure SQL DB 서버에서 Azure 서비스의 연결을 허용하는지 확인합니다. 이렇게 하려면 포털에서 데이터베이스를 열고 **Azure 서비스에 대한 액세스 허용** 설정이 **On****로 설정되었는지 확인합니다.
 
 ## <a name="test-the-service-deployment"></a>서비스 배포 테스트
 
@@ -230,13 +230,13 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 2. Azure SQL Database 서버를 만들거나 기존 서버를 선택합니다. 이 서버에 분할된 데이터베이스 맵 관리자 및 분할된 데이터베이스가 생성됩니다.
 
    > [!NOTE]
-   > The *SetupSampleSplitMergeEnvironment.ps1* script creates all these databases on the same server by default to keep the script simple. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
+   > *Setupsamplesplitmergeenvironment.ps1* 스크립트는 기본적으로 동일한 서버에 이러한 모든 데이터베이스를 만들어 스크립트를 단순하게 유지 합니다. 이 제한은 분할/병합 서비스 자체의 제한은 아닙니다.
 
    분할/병합 서비스에서 데이터를 이동하고 분할된 데이터베이스 맵을 업데이트하려면 읽기/쓰기 액세스 권한이 있는 SQL 인증 로그인이 필요합니다. 분할/병합 서비스는 클라우드에서 실행되므로 현재 통합 인증을 지원하지 않습니다.
 
    Azure SQL Server가 이러한 스크립트를 실행하는 컴퓨터의 IP 주소에서 액세스할 수 있도록 구성되었는지 확인합니다. 이 설정은 Azure SQL Server/구성/허용된 IP 주소에서 찾을 수 있습니다.
 
-3. Execute the *SetupSampleSplitMergeEnvironment.ps1* script to create the sample environment.
+3. *Setupsamplesplitmergeenvironment.ps1* 스크립트를 실행 하 여 샘플 환경을 만듭니다.
 
    이 스크립트를 실행하면 분할된 데이터베이스 맵 관리자 데이터베이스 및 분할된 데이터베이스에서 기존의 분할된 데이터베이스 맵 관리 데이터 구조가 모두 초기화됩니다. 분할된 데이터베이스 맵 또는 분할된 데이터베이스를 다시 초기화하려는 경우에 이 스크립트를 다시 실행하는 것이 유용할 수 있습니다.
 
@@ -254,7 +254,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
     -UserName 'mysqluser' -Password 'MySqlPassw0rd' -ShardMapManagerServerName 'abcdefghij.database.windows.net'
    ```
 
-5. Execute the *ExecuteSampleSplitMerge.ps1* script to execute a split operation (moving half the data on the first shard to the second shard) and then a merge operation (moving the data back onto the first shard). SSL을 구성하고 http 엔드포인트를 사용할 수 없도록 설정해 둔 경우에는 https:// 엔드포인트를 대신 사용해야 합니다.
+5. *Executesamplesplitmerge.ps1* 스크립트를 실행 하 여 분할 작업 (첫 번째 분할 된 데이터의 절반을 두 번째 분할 된 데이터 페이지로 이동)을 실행 한 다음 병합 작업 (데이터를 첫 번째 분할 된 데이터 페이지로 다시 이동)을 실행 합니다. SSL을 구성하고 http 엔드포인트를 사용할 수 없도록 설정해 둔 경우에는 https:// 엔드포인트를 대신 사용해야 합니다.
 
    샘플 명령줄:
 
@@ -309,7 +309,7 @@ makecert가 실행된 동일한 창에서 다음 명령을 실행하고, 인증�
 
 6. 다른 데이터 형식으로도 연결해 봅니다. 이러한 모든 스크립트는 키 유형을 지정할 수 있도록 하는 선택적인 -ShardKeyType 매개 변수를 사용합니다. 기본값은 Int32지만 Int64, GUID 또는 이진 파일을 지정할 수도 있습니다.
 
-## <a name="create-requests"></a>만들기 요청
+## <a name="create-requests"></a>요청 만들기
 
 웹 UI를 사용하거나 웹 역할을 통해 요청을 제출하는 SplitMerge.psm1 PowerShell 모듈을 가져와서 사용하여 서비스를 사용할 수 있습니다.
 

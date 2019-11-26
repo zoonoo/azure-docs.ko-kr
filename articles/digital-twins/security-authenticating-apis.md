@@ -1,6 +1,6 @@
 ---
-title: Understand API authentication - Azure Digital Twins | Microsoft Docs
-description: Learn how to connect to and authenticate with APIs using Azure Digital Twins.
+title: API 인증 이해-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins를 사용 하 여 Api에 연결 하 고 인증 하는 방법을 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -15,14 +15,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456903"
 ---
-# <a name="connect-to-and-authenticate-with-apis"></a>Connect to and authenticate with APIs
+# <a name="connect-to-and-authenticate-with-apis"></a>Api에 연결 및 인증
 
-Azure Digital Twins는 Azure AD(Azure Active Directory)를 사용하여 사용자를 인증하고 애플리케이션을 보호합니다. Azure AD는 다양한 최신 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 OAuth 2.0 또는 OpenID Connect를 기반으로 합니다. 또한 개발자는 Azure AD를 사용하여 단일 테넌트 및 LOB(기간 업무) 애플리케이션을 빌드할 수 있습니다. Developers also can use Azure AD to develop [multitenant applications](how-to-multitenant-applications.md).
+Azure Digital Twins는 Azure AD(Azure Active Directory)를 사용하여 사용자를 인증하고 애플리케이션을 보호합니다. Azure AD는 다양한 최신 아키텍처의 인증을 지원합니다. 모두 업계 표준 프로토콜인 OAuth 2.0 또는 OpenID Connect를 기반으로 합니다. 또한 개발자는 Azure AD를 사용하여 단일 테넌트 및 LOB(기간 업무) 애플리케이션을 빌드할 수 있습니다. 개발자는 Azure AD를 사용 하 여 [다중 테 넌 트 응용 프로그램](how-to-multitenant-applications.md)을 개발할 수도 있습니다.
 
 Azure AD 개요의 경우 단계별 가이드, 개념 및 빠른 시작은 [기본 페이지](https://docs.microsoft.com/azure/active-directory/fundamentals/)를 방문하세요.
 
 > [!TIP]
-> Follow the [Tutorial](tutorial-facilities-setup.md) to set up and run an Azure Digital Twins sample app.
+> [자습서](tutorial-facilities-setup.md) 에 따라 Azure Digital twins 샘플 앱을 설정 하 고 실행 합니다.
 
 애플리케이션 또는 서비스를 Azure AD와 통합하려면 개발자가 먼저 Azure AD에 애플리케이션을 등록해야 합니다. 자세한 지침과 스크린샷은 [이 빠른 시작](../active-directory/develop/quickstart-register-app.md)을 참조하세요.
 
@@ -35,9 +35,9 @@ Azure AD에서 지원되는 [5가지 기본 애플리케이션 시나리오](../
 * 디먼 또는 서버 애플리케이션-웹 API: 웹 UI가 없는 서버 애플리케이션 또는 디먼 애플리케이션이 Azure AD로 보호된 웹 API에서 리소스를 가져와야 합니다.
 
 > [!IMPORTANT]
-> Azure Digital Twins supports both of the following authentication libraries:
-> * The more recent [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
-> * The [Azure Active Directory Authentication Library (ADAL)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
+> Azure Digital Twins는 다음 인증 라이브러리를 모두 지원 합니다.
+> * 최신 [MSAL (Microsoft 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [ADAL (Azure Active Directory 인증 라이브러리)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>중간 계층 웹 API에서 Digital Twins 호출
 

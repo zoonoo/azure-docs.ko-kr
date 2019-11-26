@@ -1,5 +1,5 @@
 ---
-title: 'Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
+title: '성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2 | Microsoft Docs'
 description: Azure Data Lake Storage Gen2의 Storm 성능 튜닝에 대한 지침입니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
@@ -15,14 +15,14 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327915"
 ---
-# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>Tune performance: Storm, HDInsight & Azure Data Lake Storage Gen2
+# <a name="tune-performance-storm-hdinsight--azure-data-lake-storage-gen2"></a>성능 조정: 스톰, HDInsight & Azure Data Lake Storage Gen2
 
 Azure Storm 토폴로지의 성능을 조정할 때 고려해야 하는 요소를 이해합니다. 예를 들어, Spout 및 Bolt(작업이 I/O 또는 메모리 집약적인지에 따름)에서 수행한 작업의 특징을 이해하는 것이 중요합니다. 이 문서에서는 다양한 성능 조정 지침, 일반적인 문제 해결 등을 다룹니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* **Azure 구독** - [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* **Azure Data Lake Storage Gen2 계정**. For instructions on how to create one, see [Quickstart: Create a storage account for analytic](data-lake-storage-quickstart-create-account.md).
+* **Azure 구독**. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* **Azure Data Lake Storage Gen2 계정**. 만드는 방법에 대 한 지침은 [빠른 시작: 분석을 위한 저장소 계정 만들기](data-lake-storage-quickstart-create-account.md)를 참조 하세요.
 * Data Lake Storage Gen2 계정에 대한 액세스 권한이 있는 **Azure HDInsight 클러스터**. [Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)을 참조하세요. 클러스터에 대한 원격 데스크톱을 사용하도록 설정해야 합니다.
 * **Data Lake Storage Gen2에서 Storm 클러스터 실행**. 자세한 내용은 [HDInsight의 Storm](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview)을 참조하세요.
 * **Data Lake Storage Gen2에 대한 성능 튜닝 지침**.  일반적인 성능 개념은 [Data Lake Storage Gen2 성능 튜닝 지침](data-lake-storage-performance-tuning-guidance.md)을 참조하세요.   
@@ -99,7 +99,7 @@ I/O 집약적인 토폴로지에서 각 Bolt 스레드는 자체 파일에 기�
 
 ## <a name="troubleshoot-common-problems"></a>일반적인 문제 해결
 일반적인 문제 해결 시나리오는 다음과 같습니다.
-* **Many tuples are timing out.** Look at each node in the topology to determine where the bottleneck is. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
+* **많은 튜플이 시간 초과 됩니다.** 토폴로지의 각 노드를 확인 하 여 병목 현상이 발생 한 위치를 확인 합니다. 가장 일반적인 원인은 Bolt가 Spout을 따라갈 수 없기 때문입니다. 이렇게 하면 튜플이 처리될 때까지 대기하는 동안 내부 버퍼를 방해합니다. 시간 초과 값을 늘리거나 보류 중인 최대 Spout을 줄이세요.
 
 * **총 프로세스 실행 대기 시간이 길지만 Bolt 프로세스 대기 시간이 짧습니다.** 이런 경우 튜플이 충분히 빨리 승인되지 않을 수 있습니다. acknowledger 수가 충분한지 확인하세요. Bolt가 처리를 시작하기 전에 큐에서 너무 오래 대기 중인 것도 원인이 될 수 있습니다. 보류 중인 최대 Spout을 줄이세요.
 
@@ -110,7 +110,7 @@ Data Lake Storage Gen2에서 제공하는 대역폭의 제한에 도달하면 �
 
 제한 여부를 확인하려면 클라이언트 쪽에서 디버그 로깅을 사용하도록 설정합니다.
 
-1. In **Ambari** > **Storm** > **Config** > **Advanced storm-worker-log4j**, change **&lt;root level="info"&gt;** to **&lt;root level="debug"&gt;** . 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
+1. **Ambari** > **스톰** > **구성** > **고급 스톰-log4j**에서 **&lt;root level = "info"&gt;** 를 **&lt;root level = "debug"&gt;** 로 변경 합니다. 구성을 적용하려면 모든 노드/서비스를 다시 시작합니다.
 2. Data Lake Storage Gen2 제한 예외에 대한 작업자 노드의 Storm 토폴로지 로그(/var/log/storm/worker-artifacts/&lt;TopologyName&gt;/&lt;port&gt;/worker.log 아래)를 모니터링합니다.
 
 ## <a name="next-steps"></a>다음 단계

@@ -42,14 +42,14 @@ Azure 서비스 관리자만 Cloudyn을 사용하도록 설정할 수 있습니�
 Cloudyn을 설정하기 위해 Azure Enterprise Agreement API 키를 생성하려면 먼저 다음 지침에 따라 Azure Billing API를 사용하도록 설정해야 합니다.
 
 - [기업 고객을 위한 보고 API 개요](../billing/billing-enterprise-api.md)
-- **API에 대한 데이터 액세스 사용**의 [Microsoft Azure Enterprise Portal 보고 API](https://ea.azure.com/helpdocs/reportingAPI)
+- [API에 대한 데이터 액세스 사용](https://ea.azure.com/helpdocs/reportingAPI)의 **Microsoft Azure Enterprise Portal 보고 API**
 
 
 부서 관리자, 계정 소유자 및 엔터프라이즈 관리자에게 청구 API로 _요금 보기_ 권한을 부여해야 할 수도 있습니다.
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>Optimizer 권장 사항 표시되지 않는 이유
 
-권장 사항 정보는 활성화된 계정에만 사용할 수 있습니다. 다음을 포함하여, *활성화되지 않은* 계정에 대해서는 **Optimizer** 보고서 카테고리에 권장 사항 정보가 표시되지 않습니다.
+권장 사항 정보는 활성화된 계정에만 사용할 수 있습니다. 다음을 포함하여, **활성화되지 않은** 계정에 대해서는 *Optimizer* 보고서 카테고리에 권장 사항 정보가 표시되지 않습니다.
 
 - Optimization Manager
 - 크기 조정 최적화
@@ -74,9 +74,9 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 먼저 사용자 계정이 *initiallySuspended*를 가져오는 가장 일반적인 시나리오를 살펴보겠습니다.
 
-> Admin1 might be a Microsoft Cloud Solution Provider or Enterprise Agreement user. Their organization is ready to start using Cloudyn.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. As the person who registers the Cloudyn service and signs into the Cloudyn portal, Admin1 becomes the *primary administrator*. Admin1은 사용자 계정을 만들지 않습니다. However, using the Cloudyn portal, they do create Azure accounts and set up an entity hierarchy. Admin1 informs Admin2, a tenant administrator, that they need to register with Cloudyn and sign in to the Cloudyn portal.
+> 1는 Microsoft 클라우드 솔루션 공급자 이거나 기업계약 사용자 일 수 있습니다. 조직에서 Cloudyn 사용을 시작할 준비가 되었습니다.  Admin1이 Azure Portal을 통해 등록하고 Cloudyn 포털에 로그인합니다. Cloudyn 서비스를 등록 하 고 Cloudyn 포털에 로그인 하는 사용자는 1가 *기본 관리자*가 됩니다. Admin1은 사용자 계정을 만들지 않습니다. 그러나 Cloudyn 포털을 사용 하 여 Azure 계정을 만들고 엔터티 계층을 설정 합니다. 1는 테 넌 트 관리자 인 2에 게 Cloudyn에 등록 하 고 Cloudyn 포털에 로그인 해야 한다는 사실을 알려줍니다.
 >
-> Admin2가 Azure Portal을 통해 등록합니다. However when they try to sign in to the Cloudyn portal, they get an error saying their account is **suspended**. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
+> Admin2가 Azure Portal을 통해 등록합니다. 그러나 Cloudyn 포털에 로그인 하려고 하면 계정이 **일시 중단**되었다는 오류 메시지가 표시 됩니다. 기본 관리자인 Admin1이 계정 일시 중단에 대한 알림을 받습니다. Admin1은 Admin2의 계정을 활성화하고 해당 엔터티에 대한 *관리자 엔터티 액세스* 권한을 부여해야 하며, 사용자 관리 액세스를 허용하고 사용자 계정을 활성화합니다.
 
 
 사용자에 대한 액세스를 허용하라는 경고 요청을 받으면 사용자 계정을 활성화해야 합니다.
@@ -90,13 +90,13 @@ Optimizer 권장 사항 데이터가 표시되지 않는다면 계정이 비활�
 
 Cloudyn 사용자 계정은 Azure에서 Single Sign-On을 사용하여 연결합니다. 사용자가 암호를 잘못 입력하면 Azure에 계속 액세스할 수는 있지만 Cloudyn에 잠겨 있을 수 있습니다.
 
-If you change your e-mail address in Cloudyn from the default address in Azure, your account can get locked out. It might show "status initiallySuspended." 사용자 계정이 잠긴 경우 대체 관리자에게 문의하여 계정을 재설정합니다.
+Cloudyn에서 전자 메일 주소를 Azure의 기본 주소에서 변경 하면 계정이 잠길 수 있습니다. "Status 초기"가 표시 될 수 있습니다. 사용자 계정이 잠긴 경우 대체 관리자에게 문의하여 계정을 재설정합니다.
 
 계정 중 하나가 잠기는 경우를 대비하여 적어도 두 개의 Cloudyn 관리자 계정을 만드는 것이 좋습니다.
 
 Cloudyn 포털에 로그인할 수 없는 경우 올바른 URL을 사용하여 Cloudyn에 로그인했는지 확인합니다. [https://azure.cloudyn.com](https://ms.portal.azure.com/#blade/Microsoft_Azure_CostManagement/CloudynMainBlade)를 사용합니다.
 
-Cloudyn 직접 URL https://app.cloudyn.com 은 사용하지 마세요.
+Cloudyn 직접 URL https://app.cloudyn.com은 사용하지 마세요.
 
 ## <a name="how-do-i-activate-unactivated-accounts-with-azure-credentials"></a>Azure 자격 증명으로 활성화되지 않은 계정을 활성화하는 방법
 
@@ -154,7 +154,7 @@ Azure Resource Manager 액세스를 추가하고 데이터를 수집한 후에�
 
 ## <a name="is-cloudyn-agent-based"></a>Cloudyn 에이전트 기반인가요?
 
-아닙니다. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
+아니요. 에이전트는 사용되지 않습니다. VM에 대한 Azure 가상 머신 메트릭 데이터는 Microsoft Insights API에서 수집합니다. Azure VM에서 메트릭 데이터를 수집하려면 VM의 진단 설정을 켜야 합니다.
 
 ## <a name="do-cloudyn-reports-show-more-than-one-ad-tenant-per-report"></a>Cloudyn 보고서는 보고서당 두 개 이상의 AD 테넌트를 표시합니까?
 

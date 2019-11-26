@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/30/2019
+ms.date: 11/21/2019
 ms.author: radeltch
-ms.openlocfilehash: 7fb7294cc6f7918b4c6a3afa9e3c9dc7f44504e1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
-ms.translationtype: MT
+ms.openlocfilehash: 8c3cb50a4a89d72ddcedea5d379f8e889655c5c0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014945"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327984"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포 
 
@@ -99,17 +99,17 @@ HANA 고가용성을 달성 하는 한 가지 방법은 호스트 자동 장애 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse-anf/sap-hana-scale-out-standby-netapp-files-suse.png)
 
 위의 다이어그램에서 네트워크 권장 사항을 SAP HANA 다음 세 개의 서브넷이 하나의 Azure 가상 네트워크 내에 표시 됩니다. 
+* 클라이언트 통신
 * 저장소 시스템과 통신 하는 경우
 * 내부 HANA 노드 간 통신의 경우
-* 클라이언트 통신
 
 Azure NetApp 볼륨은 별도의 서브넷에 있으며 [Azure NetApp Files에 위임](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-delegate-subnet)됩니다.  
 
 이 구성 예제에서 서브넷은 다음과 같습니다.  
 
+  - `client` 10.23.0.0/24  
   - `storage` 10.23.2.0/24  
   - `hana` 10.23.3.0/24  
-  - `client` 10.23.0.0/24  
   - `anf` 10.23.1.0/26  
 
 ## <a name="set-up-the-azure-netapp-files-infrastructure"></a>Azure NetApp Files 인프라 설정 
@@ -140,7 +140,7 @@ Azure NetApp Files를 배포 하기 전에 [Azure NetApp Files 지침에 등록]
 
    볼륨을 배포할 때 **nfsv 4.1** 버전을 선택 해야 합니다. 현재 NFSv 4.1에 대 한 액세스에는 추가 허용 목록 필요 합니다. 지정 된 Azure NetApp Files [서브넷](https://docs.microsoft.com/rest/api/virtualnetwork/subnets)에 볼륨을 배포 합니다. 
    
-   Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual network에 있어야 합니다. 예를 들어 **h n 1**-Mnt00001, **h n 1**-mnt00001 등은 볼륨**이름과 nfs://10.23.1.5/H n 1-mnt00001**, nfs://10.23.1.4/**h n 1**-mnt00001 등은 Azure NetApp Files 볼륨에 대 한 파일 경로입니다.  
+   Azure NetApp Files 리소스와 Azure Vm은 동일한 Azure virtual network 또는 피어 링 Azure virtual network에 있어야 합니다. 예를 들어 **h n 1**-Mnt00001, **h n 1**-mnt00001 등은 볼륨 이름**및 nfs://10.23.1.5/h n 1**, mnt00001**nfs://10.23.1.4/** -h n 1, mnt00001 등은 Azure NetApp Files 볼륨에 대 한 파일 경로입니다.  
 
    * volume **h n 1**-mnt00001 (nfs://10.23.1.5/**h n 1**)
    * volume **h n 1**-mnt00002 (nfs://10.23.1.6/**h n 1**)
@@ -165,9 +165,6 @@ SUSE 고가용성 아키텍처에서 SAP NetWeaver에 대 한 Azure NetApp Files
 
 > [!IMPORTANT]
 > SAP HANA 워크 로드의 경우 짧은 대기 시간이 중요 합니다. Microsoft 담당자와 협력 하 여 가상 머신과 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다.  
-
-> [!IMPORTANT]
-> **Sid**Adm의 사용자 ID와 vm의 `sapsys`에 대 한 그룹 id는 Azure NetApp Files의 구성과 일치 해야 합니다. VM Id와 Azure NetApp 구성이 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 `nobody`으로 표시 됩니다. Azure NetApp Files에 [새 시스템을](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) 등록 하는 경우 올바른 id를 지정 해야 합니다.
 
 ### <a name="sizing-for-hana-database-on-azure-netapp-files"></a>Azure NetApp Files HANA 데이터베이스 크기 조정
 
@@ -209,48 +206,48 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 ## <a name="deploy-linux-virtual-machines-via-the-azure-portal"></a>Azure Portal을 통해 Linux 가상 컴퓨터 배포
 
-먼저 Azure NetApp Files 볼륨을 만들어야 합니다. 다음을 수행합니다.
+먼저 Azure NetApp Files 볼륨을 만들어야 합니다. 그런 후에 다음 단계를 수행 합니다.
 1. [Azure 가상 네트워크](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)에 [azure 가상 네트워크 서브넷](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet) 을 만듭니다. 
 1. Vm을 배포 합니다. 
 1. 추가 네트워크 인터페이스를 만들고 네트워크 인터페이스를 해당 Vm에 연결 합니다.  
 
-   각 가상 머신에는 세 개의 Azure virtual network 서브넷 (`storage`, `hana`및 `client`)에 해당 하는 세 개의 네트워크 인터페이스가 있습니다. 
+   각 가상 머신에는 세 개의 Azure virtual network 서브넷 (`client`, `storage` 및 `hana`)에 해당 하는 세 개의 네트워크 인터페이스가 있습니다. 
 
    자세한 내용은 [여러 네트워크 인터페이스 카드를 사용 하 여 Azure에서 Linux 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/linux/multiple-nics)를 참조 하세요.  
 
 > [!IMPORTANT]
 > SAP HANA 워크 로드의 경우 짧은 대기 시간이 중요 합니다. 짧은 대기 시간을 얻으려면 Microsoft 담당자와 협력 하 여 가상 머신 및 Azure NetApp Files 볼륨이 근접 하 게 배포 되었는지 확인 합니다. SAP HANA Azure NetApp Files를 사용 하는 [새 SAP HANA 시스템을 온 보 딩](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxjSlHBUxkJBjmARn57skvdUQlJaV0ZBOE1PUkhOVk40WjZZQVJXRzI2RC4u) 하는 경우 필요한 정보를 제출 합니다. 
  
-다음 지침에서는 이미 리소스 그룹, Azure virtual network 및 3 개의 Azure virtual network 서브넷 (`storage`, `hana`및 `client`을 만들었다고 가정 합니다. Vm을 배포할 때 저장소 네트워크 인터페이스가 Vm의 기본 인터페이스가 되도록 저장소 서브넷을 선택 합니다. 가능 하지 않은 경우 저장소 서브넷 게이트웨이를 통해 위임 된 서브넷 Azure NetApp Files 대 한 명시적 경로를 구성 합니다. 
+다음 지침에서는 이미 리소스 그룹, Azure virtual network 및 3 개의 Azure virtual network 서브넷 (`client`, `storage` 및 `hana`을 만들었다고 가정 합니다. Vm을 배포할 때 클라이언트 네트워크 인터페이스가 Vm의 기본 인터페이스를 갖도록 클라이언트 서브넷을 선택 합니다. 또한 저장소 서브넷 게이트웨이를 통해 위임 Azure NetApp Files 된 서브넷에 대 한 명시적 경로를 구성 해야 합니다. 
 
 > [!IMPORTANT]
 > 선택한 OS가 사용 중인 특정 VM 형식에 대 한 SAP HANA에 대해 SAP 인증 되는지 확인 합니다. 이러한 유형에 대 한 SAP HANA 인증 VM 유형 및 OS 릴리스 목록은 [SAP HANA 인증 된 IaaS 플랫폼](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) 사이트로 이동 합니다. 나열 된 VM 형식에 대 한 세부 정보를 클릭 하 여 해당 형식에 대해 지원 되는 SAP HANA OS 릴리스의 전체 목록을 가져옵니다.  
 
 1. SAP HANA에 대 한 가용성 집합을 만듭니다. 최대 업데이트 도메인을 설정 했는지 확인 합니다.  
 
-2. 다음을 수행 하 여 세 개의 가상 머신 (**hanadb1**, **hanadb2**, **hanadb3**)를 만듭니다.  
+2. 다음 단계를 수행 하 여 세 개의 가상 머신 (**hanadb1**, **hanadb2**, **hanadb3**)를 만듭니다.  
 
-   a. SAP HANA에 대해 지원 되는 Azure 갤러리에서 SLES4SAP 이미지를 사용 합니다. 이 예제에서는 SLES4SAP 12 SP4 이미지를 사용 했습니다.  
+   가. SAP HANA에 대해 지원 되는 Azure 갤러리에서 SLES4SAP 이미지를 사용 합니다. 이 예제에서는 SLES4SAP 12 SP4 이미지를 사용 했습니다.  
 
    b. SAP HANA에 대해 이전에 만든 가용성 집합을 선택 합니다.  
 
-   c. 저장소 Azure virtual network 서브넷을 선택 합니다. [가속화 네트워크](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)를 선택 합니다.  
+   c. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)를 선택 합니다.  
 
-   가상 컴퓨터를 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 저장소 Azure virtual network 서브넷에 연결 되는 네트워크 인터페이스를 **hanadb1**, **hanadb2**및 **hanadb3**저장소로 지칭 합니다. 
+   가상 컴퓨터를 배포 하는 경우 네트워크 인터페이스 이름이 자동으로 생성 됩니다. 이 지침에서는 **hanadb1**, **hanadb2**및 **Hanadb3**클라이언트와 같이 클라이언트 Azure 가상 네트워크 서브넷에 연결 된 자동으로 생성 된 네트워크 인터페이스를 참조 합니다. 
 
-3. `hana` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**, **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
+3. `storage` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**및 **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
 
-4. `client` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**, **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
+4. `hana` 가상 네트워크 서브넷 (이 예제에서는 **hanadb1**, **hanadb2**, **hanadb3**)에 대 한 세 개의 네트워크 인터페이스를 각 가상 머신에 대해 하나씩 만듭니다.  
 
-5. 다음을 수행 하 여 새로 만든 가상 네트워크 인터페이스를 해당 가상 머신에 연결 합니다.  
+5. 다음 단계를 수행 하 여 새로 만든 가상 네트워크 인터페이스를 해당 가상 컴퓨터에 연결 합니다.  
 
-    a. [Azure Portal](https://portal.azure.com/#home)의 가상 머신으로 이동 합니다.  
+    가. [Azure Portal](https://portal.azure.com/#home)의 가상 머신으로 이동 합니다.  
 
     b. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
     c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
-    ㄹ. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `hana` 및 `client` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
+    d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `storage` 및 `hana` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
     
     e. **저장**을 선택합니다. 
  
@@ -258,25 +255,26 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
  
     g. 지금은 가상 컴퓨터를 중지 됨 상태로 둡니다. 다음에는 새로 연결 된 모든 네트워크 인터페이스에 대해 [가속화 된 네트워킹](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli) 을 사용 하도록 설정 합니다.  
 
-6. 다음을 수행 하 여 `hana` 및 `client` 서브넷의 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
+6. 다음 단계를 수행 하 여 `storage` 및 `hana` 서브넷의 추가 네트워크 인터페이스에 대해 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
 
-    a. [Azure Portal](https://portal.azure.com/#home)에서 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 를 엽니다.  
+    가. [Azure Portal](https://portal.azure.com/#home)에서 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 를 엽니다.  
 
-    b. 다음 명령을 실행 하 여 `hana` 및 `client` 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
+    b. 다음 명령을 실행 하 여 `storage` 및 `hana` 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
 
     <pre><code>
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-storage</b> --accelerated-networking true
+    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-storage</b> --accelerated-networking true
+    
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-hana</b> --accelerated-networking true
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-hana</b> --accelerated-networking true
-    
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb2-client</b> --accelerated-networking true
-    az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb3-client</b> --accelerated-networking true
+
     </code></pre>
 
-7. 다음을 수행 하 여 가상 컴퓨터를 시작 합니다.  
+7. 다음 단계를 수행 하 여 가상 컴퓨터를 시작 합니다.  
 
-    a. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 선택 합니다.  
+    가. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 선택 합니다.  
 
     b. **개요** 창에서 **시작**을 선택 합니다.  
 
@@ -288,36 +286,53 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 * **[2]** : 노드 2에만 적용 가능
 * **[3]** : 노드 3에만 적용 가능
 
-다음을 수행 하 여 OS를 구성 하 고 준비 합니다.
+다음 단계를 수행 하 여 OS를 구성 하 고 준비 합니다.
 
 1. **[A]** 가상 컴퓨터에서 호스트 파일을 유지 관리 합니다. 모든 서브넷에 대 한 항목을 포함 합니다. 이 예제에서는 다음 항목이 `/etc/hosts`에 추가 되었습니다.  
 
     <pre><code>
     # Storage
-    10.23.2.4   hanadb1
-    10.23.2.5   hanadb2
-    10.23.2.6   hanadb3
+    10.23.2.4   hanadb1-storage
+    10.23.2.5   hanadb2-storage
+    10.23.2.6   hanadb3-storage
     # Client
-    10.23.0.5   hanadb1-client
-    10.23.0.6   hanadb2-client
-    10.23.0.7   hanadb3-client
+    10.23.0.5   hanadb1
+    10.23.0.6   hanadb2
+    10.23.0.7   hanadb3
     # Hana
     10.23.3.4   hanadb1-hana
     10.23.3.5   hanadb2-hana
     10.23.3.6   hanadb3-hana
     </code></pre>
 
-2. **[A]** 의도 하지 않은 호스트 이름을 변경 하지 않도록 DHCP 및 클라우드 구성 설정을 변경 합니다.  
+2. **[A]** 의도 하지 않은 호스트 이름 변경을 방지 하기 위해 저장소의 네트워크 인터페이스에 대 한 DHCP 및 클라우드 구성 설정을 변경 합니다.  
+
+    다음 지침에서는 저장소 네트워크 인터페이스가 `eth1`된 것으로 가정 합니다. 
 
     <pre><code>
     vi /etc/sysconfig/network/dhcp
-    #Change the following DHCP setting to "no"
+    # Change the following DHCP setting to "no"
     DHCLIENT_SET_HOSTNAME="no"
-    vi /etc/sysconfig/network/ifcfg-eth0
-    # Edit ifcfg-eth0 
+    vi /etc/sysconfig/network/ifcfg-<b>eth1</b>
+    # Edit ifcfg-eth1 
     #Change CLOUD_NETCONFIG_MANAGE='yes' to "no"
     CLOUD_NETCONFIG_MANAGE='no'
     </code></pre>
+
+2. **[A]** Azure NetApp Files에 대 한 통신이 저장소 네트워크 인터페이스를 통해 이동 하도록 네트워크 경로를 추가 합니다.  
+
+    다음 지침에서는 저장소 네트워크 인터페이스가 `eth1`된 것으로 가정 합니다.  
+
+    <pre><code>
+    vi /etc/sysconfig/network/ifroute-<b>eth1</b>
+    # Add the following routes 
+    # RouterIPforStorageNetwork - - -
+    # ANFNetwork/cidr RouterIPforStorageNetwork - -
+    <b>10.23.2.1</b> - - -
+    <b>10.23.1.0/26</b> <b>10.23.2.1</b> - -
+    </code></pre>
+
+    VM을 다시 부팅 하 여 변경 내용을 활성화 합니다.  
 
 3. **[A]** [netapp AFF systems with nfs 구성 가이드의 SAP HANA](https://www.netapp.com/us/media/tr-4435.pdf)에 설명 된 대로 nfs를 사용 하 여 netapp 시스템에서 SAP HANA를 실행 하기 위해 OS를 준비 합니다. NetApp 구성 설정에 대 한 */etc/sysctl.d/netapp-hana.conf* 구성 파일을 만듭니다.  
 
@@ -387,28 +402,33 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     umount /mnt/tmp
     </code></pre>
 
-3. **[A]** NFS 도메인 설정을 확인 합니다. 도메인이 **`localdomain`** 구성 되어 있고 매핑이 없음으로 설정 되어 있는지 확인 **합니다.**  
+3. **[A]** NFS 도메인 설정을 확인 합니다. 도메인이 기본 Azure NetApp Files 도메인으로 구성 되어 있는지 확인 합니다. 즉, **`defaultv4iddomain.com`** 이며 매핑이 없음으로 설정 되어 있는지 확인 **합니다.**  
+
+    > [!IMPORTANT]
+    > VM에서 `/etc/idmapd.conf`의 NFS 도메인을 Azure NetApp Files: **`defaultv4iddomain.com`** 의 기본 도메인 구성과 일치 하도록 설정 해야 합니다. NFS 클라이언트의 도메인 구성 (예: VM)과 NFS 서버 (예: Azure NetApp 구성)가 일치 하지 않는 경우 Vm에 탑재 된 Azure NetApp 볼륨의 파일에 대 한 권한이 `nobody`표시 됩니다.  
 
     <pre><code>
-    sudo cat  /etc/idmapd.conf
+    sudo cat /etc/idmapd.conf
     # Example
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>localdomain</b>
+    Domain = <b>ldefaultv4iddomain.com</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
     </code></pre>
 
-4. **[A]** NFSv4 ID 매핑을 사용 하지 않도록 설정 합니다. `nfs4_disable_idmapping` 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
+4. **[A]** `nfs4_disable_idmapping`확인 합니다. **Y**로 설정 되어야 합니다. `nfs4_disable_idmapping` 있는 디렉터리 구조를 만들려면 mount 명령을 실행 합니다. 액세스는 커널/드라이버용으로 예약 되어 있기 때문에/dv/sd 아래에 있는 디렉터리는 수동으로 만들 수 없습니다.  
 
     <pre><code>
+    # Check nfs4_disable_idmapping 
+    cat /sys/module/nfs/parameters/nfs4_disable_idmapping
+    # If you need to set nfs4_disable_idmapping to Y
     mkdir /mnt/tmp
     mount 10.23.1.4:/HN1-shared /mnt/tmp
     umount  /mnt/tmp
-    # Disable NFSv4 idmapping. 
-    echo "N" > /sys/module/nfs/parameters/nfs4_disable_idmapping
+    echo "Y" > /sys/module/nfs/parameters/nfs4_disable_idmapping
     </code></pre>`
 
 5. **[A]** SAP HANA 그룹 및 사용자를 수동으로 만듭니다. 그룹 sapsys 및 사용자 **h n 1**Adm의 id는 온 보 딩 중에 제공 되는 것과 동일한 id로 설정 되어야 합니다. (이 예제에서는 Id가 **1001**으로 설정 됩니다.) Id가 올바르게 설정 되지 않은 경우에는 볼륨에 액세스할 수 없습니다. 그룹 sapsys 및 사용자 계정 **h n 1**adm 및 Sapadm의 id는 모든 가상 머신에서 동일 해야 합니다.  
@@ -521,7 +541,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 1. **[1]** [SAP HANA 2.0 설치 및 업데이트 가이드](https://help.sap.com/viewer/2c1988d620e04368aa4103bf26f17727/2.0.04/en-US/7eb0167eb35e4e2885415205b8383584.html)의 지침에 따라 SAP HANA를 설치 합니다. 이 예제에서는 master, one worker 및 1 개의 대기 노드를 사용 하 여 확장 SAP HANA를 설치 합니다.  
 
-   a. HANA 설치 소프트웨어 디렉터리에서 **hdblcm** 프로그램을 시작 합니다. `internal_network` 매개 변수를 사용 하 여 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
+   가. HANA 설치 소프트웨어 디렉터리에서 **hdblcm** 프로그램을 시작 합니다. `internal_network` 매개 변수를 사용 하 여 내부 HANA 노드 간 통신에 사용 되는 서브넷에 대 한 주소 공간을 전달 합니다.  
 
     <pre><code>
     ./hdblcm --internal_network=10.23.3.0/24
@@ -633,7 +653,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 1. SAP HANA 작업자 노드에서 노드 충돌을 시뮬레이트합니다. 다음을 수행합니다. 
 
-   a. 노드 충돌을 시뮬레이트하려면 먼저 **h n 1**adm으로 다음 명령을 실행 하 여 환경의 상태를 캡처합니다.  
+   가. 노드 충돌을 시뮬레이트하려면 먼저 **h n 1**adm으로 다음 명령을 실행 하 여 환경의 상태를 캡처합니다.  
 
    <pre><code>
     # Check the landscape status
@@ -688,7 +708,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
 2. 다음을 수행 하 여 이름 서버를 중지 합니다.
 
-   a. 테스트 하기 전에 **h n 1**adm으로 다음 명령을 실행 하 여 환경의 상태를 확인 합니다.  
+   가. 테스트 하기 전에 **h n 1**adm으로 다음 명령을 실행 하 여 환경의 상태를 확인 합니다.  
 
    <pre><code>
     #Landscape status 
@@ -766,7 +786,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
    </code></pre>
 
-   ㄹ. 다시 한 번, 현재 활성 마스터 노드 (즉, 노드 **hanadb3**)에서 이름 서버를 중지 합니다.  
+   d. 다시 한 번, 현재 활성 마스터 노드 (즉, 노드 **hanadb3**)에서 이름 서버를 중지 합니다.  
    
    <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill

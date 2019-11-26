@@ -1,7 +1,7 @@
 ---
-title: View a knowledge store (preview) with Storage Explorer
+title: Storage 탐색기를 사용 하 여 기술 자료 저장소 (미리 보기) 보기
 titleSuffix: Azure Cognitive Search
-description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다. knowledge store is currently in public preview.
+description: Azure Portal의 Storage Explorer를 사용하여 Azure Cognitive Search 지식 저장소를 살펴보고 분석합니다. 기술 자료 저장소는 현재 공개 미리 보기로 제공 됩니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
@@ -20,17 +20,17 @@ ms.locfileid: "74406564"
 > [!IMPORTANT] 
 > 지식 저장소는 현재 공개 미리 보기로 제공됩니다. 미리 보기 기능은 서비스 수준 계약 없이 제공되며, 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요. [REST API 버전 2019-05-06-Preview](search-api-preview.md)는 미리 보기 기능을 제공합니다. 현재는 포털 지원이 제한적이며 .NET SDK를 지원하지 않습니다.
 
-In this article, you'll learn by example how to connect to and explore a knowledge store using Storage Explorer in the Azure portal.
+이 문서에서는 Azure Portal에서 Storage 탐색기를 사용 하 여 기술 자료 저장소에 연결 하 고 탐색 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-+ Follow the steps in [Create a knowledge store in Azure portal](knowledge-store-create-portal.md) or [Create an Azure Cognitive Search knowledge store by using REST](knowledge-store-create-rest.md) to create the sample knowledge store used in this walkthrough.
++ [Azure Portal에서 기술 자료 저장소 만들기](knowledge-store-create-portal.md) 의 단계를 수행 하거나 [REST를 사용 하 여 Azure Cognitive Search 기술 자료](knowledge-store-create-rest.md) 저장소를 만들어이 연습에서 사용 되는 샘플 기술 자료 저장소를 만듭니다.
 
 + 지식 저장소를 만들 때 사용한 Azure 스토리지 계정의 이름과 Azure Portal의 계정 액세스 키도 필요합니다.
 
-## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>View, edit, and query a knowledge store in Storage Explorer
+## <a name="view-edit-and-query-a-knowledge-store-in-storage-explorer"></a>Storage 탐색기에서 기술 자료 저장소 보기, 편집 및 쿼리
 
-1. In the Azure portal, [open the Storage account](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) that you used to create the knowledge store.
+1. Azure Portal에서 기술 자료 저장소를 만드는 데 사용한 [저장소 계정을 엽니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/) .
 
 1. 스토리지 계정의 왼쪽 탐색 창에서 **Storage Explorer**를 클릭합니다.
 
@@ -58,8 +58,8 @@ In this article, you'll learn by example how to connect to and explore a knowled
 
 ## <a name="next-steps"></a>다음 단계
 
-Connect this knowledge store to Power BI for deeper analysis, or move forward with code, using the REST API and Postman to create a different knowledge store.
+자세한 분석을 위해이 기술 자료 저장소를 Power BI에 연결 하거나 REST API 및 Postman을 사용 하 여 다른 기술 자료 저장소를 만들어 코드로 이동 합니다.
 
 > [!div class="nextstepaction"]
-> [Connect with Power BI](knowledge-store-connect-power-bi.md)
-> [Create a knowledge store in REST](knowledge-store-howto.md)
+> [Power BI를 사용 하 여 연결](knowledge-store-connect-power-bi.md)
+> [REST에서 기술 자료 저장소 만들기](knowledge-store-howto.md)

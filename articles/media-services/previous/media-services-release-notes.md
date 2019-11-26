@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: f76a2eb098e2d96f617d19de089e56c7e8a497fd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7c6cac925ad53e08ecc10c828765153c905f1c1d
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162760"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423896"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -46,7 +46,7 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
 
-## <a name="september-2019"></a>9 월 2019
+## <a name="september-2019"></a>2019년 9월
 
 ### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
 
@@ -58,7 +58,7 @@ Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media
 
 ### <a name="deprecation-of-media-processors"></a>미디어 프로세서의 사용 중단
 
-2019 년 11 월 30 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
+2020 년 3 월 31 일에 사용이 중지 되는 wame ( *Windows Azure Media Encoder* ) 및 *Azure Media Encoder* (AME) 미디어 프로세서의 사용 중단을 발표 하 고 있습니다.
 
 자세한 내용은 [WAME to Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101334) 및 [AME를 Media Encoder Standard로 마이그레이션](https://go.microsoft.com/fwlink/?LinkId=2101335)을 참조 하세요.
 
@@ -206,7 +206,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 ### <a name="azure-sdk-for-php"></a>PHP용 Azure SDK
 Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히 PHP용 Media Services SDK는 이제 최신 [Content Protection](media-services-content-protection-overview.md) 기능을 지원합니다. 이러한 기능은 토큰 제한을 포함하거나 없는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화입니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md)의 크기 조정을 지원합니다.
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
 * 다음 [코드 샘플](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)에 설명된 .NET 샘플에 기반합니다.
@@ -245,7 +245,7 @@ Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인�
 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)를 참조하세요.
 
 ## <a id="august_changes_15"></a>2015년 8월 릴리스
-* Java용 Media Services SDK 버전 0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
+* Java용 Media Services SDK 버전 0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은
     
 * Azure Media Player는 다중 오디오 스트림을 지원하도록 업데이트되었습니다. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)에 게시해 주세요.
 

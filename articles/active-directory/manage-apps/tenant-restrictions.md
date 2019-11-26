@@ -68,7 +68,7 @@ ms.locfileid: "74276497"
 
 - 이 기능은 Office 365 구독에 포함 되어 있지만 테 넌 트 제한을 사용 하 여 다른 SaaS 앱에 대 한 액세스를 제어 하려면 1 개의 라이선스가 필요 Azure AD Premium.
 
-#### <a name="configuration"></a>Configuration
+#### <a name="configuration"></a>구성
 
 Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들어오는 각 요청에 대해 두 개의 HTTP 헤더인 *Restrict-Access-To-Tenants* 및 *Restrict-Access-Context*를 삽입합니다.
 
@@ -107,7 +107,7 @@ Login.microsoftonline.com, login.microsoft.com 및 login.windows.net으로 들�
 
 Azure Portal의 다른 보고서와 마찬가지로, 필터를 사용하여 보고서의 범위를 지정할 수 있습니다. 특정 시간 간격, 사용자, 응용 프로그램, 클라이언트 또는 상태를 기준으로 필터링 할 수 있습니다. **열** 단추를 선택 하는 경우 다음 필드를 조합 하 여 데이터를 표시 하도록 선택할 수 있습니다.
 
-- **사용자**
+- **User**
 - **애플리케이션**
 - **상태**
 - **Date**
@@ -166,7 +166,7 @@ Fiddler는 HTTP 헤더 삽입을 비롯하여 HTTP/HTTPS 트래픽을 캡처하�
       }
       ```
 
-      여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예:
+      여러 테넌트를 허용해야 하는 경우 쉼표로 테넌트 이름을 구분합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
       `oSession.oRequest["Restrict-Access-To-Tenants"] = "contoso.onmicrosoft.com,fabrikam.onmicrosoft.com";`
 

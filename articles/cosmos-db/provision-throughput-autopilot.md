@@ -1,6 +1,6 @@
 ---
-title: Create Azure Cosmos containers and databases in autopilot mode.
-description: Learn about the benefits, use cases, and how to provision Azure Cosmos databases and containers in autopilot mode.
+title: Autopilot 모드에서 Azure Cosmos 컨테이너 및 데이터베이스를 만듭니다.
+description: Autopilot 모드에서 이점, 사용 사례 및 Azure Cosmos 데이터베이스 및 컨테이너를 프로 비전 하는 방법에 대해 알아봅니다.
 author: kirillg
 ms.author: kirillg
 ms.service: cosmos-db
@@ -13,97 +13,97 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74383100"
 ---
-# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Create Azure Cosmos containers and databases in autopilot mode (Preview)
+# <a name="create-azure-cosmos-containers-and-databases-in-autopilot-mode-preview"></a>Autopilot 모드에서 Azure Cosmos 컨테이너 및 데이터베이스 만들기 (미리 보기)
 
-Azure Cosmos DB allows you to provision throughput on your containers in either manual or autopilot mode. This article describes the benefits and use cases of autopilot mode.
+Azure Cosmos DB를 사용 하면 수동 모드 또는 autopilot 모드에서 컨테이너에 대 한 처리량을 프로 비전 할 수 있습니다. 이 문서에서는 autopilot 모드의 이점 및 사용 사례에 대해 설명 합니다.
 
 > [!NOTE]
-> Autopilot mode is currently available in public preview. To enable autopilot feature for your Azure Cosmos account, see the [enable autopilot](#enable-autopilot) section of this article. You can enable autopilot for new databases and containers only,it's not available for existing containers and databases.
+> Autopilot 모드는 현재 공개 미리 보기에서 사용할 수 있습니다. Azure Cosmos 계정에 대 한 autopilot 기능을 사용 하도록 설정 하려면이 문서의 [autopilot 사용](#enable-autopilot) 섹션을 참조 하세요. 새 데이터베이스 및 컨테이너에 대해서만 autopilot을 사용 하도록 설정할 수 있으며, 기존 컨테이너 및 데이터베이스에 대해서는 사용할 수 없습니다.
 
-In addition to manual provisioning of throughput, you can now configure Azure cosmos containers in autopilot mode. Azure Cosmos containers and databases configured in autopilot mode will **automatically and instantly scale the provisioned throughput based on your application needs without compromising the SLAs.**
+이제 처리량 수동 프로 비전 외에도 autopilot 모드에서 Azure cosmos 컨테이너를 구성할 수 있습니다. Autopilot 모드로 구성 된 Azure Cosmos 컨테이너 및 데이터베이스는 **sla를 손상 시 키 지 않고 응용 프로그램 요구 사항에 따라 프로 비전 된 처리량을 자동으로 조정 합니다.**
 
-You no longer need to manually manage the provisioned throughput or handle rate-limiting issues. Azure Cosmos containers configured in autopilot mode can be scaled instantly in response to the workload without any impacting the availability, latency, throughput, or performance of the workload globally. Under high utilization, Azure Cosmos containers configured in autopilot mode can be scaled up or down without impacting the ongoing operations.
+더 이상 프로 비전 된 처리량을 수동으로 관리 하거나 속도 제한 문제를 처리할 필요가 없습니다. Autopilot 모드로 구성 된 Azure Cosmos 컨테이너는 워크 로드의 가용성, 대기 시간, 처리량 또는 성능에 영향을 주지 않고 워크 로드에 대 한 응답으로 즉시 크기를 조정할 수 있습니다. 높은 사용률에서 autopilot 모드로 구성 된 Azure Cosmos 컨테이너는 진행 중인 작업에 영향을 주지 않고 확장 하거나 축소할 수 있습니다.
 
-When configuring containers and databases in autopilot mode, you need to specify the maximum throughput `Tmax`  not to be exceeded. Containers can then scale instantly based on the workload needs within the `0.1*Tmax < T < Tmax` range. In other words, containers and databases scale instantly based on the workload needs, from as low as 10% of the maximum throughput value that you have configured, and up to the configured maximum throughput value. You can change the maximum throughput (Tmax) setting on autopilot database or container at any point in time. With autopilot option, the 400 RU/s minimum throughput per container or database is no longer applicable.
+Autopilot 모드에서 컨테이너 및 데이터베이스를 구성할 때 초과 하지 `Tmax` 최대 처리량을 지정 해야 합니다. 그러면 컨테이너는 `0.1*Tmax < T < Tmax` 범위 내에서 워크 로드 요구 사항에 따라 즉시 크기를 조정할 수 있습니다. 즉, 컨테이너와 데이터베이스는 워크 로드 요구 사항에 따라 즉시 크기를 조정 하며, 구성 된 최대 처리량 값의 10%에서 낮은 값까지, 그리고 구성 된 최대 처리량 값에 따라 조정 됩니다. 언제 든 지 autopilot 데이터베이스 또는 컨테이너의 최대 처리량 (Tmax) 설정을 변경할 수 있습니다. Autopilot 옵션을 사용 하면 컨테이너 또는 데이터베이스당 400 r u/s 최소 처리량이 더 이상 적용 되지 않습니다.
 
-During the preview of autopilot, for the specified maximum throughput on the container or the database, the system allows operating within the calculated storage limit. If the storage limit is exceeded, then the maximum throughput is automatically adjusted to a higher value. When using database level throughput with autopilot mode, the number of containers allowed within a database is calculated as: (0.001 * Max throughput ). For example, if you provision 20,000 autopilot RU/s, then the database can have 20 containers.
+Autopilot 미리 보기 중에는 컨테이너 또는 데이터베이스에 대해 지정 된 최대 처리량에 대해 시스템이 계산 된 저장소 제한 내에서 작동할 수 있습니다. 저장소 제한을 초과 하는 경우 최대 처리량이 더 높은 값으로 자동 조정 됩니다. Autopilot 모드에서 데이터베이스 수준 처리량을 사용 하는 경우 데이터베이스 내에서 허용 되는 컨테이너 수는 (0.001 * 최대 처리량)로 계산 됩니다. 예를 들어 2만 autopilot r u/s를 프로 비전 하는 경우 데이터베이스에는 20 개의 컨테이너가 있을 수 있습니다.
 
-## <a name="benefits-of-autopilot-mode"></a>Benefits of autopilot mode
+## <a name="benefits-of-autopilot-mode"></a>Autopilot 모드의 이점
 
-Azure Cosmos containers that are configured in autopilot mode have the following benefits:
+Autopilot 모드로 구성 된 Azure Cosmos 컨테이너는 다음과 같은 이점을 제공 합니다.
 
-* **Simple:** Containers in autopilot mode remove the complexity to manage provisioned throughput (RUs) and capacity manually for various containers.
+* **단순:** Autopilot 모드의 컨테이너는 다양 한 컨테이너에 대해 프로 비전 된 처리량 (RUs) 및 용량을 수동으로 관리 하는 복잡성을 제거 합니다.
 
-* **Scalable:** Containers in autopilot mode seamlessly scale the provisioned throughput capacity as needed. There is no disruption to client connections, applications and they don’t impact any existing SLAs.
+* **확장 가능:** Autopilot 모드의 컨테이너는 필요에 따라 프로 비전 된 처리량 용량을 원활 하 게 확장 합니다. 클라이언트 연결 및 응용 프로그램에 대 한 중단이 없으며 기존 Sla에 영향을 주지 않습니다.
 
-* **Cost-effective:** When you use Azure Cosmos containers configured in autopilot mode, you only pay for the resources that your workloads need on a per-hour basis.
+* **비용 효율적:** Autopilot 모드로 구성 된 Azure Cosmos 컨테이너를 사용 하는 경우 작업에 필요한 리소스에 대해서만 비용을 지불 합니다.
 
-* **Highly available:** Azure Cosmos containers in autopilot mode use the same globally distributed, fault-tolerant, highly available backend to ensure data durability, and high availability always.
+* **항상 사용 가능:** Autopilot 모드의 Azure Cosmos 컨테이너는 전 세계적으로 분산 된 내결함성 및 고가용성 백 엔드를 사용 하 여 데이터 내구성 및 고가용성을 보장 합니다.
 
-## <a name="use-cases-of-autopilot-mode"></a>Use cases of autopilot mode
+## <a name="use-cases-of-autopilot-mode"></a>Autopilot 모드의 사용 사례
 
-The use cases for Azure Cosmos containers configured in autopilot mode include:
+Autopilot 모드로 구성 된 Azure Cosmos 컨테이너에 대 한 사용 사례는 다음과 같습니다.
 
-* **Variable workloads:** When you are running a lightly used application with peak usage of 1 hour to several hours few times each day, or several times per year. Examples include applications for human resources, budgeting, and operational reporting. For such scenarios, containers configured in autopilot mode can be used, you no longer need to manually provision for either peak or average capacity.
+* **가변 작업:** 매일 사용 하는 사용량이 가장 많은 응용 프로그램을 실행 하는 경우 매일 또는 매년 여러 번 사용 합니다. 예제에는 인적 자원, 예산 및 운영 보고용 응용 프로그램이 포함 됩니다. 이러한 시나리오의 경우 autopilot 모드로 구성 된 컨테이너를 사용할 수 있으며, 더 이상 최대 또는 평균 용량을 위해 수동으로 프로 비전 할 필요가 없습니다.
 
-* **Unpredictable workloads:** When you are running workloads where there is database usage throughout the day, but also peaks of activity that are hard to predict. An example includes a traffic site that sees a surge of activity when weather forecast changes. Containers configured in autopilot mode adjust the capacity to meet the needs of the application's peak load and scale back down when the surge of activity is over.
+* **예측할 수 없는 워크 로드:** 하루 종일 데이터베이스를 사용 하는 워크 로드를 실행 하는 경우 예측 하기 어려운 활동의 최대 수입니다. 예에는 날씨 예측이 변경 될 때 활동의 서 수가 표시 되는 트래픽 사이트가 포함 되어 있습니다. Autopilot 모드에서 구성 된 컨테이너는 응용 프로그램의 최대 부하 요구에 맞게 용량을 조정 하 고 작업의 서 수가 초과 되 면 크기를 다시 조정 합니다.
 
-* **New applications:** If you are deploying a new application and are unsure about how much provisioned throughput (i.e., how many RUs) you need. With containers configured in autopilot mode, you can automatically scale to the capacity needs and requirements of your application.
+* **새 응용 프로그램:** 새 응용 프로그램을 배포 하는 경우 필요한 프로 비전 된 처리량 (즉, RUs 수)이 확실 하지 않은 경우 Autopilot 모드로 구성 된 컨테이너를 사용 하 여 응용 프로그램의 용량 요구 사항 및 요구 사항에 맞게 자동으로 확장할 수 있습니다.
 
-* **Infrequently used applications:** If you have an application that is only used for a few hours several times per day or week or month, such as a low-volume application/web/blog site.
+* **자주 사용 하지 않는 응용 프로그램:** 몇 시간 동안만 응용 프로그램을 사용 하는 경우 (예: 소용량 응용 프로그램/웹/블로그 사이트) 일 또는 주 또는 월에 몇 번만 사용 됩니다.
 
-* **Development and test databases:** Developers use the Azure Cosmos accounts during work hours but don't need them on nights or weekends. With containers configured in autopilot mode, they scale down to minimum when not in use.
+* **개발 및 테스트 데이터베이스:** 개발자는 근무 시간 중에 Azure Cosmos 계정을 사용 하지만 야간 또는 주말에는 필요 하지 않습니다. Autopilot 모드로 구성 된 컨테이너는 사용 하지 않을 때 최소로 축소 됩니다.
 
-* **Scheduled production workloads/queries:** When you have a series of scheduled requests/operations/queries on a single container, and if there are idle periods where you want to run at an absolute low throughput, you can now do that easily. When a scheduled query/request is submitted to a container configured in autopilot mode, it will automatically scale up as much as needed and run the operation.
+* **예약 된 프로덕션 워크 로드/쿼리:** 단일 컨테이너에 일련의 예약 된 요청/작업/쿼리가 있고 절대 낮은 처리량으로 실행 하려는 유휴 기간이 있는 경우이 작업을 쉽게 수행할 수 있습니다. 예약 된 쿼리/요청이 autopilot 모드로 구성 된 컨테이너에 제출 되 면 필요에 따라 자동으로 확장 되 고 작업을 실행 합니다.
 
-Solutions to the previous problems not only require an enormous amount of time in implementation, but they also introduce complexity in configuration or your code, and frequently require manual intervention to address them. The autopilot mode enables above scenarios out of the box, so that you do not need to worry about these problems anymore.
+이전 문제에 대 한 해결 방법은 구현에서 상당한 시간이 필요 하지만 구성 또는 코드의 복잡성을 야기 하 고 이러한 문제를 해결 하기 위해 수동으로 작업 해야 하는 경우가 많습니다. Autopilot 모드에서는 위의 시나리오를 즉시 사용할 수 있으므로 이러한 문제에 대해 더 이상 걱정할 필요가 없습니다.
 
-## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>Comparison – Containers configured in manual mode vs. autopilot mode
+## <a name="comparison--containers-configured-in-manual-mode-vs-autopilot-mode"></a>비교-수동 모드 및 autopilot 모드에서 구성 된 컨테이너
 
-|  | Containers configured in manual mode  | Containers configured in autopilot mode |
+|  | 수동 모드에서 구성 된 컨테이너  | Autopilot 모드로 구성 된 컨테이너 |
 |---------|---------|---------|
-| **Provisioned throughput** | Manually provisioned | Automatically and instantaneously scaled based on the workload usage patterns. |
-| **Rate-limiting of requests/operations (429)**  | May happen, if consumption exceeds provisioned capacity. | Will not happen if the throughput consumed is within the max throughput that you choose with autopilot mode.   |
-| **용량 계획** |  You have to do an initial capacity planning and provision of the throughput you need. |    You don’t have to worry about capacity planning. The system automatically takes care of capacity planning and capacity management. |
-| **가격 책정** | Manually provisioned RU/s per hour. | For single write region accounts, you pay for the throughput used on an hourly basis, by using the autopilot RU/s per hour rate. <br/><br/>For accounts with multiple write regions, there is no extra charge for autopilot. You pay for the throughput used on hourly basis using the same multi-master RU/s per hour rate. |
-| **Best suited for workload types** |  Predictable and stable workloads|   Unpredictable and variable workloads  |
+| **프로 비전 된 처리량** | 수동으로 프로 비전 됨 | 워크 로드 사용 패턴을 기반으로 자동으로 즉시 확장 됩니다. |
+| **요청/작업의 요율 제한 (429)**  | 소비가 프로 비전 된 용량을 초과 하는 경우 발생할 수 있습니다. | 소비 된 처리량이 autopilot 모드에서 선택 하는 최대 처리량 내에 있는 경우에는 발생 하지 않습니다.   |
+| **용량 계획** |  초기 용량 계획을 수행 하 고 필요한 처리량을 프로 비전 해야 합니다. |    용량 계획에 대해 걱정할 필요가 없습니다. 시스템은 용량 계획 및 용량 관리를 자동으로 처리 합니다. |
+| **가격 책정** | 시간당 수동 프로 비전 된 r u/초 | 단일 쓰기 지역 계정의 경우 시간당 autopilot p s/s를 사용 하 여 시간 단위로 사용 되는 처리량에 대 한 비용을 지불 합니다. <br/><br/>여러 쓰기 지역이 있는 계정의 경우 autopilot에 대 한 추가 요금이 부과 되지 않습니다. 동일한 다중 마스터 r u/시간 급여를 사용 하 여 시간별로 사용 된 처리량에 대 한 비용을 지불 합니다. |
+| **작업 유형에 가장 적합 합니다.** |  예측 가능 하 고 안정적인 작업|   예측할 수 없는 작업 및 가변 작업  |
 
-## <a id="enable-autopilot"></a> Enable autopilot from Azure portal
+## <a id="enable-autopilot"></a>Azure Portal에서 autopilot 사용
 
-You can try out autopilot in your Azure Cosmos accounts by enabling in from Azure portal. Use the following steps to enable the autopilot option:
+Azure Portal에서를 사용 하 여 Azure Cosmos 계정에서 autopilot를 사용해 볼 수 있습니다. Autopilot 옵션을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
-1. Sign in to the [Azure portal.](https://portal.azure.com)
+1. Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
-2. Navigate to your Azure Cosmos account and open the **New Features** tab. Select **Auto Pilot** and **Register** as shown in the following screenshot:
+2. Azure Cosmos 계정으로 이동 하 여 **새 기능** 탭을 엽니다. 다음 스크린샷에 표시 된 것 처럼 **자동 파일럿** 을 선택 하 고 **등록** 합니다.
 
-![Create a container in autopilot mode](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
+![Autopilot 모드에서 컨테이너 만들기](./media/provision-throughput-autopilot/enable-autopilot-azure-portal.png)
 
-## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Create a database or a container with autopilot mode
+## <a name="create-a-database-or-a-container-with-autopilot-mode"></a>Autopilot 모드를 사용 하 여 데이터베이스 또는 컨테이너 만들기
 
-You can configure autopilot for databases or containers while creating them. Use the following steps to a new database or container, enable autopilot, and specify the maximum throughput.
+데이터베이스 또는 컨테이너를 만드는 동안 autopilot를 구성할 수 있습니다. 새 데이터베이스 또는 컨테이너에 대해 다음 단계를 사용 하 여 autopilot를 사용 하도록 설정 하 고 최대 처리량을 지정 합니다.
 
-1. Sign in to the [Azure portal](https://portal.azure.com) or the [Azure Cosmos explorer.](https://cosmos.azure.com/)
+1. [Azure Portal](https://portal.azure.com) 또는 [Azure Cosmos 탐색기에 로그인 합니다.](https://cosmos.azure.com/)
 
-1. Navigate to your Azure Cosmos account and open the **Data Explorer** tab.
+1. Azure Cosmos 계정으로 이동 하 여 **데이터 탐색기** 탭을 엽니다.
 
-1. Select **New Container**, enter a name for your container, a partition key. Select the **Autopilot** option, and choose the maximum throughput that the container cannot exceed when using the autopilot option.
+1. **새 컨테이너**를 선택 하 고 컨테이너의 이름, 파티션 키를 입력 합니다. **Autopilot** 옵션을 선택 하 고 Autopilot 옵션을 사용 하는 경우 컨테이너가 초과할 수 없는 최대 처리량을 선택 합니다.
 
-   ![Create a container in autopilot mode](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
+   ![Autopilot 모드에서 컨테이너 만들기](./media/provision-throughput-autopilot/create-container-autopilot-mode.png)
 
 1. **확인**을 선택합니다.
 
-With similar steps, you can also create a database with provisioned throughput in autopilot mode.
+비슷한 단계를 통해 autopilot 모드에서 프로 비전 된 처리량을 사용 하 여 데이터베이스를 만들 수도 있습니다.
 
-## <a id="autopilot-limits"></a> Throughput and storage limits for autopilot
+## <a id="autopilot-limits"></a>Autopilot에 대 한 처리량 및 저장소 제한
 
-The following table shows the maximum throughout and storage limits for different options in autopilot mode:
+다음 표에서는 autopilot 모드의 여러 옵션에 대 한 최대 전체 및 저장소 제한을 보여 줍니다.
 
-|Maximum throughput limit  |Maximum storage limit  |
+|최대 처리량 제한  |최대 저장소 제한  |
 |---------|---------|
-|4000 RU/s  |   50GB    |
-|20,000 RU/s  |  200GB  |
-|100,000 RU/s    |  1TB   |
-|500,000 RU/s    |  5TB  |
+|4000 r u/초  |   50GB    |
+|2만 r u/초  |  200GB  |
+|10만 r u/초    |  1TB   |
+|50만 r u/초    |  5TB  |
 
 ## <a name="next-steps"></a>다음 단계
 

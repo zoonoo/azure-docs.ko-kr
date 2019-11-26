@@ -1,6 +1,6 @@
 ---
 title: Azure Blockchain Workbench 아키텍처
-description: Overview of Azure Blockchain Workbench Preview architecture and its components.
+description: Azure Blockchain 워크 벤치 미리 보기 아키텍처 및 해당 구성 요소에 대 한 개요입니다.
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -13,9 +13,9 @@ ms.locfileid: "74324890"
 ---
 # <a name="azure-blockchain-workbench-architecture"></a>Azure Blockchain Workbench 아키텍처
 
-Azure Blockchain Workbench Preview simplifies blockchain application development by providing a solution using several Azure components. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
+Azure Blockchain 워크 벤치 Preview는 여러 Azure 구성 요소를 사용 하 여 솔루션을 제공 하 여 블록 체인 응용 프로그램 개발을 간소화 합니다. Azure Marketplace에서 솔루션 템플릿을 사용하여 Blockchain Workbench를 배포할 수 있습니다. 템플릿을 사용하면 블록체인 스택, 클라이언트 애플리케이션 종류, IoT 통합을 포함하여 배포할 구성 요소 및 모듈을 선택할 수 있습니다. Blockchain Workbench가 배포되면 웹앱, iOS 앱 및 Android 앱에 액세스할 수 있습니다.
 
-![Blockchain Workbench architecture](./media/architecture/architecture.png)
+![블록 체인 워크 벤치 아키텍처](./media/architecture/architecture.png)
 
 ## <a name="identity-and-authentication"></a>ID 및 인증
 
@@ -78,7 +78,7 @@ DLT(분산 원장 기술) 메시지에는 블록체인에 쓰여지는 트랜잭
 
 ## <a name="transaction-builder-and-signer"></a>트랜잭션 작성기 및 서명자
 
-인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 프라이빗 키는 Azure Key Vault에 저장됩니다.
+인바운드 메시지 브로커의 메시지를 블록체인에 기록해야 하는 경우 DLT 소비자가 처리합니다. DLT 소비자는 실행하려고 하는 트랜잭션에 대한 메타데이터가 포함된 메시지를 검색한 다음, 해당 정보를 *트랜잭션 작성기 및 서명자*에게 전송하는 서비스입니다. *트랜잭션 작성기 및 서명자*는 데이터 및 원하는 블록체인 대상을 기반으로 블록체인 트랜잭션을 어셈블합니다. 어셈블되면 트랜잭션이 서명됩니다. 프라이빗 키는 Azure Key Vault에 저장됩니다.
 
  Blockchain Workbench는 Key Vault에서 적절한 프라이빗 키를 검색하고 Key Vault 외부에서 트랜잭션에 서명합니다. 서명되면 트랜잭션 라우터와 원장으로 트랜잭션이 전송됩니다.
 

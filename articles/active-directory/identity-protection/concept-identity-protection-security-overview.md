@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Identity Protection security overview
-description: Learn how the Security overview gives you an insight into your organization’s security posture.
+title: Azure Active Directory Identity Protection 보안 개요
+description: 보안 개요를 통해 조직의 보안 상태를 파악 하는 방법을 알아보세요.
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -20,7 +20,7 @@ ms.locfileid: "74382193"
 ---
 # <a name="azure-active-directory-identity-protection---security-overview"></a>Azure Active Directory Identity Protection - 보안 개요
 
-The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure portal gives you an insight into your organization’s security posture. 잠재적 공격을 식별하고 정책의 효과를 이해하는 데 도움이 됩니다.
+Azure Portal의 [보안 개요](https://aka.ms/IdentityProtectionRefresh) 를 통해 조직의 보안 상태를 파악할 수 있습니다. 잠재적 공격을 식별하고 정책의 효과를 이해하는 데 도움이 됩니다.
 
 ‘보안 개요’는 크게 다음 두 개의 섹션으로 나뉩니다.
 
@@ -29,7 +29,7 @@ The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure p
 
 ![보안 개요](./media/concept-identity-protection-security-overview/01.png)
   
-## <a name="trends"></a>동향
+## <a name="trends"></a>추세
 
 ### <a name="new-risky-users-detected"></a>새로운 위험한 사용자가 탐지됨
 
@@ -37,7 +37,7 @@ The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure p
 
 ### <a name="new-risky-sign-ins-detected"></a>새로운 위험한 로그인이 탐지됨
 
-이 차트는 선택된 기간에 탐지된 위험한 로그인 수를 보여 줍니다. 로그인 위험 유형(실시간 또는 집계) 또는 로그인 위험 수준(낮음, 중간, 높음)을 기준으로 이 차트의 보기를 필터링할 수 있습니다. 보호되지 않는 로그인은 MFA가 요청되지 않은 성공한 실시간 위험 로그인입니다. (Note: Sign-ins that are risky because of offline detections cannot be protected in real-time by sign-in risk policies). UTC 날짜 증분을 가리키면 해당 날짜에 탐지된 위험한 로그인 수가 표시됩니다. 이 차트를 클릭하면 ‘위험한 로그인’ 보고서로 이동됩니다.
+이 차트는 선택된 기간에 탐지된 위험한 로그인 수를 보여 줍니다. 로그인 위험 유형(실시간 또는 집계) 또는 로그인 위험 수준(낮음, 중간, 높음)을 기준으로 이 차트의 보기를 필터링할 수 있습니다. 보호되지 않는 로그인은 MFA가 요청되지 않은 성공한 실시간 위험 로그인입니다. (참고: 오프 라인 검색으로 인해 위험한 로그인은 로그인 위험 정책에 따라 실시간으로 보호할 수 없습니다.) UTC 날짜 증분을 가리키면 해당 날짜에 탐지된 위험한 로그인 수가 표시됩니다. 이 차트를 클릭하면 ‘위험한 로그인’ 보고서로 이동됩니다.
 
 ## <a name="tiles"></a>타일
  
@@ -52,7 +52,7 @@ The [Security overview](https://aka.ms/IdentityProtectionRefresh) in the Azure p
 
 ### <a name="unprotected-risky-sign-ins"></a>보호되지 않는 위험한 로그인
 
-The ‘Unprotected risky sign-ins' tile shows the last week’s count of successful, real-time risky sign-ins that were not blocked or MFA challenged by a Conditional Access policy, Identity Protection risk policy, or per-user MFA. 성공했으며 MFA가 요청되지 않은 잠재적으로 손상된 로그인입니다. 나중에 해당 로그인을 보호하려면 로그인 위험 정책을 적용합니다. ‘보호되지 않는 위험한 로그인’ 타일을 클릭하면 로그인 위험 정책 구성 블레이드로 리디렉션됩니다. 이 블레이드에서 지정된 위험 수준으로 로그인할 경우 MFA를 요구하도록 로그인 위험 정책을 구성할 수 있습니다.
+' 보호 되지 않은 위험한 로그인 ' 타일에는 지난 주에 성공한 주 수, 차단 되지 않은 실시간 위험한 로그인의 수, 조건부 액세스 정책, Id 보호 위험 정책 또는 사용자별 MFA가 표시 됩니다. 성공했으며 MFA가 요청되지 않은 잠재적으로 손상된 로그인입니다. 나중에 해당 로그인을 보호하려면 로그인 위험 정책을 적용합니다. ‘보호되지 않는 위험한 로그인’ 타일을 클릭하면 로그인 위험 정책 구성 블레이드로 리디렉션됩니다. 이 블레이드에서 지정된 위험 수준으로 로그인할 경우 MFA를 요구하도록 로그인 위험 정책을 구성할 수 있습니다.
 
 ### <a name="legacy-authentication"></a>레거시 인증
 
@@ -60,10 +60,10 @@ The ‘Unprotected risky sign-ins' tile shows the last week’s count of success
 
 ### <a name="identity-secure-score"></a>ID 보안 점수
 
-ID 보안 점수는 보안 상태를 측정하고 업계 패턴과 비교합니다. If you click on ‘Identity Secure Score (Preview)’ tile, it will redirect to the ‘Identity Secure Score’ blade where you can learn more about improving your security posture.
+ID 보안 점수는 보안 상태를 측정하고 업계 패턴과 비교합니다. ' Id 보안 점수 (미리 보기) ' 타일을 클릭 하면 보안 상태를 개선 하는 방법에 대해 자세히 알아볼 수 있는 ' Id 보안 점수 ' 블레이드로 리디렉션됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [What is risk](concept-identity-protection-risks.md)
+- [위험이란?](concept-identity-protection-risks.md)
 
-- [Policies available to mitigate risks](concept-identity-protection-policies.md)
+- [위험을 완화하는 데 사용할 수 있는 정책](concept-identity-protection-policies.md)

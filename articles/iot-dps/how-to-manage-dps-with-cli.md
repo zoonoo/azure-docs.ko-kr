@@ -1,5 +1,5 @@
 ---
-title: Manage IoT Hub Device Provisioning Service using Azure CLI & IoT extension
+title: IoT 확장 Azure CLI & 사용 하 여 IoT Hub Device Provisioning Service 관리
 description: Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법 알아보기
 author: chrissie926
 ms.author: menchi
@@ -43,20 +43,20 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 시작하기 전에 앞에서 설명한 설치 단계를 완료하세요. Azure 계정이 없으면 지금 [무료 계정](https://azure.microsoft.com/free/?v=17.39a)을 만듭니다. 
 
 
-### <a name="1-log-in-to-the-azure-account"></a>1. Log in to the Azure account
+### <a name="1-log-in-to-the-azure-account"></a>1. Azure 계정에 로그인 합니다.
   
     az login
 
 ![로그인][1]
 
-### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. Create a resource group IoTHubBlogDemo in eastus
+### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. eIoTHubBlogDemo에서 리소스 그룹 만들기
 
     az group create -l eastus -n IoTHubBlogDemo
 
 ![리소스 그룹 만들기][2]
 
 
-### <a name="3-create-two-device-provisioning-services"></a>3. Create two Device Provisioning services
+### <a name="3-create-two-device-provisioning-services"></a>3. 두 개의 장치 프로 비전 서비스 만들기
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
@@ -64,20 +64,20 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
-### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4. List all the existing Device Provisioning services under this resource group
+### <a name="4-list-all-the-existing-device-provisioning-services-under-this-resource-group"></a>4 .이 리소스 그룹의 기존 장치 프로 비전 서비스를 모두 나열 합니다.
 
     az iot dps list --resource-group IoTHubBlogDemo
 
 ![Device Provisioning 서비스 나열][4]
 
 
-### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. Create an IoT Hub blogDemoHub under the newly created resource group
+### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 새로 만든 리소스 그룹 아래에 IoT Hub blogDemoHub를 만듭니다.
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
 ![IoT Hub 만들기][5]
 
-### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. Link one existing IoT Hub to a Device Provisioning service
+### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 장치 프로 비전 서비스에 기존 IoT Hub 하나 연결
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 

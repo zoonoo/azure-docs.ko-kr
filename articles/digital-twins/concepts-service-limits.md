@@ -1,6 +1,6 @@
 ---
-title: Public preview service limits - Azure Digital Twins | Microsoft Docs
-description: Learn about public preview service, subscription, instance, and rate limits for Azure Digital Twins.
+title: 공개 미리 보기 서비스 제한-Azure Digital Twins | Microsoft Docs
+description: Azure Digital Twins의 공개 미리 보기 서비스, 구독, 인스턴스 및 요금 제한에 대해 알아봅니다.
 ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
@@ -70,8 +70,8 @@ Azure Digital Twins 관리 API의 요청 빈도 제한은 다음과 같습니다
 
 다음 제한은 디바이스가 Azure Digital Twins 인스턴스에 보낼 수 있는 모든 메시지의 총 수를 제한합니다.
 
-- 100 messages per second across all devices
--   25 messages per second per device
+- 모든 장치에서 초당 100 메시지 수
+-   장치당 초당 25 개 메시지
 
 ## <a name="next-steps"></a>다음 단계
 

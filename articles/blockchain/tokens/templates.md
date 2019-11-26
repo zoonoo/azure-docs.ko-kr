@@ -1,6 +1,6 @@
 ---
-title: Azure Blockchain Tokens templates
-description: Azure Blockchain Tokens templates are standardized and reusable templates that simplify the creation and deployment of ledger-based tokens.
+title: Azure Blockchain 토큰 템플릿
+description: Azure Blockchain 토큰 템플릿은 원장 기반 토큰의 생성과 배포를 간소화 하는 표준화 되 고 재사용 가능한 템플릿입니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
 ms.reviewer: brendal
@@ -11,81 +11,81 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74324980"
 ---
-# <a name="azure-blockchain-tokens-templates"></a>Azure Blockchain Tokens templates
+# <a name="azure-blockchain-tokens-templates"></a>Azure Blockchain 토큰 템플릿
 
 [!INCLUDE [Preview note](./includes/preview.md)]
 
-An Azure Blockchain Tokens template is a standardized and reusable template that simplifies the creation and deployment of ledger-based tokens. A template consists of a formula, which is based off the [Token Taxonomy Framework (TTF)](overview.md#token-taxonomy-framework) grammar. The grammar encompasses the base token type and the set of behaviors for the token.  
+Azure Blockchain 토큰 템플릿은 원장 기반 토큰의 생성과 배포를 간소화 하는 표준화 되 고 재사용 가능한 템플릿입니다. 템플릿은 [.ttf (토큰 분류 프레임 워크)](overview.md#token-taxonomy-framework) 문법을 기반으로 하는 수식으로 구성 됩니다. 문법에는 기본 토큰 형식과 토큰의 동작 집합이 포함 됩니다.  
 
-For example, **τϜ{d,m,b,r}** token template describes a fungible base token that is sub-dividable, mintable, burnable, and has role support.
+예를 들어, **τϜ {d, m, b, r}** 토큰 템플릿은 하위 dividable, mintable, burnable 및 역할 지원을 포함 하는 대체 가능 기본 토큰을 설명 합니다.
   
-## <a name="base-token-types"></a>Base token types
+## <a name="base-token-types"></a>기본 토큰 형식
 
-When defining and creating the ledger-based token for your particular asset, it is important to consider what base token to use.
+특정 자산의 원장 기반 토큰을 정의 하 고 만들 때 사용할 기본 토큰을 고려 하는 것이 중요 합니다.
 
-### <a name="fungible"></a>Fungible
+### <a name="fungible"></a>대체 가능
 
-Fungible tokens (𝜏F) have interchangeable value with each other as long as they are in the same class or series. One token has the same value as another token or a given quantity of tokens has the same value as another equal quantity. For example, a dollar is a fungible token. If two people are each holding a dollar bill, they can exchange these dollar bills without consequence. The dollar bills have equal value. 
+ΤF (대체 가능 token)는 동일한 클래스 또는 계열에 있는 한 상호 교환 가능한 값을 갖습니다. 한 토큰의 값이 다른 토큰과 동일 하거나 지정 된 토큰의 값이 다른 동일한 수량 값과 동일 합니다. 예를 들어 달러는 대체 가능 토큰입니다. 두 명이 각각 달러 청구서를 보유 하 고 있는 경우에는 결과 없이 이러한 달러 요금을 교환할 수 있습니다. 달러 청구서에는 동일한 값이 있습니다. 
 
-### <a name="non-fungible"></a>Non-Fungible
+### <a name="non-fungible"></a>비 대체 가능
 
-Non-fungible tokens (𝜏N) are not interchangeable with other tokens of the same type as they typically have different values. For example, a property title is a non-fungible token. Property titles to two different apartments in an apartment complex are not necessarily of equal value, due to either the location of the unit or which floor the unit is on. The perceived value of the two property title tokens are not equal.
+ΤN (비 대체 가능 토큰)는 일반적으로 서로 다른 값을 사용 하는 것과 동일한 형식의 다른 토큰과는 사용할 수 없습니다. 예를 들어 속성 제목은 비 대체 가능 토큰입니다. 아파트에서 두 개의 다른 아파트에 대 한 속성 제목은 unit의 위치 또는 단위를 기준으로 하기 때문에 반드시 같을 필요는 없습니다. 두 속성 제목 토큰의 인식 된 값이 같지 않습니다.
 
 ### <a name="hybrid"></a>하이브리드
 
-Hybrid tokens are tokens that have components of both fungible tokens and non-fungible tokens. A hybrid token is a base token type that owns a class of the other token type.
+하이브리드 토큰은 대체 가능 토큰과 비 대체 가능 토큰의 구성 요소를 포함 하는 토큰입니다. 하이브리드 토큰은 다른 토큰 형식의 클래스를 소유 하는 기본 토큰 형식입니다.
 
-#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>Hybrid non-fungible base with fungible segments
+#### <a name="hybrid-non-fungible-base-with-fungible-segments"></a>대체 가능 세그먼트가 있는 하이브리드 비 대체 가능 기본
 
-A hybrid non-fungible base with fungible segments token has a non-fungible base with fungible token segments.
-For example, a concert ticket is a hybrid token where the date and time of the concert is the non-fungible base token. The tickets in various seating sections for the given concert are the segments with fungible tokens. The tickets are exchangeable in their individual seating sections, but not across sections.
+대체 가능 segment를 사용 하는 하이브리드 비 대체 가능 기본 토큰에는 대체 가능 token 세그먼트가 포함 된 대체 가능 base가 있습니다.
+예를 들어, 콘서트 티켓은 콘서트의 날짜와 시간이 대체 가능 않은 기본 토큰 인 하이브리드 토큰입니다. 지정 된 콘서트에 대 한 다양 한 좌석 배치 섹션의 티켓은 대체 가능 토큰이 있는 세그먼트입니다. 티켓은 개별 좌석 섹션에서 교환 되지만 섹션 간에는 교환 되지 않습니다.
 
-#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>Hybrid fungible base with non-fungible segments
+#### <a name="hybrid-fungible-base-with-non-fungible-segments"></a>비-대체 가능 세그먼트가 있는 하이브리드 대체 가능 base
 
-A hybrid fungible base with a non-fungible segments token has a fungible base with non-fungible token segments. For example, a mortgage backed security is a hybrid token where multiple owners are the fungible base that is split across many owners. The security is interchangeable. The individual mortgages are the non-fungible segments that represent the specific mortgage backed security.
+비 대체 가능 세그먼트 토큰이 포함 된 hybrid 대체 가능 base에는 대체 가능 토큰 세그먼트가 포함 된 대체 가능 base가 있습니다. 예를 들어, 담보 대출 지원 보안은 여러 소유자가 여러 소유자에 걸쳐 분할 된 대체 가능 base 인 하이브리드 토큰입니다. 보안은 서로 바꿔 사용할 수 있습니다. 개별 mortgages는 특정 담보 대출 지원 보안을 나타내는 대체 가능 세그먼트입니다.
 
-## <a name="token-behaviors"></a>Token behaviors
+## <a name="token-behaviors"></a>토큰 동작
 
-A token behavior defines capabilities or restrictions of the token. The behavior includes supporting properties that are a part of the token definition. Behaviors can be applied across all token types or just one. Behaviors can be internal or external depending on what the behavior effects. An internal behavior enables or restricts properties on the token itself. An external behavior enables or restricts the invocation of the behavior from an external actor.
+토큰 동작은 토큰의 기능 또는 제한을 정의 합니다. 동작에는 토큰 정의의 일부인 지원 속성이 포함 됩니다. 모든 토큰 형식 또는 하나에서 동작을 적용할 수 있습니다. 동작은 동작의 영향에 따라 내부 또는 외부에 있을 수 있습니다. 내부 동작은 토큰 자체의 속성을 설정 하거나 제한 합니다. 외부 동작은 외부 행위자의 동작 호출을 사용 하거나 제한 합니다.
 
-For more information about Azure Blockchain Tokens supported Token Taxonomy Framework (TTF) token behaviors, see [token composability](composability.md).
+Azure Blockchain 토큰 지원 .TTF (토큰 분류 프레임 워크) 토큰 동작에 대 한 자세한 내용은 [token composability](composability.md)을 참조 하세요.
 
-## <a name="pre-built-token-templates"></a>Pre-built token templates
+## <a name="pre-built-token-templates"></a>미리 빌드된 토큰 템플릿
 
-Azure Blockchain Tokens provides four pre-built token templates that can be used without modification. You can call into these pre-built templates for most use cases to get started creating, deploying, and managing your tokens quickly.
+Azure Blockchain 토큰은 수정 없이 사용할 수 있는 4 개의 미리 작성 된 토큰 템플릿을 제공 합니다. 대부분의 사용 사례에 대해 미리 작성 된 이러한 템플릿을 호출 하 여 토큰을 신속 하 게 만들고, 배포 하 고, 관리할 수 있습니다.
 
-### <a name="commodity-tokens"></a>Commodity tokens
+### <a name="commodity-tokens"></a>상품 토큰
 
-Commodity tokens have consistent value and are transferrable. For example, a barrel of oil or a unit of energy.
+상품 토큰은 일관 된 값을 가지 며 전송할 수입니다. 예를 들어 석유 또는 에너지 단위의 배럴입니다.
 
-**𝜏F{~d,t,m,b,r}** - fungible, whole, transferable, mintable, burnable, and have role support
+**τF {~ d, t, m, b, r}** -대체 가능, 전체, 양도할 수 있는, mintable, burnable 및 역할 지원
 
-Many blockchain scenarios require transparency and visibility across the supply chain or multiple organizations. Commodity tokens are based off these common use cases. The tokens are interchangeable and consistent. The commodity token template is flexible and customizable with metadata.
+많은 블록 체인 시나리오에서는 공급망 및 여러 조직에 대 한 투명도와 표시 유형이 필요 합니다. 상용 토큰은 이러한 일반적인 사용 사례를 기반으로 합니다. 토큰은 서로 교환 가능 하 고 일관성이 있습니다. 상용 토큰 템플릿은 유연 하 고 메타 데이터를 사용 하 여 사용자 지정할 수 있습니다.
 
-### <a name="qualified-tokens"></a>Qualified tokens
+### <a name="qualified-tokens"></a>정규화 된 토큰
 
-Qualified tokens represent something earned and are usually associated with one entity and cannot be transferred. For example, a diploma or a parking violation.
+정규화 된 토큰은 획득 한 항목을 나타내며 일반적으로 하나의 엔터티와 연결 되며 전송할 수 없습니다. 예를 들면 학위 또는 파킹 위반입니다.
 
-**𝜏N{s,~t}** - non-fungible, singleton, and non-transferable
+**τN {s, ~ t}** -대체 가능, singleton 및 양도할 때가 아닌
 
-Various audit and attestation scenarios require that the ownership of the token cannot be changed. There is a set of use cases, which have a need to provide a qualified token whether the association is good or bad.
+다양 한 감사 및 증명 시나리오를 위해서는 토큰의 소유권을 변경할 수 없습니다. 연결이 양호 하거나 불량 한지에 대 한 정규화 된 토큰을 제공 해야 하는 사용 사례 집합이 있습니다.
 
-### <a name="asset-tokens"></a>Asset tokens
+### <a name="asset-tokens"></a>자산 토큰
 
-Asset tokens have unique value dependent on the item and are not commoditized. For example, a museum artifact or a property title.
+자산 토큰에는 항목에 따라 고유한 값이 있으며 commoditized 되지 않습니다. 예를 들어, 박물관 아티팩트 또는 속성 제목이 있습니다.
 
-**𝜏N{s,t}** - non-fungible, singleton, and transferable
+**τN {s, t}** -대체 가능, singleton 및 이전할
 
-Asset tokens may be confused with commodity tokens. The major difference between the two tokens is that asset tokens are inherently unique, and value is independent of the type of token it is. For example, a piece of art like an oil painting by an established artist is an asset token. However, an art print of the Mona Lisa is considered a commodity token. Similarly, a property title is an asset token since the value exists in the subjective qualities of the property.
+자산 토큰은 상품 토큰과 혼동 될 수 있습니다. 두 토큰의 주요 차이점은 자산 토큰은 본질적으로 고유 하며, 값은 토큰 형식에 독립적입니다. 예를 들어 설정 된 음악가에의 한 석유 그리기와 같은 아트는 자산 토큰입니다. 그러나 Mona 리사의 아트 인쇄는 상품 토큰으로 간주 됩니다. 마찬가지로 속성 제목은 속성의 주관적인 품질에 값이 있기 때문에 자산 토큰입니다.
 
-### <a name="ticket-tokens"></a>Ticket tokens
+### <a name="ticket-tokens"></a>티켓 토큰
 
-Ticket tokens have consistent value but typically expire. For example, a plane ticket.
+티켓 토큰의 값은 일관적 이지만 일반적으로 만료 됩니다. 예를 들어 평면 티켓입니다.
 
-**𝜏N{m,b,r}** - non-fungible, mintable, burnable, and have role support.
+**τN {m, b, r}** -대체 가능, mintable, burnable 및에 역할 지원이 있습니다.
 
-Ticket tokens typically have an expiry date that makes them different from a regular commodity token. For example, an airplane ticket, concert ticket, or sports ticket all have options of assigned seating with specific dates of use. You cannot easily interchange tickets between dates or seating areas.
+티켓 토큰은 일반적으로 일반 상품 토큰과 다른 만료 날짜를 사용 합니다. 예를 들어 비행기 티켓, 콘서트 티켓 또는 스포츠 티켓에는 특정 사용 날짜와의 할당 된 배치 옵션이 있습니다. 날짜나 좌석 영역 간에는 쉽게 티켓을 교환할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-If you require more flexibility for your scenario, learn about creating your own token templates using [token composability](composability.md).
+시나리오에 더 많은 유연성이 필요한 경우 [토큰 composability](composability.md)을 사용 하 여 고유한 토큰 템플릿을 만드는 방법에 대해 알아봅니다.

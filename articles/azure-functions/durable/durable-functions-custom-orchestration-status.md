@@ -18,7 +18,7 @@ ms.locfileid: "74232961"
 ## <a name="sample-use-cases"></a>샘플 사용 사례
 
 > [!NOTE]
-> The following samples show how to use custom status feature in C# and JavaScript. The C# examples are written for Durable Functions 2.x and are not compatible with Durable Functions 1.x. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 다음 샘플에서는 및 JavaScript에서 C# 사용자 지정 상태 기능을 사용 하는 방법을 보여 줍니다. 예제 C# 는 2.x Durable Functions 용으로 작성 되었으며 Durable Functions 1.x와 호환 되지 않습니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="visualize-progress"></a>진행률 시각화
 
@@ -333,9 +333,9 @@ GET /runtime/webhooks/durabletask/instances/instance123
 ```
 
 > [!WARNING]
-> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. We recommend you use external storage if you need a larger payload.
+> 사용자 지정 상태 페이로드는 Azure Table Storage 열에 맞아야 하므로 16KB의 UTF-16 JSON 텍스트로 제한됩니다. 더 큰 페이로드가 필요한 경우 외부 저장소를 사용 하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Learn about durable timers](durable-functions-timers.md)
+> [지 속성 타이머에 대해 알아보기](durable-functions-timers.md)

@@ -13,11 +13,11 @@ ms.locfileid: "74231416"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>지속성 함수의 오류 처리(Azure Functions)
 
-Durable Function orchestrations are implemented in code and can use the programming language's built-in error-handling features. There really aren't any new concepts you need to learn to add error handling and compensation into your orchestrations. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
+지 속성 함수 오케스트레이션은 코드로 구현 되며 프로그래밍 언어의 기본 제공 오류 처리 기능을 사용할 수 있습니다. 오케스트레이션에 오류 처리 및 보정을 추가 하기 위해 배워야 하는 새로운 개념은 없습니다. 그러나 알고 있어야 하는 몇 가지 동작이 있습니다.
 
 ## <a name="errors-in-activity-functions"></a>작업 함수의 오류
 
-Any exception that is thrown in an activity function is marshaled back to the orchestrator function and thrown as a `FunctionFailedException`. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
+작업 함수에서 throw 되는 모든 예외는 오 케 스트레이 터 함수로 마샬링되 고 `FunctionFailedException`으로 throw 됩니다. 오케스트레이터 함수에서 요구 사항에 적합한 오류 처리 및 보정 코드를 작성할 수 있습니다.
 
 예를 들어 한 계정에서 다른 계정으로 자금을 이체하는 다음 오케스트레이터 함수를 살펴보세요.
 
@@ -99,7 +99,7 @@ public static async Task Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -137,7 +137,7 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-If the first **CreditAccount** function call fails, the orchestrator function compensates by crediting the funds back to the source account.
+첫 번째 **CreditAccount** 함수 호출이 실패 하면 오 케 스트레이 터 함수는 자금을 원본 계정에 다시 연결 하 여 보상 합니다.
 
 ## <a name="automatic-retry-on-failure"></a>실패 시 자동 다시 시도
 
@@ -175,7 +175,7 @@ public static async Task Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -191,20 +191,20 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`CallActivityWithRetryAsync`(.NET) 또는 `callActivityWithRetry`(JavaScript) API는 `RetryOptions` 매개 변수를 사용합니다. Sub-orchestration calls using the `CallSubOrchestratorWithRetryAsync` (.NET) or `callSubOrchestratorWithRetry` (JavaScript) API can use these same retry policies.
+`CallActivityWithRetryAsync`(.NET) 또는 `callActivityWithRetry`(JavaScript) API는 `RetryOptions` 매개 변수를 사용합니다. `CallSubOrchestratorWithRetryAsync` (.NET) 또는 `callSubOrchestratorWithRetry` (JavaScript) API를 사용 하는 하위 오케스트레이션 호출은 이와 동일한 다시 시도 정책을 사용할 수 있습니다.
 
-There are several options for customizing the automatic retry policy:
+자동 재시도 정책을 사용자 지정 하는 몇 가지 옵션이 있습니다.
 
 * **최대 시도 횟수**: 최대 다시 시도 횟수입니다.
 * **첫 번째 다시 시도 간격**: 첫 번째 다시 시도를 수행할 때까지 기다리는 시간입니다.
 * **백오프 계수**: 백오프의 증가율을 결정하는 데 사용되는 계수입니다. 기본값은 1입니다.
 * **최대 다시 시도 간격**: 다시 시도 간에 기다리는 최대 시간입니다.
 * **다시 시도 시간 제한**: 다시 시도하는 데 소요되는 최대 시간입니다. 기본 동작은 무기한으로 다시 시도하는 것입니다.
-* **Handle**: A user-defined callback can be specified to determine whether a function should be retried.
+* **핸들**: 사용자 정의 콜백을 지정 하 여 함수를 다시 시도해 야 하는지 여부를 결정할 수 있습니다.
 
 ## <a name="function-timeouts"></a>함수 시간 제한
 
-You might want to abandon a function call within an orchestrator function if it's taking too long to complete. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 `Task.WhenAny`(.NET) 또는 `context.df.Task.any`(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 [지속성 타이머](durable-functions-timers.md)를 만드는 것입니다.
+완료 하는 데 시간이 너무 오래 걸리는 경우 오 케 스트레이 터 함수 내에서 함수 호출을 중단 하려고 할 수 있습니다. 현재 이 작업을 제대로 수행하는 방법은 다음 예제와 같이 [(.NET) 또는 ](durable-functions-timers.md)(JavaScript)와 함께 `context.CreateTimer`(.NET) 또는 `context.df.createTimer`(JavaScript)를 사용하여 `Task.WhenAny`지속성 타이머`context.df.Task.any`를 만드는 것입니다.
 
 ### <a name="precompiled-c"></a>미리 컴파일된 C#
 
@@ -266,7 +266,7 @@ public static async Task<bool> Run(IDurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> The previous C# examples are for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 위의 C# 예는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -302,7 +302,7 @@ module.exports = df.orchestrator(function*(context) {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Learn about eternal orchestrations](durable-functions-eternal-orchestrations.md)
+> [영구 오케스트레이션에 대 한 자세한 정보](durable-functions-eternal-orchestrations.md)
 
 > [!div class="nextstepaction"]
 > [문제 진단](durable-functions-diagnostics.md)

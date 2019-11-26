@@ -97,7 +97,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
    다음 표에서는 대기 시간이 긴 OperationType 및 RequestStatus 결과에 대 한 정보를 제공 합니다.
 
-   |   |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장 사항|
+   |   |RequestStatus =<br>성공|RequestStatus =<br>SAS NetworkError|권장|
    |---|---|---|---|
    |GetBlob|예|아니오|[**Getblob 작업:** RequestStatus = Success](#getblob-operation-requeststatus--success)|
    |GetBlob|아니오|예|[**Getblob 작업:** RequestStatus = (SAS) NetworkError](#getblob-operation-requeststatus--sasnetworkerror)|
@@ -133,7 +133,7 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
+* 클라이언트의 코드를 조사하여 저장소 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
 * Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용 하 여 클라이언트에서 네트워크 연결 문제를 조사 합니다. 
 
 ### <a name="put-operation-requeststatus--success"></a>Put 작업: RequestStatus = Success
@@ -163,6 +163,6 @@ Azure 응용 프로그램의 분산 된 특성 때문에, 오류 및 성능 문�
 
 **권장 사항:**
 
-* 클라이언트의 코드를 조사하여 스토리지 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
+* 클라이언트의 코드를 조사하여 저장소 서비스에서 클라이언트의 연결이 끊기는 이유와 시기를 파악합니다.
 * Wireshark, Microsoft Message Analyzer 또는 Tcping을 사용 하 여 클라이언트에서 네트워크 연결 문제를 조사 합니다.
 

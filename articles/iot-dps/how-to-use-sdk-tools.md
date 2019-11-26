@@ -1,5 +1,5 @@
 ---
-title: Use Azure IoT Hub Device Provisioning Service SDKs tools
+title: Azure IoT Hub 장치 프로 비전 서비스 Sdk 도구 사용
 description: 이 문서에서는 개발을 위한 Azure IoT Hub Device Provisioning Service SDK에서 제공되는 도구를 검토합니다.
 author: robinsh
 ms.author: robinsh
@@ -34,7 +34,7 @@ TPM 시뮬레이터를 사용하기 위한 단계는 다음과 같습니다.
 * 프로덕션 환경에서는 공용 루트 인증 기관에서 X.509 CA 인증서를 구입하는 것이 좋습니다.
 * 환경 테스트를 위해 다음을 사용하여 X.509 루트 인증서 또는 X.509 인증서 체인을 생성할 수 있습니다.
     * OpenSSL: 인증서 생성을 위해 스크립트를 사용할 수 있습니다.
-        * [Node.js](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
+        * [Node.JS](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/tools)
         * [PowerShell 또는 Bash](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md)
         
     * DICE(디바이스 ID 컴퍼지션 엔진) 에뮬레이터: DICE는 TLS 프로토콜 및 X.509 클라이언트 인증서에 기반한 암호화 디바이스 ID 및 증명에 사용할 수 있습니다.  DICE를 사용하는 디바이스 ID에 대해 자세히 [알아봅니다](https://www.microsoft.com/research/publication/device-identity-dice-riot-keys-certificates/).
