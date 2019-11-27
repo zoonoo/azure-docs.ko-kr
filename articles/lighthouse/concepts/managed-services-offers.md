@@ -12,7 +12,7 @@ ms.locfileid: "74463991"
 ---
 # <a name="managed-services-offers-in-azure-marketplace"></a>Azure Marketplace의 관리형 서비스 솔루션
 
-이 문서에서는 [Azure Marketplace](https://azuremarketplace.microsoft.com)의 새로운 **관리형 서비스** 제품 유형에 대해 설명합니다. 관리형 서비스 제품을 사용하면 Azure 위임 리소스 관리를 통해 고객에게 리소스 관리 서비스를 제공할 수 있습니다. 이러한 제품은 모든 잠재 고객이나 하나 이상의 특정 고객만 사용할 수 있습니다. 이러한 관리형 서비스와 관련된 비용은 고객에게 직접 청구하므로 Microsoft에서 부과하는 요금은 없습니다.
+이 문서에서는 **Azure Marketplace**의 새로운 [관리형 서비스](https://azuremarketplace.microsoft.com) 제품 유형에 대해 설명합니다. 관리형 서비스 제품을 사용하면 Azure 위임 리소스 관리를 통해 고객에게 리소스 관리 서비스를 제공할 수 있습니다. 이러한 제품은 모든 잠재 고객이나 하나 이상의 특정 고객만 사용할 수 있습니다. 이러한 관리형 서비스와 관련된 비용은 고객에게 직접 청구하므로 Microsoft에서 부과하는 요금은 없습니다.
 
 ## <a name="understand-managed-services-offers"></a>관리형 서비스 제품 이해
 

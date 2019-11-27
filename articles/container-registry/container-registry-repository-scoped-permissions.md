@@ -1,6 +1,6 @@
 ---
-title: Permissions to repositories
-description: Create a token with permissions scoped to specific repositories in a registry to pull or push images
+title: 리포지토리에 대 한 사용 권한
+description: 레지스트리의 특정 리포지토리로 범위가 지정 된 토큰을 만들어 이미지를 끌어오거나 푸시합니다.
 ms.topic: article
 ms.date: 10/31/2019
 ms.openlocfilehash: cf36a49ffd6c04897e6f44b844f0c813d0992b18
@@ -10,39 +10,39 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74454920"
 ---
-# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Repository-scoped permissions in Azure Container Registry 
+# <a name="repository-scoped-permissions-in-azure-container-registry"></a>Azure Container Registry의 리포지토리 범위 권한 
 
-Azure Container Registry supports several [authentication options](container-registry-authentication.md) using identities that have [role-based access](container-registry-roles.md) to an entire registry. However, for certain scenarios, you might need to provide access only to specific *repositories* in a registry. 
+Azure Container Registry는 전체 레지스트리에 대 한 [역할 기반 액세스](container-registry-roles.md) 권한이 있는 id를 사용 하 여 여러 [인증 옵션](container-registry-authentication.md) 을 지원 합니다. 그러나 특정 시나리오의 경우 레지스트리의 특정 *리포지토리에* 만 액세스를 제공 해야 할 수 있습니다. 
 
-This article shows how to create and use an access token that has permissions to perform actions on only specific repositories in a registry. With an access token, you can provide users or services with scoped, time-limited access to repositories to pull or push images or perform other actions. 
+이 문서에서는 레지스트리의 특정 리포지토리에 대해서만 작업을 수행할 수 있는 권한이 있는 액세스 토큰을 만들고 사용 하는 방법을 보여 줍니다. 액세스 토큰을 사용 하 여 사용자 또는 서비스에 저장소에 대 한 제한 된 시간 제한 액세스를 제공 하 여 이미지를 끌어오거나 푸시 하거나 다른 작업을 수행할 수 있습니다. 
 
-See [About repository-scoped permissions](#about-repository-scoped-permissions), later in this article, for background about token concepts and scenarios.
+토큰 개념 및 시나리오에 대 한 배경 정보는이 문서의 뒷부분에 나오는 [리포지토리 범위 사용 권한 정보](#about-repository-scoped-permissions)를 참조 하세요.
 
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공되며 일부 [제한 사항이 적용](#preview-limitations)됩니다. [부속 사용 약관][terms-of-use]에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
 ## <a name="preview-limitations"></a>미리 보기 제한 사항
 
-* This feature is only available in a **Premium** container registry. For information about registry service tiers and limits, see [Azure Container Registry SKUs](container-registry-skus.md).
-* You can't currently assign repository-scoped permissions to an Azure Active Directory object such as a service principal or managed identity.
+* 이 기능은 **프리미엄** 컨테이너 레지스트리에서만 사용할 수 있습니다. 레지스트리 서비스 계층 및 제한에 대 한 자세한 내용은 [Azure Container Registry sku](container-registry-skus.md)를 참조 하세요.
+* 현재 서비스 주체 또는 관리 id와 같은 Azure Active Directory 개체에 리포지토리 범위 사용 권한을 할당할 수 없습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* **Azure CLI** - This article requires a local installation of the Azure CLI (version 2.0.76 or later). `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
-* **Docker** - To authenticate with the registry, you also need a local Docker installation. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에 대한 설치 지침을 제공합니다.
-* **Container registry with repositories** - If you don't have one, create a container registry in your Azure subscription. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다. 
+* **Azure CLI** -이 문서에는 Azure CLI (버전 2.0.76 이상)의 로컬 설치가 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요.
+* **Docker** -레지스트리를 인증 하려면 로컬 Docker 설치도 필요 합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms) 시스템에 대한 설치 지침을 제공합니다.
+* **리포지토리를 사용 하는 컨테이너 레지스트리** -없는 경우 Azure 구독에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다. 
 
-  For test purposes, [push](container-registry-get-started-docker-cli.md) or [import](container-registry-import-images.md) one or more sample images to the registry. Examples in this article refer to the following images in two repositories: `samples/hello-world:v1` and `samples/nginx:v1`. 
+  테스트를 위해 하나 이상의 샘플 이미지를 레지스트리로 [푸시](container-registry-get-started-docker-cli.md) 하거나 [가져옵니다](container-registry-import-images.md) . 이 문서의 예에서는 `samples/hello-world:v1` 및 `samples/nginx:v1`의 두 리포지토리에서 다음 이미지를 참조 합니다. 
 
 ## <a name="create-an-access-token"></a>액세스 토큰 만들기
 
-Create a token using the [az acr token create][az-acr-token-create] command. When creating a token, specify one or more repositories and associated actions on each repository, or specify an existing scope map with those settings.
+[Az acr token create][az-acr-token-create] 명령을 사용 하 여 토큰을 만듭니다. 토큰을 만들 때 각 리포지토리에서 리포지토리 및 관련 된 작업을 하나 이상 지정 하거나 해당 설정으로 기존 범위 맵을 지정 합니다.
 
-### <a name="create-access-token-and-specify-repositories"></a>Create access token and specify repositories
+### <a name="create-access-token-and-specify-repositories"></a>액세스 토큰 만들기 및 리포지토리 지정
 
-The following example creates an access token with permissions to perform `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository. By default, the command generates two passwords. 
+다음 예에서는 `samples/hello-world` 리포지토리에서 `content/write` 및 `content/read` 동작을 수행 하 고 `samples/nginx` 리포지토리에 대해 `content/read` 동작을 수행할 수 있는 권한이 있는 액세스 토큰을 만듭니다. 기본적으로이 명령은 두 개의 암호를 생성 합니다. 
 
-This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+이 예제에서는 토큰 상태를 `enabled` (기본 설정)로 설정 하지만 언제 든 지 토큰을 업데이트 하 고 상태를 `disabled`로 설정할 수 있습니다.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry \
@@ -50,9 +50,9 @@ az acr token create --name MyToken --registry myregistry \
   --repository samples/nginx content/read --status enabled
 ```
 
-The output shows details about the token, including generated passwords and scope map. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+출력은 생성 된 암호 및 범위 맵을 포함 하 여 토큰에 대 한 세부 정보를 표시 합니다. 나중에 `docker login`사용할 수 있도록 암호를 안전한 장소에 저장 하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
-The output also shows that a scope map is automatically created, named `MyToken-scope-map`. You can use the scope map to apply the same repository actions to other tokens. Or, update the scope map later to change the token permissions.
+출력에는 `MyToken-scope-map`이라는 범위 맵이 자동으로 생성 되는 것도 표시 됩니다. 범위 맵을 사용 하 여 다른 토큰에 동일한 리포지토리 작업을 적용할 수 있습니다. 또는 나중에 범위 맵을 업데이트 하 여 토큰 사용 권한을 변경 합니다.
 
 ```console
 {
@@ -85,11 +85,11 @@ The output also shows that a scope map is automatically created, named `MyToken-
   "type": "Microsoft.ContainerRegistry/registries/tokens"
 ```
 
-### <a name="create-a-scope-map-and-associated-token"></a>Create a scope map and associated token
+### <a name="create-a-scope-map-and-associated-token"></a>범위 맵 및 연결 된 토큰 만들기
 
-Alternatively, specify a scope map with repositories and associated actions when creating a token. To create a scope map, use the [az acr scope-map create][az-acr-scope-map-create] command.
+또는 토큰을 만들 때 리포지토리 및 연결 된 작업이 포함 된 범위 맵을 지정 합니다. 범위 맵을 만들려면 [az acr scope-map create][az-acr-scope-map-create] 명령을 사용 합니다.
 
-The following example command creates a scope map with the same permissions used in the previous example. It allows `content/write` and `content/read` actions on the `samples/hello-world` repository, and the `content/read` action on the `samples/nginx` repository:
+다음 예제 명령은 이전 예제에서 사용 된 것과 동일한 권한으로 범위 맵을 만듭니다. 이 기능을 사용 하면 `samples/hello-world` 리포지토리의 작업을 `content/write` 하 고 `content/read` 하 고 `samples/nginx` 리포지토리에서 `content/read` 작업을 수행할 수 있습니다.
 
 ```azurecli
 az acr scope-map create --name MyScopeMap --registry myregistry \
@@ -116,21 +116,21 @@ az acr scope-map create --name MyScopeMap --registry myregistry \
   "type": "Microsoft.ContainerRegistry/registries/scopeMaps"
 ```
 
-Run [az acr token create][az-acr-token-create] to create a token associated with the *MyScopeMap* scope map. By default, the command generates two passwords. This example sets the token status to `enabled` (the default setting), but you can update the token at any time and set the status to `disabled`.
+[Az acr token create][az-acr-token-create] 를 실행 하 여 *MyScopeMap* 범위 맵에 연결 된 토큰을 만듭니다. 기본적으로이 명령은 두 개의 암호를 생성 합니다. 이 예제에서는 토큰 상태를 `enabled` (기본 설정)로 설정 하지만 언제 든 지 토큰을 업데이트 하 고 상태를 `disabled`로 설정할 수 있습니다.
 
 ```azurecli
 az acr token create --name MyToken --registry myregistry --scope-map MyScopeMap --status enabled
 ```
 
-The output shows details about the token, including generated passwords and the scope map you applied. It's recommended to save the passwords in a safe place to use later with `docker login`. The passwords can't be retrieved again but new ones can be generated.
+출력에는 생성 된 암호와 적용 한 범위 맵을 포함 하 여 토큰에 대 한 세부 정보가 표시 됩니다. 나중에 `docker login`사용할 수 있도록 암호를 안전한 장소에 저장 하는 것이 좋습니다. 암호는 다시 검색할 수 없지만 새 암호는 생성할 수 있습니다.
 
-## <a name="generate-passwords-for-token"></a>Generate passwords for token
+## <a name="generate-passwords-for-token"></a>토큰에 대 한 암호 생성
 
-If passwords were created when you created the token, proceed to [Authenticate with registry](#authenticate-using-token).
+토큰을 만들 때 암호가 생성 된 경우에는 [레지스트리 인증](#authenticate-using-token)을 계속 진행 합니다.
 
-If you don't have a token password, or you want to generate new passwords, run the [az acr token credential generate][az-acr-token-credential-generate] command.
+토큰 암호가 없거나 새 암호를 생성 하려는 경우 [az acr token credential generate][az-acr-token-credential-generate] 명령을 실행 합니다.
 
-The following example generates a new password for the token you created, with an expiration period of 30 days. It stores the password in the environment variable TOKEN_PWD. This example is formatted for the bash shell.
+다음 예에서는 만료 기간 30 일을 사용 하 여 만든 토큰에 대해 새 암호를 생성 합니다. TOKEN_PWD 환경 변수에 암호를 저장 합니다. 이 예제는 bash 셸에 대해 형식이 지정 됩니다.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \
@@ -138,9 +138,9 @@ TOKEN_PWD=$(az acr token credential generate \
   --password1 --query 'passwords[0].value' --output tsv)
 ```
 
-## <a name="authenticate-using-token"></a>Authenticate using token
+## <a name="authenticate-using-token"></a>토큰을 사용 하 여 인증
 
-Run `docker login` to authenticate with the registry using the token credentials. Enter the token name as the user name and provide one of its passwords. The following example is formatted for the bash shell, and provides the values using environment variables.
+토큰 자격 증명을 사용 하 여 레지스트리를 인증 하려면 `docker login`를 실행 합니다. 토큰 이름을 사용자 이름으로 입력 하 고 암호 중 하나를 제공 합니다. 다음 예에서는 bash 셸에 대해 형식이 지정 되 고 환경 변수를 사용 하 여 값을 제공 합니다.
 
 ```bash
 TOKEN_NAME=MyToken
@@ -149,22 +149,22 @@ TOKEN_PWD=<token password>
 echo $TOKEN_PWD | docker login --username $TOKEN_NAME --password-stdin myregistry.azurecr.io
 ```
 
-Output should show successful authentication:
+출력은 성공적인 인증을 표시 해야 합니다.
 
 ```console
 Login Succeeded
 ```
 
-## <a name="verify-scoped-access"></a>Verify scoped access
+## <a name="verify-scoped-access"></a>범위 지정 액세스 확인
 
-You can verify that the token provides scoped permissions to the repositories in the registry. In this example, the following `docker pull` commands complete successfully to pull images available in the `samples/hello-world` and `samples/nginx` repositories:
+토큰이 레지스트리에 있는 리포지토리에 범위 사용 권한을 제공 하는지 확인할 수 있습니다. 이 예에서는 `samples/hello-world` 및 `samples/nginx` 리포지토리에서 사용할 수 있는 이미지를 가져오기 위해 다음 `docker pull` 명령이 성공적으로 완료 되었습니다.
 
 ```console
 docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-Because the example token allows the `content/write` action only on the `samples/hello-world` repository, `docker push` succeeds to that repository but fails for `samples/nginx`:
+예제 토큰은 `samples/hello-world` 리포지토리에서만 `content/write` 작업 `docker push`을 허용 하므로 해당 리포지토리에 성공 하지만 `samples/nginx`에는 실패 합니다.
 
 ```console
 # docker push succeeds
@@ -174,90 +174,90 @@ docker pull myregistry.azurecr.io/samples/hello-world:v1
 docker pull myregistry.azurecr.io/samples/nginx:v1
 ```
 
-## <a name="update-scope-map-and-token"></a>Update scope map and token
+## <a name="update-scope-map-and-token"></a>범위 맵 및 토큰 업데이트
 
-To update token permissions, update the permissions in the associated scope map, using [az acr scope-map update][az-acr-scope-map-update]. For example, to update *MyScopeMap* to remove the `content/write` action on the `samples/hello-world` repository:
+토큰 권한을 업데이트 하려면 [az acr scope-map update][az-acr-scope-map-update]를 사용 하 여 연결 된 범위 맵에서 사용 권한을 업데이트 합니다. 예를 들어 *MyScopeMap* 를 업데이트 하 여 `samples/hello-world` 리포지토리에서 `content/write` 작업을 제거 하려면 다음을 수행 합니다.
 
 ```azurecli
 az acr scope-map update --name MyScopeMap --registry myregistry \
   --remove samples/hello-world content/write
 ```
 
-If the scope map is associated with more than one token, the command updates the permission of all associated tokens.
+범위 맵이 둘 이상의 토큰과 연결 된 경우이 명령은 연결 된 모든 토큰의 사용 권한을 업데이트 합니다.
 
-If you want to update a token with a different scope map, run [az acr token update][az-acr-token-update]. 다음은 그 예입니다.
+다른 범위 맵으로 토큰을 업데이트 하려면 [az acr token update][az-acr-token-update]를 실행 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```azurecli
 az acr token update --name MyToken --registry myregistry \
   --scope-map MyNewScopeMap
 ```
 
-After updating a token, or a scope map associated with a token, the permission changes take effect at the next `docker login` or other authentication using the token.
+토큰 또는 토큰과 연결 된 범위 맵을 업데이트 한 후에는 다음 `docker login` 또는 토큰을 사용 하는 다른 인증에 사용 권한 변경 내용이 적용 됩니다.
 
-After updating a token, you might want to generate new passwords to access the registry. Run [az acr token credential generate][az-acr-token-credential-generate]. 다음은 그 예입니다.
+토큰을 업데이트 한 후에는 레지스트리에 액세스 하기 위해 새 암호를 생성 하는 것이 좋습니다. [Az acr token credential generate][az-acr-token-credential-generate]를 실행 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```azurecli
 az acr token credential generate \
   --name MyToken --registry myregistry --days 30
 ```
 
-## <a name="about-repository-scoped-permissions"></a>About repository-scoped permissions
+## <a name="about-repository-scoped-permissions"></a>리포지토리 범위 권한 정보
 
 ### <a name="concepts"></a>개념
 
-To configure repository-scoped permissions, you create an *access token* and an associated *scope map* using commands in the Azure CLI.
+리포지토리의 범위 사용 권한을 구성 하려면 Azure CLI의 명령을 사용 하 여 *액세스 토큰과* 연결 된 *범위 맵을* 만듭니다.
 
-* An **access token** is a credential used with a password to authenticate with the registry. Associated with each token are permitted *actions* scoped to one or more repositories. You can set an expiration time for each token. 
+* **액세스 토큰** 은 레지스트리를 인증 하는 데 암호와 함께 사용 되는 자격 증명입니다. 각 토큰과 연결 된 *작업* 범위는 하나 이상의 리포지토리로 허용 됩니다. 각 토큰에 대해 만료 시간을 설정할 수 있습니다. 
 
-* **Actions** on each specified repository include one or more of the following.
+* 지정 된 각 리포지토리에 대 한 **작업** 에는 다음 중 하나 이상이 포함 됩니다.
 
-  |실행력  |설명  |
+  |작업  |설명  |
   |---------|---------|
-  |`content/read`     |  Read data from the repository. For example, pull an artifact.  |
-  |`metadata/read`    | Read metadata from the repository. For example, list tags or show manifest metadata.   |
-  |`content/write`     |  Write data to the repository. Use with `content/read` to push an artifact.    |
-  |`metadata/write`     |  Write metadata to the repository. For example, update manifest attributes.  |
-  |`content/delete`    | Remove data from the repository. For example, delete a repository or a manifest. |
+  |`content/read`     |  리포지토리에서 데이터를 읽습니다. 예를 들어 아티팩트를 끌어옵니다.  |
+  |`metadata/read`    | 리포지토리에서 메타 데이터를 읽습니다. 예를 들어 태그를 나열 하거나 매니페스트 메타 데이터를 표시 합니다.   |
+  |`content/write`     |  리포지토리에 데이터를 씁니다. `content/read`와 함께 사용 하 여 아티팩트를 푸시합니다.    |
+  |`metadata/write`     |  리포지토리에 메타 데이터를 씁니다. 예를 들어 매니페스트 특성을 업데이트 합니다.  |
+  |`content/delete`    | 리포지토리에서 데이터를 제거 합니다. 예를 들어 리포지토리 또는 매니페스트를 삭제 합니다. |
 
-* A **scope map** is a registry object that groups repository permissions you apply to a token, or can reapply to other tokens. If you don't apply a scope map when creating a token, a scope map is automatically created for you, to save the permission settings. 
+* **범위 맵은** 토큰에 적용 하는 리포지토리 권한을 그룹화 하거나 다른 토큰에 다시 적용할 수 있는 레지스트리 개체입니다. 토큰을 만들 때 범위 맵을 적용 하지 않는 경우 권한 설정을 저장 하기 위해 범위 맵이 자동으로 생성 됩니다. 
 
-  A scope map helps you configure multiple users with identical access to a set of repositories. Azure Container Registry also provides system-defined scope maps that you can apply when creating access tokens.
+  범위 맵은 리포지토리 집합에 대해 동일한 액세스 권한을 가진 여러 사용자를 구성 하는 데 도움이 됩니다. 또한 Azure Container Registry는 액세스 토큰을 만들 때 적용할 수 있는 시스템 정의 범위 맵을 제공 합니다.
 
-The following image summarizes the relationship between tokens and scope maps. 
+다음 이미지는 토큰과 범위 맵 간의 관계를 요약 합니다. 
 
-![Registry scope maps and tokens](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
+![레지스트리 범위 맵 및 토큰](media/container-registry-repository-scoped-permissions/token-scope-map-concepts.png)
 
 ### <a name="scenarios"></a>시나리오
 
-Scenarios for using an access token include:
+액세스 토큰을 사용 하는 시나리오는 다음과 같습니다.
 
-* Provide IoT devices with individual tokens to pull an image from a repository
-* Provide an external organization with permissions to a specific repository 
-* Limit repository access to specific user groups in your organization. For example, provide write and read access to developers who build images that target specific repositories, and read access to teams that deploy from those repositories.
+* 저장소에서 이미지를 끌어오는 개별 토큰을 IoT 장치에 제공
+* 외부 조직을 특정 리포지토리에 대 한 사용 권한 제공 
+* 조직의 특정 사용자 그룹에 대 한 리포지토리 액세스를 제한 합니다. 예를 들어 특정 리포지토리를 대상으로 하는 이미지를 작성 하는 개발자에 게 쓰기 및 읽기 액세스를 제공 하 고 해당 리포지토리에서 배포 하는 팀에 대 한 읽기 권한을 제공 합니다.
 
-### <a name="authentication-using-token"></a>Authentication using token
+### <a name="authentication-using-token"></a>토큰을 사용 하 여 인증
 
-Use a token name as a user name and one of its associated passwords to authenticate with the target registry. The authentication method depends on the configured actions.
+토큰 이름을 사용자 이름으로 사용 하 고 연결 된 암호 중 하나를 사용 하 여 대상 레지스트리로 인증 합니다. 인증 방법은 구성 된 작업에 따라 달라 집니다.
 
-### <a name="contentread-or-contentwrite"></a>content/read or content/write
+### <a name="contentread-or-contentwrite"></a>콘텐츠/읽기/쓰기/쓰기
 
-If the token permits only `content/read` or `content/write` actions, provide token credentials in either of the following authentication flows:
+토큰이 `content/read` 또는 `content/write` 작업만 허용 하는 경우 다음 인증 흐름 중 하나에서 토큰 자격 증명을 제공 합니다.
 
-* Authenticate with Docker using `docker login`
-* Authenticate with the registry using the [az acr login][az-acr-login] command in the Azure CLI
+* `docker login`를 사용 하 여 Docker 인증
+* Azure CLI에서 [az acr login][az-acr-login] 명령을 사용 하 여 레지스트리를 인증 합니다.
 
-Following authentication, the token permits the configured actions on the scoped repository or repositories. For example, if the token permits the `content/read` action on a repository, `docker pull` operations are permitted on images in that repository.
+인증 후에 토큰은 범위가 지정 된 리포지토리 또는 리포지토리에 대해 구성 된 작업을 허용 합니다. 예를 들어 토큰이 리포지토리에서 `content/read` 작업을 허용 하는 경우 해당 리포지토리의 이미지에서 `docker pull` 작업이 허용 됩니다.
 
-#### <a name="metadataread-metadatawrite-or-contentdelete"></a>metadata/read, metadata/write, or content/delete
+#### <a name="metadataread-metadatawrite-or-contentdelete"></a>메타 데이터/읽기, 메타 데이터/쓰기 또는 내용/삭제
 
-If the token permits `metadata/read`, `metadata/write`, or `content/delete` actions on a repository, token credentials must be provided as parameters with the related [az acr repository][az-acr-repository] commands in the Azure CLI.
+토큰이 리포지토리에서 `metadata/read`, `metadata/write`또는 `content/delete` 작업을 허용 하는 경우 토큰 자격 증명을 Azure CLI의 관련 [az acr repository][az-acr-repository] 명령과 함께 매개 변수로 제공 해야 합니다.
 
-For example, if `metadata/read` actions are permitted on a repository, pass the token credentials when running the [az acr repository show-tags][az-acr-repository-show-tags] command to list tags.
+예를 들어 리포지토리에 대해 `metadata/read` 작업이 허용 되는 경우 [az acr repository show 태그][az-acr-repository-show-tags] 명령을 실행 하 여 태그를 나열할 때 토큰 자격 증명을 전달 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* To manage scope maps and access tokens, use additional commands in the [az acr scope-map][az-acr-scope-map] and [az acr token][az-acr-token] command groups.
-* See the [authentication overview](container-registry-authentication.md) for scenarios to authenticate with an Azure container registry using an admin account or an Azure Active Directory identity.
+* 범위 맵과 액세스 토큰을 관리 하려면 [az acr scope-map][az-acr-scope-map] 및 [az acr token][az-acr-token] 명령 그룹에서 추가 명령을 사용 합니다.
+* 관리자 계정 또는 Azure Active Directory id를 사용 하 여 Azure container registry로 인증 하는 시나리오는 [인증 개요](container-registry-authentication.md) 를 참조 하세요.
 
 
 <!-- LINKS - External -->

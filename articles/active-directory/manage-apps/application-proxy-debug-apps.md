@@ -1,6 +1,6 @@
 ---
-title: Debug Application Proxy applications - Azure Active Directory | Microsoft Docs
-description: Debug issues with Azure Active Directory (Azure AD) Application Proxy applications.
+title: 응용 프로그램 프록시 응용 프로그램 디버그-Azure Active Directory | Microsoft Docs
+description: Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램의 문제를 디버그 합니다.
 services: active-directory
 author: msmimart
 manager: CelesteDG
@@ -18,37 +18,37 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382066"
 ---
-# <a name="debug-application-proxy-application-issues"></a>Debug Application Proxy application issues 
+# <a name="debug-application-proxy-application-issues"></a>응용 프로그램 프록시 응용 프로그램 문제 디버그 
 
-This article helps you troubleshoot issues with Azure Active Directory (Azure AD) Application Proxy applications. If you're using the Application Proxy service for remote access to an on-premises web application, but you're having trouble connecting to the application, use this flowchart to debug application issues. 
+이 문서는 Azure Active Directory (Azure AD) 응용 프로그램 프록시 응용 프로그램의 문제를 해결 하는 데 도움이 됩니다. 응용 프로그램 프록시 서비스를 사용 하 여 온-프레미스 웹 응용 프로그램에 대 한 원격 액세스를 하지만 응용 프로그램에 연결 하는 데 문제가 있는 경우이 순서도를 사용 하 여 응용 프로그램 문제를 디버그 하세요. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-When troubleshooting Application Proxy issues, we recommend you start with the connectors. First, follow the troubleshooting flow in [Debug Application Proxy Connector issues](application-proxy-debug-connectors.md) to make sure Application Proxy connectors are configured correctly. If you're still having issues, return to this article to troubleshoot the application.  
+응용 프로그램 프록시 문제를 해결할 때 커넥터를 사용 하 여 시작 하는 것이 좋습니다. 먼저 응용 프로그램 프록시 [커넥터 문제 디버그](application-proxy-debug-connectors.md) 에서 문제 해결 흐름을 따라 응용 프로그램 프록시 커넥터가 올바르게 구성 되어 있는지 확인 합니다. 문제가 여전히 발생 하는 경우이 문서로 돌아와서 응용 프로그램 문제를 해결 하세요.  
 
-For more information about Application Proxy, see:
+응용 프로그램 프록시에 대 한 자세한 내용은 다음을 참조 하세요.
 
-- [Remote access to on-premises applications through Application Proxy](application-proxy.md)
-- [Application Proxy connectors](application-proxy-connectors.md)
-- [Install and register a connector](application-proxy-add-on-premises-application.md)
+- [응용 프로그램 프록시를 통해 온-프레미스 응용 프로그램에 원격으로 액세스](application-proxy.md)
+- [응용 프로그램 프록시 커넥터](application-proxy-connectors.md)
+- [커넥터 설치 및 등록](application-proxy-add-on-premises-application.md)
 - [애플리케이션 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)
 
-## <a name="flowchart-for-application-issues"></a>Flowchart for application issues
+## <a name="flowchart-for-application-issues"></a>응용 프로그램 문제에 대 한 순서도
 
-This flowchart walks you through the steps for debugging some of the more common issues with connecting to the application. For details about each step, see the table following the flowchart.
+이 순서도는 응용 프로그램에 연결 하는 것과 관련 된 몇 가지 일반적인 문제를 디버깅 하는 단계를 안내 합니다. 각 단계에 대 한 자세한 내용은 순서도 다음에 나오는 표를 참조 하십시오.
 
-![Flowchart showing steps for debugging an application](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
+![응용 프로그램 디버깅 단계를 보여 주는 순서도](media/application-proxy-debug-apps/application-proxy-apps-debugging-flowchart.png)
 
-|  | 실행력 | 설명 | 
+|  | 작업 | 설명 | 
 |---------|---------|---------|
-|1 | Open a browser, access the app, and enter your credentials | Try using your credentials to sign in to the app, and check for any user-related errors, like [This corporate app can't be accessed](application-proxy-sign-in-bad-gateway-timeout-error.md). |
-|2 | Verify user assignment to the app | Make sure your user account has permission to access the app from inside the corporate network, and then test signing in to the app by following the steps in [Test the application](application-proxy-add-on-premises-application.md#test-the-application). If sign-in issues persist, see [How to troubleshoot sign-in errors](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context).  |
-|3 | Open a browser and try to access the app | If an error appears immediately, check to see that Application Proxy is configured correctly. For details about specific error messages, see [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md).  |
-|4 | Check your custom domain setup or troubleshoot the error | If the page doesn't display at all, make sure your custom domain is configured correctly by reviewing [Working with custom domains](application-proxy-configure-custom-domain.md).<br></br>If the page doesn't load and an error message appears, troubleshoot the error by referring to  [Troubleshoot Application Proxy problems and error messages](application-proxy-troubleshoot.md). <br></br>If it takes longer than 20 seconds for an error message to appear, there could be connectivity issue. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article.  |
-|5 | If issues persist, go to connector debugging | There could be a connectivity issue between the proxy and the connector or between the connector and the back end. Go to the [Debug Application Proxy connectors](application-proxy-debug-connectors.md) troubleshooting article. |
-|6 | Publish all resources, check browser developer tools, and fix links | Make sure the publishing path includes all the necessary images, scripts, and style sheets for your application. For details, see [Add an on-premises app to Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). <br></br>Use the browser's developer tools (F12 tools in Internet Explorer or Microsoft Edge) and check for publishing issues as described in [Application page does not display correctly](application-proxy-page-appearance-broken-problem.md). <br></br>Review options for resolving broken links in [Links on the page don't work](application-proxy-page-links-broken-problem.md). |
-|7 | Check for network latency | If the page loads slowly, learn about ways to minimize network latency in [Considerations for reducing latency](application-proxy-network-topology.md#considerations-for-reducing-latency). | 
-|8 | See additional troubleshooting help | If issues persist, find additional troubleshooting articles in the [Application Proxy troubleshooting documentation](application-proxy-troubleshoot.md). |
+|1 | 브라우저를 열고 앱에 액세스 한 다음 자격 증명을 입력 합니다. | 자격 증명을 사용 하 여 앱에 로그인 하 고, [이 회사 앱에 액세스할 수 없는](application-proxy-sign-in-bad-gateway-timeout-error.md)경우와 같은 사용자 관련 오류를 확인 하세요. |
+|2 | 앱에 대 한 사용자 할당 확인 | 사용자 계정에 회사 네트워크 내부에서 앱에 액세스할 수 있는 권한이 있는지 확인 한 다음 [응용 프로그램 테스트](application-proxy-add-on-premises-application.md#test-the-application)의 단계를 수행 하 여 앱에 대 한 로그인을 테스트 합니다. 로그인 문제가 지속 되 [는 경우 로그인 오류 문제를 해결 하는 방법](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)을 참조 하세요.  |
+|3 | 브라우저를 열고 앱에 액세스를 시도 합니다. | 오류가 즉시 표시 되 면 응용 프로그램 프록시가 올바르게 구성 되어 있는지 확인 하십시오. 특정 오류 메시지에 대 한 자세한 내용은 [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조 하세요.  |
+|4 | 사용자 지정 도메인 설정을 확인 하거나 오류를 해결 하십시오. | 페이지가 전혀 표시 되지 않으면 사용자 지정 도메인에 대 한 [작업](application-proxy-configure-custom-domain.md)을 검토 하 여 사용자 지정 도메인이 올바르게 구성 되어 있는지 확인 합니다.<br></br>페이지가 로드 되지 않고 오류 메시지가 표시 되 면 [응용 프로그램 프록시 문제 및 오류 메시지 문제 해결](application-proxy-troubleshoot.md)을 참조 하 여 오류를 해결 하십시오. <br></br>오류 메시지를 표시 하는 데 20 초 이상이 소요 되는 경우 연결 문제가 있을 수 있습니다. [디버그 응용 프로그램 프록시 커넥터](application-proxy-debug-connectors.md) 문제 해결 문서로 이동 합니다.  |
+|5 | 문제가 지속 되 면 커넥터 디버깅으로 이동 합니다. | 프록시와 커넥터 사이 또는 커넥터와 백 엔드 사이에 연결 문제가 있을 수 있습니다. [디버그 응용 프로그램 프록시 커넥터](application-proxy-debug-connectors.md) 문제 해결 문서로 이동 합니다. |
+|6 | 모든 리소스를 게시 하 고, 브라우저 개발자 도구를 확인 하 고, 링크를 수정 합니다. | 응용 프로그램에 필요한 모든 이미지, 스크립트 및 스타일 시트가 게시 경로에 포함 되어 있는지 확인 합니다. 자세한 내용은 [AZURE AD에 온-프레미스 앱 추가](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad)를 참조 하세요. <br></br>브라우저의 개발자 도구 (Internet Explorer 또는 Microsoft Edge의 F12 도구)를 사용 하 여 [응용 프로그램 페이지가 제대로 표시 되지 않음](application-proxy-page-appearance-broken-problem.md)에 설명 된 대로 게시 문제를 확인 합니다. <br></br>페이지의 링크에서 끊어진 링크를 확인 [하는 옵션은 작동 하지 않습니다](application-proxy-page-links-broken-problem.md). |
+|7 | 네트워크 대기 시간 확인 | 페이지가 느리게 로드 되는 경우 [대기 시간을 줄이도록](application-proxy-network-topology.md#considerations-for-reducing-latency)네트워크 대기 시간을 최소화 하는 방법에 대해 알아보세요. | 
+|8 | 추가 문제 해결 도움말을 참조 하세요. | 문제가 지속 되 면 [응용 프로그램 프록시 문제 해결 설명서](application-proxy-troubleshoot.md)에서 추가 문제 해결 문서를 찾습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: FSLogix profile containers NetApp Windows Virtual Desktop - Azure
-description: How to create an FSLogix profile container using Azure NetApp Files in Windows Virtual Desktop.
+title: FSLogix 프로필 컨테이너 NetApp Windows 가상 데스크톱-Azure
+description: Windows 가상 데스크톱에서 Azure NetApp Files를 사용 하 여 FSLogix 프로필 컨테이너를 만드는 방법
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
@@ -14,47 +14,47 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74483649"
 ---
-# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Create an FSLogix profile container for a host pool using Azure NetApp Files
+# <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Azure NetApp Files를 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기
 
-We recommend using FSLogix profile containers as a user profile solution for the [Windows Virtual Desktop service](overview.md). FSLogix profile containers store a complete user profile in a single container and are designed to roam profiles in non-persistent remote computing environments like Windows Virtual Desktop. When you sign in, the container dynamically attaches to the computing environment using a locally supported virtual hard disk (VHD) and Hyper-V virtual hard disk (VHDX). These advanced filter-driver technologies allow the user profile to be immediately available and appear in the system exactly like a local user profile. To learn more about FSLogix profile containers, see [FSLogix profile containers and Azure files](fslogix-containers-azure-files.md).
+[Windows 가상 데스크톱 서비스](overview.md)의 사용자 프로필 솔루션으로 FSLogix 프로필 컨테이너를 사용 하는 것이 좋습니다. FSLogix 프로필 컨테이너는 단일 컨테이너에 전체 사용자 프로필을 저장 하 고 Windows 가상 데스크톱과 같은 비영구 원격 컴퓨팅 환경에서 프로필을 로밍할 수 있도록 설계 되었습니다. 로그인 할 때 컨테이너는 로컬로 지원 되는 VHD (가상 하드 디스크) 및 Hyper-v VHDX (가상 하드 디스크)를 사용 하 여 컴퓨팅 환경에 동적으로 연결 됩니다. 이러한 고급 필터 드라이버 기술을 통해 사용자 프로필을 즉시 사용할 수 있으며 시스템에 로컬 사용자 프로필과 똑같이 표시 됩니다. FSLogix 프로필 컨테이너에 대해 자세히 알아보려면 [Fslogix 프로필 컨테이너 및 Azure files](fslogix-containers-azure-files.md)를 참조 하세요.
 
-You can create FSLogix profile containers using [Azure NetApp Files](https://azure.microsoft.com/services/netapp/), an easy-to-use Azure native platform service that helps customers quickly and reliably provision enterprise-grade SMB volumes for their Windows Virtual Desktop environments. To learn more about Azure NetApp Files, see [What is Azure NetApp Files?](../azure-netapp-files/azure-netapp-files-introduction.md)
+Windows 가상 데스크톱 환경에 대해 엔터프라이즈급 SMB 볼륨을 빠르고 안정적으로 프로 비전 하는 데 도움이 되는 사용 하기 쉬운 Azure native platform 서비스인 [Azure NetApp Files](https://azure.microsoft.com/services/netapp/)를 사용 하 여 FSLogix 프로필 컨테이너를 만들 수 있습니다. Azure NetApp Files에 대 한 자세한 내용은 [Azure NetApp Files 항목](../azure-netapp-files/azure-netapp-files-introduction.md) 을 참조 하세요.
 
-This guide will show you how to set up an Azure NetApp Files account and create FSLogix profile containers in Windows Virtual Desktop.
+이 가이드에서는 Azure NetApp Files 계정을 설정 하 고 Windows 가상 데스크톱에서 FSLogix 프로필 컨테이너를 만드는 방법을 보여 줍니다.
 
-This article assumes you already have [host pools](create-host-pools-azure-marketplace.md) set up and grouped into one or more tenants in your Windows Virtual Desktop environment. To learn how to set up tenants, see [Create a tenant in Windows Virtual Desktop](tenant-setup-azure-active-directory.md) and [our Tech Community blog post](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054).
+이 문서에서는 이미 [호스트 풀이](create-host-pools-azure-marketplace.md) 설정 되어 있고 Windows 가상 데스크톱 환경에서 하나 이상의 테 넌 트로 그룹화 되어 있다고 가정 합니다. 테 넌 트를 설정 하는 방법을 알아보려면 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md) 및 [기술 커뮤니티 블로그 게시물](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-Windows-Virtual-Desktop/ba-p/391054)을 참조 하세요.
 
-The instructions in this guide are specifically for Windows Virtual Desktop users. If you're looking for more general guidance for how to set up Azure NetApp Files and create FSLogix profile containers outside of Windows Virtual Desktop, see the [Set up Azure NetApp Files and create an NFS volume quickstart](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md).
-
->[!NOTE]
->This article doesn't cover best practices for securing access to the Azure NetApp Files share.
+이 가이드의 지침은 Windows 가상 데스크톱 사용자 전용입니다. Windows 가상 데스크톱 외부에서 Azure NetApp Files를 설정 하 고 FSLogix 프로필 컨테이너를 만드는 방법에 대 한 일반적인 지침을 찾고 있는 경우 [Azure NetApp Files 설정 및 NFS 볼륨 만들기 빠른](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md)시작을 참조 하세요.
 
 >[!NOTE]
->If you're looking for comparison material about the different FSLogix Profile Container storage options on Azure, see [Storage options for FSLogix profile containers](store-fslogix-profile.md).
+>이 문서에서는 Azure NetApp Files 공유에 대 한 액세스를 보호 하기 위한 모범 사례에 대해서는 설명 하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+>[!NOTE]
+>Azure의 여러 FSLogix 프로필 컨테이너 저장소 옵션에 대 한 비교 자료를 찾고 있는 경우 [FSLogix 프로필 컨테이너에 대 한 저장소 옵션](store-fslogix-profile.md)을 참조 하세요.
 
-Before you can create an FSLogix profile container for a host pool, you must:
+## <a name="prerequisites"></a>선행 조건
 
-- Set up and configure Windows Virtual Desktop
-- Provision a Windows Virtual Desktop host pool
-- [Enable your Azure NetApp Files subscription](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
+호스트 풀에 대해 FSLogix 프로필 컨테이너를 만들려면 먼저 다음을 수행 해야 합니다.
 
-## <a name="set-up-your-azure-netapp-files-account"></a>Set up your Azure NetApp Files account
+- Windows 가상 데스크톱 설정 및 구성
+- Windows 가상 데스크톱 호스트 풀 프로 비전
+- [Azure NetApp Files 구독 사용](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-register)
 
-To get started, you need to set up an Azure NetApp Files account.
+## <a name="set-up-your-azure-netapp-files-account"></a>Azure NetApp Files 계정 설정
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다. Make sure your account has contributor or administrator permissions.
+시작 하려면 Azure NetApp Files 계정을 설정 해야 합니다.
 
-2. Select the **Azure Cloud Shell icon** to the right of the search bar to open Azure Cloud Shell.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 계정에 참가자 또는 관리자 권한이 있는지 확인 합니다.
 
-3. Once Azure Cloud Shell is open, select **PowerShell**.
+2. 검색 표시줄의 오른쪽에 있는 **Azure Cloud Shell 아이콘** 을 선택 하 여 Azure Cloud Shell를 엽니다.
 
-4. If this is your first time using Azure Cloud Shell, create a storage account in the same subscription you keep your Azure NetApp Files and Windows Virtual Desktop.
+3. Azure Cloud Shell 열리면 **PowerShell**을 선택 합니다.
 
-   ![The storage account window with the create storage button at the bottom of the window highlighted in red.](media/create-storage-button.png)
+4. Azure Cloud Shell를 처음 사용 하는 경우 동일한 구독에서 저장소 계정을 만들어 Azure NetApp Files와 Windows 가상 데스크톱을 유지 합니다.
 
-5. Once Azure Cloud Shell loads, run the following two cmdlets.
+   ![창 아래쪽의 저장소 만들기 단추가 빨간색으로 강조 표시 된 저장소 계정 창이 표시 됩니다.](media/create-storage-button.png)
+
+5. Azure Cloud Shell 로드 되 면 다음 두 cmdlet을 실행 합니다.
 
    ```powershell
    az account set --subscription <subscriptionID>
@@ -64,130 +64,130 @@ To get started, you need to set up an Azure NetApp Files account.
    az provider register --namespace Microsoft.NetApp --wait
    ```
 
-6. In the left side of the window, select **All services**. Enter **Azure NetApp Files** into the search box that appears at the top of the menu.
+6. 창 왼쪽에서 **모든 서비스**를 선택 합니다. 메뉴 맨 위에 표시 되는 검색 상자에 **Azure NetApp Files** 을 입력 합니다.
 
-   ![A screenshot of a user entering "Azure NetApp Files" into the All services search box. The search results show the Azure NetApp Files resource.](media/azure-netapp-files-search-box.png)
+   ![모든 서비스 검색 상자에 "Azure NetApp Files"를 입력 하는 사용자의 스크린샷 검색 결과는 Azure NetApp Files 리소스를 표시 합니다.](media/azure-netapp-files-search-box.png)
 
 
-7. Select **Azure NetApp Files** in the search results, then select **Create**.
+7. 검색 결과에서 **Azure NetApp Files** 를 선택한 다음 **만들기**를 선택 합니다.
 
 8. **추가** 단추를 선택합니다.
-9. When the **New NetApp account** blade opens, enter the following values:
+9. **새 NetApp 계정** 블레이드가 열리면 다음 값을 입력 합니다.
 
-    - For **Name**, enter your NetApp account name.
-    - For **Subscription**, select the subscription for the storage account you set up in step 4 from the drop-down menu.
-    - For **Resource group**, either select an existing resource group from the drop-down menu or create a new one by selecting **Create new**.
-    - For **Location**, select the region for your NetApp account from the drop-down menu. This region must be the same region as your session host VMs.
+    - **이름**에 netapp 계정 이름을 입력 합니다.
+    - **구독**의 경우 드롭다운 메뉴에서 4 단계에서 설정한 저장소 계정에 대 한 구독을 선택 합니다.
+    - **리소스 그룹**의 경우 드롭다운 메뉴에서 기존 리소스 그룹을 선택 하거나 **새로 만들기**를 선택 하 여 새 리소스 그룹을 만듭니다.
+    - **위치**의 경우 드롭다운 메뉴에서 netapp 계정의 지역을 선택 합니다. 이 지역은 세션 호스트 Vm과 동일한 지역 이어야 합니다.
 
    >[!NOTE]
-   >Azure NetApp Files currently doesn't support mounting of a volume across regions.
+   >현재 Azure NetApp Files는 지역에 걸쳐 볼륨의 탑재를 지원 하지 않습니다.
 
-10. When you're finished, select **Create** to create your NetApp account.
+10. 완료 되 면 **만들기** 를 선택 하 여 netapp 계정을 만듭니다.
 
-## <a name="create-a-capacity-pool"></a>Create a capacity pool
+## <a name="create-a-capacity-pool"></a>용량 풀 만들기
 
-Next, create a new capacity pool: 
+다음으로 새 용량 풀을 만듭니다. 
 
-1. Go to the Azure NetApp Files menu and select your new account.
-2. In your account menu, select **Capacity pools** under Storage service.
-3. Select **Add pool**.
-4. When the **New capacity pool** blade opens, enter the following values:
+1. Azure NetApp Files 메뉴로 이동 하 여 새 계정을 선택 합니다.
+2. 계정 메뉴의 저장소 서비스에서 **용량 풀** 을 선택 합니다.
+3. **풀 추가**를 선택 합니다.
+4. **새 용량 풀** 블레이드가 열리면 다음 값을 입력 합니다.
 
-    - For **Name**, enter a name for the new capacity pool.
-    - For **Service level**, select your desired value from the drop-down menu. We recommend **Premium** for most environments.
+    - **이름**에 새 용량 풀의 이름을 입력 합니다.
+    - **서비스 수준**의 경우 드롭다운 메뉴에서 원하는 값을 선택 합니다. 대부분의 환경에서 **프리미엄** 을 권장 합니다.
        >[!NOTE]
-       >The Premium setting provides the minimum throughput available for a Premium Service level, which is 256 MBps. You may need to adjust this throughput for a production environment. Final throughput is based on the relationship described in [Throughput limits](../azure-netapp-files/azure-netapp-files-service-levels.md).
-    - For **Size (TiB)** , enter the capacity pool size that best fits your needs. The minimum size is 4 TiB.
+       >Premium 설정은 프리미엄 서비스 수준에 사용할 수 있는 최소 처리량 (256 MBps)을 제공 합니다. 프로덕션 환경에 대 한 처리량을 조정 해야 할 수 있습니다. 최종 처리량은 [처리량 한도](../azure-netapp-files/azure-netapp-files-service-levels.md)에 설명 된 관계를 기반으로 합니다.
+    - **크기 (TiB)** 에는 사용자의 요구에 가장 적합 한 용량 풀 크기를 입력 합니다. 최소 크기는 4 TiB입니다.
 
-5. When you're finished, select **OK**.
+5. 작업이 완료 되 면 **확인**을 선택 합니다.
 
-## <a name="join-an-active-directory-connection"></a>Join an Active Directory connection
+## <a name="join-an-active-directory-connection"></a>Active Directory 연결 조인
 
-After that, you need to join an Active Directory connection.
+그런 다음 Active Directory 연결에 조인 해야 합니다.
 
-1. Select **Active Directory connections** in the menu on the left side of the page, then select the **Join** button to open the **Join Active Directory** page.
+1. 페이지의 왼쪽에 있는 메뉴에서 **Active Directory 연결** 을 선택 하 고 **조인** 단추를 선택 하 여 **조인 Active Directory** 페이지를 엽니다.
 
-   ![A screenshot of the Join Active Directory connections menu.](media/active-directory-connections-menu.png)
+   ![조인 Active Directory 연결 메뉴의 스크린샷](media/active-directory-connections-menu.png)
 
-2. Enter the following values in the **Join Active Directory** page to join a connection:
+2. **조인 Active Directory** 페이지에서 다음 값을 입력 하 여 연결을 조인 합니다.
 
-    - For **Primary DNS**, enter the IP address of the DNS server in your environment that can resolve the domain name.
-    - For **Domain**, enter your fully qualified domain name (FQDN).
-    - For **SMB Server (Computer Account) Prefix**, enter the string you want to append to the computer account name.
-    - For **Username**, enter the name of the account with permissions to perform domain join.
-    - For **Password**, enter the account's password.
+    - **주 dns**의 경우 도메인 이름을 확인할 수 있는 사용자 환경에 DNS 서버의 IP 주소를 입력 합니다.
+    - **도메인**에 대해 FQDN (정규화 된 도메인 이름)을 입력 합니다.
+    - **SMB 서버 (컴퓨터 계정) 접두사**에 컴퓨터 계정 이름에 추가 하려는 문자열을 입력 합니다.
+    - **사용자 이름**에 도메인 가입을 수행할 수 있는 권한이 있는 계정의 이름을 입력 합니다.
+    - **암호**에 계정의 암호를 입력 합니다.
 
   >[!NOTE]
-  >It's best practice to confirm that the computer account you created in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection) has appeared in your domain controller under **Computers** or **your enterprise's relevant OU**.
+  >[Active Directory 연결](create-fslogix-profile-container.md#join-an-active-directory-connection) 에서 만든 컴퓨터 계정이 **컴퓨터** 또는 **기업의 관련 OU**아래 도메인 컨트롤러에 표시 되는지 확인 하는 것이 가장 좋습니다.
 
 ## <a name="create-a-new-volume"></a>새 볼륨 만들기
 
-Next, you'll need to create a new volume.
+다음으로 새 볼륨을 만들어야 합니다.
 
-1. Select **Volumes**, then select **Add volume**.
+1. **볼륨**을 선택 하 고 **볼륨 추가**를 선택 합니다.
 
-2. When the **Create a volume** blade opens, enter the following values:
+2. **볼륨 만들기** 블레이드가 열리면 다음 값을 입력 합니다.
 
-    - For **Volume name**, enter a name for the new volume.
-    - For **Capacity pool**, select the capacity pool you just created from the drop-down menu.
-    - For **Quota (GiB)** , enter the volume size appropriate for your environment.
-    - For **Virtual network**, select an existing virtual network that has connectivity to the domain controller from the drop-down menu.
-    - Under **Subnet**, select **Create new**. Keep in mind that this subnet will be delegated to Azure NetApp Files.
+    - **볼륨 이름**에 새 볼륨의 이름을 입력 합니다.
+    - **용량 풀**의 경우 드롭다운 메뉴에서 방금 만든 용량 풀을 선택 합니다.
+    - **할당량 (GiB)** 에는 사용자 환경에 적합 한 볼륨 크기를 입력 합니다.
+    - **가상 네트워크**의 경우 드롭다운 메뉴에서 도메인 컨트롤러에 연결 되어 있는 기존 가상 네트워크를 선택 합니다.
+    - **서브넷**에서 **새로 만들기**를 선택 합니다. 이 서브넷은 Azure NetApp Files에 위임 된다는 점에 유의 하세요.
 
-3.  Select **Next: Protocol \>\>** to open the Protocol tab and configure your volume access parameters.
+3.  **다음: 프로토콜 \>\>** 를 선택 하 여 프로토콜 탭을 열고 볼륨 액세스 매개 변수를 구성 합니다.
 
-## <a name="configure-volume-access-parameters"></a>Configure volume access parameters
+## <a name="configure-volume-access-parameters"></a>볼륨 액세스 매개 변수 구성
 
-After you create the volume, configure the volume access parameters.
+볼륨을 만든 후에는 볼륨 액세스 매개 변수를 구성 합니다.
 
-1.  Select **SMB** as the protocol type.
-2.  Under Configuration in the **Active Directory** drop-down menu, select the same directory that you originally connected in [Join an Active Directory connection](create-fslogix-profile-container.md#join-an-active-directory-connection). Keep in mind that there's a limit of one Active Directory per subscription.
-3.  In the **Share name** text box, enter the name of the share used by the session host pool and its users.
+1.  프로토콜 유형으로 **SMB** 를 선택 합니다.
+2.  **Active Directory** 드롭다운 메뉴의 구성에서 원래 [Active Directory 연결](create-fslogix-profile-container.md#join-an-active-directory-connection)에 연결 된 것과 동일한 디렉터리를 선택 합니다. 구독 당 Active Directory 하나의 제한이 있다는 점에 유의 하세요.
+3.  **공유 이름** 텍스트 상자에 세션 호스트 풀 및 해당 사용자가 사용 하는 공유의 이름을 입력 합니다.
 
-4.  Select **Review + create** at the bottom of the page. This opens the validation page. After your volume is validated successfully, select **Create**.
+4.  페이지 맨 아래에서 **검토 + 만들기** 를 선택 합니다. 그러면 유효성 검사 페이지가 열립니다. 볼륨의 유효성을 검사 한 후 **만들기**를 선택 합니다.
 
-5.  At this point, the new volume will start to deploy. Once deployment is complete, you can use the Azure NetApp Files share.
+5.  이때 새 볼륨이 배포 되기 시작 합니다. 배포가 완료 되 면 Azure NetApp Files 공유를 사용할 수 있습니다.
 
-6.  To see the mount path, select **Go to resource** and look for it in the Overview tab.
+6.  탑재 경로를 확인 하려면 **리소스로 이동** 을 선택 하 고 개요 탭에서 찾습니다.
 
-    ![A screenshot of the Overview screen with a red arrow pointing at the mount path.](media/overview-mount-path.png)
+    ![탑재 경로를 가리키는 빨간색 화살표가 있는 개요 화면의 스크린샷](media/overview-mount-path.png)
 
-## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>Configure FSLogix on session host virtual machines (VMs)
+## <a name="configure-fslogix-on-session-host-virtual-machines-vms"></a>세션 호스트 Vm (가상 머신)에서 FSLogix 구성
 
-This section is based on [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+이 섹션은 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 기반으로 합니다.
 
-1. [Download the FSLogix agent .zip file](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) while you're still remoted in the session host VM.
+1. 세션 호스트 VM에서 여전히 원격으로 로그인 하는 동안 [FSLogix 에이전트 .zip 파일을 다운로드](https://go.microsoft.com/fwlink/?linkid=2084562&clcid=0x409) 합니다.
 
-2. Unzip the downloaded file.
+2. 다운로드 한 파일의 압축을 풉니다.
 
-3. In the file, go to **x64** > **Releases** and run **FSLogixAppsSetup.exe**. The installation menu will open.
+3. 파일에서 **x64** > **릴리스** 로 이동 하 여 **FSLogixAppsSetup**를 실행 합니다. 설치 메뉴가 열립니다.
 
-4.  If you have a product key, enter it in the Product Key text box.
+4.  제품 키가 있는 경우 제품 키 텍스트 상자에 입력 합니다.
 
-5. Select the check box next to **I agree to the license terms and conditions**.
+5. **사용 조건에 동의 함**옆의 확인란을 선택 합니다.
 
 6. **설치**를 선택합니다.
 
-7. Navigate to **C:\\Program Files\\FSLogix\\Apps** to confirm the agent installed.
+7. **C:\\Program Files\\FSLogix\\앱** 으로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
 
-8. From the Start menu, run **RegEdit** as administrator.
+8. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다.
 
-9. Navigate to **Computer\\HKEY_LOCAL_MACHINE\\software\\FSLogix**.
+9. **컴퓨터\\HKEY_LOCAL_MACHINE\\소프트웨어\\FSLogix**로 이동 합니다.
 
-10. Create a key named **Profiles**.
+10. **프로필**이라는 키를 만듭니다.
 
-11.  Create a value named **Enabled** with a **REG_DWORD** type set to a data value of **1**.
+11.  **REG_DWORD** 형식을 데이터 값 **1**로 설정 하 여 **Enabled** 라는 값을 만듭니다.
 
-12. Create a value named **VHDLocations** with a **Multi-String** type and set its data value to the URI for the Azure NetApp Files share.
+12. **다중 문자열** 형식을 사용 하 여 **VHDLocations** 라는 값을 만들고 해당 데이터 값을 Azure NetApp Files 공유에 대 한 URI로 설정 합니다.
 
-13. Create a value named **DeleteLocalProfileWhenVHDShouldApply** with a DWORD value of 1 to avoid problems with existing local profiles before you sign in.
+13. 로그인 하기 전에 기존 로컬 프로필에 대 한 문제를 방지 하기 위해 DWORD 값이 1 인 **DeleteLocalProfileWhenVHDShouldApply** 라는 값을 만듭니다.
 
      >[!WARNING]
-     >Be careful when creating the DeleteLocalProfileWhenVHDShouldApply value. When the FSLogix Profiles system determines a user should have an FSLogix profile, but a local profile already exists, Profile Container will permanently delete the local profile. The user will then be signed in with the new FSLogix profile.
+     >DeleteLocalProfileWhenVHDShouldApply 값을 만들 때는 주의 해야 합니다. FSLogix 프로필 시스템에서 사용자에 게 FSLogix 프로필이 있어야 하지만 로컬 프로필이 이미 존재 하는 것으로 확인 되 면 프로필 컨테이너는 로컬 프로필을 영구적으로 삭제 합니다. 그러면 사용자에 게 새 FSLogix 프로필을 사용 하 여 로그인 됩니다.
 
-## <a name="assign-users-to-session-host"></a>Assign users to session host
+## <a name="assign-users-to-session-host"></a>세션 호스트에 사용자 할당
 
-1. Open **PowerShell ISE** as administrator and sign in to Windows Virtual Desktop.
+1. 관리자 권한으로 **POWERSHELL ISE** 를 열고 Windows 가상 데스크톱에 로그인 합니다.
 
 2. 다음 cmdlet을 실행합니다.
 
@@ -198,9 +198,9 @@ This section is based on [Create a profile container for a host pool using a fil
    Add-RdsAccount -DeploymentUrl $brokerurl
    ```
 
-3. When prompted for credentials, enter the credentials for the user with the Tenant Creator or RDS Owner/RDS Contributor roles on the Windows Virtual Desktop tenant.
+3. 자격 증명을 입력 하 라는 메시지가 표시 되 면 Windows 가상 데스크톱 테 넌 트에 테 넌 트 작성자 또는 RDS 소유자/RDS 참가자 역할이 있는 사용자의 자격 증명을 입력 합니다.
 
-4. Run the following cmdlets to assign a user to a Remote Desktop group:
+4. 다음 cmdlet을 실행 하 여 원격 데스크톱 그룹에 사용자를 할당 합니다.
 
    ```powershell
    $wvdTenant = "<your-wvd-tenant>"
@@ -210,26 +210,26 @@ This section is based on [Create a profile container for a host pool using a fil
    Add-RdsAppGroupUser $wvdTenant $hostPool $appGroup $user
    ```
 
-## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>Make sure users can access the Azure NetApp File share
+## <a name="make-sure-users-can-access-the-azure-netapp-file-share"></a>사용자가 Azure NetApp 파일 공유에 액세스할 수 있는지 확인
 
-1. Open your internet browser and go to <https://rdweb.wvd.microsoft.com/webclient/index.html>.
+1. 인터넷 브라우저를 열고 <https://rdweb.wvd.microsoft.com/webclient/index.html>로 이동 합니다.
 
-2. Sign in with the credentials of a user assigned to the Remote Desktop group.
+2. 원격 데스크톱 그룹에 할당 된 사용자의 자격 증명을 사용 하 여 로그인 합니다.
 
-3. Once you've established the user session, sign in to the Azure portal with an administrative account.
+3. 사용자 세션을 설정한 후에는 관리자 계정으로 Azure Portal에 로그인 합니다.
 
-4. Open **Azure NetApp Files**, select your Azure NetApp Files account, and then select **Volumes**. Once the Volumes menu opens, select the corresponding volume.
+4. **Azure NetApp Files**를 열고 Azure NetApp Files 계정을 선택한 다음, **볼륨**을 선택 합니다. 볼륨 메뉴가 열리면 해당 볼륨을 선택 합니다.
 
-   ![A screenshot of the NetApp account you set up earlier in the Azure portal with the Volumes button selected.](media/netapp-account.png)
+   ![볼륨 단추를 선택 하 여 Azure Portal 이전에 설정한 NetApp 계정의 스크린샷](media/netapp-account.png)
 
-5. Go to the **Overview** tab and confirm that the FSLogix profile container is using space.
+5. **개요** 탭으로 이동 하 여 FSLogix 프로필 컨테이너가 공간을 사용 하 고 있는지 확인 합니다.
 
-6. Connect directly to any VM part of the host pool using Remote Desktop and open the **File Explorer.** Then navigate to the **Mount path** (in the following example, the mount path is \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-VOL).
+6. 원격 데스크톱을 사용 하 여 호스트 풀의 모든 VM 부분에 직접 연결 하 고 **파일 탐색기** 를 엽니다. 그런 다음 **탑재 경로로** 이동 합니다. 다음 예제에서는 탑재 경로가 \\\\anf-SMB-3863.gt1107.onmicrosoft.com\\anf-볼륨)으로 이동 합니다.
 
-   Within this folder, there should be a profile VHD (or VHDX) like the one in the following example.
+   이 폴더에는 다음 예제에 나와 있는 것과 같은 프로필 VHD (또는 VHDX)가 있어야 합니다.
 
-   ![A screenshot of the contents of the folder in the mount path. Inside is a single VHD file named "Profile_ssbb."](media/mount-path-folder.png)
+   ![탑재 경로에 있는 폴더 내용의 스크린샷 내부는 "Profile_ssbb" 이라는 단일 VHD 파일입니다.](media/mount-path-folder.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-You can use FSLogix profile containers to set up a user profile share. To learn how to create user profile shares with your new containers, see [Create a profile container for a host pool using a file share](create-host-pools-user-profile.md).
+FSLogix 프로필 컨테이너를 사용 하 여 사용자 프로필 공유를 설정할 수 있습니다. 새 컨테이너를 사용 하 여 사용자 프로필 공유를 만드는 방법을 알아보려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md)를 참조 하세요.

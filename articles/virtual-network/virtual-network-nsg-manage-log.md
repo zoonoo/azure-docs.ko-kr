@@ -138,7 +138,7 @@ az monitor diagnostic-settings create \
 
 JSON 형식의 데이터는 다음 로그 범주에 대해 기록됩니다.
 
-### <a name="event"></a>이벤트
+### <a name="event"></a>행사
 
 이벤트 로그는 MAC 주소에 따라 VM에 적용될 NSG 규칙에 대한 정보를 포함합니다. 다음 데이터는 각 이벤트에 대해 기록됩니다. 다음 예제에서 데이터는 IP 주소 192.168.1.4 및 00-0D-3A-92-6A-7C의 MAC 주소로 가상 머신에 대해 기록됩니다.
 

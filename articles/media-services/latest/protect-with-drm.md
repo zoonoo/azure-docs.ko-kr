@@ -112,7 +112,7 @@ Azure Media Services를 사용하여 Microsoft PlayReady, Google Widevine 또는
 
 지정 된 구성을 사용 하 여 키를 전달 하기 위해 충족 해야 하는 **콘텐츠 키 정책** 에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 이 예제에서는 다음 구성 및 요구 사항을 설정합니다.
 
-* Configuration
+* 구성
 
     [PlayReady](playready-license-template-overview.md) 및 [Widevine](widevine-license-template-overview.md) 라이선스를 Media Services 라이선스 배달 서비스에서 배달할 수 있도록 구성합니다. 이 샘플 앱은 [FairPlay](fairplay-license-overview.md) 라이선스를 구성 하지 않지만 FairPlay를 구성 하는 데 사용할 수 있는 메서드를 포함 합니다. FairPlay 구성을 다른 옵션으로 추가할 수 있습니다.
 

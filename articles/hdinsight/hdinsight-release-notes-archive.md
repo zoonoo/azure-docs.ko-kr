@@ -146,7 +146,7 @@ Apache Storm 및 ML 서비스는 HDInsight 4.0에서 사용할 수 없습니다.
 
 *  ***Hadoop 및 기타 오픈 소스 프로젝트 업데이트*** - 20개 이상의 소스 프로젝트에서 1,000개 이상의 버그 수정 외에도, 이 업데이트에 새 버전의 **Spark(2.3)** 및**Kafka(1.0)** 가 포함되었습니다.
 
-    a.  [**Apache Spark 2.3의 새로운 기능**](https://spark.apache.org/releases/spark-release-2-3-0.html)
+    가.  [**Apache Spark 2.3의 새로운 기능**](https://spark.apache.org/releases/spark-release-2-3-0.html)
 
     b.  [**Apache Kafka 1.0의 새로운 기능**](https://kafka.apache.org/downloads#1.0.0)
 
@@ -648,7 +648,7 @@ HDP-2.3.x 및 2.4.x에서는 Mahout의 특정 Apache 릴리스를 전달하는 �
 
 HDP 2.3.x 및 2.4.x에서 Mahout에 대해 선택된 수정 버전 지점은 Apache Mahout의 "mahout-0.10.x" 분기(2014년 12월 19일 기준, GitHub의 0f037cb03e77c096 수정 버전)에 있습니다.
 
-HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라이브러리로 간주하고 Mahout의 Hadoop-Client를 2.7.3 버전(HDP-2.5에서 사용된 것과 동일한 버전)으로 업그레이드했기 때문에 Mahout에서 "commons-httpclient" 라이브러리를 제거했습니다. 결과는 다음과 같습니다.
+HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라이브러리로 간주하고 Mahout의 Hadoop-Client를 2.7.3 버전(HDP-2.5에서 사용된 것과 동일한 버전)으로 업그레이드했기 때문에 Mahout에서 "commons-httpclient" 라이브러리를 제거했습니다. 그 결과는 다음과 같습니다.
 
 -   이전에 컴파일된 Mahout 작업은 HDP-2.5 또는 2.6 환경에서 다시 컴파일해야 합니다.
 
@@ -1549,7 +1549,7 @@ HDP-2.5.x 및 2.6.x에서는 가능한 보안 문제가 있는 쓸모 없는 라
 
     -   <https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations>
 
-### <a name="upgrading"></a>업그레이드
+### <a name="upgrading"></a>업그레이드 중
 
 HDInsight 3.6에서는 이러한 모든 기능을 사용할 수 있습니다. 최신 버전의 Spark, Kafka 및 R Server(Machine Learning Services)를 얻으려면, [HDInsight 3.6 클러스터를 만들](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-provision-linux-clusters) 때 Spark, Kafka, ML Services 버전을 선택합니다. ADLS에 대한 지원을 받으려면 ADLS 스토리지 유형을 옵션으로 선택할 수 있습니다. 기존 클러스터는 이러한 버전으로 자동 업그레이드되지 않습니다.
 
