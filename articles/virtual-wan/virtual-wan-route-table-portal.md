@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to create a route table using the portal.
-ms.openlocfilehash: 3aa5660e5b777364ef9d684debe7e06f42acee6e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6b78b97004498fdacccdf9408d59158424ff6c07
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482018"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534145"
 ---
 # <a name="create-a-virtual-wan-hub-route-table-for-nvas-azure-portal"></a>Nva에 대 한 가상 WAN 허브 경로 테이블 만들기: Azure Portal
 
@@ -31,7 +31,7 @@ ms.locfileid: "74482018"
 
     * NVA는 가상 허브에 배포 되지 않습니다. 별도의 VNet에 배포해야 합니다.
 
-    *  NVA VNet에는 하나 이상의 가상 네트워크가 연결 되어 있을 수 있습니다. 이 문서에서는 NVA VNet을 ' 간접 스포크 VNet ' 이라고 지칭 합니다. 이러한 Vnet는 VNet 피어 링을 사용 하 여 NVA VNet에 연결할 수 있습니다. 위의 그림에서 Vnet 피어 링 링크는 검은색 화살표로 표시 됩니다.
+    *  NVA VNet에는 하나 이상의 가상 네트워크가 연결 되어 있을 수 있습니다. 이 문서에서는 NVA VNet을 ' 간접 스포크 VNet ' 이라고 지칭 합니다. 이러한 Vnet는 VNet 피어 링을 사용 하 여 NVA VNet에 연결할 수 있습니다. Vnet 피어 링 링크는 위의 그림에서 Vnet 1, Vnet 2 및 NVA Vnet 사이의 검은색 화살표로 표시 됩니다.
 *  Vnet 2 개를 만들었습니다. 스포크 Vnet 사용 됩니다.
 
     * 이 연습에서 VNet 스포크 주소 공간은: VNet1:10.0.2.0/24 및 VNet2:10.0.3.0/24입니다. VNet을 만드는 방법에 대 한 정보가 필요한 경우 [가상 네트워크 만들기](../virtual-network/quick-create-portal.md)를 참조 하세요.
@@ -79,7 +79,7 @@ ms.locfileid: "74482018"
 
 ## <a name="connections"></a>5. VNet 연결 만들기
 
-각 간접 스포크 VNet (VNet1 및 VNet2)에서 허브로의 연결을 만듭니다. 그런 다음 NVA VNet에서 허브로의 연결을 만듭니다. 위의 그림에서 이러한 Vnet 연결은 파란색 화살표로 되어 있습니다. 
+각 간접 스포크 VNet (VNet1 및 VNet2)에서 허브로 Vnet 연결을 만듭니다. 이러한 Vnet 연결은 위의 그림에 표시 된 파란색 화살표로 표시 됩니다. 그런 다음 NVA VNet에서 허브 (그림의 검은색 화살표)로 Vnet 연결을 만듭니다. 
 
  이 단계에서는 다음 값을 사용할 수 있습니다.
 

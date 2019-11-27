@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b0472b10de3641f1575f7f9a5c223ab5032f0e16
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5643f1df6cefa9ca6c60453939be533b2c00eaf4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066157"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533091"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
 
 Azure Active Directory B2C (Azure AD B2C)는 다양 한 최신 응용 프로그램 아키텍처에 대 한 인증을 지원 합니다. 모두 업계 표준 프로토콜인 [OAuth 2.0](active-directory-b2c-reference-protocols.md) 또는 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 기반으로 합니다. 이 문서에서는 선호 하는 언어 또는 플랫폼에 독립적으로 빌드할 수 있는 응용 프로그램의 유형을 설명 합니다. 또한 애플리케이션 빌드를 시작하기 전에 대략적인 시나리오에 대한 이해를 돕습니다.
 
-Azure AD B2C를 사용하는 모든 애플리케이션은 [Azure Portal](https://portal.azure.com/)을 사용하여 [Azure AD B2C 테넌트](active-directory-b2c-get-started.md)에 등록해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
+Azure AD B2C를 사용하는 모든 애플리케이션은 [Azure Portal](active-directory-b2c-get-started.md)을 사용하여 [Azure AD B2C 테넌트](https://portal.azure.com/)에 등록해야 합니다. 애플리케이션 등록 프로세스는 다음과 같은 값을 수집하고 할당합니다.
 
 * 애플리케이션을 고유하게 식별하는 **애플리케이션 ID**
 * 응답을 다시 애플리케이션으로 보내는 데 사용할 수 있는 **회신 URL**
@@ -39,7 +39,7 @@ Azure AD B2C로 전송 되는 각 요청은 **사용자 흐름** (기본 제공 
 
 이러한 단계는 빌드 중인 애플리케이션의 유형에 따라 약간씩 다를 수 있습니다.
 
-## <a name="web-applications"></a>웹 응용 프로그램
+## <a name="web-applications"></a>웹 애플리케이션
 
 서버에서 호스트되며 브라우저를 통해 액세스하는 웹 애플리케이션(.NET, PHP, Java, Ruby, Python, Node.js 등)의 경우, Azure AD B2C는 모든 사용자 환경에 [OpenID Connect](active-directory-b2c-reference-protocols.md)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 웹 애플리케이션은 Azure AD로 인증 요청을 발급하여 사용자 환경을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 사용자의 ID를 나타냅니다. 또한 클레임 형태로 사용자에 대한 정보를 제공합니다.
 
@@ -108,7 +108,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 모바일 및 데스크톱 애플리케이션과 같은 디바이스에 설치된 애플리케이션은 사용자 대신 백 엔드 서비스 또는 Web API에 액세스해야 하는 경우가 많습니다. 네이티브 애플리케이션에 사용자 지정된 ID 관리 환경을 추가하고 Azure AD B2C 및 [OAuth 2.0 권한 부여 코드 흐름](active-directory-b2c-reference-oauth-code.md)을 사용하여 안전하게 백 엔드 서비스를 호출할 수 있습니다.
 
-이 흐름에서 애플리케이션은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 애플리케이션의 사용 권한을 나타냅니다. 그러면 애플리케이션은 백그라운드에서 `access_token` 및 `refresh_token`에 대한 `authorization_code`를 교환할 수 있습니다.  애플리케이션은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `access_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `access_token`을 가져올 수도 있습니다.
+이 흐름에서 애플리케이션은 [정책](active-directory-b2c-reference-policies.md)을 실행하고 사용자가 정책을 완료하면 Azure AD에서 `authorization_code`를 수신합니다. `authorization_code`는 현재 로그인한 사용자를 대신하여 백 엔드 서비스를 호출할 애플리케이션의 사용 권한을 나타냅니다. 그러면 애플리케이션은 백그라운드에서 `authorization_code` 및 `access_token`에 대한 `refresh_token`를 교환할 수 있습니다.  애플리케이션은 HTTP 요청에서 백 엔드 Web API를 인증하는 데 `access_token`을 사용할 수 있습니다. 또한 이전 항목이 만료된 경우 `refresh_token`을 사용하여 새 `access_token`을 가져올 수도 있습니다.
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -124,7 +124,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 #### <a name="web-api-chains-on-behalf-of-flow"></a>Web API 체인(On-Behalf-Of 흐름)
 
-많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 웹 API 백 엔드를 포함하는 네이티브 클라이언트에서 일반적으로 수행되는 이 시나리오에서는 Azure AD Graph API 등의 Microsoft 온라인 서비스를 호출합니다.
+많은 아키텍처에는 다른 다운스트림 Web API를 호출해야 하는 Web API가 포함되어 있으며 둘 다 Azure AD B2C로 보안됩니다. 이 시나리오는 Web API 백 엔드를 포함 하는 네이티브 클라이언트에서 일반적 이며 Microsoft Graph API 또는 Azure AD Graph API와 같은 Microsoft 온라인 서비스를 호출 합니다.
 
 On-Behalf-Of 흐름이라고도 하는 OAuth 2.0 JWT 전달자 자격 증명 권한 부여를 사용하여 이 연결된 Web API 시나리오를 지원할 수 있습니다.  그러나 On-Behalf-Of 흐름은 현재 Azure AD B2C에 구현되어 있지 않습니다.
 

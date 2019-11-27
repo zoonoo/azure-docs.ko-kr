@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances에서 컨테이너 모니터링
+title: 컨테이너 인스턴스 모니터링
 description: Azure Container Instances에서 컨테이너의 CPU 및 메모리와 같은 컴퓨팅 리소스의 소비를 모니터링하는 방법입니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/24/2019
-ms.author: danlep
-ms.openlocfilehash: a26789bb41fb3fb1e7dec376b7e187f45745ea65
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: bd86161bc7840be599eb5ee9a20f6dbf143f5f22
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172248"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533641"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 리소스 모니터링
 
@@ -49,7 +44,7 @@ Azure Monitor는 다음과 같은 [Azure Container Instances를 위한 메트릭
 1. **개요** 페이지에서 **CPU**와 같은 메트릭 차트 중 하나를 선택합니다. 
 1. **분할 적용** 단추를 선택하고 **컨테이너 이름**을 선택합니다.
 
-![차원(dimension)][dimension]
+![차원][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>메트릭 가져오기 - Azure CLI
 

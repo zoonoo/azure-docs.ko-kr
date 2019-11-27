@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/04/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c22c75b4fe900ecb96d016251c09e9ad6ec31f7c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: d72d39a2a59e06954c36473083af2d2b4689a7b6
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306227"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538216"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Team Data Science Process 수명 주기의 모델링 단계
 
@@ -25,7 +25,7 @@ ms.locfileid: "60306227"
    1. **비즈니스 이해**
    2. **데이터 취득 및 이해**
    3. **모델링**
-   4. **배포**
+   4. **배포웹사이트를**
    5. **고객 승인**
 
 다음은 TDSP 수명 주기를 시각적으로 나타낸 것입니다.
@@ -63,7 +63,7 @@ ms.locfileid: "60306227"
    * 대체 방법 간의 성공 메트릭을 비교하여 질문에 대답하는 **"최상"의 솔루션을 결정**합니다.
 
 > [!NOTE]
-> **유출 방지**: 모델 또는 기계 학습 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 세트 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
+> **유출 방지**: 모델 또는 Machine Learning 알고리즘을 통해 비현실적으로 좋은 예측을 만들기 위해 학습 데이터 집합 외부의 데이터를 포함하면 데이터 유출이 발생할 수 있습니다. 유출은 데이터 과학자들이 진실하기에는 너무 좋아 보이는 예측 결과를 가져올 때 불안해 하는 일반적 이유입니다. 이러한 종속성은 감지하기 어려울 수 있습니다. 유출을 방지하려면 종종 분석 데이터 집합을 빌드하고 모델을 만들어 결과의 정확성을 평가하는 과정을 반복해야 합니다. 
 > 
 > 
 
@@ -72,7 +72,7 @@ ms.locfileid: "60306227"
 ## <a name="artifacts"></a>아티팩트
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
-   * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/DataReport/Data%20Defintion.md#feature-sets): 모델링을 위해 개발된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
+   * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
    * [모델 보고서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): 시도하는 각 모델에 대해 각 실험에 대한 세부 정보를 제공하는 템플릿 기반 표준 보고서가 생성됩니다.
    * **검사점 의사 결정**: 모델이 프로덕션 시스템에 배포할 수 있을 만큼 성능이 좋은지 평가합니다. 몇 가지 주요 질문은 다음과 같습니다.
      * 테스트 데이터가 제공되면 질문에 대해 모델에서 매우 신뢰성 있게 대답합니까? 
@@ -85,7 +85,7 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    1. [비즈니스 이해](lifecycle-business-understanding.md)
    2. [데이터 취득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
-   4. [배포](lifecycle-deployment.md)
+   4. [배포웹사이트를](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 전체 엔드투엔드 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 

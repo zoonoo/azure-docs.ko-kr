@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/20/2019
-ms.openlocfilehash: 3fb021c06369d1f37dad83b3f9b27e039ddf8b5e
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 75611dd36196c722254d694e9753deb982e2570d
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811282"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539332"
 ---
 # <a name="resource-limits-for-single-databases-using-the-dtu-purchasing-model"></a>DTU 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한
 
@@ -43,6 +43,12 @@ ms.locfileid: "73811282"
 | 최대 동시 세션 | 300 |
 |||
 
+> [!IMPORTANT]
+> 기본 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+>
+>데이터 저장소와 관련 하 여 기본 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
+>
+
 ### <a name="standard-service-tier"></a>표준 서비스 계층
 
 | **컴퓨팅 크기** | **S0** | **S1** | **S2** | **S3** |
@@ -54,6 +60,12 @@ ms.locfileid: "73811282"
 | 최대 동시 작업자(요청)| 60 | 90 | 120 | 200 |
 | 최대 동시 세션 |600 | 900 | 1200 | 2400 |
 ||||||
+
+> [!IMPORTANT]
+> 표준 S0, S1 및 S2 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+>
+>데이터 저장소와 관련 하 여 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
+>
 
 ### <a name="standard-service-tier-continued"></a>표준 서비스 계층(계속)
 
@@ -72,8 +84,8 @@ ms.locfileid: "73811282"
 | **컴퓨팅 크기** | **P1** | **P2** | **P4** | **P6** | **P11** | **P15** |
 | :--- |---:|---:|---:|---:|---:|---:|
 | 최대 DTU | 125 | 250 | 500 | 1000 | 1750 | 4000 |
-| 포함된 스토리지(GB) | 500 | 500 | 500 | 500 | 4096 * | 4096 * |
-| 최대 스토리지(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096 * | 4096 * |
+| 포함된 스토리지(GB) | 500 | 500 | 500 | 500 | 4096* | 4096* |
+| 최대 스토리지(GB) 옵션 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 500, 750, 1024 | 4096* | 4096* |
 | 최대 메모리 내 OLTP 스토리지(GB) | 1 | 2 | 4 | 8 | 14 | 32 |
 | 최대 동시 작업자(요청)| 200 | 400 | 800 | 1600 | 2400 | 6400 |
 | 최대 동시 세션 | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
@@ -84,13 +96,13 @@ ms.locfileid: "73811282"
 > [!IMPORTANT]
 > 프리미엄 계층에 1TB 이상 저장소는 중국 동부, 중국 북부, 독일 중부, 독일 북동쪽, 미국 서 부, US DoD 지역 및 미국 정부 중부를 제외한 모든 지역에서 사용할 수 있습니다. 이러한 지역에서 프리미엄 계층 스토리지 최대 크기는 1TB로 제한됩니다.  자세한 내용은 [P11-P15 현재 제한 사항](sql-database-single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb)을 참조하세요.  
 > [!NOTE]
-> `tempdb`제한 사항은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
+> `tempdb` 제한은 [tempdb 제한](https://docs.microsoft.com/sql/relational-databases/databases/tempdb-database?view=sql-server-2017#tempdb-database-in-sql-database)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 - 단일 데이터베이스에 대 한 vCore 리소스 제한은 [vcore 구매 모델을 사용 하 여 단일 데이터베이스에 대 한 리소스 제한](sql-database-vcore-resource-limits-single-databases.md) 을 참조 하세요.
 - 탄력적 풀에 대 한 vCore 리소스 제한은 [vcore 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한](sql-database-vcore-resource-limits-elastic-pools.md) 을 참조 하세요.
 - 탄력적 풀에 대 한 DTU 리소스 제한의 경우 [dtu 구매 모델을 사용 하 여 탄력적 풀에 대 한 리소스 제한](sql-database-dtu-resource-limits-elastic-pools.md) 을 참조 하세요.
-- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조합니다.
+- 관리되는 인스턴스에 대한 리소스 제한의 경우 [관리되는 인스턴스 리소스 제한](sql-database-managed-instance-resource-limits.md)을 참조하세요.
 - 일반 Azure 제한에 대한 자세한 내용은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../azure-subscription-service-limits.md)을 참조하세요.
 - 데이터베이스 서버의 리소스 제한에 대한 자세한 내용은 서버 및 구독 수준의 한도에 관한 정보인 경우 [SQL Database 서버의 리소스 제한 개요](sql-database-resource-limits-database-server.md)를 참조하세요.

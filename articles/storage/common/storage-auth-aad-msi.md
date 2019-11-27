@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d77ab142e227cfaa6533395cc256d992e698dd17
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 66d867d33060aa931dbe42c534166e61ee7692fe
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495933"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534508"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -34,39 +34,92 @@ Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 blob 및 큐에 �
 
 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)를 참조 하세요.
 
-## <a name="authenticate-with-the-azure-identity-library-preview"></a>Azure Id 라이브러리 (미리 보기)를 사용 하 여 인증
+## <a name="authenticate-with-the-azure-identity-library"></a>Azure Id 라이브러리를 사용 하 여 인증
 
-.NET 용 Azure Id 클라이언트 라이브러리 (미리 보기)는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다.
+Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개발 환경 또는 Azure에서 실행 되 고 있는지 여부를 인증 하는 데 동일한 코드를 사용할 수 있다는 것입니다. Azure 환경에서 실행 되는 코드에서 클라이언트 라이브러리는 Azure 리소스에 대 한 관리 되는 id를 인증 합니다. 개발 환경에서 관리 id가 존재 하지 않으므로 클라이언트 라이브러리는 테스트 목적으로 사용자 또는 서비스 주체를 인증 합니다.
 
-개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
-
-다른 개발 도구는 웹 브라우저를 통해 로그인 하 라는 메시지를 표시할 수 있습니다. 서비스 주체를 사용 하 여 개발 환경에서 인증할 수도 있습니다. 자세한 내용은 [포털에서 Azure 앱에 대 한 Id 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
+.NET 용 Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다.
 
 인증 후에 Azure Id 클라이언트 라이브러리는 토큰 자격 증명을 가져옵니다. 그런 다음이 토큰 자격 증명은 Azure Storage에 대해 작업을 수행 하기 위해 만드는 서비스 클라이언트 개체에 캡슐화 됩니다. 라이브러리는 적절 한 토큰 자격 증명을 가져와이를 원활 하 게 처리 합니다.
 
 Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)를 참조 하세요.
 
-## <a name="assign-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC 역할 할당
+### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC (역할 기반 액세스 제어) 역할 할당
 
 Azure AD 보안 주체가 blob 또는 큐 데이터에 액세스 하려는 경우 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 또는 큐 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 Azure blob 및 큐에](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 RBAC 역할 할당** 섹션을 참조 하세요.
 
-## <a name="install-the-preview-packages"></a>미리 보기 패키지 설치
+### <a name="authenticate-the-user-in-the-development-environment"></a>개발 환경에서 사용자 인증
 
-이 문서의 예제에서는 Blob 저장소에 대 한 Azure Storage 클라이언트 라이브러리의 최신 미리 보기 버전을 사용 합니다. 미리 보기 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
+개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
 
-```powershell
-Install-Package Azure.Storage.Blobs -IncludePrerelease
+다른 개발 도구는 웹 브라우저를 통해 로그인 하 라는 메시지를 표시할 수 있습니다.
+
+### <a name="authenticate-a-service-principal-in-the-development-environment"></a>개발 환경에서 서비스 주체 인증
+
+개발 환경에서 웹 브라우저를 통해 Single Sign-On 또는 로그인을 지원 하지 않는 경우 서비스 주체를 사용 하 여 개발 환경에서 인증할 수 있습니다.
+
+#### <a name="create-the-service-principal"></a>서비스 주체 만들기
+
+Azure CLI를 사용 하 여 서비스 주체를 만들고 RBAC 역할을 할당 하려면 [az ad sp create-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) 명령을 호출 합니다. 새 서비스 사용자에 게 할당할 Azure Storage 데이터 액세스 역할을 제공 합니다. 또한 역할 할당에 대 한 범위를 제공 합니다. Azure Storage에 대해 제공 되는 기본 제공 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조 하세요.
+
+서비스 주체에 역할을 할당할 수 있는 권한이 없는 경우 계정 소유자 또는 관리자에 게 역할 할당을 수행 하도록 요청 해야 할 수 있습니다.
+
+다음 예에서는 Azure CLI를 사용 하 여 새 서비스 주체를 만들고 계정 범위를 사용 하 여 **저장소 Blob 데이터 읽기 권한자** 역할을 할당 합니다.
+
+```azurecli-interactive
+az ad sp create-for-rbac \
+    --name <service-principal> \
+    --role "Storage Blob Data Reader" \
+    --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-이 문서의 예제에서는 Azure AD 자격 증명을 사용 하 여 인증 하기 위해 [.net 용 Azure id 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/) 의 최신 미리 보기 버전도 사용 합니다. 미리 보기 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
+`az ad sp create-for-rbac` 명령은 JSON 형식의 서비스 사용자 속성 목록을 반환 합니다. 이러한 값을 복사 하 여 다음 단계에서 필요한 환경 변수를 만들 수 있습니다.
+
+```json
+{
+    "appId": "generated-app-ID",
+    "displayName": "service-principal-name",
+    "name": "http://service-principal-uri",
+    "password": "generated-password",
+    "tenant": "tenant-ID"
+}
+```
+
+> [!IMPORTANT]
+> RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+
+#### <a name="set-environment-variables"></a>환경 변수 설정
+
+Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변수에서 값을 읽어서 서비스 사용자를 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
+
+|환경 변수|값
+|-|-
+|`AZURE_CLIENT_ID`|서비스 사용자의 앱 ID
+|`AZURE_TENANT_ID`|서비스 주체의 Azure AD 테 넌 트 ID
+|`AZURE_CLIENT_SECRET`|서비스 사용자에 대해 생성 된 암호입니다.
+
+> [!IMPORTANT]
+> 환경 변수를 설정한 후 콘솔 창을 닫았다가 다시 엽니다. Visual Studio 또는 다른 개발 환경을 사용 하는 경우 새 환경 변수를 등록 하기 위해 개발 환경을 다시 시작 해야 할 수 있습니다.
+
+자세한 내용은 [포털에서 Azure 앱에 대 한 Id 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
+
+## <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
+
+이 문서의 예제에서는 Blob 저장소에 대 한 최신 버전의 Azure Storage 클라이언트 라이브러리를 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
 
 ```powershell
-Install-Package Azure.Identity -IncludePrerelease
+Install-Package Azure.Storage.Blobs
+```
+
+이 문서의 예제에서는 Azure AD 자격 증명을 사용 하 여 인증 하기 위해 최신 버전의 [.net 용 Azure id 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/) 도 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
+
+```powershell
+Install-Package Azure.Identity
 ```
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 
-Azure Id 및 Azure Storage 클라이언트 라이브러리의 미리 보기 버전을 사용 하려면 코드에 다음 `using` 지시문을 추가 합니다.
+Azure Id 및 Azure Storage 클라이언트 라이브러리를 사용 하는 코드에 다음 `using` 지시문을 추가 합니다.
 
 ```csharp
 using System;

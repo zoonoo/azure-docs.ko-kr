@@ -1,19 +1,15 @@
 ---
-title: 컨테이너 그룹에 대 한 리소스 로그-Azure Container Instances
+title: 컨테이너 그룹에 대 한 리소스 로그
 description: Azure Container Instances의 컨테이너 그룹에서 리소스 로그 및 이벤트 데이터를 Azure Monitor 로그에 보내는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/02/2019
 ms.author: danlep
-ms.openlocfilehash: c9b986376884bf1536567d7b5211d93191ec7cc0
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 02f950917f43b514f83bd7e10078c79634c6c751
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150166"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533729"
 ---
 # <a name="container-group-and-instance-logging-with-azure-monitor-logs"></a>Azure Monitor 로그가 포함 된 컨테이너 그룹 및 인스턴스 로깅
 

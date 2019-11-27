@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances에서 emptyDir 볼륨 탑재
+title: 컨테이너 그룹에 emptyDir 볼륨 탑재
 description: Azure Container Instances에서 컨테이너 그룹에 있는 컨테이너 간에 데이터를 공유하기 위해 emptyDir 볼륨을 탑재하는 방법을 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 02/08/2018
-ms.author: danlep
-ms.openlocfilehash: 0dbe26ff1e00e1912cfd63e8383695ca794dd037
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0440bcc490b766c12b2117d2453557707df2a1c4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325457"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533245"
 ---
 # <a name="mount-an-emptydir-volume-in-azure-container-instances"></a>Azure Container Instances에서 emptyDir 볼륨 탑재
 
@@ -38,7 +33,7 @@ Azure Container Instances 컨테이너 그룹의 컨테이너 간에 데이터�
 
 컨테이너 인스턴스에서 emptyDir 볼륨을 탑재하려면 [Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 배포해야 합니다.
 
-먼저 템플릿의 `volumes`컨테이너 그룹의 배열`properties` 섹션을 채웁니다. 다음으로 *emptyDir* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
+먼저 템플릿의 `volumes`컨테이너 그룹의 배열`properties` 섹션을 채웁니다. 다음으로 *emptyDir* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `volumeMounts` 섹션에서 `properties` 배열을 채웁니다.
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 두 컨테이너로 구성된 컨테이너 그룹을 만들고 각 그룹은 *emptyDir* 볼륨을 탑재합니다.
 

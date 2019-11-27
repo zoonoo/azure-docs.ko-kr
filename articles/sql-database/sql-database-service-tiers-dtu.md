@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6d4c9dd08f2d00bc12f041748cc78363c9abecbd
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/26/2019
+ms.openlocfilehash: 6dee7642ac7ac0544db5b88981483bd1ea0f745e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822515"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539322"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>DTU 기반 구매 모델에서 서비스 계층
 
@@ -31,7 +31,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 서비스 계층을 선택하는 작업은 주로 비즈니스 연속성, 스토리지 및 성능 요구 사항에 따라 다릅니다.
 
-||Basic|Standard|Premium|
+||기본|Standard|프리미엄|
 | :-- | --: |--:| --:|
 |대상 워크로드|개발 및 프로덕션|개발 및 프로덕션|개발 및 프로덕션|
 |작동 시간 SLA|99.99%|99.99%|99.99%|
@@ -43,6 +43,12 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 |메모리 내 OLTP|해당 없음|해당 없음|지원됨|
 |||||
 
+> [!IMPORTANT]
+> 기본, 표준 S0, S1 및 S2 서비스 계층은 두 개 미만의 vCore (CPU)를 제공 합니다.  CPU를 많이 사용 하는 워크 로드의 경우에는 S3 이상의 서비스 계층을 사용 하는 것이 좋습니다. 
+>
+>데이터 저장소와 관련 하 여 기본, 표준 S0 및 S1 서비스 계층은 표준 페이지 Blob에 배치 됩니다. 표준 페이지 Blob은 HDD (하드 디스크 드라이브) 기반 저장소 미디어를 사용 하며 성능 변동에 덜 민감한 개발, 테스트 및 자주 액세스 하지 않는 작업에 가장 적합 합니다.
+>
+
 > [!NOTE]
 > Azure 무료 계정과 함께 기본 서비스 계층에서 azure SQL database를 사용 하 여 Azure를 탐색할 수 있습니다. 자세한 내용은 [Azure 체험 계정으로 관리되는 클라우드 데이터베이스 만들기](https://azure.microsoft.com/free/services/sql-database/)를 참조하세요.
 
@@ -50,7 +56,7 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 컴퓨팅 크기는 단일 데이터베이스에 대해서는 DTU(데이터베이스 트랜잭션 단위), 탄력적 풀에 대해서는 eDTU(탄력적 데이터베이스 트랜잭션 단위)로 표현됩니다. DTU 및 eDTU에 대한 자세한 내용은 [DTU 기반 구매 모델](sql-database-purchase-models.md#dtu-based-purchasing-model)을 참조하세요.
 
-||Basic|Standard|Premium|
+||기본|Standard|프리미엄|
 | :-- | --: | --: | --: |
 | 최대 스토리지 크기 | 2 GB | 1TB | 4TB  |
 | 최대 DTU | 5 | 3000 | 4000 | 
@@ -164,9 +170,9 @@ DTU 기반 구매 모델에서 서비스 계층은 포함된 스토리지의 고
 
 | 서비스 클래스 | 처리량 측정 | 응답 시간 요구 사항 |
 | --- | --- | --- |
-| Premium |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
+| 프리미엄 |초당 트랜잭션 수 |0\.5초에서 95 백분위수 |
 | Standard |분당 트랜잭션 수 |1\.0초에서 90 백분위수 |
-| Basic |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
+| 기본 |시간당 트랜잭션 수 |2\.0초에서 80 백분위수 |
 
 ## <a name="next-steps"></a>다음 단계
 

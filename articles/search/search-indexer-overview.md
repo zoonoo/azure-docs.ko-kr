@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09a1b8e54726accf705515bf077f6a599f0f9b78
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 2719bba0e88ba3125bd5ba163804e31885b286a2
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266915"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534522"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Azure Cognitive Search의 인덱서
 
@@ -36,7 +36,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 처음에 새 인덱서는 미리 보기 기능으로 발표됩니다. 미리 보기 기능은 API(REST 및 .NET)에 도입된 다음 일반 공급으로 조정 후 포털로 통합됩니다. 새 인덱서를 평가하고 있다면 코드 작성을 계획해야 합니다.
 
-## <a name="permissions"></a>사용 권한
+## <a name="permissions"></a>권한
 
 상태 또는 정의에 대 한 GET 요청을 포함 하 여 인덱서와 관련 된 모든 작업에는 [관리 api 키](search-security-api-keys.md)가 필요 합니다. 
 
@@ -69,7 +69,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 > 인덱서가 인덱스를 생성할 수 없지만 포털에서 **데이터 가져오기** 마법사를 통해 가능합니다. 대부분의 경우 마법사는 원본에서 기존 메타데이터의 인덱스 스키마를 유추할 수 있고 마법사가 활성화되어 있는 동안 인라인으로 편집할 수 있는 예비 인덱스 스키마를 표시합니다. 서비스에서 인덱스가 생성되면 포털에서 추가 편집 작업은 새 필드를 추가하는 것으로 제한됩니다. 인덱스를 수정하지 않고 만들기 위해 마법사를 사용합니다. 자동 학습은 [포털 연습](search-get-started-portal.md)의 단계를 수행합니다.
 
 ### <a name="step-3-create-and-schedule-the-indexer"></a>3단계: 인덱서 만들기 및 예약
-인덱서 정의는 데이터 수집과 관련 된 모든 요소를 결합 하는 구문입니다. 필수 요소는 데이터 원본 및 인덱스를 포함 합니다. 선택적 요소는 일정 및 필드 매핑을 포함 합니다. 필드 매핑은 원본 필드와 인덱스 필드가 명확 하 게 일치 하는 경우에만 선택 사항입니다. 해당 데이터 원본이 동일한 구독에 있으면 인덱서도 다른 서비스에서 데이터 원본을 참조할 수 있습니다. 인덱서를 구조화 하는 방법에 대 한 자세한 내용은 [인덱서 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조 하세요.
+인덱서 정의는 데이터 수집과 관련 된 모든 요소를 결합 하는 구문입니다. 필수 요소는 데이터 원본 및 인덱스를 포함 합니다. 선택적 요소는 일정 및 필드 매핑을 포함 합니다. 필드 매핑은 원본 필드와 인덱스 필드가 명확 하 게 일치 하는 경우에만 선택 사항입니다. 인덱서를 구조화 하는 방법에 대 한 자세한 내용은 [인덱서 만들기 (Azure Cognitive Search REST API)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)를 참조 하세요.
 
 <a id="RunIndexer"></a>
 

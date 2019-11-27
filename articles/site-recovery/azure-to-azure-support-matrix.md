@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 267177dcdec25b8561b219ae79e40ce61af994df
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123837"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74530967"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -21,7 +21,7 @@ ms.locfileid: "74123837"
 
 ## <a name="deployment-method-support"></a>배포 방법 지원 여부
 
-**배포** |  **지원**
+**배포웹사이트를** |  **지원**
 --- | ---
 **Azure Portal** | 지원됩니다.
 **PowerShell** | 지원됩니다. [자세히 알아보기](azure-to-azure-powershell.md)
@@ -47,7 +47,7 @@ ms.locfileid: "74123837"
 **지리적 클러스터** | **Azure 지역**
 -- | --
 아메리카 | 캐나다 동부, 캐나다 중부, 미국 중남부, 미국 중서부, 미국 동부, 미국 동부 2, 미국 서부, 미국 서부 2, 미국 중부, 미국 중북부
-Europe | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 북부, 노르웨이 동부, 노르웨이 서 부
+유럽 | 영국 서부, 영국 남부, 북부 유럽, 유럽 서부, 프랑스 중부, 프랑스 남부, 남아프리카 공화국 서 부, 남아프리카 북부, 노르웨이 동부, 노르웨이 서 부
 아시아 | 인도 남부, 인도 중부, 인도 서 부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 대한민국 중부, 대한민국 남부, 아랍에미리트 중부, 아랍에미리트 북부
 오스트레일리아   | 오스트레일리아 동부, 오스트레일리아 남동부, 오스트레일리아 중부, 오스트레일리아 중부 2
 Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조나, US Gov 텍사스, US DoD 동부, US DoD 중부 
@@ -178,7 +178,7 @@ RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 
-**동작** | **세부 정보**
+**작업** | **세부 정보**
 -- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됨
 복제된 VM에 디스크 추가 | 지원됨
@@ -210,7 +210,7 @@ Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
 미사용 암호화 (CMK) | 지원되지 않음 |   
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
-Linux OS용 ADE(Azure Disk Encryption) | 지원되지 않음 |
+Linux OS용 ADE(Azure Disk Encryption) | 지원됨 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
 디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
 디스크 제외 | 지원은. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.

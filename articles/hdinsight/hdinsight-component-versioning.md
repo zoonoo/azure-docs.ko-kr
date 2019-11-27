@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 11/21/2019
-ms.openlocfilehash: a2955fc72a652ec36304c7856f2ba9ed5f21d7df
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
-ms.translationtype: HT
+ms.openlocfilehash: b5687d659103eed0fcba70319aa37030bd85165a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457546"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539115"
 ---
 # <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>HDInsight에서 사용할 수 있는 Apache Hadoop 구성 요소 및 버전은?
 
@@ -73,9 +73,9 @@ HDInsight 클러스터 버전과 연결된 Hadoop 에코시스템 구성 요소 
 | HDInsight 버전 | VM OS | 릴리스 날짜 | 지원 만료 날짜 | 사용 중지 날짜 | 고가용성 |  Azure Portal에서 사용 가능 |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |2018년 9월 24일 | | |예 |예 |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | 2020 년 6 월 30 일 |2020 년 12 월 31 일 |예 |예 |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |2017년 4월 4일 | 2020 년 12 월 31 일 |2020 년 12 월 31 일 |예 |예 |
 
-Spark 2.1, 2.2 & Kafka 1.0 지원은 6 월 30 일, 2020 및 12 월 2020 31 일에 사용 중지 될 때 만료 됩니다.
+Spark 2.1, 2.2 & Kafka 1.0 지원은 6 월 30 2020 일에 만료 됩니다.
 
 > [!NOTE]  
 > 버전에 대한 지원이 만료되면 Microsoft Azure Portal을 통해 사용하지 못할 수도 있습니다. 그러나 클러스터 버전은 버전 사용 중지 날짜까지 Windows PowerShell `Version`New-AzHDInsightCluster[ 명령의 ](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) 매개 변수 및 .NET SDK를 통해 계속 사용할 수 있습니다.

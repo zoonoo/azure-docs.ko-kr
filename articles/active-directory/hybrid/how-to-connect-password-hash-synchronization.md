@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d5ca62bc032c12c568e2b8065630dcd8b687513
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483108"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539017"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -160,7 +160,7 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 암호 해시 동기화 프로세스
 
-Azure AD Domain Services를 사용 하 여 Keberos, LDAP 또는 NTLM을 사용 해야 하는 응용 프로그램 및 서비스에 대 한 레거시 인증을 제공 하는 경우 몇 가지 추가 프로세스는 암호 해시 동기화 흐름의 일부입니다. Azure AD Connect는 다음과 같은 추가 프로세스를 사용 하 여 Azure AD Domain Services에서 사용할 수 있도록 암호 해시를 Azure AD에 동기화 합니다.
+Azure AD Domain Services를 사용 하 여 Kerberos, LDAP 또는 NTLM을 사용 해야 하는 응용 프로그램 및 서비스에 대 한 레거시 인증을 제공 하는 경우 몇 가지 추가 프로세스는 암호 해시 동기화 흐름의 일부입니다. Azure AD Connect는 다음과 같은 추가 프로세스를 사용 하 여 Azure AD Domain Services에서 사용할 수 있도록 암호 해시를 Azure AD에 동기화 합니다.
 
 > [!IMPORTANT]
 > Azure AD Connect은 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치 되 고 구성 되어야 합니다. Azure AD로 개체를 다시 동기화 하기 위해 Azure AD DS 관리 되는 도메인에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
