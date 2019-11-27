@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e3d6d128677d2e82f4750a7771885474bf284fb1
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: 34f4dc749c0254b5aa4e9ff018d2a869832de3f0
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184225"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547381"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>로그인을 위해 Azure VM에서 Azure 리소스에 대한 관리 ID를 사용하는 방법 
 
@@ -41,7 +41,7 @@ ms.locfileid: "74184225"
 
 ## <a name="overview"></a>개요
 
-Azure 리소스에 대한 관리 ID는 VM에서 [Azure 리소스에 대한 관리 ID를 사용하도록 설정할 때 만들어지는](../develop/developer-glossary.md#service-principal-object) [서비스 주체 개체](overview.md#how-does-it-work)를 제공합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
+Azure 리소스에 대한 관리 ID는 VM에서 [Azure 리소스에 대한 관리 ID를 사용하도록 설정할 때 만들어지는](../develop/developer-glossary.md#service-principal-object) [서비스 주체 개체](overview.md#how-does-the-managed-identities-for-azure-resources-work)를 제공합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
 
    - Azure AD에서 기밀/웹 클라이언트 애플리케이션으로 등록하고 동의합니다.
    - 앱의 자격 증명(스크립트에 포함됨)을 사용하여 해당 서비스 주체 하에 로그인합니다.

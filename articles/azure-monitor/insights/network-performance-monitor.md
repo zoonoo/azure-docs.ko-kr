@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 943f6cee70367d8a1ff0dc003d06e46b487e3a48
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e194b7070d338e9a5c56e9f0cc913f6e8b20bb52
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898797"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545688"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -39,10 +39,13 @@ ms.locfileid: "72898797"
 NPM은 다음 지역 중 한 곳에서 호스트되는 작업 영역에서 전 세계에 모든 곳에 있는 네트워크와 애플리케이션 간의 연결을 모니터링할 수 있습니다.
 * 서유럽
 * 미국 중서부
+* 미국 중북부
 * 미국 동부
 * 일본 동부
 * 동남아시아
 * 오스트레일리아 동남부
+* 오스트레일리아 중부
+* 오스트레일리아 동부
 * 영국 남부
 * 인도 중부
 * 미국 버지니아 주 정부
@@ -124,7 +127,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     
 이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
-설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
+설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 *개요* 타일에 **솔루션에 추가 구성이 필요합니다.** 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>서브넷 및 노드에 대한 모니터링 설정 편집 
 
@@ -268,7 +271,7 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 
 가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기 
+## <a name="provide-feedback"></a>피드백 제공 
 
 * **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요. 
 

@@ -11,14 +11,14 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 11/20/2019
+ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 039176f2c546aa933d3a87ded8b6ded94e485d74
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280658"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546923"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
 
@@ -32,7 +32,7 @@ ms.locfileid: "74280658"
 - 조건 식에서 메타 데이터 가져오기 작업의 출력을 사용 하 여 유효성 검사를 수행할 수 있습니다.
 - 루프를 통해 조건을 만족할 때 파이프라인을 트리거할 수 있습니다.
 
-## <a name="capabilities"></a>기능
+## <a name="capabilities"></a>Capabilities
 
 메타 데이터 가져오기 작업은 데이터 집합을 입력으로 사용 하 고 메타 데이터 정보를 출력으로 반환 합니다. 현재 다음 커넥터와 해당 하는 검색할 수 있는 메타 데이터가 지원 됩니다. 반환 되는 메타 데이터의 최대 크기는 1mb입니다.
 
@@ -53,10 +53,11 @@ ms.locfileid: "74280658"
 | [Azure 파일](connector-azure-file-storage.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [파일 시스템](connector-file-system.md) | √/√ | √/√ | √ | √/√ | √/√ | √ | x | √ | √ | √/√ |
 | [SFTP](connector-sftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
-| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | √/√ | √ | x | √ | √ | √/√ |
+| [FTP](connector-ftp.md) | √/√ | √/√ | √ | x/x | x/x | √ | x | √ | √ | √/√ |
 
 - Amazon S3 및 Google Cloud Storage의 경우 `lastModified`는 버킷 및 키에만 적용 되 고 가상 폴더에는 적용 되지 않으며 `exists`는 버킷 및 키에 적용 되 고 접두사 또는 가상 폴더에는 적용 되지 않습니다.
 - Azure Blob storage의 경우 컨테이너와 Blob에는 적용 되지만 가상 폴더에는 적용 되지 `lastModified`.
+- `lastModified` 필터는 현재 필터 자식 항목에 적용 되지만 지정 된 폴더/파일 자체에는 적용 되지 않습니다.
 - 폴더/파일에 대 한 와일드 카드 필터는 메타 데이터 가져오기 작업에 대해 지원 되지 않습니다.
 
 **관계형 데이터베이스**

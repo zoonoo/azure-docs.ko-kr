@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 18f3ed9cb2ef0f700e33e8b643b5e7d167d656a5
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 37fc78971124240077a59d4ad99aa06cc408dbae
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112734"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533964"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 Blob 인덱서를 사용 하 여 JSON blob을 인덱싱하는 방법
 
@@ -33,7 +33,7 @@ Azure Blob storage의 JSON blob은 일반적으로 단일 JSON 문서 (구문 �
 
 JSON 문서를 인덱싱하는 가장 쉬운 방법은 [Azure Portal](https://portal.azure.com/)에서 마법사를 사용하는 것입니다. Azure Blob 컨테이너의 메타데이터를 구문 분석하여 [**데이터 가져오기**](search-import-data-portal.md) 마법사는 기본 인덱스를 만들고, 원본 필드를 대상 인덱스 필드에 매핑하고, 인덱스를 로드하는 과정을 단일 작업으로 진행할 수 있습니다. 원본 데이터의 크기 및 복잡성에 따라 몇 분 안에 운영 작업에 대한 전체 텍스트 검색 인덱스를 사용할 수 있습니다.
 
-동일한 지역에서 Azure Cognitive Search와 Azure storage 모두에 동일한 Azure 구독을 사용 하는 것이 좋습니다.
+Azure Cognitive Search에 동일한 지역 또는 위치를 사용 하 Azure Storage 고 대기 시간을 줄이고 대역폭 요금을 방지 하는 것이 좋습니다.
 
 ### <a name="1---prepare-source-data"></a>1 - 원본 데이터 준비
 
@@ -110,9 +110,9 @@ REST API를 사용 하면 Cognitive Search Azure의 모든 인덱서에 공통 �
 
 코드 기반 JSON 인덱싱의 경우 [Postman](search-get-started-postman.md) 및 REST API를 사용 하 여 이러한 개체를 만듭니다.
 
-+ [index](https://docs.microsoft.com/rest/api/searchservice/create-index)
++ [인덱싱할](https://docs.microsoft.com/rest/api/searchservice/create-index)
 + [데이터 원본](https://docs.microsoft.com/rest/api/searchservice/create-data-source)
-+ [indexer](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
 
 작업 순서에 따라이 순서로 개체를 만들고 호출 해야 합니다. 포털 워크플로와 달리 코드 접근 방식에서는 **인덱서 만들기** 요청을 통해 보낸 JSON 문서를 수락 하기 위해 사용 가능한 인덱스가 필요 합니다.
 
@@ -284,7 +284,7 @@ JSON blob은 여러 폼을 가정할 수 있습니다. Json 인덱서의 **parsi
 
 | parsingMode | 설명 |
 |-------------|-------------|
-| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이 값이 기본값입니다. |
+| `json`  | 각 blob을 단일 문서로 인덱싱합니다. 이것이 기본값입니다. |
 | `jsonArray` | Blob이 JSON 배열로 구성 된 경우이 모드를 선택 하 고, 배열의 각 요소가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 |`jsonLines` | Blob이 새 줄로 구분 된 여러 JSON 엔터티로 구성 된 경우이 모드를 선택 하 고 각 엔터티가 Azure Cognitive Search의 개별 문서가 되도록 해야 합니다. |
 

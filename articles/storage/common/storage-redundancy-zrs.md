@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 53441f5fedb4fa5e68cd1d8230ffe3ee6122e55b
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186668"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74544621"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>항상 사용 가능한 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소)
 
@@ -39,7 +39,7 @@ ZRS는 블록 blob, 디스크가 아닌 페이지 blob, 표준 파일 공유, �
 - 미국 동부 2
 - 미국 서부 2
 
-FileStorage 계정 (프리미엄 파일 공유)의 경우 ZRS는 다음 지역에서 일반 공급 됩니다.
+FileStorage 계정 (프리미엄 파일 공유) 및 BlockBlobStorage 계정 (프리미엄 블록 blob)의 경우 ZRS은 일반적으로 다음 지역에서 사용할 수 있습니다.
 
 - 서유럽
 - 미국 동부
@@ -163,7 +163,7 @@ CLI를 사용 하 여 ZRS로 업그레이드 하려면 다음 명령을 호출 �
 az storage account update -g <resource_group> -n <storage_account> --set kind=StorageV2
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 - [Azure Storage 복제](storage-redundancy.md)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](storage-redundancy-lrs.md)
 - [GRS(지역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy-grs.md)

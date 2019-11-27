@@ -12,12 +12,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: b5f839cc6216eb12bfd0a86009ec49e987279d6e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 922a2eb910a99a899bdb9f2b3e2392559ec9b0f3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889829"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548415"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
@@ -32,7 +32,7 @@ ms.locfileid: "73889829"
 데이터 검색 & 분류는 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [Advanced Data Security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse와 관련이 있습니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 관한 것입니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
@@ -128,8 +128,9 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 ![감사 로그](./media/sql-data-discovery-and-classification/11_data_classification_audit_log.png)
 
-## <a id="subheading-4"></a>T-sql을 사용 하 여 데이터 분류 관리
+### <a name="manage-classifications"></a>분류 관리
 
+# <a name="t-sqltabazure-t-sql"></a>[T-SQL](#tab/azure-t-sql)
 T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이스에 대한 모든 분류를 검색할 수 있습니다.
 
 > [!NOTE]
@@ -139,8 +140,7 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-### <a name="manage-classifications-using-rest-apis"></a>Rest Api를 사용 하 여 분류 관리
-
+# <a name="rest-apistabazure-rest-api"></a>[Rest Api](#tab/azure-rest-api)
 또한 REST API를 사용하여 프로그래밍 방식으로 분류를 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
 
 - [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) -지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.
@@ -152,12 +152,8 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 
 - [데이터베이스에서 권장 하는 목록](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listrecommendedbydatabase) -지정 된 데이터베이스의 권장 민감도 레이블을 가져옵니다.
 
-## <a name="manage-data-discovery-and-classification-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 데이터 검색 및 분류 관리
-
-PowerShell을 사용 하 여 Azure SQL database 및 관리 되는 인스턴스의 모든 권장 열을 가져올 수 있습니다.
-
-### <a name="powershell-cmdlets-for-azure-sql-database"></a>Azure SQL database에 대 한 PowerShell Cmdlet
-
+# <a name="powershell-cmdlet-for-azure-sqltabazure-portal-sqldb"></a>[Azure SQL 용 PowerShell Cmdlet](#tab/azure-portal-sqldb)
+PowerShell을 사용 하 여 Azure SQL database에서 모든 권장 열을 가져올 수 있습니다.
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasesensitivityclassification)
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasesensitivityclassification)
 - [AzSqlDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasesensitivityclassification)
@@ -165,8 +161,8 @@ PowerShell을 사용 하 여 Azure SQL database 및 관리 되는 인스턴스�
 - [AzSqlDatabaSesensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/enable-azsqldatabasesensitivityrecommendation)
 - [Disable-AzSqlDatabaseSensitivityRecommendation](https://docs.microsoft.com/powershell/module/az.sql/disable-azsqldatabasesensitivityrecommendation)
 
-### <a name="powershell-cmdlets-for-managed-instance"></a>관리 되는 인스턴스의 PowerShell Cmdlet
-
+# <a name="powershell-cmdlets-for-managed-instancetabazure-powershell-mi"></a>[Managed Instance에 대 한 PowerShell Cmdlet](#tab/azure-powershell-mi)
+PowerShell을 사용 하 여 관리 되는 인스턴스의 모든 권장 열을 가져올 수 있습니다.
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlinstancedatabasesensitivityclassification)
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasesensitivityclassification)
 - [AzSqlInstanceDatabaseSensitivityClassification](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstancedatabasesensitivityclassification)

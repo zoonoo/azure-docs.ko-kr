@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
-ms.date: 07/26/2019
-ms.openlocfilehash: 883778360bd2315e1424f9f207cbfd994ec1a373
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.date: 11/27/2019
+ms.openlocfilehash: d38874e7cb3fc61e32bd4ecd1fee528c4e5053e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901189"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547162"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -29,12 +29,10 @@ ISE를 만들 때 Azure는이 ISE를 Azure 가상 네트워크에 *삽입* 하 �
 
 ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답 시간 제한, 메시지 크기 및 사용자 지정 커넥터 요청에 대 한 제한을 증가 시켰습니다. 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](logic-apps-limits-and-config.md)을 참조 하세요. ISEs에 대해 자세히 알아보려면 [Azure Logic Apps에서 Azure Virtual Network 리소스에 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)를 참조 하세요.
 
-이 문서에서는 다음 작업을 완료하는 방법을 보여줍니다.
+이 문서에서는 다음 작업을 완료 하는 방법을 보여 줍니다.
 
-* 가상 네트워크의 서브넷에서 ISE를 통해 트래픽을 이동할 수 있도록 가상 네트워크에서 필요한 포트가 열려 있는지 확인 합니다.
-
+* ISE에 대 한 액세스를 사용 하도록 설정 합니다.
 * ISE를 만듭니다.
-
 * ISE에 추가 용량을 추가 합니다.
 
 > [!IMPORTANT]
@@ -44,7 +42,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
 * Azure 구독. Azure 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
-* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다. 
+* [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다.
 
   * 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위한 4 개의 *빈* 서브넷이 있어야 합니다. 이러한 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
 
@@ -52,7 +50,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
   
   * Azure Resource Manager 템플릿을 통해 ISE를 배포 하려는 경우 먼저 빈 서브넷 하나를 Microsoft. integrationServiceEnvironment/에 위임 해야 합니다. Azure Portal를 통해 배포할 때이 위임을 수행할 필요가 없습니다.
 
-  * 가상 네트워크가 [이러한 포트를 사용할 수](#ports) 있도록 하 여 ISE가 제대로 작동 하 고 액세스할 수 있도록 해야 합니다.
+  * ISE가 제대로 작동 하 고 액세스할 수 있도록 가상 네트워크가 [ise에 대 한 액세스를 허용](#enable-access) 하는지 확인 합니다.
 
   * Microsoft 클라우드 서비스에 대 한 개인 연결을 제공 하는 [express](../expressroute/expressroute-introduction.md)경로를 사용 하는 경우 다음 경로를 포함 하는 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) 해당 테이블을 ISE에서 사용 하는 각 서브넷에 연결 해야 합니다.
 
@@ -65,23 +63,31 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
   > [!IMPORTANT]
   > ISE를 만든 후 DNS 서버 설정을 변경 하는 경우 ISE를 다시 시작 해야 합니다. DNS 서버 설정을 관리 하는 방법에 대 한 자세한 내용은 [가상 네트워크 만들기, 변경 또는 삭제](../virtual-network/manage-virtual-network.md#change-dns-servers)를 참조 하세요.
 
-<a name="ports"></a>
+<a name="enable-access"></a>
 
-## <a name="check-network-ports"></a>네트워크 포트 확인
+## <a name="enable-access-for-ise"></a>ISE에 대 한 액세스 사용
 
-Azure 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 ftp 커넥터를 사용 하 여 FTP 시스템과 통신 하는 경우 FTP 시스템에서 사용 하는 포트 (예: 송신 명령을 위한 포트 21)를 사용할 수 있는지 확인 합니다. ISE가 계속 해 서 액세스할 수 있고 제대로 작동할 수 있도록 하려면 아래 표에 지정 된 포트를 엽니다. 그렇지 않으면 필요한 포트를 사용할 수 없는 경우 ISE 작동이 중지 됩니다.
+Azure 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 문제는 하나 이상의 차단 된 포트를 포함 하는 것입니다. ISE와 대상 시스템 간에 연결을 만드는 데 사용 하는 커넥터에도 자체 포트 요구 사항이 있을 수 있습니다. 예를 들어 ftp 커넥터를 사용 하 여 FTP 시스템과 통신 하는 경우 FTP 시스템에서 사용 하는 포트 (예: 송신 명령을 위한 포트 21)를 사용할 수 있어야 합니다.
+
+ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 서브넷에서 통신할 수 있는지 확인 하려면 [이 표에서 포트를 엽니다](#network-ports-for-ise). 필요한 포트를 사용할 수 없는 경우 ISE가 제대로 작동 하지 않습니다.
+
+* 여러 ISEs 있고 가상 네트워크에서 [Azure 방화벽](../firewall/overview.md) 또는 [네트워크 가상 어플라이언스](../virtual-network/virtual-networks-overview.md#filter-network-traffic)를 사용 하는 경우 대상 시스템과 통신 하는 데 사용할 수 있는 [단일 아웃 바운드, 공용 및 예측 가능한 IP 주소를 설정할](connect-virtual-network-vnet-set-up-single-ip-address.md) 수 있습니다. 이렇게 하면 대상에서 각 ISE에 대 한 추가 방화벽 입구를 설정할 필요가 없습니다.
+
+* 제약 조건 없이 새 Azure 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어 하기 위해 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정할 필요가 없습니다.
+
+* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 NSGs를 설정 하려는 가상 네트워크에서 [이 테이블의 포트가 열려](#network-ports-for-ise)있는지 확인 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+
+* 이전에 기존 NSGs가 있는 경우 [이 테이블의 포트를 열어야](#network-ports-for-ise)합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+
+<a name="network-ports-for-ise"></a>
+
+### <a name="network-ports-used-by-your-ise"></a>ISE에서 사용 하는 네트워크 포트
+
+이 표에서는 ISE에서 사용 하는 Azure virtual network의 포트와 이러한 포트가 사용 되는 위치에 대해 설명 합니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
 
 > [!IMPORTANT]
 > 원본 포트는 사용 후 삭제 되므로 모든 규칙에 대 한 `*`으로 설정 해야 합니다.
 > 서브넷 내부 통신의 경우 ISE를 사용 하려면 해당 서브넷 내의 모든 포트를 열어야 합니다.
-
-* 제약 조건 없이 새 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어 하기 위해 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정할 필요가 없습니다.
-
-* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 NSGs를 설정 하려는 가상 네트워크에서 아래 테이블에 지정 된 포트를 열어야 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
-
-* 이전에 가상 네트워크에 기존 NSGs 또는 방화벽이 있는 경우 아래 표에 지정 된 포트를 열어야 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
-
-다음은 ISE에서 사용 하는 가상 네트워크의 포트와 이러한 포트가 사용 되는 위치를 설명 하는 테이블입니다. [리소스 관리자 서비스 태그](../virtual-network/security-overview.md#service-tags) 는 보안 규칙을 만들 때 복잡성을 최소화 하는 데 도움이 되는 IP 주소 접두사 그룹을 나타냅니다.
 
 | 목적 | 방향 | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 참고 사항 |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
@@ -89,8 +95,8 @@ Azure 가상 네트워크에서 ISE를 사용 하는 경우 일반적인 설치 
 | Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
 | Azure Storage 종속성 | 아웃바운드 | 80, 443 | VirtualNetwork | Storage | |
 | 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80, 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
-| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
-| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
+| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](connect-virtual-network-vnet-isolated-environment.md#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱에 있는 요청 트리거 또는 webhook를 호출 하는 컴퓨터 또는 서비스의 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
+| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 액세스 끝점: <br>VirtualNetwork <p><p>외부 액세스 끝점: <br>인터넷 <p><p>**참고**: 이러한 끝점은 [ISE 생성 시 선택](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#create-environment)된 끝점 설정을 참조 합니다. 자세한 내용은 [끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. | VirtualNetwork | 논리 앱의 실행 기록을 확인 하는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
 | 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | AppService | |
 | 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
 | Azure Traffic Manager에서 통신 | 인바운드 | 443 | AzureTrafficManager | VirtualNetwork | |
@@ -144,11 +150,11 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    **서브넷 만들기**
 
    사용자 환경에서 리소스를 만들고 배포 하기 위해 ISE에는 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 필요 합니다. 환경을 만든 후에는 이러한 서브넷 주소를 변경할 *수 없습니다* .
-   
+
    > [!IMPORTANT]
    > 
    > 서브넷 이름은 알파벳 문자 또는 밑줄 (숫자 없음)로 시작 해야 하며, `<`, `>`, `%`, `&`, `\\`, `?`, `/`문자를 사용 하지 않습니다.
-   
+
    또한 각 서브넷은 다음 요구 사항을 충족 해야 합니다.
 
    * 는 클래스 없는 [CIDR (도메인 간 라우팅) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용 합니다.

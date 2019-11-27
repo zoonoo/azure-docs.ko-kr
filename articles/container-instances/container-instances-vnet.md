@@ -1,19 +1,14 @@
 ---
-title: Azure Virtual Network에 컨테이너 인스턴스 배포
+title: Azure virtual network에 컨테이너 그룹 배포
 description: 신규 또는 기존 Azure Virtual Network에 컨테이너 그룹을 배포하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/11/2019
-ms.author: danlep
-ms.openlocfilehash: 05f1bcd5e80d7c06fbaca1abe89c84f6743a5979
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: f211924eb74035f4bb30db2d2b848e0a2591de09
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034981"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533279"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -188,8 +183,8 @@ YAML 파일을 사용하여 기존 가상 네트워크에 컨테이너 그룹을
 
 * `ipAddress`: 컨테이너 그룹의 IP 주소 설정입니다.
   * `ports`: 열려는 포트(있는 경우)입니다.
-  * `protocol`: 열려 있는 포트의 프로토콜(TCP 또는 UDP)입니다.
-* `networkProfile`: Azure 리소스에 대한 가상 네트워크 및 서브넷과 같이 네트워크 설정을 지정합니다.
+  * `protocol`: 여는 포트의 프로토콜(TCP 또는 UDP)입니다.
+* `networkProfile`: Azure 리소스용 서브넷 및 가상 네트워크와 같은 네트워크 설정을 지정합니다.
   * `id`: `networkProfile`의 전체 Resource Manager 리소스 ID입니다.
 
 YAML 파일을 사용하여 가상 네트워크에 컨테이너 그룹을 배포하려면 먼저 네트워크 프로필의 ID를 가져와야 합니다. 가상 네트워크 및 위임 된 서브넷을 포함 하는 리소스 그룹의 이름을 지정 하 여 [az network profile list][az-network-profile-list] 명령을 실행 합니다.

@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 1cfab9b065fd4e28a9ce11ac85682a298011200b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470128"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546186"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)의 웹앱, 모바일 백 엔드 및 API 앱에 대해 기본 제공 모니터링 기능을 제공합니다.
 
-Azure Portal에서 앱의 *할당량* 및 *메트릭*을 검토하고, App Service 계획을 검토하고, 이러한 메트릭을 기준으로 *경고* 및 *크기 조정*을 자동으로 설정합니다.
+Azure Portal에서 앱에 대 한 *할당량* 및 *메트릭* 을 검토 하 고 계획을 App Service 하 고 기반 메트릭에 대 한 *경고* 및 *자동 크기 조정을* 설정할 수 있습니다.
 
 ## <a name="understand-quotas"></a>할당량 이해
 
@@ -46,7 +46,7 @@ App Service를 호스트로 사용하는 앱에는 사용 가능한 리소스에
 | **대역폭** | 하루에 이 앱에 허용되는 나가는 총 대역폭 양입니다. 이 할당량은 자정 UTC에 24시간마다 재설정됩니다. |
 | **파일 시스템** | 허용되는 총 스토리지 양입니다. |
 
-*기본*, *표준* 및 *프리미엄* 계획에 호스트되는 앱에 적용 가능한 유일한 할당량은 파일 시스템입니다.
+*Basic*, *Standard*및 *Premium* 에서 호스트 되는 앱에 적용 가능한 유일한 할당량은 파일 시스템입니다.
 
 다양한 App Service SKU에 사용할 수 있는 특정 할당량, 한도 및 기능에 대한 자세한 내용은 [Azure 구독 서비스 제한](../azure-subscription-service-limits.md#app-service-limits)을 참조하세요.
 
@@ -64,6 +64,10 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 
 ## <a name="understand-metrics"></a>메트릭 이해
 
+> [!NOTE]
+> **파일 시스템 사용량** 은 전역적으로 롤아웃 되는 새 메트릭입니다. 비공개 미리 보기에 대해 허용 목록 않은 경우에는 데이터가 필요 하지 않습니다.
+> 
+
 메트릭은 앱 또는 App Service 계획의 동작에 대한 정보를 제공합니다.
 
 앱에 사용 가능한 메트릭은 다음과 같습니다.
@@ -77,6 +81,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | **현재 어셈블리 수** | 이 애플리케이션의 모든 AppDomains에 로드된 어셈블리의 현재 개수입니다. |
 | **데이터 입력** | 앱에서 사용한 들어오는 대역폭 양(MiB)입니다. |
 | **데이터 출력** | 앱에서 사용한 나가는 대역폭 양(MiB)입니다. |
+| **파일 시스템 사용량** | 앱에서 사용 하는 파일 시스템 할당량의 백분율입니다. |
 | **Gen 0 가비지 수집** | 앱 프로세스가 시작된 이후 0세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|
 | **Gen 1 가비지 수집** | 앱 프로세스가 시작된 이후 1세대 개체가 가비지 수집된 횟수입니다. 상위 세대 GC에는 모든 하위 세대 GC가 포함됩니다.|
 | **Gen 2 가비지 수집** | 앱 프로세스가 시작된 이후 2세대 개체가 가비지 수집된 횟수입니다.|
@@ -90,7 +95,7 @@ App Service 계획을 업그레이드하여 앱에서 할당량을 늘리거나 
 | **Http 4xx** | 결과로 나타나는 HTTP 상태 코드가 400 이상, 500 미만인 요청 수입니다. |
 | **Http 서버 오류** | 결과로 나타나는 HTTP 상태 코드가 500 이상, 600 미만인 요청 수입니다. |
 | **초당 IO 기타 바이트 수** | 애플리케이션 프로세스에서 제어 작업과 같이 데이터가 포함되지 않은 I/O 작업에 바이트를 보내는 속도입니다.|
-| **초당 IO 기타 작업 수** | 앱 프로세스에서 읽기 또는 쓰기 작업이 아닌 I/O 작업을 실행하는 속도입니다.|
+| **초당 IO 기타 작업 수** | 앱 프로세스가 읽기 또는 쓰기 작업이 아닌 i/o 작업을 실행 하는 속도입니다.|
 | **초당 IO 읽기 바이트 수** | 앱 프로세스에서 I/O 작업의 바이트를 읽는 속도입니다.|
 | **초당 IO 읽기 작업 수** | 앱 프로세스에서 읽기 I/O 작업을 실행하는 속도입니다.|
 | **초당 IO 쓰기 바이트 수** | 앱 프로세스에서 I/O 작업에 바이트를 쓰는 속도입니다.|

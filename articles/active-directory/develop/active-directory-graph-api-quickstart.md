@@ -19,19 +19,19 @@ ms.author: ryanwi
 ms.reviewer: sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 662d8ecf3d20716a717a5f04f30e04114c9dce04
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 92a88b1e17812b9dc99fd1d5b391d95ba541f48a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374160"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533075"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>방법: Azure AD Graph API 사용
 
 > [!IMPORTANT]
-> Azure Active Directory 리소스에 액세스하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph)를 사용하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API 적절 한 수의 시나리오는 매우 제한 되어 있습니다. 자세한 내용은 [Microsoft Graph 또는 AZURE Ad graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물 및 [MICROSOFT GRAPH에 azure Ad graph 앱 마이그레이션](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)을 참조 하세요.
+> Azure ad (Azure Active Directory) 리소스에 액세스 하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph) 를 사용 하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API 적절 한 수의 시나리오는 매우 제한 되어 있습니다. 자세한 내용은 [Microsoft Graph 또는 AZURE Ad graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물 및 [MICROSOFT GRAPH에 azure Ad graph 앱 마이그레이션](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)을 참조 하세요.
 
-Azure AD(Active Directory) Graph API는 OData REST API 엔드포인트을 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대 한 자세한 내용은 azure [ad Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [azure ad Graph API 필수 구성 요소](https://msdn.microsoft.com/library/hh974476.aspx)를 참조 하세요. Azure AD Graph API는 회사 또는 학교/조직 계정 에서만 작동 합니다.
+Azure AD Graph API는 OData REST API 끝점을 통해 Azure AD에 대 한 프로그래밍 방식의 액세스를 제공 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어 Azure AD Graph API를 사용하여 새 사용자를 만들고, 사용자 속성을 보거나 업데이트하고, 사용자 암호를 변경하고, 역할 기반 액세스를 위한 그룹 멤버 자격을 확인하고, 사용자를 사용하지 않도록 설정 또는 삭제할 수 있습니다. Azure AD Graph API 기능 및 응용 프로그램 시나리오에 대 한 자세한 내용은 azure [ad Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) 및 [azure ad Graph API 필수 구성 요소](https://msdn.microsoft.com/library/hh974476.aspx)를 참조 하세요. Azure AD Graph API는 회사 또는 학교/조직 계정 에서만 작동 합니다.
 
 이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://developer.microsoft.com/graph/docs/concepts/use_the_api)을 참조하세요.
 
@@ -39,7 +39,7 @@ Azure AD(Active Directory) Graph API는 OData REST API 엔드포인트을 통해
 
 Graph API에서 디렉터리 데이터 및 CRUD 작업을 수행하려는 개체(즉, 리소스 또는 엔터티)에 액세스하려면 OData(개방형 데이터) 프로토콜을 기반으로 하는 URL을 사용할 수 있습니다. Graph API에서 사용되는 URL은 서비스 루트, 테넌트 식별자, 리소스 경로 및 쿼리 문자열 옵션의 네 가지 주요 부분으로 구성됩니다. `https://graph.windows.net/{tenant-identifier}/{resource-path}?[query-parameters]`. 다음 URL을 예로 들어보겠습니다. `https://graph.windows.net/contoso.com/groups?api-version=1.6`.
 
-* **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net 입니다.
+* **서비스 루트**: Azure AD Graph API에서 서비스 루트는 항상 https://graph.windows.net입니다.
 * **테넌트 식별자**: 이 섹션은 위 예제에서 contoso.com이라는 확인된(등록된) 도메인 이름일 수 있습니다. 테넌트 개체 ID나 "myorganization" 또는 "me" 별칭일 수도 있습니다. 자세한 내용은 [AZURE AD Graph API에서 엔터티 및 작업 주소 지정](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-operations-overview)을 참조 하세요.
 * **리소스 경로**: URL의이 섹션은 상호 작용할 리소스 (사용자, 그룹, 특정 사용자 또는 특정 그룹 등)를 식별 합니다. 위의 예제에서는 해당 리소스 집합의 주소를 설정 하는 최상위 "그룹"입니다. 특정 엔터티 주소를 지정할 수도 있습니다(예: "users/{objectId}" 또는 "users/userPrincipalName").
 * **쿼리 매개 변수**: 물음표(?)는 리소스 경로 섹션과 쿼리 매개 변수 섹션을 구분합니다. Azure AD Graph API의 모든 요청에는 "api-version" 쿼리 매개 변수가 필요합니다. 또한 Azure AD Graph API는 OData 쿼리 옵션, 즉 **$filter**, **$orderby**, **$expand**, **$top** 및 **$format**을 지원합니다. **$count**, **$inlinecount** 및 **$skip** 쿼리 옵션은 현재 지원되지 않습니다. 자세한 내용은 [Azure AD Graph API에서 지원되는 쿼리, 필터 및 페이징 옵션](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-supported-queries-filters-and-paging-options)을 참조하세요.

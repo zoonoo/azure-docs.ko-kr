@@ -1,20 +1,14 @@
 ---
-title: Azure Container Instances에서 관리 ID 사용
-description: 관리 ID를 사용하여 Azure Container Instances에서 다른 Azure 서비스의 인증을 받는 방법을 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
+title: 컨테이너 그룹에서 관리 되는 id 사용
+description: 다른 Azure 서비스를 사용 하 여 인증할 수 있는 Azure Container Instances에서 관리 되는 id를 사용 하도록 설정 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 10/22/2018
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: 773650e5e5e85d4a5fca0b3755f3730921cc5f2e
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: b5546e8c4b512b584a57e8e4c2ff46c52ab856a0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325934"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533673"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Azure Container Instances에서 관리 ID를 사용하는 방법
 
@@ -64,7 +58,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 
 이 문서의 예제는 Azure Container Instances에서 관리 ID를 사용하여 Azure Key Vault 비밀에 액세스합니다. 
 
-먼저, 다음 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
+먼저, 다음 *az group create* 명령을 사용하여 *eastus* 위치에 [myResourceGroup](/cli/azure/group?view=azure-cli-latest#az-group-create)이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -118,7 +112,7 @@ az container create --resource-group myResourceGroup --name mycontainer --image 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-출력의 `identity` 섹션은 다음과 유사하며 ID가 컨테이너 그룹에 설정되어 있음을 나타냅니다. `userAssignedIdentities` 아래의 `principalID`는 Azure Active Directory에서 만든 ID의 서비스 주체입니다.
+출력의 `identity` 섹션은 다음과 유사하며 ID가 컨테이너 그룹에 설정되어 있음을 나타냅니다. `principalID` 아래의 `userAssignedIdentities`는 Azure Active Directory에서 만든 ID의 서비스 주체입니다.
 
 ```console
 ...
@@ -267,7 +261,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리 ID 사용
 
-[Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 컨테이너 그룹에서 관리 ID를 사용하도록 설정하려면 `ContainerGroupIdentity` 개체를 사용하여 `Microsoft.ContainerInstance/containerGroups` 개체의 `identity` 속성을 설정합니다. 다음 코드 조각은 여러 다른 시나리오에 맞게 구성된 `identity` 속성을 보여 줍니다. [Resource Manager 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups)를 참조하세요. `apiVersion` `2018-10-01`을 지정합니다.
+[Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 컨테이너 그룹에서 관리 ID를 사용하도록 설정하려면 `identity` 개체를 사용하여 `Microsoft.ContainerInstance/containerGroups` 개체의 `ContainerGroupIdentity` 속성을 설정합니다. 다음 코드 조각은 여러 다른 시나리오에 맞게 구성된 `identity` 속성을 보여 줍니다. [Resource Manager 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups)를 참조하세요. `apiVersion` `2018-10-01`을 지정합니다.
 
 ### <a name="user-assigned-identity"></a>사용자 할당 ID
 

@@ -1,25 +1,20 @@
 ---
-title: Azure Container Instances에서 수동으로 컨테이너 중지 또는 시작
+title: 수동으로 컨테이너 그룹 중지 또는 시작
 description: Azure Container Instances에서 컨테이너 그룹을 수동으로 중지 하거나 시작 하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: c7d46ad8d935e28b5a24e48c85ac2464b55b2669
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c9f8afea33c65df940d02823ec394697d2786d6a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325653"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533417"
 ---
 # <a name="manually-stop-or-start-containers-in-azure-container-instances"></a>Azure Container Instances에서 수동으로 컨테이너 중지 또는 시작
 
 컨테이너 그룹의 [다시 시작 정책](container-instances-restart-policy.md) 설정은 컨테이너 인스턴스를 기본적으로 시작 하거나 중지 하는 방법을 결정 합니다. 컨테이너 그룹을 수동으로 중지 하거나 시작 하 여 기본 설정을 재정의할 수 있습니다.
 
-## <a name="stop"></a>Stop
+## <a name="stop"></a>중지
 
 실행 중인 컨테이너 그룹을 수동으로 중지 합니다. 예를 들어 [az container stop][az-container-stop] 명령을 사용 하거나 Azure Portal 합니다. 특정 컨테이너 워크 로드의 경우 정의 된 기간 후 장기 실행 컨테이너 그룹을 중지 하 여 비용을 절감할 수 있습니다. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 8c7da1b989546950bf61153e96193c0bab11d8ac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 8136e65636561079603986f0d6ff30bcbd68258f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603540"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534219"
 ---
 # <a name="setting-up-pacemaker-on-suse-linux-enterprise-server-in-azure"></a>Azure의 SUSE Linux Enterprise Server에서 Pacemaker 설정
 
@@ -27,8 +27,8 @@ ms.locfileid: "73603540"
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../linux/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../windows/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:../../maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -517,7 +517,7 @@ o- / ...........................................................................
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. <https://portal.azure.com>으로 이동합니다.
+1. <https://portal.azure.com>
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
@@ -624,9 +624,9 @@ sudo crm configure property maintenance-mode=false
 
    > [!NOTE]
    > Azure events agent에 대해 Pacemaker 리소스를 구성한 후 클러스터를 유지 관리 모드로 설정 하거나 유지 하는 경우 다음과 같은 경고 메시지가 표시 될 수 있습니다.  
-     경고: cib: 알 수 없는 ' hostName_ <strong>hostName</strong>' 특성  
+     경고: cib: 알 수 없는 특성 ' hostName_ <strong>hostName</strong>'  
      경고: cib: 알 수 없는 ' azure-events_globalPullState ' 특성  
-     경고: cib: 알 수 없는 ' hostName_ <strong>hostName</strong>' 특성  
+     경고: cib: 알 수 없는 특성 ' hostName_ <strong>hostName</strong>'  
    > 이러한 경고 메시지는 무시할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

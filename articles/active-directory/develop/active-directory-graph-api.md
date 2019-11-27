@@ -12,31 +12,24 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 03/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0b677e9a8faf55f121d80f5a6112fbdaf78e6c0
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853338"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533027"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 
 > [!IMPORTANT]
->
-> 2019년 2월부터 Microsoft Graph API를 위해 이전 버전의 Azure Active Directory Graph API를 사용하지 않도록 중단하는 프로세스를 시작했습니다. 
->
-> 자세한 내용, 업데이트 및 시간 프레임은 Office 개발자 센터의 [Microsoft Graph 또는 Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph)를 참조하세요.
->
-> 앞으로 애플리케이션은 Microsoft Graph API를 사용해야 합니다. 
+> Azure ad (Azure Active Directory) 리소스에 액세스 하려면 Azure AD Graph API 대신 [Microsoft Graph](https://developer.microsoft.com/graph) 를 사용 하는 것이 좋습니다. 이제 Microsoft는 Azure AD Graph API를 더 이상 개선하지 않을 것이며 Microsoft Graph에 주력하고 있습니다. Azure AD Graph API 적절 한 수의 시나리오는 매우 제한 되어 있습니다. 자세한 내용은 [Microsoft Graph 또는 AZURE Ad graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) 블로그 게시물 및 [MICROSOFT GRAPH에 azure Ad graph 앱 마이그레이션](https://docs.microsoft.com/graph/migrate-azure-ad-graph-overview)을 참조 하세요.
 
-
-
-이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://docs.microsoft.com/graph/use-the-api)을 참조하세요. 
+이 문서는 Azure AD Graph API에 적용됩니다. Microsoft Graph API와 관련된 유사한 정보는 [Microsoft Graph API 사용](https://docs.microsoft.com/graph/use-the-api)을 참조하세요.
 
 Azure Active Directory Graph API는 REST API 엔드포인트를 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있게 합니다. 애플리케이션은 Azure AD Graph API를 사용하여 디렉터리 데이터 및 개체에 대한 CRUD(만들기, 읽기, 업데이트 및 삭제) 작업을 수행할 수 있습니다. 예를 들어, Azure AD Graph API는 사용자 개체에 대한 다음과 같은 일반적인 작업을 지원합니다.
 
@@ -54,12 +47,12 @@ Azure Active Directory Graph API 사용을 시작하려면 [Azure AD Graph API �
 
 Azure AD Graph API는 다음과 같은 기능을 제공합니다.
 
-* **REST API 엔드포인트**: Azure AD Graph API는 표준 HTTP 요청을 사용하여 액세스되는 엔드포인트로 구성된 RESTful 서비스입니다. Azure AD Graph API는 요청 및 응답에 대해 XML 또는 Javascript Object Notation(JSON) 콘텐츠 형식을 지원합니다. 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 참조하세요.
-* **Azure AD를 사용하여 인증**: Azure AD Graph API에 대한 모든 요청은 요청의 인증 헤더에 JWT(JSON Web Token)를 추가하여 인증해야 합니다. Azure AD의 토큰 엔드포인트에 요청을 하고 유효한 자격 증명을 제공하여 이 토큰을 가져옵니다. OAuth 2.0 클라이언트 자격 증명 흐름 또는 인증 코드 부여 흐름을 사용하여 Graph를 호출하는 토큰을 획득할 수 있습니다. 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 참조하세요.
+* **REST API 엔드포인트**: Azure AD Graph API는 표준 HTTP 요청을 사용하여 액세스하는 엔드포인트로 구성된 RESTful 서비스입니다. Azure AD Graph API는 요청 및 응답에 대해 XML 또는 Javascript Object Notation(JSON) 콘텐츠 형식을 지원합니다. 자세한 내용은 [Azure AD Graph REST API 참조](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog)를 참조하세요.
+* **Azure AD 인증**: 요청의 인증 헤더에서 JWT(JSON Web Token)을 추가하여 Azure AD Graph API에 대한 모든 요청을 인증해야 합니다. Azure AD의 토큰 엔드포인트에 요청을 하고 유효한 자격 증명을 제공하여 이 토큰을 가져옵니다. OAuth 2.0 클라이언트 자격 증명 흐름 또는 인증 코드 부여 흐름을 사용하여 Graph를 호출하는 토큰을 획득할 수 있습니다. 자세한 내용은 [Azure AD의 OAuth 2.0](https://msdn.microsoft.com/library/azure/dn645545.aspx)을 참조하세요.
 * **RBAC(역할 기반 권한 부여)** : 보안 그룹을 사용하여 Azure AD Graph API에서 RBAC를 수행합니다. 예를 들어 사용자에게 특정 리소스에 대한 액세스 권한이 있는지 확인하려는 경우, 애플리케이션에서 true 또는 false를 반환하는 [그룹 구성원 자격(전이적) 확인](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/functions-and-actions#checkMemberGroups) 작업을 호출할 수 있습니다.
-* **차등 쿼리**: Azure AD Graph API를 자주 쿼리할 필요 없이 차등 쿼리를 통해 두 기간 사이의 디렉터리 변경을 추적할 수 있습니다. 이 요청 유형은 이전 차등 쿼리 요청과 현재 요청 간에 발생한 변경 내용만 반환합니다. 자세한 내용은 [Azure AD Graph API 차등 쿼리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)를 참조하세요.
+* **차등 쿼리**: Azure AD Graph API를 자주 쿼리할 필요 없이 차등 쿼리를 통해 두 기간 사이에 디렉터리에서 변경된 내용을 추적할 수 있습니다. 이 요청 유형은 이전 차등 쿼리 요청과 현재 요청 간에 발생한 변경 내용만 반환합니다. 자세한 내용은 [Azure AD Graph API 차등 쿼리](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)를 참조하세요.
 * **디렉터리 확장**: 외부 데이터 저장소를 사용할 필요 없이 디렉터리 개체에 사용자 지정 속성을 추가할 수 있습니다. 예를 들어 애플리케이션이 각 사용자에 대해 Skype ID 속성을 요구하는 경우 디렉터리에 새 속성을 등록하면 모든 사용자 개체에 대해 사용할 수 있습니다. 자세한 내용은 [Azure AD Graph API Directory 스키마 확장](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions)을 참조하세요.
-* **권한 범위로 보호**: Azure AD Graph API는 OAuth 2.0을 사용하여 Azure AD 데이터에 대한 보안 액세스를 사용하도록 설정하는 권한 범위를 공개합니다. 다음을 포함한 다양한 클라이언트 앱 유형을 지원합니다.
+* **권한 범위로 보호**: Azure AD Graph API는 OAuth 2.0을 사용하여 Azure AD 데이터에 대한 보안 액세스를 사용할 수 있는 권한 범위를 노출합니다. 다음을 포함한 다양한 클라이언트 앱 유형을 지원합니다.
   
   * 로그인한 사용자의 권한 부여를 통해 데이터에 대한 위임된 액세스 권한을 부여한 사용자 인터페이스(위임)
   * 로그인한 사용자가 없는 백그라운드에서 작동하고 애플리케이션 정의 역할 기반 액세스 제어를 사용하는 서비스/디먼 애플리케이션
@@ -70,8 +63,8 @@ Azure AD Graph API는 다음과 같은 기능을 제공합니다.
 
 Azure AD Graph API는 다양한 애플리케이션 시나리오를 지원합니다. 다음 시나리오는 가장 일반적인 것입니다.
 
-* **기간 업무(단일 테넌트) 애플리케이션**: 이 시나리오에서는 엔터프라이즈 개발자가 Office 365 구독이 있는 조직에 대한 작업을 수행합니다. 개발자는 사용자에게 라이선스를 할당하는 작업을 수행하기 위해 Azure AD와 상호 작용하는 웹 애플리케이션을 구축하고 있습니다. 이 작업은 Azure AD Graph API에 대한 액세스를 필요하기 때문에, 개발자는 Azure AD에서 단일 테넌트 애플리케이션을 등록하고 Azure AD Graph API에 대한 읽기 및 쓰기 권한을 구성합니다. 그런 다음, 애플리케이션은 Azure AD Graph API를 호출하는 토큰을 획득하기 위해 자신의 자격 증명 또는 현재 로그인 한 사용자의 자격 증명을 사용하도록 구성됩니다.
-* **서비스 제공 소프트웨어(Software as a Service) 애플리케이션(다중 테넌트)** : 이 시나리오에서는 ISV(Independent Software Vendor)가 Azure AD를 사용하는 다른 조직에 사용자 관리 기능을 제공하는 호스팅 지원 다중 테넌트 웹 애플리케이션을 개발합니다. 이러한 기능은 디렉터리 개체에 액세스를 요청하고, 이에 애플리케이션이 Azure AD Graph API를 호출해야 합니다. 개발자는 Azure AD에서 애플리케이션을 등록하고, Azure AD Graph API에 대한 읽기 및 쓰기 권한을 요구하도록 구성한 다음, 다른 조직이 자신의 디렉터리에 있는 애플리케이션을 사용하는 것에 동의하도록 외부 액세스를 사용합니다. 다른 조직의 사용자가 처음으로 애플리케이션에 대해 인증하는 경우, 애플리케이션이 요청하는 사용 권한과 함께 동의 대화 상자가 표시됩니다. 동의하면 애플리케이션이 사용자 디렉터리의 Azure AD Graph API에 대해 사용 권한을 요청한 사람에게 부여하게 됩니다. 동의 프레임워크에 대한 자세한 내용은 [동의 프레임워크의 개요](consent-framework.md)를 참조하세요.
+* **기간 업무(단일 테넌트) 애플리케이션**: 이 시나리오에서는 엔터프라이즈 개발자는 Office 365를 구독하는 조직을 위해 업무를 수행합니다. 개발자는 사용자에게 라이선스를 할당하는 작업을 수행하기 위해 Azure AD와 상호 작용하는 웹 애플리케이션을 구축하고 있습니다. 이 작업은 Azure AD Graph API에 대한 액세스를 필요하기 때문에, 개발자는 Azure AD에서 단일 테넌트 애플리케이션을 등록하고 Azure AD Graph API에 대한 읽기 및 쓰기 권한을 구성합니다. 그런 다음, 애플리케이션은 Azure AD Graph API를 호출하는 토큰을 획득하기 위해 자신의 자격 증명 또는 현재 로그인 한 사용자의 자격 증명을 사용하도록 구성됩니다.
+* **서비스 애플리케이션 같은 소프트웨어(다중 테넌트)** : 이 시나리오에서는 독립 소프트웨어 공급업체(ISV)는 Azure AD를 사용하는 다른 조직에 대한 사용자 관리 기능을 제공하는 호스팅 다중 테넌트 웹 애플리케이션을 개발하고 있습니다. 이러한 기능은 디렉터리 개체에 액세스를 요청하고, 이에 애플리케이션이 Azure AD Graph API를 호출해야 합니다. 개발자는 Azure AD에서 애플리케이션을 등록하고, Azure AD Graph API에 대한 읽기 및 쓰기 권한을 요구하도록 구성한 다음, 다른 조직이 자신의 디렉터리에 있는 애플리케이션을 사용하는 것에 동의하도록 외부 액세스를 사용합니다. 다른 조직의 사용자가 처음으로 애플리케이션에 대해 인증하는 경우, 애플리케이션이 요청하는 사용 권한과 함께 동의 대화 상자가 표시됩니다. 동의하면 애플리케이션이 사용자 디렉터리의 Azure AD Graph API에 대해 사용 권한을 요청한 사람에게 부여하게 됩니다. 동의 프레임워크에 대한 자세한 내용은 [동의 프레임워크의 개요](consent-framework.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

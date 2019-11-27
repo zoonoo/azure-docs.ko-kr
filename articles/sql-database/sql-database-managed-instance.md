@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
-ms.date: 11/04/2019
-ms.openlocfilehash: 6c5b913835b2080f30ff3dd73e6a59c1043ecf5d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: db5ac9465e6b897690c54484de25fde462741fb3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823288"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548385"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -63,7 +63,7 @@ Managed Instance의 주요 기능을 다음 표에서 볼 수 있습니다.
 | 데이터베이스당 데이터 파일(행) 수 | 여러 접두사 |
 | 데이터베이스당 로그 파일(로그) 수 | 1 |
 | VNet - Azure Resource Manager 배포 | 예 |
-| VNet - 클래식 배포 모델 | 아니요 |
+| VNet - 클래식 배포 모델 | 아니오 |
 | 포털 지원 | 예|
 | 기본 제공 통합 서비스(SSIS) | 아니요 - SSIS는 [Azure Data Factory PaaS](https://docs.microsoft.com/azure/data-factory/tutorial-deploy-ssis-packages-azure)의 일부입니다. |
 | 기본 제공 분석 서비스(SSAS) | 아니요 - SSAS는 별도의 [PaaS](https://docs.microsoft.com/azure/analysis-services/analysis-services-overview)입니다. |
@@ -77,7 +77,7 @@ Managed Instance의 [vCore 기반 구매 모델](sql-database-service-tiers-vcor
 vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 - **Gen4** 논리적 Cpu는 Intel E5-2673 v3 (Haswell) 2.4 g h z 프로세서, 연결 된 SSD, 실제 코어 수, 코어 당 8GB RAM 및 계산 크기 (8 ~ 24)를 기반으로 합니다.
-- **Gen5** 논리적 Cpu는 Intel E5-2673 v4 (Broadwell) 2.3 g h z 프로세서, fast NVMe SSD, 하이퍼 스레드 논리 코어 및 4 개에서 80 코어 사이의 계산 크기를 기반으로 합니다.
+- **Gen5** 논리적 Cpu는 Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서, fast NVMe SSD, 하이퍼 스레드 논리 코어 및 4 ~ 80 코어 간 계산 크기를 기반으로 합니다.
 
 하드웨어 세대 간의 차이점에 대한 자세한 내용은 [Managed Instance 리소스 제한](sql-database-managed-instance-resource-limits.md#hardware-generation-characteristics)을 참조하세요.
 
@@ -124,7 +124,7 @@ vCore 모델에서는 하드웨어 세대를 선택할 수 있습니다.
 
 Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 배포하고, 인스턴스 속성을 업데이트하며, 더 이상 필요하지 않은 경우 인스턴스를 삭제하는 데 사용할 수 있는 관리 작업을 제공합니다. 이 섹션에서는 관리 작업 및 일반적인 기간에 대 한 정보를 제공 합니다.
 
-[Azure vnet (가상 네트워크) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공하기 위해 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)관리 되는 인스턴스는 고객의 가상 네트워크 서브넷. 기본적으로 빈 서브넷에 있는 모든 관리 되는 인스턴스 배포는 새 가상 클러스터가 buildout을 생성 합니다.
+[Azure vnet (가상 네트워크) 내에서 배포](../virtual-network/virtual-network-for-azure-services.md#deploy-azure-services-into-virtual-networks) 를 지원 하 고 고객에 대 한 격리 및 보안을 제공 하기 위해 관리 되는 인스턴스는 고객의 가상 네트워크 서브넷 내에 배포 된 격리 된 가상 머신의 전용 집합을 나타내는 [가상 클러스터](sql-database-managed-instance-connectivity-architecture.md#high-level-connectivity-architecture)에 의존 합니다. 기본적으로 빈 서브넷에 있는 모든 관리 되는 인스턴스 배포는 새 가상 클러스터가 buildout을 생성 합니다.
 
 배포 된 관리 되는 인스턴스의 후속 작업은 기본 가상 클러스터에도 영향을 미칠 수 있습니다. 이는 관리 작업 기간에 영향을 줍니다. 추가 가상 컴퓨터를 배포 하는 경우 새 배포 또는 기존 관리 되는 인스턴스에 대 한 업데이트를 계획 하는 경우 고려해 야 하는 오버 헤드가 발생 합니다.
 
@@ -147,7 +147,7 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 
 다음 표에는 작업과 일반적인 전체 기간이 요약 되어 있습니다.
 
-|Category  |작업  |장기 실행 세그먼트  |예상 기간  |
+|Category  |작업(Operation)  |장기 실행 세그먼트  |예상 기간  |
 |---------|---------|---------|---------|
 |**배포웹사이트를** |빈 서브넷의 첫 번째 인스턴스|가상 클러스터 만들기|4 시간 내에 완료 된 작업의 90%|
 |배포 |비어 있지 않은 서브넷에 있는 다른 하드웨어 생성의 첫 번째 인스턴스 (예: Gen 4 인스턴스가 있는 서브넷의 첫 번째 Gen 5 인스턴스)|가상 클러스터 만들기 *|4 시간 내에 완료 된 작업의 90%|

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 10/02/2019
-ms.openlocfilehash: 08e378c4b5f6d8e17ac67a80401edf69611c0a13
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.openlocfilehash: 816cf7cc78d3dfcb783b09f039f468ef3b23a06b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823345"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548379"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -31,7 +31,7 @@ ms.locfileid: "73823345"
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
-| 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4(Broadwell) 2.3GHz 프로세서, 고속 NVMe SSD, vCore = 1LP(하이퍼스레드) |
+| 하드웨어 | Intel E5-2673 v3(Haswell) 2.4GHz 프로세서, 연결형 SSD, vCore = 1PP(물리적 코어) | Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서, fast NVMe SSD, vCore = 1 LP (하이퍼 스레드) |
 | vCore 수 | 8, 16, 24개 vCore | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
 | 최대 메모리 (메모리/코어 비율) | vCore당 7GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. | vCore당 5.1GB<br/>더 많은 메모리를 얻기 위해 vCores를 추가 합니다. |
 | 최대 메모리 내 OLTP 메모리 | 인스턴스 제한: 1-vCore 당 1.5 g b| 인스턴스 제한: 0.8-vCore 당 1.65 GB |
@@ -98,7 +98,7 @@ ms.locfileid: "73823345"
 
 | 파일 크기           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 파일당 IOPS       | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500   |
+| 파일당 IOPS       | 500   | 1100 | 2,300              | 5000              | 7,500              | 7,500              | 12,500   |
 | 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
 
 일부 데이터베이스 파일에서 높은 IO 대기 시간이 발생 하거나 IOPS/처리량이 제한에 도달 하는 것을 확인 한 경우 [파일 크기를 늘려서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)성능을 향상 시킬 수 있습니다.

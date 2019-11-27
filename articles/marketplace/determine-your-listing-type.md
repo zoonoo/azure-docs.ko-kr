@@ -2,19 +2,19 @@
 title: Azure Marketplace에서 게시 옵션 결정 | Azure
 description: 이 문서에서는 Azure Marketplace의 앱을 게시하는 방법을 이해하려는 파트터의 자격 기준 및 게시 요구 사항에 대해 설명합니다.
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: jm-aditi-ms
+author: ellacroi
 manager: pabutler
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: 967d33cb7a9eb3ec922f9d85cfc2581b85bce537
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: ed25b92dc759f687e35a8424558453a830369a57
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73825898"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548350"
 ---
 # <a name="determine-your-publishing-option"></a>게시 옵션 확인
 제안에 대해 선택한 게시 옵션은 적격성 요구 사항 및 마켓플레이스 GTM 혜택 모두와 직접 관련이 있습니다. 더 중요 한 것은 게시 옵션 및 제안 유형을 선택 하는 것으로 사용자가 marketplace 제품을 조작 하는 방법을 정의 하는 것입니다.
@@ -41,7 +41,7 @@ ms.locfileid: "73825898"
 
 ## <a name="understand-storefront-selection"></a>상점 선택 이해
 
-제품이 Azure Marketplace 표시 되는 storefront 및/또는 AppSource는 제품을 만들 때 선택한 범주 및 산업 뿐만 아니라 제품 세부 정보 및 대상 대상에 의해 자동으로 결정 됩니다. 
+각 storefront는 고유한 고객 요구 사항을 제공 합니다. 제품이 게시 될 storefront는 제품 유형별로 결정 되 고, 특정 대상 그룹을 대상으로 하는 주문 기능, 범주 및/또는 업계 선택 항목을 제공 합니다. 
 
 >[!Note]
 >"교차 목록" (SaaS 앱에만 해당): 목록 또는 평가판 기반 제품이 기술 및 비즈니스 사용자 대상에 대 한 조건을 충족 하는 경우 제품은 두 상점 모두에 나열 됩니다. 아래 게시 옵션에 대해 자세히 알아봅니다.

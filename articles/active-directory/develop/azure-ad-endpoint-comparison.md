@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/01/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 975c7f18da9797305b0af3f81b00acca1ba14a1a
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: e5a000d08afb3afba06d82aae4414e87b61e502f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200324"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533049"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>V 2.0 (Microsoft identity platform)을 업데이트 하는 이유
 
@@ -62,9 +62,9 @@ Microsoft id 플랫폼 끝점을 사용 하 여 Azure Portal에서 앱 등록 �
 
 ## <a name="scopes-not-resources"></a>리소스가 아닌 범위
 
-v1.0 엔드포인트를 사용하는 앱은 **리소스** 또는 토큰 수신자로 작동할 수 있습니다. 리소스는 많은 **범위** 또는 이해할 수 있는 **oAuth2Permissions**를 정의할 수 있으며, 클라이언트 앱이 범위의 특정 집합에 대한 리소스에서 토큰을 요청하도록 허용합니다. Azure AD Graph API를 리소스의 예로 생각해 볼 경우:
+v1.0 엔드포인트를 사용하는 앱은 **리소스** 또는 토큰 수신자로 작동할 수 있습니다. 리소스는 많은 **범위** 또는 이해할 수 있는 **oAuth2Permissions**를 정의할 수 있으며, 클라이언트 앱이 범위의 특정 집합에 대한 리소스에서 토큰을 요청하도록 허용합니다. 리소스의 예로 Microsoft Graph API를 살펴보겠습니다.
 
-* 리소스 식별자 또는 `AppID URI`: `https://graph.windows.net/`
+* 리소스 식별자 또는 `AppID URI`: `https://graph.microsoft.com/`
 * 범위 또는 `oAuth2Permissions`: `Directory.Read`, `Directory.Write` 등
 
 Microsoft id 플랫폼 끝점의 경우에도 마찬가지입니다. 앱은 여전히 리소스로 작동하고, 범위를 정의하고, URI로 식별될 수 있습니다. 클라이언트 앱은 여전히 해당 범위에 액세스 요청할 수 있습니다. 그러나 클라이언트에서 이러한 사용 권한을 요청 하는 방법이 변경 되었습니다.
@@ -95,7 +95,7 @@ client_id=2d4d11a2-f814-46a7-890a-274a72a7309e
 
 ### <a name="offline-access"></a>오프라인 액세스
 
-Microsoft id 플랫폼 끝점을 사용 하는 앱은 앱에 대해 잘 알려진 새 권한 (`offline_access` 범위)을 사용 해야 할 수 있습니다. 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 사용자에게 동의 대화 상자에 **언제든지 데이터에 액세스**로 표시되며 사용자는 여기에 반드시 동의해야 합니다. `offline_access` 권한을 요청 하면 웹 앱이 Microsoft id 플랫폼 끝점에서 OAuth 2.0 refresh_tokens을 받을 수 있습니다. 새로 고침 토큰은 수명이 길며, 오랜 기간 액세스하기 위해 새로운 OAuth 2.0 액세스 토큰으로 교환할 수 있습니다.
+Microsoft id 플랫폼 끝점을 사용 하는 앱은 앱에 대해 잘 알려진 새 권한 (`offline_access` 범위)을 사용 해야 할 수 있습니다. 모든 앱이 연장된 기간 동안 사용자를 대신하여 리소스에 액세스해야 할 경우, 사용자가 앱을 자주 쓰지 않는 경우에도 이 권한을 요청해야 합니다. `offline_access` 범위는 사용자에게 동의 대화 상자에 **언제든지 데이터에 액세스**로 표시되며 사용자는 여기에 반드시 동의해야 합니다. `offline_access` 권한을 요청 하면 웹 앱이 Microsoft id 플랫폼 끝점에서 OAuth 2.0 refresh_tokens를 받을 수 있습니다. 새로 고침 토큰은 수명이 길며, 오랜 기간 액세스하기 위해 새로운 OAuth 2.0 액세스 토큰으로 교환할 수 있습니다.
 
 앱이 `offline_access` 범위를 요청 하지 않으면 새로 고침 토큰이 수신 되지 않습니다. 즉, OAuth 2.0 권한 부여 코드 흐름에서 인증 코드를 사용하면 `/token` 엔드포인트에서 액세스 토큰만 수신하게 됩니다. 이 액세스 토큰은 짧은 기간(일반적으로 1시간) 동안 유효하지만 결국 만료됩니다. 해당 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 인증 코드를 검색해야 합니다. 리디렉션 중에 앱 유형에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수도 있고 그렇지 않을 수도 있습니다.
 
@@ -108,7 +108,7 @@ OAuth 2.0, `refresh_tokens`및 `access_tokens`에 대 한 자세한 내용은 [M
 이제 `openid` 범위를 통해 앱의 액세스가 허용되는 정보가 제한됩니다. `openid` 범위는 앱이 사용자를 로그인하고 해당 사용자의 앱 특정 식별자를 수신하는 작업만 허용합니다. 앱에 있는 사용자의 개인 데이터를 가져오려면 앱이 사용자로부터 추가 권한을 요청해야 합니다. 두 개의 새 범위(`email` 및 `profile` 범위)를 통해 추가 권한을 요청할 수 있습니다.
 
 * `email` 범위는 사용자에게 주소 지정 가능한 메일 주소가 있다고 가정하여 앱이 id_token의 `email` 클레임을 통해 사용자의 기본 메일 주소에 액세스할 수 있도록 해줍니다.
-* `profile` 범위는 앱이 사용자에 대 한 다른 모든 기본 정보 (예: 이름, 기본 설정 사용자 이름, 개체 ID 등)에 대 한 액세스를 id_token 합니다.
+* `profile` 범위는 id_token에서 사용자에 대 한 다른 모든 기본 정보 (예: 이름, 기본 설정 된 사용자 이름, 개체 ID 등)에 대 한 모든 기본 정보에 대 한 앱 액세스 권한을 가집니다.
 
 이러한 범위를 사용하면 최소한의 공개로 앱을 코딩할 수 있으며, 작업 수행에 필요한 정보만 사용자에게 요청할 수 있습니다. 이러한 범위에 대 한 자세한 내용은 [Microsoft id 플랫폼 범위 참조](v2-permissions-and-consent.md)를 참조 하세요.
 
@@ -117,7 +117,7 @@ OAuth 2.0, `refresh_tokens`및 `access_tokens`에 대 한 자세한 내용은 [M
 Microsoft id 플랫폼 끝점은 페이로드를 작게 유지 하기 위해 기본적으로 해당 토큰에서 더 작은 클레임 집합을 발급 합니다. Microsoft id 플랫폼 토큰에서 더 이상 기본적으로 제공 되지 않는 v2.0 토큰의 특정 클레임에 종속 된 앱 및 서비스가 있는 경우 [선택적 클레임](active-directory-optional-claims.md) 기능을 사용 하 여 해당 클레임을 포함 하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> v 1.0 및 v2.0 끝점 모두에서 v1.0 및 v2.0 토큰을 발급할 수 있습니다! id_tokens는 *항상* 요청 된 끝점과 일치 하며, 액세스 토큰은 클라이언트가 해당 토큰을 사용 하 여 호출 하는 Web API에 필요한 형식과 *항상* 일치 합니다.  따라서 앱이 v2.0 끝점을 사용 하 여 Microsoft Graph를 호출 하는 토큰을 가져오는 경우 (v2.0 형식 액세스 토큰이 필요한 경우) 앱은 v1.0 형식으로 토큰을 받습니다.  
+> v 1.0 및 v2.0 끝점 모두에서 v1.0 및 v2.0 토큰을 발급할 수 있습니다! id_tokens *항상* 요청 된 끝점과 일치 하 고, 액세스 토큰은 클라이언트가 해당 토큰을 사용 하 여 호출 하는 Web API에 필요한 *형식과 일치 해야* 합니다.  따라서 앱이 v2.0 끝점을 사용 하 여 Microsoft Graph를 호출 하는 토큰을 가져오는 경우 (v2.0 형식 액세스 토큰이 필요한 경우) 앱은 v1.0 형식으로 토큰을 받습니다.  
 
 ## <a name="limitations"></a>제한 사항
 
@@ -151,7 +151,7 @@ Microsoft id 플랫폼용으로 등록 된 앱은 제한 된 리디렉션 URL �
 * 새 리디렉션 URL의 전체 DNS 이름이 기존 리디렉션 URL의 DNS 이름과 일치하지 않는 경우
 * 새 리디렉션 URL의 전체 DNS 이름이 기존 리디렉션 URL의 하위 도메인이 아닌 경우
 
-#### <a name="example-1"></a>예 1
+#### <a name="example-1"></a>예제 1
 
 앱에 `https://login.contoso.com`의 리디렉션 URL이 있는 경우 다음 예제와 같이 DNS 이름이 정확히 일치하는 리디렉션 URL을 추가할 수 있습니다.
 
@@ -190,7 +190,7 @@ Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을
 Microsoft id 플랫폼 끝점이 SAML 또는 WS-FEDERATION을 지원 하지 않습니다. Openid connect Connect 및 OAuth 2.0만 지원 합니다.  v1.0 엔드포인트에서 OAuth 2.0 프로토콜의 주목할 만한 변경 내용은 다음과 같습니다. 
 
 * `email` 클레임은 선택적 클레임이 구성되어 있는 경우 **또는** 요청에서 범위=메일로 지정된 경우 반환됩니다. 
-* 이제 `resource` 매개 변수 대신 `scope` 매개 변수가 지원됩니다.  
+* 이제 `scope` 매개 변수 대신 `resource` 매개 변수가 지원됩니다.  
 * OAuth 2.0 사양을 보다 잘 준수하도록 많은 응답이 수정되었습니다(예: `expires_in`을 string 대신 int로 올바르게 반환).  
 
 Microsoft id 플랫폼 끝점에서 지원 되는 프로토콜 기능의 범위를 더 잘 이해 하려면 [Openid connect Connect 및 OAuth 2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조 하세요.

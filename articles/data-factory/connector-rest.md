@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: jingwang
-ms.openlocfilehash: c691281f1ff0cf88d1ba61af43fad8e7782924aa
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1178c18b29c5e38d33e51ff0da5db683990daed3
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278505"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546963"
 ---
 # <a name="copy-data-from-a-rest-endpoint-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 REST 엔드포인트에서 데이터 복사
 
@@ -218,7 +218,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 | requestInterval | 다음 페이지에 대한 요청을 보내기 전에 대기할 시간입니다. 기본값은 **00:00:01**입니다. |  아니오 |
 
 >[!NOTE]
->REST 커넥터 `additionalHeaders`에 지정 된 "Accept" 헤더를 무시 합니다. REST 커넥터는 JSON의 응답만 지원 하므로 tt는 `Accept: application/json`의 헤더를 자동으로 생성 합니다.
+>REST 커넥터 `additionalHeaders`에 지정 된 "Accept" 헤더를 무시 합니다. REST 커넥터는 JSON의 응답만 지원 하므로 `Accept: application/json`헤더가 자동으로 생성 됩니다.
 
 **예제 1: 페이지 매김을 사용 하 여 Get 메서드 사용**
 
@@ -309,7 +309,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
 
-| Key | 설명 |
+| 키 | 설명 |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url**일 수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |
