@@ -1,5 +1,5 @@
 ---
-title: Create and manage Azure IoT Central applications from the CSP portal | Microsoft Docs
+title: CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리 | Microsoft Docs
 description: CSP로서 고객을 대신하여 Azure IoT Central 애플리케이션을 만드는 방법.
 services: iot-central
 ms.service: iot-central
@@ -15,17 +15,17 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74480336"
 ---
-# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>Create and manage an Azure IoT Central application from the CSP portal
+# <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
 Microsoft CSP(클라우드 솔루션 공급자) 프로그램은 Microsoft 재판매인 프로그램입니다. 이의 의도는 모든 Microsoft 상용 온라인 서비스를 재판매하기 위한 원스톱 프로그램을 채널 파트너에게 제공하는 것입니다. [클라우드 솔루션 공급자 프로그램](https://partner.microsoft.com/cloud-solution-provider)을 자세히 알아봅니다.
 
 CSP로서 고객을 대신해 [Microsoft 파트너 센터](https://partnercenter.microsoft.com/partner/home)를 통해 Microsoft Azure IoT Central 애플리케이션을 만들고 관리할 수 있습니다. CSP가 고객을 대신해 Azure IoT Central 애플리케이션을 만들 경우 다른 CSP 관리 Azure 서비스와 마찬가지로 CSP가 고객에 대한 청구를 관리합니다. Azure IoT Central에 대한 요금은 Microsoft 파트너 센터의 총 청구서에 표시됩니다.
 
-시작하려면 Microsoft 파트너 포털의 계정에 로그인하고 Azure IoT Central 애플리케이션을 만들어 주려는 고객을 선택합니다. Navigate to Service Management for the customer from the left nav.
+시작하려면 Microsoft 파트너 포털의 계정에 로그인하고 Azure IoT Central 애플리케이션을 만들어 주려는 고객을 선택합니다. 왼쪽 탐색 창에서 고객에 대 한 서비스 관리로 이동 합니다.
 
 ![Microsoft 파트너 센터, 고객 보기](media/howto-create-application-csp/image1.png)
 
-Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. Select the Azure IoT Central link on the page to create new applications or manage existing applications for this customer.
+Azure IoT Central은 관리할 수 있는 서비스로 나열됩니다. 페이지에서 Azure IoT Central 링크를 선택 하 여 새 응용 프로그램을 만들거나이 고객에 대 한 기존 응용 프로그램을 관리 합니다.
 
 ![관리할 수 있는 Azure IoT Central](media/howto-create-application-csp/image2.png)
 
@@ -33,7 +33,7 @@ Azure IoT Central 애플리케이션 관리자 페이지로 이동합니다. Azu
 
 ![CSP를 위한 관리자 만들기](media/howto-create-application-csp/image3.png)
 
-To create an Azure IoT Central application, select **Build** in the left menu. Choose one of the industry templates, or choose **Custom app** to create an application from scratch. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
+Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌드** 를 선택 합니다. 산업 템플릿 중 하나를 선택 하거나 응용 프로그램을 처음부터 만들려면 **사용자 지정 앱** 을 선택 합니다. 그러면 애플리케이션 만들기 페이지가 로드됩니다. 이 페이지의 모든 필드를 완료한 다음, **만들기**를 선택해야 합니다. 아래에 각 필드에 대한 자세한 내용이 있습니다.
 
 ![CSP에 대한 애플리케이션 페이지 만들기](media/howto-create-application-csp/image4.png)
 
@@ -69,14 +69,14 @@ Azure 구독이 아직 없는 경우 Microsoft 파트너 센터에서 만들 수
 
 자세한 내용은 [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)을 참조하세요.
 
-## <a name="region"></a>지역
+## <a name="region"></a>Region
 
-Choose the region or [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your Azure IoT Central Application. Typically, you should choose the region that's closest physically to your devices to get optimal performance.
+Azure IoT Central 응용 프로그램을 만들려는 지역 또는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 를 선택 합니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 지역을 선택 해야 합니다.
 
 > [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **US** locations.
+> Preview 응용 프로그램 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
-To learn more, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/) and [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
+자세히 알아보려면 [azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 및 [azure](https://azure.microsoft.com/global-infrastructure/geographies/)지역을 참조 하세요.
 
 Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) 페이지에서 확인할 수 있습니다.
 

@@ -79,7 +79,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 > ```json
 > "defaultAction": "Allow"
 > ```
-> to
+> 다음으로 변경:
 > ```json
 > "defaultAction": "Deny"
 > ```

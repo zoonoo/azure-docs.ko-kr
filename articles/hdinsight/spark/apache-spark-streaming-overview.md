@@ -1,6 +1,6 @@
 ---
 title: Azure HDInsight의 Spark Streaming
-description: How to use Apache Spark Streaming applications on HDInsight Spark clusters.
+description: HDInsight Spark 클러스터에서 Apache Spark 스트리밍 응용 프로그램을 사용 하는 방법입니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -21,7 +21,7 @@ ms.locfileid: "74406290"
 
 ![HDInsight 및 Spark 스트리밍을 사용하여 스트림 처리](./media/apache-spark-streaming-overview/hdinsight-spark-streaming.png)
 
-Spark Streaming 애플리케이션은 처리를 위해 해당 일괄 처리를 보내기 전에 이벤트의 각'마이크로 일괄 처리'를 수집하기 위해 잠시 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
+Spark Streaming 애플리케이션은 처리를 위해 해당 일괄 처리를 보내기 전에 이벤트의 각 *마이크로 일괄 처리*를 수집하기 위해 몇 초 동안 기다려야 합니다. 반면, 이벤트 기반 애플리케이션은 각 이벤트를 즉시 처리합니다. Spark 스트리밍 대기 시간은 일반적으로 몇 초 이하입니다. 마이크로 일괄 처리 방법의 이점은 보다 효율적인 데이터 처리 및 간단한 집계 계산입니다.
 
 ## <a name="introducing-the-dstream"></a>DStream 소개
 
@@ -29,7 +29,7 @@ Spark 스트리밍은 DStream이라는 *불연속화 스트림*을 사용하여 
 
 DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을 제공합니다.
 
-단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. When this event arrives at your Spark Streaming application, the event is stored in a reliable way, where it's replicated on multiple nodes. This fault-tolerance ensures that the failure of any single node won't result in the loss of your event. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
+단일 이벤트로 시작하고, 연결된 자동 온도 조절기에서 읽는 온도를 말합니다. 이 이벤트가 Spark Streaming 응용 프로그램에 도착 하면 이벤트는 신뢰할 수 있는 방식으로 저장 되며,이는 여러 노드에 복제 됩니다. 이 내결함성은 단일 노드의 오류로 인해 이벤트가 손실 되지 않도록 합니다. Spark 코어는 각 노드가 최상의 성능을 위해 자체 메모리 내 데이터를 일반적으로 유지하는 클러스터의 여러 노드에 걸쳐 데이터를 배포하는 데이터 구조를 사용합니다. 이 데이터 구조는 RDD(*복원력 있는 분산 데이터 세트*)라고 합니다.
 
 각 RDD는 *일괄 처리 간격*이라는 사용자 정의 시간 프레임을 통해 수집된 이벤트를 나타냅니다. 각 일괄 처리 간격이 지나면 해당 간격에서 모든 데이터를 포함하는 새 RDD가 생성됩니다. RDD의 연속 집합은 DStream으로 수집됩니다. 예를 들어 일괄 처리 간격이 1초 긴 경우 DStream에서 해당 초 동안 수집된 모든 데이터를 포함하는 하나의 RDD를 포함하는 일괄 처리를 매 초 내보냅니다. DStream을 처리할 때 이러한 일괄 처리 중 하나에 온도 이벤트가 나타납니다. Spark 스트리밍 애플리케이션은 이벤트를 포함하는 일괄 처리를 처리하고 각 RDD에 저장된 데이터에서 궁극적으로 작업을 수행합니다.
 
@@ -37,9 +37,9 @@ DStream은 원시 이벤트 데이터를 기반으로 하는 추상화 계층을
 
 ## <a name="structure-of-a-spark-streaming-application"></a>Spark 스트리밍 애플리케이션의 구조
 
-Spark 스트리밍 애플리케이션은 수집 원본에서 데이터를 받고 데이터 처리를 위해 변환을 적용한 다음 하나 이상의 대상으로 데이터를 푸시하는 장기 실행 애플리케이션입니다. Spark Streaming 애플리케이션의 구조에는 정적 부분과 동적 부분이 있습니다. 정적 부분은 데이터의 원본 위치, 데이터에서 수행할 처리 및 결과를 이동해야 할 위치를 정의합니다. 동적 부분은 정지 신호를 기다리며 애플리케이션을 무기한으로 실행합니다.
+Spark 스트리밍 애플리케이션은 수집 원본에서 데이터를 받고 데이터 처리를 위해 변환을 적용한 다음, 하나 이상의 대상으로 데이터를 푸시하는 장기 실행 애플리케이션입니다. Spark Streaming 애플리케이션의 구조에는 정적 부분과 동적 부분이 있습니다. 정적 부분은 데이터의 원본 위치, 데이터에서 수행할 처리 및 결과를 이동해야 할 위치를 정의합니다. 동적 부분은 정지 신호를 기다리며 애플리케이션을 무기한으로 실행합니다.
 
-예를 들어, 다음과 같은 간단한 애플리케이션은 TCP 소켓을 통해 한 줄의 텍스트를 수신하여 각 단어가 나타나는 횟수를 계산합니다.
+예를 들어, 다음은 TCP 소켓을 통해 텍스트 줄을 받고 각 단어가 나타나는 횟수를 계산하는 간단한 애플리케이션입니다.
 
 ### <a name="define-the-application"></a>애플리케이션 정의
 
@@ -65,7 +65,7 @@ val ssc = new StreamingContext(sc, Seconds(1))
 
 #### <a name="create-a-dstream"></a>DStream 만들기
 
-StreamingContext 인스턴스를 사용하여 입력 원본에 대한 입력 DStream을 만듭니다. 이 경우 애플리케이션은 HDInsight 클러스터에 연결된 기본 스토리지에서 새 파일의 출현을 확인합니다.
+StreamingContext 인스턴스를 사용하여 입력 원본에 대한 입력 DStream을 만듭니다. 이 경우 애플리케이션은 HDInsight 클러스터에 연결된 기본 스토리지에서 새 파일의 모양을 확인합니다.
 
 ```
 val lines = ssc.textFileStream("/uploads/Test/")
@@ -145,7 +145,7 @@ stream.foreachRDD { rdd =>
 ssc.start()
 ```
 
-Wait for about 30 seconds after starting the application above.  Then, you can query the DataFrame periodically to see the current set of values present in the batch, for example using this SQL query:
+위에서 응용 프로그램을 시작한 후 30 초 정도 기다립니다.  그런 다음 데이터 프레임을 정기적으로 쿼리하여 일괄 처리에 있는 값의 현재 집합을 확인할 수 있습니다. 예를 들어 다음 SQL 쿼리를 사용할 수 있습니다.
 
 ```sql
 %%sql
@@ -154,7 +154,7 @@ SELECT * FROM demo_numbers
 
 결과 출력은 다음과 같이 표시됩니다.
 
-| 값 | time |
+| 값 | 실시간 |
 | --- | --- |
 |10 | 1497314465256 |
 |11 | 1497314470272 |
@@ -163,7 +163,7 @@ SELECT * FROM demo_numbers
 |14 | 1497314485327 |
 |15 | 1497314490346 |
 
-DummySource는 5초마다 하나의 값을 만들고 애플리케이션이 30초마다 하나의 일괄 처리를 내보내므로 6개의 값이 있습니다.
+DummySource는 5초마다 값을 만들고 애플리케이션이 30초마다 일괄 처리를 내보내므로 6개의 값이 있습니다.
 
 ## <a name="sliding-windows"></a>슬라이딩 윈도우
 
@@ -222,7 +222,7 @@ ssc.start()
 
 처음 1분 후 12개 항목(윈도우에서 수집한 두 개의 각 일괄 처리에서 6개 항목)이 생성됩니다.
 
-| 값 | time |
+| 값 | 실시간 |
 | --- | --- |
 | 1 | 1497316294139 |
 | 2 | 1497316299158
@@ -245,7 +245,7 @@ ssc.start()
 
 ## <a name="deploying-spark-streaming-applications"></a>Spark 스트리밍 애플리케이션 배포
 
-일반적으로 Spark Streaming 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 스토리지로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
+일반적으로 Spark 스트리밍 애플리케이션을 JAR 파일에 로컬로 빌드한 다음, JAR 파일을 HDInsight 클러스터에 연결된 기본 스토리지로 복사하여 HDInsight의 Spark에 배포합니다. POST 작업을 사용하여 클러스터에서 사용할 수 있는 LIVY REST API를 통해 애플리케이션을 시작할 수 있습니다. POST의 본문에는 JAR에 대한 경로, main 메서드에서 스트리밍 애플리케이션을 정의하고 실행하는 클래스의 이름, 그리고 필요에 따라 작업의 리소스 요구 사항(예: 실행기, 메모리 및 코어의 수)과 애플리케이션 코드에 필요한 모든 구성 설정을 제공하는 JSON 문서가 포함되어 있습니다.
 
 ![Spark Streaming 애플리케이션 배포](./media/apache-spark-streaming-overview/hdinsight-spark-streaming-livy.png)
 

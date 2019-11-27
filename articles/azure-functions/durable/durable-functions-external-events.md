@@ -20,7 +20,7 @@ ms.locfileid: "74232890"
 
 ## <a name="wait-for-events"></a>이벤트 대기
 
-The `WaitForExternalEvent` (.NET) and `waitForExternalEvent` (JavaScript) methods of the [orchestration trigger binding](durable-functions-bindings.md#orchestration-trigger) allows an orchestrator function to asynchronously wait and listen for an external event. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
+[오케스트레이션 트리거 바인딩의](durable-functions-bindings.md#orchestration-trigger) `WaitForExternalEvent` (.net) 및 `waitForExternalEvent` (JavaScript) 메서드를 사용 하면 오 케 스트레이 터 함수가 외부 이벤트를 비동기적으로 대기 하 고 수신할 수 있습니다. 수신 오케스트레이터는 이벤트의 *이름*과 수신할 것으로 예상되는 *데이터의 셰이프*를 선언합니다.
 
 ### <a name="c"></a>C#
 
@@ -42,7 +42,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -91,7 +91,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 #### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -137,7 +137,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `DurableOrchestrationContext` instead of `IDurableOrchestrationContext`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 이전 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `IDurableOrchestrationContext`대신 `DurableOrchestrationContext`를 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 #### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -158,16 +158,16 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
-`WaitForExternalEvent` waits indefinitely for some input.  함수 앱은 기다리는 동안 안전하게 언로드될 수 있습니다. 이 오케스트레이션 인스턴스에 이벤트가 도착하면 인스턴스가 자동으로 활성화하고 해당 이벤트를 즉시 처리합니다.
+`WaitForExternalEvent`는 일부 입력에 대해 무기한 대기 합니다.  함수 앱은 기다리는 동안 안전하게 언로드될 수 있습니다. 이 오케스트레이션 인스턴스에 이벤트가 도착하면 인스턴스가 자동으로 활성화하고 해당 이벤트를 즉시 처리합니다.
 
 > [!NOTE]
 > 함수 앱이 소비 계획을 사용하는 경우 지연 시간에 관계 없이 오케스트레이터 함수에서 `WaitForExternalEvent`(.NET) 또는 `waitForExternalEvent`(JavaScript)의 작업을 기다리는 동안에 대한 요금은 청구되지 않습니다.
 
 .NET에서 이벤트 페이로드를 필요한 `T` 형식으로 변환할 수 없으면 예외가 throw됩니다.
 
-## <a name="send-events"></a>이벤트 보내기
+## <a name="send-events"></a>이벤트 전송
 
-The `RaiseEventAsync` (.NET) or `raiseEvent` (JavaScript) method of the [orchestration client binding](durable-functions-bindings.md#orchestration-client) sends the events that `WaitForExternalEvent` (.NET) or `waitForExternalEvent` (JavaScript) waits for.  `RaiseEventAsync` 메서드는 *eventName* 및 *eventData*를 매개 변수로 사용합니다. 이벤트 데이터는 JSON 직렬화 가능해야 합니다.
+[오케스트레이션 클라이언트 바인딩의](durable-functions-bindings.md#orchestration-client) `RaiseEventAsync` (.net) 또는 `raiseEvent` (javascript) 메서드는 `WaitForExternalEvent` (.net) 또는 `waitForExternalEvent` (javascript)가 대기 하는 이벤트를 보냅니다.  `RaiseEventAsync` 메서드는 *eventName* 및 *eventData*를 매개 변수로 사용합니다. 이벤트 데이터는 JSON 직렬화 가능해야 합니다.
 
 다음은 오케스트레이터 함수 인스턴스에 "승인" 이벤트를 보내는 큐 트리거 함수 예제입니다. 오케스트레이션 인스턴스 ID는 큐 메시지 본문에서 가져옵니다.
 
@@ -184,7 +184,7 @@ public static async Task Run(
 ```
 
 > [!NOTE]
-> The previous C# code is for Durable Functions 2.x. For Durable Functions 1.x, you must use `OrchestrationClient` attribute instead of the `DurableClient` attribute, and you must use the `DurableOrchestrationClient` parameter type instead of `IDurableOrchestrationClient`. For more information about the differences between versions, see the [Durable Functions versions](durable-functions-versions.md) article.
+> 이전 C# 코드는 Durable Functions 2.x에 대 한 것입니다. 1\.x Durable Functions의 경우 `DurableClient` 특성 대신 `OrchestrationClient` 특성을 사용 해야 하며 `IDurableOrchestrationClient`대신 `DurableOrchestrationClient` 매개 변수 형식을 사용 해야 합니다. 버전 간의 차이점에 대 한 자세한 내용은 [Durable Functions 버전](durable-functions-versions.md) 문서를 참조 하세요.
 
 ### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
 
@@ -205,7 +205,7 @@ module.exports = async function(context, instanceId) {
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Learn how to implement error handling](durable-functions-error-handling.md)
+> [오류 처리를 구현 하는 방법 알아보기](durable-functions-error-handling.md)
 
 > [!div class="nextstepaction"]
 > [인간 상호 작용을 기다리는 샘플 실행](durable-functions-phone-verification.md)

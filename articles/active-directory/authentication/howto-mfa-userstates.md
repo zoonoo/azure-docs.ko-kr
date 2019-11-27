@@ -1,6 +1,6 @@
 ---
-title: Per-user Multi-Factor Authentication - Azure Active Directory
-description: Enable MFA by changing user states in Azure Multi-Factor Authentication.
+title: 사용자 단위 Multi-Factor Authentication-Azure Active Directory
+description: Azure Multi-Factor Authentication에서 사용자 상태를 변경 하 여 MFA를 사용 하도록 설정 합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -20,16 +20,16 @@ ms.locfileid: "74404219"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
-2단계 인증이 필요한 두 가지 방법 중 하나를 수행할 수 있습니다. 두 방법 모두 글로벌 관리자 계정을 사용해야 합니다. 첫 번째 옵션은 각 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 디바이스_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 2단계 인증을 수행합니다. The second option is to set up a Conditional Access policy that requires two-step verification under certain conditions.
+2단계 인증이 필요한 두 가지 방법 중 하나를 수행할 수 있습니다. 두 방법 모두 글로벌 관리자 계정을 사용해야 합니다. 첫 번째 옵션은 각 사용자가 Azure MFA(Multi-Factor Authentication)를 사용하도록 설정하는 것입니다. 사용자가 개별적으로 설정되면 신뢰할 수 있는 IP 주소에서 로그인하거나 _기억된 디바이스_ 기능이 설정된 경우와 같이 몇 가지 예외를 제외하고는, 로그인할 때마다 2단계 인증을 수행합니다. 두 번째 옵션은 특정 조건에서 2 단계 인증을 요구 하는 조건부 액세스 정책을 설정 하는 것입니다.
 
 > [!TIP]
-> Enabling Azure Multi-Factor Authentication using Conditional Access policies is the recommended approach. Changing user states is no longer recommended unless your licenses do not include Conditional Access as it will require users to perform MFA every time they sign in.
+> 조건부 액세스 정책을 사용 하 여 Azure Multi-Factor Authentication를 사용 하도록 설정 하는 것이 좋습니다. 사용자가 로그인 할 때마다 MFA를 수행 해야 하므로 라이선스에 조건부 액세스가 포함 되지 않은 경우 사용자 상태를 변경 하는 것은 더 이상 권장 되지 않습니다.
 
 ## <a name="choose-how-to-enable"></a>사용하도록 설정하는 방법 선택
 
-**사용자 상태를 변경하여 사용하도록 설정** - 2단계 인증을 요구하기 위한 일반적인 방법으로, 이 문서에 설명되어 있습니다. 이 방법은 클라우드의 Azure MFA와 Azure MFA Server 둘 다에서 작동합니다. Using this method requires users to perform two-step verification **every time** they sign in and overrides Conditional Access policies.
+**사용자 상태를 변경하여 사용하도록 설정** - 2단계 인증을 요구하기 위한 일반적인 방법으로, 이 문서에 설명되어 있습니다. 이 방법은 클라우드의 Azure MFA와 Azure MFA Server 둘 다에서 작동합니다. 이 방법을 사용 하려면 사용자가 로그인 할 **때마다** 2 단계 인증을 수행 하 고 조건부 액세스 정책을 재정의 해야 합니다.
 
-Enabled by Conditional Access policy - This is the most flexible means to enable two-step verification for your users. Enabling using Conditional Access policy only works for Azure MFA in the cloud and is a premium feature of Azure AD. 이 방법에 대한 자세한 내용은 [클라우드 기반 Azure Multi-factor Authentication 배포](howto-mfa-getstarted.md)에서 확인할 수 있습니다.
+조건부 액세스 정책에 따라 사용-사용자에 대해 2 단계 인증을 사용 하도록 설정 하는 가장 유연한 방법입니다. 조건부 액세스 정책을 사용 하도록 설정 하는 것은 클라우드의 Azure MFA에만 적용 되며 Azure AD의 프리미엄 기능입니다. 이 방법에 대한 자세한 내용은 [클라우드 기반 Azure Multi-factor Authentication 배포](howto-mfa-getstarted.md)에서 확인할 수 있습니다.
 
 Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 보호 위험 정책을 사용하여 모든 클라우드 애플리케이션에 대해 로그인 위험이 있을 때만 2단계 인증을 요구합니다. 이 방법에는 Azure Active Directory P2 라이선스가 필요합니다. 이 방법에 대한 자세한 내용은 [Azure Active Directory ID 보호](../identity-protection/howto-sign-in-risk-policy.md)에서 확인할 수 있습니다.
 
@@ -41,10 +41,10 @@ Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 
 
 Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
 
-| 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
+| 가동 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
 |:---:|:---:|:---:|:--:|:--:|
-| 사용 안 함 |Azure MFA에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아닙니다. |아닙니다. |아닙니다. |
-| 사용 |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아닙니다.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure MFA 등록이 필요합니다. |
+| 사용 안 함 |Azure MFA에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아니오 |아니오 |아니오 |
+| Enabled |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure MFA 등록이 필요합니다. |
 | 적용 |사용자가 등록되었으며 Azure MFA를 위한 등록 프로세스를 완료했습니다. |예. 앱에 앱 암호가 필요합니다. |예. 로그인할 때 Azure MFA가 필요합니다. | 예. 로그인할 때 Azure MFA가 필요합니다. |
 
 사용자의 상태는 관리자가 사용자를 Azure MFA에 등록했는지 그리고 사용자가 등록 프로세스를 완료했는지 여부를 반영합니다.
@@ -66,10 +66,10 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 1. 이전 단계를 통해 Azure Multi-Factor Authentication **사용자** 페이지로 이동합니다.
 2. Azure MFA을 사용하도록 설정할 사용자를 찾습니다. 위쪽에서 보기를 변경해야 할 수도 있습니다.
-   ![Select the user to change status for from the users tab](./media/howto-mfa-userstates/enable1.png)
+   ![사용자 탭에서 상태를 변경할 사용자를 선택](./media/howto-mfa-userstates/enable1.png)
 3. 이름 옆의 확인란을 선택합니다.
 4. 오른쪽의 **빠른 단계**에서 **사용** 또는 **사용 안 함**을 선택합니다.
-   ![Enable selected user by clicking Enable on the quick steps menu](./media/howto-mfa-userstates/user1.png)
+   빠른 단계 메뉴에서 사용을 클릭 하 여 선택한 사용자를 사용 하도록 설정 ![](./media/howto-mfa-userstates/user1.png)
 
    > [!TIP]
    > Azure MFA에 등록하면 *사용* 사용자는 *적용*으로 자동으로 전환됩니다. 사용자 상태를 수동으로 *적용*으로 변경하지 마세요.
@@ -82,7 +82,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 [Azure AD PowerShell](/powershell/azure/overview)을 사용하여 사용자 상태를 변경하려면 `$st.State`를 변경합니다. 여기에는 세 가지 상태가 있습니다.
 
-* 사용
+* Enabled
 * 적용
 * 사용 안 함  
 
@@ -134,11 +134,11 @@ MFA를 사용하지 않으려면 다음 스크립트를 사용합니다.
    Set-MsolUser -UserPrincipalName user@domain.com -StrongAuthenticationRequirements @()
    ```
 
-### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>Convert users from per-user MFA to Conditional Access based MFA
+### <a name="convert-users-from-per-user-mfa-to-conditional-access-based-mfa"></a>사용자 단위 MFA의 사용자를 조건부 액세스 기반 MFA로 변환
 
-The following PowerShell can assist you in making the conversion to Conditional Access based Azure Multi-Factor Authentication.
+다음 PowerShell은 Azure Multi-Factor Authentication 기반으로 조건부 액세스를 변환 하는 데 도움이 될 수 있습니다.
 
-Run this PowerShell in an ISE window or save as a .PS1 file to run locally.
+ISE 창에서이 PowerShell을 실행 하거나로 저장 합니다. 로컬로 실행할 PS1 파일입니다.
 
 ```PowerShell
 # Sets the MFA requirement state
@@ -175,7 +175,7 @@ Get-MsolUser -All | Set-MfaState -State Disabled
 ```
 
 > [!NOTE]
-> We recently changed the behavior and PowerShell script above accordingly. Previously, the script saved off the MFA methods, disabled MFA, and restored the methods. This is no longer necessary now that the default behavior for disable doesn't clear the methods.
+> 최근 그에 따라 위의 동작 및 PowerShell 스크립트를 변경 했습니다. 이전에는 스크립트에서 MFA 메서드를 사용 하지 않도록 설정 하 고 MFA를 사용 하지 않도록 설정 하 고 메서드를 복원 했습니다. 더 이상 사용 하지 않도록 설정 하는 기본 동작이 메서드를 지우지 않으므로 이제는이 작업이 필요 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

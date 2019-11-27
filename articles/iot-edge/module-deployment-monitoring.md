@@ -25,18 +25,18 @@ Azure IoT Edge 디바이스는 다른 유형의 IoT 디바이스와 비슷한 [�
 
 Azure IoT Edge는 IoT Edge 디바이스에서 실행되도록 모듈을 구성하는 두 가지 방법을 제공합니다. 하나는 Azure IoT Edge [자습서](tutorial-deploy-function.md)에서 이 방법을 사용한 단일 디바이스에서 개발 및 빠른 반복을 위한 것이고, 다른 하나는 대규모 IoT Edge 디바이스를 관리하기 위한 것입니다. 이러한 두 가지 방법은 Azure Portal에서 프로그래밍 방식으로 사용할 수 있습니다. 대상 그룹 또는 많은 수의 디바이스의 경우 디바이스 쌍에서 [태그](../iot-edge/how-to-deploy-monitor.md#identify-devices-using-tags)를 사용하여 모듈을 배포하려는 디바이스를 지정할 수 있습니다. 다음 단계에서는 태그 속성을 통해 식별되는 워싱턴 주의 디바이스 그룹에 배포하는 방법을 설명합니다. 
 
-이 아티클에서는 IoT Edge 자동 배포라고 하는 대규모 디바이스에 대한 구성 및 모니터링 단계에 대해 집중적으로 설명합니다. The overall deployment steps are as follows: 
+이 아티클에서는 IoT Edge 자동 배포라고 하는 대규모 디바이스에 대한 구성 및 모니터링 단계에 대해 집중적으로 설명합니다. 전체 배포 단계는 다음과 같습니다. 
 
-1. 운영자가 대상 디바이스뿐만 아니라 일단의 모듈을 설명하는 배포를 정의합니다. Each deployment has a deployment manifest that reflects this information. 
+1. 운영자가 대상 디바이스뿐만 아니라 일단의 모듈을 설명하는 배포를 정의합니다. 각 배포에는이 정보를 반영 하는 배포 매니페스트가 있습니다. 
 2. IoT Hub 서비스는 모든 대상 디바이스와 통신하여 원하는 모듈로 구성합니다. 
-3. IoT Hub 서비스는 IoT Edge 디바이스에서 상태를 검색하여 운영자에게 제공합니다.  For example, an operator can see when an Edge device is not configured successfully or if a module fails during runtime. 
+3. IoT Hub 서비스는 IoT Edge 디바이스에서 상태를 검색하여 운영자에게 제공합니다.  예를 들어,에 지 장치가 성공적으로 구성 되지 않았거나 런타임 중에 모듈이 실패 한 경우 운영자에 게 표시 될 수 있습니다. 
 4. 언제든지 대상 조건에 맞는 새 IoT Edge 디바이스가 배포되도록 구성됩니다. 예를 들어 새 IoT Edge 디바이스가 프로비전되고 워싱턴주 디바이스 그룹에 추가되면, 워싱턴주에 있는 모든 IoT Edge 디바이스를 대상으로 하는 배포가 자동으로 구성됩니다. 
  
 이 문서에서는 배포 구성 및 모니터링과 관련된 각 구성 요소를 설명합니다. 배포 만들기 및 업데이트에 대한 연습은 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
 ## <a name="deployment"></a>배포
 
-IoT Edge 자동 배포는 대상 IoT Edge 디바이스 집합에서 인스턴스로 실행되도록 IoT Edge 모듈 이미지를 할당합니다. 이는 해당 초기화 매개 변수가 있는 모듈의 목록을 포함하도록 IoT Edge 배포 매니페스트를 구성하여 작동합니다. A deployment can be assigned to a single device (based on Device ID) or to a group of devices (based on tags). Once an IoT Edge device receives a deployment manifest, it downloads and installs the container images from the respective container repositories, and configures them accordingly. Once a deployment is created, an operator can monitor the deployment status to see whether targeted devices are correctly configured.
+IoT Edge 자동 배포는 대상 IoT Edge 디바이스 집합에서 인스턴스로 실행되도록 IoT Edge 모듈 이미지를 할당합니다. 이는 해당 초기화 매개 변수가 있는 모듈의 목록을 포함하도록 IoT Edge 배포 매니페스트를 구성하여 작동합니다. 배포는 장치 ID에 따라 단일 장치 또는 장치 그룹 (태그 기반)에 할당 될 수 있습니다. IoT Edge 장치가 배포 매니페스트를 수신 하면 해당 컨테이너 리포지토리에서 컨테이너 이미지를 다운로드 하 여 설치 하 고 적절 하 게 구성 합니다. 배포가 만들어지면 운영자는 배포 상태를 모니터링 하 여 대상 장치가 올바르게 구성 되었는지 여부를 확인할 수 있습니다.
 
 IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배포를 수신하기 전에 다음 필수 구성 요소가 디바이스에 있어야 합니다.
 
@@ -51,7 +51,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 각 모듈의 구성 메타데이터에는 다음 항목이 포함됩니다. 
 
 * 버전 
-* Type 
+* 에 
 * 상태(예: 실행 중 또는 중지됨) 
 * 다시 시작 정책 
 * 이미지 및 컨테이너 레지스트리
@@ -61,7 +61,7 @@ IoT Edge 디바이스만 배포를 사용하여 구성할 수 있습니다. 배�
 
 ### <a name="target-condition"></a>대상 조건
 
-The target condition is continuously evaluated throughout the lifetime of the deployment. 요구 사항을 충족하는 새 디바이스가 모두 포함되고, 더 이상 요구 사항을 충족하지 않는 기존 디바이스는 제거됩니다. 서비스에서 대상 조건 변경을 탐지하면 배포가 다시 활성화됩니다. 
+대상 조건은 배포 수명 내내 지속적으로 평가 됩니다. 요구 사항을 충족하는 새 디바이스가 모두 포함되고, 더 이상 요구 사항을 충족하지 않는 기존 디바이스는 제거됩니다. 서비스에서 대상 조건 변경을 탐지하면 배포가 다시 활성화됩니다. 
 
 예를 들어 배포 A의 대상 조건이 tags.environment = 'prod'인 경우 다시 활성화됩니다. 배포를 시작할 때는 10개의 프로덕션 디바이스가 있습니다. 이 10개 디바이스에 모듈이 성공적으로 설치됩니다. IoT Edge 에이전트 상태는 총 10개 디바이스, 성공한 응답 10개, 실패한 응답 0개, 보류 중인 응답 0개로 표시됩니다. 이제 tags.environment = 'prod'인 디바이스 5개를 추가합니다. 새 디바이스 5개에 배포하려고 시도하면 서비스에서 변경을 감지하고 IoT Edge 에이전트 상태는 총 15개 디바이스, 성공한 응답 10개, 실패한 응답 0개. 보류 중인 응답 5개가 됩니다.
 
@@ -84,15 +84,15 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 ### <a name="priority"></a>우선 순위
 
-우선 순위는 배포가 다른 배포를 기준으로 대상 디바이스에 적용되어야 하는지 여부를 정의합니다. 배포 우선 순위는 양의 정수이며, 큰 숫자는 높은 우선 순위를 나타냅니다. IoT Edge 디바이스가 둘 이상의 배포 대상이 되는 경우 우선 순위가 가장 높은 배포가 적용됩니다.  Deployments with lower priorities are not applied, nor are they merged.  If a device is targeted with two or more deployments with equal priority, the most recently created deployment (determined by the creation timestamp) applies.
+우선 순위는 배포가 다른 배포를 기준으로 대상 디바이스에 적용되어야 하는지 여부를 정의합니다. 배포 우선 순위는 양의 정수이며, 큰 숫자는 높은 우선 순위를 나타냅니다. IoT Edge 디바이스가 둘 이상의 배포 대상이 되는 경우 우선 순위가 가장 높은 배포가 적용됩니다.  우선 순위가 낮은 배포는 적용 되지 않으며 병합 되지 않습니다.  장치가 우선 순위가 같은 둘 이상의 배포를 대상으로 하는 경우 가장 최근에 만든 배포 (만든 타임 스탬프에 따라 결정 됨)가 적용 됩니다.
 
 ### <a name="labels"></a>레이블 
 
-레이블은 배포를 필터링하고 그룹화하는 데 사용할 수 있는 문자열 키/값 쌍입니다. A deployment may have multiple labels. 레이블은 선택 사항이며, IoT Edge 디바이스의 실제 구성에는 아무런 영향을 주지 않습니다. 
+레이블은 배포를 필터링하고 그룹화하는 데 사용할 수 있는 문자열 키/값 쌍입니다. 배포에는 여러 개의 레이블이 있을 수 있습니다. 레이블은 선택 사항이며, IoT Edge 디바이스의 실제 구성에는 아무런 영향을 주지 않습니다. 
 
 ### <a name="deployment-status"></a>배포 상태
 
-배포를 모니터링하여 모든 대상 IoT Edge 디바이스에 성공적으로 적용되었는지 여부를 확인할 수 있습니다.  A targeted Edge device will appear in one or more of the following status categories: 
+배포를 모니터링하여 모든 대상 IoT Edge 디바이스에 성공적으로 적용되었는지 여부를 확인할 수 있습니다.  대상에 지 장치가 하나 이상의 다음 상태 범주에 표시 됩니다. 
 
 * **대상**: 배포 대상 조건과 일치하는 IoT Edge 디바이스가 표시됩니다.
 * **실제**: 더 높은 우선 순위의 다른 배포에서 대상으로 지정하지 않은 대상 IoT Edge 디바이스가 표시됩니다.
@@ -106,7 +106,7 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 단계별 배포는 다음과 같은 단계로 실행됩니다. 
 
-1. IoT Edge 디바이스를 프로비전하고 `tag.environment='test'`와 같이 디바이스 쌍 태그를 설정하여 해당 디바이스의 테스트 환경을 설정합니다. The test environment should mirror the production environment that the deployment will eventually target. 
+1. IoT Edge 디바이스를 프로비전하고 `tag.environment='test'`와 같이 디바이스 쌍 태그를 설정하여 해당 디바이스의 테스트 환경을 설정합니다. 테스트 환경은 배포를 대상으로 하는 프로덕션 환경을 미러링합니다. 
 2. 원하는 모듈 및 구성이 포함된 배포를 만듭니다. 대상 조건은 IoT Edge 디바이스 테스트 환경을 대상으로 해야 합니다.   
 3. 테스트 환경에서 새 모듈 구성의 유효성을 검사합니다.
 4. 대상 조건에 새 태그를 추가하여 프로덕션 IoT Edge 디바이스의 하위 집합이 포함되도록 배포를 업데이트합니다. 또한 배포 우선 순위가 현재의 해당 디바이스를 대상으로 하는 다른 배포보다 더 높은지 확인합니다 
@@ -115,7 +115,7 @@ The target condition is continuously evaluated throughout the lifetime of the de
 
 ## <a name="rollback"></a>롤백
 
-오류 또는 잘못된 구성이 표시되면 배포를 롤백할 수 있습니다.  Because a deployment defines the absolute module configuration for an IoT Edge device, an additional deployment must also be targeted to the same device at a lower priority even if the goal is to remove all modules.  
+오류 또는 잘못된 구성이 표시되면 배포를 롤백할 수 있습니다.  배포는 IoT Edge 장치에 대 한 절대 모듈 구성을 정의 하므로 모든 모듈을 제거 하는 것이 목적인 경우에도 더 낮은 우선 순위로 동일한 장치를 대상으로 지정 해야 합니다.  
 
 롤백을 수행하는 순서는 다음과 같습니다. 
 

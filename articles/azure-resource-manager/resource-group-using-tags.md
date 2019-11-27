@@ -1,5 +1,5 @@
 ---
-title: Tag resources for logical organization
+title: 논리적 조직에 대 한 리소스 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
@@ -20,7 +20,7 @@ ms.locfileid: "74484265"
 
 ## <a name="policies"></a>정책
 
-[Azure Policy](../governance/policy/overview.md)를 사용하여 태그 지정 규칙을 적용할 수 있습니다. 정책을 만들어 조직에 대해 예상되는 태그를 준수하지 않는 리소스의 시나리오가 구독에 배포되지 않도록 합니다. 수동으로 태그를 적용하거나 준수하지 않는 리소스를 검색하는 대신 배포 중에 필요한 태그를 자동으로 적용하는 정책을 만들 수 있습니다. Tags can also now be applied to existing resources with the new [Modify](../governance/policy/concepts/effects.md#modify) effect and a [remediation task](../governance/policy/how-to/remediate-resources.md). 다음 섹션에서 태그에 대한 예제 정책을 보여줍니다.
+[Azure Policy](../governance/policy/overview.md)를 사용하여 태그 지정 규칙을 적용할 수 있습니다. 정책을 만들어 조직에 대해 예상되는 태그를 준수하지 않는 리소스의 시나리오가 구독에 배포되지 않도록 합니다. 수동으로 태그를 적용하거나 준수하지 않는 리소스를 검색하는 대신 배포 중에 필요한 태그를 자동으로 적용하는 정책을 만들 수 있습니다. 이제 새 수정 효과 및 [수정](../governance/policy/concepts/effects.md#modify) [작업](../governance/policy/how-to/remediate-resources.md)을 사용 하 여 기존 리소스에 태그를 적용할 수도 있습니다. 다음 섹션에서 태그에 대한 예제 정책을 보여줍니다.
 
 [!INCLUDE [Tag policies](../../includes/azure-policy-samples-general-tags.md)]
 
@@ -104,7 +104,7 @@ $r.Tags.Add("Status", "Approved")
 Set-AzResource -Tag $r.Tags -ResourceId $r.ResourceId -Force
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+리소스에 *대 한 기존 태그를 유지 하지 않고*리소스 그룹의 모든 태그를 리소스에 적용 하려면 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $groups = Get-AzResourceGroup
@@ -114,7 +114,7 @@ foreach ($g in $groups)
 }
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources that aren't duplicates*, use the following script:
+리소스 그룹의 모든 태그를 리소스에 적용 하 고 *중복 되지 않는 리소스에 대 한 기존 태그를 유지*하려면 다음 스크립트를 사용 합니다.
 
 ```azurepowershell-interactive
 $group = Get-AzResourceGroup "examplegroup"
@@ -211,7 +211,7 @@ rt=$(echo $jsonrtag | tr -d '"{},' | sed 's/: /=/g')
 az resource tag --tags $rt Project=Redesign -g examplegroup -n examplevnet --resource-type "Microsoft.Network/virtualNetworks"
 ```
 
-To apply all tags from a resource group to its resources, and *not keep existing tags on the resources*, use the following script:
+리소스에 *대 한 기존 태그를 유지 하지 않고*리소스 그룹의 모든 태그를 리소스에 적용 하려면 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -227,7 +227,7 @@ do
 done
 ```
 
-To apply all tags from a resource group to its resources, and *keep existing tags on resources*, use the following script:
+리소스 그룹의 모든 태그를 리소스에 적용 하 고 *리소스에 대 한 기존 태그를 유지*하려면 다음 스크립트를 사용 합니다.
 
 ```azurecli
 groups=$(az group list --query [].name --output tsv)
@@ -247,7 +247,7 @@ done
 
 ## <a name="templates"></a>템플릿
 
-To tag a resource during deployment, add the `tags` element to the resource you're deploying. 태그 이름 및 값을 제공합니다.
+배포 하는 동안 리소스에 태그를 표시 하려면 배포 중인 리소스에 `tags` 요소를 추가 합니다. 태그 이름 및 값을 제공합니다.
 
 ### <a name="apply-a-literal-value-to-the-tag-name"></a>태그 이름에 리터럴 값 적용
 
@@ -283,7 +283,7 @@ To tag a resource during deployment, add the `tags` element to the resource you'
 }
 ```
 
-To set a tag to a datetime value, use the [utcNow function](resource-group-template-functions-string.md#utcnow).
+태그를 datetime 값으로 설정 하려면 [utcNow 함수](resource-group-template-functions-string.md#utcnow)를 사용 합니다.
 
 ### <a name="apply-an-object-to-the-tag-element"></a>개체를 태그 요소에 적용
 
@@ -325,7 +325,7 @@ To set a tag to a datetime value, use the [utcNow function](resource-group-templ
 
 ### <a name="apply-a-json-string-to-the-tag-name"></a>태그 이름에 JSON 문자열 적용
 
-단일 태그에 여러 값을 저장하려면 값을 나타내는 JSON 문자열을 적용합니다. The entire JSON string is stored as one tag that can't exceed 256 characters. 다음 예제에는 JSON 문자열의 여러 값을 포함하는 `CostCenter`라는 단일 태그를 포함합니다.  
+단일 태그에 여러 값을 저장하려면 값을 나타내는 JSON 문자열을 적용합니다. 전체 JSON 문자열은 256 자를 초과할 수 없는 하나의 태그로 저장 됩니다. 다음 예제에는 JSON 문자열의 여러 값을 포함하는 `CostCenter`라는 단일 태그를 포함합니다.  
 
 ```json
 {
@@ -356,9 +356,9 @@ To set a tag to a datetime value, use the [utcNow function](resource-group-templ
 }
 ```
 
-### <a name="apply-tags-from-resource-group"></a>Apply tags from resource group
+### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
 
-To apply tags from a resource group to a resource, use the [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) function. When getting the tag value, use the `tags.[tag-name]` syntax instead of the `tags.tag-name` syntax, because some characters aren't parsed correctly in the dot notation.
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](resource-group-template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 점 표기법에서 올바르게 구문 분석 되지 않으므로 `tags.tag-name` 구문 대신 `tags.[tag-name]` 구문을 사용 합니다.
 
 ```json
 {

@@ -61,7 +61,7 @@ Azure HDInsight는 Hadoop 구성 요소의 클라우드 배포입니다. Azure H
     - Azure Blob Storage
     - Azure Data Lake Storage Gen2
     - Azure Cosmos DB
-    - Azure SQL 데이터베이스
+    - Azure SQL Database
     - Azure Analysis Services
 
 - **자동 복구 프로세스 및 구성 요소** - HDInsight는 자체 모니터링 인프라를 사용하여 지속적으로 인프라 및 오픈 소스 구성 요소를 확인합니다. 또한 오픈 소스 구성 요소 및 노드를 사용할 수 없는 경우처럼 중요한 오류를 자동으로 복구합니다. OSS 구성 요소에 장애가 발생하면 Ambari에서 경고가 트리거됩니다.

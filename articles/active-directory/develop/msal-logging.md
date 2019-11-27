@@ -1,5 +1,5 @@
 ---
-title: Logging in Microsoft Authentication Library (MSAL) applications
+title: MSAL (Microsoft Authentication Library) 응용 프로그램 로그인
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리) 애플리케이션에서 로깅하는 방법을 알아봅니다.
 services: active-directory
@@ -25,38 +25,38 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74452469"
 ---
-# <a name="logging-in-msal-applications"></a>Logging in MSAL applications
+# <a name="logging-in-msal-applications"></a>MSAL 응용 프로그램 로그인
 
-Microsoft Authentication Library (MSAL) apps generate log messages that can help diagnose issues. 앱은 몇 줄의 코드를 사용하여 로깅을 구성하고 세부 정보 수준 및 개인 데이터와 조직 데이터가 기록되는지 여부에 대한 제어를 사용자 지정할 수 있습니다. We recommend you create an MSAL logging callback and provide a way for users to submit logs when they have authentication issues.
+MSAL (Microsoft 인증 라이브러리) 앱은 문제를 진단 하는 데 도움이 될 수 있는 로그 메시지를 생성 합니다. 앱은 몇 줄의 코드를 사용하여 로깅을 구성하고 세부 정보 수준 및 개인 데이터와 조직 데이터가 기록되는지 여부에 대한 제어를 사용자 지정할 수 있습니다. MSAL 로깅 콜백을 만들고 사용자가 인증 문제가 있는 경우 로그를 제출 하는 방법을 제공 하는 것이 좋습니다.
 
 ## <a name="logging-levels"></a>로깅 수준
 
-MSAL provides several levels of logging detail:
+MSAL은 여러 수준의 로깅 세부 정보를 제공 합니다.
 
-- Error: Indicates something has gone wrong and an error was generated. 디버깅 및 문제 식별에 사용합니다.
-- Warning: There hasn't necessarily been an error or failure, but are intended for diagnostics and pinpointing problems.
-- Info: MSAL will log events intended for informational purposes not necessarily intended for debugging.
-- Verbose: Default. MSAL logs the full details of library behavior.
+- 오류: 무언가 오류가 발생 하 여 오류가 발생 했음을 나타냅니다. 디버깅 및 문제 식별에 사용합니다.
+- 경고: 오류 또는 실패가 아니어도 되지만 진단 및 어설션 매크로나 문제를 해결 하기 위한 것입니다.
+- 정보: MSAL은 디버깅을 위한 것이 아니라 정보를 제공 하기 위해 의도 된 이벤트를 로깅합니다.
+- Verbose: 기본값입니다. MSAL은 라이브러리 동작에 대 한 전체 세부 정보를 기록 합니다.
 
 ## <a name="personal-and-organizational-data"></a>개인 및 조직 데이터
 
-By default, the MSAL logger doesn't capture any highly sensitive personal or organizational data. The library provides the option to enable logging personal and organizational data if you decide to do so.
+기본적으로 MSAL 로거가 매우 중요 한 개인 또는 조직 데이터를 캡처하지 않습니다. 이러한 작업을 수행 하기로 결정 한 경우 라이브러리는 개인 데이터와 조직 데이터를 로깅할 수 있는 옵션을 제공 합니다.
 
-For details about MSAL logging in a particular language, choose the tab matching your language:
+특정 언어로 된 MSAL 로깅에 대 한 자세한 내용을 보려면 해당 언어와 일치 하는 탭을 선택 합니다.
 
 ## <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
 ## <a name="logging-in-msalnet"></a>MSAL.NET의 로깅
 
  > [!NOTE]
- > See the [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) for samples of MSAL.NET logging and more.
+ > MSAL.NET 로깅 및 기타에 대 한 샘플은 [MSAL.NET wiki](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) 를 참조 하세요.
 
 MSAL 3.x에서 로깅은 앱을 만들 때 `.WithLogging` 작성기 한정자를 사용하여 앱별로 설정됩니다. 이 메서드에서 사용하는 매개 변수는 다음과 같습니다.
 
-- `Level` enables you to decide which level of logging you want. Errors로 설정하면 오류만 발생합니다.
-- `PiiLoggingEnabled` enables you to log personal and organizational data if set to true. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
-- `LogCallback` is set to a delegate that does the logging. If `PiiLoggingEnabled` is true, this method will receive the messages twice: once with the `containsPii` parameter equals false and the message without personal data, and a second time with the `containsPii` parameter equals to true and the message might contain personal data. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
-- `DefaultLoggingEnabled` enables the default logging for the platform. 기본적으로 false입니다. true로 설정하면 데스크톱/UWP 애플리케이션의 이벤트 추적, iOS의 NSLog, Android의 logcat을 사용합니다.
+- `Level`를 사용 하 여 원하는 로깅 수준을 결정할 수 있습니다. Errors로 설정하면 오류만 발생합니다.
+- true로 설정 되 면 개인 데이터와 조직 데이터를 `PiiLoggingEnabled` 수 있습니다. 애플리케이션에서 개인 데이터를 기록하지 않도록 기본적으로 false로 설정됩니다.
+- `LogCallback`은 로깅을 수행 하는 대리자로 설정 됩니다. `PiiLoggingEnabled` true 이면이 메서드는 메시지를 두 번 받게 됩니다. 즉, `containsPii` 매개 변수가 false이 고 개인 데이터가 없는 메시지를 사용 하 고 두 번째는 `containsPii` 매개 변수를 true로 설정 하 고 메시지에 개인 데이터가 포함 될 수 있습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `DefaultLoggingEnabled`는 플랫폼에 대 한 기본 로깅을 사용 하도록 설정 합니다. 기본적으로 false입니다. true로 설정하면 데스크톱/UWP 애플리케이션의 이벤트 추적, iOS의 NSLog, Android의 logcat을 사용합니다.
 
 ```csharp
 class Program
@@ -87,14 +87,14 @@ class Program
 
 ## <a name="androidtabandroid"></a>[Android](#tab/android)
 
-## <a name="logging-in-msal-for-android-using-java"></a>Logging in MSAL for Android using Java
+## <a name="logging-in-msal-for-android-using-java"></a>Java를 사용 하 여 Android 용 MSAL 로그인
 
-Turn logging on at app creation by creating a logging callback. The callback takes these parameters:
+로깅 콜백을 만들어 앱을 만들 때 로깅을 설정 합니다. 콜백은 다음과 같은 매개 변수를 사용 합니다.
 
-- `tag` is a string passed to the callback by the library. It is associated with the log entry and can be used to sort logging messages.
-- `logLevel` enables you to decide which level of logging you want. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`.
-- `message` is the content of the log entry.
-- `containsPII` specifies whether messages containing personal data, or organizational data are logged. By default, this is set to false, so that your application doesn't log personal data. If `containsPII` is `true`, this method will receive the messages twice: once with the `containsPII` parameter set to `false` and the `message` without personal data, and a second time with the `containsPii` parameter set to `true` and the message might contain personal data. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
+- `tag`는 라이브러리에 의해 콜백에 전달 되는 문자열입니다. 로그 항목과 연결 되며 로깅 메시지를 정렬 하는 데 사용할 수 있습니다.
+- `logLevel`를 사용 하 여 원하는 로깅 수준을 결정할 수 있습니다. 지원 되는 로그 수준은 `Error`, `Warning`, `Info`및 `Verbose`입니다.
+- `message`은 로그 항목의 내용입니다.
+- `containsPII` 개인 데이터 또는 조직 데이터를 포함 하는 메시지가 기록 되는지 여부를 지정 합니다. 기본적으로이는 false로 설정 되어 있으므로 응용 프로그램이 개인 데이터를 기록 하지 않습니다. `containsPII` `true`되는 경우이 메서드는 `containsPII` 매개 변수를 `false`로 설정 하 고 개인 데이터를 포함 하지 않는 `message`를 사용 하 고 두 번째는 `containsPii` 매개 변수를 `true`로 설정 하 고 메시지에 개인 데이터가 포함 될 수 있는 메시지를 두 번 받습니다. 경우에 따라(메시지에 개인 데이터가 포함되어 있지 않은 경우) 메시지가 동일합니다.
 
 ```java
 private StringBuilder mLogs;
@@ -110,20 +110,20 @@ Logger.getInstance().setExternalLogger(new ILoggerCallback()
 });
 ```
 
-By default, the MSAL logger will not capture any personal identifiable information or organizational identifiable information.
-To enable the logging of personal identifiable information or organizational identifiable information:
+기본적으로 MSAL 로거가 개인 식별이 가능한 정보나 조직에서 식별할 수 있는 정보를 캡처하지 않습니다.
+개인 식별이 가능한 정보 또는 조직에서 식별할 수 있는 정보를 로깅할 수 있습니다.
 
 ```java
 Logger.getInstance().setEnablePII(true);
 ```
 
-To disable logging personal data and organization data:
+개인 데이터 및 조직 데이터 로깅을 사용 하지 않도록 설정 하려면:
 
 ```java
 Logger.getInstance().setEnablePII(false);
 ```
 
-By default logging to logcat is disabled. To enable:
+기본적으로 logcat에 로깅은 사용 하지 않도록 설정 됩니다. 사용 하도록 설정 하려면
 
 ```java
 Logger.getInstance().setEnableLogcatLog(true);
@@ -131,12 +131,12 @@ Logger.getInstance().setEnableLogcatLog(true);
 
 ## <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
- Enable logging in MSAL.js (JavaScript) by passing a logger object during the configuration for creating a `UserAgentApplication` instance. 로거 개체의 속성은 다음과 같습니다.
+ `UserAgentApplication` 인스턴스를 만드는 구성 중에로 거 개체를 전달 하 여 MSAL .js (JavaScript)에서 로깅을 사용 하도록 설정 합니다. 로거 개체의 속성은 다음과 같습니다.
 
-- `localCallback`: a Callback instance that can be provided by the developer to consume and publish logs in a custom manner. 로그를 리디렉션하려는 방법에 따라 localCallback 메서드를 구현합니다.
-- `level` (optional): the configurable log level. The supported log levels are: `Error`, `Warning`, `Info`, and `Verbose`. 기본값은 `Info`입니다.
-- `piiLoggingEnabled` (optional): if set to true, logs personal and organizational data. By default this is false so that your application doesn't log personal data. 개인 데이터 로그는 콘솔, Logcat 또는 NSLog와 같은 기본 출력에 기록되지 않습니다.
-- `correlationId` (optional): a unique identifier, used to map the request with the response for debugging purposes. 기본값은 RFC4122 버전 4 GUID(128비트)입니다.
+- `localCallback`: 개발자가 로그를 사용자 지정 방식으로 사용 및 게시 하기 위해 제공할 수 있는 콜백 인스턴스입니다. 로그를 리디렉션하려는 방법에 따라 localCallback 메서드를 구현합니다.
+- `level` (옵션): 구성 가능한 로그 수준입니다. 지원 되는 로그 수준은 `Error`, `Warning`, `Info`및 `Verbose`입니다. 기본값은 `Info`입니다.
+- `piiLoggingEnabled` (선택 사항): true로 설정 되 면 개인 데이터와 조직 데이터를 기록 합니다. 기본적으로 응용 프로그램이 개인 데이터를 기록 하지 않도록 false입니다. 개인 데이터 로그는 콘솔, Logcat 또는 NSLog와 같은 기본 출력에 기록되지 않습니다.
+- `correlationId` (선택 사항): 디버깅 목적으로 요청을 응답에 매핑하는 데 사용 되는 고유 식별자입니다. 기본값은 RFC4122 버전 4 GUID(128비트)입니다.
 
 ```javascript
 function loggerCallback(logLevel, message, containsPii) {
@@ -163,9 +163,9 @@ var UserAgentApplication = new Msal.UserAgentApplication(msalConfig);
 
 ## <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
-## <a name="msal-for-ios-and-macos-logging-objc"></a>MSAL for iOS and macOS logging-ObjC
+## <a name="msal-for-ios-and-macos-logging-objc"></a>IOS 및 macOS 로깅에 대 한 MSAL-ObjC
 
-Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature for the callback looks like this:
+MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그램의 로깅에 통합 합니다. 콜백에 대 한 시그니처는 다음과 같습니다.
 
 ```objc
 /*!
@@ -182,7 +182,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -197,9 +197,9 @@ typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL cont
     }];
 ```
 
-### <a name="personal-data"></a>Personal data
+### <a name="personal-data"></a>개인 데이터
 
-By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+기본적으로 MSAL은 PII (개인 데이터)를 캡처하거나 기록 하지 않습니다. 라이브러리를 사용 하면 앱 개발자가 MSALLogger 클래스의 속성을 통해이를 설정할 수 있습니다. `pii.Enabled`를 켜면 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
 
 ```objc
 // By default, the `MSALLogger` doesn't capture any PII
@@ -213,37 +213,37 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 ### <a name="logging-levels"></a>로깅 수준
 
-To set the logging level when you log using MSAL for iOS and macOS, use one of the following values:
+IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|Level  |설명 |
+|수준  |설명 |
 |---------|---------|
-| `MSALLogLevelNothing`| Disable all logging |
-| `MSALLogLevelError` | Default level, prints out information only when errors occur |
-| `MSALLogLevelWarning` | Warnings |
-| `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
+| `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
+| `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
+| `MSALLogLevelWarning` | 기록 |
+| `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
  ```
 
- ### <a name="log-message-format"></a>Log message format
+ ### <a name="log-message-format"></a>로그 메시지 형식
 
-The message portion of MSAL log messages is in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 로그 메시지의 메시지 부분은 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 형식입니다.
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+상관 관계 Id 및 타임 스탬프를 제공 하면 문제를 추적 하는 데 도움이 됩니다. 로그 메시지에서 타임 스탬프 및 상관 관계 ID 정보를 사용할 수 있습니다. 이를 검색 하는 신뢰할 수 있는 유일한 장소는 MSAL 로깅 메시지입니다.
 
 ## <a name="swifttabswift"></a>[Swift](#tab/swift)
 
-## <a name="msal-for-ios-and-macos-logging-swift"></a>MSAL for iOS and macOS logging-Swift
+## <a name="msal-for-ios-and-macos-logging-swift"></a>IOS 및 macOS 로깅에 대 한 MSAL-Swift
 
-Set a callback to capture MSAL logging and incorporate it in your own application's logging. The signature (represented in Objective-C) for the callback looks like this:
+MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그램의 로깅에 통합 합니다. 콜백에 대 한 시그니처는 다음과 같습니다.
 
 ```objc
 /*!
@@ -260,7 +260,7 @@ Set a callback to capture MSAL logging and incorporate it in your own applicatio
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -274,9 +274,9 @@ MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
 }
 ```
 
-### <a name="personal-data"></a>Personal data
+### <a name="personal-data"></a>개인 데이터
 
-By default, MSAL doesn't capture or log any personal data (PII). The library allows app developers to turn this on through a property in the MSALLogger class. By turning on `pii.Enabled`, the app takes responsibility for safely handling highly sensitive data and following regulatory requirements.
+기본적으로 MSAL은 PII (개인 데이터)를 캡처하거나 기록 하지 않습니다. 라이브러리를 사용 하면 앱 개발자가 MSALLogger 클래스의 속성을 통해이를 설정할 수 있습니다. `pii.Enabled`를 켜면 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
 
 ```swift
 // By default, the `MSALLogger` doesn't capture any PII
@@ -290,39 +290,39 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 ### <a name="logging-levels"></a>로깅 수준
 
-To set the logging level when you log using MSAL for iOS and macOS, use one of the following values:
+IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|Level  |설명 |
+|수준  |설명 |
 |---------|---------|
-| `MSALLogLevelNothing`| Disable all logging |
-| `MSALLogLevelError` | Default level, prints out information only when errors occur |
-| `MSALLogLevelWarning` | Warnings |
-| `MSALLogLevelInfo` |  Library entry points, with parameters and various keychain operations |
+| `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
+| `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
+| `MSALLogLevelWarning` | 기록 |
+| `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
  ```
 
-### <a name="log-message-format"></a>Log message format
+### <a name="log-message-format"></a>로그 메시지 형식
 
-The message portion of MSAL log messages is in the format of `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message`
+MSAL 로그 메시지의 메시지 부분은 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 형식입니다.
 
-다음은 그 예입니다.
+예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
-Providing correlation IDs and timestamps are helpful for tracking down issues. Timestamp and correlation ID information is available in the log message. The only reliable place to retrieve them is from MSAL logging messages.
+상관 관계 Id 및 타임 스탬프를 제공 하면 문제를 추적 하는 데 도움이 됩니다. 로그 메시지에서 타임 스탬프 및 상관 관계 ID 정보를 사용할 수 있습니다. 이를 검색 하는 신뢰할 수 있는 유일한 장소는 MSAL 로깅 메시지입니다.
 
 ## <a name="javatabjava"></a>[Java](#tab/java)
 
-## <a name="msal-for-java-logging"></a>MSAL for Java logging
+## <a name="msal-for-java-logging"></a>Java 로깅을 위한 MSAL
 
-MSAL for Java allows you to use the logging library that you are already using with your app, as long as it is compatible with SLF4J. MSAL for Java uses the [Simple Logging Facade for Java](http://www.slf4j.org/) (SLF4J) as a simple facade or abstraction for various logging frameworks, such as [java.util.logging](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html), [Logback](http://logback.qos.ch/) and [Log4j](https://logging.apache.org/log4j/2.x/). SLF4J allows the user to plug in the desired logging framework at deployment time.
+Java 용 MSAL은 SLF4J와 호환 되는 한 앱에서 이미 사용 하 고 있는 로깅 라이브러리를 사용할 수 있도록 합니다. Java 용 MSAL은 다양 한 로깅 프레임 워크 (예: [java.](https://docs.oracle.com/javase/7/docs/api/java/util/logging/package-summary.html)SLF4J, [Logback](http://logback.qos.ch/) 및 [Log4j](https://logging.apache.org/log4j/2.x/))에 대 한 간단한 외관 또는 추상화로 [java 용 단순 로깅 외관](http://www.slf4j.org/) 을 사용 합니다. SLF4J를 사용 하면 사용자가 배포 시 원하는 로깅 프레임 워크에 연결할 수 있습니다.
 
-For example, to use Logback as the logging framework in your application, add the Logback dependency to the Maven pom file for your application:
+예를 들어 응용 프로그램의 로깅 프레임 워크로 Logback을 사용 하려면 응용 프로그램에 대 한 Maven pom 파일에 Logback 종속성을 추가 합니다.
 
 ```xml
 <dependency>
@@ -332,7 +332,7 @@ For example, to use Logback as the logging framework in your application, add th
 </dependency>
 ```
 
-Then add the Logback configuration file:
+그런 다음 Logback 구성 파일을 추가 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -341,13 +341,13 @@ Then add the Logback configuration file:
 </configuration>
 ```
 
-SLF4J automatically binds to Logback at deployment time. MSAL logs will be written to the console.
+SLF4J은 배포 시에 자동으로 Logback에 바인딩합니다. MSAL 로그가 콘솔에 기록 됩니다.
 
-For instructions on how to bind to other logging frameworks, see the [SLF4J manual](http://www.slf4j.org/manual.html).
+다른 로깅 프레임 워크에 바인딩하는 방법에 대 한 지침은 [SLF4J 설명서](http://www.slf4j.org/manual.html)를 참조 하세요.
 
-### <a name="personal-and-organization-information"></a>Personal and organization information
+### <a name="personal-and-organization-information"></a>개인 및 조직 정보
 
-By default, MSAL logging does not capture or log any personal or organizational data. In the following example, logging personal or organizational data is off by default:
+기본적으로 MSAL 로깅은 개인 데이터 나 조직 데이터를 캡처하거나 로깅하지 않습니다. 다음 예제에서 개인 또는 조직 데이터 로깅은 기본적으로 해제 되어 있습니다.
 
 ```java
     PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -355,9 +355,9 @@ By default, MSAL logging does not capture or log any personal or organizational 
             .build();
 ```
 
-Turn on personal and organizational data logging by setting `logPii()` on the client application builder. If you turn on personal or organizational data logging, your app must take responsibility for safely handling highly-sensitive data and complying with any regulatory requirements.
+클라이언트 응용 프로그램 작성기에서 `logPii()`를 설정 하 여 개인 및 조직 데이터 로깅을 설정 합니다. 개인 또는 조직 데이터 로깅을 설정 하는 경우 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 해야 합니다.
 
-In the following example, logging personal or organizational data is enabled:
+다음 예제에서는 개인 또는 조직 데이터 로깅이 사용 됩니다.
 
 ```java
 PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
@@ -368,32 +368,32 @@ PublicClientApplication app2 = PublicClientApplication.builder(PUBLIC_CLIENT_ID)
 
 ## <a name="pythontabpython"></a>[Python](#tab/python)
 
-## <a name="msal-for-python-logging"></a>MSAL for Python logging
+## <a name="msal-for-python-logging"></a>Python 로깅을 위한 MSAL
 
-Logging in MSAL Python uses the standard Python logging mechanism, for example `logging.info("msg")` You can configure MSAL logging as follows (and see it in action in the [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)):
+MSAL의 로그인은 표준 Python 로깅 메커니즘을 사용 합니다. 예를 들어 다음과 같이 MSAL 로깅을 구성할 수 있습니다 ( [username_password_sample](https://github.com/AzureAD/microsoft-authentication-library-for-python/blob/1.0.0/sample/username_password_sample.py#L31L32)에서 작동 하는지 확인 하는 `logging.info("msg")`).
 
-### <a name="enable-debug-logging-for-all-modules"></a>Enable debug logging for all modules
+### <a name="enable-debug-logging-for-all-modules"></a>모든 모듈에 대해 디버그 로깅 사용
 
-By default, the logging in any Python script is turned off. If you want to enable debug logging for all of the modules in your entire Python script, use:
+기본적으로 Python 스크립트의 로깅은 해제 되어 있습니다. 전체 Python 스크립트의 모든 모듈에 대해 디버그 로깅을 사용 하도록 설정 하려면 다음을 사용 합니다.
 
 ```python
 logging.basicConfig(level=logging.DEBUG)
 ```
 
-### <a name="silence-only-msal-logging"></a>Silence only MSAL logging
+### <a name="silence-only-msal-logging"></a>침묵 전용 MSAL 로깅
 
-To silence only MSAL library logging, while enabling debug logging in all of the other modules in your Python script, turn off the logger used by MSAL Python:
+MSAL 라이브러리 로깅을 대기 전용으로 설정 하 고 Python 스크립트의 모든 다른 모듈에서 디버그 로깅을 사용 하도록 설정 하는 동안 MSAL Python에서 사용 하는로 거를 해제 합니다.
 
 ```Python
 logging.getLogger("msal").setLevel(logging.WARN)
 ```
 
-### <a name="personal-and-organizational-data-in-python"></a>Personal and organizational data in Python
+### <a name="personal-and-organizational-data-in-python"></a>Python의 개인 및 조직 데이터
 
-MSAL for Python does not log personal data or organizational data. There is no property to turn personal or organization data logging on or off.
+Python 용 MSAL은 개인 데이터 나 조직 데이터를 기록 하지 않습니다. 개인 또는 조직 데이터 로깅을 설정 하거나 해제 하는 속성은 없습니다.
 
-You can use standard Python logging to log whatever you want, but you are responsible for safely handling sensitive data and following regulatory requirements.
+표준 Python 로깅을 사용 하 여 원하는 모든 항목을 기록할 수 있지만 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 해야 합니다.
 
-For more information about logging in Python, please refer to Python's  [Logging HOWTO](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial).
+Python 로그인에 대 한 자세한 내용은 Python의 [로깅 방법](https://docs.python.org/3/howto/logging.html#logging-basic-tutorial)을 참조 하세요.
 
 ---

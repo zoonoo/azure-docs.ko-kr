@@ -1,5 +1,5 @@
 ---
-title: High availability for Azure MFA Server - Azure Active Directory
+title: Azure MFA 서버에 대 한 고가용성-Azure Active Directory
 description: 고가용성을 제공하는 구성에서 Azure Multi-Factor Authentication 서버의 여러 인스턴스를 배포합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -23,13 +23,13 @@ ms.locfileid: "74404296"
 Azure 서버 MFA 배포로 고가용성을 달성하려면 여러 MFA 서버를 배포해야 합니다. 이 섹션에서는 Azure MFS 서버 배포에서 고가용성 목표를 달성하기 위한 부하가 분산된 디자인에 대한 정보를 제공합니다.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="mfa-server-overview"></a>MFA 서버 개요
 
 다음 다이어그램에 표시된 것처럼 Azure MFA 서버 서비스 아키텍처는 여러 가지 구성 요소로 이루어집니다.
 
- ![MFA Server Architecture components](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
+ ![MFA 서버 아키텍처 구성 요소](./media/howto-mfaserver-deploy-ha/mfa-ha-architecture.png)
 
 MFA 서버는 Azure Multi-Factor Authentication 소프트웨어가 설치되어 있는 Windows Server입니다. MFA 서버 인스턴스가 작동하려면 Azure에서 MFA 서비스에 의해 활성화되어야 합니다. 온-프레미스에는 둘 이상의 MFA 서버를 설치할 수 있습니다.
 
@@ -39,7 +39,7 @@ MFA 마스터와 하위 MFA 서버는 모두 2단계 인증이 필요한 경우 
 
 AD와 성공적으로 인증된 후 MFA 서버는 MFA 서비스와 통신합니다. MFA 서버는 애플리케이션에 대한 사용자 액세스를 허용하거나 거부하는 MFA 서비스 알림을 기다립니다.
 
-MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. (Examples include: the addition of users, self-service PIN changes, changing user information, or access to the user portal)
+MFA 마스터 서버가 오프라인인 경우 인증은 계속 처리될 수 있지만 MFA 데이터베이스에 대한 변경이 요구되는 작업은 처리할 수 없습니다. 예를 들면 사용자 추가, 셀프 서비스 PIN 변경, 사용자 정보 변경, 사용자 포털에 대 한 액세스 권한 등이 포함 됩니다.
 
 ## <a name="deployment"></a>배포
 

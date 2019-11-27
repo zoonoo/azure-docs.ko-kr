@@ -1,5 +1,5 @@
 ---
-title: Implement a geo-distributed solution
+title: 지리적으로 분산 된 솔루션 구현
 description: Azure SQL 데이터베이스와 애플리케이션을 복제된 데이터베이스로 장애 조치(failover)하도록 구성하고 장애 조치(failover)를 테스트하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
@@ -20,27 +20,27 @@ ms.locfileid: "74421132"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database"></a>자습서: 지역 분산 데이터베이스 구현
 
-Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법을 알아봅니다.
+Azure SQL 데이터베이스와 애플리케이션을 원격 지역으로 장애 조치(failover)하도록 구성하고 장애 조치(failover) 계획을 테스트합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > - [장애 조치(failover) 그룹](sql-database-auto-failover-group.md) 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치
+> - 테스트 장애 조치(failover)
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 이 자습서를 완료하려면 다음 항목을 설치했는지 확인하세요.
 
 - [Azure PowerShell](/powershell/azureps-cmdlets-docs)
-- A single database in Azure SQL Database. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
-  - [Portal](sql-database-single-database-get-started.md)
+- Azure SQL Database의 단일 데이터베이스. 데이터베이스를 만들려면 다음 중 하나를 사용합니다.
+  - [포털](sql-database-single-database-get-started.md)
   - [CLI](sql-database-cli-samples.md)
   - [PowerShell](sql-database-powershell-samples.md)
 
@@ -93,7 +93,7 @@ Get-AzSqlDatabase -ResourceGroupName $resourceGroup -ServerName $server -Databas
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!IMPORTANT]
-> Run `az login` to sign in to Azure.
+> `az login`를 실행 하 여 Azure에 로그인 합니다.
 
 ```powershell
 $admin = "<adminName>"
@@ -150,7 +150,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </dependency>
    ```
 
-1. `dependencies` 섹션 뒤에 `properties` 섹션을 추가하여 Java 버전을 지정합니다.
+1. `properties` 섹션 뒤에 `dependencies` 섹션을 추가하여 Java 버전을 지정합니다.
 
    ```xml
    <properties>
@@ -159,7 +159,7 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    </properties>
    ```
 
-1. `properties` 섹션 뒤에 `build` 섹션을 추가하여 매니페스트 파일을 지원합니다.
+1. `build` 섹션 뒤에 `properties` 섹션을 추가하여 매니페스트 파일을 지원합니다.
 
    ```xml
    <build>
@@ -313,13 +313,13 @@ Azure Portal에서 데이터베이스를 선택한 다음 **설정** > **지역�
    ...
    ```
 
-## <a name="test-failover"></a>테스트 장애 조치
+## <a name="test-failover"></a>테스트 장애 조치(failover)
 
 다음 스크립트를 실행하여 장애 조치(failover) 시뮬레이션을 진행한 다음 애플리케이션 결과를 관찰합니다. 데이터베이스 마이그레이션 중에 일부 삽입과 선택이 실패하는 방식을 잘 살펴봅니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-You can check the role of the disaster recovery server during the test with the following command:
+다음 명령을 사용 하 여 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
 
 ```powershell
 (Get-AzSqlDatabaseFailoverGroup -FailoverGroupName $failoverGroup `
@@ -344,7 +344,7 @@ You can check the role of the disaster recovery server during the test with the 
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-You can check the role of the disaster recovery server during the test with the following command:
+다음 명령을 사용 하 여 테스트 중에 재해 복구 서버의 역할을 확인할 수 있습니다.
 
 ```azure-cli
 az sql failover-group show --name $failoverGroup --resource-group $resourceGroup --server $drServer
@@ -373,7 +373,7 @@ az sql failover-group show --name $failoverGroup --resource-group $resourceGroup
 > [!div class="checklist"]
 > - 지역에서 복제 장애 조치(failover) 그룹 만들기
 > - Java 애플리케이션을 실행하여 Azure SQL 데이터베이스 쿼리
-> - 테스트 장애 조치
+> - 테스트 장애 조치(failover)
 
 DMS를 사용한 마이그레이션 방법을 설명하는 다음 자습서를 진행합니다.
 

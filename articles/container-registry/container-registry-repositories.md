@@ -1,6 +1,6 @@
 ---
-title: View repositories in portal
-description: Use the Azure portal to view Azure Container Registry repositories, which host Docker container images and other supported artifacts.
+title: 포털에서 리포지토리 보기
+description: Azure Portal 사용 하 여 Docker 컨테이너 이미지 및 지원 되는 기타 아티팩트를 호스트 하는 Azure Container Registry 리포지토리를 볼 수 있습니다.
 ms.topic: article
 ms.date: 01/05/2018
 ms.openlocfilehash: 1da72706d2554610a685f71199ab14af5e30ce1a
@@ -14,17 +14,17 @@ ms.locfileid: "74456284"
 
 Azure Container Registry를 통해 리포지토리에 Docker 컨테이너 이미지를 저장할 수 있습니다. 리포지토리에 이미지를 저장하면 격리된 환경에 이미지 그룹(또는 이미지 버전)을 저장할 수 있습니다. 이미지를 레지스트리에 푸시할 때 이러한 리포지토리를 지정하고, Azure Portal에서 해당 콘텐츠를 볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * **컨테이너 레지스트리**: Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
-* **Docker CLI**: Install [Docker][docker-install] on your local machine, which provides you with the Docker command-line interface.
+* **DOCKER CLI**: docker 명령줄 인터페이스를 제공 하는 로컬 컴퓨터에 [docker][docker-install] 를 설치 합니다.
 * **컨테이너 이미지**: 이미지를 컨테이너 레지스트리를 밀어 넣습니다. 이미지 밀어넣기 및 끌어오기 방법에 대한 지침은 [이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)를 참조하세요.
 
 ## <a name="view-repositories-in-azure-portal"></a>Azure Portal에서 리포지토리 보기
 
 Azure Portal에서 이미지 태그뿐만 아니라 이미지를 호스트하는 리포지토리 목록도 볼 수 있습니다.
 
-[이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)의 단계를 따른 경우(나중에 이미지를 삭제하지 않음) 컨테이너 레지스트리에 Nginx 이미지가 있을 것입니다. 해당 문서의 지침에서는 `/samples/nginx`에서 네임스페이스 “samples”를 태그로 이미지에 지정하도록 지정했습니다. As a refresher, the [docker push][docker-push] command specified in that article was:
+[이미지 밀어넣기 및 끌어오기](container-registry-get-started-docker-cli.md)의 단계를 따른 경우(나중에 이미지를 삭제하지 않음) 컨테이너 레지스트리에 Nginx 이미지가 있을 것입니다. 해당 문서의 지침에서는 `/samples/nginx`에서 네임스페이스 “samples”를 태그로 이미지에 지정하도록 지정했습니다. 리프레셔로, 해당 문서에 지정 된 [docker push][docker-push] 명령은 다음과 같습니다.
 
 ```Bash
 docker push myregistry.azurecr.io/samples/nginx

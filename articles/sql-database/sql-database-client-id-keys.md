@@ -1,5 +1,5 @@
 ---
-title: Get values for app authentication
+title: 앱 인증에 대 한 값 가져오기
 description: 코드에서 SQL Database에 액세스하기 위한 서비스 사용자를 만듭니다.
 services: sql-database
 ms.service: sql-database
@@ -24,12 +24,12 @@ ms.locfileid: "74421314"
 
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>애플리케이션에서 리소스에 액세스하는 서비스 주체 만들기
 
-The following examples create the Active Directory (AD) application and the service principal that we need to authenticate our C# app. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
+다음 예제에서는 C# 앱을 인증 하는 데 필요한 AD (Active Directory) 응용 프로그램 및 서비스 주체를 만듭니다. 스크립트는 이전 C# 샘플에 필요한 값을 출력합니다. 자세한 내용은 [Azure PowerShell을 사용하여 리소스에 액세스하는 서비스 주체 만들기](../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 참조하세요.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
 ```powershell
 # sign in to Azure
@@ -99,7 +99,7 @@ Write-Output "_applicationSecret:" $secret
 
 * * *
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
 [C#으로 SQL 데이터베이스 만들기](sql-database-get-started-csharp.md)  
 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)

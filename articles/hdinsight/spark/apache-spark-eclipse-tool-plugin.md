@@ -150,7 +150,7 @@ Ambari 관리 사용자 이름을 사용하여 일반 클러스터를 연결할 
 
 1. HDInsight Spark 클러스터에서 애플리케이션 실행:
 
-   a. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.
+   가. 패키지 탐색기에서 프로젝트 이름을 마우스 오른쪽 단추로 클릭한 다음 **HDInsight에 Spark 애플리케이션 제출**을 선택합니다.
 
    b. **Spark 제출** 대화 상자에 다음 값을 제공한 다음 **제출**을 선택합니다.
 
@@ -229,7 +229,7 @@ HDInsight Tools를 사용하여 작업 출력에 액세스를 포함한 다양�
 
 Eclipse용 Azure 도구 키트의 HDInsight Tools를 사용하여 워크스테이션에서 Spark Scala 애플리케이션을 로컬로 실행할 수 있습니다. 일반적으로 이러한 애플리케이션은 스토리지 컨테이너와 같은 클러스터 리소스에 액세스할 필요가 없으므로 로컬로 실행하고 테스트할 수 있습니다.
 
-### <a name="prerequisite"></a>사전 요구 사항
+### <a name="prerequisite"></a>필수 요소
 
 Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 동안 [SPARK-2356](https://issues.apache.org/jira/browse/SPARK-2356)에서 설명한 예외가 발생할 수 있습니다. 이 예외는 Windows에 **WinUtils.exe**가 없기 때문에 발생합니다.
 
@@ -309,7 +309,7 @@ Windows 컴퓨터에서 로컬 Spark Scala 애플리케이션을 실행하는 �
 
 ## <a name="known-problems"></a>알려진 문제
 
-클러스터를 연결하는 경우 스토리지의 자격 증명을 제공하는 것이 좋습니다.
+클러스터를 연결하는 경우 스토리지 자격 증명을 제공하는 것이 좋습니다.
 
 ![저장소 자격 증명을 사용 하 여 클러스터 연결 eclipse](./media/apache-spark-eclipse-tool-plugin/link-cluster-with-storage-credential-eclipse.png)
 

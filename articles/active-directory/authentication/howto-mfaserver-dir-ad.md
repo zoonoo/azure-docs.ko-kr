@@ -1,5 +1,5 @@
 ---
-title: Azure MFA Server and Active Directory - Azure Active Directory
+title: Azure MFA 서버 및 Active Directory-Azure Active Directory
 description: 디렉터리를 동기화할 수 있도록 Active Directory와 Azure Multi-Factor Authentication 서버를 통합하는 방법을 설명합니다.
 services: multi-factor-authentication
 ms.service: active-directory
@@ -24,16 +24,16 @@ ms.locfileid: "74404221"
 Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 또는 다른 LDAP 디렉터리와 통합합니다. 디렉터리 스키마와 일치하는 특성을 구성하고 자동 사용자 동기화를 설정할 수 있습니다.
 
 > [!IMPORTANT]
-> As of July 1, 2019, Microsoft will no longer offer MFA Server for new deployments. New customers who would like to require multi-factor authentication from their users should use cloud-based Azure Multi-Factor Authentication. Existing customers who have activated MFA Server prior to July 1 will be able to download the latest version, future updates and generate activation credentials as usual.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="settings"></a>설정
 
 기본적으로 Azure MFA(Multi-Factor Authentication) 서버는 Active Directory에서 사용자를 가져오거나 동기화하도록 구성됩니다.  디렉터리 통합 탭을 통해 기본 동작을 재정의하고 다른 LDAP 디렉터리, ADAM 디렉터리 또는 특정 Active Directory 도메인 컨트롤러에 바인딩할 수 있습니다.  또한 LDAP 프록시 또는 RADIUS 대상으로서 LDAP 바인딩을 위한 LDAP 인증, IIS 인증을 위한 사전 인증, 사용자 포털을 위한 기본 인증을 사용할 수 있습니다.  다음 표에서는 개별 설정을 설명합니다.
 
-![Edit LDAP configuration in MFA Server](./media/howto-mfaserver-dir-ad/dirint.png)
+![MFA 서버에서 LDAP 구성 편집](./media/howto-mfaserver-dir-ad/dirint.png)
 
 > [!NOTE]
-> Directory integration is not guaranteed to work with directories other than Active Directory Domain Services.
+> 디렉터리 통합은 Active Directory Domain Services 이외의 디렉터리에서 작동 하지 않을 수 있습니다.
 
 | 기능 | 설명 |
 | --- | --- |
@@ -60,7 +60,7 @@ Azure MFA 서버의 디렉터리 통합 섹션을 사용하여 Active Directory 
 
 필터를 사용하면 디렉터리 검색을 수행할 때 레코드를 한정하는 조건을 설정할 수 있습니다.  필터를 설정하여 동기화할 개체의 범위를 지정할 수 있습니다.  
 
-![Configure directory filtering in MFA Server](./media/howto-mfaserver-dir-ad/dirint2.png)
+![MFA 서버에서 디렉터리 필터링 구성](./media/howto-mfaserver-dir-ad/dirint2.png)
 
 Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있습니다.
 
@@ -70,17 +70,17 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 
 ## <a name="attributes"></a>특성
 
-필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. Use the name of the attribute as defined in the directory schema for the value of each attribute field. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
+필요에 따라 특성을 특정 디렉터리에 사용자 지정할 수 있습니다.  이를 통해 사용자 지정 특성을 추가하고 필요한 특성에 대한 동기화만 미세 조정할 수 있습니다. 각 특성 필드의 값에 대 한 디렉터리 스키마에 정의 된 특성의 이름을 사용 합니다. 다음 표는 각 기능에 대한 추가 정보를 제공합니다.
 
 특성은 수동으로 입력할 수 있으며 특성 목록의 특성과 일치할 필요는 없습니다.
 
-![Customize directory integration attributes in MFA Server](./media/howto-mfaserver-dir-ad/dirint3.png)
+![MFA 서버에서 디렉터리 통합 특성 사용자 지정](./media/howto-mfaserver-dir-ad/dirint3.png)
 
 | 기능 | 설명 |
 | --- | --- |
 | 고유 식별자 |컨테이너, 보안 그룹 및 사용자 레코드의 고유 식별자 역할을 하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 objectGUID입니다. 다른 LDAP 구현은 entryUUID 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 objectGUID입니다. |
 | 고유 식별자 형식 |고유 식별자 특성의 형식을 선택합니다.  Active Directory에서 objectGUID 특성은 GUID 형식입니다. 다른 LDAP 구현은 ASCII 바이트 배열 또는 문자열 형식을 사용할 수 있습니다.  기본값은 GUID입니다. <br><br>동기화 항목은 해당 고유 식별자에서 참조되므로 이 형식을 올바르게 설정하는 것이 중요합니다. 고유 식별자 형식은 디렉터리에서 개체를 직접 찾는 데 사용됩니다.  디렉터리에서 ASCII 문자의 바이트 배열로 값을 실제로 저장할 때 이 형식을 문자열로 설정하게 되면 동기화가 제대로 기능하지 않게 됩니다. |
-| 고유 이름 |각 레코드에 고유 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 distinguishedName입니다. 다른 LDAP 구현은 entryDN 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 distinguishedName입니다. <br><br>If an attribute containing just the distinguished name doesn't exist, the ads path attribute may be used.  경로에서 "LDAP://\<서버\>/" 부분은 자동으로 제거되어 개체의 고유 이름만 남게 됩니다. |
+| 고유 이름 |각 레코드에 고유 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서는 일반적으로 distinguishedName입니다. 다른 LDAP 구현은 entryDN 또는 이와 유사한 이름을 사용할 수 있습니다.  기본값은 distinguishedName입니다. <br><br>고유 이름만 포함 하는 특성이 없는 경우 ads 경로 특성을 사용할 수 있습니다.  경로에서 "LDAP://\<서버\>/" 부분은 자동으로 제거되어 개체의 고유 이름만 남게 됩니다. |
 | 컨테이너 이름 |컨테이너 레코드에 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서 가져오거나 동기화 항목을 추가할 때 이 특성의 값이 컨테이너 계층 구조에 표시됩니다.  기본값은 name입니다. <br><br>다른 컨테이너가 해당 이름의 다른 특성을 사용하는 경우 세미콜론을 사용하여 여러 컨테이너 이름 특성을 구분할 수 있습니다.  컨테이너 개체에 있는 첫 번째 컨테이너 이름 특성이 이름을 표시할 때 사용됩니다. |
 | 보안 그룹 이름 |보안 그룹 레코드에 이름을 포함하는 특성의 이름을 입력합니다.  Active Directory에서 가져오거나 동기화 항목을 추가할 때 이 특성의 값이 보안 그룹 목록에 표시됩니다.  기본값은 name입니다. |
 | 사용자 이름 |사용자 레코드에 사용자 이름을 포함하는 특성의 이름을 입력합니다.  이 특성의 값은 Multi-Factor Auth 서버의 사용자 이름으로 사용됩니다.  두 번째 특성은 첫 번째 특성에 대한 백업으로 지정할 수 있습니다.  두 번째 특성은 첫 번째 특성에 사용자에 대한 값이 없는 경우에만 사용됩니다.  기본값은 userPrincipalName 및 sAMAccountName입니다. |
@@ -99,13 +99,13 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 휴대폰 |사용자 레코드에 휴대폰 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 mobile입니다. |
 | 팩스 |사용자 레코드에 팩스 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 facsimileTelephoneNumber입니다. |
 | IP 전화 |사용자 레코드에 IP 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 ipphone입니다. |
-| 맞춤형 서비스 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
-| 확장 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
+| 사용자 지정 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
+| 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
 | 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
-To edit attributes, click **Edit** on the Attributes tab.  This brings up a window where you can edit the attributes. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
+특성을 편집 하려면 특성 탭에서 **편집** 을 클릭 합니다.  그러면 특성을 편집할 수 있는 창이 표시 됩니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.
 
-![Edit directory attribute mapping in MFA Server](./media/howto-mfaserver-dir-ad/dirint4.png)
+![MFA 서버에서 디렉터리 특성 매핑 편집](./media/howto-mfaserver-dir-ad/dirint4.png)
 
 ## <a name="synchronization"></a>동기화
 
@@ -117,7 +117,7 @@ Multi-Factor Auth ADSync 서비스는 Microsoft에서 제공하는 DirSync LDAP 
 
 LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경우 Active Directory에서와 마찬가지로 사용자 및 보안 그룹의 변경 사항에 대한 폴링이 작동합니다.  LDAP 디렉터리가 DirSync 컨트롤을 지원하지 않는 경우 전체 동기화가 각 주기 동안 실행됩니다.
 
-![Synchronization of directory objects to MFA Server](./media/howto-mfaserver-dir-ad/dirint5.png)
+![MFA 서버와 디렉터리 개체의 동기화](./media/howto-mfaserver-dir-ad/dirint5.png)
 
 다음 표는 각 동기화 탭 설정에 대한 추가 정보를 포함합니다.
 
@@ -143,8 +143,8 @@ LDAP 디렉터리에서 DirSync를 지원하고 DirSync에 대해 구성된 경�
 > [!TIP]
 > 동기화 항목을 제거한 후에는 전체 동기화를 실행해야 합니다.  동기화 항목의 순서를 지정한 후에는 전체 동기화를 실행해야 합니다.  전체 동기화를 실행하려면 **지금 동기화**를 클릭합니다.
 
-## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication servers
+## <a name="multi-factor-authentication-servers"></a>Multi-Factor Authentication 서버
 
-Additional Multi-Factor Authentication servers may be set up to serve as a backup RADIUS proxy, LDAP proxy, or for IIS Authentication. 동기화 구성은 모든 에이전트 간에 공유됩니다. However, only one of these agents may have the Multi-Factor Authentication server service running. This tab allows you to select the Multi-Factor Authentication server that should be enabled for synchronization.
+추가 Multi-Factor Authentication 서버는 백업 RADIUS 프록시, LDAP 프록시 또는 IIS 인증용 역할을 하도록 설정할 수 있습니다. 동기화 구성은 모든 에이전트 간에 공유됩니다. 그러나 이러한 에이전트 중 하나만 Multi-Factor Authentication 서버 서비스를 실행할 수 있습니다. 이 탭에서 동기화를 사용 하도록 설정 해야 하는 Multi-Factor Authentication 서버를 선택할 수 있습니다.
 
-![Related Multi-Factor Authentication Servers](./media/howto-mfaserver-dir-ad/dirint6.png)
+![관련 Multi-Factor Authentication 서버](./media/howto-mfaserver-dir-ad/dirint6.png)

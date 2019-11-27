@@ -70,7 +70,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | mailNickname |externalId |
 | manager |manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
-| objectId |id |
+| objectId |ID |
 | postalCode |addresses[type eq "work"].postalCode |
 | proxy-Addresses |emails[type eq "other"].Value |
 | physical-Delivery-OfficeName |addresses[type eq "other"].Formatted |
@@ -87,7 +87,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | mail |emails[type eq "work"].value |
 | mailNickname |displayName |
 | members |members |
-| objectId |id |
+| objectId |ID |
 | proxyAddresses |emails[type eq "other"].Value |
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>2 단계: Azure AD SCIM 구현 이해
@@ -201,7 +201,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 }
 ```
 
-##### <a name="response"></a>response
+##### <a name="response"></a>응답
 
 *HTTP/1.1 201 생성*
 ```json
@@ -232,7 +232,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-user"></a>사용자 가져오기
 
 ###### <a name="request-1"></a>요구
-*GET /Users/5d48a0a8e9f04aa38008* 
+*/Users/5d48a0a8e9f04aa38008 가져오기* 
 
 ###### <a name="response-1"></a>응답 (사용자 찾음)
 *HTTP/1.1 200 정상*
@@ -280,7 +280,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-2"></a>요구
 
-*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
+*GET/사용자? filter = userName eq "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
 
 ##### <a name="response-2"></a>응답이
 
@@ -454,7 +454,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-7"></a>요구
 
-*POST /Groups HTTP/1.1*
+*POST/Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
@@ -489,7 +489,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-8"></a>요구
 
-*GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
+*GET/Groups/40734ae655284ad3abcc? excludedAttributes = members HTTP/1.1*
 
 ##### <a name="response-8"></a>응답이
 *HTTP/1.1 200 정상*
@@ -510,7 +510,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-group-by-displayname"></a>DisplayName by displayName 가져오기
 
 ##### <a name="request-9"></a>요구
-*GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
+*/Groups? excludedAttributes = members & filter = displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response-9"></a>응답이
 
@@ -540,7 +540,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-10"></a>요구
 
-*PATCH /Groups/fa2ce26709934589afc5 HTTP/1.1*
+*PATCH/G/fa2ce26709934589afc5 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -560,7 +560,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-11"></a>요구
 
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -583,7 +583,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-12"></a>요구
 
-*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -606,7 +606,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-13"></a>요구
 
-*DELETE /Groups/cdb1ce18f65944079d37 HTTP/1.1*
+*/Groups/cdb1ce18f65944079d37 HTTP/1.1 삭제*
 
 ##### <a name="response-13"></a>응답이
 
@@ -627,7 +627,7 @@ Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어
 
 이 프로세스를 더 쉽게 수행 하기 위해 SCIM 웹 서비스 끝점을 만들고 자동 프로 비전을 보여 주는 [코드 샘플이](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) 제공 됩니다. 이 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분 된 값의 행이 있는 파일을 유지 관리 하는 공급자입니다.
 
-**필수 구성 요소**
+**필수 조건**
 
 * Visual Studio 2013 이상
 * [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
@@ -668,7 +668,7 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 1. 응용 프로그램의 이름을 입력 하 고 **추가** 를 선택 하 여 앱 개체를 만듭니다. 만든 애플리케이션 개체는 SCIM 엔드포인트뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
 1. 앱 관리 화면의 왼쪽 패널에서 **프로 비전** 을 선택 합니다.
 1. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.    
-1. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: https://api.contoso.com/scim/
+1. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/
 
 1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청과 함께 Azure AD에서 발급 한 OAuth 전달자 토큰이 포함 됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
 1. **연결 테스트** 를 선택 하 Azure Active Directory scim 끝점에 연결을 시도 합니다. 이 시도가 실패 하면 오류 정보가 표시 됩니다.  
@@ -1278,7 +1278,7 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
    ![예: Azure Portal에 있는 앱의 프로 비전 페이지][2]<br/>
    *그림 3: Azure Portal에서 프로 비전 구성*
 
-7. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: https://api.contoso.com/scim/
+7. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예제: https://api.contoso.com/scim/
 8. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청과 함께 Azure AD에서 발급 한 OAuth 전달자 토큰이 포함 됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다. 
    > [!NOTE]
    > Azure AD에서 생성 된 토큰을 사용 하 여이 필드를 비워 두지 ***않는*** 것이 좋습니다. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.

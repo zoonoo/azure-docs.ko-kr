@@ -58,7 +58,7 @@ ms.locfileid: "74483537"
 DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있으며 지역 또는 AZ(가용성 영역) 수준 장애로부터 격리되어 있으므로 네트워크 트래픽을 전환하는 데 가장 효율적인 메커니즘 중 하나입니다. DNS 기반 장애 조치(failover) 메커니즘을 사용할 수 있고, Azure에서는 두 개의 DNS 서비스인 Azure DNS(신뢰할 수 있는 DNS) 및 Azure Traffic Manager(DNS 기반 스마트 트래픽 라우팅)가 어떤 방식으로 동일한 작업을 수행할 수 있습니다. 
 
 이 문서에 제공된 솔루션을 설명하는 데 광범위하게 사용되는 DNS의 몇 가지 개념을 이해해야 합니다.
-- **DNS A Record** – A Records are pointers that point a domain to an IPv4 address. 
+- **DNS a 레코드** – a 레코드는 도메인을 IPv4 주소로 가리키는 포인터입니다. 
 - **CNAME 또는 정식 이름** - 이 레코드 유형은 다른 DNS 레코드를 가리키는 데 사용됩니다. CNAME은 IP 주소로 응답하지 않고, IP 주소를 포함하는 레코드에 대한 포인터로 응답합니다. 
 - **가중 라우팅** - 서비스 엔드포인트에 가중치를 연결한 다음, 할당된 가중치를 기준으로 트래픽을 분배하도록 선택할 수 있습니다. 이 라우팅 방법은 Traffic Manager 내에서 사용할 수 있는 네 개의 트래픽 라우팅 메커니즘 중 하나입니다. 자세한 내용은 [가중 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#weighted)을 참조하세요.
 - **우선 순위 라우팅** - 우선 순위 라우팅은 엔드포인트의 상태 확인을 기반으로 합니다. 기본적으로 Azure Traffic Manager는 우선순위가 가장 높은 엔드포인트에 모든 트래픽을 보내고, 장애 또는 재해 발생 시 Traffic Manager는 트래픽을 보조 엔드포인트로 라우팅합니다. 자세한 내용은 [우선 순위 라우팅 방법](../traffic-manager/traffic-manager-routing-methods.md#priority-traffic-routing-method)을 참조하세요.
@@ -72,7 +72,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 
 솔루션에 대한 가정은 다음과 같습니다.
 - 기본 및 보조 엔드포인트에는 자주 변경되지 않는 정적 IP가 있습니다. 주 사이트의 IP가 100.168.124.44이고 보조 사이트의 IP가 100.168.124.43이라고 가정해 보겠습니다.
-- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. A DNS record for the main application known as www\.contoso.com also exists.   
+- Azure DNS 영역은 주 사이트와 보조 사이트에 모두 있습니다. 주 사이트의 엔드포인트는 prod.contoso.com이고 백업 사이트의 엔드포인트는 dr.contoso.com이라고 가정해 보겠습니다. Www\.contoso.com 이라고 하는 주 응용 프로그램에 대 한 DNS 레코드도 존재 합니다.   
 - TTL은 조직에서 설정된 RTO SLA 수준 이하입니다. 예를 들어, 기업에서 애플리케이션 재해 응답의 RTO를 60분으로 설정하는 경우, TTL은 60분 미만이어야 하고 낮을수록 더 좋습니다. 
   다음과 같이 수동 장애 조치(failover)에 대한 Azure DNS를 설정할 수 있습니다.
 - DNS 영역 만들기
@@ -80,7 +80,7 @@ DNS는 일반적으로 전역으로 적용되고 데이터 센터 외부에 있�
 - CNAME 레코드 업데이트
 
 ### <a name="step-1-create-a-dns"></a>1단계: DNS 만들기
-Create a DNS zone (for example, www\.contoso.com) as shown below:
+아래와 같이 DNS 영역 (예: www\.contoso.com)을 만듭니다.
 
 ![Azure에서 DNS 영역 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone.png)
 
@@ -88,13 +88,13 @@ Create a DNS zone (for example, www\.contoso.com) as shown below:
 
 ### <a name="step-2-create-dns-zone-records"></a>2단계: DNS 영역 레코드 만들기
 
-Within this zone create three records (for example - www\.contoso.com, prod.contoso.com and dr.consoto.com) as show below.
+이 영역 내에서 아래와 같이 3 개의 레코드 (\.예: contoso.com, prod.contoso.com 및 dr.consoto.com)를 만듭니다.
 
 ![DNS 영역 레코드 만들기](./media/disaster-recovery-dns-traffic-manager/create-dns-zone-records.png)
 
 ‘그림 - Azure에서 DNS 영역 레코드 만들기’
 
-In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well below the stated RTO, and is pointing to the production site prod.contoso.com. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
+이 시나리오에서 site, www\.contoso.com는 30 분의 TTL을 가지 며,이는 규정 된 RTO 아래에 있으며 프로덕션 사이트 prod.contoso.com를 가리킵니다. 이 구성은 정상적인 비즈니스 작업 중에 이루어집니다. prod.contoso.com 및 dr.contoso.com의 TTL은 300초 또는 5분으로 설정되었습니다. Azure Monitor 또는 Azure App Insights와 같은 Azure 모니터링 서비스 또는 Dynatrace와 같은 파트너 모니터링 솔루션을 사용할 수 있고, 애플리케이션 또는 가상 인프라 수준 장애를 모니터링하거나 감지할 수 있는 자사 솔루션도 사용할 수 있습니다.
 
 ### <a name="step-3-update-the-cname-record"></a>3단계: CNAME 레코드 업데이트
 
@@ -104,7 +104,7 @@ In this scenario, site, www\.contoso.com has a TTL of 30 mins, which is well bel
 
 ‘그림 - Azure에서 CNAME 레코드 업데이트’
 
-Within 30 minutes, during which most resolvers will refresh the cached zone file, any query to www\.contoso.com will be redirected to dr.contoso.com.
+30 분 이내에 대부분의 해결 프로그램이 캐시 된 영역 파일을 새로 고치는 동안 www\.contoso.com에 대 한 쿼리는 dr.contoso.com로 리디렉션됩니다.
 다음 Azure CLI 명령을 실행하여 CNAME 값을 변경할 수도 있습니다.
  ```azurecli
    az network dns record-set cname set-record \
@@ -140,9 +140,9 @@ Azure Traffic Manager로 장애 조치(failover)를 구성하는 단계는 다�
 ### <a name="step-1-create-a-new-azure-traffic-manager-profile"></a>1단계: 새 Azure Traffic Manager 프로필 만들기
 이름이 contoso123인 새 Azure Traffic Manager 프로필을 만들고 라우팅 방법을 우선 순위로 선택합니다. 연결할 기존 리소스 그룹이 있는 경우 기존 리소스 그룹을 선택하고, 없는 경우에는 새 리소스 그룹을 만듭니다.
 
-![Create Traffic Manager profile](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
+![Traffic Manager 프로필 만들기](./media/disaster-recovery-dns-traffic-manager/create-traffic-manager-profile.png)
 
-*Figure - Create a Traffic Manager profile*
+*그림-Traffic Manager 프로필 만들기*
 
 ### <a name="step-2-create-endpoints-within-the-traffic-manager-profile"></a>2단계: Traffic Manager 프로필 내에서 엔드포인트 만들기
 

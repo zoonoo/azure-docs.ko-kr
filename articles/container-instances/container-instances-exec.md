@@ -1,5 +1,5 @@
 ---
-title: Execute commands in running container instance
+title: 실행 중인 컨테이너 인스턴스에서 명령 실행
 description: Azure Container Instances에서 현재 실행 중인 컨테이너에서 명령을 실행하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 03/30/2018
@@ -16,7 +16,7 @@ Azure Container Instances는 실행 중인 컨테이너에서 명령을 실행�
 
 ## <a name="run-a-command-with-azure-cli"></a>Azure CLI를 사용하여 명령 실행
 
-Execute a command in a running container with [az container exec][az-container-exec] in the [Azure CLI][azure-cli]:
+[Azure CLI][azure-cli]에서 [az container exec][az-container-exec] 를 사용 하 여 실행 중인 컨테이너에서 명령을 실행 합니다.
 
 ```azurecli
 az container exec --resource-group <group-name> --name <container-group-name> --exec-command "<command>"
@@ -80,7 +80,7 @@ az container exec --resource-group myResourceGroup --name mynginx --container-na
 
 ## <a name="restrictions"></a>제한
 
-Azure Container Instances currently supports launching a single process with [az container exec][az-container-exec], and you cannot pass command arguments. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
+Azure Container Instances는 현재 [az Container exec][az-container-exec]를 사용 하 여 단일 프로세스를 시작 하도록 지원 하며 명령 인수를 전달할 수 없습니다. 예를 들어 `sh -c "echo FOO && echo BAR"`에서 명령을 연결하거나 `echo FOO`를 실행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

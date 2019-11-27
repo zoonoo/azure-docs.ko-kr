@@ -23,17 +23,17 @@ ms.locfileid: "74422533"
 SQL 데이터 동기화는 여러 SQL 데이터베이스 및 SQL Server 인스턴스 간에 양방향으로 선택한 데이터를 동기화할 수 있는 Azure SQL Database에 기반한 서비스입니다.
 
 > [!IMPORTANT]
-> Azure SQL Data Sync does not support Azure SQL Database Managed Instance at this time.
+> Azure SQL 데이터 동기화는 현재 Azure SQL Database Managed Instance를 지원 하지 않습니다.
 
 ## <a name="when-to-use-data-sync"></a>데이터 동기화를 사용하는 경우
 
-Data Sync is useful in cases where data needs to be kept updated across several Azure SQL databases or SQL Server databases. 데이터 동기화에 대한 주요 사용 사례는 다음과 같습니다.
+데이터 동기화는 여러 Azure SQL 데이터베이스 또는 SQL Server 데이터베이스 간에 데이터를 업데이트 해야 하는 경우에 유용 합니다. 데이터 동기화에 대한 주요 사용 사례는 다음과 같습니다.
 
 - **하이브리드 데이터 동기화:** 데이터 동기화를 사용하면 온-프레미스 데이터베이스와 Azure SQL 데이터베이스 간에 데이터를 동기화하여 하이브리드 애플리케이션을 사용하도록 설정할 수 있습니다. 이 기능은 클라우드로 이동하려는 고객에게 표시되고 Azure에 애플리케이션의 일부를 배치할 수 있습니다.
 - **배포된 애플리케이션:** 많은 경우에 다른 데이터베이스에서 다양한 워크로드를 구분하는 데 도움이 됩니다. 예를 들어 대형 프로덕션 데이터베이스가 있지만 이 데이터에 대한 보고 또는 분석 워크로드를 실행해야 하는 경우 해당 추가 워크로드에 대한 두 번째 데이터베이스를 만드는 데 도움이 됩니다. 이 방법을 사용하면 프로덕션 워크로드에 미치는 영향을 최소화합니다. 데이터 동기화를 사용하여 이러한 두 데이터베이스의 동기화를 유지할 수 있습니다.
-- **Globally Distributed Applications:** Many businesses span several regions and even several countries/regions. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
+- **전역 배포 응용 프로그램:** 많은 기업 들이 여러 지역 및 여러 국가/지역에 걸쳐 있습니다. 네트워크 대기 시간을 최소화하려면 가까운 지역에 데이터가 위치하는 것이 좋습니다. 데이터 동기화를 사용하면 전 세계 여러 지역에서 데이터베이스를 쉽게 동기화할 수 있습니다.
 
-Data Sync isn't the preferred solution for the following scenarios:
+데이터 동기화는 다음과 같은 시나리오에서 선호 되는 솔루션이 아닙니다.
 
 | 시나리오 | 권장되는 솔루션 |
 |----------|----------------------------|
@@ -51,7 +51,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 - **허브 데이터베이스**는 Azure SQL Database여야 합니다.
 - **구성원 데이터베이스**는 SQL Database, 온-프레미스 SQL Server 데이터베이스 또는 Azure 가상 머신의 SQL Server 인스턴스일 수 있습니다.
-- The **Sync Database** contains the metadata and log for Data Sync. The Sync Database has to be an Azure SQL Database located in the same region as the Hub Database. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
+- **동기화 데이터베이스** 에는 데이터 동기화에 대 한 메타 데이터 및 로그가 포함 되어 있습니다. 동기화 데이터베이스는 허브 데이터베이스와 동일한 지역에 있는 Azure SQL Database 이어야 합니다. 동기화 데이터베이스는 생성된 고객 및 소유한 고객입니다.
 
 > [!NOTE]
 > 온-프레미스 데이터베이스를 구성원 데이터베이스로 사용하는 경우 [로컬 동기화 에이전트를 설치 및 구성](sql-database-get-started-sql-data-sync.md#add-on-prem)해야 합니다.
@@ -67,7 +67,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ## <a name="how-does-data-sync-work"></a>데이터 동기화는 어떻게 작동하나요?
 
-- **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. Note that BULK INSERT doesn't fire triggers by default. If FIRE_TRIGGERS isn't specified, no insert triggers execute. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
+- **데이터 변경 내용 추적:** 데이터 동기화는 트리거 삽입, 업데이트 및 삭제를 사용하여 변경 내용을 추적합니다. 변경 내용은 사용자 데이터베이스에 있는 추가 표에 기록됩니다. BULK INSERT는 기본적으로 트리거를 실행 하지 않습니다. FIRE_TRIGGERS 지정 하지 않으면 삽입 트리거가 실행 되지 않습니다. 데이터 동기화가 이러한 삽입을 추적할 수 있도록 FIRE_TRIGGERS 옵션을 추가합니다. 
 - **데이터 동기화:** 데이터 동기화는 허브 및 스포크 모델에서 설계됩니다. 허브는 개별적으로 각 구성원과 동기화됩니다. 허브의 변경 내용이 구성원에 다운로드된 다음 구성원의 변경 내용은 허브에 업로드됩니다.
 - **충돌 해결:** 데이터 동기화는 충돌 해결을 위해 *허브 우선* 또는 *멤버 우선*이라는 두 가지 옵션을 제공합니다.
   - *허브 우선*을 선택하는 경우 허브의 변경 내용은 항상 구성원의 변경 내용을 덮어씁니다.
@@ -104,7 +104,7 @@ Data Sync isn't the preferred solution for the following scenarios:
 
 ### <a name="eventual-consistency"></a>결과적 일관성
 
-Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Microsoft guarantees that all changes are made eventually and that Data Sync doesn't cause data loss.
+데이터 동기화는 트리거 기반 이므로 트랜잭션 일관성은 보장 되지 않습니다. Microsoft에서는 모든 변경 내용을 적용 하 고 데이터 동기화로 인해 데이터가 손실 되지 않도록 보장 합니다.
 
 ### <a name="performance-impact"></a>성능에 미치는 영향
 
@@ -119,21 +119,21 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 - 각 표에는 기본 키가 있어야 합니다. 어느 행에서도 기본 키 값은 변경하지 않습니다. 기본 키 값을 변경해야 하는 경우 해당 행을 삭제한 다음 새 기본 키 값을 사용하여 행을 다시 만듭니다.
 
 > [!IMPORTANT]
-> Changing the value of an existing primary key will result in the following faulty behavior:
-> - Data between hub and member can be lost even though sync does not report any issue.
-> - Sync can fail because the tracking table has a non-existing row from source due to the primary key change.
+> 기존 기본 키의 값을 변경 하면 다음과 같은 잘못 된 동작이 발생 합니다.
+> - 동기화가 문제를 보고 하지 않더라도 허브와 구성원 간의 데이터는 손실 될 수 있습니다.
+> - 기본 키 변경으로 인해 추적 테이블의 원본에서 존재 하지 않는 행이 있으므로 동기화가 실패할 수 있습니다.
 
 - 스냅샷 격리를 사용해야 합니다. 자세한 내용은 [SQL Server에서의 스냅샷 격리](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/snapshot-isolation-in-sql-server)를 참조하세요.
 
 ### <a name="general-limitations"></a>일반적인 제한 사항
 
-- A table can't have an identity column that isn't the primary key.
-- A primary key can't have the following data types: sql_variant, binary, varbinary, image, xml.
+- 테이블에는 기본 키가 아닌 id 열이 있을 수 없습니다.
+- 기본 키에는 sql_variant, binary, varbinary, image, xml 등의 데이터 형식이 포함 될 수 없습니다.
 - 지원되는 전체 자릿수가 보조 키에만 해당하므로 time, datetime, datetime2, datetimeoffset 같은 데이터 형식을 기본 키로 사용하는 경우 주의하세요.
-- The names of objects (databases, tables, and columns) can't contain the printable characters period (.), left square bracket ([), or right square bracket (]).
-- Azure Active Directory authentication isn't supported.
-- Tables with same name but different schema (for example, dbo.customers and sales.customers) aren't supported.
-- Columns with User Defined Data Types aren't supported
+- 개체 이름 (데이터베이스, 테이블 및 열)에는 인쇄 가능한 문자 마침표 (.), 왼쪽 대괄호 ([) 또는 오른쪽 대괄호 (])를 사용할 수 없습니다.
+- Azure Active Directory 인증은 지원 되지 않습니다.
+- 이름이 같지만 스키마가 다른 테이블 (예: dbo. customers 및 sales. customers)은 지원 되지 않습니다.
+- 사용자 정의 데이터 형식이 있는 열은 지원 되지 않습니다.
 
 #### <a name="unsupported-data-types"></a>지원되지 않는 데이터 형식
 
@@ -144,7 +144,7 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 
 #### <a name="unsupported-column-types"></a>지원되지 않는 열 형식
 
-데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 다음은 그 예입니다.
+데이터 동기화는 읽기 전용 또는 시스템에서 생성된 열을 동기화할 수 없습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 - 계산된 열입니다.
 - 임시 테이블에 대한 시스템에서 생성된 열입니다.
@@ -169,7 +169,7 @@ Since Data Sync is trigger-based, transactional consistency isn't guaranteed. Mi
 
 ### <a name="how-much-does-the-sql-data-sync-service-cost"></a>SQL 데이터 동기화 서비스의 요금은 얼마인가요?
 
-There's no charge for the SQL Data Sync service itself. However, you still collect data transfer charges for data movement in and out of your SQL Database instance. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
+SQL 데이터 동기화 서비스 자체에는 요금이 부과 되지 않습니다. 그러나 SQL Database 인스턴스에서 데이터 이동에 대 한 데이터 전송 요금을 수집 하는 것은 여전히 가능 합니다. 자세한 내용은 [SQL Database 가격](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요.
 
 ### <a name="what-regions-support-data-sync"></a>데이터 동기화를 지원하는 지역은 어디인가요?
 
@@ -190,7 +190,7 @@ SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 - 구독이 동일한 테넌트에 속하며 모든 구독에 대해 사용 권한이 있는 경우, Azure Portal에서 동기화 그룹을 구성할 수 있습니다.
 - 그렇지 않으면 PowerShell을 사용하여 서로 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
 
-### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>Can I use Data Sync to sync between SQL Databases that belong to different clouds (like Azure Public Cloud and Azure China 21Vianet)
+### <a name="can-i-use-data-sync-to-sync-between-sql-databases-that-belong-to-different-clouds-like-azure-public-cloud-and-azure-china-21vianet"></a>데이터 동기화를 사용 하 여 다른 클라우드에 속하는 SQL 데이터베이스 (예: Azure 공용 클라우드 및 Azure 중국 21Vianet) 간에 동기화 할 수 있나요?
 
 예. 다른 클라우드에 속해 있는 SQL Database 간에 동기화할 수 있으며, PowerShell을 사용하여 다른 구독에 속하는 동기화 멤버를 추가해야 합니다.
 
@@ -200,7 +200,7 @@ SQL 데이터 동기화는 모든 지역에서 사용할 수 있습니다.
 
 ### <a name="should-i-use-sql-data-sync-to-back-up-and-restore-my-databases"></a>내 데이터베이스를 백업 및 복원하는 데 SQL 데이터 동기화를 사용해야 할까요?
 
-It isn't recommended to use SQL Data Sync to create a backup of your data. You can't back up and restore to a specific point in time because SQL Data Sync synchronizations are not versioned. Furthermore, SQL Data Sync does not back up other SQL objects, such as stored procedures, and doesn't do the equivalent of a restore operation quickly.
+SQL 데이터 동기화를 사용 하 여 데이터의 백업을 만드는 것은 권장 되지 않습니다. SQL 데이터 동기화 동기화는 버전이 지정 되지 않기 때문에 특정 시점으로 백업 및 복원할 수 없습니다. 또한 SQL 데이터 동기화는 저장 프로시저와 같은 다른 SQL 개체를 백업 하지 않으며 복원 작업과 같은 작업을 신속 하 게 수행 하지 않습니다.
 
 권장되는 백업 방법은 [Azure SQL 데이터베이스 복사](sql-database-copy.md)를 참조하세요.
 
@@ -213,30 +213,30 @@ It isn't recommended to use SQL Data Sync to create a backup of your data. You c
 
 예. SQL 데이터 동기화는 다음과 같은 시나리오에서 데이터 정렬을 지원합니다.
 
-- If the selected sync schema tables aren't already in your hub or member databases, then when you deploy the sync group, the service automatically creates the corresponding tables and columns with the collation settings selected in the empty destination databases.
+- 선택한 동기화 스키마 테이블이 허브 또는 멤버 데이터베이스에 없는 경우 동기화 그룹을 배포할 때 서비스는 빈 대상 데이터베이스에서 데이터 정렬 설정이 선택 된 해당 테이블 및 열을 자동으로 만듭니다.
 - 동기화할 테이블이 사용자의 허브와 구성원 데이터베이스에 이미 포함되어 있다면, 허브와 구성원 데이터베이스의 기본 키 열이 동일한 데이터 정렬을 갖는 경우에만 동기화 그룹이 성공적으로 배포됩니다. 기본 키 열을 제외한 다른 열에는 데이터 정렬 제한이 없습니다.
 
 ### <a name="is-federation-supported-in-sql-data-sync"></a>SQL 데이터 동기화는 페더레이션을 지원하나요?
 
-SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 없이 사용할 수 있습니다. You can't add the Federated Database endpoint to the current version of SQL Data Sync.
+SQL 데이터 동기화 서비스에서는 Federation Root Database를 제한 없이 사용할 수 있습니다. 현재 버전의 SQL 데이터 동기화에는 페더레이션된 데이터베이스 끝점을 추가할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 ### <a name="update-the-schema-of-a-synced-database"></a>동기화된 데이터베이스의 스키마 업데이트
 
-동기화 그룹에서 데이터베이스의 스키마를 업데이트해야 하나요? Schema changes aren't automatically replicated. 일부 솔루션의 경우 다음 문서를 참조하세요.
+동기화 그룹에서 데이터베이스의 스키마를 업데이트해야 하나요? 스키마 변경 내용은 자동으로 복제 되지 않습니다. 일부 솔루션의 경우 다음 문서를 참조하세요.
 
 - [Azure SQL 데이터 동기화에서 스키마 변경 복제 자동화](sql-database-update-sync-schema.md)
 - [PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트](scripts/sql-database-sync-update-schema.md)
 
 ### <a name="monitor-and-troubleshoot"></a>모니터링 및 문제 해결
 
-Is SQL Data Sync doing as expected? 활동을 모니터링하고 문제를 해결하려면 다음 문서를 참조하세요.
+예상 대로 SQL 데이터 동기화 하 고 있습니까? 활동을 모니터링하고 문제를 해결하려면 다음 문서를 참조하세요.
 
-- [Monitor Azure SQL Data Sync with Azure Monitor logs](sql-database-sync-monitor-oms.md)
+- [Azure Monitor 로그를 사용 하 여 Azure SQL 데이터 동기화 모니터링](sql-database-sync-monitor-oms.md)
 - [Azure SQL 데이터 동기화 문제 해결](sql-database-troubleshoot-data-sync.md)
 
-### <a name="learn-more-about-azure-sql-database"></a>Azure SQL Database에 대해 자세히 알아보기
+### <a name="learn-more-about-azure-sql-database"></a>Azure SQL Database에 대한 자세한 정보
 
 SQL 데이터베이스에 대한 자세한 내용은 다음 문서를 참조하세요.
 

@@ -17,7 +17,7 @@ Azure Functions에 대한 [지속성 함수](durable-functions-overview.md) 확�
 
 > [!NOTE]
 > 
-> * If you are developing durable functions in C#, you should instead consider [Visual Studio 2019 development](durable-functions-create-first-csharp.md).
+> * 에서 지 속성 함수를 개발 하 C#는 경우에는 대신 [Visual Studio 2019 개발](durable-functions-create-first-csharp.md)을 고려해 야 합니다.
 > * JavaScript에서 Durable Functions를 개발하려는 경우에는 대신 [Visual Studio Code 개발](./quickstart-js-vscode.md)을 고려해야 합니다.
 
 ## <a name="create-a-function-app"></a>함수 앱 만들기
@@ -58,7 +58,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 ## <a name="create-an-orchestrator-function"></a>오케스트레이터 함수 만들기
 
-1. 함수 앱을 확장한 후 **함수** 옆의 **+** 단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3번 단계로 이동합니다.
+1. 함수 앱을 확장한 후 **함수+ 옆의**  단추를 클릭합니다. 함수 앱의 첫 번째 함수인 경우 **포털 내**를 선택한 다음, **계속**을 선택합니다. 그렇지 않으면 3단계로 이동합니다.
 
    ![Azure Portal에서 함수 빨리 시작하기 페이지](./media/durable-functions-create-portal/function-app-quickstart-choose-portal.png)
 
@@ -76,7 +76,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 
 1. 이번에는 **Durable Functions 오케스트레이터** 템플릿을 사용하여 이 함수 앱에서 다른 함수를 만듭니다. 새 오케스트레이션 함수 `HelloSequence`에 이름을 지정합니다.
 
-1. **Durable Functions 활동** 템플릿을 사용하여 `Hello`라는 이름의 세 번째 함수를 만듭니다.
+1. `Hello`Durable Functions 활동**템플릿을 사용하여**라는 이름의 세 번째 함수를 만듭니다.
 
 ## <a name="test-the-durable-function-orchestration"></a>Durable Functions 오케스트레이션 테스트
 
@@ -112,7 +112,7 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
         }
     ```
 
-1. 상태가 **완료됨**으로 변경될 때까지 `statusQueryGetUri` 엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
+1. 상태가 `statusQueryGetUri`완료됨**으로 변경될 때까지**  엔드포인트를 계속 호출하면 다음 예제와 같은 응답이 표시됩니다.
 
     ```json
     {
@@ -133,4 +133,4 @@ JavaScript Durable Functions를 만드는 경우 [`durable-functions` npm 패키
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [일반적인 지속성 함수 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)
+> [일반적인 Durable Functions 패턴에 대해 알아보기](durable-functions-overview.md#application-patterns)

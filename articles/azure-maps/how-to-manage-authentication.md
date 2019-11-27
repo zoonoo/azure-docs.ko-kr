@@ -17,88 +17,88 @@ ms.locfileid: "74484347"
 ---
 # <a name="manage-authentication-in-azure-maps"></a>Azure Maps의 인증 관리
 
-After you create an Azure Maps account, a client ID and keys are created to support either Azure Active Directory (Azure AD) or Shared Key authentication.
+Azure Maps 계정을 만든 후에는 Azure Active Directory (Azure AD) 또는 공유 키 인증을 지원 하기 위해 클라이언트 ID와 키가 생성 됩니다.
 
 ## <a name="view-authentication-details"></a>인증 정보 보기
 
-You can view your authentication details on the Azure portal. Go to your account and select **Authentication** on the **Settings** menu.
+Azure Portal에 대 한 인증 세부 정보를 볼 수 있습니다. 계정으로 이동 하 고 **설정** 메뉴에서 **인증** 을 선택 합니다.
 
 ![인증 세부 정보](./media/how-to-manage-authentication/how-to-view-auth.png)
 
- To learn more, see [Authentication with Azure Maps](https://aka.ms/amauth).
+ 자세히 알아보려면 [Azure Maps 인증](https://aka.ms/amauth)을 참조 하세요.
 
 
-## <a name="set-up-azure-ad-app-registration"></a>Set up Azure AD app registration
+## <a name="set-up-azure-ad-app-registration"></a>Azure AD 앱 등록 설정
 
-After you create an Azure Maps account, you need to establish a link between your Azure AD tenant and the Azure Maps resource.
+Azure Maps 계정을 만든 후에는 Azure AD 테 넌 트와 Azure Maps 리소스 간에 링크를 설정 해야 합니다.
 
-1. Go to the Azure AD blade and create an app registration. Provide a name for the registration. In the **Sign-on URL** box, provide the home page of the web app / API (for example, https:\//localhost/). If you already have a registered app, go to step 2.
+1. Azure AD 블레이드로 이동 하 여 앱 등록을 만듭니다. 등록에 대 한 이름을 제공 합니다. **로그온 URL** 상자에 웹 앱/a p i의 홈 페이지를 제공 합니다 (예: https:\//localhost/). 등록 된 앱이 이미 있는 경우 2 단계로 이동 합니다.
 
     ![앱 등록](./media/how-to-manage-authentication/app-registration.png)
 
-    ![App registration details](./media/how-to-manage-authentication/app-create.png)
+    ![앱 등록 세부 정보](./media/how-to-manage-authentication/app-create.png)
 
-2. To assign delegated API permissions to Azure Maps, go to the application under **App registrations**, and then select **Settings**.  Select **Required permissions**, and then select **Add**. Search for and select **Azure Maps** under **Select an API**, and then select the **Select** button.
+2. Azure Maps에 위임 된 API 권한을 할당 하려면 **앱 등록**에서 응용 프로그램으로 이동한 다음 **설정**을 선택 합니다.  **필요한 권한**을 선택 하 고 **추가**를 선택 합니다. **API 선택**에서 **Azure Maps** 을 검색 하 고 선택 하 고 **선택** 단추를 선택 합니다.
 
-    ![App API permissions](./media/how-to-manage-authentication/app-permissions.png)
+    ![앱 API 권한](./media/how-to-manage-authentication/app-permissions.png)
 
-3. Under **Select permissions**, select **Access Azure Maps**, and then select the **Select** button.
+3. **권한 선택**에서 **액세스 Azure Maps**를 선택 하 고 **선택** 단추를 선택 합니다.
 
-    ![Select app API permissions](./media/how-to-manage-authentication/select-app-permissions.png)
+    ![앱 API 권한 선택](./media/how-to-manage-authentication/select-app-permissions.png)
 
-4. Complete step a or b, depending on your authentication method.
+4. 인증 방법에 따라 a 또는 b 단계를 완료 합니다.
 
-    1. If your application uses user-token authentication with the Azure Maps Web SDK, enable `oauthEnableImplicitFlow` by setting it to true in the Manifest section of your app registration detail page.
+    1. 응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하는 경우 앱 등록 세부 정보 페이지의 매니페스트 섹션에서 true로 설정 하 여 `oauthEnableImplicitFlow`를 사용 하도록 설정 합니다.
     
        ![앱 매니페스트](./media/how-to-manage-authentication/app-manifest.png)
 
-    2. If your application uses server/application authentication, go to the **Keys** blade in app registration and either create a password or upload a public key certificate to the app registration. If you create a password, after you select **Save**, copy the password for later and store it securely. You'll use this password to acquire tokens from Azure AD.
+    2. 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 앱 등록의 **키** 블레이드로 이동 하 여 암호를 만들거나 앱 등록에 공개 키 인증서를 업로드 합니다. 암호를 만드는 경우 **저장**을 선택 하 고 나중에 암호를 복사한 후 안전 하 게 저장 합니다. 이 암호를 사용 하 여 Azure AD에서 토큰을 가져옵니다.
 
        ![앱 키](./media/how-to-manage-authentication/app-keys.png)
 
 
 ## <a name="grant-rbac-to-azure-maps"></a>Azure Maps에 RBAC 부여
 
-After you associate an Azure Maps account with your Azure AD tenant, you can grant access control by assigning a user, group or application to one or more Azure Maps access control roles.
+Azure AD 테 넌 트에 Azure Maps 계정을 연결한 후 하나 이상의 Azure Maps 액세스 제어 역할에 사용자, 그룹 또는 응용 프로그램을 할당 하 여 액세스 제어를 부여할 수 있습니다.
 
-1. Go to **Access control (IAM)** , select **Role assignments**, and then select **Add role assignment**.
+1. **액세스 제어 (IAM)** 로 이동 하 여 **역할 할당**을 선택한 다음 **역할 할당 추가**를 선택 합니다.
 
     ![RBAC 부여](./media/how-to-manage-authentication/how-to-grant-rbac.png)
 
-2. In the **Add role assignment** window, under **Role**, select **Azure Maps Date Reader (Preview)** . **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. Under **Select**, select the user or application. **저장**을 선택합니다.
+2. **역할 할당 추가** 창의 **역할**에서 **Azure Maps Date Reader (미리 보기)** 를 선택 합니다. **액세스 할당**에서 **Azure AD 사용자, 그룹 또는 서비스 보안 주체**를 선택합니다. **선택**에서 사용자 또는 응용 프로그램을 선택 합니다. **저장**을 선택합니다.
 
     ![역할 할당 추가](./media/how-to-manage-authentication/add-role-assignment.png)
 
 ## <a name="view-available-azure-maps-rbac-roles"></a>사용 가능한 Azure Maps RBAC 역할 보기
 
-To view role-based access control (RBAC) roles that are available for Azure Maps, go to **Access control (IAM)** , select **Roles**, and then search for roles beginning with **Azure Maps**. These are the roles that you can grant access to.
+Azure Maps 사용할 수 있는 RBAC (역할 기반 액세스 제어) 역할을 보려면 **액세스 제어 (IAM)** 로 이동 하 고, **역할**을 선택한 다음, **Azure Maps**으로 시작 하는 역할을 검색 합니다. 이러한 역할은 액세스 권한을 부여할 수 있는 역할입니다.
 
 ![사용 가능한 역할 보기](./media/how-to-manage-authentication/how-to-view-avail-roles.png)
 
 
-## <a name="view-azure-maps-rbac"></a>View Azure Maps RBAC
+## <a name="view-azure-maps-rbac"></a>RBAC Azure Maps 보기
 
-RBAC provides granular access control.
+RBAC는 세분화 된 액세스 제어를 제공 합니다.
 
-To view users and apps that have been granted RBAC for Azure Maps, go to **Access Control (IAM)** , select **Role assignments**, and then filter by **Azure Maps**.
+Azure Maps에 RBAC가 부여 된 사용자 및 앱을 보려면 **Access Control (IAM)** 로 이동 하 여 **역할 할당**을 선택한 다음 **Azure Maps**기준으로 필터링 합니다.
 
-![View users and apps granted RBAC](./media/how-to-manage-authentication/how-to-view-amrbac.png)
+![RBAC가 부여 된 사용자 및 앱 보기](./media/how-to-manage-authentication/how-to-view-amrbac.png)
 
 
 ## <a name="request-tokens-for-azure-maps"></a>Azure Maps에 대한 토큰 요청
 
-After you register your app and associated it with Azure Maps, you can request access tokens.
+앱을 등록 하 고 Azure Maps에 연결한 후 액세스 토큰을 요청할 수 있습니다.
 
-* If your application uses user-token authentication with the Azure Maps Web SDK, you need to configure your HTML page with the Azure Maps client ID and the Azure AD app ID.
+* 응용 프로그램에서 Azure Maps 웹 SDK를 사용 하 여 사용자 토큰 인증을 사용 하는 경우 Azure Maps 클라이언트 ID 및 Azure AD 앱 ID를 사용 하 여 HTML 페이지를 구성 해야 합니다.
 
-* If your application uses server/application authentication, you need to request a token from Azure AD token endpoint `https://login.microsoftonline.com` with the Azure AD resource ID `https://atlas.microsoft.com/`, the Azure Maps client ID, the Azure AD app ID, and the Azure AD app registration password or certificate.
+* 응용 프로그램에서 서버/응용 프로그램 인증을 사용 하는 경우 azure ad 리소스 ID `https://atlas.microsoft.com/`, Azure Maps 클라이언트 ID, Azure AD 앱 ID 및 Azure AD 앱 등록 암호를 사용 하 여 `https://login.microsoftonline.com` Azure AD 토큰 끝점에서 토큰을 요청 해야 합니다. 인증서.
 
-| Azure 환경   | Azure AD token endpoint | Azure 리소스 ID |
+| Azure 환경   | Azure AD 토큰 끝점 | Azure 리소스 ID |
 | --------------------|-------------------------|-------------------|
 | Azure 공용        | https://login.microsoftonline.com | https://atlas.microsoft.com/ |
 | Azure Government    | https://login.microsoftonline.us  | https://atlas.microsoft.com/ | 
 
-For more information about requesting access tokens from Azure AD for users and service principals, see [Authentication scenarios for Azure AD](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios).
+Azure AD에서 사용자 및 서비스 사용자에 대 한 액세스 토큰을 요청 하는 방법에 대 한 자세한 내용은 [AZURE ad에 대 한 인증 시나리오](https://docs.microsoft.com/azure/active-directory/develop/authentication-scenarios)를 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -109,7 +109,7 @@ Azure Maps 계정에 대한 API 사용량 메트릭을 확인하는 방법을 �
 > [!div class="nextstepaction"] 
 > [사용 메트릭 보기](how-to-view-api-usage.md)
 
-For a list of samples showing how to integrate Azure Active Directory (AAD) with Azure Maps, see:
+Azure Maps와 AAD (Azure Active Directory)를 통합 하는 방법을 보여 주는 샘플 목록은 다음을 참조 하세요.
 
 > [!div class="nextstepaction"]
-> [Azure AD authentication samples](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)
+> [Azure AD 인증 샘플](https://github.com/Azure-Samples/Azure-Maps-AzureAD-Samples)

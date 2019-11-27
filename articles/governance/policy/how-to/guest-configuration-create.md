@@ -1,6 +1,6 @@
 ---
-title: How to create Guest Configuration policies
-description: Learn how to create an Azure Policy Guest Configuration policy for Windows or Linux VMs with Azure PowerShell.
+title: 게스트 구성 정책을 만드는 방법
+description: Azure PowerShell를 사용 하 여 Windows 또는 Linux Vm에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 11/21/2019
 ms.topic: conceptual
 ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
@@ -10,31 +10,31 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74407047"
 ---
-# <a name="how-to-create-guest-configuration-policies"></a>How to create Guest Configuration policies
+# <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
-Guest Configuration uses a [Desired State Configuration](/powershell/scripting/dsc/overview/overview) (DSC) resource module to create the configuration for auditing of the Azure machines. The DSC configuration defines the condition that the machine should be in. If the evaluation of the configuration fails, the Policy effect **auditIfNotExists** is triggered and the machine is considered **non-compliant**.
+게스트 구성은 DSC ( [필요한 상태 구성](/powershell/scripting/dsc/overview/overview) ) 리소스 모듈을 사용 하 여 Azure 컴퓨터의 감사에 대 한 구성을 만듭니다. DSC 구성은 컴퓨터가 속해야 하는 조건을 정의 합니다. 구성 평가에 실패 하는 경우 정책 효과 **auditIfNotExists** 가 트리거되고 컴퓨터가 **비준수**로 간주 됩니다.
 
-[Azure Policy Guest Configuration](../concepts/guest-configuration.md) can only be used to audit settings inside machines. Remediation of settings inside machines isn't yet available.
+[Azure Policy 게스트 구성은](../concepts/guest-configuration.md) 컴퓨터 내의 설정을 감사 하는 데만 사용할 수 있습니다. 컴퓨터 내에서 설정의 재구성은 아직 사용할 수 없습니다.
 
-Use the following actions to create your own configuration for validating the state of an Azure machine.
+다음 작업을 사용 하 여 Azure 컴퓨터의 상태를 확인 하는 고유한 구성을 만들 수 있습니다.
 
 > [!IMPORTANT]
-> Custom policies with Guest Configuration is a Preview feature.
+> 게스트 구성을 사용 하는 사용자 지정 정책은 미리 보기 기능입니다.
 
-## <a name="add-the-guestconfiguration-resource-module"></a>Add the GuestConfiguration resource module
+## <a name="add-the-guestconfiguration-resource-module"></a>GuestConfiguration 리소스 모듈을 추가 합니다.
 
-To create a Guest Configuration policy, the resource module must be added. This resource module can be used with locally installed PowerShell, with [Azure Cloud Shell](https://shell.azure.com), or with the [Azure PowerShell Core Docker image](https://hub.docker.com/r/azuresdk/azure-powershell-core).
+게스트 구성 정책을 만들려면 리소스 모듈을 추가 해야 합니다. 이 리소스 모듈은 로컬에 설치 된 PowerShell, [Azure Cloud Shell](https://shell.azure.com)또는 [Azure PowerShell 핵심 Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell-core)와 함께 사용할 수 있습니다.
 
 ### <a name="base-requirements"></a>기본 요구 사항
 
-The Guest Configuration resource module requires the following software:
+게스트 구성 리소스 모듈에는 다음 소프트웨어가 필요 합니다.
 
-- PowerShell. 아직 설치되지 않은 경우 [다음 지침](/powershell/scripting/install/installing-powershell)을 따릅니다.
-- Azure PowerShell 1.5.0 or higher. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
+- PowerShell을 사용하여 키 백업 파일 복원 아직 설치되지 않은 경우 [다음 지침](/powershell/scripting/install/installing-powershell)을 따릅니다.
+- Azure PowerShell 1.5.0 이상입니다. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
-Guest Configuration uses the **GuestConfiguration** resource module for creating DSC configurations and publishing them to Azure Policy:
+게스트 구성은 **GuestConfiguration** 리소스 모듈을 사용 하 여 DSC 구성을 만들고 Azure Policy에 게시 합니다.
 
 1. PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
@@ -43,37 +43,37 @@ Guest Configuration uses the **GuestConfiguration** resource module for creating
    Install-Module -Name GuestConfiguration
    ```
 
-1. Validate that the module has been imported:
+1. 모듈을 가져왔는지 확인 합니다.
 
    ```azurepowershell-interactive
    # Get a list of commands for the imported GuestConfiguration module
    Get-Command -Module 'GuestConfiguration'
    ```
 
-## <a name="create-custom-guest-configuration-configuration-and-resources"></a>Create custom Guest Configuration configuration and resources
+## <a name="create-custom-guest-configuration-configuration-and-resources"></a>사용자 지정 게스트 구성 구성 및 리소스 만들기
 
-The first step to creating a custom policy for Guest Configuration is to create the DSC configuration. For an overview of DSC concepts and terminology, see [PowerShell DSC Overview](/powershell/scripting/dsc/overview/overview).
+게스트 구성에 대 한 사용자 지정 정책을 만드는 첫 번째 단계는 DSC 구성을 만드는 것입니다. DSC 개념 및 용어에 대 한 개요는 [POWERSHELL Dsc 개요](/powershell/scripting/dsc/overview/overview)를 참조 하세요.
 
-If your configuration only requires resources that are builtin with the Guest Configuration agent install, then you only need to author a configuration MOF file. If you need to run additional script, then you'll need to author a custom resource module.
+구성에 게스트 구성 에이전트 설치와 함께 제공 되는 리소스만 필요한 경우에는 구성 MOF 파일을 작성 하기만 하면 됩니다. 추가 스크립트를 실행 해야 하는 경우 사용자 지정 리소스 모듈을 작성 해야 합니다.
 
-### <a name="requirements-for-guest-configuration-custom-resources"></a>Requirements for Guest Configuration custom resources
+### <a name="requirements-for-guest-configuration-custom-resources"></a>게스트 구성 사용자 지정 리소스에 대 한 요구 사항
 
-When Guest Configuration audits a machine, it first runs `Test-TargetResource` to determine if it is in the correct state. The boolean value returned by the function determines if the Azure Resource Manager status for the Guest Assignment should be Compliant/Not-Compliant. If the boolean is `$false` for any resource in the configuration, then the provider will run `Get-TargetResource`. If the boolean is `$true` then `Get-TargetResource` isn't called.
+게스트 구성에서 컴퓨터를 감사 하는 경우 먼저 `Test-TargetResource`를 실행 하 여 올바른 상태 인지 확인 합니다. 함수에서 반환 하는 부울 값은 게스트 할당에 대 한 Azure Resource Manager 상태를 준수/비준수로 지정 해야 하는지 여부를 결정 합니다. 구성의 모든 리소스에 대해 부울이 `$false` 되 면 공급자가 `Get-TargetResource`실행 됩니다. 부울이 `$true` 이면 `Get-TargetResource` 호출 되지 않습니다.
 
-The function `Get-TargetResource` has special requirements for Guest Configuration that haven't been needed for Windows Desired State Configuration.
+함수 `Get-TargetResource`에는 Windows 필요한 상태 구성에 필요 하지 않은 게스트 구성에 대 한 특별 한 요구 사항이 있습니다.
 
-- The hashtable that is returned must include a property named **Reasons**.
-- The Reasons property must be an array.
-- Each item in the array should be a hashtable with keys named **Code** and **Phrase**.
+- 반환 되는 해시 테이블에는 **이유**라는 속성이 포함 되어야 합니다.
+- 이유 속성은 배열 이어야 합니다.
+- 배열의 각 항목은 **코드** 및 **구**라는 키가 있는 해시 테이블 이어야 합니다.
 
-The Reasons property is used by the service to standardize how information is presented when a machine is out of compliance. You can think of each item in Reasons as a "reason" that the resource isn't compliant. The property is an array because a resource could be out of compliance for more than one reason.
+이유 속성은 서비스에서 컴퓨터가 정책을 준수 하지 않는 경우 정보가 표시 되는 방식을 표준화 하는 데 사용 됩니다. 각 항목에는 리소스가 호환 되지 않는 "이유"로 생각할 수 있습니다. 두 가지 이상의 이유로 리소스가 호환 되지 않을 수 있기 때문에 속성은 배열입니다.
 
-The properties **Code** and **Phrase** are expected by the service. When authoring a custom resource, set the text (typically stdout) you would like to show as the reason the resource isn't compliant as the value for **Phrase**. **Code** has specific formatting requirements so reporting can clearly display information about the resource that was used to perform the audit. This solution makes Guest Configuration extensible. Any command could be run to audit a machine as long as the output can be captured and returned as a string value for the **Phrase** property.
+서비스에서 속성 **코드** 및 **구가** 필요 합니다. 사용자 지정 리소스를 작성 하는 경우 리소스를 준수 하지 않는 원인으로 표시 하려는 텍스트 (일반적으로 stdout)를 **구의**값으로 설정 합니다. **코드** 에는 특정 형식 지정 요구 사항이 있으므로 보고에서 감사를 수행 하는 데 사용 된 리소스에 대 한 정보를 명확 하 게 표시할 수 있습니다. 이 솔루션은 게스트 구성을 확장 가능 하 게 만듭니다. 출력을 캡처하여 **구** 속성의 문자열 값으로 반환할 수 있는 경우 모든 명령을 실행 하 여 컴퓨터를 감사할 수 있습니다.
 
-- **Code** (string): The name of the resource, repeated, and then a short name with no spaces as an identifier for the reason. These three values should be colon-delimited with no spaces.
-  - An example would be `registry:registry:keynotpresent`
-- **Phrase** (string): Human-readable text to explain why the setting isn't compliant.
-  - An example would be `The registry key $key is not present on the machine.`
+- **Code** (string): 리소스의 이름으로, 반복 된 후 이유에 대 한 식별자로 공백 없이 짧은 이름입니다. 이 세 값은 공백 없이 콜론으로 구분 되어야 합니다.
+  - 예를 들어 `registry:registry:keynotpresent`
+- **구** (문자열): 사람이 읽을 수 있는 텍스트로, 설정이 호환 되지 않는 이유를 설명 합니다.
+  - 예를 들어 `The registry key $key is not present on the machine.`
 
 ```powershell
 $reasons = @()
@@ -86,15 +86,15 @@ return @{
 }
 ```
 
-#### <a name="scaffolding-a-guest-configuration-project"></a>Scaffolding a Guest Configuration project
+#### <a name="scaffolding-a-guest-configuration-project"></a>게스트 구성 프로젝트 스 캐 폴딩
 
-For developers who would like to accelerate the process of getting started and working from sample code, a community project named **Guest Configuration Project** exists as a template for the [Plaster](https://github.com/powershell/plaster) PowerShell module. This tool can be used to scaffold a project including a working configuration and sample resource, and a set of [Pester](https://github.com/pester/pester) tests to validate the project. The template also includes task runners for Visual Studio Code to automate building and validating the Guest Configuration package. For more information, see the GitHub project [Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
+샘플 코드를 시작 하 고 작업 하는 프로세스를 가속화 하려는 개발자를 위해 **게스트 구성 프로젝트** 라는 커뮤니티 프로젝트는 [Plaster](https://github.com/powershell/plaster) PowerShell 모듈에 대 한 템플릿으로 존재 합니다. 이 도구를 사용 하 여 작업 구성 및 샘플 리소스를 비롯 한 프로젝트를 스 캐 폴드 프로젝트의 유효성을 검사 하는 일련의 [Pester](https://github.com/pester/pester) 테스트를 수행할 수 있습니다. 템플릿에는 게스트 구성 패키지의 빌드 및 유효성 검사를 자동화 하는 Visual Studio Code에 대 한 작업 러너도 포함 되어 있습니다. 자세한 내용은 GitHub 프로젝트 [게스트 구성 프로젝트](https://github.com/microsoft/guestconfigurationproject)를 참조 하세요.
 
-### <a name="custom-guest-configuration-configuration-on-linux"></a>Custom Guest Configuration configuration on Linux
+### <a name="custom-guest-configuration-configuration-on-linux"></a>Linux의 사용자 지정 게스트 구성 구성
 
-The DSC configuration for Guest Configuration on Linux uses the `ChefInSpecResource` resource to provide the engine the name of the [Chef InSpec](https://www.chef.io/inspec/) definition. **Name** is the only required resource property.
+Linux에서 게스트 구성에 대 한 DSC 구성은 `ChefInSpecResource` 리소스를 사용 하 여 엔진에 [Chef InSpec](https://www.chef.io/inspec/) 정의의 이름을 제공 합니다. **Name** 은 유일 하 게 필요한 리소스 속성입니다.
 
-The following example creates a configuration named **baseline**, imports the **GuestConfiguration** resource module, and uses the `ChefInSpecResource` resource set the name of the InSpec definition to **linux-patch-baseline**:
+다음 예제에서는 **GuestConfiguration** 이라는 구성을 만들고 **,이 리소스**모듈을 가져오고, `ChefInSpecResource` 리소스를 사용 하 여 InSpec 정의의 이름을 **linux 패치 기준**으로 설정 합니다.
 
 ```azurepowershell-interactive
 # Define the DSC configuration and import GuestConfiguration
@@ -112,13 +112,13 @@ Configuration baseline
 baseline
 ```
 
-For more information, see [Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
+자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
 
-### <a name="custom-guest-configuration-configuration-on-windows"></a>Custom Guest Configuration configuration on Windows
+### <a name="custom-guest-configuration-configuration-on-windows"></a>Windows의 사용자 지정 게스트 구성 구성
 
-The DSC configuration for Azure Policy Guest Configuration is used by the Guest Configuration agent only, it doesn't conflict with Windows PowerShell Desired State Configuration.
+게스트 구성 에이전트에 Azure Policy 게스트 구성에 대 한 DSC 구성만 사용 되며 Windows PowerShell 필요한 상태 구성과 충돌 하지 않습니다.
 
-The following example creates a configuration named **AuditBitLocker**, imports the **GuestConfiguration** resource module, and uses the `Service` resource to audit for a running service:
+다음 예제에서는 **Auditbitlocker**라는 구성을 만들고, **GuestConfiguration** 리소스 모듈을 가져오고, `Service` 리소스를 사용 하 여 실행 중인 서비스를 감사 합니다.
 
 ```azurepowershell-interactive
 # Define the DSC configuration and import GuestConfiguration
@@ -138,59 +138,59 @@ Configuration AuditBitLocker
 AuditBitLocker
 ```
 
-For more information, see [Write, Compile, and Apply a Configuration](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
+자세한 내용은 [구성 작성, 컴파일 및 적용](/powershell/scripting/dsc/configurations/write-compile-apply-configuration)을 참조 하세요.
 
-## <a name="create-guest-configuration-custom-policy-package"></a>Create Guest Configuration custom policy package
+## <a name="create-guest-configuration-custom-policy-package"></a>게스트 구성 사용자 지정 정책 패키지 만들기
 
-Once the MOF is compiled, the supporting files must be packaged together. The completed package is used by Guest Configuration to create the Azure Policy definitions. The package consists of:
+MOF가 컴파일되면 지원 파일을 함께 패키지 해야 합니다. 완료 된 패키지는 게스트 구성에서 Azure Policy 정의를 만드는 데 사용 됩니다. 패키지는 다음으로 구성 됩니다.
 
-- The compiled DSC configuration as a MOF
-- Modules folder
-  - GuestConfiguration module
-  - DscNativeResources module
-  - (Linux) A folder with the Chef InSpec definition and additional content
-  - (Windows) DSC resource modules that aren't built in
+- MOF로 컴파일된 DSC 구성
+- 모듈 폴더
+  - GuestConfiguration 모듈
+  - DscNativeResources 모듈
+  - 용 Chef InSpec 정의 및 추가 콘텐츠가 있는 폴더
+  - Windows 기본 제공 되지 않는 DSC 리소스 모듈
 
-The `New-GuestConfigurationPackage` cmdlet creates the package. The following format is used for creating a custom package:
+`New-GuestConfigurationPackage` cmdlet은 패키지를 만듭니다. 사용자 지정 패키지를 만드는 데 사용 되는 형식은 다음과 같습니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name '{PackageName}' -Configuration '{PathToMOF}' `
     -Path '{OutputFolder}' -Verbose
 ```
 
-Parameters of the `New-GuestConfigurationPackage` cmdlet:
+`New-GuestConfigurationPackage` cmdlet의 매개 변수:
 
-- **Name**: Guest Configuration package name.
-- **Configuration**: Compiled DSC configuration document full path.
-- **Path**: Output folder path. 이 매개 변수는 선택 사항입니다. If not specified, the package is created in current directory.
-- **ChefProfilePath**: Full path to InSpec profile. This parameter is supported only when creating content to audit Linux.
+- **이름**: 게스트 구성 패키지 이름입니다.
+- **구성**: 컴파일된 DSC 구성 문서 전체 경로입니다.
+- **경로**: 출력 폴더 경로입니다. 이 매개 변수는 선택 사항입니다. 지정 하지 않으면 패키지가 현재 디렉터리에 만들어집니다.
+- **ChefProfilePath**: InSpec profile의 전체 경로입니다. 이 매개 변수는 Linux를 감사 하는 콘텐츠를 만드는 경우에만 지원 됩니다.
 
-The completed package must be stored in a location that is accessible by the managed virtual machines. Examples include GitHub repositories, an Azure Repo, or Azure storage. If you prefer to not make the package public, you can include a [SAS token](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) in the URL.
-You could also implement [service endpoint](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) for machines in a private network, although this configuration applies only to accessing the package and not communicating with the service.
+완료 된 패키지는 관리 되는 가상 컴퓨터에서 액세스할 수 있는 위치에 저장 해야 합니다. 이러한 예로는 GitHub 리포지토리, Azure 리포지토리 또는 Azure storage가 있습니다. 패키지를 공용으로 설정 하지 않으려는 경우 [SAS 토큰](../../../storage/common/storage-dotnet-shared-access-signature-part-1.md) 을 URL에 포함할 수 있습니다.
+이 구성은 패키지에 액세스 하 고 서비스와 통신 하지 않는 경우에만 적용 되지만 개인 네트워크의 컴퓨터에 대 한 [서비스 엔드포인트](../../../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) 를 구현할 수도 있습니다.
 
-### <a name="working-with-secrets-in-guest-configuration-packages"></a>Working with secrets in Guest Configuration packages
+### <a name="working-with-secrets-in-guest-configuration-packages"></a>게스트 구성 패키지의 암호 작업
 
-In Azure Policy Guest Configuration, the optimal way to manage secrets used at run time is to store them in Azure Key Vault. This design is implemented within custom DSC resources.
+Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 하는 가장 좋은 방법은 Azure Key Vault에 저장 하는 것입니다. 이 디자인은 사용자 지정 DSC 리소스 내에서 구현 됩니다.
 
-1. First, create a user-assigned managed identity in Azure.
+1. 먼저 Azure에서 사용자 할당 관리 id를 만듭니다.
 
-   The identity is used by machines to access secrets stored in Key Vault. For detailed steps, see [Create, list or delete a user-assigned managed identity using Azure PowerShell](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md).
+   Id는 컴퓨터에서 Key Vault에 저장 된 암호에 액세스 하는 데 사용 됩니다. 자세한 단계는 Azure PowerShell을 [사용 하 여 사용자 할당 관리 Id 만들기, 나열 또는 삭제](../../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 참조 하세요.
 
-1. Create a Key Vault instance.
+1. Key Vault 인스턴스를 만듭니다.
 
-   For detailed steps, see [Set and retrieve a secret - PowerShell](../../../key-vault/quick-create-powershell.md).
-   Assign permissions to the instance to give the user-assigned identity access to secrets stored in Key Vault. For detailed steps, see [Set and retrieve a secret - .NET](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault).
+   자세한 단계는 [비밀 설정 및 검색-PowerShell](../../../key-vault/quick-create-powershell.md)을 참조 하세요.
+   인스턴스에 사용 권한을 할당 하 여 Key Vault에 저장 된 암호에 대 한 사용자 할당 id 액세스를 제공 합니다. 자세한 단계는 [암호 설정 및 검색-.net](../../../key-vault/quick-create-net.md#give-the-service-principal-access-to-your-key-vault)을 참조 하세요.
 
-1. Assign the user-assigned identity to your machine.
+1. 사용자 할당 id를 컴퓨터에 할당 합니다.
 
-   For detailed steps, see [Configure managed identities for Azure resources on an Azure VM using PowerShell](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity).
-   At scale, assign this identity using Azure Resource Manager via Azure Policy. For detailed steps, see [Configure managed identities for Azure resources on an Azure VM using a template](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm).
+   자세한 단계는 PowerShell을 [사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md#user-assigned-managed-identity)을 참조 하세요.
+   대규모로 Azure Policy를 통해 Azure Resource Manager를 사용 하 여이 id를 할당 합니다. 자세한 단계는 [템플릿을 사용 하 여 AZURE VM에서 azure 리소스에 대 한 관리 되는 Id 구성](../../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md#assign-a-user-assigned-managed-identity-to-an-azure-vm)을 참조 하세요.
 
-1. Finally, within your custom resource use the client ID generated above to access Key Vault using the token available from the machine.
+1. 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
 
-   The `client_id` and url to the Key Vault instance can be passed to the resource as [properties](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) so the resource won't need to be updated for multiple environments or if the values need to be changed.
+   Key Vault 인스턴스에 대 한 `client_id` 및 url을 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) 으로 전달 하 여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록 하거나 값을 변경 해야 할 수 있습니다.
 
-The following code sample can be used in a custom resource to retrieve secrets from Key Vault using a user-assigned identity. The value returned from the request to Key Vault is plain text. As a best practice, store it within a credential object.
+사용자 할당 id를 사용 하 여 Key Vault에서 비밀을 검색 하기 위해 사용자 지정 리소스에서 다음 코드 샘플을 사용할 수 있습니다. Key Vault 요청에서 반환 된 값은 일반 텍스트입니다. 자격 증명 개체에 저장 하는 것이 가장 좋습니다.
 
 ```azurepowershell-interactive
 # the following values should be input as properties
@@ -204,33 +204,33 @@ $value = ((Invoke-WebRequest -Uri $($keyvault_url+'?api-version=2016-10-01') -Me
 $credential = New-Object System.Management.Automation.PSCredential('secret',$value)
 ```
 
-## <a name="test-a-guest-configuration-package"></a>Test a Guest Configuration package
+## <a name="test-a-guest-configuration-package"></a>게스트 구성 패키지 테스트
 
-After creating the Configuration package but before publishing it to Azure, you can test the functionality of the package from your workstation or CI/CD environment. The GuestConfiguration module includes a cmdlet `Test-GuestConfigurationPackage` that loads the same agent in your development environment as is used inside Azure machines. Using this solution, you can perform integration testing locally before releasing to billed test/QA/production environments.
+구성 패키지를 만든 후 Azure에 게시 하기 전에 워크스테이션 또는 CI/CD 환경에서 패키지의 기능을 테스트할 수 있습니다. GuestConfiguration 모듈에는 Azure 컴퓨터 내에서 사용 되는 것과 동일한 에이전트를 개발 환경에서 로드 하는 cmdlet `Test-GuestConfigurationPackage` 포함 되어 있습니다. 이 솔루션을 사용 하 여 청구 되는 테스트/QA/프로덕션 환경에 릴리스하기 전에 통합 테스트를 로컬로 수행할 수 있습니다.
 
 ```azurepowershell-interactive
 Test-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Verbose
 ```
 
-Parameters of the `Test-GuestConfigurationPackage` cmdlet:
+`Test-GuestConfigurationPackage` cmdlet의 매개 변수:
 
-- **Name**: Guest Configuration Policy name.
-- **Parameter**: Policy parameters provided in hashtable format.
-- **Path**: Full path of the Guest Configuration package.
+- **이름**: 게스트 구성 정책 이름입니다.
+- **매개 변수**: 해시 테이블 형식으로 제공 되는 정책 매개 변수입니다.
+- **경로**: 게스트 구성 패키지의 전체 경로입니다.
 
-The cmdlet also supports input from the PowerShell pipeline. Pipe the output of `New-GuestConfigurationPackage` cmdlet to the `Test-GuestConfigurationPackage` cmdlet.
+Cmdlet은 PowerShell 파이프라인의 입력도 지원 합니다. `New-GuestConfigurationPackage` cmdlet의 출력을 `Test-GuestConfigurationPackage` cmdlet으로 파이프 합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPackage -Name AuditWindowsService -Configuration .\DSCConfig\localhost.mof -Path .\package -Verbose | Test-GuestConfigurationPackage -Verbose
 ```
 
-For more information about how to test with parameters, see the section below [Using parameters in custom Guest Configuration policies](#using-parameters-in-custom-guest-configuration-policies).
+매개 변수를 사용 하 여 테스트 하는 방법에 대 한 자세한 내용은 [사용자 지정 게스트 구성 정책에서 매개 변수 사용](#using-parameters-in-custom-guest-configuration-policies)섹션을 참조 하세요.
 
-## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Create the Azure Policy definition and initiative deployment files
+## <a name="create-the-azure-policy-definition-and-initiative-deployment-files"></a>Azure Policy 정의 및 이니셔티브 배포 파일 만들기
 
-Once a Guest Configuration custom policy package has been created and uploaded to a location accessible by the machines, create the Guest Configuration policy definition for Azure Policy. The `New-GuestConfigurationPolicy` cmdlet takes a publicly accessible Guest Configuration custom policy package and creates an **auditIfNotExists** and **deployIfNotExists** policy definition. A policy initiative definition that includes both policy definitions is also created.
+게스트 구성 사용자 지정 정책 패키지를 만들고 컴퓨터에서 액세스할 수 있는 위치에 업로드 한 후에는 Azure Policy에 대 한 게스트 구성 정책 정의를 만듭니다. `New-GuestConfigurationPolicy` cmdlet은 공개적으로 액세스할 수 있는 게스트 구성 사용자 지정 정책 패키지를 사용 하 고 **auditIfNotExists** 및 **Deployifnotexists** 정책 정의를 만듭니다. 두 정책 정의를 모두 포함 하는 정책 이니셔티브 정의도 만들어집니다.
 
-The following example creates the policy and initiative definitions in a specified path from a Guest Configuration custom policy package for Windows and provides a name, description, and version:
+다음 예에서는 Windows 용 게스트 구성 사용자 지정 정책 패키지에서 지정 된 경로에 정책 및 이니셔티브 정의를 만들고 이름, 설명 및 버전을 제공 합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy
@@ -243,33 +243,33 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Parameters of the `New-GuestConfigurationPolicy` cmdlet:
+`New-GuestConfigurationPolicy` cmdlet의 매개 변수:
 
-- **ContentUri**: Public http(s) uri of Guest Configuration content package.
-- **DisplayName**: Policy display name.
-- **Description**: Policy description.
-- **Parameter**: Policy parameters provided in hashtable format.
-- **Version**: Policy version.
-- **Path**: Destination path where policy definitions are created.
-- **Platform**: Target platform (Windows/Linux) for Guest Configuration policy and content package.
+- **Contenturi**: 게스트 구성 콘텐츠 패키지의 공용 http (s) uri입니다.
+- **DisplayName**: Policy 표시 이름입니다.
+- **설명**: 정책 설명입니다.
+- **매개 변수**: 해시 테이블 형식으로 제공 되는 정책 매개 변수입니다.
+- **버전**: 정책 버전
+- **경로**: 정책 정의가 생성 되는 대상 경로입니다.
+- **Platform**: 게스트 구성 정책 및 콘텐츠 패키지를 위한 대상 플랫폼 (Windows/Linux)입니다.
 
-The following files are created by `New-GuestConfigurationPolicy`:
+`New-GuestConfigurationPolicy`에서 생성 되는 파일은 다음과 같습니다.
 
-- **auditIfNotExists.json**
-- **deployIfNotExists.json**
-- **Initiative.json**
+- **auditIfNotExists**
+- **deployIfNotExists. json**
+- **이니셔티브. json**
 
-The cmdlet output returns an object containing the initiative display name and path of the policy files.
+Cmdlet 출력은 정책 파일의 이니셔티브 표시 이름 및 경로를 포함 하는 개체를 반환 합니다.
 
-If you would like to use this command to scaffold a custom policy project, you can make changes to these files. An example would be modifying the 'If' section to evaluate whether a specific Tag is present for machines. For details on creating policies, see [Programmatically create policies](./programmatically-create.md).
+이 명령을 사용 하 여 사용자 지정 정책 프로젝트를 스 캐 폴드 하는 경우 이러한 파일을 변경할 수 있습니다. 예를 들어 컴퓨터에 특정 태그가 있는지 여부를 평가 하는 ' If ' 섹션을 수정 합니다. 정책을 만드는 방법에 대 한 자세한 내용은 [프로그래밍 방식으로 정책 만들기](./programmatically-create.md)를 참조 하세요.
 
-### <a name="using-parameters-in-custom-guest-configuration-policies"></a>Using parameters in custom Guest Configuration policies
+### <a name="using-parameters-in-custom-guest-configuration-policies"></a>사용자 지정 게스트 구성 정책에서 매개 변수 사용
 
-Guest Configuration supports overriding properties of a Configuration at run time. This feature means that the values in the MOF file in the package don't have to be considered static. The override values are provided through Azure Policy and don't impact how the Configurations are authored or compiled.
+게스트 구성에서는 런타임에 구성의 속성을 재정의할 수 있습니다. 이 기능은 패키지의 MOF 파일에 있는 값을 정적으로 간주할 필요가 없음을 의미 합니다. 재정의 값은 Azure Policy를 통해 제공 되며 구성을 작성 하거나 컴파일하는 방법에 영향을 주지 않습니다.
 
-The cmdlets `New-GuestConfigurationPolicy` and `Test-GuestConfigurationPolicyPackage` include a parameter named **Parameters**. This parameter takes a hashtable definition including all details about each parameter and automatically creates all the required sections of the files used to create each Azure Policy definition.
+Cmdlet `New-GuestConfigurationPolicy` 및 `Test-GuestConfigurationPolicyPackage`에 **는 매개 변수 라는 매개**변수가 포함 됩니다. 이 매개 변수는 각 매개 변수에 대 한 모든 세부 정보를 포함 하는 해시 테이블 정의를 사용 하 고 Azure Policy 정의를 만드는 데 사용 되는 파일의 모든 필수 섹션을 자동으로 만듭니다.
 
-The following example would create an Azure Policy to audit a service, where the user selects from a list of services at the time of Policy assignment.
+다음 예에서는 사용자가 정책 할당 시 서비스 목록에서 선택 하는 서비스를 감사 하는 Azure Policy을 만듭니다.
 
 ```azurepowershell-interactive
 $PolicyParameterInfo = @(
@@ -296,7 +296,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-For Linux policies, include the property **AttributesYmlContent** in your configuration and overwrite the values accordingly. The Guest Configuration agent automatically creates the YaML file used by InSpec to store attributes. 아래 예를 참조하세요.
+Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예제를 참조하세요.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {
@@ -313,7 +313,7 @@ Configuration FirewalldEnabled {
 }
 ```
 
-For each additional parameter, add a hashtable to the array. In the policy files, you'll see properties added to the Guest Configuration configurationName that identify the resource type, name, property, and value.
+각 추가 매개 변수에 대해 해시 테이블을 배열에 추가 합니다. 정책 파일에는 리소스 종류, 이름, 속성 및 값을 식별 하는 게스트 구성 configurationName에 추가 된 속성이 표시 됩니다.
 
 ```json
 {
@@ -334,83 +334,83 @@ For each additional parameter, add a hashtable to the array. In the policy files
 }
 ```
 
-## <a name="publish-to-azure-policy"></a>Publish to Azure Policy
+## <a name="publish-to-azure-policy"></a>Azure Policy에 게시
 
-The **GuestConfiguration** resource module offers a way to create both policy definitions and the initiative definition in Azure with one step through the `Publish-GuestConfigurationPolicy` cmdlet.
-The cmdlet only has the **Path** parameter that points to the location of the three JSON files created by `New-GuestConfigurationPolicy`.
+**GuestConfiguration** 리소스 모듈은 Azure에서 `Publish-GuestConfigurationPolicy` cmdlet을 통해 한 단계로 정책 정의와 이니셔티브 정의를 만드는 방법을 제공 합니다.
+Cmdlet에는 `New-GuestConfigurationPolicy`에서 만든 세 가지 JSON 파일의 위치를 가리키는 **Path** 매개 변수만 있습니다.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions' -Verbose
 ```
 
-The `Publish-GuestConfigurationPolicy` cmdlet accepts the path from the PowerShell pipeline. This feature means you can create the policy files and publish them in a single set of piped commands.
+`Publish-GuestConfigurationPolicy` cmdlet은 PowerShell 파이프라인의 경로를 허용 합니다. 이 기능은 정책 파일을 만들고 단일 파이프 된 명령 집합에 게시할 수 있음을 의미 합니다.
 
 ```azurepowershell-interactive
 New-GuestConfigurationPolicy -ContentUri 'https://storageaccountname.blob.core.windows.net/packages/AuditBitLocker.zip?st=2019-07-01T00%3A00%3A00Z&se=2024-07-01T00%3A00%3A00Z&sp=rl&sv=2018-03-28&sr=b&sig=JdUf4nOCo8fvuflOoX%2FnGo4sXqVfP5BYXHzTl3%2BovJo%3D' -DisplayName 'Audit BitLocker service.' -Description 'Audit if the BitLocker service is not enabled on Windows machine.' -Path '.\policyDefinitions' -Platform 'Windows' -Version 1.2.3.4 -Verbose | ForEach-Object {$_.Path} | Publish-GuestConfigurationPolicy -Verbose
 ```
 
-With the policy and initiative definitions created in Azure, the last step is to assign the initiative. See how to assign the initiative with [Portal](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md), and [Azure PowerShell](../assign-policy-powershell.md).
+Azure에서 만든 정책 및 이니셔티브 정의를 사용 하 여 마지막 단계는 이니셔티브를 할당 하는 것입니다. [포털](../assign-policy-portal.md), [Azure CLI](../assign-policy-azurecli.md)및 [Azure PowerShell](../assign-policy-powershell.md)를 사용 하 여 이니셔티브를 할당 하는 방법을 참조 하세요.
 
 > [!IMPORTANT]
-> Guest Configuration policies must **always** be assigned using the initiative that combines the _AuditIfNotExists_ and _DeployIfNotExists_ policies. If only the _AuditIfNotExists_ policy is assigned, the prerequisites aren't deployed and the policy always shows that '0' servers are compliant.
+> 게스트 구성 정책은 **항상** _AuditIfNotExists_ 및 _deployifnotexists_ 정책을 결합 하는 이니셔티브를 사용 하 여 할당 되어야 합니다. _AuditIfNotExists_ 정책만 할당 된 경우 필수 구성 요소가 배포 되지 않으며 정책에 항상 ' 0 ' 서버가 규정을 준수 하는 것으로 표시 됩니다.
 
-## <a name="policy-lifecycle"></a>Policy lifecycle
+## <a name="policy-lifecycle"></a>정책 수명 주기
 
-After you've published a custom Azure Policy using your custom content package, there are two fields that must be updated if you would like to publish a new release.
+사용자 지정 콘텐츠 패키지를 사용 하 여 사용자 지정 Azure Policy를 게시 한 후 새 릴리스를 게시 하려는 경우 두 개의 필드를 업데이트 해야 합니다.
 
-- **Version**: When you run the `New-GuestConfigurationPolicy` cmdlet, you must specify a version number greater than what is currently published. The property updates the version of the Guest Configuration assignment in the new policy file so the extension will recognize that the package has been updated.
-- **contentHash**: This property is updated automatically by the `New-GuestConfigurationPolicy` cmdlet. It's a hash value of the package created by `New-GuestConfigurationPackage`. The property must be correct for the `.zip` file you publish. If only the **contentUri** property is updated, such as in the case where someone could make a manual change to the Policy definition from the portal, the Extension won't accept the content package.
+- **버전**: `New-GuestConfigurationPolicy` cmdlet을 실행할 때 현재 게시 된 것 보다 큰 버전 번호를 지정 해야 합니다. 속성은 새 정책 파일에 있는 게스트 구성 할당의 버전을 업데이트 하 여 패키지가 업데이트 되었다는 것을 인식 합니다.
+- **contentHash**:이 속성은 `New-GuestConfigurationPolicy` cmdlet에 의해 자동으로 업데이트 됩니다. `New-GuestConfigurationPackage`에서 만든 패키지의 해시 값입니다. 속성은 게시 하는 `.zip` 파일에 대해 정확 해야 합니다. 다른 사람이 포털에서 정책 정의를 수동으로 변경할 수 있는 경우와 같이 **Contenturi** 속성만 업데이트 된 경우에는 확장에서 콘텐츠 패키지를 수락 하지 않습니다.
 
-The easiest way to release an updated package is to repeat the process described in this article and provide an updated version number. That process guarantees all properties have been correctly updated.
+업데이트 된 패키지를 해제 하는 가장 쉬운 방법은이 문서에 설명 된 프로세스를 반복 하 고 업데이트 된 버전 번호를 제공 하는 것입니다. 이 프로세스는 모든 속성이 올바르게 업데이트 되었는지 보장 합니다.
 
-## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Converting Windows Group Policy content to Azure Policy Guest Configuration
+## <a name="converting-windows-group-policy-content-to-azure-policy-guest-configuration"></a>Windows 그룹 정책 콘텐츠를 Azure Policy 게스트 구성으로 변환
 
-Guest Configuration, when auditing Windows machines, is an implementation of the PowerShell Desired State Configuration syntax. The DSC community has published tooling to convert exported Group Policy templates to DSC format. By using this tool together with the Guest Configuration cmdlets described above, you can convert Windows Group Policy content and package/publish it for Azure Policy to audit. For details about using the tool, see the article [Quickstart: Convert Group Policy into DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
-Once the content has been converted, the steps above to create a package and publish it as Azure Policy will be the same as for any DSC content.
+Windows 컴퓨터를 감사할 때 게스트 구성은 PowerShell 필요한 상태 구성 구문의 구현입니다. DSC 커뮤니티에서는 내보낸 그룹 정책 템플릿을 DSC 형식으로 변환 하는 도구를 게시 했습니다. 위에서 설명한 게스트 구성 cmdlet과 함께이 도구를 사용 하 여 Windows 그룹 정책 콘텐츠를 변환 하 고 Azure Policy 감사를 위해 패키지/게시할 수 있습니다. 도구를 사용 하는 방법에 대 한 자세한 내용은 [빠른 시작: DSC로 그룹 정책 변환](/powershell/scripting/dsc/quickstarts/gpo-quickstart)문서를 참조 하세요.
+콘텐츠를 변환한 후에는 패키지를 만들고 Azure Policy로 게시 하는 단계는 모든 DSC 콘텐츠와 동일 합니다.
 
-## <a name="optional-signing-guest-configuration-packages"></a>OPTIONAL: Signing Guest Configuration packages
+## <a name="optional-signing-guest-configuration-packages"></a>선택 사항: 게스트 구성 패키지 서명
 
-Guest Configuration custom policies by default use SHA256 hash to validate the policy package hasn't changed from when it was published to when it's read by the server that is being audited.
-Optionally, customers may also use a certificate to sign packages and force the Guest Configuration extension to only allow signed content.
+게스트 구성 사용자 지정 정책은 기본적으로 SHA256 해시를 사용 하 여 감사 중인 서버에서 읽을 때 정책 패키지가 게시 된 시기에서 변경 되지 않았는지 확인 합니다.
+필요에 따라 고객은 인증서를 사용 하 여 패키지에 서명 하 고 게스트 구성 확장에서 서명 된 콘텐츠를 허용 하도록 강제할 수도 있습니다.
 
-To enable this scenario, there are two steps you need to complete. Run the cmdlet to sign the content package, and append a tag to the machines that should require code to be signed.
+이 시나리오를 사용 하려면 두 단계를 완료 해야 합니다. Cmdlet을 실행 하 여 콘텐츠 패키지에 서명 하 고 코드에 서명 해야 하는 컴퓨터에 태그를 추가 합니다.
 
-To use the Signature Validation feature, run the `Protect-GuestConfigurationPackage` cmdlet to sign the package before it's published. This cmdlet requires a 'Code Signing' certificate.
+서명 유효성 검사 기능을 사용 하려면 `Protect-GuestConfigurationPackage` cmdlet을 실행 하 여 패키지를 게시 하기 전에 서명 합니다. 이 cmdlet에는 ' 코드 서명 ' 인증서가 필요 합니다.
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert") }
 Protect-GuestConfigurationPackage -Path .\package\AuditWindowsService\AuditWindowsService.zip -Certificate $Cert -Verbose
 ```
 
-Parameters of the `Protect-GuestConfigurationPackage` cmdlet:
+`Protect-GuestConfigurationPackage` cmdlet의 매개 변수:
 
-- **Path**: Full path of the Guest Configuration package.
-- **Certificate**: Code signing certificate to sign the package. This parameter is only supported when signing content for Windows.
-- **PrivateGpgKeyPath**: Private GPG key path. This parameter is only supported when signing content for Linux.
-- **PublicGpgKeyPath**: Public GPG key path. This parameter is only supported when signing content for Linux.
+- **경로**: 게스트 구성 패키지의 전체 경로입니다.
+- **Certificate**: 패키지에 서명할 코드 서명 인증서입니다. 이 매개 변수는 Windows 콘텐츠에 서명 하는 경우에만 지원 됩니다.
+- **PrivateGpgKeyPath**: 개인 GPG 키 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
+- **PublicGpgKeyPath**: Public GPG key 경로입니다. 이 매개 변수는 Linux 용 콘텐츠에 서명 하는 경우에만 지원 됩니다.
 
-GuestConfiguration agent expects the certificate public key to be present in "Trusted Root Certificate Authorities" on Windows machines and in the path `/usr/local/share/ca-certificates/extra` on Linux machines. For the node to verify signed content, install the certificate public key on the machine before applying the custom policy. This process can be done using any technique inside the VM, or by using Azure Policy. An example template is [provided here](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows).
-The Key Vault access policy must allow the Compute resource provider to access certificates during deployments. For detailed steps, see [Set up Key Vault for virtual machines in Azure Resource Manager](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault).
+GuestConfiguration 에이전트는 인증서 공개 키가 Windows 컴퓨터의 "신뢰할 수 있는 루트 인증 기관" 및 Linux 컴퓨터의 `/usr/local/share/ca-certificates/extra` 경로에 있어야 합니다. 노드가 서명 된 콘텐츠를 확인 하려면 사용자 지정 정책을 적용 하기 전에 컴퓨터에 인증서 공개 키를 설치 합니다. 이 프로세스는 VM 내에서 또는 Azure Policy를 사용 하 여 수행할 수 있습니다. 예제 템플릿이 여기에 [제공](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-push-certificate-windows)됩니다.
+Key Vault 액세스 정책은 배포 하는 동안 계산 리소스 공급자가 인증서에 액세스할 수 있도록 허용 해야 합니다. 자세한 단계는 [Azure Resource Manager에서 가상 컴퓨터에 대 한 Key Vault 설정](../../../virtual-machines/windows/key-vault-setup.md#use-templates-to-set-up-key-vault)을 참조 하세요.
 
-Following is an example to export the public key from a signing certificate, to import to the machine.
+다음은 서명 인증서에서 공개 키를 내보내 컴퓨터로 가져오는 예제입니다.
 
 ```azurepowershell-interactive
 $Cert = Get-ChildItem -Path cert:\LocalMachine\My | Where-Object {($_.Subject-eq "CN=mycert3") } | Select-Object -First 1
 $Cert | Export-Certificate -FilePath "$env:temp\DscPublicKey.cer" -Force
 ```
 
-A good reference for creating GPG keys to use with Linux machines is provided by an article on GitHub, [Generating a new GPG key](https://help.github.com/en/articles/generating-a-new-gpg-key).
+Linux 컴퓨터에서 사용할 GPG 키를 만드는 방법에 대 한 좋은 참조는 GitHub의 문서에서 제공 하 고 [새 GPG 키를 생성](https://help.github.com/en/articles/generating-a-new-gpg-key)하는 것입니다.
 
-After your content is published, append a tag with name `GuestConfigPolicyCertificateValidation` and value `enabled` to all virtual machines where code signing should be required. This tag can be delivered at scale using Azure Policy. See the [Apply tag and its default value](../samples/apply-tag-default-value.md) sample. Once this tag is in place, the policy definition generated using the `New-GuestConfigurationPolicy` cmdlet enables the requirement through the Guest Configuration extension.
+콘텐츠를 게시 한 후에는 이름 `GuestConfigPolicyCertificateValidation` 및 값이 `enabled` 인 태그를 코드 서명이 필요한 모든 가상 컴퓨터에 추가 합니다. 이 태그는 Azure Policy을 사용 하 여 대규모로 배달 될 수 있습니다. [Apply tag and the default value](../samples/apply-tag-default-value.md) sample을 참조 하십시오. 이 태그가 준비 되 면 `New-GuestConfigurationPolicy` cmdlet을 사용 하 여 생성 된 정책 정의를 통해 게스트 구성 확장을 통해 요구 사항을 설정할 수 있습니다.
 
-## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>[PREVIEW] Troubleshooting Guest Configuration policy assignments
+## <a name="preview-troubleshooting-guest-configuration-policy-assignments"></a>모드 게스트 구성 정책 할당 문제 해결
 
-A tool is available in preview to assist in troubleshooting Azure Policy Guest Configuration assignments. The tool is in preview and has been published to the PowerShell Gallery as module name [Guest Configuration Troubleshooter](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/).
+도구는 게스트 구성 할당 Azure Policy 문제 해결을 지원 하기 위해 미리 보기에서 사용할 수 있습니다. 이 도구는 미리 보기 상태 이며 PowerShell 갤러리 모듈 이름 [게스트 구성 문제 해결사로](https://www.powershellgallery.com/packages/GuestConfigurationTroubleshooter/)게시 되었습니다.
 
-For more information about the cmdlets in this tool, use the Get-Help command in PowerShell to show the built-in guidance. As the tool is getting frequent updates, that is the best way to get most recent information.
+이 도구의 cmdlet에 대 한 자세한 내용은 PowerShell에서 Get-help 명령을 사용 하 여 기본 제공 지침을 표시 합니다. 이 도구를 자주 업데이트 하는 경우 가장 최근의 정보를 얻는 가장 좋은 방법입니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Learn about auditing VMs with [Guest Configuration](../concepts/guest-configuration.md).
-- Understand how to [programmatically create policies](programmatically-create.md).
-- Learn how to [get compliance data](get-compliance-data.md).
+- [게스트 구성을](../concepts/guest-configuration.md)사용 하 여 vm을 감사 하는 방법을 알아봅니다.
+- [프로그래밍 방식으로 정책을 만드는](programmatically-create.md)방법을 알아봅니다.
+- [준수 데이터를 가져오는](get-compliance-data.md)방법에 대해 알아봅니다.

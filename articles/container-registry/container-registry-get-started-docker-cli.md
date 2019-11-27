@@ -1,5 +1,5 @@
 ---
-title: Push & pull Docker image
+title: '& 풀 Docker 이미지 푸시'
 description: Docker CLI를 사용하여 Azure의 프라이빗 컨테이너 레지스트리로 Docker 이미지 밀어넣기 및 끌어오기
 ms.topic: article
 ms.date: 01/23/2019
@@ -13,11 +13,11 @@ ms.locfileid: "74456365"
 ---
 # <a name="push-your-first-image-to-a-private-docker-container-registry-using-the-docker-cli"></a>Docker CLI를 사용하여 프라이빗 Docker 컨테이너 레지스트리로 이미지 밀어넣기 및 끌어오기
 
-Azure Container Registry는 [Docker Hub](https://hub.docker.com/)에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 [Docker](https://hub.docker.com) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
+Azure Container Registry는 [Docker Hub](https://hub.docker.com)에서 공개 Docker 이미지를 저장하는 것과 유사한 방식으로 프라이빗 [Docker](https://hub.docker.com/) 컨테이너 이미지를 저장하고 관리합니다. [Docker 명령줄 인터페이스](https://docs.docker.com/engine/reference/commandline/cli/)(Docker CLI)를 사용하여 컨테이너 레지스트리에서 [로그인](https://docs.docker.com/engine/reference/commandline/login/), [푸시](https://docs.docker.com/engine/reference/commandline/push/), [풀](https://docs.docker.com/engine/reference/commandline/pull/) 및 기타 작업을 수행합니다.
 
 다음 단계에서는 공개 Docker Hub 레지스트리에서 공식 [Nginx 이미지](https://store.docker.com/images/nginx)를 다운로드하고 프라이빗 Azure 컨테이너 레지스트리용으로 태그를 지정하고, 레지스트리에 푸시한 다음, 레지스트리에서 풀합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * **Azure Container Registry** - Azure 구독 내에서 컨테이너 레지스트리를 만듭니다. 예를 들어 [Azure Portal](container-registry-get-started-portal.md) 또는 [Azure CLI](container-registry-get-started-azure-cli.md)를 사용합니다.
 * **Docker CLI** - 또한 Docker가 로컬에 설치되어 있어야 합니다. Docker는 모든 [macOS][docker-mac], [Windows][docker-windows] 또는 [Linux][docker-linux] 시스템에서 Docker를 쉽게 구성할 수 있는 패키지를 제공합니다.
@@ -57,7 +57,7 @@ docker pull nginx
 docker run -it --rm -p 8080:80 nginx
 ```
 
-Browse to `http://localhost:8080` to view the default web page served by Nginx in the running container. 다음과 유사한 결과가 표시됩니다.
+`http://localhost:8080`로 이동 하 여 실행 중인 컨테이너에서 Nginx이 제공 하는 기본 웹 페이지를 확인 합니다. 다음과 유사한 결과가 표시됩니다.
 
 ![로컬 컴퓨터의 Nginx](./media/container-registry-get-started-docker-cli/nginx.png)
 
@@ -99,7 +99,7 @@ docker pull myregistry.azurecr.io/samples/nginx
 docker run -it --rm -p 8080:80 myregistry.azurecr.io/samples/nginx
 ```
 
-Browse to `http://localhost:8080` to view the running container.
+`http://localhost:8080`로 이동 하 여 실행 중인 컨테이너를 확인 합니다.
 
 컨테이너를 중지하고 제거하려면 `Control`+`C`를 누릅니다.
 

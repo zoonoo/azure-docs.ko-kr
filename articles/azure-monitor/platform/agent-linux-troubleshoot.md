@@ -413,7 +413,7 @@ Linux용 Log Analytics 에이전트 1.1.0-217 미만 버전에서 발생하는 �
 ```
 sudo sh ./omsagent-*.universal.x64.sh --purge
 ```
-또는
+or
 
 ```
 sudo sh ./onboard_agent.sh --purge

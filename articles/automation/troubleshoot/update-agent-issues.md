@@ -27,7 +27,7 @@ ms.locfileid: "74480791"
 * **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
 
 > [!NOTE]
-> There may be a slight delay between what the Azure portal shows and the current state of the machine.
+> Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
@@ -52,18 +52,18 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실행 중인지 확인합니다.
 
-|운영 체제  |참고  |
+|운영 체제  |참고 사항  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
-|Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6 or later is required. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1 is required.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
+|Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
 
 ### <a name="net-462"></a>.NET 4.6.2
 
-The .NET Framework check verifies that the system has a minimum of [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) installed.
+.NET Framework 검사는 시스템에 최소 [.NET Framework 4.6.2](https://www.microsoft.com/en-us/download/details.aspx?id=53345) 가 설치 되어 있는지 확인 합니다.
 
 ### <a name="wmf-51"></a>WMF 5.1
 
-The WMF check verifies that the system has the required version of the Windows Management Framework (WMF) - [Windows Management Framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
+WMF 검사는 시스템에 WMF (Windows Management Framework)의 필수 버전이 있는지 확인 합니다.- [Windows Management framework 5.1](https://www.microsoft.com/download/details.aspx?id=54616).
 
 ### <a name="tls-12"></a>TLS 1.2
 
@@ -107,7 +107,7 @@ Microsoft Monitoring Agent를 다시 설치하려면 [Microsoft Monitoring Agent
 
 ## <a name="troubleshoot-offline"></a>오프라인으로 문제 해결
 
-스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. You must have WMF 4.0, or greater, installed to run the script. To download the latest version of PowerShell, see [Installing various versions of PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-powershell).
+스크립트를 로컬로 실행하여 Hybrid Runbook Worker에서 오프라인으로 문제 해결사를 사용할 수 있습니다. PowerShell 갤러리에서 [Troubleshoot-WindowsUpdateAgentRegistration](https://www.powershellgallery.com/packages/Troubleshoot-WindowsUpdateAgentRegistration) 스크립트를 가져올 수 있습니다. 스크립트를 실행 하려면 WMF 4.0 이상 버전이 설치 되어 있어야 합니다. 최신 버전의 PowerShell을 다운로드 하려면 [다양 한 버전의 Powershell 설치](https://docs.microsoft.com/powershell/scripting/install/installing-powershell)를 참조 하세요.
 
 이 스트립트의 출력은 다음 예제와 같이 표시됩니다.
 

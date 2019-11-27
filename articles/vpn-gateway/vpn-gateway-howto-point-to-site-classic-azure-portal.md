@@ -29,9 +29,9 @@ ms.locfileid: "74424166"
 이 문서에서는 지점 및 사이트 간 연결을 통해 VNet을 만드는 방법을 설명합니다. Azure Portal을 사용하여 클래식 배포 모델을 통해 이 VNet을 만듭니다. 이 구성은 자체 서명된 CA 또는 발급된 CA 중 하나인 인증서를 사용하여 연결 중인 클라이언트를 인증합니다. 다음 문서에 설명된 옵션을 사용하여 다른 배포 도구 또는 모델을 통해 이 구성을 만들 수도 있습니다.
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
+> * [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
 > * [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Azure Portal(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+> * [Azure 포털(클래식)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
 >
 
 P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라이언트 컴퓨터에서 가상 네트워크로의 보안 연결을 만듭니다. 지점 및 사이트 간 VPN 연결은 원격 위치에서 VNet에 연결하려는 경우에 유용합니다. VNet에 연결해야 하는 클라이언트가 몇 개뿐이면 사이트 간 VPN 대신 P2S VPN을 사용하는 것이 좋습니다. 클라이언트 컴퓨터에서 시작하여 P2S VPN 연결을 설정합니다.
@@ -43,7 +43,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 ![지점 및 사이트 간 다이어그램](./media/vpn-gateway-howto-point-to-site-classic-azure-portal/point-to-site-connection-diagram.png)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 지점 및 사이트 간 인증서 인증 연결을 사용하려면 다음 필수 조건이 필요합니다.
 
@@ -61,25 +61,25 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 다음 값을 사용하여 테스트 환경을 만들거나, 이 값을 참조하여 이 문서의 예제를 보다 정확하게 파악합니다.
 
 - **가상 네트워크(클래식) 설정 만들기**
-   - **Name**: Enter *VNet1*.
-   - **Address space**: Enter *192.168.0.0/16*. 이 예제에서는 하나의 주소 공간만 사용합니다. 다이어그램과 같이 VNet에는 둘 이상의 주소 공간이 있을 수 있습니다.
-   - **Subnet name**: Enter *FrontEnd*.
-   - **Subnet address range**: Enter *192.168.1.0/24*.
-   - **Subscription**: Select a subscription from the list of available subscriptions.
-   - **Resource group**: Enter *TestRG*. 리소스 그룹이 없는 경우 **새로 만들기**를 선택합니다.
-   - **Location**: Select **East US** from the list.
+   - **이름**: *VNet1*를 입력 합니다.
+   - **주소 공간**: *192.168.0.0/16*을 입력 합니다. 이 예제에서는 하나의 주소 공간만 사용합니다. 다이어그램과 같이 VNet에는 둘 이상의 주소 공간이 있을 수 있습니다.
+   - **서브넷 이름**: *프런트 엔드*를 입력 합니다.
+   - **서브넷 주소 범위**: *192.168.1.0/24*를 입력 합니다.
+   - **구독**: 사용 가능한 구독 목록에서 구독을 선택 합니다.
+   - **리소스 그룹**: *TestRG*을 입력 합니다. 리소스 그룹이 없는 경우 **새로 만들기**를 선택합니다.
+   - **위치**: 목록에서 **미국 동부** 를 선택 합니다.
 
   - **VPN 연결 설정**
-    - **Connection type**: Select **Point-to-site**.
-    - **Client Address Space**: Enter *172.16.201.0/24*. 이 지점 및 사이트 간 연결을 사용하여 VNet에 연결하는 VPN 클라이언트는 지정된 풀에서 IP 주소를 받습니다.
+    - **연결 형식**: **지점 및 사이트 간을**선택 합니다.
+    - **클라이언트 주소 공간**: *172.16.201.0/24*를 입력 합니다. 이 지점 및 사이트 간 연결을 사용하여 VNet에 연결하는 VPN 클라이언트는 지정된 풀에서 IP 주소를 받습니다.
 
 - **게이트웨이 구성 서브넷 설정**
-   - **Name**: Autofilled with *GatewaySubnet*.
-   - **Address range**: Enter *192.168.200.0/24*. 
+   - **이름**: *gsubnet*으로 자동으로 채워집니다.
+   - **주소 범위**: *192.168.200.0/24*를 입력 합니다. 
 
 - **게이트웨이 구성 설정**:
-   - **Size**: Select the gateway SKU that you want to use.
-   - **Routing Type**: Select **Dynamic**.
+   - **크기**: 사용 하려는 게이트웨이 SKU를 선택 합니다.
+   - **라우팅 유형**: **동적**을 선택 합니다.
 
 ## <a name="create-a-virtual-network-and-a-vpn-gateway"></a>가상 네트워크 및 VPN Gateway 만들기
 
@@ -89,7 +89,7 @@ P2S(지점 및 사이트 간) VPN 게이트웨이를 사용하여 개별 클라�
 
 VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. Azure 포털을 사용하여 VNet을 만들려면 다음 단계를 사용하세요.
 
-1. On the [Azure portal](https://portal.azure.com) menu or from the **Home** page, select **Create a resource**. **새로 만들기** 페이지가 열립니다.
+1. [Azure Portal](https://portal.azure.com) 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택 합니다. **새로 만들기** 페이지가 열립니다.
 
 2. **Marketplace 검색** 필드에 *가상 네트워크*를 입력하고 반환된 목록에서 **가상 네트워크**를 선택합니다. **가상 네트워크** 페이지가 열립니다.
 
@@ -113,11 +113,11 @@ VNet(가상 네트워크)이 아직 없는 경우 만듭니다. 스크린샷은 
 
     DNS 서버를 추가하려면 VNet 페이지에서 **DNS 서버**를 선택합니다. 그런 다음, 사용할 DNS 서버의 IP 주소를 입력하고 **저장**을 선택합니다.
 
-### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>Part 2: Create a gateway subnet and a dynamic routing gateway
+### <a name="part-2-create-a-gateway-subnet-and-a-dynamic-routing-gateway"></a>2 부: 게이트웨이 서브넷 및 동적 라우팅 게이트웨이 만들기
 
 이 단계에서는 게이트웨이 서브넷 및 동적 라우팅 게이트웨이를 만듭니다. 클래식 배포 모델을 위한 Azure Portal에서 동일한 구성 페이지를 통해 게이트웨이 서브넷 및 게이트웨이를 만듭니다. 게이트웨이 서브넷은 게이트웨이 서비스에만 사용합니다. 게이트웨이 서브넷(예: VM 또는 다른 서비스)에 직접 배포하지 마세요.
 
-1. In the Azure portal, go to the virtual network for which you want to create a gateway.
+1. Azure Portal에서 게이트웨이를 만들려는 가상 네트워크로 이동 합니다.
 
 2. 가상 네트워크 페이지에서 **개요**를 선택한 다음, **VPN 연결** 섹션에서 **게이트웨이**를 선택합니다.
 
@@ -210,7 +210,7 @@ Azure는 인증서를 사용하여 지점 및 사이트 간 VPN에 대한 VPN �
 >
 >
 
-1. To connect to your VNet, on the client computer, go to **VPN connections** in the Azure portal and locate the VPN connection that you created. VPN 연결의 이름은 가상 네트워크와 같습니다. **연결**을 선택합니다. 인증서에 대한 팝업 메시지가 표시되면 **계속**을 선택하여 상승된 권한을 사용합니다.
+1. VNet에 연결 하려면 클라이언트 컴퓨터에서 Azure Portal **vpn 연결** 로 이동 하 여 만든 vpn 연결을 찾습니다. VPN 연결의 이름은 가상 네트워크와 같습니다. **연결**을 선택합니다. 인증서에 대한 팝업 메시지가 표시되면 **계속**을 선택하여 상승된 권한을 사용합니다.
 
 2. **연결** 상태 페이지에서 **연결**을 선택하여 연결을 시작합니다. **인증서 선택** 화면이 표시되는 경우 표시된 클라이언트 인증서가 올바른지 확인합니다. 올바르지 않으면 드롭다운 목록에서 올바른 인증서를 선택한 다음, **확인**을 선택합니다.
 
@@ -277,7 +277,7 @@ Azure에 최대 20개의 신뢰할 수 있는 루트 인증서 .cer 파일을 �
 
 1. 클라이언트 인증서 지문을 검색합니다. 자세한 내용은 [방법: 인증서의 지문 검색](https://msdn.microsoft.com/library/ms734695.aspx)을 참조하세요.
 2. 텍스트 편집기에 정보를 복사하고 연속 문자열이 되도록 공백을 제거합니다.
-3. Go to the classic virtual network. **지점 및 사이트 간 VPN 연결**을 선택한 다음, **인증서 관리**를 선택하여 **인증서** 페이지를 엽니다.
+3. 클래식 가상 네트워크로 이동 합니다. **지점 및 사이트 간 VPN 연결**을 선택한 다음, **인증서 관리**를 선택하여 **인증서** 페이지를 엽니다.
 4. **해지 목록**을 선택하여 **해지 목록** 페이지를 엽니다. 
 5. **인증서 추가**를 선택하여 **해지 목록에 인증서 추가** 페이지를 엽니다.
 6. **지문**에서 인증서 지문을 공백 없이한 줄의 텍스트로 붙여넣습니다. **확인**을 선택하여 마칩니다.

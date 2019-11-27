@@ -67,7 +67,7 @@ Microsoft Azure의 이 업데이트 클래스는 사용자가 실행 중인 VM�
 
 ### <a name="user-initiated-reboot-or-shutdown-actions"></a>사용자 시작 재부팅 또는 종료 작업
 
-If you perform a reboot from the Azure portal, Azure PowerShell, command-line interface, or REST API, you can find the event in the [Azure Activity Log](../../azure-monitor/platform/activity-logs-overview.md).
+Azure Portal, Azure PowerShell, 명령줄 인터페이스 또는 REST API에서 다시 부팅을 수행 하는 경우 [Azure 활동 로그](../../azure-monitor/platform/activity-logs-overview.md)에서 이벤트를 찾을 수 있습니다.
 
 VM의 운영 체제에서 작업을 수행하는 경우 시스템 로그에서 이벤트를 찾을 수 있습니다.
 
@@ -101,7 +101,7 @@ VM은 Azure 데이터 센터 내에서 실행되는 실제 서버에서 호스�
 
 가끔 Azure 운영 팀은 Azure 플랫폼의 전반적인 상태를 확인하기 위한 유지 관리 활동을 수행해야 할 수 있습니다. 이 동작은 VM 사용 가능성에 영향을 줄 수 있고 일반적으로 앞에서 설명한 대로 동일한 자동 복구 작업이 발생합니다.  
 
-Unplanned maintenance include the following:
+계획 되지 않은 유지 관리에는 다음이 포함 됩니다.
 
 - 긴급 노드 조각 모음
 - 긴급 네트워크 스위치 업데이트
@@ -118,7 +118,7 @@ Azure의 VM은 Azure Storage 인프라에서 호스팅되는 운영 체제 및 �
 
 **IO 제한 초과**
 
-초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (Standard disk storage is limited to 500 IOPS.) To mitigate this issue, use disk striping or configure the storage space inside the guest VM, depending on the workload. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
+초당 I/O 작업(IOPS)의 볼륨이 디스크의 I/O 제한을 초과하기 때문에 I/O 요청이 지속적으로 제한되는 경우 VM은 일시적으로 종료될 수 있습니다. (표준 디스크 저장소는 500 IOPS로 제한 됩니다.) 이 문제를 완화 하려면 워크 로드에 따라 디스크 스트라이프를 사용 하거나 게스트 VM 내에서 저장소 공간을 구성 합니다. 자세한 내용은 [Storage 성능이 최적화되도록 Azure VM 구성](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx)을 참조하세요.
 
 ### <a name="other-incidents"></a>다른 인시던트
 

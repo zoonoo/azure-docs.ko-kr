@@ -36,7 +36,7 @@ ms.locfileid: "74463937"
 
 - 대부분의 경우 일련의 개별 사용자 계정이 아닌 Azure AD 사용자 그룹 또는 서비스 주체에 권한을 할당하는 것이 좋습니다. 이렇게 하면 액세스 요구 사항이 변경될 때 플랜을 업데이트한 후 다시 게시하지 않고도 개별 사용자에 대한 액세스 권한을 추가하거나 제거할 수 있습니다.
 - 사용자가 작업을 완료하는 데 필요한 권한만 갖도록 하여 실수로 인한 오류 발생 가능성을 줄일 수 있게 최소 권한 원칙을 따라야 합니다. 자세한 내용은 [권장 보안 방법](../concepts/recommended-security-practices.md)을 참조하세요.
-- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](../how-to/onboard-customer.md#remove-access-to-a-delegation)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
+- 필요한 경우 나중에 [위임에 대한 액세스 권한을 제거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)할 수 있도록 [관리 서비스 등록 할당 삭제 역할](../how-to/onboard-customer.md#remove-access-to-a-delegation)에 사용자를 포함합니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 - [Azure Portal에서 내 고객 페이지를 볼 수 있어야](../how-to/view-manage-customers.md) 하는 모든 사용자에게 [읽기 권한자](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#reader) 역할(또는 읽기 권한자 액세스 권한을 포함하는 다른 기본 제공 역할)이 있어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계

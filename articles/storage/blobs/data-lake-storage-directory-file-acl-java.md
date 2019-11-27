@@ -1,6 +1,6 @@
 ---
-title: Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
-description: Use Azure Storage libraries for Java to manage directories and file and directory access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
+title: Azure Data Lake Storage Gen2에서 Acl & 파일에 대 한 Java 사용 (미리 보기)
+description: Java 용 Azure Storage 라이브러리를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정의 디렉터리 및 파일 및 디렉터리 ACL (액세스 제어 목록)을 관리 합니다.
 author: normesta
 ms.service: storage
 ms.date: 11/24/2019
@@ -10,29 +10,29 @@ ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
 ms.openlocfilehash: 4593c16905c331b0d76c9c5c93faac6accfb0977
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74485212"
 ---
-# <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Use Java for files & ACLs in Azure Data Lake Storage Gen2 (preview)
+# <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2에서 Acl & 파일에 대 한 Java 사용 (미리 보기)
 
-This article shows you how to use Java to create and manage directories, files, and permissions in storage accounts that has hierarchical namespace (HNS) enabled. 
+이 문서에서는 Java를 사용 하 여 HNS (계층적 네임 스페이스)를 사용 하도록 설정 된 저장소 계정에서 디렉터리, 파일 및 사용 권한을 만들고 관리 하는 방법을 보여 줍니다. 
 
 > [!IMPORTANT]
-> The Java library that is featured in this article is currently in public preview.
+> 이 문서에서 설명 하는 Java 라이브러리는 현재 공개 미리 보기로 제공 됩니다.
 
-[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [Samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API reference](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+[Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake) | [API 참조](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html) | [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md) | [피드백 제공](https://github.com/Azure/azure-sdk-for-java/issues)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 > [!div class="checklist"]
-> * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-> * A storage account that has hierarchical namespace (HNS) enabled. Follow [these](data-lake-storage-quickstart-create-account.md) instructions to create one.
+> * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+> * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-To get started, open the *pom.xml* file in your text editor. 종속성 그룹에 다음 종속성 요소를 추가합니다.
+시작 하려면 텍스트 편집기에서 *pom .xml* 파일을 엽니다. 종속성 그룹에 다음 종속성 요소를 추가합니다.
 
 ```xml
 <dependency>
@@ -42,7 +42,7 @@ To get started, open the *pom.xml* file in your text editor. 종속성 그룹에
 </dependency>
 ```
 
-Then, add these imports statements to your code file.
+그런 다음 이러한 imports 문을 코드 파일에 추가 합니다.
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
@@ -59,11 +59,11 @@ import com.azure.storage.file.datalake.models.PathPermissions;
 import com.azure.storage.file.datalake.models.RolePermissions;
 ```
 
-## <a name="connect-to-the-account"></a>Connect to the account 
+## <a name="connect-to-the-account"></a>계정에 연결 
 
-To use the snippets in this article, you'll need to create a **DataLakeServiceClient** instance that represents the storage account. The easiest way to get one is to use an account key. 
+이 문서의 코드 조각을 사용 하려면 저장소 계정을 나타내는 **DataLakeServiceClient** 인스턴스를 만들어야 합니다. 하나를 가져오는 가장 쉬운 방법은 계정 키를 사용 하는 것입니다. 
 
-This example creates an instance of the **DataLakeServiceClient** by using an account key.
+이 예에서는 계정 키를 사용 하 여 **DataLakeServiceClient** 의 인스턴스를 만듭니다.
 
 ```java
 
@@ -84,9 +84,9 @@ static public DataLakeServiceClient GetDataLakeServiceClient
 ```
 ## <a name="create-a-file-system"></a>파일 시스템 만들기
 
-A file system acts as a container for your files. You can create one by calling the **DataLakeServiceClient.createFileSystem** method.
+파일 시스템은 파일의 컨테이너 역할을 합니다. **DataLakeServiceClient** 메서드를 호출 하 여 만들 수 있습니다.
 
-This example creates a file system named `my-file-system`. 
+이 예에서는 `my-file-system`이라는 파일 시스템을 만듭니다. 
 
 ```java
 static public DataLakeFileSystemClient CreateFileSystem
@@ -98,9 +98,9 @@ static public DataLakeFileSystemClient CreateFileSystem
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
 
-Create a directory reference by calling the **DataLakeFileSystemClient.createDirectory** method.
+**DataLakeFileSystemClient** 메서드를 호출 하 여 디렉터리 참조를 만듭니다.
 
-This example adds a directory named `my-directory` to a file system, and then adds a sub-directory named `my-subdirectory`. 
+이 예제에서는 `my-directory` 라는 디렉터리를 파일 시스템에 추가한 다음 `my-subdirectory`라는 하위 디렉터리를 추가 합니다. 
 
 ```java
 static public DataLakeDirectoryClient CreateDirectory
@@ -116,11 +116,11 @@ static public DataLakeDirectoryClient CreateDirectory
 }
 ```
 
-## <a name="rename-or-move-a-directory"></a>Rename or move a directory
+## <a name="rename-or-move-a-directory"></a>디렉터리 이름 바꾸기 또는 이동
 
-Rename or move a directory by calling the **DataLakeDirectoryClient.rename** method. Pass the path of the desired directory a parameter. 
+**DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리 이름을 바꾸거나 이동 합니다. 원하는 디렉터리의 경로를 매개 변수로 전달 합니다. 
 
-This example renames a sub-directory to the name `my-subdirectory-renamed`.
+이 예에서는 `my-subdirectory-renamed`이름으로 하위 디렉터리의 이름을 바꿉니다.
 
 ```java
 static public DataLakeDirectoryClient
@@ -133,7 +133,7 @@ static public DataLakeDirectoryClient
 }
 ```
 
-This example moves a directory named `my-subdirectory-renamed` to a sub-directory of a directory named `my-directory-2`. 
+이 예제에서는 이름이 `my-subdirectory-renamed` 인 디렉터리를 `my-directory-2`디렉터리의 하위 디렉터리로 이동 합니다. 
 
 ```java
 static public DataLakeDirectoryClient MoveDirectory
@@ -148,9 +148,9 @@ static public DataLakeDirectoryClient MoveDirectory
 
 ## <a name="delete-a-directory"></a>디렉터리 삭제
 
-Delete a directory by calling the **DataLakeDirectoryClient.deleteWithResponse** method.
+**DataLakeDirectoryClient** 메서드를 호출 하 여 디렉터리를 삭제 합니다.
 
-This example deletes a directory named `my-directory`.   
+이 예에서는 `my-directory`라는 디렉터리를 삭제 합니다.   
 
 ```java
 static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -162,9 +162,9 @@ static public void DeleteDirectory(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="manage-a-directory-acl"></a>Manage a directory ACL
+## <a name="manage-a-directory-acl"></a>디렉터리 ACL 관리
 
-This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
+이 예제에서는 `my-directory`된 디렉터리의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 ```java
 static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient){
@@ -195,11 +195,11 @@ static public void ManageDirectoryACLs(DataLakeFileSystemClient fileSystemClient
 
 ```
 
-## <a name="upload-a-file-to-a-directory"></a>Upload a file to a directory
+## <a name="upload-a-file-to-a-directory"></a>디렉터리에 파일 업로드
 
-First, create a file reference in the target directory by creating an instance of the **DataLakeFileClient** class. Upload a file by calling the **DataLakeFileClient.append** method. Make sure to complete the upload by calling the **DataLakeFileClient.FlushAsync** method.
+먼저 **DataLakeFileClient** 클래스의 인스턴스를 만들어 대상 디렉터리에 파일 참조를 만듭니다. **DataLakeFileClient** 메서드를 호출 하 여 파일을 업로드 합니다. **DataLakeFileClient FlushAsync** 메서드를 호출 하 여 업로드를 완료 해야 합니다.
 
-This example uploads a text file to a directory named `my-directory`.`
+이 예제에서는 `my-directory`라는 디렉터리에 텍스트 파일을 업로드 합니다.
 
 ```java
 static public void UploadFile(DataLakeFileSystemClient fileSystemClient) 
@@ -222,9 +222,9 @@ static public void UploadFile(DataLakeFileSystemClient fileSystemClient)
 }
 ```
 
-## <a name="manage-a-file-acl"></a>Manage a file ACL
+## <a name="manage-a-file-acl"></a>파일 ACL 관리
 
-This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
+이 예제에서는 `upload-file.txt`이라는 파일의 ACL을 가져온 다음 설정 합니다. 이 예제에서는 소유 하는 사용자에 게 읽기, 쓰기 및 실행 권한을 부여 하 고 소유 그룹에 읽기 및 실행 권한만 제공 하 고 다른 모든 읽기 권한을 부여 합니다.
 
 ```java
 static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
@@ -257,11 +257,11 @@ static public void ManageFileACLs(DataLakeFileSystemClient fileSystemClient){
 }
 ```
 
-## <a name="download-from-a-directory"></a>Download from a directory
+## <a name="download-from-a-directory"></a>디렉터리에서 다운로드
 
-First, create a **DataLakeFileClient** instance that represents the file that you want to download. Use the **DataLakeFileClient.read** method to read the file. Use any .NET file processing API to save bytes from the stream to a file. 
+먼저 다운로드 하려는 파일을 나타내는 **DataLakeFileClient** 인스턴스를 만듭니다. **DataLakeFileClient** 메서드를 사용 하 여 파일을 읽습니다. 모든 .NET 파일 처리 API를 사용 하 여 스트림에서 바이트를 파일에 저장 합니다. 
 
-Make sure to complete the download by calling the **DataLakeFileClient.flush** method.
+**DataLakeFileClient** 메서드를 호출 하 여 다운로드를 완료 해야 합니다.
 
 ```java
 static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
@@ -289,7 +289,7 @@ static public void DownloadFile(DataLakeFileSystemClient fileSystemClient)
 
 ## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
 
-This example, prints the names of each file that is located in a directory named `my-directory`.
+이 예에서는 `my-directory`라는 디렉터리에 있는 각 파일의 이름을 인쇄 합니다.
 
 ```java
 static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClient){
@@ -320,11 +320,11 @@ static public void ListFilesInDirectory(DataLakeFileSystemClient fileSystemClien
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>참고자료
 
-* [API reference documentation](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
-* [Package (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
+* [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-file-datalake/12.0.0-preview.6/index.html)
+* [패키지 (Maven)](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake/12.0.0-preview.6/jar)
 * [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [Known capability gaps](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
+* [알려진 기능 간격](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-java/issues)

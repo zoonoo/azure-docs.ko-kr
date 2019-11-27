@@ -69,23 +69,23 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 ```
 
 
-| 필드 | 필수 | 고정된 값 집합 | 참고 사항 |
+| 필드 | Mandatory | 고정된 값 집합 | 참고 사항 |
 |:--- |:--- |:--- |:--- |
-| status |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
+| 상태 |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
 | context |Y | |경고 컨텍스트입니다. |
 | timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
 | id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
 | name |Y | |경고 이름입니다. |
 | 설명 |Y | |경고에 대한 설명입니다. |
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
-| condition |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
+| 조건 |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
 | metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
 | metricUnit |메트릭 경고의 경우 |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |메트릭에 사용되는 단위입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)을 참조하세요. |
 | metricValue |메트릭 경고의 경우 | |경고를 발생시킨 메트릭의 실제 값입니다. |
 | threshold |메트릭 경고의 경우 | |경고가 활성화되는 임계값입니다. |
 | windowSize |메트릭 경고의 경우 | |임계값에 기반하여 경보 활동을 모니터링하는 데 사용되는 기간입니다. 값은 5분에서 1일 사이여야 합니다. 값은 ISO 8601 기간 형식이어야 합니다. |
 | timeAggregation |메트릭 경고의 경우 |Average, Last, Maximum, Minimum, None, Total |데이터가 수집되는 방법은 시간이 지남에 따라 결합되어야 합니다. 기본값은 평균입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.aggregationtype.aspx)을 참조하세요. |
-| 적용한 후 |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교하는 데 사용되는 연산자입니다. |
+| operator |메트릭 경고의 경우 | |현재 메트릭 데이터를 설정한 임계값과 비교하는 데 사용되는 연산자입니다. |
 | subscriptionId |Y | |Azure 구독 ID입니다. |
 | resourceGroupName |Y | |영향을 받는 리소스의 리소스 그룹 이름입니다. |
 | resourceName |Y | |영향을 받는 리소스의 리소스 이름입니다. |
@@ -93,7 +93,7 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| properties |N |선택 사항 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| 속성 |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
 > **Azure Monitor REST API**를 사용하여 [properties](https://msdn.microsoft.com/library/azure/dn933805.aspx) 필드만 설정할 수 있습니다.

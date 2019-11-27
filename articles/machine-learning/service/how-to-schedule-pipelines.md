@@ -1,7 +1,7 @@
 ---
-title: Schedule Azure Machine Learning pipelines
+title: Azure Machine Learning 파이프라인 예약
 titleSuffix: Azure Machine Learning
-description: Schedule Azure Machine Learning pipelines using the Azure Machine Learning SDK for Python. Scheduled pipelines allow you to automate routine, time-consuming tasks such as data processing, training, and monitoring.
+description: Python 용 Azure Machine Learning SDK를 사용 하 여 Azure Machine Learning 파이프라인을 예약 합니다. 예약 된 파이프라인을 사용 하 여 데이터 처리, 학습 및 모니터링과 같은 일상적인 시간 사용 작업을 자동화할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -16,21 +16,21 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74406519"
 ---
-# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Schedule machine learning pipelines with Azure Machine Learning SDK for Python
+# <a name="schedule-machine-learning-pipelines-with-azure-machine-learning-sdk-for-python"></a>Python 용 Azure Machine Learning SDK를 사용 하 여 기계 학습 파이프라인 예약
 
-In this article, you'll learn how to programmatically schedule a pipeline to run on Azure. You can choose to create a schedule based on elapsed time or on file-system changes. Time-based schedules can be used to take care of routine tasks, such as monitoring for data drift. Change-based schedules can be used to react to irregular or unpredictable changes, such as new data being uploaded or old data being edited. After learning how to create schedules, you'll learn how to retrieve and deactivate them.
+이 문서에서는 Azure에서 실행 하기 위해 프로그래밍 방식으로 파이프라인을 예약 하는 방법을 알아봅니다. 경과 된 시간 또는 파일 시스템 변경 내용에 따라 일정을 만들도록 선택할 수 있습니다. 시간 기반 일정을 사용 하 여 데이터 드리프트 모니터링과 같은 일상적인 작업을 처리할 수 있습니다. 변경 기반 일정을 사용 하 여 새 데이터를 업로드 하거나 이전 데이터를 편집 하는 등의 비정상 또는 예기치 않은 변경 내용에 대응할 수 있습니다. 일정을 만드는 방법을 학습 한 후에는이를 검색 및 비활성화 하는 방법을 배웁니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독. Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
-* A Python environment in which the Azure Machine Learning SDK for Python is installed. For more information, see [Create and manage reusable environments for training and deployment with Azure Machine Learning.](how-to-use-environments.md)
+* Python 용 Azure Machine Learning SDK가 설치 된 Python 환경 자세한 내용은 [Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 재사용 가능한 환경 만들기 및 관리](how-to-use-environments.md) 를 참조 하세요.
 
-* A Machine Learning workspace with a published pipeline. You can use the one built in [Create and run machine learning pipelines with Azure Machine Learning SDK](how-to-create-your-first-pipeline.md).
+* 게시 된 파이프라인이 있는 Machine Learning 작업 영역입니다. Azure Machine Learning SDK를 사용 하 여 [machine learning 파이프라인 만들기 및 실행](how-to-create-your-first-pipeline.md)에서 빌드된 빌드를 사용할 수 있습니다.
 
-## <a name="initialize-the-workspace--get-data"></a>Initialize the workspace & get data
+## <a name="initialize-the-workspace--get-data"></a>작업 영역을 초기화 하 여 데이터 가져오기 &
 
-To schedule a pipeline, you'll need a reference to your workspace, the identifier of your published pipeline, and the name of the experiment in which you wish to create the schedule. You can get these values with the following code:
+파이프라인을 예약 하려면 작업 영역에 대 한 참조, 게시 된 파이프라인의 식별자 및 일정을 만들려는 실험의 이름을 제공 해야 합니다. 다음 코드를 사용 하 여 이러한 값을 가져올 수 있습니다.
 
 ```Python
 import azureml.core
@@ -52,15 +52,15 @@ experiment_name = "MyExperiment"
 pipeline_id = "aaaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee" 
 ```
 
-## <a name="create-a-schedule"></a>Create a schedule
+## <a name="create-a-schedule"></a>일정 만들기
 
-To run a pipeline on a recurring basis, you'll create a schedule. A `Schedule` associates a pipeline, an experiment, and a trigger. The trigger can either be a`ScheduleRecurrence` that describes the wait between runs or a Datastore path that specifies a directory to watch for changes. In either case, you'll need the pipeline identifier and the name of the experiment in which to create the schedule.
+반복 하 여 파이프라인을 실행 하려면 일정을 만듭니다. `Schedule`은 파이프라인, 실험 및 트리거를 연결 합니다. 트리거는 실행 간 대기를 설명 하는`ScheduleRecurrence` 이거나, 변경 내용을 감시 하는 디렉터리를 지정 하는 데이터 저장소 경로 일 수 있습니다. 두 경우 모두 일정을 만들 실험의 이름과 파이프라인 식별자가 필요 합니다.
 
-### <a name="create-a-time-based-schedule"></a>Create a time-based schedule
+### <a name="create-a-time-based-schedule"></a>시간 기반 일정 만들기
 
-The `ScheduleRecurrence` constructor has a required `frequency` argument that must be one of the following strings: "Minute", "Hour", "Day", "Week", or "Month". It also requires an integer `interval` argument specifying how many of the `frequency` units should elapse between schedule starts. Optional arguments allow you to be more specific about starting times, as detailed in the [ScheduleRecurrence SDK docs](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py).
+`ScheduleRecurrence` 생성자에는 "Minute", "Hour", "Day", "Week" 또는 "Month" 문자열 중 하나 여야 하는 필수 `frequency` 인수가 있습니다. 또한 일정 시작 사이에 경과 해야 하는 `frequency` 단위의 수를 지정 하는 정수 `interval` 인수도 필요 합니다. 선택적 인수를 사용 하면 [SCHEDULERECURRENCE SDK 문서](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedulerecurrence?view=azure-ml-py)에 설명 된 대로 시작 시간에 대해 보다 구체적으로 지정할 수 있습니다.
 
-Create a `Schedule` that begins a run every 15 minutes:
+15 분 마다 실행을 시작 하는 `Schedule`을 만듭니다.
 
 ```python
 recurrence = ScheduleRecurrence(frequency="Minute", interval=15)
@@ -71,15 +71,15 @@ recurring_schedule = Schedule.create(ws, name="MyRecurringSchedule",
                             recurrence=recurrence)
 ```
 
-### <a name="create-a-change-based-schedule"></a>Create a change-based schedule
+### <a name="create-a-change-based-schedule"></a>변경 기반 일정 만들기
 
-Pipelines that are triggered by file changes may be more efficient than time-based schedules. For instance, you may want to perform a preprocessing step when a file is changed, or when a new file is added to a data directory. You can monitor any changes to a datastore or changes within a specific directory within the datastore. If you monitor a specific directory, changes within subdirectories of that directory will _not_ trigger a run.
+파일 변경에 의해 트리거되는 파이프라인이 시간 기반 일정 보다 효율적일 수 있습니다. 예를 들어 파일이 변경 될 때 또는 새 파일이 데이터 디렉터리에 추가 될 때 전처리 단계를 수행 하는 것이 좋습니다. 데이터 저장소에 대 한 변경 내용 또는 데이터 저장소 내의 특정 디렉터리 내 변경 내용을 모니터링할 수 있습니다. 특정 디렉터리를 모니터링 하는 경우 해당 디렉터리의 하위 디렉터리에 있는 변경 내용은 실행을 트리거하지 _않습니다_ .
 
-To create a file-reactive `Schedule`, you must set the `datastore` parameter in the call to [Schedule.create](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-). To monitor a folder, set the `path_on_datastore` argument.
+파일-사후 `Schedule`을 만들려면 [Schedule. 만들기](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.schedule.schedule?view=azure-ml-py#create-workspace--name--pipeline-id--experiment-name--recurrence-none--description-none--pipeline-parameters-none--wait-for-provisioning-false--wait-timeout-3600--datastore-none--polling-interval-5--data-path-parameter-name-none--continue-on-step-failure-none--path-on-datastore-none---workflow-provider-none---service-endpoint-none-)에 대 한 호출에서 `datastore` 매개 변수를 설정 해야 합니다. 폴더를 모니터링 하려면 `path_on_datastore` 인수를 설정 합니다.
 
-The `polling_interval` argument allows you to specify, in minutes, the frequency at which the datastore is checked for changes.
+`polling_interval` 인수를 사용 하면 데이터 저장소에서 변경 내용이 확인 되는 빈도 (분)를 지정할 수 있습니다.
 
-If the pipeline was constructed with a [DataPath](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py), you can set that variable to the name of the changed file by setting the `data_path_parameter_name` argument.
+파이프라인이 [데이터 경로](https://docs.microsoft.com/python/api/azureml-core/azureml.data.datapath.datapath?view=azure-ml-py) [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelineparameter?view=azure-ml-py)를 사용 하 여 생성 된 경우 `data_path_parameter_name` 인수를 설정 하 여 해당 변수를 변경 된 파일의 이름으로 설정할 수 있습니다.
 
 ```python
 datastore = Datastore(workspace=ws, name="workspaceblobstore")
@@ -88,28 +88,28 @@ reactive_schedule = Schedule.create(ws, name="MyReactiveSchedule", description="
                             pipeline_id=pipeline_id, experiment_name=experiment_name, datastore=datastore, data_path_parameter_name="input_data")
 ```
 
-### <a name="optional-arguments-when-creating-a-schedule"></a>Optional arguments when creating a schedule
+### <a name="optional-arguments-when-creating-a-schedule"></a>일정을 만들 때 선택적 인수
 
-In addition to the arguments discussed previously, you may set the `status` argument to `"Disabled"` to create an inactive schedule. Finally, the `continue_on_step_failure` allows you to pass a Boolean that will override the pipeline's default failure behavior.
+앞에서 설명한 인수 외에도 `"Disabled"`에 대 한 `status` 인수를 설정 하 여 비활성 일정을 만들 수 있습니다. 마지막으로 `continue_on_step_failure`를 사용 하 여 파이프라인의 기본 오류 동작을 재정의 하는 부울을 전달할 수 있습니다.
 
-## <a name="view-your-scheduled-pipelines"></a>View your scheduled pipelines
+## <a name="view-your-scheduled-pipelines"></a>예약 된 파이프라인 보기
 
-In your Web browser, navigate to Azure Machine Learning. From the **Endpoints** section of the navigation panel, choose **Pipeline endpoints**. This takes you to a list of the pipelines published in the Workspace.
+웹 브라우저에서 Azure Machine Learning로 이동 합니다. 탐색 패널의 **끝점** 섹션에서 **파이프라인 끝점**을 선택 합니다. 그러면 작업 영역에 게시 된 파이프라인의 목록으로 이동 합니다.
 
-![Pipelines page of AML](media/how-to-schedule-pipelines/scheduled-pipelines.png)
+![AML의 파이프라인 페이지](media/how-to-schedule-pipelines/scheduled-pipelines.png)
 
-In this page you can see summary information about all the pipelines in the Workspace: names, descriptions, status, and so forth. Drill in by clicking in your pipeline. On the resulting page, there are more details about your pipeline and you may drill down into individual runs.
+이 페이지에서 이름, 설명, 상태 등의 작업 영역에 있는 모든 파이프라인에 대 한 요약 정보를 볼 수 있습니다. 파이프라인을 클릭 하 여 드릴업 합니다. 결과 페이지에 파이프라인에 대 한 자세한 내용이 있으며 개별 실행으로 드릴 다운할 수 있습니다.
 
-## <a name="deactivate-the-pipeline"></a>Deactivate the pipeline
+## <a name="deactivate-the-pipeline"></a>파이프라인 비활성화
 
-If you have a `Pipeline` that is published, but not scheduled, you can disable it with:
+게시 된 `Pipeline` 있지만 예약 되지 않은 경우 다음을 사용 하 여 사용 하지 않도록 설정할 수 있습니다.
 
 ```python
 pipeline = PublishedPipeline.get(ws, id=pipeline_id)
 pipeline.disable()
 ```
 
-If the pipeline is scheduled, you must cancel the schedule first. Retrieve the schedule's identifier from the portal or by running:
+파이프라인이 예약 된 경우 먼저 일정을 취소 해야 합니다. 포털에서 또는를 실행 하 여 일정의 식별자를 검색 합니다.
 
 ```python
 ss = Schedule.list(ws)
@@ -117,7 +117,7 @@ for s in ss:
     print(s)
 ```
 
-Once you have the `schedule_id` you wish to disable, run:
+`schedule_id`를 사용 하지 않도록 설정 하려는 경우 다음을 실행 합니다.
 
 ```python
 def stop_by_schedule_id(ws, schedule_id):
@@ -128,16 +128,16 @@ def stop_by_schedule_id(ws, schedule_id):
 stop_by_schedule(ws, schedule_id)
 ```
 
-If you then run `Schedule.list(ws)` again, you should get an empty list.
+그런 다음 `Schedule.list(ws)`를 다시 실행 하면 빈 목록이 표시 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-In this article, you used the Azure Machine Learning SDK for Python to schedule a pipeline in two different ways. One schedule recurs based on elapsed clock time. The other schedule runs if a file is modified on a specified `Datastore` or within a directory on that store. You saw how to use the portal to examine the pipeline and individual runs. Finally, you learned how to disable a schedule so that the pipeline stops running.
+이 문서에서는 Python 용 Azure Machine Learning SDK를 사용 하 여 두 가지 다른 방법으로 파이프라인을 예약 했습니다. 경과 된 클록 시간에 따라 일정 하나가 되풀이 됩니다. 지정 된 `Datastore` 또는 해당 저장소의 디렉터리 내에서 파일이 수정 된 경우에는 다른 일정이 실행 됩니다. 포털을 사용 하 여 파이프라인 및 개별 실행을 검사 하는 방법을 살펴보았습니다. 마지막으로, 파이프라인의 실행이 중지 되도록 일정을 사용 하지 않도록 설정 하는 방법을 알아보았습니다.
 
 자세한 내용은
 
 > [!div class="nextstepaction"]
-> [Use Azure Machine Learning Pipelines for batch scoring](tutorial-pipeline-batch-scoring-classification.md)
+> [일괄 처리 점수 매기기에 Azure Machine Learning 파이프라인 사용](tutorial-pipeline-batch-scoring-classification.md)
 
-* Learn more about [pipelines](concept-ml-pipelines.md)
-* Learn more about [exploring Azure Machine Learning with Jupyter](samples-notebooks.md)
+* [파이프라인](concept-ml-pipelines.md) 에 대 한 자세한 정보
+* [Jupyter를 사용 하 여 Azure Machine Learning 탐색](samples-notebooks.md) 에 대해 자세히 알아보기
