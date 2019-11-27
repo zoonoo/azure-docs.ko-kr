@@ -72,8 +72,6 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: 템플릿 VM에서 중첩된 가상화 사용
           href: how-to-enable-nested-virtualization-template-vm.md
-        - name: 템플릿 VM 내에서 여러 VM이 있는 환경 만들기
-          href: how-to-enable-multi-vm-environment.md
     - name: 클래스룸 랩에서 VM에 연결(학생)
       items:
         - name: 클래스룸 랩 액세스
