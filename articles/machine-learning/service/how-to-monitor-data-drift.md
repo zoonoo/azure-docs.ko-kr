@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: copeters
 author: cody-dkdc
 ms.date: 11/04/2019
-ms.openlocfilehash: e33f8a8090e7840087add0e16252bd2a3e873524
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: acf1df6bb71f4ea8878d8f50f3f42f4ddd831fb5
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276769"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539233"
 ---
 # <a name="detect-data-drift-preview-on-models-deployed-to-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에 배포 된 모델에서 데이터 드리프트 (미리 보기) 검색
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -31,7 +31,7 @@ ms.locfileid: "74276769"
 Azure Machine Learning를 사용 하 여 AKS에 배포 된 모델에 대 한 입력을 모니터링 하 고이 데이터를 모델에 대 한 학습 데이터 집합과 비교할 수 있습니다. 정기적으로 유추 데이터는 [스냅샷과 프로 파일링](how-to-explore-prepare-data.md)된 다음, 데이터 드리프트 분석을 생성 하기 위해 기준선 데이터 집합에 대해 계산 됩니다. 
 
 + 드리프트 계수 라고 하는 데이터 드리프트의 크기를 측정 합니다.
-+ 기능에의 한 데이터 드리프트 기여를 측정 하 여 데이터 드리프트를 발생 시킨 기능을 알립니다.
++ 데이터 드리프트를 발생 시킨 기능을 나타내는 기능별 데이터 드리프트 기여를 측정 합니다.
 + 거리 메트릭을 측정 합니다. 현재 Wasserstein와 에너지 거리가 계산 됩니다.
 + 기능의 분포를 측정 합니다. 현재 커널 밀도 예측 및 히스토그램
 + 전자 메일로 데이터 드리프트에 경고를 보냅니다.
@@ -90,7 +90,7 @@ from azureml.datadrift import DataDriftDetector, AlertConfiguration
 # if email address is specified, setup AlertConfiguration
 alert_config = AlertConfiguration('your_email@contoso.com')
 
-# create a new DatadriftDetector object
+# create a new DataDriftDetector object
 datadrift = DataDriftDetector.create(ws, model.name, model.version, services, frequency="Day", alert_config=alert_config)
     
 print('Details of Datadrift Object:\n{}'.format(datadrift))
@@ -112,7 +112,7 @@ run = datadrift.run(target_date, services, feature_list=feature_list, compute_ta
 
 # show details of the data drift run
 exp = Experiment(ws, datadrift._id)
-dd_run = Run(experiment=exp, run_id=run)
+dd_run = Run(experiment=exp, run_id=run.id)
 RunDetails(dd_run).show()
 ```
 
@@ -142,7 +142,7 @@ datadrift_contribution|드리프트에 영향을 주는 기능의 중요 한 기
 # start and end are datetime objects 
 drift_metrics = datadrift.get_output(start_time=start, end_time=end)
 
-# Show all data drift result figures, one per serivice.
+# Show all data drift result figures, one per service.
 # If setting with_details is False (by default), only the data drift magnitude will be shown; if it's True, all details will be shown.
 drift_figures = datadrift.show(with_details=True)
 ```

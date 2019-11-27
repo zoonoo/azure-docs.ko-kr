@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/26/2019
 ms.author: b-juche
-ms.openlocfilehash: 815ac261a29f710914347443f7882b9fe682229f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5e69df816e67ddc346ac8452c9bdc8bbd68fa426
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173601"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546950"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -143,6 +143,10 @@ Azure Active Directory Domain Services에서 Azure NetApp Files를 사용 하는
 
 Azure NetApp Files는 Windows Server 2008 R2sp1-2019 버전의 Active Directory Domain Services를 지원 합니다.
 
+### <a name="why-does-the-available-space-on-my-smb-client-not-show-the-provisioned-size"></a>SMB 클라이언트에서 사용 가능한 공간에 프로 비전 된 크기가 표시 되지 않는 이유는 무엇 인가요?
+
+SMB 클라이언트에서 보고 하는 볼륨 크기는 Azure NetApp Files 볼륨의 크기를 늘릴 수 있는 최대 크기입니다. SMB 클라이언트에 표시 되는 Azure NetApp Files 볼륨의 크기는 볼륨의 할당량 또는 크기를 반영 하지 않습니다. Azure Portal 또는 API를 통해 Azure NetApp Files 볼륨 크기 또는 할당량을 가져올 수 있습니다.
+
 ## <a name="capacity-management-faqs"></a>용량 관리 Faq
 
 ### <a name="how-do-i-monitor-usage-for-capacity-pool-and-volume-of-azure-netapp-files"></a>용량 풀 및 Azure NetApp Files 볼륨에 대 한 사용량을 모니터링 어떻게 할까요?? 
@@ -193,7 +197,7 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- [Microsoft Azure ExpressRoute Faq](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

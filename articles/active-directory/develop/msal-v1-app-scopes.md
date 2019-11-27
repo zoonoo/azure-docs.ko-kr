@@ -12,24 +12,25 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/23/2019
+ms.date: 11/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0590614e1c1bc7331246e76fa26a6567a05324e6
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 70a8a5859c7f1e2353b53d01a25a0ca39e0b04dd
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532346"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532988"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 
-OAuth2 권한은 개발자용 Azure AD(v1.0) 웹 API(리소스) 애플리케이션에서 클라이언트 애플리케이션에 공개하는 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. [Azure Active Directory 애플리케이션 매니페스트 참조](reference-app-manifest.md#manifest-reference)에서 `oauth2Permissions` 관련 섹션을 참조하세요.
+OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소스) 응용 프로그램이 클라이언트 응용 프로그램에 노출 하는 사용 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. `oauth2Permissions`Azure Active Directory 애플리케이션 매니페스트 참조[에서 ](reference-app-manifest.md#manifest-reference) 관련 섹션을 참조하세요.
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
-v1.0 애플리케이션의 특정 범위(예: Azure AD 그래프 - https:\//graph.windows.net)에 대한 토큰을 획득하려면 원하는 리소스 식별자를 해당 리소스에 대해 원하는 OAuth2 권한과 연결하여 범위를 만들어야 합니다.
+
+V 1.0 응용 프로그램의 특정 범위 (예: https:\//graph.windows.net)에 대 한 토큰을 얻으려면 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 권한과 연결 하 여 범위를 만들어야 합니다.
 
 예를 들어 앱 ID URI가 `ResourceId`인 v1.0 web API에 사용자를 대신하여 액세스하려면 다음과 같습니다.
 
@@ -41,7 +42,7 @@ var scopes = new [] {  ResourceId+"/user_impersonation"};
 var scopes = [ ResourceId + "/user_impersonation"];
 ```
 
-Azure AD 그래프 API(https:\//graph.windows.net/)를 사용하여 MSAL.NET Azure Active Directory에서 읽고 쓰려면 다음과 같은 범위 목록을 만듭니다.
+Azure AD Graph API (https:\//graph.windows.net/)를 사용 하 여 MSAL.NET Azure AD에 대 한 읽기 및 쓰기를 수행 하려면 다음 예제와 같이 범위 목록을 만들어야 합니다.
 
 ```csharp
 string ResourceId = "https://graph.windows.net/";
@@ -53,7 +54,7 @@ var ResourceId = "https://graph.windows.net/";
 var scopes = [ ResourceId + "Directory.Read", ResourceID + "Directory.Write"];
 ```
 
-Azure Resource Manager API(https:\//management.core.windows.net/)에 해당하는 범위를 작성하려면 다음 범위를 요청해야 합니다(이중 슬래시에 주의).
+Azure Resource Manager API (https:\//management.core.windows.net/)에 해당 하는 범위를 작성 하려면 다음 범위를 요청 해야 합니다 (두 개의 슬래시 참고).
 
 ```csharp
 var scopes = new[] {"https://management.core.windows.net//user_impersonation"};
@@ -67,11 +68,12 @@ var result = await app.AcquireTokenInteractive(scopes).ExecuteAsync();
 
 Azure AD에서 사용하는 논리는 다음과 같습니다.
 
-- v1.0 액세스 토큰을 사용하는 ADAL(v1.0) 엔드포인트의 경우(유일하게 가능한 경우) audio=resource
-- MSAL(Microsoft ID 플랫폼(v2.0) 엔드포인트)에서 v2.0 토큰을 허용하는 리소스에 대한 액세스 토큰을 요청하는 경우 aud=resource.AppId
-- MSAL(v2.0 엔드포인트)에서 v1.0 액세스 토큰을 허용하는 리소스(위의 경우)에 대한 액세스 토큰을 요청하는 경우 Azure AD는 마지막 슬래시 앞의 모든 항목을 가져와서 리소스 식별자로 사용하여 요청된 범위에서 원하는 대상 그룹을 구문 분석합니다. 따라서 https:\//database.windows.net에서 "https:\//database.windows.net/"의 대상이 예상된다면, "https:\//database.windows.net//.default"의 범위를 요청해야 합니다. GitHub 문제 [#747: 리소스 URL의 후행 슬래시가 누락되어 sql 인증 실패 문제](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)도 참조하세요.
+- V2.0 액세스 토큰이 포함 된 ADAL (Azure AD v1.0) 끝점의 경우 (가능한 경우) aud = resource
+- MSAL (v2.0 (Microsoft identity platform))의 경우 v2.0 토큰을 수락 하는 리소스에 대 한 액세스 토큰을 요청 하는 끝점 `aud=resource.AppId`
+- V 1.0 액세스 토큰을 허용 하는 리소스 (위의 경우)에 대 한 액세스 토큰을 요청 하는 MSAL (v2.0 끝점)의 경우, Azure AD는 마지막 슬래시 앞에 있는 모든 항목을 사용 하 고 리소스 식별자로 사용 하 여 요청 된 범위에서 원하는 대상 그룹을 구문 분석 합니다. 따라서 https:\//database.windows.net에 "https:\//database.windows.net/"의 대상이 필요한 경우 "https:\//database.windows.net//.default" 범위를 요청 해야 합니다. 참고 항목: GitHub 문제 [#747: 리소스 url의 후행 슬래시가 생략 되어 sql 인증 오류가 발생](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues/747)했습니다.
 
 ## <a name="scopes-to-request-access-to-all-the-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 모든 권한에 대한 액세스를 요청하는 범위
+
 v1.0 애플리케이션의 모든 정적 범위에 대한 토큰을 획득하려면 “default”를 API의 앱 ID URI에 추가합니다.
 
 ```csharp
@@ -84,5 +86,6 @@ var ResourceId = "someAppIDURI";
 var scopes = [ ResourceId + "/.default"];
 ```
 
-## <a name="scopes-to-request-for-client-credential-flow--daemon-app"></a>클라이언트 자격 증명 흐름/디먼 앱의 경우 요청하는 범위
+## <a name="scopes-to-request-for-a-client-credential-flowdaemon-app"></a>클라이언트 자격 증명 흐름/디먼 앱에 대 한 요청 범위
+
 클라이언트 자격 증명 흐름의 경우 전달하는 범위도 `/.default`가 됩니다. 이렇게 하면 관리자가 애플리케이션 등록에서 동의한 모든 앱 수준 권한을 요청한다고 Azure AD에 알려줍니다.

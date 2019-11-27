@@ -9,26 +9,28 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 1cfddf14d60b7d73bae283a18732c7c99ae22b4d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: a943d2a8453cb727e9d01e35b12ca90d939ee5e8
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898223"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546304"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Azure AD Domain Services에서 그룹 관리 서비스 계정 (gMSA) 만들기
 
-응용 프로그램 및 서비스는 다른 리소스를 사용 하 여 자신을 인증 하기 위해 id가 필요 하기도 합니다. 예를 들어 웹 서비스는 데이터베이스 서비스를 사용 하 여 인증 해야 할 수 있습니다. 응용 프로그램 또는 서비스에 웹 서버 팜과 같은 여러 인스턴스가 있는 경우 해당 리소스에 대 한 id를 수동으로 만들고 구성 하면 시간이 많이 걸립니다. 대신 gMSA (그룹 관리 서비스 계정)를 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에서 만들 수 있습니다. Windows OS는 gMSA에 대 한 자격 증명을 자동으로 관리 하 여 많은 리소스 그룹의 관리를 간소화 합니다.
+응용 프로그램 및 서비스는 다른 리소스를 사용 하 여 자신을 인증 하기 위해 id가 필요 하기도 합니다. 예를 들어 웹 서비스는 데이터베이스 서비스를 사용 하 여 인증 해야 할 수 있습니다. 응용 프로그램 또는 서비스에 웹 서버 팜과 같은 여러 인스턴스가 있는 경우 해당 리소스에 대 한 id를 수동으로 만들고 구성 하면 시간이 많이 걸립니다.
 
-이 문서에서는 Azure AD DS 관리 되는 도메인에서 gMSA를 만드는 방법을 보여 줍니다.
+대신 gMSA (그룹 관리 서비스 계정)를 Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에서 만들 수 있습니다. Windows OS는 gMSA에 대 한 자격 증명을 자동으로 관리 하 여 많은 리소스 그룹의 관리를 간소화 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+이 문서에서는 Azure PowerShell를 사용 하 여 Azure AD DS 관리 되는 도메인에 gMSA를 만드는 방법을 보여 줍니다.
+
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
-* 활성화된 Azure 구독.
+* 활성 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
@@ -59,6 +61,9 @@ Azure AD DS 관리 되는 도메인은 Microsoft에서 잠그고 관리할 수 �
 ## <a name="create-a-gmsa"></a>GMSA 만들기
 
 먼저 [ADOrganizationalUnit][New-AdOrganizationalUnit] cmdlet을 사용 하 여 사용자 지정 OU를 만듭니다. 사용자 지정 Ou를 만들고 관리 하는 방법에 대 한 자세한 내용은 [Azure AD DS의 사용자 지정 ou][create-custom-ou]를 참조 하세요.
+
+> [!TIP]
+> 이러한 단계를 완료 하 여 gMSA를 만들려면 [관리 VM을 사용][tutorial-create-management-vm]합니다. 이 관리 VM에는 필수 AD PowerShell cmdlet 및 관리 되는 도메인에 대 한 연결이 이미 있어야 합니다.
 
 다음 예제에서는 *contoso.com*이라는 Azure AD DS 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
 

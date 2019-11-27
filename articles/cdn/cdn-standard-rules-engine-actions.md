@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 11/01/2019
 ms.author: magattus
 ms.openlocfilehash: 53280bc90f629d93ff8a045c80f34a73970b43f6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
+ms.lasthandoff: 11/26/2019
 ms.locfileid: "74171629"
 ---
 # <a name="actions-in-the-standard-rules-engine-for-azure-cdn"></a>Azure CDN에 대 한 표준 규칙 엔진의 작업
@@ -87,10 +87,10 @@ int | int | int | int
 
 필드 | 설명 
 ------|------------
-형식 | 요청자에 게 반환할 응답 형식을 선택 합니다. (302), 이동한 (301), 임시 리디렉션 (307) 및 영구 리디렉션 (308).
+에 | 요청자에 게 반환할 응답 형식을 선택 합니다. (302), 이동한 (301), 임시 리디렉션 (307) 및 영구 리디렉션 (308).
 프로토콜 | 요청, HTTP, HTTPS를 일치 시킵니다.
-Hostname | 요청을 리디렉션할 호스트 이름을 선택 합니다. 들어오는 호스트를 유지 하려면 비워 두세요.
-경로 | 리디렉션에 사용할 경로를 정의 합니다. 들어오는 경로를 유지 하려면 비워 두십시오.  
+호스트 이름 | 요청을 리디렉션할 호스트 이름을 선택 합니다. 들어오는 호스트를 유지 하려면 비워 두세요.
+Path | 리디렉션에 사용할 경로를 정의 합니다. 들어오는 경로를 유지 하려면 비워 두십시오.  
 쿼리 문자열 | 리디렉션에 사용 되는 쿼리 문자열을 정의 합니다. 들어오는 쿼리 문자열을 유지 하려면 비워 두십시오. 
 조각 | 리디렉션에 사용할 조각을 정의 합니다. 들어오는 조각을 유지 하려면 비워 두십시오. 
 

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: article
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: a4aebd27e5f71680610ff8cc9ba211dedfe41219
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: a65e8b2c5fbcdd4f6df0f8f39b24fa97b8deeca3
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485108"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534424"
 ---
 # <a name="use-python-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2의 Acl & 파일에 대해 Python 사용 (미리 보기)
 
@@ -268,11 +268,11 @@ def list_directory_contents():
      print(e) 
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 * [API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/python/azure-storage-file-datalake/12.0.0b5/index.html)
 * [패키지 (Python 패키지 인덱스)](https://pypi.org/project/azure-storage-file-datalake/)
 * [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/samples)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-file-datalake/GEN1_GEN2_MAPPING.md)
-* [알려진 기능 간격](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [사용자 의견 제공](https://github.com/Azure/azure-sdk-for-python/issues)

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8261723f145c7b8ba01e27108e7a309f9f483d2c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993143"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546268"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 문제에 대 한 전자 메일 알림 구성
 
@@ -68,7 +68,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 된 것입니까?
+### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 된 건가요?
 
 경고가 해결 되 면 Azure Portal에서 경고가 지워집니다. 전자 메일 알림을 받는 누군가가 Azure AD DS 관리 되는 도메인에 대 한 경고를 해결 했거나 Azure platform에 의해 autoresolved 이유 때문일 수 있습니다.
 
@@ -76,9 +76,9 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 Azure Portal에서 알림 설정 페이지에 액세스할 수 없는 경우 Azure AD DS 관리 되는 도메인을 편집할 수 있는 권한이 없습니다. 전역 관리자에 게 문의 하 여 Azure AD DS 리소스를 편집 하거나 받는 사람 목록에서 제거 하는 권한을 받아야 합니다.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 이유가 무엇일까요?
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 그 이유는
 
-전자 메일에서 알림을 받을 스팸 또는 정크 폴더를 확인 하 고의 `azure-noreply@microsoft.com`발신자를 허용 해야 합니다.
+전자 메일에서 전자 메일의 스팸 또는 정크 폴더를 확인 하 고 `azure-noreply@microsoft.com`발신자를 허용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

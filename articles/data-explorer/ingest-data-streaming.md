@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 712273ddfb8b6f781627e2cc7915a1f538f57b4d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 4f9804ed0e7d6c83a4f6fc732f836fcecce1c2e7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090624"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74548334"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -25,7 +25,7 @@ ms.locfileid: "71090624"
 > * [데이터베이스 커서](/azure/kusto/management/databasecursor).
 > * [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [웹 UI](https://dataexplorer.azure.com/)에 로그인 합니다.
@@ -54,7 +54,7 @@ ms.locfileid: "71090624"
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>적절 한 스트리밍 수집 유형 선택
 
-|   |Event Hubs  |사용자 지정 수집  |
+|   |이벤트 허브  |사용자 지정 수집  |
 |---------|---------|---------|
 |수집 시작 및 쿼리에 사용할 수 있는 데이터 간의 데이터 지연   |    지연 시간 초과     |   짧은 지연      |
 |개발 오버 헤드    |   빠르고 쉬운 설치, 개발 오버 헤드 없음    |   응용 프로그램에서 오류를 처리 하 고 데이터 일관성을 유지 하기 위한 높은 개발 오버 헤드     |
@@ -73,8 +73,7 @@ ms.locfileid: "71090624"
 
 ## <a name="limitations"></a>제한 사항
 
-* VM 및 클러스터 크기를 늘려 스트리밍 수집 성능 및 용량을 확장 합니다. 단일 D14 노드에 대해 권장 되는 로드는 초당 최대 150 요청입니다.
-* 현재는 8 및 16 코어 Sku (D13, D14, L8 및 L16)만 지원 합니다.
+* VM 및 클러스터 크기를 늘려 스트리밍 수집 성능 및 용량을 확장 합니다. 동시 ingestions는 코어 당 6 ingestions로 제한 됩니다. 예를 들어 D14 및 L16와 같은 16 개 코어 Sku의 경우 지원 되는 최대 부하는 96 동시 ingestions입니다. 코어 2와 같은 2 개 코어 Sku의 경우 지원 되는 최대 부하는 12 개의 동시 ingestions입니다.
 * 수집 요청당 데이터 크기 제한은 4mb입니다.
 * 테이블 생성 및 수정과 수집 매핑 등의 스키마 업데이트는 스트리밍 수집 서비스에 대해 최대 5 분이 걸릴 수 있습니다.
 * 데이터가 스트리밍을 통해 수집 않는 경우에도 클러스터에서 스트리밍 수집을 사용 하도록 설정 하면에서 클러스터 컴퓨터의 로컬 SSD 디스크의 일부를 사용 하 여 수집 데이터를 스트리밍하 고 핫 캐시에 사용할 수 있는 저장소를 줄입니다.

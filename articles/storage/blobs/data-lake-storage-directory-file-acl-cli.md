@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 95bb43f1531b6234ccb90eb7d66404ccc66f60f3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: HT
+ms.openlocfilehash: dcd75cfefd53b3c9104052146607869515e1c86e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485147"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534290"
 ---
 # <a name="use-azure-cli-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2 (미리 보기)에서 파일 & Acl의 Azure CLI 사용
 
@@ -296,11 +296,11 @@ az storage blob directory metadata update --metadata tag1=value1 tag2=value2 -c 
 az storage blob directory metadata show -c my-file-system -d my-directory --account-name mystorageaccount
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 * [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview)
 * [Gen1 to Gen2 mapping](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2)
 * [사용자 의견 제공](https://github.com/Azure/azure-cli-extensions/issues)
-* [알려진 기능 간격](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [소스 코드](https://github.com/Azure/azure-cli-extensions/tree/master/src)
 
