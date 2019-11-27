@@ -35,7 +35,7 @@ Azure AD에는 애플리케이션의 두 가지 표현이 있습니다.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>애플리케이션 개체란 무엇이며 어디에서 생겨날까요?
 
-Azure Portal에서 [앱 등록](app-objects-and-service-principals.md#application-object) 환경을 통해 [애플리케이션 개체](https://aka.ms/appregistrations)를 관리할 수 있습니다. 애플리케이션 개체는 Azure AD에 대한 애플리케이션을 설명하며, 애플리케이션의 정의로 간주되어 서비스에서 해당 설정에 따라 애플리케이션에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 애플리케이션인 경우에도 애플리케이션 개체는 홈 디렉터리에만 있습니다. 애플리케이션 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
+Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경을 통해 [애플리케이션 개체](app-objects-and-service-principals.md#application-object)를 관리할 수 있습니다. 애플리케이션 개체는 Azure AD에 대한 애플리케이션을 설명하며, 애플리케이션의 정의로 간주되어 서비스에서 해당 설정에 따라 애플리케이션에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 애플리케이션인 경우에도 애플리케이션 개체는 홈 디렉터리에만 있습니다. 애플리케이션 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
 
 * 이름, 로고 및 게시자
 * 리디렉션 URI
@@ -57,7 +57,7 @@ Azure Portal에서 [앱 등록](app-objects-and-service-principals.md#applicatio
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>서비스 주체란 무엇이며 어디에서 생겨날까요?
 
-Azure Portal에서 [엔터프라이즈 애플리케이션](app-objects-and-service-principals.md#service-principal-object) 환경을 통해 [서비스 주체](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 애플리케이션을 관리하며, 디렉터리에 있는 애플리케이션의 인스턴스로 간주될 수 있습니다. 주어진 애플리케이션의 경우 “home” 디렉터리에 등록된 애플리케이션 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 애플리케이션의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
+Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](app-objects-and-service-principals.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 애플리케이션을 관리하며, 디렉터리에 있는 애플리케이션의 인스턴스로 간주될 수 있습니다. 주어진 애플리케이션의 경우 “home” 디렉터리에 등록된 애플리케이션 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 애플리케이션의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
 
 서비스 주체는 다음을 포함할 수 있습니다.
 

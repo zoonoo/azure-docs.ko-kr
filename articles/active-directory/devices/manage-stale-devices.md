@@ -53,7 +53,7 @@ Azure AD의 부실 디바이스는 조직의 디바이스에 대한 일반적인
 
 활동 타임스탬프의 값을 검색하는 두 가지 옵션이 있습니다.
 
-- Azure Portal의 **디바이스 페이지**에 있는 [활동](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) 열
+- Azure Portal의 [디바이스 페이지](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)에 있는 **활동** 열
 
     ![활동 타임스탬프](./media/manage-stale-devices/01.png)
 

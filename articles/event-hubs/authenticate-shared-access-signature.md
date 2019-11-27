@@ -77,7 +77,7 @@ SAS 토큰은 서명 문자열에 사용 된 <resourceURI> 접두사가 있는 �
 ### <a name="generating-a-signaturetoken-from-a-policy"></a>정책에서 서명 (토큰) 생성 
 다음 섹션에서는 공유 액세스 서명 정책을 사용 하 여 SAS 토큰을 생성 하는 방법을 보여 줍니다.
 
-#### <a name="nodejs"></a>NodeJS
+#### <a name="nodejs"></a>NodeJs
 
 ```javascript
 function createSharedAccessToken(uri, saName, saKey) { 

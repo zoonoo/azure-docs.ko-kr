@@ -26,7 +26,7 @@ Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](
 
 Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 blob 및 큐에 대 한 액세스 권한을 부여 하려면 먼저 VM에서 Azure 리소스에 대 한 관리 되는 id를 사용 하도록 설정 해야 합니다. Azure 리소스의 관리 ID를 사용하도록 설정하는 방법을 알아보려면 다음 문서 중 하나를 참조하세요.
 
-- [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
+- [Azure 포털](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
 - [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
 - [Azure CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
 - [Azure Resource Manager 템플릿](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
@@ -92,7 +92,7 @@ az ad sp create-for-rbac \
 
 Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변수에서 값을 읽어서 서비스 사용자를 인증 합니다. 다음 표에서는 각 환경 변수에 대해 설정할 값을 설명 합니다.
 
-|환경 변수|값
+|환경 변수|Value
 |-|-
 |`AZURE_CLIENT_ID`|서비스 사용자의 앱 ID
 |`AZURE_TENANT_ID`|서비스 주체의 Azure AD 테 넌 트 ID

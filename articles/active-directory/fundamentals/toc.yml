@@ -31,6 +31,18 @@
       href: active-directory-data-storage-eu.md
     - name: Microsoft 365 Government의 새로운 기능
       href: whats-new-microsoft-365-government.md
+    - name: Azure AD 작업 참조
+      items:
+        - name: 소개
+          href: active-directory-ops-guide-intro.md
+        - name: ID 및 액세스 관리
+          href: active-directory-ops-guide-iam.md
+        - name: 인증 관리
+          href: active-directory-ops-guide-auth.md
+        - name: ID 거버넌스
+          href: active-directory-ops-guide-govern.md
+        - name: 작업
+          href: active-directory-ops-guide-ops.md
 - name: 방법 가이드
   expanded: true
   items:

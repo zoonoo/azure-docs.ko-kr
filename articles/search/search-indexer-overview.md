@@ -42,7 +42,7 @@ Azure Cognitive Search의 *인덱서* 는 외부 Azure 데이터 원본에서 �
 
 <a name="supported-data-sources"></a>
 
-## <a name="supported-data-sources"></a>지원되는 데이터 원본
+## <a name="supported-data-sources"></a>지원된 데이터 원본
 
 인덱서는 Azure에서 데이터 저장소를 크롤링합니다.
 

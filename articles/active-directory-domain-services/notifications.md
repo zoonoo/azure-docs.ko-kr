@@ -66,7 +66,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 > [!WARNING]
 > 알림 설정을 변경 하면 사용자 뿐 아니라 전체 Azure AD DS 관리 되는 도메인에 대 한 알림 설정이 업데이트 됩니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="i-received-an-email-notification-for-an-alert-but-when-i-logged-on-to-the-azure-portal-there-was-no-alert-what-happened"></a>경고 이메일 알림을 받았지만 Azure Portal에 로그온하면 경고가 없습니다. 어떻게 된 건가요?
 
@@ -76,7 +76,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 
 Azure Portal에서 알림 설정 페이지에 액세스할 수 없는 경우 Azure AD DS 관리 되는 도메인을 편집할 수 있는 권한이 없습니다. 전역 관리자에 게 문의 하 여 Azure AD DS 리소스를 편집 하거나 받는 사람 목록에서 제거 하는 권한을 받아야 합니다.
 
-### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 그 이유는
+### <a name="i-dont-seem-to-be-receiving-email-notifications-even-though-i-provided-my-email-address-why"></a>내 이메일 주소를 제공했지만 이메일 알림이 수신되지 않는 것 같습니다. 그 이유는 무엇입니까?
 
 전자 메일에서 전자 메일의 스팸 또는 정크 폴더를 확인 하 고 `azure-noreply@microsoft.com`발신자를 허용 해야 합니다.
 

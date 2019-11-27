@@ -31,7 +31,7 @@ ms.locfileid: "74535237"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -101,7 +101,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Promapp을 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-promapp-in-azure-ad"></a>Azure AD에서 Promapp에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -121,11 +121,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 Promapp을 �
 
     ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
-6. **알림 이메일** 필드에 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+6. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**를 클릭합니다.
+7. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 promapp에 동기화를**선택 합니다.
 

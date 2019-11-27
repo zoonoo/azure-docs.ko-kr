@@ -21,7 +21,7 @@ Azure Resource Manager를 사용 하 여 배포 기록을 확인 하 고 이전 
 
 Azure Portal, PowerShell, Azure CLI 또는 REST API를 통해 배포에 대 한 세부 정보를 볼 수 있습니다. 각 배포에는 관련 이벤트를 추적 하는 데 사용 되는 상관 관계 ID가 있습니다. 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. 검사 하려는 리소스 그룹을 선택 합니다.
 
@@ -113,7 +113,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 
 각 배포에는 여러 작업이 포함 될 수 있습니다. 배포에 대 한 자세한 정보를 보려면 배포 작업을 확인 하세요. 배포에 실패 하면 배포 작업에 오류 메시지가 포함 됩니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 
 1. 배포에 대 한 요약에서 **작업 세부 정보**를 선택 합니다.
 

@@ -27,7 +27,7 @@ Azure Functions에서 함수 앱으로 Azure Machine Learning에서 모델을 �
 
 Azure Machine Learning를 통해 학습 된 기계 학습 모델에서 Docker 이미지를 만들 수 있습니다. 이제 Azure Machine Learning에는 이러한 기계 학습 모델을 [Azure Functions에 배포할](https://docs.microsoft.com/azure/azure-functions/functions-deployment-technologies#docker-container)수 있는 함수 앱으로 빌드하는 미리 보기 기능이 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 작업 영역 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)

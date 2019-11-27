@@ -17,7 +17,7 @@ ms.locfileid: "74533283"
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Registry에 저장된 컨테이너 이미지를 Azure Container Instances에 배포하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 **Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
@@ -64,7 +64,7 @@ az keyvault secret set \
 
 이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
 
-다음으로, 인증을 위해 Azure Container Registry에 전달하는 *username*에 해당하는 서비스 주체의 **appId**를 자격 증명 모음에 저장합니다.
+다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**에 해당하는 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)

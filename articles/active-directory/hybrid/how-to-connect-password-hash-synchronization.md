@@ -91,7 +91,7 @@ Active Directory 도메인 서비스는 실제 사용자 암호의 해시 값 �
 
 ##### <a name="public-preview-of-the-enforcecloudpasswordpolicyforpasswordsyncedusers-feature"></a>*EnforceCloudPasswordPolicyForPasswordSyncedUsers* 기능의 공개 미리 보기
 
-Azure AD 통합 서비스와만 상호 작용 하 고 암호 만료 정책을 준수 해야 하는 동기화 된 사용자가 있는 경우 Azure AD 암호 만료 정책을 준수 하도록 설정할 *수 있습니다. EnforceCloudPasswordPolicyForPasswordSyncedUsers* 기능.
+Azure AD 통합 서비스만 상호 작용 하 고 암호 만료 정책을 준수 해야 하는 동기화 된 사용자가 있는 경우 *EnforceCloudPasswordPolicyForPasswordSyncedUsers* 기능을 사용 하도록 설정 하 여 azure ad 암호 만료 정책을 따르도록 강제할 수 있습니다.
 
 *EnforceCloudPasswordPolicyForPasswordSyncedUsers* 사용 하지 않도록 설정 된 경우 (기본 설정) Azure AD Connect 동기화 된 사용자의 passwordpolicies 특성을 "DisablePasswordExpiration"로 설정 합니다. 사용자의 암호가 동기화 될 때마다 수행 되며, 해당 사용자에 대 한 클라우드 암호 만료 정책을 무시 하도록 Azure AD에 지시 합니다. 다음 명령을 사용 하 여 Azure AD PowerShell 모듈을 사용 하 여 특성의 값을 확인할 수 있습니다.
 
@@ -123,7 +123,7 @@ Azure AD는 등록 된 도메인 마다 별도의 암호 만료 정책을 지원
   
 임시 암호 기능을 사용 하면 자격 증명의 소유권 전송이 처음 사용 될 때 완료 되어 둘 이상의 개인이 해당 자격 증명을 알고 있는 기간을 최소화할 수 있습니다.
 
-Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려면 Azure AD Connect 서버에서 다음 명령을 실행 하 여 *ForcePasswordResetOnLogonFeature* 기능을 사용 하도록 설정할 수 있습니다. <AAD Connector Name>을에 특정 한 커넥터 이름으로 바꿉니다. 사용자 환경:
+Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려면 Azure AD Connect 서버에서 다음 명령을 실행 하 여 <AAD Connector Name>을 사용자 환경에 맞는 커넥터 이름으로 바꿔 *ForcePasswordResetOnLogonFeature* 기능을 사용 하도록 설정할 수 있습니다.
 
 `Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
 
@@ -155,7 +155,7 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 
 ### <a name="additional-advantages"></a>추가적인 이점
 
-- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 구현에 더 가깝습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
+- 일반적으로 암호 해시 동기화는 페더레이션 서비스보다 더 쉽게 구현할 수 있습니다. 추가 서버가 필요 없으며, 사용자를 인증하기 위해 고가용성의 페더레이션 서비스에 의존하지 않아도 됩니다.
 - 페더레이션 외에 암호 해시 동기화를 사용하도록 설정할 수도 있습니다. 페더레이션 서비스에 중단이 발생하는 경우 대체 서비스로 사용될 수 있습니다.
 
 ## <a name="password-hash-sync-process-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 암호 해시 동기화 프로세스

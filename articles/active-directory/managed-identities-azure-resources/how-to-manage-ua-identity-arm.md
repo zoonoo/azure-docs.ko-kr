@@ -34,7 +34,7 @@ Azure Resource Manager 템플릿을 사용하여 사용자 할당 관리 ID를 �
 
 - [사용자 할당 관리 ID 나열](how-to-manage-ua-identity-cli.md#list-user-assigned-managed-identities)
 - [사용자 할당 관리 ID 삭제](how-to-manage-ua-identity-cli.md#delete-a-user-assigned-managed-identity)
-  ## <a name="prerequisites"></a>선행 조건
+  ## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.

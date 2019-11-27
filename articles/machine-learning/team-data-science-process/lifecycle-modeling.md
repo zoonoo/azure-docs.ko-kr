@@ -25,7 +25,7 @@ ms.locfileid: "74538216"
    1. **비즈니스 이해**
    2. **데이터 취득 및 이해**
    3. **모델링**
-   4. **배포웹사이트를**
+   4. **배포**
    5. **고객 승인**
 
 다음은 TDSP 수명 주기를 시각적으로 나타낸 것입니다.
@@ -69,7 +69,7 @@ ms.locfileid: "74538216"
 
 여러 알고리즘 및 매개 변수 스윕을 통해 실행하여 기본 모델을 생성할 수 있는 [자동화된 모델링 및 보고 도구](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling)에 TDSP를 제공합니다. 또한 각 모델의 성능과 변수 중요도를 포함한 매개 변수 조합을 요약한 기본 모델링 보고서를 생성합니다. 이 프로세스는 추가 기능 엔지니어링을 진행할 수 있으므로 반복적입니다. 
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
    * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.
@@ -85,7 +85,7 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    1. [비즈니스 이해](lifecycle-business-understanding.md)
    2. [데이터 취득 및 이해](lifecycle-data.md)
    3. [모델링](lifecycle-modeling.md)
-   4. [배포웹사이트를](lifecycle-deployment.md)
+   4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
 특정 시나리오 프로세스의 모든 단계를 보여주는 전체 엔드투엔드 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 

@@ -26,8 +26,8 @@ Site Recovery의 기능은 다음과 같습니다.
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)를 사용하여 SAP NetWeaver 애플리케이션 배포를 보호하는 방법을 설명합니다. Site Recovery를 사용하여 다른 Azure 데이터 센터로 복제하여 3계층 SAP NetWeaver 배포를 보호하는 모범 사례도 보여줍니다. 또한, 지원되는 시나리오와 구성을 설명하고, 테스트 장애 조치(failover)(재해 복구 연습)와 실제 장애 조치(failover)를 수행하는 방법을 안내합니다.
 
-## <a name="prerequisites"></a>선행 조건
-시작하기 전에 다음 작업을 수행하는 방법을 알고 있어야 합니다.
+## <a name="prerequisites"></a>전제 조건
+시작하기 전에 다음 작업을 수행하는 방법을 알고 있는지 확인합니다.
 
 * [Azure에 가상 머신 복제](azure-to-azure-walkthrough-enable-replication.md)
 * [복구 네트워크 디자인](site-recovery-azure-to-azure-networking-guidance.md)
@@ -143,25 +143,25 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 ![SAP 복구 계획](./media/site-recovery-sap/sap_recovery_plan.png)
 
 
-## <a name="run-a-test-failover"></a>테스트 장애 조치(Failover) 실행
+## <a name="run-a-test-failover"></a>테스트 장애 조치(failover) 실행
 
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.
 3.  **테스트 장애 조치**를 선택합니다.
-4.  테스트 장애 조치(failover) 프로세스를 시작하려면 복구 지점과 Azure 가상 네트워크를 선택합니다.
+4.  테스트 장애 조치 프로세스를 시작하려면 복구 지점 및 Azure 가상 네트워크를 선택합니다.
 5.  보조 환경이 가동 중인 경우 유효성 검사를 수행할 수 있습니다.
 6.  유효성 검사가 완료되면 장애 조치(failover) 환경을 정리하기 위해 **테스트 장애 조치(failover) 정리**를 선택합니다.
 
-자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
+자세한 내용은 [Site Recovery에서 Azure에 테스트 장애 조치](site-recovery-test-failover-to-azure.md) 문서를 참조하세요.
 
 ## <a name="run-a-failover"></a>장애 조치(Failover) 실행
 
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.
-3.  **장애 조치(failover)** 를 선택합니다.
+3.  **장애 조치**를 선택합니다.
 4.  복구 지점을 선택하여 장애 조치(failover) 프로세스를 시작합니다.
 
-자세한 내용은 [Site Recovery에서 장애 조치(failover)](site-recovery-failover.md)를 참조하세요.
+자세한 내용은 [Site Recovery에서 장애 조치](site-recovery-failover.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Site Recovery를 사용하여 SAP NetWeaver 배포를 위한 재해 복구 솔루션을 빌드하는 방법을 자세히 알아보려면 백서 [SAP NetWeaver: Azure Site Recovery를 사용하여 재해 복구 솔루션 빌드](https://aka.ms/asr_sap)를 다운로드하여 참조하세요. 이 백서에서는 다양한 SAP 아키텍처의 권장 사항에 대해 설명하고, Azure의 SAP에서 지원되는 애플리케이션 및 VM 유형을 나열하며, 재해 복구 솔루션에서 사용할 수 있는 테스트 계획 옵션에 대해 설명합니다.

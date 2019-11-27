@@ -18,7 +18,7 @@ ms.locfileid: "74534079"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 통합 계정 만들기 및 관리
 
-[Azure Logic Apps](../logic-apps/logic-apps-enterprise-integration-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다.
+[Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용하여 [엔터프라이즈 통합 및 B2B 솔루션](../logic-apps/logic-apps-enterprise-integration-overview.md)을 빌드하려면 먼저 통합 계정을 만들어야 합니다. 이 계정은 논리 앱 워크플로에서 정의하고 사용할 수 있는 통합 아티팩트에 대한 안전하고 확장 가능하며 관리할 수 있는 컨테이너를 제공하는 별도의 Azure 리소스입니다.
 
 예를 들어 거래 업체, 규약, 맵, 스키마, 인증서 및 일괄 처리 구성과 같은 B2B 아티팩트를 생성, 저장 및 관리할 수 있습니다. 또한 논리 앱이 이러한 아티팩트를 사용 하 여 작동 하 고 Logic Apps B2B 커넥터를 사용 하기 전에 [통합 계정을](#link-account) 논리 앱에 연결 해야 합니다. 통합 계정 및 논리 앱은 모두 *동일한* 위치 또는 지역에 있어야 합니다.
 
@@ -34,9 +34,9 @@ ms.locfileid: "74534079"
 * 통합 계정을 다른 Azure 리소스 그룹 또는 구독으로 이동합니다.
 * 통합 계정을 삭제합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 ## <a name="create-integration-account"></a>통합 계정 만들기
 
@@ -56,14 +56,14 @@ ms.locfileid: "74534079"
 
    ![통합 계정 세부 정보 제공](./media/logic-apps-enterprise-integration-create-integration-account/integration-account-details.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
-   | **Name** | 예 | <*integration-account-name*> | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)를 포함할 수 있는 통합 계정의 이름입니다. 이 예에서는 "Fabrikam-통합"을 사용 합니다. |
-   | **구독** | 예 | <*Azure-subscription-name*> | Azure 구독의 이름 |
-   | **리소스 그룹** | 예 | <*Azure-resource-group-name*> | 관련 리소스를 구성 하는 데 사용할 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 의 이름입니다. 이 예에서는 "FabrikamIntegration-RG" 라는 이름으로 새 리소스 그룹을 만듭니다. |
-   | **가격 책정 계층** | 예 | <*가격 책정 수준*> | 통합 계정에 대 한 가격 책정 계층으로, 나중에 변경할 수 있습니다. 이 예에서는 **Free**를 선택 합니다. 자세한 내용은 다음 항목을 참조하세요. <p>- [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) |
-   | **위치** | 예 | <*Azure-region*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
-   | **Log Analytics** | 아니오 | 꺼짐, 켜기 | 이 예에서는 **Off** 설정을 그대로 둡니다. |
+   | **Name** | yes | <*integration-account-name*> | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`), 괄호 (`(`, `)`) 및 마침표 (`.`)를 포함할 수 있는 통합 계정의 이름입니다. 이 예에서는 "Fabrikam-통합"을 사용 합니다. |
+   | **구독** | yes | <*Azure-subscription-name*> | Azure 구독의 이름 |
+   | **리소스 그룹** | yes | <*Azure-resource-group-name*> | 관련 리소스를 구성 하는 데 사용할 [Azure 리소스 그룹](../azure-resource-manager/resource-group-overview.md) 의 이름입니다. 이 예에서는 "FabrikamIntegration-RG" 라는 이름으로 새 리소스 그룹을 만듭니다. |
+   | **가격 책정 계층** | yes | <*가격 책정 수준*> | 통합 계정에 대 한 가격 책정 계층으로, 나중에 변경할 수 있습니다. 이 예에서는 **Free**를 선택 합니다. 자세한 내용은 다음 항목을 참조하세요. <p>- [Logic Apps 가격 책정 모델](../logic-apps/logic-apps-pricing.md#integration-accounts) <p>- [Logic Apps 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#integration-account-limits) <p>- [Logic Apps 가격 책정](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **위치** | yes | <*Azure-region*> | 통합 계정 메타 데이터를 저장할 지역입니다. 논리 앱과 동일한 위치를 선택 하거나 통합 계정과 동일한 위치에 논리 앱을 만듭니다. 이 예에서는 "미국 서 부"를 사용 합니다. <p>**참고**: [ise (integration service environment)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)내에서 통합 계정을 만들려면 해당 ise를 위치로 선택 합니다. 자세한 내용은 [ISE에서 통합 계정 만들기](../logic-apps/add-artifacts-integration-service-environment-ise.md#create-integration-account-environment)를 참조 하세요. |
+   | **Log Analytics** | 아닙니다. | 꺼짐, 켜기 | 이 예에서는 **Off** 설정을 그대로 둡니다. |
    |||||
 
 1. 완료 되 면 **만들기**를 선택 합니다.
@@ -113,7 +113,7 @@ ms.locfileid: "74534079"
 
 이렇게 변경 하려면이 섹션의 단계 또는 [Azure CLI](#upgrade-tier-azure-cli)을 수행 하 여 Azure Portal를 사용할 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure Portal
 
 1. Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -207,7 +207,7 @@ ms.locfileid: "74534079"
    },
    ```
 
-   예:
+   다음은 그 예입니다.
 
    !["IntegrationAccount" 개체 찾기](./media/logic-apps-enterprise-integration-create-integration-account/resource-explorer-delete-integration-account.png)
 

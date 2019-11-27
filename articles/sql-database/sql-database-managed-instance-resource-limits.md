@@ -78,7 +78,7 @@ ms.locfileid: "74548379"
 | 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>최대 22 m b/초 | vCore 당 4mb/s<br/>최대 48MB/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>[더 나은 IO 성능을 얻기 위해 파일 크기를 늘릴](#file-io-characteristics-in-general-purpose-tier) \* | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
-| 메모리 내 OLTP | 지원되지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
+| 메모리 내 OLTP | 지원하지 않음 | 사용 가능, [크기는 vCore의 수에 따라 다릅니다](#in-memory-oltp-available-space) . |
 | 최대 세션 | 30000 | 30000 |
 | [읽기 전용 복제본](sql-database-read-scale-out.md) | 0 | 1 (가격에 포함 됨) |
 
@@ -98,7 +98,7 @@ ms.locfileid: "74548379"
 
 | 파일 크기           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| 파일당 IOPS       | 500   | 1100 | 2,300              | 5000              | 7,500              | 7,500              | 12,500   |
+| 파일당 IOPS       | 500   | 1100 | 2,300              | 5,000              | 7,500              | 7,500              | 12,500   |
 | 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 
 
 일부 데이터베이스 파일에서 높은 IO 대기 시간이 발생 하거나 IOPS/처리량이 제한에 도달 하는 것을 확인 한 경우 [파일 크기를 늘려서](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337)성능을 향상 시킬 수 있습니다.
@@ -137,7 +137,7 @@ ms.locfileid: "74548379"
 |종량제|3|320|
 |CSP |8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |종량제 개발/테스트|3|320|
-|Enterprise 개발/테스트|3|320|
+|엔터프라이즈 개발/테스트|3|320|
 |EA|8 (일부 지역의 경우 15 * *)|960 (일부 지역에서 1440 * *)|
 |Visual Studio Enterprise|2 |64|
 |Visual Studio Professional 및 MSDN 플랫폼|2|32|

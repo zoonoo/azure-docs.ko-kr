@@ -19,7 +19,7 @@ ms.locfileid: "74533602"
 
 Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 로깅, 모니터링 또는 서비스가 두 번째 연결 된 프로세스를 필요로 하는 기타 구성에 대해 사이드카 응용 프로그램을 빌드할 때 유용 합니다.
 
-이 자습서에서는 Azure CLI를 사용 하 여 [Yaml 파일](container-instances-reference-yaml.md) 을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 다음 방법에 대해 알아봅니다.
+이 자습서에서는 Azure CLI를 사용 하 여 [Yaml 파일](container-instances-reference-yaml.md) 을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * YAML 파일 구성
@@ -29,7 +29,7 @@ Azure Container Instances에서는 [컨테이너 그룹](container-instances-con
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -129,7 +129,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
 ```
 
-출력:
+출력
 
 ```console
 listening on port 80
@@ -144,7 +144,7 @@ listening on port 80
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-sidecar
 ```
 
-출력:
+출력
 
 ```console
 Every 3s: curl -I http://localhost                          2019-03-21 20:36:41

@@ -40,11 +40,11 @@ ms.locfileid: "74546237"
 
 Azure Portal 또는 PowerShell을 사용 하 여 범위 지정 동기화 설정을 구성 합니다.
 
-| 작업 | | |
+| 실행력 | | |
 |--|--|--|
-| Azure AD DS 관리 되는 도메인을 만들고 범위 동기화를 구성 합니다. | [Azure Portal](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
-| 범위 동기화 수정 | [Azure Portal](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
-| 범위 동기화 사용 안 함 | [Azure Portal](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
+| Azure AD DS 관리 되는 도메인을 만들고 범위 동기화를 구성 합니다. | [Azure 포털](#enable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#enable-scoped-synchronization-using-powershell) |
+| 범위 동기화 수정 | [Azure 포털](#modify-scoped-synchronization-using-the-azure-portal) | [PowerShell](#modify-scoped-synchronization-using-powershell) |
+| 범위 동기화 사용 안 함 | [Azure 포털](#disable-scoped-synchronization-using-the-azure-portal) | [PowerShell](#disable-scoped-synchronization-using-powershell) |
 
 > [!WARNING]
 > 동기화 범위를 변경 하면 Azure AD DS 관리 되는 도메인에서 모든 데이터를 다시 동기화 합니다.

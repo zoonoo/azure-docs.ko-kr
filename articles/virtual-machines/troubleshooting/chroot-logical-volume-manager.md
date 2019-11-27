@@ -143,7 +143,7 @@ mount  /dev/mapper/rootvg-usrlv /rescue/usr
 명령을 사용 하 여 소프트웨어를 설치, 제거 및 업데이트할 수 있습니다. 오류를 해결 하기 위해 Vm 문제를 해결 합니다.
 
 
-Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![Chrooted 루 팅 된](./media/chroot-logical-volume-manager/chrooted.png)
+Lsblk 명령을 실행 하 고/및/rescue/boot is/boot ![Chrooted 루 팅 된
 
 ## <a name="perform-fixes"></a>수정 수행
 

@@ -25,10 +25,10 @@ ms.locfileid: "74533939"
 
 [Gen1 To Gen2 mapping](#gen1-gen2-map) | [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 > [!div class="checklist"]
-> * Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+> * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 > * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
 > * .NET Framework 4.7.2 이상 설치 되어 있습니다. [다운로드 .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)를 참조 하세요.
 > * PowerShell 버전 `5.1` 이상
@@ -380,7 +380,7 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 |AzDataLakeStoreItem|AzDataLakeGen2Item|
 |AzDataLakeStoreItemOwner <br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemAcl|업데이트-AzDataLakeGen2Item|
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 * [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Azure Storage와 함께 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)

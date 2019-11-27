@@ -151,7 +151,7 @@
         - name: 공동 배치
           href: co-location.md
         - name: 네트워크 성능
-          href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+          href: ../../virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: VM 유형 및 크기
       href: sizes.md
       items:
@@ -209,7 +209,7 @@
     - name: 전용 호스트
       href: dedicated-hosts.md
     - name: 유지 관리 및 업데이트
-      href: maintenance-and-updates.md
+      href: ../maintenance-and-updates.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: 디스크 스토리지
       items:
         - name: 관리 디스크 소개
@@ -376,18 +376,32 @@
           href: download-template.md
         - name: Azure VM 에이전트
           href: ../extensions/agent-windows.md
-        - name: 계획된 유지 보수
-          href: maintenance-notifications.md
         - name: 투기적 실행 완화
           href: mitigate-se.md
-        - name: 예약된 이벤트
-          href: scheduled-events.md
-        - name: 예정된 이벤트 모니터링
-          href: scheduled-event-service.md
         - name: 모니터 메타데이터
           href: instance-metadata-service.md
         - name: 중첩된 가상화 사용
           href: nested-virtualization.md
+    - name: 플랫폼 유지 관리
+      items:
+        - name: 유지 관리 알림
+          items:
+            - name: 개요
+              href: maintenance-notifications.md
+            - name: CLI
+              href: ../maintenance-notifications-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: 포털
+              href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: PowerShell
+              href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: 유지 관리 제어
+          items:
+            - name: CLI
+              href: ../maintenance-control-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: 예약된 이벤트
+          href: scheduled-events.md
+        - name: Windows 예약 이벤트 서비스
+          href: scheduled-event-service.md
     - name: VM 모니터링
       items:
         - name: VM용 Azure Monitor

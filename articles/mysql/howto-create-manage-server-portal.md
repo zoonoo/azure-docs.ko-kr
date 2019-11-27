@@ -17,7 +17,7 @@ ms.locfileid: "74534015"
 이 문서에서는 MySQL 서버용 Afire 데이터베이스를 관리 하는 방법을 보여 줍니다. 관리 작업에는 계산 및 저장소 크기 조정, 관리자 암호 재설정 및 서버 세부 정보 보기가 포함 됩니다.
 
 ## <a name="sign-in"></a>로그인
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+[Azure portal](https://portal.azure.com)에 로그인합니다.
 
 ## <a name="create-a-server"></a>서버 만들기
 Azure Database for MySQL 서버를 만들고 시작 하는 방법을 알아보려면 [빠른](quickstart-create-mysql-server-database-using-azure-portal.md) 시작을 참조 하세요.

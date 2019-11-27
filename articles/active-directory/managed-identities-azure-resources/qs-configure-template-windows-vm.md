@@ -30,12 +30,12 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 이 문서에서는 Azure Resource Manager 배포 템플릿을 사용하여 Azure VM에서 다음과 같은 Azure 리소스 관리 ID 작업을 수행하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Resource Manager 배포 템플릿 사용 방법을 잘 모르는 경우 [개요 섹션](overview.md)을 확인합니다. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
 
-## <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+## <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 Azure Portal 및 스크립팅을 사용할 때와 마찬가지로, [Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md) 템플릿에서도 Azure 리소스 그룹으로 정의된 새 리소스 또는 수정된 리소스를 배포하는 기능을 제공합니다. 다음을 비롯한 로컬 및 포털 기반 템플릿 편집 및 배포에 여러 가지 옵션이 제공됩니다.
 
@@ -56,7 +56,7 @@ VM에서 시스템 할당 관리 ID를 사용하도록 설정하려면 계정에
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
-2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 `Microsoft.Compute/virtualMachines` 섹션 내에서 관심이 있는 `resources` 리소스를 찾아서 `"identity"` 속성과 같은 수준으로 `"type": "Microsoft.Compute/virtualMachines"` 속성을 추가합니다. 다음 구문을 사용합니다.
+2. 시스템 할당 관리 ID를 사용하도록 설정하려면 편집기에 템플릿을 로드하고 `resources` 섹션 내에서 관심이 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾아서 `"type": "Microsoft.Compute/virtualMachines"` 속성과 같은 수준으로 `"identity"` 속성을 추가합니다. 다음 구문을 사용합니다.
 
    ```JSON
    "identity": { 
@@ -155,15 +155,15 @@ VM에서 시스템 할당 관리 ID를 제거하려면 계정에 [가상 머신 
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
-2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `Microsoft.Compute/virtualMachines` 섹션 내에서 관심 있는 `resources` 리소스를 찾습니다. VM에 시스템 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.  
+2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `resources` 섹션 내에서 관심 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. VM에 시스템 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.  
    
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
 
-   VM에 시스템 할당 관리 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 `UserAssigned` 사전 값과 함께 `userAssignedIdentities`를 유지합니다.
+   VM에 시스템 할당 관리 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 `userAssignedIdentities` 사전 값과 함께 `UserAssigned`를 유지합니다.
 
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
    
-   `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `UserAssigned` 배열과 함께 `identityIds`를 유지합니다.  
+   `apiVersion`이 `2017-12-01`이고 VM에 시스템 할당 ID와 사용자 할당 관리 ID가 둘 다 있는 경우, ID 유형에서 `SystemAssigned`를 제거하고 사용자 할당 관리 ID의 `identityIds` 배열과 함께 `UserAssigned`를 유지합니다.  
    
 다음 예제에서는 사용자 할당 관리 ID가 없는 VM에서 시스템 할당 관리 ID를 제거하는 방법을 보여 줍니다.
 
@@ -194,7 +194,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
    **Microsoft.Compute/virtualMachines API 버전 2018-06-01**
 
-   `apiVersion`이 `2018-06-01`이고 사용자 할당 관리 ID가 `userAssignedIdentities` 사전 형식으로 저장되는 경우에는 템플릿의 `<USERASSIGNEDIDENTITYNAME>` 섹션에 정의된 변수에 `variables` 값이 저장되어야 합니다.
+   `apiVersion`이 `2018-06-01`이고 사용자 할당 관리 ID가 `userAssignedIdentities` 사전 형식으로 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
 
    ```json
    {
@@ -213,7 +213,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    
    **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
     
-   `apiVersion`이 `2017-12-01`이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 `<USERASSIGNEDIDENTITYNAME>` 섹션에 정의된 변수에 `variables` 값이 저장되어야 합니다.
+   `apiVersion`이 `2017-12-01`이고 사용자 할당 관리 ID가 `identityIds` 배열에 저장되는 경우에는 템플릿의 `variables` 섹션에 정의된 변수에 `<USERASSIGNEDIDENTITYNAME>` 값이 저장되어야 합니다.
     
    ```json
    {
@@ -316,7 +316,7 @@ VM에서 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여�
 
 1. Azure에 로컬로 로그인하든지 또는 Azure Portal을 통해 로그인하든지 상관없이 VM을 포함하는 Azure 구독과 연결된 계정을 사용합니다.
 
-2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `Microsoft.Compute/virtualMachines` 섹션 내에서 관심 있는 `resources` 리소스를 찾습니다. VM에 사용자 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.
+2. 템플릿을 [편집기](#azure-resource-manager-templates)에 로드하고 `resources` 섹션 내에서 관심 있는 `Microsoft.Compute/virtualMachines` 리소스를 찾습니다. VM에 사용자 할당 관리 ID만 있는 경우, ID 형식을 `None`으로 변경하여 VM을 사용하지 않도록 설정할 수 있습니다.
  
    다음 예제에서는 시스템 할당 관리 ID가 없는 VM에서 모든 사용자 할당 관리 ID를 제거하는 방법을 보여줍니다.
    
@@ -336,13 +336,13 @@ VM에서 사용자 할당 ID를 제거하려면 계정에 [가상 머신 기여�
     
    VM에서 단일 사용자 할당 관리 ID를 제거하려면 `useraAssignedIdentities` 사전에서 제거합니다.
 
-   시스템 할당 관리 ID가 있는 경우에는 `type` 값 아래 `identity` 값에 보관합니다.
+   시스템 할당 관리 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
  
    **Microsoft.Compute/virtualMachines API 버전 2017-12-01**
 
    VM에서 단일 사용자 할당 관리 ID를 제거하려면 `identityIds` 배열에서 제거합니다.
 
-   시스템 할당 관리 ID가 있는 경우에는 `type` 값 아래 `identity` 값에 보관합니다.
+   시스템 할당 관리 ID가 있는 경우에는 `identity` 값 아래 `type` 값에 보관합니다.
    
 ## <a name="next-steps"></a>다음 단계
 

@@ -41,7 +41,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 ![SLES의 Pacemaker 개요](./media/high-availability-guide-suse-pacemaker/pacemaker.png)
 
 >[!IMPORTANT]
-> Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애물을 방지 하려면 Linux Pacemaker 클러스터 된 노드를 계획 하 고 배포할 때 Nva 및 유사한 장치를 통해 클러스터 된 노드와 SBD 장치 간에 트래픽을 라우팅하는 라우팅 규칙 Nva 또는 [사용자 정의 라우팅](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 규칙을 정의 하지 마십시오. SBD 장치. 
+> Linux Pacemaker 클러스터 노드 및 SBD 디바이스를 계획하고 배포할 경우, 전체 클러스터 구성의 전체적인 안정성을 제공하려면 관련된 VM과 SBD 디바이스를 호스트하는 VM 간의 라우팅이 [NVA](https://azure.microsoft.com/solutions/network-appliances/)와 같은 다른 디바이스를 통과하지 않아야 합니다. 그렇지 않으면 NVA에 관련된 문제 및 유지 관리 이벤트가 전체 클러스터 구성의 안정성에 부정적인 영향을 줄 수 있습니다. 이러한 장애물을 방지 하려면 Linux Pacemaker 클러스터형 노드와 SBD 장치를 계획 하 고 배포 하는 경우 Nva 및 유사한 장치를 통해 클러스터 된 노드와 SBD 장치 간에 트래픽을 라우팅하는 라우팅 규칙 Nva 또는 [사용자 정의 라우팅](https://docs.microsoft.com/azure/virtual-network/virtual-networks-udr-overview) 규칙을 정의 하지 마세요. 
 >
 
 ## <a name="sbd-fencing"></a>SBD 펜싱
@@ -83,7 +83,7 @@ SBD 디바이스에는 iSCSI 대상 서버 역할을 하고 SBD 디바이스를 
 
 모든 **iSCSI 대상 가상 머신**에 대해 다음 명령을 실행하여 SAP 시스템에서 사용하는 클러스터에 대해 iSCSI 디스크를 만듭니다. 다음 예제에서는 여러 클러스터에 대한 SBD 디바이스가 만들어집니다. 또한 여러 클러스터에 대해 하나의 iSCSI 대상 서버를 사용하는 방법을 보여 줍니다. SBD 디바이스는 OS 디스크에 배치됩니다. 충분한 공간이 있는지 확인합니다.
 
-NFS 클러스터를 식별 하는 데 사용 되는 **`nfs`** **ascsnw1** 는 **n w 1**의 ascs 클러스터를 식별 하는 데 사용 되 고 **dbnw1** 는 **n w 1**의 데이터베이스 클러스터를 식별 하는 데 사용 됩니다. **nfs-0** 및 **nfs-1** 은의 호스트 이름입니다. NFS 클러스터 노드, **n w 1-xscs-0** 및 **n w 1-1** 은 **n w 1** ascs 클러스터 노드의 호스트 이름이 고, **n w 1-0** 및 **n w 1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
+**`nfs`** 는 NFS 클러스터를 식별 하는 데 사용 되며, **ascsnw1** 는 **n w 1**의 ascs 클러스터를 식별 하는 데 사용 됩니다. **dbnw1** 는 **n w 1**의 데이터베이스 클러스터를 식별 하는 데 사용 되 고, nfs **-0** 및 **nfs-1** 은 nfs 클러스터 노드의 호스트 이름, **n w 1-xscs-0** 및 **n w 1-xscs-** 1은 **n w 1** ascs 클러스터 노드의 호스트 이름, **n w 1-db-0** 및 **n w 1-db-1** 은 데이터베이스 클러스터 노드의 호스트 이름입니다. 이러한 이름을 클러스터 노드의 호스트 이름과 SAP 시스템의 SID로 바꿉니다.
 
 <pre><code># Create the root folder for all SBD devices
 sudo mkdir /sbd
@@ -517,7 +517,7 @@ o- / ...........................................................................
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. <https://portal.azure.com>
+1. <https://portal.azure.com>(으)로 이동
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭

@@ -23,11 +23,11 @@ ms.locfileid: "74533226"
 
 *gitRepo* 볼륨을 탑재할 때 세 개의 속성을 설정하여 볼륨을 구성할 수 있습니다.
 
-| 속성 | 필수 | 설명 |
+| 자산 | 필수 | 설명 |
 | -------- | -------- | ----------- |
-| `repository` | 예 | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
-| `directory` | 아니오 | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
-| `revision` | 아니오 | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
+| `repository` | yes | 복제할 Git 리포지토리의 `http://` 또는 `https://`를 포함한 전체 URL입니다.|
+| `directory` | 아닙니다. | 리포지토리를 복제해야 하는 디렉터리입니다. 경로는 "`..`"을 포함하거나 이것으로 시작되지 않아야 합니다.  "`.`"을 지정하면 리포지토리가 볼륨의 디렉터리에 복제됩니다. 그렇지 않을 경우 Git 리포지토리가 볼륨 디렉터리 내 지정된 이름의 하위 디렉터리에 복제됩니다. |
+| `revision` | 아닙니다. | 복제될 수정 내용의 커밋 해시입니다. 지정하지 않으면 `HEAD` 수정 내용이 복제됩니다. |
 
 ## <a name="mount-gitrepo-volume-azure-cli"></a>gitRepo 볼륨 탑재: Azure CLI
 
@@ -60,7 +60,7 @@ drwxr-xr-x    2 root     root          4096 Apr 16 16:35 app
 
 ## <a name="mount-gitrepo-volume-resource-manager"></a>gitRepo 볼륨 탑재: Resource Manager
 
-[Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 gitRepo 볼륨을 탑재하려면 먼저 템플릿의 컨테이너 그룹 `volumes` 섹션에서 `properties` 배열을 입력합니다. 다음으로 *gitRepo* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `volumeMounts` 섹션에서 `properties` 배열을 채웁니다.
+[Azure Resource Manager 템플릿](/azure/templates/microsoft.containerinstance/containergroups)을 사용하여 gitRepo 볼륨을 탑재하려면 먼저 템플릿의 컨테이너 그룹 `properties` 섹션에서 `volumes` 배열을 입력합니다. 다음으로 *gitRepo* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
 
 예를 들어 다음과 같은 Resource Manager 템플릿은 단일 컨테이너로 구성된 컨테이너 그룹을 만듭니다. 컨테이너는 *gitRepo* 볼륨 블록으로 지정된 GitHub 리포지토리 두 개를 복제합니다. 두 번째 볼륨에는 복제할 디렉터리를 지정하는 추가 속성과 복제할 특정 수정 내용의 커밋 해시가 포함됩니다.
 

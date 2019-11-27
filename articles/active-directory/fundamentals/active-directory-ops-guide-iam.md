@@ -31,7 +31,7 @@ ms.locfileid: "74535328"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 될 수 없는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 사용자 환경을 유지 하기 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| Task | 소유자 |
+| 작업 | 소유자 |
 | :- | :- |
 | Azure 구독을 만드는 방법에 대 한 프로세스 정의 | 조직 마다 다름 |
 | Enterprise Mobility + Security 라이선스를 가져오는 사람 결정 | IAM 운영 팀 |
@@ -97,7 +97,7 @@ Azure AD Connect는 프로 비전 프로세스에서 주요 역할을 수행 합
 
 ![Azure AD Connect 준비 모드 구성의 스크린샷](./media/active-directory-ops-guide/active-directory-ops-img1.png)
 
-#### <a name="stay-current"></a>최신 상태 유지
+#### <a name="stay-current"></a>최신 정보 및 지식 습득
 
 Microsoft 업데이트는 정기적으로 Azure AD Connect. 새 버전이 제공 하는 성능 향상, 버그 수정 및 새로운 기능을 활용 하려면 최신 상태를 유지 하세요.
 

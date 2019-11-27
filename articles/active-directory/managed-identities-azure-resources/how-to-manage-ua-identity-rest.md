@@ -30,7 +30,7 @@ Azure 리소스에 대한 관리 ID는 코드에 자격 증명을 포함할 필�
 
 이 문서에서는 CURL을 통해 REST API를 호출하여 사용자 할당 관리 ID 만들고 나열하고 삭제하는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -62,14 +62,14 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 |요청 헤더  |설명  |
 |---------|---------|
-|*Content-Type*     | 필수입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 **요청 본문**
 
-|이름  |설명  |
+|name  |설명  |
 |---------|---------|
-|location     | 필수입니다. 리소스 위치.        |
+|location     | 필수 사항입니다. 리소스 위치.        |
 
 ## <a name="list-user-assigned-managed-identities"></a>사용자 할당 관리 ID 나열
 
@@ -85,8 +85,8 @@ GET https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/
 
 |요청 헤더  |설명  |
 |---------|---------|
-|*Content-Type*     | 필수입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 삭제
 
@@ -105,8 +105,8 @@ DELETE https://management.azure.com/subscriptions/80c696ff-5efa-4909-a64d-f1b616
 ```
 |요청 헤더  |설명  |
 |---------|---------|
-|*Content-Type*     | 필수입니다. `application/json`로 설정합니다.        |
-|*권한 부여*     | 필수입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
+|*Content-Type*     | 필수 사항입니다. `application/json`로 설정합니다.        |
+|*권한 부여*     | 필수 사항입니다. 유효한 `Bearer` 액세스 토큰으로 설정합니다.        |
 
 ## <a name="next-steps"></a>다음 단계
 

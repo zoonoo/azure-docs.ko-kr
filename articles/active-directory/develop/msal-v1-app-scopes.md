@@ -26,7 +26,7 @@ ms.locfileid: "74532988"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 
-OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소스) 응용 프로그램이 클라이언트 응용 프로그램에 노출 하는 사용 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. `oauth2Permissions`Azure Active Directory 애플리케이션 매니페스트 참조[에서 ](reference-app-manifest.md#manifest-reference) 관련 섹션을 참조하세요.
+OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소스) 응용 프로그램이 클라이언트 응용 프로그램에 노출 하는 사용 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. [Azure Active Directory 애플리케이션 매니페스트 참조](reference-app-manifest.md#manifest-reference)에서 `oauth2Permissions` 관련 섹션을 참조하세요.
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 

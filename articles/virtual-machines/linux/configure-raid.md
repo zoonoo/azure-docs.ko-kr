@@ -26,7 +26,7 @@ ms.locfileid: "74534192"
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
 
 ## <a name="attaching-data-disks"></a>데이터 디스크 연결
-RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크가 필요합니다.  RAID 디바이스를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다.  IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 머신에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다.  Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크가 필요합니다.  RAID 디바이스를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다.  IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 머신에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다.  Azure에서 빈 데이터 디스크를 Linux 가상 머신에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 을 참조하세요.
 
 > [!IMPORTANT]
 >서로 다른 크기의 디스크를 혼합 하지 마십시오. 이렇게 하면 raidset 성능이 가장 느린 디스크의 성능으로 제한 됩니다. 
@@ -115,7 +115,7 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
     ```
 
 ## <a name="create-the-raid-array"></a>RAID 배열 만들기
-1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127**이라는 새 RAID 디바이스가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
+1. 다음 예는 3개의 별도 데이터 디스크(sdc1, sdd1, sde1)에 위치한 3개의 파티션을 "스트라이프"합니다(RAID 수준 0).  이 명령을 실행하면 **/dev/md127** 이라는 새 RAID 디바이스가 만들어집니다. 이 데이터 디스크가 이전에 작동하지 않는 다른 RAID 배열의 일부였다면 `--force` 매개 변수를 `mdadm` 명령에 추가해야 합니다.
 
     ```bash  
     sudo mdadm --create /dev/md127 --level 0 --raid-devices 3 \
@@ -209,7 +209,7 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
 
     **Linux 부팅 매개 변수**
    
-    위의 매개 변수 외에, 커널 매개 변수 "`bootdegraded=true`"는 RAID가 손상 또는 저하된 것으로 인식되는 경우에도(예: 데이터 드라이브가 실수로 가상 컴퓨터에서 제거된 경우) 시스템이 부팅되도록 할 수 있습니다. 기본적으로 이 매개 변수는 시스템이 부팅할 수 없게 만들 수도 있습니다.
+    위의 매개 변수 외에, 커널 매개 변수 "`bootdegraded=true`"는 RAID가 손상 또는 저하된 것으로 인식되는 경우에도(예: 데이터 드라이브가 실수로 가상 머신에서 제거된 경우) 시스템이 부팅되도록 할 수 있습니다. 기본적으로 이 매개 변수는 시스템이 부팅할 수 없게 만들 수도 있습니다.
    
     커널 매개 변수를 올바르게 편집하는 방법에 대해서는 배포 설명서를 참조하십시오. 예를 들어 CentOS, Oracle Linux, SLES 11 등 많은 배포에서 이 매개 변수를 "`/boot/grub/menu.lst`" 파일에 수동으로 추가할 수 있습니다.  Ubuntu에서는 "/etc/default/grub"의 `GRUB_CMDLINE_LINUX_DEFAULT` 변수에 이 매개 변수를 추가할 수 있습니다.
 
@@ -222,7 +222,7 @@ RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크�
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-- `discard`에 `/etc/fstab` 탑재 옵션을 사용합니다. 예:
+- `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
 
     ```bash
     UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2

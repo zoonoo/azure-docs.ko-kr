@@ -204,7 +204,7 @@ E2EMedianLatency는 tcp ping 테스트 결과를 집계 한 후 3 분 마다 업
 
 ### <a name="why-does-hop-by-hop-latency-numbers-differ-from-hoplatencyvalues"></a>홉 단위 대기 시간 수가 HopLatencyValues와 다른 이유는 무엇 인가요? 
 HopLatencyValues은 끝점에 대 한 소스입니다.
-예: 홉 A, B, C. AvgHopLatency - 10,15,20. 즉, 소스가 대기 시간 = 10이 고 원본에서 B로의 대기 시간 = 15 이며 원본에서 C 대기 시간이 20입니다. UI는 토폴로지에서-B 홉 대기 시간을 5로 계산 합니다.
+예: 홉 A, B, C. AvgHopLatency-10, 15, 20. 즉, 소스가 대기 시간 = 10이 고 원본에서 B로의 대기 시간 = 15 이며 원본에서 C 대기 시간이 20입니다. UI는 토폴로지에서-B 홉 대기 시간을 5로 계산 합니다.
 
 ### <a name="the-solution-shows-100-loss-but-there-is-connectivity-between-the-source-and-destination"></a>솔루션은 100% 손실을 보여 주지만 원본과 대상 사이에 연결이 있습니다.
 이 상황은 호스트 방화벽 또는 중간 방화벽(네트워크 방화벽 또는 Azure NSG)이 NPM에서 모니터링하는 데 사용 중인 포트(고객이 변경하지 않았다면 기본적으로 포트 8084) 상에서 원본 에이전트와 대상 간의 통신을 차단합니다.
@@ -225,7 +225,7 @@ A에서 B로의 네트워크 경로는 B에서 A로의 네트워크 경로와 �
 ### <a name="why-are-all-my-expressroute-circuits-and-peering-connections-not-being-discovered"></a>나의 ExpressRoute 회로 및 피어링 연결 중 일부가 검색되지 않는 이유는 무엇인가요?
 NPM은 이제 사용자가 액세스할 수 있는 모든 구독에서 ExpressRoute 회로와 피어링 연결을 검색합니다. Express Route 리소스가 연결된 모든 구독을 선택하고 검색된 각 리소스에 대한 모니터링을 사용하도록 설정합니다. 프라이빗 피어링을 검색하는 경우 NPM에서 연결 개체를 찾으므로 VNET이 피어링과 연결되어 있는지 확인합니다.
 
-### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이는 무엇을 의미하나요?
+### <a name="the-er-monitor-capability-has-a-diagnostic-message-traffic-is-not-passing-through-any-circuit-what-does-that-mean"></a>ER 모니터 기능에는 "트래픽이 어떤 회로도 통과하지 않습니다" 진단 메시지가 있습니다. 이것은 무엇을 의미하나요?
 
 온-프레미스 노드와 Azure 노드 간에 정상 연결이 있지만 트래픽이 NPM에서 모니터링하도록 구성된 ExpressRoute 회로를 통해 이동하지 않는 시나리오가 있을 수 있습니다. 
 

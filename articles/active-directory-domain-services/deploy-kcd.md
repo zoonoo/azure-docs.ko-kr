@@ -24,11 +24,11 @@ ms.locfileid: "74546279"
 
 이 문서에서는 Azure AD DS 관리 되는 도메인에서 리소스 기반 Kerberos 제한 위임을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
@@ -36,7 +36,7 @@ ms.locfileid: "74546279"
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [Windows SERVER VM을 만들고 관리 되는 도메인에 조인한][create-join-windows-vm] 다음 [AD DS 관리 도구를 설치][tutorial-create-management-vm]합니다.
-* Azure AD 테넌트에서 *Azure AD DC 관리자* 그룹의 멤버인 사용자 계정
+* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
 
 ## <a name="kerberos-constrained-delegation-overview"></a>Kerberos 제한 위임 개요
 

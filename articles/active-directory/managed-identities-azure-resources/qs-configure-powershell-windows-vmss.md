@@ -34,7 +34,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 관리 ID와 사용자 할당 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -74,7 +74,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    Connect-AzAccount
    ```
 
-2. 우선 [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 시스템 할당 관리 ID를 사용하도록 설정하려면 `-IdentityType`Update-AzVmss[ cmdlet에서 ](/powershell/module/az.compute/update-azvmss) 스위치를 사용합니다.
+2. 우선 [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 시스템 할당 관리 ID를 사용하도록 설정하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet에서 `-IdentityType` 스위치를 사용합니다.
 
    ```powershell
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
@@ -118,7 +118,7 @@ PowerShell을 통해 사용자 할당 관리 ID가 있는 새 가상 머신 확�
    Connect-AzAccount
    ```
 
-2. 우선 `Get-AzVM` cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하려면 `-IdentityType`Update-AzVmss`-IdentityID` cmdlet에서 [ 및 ](/powershell/module/az.compute/update-azvmss) 스위치를 사용합니다. `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2`를 사용자 고유의 값으로 바꿉니다.
+2. 우선 `Get-AzVM` cmdlet을 사용하여 가상 머신 확장 집합 속성을 검색합니다. 그런 다음, 가상 머신 확장 집합에 사용자 할당 관리 ID를 할당하려면 [Update-AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet에서 `-IdentityType` 및 `-IdentityID` 스위치를 사용합니다. `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2`를 사용자 고유의 값으로 바꿉니다.
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 

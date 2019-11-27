@@ -35,7 +35,7 @@ ms.locfileid: "74535172"
 단일 지원 사례를 통해 **여러 지역에 대 한 할당량을 요청할** 수도 있습니다. 자세한 내용은 아래의 10 단계를 참조 하세요. 
 
 
-1. https://portal.azure.com에서 **도움말 + 지원**을 선택 합니다.
+1. https://portal.azure.com 에서 **도움말 + 지원**을 선택 합니다.
 
    ![도움말 + 지원](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -83,9 +83,9 @@ ms.locfileid: "74535172"
 
 단일 지원 사례를 통해 **여러 지역에 대 한 할당량을 요청할** 수도 있습니다. 자세한 내용은 아래의 9 단계를 참조 하세요. 
 
-1.  https://portal.azure.com에서 **구독**을 선택합니다.
+1.  https://portal.azure.com 에서 **구독**을 선택합니다.
 
- ![구독](./media/resource-manager-core-quotas-request/subscriptions.png)
+ ![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2.  할당량을 늘려야 하는 구독을 선택합니다.
 

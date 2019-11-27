@@ -20,7 +20,7 @@ ms.locfileid: "74533414"
 
 * 기본적으로 명령줄은 컨테이너에서 *셸을 제외 하 고 시작 되는 단일 프로세스* 를 지정 합니다. 예를 들어 명령줄에서 Python 스크립트나 실행 파일을 실행할 수 있습니다. 프로세스에서 추가 매개 변수 또는 인수를 지정할 수 있습니다.
 
-* 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예제:
+* 여러 명령을 실행 하려면 컨테이너 운영 체제에서 지원 되는 셸 환경을 설정 하 여 명령줄을 시작 합니다. 예시:
 
   |운영 체제  |기본 셸  |
   |---------|---------|
@@ -50,9 +50,9 @@ ms.locfileid: "74533414"
 
   [Dockerfile](https://docs.docker.com/engine/reference/builder/) 구문에 익숙한 경우이 형식은 CMD 명령의 *exec* 형식과 비슷합니다.
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
-|    |  Azure CLI   | 포털 | 템플릿 | 
+|    |  Azure CLI   | 포털 | Template | 
 | ---- | ---- | --- | --- |
 | 단일 명령 | `--command-line "python myscript.py arg1 arg2"` | **명령 재정의**: `python, myscript.py, arg1, arg2` | `"command": ["python", "myscript.py", "arg1", "arg2"]` |
 | 여러 명령 | `--command-line "/bin/bash -c 'mkdir test; touch test/myfile; tail -f /dev/null'"` |**명령 재정의**: `/bin/bash, -c, mkdir test; touch test/myfile; tail -f /dev/null` | `"command": ["/bin/bash", "-c", "mkdir test; touch test/myfile; tail -f /dev/null"]` |
@@ -78,7 +78,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer1
 ```
 
-출력:
+출력
 
 ```console
 [('HAMLET', 386), ('HORATIO', 127), ('CLAUDIUS', 120)]
@@ -104,7 +104,7 @@ az container create \
 az container logs --resource-group myResourceGroup --name mycontainer2
 ```
 
-출력:
+출력
 
 ```console
 [('ROMEO', 177), ('JULIET', 134), ('CAPULET', 119)]

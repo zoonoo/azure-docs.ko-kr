@@ -22,7 +22,7 @@ Azure Monitor 로그로 컨테이너 그룹 로그 및 이벤트 데이터를 �
 > [!NOTE]
 > 현재는 Linux 컨테이너 인스턴스에서 Log Analytics로만 이벤트 데이터를 보낼 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 컨테이너 인스턴스에 로그인을 사용하도록 설정하려면 다음이 필요합니다.
 
@@ -50,7 +50,7 @@ Azure Container Instances에 Log Analytics 작업 영역에 데이터를 전송�
 
 ### <a name="deploy-with-azure-cli"></a>Azure CLI를 사용하여 배포
 
-Azure CLI를 사용하여 배포하려면 `--log-analytics-workspace`az container create`--log-analytics-workspace-key` 명령에서 [ 및 ][az-container-create] 매개 변수를 지정합니다. 다음 명령을 실행하기 전에 이전 단계에서 얻은 값으로 두 작업 영역 값을 바꾸고 리소스 그룹 이름을 업데이트합니다.
+Azure CLI를 사용하여 배포하려면 [az container create][az-container-create] 명령에서 `--log-analytics-workspace` 및 `--log-analytics-workspace-key` 매개 변수를 지정합니다. 다음 명령을 실행하기 전에 이전 단계에서 얻은 값으로 두 작업 영역 값을 바꾸고 리소스 그룹 이름을 업데이트합니다.
 
 ```azurecli-interactive
 az container create \

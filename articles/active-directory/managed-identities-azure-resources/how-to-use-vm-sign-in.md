@@ -29,7 +29,7 @@ ms.locfileid: "74547381"
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -41,7 +41,7 @@ ms.locfileid: "74547381"
 
 ## <a name="overview"></a>개요
 
-Azure 리소스에 대한 관리 ID는 VM에서 [Azure 리소스에 대한 관리 ID를 사용하도록 설정할 때 만들어지는](../develop/developer-glossary.md#service-principal-object) [서비스 주체 개체](overview.md#how-does-the-managed-identities-for-azure-resources-work)를 제공합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
+Azure 리소스에 대한 관리 ID는 VM에서 [Azure 리소스에 대한 관리 ID를 사용하도록 설정할 때 만들어지는](overview.md#how-does-the-managed-identities-for-azure-resources-work) [서비스 주체 개체](../develop/developer-glossary.md#service-principal-object)를 제공합니다. 서비스 주체는 Azure 리소스에 액세스 권한을 부여하고 로그인 및 리소스 액세스를 위한 스크립트/명령줄에 의한 ID로 사용될 수 있습니다. 일반적으로 고유한 ID 하에서 보호된 리소스에 액세스하기 위해 스크립트 클라이언트는 다음을 수행해야 합니다.  
 
    - Azure AD에서 기밀/웹 클라이언트 애플리케이션으로 등록하고 동의합니다.
    - 앱의 자격 증명(스크립트에 포함됨)을 사용하여 해당 서비스 주체 하에 로그인합니다.

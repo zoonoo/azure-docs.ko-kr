@@ -32,7 +32,7 @@ ms.locfileid: "74548415"
 데이터 검색 & 분류는 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [Advanced Data Security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 관한 것입니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse와 관련이 있습니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 

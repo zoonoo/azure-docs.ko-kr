@@ -53,7 +53,7 @@ ms.locfileid: "74546856"
 2. 구하기 쿼리에서 라이브 스트림 세션을 만들려면 다음을 수행 합니다.
     
     1. **쿼리** 탭에서 사용할 구하기 쿼리를 찾습니다.
-    2. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를**선택 합니다. 예:
+    2. 쿼리를 마우스 오른쪽 단추로 클릭 하 고 **라이브 스트림에 추가를**선택 합니다. 다음은 그 예입니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기 쿼리](./media/livestream/livestream-from-query.png)에서 라이브 스트림 세션을 만듭니다.
@@ -83,7 +83,7 @@ ms.locfileid: "74546856"
 
 1. Azure Portal에서 **센티널** > **위협 관리** > **구하기** > **라이브 스트림** 탭으로 이동 합니다.
 
-2. 보거나 편집 하려는 라이브 스트림 세션을 선택 합니다. 예:
+2. 보거나 편집 하려는 라이브 스트림 세션을 선택 합니다. 다음은 그 예입니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기 쿼리](./media/livestream/livestream-tab.png)에서 라이브 스트림 세션을 만듭니다.
@@ -92,7 +92,7 @@ ms.locfileid: "74546856"
 
 ## <a name="receive-notifications-when-new-events-occur"></a>새 이벤트가 발생할 때 알림 받기
 
-새 이벤트에 대 한 라이브 스트림 알림은 Azure Portal 알림을 사용 하기 때문에 Azure Portal를 사용할 때마다 이러한 알림이 표시 됩니다. 예:
+새 이벤트에 대 한 라이브 스트림 알림은 Azure Portal 알림을 사용 하기 때문에 Azure Portal를 사용할 때마다 이러한 알림이 표시 됩니다. 다음은 그 예입니다.
 
 ![라이브 스트림에 대 한 Azure Portal 알림](./media/livestream/notification.png)
 

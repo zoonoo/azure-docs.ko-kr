@@ -26,7 +26,7 @@ ms.locfileid: "74533434"
 | **볼륨** ||
 | [emptyDir][vol-emptydir] | emptyDir 볼륨을 공유하는 두 개의 Linux 컨테이너를 배포합니다. |
 | [gitRepo][vol-gitrepo] | GitHub 리포지토리를 복제하고 볼륨으로 탑재하는 Linux 컨테이너를 배포합니다. |
-| [secret][vol-secret] | 비밀 볼륨으로 탑재된 PFX 인증서를 사용하여 Linux 컨테이너를 배포합니다. |
+| [암호][vol-secret] | 비밀 볼륨으로 탑재된 PFX 인증서를 사용하여 Linux 컨테이너를 배포합니다. |
 | **네트워킹** ||
 | [UDP 노출 컨테이너][net-udp] | UDP 포트를 공개하는 Windows 또는 Linux 컨테이너를 배포합니다. |
 | [공용 IP를 사용 하는 Linux 컨테이너][net-publicip] | 공용 IP를 통해 액세스할 수 있는 단일 Linux 컨테이너를 배포합니다. |
@@ -42,7 +42,7 @@ Resource Manager 템플릿을 사용하여 리소스를 배포하기 위한 몇 
 
 [Azure PowerShell][deploy-powershell]
 
-[Azure Portal][deploy-portal]
+[Azure 포털][deploy-portal]
 
 [REST API][deploy-rest]
 

@@ -19,7 +19,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 
 이 문서에 설명된 단계를 완료하기 전에 [Azure Files 배포에 대한 계획](storage-files-planning.md) 및 [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)을 읽어보는 것이 좋습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 * Azure File Sync 배포 하려는 동일한 지역에 있는 Azure 파일 공유입니다. 자세한 내용은 다음을 참조 하세요.
     - [지역 가용성](storage-sync-files-planning.md#region-availability)에서 Azure 파일 동기화를 참조하세요.
     - [파일 공유 만들기](storage-how-to-create-file-share.md)에서 파일 공유를 만드는 방법에 대한 단계별 설명을 참조하세요.
@@ -53,7 +53,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 ## <a name="prepare-windows-server-to-use-with-azure-file-sync"></a>Azure 파일 동기화에 사용할 Windows Server 준비
 장애 조치(failover) 클러스터의 각 서버 노드를 포함하여 Azure 파일 동기화에 사용할 각 서버에 대해 **Internet Explorer 보안 강화 구성**을 사용하지 않도록 설정합니다. 초기 서버 등록에만 필요합니다. 서버가 등록된 후에 사용하도록 다시 설정할 수 있습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 > [!Note]  
 > Windows Server Core에 Azure File Sync을 배포 하는 경우이 단계를 건너뛸 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure 파일 동기화 배포에서 가장 먼저 할 일은 선택한 그룹의
 > [!Note]
 > 저장소 동기화 서비스는 배포 된 구독 및 리소스 그룹의 액세스 권한을 상속 합니다. 누가 액세스 권한을 갖고 있는지 신중하게 확인하는 것이 좋습니다. 쓰기 액세스 권한이 있는 엔터티는 등록된 서버에서 이 스토리지 동기화 서비스로 새 파일 집합의 동기화를 시작하고, 파일에 액세스할 수 있는 Azure Storage로 데이터가 흐르도록 만들 수 있습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 저장소 동기화 서비스를 배포 하려면 [Azure Portal](https://portal.azure.com/)으로 이동 하 여 *리소스 만들기* 를 클릭 한 다음 Azure File Sync를 검색 합니다. 검색 결과에서 **Azure File Sync**를 선택 하 고 **만들기** 를 선택 하 여 **저장소 동기화 배포** 탭을 엽니다.
 
 열리는 창에 다음 정보를 입력합니다.
@@ -160,7 +160,7 @@ $storageSync = New-AzStorageSyncService -ResourceGroupName $resourceGroup -Name 
 ## <a name="install-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트 설치
 Azure 파일 동기화 에이전트는 Windows Server가 Azure 파일 공유와 동기화되도록 하는 다운로드 가능 패키지입니다. 
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 [Microsoft 다운로드 센터](https://go.microsoft.com/fwlink/?linkid=858257)에서 에이전트를 다운로드할 수 있습니다. 다운로드가 완료되면 MSI 패키지를 두 번 클릭하여 Azure 파일 동기화 에이전트 설치를 시작합니다.
 
 > [!Important]  
@@ -216,7 +216,7 @@ Remove-Item -Path ".\StorageSyncAgent.msi" -Recurse -Force
 > [!Note]
 > 서버 등록 시 Azure 자격 증명을 사용하여 스토리지 동기화 서비스와 Windows Server 사이에 트러스트 관계가 생성되지만, 그 이후 서버는 고유의 ID를 만들어서 사용하며 이 ID는 서버의 등록 상태가 유지되고 현재 공유 액세스 서명 토큰(Storage SAS)이 유효한 동안에는 유효성을 유지합니다. 서버가 등록되지 않으면 새 SAS 토큰을 발급할 수 없으며, 따라서 Azure 파일 공유에 액세스하는 서버 기능이 제거되고 모든 동기화가 중지됩니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 Azure 파일 동기화 에이전트 설치 후 서버 등록 UI가 자동으로 열립니다. 그렇지 않은 경우 파일 위치(C:\Program Files\Azure\StorageSyncAgent\ServerRegistration.exe)에서 수동으로 열 수 있습니다. 서버 등록 UI가 열리면 **로그인**을 선택하여 시작합니다.
 
 로그인한 후에 다음 정보를 묻는 메시지가 나타납니다.
@@ -244,7 +244,7 @@ $registeredServer = Register-AzStorageSyncServer -ParentObject $storageSync
 > [!Important]  
 > 동기화 그룹의 클라우드 엔드포인트 또는 서버 엔드포인트를 변경할 수 있고, 파일이 동기화 그룹의 다른 엔드포인트와 동기화되도록 할 수 있습니다. 클라우드 엔드포인트(Azure 파일 공유)를 직접 변경하는 경우 변경 사항은 먼저 Azure 파일 동기화 변경 내용 검색 작업으로 검색되어야 합니다. 변경 내용 검색 작업은 클라우드 엔드포인트에 대해 24시간마다 한 번씩만 시작됩니다. 자세한 내용은 [Azure Files 질문과 대답](storage-files-faq.md#afs-change-detection)을 참조하세요.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 동기화 그룹을 만들려면 [Azure Portal](https://portal.azure.com/)에서 스토리지 동기화 서비스로 이동한 후 **+동기화 그룹**을 선택합니다.
 
 ![Azure Portal에서 새 동기화 그룹 만들기](media/storage-sync-files-deployment-guide/create-sync-group-1.png)
@@ -306,7 +306,7 @@ New-AzStorageSyncCloudEndpoint `
 ## <a name="create-a-server-endpoint"></a>서버 엔드포인트 만들기
 서버 엔드포인트는 서버 볼륨의 폴더와 같이 등록된 서버의 특정 위치를 나타냅니다. 서버 엔드포인트는 등록된 서버(탑재된 공유가 아닌)의 경로여야 하며, 클라우드 계층화를 사용하려면 이 경로가 비 시스템 볼륨에 있어야 합니다. NAS(Network Attached Storage)는 지원되지 않습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portaltabazure-portal"></a>[Portal](#tab/azure-portal)
 서버 엔드포인트를 추가하려면 새로 만든 동기화 그룹으로 이동한 후 **서버 엔드포인트 추가**를 클릭합니다.
 
 ![동기화 그룹 창에서 새 서버 엔드포인트 추가](media/storage-sync-files-deployment-guide/create-sync-group-2.png)

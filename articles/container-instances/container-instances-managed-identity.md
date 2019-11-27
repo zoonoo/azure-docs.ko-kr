@@ -58,7 +58,7 @@ CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 문서에서�
 
 이 문서의 예제는 Azure Container Instances에서 관리 ID를 사용하여 Azure Key Vault 비밀에 액세스합니다. 
 
-먼저, 다음 *az group create* 명령을 사용하여 *eastus* 위치에 [myResourceGroup](/cli/azure/group?view=azure-cli-latest#az-group-create)이라는 리소스 그룹을 만듭니다.
+먼저, 다음 [az group create](/cli/azure/group?view=azure-cli-latest#az-group-create) 명령을 사용하여 *eastus* 위치에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -112,7 +112,7 @@ az container create --resource-group myResourceGroup --name mycontainer --image 
 az container show --resource-group myResourceGroup --name mycontainer
 ```
 
-출력의 `identity` 섹션은 다음과 유사하며 ID가 컨테이너 그룹에 설정되어 있음을 나타냅니다. `principalID` 아래의 `userAssignedIdentities`는 Azure Active Directory에서 만든 ID의 서비스 주체입니다.
+출력의 `identity` 섹션은 다음과 유사하며 ID가 컨테이너 그룹에 설정되어 있음을 나타냅니다. `userAssignedIdentities` 아래의 `principalID`는 Azure Active Directory에서 만든 ID의 서비스 주체입니다.
 
 ```console
 ...
@@ -152,7 +152,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true -s
 ```
 
-출력:
+출력
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -234,7 +234,7 @@ az container exec --resource-group myResourceGroup --name mycontainer --exec-com
 curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net%2F' -H Metadata:true -s
 ```
 
-출력:
+출력
 
 ```bash
 {"access_token":"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSIsImtpZCI6Imk2bEdrM0ZaenhSY1ViMkMzbkVRN3N5SEpsWSJ9......xxxxxxxxxxxxxxxxx","refresh_token":"","expires_in":"28799","expires_on":"1539927532","not_before":"1539898432","resource":"https://vault.azure.net/","token_type":"Bearer"}
@@ -261,7 +261,7 @@ curl https://mykeyvault.vault.azure.net/secrets/SampleSecret/?api-version=2016-1
 
 ## <a name="enable-managed-identity-using-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 관리 ID 사용
 
-[Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 컨테이너 그룹에서 관리 ID를 사용하도록 설정하려면 `identity` 개체를 사용하여 `Microsoft.ContainerInstance/containerGroups` 개체의 `ContainerGroupIdentity` 속성을 설정합니다. 다음 코드 조각은 여러 다른 시나리오에 맞게 구성된 `identity` 속성을 보여 줍니다. [Resource Manager 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups)를 참조하세요. `apiVersion` `2018-10-01`을 지정합니다.
+[Resource Manager 템플릿](container-instances-multi-container-group.md)을 사용하여 컨테이너 그룹에서 관리 ID를 사용하도록 설정하려면 `ContainerGroupIdentity` 개체를 사용하여 `Microsoft.ContainerInstance/containerGroups` 개체의 `identity` 속성을 설정합니다. 다음 코드 조각은 여러 다른 시나리오에 맞게 구성된 `identity` 속성을 보여 줍니다. [Resource Manager 템플릿 참조](/azure/templates/microsoft.containerinstance/containergroups)를 참조하세요. `apiVersion` `2018-10-01`을 지정합니다.
 
 ### <a name="user-assigned-identity"></a>사용자 할당 ID
 

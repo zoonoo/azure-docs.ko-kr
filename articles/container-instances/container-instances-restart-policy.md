@@ -72,7 +72,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query co
 az container logs --resource-group myResourceGroup --name mycontainer
 ```
 
-출력:
+출력
 
 ```bash
 [('the', 990),

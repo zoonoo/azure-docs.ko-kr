@@ -91,7 +91,7 @@ Azure FarmBeats를 배포 하려면 다음 권한이 필요 합니다.
 
 센티널이 있는 계정은 공식 웹 사이트에서 장치에 대 한 센티널 위성 이미지를 다운로드 하는 데 도움이 됩니다. 무료 계정을 만들려면 다음 단계를 따르세요.
 
-https://scihub.copernicus.eu/dhus/#/self-registration로 이동합니다. 등록 페이지에서 이름, 성, 사용자 이름, 암호 및 전자 메일을 입력 합니다.
+[https://editor.swagger.io](https://scihub.copernicus.eu/dhus/#/self-registration ) 로 이동합니다. 등록 페이지에서 이름, 성, 사용자 이름, 암호 및 전자 메일을 입력 합니다.
 확인을 위해 등록 된 전자 메일 주소로 확인 전자 메일이 전송 됩니다. 링크를 선택 하 고 확인 합니다. 등록 프로세스가 완료 되었습니다.
 
 ## <a name="create-azure-ad-app-registration"></a>Azure AD 앱 등록 만들기
@@ -281,7 +281,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
     - 동의 하면 ' Y '를 입력 하 고 다음 단계를 계속 합니다.
     - 조건에 동의 하지 않고 배포가 종료 되는 경우 ' N '을 입력 합니다.
 
-8. 배포에 대 한 액세스 토큰을 입력 하 라는 메시지가 표시 됩니다. 생성 된 코드를 복사 하 고 Azure 자격 증명을 사용 하 여 https://microsoft.com/devicelogin에 로그인 합니다.
+8. 배포에 대 한 액세스 토큰을 입력 하 라는 메시지가 표시 됩니다. 생성 된 코드를 복사 하 고 Azure 자격 증명을 사용 하 여 https://microsoft.com/devicelogin 에 로그인 합니다.
 9. 이제 설치 관리자에서 리소스 만들기의 유효성을 검사 하 고 시작 합니다 .이는 약 20 분 정도 걸릴 수 있습니다. 이 시간 동안 Cloud Shell에서 세션을 활성 상태로 유지 합니다.
 10. 배포가 성공적으로 완료 되 면 아래 출력 링크를 받게 됩니다.
 
@@ -333,7 +333,7 @@ Azure FarmBeats의 인증 및 권한 부여에 대 한 Azure active directory �
 화면의 지침을 따릅니다.
 
 7. 설치 관리자는 런타임에 필요한 입력을 자동으로 표시 합니다.
-8. 배포에 대 한 액세스 토큰을 입력 합니다. 생성 된 코드를 복사 하 고 Azure 자격 증명을 사용 하 여 https://microsoft.com/devicelogin에 로그인 합니다.
+8. 배포에 대 한 액세스 토큰을 입력 합니다. 생성 된 코드를 복사 하 고 Azure 자격 증명을 사용 하 여 https://microsoft.com/devicelogin 에 로그인 합니다.
 9. 센티널 암호
 10. 이제 설치 관리자는 리소스의 유효성을 검사 하 고 리소스 만들기를 시작 합니다 .이는 약 20 분 정도 걸릴 수 있습니다.
 11. 배포가 성공적으로 완료 되 면 아래 출력 링크를 받게 됩니다.

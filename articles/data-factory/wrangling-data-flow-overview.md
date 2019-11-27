@@ -24,7 +24,7 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 
 랭 글 링 데이터 흐름은 데이터 엔지니어 또는 ' 시민 데이터 통합자 '에 게 특히 유용 합니다.
 
-## <a name="use-cases"></a>사용 사례
+## <a name="use-cases"></a>사례 사용
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>신속한 대화형 데이터 탐색 및 준비
 

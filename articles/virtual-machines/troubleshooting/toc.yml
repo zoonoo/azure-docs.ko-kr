@@ -59,6 +59,8 @@
       href: linux-recovery-cannot-start-file-system-errors.md
     - name: 커널 관련 부팅 문제 해결
       href: 'https://support.microsoft.com/help/4091524'
+    - name: LVM 구성 VM 복구 및 부팅 안 함
+      href: chroot-logical-volume-manager.md
     - name: fstab 오류 해결
       href: linux-virtual-machine-cannot-start-fstab-errors.md
     - name: 자세한 SSH 문제 해결

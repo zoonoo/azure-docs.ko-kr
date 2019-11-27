@@ -25,7 +25,7 @@ ms.locfileid: "74533478"
 
 다음 지역 및 리소스는 Linux 및 [지원되는](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016 기반 컨테이너가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
 
-| Location | OS | CPU | 메모리(GB) |
+| 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
 | 캐나다 중부, 인도 중부, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 북유럽, 미국 중남부, 동남 아시아, 영국 남부, 미국 서부 | Linux | 4 | 16 |
 | 유럽 서부, 미국 서부 2 | Linux | 4 | 14 |
@@ -39,7 +39,7 @@ ms.locfileid: "74533478"
 
 다음 지역 및 리소스는 Windows Server 2019 기반 컨테이너(미리 보기)가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
 
-| Location | OS | CPU | 메모리(GB) |
+| 위치 | OS | CPU | 메모리(GB) |
 | -------- | -- | :---: | :-----------: |
 | 동남 아시아, 북유럽, 서유럽, 미국 중부, 미국 동부, 미국 서부, 미국 서부 2 | Windows | 4 | 16 |
 | 미국 동부 2 | Windows | 2 | 3.5 |

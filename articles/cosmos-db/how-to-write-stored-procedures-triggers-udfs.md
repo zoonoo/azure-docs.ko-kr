@@ -240,7 +240,7 @@ function validateToDoItemTimestamp() {
 
 사전 트리거는 입력 매개 변수를 사용할 수 없습니다. 트리거에서 요청 개체를 사용하여 작업과 연결된 요청 메시지를 조작합니다. 이전 예제에서 사전 트리거는 Azure Cosmos 항목을 만들 때 실행되고 요청 메시지 본문에는 JSON 형식으로 만들 항목이 포함됩니다.
 
-트리거가 등록될 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 `TriggerOperation`의 `TriggerOperation.Create` 값을 사용하여 생성되었습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에서 트리거를 사용하는 것은 허용되지 않습니다.
+트리거가 등록될 때 트리거 실행에 사용되는 작업을 지정할 수 있습니다. 이 트리거는 `TriggerOperation.Create`의 `TriggerOperation` 값을 사용하여 생성되었습니다. 즉, 다음 코드에 나와 있는 것처럼 바꾸기 작업에서 트리거를 사용하는 것은 허용되지 않습니다.
 
 사전 트리거를 등록하고 호출하는 방법의 예제는 [사전 트리거](how-to-use-stored-procedures-triggers-udfs.md#pre-triggers) 및 [사후 트리거](how-to-use-stored-procedures-triggers-udfs.md#post-triggers) 문서를 참조하세요. 
 

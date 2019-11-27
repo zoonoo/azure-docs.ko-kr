@@ -32,7 +32,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -40,7 +40,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 관리 ID를
 - PowerShell을 로컬로 실행하는 경우 다음이 필요합니다. 
     - `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
     - [PowerShellGet 최신 버전](/powershell/scripting/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget)을 설치합니다.
-    - `Install-Module -Name PowerShellGet -AllowPrerelease` 명령을 실행하여 `PowerShellGet` 모듈의 시험판 버전을 가져옵니다. 이 명령을 실행한 후 `Exit` 모듈을 설치하기 위해 현재 PowerShell 세션에서 `Az.ManagedServiceIdentity`해야 할 수도 있습니다.
+    - `Install-Module -Name PowerShellGet -AllowPrerelease` 명령을 실행하여 `PowerShellGet` 모듈의 시험판 버전을 가져옵니다. 이 명령을 실행한 후 `Az.ManagedServiceIdentity` 모듈을 설치하기 위해 현재 PowerShell 세션에서 `Exit`해야 할 수도 있습니다.
     - `Install-Module -Name Az.ManagedServiceIdentity -AllowPrerelease` 명령을 실행하여 `Az.ManagedServiceIdentity` 모듈의 시험판 버전을 설치하고 이 문서의 사용자 할당 관리 ID 작업을 수행합니다.
 
 ## <a name="create-a-user-assigned-managed-identity"></a>사용자 할당 관리 ID 만들기
@@ -63,7 +63,7 @@ New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGN
 ```azurepowershell-interactive
 Get-AzUserAssignedIdentity -ResourceGroupName <RESOURCE GROUP>
 ```
-응답에서 사용자 할당 관리 ID에는 키 `"Microsoft.ManagedIdentity/userAssignedIdentities"`에 대해 반환된 `Type` 값이 있습니다.
+응답에서 사용자 할당 관리 ID에는 키 `Type`에 대해 반환된 `"Microsoft.ManagedIdentity/userAssignedIdentities"` 값이 있습니다.
 
 `Type :Microsoft.ManagedIdentity/userAssignedIdentities`
 

@@ -73,7 +73,7 @@ Azure CDN 가장자리 노드는 자산의 TTL(Time-to-Live)이 만료될 때 �
 > 
 > 
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 * [Azure CDN 엔드포인트에 자산 미리 로드](cdn-preload-endpoint.md)
 * [Azure CDN REST API 참조 - 엔드포인트 제거 또는 미리 로드](/rest/api/cdn/endpoints)
 

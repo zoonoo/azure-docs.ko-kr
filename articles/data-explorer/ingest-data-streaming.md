@@ -25,7 +25,7 @@ ms.locfileid: "74548334"
 > * [데이터베이스 커서](/azure/kusto/management/databasecursor).
 > * [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [웹 UI](https://dataexplorer.azure.com/)에 로그인 합니다.

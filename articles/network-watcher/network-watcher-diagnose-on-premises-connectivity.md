@@ -84,34 +84,34 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
-| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니오|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아니오 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니오 |
-| PlatformInActive | 플랫폼에 문제가 있습니다. | 아니오|
-| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아니오|
-| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아니오|
-| ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| 예|
-| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | 예 |
+| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |yes|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아닙니다.|
+| PlannedMaintenance |  게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아닙니다.|
+| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다. | 아닙니다. |
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아닙니다. |
+| PlatformInActive | 플랫폼에 문제가 있습니다. | 아닙니다.|
+| ServiceNotRunning | 기본 서비스가 실행되고 있지 않습니다. | 아닙니다.|
+| NoConnectionsFoundForGateway | 게이트웨이에 연결이 존재하지 않습니다. 단지 경고일 뿐입니다.| 아닙니다.|
+| ConnectionsNotConnected | 연결이 이루어지지 않았습니다. 단지 경고일 뿐입니다.| yes|
+| GatewayCPUUsageExceeded | 현재 게이트웨이 CPU 사용량이 95%를 초과했습니다. | yes |
 
 ### <a name="connection"></a>연결
 
 | 오류 유형 | 이유 | 로그|
 |---|---|---|
-| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
-| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
-| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아니오|
-| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아니오 |
-| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아니오 |
-| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아니오 |
-| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아니오|
-| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | 예 |
-| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| 예|
-| 인증 | 미리 공유한 키가 일치하지 않습니다. | 예|
-| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | 예|
-| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | 예|
-| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |예|
+| NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |yes|
+| GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아닙니다.|
+| PlannedMaintenance | 게이트웨이 인스턴스가 유지 관리되고 있습니다.  |아닙니다.|
+| UserDrivenUpdate | 사용자 업데이트를 진행 중인 경우를 나타냅니다. 크기 조정 작업일 수 있습니다.  | 아닙니다. |
+| VipUnResponsive | 게이트웨이의 기본 인스턴스에 연결할 수 없습니다. 상태 검색에 실패하면 발생합니다. | 아닙니다. |
+| ConnectionEntityNotFound | 연결 구성이 없습니다. | 아닙니다. |
+| ConnectionIsMarkedDisconnected | 연결이 "연결 끊김"으로 표시되었습니다. |아닙니다.|
+| ConnectionNotConfiguredOnGateway | 기본 서비스에 연결이 구성되어 있지 않습니다. | yes |
+| ConnectionMarkedStandby | 기본 서비스가 대기로 표시되었습니다.| yes|
+| Authentication | 미리 공유한 키가 일치하지 않습니다. | yes|
+| PeerReachability | 피어 게이트웨이에 연결할 수 없습니다. | yes|
+| IkePolicyMismatch | 피어 게이트웨이에 Azure에서 지원되지 않는 IKE 정책이 있습니다. | yes|
+| WfpParse Error | WFP 로그를 구문 분석하는 동안 오류가 발생했습니다. |yes|
 
 ## <a name="next-steps"></a>다음 단계
 

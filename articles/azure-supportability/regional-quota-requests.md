@@ -34,7 +34,7 @@ ms.locfileid: "74531515"
 
 아래 지침에 따라 Azure Portal에서 제공 하는 Azure의 ' 도움말 + 지원 ' 블레이드를 통해 지원 요청을 만듭니다. 
 
-1. https://portal.azure.com에서 **도움말 + 지원**을 선택 합니다.
+1. https://portal.azure.com 에서 **도움말 + 지원**을 선택 합니다.
 
 ![도움말 + 지원](./media/resource-manager-core-quotas-request/helpsupport.png)
  
@@ -65,9 +65,9 @@ ms.locfileid: "74531515"
 
 아래 지침에 따라 Azure Portal에서 제공 하는 Azure의 ' 사용 + 할당량 ' 블레이드를 통해 지원 요청을 만듭니다. 
 
-1. https://portal.azure.com에서 **구독**을 선택합니다.
+1. https://portal.azure.com 에서 **구독**을 선택합니다.
 
-![구독](./media/resource-manager-core-quotas-request/subscriptions.png)
+![Subscriptions](./media/resource-manager-core-quotas-request/subscriptions.png)
 
 2. 할당량을 늘려야 하는 구독을 선택합니다.
 

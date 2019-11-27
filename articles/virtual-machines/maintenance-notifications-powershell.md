@@ -22,7 +22,7 @@ ms.locfileid: "74535835"
 
 **이 문서는 Linux 및 Windows를 실행 하는 가상 컴퓨터에 적용 됩니다.**
 
-Azure Powershell을 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 [ 매개 변수를 사용하는 경우 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` cmdlet에서 확인할 수 있습니다.
+Azure Powershell을 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 `-status` 매개 변수를 사용하는 경우 [Get-AzVM](https://docs.microsoft.com/powershell/module/az.compute/get-azvm) cmdlet에서 확인할 수 있습니다.
   
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. VM에 영향을 미치는 유지 관리가 예약되지 않은 경우 cmdlet은 유지 관리 정보를 반환하지 않습니다. 
 
@@ -33,7 +33,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다. 
 
-| 값 | 설명   |
+| Value | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. |

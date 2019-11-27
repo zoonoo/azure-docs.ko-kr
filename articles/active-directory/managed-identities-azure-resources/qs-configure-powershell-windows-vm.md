@@ -32,7 +32,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure 리소스에 대한 관리 ID를 잘 모르는 경우 [개요 섹션](overview.md)을 확인하세요. **[시스템 할당 ID와 사용자 할당 관리 ID의 차이점](overview.md#how-does-the-managed-identities-for-azure-resources-work)을 반드시 검토하세요**.
 - 아직 Azure 계정이 없으면 계속하기 전에 [평가판 계정](https://azure.microsoft.com/free/)에 등록해야 합니다.
@@ -69,7 +69,7 @@ Azure 리소스에 대한 관리 ID는 Azure Active Directory에서 자동으로
    Connect-AzAccount
    ```
 
-2. 먼저 `Get-AzVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 다음, 시스템 할당 관리 ID를 사용하도록 설정하려면 `-AssignIdentity`Update-AzVM[ cmdlet에서 ](/powershell/module/az.compute/update-azvm) 스위치를 사용합니다.
+2. 먼저 `Get-AzVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 다음, 시스템 할당 관리 ID를 사용하도록 설정하려면 [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet에서 `-AssignIdentity` 스위치를 사용합니다.
 
    ```powershell
    $vm = Get-AzVM -ResourceGroupName myResourceGroup -Name myVM
@@ -144,7 +144,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
 
 1. 다음 Azure VM 빠른 시작 중 하나를 참조 하 여 필요한 섹션 ("Azure에 로그인", "리소스 그룹 만들기", "네트워킹 그룹 만들기", "VM 만들기")만 완료 합니다. 
   
-    “VM 만들기” 섹션으로 이동할 때 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  예:
+    “VM 만들기” 섹션으로 이동할 때 [`New-AzVMConfig`](/powershell/module/az.compute/new-azvm) cmdlet 구문을 조금 수정합니다. 사용자 할당 ID가 있는 VM을 프로비전하려면 `-IdentityType UserAssigned` 및 `-IdentityID` 매개 변수를 추가합니다.  `<VM NAME>`,`<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값을 바꿉니다.  다음은 그 예입니다.
     
     ```powershell 
     $vmConfig = New-AzVMConfig -VMName <VM NAME> -IdentityType UserAssigned -IdentityID "/subscriptions/<SUBSCRIPTION ID>/resourcegroups/<RESROURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<USER ASSIGNED IDENTITY NAME>..."
@@ -173,7 +173,7 @@ VM에 사용자 할당 ID를 할당하려면 계정에 [가상 머신 기여자]
    ```powershell
    New-AzUserAssignedIdentity -ResourceGroupName <RESOURCEGROUP> -Name <USER ASSIGNED IDENTITY NAME>
    ```
-3. `Get-AzVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 다음, Azure VM에 사용자 할당 관리 ID를 할당하고 `-IdentityType`Update-AzVM`-IdentityID` cmdlet에서 [ 및 ](/powershell/module/az.compute/update-azvm) 스위치를 사용합니다.  `-IdentityId` 매개 변수의 값은 이전 단계에서 메모해 둔 `Id`입니다.  `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값으로 바꿉니다.
+3. `Get-AzVM` cmdlet을 사용하여 VM 속성을 검색합니다. 그런 다음, Azure VM에 사용자 할당 관리 ID를 할당하고 [Update-AzVM](/powershell/module/az.compute/update-azvm) cmdlet에서 `-IdentityType` 및 `-IdentityID` 스위치를 사용합니다.  `-IdentityId` 매개 변수의 값은 이전 단계에서 메모해 둔 `Id`입니다.  `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>` 및 `<USER ASSIGNED IDENTITY NAME>`을 사용자 고유의 값으로 바꿉니다.
 
    > [!WARNING]
    > VM에 할당된 이전에 사용자가 할당된 관리 ID를 유지하려면 VM 개체의 `Identity` 속성(예: `$vm.Identity`)을 쿼리합니다.  사용자가 할당한 관리 ID가 반환되면 이 관리 ID와 VM에 할당하려는 새 사용자 할당 관리 ID를 함께 다음 명령에 포함합니다.

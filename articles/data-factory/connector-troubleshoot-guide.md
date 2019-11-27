@@ -19,7 +19,7 @@ ms.locfileid: "74533157"
 
 이 문서에서는 Azure Data Factory의 커넥터에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
-## <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
+## <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
 
 ### <a name="error-message-the-remote-server-returned-an-error-403-forbidden"></a>오류 메시지: 원격 서버에서 오류를 반환 했습니다. (403) 사용할 수 없음
 
@@ -381,7 +381,7 @@ ms.locfileid: "74533157"
 
 - **원인**: Blob storage 작업에 문제가 있습니다.
 
-- **권장**사항: 자세한 내용은 오류를 확인 하세요. Blob 도움말 문서: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes을 (를) 참조 하세요. 도움이 필요 하면 저장소 팀에 문의 하세요.
+- **권장**사항: 자세한 내용은 오류를 확인 하세요. Blob 도움말 문서: https://docs.microsoft.com/rest/api/storageservices/blob-service-error-codes 을 (를) 참조 하세요. 도움이 필요 하면 저장소 팀에 문의 하세요.
 
 
 
@@ -397,7 +397,7 @@ ms.locfileid: "74533157"
 
 - **원인**: 오류 메시지에 ' 금지 '가 포함 되어 있는 경우 사용 하는 서비스 주체 또는 관리 id에 ADLS Gen2에 액세스할 수 있는 권한이 없을 수 있습니다.
 
-- **권장 사항**: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication도움말 문서를 참조 하세요.
+- **권장 사항**: https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication 도움말 문서를 참조 하세요.
 
 - **원인**: 오류 메시지에 ' InternalServerError '가 포함 되어 있으면 ADLS Gen2에서 오류를 반환 합니다.
 

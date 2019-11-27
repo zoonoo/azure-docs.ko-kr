@@ -14,6 +14,8 @@
               href: per-vm-quota-requests.md
             - name: 지역별 총 vCPU 제한 증가
               href: regional-quota-requests.md
+            - name: 낮은 우선순위 할당량 한도 증가
+              href: low-priority-quota.md
         - name: 클래식 배포 모델
           href: classic-deployment-model-quota-increase-requests.md
     - name: 네트워킹 제한 증가

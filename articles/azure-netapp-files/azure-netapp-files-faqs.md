@@ -29,7 +29,7 @@ ms.locfileid: "74546950"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 데이터 경로는 인터넷을 통해 이동 하나요?  
 
-아니요. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
+아닙니다. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
 
 자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
 
@@ -155,7 +155,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Azure Storage 탐색기를 통해 Azure NetApp Files를 관리할 수 있나요?
 
-아니요. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
+아닙니다. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
 
 ## <a name="data-migration-and-protection-faqs"></a>데이터 마이그레이션 및 보호 Faq
 
@@ -189,11 +189,11 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>마이그레이션이 Azure Data Box 지원 되나요?
 
-아니요. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
+아닙니다. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 사용 하 여 마이그레이션이 지원 되나요?
 
-아니요. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
+아닙니다. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
