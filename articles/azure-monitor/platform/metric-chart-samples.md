@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 메트릭 차트 샘플
+title: Azure Monitor 메트릭 차트 예제
 description: Azure Monitor 데이터를 시각화하는 방법을 알아봅니다.
 author: vgorbenko
 services: azure-monitor
@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: bbfeb428d38c23955df4497242184499349aecf9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 8cc653b8e5d2c239243bf6a09955b10011c7408b
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60256692"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538975"
 ---
-# <a name="metric-chart-samples"></a>메트릭 차트 샘플
+# <a name="metric-chart-examples"></a>메트릭 차트 예 
 
 Azure 플랫폼에서는 [1,000개가 넘는 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported)을 제공하며, 대부분의 메트릭에는 차원이 있습니다. [차원 필터](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)를 사용하고, [분할](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)을 적용하고, 차트 유형을 제어하고, 차트 설정을 조정하면 인프라 및 애플리케이션 상태 관련 분석 정보를 제공하는 효율적인 진단 보기와 대시보드를 만들 수 있습니다. 이 문서에서는 [메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)를 사용하여 작성할 수 있는 차트의 몇 가지 예와 이러한 각 차트를 구성하려면 수행해야 하는 단계에 대해 설명합니다.
 

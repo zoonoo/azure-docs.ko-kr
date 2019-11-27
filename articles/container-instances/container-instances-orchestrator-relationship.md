@@ -1,20 +1,15 @@
 ---
-title: Azure Container Instances 및 컨테이너 오케스트레이션
+title: 컨테이너 인스턴스 및 컨테이너 오케스트레이션
 description: Azure Container Instances가 컨테이너 오케스트레이터와 상호 작용하는 방법을 이해합니다
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 044b74e1a8683c6beb0220c1cf9fb97403286a95
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: f3f8693d1a9a12e7c35d126ab3e3ca53448e5e40
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972242"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533668"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances 및 컨테이너 오케스트레이터
 
@@ -26,13 +21,13 @@ Azure Container Instances는 오케스트레이션 플랫폼의 기본 일정 �
 
 오케스트레이션의 표준 정의에는 다음 작업이 포함됩니다.
 
-- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 머신을 찾습니다.
-- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 세트가 실행되도록 지정합니다.
+- **예약**: 컨테이너 이미지 및 리소스 요청을 지정하여 컨테이너를 실행할 적절한 컴퓨터를 찾습니다.
+- **선호도/반선호도**: 서로 가깝거나(성능 목적) 충분히 멀리 떨어져 있는(가용성 목적) 컨테이너 집합이 실행되도록 지정합니다.
 - **상태 모니터링**: 컨테이너 오류를 관찰하여 자동으로 일정을 다시 조정합니다.
-- **장애 조치**: 각 머신에서 실행되는 작업을 추적하고 실패한 머신의 컨테이너를 정상 노드로 다시 예약합니다.
-- **크기 조정**: 수동 또는 자동으로 요청에 맞게 컨테이너 인스턴스를 추가하거나 제거합니다.
-- **네트워킹**: 여러 호스트 머신 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
-- **서비스 검색**: 컨테이너가 호스트 머신 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
+- **장애 조치**: 각 컴퓨터에서 실행되는 작업을 추적하고 실패한 컴퓨터의 컨테이너를 정상 노드로 다시 예약합니다.
+- **크기 조정**: 수동 또는 자동으로 요청에 맞게 Container Instance를 추가하거나 제거합니다.
+- **네트워킹**: 여러 호스트 컴퓨터 간에 통신하도록 컨테이너를 조정하는 오버레이 네트워크를 제공합니다.
+- **서비스 검색**: 컨테이너가 호스트 컴퓨터 간에 이동하면서 IP 주소를 변경하는 경우에도 자동으로 서로 찾을 수 있게 합니다.
 - **조정된 애플리케이션 업그레이드**: 애플리케이션 작동 중단 시간을 방지하고 문제가 발생한 경우 롤백할 수 있도록 컨테이너 업그레이드를 관리합니다.
 
 ## <a name="orchestration-with-azure-container-instances-a-layered-approach"></a>Azure Container Instances와 오케스트레이션: 계층화된 접근 방식

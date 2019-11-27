@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 602a319ce90e5a6d13829e218899f135413d762d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: c3300338ab37d502646c55411d658ad30581019f
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275948"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531823"
 ---
 # <a name="diagnose-on-premises-connectivity-via-vpn-gateways"></a>VPN Gateway를 통한 온-프레미스 연결 진단
 
@@ -42,7 +42,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 
 사이트 간 구성에 대한 자세한 단계별 지침은 [Azure Portal을 사용하여 사이트 간 연결로 VNet 만들기](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)를 방문하여 찾을 수 있습니다.
 
-중요한 구성 단계 중 하나는 IPsec 통신 매개 변수를 구성하는 것이며 모든 잘못된 구성은 온-프레미스 네트워크와 Azure 간의 연결 손실로 이어집니다. 현재 Azure VPN Gateway는 1단계에 대해 다음 IPsec 매개 변수를 지원하도록 구성됩니다. 앞에서 언급했듯이 이러한 설정은 수정할 수 없습니다.  다음 표에서 볼 수 있듯이 Azure VPN Gateway에서 지원하는 암호화 알고리즘은 AES256, AES128 및 3DES입니다.
+중요한 구성 단계 중 하나는 IPsec 통신 매개 변수를 구성하는 것이며 모든 잘못된 구성은 온-프레미스 네트워크와 Azure 간의 연결 손실로 이어집니다. 현재 Azure VPN Gateway는 1단계에 대해 다음 IPsec 매개 변수를 지원하도록 구성됩니다. 다음 표에서 볼 수 있듯이 Azure VPN Gateway에서 지원하는 암호화 알고리즘은 AES256, AES128 및 3DES입니다.
 
 ### <a name="ike-phase-1-setup"></a>IKE 1단계 설정
 
@@ -53,7 +53,7 @@ Azure Network Watcher 문제 해결 기능을 사용하여 게이트웨이 및 �
 | 인증 방법 |미리 공유한 키 |미리 공유한 키 |
 | 암호화 알고리즘 |AES256 AES128 3DES |AES256 (3DES) |
 | 해시 알고리즘 |SHA1(SHA128) |SHA1(SHA128), SHA2(SHA256) |
-| 1단계 SA(보안 연결) 수명(시간) |28,800초 |10,800초 |
+| 1단계 SA(보안 연결) 수명(시간) |28,800초 |28,800초 |
 
 사용자로서 FortiGate를 구성해야 합니다. 샘플 구성은 [GitHub](https://github.com/Azure/Azure-vpn-config-samples/blob/master/Fortinet/Current/fortigate_show%20full-configuration.txt)에서 찾을 수 있습니다. 자신도 모르게 해시 알고리즘으로 SHA-512를 사용하도록 FortiGate를 구성했습니다. 이 알고리즘은 정책 기반 연결에 대해 지원되는 알고리즘이 아니므로 VPN 연결이 작동합니다.
 
@@ -82,7 +82,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 ### <a name="gateway"></a>게이트웨이
 
-| 오류 유형 | Reason | 로그|
+| 오류 유형 | 이유 | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
@@ -97,7 +97,7 @@ Azure Network Watcher 문제 해결 기능을 사용하면 간단한 PowerShell 
 
 ### <a name="connection"></a>연결
 
-| 오류 유형 | Reason | 로그|
+| 오류 유형 | 이유 | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우를 나타냅니다. |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|

@@ -1,20 +1,15 @@
 ---
-title: Azure Container Instances에서 Azure Files 볼륨 탑재
+title: 컨테이너 그룹에 Azure Files 볼륨 탑재
 description: Azure Container Instances를 사용하여 상태가 유지되도록 Azure Files 볼륨을 탑재하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 686c20aeb22c16298967aa6f73ee829472f4ea0c
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: a258a96f5fbc0d54b6a85a780288fb9317cb1a1b
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72175930"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533253"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Azure Container Instances에서 Azure 파일 공유 탑재
 

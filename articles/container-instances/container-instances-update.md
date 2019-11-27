@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances에서 컨테이너 업데이트
+title: 컨테이너 그룹 업데이트
 description: Azure Containers Instances 컨테이너 그룹에서 실행되는 컨테이너를 업데이트하는 방법을 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 09/03/2019
-ms.author: danlep
-ms.openlocfilehash: 3103fe7fbf7dcd587f43b673ef53f32893908ecb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f57ebcf050b5563b45f10af57c1721338df88ff9
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307707"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533313"
 ---
 # <a name="update-containers-in-azure-container-instances"></a>Azure Container Instances에서 컨테이너 업데이트
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9caadddf281c6df29f6e36057c7b28abcef0e1c4
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d691759f1075a08ad13ec1199eb8af7fd634f5a1
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112516"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534472"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -216,7 +216,7 @@ QPS (초당 쿼리 수)는 성능 튜닝 중에 중요 한 메트릭입니다. �
 
 + 메트릭을 사용 하 여 쿼리를 작성 하 고 사용 패턴 (업무 시간 동안 쿼리, 사용량이 적은 시간 동안 인덱싱)에 대 한 데이터를 수집 합니다. 이 데이터를 사용 하 여 서비스 프로 비전 결정을 알립니다. 시간별 또는 일별 주기에서는 실용적이 지 않지만 쿼리 볼륨의 계획 된 변경 내용을 수용 하기 위해 파티션 및 리소스를 동적으로 조정할 수 있습니다. 또한 수준에서 조치를 취하는 데 충분 한 시간을 보유 하는 경우 계획 되지 않았지만 지속적으로 변경 될 수 있습니다.
 
-+ 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지하려면 상위 계층의 동일한 구독에서 새 서비스를 만들고, 모든 앱과 요청이 새 엔드포인트를 대상으로 할 때까지 이를 나란히 실행합니다.
++ 프로 비전 중에는 실제 요구 사항이 예측 보다 큰 경우에만 서비스를 종료 해야 한다는 단점이 있습니다. 서비스 중단을 방지 하려면에서 상위 계층의 새 서비스를 만들고 모든 앱 및 요청이 새 끝점을 대상으로 할 때까지 함께 실행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

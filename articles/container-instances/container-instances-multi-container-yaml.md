@@ -1,19 +1,14 @@
 ---
-title: 자습서-Azure Container Instances-YAML에서 다중 컨테이너 그룹 배포
+title: 자습서-다중 컨테이너 그룹 배포-YAML
 description: 이 자습서에서는 Azure CLI 포함 된 YAML 파일을 사용 하 여 Azure Container Instances에서 여러 컨테이너가 있는 컨테이너 그룹을 배포 하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/03/2019
-ms.author: danlep
-ms.openlocfilehash: a38b0cfe7072975e4bcaf61b65ab7733694f714c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: cce98ec56ee1d84c087150ba486b9482515b46f0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178559"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533602"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-a-yaml-file"></a>자습서: YAML 파일을 사용 하 여 다중 컨테이너 그룹 배포
 
@@ -24,7 +19,7 @@ ms.locfileid: "71178559"
 
 Azure Container Instances에서는 [컨테이너 그룹](container-instances-container-groups.md)을 사용하여 여러 컨테이너를 단일 호스트에 배포하도록 지원합니다. 컨테이너 그룹은 로깅, 모니터링 또는 서비스가 두 번째 연결 된 프로세스를 필요로 하는 기타 구성에 대해 사이드카 응용 프로그램을 빌드할 때 유용 합니다.
 
-이 자습서에서는 Azure CLI를 사용 하 여 [Yaml 파일](container-instances-reference-yaml.md) 을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 다음 방법을 알아봅니다.
+이 자습서에서는 Azure CLI를 사용 하 여 [Yaml 파일](container-instances-reference-yaml.md) 을 배포 하 여 간단한 두 컨테이너 사이드카 구성을 실행 하는 단계를 수행 합니다. YAML 파일은 인스턴스 설정을 지정 하는 데 사용할 간결한 형식을 제공 합니다. 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * YAML 파일 구성
@@ -34,7 +29,7 @@ Azure Container Instances에서는 [컨테이너 그룹](container-instances-con
 > [!NOTE]
 > 현재 다중 컨테이너 그룹은 Linux 컨테이너에 제한됩니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -85,7 +80,7 @@ tags: null
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-개인 컨테이너 이미지 레지스트리를 사용 하려면 사용자 환경에 `imageRegistryCredentials` 맞게 수정 된 값을 사용 하 여 컨테이너 그룹에 속성을 추가 합니다.
+개인 컨테이너 이미지 레지스트리를 사용 하려면 사용자 환경에 맞게 수정 된 값을 사용 하 여 컨테이너 그룹에 `imageRegistryCredentials` 속성을 추가 합니다.
 
 ```YAML
   imageRegistryCredentials:
@@ -128,7 +123,7 @@ myContainerGroup  danlep0318r      Running   mcr.microsoft.com/azuredocs/aci-tut
 
 ## <a name="view-container-logs"></a>컨테이너 로그 보기
 
-[Az container logs][az-container-logs] 명령을 사용 하 여 컨테이너의 로그 출력을 확인 합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제 `aci-tutorial-app` 에서는 컨테이너를 지정 합니다.
+[Az container logs][az-container-logs] 명령을 사용 하 여 컨테이너의 로그 출력을 확인 합니다. `--container-name` 인수는 로그를 가져올 컨테이너를 지정합니다. 이 예제에서는 `aci-tutorial-app` 컨테이너를 지정 합니다.
 
 ```azurecli-interactive
 az container logs --resource-group myResourceGroup --name myContainerGroup --container-name aci-tutorial-app
@@ -169,7 +164,7 @@ Date: Thu, 21 Mar 2019 20:36:41 GMT
 Connection: keep-alive
 ```
 
-위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. 이 사이드카 예제는 이외의 `200 OK`HTTP 응답 코드를 받은 경우 경고를 트리거하기 위해 확장할 수 있습니다.
+위 출력에 나와 있는 것처럼, 사이드카는 그룹 로컬 네트워크를 통해 주 웹 애플리케이션에 대한 HTTP 요청을 주기적으로 수행하여 해당 애플리케이션이 실행되고 있는지를 확인합니다. 이 사이드카 예제는 `200 OK`이외의 HTTP 응답 코드를 수신 하는 경우 경고를 트리거하기 위해 확장할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

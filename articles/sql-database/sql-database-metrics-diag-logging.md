@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 11/15/2019
-ms.openlocfilehash: 27810f2ee1bc95c924003cd8a5944860df40db14
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: HT
+ms.openlocfilehash: 95953b4f052531c9804024410e225bb0b5c62aef
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420813"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539180"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
@@ -79,7 +79,7 @@ Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음�
 > 탄력적 풀 및 관리 되는 인스턴스에는 포함 된 데이터베이스와 별도의 진단 원격 분석이 있습니다. 진단 원격 분석은 아래에서 설명한 대로 이러한 각 리소스에 대해 개별적으로 구성 되므로 주의 해야 합니다.
 
 > [!NOTE]
-> 보안 감사 및 SQLSecurityAuditEvents 로그는 화면에 표시 되지만 데이터베이스 진단 설정에서 사용 하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+> 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
 
 ## <a name="azure-portal"></a>Azure 포털
 
@@ -145,7 +145,7 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 1. 모니터링할 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!NOTE]
-> 보안 감사 및 SQLSecurityAuditEvents 로그는 화면에 표시 되지만 데이터베이스 진단 설정에서 사용 하도록 설정할 수 없습니다. 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+> 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
 
 > [!TIP]
 > 모니터링하려는 각 Azure SQL Database에 대해 이러한 단계를 반복합니다.
@@ -592,7 +592,7 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |Message|일반 텍스트의 오류 메시지 |
 |user_defined_b|오류 사용자 정의 비트 |
 |error_number_d|오류 코드 |
-|severity|오류의 심각도 |
+|심각도|오류의 심각도 |
 |state_d|오류 상태 |
 |query_hash_s|실패한 쿼리의 쿼리 해시(있는 경우) |
 |query_plan_hash_s|실패한 쿼리의 쿼리 계획 해시(있는 경우) |

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: asgang
-ms.openlocfilehash: ca3126c983d62cb28c543215b86ab9709a4736d8
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 29b3e4af33702c75e92b5e36c5521d9af12b1013
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083783"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533845"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>다중 계층 SAP NetWeaver 앱 배포를 위한 재해 복구 설정
 
@@ -95,7 +95,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 다음은 이 예제에 사용된 각 계층의 재해 복구를 위한 권장 사항입니다. 
 
- **SAP 계층** | **권장**
+ **SAP 계층** | **권장 사항**
  --- | ---
 **SAP Web Dispatcher 풀** |  Site Recovery를 사용하여 복제 
 **SAP 애플리케이션 서버 풀** |  Site Recovery를 사용하여 복제 
@@ -110,7 +110,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 * Active Directory 및 DNS 보호에 대한 지침은 [Active Directory 및 DNS 보호](site-recovery-active-directory.md) 문서를 참조하세요.
 
-* SQL Server에서 실행되는 데이터베이스 계층 보호에 관한 지침은 [SQL Server 보호](site-recovery-active-directory.md) 문서를 참조하세요.
+* SQL Server에서 실행되는 데이터베이스 계층 보호에 관한 지침은 [SQL Server 보호](site-recovery-sql.md) 문서를 참조하세요.
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
@@ -154,7 +154,7 @@ Azure Site Recovery를 사용하여 Azure 지역에 걸쳐 전체 SAP 배포의 
 
 자세한 내용은 [Site Recovery에서 Azure로 테스트 장애 조치(failover)](site-recovery-test-failover-to-azure.md)를 참조하세요.
 
-## <a name="run-a-failover"></a>장애 조치(failover) 실행
+## <a name="run-a-failover"></a>장애 조치(Failover) 실행
 
 1.  Azure Portal에서 Recovery Services 자격 증명 모음을 선택합니다.
 2.  SAP 애플리케이션용으로 생성한 복구 계획을 선택합니다.

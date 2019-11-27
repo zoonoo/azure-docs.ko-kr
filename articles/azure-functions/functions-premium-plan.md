@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 9c1a9a9e3b9e1c12c3960a8586c25436c8d937e0
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322953"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532893"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
@@ -29,7 +29,7 @@ az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> 
 
 이 예제에서는 `<RESOURCE_GROUP>`를 리소스 그룹으로 바꾸고 리소스 그룹에서 고유한 계획의 이름을 사용 하 여 `<PLAN_NAME>` 합니다. [지원 되는 `<REGION>`](#regions)를 지정 합니다. Linux를 지 원하는 프리미엄 계획을 만들려면 `--is-linux` 옵션을 포함 합니다.
 
-계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 
+계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 전체 Azure CLI 스크립트의 예는 [프리미엄 계획에서 함수 앱 만들기](scripts/functions-cli-create-premium-plan.md)를 참조 하세요.
 
 ## <a name="features"></a>기능
 
@@ -94,11 +94,11 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>영역
 
 다음은 각 OS에 대해 현재 지원 되는 지역입니다.
 
-|Region| Windows | Linux |
+|지역| Windows | Linux |
 |--| -- | -- |
 |오스트레일리아 중부| ✔<sup>1</sup> | |
 |오스트레일리아 중부 2| ✔<sup>1</sup> | |
@@ -115,7 +115,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |일본 서부| ✔ | |
 |한국 중부| ✔ |  |
 |미국 중북부| ✔ |  |
-|유럽 북부| ✔ | ✔ |
+|북유럽| ✔ | ✔ |
 |미국 중남부| ✔ |  |
 |인도 남부 | ✔ | |
 |동남아시아| ✔ | ✔ |

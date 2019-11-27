@@ -1,28 +1,25 @@
 ---
-title: Azure Container Registry에서 Azure Container Instances에 배포
+title: Azure Container Registry에서 컨테이너 이미지 배포
 description: Azure Container Registry의 컨테이너 이미지를 사용하여 Azure Container Instances에 컨테이너를 배포하는 방법을 알아봅니다.
 services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 01/04/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 502f178b66e7ba233552d7db4e095363c8bb8628
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: adc2c95874c1cc20e49506891c9972ebcfe71f94
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325553"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533283"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Azure Container Registry에서 Azure Container Instances에 배포
 
 [Azure Container Registry](../container-registry/container-registry-intro.md)는 프라이빗 Docker 컨테이너 이미지를 저장하는 데 사용되는 Azure 기반의 관리형 컨테이너 레지스트리 서비스입니다. 이 문서에서는 Azure Container Registry에 저장된 컨테이너 이미지를 Azure Container Instances에 배포하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
-**Azure Container Registry**: 이 문서의 단계를 완료하려면 Azure Container Registry가 필요하고 해당 레지스트리에 하나 이상의 컨테이너 이미지가 있어야 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
+**Azure container registry**:이 문서의 단계를 완료 하려면 azure container registry 및 레지스트리에 컨테이너 이미지가 하나 이상 필요 합니다. 레지스트리가 필요한 경우 [Azure CLI를 사용하여 컨테이너 레지스트리 만들기](../container-registry/container-registry-get-started-azure-cli.md)를 참조하세요.
 
 **Azure CLI**: 이 문서의 명령줄 예제는 [Azure CLI](/cli/azure/)를 사용하며 Bash 셸용으로 형식이 지정됩니다. Azure CLI를 로컬로 [설치](/cli/azure/install-azure-cli) 하거나 [Azure Cloud Shell][cloud-shell-bash]를 사용할 수 있습니다.
 
@@ -32,7 +29,7 @@ ms.locfileid: "68325553"
 
 다음 섹션에서는 Azure Key Vault 및 서비스 주체를 만들고, 자격 증명 모음에 서비스 주체의 자격 증명을 저장합니다. 
 
-### <a name="create-key-vault"></a>키 자격 증명 모음 만들기
+### <a name="create-key-vault"></a>주요 자격 증명 모음 만들기
 
 [Azure Key Vault](../key-vault/key-vault-overview.md)에 자격 증명 모음이 아직 없는 경우 Azure CLI에서 다음 명령을 사용하여 만듭니다.
 
@@ -67,7 +64,7 @@ az keyvault secret set \
 
 이전 명령의 `--role` 인수는 *acrpull* 역할을 사용하여 서비스 주체를 구성하고, 레지스트리에 대해 끌어오기 전용 액세스 권한을 부여합니다. 밀어넣기 및 끌어오기 액세스 권한을 모두 부여하려면 `--role` 인수를 *acrpush*로 변경합니다.
 
-다음으로, 인증을 위해 Azure Container Registry에 전달하는 **username**에 해당하는 서비스 주체의 *appId*를 자격 증명 모음에 저장합니다.
+다음으로, 인증을 위해 Azure Container Registry에 전달하는 *username*에 해당하는 서비스 주체의 **appId**를 자격 증명 모음에 저장합니다.
 
 ```azurecli
 # Store service principal ID in AKV (the registry *username*)
@@ -79,8 +76,8 @@ az keyvault secret set \
 
 Azure Key Vault을 만들고 다음 두 암호를 저장했습니다.
 
-* `$ACR_NAME-pull-usr`: **username** 컨테이너 레지스트리로 사용할 서비스 주체 ID입니다.
-* `$ACR_NAME-pull-pwd`: **password** 컨테이너 레지스트리로 사용할 서비스 주체 암호입니다.
+* `$ACR_NAME-pull-usr`: 서비스 주체 ID로, 컨테이너 레지스트리 **username**으로 사용됩니다.
+* `$ACR_NAME-pull-pwd`: 서비스 주체 암호로, 컨테이너 레지스트리 **password**로 사용됩니다.
 
 이제 사용자나 애플리케이션 및 서비스가 레지스트리에서 이미지를 끌어올 때 이러한 암호를 이름으로 참조할 수 있습니다.
 

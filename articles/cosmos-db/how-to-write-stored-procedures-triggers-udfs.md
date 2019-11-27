@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: mjbrown
-ms.openlocfilehash: cdac8321ec4ac7b2e13c5545a2483527118daae3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ffe002e4dced5b5020eb1436ca6d7d577402b077
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606267"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533164"
 ---
 # <a name="how-to-write-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 작성하는 방법
 
@@ -316,6 +316,17 @@ function tax(income) {
 ```
 
 사용자 정의 함수를 등록하고 사용하는 방법의 예제는 [Azure Cosmos DB에서 사용자 정의 함수를 사용하는 방법](how-to-use-stored-procedures-triggers-udfs.md#udfs) 문서를 참조하세요.
+
+## <a name="logging"></a>로깅 
+
+저장 프로시저, 트리거 또는 사용자 정의 함수를 사용 하는 경우 `console.log()` 명령을 사용 하 여 단계를 기록할 수 있습니다. 이 명령은 다음 예제와 같이 `EnableScriptLogging`가 true로 설정 된 경우 디버깅을 위해 문자열을 집중 합니다.
+
+```javascript
+var response = await client.ExecuteStoredProcedureAsync(
+document.SelfLink,
+new RequestOptions { EnableScriptLogging = true } );
+Console.WriteLine(response.ScriptLog);
+```
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: kumud
-ms.openlocfilehash: 373a3a66044f996edee904c0073dcb0deb58a85b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: HT
+ms.openlocfilehash: 490f2e7bb394d6593e51438c1e484a4677c963a3
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277974"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539341"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -87,6 +87,12 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 다음 텍스트는 흐름 로그의 예제입니다. 이전 섹션에 설명된 속성 목록을 따르는 여러 레코드를 볼 수 있습니다.
 
 ## <a name="nsg-flow-logging-considerations"></a>NSG 흐름 로깅 고려 사항
+
+**저장소 계정 고려 사항**: 
+
+1. 위치: 사용 되는 저장소 계정은 NSG와 동일한 지역에 있어야 합니다.
+2. 방화벽 없음: NSG 흐름 로그는 [Azure Storage에 대 한 신뢰할 수 있는 Microsoft 서비스로](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)등록 되지 않습니다. 방화벽을 사용 하지 않도록 설정 하려면 [저장소 계정에서 방화벽을 사용 하지 않도록 설정 어떻게 할까요?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-disable-the--firewall-on-my-storage-account) 을 참조 하세요. 
+3. 서비스 끝점 없음: 현재 제한으로 인해 로그는 서비스 끝점을 통해서만 저장소 계정으로 직접 내보낼 수 있습니다. 기존 서비스 끝점을 제거 하는 방법에 대 한 도움말은 [서비스 엔드포인트를 사용 하 여 NSG 흐름 로그 사용 어떻게 할까요?](https://docs.microsoft.com/azure/network-watcher/frequently-asked-questions#how-do-i-use-nsg-flow-logs-with-service-endpoints) 을 참조 하세요.
 
 **리소스에 연결 된 모든 nsg에 대해 Nsg 흐름 로깅을 사용 하도록 설정**: Azure의 흐름 로깅은 nsg 리소스에 구성 됩니다. 하나의 흐름은 하나의 NSG 규칙에만 연결됩니다. 모든 NSG가 활용되는 시나리오에서는 리소스의 서브넷 또는 네트워크 인터페이스가 적용된 모든 NSG에서 NSG 흐름 로깅을 사용하도록 설정하여 모든 트래픽이 기록되도록 하는 것이 좋습니다. 네트워크 보안 그룹에 대한 자세한 내용은 [트래픽 평가 방식](../virtual-network/security-overview.md#how-traffic-is-evaluated)참조하세요. 
 

@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances의 컨테이너화된 작업에서 다시 시작 정책 사용
+title: 한 번 실행 태스크에 대 한 정책 다시 시작
 description: Azure Container Instances를 사용하여 빌드, 테스트 또는 이미지 렌더링 작업에서처럼 완료될 때까지 실행되는 작업을 실행하는 방법에 대해 알아봅니다.
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 04/15/2019
-ms.author: danlep
-ms.openlocfilehash: 4fe5d9a20249a17030e0ccfa34f6a4f183be0d82
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: f814b1c99827c07f8dadfb0cfd80c87a93377cdc
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325671"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533452"
 ---
 # <a name="run-containerized-tasks-with-restart-policies"></a>다시 시작 정책으로 컨테이너 작업 실행
 
@@ -27,7 +22,7 @@ Azure Container Instances에서는 컨테이너를 배포하는 것이 쉽고 �
 
 Azure Container Instances에서 [컨테이너 그룹](container-instances-container-groups.md)을 만들 때 세 가지 다시 시작 정책 설정 중 하나를 지정할 수 있습니다.
 
-| 다시 시작 정책   | Description |
+| 다시 시작 정책   | 설명 |
 | ---------------- | :---------- |
 | `Always` | 컨테이너 그룹의 컨테이너가 항상 다시 시작됩니다. 컨테이너를 만들 때 다시 시작 정책이 지정되지 않은 경우 적용되는 **기본** 설정입니다. |
 | `Never` | 컨테이너 그룹의 컨테이너가 절대로 다시 시작되지 않습니다. 컨테이너가 한 번만 실행됩니다. |
@@ -35,7 +30,7 @@ Azure Container Instances에서 [컨테이너 그룹](container-instances-contai
 
 ## <a name="specify-a-restart-policy"></a>다시 시작 정책 지정
 
-다시 시작 정책을 지정하는 방법은 Azure CLI, Azure PowerShell cmdlet 또는 Azure Portal에서와 같이 컨테이너 인스턴스를 만드는 방법에 따라 다릅니다. Azure CLI에서 [az container create][az-container-create]를 `--restart-policy` 호출할 때 매개 변수를 지정 합니다.
+다시 시작 정책을 지정하는 방법은 Azure CLI, Azure PowerShell cmdlet 또는 Azure Portal에서와 같이 컨테이너 인스턴스를 만드는 방법에 따라 다릅니다. Azure CLI에서 [az container create][az-container-create]를 호출할 때 `--restart-policy` 매개 변수를 지정 합니다.
 
 ```azurecli-interactive
 az container create \

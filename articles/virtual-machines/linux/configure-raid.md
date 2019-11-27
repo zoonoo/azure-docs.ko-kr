@@ -15,18 +15,21 @@ ms.topic: article
 ms.date: 02/02/2017
 ms.author: rclaus
 ms.subservice: disks
-ms.openlocfilehash: bc53ed3e3a7fd988464b9100df654920d5589596
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: f59e4b9ee85803ab5635e72b3607e82e958d9696
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036656"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534192"
 ---
 # <a name="configure-software-raid-on-linux"></a>Linux에서 소프트웨어 RAID 구성
 Azure에서 Linux 가상 머신의 소프트웨어 RAID를 사용하여 연결된 여러 데이터 디스크를 단일 RAID 디바이스로 나타내는 것이 일반적인 시나리오입니다. 일반적으로 이 시나리오는 단일 디스크만 사용하는 경우와 비교하여 성능을 개선하고 처리량을 향상하기 위해 사용할 수 있습니다.
 
 ## <a name="attaching-data-disks"></a>데이터 디스크 연결
 RAID 디바이스를 구성하는 데 두 개 이상의 빈 데이터 디스크가 필요합니다.  RAID 디바이스를 만드는 주된 이유는 디스크 IO의 성능을 개선하기 위한 것입니다.  IO 요구 사항에 따라 Standard Storage에 저장된 디스크(디스크당 최대 500IO/ps) 또는 Premium Storage에 저장된 디스크(디스크당 최대 5000IO/ps)를 연결할 수 있습니다. Linux 가상 머신에 데이터 디스크를 프로비전 및 연결하는 방법은 이 문서에서 자세히 다루지 않습니다.  Azure에서 빈 데이터 디스크를 Linux 가상 컴퓨터에 연결하는 방법에 대한 자세한 내용은 Microsoft Azure 문서 [디스크 연결](add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 참조하세요.
+
+> [!IMPORTANT]
+>서로 다른 크기의 디스크를 혼합 하지 마십시오. 이렇게 하면 raidset 성능이 가장 느린 디스크의 성능으로 제한 됩니다. 
 
 ## <a name="install-the-mdadm-utility"></a>mdadm 유틸리티 설치
 * **Ubuntu**

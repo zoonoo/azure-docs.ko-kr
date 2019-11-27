@@ -14,26 +14,29 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/04/2019
+ms.date: 11/26/2019
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: elisol, lenalepa
+ms.reviewer: lenalepa, sureshja
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ebf6b9a07e775c76188dcebece011b01e90fbcf5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6d2efdcf03b829b43f797ddb7ca32bb6d120609e
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803443"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74532991"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>애플리케이션을 Azure AD에 추가하는 방법 및 이유
 
-Azure AD에는 애플리케이션의 두 가지 표현이 있습니다. 
+Azure AD에는 애플리케이션의 두 가지 표현이 있습니다.
+
 * [애플리케이션 개체](app-objects-and-service-principals.md#application-object) - 애플리케이션의 정의로 간주될 수 있습니다([예외](#notes-and-exceptions)가 있음).
 * [서비스 주체](app-objects-and-service-principals.md#service-principal-object) - 애플리케이션의 인스턴스로 간주될 수 있습니다. 서비스 주체는 일반적으로 애플리케이션 개체를 참조하며, 하나의 애플리케이션 개체는 전체 디렉터리에서 여러 서비스 주체에 의해 참조될 수 있습니다.
 
 ## <a name="what-are-application-objects-and-where-do-they-come-from"></a>애플리케이션 개체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경을 통해 [애플리케이션 개체](app-objects-and-service-principals.md#application-object)를 관리할 수 있습니다. 애플리케이션 개체는 Azure AD에 대한 애플리케이션을 설명하며, 애플리케이션의 정의로 간주되어 서비스에서 해당 설정에 따라 애플리케이션에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 애플리케이션인 경우에도 애플리케이션 개체는 홈 디렉터리에만 있습니다. 애플리케이션 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
+
+Azure Portal에서 [앱 등록](app-objects-and-service-principals.md#application-object) 환경을 통해 [애플리케이션 개체](https://aka.ms/appregistrations)를 관리할 수 있습니다. 애플리케이션 개체는 Azure AD에 대한 애플리케이션을 설명하며, 애플리케이션의 정의로 간주되어 서비스에서 해당 설정에 따라 애플리케이션에 토큰을 발급하는 방법을 인식할 수 있습니다. 다른 디렉터리의 서비스 주체를 지원하는 다중 테넌트 애플리케이션인 경우에도 애플리케이션 개체는 홈 디렉터리에만 있습니다. 애플리케이션 개체는 다음을 포함할 수 있습니다(여기 언급되지 않은 추가 정보도 있음).
+
 * 이름, 로고 및 게시자
 * 리디렉션 URI
 * 비밀(애플리케이션을 인증하는 데 사용되는 대칭 및/또는 비대칭 키)
@@ -45,14 +48,16 @@ Azure Portal에서 [앱 등록](https://aka.ms/appregistrations) 환경을 통�
 * 프록시 메타데이터 및 구성
 
 애플리케이션 개체는 다음을 포함하는 여러 경로 통해 를 만들 수 있습니다.
+
 * Azure Portal에서 애플리케이션 등록
 * Visual Studio를 사용하여 새 애플리케이션을 만들고, Azure AD 인증을 사용하도록 구성
 * 관리자가 앱 갤러리에서 애플리케이션을 추가하는 경우(서비스 주체도 만듦)
-* Microsoft Graph API, Azure AD Graph API 또는 PowerShell을 사용하여 새 애플리케이션 만들기
+* Microsoft Graph API 또는 PowerShell을 사용 하 여 새 응용 프로그램 만들기
 * Azure의 다양한 개발자 환경 및 개발자 센터의 API 탐색기 환경을 포함한 기타 여러 가지 방법
 
 ## <a name="what-are-service-principals-and-where-do-they-come-from"></a>서비스 주체란 무엇이며 어디에서 생겨날까요?
-Azure Portal에서 [엔터프라이즈 애플리케이션](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) 환경을 통해 [서비스 주체](app-objects-and-service-principals.md#service-principal-object)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 애플리케이션을 관리하며, 디렉터리에 있는 애플리케이션의 인스턴스로 간주될 수 있습니다. 주어진 애플리케이션의 경우 “home” 디렉터리에 등록된 애플리케이션 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 애플리케이션의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
+
+Azure Portal에서 [엔터프라이즈 애플리케이션](app-objects-and-service-principals.md#service-principal-object) 환경을 통해 [서비스 주체](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)를 관리할 수 있습니다. 서비스 주체는 Azure AD에 연결하는 애플리케이션을 관리하며, 디렉터리에 있는 애플리케이션의 인스턴스로 간주될 수 있습니다. 주어진 애플리케이션의 경우 “home” 디렉터리에 등록된 애플리케이션 개체는 하나만 가질 수 있고, 동작하는 모든 디렉터리에서 애플리케이션의 인스턴스를 의미하는 서비스 주체 개체는 둘 이상 가질 수 있습니다. 
 
 서비스 주체는 다음을 포함할 수 있습니다.
 
