@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 용어집 | Microsoft Docs
-description: 개발자 가이드 - Azure IoT Hub와 관련된 일반적인 용어집
+description: 개발자 가이드-Azure IoT Hub 문서에 사용 된 몇 가지 일반적인 용어에 대해 설명 하는 용어입니다.
 author: robinsh
 manager: philmea
 ms.author: robinsh
@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 01/15/2019
-ms.openlocfilehash: 6f89e27b06179c33857d581c0c6e3fc78c683d48
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 6c4215933b3816b445c55282bae9a36e88c0311f
+ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62119812"
+ms.lasthandoff: 11/09/2019
+ms.locfileid: "73890537"
 ---
 # <a name="glossary-of-iot-hub-terms"></a>IoT Hub 용어집
 이 문서에서는 IoT Hub 문서에 사용된 몇 가지 일반적인 용어를 나열합니다.
@@ -43,7 +43,7 @@ Azure IoT Hub에서 자동 디바이스 관리는 전체 수명 주기를 통해
 ## <a name="azure-iot-tools"></a>Azure IoT Tools
 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)는 VS Code에서 디바이스 및 Azure IoT Hub 관리에 도움이 되는 플랫폼 간 오픈 소스 Visual Studio Code 확장입니다. IoT 개발자는 Azure IoT Tools를 사용하여 손쉽게 VS Code에서 IoT 프로젝트를 개발할 수 있습니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure 포털
 [Microsoft Azure Portal](https://portal.azure.com)은 Azure 리소스를 프로비전 및 관리할 수 있는 중앙 위치입니다. _블레이드_를 사용하여 해당 콘텐츠를 구성합니다.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
@@ -85,7 +85,7 @@ IoT Hub에 사용자 지정 [엔드포인트](iot-hub-devguide-endpoints.md)를 
 게이트웨이를 통해 [IoT Hub](#iot-hub)에 직접 연결할 수 없는 디바이스의 연결이 가능합니다. Azure IoT Edge를 사용하여 메시지, 사용자 지정 프로토콜 변환 및 에지의 기타 프로세스를 처리하도록 사용자 지정 논리를 구현하는 사용자 지정 게이트웨이를 빌드할 수 있습니다.
 
 ## <a name="data-point-message"></a>데이터 요소 메시지
-데이터 요소 메시지는 풍속 또는 온도와 같은 [원격 분석](#telemetry) 데이터를 포함하는 [클라우드-디바이스](#device-to-cloud) 메시지입니다.
+데이터 요소 메시지는 풍속 또는 온도와 같은 [원격 분석](#device-to-cloud) 데이터를 포함하는 [클라우드-디바이스](#telemetry) 메시지입니다.
 
 ## <a name="desired-configuration"></a>desired 구성
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 desired 구성은 디바이스와 동기화해야 하는 디바이스의 속성 및 메타데이터 전체 집합을 나타냅니다.
@@ -177,7 +177,7 @@ Azure IoT 솔루션 가속기는 여러 Azure 서비스를 솔루션으로 함�
 [Azure CLI에 대한 IoT 확장](https://github.com/Azure/azure-iot-cli-extension)은 플랫폼 간 명령줄 도구입니다. 이 도구를 통해 [ID 레지스트리](#identity-registry)에서 디바이스를 관리하고 디바이스에서 메시지 및 파일을 보내고 받으며 IoT Hub 작업을 모니터링할 수 있습니다.
 
 ## <a name="job"></a>작업
-솔루션 백 엔드에서는 IoT Hub에 등록된 디바이스 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](#identity-registry)에서 [가져오고 내보내는](iot-hub-devguide-identity-registry.md#import-and-export-device-identities) 작업도 사용합니다.
+솔루션 백 엔드에서는 IoT Hub에 등록된 디바이스 집합에서의 활동을 예약 및 추적하는 [작업](iot-hub-devguide-jobs.md)을 사용할 수 있습니다. 활동에는 디바이스 쌍 [desired 속성](#desired-properties) 업데이트, 디바이스 쌍 [태그](#tags) 업데이트 및 [직접 메서드](#direct-method) 호출이 포함됩니다. [IoT Hub](#iot-hub)는 [ID 레지스트리](iot-hub-devguide-identity-registry.md#import-and-export-device-identities)에서 [가져오고 내보내는](#identity-registry) 작업도 사용합니다.
 
 ## <a name="modules"></a>모듈
 디바이스 쪽에서 IoT Hub 디바이스 SDK를 사용하면 각각 IoT Hub에 대한 독립적 연결을 여는 [모듈](iot-hub-devguide-module-twins.md)을 만들 수 있습니다. 이 함수를 사용하면 디바이스의 여러 구성 요소에 별도의 네임스페이스를 사용할 수 있습니다.
@@ -206,7 +206,7 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 일반적으로 프로토콜 게이트웨이는 클라우드에 배포되며 [IoT Hub](#iot-hub)에 연결되는 디바이스에 대해 프로토콜 번역 서비스를 제공합니다. 자세한 내용은 [Azure IoT Hub란?](about-iot-hub.md)을 참조하세요.
 
 ## <a name="quotas-and-throttling"></a>할당량 및 제한
-[IoT Hub](#iot-hub) 사용에 적용되는 다양한 [할당량](iot-hub-devguide-quotas-throttling.md)이 있으며 대부분은 IoT Hub의 계층에 따라 달라집니다. [IoT Hub](#iot-hub)는 런타임 시 서비스 사용에 [제한](iot-hub-devguide-quotas-throttling.md)도 적용합니다.
+[IoT Hub](iot-hub-devguide-quotas-throttling.md) 사용에 적용되는 다양한 [할당량](#iot-hub)이 있으며 대부분은 IoT Hub의 계층에 따라 달라집니다. [IoT Hub](#iot-hub)는 런타임 시 서비스 사용에 [제한](iot-hub-devguide-quotas-throttling.md)도 적용합니다.
 
 ## <a name="reported-configuration"></a>Reported 구성
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 reported 구성은 솔루션 백 엔드에 보고해야 하는 디바이스 쌍의 속성 및 메타데이터 집합 전체를 나타냅니다.
@@ -220,8 +220,8 @@ IoT Hub에서 디바이스 지향 또는 서비스 지향 엔드포인트에 연
 ## <a name="retry-policy"></a>다시 시도 정책
 클라우드 서비스에 연결할 때는 재시도 정책을 사용하여 [일시적인 오류](/azure/architecture/best-practices/transient-faults)를 처리합니다.
 
-## <a name="routing-rules"></a>회람 규칙
-IoT Hub에서 [기본 제공 엔드포인트](#built-in-endpoints) 또는 [사용자 지정 엔드포인트](#custom-endpoints)로 디바이스-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](iot-hub-devguide-messages-read-custom.md)을 구성합니다.
+## <a name="routing-rules"></a>라우팅 규칙
+IoT Hub에서 [기본 제공 엔드포인트](iot-hub-devguide-messages-read-custom.md) 또는 [사용자 지정 엔드포인트](#built-in-endpoints)로 디바이스-클라우드 메시지를 라우팅하여 솔루션 백 엔드에서 처리하도록 [라우팅 규칙](#custom-endpoints)을 구성합니다.
 
 ## <a name="sasl-plain"></a>SASL PLAIN
 SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용하는 프로토콜입니다.
@@ -238,7 +238,7 @@ SASL PLAIN은 AMQP 프로토콜에서 보안 토큰을 전송하는 데 사용�
 ## <a name="simulated-device"></a>시뮬레이션된 디바이스
 편의를 위해 많은 IoT Hub 자습서에서 시뮬레이션된 디바이스를 사용하여 로컬 머신에서 샘플을 실행할 수 있도록 합니다. 반면에, [물리적 디바이스](#physical-device)는 Raspberry Pi처럼 IoT Hub에 연결되는 실제 디바이스입니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 _솔루션_은 하나 이상의 프로젝트를 포함하는 Visual Studio 솔루션을 나타낼 수 있습니다. _솔루션_은 또한 디바이스, [디바이스 앱](#device-app), IoT Hub, 기타 Azure 서비스 및 [백 엔드 앱](#back-end-app)과 같은 요소를 포함하는 IoT 솔루션을 나타낼 수 있습니다.
 
 ## <a name="subscription"></a>구독
@@ -247,14 +247,14 @@ Azure 구독에서는 청구가 이루어집니다. 생성한 각 Azure 서비�
 ## <a name="system-properties"></a>시스템 속성
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 시스템 속성은 읽기 전용이며 마지막 작업 시간 및 연결 상태와 같은 디바이스 사용에 대한 정보를 포함합니다.
 
-## <a name="tags"></a>태그들
+## <a name="tags"></a>태그
 [디바이스 쌍](iot-hub-devguide-device-twins.md) 컨텍스트에서 태그는 JSON 문서 형식으로 솔루션 백 엔드에 의해 저장 및 검색되는 디바이스 메타데이터입니다. 태그는 디바이스 앱에 표시되지 않습니다.
 
 ## <a name="telemetry"></a>원격 분석
 디바이스는 풍속 또는 온도와 같은 원격 분석 데이터를 수집하고 데이터 요소 메시지를 사용하여 IoT Hub에 원격 분석을 보냅니다.
 
 ## <a name="token-service"></a>토큰 서비스
-토큰 서비스를 사용하여 디바이스에 대한 인증 메커니즘을 구현합니다. **DeviceConnect** 권한으로 IoT Hub [공유 액세스 정책](#shared-access-policy)을 사용하여 *device-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스에서 IoT Hub에 연결할 수 있게 해줍니다. 디바이스는 사용자 지정 인증 메커니즘을 사용하여 토큰 서비스를 인증합니다. 디바이스가 성공적으로 인증되면 토큰 서비스는 사용할 디바이스에 대한 SAS 토큰을 발행하여 IoT Hub에 액세스합니다.
+토큰 서비스를 사용하여 디바이스에 대한 인증 메커니즘을 구현합니다. [DeviceConnect](#shared-access-policy) 권한으로 IoT Hub **공유 액세스 정책**을 사용하여 *device-scoped* 토큰을 만듭니다. 이러한 토큰은 디바이스에서 IoT Hub에 연결할 수 있게 해줍니다. 디바이스는 사용자 지정 인증 메커니즘을 사용하여 토큰 서비스를 인증합니다. 디바이스가 성공적으로 인증되면 토큰 서비스는 사용할 디바이스에 대한 SAS 토큰을 발행하여 IoT Hub에 액세스합니다.
 
 ## <a name="twin-queries"></a>쌍 쿼리
 [디바이스 및 모듈 쌍 쿼리](iot-hub-devguide-query-language.md)에서는 SQL과 유사한 IoT Hub 쿼리 언어를 사용하여 디바이스 쌍 또는 모듈 쌍에서 정보를 검색합니다. 동일한 IoT Hub 쿼리 언어를 사용하여 IoT Hub에서 실행 중인 [](#job)에 대한 정보를 검색할 수 있습니다.

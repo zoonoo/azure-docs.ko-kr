@@ -1,5 +1,5 @@
 ---
-title: 온-프레미스 HDFS에서 데이터 이동 | Microsoft Docs
+title: 온-프레미스 HDFS에서 데이터 이동
 description: Azure 데이터 팩터리를 사용하여 온-프레미스 HDFS에서 데이터를 이동하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,15 +13,15 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: f28c7b94a9eb8131f0638a24a0d4b3cfccf062e5
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: ad5695f1bde1013b6a4c010f4a80256eac09fe63
+ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836287"
+ms.lasthandoff: 11/06/2019
+ms.locfileid: "73682570"
 ---
 # <a name="move-data-from-on-premises-hdfs-using-azure-data-factory"></a>Azure Data Factory를 사용하여 온-프레미스 HDFS에서 데이터 이동
-> [!div class="op_single_selector" title1="사용 하는 Data Factory 서비스 버전을 선택 합니다."]
+> [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](data-factory-hdfs-connector.md)
 > * [버전 2(현재 버전)](../connector-hdfs.md)
 
@@ -30,7 +30,7 @@ ms.locfileid: "67836287"
 
 이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 온-프레미스 HDFS에서 데이터를 이동하는 방법을 설명합니다. 이 문서는 복사 작업을 사용한 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 작업](data-factory-data-movement-activities.md) 문서를 기반으로 합니다.
 
-HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블을 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 온-프레미스 HDFS로 데이터 이동이 아닌 온-프레미스 HDFS에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
+HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 표를 참조하세요. 현재 데이터 팩터리는 다른 데이터 저장소에서 온-프레미스 HDFS로 데이터 이동이 아닌 온-프레미스 HDFS에서 다른 데이터 저장소로 데이터 이동만을 지원합니다.
 
 > [!NOTE]
 > 복사 작업 시 원본 파일이 대상에 성공적으로 복사된 후 원본 파일이 삭제되지 않습니다. 성공적 복사 후 원본 파일을 삭제해야 할 경우 파일을 삭제하는 사용자 지정 작업을 만들고 파이프라인에서 해당 작업을 사용합니다. 
@@ -48,9 +48,9 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 ## <a name="getting-started"></a>시작
 다른 도구/API를 사용하여 HDFS 원본의 데이터를 이동하는 복사 작업으로 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 단계별 지침은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습을 볼 수 있습니다.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
 
-또한 다음 도구를 사용하여 파이프라인을 만들 수 있습니다. **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API** 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
+또한 **Azure Portal**, **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager 템플릿**, **.NET API** 및 **REST API**를 사용하여 파이프라인을 만들 수 있습니다. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
 도구를 사용하든 API를 사용하든, 다음 단계에 따라 원본 데이터 저장소에서 싱크 데이터 저장소로 데이터를 이동하는 파이프라인을 만들면 됩니다.
 
@@ -67,13 +67,13 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| type |type 속성을 다음으로 설정해야 합니다. **HDFS** |예 |
-| url |HDFS에 대한 URL |예 |
+| type |형식 속성은 다음으로 설정해야 함: **Hdfs** |예 |
+| URL |HDFS에 대한 URL |예 |
 | authenticationType |익명 또는 Windows입니다. <br><br> HDFS 커넥터에 **Kerberos 인증**을 사용하려면 [이 섹션](#use-kerberos-authentication-for-hdfs-connector)을 참조하여 온-프레미스 환경을 적절히 설정합니다. |예 |
 | userName |Windows 인증에 대한 사용자 이름. Kerberos 인증의 경우 `<username>@<domain>.com`을 지정합니다. |예(Windows 인증에 대한) |
 | password |Windows 인증에 대한 암호. |예(Windows 인증에 대한) |
 | gatewayName |데이터 팩터리 서비스가 HDFS에 연결하는 데 사용해야 하는 게이트웨이의 이름. |예 |
-| encryptedCredential |[새 AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) 액세스 자격 증명의 출력입니다. |아니요 |
+| encryptedCredential |[AzDataFactoryEncryptValue](https://docs.microsoft.com/powershell/module/az.datafactory/new-azdatafactoryencryptvalue) access 자격 증명의 출력입니다. |아니오 |
 
 ### <a name="using-anonymous-authentication"></a>익명 인증 사용
 
@@ -120,11 +120,11 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 | 속성 | 설명 | 필수 |
 | --- | --- | --- |
-| folderPath |파일의 경로입니다. 예: `myfolder`<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예: 폴더\하위 폴더의 경우 폴더\\\\하위 폴더를 지정하고 d:\samplefolder의 경우 d:\\\\samplefolder를 지정합니다.<br/><br/>이 속성을 **partitionBy**와 결합하여 조각 시작/종료 날짜/시간을 기준으로 폴더 경로를 지정할 수 있습니다. |예 |
-| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예:: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt |아니요 |
-| partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대해 매개 변수화됩니다. |아니요 |
-| format | 다음 포맷 형식이 지원됩니다. **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**입니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니요 |
-| compression | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니요 |
+| folderPath |파일의 경로입니다. 예: `myfolder`<br/><br/>문자열의 특수 문자에 이스케이프 문자 '\'를 사용합니다. 예: 폴더\하위 폴더의 경우 폴더\\\\하위 폴더를 지정하고 d:\samplefolder의 경우 d:\\\\samplefolder를 지정합니다.<br/><br/>**partitionBy** 로 이 속성을 결합하여 조각 시작/종료 날짜-시간에 따라 폴더 경로를 가질 수 있습니다. |예 |
+| fileName |폴더에서 특정 파일을 참조하기 위해 테이블을 사용하려는 경우 **folderPath** 에 있는 파일의 이름을 지정합니다. 이 속성에 값을 지정하지 않으면 테이블은 폴더에 있는 모든 파일을 가리킵니다.<br/><br/>출력 데이터 세트에 대한 fileName이 지정되는 경우 생성되는 파일의 이름 형식은 다음과 같습니다. <br/><br/>`Data.<Guid>.txt` (예:: 0a405f8a-93ff-4c6f-b3be-f69616f1df7a |아니오 |
+| partitionedBy |동적 folderPath, 시계열 데이터에 대한 filename을 지정하는 데 partitionedBy를 사용할 수 있습니다. 예를 들어 folderPath는 매시간 데이터에 대해 매개 변수화됩니다. |아니오 |
+| format | **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, **ParquetFormat**과 같은 서식 유형이 지원됩니다. 이 값 중 하나로 서식에서 **type** 속성을 설정합니다. 자세한 내용은 [텍스트 형식](data-factory-supported-file-and-compression-formats.md#text-format), [Json 형식](data-factory-supported-file-and-compression-formats.md#json-format), [Avro 형식](data-factory-supported-file-and-compression-formats.md#avro-format), [Orc 형식](data-factory-supported-file-and-compression-formats.md#orc-format) 및 [Parquet 형식](data-factory-supported-file-and-compression-formats.md#parquet-format) 섹션을 참조하세요. <br><br> 파일 기반 저장소(이진 복사) 간에 **파일을 있는 그대로 복사**하려는 경우 입력 및 출력 데이터 세트 정의 둘 다에서 형식 섹션을 건너뜁니다. |아니오 |
+| 압축 | 데이터에 대한 압축 유형 및 수준을 지정합니다. 지원되는 형식은 **GZip**, **Deflate**, **BZip2** 및 **ZipDeflate**입니다. 지원되는 수준은 **최적** 및 **가장 빠름**입니다. 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md#compression-support)을 참조하세요. |아니오 |
 
 > [!NOTE]
 > filename 및 fileFilter는 동시에 사용할 수 없습니다.
@@ -167,31 +167,31 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 원본이 **FileSystemSource** 형식인 복사 작업의 경우 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-**FileSystemSource**는 다음 속성을 지원합니다.
+**FileSystemSource** 는 다음 속성을 지원합니다.
 
 | 속성 | 설명 | 허용되는 값 | 필수 |
 | --- | --- | --- | --- |
-| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니요 |
+| recursive |하위 폴더에서 또는 지정된 폴더에서만 데이터를 재귀적으로 읽을지 여부를 나타냅니다. |True, False(기본값) |아니오 |
 
 ## <a name="supported-file-and-compression-formats"></a>지원되는 파일 및 압축 형식
 자세한 내용은 [Azure Data Factory의 파일 및 압축 형식](data-factory-supported-file-and-compression-formats.md) 문서를 참조하세요.
 
-## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>JSON 예제: 온-프레미스 HDFS에서 Azure Blob으로 데이터 복사
+## <a name="json-example-copy-data-from-on-premises-hdfs-to-azure-blob"></a>JSON 예: 온-프레미스 HDFS에서 Azure Blob으로 데이터 복사
 이 샘플은 온-프레미스 HDFS에서 Azure Blob Storage로 데이터를 복사하는 방법을 보여 줍니다. 그러나 Azure Data Factory의 복사 작업을 사용하여 **여기** 에 설명한 싱크로 [직접](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 데이터를 복사할 수 있습니다.  
 
-샘플은 다음 Data Factory 엔터티에 대한 JSON 정의를 제공합니다. 이러한 정의 사용 하 여 사용 하 여 HDFS에서 Azure Blob Storage로 데이터를 복사 하는 파이프라인을 만드는 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 하거나 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)합니다.
+샘플은 다음 Data Factory 엔터티에 대한 JSON 정의를 제공합니다. 이러한 정의를 사용 하 여 [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) 또는 [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)를 사용 하 여 HDFS에서 Azure Blob Storage로 데이터를 복사 하는 파이프라인을 만들 수 있습니다.
 
 1. [OnPremisesHdfs](#linked-service-properties) 형식의 연결된 서비스입니다.
-2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties) 형식의 연결된 서비스
-3. [FileShare](#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
-4. [AzureBlob](data-factory-azure-blob-connector.md#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
-5. [FileSystemSource](#copy-activity-properties) 및 [BlobSink](data-factory-azure-blob-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)입니다.
+2. [AzureStorage](data-factory-azure-blob-connector.md#linked-service-properties)형식의 연결된 서비스입니다.
+3. [FileShare](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](#dataset-properties)
+4. [AzureBlob](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](data-factory-azure-blob-connector.md#dataset-properties)
+5. [FileSystemSource](data-factory-create-pipelines.md) 및 [BlobSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-azure-blob-connector.md#copy-activity-properties)입니다.
 
 샘플은 온-프레미스 HDFS에서 Azure Blob으로 매시간 데이터를 복사합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 
 첫 번째 단계로 데이터 관리 게이트웨이를 설정합니다. 해당 지침은 [온-프레미스 위치와 클라우드 간에 데이터 이동](data-factory-move-data-between-onprem-and-cloud.md) 문서에 나와 있습니다.
 
-**HDFS 연결 서비스:** 이 예제에서는 Windows 인증을 사용합니다. 사용할 수 있는 다른 유형의 인증은 [HDFS 연결된 서비스](#linked-service-properties) 섹션을 참조하세요.
+**HDFS 연결된 서비스:** 이 예제에서는 Windows 인증을 사용합니다. 사용할 수 있는 다른 유형의 인증은 [HDFS 연결된 서비스](#linked-service-properties) 섹션을 참조하세요.
 
 ```JSON
 {
@@ -249,7 +249,7 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 **Azure Blob 출력 데이터 세트:**
 
-데이터는 1시간마다 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
+데이터는 매시간 새 blob에 기록됩니다(frequency: hour, interval: 1). Blob에 대한 폴더 경로는 처리 중인 조각의 시작 시간에 기반하여 동적으로 평가됩니다. 폴더 경로는 시작 시간에서 연도, 월, 일 및 시간 부분을 사용합니다.
 
 ```JSON
 {
@@ -351,10 +351,10 @@ HDFS에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사
 
 ## <a name="use-kerberos-authentication-for-hdfs-connector"></a>HDFS 커넥터에 Kerberos 인증 사용
 HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 설정하는 옵션은 두 가지가 있습니다. 이 중 더 잘 맞는 옵션을 선택할 수 있습니다.
-* 옵션 1: [게이트웨이 머신을 Kerberos 영역에 가입](#kerberos-join-realm)
+* 옵션 1: [게이트웨이 컴퓨터를 Kerberos 영역에 가입](#kerberos-join-realm)
 * 옵션 2: [Windows 도메인과 Kerberos 영역 사이에 상호 트러스트를 사용하도록 설정](#kerberos-mutual-trust)
 
-### <a name="kerberos-join-realm"></a>옵션 1: 게이트웨이 머신을 Kerberos 영역에 가입
+### <a name="kerberos-join-realm"></a>옵션 1: 게이트웨이 컴퓨터를 Kerberos 영역에 가입
 
 #### <a name="requirement"></a>요구 사항:
 
@@ -435,7 +435,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
 
    **다시 시작** 구성 후에 KDC 서비스입니다.
 
-2. 명명 된 보안 주체를 준비 **krbtgt/REALM.COM\@AD.COM** 다음 명령 사용 하 여 KDC 서버에서:
+2. 다음 명령을 사용 하 여 AD.COM 라는 보안 주체를 KDC 서버에서 준비 **합니다\@.**
 
            Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
@@ -448,7 +448,7 @@ HDFS 커넥터에 Kerberos 인증을 사용하도록 온-프레미스 환경을 
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 보안 주체에 대 한 암호 **krbtgt/REALM.COM\@AD.COM**합니다.
+2.  Windows 도메인에서 Kerberos 영역으로의 트러스트를 설정합니다. [password]는 주 **krbtgt/REALM .com\@AD.COM**에 대 한 암호입니다.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 

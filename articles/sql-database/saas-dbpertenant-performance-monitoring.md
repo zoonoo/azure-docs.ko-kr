@@ -1,22 +1,22 @@
 ---
-title: 'SaaS 앱: 많은 Azure SQL 데이터베이스의 성능 모니터링 | Microsoft Docs'
+title: 'Saas 앱: 많은 데이터베이스의 성능 모니터링'
 description: 멀티 테넌트 SaaS 앱에서 Azure SQL 데이터베이스 및 풀의 성능 모니터링 및 관리
 services: sql-database
 ms.service: sql-database
 ms.subservice: scenario
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 322cc2fd53972c7c084da76ac0c80b757d0d2297
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e2e752ec37f71ea501dcee586e7daf0fc950919d
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570414"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73822227"
 ---
 # <a name="monitor-and-manage-performance-of-azure-sql-databases-and-pools-in-a-multi-tenant-saas-app"></a>멀티 테넌트 SaaS 앱에서 Azure SQL 데이터베이스 및 풀의 성능 모니터링 및 관리
 
@@ -36,7 +36,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스 앱은 단일 테넌트 데
 
 이 자습서를 수행하려면 다음 필수 조건이 완료되었는지 확인합니다.
 
-* Wingtip Tickets SaaS Database Per Tenant 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
+* Wingtip Tickets SaaS 테넌트당 데이터베이스 앱이 배포됩니다. 5분 내에 배포하려면 [Wingtip Tickets SaaS Database Per Tenant 애플리케이션 배포 및 탐색](saas-dbpertenant-get-started-deploy.md)을 참조하세요.
 * Azure PowerShell이 설치되었습니다. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
 
 ## <a name="introduction-to-saas-performance-management-patterns"></a>SaaS 성능 관리 패턴 소개
@@ -68,13 +68,13 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 이미 이전 자습서에서 테넌트의 배치를 프로비전한 경우 [모든 테넌트 데이터베이스에 대한 사용량 시뮬레이션](#simulate-usage-on-all-tenant-databases) 섹션을 건너뛸 수 있습니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **1**, **Provision a batch of tenants** 설정
 1. **F5** 키를 눌러 스크립트를 실행합니다.
 
 이 스크립트는 테넌트 17개를 5분 이내에 배포합니다.
 
-*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.yml) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. *기존* 테넌트 데이터베이스(*basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 [스키마 관리 자습서](saas-tenancy-schema-management.md)를 참조하세요.
+*New-TenantBatch* 스크립트는 테넌트의 배치를 만드는 [Resource Manager](../azure-resource-manager/index.yml) 템플릿의 중첩 또는 연결된 집합을 사용하며, 기본적으로 **basetenantdb** 데이터베이스를 카탈로그 서버에 복사하여 새 테넌트 데이터베이스를 만든 다음 이들을 카탈로그에 등록하며, 끝으로 이들을 테넌트 이름과 장소 유형으로 초기화합니다. 이 방법은 앱이 새 테넌트를 프로비전하는 방법과 일치합니다. *basetenantdb*에 대해 실행한 변경은 이후 프로비전하는 새 테넌트에 모두 적용됩니다. [기존](saas-tenancy-schema-management.md) 테넌트 데이터베이스(*basetenantdb* 데이터베이스 포함)에 대해 스키마를 변경하는 방법은 *스키마 관리 자습서*를 참조하세요.
 
 ## <a name="simulate-usage-on-all-tenant-databases"></a>모든 테넌트 데이터베이스에 대한 사용 시뮬레이션
 
@@ -90,7 +90,7 @@ Wingtip Tickets SaaS 다중 테넌트 데이터베이스 스크립트 및 애플
 
 부하 생성기는 *가상* CPU만의 부하를 모든 테넌트 데이터베이스에 적용합니다. 이 생성기는 각 테넌트 데이터베이스에 대해 작업을 시작하여 부하를 생성하는 저장 프로세서를 주기적으로 호출합니다. 부하 수준(eDTU 단위), 기간 및 간격은 모든 데이터베이스에 걸쳐 변화하여 예측 불가능한 테넌트 작업을 시뮬레이션합니다.
 
-1. **PowerShell ISE**에서 ...\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
+1. **PowerShell ISE**에서 …\\Learning Modules\\Performance Monitoring and Management\\*Demo-PerformanceMonitoringAndManagement.ps1*을 엽니다. 이 자습서를 실행하는 동안 여러 시나리오를 실행할 때 이 스크립트를 열어 두세요.
 1. **$DemoScenario** = **2**를 설정하고, *일반 강도 부하를 생성*합니다.
 1. **F5**를 눌러 모든 테넌트 데이터베이스에 부하를 적용합니다.
 
@@ -121,7 +121,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 
 풀에 대해 다음과 같이 사용률 \>75%일 때 트리거되는 경고를 설정합니다.
 
-1. [Azure Portal](https://portal.azure.com)에서 *Pool1*(*tenants1-dpt-\<user\>* 서버에 있음)을 엽니다.
+1. *Azure Portal*에서 *Pool1\<(\>tenants1-dpt-* user[](https://portal.azure.com) 서버에 있음)을 엽니다.
 1. **경고 규칙**, **+ 경고 추가**를 차례로 클릭합니다.
 
    ![경고 추가](media/saas-dbpertenant-performance-monitoring/add-alert.png)
@@ -241,7 +241,7 @@ Wingtip Tickets SaaS 테넌트당 데이터베이스는 SaaS 앱이며 SaaS 앱�
 [단일 테넌트 복원 자습서](saas-dbpertenant-restore-single-tenant.md)
 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Wingtip Tickets SaaS 테넌트당 데이터베이스 애플리케이션 배포를 기반으로 빌드되는 추가 자습서](saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)
 * [SQL 탄력적 풀](sql-database-elastic-pool.md)

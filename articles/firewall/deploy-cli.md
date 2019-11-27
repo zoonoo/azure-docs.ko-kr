@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: article
-ms.openlocfilehash: 94db17405457be91795d1588bee68a0deea68246
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: e97783d1a32916cad151f1d0858a8190d0005fd0
+ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114822"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73831978"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 방화벽 배포 및 구성
 
@@ -39,17 +39,17 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 > * 테스트 네트워크 환경 설정
 > * 방화벽 배포
 > * 기본 경로 만들기
-> * [www.google.com](www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
+> * [www.google.com]\(www.google.com) 액세스를 허용하도록 애플리케이션 규칙 구성
 > * 외부 DNS 서버 액세스를 허용하도록 네트워크 규칙 구성
 > * 방화벽 테스트
 
 원하는 경우 [Azure Portal](tutorial-firewall-deploy-portal.md) 또는 [Azure PowerShell](deploy-ps.md)를 사용 하 여이 절차를 완료할 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -79,7 +79,7 @@ az group create --name Test-FW-RG --location eastus
 이 가상 네트워크에 3 개의 서브넷이 있습니다.
 
 > [!NOTE]
-> AzureFirewallSubnet 서브넷의 크기는/26입니다. 서브넷 크기에 대 한 자세한 내용은 [Azure 방화벽 FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조 하세요.
+> AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure 방화벽 FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
 ```azurecli-interactive
 az network vnet create \
@@ -274,7 +274,7 @@ az network firewall network-rule create \
 
    두 명령 모두 응답을 반환 해야 DNS 쿼리가 방화벽을 통해 수신 하 고 있음을 보여 줍니다.
 
-1. 다음 명령을 실행 합니다.
+1. 다음 명령을 실행합니다.
 
    ```
    Invoke-WebRequest -Uri https://www.google.com
@@ -284,7 +284,7 @@ az network firewall network-rule create \
    Invoke-WebRequest -Uri https://www.microsoft.com
    ```
 
-   [www.google.com](www.google.com) 요청에 성공 하 고 www.microsoft.com 요청이 실패 합니다. 이는 방화벽 규칙이 예상 대로 작동 하 고 있음을 보여 줍니다.
+   `www.google.com` 요청이 성공 하 고 `www.microsoft.com` 요청이 실패 합니다. 이는 방화벽 규칙이 예상 대로 작동 하 고 있음을 보여 줍니다.
 
 이제 방화벽 규칙이 작동하는지 확인했습니다.
 

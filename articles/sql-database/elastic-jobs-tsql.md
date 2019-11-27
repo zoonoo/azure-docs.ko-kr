@@ -1,30 +1,30 @@
 ---
-title: T-SQL(Transact-SQL)을 사용하여 Azure SQL Elastic Database 작업 만들기 및 관리 | Microsoft Docs
+title: Transact-sql을 사용 하 여 Elastic Database 작업 만들기 및 관리 (T-sql)
 description: T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 에이전트가 있는 여러 데이터베이스에서 스크립트를 실행합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: ''
+ms.custom: seo-lt-2019
 ms.devlang: ''
 ms.topic: conceptual
 ms.author: jaredmoo
 author: jaredmoo
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d1123affa79f401b5142af604adbd757bdfb7d73
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: deefc1cc1d8fe82eab9ec0085b3a11ccd2fe7840
+ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68641049"
+ms.lasthandoff: 11/08/2019
+ms.locfileid: "73820595"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>T-SQL(Transact-SQL)을 사용하여 Elastic Database 작업 만들기 및 관리
 
 이 문서에서는 T-SQL을 사용하여 탄력적 작업을 시작할 수 있는 다양한 예제 시나리오를 제공합니다.
 
-예제에서는 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에서 사용할 수 있는 [저장 프로시저](#job-stored-procedures)와 [보기](#job-views)를 사용합니다.
+예제에서는 [](#job-stored-procedures)작업 데이터베이스[](#job-views)에서 사용할 수 있는 [저장 프로시저*와* 보기](sql-database-job-automation-overview.md#job-database)를 사용합니다.
 
-T-SQL(Transact-SQL)은 작업을 생성, 구성, 실행 및 관리하는 데 사용됩니다. 탄력적 작업 에이전트 만들기는 T-SQL에서 지원되지 않으므로, 먼저 포털 또는 [PowerShell](elastic-jobs-powershell.md#create-the-elastic-job-agent)을 사용하여 *탄력적 작업 에이전트*를 만들어야 합니다.
+T-SQL(Transact-SQL)은 작업을 생성, 구성, 실행 및 관리하는 데 사용됩니다. 탄력적 작업 에이전트 만들기는 T-SQL에서 지원되지 않으므로, 먼저 포털 또는 *PowerShell*을 사용하여 [탄력적 작업 에이전트](elastic-jobs-powershell.md#create-the-elastic-job-agent)를 만들어야 합니다.
 
 
 ## <a name="create-a-credential-for-job-execution"></a>작업 실행에 대한 자격 증명 만들기
@@ -192,7 +192,7 @@ CREATE TABLE [dbo].[Test]([TestId] [int] NOT NULL);',
 기본적으로 작업 에이전트는 반환된 결과를 저장할 테이블을 만듭니다. 결과적으로 출력 자격 증명에 사용되는 자격 증명과 관련된 로그인을 위해서는 이를 수행할 충분한 권한이 있어야 합니다. 테이블을 미리 수동으로 만들려는 경우 다음 속성이 있어야 합니다.
 1. 결과 집합에 대한 데이터 형식 및 올바른 이름을 사용하는 열입니다.
 2. 고유 식별자의 데이터 형식을 사용하는 internal_execution_id에 대한 추가 열입니다.
-3. Internal_execution_id 열에 명명 `IX_<TableName>_Internal_Execution_ID` 된 비클러스터형 인덱스입니다.
+3. Internal_execution_id 열에 `IX_<TableName>_Internal_Execution_ID` 이라는 비클러스터형 인덱스가 있습니다.
 
 [*작업 데이터베이스*](sql-database-job-automation-overview.md#job-database)에 연결하고 다음 명령을 실행합니다.
 
@@ -452,7 +452,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 [ **\@description =** ] 'description'  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식이며, 기본값은 NULL입니다. description이 생략되면 빈 문자열이 사용됩니다.
 
-**[\@enabled =** ] 사용  
+[ **\@enabled =** ] 사용  
 작업 일정이 사용되는지 여부입니다. enabled는 bit 형식이며, 기본값은 0(사용 안 함)입니다. 0인 경우 작업이 사용되지 않으며 일정에 따라 실행되지 않습니다. 그러나 수동으로는 실행할 수 있습니다. 1인 경우 작업이 일정에 따라 실행되며, 수동으로 실행할 수도 있습니다.
 
 [ **\@schedule_interval_type =** ] schedule_interval_type  
@@ -484,7 +484,7 @@ EXEC jobs.sp_delete_job @job_name='ResultsPoolsJob'
 sp_add_job은 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 실행해야 합니다.
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
 - jobs_reader
@@ -518,7 +518,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ **\@description =** ] 'description'  
 작업에 대한 설명입니다. description은 nvarchar(512) 형식입니다.
 
-**[\@enabled =** ] 사용  
+[ **\@enabled =** ] 사용  
 작업 일정이 사용되는지(1), 아니면 사용되지 않는지(0) 여부를 지정합니다. enabled는 bit 형식입니다.
 
 [ **\@schedule_interval_type=** ] schedule_interval_type  
@@ -546,7 +546,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 sp_add_job을 실행하여 작업이 추가되면 sp_add_jobstep을 사용하여 작업에 대한 활동을 수행하는 단계를 추가할 수 있습니다. 작업의 초기 버전 번호는 0이며, 첫 번째 단계가 추가되면 1로 증가합니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -578,7 +578,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 작업을 삭제하면 작업 기록이 자동으로 삭제됩니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -640,7 +640,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-**[\@command =** ] ' command '  
+[ **\@명령 =** ] 명령  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
 [ **\@credential_name =** ] 'credential_name'  
@@ -693,7 +693,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 [ **\@job_version =** ] job_version OUTPUT  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
 
-**[\@max_parallelism =** ] max_parallelism 출력  
+[ **\@max_parallelism =** ] max_parallelism 출력  
 탄력적 풀당 최대 병렬 처리 수준입니다. 설정되는 경우 작업 단계가 탄력적 풀당 최댓값 이하의 여러 데이터베이스에서만 실행되도록 제한됩니다. 이는 대상 그룹에 직접 포함되어 있거나 대상 그룹에 포함된 서버 내에 있는 각 탄력적 풀에 적용됩니다. max_parallelism은 int 형식입니다.
 
 
@@ -703,7 +703,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 #### <a name="remarks"></a>설명
 sp_add_jobstep이 성공하면 작업의 현재 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다. 작업이 현재 실행 중이면 해당 실행에는 새 단계가 포함되지 않습니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.  
 
 - jobs_reader
@@ -770,7 +770,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 지정되는 경우 이 값은 Inline이어야 합니다.
 
-**[\@command =** ] ' command '  
+[ **\@명령 =** ] 명령  
 명령은 유효한 T-SQL 스크립트여야 하며, 이 작업 단계에서 실행됩니다. 명령은 nvarchar(max) 형식이며, 기본값은 NULL입니다.
 
 [ **\@credential_name =** ] 'credential_name'  
@@ -817,7 +817,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 [ **\@job_version =** ] job_version OUTPUT  
 새 작업 버전 번호가 할당될 출력 매개 변수입니다. job_version은 int 형식입니다.
 
-**[\@max_parallelism =** ] max_parallelism 출력  
+[ **\@max_parallelism =** ] max_parallelism 출력  
 탄력적 풀당 최대 병렬 처리 수준입니다. 설정되는 경우 작업 단계가 탄력적 풀당 최댓값 이하의 여러 데이터베이스에서만 실행되도록 제한됩니다. 이는 대상 그룹에 직접 포함되어 있거나 대상 그룹에 포함된 서버 내에 있는 각 탄력적 풀에 적용됩니다. max_parallelism의 값을 null로 다시 설정하려면 이 매개 변수 값을 -1로 설정합니다. max_parallelism은 int 형식입니다.
 
 
@@ -827,7 +827,7 @@ null이 아닌 경우 명령의 첫 번째 결과 집합이 기록되는 테이�
 #### <a name="remarks"></a>설명
 진행 중인 모든 작업 실행은 영향을 받지 않습니다. sp_update_jobstep이 성공하면 작업의 버전 번호가 증가합니다. 다음에 작업이 실행될 때 새 버전이 사용됩니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 
 - jobs_reader
@@ -872,7 +872,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 
 다른 작업 단계는 삭제된 작업 단계에서 남겨진 간격을 채우기 위해 번호가 자동으로 다시 매겨집니다.
  
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -908,7 +908,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 없음
  
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -936,7 +936,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 없음
  
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -960,7 +960,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 [ **\@target_group_name =** ] 'target_group_name'  
 만들 대상 그룹의 이름입니다. target_group_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-**[\@target_group_id =** ] target_group_id 성공적으로 만들어진 경우 작업에 할당 된 대상 그룹 id 번호를 출력 합니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
+[ **\@target_group_id =** ] target_group_id 성공적으로 생성 되 면 작업에 할당 된 대상 그룹 Id 번호를 출력 합니다. target_group_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패)
@@ -968,7 +968,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -996,7 +996,7 @@ sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시�
 #### <a name="remarks"></a>설명
 없음
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -1045,14 +1045,14 @@ SQL Database 서버의 이름입니다. refresh_credential_name은 nvarchar(128)
 [ **\@shard_map_name =** ] 'shard_map_name'  
 지정된 대상 그룹에 추가해야 하는 분할된 맵 풀의 이름입니다. target_type이 'SqlSqlShardMap'이면 elastic_pool_name을 지정해야 합니다. shard_map_name은 nvarchar(128) 형식이며, 기본값은 없습니다.
 
-**[\@target_id =** ] target_group_id 출력  
+[ **\@target_id =** ] target_group_id 출력  
 만들어지면 대상 그룹에 추가되는 대상 그룹 멤버에 할당된 대상 ID 번호입니다. target_id는 uniqueidentifier 형식의 출력 변수이며, 기본값은 NULL입니다.
 반환 코드 값 0(성공) 또는 1(실패)
 
 #### <a name="remarks"></a>설명
 SQL Database 서버 또는 탄력적 풀이 대상 그룹에 포함되는 경우 작업은 실행 시 SQL Database 서버 또는 탄력적 풀 내의 모든 단일 데이터베이스에서 실행됩니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -1117,7 +1117,7 @@ Arguments [ @target_group_name = ] 'target_group_name'
 #### <a name="remarks"></a>설명
 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -1162,13 +1162,13 @@ GO
 [ **\@job_id =** ] job_id  
  삭제할 레코드에 대한 작업 ID 번호입니다. job_id는 uniqueidentifier이며, 기본값은 NULL입니다. job_id 또는 job_name을 지정해야 하지만, 둘 다는 지정할 수 없습니다.
 
-**[\@oldest_date =** ] oldest_date  
+[ **\@oldest_date =** ] oldest_date  
  기록에서 유지할 가장 오래된 레코드입니다. oldest_date는 DATETIME2 형식이며, 기본값은 NULL입니다. oldest_date가 지정되면 sp_purge_jobhistory는 지정한 값보다 오래된 레코드만 제거합니다.
 
 #### <a name="return-code-values"></a>반환 코드 값
 0(성공) 또는 1(실패) 설명 대상 그룹은 데이터베이스 컬렉션에서 작업을 대상으로 쉽게 지정할 수 있는 방법을 제공합니다.
 
-#### <a name="permissions"></a>사용 권한
+#### <a name="permissions"></a>권한
 sysadmin 고정 서버 역할의 멤버는 기본적으로 이 저장 프로시저를 실행할 수 있습니다. 사용자가 작업만 모니터링할 수 있도록 제한하면 작업 에이전트를 만들 때 지정한 작업 에이전트 데이터베이스에서 해당 사용자가 다음 데이터베이스 역할에 속하도록 승인할 수 있습니다.
 - jobs_reader
 
@@ -1192,7 +1192,7 @@ GO
 [작업 데이터베이스](sql-database-job-automation-overview.md#job-database)에서 사용할 수 있는 보기는 다음과 같습니다.
 
 
-|보기  |Description  |
+|보기  |설명  |
 |---------|---------|
 |[job_executions](#job_executions-view)     |  작업 실행 기록을 표시합니다.      |
 |[jobs](#jobs-view)     |   모든 작업을 표시합니다.      |
@@ -1224,7 +1224,7 @@ GO
 |**end_time**|  datetime2(7)    |작업 실행을 완료한 날짜 및 시간입니다. 작업이 아직 실행되지 않았거나 실행이 아직 완료되지 않은 경우 NULL입니다.
 |**current_attempts**   |int    |단계를 다시 시도한 횟수입니다. 부모 작업은 0이고, 자식 작업 실행은 실행 정책에 따라 1 이상입니다.
 |**current_attempt_start_time** |datetime2(7)|  작업 실행을 시작한 날짜 및 시간입니다. NULL은 부모 작업 실행임을 나타냅니다.
-|**last_message**   |nvarchar(최대)| 작업 또는 단계 기록 메시지입니다. 
+|**last_message**   |nvarchar(max)| 작업 또는 단계 기록 메시지입니다. 
 |**target_type**|   nvarchar(128)   |서버의 모든 데이터베이스, 탄력적 풀의 모든 데이터베이스 또는 데이터베이스가 포함된 대상 데이터베이스 또는 데이터베이스 컬렉션의 유형입니다. target_type에 대해 유효한 값은 'SqlServer', 'SqlElasticPool' 또는 'SqlDatabase'입니다. NULL은 부모 작업 실행임을 나타냅니다.
 |**target_id**  |uniqueidentifier|  대상 그룹 멤버의 고유 ID입니다.  NULL은 부모 작업 실행임을 나타냅니다.
 |**target_group_name**  |nvarchar(128)  |대상 그룹의 이름입니다. NULL은 부모 작업 실행임을 나타냅니다.
@@ -1269,7 +1269,7 @@ GO
 
 각 작업의 현재 버전에 있는 모든 단계를 표시합니다.
 
-|열 이름    |데이터 형식| Description|
+|열 이름    |데이터 형식| 설명|
 |------|------|-------|
 |**job_name**   |nvarchar(128)| 작업의 이름입니다.|
 |**job_id** |uniqueidentifier   |작업의 고유 ID입니다.|
@@ -1278,7 +1278,7 @@ GO
 |**step_name**  |nvarchar(128)  |이 작업의 단계에 대한 고유 이름입니다.|
 |**command_type**   |nvarchar(50)   |작업 단계에서 실행할 명령의 유형입니다. v1의 경우 값은 기본값인 'TSql'과 같아야 합니다.|
 |**command_source** |nvarchar(50)|  명령의 위치입니다. v1의 경우 'Inline'이 기본값이며, 허용되는 유일한 값입니다.|
-|**command**|   nvarchar(최대)|  command_type을 통해 탄력적 작업에서 실행할 명령입니다.|
+|**command**|   nvarchar(max)|  command_type을 통해 탄력적 작업에서 실행할 명령입니다.|
 |**credential_name**|   nvarchar(128)   |작업 실행에 사용된 데이터베이스 범위 자격 증명의 이름입니다.|
 |**target_group_name**| nvarchar(128)   |대상 그룹의 이름입니다.|
 |**target_group_id**|   uniqueidentifier|   대상 그룹의 고유 ID입니다.|
@@ -1293,8 +1293,8 @@ GO
 |**output_resource_group_name** |nvarchar(128)| 대상 서버가 있는 리소스 그룹 이름입니다.|
 |**output_server_name**|    nvarchar(256)   |결과 집합에 대한 대상 서버의 이름입니다.|
 |**output_database_name**   |nvarchar(128)| 결과 집합에 대한 대상 데이터베이스의 이름입니다.|
-|**output_schema_name** |nvarchar(최대)| 대상 스키마의 이름입니다. 지정되지 않은 경우 기본값은 dbo입니다.|
-|**output_table_name**| nvarchar(최대)|  쿼리 결과의 결과 집합을 저장할 테이블의 이름입니다. 테이블이 아직 없는 경우 결과 집합의 스키마를 기반으로 하여 자동으로 만들어집니다. 스키마는 결과 집합의 스키마와 일치해야 합니다.|
+|**output_schema_name** |nvarchar(max)| 대상 스키마의 이름입니다. 지정되지 않은 경우 기본값은 dbo입니다.|
+|**output_table_name**| nvarchar(max)|  쿼리 결과의 결과 집합을 저장할 테이블의 이름입니다. 테이블이 아직 없는 경우 결과 집합의 스키마를 기반으로 하여 자동으로 만들어집니다. 스키마는 결과 집합의 스키마와 일치해야 합니다.|
 |**max_parallelism**|   int|    작업 단계가 한 번에 실행될 탄력적 풀당 최대 데이터베이스 수입니다. 기본값은 NULL이며, 제한이 없음을 의미합니다. |
 
 
@@ -1310,7 +1310,7 @@ GO
 
 모든 대상 그룹을 나열합니다.
 
-|열 이름|데이터 형식| Description|
+|열 이름|데이터 형식| 설명|
 |-----|-----|-----|
 |**target_group_name**| nvarchar(128)   |데이터베이스 컬렉션인 대상 그룹의 이름입니다. 
 |**target_group_id**    |uniqueidentifier   |대상 그룹의 고유 ID입니다.
@@ -1321,7 +1321,7 @@ GO
 
 모든 대상 그룹의 모든 멤버를 표시합니다.
 
-|열 이름|데이터 형식| Description|
+|열 이름|데이터 형식| 설명|
 |-----|-----|-----|
 |**target_group_name**  |nvarchar(128)|데이터베이스 컬렉션인 대상 그룹의 이름입니다. |
 |**target_group_id**    |uniqueidentifier   |대상 그룹의 고유 ID입니다.|
@@ -1339,7 +1339,7 @@ GO
 
 ## <a name="resources"></a>리소스
 
- - ![항목 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "항목 링크 아이콘") [Transact-SQL 구문 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
+ - ![토픽 링크 아이콘](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "토픽 링크 아이콘") [Transact-sql 구문 표기 규칙](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>다음 단계
