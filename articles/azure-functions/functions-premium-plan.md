@@ -1,104 +1,104 @@
 ---
 title: Azure Functions 프리미엄 플랜
-description: Details and configuration options (VNet, no cold start, unlimited execution duration) for the Azure Functions Premium plan.
+description: Azure Functions 프리미엄 계획에 대 한 세부 정보 및 구성 옵션 (VNet, 콜드 시작 안 함, 실행 기간 제한 없음)입니다.
 author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
 ms.openlocfilehash: 99589a4f11f91afa7d3c9f93d844654ccc69aab1
 ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74322953"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 플랜
 
-The Azure Functions Premium plan is a hosting option for function apps. The Premium plan provides features like VNet connectivity, no cold start, and premium hardware.  Multiple function apps can be deployed to the same Premium plan, and the plan allows you to configure compute instance size, base plan size, and maximum plan size.  For a comparison of the Premium plan and other plan and hosting types, see [function scale and hosting options](functions-scale.md).
+Azure Functions Premium 요금제는 함수 앱에 대 한 호스팅 옵션입니다. 프리미엄 요금제는 VNet 연결, 콜드 부팅 및 프리미엄 하드웨어와 같은 기능을 제공 합니다.  여러 함수 앱을 동일한 프리미엄 계획에 배포할 수 있으며,이 계획을 통해 계산 인스턴스 크기, 기본 계획 크기 및 최대 계획 크기를 구성할 수 있습니다.  프리미엄 계획과 기타 계획 및 호스팅 유형을 비교 하는 방법에 대해서는 [함수 크기 조정 및 호스팅 옵션](functions-scale.md)을 참조 하세요.
 
 ## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
 [!INCLUDE [functions-premium-create](../../includes/functions-premium-create.md)]
 
-You can also create a Premium plan using [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) in the Azure CLI. The following example creates an _Elastic Premium 1_ tier plan:
+Azure CLI에서 [az functionapp plan create](/cli/azure/functionapp/plan#az-functionapp-plan-create) 를 사용 하 여 프리미엄 계획을 만들 수도 있습니다. 다음 예에서는 _탄력적 프리미엄 1_ 계층 계획을 만듭니다.
 
 ```azurecli-interactive
 az functionapp plan create --resource-group <RESOURCE_GROUP> --name <PLAN_NAME> \
 --location <REGION> --sku EP1
 ```
 
-In this example, replace `<RESOURCE_GROUP>` with your resource group and `<PLAN_NAME>` with a name for your plan that is unique in the resource group. Specify a [supported `<REGION>`](#regions). To create a Premium plan that supports Linux, include the `--is-linux` option.
+이 예제에서는 `<RESOURCE_GROUP>`를 리소스 그룹으로 바꾸고 리소스 그룹에서 고유한 계획의 이름을 사용 하 여 `<PLAN_NAME>` 합니다. [지원 되는 `<REGION>`](#regions)를 지정 합니다. Linux를 지 원하는 프리미엄 계획을 만들려면 `--is-linux` 옵션을 포함 합니다.
 
-With the plan created, you can use [az functionapp create](/cli/azure/functionapp#az-functionapp-create) to create your function app. In the portal, both the plan and the app are created at the same time. 
+계획을 만든 후에는 [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 를 사용 하 여 함수 앱을 만들 수 있습니다. 포털에서 계획과 앱은 동시에 생성 됩니다. 
 
 ## <a name="features"></a>기능
 
-The following features are available to function apps deployed to a Premium plan.
+다음 기능은 프리미엄 계획에 배포 된 함수 앱에서 사용할 수 있습니다.
 
-### <a name="pre-warmed-instances"></a>Pre-warmed instances
+### <a name="pre-warmed-instances"></a>사전 준비 인스턴스
 
-If no events and executions occur today in the Consumption plan, your app may scale down to zero instances. When new events come in, a new instance needs to be specialized with your app running on it.  Specializing new instances may take some time depending on the app.  This additional latency on the first call is often called app cold start.
+현재 소비 계획에서 이벤트 및 실행이 발생 하지 않는 경우 앱이 0 개의 인스턴스로 확장 될 수 있습니다. 새 이벤트가 발생 하는 경우 새 인스턴스는 앱에서 실행 되는 앱과 함께 특수화 되어야 합니다.  특수화 된 새 인스턴스는 앱에 따라 다소 시간이 걸릴 수 있습니다.  첫 번째 호출의 이러한 추가 대기 시간은 종종 앱 콜드 시작 이라고 합니다.
 
-In the Premium plan, you can have your app pre-warmed on a specified number of instances, up to your minimum plan size.  Pre-warmed instances also let you pre-scale an app before high load. As the app scales out, it first scales into the pre-warmed instances. Additional instances continue to buffer out and warm immediately in preparation for the next scale operation. By having a buffer of pre-warmed instances, you can effectively avoid cold start latencies.  Pre-warmed instances is a feature of the Premium plan, and you need to keep at least one instance running and available at all times the plan is active.
+프리미엄 계획에서는 지정 된 수의 인스턴스에서 최소 계획 크기로 앱을 미리 준비 수 있습니다.  준비 인스턴스를 사용 하 여 높은 로드 전에 앱을 미리 확장할 수도 있습니다. 앱이 확장 될 때 먼저 사전 준비 인스턴스로 확장 됩니다. 추가 인스턴스는 다음 크기 조정 작업을 준비 하기 위해 계속 해 서 버퍼링 되어 즉시 웜 합니다. 준비 인스턴스의 버퍼를 사용 하 여 콜드 시작 대기 시간을 효과적으로 방지할 수 있습니다.  사전 준비 인스턴스는 프리미엄 계획의 기능으로, 실행 중인 인스턴스를 하나 이상 유지 하 고 해당 계획이 활성화 된 상태에서 사용 가능 하 게 유지 해야 합니다.
 
-You can configure the number of pre-warmed instances in the Azure portal by selected your **Function App**, going to the **Platform Features** tab, and selecting the **Scale Out** options. In the function app edit window, pre-warmed instances is specific to that app, but the minimum and maximum instances apply to your entire plan.
+**함수 앱**를 선택 하 고 **플랫폼 기능** 탭으로 이동한 다음 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 사전 준비 인스턴스 수를 구성할 수 있습니다. 함수 앱 편집 창에서 사전 준비 인스턴스는 해당 앱에만 적용 되지만 최소 및 최대 인스턴스는 전체 계획에 적용 됩니다.
 
-![Elastic Scale Settings](./media/functions-premium-plan/scale-out.png)
+![탄력적 크기 조정 설정](./media/functions-premium-plan/scale-out.png)
 
-You can also configure pre-warmed instances for an app with the Azure CLI
+Azure CLI를 사용 하 여 앱에 대 한 사전 준비 인스턴스를 구성할 수도 있습니다.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
 ```
 
-### <a name="private-network-connectivity"></a>Private network connectivity
+### <a name="private-network-connectivity"></a>개인 네트워크 연결
 
-Azure Functions deployed to a Premium plan takes advantage of [new VNet integration for web apps](../app-service/web-sites-integrate-with-vnet.md).  When configured, your app can communicate with resources within your VNet or secured via service endpoints.  IP restrictions are also available on the app to restrict incoming traffic.
+프리미엄 계획에 배포 Azure Functions는 [웹 앱에 대 한 새로운 VNet 통합](../app-service/web-sites-integrate-with-vnet.md)을 활용 합니다.  구성 된 앱은 VNet 내의 리소스와 통신 하거나 서비스 끝점을 통해 보안을 설정할 수 있습니다.  IP 제한은 앱에서 들어오는 트래픽을 제한 하는 데에도 사용할 수 있습니다.
 
-When assigning a subnet to your function app in a Premium plan, you need a subnet with enough IP addresses for each potential instance. We require an IP block with at least 100 available addresses.
+프리미엄 계획의 함수 앱에 서브넷을 할당 하는 경우 각 잠재적 인스턴스에 대해 충분 한 IP 주소가 있는 서브넷이 필요 합니다. 사용 가능한 주소가 100 이상인 IP 블록이 필요 합니다.
 
-Fore more information, see [integrate your function app with a VNet](functions-create-vnet.md).
+자세한 내용은 [VNet과 함수 앱 통합](functions-create-vnet.md)을 참조 하세요.
 
-### <a name="rapid-elastic-scale"></a>Rapid elastic scale
+### <a name="rapid-elastic-scale"></a>신속한 탄력적 확장
 
-Additional compute instances are automatically added for your app using the same rapid scaling logic as the Consumption plan.  To learn more about how scaling works, see [Function scale and hosting](./functions-scale.md#how-the-consumption-and-premium-plans-work).
+소비 계획과 동일한 빠른 크기 조정 논리를 사용 하 여 앱에 대 한 추가 계산 인스턴스가 자동으로 추가 됩니다.  크기 조정의 작동 방식에 대 한 자세한 내용은 [함수 크기 조정 및 호스팅](./functions-scale.md#how-the-consumption-and-premium-plans-work)을 참조 하세요.
 
-### <a name="longer-run-duration"></a>Longer run duration
+### <a name="longer-run-duration"></a>더 긴 실행 지속 시간
 
-Azure Functions in a Consumption plan are limited to 10 minutes for a single execution.  In the Premium plan, the run duration defaults to 30 minutes to prevent runaway executions. However, you can [modify the host.json configuration](./functions-host-json.md#functiontimeout) to make this 60 minutes for Premium plan apps.
+소비 계획의 Azure Functions은 단일 실행에 대해 10 분으로 제한 됩니다.  프리미엄 계획에서 실행 기간은 기본적으로 30 분으로 설정 되어 런어웨이 실행을 방지 합니다. 그러나 프리미엄 계획 앱에 대해이 60 분이 되도록 [호스트 json 구성을 수정할](./functions-host-json.md#functiontimeout) 수 있습니다.
 
-## <a name="plan-and-sku-settings"></a>Plan and SKU settings
+## <a name="plan-and-sku-settings"></a>요금제 및 SKU 설정
 
-When you create the plan, you configure two settings: the minimum number of instances (or plan size) and the maximum burst limit.  Minimum instances are reserved and always running.
+계획을 만들 때 최소 인스턴스 수 (또는 계획 크기)와 최대 버스트 제한의 두 가지 설정을 구성 합니다.  최소 인스턴스는 예약 되어 있으며 항상 실행 중입니다.
 
 > [!IMPORTANT]
-> You are charged for each instance allocated in the minimum instance count regardless if functions are executing or not.
+> 함수 실행 여부에 관계 없이 최소 인스턴스 수에 할당 된 각 인스턴스에 대해 요금이 청구 됩니다.
 
-If your app requires instances beyond your plan size, it can continue to scale out until the number of instances hits the maximum burst limit.  You are billed for instances beyond your plan size only while they are running and rented to you.  We will make a best effort at scaling your app out to its defined maximum limit, whereas the minimum plan instances are guaranteed for your app.
+앱이 계획 크기를 초과 하는 인스턴스를 필요로 하는 경우 인스턴스 수가 최대 버스트 제한에 도달할 때까지 계속 규모를 확장할 수 있습니다.  실행 되 고 있는 동안 계획 크기를 초과 하는 인스턴스에 대해서만 요금이 청구 됩니다.  앱을 정의 된 최대 제한까지 확장 하는 것이 가장 좋습니다. 반면 최소 계획 인스턴스는 앱에 대해 보장 됩니다.
 
-You can configure the plan size and maximums in the Azure portal by selected the **Scale Out** options in the plan or a function app deployed to that plan (under **Platform Features**).
+계획에서 **Scale Out** 옵션을 선택 하 여 Azure Portal에서 계획 크기 및 최대값을 구성할 수 있습니다 ( **플랫폼 기능**아래).
 
-You can also increase the maximum burst limit from the Azure CLI:
+Azure CLI에서 최대 버스트 제한을 늘릴 수도 있습니다.
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
 ```
 
-### <a name="available-instance-skus"></a>Available instance SKUs
+### <a name="available-instance-skus"></a>사용 가능한 인스턴스 Sku
 
-When creating or scaling your plan, you can choose between three instance sizes.  You will be billed for the total number of cores and memory consumed per second.  Your app can automatically scale out to multiple instances as needed.  
+계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|스토리지|
+|SKU|코어 수|메모리|Storage|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
 |EP3|4|14GB|250GB|
 
-## <a name="regions"></a>개 지역
+## <a name="regions"></a>Regions
 
-Below are the currently supported regions for each OS.
+다음은 각 OS에 대해 현재 지원 되는 지역입니다.
 
-|지역| Windows | Linux |
+|Region| Windows | Linux |
 |--| -- | -- |
 |오스트레일리아 중부| ✔<sup>1</sup> | |
 |오스트레일리아 중부 2| ✔<sup>1</sup> | |
@@ -115,7 +115,7 @@ Below are the currently supported regions for each OS.
 |일본 서부| ✔ | |
 |한국 중부| ✔ |  |
 |미국 중북부| ✔ |  |
-|북유럽| ✔ | ✔ |
+|유럽 북부| ✔ | ✔ |
 |미국 중남부| ✔ |  |
 |인도 남부 | ✔ | |
 |동남아시아| ✔ | ✔ |
@@ -126,11 +126,11 @@ Below are the currently supported regions for each OS.
 |미국 서부| ✔ | ✔ |
 |미국 서부 2| ✔ |  |
 
-<sup>1</sup>Maximum scale out limited to 20 instances.  
-<sup>2</sup>Maximum scale out limited to 60 instances.
+<sup>1</sup> 최대 확장은 20 개 인스턴스로 제한 됩니다.  
+<sup>2</sup> 최대 확장은 60 인스턴스로 제한 됩니다.
 
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Understand Azure Functions scale and hosting options](functions-scale.md)
+> [Azure Functions 크기 조정 및 호스팅 옵션 이해](functions-scale.md)

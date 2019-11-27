@@ -22,15 +22,15 @@ ms.locfileid: "74325434"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. If you need an AKS cluster, see the AKS quickstart [using the Azure CLI][aks-quickstart-cli] or [using the Azure portal][aks-quickstart-portal].
+이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
-You also need the Azure CLI version 2.0.59 or later installed and configured.  `az --version`을 실행하여 버전을 찾습니다. If you need to install or upgrade, see [Install Azure CLI][install-azure-cli].
+또한 Azure CLI 버전 2.0.59 이상이 설치 및 구성 되어 있어야 합니다.  `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드 해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조 하세요.
 
-This article covers using a *Standard* SKU IP with a *Standard* SKU load balancer. For more information, see [IP address types and allocation methods in Azure][ip-sku].
+이 문서에서는 표준 sku 부하 분산 장치를 사용 *하는* *표준* sku IP를 사용 하는 방법을 설명 합니다. 자세한 내용은 [Azure의 IP 주소 유형 및 할당 방법][ip-sku]을 참조 하세요.
 
 ## <a name="create-a-static-ip-address"></a>고정 IP 주소 만들기
 
-Create a static public IP address with the [az network public ip create][az-network-public-ip-create] command. The following creates a static IP resource named *myAKSPublicIP* in the *myResourceGroup* resource group:
+[Az network public ip create][az-network-public-ip-create] 명령을 사용 하 여 고정 공용 ip 주소를 만듭니다. 다음은 *Myresourcegroup* 리소스 그룹에 *MYAKSPUBLICIP* 이라는 고정 IP 리소스를 만듭니다.
 
 ```azurecli-interactive
 az network public-ip create \
@@ -41,9 +41,9 @@ az network public-ip create \
 ```
 
 > [!NOTE]
-> If you are using a *Basic* SKU load balancer in your AKS cluster, use *Basic* for the *sku* parameter when defining a public IP. Only *Basic* SKU IPs work with the *Basic* SKU load balancer and only *Standard* SKU IPs work with *Standard* SKU load balancers. 
+> AKS 클러스터에서 *기본* sku 부하 분산 장치를 사용 하는 경우 공용 IP를 정의할 때 *sku* 매개 변수에 대 한 *기본* 를 사용 합니다. 기본 *Sku ip만* *기본* sku 부하 분산 장치에서 작동 하며 표준 *sku ip만* *표준* sku 부하 분산 장치에서 작동 합니다. 
 
-The IP address is displayed, as shown in the following condensed example output:
+IP 주소는 다음 압축 예제 출력과 같이 표시 됩니다.
 
 ```json
 {
@@ -55,7 +55,7 @@ The IP address is displayed, as shown in the following condensed example output:
 }
 ```
 
-You can later get the public IP address using the [az network public-ip list][az-network-public-ip-list] command. 만든 노드 리소스 그룹의 이름과 공용 IP 주소를 지정한 후 다음 예제와 같이 *ipAddress*를 쿼리합니다.
+나중에 [az network 공용-ip list][az-network-public-ip-list] 명령을 사용 하 여 공용 ip 주소를 가져올 수 있습니다. 만든 노드 리소스 그룹의 이름과 공용 IP 주소를 지정한 후 다음 예제와 같이 *ipAddress*를 쿼리합니다.
 
 ```azurecli-interactive
 $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicIP --query ipAddress --output tsv
@@ -65,7 +65,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>고정 IP 주소를 사용하여 서비스 만들기
 
-Before creating a service, ensure the service principal used by the AKS cluster has delegated permissions to the other resource group. 다음은 그 예입니다.
+서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -74,7 +74,7 @@ az role assignment create \
     --scope /subscriptions/<subscription id>/resourceGroups/<resource group name>
 ```
 
-To create a *LoadBalancer* service with the static public IP address, add the `loadBalancerIP` property and the value of the static public IP address to the YAML manifest. 파일 `load-balancer-service.yaml`을 만들고 다음 YAML에 복사합니다. 이전 단계에서 만든 공용 IP 주소를 입력합니다. The following example also sets the annotation to the resource group named *myResourceGroup*. Provide your own resource group name.
+고정 공용 IP 주소를 사용 하 여 *LoadBalancer* 서비스를 만들려면 `loadBalancerIP` 속성 및 고정 공용 ip 주소의 값을 yaml 매니페스트에 추가 합니다. 파일 `load-balancer-service.yaml`을 만들고 다음 YAML에 복사합니다. 이전 단계에서 만든 공용 IP 주소를 입력합니다. 또한 다음 예제에서는 주석을 *Myresourcegroup*이라는 리소스 그룹에 설정 합니다. 사용자 고유의 리소스 그룹 이름을 제공 합니다.
 
 ```yaml
 apiVersion: v1
@@ -100,7 +100,7 @@ kubectl apply -f load-balancer-service.yaml
 
 ## <a name="troubleshoot"></a>문제 해결
 
-If the static IP address defined in the *loadBalancerIP* property of the Kubernetes service manifest does not exist, or has not been created in the node resource group and no additional delegations configured, the load balancer service creation fails. To troubleshoot, review the service creation events with the [kubectl describe][kubectl-describe] command. 다음 예제와 같이 YAML 매니페스트에 지정된 대로 서비스의 이름을 입력합니다.
+Kubernetes service 매니페스트의 *loadBalancerIP* 속성에 정의 된 고정 IP 주소가 존재 하지 않거나 노드 리소스 그룹에 만들어지지 않고 추가 위임이 구성 되지 않은 경우 부하 분산 장치 서비스를 만들지 못합니다. 문제를 해결 하려면 [kubectl 설명][kubectl-describe] 명령을 사용 하 여 서비스 만들기 이벤트를 검토 합니다. 다음 예제와 같이 YAML 매니페스트에 지정된 대로 서비스의 이름을 입력합니다.
 
 ```console
 kubectl describe service azure-load-balancer
@@ -132,7 +132,7 @@ Events:
 
 ## <a name="next-steps"></a>다음 단계
 
-For additional control over the network traffic to your applications, you may want to instead [create an ingress controller][aks-ingress-basic]. You can also [create an ingress controller with a static public IP address][aks-static-ingress].
+응용 프로그램에 대 한 네트워크 트래픽을 추가로 제어 하려면 [수신 컨트롤러][aks-ingress-basic]를 대신 만드는 것이 좋습니다. [고정 공용 IP 주소를 사용 하 여 수신 컨트롤러를 만들][aks-static-ingress]수도 있습니다.
 
 <!-- LINKS - External -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe

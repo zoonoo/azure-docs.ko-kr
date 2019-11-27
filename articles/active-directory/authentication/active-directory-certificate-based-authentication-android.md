@@ -1,5 +1,5 @@
 ---
-title: Android certificate-based authentication - Azure Active Directory
+title: Android 인증서 기반 인증-Azure Active Directory
 description: Android 디바이스에서 솔루션의 인증서 기반 인증을 구성하는 데 지원되는 시나리오 및 요구 사항에 대한 자세한 정보
 services: active-directory
 ms.service: active-directory
@@ -35,16 +35,16 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 
 | 앱 | 지원 |
 | --- | --- |
-| Azure Information Protection 앱 |![Check mark signifying support for this application][1] |
-| Intune 회사 포털 |![Check mark signifying support for this application][1] |
-| Microsoft Teams |![Check mark signifying support for this application][1] |
-| OneNote |![Check mark signifying support for this application][1] |
-| OneDrive |![Check mark signifying support for this application][1] |
-| Outlook |![Check mark signifying support for this application][1] |
-| Power BI |![Check mark signifying support for this application][1] |
-| 비즈니스용 Skype |![Check mark signifying support for this application][1] |
-| Word / Excel / PowerPoint |![Check mark signifying support for this application][1] |
-| Yammer |![Check mark signifying support for this application][1] |
+| Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Microsoft 팀 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| OneNote |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| OneDrive |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Outlook |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Power BI |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| 비즈니스용 Skype |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Word / Excel / PowerPoint |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Yammer |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 
 ### <a name="implementation-requirements"></a>구현 요구 사항
 

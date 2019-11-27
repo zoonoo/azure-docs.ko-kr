@@ -37,7 +37,7 @@ ms.locfileid: "74306758"
 |**SDK 다운로드**| [NuGet](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.BulkExecutor/) |
 | **GitHub의 대량 실행자 라이브러리**| [GitHub](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)|
 |**API 설명서**|[.NET API 참조 설명서](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor?view=azure-dotnet)|
-|**시작하기**|[Bulk Executor 라이브러리 .NET SDK 시작](bulk-executor-dot-net.md)|
+|**시작**|[Bulk Executor 라이브러리 .NET SDK 시작](bulk-executor-dot-net.md)|
 | **현재 지원되는 프레임워크**| Microsoft .NET Framework 4.5.2, 4.6.1 및 .NET Standard 2.0 |
 
 > [!NOTE]
@@ -53,15 +53,15 @@ ms.locfileid: "74306758"
 
 * SDK 종속성을 > = 2.5.1로 변경 했습니다.
 
-### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-preview2
+### <a name="a-name230-preview2230-preview2"></a><a name="2.3.0-preview2"/>2.3.0-미리 보기 2
 
 * 꼭 짓 점 및 가장자리에서 ttl을 허용 하도록 그래프 대량 실행자에 대 한 지원이 추가 됨
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-미리 보기 2
 
 * 게이트웨이 모드에서 실행 될 때 Azure Cosmos DB 탄력적으로 크기를 조정 하는 동안 예외가 발생 하는 문제를 해결 했습니다. 이 수정 프로그램은 1.4.1 릴리스와 기능적으로 동일 합니다.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-미리 보기 2
 
 * 삭제할 파티션 키, 문서 id 튜플을 허용 하는 SQL API 계정에 대 한 대량 삭제 지원이 추가 되었습니다. 이러한 변경으로 인해 1.4.0 릴리스와 기능적으로 동일 합니다.
 

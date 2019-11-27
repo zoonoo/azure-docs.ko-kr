@@ -23,7 +23,7 @@ ms.locfileid: "74225383"
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Azure PowerShell 모듈을 사용하여 내부 부하 분산 장치 만들기
 
 > [!div class="op_single_selector"]
-> * [Azure 포털](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
 > * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [템플릿](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
@@ -241,7 +241,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-3-assign-the-nic-to-a-vm"></a>3단계: NIC를 VM에 할당
 
-`Add-AzVMNetworkInterface` 명령을 사용하여 NIC를 가상 머신에 할당합니다.
+`Add-AzVMNetworkInterface`명령을 사용하여 NIC를 가상 머신에 할당합니다.
 
 가상 컴퓨터를 만들고 NIC를 할당하는 단계별 지침은 [PowerShell을 사용하여 Azure VM 만들기](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fload-balancer%2ftoc.json)를 참조하세요.
 
@@ -251,7 +251,7 @@ $backendnic2= New-AzNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-b
 
 ### <a name="step-1-store-the-load-balancer-resource"></a>1단계: 부하 분산 장치 리소스 저장
 
-부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. We're using the variable name **$lb**. For the attribute values in the script, use the names for the load balancer resources that were created in the previous steps.
+부하 분산 장치 리소스를 변수로 저장(아직 수행하지 않은 경우)합니다. **$Lb**변수 이름을 사용 하 고 있습니다. 스크립트의 특성 값에 대해 이전 단계에서 만든 부하 분산 장치 리소스의 이름을 사용 합니다.
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer –name NRP-LB -resourcegroupname NRP-RG
@@ -295,7 +295,7 @@ Set-AzNetworkInterface -NetworkInterface $nic
 
 ### <a name="step-1-assign-the-load-balancer-object-to-a-variable"></a>1단계: 부하 분산 장치 개체를 변수에 할당
 
-`Get-AzLoadBalancer` 명령을 사용하여 부하 분산 장치 개체(이전 예제의)를 **$slb** 변수에 할당합니다.
+**명령을 사용하여 부하 분산 장치 개체(이전 예제의)를**$slb`Get-AzLoadBalancer` 변수에 할당합니다.
 
 ```azurepowershell-interactive
 $slb = Get-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG
@@ -319,7 +319,7 @@ $slb | Set-AzLoadBalancer
 
 ## <a name="remove-an-existing-load-balancer"></a>기존 부하 분산 장치 제거
 
-`Remove-AzLoadBalancer` 명령을 사용하여 **NRP-RG** 리소스 그룹에서 **NRP-LB** 부하 분산 장치를 삭제합니다.
+**명령을 사용하여**NRP-RG**리소스 그룹에서**NRP-LB`Remove-AzLoadBalancer` 부하 분산 장치를 삭제합니다.
 
 ```azurepowershell-interactive
 Remove-AzLoadBalancer -Name NRP-LB -ResourceGroupName NRP-RG

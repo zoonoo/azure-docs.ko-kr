@@ -1,5 +1,5 @@
 ---
-title: XEvent Event File code
+title: XEvent 이벤트 파일 코드
 description: Azure SQL Database에서 확장 이벤트의 이벤트 파일 대상을 보여주는 2단계 코드 샘플에 대해 PowerShell 및 Transact-SQL을 제공합니다. Azure Storage는 이 시나리오의 필수 부분입니다.
 services: sql-database
 ms.service: sql-database
@@ -34,12 +34,12 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
   - Azure Storage 컨테이너를 이벤트 파일 대상에 할당합니다.
   - 이벤트 세션 등을 만들고 시작합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 - Azure 계정 및 구독 [무료 평가판](https://azure.microsoft.com/pricing/free-trial/)에 등록할 수 있습니다.
 - 테이블을 만들 수 있는 데이터베이스.
@@ -54,7 +54,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 - [Azure PowerShell 모듈](https://go.microsoft.com/?linkid=9811175) 이 설치되어 있어야 합니다.
 
-  - The modules provide commands such as - **New-AzStorageAccount**.
+  - 모듈은- **AzStorageAccount**등의 명령을 제공 합니다.
 
 ## <a name="phase-1-powershell-code-for-azure-storage-container"></a>1단계: Azure Storage 컨테이너용 PowerShell 코드
 
@@ -74,7 +74,7 @@ Microsoft SQL Server의 [이벤트 파일 대상](https://msdn.microsoft.com/lib
 
 ### <a name="powershell-code"></a>PowerShell 코드
 
-This PowerShell script assumes you have already installed the Az module. For information, see [Install the Azure PowerShell module](/powershell/azure/install-Az-ps).
+이 PowerShell 스크립트는 Az module을 이미 설치 했다고 가정 합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
 ```powershell
 ## TODO: Before running, find all 'TODO' and make each edit!!
@@ -442,9 +442,9 @@ GO
 
 ## <a name="output"></a>출력
 
-Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. One **\<event>** element is displayed which shows one UPDATE statement.
+Transact-SQL 스크립트가 완료되면 **event_data_XML** 열 헤더 아래 셀을 클릭합니다. 하나의 UPDATE 문을 표시 하는 하나의 **\<이벤트 >** 요소가 표시 됩니다.
 
-Here is one **\<event>** element that was generated during testing:
+다음은 테스트 중에 생성 된 **\<이벤트 >** 요소 중 하나입니다.
 
 ```xml
 <event name="sql_statement_starting" package="sqlserver" timestamp="2015-09-22T19:18:45.420Z">

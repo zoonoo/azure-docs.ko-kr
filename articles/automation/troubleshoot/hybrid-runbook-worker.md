@@ -22,7 +22,7 @@ ms.locfileid: "74480708"
 
 ## <a name="general"></a>일반
 
-Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. For Windows, this agent is the Log Analytics agent for Windows (also referred to as the Microsoft Monitoring Agent (MMA)). For Linux, it's the Log Analytics agent for Linux.
+Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. Windows의 경우이 에이전트는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)입니다. Linux의 경우 Linux 용 Log Analytics 에이전트입니다.
 
 ### <a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
 
@@ -48,7 +48,7 @@ Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook 완료를 �
 
 * Hybrid Runbook Worker 기능을 실행하도록 구성된 컴퓨터가 최소 하드웨어 요구 사항을 충족하지 않습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
@@ -58,7 +58,7 @@ Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요�
 
 **Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.* 라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 Runbook에 인증을 구성하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정하지 않았기 때문일 수 있습니다. [Runbook 권한](../automation-hrw-run-runbooks.md#runbook-permissions)을 검토하여 Runbook에 대한 인증을 올바르게 구성했는지 확인합니다.
 
-### <a name="no-cert-found"></a>Scenario: No certificate was found in the certificate store on Hybrid Runbook Worker
+### <a name="no-cert-found"></a>시나리오: Hybrid Runbook Worker의 인증서 저장소에서 인증서를 찾을 수 없습니다.
 
 #### <a name="issue"></a>문제
 
@@ -77,25 +77,25 @@ At line:3 char:1
 
 이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../manage-runas-account.md)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker의 경우 제대로 작동하기 위해 실행 계정에 필요한 인증서 자산이 기본적으로 로컬에 없습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 Hybrid Runbook Worker가 Azure VM인 경우 [Azure 리소스의 관리 ID](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 대신 사용할 수 있습니다. 이 시나리오를 사용하면 실행 계정 대신 Azure VM의 관리 ID를 사용하여 Azure 리소스에 인증할 수 있어서 인증이 간소화됩니다. Hybrid Runbook Worker가 온-프레미스 머신인 경우 머신에 실행 계정 인증서를 설치해야 합니다. 인증서를 설치하는 방법을 알아보려면 [Export-RunAsCertificateToHybridWorker](../automation-hrw-run-runbooks.md#runas-script) Runbook을 실행하는 단계를 참조하세요.
 
 ## <a name="linux"></a>Linux
 
-The Linux Hybrid Runbook Worker depends on the [Log Analytics agent for Linux](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
+Linux Hybrid Runbook Worker는 자동화 계정과 통신 하 여 작업자를 등록 하 고, Runbook 작업을 수신 하 고, 상태를 보고 하는 [linux 용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 에 따라 달라 집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-### <a name="oms-agent-not-running"></a>Scenario: The Log Analyics agent for Linux isn't running
+### <a name="oms-agent-not-running"></a>시나리오: Linux 용 Log Analyics 에이전트가 실행 되 고 있지 않음
 
 #### <a name="issue"></a>문제
 
-The Log Analytics agent for Linux is not running
+Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않습니다.
 
 #### <a name="cause"></a>원인
 
-If the agent isn't running, it prevents the Linux Hybrid Runbook Worker from communicating with Azure Automation. 다양한 이유로 에이전트를 실행하지 못할 수 있습니다.
+에이전트가 실행 되 고 있지 않으면 Linux Hybrid Runbook Worker Azure Automation와 통신할 수 없습니다. 다양한 이유로 에이전트를 실행하지 못할 수 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
  `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
 
@@ -114,11 +114,11 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 
 * **diy/worker.conf** - 이 프로세스는 DIY 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 다른 구성을 사용한다는 점 외에는 자동 등록 하이브리드 작업자 프로세스와 차이가 없습니다. Azure Automation 솔루션을 사용하지 않도록 설정하고 DIY Linux Hybrid Worker가 등록되지 않으면 이 프로세스가 없습니다.
 
-If the agent isn't running, run the following command to start the service: `sudo /opt/microsoft/omsagent/bin/service_control restart`.
+에이전트가 실행 되 고 있지 않은 경우 다음 명령을 실행 하 여 서비스를 시작 합니다. `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>시나리오: 지정된 클래스가 없음
 
-**지정된 클래스가 없습니다** 오류가 in the  `/var/opt/microsoft/omsconfig/omsconfig.log` then the Log Analytics agent for Linux needs to be updated. Run the following command to reinstall the agent:
+**지정된 클래스가 없습니다** 오류가 `/var/opt/microsoft/omsconfig/omsconfig.log`에서 Linux 용 Log Analytics agent를 업데이트 해야 합니다. 다음 명령을 실행 하 여 에이전트를 다시 설치 합니다.
 
 ```bash
 wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w <WorkspaceID> -s <WorkspaceKey>
@@ -126,9 +126,9 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 ## <a name="windows"></a>Windows
 
-The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Windows](../../azure-monitor/platform/log-analytics-agent.md) to communicate with your Automation account to register the worker, receive runbook jobs, and report status. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
+Windows Hybrid Runbook Worker은 [windows 용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 를 사용 하 여 작업자를 등록 하 고, Runbook 작업을 수신 하 고, 상태를 보고 하기 위해 Automation 계정과 통신 합니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
 
-### <a name="mma-not-running"></a>Scenario: The Microsoft Monitoring Agent isn't running
+### <a name="mma-not-running"></a>시나리오: Microsoft Monitoring Agent 실행 되 고 있지 않음
 
 #### <a name="issue"></a>문제
 
@@ -138,7 +138,7 @@ The Windows Hybrid Runbook Worker depends on the [Log Analytics agent for Window
 
 Microsoft Monitoring Agent Windows 서비스가 실행되고 있지 않으면 이 상태로 인해 Hybrid Runbook Worker가 Azure Automation과 통신할 수 없습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 서비스가 중지된 경우 PowerShell에서 `Start-Service healthservice` 명령을 입력하여 서비스를 시작하세요.
 
@@ -146,15 +146,15 @@ PowerShell에서 `Get-Service healthservice` 명령을 입력하여 에이전트
 
 #### <a name="issue"></a>문제
 
-In the **Application and Services Logs\Operations Manager** event log, you see event 4502 and EventMessage that contains **Microsoft.EnterpriseManagement.HealthService.AzureAutomation.HybridAgent** with the following description: *The certificate presented by the service \<wsid\>.oms.opinsights.azure.com was not issued by a certificate authority used for Microsoft services. Please contact your network administrator to see if they are running a proxy that intercepts TLS/SSL communication.*
+**응용 프로그램 및 서비스 Logs\Operations 관리자** 이벤트 로그에 microsoft.enterprisemanagement.reporting.code를 포함 하는 이벤트 4502 및 eventmessage가 표시 됩니다. **health service** 는 *서비스에서 제공 하는 인증서 \<Wsid\>. oms.opinsights.azure.com은 microsoft 서비스에 사용 되는 인증 기관에서 발급 되지 않았습니다. 네트워크 관리자에 게 문의 하 여 TLS/SSL 통신을 가로채는 프록시를 실행 하 고 있는지 확인 하십시오.*
 
 #### <a name="cause"></a>원인
 
 이 문제는 프록시 또는 네트워크 방화벽이 Microsoft Azure와의 통신을 차단하기 때문일 수 있습니다. *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다. 
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. Azure Automation에 역할을 온보딩하는 데 영향을 미치는 연결 또는 기타 문제가 있거나 정상 작동 동안 문제가 발생했음을 나타내는 경고 또는 오류 이벤트가 **Application and Services Logs\Microsoft SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 있는지 확인할 수 있습니다. For additional help troubleshooting issues with the Log Analytics agent, see [Troubleshoot issues with the Log Analytics Windows agent](../../azure-monitor/platform/agent-windows-troubleshoot.md).
+로그는 각 Hybrid Worker의 로컬에 저장되며 위치는 C:\ProgramData\Microsoft\System Center\Orchestrator\7.2\SMA\Sandboxes입니다. Azure Automation에 역할을 온보딩하는 데 영향을 미치는 연결 또는 기타 문제가 있거나 정상 작동 동안 문제가 발생했음을 나타내는 경고 또는 오류 이벤트가 **Application and Services Logs\Microsoft SMA\Operations** 및 **Application and Services Logs\Operations Manager** 이벤트 로그에 있는지 확인할 수 있습니다. Log Analytics 에이전트와 관련 된 문제 해결에 대 한 자세한 내용은 [Windows 에이전트 Log Analytics 문제 해결](../../azure-monitor/platform/agent-windows-troubleshoot.md)을 참조 하십시오.
 
 [Runbook 출력 및 메시지](../automation-runbook-output-and-messages.md)는 클라우드에서 실행되는 Runbook 작업처럼 Hybrid Worker에서 Azure Automation으로 전송됩니다. Verbose 및 Progress 스트림을 다른 Runbook과 같은 방식으로 사용할 수도 있습니다.
 
@@ -176,7 +176,7 @@ Heartbeat
 
 이 문제는 Hybrid Runbook Worker의 손상된 캐시로 인해 발생할 수 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 이 문제를 해결하려면 Hybrid Runbook Worker에 로그인하고 다음 스크립트를 실행합니다. 이 스크립트는 Microsoft Monitoring Agent를 중지하고 해당 캐시를 제거한 후 서비스를 다시 시작합니다. 이 작업을 통해 Hybrid Runbook Worker는 강제로 Azure Automation에서 해당 구성을 다시 다운로드하게 됩니다.
 
@@ -188,7 +188,7 @@ Remove-Item -Path 'C:\Program Files\Microsoft Monitoring Agent\Agent\Health Serv
 Start-Service -Name HealthService
 ```
 
-### <a name="already-registered"></a>Scenario: You are unable to add a Hybrid Runbook Worker
+### <a name="already-registered"></a>시나리오: Hybrid Runbook Worker을 추가할 수 없습니다.
 
 #### <a name="issue"></a>문제
 
@@ -202,7 +202,7 @@ Machine is already registered
 
 이는 머신이 이미 다른 Automation 계정에 등록되어 있거나 머신에서 Hybrid Runbook Worker를 제거한 후 다시 추가하려고 하는 경우에 발생할 수 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 이 문제를 해결하려면 다음 레지스트리 키를 제거하고 `HealthService`를 다시 시작한 다음, `Add-HybridRunbookWorker` cmdlet을 다시 시도합니다.
 

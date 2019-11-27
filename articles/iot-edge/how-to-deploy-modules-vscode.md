@@ -22,12 +22,12 @@ ms.locfileid: "74457407"
 
 이 문서에서는 JSON 배포 매니페스트를 만든 다음, 해당 파일을 사용하여 IoT Edge 디바이스에 배포를 푸시하는 방법을 보여 줍니다. 해당 공유 태그에 따라 다중 디바이스를 대상으로 지정하는 배포를 만드는 방법에 대한 정보는 [대규모 IoT Edge 모듈 배포 및 모니터링](how-to-deploy-monitor.md)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)입니다.
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md)
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#register-with-visual-studio-code)
-* [Visual Studio Code](https://code.visualstudio.com/)
-* Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview).
+* [Visual Studio Code](https://code.visualstudio.com/) -
+* Visual Studio Code용 [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools#overview)
 
 ## <a name="configure-a-deployment-manifest"></a>배포 매니페스트 구성
 

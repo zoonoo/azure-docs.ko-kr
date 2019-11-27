@@ -6,58 +6,58 @@ ms.topic: conceptual
 ms.date: 05/13/2019
 ms.openlocfilehash: 23687ddcfb7911a999ee06ac8df8badf341b41d9
 ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484201"
 ---
-# <a name="view-deployment-history-with-azure-resource-manager"></a>View deployment history with Azure Resource Manager
+# <a name="view-deployment-history-with-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 배포 기록 보기
 
-Azure Resource Manager enables you to view your deployment history and examine specific operations in past deployments. You can see the resources that were deployed, and get information about any errors.
+Azure Resource Manager를 사용 하 여 배포 기록을 확인 하 고 이전 배포에서 특정 작업을 검토할 수 있습니다. 배포 된 리소스를 확인 하 고 오류에 대 한 정보를 가져올 수 있습니다.
 
 특정 배포 오류에 대한 도움말은 [Azure Resource Manager를 사용하여 Azure에 리소스를 배포할 때 발생한 일반적인 오류 해결](resource-manager-common-deployment-errors.md)을 참조하세요.
 
 ## <a name="portal"></a>포털
 
-To get details about a deployment from the deployment history.
+배포 기록에서 배포에 대 한 세부 정보를 가져옵니다.
 
-1. Select the resource group you want to examine.
+1. 검사 하려는 리소스 그룹을 선택 합니다.
 
-1. Select the link under **Deployments**.
+1. **배포**아래에서 링크를 선택 합니다.
 
-   ![Select deployment history](./media/resource-manager-deployment-operations/select-deployment-history.png)
+   ![배포 기록 선택](./media/resource-manager-deployment-operations/select-deployment-history.png)
 
-1. Select one of the deployments from the deployment history.
+1. 배포 기록에서 배포 중 하나를 선택 합니다.
 
    ![배포 선택](./media/resource-manager-deployment-operations/select-details.png)
 
-1. A summary of the deployment is displayed, including a list of the resources that were deployed.
+1. 배포 된 리소스 목록을 포함 하 여 배포 요약이 표시 됩니다.
 
     ![배포 요약](./media/resource-manager-deployment-operations/view-deployment-summary.png)
 
-1. To view the template used for the deployment, select **Template**. You can download the template to reuse it.
+1. 배포에 사용 되는 템플릿을 보려면 **템플릿**을 선택 합니다. 템플릿을 다운로드 하 여 다시 사용할 수 있습니다.
 
     ![템플릿 표시](./media/resource-manager-deployment-operations/show-template-from-history.png)
 
-1. If your deployment failed, you see an error message. Select the error message for more details.
+1. 배포에 실패 한 경우 오류 메시지가 표시 됩니다. 자세한 내용을 보려면 오류 메시지를 선택 하십시오.
 
-    ![View failed deployment](./media/resource-manager-deployment-operations/show-error.png)
+    ![실패 한 배포 보기](./media/resource-manager-deployment-operations/show-error.png)
 
-1. The detailed error message is displayed.
+1. 자세한 오류 메시지가 표시 됩니다.
 
-    ![View error details](./media/resource-manager-deployment-operations/show-details.png)
+    ![오류 세부 정보 보기](./media/resource-manager-deployment-operations/show-details.png)
 
-1. The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+1. 상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다.
 
-    ![Get correlation ID](./media/resource-manager-deployment-operations/get-correlation-id.png)
+    ![상관 관계 ID 가져오기](./media/resource-manager-deployment-operations/get-correlation-id.png)
 
-1. To learn more about the step that failed, select **Operation details**.
+1. 실패 한 단계에 대 한 자세한 내용을 보려면 **작업 세부 정보**를 선택 합니다.
 
-    ![Select deployment operations](./media/resource-manager-deployment-operations/select-deployment-operations.png)
+    ![배포 작업 선택](./media/resource-manager-deployment-operations/select-deployment-operations.png)
 
-1. You see the details for that step of the deployment.
+1. 배포 단계에 대 한 세부 정보가 표시 됩니다.
 
-    ![Show operation details](./media/resource-manager-deployment-operations/show-operation-details.png)
+    ![작업 세부 정보 표시](./media/resource-manager-deployment-operations/show-operation-details.png)
 
 ## <a name="powershell"></a>PowerShell
 
@@ -75,7 +75,7 @@ Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup
 Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
 ```
 
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
+상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다. 상관 관계 ID를 가져오려면 다음 코드를 사용합니다.
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
@@ -121,7 +121,7 @@ targetResource        : @{id=/subscriptions/{guid}/resourceGroups/ExampleGroup/p
                        resourceType=Microsoft.Network/publicIPAddresses; resourceName=myPublicIP}
 ```
 
-작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. You'll use the trackingId in the next step to focus on a particular operation.
+작업의 serviceRequestId 및 trackingId를 확인하세요. serviceRequestId는 기술 지원과 함께 배포 문제를 해결할 때 유용할 수 있습니다. 다음 단계에서 trackingId를 사용 하 여 특정 작업에 초점을 맞출 수 있습니다.
 
 특정 실패한 작업에 대한 상태 메시지를 얻으려면 다음 명령을 사용합니다.
 
@@ -137,7 +137,7 @@ code           message                                                          
 DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
 ```
 
-Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. During deployment, you can use **DeploymentDebugLogLevel** parameter to specify that the request and/or response are logged.
+Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니다. 배포 하는 동안 **Deploymentdebugloglevel** 매개 변수를 사용 하 여 요청 및/또는 응답이 기록 되도록 지정할 수 있습니다.
 
 로그에서 해당 정보를 가져오고 다음 PowerShell 명령을 사용하여 로컬에 저장합니다.
 
@@ -149,13 +149,13 @@ Azure의 모든 배포 작업에는 요청 및 응답 콘텐츠가 포함됩니�
 
 ## <a name="azure-cli"></a>Azure CLI
 
-To get the overall status of a deployment, use the **azure group deployment show** command.
+배포의 전반적인 상태를 가져오려면 **azure group deployment show** 명령을 사용 합니다.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment
 ```
   
-The correlation ID is used to track related events, and can be helpful when working with technical support to troubleshoot a deployment.
+상관 관계 ID는 관련 이벤트를 추적 하는 데 사용 되며, 기술 지원 서비스를 사용 하 여 배포 문제를 해결할 때 유용할 수 있습니다.
 
 ```azurecli-interactive
 az group deployment show -g ExampleGroup -n ExampleDeployment --query properties.correlationId
@@ -167,9 +167,9 @@ az group deployment show -g ExampleGroup -n ExampleDeployment --query properties
 az group deployment operation list -g ExampleGroup -n ExampleDeployment
 ```
 
-## <a name="rest"></a>REST (영문)
+## <a name="rest"></a>REST
 
-The following example shows how to get information about a deployment. For documentation about the latest API version, see the [Deployments - Get](/rest/api/resources/deployments/get) operation.
+다음 예제에서는 배포에 대 한 정보를 가져오는 방법을 보여 줍니다. 최신 API 버전에 대 한 설명서는 [배포-가져오기](/rest/api/resources/deployments/get) 작업을 참조 하세요.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}?api-version={api-version}
@@ -192,7 +192,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/
 }
 ```
 
-The following example shows how to get deployment operations. For documentation about the latest API version, see the [Deployment Operations - List](/rest/api/resources/deploymentoperations/list) operation.
+다음 예제에서는 배포 작업을 가져오는 방법을 보여 줍니다. 최신 API 버전에 대 한 설명서는 [배포 작업-목록](/rest/api/resources/deploymentoperations/list) 작업을 참조 하세요.
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/microsoft.resources/deployments/{deployment-name}/operations?$skiptoken={skiptoken}&api-version={api-version}

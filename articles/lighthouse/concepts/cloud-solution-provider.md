@@ -17,7 +17,7 @@ ms.locfileid: "74463968"
 [Azure Lighthouse](../overview.md)를 사용하면 AOBO와 함께 Azure 위임 리소스 관리를 사용할 수 있습니다. 이렇게 하면 사용자에게 더 세분화된 권한을 부여하여 보안을 개선하고 불필요한 액세스를 줄일 수 있습니다. 또한 사용자가 테넌트에서 단일 로그인을 사용하여 여러 고객 구독에서 작업할 수 있으므로 효율성 및 확장성이 향상됩니다.
 
 > [!TIP]
-> 고객 리소스를 보호하려면 [파트너 보안 요구 사항 보안 요구 사항](https://docs.microsoft.com/partner-center/partner-security-requirements)과 함께 [권장 보안 사례](recommended-security-practices.md)를 검토하고 준수해야 합니다.
+> 고객 리소스를 보호하려면 [파트너 보안 요구 사항 보안 요구 사항](recommended-security-practices.md)과 함께 [권장 보안 사례](https://docs.microsoft.com/partner-center/partner-security-requirements)를 검토하고 준수해야 합니다.
 
 ## <a name="administer-on-behalf-of-aobo"></a>AOBO(관리 위임자)
 
@@ -34,9 +34,9 @@ CSP 프로그램을 통해 만든 구독을 온보딩할 때는 [Azure 위임 �
 ![AOBO 및 Azure 위임 리소스 관리를 사용한 테넌트 관리](../media/csp-2.jpg)
 
 > [!NOTE]
-> 이제 Azure Portal의 [**내 고객** 페이지에는 ](../how-to/view-manage-customers.md)[MCA(Microsoft 고객 계약)에 서명](https://docs.microsoft.com/partner-center/confirm-customer-agreement)했으며 Azure 플랜에 속하는 CSP 고객의 청구 정보 및 리소스를 표시하는 **클라우드 솔루션 공급자(미리 보기)** 섹션이 포함되어 있습니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](https://docs.microsoft.com/azure/billing/mpa-overview)을 참조하세요.
+> 이제 Azure Portal의 [**내 고객** 페이지에는 ](../how-to/view-manage-customers.md)**MCA(Microsoft 고객 계약)에 서명**했으며 Azure 플랜에 속하는 CSP 고객의 청구 정보 및 리소스를 표시하는 [클라우드 솔루션 공급자(미리 보기)](https://docs.microsoft.com/partner-center/confirm-customer-agreement) 섹션이 포함되어 있습니다. 자세한 내용은 [Microsoft 파트너 계약 청구 계정 시작](https://docs.microsoft.com/azure/billing/mpa-overview)을 참조하세요.
 >
-> CSP 고객은 Azure 위임 리소스 관리에 대해 온보딩되었는지 여부에 관계없이이 섹션에 표시될 수 있습니다. 온보딩되었으면 [고객과 위임된 리소스 보기 및 관리](../how-to/view-manage-customers.md)에 설명된 대로 **고객** 섹션에도 표시됩니다.
+> CSP 고객은 Azure 위임 리소스 관리에 대해 온보딩되었는지 여부에 관계없이이 섹션에 표시될 수 있습니다. 온보딩되었으면 **고객과 위임된 리소스 보기 및 관리**에 설명된 대로 [고객](../how-to/view-manage-customers.md) 섹션에도 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -176,7 +176,7 @@ ms.locfileid: "74421562"
 - 요청 처리 과정에서 일부 shardlet 데이터는 원본 및 대상 분할된 데이터베이스 모두에 있을 수 있습니다. shardlet 이동 중 오류가 발생하지 않도록 보호하기 위해 필요합니다. 분할된 데이터베이스 맵과 분할-병합을 통합하면 분할된 데이터베이스 맵에서 **OpenConnectionForKey** 메서드를 사용하여 데이터 종속 라우팅 API를 통해 설정한 연결에서는 불일치하는 중간 상태가 표시되지 않습니다. 그러나 **OpenConnectionForKey** 메서드를 사용하지 않고 원본 또는 대상 분할된 데이터베이스에 연결할 경우 분할/병합/이동 요청이 진행될 때 불일치하는 중간 상태가 표시될 수도 있습니다. 이러한 연결은 타이밍이나 분할된 데이터베이스 기본 연결에 따라 부분적인 결과나 중복된 결과를 표시할 수 있습니다. 현재 이러한 제한 상황에는 탄력적인 확장 다중 분할된 데이터베이스 쿼리를 통해 생성된 연결이 포함됩니다.
 - 분할/병합 서비스용 메타데이터 데이터베이스를 여러 역할 간에 공유하지 않아야 합니다. 예를 들어 스테이징 환경에서 실행되는 분할/병합 서비스의 역할이 프로덕션 역할과는 다른 메타데이터 데이터베이스를 가리켜야 합니다.
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 분할 병합 서비스는 Microsoft Azure 구독에서 클라우드 서비스로 실행 됩니다. 따라서 서비스 인스턴스의 클라우드 서비스에 대한 요금이 적용 됩니다. 분할/병합/이동 작업을 자주 수행하지 않는 한 분할/병합 클라우드 서비스를 삭제하는 것이 좋습니다. 그렇게 하면 실행 중이거나 배포된 클라우드 서비스 인스턴스의 비용이 절감됩니다. 분할/병합 작업을 수행해야 할 때마다 즉시 실행 가능한 구성을 다시 배포하고 시작할 수 있습니다.
 
@@ -219,7 +219,7 @@ ms.locfileid: "74421562"
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
 모니터링 및 진단 구성을 사용하여NuGet 패키지에서 제공 하는 웹 및 작업자 역할에 대한 진단 유틸리티를 사용하려면 Azure PowerShell을 사용하여 다음 명령을 실행 합니다.
 
@@ -251,7 +251,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 ![구성][3]
 
-## <a name="performance"></a>성능 중심
+## <a name="performance"></a>성능
 
 일반적으로 Azure SQL Database에서 성능 서비스 계층이 높고 뛰어날수록 더 나은 성능을 기대할 수 있습니다. 서비스 계층이 높을수록 IO, CPU 및 메모리 할당을 높이면 분할/병합 서비스를 사용하는 대량 복사 및 삭제 작업의 효율이 높아집니다. 이런 이유로 정의되고 제한된 기간 해당 데이터베이스에 대해서만 서비스 계층을 증가시킵니다.
 
@@ -259,7 +259,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext `
 
 또한 분할 키를 선행 열로 포함하는 고유성 속성을 통해 서비스는 로그 공간 및 메모리와 관련하여 리소스 사용을 제한하는 최적화된 접근 방식을 사용할 수 있습니다. 이 고유성 속성은 대형 데이터 크기(일반적으로 1GB 이상)를 이동하는 데 필요합니다.
 
-## <a name="how-to-upgrade"></a>업그레이드 방법
+## <a name="how-to-upgrade"></a>업그레이드하는 방법
 
 1. [분할-병합 서비스 배포](sql-database-elastic-scale-configure-deploy-split-and-merge.md)의 단계를 따릅니다.
 2. 분할/병합 배포의 클라우드 서비스 구성 파일을 새 구성 매개 변수를 반영하도록 변경합니다. 새 필수 매개 변수는 암호화에 사용되는 인증서에 대한 정보입니다. 이 작업을 쉽게 수행하는 방법은 다운로드한 새 구성 템플릿 파일을 기존 구성과 비교하는 것입니다. 웹 역할과 작업자 역할 둘 다에 대해 “DataEncryptionPrimaryCertificateThumbprint” 및“DataEncryptionPrimary” 설정을 추가합니다.

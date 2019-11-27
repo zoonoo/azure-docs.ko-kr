@@ -36,7 +36,7 @@ ms.locfileid: "74306775"
 |---|---|
 |**SDK 다운로드**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**API 설명서**|[피드 프로세서 라이브러리 API 참조 문서 변경](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**시작하기**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
+|**시작**|[변경 피드 프로세서 .NET SDK 시작](change-feed.md)|
 |**현재 지원되는 프레임워크**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 > [!NOTE]
@@ -202,6 +202,6 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고자료
 
 Cosmos DB에 대한 자세한 내용은 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) 서비스 페이지를 참조하세요.

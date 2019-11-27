@@ -1,5 +1,5 @@
 ---
-title: Container image storage
+title: 컨테이너 이미지 저장소
 description: 보안, 중복성 및 용량을 포함하여 Docker 컨테이너 이미지가 Azure Container Registry에 저장되는 방식에 대한 세부 정보입니다.
 ms.topic: article
 ms.date: 03/21/2018
@@ -32,17 +32,17 @@ Azure는 지역 중복 스토리지 체계를 사용하여 컨테이너 이미�
 
 | 리소스 | 제한 |
 | -------- | :---- |
-| 리포지토리 | 무제한 |
-| 이미지 | 무제한 |
-| 레이어 | 무제한 |
-| 태그 | 무제한|
-| 스토리지 | 5TB |
+| 리포지토리 | 제한 없음 |
+| 이미지 | 제한 없음 |
+| 레이어 | 제한 없음 |
+| 태그 | 제한 없음|
+| Storage | 5TB |
 
 저장소 및 태그 수가 매우 많으면 레지스트리 성능에 영향을 줄 수 있습니다. 레지스트리 유지 관리 루틴의 일환으로 사용하지 않은 리포지토리, 태그 및 이미지를 주기적으로 삭제합니다. 리포지토리, 이미지 및 태그와 같은 삭제된 레지스트리 리소스는 삭제 후 복구할 수 *없습니다*. 레지스트리 리소스를 삭제하는 방법에 대한 자세한 내용은 [Azure Container Registry에서 컨테이너 이미지 삭제](container-registry-delete.md)를 참조하세요.
 
 ## <a name="storage-cost"></a>스토리지 비용
 
-For full details about pricing, see [Azure Container Registry pricing][pricing].
+가격 책정에 대 한 자세한 내용은 [Azure Container Registry 가격 책정][pricing]을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

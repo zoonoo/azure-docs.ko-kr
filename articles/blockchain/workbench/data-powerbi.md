@@ -17,7 +17,7 @@ Microsoft Power BI는 Power BI Desktop을 사용하여 SQL DB 데이터베이스
 
 이 문서에는 PowerBI Desktop 내에서 Azure Blockchain Workbench의 SQL Database에 연결하고, 보고서를 만들고, 그 보고서를 powerbi.com에 배포하는 단계별 연습이 포함되어 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 * [Power BI Desktop](https://aka.ms/pbidesktopstore)을 다운로드합니다.
 

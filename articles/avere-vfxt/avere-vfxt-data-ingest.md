@@ -25,12 +25,12 @@ Avere vFXT 클러스터는 확장 가능한 다중 클라이언트 캐시이므�
 
 이 문서에서는 데이터를 Avere vFXT 클러스터로 이동하는 다중 클라이언트, 다중 스레드 파일 복사 시스템을 만드는 전략에 대해 설명합니다. 여러 클라이언트와 단순 복사 명령을 사용하여 효율적인 데이터 복사에 사용할 수 있는 파일 전송 개념 및 결정 사항에 대해 설명합니다.
 
-또한 도움이 되는 몇 가지 유틸리티도 설명합니다. The ``msrsync`` utility can be used to partially automate the process of dividing a dataset into buckets and using ``rsync`` commands. ``parallelcp`` 스크립트는 원본 디렉터리를 읽고 복사 명령을 자동으로 실행하는 또 다른 유틸리티입니다. Also, the ``rsync`` tool can be used in two phases to provide a quicker copy that still provides data consistency.
+또한 도움이 되는 몇 가지 유틸리티도 설명합니다. ``msrsync`` 유틸리티를 사용 하 여 데이터 집합을 버킷으로 분할 하는 프로세스를 부분적으로 자동화 하 고 ``rsync`` 명령을 사용할 수 있습니다. ``parallelcp`` 스크립트는 원본 디렉터리를 읽고 복사 명령을 자동으로 실행하는 또 다른 유틸리티입니다. 또한 두 단계에서 ``rsync`` 도구를 사용 하 여 여전히 데이터 일관성을 제공 하는 더 빠른 복사를 제공할 수 있습니다.
 
 다음 링크를 클릭하여 해당 섹션으로 이동합니다.
 
 * [수동 복사 예제](#manual-copy-example) - 복사 명령 사용에 대한 완전한 설명
-* [Two-phase rsync example](#use-a-two-phase-rsync-process)
+* [2 단계 rsync 예제](#use-a-two-phase-rsync-process)
 * [부분 자동화(msrsync) 예제](#use-the-msrsync-utility)
 * [병렬 복사 예제](#use-the-parallel-copy-script)
 
@@ -113,7 +113,7 @@ cp -R /mnt/source/dir1/dir1d /mnt/destination/dir1/ &
 
 ### <a name="when-to-add-mount-points"></a>탑재 지점을 추가하는 경우
 
-단일 대상 파일 시스템 탑재 지점에 대해 충분한 병렬 스레드가 있으면 더 많은 스레드를 추가해도 처리량이 늘어나지 않습니다. (Throughput will be measured in files/second or bytes/second, depending on your type of data.) Or worse, over-threading can sometimes cause a throughput degradation.
+단일 대상 파일 시스템 탑재 지점에 대해 충분한 병렬 스레드가 있으면 더 많은 스레드를 추가해도 처리량이 늘어나지 않습니다. 데이터의 형식에 따라 처리량은 파일/초 또는 바이트/초 단위로 측정 됩니다. 이상 스레딩을 통해 처리량 저하가 발생할 수 있습니다.
 
 이 경우 동일한 원격 파일 시스템 탑재 경로를 사용하여 클라이언트 쪽 탑재 지점을 다른 vFXT 클러스터 IP 주소에 추가할 수 있습니다.
 
@@ -146,7 +146,7 @@ cp /mnt/source/file8* /mnt/destination3/ & \
 
 마지막으로, 클라이언트 기능에 도달한 경우 더 많은 복사 스레드 또는 추가 탑재 지점을 추가해도 추가 파일 수/초 또는 바이트 수/초가 증가하지 않습니다. 이 경우 자체의 파일 복사 프로세스 집합을 실행할 동일한 탑재 지점 집합을 사용하여 다른 클라이언트를 배포할 수 있습니다.
 
-예제:
+예:
 
 ```bash
 Client1: cp -R /mnt/source/dir1/dir1a /mnt/destination/dir1/ &
@@ -240,13 +240,13 @@ for i in 1 2 3 4 ; do sed -n ${i}~4p /tmp/foo > /tmp/client${i}; done
 for i in 1 2 3 4 5; do sed -n ${i}~5p /tmp/foo > /tmp/client${i}; done
 ```
 
-And for six.... Extrapolate as needed.
+6 ... 필요에 따라 외삽 합니다.
 
 ```bash
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-`find` 명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진 *N*개의 클라이언트 각각에 대해 하나씩 *N*개의 결과 파일을 받게 됩니다.
+*명령에서 출력의 일부로 얻은 수준 4 디렉터리에 대한 경로 이름을 가진*N*개의 클라이언트 각각에 대해 하나씩* N`find`개의 결과 파일을 받게 됩니다.
 
 각 파일을 사용하여 복사 명령을 작성합니다.
 
@@ -258,25 +258,25 @@ for i in 1 2 3 4 5 6; do for j in $(cat /tmp/client${i}); do echo "cp -p -R /mnt
 
 목표는 여러 클라이언트에서 동시에 클라이언트마다 이러한 스크립트의 여러 스레드를 병렬로 실행하는 것입니다.
 
-## <a name="use-a-two-phase-rsync-process"></a>Use a two-phase rsync process
+## <a name="use-a-two-phase-rsync-process"></a>2 단계 rsync 프로세스 사용
 
-The standard ``rsync`` utility does not work well for populating cloud storage through the Avere vFXT for Azure system because it generates a large number of file create and rename operations to guarantee data integrity. However, you can safely use the ``--inplace`` option with ``rsync`` to skip the more careful copying procedure if you follow that with a second run that checks file integrity.
+표준 ``rsync`` 유틸리티는 데이터 무결성을 보장 하기 위해 많은 수의 파일 만들기 및 이름 바꾸기 작업을 생성 하기 때문에 Azure 시스템의 Avere vFXT을 통해 클라우드 저장소를 채우는 데 잘 작동 하지 않습니다. 그러나 ``rsync``와 함께 ``--inplace`` 옵션을 사용 하면 파일 무결성을 검사 하는 두 번째 실행을 사용 하 여 더 신중한 복사 절차를 건너뛸 수 있습니다.
 
-A standard ``rsync`` copy operation creates a temporary file and fills it with data. If the data transfer completes successfully, the temporary file is renamed to the original filename. This method guarantees consistency even if the files are accessed during copy. But this method generates more write operations, which slows file movement through the cache.
+표준 ``rsync`` 복사 작업은 임시 파일을 만들어 데이터로 채웁니다. 데이터 전송이 성공적으로 완료 되 면 임시 파일의 이름이 원래 파일 이름으로 바뀝니다. 이 메서드는 복사 중에 파일에 액세스 하는 경우에도 일관성을 보장 합니다. 그러나이 메서드는 더 많은 쓰기 작업을 생성 하므로 캐시를 통해 파일 이동 속도가 느려집니다.
 
-The option ``--inplace`` writes the new file directly in its final location. Files are not guaranteed to be consistent during transfer, but that is not important if you are priming a storage system for use later.
+옵션 ``--inplace`` 최종 위치에 새 파일을 직접 작성 합니다. 파일은 전송 중에는 일관성이 보장 되지 않지만 나중에 사용 하기 위해 저장소 시스템을 준비 하는 경우에는 중요 하지 않습니다.
 
-The second ``rsync`` operation serves as a consistency check on the first operation. Because the files have already been copied, the second phase is a quick scan to ensure that the files on the destination match the files on the source. If any files don't match, they are recopied.
+두 번째 ``rsync`` 작업은 첫 번째 작업에 대 한 일관성 확인의 역할을 합니다. 파일이 이미 복사 되었기 때문에 두 번째 단계는 대상의 파일이 원본의 파일과 일치 하는지 확인 하는 빠른 검색입니다. 일치 하지 않는 파일은 다시 복사입니다.
 
-You can issue both phases together in one command:
+하나의 명령으로 두 단계를 함께 실행할 수 있습니다.
 
 ```bash
 rsync -azh --inplace <source> <destination> && rsync -azh <source> <destination>
 ```
 
-This method is a simple and time-effective method for datasets up to the number of files the internal directory manager can handle. (This is typically 200 million files for a 3-node cluster, 500 million files for a six-node cluster, and so on.)
+이 메서드는 내부 디렉터리 관리자가 처리할 수 있는 최대 파일 수까지 데이터 집합에 대 한 간단 하 고 시간 효율적인 방법입니다. 이는 일반적으로 3 노드 클러스터의 경우 2억 파일이 고 6 개 노드 클러스터의 경우 5억 파일입니다.
 
-## <a name="use-the-msrsync-utility"></a>Use the msrsync utility
+## <a name="use-the-msrsync-utility"></a>Msrsync 유틸리티 사용
 
 ``msrsync`` 도구도 데이터를 Avere 클러스터용 백 엔드 코어 파일러로 이동하는 데 사용할 수 있습니다. 이 도구는 여러 개의 ``rsync`` 병렬 프로세스를 실행하여 대역폭 사용량을 최적화하도록 설계되었습니다. GitHub의 <https://github.com/jbd/msrsync>에서 사용할 수 있습니다.
 
@@ -284,18 +284,18 @@ This method is a simple and time-effective method for datasets up to the number 
 
 4개 코어 VM을 사용한 예비 테스트에서는 64개의 프로세스를 사용할 때 최고의 효율성을 보였습니다. ``msrsync`` 옵션인 ``-p``를 사용하여 프로세스 수를 64로 설정합니다.
 
-You also can use the ``--inplace`` argument with ``msrsync`` commands. If you use this option, consider running a second command (as with [rsync](#use-a-two-phase-rsync-process), described above) to ensure data integrity.
+``msrsync`` 명령과 함께 ``--inplace`` 인수를 사용할 수도 있습니다. 이 옵션을 사용 하는 경우 데이터 무결성을 보장 하기 위해 두 번째 명령 (위에 설명 된 [rsync](#use-a-two-phase-rsync-process)와 같이)을 실행 하는 것이 좋습니다.
 
-``msrsync`` can only write to and from local volumes. 원본 및 대상은 클러스터의 가상 네트워크에서 로컬 탑재로 액세스할 수 있어야 합니다.
+``msrsync`` 로컬 볼륨에만 쓸 수 있습니다. 원본 및 대상은 클러스터의 가상 네트워크에서 로컬 탑재로 액세스할 수 있어야 합니다.
 
-To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, follow these instructions:
+``msrsync``를 사용 하 여 Azure 클라우드 볼륨을 Avere 클러스터로 채우려면 다음 지침을 따르세요.
 
-1. Install ``msrsync`` and its prerequisites (rsync and Python 2.6 or later)
+1. ``msrsync`` 및 해당 필수 구성 요소 설치 (rsync 및 Python 2.6 이상)
 1. 복사할 파일 및 디렉터리의 총 수를 결정합니다.
 
-   For example, use the Avere utility ``prime.py`` with arguments ```prime.py --directory /path/to/some/directory``` (available by downloading url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>).
+   예를 들어 Avere 유틸리티를 사용 하 여 인수 ```prime.py --directory /path/to/some/directory``` (url <https://github.com/Azure/Avere/blob/master/src/clientapps/dataingestor/prime.py>다운로드에서 사용 가능)를 ``prime.py`` 합니다.
 
-   If not using ``prime.py``, you can calculate the number of items with the GNU ``find`` tool as follows:
+   ``prime.py``사용 하지 않는 경우 다음과 같이 GNU ``find`` 도구를 사용 하 여 항목 수를 계산할 수 있습니다.
 
    ```bash
    find <path> -type f |wc -l         # (counts files)
@@ -305,13 +305,13 @@ To use ``msrsync`` to populate an Azure cloud volume with an Avere cluster, foll
 
 1. 항목 수를 64로 나누어 프로세스당 항목 수를 결정합니다. 명령을 실행할 때 ``-f`` 옵션에 이 숫자를 사용하여 버킷의 크기를 설정합니다.
 
-1. Issue the ``msrsync`` command to copy files:
+1. ``msrsync`` 명령을 실행 하 여 파일을 복사 합니다.
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>
    ```
 
-   If using ``--inplace``, add a second execution without the option to check that the data is correctly copied:
+   ``--inplace``사용 하는 경우 데이터가 올바르게 복사 되었는지 확인 하는 옵션 없이 두 번째 실행을 추가 합니다.
 
    ```bash
    msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv --inplace" <SOURCE_PATH> <DESTINATION_PATH> && msrsync -P --stats -p 64 -f <ITEMS_DIV_64> --rsync "-ahv" <SOURCE_PATH> <DESTINATION_PATH>

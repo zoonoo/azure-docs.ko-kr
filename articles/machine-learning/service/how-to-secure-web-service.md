@@ -256,6 +256,6 @@ aks_target.update(update_config)
 ```
 
 ## <a name="next-steps"></a>다음 단계
-방법 배우기:
+다음 작업을 수행하는 방법을 배워 보십시오.
 + [웹 서비스로 배포된 기계 학습 모델 사용](how-to-consume-web-service.md)
 + [Azure virtual network 내에서 실험 및 유추를 안전 하 게 실행](how-to-enable-virtual-network.md)

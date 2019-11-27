@@ -1,6 +1,6 @@
 ---
 title: Azure Portal에서 IoT Central 관리 | Microsoft Docs
-description: This article describes how to create and manage your IoT Central applications from the Azure portal.
+description: 이 문서에서는 Azure Portal에서 IoT Central 응용 프로그램을 만들고 관리 하는 방법을 설명 합니다.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
@@ -19,11 +19,11 @@ ms.locfileid: "74480423"
 
 [!INCLUDE [iot-central-selector-manage](../../../includes/iot-central-selector-manage.md)]
 
-Instead of creating and managing IoT Central applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website, you can use the [Azure portal](https://portal.azure.com) to manage your applications.
+[Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만들고 관리 하는 대신 [Azure Portal](https://portal.azure.com) 를 사용 하 여 응용 프로그램을 관리할 수 있습니다.
 
 ## <a name="create-iot-central-applications"></a>IoT Central 애플리케이션 만들기
 
-To create an application, navigate to the [Azure portal](https://ms.portal.azure.com) and select **Create a resource** in the main pane on the left.
+응용 프로그램을 만들려면 [Azure Portal](https://ms.portal.azure.com) 로 이동 하 고 왼쪽의 주 창에서 **리소스 만들기** 를 선택 합니다.
 
 ![관리 포털: 탐색 메뉴](media/howto-manage-iot-central-from-portal/image0.png)
 
@@ -31,7 +31,7 @@ To create an application, navigate to the [Azure portal](https://ms.portal.azure
 
 ![관리 포털: 검색](media/howto-manage-iot-central-from-portal/image0a1.png)
 
-Select the **IoT Central Application** line-item in the search results.
+검색 결과에서 **IoT Central 응용 프로그램** 줄 항목을 선택 합니다.
 
 ![관리 포털: 검색 결과](media/howto-manage-iot-central-from-portal/image0b1.png)
 
@@ -39,20 +39,20 @@ Select the **IoT Central Application** line-item in the search results.
 
 ![관리 포털: IoT Central 리소스](media/howto-manage-iot-central-from-portal/image0c1.png)
 
-양식에 있는 모든 필드를 작성합니다. This form is similar to the form you fill out to create applications on the [Azure IoT Central application manager](https://aka.ms/iotcentral) website. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
+양식에 있는 모든 필드를 작성합니다. 이 양식은 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 응용 프로그램을 만들기 위해 작성 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
-You can create IoT Central application with general features by selecting **Sample Contoso**, **Custom application** and **Sample Devkits** as application templates, all the other application templates uses public preview features.
+응용 프로그램 템플릿으로 **샘플 Contoso**, **사용자 지정 응용 프로그램** 및 **샘플 devkits** 를 선택 하 여 일반 기능을 갖춘 응용 프로그램을 IoT Central 만들 수 있으며, 다른 모든 응용 프로그램 템플릿은 공개 미리 보기 기능을 사용 합니다.
 
-![create IoT Central form](media/howto-manage-iot-central-from-portal/image6a.png)
+![IoT Central 양식 만들기](media/howto-manage-iot-central-from-portal/image6a.png)
 
-**Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you’d like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the **United States**, **Australia**, **Asia Pacific**, or in **Europe**.  Once you choose a location, you can't move your application to a different location later.
+**Location** 은 응용 프로그램을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 입니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 위치를 선택 해야 합니다. Azure IoT Central는 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽**에서 사용할 수 있습니다.  위치를 선택 하면 나중에 응용 프로그램을 다른 위치로 이동할 수 없습니다.
 
 > [!NOTE]
-> The preview application templates are currently only available in the **Europe** and **United States** locations.
+> Preview 응용 프로그램 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
 ![관리 포털: IoT Central 리소스 만들기](media/howto-manage-iot-central-from-portal/image1a.png)  
 
-After filling out all fields, select **Create**.
+모든 필드를 채운 후 **만들기**를 선택 합니다.
 
 ## <a name="manage-existing-iot-central-applications"></a>기존 IoT Central 애플리케이션 관리
 
@@ -61,19 +61,19 @@ Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure P
 > [!NOTE]
 > 평가판 애플리케이션은 구독과 연결되어 있지 않으므로 Azure Portal에 표시되지 않습니다.
 
-To get started, select **All resources** in the main pane on the left. 검색 상자에 애플리케이션 이름을 입력하여 리소스 목록에서 애플리케이션을 찾습니다. Then select the IoT Central application you'd like to manage.
+시작 하려면 왼쪽의 주 창에서 **모든 리소스** 를 선택 합니다. 검색 상자에 애플리케이션 이름을 입력하여 리소스 목록에서 애플리케이션을 찾습니다. 그런 다음 관리 하려는 IoT Central 응용 프로그램을 선택 합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image2a.png)
 
-To navigate to the application, select the IoT Central Application URL.
+응용 프로그램으로 이동 하려면 IoT Central 응용 프로그램 URL을 선택 합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image3.png)
 
-To move the application to a different resource group, select **change** beside the resource group. **리소스 이동** 페이지에서 이 애플리케이션을 마이그레이션하려는 리소스 그룹을 선택합니다.
+응용 프로그램을 다른 리소스 그룹으로 이동 하려면 리소스 그룹 옆에서 **변경** 을 선택 합니다. **리소스 이동** 페이지에서 이 애플리케이션을 마이그레이션하려는 리소스 그룹을 선택합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image4a.png)
 
-To move the application to a different subscription, select the **change** link beside the subscription. 표시되는 대화 상자에서 이 애플리케이션을 마이그레이션할 구독을 선택합니다.
+응용 프로그램을 다른 구독으로 이동 하려면 구독 옆의 **변경** 링크를 선택 합니다. 표시되는 대화 상자에서 이 애플리케이션을 마이그레이션할 구독을 선택합니다.
 
 ![관리 포털: 리소스 관리](media/howto-manage-iot-central-from-portal/image5a.png)
 

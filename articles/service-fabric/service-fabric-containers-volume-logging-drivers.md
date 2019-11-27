@@ -1,5 +1,5 @@
 ---
-title: Service Fabric Azure Files Volume Driver (GA) | Microsoft Docs
+title: GA (Service Fabric Azure Files 볼륨 드라이버) | Microsoft Docs
 description: Service Fabric은 컨테이너에서 볼륨을 백업하도록 Azure Files 사용을 지원합니다.
 services: service-fabric
 author: athinanthny
@@ -16,16 +16,16 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74422789"
 ---
-# <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files Volume Driver
-The Azure Files volume plugin, a [Docker volume plugin](https://docs.docker.com/engine/extend/plugins_volume/) that provides [Azure Files](/azure/storage/files/storage-files-introduction) based volumes for Docker containers is now **GA (Generally Available)** .
+# <a name="service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버
+Docker 컨테이너에 대 한 [Azure Files](/azure/storage/files/storage-files-introduction) 기반 볼륨을 제공 하는 [docker 볼륨 플러그](https://docs.docker.com/engine/extend/plugins_volume/) 인 Azure Files 볼륨 플러그 인은 이제 **GA (일반적으로 사용 가능)** 입니다.
 
 이 Docker 볼륨 플러그 인은 Service Fabric 클러스터에 배포할 수 있는 Service Fabric 애플리케이션으로 패키지됩니다. 용도는 클러스터에 배포되는 다른 Service Fabric 컨테이너 애플리케이션에 Azure Files 기반 볼륨을 제공하는 것입니다.
 
 > [!NOTE]
-> Version 6.5.661.9590 of the Azure Files volume plugin is a GA(Generally available) release. 
+> Azure Files 볼륨 플러그 인의 버전 6.5.661.9590 GA (일반 공급) 릴리스입니다. 
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 * Windows 버전의 Azure Files 볼륨 플러그 인은 [Windows Server 버전 1709](/windows-server/get-started/whats-new-in-windows-server-1709), [Windows 10 버전 1709](https://docs.microsoft.com/windows/whats-new/whats-new-windows-10-version-1709) 이상 운영 체제에서만 작동합니다.
 
 * Linux 버전의 Azure Files 볼륨 플러그 인은 Service Fabric에서 지원하는 모든 운영 체제 버전에서 작동합니다.
@@ -36,9 +36,9 @@ The Azure Files volume plugin, a [Docker volume plugin](https://docs.docker.com/
 
 * [Service Fabric 모듈을 사용하는 Powershell](/azure/service-fabric/service-fabric-get-started) 또는 [SFCTL](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli) 설치가 필요합니다.
 
-* If you are using Hyper-V containers, the following snippets need to be added in the ClusterManifest (local cluster) or fabricSettings section in your Azure Resource Manager template (Azure cluster) or ClusterConfig.json (standalone cluster).
+* Hyper-v 컨테이너를 사용 하는 경우 다음 코드 조각을 ClusterManifest (로컬 클러스터) 또는 fabricSettings Azure Resource Manager 섹션 (Azure cluster) 또는 clustervjson (독립 실행형 클러스터)에 추가 해야 합니다.
 
-ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. In this example, the volume name is **sfazurefile** and the port it listens to on the cluster is **19100**. Replace them with the correct values for your cluster.
+ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. 이 예제에서 볼륨 이름은 **sfazurefile** 이 고 클러스터에서 수신 대기 하는 포트는 **19100**입니다. 클러스터에 대 한 올바른 값으로 바꿉니다.
 
 ``` xml 
 <Section Name="Hosting">
@@ -46,7 +46,7 @@ ClusterManifest의 Hosting 섹션에 다음을 추가해야 합니다. In this e
 </Section>
 ```
 
-In the fabricSettings section in your Azure Resource Manager template (for Azure deployments) or ClusterConfig.json (for standalone deployments), the following snippet needs to be added. Again, replace the volume name and port values with your own.
+Azure Resource Manager 템플릿 (Azure 배포의 경우) 또는 ClusterConfig (독립 실행형 배포의 경우)의 fabricSettings 섹션에서 다음 코드 조각을 추가 해야 합니다. 다시, 볼륨 이름 및 포트 값을 사용자 고유의 값으로 바꿉니다.
 
 ```json
 "fabricSettings": [
@@ -63,31 +63,31 @@ In the fabricSettings section in your Azure Resource Manager template (for Azure
 ```
 
 
-## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Deploy a sample application using Service Fabric Azure Files volume driver
+## <a name="deploy-a-sample-application-using-service-fabric-azure-files-volume-driver"></a>Service Fabric Azure Files 볼륨 드라이버를 사용 하 여 샘플 응용 프로그램 배포
 
-### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>Using Azure Resource Manager via the provided Powershell script (recommended)
+### <a name="using-azure-resource-manager-via-the-provided-powershell-script-recommended"></a>제공 된 Powershell 스크립트를 통해 Azure Resource Manager 사용 (권장)
 
-If your cluster is based in Azure, we recommend deploying applications to it using the Azure Resource Manager application resource model for ease of use and to help move towards the model of maintaining infrastructure as code. This approach eliminates the need to keep track of the app version for the Azure Files volume driver. It also enables you to maintain separate Azure Resource Manager templates for each supported OS. The script assumes you are deploying the latest version of the Azure Files application and takes parameters for OS type, cluster subscription ID, and resource group. You can download the script from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip). Note that this automatically sets the ListenPort, which is the port on which the Azure Files volume plugin listens for requests from the Docker daemon, to 19100. You can change it by adding parameter named "listenPort". Ensure that the port does not conflict with any other port that the cluster or your applications uses.
+클러스터가 Azure를 기반으로 하는 경우 사용 편의성을 위해 Azure Resource Manager 응용 프로그램 리소스 모델을 사용 하 여 응용 프로그램을 배포 하는 것이 좋으며, 인프라를 코드로 유지 관리 하는 모델로 전환 하는 데 도움이 됩니다. 이 방법은 Azure Files 볼륨 드라이버의 앱 버전을 추적 하지 않아도 됩니다. 지원 되는 각 OS에 대해 별도의 Azure Resource Manager 템플릿을 유지할 수도 있습니다. 이 스크립트는 최신 버전의 Azure Files 응용 프로그램을 배포 하 고 OS 유형, 클러스터 구독 ID 및 리소스 그룹에 대 한 매개 변수를 사용 한다고 가정 합니다. [Service Fabric 다운로드 사이트](https://sfazfilevd.blob.core.windows.net/sfazfilevd/DeployAzureFilesVolumeDriver.zip)에서 스크립트를 다운로드할 수 있습니다. 이는 Azure Files 볼륨 플러그인이 Docker 디먼의 요청을 수신 대기 하는 포트인 ListenPort를 19100로 자동 설정 합니다. "ListenPort" 라는 매개 변수를 추가 하 여 변경할 수 있습니다. 포트가 클러스터 나 응용 프로그램에서 사용 하는 다른 포트와 충돌 하지 않는지 확인 합니다.
  
 
-Azure Resource Manager deployment command for Windows:
+Windows에 대 한 Azure Resource Manager 배포 명령:
 ```powershell
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -windows
 ```
 
-Azure Resource Manager deployment command for Linux:
+Linux에 대 한 Azure Resource Manager 배포 명령:
 ```powershell
 .\DeployAzureFilesVolumeDriver.ps1 -subscriptionId [subscriptionId] -resourceGroupName [resourceGroupName] -clusterName [clusterName] -linux
 ```
 
-Once you've successfully run the script, you can skip to the [configuring your application section.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume)
+스크립트를 성공적으로 실행 한 후에는 [응용 프로그램 구성 섹션](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#configure-your-applications-to-use-the-volume) 으로 건너뛸 수 있습니다.
 
 
-### <a name="manual-deployment-for-standalone-clusters"></a>Manual deployment for standalone clusters
+### <a name="manual-deployment-for-standalone-clusters"></a>독립 실행형 클러스터에 대 한 수동 배포
 
-The Service Fabric application that provides the volumes for your containers can be downloaded from the [Service Fabric download site](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip). 애플리케이션은 [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) 또는 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md)를 통해 클러스터에 배포될 수 있습니다.
+컨테이너에 대 한 볼륨을 제공 하는 Service Fabric 응용 프로그램 [Service Fabric 다운로드 사이트](https://sfazfilevd.blob.core.windows.net/sfazfilevd/AzureFilesVolumePlugin.6.5.661.9590.zip)에서 다운로드할 수 있습니다. 애플리케이션은 [PowerShell](./service-fabric-deploy-remove-applications.md), [CLI](./service-fabric-application-lifecycle-sfctl.md) 또는 [FabricClient API](./service-fabric-deploy-remove-applications-fabricclient.md)를 통해 클러스터에 배포될 수 있습니다.
 
-1. Using the command line, change directory to the root directory of the downloaded application package.
+1. 명령줄을 사용 하 여 다운로드 한 응용 프로그램 패키지의 루트 디렉터리로 디렉터리를 변경 합니다.
 
     ```powershell
     cd .\AzureFilesVolume\
@@ -97,7 +97,7 @@ The Service Fabric application that provides the volumes for your containers can
     cd ~/AzureFilesVolume
     ```
 
-2. Next, copy the application package to the image store  with the appropriate values for [ApplicationPackagePath] and [ImageStoreConnectionString]:
+2. 다음으로, [ApplicationPackagePath] 및 [ImageStoreConnectionString]에 대 한 적절 한 값을 사용 하 여 응용 프로그램 패키지를 이미지 저장소에 복사 합니다.
 
     ```powershell
     Copy-ServiceFabricApplicationPackage -ApplicationPackagePath [ApplicationPackagePath] -ImageStoreConnectionString [ImageStoreConnectionString] -ApplicationPackagePathInImageStore AzureFilesVolumePlugin
@@ -118,7 +118,7 @@ The Service Fabric application that provides the volumes for your containers can
     sfctl application provision --application-type-build-path [ApplicationPackagePath]
     ```
 
-4. Create the application, paying close attention to the **ListenPort** application parameter value. This value is the port on which the Azure Files volume plugin listens for requests from the Docker daemon. Ensure that the port provided to the application matches the VolumePluginPorts in the ClusterManifest and does not conflict with any other port that the cluster or your applications uses.
+4. **ListenPort** 응용 프로그램 매개 변수 값에 주의를 기울이고 응용 프로그램을 만듭니다. 이 값은 Azure Files 볼륨 플러그 인이 Docker 디먼의 요청을 수신 대기 하는 포트입니다. 응용 프로그램에 제공 된 포트가 ClusterManifest의 VolumePluginPorts와 일치 하 고 클러스터 또는 응용 프로그램에서 사용 하는 다른 포트와 충돌 하지 않는지 확인 합니다.
 
     ```powershell
     New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590   -ApplicationParameter @{ListenPort='19100'}
@@ -133,9 +133,9 @@ The Service Fabric application that provides the volumes for your containers can
 > Windows Server 2016 Datacenter는 커넥터에 SMB 마운트를 매핑하도록 지원하지 않습니다([Windows Server 버전 1709에서만 지원됨](/virtualization/windowscontainers/manage-containers/container-storage)). 이러한 제약으로 인해 1709보다 오래된 버전에서 네트워크 볼륨 매핑 및 Azure Files 볼륨 드라이버를 사용할 수 없습니다.
 
 #### <a name="deploy-the-application-on-a-local-development-cluster"></a>로컬 개발 클러스터에서 애플리케이션 배포
-Follow steps 1-3 from the [above.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
+위의 1-3 단계를 수행 [합니다.](/azure/service-fabric/service-fabric-containers-volume-logging-drivers#manual-deployment-for-standalone-clusters)
 
- Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 애플리케이션 매개 변수를 통해 이를 수행할 수 있습니다. Therefore, the command for creating the Azure Files volume plugin application on a local development cluster is:
+ Azure Files 볼륨 플러그 인 애플리케이션에 대한 기본 서비스 인스턴스 수는 -1로, 클러스터의 각 노드에 배포된 서비스의 인스턴스가 있다는 것을 의미합니다. 그러나 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 애플리케이션을 배포할 때 서비스 인스턴스 수는 1로 지정되어야 합니다. **InstanceCount** 애플리케이션 매개 변수를 통해 이를 수행할 수 있습니다. 따라서 로컬 개발 클러스터에서 Azure Files 볼륨 플러그 인 응용 프로그램을 만드는 명령은 다음과 같습니다.
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/AzureFilesVolumePluginApp -ApplicationTypeName AzureFilesVolumePluginType -ApplicationTypeVersion 6.5.661.9590  -ApplicationParameter @{ListenPort='19100';InstanceCount='1'}
@@ -146,7 +146,7 @@ sfctl application create --app-name fabric:/AzureFilesVolumePluginApp --app-type
 ```
 
 ## <a name="configure-your-applications-to-use-the-volume"></a>볼륨을 사용할 애플리케이션 구성
-The following snippet shows how an Azure Files based volume can be specified in the application manifest file of your application. 관심 있는 특정 요소는 **볼륨** 태그입니다.
+다음 코드 조각은 응용 프로그램의 응용 프로그램 매니페스트 파일에서 Azure Files 기반 볼륨을 지정 하는 방법을 보여 줍니다. 관심 있는 특정 요소는 **볼륨** 태그입니다.
 
 ```xml
 ?xml version="1.0" encoding="UTF-8"?>
@@ -180,11 +180,11 @@ The following snippet shows how an Azure Files based volume can be specified in 
 </ApplicationManifest>
 ```
 
-Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile**입니다. This value is set for the **Driver** attribute of the **Volume** tag element in the application manifest.
+Azure Files 볼륨 플러그 인에 대한 드라이버 이름은 **sfazurefile**입니다. 이 값은 응용 프로그램 매니페스트에서 **볼륨** 태그 요소의 **Driver** 특성에 대해 설정 됩니다.
 
-In the **Volume** tag in the snippet above, the Azure Files volume plugin requires the following attributes:
+위의 코드 조각에 있는 **volume** 태그에서 Azure Files 볼륨 플러그 인에는 다음 특성이 필요 합니다.
 - **Source** - 볼륨의 이름입니다. 사용자는 해당 볼륨에 대한 이름을 임의로 선택할 수 있습니다.
-- **Destination** - This attribute is the location that the volume is mapped to within the running container. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다.
+- **Destination** -이 특성은 실행 중인 컨테이너 내에서 볼륨이 매핑되는 위치입니다. 따라서 대상은 컨테이너 내에 이미 존재하는 위치가 될 수 없습니다.
 
 위의 코드 조각의 **DriverOption** 요소에 나와 있는 것처럼 Azure Files 볼륨 플러그 인은 다음 드라이버 옵션을 지원합니다.
 - **shareName** - 컨테이너에 대한 볼륨을 제공하는 Azure Files 파일 공유의 이름입니다.

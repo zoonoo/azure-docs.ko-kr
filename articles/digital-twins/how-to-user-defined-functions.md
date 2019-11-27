@@ -1,5 +1,5 @@
 ---
-title: How to create user-defined functions - in Azure Digital Twins | Microsoft Docs
+title: Azure Digital Twins에서 사용자 정의 함수를 만드는 방법 | Microsoft Docs
 description: Azure Digital Twins를 사용하여 사용자 정의 함수, 검사기 및 역할 할당을 만드는 방법입니다.
 ms.author: alinast
 author: alinamstanciu
@@ -69,7 +69,7 @@ JSON 본문:
 }
 ```
 
-| Value | 다음 항목으로 교체 |
+| 값 | 다음 항목으로 교체 |
 | --- | --- |
 | YOUR_SPACE_IDENTIFIER | 인스턴스를 호스팅하는 서버 지역 |
 
@@ -109,7 +109,7 @@ function process(telemetry, executionContext) {
 --USER_DEFINED_BOUNDARY--
 ```
 
-| Value | 다음 항목으로 교체 |
+| 값 | 다음 항목으로 교체 |
 | --- | --- |
 | USER_DEFINED_BOUNDARY | 다중 파트 콘텐츠 경계 이름 |
 | YOUR_SPACE_IDENTIFIER | 공간 식별자  |
@@ -126,7 +126,7 @@ function process(telemetry, executionContext) {
 
 ### <a name="example-functions"></a>예제 함수
 
-`sensor.DataType`에 해당하는 **Temperature** 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
+**에 해당하는** Temperature`sensor.DataType` 데이터 형식을 사용하여 센서에 대한 직접 센서 원격 분석 읽기를 설정합니다.
 
 ```JavaScript
 function process(telemetry, executionContext) {
@@ -207,14 +207,14 @@ function process(telemetry, executionContext) {
    원하는 역할 ID를 유지합니다. 아래와 같이 JSON 본문 특성 **roleId**(`YOUR_DESIRED_ROLE_IDENTIFIER`)로 전달됩니다.
 
 1. **objectId**(`YOUR_USER_DEFINED_FUNCTION_ID`)는 앞서 만든 사용자 정의 함수 ID가 됩니다.
-1. `fullpath`로 공백을 쿼리하여 **path**(`YOUR_ACCESS_CONTROL_PATH`) 값을 찾습니다.
+1. **로 공백을 쿼리하여** path`YOUR_ACCESS_CONTROL_PATH`(`fullpath`) 값을 찾습니다.
 1. 반환된 `spacePaths` 값을 복사합니다. 아래와 같이 이 값을 사용합니다. 인증된 HTTP GET 요청을 확인합니다.
 
     ```URL
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
     ```
 
-    | Value | 다음 항목으로 교체 |
+    | 값 | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_SPACE_NAME | 사용할 공간의 이름 |
 
@@ -234,11 +234,11 @@ function process(telemetry, executionContext) {
     }
     ```
 
-    | Value | 다음 항목으로 교체 |
+    | 값 | 다음 항목으로 교체 |
     | --- | --- |
     | YOUR_DESIRED_ROLE_IDENTIFIER | 원하는 역할의 식별자 |
     | YOUR_USER_DEFINED_FUNCTION_ID | 사용하려는 사용자 정의 함수에 대한 ID |
-    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | The ID specifying the user-defined function type (`UserDefinedFunctionId`) |
+    | YOUR_USER_DEFINED_FUNCTION_TYPE_ID | 사용자 정의 함수 형식 (`UserDefinedFunctionId`)을 지정 하는 ID입니다. |
     | YOUR_ACCESS_CONTROL_PATH | 액세스 제어 경로 |
 
 >[!TIP]

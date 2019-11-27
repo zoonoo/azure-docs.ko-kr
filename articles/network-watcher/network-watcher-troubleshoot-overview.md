@@ -50,7 +50,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 ### <a name="gateway"></a>게이트웨이
 
-| 오류 유형 | 이유 | Log|
+| 오류 유형 | Reason | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|
@@ -65,7 +65,7 @@ Virtual Network 게이트웨이는 온-프레미스 리소스 및 Azure 내 다�
 
 ### <a name="connection"></a>연결
 
-| 오류 유형 | 이유 | Log|
+| 오류 유형 | Reason | 로그|
 |---|---|---|
 | NoFault | 오류가 발견되지 않은 경우 |예|
 | GatewayNotFound | 게이트웨이를 찾을 수 없거나 게이트웨이가 프로비저닝되지 않았습니다. |아니오|

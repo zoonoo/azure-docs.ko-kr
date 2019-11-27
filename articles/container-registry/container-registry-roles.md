@@ -1,5 +1,5 @@
 ---
-title: RBAC roles and permissions
+title: RBAC 역할 및 사용 권한
 description: Azure RBAC(역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure Container Registry에서 리소스에 대한 세분화된 사용 권한을 제공합니다.
 ms.topic: article
 ms.date: 03/20/2019
@@ -14,11 +14,11 @@ ms.locfileid: "74456246"
 
 Azure Container Registry 서비스는 Azure Container Registry에 대한 다양한 수준의 권한을 제공하는 Azure 역할 세트를 지원합니다. Azure RBAC([역할 기반 액세스 제어](../role-based-access-control/index.yml))를 사용하여 레지스트리를 조작해야 하는 사용자 또는 서비스 주체에 특정 권한을 할당합니다.
 
-| 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [Delete image data](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
+| 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 소유자 | X | X | X | X | X | X |  |  
-| 기여자 | X | X | X |  X | X | X |  |  
-| 판독기 | X |  |  | X |  |  |  |
+| 참여자 | X | X | X |  X | X | X |  |  
+| 읽기 권한자 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -58,7 +58,7 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 ## <a name="delete-image-data"></a>이미지 데이터 삭제
 
-The ability to [delete container images](container-registry-delete.md), or delete other [supported artifacts](container-registry-image-formats.md) such as Helm charts, from a registry.
+레지스트리에서 [컨테이너 이미지를 삭제](container-registry-delete.md)하거나 [지원 되](container-registry-image-formats.md) 는 다른 아티팩트 (예: 투구 차트)를 삭제할 수 있습니다.
 
 ## <a name="change-policies"></a>정책 변경
 

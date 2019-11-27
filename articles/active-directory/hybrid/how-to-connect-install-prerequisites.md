@@ -49,43 +49,43 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 ### <a name="azure-ad-connect-server"></a>Azure AD Connect 서버
 >[!IMPORTANT]
->The Azure AD Connect server contains critical identity data and should be treated as a Tier 0 component as documented in [the Active Directory administrative tier model](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)
+>Azure AD Connect 서버에는 중요 한 id 데이터가 포함 되어 있으며 [Active Directory 관리 계층 모델](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 에 설명 된 대로 계층 0 구성 요소로 처리 되어야 합니다.
 
 * Azure AD Connect는 Small Business Server 또는 2019 이전 Windows Server Essentials에 설치할 수 없습니다(Windows Server Essentials 2019는 지원됨). 서버는 Windows Server Standard 이상을 사용해야 합니다.
-* Installing Azure AD Connect on a Domain Controller is not recommended due to security practices and more restrictive settings that can prevent Azure AD Connect from installing correctly.
+* 도메인 컨트롤러에 Azure AD Connect를 설치 하는 것은 Azure AD Connect을 제대로 설치할 수 없게 하는 보안 방법 및 더 제한적인 설정으로 인해 권장 되지 않습니다.
 * Azure AD Connect 서버에는 전체 GUI가 설치되어 있어야 합니다. Server Core에 설치하는 것은 **지원되지 않습니다**.
 >[!IMPORTANT]
->Installing Azure AD Connect on small business server, server essentials, or server core is not supported.
+>Small business server, server essentials 또는 server core에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
 
-* Azure AD Connect는 반드시 Windows Server 2008 R2 이상 버전에 설치되어야 합니다. This server must be domain joined and may be a domain controller or a member server.
+* Azure AD Connect는 반드시 Windows Server 2008 R2 이상 버전에 설치되어야 합니다. 이 서버는 도메인에 가입 되어 있어야 하며 도메인 컨트롤러 또는 구성원 서버가 될 수 있습니다.
 * Windows Server 2008 R2에 Azure AD Connect를 설치하는 경우 Windows 업데이트에서 최신 핫픽스를 적용해야 합니다. 패치가 적용되지 않은 서버에서는 설치를 시작할 수 없습니다.
 * **암호 동기화**기능을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2008 R2 SP1 이상에 있어야 합니다.
 * **그룹 관리 서비스 계정**을 사용하려는 경우 Azure AD Connect 서버가 Windows Server 2012 이상이어야 합니다.
 * Azure AD Connect 서버에는 [.NET Framework 4.5.1](#component-prerequisites) 이상 및 [Microsoft PowerShell 3.0](#component-prerequisites) 이상이 설치되어 있어야 합니다.
-* The Azure AD Connect server must not have PowerShell Transcription Group Policy enabled if you are using Azure AD Connect wizard to manage ADFS configuration. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만,
+* Azure AD Connect 마법사를 사용 하 여 ADFS 구성을 관리 하는 경우에는 Azure AD Connect 서버에서 PowerShell 기록을 사용 하도록 설정 그룹 정책 하지 않아야 합니다. Azure AD Connect 마법사를 사용하여 동기화 구성을 관리하는 경우 PowerShell 기록을 사용하도록 설정할 수 있지만,
 * Active Directory Federation Services를 배포하는 경우 AD FS 또는 웹 애플리케이션 프록시가 설치될 서버는 Windows Server 2012 R2 이상이어야 합니다. [Windows 원격 관리](#windows-remote-management) 를 사용할 수 있어야 합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [SSL 인증서](#ssl-certificate-requirements)가 필요합니다.
 * Active Directory Federation Services를 배포하고 있는 경우 [이름 확인](#name-resolution-for-federation-servers)을 구성해야 합니다.
 * 전역 관리자가 MFA를 사용하도록 설정한 경우 URL **https://secure.aadcdn.microsoftonline-p.com** 이 신뢰할 수 있는 사이트 목록에 있어야 합니다. MFA 챌린지를 묻는 메시지가 표시되기 전에 이 사이트를 추가하지 않은 경우 신뢰할 수 있는 사이트 목록에 추가하라는 메시지가 표시됩니다. Internet Explorer를 사용하여 신뢰할 수 있는 사이트에 추가할 수 있습니다.
-* Microsoft recommends hardening your Azure AD Connect server to decrease the security attack surface for this critical component of your IT environment.  Following the recommendations below will decrease the security risks to your organization.
+* IT 환경의이 중요 한 구성 요소에 대 한 보안 공격 노출 영역을 줄이려면 Azure AD Connect 서버를 강화 하는 것이 좋습니다.  아래의 권장 사항에 따라 조직의 보안 위험을 줄일 수 있습니다.
 
-* Deploy Azure AD Connect on a domain joined server and restrict administrative access to domain administrators or other tightly controlled security groups.
+* 도메인에 가입 된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스를 제한 합니다
 
 자세한 내용은 다음을 참조하세요. 
 
-* [Securing administrators groups](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
+* [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
-* [Securing built-in administrator accounts](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
+* [기본 제공 관리자 계정 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-d--securing-built-in-administrator-accounts-in-active-directory)
 
-* [Security improvement and sustainment by reducing attack surfaces](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
+* [공격 노출 영역을 줄임으로써 보안 향상 및 sustainment](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access#2-reduce-attack-surfaces )
 
-* [Reducing the Active Directory attack surface](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
+* [Active Directory 공격 노출 영역 축소](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/reducing-the-active-directory-attack-surface)
 
 ### <a name="sql-server-used-by-azure-ad-connect"></a>Azure AD Connect에서 사용하는 SQL Server
-* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. The type of SQL Server installation can impact the [performance of Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors).
-* If you use a different installation of SQL Server, then these requirements apply:
-  * Azure AD Connect supports all versions of Microsoft SQL Server from 2008 R2 (with latest Service Pack) to SQL Server 2019. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
-  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
+* Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)에 영향을 줄 수 있습니다.
+* 다른 SQL Server 설치를 사용 하는 경우 다음 요구 사항이 적용 됩니다.
+  * Azure AD Connect는 2008 R2 (최신 서비스 팩 포함)의 모든 버전 Microsoft SQL Server를 SQL Server 2019로 지원 합니다. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
+  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 **CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은** 지원되지 않습니다\_.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
 ### <a name="accounts"></a>계정
@@ -114,7 +114,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
     </system.net>
 ```
 
-* 프록시 서버에 인증이 필요한 경우 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](how-to-connect-install-custom.md#install-required-components)을 지정해야 합니다. You also need a different change to machine.config. With this change in machine.config, the installation wizard and sync engine respond to authentication requests from the proxy server. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
+* 프록시 서버에 인증이 필요한 경우 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)이 도메인에 있어야 하고 사용자 지정 설정 설치 경로를 사용하여 [사용자 지정 서비스 계정](how-to-connect-install-custom.md#install-required-components)을 지정해야 합니다. Machine.config의 다른 변경도 필요 합니다. Machine.config에서이 변경 내용을 사용 하면 설치 마법사와 동기화 엔진이 프록시 서버의 인증 요청에 응답 합니다. **구성** 페이지를 제외하고 모든 설치 마법사 페이지에서 로그인한 사용자의 자격 증명이 사용됩니다. 설치 마법사의 끝에 나오는 **구성** 페이지에서 컨텍스트가 이전에 만든 [서비스 계정](reference-connect-accounts-permissions.md#adsync-service-account)으로 전환됩니다. machine.config 섹션은 다음과 같이 표시됩니다.
 
 ```
     <system.net>
@@ -133,15 +133,15 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 자세한 내용은 [기본 프록시 요소](https://msdn.microsoft.com/library/kd3cf2ex.aspx)에 대한 MSDN을 참조하세요.  
 연결에 문제가 있는 경우 [연결 문제 해결](tshoot-connect-connectivity.md)을 참조하세요.
 
-### <a name="other"></a>다른
+### <a name="other"></a>기타
 * 선택 사항: 동기화를 확인할 테스트 사용자 계정
 
 ## <a name="component-prerequisites"></a>구성 요소 필수 조건
-### <a name="powershell-and-net-framework"></a>PowerShell and .NET Framework
+### <a name="powershell-and-net-framework"></a>PowerShell 및 .NET Framework
 Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 * Windows Server 2012R2
-  * Microsoft PowerShell은 기본적으로 설치되므로 아무런 작업도 필요하지 않습니다.
+  * Microsoft PowerShell은 기본적으로 설치되므로 추가적인 조치가 필요하지 않습니다.
   * .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
 * Windows Server 2008 R2 및 Windows Server 2012
   * 최신 버전의 Microsoft PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.
@@ -149,9 +149,9 @@ Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다�
 
 
 ### <a name="enable-tls-12-for-azure-ad-connect"></a>Azure AD Connect에 TLS 1.2 사용
-1\.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. You can change this by configuring .NET applications to use TLS 1.2 by default on the server. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
+1\.1.614.0 버전 이전의 Azure AD Connect는 기본적으로 TLS 1.0을 사용하여 동기화 엔진 서버와 Azure AD 간의 통신을 암호화합니다. 서버에서 기본적으로 TLS 1.2를 사용 하도록 .NET 응용 프로그램을 구성 하 여이를 변경할 수 있습니다. TLS 1.2에 대한 자세한 내용은 [Microsoft 보안 권고 2960358](https://technet.microsoft.com/security/advisory/2960358)에서 찾을 수 있습니다.
 
-1. TLS 1.2 cannot be enabled prior to Windows Server 2008 R2 or earlier. Make sure you have the .NET 4.5.1 hotfix installed for your operating system, see [Microsoft Security Advisory 2960358](https://technet.microsoft.com/security/advisory/2960358). 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
+1. Windows Server 2008 R2 이전 버전 이전에서는 TLS 1.2을 사용 하도록 설정할 수 없습니다. 운영 체제에 대해 .NET 4.5.1 핫픽스를 설치 했는지 확인 하세요. [Microsoft 보안 공지 2960358](https://technet.microsoft.com/security/advisory/2960358)을 참조 하세요. 이 핫픽스 또는 이후 릴리스를 서버에 이미 설치했을 수 있습니다.
 2. Windows Server 2008 R2를 사용하는 경우 TLS 1.2가 사용하도록 설정되어 있는지 확인합니다. Windows Server 2012 서버 및 이후 버전에서는 TLS 1.2가 이미 사용되도록 설정되어 있습니다.
     ```
     [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\SecurityProviders\SCHANNEL\Protocols\TLS 1.2]
@@ -190,7 +190,7 @@ Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active 
 * 인증서의 ID는 페더레이션 서비스 이름(예: sts.contoso.com)과 일치해야 합니다.
   * ID는 dNSName 유형의 주체 대체 이름(SAN)의 확장 유형이거나, SAN 항목이 없는 경우 공통 이름으로 지정된 주제 이름입니다.  
   * 그 중 하나가 페더레이션 서비스 이름과 일치하는 경우 여러 SAN 항목이 인증서에 있을 수 있습니다.
-  * 작업 공간 연결을 사용하도록 하려는 경우 **enterpriseregistration** 값과 함께 추가 SAN이 필요합니다. 이어서 조직의 사용자 이름(UPN) 접미사를(예:  **enterpriseregistration.contoso.com**) 붙입니다.
+  * 작업 공간 연결을 사용하도록 하려는 경우 **enterpriseregistration** 값과 함께 추가 SAN이 필요합니다. 이어서 조직의 사용자 이름(UPN) 접미사를(예: **enterpriseregistration.contoso.com**) 붙입니다.
 * CryptoAPI 다음 세대(CNG) 및 키 스토리지 공급자를 기반으로 하는 인증서는 지원되지 않습니다. 즉, KSP(키 스토리지 공급자)가 아닌 CSP(암호화 서비스 공급자)를 기반으로 인증서를 사용해야 합니다.
 * 와일드카드 인증서가 지원됩니다.
 
@@ -221,7 +221,7 @@ Azure AD Connect를 사용하여 웹 애플리케이션 프록시 또는 Active 
 | 300,000–600,000개 |1.6GHz |32GB |450GB |
 | 600,000개 초과 |1.6GHz |32GB |500GB |
 
-The minimum requirements for computers running AD FS or Web Application Proxy Servers is the following:
+AD FS 또는 웹 응용 프로그램 프록시 서버를 실행 하는 컴퓨터의 최소 요구 사항은 다음과 같습니다.
 
 * CPU: 듀얼 코어 1.6GHz 이상
 * 메모리: 2GB 이상

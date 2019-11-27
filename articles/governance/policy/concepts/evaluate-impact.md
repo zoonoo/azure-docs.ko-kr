@@ -1,6 +1,6 @@
 ---
-title: Evaluate the impact of a new Azure policy
-description: Understand the process to follow when introducing a new policy definition into your Azure environment.
+title: 새 Azure 정책의 영향 평가
+description: Azure 환경에 새 정책 정의를 도입할 때 따라야 하는 프로세스를 이해 합니다.
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.openlocfilehash: 562fa2378356ddc1eac48b6ea5c160ebf655d525
@@ -10,67 +10,67 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74463516"
 ---
-# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>Evaluate the impact of a new Azure policy
+# <a name="evaluate-the-impact-of-a-new-azure-policy"></a>새 Azure 정책의 영향 평가
 
-Azure Policy is a powerful tool for managing your Azure resources to business standards and to meet compliance needs. When people, processes, or pipelines create or update resources, Azure Policy reviews the request. When the policy definition effect is [Append](./effects.md#deny) or [DeployIfNotExists](./effects.md#deployifnotexists), Policy alters the request or adds to it. When the policy definition effect is [Audit](./effects.md#audit) or [AuditIfNotExists](./effects.md#auditifnotexists), Policy causes an Activity log entry to be created. And when the policy definition effect is [Deny](./effects.md#deny), Policy stops the creation or alteration of the request.
+Azure Policy은 Azure 리소스를 비즈니스 표준으로 관리 하 고 규정 준수 요구 사항을 충족 하기 위한 강력한 도구입니다. 사용자, 프로세스 또는 파이프라인이 리소스를 만들거나 업데이트 하면 Azure Policy에서 요청을 검토 합니다. 정책 정의 효과가 [추가](./effects.md#deny) 또는 [Deployifnotexists](./effects.md#deployifnotexists)인 경우 정책은 요청을 변경 하거나 추가 합니다. 정책 정의 효과가 [감사](./effects.md#audit) 또는 [AuditIfNotExists](./effects.md#auditifnotexists)인 경우 정책으로 인해 활동 로그 항목이 생성 됩니다. 정책 정의 효과가 [Deny](./effects.md#deny)인 경우 정책에서 요청을 만들거나 변경 하는 것을 중지 합니다.
 
-These outcomes are exactly as desired when you know the policy is defined correctly. However, it's important to validate a new policy works as intended before allowing it to change or block work. The validation must ensure only the intended resources are determined to be non-compliant and no compliant resources are incorrectly included (known as a _false positive_) in the results.
+이러한 결과는 정책이 올바르게 정의 된 것을 알고 있는 경우에 원하는 대로 정확 하 게 표시 됩니다. 그러나 새 정책이 작업을 변경 하거나 차단 하기 전에 의도 한 대로 작동 하는지 확인 하는 것이 중요 합니다. 유효성 검사는 의도 된 리소스만 비규격으로 결정 되 고, 결과에는 준수 리소스가 잘못 포함 된 ( _가양성_이라고 함) 확인 해야 합니다.
 
-The recommended approach to validating a new policy definition is by following these steps:
+새 정책 정의의 유효성을 검사 하는 권장 방법은 다음 단계를 수행 하는 것입니다.
 
-- Tightly define your policy
-- Audit your existing resources
-- Audit new or updated resource requests
-- Deploy your policy to resources
-- 지속적인 모니터링
+- 정책을 긴밀 하 게 정의
+- 기존 리소스 감사
+- 새 리소스 요청 또는 업데이트 된 리소스 요청 감사
+- 리소스에 정책 배포
+- 연속 모니터링
 
-## <a name="tightly-define-your-policy"></a>Tightly define your policy
+## <a name="tightly-define-your-policy"></a>정책을 긴밀 하 게 정의
 
-It's important to understand how the business policy is implemented as a policy definition and the relationship of Azure resources with other Azure services. This step is accomplished by [identifying the requirements](../tutorials/create-custom-policy-definition.md#identify-requirements) and [determining the resource properties](../tutorials/create-custom-policy-definition.md#determine-resource-properties).
-But it's also important to see beyond the narrow definition of your business policy. Does your policy state for example "All Virtual Machines must..."? What about other Azure services that make use of VMs, such as HDInsight or AKS? When defining a policy, we must consider how this policy impacts resources that are used by other services.
+비즈니스 정책이 정책 정의로 구현 되는 방법과 다른 Azure 서비스와 Azure 리소스의 관계를 이해 하는 것이 중요 합니다. 이 단계는 [요구 사항을 파악](../tutorials/create-custom-policy-definition.md#identify-requirements) 하 고 [리소스 속성을 확인](../tutorials/create-custom-policy-definition.md#determine-resource-properties)하 여 수행 됩니다.
+하지만 비즈니스 정책에 대 한 좁은 정의를 벗어난 것을 확인 하는 것도 중요 합니다. 정책 상태 (예: "All Virtual Machines 이어야 ...") Vm을 사용 하는 다른 Azure 서비스 (예: HDInsight 또는 AKS)는 무엇 인가요? 정책을 정의할 때이 정책이 다른 서비스에서 사용 하는 리소스에 미치는 영향을 고려해 야 합니다.
 
-For this reason, your policy definitions should be as tightly defined and focused on the resources and the properties you need to evaluate for compliance as possible.
+이러한 이유로 정책 정의는 가능한 한 준수 여부를 평가 하는 데 필요한 리소스와 속성에 대해 긴밀 하 게 정의 되 고 집중 되어야 합니다.
 
-## <a name="audit-existing-resources"></a>Audit existing resources
+## <a name="audit-existing-resources"></a>기존 리소스 감사
 
-Before looking to manage new or updated resources with your new policy definition, it's best to see how it evaluates a limited subset of existing resources, such as a test resource group. Use the [enforcement mode](./assignment-structure.md#enforcement-mode)
-_Disabled_ (DoNotEnforce) on your policy assignment to prevent the [effect](./effects.md) from triggering or activity log entries from being created.
+새 정책 정의를 사용 하 여 새로운 또는 업데이트 된 리소스를 관리 하기 전에 테스트 리소스 그룹과 같은 기존 리소스의 제한 된 하위 집합을 평가 하는 방법을 확인 하는 것이 가장 좋습니다. 정책 할당에서 [적용 모드](./assignment-structure.md#enforcement-mode)
+사용 _안 함_ (DoNotEnforce)을 사용 [하 여 트리거](./effects.md) 또는 활동 로그 항목이 생성 되지 않도록 합니다.
 
-This step gives you a chance to evaluate the compliance results of the new policy on existing resources without impacting work flow. Check that no compliant resources are marked as non-compliant (_false positive_) and that all the resources you expect to be non-compliant are marked correctly.
-After the initial subset of resources validates as expected, slowly expand the evaluation to all existing resources.
+이 단계를 통해 작업 흐름에 영향을 주지 않고 기존 리소스에 대 한 새 정책의 호환성 결과를 평가할 수 있습니다. 호환 되는 리소스가 비규격 (_거짓 긍정_)으로 표시 되 고 비준수로 간주 되는 모든 리소스가 올바르게 표시 되는지 확인 합니다.
+리소스의 초기 하위 집합이 예상 대로 유효성을 검사 한 후에는 모든 기존 리소스에 대 한 평가를 천천히 확장 합니다.
 
-Evaluating existing resources in this way also provides an opportunity to remediate non-compliant resources before full implementation of the new policy. This cleanup can be done manually or through a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is _DeployIfNotExists_.
+이러한 방식으로 기존 리소스를 평가 하면 새로운 정책을 완전히 구현 하기 전에 비규격 리소스를 수정할 수 있는 기회가 제공 됩니다. 이 정리 작업은 수동으로 수행 하거나 정책 정의 효과가 _Deployifnotexists_인 경우 [수정 작업](../how-to/remediate-resources.md) 을 통해 수행할 수 있습니다.
 
-## <a name="audit-new-or-updated-resources"></a>Audit new or updated resources
+## <a name="audit-new-or-updated-resources"></a>새 리소스 또는 업데이트 된 리소스 감사
 
-Once you've validated your new policy definition is reporting correctly on existing resources, it's time to look at the impact of the policy when resources get created or updated. If the policy definition supports effect parameterization, use [Audit](./effects.md#audit). This configuration allows you to monitor the creation and updating of resources to see if the new policy definition triggers an entry in Azure Activity log for a resource that is non-compliant without impacting existing work or requests.
+새 정책 정의가 기존 리소스에서 올바르게 보고 되는지 확인 한 후에는 리소스를 만들거나 업데이트할 때 정책의 영향을 확인할 수 있습니다. 정책 정의에서 매개 변수화 효과를 지 원하는 경우 [Audit](./effects.md#audit)를 사용 합니다. 이 구성을 사용 하면 리소스의 생성 및 업데이트를 모니터링 하 여 새 정책 정의가 기존 작업 또는 요청에 영향을 주지 않고 비규격 리소스에 대해 Azure 활동 로그에서 항목을 트리거할 수 있는지 확인할 수 있습니다.
 
-It's recommended to both update and create new resources that match your policy definition to see that the _Audit_ effect is correctly being triggered when expected. Be on the lookout for resource requests that shouldn't be impacted by the new policy definition that trigger the _Audit_ effect.
-These impacted resources are another example of _false positives_ and must be fixed in the policy definition before full implementation.
+정책 정의와 일치 하는 새 리소스를 업데이트 하 고 만들어 _감사_ 결과가 예상 대로 트리거되는 것을 확인 하는 것이 좋습니다. _감사_ 효과를 트리거하는 새 정책 정의의 영향을 받지 않아야 하는 리소스 요청에 대 한 감시를 받을 수 있습니다.
+이러한 영향을 받는 리소스는 _가양성_ 의 또 다른 예 이며 전체 구현 전에 정책 정의에서 수정 해야 합니다.
 
-In the event the policy definition is changed at this stage of testing, it's recommended to begin the validation process over with the auditing of existing resources. A change to the policy definition for a _false positive_ on new or updated resources is likely to also have an impact on existing resources.
+이 테스트 단계에서 정책 정의가 변경 되는 경우 기존 리소스의 감사를 사용 하 여 유효성 검사 프로세스를 시작 하는 것이 좋습니다. 새 리소스 또는 업데이트 된 리소스에 대 한 _거짓 긍정_ 의 정책 정의를 변경 하면 기존 리소스에도 영향을 줄 수 있습니다.
 
-## <a name="deploy-your-policy-to-resources"></a>Deploy your policy to resources
+## <a name="deploy-your-policy-to-resources"></a>리소스에 정책 배포
 
-After completing validation of your new policy definition with both existing resources and new or updated resource requests, you begin the process of implementing the policy. It's recommended to create the policy assignment for the new policy definition to a subset of all resources first, such as a resource group. After validating initial deployment, extend the scope of the policy to broader and broader levels, such as subscriptions and management groups. This expansion is achieved by removing the assignment and creating a new one at the target scopes until it's assigned to the full scope of resources intended to be covered by your new policy definition.
+기존 리소스와 새로운 또는 업데이트 된 리소스 요청을 모두 사용 하 여 새 정책 정의의 유효성 검사를 완료 한 후에는 정책을 구현 하는 프로세스를 시작 합니다. 리소스 그룹과 같이 먼저 모든 리소스의 하위 집합에 대 한 새 정책 정의의 정책 할당을 만드는 것이 좋습니다. 초기 배포의 유효성을 검사 한 후에는 구독 및 관리 그룹과 같은 광범위 하 고 광범위 한 수준으로 정책의 범위를 확장 합니다. 이러한 확장은 할당을 제거 하 고 대상 범위에서 새 정책 정의에 적용 될 리소스의 전체 범위에 할당 될 때까지 새 할당을 만드는 방식으로 수행 됩니다.
 
-During rollout, if resources are located that should be exempt from your new policy definition, address them in one of the following ways:
+롤아웃 중에 새 정책 정의에서 제외 해야 하는 리소스가 있는 경우 다음 방법 중 하나로 주소를 지정 합니다.
 
-- Update the policy definition to be more explicit to reduce unintended impact
-- Change the scope of the policy assignment (by removing and creating a new assignment)
-- Add the group of resources to the exclusion list for the policy assignment
+- 정책 정의를 더 명시적으로 업데이트 하 여 의도 하지 않은 영향을 줄입니다.
+- 정책 할당의 범위 변경 (새 할당을 제거 하 고 만들기)
+- 정책 할당에 대 한 제외 목록에 리소스 그룹을 추가 합니다.
 
-Any changes to the scope (level or exclusions) should be fully validated and communicated with your security and compliance organizations to ensure there are no gaps in coverage.
+범위에 대 한 모든 변경 내용 (수준 또는 제외)은 완전히 유효성을 검사 하 고 보안 및 규정 준수 조직과 통신 하 여 범위에 차이가 없도록 해야 합니다.
 
-## <a name="monitor-your-policy-and-compliance"></a>Monitor your policy and compliance
+## <a name="monitor-your-policy-and-compliance"></a>정책 및 규정 준수 모니터링
 
-Implementing and assigning your policy definition isn't the final step. Continuously monitor the [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and setup appropriate [Azure Monitor alerts and notifications](../../../azure-monitor/platform/alerts-overview.md) for when non-compliant devices are identified. It's also recommended to evaluate the policy definition and related assignments on a scheduled basis to validate the policy definition is meeting business policy and compliance needs. Policies should be removed if no longer needed. Policies also need updating from time to time as the underlying Azure resources evolve and add new properties and capabilities.
+정책 정의를 구현 하 고 할당 하는 것은 최종 단계가 아닙니다. 새 정책 정의에 대 한 리소스의 [준수](../how-to/get-compliance-data.md) 수준을 지속적으로 모니터링 하 고 비규격 장치를 식별 하는 경우에 대 한 [경고 및 알림을 Azure Monitor](../../../azure-monitor/platform/alerts-overview.md) 적절 하 게 설정 합니다. 정책 정의가 비즈니스 정책 및 규정 준수 요구 사항을 충족 하는지 확인 하기 위해 일정에 따라 정책 정의 및 관련 할당을 평가 하는 것도 좋습니다. 더 이상 필요 하지 않은 정책은 제거 해야 합니다. 기본 Azure 리소스가 진화 하 고 새 속성 및 기능을 추가 하는 경우에도 정책을 업데이트 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Learn about the [policy definition structure](./definition-structure.md).
-- Learn about the [policy assignment structure](./assignment-structure.md).
-- Understand how to [programmatically create policies](../how-to/programmatically-create.md).
-- Learn how to [get compliance data](../how-to/get-compliance-data.md).
-- Learn how to [remediate non-compliant resources](../how-to/remediate-resources.md).
+- [정책 정의 구조](./definition-structure.md)에 대해 알아봅니다.
+- [정책 할당 구조](./assignment-structure.md)에 대해 알아봅니다.
+- [프로그래밍 방식으로 정책을 만드는](../how-to/programmatically-create.md)방법을 알아봅니다.
+- [준수 데이터를 가져오는](../how-to/get-compliance-data.md)방법에 대해 알아봅니다.
+- [비준수 리소스](../how-to/remediate-resources.md)를 수정 하는 방법에 대해 알아봅니다.
 - [Azure 관리 그룹으로 리소스 구성](../../management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.

@@ -24,7 +24,7 @@ ms.locfileid: "74463905"
 
 여러 테넌트에 걸쳐 관리 작업을 중앙 집중화하는 경우 다른 테넌트에 대한 관리 작업을 수행하는 사용자가 포함될 테넌트를 결정해야 합니다. 즉, 다른 테넌트에 대한 관리 테넌트가 될 테넌트를 결정해야 합니다.
 
-For example, say your organization has a single tenant that we’ll call *Tenant A*. Your organization then acquires two additional tenants, *Tenant B* and *Tenant C*, and you have business reasons that require you to maintain them as separate tenants.
+예를 들어 조직에 *테 넌 트 a*를 호출 하는 단일 테 넌 트가 있다고 가정 합니다. 그런 다음 조직에서 두 개의 추가 테 *넌 트 B* 및 테 *넌 트 C*를 획득 하 고 별도의 테 넌 트로 유지 관리 해야 하는 비즈니스 이유가 있습니다.
 
 조직에서는 모든 테넌트에서 동일한 정책 정의, 백업 사례 및 보안 프로세스를 사용하려고 합니다. 테넌트 A 내에서 이러한 작업을 수행해야 하는 사용자(사용자 그룹 및 서비스 주체 포함)가 이미 있으므로 테넌트 B 및 테넌트 C 내의 모든 구독을 온보딩하여 테넌트 A의 동일한 사용자가 해당 작업을 수행할 수 있습니다.
 
@@ -54,7 +54,7 @@ Azure Lighthouse 및 Azure 위임 리소스 관리는 물리적으로 데이터 
 
 예를 들어 위에서 설명한 예에서 테넌트 A는 서비스 공급자 테넌트(관리 테넌트)로 간주하고, 테넌트 B와 테넌트 C는 고객 테넌트로 간주할 수 있습니다.
 
-이 예에서 적절한 권한이 있는 테넌트 A 사용자는 Azure Portal의 **내 고객** 페이지에서 [위임된 리소스를 보고 관리](../how-to/view-manage-customers.md)할 수 있습니다. 마찬가지로 적절한 권한이 있는 테넌트 B 및 테넌트 C 사용자는 Azure Portal의 **서비스 공급자** 페이지에서 테넌트 A에 [위임된 리소스를 보고 관리](../how-to/view-manage-service-providers.md)할 수 있습니다.
+이 예에서 적절한 권한이 있는 테넌트 A 사용자는 Azure Portal의 [내 고객](../how-to/view-manage-customers.md) 페이지에서 **위임된 리소스를 보고 관리**할 수 있습니다. 마찬가지로 적절한 권한이 있는 테넌트 B 및 테넌트 C 사용자는 Azure Portal의 [서비스 공급자](../how-to/view-manage-service-providers.md) 페이지에서 테넌트 A에 **위임된 리소스를 보고 관리**할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

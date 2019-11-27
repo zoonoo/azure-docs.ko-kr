@@ -19,7 +19,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 - [추가할](#append)
 - [감사](#audit)
 - [AuditIfNotExists](#auditifnotexists)
-- [거부](#deny)
+- [차단할](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [사용 안 함](#disabled)
 - [EnforceOPAConstraint](#enforceopaconstraint) (미리 보기)
@@ -501,7 +501,7 @@ EnforceOPAConstraint 효과의 **details** 속성에는 게이트 키퍼 v3 허�
 
 EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
 
-- **policyId** [required]
+- **Policyid** [필수]
   - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
 - **정책** [필수]
   - Rego 허용 제어 규칙의 URI를 지정 합니다.
@@ -539,7 +539,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예:
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한

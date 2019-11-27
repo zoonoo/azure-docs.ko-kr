@@ -530,7 +530,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 | 컴퓨팅 대상 | 배포 구성 예 |
 | ----- | ----- |
-| 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -961,7 +961,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예: 
+패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
 

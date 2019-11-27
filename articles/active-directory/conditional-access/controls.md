@@ -1,6 +1,6 @@
 ---
-title: Access controls in Azure Active Directory Conditional Access
-description: Learn how access controls in Azure Active Directory Conditional Access work.
+title: Azure Active Directory 조건부 액세스의 액세스 제어
+description: 조건부 액세스 Azure Active Directory의 액세스 제어가 작동 하는 방식을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
@@ -18,18 +18,18 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74380804"
 ---
-# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>What are access controls in Azure Active Directory Conditional Access?
+# <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Azure Active Directory 조건부 액세스의 액세스 제어 정의
 
-With [Azure Active Directory (Azure AD) Conditional Access](../active-directory-conditional-access-azure-portal.md), you can control how authorized users access your cloud apps. In a Conditional Access policy, you define the response ("do this") to the reason for triggering your policy ("when this happens").
+[Azure Active Directory (AZURE AD) 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용 하 여 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어할 수 있습니다. 조건부 액세스 정책에서 정책을 트리거하는 이유에 대 한 응답 ("do this")을 정의 합니다 ("이 경우").
 
 ![제어](./media/controls/10.png)
 
-In the context of Conditional Access,
+조건부 액세스의 컨텍스트에서
 
 - “**When this happens**”는 **조건**이라고 합니다.
 - “**Then do this**”는 **액세스 제어**라고 합니다.
 
-The combination of a condition statement with your controls represents a Conditional Access policy.
+조건 문과 컨트롤의 조합은 조건부 액세스 정책을 나타냅니다.
 
 ![제어](./media/controls/61.png)
 
@@ -40,7 +40,7 @@ The combination of a condition statement with your controls represents a Conditi
 - **권한 부여 컨트롤** - 액세스를 제어하기 위해
 - **세션 컨트롤** - 세션 내에서 액세스를 제한하기 위해
 
-This topic explains the various controls that are available in Azure AD Conditional Access. 
+이 항목에서는 Azure AD 조건부 액세스에서 사용할 수 있는 다양 한 컨트롤에 대해 설명 합니다. 
 
 ## <a name="grant-controls"></a>권한 부여 컨트롤
 
@@ -51,7 +51,7 @@ This topic explains the various controls that are available in Azure AD Conditio
 
 ![제어](./media/controls/18.png)
 
-### <a name="multi-factor-authentication"></a>Multi-factor authentication
+### <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 이 컨트롤을 사용하여 지정된 클라우드 앱에 액세스하기 위해 다단계 인증을 요구할 수 있습니다. 이 컨트롤은 다음 다단계 공급자를 지원합니다.
 
@@ -62,7 +62,7 @@ This topic explains the various controls that are available in Azure AD Conditio
 
 ### <a name="compliant-device"></a>규정 준수 디바이스
 
-You can configure Conditional Access policies that are device-based. The objective of a device-based Conditional Access policy is to only grant access to the selected cloud apps from [managed devices](require-managed-devices.md). 디바이스를 규정 준수 상태로 표시하도록 요구하는 것은 관리 디바이스에 대한 액세스 권한을 제한해야 하는 한 가지 옵션입니다. 디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다. 
+장치 기반 조건부 액세스 정책을 구성할 수 있습니다. 장치 기반 조건부 액세스 정책의 목표는 관리 되는 [장치](require-managed-devices.md)에서 선택한 클라우드 앱에 대 한 액세스 권한만 부여 하는 것입니다. 디바이스를 규정 준수 상태로 표시하도록 요구하는 것은 관리 디바이스에 대한 액세스 권한을 제한해야 하는 한 가지 옵션입니다. 디바이스는 Intune(모든 디바이스 OS용) 또는 Windows 10 디바이스용 타사 MDM 시스템에서 규정 준수 상태로 표시할 수 있습니다. Windows 10 이외의 디바이스 OS 형식에 대한 타사 MDM 시스템은 지원되지 않습니다. 
 
 먼저 디바이스를 Azure AD에 등록해야 규정 준수 상태로 표시할 수 있습니다. 디바이스를 등록하려면 다음 세 가지 옵션이 있습니다. 
 
@@ -70,43 +70,43 @@ You can configure Conditional Access policies that are device-based. The objecti
 - Azure AD 조인 디바이스  
 - 하이브리드 Azure AD 가입 디바이스
 
-These three options are discussed in the article [What is a device identity?](../devices/overview.md)
+이 세 가지 옵션은 [장치 Id 란?](../devices/overview.md) 문서에서 설명 합니다.
 
-For more information, see [how to require managed devices for cloud app access with Conditional Access](require-managed-devices.md).
+자세한 내용은 [조건부 액세스를 사용 하 여 cloud app access에서 관리 되는 장치를 요구 하는 방법](require-managed-devices.md)을 참조 하세요.
 
 ### <a name="hybrid-azure-ad-joined-device"></a>하이브리드 Azure AD 조인 디바이스
 
-Requiring a Hybrid Azure AD joined device is another option you have to configure device-based Conditional Access policies. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. If this option is selected, your Conditional Access policy grants access to access attempts made with devices that are joined to your on-premises Active Directory and your Azure Active Directory.  
+하이브리드 Azure AD 조인 장치를 요구 하는 것은 장치 기반 조건부 액세스 정책을 구성 해야 하는 또 다른 옵션입니다. 즉, Windows 데스크톱, 랩톱 및 엔터프라이즈 태블릿을 온-프레미스 Active Directory에 조인해야 합니다. 이 옵션을 선택 하면 조건부 액세스 정책에서 온-프레미스 Active Directory 및 Azure Active Directory에 가입 된 장치에 대 한 액세스 시도에 대 한 액세스를 부여 합니다.  
 
-For more information, see [set up Azure Active Directory device-based Conditional Access policies](require-managed-devices.md).
+자세한 내용은 [Azure Active Directory 장치 기반 조건부 액세스 정책 설정](require-managed-devices.md)을 참조 하세요.
 
 ### <a name="approved-client-app"></a>승인된 클라이언트 앱
 
 직원이 개인 및 회사 작업 모두에 모바일 디바이스를 사용하므로 관리되지 않는 경우에도 디바이스를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 디바이스 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
 
-승인된 클라이언트 앱을 사용하여 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 지원하도록 클라우드 앱에 액세스를 시도하는 클라이언트 앱을 요구할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다. A Conditional Access policy that requires approved client apps is  also known as [app-based Conditional Access policy](app-based-conditional-access.md). 지원되는 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
+승인된 클라이언트 앱을 사용하여 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 지원하도록 클라우드 앱에 액세스를 시도하는 클라이언트 앱을 요구할 수 있습니다. 예를 들어 Exchange Online에 대한 액세스를 Outlook 앱으로 제한할 수 있습니다. 승인 된 클라이언트 앱을 요구 하는 조건부 액세스 정책을 [앱 기반 조건부 액세스 정책이](app-based-conditional-access.md)라고도 합니다. 지원되는 승인된 클라이언트 앱의 목록은 [승인된 클라이언트 앱 요구 사항](technical-reference.md#approved-client-app-requirement)을 참조하세요.
 
-### <a name="app-protection-policy-preview"></a>App protection policy (preview)
+### <a name="app-protection-policy-preview"></a>앱 보호 정책 (미리 보기)
 
 직원이 개인 및 회사 작업 모두에 모바일 디바이스를 사용하므로 관리되지 않는 경우에도 디바이스를 사용하여 액세스되는 회사 데이터를 보호하는 기능이 있어야 합니다.
 [Intune 앱 보호 정책](https://docs.microsoft.com/intune/app-protection-policy)을 사용하여 모든 MDM(모바일 디바이스 관리) 솔루션과는 별도로 회사의 데이터를 보호할 수 있습니다.
 
-With app protection policy, you can limit access to client applications that have reported to Azure AD has having received [Intune app protection policies](https://docs.microsoft.com/intune/app-protection-policy). For example, you can restrict access to Exchange Online to the Outlook app that has an Intune app protection policy. A Conditional Access policy that requires app protection policy is also known as [app protection-based Conditional Access policy](app-protection-based-conditional-access.md). 
+앱 보호 정책을 사용 하 여 Azure AD가 [Intune 앱 보호 정책을](https://docs.microsoft.com/intune/app-protection-policy)수신 했음을 보고 한 클라이언트 응용 프로그램에 대 한 액세스를 제한할 수 있습니다. 예를 들어 Exchange Online에 대 한 액세스를 Intune 앱 보호 정책이 있는 Outlook 앱으로 제한할 수 있습니다. 앱 보호 정책을 필요로 하는 조건부 액세스 정책을 [앱 보호 기반 조건부 액세스 정책](app-protection-based-conditional-access.md)이 라고도 합니다. 
 
-Your device must be registered to Azure AD before an application can be marked as policy protected.
+응용 프로그램을 정책으로 보호 된 상태로 표시 하려면 먼저 장치를 Azure AD에 등록 해야 합니다.
 
-For a list of supported policy protected client apps, see [app protection policy requirement](technical-reference.md#app-protection-policy-requirement).
+지원 되는 정책으로 보호 된 클라이언트 앱의 목록은 [앱 보호 정책 요구 사항](technical-reference.md#app-protection-policy-requirement)을 참조 하세요.
 
-### <a name="terms-of-use"></a>사용 조건
+### <a name="terms-of-use"></a>서비스 계약
 
 테넌트의 사용자가 리소스에 대한 액세스 권한을 부여 받기 전에 사용 조건에 동의하도록 요구할 수 있습니다. 관리자는 PDF 문서를 업로드하여 사용 조건을 구성하고 사용자 지정할 수 있습니다. 사용자가 이 제어 범위에 해당하는 경우 사용 조건에 동의한 경우에만 애플리케이션에 대한 액세스가 부여됩니다.
 
 ## <a name="custom-controls-preview"></a>사용자 지정 컨트롤(미리 보기)
 
-사용자 지정 컨트롤은 Azure Active Directory Premium P1 버전의 기능입니다. 사용자 지정 컨트롤을 사용하는 경우 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory verifies the response and, if the user was successfully authenticated or validated, the user continues in the Conditional Access flow.
+사용자 지정 컨트롤은 Azure Active Directory Premium P1 버전의 기능입니다. 사용자 지정 컨트롤을 사용하는 경우 Azure Active Directory 외부의 추가 요구 사항을 충족시키기 위해 사용자를 호환 가능한 서비스로 리디렉션합니다. 이 제어를 충족시키기 위해 사용자의 브라우저는 외부 서비스로 리디렉션되고 필요한 인증 또는 유효성 검사 활동을 수행한 다음 Azure Active Directory로 다시 리디렉션됩니다. Azure Active Directory는 응답을 확인 하 고 사용자가 성공적으로 인증 되거나 유효성이 확인 되 면 사용자는 조건부 액세스 흐름을 계속 진행 합니다.
 
-These controls allow the use of certain external or custom services as Conditional Access controls, and generally extend the capabilities of Conditional Access.
+이러한 컨트롤을 사용 하면 조건부 액세스 제어로 특정 외부 또는 사용자 지정 서비스를 사용할 수 있으며, 일반적으로 조건부 액세스의 기능을 확장할 수 있습니다.
 
 현재 호환 서비스를 제공하는 공급자는 다음과 같습니다.
 
@@ -125,13 +125,13 @@ These controls allow the use of certain external or custom services as Condition
 
 ### <a name="creating-custom-controls"></a>사용자 지정 컨트롤 만들기
 
-사용자 지정 컨트롤을 만들려면 먼저 사용할 공급자에게 문의해야 합니다. Each non-Microsoft provider has its own process and requirements to sign up, subscribe, or otherwise become a part of the service, and to indicate that you wish to integrate with Conditional Access. 이 시점에서 공급자는 JSON 형식의 데이터 블록을 제공합니다. This data allows the provider and Conditional Access to work together for your tenant, creates the new control and defines how Conditional Access can tell if your users have successfully performed verification with the provider.
+사용자 지정 컨트롤을 만들려면 먼저 사용할 공급자에게 문의해야 합니다. 각 비 Microsoft 공급자에는 등록, 구독 또는 서비스의 일부가 될 수 있는 고유한 프로세스 및 요구 사항이 있으며 조건부 액세스와 통합 하려는 경우를 표시 합니다. 이 시점에서 공급자는 JSON 형식의 데이터 블록을 제공합니다. 이 데이터를 사용 하면 공급자 및 조건부 액세스가 테 넌 트에 대해 함께 작동 하 고, 새 컨트롤이 만들어지고, 사용자가 공급자를 사용 하 여 확인을 성공적으로 수행 했는지 여부를 조건부 액세스에서 확인할 수 있는 방법을 정의 합니다.
 
-Custom controls cannot be used with Identity Protection's automation requiring multi-factor authentication or to elevate roles in Privileged Identity Manager (PIM).
+사용자 지정 컨트롤은 multi-factor authentication을 요구 하는 Id 보호의 자동화와 함께 사용 하거나 PIM (권한 있는 Id 관리자)에서 역할을 승격 시킬 수 없습니다.
 
 JSON 데이터를 복사한 다음 관련 텍스트 상자에 붙여넣습니다. 변경 사항을 명시적으로 이해하지 못한 경우 JSON을 변경하지 마세요. 변경하면 공급자와 Microsoft 간의 연결이 끊어져 잠재적으로 사용자가 사용자 계정 밖에서 잠길 수 있습니다.
 
-The option to create a custom control is in the **Manage** section of the **Conditional Access** page.
+사용자 지정 컨트롤을 만드는 옵션은 **조건부 액세스** 페이지의 **관리** 섹션에 있습니다.
 
 ![제어](./media/controls/82.png)
 
@@ -141,7 +141,7 @@ The option to create a custom control is in the **Manage** section of the **Cond
 
 ### <a name="deleting-custom-controls"></a>사용자 지정 컨트롤 삭제
 
-To delete a custom control, you must first ensure that it isn’t being used in any Conditional Access policy. 작업이 완료되면 다음을 수행합니다.
+사용자 지정 컨트롤을 삭제 하려면 먼저 조건부 액세스 정책에서 사용 되 고 있지 않은지 확인 해야 합니다. 작업이 완료되면 다음을 수행합니다.
 
 1. 사용자 지정 컨트롤 목록으로 이동합니다.
 1. …를 클릭합니다.  

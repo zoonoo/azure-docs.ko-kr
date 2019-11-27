@@ -35,29 +35,29 @@ MySQL용 Azure Database는 일부 서버 매개 변수 구성을 지원합니다
 
 ## <a name="non-configurable-server-parameters"></a>구성 불가능한 서버 매개 변수
 
-The InnoDB Buffer Pool size is not configurable and tied to your [pricing tier](concepts-service-tiers.md).
+InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층](concepts-service-tiers.md)에 연결 됩니다.
 
-|**가격 책정 계층**|**vCore**|**InnoDB Buffer Pool size in MB <br>(servers supporting up to 4 TB storage)**| **InnoDB Buffer Pool size in MB <br>(servers supporting up to 16 TB storage)**|
+|**가격 책정 계층**|**vCore**|**InnoDB 버퍼 풀 크기 (MB <br>(최대 2TB 저장소를 지 원하는 서버)**| **InnoDB 버퍼 풀 크기 (MB <br>(최대 16TB의 저장소를 지 원하는 서버)**|
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
-|일반적인 용도| 2| 3584| 7168|
-|일반적인 용도| 4| 7680| 15360|
-|일반적인 용도| 8| 15360| 30720|
-|일반적인 용도| 16| 31232| 62464|
-|일반적인 용도| 32| 62976| 125952|
-|일반적인 용도| 64| 125952| 251904|
-|메모리에 최적화| 2| 7168| 14336|
-|메모리에 최적화| 4| 15360| 30720|
-|메모리에 최적화| 8| 30720| 61440|
-|메모리에 최적화| 16| 62464| 124928|
-|메모리에 최적화| 32| 125952| 251904|
+|범용| 2| 3584| 7168|
+|범용| 4| 7680| 15360|
+|범용| 8| 15360| 30720|
+|범용| 16| 31232| 62464|
+|범용| 32| 62976| 125952|
+|범용| 64| 125952| 251904|
+|메모리 최적화| 2| 7168| 14336|
+|메모리 최적화| 4| 15360| 30720|
+|메모리 최적화| 8| 30720| 61440|
+|메모리 최적화| 16| 62464| 124928|
+|메모리 최적화| 32| 125952| 251904|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 
 |**매개 변수**|**고정 값**|
 | :------------------------ | :-------- |
-|기본 계층의 innodb_file_per_table|끄기|
+|기본 계층의 innodb_file_per_table|OFF|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|
@@ -101,4 +101,4 @@ SET time_zone = 'US/Pacific';
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Database for MySQL에 대한 연결 라이브러리](concepts-connection-libraries.md).
+- [MySQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)

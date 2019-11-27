@@ -52,7 +52,7 @@ ms.locfileid: "74451436"
 
 태그가 있는 모든 리소스를 보려면
 
-1. On the Azure portal menu, select **All services**. Select **General**, then **Tags**.
+1. Azure Portal 메뉴에서 **모든 서비스**를 선택 합니다. **일반**, **태그**를 차례로 선택 합니다.
 
      ![태그로 찾기](./media/resource-manager-tag-resources/find-tags-general.png)
 

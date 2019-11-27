@@ -1,6 +1,6 @@
 ---
-title: ACR task samples
-description: Sample Azure Container Registry Tasks (ACR Tasks) to build, run, and patch container images
+title: ACR 작업 샘플
+description: 컨테이너 이미지를 빌드, 실행 및 패치 하는 샘플 Azure Container Registry 작업 (ACR 작업)
 ms.topic: article
 ms.date: 11/14/2019
 ms.openlocfilehash: 49df3bf565052a729ac3c587bd2ba11a299d05f1
@@ -10,36 +10,36 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456092"
 ---
-# <a name="acr-tasks-samples"></a>ACR Tasks samples
+# <a name="acr-tasks-samples"></a>ACR 작업 샘플
 
-This article links to example `task.yaml` files and associated Dockerfiles for several [Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) scenarios. 
+이 문서에서는 몇 가지 [Azure Container Registry 작업](container-registry-tasks-overview.md) (ACR 작업) 시나리오에 대 한 예제 `task.yaml` 파일 및 관련 Dockerfiles에 연결 합니다. 
 
-For additional examples, see the [Azure samples][task-examples] repo.
+추가 예제는 [Azure 샘플][task-examples] 리포지토리를 참조 하세요.
 
 ## <a name="scenarios"></a>시나리오
 
-* **Build image** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* **이미지** - [yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 빌드
 
-* **Run container** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml)
+*  - [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/bash-echo.yaml) **컨테이너를 실행** 합니다.
 
-* **Build and push image** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) - **이미지를 빌드하고 푸시합니다** .
 
-* **Build and run image** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* 이미지 - [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-run-hello-world.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) 을 **빌드 및 실행** 합니다.
 
-* **Build and push multiple images** -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/build-push-hello-world-multi.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) -  **여러 이미지를 빌드하고 푸시합니다** .
 
-* **Build and test images in parallel** -  [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile)
+* 동시 -  [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/when-parallel.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/hello-world.dockerfile) **에서 이미지 빌드 및 테스트**
 
-* **Build and push images to multiple registries** - [YAML](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [Dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile)
+* 여러 레지스트리 - [Yaml](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/testtask.yaml), [dockerfile](https://github.com/Azure-Samples/acr-tasks/blob/master/multipleRegistries/hello-world.dockerfile) **에 이미지를 빌드하고 푸시합니다** .
 
 
 ## <a name="next-steps"></a>다음 단계
 
-Learn more about ACR Tasks:
+ACR 작업에 대해 자세히 알아보세요.
 
-* [Multi-step tasks](container-registry-tasks-multi-step.md) - ACR Task-based workflows for building, testing, and patching container images in the cloud.
+* [다중 단계 작업](container-registry-tasks-multi-step.md) -클라우드의 컨테이너 이미지를 빌드, 테스트 및 패치 하기 위한 ACR 작업 기반 워크플로.
 * [작업 참조](container-registry-tasks-reference-yaml.md) - 작업 단계 유형, 해당 속성 및 사용법을 확인할 수 있습니다.
-* [Cmd repo](https://github.com/AzureCR/cmd) - A collection of containers as commands for ACR Tasks.
+* [Cmd 리포지토리](https://github.com/AzureCR/cmd) -ACR 태스크에 대 한 명령으로 컨테이너의 컬렉션입니다.
 
 
 <!-- LINKS - External -->

@@ -25,7 +25,7 @@ ms.locfileid: "74278469"
 Azure Migrate를 사용 하는 앱 검색: 서버 평가는 에이전트 없이 수행 됩니다. 컴퓨터 및 Vm에 아무 것도 설치할 필요가 없습니다. 서버 평가는 Azure Migrate 어플라이언스를 사용 하 여 컴퓨터 게스트 자격 증명과 함께 검색을 수행 합니다. 어플라이언스는 VMware Api를 사용 하 여 VMware 컴퓨터에 원격으로 액세스 합니다.
 
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 주의 사항
 
 1. 앱 수준 검색에 대 한 [지원 제한 사항을](migrate-support-matrix-vmware.md#application-discovery) 검토 합니다.
 2. Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.

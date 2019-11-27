@@ -10,7 +10,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/21/2019
 ms.locfileid: "74281104"
 ---
-# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
+# <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음용 진단 설정 사용
 
 Azure Backup은 수집 하 여 분석, 경고 및 보고를 위해 사용할 수 있는 진단 이벤트를 보냅니다. 
 

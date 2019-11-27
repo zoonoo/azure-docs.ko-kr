@@ -149,7 +149,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 ZPA (Zscaler Priv
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **저장**을 클릭합니다.
+7. **Save**를 클릭합니다.
 
 8. **매핑** 섹션에서 **Azure Active Directory 사용자를 Zpa (Zscaler Private Access)에 동기화를**선택 합니다.
 

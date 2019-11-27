@@ -23,11 +23,11 @@ ms.locfileid: "74483710"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
-When you troubleshoot issues on an Azure virtual machine (VM), you can connect to the VM by using the remote tools that are discussed in this article instead of using the Remote Desktop Protocol (RDP).
+Azure VM (가상 컴퓨터)에서 문제를 해결할 때 원격 데스크톱 프로토콜 (RDP)를 사용 하는 대신이 문서에 설명 된 원격 도구를 사용 하 여 VM에 연결할 수 있습니다.
 
 ## <a name="serial-console"></a>직렬 콘솔
 
-Use a [serial console for Azure Virtual Machines](serial-console-windows.md) to run commands on the remote Azure VM.
+[Azure Virtual Machines에 대 한 직렬 콘솔](serial-console-windows.md) 을 사용 하 여 원격 azure VM에서 명령을 실행 합니다.
 
 ## <a name="remote-cmd"></a>원격 CMD
 
@@ -38,28 +38,28 @@ psexec \\<computer>-u user -s cmd
 ```
 
 >[!NOTE]
->* The command must be run on a computer that's in the same virtual network.
->* DIP or HostName can be used to replace \<computer>.
+>* 명령은 동일한 가상 네트워크에 있는 컴퓨터에서 실행 해야 합니다.
+>* DIP 또는 HostName을 사용 하 여 \<컴퓨터 >를 바꿀 수 있습니다.
 >* -s 매개 변수는 시스템 계정(관리자 권한)을 사용하여 명령이 호출되도록 만듭니다.
->* PsExec는 TCP 포트 135 및 445를 사용합니다. As a result, the two ports have to be open on the firewall.
+>* PsExec는 TCP 포트 135 및 445를 사용합니다. 따라서 두 포트가 방화벽에서 열려 있어야 합니다.
 
 ## <a name="run-command"></a>명령 실행
 
-For more information about how to use the run command feature to run scripts on the VM, see [Run PowerShell scripts in your Windows VM with run command](../windows/run-command.md).
+명령 실행 기능을 사용 하 여 VM에서 스크립트를 실행 하는 방법에 대 한 자세한 내용은 [run 명령을 사용 하 여 WINDOWS VM에서 PowerShell 스크립트 실행](../windows/run-command.md)을 참조 하세요.
 
 ## <a name="custom-script-extension"></a>사용자 지정 스크립트 확장
 
 사용자 지정 스크립트 확장 기능을 사용하여 대상 VM에서 사용자 지정 스크립트를 실행할 수 있습니다. 이 기능을 사용하려면 다음 조건이 충족되어야 합니다.
 
 * VM에 연결되어 있습니다.
-* Azure Virtual Machine Agent is installed and is working as expected on the VM.
-* The extension wasn't previously installed on the VM.
+* Azure 가상 컴퓨터 에이전트가 설치 되어 있으며 VM에서 예상 대로 작동 합니다.
+* 확장이 이전에 VM에 설치 되지 않았습니다.
  
-  The extension injects the script only the first time that it's used. If you use this feature later, the extension recognizes that it was already used and doesn't upload the new script.
+  확장은 스크립트가 처음 사용 될 때만 스크립트를 삽입 합니다. 나중에이 기능을 사용 하는 경우 확장은 이미 사용 된 것을 인식 하 고 새 스크립트를 업로드 하지 않습니다.
 
-Upload your script to a storage account, and generate its own container. 그런 다음, VM에 연결된 컴퓨터의 Azure PowerShell에서 다음 스크립트를 실행합니다.
+저장소 계정에 스크립트를 업로드 하 고 자체 컨테이너를 생성 합니다. 그런 다음, VM에 연결된 컴퓨터의 Azure PowerShell에서 다음 스크립트를 실행합니다.
 
-### <a name="for-classic-deployment-model-vms"></a>For classic deployment model VMs
+### <a name="for-classic-deployment-model-vms"></a>클래식 배포 모델 Vm의 경우
 
 ```powershell
 #Set up the basic variables.
@@ -87,7 +87,7 @@ $vm = Get-AzureVM -ServiceName $vmCloudService -Name $vmName
 Set-AzureVMCustomScriptExtension "CustomScriptExtension" -VM $vm -StorageAccountName $storageAccount -StorageAccountKey $storagekey -ContainerName $container -FileName $blobName -Run $blobName | Update-AzureVM
 ```
 
-### <a name="for-azure-resource-manager-vms"></a>For Azure Resource Manager VMs
+### <a name="for-azure-resource-manager-vms"></a>Azure Resource Manager Vm의 경우
 
  
 
@@ -122,21 +122,21 @@ Set-AzVMCustomScriptExtension -Name "CustomScriptExtension" -ResourceGroupName $
 >[!NOTE]
 >이 옵션을 사용할 수 있도록 TCP 포트 5986(HTTPS)을 열어야 합니다.
 >
->For Azure Resource Manager VMs, you must open port 5986 on the network security group (NSG). 자세한 내용은 보안 그룹을 참조하세요. 
+>Azure Resource Manager Vm의 경우 NSG (네트워크 보안 그룹)에서 5986 포트를 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 프라이빗 포트(5986) 및 공용 포트가 있는 엔드포인트가 필요합니다. Then, you also have to open that public-facing port on the NSG.
+>RDFE VM의 경우 프라이빗 포트(5986) 및 공용 포트가 있는 엔드포인트가 필요합니다. 그런 다음 NSG에서 해당 공용 포트를 열어야 합니다.
 
 ### <a name="set-up-the-client-computer"></a>클라이언트 컴퓨터 설정
 
 PowerShell을 사용하여 VM에 원격으로 연결하려면 먼저 연결을 허용하도록 클라이언트 컴퓨터를 설정해야 합니다. 이렇게 하려면 다음 명령을 적절하게 실행하여 PowerShell 신뢰할 수 있는 호스트 목록에 VM을 추가합니다.
 
-To add one VM to the trusted hosts list:
+하나의 VM을 신뢰할 수 있는 호스트 목록에 추가 하려면 다음을 수행 합니다.
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName>
 ```
 
-To add multiple VMs to the trusted hosts list:
+여러 Vm을 신뢰할 수 있는 호스트 목록에 추가 하려면 다음을 수행 합니다.
 
 ```powershell
 Set-Item wsman:\localhost\Client\TrustedHosts -value <ComputerName1>,<ComputerName2>
@@ -150,7 +150,7 @@ Set-Item wsman:\localhost\Client\TrustedHosts -value *
 
 ### <a name="enable-remoteps-on-the-vm"></a>VM에서 RemotePS 사용
 
-For VMs created using the classic deployment model, use the Custom Script Extension to run the following script:
+클래식 배포 모델을 사용 하 여 만든 Vm의 경우 사용자 지정 스크립트 확장을 사용 하 여 다음 스크립트를 실행 합니다.
 
 ```powershell
 Enable-PSRemoting -Force
@@ -160,31 +160,31 @@ $command = "winrm create winrm/config/Listener?Address=*+Transport=HTTPS @{Hostn
 cmd.exe /C $command
 ```
 
-For Azure Resource Manager VMs, use run commands from the portal to run the EnableRemotePS script:
+Azure Resource Manager Vm의 경우 포털에서 명령 실행을 사용 하 여 EnableRemotePS 스크립트를 실행 합니다.
 
 ![명령 실행](./media/remote-tools-troubleshoot-azure-vm-issues/run-command.png)
 
 ### <a name="connect-to-the-vm"></a>VM에 연결
 
-Run the following command based on the client computer location:
+클라이언트 컴퓨터 위치에 따라 다음 명령을 실행 합니다.
 
-* Outside the virtual network or deployment
+* 가상 네트워크 또는 배포 외부
 
-  * For a VM created using the classic deployment model, run the following command:
+  * 클래식 배포 모델을 사용 하 여 만든 VM의 경우 다음 명령을 실행 합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName  "<<CLOUDSERVICENAME.cloudapp.net>>" -port "<<PUBLIC PORT NUMBER>>" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-  * For an Azure Resource Manager VM, first add a DNS name to the public IP address. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 다음 명령을 실행합니다.
+  * Azure Resource Manager VM의 경우 먼저 공용 IP 주소에 DNS 이름을 추가 합니다. 자세한 단계는 [Azure Portal에서 Windows VM에 대한 정규화된 도메인 이름 만들기](../windows/portal-create-fqdn.md)를 참조하세요. 다음 명령을 실행합니다.
 
     ```powershell
     $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
     Enter-PSSession -ComputerName "<<DNSname.DataCenter.cloudapp.azure.com>>" -port "5986" -Credential (Get-Credential) -useSSL -SessionOption $Skip
     ```
 
-* Inside the virtual network or deployment, run the following command:
+* 가상 네트워크 또는 배포 내에서 다음 명령을 실행 합니다.
   
   ```powershell
   $Skip = New-PSSessionOption -SkipCACheck -SkipCNCheck
@@ -194,7 +194,7 @@ Run the following command based on the client computer location:
 >[!NOTE] 
 >SkipCaCheck 플래그를 설정하면 세션을 시작할 때 VM에 인증서를 가져오는 요구 사항이 무시됩니다.
 
-You can also use the Invoke-Command cmdlet to run a script on the VM remotely.
+Invoke 명령 cmdlet을 사용 하 여 VM에서 원격으로 스크립트를 실행할 수도 있습니다.
 
 ```powershell
 Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
@@ -205,34 +205,34 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 >[!NOTE]
 >이 옵션을 사용하려면 TCP 포트 135 또는 445를 열어야 합니다.
 >
->For Azure Resource Manager VMs, you have to open port 5986 on the NSG. 자세한 내용은 보안 그룹을 참조하세요. 
+>Azure Resource Manager Vm의 경우 NSG에서 포트 5986을 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. You also have to open that public-facing port on the NSG.
+>RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 포트를 열어야 합니다.
 
-1. From another VM on the same virtual network, open the registry editor (regedit.exe).
+1. 동일한 가상 네트워크의 다른 VM에서 레지스트리 편집기 (regedit.exe)를 엽니다.
 
 2. **파일** > **네트워크 레지스트리 연결**을 선택합니다.
 
-   ![Registry editor](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
+   ![레지스트리 편집기](./media/remote-tools-troubleshoot-azure-vm-issues/remote-registry.png) 
 
-3. Locate the target VM by **host name** or **dynamic IP** (preferable) by entering it in the **Enter the object name to select** box.
+3. **선택할 개체 이름을 입력 하십시오** . 상자에 **호스트 이름** 또는 **동적 IP** (권장)를 입력 하 여 대상 VM을 찾습니다.
 
-   ![Enter the object name to select box](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
+   ![선택할 개체 이름을 입력 하십시오. 상자](./media/remote-tools-troubleshoot-azure-vm-issues/input-computer-name.png) 
  
 4. 대상 VM의 자격 증명을 입력합니다.
 
 5. 레지스트리를 필요한 대로 변경합니다.
 
-## <a name="remote-services-console"></a>Remote services console
+## <a name="remote-services-console"></a>원격 서비스 콘솔
 
 >[!NOTE]
 >이 옵션을 사용하려면 TCP 포트 135 또는 445를 열어야 합니다.
 >
->For Azure Resource Manager VMs, you have to open port 5986 on the NSG. 자세한 내용은 보안 그룹을 참조하세요. 
+>Azure Resource Manager Vm의 경우 NSG에서 포트 5986을 열어야 합니다. 자세한 내용은 보안 그룹을 참조하세요. 
 >
->RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. You also have to open that public-facing port on the NSG.
+>RDFE VM의 경우 프라이빗 포트 5986 및 공용 포트가 있는 엔드포인트가 필요합니다. 또한 NSG에서 해당 공용 포트를 열어야 합니다.
 
-1. From another VM on the same virtual network, open an instance of **Services.msc**.
+1. 동일한 가상 네트워크의 다른 VM에서 **services.msc**의 인스턴스를 엽니다.
 
 2. **서비스(로컬)** 을 마우스 오른쪽 단추로 클릭합니다.
 
@@ -240,17 +240,17 @@ Invoke-Command -ComputerName "<<COMPUTERNAME>" -ScriptBlock {"<<SCRIPT BLOCK>>"}
 
    ![원격 서비스](./media/remote-tools-troubleshoot-azure-vm-issues/remote-services.png)
 
-4. Enter the dynamic IP of the target VM.
+4. 대상 VM의 동적 IP를 입력 합니다.
 
-   ![Input dynamic IP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
+   ![입력 동적 IP](./media/remote-tools-troubleshoot-azure-vm-issues/input-ip-address.png)
 
 5. 서비스를 필요한 대로 변경합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- For more information about the Enter-PSSession cmdlet, see [Enter-PSSession](https://technet.microsoft.com/library/hh849707.aspx).
-- For more information about the Custom Script Extension for Windows using the classic deployment model, see [Custom Script Extension for Windows](../extensions/custom-script-classic.md).
+- Enter-PSSession cmdlet에 대 한 자세한 내용은 [enter-pssession](https://technet.microsoft.com/library/hh849707.aspx)을 참조 하세요.
+- 클래식 배포 모델을 사용 하는 Windows 용 사용자 지정 스크립트 확장에 대 한 자세한 내용은 [windows 용 사용자 지정 스크립트 확장](../extensions/custom-script-classic.md)을 참조 하세요.
 - PsExec는 [PSTools 도구 모음](https://download.sysinternals.com/files/PSTools.zip)의 일부입니다.
-- For more information about the PSTools Suite, see [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools).
+- PSTools Suite에 대 한 자세한 내용은 [PSTools](https://docs.microsoft.com/sysinternals/downloads/pstools)를 참조 하세요.
 
 

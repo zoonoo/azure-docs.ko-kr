@@ -238,7 +238,7 @@ MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 하면 Azure Mac
 
 ### <a name="log-your-model"></a>모델 기록
 
-를 배포 하려면 먼저 모델을 저장 하 여 배포할 수 있도록 모델을 저장 해야 합니다. 학습 스크립트에는 지정 된 출력 디렉터리에 모델을 저장 하는 다음과 같은 코드가 있어야 합니다. [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) 
+를 배포 하려면 먼저 모델을 저장 하 여 배포할 수 있도록 모델을 저장 해야 합니다. 학습 스크립트에는 지정 된 출력 디렉터리에 모델을 저장 하는 다음 [mlflow. log_model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) 메서드와 비슷한 코드가 있어야 합니다. 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -389,7 +389,7 @@ aks_service.wait_for_deployment(show_output=True)
 1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
 
 
-## <a name="example-notebooks"></a>예제 Notebook
+## <a name="example-notebooks"></a>노트북 예제
 
 [AZURE ML 노트북을 사용 하는 Mlflow](https://aka.ms/azureml-mlflow-examples) 는이 문서에 제시 된 개념을 시연 하 고 확장 합니다.
 

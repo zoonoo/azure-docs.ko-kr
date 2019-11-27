@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Enterprise State Roaming in Azure Active Directory
+title: Azure Active Directory Enterprise State Roaming 문제 해결
 description: 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다.
 services: active-directory
 ms.service: active-directory
@@ -30,7 +30,7 @@ ms.locfileid: "74379757"
 
 1. 최신 업데이트된 Windows 10와 최소 버전 1511(OS 빌드 10586 이상)이 디바이스에 설치되어 있습니다. 
 1. 디바이스는 Azure AD나 하이브리드 Azure AD에 조인되어 있습니다. 자세한 내용은 [Azure AD에서 디바이스를 제어하는 방법](overview.md)을 참조하세요.
-1. [Enterprise State Roaming을 사용하려면](enterprise-state-roaming-enable.md)에 설명된 대로 Azure AD에서 테넌트에 대해 **Enterprise State Roaming**을 활성화합니다. 모든 사용자 또는 선택한 사용자 그룹만을 로밍할 수 있습니다.
+1. **Enterprise State Roaming을 사용하려면**에 설명된 대로 Azure AD에서 테넌트에 대해 [Enterprise State Roaming](enterprise-state-roaming-enable.md)을 활성화합니다. 모든 사용자 또는 선택한 사용자 그룹만을 로밍할 수 있습니다.
 1. 이미 사용자에게는 Azure Active Directory Premium 라이선스가 할당되어야 합니다.  
 1. Enterprise State Roaming 기능에 액세스하려면 디바이스를 다시 시작해야 하고 사용자가 다시 로그인해야 합니다.
 
@@ -66,9 +66,9 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 1. 명령 프롬프트가 열리면 "*dsregcmd.exe /status*"을 입력합니다.
 1. 예상된 출력에서 **AzureAdJoined** 필드 값은 "YES", **WamDefaultSet** 필드 값도 "YES"여야 하고 **WamDefaultGUID** 필드 값은 끝에 "(AzureAd)"가 있는 GUID여야 합니다.
 
-**Potential issue**: **WamDefaultSet** and **AzureAdJoined** both have “NO” in the field value, the device was domain-joined and registered with Azure AD, and the device does not sync. If it is showing this, the device may need to wait for policy to be applied or the authentication for the device failed when connecting to Azure AD. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 기타 문제 해결 단계에는 로그아웃하고 다시 로그인함으로써 자동 등록 다시 시도 또는 작업 Scheduler에서 작업 시작이 포함될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
+**잠재적 문제**: **WamDefaultSet** 및 **AzureAdJoined** 에는 모두 필드 값에 "NO"가 있고, 장치가 도메인에 가입 되 고 Azure AD에 등록 되었으며, 장치가 동기화 되지 않습니다. 이를 표시 하는 경우 장치가 적용 될 때까지 기다리거나, Azure AD에 연결할 때 장치에 대 한 인증에 실패 해야 할 수 있습니다. 사용자는 정책이 적용될 때까지 몇 시간을 대기해야 할 수 있습니다. 기타 문제 해결 단계에는 로그아웃하고 다시 로그인함으로써 자동 등록 다시 시도 또는 작업 Scheduler에서 작업 시작이 포함될 수 있습니다. 경우에 따라 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
-**Potential issue**: The field for **SettingsUrl** is empty and the device does not sync. The user may have last logged in to the device before Enterprise State Roaming was enabled in the Azure Active Directory Portal. 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 필요에 따라 포털에서 IT 관리자가 **Azure Active Directory** > **디바이스** > **Enterprise State Roaming** 비활성화로 이동하고 **사용자가 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음**을 다시 활성화하도록 합니다. 다시 활성화되면 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않는다면 잘못된 디바이스 인증서의 경우 **SettingsUrl**이 비어 있는 것일 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
+**잠재적 문제**: **settingsurl** 의 필드가 비어 있고 장치가 동기화 되지 않습니다. Azure Active Directory 포털에서 Enterprise State Roaming를 사용 하도록 설정 하기 전에 사용자가 장치에 마지막으로 로그인 했을 수 있습니다. 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 필요에 따라 포털에서 IT 관리자가 **Azure Active Directory** > **디바이스** > **Enterprise State Roaming** 비활성화로 이동하고 **사용자가 디바이스 간에 설정 및 앱 데이터를 동기화할 수 있음**을 다시 활성화하도록 합니다. 다시 활성화되면 디바이스를 다시 시작하고 사용자에게 로그인하게 합니다. 그래도 문제가 해결되지 않는다면 잘못된 디바이스 인증서의 경우 **SettingsUrl**이 비어 있는 것일 수 있습니다. 이 경우 관리자 권한 명령 프롬프트 창에서 "*dsregcmd.exe /leave*"를 실행하고 다시 부팅하여 등록을 다시 시도하면 이 문제 해결에 도움이 될 수 있습니다.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>엔터프라이즈 상태 로밍 및 Multi-Factor Authentication 
 
@@ -76,7 +76,7 @@ Enterprise State Roaming은 Azure AD에 등록된 디바이스가 필요합니�
 
 **잠재적인 문제**: Azure Active Directory 포털에서 Multi-Factor Authentication을 필요로 하도록 디바이스가 구성된 경우 암호를 사용하여 Windows 10 디바이스에 로그인하는 동안 설정을 동기화하는 데 실패할 수 있습니다. 이러한 형식의 Multi-Factor Authentication 구성은 Azure 관리자 계정을 보호하도록 계획되었습니다. 관리자 사용자는 Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 해당 Windows 10 디바이스에 로그인함으로써 동기화할 수 있습니다.
 
-**Potential issue**: Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication Conditional Access policy and the access token on the device expires. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
+**잠재적인 문제**: 관리자가 조건부 액세스 정책 Multi-Factor Authentication Active Directory Federation Services를 구성 하 고 장치의 액세스 토큰이 만료 되 면 동기화가 실패할 수 있습니다. Office 365와 같은 다른 Azure 서비스에 액세스하는 동안 Microsoft Passport for Work PIN을 사용하거나 Multi-Factor Authentication을 완료하여 로그인 및 로그아웃해야 합니다.
 
 ### <a name="event-viewer"></a>이벤트 뷰어
 
@@ -107,7 +107,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 데이터 누출을 방지하기 위해 [Windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip)으로 보호되는 데이터는 Windows 10 1주년 업데이트를 사용하는 디바이스에 대한 Enterprise State Roaming을 통해 동기화되지 않습니다.
 
 **권장 작업**  
-없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
+없음 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
 
@@ -116,7 +116,7 @@ Windows 10 v1511 클라이언트에 2016년 7월 누적 업데이트가 있는�
 도메인에 조인된 디바이스는 날짜, 시간 및 지역 설정: 자동 시간에 대해 동기화되지 않습니다. 자동 사용을 사용하면 다른 날짜, 시간 및 지역 설정을 무시하고 이들 설정이 동기화되지 않을 수 있습니다. 
 
 **권장 작업**  
-없음. 
+없음 
 
 ---
 
@@ -134,7 +134,7 @@ Windows 10 v1511 클라이언트에 누적 업데이트([KB3140743](https://supp
 스마트 카드 또는 가상 스마트 카드를 사용하여 Windows 디바이스에 로그인하려고 하면 설정 동기화가 중지됩니다.     
 
 **권장 작업**  
-없음. 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
+없음 이 문제는 추후에 있을 Windows에서 해결될 것입니다.
 
 ---
 
@@ -178,4 +178,4 @@ AAD/Operational 로그에 있는 이벤트 뷰어에서 이벤트 1104: AAD 클�
 
 ## <a name="next-steps"></a>다음 단계
 
-개요는 [Enterprise State Roaming 개요](enterprise-state-roaming-overview.md)를 참조하세요.
+개요는 [엔터프라이즈 상태 로밍 개요](enterprise-state-roaming-overview.md)를 참조하세요.

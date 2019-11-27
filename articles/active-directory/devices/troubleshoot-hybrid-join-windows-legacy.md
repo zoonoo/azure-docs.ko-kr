@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot legacy hybrid Azure Active Directory joined devices
+title: 레거시 하이브리드 Azure Active Directory 연결 된 장치 문제 해결
 description: 하위 수준 디바이스에 조인된 하이브리드 Azure Active Directory 문제 해결
 services: active-directory
 ms.service: active-directory
@@ -32,7 +32,7 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
 
 이 문서에서는 다음 시나리오를 지원하도록 [디바이스에 조인된 하이브리드 Azure Active Directory를 구성](hybrid-azuread-join-plan.md)했다고 가정합니다.
 
-- Device-based Conditional Access
+- 장치 기반 조건부 액세스
 
 이 문서에서는 잠재적인 문제를 해결하는 방법에 대한 문제 해결 지침을 제공합니다.  
 
@@ -69,11 +69,11 @@ Windows 10 또는 Windows Server 2016의 경우 [Windows 10 및 Windows Server 2
     ![Windows에 대한 작업 공간 연결](./media/troubleshoot-hybrid-join-windows-legacy/02.png)
     
    - Autoworkplace.exe가 Azure AD 또는 AD FS를 사용하여 자동으로 인증할 수 없습니다. 이러한 상황은 누락되었거나 잘못 구성된 AD FS(페더레이션된 도메인용) 또는 누락되었거나 잘못 구성된 Azure AD Seamless Single Sign-On(관리되는 도메인용) 또는 네트워크 문제로 인해 야기될 수 있습니다. 
-   - It could be that multi-factor authentication (MFA) is enabled/configured for the user and WIAORMULTIAUTHN is not configured at the AD FS server. 
+   - 사용자에 대해 MFA (multi-factor authentication)가 설정/구성 되어 있고 AD FS 서버에 WIAORMULTIAUTHN가 구성 되어 있지 않을 수 있습니다. 
    - 또 다른 가능성은 HRD(홈 영역 검색) 페이지가 사용자 상호 작용을 기다리고 **autoworkplace.exe**가 자동으로 토큰을 요청하는 것을 방지하는 경우입니다.
    - 클라이언트의 IE 인트라넷 영역에서 AD FS 및 Azure AD URL이 누락되었을 수 있습니다.
    - 네트워크 연결 문제로 인해 **autoworkplace.exe**가 AD FS 또는 Azure AD URL에 연결하지 못할 수 있습니다. 
-   - **Autoworkplace.exe** requires the client to have direct line of sight from the client to the organization's on-premises AD domain controller, which means that hybrid Azure AD join succeeds only when the client is connected to organization's intranet.
+   - **자동 작업 영역** 을 사용 하려면 클라이언트에서 조직의 온-프레미스 AD 도메인 컨트롤러로 직접적인 시야를 사용 해야 합니다. 즉, 클라이언트가 조직의 인트라넷에 연결 된 경우에만 하이브리드 Azure AD 조인이 성공 합니다.
    - 조직에서 Azure AD Seamless Single Sign-On을 사용하고, 디바이스의 IE 인트라넷 설정에 `https://autologon.microsoftazuread-sso.com` 또는 `https://aadg.windows.net.nsatc.net`이 없고, 인트라넷 영역에 **스크립트를 통한 상태 표시줄 업데이트 허용**이 활성화되어 있지 않습니다.
 - 도메인 사용자로 로그온되지 않음
 

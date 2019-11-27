@@ -45,7 +45,7 @@ Azure AD(Azure Active Directory)에서 다수의 온-프레미스 애플리케�
 
 > http(s)://*.\<domain\>
 
-예를 들어 `http(s)://*.adventure-works.com`을 참조하십시오.
+예: `http(s)://*.adventure-works.com`
 
 내부 및 외부 URL이 서로 다른 도메인을 사용할 수도 있지만 동일한 것이 좋습니다. 애플리케이션을 게시할 때 URL 중 하나에 와일드카드가 없으면 오류가 표시됩니다.
 

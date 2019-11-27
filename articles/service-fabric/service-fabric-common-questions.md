@@ -104,10 +104,10 @@ Azure에서 실행되지 않는 클러스터의 경우 Service Fabric 노드 아
 Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 대한 책임은 귀하에게 있습니다. 클러스터의 가상 머신에서 OS 이미지를 업그레이드하고 한 번에 하나의 VM에서 수행해야 합니다. 
 
 ### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)의 연결된 데이터 디스크를 암호화할 수 있나요?
-예.  For more information, see [Create a cluster with attached data disks](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) and [Azure Disk Encryption for Virtual Machine Scale Sets](../virtual-machine-scale-sets/disk-encryption-overview.md).
+예.  자세한 내용은 [연결 된 데이터 디스크를 사용 하 여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) 및 [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](../virtual-machine-scale-sets/disk-encryption-overview.md)를 참조 하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
-아닙니다. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 
@@ -136,7 +136,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 다음은 애플리케이션을 keyVault로 인증하기 위해 자격 증명을 얻기 위한 방법입니다.
 
 A. 애플리케이션 빌드/압축 작업을 하는 동안 인증서를 SF 앱의 데이터 패키지로 가져오고, 이를 사용하여 KeyVault에 인증할 수 있습니다.
-B. For virtual machine scale set MSI enabled hosts, you can develop a simple PowerShell SetupEntryPoint for your SF app to get [an access token from the MSI endpoint](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), and then [retrieve your secrets from KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+B. 가상 머신 확장 집합 MSI 사용 호스트의 경우 SF 앱에 대 한 간단한 PowerShell SetupEntryPoint를 개발 하 여 [msi 끝점에서 액세스 토큰](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)을 가져온 다음, [keyvault에서 비밀을 검색할](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret)수 있습니다.
 
 ## <a name="application-design"></a>애플리케이션 설계
 
@@ -146,8 +146,8 @@ B. For virtual machine scale set MSI enabled hosts, you can develop a simple Pow
 
 - 다른 서비스의 모든 파티션을 쿼리하는 서비스를 만들어 필요한 데이터를 가져옵니다.
 - 다른 서비스의 모든 파티션에서 데이터를 수신할 수 있는 서비스를 만듭니다.
-- 각 서비스에서 외부 저장소로 주기적으로 데이터를 푸시합니다. This approach is only appropriate if the queries you're performing are not part of your core business logic, as the external store's data will be stale.
-- Alternatively, store data that must support querying across all records directly in a data store rather than in a reliable collection. This eliminates the issue with stale data, but doesn't allow the advantages of reliable collections to be leveraged.
+- 각 서비스에서 외부 저장소로 주기적으로 데이터를 푸시합니다. 이 방법은 외부 저장소의 데이터가 유효 하지 않기 때문에 수행 중인 쿼리가 핵심 비즈니스 논리의 일부가 아닌 경우에만 적합 합니다.
+- 또는 신뢰할 수 있는 컬렉션이 아닌 데이터 저장소에서 직접 모든 레코드의 쿼리를 지 원하는 데이터를 저장 합니다. 이로 인해 오래 된 데이터에 대 한 문제는 제거 되지만 신뢰할 수 있는 컬렉션의 이점을 활용 하는 것은 허용 되지 않습니다.
 
 
 ### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>내 행위자에 대해 데이터를 쿼리하는 가장 좋은 방법은 무엇인가요?
@@ -193,4 +193,4 @@ Service Fabric 런타임의 오픈 소스를 제공할 계획임을 [최근에 �
 
 ## <a name="next-steps"></a>다음 단계
 
-Learn about [core Service Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md) ice Fabric concepts](service-fabric-technical-overview.md) and [best practices](service-fabric-best-practices-overview.md)
+[핵심 Service Fabric 개념](service-fabric-technical-overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md) ice (overview.md) 및 [모범 사례](service-fabric-best-practices-overview.md) 에 대해 알아봅니다.

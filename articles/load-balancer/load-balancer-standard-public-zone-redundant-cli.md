@@ -27,11 +27,11 @@ ms.locfileid: "74225262"
 
 Standard Load Balancer에서 가용성 영역 사용에 대한 자세한 내용은 [Standard Load Balancer 및 가용석 영역](load-balancer-standard-availability-zones.md)을 참조하세요.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)] 
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.17 이상을 실행해야 합니다.  버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 자습서에서 Azure CLI 버전 2.0.17 이상을 실행해야 합니다.  버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치]( /cli/azure/install-azure-cli)를 참조하세요. 
 
 > [!NOTE]
 > Azure 리소스, 지역 및 VM 크기 제품군을 선택하는 데 가용성 영역에 대한 지원을 사용할 수 있습니다. 시작하는 방법에 대한 자세한 내용 및 가용성 영역을 사용해 볼 수 있는 Azure 리소스, 지역 및 VM 크기 제품군은 [가용성 영역 개요](https://docs.microsoft.com/azure/availability-zones/az-overview)를 참조하세요. 지원을 위해 [StackOverflow](https://stackoverflow.com/questions/tagged/azure-availability-zones)에 연결하거나 [Azure 지원 티켓을 열](../azure-supportability/how-to-create-azure-support-request.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 수 있습니다.  
@@ -49,7 +49,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>영역 중복 공용 IP Standard 만들기
-인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. Create a zone redundant public IP address with [az network public-ip create](/cli/azure/network/public-ip#az-network-public-ip-create). 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
+인터넷에서 앱에 액세스하려면 부하 분산 장치에 대한 공용 IP 주소가 필요합니다. 영역 중복 프런트 엔드는 지역의 모든 가용성 영역에서 동시에 서비스됩니다. [Az network 공용 ip create](/cli/azure/network/public-ip#az-network-public-ip-create)를 사용 하 여 영역 중복 공용 ip 주소를 만듭니다. 표준 공용 IP 주소를 만들 때 기본적으로 영역 중복입니다.
 
 다음 예제에서는 *myResourceGroupLoadBalancer* 리소스 그룹에 *myPublicIP*라는 영역 중복 공용 IP 주소를 만듭니다.
 
@@ -61,9 +61,9 @@ az network public-ip create \
 ```
 
 ## <a name="create-azure-standard-load-balancer"></a>Azure 표준 Load Balancer 만들기
-이 섹션에서는 다음과 같은 부하 분산 장치 구성 요소를 만들고 구성하는 방법에 대해 자세히 설명합니다.
+이 섹션에서는 부하 분산 장치의 다음 구성 요소를 만들고 구성하는 방법을 자세히 설명합니다.
 - 부하 분산 장치에서 들어오는 네트워크 트래픽을 수신하는 프런트 엔드 IP 풀.
-- 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 보내는 백 엔드 IP 풀
+- 프런트 엔드 풀에서 부하 분산된 네트워크 트래픽을 전송하는 백 엔드 IP 풀.
 - 백 엔드 VM 인스턴스의 상태를 확인하는 상태 프로브
 - 트래픽이 VM에 분산되는 방법을 정의하는 부하 분산 장치 규칙
 
@@ -94,7 +94,7 @@ az network lb probe create \
 ```
 
 ## <a name="create-load-balancer-rule-for-port-80"></a>포트 80에 대해 부하 분산 장치 규칙 만들기
-부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 받을 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. [az network lb rule create](/cli/azure/network/lb/rule#az-network-lb-rule-create)를 사용하여 *myFrontEndPool* 프런트 엔드 풀에서 80 포트를 수신 대기하고, 마찬가지로 80 포트를 통해 *myBackEndPool* 백 엔드 주소 풀에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb* 부하 분산 장치 규칙을 만듭니다.
+부하 분산 장치 규칙은 들어오는 트래픽에 대한 프런트 엔드 IP 구성 및 트래픽을 수신할 백 엔드 IP 풀과 필요한 원본 및 대상 포트를 함께 정의합니다. *az network lb rule create* 명령을 사용하여 프런트 엔드 풀 [myFrontEndPool](/cli/azure/network/lb/rule#az-network-lb-rule-create)의 포트 80에서 수신 대기하고 역시 포트 80을 사용하여 백 엔드 주소 풀 *myBackEndPool*에 부하 분산된 네트워크 트래픽을 보내는 *myLoadBalancerRuleWeb*이라는 부하 분산 장치 규칙을 만듭니다.
 
 ```azurecli-interactive
 az network lb rule create \
@@ -114,7 +114,7 @@ az network lb rule create \
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 
-[az network vnet create](/cli/azure/network/vnet#az-network-vnet-create)를 사용하여 myResourceGroup에 *mySubnet*이라는 서브넷이 있는 *myVnet* 가상 네트워크를 만듭니다.
+*az network vnet create*를 사용하여 myResourceGroup에 *mySubnet*이라는 서브넷이 있는 [myVnet](/cli/azure/network/vnet#az-network-vnet-create) 가상 네트워크를 만듭니다.
 
 
 ```azurecli-interactive
@@ -127,7 +127,7 @@ az network vnet create \
 
 ### <a name="create-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
-[az network nsg create](/cli/azure/network/nsg#az-network-nsg-create)를 사용하여 이름이 *myNetworkSecurityGroup*인 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
+*az network nsg create*를 사용하여 이름이 [myNetworkSecurityGroup](/cli/azure/network/nsg#az-network-nsg-create)인 네트워크 보안 그룹을 만들어 가상 네트워크에 대한 인바운드 연결을 정의합니다.
 
 ```azurecli-interactive
 az network nsg create \
@@ -135,7 +135,7 @@ az network nsg create \
 --name myNetworkSecurityGroup
 ```
 
-[az network nsg rule create](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)로 포트 80에 대해 이름이 *myNetworkSecurityGroupRule*인 네트워크 보안 그룹을 만듭니다.
+*az network nsg rule create*로 포트 80에 대해 이름이 [myNetworkSecurityGroupRule](/cli/azure/network/nsg/rule#az-network-nsg-rule-create)인 네트워크 보안 그룹을 만듭니다.
 
 ```azurecli-interactive
 az network nsg rule create \

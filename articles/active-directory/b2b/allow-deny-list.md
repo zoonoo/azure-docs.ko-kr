@@ -45,7 +45,7 @@ ms.locfileid: "74273418"
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부**를 선택합니다.
-5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예:
+5. **대상 도메인**에서 차단할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    ![추가된 도메인에 거부 옵션 표시](./media/allow-deny-list/DenyListSettings.png)
  
@@ -66,7 +66,7 @@ ms.locfileid: "74273418"
 2. **Azure Active Directory** > **사용자** > **사용자 설정**을 선택합니다.
 3. **외부 사용자**에서 **외부 협업 설정 관리**를 선택합니다.
 4. **협업 제한**에서 **지정된 도메인에 초대 거부(가장 제한적)** 를 선택합니다.
-5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예:
+5. **대상 도메인**에서 허용할 도메인 중 하나의 이름을 입력합니다. 여러 도메인 경우 도메인을 하나씩 새 줄에 입력합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
    ![추가된 도메인에 허용 옵션 표시](./media/allow-deny-list/AllowListSettings.png)
  
@@ -80,7 +80,7 @@ ms.locfileid: "74273418"
 
 ## <a name="set-the-allow-or-deny-list-policy-using-powershell"></a>PowerShell을 사용한 허용 또는 차단 목록 정책 설정
 
-### <a name="prerequisite"></a>사전 요구 사항
+### <a name="prerequisite"></a>필수 요소
 
 > [!Note]
 > AzureADPreview 모듈은 미리 보기 상태 이므로 완전히 지원 되는 모듈이 아닙니다. 
@@ -140,19 +140,19 @@ New-AzureADPolicy -Definition $policyValue -DisplayName B2BManagementPolicy -Typ
 New-AzureADPolicy -Definition @("{`"B2BManagementPolicy`":{`"InvitationsAllowedAndBlockedDomainsPolicy`":{`"AllowedDomains`": [],`"BlockedDomains`": [`"live.com`"]}}}") -DisplayName B2BManagementPolicy -Type B2BManagementPolicy -IsOrganizationDefault $true 
 ```
 
-허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
+허용 또는 거부 목록 정책을 설정하려면 [Set-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/set-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell   
 Set-AzureADPolicy -Definition $policyValue -Id $currentpolicy.Id 
 ```
 
-정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
+정책을 가져오려면 [Get-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 $currentpolicy = Get-AzureADPolicy | ?{$_.Type -eq 'B2BManagementPolicy'} | select -First 1 
 ```
 
-정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예:
+정책을 제거오려면 [Remove-AzureADPolicy](https://docs.microsoft.com/powershell/module/azuread/remove-azureadpolicy?view=azureadps-2.0-preview) cmdlet을 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```powershell
 Remove-AzureADPolicy -Id $currentpolicy.Id 

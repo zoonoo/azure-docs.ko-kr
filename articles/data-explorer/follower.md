@@ -1,6 +1,6 @@
 ---
-title: Use follower database feature to attach databases in Azure Data Explorer
-description: Learn about how to attach databases in Azure Data Explorer using the follower database feature.
+title: 종동체 데이터베이스 기능을 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
+description: Azure 데이터 탐색기에서 종동체 데이터베이스 기능을 사용 하 여 데이터베이스를 연결 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
 ms.reviewer: gabilehner
@@ -14,34 +14,34 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74462033"
 ---
-# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>Use follower database to attach databases in Azure Data Explorer
+# <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
-The **follower database** feature allows you to attach a database located in a different cluster to your Azure Data Explorer cluster. The **follower database** is attached in *read-only* mode, making it possible to view the data and run queries on the data that was ingested into the **leader database**. The follower database synchronizes changes in the leader databases. Due to the synchronization, there's a data lag of a few seconds to a few minutes in data availability. The length of the time lag depends on the overall size of the leader database metadata. The leader and follower databases use the same storage account to fetch the data. The storage is owned by the leader database. The follower database views the data without needing to ingest it. Since the attached database is a read-only database, the data, tables, and policies in the database can't be modified except for [caching policy](#configure-caching-policy), [principals](#manage-principals), and [permissions](#manage-permissions). Attached databases can't be deleted. They must be detached by the leader or follower and only then they can be deleted. 
+**종동체 데이터베이스** 기능을 사용 하면 다른 클러스터에 있는 데이터베이스를 Azure 데이터 탐색기 클러스터에 연결할 수 있습니다. **종동체 데이터베이스** 는 *읽기* 전용 모드로 연결 되어 데이터를 확인 하 고 **리더 데이터베이스로**수집 된 데이터에 대 한 쿼리를 실행할 수 있게 합니다. 종동체 데이터베이스는 리더 데이터베이스의 변경 내용을 동기화 합니다. 동기화로 인해 데이터 가용성에 몇 초에서 몇 분의 데이터 지연 시간이 있습니다. 지연 시간 길이는 리더 데이터베이스 메타 데이터의 전체 크기에 따라 달라 집니다. 리더 및 종동체 데이터베이스는 동일한 저장소 계정을 사용 하 여 데이터를 가져옵니다. 저장소는 리더 데이터베이스가 소유 합니다. 종동체 데이터베이스는 데이터를 수집 하지 않고도 데이터를 볼 수 있습니다. 연결 된 데이터베이스는 읽기 전용 데이터베이스 이므로 [캐싱 정책](#configure-caching-policy), [보안 주체](#manage-principals)및 [사용 권한을](#manage-permissions)제외 하 고 데이터베이스의 데이터, 테이블 및 정책을 수정할 수 없습니다. 연결 된 데이터베이스는 삭제할 수 없습니다. 리더가 나 종동체에 의해 분리 되어야 하며, 그런 후에만 삭제할 수 있습니다. 
 
-Attaching a database to a different cluster using the follower capability is used as the infrastructure to share data between organizations and teams. The feature is useful to segregate compute resources to protect a production environment from non-production use cases. Follower can also be used to associate the cost of Azure Data Explorer cluster to the party that runs queries on the data.
+종동체 기능을 사용 하 여 다른 클러스터에 데이터베이스를 연결 하는 것은 조직과 팀 간에 데이터를 공유 하는 인프라로 사용 됩니다. 이 기능은 계산 리소스를 분리 하 여 비프로덕션 사용 사례에서 프로덕션 환경을 보호 하는 데 유용 합니다. 종동체를 사용 하 여 데이터에 대 한 쿼리를 실행 하는 파티에 Azure 데이터 탐색기 클러스터의 비용을 연결할 수도 있습니다.
 
-## <a name="which-databases-are-followed"></a>Which databases are followed?
+## <a name="which-databases-are-followed"></a>어떤 데이터베이스를 팔 로우 합니까?
 
-* A cluster can follow one database, several databases, or all databases of a leader cluster. 
-* A single cluster can follow databases from multiple leader clusters. 
-* A cluster can contain both follower databases and leader databases
+* 클러스터는 하나의 데이터베이스, 여러 데이터베이스 또는 리더 클러스터의 모든 데이터베이스를 따를 수 있습니다. 
+* 단일 클러스터는 여러 개의 리더 클러스터에서 데이터베이스를 따라갈 수 있습니다. 
+* 클러스터에는 종동체 데이터베이스와 리더 데이터베이스가 모두 포함 될 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 1. Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-1. [Create cluster and DB](/azure/data-explorer/create-cluster-database-portal) for the leader and follower.
-1. [Ingest data](/azure/data-explorer/ingest-sample-data) to leader database using one of various methods discussed in [ingestion overview](/azure/data-explorer/ingest-data-overview).
+1. 리더 및 종동체에 대 한 [클러스터 및 DB를 만듭니다](/azure/data-explorer/create-cluster-database-portal) .
+1. [수집](/azure/data-explorer/ingest-sample-data) [개요](/azure/data-explorer/ingest-data-overview)에 설명 된 다양 한 방법 중 하나를 사용 하 여 데이터를 리더 데이터베이스로 수집 합니다.
 
 ## <a name="attach-a-database"></a>데이터베이스 연결
 
-There are various methods you can use to attach a database. In this article, we discuss attaching a database using C# or an Azure Resource Manager template. To attach a database, you must have permissions on the leader cluster and the follower cluster. For more information about permissions, see [manage permissions](#manage-permissions).
+데이터베이스를 연결 하는 데 사용할 수 있는 여러 가지 방법이 있습니다. 이 문서에서는 또는 Azure Resource Manager 템플릿을 사용 하 여 데이터베이스 C# 를 연결 하는 방법을 설명 합니다. 데이터베이스를 연결 하려면 리더 클러스터 및 종동체 클러스터에 대 한 권한이 있어야 합니다. 사용 권한에 대 한 자세한 내용은 [권한 관리](#manage-permissions)를 참조 하세요.
 
-### <a name="attach-a-database-using-c"></a>Attach a database using C#
+### <a name="attach-a-database-using-c"></a>을 사용 하 여 데이터베이스 연결C#
 
-**Needed NuGets**
+**필요한 Nuget**
 
-* Install [Microsoft.Azure.Management.kusto](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/).
-* Install [Microsoft.Rest.ClientRuntime.Azure.Authentication for authentication](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication).
+* [Microsoft. ..kusto를](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)설치 합니다.
+* [인증을 위해 Microsoft Azure 인증을](https://www.nuget.org/packages/Microsoft.Rest.ClientRuntime.Azure.Authentication)설치 합니다.
 
 
 ```Csharp
@@ -76,9 +76,9 @@ AttachedDatabaseConfiguration attachedDatabaseConfigurationProperties = new Atta
 var attachedDatabaseConfigurations = resourceManagementClient.AttachedDatabaseConfigurations.CreateOrUpdate(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationName, attachedDatabaseConfigurationProperties);
 ```
 
-### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Attach a database using an Azure Resource Manager template
+### <a name="attach-a-database-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 데이터베이스 연결
 
-In this section, you learn how to attach a database by using an [Azure Resource Manager template](../azure-resource-manager/resource-group-overview.md). 
+이 섹션에서는 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md)사용 하 여 데이터베이스를 연결 하는 방법에 대해 알아봅니다. 
 
 ```json
 {
@@ -161,41 +161,41 @@ In this section, you learn how to attach a database by using an [Azure Resource 
 
 ### <a name="deploy-the-template"></a>템플릿 배포 
 
-You can deploy the Azure Resource Manager template by [using the Azure portal](https://portal.azure.com) or using powershell.
+[Azure Portal](https://portal.azure.com) 또는 powershell을 사용 하 여 Azure Resource Manager 템플릿을 배포할 수 있습니다.
 
-   ![template deployment](media/follower/template-deployment.png)
+   ![템플릿 배포](media/follower/template-deployment.png)
 
 
 |**설정**  |**설명**  |
 |---------|---------|
-|Follower Cluster Name     |  The name of the follower cluster       |
-|Attached Database Configurations Name    |    The name of the attached database configurations object. The name must be unique at the cluster level.     |
-|데이터베이스 이름     |      The name of the database to be followed. If you want to follow all the leader's databases, use '*'.   |
-|Leader Cluster Resource ID    |   The resource ID of the leader cluster.      |
-|Default Principals Modification Kind    |   The default principal modification kind. Can be `Union`, `Replace` or `None`. For more information about default principal modification kind, see [principal modification kind control command](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind).      |
-|위치   |   The location of all the resources. The leader and the follower must be in the same location.       |
+|종동체 클러스터 이름     |  종동체 클러스터의 이름       |
+|연결 된 데이터베이스 구성 이름    |    연결 된 데이터베이스 구성 개체의 이름입니다. 이름은 클러스터 수준에서 고유 해야 합니다.     |
+|데이터베이스 이름     |      따를 데이터베이스의 이름입니다. 모든 리더의 데이터베이스를 팔 로우 하려면 ' * '를 사용 합니다.   |
+|리더 클러스터 리소스 ID    |   리더 클러스터의 리소스 ID입니다.      |
+|기본 보안 주체 수정 종류    |   기본 보안 주체 수정 종류입니다. `Union`, `Replace` 또는 `None`수 있습니다. 기본 보안 주체 수정 종류에 대 한 자세한 내용은 [principal 수정 kind 제어 명령](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind)을 참조 하세요.      |
+|Location   |   모든 리소스의 위치입니다. 리더와 종동체는 동일한 위치에 있어야 합니다.       |
  
-### <a name="verify-that-the-database-was-successfully-attached"></a>Verify that the database was successfully attached
+### <a name="verify-that-the-database-was-successfully-attached"></a>데이터베이스가 성공적으로 연결 되었는지 확인 합니다.
 
-To verify that the database was successfully attached, find your attached databases in the [Azure portal](https://portal.azure.com). 
+데이터베이스가 성공적으로 연결 되었는지 확인 하려면 [Azure Portal](https://portal.azure.com)에서 연결 된 데이터베이스를 찾습니다. 
 
-1. Navigate to the follower cluster and select **Databases**
-1. Search for new Read-only databases in the database list.
+1. 종동체 클러스터로 이동 하 고 **데이터베이스** 를 선택 합니다.
+1. 데이터베이스 목록에서 새 읽기 전용 데이터베이스를 검색 합니다.
 
-    ![Read-only follower database](media/follower/read-only-follower-database.png)
+    ![읽기 전용 종동체 데이터베이스](media/follower/read-only-follower-database.png)
 
 또는 다음과 같습니다.
 
-1. Navigate to the leader cluster and select **Databases**
-2. Check that the relevant databases are marked as **SHARED WITH OTHERS** > **Yes**
+1. 리더 클러스터로 이동 하 고 **데이터베이스** 를 선택 합니다.
+2. 관련 데이터베이스가 **다른 사용자와 공유** 로 표시 되었는지 확인 > **예**
 
-    ![Read and write attached databases](media/follower/read-write-databases-shared.png)
+    ![연결 된 데이터베이스 읽기 및 쓰기](media/follower/read-write-databases-shared.png)
 
-## <a name="detach-the-follower-database-using-c"></a>Detach the follower database using C# 
+## <a name="detach-the-follower-database-using-c"></a>을 사용 하 여 종동체 데이터베이스 분리C# 
 
-### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>Detach the attached follower database from the follower cluster
+### <a name="detach-the-attached-follower-database-from-the-follower-cluster"></a>연결 된 종동체 데이터베이스를 종동체 클러스터에서 분리
 
-Follower cluster can detach any attached database as follows:
+종동체 클러스터는 다음과 같이 연결 된 데이터베이스를 분리할 수 있습니다.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -217,9 +217,9 @@ var attachedDatabaseConfigurationsName = "adc";
 resourceManagementClient.AttachedDatabaseConfigurations.Delete(followerResourceGroupName, followerClusterName, attachedDatabaseConfigurationsName);
 ```
 
-### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>Detach the attached follower database from the leader cluster
+### <a name="detach-the-attached-follower-database-from-the-leader-cluster"></a>연결 된 종동체 데이터베이스를 리더 클러스터에서 분리 합니다.
 
-The leader cluster can detach any attached database as follows:
+리더 클러스터는 연결 된 모든 데이터베이스를 다음과 같이 분리할 수 있습니다.
 
 ```csharp
 var tenantId = "xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx";//Directory (tenant) ID
@@ -247,36 +247,36 @@ var followerDatabaseDefinition = new FollowerDatabaseDefinition()
 resourceManagementClient.Clusters.DetachFollowerDatabases(leaderResourceGroupName, leaderClusterName, followerDatabaseDefinition);
 ```
 
-## <a name="manage-principals-permissions-and-caching-policy"></a>Manage principals, permissions, and caching policy
+## <a name="manage-principals-permissions-and-caching-policy"></a>보안 주체, 권한 및 캐싱 정책 관리
 
-### <a name="manage-principals"></a>Manage principals
+### <a name="manage-principals"></a>보안 주체 관리
 
-When attaching a database, specify the **"default principals modification kind"** . The default is keeping the leader database collection of [authorized principals](/azure/kusto/management/access-control/index#authorization)
+데이터베이스를 연결할 때 **"기본 보안 주체 수정 종류"** 를 지정 합니다. 기본적으로는 [인증 된 보안 주체의](/azure/kusto/management/access-control/index#authorization) 리더 데이터베이스 컬렉션을 유지 합니다.
 
 |**종류** |**설명**  |
 |---------|---------|
-|**Union**     |   The attached database principals will always include the original database principals plus additional new principals added to the follower database.      |
-|**Replace**   |    No inheritance of principals from the original database. New principals must be created for the attached database.     |
-|**없음**   |   The attached database principals include only the principals of the original database with no additional principals.      |
+|**부분**     |   연결 된 데이터베이스 보안 주체에는 항상 원래 데이터베이스 보안 주체와 종동체 데이터베이스에 추가 된 새 보안 주체가 모두 포함 됩니다.      |
+|**Replace**   |    원본 데이터베이스의 보안 주체를 상속 하지 않습니다. 연결 된 데이터베이스에 대 한 새 보안 주체를 만들어야 합니다.     |
+|**없음**   |   연결 된 데이터베이스 보안 주체에는 추가 보안 주체가 없는 원래 데이터베이스의 보안 주체만 포함 됩니다.      |
 
-For more information about using control commands to configure the authorized principals, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+제어 명령을 사용 하 여 권한이 부여 된 보안 주체를 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower)을 참조 하세요.
 
-### <a name="manage-permissions"></a>Manage permissions
+### <a name="manage-permissions"></a>권한 관리
 
-Managing read-only database permission is the same as for all database types. See [manage permissions in the Azure portal](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal).
+읽기 전용 데이터베이스 권한을 관리 하는 것은 모든 데이터베이스 유형의 경우와 동일 합니다. [Azure Portal에서 관리 권한을](/azure/data-explorer/manage-database-permissions#manage-permissions-in-the-azure-portal)참조 하세요.
 
-### <a name="configure-caching-policy"></a>Configure caching policy
+### <a name="configure-caching-policy"></a>캐싱 정책 구성
 
-The follower database administrator can modify the [caching policy](/azure/kusto/management/cache-policy) of the attached database or any of its tables on the hosting cluster. The default is keeping the leader database collection of database and table-level caching policies. You can, for example, have a 30 day caching policy on the leader database for running monthly reporting and a three day caching policy on the follower database to query only the recent data for troubleshooting. For more information about using control commands to configure the caching policy on the follower database or table, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+종동체 데이터베이스 관리자는 호스팅 클러스터에서 연결 된 데이터베이스의 [캐싱 정책이](/azure/kusto/management/cache-policy) 나 해당 테이블을 수정할 수 있습니다. 기본적으로 데이터베이스 및 테이블 수준 캐싱 정책의 리더 데이터베이스 컬렉션을 유지 합니다. 예를 들어 월간 보고를 실행 하기 위해 리더 데이터베이스에 30 일 캐싱 정책을 설정 하 고, 문제 해결을 위해 최신 데이터만 쿼리하려면 종동체 데이터베이스에서 3 일 캐싱 정책을 사용할 수 있습니다. 제어 명령을 사용 하 여 종동체 데이터베이스 또는 테이블에 대 한 캐싱 정책을 구성 하는 방법에 대 한 자세한 내용은 [종동체 클러스터를 관리 하기 위한 제어 명령](/azure/kusto/management/cluster-follower)을 참조 하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-* The follower and the leader clusters must be in the same region.
-* [Streaming ingestion](/azure/data-explorer/ingest-data-streaming) can't be used on a database that is being followed.
-* You can't delete a database that is attached to a different cluster before detaching it.
-* You can't delete a cluster that has a database attached to a different cluster before detaching it.
-* You can't stop a cluster that has attached follower or leader database(s). 
+* 종동체와 리더 클러스터는 동일한 지역에 있어야 합니다.
+* 진행 중인 데이터베이스에서는 [스트리밍](/azure/data-explorer/ingest-data-streaming) 수집을 사용할 수 없습니다.
+* 분리 하기 전에 다른 클러스터에 연결 된 데이터베이스는 삭제할 수 없습니다.
+* 다른 클러스터에 연결 된 데이터베이스를 분리 하기 전에는 해당 클러스터를 삭제할 수 없습니다.
+* 연결 된 종동체 또는 리더 데이터베이스가 있는 클러스터는 중지할 수 없습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* For information about follower cluster configuration, see [Control commands for managing a follower cluster](/azure/kusto/management/cluster-follower).
+* 종동체 클러스터 구성에 대 한 자세한 내용은 [종동체 클러스터를 관리 하는 명령 제어](/azure/kusto/management/cluster-follower)를 참조 하세요.

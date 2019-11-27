@@ -22,7 +22,7 @@ Azure Container Registry는 기존 레지스트리에서 이미지를 복사하�
 
 * 비 Azure 프라이빗 컨테이너 레지스트리에서 가져오기
 
-Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지를 가져오는 경우 다음과 같은 이점이 있습니다.
+Azure Container Registry로 이미지를 가져오는 경우 Docker CLI 명령을 사용하는 것보다 다음과 같은 혜택이 있습니다.
 
 * 클라이언트 환경에는 로컬 Docker 설치가 필요하지 않으므로 지원되는 OS 유형과 관계없이 컨테이너 이미지를 가져옵니다.
 
@@ -34,9 +34,9 @@ Docker CLI 명령을 사용하는 대신 Azure Container Registry로 이미지�
 > 여러 Azure 지역에 동일한 컨테이너 이미지를 분산해야 하는 경우 Azure Container Registry에서 [지역 복제](container-registry-geo-replication.md)도 지원합니다. 레지스트리를 지역 복제하면(프리미엄 SKU 필요), 단일 레지스트리의 동일한 이미지와 태그 이름으로 여러 지역에 서비스를 제공할 수 있습니다.
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
-Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. For steps, see [Quickstart: Create a private container registry using the Azure CLI](container-registry-get-started-azure-cli.md).
+Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다. 단계에 대해서 [는 빠른 시작: Azure CLI을 사용 하 여 개인 컨테이너 레지스트리 만들기](container-registry-get-started-azure-cli.md)를 참조 하세요.
 
 이미지를 Azure Container Registry로 가져오려면 ID에 대상 레지스트리에 대한 contributor 역할 이상의 쓰기 권한이 있어야 합니다. [Azure Container Registry 역할 및 권한](container-registry-roles.md)을 참조하세요. 
 
@@ -44,7 +44,7 @@ Azure Container Registry가 아직 없는 경우 레지스트리를 만듭니다
 
 ### <a name="import-from-docker-hub"></a>Docker 허브에서 가져오기
 
-For example, use the [az acr import][az-acr-import] command to import the multi-architecture `hello-world:latest` image from Docker Hub to a registry named *myregistry*. `hello-world`는 Docker 허브의 공식 이미지이므로 이 이미지는 기본 `library` 리포지토리에 있습니다. `--source` 이미지 매개 변수의 값에 리포지토리 이름 및 선택적으로 태그를 포함합니다. 태그 대신 해당 매니페스트 다이제스트를 통해 이미지를 선택적으로 식별할 수 있으며, 이 경우 이미지의 특정 버전이 보장됩니다.
+예를 들어 [az acr import][az-acr-import] 명령을 사용 하 여 Docker 허브에서 *myregistry*라는 레지스트리로 다중 아키텍처 `hello-world:latest` 이미지를 가져옵니다. `hello-world`는 Docker 허브의 공식 이미지이므로 이 이미지는 기본 `library` 리포지토리에 있습니다. `--source` 이미지 매개 변수의 값에 리포지토리 이름 및 선택적으로 태그를 포함합니다. 태그 대신 해당 매니페스트 다이제스트를 통해 이미지를 선택적으로 식별할 수 있으며, 이 경우 이미지의 특정 버전이 보장됩니다.
  
 ```azurecli
 az acr import --name myregistry --source docker.io/library/hello-world:latest --image hello-world:latest
@@ -80,7 +80,7 @@ az acr import --name myregistry --source mcr.microsoft.com/windows/servercore:la
 
 ### <a name="import-from-a-registry-in-the-same-subscription"></a>동일한 구독의 레지스트리에서 가져오기
 
-예를 들어 원본 레지스트리 *mysourceregistry*에서 동일한 Azure 구독의 *myregistry*로 `aci-helloworld:latest` 이미지를 가져옵니다.
+예를 들어 원본 레지스트리 `aci-helloworld:latest`mysourceregistry*에서 동일한 Azure 구독의* myregistry*로*  이미지를 가져옵니다.
 
 ```azurecli
 az acr import --name myregistry --source mysourceregistry.azurecr.io/aci-helloworld:latest --image hello-world:latest
@@ -118,7 +118,7 @@ az acr import --name myregistry --source docker.io/sourcerepo/sourceimage:tag --
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 공용 레지스트리 또는 다른 프라이빗 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. For additional image import options, see the [az acr import][az-acr-import] command reference. 
+이 문서에서는 공용 레지스트리 또는 다른 프라이빗 레지스트리에서 Azure Container Registry로 컨테이너 이미지를 가져오는 방법을 알아보았습니다. 추가 이미지 가져오기 옵션은 [az acr import][az-acr-import] 명령 참조를 참조 하세요. 
 
 
 <!-- LINKS - Internal -->

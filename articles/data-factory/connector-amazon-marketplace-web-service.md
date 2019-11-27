@@ -1,5 +1,5 @@
 ---
-title: Copy data from Amazon Marketplace Web Service
+title: Amazon Marketplace 웹 서비스에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 아마존 마켓플레이스 웹 서비스에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 ms.service: data-factory
@@ -23,9 +23,9 @@ ms.locfileid: "74218765"
 
 ## <a name="supported-capabilities"></a>지원되는 기능
 
-This Amazon Marketplace Web Service connector is supported for the following activities:
+이 Amazon Marketplace 웹 서비스 커넥터는 다음과 같은 작업에 대해 지원 됩니다.
 
-- [Copy activity](copy-activity-overview.md) with [supported source/sink matrix](copy-activity-overview.md)
+- [지원 되는 원본/싱크 매트릭스](copy-activity-overview.md) 를 사용 하 여 [복사 작업](copy-activity-overview.md)
 - [조회 작업](control-flow-lookup-activity.md)
 
 아마존 마켓플레이스 웹 서비스에서 지원되는 모든 싱크 데이터 저장소로 데이터를 복사할 수 있습니다. 복사 작업의 원본/싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats) 표를 참조하세요.
@@ -42,20 +42,20 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 다음은 아마존 마켓플레이스 웹 서비스 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **AmazonMWS**로 설정해야 합니다. | yes |
-| endpoint | Amazon MWS 서버의 엔드포인트(즉, mws.amazonservices.com)입니다.  | yes |
-| marketplaceID | 데이터를 검색하려는 Amazon Marketplace ID입니다. 여러 Marketplace ID에서 데이터를 검색하려면 쉼표(`,`)로 구분하세요. 즉, A2EUQ1WTGCTBG2입니다.  | yes |
-| sellerID | Amazon 판매자 ID입니다.  | yes |
-| mwsAuthToken | Amazon MWS 인증 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| accessKeyId | 데이터 액세스에 사용되는 액세스 키 ID입니다.  | yes |
-| secretKey | 데이터 액세스에 사용되는 비밀 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
-| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
-| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아닙니다. |
+| type | type 속성은 **AmazonMWS**로 설정해야 합니다. | 예 |
+| endpoint | Amazon MWS 서버의 엔드포인트(즉, mws.amazonservices.com)입니다.  | 예 |
+| marketplaceID | 데이터를 검색하려는 Amazon Marketplace ID입니다. 여러 Marketplace ID에서 데이터를 검색하려면 쉼표(`,`)로 구분하세요. 즉, A2EUQ1WTGCTBG2입니다.  | 예 |
+| sellerID | Amazon 판매자 ID입니다.  | 예 |
+| mwsAuthToken | Amazon MWS 인증 토큰입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| accessKeyId | 데이터 액세스에 사용되는 액세스 키 ID입니다.  | 예 |
+| secretKey | 데이터 액세스에 사용되는 비밀 키입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| useEncryptedEndpoints | 데이터 원본 엔드포인트가 HTTPS를 사용하여 암호화되는지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
+| useHostVerification | SSL을 통해 연결할 때 서버 인증서의 호스트 이름이 서버의 호스트 이름과 일치하도록 할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
+| usePeerVerification | SSL을 통해 연결할 때 서버의 ID를 확인할지 여부를 지정합니다. 기본값은 true입니다.  | 아니오 |
 
-**예제:**
+**예:**
 
 ```json
 {
@@ -86,9 +86,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 아마존 마켓플레이스 웹 서비스에서 데이터를 복사하려면 데이터 세트의 type 속성을 **AmazonMWSObject**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | The type property of the dataset must be set to: **AmazonMWSObject** | yes |
+| type | 데이터 집합의 type 속성은 **AmazonMWSObject** 로 설정 해야 합니다. | 예 |
 | tableName | 테이블 이름입니다. | 아니요(작업 원본에서 "query"가 지정된 경우) |
 
 **예제**
@@ -117,12 +117,12 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 
 아마존 마켓플레이스 웹 서비스에서 데이터를 복사하려면 복사 작업의 원본 형식을 **AmazonMWSSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 type 속성은 **AmazonMWSSource**로 설정해야 합니다. | yes |
-| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"`. | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
+| type | 복사 작업 원본의 type 속성은 **AmazonMWSSource**로 설정해야 합니다. | 예 |
+| 쿼리 | 사용자 지정 SQL 쿼리를 사용하여 데이터를 읽습니다. 예: `"SELECT * FROM Orders where  Amazon_Order_Id = 'xx'"` | 아니요(데이터 세트의 "tableName"이 지정된 경우) |
 
-**예제:**
+**예:**
 
 ```json
 "activities":[
@@ -154,9 +154,9 @@ Azure Data Factory는 연결을 사용하는 기본 제공 드라이버를 제�
 ]
 ```
 
-## <a name="lookup-activity-properties"></a>Lookup activity properties
+## <a name="lookup-activity-properties"></a>조회 작업 속성
 
-To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+속성에 대 한 자세한 내용을 보려면 [조회 작업](control-flow-lookup-activity.md)을 확인 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Azure Data Factory에서 복사 작업의 원본 및 싱크로 지원되는 데이터 저장소 목록은 [지원되는 데이터 저장소](copy-activity-overview.md#supported-data-stores-and-formats)를 참조하세요.

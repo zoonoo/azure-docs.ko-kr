@@ -1,6 +1,6 @@
 ---
-title: Managed identities in Azure HDInsight
-description: Provides an overview of the implementation of managed identities in Azure HDInsight.
+title: Azure HDInsight에서 관리 되는 id
+description: Azure HDInsight에서 관리 되는 id의 구현에 대 한 개요를 제공 합니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -15,32 +15,32 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74327380"
 ---
-# <a name="managed-identities-in-azure-hdinsight"></a>Managed identities in Azure HDInsight
+# <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
 
-A managed identity is an identity registered in Azure Active Directory (Azure AD) whose credentials are managed by Azure. With managed identities, you don't need to register service principals in Azure AD, or maintain credentials such as certificates.
+관리 id는 Azure AD (Azure Active Directory)에 등록 된 id로, Azure에서 자격 증명을 관리 합니다. 관리 id를 사용 하면 Azure AD에서 서비스 주체를 등록 하거나 인증서와 같은 자격 증명을 유지 관리할 필요가 없습니다.
 
-Managed identities can be used in Azure HDInsight to allow your clusters to access Azure AD domain services, access Azure Key Vault, or access files in Azure Data Lake Storage Gen2.
+Azure HDInsight에서 관리 되는 id를 사용 하 여 클러스터에서 Azure AD 도메인 서비스에 액세스 하거나, Azure Key Vault 액세스 하거나, Azure Data Lake Storage Gen2의 파일에 액세스할 수 있습니다.
 
-There are two types of managed identities: user-assigned and system-assigned. Azure HDInsight uses user-assigned managed identities. A user-assigned managed identity is created as a standalone Azure resource, which you can then assign to one or more Azure service instances. In contrast, a system-assigned managed identity is created in Azure AD and then enabled directly on a particular Azure service instance automatically. The life of that system-assigned managed identity is then tied to the life of the service instance that it's enabled on.
+관리 id에는 사용자 할당 및 시스템 할당 이라는 두 가지 유형이 있습니다. Azure HDInsight는 사용자 할당 관리 id를 사용 합니다. 사용자 할당 관리 id는 독립 실행형 Azure 리소스로 만들어지므로 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 반면, 시스템 할당 관리 id는 Azure AD에서 생성 된 다음 특정 Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다. 그런 다음 해당 시스템 할당 관리 id의 수명은 사용 하도록 설정 된 서비스 인스턴스의 수명에 연결 됩니다.
 
-## <a name="hdinsight-managed-identity-implementation"></a>HDInsight managed identity implementation
+## <a name="hdinsight-managed-identity-implementation"></a>HDInsight 관리 id 구현
 
-In Azure HDInsight, managed identities are provisioned on each node of the cluster. These identity components, however, are only usable by the HDInsight service. There's currently no supported method for you to generate access tokens using the managed identities installed on HDInsight cluster nodes. For some Azure services, managed identities are implemented with an endpoint that you can use to acquire access tokens for interacting with other Azure services on your own.
+Azure HDInsight에서 관리 id는 클러스터의 각 노드에 프로 비전 됩니다. 그러나 이러한 id 구성 요소는 HDInsight 서비스 에서만 사용할 수 있습니다. 현재 HDInsight 클러스터 노드에 설치 된 관리 되는 id를 사용 하 여 액세스 토큰을 생성 하는 데 지원 되는 방법은 없습니다. 일부 Azure 서비스의 경우 관리 되는 id는 다른 Azure 서비스와 상호 작용 하기 위해 액세스 토큰을 획득 하는 데 사용할 수 있는 끝점을 사용 하 여 구현 됩니다.
 
-## <a name="create-a-managed-identity"></a>Create a managed identity
+## <a name="create-a-managed-identity"></a>관리 id 만들기
 
-Managed identities can be created with any of the following methods:
+관리 되는 id는 다음 방법 중 하나를 사용 하 여 만들 수 있습니다.
 
-* [Azure 포털](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
+* [Azure Portal](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 * [Azure PowerShell](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)
 * [Azure 리소스 관리자](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-arm.md)
 * [Azure CLI](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)
 
-The remaining steps for configuring the managed identity depend on the scenario where it will be used.
+관리 id를 구성 하는 나머지 단계는 사용 되는 시나리오에 따라 달라 집니다.
 
-## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Managed identity scenarios in Azure HDInsight
+## <a name="managed-identity-scenarios-in-azure-hdinsight"></a>Azure HDInsight의 관리 되는 id 시나리오
 
-Managed identities are used in Azure HDInsight in multiple scenarios. See the related documents for detailed setup and configuration instructions:
+관리 id는 여러 시나리오에서 Azure HDInsight에 사용 됩니다. 자세한 설정 및 구성 지침은 관련 문서를 참조 하세요.
 
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)

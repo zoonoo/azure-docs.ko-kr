@@ -1,5 +1,5 @@
 ---
-title: Migrate TDE certificate - managed instance
+title: TDE 인증서 관리 되는 인스턴스 마이그레이션
 description: 투명한 데이터 암호화를 사용하여 데이터베이스의 데이터베이스 암호화 키를 보호하는 인증서를 Azure SQL Database Managed instance로 마이그레이션
 services: sql-database
 ms.service: sql-database
@@ -30,9 +30,9 @@ ms.locfileid: "74420737"
 완전히 관리되는 서비스를 사용하여 TDE 보호 데이터베이스와 해당 인증서를 원활하게 마이그레이션하는 대체 옵션은 [Azure Database Migration Service를 사용하여 온-프레미스 데이터베이스를 Managed Instance로 마이그레이션하는 방법](../dms/tutorial-sql-server-to-managed-instance.md)을 참조하세요.
 
 > [!IMPORTANT]
-> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. Soon after restore is done, the migrated certificate gets replaced by a different protector, either service-managed certificate or asymmetric key from the key vault, depending on the type of the transparent data encryption you set on the instance.
+> 마이그레이션된 인증서는 TDE 보호 데이터베이스 복원에만 사용됩니다. 복원이 완료 된 후 곧 마이그레이션된 인증서가 인스턴스에 설정 된 투명 한 데이터 암호화의 유형에 따라 키 자격 증명 모음에서 서비스 관리 인증서 또는 비대칭 키와 같은 다른 보호기로 바뀝니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 이 문서의 단계를 완료하려면 다음 필수 구성 요소가 필요합니다.
 
@@ -43,15 +43,15 @@ ms.locfileid: "74420737"
 
 다음 항목이 있는지 확인합니다.
 
-- Azure PowerShell module [installed and updated](https://docs.microsoft.com/powershell/azure/install-az-ps).
-- [Az.Sql module](https://www.powershellgallery.com/packages/Az.Sql).
+- 모듈 [을 설치 하 고 업데이트](https://docs.microsoft.com/powershell/azure/install-az-ps)Azure PowerShell 합니다.
+- [Az .sql module](https://www.powershellgallery.com/packages/Az.Sql).
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. For these cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). The arguments for the commands in the Az module and in the AzureRm modules are substantially identical.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-Run the following commands in PowerShell to install/update the module:
+PowerShell에서 다음 명령을 실행 하 여 모듈을 설치/업데이트 합니다.
 
 ```azurepowershell
 Install-Module -Name Az.Sql
@@ -158,7 +158,7 @@ Update-Module -Name Az.Sql
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-You need to first [setup an Azure Key Vault](/azure/key-vault/key-vault-manage-with-cli2) with your *.pfx* file.
+먼저 *.pfx* 파일을 사용 하 여 [Azure Key Vault를 설정](/azure/key-vault/key-vault-manage-with-cli2) 해야 합니다.
 
 1. PowerShell에서 준비 단계부터 시작합니다.
 

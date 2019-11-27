@@ -1,5 +1,5 @@
 ---
-title: Remove TDE protector - PowerShell
+title: TDE 보호기 제거-PowerShell
 description: BYOK(Bring Your Own Key) 지원을 통해 TDE를 사용하는 Azure SQL Database 또는 데이터 웨어하우스에 대해 손상 가능성이 있는 TDE 보호기에 대처하기 위한 방법 가이드.
 services: sql-database
 ms.service: sql-database
@@ -20,22 +20,22 @@ ms.locfileid: "74422431"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>PowerShell을 사용하여 TDE(Transparent Data Encryption) 보호기 제거
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 - Azure 구독 및 해당 구독에 대한 관리자 권한이 있어야 합니다.
-- You must have Azure PowerShell installed and running.
+- Azure PowerShell 설치 되 고 실행 중 이어야 합니다.
 - 이 방법 가이드에서는 이미 Azure SQL Database나 데이터 웨어하우스에 대해 Azure Key Vault의 키를 TDE 보호기로 사용하고 있다고 가정합니다. 자세한 내용은 [BYOK 지원을 통한 투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md)를 참조하세요.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
- Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. For specific cmdlets, see [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+ Az 모듈 설치 지침은 [Azure PowerShell 설치](/powershell/azure/install-az-ps)를 참조하세요. 특정 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요.
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
+설치 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조 하세요.
 
 * * *
 
@@ -49,8 +49,8 @@ For installation, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 TDE 보호기가 Key Vault에서 삭제된 후에는 **서버 아래의 암호화된 데이터베이스에 대한 모든 연결이 차단되고, 이들 데이터베이스는 오프라인 상태가 되어 24시간 이내에 삭제됩니다**. 손상된 키로 암호화된 기존 백업에는 더 이상 액세스할 수 없습니다.
 
-The following steps outline how to check the TDE Protector thumbprints still in use by Virtual Log Files (VLF) of a given database.
-The thumbprint of the current TDE protector of the database, and the database ID can be found by running:
+다음 단계는 지정 된 데이터베이스의 가상 로그 파일 (VLF)에서 아직 사용 중인 TDE 보호기 지문을 확인 하는 방법을 간략하게 설명 합니다.
+데이터베이스의 현재 TDE 보호기의 지문과 데이터베이스 ID는 다음을 실행 하 여 찾을 수 있습니다.
 
 ```sql
 SELECT [database_id], 
@@ -60,7 +60,7 @@ SELECT [database_id],
  FROM [sys].[dm_database_encryption_keys]
 ```
 
-The following query returns the VLFs and the encryptor respective thumbprints in use. Each different thumbprint refers to different key in Azure Key Vault (AKV):
+다음 쿼리는 사용 중인 Vlf 및 해당 지문을 반환 합니다. 각 지문이 Azure Key Vault (AKV)의 다른 키를 참조 합니다.
 
 ```sql
 SELECT * FROM sys.dm_db_log_info (database_id)
@@ -68,11 +68,11 @@ SELECT * FROM sys.dm_db_log_info (database_id)
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-The PowerShell command **Get-AzureRmSqlServerKeyVaultKey** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+PowerShell 명령 **add-azurermsqlserverkeyvaultkey** 은 쿼리에서 사용 되는 Tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-The PowerShell command **az sql server key show** provides the thumbprint of the TDE Protector used in the query, so you can see which keys to keep and which keys to delete in AKV. Only keys no longer used by the database can be safely deleted from Azure Key Vault.
+PowerShell 명령 **az sql server key show** 는 쿼리에 사용 된 Tde 보호기의 지문을 제공 하므로 유지할 키와 AKV에서 삭제할 키를 확인할 수 있습니다. 데이터베이스에서 더 이상 사용 하지 않는 키만 Azure Key Vault에서 안전 하 게 삭제할 수 있습니다.
 
 * * *
 
@@ -87,7 +87,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
 
 1. [Key Vault에 새 키](/powershell/module/az.keyvault/add-azkeyvaultkey)를 만듭니다. 액세스 제어는 자격 증명 모음 수준에서 프로비전되므로 이 새 키는 손상 가능성이 있는 TDE 보호기와는 별도의 키 자격 증명 모음에 만들어야 합니다.
 
-2. Add the new key to the server using the [Add-AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) and [Set-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlets and update it as the server’s new TDE protector.
+2. [AzSqlServerKeyVaultKey](/powershell/module/az.sql/add-azsqlserverkeyvaultkey) 및 [AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/set-azsqlservertransparentdataencryptionprotector) cmdlet을 사용 하 여 서버에 새 키를 추가 하 고 서버의 새 tde 보호기로 업데이트 합니다.
 
    ```powershell
    # add the key from Key Vault to the server  
@@ -98,7 +98,7 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
        -ServerName <LogicalServerName> -Type AzureKeyVault -KeyId <KeyVaultKeyId>
    ```
 
-3. Make sure the server and any replicas have updated to the new TDE protector using the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet.
+3. [AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet을 사용 하 여 서버 및 모든 복제본이 새 tde 보호기로 업데이트 되었는지 확인 합니다.
 
    > [!NOTE]
    > 새 TDE 보호기가 서버 아래의 모든 데이터베이스와 보조 데이터베이스로 전파되는 데 몇 분 정도 걸릴 수 있습니다.
@@ -114,13 +114,13 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
    Backup-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName> -OutputFile <DesiredBackupFilePath>
    ```
 
-5. Delete the compromised key from Key Vault using the [Remove-AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet.
+5. [AzKeyVaultKey](/powershell/module/az.keyvault/remove-azkeyvaultkey) cmdlet을 사용 하 여 Key Vault에서 손상 된 키를 삭제 합니다.
 
    ```powershell
    Remove-AzKeyVaultKey -VaultName <KeyVaultName> -Name <KeyVaultKeyName>
    ```
 
-6. To restore a key to Key Vault in the future using the [Restore-AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet:
+6. 나중에 [AzKeyVaultKey](/powershell/module/az.keyvault/restore-azkeyvaultkey) cmdlet을 사용 하 여 Key Vault 키를 복원 하려면 다음을 수행 합니다.
 
    ```powershell
    Restore-AzKeyVaultKey -VaultName <KeyVaultName> -InputFile <BackupFilePath>
@@ -128,11 +128,11 @@ The PowerShell command **az sql server key show** provides the thumbprint of t
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
+명령 참조는 [Azure CLI keyvault](/cli/azure/keyvault/key)를 참조 하세요.
 
 1. [Key Vault에 새 키](/cli/azure/keyvault/key#az-keyvault-key-create)를 만듭니다. 액세스 제어는 자격 증명 모음 수준에서 프로비전되므로 이 새 키는 손상 가능성이 있는 TDE 보호기와는 별도의 키 자격 증명 모음에 만들어야 합니다.
 
-2. Add the new key to the server and update it as the server’s new TDE protector.
+2. 서버에 새 키를 추가 하 고 서버의 새 TDE 보호기로 업데이트 합니다.
 
    ```powershell
    # add the key from Key Vault to the server  
@@ -142,7 +142,7 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
    az sql server tde-key set --server-key-type AzureKeyVault --kid <KeyVaultKeyId> --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
-3. Make sure the server and any replicas have updated to the new TDE protector.
+3. 서버 및 모든 복제본이 새 TDE 보호기로 업데이트 되었는지 확인 합니다.
 
    > [!NOTE]
    > 새 TDE 보호기가 서버 아래의 모든 데이터베이스와 보조 데이터베이스로 전파되는 데 몇 분 정도 걸릴 수 있습니다.
@@ -151,20 +151,20 @@ For command reference, see the [Azure CLI keyvault](/cli/azure/keyvault/key).
    az sql server tde-key show --resource-group <SQLDatabaseResourceGroupName> --server <LogicalServerName>
    ```
 
-4. Take a backup of the new key in Key Vault.
+4. Key Vault에서 새 키의 백업을 수행 합니다.
 
    ```powershell
    # --file parameter is optional; if removed, a file name is automatically generated.
    az keyvault key backup --file <DesiredBackupFilePath> --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-5. Delete the compromised key from Key Vault.
+5. Key Vault에서 손상 된 키를 삭제 합니다.
 
    ```powershell
    az keyvault key delete --name <KeyVaultKeyName> --vault-name <KeyVaultName>
    ```
 
-6. To restore a key to Key Vault in the future.
+6. 키를 복원 하 여 나중에 Key Vault 합니다.
 
    ```powershell
    az keyvault key restore --file <BackupFilePath> --vault-name <KeyVaultName>

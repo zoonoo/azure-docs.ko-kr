@@ -19,9 +19,9 @@ ms.locfileid: "74215823"
 
 Azure HDInsight에는 Apache Hive 쿼리를 실행할 수 있는 여러 클러스터 유형과 기술이 있습니다. HDInsight 클러스터를 만들 때 워크로드 요구 사항에 맞게 성능을 최적화할 수 있도록 적절한 클러스터 유형을 선택해야 합니다.
 
-For example, choose **Interactive Query** cluster type to optimize for ad hoc, interactive queries. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
+예를 들어 **대화형 쿼리** 클러스터 유형을 선택 하 여 임시 대화형 쿼리를 최적화 합니다. 일괄 처리 프로세스로 사용되는 Hive 쿼리를 최적화하려면 Apache **Hadoop** 클러스터 유형을 선택합니다. **Spark** 및 **HBase** 클러스터 유형도 Hive 쿼리를 실행할 수 있습니다. 다양한 HDInsight 클러스터 유형에서 Hive 쿼리를 실행하는 방법에 자세한 내용은 [Azure HDInsight의 Apache Hive 및 HiveQL이란?](hadoop/hdinsight-use-hive.md)을 참조하세요.
 
-HDInsight clusters of Hadoop cluster type aren't optimized for performance by default. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법을 설명합니다.
+Hadoop 클러스터 유형의 HDInsight 클러스터는 기본적으로 성능에 맞게 최적화 되지 않습니다. 이 문서에서는 쿼리에 적용할 수 있는 가장 일반적인 Hive 성능 최적화 방법을 설명합니다.
 
 ## <a name="scale-out-worker-nodes"></a>작업자 노드 확장
 
@@ -29,11 +29,11 @@ HDInsight 클러스터의 작업자 노드 수를 늘리면 작업에 더 많은
 
 * 클러스터를 만들 때 Azure Portal, Azure PowerShell 또는 명령줄 인터페이스를 사용하여 작업자 노드 수를 지정할 수 있습니다.  자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조하세요. 다음 스크린샷에는 Azure Portal의 작업자 노드 구성이 나와 있습니다.
   
-    ![Azure portal cluster size nodes](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
+    ![Azure Portal 클러스터 크기 노드](./media/hdinsight-hadoop-optimize-hive-query/azure-portal-cluster-configuration-pricing-hadoop.png "scaleout_1")
 
 * 클러스터를 만든 후에는 작업자 노드 수를 편집하여 클러스터를 다시 만들지 않고도 클러스터 규모를 확장할 수도 있습니다.
 
-    ![Azure portal scale cluster size](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
+    ![클러스터 크기 Azure Portal 크기 조정](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-scaleout-2.png "scaleout_2")
 
 HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 크기 조정](hdinsight-scaling-best-practices.md)을 참조하세요.
 
@@ -41,12 +41,12 @@ HDInsight 크기 조정에 대한 자세한 내용은 [HDInsight 클러스터 �
 
 [Apache Tez](https://tez.apache.org/)는 MapReduce 엔진을 대신하는 실행 엔진입니다. Linux 기반 HDInsight 클러스터는 Tez를 기본적으로 사용합니다.
 
-![HDInsight Apache Tez overview diagram](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
+![HDInsight Apache Tez 개요 다이어그램](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-tez-engine.png)
 
 다음의 이유로 Tez가 훨씬 빠릅니다.
 
-* **MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행**합니다. DAG를 사용하려면 각 매퍼 집합 다음에 하나의 리듀서 집합이 나와야 합니다. 이렇게 하면 여러 MapReduce 작업이 각 Hive 쿼리에 대해 분리될 수 있습니다. Tez doesn't have such constraint and can process complex DAG as one job thus minimizing job startup overhead.
-* **불필요한 쓰기를 방지**합니다. MapReduce 엔진의 동일한 Hive 쿼리를 처리하기 위해 여러 작업이 사용됩니다. 각 MapReduce 작업의 출력은 중간 데이터에 대한 HDFS에 기록됩니다. Since Tez minimizes number of jobs for each Hive query, it's able to avoid unnecessary writes.
+* **MapReduce 엔진에서 단일 작업으로 DAG(방향성 비순환 그래프)를 실행**합니다. DAG를 사용하려면 각 매퍼 집합 다음에 하나의 리듀서 집합이 나와야 합니다. 이렇게 하면 여러 MapReduce 작업이 각 Hive 쿼리에 대해 분리될 수 있습니다. Tez는 이러한 제약 조건이 없으며 작업 시작 오버 헤드를 최소화 하 여 복잡 한 DAG를 하나의 작업으로 처리할 수 있습니다.
+* **불필요한 쓰기를 방지**합니다. MapReduce 엔진의 동일한 Hive 쿼리를 처리하기 위해 여러 작업이 사용됩니다. 각 MapReduce 작업의 출력은 중간 데이터에 대한 HDFS에 기록됩니다. Tez는 각 Hive 쿼리에 대 한 작업 수를 최소화 하므로 불필요 한 쓰기를 방지할 수 있습니다.
 * **시작 지연을 최소화**합니다. Tez는 시작하는데 필요한 매퍼의 수를 줄여 시작 지연 시간을 최소화할 수 있으며 최적화 처리량을 개선하기도 합니다.
 * **컨테이너를 다시 사용**합니다. 가능할 때마다 Tez가 컨테이너를 다시 시작하여 컨테이너 시작으로 인한 대기 시간이 줄어듭니다.
 * **연속 최적화 기술**. 일반적으로 최적화는 컴파일 단계 중에 수행됩니다. 런타임 중 더 나은 최적화를 허용하는 입력에 대한 자세한 정보를 제공합니다. Tez는 계획을 런타임 단계로 추가로 최적화할 수 있는 연속 최적화 기법을 사용합니다.
@@ -65,7 +65,7 @@ I/O 작업은 Hive 쿼리 실행의 주요 성능 병목 상태입니다. 읽어
 
 Hive 분할은 원시 데이터를 새 디렉터리로 재구성하여 구현됩니다. 각 파티션은 자체 파일 디렉터리를 갖습니다. 분할은 사용자가 정의합니다. 다음 다이어그램에서는 Hive 테이블을 *년* 열로 분할하는 것을 보여 줍니다. 각 연도로 새 디렉터리가 생성됩니다.
 
-![HDInsight Apache Hive partitioning](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
+![HDInsight Apache Hive 분할](./media/hdinsight-hadoop-optimize-hive-query/hdinsight-partitioning.png)
 
 일부 분할 고려 사항:
 
@@ -101,7 +101,7 @@ STORED AS TEXTFILE;
    LOCATION 'wasb://sampledata@ignitedemo.blob.core.windows.net/partitions/5_23_1996/'
    ```
 
-* **동적 분할** 은 하이브가 파티션을 자동으로 만들수 있음을 의미합니다. Since you've already created the partitioning table from the staging table, all you need to do is insert data to the partitioned table:
+* **동적 분할** 은 하이브가 파티션을 자동으로 만들수 있음을 의미합니다. 준비 테이블에서 분할 테이블을 이미 만들었기 때문에 분할 된 테이블에 데이터를 삽입 하기만 하면 됩니다.
   
    ```hive
    SET hive.exec.dynamic.partition = true;
@@ -122,7 +122,7 @@ STORED AS TEXTFILE;
 
 ## <a name="use-the-orcfile-format"></a>ORCFile 형식 사용
 
-Hive는 다양한 파일 형식을 지원합니다. 다음은 그 예입니다.
+Hive는 다양한 파일 형식을 지원합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 * **텍스트**: 기본 파일 형식으로 대부분의 시나리오에서 작동합니다.
 * **Avro**: 상호 운용성 시나리오에 대해 제대로 작동합니다.
@@ -148,7 +148,7 @@ PARTITIONED BY(L_SHIPDATE STRING)
 STORED AS ORC;
 ```
 
-다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 다음은 그 예입니다.
+다음으로 스테이징 테이블에서 ORC 테이블로 데이터를 삽입합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```sql
 INSERT INTO TABLE lineitem_orc
@@ -198,5 +198,5 @@ set hive.vectorized.execution.enabled = true;
 이 기사에서는 몇가지 일반적인 하이브 쿼리 최적화 방법을 배웠습니다. 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [Analyze flight delay data by using Interactive Query in HDInsight](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
+* [HDInsight에서 대화형 쿼리를 사용 하 여 비행 지연 데이터 분석](/azure/hdinsight/interactive-query/interactive-query-tutorial-analyze-flight-data)
 * [HDInsight에서 Apache Hive를 사용하여 Twitter 데이터 분석](hdinsight-analyze-twitter-data-linux.md)

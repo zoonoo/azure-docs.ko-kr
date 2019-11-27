@@ -20,11 +20,11 @@ ms.locfileid: "74421335"
 ---
 # <a name="copy-a-transactionally-consistent-copy-of-an-azure-sql-database"></a>Azure SQL 데이터베이스에 대한 트랜잭션 일치 복사본 복사
 
-Azure SQL Database provides several methods for creating a transactionally consistent copy of an existing Azure SQL database ([single database](sql-database-single-database.md)) on either the same server or a different server. Azure Portal, PowerShell 또는 T-SQL을 사용하여 SQL Database를 복사할 수 있습니다.
+Azure SQL Database는 동일한 서버나 다른 서버에 기존 Azure SQL database ([단일 데이터베이스](sql-database-single-database.md))의 트랜잭션 측면에서 일관 된 복사본을 만드는 여러 가지 방법을 제공 합니다. Azure Portal, PowerShell 또는 T-SQL을 사용하여 SQL Database를 복사할 수 있습니다.
 
 ## <a name="overview"></a>개요
 
-데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅샷입니다. You can select the same server or a different server. Also you can choose to keep its service tier and compute size, or use a different compute size within the same service tier (edition). 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다. The copy is created using the geo-replication technology and once seeding is completed the geo-replication link is automatically terminated. All the requirements for using geo-replication apply to the database copy operation. See [Active geo-replication overview](sql-database-active-geo-replication.md) for details.
+데이터베이스 복사본은 복사 요청 당시의 원본 데이터베이스의 스냅샷입니다. 동일한 서버 또는 다른 서버를 선택할 수 있습니다. 또한 서비스 계층과 계산 크기를 유지 하거나 동일한 서비스 계층 (버전) 내에서 다른 계산 크기를 사용 하도록 선택할 수 있습니다. 복사가 완료되면 완전히 작동하는 독립 데이터베이스가 됩니다. 이 시점에서 모든 버전으로 업그레이드하거나 다운그레이드할 수 있습니다. 로그인, 사용자 및 사용 권한은 독립적으로 관리됩니다. 복사본은 지역에서 복제 기술을 사용 하 여 만들어지며 시드가 완료 되 면 지역에서 복제 링크가 자동으로 종료 됩니다. 지역에서 복제를 사용 하기 위한 모든 요구 사항은 데이터베이스 복사 작업에 적용 됩니다. 자세한 내용은 [활성 지역 복제 개요](sql-database-active-geo-replication.md) 를 참조 하세요.
 
 > [!NOTE]
 > 데이터베이스 복사본을 만들 때 [자동화된 데이터베이스 백업](sql-database-automated-backups.md)이 사용됩니다.
@@ -47,21 +47,21 @@ Azure Portal을 사용하여 데이터베이스를 복사하려면 데이터베�
 
 ## <a name="copy-a-database-by-using-powershell"></a>PowerShell을 사용하여 데이터베이스 복사
 
-To copy a database, use the following examples.
+데이터베이스를 복사 하려면 다음 예제를 사용 합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-For PowerShell, use the [New-AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet.
+PowerShell의 경우 [AzSqlDatabaseCopy](/powershell/module/az.sql/new-azsqldatabasecopy) cmdlet을 사용 합니다.
 
 > [!IMPORTANT]
-> The PowerShell Azure Resource Manager (RM) module is still supported by Azure SQL Database, but all future development is for the Az.Sql module. The AzureRM module will continue to receive bug fixes until at least December 2020.  The arguments for the commands in the Az module and in the AzureRm modules are substantially identical. For more about their compatibility, see [Introducing the new Azure PowerShell Az module](/powershell/azure/new-azureps-module-az).
+> Azure SQL Database에서 RM (PowerShell Azure Resource Manager) 모듈을 계속 사용할 수 있지만 향후의 모든 개발은 Az. Sql 모듈에 대 한 것입니다. AzureRM 모듈은 12 월 2020 일까 때까지 버그 수정을 계속 받습니다.  Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다. 호환성에 대 한 자세한 내용은 [새 Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
 ```powershell
 New-AzSqlDatabaseCopy -ResourceGroupName "<resourceGroup>" -ServerName $sourceserver -DatabaseName "<databaseName>" `
     -CopyResourceGroupName "myResourceGroup" -CopyServerName $targetserver -CopyDatabaseName "CopyOfMySampleDatabase"
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [Remove-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
+데이터베이스 복사는 비동기 작업 이지만 요청이 수락 된 후 즉시 대상 데이터베이스가 생성 됩니다. 진행 중인 동안 복사 작업을 취소 해야 하는 경우 [AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet을 사용 하 여 대상 데이터베이스를 삭제 합니다.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -70,37 +70,37 @@ az sql db copy --dest-name "CopyOfMySampleDatabase" --dest-resource-group "myRes
     --name "<databaseName>" --resource-group "<resourceGroup>" --server $sourceserver
 ```
 
-The database copy is a asynchronous operation but the target database is created immediately after the request is accepted. If you need to cancel the copy operation while still in progress, drop the the target database using the [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) command.
+데이터베이스 복사는 비동기 작업 이지만 요청이 수락 된 후 즉시 대상 데이터베이스가 생성 됩니다. 진행 중인 동안 복사 작업을 취소 해야 하는 경우 [az sql db delete](/cli/azure/sql/db#az-sql-db-delete) 명령을 사용 하 여 대상 데이터베이스를 삭제 합니다.
 
 * * *
 
 전체 샘플 스크립트는 [새 서버에 데이터베이스 복사](scripts/sql-database-copy-database-to-new-server-powershell.md)를 참조하세요.
 
-## <a name="rbac-roles-to-manage-database-copy"></a>RBAC roles to manage database copy
+## <a name="rbac-roles-to-manage-database-copy"></a>데이터베이스 복사본을 관리 하는 RBAC 역할
 
-To create a database copy, you will need to be in the following roles
-
-- 구독 소유자 또는
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
-
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
-
-To cancel a database copy, you will need to be in the following roles
+데이터베이스 복사본을 만들려면 다음 역할을 수행 해야 합니다.
 
 - 구독 소유자 또는
-- SQL Server Contributor role or
-- Custom role on the source and target databases with following permission:
+- SQL Server 참가자 역할 또는
+- 다음 권한이 있는 원본 및 대상 데이터베이스에 대 한 사용자 지정 역할:
 
-   Microsoft.Sql/servers/databases/read  Microsoft.Sql/servers/databases/write
+   Microsoft .Sql/servers/databases/Microsoft .Sql/servers/databases/write 읽기
 
-To manage database copy using Azure portal, you will also need the following permissions:
+데이터베이스 복사본을 취소 하려면 다음 역할을 수행 해야 합니다.
 
-   Microsoft.Resources/subscriptions/resources/read Microsoft.Resources/subscriptions/resources/write Microsoft.Resources/deployments/read Microsoft.Resources/deployments/write Microsoft.Resources/deployments/operationstatuses/read
+- 구독 소유자 또는
+- SQL Server 참가자 역할 또는
+- 다음 권한이 있는 원본 및 대상 데이터베이스에 대 한 사용자 지정 역할:
 
-If you want to see the operations under deployments in the resource group on the portal, operations across multiple resource providers including SQL operations, you will need these additional RBAC roles:
+   Microsoft .Sql/servers/databases/Microsoft .Sql/servers/databases/write 읽기
 
-   Microsoft.Resources/subscriptions/resourcegroups/deployments/operations/read Microsoft.Resources/subscriptions/resourcegroups/deployments/operationstatuses/read
+Azure Portal를 사용 하 여 데이터베이스 복사를 관리 하려면 다음 사용 권한도 필요 합니다.
+
+   Microsoft .Resources/subscription/resources/microsoft .resources/subscription/resources를 읽고, microsoft .resources/배포를 읽고, Microsoft .resources/배포를 읽고
+
+포털에서 리소스 그룹의 배포 아래에 있는 작업, SQL 작업을 비롯 한 여러 리소스 공급자의 작업을 확인 하려면 다음과 같은 추가 RBAC 역할이 필요 합니다.
+
+   Microsoft .Resources/subscription/resourcegroups/배포/작업/읽기 Microsoft .Resources/subscription/resourcegroups/배포/operationstatuses/읽기
 
 ## <a name="copy-a-database-by-using-transact-sql"></a>Transact-SQL을 사용하여 데이터베이스 복사
 
@@ -131,14 +131,14 @@ CREATE DATABASE Database2 AS COPY OF server1.Database1;
 ```
 
 > [!IMPORTANT]
-> Both servers' firewalls must be configured to allow inbound connection from the IP of the client issuing the T-SQL COPY command.
+> T-sql COPY 명령을 실행 하는 클라이언트의 IP에서 인바운드 연결을 허용 하도록 두 서버의 방화벽을 모두 구성 해야 합니다.
 
-### <a name="copy-a-sql-database-to-a-different-subscription"></a>Copy a SQL database to a different subscription
+### <a name="copy-a-sql-database-to-a-different-subscription"></a>다른 구독에 SQL 데이터베이스 복사
 
-You can use the steps described in the previous section to copy your database to a SQL Database server in a different subscription. Make sure you use a login that has the same name and password as the database owner of the source database and it is a member of the dbmanager role or is the server-level principal login. 
+이전 섹션에 설명 된 단계를 사용 하 여 데이터베이스를 다른 구독의 SQL Database 서버로 복사할 수 있습니다. 원본 데이터베이스의 데이터베이스 소유자와 동일한 이름 및 암호를 사용 하는 로그인을 사용 하 고 dbmanager 역할의 구성원 이거나 서버 수준 보안 주체 로그인을 사용 해야 합니다. 
 
 > [!NOTE]
-> The [Azure portal](https://portal.azure.com) does not support copy to a different subscription because Portal calls the ARM API and it uses the subscription certificates to access both servers involved in geo-replication.  
+> 포털에서 ARM API를 호출 하 고 구독 인증서를 사용 하 여 지역에서 복제에 포함 된 두 서버에 액세스 하기 때문에 [Azure Portal](https://portal.azure.com) 은 다른 구독으로의 복사를 지원 하지 않습니다.  
 
 ### <a name="monitor-the-progress-of-the-copying-operation"></a>복사 작업 진행률 모니터링
 
@@ -151,7 +151,7 @@ sys.databases 및 sys.dm_database_copies 뷰 쿼리를 통해 복사 프로세�
 > 진행 중인 복사를 취소하려면 새 데이터베이스에서 [DROP DATABASE](https://msdn.microsoft.com/library/ms178613.aspx) 문을 실행합니다. 또는 원본 데이터베이스에서 DROP DATABASE 문을 실행해도 복사 프로세스가 취소됩니다.
 
 > [!IMPORTANT]
-> If you need to create a copy with a substantially smaller SLO than the source, the target database may not have sufficient resources to complete the seeding process and it can cause the copy operaion to fail. In this scenario use a geo-restore request to create a copy in a different server and/or a different region. See [Recover an Azure SQL database using database backups](sql-database-recovery-using-backups.md#geo-restore) for more informaion.
+> 원본 보다 더 작은 SLO로 복사본을 만들어야 하는 경우 대상 데이터베이스에 시드 프로세스를 완료 하는 데 충분 한 리소스가 없을 수 있으며,이로 인해 copy operaion가 실패할 수 있습니다. 이 시나리오에서는 지역 복원 요청을 사용 하 여 다른 서버 및/또는 다른 지역에 복사본을 만듭니다. 자세한 informaion [데이터베이스 백업을 사용 하 여 AZURE SQL Database 복구](sql-database-recovery-using-backups.md#geo-restore) 를 참조 하세요.
 
 ## <a name="resolve-logins"></a>로그인 확인
 
@@ -165,7 +165,7 @@ sys.databases 및 sys.dm_database_copies 뷰 쿼리를 통해 복사 프로세�
 
 Azure SQL Database에서 데이터베이스를 복사하는 동안 다음 오류가 발생할 수 있습니다. 자세한 내용은 [Azure SQL Database 복사](sql-database-copy.md)를 참조하세요.
 
-| 오류 코드 | 심각도 | 설명 |
+| 오류 코드 | severity | 설명 |
 | ---:| ---:|:--- |
 | 40635 |16 |IP 주소 '%.&#x2a;ls'을(를) 사용하는 클라이언트가 일시적으로 비활성화되었습니다. |
 | 40637 |16 |데이터베이스 복사본 만들기를 현재 사용할 수 없습니다. |

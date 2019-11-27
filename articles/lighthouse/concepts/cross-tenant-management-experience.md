@@ -64,7 +64,7 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 
 - 모든 구독에서 경고를 볼 수 있는 기능을 사용하여 위임된 구독에 대한 경고를 봅니다.
 - 위임된 구독의 활동 로그 세부 정보를 봅니다.
-- Log analytics: Query data from remote customer workspaces in multiple tenants
+- Log analytics: 여러 테 넌 트의 원격 고객 작업 영역에서 데이터 쿼리
 - 웹 후크를 통해 서비스 공급자 테넌트에서 Azure Automation Runbook 또는 Azure Functions와 같은 자동화를 트리거하는 고객 테넌트에서 경고를 만듭니다.
 
 [Azure Policy](https://docs.microsoft.com/azure/governance/policy/):
@@ -135,4 +135,4 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager 템플릿을 사용](../how-to/onboard-customer.md)하거나 [개인 또는 공용 관리형 서비스 제품을 Azure Marketplace에 게시](../how-to/publish-managed-services-offers.md)하여 Azure 위임 리소스 관리에 고객을 온보딩합니다.
-- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](../how-to/view-manage-customers.md)합니다.
+- Azure Portal의 [내 고객](../how-to/view-manage-customers.md)으로 이동하여 **고객을 보고 관리**합니다.

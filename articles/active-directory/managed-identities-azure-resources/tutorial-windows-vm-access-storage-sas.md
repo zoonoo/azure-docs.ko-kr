@@ -1,5 +1,5 @@
 ---
-title: Tutorial`:` Use managed identity to access Azure Storage using SAS credential - Azure AD
+title: 자습서`:` 관리 되는 id를 사용 하 여 SAS 자격 증명을 사용 하 여 Azure Storage에 액세스-Azure AD
 description: Windows VM 시스템 할당 관리 ID를 사용하여 스토리지 계정 액세스 키 대신 SAS 자격 증명으로 Azure Storage에 액세스하는 방법을 보여주는 자습서입니다.
 services: active-directory
 documentationcenter: ''
@@ -35,7 +35,7 @@ ms.locfileid: "74232154"
 > * Resource Manager의 스토리지 계정 SAS에 대한 VM 액세스 권한 부여 
 > * VM ID를 사용하여 액세스 토큰을 가져오고 리소스 관리자에서 SAS를 검색하는 데 사용 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
@@ -159,7 +159,7 @@ sv=2015-04-05&sr=c&spr=https&se=2017-09-23T00%3A00%3A00Z&sp=rcw&sig=JVhIWG48nmxq
 echo "This is a test text file." > test.txt
 ```
 
-먼저 `Install-Module Azure.Storage`를 사용하여 Azure Storage cmdlet을 설치해야 합니다. `Set-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
+가장 먼저 `Install-Module Azure.Storage`을(를) 사용하여 Azure Storage cmdlet을 설치합니다. `Set-AzStorageBlobContent` PowerShell cmdlet을 사용하여 방금 만든 Blob을 업로드합니다.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <STORAGE-ACCOUNT-NAME> -SasToken $sasCred

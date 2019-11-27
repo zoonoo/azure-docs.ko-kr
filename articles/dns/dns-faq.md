@@ -1,6 +1,6 @@
 ---
-title: FAQ - Azure DNS
-description: In this article, learn about frequently asked questions about Azure DNS
+title: FAQ-Azure DNS
+description: 이 문서에서는 Azure DNS에 대 한 질문과 대답을 알아봅니다.
 services: dns
 author: asudbring
 ms.service: dns
@@ -42,13 +42,13 @@ Azure는 유효한 DNS 요청에 대해 100%의 시간 동안 하나 이상의 A
 
 도메인은 Domain Name System의 고유 이름입니다. 예를 들어 contoso.com이 있습니다.
 
-DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. The records might include mail.contoso.com for a mail server and www\.contoso.com for a website. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
+DNS 영역은 특정 도메인에 대한 DNS 레코드를 호스트하는 데 사용됩니다. 예를 들어 도메인 contoso.com에는 여러 DNS 레코드가 포함될 수 있습니다. 이 레코드에는 메일 서버에 대 한 mail.contoso.com 및 웹 사이트의 www\.contoso.com 포함 될 수 있습니다. 이러한 레코드는 DNS 영역 contoso.com에서 호스트됩니다.
 
 도메인 이름은 *단지 이름일 뿐입니다*. DNS 영역은 도메인 이름의 DNS 레코드를 포함하는 데이터 리소스입니다. Azure DNS를 사용하여 DNS 영역을 호스트하고 Azure에서 도메인에 대한 DNS 레코드를 관리할 수 있습니다. 또한 인터넷의 DNS 쿼리에 응답하기 위해 DNS 이름 서버를 제공합니다.
 
 ### <a name="do-i-need-to-buy-a-dns-domain-name-to-use-azure-dns"></a>Azure DNS를 사용하기 위해 DNS 도메인 이름을 구입해야 하나요? 
 
-반드시 그렇지는 않습니다.
+그럴 필요는 없습니다.
 
 Azure DNS에서 DNS 영역을 호스트하기 위해 도메인을 구입할 필요는 없습니다. 도메인 이름을 소유하지 않고도 언제든지 DNS 영역을 만들 수 있습니다. 이 영역에 대한 DNS 쿼리는 해당 영역에 할당된 Azure DNS 이름 서버로 전송되는 경우에만 확인됩니다.
 
@@ -68,25 +68,25 @@ Azure DNS는 지정된 DNS 레코드에 대한 각 DNS 쿼리가 항상 동일�
 
 ### <a name="does-azure-dns-support-domain-name-registration"></a>Azure DNS는 도메인 이름 등록을 지원하나요?
 
-아닙니다. 현재 Azure DNS는 도메인 이름을 구입하는 옵션을 지원하지 않습니다. 도메인을 구입하려면 타사 도메인 이름 등록자를 사용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+아니요. 현재 Azure DNS는 도메인 이름을 구입하는 옵션을 지원하지 않습니다. 도메인을 구입하려면 타사 도메인 이름 등록자를 사용해야 합니다. 등록 기관은 일반적으로 소액의 연간 요금을 부과합니다. 그런 다음, DNS 레코드의 관리를 위해 Azure DNS에 해당 도메인을 호스트할 수 있습니다. 자세한 내용은 [Azure DNS에 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 도메인 이름을 구입하는 기능은 Azure 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/4996615-azure-should-be-its-own-domain-registrar)합니다.
 
 ### <a name="does-azure-dns-support-dnssec"></a>Azure DNS에서는 DNSSEC를 지원하나요?
 
-아닙니다. 현재 Azure DNS는 DNSSEC(Domain Name System 보안 확장)를 지원하지 않습니다.
+아니요. 현재 Azure DNS는 DNSSEC(Domain Name System 보안 확장)를 지원하지 않습니다.
 
 DNSSEC 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/13284393-azure-dns-needs-dnssec-support)합니다.
 
 ### <a name="does-azure-dns-support-zone-transfers-axfrixfr"></a>Azure DNS에서는 영역 전송(AXFR/IXFR)을 지원하나요?
 
-아닙니다. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
+아니요. Azure DNS는 현재 영역 전송을 지원하지 않습니다. DNS 영역은 [Azure CLI를 사용하여 Azure DNS로 가져올 수 있습니다](dns-import-export.md). [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 통해 DNS 레코드를 관리할 수 있습니다.
 
 영역 전송 기능은 Azure DNS 백로그에서 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/12925503-extend-azure-dns-to-support-zone-transfers-so-it-c)합니다.
 
 ### <a name="does-azure-dns-support-url-redirects"></a>Azure DNS에서는 URL 리디렉션을 지원하나요?
 
-아닙니다. URL 리디렉션 서비스는 DNS 서비스가 아닙니다. DNS 수준이 아닌 HTTP 수준에서 작동합니다. URL을 번들로 묶는 일부 DNS 공급자는 서비스를 전체 제품의 일부로 리디렉션합니다. 이 서비스는 현재, Azure DNS에서 지원되지 않습니다.
+아니요. URL 리디렉션 서비스는 DNS 서비스가 아닙니다. DNS 수준이 아닌 HTTP 수준에서 작동합니다. URL을 번들로 묶는 일부 DNS 공급자는 서비스를 전체 제품의 일부로 리디렉션합니다. 이 서비스는 현재, Azure DNS에서 지원되지 않습니다.
 
 URL 리디렉션 기능은 Azure DNS 백로그에 추적됩니다. 피드백 사이트를 사용하여 [이 기능에 대한 지원을 등록](https://feedback.azure.com/forums/217313-networking/suggestions/10109736-provide-a-301-permanent-redirect-service-for-ape)합니다.
 
@@ -110,7 +110,7 @@ TXT 레코드에 대해 [RFC 1035](https://www.ietf.org/rfc/rfc1035.txt) 영역 
 
 Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지원됩니다.
  
-- 문자열(UTF-8 형식) 또는 
+- 변수를 잠그기 위한 
 - AAAA
 - CNAME 
 
@@ -118,7 +118,7 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 - **DNS A/AAAA 레코드 집합의 공용 IP 리소스를 가리킵니다**. A/AAAA 레코드 집합을 만들고 공용 IP 리소스를 가리키는 별칭 레코드 집합으로 설정할 수 있습니다.
 - **DNS A/AAAA/CNAME 레코드 집합의 Traffic Manager 프로필을 가리킵니다**. DNS CNAME 레코드 집합에서 Traffic Manager 프로필의 CNAME을 가리킬 수 있습니다. 예로 contoso.trafficmanager.net이 있습니다. 이제 DNS 영역의 A 또는 AAAA 레코드 집합에서 외부 엔드포인트가 있는 Traffic Manager 프로필을 가리킬 수도 있습니다.
-- **Point to an Azure Content Delivery Network (CDN) endpoint**. This is useful when you create static websites using Azure storage and Azure CDN.
+- **Azure Content Delivery Network (CDN) 끝점을 가리킵니다**. 이는 Azure storage 및 Azure CDN를 사용 하 여 정적 웹 사이트를 만드는 경우에 유용 합니다.
 - **동일한 영역 내의 다른 DNS 레코드 집합을 가리킵니다**. 별칭 레코드는 동일한 유형의 다른 레코드 집합을 참조할 수 있습니다. 예를 들어 DNS CNAME 레코드 집합을 동일한 유형의 다른 CNAME 레코드 집합에 대한 별칭으로 설정할 수 있습니다. 이 정렬은 일부 레코드 집합은 별칭으로, 일부는 비별칭으로 지정하려는 경우에 유용합니다.
 
 ### <a name="can-i-create-and-update-alias-records-from-the-azure-portal"></a>Azure Portal에서 별칭 레코드를 만들고 업데이트할 수 있나요?
@@ -143,11 +143,11 @@ Azure DNS 영역에서 다음 레코드 유형의 별칭 레코드 집합이 지
 
 ## <a name="use-azure-dns"></a>Azure DNS 사용
 
-### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Can I co-host a domain by using Azure DNS and another DNS provider?
+### <a name="can-i-co-host-a-domain-by-using-azure-dns-and-another-dns-provider"></a>Azure DNS 및 다른 DNS 공급자를 사용 하 여 도메인을 공동 호스트할 수 있나요?
 
 예. Azure DNS에서는 다른 DNS 서비스와의 도메인 공동 호스팅을 지원합니다.
 
-To set up co-hosting, modify the NS records for the domain to point to the name servers of both providers. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
+공동 호스팅을 설정 하려면 두 공급자의 이름 서버를 가리키도록 도메인의 NS 레코드를 수정 합니다. NS(이름 서버) 레코드는 도메인에 대한 DNS 쿼리를 수신하는 공급자를 제어합니다. Azure DNS, 다른 공급자 및 부모 영역에서 이러한 NS 레코드를 수정할 수 있습니다. 부모 영역은 일반적으로 도메인 이름 등록자를 통해 구성됩니다. DNS 위임에 대한 자세한 내용은 [DNS 도메인 위임](dns-domain-delegation.md)을 참조하세요.
 
 또한 도메인에 대한 DNS 레코드가 두 DNS 공급자 간에 동기화되는지도 확인해야 합니다. Azure DNS는 현재 DNS 영역 전송을 지원하지 않습니다. DNS 레코드는 [Azure DNS 관리 포털](dns-operations-recordsets-portal.md), [REST API](https://docs.microsoft.com/powershell/module/az.dns), [SDK](dns-sdk.md), [PowerShell cmdlet](dns-operations-recordsets.md) 또는 [CLI 도구](dns-operations-recordsets-cli.md)를 사용해서 DNS 동기화해야 합니다.
 

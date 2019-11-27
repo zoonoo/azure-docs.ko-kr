@@ -21,7 +21,7 @@ Azure Notification Hubs는 사용할 PNS(플랫폼 알림 서비스)에 대해 �
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 > [!IMPORTANT]
-> Google has [deprecated Google Cloud Messaging (GCM) in favor of Firebase Cloud Messaging (FCM)](https://developers.google.com/cloud-messaging/faq). This output binding doesn't support FCM. To send notifications using FCM, use the [Firebase API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) directly in your function or use [template notifications](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
+> Google은 [FCM (Firebase Cloud Messaging)를 위해 GCM (Google Cloud Messaging)을 사용 하지 않습니다](https://developers.google.com/cloud-messaging/faq). 이 출력 바인딩은 FCM을 지원 하지 않습니다. FCM를 사용 하 여 알림을 보내려면 함수에서 직접 [FIREBASE API](https://firebase.google.com/docs/cloud-messaging/server#choosing-a-server-option) 를 사용 하거나 [템플릿 알림을](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)사용 합니다.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -48,7 +48,7 @@ Notification Hubs는 [Microsoft.Azure.WebJobs.Extensions.NotificationHubs](https
 
 ### <a name="c-script-template-example---out-parameter"></a>C# 스크립트 템플릿 예제 - out 매개 변수
 
-이 예제에서는 템플릿에 `message` 자리 표시자가 포함된 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 템플릿에 [ 자리 표시자가 포함된 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```cs
 using System;
@@ -96,7 +96,7 @@ private static IDictionary<string, string> GetTemplateProperties(string message)
 
 ### <a name="c-script-template-example---json"></a>C# 스크립트 템플릿 예제 - JSON
 
-이 예제에서는 유효한 JSON 문자열을 사용하여 템플릿에 `message` 자리 표시자가 포함된 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 유효한 JSON 문자열을 사용하여 템플릿에 [ 자리 표시자가 포함된 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```cs
 using System;
@@ -135,7 +135,7 @@ private static TemplateNotification GetTemplateNotification(string message)
 
 ### <a name="f-template-example"></a>F# 템플릿 예제
 
-이 예제에서는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 [ 및 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 포함하는 `location`템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```fsharp
 let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
@@ -144,7 +144,7 @@ let Run(myTimer: TimerInfo, notification: byref<IDictionary<string, string>>) =
 
 ### <a name="javascript-template-example"></a>JavaScript 템플릿 예제
 
-이 예제에서는 `location` 및 `message`을 포함하는 [템플릿 등록](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)에 대한 알림을 보냅니다.
+이 예제에서는 [ 및 ](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md)을 포함하는 `location`템플릿 등록`message`에 대한 알림을 보냅니다.
 
 ```javascript
 module.exports = function (context, myTimer) {
@@ -249,8 +249,8 @@ public static async Task Run(string myQueueItem, IAsyncCollector<Notification> n
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** |n/a| `notificationHub`로 설정해야 합니다. |
-|**direction** |n/a| `out`로 설정해야 합니다. | 
+|**type** |n/a| `notificationHub`으로 설정해야 합니다. |
+|**direction** |n/a| `out`으로 설정해야 합니다. | 
 |**name** |n/a| 알림 허브 메시지에 대한 함수 코드에 사용되는 변수 이름입니다. |
 |**tagExpression** |**TagExpression** | 태그 식을 사용하면 태그 식과 일치하는 알림을 수신하도록 등록된 일련의 디바이스에 배달하도록 지정할 수 있습니다.  자세한 내용은 [라우팅 및 태그 식](../notification-hubs/notification-hubs-tags-segment-push-message.md)을 참조하세요. |
 |**hubName** | **HubName** | Azure Portal에서 알림 허브 리소스의 이름입니다. |

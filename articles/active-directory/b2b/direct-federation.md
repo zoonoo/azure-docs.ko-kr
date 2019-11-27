@@ -161,7 +161,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 ### <a name="to-configure-direct-federation-in-azure-ad-using-powershell"></a>PowerShell을 사용 하 여 Azure AD에서 직접 페더레이션을 구성 하려면
 
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)). 자세한 단계가 필요한 경우 게스트 사용자를 추가 하는 빠른 시작에는 [최신 AzureADPreview 모듈 설치](b2b-quickstart-invite-powershell.md#install-the-latest-azureadpreview-module)섹션이 포함 되어 있습니다. 
-2. 다음 명령을 실행합니다. 
+2. 다음 명령 실행: 
    ```powershell
    Connect-AzureAD
    ```
@@ -204,7 +204,7 @@ IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
 PowerShell을 사용 하 여 id 공급자와의 직접 페더레이션을 제거 하려면 다음을 수행 합니다.
 1. 그래프 모듈에 대한 Azure AD PowerShell의 최신 버전을 설치합니다([AzureADPreview](https://www.powershellgallery.com/packages/AzureADPreview)).
-2. 다음 명령을 실행합니다. 
+2. 다음 명령 실행: 
    ```powershell
    Connect-AzureAD
    ```

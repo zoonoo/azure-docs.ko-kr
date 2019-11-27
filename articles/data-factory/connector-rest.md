@@ -309,7 +309,7 @@ REST의 데이터를 복사하려는 경우 다음과 같은 속성이 지원됩
 
 페이지 매김 규칙의 **지원되는 키**는 다음과 같습니다.
 
-| 키 | 설명 |
+| Key | 설명 |
 |:--- |:--- |
 | AbsoluteUrl | 다음 요청을 실행할 URL을 나타냅니다. **절대 url 또는 상대 url**일 수 있습니다. |
 | QueryParameters.*request_query_parameter* OR QueryParameters['request_query_parameter'] | "request_query_parameter"는 다음 HTTP 요청 URL에 있는 하나의 쿼리 매개 변수 이름을 참조하는 사용자 정의 항목입니다. |

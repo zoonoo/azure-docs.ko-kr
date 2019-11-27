@@ -1,5 +1,5 @@
 ---
-title: Customize self-service password reset - Azure Active Directory
+title: 셀프 서비스 암호 재설정 사용자 지정-Azure Active Directory
 description: Azure AD 셀프 서비스 암호 재설정의 사용자 지정 옵션
 services: active-directory
 ms.service: active-directory
@@ -24,22 +24,22 @@ Azure Active Directory(Azure AD)에서 셀프 서비스 암호 재설정(SSPR)�
 
 ## <a name="customize-the-contact-your-administrator-link"></a>“관리자에게 문의” 링크 사용자 지정
 
-Self-service password reset users have a "Contact your administrator" link available to them in the password reset portal. If a user selects this link, it will do one of two things:
+셀프 서비스 암호 재설정 사용자는 암호 재설정 포털에서 "관리자에 게 문의" 링크를 사용할 수 있습니다. 사용자가이 링크를 선택 하면 다음 두 가지 중 하나를 수행 합니다.
 
-* If left in the default state:
-   * Email is sent to your administrators and asks them to provide assistance in changing the user's password. See the [sample email](#sample-email) below.
-* If customized:
-   * Sends your user to a webpage or email address specified by the administrator for assistance.
+* 기본 상태로 유지 되는 경우:
+   * 전자 메일이 관리자에 게 전송 되 고 사용자 암호 변경에 대 한 지원을 제공 하도록 요청 합니다. 아래의 [샘플 전자 메일](#sample-email) 을 참조 하세요.
+* 사용자 지정 된 경우:
+   * 사용자를 관리자가 지정한 웹 페이지 또는 전자 메일 주소로 보내 도움을 요청 합니다.
 
 > [!TIP]
-> If you customize this, we recommend setting this to something users are already familiar with for support
+> 이를 사용자 지정 하는 경우 사용자가 지원 하기 위해 이미 익숙한 항목으로 설정 하는 것이 좋습니다.
 
 > [!WARNING]
-> If you customize this setting with an email address and account that needs a password reset the user may be unable to ask for assistance.
+> 암호를 재설정 해야 하는 전자 메일 주소 및 계정을 사용 하 여이 설정을 사용자 지정 하는 경우 사용자가 도움을 요청 하지 못할 수 있습니다.
 
 ### <a name="sample-email"></a>샘플 메일
 
-![Sample request to reset email sent to Administrator][Contact]
+![관리자에 게 보낸 전자 메일 재설정 요청 샘플][Contact]
 
 문의 메일은 다음과 같은 순서로 받는 사람에게 전송됩니다.
 
@@ -76,8 +76,8 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 
 * 사용자가 사용자 이름을 입력한 뒤
 * 사용자가 다음과 같은 방식으로 사용자 지정된 URL에 액세스하는 경우
-   * By passing the `whr` parameter to the password reset page, like `https://login.microsoftonline.com/?whr=contoso.com`
-   * By passing the `username` parameter to the password reset page, like `https://login.microsoftonline.com/?username=admin@contoso.com`
+   * `whr` 매개 변수를 암호 재설정 페이지에 전달 (예: `https://login.microsoftonline.com/?whr=contoso.com`
+   * `username` 매개 변수를 암호 재설정 페이지에 전달 (예: `https://login.microsoftonline.com/?username=admin@contoso.com`
 
 회사 브랜딩을 구성하는 방법에 대한 자세한 내용은 문서 [Azure AD에서 로그인 페이지에 회사 브랜딩 추가](../fundamentals/customize-branding.md)에서 찾습니다.
 
@@ -100,7 +100,7 @@ Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwor
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
-[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "Contact your administrator for help with resetting your password email example"
+[Contact]: ./media/concept-sspr-customization/sspr-contact-admin.png "암호 전자 메일을 다시 설정 하는 방법에 대 한 도움말은 관리자에 게 문의 하세요."

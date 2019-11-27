@@ -12,7 +12,7 @@ ms.locfileid: "74463830"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>고객과 위임된 리소스 보기 및 관리
 
-[Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자는 [Azure Portal](https://portal.azure.com)의 **내 고객** 페이지를 사용하여 위임된 고객 리소스 및 구독을 볼 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
+[Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하는 서비스 공급자는 **Azure Portal**의 [내 고객](https://portal.azure.com) 페이지를 사용하여 위임된 고객 리소스 및 구독을 볼 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
 
 Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비스**를 선택한 다음, **내 고객**을 검색하여 선택합니다. Azure Portal 맨 위에 있는 검색 상자에 "내 고객"을 입력하여 찾을 수도 있습니다.
 
@@ -63,4 +63,4 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal에서 **서비스 공급자**로 이동하여 고객이 [서비스 공급자를 보고 관리](view-manage-service-providers.md)하는 방법을 알아봅니다.
+- Azure Portal에서 [서비스 공급자](view-manage-service-providers.md)로 이동하여 고객이 **서비스 공급자를 보고 관리**하는 방법을 알아봅니다.

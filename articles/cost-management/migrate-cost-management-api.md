@@ -1,6 +1,6 @@
 ---
-title: Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs - Azure | Microsoft Docs
-description: This article helps you understand the consequences of migrating a Microsoft Enterprise Agreement (EA) to a Microsoft Customer Agreement.
+title: 기업계약에서 Microsoft 고객 계약 Api로 마이그레이션-Azure | Microsoft Docs
+description: 이 문서는 microsoft 기업계약 (EA)를 Microsoft 고객 계약으로 마이그레이션하는 결과를 이해 하는 데 도움이 됩니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
@@ -17,133 +17,133 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74481715"
 ---
-# <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>Migrate from Enterprise Agreement to Microsoft Customer Agreement APIs
+# <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 Api로 마이그레이션
 
-This article helps you understand the data structure, API, and other system integration differences between Enterprise Agreement (EA) and Microsoft Customer Agreement (MCA) accounts. Azure Cost Management supports APIs for both account types. Review the [Setup billing account for](../billing/mca-setup-account.md) Microsoft Customer Agreement article before continuing.
+이 문서는 기업계약 (EA)와 Microsoft 고객 계약 (MCA) 계정의 데이터 구조, API 및 기타 시스템 통합 차이점을 이해 하는 데 도움이 됩니다. Azure Cost Management는 두 계정 유형에 대 한 Api를 지원 합니다. 계속 하기 전에 Microsoft 고객 계약 [에 대 한 설정 청구 계정](../billing/mca-setup-account.md) 문서를 검토 합니다.
 
-Organizations with an existing EA account should review this article in conjunction with setting up an MCA account. Previously, renewing an EA account required some minimal work to move from an old enrollment to a new one. However, migrating to an MCA account requires additional effort. Additional effort is because of changes in the underlying billing subsystem, which affect all cost-related APIs and service offerings.
+기존 EA 계정이 있는 조직은 MCA 계정을 설정 하는 것과 함께이 문서를 검토 해야 합니다. 이전에는 EA 계정을 갱신 하 여 이전 등록에서 새 등록으로 이동 하는 데 필요한 최소한의 작업을 수행 했습니다. 그러나 MCA 계정으로 마이그레이션하려면 추가 작업이 필요 합니다. 모든 비용 관련 Api 및 서비스 제공에 영향을 주는 기본 청구 하위 시스템의 변경 내용 때문에 추가 작업이 필요 합니다.
 
-## <a name="mca-apis-and-integration"></a>MCA APIs and integration
+## <a name="mca-apis-and-integration"></a>MCA Api 및 통합
 
-MCA APIs and new integration allow you to:
+MCA Api 및 새로운 통합을 사용 하면 다음을 수행할 수 있습니다.
 
-- Have complete API availability through native Azure APIs.
-- Configure multiple invoices in a single billing account.
-- Access a combined API with Azure service usage, third-party Marketplace usage, and Marketplace purchases.
-- View costs across billing profiles (the same as enrollments) using Azure Cost Management.
-- Access new APIs to show costs, get notified when costs exceed predefined thresholds, and export raw data automatically.
+- 네이티브 Azure Api를 통해 전체 API를 사용할 수 있습니다.
+- 단일 요금 청구 계정에서 여러 송장을 구성 합니다.
+- Azure 서비스 사용, 타사 Marketplace 사용 및 Marketplace 구매를 통해 결합 된 API에 액세스 합니다.
+- Azure Cost Management를 사용 하 여 청구 프로필 (등록와 동일) 간의 비용을 봅니다.
+- 새 Api에 액세스 하 여 비용을 표시 하 고, 비용이 미리 정의 된 임계값을 초과 하는 경우에 대 한 통지를 받고, 원시 데이터
 
-## <a name="migration-checklist"></a>Migration checklist
+## <a name="migration-checklist"></a>마이그레이션 검사 목록
 
-The following items help you transition to MCA APIs.
+다음 항목은 MCA Api로 전환 하는 데 도움이 됩니다.
 
-- Familiarize yourself with the new [Microsoft Customer Agreement billing account](../billing/billing-mca-overview.md).
-- Determine which APIs you use and see which ones are replaced in the following section.
-- Familiarize yourself with [Azure Resource Manager REST APIs](/rest/api/azure).
-- If you're not already using Azure Resource Manager APIs, [register your client app with Azure AD](/rest/api/azure/#register-your-client-application-with-azure-ad).
-- Update any programming code to [use Azure AD authentication](/rest/api/azure/#create-the-request).
-- Update any programming code to replace EA API calls with MCA API calls.
-- Update error handling to use new error codes.
-- Review additional integration offerings, like Cloudyn and Power BI, for other needed action.
+- 새로운 [Microsoft 고객 계약 청구 계정](../billing/billing-mca-overview.md)에 익숙해져야 합니다.
+- 사용 하는 Api를 확인 하 고 다음 섹션에서 대체 되는 Api를 확인 합니다.
+- [AZURE RESOURCE MANAGER REST api](/rest/api/azure)에 대해 잘 알고 있어야 합니다.
+- Azure Resource Manager Api를 아직 사용 하지 않는 경우 [AZURE AD에 클라이언트 앱을 등록](/rest/api/azure/#register-your-client-application-with-azure-ad)합니다.
+- [AZURE AD 인증을 사용](/rest/api/azure/#create-the-request)하도록 모든 프로그래밍 코드를 업데이트 합니다.
+- 모든 프로그래밍 코드를 업데이트 하 여 MCA api 호출로 EA API 호출을 바꿉니다.
+- 새 오류 코드를 사용 하 여 오류 처리를 업데이트 합니다.
+- Cloudyn 및 Power BI 같은 추가 통합 제품을 검토 하 여 필요한 다른 작업을 수행 합니다.
 
-## <a name="ea-apis-replaced-with-mca-apis"></a>EA APIs replaced with MCA APIs
+## <a name="ea-apis-replaced-with-mca-apis"></a>EA Api를 MCA Api로 대체
 
-EA APIs use an API key for authentication and authorization. MCA APIs use Azure AD authentication.
+EA Api는 인증 및 권한 부여를 위해 API 키를 사용 합니다. MCA Api는 Azure AD 인증을 사용 합니다.
 
-| 용도 | EA API | MCA API |
+| 목적 | EA API | MCA API |
 | --- | --- | --- |
-| Balance and credits | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
-| Usage (JSON) | [/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails)<sup>1</sup> |
-| Usage (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
-| Marketplace Usage (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft.Consumption/usageDetails/download](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| 잔액 및 크레딧을 | [/balancesummary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) | Microsoft.Billing/billingAccounts/billingProfiles/availableBalanceussae |
+| 사용량 (JSON) | [/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)[/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format) | [사용량 세부 정보/](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| 사용 (CSV) | [/usagedetails/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)[/usagedetails/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format) | [Microsoft. 사용/사용량 세부 정보/다운로드](/rest/api/consumption/usagedetails)<sup>1</sup> |
+| Marketplace 사용 (CSV) | [/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)[/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) | [Microsoft. 사용/사용량 세부 정보/다운로드](/rest/api/consumption/usagedetails)<sup>1</sup> |
 | 청구 기간 | [/billingperiods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| 가격표 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft.Billing/billingAccounts/billingProfiles/pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format=json|csv Microsoft.Billing/billingAccounts/../billingProfiles/../providers/Microsoft.Consumption/pricesheets/download  |
+| 가격표 | [/pricesheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) | Microsoft. 청구/billingAccounts/billingProfiles/가격표/default/download format = json|csv Microsoft.Billing/billingAccounts/…/billingProfiles/…/invoices/… /pricesheet/default/download format = json|csv Microsoft. 청구/billingAccounts/.. /billingProfiles/.. /providers/Microsoft.Consumption/pricesheets/download  |
 | 예약 구매 | [/reservationcharges](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges) | Microsoft.Billing/billingAccounts/billingProfiles/transactions |
-| 예약 권장 사항 | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)[/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)[SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
-| Reservation usage | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails)[Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) |
+| 예약 권장 사항 | [/SharedReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations) [/](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) [SingleReservationRecommendations](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations) | [Microsoft 소비량/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) |
+| 예약 사용 | [/reservationdetails](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)[/reservationsummaries](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage) | [Microsoft. 소비량/reservationDetails](/rest/api/consumption/reservationsdetails)[/reservationSummaries](/rest/api/consumption/reservationssummaries) |
 
-<sup>1</sup> Azure service and third-party Marketplace usage are available with the [Usage Details API](/rest/api/consumption/usagedetails).
+<sup>1</sup> Azure 서비스 및 타사 Marketplace 사용은 [사용량 세부 정보 API](/rest/api/consumption/usagedetails)에서 사용할 수 있습니다.
 
-The following APIs are available to MCA billing accounts:
+다음 Api는 MCA 청구 계정에 사용할 수 있습니다.
 
-| 용도 | Microsoft Customer Agreement (MCA) API |
+| 목적 | Microsoft MCA (고객 계약) API |
 | --- | --- |
-| Billing accounts<sup>2</sup> | Microsoft.Billing/billingAccounts |
-| Billing profiles<sup>2</sup> | Microsoft.Billing/billingAccounts/billingProfiles |
-| Invoice sections<sup>2</sup> | Microsoft.Billing/billingAccounts/invoiceSections |
+| 청구 계정<sup>2</sup> | Microsoft.Billing/billingAccounts |
+| 청구 프로필<sup>2</sup> | Microsoft.Billing/billingAccounts/billingProfiles |
+| 청구서 섹션<sup>2</sup> | Microsoft.Billing/billingAccounts/invoiceSections |
 | 송장 | Microsoft.Billing/billingAccounts/billingProfiles/invoices |
-| Billing subscriptions | {scope}/billingSubscriptions |
+| 청구 구독 | {scope}/billingSubscriptions |
 
-<sup>2</sup> APIs return lists of objects, which are scopes, where Cost Management experiences in the Azure portal and APIs operate. For more information about Cost Management scopes, see [Understand and work with scopes](understand-work-scopes.md).
+<sup>2</sup> api는 범위에 해당 하는 개체의 목록을 반환 합니다. 여기에는 Azure Portal 및 api가 작동 하는 Cost Management 환경이 있습니다. Cost Management 범위에 대 한 자세한 내용은 [범위 이해 및 범위](understand-work-scopes.md)에 대 한 작업을 참조 하세요.
 
-If you use any existing EA APIs, you need to update them to support MCA billing accounts. The following table shows other integration changes:
+기존 EA Api를 사용 하는 경우 MCA 청구 계정을 지원 하도록 업데이트 해야 합니다. 다음 표에서는 다른 통합 변경 내용을 보여 줍니다.
 
-| 용도 | Old offering | New offering |
+| 목적 | 이전 제품 | 새 제품 |
 | --- | --- | --- |
 | Cloudyn | [Cloudyn.com](https://www.cloudyn.com) | [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) |
-| Power BI | [Microsoft Consumption Insights](/power-bi/desktop-connect-azure-consumption-insights) content pack and connector | [Microsoft Azure Consumption Insights Power BI app](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) and [Azure Consumption Insights connector](/power-bi/desktop-connect-azure-consumption-insights) |
+| Power BI | [Microsoft 소비량 정보](/power-bi/desktop-connect-azure-consumption-insights) 콘텐츠 팩 및 커넥터 | [Microsoft Azure Consumption Insights Power BI 앱](https://appsource.microsoft.com/product/power-bi/pbi_azureconsumptioninsights.pbi-azure-consumptioninsights?tab=overview) 및 [Azure Consumption Insights 커넥터](/power-bi/desktop-connect-azure-consumption-insights) |
 
-## <a name="apis-to-get-balance-and-credits"></a>APIs to get balance and credits
+## <a name="apis-to-get-balance-and-credits"></a>잔액 및 크레딧을 얻기 위한 Api
 
-The [Get Balance Summary](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) API gives you a monthly summary of:
+[잔액 요약](/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) API는 다음에 대 한 월별 요약을 제공 합니다.
 
 - 잔액
-- New purchases
-- Azure Marketplace service charges
+- 새 구매
+- Azure Marketplace 서비스 요금
 - 조정
-- Service overage charges
+- 서비스 초과분 요금
 
-All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요.
 
-The Get Balance Summary API is replaced by the Microsoft.Billing/billingAccounts/billingProfiles/availableBalance API.
+잔액 요약 API는 Microsoft. 청구/billingAccounts/billingProfiles/제공 되는 잔액 API로 대체 됩니다.
 
-To get available balances with the Available Balance API:
+사용 가능한 잔액 API를 사용 하 여 잔액을 확보 하려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/availableBalances?api-version=2018-11-01-preview` |
 
-## <a name="apis-to-get-cost-and-usage"></a>APIs to get cost and usage
+## <a name="apis-to-get-cost-and-usage"></a>비용 및 사용을 얻기 위한 Api
 
-Get a daily breakdown of costs from Azure service usage, third-party Marketplace usage, and other Marketplace purchases with the following APIs. The following separate APIs were merged for Azure services and third-party Marketplace usage. The old APIs are replaced by the [Microsoft.Consumption/usageDetails](/rest/api/consumption/usagedetails) API. It adds Marketplace purchases, which were previously only shown in the balance summary to date.
+다음 Api를 사용 하 여 Azure 서비스 사용량, 타사 Marketplace 사용 및 기타 Marketplace 구매의 비용에 대 한 일일 분석을 받습니다. Azure 서비스 및 타사 Marketplace 사용을 위해 다음과 같은 별도의 Api가 병합 되었습니다. 이전 Api는 [Microsoft 사용량 세부 정보/](/rest/api/consumption/usagedetails) API로 대체 되었습니다. 이전에는 잔액 요약에만 표시 되었던 Marketplace 구매를 추가 합니다.
 
-- [Get usage detail/download](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
-- [Get usage detail/submit](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
-- [Get usage detail/usagedetails](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
-- [Get usage detail/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
-- [Get marketplace store charge/marketplacecharges](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
-- [Get marketplace store charge/marketplacechargesbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+- [사용량 정보 가져오기/다운로드](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
+- [사용량 정보 가져오기/제출](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#csv-format)
+- [사용량 세부 정보 가져오기/사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [사용량 세부 정보 가져오기/usagedetailsbycustomdate](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail#json-format)
+- [Marketplace 스토어 요금/marketplacecharges 가져오기](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
+- [Marketplace 스토어 요금/marketplacechargesbycustomdate 가져오기](/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge)
 
-All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요.
 
-All the preceding APIs are replaced by the Consumption/Usage Details API.
+모든 이전 Api는 소비/사용 정보 API로 대체 됩니다.
 
-To get usage details with the Usage Details API:
+사용량 세부 정보 API를 사용 하 여 사용 세부 정보를 가져오려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
+| 가져오기 | `https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?api-version=2019-01-01` |
 
-The Usage Details API, as with all Cost Management APIs, is available at multiple scopes. For invoiced costs, as you would traditionally receive at an enrollment level, use the billing profile scope.  For more information about Cost Management scopes, see [Understand and work with scopes](understand-work-scopes.md).
+모든 Cost Management Api와 마찬가지로 사용 정보 API는 여러 범위에서 사용할 수 있습니다. 송장 발부 된 비용은 일반적으로 등록 수준에서 받게 되므로 청구 프로필 범위를 사용 합니다.  Cost Management 범위에 대 한 자세한 내용은 [범위 이해 및 범위](understand-work-scopes.md)에 대 한 작업을 참조 하세요.
 
-| Type | ID format |
+| 에 | ID 형식 |
 | --- | --- |
 | 청구 계정 | `/Microsoft.Billing/billingAccounts/{billingAccountId}` |
 | 청구 프로필 | `/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}` |
-| Subscription | `/subscriptions/{subscriptionId}` |
-| Resource group | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
+| 구독 | `/subscriptions/{subscriptionId}` |
+| 리소스 그룹 | `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}` |
 
-Use the following querystring parameters to update any programming code.
+다음 querystring 매개 변수를 사용 하 여 프로그래밍 코드를 업데이트 합니다.
 
-| Old parameters | New parameters |
+| 이전 매개 변수 | 새 매개 변수 |
 | --- | --- |
-| `billingPeriod={billingPeriod}` | 지원하지 않음 |
+| `billingPeriod={billingPeriod}` | 지원되지 않음 |
 | `endTime=yyyy-MM-dd` | `endDate=yyyy-MM-dd` |
 | `startTime=yyyy-MM-dd` | `startDate=yyyy-MM-dd` |
 
-The body of the response also changed.
+응답의 본문도 변경 되었습니다.
 
-Old response body:
+이전 응답 본문:
 
 ```
 {
@@ -153,7 +153,7 @@ Old response body:
 }
 ```
 
-New response body:
+새 응답 본문:
 
 ```
 {
@@ -168,144 +168,144 @@ New response body:
 }
 ```
 
-The property name containing the array of usage records changed from data to _values_. Each record used to have a flat list of detailed properties. However, each record now all details are now in a nested property named _properties_, except for tags. The new structure is consistent with other Azure APIs. Some property names have changed. The following table shows corresponding properties.
+데이터에서 _값_으로 변경 된 사용 레코드의 배열을 포함 하는 속성 이름입니다. 각 레코드는 상세 속성의 단순 목록을 포함 하는 데 사용 됩니다. 그러나 이제 각 레코드는 태그를 제외 하 고 _속성_이라는 중첩 된 속성에 있습니다. 새 구조는 다른 Azure Api와 일치 합니다. 일부 속성 이름이 변경 되었습니다. 다음 표에서는 해당 하는 속성을 보여 줍니다.
 
-| Old property | New property | 참고 |
+| 이전 속성 | 새 속성 | 참고 사항 |
 | --- | --- | --- |
-| AccountId | N/A | The subscription creator isn't tracked. Use invoiceSectionId (same as departmentId). |
-| AccountNameAccountOwnerId and AccountOwnerEmail | N/A | The subscription creator isn't tracked. Use invoiceSectionName (same as departmentName). |
+| AccountId | 해당 없음 | 구독 작성자는 추적 되지 않습니다. InvoiceSectionId (departmentId과 동일)를 사용 합니다. |
+| AccountNameAccountOwnerId 및 AccountOwnerEmail | 해당 없음 | 구독 작성자는 추적 되지 않습니다. InvoiceSectionName (departmentName과 동일)를 사용 합니다. |
 | AdditionalInfo | additionalInfo | &nbsp;  |
-| ChargesBilledSeparately | isAzureCreditEligible | Note that these properties are opposites. If isAzureCreditEnabled is true, ChargesBilledSeparately would be false. |
+| ChargesBilledSeparately | isAzureCreditEligible | 이러한 속성은 opposites입니다. IsAzureCreditEnabled가 true 이면 ChargesBilledSeparately는 false가 됩니다. |
 | ConsumedQuantity | quantity | &nbsp; |
-| ConsumedService | consumedService | Exact string values might differ. |
+| ConsumedService | consumedService | 정확한 문자열 값은 다를 수 있습니다. |
 | ConsumedServiceId | 없음 | &nbsp; |
 | CostCenter | costCenter | &nbsp; |
-| Date and usageStartDate | date | &nbsp;  |
-| 일 | 없음 | Parses day from date. |
-| DepartmentId | invoiceSectionId | Exact values differ. |
-| DepartmentName | invoiceSectionName | Exact string values might differ. Configure invoice sections to match departments, if needed. |
-| ExtendedCost and Cost | costInBillingCurrency | &nbsp;  |
+| 날짜 및 usageStartDate | date | &nbsp;  |
+| 일 | 없음 | 날짜에서 날짜를 구문 분석 합니다. |
+| DepartmentId | invoiceSectionId | 정확한 값은 서로 다릅니다. |
+| DepartmentName | invoiceSectionName | 정확한 문자열 값은 다를 수 있습니다. 필요한 경우 부서와 일치 하도록 송장 섹션을 구성 합니다. |
+| ExtendedCost 및 Cost | costInBillingCurrency | &nbsp;  |
 | InstanceId | resourceId | &nbsp;  |
-| Is Recurring Charge | 없음 | &nbsp;  |
-| 위치 | location | &nbsp;  |
-| MeterCategory | meterCategory | Exact string values might differ. |
-| MeterId | meterId | Exact string values differ. |
-| MeterName | meterName | Exact string values might differ. |
-| MeterRegion | meterRegion | Exact string values might differ. |
-| MeterSubCategory | meterSubCategory | Exact string values might differ. |
-| 월 | 없음 | Parses month from date. |
-| 제품 이름 | 없음 | Use publisherName and productOrderName. |
+| 되풀이 요금 | 없음 | &nbsp;  |
+| Location | location | &nbsp;  |
+| MeterCategory | meterCategory | 정확한 문자열 값은 다를 수 있습니다. |
+| MeterId | meterId | 정확한 문자열 값은 서로 다릅니다. |
+| MeterName | meterName | 정확한 문자열 값은 다를 수 있습니다. |
+| MeterRegion | meterRegion | 정확한 문자열 값은 다를 수 있습니다. |
+| MeterSubCategory | meterSubCategory | 정확한 문자열 값은 다를 수 있습니다. |
+| Month | 없음 | 날짜에서 월을 구문 분석 합니다. |
+| 제품 이름 | 없음 | 가 나 Ername 및 제품 Ordername을 사용 합니다. |
 | OfferId | 없음 | &nbsp;  |
 | 주문 번호 | 없음 | &nbsp;  |
-| PartNumber | 없음 | Use meterId and productOrderName to uniquely identify prices. |
+| partNumber | 없음 | MeterId 및 제품 Ordername을 사용 하 여 가격을 고유 하 게 식별 합니다. |
 | 플랜 이름 | productOrderName | &nbsp;  |
-| Product | Product |   |
-| ProductId | productId | Exact string values differ. |
+| product | product |   |
+| ProductId | productId | 정확한 문자열 값은 서로 다릅니다. |
 | 게시자 이름 | publisherName | &nbsp;  |
 | ResourceGroup | resourceGroupName | &nbsp;  |
-| ResourceGuid | meterId | Exact string values differ. |
+| ResourceGuid | meterId | 정확한 문자열 값은 서로 다릅니다. |
 | ResourceLocation | resourceLocation | &nbsp;  |
 | ResourceLocationId | 없음 | &nbsp;  |
 | ResourceRate | effectivePrice | &nbsp;  |
-| ServiceAdministratorId | N/A | &nbsp;  |
+| ServiceAdministratorId | 해당 없음 | &nbsp;  |
 | ServiceInfo1 | serviceInfo1 | &nbsp;  |
 | ServiceInfo2 | serviceInfo2 | &nbsp;  |
-| ServiceName | meterCategory | Exact string values might differ. |
-| ServiceTier | meterSubCategory | Exact string values might differ. |
-| StoreServiceIdentifier | N/A | &nbsp;  |
+| ServiceName | meterCategory | 정확한 문자열 값은 다를 수 있습니다. |
+| ServiceTier | meterSubCategory | 정확한 문자열 값은 다를 수 있습니다. |
+| StoreServiceIdentifier | 해당 없음 | &nbsp;  |
 | SubscriptionGuid | subscriptionId | &nbsp;  |
 | SubscriptionId | subscriptionId | &nbsp;  |
 | SubscriptionName | subscriptionName | &nbsp;  |
-| 태그 | tags | The tags property applies to root object, not to the nested properties property. |
-| UnitOfMeasure | unitOfMeasure | Exact string values differ. |
+| 태그 | 태그 | Tags 속성은 root 개체에 적용 되며 nested properties 속성에는 적용 되지 않습니다. |
+| UnitOfMeasure | unitOfMeasure | 정확한 문자열 값은 서로 다릅니다. |
 | usageEndDate | date | &nbsp;  |
-| 년 | 없음 | Parses year from date. |
-| (new) | billingCurrency | Currency used for the charge. |
-| (new) | billingProfileId | Unique ID for the billing profile (same as enrollment). |
-| (new) | billingProfileName | Name of the billing profile (same as enrollment). |
-| (new) | chargeType | Use to differentiate Azure service usage, Marketplace usage, and purchases. |
-| (new) | invoiceId | Unique ID for the invoice. Empty for the current, open month. |
-| (new) | publisherType | Type of publisher for purchases. Empty for usage. |
-| (new) | serviceFamily | Type of purchase. Empty for usage. |
-| (new) | servicePeriodEndDate | End date for the purchased service. |
-| (new) | servicePeriodStartDate | Start date for the purchased service. |
+| Year | 없음 | 날짜에서 연도를 구문 분석 합니다. |
+| 새 | billingCurrency | 요금에 사용 되는 통화입니다. |
+| 새 | billingProfileId | 청구 프로필에 대 한 고유 ID입니다 (등록과 동일). |
+| 새 | billingProfileName | 청구 프로필의 이름 (등록과 같음)입니다. |
+| 새 | chargeType | 을 사용 하 여 Azure 서비스 사용, Marketplace 사용 및 구매를 구분 합니다. |
+| 새 | invoiceId | 송장에 대 한 고유 ID입니다. 현재 열려 있는 달의 경우 비어 있습니다. |
+| 새 | publisherType | 구매할 게시자의 유형입니다. 사용 하기에는 비어 있습니다. |
+| 새 | serviceFamily | 구매 유형입니다. 사용 하기에는 비어 있습니다. |
+| 새 | servicePeriodEndDate | 구매한 서비스의 종료 날짜입니다. |
+| 새 | servicePeriodStartDate | 구매한 서비스의 시작 날짜입니다. |
 
-## <a name="billing-periods-api-replaced-by-invoices-api"></a>Billing Periods API replaced by Invoices API
+## <a name="billing-periods-api-replaced-by-invoices-api"></a>청구서 API로 교체 된 청구 기간 API
 
-MCA billing accounts don't use billing periods. Instead, they use invoices to scope costs to specific billing periods. The [Billing Periods API](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) is replaced by the Invoices API. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+MCA 청구 계정은 청구 기간을 사용 하지 않습니다. 대신 청구서를 사용 하 여 특정 청구 기간에 비용 범위를 지정 합니다. [청구 기간 api](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) 는 청구서 api로 대체 됩니다. 모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요.
 
-To get invoices with the Invoices API:
+청구서 API를 사용 하 여 송장을 받으려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/invoices?api-version=2018-11-01-preview` |
 
-## <a name="price-sheet-apis"></a>Price Sheet APIs
+## <a name="price-sheet-apis"></a>가격표 Api
 
-This section discusses existing Price Sheet APIs and provides recommendations to move to the Price Sheet API for Microsoft Customer Agreements. It also discusses the Price Sheet API for Microsoft Customer Agreements and explains fields in the price sheets. The [Enterprise Get price sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) and [Enterprise Get billing periods](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) APIs are replaced by the Price Sheet API for Microsoft Customer Agreements (Microsoft.Billing/billingAccounts/billingProfiles/pricesheet). The new API supports both JSON and CSV formats, in asynchronous REST formats. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request).
+이 섹션에서는 기존 가격표 Api에 대해 설명 하 고 Microsoft 고객 계약에 대 한 가격표 API로 이동 하기 위한 권장 사항을 제공 합니다. 또한 Microsoft 고객 계약에 대 한 가격표 API 및 가격표의 필드에 대해 설명 합니다. [Enterprise get price sheet](/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) 및 [enterprise get 청구 기간](/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) Api는 Microsoft 고객 계약 (Microsoft. 청구/billingAccounts/billingProfiles/가격표)에 대 한 가격표 api로 대체 됩니다. 새 API는 비동기 REST 형식으로 JSON 및 CSV 형식을 모두 지원 합니다. 모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요.
 
-### <a name="billing-enterprise-apis"></a>Billing Enterprise APIs
+### <a name="billing-enterprise-apis"></a>청구 엔터프라이즈 Api
 
-You used Billing Enterprise APIs with Enterprise enrollments to get price and billing period information. Authentication and authorization used Azure Active Directory web tokens.
+엔터프라이즈 등록에서 청구 하는 엔터프라이즈 Api를 사용 하 여 가격 및 청구 기간 정보를 가져옵니다. 웹 토큰 Azure Active Directory 사용 되는 인증 및 권한 부여입니다.
 
-To get applicable prices for the specified Enterprise Enrollment with the Price Sheet and Billing Period APIs:
+가격 책정 시트 및 청구 기간 Api를 사용 하 여 지정 된 엔터프라이즈 등록에 적용 가능한 가격을 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
-| GET | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
+| 가져오기 | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/pricesheet` |
+| 가져오기 | `https://consumption.azure.com/v2/enrollments/{enrollmentNumber}/billingPeriods/{billingPeriod}/pricesheet` |
 
-### <a name="price-sheet-api-for-microsoft-customer-agreements"></a>Price Sheet API for Microsoft Customer Agreements
+### <a name="price-sheet-api-for-microsoft-customer-agreements"></a>Microsoft 고객 계약에 대 한 가격표 API
 
-Use the Price Sheet API for Microsoft Customer Agreements to view prices for all Azure Consumption and Marketplace consumption services. The prices shown for the billing profile apply to all subscriptions that belong to the billing profile.
+Microsoft 고객 계약에 대 한 가격표 API를 사용 하 여 모든 Azure 사용량과 Marketplace 소비 서비스의 가격을 확인할 수 있습니다. 청구 프로필에 대해 표시 된 가격은 청구 프로필에 속한 모든 구독에 적용 됩니다.
 
-Use the Price Sheet API to view all Azure Consumption services Price Sheet data in CSV format:
+가격 책정 시트 API를 사용 하 여 모든 Azure 사용 서비스 가격표 데이터를 CSV 형식으로 볼 수 있습니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=csv` |
 
-Use the Price Sheet API to view all Azure Consumption services Price Sheet data in JSON format:
+가격 책정 시트 API를 사용 하 여 JSON 형식으로 모든 Azure 사용량 서비스 가격표 데이터를 표시 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&startDate=2019-01-01&endDate=2019-01-31&format=json` |
 
-Using the API returns the price sheet for the entire account. However, you can also get a condensed version of the price sheet in PDF format. The summary includes Azure Consumption and Marketplace consumption services that are billed for a specific invoice. The invoice is identified by the {invoiceId}, which is the same as the **Invoice Number** shown in the Invoice Summary PDF files. Here's an example.
+API를 사용 하면 전체 계정에 대 한 가격표가 반환 됩니다. 그러나 요약 버전의 가격표는 PDF 형식으로 가져올 수도 있습니다. 요약에는 특정 송장에 대해 청구 되는 Azure 사용량과 Marketplace 소비 서비스가 포함 됩니다. 청구서는 송장 요약 PDF 파일에 표시 된 **청구서 번호** 와 동일한 {invoiceId}로 식별 됩니다. 예를 들면 다음과 같습니다.
 
-![Example image showing the Invoice Number that corresponds to the InvoiceId](./media/migrate-cost-management-api/invoicesummary.png)
+![InvoiceId에 해당 하는 청구서 번호를 보여 주는 예제 이미지](./media/migrate-cost-management-api/invoicesummary.png)
 
-To view invoice information with the Price Sheet API in CSV format:
+CSV 형식의 가격표 API를 사용 하 여 청구서 정보를 보려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
-To view invoice information with the Price Sheet API in JSON Format:
+JSON 형식으로 가격표 API를 사용 하 여 청구서 정보를 보려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/2909cffc-b0a2-5de1-bb7b-5d3383764184/billingProfiles/2dcffe0c-ee92-4265-8647-515b8fe7dc78/invoices/{invoiceId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
-You can also see estimated prices for any Azure Consumption or Marketplace consumption service in the current open billing cycle or service period.
+현재 열려 있는 청구 주기 또는 서비스 기간에 Azure 소비 또는 Marketplace 소비 서비스에 대 한 예상 가격을 볼 수도 있습니다.
 
-To view estimated prices for consumption services with the Price Sheet API in CSV format:
+CSV 형식의 가격표 API를 사용 하 여 사용량 서비스에 대 한 예상 가격을 보려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=csv` |
 
-To view estimated prices for consumption services with the Price Sheet API in JSON format:
+JSON 형식의 가격표 API를 사용 하 여 사용량 서비스에 대 한 예상 가격을 보려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
 | POST | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billing AccountId}/billingProfiles/{billingProfileId}/pricesheet/default/download?api-version=2018-11-01-preview&format=json` |
 
-The Microsoft Customer Agreement Price Sheet APIs are *asynchronous REST APIs*. The responses for the APIs changed from the older synchronous APIs. The body of the API response also changed.
+Microsoft 고객 계약 가격표 Api는 *비동기 REST api*입니다. Api에 대 한 응답은 이전 동기 Api에서 변경 되었습니다. API 응답의 본문도 변경 되었습니다.
 
-#### <a name="old-response-body"></a>Old response body
+#### <a name="old-response-body"></a>이전 응답 본문
 
-Here's an example of the synchronous REST API response:
+다음은 동기 REST API 응답의 예입니다.
 
 ```
 [
@@ -324,9 +324,9 @@ Here's an example of the synchronous REST API response:
     ]
 ```
 
-#### <a name="new-response-body"></a>New response body
+#### <a name="new-response-body"></a>새 응답 본문
 
-The APIs support the [Azure REST asynchronous](../azure-resource-manager/resource-manager-async-operations.md) format. Call the API using GET and you receive the following response:
+Api는 [AZURE REST 비동기](../azure-resource-manager/resource-manager-async-operations.md) 형식을 지원 합니다. GET을 사용 하 여 API를 호출 하면 다음과 같은 응답이 표시 됩니다.
 
 ```
 No Response Body
@@ -334,7 +334,7 @@ No Response Body
 HTTP Status 202 Accepted
 ```
 
-The following headers are sent with the location of the output:
+다음 헤더는 출력 위치와 함께 전송 됩니다.
 
 ```
 Location:https://management.azure.com/providers/Microsoft.Consumption/operationresults/{operationId}?sessiontoken=XZDFSnvdkbkdsb==
@@ -347,7 +347,7 @@ OData-EntityId: {operationId}
 
 ```
 
-Make another GET call to the location. The response to the GET call is the same until the operation reaches a completion or failure state. When completed, the response to the GET call location returns the download URL. Just as if the operation was executed at the same time. 예를 들면 다음과 같습니다.
+위치에 대해 다른 GET 호출을 수행 합니다. GET 호출에 대 한 응답은 작업이 완료 또는 실패 상태에 도달할 때까지 동일 합니다. 완료 되 면 GET call location에 대 한 응답으로 다운로드 URL이 반환 됩니다. 작업이 동시에 실행 된 것과 같습니다. 예를 들면 다음과 같습니다.
 
 ```
 HTTP Status 200
@@ -363,177 +363,177 @@ HTTP Status 200
 }
 ```
 
-The client can also make a GET call for the `Azure-AsyncOperation`. The endpoint returns the status for the operation.
+클라이언트는 `Azure-AsyncOperation`에 대 한 GET 호출을 수행할 수도 있습니다. 끝점은 작업에 대 한 상태를 반환 합니다.
 
-The following table shows fields in the older Enterprise Get price sheet API. It includes corresponding fields in the new price sheet for Microsoft Customer Agreements:
+다음 표에서는 이전 Enterprise Get price sheet API의 필드를 보여 줍니다. Microsoft 고객 계약에 대 한 새 가격표에 해당 하는 필드를 포함 합니다.
 
-| Old property | New property | 참고 |
+| 이전 속성 | 새 속성 | 참고 사항 |
 | --- | --- | --- |
-| billingPeriodId  | _Not applicable_ | 사용할 수 없습니다. For Microsoft Customer Agreements, the invoice and associated price sheet replaced the concept of billingPeriodId. |
+| billingPeriodId  | _해당 없음_ | 사용할 수 없습니다. Microsoft 고객 계약의 경우 청구서 및 관련 된 가격표가 billingPeriodId의 개념으로 바뀌었습니다. |
 | meterId  | meterId | &nbsp;  |
-| unitOfMeasure  | unitOfMeasure | Exact string values might differ. |
-| includedQuantity  | includedQuantity | Not applicable for services in Microsoft Customer Agreements. |
-| partNumber  | _Not applicable_ | Instead, use a combination of productOrderName (same as offerId) and meterid. |
-| unitPrice  | unitPrice | Unit price is applicable for services consumed in Microsoft Customer Agreements. |
-| currencyCode  | pricingCurrency | Microsoft Customer Agreements have price representations in pricing currency and billing currency. The currencyCode corresponds to the pricingCurrency in Microsoft Customer Agreements. |
-| offerId | productOrderName | Instead of OfferId, you can use productOrderName but isn't the same as OfferId. However, productOrderName and meter determine pricing in Microsoft Customer Agreements related to meterId and Offerid in legacy enrollments. |
+| unitOfMeasure  | unitOfMeasure | 정확한 문자열 값은 다를 수 있습니다. |
+| includedQuantity  | includedQuantity | Microsoft 고객 계약의 서비스에는 적용 되지 않습니다. |
+| partNumber  | _해당 없음_ | 대신, offerId와 동일 하 게 제품 Ordername의 조합을 사용 하 고 meterid를 사용 합니다. |
+| unitPrice  | unitPrice | 단가는 Microsoft 고객 계약에서 사용 되는 서비스에 적용 됩니다. |
+| currencyCode  | pricingCurrency | Microsoft 고객 계약에는 가격 책정 통화 및 청구 통화 가격이 표시 됩니다. CurrencyCode는 Microsoft 고객 계약의 pricingCurrency에 해당 합니다. |
+| offerId | productOrderName | OfferId 대신에는 제품 Ordername을 사용할 수 있지만 OfferId와는 다릅니다. 그러나 제품 Ordername 및 측정기는 레거시 등록의 meterId 및 Offerid와 관련 된 Microsoft 고객 계약의 가격을 결정 합니다. |
 
-## <a name="consumption-price-sheet-api-operations"></a>Consumption Price Sheet API operations
+## <a name="consumption-price-sheet-api-operations"></a>소비 가격 시트 API 작업
 
-For Enterprise Agreements, you used the Consumption Price Sheet API [Get](/rest/api/consumption/pricesheet/get) and [Get By Billing Period](/rest/api/consumption/pricesheet/getbybillingperiod) operations for a scope by subscriptionId or a billing period. The API uses Azure Resource Management authentication.
+기업 계약의 경우 subscriptionId 또는 청구 기간에 따라 범위에 대 한 사용량 가격 시트 API [get](/rest/api/consumption/pricesheet/get) 및 [get 청구 기간](/rest/api/consumption/pricesheet/getbybillingperiod) 작업을 사용 했습니다. API는 Azure 리소스 관리 인증을 사용 합니다.
 
-To get the Price Sheet information for a scope with the Price Sheet API:
+가격표 API를 사용 하 여 범위에 대 한 가격표 정보를 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
+| 가져오기 | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-To get Price Sheet information by billing period with the Price Sheet API:
+가격표 API를 사용 하 여 청구 기간에 따라 가격표 정보를 가져오려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
+| 가져오기 | `https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}/providers/Microsoft.Consumption/pricesheets/default?api-version=2018-10-01` |
 
-Instead of the above API endpoints, use the following ones for Microsoft Customer Agreements:
+위의 API 끝점 대신 Microsoft 고객 계약에 대해 다음을 사용 합니다.
 
-**Price Sheet API for Microsoft Customer Agreements (asynchronous REST API)**
+**Microsoft 고객 계약에 대 한 가격표 API (비동기 REST API)**
 
-This API is for Microsoft Customer Agreements and it provides additional attributes.
+이 API는 Microsoft 고객 계약을 위한 것 이며 추가 특성을 제공 합니다.
 
-**Price Sheet for a Billing Profile scope in a Billing Account**
+**청구 계정에서 청구 프로필 범위의 가격표**
 
-This API is the existing API. It was updated to provide the price sheet for a billing profile in a billing account.
+이 API는 기존 API입니다. 청구 계정에 청구 프로필에 대 한 가격표를 제공 하도록 업데이트 되었습니다.
 
-## <a name="price-sheet-for-a-scope-by-billing-account"></a>Price Sheet for a scope by billing account
+## <a name="price-sheet-for-a-scope-by-billing-account"></a>청구 계정에의 한 범위에 대 한 가격표
 
-Azure Resource Manager authentication is used when you get the Price Sheet at the enrollment scope in a billing account.
+Azure Resource Manager 인증은 청구 계정의 등록 범위에서 가격표를 가져올 때 사용 됩니다.
 
-To get the Price Sheet at the enrollment account in a billing account:
+청구 계정의 등록 계정에서 가격표를 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
+| 가져오기 | `/providers/Microsoft.Billing/billingAccounts/65085863/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-For a Microsoft Customer Agreement, use the information in the following section. It provides the field properties used for Microsoft Customer agreements.
+Microsoft 고객 계약의 경우 다음 섹션의 정보를 사용 하십시오. Microsoft 고객 계약에 사용 되는 필드 속성을 제공 합니다.
 
-### <a name="price-sheet-for-a-billing-profile-scope-in-a-billing-account"></a>Price Sheet for a billing profile scope in a billing account
+### <a name="price-sheet-for-a-billing-profile-scope-in-a-billing-account"></a>청구 계정에서 청구 프로필 범위의 가격표
 
-The updated Price Sheet by billing account API gets the Price Sheet in CSV format. To get the Price Sheet at the billing profile scope for an MCA:
+청구 계정 API를 통해 업데이트 된 가격표는 가격 시트를 CSV 형식으로 가져옵니다. MCA의 청구 프로필 범위에서 가격표를 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
+| 가져오기 | `/providers/Microsoft.Billing/billingAccounts/28ae4b7f-41bb-581e-9fa4-8270c857aa5f/billingProfiles/ef37facb-cd6f-437a-9261-65df15b673f9/providers/Microsoft.Consumption/pricesheets/download?api-version=2019-01-01` |
 
-At the EA's enrollment scope, the API response and properties are identical. The properties correspond to the same MCA properties.
+EA의 등록 범위에서 API 응답과 속성은 동일 합니다. 속성은 동일한 MCA 속성에 해당 합니다.
 
-The older properties for [Azure Resource Manager Price Sheet APIs](/rest/api/consumption/pricesheet) and the same new properties are in the following table.
+[Azure Resource Manager 가격표 api](/rest/api/consumption/pricesheet) 및 동일한 새 속성에 대 한 이전 속성은 다음 표에 나와 있습니다.
 
-| Old Azure Resource Manager Price Sheet API Property  | New Microsoft Customer Agreement Price Sheet API property   | 설명 |
+| 이전 Azure Resource Manager 가격표 API 속성  | 새 Microsoft 고객 계약 가격표 API 속성   | 설명 |
 | --- | --- | --- |
-| 측정기 ID | _meterId_ | 측정기의 고유 식별자입니다. Same as meterId. |
-| Meter name | meterName | 측정기의 이름입니다. Meter represents the Azure service deployable resource. |
-| Meter category  | 서비스 | 미터의 분류 범주 이름입니다. Same as the service in the Microsoft Customer Agreement Price Sheet. Exact string values differ. |
-| Meter subcategory | meterSubCategory | 미터의 하위 분류 범주 이름입니다. Based on the classification of high-level feature set differentiation in the service. For example, Basic SQL DB vs Standard SQL DB. |
-| Meter region | meterRegion | &nbsp;  |
-| 단위 | _Not applicable_ | Can be parsed from unitOfMeasure. |
+| 측정기 ID | _meterId_ | 측정기의 고유 식별자입니다. MeterId와 동일 합니다. |
+| 미터 이름 | meterName | 측정기의 이름입니다. 측정기는 Azure 서비스 배포 가능 리소스를 나타냅니다. |
+| 미터 범주  | 서비스 | 측정기에 대한 분류 범주의 이름입니다. Microsoft 고객 계약 가격표의 서비스와 동일 합니다. 정확한 문자열 값은 서로 다릅니다. |
+| 미터 하위 범주 | meterSubCategory | 미터의 하위 분류 범주 이름입니다. 서비스에서 높은 수준의 기능 집합 차별화의 분류를 기준으로 합니다. 예를 들어 기본 SQL DB와 표준 SQL DB가 있습니다. |
+| 측정기 지역 | meterRegion | &nbsp;  |
+| 단위 | _해당 없음_ | 측정값에서 측정값을 구문 분석할 수 있습니다. |
 | 측정 단위 | unitOfMeasure | &nbsp;  |
-| Part number | _Not applicable_ | Instead of partNumber, use productOrderName and MeterId to uniquely identify the price for a billing profile. Fields are listed on the MCA invoice instead of the partNumber in MCA invoices. |
-| 단가 | unitPrice | Microsoft Customer Agreement unit price. |
-| Currency code | pricingCurrency | Microsoft Customer Agreements represent prices in pricing currency and billing currency. Currency code is the same as the pricingCurrency in Microsoft Customer Agreements. |
-| 포함된 용량 | includedQuantity | Not applicable to services in Microsoft Customer Agreements. Show with values of zero. |
-|  Offer Id  | productOrderName | Instead of OfferId, use productOrderName. Not the same as OfferId, however the productOrderName and meter determine pricing in Microsoft Customer Agreements. Related to meterId and Offerid in legacy enrollments. |
+| 부품 번호 | _해당 없음_ | PartNumber 대신, 제품 Ordername 및 MeterId를 사용 하 여 청구 프로필의 가격을 고유 하 게 식별 합니다. 필드는 mca 청구서의 partNumber 대신 MCA 청구서에 나열 됩니다. |
+| 단가 | unitPrice | Microsoft 고객 계약 단가. |
+| 통화 코드 | pricingCurrency | Microsoft 고객 계약은 가격 책정 통화 및 청구 통화 가격을 나타냅니다. 통화 코드는 Microsoft 고객 계약의 pricingCurrency와 동일 합니다. |
+| 포함된 용량 | includedQuantity | Microsoft 고객 계약의 서비스에는 적용 되지 않습니다. 값이 0 인을 표시 합니다. |
+|  제품 Id  | productOrderName | OfferId 대신, 제품 Ordername을 사용 합니다. OfferId와 동일 하지는 않지만 Microsoft 고객 계약의 가격은 제품 주문 이름 및 측정기에 따라 결정 됩니다. 레거시 등록의 meterId 및 Offerid와 관련 되어 있습니다. |
 
-The price for Microsoft Customer Agreements is defined differently than Enterprise agreements. The price for services in the Enterprise enrollment is unique for product, PartNumber, meter, and offer. The PartNumber isn't used in Microsoft Customer Agreements.
+Microsoft 고객 계약의 가격은 엔터프라이즈 계약과 다르게 정의 됩니다. Enterprise 등록의 서비스 가격은 제품, PartNumber, 미터 및 제안에 대해 고유 합니다. PartNumber는 Microsoft 고객 계약에서 사용 되지 않습니다.
 
-The Azure Consumption service price that's part of a Microsoft Customer Agreement is unique for productOrderName and meterId. They represent the service meter and the product plan.
+Microsoft 고객 계약의 일부인 Azure 사용량 서비스 가격은 제품 Ordername 및 meterId에 대해 고유 합니다. 서비스 측정기와 제품 계획을 나타냅니다.
 
-To reconcile between the price sheet and the usage in the Usage Details API, you can use the productOrderName and meterId.
+사용 세부 정보 API에서 가격표와 사용량을 조정 하려면 제품 Ordername 및 meterId를 사용할 수 있습니다.
 
-Users that have billing profile owner, contributor, reader, and invoice manager rights can download the price sheet.
+청구 프로필 소유자, 참가자, 읽기 권한자 및 송장 관리자 권한이 있는 사용자는 가격표를 다운로드할 수 있습니다.
 
-The price sheet includes prices for services whose price is based on usage. The services include Azure consumption and Marketplace consumption. The latest price at the end of each service period is locked and applied to usage in a single service period. For Azure consumption services, the service period is usually a calendar month.
+가격 책정 시트에는 사용량을 기준으로 하는 서비스에 대 한 가격이 포함 됩니다. 서비스에는 Azure 사용량과 Marketplace 사용이 포함 됩니다. 각 서비스 기간이 끝날 때 가장 늦은 가격은 잠기고 단일 서비스 기간 동안 사용에 적용 됩니다. Azure 소비 서비스의 경우 서비스 기간은 일반적으로 달력 월입니다.
 
-### <a name="retired-price-sheet-api-fields"></a>Retired Price Sheet API fields
+### <a name="retired-price-sheet-api-fields"></a>사용 중지 된 가격표 API 필드
 
-The following fields are either not available in Microsoft Customer Agreement Price Sheet APIs or have the same fields.
+Microsoft 고객 계약 가격표 Api에서 다음 필드를 사용할 수 없거나 동일한 필드가 있습니다.
 
-|Retired field| 설명|
+|사용 중지 필드| 설명|
 |---|---|
-| billingPeriodId | No applicable. Corresponds to InvoiceId for MCA. |
-| offerId | 사용할 수 없습니다. Corresponds to productOrderName in MCA. |
-| meterCategory  | 사용할 수 없습니다. Corresponds to Service in MCA. |
-| 단위 | 사용할 수 없습니다. Can be parsed from unitOfMeasure. |
-| currencyCode | Same as the pricingCurrency in MCA. |
-| meterLocation | Same as the meterRegion in MCA. |
-| partNumber partnumber | Not applicable because part number isn't listed in MCA invoices. Instead of partnumber, use the meterId and productOrderName combination to uniquely identify prices. |
+| billingPeriodId | 적용할 수 없습니다. MCA의 InvoiceId에 해당 합니다. |
+| offerId | 사용할 수 없습니다. MCA의 제품 Ordername에 해당 합니다. |
+| meterCategory  | 사용할 수 없습니다. 는 MCA의 서비스에 해당 합니다. |
+| 단위 | 사용할 수 없습니다. 측정값에서 측정값을 구문 분석할 수 있습니다. |
+| currencyCode | MCA의 pricingCurrency와 동일 합니다. |
+| meterLocation | MCA의 meterRegion와 동일 합니다. |
+| partNumber partnumber | 부품 번호가 MCA 청구서에 나열 되지 않기 때문에 적용할 수 없습니다. Partnumber 대신 meterId 및 제품 Ordername 조합을 사용 하 여 가격을 고유 하 게 식별 합니다. |
 | totalIncludedQuantity | 사용할 수 없습니다. |
 | pretaxStandardRate  | 사용할 수 없습니다. |
 
-## <a name="reservation-instance-charge-api-replaced"></a>Reservation Instance Charge API replaced
+## <a name="reservation-instance-charge-api-replaced"></a>예약 인스턴스 요금 API 교체 됨
 
-You can get billing transactions for reservation purchases with the [Reserved Instance Charge API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges). The new API includes all purchases, including third-party Marketplace offerings. All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The Reserved Instance Charge API is replaced by the Transactions API.
+[예약 인스턴스 요금 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-charges)를 사용 하 여 예약 구입에 대 한 청구 트랜잭션을 가져올 수 있습니다. 새 API에는 타사 마켓플레이스 제품을 비롯 한 모든 구매가 포함 됩니다. 모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요. 예약 인스턴스 요금 API는 트랜잭션 API로 대체 됩니다.
 
-To get reservation purchase transactions with the Transactions API:
+트랜잭션 API를 사용 하 여 예약 구매 트랜잭션을 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}/transactions?api-version=2018-11-01-preview` |
 
-## <a name="recommendations-apis-replaced"></a>Recommendations APIs replaced
+## <a name="recommendations-apis-replaced"></a>권장 사항 Api 대체 됨
 
-Reserved Instance Purchase Recommendations APIs provide virtual machine usage over the last 7, 30, or 60 days. APIs also provide reservation purchase recommendations. 다음과 같습니다.
+예약 인스턴스 구매 권장 사항 Api는 최근 7 일, 30 일 또는 60 일 동안 가상 머신 사용량을 제공 합니다. Api는 예약 구매 권장 사항도 제공 합니다. 다음과 같습니다.
 
-- [Shared Reserved Instance Recommendation API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
-- [Single Reserved Instance Recommendations API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
+- [공유 예약 인스턴스 권장 사항 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-shared-reserved-instance-recommendations)
+- [단일 예약 인스턴스 권장 사항 API](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-recommendation#request-for-single-reserved-instance-recommendations)
 
-All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The reservation recommendations APIs listed previously are replaced by the [Microsoft.Consumption/reservationRecommendations](/rest/api/consumption/reservationrecommendations/list) API.
+모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요. 이전에 나열 된 예약 권장 구성 Api는 [reservationRecommendations/](/rest/api/consumption/reservationrecommendations/list) api로 대체 되었습니다.
 
-To get reservation recommendations with the Reservation Recommendations API:
+예약 권장 구성 API를 사용 하 여 예약 권장 사항을 가져오려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Consumption/reservationRecommendations?api-version=2019-01-01` |
 
-## <a name="reservation-usage-apis-replaced"></a>Reservation Usage APIs replaced
+## <a name="reservation-usage-apis-replaced"></a>예약 사용 Api 대체 됨
 
-You can get reservation usage in an enrollment with the Reserved Instance Usage API. If there's more than one reserved instance in an enrollment, you can also get the usage of all the reserved instance purchases using this API.
+예약 인스턴스 사용량 API를 사용 하 여 등록에서 예약 사용을 가져올 수 있습니다. 등록에 예약 된 인스턴스가 두 개 이상 있는 경우이 API를 사용 하 여 모든 예약 인스턴스 구매 사용을 가져올 수도 있습니다.
 
 다음과 같습니다.
 
-- [Reserved Instance Usage Details](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
-- [Reserved Instance Usage Summary](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
+- [예약 인스턴스 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage#request-for-reserved-instance-usage-details)
+- [예약 인스턴스 사용량 요약](/rest/api/billing/enterprise/billing-enterprise-api-reserved-instance-usage)
 
-All Consumption APIs are replaced by native Azure APIs that use Azure AD for authentication and authorization. For more information about calling Azure REST APIs, see [Getting started with REST](/rest/api/azure/#create-the-request). The reservation recommendations APIs listed previously are replaced by the [Microsoft.Consumption/reservationDetails](/rest/api/consumption/reservationsdetails) and [Microsoft.Consumption/reservationSummaries](/rest/api/consumption/reservationssummaries) APIs.
+모든 소비 Api는 인증 및 권한 부여에 Azure AD를 사용 하는 네이티브 Azure Api로 대체 됩니다. Azure REST Api를 호출 하는 방법에 대 한 자세한 내용은 [rest 시작](/rest/api/azure/#create-the-request)을 참조 하세요. 이전에 나열 된 예약 권장 구성 Api는 [microsoft. 사용량과/reservationDetails](/rest/api/consumption/reservationsdetails) 및 [reservationSummaries](/rest/api/consumption/reservationssummaries) api로 대체 되었습니다.
 
-To get reservation details with the Reservation Details API:
+예약 세부 정보 API를 사용 하 여 예약 세부 정보를 가져오려면:
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Consumption/reservationDetails?api-version=2019-01-01` |
 
-To get reservation summaries with the Reservation Summaries API:
+예약 요약 API를 사용 하 여 예약 요약을 가져오려면 다음을 수행 합니다.
 
-| 방법 | 요청 URI |
+| 메서드 | 요청 URI |
 | --- | --- |
-| GET | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
+| 가져오기 | `https://management.azure.com/providers/Microsoft.Consumption/reservationSummaries?api-version=2019-01-01` |
 
 
 
-## <a name="move-from-cloudyn-to-cost-management"></a>Move from Cloudyn to Cost Management
+## <a name="move-from-cloudyn-to-cost-management"></a>Cloudyn에서 Cost Management로 이동
 
-Organizations using [Cloudyn](https://cloudyn.com) should start using [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) for any cost management needs. Cost Management is available in the Azure portal with no onboarding and an eight-hour latency. For more information, see the [Cost Management documentation](index.yml).
+[Cloudyn](https://cloudyn.com) 를 사용 하는 조직은 비용 관리 요구 사항에 따라 [Azure Cost Management](https://azure.microsoft.com/services/cost-management/) 사용을 시작 해야 합니다. Cost Management는 온 보 딩 및 8 시간 대기 시간 없이 Azure Portal에서 사용할 수 있습니다. 자세한 내용은 [Cost Management 설명서](index.yml)를 참조 하세요.
 
-With Azure Cost Management, you can:
+Azure Cost Management를 사용 하 여 다음을 수행할 수 있습니다.
 
-- View costs over time against a predefined budget. Analyze daily cost patterns to identify and stop spending anomalies. Break down costs by tags, resource group, service, and location.
-- Create budgets to set limits on usage and costs and get notified when important thresholds are approached. Set up automation with action groups to trigger custom events and enforce hard limits on your terms.
-- Optimize cost and usage with recommendations from Azure Advisor. Discover purchase optimizations with reservations, downsize underused virtual machines, and delete unused resources to stay within budgets.
-- Schedule a cost and usage data export to publish a CSV file to your storage account daily. Automate integration with external systems to keep billing data in sync and up to date.
+- 미리 정의 된 예산에 대해 시간에 따른 비용을 봅니다. 일별 비용 패턴을 분석 하 여 변칙 지출을 식별 하 고 중지 합니다. 태그, 리소스 그룹, 서비스 및 위치를 기준으로 비용을 나눕니다.
+- 예산을 만들어 사용량 및 비용에 대 한 제한을 설정 하 고 중요 한 임계값에 도달 하면 알림 받기를 설정 합니다. 작업 그룹으로 자동화를 설정 하 여 사용자 지정 이벤트를 트리거하고 사용 약관에 대 한 하드 한도를 적용 합니다.
+- Azure Advisor에서 권장 사항을 사용 하 여 비용 및 사용을 최적화 합니다. 예약을 사용 하 여 구매 최적화를 검색 하 고, 사용 하지 않은 가상 컴퓨터를 다운 크기 조정 하 고, 사용 하지 않는 리소스를 삭제 하
+- 매일 저장소 계정에 CSV 파일을 게시 하기 위해 비용 및 사용 데이터 내보내기를 예약 합니다. 외부 시스템과의 통합을 자동화 하 여 청구 데이터를 동기화 된 상태로 유지 하 고 최신 상태로 유지 합니다.
 
 ## <a name="power-bi-integration"></a>Power BI 통합
 
-You can also use Power BI for cost reporting. The [Azure Cost Management connector](/power-bi/desktop-connect-azure-cost-management) for Power BI Desktop can be used to create powerful, customized reports that help you better understand your Azure spend. The Azure Cost Management connector currently supports customers with either a Microsoft Customer Agreement or an Enterprise Agreement (EA).
+비용 보고를 위해 Power BI를 사용할 수도 있습니다. Power BI Desktop에 대 한 [Azure Cost Management 커넥터](/power-bi/desktop-connect-azure-cost-management) 를 사용 하 여 Azure 소비를 보다 잘 이해할 수 있도록 강력 하 고 사용자 지정 된 보고서를 만들 수 있습니다. Azure Cost Management 커넥터는 현재 Microsoft 고객 계약 또는 EA (기업계약)를 사용 하는 고객을 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- Read the [Cost Management documentation](index.yml) to learn how to monitor and control Azure spending. Or, if you want to optimize resource use with Cost Management.
+- Azure 지출을 모니터링 하 고 제어 하는 방법을 알아보려면 [Cost Management 설명서](index.yml) 를 참조 하세요. 또는 Cost Management를 사용 하 여 리소스 사용을 최적화 하려는 경우.

@@ -86,7 +86,7 @@ Azure Kubernetes (AKS), Azure Databricks 등의 일부 Azure 관리 되는 서�
 
 Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같습니다.
 
-* SQL -
+* SQL
 * PostGreSQL
 * MySQL
 * CosmosDB
@@ -95,7 +95,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * 함수
 * 클라우드 서비스
 * VNet
-* 서브넷
+* Subnet
 * NIC
 * NSG
 * Batch 계정

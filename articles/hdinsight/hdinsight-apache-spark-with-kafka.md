@@ -17,7 +17,7 @@ ms.locfileid: "74327390"
 ---
 # <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka를 사용한 Apache Spark 스트리밍(DStream) 예제
 
-[DStreams](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)를 사용하여 HDInsight에서 [Apache Kafka](https://kafka.apache.org/) 간에 데이터를 스트리밍하기 위해 [Apache Spark](https://spark.apache.org/)를 사용하는 방법을 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 [Jupyter Notebook](https://jupyter.org/)을 사용합니다.
+[DStreams](https://spark.apache.org/)를 사용하여 HDInsight에서 [Apache Kafka](https://kafka.apache.org/) 간에 데이터를 스트리밍하기 위해 [Apache Spark](https://spark.apache.org/docs/latest/api/java/org/apache/spark/streaming/dstream/DStream.html)를 사용하는 방법을 알아봅니다. 이 예제에서는 Spark 클러스터에서 실행되는 [Jupyter Notebook](https://jupyter.org/)을 사용합니다.
 
 > [!NOTE]  
 > 이 문서의 단계는 HDInsight의 Spark와 HDInsight의 Kafka 클러스터를 모두 포함하는 Azure 리소스 그룹을 만듭니다. 이러한 클러스터는 모두 Azure Virtual Network에 있으며, 여기서는 Spark 클러스터와 Kafka 클러스터 간에 직접 통신할 수 있습니다.
@@ -29,7 +29,7 @@ ms.locfileid: "74327390"
 
 ## <a name="create-the-clusters"></a>클러스터 만들기
 
-Apache Kafka on HDInsight doesn't provide access to the Kafka brokers over the public internet. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
+HDInsight의 Apache Kafka는 공용 인터넷을 통해 Kafka broker에 대 한 액세스를 제공 하지 않습니다. Kafka와 통신하는 대상은 Kafka 클러스터의 노드와 동일한 Azure 가상 네트워크에 있어야 합니다. 여기서는 Kafka 클러스터와 Spark 클러스터가 모두 Azure 가상 네트워크에 있습니다. 클러스터 간의 통신 흐름을 보여 주는 다이어그램은 다음과 같습니다.
 
 ![Azure 가상 네트워크에 있는 Spark 및 Kafka 클러스터 다이어그램](./media/hdinsight-apache-spark-with-kafka/apache-spark-kafka-vnet.png)
 
@@ -51,17 +51,17 @@ Azure 가상 네트워크, Kafka 클러스터 및 Spark 클러스터를 수동�
 
 1. 다음 정보를 사용하여 **사용자 지정 배포** 섹션의 항목을 채웁니다.
 
-    |자산 |Value |
+    |속성 |값 |
     |---|---|
-    |Resource group|그룹을 만들거나 기존 그룹을 선택합니다.|
-    |위치|지리적으로 가까운 위치를 선택합니다.|
-    |Base Cluster Name|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.|
+    |리소스 그룹|그룹을 만들거나 기존 그룹을 선택합니다.|
+    |Location|지리적으로 가까운 위치를 선택합니다.|
+    |기본 클러스터 이름|이 값은 Spark 및 Kafka 클러스터의 기본 이름으로 사용됩니다. 예를 들어, **hdistreaming**를 입력하면 __spark-hdistreaming__라는 Spark 클러스터와 **kafka-hdistreaming**라는 Kafka 클러스터가 생성됩니다.|
     |클러스터 로그인 사용자 이름|Spark 및 Kafka 클러스터의 관리 사용자 이름입니다.|
     |클러스터 로그인 암호|Spark 및 Kafka 클러스터의 관리자 사용자 암호입니다.|
     |SSH 사용자 이름|Spark 및 Kafka 클러스터에 만들 SSH 사용자입니다.|
     |SSH 암호|Spark 및 Kafka 클러스터에 대한 SSH 사용자의 암호입니다.|
 
-    ![HDInsight custom deployment parameters](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
+    ![HDInsight 사용자 지정 배포 매개 변수](./media/hdinsight-apache-spark-with-kafka/hdinsight-parameters.png)
 
 1. **사용 약관**을 읽은 다음 **위에 명시된 사용 약관에 동의함**을 선택합니다.
 

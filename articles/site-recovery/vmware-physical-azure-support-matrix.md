@@ -30,7 +30,7 @@ VMware Vm의 재해 복구 | 온-프레미스 VMware VM을 Azure로 복제. Azur
 
 ## <a name="on-premises-virtualization-servers"></a>온-프레미스 가상화 서버
 
-**Server** | **요구 사항** | **세부 정보**
+**서버** | **요구 사항** | **세부 정보**
 --- | --- | ---
 vCenter Server | 버전 6.7, 6.5, 6.0 또는 5.5 | 재해 복구 배포에 vCenter 서버를 사용 하는 것이 좋습니다.
 vSphere 호스트 | 버전 6.7, 6.5, 6.0 또는 5.5 | vSphere 호스트와 vCenter 서버가 프로세스 서버와 동일한 네트워크에 있는 것이 좋습니다. 기본적으로 프로세스 서버는 구성 서버에서 실행 됩니다. [자세히 알아봅니다](vmware-physical-azure-config-process-server-overview.md).
@@ -145,7 +145,7 @@ BTRFS | BTRFS는 [업데이트 롤업 34](https://support.microsoft.com/help/449
 
 ## <a name="vmdisk-management"></a>VM/디스크 관리
 
-**동작** | **세부 정보**
+**작업** | **세부 정보**
 --- | ---
 복제된 VM에서 디스크 크기 조정 | 지원됩니다.
 복제된 VM에 디스크 추가 | 지원되지 않습니다.<br/> VM에 대해 복제를 사용 하지 않도록 설정 하 고, 디스크를 추가한 다음, 복제를 다시 사용 하도록 설정 합니다.
@@ -181,7 +181,7 @@ IPv4 | 예
 Azure 가상 네트워크 서비스 엔드포인트<br/> | 예
 가속된 네트워킹 | 아니오
 
-## <a name="storage"></a>스토리지
+## <a name="storage"></a>Storage
 **구성 요소** | **지원됨**
 --- | ---
 동적 디스크 | OS 디스크는 기본 디스크 여야 합니다. <br/><br/>데이터 디스크는 동적 디스크일 수 있습니다.
@@ -294,7 +294,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="vault-tasks"></a>자격 증명 모음 작업
 
-**동작** | **지원됨**
+**작업** | **지원됨**
 --- | ---
 리소스 그룹 간 자격 증명 모음 이동 | 아니오
 구독 내 및 구독 간에 자격 증명 모음 이동 | 아니오
@@ -304,7 +304,7 @@ VM의 모든 디스크에 대한 최고 데이터 변동률 | 54MB/초
 
 ## <a name="obtain-latest-components"></a>최신 구성 요소 가져오기
 
-**이름** | **설명** | **세부 정보**
+**Name** | **설명** | **세부 정보**
 --- | --- | ---
 구성 서버 | 온-프레미스에 설치 됩니다.<br/> 온-프레미스 VMware 서버 또는 물리적 컴퓨터와 Azure 간의 통신을 조정 합니다. | 구성 서버 [에 대 한 정보](vmware-physical-azure-config-process-server-overview.md) 를 - .<br/> 최신 버전으로 업그레이드 하는 방법에 [대해](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) - .<br/> 구성 서버를 설정 하는 [방법에 대해](vmware-azure-deploy-configuration-server.md) - . 
 프로세스 서버 | 기본적으로 구성 서버에 설치합니다.<br/> 복제 데이터를 수신 하 고, 캐싱, 압축 및 암호화를 사용 하 여 최적화 하 고, Azure로 전송 합니다.<br/> 배포가 커지면 추가 프로세스 서버를 추가 하 여 더 많은 볼륨의 복제 트래픽을 처리할 수 있습니다. | 프로세스 서버 [에 대 한 정보](vmware-physical-azure-config-process-server-overview.md) 를 - .<br/> 최신 버전으로 업그레이드 하는 방법에 [대해](vmware-azure-manage-process-server.md#upgrade-a-process-server) - .<br/> 스케일 아웃 프로세스 서버를 설정 하는 [방법을](vmware-physical-large-deployment.md#set-up-a-process-server) - .

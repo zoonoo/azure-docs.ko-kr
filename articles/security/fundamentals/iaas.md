@@ -33,7 +33,7 @@ ms.locfileid: "74228029"
 VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정하고 VM에 액세스할 수 있게 하는 것입니다.
 
 > [!NOTE]
-> To improve the security of Linux VMs on Azure, you can integrate with Azure AD authentication. When you use [Azure AD authentication for Linux VMs](/azure/virtual-machines/linux/login-using-aad), you centrally control and enforce policies that allow or deny access to the VMs.
+> Azure에서 Linux Vm의 보안을 개선 하기 위해 Azure AD 인증과 통합할 수 있습니다. [Linux vm에 대해 AZURE AD 인증](/azure/virtual-machines/linux/login-using-aad)을 사용 하는 경우 vm에 대 한 액세스를 허용 하거나 거부 하는 정책을 중앙에서 제어 하 고 적용 합니다.
 >
 >
 
@@ -63,7 +63,7 @@ VM을 보호하는 첫 번째 단계는 승인된 사용자만 새 VM을 설정�
 VM 액세스 및 설정을 제어하는 조직은 해당 VM의 전반적인 보안을 개선합니다.
 
 ## <a name="use-multiple-vms-for-better-availability"></a>가용성 향상을 위해 여러 VM 사용
-VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. For better availability, use an [availability set](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) or availability [zones](../../availability-zones/az-overview.md).
+VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 여러 VM을 사용하는 것이 좋습니다. 가용성 향상을 위해 가용성 [집합](../../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) 또는 가용성 [영역](../../availability-zones/az-overview.md)을 사용 합니다.
 
 가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
 
@@ -101,8 +101,8 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 **모범 사례**: OS의 새 버전을 강제로 적용하기 위해 주기적으로 VM 다시 배포   
 **세부 정보**: [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 VM을 정의하므로 쉽게 배포할 수 있습니다. 템플릿을 사용하면 필요한 경우 패치된 보안 VM을 제공합니다.
 
-**Best practice**: Rapidly apply security updates to VMs.   
-**Detail**: Enable Azure Security Center (Free tier or Standard tier) to [identify missing security updates and apply them](../../security-center/security-center-apply-system-updates.md).
+**모범 사례**: vm에 보안 업데이트를 신속 하 게 적용 합니다.   
+**세부 정보**: Azure Security Center (무료 계층 또는 표준 계층)를 사용 하 여 [누락 된 보안 업데이트를 식별 하 고 적용](../../security-center/security-center-apply-system-updates.md)합니다.
 
 **모범 사례**: 최신 보안 업데이트 설치   
 **세부 정보**: 고객이 Azure로 이동하는 첫 번째 작업 일부는 실습 및 외부 연결 시스템입니다. Azure VM이 인터넷에 액세스할 수 있어야 하는 애플리케이션 또는 서비스를 호스트하는 경우 패치 적용에 유의해야 합니다. 운영 체제에 대해 패치를 설치합니다. 파트너 애플리케이션의 취약점을 패치하지 않으면 적절한 패치 관리가 진행되어도 우회할 수 있는 문제가 야기될 수도 있습니다.
@@ -130,7 +130,7 @@ Windows 업데이트를 사용하면 해당 설정을 활성화 상태로 유지
 
 Security Center는 위협을 적극적으로 모니터링할 수 있으며 잠재적 위협은 보안 경고에 표시됩니다. 상호 관련된 위협은 보안 인시던트라고 하는 단일 보기로 집계됩니다.
 
-Security Center stores data in [Azure Monitor logs](/azure/log-analytics/log-analytics-overview). Azure Monitor logs provides a query language and analytics engine that gives you insights into the operation of your applications and resources. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
+Security Center는 [Azure Monitor 로그](/azure/log-analytics/log-analytics-overview)에 데이터를 저장 합니다. Azure Monitor 로그는 응용 프로그램 및 리소스의 작동에 대 한 정보를 제공 하는 쿼리 언어와 분석 엔진을 제공 합니다. 또한 데이터는 온-프레미스의 가상 머신에 설치된 [Azure Monitor](../../batch/monitoring-overview.md), 관리 솔루션 및 클라우드 또는 에이전트에서 수집됩니다. 이렇게 공유된 기능은 환경에 대한 전체적인 그림을 만드는 데 도움이 됩니다.
 
 VM에 대해 강력한 보안을 적용하지 않는 조직은 권한이 없는 사용자가 보안 컨트롤을 억제하는 잠재적인 시도를 알지 못하는 상태가 됩니다.
 
@@ -155,10 +155,10 @@ Azure Disk Encryption을 사용하는 모범 사례는 다음과 같습니다.
 **세부 정보**: Azure Disk Encryption은 암호화 키를 생성하고 키 자격 증명 모음에 작성합니다. Key Vault에서 암호화 키를 관리하려면 Azure AD 인증이 필요합니다. 이를 위해 Azure AD 애플리케이션을 만듭니다. 인증을 위해 클라이언트 비밀 기반 인증 또는 [클라이언트 인증서 기반 Azure AD 인증](../../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md)을 사용할 수 있습니다.
 
 **모범 사례**: 암호화 키에 대한 추가 보안 계층에 KEK(키 암호화 키)를 사용합니다. KEK를 키 자격 증명 모음에 추가합니다.   
-**Detail**: Use the [Add-AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet to create a key encryption key in the key vault. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
+**세부 정보**: [AzKeyVaultKey](/powershell/module/az.keyvault/add-azkeyvaultkey) cmdlet을 사용 하 여 키 자격 증명 모음에 키 암호화 키를 만듭니다. 또한 키를 관리하기 위해 온-프레미스 HSM(하드웨어 보안 모듈)에서 KEK를 가져올 수도 있습니다. 자세한 내용은 [Key Vault 설명서](../../key-vault/key-vault-hsm-protected-keys.md)를 참조하세요. 키 암호화 키가 지정되면 Azure Disk Encryption에서 해당 키를 사용하여 Key Vault에 쓰기 전에 암호화 비밀을 래핑합니다. 온-프레미스 키 관리 HSM에서 이 키의 에스크로 복사본을 유지하면 키를 실수로 삭제하는 경우에 추가적인 보호를 제공합니다.
 
 **모범 사례**: 디스크가 암호화되기 전에 먼저 [스냅샷](../../virtual-machines/windows/snapshot-copy-managed-disk.md) 및/또는 백업을 수행하세요. 백업은 암호화 중에 예상치 않은 오류가 발생하는 경우 복구 옵션을 제공합니다.   
-**세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM에는 백업이 필요합니다. After a backup is made, you can use the **Set-AzVMDiskEncryptionExtension** cmdlet to encrypt managed disks by specifying the *-skipVmBackup* parameter. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
+**세부 정보**: 암호화가 수행되기 전에 관리 디스크가 있는 VM에는 백업이 필요합니다. 백업이 수행 된 후에는 **AzVMDiskEncryptionExtension** cmdlet을 사용 하 여 *-skipvmbackup* 매개 변수를 지정 하 여 관리 디스크를 암호화할 수 있습니다. 암호화된 VM을 백업하고 복원하는 방법에 대한 자세한 내용은 [Azure Backup](../../backup/backup-azure-vms-encryption.md) 문서를 참조하세요.
 
 **모범 사례**: 암호화 비밀이 지역 경계를 넘지 않도록 하려면 Azure Disk Encryption에서는 키 자격 증명 모음과 VM을 동일한 지역에 배치해야 합니다.   
 **세부 정보**: 암호화할 VM과 동일한 지역에 있는 키 자격 증명 모음을 만들고 사용합니다.
@@ -168,20 +168,20 @@ Azure Disk Encryption을 적용할 때 다음 비즈니스 요구 사항을 충�
 - IaaS VM은 업계 표준 암호화 기술을 통해 미사용 시 보호되어 조직의 보안 및 규정 준수 요구 사항을 처리합니다.
 - IaaS VM은 고객이 제어하는 키 및 정책에 따라 시작되고, 키 자격 증명 모음에서 이러한 사용을 감사할 수 있습니다.
 
-## <a name="restrict-direct-internet-connectivity"></a>Restrict direct internet connectivity
-Monitor and restrict VM direct internet connectivity. Attackers constantly scan public cloud IP ranges for open management ports and attempt “easy” attacks like common passwords and known unpatched vulnerabilities. The following table lists best practices to help protect against these attacks:
+## <a name="restrict-direct-internet-connectivity"></a>직접 인터넷 연결 제한
+VM 다이렉트 인터넷 연결을 모니터링 하 고 제한 합니다. 공격자는 개방형 관리 포트에 대해 공용 클라우드 IP 범위를 지속적으로 검색 하 고 일반 암호 및 알려진 패치가 적용 되지 않은 취약점과 같은 "쉬운" 공격을 시도 합니다. 다음 표에서는 이러한 공격 으로부터 보호 하는 데 도움이 되는 모범 사례를 보여 줍니다.
 
-**Best practice**: Prevent inadvertent exposure to network routing and security.   
-**Detail**: Use RBAC to ensure that only the central networking group has permission to networking resources.
+**모범 사례**: 네트워크 라우팅 및 보안에 대 한 실수로 인 한 노출을 방지 합니다.   
+**세부 정보**: RBAC를 사용 하 여 중앙 네트워킹 그룹에만 리소스에 대 한 사용 권한이 있는지 확인 합니다.
 
-**Best practice**: Identify and remediate exposed VMs that allow access from “any” source IP address.   
-**Detail**: Use Azure Security Center. Security Center will recommend that you restrict access through internet-facing endpoints if any of your network security groups has one or more inbound rules that allow access from “any” source IP address. Security Center will recommend that you edit these inbound rules to [restrict access](../../security-center/security-center-network-recommendations.md) to source IP addresses that actually need access.
+**모범 사례**: "any" 원본 IP 주소에서 액세스를 허용 하는 노출 된 vm을 식별 하 고 재구성 합니다.   
+**세부 정보**: Azure Security Center을 사용 합니다. 네트워크 보안 그룹에 "any" 원본 IP 주소에 대 한 액세스를 허용 하는 인바운드 규칙이 하나 이상 있는 경우 인터넷 연결 끝점을 통해 액세스를 제한 하는 것이 좋습니다. Security Center 이러한 인바운드 규칙을 편집 하 여 실제로 액세스 해야 하는 원본 IP 주소에 대 한 [액세스를 제한](../../security-center/security-center-network-recommendations.md) 하는 것이 Security Center 합니다.
 
-**Best practice**: Restrict management ports (RDP, SSH).   
-**Detail**: [Just-in-time (JIT) VM access](../../security-center/security-center-just-in-time.md) can be used to lock down inbound traffic to your Azure VMs, reducing exposure to attacks while providing easy access to connect to VMs when needed. When JIT is enabled, Security Center locks down inbound traffic to your Azure VMs by creating a network security group rule. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. These ports are controlled by the JIT solution.
+**모범 사례**: 관리 포트 (RDP, SSH)를 제한 합니다.   
+**세부 정보**: [JIT (just-in-time) vm 액세스](../../security-center/security-center-just-in-time.md) 를 사용 하 여 Azure vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요에 따라 vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다. JIT를 사용 하도록 설정 하면 Security Center 네트워크 보안 그룹 규칙을 만들어 Azure Vm에 대 한 인바운드 트래픽을 잠급니다. VM에서 인바운드 트래픽을 잠글 포트를 선택합니다. 이러한 포트는 JIT 솔루션에 의해 제어 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인하고, 배포하고, 관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 참조하세요.
+[Azure 보안 모범 사례 및 패턴](best-practices-and-patterns.md)에서 Azure를 사용하여 클라우드 솔루션을 디자인/배포/관리할 때 사용할 수 있는 더 많은 보안 모범 사례를 확인합니다.
 
 Azure 보안 및 관련 Microsoft 서비스에 대한 보다 일반적인 정보를 제공하는 다음 리소스도 확인할 수 있습니다.
 * [Azure 보안 팀 블로그](https://blogs.msdn.microsoft.com/azuresecurity/) – Azure Security 관련 최신 정보를 확인할 수 있습니다.

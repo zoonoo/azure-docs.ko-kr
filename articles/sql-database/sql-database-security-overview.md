@@ -39,14 +39,14 @@ IP 방화벽 규칙은 각 요청이 시작된 IP 주소를 기준으로 하여 
 Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-endpoint-rule-overview.md)을 통해 Virtual Network 내의 선택한 서브넷에서 전송된 통신만 수락할 수 있습니다.
 
 > [!NOTE]
-> 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
+> 방화벽 규칙을 사용한 액세스 제어는 *관리되는 인스턴스*에 적용되지 **않습니다**. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)을 참조하세요.
 
 ## <a name="access-management"></a>액세스 관리
 
 > [!IMPORTANT]
 > Azure 내에서 데이터베이스와 데이터베이스 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요.
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>인증
 
 인증은 사용자의 신원을 증명하는 과정입니다. Azure SQL Database는 두 가지 인증 유형을 지원합니다.
 
@@ -60,20 +60,20 @@ Azure SQL Database는 [가상 네트워크 규칙](sql-database-vnet-service-end
 
      SQL Database를 사용한 Azure AD 인증을 사용하려면 서버 관리자 **Active Directory 관리자**를 만들어야 합니다. 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database에 연결](sql-database-aad-authentication.md)을 참조하세요. Azure AD 인증에서는 관리 계정과 페더레이션된 계정이 모두 지원됩니다. 페더레이션된 계정은 Azure AD와 페더레이션된 고객 도메인용 Windows 사용자 및 그룹을 지원합니다.
 
-    사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](../active-directory/authentication/concept-mfa-howitworks.md) 및 [조건부 액세스](sql-database-conditional-access.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](sql-database-ssms-mfa-authentication.md) 연결이 있습니다.
+    사용 가능한 추가 Azure AD 인증 옵션으로는 [다단계 인증](sql-database-ssms-mfa-authentication.md) 및 [조건부 액세스](../active-directory/authentication/concept-mfa-howitworks.md)를 비롯한 [SQL Server Management Studio용 Active Directory 유니버설 인증](sql-database-conditional-access.md) 연결이 있습니다.
 
 > [!IMPORTANT]
-> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 **관리되는 인스턴스**에 적용되지 *않습니다*. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)에 관한 다음 문서를 참조하세요.
+> Azure 내에서 데이터베이스와 서버를 관리하는 작업은 포털 사용자 계정의 역할 할당을 통해 제어됩니다. 이 아티클에 대한 자세한 내용은 [Azure Portal의 역할 기반 액세스 제어](../role-based-access-control/overview.md)를 참조하세요. 방화벽 규칙을 사용한 액세스 제어는 *관리되는 인스턴스*에 적용되지 **않습니다**. 필요한 네트워킹 구성에 대한 자세한 내용은 [관리되는 인스턴스에 연결](sql-database-managed-instance-connect-app.md)에 관한 다음 문서를 참조하세요.
 
-## <a name="authorization"></a>권한 부여
+## <a name="authorization"></a>Authorization
 
-Azure SQL Database 내에서 사용자에게 할당되는 권한을 지칭하는 권한 부여는 사용자가 수행할 수 있는 작업을 결정합니다. Permissions are controlled by adding user accounts to [database roles](/sql/relational-databases/security/authentication-access/database-level-roles) and assigning database-level permissions to those roles or by granting the user certain [object-level permissions](/sql/relational-databases/security/permissions-database-engine). 자세한 내용은 [로그인 및 사용자](sql-database-manage-logins.md)를 참조하세요.
+Azure SQL Database 내에서 사용자에게 할당되는 권한을 지칭하는 권한 부여는 사용자가 수행할 수 있는 작업을 결정합니다. 권한은 [데이터베이스 역할](/sql/relational-databases/security/authentication-access/database-level-roles) 에 사용자 계정을 추가 하 고 해당 역할에 데이터베이스 수준 사용 권한을 할당 하거나 사용자에 게 특정 [개체 수준 사용 권한을](/sql/relational-databases/security/permissions-database-engine)부여 하 여 제어 됩니다. 자세한 내용은 [로그인 및 사용자](sql-database-manage-logins.md)를 참조하세요.
 
-As a best practice, create custom roles when needed. Add users to the role with the least privileges required to do their job function. Do not assign permissions directly to users. The server admin account is a member of the built-in db_owner role, which has extensive permissions and should only be granted to few users with administrative duties. For Azure SQL Database applications, use the [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) to specify the execution context of the called module or use [Application Roles](/sql/relational-databases/security/authentication-access/application-roles) with limited permissions. This practice ensures that the application that connects to the database has the least privileges needed by the application. Following these best practices also fosters separation of duties.
+필요한 경우 사용자 지정 역할을 만드는 것이 가장 좋습니다. 작업 기능을 수행 하는 데 필요한 최소한의 권한만 가진 사용자를 역할에 추가 합니다. 사용자에 게 직접 사용 권한을 할당 하지 마십시오. 서버 관리자 계정은 다양 한 권한이 있는 기본 제공 db_owner 역할의 구성원이 며, 관리 업무를 사용 하는 소수의 사용자 에게만 부여 되어야 합니다. Azure SQL Database 응용 프로그램의 경우 [EXECUTE AS](/sql/t-sql/statements/execute-as-clause-transact-sql) 를 사용 하 여 호출 된 모듈의 실행 컨텍스트를 지정 하거나 제한 된 권한으로 [응용 프로그램 역할](/sql/relational-databases/security/authentication-access/application-roles) 을 사용 합니다. 이렇게 하면 데이터베이스에 연결 하는 응용 프로그램에 응용 프로그램에 필요한 최소한의 권한만 부여 됩니다. 이러한 모범 사례를 따르면 발전시키도 구분 됩니다.
 
 ### <a name="row-level-security"></a>행 수준 보안
 
-행 수준 보안을 통해 고객은 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. Row-Level Security can also be used to implement custom Label-based security concepts. 자세한 내용은 [행 수준 보안](/sql/relational-databases/security/row-level-security)을 참조하세요.
+행 수준 보안을 통해 고객은 쿼리를 실행하는 사용자의 특성(예: 그룹 멤버 자격 또는 실행 컨텍스트)을 기반으로 하여 데이터베이스 테이블의 행에 대한 액세스를 제어할 수 있습니다. 행 수준 보안을 사용 하 여 사용자 지정 레이블 기반 보안 개념을 구현할 수도 있습니다. 자세한 내용은 [행 수준 보안](/sql/relational-databases/security/row-level-security)을 참조하세요.
 
 ![azure-database-rls.png](media/sql-database-security-overview/azure-database-rls.png)
 
@@ -81,13 +81,13 @@ As a best practice, create custom roles when needed. Add users to the role with 
 
 SQL Database는 감사 및 위협 검색 기능을 제공하여 고객 데이터를 보호합니다.
 
-### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>SQL auditing in Azure Monitor logs and Event Hubs
+### <a name="sql-auditing-in-azure-monitor-logs-and-event-hubs"></a>Azure Monitor 로그 및 Event Hubs의 SQL 감사
 
 SQL Database 감사는 데이터베이스 활동을 추적하며 고객이 소유한 Azure Storage 계정의 감사 로그에 데이터베이스 이벤트를 기록하여 보안 표준 규정 준수 상태를 유지할 수 있도록 지원합니다. 사용자는 감사를 통해 진행 중인 데이터베이스 활동을 모니터링하고 이전 활동을 분석 및 조사하여 잠재적 위협이나 악용 의심 사례 및 보안 위반을 식별할 수 있습니다. 자세한 내용은 [SQL Database 감사 시작](sql-database-auditing.md)을 참조하세요.  
 
-### <a name="advanced-threat-protection"></a>Advanced Threat Protection
+### <a name="advanced-threat-protection"></a>고급 위협 보호
 
-Advanced Threat Protection is analyzing your SQL Server logs to detect unusual behavior and potentially harmful attempts to access or exploit databases. Alerts are created for suspicious activities such as SQL injection, potential data infiltration, and brute force attacks or for anomalies in access patterns to catch privilege escalations and breached credentials use. Alerts are viewed from the  [Azure Security Center](https://azure.microsoft.com/services/security-center/), where the details of the suspicious activities are provided and recommendations for further investigation given along with actions to mitigate the threat. Advanced Threat Protection can be enabled per server for an additional fee. For more information, see [Get started with SQL Database Advanced Threat Protection](sql-database-threat-detection.md).
+Advanced Threat Protection은 SQL Server 로그를 분석 하 여 비정상적인 동작을 감지 하 고 잠재적으로 유해한 데이터베이스 액세스 또는 악용 시도를 감지 합니다. 경고는 SQL 삽입, 잠재적 데이터 침입 및 무차별 암호 대입 공격과 같은 의심 스러운 활동에 대해 만들어지거나 권한 상승 및 위반 된 자격 증명 사용을 포착 하기 위한 액세스 패턴의 이상에서 발생 합니다. 경고는 [Azure Security Center](https://azure.microsoft.com/services/security-center/)에서 볼 수 있습니다. 여기에서 의심 스러운 활동에 대 한 세부 정보를 제공 하 고, 위협을 완화 하는 작업과 함께 제공 된 추가 조사에 대 한 권장 사항을 제공 합니다. 추가 요금을 위해 서버당 Advanced Threat Protection을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [SQL Database Advanced Threat Protection 시작](sql-database-threat-detection.md)을 참조 하세요.
 
 ![azure-database-td.jpg](media/sql-database-security-overview/azure-database-td.jpg)
 
@@ -97,26 +97,26 @@ Advanced Threat Protection is analyzing your SQL Server logs to detect unusual b
 
 SQL Database는 [전송 계층 보안](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server)을 사용하여 이동 중인 데이터를 암호화해 고객 데이터를 보호합니다.
 
-Sql Server enforces encryption (SSL/TLS) at all times for all connections. This ensures all data is encrypted "in transit" between the client and server irrespective of the setting of **Encrypt** or **TrustServerCertificate** in the connection string.
+Sql Server는 모든 연결에 대해 항상 암호화 (SSL/TLS)를 적용 합니다. 이렇게 하면 연결 문자열에서 **Encrypt** 또는 **trustservercertificate** 의 설정에 관계 없이 모든 데이터가 클라이언트와 서버 간에 "전송 중"으로 암호화 됩니다.
 
-As a best practice, recommend that in your application's connection string you specify an encrypted connection and _**not**_ trust the server certificate. This forces your application to verify the server certificate and thus prevents your application from being vulnerable to man in the middle type attacks.
+응용 프로그램의 연결 문자열에서 암호화 된 연결을 지정 하 고 서버 인증서를 신뢰 _**하지**_ 않는 것이 좋습니다. 이렇게 하면 응용 프로그램이 서버 인증서를 확인 하 여 응용 프로그램이 중간 유형의 공격을 받을 수 없게 됩니다.
 
-For example when using the ADO.NET driver this is accomplished via  **Encrypt=True** and **TrustServerCertificate=False**. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
+예를 들어 ADO.NET 드라이버를 사용 하는 경우 **Encrypt = True** 및 **Trustservercertificate = False**를 통해이를 수행 합니다. Azure Portal에서 연결 문자열을 얻는 경우 올바른 설정이 사용됩니다.
 
 > [!IMPORTANT]
-> Note that some non-Microsoft drivers may not use TLS by default or rely on an older version of TLS (<1.2) in order to function. In this case SQL Server still allows you to connect to your database. However, we recommend that you evaluate the security risks of allowing such drivers and application to connect to SQL Database, especially if you store sensitive data. 
+> 일부 타사 드라이버는 기본적으로 TLS를 사용 하지 않거나 작동 하기 위해 이전 버전의 TLS (< 1.2)를 사용 하지 않을 수 있습니다. 이 경우 SQL Server를 사용 하 여 데이터베이스에 연결할 수 있습니다. 그러나 특히 중요 한 데이터를 저장 하는 경우 이러한 드라이버와 응용 프로그램이 SQL Database에 연결 하도록 허용 하는 보안 위험을 평가 하는 것이 좋습니다. 
 >
-> For further information about TLS and connectivity, see [TLS considerations](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+> TLS 및 연결에 대 한 자세한 내용은 [tls 고려 사항](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity) 을 참조 하세요.
 
 ### <a name="transparent-data-encryption-encryption-at-rest"></a>투명한 데이터 암호화(미사용 데이터 암호화)
 
-[Azure SQL Database용 TDE(투명한 데이터 암호화)](transparent-data-encryption-azure-sql.md)는 원시 파일이나 백업에 무단/오프라인으로 액세스할 수 없도록 미사용 데이터를 보호하기 위해 보안 계층을 추가합니다. 무단/오프라인 액세스의 일반적인 시나리오에는 데이터 센터 도난, 안전하지 않은 하드웨어 또는 미디어(예: 디스크 드라이브 및 백업 테이프) 폐기 등이 포함됩니다. TDE encrypts the entire database using an AES encryption algorithm, which doesn’t require application developers to make any changes to existing applications.
+[Azure SQL Database용 TDE(투명한 데이터 암호화)](transparent-data-encryption-azure-sql.md)는 원시 파일이나 백업에 무단/오프라인으로 액세스할 수 없도록 미사용 데이터를 보호하기 위해 보안 계층을 추가합니다. 무단/오프라인 액세스의 일반적인 시나리오에는 데이터 센터 도난, 안전하지 않은 하드웨어 또는 미디어(예: 디스크 드라이브 및 백업 테이프) 폐기 등이 포함됩니다. TDE는 응용 프로그램 개발자가 기존 응용 프로그램을 변경할 필요가 없는 AES 암호화 알고리즘을 사용 하 여 전체 데이터베이스를 암호화 합니다.
 
 Azure에서는 새로 만드는 모든 SQL Database가 기본적으로 암호화되며, 기본 제공 서버 인증서를 통해 데이터베이스 암호화 키가 보호됩니다.  서비스에서 인증서 유지 관리 및 순환을 관리하므로 사용자 입력은 필요하지 않습니다. 암호화 키를 직접 제어하려는 고객은 [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)에서 키를 관리할 수 있습니다.
 
 ### <a name="key-management-with-azure-key-vault"></a>Azure Key Vault으로 키 관리
 
-고객은 TDE( [투명한 데이터 암호화](/sql/relational-databases/security/encryption/transparent-data-encryption))용으로 지원되는 BYOK([Bring Your Own Key](transparent-data-encryption-byok-azure-sql.md))를 활용해 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
+고객은 TDE([투명한 데이터 암호화](transparent-data-encryption-byok-azure-sql.md))용으로 지원되는 BYOK( [Bring Your Own Key](/sql/relational-databases/security/encryption/transparent-data-encryption))를 활용해 Azure의 클라우드 기반 외부 키 관리 시스템인  [Azure Key Vault](../key-vault/key-vault-secure-your-key-vault.md)를 사용하여 키 관리 및 순환을 직접 제어할 수 있습니다. 데이터베이스의 키 자격 증명 모음 액세스 권한이 철회되면 데이터베이스를 암호 해독하여 메모리로 읽어들일 수 없습니다. 중앙 키 관리 플랫폼을 제공하며 철저하게 모니터링되는 HSM(하드웨어 보안 모듈)을 활용하는 Azure Key Vault를 사용하면 키와 데이터 관리 작업을 분리하여 보안 규정 준수 요구 사항을 충족할 수 있습니다.
 
 ### <a name="always-encrypted-encryption-in-use"></a>Always Encrypted(사용 중인 데이터 암호화)
 
@@ -148,7 +148,7 @@ SQL Database 동적 데이터 마스킹에서는 권한이 없는 사용자에 �
 
 ### <a name="compliance"></a>규정 준수
 
-Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. For more information, see the [Microsoft Azure Trust Center](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) where you can find the most current list of SQL Database compliance certifications.
+Azure SQL Database는 위의 기능 및 애플리케이션이 다양한 보안 요구 사항을 충족하는 데 도움이 될 수 있는 기능을 포함할 뿐 아니라, 정기 감사도 받고 있으며 다수의 규정 준수 표준 충족 인증도 취득했습니다. 자세한 내용은 SQL Database 준수 인증의 최신 목록을 찾을 수 있는 [Microsoft Azure 보안 센터](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

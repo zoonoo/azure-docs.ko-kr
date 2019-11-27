@@ -20,7 +20,7 @@ ms.locfileid: "74285926"
 
 ## <a name="common-user-errors"></a>일반 사용자 오류
 
-| 오류                                | 오류 메시지                    | 가능한 원인                                              | 권장 작업                                           |
+| Error                                | 오류 메시지                    | 가능한 원인                                              | 권장 작업                                           |
 | ------------------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | UserErrorInOpeningHanaOdbcConnection | HANA 시스템에 연결 하지 못했습니다. | SAP HANA 인스턴스가 다운 되었을 수 있습니다. <br> HANA 데이터베이스와 상호 작용 하기 위해 Azure backup에 필요한 권한이 설정 되지 않았습니다. | SAP HANA 데이터베이스가 작동 하는지 확인 합니다. 데이터베이스가 실행 중인 경우 필요한 모든 권한이 설정 되어 있는지 확인 합니다. 사용 권한이 없는 경우 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 하 여 누락 된 사용 권한을 추가 합니다. |
 | UserErrorHanaInstanceNameInvalid | 지정한 SAP HANA 인스턴스가 잘못 되었거나 찾을 수 없습니다. | 단일 Azure VM의 여러 SAP HANA 인스턴스는 백업할 수 없습니다. | 백업 하려는 SAP HANA 인스턴스에서 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 합니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요. |

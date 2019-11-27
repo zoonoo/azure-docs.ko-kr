@@ -1,6 +1,6 @@
 ---
-title: Use Azure Storage Explorer with Azure Data Lake Storage Gen2
-description: Learn how to use Azure Storage Explorer to create a file system in an Azure Data Lake Storage Gen2 account, as well as a directory and a file. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
+title: Azure Data Lake Storage Gen2에서 Azure Storage 탐색기 사용
+description: Azure Storage 탐색기를 사용 하 여 디렉터리 및 파일 뿐만 아니라 Azure Data Lake Storage Gen2 계정에서 파일 시스템을 만드는 방법에 대해 알아봅니다. 그런 다음, 파일을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 파일을 보는 방법을 알아봅니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
@@ -15,11 +15,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74484467"
 ---
-# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Use Azure Storage Explorer with Azure Data Lake Storage Gen2
+# <a name="use-azure-storage-explorer-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 Azure Storage 탐색기 사용
 
-In this article, you'll learn how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to create a directory and a blob. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
+이 문서에서는 [Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 디렉터리 및 blob을 만드는 방법에 대해 알아봅니다. 그런 다음, Blob을 로컬 컴퓨터로 다운로드하는 방법과 디렉터리의 모든 Blob을 보는 방법을 알아봅니다. 또한 Blob의 스냅샷을 만들고, 디렉터리 액세스 정책을 관리하고, 공유 액세스 서명을 만드는 방법을 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [!INCLUDE [storage-quickstart-prereq-include](../../../includes/storage-quickstart-prereq-include.md)]
 
@@ -29,11 +29,11 @@ In this article, you'll learn how to use [Azure Storage Explorer](https://azure.
 
 처음 시작하는 경우 **Microsoft Azure Storage Explorer - 연결** 창이 표시됩니다. Storage Explorer에서는 몇 가지 방법으로 스토리지 계정에 연결할 수 있지만, 현재는 ACL을 관리하는 한 가지 방법만 지원됩니다.
 
-|작업|용도|
+|Task|목적|
 |---|---|
 |Azure 계정 추가 | Azure에 인증하기 위해 조직 로그인 페이지로 리디렉션합니다. ACL을 관리하고 설정하려는 경우 현재 유일하게 지원되는 인증 방법입니다. |
 
-Select **Add an Azure Account** and click **Sign in..** . Follow the on-screen prompts to sign into your Azure account.
+**Azure 계정 추가** 를 선택 하 고 **로그인**을 클릭 합니다. 화면에 표시 되는 메시지에 따라 Azure 계정에 로그인 합니다.
 
 ![Microsoft Azure Storage Explorer - 연결 창](media/storage-quickstart-blobs-storage-explorer/connect.png)
 
@@ -45,9 +45,9 @@ Select **Add an Azure Account** and click **Sign in..** . Follow the on-screen p
 
 Blob은 항상 디렉터리에 업로드됩니다. 컴퓨터의 폴더에서 파일을 구성하는 것처럼 컨테이너를 사용하여 Blob 그룹을 구성할 수 있습니다.
 
-디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. Enter the name for your container. When complete, press **Enter** to create the container. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
+디렉터리를 만들려면 진행 단계에서 만든 스토리지 계정을 확장합니다. **Blob 컨테이너**를 선택하고, 마우스 오른쪽 단추로 클릭하여 **Blob 컨테이너 만들기**를 선택합니다. 컨테이너의 이름을 입력 합니다. 완료 되 면 **enter** 키를 눌러 컨테이너를 만듭니다. Blob 디렉터리가 성공적으로 만들어졌다면 선택한 스토리지 계정에 대해 **Blob 컨테이너** 폴더 아래에 표시됩니다.
 
-![Microsoft Azure Storage Explorer - Creating a container](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
+![Microsoft Azure Storage 탐색기-컨테이너 만들기](media/storage-quickstart-blobs-storage-explorer/creating-a-filesystem.png)
 
 ## <a name="upload-blobs-to-the-directory"></a>디렉터리에 Blob 업로드
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Functions Runtime Installation
+title: Azure Functions 런타임 설치
 description: Azure Functions 런타임 미리 보기 2를 설치하는 방법
 author: apwestgarth
 ms.topic: conceptual
@@ -25,7 +25,7 @@ Azure Functions 런타임 미리 보기 2를 설치하려는 경우 다음 단�
 1. Azure Functions 런타임 미리 보기 2의 구성 완료
 1. Azure Functions 런타임 미리 보기에서 첫 번째 함수 만들기
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure Functions 런타임 미리 보기를 설치하기 전에 다음 리소스를 사용할 수 있어야 합니다.
 
@@ -75,23 +75,23 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
     ![Azure Functions 런타임 미리 보기 데이터베이스 구성][8]
 
-1. Click the **Credentials** tab.  Here, you must create two new credentials for use with a file share for hosting all your function apps.  **파일 공유 소유자** 및 **파일 공유 사용자** 에 대해 **사용자 이름** 및 **암호** 조합을 지정하고 **적용**을 클릭합니다.
+1. **자격 증명** 탭을 클릭 합니다.  여기에서 모든 함수 앱을 호스팅하기 위해 파일 공유에 사용할 두 개의 새 자격 증명을 만들어야 합니다.  **파일 공유 소유자** 및 **파일 공유 사용자** 에 대해 **사용자 이름** 및 **암호** 조합을 지정하고 **적용**을 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 자격 증명][9]
 
-1. Click the **File Share** tab.  Here you must specify the details of the file share  location.  파일 공유가 자동으로 생성될 수도 있고 기존 파일 공유를 사용하고 **적용**을 클릭할 수도 있습니다.  새 파일 공유 위치를 선택하는 경우 Azure Functions 런타임에서 사용할 디렉터리를 지정해야 합니다.
+1. **파일 공유** 탭을 클릭 합니다.  여기에서 파일 공유 위치에 대 한 세부 정보를 지정 해야 합니다.  파일 공유가 자동으로 생성될 수도 있고 기존 파일 공유를 사용하고 **적용**을 클릭할 수도 있습니다.  새 파일 공유 위치를 선택하는 경우 Azure Functions 런타임에서 사용할 디렉터리를 지정해야 합니다.
 
     ![Azure Functions 런타임 미리 보기 파일 공유][10]
 
-1. Click the **IIS** tab.  This tab shows the details of the websites in IIS that the Azure Functions Runtime configuration tool creates.  Azure Functions 런타임 미리 보기 포털에 대한 사용자 지정 DNS 이름을 여기에 지정할 수 있습니다.  **적용**을 클릭하여 완료합니다.
+1. **IIS** 탭을 클릭 합니다.  이 탭에는 Azure Functions 런타임 구성 도구가 만드는 IIS의 웹 사이트에 대 한 세부 정보가 표시 됩니다.  Azure Functions 런타임 미리 보기 포털에 대한 사용자 지정 DNS 이름을 여기에 지정할 수 있습니다.  **적용**을 클릭하여 완료합니다.
 
     ![Azure Functions 런타임 미리 보기 IIS][11]
 
-1. Click the **Services** tab.  This tab shows the status of the services in your Azure Functions Runtime configuration tool.  초기 구성 후에 **Azure Functions Host Activation Service**가 실행되지 않을 경우 **서비스 시작**을 클릭합니다.
+1. **서비스** 탭을 클릭 합니다.  이 탭에는 Azure Functions 런타임 구성 도구의 서비스 상태가 표시 됩니다.  초기 구성 후에 **Azure Functions Host Activation Service**가 실행되지 않을 경우 **서비스 시작**을 클릭합니다.
 
     ![Azure Functions 런타임 미리 보기 구성 완료][12]
 
-1. `https://<machinename>.<domain>/`을 통해 **Azure Functions 런타임 포털**로 이동합니다.
+1. **을 통해** Azure Functions 런타임 포털`https://<machinename>.<domain>/`로 이동합니다.
 
     ![Azure Functions 런타임 미리 보기 포털][13]
 
@@ -99,13 +99,13 @@ Azure Functions 런타임 설치를 완료하려면 구성을 완료해야 합�
 
 Azure Functions 런타임 미리 보기에서 첫 번째 함수를 만들려면
 
-1. Browse to the **Azure Functions Runtime Portal** as `https://<machinename>.<domain>` for example `https://mycomputer.mydomain.com`.
+1. 예 `https://mycomputer.mydomain.com``https://<machinename>.<domain>` **Azure Functions 런타임 포털로** 이동 합니다.
 
 1. **로그인**하라는 메시지가 표시됩니다. 도메인에 배포된 경우 도메인 계정 사용자 이름 및 암호를 사용하고, 그렇지 않은 경우 로컬 계정 사용자 이름 및 암호를 사용하여 포털에 로그인합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 로그인][14]
 
-1. 함수 앱을 만들려면 구독을 만들어야 합니다.  In the top left-hand corner of the portal, click the **+** option next to the subscriptions.
+1. 함수 앱을 만들려면 구독을 만들어야 합니다.  포털의 왼쪽 위 모서리에서 구독 옆에 있는 **+** 옵션을 클릭 합니다.
 
     ![Azure Functions 런타임 미리 보기 포털 구독][15]
 

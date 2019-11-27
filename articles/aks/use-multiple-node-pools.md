@@ -1,6 +1,6 @@
 ---
-title: Use multiple node pools in Azure Kubernetes Service (AKS)
-description: Learn how to create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
+title: Azure Kubernetes Service에서 여러 노드 풀 사용 (AKS)
+description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀을 만들고 관리 하는 방법을 알아봅니다.
 services: container-service
 author: mlearned
 ms.service: container-service
@@ -14,39 +14,39 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382984"
 ---
-# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Create and manage multiple node pools for a cluster in Azure Kubernetes Service (AKS)
+# <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
-In Azure Kubernetes Service (AKS), nodes of the same configuration are grouped together into *node pools*. These node pools contain the underlying VMs that run your applications. The initial number of nodes and their size (SKU) are defined when you create an AKS cluster, which creates a *default node pool*. To support applications that have different compute or storage demands, you can create additional node pools. For example, use these additional node pools to provide GPUs for compute-intensive applications, or access to high-performance SSD storage.
+Azure Kubernetes 서비스 (AKS)에서 동일한 구성의 노드는 *노드 풀*로 그룹화 됩니다. 이러한 노드 풀에는 응용 프로그램을 실행 하는 기본 Vm이 포함 됩니다. 초기 노드 수와 해당 크기 (SKU)는 *기본 노드 풀*을 만드는 AKS 클러스터를 만들 때 정의 됩니다. 계산 또는 저장소 요구가 다른 응용 프로그램을 지원 하기 위해 추가 노드 풀을 만들 수 있습니다. 예를 들어 이러한 추가 노드 풀을 사용 하 여 계산 집약적인 응용 프로그램을 위한 Gpu를 제공 하거나 고성능 SSD 저장소에 액세스할 수 있습니다.
 
 > [!NOTE]
-> This feature enables higher control over how to create and manage multiple node pools. As a result, separate commands are required for  create/update/delete. Previously cluster operations through `az aks create` or `az aks update` used the managedCluster API and were the only option to change your control plane and a single node pool. This feature exposes a separate operation set for agent pools through the agentPool API and require use of the `az aks nodepool` command set to execute operations on an individual node pool.
+> 이 기능을 사용 하면 여러 노드 풀을 만들고 관리 하는 방법을 보다 효과적으로 제어할 수 있습니다. 따라서 create/update/delete에 별도의 명령이 필요 합니다. 이전에 `az aks create` 또는 `az aks update`를 통한 클러스터 작업에서 managedCluster API를 사용 했으며,이 옵션은 제어 평면과 단일 노드 풀을 변경 하는 유일한 옵션 이었습니다. 이 기능은 agentPool API를 통해 에이전트 풀에 대 한 별도의 작업 집합을 노출 하 고 개별 노드 풀에서 작업을 실행 하려면 `az aks nodepool` 명령 집합을 사용 해야 합니다.
 
-This article shows you how to create and manage multiple node pools in an AKS cluster.
+이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리 하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-You need the Azure CLI version 2.0.76 or later installed and configured. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="limitations"></a>제한 사항
 
-The following limitations apply when you create and manage AKS clusters that support multiple node pools:
+여러 노드 풀을 지 원하는 AKS 클러스터를 만들고 관리 하는 경우 다음과 같은 제한 사항이 적용 됩니다.
 
-* You can't delete the default (first) node pool.
-* The HTTP application routing add-on can't be used.
-* The AKS cluster must use the Standard SKU load balancer to use multiple node pools, the feature is not supported with Basic SKU load balancers.
-* The AKS cluster must use virtual machine scale sets for the nodes.
-* You can't add or delete node pools using an existing Resource Manager template as with most operations. Instead, [use a separate Resource Manager template](#manage-node-pools-using-a-resource-manager-template) to make changes to node pools in an AKS cluster.
-* The name of a node pool may only contain lowercase alphanumeric characters and must begin with a lowercase letter. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
-* The AKS cluster can have a maximum of eight node pools.
-* The AKS cluster can have a maximum of 400 nodes across those eight node pools.
-* All node pools must reside in the same subnet.
+* 기본 (첫 번째) 노드 풀은 삭제할 수 없습니다.
+* HTTP 응용 프로그램 라우팅 추가 기능을 사용할 수 없습니다.
+* AKS 클러스터는 표준 SKU 부하 분산 장치를 사용 하 여 여러 노드 풀을 사용 해야 합니다 .이 기능은 기본 SKU 부하 분산 장치에서 지원 되지 않습니다.
+* AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
+* 대부분의 작업과 마찬가지로 기존 리소스 관리자 템플릿을 사용 하 여 노드 풀을 추가 하거나 삭제할 수 없습니다. 대신 [별도의 리소스 관리자 템플릿을 사용](#manage-node-pools-using-a-resource-manager-template) 하 여 AKS 클러스터의 노드 풀을 변경 합니다.
+* 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
+* AKS 클러스터에는 최대 8 개의 노드 풀이 있을 수 있습니다.
+* AKS 클러스터는 해당 8 개 노드 풀에서 최대 400 노드를 가질 수 있습니다.
+* 모든 노드 풀이 동일한 서브넷에 있어야 합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-To get started, create an AKS cluster with a single node pool. The following example uses the [az group create][az-group-create] command to create a resource group named *myResourceGroup* in the *eastus* region. An AKS cluster named *myAKSCluster* is then created using the [az aks create][az-aks-create] command. A *--kubernetes-version* of *1.13.10* is used to show how to update a node pool in a following step. You can specify any [supported Kubernetes version][supported-versions].
+시작 하려면 단일 노드 풀로 AKS 클러스터를 만듭니다. 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *에서는 eastus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. *1.13.10* 의 *kubernetes 버전* 은 다음 단계에서 노드 풀을 업데이트 하는 방법을 보여 주는 데 사용 됩니다. [지원 되는 Kubernetes 버전][supported-versions]을 지정할 수 있습니다.
 
 > [!NOTE]
-> The *Basic* load balancer SKU is **not supported** when using multiple node pools. By default, AKS clusters are created with the *Standard* load balancer SKU from Azure CLI and Azure portal.
+> 여러 노드 풀을 사용 하는 경우 *기본* 부하 분산 장치 SKU가 **지원 되지 않습니다** . 기본적으로 AKS 클러스터는 Azure CLI 및 Azure Portal에서 *표준* 부하 분산 장치 SKU를 사용 하 여 만들어집니다.
 
 ```azurecli-interactive
 # Create a resource group in East US
@@ -66,17 +66,17 @@ az aks create \
 클러스터를 만드는 데 몇 분이 걸립니다.
 
 > [!NOTE]
-> To ensure your cluster operates reliably, you should run at least 2 (two) nodes in the default node pool, as essential system services are running across this node pool.
+> 클러스터가 안정적으로 작동 하도록 하려면이 노드 풀에서 필수적인 시스템 서비스가 실행 되 고 있으므로 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
-When the cluster is ready, use the [az aks get-credentials][az-aks-get-credentials] command to get the cluster credentials for use with `kubectl`:
+클러스터가 준비 되 면 [az aks][az-aks-get-credentials] 명령을 사용 하 여 `kubectl`와 함께 사용할 클러스터 자격 증명을 가져옵니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-## <a name="add-a-node-pool"></a>Add a node pool
+## <a name="add-a-node-pool"></a>노드 풀 추가
 
-The cluster created in the previous step has a single node pool. Let's add a second node pool using the [az aks nodepool add][az-aks-nodepool-add] command. The following example creates a node pool named *mynodepool* that runs *3* nodes:
+이전 단계에서 만든 클러스터에는 단일 노드 풀이 있습니다. [Az aks nodepool add][az-aks-nodepool-add] 명령을 사용 하 여 두 번째 노드 풀을 추가 해 보겠습니다. 다음 예에서는 *3 개의* 노드를 실행 하는 *mynodepool* 이라는 노드 풀을 만듭니다.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -88,15 +88,15 @@ az aks nodepool add \
 ```
 
 > [!NOTE]
-> The name of a node pool must start with a lowercase letter and can only contain alphanumeric characters. For Linux node pools the length must be between 1 and 12 characters, for Windows node pools the length must be between 1 and 6 characters.
+> 노드 풀의 이름은 소문자로 시작 해야 하며 영숫자 문자만 포함할 수 있습니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
 
-To see the status of your node pools, use the [az aks node pool list][az-aks-nodepool-list] command and specify your resource group and cluster name:
+노드 풀의 상태를 확인 하려면 [az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 리소스 그룹 및 클러스터 이름을 지정 합니다.
 
 ```azurecli-interactive
 az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
 ```
 
-The following example output shows that *mynodepool* has been successfully created with three nodes in the node pool. When the AKS cluster was created in the previous step, a default *nodepool1* was created with a node count of *2*.
+다음 예제 출력은 노드 풀에서 3 개의 노드를 사용 하 여 *mynodepool* 을 성공적으로 만들었음을 보여 줍니다. 이전 단계에서 AKS 클러스터를 만든 경우 기본 *nodepool1* 노드 수를 *2*로 만들었습니다.
 
 ```console
 $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSCluster
@@ -126,21 +126,21 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> If no *OrchestratorVersion* or *VmSize* is specified when you add a node pool, the nodes are created based on the defaults for the AKS cluster. In this example, that was Kubernetes version *1.13.10* and node size of *Standard_DS2_v2*.
+> 노드 풀을 추가할 때 *OrchestratorVersion* 또는 *vmsize* 가 지정 되지 않은 경우 노드는 AKS 클러스터의 기본값을 기반으로 만들어집니다. 이 예에서는 Kubernetes 버전 *1.13.10* 및 노드 크기를 *Standard_DS2_v2*했습니다.
 
-## <a name="upgrade-a-node-pool"></a>Upgrade a node pool
+## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
  
 > [!NOTE]
-> Upgrade and scale operations on a cluster or node pool cannot occur simultaneously, if attempted an error is returned. Instead, each operation type must complete on the target resource prior to the next request on that same resource. Read more about this on our [troubleshooting guide](https://aka.ms/aks-pending-upgrade).
+> 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
-When your AKS cluster was initially created in the first step, a `--kubernetes-version` of *1.13.10* was specified. This set the Kubernetes version for both the control plane and the default node pool. The commands in this section explain how to upgrade a single specific node pool.
+첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
 
-The relationship between upgrading the Kubernetes version of the control plane and the node pool are explained in the [section below](#upgrade-a-cluster-control-plane-with-multiple-node-pools).
+Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
 
 > [!NOTE]
-> The node pool OS image version is tied to the Kubernetes version of the cluster. You will only get OS image upgrades, following a cluster upgrade.
+> 노드 풀 OS 이미지 버전은 클러스터의 Kubernetes 버전에 연결 됩니다. 클러스터 업그레이드 후에는 OS 이미지 업그레이드만 가져옵니다.
 
-Since there are two node pools in this example, we must use [az aks nodepool upgrade][az-aks-nodepool-upgrade] to upgrade a node pool. Let's upgrade the *mynodepool* to Kubernetes *1.13.10*. Use the [az aks nodepool upgrade][az-aks-nodepool-upgrade] command to upgrade the node pool, as shown in the following example:
+이 예제에서는 두 개의 노드 풀이 있으므로 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 를 사용 하 여 노드 풀을 업그레이드 해야 합니다. *Mynodepool* 을 Kubernetes *1.13.10*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
 
 ```azurecli-interactive
 az aks nodepool upgrade \
@@ -151,7 +151,7 @@ az aks nodepool upgrade \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Upgrading* state to *1.13.10*:
+[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.13.10*에 대 한 *업그레이드* 상태임을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -184,49 +184,49 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-It takes a few minutes to upgrade the nodes to the specified version.
+노드를 지정 된 버전으로 업그레이드 하는 데 몇 분 정도 걸립니다.
 
-As a best practice, you should upgrade all node pools in an AKS cluster to the same Kubernetes version. The default behavior of `az aks upgrade` is to upgrade all node pools together with the control plane to achieve this alignment. The ability to upgrade individual node pools lets you perform a rolling upgrade and schedule pods between node pools to maintain application uptime within the above constraints mentioned.
+AKS 클러스터의 모든 노드 풀을 동일한 Kubernetes 버전으로 업그레이드 하는 것이 가장 좋습니다. `az aks upgrade`의 기본 동작은이 맞춤을 얻기 위해 모든 노드 풀을 제어 평면과 함께 업그레이드 하는 것입니다. 개별 노드 풀을 업그레이드 하는 기능을 사용 하면 롤링 업그레이드를 수행 하 고 노드 풀 간에 pod 일정을 예약 하 여 위에서 언급 한 제약 조건 내에서 응용 프로그램 작동 시간을 유지할 수 있습니다
 
-## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>Upgrade a cluster control plane with multiple node pools
+## <a name="upgrade-a-cluster-control-plane-with-multiple-node-pools"></a>여러 노드 풀을 사용 하 여 클러스터 제어 평면 업그레이드
 
 > [!NOTE]
-> Kubernetes uses the standard [Semantic Versioning](https://semver.org/) versioning scheme. The version number is expressed as *x.y.z*, where *x* is the major version, *y* is the minor version, and *z* is the patch version. For example, in version *1.12.6*, 1 is the major version, 12 is the minor version, and 6 is the patch version. The Kubernetes version of the control plane and the initial node pool are set during cluster creation. All additional node pools have their Kubernetes version set when they are added to the cluster. The Kubernetes versions may differ between node pools as well as between a node pool and the control plane.
+> Kubernetes는 표준 [의미 체계 버전](https://semver.org/) 관리 체계를 사용 합니다. 버전 번호는 *x-y*로 표시 됩니다. 여기서 *x* 는 주 버전이 고 *y* 는 부 버전이 며 *z* 는 패치 버전입니다. 예를 들어 버전 *1.12.6*에서 1은 주 버전이 고 12는 부 버전 이며 6은 패치 버전입니다. 제어 평면과 초기 노드 풀의 Kubernetes 버전은 클러스터를 만드는 동안 설정 됩니다. 모든 추가 노드 풀은 클러스터에 추가 될 때 해당 Kubernetes 버전을 설정 합니다. Kubernetes 버전은 노드 풀과 노드 풀 및 제어 평면 사이에서 다를 수 있습니다.
 
-An AKS cluster has two cluster resource objects with Kubernetes versions associated.
+AKS 클러스터에는 Kubernetes 버전이 연결 된 두 개의 클러스터 리소스 개체가 있습니다.
 
-1. A cluster control plane Kubernetes version.
-2. A node pool with a Kubernetes version.
+1. 클러스터 제어 평면 Kubernetes 버전입니다.
+2. Kubernetes 버전을 포함 하는 노드 풀
 
-A control plane maps to one or many node pools. The behavior of an upgrade operation depends on which Azure CLI command is used.
+컨트롤 평면은 하나 이상의 노드 풀에 매핑됩니다. 업그레이드 작업의 동작은 사용 되는 Azure CLI 명령에 따라 달라 집니다.
 
-Upgrading an AKS control plane requires using `az aks upgrade`. This upgrades the control plane version and all node pools in the cluster. 
+AKS 제어 평면을 업그레이드 하려면 `az aks upgrade`를 사용 해야 합니다. 그러면 클러스터에 있는 모든 노드 풀 및 제어 평면 버전이 업그레이드 됩니다. 
 
-Issuing the `az aks upgrade` command with the `--control-plane-only` flag upgrades only the cluster control plane. None of the associated node pools in the cluster are changed.
+`--control-plane-only` 플래그를 사용 하 여 `az aks upgrade` 명령을 실행 하면 클러스터 제어 평면만 업그레이드 됩니다. 클러스터에 연결 된 노드 풀이 모두 변경 되지 않았습니다.
 
-Upgrading individual node pools requires using `az aks nodepool upgrade`. This upgrades only the target node pool with the specified Kubernetes version
+개별 노드 풀을 업그레이드 하려면 `az aks nodepool upgrade`를 사용 해야 합니다. 지정 된 Kubernetes 버전을 사용 하 여 대상 노드 풀만 업그레이드 합니다.
 
-### <a name="validation-rules-for-upgrades"></a>Validation rules for upgrades
+### <a name="validation-rules-for-upgrades"></a>업그레이드에 대 한 유효성 검사 규칙
 
-The valid Kubernetes upgrades for a cluster's control plane and node pools are validated by the following sets of rules.
+클러스터의 제어 평면과 노드 풀에 대 한 유효한 Kubernetes 업그레이드는 다음 규칙 집합에 의해 유효성이 검사 됩니다.
 
-* Rules for valid versions to upgrade node pools:
-   * The node pool version must have the same *major* version as the control plane.
-   * The node pool *minor* version must be within two *minor* versions of the control plane version.
-   * The node pool version cannot be greater than the control `major.minor.patch` version.
+* 노드 풀을 업그레이드 하는 데 유효한 버전에 대 한 규칙:
+   * 노드 풀 버전은 제어 평면과 동일한 *주* 버전을 포함 해야 합니다.
+   * 노드 풀 *부* 버전은 제어 평면 버전의 두 *부* 버전 내에 있어야 합니다.
+   * 노드 풀 버전은 컨트롤 `major.minor.patch` 버전 보다 클 수 없습니다.
 
-* Rules for submitting an upgrade operation:
-   * You cannot downgrade the control plane or a node pool Kubernetes version.
-   * If a node pool Kubernetes version is not specified, behavior depends on the client being used. Declaration in Resource Manager templates fall back to the existing version defined for the node pool if used, if none is set the control plane version is used to fall back on.
-   * You can either upgrade or scale a control plane or a node pool at a given time, you cannot submit multiple operations on a single control plane or node pool resource simultaneously.
+* 업그레이드 작업을 제출 하기 위한 규칙:
+   * 제어 평면이 나 노드 풀 Kubernetes 버전을 다운 그레이드할 수 없습니다.
+   * Node pool Kubernetes version을 지정 하지 않은 경우 동작은 사용 되는 클라이언트에 따라 달라 집니다. 리소스 관리자 템플릿의 선언은 사용 되는 경우 노드 풀에 대해 정의 된 기존 버전으로 대체 됩니다. 설정 되지 않은 경우에는 제어 평면 버전이 사용 됩니다.
+   * 지정 된 시간에 제어 평면 또는 노드 풀을 업그레이드 하거나 크기를 조정할 수 있습니다. 단일 제어 평면이 나 노드 풀 리소스에 대해 동시에 여러 작업을 제출할 수 없습니다.
 
-## <a name="scale-a-node-pool-manually"></a>Scale a node pool manually
+## <a name="scale-a-node-pool-manually"></a>수동으로 노드 풀 크기 조정
 
-As your application workload demands change, you may need to scale the number of nodes in a node pool. The number of nodes can be scaled up or down.
+응용 프로그램 워크 로드 요구가 변경 됨에 따라 노드 풀의 노드 수를 조정 해야 할 수 있습니다. 노드 수를 확장 하거나 축소할 수 있습니다.
 
 <!--If you scale down, nodes are carefully [cordoned and drained][kubernetes-drain] to minimize disruption to running applications.-->
 
-To scale the number of nodes in a node pool, use the [az aks node pool scale][az-aks-nodepool-scale] command. The following example scales the number of nodes in *mynodepool* to *5*:
+노드 풀의 노드 수를 조정 하려면 [az aks node pool scale][az-aks-nodepool-scale] 명령을 사용 합니다. 다음 예에서는 *mynodepool* 의 노드 수를 *5*로 조정 합니다.
 
 ```azurecli-interactive
 az aks nodepool scale \
@@ -237,7 +237,7 @@ az aks nodepool scale \
     --no-wait
 ```
 
-List the status of your node pools again using the [az aks node pool list][az-aks-nodepool-list] command. The following example shows that *mynodepool* is in the *Scaling* state with a new count of *5* nodes:
+[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 새 개수의 *5 개* 노드를 사용 하 여 *크기 조정* 상태에 있음을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
@@ -270,24 +270,24 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
 ]
 ```
 
-It takes a few minutes for the scale operation to complete.
+크기 조정 작업을 완료 하는 데 몇 분이 걸립니다.
 
-## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>Scale a specific node pool automatically by enabling the cluster autoscaler
+## <a name="scale-a-specific-node-pool-automatically-by-enabling-the-cluster-autoscaler"></a>클러스터 autoscaler를 사용 하도록 설정 하 여 특정 노드 풀의 크기를 자동으로 조정 합니다.
 
-AKS offers a separate feature to automatically scale node pools with a feature called the [cluster autoscaler](cluster-autoscaler.md). This feature can be enabled per node pool with unique minimum and maximum scale counts per node pool. Learn how to [use the cluster autoscaler per node pool](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled).
+AKS는 [cluster autoscaler](cluster-autoscaler.md)라는 기능을 사용 하 여 노드 풀의 크기를 자동으로 조정 하는 별도의 기능을 제공 합니다. 이 기능은 노드 풀 당 고유한 최소 및 최대 소수 자릿수를 사용 하 여 노드 풀 당 사용 하도록 설정할 수 있습니다. [노드 풀 당 클러스터 autoscaler를 사용](cluster-autoscaler.md#use-the-cluster-autoscaler-with-multiple-node-pools-enabled)하는 방법을 알아봅니다.
 
-## <a name="delete-a-node-pool"></a>Delete a node pool
+## <a name="delete-a-node-pool"></a>노드 풀 삭제
 
-If you no longer need a pool, you can delete it and remove the underlying VM nodes. To delete a node pool, use the [az aks node pool delete][az-aks-nodepool-delete] command and specify the node pool name. The following example deletes the *mynoodepool* created in the previous steps:
+풀이 더 이상 필요 하지 않은 경우 삭제 하 고 기본 VM 노드를 제거할 수 있습니다. 노드 풀을 삭제 하려면 [az aks node pool delete][az-aks-nodepool-delete] 명령을 사용 하 여 노드 풀 이름을 지정 합니다. 다음 예에서는 이전 단계에서 만든 *mynoodepool* 를 삭제 합니다.
 
 > [!CAUTION]
-> There are no recovery options for data loss that may occur when you delete a node pool. If pods can't be scheduled on other node pools, those applications are unavailable. Make sure you don't delete a node pool when in-use applications don't have data backups or the ability to run on other node pools in your cluster.
+> 노드 풀을 삭제할 때 발생할 수 있는 데이터 손실에 대 한 복구 옵션은 없습니다. 다른 노드 풀에서 pod을 예약할 수 없는 경우 해당 응용 프로그램을 사용할 수 없습니다. 사용 중인 응용 프로그램에 데이터 백업이 없거나 클러스터의 다른 노드 풀에서 실행할 수 없는 경우 노드 풀을 삭제 하지 않아야 합니다.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name mynodepool --no-wait
 ```
 
-The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *mynodepool* is in the *Deleting* state:
+[Az aks node pool list][az-aks-nodepool-list] 명령에서 출력 하는 다음 예제에서는 *Mynodepool* 이 *삭제* 상태임을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -320,15 +320,15 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-It takes a few minutes to delete the nodes and the node pool.
+노드 및 노드 풀을 삭제 하는 데 몇 분 정도 걸립니다.
 
-## <a name="specify-a-vm-size-for-a-node-pool"></a>Specify a VM size for a node pool
+## <a name="specify-a-vm-size-for-a-node-pool"></a>노드 풀의 VM 크기 지정
 
-In the previous examples to create a node pool, a default VM size was used for the nodes created in the cluster. A more common scenario is for you to create node pools with different VM sizes and capabilities. For example, you may create a node pool that contains nodes with large amounts of CPU or memory, or a node pool that provides GPU support. In the next step, you [use taints and tolerations](#schedule-pods-using-taints-and-tolerations) to tell the Kubernetes scheduler how to limit access to pods that can run on these nodes.
+이전 예제에서 노드 풀을 만드는 경우 클러스터에서 만든 노드에 기본 VM 크기가 사용 되었습니다. 보다 일반적인 시나리오는 VM 크기 및 기능이 서로 다른 노드 풀을 만드는 것입니다. 예를 들어 많은 양의 CPU 또는 메모리를 포함 하는 노드 또는 GPU 지원을 제공 하는 노드 풀을 포함 하는 노드 풀을 만들 수 있습니다. 다음 단계에서는 [taints 및 tolerations를 사용](#schedule-pods-using-taints-and-tolerations) 하 여 이러한 노드에서 실행 될 수 있는 pod에 대 한 액세스를 제한 하는 방법을 Kubernetes scheduler에 지시 합니다.
 
-In the following example, create a GPU-based node pool that uses the *Standard_NC6* VM size. These VMs are powered by the NVIDIA Tesla K80 card. For information on available VM sizes, see [Sizes for Linux virtual machines in Azure][vm-sizes].
+다음 예제에서는 *Standard_NC6* VM 크기를 사용 하는 GPU 기반 노드 풀을 만듭니다. 이러한 Vm은 NVIDIA Tesla K80 카드에 의해 구동 됩니다. 사용 가능한 VM 크기에 대 한 자세한 내용은 [Azure의 Linux 가상 머신에 대 한 크기][vm-sizes]를 참조 하세요.
 
-Create a node pool using the [az aks node pool add][az-aks-nodepool-add] command again. This time, specify the name *gpunodepool*, and use the `--node-vm-size` parameter to specify the *Standard_NC6* size:
+[Az aks node pool add][az-aks-nodepool-add] 명령을 사용 하 여 노드 풀을 만듭니다. 이번에는 *gpunodepool*이름을 지정 하 고 `--node-vm-size` 매개 변수를 사용 하 여 *Standard_NC6* 크기를 지정 합니다.
 
 ```azurecli-interactive
 az aks nodepool add \
@@ -340,7 +340,7 @@ az aks nodepool add \
     --no-wait
 ```
 
-The following example output from the [az aks node pool list][az-aks-nodepool-list] command shows that *gpunodepool* is *Creating* nodes with the specified *VmSize*:
+[Az aks node pool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *gpunodepool* 가 지정 된 *vmsize*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -373,11 +373,11 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 ]
 ```
 
-It takes a few minutes for the *gpunodepool* to be successfully created.
+*Gpunodepool* 성공적으로 생성 되는 데 몇 분 정도 걸립니다.
 
-## <a name="schedule-pods-using-taints-and-tolerations"></a>Schedule pods using taints and tolerations
+## <a name="schedule-pods-using-taints-and-tolerations"></a>Taints 및 tolerations를 사용 하 여 pod 예약
 
-You now have two node pools in your cluster - the default node pool initially created, and the GPU-based node pool. Use the [kubectl get nodes][kubectl-get] command to view the nodes in your cluster. The following example output shows the nodes:
+이제 클러스터에 두 개의 노드 풀 (처음에 만든 기본 노드 풀 및 GPU 기반 노드 풀)이 있습니다. [Kubectl 노드 가져오기][kubectl-get] 명령을 사용 하 여 클러스터의 노드를 볼 수 있습니다. 다음 예제 출력에서는 노드를 보여 줍니다.
 
 ```console
 $ kubectl get nodes
@@ -392,15 +392,15 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 * **Taint**는 노드에서 특정 Pod만 예약할 수 있음을 나타내는 노드에 적용됩니다.
 * **Toleration**은 노드의 오류를 ‘허용’할 수 있도록 하는 Pod에 적용됩니다.
 
-For more information on how to use advanced Kubernetes scheduled features, see [Best practices for advanced scheduler features in AKS][taints-tolerations]
+고급 Kubernetes 예약 기능을 사용 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][taints-tolerations] 를 참조 하세요.
 
-In this example, apply a taint to your GPU-based node using the [kubectl taint node][kubectl-taint] command. Specify the name of your GPU-based node from the output of the previous `kubectl get nodes` command. The taint is applied as a *key:value* and then a scheduling option. The following example uses the *sku=gpu* pair and defines pods otherwise have the *NoSchedule* ability:
+이 예에서는 [kubectl taint node][kubectl-taint] 명령을 사용 하 여 GPU 기반 노드에 taint을 적용 합니다. 이전 `kubectl get nodes` 명령의 출력에서 GPU 기반 노드의 이름을 지정 합니다. Taint는 *키: 값* 으로 적용 된 다음 일정 옵션으로 적용 됩니다. 다음 예제에서는 *sku = gpu* 쌍을 사용 하 고, 그렇지 않은 경우 *noschedule* 기능이 있는 pod를 정의 합니다.
 
 ```console
 kubectl taint node aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
-The following basic example YAML manifest uses a toleration to allow the Kubernetes scheduler to run an NGINX pod on the GPU-based node. For a more appropriate, but time-intensive example to run a Tensorflow job against the MNIST dataset, see [Use GPUs for compute-intensive workloads on AKS][gpu-cluster].
+다음 기본 예제 YAML 매니페스트는 toleration를 사용 하 여 Kubernetes scheduler가 GPU 기반 노드에서 NGINX pod를 실행 하도록 허용 합니다. MNIST 데이터 집합에 대해 Tensorflow 작업을 실행 하는 보다 적절 하 고 시간이 많이 걸리는 예제는 [AKS에서 계산 집약적인 작업에 Gpu 사용][gpu-cluster]을 참조 하세요.
 
 `gpu-toleration.yaml` 파일을 만들고 다음 예제 YAML을 복사합니다.
 
@@ -427,13 +427,13 @@ spec:
     effect: "NoSchedule"
 ```
 
-Schedule the pod using the `kubectl apply -f gpu-toleration.yaml` command:
+`kubectl apply -f gpu-toleration.yaml` 명령을 사용 하 여 pod를 예약 합니다.
 
 ```console
 kubectl apply -f gpu-toleration.yaml
 ```
 
-It takes a few seconds to schedule the pod and pull the NGINX image. Use the [kubectl describe pod][kubectl-describe] command to view the pod status. The following condensed example output shows the *sku=gpu:NoSchedule* toleration is applied. In the events section, the scheduler has assigned the pod to the *aks-gpunodepool-28993262-vmss000000* GPU-based node:
+Pod를 예약 하 고 NGINX 이미지를 풀 하는 데 몇 초 정도 걸립니다. [Kubectl 설명 pod][kubectl-describe] 명령을 사용 하 여 pod 상태를 확인 합니다. 다음 압축 예제 출력에서는 *sku = gpu: NoSchedule* toleration이 적용 된 것을 보여 줍니다. 이벤트 섹션에서 스케줄러는 *aks-gpunodepool-28993262-vmss000000* GPU 기반 노드에 pod를 할당 했습니다.
 
 ```console
 $ kubectl describe pod mypod
@@ -452,19 +452,19 @@ Events:
   Normal  Started    4m40s  kubelet, aks-gpunodepool-28993262-vmss000000  Started container
 ```
 
-Only pods that have this taint applied can be scheduled on nodes in *gpunodepool*. Any other pod would be scheduled in the *nodepool1* node pool. If you create additional node pools, you can use additional taints and tolerations to limit what pods can be scheduled on those node resources.
+이 taint가 적용 된 pod만 *gpunodepool*의 노드에서 예약할 수 있습니다. 다른 pod는 *nodepool1* 노드 풀에서 예약 됩니다. 추가 노드 풀을 만드는 경우 추가 taints 및 tolerations를 사용 하 여 해당 노드 리소스에서 예약할 수 있는 pod를 제한할 수 있습니다.
 
-## <a name="manage-node-pools-using-a-resource-manager-template"></a>Manage node pools using a Resource Manager template
+## <a name="manage-node-pools-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 노드 풀 관리
 
-When you use an Azure Resource Manager template to create and managed resources, you can typically update the settings in your template and redeploy to update the resource. With node pools in AKS, the initial node pool profile can't be updated once the AKS cluster has been created. This behavior means that you can't update an existing Resource Manager template, make a change to the node pools, and redeploy. Instead, you must create a separate Resource Manager template that updates only the node pools for an existing AKS cluster.
+Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리 하는 경우 일반적으로 템플릿에서 설정을 업데이트 하 고 다시 배포 하 여 리소스를 업데이트할 수 있습니다. AKS의 노드 풀을 사용 하면 AKS 클러스터가 생성 된 후 초기 노드 풀 프로필을 업데이트할 수 없습니다. 이 동작은 기존 리소스 관리자 템플릿을 업데이트 하 고, 노드 풀을 변경 하 고, 다시 배포할 수 없음을 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 노드 풀만 업데이트 하는 별도의 리소스 관리자 템플릿을 만들어야 합니다.
 
-Create a template such as `aks-agentpools.json` and paste the following example manifest. This example template configures the following settings:
+`aks-agentpools.json`와 같은 템플릿을 만들고 다음 예제 매니페스트를 붙여 넣습니다. 이 예제 템플릿은 다음 설정을 구성 합니다.
 
-* Updates the *Linux* node pool named *myagentpool* to run three nodes.
-* Sets the nodes in the node pool to run Kubernetes version *1.13.10*.
-* Defines the node size as *Standard_DS2_v2*.
+* 3 개의 노드를 실행 하도록 *myagentpool* 이라는 *Linux* 노드 풀을 업데이트 합니다.
+* Kubernetes version *1.13.10*를 실행 하도록 노드 풀의 노드를 설정 합니다.
+* 노드 크기를 *Standard_DS2_v2*으로 정의 합니다.
 
-Edit these values as need to update, add, or delete node pools as needed:
+필요에 따라 노드 풀을 업데이트, 추가 또는 삭제 해야 하는 경우 이러한 값을 편집 합니다.
 
 ```json
 {
@@ -533,7 +533,7 @@ Edit these values as need to update, add, or delete node pools as needed:
 }
 ```
 
-Deploy this template using the [az group deployment create][az-group-deployment-create] command, as shown in the following example. You are prompted for the existing AKS cluster name and location:
+다음 예제와 같이 [az group deployment create][az-group-deployment-create] 명령을 사용 하 여이 템플릿을 배포 합니다. 기존 AKS 클러스터 이름 및 위치를 묻는 메시지가 표시 됩니다.
 
 ```azurecli-interactive
 az group deployment create \
@@ -541,32 +541,32 @@ az group deployment create \
     --template-file aks-agentpools.json
 ```
 
-It may take a few minutes to update your AKS cluster depending on the node pool settings and operations you define in your Resource Manager template.
+리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>Assign a public IP per node in a node pool
+## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>노드 풀에서 노드 당 공용 IP 할당
 
 > [!WARNING]
-> During the preview of assigning a public IP per node, it cannot be used with the *Standard Load Balancer SKU in AKS* due to possible load balancer rules conflicting with VM provisioning. While in preview you must use the *Basic Load Balancer SKU* if you need to assign a public IP per node.
+> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
 
-AKS nodes do not require their own public IP addresses for communication. However, some scenarios may require nodes in a node pool to have their own public IP addresses. An example is gaming, where a console needs to make a direct connection to a cloud virtual machine to minimize hops. This can be achieved by registering for a separate preview feature, Node Public IP (preview).
+AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 이는 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 수행할 수 있습니다.
 
 ```azurecli-interactive
 az feature register --name NodePublicIPPreview --namespace Microsoft.ContainerService
 ```
 
-After successful registration, deploy an Azure Resource Manager template following the same instructions as [above](#manage-node-pools-using-a-resource-manager-template) and add the boolean value property `enableNodePublicIP` to agentPoolProfiles. Set the value to `true` as by default it is set as `false` if not specified. This is a create-time only property and requires a minimum API version of 2019-06-01. This can be applied to both Linux and Windows node pools.
+등록에 성공 하면 [위와](#manage-node-pools-using-a-resource-manager-template) 동일한 지침에 따라 Azure Resource Manager 템플릿을 배포 하 고 agentpoolprofiles에 `enableNodePublicIP` 부울 값 속성을 추가 합니다. 값을 기본적으로 `true`로 설정 합니다. 지정 하지 않으면 `false`로 설정 됩니다. 이는 생성 시간 전용 속성 이며 최소 API 버전 2019-06-01이 필요 합니다. 이는 Linux 및 Windows 노드 풀 모두에 적용할 수 있습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-In this article, you created an AKS cluster that includes GPU-based nodes. To reduce unnecessary cost, you may want to delete the *gpunodepool*, or the whole AKS cluster.
+이 문서에서는 GPU 기반 노드를 포함 하는 AKS 클러스터를 만들었습니다. 불필요 한 비용을 줄이기 위해 *gpunodepool*또는 전체 AKS 클러스터를 삭제할 수 있습니다.
 
-To delete the GPU-based node pool, use the [az aks nodepool delete][az-aks-nodepool-delete] command as shown in following example:
+GPU 기반 노드 풀을 삭제 하려면 다음 예제와 같이 [az aks nodepool delete][az-aks-nodepool-delete] 명령을 사용 합니다.
 
 ```azurecli-interactive
 az aks nodepool delete -g myResourceGroup --cluster-name myAKSCluster --name gpunodepool
 ```
 
-To delete the cluster itself, use the [az group delete][az-group-delete] command to delete the AKS resource group:
+클러스터 자체를 삭제 하려면 [az group delete][az-group-delete] 명령을 사용 하 여 AKS 리소스 그룹을 삭제 합니다.
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes --no-wait
@@ -574,9 +574,9 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## <a name="next-steps"></a>다음 단계
 
-In this article, you learned how to create and manage multiple node pools in an AKS cluster. For more information about how to control pods across node pools, see [Best practices for advanced scheduler features in AKS][operator-best-practices-advanced-scheduler].
+이 문서에서는 AKS 클러스터에서 여러 노드 풀을 만들고 관리 하는 방법을 배웠습니다. 노드 풀에서 pod을 제어 하는 방법에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][operator-best-practices-advanced-scheduler]를 참조 하세요.
 
-To create and use Windows Server container node pools, see [Create a Windows Server container in AKS][aks-windows].
+Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 Windows server 컨테이너 만들기][aks-windows]를 참조 하세요.
 
 <!-- EXTERNAL LINKS -->
 [kubernetes-drain]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/

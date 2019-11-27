@@ -1,6 +1,6 @@
 ---
 title: 일반적인 오류 문제 해결
-description: Learn how to troubleshoot issues creating, assigning, and removing blueprints such as policy violations and blueprint parameter functions.
+description: 정책 위반 및 청사진 매개 변수 함수와 같은 청사진을 만들고 할당 하 고 제거 하는 문제를 해결 하는 방법에 대해 알아봅니다.
 ms.date: 11/22/2019
 ms.topic: troubleshooting
 ms.openlocfilehash: 4e7ea1760e000a167c4329d6f12f3acc18d18f7c
@@ -20,9 +20,9 @@ ms.locfileid: "74406602"
 
 1. 왼쪽 창에서 **모든 서비스**를 선택합니다. **청사진**을 검색하고 선택합니다.
 
-1. Select **Assigned blueprints** from the page on the left and use the search box to filter the blueprint assignments to find the failed assignment. 실패한 모든 할당을 그룹화하여 표시하도록 **프로비전 상태** 열을 기준으로 할당 테이블을 정렬할 수도 있습니다.
+1. 왼쪽 페이지에서 **할당 된 청사진** 을 선택 하 고 검색 상자를 사용 하 여 청사진 할당을 필터링 하 여 실패 한 할당을 찾습니다. 실패한 모든 할당을 그룹화하여 표시하도록 **프로비전 상태** 열을 기준으로 할당 테이블을 정렬할 수도 있습니다.
 
-1. Left-click on the blueprint with the _Failed_ status or right-click and select **View assignment details**.
+1. _실패_ 한 상태가 포함 된 청사진을 마우스 왼쪽 단추로 클릭 하거나 마우스 오른쪽 단추를 클릭 하 고 **할당 정보 보기**를 선택 합니다.
 
 1. 청사진 할당 페이지의 위쪽에는 실패한 할당임을 알려주는 경고의 빨간색 배너가 있습니다. 자세한 내용을 보려면 배너의 아무 곳을 클릭합니다.
 
@@ -43,11 +43,11 @@ ms.locfileid: "74406602"
 - 만드는 리소스는 정책(일반적으로 SKU 또는 위치 제한)으로 제한되어 있습니다.
 - 배포에서 정책(태그와 함께 사용)으로 구성된 필드를 설정하고 있습니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
 청사진이 오류 세부 정보의 정책과 충돌하지 않도록 변경합니다. 이렇게 변경할 수 없으면 대체 옵션으로 정책 할당의 범위를 변경하여 청사진이 더 이상 정책과 충돌하지 않도록 합니다.
 
-### <a name="escape-function-parameter"></a>Scenario: Blueprint parameter is a function
+### <a name="escape-function-parameter"></a>시나리오: 청사진 매개 변수는 함수입니다.
 
 #### <a name="issue"></a>문제
 
@@ -57,14 +57,14 @@ ms.locfileid: "74406602"
 
 `[resourceGroup().tags.myTag]` 등의 함수를 사용하는 청사진 매개 변수를 아티팩트로 전달하면 동적 함수가 아닌 아티팩트에 대해 함수의 처리된 결과가 설정됩니다.
 
-#### <a name="resolution"></a>해상도
+#### <a name="resolution"></a>해결 방법
 
-함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[[resourceGroup().tags.myTag]`와 같이 표시되도록 `[`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. For more information, see [Syntax and expressions in Azure Resource Manager templates](../../../azure-resource-manager/template-expressions.md).
+함수를 매개 변수로 전달하려면 청사진 매개 변수가 `[`와 같이 표시되도록 `[[resourceGroup().tags.myTag]`를 사용하여 전체 문자열을 이스케이프 처리합니다. 이스케이프 문자를 추가하면 청사진을 처리할 때 Blueprints에서 값을 문자열로 처리합니다. Blueprints는 그런 후에 함수를 아티팩트에 배치하므로 함수가 동적으로 올바르게 설정됩니다. 자세한 내용은 [Azure Resource Manager 템플릿의 구문 및 식](../../../azure-resource-manager/template-expressions.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제가 표시되지 않거나 문제를 해결할 수 없는 경우 다음 채널 중 하나를 방문하여 추가 지원을 받으세요.
 
-- Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
+- Azure [포럼](https://azure.microsoft.com/support/forums/)을 통해 azure 전문가 로부터 답변을 받으세요.
 - [@AzureSupport](https://twitter.com/azuresupport)를 사용하여 연결 – Azure 커뮤니티를 적절한 리소스(답변, 지원 및 전문가)에 연결하여 고객 환경을 개선하는 공식 Microsoft Azure 계정입니다.
 - 추가 지원이 필요한 경우, Azure 기술 지원 인시던트를 제출할 수 있습니다. [Azure 지원 사이트](https://azure.microsoft.com/support/options/) 로 가서 **지원 받기**를 선택합니다.

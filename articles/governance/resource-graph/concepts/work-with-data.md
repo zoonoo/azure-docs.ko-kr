@@ -168,4 +168,4 @@ response = client.resources(request)
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 살펴 보는](explore-resources.md) 방법을 자세히 알아보세요.
+- [리소스 검색](explore-resources.md) 방법에 대해 자세히 알아보기

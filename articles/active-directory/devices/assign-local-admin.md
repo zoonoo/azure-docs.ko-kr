@@ -1,5 +1,5 @@
 ---
-title: How to manage local administrators on Azure AD joined devices
+title: Azure AD 조인 장치에서 로컬 관리자를 관리 하는 방법
 description: Windows 디바이스의 로컬 관리자 그룹에 Azure 역할을 할당하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -24,7 +24,7 @@ Windows 디바이스를 관리하려면 로컬 관리자 그룹의 구성원이 
 
 이 문서에서는 멤버 자격 업데이트의 작동 방법 및 Azure AD 조인 동안 사용자 지정하는 방법을 설명합니다. 이 문서의 내용은 **하이브리드** Azure AD 조인에 적용되지 않습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 Azure AD 조인을 사용하여 Windows 디바이스를 Azure AD와 연결하는 경우 Azure AD는 디바이스에서 로컬 관리자 그룹에 다음 보안 원칙을 추가합니다.
 
@@ -59,10 +59,10 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 >[!NOTE]
 > 이 옵션에는 Azure AD Premium 테넌트가 필요합니다. 
 
-디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. On devices where a user is already signed into, the privilege update takes place when *both* the below actions happen:
+디바이스 관리자는 모든 Azure AD 조인 디바이스에 할당됩니다. 디바이스 관리자를 특정 디바이스 집합으로 범위를 지정할 수 없습니다. 디바이스 관리자 역할 업데이트가 반드시 영향을 받는 사용자에게 즉각적인 영향을 미치는 것은 아닙니다. 사용자가 이미 로그인 되어 있는 장치에서는 아래와 같은 작업을 *수행할 때 권한* 업데이트가 수행 됩니다.
 
-- 4 hours have passed for Azure AD to issue a new Primary Refresh Token with the appropriate privileges. 
-- User signs out and signs back in, not lock/unlock, to refresh their profile.
+- 적절 한 권한으로 새 주 새로 고침 토큰을 발급 하기 위해 Azure AD에 4 시간이 경과 되었습니다. 
+- 사용자가 로그 아웃 했다가 다시 로그인 하 여 프로필을 새로 고칠 수 있습니다.
 
 ## <a name="manage-regular-users"></a>일반 사용자 관리
 
@@ -75,7 +75,7 @@ Azure Portal에 있는 **디바이스** 페이지에서 디바이스 관리자 �
 
 Azure AD 조인 프로세스를 사용하는 것 외에, 수동으로 하나의 특정 디바이스에서 일반 사용자를 로컬 관리자로 권한을 상승시킬 수 있습니다. 이 단계를 사용하려면 로컬 관리자 그룹의 구성원이어야 합니다. 
 
-Starting with the **Windows 10 1709** release, you can perform this task from **Settings -> Accounts -> Other users**. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, **계정 유형**에서 ‘관리자’를 선택합니다.  
+**Windows 10 1709** 릴리스부터 **설정-> 계정-다른 사용자 >** 에서이 작업을 수행할 수 있습니다. **회사 또는 학교 사용자 추가**를 선택하고 **사용자 계정** 아래에 사용자의 UPN을 입력한 다음, *계정 유형*에서 ‘관리자’를 선택합니다.  
  
 또한 명령 프롬프트를 사용하여 사용자를 추가할 수 있습니다.
 
@@ -93,4 +93,4 @@ Starting with the **Windows 10 1709** release, you can perform this task from **
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Portal에서 디바이스를 관리하는 방법에 대한 개요를 보려면 [Azure Portal을 사용하여 디바이스 관리](device-management-azure-portal.md)를 참조하세요.
-- To learn more about device-based Conditional Access, see [configure Azure Active Directory device-based Conditional Access policies](../conditional-access/require-managed-devices.md).
+- 장치 기반 조건부 액세스에 대해 자세히 알아보려면 [장치 기반 조건부 액세스 정책 Azure Active Directory 구성](../conditional-access/require-managed-devices.md)을 참조 하세요.

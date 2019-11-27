@@ -33,7 +33,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | AlertUniqueId_s |텍스트 |생성된 경고의 고유 식별자 |
 | AlertType_s |텍스트 |경고의 형식(예: Backup) |
 | AlertStatus_s |텍스트 |경고의 상태(예: Active) |
-| AlertOccurrenceDateTime_s |Date/Time |경고를 만든 날짜 및 시간 |
+| AlertOccurrenceDateTime_s |날짜/시간 |경고를 만든 날짜 및 시간 |
 | AlertSeverity_s |텍스트 |경고의 심각도(예: Critical) |
 |AlertTimeToResolveInMinutes_s    | NUMBER        |경고를 해결 하는 데 걸린 시간입니다. 활성 경고의 경우 비어 있습니다.         |
 |AlertConsolidationStatus_s   |텍스트         |경고가 통합 경고 인지 여부를 확인 합니다.         |
@@ -152,7 +152,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | JobOperation_s |텍스트 |실행되는 작업에 대한 동작(예: Backup, 복원, Backup 구성) |
 | JobStatus_s |텍스트 |완료된 작업의 상태(예: Completed, Failed) |
 | JobFailureCode_s |텍스트 |발생한 작업 실패로 인한 오류 코드 문자열 |
-| JobStartDateTime_s |Date/Time |작업 실행이 시작된 날짜 및 시간 |
+| JobStartDateTime_s |날짜/시간 |작업 실행이 시작된 날짜 및 시간 |
 | BackupStorageDestination_s |텍스트 |백업 스토리지의 대상(예: Cloud, Disk)  |
 | AdHocOrScheduledJob_s |텍스트 | 작업이 임시 작업 인지 또는 예약 된 작업 인지 지정 하는 필드 |
 | JobDurationInSecs_s | NUMBER |총 작업 기간(초) |
@@ -258,7 +258,7 @@ Log Analytics 데이터 모델을 사용 하 여 Log Analytics에서 사용자 �
 | ProtectedContainerType_s |텍스트 |보호 된 컨테이너가 서버 인지 아니면 컨테이너 인지 |
 | ProtectedContainerProtectionState_s’  |텍스트 |보호 된 컨테이너의 보호 상태 |
 
-### <a name="storage"></a>스토리지
+### <a name="storage"></a>Storage
 
 이 표에서는 스토리지 관련 필드에 대한 세부 정보를 제공합니다.
 

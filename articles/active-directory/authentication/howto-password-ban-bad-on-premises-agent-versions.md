@@ -1,5 +1,5 @@
 ---
-title: Password protection agent release history - Azure Active Directory
+title: 암호 보호 에이전트 릴리스 기록-Azure Active Directory
 description: 문서 버전 릴리스 및 동작 변경 기록
 services: active-directory
 ms.service: active-directory
@@ -22,39 +22,39 @@ ms.locfileid: "74381728"
 
 ## <a name="121250"></a>1.2.125.0
 
-Release date: 3/22/2019
+릴리스 날짜: 3/22/2019
 
-* Fix minor typo errors in event log messages
-* Update EULA agreement to final General Availability version
+* 이벤트 로그 메시지의 사소한 오타가 오류 수정
+* EULA 계약을 최종 일반 공급 버전으로 업데이트
 
 > [!NOTE]
-> Build 1.2.125.0 is the General Availability build. Thank you again to everyone has provided feedback on the product!
+> Build 1.2.125.0는 일반 가용성 빌드입니다. 모든 사람이 제품에 대 한 피드백을 제공 해 주셔서 감사 합니다.
 
 ## <a name="121160"></a>1.2.116.0
 
-Release date: 3/13/2019
+릴리스 날짜: 3/13/2019
 
-* The Get-AzureADPasswordProtectionProxy and Get-AzureADPasswordProtectionDCAgent cmdlets now report software version and the current Azure tenant with the following limitations:
-  * Software version and Azure tenant data are only available for DC agents and proxies running version 1.2.116.0 or later.
-  * Azure tenant data may not be reported until a re-registration (or renewal) of the proxy or forest has occurred.
-* The Proxy service now requires that .NET 4.7 is installed.
-  * .NET 4.7 should already be installed on a fully updated Windows Server. If this is not the case, download and run the installer found at [The .NET Framework 4.7 offline installer for Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
-  * On Server Core systems it may be necessary to pass the /q flag to the .NET 4.7 installer to get it to succeed.
-* The Proxy service now supports automatic upgrade. Automatic upgrade uses the Microsoft Azure AD Connect Agent Updater service which is installed side-by-side with the Proxy service. Automatic upgrade is on by default.
-* Automatic upgrade can be enabled or disabled using the Set-AzureADPasswordProtectionProxyConfiguration cmdlet. The current setting can be queried using the Get-AzureADPasswordProtectionProxyConfiguration cmdlet.
-* The service binary for the DC agent service has been renamed to AzureADPasswordProtectionDCAgent.exe.
-* The service binary for the Proxy service has been renamed to AzureADPasswordProtectionProxy.exe. Firewall rules may need to be modified accordingly if a third-party firewall is in-use.
-  * NOTE: if an http proxy config file was being used in a previous Proxy install, it will need to be renamed (from *proxyservice.exe.config* to *AzureADPasswordProtectionProxy.exe.config*) after this upgrade.
-* All time-limited functionality checks have been removed from the DC agent.
-* Minor bugs fixes and logging improvements.
+* 이제 AzureADPasswordProtectionProxy 및 AzureADPasswordProtectionDCAgent cmdlet은 소프트웨어 버전 및 현재 Azure 테 넌 트를 보고 하며 다음과 같은 제한 사항이 있습니다.
+  * 소프트웨어 버전 및 Azure 테 넌 트 데이터는 버전 1.2.116.0 이상을 실행 하는 DC 에이전트 및 프록시에만 사용할 수 있습니다.
+  * Azure 테 넌 트 데이터는 프록시 또는 포리스트를 다시 등록 하거나 갱신할 때까지 보고 되지 않을 수 있습니다.
+* 이제 프록시 서비스에 .NET 4.7이 설치 되어 있어야 합니다.
+  * .NET 4.7은 완전히 업데이트 된 Windows Server에 이미 설치 되어 있어야 합니다. 그렇지 않은 경우 [Windows 용 .NET Framework 4.7 오프 라인 설치 관리자](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows)에서 찾은 설치 관리자를 다운로드 하 여 실행 합니다.
+  * Server Core 시스템에서는/q 플래그를 .NET 4.7 설치 관리자에 전달 하 여 성공 하도록 해야 할 수 있습니다.
+* 이제 프록시 서비스에서 자동 업그레이드를 지원 합니다. 자동 업그레이드는 프록시 서비스와 함께 설치 되는 Microsoft Azure AD 연결 에이전트 업데이트 서비스를 사용 합니다. 자동 업그레이드는 기본적으로 설정 되어 있습니다.
+* AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 자동 업그레이드를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. AzureADPasswordProtectionProxyConfiguration cmdlet을 사용 하 여 현재 설정을 쿼리할 수 있습니다.
+* DC 에이전트 서비스의 서비스 이진 파일 이름이 AzureADPasswordProtectionDCAgent로 바뀌었습니다.
+* 프록시 서비스에 대 한 서비스 이진 파일의 이름이 AzureADPasswordProtectionProxy로 바뀌었습니다. 타사 방화벽을 사용 하는 경우 방화벽 규칙을 적절 하 게 수정 해야 할 수 있습니다.
+  * 참고: 이전 프록시 설치에서 http 프록시 구성 파일을 사용 하는 경우이 업그레이드 후에는이 업그레이드 후에 *Proxyservice* 에서 *.config*로 이름을 변경 해야 합니다.
+* 모든 시간 제한 기능 검사가 DC 에이전트에서 제거 되었습니다.
+* 사소한 버그 수정 및 로깅 향상
 
 ## <a name="12650"></a>1.2.65.0
 
-Release date: 2/1/2019
+릴리스 날짜: 2/1/2019
 
 변경 내용:
 
-* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. Mininimum OS requirements are unchanged from before: Windows Server 2012 for DC agents, and Windows Server 2012 R2 for proxies.
+* DC 에이전트 및 프록시 서비스는 이제 Server Core에서 지원됩니다. Mininimum OS 요구 사항은 이전에서 변경 되지 않았습니다. DC 에이전트의 경우 Windows Server 2012이 고, 프록시에는 Windows Server 2012 R2입니다.
 * Register-AzureADPasswordProtectionProxy 및 Register-AzureADPasswordProtectionForest cmdlet은 이제 디바이스 코드 기반 Azure 인증 모드를 지원합니다.
 * Get-AzureADPasswordProtectionDCAgent cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.
 * Get-AzureADPasswordProtectionSummaryReport cmdlet은 심하게 훼손되었거나 또는 잘못된 서비스 연결 지점을 무시합니다. 이를 통해 도메인 컨트롤러에서 출력에 여러 번 표시되는 버그가 수정되었습니다.

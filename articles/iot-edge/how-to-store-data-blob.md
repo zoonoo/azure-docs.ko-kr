@@ -1,6 +1,6 @@
 ---
 title: 디바이스에 블록 Blob 저장 - Azure IoT Edge | Microsoft Docs
-description: Understand tiering and time-to-live features, see supported blob storage operations, and connect to your blob storage account.
+description: 계층화 및 라이브 라이브 기능 이해를 참조 하십시오. 지원 되는 blob storage 작업을 참조 하 고 blob storage 계정에 연결 합니다.
 author: arduppal
 manager: mchad
 ms.author: arduppal
@@ -16,142 +16,142 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74456765"
 ---
-# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>Store data at the edge with Azure Blob Storage on IoT Edge
+# <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge"></a>IoT Edge에서 Azure Blob Storage를 사용 하 여에 지에 데이터 저장
 
-IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. A blob storage module on your IoT Edge device behaves like an Azure block blob service, except the block blobs are stored locally on your IoT Edge device. 동일한 Azure Storage SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. This article explains the concepts related to Azure Blob Storage on IoT Edge container that runs a blob service on your IoT Edge device.
+IoT Edge의 Azure Blog Storage는 에지에 [블록 Blob](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) 스토리지 솔루션을 제공합니다. IoT Edge 장치의 blob storage 모듈은 블록 blob이 IoT Edge 장치에 로컬로 저장 된다는 점을 제외 하 고 Azure block blob service 처럼 동작 합니다. 동일한 Azure Storage SDK 메서드 또는 이미 익숙한 블록 Blob API 호출을 사용하여 Blob에 액세스할 수 있습니다. 이 문서에서는 IoT Edge 장치에서 Blob 서비스를 실행 하는 IoT Edge 컨테이너의 Azure Blob Storage 관련 된 개념을 설명 합니다.
 
-This module is useful in scenarios:
-* where data needs to be stored locally until it can be processed or transferred to the cloud. This data can be videos, images, finance data, hospital data, or any other unstructured data.
-* when devices are located in a place with limited connectivity.
-* when you want to efficiently process the data locally to get low latency access to the data, such that you can respond to emergencies as quickly as possible.
-* when you want to reduce bandwidth costs and avoid transferring terabytes of data to the cloud. You can process the data locally and send only the processed data to the cloud.
+이 모듈은 시나리오에서 유용 합니다.
+* 데이터를 처리 하거나 클라우드로 전송할 수 있을 때까지 로컬로 저장 해야 하는 경우 이 데이터는 비디오, 이미지, 재무 데이터, 병원 데이터 또는 기타 구조화 되지 않은 데이터 일 수 있습니다.
+* 장치가 연결을 제한 하는 위치에 있는 경우
+* 데이터를 로컬에서 효율적으로 처리 하 여 데이터에 대 한 대기 시간이 짧고 emergencies에 최대한 빠르게 대응할 수 있도록 하려는 경우
+* 대역폭 비용을 절감 하 고 tb의 데이터를 클라우드로 전송 하지 않으려는 경우 데이터를 로컬로 처리 하 고 처리 된 데이터만 클라우드에 보낼 수 있습니다.
 
-Watch the video for quick introduction
+비디오에서 빠른 소개 보기
 > [!VIDEO https://www.youtube.com/embed/xbwgMNGB_3Y]
 
-This module comes with **deviceToCloudUpload** and **deviceAutoDelete** features.
+이 모듈은 **deviceToCloudUpload** 및 **deviceautodelete** 기능과 함께 제공 됩니다.
 
-**deviceToCloudUpload** is a configurable functionality. This function automatically uploads the data from your local blob storage to Azure with intermittent internet connectivity support. It allows you to:
+**deviceToCloudUpload** 는 구성 가능한 기능입니다. 이 함수는 임시 인터넷 연결을 지원 하 여 로컬 blob 저장소에서 Azure로 데이터를 자동으로 업로드 합니다. 다음 작업을 수행할 수 있습니다.
 
-- Turn ON/OFF the deviceToCloudUpload feature.
-- Choose the order in which the data is copied to Azure like NewestFirst or OldestFirst.
-- Specify the Azure Storage account to which you want your data uploaded.
-- Specify the containers you want to upload to Azure. This module allows you to specify both source and target container names.
-- Choose the ability to delete the blobs immediately, after upload to cloud storage is finished
-- Do full blob upload (using `Put Blob` operation) and block level upload (using `Put Block` and `Put Block List` operations).
+- DeviceToCloudUpload 기능을 설정/해제 합니다.
+- NewestFirst 또는 OldestFirst와 같이 Azure에 데이터를 복사 하는 순서를 선택 합니다.
+- 데이터를 업로드 하려는 Azure Storage 계정을 지정 합니다.
+- Azure에 업로드 하려는 컨테이너를 지정 합니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다.
+- 클라우드 저장소에 업로드가 완료 된 후 blob을 즉시 삭제할 수 있는 기능을 선택 합니다.
+- `Put Blob` 작업을 사용 하 여 전체 blob 업로드를 수행 하 고 `Put Block` 및 `Put Block List` 작업을 사용 하 여 블록 수준 업로드를 수행 합니다.
 
-This module uses block level upload, when your blob consists of blocks. Here are some of the common scenarios:
+이 모듈은 blob이 블록으로 구성 된 경우 블록 수준 업로드를 사용 합니다. 몇 가지 일반적인 시나리오는 다음과 같습니다.
 
-- Your application updates some blocks of a previously uploaded blob, this module uploads only the updated blocks and not the whole blob.
-- The module is uploading blob and internet connection goes away, when the connectivity is back again it uploads only the remaining blocks and not the whole blob.
+- 응용 프로그램은 이전에 업로드 한 blob의 일부 블록을 업데이트 합니다 .이 모듈은 전체 blob이 아닌 업데이트 된 블록만 업로드 합니다.
+- 모듈이 blob을 업로드 하는 중 이며, 연결이 다시 되 면 전체 blob이 아닌 나머지 블록만 업로드 합니다.
 
-If an unexpected process termination (like power failure) happens during a blob upload, all blocks that were due for the upload will be uploaded again once the module comes back online.
+Blob을 업로드 하는 동안 예기치 않은 프로세스 종료 (예: 전원 오류)가 발생 하면 모듈이 다시 온라인 상태가 되 면 업로드에 대 한 모든 블록이 다시 업로드 됩니다.
 
-**deviceAutoDelete** is a configurable functionality. This function automatically deletes your blobs from the local storage when the specified duration (measured in minutes) expires. It allows you to:
+**Deviceautodelete** 는 구성 가능한 기능입니다. 이 함수는 지정 된 기간 (분 단위)이 만료 될 때 로컬 저장소에서 blob을 자동으로 삭제 합니다. 다음 작업을 수행할 수 있습니다.
 
-- Turn ON/OFF the deviceAutoDelete feature.
-- Specify the time in minutes (deleteAfterMinutes) after which the blobs will be automatically deleted.
-- Choose the ability to retain the blob while it's uploading if the deleteAfterMinutes value expires.
+- DeviceAutoDelete 기능을 설정/해제 합니다.
+- Blob이 자동으로 삭제 되는 시간 (분)을 지정 합니다 (deleteAfterMinutes).
+- DeleteAfterMinutes 값이 만료 되는 경우 업로드 하는 동안 blob을 유지 하는 기능을 선택 합니다.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 Azure IoT Edge 디바이스:
 
-- You can use your development machine or a virtual machine as an IoT Edge device by following the steps in the quickstart for [Linux](quickstart-linux.md) or [Windows devices](quickstart.md).
+- [Linux](quickstart-linux.md) 또는 [Windows 장치](quickstart.md)에 대 한 빠른 시작의 단계를 수행 하 여 개발 컴퓨터 또는 가상 컴퓨터를 IoT Edge 장치로 사용할 수 있습니다.
 
-- Refer to [Azure IoT Edge supported systems](support.md#operating-systems) for a list of supported operating systems and architectures. The Azure Blob Storage on IoT Edge module supports following architectures:
+- 지원 되는 운영 체제 및 아키텍처 목록은 [지원 되는 Azure IoT Edge 시스템](support.md#operating-systems) 을 참조 하세요. IoT Edge 모듈의 Azure Blob Storage는 다음 아키텍처를 지원 합니다.
     - Windows AMD64
     - Linux AMD64
     - Linux ARM32
-    - Linux ARM64 (preview)
+    - Linux ARM64 (미리 보기)
 
 클라우드 리소스:
 
 Azure의 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
-## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload and deviceAutoDelete properties
+## <a name="devicetocloudupload-and-deviceautodelete-properties"></a>deviceToCloudUpload 및 deviceAutoDelete 속성
 
-Use the module's desired properties to set **deviceToCloudUploadProperties** and **deviceAutoDeleteProperties**. Desired properties can be set during deployment or changed later by editing the module twin without the need to redeploy. We recommend checking the "Module Twin" for `reported configuration` and `configurationValidation` to make sure values are correctly propagated.
+모듈의 desired 속성을 사용 하 여 **deviceToCloudUploadProperties** 및 **deviceautodeleteproperties**를 설정 합니다. 원하는 속성은 배포 중에 설정 하거나 나중에 다시 배포할 필요 없이 모듈 쌍을 편집 하 여 변경할 수 있습니다. `reported configuration`에 대 한 "모듈 쌍"을 확인 하 고 `configurationValidation` 값이 올바르게 전파 되는지 확인 하는 것이 좋습니다.
 
 ### <a name="devicetoclouduploadproperties"></a>deviceToCloudUploadProperties
 
-The name of this setting is `deviceToCloudUploadProperties`. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section.
+이 설정의 이름은 `deviceToCloudUploadProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
-| 자산 | 가능한 값 | 설명 |
+| 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| uploadOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOn={false,true}` |
-| uploadOrder | NewestFirst, OldestFirst | Allows you to choose the order in which the data is copied to Azure. Set to `OldestFirst` by default. The order is determined by last modified time of Blob. <br><br> Environment variable: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
-| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"` is a connection string that allows you to specify the storage account to which you want your data uploaded. Specify `Azure Storage Account Name`, `Azure Storage Account Key`, `End point suffix`. Add appropriate EndpointSuffix of Azure where data will be uploaded, it varies for Global Azure, Government Azure, and Microsoft Azure Stack. <br><br> You can choose to specify Azure Storage SAS connection string here. But you have to update this property when it expires. <br><br> Environment variable: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
-| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Allows you to specify the container names you want to upload to Azure. This module allows you to specify both source and target container names. If you don't specify the target container name, it will automatically assign the container name as `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`. You can create template strings for target container name, check out the possible values column. <br>* %h -> IoT Hub Name (3-50 characters). <br>* %d -> IoT Edge Device ID (1 to 129 characters). <br>* %m -> Module Name (1 to 64 characters). <br>* %c -> Source Container Name (3 to 63 characters). <br><br>Maximum size of the container name is 63 characters, while automatically assigning the target container name if the size of container exceeds 63 characters it will trim each section (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName) to 15 characters. <br><br> Environment variable: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
-| deleteAfterUpload | true, false | Set to `false` by default. When it is set to `true`, it will automatically delete the data when upload to cloud storage is finished. <br><br> Environment variable: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
+| uploadOn | true, false | 기본적으로 `false`로 설정 합니다. 이 기능을 설정 하려면이 필드를 `true`설정 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOn={false,true}` |
+| uploadOrder | NewestFirst, OldestFirst | 데이터를 Azure로 복사 하는 순서를 선택할 수 있습니다. 기본적으로 `OldestFirst`로 설정 합니다. 순서는 Blob의 마지막 수정 시간에 따라 결정 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__uploadOrder={NewestFirst,OldestFirst}` |
+| cloudStorageConnectionString |  | `"DefaultEndpointsProtocol=https;AccountName=<your Azure Storage Account Name>;AccountKey=<your Azure Storage Account Key>;EndpointSuffix=<your end point suffix>"`은 데이터를 업로드 하려는 저장소 계정을 지정할 수 있는 연결 문자열입니다. `Azure Storage Account Name`, `Azure Storage Account Key``End point suffix`를 지정 합니다. 데이터가 업로드 되는 Azure의 적절 한 EndpointSuffix를 추가 합니다 .이는 글로벌 Azure, 정부 Azure 및 Microsoft Azure Stack에 따라 달라 집니다. <br><br> 여기에서 Azure Storage SAS 연결 문자열을 지정 하도록 선택할 수 있습니다. 그러나 만료 될 때이 속성을 업데이트 해야 합니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__cloudStorageConnectionString=<connection string>` |
+| storageContainersForUpload | `"<source container name1>": {"target": "<target container name>"}`,<br><br> `"<source container name1>": {"target": "%h-%d-%m-%c"}`, <br><br> `"<source container name1>": {"target": "%d-%c"}` | Azure에 업로드 하려는 컨테이너 이름을 지정할 수 있습니다. 이 모듈을 사용 하 여 원본 및 대상 컨테이너 이름을 모두 지정할 수 있습니다. 대상 컨테이너 이름을 지정 하지 않으면 `<IoTHubName>-<IotEdgeDeviceID>-<ModuleName>-<SourceContainerName>`으로 컨테이너 이름이 자동으로 할당 됩니다. 대상 컨테이너 이름에 대 한 템플릿 문자열을 만들고 가능한 값 열을 체크 아웃할 수 있습니다. <br>*% h-> IoT Hub 이름 (3-50 자)입니다. <br>*% d-> IoT Edge 장치 ID (1 ~ 129 자)입니다. <br>*% m-> 모듈 이름 (1 ~ 64 자)입니다. <br>*% c-> 원본 컨테이너 이름 (3 ~ 63 자) <br><br>컨테이너 이름의 최대 크기는 63 자입니다. 컨테이너 크기가 63 자를 초과 하는 경우 대상 컨테이너 이름을 자동으로 할당 하는 동안 각 섹션 (IoTHubName, IotEdgeDeviceID, ModuleName, SourceContainerName)은 15로 잘립니다. 자를. <br><br> 환경 변수: `deviceToCloudUploadProperties__storageContainersForUpload__<sourceName>__target=<targetName>` |
+| deleteAfterUpload | true, false | 기본적으로 `false`로 설정 합니다. `true`로 설정 된 경우 클라우드 저장소에 업로드가 완료 되 면 데이터가 자동으로 삭제 됩니다. <br><br> 환경 변수: `deviceToCloudUploadProperties__deleteAfterUpload={false,true}` |
 
 
 ### <a name="deviceautodeleteproperties"></a>deviceAutoDeleteProperties
 
-The name of this setting is `deviceAutoDeleteProperties`. If you are using the IoT Edge simulator, set the values to the related environment variables for these properties, which you can find in the explanation section.
+이 설정의 이름은 `deviceAutoDeleteProperties`입니다. IoT Edge 시뮬레이터를 사용 하는 경우 이러한 속성에 대 한 관련 환경 변수로 값을 설정 합니다. 설명 섹션에서 찾을 수 있습니다.
 
-| 자산 | 가능한 값 | 설명 |
+| 속성 | 가능한 값 | 설명 |
 | ----- | ----- | ---- |
-| deleteOn | true, false | Set to `false` by default. If you want to turn the feature on, set this field to `true`. <br><br> Environment variable: `deviceAutoDeleteProperties__deleteOn={false,true}` |
-| deleteAfterMinutes | `<minutes>` | Specify the time in minutes. The module will automatically delete your blobs from local storage when this value expires. <br><br> Environment variable: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
-| retainWhileUploading | true, false | By default it is set to `true`, and it will retain the blob while it is uploading to cloud storage if deleteAfterMinutes expires. You can set it to `false` and it will delete the data as soon as deleteAfterMinutes expires. Note: For this property to work uploadOn should be set to true. <br><br> Environment variable: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
+| deleteOn | true, false | 기본적으로 `false`로 설정 합니다. 이 기능을 설정 하려면이 필드를 `true`설정 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__deleteOn={false,true}` |
+| deleteAfterMinutes | `<minutes>` | 시간을 분 단위로 지정 합니다. 이 값이 만료 되 면 모듈에서 로컬 저장소의 blob을 자동으로 삭제 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__ deleteAfterMinutes=<minutes>` |
+| retainWhileUploading | true, false | 기본적으로 `true`로 설정 되며, deleteAfterMinutes가 만료 되는 경우 클라우드 저장소에 업로드 하는 동안 blob이 유지 됩니다. `false`로 설정할 수 있으며, deleteAfterMinutes 만료 되는 즉시 데이터를 삭제 합니다. 참고:이 속성을 work로 설정 하려면 uploadOn를 true로 설정 해야 합니다. <br><br> 환경 변수: `deviceAutoDeleteProperties__retainWhileUploading={false,true}`|
 
-## <a name="using-smb-share-as-your-local-storage"></a>Using SMB share as your local storage
-You can provide SMB share as your local storage path, when you deploy Windows container of this module on Windows host.
+## <a name="using-smb-share-as-your-local-storage"></a>로컬 저장소로 SMB 공유 사용
+Windows 호스트에서이 모듈의 Windows 컨테이너를 배포할 때 로컬 저장소 경로로 SMB 공유를 제공할 수 있습니다.
 
-Make sure the SMB share and IoT device are in mutually trusted domains.
+SMB 공유 및 IoT 장치가 상호 트러스트 된 도메인에 있는지 확인 합니다.
 
-You can run `New-SmbGlobalMapping` PowerShell command to map the SMB share locally on the IoT device running Windows.
+`New-SmbGlobalMapping` PowerShell 명령을 실행 하 여 Windows를 실행 하는 IoT 장치에서 로컬로 SMB 공유를 매핑할 수 있습니다.
 
-Below are the configuration steps:
+구성 단계는 다음과 같습니다.
 ```PowerShell
 $creds = Get-Credential
 New-SmbGlobalMapping -RemotePath <remote SMB path> -Credential $creds -LocalPath <Any available drive letter>
 ```
-예제: <br>
+예: <br>
 `$creds = Get-Credential` <br>
 `New-SmbGlobalMapping -RemotePath \\contosofileserver\share1 -Credential $creds -LocalPath G: `
 
-This command will use the credentials to authenticate with the remote SMB server. Then, map the remote share path to G: drive letter (can be any other available drive letter). The IoT device now have the data volume mapped to a path on the G: drive. 
+이 명령은 자격 증명을 사용 하 여 원격 SMB 서버에 인증 합니다. 그런 다음 원격 공유 경로를 G: 드라이브 문자 (사용할 수 있는 다른 드라이브 문자 일 수 있음)에 매핑합니다. 이제 IoT 장치에는 G: 드라이브의 경로에 매핑된 데이터 볼륨이 있습니다. 
 
-Make sure the user in IoT device can read/write to the remote SMB share.
+IoT 장치의 사용자가 원격 SMB 공유에 대 한 읽기/쓰기를 수행할 수 있는지 확인 합니다.
 
-For your deployment the value of `<storage mount>` can be **G:/ContainerData:C:/BlobRoot**. 
+배포의 `<storage mount>` 값은 **G:/ContainerData: C:/BlobRoot**일 수 있습니다. 
 
-## <a name="granting-directory-access-to-container-user-on-linux"></a>Granting directory access to container user on Linux
-If you have used [volume mount](https://docs.docker.com/storage/volumes/) for storage in your create options for Linux containers then you don't have to do any extra steps, but if you used [bind mount](https://docs.docker.com/storage/bind-mounts/) then these steps are required to run the service correctly.
+## <a name="granting-directory-access-to-container-user-on-linux"></a>Linux에서 컨테이너 사용자에 게 디렉터리 액세스 권한 부여
+Linux 컨테이너에 대 한 만들기 옵션에서 저장소에 [볼륨 탑재](https://docs.docker.com/storage/volumes/) 를 사용한 경우 추가 단계를 수행 하지 않아도 되지만, [bind 탑재](https://docs.docker.com/storage/bind-mounts/) 를 사용 하는 경우 이러한 단계는 서비스를 올바르게 실행 하는 데 필요 합니다.
 
-Following the principle of least privilege to limit the access rights for users to bare minimum permissions they need to perform their work, this module includes a user (name: absie, ID: 11000) and a user group (name: absie, ID: 11000). If the container is started as **root** (default user is **root**), our service will be started as the low-privilege **absie** user. 
+최소 권한의 원칙에 따라 사용자가 작업을 수행 하는 데 필요한 최소 권한으로 사용자의 액세스 권한을 제한 합니다 .이 모듈에는 사용자 (이름: absie, ID: 11000) 및 사용자 그룹 (이름: absie, ID: 11000)이 포함 됩니다. 컨테이너가 **root** (기본 사용자 **루트**)로 시작 되는 경우 서비스는 낮은 권한 **absie** 사용자로 시작 됩니다. 
 
-This behavior makes configuration of the permissions on host path binds crucial for the service to work correctly, otherwise the service will crash with access denied errors. The path that is used in directory binding needs to be accessible by the container user (example: absie 11000). You can grant the container user access to the directory by executing the commands below on the host:
+이 동작은 서비스가 올바르게 작동 하는 데 매우 중요 한 호스트 경로 바인딩에 대 한 권한을 구성 합니다. 그렇지 않으면 서비스가 액세스 거부 오류로 인해 중단 됩니다. 디렉터리 바인딩에 사용 되는 경로는 컨테이너 사용자가 액세스할 수 있어야 합니다 (예: absie 11000). 호스트에서 아래 명령을 실행 하 여 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여할 수 있습니다.
 
 ```terminal
 sudo chown -R 11000:11000 <blob-dir> 
 sudo chmod -R 700 <blob-dir> 
 ```
 
-예제:<br>
+예:<br>
 `sudo chown -R 11000:11000 /srv/containerdata` <br>
 `sudo chmod -R 700 /srv/containerdata `
 
 
-If you need to run the service as a user other than **absie**, you can specify your custom user ID in createOptions under "User" property in your deployment manifest. In such case you need to use default or root group ID `0`.
+**Absie**이외의 사용자로 서비스를 실행 해야 하는 경우 배포 매니페스트의 "user" 속성 아래에서 createoptions에 사용자 지정 사용자 ID를 지정할 수 있습니다. 이 경우 기본 또는 루트 그룹 ID `0`를 사용 해야 합니다.
 
 ```json
 "createOptions": { 
   "User": "<custom user ID>:0" 
 } 
 ```
-Now, grant the container user access to the directory
+이제 컨테이너 사용자에 게 디렉터리에 대 한 액세스 권한을 부여 합니다.
 ```terminal
 sudo chown -R <user ID>:<group ID> <blob-dir> 
 sudo chmod -R 700 <blob-dir> 
 ```
 
-## <a name="configure-log-files"></a>Configure log files
+## <a name="configure-log-files"></a>로그 파일 구성
 
-For information on configuring log files for your module, see these [production best practices](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics).
+모듈에 대 한 로그 파일을 구성 하는 방법에 대 한 자세한 내용은 이러한 [프로덕션 모범 사례](https://docs.microsoft.com/azure/iot-edge/production-checklist#set-up-logs-and-diagnostics)를 참조 하세요.
 
 ## <a name="connect-to-your-blob-storage-module"></a>Blob Storage 모듈에 연결
 
@@ -159,54 +159,54 @@ For information on configuring log files for your module, see these [production 
 
 만드는 스토리지 요청의 Blob 엔드포인트로 IoT Edge 디바이스를 지정합니다. 구성한 IoT Edge 디바이스 정보 및 계정 이름을 사용하여 [명시적 스토리지 엔드포인트에 대한 연결 문자열을 만들 수 있습니다](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint).
 
-- For modules that are deployed on the same device as where the Azure Blob Storage on IoT Edge module is running, the blob endpoint is: `http://<module name>:11002/<account name>`.
-- For modules or applications running on a different device, you have to choose the right endpoint for your network. Depending on your network setup, choose an endpoint format such that the data traffic from your external module or application can reach the device running the Azure Blob Storage on IoT Edge module. The blob endpoint for this scenario is one of:
+- IoT Edge 모듈의 Azure Blob Storage와 동일한 장치에 배포 된 모듈의 경우 Blob 끝점은 `http://<module name>:11002/<account name>`입니다.
+- 다른 장치에서 실행 되는 모듈 또는 응용 프로그램의 경우 네트워크에 적합 한 끝점을 선택 해야 합니다. 네트워크 설정에 따라 외부 모듈이 나 응용 프로그램의 데이터 트래픽이 IoT Edge 모듈의 Azure Blob Storage를 실행 하는 장치에 도달할 수 있도록 끝점 형식을 선택 합니다. 이 시나리오에 대 한 blob 끝점은 다음 중 하나입니다.
   - `http://<device IP >:11002/<account name>`
   - `http://<IoT Edge device hostname>:11002/<account name>`
   - `http://<fully qualified domain name>:11002/<account name>`
 
-## <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage quickstart samples
+## <a name="azure-blob-storage-quickstart-samples"></a>Azure Blob Storage 빠른 시작 샘플
 
-The Azure Blob Storage documentation includes quickstart sample code in several languages. You can run these samples to test Azure Blob Storage on IoT Edge by changing the blob endpoint to connect to your local blob storage module.
+Azure Blob Storage 설명서에는 여러 언어의 빠른 시작 샘플 코드가 포함 되어 있습니다. 이러한 샘플을 실행 하면 blob 끝점을 변경 하 여 로컬 blob Storage 모듈에 연결 하 여 IoT Edge에서 Azure Blob Storage를 테스트할 수 있습니다.
 
-The following quickstart samples use languages that are also supported by IoT Edge, so you could deploy them as IoT Edge modules alongside the blob storage module:
+다음 퀵 스타트 샘플에서는 IoT Edge 에서도 지원 되는 언어를 사용 하므로 blob storage 모듈과 함께 IoT Edge 모듈로 배포할 수 있습니다.
 
 - [.NET](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 - [Python](../storage/blobs/storage-quickstart-blobs-python.md)
-    - We have a known issue while using this SDK because this version of the module does not return blob creation time. Hence few methods like list blobs does not work. As a workaround set explicitly API version on the blob client to '2017-04-17'. <br>예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
-- [Node.js](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
+    - 이 버전의 모듈은 blob 생성 시간을 반환 하지 않기 때문에이 SDK를 사용 하는 동안 알려진 문제가 있습니다. 따라서 목록 blob과 같은 몇 가지 메서드는 작동 하지 않습니다. 해결 방법으로 blob 클라이언트에서 명시적으로 API 버전을 ' 2017-04-17 '로 설정 합니다. <br>예제: `block_blob_service._X_MS_VERSION = '2017-04-17'`
+- [Node.JS](../storage/blobs/storage-quickstart-blobs-nodejs-v10.md)
 - [JS/HTML](../storage/blobs/storage-quickstart-blobs-javascript-client-libraries-v10.md)
 - [Ruby](../storage/blobs/storage-quickstart-blobs-ruby.md)
 - [Go](../storage/blobs/storage-quickstart-blobs-go.md)
 - [PHP](../storage/blobs/storage-quickstart-blobs-php.md)
 
-## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Connect to your local storage with Azure Storage Explorer
+## <a name="connect-to-your-local-storage-with-azure-storage-explorer"></a>Azure Storage 탐색기를 사용 하 여 로컬 저장소에 연결
 
-You can use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to connect to your local storage account.
+[Azure Storage 탐색기](https://azure.microsoft.com/features/storage-explorer/) 를 사용 하 여 로컬 저장소 계정에 연결할 수 있습니다.
 
-1. Download and install Azure Storage Explorer
+1. Azure Storage 탐색기 다운로드 및 설치
 
-1. Connect to Azure Storage using a connection string
+1. 연결 문자열을 사용 하 여 Azure Storage에 연결
 
-1. Provide connection string: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
+1. 연결 문자열 제공: `DefaultEndpointsProtocol=http;BlobEndpoint=http://<host device name>:11002/<your local account name>;AccountName=<your local account name>;AccountKey=<your local account key>;`
 
-1. Go through the steps to connect.
+1. 연결 단계를 진행 합니다.
 
-1. Create container inside your local storage account
+1. 로컬 저장소 계정 내에 컨테이너 만들기
 
-1. Start uploading files as Block blobs.
+1. 블록 blob으로 파일 업로드를 시작 합니다.
    > [!NOTE]
-   > This module does not support Page blobs.
+   > 이 모듈은 페이지 blob을 지원 하지 않습니다.
 
-1. You can choose to connect your Azure storage accounts in Storage Explorer, too. This configuration gives you a single view for both your local storage account and Azure storage account
+1. Storage 탐색기에서 Azure storage 계정을 연결 하도록 선택할 수 있습니다. 이 구성은 로컬 저장소 계정 및 Azure storage 계정 모두에 대 한 단일 보기를 제공 합니다.
 
 ## <a name="supported-storage-operations"></a>지원되는 스토리지 작업
 
-Blob storage modules on IoT Edge use the Azure Storage SDKs, and are consistent with the 2017-04-17 version of the Azure Storage API for block blob endpoints. 
+IoT Edge의 blob storage 모듈은 Azure Storage Sdk를 사용 하며, 블록 blob 끝점에 대 한 Azure Storage API의 2017-04-17 버전과 일치 합니다. 
 
-Because not all Azure Blob Storage operations are supported by Azure Blob Storage on IoT Edge, this section lists the status of each.
+IoT Edge Azure Blob Storage에서 모든 Azure Blob Storage 작업을 지원 하지 않기 때문에이 섹션에는 각 작업의 상태가 나열 됩니다.
 
-### <a name="account"></a>계좌
+### <a name="account"></a>계정
 
 지원됨:
 
@@ -260,24 +260,24 @@ Because not all Azure Blob Storage operations are supported by Azure Blob Storag
 
 - URL에서 블록 배치
 
-## <a name="event-grid-on-iot-edge-integration"></a>Event Grid on IoT Edge Integration
+## <a name="event-grid-on-iot-edge-integration"></a>IoT Edge 통합 Event Grid
 > [!CAUTION]
-> The integration with Event Grid on IoT Edge is in preview
+> IoT Edge에서 Event Grid와의 통합이 미리 보기 상태입니다.
 
-This Azure Blob Storage on IoT Edge module now provides integration with Event Grid on IoT Edge. For detailed information on this integration, see the [tutorial to deploy the modules, publish events and verify event delivery](../event-grid/edge/react-blob-storage-events-locally.md).
+IoT Edge 모듈의이 Azure Blob Storage은 이제 IoT Edge의 Event Grid와의 통합을 제공 합니다. 이 통합에 대 한 자세한 내용은 자습서를 참조 하 여 [모듈을 배포 하 고 이벤트를 게시 하 고 이벤트 배달을 확인](../event-grid/edge/react-blob-storage-events-locally.md)하세요.
 
 ## <a name="release-notes"></a>릴리스 정보
 
-Here are the [release notes in docker hub](https://hub.docker.com/_/microsoft-azure-blob-storage) for this module
+이 모듈에 대 한 [docker 허브의 릴리스 정보](https://hub.docker.com/_/microsoft-azure-blob-storage) 는 다음과 같습니다.
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 
-Your feedback is important to us to make this module and its features useful and easy to use. Please share your feedback and let us know how we can improve.
+사용자 의견은이 모듈과 기능을 유용 하 고 사용 하기 쉽도록 하는 데 중요 합니다. 피드백을 공유 하 고 개선할 수 있는 방법을 알려주세요.
 
-You can reach us at absiotfeedback@microsoft.com
+absiotfeedback@microsoft.com에 연결할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Learn how to [Deploy Azure Blob Storage on IoT Edge](how-to-deploy-blob.md)
+[IoT Edge에서 Azure Blob Storage를 배포](how-to-deploy-blob.md) 하는 방법을 알아봅니다.
 
-Stay up-to-date with recent updates and announcement in the [Azure Blob Storage on IoT Edge blog](https://aka.ms/abs-iot-blogpost)
+[IoT Edge 블로그의 Azure Blob Storage](https://aka.ms/abs-iot-blogpost) 에서 최신 업데이트 및 공지를 최신 상태로 유지

@@ -1,5 +1,5 @@
 ---
-title: Deprovision devices that were provisioned with Azure IoT Hub Device Provisioning Service
+title: Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 프로 비전 된 장치 프로 비전 해제
 description: Azure IoT Hub Device Provisioning Service로 프로비전된 디바이스의 프로비전을 해제하는 방법
 author: wesmc7777
 ms.author: wesmc

@@ -1,6 +1,6 @@
 ---
-title: Permissions in Azure Sentinel | Microsoft Docs
-description: This article explains how Azure Sentinel uses role-based access control to assign permissions to users and identifies the allowed actions for each role.
+title: Azure 센티널의 권한 | Microsoft Docs
+description: 이 문서에서는 Azure 센티널에서 역할 기반 액세스 제어를 사용 하 여 사용자에 게 권한을 할당 하 고 각 역할에 대해 허용 되는 작업을 식별 하는 방법을 설명 합니다.
 services: sentinel
 cloud: na
 documentationcenter: na
@@ -22,61 +22,61 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/25/2019
 ms.locfileid: "74464119"
 ---
-# <a name="permissions-in-azure-sentinel"></a>Permissions in Azure Sentinel
+# <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
-Azure Sentinel uses [Role-Based Access Control(RBAC)](../role-based-access-control/role-assignments-portal.md), to provide [built-in roles](../role-based-access-control/built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+Azure 센티널은 [RBAC (역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용 하 여 Azure의 사용자, 그룹 및 서비스에 할당할 수 있는  [기본 제공 역할](../role-based-access-control/built-in-roles.md) 을 제공 합니다.
 
-Using RBAC, you can use and create roles within your security operations team to grant appropriate access to Azure Sentinel. Based on the roles, you have fine-grained control over what users with access to Azure Sentinel can see. You can assign RBAC roles in the Azure Sentinel workspace directly, or to a subscription or resource group that the workspace belongs to.
+RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 Azure 센티널에 적절 한 액세스 권한을 부여할 수 있습니다. 역할에 따라 Azure 센티널에 대 한 액세스 권한이 있는 사용자가 볼 수 있는 기능을 세분화 하 여 제어할 수 있습니다. Azure 센티널 작업 영역에서 직접 또는 작업 영역이 속한 구독 또는 리소스 그룹에 RBAC 역할을 할당할 수 있습니다.
 
-There are three specific built-in Azure Sentinel roles.  
-**All Azure Sentinel built-in roles grant read access to the data in your Azure Sentinel workspace.**
-- **Azure Sentinel reader**: For more information, see [Built-in roles](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
-- **Azure Sentinel responder**: For more information, see [Built-in roles](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
-- **Azure Sentinel contributor**: For more information, see [Built-in roles](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
+세 가지 기본 제공 Azure 센티널 역할이 있습니다.  
+**모든 Azure 센티널 기본 제공 역할은 Azure 센티널 작업 영역에서 데이터에 대 한 읽기 액세스 권한을 부여 합니다.**
+- **Azure 센티널 판독기**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) 을 참조 하세요.
+- **Azure 센티널 응답자**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) 을 참조 하세요.
+- **Azure 센티널 참여자**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) 을 참조 하세요.
 
-In addition to Azure Sentinel dedicated RBAC roles, there are Azure and Log Analytics RBAC roles that can grant a wider set of permissions that include access to your Azure Sentinel workspace and other resources:
+Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할은 Azure 센티널 작업 영역 및 기타 리소스에 대 한 액세스를 포함 하는 광범위 한 사용 권한 집합을 부여할 수 있습니다.
 
-- **Azure roles:** [Owner](../role-based-access-control/built-in-roles.md#owner), [Contributor](../role-based-access-control/built-in-roles.md#contributor), and [Reader](../role-based-access-control/built-in-roles.md#reader). Azure roles grant access across all your Azure resources, including Log Analytics workspaces and Azure Sentinel resources.
+- **Azure 역할:** [소유자](../role-based-access-control/built-in-roles.md#owner), [참가자](../role-based-access-control/built-in-roles.md#contributor)및 [읽기 권한자](../role-based-access-control/built-in-roles.md#reader)입니다. Azure 역할은 Log Analytics 작업 영역 및 Azure 센티널 리소스를 포함 하 여 모든 Azure 리소스에 대 한 액세스 권한을 부여 합니다.
 
--   **Log Analytics roles:** [Log Analytics contributor](../role-based-access-control/built-in-roles.md#log-analytics-contributor), [Log Analytics reader](../role-based-access-control/built-in-roles.md#log-analytics-reader). Log Analytics roles grant access across all your Log Analytics workspaces. 
-
-> [!NOTE]
-> Log Analytics roles also grant read access across all Azure resources but will only assign write permissions to Log Analytics resources.
-
-
-For example, a user who is assigned with **Azure Sentinel reader** and **Azure contributor** (not **Azure Sentinel contributor**) roles, will be able to edit data in Azure Sentinel, although they only have **Sentinel reader** permissions. Therefore, if you want to grant permissions to a only in Azure Sentinel, you should carefully remove this user’s prior permissions making sure you do not break any needed permission role for another resource.
+-   **역할 Log Analytics:** [Log Analytics 참가자](../role-based-access-control/built-in-roles.md#log-analytics-contributor) [Log Analytics 읽기 권한자](../role-based-access-control/built-in-roles.md#log-analytics-reader)입니다. Log Analytics 역할은 모든 Log Analytics 작업 영역에서 액세스 권한을 부여 합니다. 
 
 > [!NOTE]
->- Azure Sentinel uses playbooks for automated threat response. Playbooks leverage Azure Logic Apps and are a separate Azure resource. You might want to assign specific members of your security operations team with the option to use Logic Apps for security orchestration, automation, and response (SOAR) operations. You can use the [Logic App contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor) role or the [Logic App operator](../role-based-access-control/built-in-roles.md#logic-app-operator) role to assign explicit permission for using playbooks.
->- To add data connectors, the necessary roles for each connector are per connector type and are listed in the relevant connector page. In addition, in order to connect any data source, you must have write permission on the Azure Sentinel workspace.
+> 또한 Log Analytics 역할은 모든 Azure 리소스에 대 한 읽기 액세스 권한을 부여 하지만 Log Analytics 리소스에 대 한 쓰기 권한만 할당 합니다.
+
+
+예를 들어 azure 센티널 **판독기** 및 **Azure 참여자** ( **azure 센티널 참여자**아님) 역할을 사용 하 여 할당 된 사용자는 **센티널 판독기** 권한만 있는 경우에도 azure 센티널에서 데이터를 편집할 수 있습니다. 따라서 Azure 센티널에서에만 권한을 부여 하려는 경우에는이 사용자의 이전 권한을 신중 하 게 제거 하 여 다른 리소스에 필요한 권한 역할을 중단 하지 않도록 해야 합니다.
+
+> [!NOTE]
+>- Azure 센티널은 자동화 된 위협 대응을 위해 플레이 북을 사용 합니다. 플레이 북은 Azure Logic Apps를 활용 하 고 별도의 Azure 리소스입니다. 보안 오케스트레이션, 자동화 및 응답 (대화 충성도) 작업에 Logic Apps를 사용 하는 옵션을 사용 하 여 보안 운영 팀의 특정 멤버를 할당할 수 있습니다. [논리 앱 참가자](../role-based-access-control/built-in-roles.md#logic-app-contributor) 역할 또는 [논리 앱 운영자](../role-based-access-control/built-in-roles.md#logic-app-operator) 역할을 사용 하 여 playbooks 사용에 대 한 명시적 권한을 할당할 수 있습니다.
+>- 데이터 커넥터를 추가 하기 위해 각 커넥터에 필요한 역할은 커넥터 유형별 이며 관련 커넥터 페이지에 나열 됩니다. 또한 모든 데이터 원본을 연결 하려면 Azure 센티널 작업 영역에 대 한 쓰기 권한이 있어야 합니다.
 
 
 
 ## <a name="roles-and-allowed-actions"></a>역할 및 허용되는 작업
 
-The following table displays roles and allowed actions in Azure Sentinel. X는 작업이 해당 역할에 대해 허용된다는 것을 나타냅니다.
+다음 표에서는 Azure 센티널의 역할 및 허용 되는 작업을 보여 줍니다. X는 작업이 해당 역할에 대해 허용된다는 것을 나타냅니다.
 
-| 역할 | Create and run playbooks| Create and edit dashboards, analytic rules, and other Azure Sentinel resources | Manage incidents (dismiss, assign, etc.) | View data, incidents, dashboards and other Azure Sentinel resources |
+| 역할 | 플레이 북 만들기 및 실행| 대시보드, 분석 규칙 및 기타 Azure 센티널 리소스 만들기 및 편집 | 인시던트 관리 (해제, 할당 등) | 데이터, 인시던트, 대시보드 및 기타 Azure 센티널 리소스 보기 |
 |--- |---|---|---|---|
-| Azure Sentinel reader | -- | -- | -- | X |
-| Azure Sentinel responder|--|--| X | X |
-| Azure Sentinel contributor | -- | X | X | X |
-| Azure Sentinel contributor + Logic App contributor | X | X | X | X |
+| Azure 센티널 판독기 | -- | -- | -- | X |
+| Azure 센티널 응답자|--|--| X | X |
+| Azure 센티널 기여자 | -- | X | X | X |
+| Azure 센티널 기여자 + 논리 앱 참가자 | X | X | X | X |
 
 
 > [!NOTE]
-> - 사용자가 자신의 작업을 완료하는 데 필요한 최소한의 역할을 할당하는 것이 좋습니다. For example, assign the Azure Sentinel contributor role only to users who need to create rules or dashboards.
-> - We recommend that you set permissions for Azure Sentinel in the resource group scope, so the user can have access to all Azure Sentinel workspaces in the same resource group.
+> - 사용자가 자신의 작업을 완료하는 데 필요한 최소한의 역할을 할당하는 것이 좋습니다. 예를 들어 규칙 또는 대시보드를 만들어야 하는 사용자 에게만 Azure 센티널 참여자 역할을 할당 합니다.
+> - 사용자가 동일한 리소스 그룹의 모든 Azure 센티널 작업 영역에 액세스할 수 있도록 리소스 그룹 범위에서 Azure 센티널에 대 한 사용 권한을 설정 하는 것이 좋습니다.
 >
-## <a name="building-custom-rbac-roles"></a>Building custom RBAC roles
+## <a name="building-custom-rbac-roles"></a>사용자 지정 RBAC 역할 빌드
 
-In addition to, or instead of, using built-in RBAC roles, you can create custom RBAC roles for Azure Sentinel. Custom RBAC roles for Azure Sentinel are created the same way you create other [custom Azure RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) roles, based on specific permissions to Azure Sentinel resources.
+기본 제공 RBAC 역할을 사용 하는 것 외에도, 또는 대신 Azure 센티널에 대 한 사용자 지정 RBAC 역할을 만들 수 있습니다. Azure 센티널에 대 한 사용자 지정 RBAC 역할은 Azure 센티널 리소스에 대 한 특정 사용 권한에 따라 다른 [사용자 지정 AZURE RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) 역할을 만드는 것과 동일한 방식으로 만들어집니다.
 
-## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>Advanced RBAC on the data you store in Azure Sentinel
+## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>Azure 센티널에 저장 하는 데이터에 대 한 고급 RBAC
   
-You can use the Log Analytics advanced role-based access control across the data in your Azure Sentinel workspace. This includes both role-based access control per data type and resource-centric role-based access control. For more information on Log Analytics roles, see [Manage log data and workspaces in Azure Monitor](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions).
+Azure 센티널 작업 영역의 데이터에서 Log Analytics 고급 역할 기반 액세스 제어를 사용할 수 있습니다. 여기에는 데이터 형식 및 리소스 중심의 역할 기반 액세스 제어 별로 역할 기반 액세스 제어가 모두 포함 됩니다. Log Analytics 역할에 대 한 자세한 내용은 [Azure Monitor에서 로그 데이터 및 작업 영역 관리](../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-In this document, you learned how to work with roles for Azure Sentinel users and what each role enables users to do.
+이 문서에서는 Azure 센티널 사용자를 위해 역할을 수행 하는 방법 및 사용자가 수행할 수 있는 각 역할에 대해 알아보았습니다.
 
-* [Azure Sentinel Blog](https://aka.ms/azuresentinelblog). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
+* [Azure 센티널 블로그](https://aka.ms/azuresentinelblog). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

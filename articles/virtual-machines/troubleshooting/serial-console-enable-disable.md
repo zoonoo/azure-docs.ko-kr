@@ -1,6 +1,6 @@
 ---
-title: Enable and disable the Azure Serial Console | Microsoft Docs
-description: How to enable and disable the Azure Serial Console service
+title: Azure 직렬 콘솔 사용 및 사용 안 함 Microsoft Docs
+description: Azure 직렬 콘솔 서비스를 사용 하거나 사용 하지 않도록 설정 하는 방법
 services: virtual-machines
 documentationcenter: ''
 author: asinn826
@@ -21,37 +21,37 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/24/2019
 ms.locfileid: "74452224"
 ---
-# <a name="enable-and-disable-the-azure-serial-console"></a>Enable and disable the Azure Serial Console
+# <a name="enable-and-disable-the-azure-serial-console"></a>Azure 직렬 콘솔 사용 및 사용 안 함
 
-Just like any other resource, the Azure Serial Console can be enabled and disabled. Serial Console is enabled by default for all subscriptions in global Azure. Currently, disabling Serial Console will disable the service for your entire subscription. Disabling or re-enabling Serial Console for a subscription requires contributor level access or above on the subscription.
+다른 리소스와 마찬가지로, Azure 직렬 콘솔을 사용 하도록 설정 하 고 사용 하지 않도록 설정할 수 있습니다. 직렬 콘솔은 글로벌 Azure의 모든 구독에 대해 기본적으로 사용 하도록 설정 됩니다. 현재 직렬 콘솔을 사용 하지 않도록 설정 하면 전체 구독에 대 한 서비스를 사용할 수 없게 됩니다. 구독에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하거나 다시 사용 하도록 설정 하려면 구독에 대 한 참가자 수준 액세스 권한이 필요 합니다.
 
-You can also disable serial console for an individual VM or virtual machine scale set instance by disabling boot diagnostics. You will require contributor level access or above on both the VM/virtual machine scale set and your boot diagnostics storage account.
+부팅 진단을 사용 하지 않도록 설정 하 여 개별 VM 또는 가상 머신 확장 집합 인스턴스에 대해 직렬 콘솔을 사용 하지 않도록 설정할 수도 있습니다. V m/가상 머신 확장 집합과 부트 진단 저장소 계정 모두에서 참가자 수준 액세스 이상이 필요 합니다.
 
 ## <a name="vm-level-disable"></a>VM 수준에서 비활성화
-The serial console can be disabled for a specific VM or virtual machine scale set by disabling the boot diagnostics setting. Turn off boot diagnostics from the Azure portal to disable the serial console for the VM or the virtual machine scale set. If you are using serial console on a virtual machine scale set, ensure you upgrade your virtual machine scale set instances to the latest model.
+부팅 진단 설정을 사용 하지 않도록 설정 하 여 특정 VM 또는 가상 머신 확장 집합에 대해 직렬 콘솔을 사용 하지 않도록 설정할 수 있습니다. VM 또는 가상 머신 확장 집합에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하려면 Azure Portal에서 부트 진단을 끕니다. 가상 머신 확장 집합에서 직렬 콘솔을 사용 하는 경우 가상 머신 확장 집합 인스턴스를 최신 모델로 업그레이드 해야 합니다.
 
 
-## <a name="subscription-level-enabledisable"></a>Subscription-level enable/disable
+## <a name="subscription-level-enabledisable"></a>구독 수준 사용/사용 안 함
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Serial console can be disabled and re-enabled for an entire subscription by using the following commands in the Azure CLI (you may use the "Try it" button to launch an instance of the Azure Cloud Shell in which you can run the commands):
+Azure CLI에서 다음 명령을 사용 하 여 전체 구독을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정할 수 있습니다 .이 단추를 사용 하 여 명령을 실행할 수 있는 Azure Cloud Shell 인스턴스를 시작할 수 있습니다. 직렬 콘솔
 
-To disable serial console for a subscription, use the following commands:
+구독에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-To enable serial console for a subscription, use the following commands:
+구독에 대 한 직렬 콘솔을 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
 az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
-To get the current enabled/disabled status of serial console for a subscription, use the following commands:
+구독에 대 한 직렬 콘솔의 현재 사용/사용 안 함 상태를 가져오려면 다음 명령을 사용 합니다.
 ```azurecli-interactive
 subscriptionId=$(az account show --output=json | jq -r .id)
 
@@ -59,20 +59,20 @@ az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.Seria
 ```
 
 > [!NOTE]
-> Ensure you are in the right cloud (Azure Public Cloud, Azure US Government Cloud) before running this command. You can check with `az cloud list` and set your cloud with `az cloud set -n <Name of cloud>`.
+> 이 명령을 실행 하기 전에 올바른 클라우드 (Azure 공용 클라우드, Azure 미국 정부 클라우드)에 있는지 확인 하세요. `az cloud list`를 확인 하 고 `az cloud set -n <Name of cloud>`를 사용 하 여 클라우드를 설정할 수 있습니다.
 
 ### <a name="powershell"></a>PowerShell
 
-Serial console can also be enabled and disabled using PowerShell.
+PowerShell을 사용 하 여 직렬 콘솔를 사용 하거나 사용 하지 않도록 설정할 수도 있습니다.
 
-To disable serial console for a subscription, use the following commands:
+구독에 대 한 직렬 콘솔을 사용 하지 않도록 설정 하려면 다음 명령을 사용 합니다.
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
 Invoke-AzResourceAction -Action disableConsole -ResourceId /subscriptions/$subscription/providers/Microsoft.SerialConsole/consoleServices/default -ApiVersion 2018-05-01
 ```
 
-To enable serial console for a subscription, use the following commands:
+구독에 대 한 직렬 콘솔을 사용 하도록 설정 하려면 다음 명령을 사용 합니다.
 ```azurepowershell-interactive
 $subscription=(Get-AzContext).Subscription.Id
 
@@ -80,6 +80,6 @@ Invoke-AzResourceAction -Action enableConsole -ResourceId /subscriptions/$subscr
 ```
 
 ## <a name="next-steps"></a>다음 단계
-* Learn more about the [Azure Serial Console for Linux VMs](./serial-console-linux.md)
-* Learn more about the [Azure Serial Console for Windows VMs](./serial-console-windows.md)
-* Learn about [power management options within the Azure Serial Console](./serial-console-power-options.md)
+* [Linux vm 용 Azure 직렬 콘솔](./serial-console-linux.md) 에 대 한 자세한 정보
+* [Windows vm 용 Azure 직렬 콘솔](./serial-console-windows.md) 에 대 한 자세한 정보
+* [Azure 직렬 콘솔 내에서 전원 관리 옵션](./serial-console-power-options.md) 에 대 한 자세한 정보
