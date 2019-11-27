@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1829c56f9804c5aa808461db98a5048d63f55446
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
-ms.translationtype: HT
+ms.openlocfilehash: 6b135b14fb18904901ad78a1f5d9dc66c8a2bc67
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207292"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538814"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>방법: Azure AD에서 오래 된 장치 관리
 
@@ -89,7 +89,7 @@ Azure AD에서 디바이스를 업데이트하려면 다음 역할 중 하나가
 
 ### <a name="system-managed-devices"></a>시스템 관리 디바이스
 
-시스템 관리 디바이스는 삭제하지 마세요. 이러한 디바이스는 일반적으로 자동 파일럿과 같은 디바이스이며, 삭제 한 후에는 이러한 장치를 다시 프로 비전 할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
+시스템 관리 디바이스는 삭제하지 마세요. 일반적으로 Autopilot와 같은 장치입니다. 삭제 한 후에는 이러한 장치를 다시 프로 비전 할 수 없습니다. 새 `get-msoldevice` cmdlet은 기본적으로 시스템 관리 디바이스를 제외합니다. 
 
 ### <a name="hybrid-azure-ad-joined-devices"></a>하이브리드 Azure AD 가입 디바이스
 
@@ -125,7 +125,7 @@ Azure AD에서 Azure AD 등록 디바이스를 사용하지 않도록 설정하�
 
 ## <a name="clean-up-stale-devices-in-the-azure-portal"></a>Azure Portal에서 부실 디바이스 정리  
 
-부실 디바이스는 Azure Portal에서 정리할 수 있지만, 이 프로세스는 PowerShell 스크립트를 사용하여 처리하는 것이 더 효율적입니다. 최신 PowerShell V1 모듈을 통해 타임스탬프 필터를 사용하고 자동 파일럿과 같은 시스템 관리 디바이스를 필터링합니다. 이 시점에서 PowerShell V2는 사용하지 않는 것이 좋습니다.
+부실 디바이스는 Azure Portal에서 정리할 수 있지만, 이 프로세스는 PowerShell 스크립트를 사용하여 처리하는 것이 더 효율적입니다. 최신 PowerShell V1 모듈을 사용 하 여 타임 스탬프 필터를 사용 하 고 시스템 관리 장치 (예: Autopilot)를 필터링 합니다. 이 시점에서 PowerShell V2는 사용하지 않는 것이 좋습니다.
 
 일반적인 루틴은 다음 단계로 구성됩니다.
 
