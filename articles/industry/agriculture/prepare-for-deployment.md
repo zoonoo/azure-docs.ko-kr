@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ccd8fc293d284150d7318242b71a46a99fec12fa
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
-ms.translationtype: HT
+ms.openlocfilehash: 0fc7eb6c3b582c4fc95d78397c4cb2820ebb4ea8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406316"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534233"
 ---
 # <a name="deploy-farmbeats"></a>FarmBeats 배포
 
@@ -68,6 +68,9 @@ Azure FarmBeats는 Azure Marketplace에서 다운로드할 수 있습니다. Azu
 6. **닫기**를 선택 하 고 "동의 함" 확인란을 선택 하 고 **만들기**를 선택 합니다.
 7. 이제 marketplace에서 Azure FarmBeats의 EULA (최종 사용자 사용권 계약)에 성공적으로 서명 했습니다.  
 7. 배포를 계속 하려면이 가이드의 다음 단계를 수행 합니다.
+
+> [!NOTE]
+> Azure Marketplace에서 제품이 완료 되 면 설치의 일부만 완료 됩니다. Azure 구독에서 Azure FarmBeats의 배포를 완료 하려면 아래 지침을 따르세요.
 
 ## <a name="prepare"></a>준비
 

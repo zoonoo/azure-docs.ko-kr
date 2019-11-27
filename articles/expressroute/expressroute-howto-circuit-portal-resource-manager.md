@@ -1,20 +1,20 @@
 ---
-title: 'Express 경로: 회로 만들기 및 수정: Azure Portal'
-description: ExpressRoute 회로를 만들고, 프로비전하고, 확인하고, 업데이트하고, 삭제하고, 프로비전을 해제합니다.
+title: 자습서 - ExpressRoute를 사용하여 회로 만들기 및 수정
+description: 이 자습서에서는 ExpressRoute 회로를 만들고, 프로비저닝하고, 확인하고, 업데이트하고, 삭제하고, 프로비저닝 해제하는 방법을 알아봅니다.
 services: expressroute
 author: cherylmc
 ms.service: expressroute
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 42fe0a91261453251d56f1c556083e93f5c76bec
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
-ms.translationtype: MT
+ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083561"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423573"
 ---
-# <a name="create-and-modify-an-expressroute-circuit"></a>ExpressRoute 회로 만들기 및 수정
+# <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>자습서: ExpressRoute 회로 만들기 및 수정
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](expressroute-howto-circuit-portal-resource-manager.md)
@@ -36,11 +36,11 @@ ms.locfileid: "74083561"
 
 ## <a name="create"></a>ExpressRoute 회로 만들기 및 프로비전
 
-### <a name="1-sign-in-to-the-azure-portal"></a>1. Azure Portal에 로그인 합니다.
+### <a name="1-sign-in-to-the-azure-portal"></a>1. Azure 포털에 로그인합니다.
 
 브라우저에서 [Azure 포털](https://portal.azure.com) 로 이동하고 Azure 계정으로 로그인합니다.
 
-### <a name="2-create-a-new-expressroute-circuit"></a>2. 새 Express 경로 회로 만들기
+### <a name="2-create-a-new-expressroute-circuit"></a>2. 새 ExpressRoute 회로 만들기
 
 > [!IMPORTANT]
 > ExpressRoute 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
@@ -56,7 +56,7 @@ ms.locfileid: "74083561"
    * **데이터 요금제** 는 청구서 유형을 결정합니다. 데이터 요금제의 경우 **Metered**를 선택하고 무제한 데이터 요금제의 경우 **Unlimited**를 선택할 수 있습니다. 청구 유형을 **Metered**에서 **Unlimited**로 변경할 수 있습니다.
 
      > [!IMPORTANT]
-     > 형식을 **무제한** 에서 **요금제**로 변경할 수 없습니다.
+     > 청구 유형은 **무제한**에서 **계량됨**으로 변경할 수 없습니다.
 
    * **피어링 위치**는 Microsoft와 피어링하는 물리적 위치입니다.
 
@@ -77,28 +77,28 @@ ms.locfileid: "74083561"
 
 ![보기 속성](./media/expressroute-howto-circuit-portal-resource-manager/servicekey1.png)
 
-### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. 프로 비전을 위해 연결 공급자에 서비스 키 보내기
+### <a name="4-send-the-service-key-to-your-connectivity-provider-for-provisioning"></a>4. 프로비전을 위해 연결 공급자에 서비스 키 보내기
 
 이 페이지에서 **공급자 상태**는 서비스 공급자 측의 현재 프로비전 상태에 대한 정보를 제공합니다. **Circuit status** (회로 상태)는 Microsoft 측의 상태를 제공합니다. 회로 프로비전 상태에 대한 자세한 내용은 [워크플로](expressroute-workflows.md#expressroute-circuit-provisioning-states) 문서를 참조하세요.
 
 새 ExpressRoute 회로를 만들면 회로는 다음 상태가 됩니다.
 
-공급자 상태: 프로비전되지 않음<BR>
-회로 상태: 활성화됨
+공급자 상태: 프로비전 안 됨<BR>
+회로 상태: 사용
 
 ![프로비전 프로세스 시작](./media/expressroute-howto-circuit-portal-resource-manager/status.png)
 
 연결 공급자가 사용자에 대해 활성화를 처리 중이면 회로가 다음 상태로 변경됩니다.
 
-공급자 상태: 프로비전 중<BR>
-회로 상태: 활성화됨
+공급자 상태: 프로비전<BR>
+회로 상태: 사용
 
 ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 공급자 상태: 프로비전됨<BR>
-회로 상태: 활성화됨
+회로 상태: 사용
 
-### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태와 상태를 주기적으로 확인 합니다.
+### <a name="5-periodically-check-the-status-and-the-state-of-the-circuit-key"></a>5. 회로 키의 상태를 주기적으로 확인
 
 원하는 회로를 선택하여 회로의 속성을 볼 수 있습니다. **공급자 상태**를 확인하고 계속하기 전에 **프로비전됨**으로 이동했는지 확인합니다.
 
@@ -111,7 +111,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 > [!IMPORTANT]
 > 이 지침은 2계층 연결 서비스를 제공하는 서비스 공급자를 사용하여 만든 회로에만 적용됩니다. 관리된 3계층 서비스(일반적으로 MPLS와 같은 IP VPN)를 제공하는 서비스 공급자를 사용하는 경우 연결 공급자는 사용자를 위해 라우팅을 구성하고 관리합니다.
 
-### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. Express 경로 회로에 가상 네트워크 연결
+### <a name="7-link-a-virtual-network-to-an-expressroute-circuit"></a>7. 가상 네트워크를 ExpressRoute 회로에 연결합니다.
 
 그 다음 가상 네트워크를 ExpressRoute 회로에 연결합니다. Resource Manager 배포 모델을 작업하는 경우에는 [ExpressRoute 회로에 가상 네트워크 연결](expressroute-howto-linkvnet-arm.md) 문서를 사용할 수 있습니다.
 

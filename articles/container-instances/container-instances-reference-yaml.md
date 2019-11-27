@@ -1,19 +1,14 @@
 ---
-title: Azure Container Instances YAML 참조
+title: 컨테이너 그룹에 대 한 YAML 참조
 description: 컨테이너 그룹을 구성 하는 Azure Container Instances에서 지원 되는 YAML 파일에 대 한 참조
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: danlep
-ms.openlocfilehash: 2e6be18371cf3ff96d1ce91d4dde26ff1f14021b
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179905"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533499"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML 참조: Azure Container Instances
 
@@ -22,7 +17,7 @@ ms.locfileid: "71179905"
 YAML 파일은 재현 가능한 배포를 위해 컨테이너 그룹을 구성 하는 편리한 방법입니다. [리소스 관리자 템플릿](/azure/templates/Microsoft.ContainerInstance/2018-10-01/containerGroups) 또는 Azure Container Instances sdk를 사용 하 여 컨테이너 그룹을 만들거나 업데이트 하는 방법에 대 한 간단한 대안입니다.
 
 > [!NOTE]
-> 이 참조는 Azure Container Instances REST API 버전 `2018-10-01`에 대 한 yaml 파일에 적용 됩니다.
+> 이 참조는 Azure Container Instances REST API 버전 `2018-10-01`에 대 한 YAML 파일에 적용 됩니다.
 
 ## <a name="schema"></a>스키마 
 
@@ -142,103 +137,103 @@ properties: # Properties of container group
 
 ### <a name="microsoftcontainerinstancecontainergroups-object"></a>ContainerInstance/containerGroups 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  name | string | 예 | 컨테이너 그룹의 이름입니다. |
-|  apiVersion | 열거형 | 예 | 2018-10-01 |
-|  위치 | string | 아니요 | 리소스 위치입니다. |
-|  태그 | object | 아니요 | 리소스 태그입니다. |
-|  identity | object | 아니요 | 구성 된 경우 컨테이너 그룹의 id입니다. - [ContainerGroupIdentity 개체](#ContainerGroupIdentity) |
-|  속성 | object | 예 | [ContainerGroupProperties 개체](#ContainerGroupProperties) |
+|  apiVersion | enum | 예 | 2018-10-01 |
+|  location | string | 아니오 | 리소스 위치입니다. |
+|  태그 | object | 아니오 | 리소스 태그입니다. |
+|  ID | object | 아니오 | 구성 된 경우 컨테이너 그룹의 id입니다. - [ContainerGroupIdentity 개체](#ContainerGroupIdentity) |
+|  properties | object | 예 | [ContainerGroupProperties 개체](#ContainerGroupProperties) |
 
 
 <a id="ContainerGroupIdentity" />
 
 ### <a name="containergroupidentity-object"></a>ContainerGroupIdentity 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  type | 열거형 | 아니요 | 컨테이너 그룹에 사용 되는 id 유형입니다. ' SystemAssigned 됨, UserAssigned 됨 ' 형식에는 암시적으로 생성 된 id와 사용자 할당 id 집합이 모두 포함 됩니다. ' 없음 ' 유형은 컨테이너 그룹에서 모든 id를 제거 합니다. -SystemAssigned 됨, UserAssigned 됨, SystemAssigned 됨, UserAssigned 안 함 |
-|  userAssignedIdentities | object | 아니요 | 컨테이너 그룹과 연결 된 사용자 id 목록입니다. 사용자 id 사전 키 참조는 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName ' 형식으로 리소스 Id를 Azure Resource Manager 됩니다. }'. |
+|  type | enum | 아니오 | 컨테이너 그룹에 사용 되는 id 유형입니다. ' SystemAssigned 됨, UserAssigned 됨 ' 형식에는 암시적으로 생성 된 id와 사용자 할당 id 집합이 모두 포함 됩니다. ' 없음 ' 유형은 컨테이너 그룹에서 모든 id를 제거 합니다. -SystemAssigned 됨, UserAssigned 됨, SystemAssigned 됨, UserAssigned 안 함 |
+|  userAssignedIdentities | object | 아니오 | 컨테이너 그룹과 연결 된 사용자 id 목록입니다. 사용자 id 사전 키 참조는 '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{identityName} ' 형식으로 리소스 Id를 Azure Resource Manager 됩니다. |
 
 
 <a id="ContainerGroupProperties" />
 
 ### <a name="containergroupproperties-object"></a>ContainerGroupProperties 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  컨테이너 | 배열 | 예 | 컨테이너 그룹 내의 컨테이너입니다. - [컨테이너 개체](#Container) |
-|  imageRegistryCredentials | 배열 | 아니요 | 컨테이너 그룹을 만들 때 기준이 되는 이미지 레지스트리 자격 증명입니다. - [ImageRegistryCredential 개체](#ImageRegistryCredential) |
-|  restartPolicy | 열거형 | 아니요 | 컨테이너 그룹 내의 모든 컨테이너에 대 한 다시 시작 정책입니다. - `Always`오류 발생 시 `OnFailure` 항상 다시 시작-다시 시작 안함`Never` -Always, OnFailure, Never |
-|  ipAddress | object | 아니요 | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
-|  osType | 열거형 | 예 | 컨테이너 그룹의 컨테이너에 필요한 운영 체제 유형입니다. -Windows 또는 Linux |
-|  볼륨 | 배열 | 아니요 | 이 컨테이너 그룹의 컨테이너로 탑재할 수 있는 볼륨의 목록입니다. - [볼륨 개체](#Volume) |
-|  진단 | object | 아니요 | 컨테이너 그룹에 대 한 진단 정보입니다. - [ContainerGroupDiagnostics 개체](#ContainerGroupDiagnostics) |
-|  NetworkProfile | object | 아니요 | 컨테이너 그룹에 대 한 네트워크 프로필 정보입니다. - [ContainerGroupNetworkProfile 개체](#ContainerGroupNetworkProfile) |
-|  dnsConfig | object | 아니요 | 컨테이너 그룹에 대 한 DNS 구성 정보입니다. - [DnsConfiguration 개체](#DnsConfiguration) |
+|  컨테이너 | array | 예 | 컨테이너 그룹 내의 컨테이너입니다.[컨테이너 개체](#Container)  -  |
+|  imageRegistryCredentials | array | 아니오 | 컨테이너 그룹을 만들 때 기준이 되는 이미지 레지스트리 자격 증명입니다. - [ImageRegistryCredential 개체](#ImageRegistryCredential) |
+|  restartPolicy | enum | 아니오 | 컨테이너 그룹 내의 모든 컨테이너에 대 한 다시 시작 정책입니다. - `Always` 항상 다시 시작-오류 발생 시 다시 시작 `OnFailure` `Never` 다시 시작 안 함 -Always, OnFailure, Never |
+|  \\ | object | 아니오 | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
+|  osType | enum | 예 | 컨테이너 그룹의 컨테이너에 필요한 운영 체제 유형입니다. -Windows 또는 Linux |
+|  volumes | array | 아니오 | 이 컨테이너 그룹의 컨테이너로 탑재할 수 있는 볼륨의 목록입니다.[볼륨 개체](#Volume)  -  |
+|  진단 | object | 아니오 | 컨테이너 그룹에 대 한 진단 정보입니다. - [ContainerGroupDiagnostics 개체](#ContainerGroupDiagnostics) |
+|  NetworkProfile | object | 아니오 | 컨테이너 그룹에 대 한 네트워크 프로필 정보입니다. - [ContainerGroupNetworkProfile 개체](#ContainerGroupNetworkProfile) |
+|  dnsConfig | object | 아니오 | 컨테이너 그룹에 대 한 DNS 구성 정보입니다. - [Dnsconfiguration 개체](#DnsConfiguration) |
 
 
 <a id="Container" />
 
 ### <a name="container-object"></a>컨테이너 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  name | string | 예 | 컨테이너 인스턴스의 사용자 제공 이름입니다. |
-|  속성 | object | 예 | 컨테이너 인스턴스의 속성입니다. - [ContainerProperties 개체](#ContainerProperties) |
+|  properties | object | 예 | 컨테이너 인스턴스의 속성입니다. - [ContainerProperties 개체](#ContainerProperties) |
 
 
 <a id="ImageRegistryCredential" />
 
 ### <a name="imageregistrycredential-object"></a>ImageRegistryCredential 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  서버 | string | 예 | 프로토콜이 없는 Docker 이미지 레지스트리 서버 (예: "http" 및 "https") |
-|  username | string | 예 | 개인 레지스트리의 사용자 이름입니다. |
-|  password | string | 아니요 | 개인 레지스트리에 대 한 암호입니다. |
+|  server | string | 예 | 프로토콜이 없는 Docker 이미지 레지스트리 서버 (예: "http" 및 "https") |
+|  사용자 이름 | string | 예 | 개인 레지스트리의 사용자 이름입니다. |
+|  password | string | 아니오 | 개인 레지스트리에 대 한 암호입니다. |
 
 
 <a id="IpAddress" />
 
 ### <a name="ipaddress-object"></a>IpAddress 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  ports | 배열 | 예 | 컨테이너 그룹에 노출 된 포트 목록입니다. - [포트 개체](#Port) |
-|  type | 열거형 | 예 | IP가 공용 인터넷 또는 개인 VNET에 노출 되는지 여부를 지정 합니다. -공용 또는 개인 |
-|  IP | string | 아니요 | 공용 인터넷에 노출 되는 IP입니다. |
-|  dnsNameLabel | string | 아니요 | IP의 Dns 이름 레이블입니다. |
+|  ports | array | 예 | 컨테이너 그룹에 노출 된 포트 목록입니다. - [Port 개체](#Port) |
+|  type | enum | 예 | IP가 공용 인터넷 또는 개인 VNET에 노출 되는지 여부를 지정 합니다. -공용 또는 개인 |
+|  tcp/ip | string | 아니오 | 공용 인터넷에 노출 되는 IP입니다. |
+|  dnsNameLabel | string | 아니오 | IP의 Dns 이름 레이블입니다. |
 
 
 <a id="Volume" />
 
 ### <a name="volume-object"></a>볼륨 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  name | string | 예 | 볼륨의 이름입니다. |
-|  azureFile | object | 아니요 | Azure 파일 볼륨입니다. - [AzureFileVolume 개체](#AzureFileVolume) |
-|  emptyDir | object | 아니요 | 빈 디렉터리 볼륨입니다. |
-|  secret | object | 아니요 | 비밀 볼륨입니다. |
-|  gitRepo | object | 아니요 | Git 리포지토리 볼륨입니다. - [GitRepoVolume 개체](#GitRepoVolume) |
+|  azureFile | object | 아니오 | Azure 파일 볼륨입니다. - [AzureFileVolume 개체](#AzureFileVolume) |
+|  emptyDir | object | 아니오 | 빈 디렉터리 볼륨입니다. |
+|  secret | object | 아니오 | 비밀 볼륨입니다. |
+|  gitRepo | object | 아니오 | Git 리포지토리 볼륨입니다. - [Gitrepovolume 개체](#GitRepoVolume) |
 
 
 <a id="ContainerGroupDiagnostics" />
 
 ### <a name="containergroupdiagnostics-object"></a>ContainerGroupDiagnostics 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  logAnalytics | object | 아니요 | 컨테이너 그룹 로그 분석 정보입니다. - [LogAnalytics 개체](#LogAnalytics) |
+|  logAnalytics | object | 아니오 | 컨테이너 그룹 로그 분석 정보입니다.[Loganalytics 개체](#LogAnalytics)  -  |
 
 
 <a id="ContainerGroupNetworkProfile" />
 
 ### <a name="containergroupnetworkprofile-object"></a>ContainerGroupNetworkProfile 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  id | string | 예 | 네트워크 프로필의 식별자입니다. |
 
@@ -247,181 +242,181 @@ properties: # Properties of container group
 
 ### <a name="dnsconfiguration-object"></a>DnsConfiguration 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  이름 서버 | 배열 | 예 | 컨테이너 그룹에 대 한 DNS 서버입니다. -문자열 |
-|  searchDomains | string | 아니요 | 컨테이너 그룹에서 호스트 이름 조회에 대 한 DNS 검색 도메인입니다. |
-|  옵션 | string | 아니요 | 컨테이너 그룹에 대 한 DNS 옵션입니다. |
+|  이름 서버 | array | 예 | 컨테이너 그룹에 대 한 DNS 서버입니다. -문자열 |
+|  searchDomains | string | 아니오 | 컨테이너 그룹에서 호스트 이름 조회에 대 한 DNS 검색 도메인입니다. |
+|  options | string | 아니오 | 컨테이너 그룹에 대 한 DNS 옵션입니다. |
 
 
 <a id="ContainerProperties" />
 
 ### <a name="containerproperties-object"></a>ContainerProperties 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  image | string | 예 | 컨테이너 인스턴스를 만드는 데 사용 되는 이미지의 이름입니다. |
-|  command | 배열 | 아니요 | Exec 형식의 컨테이너 인스턴스 내에서 실행할 명령입니다. -문자열 |
-|  ports | 배열 | 아니요 | 컨테이너 인스턴스의 노출 된 포트입니다. - [ContainerPort 개체](#ContainerPort) |
-|  environmentVariables | 배열 | 아니요 | 컨테이너 인스턴스에서 설정할 환경 변수입니다. - [고 environmentvariable 개체](#EnvironmentVariable) |
+|  이미지 | string | 예 | 컨테이너 인스턴스를 만드는 데 사용 되는 이미지의 이름입니다. |
+|  command | array | 아니오 | Exec 형식의 컨테이너 인스턴스 내에서 실행할 명령입니다. -문자열 |
+|  ports | array | 아니오 | 컨테이너 인스턴스의 노출 된 포트입니다. - [ContainerPort 개체](#ContainerPort) |
+|  environmentVariables | array | 아니오 | 컨테이너 인스턴스에서 설정할 환경 변수입니다. - [고 environmentvariable 개체](#EnvironmentVariable) |
 |  리소스 | object | 예 | 컨테이너 인스턴스의 리소스 요구 사항입니다. - [ResourceRequirements 개체](#ResourceRequirements) |
-|  volumeMounts | 배열 | 아니요 | 컨테이너 인스턴스에 사용할 수 있는 볼륨 탑재입니다. - [VolumeMount 개체](#VolumeMount) |
-|  livenessProbe | object | 아니요 | 선거의 프로브입니다. - [ContainerProbe 개체](#ContainerProbe) |
-|  readinessProbe | object | 아니요 | 준비 프로브입니다. - [ContainerProbe 개체](#ContainerProbe) |
+|  volumeMounts | array | 아니오 | 컨테이너 인스턴스에 사용할 수 있는 볼륨 탑재입니다. - [VolumeMount 개체](#VolumeMount) |
+|  livenessProbe | object | 아니오 | 선거의 프로브입니다. - [ContainerProbe 개체](#ContainerProbe) |
+|  readinessProbe | object | 아니오 | 준비 프로브입니다. - [ContainerProbe 개체](#ContainerProbe) |
 
 
 <a id="Port" />
 
 ### <a name="port-object"></a>포트 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  protocol | 열거형 | 아니요 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
-|  port | integer | 예 | 포트 번호입니다. |
+|  protocol | enum | 아니오 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
+|  포트 | integer | 예 | 포트 번호입니다. |
 
 
 <a id="AzureFileVolume" />
 
 ### <a name="azurefilevolume-object"></a>AzureFileVolume 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  공유 | string | 예 | 볼륨으로 탑재할 Azure 파일 공유의 이름입니다. |
-|  readOnly | boolean | 아니요 | 볼륨으로 탑재 된 Azure 파일 공유를 읽기 전용인 지 여부를 나타내는 플래그입니다. |
+|  readOnly | boolean | 아니오 | 볼륨으로 탑재 된 Azure 파일 공유를 읽기 전용인 지 여부를 나타내는 플래그입니다. |
 |  storageAccountName | string | 예 | Azure 파일 공유를 포함 하는 저장소 계정의 이름입니다. |
-|  storageAccountKey | string | 아니요 | Azure 파일 공유에 액세스 하는 데 사용 되는 저장소 계정 액세스 키입니다. |
+|  storageAccountKey | string | 아니오 | Azure 파일 공유에 액세스 하는 데 사용 되는 저장소 계정 액세스 키입니다. |
 
 
 <a id="GitRepoVolume" />
 
 ### <a name="gitrepovolume-object"></a>GitRepoVolume 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  디렉터리 | string | 아니요 | 대상 디렉터리 이름입니다. '.. '를 포함 하거나 시작 해서는 안 됩니다.  '. '가 제공 되 면 볼륨 디렉터리는 git 리포지토리가 됩니다.  그렇지 않으면 지정 된 경우 볼륨은 지정 된 이름의 하위 디렉터리에 git 리포지토리를 포함 합니다. |
-|  리포지토리(repository) | string | 예 | 리포지토리 URL |
-|  revision | string | 아니요 | 지정 된 수정 버전에 대 한 해시를 커밋합니다. |
+|  디렉터리 | string | 아니오 | 대상 디렉터리 이름입니다. '.. '를 포함 하거나 시작 해서는 안 됩니다.  '. '가 제공 되 면 볼륨 디렉터리는 git 리포지토리가 됩니다.  그렇지 않으면 지정 된 경우 볼륨은 지정 된 이름의 하위 디렉터리에 git 리포지토리를 포함 합니다. |
+|  리포지토리 | string | 예 | 리포지토리 URL |
+|  revision | string | 아니오 | 지정 된 수정 버전에 대 한 해시를 커밋합니다. |
 
 
 <a id="LogAnalytics" />
 
 ### <a name="loganalytics-object"></a>LogAnalytics 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | 예 | Log analytics에 대 한 작업 영역 id |
 |  workspaceKey | string | 예 | Log analytics에 대 한 작업 영역 키 |
-|  logType | 열거형 | 아니요 | 사용할 로그 유형입니다. -ContainerInsights 또는 ContainerInstanceLogs |
-|  메타데이터 | object | 아니요 | Log analytics에 대 한 메타 데이터입니다. |
+|  logType | enum | 아니오 | 사용할 로그 유형입니다. -ContainerInsights 또는 ContainerInstanceLogs |
+|  metadata | object | 아니오 | Log analytics에 대 한 메타 데이터입니다. |
 
 
 <a id="ContainerPort" />
 
 ### <a name="containerport-object"></a>ContainerPort 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  protocol | 열거형 | 아니요 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
-|  port | integer | 예 | 컨테이너 그룹 내에서 노출 되는 포트 번호입니다. |
+|  protocol | enum | 아니오 | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
+|  포트 | integer | 예 | 컨테이너 그룹 내에서 노출 되는 포트 번호입니다. |
 
 
 <a id="EnvironmentVariable" />
 
 ### <a name="environmentvariable-object"></a>고 environmentvariable 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  name | string | 예 | 환경 변수의 이름입니다. |
-|  값 | string | 아니요 | 환경 변수의 값입니다. |
-|  secureValue | string | 아니요 | 보안 환경 변수의 값입니다. |
+|  value | string | 아니오 | 환경 변수의 값입니다. |
+|  secureValue | string | 아니오 | 보안 환경 변수의 값입니다. |
 
 
 <a id="ResourceRequirements" />
 
 ### <a name="resourcerequirements-object"></a>ResourceRequirements 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  요청 | object | 예 | 이 컨테이너 인스턴스의 리소스 요청입니다. - [ResourceRequests 개체](#ResourceRequests) |
-|  제한 | object | 아니요 | 이 컨테이너 인스턴스의 리소스 제한입니다. - [ResourceLimits 개체](#ResourceLimits) |
+|  requests | object | 예 | 이 컨테이너 인스턴스의 리소스 요청입니다. - [ResourceRequests 개체](#ResourceRequests) |
+|  제한 | object | 아니오 | 이 컨테이너 인스턴스의 리소스 제한입니다. - [Resourcelimits 개체](#ResourceLimits) |
 
 
 <a id="VolumeMount" />
 
 ### <a name="volumemount-object"></a>VolumeMount 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  name | string | 예 | 볼륨 탑재의 이름입니다. |
 |  mountPath | string | 예 | 볼륨이 탑재 되어야 하는 컨테이너 내의 경로입니다. 콜론 (:)을 포함 하지 않아야 합니다. |
-|  readOnly | boolean | 아니요 | 볼륨 탑재를 읽기 전용인 지 여부를 나타내는 플래그입니다. |
+|  readOnly | boolean | 아니오 | 볼륨 탑재를 읽기 전용인 지 여부를 나타내는 플래그입니다. |
 
 
 <a id="ContainerProbe" />
 
 ### <a name="containerprobe-object"></a>ContainerProbe 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  재시도 | object | 아니요 | [ContainerExec 개체](#ContainerExec) 에 대 한 실행 명령 |
-|  httpGet | object | 아니요 | [ContainerHttpGet 개체](#ContainerHttpGet) 에 대 한 Http 설정 가져오기 |
-|  initialDelaySeconds | integer | 아니요 | 초기 지연 시간 (초)입니다. |
-|  periodSeconds | integer | 아니요 | 기간 (초)입니다. |
-|  카운터가 failurethreshold | integer | 아니요 | 오류 임계값입니다. |
-|  successThreshold | integer | 아니요 | 성공 임계값입니다. |
-|  timeoutSeconds | integer | 아니요 | 시간 제한 (초)입니다. |
+|  재시도 | object | 아니오 | [ContainerExec 개체](#ContainerExec) 에 대 한 실행 명령 |
+|  httpGet | object | 아니오 | [ContainerHttpGet 개체](#ContainerHttpGet) 에 대 한 Http 설정 가져오기 |
+|  initialDelaySeconds | integer | 아니오 | 초기 지연 시간 (초)입니다. |
+|  periodSeconds | integer | 아니오 | 기간 (초)입니다. |
+|  카운터가 failurethreshold | integer | 아니오 | 오류 임계값입니다. |
+|  successThreshold | integer | 아니오 | 성공 임계값입니다. |
+|  timeoutSeconds | integer | 아니오 | 시간 제한 (초)입니다. |
 
 
 <a id="ResourceRequests" />
 
 ### <a name="resourcerequests-object"></a>ResourceRequests 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
 |  memoryInGB | number | 예 | 이 컨테이너 인스턴스의 메모리 요청 (GB)입니다. |
 |  CPU | number | 예 | 이 컨테이너 인스턴스의 CPU 요청입니다. |
-|  GPU | object | 아니요 | 이 컨테이너 인스턴스의 GPU 요청입니다. - [GpuResource 개체](#GpuResource) |
+|  GPU | object | 아니오 | 이 컨테이너 인스턴스의 GPU 요청입니다. - [GpuResource 개체](#GpuResource) |
 
 
 <a id="ResourceLimits" />
 
 ### <a name="resourcelimits-object"></a>ResourceLimits 개체
 
-|  이름 | type | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  memoryInGB | number | 아니요 | 이 컨테이너 인스턴스의 메모리 한도 (GB)입니다. |
-|  CPU | number | 아니요 | 이 컨테이너 인스턴스의 CPU 한도입니다. |
-|  GPU | object | 아니요 | 이 컨테이너 인스턴스의 GPU 제한입니다. - [GpuResource 개체](#GpuResource) |
+|  memoryInGB | number | 아니오 | 이 컨테이너 인스턴스의 메모리 한도 (GB)입니다. |
+|  CPU | number | 아니오 | 이 컨테이너 인스턴스의 CPU 한도입니다. |
+|  GPU | object | 아니오 | 이 컨테이너 인스턴스의 GPU 제한입니다. - [GpuResource 개체](#GpuResource) |
 
 
 <a id="ContainerExec" />
 
 ### <a name="containerexec-object"></a>ContainerExec 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  command | 배열 | 아니요 | 컨테이너 내에서 실행할 명령입니다. -문자열 |
+|  command | array | 아니오 | 컨테이너 내에서 실행할 명령입니다. -문자열 |
 
 
 <a id="ContainerHttpGet" />
 
 ### <a name="containerhttpget-object"></a>ContainerHttpGet 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  path | string | 아니요 | 프로브 경로입니다. |
-|  port | integer | 예 | 프로브 할 포트 번호입니다. |
-|  체계 | 열거형 | 아니요 | 체계입니다. -http 또는 https |
+|  path | string | 아니오 | 프로브 경로입니다. |
+|  포트 | integer | 예 | 프로브 할 포트 번호입니다. |
+|  scheme | enum | 아니오 | 체계입니다. -http 또는 https |
 
 
 <a id="GpuResource" />
 
 ### <a name="gpuresource-object"></a>GpuResource 개체
 
-|  이름 | 형식 | 필요한 공간 | 값 |
+|  이름 | 에 | 필수 | 값 |
 |  ---- | ---- | ---- | ---- |
-|  count | integer | 예 | GPU 리소스의 수입니다. |
-|  sku | 열거형 | 예 | GPU 리소스의 SKU입니다. -K80, P100, V100 |
+|  개수 | integer | 예 | GPU 리소스의 수입니다. |
+|  sku | enum | 예 | GPU 리소스의 SKU입니다. -K80, P100, V100 |
 
 
 ## <a name="next-steps"></a>다음 단계

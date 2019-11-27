@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: radeltch
-ms.openlocfilehash: 8c3cb50a4a89d72ddcedea5d379f8e889655c5c0
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
-ms.translationtype: HT
+ms.openlocfilehash: 49e7fd49e000a3d4475c60a0c58cf6a2c7455fa5
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327984"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74531407"
 ---
 # <a name="deploy-a-sap-hana-scale-out-system-with-standby-node-on-azure-vms-by-using-azure-netapp-files-on-suse-linux-enterprise-server"></a>SUSE Linux Enterprise Server에서 Azure NetApp Files를 사용 하 여 Azure Vm에 대기 노드로 SAP HANA 확장 시스템 배포 
 
@@ -229,7 +229,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
    가. SAP HANA에 대해 지원 되는 Azure 갤러리에서 SLES4SAP 이미지를 사용 합니다. 이 예제에서는 SLES4SAP 12 SP4 이미지를 사용 했습니다.  
 
-   b. SAP HANA에 대해 이전에 만든 가용성 집합을 선택 합니다.  
+   나. SAP HANA에 대해 이전에 만든 가용성 집합을 선택 합니다.  
 
    c. 클라이언트 Azure 가상 네트워크 서브넷을 선택 합니다. [가속화 네트워크](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli)를 선택 합니다.  
 
@@ -243,11 +243,11 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     가. [Azure Portal](https://portal.azure.com/#home)의 가상 머신으로 이동 합니다.  
 
-    b. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
+    나. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 가상 컴퓨터를 선택 합니다.  
 
     c. **개요** 창에서 **중지** 를 선택 하 여 가상 컴퓨터의 할당을 취소 합니다.  
 
-    d. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `storage` 및 `hana` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
+    ㄹ. **네트워킹**을 선택 하 고 네트워크 인터페이스를 연결 합니다. **네트워크 인터페이스 연결** 드롭다운 목록에서 `storage` 및 `hana` 서브넷에 대해 이미 생성 된 네트워크 인터페이스를 선택 합니다.  
     
     e. **저장**을 선택합니다. 
  
@@ -259,7 +259,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     가. [Azure Portal](https://portal.azure.com/#home)에서 [Azure Cloud Shell](https://azure.microsoft.com/features/cloud-shell/) 를 엽니다.  
 
-    b. 다음 명령을 실행 하 여 `storage` 및 `hana` 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
+    나. 다음 명령을 실행 하 여 `storage` 및 `hana` 서브넷에 연결 된 추가 네트워크 인터페이스에 대 한 가속화 된 네트워킹을 사용 하도록 설정 합니다.  
 
     <pre><code>
     az network nic update --id /subscriptions/<b>your subscription</b>/resourceGroups/<b>your resource group</b>/providers/Microsoft.Network/networkInterfaces/<b>hanadb1-storage</b> --accelerated-networking true
@@ -276,7 +276,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
 
     가. 왼쪽 창에서 **Virtual Machines**을 선택 합니다. 가상 컴퓨터 이름 (예: **hanadb1**)을 필터링 한 다음 선택 합니다.  
 
-    b. **개요** 창에서 **시작**을 선택 합니다.  
+    나. **개요** 창에서 **시작**을 선택 합니다.  
 
 ## <a name="operating-system-configuration-and-preparation"></a>운영 체제 구성 및 준비
 
@@ -413,7 +413,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     [General]
     Verbosity = 0
     Pipefs-Directory = /var/lib/nfs/rpc_pipefs
-    Domain = <b>ldefaultv4iddomain.com</b>
+    Domain = <b>defaultv4iddomain.com</b>
     [Mapping]
     Nobody-User = <b>nobody</b>
     Nobody-Group = <b>nobody</b>
@@ -547,7 +547,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     ./hdblcm --internal_network=10.23.3.0/24
     </code></pre>
 
-   b. 프롬프트에서 다음 값을 입력 합니다.
+   나. 프롬프트에서 다음 값을 입력 합니다.
 
      * **작업 선택**: **1** (설치의 경우)을 입력 합니다.
      * **설치용 추가 구성 요소**: **2, 3** 입력
@@ -675,7 +675,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GREEN
    </code></pre>
 
-   b. 노드 충돌을 시뮬레이트하려면 작업자 노드의 루트로 다음 명령을 실행 합니다 .이 경우에는 **hanadb2** 입니다.  
+   나. 노드 충돌을 시뮬레이트하려면 작업자 노드의 루트로 다음 명령을 실행 합니다 .이 경우에는 **hanadb2** 입니다.  
    
    <pre><code>
     echo b > /proc/sysrq-trigger
@@ -730,7 +730,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     hanadb3, 3, 50313, 50314, 0.3, HDB|HDB_STANDBY, GRAY
    </code></pre>
 
-   b. 활성 마스터 노드에서 **h n 1**adm으로 다음 명령을 실행 합니다 .이 경우 **hanadb1** 입니다.  
+   나. 활성 마스터 노드에서 **h n 1**adm으로 다음 명령을 실행 합니다 .이 경우 **hanadb1** 입니다.  
 
     <pre><code>
         hn1adm@hanadb1:/usr/sap/HN1/HDB03> HDB kill
@@ -786,7 +786,7 @@ Azure에서 SAP 용 인프라를 설계할 때 최소 처리량 특성으로 변
     | hanadb3 | yes    | info   |          |        |         0 |         1 | default  | default  | master 3   | master     | standby     | master      | standby | worker  | default | default |
    </code></pre>
 
-   d. 다시 한 번, 현재 활성 마스터 노드 (즉, 노드 **hanadb3**)에서 이름 서버를 중지 합니다.  
+   ㄹ. 다시 한 번, 현재 활성 마스터 노드 (즉, 노드 **hanadb3**)에서 이름 서버를 중지 합니다.  
    
    <pre><code>
     hn1adm@hanadb3:/usr/sap/HN1/HDB03> HDB kill

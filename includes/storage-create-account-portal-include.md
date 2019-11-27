@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 56545b02c35d68455497c93582073c73d6c75da5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: d34f18b688be2afd7febf1f948b3093696ee9118
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181875"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74451661"
 ---
 Azure Portal에서 범용 v2 스토리지 계정을 만들려면 다음 단계를 수행합니다.
 
-1. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에 **스토리지 계정**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Storage 계정**을 선택합니다.
+1. Azure Portal 메뉴에서 **모든 서비스**를 선택합니다. 리소스 목록에 **스토리지 계정**을 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Storage 계정**을 선택합니다.
 1. 나타나는 **Storage 계정** 창에서 **추가**를 선택합니다.
 1. 스토리지 계정을 만들 구독을 선택합니다.
 1. **리소스 그룹** 필드 아래에서 **새로 만들기**를 선택합니다. 다음 이미지에 표시된 대로 새 리소스 그룹의 이름을 입력합니다.
 
-    ![포털에서 리소스 그룹을 만드는 방법을 보여주는 스크린샷](./media/storage-create-account-portal-include/create-resource-group.png)
+    ![포털에서 리소스 그룹을 만드는 방법을 보여주는 스크린샷](./media/storage-create-account-portal-include/create-resource-group-for-storage.png)
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 선택하는 이름이 Azure에서 고유해야 합니다. 또한 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 1. 스토리지 계정의 위치를 선택하거나 기본 위치를 사용합니다.

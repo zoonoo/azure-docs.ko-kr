@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: b47c80f3c23c26828037954c01608cc502c017c9
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
-ms.translationtype: HT
+ms.openlocfilehash: e749dc48b1834aedbfea048c49c1f9090e5b5bb8
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186608"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534301"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -86,6 +86,11 @@ RTO (복구 시간 목표)는 장애 조치 (failover)를 수행 하 고 저장�
 
 기존 저장소 계정을 GZRS 또는 RA-GZRS로 마이그레이션할 수 있습니다. LRS, GRS 또는 RA-GRS 계정에서 마이그레이션하는 과정에서 기존 ZRS 계정에서 GZRS 또는 RA-GZRS를 쉽게 마이그레이션할 수 있습니다. 다음 섹션에서는 두 경우 모두 마이그레이션하는 방법에 대해 설명 합니다.
 
+**알려진 제한 사항**
+
+- 보관 계층은 현재 (RA-) GZRS 계정에서 지원 되지 않습니다. 자세한 내용은 [Azure Blob storage: 핫, 쿨 및 보관 액세스 계층](https://docs.microsoft.com/azure/storage/blobs/storage-blob-storage-tiers) 을 참조 하세요.
+- 관리 디스크는 (RA-) GZRS을 지원 하지 않습니다. 표준 SSD Managed Disks에 대 한 스냅숏 및 이미지를 표준 HDD 저장소에 저장 하 고 [LRS 및 ZRS 옵션 중에서 선택할](https://azure.microsoft.com/pricing/details/managed-disks/)수 있습니다.
+
 ### <a name="migrating-from-a-zrs-account"></a>ZRS 계정에서 마이그레이션
 
 기존 ZRS 계정을 RA-GZRS로 변환 하려면 [AzStorageAccount](/powershell/module/az.storage/set-azstorageaccount) cmdlet을 사용 하 여 계정에 대 한 SKU를 변경 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
@@ -150,7 +155,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 
 지원 담당자는 도움을 요청 하 여 도움을 받을 수 있습니다.
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목:
 
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)

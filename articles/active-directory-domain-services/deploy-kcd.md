@@ -9,26 +9,26 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 89bc690e5a8c8d24d7732dd4e12f70a9f1f368af
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b6941a159c8be9f7d1921dd281f7366b078b30a7
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842665"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546279"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 Kerberos 제한 위임 (KCD) 구성
 
 응용 프로그램을 실행할 때 이러한 응용 프로그램이 다른 사용자의 컨텍스트에서 리소스에 액세스 해야 할 수 있습니다. Active Directory Domain Services (AD DS)는이 사용 사례를 활성화 하는 *Kerberos 위임* 이라는 메커니즘을 지원 합니다. 그러면 KCD (Kerberos *제한* 위임)는이 메커니즘을 기반으로 하 여 사용자의 컨텍스트에서 액세스할 수 있는 특정 리소스를 정의 합니다. Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인은 기존의 온-프레미스 AD DS 환경에서 더 안전 하 게 잠겨 있으므로 보다 안전한 *리소스 기반* kcd를 사용 합니다.
 
-이 문서에서는 Azure AD DS 관리 되는 도메인에서 리소스에 대 한 Kerberos 제한 위임을 구성 하는 방법을 보여 줍니다.
+이 문서에서는 Azure AD DS 관리 되는 도메인에서 리소스 기반 Kerberos 제한 위임을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>선행 조건
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
-* 활성화된 Azure 구독.
+* 활성 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
     * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
@@ -36,13 +36,15 @@ ms.locfileid: "70842665"
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
     * 필요한 경우 자습서를 완료 하 여 [Windows SERVER VM을 만들고 관리 되는 도메인에 조인한][create-join-windows-vm] 다음 [AD DS 관리 도구를 설치][tutorial-create-management-vm]합니다.
-* Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
+* Azure AD 테넌트에서 *Azure AD DC 관리자* 그룹의 멤버인 사용자 계정
 
 ## <a name="kerberos-constrained-delegation-overview"></a>Kerberos 제한 위임 개요
 
 Kerberos 위임을 사용 하면 한 계정에서 리소스에 액세스 하는 다른 계정을 가장할 수 있습니다. 예를 들어 백 엔드 웹 구성 요소에 액세스 하는 웹 응용 프로그램은 백 엔드 연결을 만들 때 다른 사용자 계정으로 자신을 가장할 수 있습니다. Kerberos 위임은 가장 계정이 액세스할 수 있는 리소스를 제한 하지 않으므로 안전 하지 않습니다.
 
-Kerberos 제한 위임 (KCD)은 지정 된 서버 또는 응용 프로그램이 다른 id를 가장할 때 연결할 수 있는 서비스 또는 리소스를 제한 합니다. 기존 KCD에는 서비스에 대 한 도메인 계정을 구성 하는 도메인 관리자 권한이 필요 하며, 단일 도메인에서 실행 되도록 계정이 제한 됩니다. 기존 KCD에도 몇 가지 문제가 있습니다. 예를 들어 이전 운영 체제에서 서비스 관리자는 소유 하 고 있는 리소스 서비스로 위임 된 프런트 엔드 서비스를 알 수 있는 유용한 방법이 없었습니다. 리소스 서비스에 위임할 수 있는 프런트 엔드 서비스는 잠재적 공격 지점입니다. 리소스 서비스로 위임 하도록 구성 된 프런트 엔드 서비스를 호스트 하는 서버가 손상 된 경우 리소스 서비스도 손상 될 수도 있습니다.
+Kerberos 제한 위임 (KCD)은 지정 된 서버 또는 응용 프로그램이 다른 id를 가장할 때 연결할 수 있는 서비스 또는 리소스를 제한 합니다. 기존 KCD에는 서비스에 대 한 도메인 계정을 구성 하는 도메인 관리자 권한이 필요 하며, 단일 도메인에서 실행 되도록 계정이 제한 됩니다.
+
+기존 KCD에도 몇 가지 문제가 있습니다. 예를 들어 이전 운영 체제에서 서비스 관리자는 소유 하 고 있는 리소스 서비스로 위임 된 프런트 엔드 서비스를 알 수 있는 유용한 방법이 없었습니다. 리소스 서비스에 위임할 수 있는 프런트 엔드 서비스는 잠재적 공격 지점입니다. 리소스 서비스로 위임 하도록 구성 된 프런트 엔드 서비스를 호스트 하는 서버가 손상 된 경우 리소스 서비스도 손상 될 수도 있습니다.
 
 Azure AD DS 관리 되는 도메인에는 도메인 관리자 권한이 없습니다. 따라서 기존 계정 기반 KCD를 Azure AD DS 관리 되는 도메인에서 구성할 수 없습니다. 리소스 기반 KCD를 대신 사용할 수 있으며,이는 더 안전 합니다.
 

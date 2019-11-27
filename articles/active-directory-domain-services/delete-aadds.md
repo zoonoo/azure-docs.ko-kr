@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory Domain Services 사용 안 함 | Microsoft Docs '
-description: Azure Portal를 사용 하 여 Azure Active Directory Domain Services를 사용 하지 않도록 설정 하는 방법을 알아봅니다.
+title: Azure Active Directory Domain Services 삭제 | Microsoft Docs
+description: 을 사용 하 여 관리 되는 Azure Active Directory Domain Services 도메인을 사용 하지 않도록 설정 하거나 삭제 하는 방법을 알아봅니다 Azure Portal
 services: active-directory-ds
 author: iainfoulds
 manager: daveba
@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 05c4e73c56b79c6e313ea15124bd0f3d17b2fc70
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f0b8a438a7c236c5e016673a59bfb691e9c2152
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842602"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546289"
 ---
-# <a name="disable-azure-active-directory-domain-services-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Active Directory Domain Services 비활성화
+# <a name="delete-an-azure-active-directory-domain-services-managed-domain-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인 삭제
 
 관리 되는 도메인이 더 이상 필요 하지 않은 경우 Azure Active Directory Domain Services (Azure AD DS) 인스턴스를 삭제할 수 있습니다. Azure AD DS 관리 되는 도메인을 끄거나 일시적으로 사용 하지 않도록 설정할 수 있는 옵션은 없습니다. Azure AD DS 관리 되는 도메인을 삭제 하면 삭제 되거나 Azure AD 테 넌 트에 부정적인 영향을 주지 않습니다. 이 문서에서는 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인을 삭제 하는 방법을 보여 줍니다.
 

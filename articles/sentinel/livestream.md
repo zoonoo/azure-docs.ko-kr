@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.author: cabailey
-ms.openlocfilehash: d1d048507946850192c1c6f8ca9024c6f9ddf8ca
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515123"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546856"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위협 감지
 
 > [!IMPORTANT]
-> Azure 센티널의 구하기 라이브 스트림는 현재 공개 미리 보기로 제공 됩니다.
+> Azure 센티널의 구하기 라이브 스트림은 현재 공개 미리 보기로 제공 되며 테 넌 트에 점진적으로 롤아웃 됩니다.
 > 이 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 
@@ -63,7 +63,7 @@ ms.locfileid: "73515123"
     1. **라이브 스트림** 탭을 선택 합니다.
     2. **라이브 스트림로 이동을**선택 합니다.
     
-4. **라이브 스트림** 블레이드에서 다음을 수행 합니다.
+4. **라이브 스트림** 창에서 다음을 수행 합니다.
     
     - 쿼리에서 라이브 스트림을 시작한 경우 쿼리를 검토 하 고 원하는 변경 작업을 수행 합니다.
     - 라이브 스트림를 처음부터 시작 했으면 쿼리를 만듭니다. 
@@ -96,7 +96,7 @@ ms.locfileid: "73515123"
 
 ![라이브 스트림에 대 한 Azure Portal 알림](./media/livestream/notification.png)
 
-알림을 선택 하 여 **라이브 스트림** 블레이드를 엽니다.
+알림을 선택 하 여 **라이브 스트림** 창을 엽니다.
  
 ## <a name="elevate-a-livestream-session-to-an-alert"></a>라이브 스트림 세션을 경고로 상승
 

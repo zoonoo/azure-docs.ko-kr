@@ -1,25 +1,25 @@
 ---
-title: 우선 순위 트래픽 라우팅 구성-Azure Traffic Manager
-description: 이 문서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
+title: 자습서 - Azure Traffic Manager를 사용하여 우선 순위 트래픽 라우팅 구성
+description: 이 자습서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
 author: asudbring
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: allensu
-ms.openlocfilehash: f9954c7733c30efaea4a74e04949556a3a8617fd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
-ms.translationtype: MT
+ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040344"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420293"
 ---
-# <a name="configure-priority-traffic-routing-method-in-traffic-manager"></a>Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
+# <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
 
 웹 사이트 모드에 관계없이 Azure Websites는 데이터 센터(지역이라고도 함) 내의 웹 사이트에 대해 이미 장애 조치(Failover) 기능을 제공합니다. Traffic Manager는 다른 데이터 센터의 웹 사이트에 대해 장애 조치(Failover)를 제공합니다.
 
@@ -40,7 +40,7 @@ ms.locfileid: "74040344"
 6. **엔드포인트** 블레이드에서 사용자의 엔드포인트에 대한 우선 순위 순서를 검토합니다. **우선 순위** 트래픽 라우팅 방법을 선택하는 경우 선택한 엔드포인트의 순서가 중요합니다. 엔드포인트의 우선 순위 순서를 확인합니다.  기본 엔드포인트가 맨 위에 있습니다. 표시되는 순서를 다시 확인합니다. 모든 요청이 첫 번째 엔드포인트로 라우팅되고, Traffic Manager에서 이를 비정상으로 감지하면 트래픽은 자동으로 다음 엔드포인트로 장애 조치됩니다. 
 7. 엔드포인트 우선 순위 순서를 변경하려면 엔드포인트를 클릭하고 표시되는 **엔드포인트** 블레이드에서 **편집**을 클릭하고 **우선 순위** 값을 필요에 따라 변경합니다. 
 8. **저장**을 클릭하여 엔드포인트 설정의 변경 사항을 저장합니다.
-9. 구성 변경을 완료한 후 페이지 맨 아래에서 **저장** 을 클릭합니다.
+9. 구성 변경을 완료한 후 페이지 맨 아래에서 **저장**을 클릭합니다.
 10. 다음과 같이 사용자 구성의 변경 내용을 테스트합니다.
     1.  포털의 검색 창에서 Traffic Manager 프로필 이름을 검색하고 표시되는 결과에서 Traffic Manager 프로필을 클릭합니다.
     2.  **Traffic Manager** 프로필 블레이드에서 **개요**를 클릭합니다.
