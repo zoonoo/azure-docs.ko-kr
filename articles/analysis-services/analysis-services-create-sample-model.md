@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f76ec20da73c778d024feea9df113de9e4aa0fe9
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a72236843c13e139f33a669b54f108e91679c8c6
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573080"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326571"
 ---
 # <a name="tutorial-add-a-sample-model-from-the-portal"></a>자습서: 포털에서 샘플 모델 추가
 
@@ -73,6 +73,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 이 자습서에서는 서버에 기본, 샘플 모델을 추가하는 방법을 배웠습니다. 이제 모델 데이터베이스가 있으므로 SQL Server Management Studio에서 연결하고 사용자 역할을 추가할 수 있습니다. 자세한 내용은 다음 자습서로 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [자습서: 서버 관리자 및 사용자 역할 구성](analysis-services-database-users.md)
+> [자습서: 서버 관리자 및 사용자 역할 구성](tutorials/analysis-services-tutorial-roles.md)
 
 

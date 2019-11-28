@@ -4,19 +4,19 @@ description: 프로그래밍 방식으로 예약 정보를 가져오는 데 사�
 author: yashesvi
 manager: yashesvi
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 57e38888249de448f5286baa1b5ebb0e2c01bda9
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 58d0f6f7f40fbfcbd9298fea48995394d24c48b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757408"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226025"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
 

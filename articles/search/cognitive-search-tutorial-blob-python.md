@@ -3,18 +3,18 @@ title: '자습서: REST API를 사용하여 Python에서 기술 세트 만들기
 titleSuffix: Azure Cognitive Search
 description: Jupyter Python Notebook을 사용하여 Azure Cognitive Search의 데이터 추출, 자연어 및 이미지 AI 처리 예제를 단계별로 안내합니다. 추출된 데이터는 인덱싱되고 쿼리로 쉽게 액세스할 수 있습니다.
 manager: nitinme
-author: LisaLeib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.service: cognitive-search
 ms.devlang: python
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 1e404998c8f49852248a754e7134f439dcdf5b04
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d7b4755bb2e69c4a852901b71d917c6baa5d63ae
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113687"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406424"
 ---
 # <a name="tutorial-create-an-ai-enrichment-pipeline-using-rest-and-python"></a>자습서: REST 및 Python을 사용하여 AI 보강 파이프라인 만들기
 

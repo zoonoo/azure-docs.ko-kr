@@ -4,16 +4,16 @@ description: 예약 용량으로 SQL Data Warehouse 요금에 대한 비용을 �
 services: billing
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
-ms.openlocfilehash: 381a709c74f5fcf6bb1f89f07ad84d5e3af0c5e0
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 75e008a6a19baacec40a809530e3a1f624a33f2b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70806285"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223616"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 용량으로 SQL Data Warehouse 요금에 대한 비용 절감
 
@@ -63,7 +63,7 @@ SQL Data Warehouse 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이터 �
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항이 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
 
 예약 할인은 SQL Data Warehouse 예약된 용량 예약 범위 및 지역과 일치하는 SQL Data Warehouse 인스턴스의 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com/), PowerShell, CLI 또는 API를 통해 SQL Data Warehouse 예약된 용량의 범위를 업데이트할 수 있습니다.
 

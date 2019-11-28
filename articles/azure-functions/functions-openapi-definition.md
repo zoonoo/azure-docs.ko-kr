@@ -1,21 +1,16 @@
 ---
 title: Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 description: 다른 앱 및 서비스를 사용하도록 설정하여 Azure에서 함수를 호출할 수 있도록 하는 OpenAPI 정의를 만듭니다.
-keywords: OpenAPI, Swagger, 클라우드 앱, 클라우드 서비스,
-author: ggailey777
-manager: gwallace
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 05/08/2019
-ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 54a4c6eba094231e8e73cdef87b911dfba20f657
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 659c05b3d31f5673e95cb27f10eaa8bd872e4be6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533550"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226810"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 
@@ -145,7 +140,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
     | **Name** | 전역적으로 고유한 이름 | 함수는 함수 앱의 이름을 기반으로 생성됩니다. |
     | **구독** | 사용자의 구독 | 이 새 리소스가 만들어지는 구독입니다. |  
     | **[리소스 그룹](../azure-resource-manager/resource-group-overview.md)** |  myResourceGroup | 함수 앱과 동일한 리소스로, 사용자에 맞게 설정해야 합니다. |
-    | **위치**: | 미국 서부 | 미국 서부 위치를 선택합니다. |
+    | **위치** | 미국 서부 | 미국 서부 위치를 선택합니다. |
     | **조직 이름** | Contoso | 개발자 포털 및 이메일 알림에 사용되는 조직의 이름입니다. |
     | **관리자 전자 메일** | 사용자 이메일 | API Management로부터 시스템 알림을 수신하는 이메일입니다. |
     | **가격 책정 계층** | 소비(미리 보기) | 소비 계층은 미리 보기로 제공되며 모든 지역에 제공되는 것은 아닙니다. 전체 가격 책정 세부 정보는 [API Management 가격 책정 페이지](https://azure.microsoft.com/pricing/details/api-management/)를 참조하세요. |

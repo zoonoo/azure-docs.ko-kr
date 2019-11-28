@@ -4,19 +4,19 @@ description: 세부 사용량과 요금을 읽고 이해하는 방법 알아보�
 author: bandersmsft
 manager: micflan
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/24/2019
 ms.author: banders
-ms.openlocfilehash: 1842d32a838470d9b2af3a778c44c37464d32294
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 824c6b5de16889d43a952eacd5a0ce21388787d7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68954334"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222958"
 ---
 # <a name="understand-the-terms-in-your-azure-usage-and-charges-file"></a>Azure 사용량 및 요금 파일의 사용 약관 이해
 
@@ -138,4 +138,4 @@ UsageStart | Date
 ## <a name="next-steps"></a>다음 단계
 
 - [Microsoft Azure 청구서 보기 및 다운로드](billing-download-azure-invoice.md)
-- [Microsoft Azure사용량 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)
+- [Microsoft Azure 사용량 및 요금 보기 및 다운로드](billing-download-azure-daily-usage.md)

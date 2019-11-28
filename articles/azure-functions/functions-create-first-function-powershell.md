@@ -2,18 +2,16 @@
 title: Azure에서 첫 번째 PowerShell 함수 만들기
 description: Visual Studio Code를 사용하여 Azure에서 첫 번째 PowerShell 함수를 만드는 방법을 알아봅니다.
 author: joeyaiello
-manager: gwallace
 ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-ms.openlocfilehash: 1d6d641e141862b12fed40b800589aad70af2789
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8f77083ae0107ed9f9c5e3943cfcec25846ff087
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469417"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227213"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Azure에서 첫 번째 PowerShell 함수 만들기
 

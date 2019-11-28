@@ -8,7 +8,7 @@ manager: amberb
 editor: ''
 tags: billing
 ms.assetid: e4c4d136-2826-4938-868f-a7e67ff6b025
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -16,18 +16,18 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 035d2e567b6aad23801ff043652ea143e3f6105b
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: c1f9ef78431b6b293972d4adbc0f64dc49d5c4b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709614"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223833"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
 
 Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사용자에게 제공할 수 있습니다. 청구 역할의 유형 및 청구 정보에 대한 액세스를 제공하는 지침은 청구 계정의 유형에 따라 달라집니다. 청구 계정의 유형을 확인하려면 [청구 계정의 유형 확인](#check-the-type-of-your-billing-account)을 참조하세요.
 
-이 문서는 Microsoft Online Service 프로그램 계정을 사용하는 고객에게 적용됩니다. Azure EA(기업계약을 맺은 고객)이면서 엔터프라이즈 관리자인 경우, Enterprise Portal에서 부서 관리자 및 계정 소유자에 대한 권한을 부여할 수 있습니다. 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요. Microsoft 고객 계약 고객인 경우 [Azure의 Microsoft 고객 계약 관리 역할 이해](billing-understand-mca-roles.md)를 참조하세요. 
+이 문서는 Microsoft Online Service 프로그램 계정을 사용하는 고객에게 적용됩니다. Azure EA(기업계약을 맺은 고객)이면서 엔터프라이즈 관리자인 경우, Enterprise Portal에서 부서 관리자 및 계정 소유자에 대한 권한을 부여할 수 있습니다. 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요. Microsoft 고객 계약 고객인 경우 [Azure의 Microsoft 고객 계약 관리 역할 이해](billing-understand-mca-roles.md)를 참조하세요.
 
 ## <a name="account-administrators-for-microsoft-online-service-program-accounts"></a>Microsoft Online Service 프로그램 계정에 대한 계정 관리자
 
@@ -60,9 +60,9 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 1. **Cost Management + 청구**에서 검색합니다.
 
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-manage-access/billing-search-cost-management-billing.png)
- 
+
 1. 왼쪽 창에서 **구독**을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독**을 선택해야 할 수 있습니다.
- 
+
     ![구독 선택을 보여 주는 스크린샷](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. **청구서**를 선택한 다음, **청구서에 액세스**를 선택합니다.
@@ -88,7 +88,7 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
     ![Azure Portal 검색을 보여 주는 스크린샷](./media/billing-manage-access/billing-search-cost-management-billing.png)
 
 1. 왼쪽 창에서 **구독**을 선택합니다. 액세스에 따라 청구 범위를 선택한 다음, **구독**을 선택해야 할 수 있습니다.
- 
+
     ![구독 선택을 보여 주는 스크린샷](./media/billing-manage-access/billing-select-subscriptions.png)
 
 1. **액세스 제어(IAM)** 를 선택합니다.

@@ -2,18 +2,18 @@
 title: Power BI를 사용하여 지식 저장소(미리 보기)에 연결
 titleSuffix: Azure Cognitive Search
 description: 분석 및 검색을 위해 Power BI를 사용하여 Azure Cognitive Search 지식 저장소(미리 보기)를 연결합니다.
-author: lisaleib
+author: HeidiSteen
+ms.author: heidist
 manager: nitinme
-ms.author: v-lilei
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 7b12f0f14003389d36e2df5bcffe7828c135cf2b
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d1e836e0f463d1d2ce2b71d689ed590239cfb607
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715499"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406599"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Power BI를 사용하여 지식 저장소 연결
 

@@ -1,18 +1,14 @@
 ---
 title: Visual Studio Code를 사용하여 Azure Storage에 함수 연결
 description: Visual Studio Code를 사용하여 Azure Storage 큐에 함수를 연결하도록 출력 바인딩을 추가하는 방법을 알아봅니다.
-author: ggailey777
-ms.author: glenga
 ms.date: 06/25/2019
 ms.topic: quickstart
-ms.service: azure-functions
-manager: gwallace
-ms.openlocfilehash: 951e48e591f490ea6321329352fd798fea58855d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: baddb6f02fe3d9c66e3c52d826ffe70c151d313e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329693"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227448"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Visual Studio Code를 사용하여 Azure Storage에 함수 연결
 

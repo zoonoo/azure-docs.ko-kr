@@ -1,13 +1,10 @@
 ---
 title: 비활성화된 학생용 Azure 구독 다시 활성화 | Microsoft Docs
 description: 학생용 Azure 구독이 비활성화되는 이유와 다시 활성화하는 방법을 설명합니다.
-services: ''
-documentationcenter: ''
 author: amberbhargava
 manager: amberb
-editor: ''
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +12,12 @@ ms.workload: na
 ms.date: 03/01/2018
 ms.author: banders
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7d41e9b7774bf8840db9e729d3aa9371f5bac04f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cfabb3ad7ad150b38b8c90488710731ad29b80a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60615914"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226405"
 ---
 # <a name="why-is-my-azure-for-students-subscription-disabled-and-how-do-i-reactivate-it"></a>학생용 Azure 구독이 비활성화되는 이유와 다시 활성화하는 방법은 무엇인가요?
 
@@ -34,7 +31,7 @@ Azure for Students 구독은 크레딧을 모두 사용했거나 크레딧이 �
 
 1. 학생용 Azure 계정 자격 증명을 사용하여 로그인합니다.
 2. 잔액 페이지에 사용한 크레딧과 남은 크레딧에 대한 정보가 제공됩니다. 크레딧 차트 아래에서 크레딧 만료 날짜를 확인할 수 있습니다.  
-   
+
     ![학생용 Azure 구독에 대한 크레딧 정보를 보여주는 스크린샷](./media/billing-azurestudents-subscription-disabled/azurestudents-credit-balance.png)
 
 3. Azure 크레딧이 사용되는 서비스의 사용량을 확인하려면 왼쪽 탐색 창에서 **사용량**을 선택한 다음, 학생용 Azure 구독을 선택합니다.

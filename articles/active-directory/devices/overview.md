@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07c1d6e3c622a76a1e625962ad5f08d414ad8cef
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b56319579bc8766bbd8467296daf41e25fc31862
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175049"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420526"
 ---
 # <a name="what-is-a-device-identity"></a>디바이스 ID란?
 
@@ -50,7 +50,7 @@ Azure AD에서 디바이스를 가져올 수 있는 여러 가지 옵션이 있�
       - Windows 7, 8.1 또는 10
       - Windows Server 2008 이상
 
-![Azure AD 디바이스 블레이드에 표시된 디바이스](./media/overview/azure-ad-devices-all-devices-overview.png)
+![Azure AD 디바이스 블레이드에 표시된 디바이스](./media/overview/azure-active-directory-devices-all-devices.png)
 
 ## <a name="device-management"></a>디바이스 관리
 

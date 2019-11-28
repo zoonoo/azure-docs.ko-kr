@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 01bf33c3ed50311b031e015b24566f5819ac0857
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 1a719b878f3e5fbade3adf453ac7d0604ea85077
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123809"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384073"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 
@@ -38,16 +38,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 1. [Git를 설치](https://git-scm.com/)합니다.
 2. [JDK 8을 설치합니다](https://docs.microsoft.com/java/azure/jdk/?view=azure-java-stable).
 3. [Maven 3.0 이상을 설치합니다](https://maven.apache.org/download.cgi).
-4. [Azure CLI 버전 2.0.67 이상을 설치합니다](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
-5. [Azure 평가판 구독에 가입합니다](https://azure.microsoft.com/free/).
-
-## <a name="install-the-azure-cli-extension"></a>Azure CLI 확장 설치
-
-다음 명령을 사용하여 Azure CLI용 Azure Spring Cloud 확장을 설치합니다.
-
-```Azure CLI
-az extension add --name spring-cloud
-```
+4. [Azure 평가판 구독에 가입합니다](https://azure.microsoft.com/free/).
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Azure Portal에서 서비스 인스턴스 프로비저닝
 

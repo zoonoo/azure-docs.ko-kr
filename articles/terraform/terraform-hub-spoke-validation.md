@@ -1,17 +1,14 @@
 ---
 title: 자습서 - Terraform을 사용하여 Azure에서 허브 및 스포크 네트워크 유효성 검사
 description: 모든 가상 네트워크가 서로 연결된 상태에서 허브 및 스포크 네트워크 토폴로지의 유효성을 검사하는 자습서입니다.
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: b0b761fcd79f7129befefa37ce11d9c70cf7cb96
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 9ba4780c59e5e9da4999573abbc08ecd2738a2cd
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969329"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159194"
 ---
 # <a name="tutorial-validate-a-hub-and-spoke-network-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 및 스포크 네트워크 유효성 검사
 

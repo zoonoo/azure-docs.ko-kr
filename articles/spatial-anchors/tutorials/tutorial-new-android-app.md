@@ -1,19 +1,19 @@
 ---
-title: 자습서 - Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침 | Microsoft Docs
+title: '자습서: 새 Android 앱 만들기'
 description: 이 자습서에서는 Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 방법에 대해 알아봅니다.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 04/03/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6386ef775f897ca56d2660adf72a885672c8dfd2
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: a1c19523508f434c114df884824d1595376bac21
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092056"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276952"
 ---
 # <a name="tutorial-step-by-step-instructions-to-create-a-new-android-app-using-azure-spatial-anchors"></a>자습서: Azure Spatial Anchors를 사용하여 새 Android 앱을 만드는 단계별 지침
 

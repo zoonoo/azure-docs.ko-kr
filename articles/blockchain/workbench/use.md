@@ -1,21 +1,15 @@
 ---
 title: Azure Blockchain Workbench에서 애플리케이션 사용
 description: Azure Blockchain Workbench 미리 보기에서 애플리케이션 계약을 사용하는 방법에 대한 자습서입니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 10/14/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: 1dee101ad87776a1c22b719274569df25c4e161d
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5761bf1294691c2d50e0e389fe69ec286df4a06c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72328948"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324051"
 ---
 # <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 애플리케이션 사용
 

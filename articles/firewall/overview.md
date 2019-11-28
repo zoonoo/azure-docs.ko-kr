@@ -1,20 +1,20 @@
 ---
 title: Azure Firewall이란?
-description: Azure Firewall 기능에 대해 알아봅니다.
+description: Azure Firewall은 Azure Virtual Network 리소스를 보호하는 관리되는 클라우드 기반 네트워크 보안 서비스입니다.
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 10/08/2019
+ms.date: 11/19/2019
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 5be1a673ac456b0896ce83afcb469e4ac6b8b40a
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 7b44597b24adce05498eed273c9494cae3360ed6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001334"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74168810"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 

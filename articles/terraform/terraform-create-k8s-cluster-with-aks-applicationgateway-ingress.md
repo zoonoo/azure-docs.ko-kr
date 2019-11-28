@@ -1,17 +1,14 @@
 ---
 title: 자습서 - Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 31faedf247f8dd0799a4ee52cabc8386f0363ff6
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6d07fc6becf76453de792c69b25aea49c39775ae
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082582"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159102"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 

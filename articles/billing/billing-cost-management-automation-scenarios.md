@@ -5,22 +5,20 @@ services: billing
 documentationcenter: ''
 author: bandersmsft
 manager: dougeby
-editor: ''
 tags: billing
-ms.assetid: 204b15b2-6667-4b6c-8ea4-f32c06f287fd
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 54c4426fb8bdb1476b33defb5351b3fb0e6a0663
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 6a2cb3df5bf8a67c7b79a24fd8328267bf6c4dd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718845"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224057"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
 
@@ -70,7 +68,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 -   [Marketplace 요금 API](https://docs.microsoft.com/rest/api/consumption/marketplaces): 모든 Azure Marketplace 리소스(Azure 파트너 제품)의 요금 및 사용량 데이터를 가져옵니다. 이 데이터를 사용하여 모든 Marketplace 리소스에 걸쳐 비용을 합산하거나 특정 리소스에 대한 비용/사용량을 조사할 수 있습니다.
 
--   [가격표 API](https://docs.microsoft.com/rest/api/consumption/pricesheet)(*기업 고객만*): 모든 요금제의 사용자 지정 가격을 가져옵니다. 기업은 사용량 세부 정보 및 마켓플레이스 사용량 정보를 이 데이터와 함께 사용하여 사용량 및 Marketplace 데이터를 사용한 비용 계산을 수행할 수 있습니다. 
+-   [가격표 API](https://docs.microsoft.com/rest/api/consumption/pricesheet)(*기업 고객만*): 모든 요금제의 사용자 지정 가격을 가져옵니다. 기업은 사용량 세부 정보 및 마켓플레이스 사용량 정보를 이 데이터와 함께 사용하여 사용량 및 Marketplace 데이터를 사용한 비용 계산을 수행할 수 있습니다.
 
 -   [예약 권장 사항 API](https://docs.microsoft.com/rest/api/consumption/reservationrecommendations): Reserved VM Instances 구매에 대한 권장 사항을 가져옵니다. 권장 사항은 예상된 비용 절감 및 구매 금액을 분석하는 데 도움이 됩니다. 자세한 내용은 [Azure 예약 자동화를 위한 API](billing-reservation-apis.md)를 참조하세요.
 
@@ -80,14 +78,14 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 
 -   [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails): Microsoft에서 모든 Azure 리소스의 비용 및 사용량 정보를 가져옵니다. 정보는 하루에 미터당 한 번씩 보내지는 사용량 세부 정보 레코드 형식으로 제공됩니다. 이 정보를 사용하여 모든 리소스에 걸쳐 비용을 합산하거나 특정 리소스에 대한 비용/사용량을 조사할 수 있습니다.
 
--   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Web Direct 고객인 경우 요금제 요율을 가져옵니다. 그런 다음, 해당 리소스 사용 정보를 반환된 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다. 
+-   [RateCard API](/previous-versions/azure/reference/mt219005(v=azure.100)): Web Direct 고객인 경우 요금제 요율을 가져옵니다. 그런 다음, 해당 리소스 사용 정보를 반환된 정보와 함께 사용하여 예상된 청구서를 직접 계산할 수 있습니다.
 
 -   [요금 미지정 사용량 API](/previous-versions/azure/reference/mt219003(v=azure.100)): Azure가 계량/청구를 수행하기 이전의 원시 사용량 정보를 가져옵니다.
 
 ### <a name="billing"></a>결제
 -   [청구 기간 API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods): 해당 기간의 청구서 ID와 함께 분석할 청구 기간을 결정합니다. 청구서 API와 청구서 ID를 사용할 수 있습니다.
 
--   [청구서 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices): 청구 기간에 대한 청구서의 다운로드 URL을 PDF 형식으로 가져옵니다.
+-   [청구서 API](/rest/api/billing/2019-10-01-preview/invoices): 청구 기간에 대한 청구서의 다운로드 URL을 PDF 형식으로 가져옵니다.
 
 ### <a name="enterprise-consumption"></a>기업 소비량
 다음 API는 기업 전용입니다.
@@ -107,11 +105,11 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="whats-the-difference-between-the-enterprise-reporting-apis-and-the-consumption-apis-when-should-i-use-each"></a>기업 보고 API와 소비량 API 간의 차이는 무엇인가요? 언제 사용해야 하나요?
-이러한 API에는 유사한 기능 집합이 있고 청구 및 비용 관리 공간에서 동일한 광범위한 질문의 집합에 대답할 수 있습니다. 그렇지만 다음과 같이 각기 다른 사용자를 대상으로 합니다. 
+이러한 API에는 유사한 기능 집합이 있고 청구 및 비용 관리 공간에서 동일한 광범위한 질문의 집합에 대답할 수 있습니다. 그렇지만 다음과 같이 각기 다른 사용자를 대상으로 합니다.
 
 - 기업 보고 API는 협상된 현금 약정 금액 및 사용자 지정 가격 책정에 대한 액세스를 부여하는 Microsoft와 기업계약을 체결한 고객에게 제공됩니다. API에는 [Enterprise Portal](https://ea.azure.com)을 통해 얻을 수 있는 키가 필요합니다. 이러한 API에 대한 설명은 [기업 고객을 위한 보고 API 개요](billing-enterprise-api.md)를 참조하세요.
 
-- 소비량 API는 몇 가지 예외로 모든 고객에게 제공됩니다. 자세한 내용은 [Azure 소비량 API 개요](billing-consumption-api-overview.md) 및 [Azure 소비량 API 참조](https://docs.microsoft.com/rest/api/consumption/)를 참조하세요. 제공된 API는 최신 개발 시나리오의 솔루션으로 권장됩니다. 
+- 소비량 API는 몇 가지 예외로 모든 고객에게 제공됩니다. 자세한 내용은 [Azure 소비량 API 개요](billing-consumption-api-overview.md) 및 [Azure 소비량 API 참조](https://docs.microsoft.com/rest/api/consumption/)를 참조하세요. 제공된 API는 최신 개발 시나리오의 솔루션으로 권장됩니다.
 
 ### <a name="whats-the-difference-between-the-usage-details-api-and-the-usage-api"></a>사용량 세부 정보 API와 사용량 API 간의 차이는 무엇인가요?
 이러한 API는 기본적으로 다른 데이터를 제공합니다.
@@ -126,7 +124,7 @@ Web Direct 및 기업 고객은 명시된 경우를 제외하고 다음의 모�
 ### <a name="whats-the-difference-between-the-invoice-api-and-the-usage-details-api"></a>청구서 API와 사용량 세부 정보 API 간의 차이는 무엇인가요?
 이러한 API는 동일한 데이터의 다른 보기를 제공합니다.
 
-- [청구서 API](https://docs.microsoft.com/rest/api/billing/2018-11-01-preview/invoices)는 Web Direct 고객 전용입니다. 이 API는 각 요금제 유형의 집계 요금을 기준으로 청구액의 월별 롤업을 제공합니다. 
+- [청구서 API](/rest/api/billing/2019-10-01-preview/invoices)는 Web Direct 고객 전용입니다. 이 API는 각 요금제 유형의 집계 요금을 기준으로 청구액의 월별 롤업을 제공합니다.
 
 - [사용량 세부 정보 API](https://docs.microsoft.com/rest/api/consumption/usagedetails)는 각 날짜에 대한 사용량/비용 레코드의 세부적인 보기를 제공합니다. 기업 및 Web Direct 고객 둘 다 이 API를 사용할 수 있습니다.
 

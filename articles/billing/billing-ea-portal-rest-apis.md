@@ -6,14 +6,14 @@ author: bandersmsft
 ms.author: banders
 ms.date: 10/14/2019
 ms.topic: conceptual
-ms.service: billing
+ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 70e1e988ad3abdb90ecb60d33830f03f8dffb127
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 721166b1403ae5fd62478956c84c2d54ab926691
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329320"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226304"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 
@@ -111,7 +111,7 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6ImpoeXA2UU9DWlZmY1pmdmhDVGR1OFdxeTJ5
 
 #### <a name="usage-summary"></a>사용 요약
 
-JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 CSV 형식과 동일합니다. 열 이름은 wielded이므로 JSON 요약 데이터를 사용할 때 데이터 테이블로 deserialize해야 합니다.
+JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 CSV 형식과 동일합니다. 열 이름은 wielded이므로 JSON 요약 데이터를 사용할 때 데이터 테이블로 역직렬화해야 합니다.
 
 | CSV 열 이름 | JSON 열 이름 | JSON 새 열 | 주석 |
 | --- | --- | --- | --- |

@@ -4,7 +4,7 @@ description: 조직의 가격 책정으로 가격 책정 또는 예상 비용을
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: c38cd7f4b2fb1ae88b65031d3c93b153500b96ac
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: b32c1be93e2fb16da9ce9ebb65b664017e70cac6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375774"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223951"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
 

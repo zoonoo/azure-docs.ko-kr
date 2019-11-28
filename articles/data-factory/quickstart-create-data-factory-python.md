@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.custom: seo-python-october2019
-ms.openlocfilehash: afe6ae001712db6d2a0dfa676daf847a2c4cf86e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: e63892962802d38ac7337a99a9a33f3770785ad2
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72438695"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74170264"
 ---
 # <a name="quickstart-create-an-azure-data-factory-and-pipeline-using-python"></a>빠른 시작: Python을 사용하여 Azure Data Factory 및 파이프라인 만들기
 
@@ -130,7 +130,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
         df_params = {'location':'eastus'}
     ```
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 **Main** 메서드에 **데이터 팩터리**를 만드는 다음 코드를 추가합니다. 리소스 그룹이 이미 있는 경우 첫 번째 `create_or_update` 문을 주석으로 처리합니다.
 
@@ -201,7 +201,7 @@ Azure Blob의 원본 데이터를 나타내는 데이터 세트를 정의합니�
     print_item(dsOut)
 ```
 
-## <a name="create-a-pipeline"></a>파이프라인을 만들기
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 **Main** 메서드에 **복사 작업이 있는 파이프라인**을 만드는 다음 코드를 추가합니다.
 
@@ -351,7 +351,7 @@ def main():
 
     # Create an Azure blob dataset (input)
     ds_name = 'ds_in'
-    ds_ls = LinkedServiceReference(ls_name)
+    ds_ls = LinkedServiceReference(reference_name=ls_name)
     blob_path = 'adfv2tutorial/input'
     blob_filename = 'input.txt'
     ds_azure_blob = AzureBlobDataset(

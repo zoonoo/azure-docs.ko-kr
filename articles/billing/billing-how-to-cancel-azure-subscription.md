@@ -5,23 +5,23 @@ author: bandersmsft
 manager: amberb
 tags: billing
 ms.assetid: 3051d6b0-179f-4e3a-bda4-3fee7135eac5
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 0c681a3374529c4f973c7cd247ad8d387682b564
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 7ddd5d2aa4352dda6a9fe0ec27d2ea607dbb9f74
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719707"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223867"
 ---
 # <a name="cancel-your-azure-subscription"></a>Azure 구독 취소
 
-더 이상 구독이 필요하지 않은 경우 Azure Portal에서 Azure 구독을 취소할 수 있습니다. 
+더 이상 구독이 필요하지 않은 경우 Azure Portal에서 Azure 구독을 취소할 수 있습니다.
 
 구독을 취소하기 전에 다음을 수행합니다.
 * 데이터를 백업합니다. 예를 들어 Azure Storage 또는 SQL에 데이터를 저장하는 경우 복사본을 다운로드합니다. 가상 머신을 사용하는 경우 해당 이미지를 로컬로 저장합니다.

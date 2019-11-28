@@ -3,19 +3,19 @@ title: Azure Reservations의 셀프 서비스 교환 및 환불
 description: Azure Reservations을 교환하거나 환불하는 방법을 알아봅니다.
 author: yashesvi
 manager: yashesvi
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/05/2019
 ms.author: banders
-ms.openlocfilehash: 9e3c999de1804684e77a6224330b2d7077046964
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 87f8a90b2213c5e78b456477e8be61d2f013fd71
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052167"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224113"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 

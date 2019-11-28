@@ -12,12 +12,12 @@ ms.date: 02/14/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 02/14/2019
-ms.openlocfilehash: 9a17b96da376843c07a4324856bf8943aa385cac
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 951f03f581906e45946ef75742421ba27d405267
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212456"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406961"
 ---
 # <a name="set-up-push-notifications-in-a-notification-hub-in-the-azure-portal"></a>Azure Portal의 알림 허브에서 푸시 알림 설정
 
@@ -47,7 +47,7 @@ APNS(Apple Push Notification Service)를 설정하려면 다음을 수행합니�
    * **키 ID**, **번들 ID**, **팀 ID** 및 **토큰**에 대한 값을 입력합니다.
    * **샌드박스** 모드를 선택합니다. 또는 스토어에서 앱을 구매한 사용자에게 푸시 알림을 보내려면 **프로덕션** 모드를 선택합니다.
 
-     ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/notification-hubs-ios-get-started/notification-hubs-apple-config-token.png)
+     ![Azure Portal의 APNS 토큰 구성 스크린샷](./media/configure-notification-hub-portal-pns-settings/notification-hubs-apple-config-token.png)
 
 자세한 내용은 [Azure Notification Hubs를 사용하여 iOS에 푸시 알림](notification-hubs-ios-apple-push-notification-apns-get-started.md)을 참조하세요.
 

@@ -1,18 +1,14 @@
 ---
 title: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용
 description: 지속적인 통합 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하는 방법을 알아봅니다.
-author: tomarchermsft
-ms.author: tarcher
-ms.service: jenkins
 ms.topic: tutorial
-ms.custom: mvc
 ms.date: 10/23/2019
-ms.openlocfilehash: 7bc2bb63f1382d1c7fd7e436dd5ddfa278262526
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881875"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209662"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
@@ -131,7 +127,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
     Dev Spaces CLI의 `azds prep` 명령은 기본 설정으로 Docker 및 Kubernetes 자산을 생성합니다. 이러한 파일은 프로젝트의 수명 동안 지속되며, 사용자 지정할 수 있습니다.
 
     * `./Dockerfile` 및 `./Dockerfile.develop`는 앱의 컨테이너 이미지 및 원본 코드가 빌드되는 방법을 설명하고 컨테이너 내에서 실행됩니다.
-    * `./charts/webfrontend` 아래의 [Helm 차트](https://helm.sh/docs/developing_charts/)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
+    * `./charts/webfrontend` 아래의 [Helm 차트](https://helm.sh/docs/topics/charts/)는 Kubernetes에 컨테이너를 배포하는 방법을 설명합니다.
     * `./azds.yaml`은 Azure Dev Spaces 구성 파일입니다.
 
     자세한 내용은 [Azure Dev Spaces 작동 및 구성 방법](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)을 참조하세요.
@@ -261,7 +257,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 
    이 자격 증명의 **ID**는 다음 섹션에 나오는 KUBE_CONFIG_ID의 값입니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만들기
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 예제 파이프라인에서 선택한 시나리오는 다음과 같은 실제 패턴을 기반으로 합니다. 끌어오기 요청은 제안된 변경 내용을 빌드한 후 테스트 및 검토를 위해 Azure 개발 공간에 배포하는 CI 파이프라인을 트리거합니다. 검토 결과에 따라 변경 내용이 병합되어 AKS에 배포되거나 삭제됩니다. 마지막으로, 개발자 공간이 제거됩니다.
 

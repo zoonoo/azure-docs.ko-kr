@@ -1,22 +1,18 @@
 ---
 title: Azure Logic Apps와 통합하는 함수 만들기
 description: Azure Logic Apps 및 Azure Cognitive Services와 통합하는 함수를 만들어 트윗 감정을 분류하고 감정이 나쁠 경우 알림을 보냅니다.
-services: functions, logic-apps, cognitive-services
-keywords: 워크플로, 클라우드 앱, 클라우드 서비스, 비즈니스 프로세스, 시스템 통합, Enterprise Application Integration, EAI
 author: craigshoemaker
-manager: gwallace
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 11/06/2018
 ms.author: cshoe
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 11e0170464d8ed901253925eb62cce12d42c0008
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c7b8e41cc09137ee06e975d136dd999ba146731b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67480025"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226620"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Azure Logic Apps와 통합하는 함수 만들기
 
@@ -58,7 +54,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     | 설정      |  제안 값   | 설명                                        |
     | --- | --- | --- |
     | **Name** | MyCognitiveServicesAccnt | 고유한 계정 이름을 선택합니다. |
-    | **위치**: | 미국 서부 | 가장 가까운 위치를 사용합니다. |
+    | **위치** | 미국 서부 | 가장 가까운 위치를 사용합니다. |
     | **가격 책정 계층** | F0 | 가장 낮은 계층으로 시작합니다. 호출에서 실행하는 경우 더 높은 계층으로 확장합니다.|
     | **리소스 그룹** | myResourceGroup | 이 자습서에서 모든 서비스에 대해 동일한 리소스 그룹을 사용합니다.|
 
@@ -145,7 +141,7 @@ Cognitive Services API는 Azure에서 개별 리소스로 사용할 수 있습�
     | ----------------- | ------------ | ------------- |
     | **Name** | TweetSentiment | 앱에 적절한 이름을 선택합니다. |
     | **리소스 그룹** | myResourceGroup | 이전과 동일한 기존 리소스 그룹을 선택합니다. |
-    | **위치**: | 미국 동부 | 가까운 위치를 선택합니다. |    
+    | **위치** | 미국 동부 | 가까운 위치를 선택합니다. |    
 
 4. 적절한 설정 값을 입력한 후에는 **만들기**를 클릭하여 논리 앱을 만듭니다. 
 

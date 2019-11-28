@@ -1,23 +1,14 @@
 ---
 title: 사용자 지정 환경을 사용하여 Azure Notebooks 프로젝트 만들기
 description: 설치된 패키지 및 시작 스크립트의 특정 세트로 구성된 Azure Notebooks에서 새 프로젝트를 만듭니다.
-services: app-service
-documentationcenter: ''
-author: kraigb
-manager: barbkess
-ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
-ms.service: azure-notebooks
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.author: kraigb
-ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: f167d1bf6064cde535d17fa4a336ee13424baba7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973077"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277490"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>빠른 시작: 사용자 지정 환경을 사용하여 프로젝트 만들기
 

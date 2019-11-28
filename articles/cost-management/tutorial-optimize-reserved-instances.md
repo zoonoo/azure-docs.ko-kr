@@ -7,15 +7,15 @@ author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: tutorial
-ms.service: cost-management
+ms.service: cost-management-billing
 ms.custom: seodec18
 manager: benshy
-ms.openlocfilehash: 6af6a6b334d29c6ff813a9b2ff35153aed239b1b
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: ade3b63116337ae7b4678b459b1a0c388092f409
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65967145"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229855"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -170,7 +170,7 @@ Cloudyn에서는 요청 시 인스턴스 사용량과 잠재적 예약 인스턴
 
 이 예에서 Cloudyn\_A 계정에는 32개 예약 인스턴스 구매 권장 사항이 있습니다. 모든 구매 권장 사항을 따르는 경우 잠재적으로 매년 137,770달러를 절약할 수 있습니다. Cloudyn에서 제공하는 구매 권장 사항은 실행되는 작업에 대한 사용량을 일관되게 유지한다고 가정하고 있음을 명심하세요.
 
-각 구매가 권장되는 이유를 설명하는 세부 정보를 보려면 **근거** 아래의 더하기 기호(**+**)를 클릭합니다. 목록의 첫 번째 권장 사항에 대한 예는 다음과 같습니다.
+각 구매가 권장되는 이유를 설명하는 세부 정보를 보려면 **근거** 아래의 더하기 기호( **+** )를 클릭합니다. 목록의 첫 번째 권장 사항에 대한 예는 다음과 같습니다.
 
 ![구매 근거 세부 정보를 보여 주는 예](./media/tutorial-optimize-reserved-instances/aws02.png)
 

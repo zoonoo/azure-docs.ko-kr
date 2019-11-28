@@ -1,21 +1,16 @@
 ---
 title: C#을 사용하여 Azure에서 첫 번째 지속성 함수 만들기
 description: Visual Studio를 사용하여 Azure 지속성 함수를 만들고 게시합니다.
-services: functions
-documentationcenter: na
 author: jeffhollan
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 563412fbc5e8d9af3c399b1f75696053549143c4
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 6b3ead9eefd6f0d4c504cc7711ea4e03facf8edc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615003"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231521"
 ---
 # <a name="create-your-first-durable-function-in-c"></a>C\#으로 첫 번째 지속성 함수 만들기
 

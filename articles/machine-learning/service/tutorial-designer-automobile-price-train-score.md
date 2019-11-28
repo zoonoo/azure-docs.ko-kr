@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 0ffe85b6e005d2dc8fe077a5a08d8b0f11c73589
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929630"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228478"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **디자이너**를 선택합니다.
 
-    ![디자이너에 액세스하는 방법을 보여 주는 시각적 작업 영역의 스크린샷](./media/ui-tutorial-automobile-price-train-score/launch-visual-interface.png)
+    ![디자이너에 액세스하는 방법을 보여 주는 시각적 작업 영역의 스크린샷](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
 
 1. **사용하기 쉬운 미리 작성된 모듈**을 선택합니다.
 
@@ -69,7 +69,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **자동차 가격 데이터(원시)** 데이터 세트를 선택하여 캔버스로 끕니다.
 
-   ![캔버스로 데이터 끌기](./media/ui-tutorial-automobile-price-train-score/drag-data.gif)
+   ![캔버스로 데이터 끌기](./media/tutorial-designer-automobile-price-train-score/drag-data.gif)
 
 ### <a name="visualize-the-data"></a>데이터 시각화
 
@@ -81,7 +81,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. 그래프 아이콘을 선택하여 데이터를 시각화합니다.
 
-    ![데이터 시각화](./media/ui-tutorial-automobile-price-train-score/visualize-data.png)
+    ![데이터 시각화](./media/tutorial-designer-automobile-price-train-score/visualize-data.png)
 
 1. 데이터 창에서 다른 열을 선택하여 각 열에 대한 정보를 확인합니다.
 
@@ -105,7 +105,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
     > 한 모듈의 출력 포트를 다른 모듈의 입력 포트에 연결할 때 파이프라인을 통해 데이터 흐름을 만듭니다.
     >
 
-    ![모듈 연결](./media/ui-tutorial-automobile-price-train-score/connect-modules.gif)
+    ![모듈 연결](./media/tutorial-designer-automobile-price-train-score/connect-modules.gif)
 
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
@@ -119,7 +119,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. 오른쪽 아래에서 **저장**을 선택하여 열 선택기를 닫습니다.
 
-    ![열 제외](./media/ui-tutorial-automobile-price-train-score/exclude-column.png)
+    ![열 제외](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
         
     속성 창에서 **normalized-losses** 열이 제외되었음이 표시됩니다.
 
@@ -144,7 +144,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     파이프라인이 이제 다음과 같이 표시됩니다.
     
-    ![Select-column](./media/ui-tutorial-automobile-price-train-score/pipeline-clean.png)
+    ![Select-column](./media/tutorial-designer-automobile-price-train-score/pipeline-clean.png)
 
 ## <a name="train-a-machine-learning-model"></a>기계 학습 모델 학습
 
@@ -188,7 +188,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **데이터 분할** 모듈의 학습 데이터 출력(왼쪽 포트)을 **모델 학습** 모듈의 오른쪽 입력에 연결합니다.
 
-    ![모델 학습 모듈의 올바른 구성을 보여주는 스크린샷 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.](./media/ui-tutorial-automobile-price-train-score/pipeline-train-model.png)
+    ![모델 학습 모듈의 올바른 구성을 보여주는 스크린샷 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
 1. **모델 학습** 모듈을 선택합니다.
 
@@ -200,7 +200,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     파이프라인은 다음과 같습니다.
 
-    ![모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-train-score/pipeline-train-graph.png)
+    ![모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
 ## <a name="evaluate-a-machine-learning-model"></a>기계 학습 모델 평가
 
@@ -216,7 +216,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     최종 파이프라인은 다음과 같습니다.
 
-    ![파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/ui-tutorial-automobile-price-train-score/pipeline-final-graph.png)
+    ![파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
 ### <a name="run-the-pipeline"></a>파이프라인 실행
 
@@ -232,7 +232,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     여기서는 테스트 데이터에서 예측된 가격과 실제 가격을 확인할 수 있습니다.
 
-    ![점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷](./media/ui-tutorial-automobile-price-train-score/score-result.png)
+    ![점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
 1. **모델 평가** 모듈을 선택하여 출력을 확인합니다.
 

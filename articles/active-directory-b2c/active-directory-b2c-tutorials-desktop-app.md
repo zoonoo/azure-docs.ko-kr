@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: cd0fc90988048f98be46370d2c7836d9506cc44a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 6d1c2eff9bc9ffe8a0fb2166d39c16360c0a79cc
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73475260"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538930"
 ---
 # <a name="tutorial-authenticate-users-in-a-native-desktop-client-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 네이티브 데스크톱 클라이언트에서 사용자 인증
 
@@ -43,7 +43,7 @@ ms.locfileid: "73475260"
 
 ## <a name="configure-the-sample"></a>샘플 구성
 
-이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플을 구성합니다. 샘플 WPF 데스크톱 애플리케이션은 가입, 로그인을 보여주며 Azure AD B2C에서 보호되는 웹 API를 호출할 수 있습니다. GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/master.zip)하고, [리포지토리를 찾거나](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) 샘플을 복제합니다.
+이 자습서에서는 GitHub에서 다운로드할 수 있는 샘플을 구성합니다. 샘플 WPF 데스크톱 애플리케이션은 가입, 로그인을 보여주며 Azure AD B2C에서 보호되는 웹 API를 호출할 수 있습니다. GitHub에서 [zip 파일을 다운로드](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop/archive/msalv3.zip)하고, [리포지토리를 찾거나](https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop) 샘플을 복제합니다.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-desktop.git

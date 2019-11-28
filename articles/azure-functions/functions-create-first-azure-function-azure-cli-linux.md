@@ -1,19 +1,15 @@
 ---
 title: Azure에서 첫 번째 Linux 기반 함수 만들기
 description: Azure에서 명령줄 도구, Azure Functions Core Tools 및 Azure CLI를 사용하여 Linux에 호스트되는 첫 번째 함수를 만드는 방법을 알아봅니다.
-author: ggailey777
-ms.author: glenga
 ms.date: 03/12/2019
 ms.topic: quickstart
-ms.service: azure-functions
 ms.custom: mvc, fasttrack-edit
-manager: gwallace
-ms.openlocfilehash: 34f4dc4b36f4efd75c5a7cd14b3214886955a403
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 19abfee69db53c560dfa2696d85f8c1c3d770c09
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329690"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230806"
 ---
 # <a name="quickstart-create-your-first-function-hosted-on-linux-using-command-line-tools"></a>빠른 시작: 명령줄 도구를 사용하여 Linux에 호스트되는 첫 번째 함수 만들기
 

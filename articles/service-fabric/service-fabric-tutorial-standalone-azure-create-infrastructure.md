@@ -3,7 +3,7 @@ title: Azure VM에서 Service Fabric 클러스터에 대한 인프라 만들기 
 description: 이 자습서에서는 Service Fabric 클러스터를 실행하는 Azure VM 인프라를 설정하는 방법에 대해 알아봅니다.
 services: service-fabric
 documentationcenter: .net
-author: v-vasuke
+author: jpconnock
 manager: jpconnock
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 07/22/2019
-ms.author: v-vasuke
+ms.author: jeconnoc
 ms.custom: mvc
-ms.openlocfilehash: c9dd9cf0f0fb6d20d6837b07ab46d376e379ca25
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b24b4d95827dbd398c0eba43dcbad9fbfeb51469
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177734"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74166268"
 ---
 # <a name="tutorial-create-azure-vm-infrastructure-to-host-a-service-fabric-cluster"></a>자습서: Azure VM 인프라를 만들어 Service Fabric 클러스터 호스팅하기
 
@@ -90,12 +90,18 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
  
 4. RDP 파일을 열고 메시지가 표시되면 및 VM 설정에서 지정한 사용자 이름 및 암호를 입력합니다.
 
-5. 인스턴스에 연결되면 원격 레지스트리가 실행 중인지 유효성을 검사하고 필수 포트를 열어야 합니다.
+5. 인스턴스에 연결되면 원격 레지스트리가 실행 중인지 유효성을 검사하고, SMB를 사용하고, SMB 및 원격 레지스트리에 대한 필수 포트를 열어 두어야 합니다.
+
+   SMB를 사용하려면 다음 PowerShell 명령을 사용합니다.
+
+   ```powershell
+   netsh advfirewall firewall set rule group="File and Printer Sharing" new enable=Yes
+   ```
 
 6. 방화벽에서 포트를 열려면 여기에 PowerShell 명령이 있습니다.
 
    ```powershell
-   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139
+   New-NetFirewallRule -DisplayName "Service Fabric Ports" -Direction Inbound -Action Allow -RemoteAddress LocalSubnet -Protocol TCP -LocalPort 135, 137-139, 445
    ```
 
 7. 다른 인스턴스에 이 프로세스를 반복하고 개인 IP 주소도 메모해 둡니다.
@@ -111,6 +117,15 @@ Service Fabric 독립 실행형 클러스터는 사용자 자신의 환경을 �
    ```
 
    출력이 `Reply from 172.31.20.163: bytes=32 time<1ms TTL=128`과 같은 경우 인스턴스 간의 연결이 4차례 반복됩니다.
+
+3. 다음 명령으로 SMB 공유가 작동하는지 유효성을 검사합니다.
+
+   ```
+   net use * \\172.31.20.163\c$
+   ```
+
+   출력으로 `Drive Z: is now connected to \\172.31.20.163\c$.`을 반환해야 합니다.
+
 
    이제 Service Fabric에 사용할 인스턴스가 올바르게 준비되었습니다.
 

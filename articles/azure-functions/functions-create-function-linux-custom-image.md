@@ -1,19 +1,15 @@
 ---
 title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions 만들기
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
-author: ggailey777
-ms.author: glenga
 ms.date: 09/27/2019
 ms.topic: tutorial
-ms.service: azure-functions
 ms.custom: mvc
-manager: gwallace
-ms.openlocfilehash: b8d82868788d831d4db68a35c032d3f81b545417
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7bf079f84978539735f3bbf5bb13b18130871fb1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082842"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484386"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
 
@@ -36,7 +32,6 @@ Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함
 > * 지속적인 배포 사용
 > * 컨테이너에 SSH 연결 사용
 > * Queue Storage 출력 바인딩 추가 
-> * Application Insights 모니터링 추가
 
 다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 
 

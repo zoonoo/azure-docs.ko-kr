@@ -1,22 +1,16 @@
 ---
 title: JavaScript로 Azure에서 첫 번째 지속성 함수 만들기
 description: Visual Studio Code를 사용하여 Azure 지속성 함수를 만들고 게시합니다.
-services: functions
-documentationcenter: na
 author: ColbyTresness
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 11/07/2018
-ms.author: glenga
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 1a1586124a1cfb05f2b7c4e9c3b0070170447b96
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614589"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231306"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 

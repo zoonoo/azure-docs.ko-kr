@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - Azure Spatial Anchors를 사용하여 iOS 앱 만들기 | Microsoft Docs
+title: '빠른 시작: iOS 앱 만들기'
 description: 이 빠른 시작에서는 Spatial Anchors를 사용하여 iOS 앱을 빌드하는 방법을 알아봅니다.
 author: craigktreasure
-manager: aliemami
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: crtreasu
 ms.date: 02/24/2019
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: a1d2fa083c0083423767484b20e296a3080e4ebe
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 39732ef785fc610572f917be77dec3f560698fb7
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092110"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277198"
 ---
 # <a name="quickstart-create-an-ios-app-with-azure-spatial-anchors-in-either-swift-or-objective-c"></a>빠른 시작: Swift 또는 Objective-C에서 Azure Spatial Anchors를 사용하여 iOS 앱 만들기
 

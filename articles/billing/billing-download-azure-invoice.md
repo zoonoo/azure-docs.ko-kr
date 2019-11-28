@@ -5,19 +5,19 @@ keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현�
 author: bandersmsft
 manager: jureid
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 80ec40a7411a370460d663084f9f7034b28e1a2e
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 7d52a589ee7fcb8891f5ea839b2baeb5e4b30733
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375764"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224035"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
@@ -32,7 +32,7 @@ MCA(Microsoft 고객 계약)가 있는 경우 청구서를 받으려면 다음 �
 - 판독기
 - 청구서 관리자
 
-MPA(Microsoft 파트너 계약)가 있는 경우 Azure 청구서를 보고 다운로드하려면 파트너 조직에서 글로벌 관리자 또는 관리 에이전트여야 합니다. [청구 계정 유형을 확인](#check-your-billing-account-type)하여 필요한 사용 권한을 파악합니다. 
+MPA(Microsoft 파트너 계약)가 있는 경우 Azure 청구서를 보고 다운로드하려면 파트너 조직에서 글로벌 관리자 또는 관리 에이전트여야 합니다. [청구 계정 유형을 확인](#check-your-billing-account-type)하여 필요한 사용 권한을 파악합니다.
 
 <!-- For more information about billing roles for Microsoft Customer Agreements, see [Billing profile roles and tasks](billing-understand-mca-roles.md#billing-profile-roles-and-tasks). -->
 
@@ -46,7 +46,7 @@ MPA(Microsoft 파트너 계약)가 있는 경우 Azure 청구서를 보고 다�
 
 - 청구서를 볼 수 있는 권한이 없습니다. MCA 또는 MPA가 있는 경우 청구 프로필 소유자, 기여자, 읽기 권한자 또는 청구서 관리자여야 합니다. 다른 구독의 경우 계정 관리자가 아니면 이전 청구서가 보이지 않을 수 있습니다. 청구 정보에 액세스하는 방법에 대한 자세한 내용은 [역할을 사용하여 Azure 청구에 대한 액세스 관리](billing-manage-access.md)를 참조하세요.
 
-- 구독에 대한 평가판 또는 월별 크레딧 금액이 있는 경우 월별 크레딧 금액을 초과하는 경우에만 청구서를 받게 됩니다. Microsoft 고객 계약 또는 Microsoft 파트너 계약이 있는 경우 항상 청구서를 받게 됩니다. 
+- 구독에 대한 평가판 또는 월별 크레딧 금액이 있는 경우 월별 크레딧 금액을 초과하는 경우에만 청구서를 받게 됩니다. Microsoft 고객 계약 또는 Microsoft 파트너 계약이 있는 경우 항상 청구서를 받게 됩니다.
 
 ## <a name="download-invoices-in-the-azure-portal"></a>Azure Portal에서 청구서 다운로드
 

@@ -1,19 +1,15 @@
 ---
 title: Jenkins 및 Azure 개요
 description: Azure에서 Jenkins 빌드 및 배포 자동화 서버를 호스트하고 Azure 컴퓨팅 및 스토리지 리소스를 사용하여 CI/CD(지속적인 통합 및 배포) 파이프라인을 확장합니다.
-ms.service: jenkins
 keywords: Jenkins, Azure, DevOps, 개요
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.topic: overview
 ms.date: 10/23/2019
-ms.openlocfilehash: 9b4ceb144408e0ac1886aa3a7e0e0f48ac4baba3
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: 84d9a62c432208893ac5ff960a5f7aec743680d1
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72881957"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479342"
 ---
 # <a name="azure-and-jenkins"></a>Azure 및 Jenkins
 
@@ -33,7 +29,7 @@ Azure에서 Jenkins를 호스트하여 빌드 자동화를 중앙 집중화하�
 
 ## <a name="scale-your-build-automation-on-demand"></a>요청 시 빌드 자동화 규모 조정
 
-기존 Jenkins 배포에 빌드 에이전트를 추가하여, 빌드 수, 작업 및 파이프라인의 복잡성이 증가함에 따라 Jenkins 빌드 용량을 조정합니다. [Azure VM 에이전트 플러그 인](jenkins-azure-vm-agents.md)을 사용하여 Azure 가상 머신에서 이러한 빌드 에이전트를 실행할 수 있습니다. 자세한 내용은 [자습서](/azure/jenkins/jenkins-azure-vm-agents)를 참조하세요.
+기존 Jenkins 배포에 빌드 에이전트를 추가하여, 빌드 수, 작업 및 파이프라인의 복잡성이 증가함에 따라 Jenkins 빌드 용량을 조정합니다. [Azure VM 에이전트 플러그 인](https://plugins.jenkins.io/azure-vm-agents)을 사용하여 Azure 가상 머신에서 이러한 빌드 에이전트를 실행할 수 있습니다. 자세한 내용은 [자습서](/azure/jenkins/jenkins-azure-vm-agents)를 참조하세요.
 
 [Azure 서비스 주체](/azure/azure-resource-manager/resource-group-overview)로 구성되었으면 다음을 위해 Jenkins 작업 및 파이프라인에서 이 자격 증명을 사용할 수 있습니다.
 

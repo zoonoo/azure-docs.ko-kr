@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: quickstart
 ms.date: 10/25/2019
 ms.author: pafarley
-ms.openlocfilehash: 3978b4ec302bf4dd2390f2390c967ca6e12e67d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ee3f59bc9e9f8c7950d005b16433cde9267fea9a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744402"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538995"
 ---
 # <a name="quickstart-content-moderator-client-library-for-python"></a>빠른 시작: Python용 Content Moderator 클라이언트 라이브러리
 
@@ -104,8 +104,8 @@ Content Moderator Python SDK의 주요 기능 중 일부를 처리하는 클래�
 다음 코드에서는 Content Moderator 클라이언트를 사용하여 텍스트 본문을 분석하고 결과를 콘솔에 출력합니다. 먼저 **text_files/** 폴더를 프로젝트의 루트에 만들고, *content_moderator_text_moderation.txt* 파일을 추가합니다. 사용자 고유의 텍스트를 이 파일에 추가하거나 다음 샘플 텍스트를 사용합니다.
 
 ```
-Is this a grabage email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255, 1 Microsoft Way, Redmond, WA 98052.
-Crap is the profanity here. Is this information PII? phone 3144444444
+Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
+Crap is the profanity here. Is this information PII? phone 2065550111
 ```
 
 새 폴더에 대한 참조를 추가합니다.

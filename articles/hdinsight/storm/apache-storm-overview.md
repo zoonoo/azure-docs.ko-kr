@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 73a3359955bf50929f083d542e6a0583b356a280
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903758"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228852"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -78,7 +78,7 @@ HDInsight에서 새 Storm 클러스터를 몇 분 내에 만들 수 있습니다
 
 * __웹 연결__: 모든 HDInsight 클러스터는 Ambari 웹 UI를 제공합니다. Ambari 웹 UI를 사용하여 클러스터에서 서비스를 쉽게 모니터링, 구성 및 관리할 수 있습니다. 또한 Storm 클러스터는 Storm UI도 제공합니다. Storm UI를 사용하여 브라우저에서 실행 중인 Storm 토폴로지를 모니터링 및 관리할 수 있습니다.
 
-  자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Apache Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-storm-ui) 문서를 참조하세요.
+  자세한 내용은 [Apache Ambari 웹 UI를 사용하여 HDInsight 관리](../hdinsight-hadoop-manage-ambari.md) 및 [Apache Storm UI를 사용하여 모니터링 및 관리](apache-storm-deploy-monitor-topology-linux.md#monitor-and-manage-a-topology-using-the-storm-ui) 문서를 참조하세요.
 
 * __Azure PowerShell 및 Azure 클래식 CLI__: PowerShell 및 클래식 CLI는 모두 HDInsight 및 다른 Azure 서비스를 사용하는 클라이언트 시스템에서 사용할 수 있는 명령줄 유틸리티를 제공합니다.
 

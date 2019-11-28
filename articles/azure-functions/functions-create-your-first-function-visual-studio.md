@@ -1,21 +1,16 @@
 ---
 title: Visual Studio를 사용하여 Azure에서 첫 번째 함수 만들기
 description: Visual Studio를 사용하여 HTTP 트리거 Azure 함수를 만들고 게시합니다.
-author: ggailey777
-manager: gwallace
-keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
 ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 07/19/2019
-ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 1d798be3a0cde39de208105c4b3d4458fa5b124c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6d09453db0fdf8c09ad6d90c63b27f48508302be
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329503"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230705"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Visual Studio를 사용하여 첫 번째 함수 만들기
 

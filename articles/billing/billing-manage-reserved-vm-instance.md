@@ -1,7 +1,7 @@
 ---
 title: Azure Reservations 관리
 description: Azure Reservations를 관리하는 방법을 알아봅니다.
-ms.service: billing
+ms.service: cost-management-billing
 author: bandersmsft
 manager: yashesvi
 ms.devlang: na
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
-ms.openlocfilehash: b161fc7cd4faa75dd87613c297c12f1edd862510
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f1a23f7217ccae843f2394fdea4c04b5842e6fd0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68840002"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226205"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -108,7 +108,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="cancel-exchange-or-refund-reservations"></a>예약 취소, 교환 또는 환불
 
-예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항이 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
+예약을 취소, 교환 또는 환불할 수 있지만 몇 가지 제한 사항은 있습니다. 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](billing-azure-reservations-self-service-exchange-and-refund.md)을 참조하세요.
 
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Reserved VM Instances에 대한 최적화 설정 변경
 
@@ -159,7 +159,7 @@ EA(기업계약) 고객인 경우 조직에서 예약을 사용하는 방법을 
 
 ## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
-질문이 있거나 도움이 필요하면 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
+질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 11/05/2019
-ms.openlocfilehash: 0cfff0196ebc20b9b01bc966b3590470d349e86e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 3e228fb9d4223ad1d6d906b44ab63c35600faa56
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718003"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307344"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -156,7 +156,7 @@ Write-Host "Connection string is " $eventHubKey.PrimaryConnectionString
 
 ## <a name="run-app-to-produce-test-event-data"></a>테스트 이벤트 데이터를 생성하는 앱 실행
 
-GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)에는 테스트 데이터를 생성하는 [변칙 탐지기 앱](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/AnomalyDetector)이 포함되어 있습니다. 이벤트 허브에 신용 카드 거래를 작성하여 신용 카드 사용을 시뮬레이션하는데, 경우에 따라 여러 위치에서 동일한 신용 카드에 대해 여러 개의 거래를 작성하여 변칙으로 태그되게 합니다. 이 앱을 실행하려면 다음 단계를 수행합니다. 
+GitHub의 Event Hubs [샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet)에는 테스트 데이터를 생성하는 [변칙 탐지기 앱](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/AnomalyDetector)이 포함되어 있습니다. 이벤트 허브에 신용 카드 거래를 작성하여 신용 카드 사용을 시뮬레이션하는데, 경우에 따라 여러 위치에서 동일한 신용 카드에 대해 여러 개의 거래를 작성하여 변칙으로 태그되게 합니다. 이 앱을 실행하려면 다음 단계를 수행합니다. 
 
 1. GitHub에서 [Azure Event Hubs 샘플](https://github.com/Azure/azure-event-hubs/archive/master.zip)을 다운로드하여 로컬에 압축을 풉니다.
 

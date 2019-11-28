@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 10/03/2019
-ms.openlocfilehash: c2d6a5acba304d7421b000cab2ee5cee5b85e5ce
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 3fd1405d8421d71f52d9cd215dd055ce1595abd0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73241366"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327268"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>자습서: HDInsight에서 Power BI를 사용하여 Apache Spark 데이터 분석
 
@@ -180,7 +180,7 @@ Power BI 서비스를 사용하면 조직 전체에서 보고서 및 대시보�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아보았습니다. 다음 문서로 진행하여 Spark에 등록된 데이터를 Power BI와 같은 BI 분석 도구로 가져오는 방법을 확인하세요.
+이 자습서에서는 [Microsoft Power BI](https://powerbi.microsoft.com/)를 사용하여 [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/)의 Apache Spark 클러스터에서 데이터를 시각화하는 방법을 알아보았습니다. 기계 학습 애플리케이션을 만들 수 있는지 보려면 다음 문서를 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Apache Spark 스트리밍 작업 실행](apache-spark-eventhub-streaming.md)
+> [기계 학습 애플리케이션 만들기](./apache-spark-ipython-notebook-machine-learning.md)

@@ -3,17 +3,13 @@ title: 자습서 - Ansible을 사용하여 Azure Cosmos DB 계정 구성
 description: Ansible을 사용하여 Azure Cosmos DB를 만들고 구성하는 방법 알아보기
 keywords: ansible, azure, devops, bash, playbook, cosmo db, database
 ms.topic: tutorial
-ms.service: ansible
-author: tomarchermsft
-manager: jeconnoc
-ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 8c898e3cb0747a442d50b7241ebfcf401148817e
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242063"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74156479"
 ---
 # <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>자습서: Ansible을 사용하여 Azure Cosmos DB 계정 구성
 

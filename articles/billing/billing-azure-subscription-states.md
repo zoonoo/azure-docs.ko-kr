@@ -5,19 +5,19 @@ keywords: Azure 구독 상태
 author: anuragdalmia
 manager: andalmia
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: andalmia
-ms.openlocfilehash: 27664fef04e9b52294f0689eba49f16f84433c16
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 741e7cf0869e36b5788d0a883a4e982caf041512
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888466"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74224103"
 ---
 # <a name="azure-subscription-states"></a>Azure 구독 상태
 이 문서에서는 Azure 구독에 포함될 수 있는 다양한 상태를 설명합니다. 이러한 상태는 구독 블레이드 아래에 “상태”로 표시됩니다.

@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/19/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 36f85b0906b67c5bee61b9e22101f7a0d117878a
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7762366f68bee2cd8c44e81bb22366c504ff1a73
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73126489"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484420"
 ---
 # <a name="configure-a-site-to-site-vpn-for-use-with-azure-files"></a>Azure Files에서 사용할 사이트 간 VPN 구성
 S2S(사이트 간) VPN 연결을 사용하여 445 포트를 열지 않고 온-프레미스 네트워크에서 SMB를 통해 Azure 파일 공유를 탑재할 수 있습니다. 사이트 간 VPN은 VPN 서비스를 제공하는 Azure 리소스이며 스토리지 계정 또는 다른 Azure 리소스와 함께 리소스 그룹에 배포되는 [Azure VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md)를 사용하여 설정할 수 있습니다.

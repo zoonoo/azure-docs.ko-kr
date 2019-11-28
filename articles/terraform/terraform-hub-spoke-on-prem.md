@@ -1,17 +1,14 @@
 ---
 title: 자습서 - Terraform을 사용하여 Azure에서 온-프레미스 가상 네트워크 만들기
 description: 로컬 리소스를 포함하는 Azure에서 온-프레미스 VNet을 구현하는 방법을 보여주는 자습서
-ms.service: terraform
-author: tomarchermsft
-ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: df96b9340e9961387fd727eba898fe4db6a18821
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 361f9919fdd406a1fef6bbf2b7512dbc20266a54
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969378"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74159211"
 ---
 # <a name="tutorial-create-on-premises-virtual-network-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 온-프레미스 가상 네트워크 만들기
 

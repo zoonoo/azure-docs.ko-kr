@@ -1,22 +1,15 @@
 ---
 title: Visual Studio Code를 사용하여 Azure에서 첫 번째 함수 만들기
 description: Visual Studio Code에서 Azure Functions 확장을 사용하여 간단한 HTTP 트리거 함수를 Azure에 만들고 게시합니다.
-services: functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Azure 함수, 함수, 이벤트 처리, 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 06/25/2019
-ms.author: glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: fbde3c939a23e4023c0403c27433717a11762b08
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: b89e6d75cd82a65dfbce29b949c4b7d463582bb9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622050"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230789"
 ---
 # <a name="create-your-first-function-using-visual-studio-code"></a>Visual Studio Code를 사용하여 첫 번째 함수 만들기
 

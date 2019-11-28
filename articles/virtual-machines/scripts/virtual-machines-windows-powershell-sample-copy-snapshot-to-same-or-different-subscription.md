@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 02/28/2019
 ms.author: ramankum
-ms.openlocfilehash: 13add6614af8d3ad76e820228b748c0084a29876
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 9f61b2a74639b36ebef4c5af627d5da93de1393c
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039814"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326334"
 ---
 # <a name="copy-snapshot-of-a-managed-disk-in-same-subscription-or-different-subscription-with-powershell"></a>PowerShell을 사용하여 같은 구독 또는 다른 구독에 관리 디스크의 스냅샷 복사
 
@@ -46,7 +46,7 @@ ms.locfileid: "74039814"
 | 명령 | 메모 |
 |---|---|
 | [New-AzSnapshotConfig](https://docs.microsoft.com/powershell/module/az.compute/New-AzSnapshotConfig) | 스냅샷 생성에 사용되는 스냅샷 구성을 만듭니다. 부모 스냅샷의 리소스 ID와 부모 스냅샷과 같은 위치를 포함합니다.  |
-| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/New-AzDisk) | 매개 변수로 전달된 스냅샷 구성, 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 만듭니다. |
+| [New-AzSnapshot](https://docs.microsoft.com/powershell/module/az.compute/new-azsnapshot) | 매개 변수로 전달된 스냅샷 구성, 스냅샷 이름 및 리소스 그룹 이름을 사용하여 스냅샷을 만듭니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

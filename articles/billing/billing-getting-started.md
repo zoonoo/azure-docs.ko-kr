@@ -4,19 +4,19 @@ description: Azure 청구서에 예기치 않은 요금이 부과되지 않도�
 author: bandersmsft
 manager: amberb
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 6f7a29adfbd145be11f9f6c91e8e66dd229fed62
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: e5cdd7181e680dbc7406118afeb4aeb837d3aaf2
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72375611"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74223902"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
 
@@ -68,11 +68,11 @@ Azure Portal에서 서비스를 추가하면서 월별 예상 비용을 확인�
 
 ### <a name="track-costs-with-budgets-and-cost-alerts"></a>예산 및 비용 경고를 사용하여 비용 추적
 
-[예산](../cost-management/tutorial-acm-create-budgets.md)을 만들어 비용을 관리하고, [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)를 만들어 관련자에게 비정상 지출 및 과다 지출을 자동으로 알립니다. 
+[예산](../cost-management/tutorial-acm-create-budgets.md)을 만들어 비용을 관리하고, [경고](../cost-management/cost-mgt-alerts-monitor-usage-spending.md)를 만들어 관련자에게 비정상 지출 및 과다 지출을 자동으로 알립니다.
 
 ### <a name="costs"></a> 비용 분석을 사용하여 비용 검색 및 분석
 
-Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지출을 추적합니다. 비용 분석을 사용하여 Azure 사용량에 대한 비용이 발생한 위치를 파악할 수 있습니다. 
+Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지출을 추적합니다. 비용 분석을 사용하여 Azure 사용량에 대한 비용이 발생한 위치를 파악할 수 있습니다.
 
 1. [Azure Portal에서 Cost Management + 청구 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade)로 이동합니다.
 
@@ -166,7 +166,7 @@ SLA(서비스 수준 계약)에서는 작동 시간 및 연결에 대한 Microso
 
 크레딧을 요청하려면
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간의 영향을 받는 계정을 사용해야 합니다. 
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다. 계정이 여러 개인 경우 Azure 가동 중지 시간의 영향을 받는 계정을 사용해야 합니다.
 2. 새 지원 요청을 만듭니다.
 3. **문제점 유형**에서 **청구**를 선택합니다.
 4. **문제 유형**에서 **환불 요청**을 선택합니다.

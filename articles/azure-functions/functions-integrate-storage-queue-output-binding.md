@@ -1,22 +1,16 @@
 ---
-title: Functions를 사용하여 Azure Storage 큐에 메시지 추가 | Microsoft Docs
+title: Functions를 사용하여 Azure Storage 큐에 메시지 추가
 description: Azure Functions를 사용하여 HTTP 요청으로 호출되고 Azure Storage 큐에 메시지를 생성하는 서버를 사용하지 않는 함수를 만듭니다.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: 0b609bc0-c264-4092-8e3e-0784dcc23b5d
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 09/19/2017
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: 1d24eb81361a337ed00d719a7fb5895e73583030
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb5fc2fadf4087ebc42253cf568af424a80cb9d5
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096310"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226877"
 ---
 # <a name="add-messages-to-an-azure-storage-queue-using-functions"></a>Functions를 사용하여 Azure Storage 큐에 메시지 추가
 
