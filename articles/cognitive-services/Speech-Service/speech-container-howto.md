@@ -1,23 +1,23 @@
 ---
 title: 음성 컨테이너 설치-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 컨테이너를 설치하고 실행합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
+description: 음성 컨테이너를 설치 하 고 실행 합니다. 음성 텍스트 변환은 오디오 스트림을 애플리케이션, 도구 또는 디바이스가 사용하거나 표시할 수 있는 텍스트로 실시간으로 기록합니다. 텍스트 음성 변환은 입력 텍스트를 인간과 유사한 합성 음성으로 변환합니다.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 4170db596d3d4f4b197120770afa2f6e8b0f8a1c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 3d9373067c78f1fe0fa0b414886c30f2ed3c1c9f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132614"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325860"
 ---
-# <a name="install-and-run-speech-service-containers"></a>음성 서비스 컨테이너 설치 및 실행
+# <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
 컨테이너를 사용 하면 사용자 환경에서 음성 서비스 Api의 일부를 실행할 수 있습니다. 컨테이너는 특정 보안 및 데이터 관리 요구 사항에 적합 합니다. 이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행 하는 방법에 대해 알아봅니다.
 
@@ -26,20 +26,20 @@ ms.locfileid: "74132614"
 > [!IMPORTANT]
 > 모든 음성 컨테이너는 현재 [공용 "제어 된" 미리 보기](../cognitive-services-container-support.md#public-gated-preview-container-registry-containerpreviewazurecrio)의 일부로 제공 됩니다. 음성 컨테이너가 GA (일반 공급)로 진행 될 때 알림이 생성 됩니다.
 
-| 함수 | 기능 | 최신 버전 |
+| 함수 | 기능 | 마지막 |
 |--|--|--|
-| 음성 텍스트 변환 | 연속 실시간 음성 또는 일괄 처리 오디오 녹음/녹화를 중간 결과 텍스트로 기록합니다. | 2.0.0 |
+| 음성 텍스트 변환 | 중간 결과를 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 텍스트로 speech. | 2.0.0 |
 | Custom Speech 텍스트 | [Custom Speech 포털](https://speech.microsoft.com/customspeech)에서 사용자 지정 모델을 사용 하 여 연속 실시간 음성 또는 배치 오디오 녹음을 중간 결과가 포함 된 텍스트로 speech. | 2.0.0 |
 | 텍스트 음성 변환 | 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 텍스트를 자연 스런 음성으로 변환 합니다. | 1.3.0 |
 | 사용자 지정 텍스트 음성 변환 | [사용자 지정 음성 포털](https://aka.ms/custom-voice-portal)에서 사용자 지정 모델을 사용 하 여 텍스트를 일반 텍스트 입력 또는 SSML (음성 합성 마크업 언어)을 사용 하 여 자연 스러운 음성으로 변환 합니다. | 1.3.0 |
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
-| 필수 | 목적 |
+| 필수 | 용도 |
 |--|--|
 | Docker 엔진 | [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> **Windows**에서 Docker는 Linux 컨테이너를 지원하도록 구성해야 합니다.<br><br> |
 | Docker 사용 경험 | 기본 `docker`명령에 대한 지식뿐만 아니라 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념에 대해 기본적으로 이해해야 합니다. |
@@ -101,10 +101,10 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 
-`--cpus` 명령의 일부로 사용되는 `--memory` 및 `docker run` 설정에 해당하는 코어 및 메모리.
+`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
 > [!NOTE]
-> 최소 및 권장 사항은 호스트 컴퓨터 리소스가 *아니라* Docker 한도를 기반으로 합니다. 예를 들어, 음성-텍스트 컨테이너는 큰 언어 모델의 맵 부분을 기억하며 추가로 4 ~ 6GB의 메모리에 전체 파일을 두는 것을 *권장* 합니다. 또한 모델은 메모리로 페이징되므로 두 컨테이너의 첫 번째 실행은 더 오래 걸릴 수 있습니다.
+> 최소 및 권장 사항은 호스트 컴퓨터 리소스가 *아니라* Docker 한도를 기반으로 합니다. 예를 들어, 음성-텍스트 컨테이너 메모리는 대기업 모델의 부분을 매핑하고, 전체 파일은 메모리에 맞게 조정 하는 것이 *좋습니다* .이는 추가 4-6 GB입니다. 또한 모델을 메모리로 페이징할 수 있으므로 두 컨테이너 중 한 컨테이너의 첫 번째 실행 시간이 길어질 수 있습니다.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -155,13 +155,13 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-speech-to-t
 
 #### <a name="speech-to-text-locales"></a>음성 텍스트 로캘
 
-`latest`를 제외 하 고 모든 태그는 다음 형식으로 되어 있습니다. 여기서 `<culture>`는 로캘 컨테이너를 나타냅니다.
+`latest`를 제외 하 고 모든 태그는 다음과 같은 형식 이며 대/소문자를 구분 합니다.
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<prerelease>
 ```
 
-다음 태그는 해당 형식의 예입니다.
+다음 태그는 형식의 예입니다.
 
 ```
 2.0.0-amd64-en-us-preview
@@ -193,17 +193,17 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-text-to-spe
 ```
 
 > [!IMPORTANT]
-> `latest` 태그는 `en-US` 로캘 및 `jessarus` 음성을 끌어오기 합니다. 추가 로캘에 대해서는 [텍스트 음성 변환 로캘을](#text-to-speech-locales)참조 하세요.
+> `latest` 태그는 `en-US` 로캘과 `jessarus` 음성으로 끌어옵니다. 추가 로캘에 대해서는 [텍스트 음성 변환 로캘을](#text-to-speech-locales)참조 하세요.
 
 #### <a name="text-to-speech-locales"></a>텍스트 음성 변환
 
-`latest`를 제외한 모든 태그는 `<culture>`가 로캘을 나타내고 `<voice>`가 컨테이너의 음성을 나타내는 다음 형식으로 되어 있습니다.
+`latest`를 제외 하 고 모든 태그는 다음과 같은 형식 이며 대/소문자를 구분 합니다.
 
 ```
-<major>.<minor>.<patch>-<platform>-<culture>-<voice>-<prerelease>
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
 ```
 
-다음 태그는 해당 형식의 예입니다.
+다음 태그는 형식의 예입니다.
 
 ```
 1.3.0-amd64-en-us-jessarus-preview
@@ -233,12 +233,12 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-custom-text
 
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
-1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. [ 명령의 자세한 ](speech-container-configuration.md#example-docker-run-commands)예`docker run`를 사용할 수 있습니다.
+1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](speech-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
 1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. [ 및 ](#gathering-required-parameters) 값을 가져오는 방법에 대한 자세한 내용은 `{Endpoint_URI}`필수 매개 변수 수집`{API_Key}`을 참조 하세요. `docker run` 명령의 추가 [예](speech-container-configuration.md#example-docker-run-commands) 도 사용할 수 있습니다.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{Endpoint_URI}` 및 `{API_Key}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요. `docker run` 명령의 추가 [예](speech-container-configuration.md#example-docker-run-commands) 도 사용할 수 있습니다.
 
 # <a name="speech-to-texttabstt"></a>[Speech-to-text](#tab/stt)
 
@@ -375,8 +375,8 @@ ApiKey={API_KEY}
 |--|--|--|
 | 음성 텍스트 변환 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
 | Custom Speech 텍스트 | `ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1` | WS |
-| 텍스트 음성 변환 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
-| 사용자 지정 텍스트 음성 변환 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | HTTP |
+| 텍스트 음성 변환 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
+| 사용자 지정 텍스트 음성 변환 | `http://localhost:5000/speech/synthesize/cognitiveservices/v1` | http |
 
 WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용은 [컨테이너 보안](../cognitive-services-container-support.md#azure-cognitive-services-container-security)을 참조 하세요.
 
@@ -404,9 +404,9 @@ WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용�
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
-음성 컨테이너는 Azure 계정의 *음성* 리소스를 사용하여 청구 정보를 Azure로 보냅니다.
+음성 컨테이너는 Azure 계정에서 *음성* 리소스를 사용 하 여 azure로 청구 정보를 보냅니다.
 
 [!INCLUDE [Container's Billing Settings](../../../includes/cognitive-services-containers-how-to-billing-info.md)]
 
@@ -418,7 +418,7 @@ WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용�
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 음성 컨테이너 다운로드, 설치 및 실행에 대한 개념 및 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
+이 문서에서는 음성 컨테이너를 다운로드, 설치 및 실행 하기 위한 개념과 워크플로를 배웠습니다. 요약하면 다음과 같습니다.
 
 * Speech는 다양 한 기능을 캡슐화 하는 Docker 용 Linux 컨테이너 4 개를 제공 합니다.
   * *Speech-to-text*
@@ -427,7 +427,7 @@ WSS 및 HTTPS 프로토콜을 사용 하는 방법에 대 한 자세한 내용�
   * *사용자 지정 텍스트 음성 변환*
 * 컨테이너 이미지는 Azure의 컨테이너 레지스트리에서 다운로드 됩니다.
 * 컨테이너 이미지는 Docker에서 실행됩니다.
-* 음성 컨테이너에서 작업을 호출하기 위해 컨테이너의 호스트 URI를 지정하여 REST API 또는 SDK 중 하나를 사용할 수 있습니다.
+* 컨테이너의 호스트 URI를 지정 하 여 REST API 또는 SDK를 사용 하 여 음성 컨테이너에서 작업을 호출할 수 있습니다.
 * 컨테이너를 인스턴스화할 때 청구 정보를 제공 해야 합니다.
 
 > [!IMPORTANT]

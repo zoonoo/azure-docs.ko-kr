@@ -72,8 +72,14 @@
       items:
         - name: 자동 사용자 프로비저닝 배포 계획
           href: plan-auto-user-provisioning.md
+        - name: SCIM 사용 앱에 대한 자동 프로비저닝
+          href: use-scim-to-provision-users-and-groups.md
         - name: 수동 및 자동 프로비저닝
           href: application-provisioning-config-how-to.md
+    - name: 클라우드 HR 프로비저닝
+      items:
+        - name: 클라우드 HR 사용자 프로비저닝 배포 계획
+          href: plan-cloud-hr-provision.md
     - name: 온-프레미스 앱에 대한 애플리케이션 프록시
       items:
         - name: 애플리케이션 프록시

@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/01/2019
+ms.date: 11/26/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 9c5e87d8d6fe49302bee2b2248f84ba98a650533
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 340717242d642475217bbe87fd96be66ec9b2e2d
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802308"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554237"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
-RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용하는 경우에는 클래식 구독 관리자 역할을 사용해야 합니다. 서비스 관리자 및 공동 관리자. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
+RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 액세스를 관리하는 것이 좋습니다. 그러나 클래식 배포 모델을 계속 사용 하는 경우에는 클래식 구독 관리자 역할 (서비스 관리자 및 공동 관리자)을 사용 해야 합니다. 자세한 내용은 [Azure Resource Manager 및 클래식 배포](../azure-resource-manager/resource-manager-deployment-model.md)를 참조하세요.
 
 이 문서에서는 공동 관리자 및 서비스 관리자 역할을 추가하거나 변경하는 방법과 계정 관리자를 확인하는 방법을 설명합니다.
 
@@ -32,7 +32,7 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 > [!TIP]
 > 사용자가 [Azure 서비스 관리 PowerShell 모듈](https://docs.microsoft.com/powershell/module/servicemanagement/azure)을 사용하여 Azure 클래식 배포를 관리해야 하는 경우에만 공동 관리자를 추가하면 됩니다. 사용자가 Azure Portal을 통해서만 클래식 리소스를 관리하는 경우 사용자에 대한 클래식 관리자를 추가할 필요가 없습니다.
 
-1. 서비스 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 서비스 관리자 또는 공동 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
@@ -52,9 +52,17 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
     ![공동 관리자를 추가하는 스크린샷](./media/classic-administrators/add-coadmin.png)
 
-### <a name="adding-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 공동 관리자로 추가
+## <a name="add-a-guest-user-as-a-co-administrator"></a>게스트 사용자를 공동 관리자로 추가
 
-공동 관리자 역할이 할당된 [게스트 사용자](../active-directory/b2b/b2b-quickstart-add-guest-users-portal.md)는 공동 관리자 역할의 멤버 사용자와 비교해 몇 가지 차이를 나타낼 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
+게스트 사용자를 공동 관리자로 추가 하려면 이전 [공동 관리자 추가](#add-a-co-administrator) 섹션과 동일한 단계를 수행 합니다. 게스트 사용자는 다음 조건을 충족 해야 합니다.
+
+- 게스트 사용자는 디렉터리에 있는 상태 여야 합니다. 즉, 사용자가 디렉터리에 초대 되 고 초대를 수락 했음을 의미 합니다.
+
+디렉터리에 게스트 사용자를 추가 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 B2B 공동 작업 사용자 추가 Azure Active Directory](../active-directory/b2b/add-users-administrator.md)를 참조 하세요.
+
+### <a name="differences-for-guest-users"></a>게스트 사용자의 차이점
+
+공동 관리자 역할이 할당 된 게스트 사용자는 공동 관리자 역할을 사용 하는 멤버 사용자에 비해 몇 가지 차이점을 확인할 수 있습니다. 다음과 같은 시나리오를 고려해 보세요.
 
 - Azure AD 계정 (회사 또는 학교 계정)을 사용 하는 사용자 A는 Azure 구독에 대 한 서비스 관리자입니다.
 - 사용자 B에게는 Microsoft 계정이 있습니다.
@@ -63,13 +71,15 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 사용자 B는 모든 것을 관리할 수 있다고 예상할 수 있습니다. 이러한 차이가 나타나는 이유는 Microsoft 계정이 멤버 사용자가 아닌 게스트 사용자로 구독에 추가되기 때문입니다. 게스트 사용자에 멤버 사용자와 비교할 때 Azure AD에서 다른 기본 권한을 갖습니다. 예를 들어, 멤버 사용자는 Azure AD에서 다른 사용자가 읽을 수 있지만 게스트 사용자는 그럴 수 없습니다. 멤버 사용자는 Azure AD에서 새 서비스 주체를 등록할 수 있지만 게스트 사용자는 그럴 수 없습니다.
 
-게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요.
+게스트 사용자가 이러한 작업을 수행할 수 있도록 하려면 게스트 사용자가 필요한 특정 Azure AD 관리자 역할을 할당해야 합니다. 예를 들어, 이전 시나리오에서는 다른 사용자를 읽기 위한 [디렉터리 읽기 권한자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#directory-readers) 역할과 서비스 주체를 만들 수 있는 [애플리케이션 개발자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#application-developer) 역할을 할당할 수 있습니다. 멤버 및 게스트 사용자와 해당 권한에 대한 자세한 내용은 [Azure Active Directory의 기본 사용자 권한이란?](../active-directory/fundamentals/users-default-permissions.md)을 참조하세요. 게스트 사용자에 게 액세스 권한을 부여 하는 방법에 대 한 자세한 내용은 [RBAC를 사용 하 여 외부 게스트 사용자에 대 한 Azure 리소스 액세스 관리](role-assignments-external-users.md)를 참조 하세요.
 
 [Azure 리소스의 기본 제공 역할](../role-based-access-control/built-in-roles.md)은 [Azure AD 관리자 역할](../active-directory/users-groups-roles/directory-assign-admin-roles.md)과 다릅니다. 기본 제공 역할은 Azure AD에 대한 액세스 권한을 부여하지 않습니다. 자세한 내용은 [다른 역할 이해](../role-based-access-control/rbac-and-directory-admin-roles.md)를 참조하세요.
 
+멤버 사용자와 게스트 사용자를 비교 하는 내용은 [Azure Active Directory?의 기본 사용자 권한은 무엇입니까?](../active-directory/fundamentals/users-default-permissions.md)를 참조 하십시오.
+
 ## <a name="remove-a-co-administrator"></a>공동 관리자 제거
 
-1. 서비스 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 서비스 관리자 또는 공동 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 
@@ -133,10 +143,10 @@ Azure 구독 당 서비스 관리자는 하나만 있을 수 있습니다. 서�
 
 | 계정 관리자 계정 | 다른 Microsoft 계정로 서비스 관리자를 변경할 수 있나요? | 동일한 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? | 다른 디렉터리의 Azure AD 계정에 대 한 서비스 관리자를 변경할 수 있나요? |
 | --- | --- | --- | --- |
-| Microsoft 계정 | 예 | 아니오 | 아니요 |
-| Azure AD 계정 | 예 | 예 | 아니요 |
+| Microsoft 계정 | yes | 아닙니다. | 아닙니다. |
+| Azure AD 계정 | yes | yes | 아닙니다. |
 
-계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어 abby@contoso.com은 서비스 관리자를 bob@contoso.com로 변경할 수 있지만,-3 john@notcontoso.com이 contoso.com 디렉터리에 있는 경우를 제외 하 고는 서비스 관리자를 john@notcontoso.com로 변경할 수 없습니다.
+계정 관리자가 Azure AD 계정인 경우에는 서비스 관리자를 같은 디렉터리의 Azure AD 계정으로 변경할 수 있지만 다른 디렉터리에는 변경할 수 없습니다. 예를 들어 abby@contoso.com 서비스 관리자를 bob@contoso.com로 변경할 수 있지만, john@notcontoso.com가 contoso.com 디렉터리에 있는 경우를 제외 하 고 john@notcontoso.com으로 서비스 관리자를 변경할 수 없습니다.
 
 Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md)을 참조 하세요.
 
@@ -146,7 +156,7 @@ Microsoft 계정 및 Azure AD 계정에 대 한 자세한 내용은 [Azure Activ
 
 계정 관리자를 보려면 다음 단계를 수행합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
 

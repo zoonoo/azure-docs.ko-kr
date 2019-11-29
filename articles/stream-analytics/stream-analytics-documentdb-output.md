@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2019
 ms.custom: seodec18
-ms.openlocfilehash: 52bbb52b13a3606e3ddc8deca2da8505233c9352
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: aa4ac011a7b6258958ac1ac176fd63b18a4ef856
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70062021"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560193"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 비구조화된 JSON 데이터에 대한 데이터 보관 및 짧은 대기 시간 쿼리를 사용하기 위해 Stream Analytics에서 JSON 출력의 대상을 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/)로 지정할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -89,15 +89,25 @@ Cosmos DB를 Stream Analytics의 출력으로 만들면 아래와 같은 정보�
 
 ![documentdb Stream Analytics 출력 화면](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
-|필드           | Description|
+|필드           | 설명|
 |-------------   | -------------|
 |출력 별칭    | ASA 쿼리에서 이 출력을 참조할 별칭입니다.|
-|구독    | Azure 구독을 선택 합니다.|
+|Subscription    | Azure 구독을 선택 합니다.|
 |계정 ID      | Azure Cosmos DB 계정의 이름 또는 엔드포인트 URI입니다.|
 |계정 키     | Azure Cosmos DB 계정에 대한 공유 액세스 키입니다.|
 |데이터베이스        | Azure Cosmos DB 데이터베이스 이름입니다.|
-|컨테이너 이름 | 사용할 컨테이너 이름입니다. `MyContainer`은 (는) 명명 된 `MyContainer` 단일 컨테이너가 있어야 합니다.  |
+|컨테이너 이름 | 사용할 컨테이너 이름입니다. `MyContainer`은 `MyContainer` 라는 이름의 단일 컨테이너가 있어야 합니다.  |
 |문서 ID     | 선택 사항입니다. 삽입 또는 업데이트 작업의 기준으로 사용해야 하는 고유 키로 사용되는 출력 이벤트의 열 이름입니다. 이 필드를 비워두면 업데이트 옵션 없이 모든 이벤트가 삽입됩니다.|
+
+Cosmos DB 출력을 구성 하 고 나면 쿼리에서 [INTO 문의](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics)대상으로 사용할 수 있습니다. Cosmos DB 출력을 사용 하는 경우 [파티션 키를 명시적으로 설정 해야](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#partitions-in-sources-and-sinks)합니다. 출력 레코드는 Cosmos DB의 파티션 키 뒤에 이름이 지정 된 대/소문자를 구분 하는 열을 포함 해야 합니다. 병렬 처리를 위해 문에는 동일한 열을 사용 하는 [PARTITION by 절](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#embarrassingly-parallel-jobs) 이 필요할 수 있습니다.
+
+**예제 쿼리**:
+
+```SQL
+    SELECT TollBoothId, PartitionId
+    INTO CosmosDBOutput
+    FROM Input1 PARTITION BY PartitionId
+``` 
 
 ## <a name="error-handling-and-retries"></a>오류 처리 및 다시 시도
 

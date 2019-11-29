@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 6779e434339935b64440d7cf617c8946338e36e3
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c72c65c9d27810ce4ec2df0062dc41d83ed37a6b
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756990"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559115"
 ---
 # <a name="consistency-levels-and-azure-cosmos-db-apis"></a>일관성 수준 및 Azure Cosmos DB API
 
@@ -25,7 +25,7 @@ MongoDB에 대 한 Cassandra API 또는 Azure Cosmos DB의 API를 사용 하는 
 
 ## <a id="cassandra-mapping"></a>Apache Cassandra 및 Azure Cosmos DB 일관성 수준 간 매핑
 
-AzureCosmos DB와 달리 Apache Cassandra는 기본적으로 정확 하 게 정의 된 일관성 보장을 제공 하지 않습니다.  대신, Apache Cassandra는 높은 가용성, 일관성 및 대기 시간을 절충 하는 쓰기 일관성 수준 및 읽기 일관성 수준을 제공 합니다. Azure Cosmos DB의 Cassandra API를 사용 하는 경우: 
+Azure Cosmos DB와 달리 Apache Cassandra는 기본적으로 정확 하 게 정의 된 일관성 보장을 제공 하지 않습니다.  대신, Apache Cassandra는 높은 가용성, 일관성 및 대기 시간을 절충 하는 쓰기 일관성 수준 및 읽기 일관성 수준을 제공 합니다. Azure Cosmos DB의 Cassandra API를 사용 하는 경우: 
 
 * Apache Cassandra의 쓰기 일관성 수준은 Azure Cosmos 계정에 구성 된 기본 일관성 수준에 매핑됩니다. 
 

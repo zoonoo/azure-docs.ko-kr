@@ -8,12 +8,12 @@ ms.author: xshi
 ms.date: 07/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 2f8b0fe83e10beb3b65dca08e18b03f4fc11947e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9cec4c436c6e8ea08e37ec0ddd8a9a01e493447c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457099"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561690"
 ---
 # <a name="use-visual-studio-2019-to-develop-and-debug-modules-for-azure-iot-edge"></a>Visual Studio 2019을 사용 하 여 Azure IoT Edge에 대 한 모듈 개발 및 디버그
 
@@ -28,7 +28,7 @@ Visual Studio 용 Azure IoT Edge 도구는 다음과 같은 이점을 제공합�
 
 이 문서에서는 Visual Studio 2019 용 Azure IoT Edge 도구를 사용 하 여 IoT Edge 모듈을 개발 하는 방법을 보여 줍니다. Azure IoT Edge 디바이스에 프로젝트를 배포하는 방법도 알아봅니다. 현재 Visual Studio 2019는 C 및 C#로 작성 된 모듈을 지원 합니다. 지원 되는 장치 아키텍처는 Windows X64 및 Linux X64 또는 ARM32입니다. 지원 되는 운영 체제, 언어 및 아키텍처에 대 한 자세한 내용은 [언어 및 아키텍처 지원](module-development.md#language-and-architecture-support)을 참조 하세요.
   
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 Windows를 실행하는 컴퓨터 또는 가상 머신을 개발 머신으로 사용한다고 가정합니다. Windows 컴퓨터에서는 Windows 또는 Linux 모듈을 개발할 수 있습니다. Windows 모듈을 개발 하려면 1809/build 17763 이상 버전을 실행 하는 Windows 컴퓨터를 사용 합니다. Linux 모듈을 개발 하려면 [Docker Desktop에 대 한 요구 사항을](https://docs.docker.com/docker-for-windows/install/#what-to-know-before-you-install)충족 하는 Windows 컴퓨터를 사용 합니다. 
 
@@ -67,7 +67,7 @@ Visual Studio 2019이 준비 되 면 다음 도구 및 구성 요소도 필요 �
   > [!TIP]
   > 클라우드 레지스트리 대신 로컬 Docker 레지스트리를 프로토타입 및 테스트 목적으로 사용할 수 있습니다.
 
-- 디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)의 빠른 시작에서 단계를 수행합니다. 개발 머신에서 IoT Edge 디먼을 실행할 경우, Visual Studio에서 개발을 시작하기 전 EdgeHub 및 EdgeAgent를 중지해야 할 수도 있습니다.
+- 디바이스에서 모듈을 테스트하려면 하나 이상의 IoT Edge 디바이스가 있는 활성 IoT 허브가 필요합니다. 컴퓨터를 IoT Edge 디바이스로 사용하려면 [Linux](quickstart-linux.md) 또는 [Windows](quickstart.md)용 빠른 시작의 단계에 따릅니다. 개발 머신에서 IoT Edge 디먼을 실행할 경우, Visual Studio에서 개발을 시작하기 전 EdgeHub 및 EdgeAgent를 중지해야 할 수도 있습니다.
 
 ### <a name="check-your-tools-version"></a>도구 버전 확인
 
@@ -105,6 +105,8 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 1. **확인** 을 선택 하 여 C# 또는 C를 사용 하는 모듈을 사용 하 여 Azure IoT Edge 솔루션을 만듭니다.
 
 이제 **AzureIoTEdgeApp1** 프로젝트 또는 **AzureIoTEdgeApp1** 프로젝트를 사용할 수 있으며 솔루션에 **IotEdgeModule1** 프로젝트도 있습니다. 각 **AzureIoTEdgeApp1** 프로젝트에는 IoT Edge 솔루션에 대해 빌드 및 배포 하려는 모듈을 정의 하 고 모듈 간의 경로도 정의 하는 `deployment.template.json` 파일이 있습니다. 기본 솔루션에는 **SimulatedTemperatureSensor** 모듈과 **IotEdgeModule1** 모듈이 있습니다. **SimulatedTemperatureSensor** 모듈은 시뮬레이션 된 데이터를 **IotEdgeModule1** 모듈에 생성 하는 반면 **IotEdgeModule1** 모듈의 기본 코드는 수신 된 메시지를 Azure IoT Hub에 직접 파이프 합니다.
+
+시뮬레이션 된 온도 센서의 작동 방식을 확인 하려면 [SimulatedTemperatureSensor 소스 코드](https://github.com/Azure/iotedge/tree/master/edge-modules/SimulatedTemperatureSensor)를 확인 합니다.
 
 **IotEdgeModule1** 프로젝트는 C# 모듈이 면 .net Core 2.1 콘솔 응용 프로그램입니다. 여기에는 IoT Edge 디바이스를 Windows 컨테이너나 Linux 컨테이너로 실행할 때 필요한 필수 Docker 파일이 포함되어 있습니다. `module.json` 파일은 모듈의 메타 데이터를 설명 합니다. Azure IoT 장치 SDK를 종속성으로 사용 하는 실제 모듈 코드는 `Program.cs` 또는 `main.c` 파일에 있습니다.
 
@@ -156,7 +158,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
     중단점이 트리거됩니다. Visual Studio **로컬** 창에서 변수를 확인할 수 있습니다.
 
    > [!TIP]
-   > [ 대신 ](https://www.getpostman.com/)PostMan`curl` 또는 다른 API 도구를 사용하여 메시지를 보낼 수도 있습니다.
+   > `curl` 대신 [PostMan](https://www.getpostman.com/) 또는 다른 API 도구를 사용하여 메시지를 보낼 수도 있습니다.
 
 1. **Ctrl + F5**를 누르거나 중지 버튼을 클릭하여 디버깅을 중지합니다.
 
@@ -190,7 +192,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 1. **AzureIoTEdgeApp1**이 시작 프로젝트여야 합니다. 모듈 이미지를 빌드할 구성으로 **디버그**와 **릴리스** 중 하나를 선택합니다.
 
     > [!NOTE]
-    > **디버그**를 선택하면, Visual Studio가 `Dockerfile.(amd64|windows-amd64).debug`을(를) 사용하여 Docker 이미지를 빌드합니다. 이미지를 빌드하는 동안 컨테이너 이미지의 .NET Core 명령 줄 디버거 VSDBG가 포함됩니다. 프로덕션이 준비된 IoT Edge 모듈의 경우, VSDBG 없이 **을(를) 사용하는** 릴리스`Dockerfile.(amd64|windows-amd64)` 구성을 권장합니다.
+    > **디버그**를 선택하면, Visual Studio가 `Dockerfile.(amd64|windows-amd64).debug`을(를) 사용하여 Docker 이미지를 빌드합니다. 이미지를 빌드하는 동안 컨테이너 이미지의 .NET Core 명령 줄 디버거 VSDBG가 포함됩니다. 프로덕션이 준비된 IoT Edge 모듈의 경우, VSDBG 없이 `Dockerfile.(amd64|windows-amd64)`을(를) 사용하는 **릴리스** 구성을 권장합니다.
 
 1. Azure Container Registry 같은 프라이빗 레지스트리를 사용할 경우, 다음 Docker 명령을 사용하여 로그인합니다. 로컬 레지스트리를 사용할 경우 [로컬 레지스트리를 실행](https://docs.docker.com/registry/deploying/#run-a-local-registry)할 수 있습니다.
 
@@ -222,7 +224,7 @@ Visual Studio의 Azure IoT Edge 프로젝트 템플릿은 Azure IoT Hub의 Azure
 
 IoT Edge 디바이스를 설정할 때 사용한 빠른 시작 문서에서는 Azure Portal을 사용하여 모듈을 배포했습니다. Visual Studio 용 클라우드 탐색기를 사용하여 모듈을 배포할 수도 있습니다. 시나리오의 배포 매니페스트인 `deployment.json` 파일이 이미 있으므로 배포를 수신할 디바이스만 선택하면 됩니다.
 
-1. **보기**클라우드 탐색기 > 를 클릭하여 **클라우드 탐색기**를 엽니다. Visual Studio 2019에 로그인 했는지 확인 합니다.
+1. **보기** > **클라우드 탐색기**를 클릭하여 **클라우드 탐색기**를 엽니다. Visual Studio 2019에 로그인 했는지 확인 합니다.
 
 1. **클라우드 탐색기**에서 구독을 펼쳐서 배포하려는 Azure IoT Hub 및 Azure IoT Edge 디바이스를 찾습니다.
 

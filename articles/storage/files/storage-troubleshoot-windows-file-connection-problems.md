@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 261816e42c8de670cd7888af726a70e1a6e5b228
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d54075da10671bb9a48c84844cab67841fa0aec0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74269371"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74560139"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -129,7 +129,7 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 
 파일 공유가 탑재되어 있는 컴퓨터의 파일에 허용되는 동시 오픈 핸들의 상한값에 도달하는 경우 오류 1816이 발생합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 일부 핸들을 닫아 동시 열린 핸들 수를 줄이고 다시 시도하세요. 자세한 내용은 [Microsoft Azure Storage 성능 및 확장성 검사 목록](../common/storage-performance-checklist.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)을 참조하세요.
 
@@ -166,7 +166,7 @@ Azure 파일 공유가 있는 스토리지 계정을 찾아 **액세스 제어(I
 ### <a name="cause"></a>원인
 이 문제는 일반적으로 파일 또는 디렉터리에 열린 핸들이 있는 경우에 발생 합니다. 
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 SMB 클라이언트에서 열려 있는 모든 핸들을 닫고 문제가 계속 발생 하면 다음을 수행 합니다.
 
@@ -212,7 +212,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 기본적으로 Windows File Explorer는 관리자 권한으로 실행되지 않습니다. 관리자 명령 프롬프트에서 net use를 실행할 경우 네트워크 드라이브를 관리자 권한으로 매핑합니다. 매핑된 드라이브는 사용자 중심이므로 다른 사용자 계정으로 탑재될 경우 로그인된 사용자 계정에 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 비관리자 명령줄에서 공유를 탑재하세요. 또는 [이 TechNet 항목](https://technet.microsoft.com/library/ee844140.aspx)에 따라 **EnableLinkedConnections** 레지스트리 값을 구성할 수 있습니다.
 
 <a id="netuse"></a>
@@ -222,7 +222,7 @@ net use를 사용하여 관리자 권한으로 Azure 파일 공유를 매핑하�
 
 net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용자 계정 이름이 슬래시로 시작되면 드라이브 매핑에 실패합니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 단계 중 하나를 사용하여 문제를 해결할 수 있습니다.
 
@@ -243,7 +243,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 
 드라이브는 사용자별로 탑재됩니다. 애플리케이션 또는 서비스가 드라이브를 탑재한 계정이 아닌 다른 사용자 계정으로 실행되는 경우 애플리케이션에는 드라이브가 표시되지 않습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 다음 해결 방법 중 하나를 사용합니다.
 
@@ -259,7 +259,7 @@ net use 명령은 슬래시(/)를 명령줄 옵션으로 해석합니다. 사용
 다음과 같은 지침을 따르고 시스템/네트워크 서비스 계정에 net use를 실행하면 다음과 같은 오류 메시지가 표시될 수 있습니다. "시스템 오류 1312가 발생했습니다. 지정된 로그온 세션이 없습니다. 이미 종료되었을 수 있습니다." 이 문제가 발생하면 net use에 전달되는 사용자 이름에 도메인 정보(예: &quot;[스토리지 계정 이름].file.core.windows.net&quot;)가 포함되는지 확인합니다.
 
 <a id="doesnotsupportencryption"></a>
-## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>"암호화를 지원하지 않는 대상에 파일을 복사하는 중임" 오류 발생
+## <a name="error-you-are-copying-a-file-to-a-destination-that-does-not-support-encryption"></a>“암호화를 지원하지 않는 대상에 파일을 복사하는 중임” 오류 발생
 
 네트워크를 통해 파일이 복사되면 파일은 원본 컴퓨터에서 암호를 해독하고, 일반 텍스트로 전송되어 대상에서 다시 암호화됩니다. 하지만 암호화된 파일을 복사하려 하는 경우 다음 오류가 발생할 수 있습니다. "암호화를 지원하지 않는 대상에 파일을 복사하고 있습니다."
 
@@ -284,7 +284,7 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
 
 이 문제는 클라이언트 머신에서 대규모 디렉터리에 대한 캐시가 충분하지 않을 때 발생할 수 있습니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 **DirectoryCacheEntrySizeMax** 레지스트리 값을 조정하여 클라이언트 머신에 더 큰 디렉터리 목록의 캐시를 허용합니다.
 
@@ -295,17 +295,29 @@ EFS(파일 시스템 암호화)를 사용하는 경우 이 문제가 발생할 �
  
 예를 들어 0x100000으로 설정하고 성능이 향상되는지 확인할 수 있습니다.
 
-## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>Azure Files에 대해 Azure Active Directory 인증을 사용하도록 설정하는 동안 AadDsTenantNotFound 오류가 발생했습니다. "테넌트 ID가 aad-tenant-id인 활성 테넌트를 찾을 수 없습니다."
+## <a name="error-aaddstenantnotfound-in-enabling-azure-active-directory-domain-service-aad-ds-authentication-for-azure-files-unable-to-locate-active-tenants-with-tenant-id-aad-tenant-id"></a>오류 Aaddsten\notnon Azure Files "에 대해 AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정 했습니다." 테 넌 트 Id를 사용 하 여 활성 테 넌 트 Id를 찾을 수 없습니다. "
 
 ### <a name="cause"></a>원인
 
-AadDsTenantNotFound 오류는 연결된 구독의 AAD 테넌트에 [AAD DS(AAD Domain Service)](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable)가 생성되지 않은 스토리지 계정에 [Azure Files에 대한 AAD(Azure Active Directory) 인증을 사용하도록 설정](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview)하려고 할 때 발생합니다.  
+오류 AadDsTenantNotFound는 aad ds (aad [도메인 서비스](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-overview) )가 연결 된 구독의 aad 테 넌 트에서 만들어지지 않는 저장소 계정에서 [AZURE FILES에 대해 aad Ds (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-enable) 하려고 할 때 발생 합니다.  
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 스토리지 계정이 배포된 구독의 AAD 테넌트에 AAD DS를 사용하도록 설정합니다. 관리형 도메인을 만들려면 AAD 테넌트의 관리자 권한이 필요합니다. Azure AD 테넌트의 관리자가 아니라면 관리자에게 문의하고 [Azure Portal을 사용하여 Azure Active Directory Domain Services 활성화](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started)를 위한 단계별 지침을 따르세요.
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의하세요.
+## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-aad-ds-authentication-enabled"></a>오류 ' 시스템 오류 1359이 발생 했습니다. AAD DS (Azure Active Directory 도메인 서비스) 인증을 사용 하도록 설정한 상태에서 파일 공유에 대 한 SMB 액세스를 통해 수신 된 내부 오류
+
+### <a name="cause"></a>원인
+
+오류 ' 시스템 오류 1359이 발생 했습니다. 도메인 DNS 이름이 숫자 문자로 시작 하는 AAD DS에 대해 사용 하도록 설정 된 AAD DS 인증을 사용 하 여 파일 공유에 연결 하려고 하면 내부 오류가 발생 합니다. 예를 들어 AAD DS 도메인 DNS 이름이 "1domain" 이면 AAD 자격 증명을 사용 하 여 파일 공유를 탑재 하려고 할 때이 오류가 발생 합니다. 
+
+### <a name="solution"></a>솔루션
+
+현재 아래 규칙과 함께 적용 되는 새 도메인 DNS 이름을 사용 하 여 AAD DS를 다시 배포 하는 것을 고려할 수 있습니다.
+- 이름은 숫자로 시작할 수 없습니다.
+- 이름은 3 ~ 63 자 길이 여야 합니다.
+
+## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의하세요.
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

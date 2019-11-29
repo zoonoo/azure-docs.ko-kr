@@ -1,5 +1,5 @@
 ---
-title: 워크 로드 격리
+title: 워크로드 격리
 description: Azure SQL Data Warehouse에서 작업 그룹을 사용 하 여 워크 로드 격리를 설정 하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 11/04/2019
+ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a31498ec5459604d89fa72a6f2a003dbc1189eed
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685361"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555394"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>작업 그룹 격리 SQL Data Warehouse (미리 보기)
 
@@ -28,11 +28,11 @@ ms.locfileid: "73685361"
 
 다음 섹션에서는 작업 그룹이 격리, 포함 및 요청 리소스 정의를 정의 하 고 실행 규칙을 준수 하는 기능을 제공 하는 방법을 설명 합니다.
 
-## <a name="workload-isolation"></a>워크 로드 격리
+## <a name="workload-isolation"></a>워크로드 격리
 
-워크 로드 격리는 작업 그룹에 대 한 리소스를 단독으로 예약 하는 것을 의미 합니다.  워크 로드 격리는 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0 보다 크게 구성 하 여 수행 됩니다.  엄격한 Sla를 준수 해야 하는 연속 실행 작업의 경우 격리는 작업 그룹에 대 한 리소스를 항상 사용할 수 있도록 합니다. 
+워크 로드 격리는 작업 그룹에 대 한 리소스를 단독으로 예약 하는 것을 의미 합니다.  워크 로드 격리는 [작업 그룹 만들기](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0 보다 크게 구성 하 여 수행 됩니다.  엄격한 Sla를 준수 해야 하는 연속 실행 작업의 경우 격리는 작업 그룹에 대 한 리소스를 항상 사용할 수 있도록 합니다. 
 
-워크 로드 격리를 구성 하면 보장 된 수준의 동시성이 암시적으로 정의 됩니다.  MIN_PERCENTAGE_RESOURCE가 30%로 설정 되 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT가 2%로 설정 된 경우 작업 그룹에 대해 15-동시성 수준이 보장 됩니다.  보장 된 동시성을 확인 하려면 아래 방법을 고려 하세요.
+워크 로드 격리를 구성 하면 보장 된 수준의 동시성이 암시적으로 정의 됩니다.  MIN_PERCENTAGE_RESOURCE 30%로 설정 되 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 2%로 설정 된 경우 작업 그룹에 대해 15-동시성 수준이 보장 됩니다.  보장 된 동시성을 확인 하려면 아래 방법을 고려 하세요.
 
 [보장 된 동시성] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
@@ -43,7 +43,7 @@ ms.locfileid: "73685361"
 
 워크 로드 격리 구성은 작업 그룹에 활성 요청이 없는 경우에도 작업 그룹에 리소스가 할당 될 때 주의 해 서 수행 해야 합니다.  Over-격리를 구성 하면 전반적인 시스템 사용률이 감소 될 수 있습니다.
 
-모든 작업 그룹에 구성 된 min_percentage_resource의 합계가 100%와 같으면 100%의 워크 로드 격리: 100% 격리를 구성 하는 워크 로드 관리 솔루션을 사용 하지 않아야 합니다.  이 유형의 구성은 지나치게 제한적 이며 고정 되어 실수로 잘못 분류 된 리소스 요청을 위한 공간을 거의 두지 않습니다.  격리를 위해 구성 되지 않은 작업 그룹에서 하나의 요청을 실행 하도록 허용 하는 프로 비전이 있습니다.  이 요청에 할당 된 리소스는 시스템 Dmv에 0으로 표시 되 고 시스템 예약 리소스에서 smallrc 수준의 리소스 부여를 받습니다.
+사용자는 100%의 워크 로드 격리를 구성 하는 워크 로드 관리 솔루션을 피해 야 합니다 100. 모든 작업 그룹에 대해 구성 된 min_percentage_resource의 합계가 100%와 같으면%의 격리가 달성 됩니다.  이 유형의 구성은 지나치게 제한적 이며 고정 되어 실수로 잘못 분류 된 리소스 요청을 위한 공간을 거의 두지 않습니다.  격리를 위해 구성 되지 않은 작업 그룹에서 하나의 요청을 실행 하도록 허용 하는 프로 비전이 있습니다.  이 요청에 할당 된 리소스는 시스템 Dmv에 0으로 표시 되 고 시스템 예약 리소스에서 smallrc 수준의 리소스 부여를 받습니다.
 
 > [!NOTE] 
 > 리소스 사용률을 최적화 하기 위해 일부 격리를 활용 하는 워크 로드 관리 솔루션을 사용 하 여 Sla를 충족 하 고 [작업 중요도](sql-data-warehouse-workload-importance.md)에 따라 액세스 되는 공유 리소스를 혼합 합니다.
@@ -52,26 +52,26 @@ ms.locfileid: "73685361"
 
 워크 로드 포함은 작업 그룹에서 사용할 수 있는 리소스의 양을 제한 하는 것을 의미 합니다.  작업 포함은 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 CAP_PERCENTAGE_RESOURCE 매개 변수를 100 미만으로 구성 하 여 수행 됩니다.  임시 쿼리를 통해 가상 분석을 실행할 수 있도록 사용자가 시스템에 대 한 읽기 액세스 권한을 필요로 하는 시나리오를 고려해 보세요.  이러한 유형의 요청은 시스템에서 실행 되는 다른 작업에 부정적인 영향을 미칠 수 있습니다.  제약을 구성 하면 리소스의 양이 제한 됩니다.
 
-워크 로드 포함을 구성 하면 최대 수준의 동시성이 암시적으로 정의 됩니다.  CAP_PERCENTAGE_RESOURCE가 60%로 설정 되 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT가 1%로 설정 된 경우 작업 그룹에 대해 최대 60의 동시성 수준이 허용 됩니다.  최대 동시성을 확인 하려면 아래에 포함 된 방법을 고려 하세요.
+워크 로드 포함을 구성 하면 최대 수준의 동시성이 암시적으로 정의 됩니다.  CAP_PERCENTAGE_RESOURCE를 60%로 설정 하 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 1%로 설정 하면 작업 그룹에 대해 최대 60 수준까지 허용 됩니다.  최대 동시성을 확인 하려면 아래에 포함 된 방법을 고려 하세요.
 
 [최대 동시성] = [`CAP_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 
 > [!NOTE] 
-> 작업 그룹의 유효 CAP_PERCENTAGE_RESOURCE는 MIN_PERCENTAGE_RESOURCE가 0 보다 큰 작업 그룹을 만든 경우 100%에 도달 하지 않습니다.  유효 런타임 값은 [_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 를 참조 하세요.
+> 0 보다 큰 수준에서 MIN_PERCENTAGE_RESOURCE 있는 작업 그룹을 만든 경우 작업 그룹의 유효 CAP_PERCENTAGE_RESOURCE 100%에 도달 하지 않습니다.  유효 런타임 값은 [dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 를 참조 하세요.
 
 ## <a name="resources-per-request-definition"></a>요청 정의 당 리소스
 
-작업 그룹은 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용 하 여 요청당 할당 된 리소스의 최소 및 최대 양을 정의 하는 메커니즘을 제공 합니다.  이 경우 리소스는 CPU 및 메모리입니다.  이러한 값을 구성 하면 시스템에서 수행할 수 있는 리소스 양과 동시성 수준을 결정 합니다.
+작업 그룹은 [작업 만들기 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용 하 여 요청당 할당 된 리소스의 최소 및 최대 양을 정의 하는 메커니즘을 제공 합니다.  이 경우 리소스는 CPU 및 메모리입니다.  이러한 값을 구성 하면 시스템에서 수행할 수 있는 리소스 양과 동시성 수준을 결정 합니다.
 
 > [!NOTE] 
-> REQUEST_MAX_RESOURCE_GRANT_PERCENT는 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 대해 지정 된 것과 동일한 값을 기본값으로 설정 하는 선택적 매개 변수입니다.
+> REQUEST_MAX_RESOURCE_GRANT_PERCENT은 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 대해 지정 된 것과 동일한 값을 기본값으로 설정 하는 선택적 매개 변수입니다.
 
-리소스 클래스를 선택 하는 것과 같이 REQUEST_MIN_RESOURCE_GRANT_PERCENT를 구성 하면 요청에서 사용 하는 리소스의 값이 설정 됩니다.  집합 값으로 표시 되는 리소스의 양은 실행을 시작 하기 전에 요청에 할당 될 때 보장 됩니다.  리소스 클래스에서 작업 그룹으로 마이그레이션하는 고객의 경우 리소스 클래스에서 작업 그룹으로 시작 지점으로 매핑하 [는 방법](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) 문서를 참조 하세요.
+리소스 클래스를 선택 하는 것 처럼 REQUEST_MIN_RESOURCE_GRANT_PERCENT를 구성 하면 요청에서 사용 하는 리소스의 값이 설정 됩니다.  집합 값으로 표시 되는 리소스의 양은 실행을 시작 하기 전에 요청에 할당 될 때 보장 됩니다.  리소스 클래스에서 작업 그룹으로 마이그레이션하는 고객의 경우 리소스 클래스에서 작업 그룹으로 시작 지점으로 매핑하 [는 방법](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md) 문서를 참조 하세요.
 
-REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 큰 값으로 구성 하면 시스템에서 요청당 추가 리소스를 할당할 수 있습니다.  요청을 예약 하는 동안 시스템은 공유 풀의 리소스 가용성과의 현재 부하를 기준으로 REQUEST_MIN_RESOURCE_GRANT_PERCENT와 REQUEST_MAX_RESOURCE_GRANT_PERCENT 사이에 있는 요청에 대 한 실제 리소스 할당을 결정 합니다. 컴퓨터.  쿼리가 예약 될 때 리소스의 [공유 풀](#shared-pool-resources) 에 리소스가 있어야 합니다.  
+REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 큰 값으로 REQUEST_MAX_RESOURCE_GRANT_PERCENT를 구성 하면 시스템에서 요청당 추가 리소스를 할당할 수 있습니다.  요청을 예약 하는 동안 시스템은 REQUEST_MIN_RESOURCE_GRANT_PERCENT와 REQUEST_MAX_RESOURCE_GRANT_PERCENT 사이에 있는 요청에 대 한 실제 리소스 할당을 결정 합니다 .이는 공유 풀의 리소스 가용성과 컴퓨터.  쿼리가 예약 될 때 리소스의 [공유 풀](#shared-pool-resources) 에 리소스가 있어야 합니다.  
 
 > [!NOTE] 
-> REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT에는 유효한 MIN_PERCENTAGE_RESOURCE 및 CAP_PERCENTAGE_RESOURCE 값에 종속 된 유효 값이 있습니다.  유효 런타임 값은 [_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 를 참조 하세요.
+> REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT에는 유효한 MIN_PERCENTAGE_RESOURCE 및 CAP_PERCENTAGE_RESOURCE 값에 따라 달라 지는 유효 값이 있습니다.  유효 런타임 값은 [dm_workload_management_workload_groups_stats](https://review.docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql?view=azure-sqldw-latest) 를 참조 하세요.
 
 ## <a name="execution-rules"></a>실행 규칙
 
@@ -79,7 +79,7 @@ REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 
 
 ## <a name="shared-pool-resources"></a>공유 풀 리소스
 
-공유 풀 리소스는 격리를 위해 구성 되지 않은 리소스입니다.  MIN_PERCENTAGE_RESOURCE가 0으로 설정 된 작업 그룹은 공유 풀의 리소스를 활용 하 여 요청을 실행 합니다.  CAP_PERCENTAGE_RESOURCE가 MIN_PERCENTAGE_RESOURCE 보다 큰 작업 그룹도 공유 리소스를 사용 합니다.  공유 풀에서 사용할 수 있는 리소스의 양은 다음과 같이 계산 됩니다.
+공유 풀 리소스는 격리를 위해 구성 되지 않은 리소스입니다.  MIN_PERCENTAGE_RESOURCE가 0으로 설정 된 작업 그룹은 공유 풀의 리소스를 활용 하 여 요청을 실행 합니다.  CAP_PERCENTAGE_RESOURCE 보다 큰 작업 그룹에도 공유 리소스가 사용 MIN_PERCENTAGE_RESOURCE.  공유 풀에서 사용할 수 있는 리소스의 양은 다음과 같이 계산 됩니다.
 
 [공유 풀] = 100-[모든 작업 그룹의 `MIN_PERCENTAGE_RESOURCE` 합계]
 
@@ -88,5 +88,5 @@ REQUEST_MAX_RESOURCE_GRANT_PERCENT를 REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: 워크 로드 격리 구성](quickstart-configure-workload-isolation-tsql.md)
-- [작업 그룹 만들기](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [작업 그룹 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [리소스 클래스를 작업 그룹으로 변환](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md)합니다.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 3d2895fa8d45ad594963d3f26cbe04fd968f5fcc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 309a2592dbac2918aeb532fbe91e33d296f4e5a5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487528"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280897"
 ---
 # <a name="intents-in-your-luis-app"></a>LUIS 앱의 의도
 
@@ -24,7 +24,7 @@ ms.locfileid: "73487528"
 
 사용자가 애플리케이션에서 수행하려는 작업에 해당하는 의도 집합을 정의합니다. 예를 들어, 여행 앱에서는 다음과 같은 여러 의도를 정의합니다.
 
-여행 앱 의도   |   발화 예제   | 
+여행 앱 의도   |   예제 발언   | 
 ------|------|
  BookFlight     |   “Book me a flight to Rio next week” <br/> “Fly me to Rio on the 24th” <br/> “I need a plane ticket next Sunday to Rio de Janeiro”    |
  Greeting     |   “Hi” <br/>“hello” <br/>“Good morning”  |
@@ -47,13 +47,13 @@ Utterance에 대 한 모든 의도의 점수를 원하는 경우 예측 API의 �
 |V3|`show-all-intents=true`|
 
 ## <a name="intent-compared-to-entity"></a>의도 및 엔터티 비교
-의도는 bot 사용자에 대해 수행 해야 하는 작업을 나타내며 전체 utterance을 기반으로 합니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
+의도는 응용 프로그램이 사용자에 대해 수행 해야 하는 작업을 나타내며 전체 utterance을 기반으로 합니다. 발화에는 하나의 상위 점수 의도만 포함되지만, 여러 엔터티가 포함될 수 있습니다. 
 
 <a name="how-do-intents-relate-to-entities"></a>
 
 사용자가 checkweather () 함수 호출과 같이 클라이언트 응용 프로그램에서 작업을 _트리거하는 의도_ 를 만듭니다. 그런 다음 작업을 실행 하는 데 필요한 매개 변수를 나타내는 엔터티를 만듭니다. 
 
-|의도   | 엔터티 | 예제 발화   | 
+|Intent   | 엔터티 | 예제 발화   | 
 |------------------|------------------------------|------------------------------|
 | CheckWeather | { "type": "location", "entity": "seattle" }<br>{ "type": "builtin.datetimeV2.date","entity": "tomorrow","resolution":"2018-05-23" } | What's the weather like in `Seattle` `tomorrow`? |
 | CheckWeather | { "type": "date_range", "entity": "this weekend" } | Show me the forecast for `this weekend` | 

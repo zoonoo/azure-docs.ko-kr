@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: aahi
-ms.openlocfilehash: 15beb8d3e326f04f1ae61c26f00e9428d95f6bc4
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6ef23c03f01cd8e83d4327f358eaf12209659ce8
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031368"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74286448"
 ---
 # <a name="whats-new-in-the-text-analytics-api"></a>Text Analytics API의 새로운 기능
 
@@ -29,8 +29,8 @@ ms.locfileid: "74031368"
     * 전화 번호
     * IP 주소
 
-* 개인 정보 엔터티 형식을 인식 하기 위한 [새 끝점](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) (영어만 해당)
-* [엔터티 인식]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)를 위한 별도의 끝점.
+* 개인 정보 엔터티 형식을 인식 하기 위한 [새 끝점](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionPii) (영어만 해당)
+* [엔터티 인식](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) 및 [엔터티 링크](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesLinking)를 위한 별도의 끝점.
 
 엔터티 연결은 영어와 스페인어를 지원 합니다. NER 언어 지원은 엔터티 형식에 따라 달라 집니다. 
 
@@ -39,12 +39,12 @@ ms.locfileid: "74031368"
 
 ## <a name="sentiment-analysis-v3-public-preview---october-2019"></a>감정 분석 v3 공개 미리 보기-10 월 2019
 
-이제 [감정 분석의 다음 버전](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) 을 공개 미리 보기에서 사용할 수 있으며, API의 텍스트 분류 및 점수 매기기의 정확성과 세부 정보에 상당한 향상 된 기능을 제공 합니다. 추가로 다음을 제공 합니다.
+이제 [감정 분석의 다음 버전](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment) 을 공개 미리 보기에서 사용할 수 있으며, API의 텍스트 분류 및 점수 매기기의 정확성과 세부 정보에 상당한 향상 된 기능을 제공 합니다. 추가로 다음을 제공 합니다.
 
 * 텍스트의 다른 정서에 대 한 자동 레이블 지정
 * 문서 및 문장 수준에서 분석 및 출력을 감정 합니다. 
 
-영어 (`en`), 일본어 (`ja`)를 지원 합니다. 중국어 간체 (`zh-Hans`), 중국어 번체 (`zh-Hant`), 프랑스어 (`fr`), 이탈리아어 (`it`), 스페인어 (`es`), 네덜란드어 (`nl`), 포르투갈어 (`pt`) 및 독일어 (`de`)를 사용할 수 있으며, `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`등의 지역에서 사용할 수 있습니다.`North Europe``Southeast Asia``South Central US``UK South``West Europe``West US 2` 
+영어 (`en`), 일본어 (`ja`)를 지원 합니다. 중국어 간체 (`zh-Hans`), 중국어 번체 (`zh-Hant`), 프랑스어 (`fr`), 이탈리아어 (`it`), 스페인어 (`es`), 네덜란드어 (`nl`), 포르투갈어 (`pt`) 및 독일어 (`de`)를 사용할 수 있으며, `Australia East`, `Central Canada`, `Central US`, `East Asia`, `East US`, `East US 2`등의 지역에서 사용할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [감정 분석 v 3에 대 한 자세한 정보](how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-v3-public-preview)

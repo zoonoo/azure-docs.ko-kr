@@ -4,12 +4,12 @@ description: 이 문서에서는 REST API를 사용 하 여 Azure VM 백업에 �
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: c929f820862f5d041b4a63a1ca9c083abf1a1e4c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4f73958a46e408f85d1f23371552aad0d5540184
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173456"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554902"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>REST API를 통해 Azure Backup을 사용하여 Azure VM 백업
 
@@ -35,13 +35,13 @@ POST URI에는 `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01
 ```
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>응답
 
 '새로 고침' 작업은 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |204 콘텐츠 없음     |         |  반환된 콘텐츠가 없는 경우 정상      |
 |202 수락됨     |         |     수락됨    |
@@ -104,7 +104,7 @@ GET https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{
 
 #### <a name="responses-1"></a>보낸
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     | [WorkloadProtectableItemResourceList](https://docs.microsoft.com/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       확인 |
 
@@ -149,7 +149,7 @@ X-Powered-By: ASP.NET
 > [!TIP]
 > *GET* 응답에서 값의 개수는 '페이지'당 200개로 제한됩니다. 'nextLink' 필드를 사용하여 다음 집합의 응답에 대한 URL을 가져옵니다.
 
-이 응답에는 보호되지 않는 모든 Azure VM 목록이 포함되며 각 `{value}`에는 Azure Recovery Service에서 백업을 구성하는 데 필요한 모든 정보가 포함됩니다. Backup을 구성하려면 `{name}` 섹션에서 `{virtualMachineId}` 필드 및 `{properties}` 필드를 참고합니다. 아래에 설명된 대로 이러한 필드 값에서 두 개의 변수를 생성합니다.
+이 응답에는 보호되지 않는 모든 Azure VM 목록이 포함되며 각 `{value}`에는 Azure Recovery Service에서 백업을 구성하는 데 필요한 모든 정보가 포함됩니다. Backup을 구성하려면 `{properties}` 섹션에서 `{name}` 필드 및 `{virtualMachineId}` 필드를 참고합니다. 아래에 설명된 대로 이러한 필드 값에서 두 개의 변수를 생성합니다.
 
 - containerName = "iaasvmcontainer;"+`{name}`
 - protectedItemName = "vm;"+ `{name}`
@@ -162,7 +162,7 @@ X-Powered-By: ASP.NET
 
 ### <a name="enabling-protection-for-the-azure-vm"></a>Azure VM 보호 사용
 
-관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](https://docs.microsoft.com/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 다음 예제에서 "DefaultPolicy"를 선택합니다.
+관련 VM이 "캐시"되고 "확인"된 경우 정책을 선택하여 보호합니다. 자격 증명 모음의 기존 정책에 대한 자세한 내용은 [정책 API 목록](https://docs.microsoft.com/rest/api/backup/backuppolicies/list)을 참조하세요. 그런 다음, 정책 이름을 참조하여 [관련 정책](/rest/api/backup/protectionpolicies/get)을 선택합니다. 정책을 만들려면 [정책 자습서 만들기](backup-azure-arm-userestapi-createorupdatepolicy.md)를 참조하세요. 다음 예제에서 "DefaultPolicy"를 선택합니다.
 
 보호 사용은 '보호된 항목'를 만드는 비동기 *PUT* 작업입니다.
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 보호된 항목을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |ProtectedItem 리소스 속성         |
 
@@ -200,15 +200,15 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 }
 ```
 
-`{sourceResourceId}`는 `{virtualMachineId}`보호 가능한 항목 목록의 응답[의 위에서 설명한 ](#example-responses-1)입니다.
+`{sourceResourceId}`는 [보호 가능한 항목 목록의 응답](#example-responses-1)의 위에서 설명한 `{virtualMachineId}`입니다.
 
-#### <a name="responses"></a>Responses
+#### <a name="responses"></a>응답
 
 보호된 항목 만들기는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |200 정상     |    [ProtectedItemResource](https://docs.microsoft.com/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |
@@ -294,7 +294,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 주문형 백업을 트리거하려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](https://docs.microsoft.com/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |BackupRequestResource 속성         |
 
@@ -313,13 +313,13 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 }
 ```
 
-### <a name="responses"></a>Responses
+### <a name="responses"></a>응답
 
 주문형 백업의 트리거는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 200(정상)의 두 응답을 반환합니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |202 수락됨     |         |     수락됨    |
 
@@ -439,7 +439,7 @@ DELETE https://management.azure.com//Subscriptions/00000000-0000-0000-0000-00000
 
 이 작업은 다른 작업을 만드는 경우 202(수락됨) 및 해당 작업이 완료되는 경우 204(NoContent)의 두 응답을 반환합니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
 |204 NoContent     |         |  NoContent       |
 |202 수락됨     |         |     수락됨    |

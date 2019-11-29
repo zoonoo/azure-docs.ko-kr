@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에서 데이터 수집 | Microsoft Docs
-description: " Azure Security Center에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
+description: 이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법을 설명 합니다.
 services: security-center
 author: memildin
 manager: rkarlin
@@ -8,17 +8,17 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 8aa0adf03aef2085ed2374bcfc7ea774d002061c
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 4b67e7a2ee9f2d734d927b3488cc15ca310f4295
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162681"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559053"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. 데이터는 컴퓨터에서 다양 한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log Analytics 에이전트는 작업 영역에 크래시 덤프 파일을 복사 합니다.
 
-누락된 업데이트, 잘못 구성된 OS 보안 설정, 엔드포인트 보호 사용, 상태 및 위협 검색에 대한 가시성을 제공하려면 데이터 컬렉션이 필요합니다. 
+누락 된 업데이트, 잘못 구성 된 OS 보안 설정, endpoint protection 상태, 상태 및 위협 검색에 대 한 가시성을 제공 하려면 데이터 컬렉션이 필요 합니다. 
 
 이 문서에서는 Log Analytics 에이전트를 설치 하 고 수집 된 데이터를 저장할 Log Analytics 작업 영역을 설정 하는 방법을 설명 합니다. 데이터 컬렉션을 사용하도록 설정하려면 두 작업을 모두 수행해야 합니다. 
 

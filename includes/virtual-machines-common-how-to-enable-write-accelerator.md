@@ -5,15 +5,15 @@ services: virtual-machines
 author: msraiye
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/23/2019
+ms.date: 11/27/2019
 ms.author: raiye
 ms.custom: include file
-ms.openlocfilehash: c8e0bb50e14467d2950d97da660fc8e6fa176b99
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 456d550659c04b2272c048fcd64fe73b1a11522a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008922"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566314"
 ---
 Write Accelerator는 Azure Managed Disks를 단독으로 갖춘 Premium Storage의 M 시리즈 VM(가상 머신)용 디스크 기능입니다. 이름에서 알 수 있듯이, 이 기능은 Azure Premium Storage에 대한 쓰기의 I/O 대기 시간을 향상시키기 위한 것입니다. Write Accelerator는 최신 데이터베이스를 위해 성능이 매우 뛰어난 방식으로 디스크에서 로그 파일 업데이트를 유지해야 하는 경우에 이상적입니다.
 
@@ -46,10 +46,11 @@ Write Accelerator에서 지원할 수 있는 VM당 Azure Premium Storage VHD 수
 
 | VM SKU | Write Accelerator 디스크 수 | VM당 Write Accelerator 디스크 IOPS |
 | --- | --- | --- |
+| M416ms_v2, M416s_v2| 16 | 20000 |
 | M208ms_v2, M208s_v2| 8 | 10000 |
-| M128ms, 128s | 16 | 20000 |
+| M128ms, M128s | 16 | 20000 |
 | M64ms, M64ls, M64s | 8 | 10000 |
-| M32ms, M32ls, M32ts, M32s | 4 | 5000 |
+| M32ms, M32ls, M32ts, M32s | 4 | 5,000 |
 | M16ms, M16s | 2 | 2500 |
 | M8ms, M8s | 1 | 1250 |
 
@@ -59,7 +60,7 @@ IOPS 제한은 VM당 및 디스크가 *아닌* VM을 기준으로 합니다. 모
 
 다음 몇 가지 섹션에서는 Azure Premium Storage VHD에 Write Accelerator를 사용하도록 설정하는 방법에 대해 설명합니다.
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>전제 조건
 
 이 시점에서 Write Accelerator 사용에 적용되는 필수 조건은 다음과 같습니다.
 
@@ -82,14 +83,14 @@ Write Accelerator에서 지원하는 디스크를 사용하도록 설정하거�
 
 새 스위치 매개 변수인 **OsDiskWriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [Set-AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
+- [집합 AzVmssStorageProfile](https://docs.microsoft.com/powershell/module/az.compute/Set-AzVmssStorageProfile?view=azurermps-6.0.0)
 
 매개 변수 집합을 지정하지 않으면 기본적으로 해당 속성이 false로 설정되어 Write Accelerator를 이용하지 않는 디스크가 반환됩니다.
 
 새 선택적 부울(nullable이 아님) 매개 변수인 **-OsDiskWriteAccelerator**가 추가된 cmdlet은 다음과 같습니다.
 
-- [Update-AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
-- [Update-AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
+- [업데이트 AzVM](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVM?view=azurermps-6.0.0)
+- [업데이트 AzVmss](https://docs.microsoft.com/powershell/module/az.compute/Update-AzVmss?view=azurermps-6.0.0)
 
 Azure Write Accelerator의 디스크 지원을 제어하려면 $true 또는 $false를 지정합니다.
 

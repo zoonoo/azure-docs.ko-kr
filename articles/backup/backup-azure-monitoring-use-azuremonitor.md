@@ -4,12 +4,12 @@ description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 66417071190fa45a746ce0b80a9de12968198bda
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278287"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554870"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -37,7 +37,7 @@ Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소�
 
 ![Recovery Services 자격 증명 모음의 진단 설정, 대상 지정 Log Analytics](media/backup-azure-monitoring-laworkspace/diagnostic-setting-new.png)
 
-다른 구독에서 Log Analytics 작업 영역을 대상으로 지정할 수 있습니다. 한 위치의 구독에서 자격 증명 모음을 모니터링 하려면 여러 Recovery Services 자격 증명 모음에 대해 동일한 Log Analytics 작업 영역을 선택 합니다. Log Analytics 작업 영역 Azure Backup와 관련 된 모든 정보를 표시 하려면 표시 되는 설정/해제에서 **리소스 특정** 을 선택 하 고 다음 이벤트 ( **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**)를 선택 합니다. LA 진단 설정 구성에 대 한 자세한 내용은 [이 문서](https://aka.ms/AA6jkus) 를 참조 하세요.
+다른 구독에서 Log Analytics 작업 영역을 대상으로 지정할 수 있습니다. 한 위치의 구독에서 자격 증명 모음을 모니터링 하려면 여러 Recovery Services 자격 증명 모음에 대해 동일한 Log Analytics 작업 영역을 선택 합니다. Log Analytics 작업 영역 Azure Backup와 관련 된 모든 정보를 표시 하려면 표시 되는 설정/해제에서 **리소스 특정** 을 선택 하 고 다음 이벤트 ( **CoreAzureBackup**, **AddonAzureBackupJobs**, **AddonAzureBackupAlerts**, **AddonAzureBackupPolicy**, **AddonAzureBackupStorage**, **AddonAzureBackupProtectedInstance**)를 선택 합니다. LA 진단 설정 구성에 대 한 자세한 내용은 [이 문서](backup-azure-diagnostic-events.md) 를 참조 하세요.
 
 > [!IMPORTANT]
 > 구성을 완료 한 후에는 초기 데이터 푸시가 완료 될 때까지 24 시간 동안 대기 해야 합니다. 초기 데이터 푸시 후에는이 문서의 뒷부분에 나오는 [frequency 섹션](#diagnostic-data-update-frequency)에서 모든 이벤트가 푸시됩니다.

@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f06da43e758c24da65664b34dd83f876a00e3a0
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0501da153567f3b95804d8a8a6576d8cf199762c
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174904"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74553986"
 ---
 # <a name="view-add-and-remove-assignments-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 할당 보기, 추가 및 제거
 
@@ -76,6 +76,24 @@ Azure AD 자격 관리에서 패키지, 정책 및 상태에 대 한 액세스 �
 1. **추가** 를 클릭 하 여 선택한 사용자를 액세스 패키지에 직접 할당 합니다.
 
     몇 분 후에 **새로 고침** 을 클릭 하 여 할당 목록에서 사용자를 확인 합니다.
+
+## <a name="remove-an-assignment"></a>할당 제거
+
+**필수 역할:** 전역 관리자, 사용자 관리자, 카탈로그 소유자 또는 액세스 패키지 관리자
+
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+
+1. 왼쪽 메뉴에서 **액세스 패키지** 를 클릭 한 다음 액세스 패키지를 엽니다.
+
+1. 왼쪽 메뉴에서 **할당**을 클릭 합니다.
+ 
+1. 액세스 패키지에서 제거 하려는 할당의 사용자 옆에 있는 확인란을 클릭 합니다. 
+
+1. 왼쪽 창의 맨 위에 있는 **제거** 단추를 클릭 합니다. 
+ 
+    ![할당-액세스 패키지에서 사용자 제거](./media/entitlement-management-access-package-assignments/remove-assignment-select-remove-assignment.png)
+
+    할당을 제거 했다는 알림이 표시 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

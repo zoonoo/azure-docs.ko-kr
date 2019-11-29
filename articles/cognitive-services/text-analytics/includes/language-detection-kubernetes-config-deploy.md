@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/19/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: e3051a72a115e711a99ecd68756967e2cef0cc04
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: c39df1e6af292d3774c6cba62663454bd2d8ad28
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130044"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383489"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>AKS 클러스터에 언어 감지 컨테이너 배포
 
@@ -24,7 +24,7 @@ ms.locfileid: "71130044"
     az login
     ```
 
-1. AKS 클러스터에 로그인 합니다. `your-cluster-name` 및`your-resource-group` 을 적절 한 값으로 바꿉니다.
+1. AKS 클러스터에 로그인 합니다. `your-cluster-name` 및 `your-resource-group`을 적절 한 값으로 바꿉니다.
 
     ```azurecli
     az aks get-credentials -n your-cluster-name -g -your-resource-group
@@ -48,7 +48,7 @@ ms.locfileid: "71130044"
     code .
     ```
 
-1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value` 및`apikey/value` 을 사용자의 정보로 바꾸어야 합니다.
+1. 텍스트 편집기 내에서 이름이 *.yaml*인 새 파일을 만들고 다음 yaml을 붙여넣습니다. `billing/value` 및 `apikey/value`을 사용자의 정보로 바꾸어야 합니다.
 
     ```yaml
     apiVersion: apps/v1beta1
@@ -66,6 +66,13 @@ ms.locfileid: "71130044"
             image: mcr.microsoft.com/azure-cognitive-services/language
             ports:
             - containerPort: 5000
+            resources:
+              requests:
+                memory: 2Gi
+                cpu: 1
+              limits:
+                memory: 4Gi
+                cpu: 1
             env:
             - name: EULA
               value: "accept"
@@ -88,10 +95,10 @@ ms.locfileid: "71130044"
     ```
 
 1. 파일을 저장 하 고 텍스트 편집기를 닫습니다.
-1. Kubernetes `apply` 파일을 대상으로 하 여 다음 명령을 실행 합니다 *.*
+1. Kubernetes 파일을 대상으로 하는 `apply` 명령을 실행 *합니다.*
 
     ```console
-    kuberctl apply -f language.yaml
+    kubectl apply -f language.yaml
     ```
 
     명령에서 배포 구성을 성공적으로 적용 한 후에는 다음 출력과 비슷한 메시지가 표시 됩니다.

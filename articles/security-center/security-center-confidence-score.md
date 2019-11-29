@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 신뢰도 점수 | Microsoft Docs
-description: " Azure Security Center 신뢰도 점수를 사용하는 방법을 알아봅니다. "
+description: Security Center은 팀에서 위협이 합법적인 지 여부 및 경고를 심사 하 고 우선 순위를 정하는 방법을 결정 하는 데 도움이 되는 신뢰도 점수를 생성 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: 0f0380ca4a285d9cb4a8472a40c77130a8f63035
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b7e53291e10db17f848553b17dae2f84bdb08b7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202386"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558971"
 ---
 # <a name="alert-confidence-score"></a>경고 신뢰도 점수 
 

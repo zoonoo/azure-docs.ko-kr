@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 2133819ce7c298e2f73fdc5a68b80b64f9e72ea7
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c86df7c50e59309f921c60738870407e74a23219
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480423"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555212"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -41,7 +41,7 @@ ms.locfileid: "74480423"
 
 양식에 있는 모든 필드를 작성합니다. 이 양식은 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 응용 프로그램을 만들기 위해 작성 하는 양식과 비슷합니다. 자세한 내용은 [IoT Central 애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조하세요.
 
-응용 프로그램 템플릿으로 **샘플 Contoso**, **사용자 지정 응용 프로그램** 및 **샘플 devkits** 를 선택 하 여 일반 기능을 갖춘 응용 프로그램을 IoT Central 만들 수 있으며, 다른 모든 응용 프로그램 템플릿은 공개 미리 보기 기능을 사용 합니다.
+응용 프로그램 템플릿으로 **샘플 Contoso**, **사용자 지정 응용 프로그램** 및 **샘플 devkits** 를 선택 하 여 일반적으로 사용할 수 있는 기능으로 응용 프로그램을 IoT Central 만들 수 있으며, 다른 모든 응용 프로그램 템플릿은 공개 미리 보기 기능을 사용 합니다.
 
 ![IoT Central 양식 만들기](media/howto-manage-iot-central-from-portal/image6a.png)
 

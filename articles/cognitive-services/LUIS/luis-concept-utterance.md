@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: diberry
-ms.openlocfilehash: 8069b3b9c9a226e29a3eae3261948ee92291726d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7412677773b60a1894a6ece7251e797bfddee091
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486632"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280804"
 ---
 # <a name="understand-what-good-utterances-are-for-your-luis-app"></a>LUIS 앱에 적합한 발언이 무엇인지 이해
 
@@ -53,24 +53,24 @@ LUIS 모델에 [예제 발언을 추가](luis-how-to-add-example-utterances.md)�
 
 다음과 같은 예제 발언을 사용하세요.
 
-|발화 예제|
+|예제 발언|
 |--|
 |how do I get a computer?|
 |Where do I get a computer?|
 |I want to get a computer, how do I go about it?|
 |When can I have a computer?| 
 
-여기서 핵심 용어인 “computer”는 변형되지 않습니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추하지만 학습을 위해 발언을 만들 때는 변형하는 것이 더 좋습니다.
+여기서 핵심 용어 "computer"는 다양 하지 않습니다. 데스크톱 컴퓨터, 랩톱, 워크스테이션 또는 간단히 머신과 같은 대체 용어를 사용합니다. LUIS는 컨텍스트에서 동의어를 지능적으로 유추할 수 있지만 교육용 길이 발언을 만드는 경우에는 항상 변경 하는 것이 좋습니다.
 
 ## <a name="example-utterances-in-each-intent"></a>각 의도의 예제 발언
 
-각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 의도에 하나 또는 소수의 예제 발언만 있으면 LUIS는 의도를 정확히 예측하지 못합니다. 
+각 의도에는 15개 이상의 예제 발언이 필요합니다. 예제 발언이 없는 의도로는 LUIS를 학습시킬 수 없습니다. 길이 발언 예를 하나 이상 사용 하는 경우 LUIS가 의도를 정확 하 게 예측 하지 못할 수 있습니다. 
 
 ## <a name="add-small-groups-of-15-utterances-for-each-authoring-iteration"></a>각 작성 반복에 대해 15개의 소규모 발언 그룹 추가
 
 모델의 각 반복에서 많은 양의 발언을 추가하지 않도록 합니다. 15개 정도의 발언을 추가합니다. [학습](luis-how-to-train.md), [게시](luis-how-to-publish-app.md) 및 [테스트](luis-interactive-test.md)를 다시 진행합니다.  
 
-LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적인 모델을 빌드합니다. 너무 많은 발언을 추가하면 혼동을 가져오므로 유용하지 않습니다.  
+LUIS는 LUIS 모델 작성자가 신중하게 선택한 발언으로 효과적인 모델을 빌드합니다. 너무 많은 발언을 추가하면 혼동을 가져오므로 유용하지 않습니다.
 
 처음에는 소수의 발언으로 시작한 후 정확한 의도 예측 및 엔터티 추출을 위해 [엔드포인트 발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다.
 
@@ -112,7 +112,7 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 문장 부호가 정규화 되지 않은 경우에는 일부 클라이언트 응용 프로그램이 이러한 표시에 중요 한 영향을 줄 수 있으므로 LUIS는 기본적으로 문장 부호를 무시 하지 않습니다. 문장 부호를 사용하는 예제 발언과 문장 부호를 사용하지 않은 예제 발언이 모두 동일한 관련 점수를 반환하는지 확인해야 합니다. 
 
-모델이 [예제 발언](luis-concept-utterance.md)(문장 부호를 포함하거나 포함하지 않음) 또는 [패턴](luis-concept-patterns.md)(`I am applying for the {Job} position[.]` 특수 구문을 사용하여 문장 부호를 무시하는 것이 더 쉬움)에서 문장 부호를 처리하는지 확인합니다.
+예 길이 발언 (문장 부호 포함 안 함) 또는 특수 구문을 사용 하 여 문장 부호를 무시 하기 쉬운 [패턴](luis-concept-patterns.md) 에서 모델이 구두점을 처리 하는지 확인 합니다 `I am applying for the {Job} position[.]`.
 
 클라이언트 응용 프로그램에서 문장 부호에 특정 한 의미가 없으면 문장 부호를 정규화 하 여 문장 부호를 [무시](#utterance-normalization) 하는 것이 좋습니다. 
 
@@ -122,13 +122,13 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 ## <a name="training-utterances"></a>발언 학습
 
-학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다. 모든 교육 데이터를 사용하기 위해 [ 이름/값 쌍으로 ](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings)버전 설정`UseAllTrainingData` API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.
+학습은 일반적으로 비결정적입니다. 발언 예측은 버전이나 앱마다 약간 다를 수 있습니다. 모든 교육 데이터를 사용하기 위해 `UseAllTrainingData` 이름/값 쌍으로 [버전 설정](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/versions-update-application-version-settings) API를 업데이트하여 비결정적 학습을 제거할 수 있습니다.
 
 ## <a name="testing-utterances"></a>발언 테스트 
 
 개발자는 발언을 [예측 엔드포인트](luis-how-to-azure-subscription.md) URL로 전송하여 실제 트래픽으로 LUIS 애플리케이션 테스트를 시작해야 합니다. 이러한 발언은 [발언 검토](luis-how-to-review-endpoint-utterances.md)로 의도 및 엔터티의 성능을 개선하는 데 사용됩니다. LUIS 웹 사이트 테스트 창을 통해 제출된 테스트는 엔드포인트로 전송되지 않으므로 활성 학습에 기여하지 않습니다. 
 
-## <a name="review-utterances"></a>발화 검토
+## <a name="review-utterances"></a>발언 검토
 
 모델이 학습되고, 게시되고 [엔드포인트](luis-glossary.md#endpoint) 쿼리를 수신하면 LUIS에서 제안한 [발언을 검토](luis-how-to-review-endpoint-utterances.md)합니다. LUIS는 의도 또는 엔터티에 대해 낮은 점수를 갖는 엔드포인트 발언을 선택합니다. 
 
@@ -142,7 +142,7 @@ Utterance 정규화는 앱 JSON 파일의 설정 이므로 앱을 만들거나 �
 
 다음 발화에서 단어 `fair`는 동형이의어입니다. 즉, 철자는 동일하지만 의미가 다릅니다.
 
-|발언|
+|발화|
 |--|
 |What kind of county fairs are happening in the Seattle area this summer?|
 |Is the current rating for the Seattle review fair?|

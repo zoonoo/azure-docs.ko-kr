@@ -1,14 +1,14 @@
 ---
 title: 리소스의 배열 속성에 대 한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식에 대 한 작업을 수행 하 고, [*] 별칭을 평가 하 고 Azure Policy 정의 규칙을 사용 하 여 요소를 추가 하는 방법을 알아봅니다.
-ms.date: 03/06/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 96598918f0dbcc2f56e8ccc316844ee768306b75
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 035f300d01efe80cc44687d3779d7a5fb6be2fc3
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463507"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555158"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대 한 작성자 정책
 
@@ -16,7 +16,9 @@ Azure Resource Manager 속성은 일반적으로 문자열 및 부울로 정의 
 
 - 여러 옵션을 제공 하는 [정의 매개 변수의](../concepts/definition-structure.md#parameters)형식입니다.
 - 또는 **Notin** **의 조건을** 사용 하는 [정책 규칙](../concepts/definition-structure.md#policy-rule) 의 일부
-- [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias) 을 평가 하 여 **None**, **Any**또는 **All** 등의 특정 시나리오를 평가 하는 정책 규칙의 일부입니다.
+- 평가할 [\[\*\] 별칭](../concepts/definition-structure.md#understanding-the--alias) 을 평가 하는 정책 규칙의 일부입니다.
+  - **없음**, **Any**또는 **All** 등의 시나리오
+  - **개수** 를 포함 하는 복잡 한 시나리오
 - 기존 배열에 바꾸기 또는 기존 배열에 추가에 대 한 추가 [효과](../concepts/effects.md#append)
 
 이 문서에서는 Azure Policy의 각 사용에 대해 설명 하 고 몇 가지 예제 정의를 제공 합니다.
@@ -138,10 +140,10 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 
 ### <a name="evaluating-the--alias"></a>[*] 별칭 평가
 
-이름에 연결 된 **[\*]** 의 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **[\*]** 를 사용 하 여 배열의 각 요소를 평가할 수 있습니다. 항목 평가 별이 세 가지 시나리오는 없음, 모두 및 모두에 유용 합니다.
+이름에 연결 된 **\[\*\]** 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **\*\]를\[** 하 여 배열의 각 요소를 평가할 수 있습니다. 항목 평가 별이 세 가지 표준 시나리오는 None, Any 및 All입니다. 복잡 한 시나리오의 경우 [count](../concepts/definition-structure.md#count)를 사용 합니다.
 
 정책 엔진은 **if** 규칙이 true로 평가 되는 **경우에만** 의 **효과** 를 트리거합니다.
-이 사실은 **[\*]** 이 배열의 개별 요소를 평가 하는 방식을 이해 하는 데 중요 합니다.
+이 사실은 배열의 개별 요소를 평가 하는 **\]\*\[** 하는 방식에 대 한 컨텍스트를 이해 하는 데 중요 합니다.
 
 아래 시나리오 테이블의 정책 규칙 예:
 
@@ -194,10 +196,10 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 
 ## <a name="the-append-effect-and-arrays"></a>추가 효과 및 배열
 
-[추가 효과](../concepts/effects.md#append) 는 details가 **[\*]** 별칭 인지 여부에 따라 다르게 동작 합니다 **.**
+[추가 효과](../concepts/effects.md#append) 는 **\[\*\]** 별칭 인지 여부에 따라 다르게 동작 합니다 **.**
 
-- **[\*]** 별칭이 아니면 append는 전체 배열을 **value** 속성으로 바꿉니다.
-- **[\*]** 별칭이 면 append는 기존 배열에 **value** 속성을 추가 하거나 새 배열을 만듭니다.
+- **\[\*\]** 별칭을 사용 하지 않는 경우 append는 전체 배열을 **value** 속성으로 바꿉니다.
+- **\[\*\]** 별칭이 있으면 추가는 기존 배열에 **value** 속성을 추가 하거나 새 배열을 만듭니다.
 
 자세한 내용은 [추가 예제](../concepts/effects.md#append-examples)를 참조 하세요.
 

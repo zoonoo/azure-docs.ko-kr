@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 238b76040559148c48aa67b99e856a5987b71a7e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 51b0d02443df872a7fae13116ea77b13d05055fa
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123167"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225459"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Bing Spell Check로 맞춤법이 틀린 단어 수정
 
@@ -26,6 +26,7 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 
 
 ## <a name="create-first-key-for-bing-spell-check-v7"></a>Bing Spell Check V7의 첫 번째 키 만들기
+
 [첫 번째 Bing Spell Check API v7 키](https://azure.microsoft.com/try/cognitive-services/?api=spellcheck-api)는 무료입니다. 
 
 ![무료 키 만들기](./media/luis-tutorial-bing-spellcheck/free-key.png)
@@ -35,7 +36,7 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 ## <a name="create-endpoint-key"></a>엔드포인트 키 만들기
 무료 키가 만료되면 엔드포인트 키를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다. 
 
 2. 왼쪽 위 모서리에 있는 **리소스 만들기**를 선택합니다.
 
@@ -61,9 +62,10 @@ LUIS 앱을 [Bing Spell Check API V7](https://azure.microsoft.com/services/cogni
 
 10. 첫 번째 키를 복사합니다. 두 키 중 하나만 필요합니다. 
 
-## <a name="using-the-key-in-luis-test-panel"></a>LUIS 테스트 패널에서 키 사용
-LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [테스트 패널](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)에 있습니다. 키는 LUIS에 저장되는 것이 아니라 세션 변수입니다. 테스트 패널에서 Bing Spell Check API v7 서비스를 발화에 적용하려고 할 때마다 키를 설정해야 합니다. 키 설정에 대해서는 테스트 패널의 [지침](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)을 참조하세요.
-
+<!--
+## Using the key in LUIS test panel
+There are two places in LUIS to use the key. The first is in the [test panel](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key isn't saved into LUIS but instead is a session variable. You need to set the key every time you want the test panel to apply the Bing Spell Check API v7 service to the utterance. See [instructions](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel) in the test panel for setting the key.
+-->
 ## <a name="adding-the-key-to-the-endpoint-url"></a>엔드포인트 URL에 키 추가
 맞춤법 교정을 적용하려는 각 쿼리에 대한 쿼리 문자열 매개 변수에 전달되는 키가 엔드포인트 쿼리에 필요합니다. LUIS를 호출하는 챗봇을 사용하거나 LUIS 엔드포인트 API를 직접 호출할 수 있습니다. 엔드포인트를 호출하는 방법에 상관없이 각각의 모든 호출은 맞춤법 교정이 올바르게 작동하는 데 필요한 정보를 포함해야 합니다.
 
@@ -74,7 +76,7 @@ LUIS에는 키를 사용할 두 개의 위치가 있습니다. 첫 번째는 [�
 ## <a name="send-misspelled-utterance-to-luis"></a>LUIS에 맞춤법이 틀린 발화 보내기
 1. 웹 브라우저에서 앞의 문자열을 복사하고 `region`, `appId`, `luisKey` 및 `bingKey`를 고유한 값으로 바꿉니다. 게시 [지역](luis-reference-regions.md)과 다른 경우 엔드포인트 지역을 사용해야 합니다.
 
-2. “How far is the mountainn”과 같은 맞춤법이 틀린 발화를 추가합니다. 영어에서 하나의 `mountain`이 포함된 `n`은 올바른 맞춤법입니다. 
+2. “How far is the mountainn”과 같은 맞춤법이 틀린 발화를 추가합니다. 영어에서 하나의 `n`이 포함된 `mountain`은 올바른 맞춤법입니다. 
 
 3. Enter 키를 선택하여 쿼리를 LUIS로 보냅니다.
 

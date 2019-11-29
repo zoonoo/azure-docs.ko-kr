@@ -9,35 +9,42 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 734389c92ede88d336df60a1a79a738d2abcfa92
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: a199821c4db7fd8131ec54700b8c999dfe604a6e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703170"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74222014"
 ---
 # <a name="alter-utterance-data-before-or-during-prediction"></a>예측 이전 또는 도중에 발언 데이터 변경
 LUIS는 예측 전이나 예측 중에 발화를 조작할 수 있는 방법을 제공합니다. 여기에는 미리 작성 한 [datetimeV2](luis-reference-prebuilt-datetimev2.md)에 대 한 [맞춤법 수정](luis-tutorial-bing-spellcheck.md), 표준 시간대 문제 해결 등이 포함 됩니다. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>발화에서 맞춤법 오류 수정
+
+[!INCLUDE [Not supported in V3 API prediction endpoint](./includes/v2-support-only.md)]
+
+
 LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하여 발화의 맞춤법 오류를 수정합니다. LUIS에는 해당 서비스와 연관된 키가 필요합니다. 키를 만든 다음, [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356)에서 쿼리 문자열 매개 변수로 키를 추가합니다. 
 
-**테스트** 패널에서 [키를 입력](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel)하여 맞춤법 오류를 수정할 수도 있습니다. 키는 브라우저에서 테스트 패널에 대한 세션 변수로 유지됩니다. 맞춤법을 수정하려는 각 브라우저 세션에서 테스트 패널에 키를 추가합니다. 
+<!--
+You can also correct spelling errors in the **Test** panel by [entering the key](luis-interactive-test.md#view-bing-spell-check-corrections-in-test-panel). The key is kept as a session variable in the browser for the Test panel. Add the key to the Test panel in each browser session you want spelling corrected. 
 
-테스트 패널 및 엔드포인트에서의 키 사용은 [키 사용](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) 할당량에 포함됩니다. LUIS는 텍스트 길이에 대한 Bing Spell Check 제한을 구현합니다. 
+Usage of the key in the test panel and at the endpoint count toward the [key usage](https://azure.microsoft.com/pricing/details/cognitive-services/spellcheck-api/) quota. LUIS implements Bing Spell Check limits for text length. 
+
+-->
 
 엔드포인트에서 맞춤법 수정이 작동하려면 두 개의 매개 변수가 필요합니다.
 
-|매개 변수|값|
+|매개 변수|Value|
 |--|--|
-|`spellCheck`|boolean|
+|`spellCheck`|부울|
 |`bing-spell-check-subscription-key`|[Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/) 엔드포인트 키|
 
 [Bing Spell Check API V7](https://azure.microsoft.com/services/cognitive-services/spell-check/)에서 오류를 검색하면 원래 발화와 수정된 발화가 엔드포인트의 예측과 함께 반환됩니다.
 
-#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 끝점 응답](#tab/V2)
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 
 ```JSON
 {
@@ -51,7 +58,7 @@ LUIS는 [Bing Spell Check API V7](../Bing-Spell-Check/overview.md)을 사용하�
 }
 ```
 
-#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 끝점 응답](#tab/V3)
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
  
 ```JSON
 {
@@ -80,14 +87,14 @@ LUIS 앱이 미리 작성 된 [datetimeV2](luis-reference-prebuilt-datetimev2.md
 ### <a name="endpoint-querystring-parameter"></a>엔드포인트 쿼리 문자열 매개 변수
 표준 시간대는 `timezoneOffset` 매개 변수를 사용하여 사용자의 표준 시간대를 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356)에 추가하여 수정합니다. 시간을 변경하려면 `timezoneOffset` 값이 분 단위의 양수 또는 음수여야 합니다.  
 
-|매개 변수|값|
+|매개 변수|Value|
 |--|--|
 |`timezoneOffset`|분 단위의 양수 또는 음수|
 
 ### <a name="daylight-savings-example"></a>일광 절약 시간제 예제
 반환된 미리 빌드된 datetimeV2를 일광 절약 시간제에 맞게 조정해야 하는 경우, 분 단위의 +/- 값과 함께 `timezoneOffset` 쿼리 문자열 매개 변수를 [엔드포인트](https://go.microsoft.com/fwlink/?linkid=2092356) 쿼리에 사용해야 합니다.
 
-#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 끝점 요청](#tab/V2)
+#### <a name="v2-prediction-endpoint-requesttabv2"></a>[V2 예측 엔드포인트 요청](#tab/V2)
 
 60분 추가: 
 
@@ -97,7 +104,7 @@ https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the l
 
 https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/{appId}?q=Turn the lights on?**timezoneOffset=-60**&verbose={boolean}&spellCheck={boolean}&staging={boolean}&bing-spell-check-subscription-key={string}&log={boolean}
 
-#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 끝점 요청](#tab/V3)
+#### <a name="v3-prediction-endpoint-requesttabv3"></a>[V3 예측 엔드포인트 요청](#tab/V3)
 
 60분 추가:
 
@@ -107,7 +114,7 @@ https://{region}. api-version/luis/v 3.0-preview/apps/{appId}/슬롯/production/
 
 https://{region}. api-version/luis/v 3.0-preview/apps/{appId}/슬롯/production/predict? query = 켜 세요? **timezoneOffset =-60**& spellCheck = {boolean} & bing-마법책 = {string} & log = {boolean}
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
 * * * 
 

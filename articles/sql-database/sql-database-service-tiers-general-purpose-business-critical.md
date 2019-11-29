@@ -1,5 +1,5 @@
 ---
-title: Ggeneral 및 업무상 중요
+title: 범용 및 업무상 중요
 description: 이 문서에서는 vCore 기반 구매 모델의 범용 및 중요 비즈니스용 서비스 계층에 대해 설명 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 10/01/2019
-ms.openlocfilehash: 85b610969f9e5e85d014f89b90cfd862731aaf0c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5e3cc12351313b8fb1dedf795031202070ac7cf7
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821070"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558980"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -32,31 +32,31 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 
 다음 표에서는 최신 세대에 대 한 서비스 계층의 주요 차이점에 대해 설명 합니다 (Gen5). 서비스 계층 특성은 Single Database 및 Managed Instance에서 다를 수 있습니다.
 
-| | 리소스 종류 | 범용 |  하이퍼스케일 | 중요 비즈니스용 |
+| | 리소스 종류 | 일반적인 용도 |  하이퍼스케일 | 중요 비즈니스 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** | |  예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대부분의 비즈니스 워크로드. 자동 크기 조정 저장소 크기는 최대 100 TB, 유체 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원입니다. | 트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류에서 사용 가능:** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
 | **컴퓨팅 크기**|단일 데이터베이스/탄력적 풀 | vCore 1~80개 | 1 ~ 80 vCores | vCore 1~80개 |
-| | Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
-| | 관리 되는 인스턴스 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | 해당 없음 | 해당 없음 |
-| **스토리지 유형** | 모두 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
+| | Managed Instance | 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | 4, 8, 16, 24, 32, 40, 64, 80 vCores |
+| | 관리 되는 인스턴스 풀 | 2, 4, 8, 16, 24, 32, 40, 64, 80 vCores | N/A | N/A |
+| **스토리지 유형** | 전체 | 프리미엄 원격 스토리지(인스턴스별) | 로컬 SSD 캐시를 사용한 분리형 스토리지(인스턴스별) | 초고속 로컬 SSD 스토리지(인스턴스별) |
 | **데이터베이스 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
-| | Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
+| | Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
 | **스토리지 크기** | 단일 데이터베이스/탄력적 풀 | 5GB~4TB | 최대 100TB | 5GB~4TB |
-| | Managed Instance  | 32GB~8TB | 해당 없음 | 32GB~4TB |
+| | Managed Instance  | 32GB~8TB | N/A | 32GB~4TB |
 | **TempDB 크기** | 단일 데이터베이스/탄력적 풀 | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#hyperscale---provisioned-compute---gen5) | [vCore 당 32 GB](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Managed Instance  | [vCore 당 24gb](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | 해당 없음 | [저장소 크기에 따라](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) 최대 4 TB 제한 |
+| | Managed Instance  | [vCore 당 24gb](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [저장소 크기에 따라](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) 최대 4 TB 제한 |
 | **로그 쓰기 처리량** | 단일 데이터베이스 | [vCore 당 1.875 m b/초 (최대 30 m b/초)](sql-database-vcore-resource-limits-single-databases.md#general-purpose---provisioned-compute---gen4) | 100MB/초 | [vCore 당 6mb/s (최대 96 m b/초)](sql-database-vcore-resource-limits-single-databases.md#business-critical---provisioned-compute---gen4) |
-| | Managed Instance | [vCore 당 3MB/s (최대 22 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | 해당 없음 | [vcore 당 4mb/s (최대 48 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
-|**가용성**|모두| 99.99% |  [보조 복제본이 하나인 99.95%, 추가 복제본이 있는 99.99%](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함 된 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
-|**백업**|모두|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
-|**메모리 내 OLTP** | | 해당 없음 | 해당 없음 | 사용 가능 |
+| | Managed Instance | [vCore 당 3MB/s (최대 22 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) | N/A | [vcore 당 4mb/s (최대 48 m b/초)](sql-database-managed-instance-resource-limits.md#service-tier-characteristics) |
+|**가용성**|전체| 99.99% |  [보조 복제본이 하나인 99.95%, 추가 복제본이 있는 99.99%](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함 된 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
+|**백업**|전체|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
+|**메모리 내 OLTP** | | N/A | N/A | 사용할 수 있음 |
 |**읽기 전용 복제본**| | 0  | 0 - 4 | 1 (기본 제공, 가격에 포함 됨) |
 |**가격 책정/청구** | 단일 데이터베이스 | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. | [각 복제본 및 사용 된 저장소에 대 한 Vcore에](https://azure.microsoft.com/pricing/details/sql-database/single/) 는 요금이 부과 됩니다. <br/>IOPS는 아직 청구 되지 않습니다. | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. |
-|| 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 해당 없음 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
+|| 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | N/A | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
 |**할인 모델**| | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|
 
-자세한 내용은 [단일 데이터베이스 (vcore)](sql-database-vcore-resource-limits-single-databases.md), 단일 [데이터베이스 풀 (vcore)](sql-database-dtu-resource-limits-single-databases.md), [단일 데이터베이스 (dtu](sql-database-dtu-resource-limits-single-databases.md)), [dtu (단일 데이터베이스 풀)](sql-database-dtu-resource-limits-single-databases.md)및 [Managed Instance](sql-database-managed-instance-resource-limits.md) 의 서비스 계층 간의 자세한 차이점을 참조 하세요. 마주보.
+자세한 내용은 [단일 데이터베이스 (vcore)](sql-database-vcore-resource-limits-single-databases.md), 단일 [데이터베이스 풀 (vcore)](sql-database-dtu-resource-limits-single-databases.md), [단일 데이터베이스 (dtu](sql-database-dtu-resource-limits-single-databases.md)), [dtu (단일 데이터베이스 풀)](sql-database-dtu-resource-limits-single-databases.md)및 [Managed Instance](sql-database-managed-instance-resource-limits.md) 페이지의 서비스 계층 간의 자세한 차이점을 참조 하세요.
 
 > [!NOTE]
 > Vcore 기반 구매 모델의 하이퍼 크기 조정 서비스 계층에 대 한 자세한 내용은 [대규모 service 계층](sql-database-service-tier-hyperscale.md)을 참조 하세요. vCore 기반 구매 모델과 DTU 기반 구매 모델의 비교는 [Azure SQL Database 구매 모델 및 리소스](sql-database-purchase-models.md)를 참조하세요.

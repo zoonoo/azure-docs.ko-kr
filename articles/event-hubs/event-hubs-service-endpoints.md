@@ -9,18 +9,18 @@ ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
 ms.custom: seodec18
-ms.date: 03/12/2019
+ms.date: 11/26/2019
 ms.author: shvija
-ms.openlocfilehash: 5b02b79980ebe5ea91a1cf16d3ea453ebef3bf08
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9b8b3600acc33e177e65002ba69dcf98a20c2253
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279790"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555342"
 ---
 # <a name="use-virtual-network-service-endpoints-with-azure-event-hubs"></a>Azure Event Hubs에서 Virtual Network 서비스 엔드포인트 사용
 
-Event Hubs와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 컴퓨터와 같은 작업에서 메시징 기능에 안전 하 게 액세스할 수 있으며, 둘 다에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다. 종료.
+Event Hubs와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하면 가상 네트워크에 바인딩된 가상 컴퓨터와 같은 작업에서 메시징 기능에 안전 하 게 액세스할 수 있으며, 두 쪽 모두에서 네트워크 트래픽 경로를 안전 하 게 보호할 수 있습니다.
 
 하나 이상의 가상 네트워크 서브넷 서비스 끝점에 바인딩하기 위해 구성 된 경우 해당 Event Hubs 네임 스페이스는 더 이상 가상 네트워크에서 권한이 있는 모든 서브넷의 트래픽을 허용 하지 않습니다. 가상 네트워크 큐브 뷰에서 Event Hubs 네임스페이스를 서비스 엔드포인트에 바인딩하면 가상 네트워크 서브넷에서 메시징 서비스로 격리된 네트워킹 터널을 구성합니다. 
 
@@ -33,6 +33,7 @@ Event Hubs와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하
 > 신뢰할 수 있는 Microsoft 서비스는 Virtual Networks가 구현되는 시점에 지원되지 않습니다.
 >
 > Virtual Networks가 작동하지 않는 일반적인 Azure 시나리오(목록은 전체 목록이 **아님**) -
+> - Azure Monitor와 통합 됩니다. **다른** Azure 서비스의 진단 로그를 Event Hubs로 스트리밍할 수 없습니다. 그러나 event hub 자체에서 Azure 진단 로그를 사용 하도록 설정할 수 있습니다. 방화벽 (IP 필터링)을 사용 하도록 설정한 경우에도 마찬가지입니다.
 > - Azure Stream Analytics
 > - Azure Event Grid와 통합
 > - Azure IoT Hub 경로
@@ -40,7 +41,7 @@ Event Hubs와 [VNet (Virtual Network) 서비스 끝점][vnet-sep] 을 통합 하
 >
 > 아래 Microsoft 서비스는 가상 네트워크에 있어야 합니다.
 > - Azure Web Apps
-> - Azure 기능
+> - Azure Function
 
 > [!IMPORTANT]
 > 가상 네트워크는 Event Hubs의 **표준** 및 **전용** 계층에서 지원되며 기본 계층에서는 지원되지 않습니다.
@@ -79,7 +80,7 @@ Virtual Networks에 Event Hubs를 바인딩하는 작업은 2단계 프로세스
 > ```json
 > "defaultAction": "Allow"
 > ```
-> 다음으로 변경:
+> to
 > ```json
 > "defaultAction": "Deny"
 > ```

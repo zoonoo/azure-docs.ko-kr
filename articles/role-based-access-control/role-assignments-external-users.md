@@ -16,12 +16,12 @@ ms.date: 09/12/2019
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 5ed9088bcc5776fe1fb0d09e6ae771adabb1b879
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51945940a0f0fd0346e9437c4ad0631f989e0a92
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802679"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555557"
 ---
 # <a name="manage-access-to-azure-resources-for-external-guest-users-using-rbac"></a>RBAC를 사용 하 여 외부 게스트 사용자에 대 한 Azure 리소스에 대 한 액세스 관리
 
@@ -206,4 +206,4 @@ RBAC에서 액세스 권한을 부여하기 위해 역할을 할당합니다. �
 - [Azure Portal에서 Azure Active Directory B2B Collaboration 사용자 추가](../active-directory/b2b/add-users-administrator.md)
 - [Azure Active Directory B2B 협업 사용자 속성](../active-directory/b2b/user-properties.md)
 - [B2B 공동 작업 초대 전자 메일의 요소-Azure Active Directory](../active-directory/b2b/invitation-email-elements.md)
-- [공동 관리자로 게스트 사용자 추가](classic-administrators.md#adding-a-guest-user-as-a-co-administrator)
+- [게스트 사용자를 공동 관리자로 추가](classic-administrators.md#add-a-guest-user-as-a-co-administrator)

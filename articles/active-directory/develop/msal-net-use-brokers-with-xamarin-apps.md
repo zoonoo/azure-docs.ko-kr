@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bd144f1922456520075c1863ec347e85eb3889db
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f2ae0d79076a0137b3756721675267d89990bf5a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74379870"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554035"
 ---
 # <a name="use-microsoft-authenticator-or-microsoft-intune-company-portal-on-xamarin-applications"></a>Xamarin 응용 프로그램에서 Microsoft Authenticator 또는 Microsoft Intune 회사 포털 사용
 
@@ -154,7 +154,7 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 ### <a name="step-7-make-sure-the-redirect-uri-is-registered-with-your-app"></a>7 단계: 리디렉션 URI가 앱에 등록 되었는지 확인
 
-응용 프로그램에 대 한 유효한 리디렉션 URI로 https://portal.azure.com)이 리디렉션 URI를 앱 등록 포털에 등록 해야 합니다. 
+응용 프로그램에 대 한 유효한 리디렉션 URI로 https://portal.azure.com) 이 리디렉션 URI를 앱 등록 포털에 등록 해야 합니다. 
 
 포털에는 번들 ID에서 조정 된 회신 URI를 계산 하는 데 도움이 되는 새로운 경험 앱 등록 포털이 있습니다.
 
@@ -182,7 +182,7 @@ public static string redirectUriOnIos = "msauth.com.yourcompany.XForms://auth";
 
 MSAL.NET는 현재 Xamarin.ios 플랫폼만 지원 합니다. Xamarin Android 플랫폼용 broker를 아직 지원 하지 않습니다.
 
-MSAL Android native library는이를 이미 지원 합니다. 자세한 내용은 [Android에서](https://docs.microsoft.com/azure/active-directory/develop/brokered-auth.md) 조정 된 인증을 참조 하세요.
+MSAL Android native library는이를 이미 지원 합니다. 자세한 내용은 [Android에서](brokered-auth.md) 조정 된 인증을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

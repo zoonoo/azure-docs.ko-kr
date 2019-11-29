@@ -276,6 +276,8 @@
               href: storage-blob-containers-list.md
             - name: 속성 및 메타데이터 관리(.NET)
               href: storage-blob-container-properties-metadata.md
+            - name: 불변성 정책 설정 및 관리
+              href: storage-blob-immutability-policies-manage.md
         - name: Blob 만들기 및 관리
           items:
             - name: Blob 나열(.NET)

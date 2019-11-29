@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: b17cdb2ec27676d5d20d6f12bad309368fe32aa3
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: bc6c33762fa572e971fff9dee8988a100e50b07c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006798"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561129"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Time Series Insights 환경의 크기를 조정하는 방법
 
@@ -34,13 +34,13 @@ Azure Portal을 사용하여 지정된 가격 책정 SKU 내에서 용량을 늘
 
 1. Azure Portal에서 Time Series Insights 환경을 찾아 선택합니다.
 
-1. Time Series Insights 환경에 대한 메뉴에서 **구성**을 선택합니다.
+1. Time Series Insights 환경의 메뉴에서 **저장소 구성**을 선택 합니다.
 
-   [![configure.png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [Time Series Insights 용량 ![구성](media/scale-your-environment/scale-your-environment-configure.png)](media/scale-your-environment/scale-your-environment-configure.png#lightbox)
 
 1. **용량** 슬라이더를 조정하여 수신 속도 및 스토리지 용량에 대한 요구 사항을 충족하는 용량을 선택합니다. **수신 속도**, **스토리지 용량** 및 **예상 비용** 업데이트가 변경으로 인한 영향을 동적으로 보여줍니다.
 
-   [![슬라이더](media/scale-your-environment/slider.png)](media/scale-your-environment/slider.png#lightbox)
+   [용량 슬라이더를 사용 하 여 환경 구성 ![](media/scale-your-environment/scale-your-environment-slider.png)](media/scale-your-environment/scale-your-environment-slider.png#lightbox)
 
    또는 슬라이더의 오른쪽에 있는 텍스트 상자에 용량 승수를 입력할 수 있습니다.
 

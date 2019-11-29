@@ -322,6 +322,8 @@
       href: reference-connect-version-history.md
     - name: Azure AD Connect Health 버전 내역
       href: reference-connect-health-version-history.md
+    - name: Azure AD 통과 인증 에이전트 버전 기록
+      href: reference-connect-pta-version-history.md
     - name: 커넥터 버전 내역
       href: reference-connect-sync-connector-version-history.md
     - name: 계정 및 사용 권한

@@ -4,16 +4,16 @@ description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일�
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: b6e665b5c71dc5f2e8ebc22e00e1a71237f48bfc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173429"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554898"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
-Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)에 간략하게 설명돼 있습니다. Azure VM 백업에 대한 정책을 만들려면 이 문서를 참조로 사용하겠습니다.
+Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)에 간략하게 설명돼 있습니다. Azure VM 백업에 대한 정책을 만들려면 이 문서를 참조로 사용하겠습니다.
 
 ## <a name="backup-policy-essentials"></a>백업 정책 기본 정보
 
@@ -44,12 +44,12 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|이름  |필수  |형식  |설명  |
+|name  |필수  |Type  |설명  |
 |---------|---------|---------|---------|
-|properties     |   true      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
-|태그     |         | Object        |  리소스 태그       |
+|properties     |   참      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
+|tags     |         | Object        |  리소스 태그       |
 
-요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate)를 참조하세요.
+요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
 
 ### <a name="example-request-body"></a>요청 본문 예제
 
@@ -146,15 +146,15 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 > [!IMPORTANT]
 > 일정 및 보존에 대한 시간 형식은 날짜/시간만 지원하고 시간 형식만 따로 지원하지 않습니다.
 
-## <a name="responses"></a>Responses
+## <a name="responses"></a>응답
 
 백업 정책 만들기/업데이트는 [비동기 작업](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations)입니다. 즉, 이 작업은 별도로 추적해야 하는 다른 작업을 만듭니다.
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|이름  |형식  |설명  |
+|name  |Type  |설명  |
 |---------|---------|---------|
-|200 정상     |    [보호 PolicyResource](https://docs.microsoft.com/rest/api/backup/protectionpolicies(2019-05-13)/createorupdate#protectionpolicyresource)     |  확인       |
+|200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |
 
 ### <a name="example-responses"></a>예제 응답

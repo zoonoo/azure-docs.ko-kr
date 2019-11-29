@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 10/12/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 8f00ffeff4eb353fa70aa7df60b14c97d4b8e724
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 0190b94cc6195163de4d428c2cae0de3620bdb01
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554868"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422692"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>GenerateAnswer API 및 메타 데이터를 사용 하 여 답변 받기
 
@@ -64,7 +64,7 @@ HTTP POST 요청을 사용하여 GenerateAnswer를 호출합니다. GenerateAnsw
 POST 요청은 다음을 사용 합니다.
 
 * 필수 [URI 매개 변수](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* 보안을 위해 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)`Authorization`
+* 보안을 위해 필요한 [헤더 속성](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer)`Authorization`입니다.
 * 필수 [본문 속성](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto)입니다. 
 
 GenerateAnswer URL의 형식은 다음과 같습니다. 
@@ -230,7 +230,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 ## <a name="match-questions-only-by-text"></a>텍스트를 기준으로 질문과 대답을 찾습니다.
 
-기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문을 통해서만 검색 하려는 경우 대답을 생성 하려면 GenerateAnswer 요청의 게시 본문에서 `RankerType=QuestionOnly`을 사용 합니다.
+기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문을 통해서만 검색 하려면 답변을 생성 하려면 GenerateAnswer 요청의 게시 본문에 `RankerType=QuestionOnly`를 사용 합니다.
 
 `isTest=false`를 사용 하 여 게시 된 kb를 통해 또는 `isTest=true`를 사용 하 여 테스트 kb에서 검색할 수 있습니다.
 
@@ -257,7 +257,7 @@ GenerateAnswer에 대 한 응답에는 일치 하는 질문 및 답변 집합에
 
 ## <a name="next-steps"></a>다음 단계
 
-**게시** 페이지에는 [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) 및 [말아](../Quickstarts/get-answer-from-kb-using-curl.md)의 대답을 생성 하는 정보도 제공 됩니다. 
+**게시** 페이지에는 postman 또는 말아의 [대답을 생성](../Quickstarts/get-answer-from-knowledge-base-using-url-tool.md) 하는 정보도 제공 됩니다.
 
 > [!div class="nextstepaction"]
 > [기술 자료 봇 만들기](../tutorials/integrate-qnamaker-luis.md)

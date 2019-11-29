@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: dapine
-ms.openlocfilehash: b413bc6d29f1b08949b50570cb5baa2eb758d779
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 42585ae09435e67b7cdea0b437681e2ce044ecd3
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73491019"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383648"
 ---
 # <a name="use-speech-service-container-with-kubernetes-and-helm"></a>Kubernetes 및 투구와 함께 Speech Service 컨테이너 사용
 
 음성 컨테이너 온-프레미스를 관리 하는 한 가지 옵션은 Kubernetes 및 투구를 사용 하는 것입니다. Kubernetes 및 투구를 사용 하 여 음성 텍스트 및 텍스트 음성 변환 컨테이너 이미지를 정의 합니다. Kubernetes 패키지를 만듭니다. 이 패키지는 온-프레미스 Kubernetes 클러스터에 배포 됩니다. 마지막으로 배포 된 서비스와 다양 한 구성 옵션을 테스트 하는 방법을 살펴보겠습니다. Kubernetes 오케스트레이션을 사용 하지 않고 Docker 컨테이너를 실행 하는 방법에 대 한 자세한 내용은 [Speech Service 컨테이너 설치 및 실행](speech-container-howto.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 온-프레미스에서 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소가 필요 합니다.
 
-|필수|목적|
+|필수|용도|
 |--|--|
 | Azure 계정 | Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][free-azure-account]을 만듭니다. |
 | Container Registry 액세스 | Kubernetes가 docker 이미지를 클러스터로 가져오기 위해 컨테이너 레지스트리에 액세스 해야 합니다. |
@@ -37,7 +37,7 @@ ms.locfileid: "73491019"
 
 참조로 [음성 서비스 컨테이너 호스트 컴퓨터][speech-container-host-computer] 세부 정보를 참조 하세요. 이 *투구 차트* 는 사용자가 지정 하는 디코드 (동시 요청) 수를 기준으로 CPU 및 메모리 요구 사항을 자동으로 계산 합니다. 또한 오디오/텍스트 입력에 대 한 최적화가 `enabled`구성 되었는지 여부에 따라 조정 됩니다. 투구 차트는 기본적으로, 두 개의 동시 요청 및 최적화를 사용 하지 않도록 설정 합니다.
 
-| 부여 | CPU/컨테이너 | 메모리/컨테이너 |
+| 서비스 | CPU/컨테이너 | 메모리/컨테이너 |
 |--|--|--|
 | **음성 텍스트 변환** | 하나의 디코더에는 최소 1150 millicores가 필요 합니다. `optimizedForAudioFile` 사용 하도록 설정 된 경우 1950 millicores 필요 합니다. (기본값: 두 개의 디코더) | 필수: 2gb<br>제한 됨: 4gb |
 | **텍스트 음성 변환** | 한 동시 요청에는 최소 500 millicores가 필요 합니다. `optimizeForTurboMode` 사용 하도록 설정 된 경우 1000 millicores 필요 합니다. (기본값: 두 개의 동시 요청) | 필수: 1gb<br> 제한 됨: 2gb |
@@ -77,7 +77,7 @@ secret "mcr" created
 비밀이 만들어졌는지 확인 하려면 `secrets` 플래그를 사용 하 여 [`kubectl get`][kubectl-get] 를 실행 합니다.
 
 ```console
-kuberctl get secrets
+kubectl get secrets
 ```
 
 `kubectl get secrets`를 실행 하면 구성 된 모든 암호가 인쇄 됩니다.
@@ -275,13 +275,13 @@ AKS (Azure Kubernetes Service)에서 투구를 사용 하 여 응용 프로그�
 [azure-cli]: https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest
 [docker-engine]: https://www.docker.com/products/docker-engine
 [kubernetes-cli]: https://kubernetes.io/docs/tasks/tools/install-kubectl
-[helm-install]: https://helm.sh/docs/using_helm/#installing-helm
-[helm-install-cmd]: https://helm.sh/docs/helm/#helm-install
+[helm-install]: https://helm.sh/docs/intro/install/
+[helm-install-cmd]: https://helm.sh/docs/intro/using_helm/#helm-install-installing-a-package
 [tiller-install]: https://helm.sh/docs/install/#installing-tiller
-[helm-charts]: https://helm.sh/docs/developing_charts
+[helm-charts]: https://helm.sh/docs/topics/charts/
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
-[helm-test]: https://helm.sh/docs/helm/#helm-test
+[helm-test]: https://v2.helm.sh/docs/helm/#helm-test
 [ms-helm-hub]: https://hub.helm.sh/charts/microsoft
 [ms-helm-hub-speech-chart]: https://hub.helm.sh/charts/microsoft/cognitive-services-speech-onpremise
 

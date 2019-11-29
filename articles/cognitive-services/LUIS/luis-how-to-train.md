@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 259ea23c05f0c0a138ad54b6efd11aad2061cf7a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1da8ab3015730c6b3e1962301a34b1ad43b1aad6
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500228"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74143682"
 ---
 # <a name="train-your-active-version-of-the-luis-app"></a>LUIS 앱의 활성 버전 학습 
 
@@ -26,22 +26,15 @@ ms.locfileid: "73500228"
 
 학습은 LUIS 포털에서 현재 사용 중인 버전에 적용됩니다. 
 
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
-
 ## <a name="how-to-train-interactively"></a>대화형으로 학습하는 방법
 
 [LUIS 포털](https://www.luis.ai)에서 반복적인 프로세스를 시작하려면 먼저 적어도 한 번 LUIS 앱을 학습해야 합니다. 학습하기 전에 모든 의도에 하나 이상의 발언이 있는지 확인합니다.
 
 1. **내 앱** 페이지에서 해당 이름을 선택하여 앱에 액세스합니다. 
 
-2. 앱의 위쪽 패널에서 **학습**을 선택합니다. 
+1. 앱의 위쪽 패널에서 **학습**을 선택합니다. 
 
-3. 학습이 완료되면 녹색 알림 표시줄이 브라우저의 위쪽에 나타납니다.
-
-<!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
-
->[!NOTE]
->앱에 예제 발언이 포함되지 않는 하나 이상의 의도가 있는 경우 앱을 학습할 수 없습니다. 모든 의도에 발언을 추가합니다. 자세한 내용은 [예제 발언 추가](luis-how-to-add-example-utterances.md)를 참조하세요.
+1. 교육이 완료 되 면 브라우저 맨 위에 알림이 나타납니다.
 
 ## <a name="training-date-and-time"></a>학습 날짜 및 시간
 
@@ -49,20 +42,7 @@ ms.locfileid: "73500228"
 
 ## <a name="train-with-all-data"></a>모든 데이터를 사용하여 학습
 
-학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 
-
-작은 부정 샘플링 대신 모든 데이터를 사용 하려면 [API](#version-settings-api-use-of-usealltrainingdata)를 사용 합니다.
-
-<!--
-
- or the [LUIS portal setting](#luis-portal-setting-to-use-all-training-data)
-
-### LUIS portal setting to use all training data
-
-!!!IGNITE
-
-
--->
+학습은 음수 샘플링(negative sampling)의 작은 비율을 사용합니다. 작은 부정 샘플링 대신 모든 데이터를 사용 하려면 [API](#version-settings-api-use-of-usealltrainingdata)를 사용 합니다.
 
 ### <a name="version-settings-api-use-of-usealltrainingdata"></a>UseAllTrainingData의 버전 설정 API 사용
 
@@ -80,5 +60,5 @@ LUIS 포털에서 학습은 **학습** 단추를 한 번만 누르면 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [LUIS로 제안된 발화에 레이블 지정](luis-how-to-review-endpoint-utterances.md) 
-* [기능을 사용하여 LUIS 앱 성능 향상](luis-how-to-add-features.md) 
+* [대화형 테스트](luis-interactive-test.md)
+* [일괄 처리 테스트](luis-how-to-batch-test.md)

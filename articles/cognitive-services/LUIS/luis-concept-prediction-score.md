@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: diberry
-ms.openlocfilehash: 5b8d97005d8f404a296ddb45e92b65e4aa811aa3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b360bc82b80e834492b524acc5c4535b0409eda1
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486776"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280819"
 ---
 # <a name="prediction-scores-indicate-prediction-accuracy-for-intent-and-entities"></a>예측 점수는 의도 및 엔터티에 대한 예측 정확도를 나타냅니다.
 
@@ -68,7 +68,7 @@ ms.locfileid: "73486776"
 
 ## <a name="e-exponent-notation"></a>E(지수) 표기법
 
-예측 점수는 *과 같이 0~1 범위 위에 ‘나타나는’ 지수 표기법을 사용합니다.* `9.910309E-07` 이 점수는 매우 **작은** 수를 나타냅니다.
+예측 점수는 `9.910309E-07`과 같이 0~1 범위 위에 ‘나타나는’ 지수 표기법을 사용합니다. 이 점수는 매우 **작은** 수를 나타냅니다.
 
 |E 표기법 점수 |실제 점수|
 |--|--|

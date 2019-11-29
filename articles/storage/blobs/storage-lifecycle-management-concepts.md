@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: e4d961603ab0ade1bb175161fffd7f085a1f644b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 41e1228d127ddbbf0749036fc6f0129da1208bc7
+ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934093"
+ms.lasthandoff: 11/14/2019
+ms.locfileid: "74077128"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob 저장소 수명 주기 관리
+# <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
 데이터 집합에는 고유한 수명 주기가 있습니다. 수명 주기 초기에는 사람들이 일부 데이터에 자주 액세스합니다 하지만 액세스 필요성은 데이터가 오래될 수록 크게 줄어듭니다. 어떤 데이터는 클라우드에서 유휴 상태로 유지되고 저장된 후에는 어쩌다가 한 번씩 액세스됩니다. 어떤 데이터는 생성 며칠 후 또는 몇 달 후 만료되고, 또 어떤 데이터 세트는 수명 주기 전체에 걸쳐 적극적으로 읽히고 수정됩니다. Azure Blob 저장소 수명 주기 관리는 GPv2 및 Blob storage 계정에 대 한 다양 한 규칙 기반 정책을 제공 합니다. 정책을 사용하여 데이터를 적절한 액세스 계층으로 전환하거나 데이터의 수명 주기 후에 만료합니다.
 
@@ -32,13 +32,13 @@ ms.locfileid: "70934093"
 
 ## <a name="storage-account-support"></a>스토리지 계정 지원
 
-수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
+수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 수명 주기 관리 기능은 무료로 제공 됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 수명 주기 관리 기능은 모든 Azure 지역에서 사용할 수 있습니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "70934093"
 > [!NOTE]
 > 스토리지 계정에 방화벽 규칙을 사용하도록 설정하면 수명 주기 관리 요청이 차단될 수 있습니다. 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 제공 하 여 이러한 요청의 차단을 해제할 수 있습니다. 자세한 내용은 [방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)의 예외 섹션을 참조하세요.
 
-### <a name="azure-portal"></a>Azure Portal
+# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습니다. 
 
@@ -126,9 +126,9 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 6. 이 JSON 예제에 대 한 자세한 내용은 [정책](#policy) 및 [규칙](#rules) 섹션을 참조 하십시오.
 
-### <a name="powershell"></a>PowerShell
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. 변수 `$rgname` 는 리소스 그룹 이름으로 초기화 해야 합니다. 변수 `$accountName` 는 저장소 계정 이름으로 초기화 해야 합니다.
+다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. `$rgname` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다.
 
 ```powershell
 #Install the latest module
@@ -156,7 +156,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-## <a name="azure-resource-manager-template-with-lifecycle-management-policy"></a>수명 주기 관리 정책이 포함 된 Azure Resource Manager 템플릿
+# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
 Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정의할 수 있습니다. 다음은 수명 주기 관리 정책으로 RA GRS GPv2 storage 계정을 배포 하는 샘플 템플릿입니다.
 
@@ -198,6 +198,8 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 }
 ```
 
+---
+
 ## <a name="policy"></a>정책
 
 수명 주기 관리 정책은 JSON 문서의 규칙 컬렉션입니다.
@@ -222,18 +224,18 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 정책은 규칙의 컬렉션입니다.
 
-| 매개 변수 이름 | 매개 변수 유형 | 참고 |
+| 매개 변수 이름 | 매개 변수 형식 | 참고 사항 |
 |----------------|----------------|-------|
 | `rules`        | 규칙 개체의 배열 | 정책에 하나 이상의 규칙이 필요 합니다. 정책에서 최대 100 개의 규칙을 정의할 수 있습니다.|
 
 정책 내의 각 규칙에는 다음과 같은 몇 가지 매개 변수가 있습니다.
 
-| 매개 변수 이름 | 매개 변수 유형 | 참고 | 필수 |
+| 매개 변수 이름 | 매개 변수 형식 | 참고 사항 | 필수 |
 |----------------|----------------|-------|----------|
-| `name`         | String |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | True |
-| `enabled`      | Boolean | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | 거짓 | 
-| `type`         | 열거형 값 | 현재 유효한 형식은 `Lifecycle`입니다. | True |
-| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | True |
+| `name`         | 문자열 |규칙 이름에는 최대 256 자의 영숫자 문자를 사용할 수 있습니다. 규칙 이름은 대/소문자를 구분합니다.  정책 내에서 고유해야 합니다. | true |
+| `enabled`      | 부울 | 규칙을 일시적으로 사용 하지 않도록 설정할 수 있도록 하는 선택적 부울입니다. 설정 되지 않은 경우 기본값은 true입니다. | False | 
+| `type`         | 열거형 값 | 현재 유효한 형식이 `Lifecycle`입니다. | true |
+| `definition`   | 수명 주기 규칙을 정의하는 개체 | 각 정의는 필터 집합과 작업 집합으로 구성됩니다. | true |
 
 ## <a name="rules"></a>규칙
 
@@ -241,7 +243,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 ### <a name="sample-rule"></a>샘플 규칙
 
-다음 샘플 규칙은 내부 `container1` 에 존재 하는 개체에 대 한 작업을 실행 하 고로 `foo`시작 하는 계정을 필터링 합니다.  
+다음 샘플 규칙은 `container1` 내에 존재 하는 개체에 대 한 작업을 실행 하 고 `foo`에서 시작 하는 계정을 필터링 합니다.  
 
 - 마지막으로 수정한 시점으로부터 30일 후 Blob을 쿨 계층으로 이동
 - 마지막으로 수정한 시점으로부터 90일 후 Blob을 보관 계층으로 이동
@@ -282,10 +284,10 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 필터는 다음과 같습니다.
 
-| 필터 이름 | 필터 형식 | 참고 | 필수 여부 |
+| 필터 이름 | 필터 형식 | 참고 사항 | 필수 여부 |
 |-------------|-------------|-------|-------------|
-| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는를 `blockBlob`지원 합니다. | 예 |
-| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어에서 `https://myaccount.blob.core.windows.net/container1/foo/...` 규칙에 대 한 모든 blob을 일치 시키려는 경우 `container1/foo`prefixMatch은입니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니요 |
+| blobTypes   | 미리 정의된 열거형 값의 배열입니다. | 현재 릴리스에서는 `blockBlob`지원 됩니다. | 예 |
+| prefixMatch | 접두사를 매칭할 문자열 배열입니다. 각 규칙은 최대 10 개의 접두사를 정의할 수 있습니다. 접두사 문자열은 컨테이너 이름으로 시작해야 합니다. 예를 들어 `https://myaccount.blob.core.windows.net/container1/foo/...`에서 규칙에 대 한 모든 blob을 일치 시키려는 경우 prefixMatch은 `container1/foo`됩니다. | PrefixMatch를 정의 하지 않으면 규칙은 저장소 계정 내의 모든 blob에 적용 됩니다.  | 아니오 |
 
 ### <a name="rule-actions"></a>규칙 작업
 
@@ -293,11 +295,11 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 수명 주기 관리는 blob의 계층화 및 삭제와 blob 스냅숏 삭제를 지원 합니다. Blob 또는 Blob 스냅샷에 대한 각 규칙에 하나 이상의 작업을 정의합니다.
 
-| 작업        | 기본 Blob                                   | 스냅숏      |
+| 작업        | 기본 Blob                                   | 스냅샷      |
 |---------------|---------------------------------------------|---------------|
 | tierToCool    | 현재 핫 계층에서 Blob을 지원합니다.         | 지원되지 않음 |
 | tierToArchive | 현재 핫 또는 쿨 계층에서 Blob을 지원합니다. | 지원되지 않음 |
-| 삭제        | 지원됨                                   | 지원됨     |
+| delete        | 지원됨                                   | 지원됨     |
 
 >[!NOTE]
 >동일한 Blob에 작업을 두 개 이상 정의하는 경우 수명 주기 관리는 가장 저렴한 작업을 Blob에 적용합니다. 예를 들어 `delete` 작업은 `tierToArchive` 작업보다 저렴합니다. `tierToArchive` 작업은 `tierToCool` 작업보다 저렴합니다.
@@ -344,6 +346,9 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 ### <a name="archive-data-at-ingest"></a>수집 시 데이터 보관
 
 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 때 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
+
+> [!NOTE] 
+> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 PUTBLOCKLIST 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 [](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
 
 ```json
 {
@@ -427,9 +432,11 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 **새 정책을 만들었으며 작업이 즉시 실행 되지 않는 이유는 무엇 인가요?**  
 플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 정책을 구성한 후에는 일부 작업을 처음 실행 하는 데 최대 24 시간이 걸릴 수 있습니다.  
 
-**보관 된 blob을 수동으로 리하이드레이션 보관 계층으로 다시 이동 하는 것을 방지 하려면 어떻게 해야 하나요?**  
-Blob을 한 액세스 계층에서 다른 액세스 계층으로 이동 하면 마지막 수정 시간이 변경 되지 않습니다. 보관 된 blob을 핫 계층으로 수동으로 리하이드레이션 수명 주기 관리 엔진에서 보관 계층으로 다시 이동 합니다. 이 blob에 일시적으로 영향을 주는 규칙을 사용 하지 않도록 설정 하 여 다시 보관 되지 않도록 합니다. 핫 계층을 영구적으로 유지 해야 하는 경우 다른 위치로 blob을 복사 합니다. Blob을 다시 보관 계층으로 안전 하 게 이동할 수 있는 경우 규칙을 다시 사용 하도록 설정 합니다. 
+**기존 정책을 업데이트 하는 경우 작업이 실행 되는 데 얼마나 걸립니까?**  
+업데이트 된 정책은 적용 되는 데 최대 24 시간이 걸립니다. 정책이 적용 되 면 작업이 실행 되는 데 최대 24 시간이 걸릴 수 있습니다. 따라서 정책을 실행 하는 데 최대 48 시간이 걸릴 수 있습니다.   
 
+**보관 된 blob을 수동으로 전환 하 여 보관 계층으로 다시 이동 하는 것을 방지 하려면 어떻게 해야 하나요?**  
+Blob을 한 액세스 계층에서 다른 액세스 계층으로 이동 하면 마지막 수정 시간이 변경 되지 않습니다. 보관 된 blob을 핫 계층으로 수동으로 리하이드레이션 수명 주기 관리 엔진에서 보관 계층으로 다시 이동 합니다. 이 blob에 일시적으로 영향을 주는 규칙을 사용 하지 않도록 설정 하 여 다시 보관 되지 않도록 합니다. Blob을 다시 보관 계층으로 안전 하 게 이동할 수 있는 경우 규칙을 다시 사용 하도록 설정 합니다. 핫 또는 쿨 계층을 영구적으로 유지 해야 하는 경우 blob을 다른 위치로 복사할 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

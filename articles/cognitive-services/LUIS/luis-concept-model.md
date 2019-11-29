@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 4cbca96ed95167615f3ff2876e27e546d08d92f5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d721ceb25b3ce2408563a0bed16457d05affe7b4
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501013"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280878"
 ---
 # <a name="design-with-intent-and-entity-models"></a>의도 및 엔터티 모델로 디자인 
 
@@ -37,7 +37,7 @@ LUIS은 V3 제작 Api를 사용한 _모델 분해_ 를 지원 하 여 모델을 
 * [컴퓨터에서 배운 엔터티](#machine-learned-entities)
     * [하위 구성 요소](#entity-subcomponents-help-extract-data) (컴퓨터에서 학습 한 엔터티)
         * 기능에서 제공 하는 [설명자](#descriptors-are-features) 
-        * (정규식 및 목록)와 같이 컴퓨터에서 학습 하지 않은 엔터티에서 제공 하는 [제약 조건](#constraints-are-text-rules)
+        * 정규식 및 목록과 같이 컴퓨터에서 학습 하지 않은 엔터티에서 제공 하는 [제약 조건](#constraints-are-text-rules)
 
 ## <a name="v2-authoring-models"></a>V2 제작 모델
 
@@ -134,7 +134,7 @@ LUIS는 V2 authoring Api를 사용 하 여 복합 엔터티를 지원 합니다.
 
 이 utterance은 의도 된 것 _이어야_ 하며, 엔터티가 있을 _수 있습니다_ .
 
-`Buy a airline ticket from Seattle to Cairo`
+`Buy an airline ticket from Seattle to Cairo`
 
 이 utterance에는 단일 의도가 있습니다.
 

@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 06/30/2017
+ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: f05c8724fe87888c93230b4ca77a7a82fe9357c2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3e316527992b4a478b82bef61fb6da608e218ba5
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677462"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554933"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -30,7 +30,7 @@ Azure Application Insights SDK는 들어오는 HTTP 요청과 종속 서비스�
 ## <a name="overview"></a>개요
 작업은 애플리케이션에서 실행하는 활동의 논리적 부분입니다. 여기에는 이름, 시작 시간, 기간, 결과 및 실행 컨텍스트(예: 사용자 이름, 속성 및 결과)가 있습니다. 작업 B에서 작업 A를 시작한 경우 작업 B는 A의 부모로 설정됩니다. 작업에는 하나의 부모만 있을 수 있지만 많은 자식 작업이 있을 수 있습니다. 작업 및 원격 분석 상관 관계에 대한 자세한 내용은 [Azure Application Insights 원격 분석 상관 관계](correlation.md)를 참조하세요.
 
-Application Insights .NET SDK에서 작업은 [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) 추상 클래스 및 해당하는[RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) 및 [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs) 하위 항목으로 설명됩니다.
+Application Insights .NET SDK에서 작업은 [OperationTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) 추상 클래스 및 해당하는[RequestTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) 및 [DependencyTelemetry](https://github.com/microsoft/ApplicationInsights-dotnet/blob/7633ae849edc826a8547745b6bf9f3174715d4bd/BASE/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs) 하위 항목으로 설명됩니다.
 
 ## <a name="incoming-operations-tracking"></a>들어오는 작업 추적 
 Application Insights 웹 SDK는 IIS 파이프라인과 모든 ASP.NET Core 애플리케이션에서 실행되는 ASP.NET 애플리케이션에 대한 HTTP 요청을 자동으로 수집합니다. 다른 플랫폼과 프레임워크에 대해서 커뮤니티 지원 솔루션이 있습니다. 그러나 애플리케이션에서 표준 또는 커뮤니티 지원 솔루션으로 지원되지 않으면 수동으로 계측할 수 있습니다.
@@ -356,7 +356,7 @@ Application Insights는 종속성 형식을 사용 하 여 UI 환경을 cusomize
 - Azure Service Bus에 대 한 `Azure Service Bus`
 
 ### <a name="batch-processing"></a>일괄 처리
-일부 큐의 경우 하나의 요청으로 여러 메시지를 큐에서 제거할 수 있습니다. 이러한 메시지를 처리하는 것은 아마도 독립적이며 다른 논리 연산에 속합니다. @No__t_0 작업을 처리 중인 특정 메시지와 상호 연결할 수는 없습니다.
+일부 큐의 경우 하나의 요청으로 여러 메시지를 큐에서 제거할 수 있습니다. 이러한 메시지를 처리하는 것은 아마도 독립적이며 다른 논리 연산에 속합니다. `Dequeue` 작업을 처리 중인 특정 메시지와 상호 연결할 수는 없습니다.
 
 각 메시지는 자체 비동기 제어 흐름에서 처리되어야 합니다. 자세한 내용은 [나가는 종속성 추적](#outgoing-dependencies-tracking) 섹션을 참조하세요.
 

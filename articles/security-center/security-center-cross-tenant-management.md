@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center에서 교차 테 넌 트 관리 Microsoft Docs
-description: " Azure Security Center에서 데이터 수집을 활성화하는 방법을 알아봅니다. "
+description: Azure 위임 된 리소스 관리를 사용 하 여 Security Center에서 여러 테 넌 트의 보안 상태를 관리 하는 테 넌 트 간 관리를 설정 하는 방법을 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: f7aa75601639bc0c5652010fb44b01dec0d2622b
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 5c654610df8c00e1e80382687bd30dca0c02b69f
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996952"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558949"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -43,11 +43,11 @@ ms.locfileid: "71996952"
 
   ![테 넌 트 필터링](./media/security-center-cross-tenant-management/cross-tenant-filter.png)
 
-뷰와 작업은 기본적으로 동일 합니다. 다음은 몇 가지 예입니다.
+뷰와 작업은 기본적으로 동일 합니다. 예를 들어 다음과 같은 노래를 선택할 수 있다.
 
 - **보안 정책 관리**: 한 보기에서 [정책을](tutorial-security-policy.md)사용 하 여 많은 리소스의 보안 상태를 관리 하 고, 보안 권장 사항을 사용 하 여 작업을 수행 하 고, 보안 관련 데이터를 수집 및 관리 합니다.
-- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 표시 유형을 통해 모든 테 넌 트의 전반적인 보안 상태와 각 테 넌 트의 [보안 점수](security-center-secure-score.md) 및 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 개선 하는 방법을 볼 수 있습니다.
-- **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장 사항을](security-center-recommendations.md) 모니터링 하 고 재구성 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
+- **보안 점수 및 규정 준수 상태 개선**: 테 넌 트 간 가시성을 통해 모든 테 넌 트의 전반적인 보안 상태를 확인 하 고 각 테 넌 트의 [보안 점수](security-center-secure-score.md) 와 [규정 준수](security-center-compliance-dashboard.md) 상태를 가장 잘 향상 시킬 수 있습니다.
+- **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장](security-center-recommendations.md) 사항을 모니터링 하 고 수정 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
 - **경고 관리**: 다른 테 넌 트 전체에서 [경고](security-center-alerts-overview.md) 를 검색 합니다. 조치 가능한 [수정 단계](security-center-managing-and-responding-alerts.md)를 준수 하지 않는 리소스에 대 한 조치를 취합니다.
 
 - **고급 클라우드 방어 기능 및 기타 기능 관리**: [JIT (just-in-time) VM 액세스](security-center-just-in-time.md), [적응 네트워크 강화](security-center-adaptive-network-hardening.md), [적응 응용 프로그램 제어](security-center-adaptive-application.md)등의 다양 한 위협 검색 및 보호 서비스를 관리 합니다.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/07/2019
 ms.author: diberry
-ms.openlocfilehash: 62ce0ac36223098d013cc75b7f62fc2c68e358ed
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: e03c7489268f3ad7076481de4498c5e202f654b6
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953374"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280288"
 ---
 # <a name="whats-new-in-language-understanding"></a>Language Understanding의 새로운 기능
 
@@ -33,14 +33,14 @@ ms.locfileid: "73953374"
     * 공개 미리 보기로 제공 되는 [아랍어 및 힌디어](luis-language-support.md) .
 * 미리 작성된 모델
     * [미리 빌드된 도메인](luis-reference-prebuilt-domains.md) 은 이제 GA (일반 공급)로 제공 됩니다.
-    * 일본어 [미리](luis-reference-prebuilt-entities.md#japanese-entity-support) 작성 된 엔터티-나이, 통화, 숫자, 백분율은 V3에서 지원 되지 않습니다.
-    * 미리 작성 된 이탈리아어의 미리 작성 된 [엔터티](luis-reference-prebuilt-entities.md#italian-entity-support) -나이, 통화, 차원, 숫자, 백분율 해상도가 V2에서 변경 되었습니다.
-* 복잡 한 모델을 작성 하 고 디버그할 수 있도록 [preview.luis.ai 포털](https://preview.luis.ai) 에서 사용자 환경을 개선 합니다. 개선 된 레이블 환경 Preview 포털 자습서를 사용해 보세요.
+    * 일본어 [미리](luis-reference-prebuilt-entities.md#japanese-entity-support) 작성 된 엔터티-나이, 통화, 숫자 및 백분율이 V3에서 지원 되지 않습니다.
+    * 이탈리아어로 미리 작성 된 [엔터티](luis-reference-prebuilt-entities.md#italian-entity-support) -나이, 통화, 차원, 숫자 및 백분율 해상도가 V2에서 변경 되었습니다.
+* [Preview.luis.ai 포털](https://preview.luis.ai) 의 향상 된 사용자 환경-복잡 한 모델을 작성 하 고 디버그할 수 있도록 개선 된 레이블 지정 환경 Preview 포털 자습서를 사용해 보세요.
     * [의도만](tutorial-intents-only.md)
     * [없습니다 machine-학습 한 엔터티](tutorial-machine-learned-entity.md) 
 * 언어를 보다 잘 이해 하는 고급 기능을 사용 하 여 [정교한 언어 모델을 작성](luis-concept-entity-types.md) 합니다. 
-* 모델 수준에서 기계 학습 기능을 정의 하 고 엔터티를 의도 및 기타 엔터티에 대 한 기능으로 사용 하는 등 다른 모델에 대 한 신호로 모델을 사용할 수 있게 합니다.
-* 새로운 확장 된 [제한](luis-boundaries.md) -구 목록 및 총 구에 대 한 최대 및 새로운 모델, 기능 제한
+* 모델 수준에서 기계 학습 기능을 정의 하 고 모델을 다른 모델에 대 한 신호로 사용할 수 있도록 설정 합니다. 예를 들어 엔터티를 의도 및 기타 엔터티에 대 한 기능으로 사용할 수 있습니다.
+* 새로운 확장 된 [제한](luis-boundaries.md) -구 목록 및 총 구에 대 한 최대, 새 모델, 기능 제한
 * 심층 계층 구조 형식의 텍스트에서 정보를 추출 하 여 대화 응용 프로그램을 더욱 강력 하 게 만듭니다.
 
     ![컴퓨터에서 배운 엔터티 이미지](./media/whats-new/deep-entity-extraction-example.png)
@@ -82,7 +82,7 @@ ms.locfileid: "73953374"
 
 [Bot Framework](https://blog.botframework.com/)
 
-## <a name="videos"></a>비디오
+## <a name="videos"></a>동영상
 
 ### <a name="2019-build-videos"></a>2019 비디오 빌드
 

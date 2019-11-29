@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57303c41d90f6205c284c7de67bb8643aa3cd368
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c816c9877a9c796ee76310f2452f3505531c3018
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888061"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555020"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection
 
@@ -101,5 +101,5 @@ Azure Cosmos DB 작업에 대 한 예외가 발생할 경우 의심 스러운 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Cosmos DB의 진단 로깅](https://docs.microsoft.com/azure/cosmos-db/logging#turn-on-logging-in-the-azure-portal) 에 대해 자세히 알아보세요.
+* [Azure Cosmos DB의 진단 로깅](monitor-cosmos-db.md#diagnostic-settings) 에 대해 자세히 알아보세요.
 * [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro)에 대한 자세한 정보

@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center 문제 해결 가이드 | Microsoft Docs
-description: 이 문서는 Azure Security Center의 문제를 해결 하는 데 도움이 됩니다.
+description: 이 가이드는 Azure Security Center 관련 문제를 해결 해야 하는 IT 전문가, 보안 분석가 및 클라우드 관리자를 위한 것입니다.
 services: security-center
 author: v-miegge
 manager: dcscontentpm
@@ -8,18 +8,18 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 073e500028634e3c35a482d8efc5f9ae169145e3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b9650c3c30d95c85f505b640564ff416931676ea
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257695"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559201"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
 이 가이드는 Azure Security Center를 사용 중인 정보 기술(IT) 전문가, 정보 보안 분석가 및 클라우드 관리자를 대상으로 하고 문제와 관련된 Security Center 문제를 해결해야 합니다.
 
-Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환된 후의 Security Center 기능을 나타냅니다.
+Security Center는 Microsoft Monitoring Agent를 사용 하 여 데이터를 수집 하 고 저장 합니다. 자세한 내용은 [Azure Security Center 플랫폼 마이그레이션](security-center-platform-migration.md)을 참조하세요. 이 문서의 정보는 Microsoft Monitoring Agent로 전환 후 Security Center 기능을 나타냅니다.
 
 ## <a name="troubleshooting-guide"></a>문제 해결 가이드
 
@@ -62,11 +62,11 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 서비스 관리 콘솔(services.msc)을 열 경우 다음과 같이 실행 중인 Microsoft Monitoring Agent 서비스가 나타납니다.
 
-![서비스](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 설치된 에이전트의 버전을 확인하려면 **작업 관리자**를 열고 **프로세스** 탭에서 **Microsoft Monitoring Agent 서비스**를 찾고 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **세부 정보** 탭에서 아래와 같이 파일 버전을 확인합니다.
 
-![파일](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Microsoft Monitoring Agent 설치 시나리오
 
@@ -74,7 +74,7 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 * **Security Center에서 자동으로 설치되는 에이전트**: 이 시나리오에서는 위치, Security Center 및 로그 검색에서 경고를 볼 수 있습니다. 리소스가 속한 구독의 보안 정책에 구성 된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
 
-* **Azure에 있는 VM에 수동으로 설치 된 에이전트**:이 시나리오에서는 2 월 2017 일 전에 수동으로 다운로드 하 여 설치한 에이전트를 사용 하는 경우 작업 영역에서 구독을 필터링 하는 경우에만 Security Center 포털에서 경고를 볼 수 있습니다. 는에 속합니다. 리소스가 속한 구독을 필터링 하는 경우 경고가 표시 되지 않습니다. 작업 영역이 속한 구독의 보안 정책에 구성 된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
+* **Azure에 있는 VM에 수동으로 설치 된 에이전트**:이 시나리오에서는 2 월 2017 일 전에 수동으로 다운로드 하 여 설치한 에이전트를 사용 하는 경우 작업 영역이 속한 구독을 필터링 하는 경우에만 Security Center 포털에서 경고를 볼 수 있습니다. 리소스가 속한 구독을 필터링 하는 경우 경고가 표시 되지 않습니다. 작업 영역이 속한 구독의 보안 정책에 구성 된 전자 메일 주소로 전자 메일 알림을 받게 됩니다.
 
 > [!NOTE]
 > 두 번째 시나리오에서 설명한 동작을 방지하려면 최신 버전의 에이전트를 다운로드해야 합니다.
@@ -107,10 +107,10 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 | 에이전트 리소스 | 포트 | HTTPS 검사 무시 |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | 예 |
-| *.oms.opinsights.azure.com | 443 | 예 |
-| \*.blob.core.windows.net | 443 | 예 |
-| *.azure-automation.net | 443 | 예 |
+| *.ods.opinsights.azure.com | 443 | yes |
+| *.oms.opinsights.azure.com | 443 | yes |
+| \*.blob.core.windows.net | 443 | yes |
+| *.azure-automation.net | 443 | yes |
 
 에이전트와 온보딩 문제가 발생하는 경우 [Operations Management Suite 온보딩 문제를 해결하는 방법](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 문서를 참조하도록 합니다.
 
@@ -138,7 +138,7 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 
 ![Microsoft 지원](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 이 문서에서는 Azure Security Center에서 보안 정책을 구성하는 방법을 배웠습니다. Azure Security Center에 대한 자세한 내용은 다음을 참조하세요.
 
@@ -153,6 +153,6 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 * [경고 신뢰도 점수](security-center-secure-score.md)
 * [Azure Security Center에서 인시던트 및 경고 조사](security-center-investigation.md)
 * [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
-* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
+* [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) — 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

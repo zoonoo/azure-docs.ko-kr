@@ -7,19 +7,16 @@ ms.service: azure-migrate
 ms.topic: tutorial
 ms.date: 10/23/2019
 ms.author: raynew
-ms.openlocfilehash: 856f7f7735435579ac14918ee8026f27b222773e
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 7bf47731f2a3621e7bbdc1b104d94e97f2d03099
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73715502"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158660"
 ---
 # <a name="assess-servers-using-imported-data"></a>가져온 데이터를 사용하여 서버 평가
 
-> [!NOTE]
-> Azure Migrate 포털에 이 기능이 아직 표시되지 않으면 중단합니다. 다음 주 정도에 표시됩니다.
-
-이 문서에서는 CSV를 통해 서버 메타데이터를 가져와 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool)로 온-프레미스 서버를 평가하는 방법을 설명합니다. 이 평가 방법을 사용하면 평가를 만들기 위해 Azure Migrate 어플라이언스를 설정할 필요가 없습니다. 이러한 특성은 다음과 같은 경우에 유용합니다. 
+이 문서에서는 CSV를 통해 서버 메타데이터를 가져와 [Azure Migrate: 서버 평가](migrate-services-overview.md#azure-migrate-server-assessment-tool)로 온-프레미스 서버를 평가하는 방법을 설명합니다. 이 평가 방법을 사용하면 평가를 만들기 위해 Azure Migrate 어플라이언스를 설정할 필요가 없습니다. 이러한 특성은 다음과 같은 경우에 유용합니다.
 
 - 어플라이언스를 배포하기 전에 빠른 초기 평가를 만들려고 합니다.
 - 조직에 Azure Migrate 어플라이언스를 배포할 수 없습니다.
@@ -49,7 +46,7 @@ ms.locfileid: "73715502"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만듭니다.
 
 
-## <a name="set-azure-permissions-for-azure-migrate"></a>Azure Migrate에 대한 Azure 권한 설정 
+## <a name="set-azure-permissions-for-azure-migrate"></a>Azure Migrate에 대한 Azure 권한 설정
 
 Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있어야 합니다.
 
@@ -116,7 +113,7 @@ CSV 템플릿을 다운로드하고 여기에 서버 정보를 추가합니다.
 
 **필드 이름** | **필수** | **세부 정보**
 --- | --- | ---
-**서버 이름** | 예 | FQDN을 지정하는 것이 좋습니다. 
+**서버 이름** | 예 | FQDN을 지정하는 것이 좋습니다.
 **IP 주소** | 아니요 | 서버 주소
 **코어 수** | 예 | 서버에 할당된 프로세서 코어의 수
 **메모리** | 예 | 서버에 할당된 총 RAM 크기(MB)
@@ -144,7 +141,7 @@ CSV 템플릿을 다운로드하고 여기에 서버 정보를 추가합니다.
 **Virtual Machine Manager ID** | 아니요 | VMWare vCenter의 경우 **InstanceUUid**입니다. Hyper-V에는 필요하지 않습니다.
 **MAC 주소**| 아니요 | 서버 MAC 주소
 **BIOS ID** | 아니요 | 서버 BIOS ID
-**사용자 지정 서버 ID**| 아니요 | 온-프레미스의 로컬 고유 서버 ID. <br/> 가져온 서버를 로컬 ID로 추적하는 데 유용합니다. 
+**사용자 지정 서버 ID**| 아니요 | 온-프레미스의 로컬 고유 서버 ID. <br/> 가져온 서버를 로컬 ID로 추적하는 데 유용합니다.
 **애플리케이션 1 이름** | 아니요 | 서버에서 실행 중인 워크로드의 이름.<br/> 템플릿에 [열을 추가](#add-multiple-applications)하여 추가 앱에 대한 세부 정보를 추가할 수 있습니다. 최대 5개의 애플리케이션을 추가할 수 있습니다.
 **애플리케이션 1 유형** | 아니요 | 서버에서 실행 중인 워크로드의 유형
 **애플리케이션 1 버전** | 아니요 | 서버에서 실행 중인 워크로드의 버전
@@ -162,7 +159,7 @@ CSV 템플릿을 다운로드하고 여기에 서버 정보를 추가합니다.
 
 ### <a name="add-multiple-disks"></a>여러 디스크 추가
 
-템플릿은 첫 번째 디스크의 기본 필드를 제공합니다.  최대 8개 디스크에 대해 비슷한 열을 추가할 수 있습니다. 
+템플릿은 첫 번째 디스크의 기본 필드를 제공합니다.  최대 8개 디스크에 대해 비슷한 열을 추가할 수 있습니다.
 
 예를 들어, 두 번째 디스크의 모든 필드를 지정하려면 다음과 같은 열을 추가합니다.
 
@@ -192,10 +189,10 @@ CSV 템플릿에 정보를 추가한 후 서버를 Azure Migrate로 가져옵니
 
 1. Azure Migrate > **컴퓨터 검색**에서 작성한 템플릿을 찾습니다.
 2. **가져오기**를 클릭합니다.
-3. 가져오기 상태가 표시됩니다. 
+3. 가져오기 상태가 표시됩니다.
     - 상태에 경고가 표시되면 해당 경고를 해결하거나 해결하지 않고 계속 진행할 수 있습니다.
     - 경고에 제안된 대로 서버 정보를 개선하면 평가 정확도가 개선됩니다.
-    - 표시되는 경고를 확인하고 해결하려면 **경고 정보 .CSV 다운로드**를 클릭합니다. 그러면 경고가 추가된 CSV가 다운로드됩니다. 경고를 검토하고 필요에 따라 문제를 수정할 수 있습니다. 
+    - 표시되는 경고를 확인하고 해결하려면 **경고 정보 .CSV 다운로드**를 클릭합니다. 그러면 경고가 추가된 CSV가 다운로드됩니다. 경고를 검토하고 필요에 따라 문제를 수정할 수 있습니다.
     상태에 오류가 표시되는 경우(가져오기 상태는 **실패**임) 가져오기를 계속하기 전에 수정해야 합니다. 이렇게 하려면 CSV를 다운로드합니다. 그러면 오류 세부 정보가 추가됩니다. 필요에 따라 오류를 검토하고 해결합니다. 그런 다음, 수정된 파일을 다시 업로드합니다.
 4. 가져오기 상태가 **완료**이면 서버 정보를 가져옵니다.
 
@@ -205,7 +202,7 @@ CSV 템플릿에 정보를 추가한 후 서버를 Azure Migrate로 가져옵니
 
 ## <a name="updating-server-information"></a>서버 정보 업데이트
 
-동일한 **서버 이름**을 사용하여 서버에 대한 데이터를 다시 업로드하여 서버 정보를 업데이트할 수 있습니다. **서버 이름** 필드는 수정할 수 없습니다. 
+동일한 **서버 이름**을 사용하여 서버에 대한 데이터를 다시 업로드하여 서버 정보를 업데이트할 수 있습니다. **서버 이름** 필드는 수정할 수 없습니다.
 
 서버 삭제는 현재 지원되지 않습니다.
 
@@ -263,7 +260,7 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 ### <a name="view-an-assessment"></a>평가 보기
 
-1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 **평가**를 클릭합니다.
+1. **마이그레이션 목표** >  **서버**의 **Azure Migrate: 서버 평가**에서 평가를 클릭합니다.
 2. **평가**에서 해당 평가를 클릭하여 엽니다.
 
     ![평가 요약](./media/tutorial-assess-physical/assessment-summary.png)
@@ -300,21 +297,21 @@ Azure Migrate: 서버 평가를 사용하여 만들 수 있는 평가에는 두 
 
 Name | Name
 --- | ---
-**A - H** | 
+**A - H** |
 Apple Mac OS X 10 | Asianux 3<br/>Asianux 4<br/>Asianux 5
-CentOS<br/>CentOS 4/5 | CoreOS Linux 
-Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD 
-**I - R** | 
+CentOS<br/>CentOS 4/5 | CoreOS Linux
+Debian GNU/Linux 4<br/>Debian GNU/Linux 5<br/>Debian GNU/Linux 6<br/>Debian GNU/Linux 7<br/>Debian GNU/Linux 8 | FreeBSD
+**I - R** |
 IBM OS/2 | MS-DOS |
-Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11 
-Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora | 
-**S-T** | 
+Novell NetWare 5<br/>Novell NetWare 6 | Oracle Linux<br/> Oracle Linux 4/5<br/>Oracle Solaris 10<br/> Oracle Solaris 11
+Red Hat Enterprise Linux 2<br/>Red Hat Enterprise Linux 3<br/>Red Hat Enterprise Linux 4<br/>Red Hat Enterprise Linux 5<br/>Red Hat Enterprise Linux 6<br/>Red Hat Enterprise Linux 7<br/>Red Hat Fedora |
+**S-T** |
 SCO OpenServer 5<br/>SCO OpenServer 6<br/>SCO UnixWare 7 | Serenity Systems eComStation 1<br/>Serenity Systems eComStation 2
 Sun Microsystems Solaris 8<br/>Sun Microsystems Solaris 9 | SUSE Linux Enterprise 10<br/> SUSE Linux Enterprise 11<br/>SUSE Linux Enterprise 12<br/>SUSE Linux Enterprise 8/9<br/>SUSE Linux Enterprise 11<br/>SUSE openSUSE
-**U-Z** | 
+**U-Z** |
 Ubuntu Linux | VMware ESXi 4<br/>VMware ESXi 5<br/>VMware ESXi 6
 윈도우 10<br/>Windows 2000<br/>Windows 3<br/>Windows 7<br/>Windows 8<br/>Windows 95<br/>Windows 98<br/>Windows NT<br/>Windows Server (R) 2008<br/>Windows Server 2003 | Windows Server 2008<br/>Windows Server 2008 R2<br/>Windows Server 2012<br/>Windows Server 2012 R2<br/>Windows Server 2016<br/>Windows Server 2019<br/>Windows Server Threshold<br/>Windows Vista<br/>Windows Web Server 2008 R2<br/>Windows XP Professional
-    
+
 
 ## <a name="next-steps"></a>다음 단계
 

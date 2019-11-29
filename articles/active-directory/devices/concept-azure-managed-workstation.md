@@ -5,24 +5,24 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 11/18/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2abc5434f11bf00c6872775b1336694c04972e95
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: c26197a14e78b1cf1a1e078ba0145eca207206bf
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200225"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561963"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>안전 하 고 Azure로 관리 되는 워크스테이션 이해
 
 안전 하 고 격리 된 워크스테이션은 관리자, 개발자 및 중요 서비스 운영자와 같은 중요 한 역할의 보안에 매우 중요 합니다. 클라이언트 워크스테이션 보안이 손상 되 면 많은 보안 제어 및 보증이 실패할 수 있습니다.
 
-이 문서에서는 PAW (권한 있는 액세스 워크스테이션) 라고 하는 안전한 워크스테이션을 빌드하는 데 필요한 사항을 설명 합니다. 이 문서에는 초기 보안 제어를 설정 하는 자세한 지침도 포함 되어 있습니다. 이 지침에서는 클라우드 기반 기술에서 서비스를 관리할 수 있는 방법에 대해 설명 합니다. Windows 10RS5, Microsoft Defender ATP (Advanced Threat Protection), Azure Active Directory 및 Intune에 도입 된 보안 기능에 의존 합니다.
+이 문서에서는 PAW (권한 있는 액세스 워크스테이션) 라고 하는 안전한 워크스테이션을 빌드하는 데 필요한 사항을 설명 합니다. 이 문서에는 초기 보안 제어를 설정 하는 자세한 지침도 포함 되어 있습니다. 이 지침에서는 클라우드 기반 기술에서 서비스를 관리할 수 있는 방법에 대해 설명 합니다. Windows 10RS5, Microsoft Defender ATP (Advanced Threat Protection), Azure Active Directory 및 Microsoft Intune에 도입 된 보안 기능을 사용 합니다.
 
 > [!NOTE]
 > 이 문서에서는 보안 워크스테이션 및 중요도의 개념에 대해 설명 합니다. 개념을 이미 잘 알고 있고 배포로 건너뛰려면 [보안 워크스테이션 배포](howto-azure-managed-workstation.md)를 참조 하세요.
@@ -52,6 +52,7 @@ ms.locfileid: "73200225"
 * 장치 상태 증명 및 사용자 환경에 대 한 Windows 10 (현재 버전)
 * 클라우드 관리 끝점 보호, 검색 및 응답을 위한 Defender ATP
 * 리소스에 대 한 권한 부여 및 JIT (just-in-time) 특권 수준의 액세스를 관리 하기 위한 Azure AD PIM
+* 모니터링 및 경고에 대 한 Log Analytics 및 센티널
 
 ## <a name="who-benefits-from-a-secure-workstation"></a>보안 워크스테이션을 활용 하는 사람은 누구 인가요?
 
@@ -63,7 +64,7 @@ ms.locfileid: "73200225"
 * 매우 중요 한 워크스테이션 (예: SWIFT 결제 터미널)
 * 거래 비밀을 처리 하는 워크스테이션
 
-위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-checklist-p2), [Office 365 로드맵](https://aka.ms/o365secroadmap)및 [권한 있는 액세스 보안 로드맵](https://aka.ms/sparoadmap))을 참조 하세요.
+위험을 줄이려면 이러한 계정을 사용 하는 권한 있는 워크스테이션에 대해 높은 수준의 보안 제어를 구현 해야 합니다. 자세한 내용은 [Azure Active Directory 기능 배포 가이드](../fundamentals/active-directory-deployment-checklist-p2.md), [Office 365 로드맵](https://aka.ms/o365secroadmap)및 [권한 있는 액세스 보안 로드맵](https://aka.ms/sparoadmap))을 참조 하세요.
 
 ## <a name="why-use-dedicated-workstations"></a>전용 워크스테이션을 사용 해야 하는 이유
 
@@ -78,16 +79,29 @@ ms.locfileid: "73200225"
 
 ## <a name="supply-chain-management"></a>공급망 관리
 
-안전한 워크스테이션에는 ' 신뢰 루트 ' 라는 신뢰할 수 있는 워크스테이션을 사용 하는 공급망 솔루션이 필요 합니다. 이 솔루션의 경우 신뢰의 루트는 [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) 기술을 사용 합니다. 워크스테이션을 보호 하기 위해 Autopilot를 사용 하 여 Microsoft OEM 최적화 Windows 10 장치를 활용할 수 있습니다. 이러한 장치는 제조업체 로부터 알려진 양호한 상태로 제공 됩니다. Autopilot는 잠재적으로 안전 하지 않은 장치를 이미지로 다시 설치 하는 대신 Windows 장치를 "업무 지원" 상태로 변환할 수 있습니다. 설정 및 정책을 적용 하 고, 앱을 설치 하 고, Windows 10의 버전을 변경 합니다. 예를 들어, Autopilot는 Windows 10 Pro에서 windows 10 Enterprise로 장치의 Windows 설치를 변경 하 여 고급 기능을 사용할 수 있습니다.
+안전한 워크스테이션에는 ' 신뢰 루트 ' 라는 신뢰할 수 있는 워크스테이션을 사용 하는 공급망 솔루션이 필요 합니다. 신뢰 하드웨어 루트를 선택할 때 고려해 야 하는 기술에는 최신 노트북에 포함 된 다음과 같은 기술이 포함 되어야 합니다. 
+
+* [신뢰할 수 있는 플랫폼 모듈 (TPM) 2.0](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-tpm)
+* [BitLocker 드라이브 암호화](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-bitlocker)
+* [UEFI 보안 부팅](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-secure-boot)
+* [Windows 업데이트를 통해 배포 되는 드라이버 및 펌웨어](https://docs.microsoft.com/windows-hardware/drivers/dashboard/understanding-windows-update-automatic-and-optional-rules-for-driver-distribution)
+* [가상화 및 HVCI 사용](https://docs.microsoft.com/windows-hardware/design/device-experiences/oem-vbs)
+* [드라이버 및 앱 HVCI-준비](https://docs.microsoft.com/windows-hardware/test/hlk/testref/driver-compatibility-with-device-guard)
+* [Windows Hello](https://docs.microsoft.com/windows-hardware/design/device-experiences/windows-hello-biometric-requirements)
+* [DMA i/o 보호](https://docs.microsoft.com/windows/security/information-protection/kernel-dma-protection-for-thunderbolt)
+* [시스템 가드](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-system-guard/system-guard-how-hardware-based-root-of-trust-helps-protect-windows)
+* [최신 대기](https://docs.microsoft.com/windows-hardware/design/device-experiences/modern-standby)
+
+이 솔루션의 경우 최신 기술 요구 사항을 충족 하는 하드웨어가 포함 된 [Microsoft Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-autopilot) 기술을 사용 하 여 신뢰 루트를 배포 합니다. 워크스테이션을 보호 하기 위해 Autopilot를 사용 하 여 Microsoft OEM 최적화 Windows 10 장치를 활용할 수 있습니다. 이러한 장치는 제조업체 로부터 알려진 양호한 상태로 제공 됩니다. Autopilot는 잠재적으로 안전 하지 않은 장치를 이미지로 다시 설치 하는 대신 Windows 장치를 "업무 지원" 상태로 변환할 수 있습니다. 설정 및 정책을 적용 하 고, 앱을 설치 하 고, Windows 10의 버전을 변경 합니다. 예를 들어, Autopilot는 Windows 10 Pro에서 windows 10 Enterprise로 장치의 Windows 설치를 변경 하 여 고급 기능을 사용할 수 있습니다.
 
 ![보안 워크스테이션 수준](./media/concept-azure-managed-workstation/supplychain.png)
 
 ## <a name="device-roles-and-profiles"></a>장치 역할 및 프로필
 
-이 지침에서는 사용자, 개발자 및 IT 담당자를 위한 보다 안전한 솔루션을 만드는 데 도움이 되는 몇 가지 보안 프로필 및 역할을 참조 합니다. 이러한 프로필은 강화 된 워크스테이션 또는 안전한 워크스테이션의 이점을 누릴 수 있는 일반 사용자에 대 한 유용성 및 위험을 분산 합니다. 여기에 제공 된 설정 구성은 업계에서 승인한 표준을 기반으로 합니다. 이 지침에서는 Windows 10을 강화 하 고 장치 또는 사용자 손상과 관련 된 위험을 줄이는 방법을 보여 줍니다. 이는 정책과 기술을 사용 하 여 보안 기능 및 위험을 관리 하는 데 도움이 됩니다.
+이 지침에서는 사용자, 개발자 및 IT 담당자를 위한 보다 안전한 솔루션을 만드는 데 도움이 되는 몇 가지 보안 프로필 및 역할을 참조 합니다. 이러한 프로필은 강화 된 워크스테이션 또는 안전한 워크스테이션의 이점을 누릴 수 있는 일반 사용자에 대 한 유용성 및 위험을 분산 합니다. 여기에 제공 된 설정 구성은 업계에서 승인한 표준을 기반으로 합니다. 이 지침에서는 Windows 10을 강화 하 고 장치 또는 사용자 손상과 관련 된 위험을 줄이는 방법을 보여 줍니다. 최신 하드웨어 기술과 신뢰 장치의 루트를 활용 하기 위해 **높은 보안** 프로필에서 시작 하는 데 사용할 수 있는 [디바이스 상태 증명](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643)을 사용 합니다. 이 기능은 장치 조기 부팅 중에 공격자가 영구적으로 사용할 수 없도록 보장 하기 위해 제공 됩니다. 이는 정책과 기술을 사용 하 여 보안 기능 및 위험을 관리 하는 데 도움이 됩니다.
 ![보안 워크스테이션 수준](./media/concept-azure-managed-workstation/seccon-levels.png)
 
-* **낮은 보안** – 관리 되는 표준 워크스테이션은 대부분의 홈 및 소규모 비즈니스 용도에 적합 한 시작 지점을 제공 합니다. 이러한 장치는 Azure AD에 등록 되 고 Intune을 사용 하 여 관리 됩니다. 이 프로필을 사용 하면 사용자가 모든 응용 프로그램을 실행 하 고 모든 웹 사이트를 찾아볼 수 있습니다. [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) 와 같은 맬웨어 방지 솔루션을 사용 하도록 설정 해야 합니다.
+* **기본 보안** – 관리 되는 표준 워크스테이션은 대부분의 홈 및 소규모 비즈니스 사용을 위한 좋은 시작 지점을 제공 합니다. 이러한 장치는 Azure AD에 등록 되 고 Intune을 사용 하 여 관리 됩니다. 이 프로필을 사용 하면 사용자가 모든 응용 프로그램을 실행 하 고 모든 웹 사이트를 찾아볼 수 있습니다. [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) 와 같은 맬웨어 방지 솔루션을 사용 하도록 설정 해야 합니다.
 
 * **보안 강화** –이 항목 수준의 보호 된 솔루션은 개인 사용자, 소규모 비즈니스 사용자 및 일반 개발자에 게 적합 합니다.
 
@@ -99,7 +113,7 @@ ms.locfileid: "73200225"
 
 * **전문** – 공격자는 공격자와 관련 된 시스템을 변경할 수 있기 때문에 개발자와 IT 관리자를 대상으로 합니다. 특수 한 워크스테이션은 로컬 응용 프로그램을 관리 하 고 웹 사이트를 제한 하 여 높은 수준의 보안 워크스테이션 정책을 확장 합니다. 또한 ActiveX, Java, browser 플러그 인 및 기타 Windows 컨트롤과 같은 높은 위험 수준의 생산성 기능을 제한 합니다. DeviceConfiguration_NCSC-Windows10 (1803) SecurityBaseline 스크립트를 사용 하 여이 프로필을 배포 합니다.
 
-* **보안** – 관리 계정을 손상 시키는 공격자가 데이터 도난, 데이터 변경 또는 서비스 중단으로 인해 상당한 비즈니스 손상을 일으킬 수 있습니다. 이러한 확정 된 상태에서 워크스테이션은 로컬 응용 프로그램 관리의 직접 제어를 제한 하는 모든 보안 제어 및 정책을 사용 하도록 설정 합니다. 보안 워크스테이션에는 생산성 도구가 없으므로 장치를 손상 하기가 더 어려워집니다. 피싱 공격에 대해 가장 일반적인 벡터 인 전자 메일 및 소셜 미디어를 차단 합니다.  Secure workstation Windows10 (1809) SecurityBaseline 스크립트를 사용 하 여 보안 워크스테이션을 배포할 수 있습니다.
+* **보안** – 관리 계정을 손상 시키는 공격자가 데이터 도난, 데이터 변경 또는 서비스 중단으로 인해 상당한 비즈니스 손상을 일으킬 수 있습니다. 이러한 확정 된 상태에서 워크스테이션은 로컬 응용 프로그램 관리의 직접 제어를 제한 하는 모든 보안 제어 및 정책을 사용 하도록 설정 합니다. 보안 워크스테이션에는 생산성 도구가 없으므로 장치를 손상 하기가 더 어려워집니다. 피싱 공격에 대해 가장 일반적인 벡터 인 전자 메일 및 소셜 미디어를 차단 합니다. Secure workstation Windows10 (1809) SecurityBaseline 스크립트를 사용 하 여 보안 워크스테이션을 배포할 수 있습니다.
 
    ![보안 워크스테이션](./media/concept-azure-managed-workstation/secure-workstation.png)
 
@@ -107,8 +121,8 @@ ms.locfileid: "73200225"
 
 * **격리** –이 사용자 지정 오프 라인 시나리오는 스펙트럼의 극단적인 끝을 나타냅니다. 이 경우 설치 스크립트가 제공 되지 않습니다. 지원 되지 않거나 패치가 적용 되지 않은 레거시 운영 체제가 필요한 업무상 중요 한 기능을 관리 해야 할 수 있습니다. 예를 들어 높은 가치의 생산 라인 또는 수명 지원 시스템입니다. 보안이 중요 하 고 클라우드 서비스를 사용할 수 없기 때문에 이러한 컴퓨터를 수동으로 관리 하 고 업데이트할 수 있으며, ESAE (강화 된 보안 관리 환경)와 같은 격리 된 Active Directory 포리스트 아키텍처로 관리할 수 있습니다. 이러한 경우 기본 Intune 및 ATP 상태 검사를 제외한 모든 액세스를 제거 하는 것이 좋습니다.
 
-  * [Intune 네트워크 통신 요구 사항](https://docs.microsoft.com/intune/network-bandwidth-use)
-  * [ATP 네트워크 통신 요구 사항](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
+   * [Intune 네트워크 통신 요구 사항](https://docs.microsoft.com/intune/network-bandwidth-use)
+   * [ATP 네트워크 통신 요구 사항](https://docs.microsoft.com/azure-advanced-threat-protection/configure-proxy)
 
 ## <a name="next-steps"></a>다음 단계
 

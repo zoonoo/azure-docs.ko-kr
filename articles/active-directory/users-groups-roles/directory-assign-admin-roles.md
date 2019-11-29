@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bdc178661cf4db8505a444d1f5575bb3d0375979
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547516"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554127"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -185,7 +185,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 이 역할의 사용자는 기본 디렉터리 정보를 읽을 수 있습니다. 이 역할은 다음에 사용 해야 합니다.
 * 특정 게스트 사용자 집합에 모든 게스트 사용자에 게 권한을 부여 하는 대신 해당 사용자에 게 읽기 권한을 부여 합니다.
-* "Azure AD 포털에 대 한 액세스를 관리자 만으로 제한"을 "예"로 설정 하면 관리자가 아닌 사용자의 특정 집합을 Azure Portal에 부여할 수 있습니다.
+* "Azure AD 포털에 대 한 액세스를 관리자로만 제한"을 "예"로 설정 하는 경우 관리자가 아닌 사용자의 특정 집합에 Azure Portal 액세스 권한을 부여 합니다.
 * 디렉터리에 대 한 액세스 권한을 서비스 주체에 부여 하는 경우. All은 옵션이 아닙니다.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[디렉터리 동기화 계정](#directory-synchronization-accounts-permissions)
@@ -238,7 +238,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >- [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 판독기는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
 >- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >- [M365 Security center](https://security.microsoft.com/homepage) -전역 판독기는 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security center의 왼쪽 창에서 **민감도 레이블**, **보존 레이블**및 **레이블 분석** 탭을 찾을 수 없습니다.
->- [Office 보안 및 준수 센터](https://protection.microsoft.com) -전역 판독기가 SCC 감사 로그를 읽을 수 없거나 콘텐츠 검색을 수행할 수 없습니다.
+>- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) -전역 판독기가 SCC 감사 로그를 읽을 수 없거나 콘텐츠 검색을 수행할 수 없습니다.
 >- [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 **팀 수명 주기**, **분석 & 보고서**, **IP 전화 장치 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
 >- [PAM (Privileged Access Management)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) 전역 판독기는 [중앙 보고에](https://docs.microsoft.com/azure/information-protection/reports-aip) 만 지원 되며, Azure AD 조직은 [통합 레이블 지정 플랫폼](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않을 때만 지원 됩니다.
@@ -248,7 +248,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="group-administratorgroup-administrator"></a>[그룹 관리자](#group-administrator)
 
-이 역할의 사용자는 이름 및 만료 정책 같은 그룹 및 설정을 만들고 관리할 수 있습니다. 이 역할에 사용자를 할당 하면 팀, SharePoint, Yammer와 같은 다양 한 워크 로드에서 Outlook 외에도 테 넌 트의 모든 그룹을 관리 하는 기능을 이해 하는 것이 중요 합니다. 또한 사용자는 Microsoft 관리 센터, Azure Portal 등의 다양 한 관리 포털에서 다양 한 그룹 설정을 관리할 수 있을 뿐만 아니라 팀 및 SharePoint 관리 센터와 같은 특정 워크 로드를 관리할 수 있습니다.
+이 역할의 사용자는 이름 및 만료 정책 같은 그룹 및 설정을 만들고 관리할 수 있습니다. 이 역할에 사용자를 할당 하면 팀, SharePoint, Yammer와 같은 다양 한 워크 로드에서 Outlook 외에도 테 넌 트의 모든 그룹을 관리 하는 기능을 이해 하는 것이 중요 합니다. 또한 사용자는 Microsoft 관리 센터, Azure Portal 등의 다양 한 관리 포털에서 다양 한 그룹 설정을 관리할 수 있을 뿐만 아니라 팀 및 SharePoint 관리 센터와 같은 워크 로드 관련 작업을 관리할 수도 있습니다.
 
 ### <a name="guest-inviterguest-inviter-permissions"></a>[게스트 초대자](#guest-inviter-permissions)
 

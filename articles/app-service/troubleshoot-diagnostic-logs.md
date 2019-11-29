@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/17/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 21600036302050aeea3e2ea989d86e18b208c087
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: bf25967133901aca911c0ad3a69d43c75bb816a0
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958033"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558558"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 >
 >
 
-|형식|플랫폼|Location|설명|
+|Type|플랫폼|위치|설명|
 |-|-|-|-|
 | 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요**, **오류**, **경고**, **정보**, **디버그**및 **추적**범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
 | 웹 서버 로깅| Windows | App Service 파일 시스템 또는 Azure Storage blob| [W3C 확장 로그 파일 형식의](/windows/desktop/Http/w3c-logging)원시 HTTP 요청 데이터입니다. 각 로그 메시지에는 HTTP 메서드, 리소스 URI, 클라이언트 IP, 클라이언트 포트, 사용자 에이전트, 응답 코드 등의 데이터가 포함 됩니다. |
@@ -64,7 +64,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 로깅할 **수준**또는 세부 정보 수준을 선택 합니다. 다음 표에는 각 수준에 포함 된 로그 범주가 나와 있습니다.
 
-| 수준 | 포함 된 범주 |
+| Level | 포함 된 범주 |
 |-|-|
 |**사용 안 함** | 없음 |
 |**오류** | 오류, 위험 |
@@ -112,9 +112,9 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 
 ## <a name="add-log-messages-in-code"></a>코드에 로그 메시지 추가
 
-응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 예:
+응용 프로그램 코드에서 일반적인 로깅 기능을 사용 하 여 응용 프로그램 로그에 로그 메시지를 보냅니다. 다음은 그 예입니다.
 
-- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 예:
+- ASP.NET 애플리케이션은 [System.Diagnostics.Trace](/dotnet/api/system.diagnostics.trace) 클래스를 사용하여 애플리케이션 진단 로그에 정보를 로깅할 수 있습니다. 다음은 그 예입니다.
 
     ```csharp
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
@@ -142,12 +142,12 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 az webapp log tail --name appname --resource-group myResourceGroup
 ```
 
-오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 예:
+오류와 같은 특정 이벤트를 필터링하려면 **--Filter** 매개 변수를 사용합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --filter Error
 ```
-HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 예:
+HTTP와 같은 특정 로그 유형을 필터링하려면 **-Path** 매개 변수를 사용합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az webapp log tail --name appname --resource-group myResourceGroup --path http
@@ -189,12 +189,12 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 
 다음 표에서는 지원 되는 로그 유형 및 설명을 보여 줍니다. 
 
-| 로그 형식 | Windows 지원 | Linux 지원 | 설명 |
+| 로그 형식 | Windows 지원 | Linux (Docker) 지원 | 설명 |
 |-|-|-|
-| AppServiceConsoleLogs | TBA | 예 | 표준 출력 및 표준 오류 |
-| AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |
-| Appservice환경 Platformlogs | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
-| AppServiceAuditLogs | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
+| AppServiceConsoleLogs | TBA | yes | 표준 출력 및 표준 오류 |
+| AppServiceHTTPLogs | yes | yes | 웹 서버 로그 |
+| AppServiceEnvironmentPlatformLogs | yes | yes | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
+| AppServiceAuditLogs | yes | yes | FTP 및 Kudu를 통한 로그인 활동 |
 | AppServiceFileAuditLogs | TBA | TBA | FTP 및 Kudu를 통해 파일 변경 |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | 애플리케이션 로그 |
 

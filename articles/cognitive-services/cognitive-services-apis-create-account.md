@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: aahi
-ms.openlocfilehash: 14157ed22ea40a2157f696e91c59af9b58110bf2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: dd4444bf42bcc8dda95f8fa37b42a365538efa85
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819945"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482878"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -64,7 +64,7 @@ ms.locfileid: "72819945"
     |--|--|
     | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *MyCognitiveServicesResource*입니다. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
-    | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. Azure Cognitive Services를 호출할 때 필요할 수 있으므로 Azure 위치를 염두에 두어야 합니다. |
+    | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
     | **리소스 그룹** | Cognitive Services 리소스를 포함 하는 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
@@ -78,7 +78,7 @@ ms.locfileid: "72819945"
     |--|--|
     | **Name** | Cognitive Services 리소스를 설명하는 이름입니다. 예를 들면 *TextAnalyticsResource*입니다. |
     | **구독** | 사용 가능한 Azure 구독 중 하나를 선택합니다. |
-    | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. Azure Cognitive Services를 호출할 때 필요할 수 있으므로 Azure 위치를 염두에 두어야 합니다. |
+    | **위치** | Cognitive Service 인스턴스의 위치입니다. 다른 위치를 사용하면 대기 시간이 발생할 수 있지만 리소스의 런타임 가용성에는 영향을 주지 않습니다. |
     | **가격 책정 계층** | Cognitive Services 계정의 비용은 선택한 옵션 및 사용량에 따라 다릅니다. 자세한 내용은 API [가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/cognitive-services/)를 참조하세요.
     | **리소스 그룹** | Cognitive Services 리소스를 포함 하는 Azure 리소스 그룹입니다. 새 그룹을 만들거나 기존 그룹에 추가할 수 있습니다. |
 
@@ -87,6 +87,7 @@ ms.locfileid: "72819945"
     **만들기**를 클릭합니다.
 
     ***
+
 
 ## <a name="get-the-keys-for-your-resource"></a>리소스의 키를 가져옵니다.
 

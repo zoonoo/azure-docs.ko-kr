@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: c5d6c671890f5e036d3f4cce6e880230c01048ed
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483814"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561127"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -184,7 +184,7 @@ Windows 가상 데스크톱 환경에서 네트워크 공유를 만들고 해당
 
 MSIX 앱 연결에는 다음 순서 대로 수행 해야 하는 4 개의 고유한 단계가 있습니다.
 
-1. 단계
+1. Stage
 2. 등록
 3. 취소할
 4. 디
@@ -206,7 +206,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
 4.  부모 폴더를 엽니다. 올바르게 확장 된 경우 패키지와 이름이 같은 폴더가 표시 됩니다. 이 폴더의 이름과 일치 하도록 **\$packageName** 변수를 업데이트 합니다.
 
-    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`.
+    예: `VSCodeUserSetup-x64-1.38.1_1.38.1.0_x64__8wekyb3d8bbwe`
 
 5.  명령 프롬프트를 열고 **mountvol**을 입력 합니다. 이 명령은 볼륨과 해당 Guid의 목록을 표시 합니다. 2 단계에서 드라이브 문자가 VHD를 탑재 한 드라이브와 일치 하는 볼륨의 GUID를 복사 합니다.
 
@@ -307,8 +307,7 @@ PowerShell 스크립트를 업데이트 하기 전에 VHD의 볼륨에 대 한 �
 
     $packageManager = [Windows.Management.Deployment.PackageManager]::new()
 
-    $path = $msixJunction + $parentFolder + $packageName # needed if we do the
-    pbisigned.vhd
+    $path = $msixJunction + $parentFolder + $packageName # needed if we do the pbisigned.vhd
 
     $path = ([System.Uri]$path).AbsoluteUri
 

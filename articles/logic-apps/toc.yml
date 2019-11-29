@@ -103,6 +103,20 @@
               href: logic-apps-custom-api-host-deploy-call.md
         - name: 오류 문제 해결
           href: logic-apps-diagnosing-failures.md
+    - name: Azure 가상 네트워크 액세스
+      items:
+        - name: 통합 서비스 환경으로 가상 네트워크에 연결
+          href: connect-virtual-network-vnet-isolated-environment.md
+        - name: 여러 통합 서비스 환경에 대한 액세스 설정
+          href: connect-virtual-network-vnet-set-up-single-ip-address.md
+        - name: 통합 서비스 환경에 아티팩트 추가
+          href: add-artifacts-integration-service-environment-ise.md
+    - name: 온-프레미스 데이터 액세스
+      items:
+        - name: 데이터 게이트웨이 설치
+          href: logic-apps-gateway-install.md
+        - name: 온-프레미스 데이터 연결
+          href: logic-apps-gateway-connection.md
     - name: B2B 시나리오에 대한 개발
       items:
         - name: 통합 계정 만들기
@@ -159,16 +173,6 @@
           href: logic-apps-enterprise-integration-b2b-list-errors-solutions.md
         - name: 재해 복구 계획 빌드
           href: logic-apps-enterprise-integration-b2b-business-continuity.md
-    - name: 격리된 환경에서 가상 네트워크에 연결
-      href: connect-virtual-network-vnet-isolated-environment.md
-    - name: 통합 서비스 환경에 아티팩트 추가
-      href: add-artifacts-integration-service-environment-ise.md
-    - name: 온-프레미스 데이터 액세스
-      items:
-        - name: 데이터 게이트웨이 설치
-          href: logic-apps-gateway-install.md
-        - name: 온-프레미스 데이터 연결
-          href: logic-apps-gateway-connection.md
     - name: 커넥터 - 심도 있는 항목
       items:
         - name: AS2

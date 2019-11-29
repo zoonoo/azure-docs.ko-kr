@@ -9,18 +9,18 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8200c2511d4f85705ff56df43f128034d29b0604
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 2c68c64202efec6d7dab745b6e1bdc029fa3976f
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012711"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561290"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Azure Time Series Insights의 데이터 보존 이해
 
-이 문서에서는 Azure Time Series Insights 환경의 데이터 보존에 영향을 주는 두 가지 설정을 설명 합니다.
+이 문서에서는 Azure Time Series Insights 환경의 데이터 보존에 영향을 주는 두 가지 기본 설정을 설명 합니다.
 
 ## <a name="video"></a>비디오
 
@@ -88,7 +88,7 @@ ms.locfileid: "74012711"
 
 Time Series Insights에서 수신 일시 중지가 발생할 경우 데이터 손실을 최소화하기 위해 영향을 받는 Event Hubs에서 **메시지 보존** 속성을 조정하는 것이 좋습니다.
 
-[이벤트 허브 메시지 보존을 ![합니다.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[이벤트 허브 메시지 보존을 ![합니다.](media/time-series-insights-concepts-retention/event-hub-retention.png)](media/time-series-insights-concepts-retention/event-hub-retention.png#lightbox)
 
 이벤트 원본에 구성 된 속성이 없는 경우 (`timeStampPropertyName`) Time Series Insights 기본값은 X 축으로 이벤트 허브에 도착 타임 스탬프입니다. `timeStampPropertyName` 다른 항목으로 구성 된 경우에는 이벤트가 구문 분석 될 때 환경에서 데이터 패킷에 구성 된 `timeStampPropertyName`를 찾습니다.
 

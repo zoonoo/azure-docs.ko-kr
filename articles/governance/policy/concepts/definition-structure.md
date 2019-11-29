@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
-ms.date: 11/04/2019
+ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: afb06771422b2f8117383b0bde711dc3e1a4d238
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279466"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555189"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -22,7 +22,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - 모드
 - parameters
 - 표시 이름
-- 설명
+- description
 - 정책 규칙
   - 논리 평가
   - 영향
@@ -90,7 +90,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 > [!NOTE]
 > 리소스 공급자 모드는 기본 제공 정책 정의만 지원 하 고 미리 보기에서는 이니셔티브를 지원 하지 않습니다.
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 매개 변수는 정책 정의의 수를 줄여 정책 관리를 간소화하는 데 도움이 됩니다. 양식의 필드 `name`, `address`, `city`, `state`와 같은 매개 변수에 관해 생각해 봅니다. 이러한 매개 변수는 항상 그대로 유지되지만, 그 값은 양식을 작성하는 개별 값에 기초하여 달라집니다.
 매개 변수는 정책을 만들 때와 같은 방법으로 작동합니다. 정책 정의에 매개 변수를 포함함으로써 서로 다른 값을 사용하여 다양한 시나리오에 대해 해당 정책을 재사용할 수 있습니다.
@@ -145,7 +145,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-이 샘플은 **매개 변수 속성**에 설명된 [allowedLocations](#parameter-properties) 매개 변수를 참조합니다.
+이 샘플은 [매개 변수 속성](#parameter-properties)에 설명된 **allowedLocations** 매개 변수를 참조합니다.
 
 ### <a name="strongtype"></a>strongType
 
@@ -308,7 +308,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-### <a name="value"></a>값
+### <a name="value"></a>Value
 
 **value**를 사용하여 조건을 구성할 수도 있습니다. **value**는 [매개 변수](#parameters), [지원되는 템플릿 함수](#policy-functions) 또는 리터럴에 대해 조건을 확인합니다.
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
@@ -318,7 +318,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 #### <a name="value-examples"></a>값 예제
 
-이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 **의** like`*netrg` 조건과 비교합니다. 규칙은 이름이 `Microsoft.Network/*`로 끝나는 리소스 그룹에서type`*netrg`이 아닌 리소스를 모두 거부합니다.
+이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 리소스 그룹에서 `Microsoft.Network/*` **type**이 아닌 리소스를 모두 거부합니다.
 
 ```json
 {
@@ -394,7 +394,147 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 수정 된 정책 규칙을 사용 하는 경우 `if()`은 3 자 미만의 값에 대 한 `substring()` 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
-### <a name="effect"></a>결과
+### <a name="count"></a>카운트
+
+**Count** 식을 사용 하 여 리소스 페이로드의 배열에서 조건 식을 충족 하는 배열 멤버 수를 계산 하는 조건입니다. 일반적인 시나리오는 ', ' 중 하나 이상이 정확히 하나 (', ' 모두 ' 또는 ' 없음 ')가 조건을 충족 하는지 여부를 확인 하는 것입니다. **count** 는 조건 식에 대 한 각 배열 멤버를 평가 하 고 식 연산자와 비교 되는 _true_ 결과의 합계를 구합니다.
+
+**개수** 식의 구조는 다음과 같습니다.
+
+```json
+{
+    "count": {
+        "field": "<[*] alias>",
+        "where": {
+            /* condition expression */
+        }
+    },
+    "<condition>": "<compare the count of true condition expression array members to this value>"
+}
+```
+
+다음 속성은 **count**와 함께 사용 됩니다.
+
+- **count. field** (필수): 배열에 대 한 경로를 포함 하며 배열 별칭 이어야 합니다. 배열이 없으면 조건식이 조건식을 고려 하지 않고 _false_ 로 평가 됩니다.
+- **count. where** (선택 사항): 각\[를 개별적으로 평가 하는 조건 식은 **count. field**의 [\] 별칭](#understanding-the--alias) 배열 멤버 \*합니다. 이 속성을 제공 하지 않으면 ' field ' 경로를 사용 하는 모든 배열 멤버가 _true_로 평가 됩니다. 모든 [조건은](../concepts/definition-structure.md#conditions) 이 속성 내에서 사용할 수 있습니다.
+  이 속성 내에서 [논리 연산자](#logical-operators) 를 사용 하 여 복잡 한 평가 요구 사항을 만들 수 있습니다.
+- **\<condition\>** (필수): 값이 count를 만족 하는 항목 수와 비교 **합니다. where** condition 식. 숫자 [조건을](../concepts/definition-structure.md#conditions) 사용 해야 합니다.
+
+#### <a name="count-examples"></a>개수 예
+
+예제 1: 배열이 비어 있는지 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]"
+    },
+    "equals": 0
+}
+```
+
+예제 2: 조건 식에 맞는 배열 멤버가 하나만 있는지 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My unique description"
+        }
+    },
+    "equals": 1
+}
+```
+
+예제 3: 조건 식에 맞는 하나 이상의 배열 멤버 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "My common description"
+        }
+    },
+    "greaterOrEquals": 1
+}
+```
+
+예제 4: 모든 개체 배열 멤버가 조건 식을 충족 하는지 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].description",
+            "equals": "description"
+        }
+    },
+    "equals": "[length(field(Microsoft.Network/networkSecurityGroups/securityRules[*]))]"
+}
+```
+
+예 5: 모든 문자열 배열 멤버가 조건 식을 충족 하는지 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+            "like": "*@contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+예제 6: **값** 내부 **필드** 를 사용 하 여 모든 배열 멤버가 조건 식을 충족 하는지 확인
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]",
+        "where": {
+            "value": "[last(split(first(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]')), '@'))]",
+            "equals": "contoso.com"
+        }
+    },
+    "equals": "[length(field('Microsoft.Sql/servers/securityAlertPolicies/emailAddresses[*]'))]"
+}
+```
+
+예 7: 하나 이상의 배열 멤버가 조건 식의 여러 속성과 일치 하는지 확인 합니다.
+
+```json
+{
+    "count": {
+        "field": "Microsoft.Network/networkSecurityGroups/securityRules[*]",
+        "where": {
+            "allOf": [
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].direction",
+                    "equals": "Inbound"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].access",
+                    "equals": "Allow"
+                },
+                {
+                    "field": "Microsoft.Network/networkSecurityGroups/securityRules[*].destinationPortRange",
+                    "equals": "3389"
+                }
+            ]
+        }
+    },
+    "greater": 0
+}
+```
+
+### <a name="effect"></a>영향
 
 Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
@@ -417,7 +557,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 - copyIndex()
 - deployment()
 - list*
-- newGuid()
+- newGuid ()
 - pickZones()
 - providers()
 - reference()
@@ -426,7 +566,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에 사용 되는 것과는 다릅니다.
 
-- addDays(dateTime, numberOfDaysToAdd)
+- addDays (dateTime, numberOfDaysToAdd)
   - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
   - **Numberofdaystoadd**: [필수] 정수-더할 일 수
 - utcNow ()-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
@@ -436,7 +576,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
-이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 **배열 및 개체 함수와 함께 사용하여**name`concat` 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
+이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
 
 ```json
 {
@@ -490,14 +630,15 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용 가능한 별칭 중 일부에 ‘정상’ 이름으로 표시되는 버전과 **[\*]** 가 추가된 다른 버전이 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 다음은 그 예입니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`
 
 ' Normal ' 별칭은 필드를 단일 값으로 나타냅니다. 이 필드는 전체 값 집합을 정의 된 대로 정확 하 게 지정 해야 하는 경우에만 정확 하 게 일치 하는 비교 시나리오를 위한 것입니다.
 
-**[\*]** 별칭을 사용 하면 배열의 각 요소 값 및 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. **IpRules [\*]** 를 사용 하 여 예를 들어 모든 _동작이_ _거부_되는지 여부를 확인 하는 것을 확인할 수 있지만 존재 하는 규칙 수 또는 IP _값_ 에 대해 걱정 하지 않습니다. 이 샘플 규칙은 **ipRules [\*]** **10.0.4.1** 에 대 한 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
+**\[\*\]** 별칭을 사용 하 여 배열에 있는 각 요소의 값과 각 요소의 특정 속성을 비교할 수 있습니다. 이 방법을 사용 하면 ' 있는 경우 ', ' 있는 경우 ', ' 모든 ' 시나리오에 대 한 요소 속성을 비교할 수 있습니다. 더 복잡 한 시나리오의 경우 [개수](#count) 조건 식을 사용 합니다. **IpRules\[\*\]** 를 사용 하는 경우, 예를 들어 모든 동작이 _거부_되는지 여부를 확인 하는 _것은 유효성_ 을 검사 하는 것입니다.
+이 샘플 규칙은 **10.0.4.1** 에 대 한 **ipRules\[\]\*** 일치 항목을 확인 하 고 하나 이상의 일치 항목을 찾을 수 없는 경우에만 **effectType** 을 적용 합니다.
 
 ```json
 "policyRule": {
@@ -518,6 +659,8 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
     }
 }
 ```
+
+
 
 자세한 내용은 [[\*] 별칭 평가](../how-to/author-policies-for-arrays.md#evaluating-the--alias)를 참조 하세요.
 

@@ -6,14 +6,14 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: DaleKoetke
 ms.author: dalek
-ms.date: 10/28/2019
+ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 1749fb4c27a1bfa3048ec0e35c8a09556b0e995b
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: c08de444b691e7bdc1a378e307637fed15b390c3
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007729"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559087"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -53,10 +53,10 @@ Application Insights를 사용하면 최근 사용 패턴에 따른 예상 비�
 ![가격 책정 선택](./media/pricing/pricing-001.png)
 
 A. 해당 월의 데이터 볼륨을 검토합니다. 여기에는 서버 및 클라이언트 앱과 가용성 테스트에서 수신되고 보유되는([샘플링](../../azure-monitor/app/sampling.md) 이후) 모든 데이터가 포함됩니다.  
-2\. [다단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
-3\. 지난 달의 데이터 볼륨 추세를 봅니다.  
-4\. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.   
-5\. 일일 데이터 볼륨 한도를 설정합니다.  
+B. [다단계 웹 테스트](../../azure-monitor/app/availability-multistep.md)에 대해서는 별도 요금이 부과됩니다. (여기에는 간단한 가용성 테스트는 포함되지 않습니다. 이 테스트의 경우 데이터 볼륨 요금에 포함됩니다.)  
+C. 지난 달의 데이터 볼륨 추세를 봅니다.  
+D. 데이터 수집 [샘플링](../../azure-monitor/app/sampling.md)을 사용합니다.   
+E. 일일 데이터 볼륨 한도를 설정합니다.  
 
 (이 문서의 스크린샷에 표시 되는 모든 가격은 예를 들어 목적 으로만 사용 됩니다. 통화 및 지역의 현재 가격은 [Application Insights 가격 책정][pricing]을 참조 하세요.)
 
@@ -69,7 +69,7 @@ Application Insights 요금은 Azure 청구서에 추가됩니다. Azure 청구�
 ### <a name="using-data-volume-metrics"></a>데이터 볼륨 메트릭 사용
 <a id="understanding-ingested-data-volume"></a>
 
-데이터 볼륨에 대 한 자세한 내용을 보려면 Application Insights 리소스에 대 한 **메트릭** 을 선택 하 고 새 차트를 추가 합니다. 차트 메트릭의 경우 **로그 기반 메트릭**에서 **데이터 요소 볼륨**을 선택 합니다. **분할 적용**을 클릭 하 고 Group by **Telemetryitem type**을 선택 합니다.
+데이터 볼륨에 대 한 자세한 내용을 보려면 Application Insights 리소스에 대 한 **메트릭** 을 선택 하 고 새 차트를 추가 합니다. 차트 메트릭의 경우 **로그 기반 메트릭**에서 **데이터 요소 볼륨**을 선택 합니다. **분할 적용**을 클릭 하 고 그룹화 방법 **`Telemetryitem` 형식**을 선택 합니다.
 
 ![메트릭을 사용 하 여 데이터 볼륨 확인](./media/pricing/10-billing.png)
 
@@ -203,7 +203,7 @@ Application Insights 리소스에 대 한 기본 보존 기간은 90 일입니�
 
 ![일별 원격 분석 볼륨 한도 조정](./media/pricing/pricing-005.png)
 
-`retentionInDays` 매개 변수를 사용 하 여 [Powershell을 사용 하 여 프로그래밍](powershell.md#set-the-data-retention) 방식으로 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하면 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure Resource Manager 통해서만 노출 되며 매우 주의 해 서 사용 해야 합니다. 
+`retentionInDays` 매개 변수를 사용 하 여 [Powershell을 사용 하 여 프로그래밍](powershell.md#set-the-data-retention) 방식으로 보존을 설정할 수도 있습니다. 또한 데이터 보존 기간을 30 일로 설정 하면 `immediatePurgeDataOn30Days` 매개 변수를 사용 하 여 이전 데이터를 즉시 제거할 수 있습니다 .이는 규정 준수 관련 시나리오에 유용할 수 있습니다. 이 제거 기능은 Azure Resource Manager 통해서만 노출 되며 매우 주의 해 서 사용 해야 합니다. Azure Resource Manager를 사용 하 여 데이터 볼륨 상한에 대 한 일일 다시 설정 시간을 구성 하 여 `dailyQuotaResetTime` 매개 변수를 설정할 수 있습니다. 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Application Insights를 사용 하 여 데이터 전송 요금
 

@@ -16,12 +16,12 @@ ms.date: 10/26/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ddc0a3788075701fb4633895e7b22fff2c15f60b
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81697293be235c12ca009c76a9fd9d3975e232fc
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173692"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554078"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 액세스 요청
 
@@ -35,7 +35,7 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 
 **필수 역할:** 요청
 
-1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 링크는 `myaccess`으로 시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 ID로 끝납니다.
+1. 작업 중인 프로젝트 또는 비즈니스 관리자에서 전자 메일 또는 메시지를 찾습니다. 전자 메일에는 액세스 권한을 필요로 하는 액세스 패키지에 대 한 링크가 포함 되어야 합니다. 링크는 `myaccess`시작 하 고, 디렉터리 힌트를 포함 하 고, 액세스 패키지 ID로 끝납니다.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 
@@ -80,6 +80,30 @@ Azure AD 자격 관리를 통해 액세스 패키지는 액세스 패키지의 �
 여러 정책이 적용 되는 액세스 패키지에 대 한 액세스를 요청 하는 경우 정책을 선택 하 라는 메시지가 표시 될 수 있습니다. 예를 들어 액세스 패키지 관리자는 두 개의 내부 직원 그룹에 대해 두 개의 정책으로 액세스 패키지를 구성할 수 있습니다. 첫 번째 정책은 60 일에 대 한 액세스를 허용 하 고 승인을 받아야 할 수 있습니다. 두 번째 정책은 2 일간의 액세스를 허용할 수 있으며 승인이 필요 하지 않습니다. 이 시나리오가 발생 하는 경우 사용 하려는 정책을 선택 해야 합니다.
 
 ![내 액세스 포털-액세스 요청-여러 정책](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+## <a name="resubmit-a-request"></a>요청 다시 제출
+
+액세스 패키지에 대 한 액세스를 요청 하면 요청이 거부 되거나 승인자가 시간 내에 응답 하지 않을 경우 요청이 만료 될 수 있습니다. 액세스 권한이 필요한 경우 다시 시도 하 고 요청을 다시 제출할 수 있습니다. 다음 절차에서는 액세스 요청을 다시 전송 하는 방법을 설명 합니다.
+
+**필수 역할:** 요청
+
+1. **내 액세스** 포털에 로그인 합니다.
+
+1. 왼쪽의 탐색 메뉴에서 **기록 요청** 을 클릭 합니다.
+
+1. 요청을 다시 제출 하는 액세스 패키지를 찾습니다.
+
+1. 확인 표시를 클릭 하 여 액세스 패키지를 선택 합니다.
+
+1. 선택한 액세스 패키지의 오른쪽에 있는 파란색 **보기** 링크를 클릭 합니다.
+    
+    ![액세스 패키지 및 링크 보기를 선택 합니다.](./media/entitlement-management-request-access/resubmit-request-select-request-and-view.png)
+
+    액세스 패키지에 대 한 요청 기록이 포함 된 창이 오른쪽에 열립니다.
+    
+    ![다시 제출 단추 선택](./media/entitlement-management-request-access/resubmit-request-select-resubmit.png)
+
+1. 창 아래쪽에 있는 다시 **제출** 단추를 클릭 합니다.
 
 ## <a name="cancel-a-request"></a>요청 취소
 

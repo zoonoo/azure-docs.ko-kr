@@ -1,5 +1,5 @@
 ---
-title: 인덱스의 문자열 필드에 언어 분석기 추가
+title: 문자열 필드에 언어 분석기 추가
 titleSuffix: Azure Cognitive Search
 description: 영어가 아닌 쿼리 및 Azure Cognitive Search의 인덱스에 대 한 다중 다국어 어휘 텍스트 분석.
 manager: nitinme
@@ -19,16 +19,16 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f5833da5b15c893499b0d786972eff61c7391137
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: ebdbcdda4efd7fdf9eb0e3e04cfa4d1987e03716
+ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790132"
+ms.lasthandoff: 11/15/2019
+ms.locfileid: "74111814"
 ---
-# <a name="add-language-analyzers-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 언어 분석기 추가
+# <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
-‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 [텍스트 분석기](search-analyzers.md)입니다. 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
+‘언어 분석기’는 대상 언어의 언어 규칙을 사용하여 어휘 분석을 수행하는 특정 유형의 *텍스트 분석기*입니다.[](search-analyzers.md) 검색 가능한 모든 필드에 **analyzer** 속성이 있습니다. 영어 및 중국어 텍스트의 개별 필드와 같이 인덱스에 번역된 문자열이 포함되어 있는 경우 각 필드에 언어 분석기를 지정하여 해당 분석기의 풍부한 언어 기능에 액세스할 수 있습니다.  
 
 Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 및 Bing에서 사용 되는 독점적인 Microsoft 자연어 처리 기술로 지원 되는 50 분석기를 지원 합니다.
 
@@ -73,7 +73,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |체코어|cs.microsoft|cs.lucene|  
 |덴마크어|da.microsoft|da.lucene|  
 |네덜란드어|nl.microsoft|nl.lucene|  
-|한국어|en.microsoft|en.lucene|  
+|영어|en.microsoft|en.lucene|  
 |에스토니아어|et.microsoft||  
 |핀란드어|fi.microsoft|fi.lucene|  
 |프랑스어|fr.microsoft|fr.lucene|  
@@ -89,7 +89,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |아일랜드어||ga.lucene|  
 |이탈리아어|it.microsoft|it.lucene|  
 |일본어|ja.microsoft|ja.lucene|  
-|칸나다어|kn. microsoft||  
+|칸나다어|kn.microsoft||  
 |한국어|ko.microsoft|ko.lucene|  
 |라트비아어|lv.microsoft|lv.lucene|  
 |리투아니아어|lt.microsoft||  
@@ -99,7 +99,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |노르웨이어|nb.microsoft|no.lucene|  
 |페르시아어||fa.lucene|  
 |폴란드어|pl.microsoft|pl.lucene|  
-|포르투갈어 (브라질)|pt-Br.microsoft|pt-Br.lucene|  
+|포르투갈어(브라질)|pt-Br.microsoft|pt-Br.lucene|  
 |포르투갈어(포르투갈)|pt-Pt.microsoft|pt-Pt.lucene|  
 |펀잡어|pa.microsoft||  
 |루마니아어|ro.microsoft|ro.lucene|  
@@ -120,7 +120,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 
  이름에 **Lucene** 주석이 포함된 모든 분석기는 [Apache Lucene 언어 분석기](https://lucene.apache.org/core/6_6_1/core/overview-summary.html )를 통해 구동됩니다.
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>참고 항목:  
 
 + [Azure Cognitive Search &#40;REST API 인덱스 만들기&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index)  
 

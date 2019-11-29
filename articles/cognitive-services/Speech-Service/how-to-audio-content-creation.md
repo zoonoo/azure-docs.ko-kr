@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 6ec98d1f7956ef1460909f62384a931400b596c4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579640"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554988"
 ---
 # <a name="audio-content-creation"></a>오디오 콘텐츠 만들기
 
@@ -23,7 +23,7 @@ ms.locfileid: "73579640"
 
 오디오 콘텐츠 생성 도구는 [SSML (음성 합성 마크업 언어)](speech-synthesis-markup.md)을 기반으로 합니다. 사용자 지정 및 조정을 간소화 하기 위해 오디오 콘텐츠 생성을 사용 하면 텍스트 음성 변환 출력을 실시간으로 시각적으로 검사할 수 있습니다.
 
-## <a name="how-does-it-work"></a>작동 원리
+## <a name="how-does-it-work"></a>작동 방식
 
 이 다이어그램에서는 사용자 지정 된 음성-텍스트 출력을 조정 하 고 내보내는 데 필요한 단계를 보여 줍니다. 각 단계에 대 한 자세한 내용을 보려면 아래 링크를 사용 하세요.
 
@@ -43,7 +43,7 @@ ms.locfileid: "73579640"
 
 음성 리소스를 만들고 Speech Studio와 연결 하려면 다음 단계를 수행 합니다.
 
-1. 다음 지침에 따라 [Azure 계정에 등록](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) 하 고 [음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
+1. 다음 지침에 따라 [Azure 계정에 등록](get-started.md#try-the-speech-service-using-a-new-azure-account) 하 고 [음성 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure). 가격 책정 계층이 **S0**로 설정 되었는지 확인 합니다. 신경망 중 하나를 사용 하는 경우 [지원 되는 지역](regions.md#standard-and-neural-voices)에서 리소스를 만들어야 합니다.
 2. [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 로그인 합니다.
 3. 기존 프로젝트를 선택 하거나 **새로 만들기**를 클릭 합니다.
 4. 위쪽 탐색 창에 있는 **설정** 옵션을 사용 하 여 언제 든 지 구독을 수정할 수 있습니다.
@@ -63,7 +63,7 @@ ms.locfileid: "73579640"
 1. [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 로그인 한 후 **업로드** 를 클릭 하 여 하나 이상의 텍스트 파일을 가져옵니다. 일반 텍스트와 SSML은 모두 지원 됩니다.
 2. 텍스트 파일을 업로드할 때 콘텐츠가 이러한 요구 사항을 충족 하는지 확인 합니다.
 
-   | 속성 | 값/메모 |
+   | 자산 | 값/메모 |
    |----------|---------------|
    | 파일 형식 | 일반 텍스트(.txt)<br/> SSML 텍스트 (.txt)<br/> Zip 파일은 지원 되지 않습니다. |
    | 인코딩 형식 | UTF-8 |

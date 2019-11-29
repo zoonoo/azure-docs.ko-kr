@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 06/04/2019
+ms.date: 11/25/2019
 ms.author: swmachan
-ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 3694c8cb34b2a050c9e18265c8cc0a0198456076
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671960"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533716"
 ---
 # <a name="request-limits-for-translator-text"></a>Translator Text에 대한 요청 제한
 
@@ -27,11 +27,11 @@ ms.locfileid: "71671960"
 
 다음 표에서는 Translator Text API의 각 작업에 대 한 배열 요소 및 문자 제한을 나열 합니다.
 
-| 연산 | 배열 요소의 최대 크기 |   최대 배열 요소 수 |  최대 요청 크기 (문자) |
+| 작업(Operation) | 배열 요소의 최대 크기 |   최대 배열 요소 수 |  최대 요청 크기 (문자) |
 |:----|:----|:----|:----|
-| 변환 | 5,000 | 100   | 5,000 |
+| Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
-| 검색 | 10000 | 100 |   50,000 |
+| Detect | 10000 | 100 |   50,000 |
 | BreakSentence | 10000    | 100 | 50,000 |
 | 사전 조회| 100 |  10  | 1,000 |
 | 사전 예제 | 100 for text 및 100 (200 total)| 10|   2,000 |
@@ -58,7 +58,7 @@ ms.locfileid: "71671960"
 
 ## <a name="latency"></a>대기 시간
 
-표준 모델을 사용 하는 경우 Translator Text API의 최대 대기 시간은 15 초입니다. 사용자 지정 모델을 사용 하는 번역의 최대 대기 시간은 25 초입니다. 이 시점에서 결과 또는 시간 초과 응답을 받습니다. 일반적으로 응답은 150밀리초~300밀리초 단위로 반환됩니다. 응답 시간은 요청 및 언어 쌍의 크기에 따라 달라 집니다. 해당 기간 내에 번역이 나 [오류 응답](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) 을 수신 하지 않으면 네트워크 연결을 확인 하 고 다시 시도해 야 합니다.
+사용자 지정 모델을 사용 하는 경우 표준 모델과 120 초를 사용 하 여 최대 대기 시간이 15 초 Translator Text API. 일반적으로 *100 자 내의 텍스트에 대 한* 응답은 150 밀리초에서 300 밀리초로 반환 됩니다. 사용자 지정 번역기 모델은 지속적으로 요청 률과 비슷한 대기 시간 특성을 가지 며, 요청 속도가 간헐적 이면 대기 시간이 길어질 수 있습니다. 응답 시간은 요청 및 언어 쌍의 크기에 따라 달라 집니다. 해당 기간 내에 번역이 나 [오류 응답](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) 을 받지 못한 경우에는 해당 코드, 네트워크 연결을 확인 하 고 다시 시도 하세요. 
 
 ## <a name="sentence-length-limits"></a>문장 길이 제한
 
@@ -70,16 +70,16 @@ ms.locfileid: "71671960"
 | 독일어 | de | 290 |
 | 이탈리아어 | it | 280 |
 | 일본어 | ja | 150 |
-| 포르투갈어 | (태평양 표준시) | 290 |
+| 포르투갈어 | pt | 290 |
 | 스페인어 | es | 280 |
 | 이탈리아어 | it | 280 |
-| 태국어 | 번째 | 258 |
+| 태국어 | th | 258 |
 
 > [!NOTE]
 > 이 제한은 번역에 적용되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [가격](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
+* [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [국가별 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
 * [v3 Translator Text API 참조](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

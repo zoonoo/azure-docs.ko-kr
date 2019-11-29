@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 86a7575c173b4515eaf0f690bcd00c6fb70ee581
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44baac5eb4e8887594ba05498901ba664380005f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492726"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280765"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
-LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 했습니다. Language Understanding 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
+LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 했습니다. Language Understanding 현재는 필요 하지 않지만 Azure 리소스로 전환 하는 것은 나중에 적용 됩니다.
 
 ## <a name="why-migrate"></a>마이그레이션해야 하는 이유는 무엇인가요?
 
@@ -65,7 +63,7 @@ LUIS () 제작 인증을 전자 메일 계정에서 Azure 리소스로 변경 �
 
 * **필요에 따라**각 앱을 내보내거나 내보내기 [API](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40)를 사용 하 여 LUIS 포털의 앱 목록에서 앱을 백업 합니다.
 * **필요에 따라**각 앱의 collaborator's 목록을 저장 합니다. 이 전자 메일 목록은 마이그레이션 프로세스의 일부로 제공 됩니다.
-* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS를 사용 하는 경우 무료 (`F0`) 가격 책정 계층을 사용할 수 있습니다. 
+* **필수**, [Azure 구독이](https://azure.microsoft.com/free/)있어야 합니다. 구독 프로세스의 일부에는 청구 정보가 필요 합니다. 그러나 LUIS을 사용 하는 경우 무료 (`F0`) 가격 책정 계층을 사용할 수 있습니다. 
 
 **LUIS 앱 작성은 `F0` 계층으로 표시 되는 무료입니다**. [가격 책정 계층에](luis-boundaries.md#key-limits)대해 자세히 알아보세요.
 
@@ -83,7 +81,7 @@ _LUIS 포털_의 **관리-> Azure 리소스** 페이지에서 더 많은 제작 
 
 _Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [참가자 액세스 추가](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) 를 참조 하세요.
 
-|포털|목적|
+|포털|용도|
 |--|--|
 |[Azure](https://azure.microsoft.com/free/)|* 예측 및 제작 리소스를 만듭니다.<br>* 참가자를 할당 합니다.|
 |[LUIS](https://www.luis.ai)|* 새 제작 리소스로 마이그레이션<br>* **관리-> Azure 리소스** 페이지에서 예측을 할당 하거나 할당을 취소 하 고 앱에 리소스를 제작 합니다.| 

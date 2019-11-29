@@ -9,12 +9,12 @@ ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 46975cf7762e2d92e5112911bd491f372cb22a31
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544621"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555465"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>항상 사용 가능한 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소)
 
@@ -22,9 +22,9 @@ ms.locfileid: "74544621"
 
 ## <a name="support-coverage-and-regional-availability"></a>지원 범위 및 국가별 가용성
 
-ZRS는 현재 표준 범용 v2 및 FileStorage storage 계정 유형을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+ZRS는 현재 표준 범용 v2, FileStorage 및 BlockBlobStorage 저장소 계정 유형을 지원 합니다. 애플리케이션 계정 유형에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
-ZRS는 블록 blob, 디스크가 아닌 페이지 blob, 표준 파일 공유, 테이블 및 큐에 사용할 수 있습니다.
+범용 v2 ZRS 계정은 블록 blob, 디스크가 아닌 페이지 blob, 표준 파일 공유, 테이블 및 큐를 지원 합니다.
 
 범용 v2 계정의 경우 ZRS는 일반적으로 다음 지역에서 사용할 수 있습니다.
 

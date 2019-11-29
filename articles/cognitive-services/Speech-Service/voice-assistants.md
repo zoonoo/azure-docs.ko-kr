@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: bd808c0c71e02483b4c4b06e612720c1802869a0
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577972"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195931"
 ---
 # <a name="about-voice-assistants"></a>음성 도우미 정보
 
-Azure Speech Services를 사용 하는 음성 도우미는 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있도록 합니다.
+Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의 애플리케이션과 환경을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다.
 
 음성 도우미 서비스는 (1) 봇 Framework의 Direct Line Speech channel 또는 (2) 작업 완료를 위한 통합 사용자 지정 명령 (미리 보기) 서비스를 사용 하는 장치 및 비서 구현 간에 빠르고 안정적인 상호 작용을 제공 합니다.
 
@@ -39,13 +39,14 @@ Azure Speech Services를 사용 하는 음성 도우미는 개발자가 응용 �
 길잡이에서 처리할 항목을 아직 모를 경우에는 [줄 음성을](direct-line-speech.md) 가장 적합 한 기본 선택으로 선택 하는 것이 좋습니다. 또한 다양 한 도구 집합 및 [가상 길잡이 솔루션, 엔터프라이즈 템플릿](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview) 및 QnA Maker 서비스 (예: 일반 패턴을 기반으로 구축 하 고 기존 기술 자료를 사용 하는 [서비스](https://docs.microsoft.com/azure/cognitive-services/QnAMaker/Overview/overview) )와의 통합을 제공 합니다.
 
 [사용자 지정 명령 (미리 보기)](custom-commands.md) 은 자연어 명령 및 제어 시나리오에 맞게 특별히 조정 된 효율적인 제작 및 호스팅 환경을 제공 합니다.
-   ![길잡이 솔루션 비교](media/voice-assistants/assistant-solution-comparison.png "Comparison of assistant solutions ")
+
+   ![길잡이 솔루션 비교](media/voice-assistants/assistant-solution-comparison.png "길잡이 솔루션 비교")
 
 ## <a name="core-features"></a>핵심 기능
 
 [직접 줄 음성](direct-line-speech.md) 또는 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하 여 길잡이 상호 작용을 만들려면 다양 한 사용자 지정 기능 집합을 사용 하 여 사용자의 브랜드, 제품 및 개성에 맞게 길잡이를 사용자 지정할 수 있습니다.
 
-| Category | 기능 |
+| 범주 | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](speech-devices-sdk-create-kws.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
 |[음성 텍스트](speech-to-text.md) | 음성 도우미는 Azure Speech Services의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
@@ -65,7 +66,7 @@ Azure Speech Services를 사용 하는 음성 도우미는 개발자가 응용 �
 
 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
 
-* [음성 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
+* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
 * [자습서: 음성 SDK를 통해 길잡이 활성화C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="tutorial"></a>자습서

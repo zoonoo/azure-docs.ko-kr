@@ -11,15 +11,15 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/12/2018
+ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 855bd64bc8beb86a1bc62c65f71254f43c7a722a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 00b4647815d8330152ca2dd0b5e137e337e80210
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101970"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561111"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Azure Virtual Machines의 SQL Server란? (Windows)
 
@@ -43,7 +43,7 @@ SQL Server Azure VM은 정기적으로 Blob Storage에 데이터베이스의 백
 
 고가용성이 필요한 경우 SQL Server 가용성 그룹을 구성하는 것이 좋습니다. 여기에는 가상 네트워크의 여러 SQL Server Azure VM이 포함됩니다. 고가용성 솔루션을 수동으로 구성하거나 자동 구성을 위해 Azure Portaldml 템플릿을 사용할 수 있습니다. 모든 고가용성 옵션에 대한 개요는 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위해 다양한 컴퓨터 크기를 제공합니다. SQL VM은 성능 요구 사항에 최적화되어 자동화된 스토리지 구성을 제공합니다. SQL VM용 스토리지 구성에 대한 자세한 내용은 [SQL Server VM에 대한 스토리지 구성](virtual-machines-windows-sql-server-storage-configuration.md)을 참조하세요. 성능을 세밀하게 조정하려면 [Azure Virtual Machines의 SQL Server에 대한 성능 모범 사례](virtual-machines-windows-sql-performance.md)를 참조하세요.
 
@@ -57,7 +57,7 @@ Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위�
 ### <a id="payasyougo"></a> 종량제
 다음 테이블은 종량제 SQL Server 이미지에 대한 매트릭스를 제공합니다.
 
-| 버전 | 운영 체제 | 에디션 |
+| 버전 | 운영 체제 | 버전 |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2017EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2017StandardonWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2017WebonWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017ExpressonWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeSQLServerLicenseSQLServer2017DeveloperonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2EnterpriseWindowsServer2016), [Standard](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2StandardWindowsServer2016), [Web](https://portal.azure.com/#create/Microsoft.SQLServer2016SP2WebWindowsServer2016), [Express](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2ExpressWindowsServer2016), [Developer](https://portal.azure.com/#create/Microsoft.FreeLicenseSQLServer2016SP2DeveloperWindowsServer2016) |
@@ -75,7 +75,7 @@ Azure 가상 머신은 다양한 워크로드 요구 사항을 충족하기 위�
 
 고유한 라이선스를 가져오려면 기존의 사용량에 따른 과금 방식의 SQL VM을 변환하거나 **{BYOL}** 접두사가 붙은 이미지를 배포하면 됩니다. 사용량에 따른 과금 방식과 BYOL 간에 라이선스 모델을 전환하는 방법에 대한 자세한 내용은 [SQL VM의 라이선스 모델을 변경하는 방법](virtual-machines-windows-sql-ahb.md)을 참조하세요. 
 
-| 버전 | 운영 체제 | 에디션 |
+| 버전 | 운영 체제 | 버전 |
 | --- | --- | --- |
 | **SQL Server 2017** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2017StandardonWindowsServer2016) |
 | **SQL Server 2016 SP2** |Windows Server 2016 |[Enterprise BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2EnterpriseWindowsServer2016), [Standard BYOL](https://portal.azure.com/#create/Microsoft.BYOLSQLServer2016SP2StandardWindowsServer2016) |
@@ -128,10 +128,10 @@ Azure는 지원되는 각 운영 체제, 버전 및 버전 조합에 대한 하�
 CEIP(사용자 환경 개선 프로그램)를 사용하도록 기본 설정되어 있습니다. 보고서를 주기적으로 Microsoft에 전송하여 SQL Server를 개선하는 데 도움이 됩니다. 프로비전한 후에도 계속 사용하려면 CEIP에 필요한 관리 태스크는 없습니다. 원격 데스크톱을 사용하여 VM에 연결하여 CEIP를 사용자 지정하거나 사용하지 않도록 설정할 수 있습니다. 그런 다음 **SQL Server 오류 및 사용 보고** 유틸리티를 실행합니다. 보고를 해제하려면 지침을 따릅니다. 데이터 수집에 대한 자세한 내용은 [SQL Server 개인정보처리방침](https://docs.microsoft.com/sql/getting-started/microsoft-sql-server-privacy-statement)을 참조하세요.
 
 ## <a name="related-products-and-services"></a>관련 제품 및 서비스
-### <a name="windows-virtual-machines"></a>Windows Virtual Machines
+### <a name="windows-virtual-machines"></a>Windows 가상 머신
 * [Virtual Machines 개요](../overview.md)
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 * [Microsoft Azure Storage 소개](../../../storage/common/storage-introduction.md)
 
 ### <a name="networking"></a>네트워킹
@@ -152,3 +152,8 @@ Azure 가상 머신에서 SQL Server 시작:
 SQL VM에 대한 일반적인 질문에 대한 답변 구하기:
 
 * [Azure Virtual Machines의 SQL Server FAQ](virtual-machines-windows-sql-server-iaas-faq.md)
+
+IaaS의 SQL Server에서 N 계층 응용 프로그램을 실행 하기 위한 참조 아키텍처 보기
+
+* [SQL Server를 사용 하는 Azure의 Windows N 계층 응용 프로그램](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [고가용성을 위해 여러 Azure 지역에서 N 계층 응용 프로그램 실행](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

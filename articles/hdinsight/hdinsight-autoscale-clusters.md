@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: fff5ad379aa11a0aae14b33f9f82f6da9c794517
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643692"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561757"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
@@ -28,12 +28,12 @@ Azure HDInsight의 클러스터 자동 크기 조정 기능은 클러스터의 �
 
 | 버전 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 (ESP 제외) | 예 | 예 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 |
-| HDInsight 4.0 (ESP 제외) | 예 | 예 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 |
-| HDInsight 3.6 및 ESP | 예 | 예 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 |
-| HDInsight 4.0 및 ESP | 예 | 예 | 아니요 | 아니요 | 아니요 | 아니요 | 아니요 |
+| HDInsight 3.6 (ESP 제외) | 예 2.3만| yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+| HDInsight 4.0 (ESP 제외) | yes | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+| HDInsight 3.6 및 ESP | 예 2.3만 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+| HDInsight 4.0 및 ESP | yes | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 HDInsight 클러스터에 대 한 부하 기반 크기 조정 또는 일정 기반 크기 조정을 선택할 수 있습니다. 부하 기반 크기 조정 기능을 사용 하면 CPU 사용률을 최적화 하 고 실행 비용을 최소화할 수 있도록 설정 하는 범위 내에서 클러스터의 노드 수가 변경 됩니다.
 
@@ -70,7 +70,7 @@ HDInsight 서비스는 현재 CPU 및 메모리 요구 사항을 충족 하는 �
 
 노드당 AM 컨테이너 수와 현재 CPU 및 메모리 요구 사항에 따라 자동 크기 조정에서 특정 수의 노드를 제거 하는 요청을 실행 합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 노드를 검색 합니다. Scale down 작업은 먼저 노드를 add-on 다음 클러스터에서 제거 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>부하 기반 자동 크기 조정을 사용 하 여 클러스터 만들기
 
@@ -88,7 +88,7 @@ HDInsight 서비스는 현재 CPU 및 메모리 요구 사항을 충족 하는 �
 
     ![작업자 노드 부하 기반 자동 크기 조정 사용](./media/hdinsight-autoscale-clusters/azure-portal-cluster-configuration-pricing-autoscale.png)
 
-초기 작업자 노드 수는 최소 작업자 노드 수~최대 작업자 노드 수 사이여야 합니다(최댓값 및 최솟값 포함). 이 값은 생성 될 때 클러스터의 초기 크기를 정의 합니다. 최소 작업자 노드 수는 3 개 이상으로 설정 해야 합니다. 에서 수집된 앱의 원격 분석을 통해 유용한 쿼리를 실행할 수 있습니다. 클러스터를 3 개 미만의 노드로 확장 하면 파일 복제가 충분 하지 않기 때문에 안전 모드에서 중단 될 수 있습니다. 자세한 내용은 [안전 모드에서]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) 중단 하기를 참조 하세요.
+초기 작업자 노드 수는 최소 작업자 노드 수~최대 작업자 노드 수 사이여야 합니다(최댓값 및 최솟값 포함). 이 값은 생성 될 때 클러스터의 초기 크기를 정의 합니다. 최소 작업자 노드 수는 3 개 이상으로 설정 해야 합니다. . 클러스터를 3 개 미만의 노드로 확장 하면 파일 복제가 충분 하지 않기 때문에 안전 모드에서 중단 될 수 있습니다. 자세한 내용은 [안전 모드에서]( https://docs.microsoft.com/ azure/hdinsight/hdinsight-scaling-best-practices#getting-stuck-in-safe-mode) 중단 하기를 참조 하세요.
 
 ### <a name="create-a-cluster-with-schedule-based-autoscaling"></a>일정 기반 자동 크기 조정을 사용 하 여 클러스터 만들기
 
@@ -124,7 +124,7 @@ Azure Portal을 사용하여 HDInsight 클러스터를 만드는 방법에 대�
 
 #### <a name="load-based-autoscaling"></a>부하 기반 자동 크기 조정
 
-아래 json 코드 조각에 표시 된 것 처럼 `computeProfile` > `workernode` 섹션에 `autoscale` 노드를 추가 하 여 Azure Resource Manager 템플릿을 사용 하 여 HDInsight 클러스터를 만들 수 있습니다.`minInstanceCount``maxInstanceCount`
+아래 json 코드 조각에 표시 된 것 처럼 `computeProfile` > `workernode` 섹션에 `autoscale` 노드를 추가 하 여 Azure Resource Manager 템플릿을 사용 하 여 HDInsight 클러스터를 만들 수 있습니다.
 
 ```json
 {
@@ -186,7 +186,7 @@ Resource Manager 템플릿을 사용하여 클러스터를 만드는 방법에 �
 
 ### <a name="enable-and-disable-autoscale-for-a-running-cluster"></a>실행 중인 클러스터에 자동 크기 조정 사용 및 사용 안 함
 
-#### <a name="using-the-azure-portal"></a>Azure 포털 사용
+#### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 실행 중인 클러스터에서 자동 크기 조정을 사용 하도록 설정 하려면 [ **설정**] 아래에서 **클러스터 크기** 를 선택 합니다. 그런 다음 **자동 크기 조정 사용**을 클릭 합니다. 원하는 자동 크기 조정 유형을 선택 하 고 부하 기반 또는 일정 기반 크기 조정 옵션을 입력 합니다. 끝으로, **저장**을 클릭합니다.
 

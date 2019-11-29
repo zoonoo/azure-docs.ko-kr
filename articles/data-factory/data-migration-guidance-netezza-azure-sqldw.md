@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/03/2019
-ms.openlocfilehash: 2844b48b3d832e8d9ec659ba657879d683016aee
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 762e7d4a7356c11171355b5325e77569e9acb1e2
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217670"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555096"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Azure Data Factory를 사용 하 여 온-프레미스 Netezza 서버에서 Azure로 데이터 마이그레이션 
 
@@ -26,13 +26,13 @@ Azure Data Factory은 온-프레미스 Netezza 서버에서 Azure storage 계정
 이 문서에서는 데이터 엔지니어와 개발자에 대 한 다음 정보를 제공 합니다.
 
 > [!div class="checklist"]
-> * 성능 
+> * 성능 중심 
 > * 복원 력
 > * 네트워크 보안
 > * 개략적인 솔루션 아키텍처 
 > * 구현 모범 사례  
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 Azure Data Factory은 다양 한 수준에서 병렬 처리를 허용 하는 서버 리스 아키텍처를 제공 합니다. 개발자 라면 파이프라인을 빌드하여 네트워크와 데이터베이스 대역폭을 모두 사용 하 여 사용자 환경에 대 한 데이터 이동 처리량을 최대화할 수 있습니다.
 
@@ -156,7 +156,7 @@ Netezza 서버에서 Azure로 데이터를 마이그레이션하는 경우, 서�
 
 자체 호스팅 IR 컴퓨터의 CPU 및 메모리 사용량을 계속 모니터링 하 고, CPU 및 메모리가 모두 사용 되는 것이 확인 되 면 컴퓨터를 확장 하거나 여러 컴퓨터로 확장할 수 있습니다. 
 
-Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생할 경우 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 줄이거나 네트워크 및 데이터의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 정보가. 
+Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생할 경우 Azure Data Factory에서 동시성 또는 `parallelCopies` 설정을 낮추거나 네트워크 및 데이터 저장소의 대역폭 또는 IOPS (초당 i/o 작업 수) 제한을 늘려야 합니다. 
 
 
 ### <a name="estimate-your-pricing"></a>가격 책정 예측 
@@ -190,7 +190,7 @@ Azure Data Factory 복사 작업에서 보고 된 대로 제한 오류가 발생
 
 자세한 내용은 다음 문서 및 가이드를 참조 하세요.
 
-- [Azure Data Factory를 사용 하 여 온-프레미스 관계형 데이터 웨어하우스 데이터베이스에서 Azure로 데이터 마이그레이션](https://azure.microsoft.com/mediahandler/files/resourcefiles/data-migration-from-on-premises-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/Data_migration_from_on-prem_RDW_to_ADLS_using_ADF.pdf)
+- [Azure Data Factory를 사용 하 여 온-프레미스 관계형 데이터 웨어하우스 데이터베이스에서 Azure로 데이터 마이그레이션](https://azure.microsoft.com/resources/data-migration-from-on-premise-relational-data-warehouse-to-azure-data-lake-using-azure-data-factory/)
 - [Netezza 커넥터](https://docs.microsoft.com/azure/data-factory/connector-netezza)
 - [ODBC 커넥터](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Azure Blob storage 커넥터](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)

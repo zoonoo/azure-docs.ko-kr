@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f35fcc2604866c2ff5a330b65ae844be0eed9476
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 247378461a99d42f21a67a2c0aebc7019727f3a0
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422386"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555153"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -46,7 +46,7 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 7 월 24 2019
 
-+ 일반적으로 [Azure Government 클라우드에서](https://docs.microsoft.com/azure/azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)사용할 수 있습니다.
++ 일반적으로 [Azure Government 클라우드에서](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)사용할 수 있습니다.
 
 ## <a name="service-updates"></a>서비스 업데이트
 

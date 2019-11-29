@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center FAQ(질문과 대답) | Microsoft Docs
-description: 이 FAQ는 Azure Security Center에 대한 질문에 답변합니다.
+description: 이 FAQ는 위협을 예방, 감지 및 대응 하는 데 도움이 되는 Azure Security Center에 대 한 질문에 답변 합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/19/2019
 ms.author: memildin
-ms.openlocfilehash: bbb34a0a9d8035ce8cbfd3f3283677133370a9f2
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 896db06204188c4347fbdced0b1bb3f216f56ef9
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316735"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558673"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Azure Security Center FAQ(질문과 대답)
 이 FAQ는 증가된 가시성으로 위협을 예방, 감지 및 대응하고 Microsoft Azure 리소스의 보안을 제어하는 서비스인 Azure Security Center에 관한 질문에 답변합니다.
@@ -35,7 +35,7 @@ Azure Security Center는 Azure 리소스의 보안에 대한 향상된 가시성
 ### <a name="how-do-i-get-azure-security-center"></a>Azure Security Center를 이용하려면 어떻게 해야 하나요?
 Azure Security Center는 Microsoft Azure 구독을 사용하도록 설정되어 있으며 [Azure Portal](https://azure.microsoft.com/features/azure-portal/)에서 액세스합니다. [포털에 로그인](https://portal.azure.com)하여 **찾아보기**를 선택하고 **Security Center**로 스크롤합니다.  
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>청구
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Azure Security Center에 대한 청구는 어떻게 작동합니까?
 Security Center는 두 계층으로 제공됩니다.
 
@@ -46,8 +46,8 @@ Security Center는 두 계층으로 제공됩니다.
 ### <a name="how-can-i-track-who-in-my-organization-performed-pricing-tier-changes-in-azure-security-center"></a>에서 조직의 가격 책정 계층 변경을 수행한 사람을 추적 하려면 어떻게 해야 하나요? Azure Security Center
 Azure 구독에는 가격 책정 계층을 변경할 수 있는 권한이 있는 여러 관리자가 있을 수 있습니다. 가격 책정 계층 변경을 수행한 사용자를 확인 하려면 Azure 활동 로그를 사용 합니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Security-Identity/Tracking-Changes-in-the-Pricing-Tier-for-Azure-Security-Center/td-p/390832)를 참조하세요.
 
-## <a name="permissions"></a>사용 권한
-Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 Access Control)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
+## <a name="permissions"></a>권한
+Azure Security Center는 Azure에서 사용자, 그룹 및 서비스에 [기본 제공 역할](../role-based-access-control/built-in-roles.md)을 제공하는 [RBAC(역할 기반 액세스 제어)](../role-based-access-control/role-assignments-portal.md)를 사용합니다.
 
 Security Center는 리소스 구성을 평가하여 보안 문제 및 취약성을 식별합니다. Security Center에서는 리소스가 속한 구독이나 리소스 그룹에 대한 소유자, 참가자 또는 독자 역할을 할당 받을 때 리소스와 관련된 항목만 볼 수 있습니다.
 
@@ -57,7 +57,7 @@ Security Center의 역할 및 허용된 작업에 대한 자세한 내용은 [Az
 Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure 컴퓨터 (온-프레미스 포함)에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. Microsoft Monitoring Agent를 사용하여 데이터를 수집합니다. Microsoft Monitoring Agent는 머신에서 다양한 보안 관련 구성 및 이벤트 로그를 읽고 분석용으로 작업 영역에 데이터를 복사합니다.
 
 ### <a name="am-i-billed-for-azure-monitor-logs-on-the-workspaces-created-by-security-center"></a>Security Center에서 만든 작업 영역에 대 한 Azure Monitor 로그 요금이 청구 되나요?
-아니요. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대해 구성 된 상태에서 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
+아닙니다. Security Center에서 만든 작업 영역은 노드 요금 청구 당 Azure Monitor 로그에 대해 구성 된 상태에서 Azure Monitor 로그 요금이 발생 하지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다.
 
 - **무료 계층** – Security Center는 기본 작업 영역에서 'SecurityCenterFree' 솔루션을 사용하도록 설정합니다. 무료 계층에 대해서는 요금이 청구 되지 않습니다.
 - **표준 계층** – Security Center는 기본 작업 영역에서 'Security' 솔루션을 사용하도록 설정합니다.
@@ -126,7 +126,7 @@ Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS �
 ### Microsoft Monitoring Agent이 컴퓨터에 직접 설치 되어 있지만 확장 (직접 에이전트)이 아닌 경우는 어떻게 되나요?<a name="directagentinstalled"></a>
 Microsoft Monitoring Agent VM에 직접 설치 되는 경우 (Azure 확장이 아니라) Security Center는 Microsoft Monitoring Agent 확장을 설치 하 고 Microsoft Monitoring Agent를 최신 버전으로 업그레이드할 수 있습니다.
 설치 된 에이전트는 이미 구성 된 작업 영역을 계속 보고 하 고, Security Center에서 구성 된 작업 영역 (Windows 컴퓨터에서는 멀티 호 밍이 지원 됨)에도 보고 합니다.
-구성 된 작업 영역이 사용자 작업 영역 (Security Center의 기본 작업 영역) 인 경우 해당 작업 영역에 대 한 "보안/" 보안 강화 "Security Center 솔루션을 설치 하 여 Vm 및 컴퓨터에서 보고 되는 컴퓨터의 이벤트 처리를 시작 해야 합니다. 환경이.
+구성 된 작업 영역이 사용자 작업 영역 (Security Center의 기본 작업 영역 아님) 인 경우 해당 작업 영역에 보고 하는 Vm 및 컴퓨터에서 이벤트 처리를 시작 하려면 Security Center에 대해 "보안/" 보안 센터 무료 "솔루션을 설치 해야 합니다.
 
 Linux 컴퓨터의 경우 에이전트 멀티 호 밍은 아직 지원 되지 않습니다. 따라서 기존 에이전트 설치가 검색 되 면 자동 프로비저닝이 발생 하지 않고 컴퓨터의 구성이 변경 되지 않습니다.
 
@@ -264,7 +264,7 @@ Azure Security Center에서 사용하도록 설정한 보안 정책에 따라 �
 보안 정책을 구성하는 방법을 자세히 알아보려면 [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md)을 참조하세요.
 
 ### <a name="what-is-a-security-recommendation"></a>보안 권장 사항이란?
-Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예는 다음과 같습니다.
+Azure Security Center에서는 Azure 리소스의 보안 상태를 분석합니다. 잠재적인 보안 취약성이 식별되면 권장 사항이 생성됩니다. 권장 사항은 필요한 컨트롤을 구성하는 과정을 안내합니다. 예:
 
 * 악성 소프트웨어를 식별하여 제거하는 데 도움을 주는 맬웨어 방지 프로그램 프로비전
 * 가상 머신의 트래픽을 제어하는 [네트워크 보안 그룹](../virtual-network/security-overview.md) 및 규칙
@@ -297,8 +297,8 @@ Microsoft 보안 대응 센터(MSRC)는 Azure 네트워크 및 인프라의 선�
 Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링합니다.
 
 * 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
-* Virtual Machine Scale Sets
-* Azure Virtual Network
+* 가상 머신 크기 집합
+* Azure Virtual Networks
 * Azure SQL 서비스
 * Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))

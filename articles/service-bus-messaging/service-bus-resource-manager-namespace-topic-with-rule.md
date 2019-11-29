@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 11/27/2019
 ms.author: spelluru
-ms.openlocfilehash: 6631528c9d1f2dfc6dcd3e9d6da81115a9ece637
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dc61fb8e066c6189b5607a6e1cd479cb812466f7
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832074"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561560"
 ---
 # <a name="create-a-service-bus-namespace-with-topic-subscription-and-rule-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 토픽, 구독 및 규칙이 있는 Service Bus 네임스페이스 만들기
 
@@ -57,7 +57,7 @@ Azure 리소스 명명 규칙의 사례 및 패턴에 대 한 자세한 내용�
 
 [![Azure에 배포](./media/service-bus-resource-manager-namespace-topic/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-servicebus-create-topic-subscription-rule%2Fazuredeploy.json)
 
-## <a name="parameters"></a>매개 변수
+## <a name="parameters"></a>parameters
 
 Azure Resource Manager를 사용하여 템플릿 배포 시에 지정하려는 값의 매개 변수를 정의합니다. 템플릿은 모든 매개 변수 값이 포함된 `Parameters` 라는 섹션을 포함합니다. 배포하는 프로젝트나 배포 대상 환경에 따라 달라지는 이러한 값에 대한 매개 변수를 정의합니다. 항상 동일하게 유지되는 값으로 매개 변수를 정의하지 마십시오. 각 매개 변수 값은 배포되는 리소스를 정의하는 템플릿에 사용됩니다.
 
@@ -179,9 +179,7 @@ azure group deployment create \<my-resource-group\> \<my-deployment-name\> --tem
 ```
 
 ## <a name="next-steps"></a>다음 단계
-구독 필터를 만드는 방법을 보여 주는 다음 항목을 참조 하세요. [Azure Resource Manager 템플릿을 사용 하 여 토픽, 구독 및 규칙이 있는 Service Bus 네임 스페이스 만들기](service-bus-resource-manager-namespace-topic-with-rule.md)
-
-이러한 문서를 검토 하 여 이러한 리소스를 관리 하는 방법을 알아봅니다.
+다음 문서를 검토하여 이러한 리소스를 관리하는 방법을 알아보세요.
 
 * [Azure Service Bus 관리](service-bus-management-libraries.md)
 * [PowerShell을 사용하여 Service Bus 관리](service-bus-manage-with-ps.md)

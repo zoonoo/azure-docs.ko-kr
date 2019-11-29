@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: 69fc955bbd9fc584e0d95e02087b778624def11b
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 6e05dc2136211bcd15a9f0583358b05ccbf96f5a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316456"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383155"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Text Analytics 컨테이너 설치 및 실행
 
@@ -24,7 +24,7 @@ ms.locfileid: "71316456"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 Text Analytics 컨테이너를 실행 하려면 호스트 컴퓨터와 컨테이너 환경이 있어야 합니다.
 
@@ -65,7 +65,7 @@ Text Analytics 컨테이너를 사용하려면 다음 필수 조건을 충족해
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
 * TPS - 초당 트랜잭션 수
 
-코어 및 메모리는 `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당합니다.
+`docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
 
 ## <a name="get-the-container-image-with-docker-pull"></a>`docker pull`을 사용하여 컨테이너 이미지 가져오기
 
@@ -108,13 +108,13 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 컨테이너가 [호스트 컴퓨터](#the-host-computer)에 있으면 다음 프로세스를 사용하여 컨테이너 작업을 수행합니다.
 
 1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-with-docker-run)합니다. `docker run` 명령의 자세한 [예제](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
-1. [컨테이너의 예측 끝점 쿼리](#query-the-containers-prediction-endpoint).
+1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-with-docker-run"></a>`docker run`을 사용하여 컨테이너 실행
 
-[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조 하세요.
+[docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 세 컨테이너 중 하나를 실행합니다. `{ENDPOINT_URI}` 및 `{API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
 
-`docker run`명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands)를 사용할 수 있습니다.
+`docker run` 명령의 [예](../text-analytics-resource-container-config.md#example-docker-run-commands) 를 사용할 수 있습니다.
 
 # <a name="key-phrase-extractiontabkeyphrase"></a>[핵심 구 추출](#tab/keyphrase)
 
@@ -131,13 +131,13 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 ***
 
 > [!IMPORTANT]
-> 컨테이너를 실행하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)을 참조하세요.
+> 컨테이너를 인스턴스화하려면 `Eula`, `Billing` 및 `ApiKey` 옵션을 지정해야 합니다. 그렇지 않으면 컨테이너가 시작되지 않습니다.  자세한 내용은 [Billing](#billing)를 참조하세요.
 
 [!INCLUDE [Running multiple containers on the same host](../../../../includes/cognitive-services-containers-run-multiple-same-host.md)]
 
-## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 끝점 쿼리
+## <a name="query-the-containers-prediction-endpoint"></a>컨테이너의 예측 엔드포인트 쿼리
 
-컨테이너는 REST 기반 쿼리 예측 끝점 API를 제공합니다.
+컨테이너는 REST 기반 쿼리 예측 엔드포인트 API를 제공합니다.
 
 컨테이너 API에 대한 호스트, `http://localhost:5000`을 사용합니다.
 
@@ -155,7 +155,7 @@ Text Analytics에 대 한 컨테이너 이미지는 Microsoft Container Registry
 
 [!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>청구
 
 Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사용하여 청구 정보를 Azure로 보냅니다. 
 
@@ -169,7 +169,7 @@ Text Analytics 컨테이너는 Azure 계정의 _Text Analytics_ 리소스를 사
 
 ## <a name="summary"></a>요약
 
-이 문서에서는 Text Analytics 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하자면 다음과 같습니다.
+이 문서에서는 Text Analytics 컨테이너를 다운로드, 설치 및 실행하기 위한 개념과 워크플로를 알아보았습니다. 요약하면 다음과 같습니다.
 
 * Text Analytics는 Docker에 대 한 세 가지 Linux 컨테이너를 제공 하 여 다양 한 기능을 캡슐화 합니다.
    * *핵심 구 추출*

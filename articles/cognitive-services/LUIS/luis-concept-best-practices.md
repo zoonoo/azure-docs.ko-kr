@@ -1,7 +1,7 @@
 ---
-title: 모범 사례-LUIS
+title: LUIS 앱 빌드에 대 한 모범 사례
 titleSuffix: Azure Cognitive Services
-description: LUIS 앱의 모델에서 최상의 결과를 얻기 위해 LUIS 모범 사례를 알아봅니다.
+description: LUIS 앱 모델에서 최상의 결과를 얻기 위한 모범 사례를 알아봅니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,14 +11,14 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 64d67edaf5affbc908fba7b6c261096589bc84d0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b4be79338db71ad83204fae971da0b77885a8070
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73487609"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280920"
 ---
-# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Cognitive Services로 Language Understanding 앱을 빌드하는 경우의 모범 사례
+# <a name="best-practices-for-building-a-language-understanding-luis-app"></a>언어 이해 (LUIS) 앱 빌드에 대 한 모범 사례
 앱 제작 프로세스를 사용 하 여 LUIS 앱을 빌드합니다. 
 
 * 빌드 언어 모델 (의도 및 엔터티)
@@ -53,7 +53,7 @@ ms.locfileid: "73487609"
 
 다음 예제 발화를 고려해 보세요.
 
-|발화 예제|
+|예제 발언|
 |--|
 |항공권 예약|
 |호텔 예약|

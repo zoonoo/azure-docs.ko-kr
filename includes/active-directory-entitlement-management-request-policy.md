@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: fb72ed337219f58481c094d68342dbf6f26493c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74260800"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566315"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
@@ -106,6 +106,14 @@ ms.locfileid: "74260800"
 - 단일 또는 2 단계 승인에는 선택한 모든 승인자의 승인이 필요 하지 않습니다.
 - 승인 결정은 먼저 요청을 검토 하는 승인자에 따라 결정 됩니다.
 
+요청 정책에 승인자를 추가 하는 방법에 대 한 데모를 보려면 다음 비디오를 시청 하세요.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4cZfg]
+
+요청 정책에 다단계 승인을 추가 하는 방법에 대 한 데모를 보려면 다음 비디오를 시청 하세요.
+
+>[!VIDEO https://www.microsoft.com/videoplayer/embed/RE4d1Jw]
+
 액세스 패키지에 대 한 요청에 대 한 승인 설정을 지정 하려면 다음 단계를 수행 합니다.
 
 1. 선택한 사용자의 요청에 대 한 승인을 요청 하려면 **승인 필요** 를 **예**로 설정 합니다. 또는 요청을 자동으로 승인 하려면 토글을 **아니요**로 설정 합니다.
@@ -115,7 +123,6 @@ ms.locfileid: "74260800"
 1. 이제 요청에 단일 또는 2 단계 승인이 필요한 지 확인 합니다. 단일 단계 승인에 대해 **단계 수** 를 **1** 로 설정 하거나 2 단계 승인의 경우 토글을 **2** 로 설정 합니다.
 
     ![액세스 패키지-요청-승인 설정](./media/active-directory-entitlement-management-request-policy/approval.png)
-
 
 다음 단계를 사용 하 여 필요한 단계 수를 선택한 후 승인자를 추가 합니다. 
 

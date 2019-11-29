@@ -11,16 +11,16 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: diberry
-ms.openlocfilehash: 0cab6eb38459a632f1e7bd1a21e6a7251d33f683
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: b151043babd6c67a17f704bb671a415fcc3ba7b2
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647410"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280909"
 ---
 # <a name="machine-learned-features"></a>컴퓨터에서 학습 한 기능 
 
-기계 학습에서 *기능은* 시스템이 학습 & 학습 하는 데이터의 특징 또는 특성입니다. LUIS (Language Understanding)에서 기능은 사용자의 의도 및 엔터티에 대해 중요 한 사항을 설명 하 고 설명 합니다.
+기계 학습에서 _기능은_ 시스템이 학습 & 학습 하는 데이터의 특징 또는 특성입니다. LUIS (Language Understanding)에서 기능은 사용자의 의도 및 엔터티에 대해 중요 한 사항을 설명 하 고 설명 합니다.
 
 [PREVIEW LUIS 포털](https://preview.luis.ai)에서 기능은 의도 또는 엔터티를 _설명_ 하는 데 사용 되기 때문에 _설명자_ 입니다.  
 
@@ -57,7 +57,7 @@ LUIS는 구 목록과 일치 하는 항목을 식별 하는 데 컨텍스트와 
 
 ### <a name="how-to-use-a-phrase-list"></a>구 목록을 사용 하는 방법
 
-의도 또는 엔터티에 다음과 같은 중요 한 단어나 구가 있는 경우 [구 목록 목록을 만듭니다](luis-how-to-add-features.md) .
+의도 또는 엔터티에 다음과 같은 중요 한 단어나 구가 있는 경우 [구 목록을 만듭니다](luis-how-to-add-features.md) .
 
 * 산업 용어
 * 속어
@@ -82,12 +82,12 @@ LUIS는 구 목록과 일치 하는 항목을 식별 하는 데 컨텍스트와 
 
 ### <a name="entity-as-a-feature-to-another-entity"></a>다른 엔터티에 대 한 기능으로 서의 엔터티입니다.
 
-엔터티 (a)는 (B)에서 해당 엔터티 (A)의 검색에 중요 한 경우 다른 엔터티 (B)에 기능으로 추가 되어야 합니다.
+엔터티 (a)의 검색이 엔터티 (B)의 예측에 중요 한 경우 엔터티 (A)를 다른 엔터티 (B)에 기능으로 추가 해야 합니다.
 
 예를 들어 주소 엔터티 (A)가 검색 되 면 주소 (A)를 찾으면 배송 주소 엔터티 (B)에 대 한 예측에 가중치를 추가 합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-[모범 사례](luis-concept-best-practices.md)에 대해 알아봅니다.
+[모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

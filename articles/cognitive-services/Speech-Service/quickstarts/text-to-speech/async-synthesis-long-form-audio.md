@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: d308623a323fecd39efa90639da71fb981936fe5
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6cf6cfb005155b85278935af6f266dfebcbb44c6
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73930572"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554956"
 ---
 # <a name="quickstart-asynchronous-synthesis-for-long-form-audio-in-python-preview"></a>빠른 시작: Python의 긴 형식 오디오에 대 한 비동기 합성 (미리 보기)
 
@@ -24,13 +24,13 @@ ms.locfileid: "73930572"
 > [!NOTE]
 > 긴 형식의 오디오에 대 한 비동기 합성은 [사용자 지정 신경망](../../how-to-custom-voice.md#custom-neural-voices)에만 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 빠른 시작에는 다음이 필요합니다.
 
 * Python 2.7. x 또는 3(sp3)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download)또는 선호 하는 텍스트 편집기입니다.
-* Azure 구독 및 음성 서비스 구독 키 [Azure 계정을 만들고](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#new-azure-account) [음성 리소스를 만들어](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) 키를 가져옵니다. 음성 리소스를 만들 때 가격 책정 계층이 **S0**로 설정 되어 있고 위치가 지원 되는 [지역](../../regions.md#standard-and-neural-voices)으로 설정 되어 있는지 확인 합니다.
+* Azure 구독 및 음성 서비스 구독 키 [Azure 계정을 만들고](../../get-started.md#try-the-speech-service-using-a-new-azure-account) [음성 리소스를 만들어](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started#create-a-speech-resource-in-azure) 키를 가져옵니다. 음성 리소스를 만들 때 가격 책정 계층이 **S0**로 설정 되어 있고 위치가 지원 되는 [지역](../../regions.md#standard-and-neural-voices)으로 설정 되어 있는지 확인 합니다.
 
 ## <a name="create-a-project-and-import-required-modules"></a>프로젝트 만들기 및 필요한 모듈 가져오기
 

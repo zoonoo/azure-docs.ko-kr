@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/05/2019
+ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: bf9afb66163532b4095e0d30b1167010320abbf8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9a5b5de71ee290b39603968cf4309171689e22e4
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490948"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184839"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>음성 서비스를 사용 하 여 사용자 지정 키워드 만들기
 
@@ -46,7 +46,7 @@ ms.locfileid: "73490948"
 
 ## <a name="create-your-keyword"></a>키워드 만들기
 
-사용자 지정 키워드를 장치와 함께 사용 하려면 Microsoft 사용자 지정 키워드 생성 서비스를 사용 하 여 키워드를 만들어야 합니다. 키워드를 제공한 후 서비스는 장치에서 키워드를 사용할 수 있도록 개발 키트에 배포 하는 파일을 생성 합니다.
+사용자 지정 키워드를 사용 하려면 [Speech Studio](https://aka.ms/sdsdk-speechportal)에서 [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지를 사용 하 여 키워드를 만들어야 합니다. 키워드를 제공 하면 장치에 배포 하는 파일이 생성 됩니다.
 
 1. [Speech Studio](https://aka.ms/sdsdk-speechportal) 로 이동 하 여 **로그인** 하거나, 아직 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754)를 선택 합니다.
 
@@ -62,7 +62,7 @@ ms.locfileid: "73490948"
 
     ![키워드 다운로드](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
 
-1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 키워드를 개발 키트에 배포 하려면이 파일이 필요 합니다.
+1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 키워드를 장치에 배포 하려면이 파일이 필요 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

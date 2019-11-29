@@ -1,14 +1,14 @@
 ---
-title: CAF Migration 방문 영역 청사진 샘플 - 개요
+title: CAF Migration 방문 영역 청사진 샘플 개요
 description: Azure에 대한 CAF(Cloud Adoption Framework) Foundation 방문 영역의 개요 및 아키텍처입니다.
 ms.date: 08/20/2019
 ms.topic: sample
-ms.openlocfilehash: e007c7af4d788016d74f085ba39b63ee218d6de0
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 08171a39c83ea6822243d7239882a19b053f213e
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404764"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74545505"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Azure에 대한 Microsoft 클라우드 채택 프레임워크 Migration 방문 영역 청사진 샘플의 개요
 

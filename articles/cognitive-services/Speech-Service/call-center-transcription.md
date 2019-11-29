@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: a2025eb611a394cf4b67c05a4019ccf03bcadf9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 2a8bea01d67c1820dc4f5c0a4922872541449a9e
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075858"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538167"
 ---
 # <a name="speech-service-for-telephony-data"></a>전화 통신 데이터를 위한 음성 서비스
 
@@ -58,11 +58,11 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 지원 통화의 35%가 말하지 않는 시간(일명 무음)이 되는 것이 보통입니다. 비 대화가 발생 하는 몇 가지 시나리오는 다음과 같습니다. 에이전트는 고객과 함께 이전 케이스 기록을 조회 하는 에이전트, 고객의 데스크톱에 액세스 하 여 기능을 수행할 수 있는 도구를 사용 하는 에이전트, 전송 대기 중인 고객에 대 한 대기 등을 포함 합니다. 이러한 유형의 시나리오와 이러한 시나리오에서 발생 하는 중요 한 고객 구분의 수와 통화에서 발생 하는 위치에 따라 침묵에서 소리가 발생 하는 경우를 측정 하는 것이 매우 중요 합니다.
 
-### <a name="translation"></a>번역
+### <a name="translation"></a>Translation
 
 일부 회사에서는 배달 관리자가 고객의 세계 전체 환경을 이해할 수 있도록 외국어 지원 호출에서 번역 된 기록을 제공 하는 방법을 시험해 볼 수 있습니다. 당사의 [번역](translation.md) 기능은 탁월합니다. 많은 로캘에 대해 오디오-오디오 또는 오디오-텍스트를 번역할 수 있습니다.
 
-### <a name="text-to-speech"></a>텍스트에서 음성 변환
+### <a name="text-to-speech"></a>텍스트를 음성으로 전환 (TTS)
 
 [텍스트 음성 변환](text-to-speech.md)은 고객과 상호 작용하는 봇을 구현하는 데 있어서 또 하나의 중요한 영역입니다. 일반적인 경로는 고객이 말하고, 해당 음성이 텍스트로 전사되고, 텍스트의 의도를 분석하고, 인식된 의도를 기반으로 응답을 합성한 다음, 자산을 고객에게 표시하거나 합성된 음성 응답을 생성하는 것입니다. 물론이 모든 것이 신속 하 게 발생 하므로 이러한 시스템이 성공 하면 대기 시간이 짧고 중요 한 구성 요소가 됩니다.
 
@@ -70,11 +70,11 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
 당사의 새 음성도 사람의 음성과 구분할 수 없습니다. 음성을 사용 하 여 자신의 고유한 개성을 제공할 수 있습니다.
 
-### <a name="search"></a>검색
+### <a name="search"></a>Search
 
 분석의 또 다른 요소는 특정 이벤트 또는 환경이 발생한 상호 작용을 식별하는 작업입니다. 이는 일반적으로 다음 두 가지 방법 중 하나를 사용 하 여 수행 됩니다. 사용자가 문구를 입력 하 고 시스템에 응답 하는 임시 검색 또는 분석가가 호출에서 시나리오를 식별 하는 논리 문 집합을 만든 다음 각 호출을 해당 쿼리 집합에 대해 인덱싱할 수 있는 보다 구조화 된 쿼리를 사용할 수 있습니다. 좋은 검색 예제는 "이 호출은 품질을 위해 기록 되어야 합니다. ". 대부분의 회사에서는 전화를 실제로 기록 하기 전에 해당 에이전트가 고객에 게 이러한 부인를 제공 하도록 합니다. 대부분의 분석 시스템은 쿼리/검색 알고리즘을 통해 발견 된 동작을 추세 할 수 있으며, 이러한 추세 보고는 궁극적으로 분석 시스템의 가장 중요 한 기능 중 하나입니다. [Cognitive Services 디렉터리](https://azure.microsoft.com/services/cognitive-services/directory/search/)를 통해 인덱싱 및 검색 기능을 사용하여 사용자의 엔드투엔드 솔루션을 크게 향상할 수 있습니다.
 
-### <a name="key-phrase-extraction"></a>핵심 문구 추출
+### <a name="key-phrase-extraction"></a>핵심 구 추출
 
 이 영역은 더 까다로운 분석 응용 프로그램 중 하나 이며 AI와 기계 학습의 응용 프로그램에서 기능과 합니다. 이 경우 주요 시나리오는 고객 의도를 유추 하는 것입니다. 고객이 전화를 건 이유가 무엇입니까? 고객의 문제가 무엇입니까? 고객이 부정적 경험을 한 이유가 무엇입니까? [텍스트 분석 서비스](https://azure.microsoft.com/services/cognitive-services/text-analytics/) 는 이러한 중요 한 키워드 또는 구를 추출 하기 위해 종단 간 솔루션을 신속 하 게 업그레이드 하는 데 사용할 수 있는 분석 집합을 제공 합니다.
 
@@ -95,7 +95,6 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 - 음성 서비스는 음성 텍스트를 높여줄 하는 데 사용 됩니다. 일괄 처리 기록 API를 사용 하려면 음성 서비스에 대 한 표준 구독 (S0)이 필요 합니다. 체험 구독(F0) 서비스는 제공하지 않습니다.
 - [Azure Storage](https://azure.microsoft.com/services/storage/)는 전화 통신 데이터 및 Batch Transcription API에서 반환된 음성 텍스트를 저장하기 위해 사용됩니다. 이 스토리지 계정은 특히 새 파일이 추가될 때 알림을 사용해야 합니다. 해당 알림은 전사 프로세스를 트리거하기 위해 사용됩니다.
 - [Azure Functions](https://docs.microsoft.com/azure/azure-functions/)는 각 기록에 대한 SAS(공유 액세스 디지털 서명) URI를 만들고 HTTP POST 요청을 트리거하여 전사를 시작하기 위해 사용됩니다. 또한 Azure Functions는 Batch Transcription API를 사용하여 전사를 검색하고 삭제하는 요청을 만들기 위해 사용됩니다.
-- [웹후크](webhooks.md)는 전사가 완료되었을 때 알림을 가져오기 위해 사용됩니다.
 
 내부적으로는 위의 기술을 사용하여 일괄 처리 모드에서 Microsoft 고객 통화를 지원하고 있습니다.
 ![일괄 처리 아키텍처](media/scenarios/call-center-batch-pipeline.png)
@@ -122,7 +121,7 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 
  음성 서비스는 기본 제공 모델에서 잘 작동 합니다. 그러나 제품 또는 환경에 대 한 환경을 추가로 사용자 지정 하 고 조정할 수 있습니다. 사용자 지정 옵션은 음향 모델 조정부터 브랜드를 위한 고유한 음성 글꼴까지 다양합니다. 사용자 지정 모델을 작성 한 후에는 실시간 또는 일괄 처리 모드에서 음성 서비스 기능에 사용할 수 있습니다.
 
-| Speech Service | Model | 설명 |
+| Speech Service | 모델 | 설명 |
 | -------------- | ----- | ----------- |
 | 음성 텍스트 변환 | [음향 모델](how-to-customize-acoustic-models.md) | 자동차 또는 공장 작업장과 같은 고유한 녹음 조건을 갖는 특수한 환경에서 사용되는 애플리케이션, 도구 또는 디바이스에 대해 사용자 지정 음향 모델을 만듭니다. 액센트가 있는 음성, 특정 배경 소음, 레코딩에 특정 마이크 사용 등을 예로 들 수 있습니다. |
 |                | [언어 모델](how-to-customize-language-model.md) | 산업별 어휘 및 문법(예: 의료 용어 또는 IT 전문 용어)의 전사를 개선하기 위해 사용자 지정 언어 모델을 만듭니다. |
@@ -148,4 +147,4 @@ Azure는 도메인에 대 한 호출이 post 인지 실시간 인지에 상관 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [무료 음성 서비스 구독 키 받기](get-started.md)
+> [평가판 Speech Service 구독 키 받기](get-started.md)

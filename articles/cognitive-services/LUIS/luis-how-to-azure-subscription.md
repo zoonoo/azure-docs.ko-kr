@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 957b12ad00f53a5aed7ff2a1ecd4afd21e58eb93
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 876026b5399631728331c4a9e67482a34f9d0b2d
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467469"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74225554"
 ---
 # <a name="using-authoring-and-runtime-resource-keys"></a>제작 및 런타임 리소스 키 사용
 
 작성 및 런타임 리소스는 LUIS 앱 및 예측 끝점에 대 한 인증을 제공 합니다.
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 <a name="create-luis-service"></a>
 <a name="create-language-understanding-endpoint-key-in-the-azure-portal"></a>
@@ -60,13 +58,13 @@ LUIS 포털의 **사용자 설정** 페이지와 **관리-> Azure 리소스** �
 
     ![언어 이해 리소스 만들기](./media/luis-how-to-azure-subscription/create-resource-in-azure.png)
 
-    |Name|목적|
+    |name|용도|
     |--|--|
     |리소스 이름| 사용자가 선택한 사용자 지정 이름으로, 작성 및 예측 끝점 쿼리의 URL의 일부로 사용 됩니다.|
     |구독 이름| 리소스에 대해 요금이 청구 되는 구독입니다.|
-    |리소스 그룹| 사용자가 선택 하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용 하면 동일한 지역에서 액세스 및 관리를 위해 Azure 리소스를 그룹화 할 수 있습니다.|
-    |제작 위치|모델과 연결 된 지역입니다.|
-    |가격 책정 계층 제작|가격 책정 계층은 초당 최대 트랜잭션 수와 월을 결정 합니다.|
+    |Resource group| 사용자가 선택 하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용 하면 동일한 지역에서 액세스 및 관리를 위해 Azure 리소스를 그룹화 할 수 있습니다.|
+    |작성 위치|모델과 연결 된 지역입니다.|
+    |작성 가격 책정 계층|가격 책정 계층은 초당 최대 트랜잭션 수와 월을 결정 합니다.|
     |런타임 위치|게시 된 예측 끝점 런타임과 연결 된 지역입니다.|
     |런타임 가격 책정 계층|가격 책정 계층은 초당 최대 트랜잭션 수와 월을 결정 합니다.|
 
@@ -136,7 +134,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |헤더|값|
+    |헤더|Value|
     |--|--|
     |`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.| 
     |`Ocp-Apim-Subscription-Key`|제작 키입니다.|
@@ -147,13 +145,13 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
 
     이 POST API에는 다음 설정이 필요합니다.
 
-    |형식|설정|값|
+    |Type|설정|Value|
     |--|--|--|
     |헤더|`Authorization`|`Authorization`의 값은 `Bearer {token}`입니다. 토큰 값 앞에 단어 `Bearer`와 공백이 와야 합니다.|
     |헤더|`Ocp-Apim-Subscription-Key`|제작 키입니다.|
     |헤더|`Content-type`|`application/json`|
     |쿼리 문자열|`appid`|LUIS 앱 ID 
-    |body||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
+    |본문||{"AzureSubscriptionId":"ddda2925-af7f-4b05-9ba1-2155c5fe8a8e",<br>"ResourceGroup": "resourcegroup-2",<br>"AccountName": "luis-uswest-S0-2"}|
 
     이 API가 성공하면 201 - 생성된 상태를 반환합니다. 
 
@@ -189,7 +187,7 @@ CI/CD 파이프라인과 같은 자동화를 위해 LUIS 앱에 대 한 LUIS 런
     ![LUIS 결제 계층 변경](./media/luis-usage-tiers/plans.png)
 1.  가격 변경이 완료되면 팝업 창에서 새로운 가격 책정 계층을 확인합니다. 
     ![LUIS 결제 계층 확인](./media/luis-usage-tiers/updated.png)
-1. [게시](#assign-a-resource-to-an-app) 페이지에서 **이 엔드포인트 키를 할당**하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
+1. **게시** 페이지에서 [이 엔드포인트 키를 할당](#assign-a-resource-to-an-app)하고 모든 엔드포인트 쿼리에서 이 엔드포인트 키를 사용해야 합니다. 
 
 ## <a name="viewing-azure-resource-metrics"></a>Azure 리소스 메트릭 보기
 

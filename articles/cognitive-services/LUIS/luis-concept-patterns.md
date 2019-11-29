@@ -1,7 +1,7 @@
 ---
 title: 패턴 지원 예측-LUIS
 titleSuffix: Azure Cognitive Services
-description: 패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다.
+description: 더 많은 발화를 제공하지 않고도 패턴을 통해 의도의 정확도를 더 높일 수 있습니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,15 +11,15 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 6234a13d07ac024849d1c890d82ef03e19c11af4
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 32b9b42ee0962353405616e501de95b19e40ea1a
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012005"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280850"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>패턴을 통해 예측 정확도 개선
-패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  패턴를 통해 더 많은 발화를 제공하지 않고도 의도에 대한 더 높은 정확성을 얻을 수 있습니다. 
+패턴은 여러 발언이 매우 유사할 경우 정확도를 향상시키도록 디자인됩니다.  더 많은 발화를 제공하지 않고도 패턴을 통해 의도의 정확도를 더 높일 수 있습니다. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>패턴을 통해 낮은 의도 신뢰도 해결
 직원과 관련해서 조직도에 보고하는 Human Resources 앱을 가정해 봅니다. 직원의 이름 및 관계가 제공될 경우 LUIS는 관련 직원을 반환합니다. 관리자 이름은 Alice이고 Michael, Rebecca 및 Carl이 부하 직원으로 팀에 소속되어 있는 Tom이라는 직원이 있다고 가정합니다.
@@ -45,9 +45,9 @@ ms.locfileid: "74012005"
 
 ## <a name="patterns-do-not-improve-machine-learned-entity-detection"></a>패턴은 컴퓨터에서 학습 한 엔터티 검색을 개선 하지 않습니다.
 
-패턴은 주로 의도 및 역할의 예측을 지 원하는 데 도움이 됩니다. 패턴입니다. 자유 형식 엔터티를 추출 하는 데 엔터티를 사용 합니다. 패턴에서 엔터티를 사용 하는 동안 패턴은 컴퓨터에서 학습 한 엔터티를 검색 하는 데 도움이 되지 않습니다.  
+패턴은 주로 의도 및 역할의 예측을 지 원하는 데 도움이 됩니다. _패턴입니다._ 자유 형식 엔터티를 추출 하는 데 엔터티를 사용 합니다. 패턴에서 엔터티를 사용 하는 동안 패턴은 컴퓨터에서 학습 한 엔터티를 검색 하는 데 도움이 되지 않습니다.  
 
-여러 발언을 단일 패턴으로 축소하는 경우에는 향상된 엔터티 예측을 기대하지 못합니다. 간단한 엔터티를 발생시키려면 발언을 추가하거나 목록 엔터티를 사용합니다. 그렇지 않으면 패턴이 발생하지 않습니다.
+여러 발언을 단일 패턴으로 축소하는 경우에는 향상된 엔터티 예측을 기대하지 못합니다. 단순 엔터티를 실행 하려면 길이 발언를 추가 하거나 엔터티 목록을 사용 해야 합니다. 그렇지 않으면 패턴이 실행 되지 않습니다.
 
 ## <a name="patterns-use-entity-roles"></a>패턴에 엔터티 역할 사용
 패턴의 둘 이상의 엔터티가 문맥상 관련이 있는 경우 패턴은 엔터티 [역할](luis-concept-roles.md)을 사용하여 엔터티에 대한 컨텍스트 정보를 추출합니다.  
@@ -62,7 +62,7 @@ ms.locfileid: "74012005"
 각 의도에 대 한 패턴이 있는 한 예 길이 발언 없는 의도를 사용 하 여 앱을 빌드할 수 있습니다. 패턴 전용 앱의 경우에는 예제 길이 발언이 필요 하므로 패턴은 컴퓨터에서 배운 엔터티를 포함 하지 않아야 합니다. 
 
 ## <a name="best-practices"></a>모범 사례
-[모범 사례](luis-concept-best-practices.md)에 대해 알라봅니다.
+[모범 사례](luis-concept-best-practices.md)를 알아봅니다.
 
 ## <a name="pattern-syntax"></a>패턴 구문
 

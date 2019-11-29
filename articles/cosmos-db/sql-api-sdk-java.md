@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: eb8110c953787d1ebf7f01037808ee77db2eb8b4
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 42dcc0e9bd07f357c17f28dd754e4ae3404e01ff
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934155"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561884"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
+* 사용자가 pkRangeId를 제공 하는 경우 잘못 된 파티션 키 범위 오류에 대 한 재시도를 방지 합니다.
 
 ### <a name="a-name244244"></a><a name="2.4.4"/>2.4.4
 * 최적화 된 파티션 키 범위 캐시 새로 고침입니다.

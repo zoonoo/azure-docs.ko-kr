@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: angle
-ms.openlocfilehash: dfa05ff114ea0976cb8d57f711eaacc016ea53cc
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73836991"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558999"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경을 위한 올바른 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정 했으므로 잠재적 디자인 패턴을 살펴보는 것이&#39;좋습니다.&#39;
@@ -38,7 +38,7 @@ ms.locfileid: "73836991"
 
 
 
-| 가상 음성 환경을 구현 하는 경우 ... | 추천 | 디자인 패턴 |
+| 가상 음성 환경을 구현 하는 경우 ... | 권장 사항 | 디자인 패턴 |
 | --- | --- | --- |
 | 높은 공개 필요  | 사용자가 연결을 빌드하는 데 도움이 되도록 하나 이상의 명시적 패턴 및 암시적 큐를 사용 합니다. |[명시적 공개](#explicit-disclosure)<br>[암시적 노출](#implicit-disclosure)  |
 | 낮은 공개 필요 | 공개는 최소 또는 불필요 하지만 일부 암시적 패턴의 이점을 누릴 수 있습니다. | [기능 공개](#capability-disclosure)<br>[대화형 투명도](#conversational-transparency)  |
@@ -61,7 +61,7 @@ ms.locfileid: "73836991"
 처음 실행 하는 동안 투명 한 소개를 ![](media/responsible-ai/disclosure-patterns/transparent-intro-first.png) <br>
 *새 사용자를 온 보 딩 하는 동안 가상 음성이 도입 됩니다.*
 
-추천
+권장 사항
 - 음성이 인공 임을 설명 합니다 (예: 디지털&quot;&quot;).
 - 에이전트가 수행할 수 있는 작업을 설명 합니다.
 - 명시적으로 음성&#39;s 원본에 대 한 상태
@@ -96,7 +96,7 @@ ms.locfileid: "73836991"
 뉴스 미디어 시나리오에서 명시적 저자명을 ![](media/responsible-ai/disclosure-patterns/explicit-byline.png) <br/>
 *명시적 저자명는 음성이 제공 되는 위치의 특성입니다.*
 
-추천
+권장 사항
 
 - 합성 음성에 대 한 자세한 정보를 제공 하는 입력 지점 제공
 
@@ -111,7 +111,7 @@ ms.locfileid: "73836991"
 사용자 기본 설정 ![](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *사용자 기본 설정을 통해 사용자는 환경을 사용자 지정 하 고 개선할 수 있습니다.*
 
-추천
+권장 사항
 
 - 사용자가 음성 (예: 언어 및 음성 유형 선택)을 사용자 지정할 수 있습니다.
 - 사용자에 게 고유한 음성 (예: 음성 보정, 사용자 지정 명령)에 대응할 수 있도록 시스템을 교육 하는 방법을 제공 합니다.
@@ -124,7 +124,7 @@ ms.locfileid: "73836991"
 음성 사용자 지정 ![](media/responsible-ai/disclosure-patterns/customization-voice-type.png)<br/>
 *음성 집합에서 선택 하는 기능을 제공 하면 인공 특성을 전달 하는 데 도움이 됩니다.*
 
-추천
+권장 사항
 - 사용자가 각 음성의 소리를 미리 볼 수 있도록 허용
 - 각 음성에 대해 인증 된 소개 사용
 - 합성 음성에 대 한 자세한 정보를 제공 하는 진입점 제공
@@ -136,7 +136,7 @@ COPPA 규정을 준수 하는 것 외에도 기본 의도 된 대상이 어린�
 부모](media/responsible-ai/disclosure-patterns/parental-disclosure.png)에 대 한 ![공개<br/>
 *부모에 최적화 된 투명 소개를 사용 하면 자식이 상호 작용 하기 전에 성인이 음성의 가상 특성을 인식 하 게 됩니다.*
 
-추천
+권장 사항
 
 - 공개할 기본 대상으로 부모를 대상으로 합니다.
 - 부모에서 자식에 대 한 공개를 전달 하도록 권장
@@ -155,7 +155,7 @@ COPPA 규정을 준수 하는 것 외에도 기본 의도 된 대상이 어린�
 사용자에 게 가상 음성에 대 한 자세한 정보를 제공 ![](media/responsible-ai/disclosure-patterns/learn-more.png)<br/>
 *추가 정보는 외부 사이트 도움말 사이트에서 제공 될 수 있습니다.*
 
-추천
+권장 사항
 
 - 복잡 한 개념을 단순화 하 고 legalese 및 기술 전문 용어 사용 방지
 - 개인 정보 및 사용 약관에서이 콘텐츠를 bury 안 함
@@ -167,7 +167,7 @@ COPPA 규정을 준수 하는 것 외에도 기본 의도 된 대상이 어린�
 
 ![암시적 큐의 일관성](media/responsible-ai/disclosure-patterns/consistency.png)
 
-### <a name="implicit-cues-amp-feedback"></a>사용자 의견 &amp; 암시적 큐
+### <a name="implicit-cues--feedback"></a>사용자 의견 & 암시적 큐
 
 Anthropomorphism는 에이전트의 실제 시각적 표현에서 음성, 소리, 광원 패턴, 바운스 셰이프 또는 장치의 진동 등 다양 한 방식으로 매니페스트 될 수 있습니다. 사용자를 정의 하는 경우 매우 사람의 마음에 드는 대신 암시적 큐 및 피드백 패턴을 활용 합니다. 이는 보다 명시적인 공개의 필요성을 최소화 하는 한 가지 방법입니다.
 

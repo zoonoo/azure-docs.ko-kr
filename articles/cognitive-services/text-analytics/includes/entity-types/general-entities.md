@@ -8,23 +8,23 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/18/2019
 ms.author: aahi
-ms.openlocfilehash: 693a81cfb15407541311d7ab053bb2ab6a267b29
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: a4c911fa077c2ec332974fb2f0c5abcdef21307c
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73800000"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74284137"
 ---
 ## <a name="general-entity-types"></a>일반 엔터티 형식:
 
-### <a name="person"></a>사람
+### <a name="person"></a>사용자
 텍스트의 인식 된 이름 및 기타 사람
 언어:
 * 공개 미리 보기: `English`
 
 | 하위 형식 이름 | 설명             |
 |--------------|-------------------------|
-| 해당 없음          | 인식할 수 있는 이름 (예: `Bill Gates``Marie Curie` |
+| N/A          | 인식할 수 있는 이름 (예: `Bill Gates``Marie Curie` |
 
 ### <a name="location"></a>위치
 
@@ -37,7 +37,7 @@ ms.locfileid: "73800000"
 
 | 하위 형식 이름 | 설명                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| 해당 없음          | 위치 (예: `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
+| N/A          | 위치 (예: `Atlantic Ocean`, `library`, `Eiffel Tower`, `Statue of Liberty` |
 
 ### <a name="organization"></a>조직  
 
@@ -47,11 +47,11 @@ ms.locfileid: "73800000"
 
 | 하위 형식 이름 | 설명                                                                                      |
 |--------------|--------------------------------------------------------------------------------------------------|
-| 해당 없음          | 조직 (예: `Microsoft``NASA` `National Oceanic and Atmospheric Administration` |
+| N/A          | 조직 (예: `Microsoft``NASA` `National Oceanic and Atmospheric Administration` |
 
 ### <a name="phone-number"></a>전화 번호
 
-전화 번호. 
+전화 번호 (미국 전화 번호만). 
 
 언어:
 
@@ -60,9 +60,9 @@ ms.locfileid: "73800000"
 
 | 하위 형식 이름 | 설명                                  |
 |----------|----------------------------------------------|
-| 해당 없음         | 전화 번호 (예: `+1 123-123-123`). |
+| N/A         | 미국 전화 번호 (예: `(312) 555-0176`). |
 
-### <a name="email"></a>Email
+### <a name="email"></a>이메일
 
 메일 주소입니다. 
 
@@ -73,7 +73,7 @@ ms.locfileid: "73800000"
 
 | 하위 형식 이름 | 설명                                  |
 |----------|----------------------------------------------|
-| 해당 없음         | 전자 메일 주소 (예: `support@contoso.com` |
+| N/A         | 전자 메일 주소 (예: `support@contoso.com` |
 
 ### <a name="url"></a>URL
 
@@ -86,9 +86,9 @@ ms.locfileid: "73800000"
 
 | 하위 형식 이름 | 설명                                           |
 |----------|-------------------------------------------------------|
-| 해당 없음         | 웹 사이트 Url (예: `https://www.bing.com`). |
+| N/A         | 웹 사이트 Url (예: `https://www.bing.com`). |
 
-###  <a name="number"></a>Number
+###  <a name="number"></a>수
 
 숫자 및 숫자 수량. 
 
@@ -97,11 +97,11 @@ ms.locfileid: "73800000"
 
 * 공개 미리 보기: `English`
 
-| 하위 형식 이름    | 예                     |
+| 하위 형식 이름    | 예시                     |
 |-------------|------------------------------|
-| 해당 없음         | `6`, `six`                   |
+| N/A         | `6`, `six`                   |
 | 백분율  | `50%`, `fifty percent`       |
-| Ordinal     | `2nd`, `second`              |
+| 서수     | `2nd`, `second`              |
 | 통화    | `$10.99`, `€30.00`           |
-| 차원   | `10 miles`, `40 cm`          |
+| 치수   | `10 miles`, `40 cm`          |
 | 온도 | `32 degrees`, `10°C`         |

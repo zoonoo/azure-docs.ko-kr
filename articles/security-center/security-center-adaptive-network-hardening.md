@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center의 적응 네트워크 강화 | Microsoft Docs
-description: " Azure Security Center에서 적응 네트워크 강화를 사용 하도록 설정 하는 방법을 알아봅니다. "
+description: 실제 트래픽 패턴, NSG (네트워크 보안 그룹) 규칙에 따라 확정 하 고 보안 상태를 더욱 개선 하는 방법에 대해 알아봅니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: fb1e381f9b956a0c6414a82505aced2cbdb2d680
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255257"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559270"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Azure Security Center의 적응 네트워크 강화
 Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법에 대해 알아봅니다.
@@ -38,16 +38,16 @@ Azure Security Center에서 적응 네트워크 강화를 구성 하는 방법�
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>적응 네트워크 강화 경고 및 규칙 보기
 
 1. Security Center에서 **네트워킹** -> **적응 네트워크 강화**를 선택 합니다. 네트워크 Vm은 3 개의 별도 탭에 나열 됩니다.
-   * **비정상 리소스**: 현재 권장 사항이 있는 Vm 및 적응 네트워크 강화 알고리즘을 실행 하 여 트리거된 경고입니다. 
-   * **정상 리소스**: 경고 및 권장 사항이 없는 Vm.
-   * **검색 되지 않은 리소스**: 다음 이유 중 하나로 인해 적응 네트워크 강화 알고리즘이 실행 될 수 없는 Vm입니다.
-      * **Vm은 클래식 vm입니다**. Azure Resource Manager Vm만 지원 됩니다.
-      * **사용할 수 있는 데이터가 부족**합니다. 정확한 트래픽 강화 권장 사항을 생성 하기 위해 Security Center에는 적어도 30 일의 트래픽 데이터가 필요 합니다.
-      * **VM은 ASC 표준으로 보호 되지 않습니다**. Security Center의 표준 가격 책정 계층으로 설정 된 Vm만이 기능을 사용할 수 있습니다.
+   * **비정상 리소스**: 적응 네트워크 강화 알고리즘을 실행 하 여 현재 권장 사항 및 경고가 트리거된 vm입니다. 
+   * **정상 리소스**: 경고 및 권장 사항이 없는 vm입니다.
+   * **검색 되지 않은 리소스**: 적응 네트워크 강화 알고리즘을 실행할 수 없는 vm은 다음 이유 중 하나로 인해 실행할 수 없습니다.
+      * **Vm은 클래식 vm**입니다. Azure Resource Manager vm만 지원 됩니다.
+      * **충분 한 데이터를 사용할 수 없습니다**. 정확한 트래픽 강화 권장 사항을 생성 하기 위해 Security Center에는 최소 30 일의 트래픽 데이터가 필요 합니다.
+      * **VM은 ASC standard로 보호 되지 않습니다**. Security Center 표준 가격 책정 계층으로 설정 된 vm만이이 기능을 사용할 수 있습니다.
 
      ![비정상 리소스](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
-2. **비정상 리소스** 탭에서 VM을 선택 하 여 경고를 확인 하 고 권장 되는 강화 규칙을 적용 합니다.
+2. **비정상 리소스** 탭에서 VM을 선택 하 여 경고를 확인 하 고 권장 강화 규칙을 적용 합니다.
 
     ![경고 강화](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 

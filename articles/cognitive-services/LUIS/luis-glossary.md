@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 10/25/2019
 ms.author: diberry
-ms.openlocfilehash: 22e8fa8fb6999828076ea5f8f34b1f601b920013
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4f78b4c50f4cd65f3dc32c48cea81b705dc44de1
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499560"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325958"
 ---
 # <a name="language-understanding-glossary-of-common-vocabulary-and-concepts"></a>일반적인 용어 및 개념의 언어 이해 용어집
 Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 때 나타날 수 있는 용어에 대해 설명합니다.
@@ -30,17 +30,16 @@ Language Understanding(LUIS) 용어집에서는 LUIS API 서비스를 사용할 
 
 ## <a name="authoring-key"></a>작성 키
 
-이전에는 “프로그래밍 방식” 키라고 했습니다. 앱을 작성하는 데 사용됩니다. 프로덕션 수준 엔드포인트 쿼리에는 사용되지 않습니다. 자세한 내용은 [키 제한](luis-boundaries.md#key-limits)을 참조하세요.   
+이전에는 “프로그래밍 방식” 키라고 했습니다. 앱을 작성하는 데 사용됩니다. 프로덕션 수준 엔드포인트 쿼리에는 사용되지 않습니다. 자세한 내용은 [키 제한](luis-boundaries.md#key-limits)을 참조하세요.
 
-## <a name="batch-test-json-file"></a>텍스트 JSON 파일 일괄 처리
+## <a name="batch-test-json-file"></a>일괄 처리 테스트 JSON 파일
 
 일괄 처리 테스트는 사용자 길이 발언의 일관 되 고 알려진 테스트 집합을 사용 하 여 현재 LUIS 앱 모델의 유효성을 검사 하는 기능입니다. 일괄 처리 테스트는 [JSON 형식의 파일](luis-concept-batch-test.md#batch-file-format)에서 정의 됩니다.
 
-참고 항목: 
+참고 항목:
 * [개념](luis-concept-batch-test.md)
 * [방법](luis-how-to-batch-test.md)
 * [자습서](luis-tutorial-batch-testing.md)
-
 
 ## <a name="collaborator"></a>협력자
 
@@ -64,7 +63,7 @@ LUIS 컨텍스트에서 **도메인**은 정보 영역입니다. 도메인은 �
 
 ## <a name="entity"></a>엔터티
 
-[엔터티](luis-concept-entity-types.md)는 [의도](luis-concept-utterance.md)에 관련된 정보를 설명하는 [발화](luis-concept-intent.md)의 중요한 단어이고 때때로 의도에 필수적입니다. 엔터티는 기본적으로 LUIS의 데이터 형식입니다.
+[엔터티](luis-concept-entity-types.md)는 [의도](luis-concept-intent.md)에 관련된 정보를 설명하는 [발화](luis-concept-utterance.md)의 중요한 단어이고 때때로 의도에 필수적입니다. 엔터티는 기본적으로 LUIS의 데이터 형식입니다.
 
 ## <a name="f-measure"></a>F 측정값
 
@@ -155,7 +154,7 @@ LUIS를 사용 하 여 처음 시작할 때 사용할 수 있는 무료 키입�
 
 ## <a name="subscription-key"></a>구독 키
 
-구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md)LUIS 서비스와 연결 된 **예측 끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS**웹 사이트의**](luis-how-to-azure-subscription.md)키 및 엔드포인트[ 페이지](luis-reference-regions.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
+구독 키는 [Azure에서 만든](luis-how-to-azure-subscription.md)LUIS 서비스와 연결 된 **예측 끝점** 키입니다. 이 키는 [작성 키](#programmatic-key)가 아닙니다. 엔드포인트 키가 있는 경우 작성 키 대신 모든 엔드포인트 요청에 사용해야 합니다. [LUIS](luis-reference-regions.md) 웹 사이트의 [**키 및 엔드포인트** 페이지](luis-how-to-azure-subscription.md) 아래쪽에 있는 엔드포인트 URL 내부에서 현재 엔드포인트 키를 확인할 수 있습니다. 이는 **subscription-key** 이름/값 쌍의 값입니다.
 
 ## <a name="test"></a>테스트
 

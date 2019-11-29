@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 9c6e4c66d96b02c2d5b4b4fe70fe6e6798c4e2c6
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: b4c39c631963a358dcdc9d1eafe954a85a9499ad
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74285926"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74554851"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
@@ -20,16 +20,61 @@ ms.locfileid: "74285926"
 
 ## <a name="common-user-errors"></a>일반 사용자 오류
 
-| Error                                | 오류 메시지                    | 가능한 원인                                              | 권장 작업                                           |
-| ------------------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| UserErrorInOpeningHanaOdbcConnection | HANA 시스템에 연결 하지 못했습니다. | SAP HANA 인스턴스가 다운 되었을 수 있습니다. <br> HANA 데이터베이스와 상호 작용 하기 위해 Azure backup에 필요한 권한이 설정 되지 않았습니다. | SAP HANA 데이터베이스가 작동 하는지 확인 합니다. 데이터베이스가 실행 중인 경우 필요한 모든 권한이 설정 되어 있는지 확인 합니다. 사용 권한이 없는 경우 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 하 여 누락 된 사용 권한을 추가 합니다. |
-| UserErrorHanaInstanceNameInvalid | 지정한 SAP HANA 인스턴스가 잘못 되었거나 찾을 수 없습니다. | 단일 Azure VM의 여러 SAP HANA 인스턴스는 백업할 수 없습니다. | 백업 하려는 SAP HANA 인스턴스에서 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 합니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요. |
-| UserErrorHanaUnsupportedOperation | 지정 된 SAP HANA 작업이 지원 되지 않습니다. | SAP HANA 용 Azure backup은 SAP HANA native client에서 수행 되는 증분 백업 및 작업을 지원 하지 않습니다 (스튜디오/환경/DBA 환경). | 자세한 내용은 [여기](sap-hana-backup-support-matrix.md#scenario-support)를 참조 하세요. |
-| UserErrorHANAPODoesNotSupportBackupType | 이 SAP HANA 데이터베이스는 요청 된 백업 유형을 지원 하지 않습니다. | Azure backup은 스냅숏을 사용한 증분 백업 및 백업을 지원 하지 않습니다. | 자세한 내용은 [여기](sap-hana-backup-support-matrix.md#scenario-support)를 참조 하세요. |
-| UserErrorHANALSNValidationFailure | 백업 로그 체인이 끊어졌습니다. | 로그 백업 대상이 backint에서 파일 시스템으로 업데이트 되었거나 backint 실행 파일이 변경 되었을 수 있습니다. | 문제를 해결 하기 위해 전체 백업 트리거 |
-| UserErrorIncomaptibleSrcTargetSystsemsForRestore | 복원에 사용할 원본 및 대상 시스템이 호환 되지 않습니다. | 복원 대상 시스템이 원본과 호환 되지 않습니다. | 지금 지원 되는 복원 유형에 대 한 자세한 내용은 SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) 을 참조 하세요. |
-| UserErrorSDCtoMDCUpgradeDetected 됨 | SDC에서 MDC로 업그레이드 됨 | SAP HANA 인스턴스가 SDC에서 MDC로 업그레이드 되었습니다. 업데이트 후에는 백업이 실패 합니다. | [SAP HANA 1.0에서 2.0으로 업그레이드 섹션](#upgrading-from-sap-hana-10-to-20) 에 나열 된 단계에 따라 문제를 해결 합니다. |
-| UserErrorInvalidBackintConfiguration | 잘못 된 backint 구성이 검색 되었습니다. | Azure backup에 대해 지원 매개 변수가 잘못 지정 되었습니다. | 다음 (backint) 매개 변수가 설정 되었는지 확인 합니다. <br> * [catalog_backup_using_backint: true] <br>  * [enable_accumulated_catalog_backup: false] <br> * [parallel_data_backup_backint_channels: 1] <br>* [log_backup_timeout_s: 900)] <br> * [backint_response_timeout: 7200] <br> 호스트에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거 합니다. 매개 변수가 호스트 수준에 없지만 데이터베이스 수준에서 수동으로 수정 된 경우 앞에서 설명한 대로 적절 한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지를 실행 하 고 백업 데이터를 보존](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) 한 후 **백업 다시 시작**을 선택 합니다. |
+###  <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection 
+
+| 오류 메시지      | HANA 시스템에 연결 하지 못했습니다.                             |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | SAP HANA 인스턴스가 다운 되었을 수 있습니다.<br/>HANA 데이터베이스와 상호 작용 하기 위해 Azure backup에 필요한 권한이 설정 되지 않았습니다. |
+| 권장 작업 | SAP HANA 데이터베이스가 작동 하는지 확인 합니다. 데이터베이스가 실행 중인 경우 필요한 모든 권한이 설정 되어 있는지 확인 합니다. 사용 권한이 없는 경우 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 하 여 누락 된 사용 권한을 추가 합니다. |
+
+###  <a name="usererrorhanainstancenameinvalid"></a>UserErrorHanaInstanceNameInvalid 
+
+| 오류 메시지      | 지정한 SAP HANA 인스턴스가 잘못 되었거나 찾을 수 없습니다. |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | 단일 Azure VM의 여러 SAP HANA 인스턴스는 백업할 수 없습니다. |
+| 권장 작업 | 백업 하려는 SAP HANA 인스턴스에서 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 합니다. 그래도 문제가 계속 되 면 Microsoft 지원에 문의 하세요. |
+
+###  <a name="usererrorhanaunsupportedoperation"></a>UserErrorHanaUnsupportedOperation 
+
+| 오류 메시지      | 지정 된 SAP HANA 작업이 지원 되지 않습니다.             |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | SAP HANA 용 Azure backup은 SAP HANA native client에서 수행 되는 증분 백업 및 작업을 지원 하지 않습니다 (스튜디오/환경/DBA 환경). |
+| 권장 작업 | 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)를 참조 하세요. |
+
+###  <a name="usererrorhanapodoesnotsupportbackuptype"></a>UserErrorHANAPODoesNotSupportBackupType 
+
+| 오류 메시지      | 이 SAP HANA 데이터베이스는 요청 된 백업 유형을 지원 하지 않습니다. |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | Azure backup은 스냅숏을 사용한 증분 백업 및 백업을 지원 하지 않습니다. |
+| 권장 작업 | 자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/sap-hana-backup-support-matrix#scenario-support)를 참조 하세요. |
+
+###  <a name="usererrorhanalsnvalidationfailure"></a>UserErrorHANALSNValidationFailure 
+
+| 오류 메시지      | 백업 로그 체인이 끊어졌습니다.                                   |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | 로그 백업 대상이 backint에서 파일 시스템으로 업데이트 되었거나 backint 실행 파일이 변경 되었을 수 있습니다. |
+| 권장 작업 | 문제를 해결 하기 위해 전체 백업 트리거                   |
+
+###  <a name="usererrorincomaptiblesrctargetsystsemsforrestore"></a>UserErrorIncomaptibleSrcTargetSystsemsForRestore 
+
+| 오류 메시지      | 복원에 사용할 원본 및 대상 시스템이 호환 되지 않습니다.   |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | 복원 대상 시스템이 원본과 호환 되지 않습니다. |
+| 권장 작업 | 지금 지원 되는 복원 유형에 대 한 자세한 내용은 SAP Note [1642148](https://launchpad.support.sap.com/#/notes/1642148) 을 참조 하세요. |
+
+###  <a name="usererrorsdctomdcupgradedetected"></a>UserErrorSDCtoMDCUpgradeDetected 됨 
+
+| 오류 메시지      | SDC에서 MDC로 업그레이드 됨                                  |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | SAP HANA 인스턴스가 SDC에서 MDC로 업그레이드 되었습니다. 업데이트 후에는 백업이 실패 합니다. |
+| 권장 작업 | [SAP HANA 1.0에서 2.0으로 업그레이드 섹션](https://docs.microsoft.com/azure/backup/backup-azure-sap-hana-database-troubleshoot#upgrading-from-sap-hana-10-to-20) 에 나열 된 단계에 따라 문제를 해결 합니다. |
+
+###  <a name="usererrorinvalidbackintconfiguration"></a>UserErrorInvalidBackintConfiguration 
+
+| 오류 메시지      | 잘못 된 backint 구성이 검색 되었습니다.                       |
+| ------------------ | ------------------------------------------------------------ |
+| 가능한 원인    | Azure backup에 대해 지원 매개 변수가 잘못 지정 되었습니다. |
+| 권장 작업 | 다음 (backint) 매개 변수가 설정 되었는지 확인 합니다.<br/>\* [catalog_backup_using_backint: true]<br/>\* [enable_accumulated_catalog_backup: false]<br/>\* [parallel_data_backup_backint_channels: 1]<br/>\* [log_backup_timeout_s: 900)]<br/>\* [backint_response_timeout: 7200]<br/>호스트에 backint 기반 매개 변수가 있는 경우 해당 매개 변수를 제거 합니다. 매개 변수가 호스트 수준에 없지만 데이터베이스 수준에서 수동으로 수정 된 경우 앞에서 설명한 대로 적절 한 값으로 되돌립니다. 또는 Azure Portal에서 [보호 중지를 실행 하 고 백업 데이터를 보존](https://docs.microsoft.com/azure/backup/sap-hana-db-manage#stop-protection-for-an-sap-hana-database) 한 후 **백업 다시 시작**을 선택 합니다. |
 
 ## <a name="restore-checks"></a>복원 확인
 

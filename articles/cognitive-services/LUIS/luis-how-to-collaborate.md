@@ -9,20 +9,18 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 10/25/2019
+ms.date: 11/19/2019
 ms.author: diberry
-ms.openlocfilehash: 15c7c6664b0c17d02f1f4e9120c9509fda21e0f4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 96aa7517a3418ab30b0b6a1736eea950ecf4a731
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467538"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533798"
 ---
 # <a name="add-contributors-to-your-app"></a>앱에 참가자 추가
 
 앱 소유자는 앱에 참가자를 추가할 수 있습니다. 이러한 협력자는 모델을 수정하고, 앱을 학습시키고, 게시할 수 있습니다. 
-
-[!INCLUDE [Waiting for LUIS portal refresh](./includes/wait-v3-upgrade.md)]
 
 [!INCLUDE [Manage collaborators and contributors based on migrated or not-migrated apps](./includes/manage-contributor-collaborator-migration.md)]
 
@@ -56,8 +54,6 @@ LUIS authoring experience가 LUIS 포털의 **관리-> Azure 리소스** 페이�
 1. 맨 위 오른쪽 메뉴에서 **관리**를 선택한 다음, 왼쪽 메뉴에서 **협력자**를 선택합니다.
 
 1. 도구 모음에서 **협력자 추가**를 선택합니다.
-
-    [![협력자 추가](./media/luis-how-to-collaborate/add-collaborator.png "협력자 추가")](./media/luis-how-to-collaborate/add-collaborator.png#lightbox)
 
 1. 협력자가 LUIS 포털에 로그인할 때 사용하는 이메일 주소를 입력합니다.
 
@@ -93,7 +89,7 @@ LUIS는 표준 Azure AD(Azure Active Directory)에서 동의 흐름을 사용합
 
 테넌트 관리자는 특정 사용자만 LUIS를 사용하도록 지정하려는 경우 다음과 같은 몇 가지 방법을 사용할 수 있습니다.
 * "관리자 동의"(Azure AD의 모든 사용자에 대한 동의)를 제공한 다음 엔터프라이즈 애플리케이션 속성 아래의 "사용자 할당 필요"를 "예"로 설정하고, 마지막으로 원하는 사용자만 애플리케이션에 할당/추가합니다. 이 방법을 사용하는 경우에도 관리자는 앱에 "관리자 동의"를 제공하지만, 앱에 액세스할 수 있는 사용자를 제어할 수 있습니다.
-* 두 번째 방법은 [Azure AD Graph API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview)를 사용해 각각의 특정 사용자에게 동의를 제공하는 것입니다. 
+* 두 번째 솔루션은 [Microsoft Graph의 AZURE AD id 및 액세스 관리 API](https://docs.microsoft.com/graph/azuread-identity-access-management-concept-overview) 를 사용 하 여 각 특정 사용자에 게 동의를 제공 하는 것입니다. 
 
 Azure Active Directory 사용자 및 동의에 대해 자세히 알아보세요. 
 * 특정 사용자 세트만 사용 가능하도록 [앱 제한](../../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md)

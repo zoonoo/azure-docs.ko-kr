@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: hrasheed
-ms.openlocfilehash: cfbd42a67f9c9d6c66df3787b53575dc9e918e35
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c103482771b829730d009d65283a54ec1d8eb8a
+ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67067982"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74555005"
 ---
 # <a name="understand-and-resolve-errors-received-from-webhcat-on-hdinsight"></a>HDInsight WebHCat에서 받은 오류 이해 및 해결
 
@@ -30,24 +30,24 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 * **Windows** 클러스터: 클러스터를 만드는 동안 값을 구성하려면 스크립트 동작을 사용합니다. 자세한 내용은 [스크립트 동작 개발](hdinsight-hadoop-script-actions-linux.md)을 참조하세요.
 
-* **Linux** 클러스터: Apache Ambari(Web 또는 REST API)를 사용하여 값을 수정합니다. 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
+* **Linux** 클러스터의 경우: Apache Ambari (웹 또는 REST API)를 사용 하 여 값을 수정 합니다. 자세한 내용은 [Apache Ambari를 사용하여 HDInsight 관리](hdinsight-hadoop-manage-ambari.md)를 참조하세요.
 
 
 ### <a name="default-configuration"></a>기본 구성
 
 다음과 같은 기본값이 초과되면 WebHCat 성능이 저하되거나 오류가 발생할 수 있습니다.
 
-| 설정 | 기능 | 기본값 |
+| 설정 | 수행하는 작업 | 기본값 |
 | --- | --- | --- |
-| [yarn.scheduler.capacity.maximum-applications][maximum-applications] |동시에 활성화될 수 있는 최대 작업 수(보류 또는 실행 중인) |10000 |
-| [templeton.exec.max-procs][max-procs] |동시에 제공 될 수 있는 최대 요청 수 |20 |
-| [mapreduce.jobhistory.max-age-ms][max-age-ms] |작업 기록이 보존되는 기간(일) |7 일 |
+| [yarn-응용 프로그램][maximum-applications] |동시에 활성화될 수 있는 최대 작업 수(보류 또는 실행 중인) |10000 |
+| [templeton-프로시저][max-procs] |동시에 제공 될 수 있는 최대 요청 수 |20 |
+| [mapreduce 기록. 최대-연령-ms][max-age-ms] |작업 기록이 보존되는 기간(일) |7일 |
 
 ## <a name="too-many-requests"></a>너무 많은 요청
 
 **HTTP 상태 코드**: 429
 
-| 원인 | 해결 방법 |
+| 원인 | 해상도 |
 | --- | --- |
 | 분당 WebHCat으로 제공되는 최대 동시 요청 수를 초과했습니다(기본값 20). |작업을 줄여 동시 요청의 최대 수 이상으로 제출하지 않거나 `templeton.exec.max-procs`를 수정하여 동시 요청 제한을 늘립니다. 자세한 내용은 [구성 수정](#modifying-configuration)을 참조하세요. |
 
@@ -55,32 +55,32 @@ HDInsight에서 WebHCat을 사용할 때 수신되는 오류 및 해결 방법�
 
 **HTTP 상태 코드**: 503
 
-| 원인 | 해결 방법 |
+| 원인 | 해상도 |
 | --- | --- |
 | 이 상태 코드는 클러스터에 대한 기본 및 보조 헤드 노드 간 장애 조치 중에 발생합니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 
-## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없음
+## <a name="bad-request-content-could-not-find-job"></a>잘못된 요청 콘텐츠: 작업을 찾을 수 없습니다.
 
 **HTTP 상태 코드**: 400
 
-| 원인 | 해결 방법 |
+| 원인 | 해상도 |
 | --- | --- |
 | 작업 세부 정보는 작업 기록 클리너에서  정리됩니다. |작업 기록에 대한 기본 보존 기간은 7일입니다. 기본 보존 기간은 `mapreduce.jobhistory.max-age-ms`를 수정하여 변경할 수 있습니다. 자세한 내용은 [구성 수정](#modifying-configuration)을 참조하세요. |
 | 장애 조치때문에 작업이 중단되었습니다. |최대 2분 동안 작업 제출을 다시 시도하세요. |
-| 잘못 된 작업 ID는 사용한 |작업 ID가 올바른 경우 확인 |
+| 잘못 된 작업 ID가 사용 되었습니다. |작업 ID가 올바른지 확인 합니다. |
 
 ## <a name="bad-gateway"></a>나쁜 게이트웨이
 
 **HTTP 상태 코드**: 502
 
-| 원인 | 해결 방법 |
+| 원인 | 해상도 |
 | --- | --- |
 | WebHCat 프로세스 내에서 내부 가비지 컬렉션이 발생합니다. |가비지 컬렉션이 WebHCat 서비스 다시 시작 또는 완료를 대기합니다. |
 | ResourceManager 서비스에서 응답을 기다리는 동안 시간이 초과되었습니다. 이 오류는 활성 애플리케이션 수가 구성된 최대값(기본값 10,000)에 도달할 때 발생할 수 있습니다. |현재 실행 중인 작업을 완료하거나 `yarn.scheduler.capacity.maximum-applications`을 수정하여 동시 작업 제한을 늘릴 때까지 대기합니다. 자세한 내용은 [구성 수정](#modifying-configuration) 섹션을 참조하세요. |
-| `Fields`가 `*`로 설정되어 있는 동안 [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 호출을 통해 모든 작업을 검색하려고 시도합니다. |*모든* 작업 세부 정보를 검색하지는 마세요. 대신 사용 하 여 `jobid` 만 특정 작업 ID 보다 큰 작업에 대 한 세부 정보를 검색 하려면 또는 `Fields`를 사용하지 마십시오. |
+| `Fields`가 `*`로 설정되어 있는 동안 [GET /jobs](https://cwiki.apache.org/confluence/display/Hive/WebHCat+Reference+Jobs) 호출을 통해 모든 작업을 검색하려고 시도합니다. |*모든* 작업 세부 정보를 검색하지는 마세요. 대신 `jobid`를 사용 하 여 특정 작업 ID 보다 큰 작업에 대 한 세부 정보를 검색 합니다. 또는 `Fields`를 사용하지 마십시오. |
 | 헤드 노드의 장애 조치 중 WebHCat 서비스가 종료됩니다. |2분을 기다린 후 작업을 다시 시도합니다. |
 | WebHCat을 통해 전송되는 500개 이상의 보류 중인 작업이 있습니다. |더 많은 작업을 제출하기 전에 현재 보류 중인 작업이 완료될 때까지 대기합니다. |
 
-[maximum-applications]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
+[maximum-applications]: https://docs.cloudera.com/HDPDocuments/HDP2/HDP-2.1.3/bk_system-admin-guide/content/setting_application_limits.html
 [max-procs]: https://cwiki.apache.org/confluence/display/Hive/WebHCat+Configure#WebHCatConfigure-WebHCatConfiguration
 [max-age-ms]: https://docs.hortonworks.com/HDPDocuments/HDP2/HDP-2.0.6.0/ds_Hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/mapred-default.xml

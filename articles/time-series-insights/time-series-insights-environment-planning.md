@@ -9,14 +9,14 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2dd3b79e931464e83264433a923e9078b2f62525
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f75c84aeb1893008832635cf93cd634d96653dd3
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006948"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561548"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Azure Time Series Insights GA 환경 계획
 
@@ -42,7 +42,7 @@ Azure Time Series Insights를 시작 하려면 분 단위로 푸시 해야 하�
 - [이벤트 모양 지정](#shape-your-events)
 - [참조 데이터가 준비 되었는지 확인](#ensure-that-you-have-reference-data)
 
-## <a name="storage-capacity"></a>Storage 용량
+## <a name="storage-capacity"></a>스토리지 용량
 
 기본적으로 Time Series Insights는 프로 비전 하는 저장소 용량 ( &#215; 단위당 저장소 크기) 및 수신에 따라 데이터를 보존 합니다.
 
@@ -53,7 +53,7 @@ Azure Time Series Insights 환경의 **데이터 보존 시간** 설정을 변�
 Azure Time Series Insights에는 두 가지 모드가 있습니다.
 
 * 한 가지 모드는 최신 데이터에 대해 최적화 됩니다. **이전 데이터를 삭제** 하는 정책을 적용 하 여 최근 데이터를 인스턴스에서 사용할 수 있습니다. 이 모드는 기본적으로 설정 되어 있습니다. 
-* 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지** 는 **저장소 제한을 초과**하는 동작으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다. 
+* 다른는 구성 된 보존 제한 보다 낮게 유지 되도록 데이터를 최적화 합니다. **일시 중지 수신** 은 **저장소 제한 초과 동작**으로 선택 된 경우 새 데이터가 수신 되지 않도록 방지 합니다. 
 
 Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 두 모드를 전환할 수 있습니다.
 
@@ -64,11 +64,11 @@ Azure Portal의 환경 구성 페이지에서 보존 기간을 조정 하 고 �
 
 1. [Azure Portal](https://portal.azure.com)에서 Time Series Insights 환경을 선택합니다.
 
-1. **Time Series Insights 환경** 창의 **설정**에서 **구성**을 선택 합니다.
+1. **Time Series Insights 환경** 창의 **설정**에서 **저장소 구성**을 선택 합니다.
 
 1. **데이터 보존 시간 (일)** 상자에 1에서 400 사이의 값을 입력 합니다.
 
-   [보존 구성 ![](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [보존 구성 ![](media/data-retention/1-configure-data-retention.png)](media/data-retention/1-configure-data-retention.png#lightbox)
 
 > [!TIP]
 > 적절 한 데이터 보존 정책을 구현 하는 방법에 대 한 자세한 내용은 [보존을 구성 하는 방법](./time-series-insights-how-to-configure-retention.md)을 참조 하세요.

@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7ea98baa9cb202e2584c18998c5ab96d1c1f9e5a
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f29bd4ab679d734c3acce967a5d60784b9884ba6
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012651"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561337"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Azure Time Series Insights에서 모니터링을 수행하고 제한을 축소하여 대기 시간 줄이기
 
@@ -42,13 +42,13 @@ ms.locfileid: "74012651"
 
 경고는 환경으로 인한 대기 시간 문제를 진단하고 완화하는 데 도움이 됩니다.
 
-1. Azure Portal에서 **경고**를 선택 합니다.
+1. Azure Portal에서 Time Series Insights 환경을 선택 합니다. 그런 다음 **경고**를 선택 합니다.
 
-   [![경고](media/environment-mitigate-latency/add-alerts.png)](media/environment-mitigate-latency/add-alerts.png#lightbox)
+   [Time Series Insights 환경에 경고를 추가 ![](media/environment-mitigate-latency/mitigate-latency-add-alert.png)](media/environment-mitigate-latency/mitigate-latency-add-alert.png#lightbox)
 
 1. 그러면 **규칙 만들기** 패널이 표시 됩니다. **조건**아래에서 **추가** 를 선택 합니다.
 
-   [경고 추가 ![](media/environment-mitigate-latency/alert-pane.png)](media/environment-mitigate-latency/alert-pane.png#lightbox)
+   [![경고 창 추가](media/environment-mitigate-latency/mitigate-latency-add-pane.png)](media/environment-mitigate-latency/mitigate-latency-add-pane.png#lightbox)
 
 1. 그런 다음 신호 논리에 대 한 정확한 조건을 구성 합니다.
 
@@ -66,15 +66,15 @@ ms.locfileid: "74012651"
    |**수신된 메시지 시간 지연**    |  메시지가 이벤트 원본의 큐에 대기되는 시간과 수신 처리되는 시간 간의 차이(초)입니다.      |
    |**수신된 메시지 수 지연**    |  이벤트 원본 파티션에서 마지막 큐에 대기된 메시지의 시퀀스 번호와 수신 처리되는 메시지의 시퀀스 번호 간의 차이입니다.      |
 
-   **완료**를 선택합니다.
+   **완료** 를 선택합니다.
 
 1. 원하는 신호 논리를 구성한 후에는 선택한 경고 규칙을 시각적으로 검토 합니다.
 
-   [![수신](media/environment-mitigate-latency/ingress.png)](media/environment-mitigate-latency/ingress.png#lightbox)
+   [![대기 시간 보기 및 차트](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png)](media/environment-mitigate-latency/mitigate-latency-view-and-charting.png#lightbox)
 
 ## <a name="throttling-and-ingress-management"></a>제한 및 수신 관리
 
-* 제한 되는 경우 *수신 받은 메시지의 지연 시간*에 대 한 값이 표시 됩니다 .이 값은 Time Series Insights 환경에서 메시지가 이벤트 원본에 도달 하는 실제 시간 (인덱싱 시간 제외)에서 발생 한 초 수를 알려 줍니다. appx의입니다. 30-60초의 인덱싱 시간 제외).  
+* 제한 되는 경우 *수신 받은 메시지의 지연 시간*에 대 한 값이 표시 됩니다 .이 값은 Time Series Insights 환경에서 메시지가 이벤트 원본에 도달 하는 실제 시간 (appx의 인덱싱 시간 제외)에서 발생 한 초 수를 표시 합니다. 30-60초의 인덱싱 시간 제외).  
 
   *수신된 메시지 수 지연*에도 값이 표시되므로 메시지가 뒤에 몇 개나 더 남아 있는지 알 수 있습니다.  이러한 차이를 해소하는 가장 쉬운 방법은 작업 환경의 용량을 차이가 극복될 수 있는 크기로 늘리는 것입니다.  
 

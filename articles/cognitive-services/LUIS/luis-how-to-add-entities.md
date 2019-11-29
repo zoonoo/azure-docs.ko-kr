@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: diberry
-ms.openlocfilehash: 7de1a1e24c2863b90fe5f1f3ff19124318912cff
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1f2b293acdc77e25e6b932c47d466cc28a04a2b6
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132680"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383670"
 ---
 # <a name="add-entities-to-extract-data"></a>데이터를 추출 하는 엔터티 추가 
 
@@ -62,11 +62,11 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 텍스트 일치 엔터티를 사용 하 여 데이터를 추출 하는 여러 가지 방법을 제공 합니다.
 
-|텍스트 일치 엔터티|목적|
+|텍스트 일치 엔터티|용도|
 |--|--|
 |[엔터티 나열](#add-list-entities-for-exact-matches)|다른 형태의 동의어와 함께 정식 이름 목록|
 |정규식 엔터티|정규식 엔터티를 사용 하 여 텍스트 일치|
-|[미리 작성 한 엔터티](tutorial-machine-learned-entity.md#add-prebuilt-number-to-app-to-help-extract-data)|숫자, 전자 메일, 날짜 등의 공통 데이터 형식 일치|
+|[미리 작성 한 엔터티](tutorial-machine-learned-entity.md#add-prebuilt-number-to-help-extract-data)|숫자, 전자 메일, 날짜 등의 공통 데이터 형식 일치|
 |미리 빌드된 도메인 엔터티|선택한 주체 도메인을 사용한 일치|
 |[Pattern.any](#add-a-patternany-entity)| 주변 텍스트와 쉽게 혼동 될 수 있는 엔터티를 일치 시키려면|  
 
@@ -167,7 +167,7 @@ LUIS (user 길이 발언 in Language Understanding) 앱에서 키 데이터를 �
 
 ### <a name="create-a-pattern-template-utterance-to-use-patternany-entity"></a>패턴을 사용할 패턴 템플릿 utterance를 만듭니다. 모든 엔터티
 
-pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: **)을 사용하여** 앱 성능 개선**섹션의**패턴`Where is **{HumanResourcesFormTitle}** on the server?` 페이지에서 패턴을 추가합니다.
+pattern.any 엔터티를 사용하려면 올바른 중괄호 구문(예: `Where is **{HumanResourcesFormTitle}** on the server?`)을 사용하여 **앱 성능 개선** 섹션의 **패턴** 페이지에서 패턴을 추가합니다.
 
 Pattern.any가 포함된 패턴이 엔터티를 잘못 추출한 것을 발견하면 [명시적 목록](reference-pattern-syntax.md#explicit-lists)을 사용하여 이 문제를 정정합니다. 
 
@@ -179,14 +179,18 @@ LUIS에서는 해당 엔터티를 생성하기 위해 추가 또는 제거할 �
 
 ## <a name="next-steps"></a>다음 단계
 
-패턴에 대해 자세히 알아보세요.
+> [!div class="nextstepaction"] 
+> [미리 작성 한 모델 사용](howto-add-prebuilt-models.md) 
 
-* [패턴 개념](luis-concept-patterns.md)
-* [패턴 구문](reference-pattern-syntax.md)
+다음에 대해 자세히 알아봅니다.
+* [학습](luis-how-to-train.md) 방법
+* [테스트](luis-interactive-test.md) 방법
+* [게시](luis-how-to-publish-app.md) 하는 방법
+* 방법
+    * [개념](luis-concept-patterns.md)
+    * [구문](reference-pattern-syntax.md)
+* [미리 작성 한 엔터티 GitHub 리포지토리](https://github.com/Microsoft/Recognizers-Text)
+* [데이터 추출 개념](luis-concept-data-extraction.md)
 
-미리 빌드된 엔터티에 대한 자세한 내용은 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트를 참조하세요. 
 
-JSON 엔드포인트 쿼리 응답에 엔터티가 표시되는 방법에 대한 자세한 내용은 [데이터 추출](luis-concept-data-extraction.md) 참조
-
-의도, 발언 및 엔터티가 추가되어 기본 LUIS 앱이 구성되었습니다. 앱을 [학습](luis-how-to-train.md), [테스트](luis-interactive-test.md) 및 [게시](luis-how-to-publish-app.md)하는 방법을 알아봅니다.
  

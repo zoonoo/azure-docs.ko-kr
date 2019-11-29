@@ -2,20 +2,20 @@
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: include
-ms.date: 10/26/2018
+ms.date: 11/28/2019
 ms.author: raynew
-ms.openlocfilehash: 96cba4e077be8b7658c270b09b177a845e16c8b0
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: de15e3028cf22cdd03ce29385278fc5e2babaa9b
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182729"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74566316"
 ---
 이 문서에서는 다음을 가정합니다.
 
 1. 온-프레미스 네트워크와 Azure Virtual Network 간의 **사이트 간 VPN** 또는 **Express 경로**가 이미 설정되었다고 가정합니다.
 2. 사용자 계정은 가상 머신을 장애 조치할 Azure 구독에서 새 가상 머신을 만들 수 있는 권한을 보유합니다.
-3. 구독에는 최소 4개의 사용 가능한 코어가 포함되어 새로운 프로세스 서버 가상 컴퓨터를 스핀업합니다.
+3. 구독에는 새 프로세스 서버 가상 컴퓨터를 실행 하는 데 사용할 수 있는 최소 8 개의 코어가 있습니다.
 4. **구성 서버 암호**를 사용할 수 있습니다.
 
 > [!TIP]

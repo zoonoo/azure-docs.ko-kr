@@ -8,24 +8,24 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 11/12/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: 5933c7ec56ded971e4daf96ea6d4302c04921f2f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: ae5222dcd05740ecb9747037b315c4e920b3eabd
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031435"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326636"
 ---
-# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
+# <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명 된 엔터티 인식을 사용 하는 방법
 
-[명명된 엔터티 인식 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)는 구조화되지 않은 텍스트를 받아서 각 JSON 문서에 대해 웹(Wikipedia 및 Bing)의 추가 정보에 대한 링크를 포함하는 명확화된 엔터티의 목록을 반환합니다.
+[명명 된 엔터티 인식 API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634) 는 구조화 되지 않은 텍스트를 사용 하 고, 각 JSON 문서에 대해 웹의 추가 정보에 대 한 링크를 사용 하 여 명확 하 게 표시 되는 엔터티의 목록을 반환 합니다 (위키백과 및 Bing).
 
 ## <a name="entity-linking-and-named-entity-recognition"></a>엔터티 링크 및 명명된 엔터티 인식
 
-텍스트 분석의 `entities` 끝점은 명명된 엔터티 인식(NER) 및 엔터티 연결을 모두 지원합니다.
+Text Analytics ' `entities` 끝점은 NER (명명 된 엔터티 인식) 및 엔터티 연결을 모두 지원 합니다.
 
-### <a name="entity-linking"></a>엔터티 링크하기
+### <a name="entity-linking"></a>엔터티 연결
 엔터티 링크 설정은 텍스트에서 찾은 엔터티의 ID를 식별하고 명확하게 구분하는 기능입니다(예: "Mars"가 행성 또는 로마의 전쟁의 신으로 사용되고 있는지 확인). 이 프로세스를 수행하려면 인식된 엔터티가 연결되는 기술 자료가 있어야 합니다. Wikipedia가 `entities` 엔드포인트 텍스트 분석의 기술 자료로 사용됩니다.
 
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
@@ -33,7 +33,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 ## <a name="named-entity-recognition-v3-public-preview"></a>명명 된 엔터티 인식 v3 공개 미리 보기
 
-이제 [명명 된 엔터티 인식의 다음 버전]( https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral) 을 공개 미리 보기에서 사용할 수 있습니다. 엔터티 연결 및 명명 된 엔터티 인식 모두에 대 한 업데이트를 제공 합니다. 
+이제 명명 된 엔터티 인식의 다음 버전을 공개 미리 보기에서 사용할 수 있습니다. 엔터티 연결 및 명명 된 엔터티 인식 모두에 대 한 업데이트를 제공 합니다. [API 테스트 콘솔](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/EntitiesRecognitionGeneral)을 사용 하 여 사용해 보세요.
 
 :::row:::
     :::column span="":::
@@ -99,27 +99,29 @@ NER
 > [!NOTE]
 > 다음 엔터티는 NER (명명 된 엔터티 인식) 버전 2에서 지원 됩니다. [NER v3](#named-entity-recognition-v3-public-preview) 은 공개 미리 보기 상태 이며 텍스트에서 인식 되는 엔터티의 수와 깊이를 크게 확장 합니다.   
 
-| 형식  | 하위 유형 | 예 |
+| Type  | 하위 유형 | 예제 |
 |:-----------   |:------------- |:---------|
-| 사람        | 해당 없음\*         | "Jeff", "Bill Gates"     |
-| Location      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
-| 조직  | 해당 없음\*         | "Microsoft"   |
-| 수량      | NUMBER        | "6", "six"     |
-| 수량      | 백분율    | "50%", "fifty percent"|
-| 수량      | Ordinal       | "2nd", "second"     |
-| 수량      | 나이           | "90 day old", "30 years old"    |
-| 수량      | Currency      | "$10.99"     |
-| 수량      | 차원     | "10 miles", "40 cm"     |
-| 수량      | 온도   | "32 degrees"    |
-| DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | Time          | "8am", "8:00"  |
-| DateTime      | DateRange     | "May 2nd to May 5th"    |
-| DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
-| DateTime      | Set           | "every Tuesday"     |
+| 사용자        | 해당 없음\*         | "Jeff", "Bill Gates"     |
+| 위치      | 해당 없음\*         | “Redmond, Washington”, “Paris”  |
+| 조직  | 해당 없음\*         | “Microsoft”   |
+| 수량      | 수        | “6”, “six”     |
+| 수량      | 백분율    | “50%”, “fifty percent”|
+| 수량      | 서수       | “2nd”, “second”     |
+| 수량      | 연령           | "90 day old", "30 years old"    |
+| 수량      | 통화      | “$10.99”     |
+| 수량      | 치수     | “10 miles”, “40 cm”     |
+| 수량      | 온도   | “32 degrees”    |
+| DateTime      | 해당 없음\*         | “6:30PM February 4, 2012”      |
+| DateTime      | 날짜          | “May 2nd, 2017”, “05/02/2017”   |
+| DateTime      | 시간          | "8am", "8:00"  |
+| DateTime      | DateRange     | “May 2nd to May 5th”    |
+| DateTime      | TimeRange     | “6pm to 7pm”     |
+| DateTime      | 기간      | “1 minute and 45 seconds”   |
+| DateTime      | 설정           | “every Tuesday”     |
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
-| Email         | 해당 없음\*         | "support@contoso.com" |
+| 이메일         | 해당 없음\*         | "support@contoso.com" |
+| 미국 전화 번호  | 해당 없음\*         | (미국 전화 번호만 해당) "(312) 555-0176" |
+| IP 주소    | 해당 없음\*         | 10.0.0.100 |
 
 \* 입력 및 추출된 엔터티에 따라, 특정 엔터티에 `SubType`이 없을 수 있습니다.  나열 된 모든 지원 되는 엔터티 형식은 영어, 중국어 간체, 프랑스어, 독일어 및 스페인어 언어에 대해서만 사용할 수 있습니다.
 
@@ -158,14 +160,14 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 + **POST** 요청을 만듭니다. 이 요청에 대 한 API 설명서를 검토 합니다. [엔터티 api](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)
 
-+ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. `/text/analytics/v2.1/entities`를 포함 해야 합니다. 예를 들어 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`을 참조하십시오.
++ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용 하 여 키 구 추출에 대 한 HTTP 끝점을 설정 합니다. `/text/analytics/v2.1/entities`를 포함 해야 합니다. 예: `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`.
 
 + Text Analytics 작업에 대 한 [액세스 키](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 를 포함 하도록 요청 헤더를 설정 합니다.
 
 + 이 분석을 위해 준비한 JSON 문서 컬렉션을 요청 본문에 제공합니다.
 
 > [!Tip]
-> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 **설명서**에서 [API 테스트 콘솔](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)을 열어 요청을 구성하고, 서비스에 POST합니다.
+> [Postman](text-analytics-how-to-call-api.md)을 사용하거나 [설명서](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)에서 **API 테스트 콘솔**을 열어 요청을 구성하고, 서비스에 POST합니다.
 
 ## <a name="step-2-post-the-request"></a>2단계: 요청 게시
 
@@ -177,7 +179,7 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 모든 POST 요청에서는 ID 및 감지된 속성이 있는 JSON 형식의 응답을 반환합니다.
 
-출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션에 결과를 스트리밍하거나, 로컬 시스템의 파일에 출력을 저장한 후에 데이터를 정렬, 검색, 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
+출력은 즉시 반환됩니다. JSON을 승인하는 애플리케이션으로 결과를 스트림하거나 로컬 시스템의 파일에 출력을 저장하고, 데이터를 정렬, 검색 및 조작할 수 있는 애플리케이션으로 가져올 수 있습니다.
 
 엔터티 링크 설정의 출력 예는 다음과 같습니다.
 
@@ -343,7 +345,7 @@ ID, 텍스트, 언어 형식의 JSON 문서가 있어야 합니다.
 
 + [Entities API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/5ac4251d5b4ccd1554da7634)를 선택한 언어로 사용할 수 있습니다.
 + 요청 본문의 JSON 문서에는 ID, 텍스트 및 언어 코드가 포함됩니다.
-+ POST 요청은 개인 설정된 `/entities`액세스 키와 구독에 유효한 엔드포인트[를 사용하여 ](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) 엔드포인트에 대해 수행됩니다.
++ POST 요청은 구독에 유효한 개인 설정 [액세스 키와 엔드포인트](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource)를 사용하여 `/entities` 엔드포인트에 수행되는 요청입니다.
 + 연결된 엔터티(각 문서 ID에 대한 신뢰도 점수, 오프셋 및 웹 링크 포함)로 구성된 응답 출력은 모든 애플리케이션에서 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
