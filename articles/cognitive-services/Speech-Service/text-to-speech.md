@@ -98,7 +98,7 @@ SSML (Speech 합성 Markup Language)은 텍스트 음성 변환 서비스를 사
 | [Objective-C](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/objectivec-ios.md) | iOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
 | Swift (~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-macos.md | macOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
 | [Swift](~/articles/cognitive-services/speech-service/quickstarts/text-to-speech-langs/swift-ios.md) | iOS | [찾아보기](https://aka.ms/csspeech/objectivecref) |
-| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | 창, Linux, macOS | [찾아보기](https://aka.ms/csspeech/pythonref) |
+| [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python) | Windows, Linux, macOS | [찾아보기](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>REST 빠른 시작
 
