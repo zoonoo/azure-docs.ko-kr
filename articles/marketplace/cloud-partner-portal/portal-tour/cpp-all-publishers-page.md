@@ -1,36 +1,20 @@
 ---
 title: Azure Marketplace에 대 한 모든 게시자 페이지
-description: Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 게시자에 대 한 개요입니다.
-services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+description: 사용 되지 않는 CPP 문서, PC 문서를 가리킵니다. "Azure Marketplace에 대 한 Cloud 파트너 포털의 모든 게시자 개요"입니다.
+services: Azure, Marketplace, Cloud Partner Portal, Partner Center
+author: ChJenk
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/13/2018
-ms.author: pabutler
-ms.openlocfilehash: c713beaafb47b2e6481ef9358b206dbc2b2e2cf1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 11/27/2019
+ms.author: v-chjen
+ms.openlocfilehash: eb932841d01d61b2753195de30d1b41a13242935
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821571"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665732"
 ---
 # <a name="all-publishers-page"></a>모든 게시자 페이지
 
-[**모든 게시자**](https://cloudpartner.azure.com/#publishers) 페이지에는 해당 게시자의 고유 이름 및 표시 이름을 포함하여 등록된 모든 Microsoft Cloud 게시자의 목록이 표시됩니다. 열 기준으로 결과를 정렬하거나 결과를 필터링할 문자열을 지정할 수 있습니다.  또한 이 페이지에는 **게시자 추가** 단추가 표시되지만, 이 단추는 포털 관리자만 사용할 수 있습니다.  이 목록에서 게시자를 선택하면 해당 게시자에 대한 프로필이 표시됩니다.  자세한 내용은 [게시자 프로필 관리](./../../cloud-partner-portal-orig/cloud-partner-portal-manage-publisher-profile.md)를 참조하세요.
-
-
-## <a name="example-page"></a>예제 페이지
-
-다음 이미지는 문자열 contoso에 필터링된 게시자 목록을 보여줍니다.  
-
-![모든 게시자 페이지](./media/all-publishers-page1.png)
-
-첫 번째 항목을 클릭하면 Contoso에 대한 프로필 페이지가 표시됩니다.  사용자 고유의 게시자 프로필만 편집할 수 있습니다.
-
-![Contoso 게시자 프로필 페이지](./media/all-publishers-page2.png)
-
-
-## <a name="next-steps"></a>다음 단계
-
-다음 탐색 메뉴 모음 항목은 등록된 모든 사용자를 나열하는 [사용자 페이지](./cpp-users-page.md)를 표시합니다. 
+이 기능은 Microsoft [파트너 센터 포털로](https://partner.microsoft.com/)이동 되었습니다. 자세한 내용은 [파트너 센터에서 상용 마켓플레이스 계정 만들기](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account)를 참조 하세요.

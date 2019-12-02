@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 10/30/2019
 ms.author: raynew
-ms.openlocfilehash: e752d52d0f792d39f417031c26d923fce07ccdf8
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 13a4fbb119ae9aceb8731e53f7123375a6e5c106
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747988"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666276"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -24,14 +24,14 @@ ms.locfileid: "73747988"
 
 Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
 
-- **현재 버전**:이 버전을 사용 하 여 새 Azure Migrate 프로젝트를 만들고, 온-프레미스 평가를 검색 하 고, 평가 및 마이그레이션을 오케스트레이션 할 수 있습니다. [자세히 알아봅니다](whats-new.md#release-version-july-2019).
+- **현재 버전**:이 버전을 사용 하 여 새 Azure Migrate 프로젝트를 만들고, 온-프레미스 평가를 검색 하 고, 평가 및 마이그레이션을 오케스트레이션 할 수 있습니다. [자세히 알아보기](whats-new.md#release-version-july-2019).
 - **이전 버전**: 이전 버전의 Azure Migrate를 사용 하는 고객의 경우 (온-프레미스 VMware vm에 대 한 평가만 지원 됨) 이제 현재 버전을 사용 해야 합니다. 이전 버전에서는 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>지원 되는 평가/마이그레이션 시나리오
 
 이 표에는 지원 되는 검색, 평가 및 마이그레이션 시나리오가 요약 되어 있습니다.
 
-**배포웹사이트를** | **세부 정보** 
+**배포** | **세부 정보** 
 --- | --- 
 **앱 특정 검색** | VMware Vm에서 실행 되는 앱, 역할 및 기능을 검색할 수 있습니다. 현재이 기능은 검색 으로만 제한 됩니다. 평가는 현재 컴퓨터 수준에 있습니다. 앱, 역할 또는 기능 관련 평가는 아직 제공 되지 않습니다. 
 **온-프레미스 평가** | VMware Vm, Hyper-v Vm 및 물리적 서버에서 실행 되는 온-프레미스 워크 로드 및 데이터를 평가 합니다. DMA (Azure Migrate Server 평가 및 Microsoft Data Migration Assistant) 및 기타 도구 및 ISV 제품을 사용 하 여 평가 합니다.
@@ -54,7 +54,7 @@ Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware vm](tutorial-m
 [DMS](https://docs.microsoft.com/azure/dms/dms-overview) | 해당 없음 | SQL Server, Oracle, MySQL, PostgreSQL, MongoDB를 마이그레이션합니다. 
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | VDI (가상 데스크톱 인프라) 평가 | 해당 없음
 [Movere](https://go.microsoft.com/fwlink/?linkid=2109528) | VMWare Vm, Hyper-v Vm, Xen Vm, 물리적 컴퓨터, 워크스테이션 (VDI 포함), 공용 클라우드 워크 로드 평가 | 해당 없음
-[RackWare](https://go.microsoft.com/fwlink/?linkid=2102735) | 해당 없음 | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 
+[RackWare](https://www.rackwareinc.com/cloud-migration) | 해당 없음 | VMWare Vm, Hyper-v Vm, Xen Vm, KVM Vm, 물리적 컴퓨터, 공용 클라우드 워크 로드 마이그레이션 
 [Turbonomic](https://go.microsoft.com/fwlink/?linkid=2094295)  | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드를 평가 합니다. | 해당 없음
 [UnifyCloud](https://go.microsoft.com/fwlink/?linkid=2097195) | VMware Vm, Hyper-v Vm, 물리적 서버, 공용 클라우드 워크 로드 및 SQL Server 데이터베이스를 평가 합니다. | 해당 없음
 [Webapp Migration Assistant](https://appmigration.microsoft.com/) | 웹 앱 평가 | 웹 앱을 마이그레이션합니다.
@@ -64,7 +64,7 @@ Azure Migrate 서버 마이그레이션 | 해당 없음 | [VMware vm](tutorial-m
 
 **지원** | **세부 정보**
 --- | ---
-구독 | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
+Subscription | 구독에서 여러 Azure Migrate 프로젝트를 사용할 수 있습니다.
 Azure 권한 | Azure Migrate 프로젝트를 만들려면 구독에 대 한 참가자 또는 소유자 권한이 있어야 합니다.
 VMware VM  | 단일 프로젝트에서 최대 35000 VMware Vm을 평가 합니다.
 Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니다.
@@ -77,7 +77,7 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 
 **지리** | **메타데이터 스토리지 위치**
 --- | ---
-Azure Government | 미국 정부 버지니아
+Azure Government | US Gov 버지니아
 아시아 태평양 | 동아시아 또는 동남 아시아
 오스트레일리아 | 오스트레일리아 동부 또는 오스트레일리아 남동쪽
 브라질 | 브라질 남부

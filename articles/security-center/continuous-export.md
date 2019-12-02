@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: cd26ed446ce676bcec85d8e413d3ec37ac236869
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: f994f4ec6d41fa0aab37e36d713eaefb22e85b28
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521996"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665072"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>보안 경고 및 권장 사항 내보내기 (미리 보기)
 
@@ -41,7 +41,7 @@ Azure Security Center은 자세한 보안 경고 및 권장 사항을 생성 합
 
 1. "대상 내보내기" 영역에서 데이터를 저장 하려는 위치를 선택 합니다. 데이터는 다른 구독 (예: 중앙 이벤트 허브 인스턴스 또는 중앙 Log Analytics 작업 영역)의 대상에 저장할 수 있습니다.
 
-1. **Save**를 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 ## <a name="continuous-export-through-azure-event-hubs"></a>Azure Event Hubs를 통한 연속 내보내기  
 
@@ -73,6 +73,29 @@ Log Analytics 작업 영역으로 내보내려면 작업 영역에서 Security C
 보안 경고 및 권장 사항은 각각 *Securityalert* 및 *securityalert* 테이블에 저장 됩니다. 이러한 테이블을 포함 하는 Log Analytics 솔루션의 이름은 무료 또는 표준 계층에 있는지 여부에 따라 달라 집니다 ( [가격 책정](security-center-pricing.md)참조). Security 또는 Securitycenter free.
 
 ![Log Analytics의 * SecurityAlert * 테이블](./media/continuous-export/log-analytics-securityalert-solution.png)
+
+###  <a name="view-exported-security-alerts-and-recommendations-in-azure-monitor"></a>Azure Monitor에서 내보낸 보안 경고 및 권장 사항 보기
+
+경우에 따라 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview)에서 내보낸 보안 경고 및/또는 권장 사항을 보도록 선택할 수 있습니다. 
+
+Azure Monitor는 진단 로그, 메트릭 경고 및 Log Analytics 작업 영역 쿼리를 기반으로 하는 사용자 지정 경고를 비롯 한 다양 한 Azure 경고에 대 한 통합 경고 환경을 제공 합니다.
+
+Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log Analytics 쿼리 (로그 경고)를 기반으로 경고 규칙을 구성 합니다.
+
+1. Azure Monitor의 **경고** 페이지에서 **새 경고 규칙**을 클릭 합니다.
+
+    ![Azure Monitor의 경고 페이지](./media/continuous-export/azure-monitor-alerts.png)
+
+1. 규칙 만들기 페이지에서 새 규칙을 구성 합니다 ( [Azure Monitor에서 로그 경고 규칙](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log)을 구성 하는 것과 같은 방식으로).
+
+    * **리소스**에서 보안 경고 및 권장 사항을 내보낸 Log Analytics 작업 영역을 선택 합니다.
+
+    * **조건**에 대해 **사용자 지정 로그 검색**을 선택 합니다. 표시 되는 페이지에서 query, lookback period 및 frequency period를 구성 합니다. 검색 쿼리에서는 Log Analytics으로 연속 내보내기를 사용 하도록 설정 하는 경우 *Securityalert* 또는 *securityalert* 을 입력 하 여 Security Center 연속으로 내보낼 데이터 형식을 쿼리할 수 있습니다. 
+    
+    * 필요에 따라 트리거할 [작업 그룹](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups) 을 구성 합니다. 작업 그룹은 전자 메일 전송, ITSM 티켓, 웹 후크 등을 트리거할 수 있습니다.
+    ![Azure Monitor 경고 규칙](./media/continuous-export/azure-monitor-alert-rule.png)
+
+이제 작업 그룹 (제공 된 경우)의 자동 트리거를 사용 하 여 Azure Monitor 경고에 새 Azure Security Center 경고 또는 권장 사항 (구성에 따라)이 표시 됩니다.
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>보안 경고의 수동 일회성 내보내기
 

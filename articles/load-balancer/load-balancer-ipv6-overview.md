@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/24/2018
 ms.author: allensu
-ms.openlocfilehash: 07dd3ee507f31099e32f18143d2beedf76e83c36
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 4f4baea1c293a1707d87780044a21ff675cb7f98
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74077016"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666208"
 ---
 # <a name="overview-of-ipv6-for-azure-load-balancer"></a>Azure Load Balancer의 IPv6에 대한 개요
 
@@ -46,7 +46,7 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 3. 인바운드 및 아웃바운드 시작 네이티브 IPv6 연결
 4. TCP, UDP, HTTP(S)와 같은 지원되는 프로토콜은 서비스 아키텍처의 전체 범위를 사용하도록 설정합니다.
 
-## <a name="benefits"></a>이점
+## <a name="benefits"></a>혜택
 
 이 기능을 통해 다음과 같은 주요 이점을 사용할 수 있습니다.
 
@@ -78,7 +78,6 @@ Azure Resource Manager를 통해 배포된 VM에 대한 네이티브 IPv6 지원
 * IPv6에 대한 loadDistributionMethod 매개 변수 변경은 **현재 지원되지 않습니다**.
 * 예약된 IPv6 IP(여기서 IPAllocationMethod = static)는 **현재 지원되지 않습니다**.
 * NAT64(IPv4로의 IPv6 변환)가 지원되지 않습니다.
-* 표준 SKU 부하 분산 장치는 현재 IPv6 주소를 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

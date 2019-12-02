@@ -1,6 +1,6 @@
 ---
-title: '|의 C# 에이전트 로컬 구성 파일에 대 한 Azure Security Center 이해 Microsoft Docs'
-description: 의 C#에이전트 로컬 구성 파일에 대 한 Azure Security Center에 대해 알아봅니다.
+title: '| 용 C# IoT 보안 에이전트 로컬 구성 파일에 대 한 Azure Security Center 이해 Microsoft Docs'
+description: IoT 보안 서비스의 Azure Security Center에 대 한 자세한 내용은의 C#보안 에이전트 로컬 구성 파일을 확인 하세요.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/26/2019
 ms.author: mlottner
-ms.openlocfilehash: cc7b9f0b6e537ca3bdcbb82a357b2f2b9451fab0
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 0172ada68ffa652fb0c301c89238beca4f4ce2f9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600632"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664199"
 ---
 # <a name="understanding-the-local-configuration-file-c-agent"></a>로컬 구성 파일 (C# 에이전트) 이해
 
@@ -32,14 +32,14 @@ IoT 보안 에이전트의 Azure Security Center은 로컬 구성 파일의 구�
 보안 C# 에이전트는 여러 구성 파일을 사용 합니다.
 
 - **일반 구성** -에이전트 관련 구성입니다.
-- 인증 **구성-인증** 관련 구성 (인증 세부 정보 포함).
+- **인증 구성-인증** 관련 구성 (인증 세부 정보 포함).
 - **Securityiotinterface .config** -IoT 관련 구성.
 
 구성 파일에는 기본 구성이 포함 되어 있습니다. 에이전트를 설치 하는 동안 인증 구성이 채워지고 에이전트가 다시 시작 될 때 구성 파일에 대 한 변경 내용이 적용 됩니다. 
 
 ## <a name="configuration-file-location"></a>구성 파일 위치
 Linux의 경우:
-- 운영 체제 구성 파일은에 `/var/ASCIoTAgent`있습니다.
+- 운영 체제 구성 파일은 `/var/ASCIoTAgent`에 있습니다.
 
 Windows의 경우:
 - 운영 체제 구성 파일은 보안 에이전트의 디렉터리 내에 있습니다. 
@@ -49,10 +49,10 @@ Windows의 경우:
 | 구성 이름 | 가능한 값 | 세부 정보 | 
 |:-----------|:---------------|:--------|
 | 인 | GUID | 에이전트 고유 식별자 |
-| readRemoteConfigurationTimeout | TimeSpan | IoT Hub에서 원격 구성을 가져오는 기간입니다. 에이전트가 지정 된 시간 내에 구성을 인출할 수 없는 경우 작업 시간이 초과 됩니다.|
-| schedulerInterval | TimeSpan | 내부 스케줄러 간격입니다. |
-| producerInterval | TimeSpan | 이벤트 생산자 작업자 간격입니다. |
-| consumerInterval | TimeSpan | 이벤트 소비자 작업자 간격입니다. |
+| readRemoteConfigurationTimeout | timespan | IoT Hub에서 원격 구성을 가져오는 기간입니다. 에이전트가 지정 된 시간 내에 구성을 인출할 수 없는 경우 작업 시간이 초과 됩니다.|
+| schedulerInterval | timespan | 내부 스케줄러 간격입니다. |
+| producerInterval | timespan | 이벤트 생산자 작업자 간격입니다. |
+| consumerInterval | timespan | 이벤트 소비자 작업자 간격입니다. |
 | highPriorityQueueSizePercentage | 0 < 번호 < 1 | 우선 순위가 높은 메시지의 전용 총 캐시 부분입니다. |
 | logLevel | "Off", "치명적", "Error", "Warning", "Information", "Debug"  | 이 심각도가 같은 로그 메시지는 디버그 콘솔 (Linux의 Syslog)에 기록 됩니다. |
 | fileLogLevel |  "Off", "치명적", "Error", "Warning", "Information", "Debug"| 이 심각도가 같은 로그 메시지는 파일 (Linux의 Syslog)에 기록 됩니다. |
@@ -82,15 +82,15 @@ Windows의 경우:
 
 | 구성 이름 | 가능한 값 | 세부 정보 | 
 |:-----------|:---------------|:--------|
-| moduleName | string | 보안 모듈 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
-| deviceId | string | Azure IoT Hub에 등록 된 장치의 ID입니다. || schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
-| gatewayHostname | string | Azure Iot Hub의 호스트 이름입니다. 일반적으로 < 내 허브 >. azure-devices.net |
+| moduleName | 문자열 | 보안 모듈 id의 이름입니다. 이 이름은 장치의 모듈 id 이름과 일치 해야 합니다. |
+| deviceId | 문자열 | Azure IoT Hub에 등록 된 장치의 ID입니다. || schedulerInterval | TimeSpan 문자열 | 내부 스케줄러 간격입니다. |
+| 게이트웨이 호스트 이름 | 문자열 | Azure Iot Hub의 호스트 이름입니다. 일반적으로 < 내 허브 >. azure-devices.net |
 | filePath | 문자열-파일의 경로 | 인증 암호를 포함 하는 파일의 경로입니다.|
 | type | "SymmetricKey", "New-selfsignedcertificate" | 인증에 대 한 사용자 암호입니다. 사용자 비밀이 대칭 키인 경우 *SymmetricKey* 을 선택 하 고, 비밀이 자체 서명 된 인증서 인 경우 *자체 서명 된 인증서* 를 선택 합니다. |
-| identity | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
+| ID | "DPS", "모듈", "장치" | 인증 id-dps를 통해 인증을 수행 하는 경우 dps, 모듈 자격 증명을 사용 하 여 인증을 수행 하는 경우 모듈, 장치 자격 증명을 사용 하 여 인증 하는 경우 장치
 | certificateLocationKind |  "LocalFile", "Store" | LocalFile 인증서가 파일에 저장 된 경우 인증서가 인증서 저장소에 있는 경우 저장 합니다. |
-| idScope | string | DPS의 ID 범위 |
-| registrationId | string  | DPS 장치 등록 ID입니다. |
+| idScope | 문자열 | DPS의 ID 범위 |
+| registrationId | 문자열  | DPS 장치 등록 ID입니다. |
 |
 
 ### <a name="authenticationconfig-example"></a>인증 .config 예

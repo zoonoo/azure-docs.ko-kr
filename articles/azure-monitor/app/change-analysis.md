@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: ed297a1005f67a14db1da15aba2c47c98e83df9c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 9d55d91dbb2e62e87c34dc8ea8a23fb375eb9a53
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885058"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665360"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 
@@ -73,7 +73,7 @@ Azure Portal의 검색 창에서 변경 분석을 검색 하 여 블레이드를
 응용 프로그램을 호스팅하는 정보 및 관련 종속성 리소스를 볼 수 있습니다. 이 보기는 개발자가 문제를 해결할 수 있도록 응용 프로그램 중심적으로 설계 되었습니다.
 
 현재 지원 되는 리소스는 다음과 같습니다.
-- Virtual Machines
+- 가상 머신
 - 가상 머신 확장 집합
 - Azure 네트워킹 리소스
 - 게스트 내 파일 추적 및 환경 변수가 변경 된 웹 앱
@@ -102,7 +102,7 @@ Azure Monitor에서 변경 분석은 셀프 서비스 **진단 및 문제 해결
 
    !["응용 프로그램 작동 중단" 옵션 스크린샷](./media/change-analysis/enable-changeanalysis.png)
 
-1. **변경 분석** 을 설정 하 고 **저장**을 선택 합니다. 도구는 App Services 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
+1. **변경 분석** 을 설정 하 고 **저장**을 선택 합니다. 도구는 App Service 계획의 모든 웹 앱을 표시 합니다. 계획 수준 스위치를 사용 하 여 계획의 모든 웹 앱에 대 한 변경 분석을 켤 수 있습니다.
 
     !["변경 분석 설정" 사용자 인터페이스의 스크린샷](./media/change-analysis/change-analysis-on.png)
 

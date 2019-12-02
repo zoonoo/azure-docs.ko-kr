@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/22/2019
-ms.openlocfilehash: 5cc473635543a22fd7e7223f4a5715f78457a897
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 5a8e641c8a1b29d657fe8b0eabf7657ab5973516
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561757"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666038"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
 > [!Important]
-> 자동 크기 조정 기능은 2019 년 5 월 8 일 이후에 만들어진 Spark, Hive 및 MapReduce 클러스터에 대해서만 작동 합니다. 
+> 자동 크기 조정 기능은 2019 년 5 월 8 일 이후에 만들어진 Spark, Hive, LLAP 및 HBase 클러스터에 대해서만 작동 합니다. 
 
 Azure HDInsight의 클러스터 자동 크기 조정 기능은 클러스터의 작업자 노드 수를 자동으로 확장 및 축소 합니다. 클러스터의 다른 노드 유형은 현재 확장할 수 없습니다.  새 HDInsight 클러스터를 만드는 동안 작업자 노드의 최소 및 최대 수를 설정할 수 있습니다. 자동 크기 조정은 분석 부하의 리소스 요구 사항을 모니터링 하 고 작업자 노드 수를 확장 하거나 축소 합니다. 이 기능에 대 한 추가 비용은 없습니다.
 

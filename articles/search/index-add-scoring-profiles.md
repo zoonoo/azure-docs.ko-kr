@@ -7,7 +7,7 @@ author: Brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/28/2019
 translation.priority.mt:
 - de-de
 - es-es
@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 60442ab101423d0a91fa35a7a12a0b930417af71
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 516637b812afece1966006ce6d894dd1e32e6293
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113612"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666310"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스에 점수 매기기 프로필 추가
 
@@ -37,7 +37,7 @@ ms.locfileid: "74113612"
  점수 매기기 프로필을 대략적으로 파악할 수 있도록 아래 예제에서는 'geo'라는 간단한 프로필을 보여 줍니다. 이 프로필은 **hotelName** 필드에 검색 용어가 포함된 항목의 순위를 높입니다. 또한 `distance` 함수를 사용하여 현재 위치에서 10km 이내에 있는 항목의 순위를 높입니다. ‘inn’이라는 용어를 검색하는 경우 ‘inn’이 호텔 이름의 일부분이라면 현재 위치의 10KM 반경 내에서 이름에 ‘inn’이 포함된 호텔을 포함하는 문서가 검색 결과에서 더 높은 순위로 표시됩니다.  
 
 
-```  
+```json
 "scoringProfiles": [
   {  
     "name":"geo",
@@ -92,7 +92,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  아래 예제에서는 `boostGenre` 및 `newAndHighlyRated`의 두 점수 매기기 프로필이 포함된 인덱스의 스키마를 보여 줍니다. 쿼리 매개 변수로 두 프로필 중 하나를 포함하는 쿼리를 이 인덱스에 대해 실행하는 경우 해당 프로필을 사용하여 결과 집합의 점수를 계산합니다.  
 
-```  
+```json
 {  
   "name": "musicstoreindex",  
   "fields": [  
@@ -234,14 +234,14 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |특성|설명|  
 |---------------|-----------------|  
-|`Name`|필수 요소. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
-|`Text`|Weights 속성을 포함합니다.|  
-|`Weights`|선택 사항입니다. 필드 이름 및 상대적 가중치를 지정하는 이름-값 쌍입니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다. 최댓값은 int32.MaxValue입니다.<br /><br /> 해당하는 가중치 없이 필드 이름을 지정할 수 있습니다. 가중치는 다른 필드를 기준으로 특정 필드의 중요도를 나타내는 데 사용됩니다.|  
-|`Functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
-|`Type`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 사용할 함수의 유형을 나타냅니다. 유효한 값에는 magnitude, freshness, distance, tag 등이 있습니다. 각 점수 매기기 프로필에 둘 이상의 함수를 포함할 수 있습니다. 함수 이름은 소문자여야 합니다.|  
-|`Boost`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 원점수의 승수로 사용되는 양수입니다. 값이 1일 수는 없습니다.|  
-|`Fieldname`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 또한 각 함수 유형에서는 추가적인 제한이 적용됩니다. 또한 각 함수 형식마다 추가 제한 사항이 도입됩니다. 예를 들어 freshness는 datetime 필드에, magnitude는 integer/double 필드에, distance는 location 필드에 사용됩니다.다. 필드는 함수 정의당 하나만 지정할 수 있습니다. 예를 들어 같은 프로필에서 magnitude를 두 번 사용하려면 각 필드에 하나씩 두 개의 magnitude 정의를 포함해야 합니다.|  
-|`Interpolation`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 범위 시작부터 범위 끝까지 점수 상승이 증가하는 기울기를 정의합니다. 유효한 값에는 Linear(기본값), Constant, Quadratic, Logarithmic 등이 있습니다. 자세한 내용은 [보간 설정](#bkmk_interpolation)을 참조하세요.|  
+|`name`|필수 사항입니다. 점수 매기기 프로필의 이름입니다. 필드와 동일한 이름 지정 규칙을 따릅니다. 즉, 이름은 문자로 시작해야 하고 마침표, 콜론 또는 @ 기호를 포함할 수 없으며 ‘azureSearch’ 구(대/소문자 구분)로 시작할 수 없습니다.|  
+|`text`|가중치 속성을 포함 합니다.|  
+|`weights`|선택 사항입니다. 각각 필드 이름과 상대적 가중치를 지정 하는 이름-값 쌍을 포함 합니다. 상대적 가중치는 양의 정수 또는 부동 소수점 숫자여야 합니다.<br /><br /> 가중치는 다른 검색 가능한 필드를 기준으로 한 검색 가능한 필드의 중요도를 나타내는 데 사용 됩니다.|  
+|`functions`|선택 사항입니다. 점수 매기기 함수는 필터링 가능한 필드에만 적용할 수 있습니다.|  
+|`type`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 사용할 함수의 유형을 나타냅니다. 유효한 값에는 magnitude, freshness, distance, tag 등이 있습니다. 각 점수 매기기 프로필에 둘 이상의 함수를 포함할 수 있습니다. 함수 이름은 소문자여야 합니다.|  
+|`boost`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 원점수의 승수로 사용되는 양수입니다. 값이 1일 수는 없습니다.|  
+|`fieldname`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 또한 각 함수 유형에서는 추가적인 제한이 적용됩니다. 또한 각 함수 형식마다 추가 제한 사항이 도입됩니다. 예를 들어 freshness는 datetime 필드에, magnitude는 integer/double 필드에, distance는 location 필드에 사용됩니다.다. 필드는 함수 정의당 하나만 지정할 수 있습니다. 예를 들어 같은 프로필에서 magnitude를 두 번 사용하려면 각 필드에 하나씩 두 개의 magnitude 정의를 포함해야 합니다.|  
+|`interpolation`|점수 매기기 함수의 필수 항목으로, 점수 매기기 함수는 인덱스 필드 컬렉션의 일부이며 필터링 가능한 필드에만 적용할 수 있습니다. 범위 시작부터 범위 끝까지 점수 상승이 증가하는 기울기를 정의합니다. 유효한 값에는 Linear(기본값), Constant, Quadratic, Logarithmic 등이 있습니다. 자세한 내용은 [보간 설정](#bkmk_interpolation)을 참조하세요.|  
 |`magnitude`|magnitude 점수 매기기 함수는 숫자 필드의 값 범위를 기준으로 순위를 변경하는 데 사용됩니다. 이 함수를 사용하는 가장 일반적인 몇 가지 예는 다음과 같습니다.<br /><br /> -   **별 등급:** "별 등급" 필드 내의 값을 기준으로 점수 매기기를 변경 합니다. 관련 항목이 두 개이면 등급이 높은 항목이 먼저 표시됩니다.<br />-   **여백:** 두 문서에 관련성이 있는 경우 소매점은 우선 여백이 가장 높은 문서를 상승 시킬 수 있습니다.<br />-   **클릭 횟수:** 제품 또는 페이지에 대 한 클릭 동작을 추적 하는 응용 프로그램의 경우 크기를 사용 하 여 가장 많은 트래픽을 가져오는 항목을 높일 수 있습니다.<br />다운로드 수 -   : 다운로드를 추적 하는 응용 프로그램의 경우 크기 함수를 사용 하면 다운로드 **수가** 가장 많은 항목을 상승 시킬 수 있습니다.|  
 |`magnitude` &#124; `boostingRangeStart`|magnitude의 점수를 매길 범위의 시작 값을 설정합니다. 이 값은 정수이거나 부동 소수점 숫자여야 합니다. 별 등급 1~4에서 시작 값은 1이고 50%를 초과하는 이익의 경우에는 시작 값이 50입니다.|  
 |`magnitude` &#124; `boostingRangeEnd`|magnitude의 점수를 매길 범위의 끝 값을 설정합니다. 이 값은 정수이거나 부동 소수점 숫자여야 합니다. 별 등급 1~4에서 끝 값은 4가 됩니다.|  
@@ -261,10 +261,10 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
 |||  
 |-|-|  
-|`Linear`|최댓값 및 최솟값 범위 내 항목의 경우 항목에 적용되는 순위 상승 값이 지속적으로 감소합니다. Linear는 점수 매기기 프로필의 기본 보간입니다.|  
-|`Constant`|시작 및 끝 범위 내 항목의 경우 일정한 순위 상승이 순위 결과에 적용됩니다.|  
-|`Quadratic`|순위 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Quadratic 보간에서는 처음에 값이 조금씩 감소했다가 끝 범위가 가까워지면 값이 훨씬 큰 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.|  
-|`Logarithmic`|순위 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Logarithmic 보간에서는 처음에 값이 크게 감소했다가 끝 범위가 가까워질수록 값이 훨씬 작은 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.|  
+|`linear`|최댓값 및 최솟값 범위 내 항목의 경우 항목에 적용되는 순위 상승 값이 지속적으로 감소합니다. Linear는 점수 매기기 프로필의 기본 보간입니다.|  
+|`constant`|시작 및 끝 범위 내 항목의 경우 일정한 순위 상승이 순위 결과에 적용됩니다.|  
+|`quadratic`|순위 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Quadratic 보간에서는 처음에 값이 조금씩 감소했다가 끝 범위가 가까워지면 값이 훨씬 큰 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.|  
+|`logarithmic`|순위 상승 값이 일정하게 감소하는 Linear 보간과는 달리 Logarithmic 보간에서는 처음에 값이 크게 감소했다가 끝 범위가 가까워질수록 값이 훨씬 작은 간격으로 감소합니다. 이 보간 옵션은 tag 점수 매기기 함수에서 허용되지 않습니다.|  
 
  ![그래프의 상수, 선형, 정방형, log10 선](media/scoring-profiles/azuresearch_scorefunctioninterpolationgrapht.png "AzureSearch_ScoreFunctionInterpolationGrapht")  
 
@@ -275,7 +275,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  다음 표에 여러 예제가 나와 있습니다.  
 
-|Duration|boostingDuration|  
+|기간|boostingDuration|  
 |--------------|----------------------|  
 |1일|"P1D"|  
 |2일 12시간|"P2DT12H"|  
@@ -284,7 +284,7 @@ GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentL
 
  더 많은 예제를 보려면 [XML 스키마: Datatypes(W3.org 웹 사이트)](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration)를 참조하세요.  
 
-## <a name="see-also"></a>참고 항목:  
+## <a name="see-also"></a>참고 항목  
  [Azure COGNITIVE SEARCH REST](https://docs.microsoft.com/rest/api/searchservice/)   
  [인덱스 &#40;Azure Cognitive Search&#41; REST API 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)   
  [Azure Cognitive Search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  

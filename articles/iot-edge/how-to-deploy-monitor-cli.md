@@ -1,5 +1,5 @@
 ---
-title: 명령줄에서 자동 배포 만들기 - Azure IoT Edge | Microsoft Docs
+title: Azure CLI-Azure IoT Edge를 사용 하 여 규모에 모듈 배포
 description: Azure CLI용 IoT 확장을 사용하여 IoT Edge 디바이스 그룹에 대한 자동 배포 만들기
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 68cc82733bb264eedb96239e7353ac30224bda64
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 14c4ddd5d95abb223fb30e2ce07496e7f2773257
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457399"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666021"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Azure CLI를 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -26,7 +26,7 @@ Azure 명령줄 인터페이스를 사용 하 여 **IoT Edge 자동 배포** 를
 
 ## <a name="cli-prerequisites"></a>CLI 필수 구성 요소
 
-* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md) 
+* Azure 구독의 [IoT Hub](../iot-hub/iot-hub-create-using-cli.md)입니다. 
 * IoT Edge 런타임이 설치된 [IoT Edge 디바이스](how-to-register-device.md#prerequisites-for-the-azure-cli)
 * 사용자 환경의 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Azure CLI 버전이 2.0.24 이상이어야 합니다. `az --version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. 
 * [Azure CLI용 IoT 확장](https://github.com/Azure/azure-iot-cli-extension).
@@ -143,7 +143,7 @@ az iot edge deployment create --deployment-id [deployment id] --hub-name [hub na
 * **--deployment-id** - IoT Hub에 만들 배포 이름입니다. 배포에 최대 128자의 소문자로 된 고유한 이름을 지정합니다. 공백과 잘못된 문자(`& ^ [ ] { } \ | " < > /`)는 사용하지 않도록 합니다.
 * **--hub-name** - 배포를 만들 IoT Hub의 이름입니다. 허브가 현재 구독에 있어야 합니다. `az account set -s [subscription name]` 명령을 사용 하 여 현재 구독을 변경 합니다.
 * **--content** - 배포 매니페스트 JSON에 대한 파일 경로입니다. 
-* **--labels** - 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 레이블은 이름 및 값에 대해 JSON 서식을 적용합니다. 예: `{"HostPlatform":"Linux", "Version:"3.0.1"}`
+* **--labels** - 배포를 추적하는 데 도움이 되는 레이블을 추가합니다. 레이블은 배포를 설명하는 이름, 값 쌍입니다. 레이블은 이름 및 값에 대해 JSON 서식을 적용합니다. 위치(예:`{"HostPlatform":"Linux", "Version:"3.0.1"}`
 * **--target-condition** - 대상 조건을 입력하여 이 배포의 대상으로 지정할 디바이스를 결정합니다. 조건은 장치 쌍 태그 또는 보고 된 장치 쌍 속성을 기반으로 하며 식 형식과 일치 해야 합니다. 예를 들어 `tags.environment='test' and properties.reported.devicemodel='4000x'`합니다. 
 * **--priority** - 양의 정수입니다. 둘 이상의 배포가 동일한 디바이스를 대상으로 하는 경우, Priority의 숫자 값이 가장 큰 배포가 적용됩니다.
 
@@ -199,7 +199,7 @@ az iot edge deployment update --deployment-id [deployment id] --hub-name [hub na
 * **--set** - 배포에서 속성을 업데이트합니다. 다음 속성을 업데이트할 수 있습니다.
   * targetCondition - 예: `targetCondition=tags.location.state='Oregon'`
   * 레이블 
-  * priority
+  * 우선 순위
 
 
 ## <a name="delete-a-deployment"></a>배포 삭제

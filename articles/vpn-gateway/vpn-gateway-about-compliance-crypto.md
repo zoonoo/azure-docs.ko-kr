@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: yushwang
-ms.openlocfilehash: f18e5dbdc257aa1ae647505c323c17f9f197d360
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: f1d30ef56350c3e1df796f20e3f9f39fdbc6428a
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150978"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666497"
 ---
 # <a name="about-cryptographic-requirements-and-azure-vpn-gateways"></a>암호화 요구 사항 및 Azure VPN Gateway 정보
 
@@ -20,7 +20,7 @@ ms.locfileid: "74150978"
 
 ## <a name="about-ikev1-and-ikev2-for-azure-vpn-connections"></a>Azure VPN 연결에 대 한 IKEv1 및 IKEv2 정보
 
-일반적으로 기본 sku에 대해서만 IKEv1 연결을 허용 하 고 기본 Sku 이외의 모든 VPN gateway Sku에 대해 허용 되는 IKEv2 연결을 허용 했습니다. 기본 Sku는 1 개의 연결 및 성능 등의 기타 제한 사항을 허용 하 고, IKEv1 프로토콜만 지 원하는 레거시 장치를 사용 하는 고객은 제한 된 환경을 보유 하 고 있습니다. IKEv1 프로토콜을 사용 하는 고객의 경험을 향상 시키기 위해 이제 모든 VPN gateway Sku에 대 한 IKEv1 연결을 허용 합니다. 자세한 내용은 [VPN Gateway sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)를 참조 하세요.
+일반적으로 기본 sku에 대해서만 IKEv1 연결을 허용 하 고 기본 Sku 이외의 모든 VPN gateway Sku에 대해 허용 되는 IKEv2 연결을 허용 했습니다. 기본 Sku는 1 개의 연결 및 성능 등의 기타 제한 사항을 허용 하 고, IKEv1 프로토콜만 지 원하는 레거시 장치를 사용 하는 고객은 제한 된 환경을 보유 하 고 있습니다. 이제 IKEv1 프로토콜을 사용 하는 고객의 경험을 향상 시키기 위해 기본 SKU를 제외 하 고 모든 VPN gateway Sku에 대 한 IKEv1 연결을 허용 합니다. 자세한 내용은 [VPN Gateway sku](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsku)를 참조 하세요.
 
 ![Azure VPN Gateway IKEv1 및 IKEv2 연결](./media/vpn-gateway-about-compliance-crypto/ikev1-ikev2-connections.png)
 

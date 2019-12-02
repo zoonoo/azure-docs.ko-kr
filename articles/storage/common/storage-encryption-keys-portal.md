@@ -1,26 +1,26 @@
 ---
-title: Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
-description: Azure Portal를 사용 하 여 Azure Storage 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법을 알아봅니다. 고객 관리 키를 사용 하 여 액세스 제어를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있습니다.
+title: Azure Portal를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성 Azure Storage
+description: Azure Portal를 사용 하 여 Azure Storage 암호화를 위해 고객이 관리 하는 키를 Azure Key Vault로 구성 하는 방법을 알아봅니다. 고객 관리 키를 사용 하 여 액세스 제어를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
-ms.date: 10/15/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 74ca6f15baeeb9fe8adad4bda80e313a4b4cf03a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: b72f30a636d0177edb8b3254d14be941b2d4e6bc
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376235"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665913"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-the-azure-portal"></a>Azure Portal에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Storage에 대 한 고객 관리 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 고객이 관리 하는 키로 key vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-portal.md)을 참조 하세요. 
+이 문서에서는 [Azure Portal](https://portal.azure.com/)를 사용 하 여 고객 관리 키를 사용 하 여 Azure Key Vault를 구성 하는 방법을 보여 줍니다. Azure Portal를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: Azure Portal을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-portal.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure Storage 암호화와 함께 고객 관리 키를 사용 하려면 키 자격 증명 모음에 대해 두 개의 속성을 설정 해야 합니다. **일시 삭제** 하 고 **제거 하지**않아야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 속성을 사용 하도록 설정 하려면 PowerShell 또는 Azure CLI 중 하나를 사용 합니다.

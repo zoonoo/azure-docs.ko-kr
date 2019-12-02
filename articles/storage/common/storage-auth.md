@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: c20f699a2d2270d11935b0216b1655390ece211c
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: b7669f9ec804a8fd2801474a845af7e029ee5235
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671052"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664049"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Azure Storage에 대한 액세스 권한 부여
 
@@ -25,10 +25,10 @@ ms.locfileid: "71671052"
 |  |공유 키 (저장소 계정 키)  |공유 액세스 서명(SAS)  |Azure AD(Azure Active Directory)  |익명 공용 읽기 액세스  |
 |---------|---------|---------|---------|---------|
 |Azure Blob     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |[지원됨](../blobs/storage-manage-access-to-resources.md)         |
-|SMB (Azure Files)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |지원되지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |지원되지 않음         |
-|Azure Files (REST)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원되지 않음         |지원되지 않음         |
-|Azure 큐     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원되지 않음         |
-|Azure Tables     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원되지 않음         |지원되지 않음         |
+|SMB (Azure Files)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |지원하지 않음         |[지원 됨, AAD 도메인 서비스에만 해당](../files/storage-files-active-directory-overview.md)         |지원하지 않음         |
+|Azure Files (REST)     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
+|Azure 큐     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |[지원됨](storage-auth-aad.md)         |지원하지 않음         |
+|Azure Tables     |[지원됨](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[지원됨](storage-sas-overview.md)         |지원하지 않음         |지원하지 않음         |
 
 각 권한 부여 옵션에 대 한 간략 한 설명은 다음과 같습니다.
 
@@ -36,8 +36,13 @@ ms.locfileid: "71671052"
 
 - 파일에 대 한 **DS (Azure AD Domain Services) 통합 (미리 보기)** Azure Files는 Azure AD DS를 통해 SMB (서버 메시지 블록)를 통해 id 기반 인증을 지원 합니다. 이는 저장소 계정의 리소스에 대 한 클라이언트의 액세스를 세부적으로 제어 하기 위해 RBAC를 제공 합니다. 도메인 서비스를 사용 하는 파일에 대 한 Azure AD 통합에 대 한 자세한 내용은 [SMB 액세스를 위한 AAD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요 (미리 보기)](../files/storage-files-active-directory-overview.md)를 참조 하세요.
 
-- Blob, 파일, 큐 및 테이블에 대한 **공유 키 권한 부여**. 공유 키를 사용하는 클라이언트는 스토리지 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)를 참조하세요.
+- Blob, 파일, 큐 및 테이블에 대한 **공유 키 권한 부여**. 공유 키를 사용하는 클라이언트는 스토리지 계정 액세스 키를 사용하여 서명된 모든 요청에 헤더를 전달합니다. 자세한 내용은 [공유 키를 사용하여 권한 부여](/rest/api/storageservices/authenticate-with-shared-key/)를 참조하세요.
 - Blob, 파일, 큐 및 테이블에 대한 **공유 액세스 서명**. SAS(공유 액세스 서명)는 스토리지 계정의 리소스에 대해 제한적으로 위임된 권한을 제공합니다. 서명이 유효한 시간 간격 또는 부여되는 권한에 제약 조건을 추가하면 액세스를 유연하게 관리할 수 있습니다. 자세한 내용은 [SAS(공유 액세스 서명) 사용](storage-sas-overview.md)을 참조하세요.
 - 컨테이너 및 Blob에 대한 **익명 공용 읽기 액세스**. 권한 부여가 필요하지 않습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../blobs/storage-manage-access-to-resources.md)를 참조하세요.  
 
-기본적으로 Azure Storage의 모든 리소스는 보안을 유지하며 계정 소유자만 사용할 수 있습니다. 위에서 설명한 권한 부여 전략 중 하나를 사용하여 클라이언트에서 스토리지 계정의 리소스에 액세스할 수 있도록 허용할 수 있지만, 최대한 보안을 유지하고 쉽게 사용할 수 있는 경우 Azure AD를 사용하는 것이 좋습니다. 
+기본적으로 Azure Storage의 모든 리소스는 보안을 유지하며 계정 소유자만 사용할 수 있습니다. 위에서 설명한 권한 부여 전략 중 하나를 사용하여 클라이언트에서 스토리지 계정의 리소스에 액세스할 수 있도록 허용할 수 있지만, 최대한 보안을 유지하고 쉽게 사용할 수 있는 경우 Azure AD를 사용하는 것이 좋습니다.
+
+## <a name="next-steps"></a>다음 단계
+
+- [Azure Active Directory 설명서](/azure/active-directory/)
+- [Microsoft id 플랫폼의 진화](/azure/active-directory/develop/about-microsoft-identity-platform)

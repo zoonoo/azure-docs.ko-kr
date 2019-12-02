@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/18/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 411710280a631d341adeb55bc4b587a613ee3c4c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 66b361a7eb82610d12a10c9c190f2872c072d7ba
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643632"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664066"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "73643632"
 
 [사용자 지정 정책은](active-directory-b2c-overview-custom.md) Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 아직 없는 경우 Azure 구독에 연결 된 [Azure AD B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md) .
 - Azure AD B2C와 통신할 수 있도록 만든 테 넌 트에 [응용 프로그램을 등록](tutorial-register-applications.md) 합니다.
@@ -33,22 +33,22 @@ ms.locfileid: "73643632"
 
 1. [Azure 포털](https://portal.azure.com)
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
-1. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. 개요 페이지의 **정책** 창에서 **Id 경험 프레임 워크** 를 선택 합니다.
 
 ### <a name="create-the-signing-key"></a>서명 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`을 선택합니다.
+1. **옵션**으로는 `Generate`를 선택합니다.
 1. **이름**에 `TokenSigningKeyContainer`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
+1. **키 사용**에서 **서명**을 선택합니다.
 1. **만들기**를 선택합니다.
 
 ### <a name="create-the-encryption-key"></a>암호화 키 만들기
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Generate`을 선택합니다.
+1. **옵션**으로는 `Generate`를 선택합니다.
 1. **이름**에 `TokenEncryptionKeyContainer`를 입력합니다. `B2C_1A`_ 접두사가 자동으로 추가될 수 있습니다.
 1. **키 유형**으로는 **RSA**를 선택합니다.
 1. **키 사용**에는 **암호화**를 선택합니다.
@@ -59,21 +59,21 @@ ms.locfileid: "73643632"
 Facebook 응용 프로그램의 [앱 암호](active-directory-b2c-setup-fb-app.md) 를 정책 키로 추가 합니다. 이 문서의 필수 구성 요소에 따라 만든 응용 프로그램의 앱 암호를 사용할 수 있습니다.
 
 1. **정책 키**, **추가**를 차례로 선택합니다.
-1. **옵션**으로는 `Manual`을 선택합니다.
-1. **이름**에 `FacebookSecret`을 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
+1. **옵션**으로는 `Manual`를 선택합니다.
+1. **이름**에 `FacebookSecret`를 입력합니다. `B2C_1A_` 접두사가 자동으로 추가될 수 있습니다.
 1. **비밀**에서 Developers.facebook.com의 Facebook 응용 프로그램의 *앱 암호* 를 입력 합니다. 이 값은 응용 프로그램 ID가 아닌 암호입니다.
-1. **키 사용**으로는 **서명**을 선택합니다.
+1. **키 사용**에서 **서명**을 선택합니다.
 1. **만들기**를 선택합니다.
 
 ## <a name="register-identity-experience-framework-applications"></a>Identity Experience Framework 애플리케이션 등록
 
-Azure AD B2C를 사용 하려면 로컬 계정 ( *IdentityExperienceFramework*, web API 및 *ProxyIdentityExperienceFramework*)을 사용 하 여 사용자를 등록 하 고 로그인 하는 데 사용 하는 두 개의 응용 프로그램을 등록 해야 합니다. IdentityExperienceFramework 앱. 사용자는 전자 메일 주소 또는 사용자 이름과 암호를 사용 하 여 등록 하 여 테 넌 트에 등록 된 응용 프로그램에 액세스 하 여 "로컬 계정"을 만들 수 있습니다. 로컬 계정은 Azure AD B2C 테 넌 트에만 존재 합니다.
+Azure AD B2C를 사용 하려면 로컬 계정 ( *IdentityExperienceFramework*, web API 및 *ProxyIdentityExperienceFramework*)을 사용 하 여 사용자를 등록 하 고 로그인 하는 데 사용 하는 두 개의 응용 프로그램을 등록 하 고 IdentityExperienceFramework 앱에 대 한 위임 된 권한이 있는 네이티브 앱을 등록 해야 합니다. 사용자는 전자 메일 주소 또는 사용자 이름과 암호를 사용 하 여 등록 하 여 테 넌 트에 등록 된 응용 프로그램에 액세스 하 여 "로컬 계정"을 만들 수 있습니다. 로컬 계정은 Azure AD B2C 테 넌 트에만 존재 합니다.
 
 Azure AD B2C 테 넌 트에서 이러한 두 응용 프로그램을 한 번만 등록 해야 합니다.
 
 ### <a name="register-the-identityexperienceframework-application"></a>IdentityExperienceFramework 애플리케이션 등록
 
-Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
+Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
@@ -82,30 +82,30 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 현재 **응
 1. 검색 결과에서 **Azure Active Directory**를 선택합니다.
 1. 왼쪽 메뉴의 **관리** 에서 **앱 등록 (레거시)** 를 선택 합니다.
 1. **새 애플리케이션 등록**을 선택합니다.
-1. **이름**에 `IdentityExperienceFramework`을 입력합니다.
+1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 1. **애플리케이션 종류**로 **웹앱/API**를 선택합니다.
 1. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
-1. **앱 등록 (미리 보기)** 를 선택 하 고 **새 등록**을 선택 합니다.
-1. **이름**에 `IdentityExperienceFramework`을 입력합니다.
+1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
+1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
 1. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
 1. **URI 리디렉션**에서 **웹**을 선택 하 고 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`를 입력 합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테 넌 트 도메인 이름입니다.
-1. **사용 권한**아래에서 *openid connect and offline_access Permissions에 관리자 동의 부여* 확인란을 선택 합니다.
+1. **사용 권한** 아래에서 *openid 및 offline_access 권한에 대한 관리자 동의 허용* 확인란을 선택합니다.
 1. **등록**을 선택합니다.
-1. 이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+1. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 
 다음으로, 범위를 추가 하 여 API를 노출 합니다.
 
-1. **관리**에서 **API 노출**을 선택 합니다.
+1. **관리**에서 **API 표시**를 선택합니다.
 1. **범위 추가**를 선택한 다음, **저장을 선택 하 고 계속** 을 선택 하 여 기본 응용 프로그램 ID URI를 적용 합니다.
 1. Azure AD B2C 테 넌 트에서 사용자 지정 정책을 실행 하도록 허용 하는 범위를 만들려면 다음 값을 입력 합니다.
     * **범위 이름**: `user_impersonation`
     * **관리자 동의 표시 이름**: `Access IdentityExperienceFramework`
     * **관리자 동의 설명**: `Allow the application to access IdentityExperienceFramework on behalf of the signed-in user.`
-1. **범위 추가** 선택
+1. **범위 추가**를 선택합니다.
 
 * * *
 
@@ -114,7 +114,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 현재 **응
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 
 1. **앱 등록 (레거시)** 에서 **새 응용 프로그램 등록**을 선택 합니다.
-1. **이름**에 `ProxyIdentityExperienceFramework`을 입력합니다.
+1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
 1. **애플리케이션 종류**로 **네이티브**를 선택합니다.
 1. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
 1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
@@ -123,35 +123,35 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 현재 **응
 1. **IdentityExperienceFramework 액세스** 옆의 확인란을 선택한 다음 **선택**, **완료**를 차례로 클릭합니다.
 1. **권한 부여**를 선택 하 고 **예**를 선택 하 여 확인 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
-1. **앱 등록 (미리 보기)** 를 선택 하 고 **새 등록**을 선택 합니다.
-1. **이름**에 `ProxyIdentityExperienceFramework`을 입력합니다.
+1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
+1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
 1. **지원 되는 계정 유형**에서 **이 조직 디렉터리의 계정만**을 선택 합니다.
-1. **URI 리디렉션**에서 드롭다운을 사용 하 여 **공용 클라이언트/네이티브 (모바일 & 데스크톱)** 를 선택 합니다.
+1. **리디렉션 URI** 아래에서 드롭다운을 사용하여 **퍼블릭 클라이언트/네이티브(모바일 및 데스크톱)** 를 선택합니다.
 1. **리디렉션 URI**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`는 Azure AD B2C 테넌트입니다.
-1. **사용 권한**아래에서 *openid connect and offline_access Permissions에 관리자 동의 부여* 확인란을 선택 합니다.
+1. **사용 권한** 아래에서 *openid 및 offline_access 권한에 대한 관리자 동의 허용* 확인란을 선택합니다.
 1. **등록**을 선택합니다.
-1. 이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+1. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 
 다음으로 응용 프로그램을 공용 클라이언트로 처리 하도록 지정 합니다.
 
-1. **관리**아래에서 **인증**을 선택 합니다.
-1. **새 환경 사용해 보기** (표시 되는 경우)를 선택 합니다.
+1. **관리**에서 **인증**을 선택합니다.
+1. **새 환경을 체험해 보세요.** (표시되는 경우)를 선택합니다.
 1. **고급 설정**에서 **응용 프로그램을 공용 클라이언트로 처리** 를 사용 하도록 설정 합니다 ( **예**선택).
 1. **저장**을 선택합니다.
 
 이제 *IdentityExperienceFramework* 등록에서 앞서 제공한 API 범위에 사용 권한을 부여 합니다.
 
 1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성 된 사용 권한**에서 **사용 권한 추가**를 선택 합니다.
+1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **내 api** 탭을 선택한 다음 **IdentityExperienceFramework** 응용 프로그램을 선택 합니다.
 1. **사용 권한**아래에서 이전에 정의한 **user_impersonation** 범위를 선택 합니다.
-1. **권한 추가**를 선택 합니다. 지시에 따라 몇 분 정도 기다린 후 다음 단계를 진행 합니다.
-1. **사용자의 테 넌 트 이름에 대해 관리자 동의 부여를**선택 합니다.
-1. 현재 로그인 한 관리자 계정을 선택 하거나 적어도 *클라우드 응용 프로그램 관리자* 역할에 할당 된 Azure AD B2C 테 넌 트의 계정으로 로그인 합니다.
+1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
+1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
+1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
 1. **수락**을 선택합니다.
-1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. 두 범위에 대 한 **상태** 아래에 나타납니다. 권한을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. **새로 고침**을 선택한 다음, 두 범위 모두 **상태** 아래에 "...에 대해 허용됨"이 표시되는지 확인합니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
 
 * * *
 

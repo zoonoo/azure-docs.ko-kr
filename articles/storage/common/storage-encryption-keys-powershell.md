@@ -1,26 +1,26 @@
 ---
-title: PowerShell에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
+title: PowerShell을 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성-Azure Storage
 description: PowerShell을 사용 하 여 Azure Storage 암호화를 위해 고객이 관리 하는 키를 구성 하는 방법을 알아봅니다. 고객 관리 키를 사용 하 여 액세스 제어를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 10/09/2019
+ms.topic: how-to
+ms.date: 11/20/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd723787d9cea2d3b9d81ae9db63c70a21190854
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249280"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666225"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>PowerShell에서 Azure Storage 암호화를 위해 고객이 관리 하는 키 구성
+# <a name="configure-customer-managed-keys-for-azure-storage-by-using-powershell"></a>PowerShell을 사용 하 여 Azure Storage에 대 한 고객 관리 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 
-이 문서에서는 PowerShell을 사용 하 여 고객 관리 키로 key vault를 구성 하는 방법을 보여 줍니다.
+이 문서에서는 PowerShell을 사용 하 여 고객 관리 키를 사용 하 여 Azure Key Vault를 구성 하는 방법을 보여 줍니다. Azure CLI를 사용 하 여 주요 자격 증명 모음을 만드는 방법을 알아보려면 [빠른 시작: PowerShell을 사용 하 여 Azure Key Vault에서 비밀 설정 및 검색](../../key-vault/quick-create-powershell.md)을 참조 하세요.
 
 > [!IMPORTANT]
 > Azure Storage 암호화와 함께 고객 관리 키를 사용 하려면 키 자격 증명 모음에 대해 두 개의 속성을 설정 해야 합니다. **일시 삭제** 하 고 **제거 하지**않아야 합니다. 이러한 속성은 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이러한 속성을 사용 하도록 설정 하려면 PowerShell 또는 Azure CLI 중 하나를 사용 합니다.
@@ -96,5 +96,5 @@ Set-AzStorageAccount -ResourceGroupName $storageAccount.ResourceGroupName `
 
 ## <a name="next-steps"></a>다음 단계
 
-- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md) 
+- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](storage-service-encryption.md)
 - [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)이란?

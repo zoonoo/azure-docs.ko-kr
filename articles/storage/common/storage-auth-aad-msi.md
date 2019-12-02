@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: ea1d286d00564587a9692dac1b04c5bbb04742cc
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561485"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666167"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -103,19 +103,7 @@ Azure Id 클라이언트 라이브러리는 런타임에 세 가지 환경 변�
 
 자세한 내용은 [포털에서 Azure 앱에 대 한 Id 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
 
-## <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
-
-이 문서의 예제에서는 Blob 저장소에 대 한 최신 버전의 Azure Storage 클라이언트 라이브러리를 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-이 문서의 예제에서는 Azure AD 자격 증명을 사용 하 여 인증 하기 위해 최신 버전의 [.net 용 Azure id 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/) 도 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
-
-```powershell
-Install-Package Azure.Identity
-```
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET 코드 예제: 블록 Blob 만들기
 

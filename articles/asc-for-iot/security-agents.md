@@ -1,6 +1,6 @@
 ---
 title: IoT 보안 에이전트에 대 한 Azure Security Center 사용 시작 | Microsoft Docs
-description: IoT 보안 에이전트에 대 한 Azure Security Center를 시작 합니다.
+description: IoT 장치에서 IoT 보안 서비스 에이전트에 대 한 Azure Security Center 이해, 구성, 배포 및 사용을 시작 하세요.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6e790c125c59aea85f1ac34240c5a1d1969544ae
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 1ed890d9d3602de24e6f85f6f0ae7f59849f3df2
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600593"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664192"
 ---
 # <a name="get-started-with-azure-security-center-for-iot-device-security-agents"></a>IoT 장치 보안 에이전트에 대 한 Azure Security Center 시작
 
@@ -37,7 +37,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 장치 운영 체제
 1. 장치에 대해 [azureiotsecurity 보안 모듈을 만듭니다](quickstart-create-security-twin.md) .
 1. 실제 장치에를 설치 하는 대신 Azure 시뮬레이트된 장치에 에이전트를 설치 하려면 사용 가능한 영역에서 [새 AZURE VM (가상 머신)](https://docs.microsoft.com/azure/virtual-machines/linux/quick-create-portal) 을 실행 합니다. 
 1. Iot 장치 또는 새 VM에 [iot 보안 에이전트에 대 한 Azure Security Center를 배포](how-to-deploy-linux-cs.md) 합니다.
-1. [Trigger_events](https://aka.ms/iot-security-github-trigger-events) 에 대 한 지침에 따라 공격에 대해 무해 한 시뮬레이션을 실행 합니다.
+1. [Trigger_events](https://aka.ms/iot-security-github-trigger-events) 에 대 한 지침에 따라 공격에 대 한 무해 한 시뮬레이션을 실행 합니다.
 1. 이전 단계에서 시뮬레이션 된 공격에 대 한 응답으로 IoT 경고에 대 한 Azure Security Center를 확인 합니다. 스크립트를 실행 한 후 5 분 후에 확인을 시작 합니다.
 1. IoT Hub를 사용 하 여 [Log Analytics를 사용 하 여](how-to-security-data-access.md) [경고](concept-security-alerts.md), [권장 사항](concept-recommendations.md)및 심층 조사를 살펴보세요. 
 

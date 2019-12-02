@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.subservice: common
-ms.openlocfilehash: 250cdedaa5155f1487cb842be492acd82c0f26b3
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 1e2c899e0ef98266b5afd2f1bf21443a2debd281
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090812"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666429"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Azure Storage 마이그레이션에 대한 FAQ(질문과 대답)
 
@@ -24,7 +24,7 @@ ms.locfileid: "71090812"
 
 **한 컨테이너에서 다른 컨테이너로 파일을 복사하는 스크립트를 만들려면 어떻게 할까요?**
 
-컨테이너 간에 파일을 복사하려면 AzCopy를 사용할 수 있습니다. 다음 예제를 참조하십시오.
+컨테이너 간에 파일을 복사하려면 AzCopy를 사용할 수 있습니다. 다음 예제를 참조하세요.
 
     AzCopy /Source:https://xxx.blob.core.windows.net/xxx
     /Dest:https://xxx.blob.core.windows.net/xxx /SourceKey:xxx /DestKey:xxx
@@ -38,7 +38,7 @@ Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource M
 
 **동일한 지역 내의 동일한 스토리지 계정에 있는 별도의 두 파일 공유 간에 데이터를 복사하기 위해 요금이 있나요?**
 
-아니요. 이 프로세스에는 요금이 부과되지 않습니다.
+아닙니다. 이 프로세스에는 요금이 부과되지 않습니다.
 
 **내 스토리지 계정 전체를 다른 스토리지 계정에 백업하려면 어떻게 할까요?**
 
@@ -55,10 +55,10 @@ Automation 스크립트는 스토리지 콘텐츠 조작 대신 Azure Resource M
             /Dest:https://destaccount.blob.core.windows.net/mycontainer2
             /SourceKey:key1 /DestKey:key2 /S
 
-    - `/Source`: 원본 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
-    - `/Dest`: 대상 스토리지 계정의 URI를 제공합니다(컨테이너까지).  
-    - `/SourceKey`: 원본 스토리지 계정의 기본 키를 제공합니다. Azure Portal에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.  
-    - `/DestKey`: 대상 스토리지 계정의 기본 키를 제공합니다. 포털에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.
+    - `/Source`: 원본 스토리지 계정에 대한 URI를 제공합니다(컨테이너까지).  
+    - `/Dest`: 대상 스토리지 계정에 대한 URI를 제공합니다(컨테이너까지).  
+    - `/SourceKey`: 원본 스토리지 계정에 대한 기본 키를 제공합니다. Azure Portal에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.  
+    - `/DestKey`: 대상 스토리지 계정에 대한 기본 키를 제공합니다. 포털에서 스토리지 계정을 선택하여 이 키를 복사할 수 있습니다.
 
 이 명령을 실행하면 컨테이너 파일이 대상 스토리지 계정으로 이동됩니다.
 
@@ -83,7 +83,7 @@ AzCopy를 사용하여 Azure Storage의 Azure 파일 공유 간에 데이터를 
 
 AzCopy를 사용하여 큰 .csv 파일을 Azure Storage에 업로드합니다. 자세한 내용은 [Windows에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy.md) 및 [Linux에서 AzCopy를 사용하여 데이터 전송](storage-use-azcopy-linux.md)을 참조하세요.
 
-**매일 D 드라이브에서 Azure Storage 계정으로 로그를 이동해야 합니다. 자동화하려면 어떻게 할까요?**
+**매일 D 드라이브에서 Azure storage 계정으로 로그를 이동 해야 합니다. 어떻게 할까요? 자동화**
 
 AzCopy를 사용하고 작업 스케줄러에서 작업을 만들 수 있습니다. AzCopy 배치 스크립트를 사용하여 Azure Storage 계정에 파일을 업로드합니다. 자세한 내용은 [클라우드 서비스에 대한 시작 작업 구성 및 실행 방법](../../cloud-services/cloud-services-startup-tasks.md)을 참조하세요.
 
@@ -167,7 +167,7 @@ AzCopy를 사용하여 데이터를 다운로드합니다. 자세한 내용은 [
 
 **스토리지 계정에 대한 보조 지역을 유럽 지역으로 변경하려면 어떻게 할까요?**
 
-스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(영역 중복 스토리지): Azure Storage에 대한 지역 간 복제](storage-redundancy.md)를 참조하세요.
+스토리지 계정을 만들 때 계정에 대한 기본 지역을 선택합니다. 보조 지역은 주 지역을 기반으로 하여 선택하고 변경할 수 없습니다. 자세한 내용은 [GRS(지역 중복 스토리지): Azure Storage의 지역 간 복제](storage-redundancy.md)를 참조하세요.
 
 **Azure SSE(스토리지 서비스 암호화)에 대한 자세한 정보는 어디서 얻을 수 있나요?**  
   
@@ -194,7 +194,7 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 **스토리지 계정의 복제를 지역 중복 스토리지에서 로컬 중복 스토리지로 변경하기 위한 필수 구성 요소가 있나요?**
 
-아니요. 
+아닙니다. 
 
 **Azure Files 중복 스토리지에 액세스하려면 어떻게 할까요?**
 
@@ -229,7 +229,7 @@ AzCopy를 사용하여 다른 스토리지 계정으로 데이터를 복사한 �
 
 Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
-**표준 스토리지 계정에서 Premium Storage 계정으로 업그레이드하려면 어떻게 할까요? Premium Storage 계정에서 표준 스토리지 계정으로 다운그레이드하려면 어떻게 할까요?**
+**Standard storage 계정에서 premium storage 계정으로 업그레이드할 어떻게 할까요? 있나요? Premium storage 계정에서 표준 저장소 계정으로 다운 그레이드를 어떻게 할까요? 하 시겠습니까?**
 
 대상 스토리지 계정을 만들고, 원본 계정에서 대상 계정으로 데이터를 복사한 다음, 원본 계정을 삭제해야 합니다. AzCopy와 같은 도구를 사용하여 데이터를 복사할 수 있습니다.
 
@@ -237,7 +237,7 @@ Premium Storage는 Azure 파일 공유에서 허용되지 않습니다.
 
 **클래식 스토리지 계정에서 Azure Resource Manager 스토리지 계정으로 이동하려면 어떻게 할까요?**
 
-**Move-AzStorageAccount** cmdlet을 사용할 수 있습니다. 이 cmdlet에는 여러 단계(유효성 검사, 준비, 커밋)가 있습니다. 만들기 전에 확인할 수 있습니다.
+**Move-AzureStorageAccount** cmdlet을 사용할 수 있습니다. 이 cmdlet에는 여러 단계(유효성 검사, 준비, 커밋)가 있습니다. 만들기 전에 확인할 수 있습니다.
 
 가상 머신이 있는 경우 스토리지 계정 데이터를 마이그레이션하기 전에 몇 가지 추가 단계를 수행해야 합니다. 자세한 내용은 [Azure PowerShell을 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션](../..//virtual-machines/windows/migration-classic-resource-manager-ps.md)을 참조하세요.
 
@@ -277,13 +277,13 @@ Azure CLI를 사용할 수 있습니다.
 
 -   읽기 액세스 지역 중복 스토리지를 사용하는 경우 언제든지 보조 지역의 데이터에 액세스할 수 있습니다. 다음 방법 중 하나를 사용합니다.  
       
-    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 예:  
+    - **AzCopy**: 보조 엔드포인트에 액세스하려면 URL의 스토리지 계정 이름에 **-secondary**를 추가합니다. 다음은 그 예입니다.  
      
       https://storageaccountname-secondary.blob.core.windows.net/vhds/BlobName.vhd
 
     - **SAS 토큰**: SAS 토큰을 사용하여 엔드포인트의 데이터에 액세스합니다. 자세한 내용은 [공유 액세스 서명 사용](storage-sas-overview.md)을 참조하세요.
 
-**내 스토리지 계정으로 HTTPS 사용자 지정 도메인을 사용하려면 어떻게 할까요? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시 하려면 어떻게 해야 하나요?**
+**내 저장소 계정으로 HTTPS 사용자 지정 도메인을 사용 어떻게 할까요?? 예를 들어 "https:\//mystorageaccountname.blob.core.windows.net/images/image.gif"를 "https:\//www.contoso.com/images/image.gif"로 표시 하려면 어떻게 해야 하나요?**
 
 SSL은 현재 사용자 지정 도메인이 있는 스토리지 계정에서 지원되지 않습니다.
 하지만 HTTPS가 아닌 사용자 지정 도메인은 사용할 수 있습니다. 자세한 내용은 [Blob Storage 엔드포인트에 대한 사용자 지정 도메인 이름 구성](../blobs/storage-custom-domain-name.md)을 참조하세요.
@@ -298,6 +298,6 @@ Storage Explorer 또는 유사한 애플리케이션을 사용하지 않고 데�
 
  [Blob 마이그레이션 스크립트](../scripts/storage-common-transfer-between-storage-accounts.md)를 사용하여 이 작업을 수행할 수 있습니다.
 
-## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
+## <a name="need-help-contact-support"></a>도움이 필요하십니까? 지원에 문의하세요.
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 11/12/2019
 ms.author: magoedte
-ms.openlocfilehash: 7a774adb33646635832dba5505abf57b2703de5d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7d4400b563a1d0b8bf094f946a37d7ff4a17e7cf
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279706"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664950"
 ---
 # <a name="azure-monitor-for-containers-health-monitor-configuration-guide"></a>컨테이너 상태 모니터의 Azure Monitor 구성 가이드
 
@@ -82,7 +82,7 @@ ms.locfileid: "74279706"
 |노드 (노드 풀의 부모) |모든 노드 풀의 집계 모니터입니다. 상태는 자식 모니터의 최악의 상태 (즉, 클러스터에 있는 노드 풀)를 기반으로 합니다. |최악의 |
 |클러스터 (노드의 부모/<br> Kubernetes 인프라) |이는 자식 모니터의 상태와 kubernetes 인프라 및 노드인 최하위 상태를 일치 시키는 부모 모니터입니다. |최악의 |
 |Kubernetes 인프라 |이 모니터는 클러스터의 관리 되는 인프라 구성 요소에 대 한 결합 상태를 보고 합니다. 해당 상태는 자식 모니터 상태 (kube 시스템 워크 로드 및 API 서버 상태)의 ' 최악의 '로 계산 됩니다. |최악의|
-|시스템 작업 |이 모니터는 kube 시스템 작업의 상태를 보고 합니다. 이 모니터는 최하위 상태 ( **준비 상태 모니터의 pod** 및 워크 로드의 컨테이너)와 자식 모니터의 상태를 일치 시킵니다. |최악의 |
+|시스템 작업 |이 모니터는 kube 시스템 작업의 상태를 보고 합니다. 이 모니터는 준비 상태 (모니터 및 워크 로드의 컨테이너) **의 pod** 인 최하위 상태와 자식 모니터의 상태를 일치 시킵니다. |최악의 |
 |컨테이너 |이 모니터는 지정 된 작업에서 컨테이너의 전반적인 상태를 보고 합니다. 이 모니터는 **CPU 사용률** 및 **메모리 사용률** 모니터와 같은 최악의 상태와 자식 모니터의 상태를 일치 시킵니다. |최악의 |
 
 ## <a name="next-steps"></a>다음 단계

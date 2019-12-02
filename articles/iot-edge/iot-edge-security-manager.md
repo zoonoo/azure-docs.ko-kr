@@ -1,5 +1,5 @@
 ---
-title: 보안 관리자가 디바이스, 소프트웨어를 보호하는 방법 알아보기 - Azure IoT Edge | Microsoft Docs
+title: Azure IoT Edge security manager-Azure IoT Edge
 description: IoT Edge 디바이스 보안 태세와 보안 서비스의 무결성을 관리합니다.
 services: iot-edge
 keywords: 보안, 보안 요소, enclave, TEE, IoT Edge
@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 90cb7cf0a30ea0ebfe00454288de25ddf6e58d52
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457540"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666072"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 

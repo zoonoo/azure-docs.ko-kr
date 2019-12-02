@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 자동 배포 만들기 - Azure IoT Edge | Microsoft Docs
+title: Azure Portal에서 규모에 맞게 모듈 배포-Azure IoT Edge
 description: Azure Portal을 사용하여 IoT Edge 디바이스 그룹에 대한 자동 배포 만들기
 keywords: ''
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 06/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 286bab7b7fdbe42190c32dabb42c59d6fc094b2a
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 068845bf8cda7ce6abf11eefad0ed176688b34c5
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457354"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665851"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Azure Portal을 사용하여 대규모 IoT Edge 모듈 배포 및 모니터링
 
@@ -91,7 +91,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 ### <a name="step-3-specify-routes-optional"></a>3단계: 경로 지정(선택 사항)
 
-경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /\* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT Hub에 전송됩니다.  
+경로는 배포 내 모듈 간에 서로 통신하는 방식을 정의합니다. 기본적으로 마법사에서는 사용자에게 **route**라는 **FROM /* INTO $upstream**으로 정의된 경로를 제공합니다. 즉, 모듈에 의한 메시지 출력은 IoT 허브에 전송됩니다.  
 
 [경로 선언](module-composition.md#declare-routes)의 정보를 포함한 경로를 추가하거나 업데이트한 다음, **다음**을 선택하여 검토 섹션을 진행합니다.
 
@@ -103,7 +103,7 @@ Azure Stream Analytics에서 모듈을 추가하려면 다음 단계를 수행�
 
 1. **메트릭 조건**에 대한 쿼리를 입력합니다. 쿼리는 IoT Edge 허브 모듈 쌍의 [보고된 속성](module-edgeagent-edgehub.md#edgehub-reported-properties)을 기반으로 합니다. 메트릭은 쿼리에 의해 반환되는 행 수를 나타냅니다.
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ```sql
    SELECT deviceId FROM devices
@@ -139,7 +139,7 @@ Azure Marketplace 또는 Azure Portal에서 IoT Edge 모듈을 배포할 수 있
      1. 모듈을 찾고 **지금 가져오기**를 선택합니다.
      1. **계속**을 선택하여 공급자의 사용 약관 및 개인정보처리방침을 확인합니다.
 
-1. 대상 디바이스가 연결된 구독 및 IoT Hub를 선택합니다.
+1. 사용자 구독 및 대상 디바이스가 연결된 IoT Hub를 선택합니다.
 
 1. **대규모 배포**를 선택합니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 9c3f054a1bae745e4ee7ce9e3bddca3c9bf31083
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0dd07b3394e385b3931e01867d467af7559b4f8b
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74536004"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664168"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -204,8 +204,8 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 
 ![고급](./media/chroot-logical-volume-manager/rpm-kernel.png)
 
-필요한 경우 고급](./media/chroot-logical-volume-manager/rpm-remove-kernel.png) ![**커널을**
-업그레이드 합니다.
+필요한 경우 **커널**
+![고급](./media/chroot-logical-volume-manager/rpm-remove-kernel.png) 제거 하거나 업그레이드 합니다.
 
 
 ### <a name="example-3---enable-serial-console"></a>예제 3-직렬 콘솔 사용

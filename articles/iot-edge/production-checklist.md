@@ -1,5 +1,5 @@
 ---
-title: 프로덕션용 디바이스 및 배포 준비 - Azure IoT Edge | Microsoft Docs
+title: 프로덕션에서 솔루션 배포 준비-Azure IoT Edge
 description: 적절 한 인증서를 사용 하 여 장치를 설정 하 고 향후 코드 업데이트를 위한 배포 계획을 포함 하 여 Azure IoT Edge 솔루션을 개발에서 프로덕션으로 가져오는 방법을 알아봅니다.
 author: kgremban
 manager: philmea
@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1d8ba8452f5f2d4ab05083e1a97fa0b9ba75017f
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a19fdfaf70dffb7f0bcb8001475fee89b2d05086
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457315"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665817"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -173,7 +173,7 @@ Azure IoT Hub과 IoT Edge 간의 통신 채널은 항상 아웃바운드로 구�
 
 다음 검사 목록은 방화벽 규칙의 시작점입니다.
 
-   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용법 |
+   | URL(\* = 와일드카드) | 아웃바운드 TCP 포트 | 사용량 |
    | ----- | ----- | ----- |
    | mcr.microsoft.com  | 443 | Microsoft 컨테이너 레지스트리 |
    | global.azure-devices-provisioning.net  | 443 | DPS 액세스(선택 사항) |
@@ -224,7 +224,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 `daemon.json` 이라는 파일에이 정보를 추가 하거나 추가 하 고 장치 플랫폼의 올바른 위치에 배치 합니다.
 
-| 플랫폼 | Location |
+| 플랫폼 | 위치 |
 | -------- | -------- |
 | Linux | `/etc/docker/` |
 | Windows | `C:\ProgramData\iotedge-moby\config\` |
@@ -233,7 +233,7 @@ IoT Edge 배포를 테스트할 때는 일반적으로 사용자 디바이스에
 
 **옵션: 각 컨테이너 모듈에 대해 로그 설정 조정**
 
-각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+각 모듈의 **Createoptions** 에서이 작업을 수행할 수 있습니다. 다음은 그 예입니다.
 
 ```yml
 "createOptions": {

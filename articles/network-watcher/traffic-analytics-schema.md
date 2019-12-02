@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: vinigam
-ms.openlocfilehash: a678039b3386c3df290327238d3bf968a803d2c1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: ccfbb92c27e4508595f19c2ea6900730cde609b9
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229431"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74666378"
 ---
 # <a name="schema-and-data-aggregation-in-traffic-analytics"></a>트래픽 분석에서 스키마 및 데이터 집계
 
@@ -96,7 +96,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 
 다음은 스키마의 필드 및 표시 되는 내용입니다.
 
-| 필드 | 형식 | 설명 |
+| 필드 | 형식 | 의견 |
 |:---   |:---    |:---  |
 | TableName | AzureNetworkAnalytics_CL | 트래픽 분석 데이터에 대 한 테이블
 | SubType_s | FlowLog | 흐름 로그의 하위 형식입니다. "FlowLog"만 사용 하 고 SubType_s의 다른 값은 제품의 내부 작동에 사용 됩니다. |
@@ -143,7 +143,7 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | LocalNetworkGateway1_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 흐름의 원본 IP와 연결 된 로컬 네트워크 게이트웨이 |
 | LocalNetworkGateway2_s | \<SubscriptionID >/\<ResourceGroupName >/\<LocalNetworkGatewayName > | 흐름의 대상 IP와 연결 된 로컬 네트워크 게이트웨이 |
 | ConnectionType_s | 가능한 값은 VNetPeering 링, VpnGateway 및 Express 경로입니다. |    연결 형식 |
-| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | 연결 이름 |
+| ConnectionName_s | \<SubscriptionID >/\<ResourceGroupName >/\<ConnectionName > | 연결 이름입니다. 고 flowtype P2S의 경우 <gateway name>_로 형식이 지정 됩니다<VPN Client IP> |
 | ConnectingVNets_s | 공백으로 구분 된 가상 네트워크 이름 목록 | 허브 및 스포크 토폴로지의 경우 허브 가상 네트워크는 여기에 채워집니다. |
 | Country_s | 2 letter 국가 코드 (ISO 3166-1 알파-2) | 흐름 유형 ExternalPublic에 대해 채워집니다. PublicIPs_s 필드의 모든 IP 주소는 동일한 국가 코드를 공유 합니다. |
 | AzureRegion_s | Azure 지역 위치 | 흐름 유형 AzurePublic에 대해 채워집니다. PublicIPs_s 필드의 모든 IP 주소가 Azure 지역을 공유 합니다. |
@@ -157,11 +157,11 @@ https://{saName}@insights-logs-networksecuritygroupflowevent/resoureId=/SUBSCRIP
 | InboundBytes_d |  NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처된 대로 받은 바이트 수 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
 | OutboundBytes_d | NSG 규칙이 적용 된 네트워크 인터페이스에서 캡처된 것으로 보낸 바이트 수 | NSG 흐름 로그 스키마의 버전 2에만 채워집니다. |
 | CompletedFlows_d  |  | 이 값은 NSG 흐름 로그 스키마의 버전 2에 대해서만 0이 아닌 값으로 채워집니다. |
-| PublicIPs_s | < PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES\|\< | 막대로 구분 된 항목 |
-| SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES\|\< | 막대로 구분 된 항목 |
-| DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES\|\< | 막대로 구분 된 항목 |
+| PublicIPs_s | < PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES | 막대로 구분 된 항목 |
+| SrcPublicIPs_s | < SOURCE_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES | 막대로 구분 된 항목 |
+| DestPublicIPs_s | < DESTINATION_PUBLIC_IP >\|\<FLOW_STARTED_COUNT >\|\<FLOW_ENDED_COUNT >\|\<OUTBOUND_PACKETS >\|\<INBOUND_PACKETS >\|\<OUTBOUND_BYTES | 막대로 구분 된 항목 |
 
-### <a name="notes"></a>참고 사항
+### <a name="notes"></a>참고
 
 1. AzurePublic 및 ExternalPublic 흐름의 경우, 고객 소유 Azure VM IP는 VMIP_s 필드에 채워지며, 공용 IP 주소는 PublicIPs_s 필드에 채워집니다. 이러한 두 흐름 유형에 대해 SrcIP_s 및 DestIP_s 필드 대신 VMIP_s 및 PublicIPs_s를 사용 해야 합니다. AzurePublic 및 ExternalPublicIP 주소의 경우 고객 로그 분석 작업 영역에 수집 레코드 수가 최소화 되도록 추가로 집계 합니다. 이 필드는 곧 사용 되지 않으며, azure VM이 흐름의 원본 또는 대상 인지 여부에 따라 SrcIP_ 및 DestIP_s를 사용 해야 합니다.
 1. 흐름 유형에 대 한 세부 정보: 흐름에 포함 된 IP 주소에 따라 흐름을 다음 흐름 유형으로 분류 합니다.
