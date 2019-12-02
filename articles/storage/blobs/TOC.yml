@@ -334,14 +334,24 @@
                       href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                     - name: 저장된 액세스 정책 정의
                       href: ../common/storage-stored-access-policy-define-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: 암호화를 위해 고객 관리 키 사용
+            - name: Azure Storage 암호화 관리
               items:
-                - name: 포털
-                  href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: PowerShell
-                  href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-                - name: Azure CLI
-                  href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Blob이 암호화되어 있는지 확인
+                  href: storage-blob-encryption-status.md
+                - name: 스토리지 계정에 대한 암호화 키 관리
+                  items:
+                    - name: 계정에 대한 암호화 키 모델 확인
+                      href: ../common/storage-encryption-key-model-get.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                    - name: 고객 관리 암호화 키 구성
+                      items:
+                        - name: 포털
+                          href: ../common/storage-encryption-keys-portal.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: PowerShell
+                          href: ../common/storage-encryption-keys-powershell.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                        - name: Azure CLI
+                          href: ../common/storage-encryption-keys-cli.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: 요청 시 암호화 키 제공
+                  href: storage-blob-customer-provided-key.md
             - name: 클라이언트 쪽 암호화 구성
               items:
                 - name: .NET
