@@ -1,25 +1,17 @@
 ---
-title: Xamarin Android 앱용 Azure Mobile Apps 시작
-description: 이 자습서에 따라 Azure Mobile Apps를 사용하여 Xamarin Android 개발을 시작할 수 있습니다.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Xamarin Android 앱 시작
+description: 이 자습서에 따라 Azure Mobile Apps를 사용 하 여 Xamarin Android 개발을 시작할 수 있습니다.
 ms.assetid: 81649dd3-544f-40ff-b9b7-60c66d683e60
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 038ca0bd7690ac90470d9a739a47d0f634f1297b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 1bac9ac03971765f1afc4f15ff3de6cc4b7d3883
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388468"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668682"
 ---
 # <a name="create-a-xamarinandroid-app"></a>Xamarin.Android 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -57,11 +49,11 @@ ms.locfileid: "72388468"
 ## <a name="run-the-xamarinandroid-app"></a>Xamarin Android 앱 실행
 1. Xamarin Android 프로젝트를 엽니다.
 
-2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
+2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net 됩니다.
 
-3. 이 폴더에서 `ToDoActivity.cs` 파일을 엽니다.-xamarin/ZUMOAPPNAME/Todoactivity.java. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
+3. 이 폴더에서 파일 `ToDoActivity.cs`를 엽니다.-xamarin.ios/ZUMOAPPNAME/Todoactivity.java. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
 
-4. @No__t-0 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
+4. `ToDoActivity` 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

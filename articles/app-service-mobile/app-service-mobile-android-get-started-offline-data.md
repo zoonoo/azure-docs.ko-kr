@@ -1,24 +1,17 @@
 ---
-title: Azure 모바일 앱(Android)용 오프라인 동기화 사용
-description: App Service Mobile Apps를 사용하여 Android 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
-documentationcenter: android
-author: elamalani
-manager: crdun
-services: app-service\mobile
+title: 오프 라인 동기화 사용 (Android)
+description: App Service Mobile Apps를 사용 하 여 Android 응용 프로그램에서 오프 라인 데이터를 캐시 및 동기화 하는 방법을 알아봅니다.
 ms.assetid: 32a8a079-9b3c-4faf-8588-ccff02097224
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 9c845c09c6b05436017f98323dfa78185cd58aa6
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8449b4f92636a7b73d07c34515f33dc9dc6816ab
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388992"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668928"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Android 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

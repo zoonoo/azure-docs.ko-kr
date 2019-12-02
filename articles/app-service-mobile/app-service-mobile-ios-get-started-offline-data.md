@@ -1,25 +1,17 @@
 ---
-title: iOS 모바일 앱으로 오프라인 동기화 사용 | Microsoft Docs
+title: 오프 라인 동기화 사용 (iOS)
 description: Azure App Service Mobile Apps를 사용하여 iOS 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
-documentationcenter: ios
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
 ms.assetid: eb5b9520-0f39-4a09-940a-dadb6d940db8
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: f29a28f9a80b64ef0a6890fa8fc7ecd0ca205e66
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388765"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668492"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -43,7 +35,7 @@ Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워
 
 **QSTodoService.m**(Objective-C) 또는 **ToDoTableViewController.swift**(Swift)에서 **syncTable** 멤버 형식은 **MSSyncTable**입니다. 오프라인 동기화에는 **MSTable** 대신 이 동기화 테이블 인터페이스가 사용됩니다. 동기화 테이블이 사용되면 모든 작업이 로컬 저장소로 이동되고 명시적 밀어넣기 및 끌어오기 작업이 있는 원격 백 엔드와만 동기화됩니다.
 
- 동기화 테이블에 대한 참조를 얻으려면 **에서** syncTableWithName`MSClient` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
+ 동기화 테이블에 대한 참조를 얻으려면 `MSClient`에서 **syncTableWithName** 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
 
 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 관련 코드는 다음과 같습니다.
 
@@ -164,50 +156,50 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 ![MS_TableOperations 테이블 특성][defining-core-data-tableoperations-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id | Integer 64 |
-| itemId | 문자열 |
+| id | 정수 64 |
+| itemId | string |
 | properties | 이진 데이터 |
-| table | 문자열 |
-| tableKind | Integer 16 |
+| 테이블 | string |
+| tableKind | 정수 16 |
 
 
 **MS_TableOperationErrors**
 
  ![MS_TableOperationErrors 테이블 특성][defining-core-data-tableoperationerrors-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id |문자열 |
-| operationId |Integer 64 |
+| id |string |
+| operationId |정수 64 |
 | properties |이진 데이터 |
-| tableKind |Integer 16 |
+| tableKind |정수 16 |
 
  **MS_TableConfig**
 
  ![][defining-core-data-tableconfig-entity]
 
-| 특성 | 형식 |
+| 특성 | Type |
 | --- | --- |
-| id |문자열 |
-| key |문자열 |
-| keyType |Integer 64 |
-| table |문자열 |
-| value |문자열 |
+| id |string |
+| key |string |
+| keyType |정수 64 |
+| 테이블 |string |
+| 값 |string |
 
 ### <a name="data-table"></a>데이터 테이블
 
 **TodoItem**
 
-| 특성 | 형식 | 참고 |
+| 특성 | Type | 참고 |
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
-| complete | 부울 | 할 일 항목 필드 |
-| text |문자열 |할 일 항목 필드 |
-| createdAt | Date | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
-| updatedAt | Date | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
-| 버전 | 문자열 | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| complete | Boolean | 할 일 항목 필드 |
+| text |string |할 일 항목 필드 |
+| createdAt | 날짜 | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
+| updatedAt | 날짜 | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
+| 버전 | string | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.
@@ -275,7 +267,7 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 로컬 저장소를 서버와 동기화할 때 **MSSyncTable.pullWithQuery** 메서드를 사용했습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 * [Mobile Apps에서 오프라인 데이터 동기화]
 * [Cloud Cover: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
 

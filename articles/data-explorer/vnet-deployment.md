@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: a7a9efbf6fd9c3dbe6b16d12a54f743d5b0820ba
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 8dec673408b706a92a29f418af3bef4cc05a8d2d
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838208"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668567"
 ---
 # <a name="deploy-azure-data-explorer-into-your-virtual-network-preview"></a>Virtual Network (미리 보기)에 Azure 데이터 탐색기 배포
 
@@ -64,6 +64,9 @@ Azure 데이터 탐색기 클러스터를 호스트 하는 데 사용 되는 서
 [Azure 서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview) 을 사용 하면 azure 다중 테 넌 트 리소스를 가상 네트워크로 보호할 수 있습니다.
 Azure 데이터 탐색기 클러스터를 서브넷에 배포 하면 Azure 데이터 탐색기 서브넷에 대 한 기본 리소스를 제한 하는 동시에 [이벤트 허브](/azure/event-hubs/event-hubs-about) 또는 [Event Grid](/azure/event-grid/overview) 를 사용 하 여 데이터 연결을 설정할 수 있습니다.
 
+> [!NOTE]
+> [저장소](/azure/storage/common/storage-introduction) 및 [이벤트 허브]와 함께 eventgrid 설치 프로그램을 사용 하는 경우 구독에 사용 되는 저장소 계정은 [방화벽 구성](/azure/storage/common/storage-network-security)에서 신뢰할 수 있는 azure platform 서비스를 허용 하는 동시에 azure 데이터 탐색기의 서브넷에 대 한 서비스 끝점을 사용 하 여 잠글 수 있지만 이벤트 허브는 신뢰할 수 있는 [azure 플랫폼 서비스](/azure/event-hubs/event-hubs-service-endpoints)를 지원 하지 않으므로 서비스 끝점을 사용 하도록 설정할 수
+
 ## <a name="dependencies-for-vnet-deployment"></a>VNet 배포에 대 한 종속성
 
 ### <a name="network-security-groups-configuration"></a>네트워크 보안 그룹 구성
@@ -76,7 +79,7 @@ Azure 데이터 탐색기 클러스터를 서브넷에 배포 하면 Azure 데�
 | --- | --- | --- | --- |
 | 관리  |[Adx management addresses](#azure-data-explorer-management-ip-addresses)/AzureDataExplorerManagement (servicetag) | ADX 서브넷: 443  | TCP  |
 | 상태 모니터링  | [ADX 상태 모니터링 주소](#health-monitoring-addresses)  | ADX 서브넷: 443  | TCP  |
-| ADX 내부 통신  | ADX 서브넷: 모든 포트  | ADX 서브넷: 모든 포트  | 모두  |
+| ADX 내부 통신  | ADX 서브넷: 모든 포트  | ADX 서브넷: 모든 포트  | 전체  |
 | Azure 부하 분산 장치 인바운드 허용 (상태 프로브)  | AzureLoadBalancer  | ADX 서브넷: 80443  | TCP  |
 
 #### <a name="outbound-nsg-configuration"></a>아웃 바운드 NSG 구성
@@ -90,7 +93,7 @@ Azure 데이터 탐색기 클러스터를 서브넷에 배포 하면 Azure 데�
 | Azure Monitor 구성 다운로드  | ADX 서브넷  | [Azure Monitor 구성 끝점 주소](#azure-monitor-configuration-endpoint-addresses): 443 | TCP  |
 | Active Directory (해당 하는 경우) | ADX 서브넷 | AzureActiveDirectory: 443 | TCP |
 | 인증 기관 | ADX 서브넷 | 인터넷: 80 | TCP |
-| 내부 통신  | ADX 서브넷  | ADX 서브넷: 모든 포트  | 모두  |
+| 내부 통신  | ADX 서브넷  | ADX 서브넷: 모든 포트  | 전체  |
 | `sql\_request` 및 `http\_request` 플러그 인에 사용 되는 포트  | ADX 서브넷  | 인터넷: 사용자 지정  | TCP  |
 
 ### <a name="relevant-ip-addresses"></a>관련 IP 주소
@@ -121,7 +124,7 @@ Azure 데이터 탐색기 클러스터를 서브넷에 배포 하면 Azure 데�
 | 한국 남부 | 40.80.234.9 |
 | 미국 중북부 | 40.81.45.254 |
 | 북유럽 | 52.142.91.221 |
-| 남아프리카 북부 | 102.133.129.138 |
+| 남아프리카 공화국 북부 | 102.133.129.138 |
 | 남아프리카 공화국 서부 | 102.133.0.97 |
 | 미국 중남부 | 20.45.3.60 |
 | 동남아시아 | 40.119.203.252 |
@@ -251,7 +254,7 @@ crl3.digicert.com:80
 
 예를 들어 **미국 서 부** 지역의 경우 다음 udrs를 정의 해야 합니다.
 
-| Name | 주소 접두사 | 다음 홉 |
+| name | 주소 접두사 | 다음 홉 |
 | --- | --- | --- |
 | ADX_Management | 13.64.38.225/32 | 인터넷 |
 | ADX_Monitoring | 23.99.5.162/32 | 인터넷 |

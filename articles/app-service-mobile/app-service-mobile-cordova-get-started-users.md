@@ -1,25 +1,17 @@
 ---
-title: Mobile Apps를 사용하여 Apache Cordova에 인증 추가 | Microsoft Docs
-description: Azure App Service에서 Mobile Apps를 사용하여 Google, Facebook, Twitter, Microsoft를 비롯한 다양한 ID 공급자를 통해 Apache Cordova 앱의 사용자를 인증하는 방법을 알아봅니다.
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
+title: Apache Cordova에 대 한 인증 추가
+description: Azure App Service에서 Mobile Apps를 사용 하 여 Google, Facebook, Twitter, Microsoft 등의 id 공급자를 사용 하 여 Apache Cordova 앱의 사용자를 인증 하는 방법을 알아봅니다.
 ms.assetid: 10dd6dc9-ddf5-423d-8205-00ad74929f0d
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c42cf2c944457b6b738578f738cd338977df8185
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: f85c8e4f8eedccf3039038308f2262727fb18197
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388820"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668564"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Apache Cordova 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

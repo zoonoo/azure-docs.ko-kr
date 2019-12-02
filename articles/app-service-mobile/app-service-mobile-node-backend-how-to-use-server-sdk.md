@@ -1,25 +1,17 @@
 ---
-title: Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법 | Microsoft Docs
+title: Node.js 백 엔드 서버 SDK 사용
 description: Azure App Service Mobile Apps용 Node.js 백 엔드 서버 SDK를 사용하는 방법에 대해 알아봅니다.
-services: app-service\mobile
-documentationcenter: ''
-author: elamalani
-manager: elamalani
-editor: ''
 ms.assetid: e7d97d3b-356e-4fb3-ba88-38ecbda5ea50
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: fe5ced96a74bfbfbacf3ce1874d64711f6db7449
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388670"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668754"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Mobile Apps Node.js SDK를 사용하는 방법
 
@@ -140,7 +132,7 @@ Visual Studio 2015는 IDE 내에서 Node.js 애플리케이션 개발하도록 �
 
     파일을 저장합니다.
 
-1. 응용 프로그램을 로컬로 실행 하거나 (API가 `http://localhost:3000`에서 제공 됨) Azure에 게시 합니다.
+1. 응용 프로그램을 로컬로 실행 하거나 (API가 `http://localhost:3000`에 제공 됨) Azure에 게시 합니다.
 
 ### <a name="create-node-backend-portal"></a>Azure Portal을 사용하여 Node.js 백 엔드 만들기
 

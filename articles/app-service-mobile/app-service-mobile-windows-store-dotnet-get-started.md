@@ -1,25 +1,17 @@
 ---
-title: Azure Mobile Apps를 사용하는 UWP(유니버설 Windows 플랫폼) 만들기 | Microsoft Docs
+title: UWP 앱 만들기
 description: 이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 C#, Visual Basic 또는 JavaScript로 UWP(범용 Windows 플랫폼) 앱 개발을 시작할 수 있습니다.
-services: app-service\mobile
-documentationcenter: windows
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 47124296-2908-4d92-85e0-05c4aa6db916
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 3ddd5ef197740315add2960971c978addb7fe62a
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: a0f78239406567513c1eb94b48bf1090165d9185
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388556"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668694"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Azure 백 엔드를 사용하여 Windows 앱 만들기
 
@@ -60,11 +52,11 @@ ms.locfileid: "72388556"
 
 1. UWP 프로젝트를 엽니다.
 
-2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
+2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net 됩니다.
 
-3. 이 폴더에서 `App.xaml.cs` 파일을 엽니다.-windows-uwp-cs/ZUMOAPPNAME/. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
+3. 이 폴더에서 파일 `App.xaml.cs`를 엽니다.-windows-uwp-cs/ZUMOAPPNAME/. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
 
-4. @No__t-0 클래스에서 `ZUMOAPPURL` 매개 변수를 위의 공용 끝점으로 바꿉니다.
+4. `App` 클래스에서 `ZUMOAPPURL` 매개 변수를 위의 공용 끝점으로 바꿉니다.
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 

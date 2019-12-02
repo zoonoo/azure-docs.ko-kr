@@ -1,25 +1,17 @@
 ---
-title: Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 SDK 버전 관리 | Microsoft Docs
-description: Mobile Services와 Azure Mobile Apps에 대한 클라이언트 SDK의 목록 및 서버 SDK 버전과 호환성
-services: app-service\mobile
-documentationcenter: ''
-author: conceptdev
-manager: crdun
-editor: ''
+title: 클라이언트 및 서버 SDK 버전 관리
+description: Mobile Services 및 Azure Mobile Apps에 대 한 클라이언트 Sdk 및 서버 SDK 버전과의 호환성을 나열 합니다.
 ms.assetid: 35b19672-c9d6-49b5-b405-a6dcd1107cd5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.author: crdun
-ms.openlocfilehash: 5be72a4125b276d85174a7a056cbbc2c23053e89
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388877"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668852"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
 > [!NOTE]
@@ -72,7 +64,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="behavior-of-mobile-apps-backends"></a>Mobile Apps 백 엔드의 동작
 | ZUMO-API-VERSION | MS_SkipVersionCheck의 값 | 응답 |
 | --- | --- | --- |
-| x.y.z 또는 Null |True |200 - 확인 |
+| x.y.z 또는 Null |참 |200 - 확인 |
 | Null |False/지정되지 않음 |400 - 잘못된 요청 |
 | 1.x.y |False/지정되지 않음 |400 - 잘못된 요청 |
 | 2.0.0-2.x.y |False/지정되지 않음 |200 - 확인 |

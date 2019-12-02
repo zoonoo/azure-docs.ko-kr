@@ -1,24 +1,17 @@
 ---
-title: Android용 Azure Mobile Apps SDK를 사용하는 방법 | Microsoft Docs
+title: Android 용 SDK를 사용 하는 방법
 description: Android용 Azure Mobile Apps SDK를 사용하는 방법
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
 ms.assetid: 5352d1e4-7685-4a11-aaf4-10bd2fa9f9fc
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388909"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668902"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
 
@@ -315,7 +308,7 @@ List<MyDataTable> results = mDataTable
     .get()              // Converts the async into a sync result
 ```
 
-앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  Mobile Apps 백 엔드에 전송 하기 전에 쿼리가 [OData v3][19] 쿼리로 변환 됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 시간이 걸리므로 `.execute()` 메서드는 [`ListenableFuture<E>`][18]를 반환 합니다.
+앞의 예제는 모든 결과(서버가 설정한 최대 페이지 크기까지)를 반환합니다.  `.execute()` 메서드는 백 엔드에서 쿼리를 실행합니다.  Mobile Apps 백 엔드에 전송 하기 전에 쿼리가 [OData v3][19] 쿼리로 변환 됩니다.  수신되면 Mobile Apps 백 엔드는 SQL Azure 인스턴스에서 쿼리를 실행하기 전에 SQL 문으로 변환합니다.  네트워크 활동에는 시간이 걸리므로 `.execute()` 메서드는 [`ListenableFuture<E>`][18]반환 합니다.
 
 ### <a name="filtering"></a>반환된 데이터 필터링
 

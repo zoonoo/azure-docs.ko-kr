@@ -1,25 +1,17 @@
 ---
-title: Xamarin.iOS 앱용 Azure App Service Mobile Apps 시작 | Microsoft Docs
+title: Xamarin.ios 앱 시작
 description: 이 자습서에 따라 Mobile Apps를 사용하여 Xamarin.iOS 개발을 시작할 수 있습니다.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: 14428794-52ad-4b51-956c-deb296cafa34
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 14fb925896fc94def59b753711eb74f155b2e139
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 2bb13393a9f348d85ab9fc964b784ba4d4d6a783
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388352"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668625"
 ---
 # <a name="create-a-xamarinios-app"></a>Xamarin.iOS 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
@@ -50,11 +42,11 @@ ms.locfileid: "72388352"
 ## <a name="run-the-xamarinios-app"></a>Xamarin.ios 앱 실행
 1. Xamarin.ios 프로젝트를 엽니다.
 
-2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
+2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net 됩니다.
 
-3. 이 폴더-xamarin.ios/ZUMOAPPNAME 폴더에서 `QSTodoService.cs` 파일을 엽니다. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
+3. 이 폴더의 파일 `QSTodoService.cs`-xamarin.ios/ZUMOAPPNAME을 엽니다. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
 
-4. @No__t-0 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
+4. `QSTodoService` 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 

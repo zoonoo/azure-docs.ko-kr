@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 4b67e7a2ee9f2d734d927b3488cc15ca310f4295
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: ae645f15672693466ba87f2364c756ed164ce629
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559053"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669162"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. 데이터는 컴퓨터에서 다양 한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log Analytics 에이전트는 작업 영역에 크래시 덤프 파일을 복사 합니다.
@@ -211,7 +211,7 @@ Security center는 Log Analytics 에이전트 확장을 기존 Operations Manage
 - 기존 VM 확장이 있음<br>
     - 모니터링 에이전트가 확장으로 설치 될 때 확장 구성은 단일 작업 영역에만 보고 하도록 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "securityFree" 솔루션이 설치 되어 있으면 Security Center는 이미 연결 된 작업 영역에 있는 VM의 보안 데이터를 저장 합니다. 이 프로세스에서 확장 버전을 최신 버전으로 업그레이드할 수 Security Center.  
     - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택 하 고, VM을 선택 하 고, Log Analytics 에이전트 연결을 확인할 수 있습니다. 
-    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 되지. 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
+    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 지원 되는지 확인 합니다. 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
  
 ### 자동 프로비전 끄기 <a name="offprovisioning"></a>
 언제든지 보안 정책에서 이 설정을 해제하여 리소스 자동 프로비전을 끌 수 있습니다. 
@@ -288,7 +288,7 @@ Log Analytics 에이전트를 수동으로 설치 하 여 Vm에서 보안 데이
 
       - Windows VM에 설치하는 경우:
         
-            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
+            Set-AzVMExtension -ResourceGroupName $vm.ResourceGroupName -VMName $vm.Name -Name "MicrosoftMonitoringAgent" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "MicrosoftMonitoringAgent" -TypeHandlerVersion '1.0' -Location $vm.Location -settings $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True 
     
       - Linux VM에 설치하는 경우:
         

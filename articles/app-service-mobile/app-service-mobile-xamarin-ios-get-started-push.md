@@ -1,25 +1,17 @@
 ---
-title: Azure App Service를 사용하여 Xamarin.iOS 앱에 푸시 알림 추가
-description: Azure App Service를 사용하여Xamarin.iOS 앱에 푸시 알림을 전송하는 방법을 알아봅니다.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Xamarin.ios 앱에 푸시 알림 추가
+description: Azure App Service를 사용 하 여 Xamarin.ios 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
 ms.assetid: 2921214a-49f8-45e1-a306-a85ce21defca
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 5f968de25226528cb7aa016a4c301d07e53f2695
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 39e06587e48f30ce099eafaf7cfdb2fb2269d24f
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388384"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668639"
 ---
 # <a name="add-push-notifications-to-your-xamarinios-app"></a>Xamarin.iOS 앱에 푸시 알림 추가
 

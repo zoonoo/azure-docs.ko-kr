@@ -1,25 +1,17 @@
 ---
-title: Azure App Service Mobile Apps에서 Android 앱 만들기 | Microsoft Docs
-description: 이 자습서에 따라 Azure 모바일 앱 백 엔드를 사용하여 Android 개발을 시작할 수 있습니다.
-services: app-service\mobile
-documentationcenter: android
-author: elamalani
-manager: crdun
-editor: ''
+title: Android 앱 만들기
+description: 이 자습서에 따라 Android 앱 개발을 위한 Azure 모바일 앱 백 엔드를 사용 하 여 시작 하세요.
 ms.assetid: 355f0959-aa7f-472c-a6c7-9eecea3a34a9
-ms.service: app-service-mobile
-ms.workload: na
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.author: emalani
-ms.openlocfilehash: 0e12017918432ff264375a9489478ac81f3e69b2
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: d63faf5c06e648e4bd886d6e62c35a2b451c8c44
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388927"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668596"
 ---
 # <a name="create-an-android-app"></a>Android 앱 만들기
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]

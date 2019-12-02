@@ -7,22 +7,22 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 49c55b580abdaea6c876a0fac4e7dd4e73d496af
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: eddfb9a8f2e3c034e50dc3bc1cdf4983a6163079
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643836"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667854"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure 데이터 탐색기 클러스터 및 데이터베이스 만들기
 
 > [!div class="op_single_selector"]
-> * [포털](create-cluster-database-portal.md)
+> * [Portal](create-cluster-database-portal.md)
 > * [CLI](create-cluster-database-cli.md)
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
-> * [ARM 템플릿](create-cluster-database-resource-manager.md)
+> * [Azure Resource Manager 템플릿](create-cluster-database-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 
 
@@ -94,7 +94,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 }
 ```
 
-더 많은 템플릿 샘플을 찾으려면 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 참조 하세요.
+더 많은 샘플 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)에서 찾을 수 있습니다.
 
 ## <a name="deploy-the-template-and-verify-template-deployment"></a>템플릿 배포 및 템플릿 배포 확인
 
@@ -108,7 +108,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     **Azure에 배포** 단추를 선택하면 Azure Portal에서 배포 양식을 작성할 수 있는 페이지로 이동하게 됩니다.
 
-    ![Azure에 배포](media/create-cluster-database-resource-manager/deploy-2-azure.png)
+    ![Deploy to Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
     형식을 사용 하 여 [Azure Portal에서 템플릿을 편집 하 고 배포할](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) 수 있습니다.
 
@@ -121,7 +121,7 @@ Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 �
 
 #### <a name="deploy-the-template-using-powershell"></a>Powershell을 사용 하 여 템플릿 배포
 
-1. 다음 코드 블록에서 **시도** 를 선택 하 고 지침에 따라 Azure Cloud shell에 로그인 합니다.
+1. 다음 코드 블록에서 **사용해보기**를 선택한 다음, 지침에 따라 Azure Cloud 셸에 로그인합니다.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -137,7 +137,7 @@ Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 �
     ```
 
 1. **복사**를 선택하여 PowerShell 스크립트를 복사합니다.
-1. 셸 콘솔을 마우스 오른쪽 단추로 클릭 한 다음 **붙여넣기**를 선택 합니다.
+1. 셸 콘솔 창을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 Azure 데이터 탐색기 클러스터와 데이터베이스를 만드는 데 몇 분이 걸립니다.
 
 #### <a name="verify-the-deployment-using-powershell"></a>PowerShell을 사용 하 여 배포 확인
@@ -155,26 +155,7 @@ Get-AzKustoCluster -ResourceGroupName $resourceGroupName -Name $clusterName
 Write-Host "Press [ENTER] to continue ..."
 ```
 
-## <a name="clean-up-resources"></a>리소스 정리
-
-Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다. 
-
-### <a name="clean-up-resources-using-the-azure-portal"></a>Azure Portal를 사용 하 여 리소스 정리
-
-[리소스 정리](create-cluster-database-portal.md#clean-up-resources)의 단계에 따라 Azure Portal에서 리소스를 삭제 합니다.
-
-### <a name="clean-up-resources-using-powershell"></a>PowerShell을 사용하여 리소스 정리
-
-Cloud Shell 아직 열려 있으면 첫 번째 줄 (읽기-호스트)을 복사/실행할 필요가 없습니다.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
-$resourceGroupName = "${projectName}rg"
-
-Remove-AzResourceGroup -ResourceGroupName $resourceGroupName
-
-Write-Host "Press [ENTER] to continue ..."
-```
+[!INCLUDE [data-explorer-clean-resources](../../includes/data-explorer-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,30 +7,28 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 9f1bd795af2802af642d48b4a16a55425c5f4c7f
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cbad0e5409dfaa25eda040e3c7409b49728a4169
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028481"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667419"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>IoT Hub에서 Azure 데이터 탐색기로 데이터 수집 (미리 보기)
 
 > [!div class="op_single_selector"]
-> * [포털](ingest-data-iot-hub.md)
+> * [Portal](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
+> * [Azure Resource Manager 템플릿](data-connection-iot-hub-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 빅 데이터 스트리밍 플랫폼과 IoT 수집 서비스인 IoT Hub에서 수집 (데이터 로드)을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-
 * 데이터베이스 이름이 *testdb*인 [테스트 클러스터 및 데이터베이스를](create-cluster-database-portal.md) 만듭니다.
-
 * 장치 시뮬레이션에 대 한 [샘플 앱](https://github.com/Azure-Samples/azure-iot-samples-csharp) 및 설명서입니다.
-
 * 샘플 앱을 실행하기 위한 [Visual Studio 2019](https://visualstudio.microsoft.com/vs/).
 
 ## <a name="create-an-iot-hub"></a>Iot Hub 만들기
@@ -116,7 +114,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
 1. 원하는 텍스트 편집기에서 **SimulatedDevice.cs** 파일을 엽니다.
 
-    @No__t-0 변수 값을 장치 등록의 장치 연결 문자열 ( [IoT Hub에 장치 등록](#register-a-device-to-the-iot-hub))로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
+    `s_connectionString` 변수의 값을 장치 등록에서 장치를 [IoT Hub에 등록](#register-a-device-to-the-iot-hub)의 장치 연결 문자열로 바꿉니다. 그런 다음 변경 사항을 **SimulatedDevice.cs** 파일에 저장합니다.
 
 1. 로컬 터미널 창에서 다음 명령을 실행하여 시뮬레이션된 디바이스 애플리케이션에 필요한 패키지를 설치합니다.
 

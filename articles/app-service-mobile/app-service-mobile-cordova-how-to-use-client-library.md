@@ -1,25 +1,17 @@
 ---
-title: Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법
+title: Apache Cordova 플러그 인을 사용 하는 방법
 description: Azure Mobile Apps용 Apache Cordova 플러그인 사용 방법
-services: app-service\mobile
-documentationcenter: javascript
-author: elamalani
-manager: crdun
-editor: ''
 ms.assetid: a56a1ce4-de0c-4f3c-8763-66252c52aa59
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 25bff77da6c2bd89916fe40ebb153ff9631e62eb
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ecca8f719a01abe68b368987fce4ea883193e844
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388798"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668499"
 ---
 # <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Azure Mobile Apps용 Apache Cordova 클라이언트 라이브러리를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
@@ -112,7 +104,7 @@ Apache Cordova 앱에 인증을 사용할 때는 다음 Cordova 플러그 인을
              "https://localhost:3000"
          ],
 
-    URL을 서비스의 URL로 바꿉니다.  예를 들어 `http://localhost:3000` (node.js 샘플 서비스의 경우) 또는 `http://localhost:4400` (Ripple 서비스의 경우)이 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
+    URL을 서비스의 URL로 바꿉니다.  예를 들어 `http://localhost:3000` (node.js 샘플 서비스의 경우) 또는 `http://localhost:4400` (Ripple 서비스의 경우)가 있습니다.  그러나 이러한 URL은 예제일 뿐입니다. 예에서 언급된 서비스를 포함하여 사용자의 상황이 다를 수 있습니다.
 8. 화면 오른쪽 위에 있는 **읽기/쓰기** 단추를 클릭합니다.
 9. 녹색 **배치** 단추를 클릭합니다.
 

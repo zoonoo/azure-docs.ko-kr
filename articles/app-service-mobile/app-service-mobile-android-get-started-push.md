@@ -1,25 +1,17 @@
 ---
-title: Mobile Apps를 사용하여 Android 앱에 푸시 알림 추가 | Microsoft Docs
+title: Android 앱에 푸시 알림 추가
 description: Mobile Apps를 사용하여 Android 앱에 푸시 알림을 보내는 방법에 대해 알아봅니다.
-services: app-service\mobile
-documentationcenter: android
-manager: crdun
-editor: ''
-author: elamalani
 ms.assetid: 9058ed6d-e871-4179-86af-0092d0ca09d3
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: 539859ba73c8a26d6f7e8f25b9e7453d987a52bd
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: ce4ebe9e8874e779b8da16e9c30fcfc3ca46754e
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389021"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668604"
 ---
 # <a name="add-push-notifications-to-your-android-app"></a>Android 앱에 푸시 알림 추가
 
@@ -36,7 +28,7 @@ ms.locfileid: "72389021"
 
 다운로드한 빠른 시작 서버 프로젝트를 사용하지 않는 경우 푸시 알림 확장 패키지가 필요합니다. 자세한 내용은 [Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md)을 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 다음이 필요합니다.
 

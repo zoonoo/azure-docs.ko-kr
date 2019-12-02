@@ -7,23 +7,26 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.openlocfilehash: 2afe3da8b4d4bee31b17320ad976e795e91d410a
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: a0fe86e2dcb802b822cb08ed0922b5da9c5cfd1c
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71997242"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667289"
 ---
 # <a name="create-database-and-table-policies-for-azure-data-explorer-by-using-python"></a>Python을 사용 하 여 Azure 데이터 탐색기에 대 한 데이터베이스 및 테이블 정책 만들기
 
+> [!div class="op_single_selector"]
+> * [C#](database-table-policies-csharp.md)
+> * [Python](database-table-policies-python.md)
+>
+
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에 대 한 데이터베이스 및 테이블 정책을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-
 * [테스트 클러스터 및 데이터베이스](create-cluster-database-python.md)
-
 * [테스트 테이블](python-ingest-data.md#create-a-table-on-your-cluster)
 
 ## <a name="install-the-data-libraries"></a>데이터 라이브러리 설치
@@ -34,8 +37,8 @@ pip install azure-mgmt-kusto
 pip install azure-kusto-data (Optional, for changing table's policies)
 ```
 
-## <a name="authentication"></a>인증
-이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [테스트 클러스터 및 데이터베이스](create-cluster-database-csharp.md#authentication)에서 인증에 동일한 Azure AD 응용 프로그램을 사용할 수 있습니다. 다른 Azure AD 응용 프로그램을 사용 하려는 경우 [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 참조 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID` 및 `Client Secret`를 가져오는 방법을 보여 줍니다. 새 Azure AD 응용 프로그램을 데이터베이스의 보안 주체로 추가 해야 할 수도 있습니다. [azure 데이터 탐색기 데이터베이스 사용 권한 관리](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)를 참조 하세요.    
+## <a name="authentication"></a>Authentication
+이 문서의 예제를 실행 하려면 리소스에 액세스할 수 있는 Azure AD 응용 프로그램 및 서비스 주체가 필요 합니다. [테스트 클러스터 및 데이터베이스](create-cluster-database-csharp.md#authentication)에서 인증에 동일한 Azure AD 응용 프로그램을 사용할 수 있습니다. 다른 Azure AD 응용 프로그램을 사용 하려는 경우 [AZURE ad 응용 프로그램 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) 를 참조 하 여 무료 Azure Ad 응용 프로그램을 만들고 구독 범위에서 역할 할당을 추가 합니다. 또한 `Directory (tenant) ID`, `Application ID`및 `Client Secret`를 가져오는 방법도 보여 줍니다. 새 Azure AD 응용 프로그램을 데이터베이스의 보안 주체로 추가 해야 할 수도 있습니다. [azure 데이터 탐색기 데이터베이스 사용 권한 관리](https://docs.microsoft.com/azure/data-explorer/manage-database-permissions)를 참조 하세요.    
 
 ## <a name="alter-database-retention-policy"></a>Alter database 보존 정책
 일시 삭제 기간이 10 일인 보존 정책을 설정 합니다.

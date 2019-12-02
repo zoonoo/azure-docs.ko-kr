@@ -1,25 +1,17 @@
 ---
-title: Azure 모바일 앱에 대해 오프라인 동기화 사용(Cordova) | Microsoft Docs
-description: App Service 모바일 앱을 사용하여 Cordova 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
-documentationcenter: cordova
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
+title: 오프 라인 동기화 사용 (Cordova)
+description: App Service 모바일 앱을 사용 하 여 Cordova 응용 프로그램에서 오프 라인 데이터를 캐시 및 동기화 하는 방법을 알아봅니다.
 ms.assetid: 1a3f685d-f79d-4f8b-ae11-ff96e79e9de9
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-cordova-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: c5fcc98bf3da79d1978da6e67535a5a93a8fe321
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: aae78285b5ed13031275b4969befa2e1d67bf5b7
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388844"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668533"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Cordova 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
@@ -72,7 +64,7 @@ ms.locfileid: "72388844"
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    이전 코드를 추가하면 로컬 저장소를 초기화하고 Azure 백 엔드에서 사용되는 열 값과 일치하는 로컬 테이블을 정의합니다. 이 코드에는 모든 열 값을 포함할 필요가 없습니다.  @No__t-0 필드는 모바일 백 엔드에서 유지 관리 되며 충돌 해결에 사용 됩니다.
+    이전 코드를 추가하면 로컬 저장소를 초기화하고 Azure 백 엔드에서 사용되는 열 값과 일치하는 로컬 테이블을 정의합니다. 이 코드에는 모든 열 값을 포함할 필요가 없습니다.  `version` 필드는 모바일 백 엔드에 의해 유지 관리 되며 충돌 해결에 사용 됩니다.
 
     **getSyncContext**를 호출하여 동기화 컨텍스트에 대한 참조를 가져옵니다. 동기화 컨텍스트를 사용하면 모든 테이블의 변경 내용을 추적하고 밀어넣어서 테이블 관계를 보존할 수 있습니다. `.push()`를 호출하는 경우 클라이언트 앱을 수정합니다.
 

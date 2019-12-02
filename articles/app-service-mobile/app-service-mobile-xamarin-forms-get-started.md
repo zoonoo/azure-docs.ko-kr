@@ -1,24 +1,17 @@
 ---
-title: Xamarin.Forms을 사용하여 Mobile Apps 시작
+title: Xamarin.ios 시작
 description: 이 자습서에 따라 Mobile Apps를 사용하여 Xamarin.Forms 개발을 시작할 수 있습니다.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
 ms.assetid: 5e692220-cc89-4548-96c8-35259722acf5
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e891bc34840e8c8bb61be1a9da607c43a93f2d17
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 69a9b3294bf080f7ae1516b0acbfc4be077518f4
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388455"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668658"
 ---
 # <a name="create-a-xamarinforms-app-with-azure"></a>Azure를 사용하여 Xamarin.Forms 앱 만들기
 
@@ -56,11 +49,11 @@ Xamarin에 대 한 Visual Studio Tools는 솔루션을 여는 데 필요 합니�
 
 ### <a name="visual-studio-windows-and-mac"></a>Visual Studio (Windows 및 Mac)
 
-1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. @No__t-0 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename은 https://test123.azurewebsites.net 이 됩니다.
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net 됩니다.
 
-2. 이 폴더-xamarin.ios/ZUMOAPPNAME 폴더에서 `Constants.cs` 파일을 엽니다. 응용 프로그램 이름은 `ZUMOAPPNAME`입니다.
+2. 이 폴더에서 파일 `Constants.cs` (xamarin.ios/ZUMOAPPNAME)를 엽니다. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
 
-3. @No__t-0 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
+3. `Constants.cs` 클래스에서 `ZUMOAPPURL` 변수를 위의 공용 끝점으로 바꿉니다.
 
     `public static string ApplicationURL = @"ZUMOAPPURL";`
 
