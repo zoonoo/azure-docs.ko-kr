@@ -1,26 +1,20 @@
 ---
 title: 배포 FAQ - Azure App Service | Microsoft Docs
 description: Azure App Service Web Apps 기능의 배포에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 11/01/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 0a01f25894d1226466473dec7333859c7415f1fd
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 25f43051f11d42c4f8565039d3168f2ae162eb37
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121196"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671680"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 배포 FAQ
 
@@ -39,7 +33,7 @@ ms.locfileid: "71121196"
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this-error"></a>Visual Studio에서 배포하려고 할 때 오류 메시지가 표시됩니다. 이 오류를 해결 어떻게 할까요??
 
-다음과 같은 메시지가 나타나면 이전 버전의 SDK를 사용하는 것일 수 있습니다. "리소스 그룹 'YourResourceGroup'에서 'YourResourceName' 리소스를 배포하는 동안 오류가 발생했습니다. MissingRegistrationForLocation: 구독이 '미국 중부' 위치의 '구성 요소' 리소스 종류에 대해 등록되지 않았습니다. 이 위치에 액세스할 수 있도록이 공급자를 다시 등록 합니다. " 
+다음 메시지가 표시되면 SDK의 이전 버전을 사용하고 있을 수 있습니다. “리소스 그룹 ‘YourResourceGroup’의 ‘YourResourceName’ 리소스에 대한 배포에서 오류가 발생했습니다. MissingRegistrationForLocation: 구독이 ‘Central US’ 위치의 ‘components’ 리소스 형식에 대해 등록되지 않았습니다. 이 위치에 액세스할 수 있도록이 공급자를 다시 등록 합니다. " 
 
 이 오류를 해결하려면 [최신 SDK](https://azure.microsoft.com/downloads/)로 업그레이드합니다. 이 메시지가 표시되고 최신 SDK가 있으면 지원 요청을 제출하세요.
 

@@ -1,26 +1,18 @@
 ---
-title: Linux의 App Service에 대한 FAQ - Azure | Microsoft Docs
-description: Linux의 Azure App Service에 대한 FAQ.
+title: 기본 제공 컨테이너 실행 FAQ
+description: Azure App Service의 기본 제공 Linux 컨테이너에 대 한 질문과 대답을 찾습니다.
 keywords: Azure App Service, 웹앱, FAQ, Linux, OS, 컨테이너에 대한 웹앱, 다중 컨테이너, 다중 컨테이너
-services: app-service
-documentationCenter: ''
 author: msangapu-msft
-manager: stefsch
-editor: ''
-ms.assetid: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fa7b6a02ba287c7f51284a28ce41b2291317f99c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: bb0f2e3fc3b84f5e1f9fe999b31fffadaa5915d4
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066900"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687589"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Linux의 Azure App Service에 대한 FAQ
 
@@ -30,7 +22,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 ## <a name="built-in-images"></a>기본 제공 이미지
 
-**플랫폼에서 제공하는 기본 제공 Docker 컨테이너를 분기하려고 합니다. 이러한 파일은 어디서 찾을 수 있나요?**
+**플랫폼에서 제공 하는 기본 제공 Docker 컨테이너를 분기 하려고 합니다. 이러한 파일은 어디에서 찾을 수 있나요?**
 
 [GitHub](https://github.com/azure-app-service)에서 모든 Docker 파일을 찾을 수 있습니다. [Docker Hub](https://hub.docker.com/u/appsvc/)에서 모든 Docker 컨테이너를 찾을 수 있습니다.
 
@@ -38,13 +30,13 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 **런타임 스택을 구성할 때 시작 파일 섹션에 대해 예상되는 값은 무엇인가요?**
 
-| 스택           | 예상 값                                                                         |
+| 겹치기           | 예상 값                                                                         |
 |-----------------|----------------------------------------------------------------------------------------|
 | Java SE         | JAR 앱을 시작 하는 명령 (예: `java -jar my-app.jar --server.port=80`) |
-| Tomcat, Wildfly | 필요한 구성을 수행할 스크립트의 위치입니다 (예: `/home/site/deployments/tools/startup_script.sh`).          |
+| Tomcat, Wildfly | 필요한 구성을 수행 하는 스크립트의 위치 (예: `/home/site/deployments/tools/startup_script.sh`)          |
 | Node.js         | PM2 구성 파일 또는 스크립트 파일                                |
-| .NET Core       | 컴파일된 DLL 이름으로,`dotnet <myapp>.dll`                                 |
-| Ruby            | 앱을 초기화 하려는 Ruby 스크립트                     |
+| .NET Core       | `dotnet <myapp>.dll` 컴파일된 DLL 이름입니다.                                 |
+| 루비            | 앱을 초기화 하려는 Ruby 스크립트                     |
 
 이러한 명령이 나 스크립트는 기본 제공 Docker 컨테이너가 시작 된 후 응용 프로그램 코드를 시작 하기 전에 실행 됩니다.
 
@@ -68,7 +60,7 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 ## <a name="continuous-integration-and-deployment"></a>지속적인 통합 및 배포
 
-**Docker Hub에서 이미지를 업데이트한 후에도 웹앱에서 여전히 기존 Docker 컨테이너 이미지를 사용합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원하나요?**
+**Docker 허브에서 이미지를 업데이트 한 후에도 웹 앱은 여전히 이전 Docker 컨테이너 이미지를 사용 합니다. 사용자 지정 컨테이너의 지속적인 통합 및 배포를 지원 하나요?**
 
 예, Azure Container Registry 또는 DockerHub에 대한 지속적인 통합/배포를 설정하려면 [Web App for Containers를 사용한 지속적인 배포](./app-service-linux-ci-cd.md) 문서를 확인하세요. 프라이빗 레지스트리의 경우 웹앱을 중지했다가 다시 시작하여 컨테이너를 새로 고칠 수 있습니다. 또는 컨테이너를 강제로 새로 고침하도록 더미 애플리케이션을 변경 또는 추가할 수 있습니다.
 
@@ -80,11 +72,11 @@ Linux의 App Service를 릴리스하면서 현재 플랫폼에 기능을 추가�
 
 예. `WEBSITE_WEBDEPLOY_USE_SCM`이라는 앱 설정을 *false*로 설정해야 합니다.
 
-**Linux 웹앱을 사용할 때 내 애플리케이션의 Git 배포가 실패합니다. 이 문제를 어떻게 해결할 수 있나요?**
+**Linux 웹 앱을 사용 하는 경우 내 응용 프로그램의 Git 배포가 실패 합니다. 문제를 해결 하려면 어떻게 해야 하나요?**
 
 Linux 웹앱에 대한 Git 배포가 실패하면 다음 옵션 중 하나를 선택하여 애플리케이션 코드를 배포할 수 있습니다.
 
-- 지속적인 업데이트(미리 보기) 기능 사용: Azure 지속적인 업데이트를 사용 하도록 앱의 소스 코드를 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
+- 지속적인 업데이트 (미리 보기) 기능 사용: azure 지속적인 업데이트를 사용 하도록 앱의 소스 코드를 Azure DevOps Git 리포지토리 또는 GitHub 리포지토리에 저장할 수 있습니다. 자세한 내용은 [Linux 웹앱에 지속적인 업데이트를 구성하는 방법](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/)을 참조하세요.
 
 - [ZIP 배포 API](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) 사용: 이 API를 사용하려면 [웹앱에 SSH를 실행하고](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support) 코드를 배포할 폴더로 이동합니다. 다음 코드를 실행합니다.
 
@@ -116,9 +108,9 @@ const io = require('socket.io')(server,{
 
 ## <a name="custom-containers"></a>사용자 지정 컨테이너
 
-**나만의 사용자 지정 컨테이너를 사용하고 있습니다. `/home/` 디렉터리에 대한 SMB 공유를 플랫폼에 탑재하려 합니다.**
+**사용자 지정 컨테이너를 사용 하 고 있습니다. 플랫폼에서 `/home/` 디렉터리에 SMB 공유를 탑재 하려고 합니다.**
 
-설정이 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` **지정** 되지 않았거나 *true*로 설정 된 경우 디렉터리 `/home/` 는 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
+`WEBSITES_ENABLE_APP_SERVICE_STORAGE` 설정이 **지정** 되지 않았거나 *true*로 설정 된 경우 `/home/` 디렉터리가 확장 인스턴스 간에 **공유** 되 고 기록 된 파일은 다시 시작 될 때 **유지** 됩니다. 명시적으로 `WEBSITES_ENABLE_APP_SERVICE_STORAGE` *false* 로 설정 하면 탑재를 사용 하지 않도록 설정 됩니다.
 
 **내 사용자 지정 컨테이너는 시작하는 데 시간이 오래 걸리고 플랫폼이 시작을 마무리하기 전에 컨테이너를 다시 시작합니다.**
 
@@ -144,7 +136,7 @@ const io = require('socket.io')(server,{
 
 SCM 사이트는 별도의 컨테이너에서 실행됩니다. 사용자가 앱 컨테이너의 파일 시스템 또는 실행 중인 프로세스를 확인할 수 없습니다.
 
-**내 사용자 지정 컨테이너가 포트 80 이외의 포트를 수신합니다. 해당 포트로 요청을 라우팅하도록 내 앱을 구성하려면 어떻게 합니까?**
+**사용자 지정 컨테이너는 포트 80 이외의 포트를 수신 대기 합니다. 앱을 구성 하 여 요청을 해당 포트로 라우팅하도록 하려면 어떻게 해야 하나요?**
 
 자동 포트 검색이 있습니다. *WEBSITES_PORT*라는 앱 설정을 지정하고 예상되는 포트 번호 값을 지정할 수도 있습니다. 이전에 플랫폼은 *포트* 앱 설정을 사용했습니다. 이 앱 설정의 사용을 중단하고 *WEBSITES_PORT*를 단독으로 사용할 계획입니다.
 

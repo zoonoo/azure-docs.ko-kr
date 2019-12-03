@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 5ae64371bd114a898ddca874e23b499bc4a2b8a3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128770"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672568"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -21,6 +21,7 @@ ms.locfileid: "74128770"
 ## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 진행 하기 전에 FarmBeats를 설치 하 고 IoT에서 기록 데이터를 수집 했는지 확인 합니다.
+또한 아래 단계에서 설명한 대로 파트너 액세스를 사용 하도록 설정 해야 합니다.
 
 ## <a name="enable-partner-access"></a>파트너 액세스 사용
 
@@ -74,24 +75,24 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 - **센서** 센서 센서 센서는 값을 기록 하는 실제 센서에 해당 합니다. / 센서는 일반적으로 장치 ID를 사용 하 여 장치에 연결 됩니다.  
 
 
-|        장치 모델   |  제안   |
+|        장치 모델   |  추천   |
 | ------- | -------             |
 |     유형 (노드, 게이트웨이)        |          별 1개      |
 |          제조업체            |         별 2개     |
 |  ProductCode                    |  장치 제품 코드 또는 모델 이름/번호입니다. 예: EnviroMonitor # 6800.  |
 |            포트          |     포트 이름 및 유형 (디지털/아날로그)
-|     이름                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.
+|     name                 |  리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.
       설명     | 모델에 대 한 의미 있는 설명 제공
-|    속성          |    제조업체의 추가 속성   |
+|    properties          |    제조업체의 추가 속성   |
 |    **디바이스**             |                      |
 |   DeviceModelId     |     연결 된 장치 모델의 ID  |
 |  hardwareId          | MAC 주소 등의 장치에 대 한 고유 ID
 |  reportingInterval        |   보고 간격 (초)
-|  Location            |  장치 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)   
+|  위치            |  장치 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)   
 |ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드는 게이트웨이로 parentDeviceId를 포함 합니다.  |
-|    이름            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
+|    name            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
 |     설명       |      의미 있는 설명 제공  |
-|     속성    |  제조업체의 추가 속성
+|     properties    |  제조업체의 추가 속성
 |     **센서 모델**        |          |
 |       유형 (아날로그, 디지털)          |      아날로그 또는 디지털 인지 여부를 나타내는 센서 유형       |
 |          제조업체            |       센서의 제조업체입니다.     |
@@ -101,18 +102,18 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |    sensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, Raingge, RelativeHumidity, Salinity, SoilMoisture 등의 시스템 정의 형식은 다음과 같습니다. SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
 |        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 다음은 시스템 정의 단위입니다. NoUnit, 섭씨로, 화씨, 켈빈, Rankine, 파스칼식, 이란, PSI, 밀리미터, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, 학위, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, 백분율, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, 리터, MilliLiter, Seconds,, MicroMolPerMeterSquaredPerSecond, InchesPerHour,를 추가 하려면 다음을 참조 하세요. ExtendedType API.|
 |    SensorMeasures > aggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
-|          이름            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.  |
+|          name            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름/제품 이름입니다.  |
 |    설명        | 모델에 대 한 의미 있는 설명 제공  |
-|   속성       |  제조업체의 추가 속성  |
+|   properties       |  제조업체의 추가 속성  |
 |    **수신**      |          |
 | hardwareId          |   제조업체에서 설정한 센서의 고유 ID |
 |  sensorModelId     |    연결 된 센서 모델의 ID   |
 | location          |  센서 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)|
 |   포트 > 이름        |  장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다. |
 |    DeviceID  |    센서가 연결 된 장치의 ID     |
-| 이름            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름/제품 이름 및 모델 번호/제품 코드를 사용할 수 있습니다.|
+| name            |   리소스를 식별 하는 이름입니다. 예를 들어 센서 이름/제품 이름 및 모델 번호/제품 코드를 사용할 수 있습니다.|
 |    설명      | 의미 있는 설명 제공 |
-|    속성        |제조업체의 추가 속성 |
+|    properties        |제조업체의 추가 속성 |
 
 개체에 대 한 자세한 내용은 [Swagger](https://aka.ms/FarmBeatsDatahubSwagger)를 참조 하십시오.
 

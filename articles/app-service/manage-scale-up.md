@@ -1,24 +1,16 @@
 ---
-title: 기능 및 용량 강화 - Azure App Service | Microsoft Docs
-description: Azure App Service에서 앱을 강화하여 용량 및 기능을 추가하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: 기능 및 용량 강화
+description: Azure App Service에서 앱을 확장 하는 방법을 알아봅니다. 더 많은 CPU, 메모리, 디스크 공간 및 추가 기능을 얻습니다.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/19/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 91a6681c2ef4a6d0ac01889e6e92e752975e90a5
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 37120377f87bee53f73fe4d3dd7ced59551a491f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089469"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672320"
 ---
 # <a name="scale-up-an-app-in-azure-app-service"></a>Azure App Service에서 앱 강화
 

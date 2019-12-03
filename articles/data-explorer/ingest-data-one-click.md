@@ -7,18 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/31/2019
-ms.openlocfilehash: 98598a28e14dfd8175cbb019ff1b001c65503580
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c4ee4ed81cd4cc443a8f412462a5a7f204c91898
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73644586"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688185"
 ---
 # <a name="use-one-click-ingestion-to-ingest-data-into-azure-data-explorer"></a>단일 클릭 수집을 사용 하 여 데이터를 Azure 데이터 탐색기 수집 합니다.
 
-이 문서에서는 단일 클릭 수집을 사용 하 여 저장소에서 Azure 데이터 탐색기로 json 또는 csv 형식의 새 테이블을 신속 하 게 수집 하는 방법을 보여 줍니다. 데이터가 수집 되 면 테이블을 편집 하 고 웹 UI를 사용 하 여 쿼리를 실행할 수 있습니다.
+이 문서에서는 단일 클릭 수집을 사용 하 여 저장소 또는 로컬 파일에서 기존 테이블 또는 Azure 데이터 탐색기의 새 테이블로 json 또는 csv 형식의 새 테이블을 신속 하 게 수집 하는 방법을 보여 줍니다. 직관적인 마법사를 사용 하 여 몇 분 내에 데이터를 수집 하 고, 테이블을 편집 하 고, 웹 UI를 사용 하 여 쿼리를 실행할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [애플리케이션](https://dataexplorer.azure.com/)에 로그인합니다.

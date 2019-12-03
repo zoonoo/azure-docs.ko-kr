@@ -1,25 +1,17 @@
 ---
-title: 활성 DNS 이름 마이그레이션 - Azure App Service | Microsoft Docs
+title: 활성 DNS 이름 마이그레이션
 description: 가동 중지 시간 없이 라이브 사이트에 이미 할당된 사용자 지정 DNS 도메인 이름을 Azure App Service로 마이그레이션하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
 tags: top-support-issue
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/21/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 172003b13807720df2431a3610947b36d8303fed
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 79bd0a19a9bd8ebd100ed80ca0206656d73ef76c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470355"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672369"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Azure App Service로 활성 DNS 이름 마이그레이션
 
@@ -29,7 +21,7 @@ ms.locfileid: "73470355"
 
 DNS 확인의 중단을 염려하지 않는 경우에는 [Azure App Service에 기존 사용자 지정 DNS 이름 매핑](app-service-web-tutorial-custom-domain.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 방법을 완료하려면 다음이 필요합니다.
 
@@ -73,7 +65,7 @@ DNS 레코드 페이지에서 마이그레이션할 DNS 이름의 레코드 종�
 
 ![사용자 지정 도메인 메뉴](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
 
-**사용자 지정 도메인** 페이지에서 **호스트 이름 추가+ 옆의**  아이콘을 선택합니다.
+**사용자 지정 도메인** 페이지에서 **호스트 이름 추가** 옆의 **+** 아이콘을 선택합니다.
 
 ![호스트 이름 추가](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
@@ -119,7 +111,7 @@ A 레코드를 다시 매핑하려면 **사용자 지정 도메인** 페이지�
 
 `contoso.com` 루트 도메인 예제의 경우 다음 표의 예제와 같은 A 또는 CNAME 레코드를 다시 매핑합니다. 
 
-| FQDN 예 | 레코드 형식 | 호스트 | 값 |
+| FQDN 예 | 레코드 형식 | 호스트 | Value |
 | - | - | - | - |
 | contoso.com(루트) | 문자열(UTF-8 형식) 또는 | `@` | [앱의 IP 주소 복사](#info)에서 가져온 IP 주소 |
 | www\.contoso.com (sub) | CNAME | `www` | _&lt;appname>.azurewebsites.net_ |

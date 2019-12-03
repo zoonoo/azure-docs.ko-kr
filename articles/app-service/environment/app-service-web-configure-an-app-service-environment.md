@@ -1,25 +1,18 @@
 ---
-title: App Service Environment v1을 구성하는 방법 - Azure
-description: App Service Environment v1 구성, 관리 및 모니터링
-services: app-service
-documentationcenter: ''
+title: ASE v1 구성
+description: App Service Environment v1의 구성, 관리 및 모니터링 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: b5a1da49-4cab-460d-b5d2-edd086ec32f4
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: b8a05b7e8466187202e6a4d11efce288238cc19b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b37708e27887b20604a1fe921f14e51387793737
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069943"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687267"
 ---
 # <a name="configuring-an-app-service-environment-v1"></a>App Service Environment v1 구성
 
@@ -31,7 +24,7 @@ ms.locfileid: "70069943"
 Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이루어져 있습니다.
 
 * App Service 환경 호스티드 서비스에서 실행되는 컴퓨팅 리소스
-* 저장 공간
+* 스토리지
 * 데이터베이스
 * 클래식(V1) 또는 Resource Manager(V2) Azure Virtual Network(VNet) 
 * App Service Environment 호스티드 서비스가 실행되고 있는 서브넷
@@ -72,7 +65,7 @@ Azure App Service Environment는 크게 몇 가지 주요 구성 요소로 이�
 
 컴퓨팅 리소스 풀 메트릭을 기준으로 자동 크기 조정 규칙을 설정하려는 경우 프로비전에 필요한 시간을 고려해야 합니다. App Service 환경 자동 크기 조정에 대 한 자세한 내용은 [App Service Environment에서 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
 
-### <a name="storage"></a>저장 공간
+### <a name="storage"></a>스토리지
 ASE 각각은 500GB의 스토리지로 구성됩니다. 이 공간은 ASE의 모든 앱에서 사용됩니다. 이 스토리지 공간은 ASE의 일부이며 현재는 사용자의 스토리지 공간을 사용하도록 전환할 수 없습니다. 가상 네트워크 라우팅 또는 보안에 대해 조정하는 경우 Azure Storage에 대한 액세스를 허용하지 않으면 ASE가 작동되지 않습니다.
 
 ### <a name="database"></a>데이터베이스

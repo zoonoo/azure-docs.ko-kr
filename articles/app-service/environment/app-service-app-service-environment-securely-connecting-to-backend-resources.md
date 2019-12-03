@@ -1,29 +1,21 @@
 ---
-title: App Service Environment에서 백 엔드 리소스에 안전하게 연결 - Azure
-description: App Service Environment에서 백 엔드 리소스에 안전하게 연결하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
+title: 백 엔드 v1에 연결
+description: App Service Environment에서 백 엔드 리소스에 안전하게 연결하는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: f82eb283-a6e7-4923-a00b-4b4ccf7c4b5b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: adb7c246a9f8c8d202d45b58f4d22eeb8d51a773
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 03f773e286697a12188f238cf2f422a18a20054f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069972"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687306"
 ---
 # <a name="connect-securely-to-back-end-resources-from-an-app-service-environment"></a>App Service Environment에서 백 엔드 리소스에 안전하게 연결
-## <a name="overview"></a>개요
-App Service Environment 항상 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 만들어지기 때문에 App Service Environment에서 다른 백 엔드 리소스로의 아웃 바운드 연결 는 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
+App Service Environment 항상 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork] **에서 만들어지기 때문에 App Service Environment** 에서 다른 백 엔드 리소스로의 아웃 바운드 연결은 가상 네트워크를 통해서만 이동할 수 있습니다.  최근인 2016년 6월의 변경 내용에 따르면 이제 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  
 
 예를 들어 잠긴 포트 1433을 통해 가상 머신의 클러스터에서 실행되는 SQL Server가 있을 수 있습니다.  엔드포인트는 동일한 가상 네트워크에 있는 다른 리소스의 액세스만 허용하도록 ACL에 포함될 수 있습니다.  
 
@@ -49,7 +41,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 
 이 엔드포인트로 트래픽을 제한하는 두 가지 방법이 있습니다.
 
-* [네트워크 Access Control 목록][NetworkAccessControlLists] (네트워크 Acl)
+* [네트워크 Access Control 목록][NetworkAccessControlLists] (네트워크 acl)
 * [네트워크 보안 그룹][NetworkSecurityGroups]
 
 ## <a name="restricting-access-with-a-network-acl"></a>네트워크 ACL을 사용하여 액세스 제한

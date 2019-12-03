@@ -1,25 +1,19 @@
 ---
-title: PHP 런타임 구성 - Azure App Service
+title: PHP 런타임 구성
 description: Azure App Service에서 기본 PHP 설치를 구성하거나 사용자 지정 PHP 설치를 추가하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: php
-author: msangapu
-manager: cfowler
+author: msangapu-msft
 ms.assetid: 95c4072b-8570-496b-9c48-ee21a223fb60
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.devlang: PHP
+ms.devlang: php
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 38e0983830c540082a915332aa4158d2af84567b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65408907"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688256"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service에서 PHP 구성
 
@@ -33,13 +27,13 @@ ms.locfileid: "65408907"
 
 PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용하도록 설정되어 있지 않습니다. PHP 버전을 업데이트하려면 다음 방법 중 하나를 따르세요.
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure Portal
 
-1. 앱으로 이동 합니다 [Azure portal](https://portal.azure.com) 스크롤하여 합니다 **구성** 페이지.
+1. [Azure Portal](https://portal.azure.com) 에서 앱으로 이동 하 고 **구성** 페이지로 스크롤합니다.
 
-2. **Configuration**를 선택 **일반 설정** 고 새 PHP 버전을 선택 합니다.
+2. **구성**에서 **일반 설정** 을 선택 하 고 새 PHP 버전을 선택 합니다.
 
-3. 클릭 합니다 **저장** 맨 위에 있는 단추를 **일반 설정** 블레이드입니다.
+3. **일반 설정** 블레이드의 위쪽에 있는 **저장** 단추를 클릭 합니다.
 
 ### <a name="azure-powershell-windows"></a>Azure PowerShell(Windows)
 
@@ -79,7 +73,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 기본 제공 PHP 런타임에 대해 다음 단계에 따라 구성 옵션을 변경할 수 있습니다. php.ini 지시문에 대한 자세한 내용은 [php.ini 지시문 목록]을 참조하세요.
 
-### <a name="changing-phpiniuser-phpiniperdir-phpiniall-configuration-settings"></a>PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL 구성 설정 변경
+### <a name="changing-php_ini_user-php_ini_perdir-php_ini_all-configuration-settings"></a>PHP\_INI\_USER, PHP\_INI\_PERDIR, PHP\_INI\_ALL 구성 설정 변경
 
 1. [.user.ini] 파일을 루트 디렉터리에 추가합니다.
 1. `php.ini` 파일에 사용한 것과 동일한 구문을 사용하여 구성 설정을 `.user.ini` 파일에 추가합니다. 예를 들어, `display_errors` 설정을 켜고 `upload_max_filesize` 설정을 10M로 설정하려면 `.user.ini` 파일에 다음 텍스트를 포함합니다.
@@ -95,7 +89,7 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 
 `.user.ini` 파일을 사용하는 대신 스크립트에서 [ini_set()] 함수를 사용하여 시스템 수준 지시문이 아닌 구성 옵션을 설정할 수도 있습니다.
 
-### <a name="changing-phpinisystem-configuration-settings"></a>PHP\_INI\_SYSTEM 구성 설정 변경
+### <a name="changing-php_ini_system-configuration-settings"></a>PHP\_INI\_SYSTEM 구성 설정 변경
 
 1. `PHP_INI_SCAN_DIR` 키 및 `d:\home\site\ini` 값으로 앱에 앱 설정을 추가합니다.
 1. Kudu Console(http://&lt;site-name&gt;.scm.azurewebsite.net)을 사용하여 `d:\home\site\ini` 디렉터리에 `settings.ini` 파일을 만듭니다.
@@ -128,10 +122,10 @@ Azure 명령줄 인터페이스를 사용하려면 컴퓨터에 [Azure CLI를 �
 1. `bin` 디렉터리를 루트 디렉터리에 추가합니다.
 2. `.dll` 확장 파일을 `bin` 디렉터리에 둡니다(예: `php_xdebug.dll`). 확장이 기본 버전의 PHP와 호환되며 VC9 및 nts(non-thread-safe)와 호환 가능해야 합니다.
 3. 앱을 배포합니다.
-4. Azure portal에서 앱을 찾아 클릭 합니다 **Configuration** 아래에 있는 **설정** 섹션입니다.
-5. **Configuration** 블레이드에서 **응용 프로그램 설정**합니다.
-6. 에 **응용 프로그램 설정** 섹션을 클릭 **+ 새 응용 프로그램 설정** 만들어를 **PHP_EXTENSIONS** 키입니다. 이 키의 값은 웹 사이트 루트 **bin\your-ext-file**에 상대적인 경로입니다.
-7. 클릭 합니다 **업데이트** 아래쪽 단추 클릭 **저장** 위에 **응용 프로그램 설정** 탭 합니다.
+4. Azure Portal에서 앱으로 이동 하 고 **설정** 섹션 아래에 있는 **구성** 을 클릭 합니다.
+5. **구성** 블레이드에서 **응용 프로그램 설정**을 선택 합니다.
+6. **응용 프로그램 설정** 섹션에서 **+ 새 응용 프로그램 설정** 을 클릭 하 고 **PHP_EXTENSIONS** 키를 만듭니다. 이 키의 값은 웹 사이트 루트 **bin\your-ext-file**에 상대적인 경로입니다.
+7. 아래쪽에 있는 **업데이트** 단추를 클릭 한 다음 **응용 프로그램 설정** 탭 위에 있는 **저장** 을 클릭 합니다.
 
 **PHP_ZENDEXTENSIONS** 키를 통해 Zend 확장도 지원됩니다. 여러 확장을 사용하려면 앱 설정 값에 `.dll` 파일의 쉼표로 구분된 목록을 포함합니다.
 
@@ -144,10 +138,10 @@ App Service는 기본 PHP 런타임 대신, 사용자가 PHP 스크립트를 실
 3. 경우에 따라 확장을 PHP 런타임에 추가하고 `php.ini` 파일에서 확장을 사용하도록 설정합니다.
 4. 루트 디렉터리에 `bin` 디렉터리를 추가하고 PHP 런타임이 포함된 디렉터리(예: `bin\php`)를 배치합니다.
 5. 앱을 배포합니다.
-6. Azure portal에서 앱을 찾아 클릭 합니다 **구성** 블레이드입니다.
-8. **Configuration** 블레이드에서 **경로 매핑**합니다. 
-9. 클릭 **+ 새 핸들러** 추가한 `*.php` 확장에 필드 및 경로를 추가할 합니다 `php-cgi.exe` 에서 실행 **스크립트 프로세서**합니다. PHP 런타임을 애플리케이션의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
-10. 아래쪽에서 클릭 **업데이트** 처리기 매핑에 추가 작업을 마칩니다.
+6. Azure Portal에서 앱으로 이동 하 고 **구성** 블레이드를 클릭 합니다.
+8. **구성** 블레이드에서 **경로 매핑**을 선택 합니다. 
+9. **+ 새 처리기** 를 클릭 하 고 확장 필드에 `*.php`을 추가 하 고 **스크립트 프로세서**에서 `php-cgi.exe` 실행 파일에 경로를 추가 합니다. PHP 런타임을 애플리케이션의 루트에 있는 `bin` 디렉터리에 배치하면 경로는 `D:\home\site\wwwroot\bin\php\php-cgi.exe`가 됩니다.
+10. 아래쪽에서 **업데이트** 를 클릭 하 여 처리기 매핑 추가를 완료 합니다.
 11. **저장** 을 클릭하여 변경 내용을 저장합니다.
 
 <a name="composer" />

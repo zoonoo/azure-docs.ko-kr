@@ -1,25 +1,16 @@
 ---
-title: Azure에서 사용자 지정 도메인 이름 구입 - App Service
-description: Azure App Service에서 웹 앱으로 사용자 지정 도메인 이름을 구입하는 방법에 대해 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: 사용자 지정 도메인 이름 구입
+description: App Service 도메인을 구입 하 고 앱 Azure App Service에 대 한 사용자 지정 도메인으로 사용 하는 방법을 알아봅니다.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/24/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 1354f48843f8006b4a6180a2cea60e735413e446
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0723a3b0c96339ba86b98ab851c44d2a65e6f34b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470429"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672388"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Azure App Service의 사용자 지정 도메인 이름 구입
 
@@ -27,11 +18,11 @@ App Service 도메인은 Azure에서 직접 관리 되는 최상위 도메인입
 
 Azure VM 또는 Azure Storage의 경우 [Azure VM 또는 Azure Storage에 App Service 도메인 할당](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/31/assign-app-service-domain-to-azure-vm-or-azure-storage/)을 참조하세요. Cloud Services의 경우 [Azure 클라우드 서비스에 대한 사용자 지정 도메인 이름 구성](../cloud-services/cloud-services-custom-domain-name-portal.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서를 위해 만든 앱을 사용합니다.
+* [App Service 앱을 만들거나](/azure/app-service/) 다른 자습서에서 만든 앱을 사용합니다.
 * [구독에 대한 지출 한도를 삭제합니다](../billing/billing-spending-limit.md#remove). 체험 구독 크레딧으로는 App Service 도메인을 구입할 수 없습니다.
 
 ## <a name="prepare-the-app"></a>앱 준비
@@ -42,7 +33,7 @@ Azure App Service에서 사용자 지정 도메인을 사용하려면 앱의 [Ap
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[클래식 포털](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
+[Azure 포털](https://portal.azure.com)에서 Azure 계정으로 로그인합니다.
 
 ### <a name="navigate-to-the-app-in-the-azure-portal"></a>Azure Portal에서 앱으로 이동합니다.
 
@@ -68,7 +59,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 
 유료 계층(**D1**, **B1**, **B2**, **B3** 또는 **프로덕션** 범주의 모든 계층) 중 하나를 선택합니다. 추가 옵션을 보려면 **추가 옵션 보기**를 클릭합니다.
 
-**적용**을 클릭합니다.
+**Apply**를 클릭합니다.
 
 ![가격 책정 계층 확인](./media/app-service-web-tutorial-custom-domain/choose-pricing-tier.png)
 
@@ -82,7 +73,7 @@ App Service 계획이 **F1** 계층이 아닌 경우 **스케일업** 페이지�
 Azure App Service 도메인에 대 한 가격 책정 정보를 보려면 [App Service 가격 책정 페이지](https://azure.microsoft.com/pricing/details/app-service/windows/) 를 방문 하 App Service 도메인으로 스크롤합니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
-[클래식 포털](https://portal.azure.com/)에서 Azure Portal에 로그인합니다.
+[Azure 포털](https://portal.azure.com/)에서 Azure 계정으로 로그인합니다.
 
 ### <a name="launch-buy-domains"></a>도메인 구입 시작
 **App Services** 탭에서 앱의 이름을 클릭하고, **설정**을 선택한 다음, **사용자 지정 도메인**을 선택합니다.
@@ -177,7 +168,7 @@ App Service 도메인에서 다른 앱으로 호스트 이름을 할당할 수�
 **호스트 이름 추가**를 선택합니다.
 
 ### <a name="configure-hostname"></a>호스트 이름 구성
-**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 예:
+**호스트 이름 추가** 대화 상자에서 App Service 도메인 또는 하위 도메인의 정규화된 도메인 이름을 입력합니다. 다음은 그 예입니다.
 
 - kontoso.net
 - www\.kontoso.net
@@ -296,4 +287,4 @@ Azure Portal의 왼쪽 메뉴에서 **모든 서비스** > **App Service 도메�
 
 ## <a name="direct-default-url-to-a-custom-directory"></a>사용자 지정 디렉터리로 기본 URL 전달
 
-App Service는 기본적으로 웹 요청을 앱 코드의 루트 디렉터리로 보냅니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.
+기본적으로 App Service는 웹 요청을 사용자 앱 코드의 루트 디렉터리로 전달합니다. `public`과 같은 하위 디렉터리로 보내려면 [사용자 지정 디렉터리로 기본 URL 전달](app-service-web-tutorial-custom-domain.md#virtualdir)을 참조하세요.

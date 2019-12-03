@@ -1,25 +1,16 @@
 ---
-title: Facebook 인증 구성 - Azure App Service
-description: App Service 앱에 대 한 Facebook 인증을 구성 하는 방법 알아보기
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Facebook 인증 구성
+description: App Service 앱에 대 한 id 공급자로 Facebook 인증을 구성 하는 방법에 대해 알아봅니다.
 ms.assetid: b6b4f062-fcb4-47b3-b75a-ec4cb51a62fd
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: fb8497f3b9b887e2fd06b350bcc25ac8faaa7b43
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: cd9c8a1bab3616b9b4eb1fe97ee3a9b2307ba77b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177004"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671948"
 ---
 # <a name="configure-your-app-service-app-to-use-facebook-login"></a>Facebook 로그인을 사용 하도록 App Service 앱 구성
 
@@ -27,7 +18,7 @@ ms.locfileid: "72177004"
 
 이 문서에서는 Facebook을 인증 공급자로 사용 하도록 Azure App Service를 구성 하는 방법을 보여 줍니다.
 
-이 문서의 절차를 완료 하려면 확인 된 전자 메일 주소와 휴대폰 번호가 포함 된 Facebook 계정이 필요 합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하십시오.
+이 문서의 절차를 완료 하려면 확인 된 전자 메일 주소와 휴대폰 번호가 포함 된 Facebook 계정이 필요 합니다. 새 Facebook 계정을 만들려면 [facebook.com]으로 이동하세요.
 
 ## <a name="register"></a>Facebook을 사용하여 애플리케이션 등록
 
@@ -59,7 +50,7 @@ ms.locfileid: "72177004"
 
 ## <a name="secrets"></a>애플리케이션에 Facebook 정보 추가
 
-1. [Azure Portal] 에 로그인 하 여 App Service 앱으로 이동 합니다.
+1. [Azure 포털] 에 로그인 하 여 App Service 앱으로 이동 합니다.
 1. 설정 > **인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정** 되어 있는지 확인 **합니다.**
 1. **Facebook**을 선택 하 고 이전에 가져온 앱 ID 및 앱 암호 값을 붙여넣습니다. 응용 프로그램에 필요한 모든 범위를 사용 하도록 설정 합니다.
 1. **확인**을 선택합니다.
@@ -87,4 +78,4 @@ ms.locfileid: "72177004"
 [Facebook 개발자]: https://go.microsoft.com/fwlink/p/?LinkId=268286
 [facebook.com]: https://go.microsoft.com/fwlink/p/?LinkId=268285
 [Get started with authentication]: /en-us/develop/mobile/tutorials/get-started-with-users-dotnet/
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/

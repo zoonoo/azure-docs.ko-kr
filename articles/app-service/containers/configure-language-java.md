@@ -1,24 +1,21 @@
 ---
-title: Linux Java 앱 구성-Azure App Service | Microsoft Docs
-description: Linux의 Azure App Service에서 실행되는 Java 앱을 구성하는 방법을 알아봅니다.
+title: Linux Java 앱 구성
+description: 앱에 대해 미리 작성 된 Java 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
 keywords: azure app service, 웹 앱, linux, oss, java, java ee, jee, javaee
-services: app-service
 author: bmitchell287
 manager: barbkess
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: brendm
+ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9625870132d088bf1de6df06f05f0cac41a1e7fa
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
-ms.translationtype: MT
+ms.openlocfilehash: a3e0bbb414dd1f47e70de6b7a25a84a2b27c0dc7
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74144222"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671849"
 ---
 # <a name="configure-a-linux-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux Java 앱 구성
 
@@ -53,7 +50,7 @@ Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 �
 
 ### <a name="app-logging"></a>앱 로깅
 
-Azure Portal 또는 [Azure CLI](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows)를 통해 [애플리케이션 로깅](/cli/azure/webapp/log#az-webapp-log-config)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
+Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](../troubleshoot-diagnostic-logs.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#enable-application-logging-windows)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */home/LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
 애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
 
@@ -118,7 +115,7 @@ Linux 용 Azure App Service에서는 Azure Portal 및 CLI를 통해 기본 튜�
 
 Tomcat 및 Java SE 환경에서 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션을 사용 하 여 `JAVA_OPTS` 이라는 [앱 설정을](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings) 만듭니다. App Service Linux는 시작될 때 이 설정을 Java 런타임에 환경 변수로 전달합니다.
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `JAVA_OPTS`처럼 추가 설정을 포함하는 `-Xms512m -Xmx1204m`라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
 
 Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가 합니다. 다음 예에서는 특정 최소 및 최대 Java 힙 크기를 설정 합니다.
 
@@ -160,7 +157,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>기본 문자 인코딩 설정
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `JAVA_OPTS` 값을 사용하여 `-Dfile.encoding=UTF-8`이라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
 
 또는 App Service Maven 플러그 인을 사용하여 앱 설정을 구성할 수 있습니다. 플러그 인 구성에서 설정 이름 및 값 태그를 추가합니다.
 
@@ -270,8 +267,8 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 5. 압축을 푼 NewRelic Java 에이전트 파일을 */home/site/wwwroot/apm*아래의 디렉터리에 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic*에 있어야 합니다.
 6. */Home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 yaml 파일을 수정 하 고 자리 표시자 라이선스 값을 자신의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - 앱이 **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
-    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
+    - 앱이 **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `JAVA_OPTS`라는 환경 변수를 만듭니다.
+    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다.
     - **WildFly**를 사용 하는 경우 Java 에이전트 및 jboss 구성 설치에 대 한 지침은 [여기](https://docs.newrelic.com/docs/agents/java-agent/additional-installation/wildfly-version-11-installation-java) 에서 새 유물 설명서를 참조 하세요.
 
 ### <a name="configure-appdynamics"></a>AppDynamics 구성
@@ -281,8 +278,8 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 3. [App Service 인스턴스에 SSH](app-service-linux-ssh-support.md) 하 고 새 디렉터리 */home/site/wwwroot/apm*을 만듭니다.
 4. */Home/site/wwwroot/apm*아래의 디렉터리에 Java 에이전트 파일을 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics*에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
-    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `JAVA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
     - **WildFly**를 사용 하는 경우 Java 에이전트 및 jboss 구성 설치에 대 한 지침은 [여기](https://docs.appdynamics.com/display/PRO45/JBoss+and+Wildfly+Startup+Settings) 에서 appdynamics 설명서를 참조 하세요.
 
 >  `JAVA_OPTS` 또는 `CATALINA_OPTS`에 대한 환경 변수가 이미 있는 경우 현재 값의 끝에 `-javaagent:/...` 옵션을 추가합니다.
@@ -293,7 +290,7 @@ JDBC 연결을 암호화 하는 데 추가 구성이 필요할 수 있습니다.
 
 기본적으로 App Service는 JAR 응용 프로그램의 이름을 *app.config*로 지정 합니다. 이 이름이 있으면 자동으로 실행 됩니다. Maven 사용자의 경우 *pom .xml*의 `<build>` 섹션에 `<finalName>app</finalName>`를 포함 하 여 JAR 이름을 설정할 수 있습니다. `archiveFileName` 속성을 설정 하 여 [Gradle에서 동일한 작업을 수행할 수](https://docs.gradle.org/current/dsl/org.gradle.api.tasks.bundling.Jar.html#org.gradle.api.tasks.bundling.Jar:archiveFileName) 있습니다.
 
-JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar`. 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
+JAR에 다른 이름을 사용 하려는 경우 JAR 파일을 실행 하는 [시작 명령도](app-service-linux-faq.md#built-in-images) 제공 해야 합니다. 예: `java -jar my-jar-app.jar` 시작 명령에 대 한 값은 포털의 구성 > 일반 설정 또는 `STARTUP_COMMAND`라는 응용 프로그램 설정으로 설정할 수 있습니다.
 
 ### <a name="server-port"></a>서버 포트
 
@@ -618,7 +615,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
 
 6. Azure CLI를 사용 하 여 데이터베이스 연결 정보를 저장 하는 설정을 App Service에 추가 합니다. `<resource group>` 및 `<webapp name>`을 App Service 사용 하는 값으로 바꿉니다. `<database server name>`, `<database name>`, `<admin name>`및 `<admin password>`를 데이터베이스 연결 정보로 바꿉니다. Azure Portal에서 App Service 및 데이터베이스 정보를 가져올 수 있습니다.
 
-    **PostgreSQL:**
+    **PostgreSQL**
 
     ```bash
     az webapp config appsettings set \
@@ -630,7 +627,7 @@ JBoss CLI를 통해 모듈 및 해당 종속성을 WildFly 클래스 경로에 �
             DATABASE_SERVER_ADMIN_PASSWORD=<admin password>
     ```
 
-    **MySQL:**
+    **MySQL**
 
     ```bash
     az webapp config appsettings set \
@@ -716,7 +713,7 @@ Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](http://tomcat.apa
 
 1. Bash 터미널을 열고 `export <variable>=<value>`를 사용 하 여 다음의 각 환경 변수를 설정 합니다.
 
-    | 변수                 | 값                                                                      |
+    | 변수                 | Value                                                                      |
     |--------------------------|----------------------------------------------------------------------------|
     | RESOURCEGROUP_NAME       | App Service 인스턴스를 포함 하는 리소스 그룹의 이름입니다.       |
     | WEBAPP_NAME              | App Service 인스턴스의 이름입니다.                                     |
@@ -826,7 +823,7 @@ Redis와 함께 Tomcat를 사용 하려면 [PersistentManager](http://tomcat.apa
 
 ## <a name="docker-containers"></a>Docker 컨테이너
 
-컨테이너에 Azure 지원 Zulu JDK를 사용하려면 [Azure에 지원되는 Azul Zulu Enterprise 다운로드 페이지](https://www.azul.com/downloads/azure-only/zulu/)에 나와 있는 미리 작성된 이미지를 끌어와서 사용하거나 `Dockerfile`Microsoft Java GitHub 리포지토리[의 ](https://github.com/Microsoft/java/tree/master/docker) 예제를 사용하세요.
+컨테이너에 Azure 지원 Zulu JDK를 사용하려면 [Azure에 지원되는 Azul Zulu Enterprise 다운로드 페이지](https://www.azul.com/downloads/azure-only/zulu/)에 나와 있는 미리 작성된 이미지를 끌어와서 사용하거나 [Microsoft Java GitHub 리포지토리](https://github.com/Microsoft/java/tree/master/docker)의 `Dockerfile` 예제를 사용하세요.
 
 ## <a name="statement-of-support"></a>지원 문의
 

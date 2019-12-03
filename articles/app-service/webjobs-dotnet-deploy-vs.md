@@ -1,21 +1,19 @@
 ---
-title: Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure
-description: Visual Studio를 사용하여 Azure App Service에 Azure WebJobs를 개발하고 배포하는 방법에 대해 알아봅니다.
+title: VS를 사용 하 여 WebJobs 개발 및 배포
+description: Visual Studio에서 Azure WebJobs를 개발 하 고 예약 된 작업 만들기를 포함 하 여 Azure App Service에 배포 하는 방법을 알아봅니다.
 author: ggailey777
-manager: gwallace
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
-ms.service: app-service
 ms.topic: conceptual
 ms.custom: vs-azure
 ms.date: 02/18/2019
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ac458b01135be8628fbf939e310f8bda02b8d290
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: feacd463a10bae66dc8fa88a99b9ea60f399e9ec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303556"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684163"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Visual Studio를 사용하여 WebJobs 개발 및 배포 - Azure App Service
 
@@ -66,7 +64,7 @@ Azure에서 Always On 사용 하도록 설정 된 경우 Visual Studio를 사용
 
 ## <a name="webjobs-as-net-framework-console-apps"></a>.NET Framework 콘솔 앱으로 WebJobs  
 
-Visual Studio에서 WebJobs를 사용 하는 .NET Framework 콘솔 응용 프로그램 프로젝트를 배포 하면 런타임 파일이 웹 앱의 적절 한 폴더 (연속 WebJobs 및 *app_data/jobs* 의 경우 app_data/*jobs/연속* 예약 또는 주문형 WebJobs).
+Visual Studio에서 WebJobs를 사용 하는 .NET Framework 콘솔 응용 프로그램 프로젝트를 배포 하면 런타임 파일이 웹 앱의 해당 폴더에 복사 됩니다 (*App_Data/jobs/continuous* For 연속 WebJobs 및 *App_Data/Jobs/triggered* for demand WebJobs).
 
 WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
@@ -81,7 +79,7 @@ WebJob 지원 프로젝트에는 다음 항목이 추가됩니다.
 
 ![웹 프로젝트에 연결된 WebJob 프로젝트를 보여 주는 다이어그램](./media/webjobs-dotnet-deploy-vs/link.png)
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>전제 조건
 
 Visual Studio 2015를 사용하는 경우 [Azure SDK for .NET(Visual Studio 2015)](https://azure.microsoft.com/downloads/)을 설치합니다.
 
@@ -89,7 +87,7 @@ Visual Studio 2017을 사용하는 경우 [Azure 개발 워크로드](https://do
 
 ### <a id="convert"></a>기존 콘솔 애플리케이션 프로젝트에 WebJobs 배포 사용
 
-두 가지가 있습니다.
+다음 두 가지 옵션을 사용할 수 있습니다.
 
 * [웹 프로젝트를 사용하여 자동 배포 사용](#convertlink).
 
@@ -215,7 +213,7 @@ WebJobs는 *설정. 작업* 파일을 사용 하 여 WebJob이 실행 되는 시
 }
 ```
 
-이 파일은 `wwwroot\app_data\jobs\triggered\{job name}` 또는 `wwwroot\app_data\jobs\continuous\{job name}`과 같은 WebJob의 스크립트와 함께 WebJobs 폴더의 루트에 있어야 합니다. Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성을 **변경된 내용만 복사**로 표시합니다. 
+이 파일은 `wwwroot\app_data\jobs\triggered\{job name}` 또는 `wwwroot\app_data\jobs\continuous\{job name}`와 같은 WebJob의 스크립트와 함께 WebJobs 폴더의 루트에 있어야 합니다. Visual Studio에서 WebJob을 배포하는 경우 `settings.job` 파일 속성을 **변경된 내용만 복사**로 표시합니다. 
 
 [Azure Portal에서 WebJob을 만드는](webjobs-create.md)경우에는 설정. 작업 파일이 만들어집니다.
 
@@ -233,10 +231,10 @@ WebJobs에서 지원 되는 설정은 다음과 같습니다.
 
 | **설정** | **형식**  | **설명** |
 | ----------- | --------- | --------------- |
-| `is_in_place` | 모두 | 임시 폴더에 먼저 복사 하지 않고 작업을 실행할 수 있습니다. 자세히 알아보려면 [WebJobs 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)를 참조 하세요. |
+| `is_in_place` | 전체 | 임시 폴더에 먼저 복사 하지 않고 작업을 실행할 수 있습니다. 자세히 알아보려면 [WebJobs 작업 디렉터리](https://github.com/projectkudu/kudu/wiki/WebJobs#webjob-working-directory)를 참조 하세요. |
 | `is_singleton` | 연속 | 확장 된 경우에만 단일 인스턴스에서 WebJobs를 실행 합니다. 자세히 알아보려면 [연속 작업을 singleton으로 설정](https://github.com/projectkudu/kudu/wiki/WebJobs-API#set-a-continuous-job-as-singleton)을 참조 하세요. |
 | `schedule` | 트리거 | CRON 기반 일정에 따라 WebJob을 실행 합니다. 자세히 알아보려면 [타이머 트리거 참조 문서](../azure-functions/functions-bindings-timer.md#ncrontab-expressions)를 참조 하세요. |
-| `stopping_wait_time`| 모두 | 종료 동작을 제어할 수 있습니다. 자세히 알아보려면 [정상 종료](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)를 참조 하세요. |
+| `stopping_wait_time`| 전체 | 종료 동작을 제어할 수 있습니다. 자세히 알아보려면 [정상 종료](https://github.com/projectkudu/kudu/wiki/WebJobs#graceful-shutdown)를 참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 

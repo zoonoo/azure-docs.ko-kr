@@ -1,26 +1,19 @@
 ---
-title: Node.js에 대한 모범 사례 및 문제 해결 - Azure App Service
-description: Azure App Service의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 단계에 대해 알아봅니다.
-services: app-service\web
-documentationcenter: nodejs
+title: Node.js 모범 사례 및 문제 해결
+description: Azure App Service에서 실행 되는 node.js 응용 프로그램에 대 한 모범 사례 및 문제 해결 단계를 알아봅니다.
 author: ranjithr
-manager: wadeh
-editor: ''
 ms.assetid: 387ea217-7910-4468-8987-9a1022a99bef
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: bwren
 ms.custom: seodec18
-ms.openlocfilehash: 5ef0cf691ae3a199ea82cb8cfa23c386d30551dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 75195bd7ad228bb66dfd21d2c65997cc8c02680e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024235"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672036"
 ---
 # <a name="best-practices-and-troubleshooting-guide-for-node-applications-on-azure-app-service-windows"></a>Azure App Service Windows의 노드 애플리케이션에 대한 모범 사례 및 문제 해결 가이드
 

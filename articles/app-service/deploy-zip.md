@@ -1,25 +1,16 @@
 ---
-title: ZIP 또는 WAR 파일을 사용하여 코드 배포 - Azure App Service | Microsoft Docs
+title: ZIP 또는 WAR 파일을 사용 하 여 코드 배포
 description: ZIP 파일(또는 Java 개발자의 경우 WAR 파일)을 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: sisirap
 ms.custom: seodec18
-ms.openlocfilehash: 83951f6408094b8d1e04d19650a5f2ef596be988
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 3569c6a066b09daa0c24975b9de840a844b6ba2c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801156"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670220"
 ---
 # <a name="deploy-your-app-to-azure-app-service-with-a-zip-or-war-file"></a>ZIP 또는 WAR 파일을 사용하여 Azure App Service에 앱 배포
 
@@ -82,7 +73,7 @@ az webapp deployment source config-zip --resource-group myResourceGroup --name <
 
 이 명령은 ZIP 파일의 파일과 디렉터리를 기본 App Service 애플리케이션 폴더(`\home\site\wwwroot`)에 배포하고 앱을 다시 시작합니다.
 
-기본적으로 배포 엔진은 ZIP 파일을 있는 그대로 실행할 준비가 된 것으로 가정 하 고 빌드 자동화를 실행 하지 않습니다. [Git 배포](deploy-local-git.md)와 동일한 빌드 자동화를 사용 하도록 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 `SCM_DO_BUILD_DURING_DEPLOYMENT` 명령을 실행 하 여 앱 설정을 설정 합니다.
+기본적으로 배포 엔진은 ZIP 파일을 있는 그대로 실행할 준비가 된 것으로 가정 하 고 빌드 자동화를 실행 하지 않습니다. [Git 배포](deploy-local-git.md)와 동일한 빌드 자동화를 사용 하도록 설정 하려면 [Cloud Shell](https://shell.azure.com)에서 다음 명령을 실행 하 여 `SCM_DO_BUILD_DURING_DEPLOYMENT` 앱 설정을 설정 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --resource-group <resource-group-name> --name <app-name> --settings SCM_DO_BUILD_DURING_DEPLOYMENT=true
@@ -96,7 +87,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 
 ## <a name="deploy-war-file"></a>WAR 파일 배포
 
-WAR 파일을 App Service에 배포 하려면 POST 요청을로 `https://<app_name>.scm.azurewebsites.net/api/wardeploy`보냅니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
+WAR 파일을 App Service에 배포 하려면 `https://<app_name>.scm.azurewebsites.net/api/wardeploy`에 POST 요청을 보냅니다. POST 요청은 메시지 본문에 .war 파일을 포함해야 합니다. 앱에 대한 배포 자격 증명은 HTTP 기본 인증을 사용하여 요청으로 제공됩니다.
 
 HTTP BASIC 인증의 경우 App Service 배포 자격 증명이 필요합니다. 배포 자격 증명을 설정하는 방법을 알아보려면 [사용자 수준 자격 증명 설정 및 다시 설정](deploy-configure-credentials.md#userscope)을 참조하세요.
 

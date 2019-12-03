@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: ad1cb3b08f92923ef45b48d79ad8bbdc3277d370
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74131965"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672593"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -39,7 +39,17 @@ ms.locfileid: "74131965"
 3. **들어오는 메시지가 없는**경우 장치 파트너에 게 문의 하세요.  
 4. **들어오는 메시지가**있는 경우 데이터 허브 및 가속기 로그를 사용 하 여 farmbeatssupport@microsoft.com에 연결 하 고 캡처된 원격 분석을 사용 합니다.
 
-로그를 다운로드 하는 방법을 이해 하려면 문서의 [로그 섹션](#collect-logs-manually) 을 참조 하세요.    
+로그를 다운로드 하는 방법을 이해 하려면 문서의 [로그 섹션](#collect-logs-manually) 을 참조 하세요.  
+
+### <a name="dont-have-the-eventhub-connection-string"></a>Eventhub 연결 문자열이 없습니다.
+
+**정정 작업**: datahub swagger를 방문 하 여 다음 단계를 수행 합니다.
+1. 파트너 API로 이동
+2. GET > 클릭 하 여 실행 > 실행 합니다.
+3. 관심이 있는 센서 파트너의 파트너 id를 적어 둡니다.
+4. 파트너 API로 돌아가서 GET/{id}를 클릭 합니다.
+5. 3 단계에서 id를 지정 하 고 실행을 클릭 합니다.
+6. API 응답에는 EventHub 연결 문자열이 있어야 합니다.
 
 ### <a name="device-appears-offline"></a>장치가 오프 라인으로 표시 됩니다.
 
@@ -130,7 +140,7 @@ ms.locfileid: "74131965"
 **작업 실패 메시지**: 오류가 발생 했습니다. 액세스 하려는 페이지를 일시적으로 사용할 수 없습니다. 
 
 **수정 동작**:
-1.  브라우저에서 센티널 URL (https://scihub.copernicus.eu/dhus/)을 열고 웹 사이트에 액세스할 수 있는지 확인 합니다. 
+1.  브라우저에서 센티널 URL (https://scihub.copernicus.eu/dhus/) 을 열고 웹 사이트에 액세스할 수 있는지 확인 합니다. 
 2.  웹 사이트에 액세스할 수 없는 경우 방화벽/회사 네트워크 등이 있는지 확인 하 고, 위의 URL을 허용 하는 데 필요한 단계를 수행 합니다. 
 3.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.  
 
@@ -142,7 +152,7 @@ ms.locfileid: "74131965"
 
 1.  이 문제는 센티널 서버에서 유지 관리 작업을 수행 하는 경우 발생할 수 있습니다. 
 2.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
-3.  사용자는 https://scihub.copernicus.eu/news/를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
+3.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
 4.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>센티널 최대 연결 수에 도달 했습니다.
@@ -162,7 +172,7 @@ ms.locfileid: "74131965"
 
 **정정 동작**: 센티널 서버에서 유지 관리 작업을 수행 하는 경우이 문제가 발생할 수 있습니다. 
 1.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
-2.  사용자는 https://scihub.copernicus.eu/news/를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
+2.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
 3.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
 
@@ -171,7 +181,7 @@ ms.locfileid: "74131965"
 Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) 합니다.
 
 ### <a name="how-to-collect-data-hub-adf-job-logs"></a>데이터 허브 ADF 작업 로그를 수집 하는 방법
-1. https://portal.azure.com에 로그인
+1. https://portal.azure.com 에 로그인
 2. **검색** 텍스트 상자에서 FarmBeats Data hub 리소스 그룹을 검색 합니다.
 
     > [!NOTE]
@@ -190,7 +200,7 @@ Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/a
 
 ### <a name="how-to-collect-accelerator-adf-job-logs"></a>액셀러레이터 키 ADF 작업 로그를 수집 하는 방법
 
-1.  https://portal.azure.com에 로그인
+1.  https://portal.azure.com 에 로그인
 2.  **검색** 텍스트 상자에서 FarmBeats Accelerator 리소스 그룹을 검색 합니다.
 
     > [!NOTE]
@@ -207,7 +217,7 @@ Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/a
 
 ### <a name="how-to-collect-data-hub-app-service-logs"></a>데이터 허브 app service 로그를 수집 하는 방법
 
-1.  https://portal.azure.com에 로그인
+1.  https://portal.azure.com 에 로그인
 2.  **검색** 텍스트 상자에서 FarmBeats Data hub 리소스 그룹을 검색 합니다.
 
     > [!NOTE]
@@ -223,7 +233,7 @@ Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/a
 
 ### <a name="how-to-collect-accelerator-app-service-logs"></a>Accelerator app service 로그를 수집 하는 방법
 
-1.  https://portal.azure.com에 로그인
+1.  https://portal.azure.com 에 로그인
 2.  **검색**에서 FarmBeats Accelerator 리소스 그룹을 검색 합니다.
 
     > [!NOTE]

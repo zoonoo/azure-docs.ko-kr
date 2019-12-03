@@ -1,24 +1,15 @@
 ---
-title: 인바운드/아웃바운드 IP 주소 - Azure App Service | Microsoft Docs
-description: 인바운드 및 아웃바운드 IP 주소가 App Service에서 어떻게 사용되는지와 앱에 필요한 정보를 찾는 방법에 대해 설명합니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 인바운드/아웃 바운드 IP 주소
+description: Azure App Service에서 인바운드 및 아웃 바운드 IP 주소를 사용 하는 방법, 변경 될 때 그리고 앱에 대 한 주소를 찾는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 26033192ee841262345b0fc7f6aec76872379070
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: aebce04fe2f1b055a4d498021dcd25144cd122a9
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470169"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671597"
 ---
 # <a name="inbound-and-outbound-ip-addresses-in-azure-app-service"></a>Azure App Service의 인바운드 및 아웃바운드 IP 주소
 

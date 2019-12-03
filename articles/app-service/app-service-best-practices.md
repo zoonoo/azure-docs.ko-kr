@@ -1,25 +1,18 @@
 ---
-title: 모범 사례 - Azure App Service
-description: Azure App Service에 대한 모범 사례 및 문제 해결에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
+title: 모범 사례
+description: Azure App Service에서 실행 되는 앱에 대 한 모범 사례 및 일반적인 문제 해결 시나리오를 알아봅니다.
 author: dariagrigoriu
-manager: erikre
-editor: mollybos
 ms.assetid: f3359464-fa44-4f4a-9ea6-7821060e8d0d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: c40191c8682d6ff93f70e0853e767c89248ae887
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 328e0c882ea2fb3860663e04b88488bd54339c75
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071609"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671506"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Azure App Service에 대한 모범 사례
 이 문서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)를 사용하는 모범 사례를 요약합니다. 
@@ -38,7 +31,7 @@ ms.locfileid: "70071609"
 ## <a name="CPUresources"></a>앱에서 예상보다 더 많은 CPU를 사용하는 경우
 앱에서 모니터링 또는 서비스 권장 사항을 통해 표시된 대로 예상보다 더 많은 CPU를 사용하거나 반복되는 CPU 스파이크를 경험하는 경우 App Service 계획 강화 또는 확장을 고려합니다. 애플리케이션이 상태 저장인 경우 강화가 유일한 옵션인 반면 애플리케이션이 상태 비저장인 경우 확장을 통해 더 많은 유연성 및 더 높은 확장 가능성을 줍니다. 
 
-"상태 저장" 및 "상태 비저장" 애플리케이션에 대한 자세한 내용은 이 비디오를 참조할 수 있습니다. [Azure App Service에서 확장 가능한 엔드투엔드 다중 계층 애플리케이션 계획](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid) App Service 크기 조정 및 자동 크기 조정 옵션에 대한 자세한 내용은 [Azure App Service에서 웹앱 크기 조정](manage-scale-up.md)을 참조하세요.  
+"상태 저장" 및 "상태 비저장" 응용 프로그램에 대 한 자세한 내용은 [Azure App Service에서 확장 가능한 종단 간 다중 계층 응용 프로그램 계획](https://channel9.msdn.com/Events/TechEd/NorthAmerica/2014/DEV-B414#fbid=?hashlink=fbid)비디오를 시청할 수 있습니다. App Service 크기 조정 및 자동 크기 조정 옵션에 대한 자세한 내용은 [Azure App Service에서 웹앱 크기 조정](manage-scale-up.md)을 참조하세요.  
 
 ## <a name="socketresources"></a>소켓 리소스를 모두 사용한 경우
 아웃바운드 TCP 연결을 소모하는 일반적인 이유는 TCP 연결을 다시 사용하도록 구현되지 않는 클라이언트 라이브러리의 사용되지 않는 HTTP - Keep-Alive와 같은 높은 수준의 프로토콜의 경우입니다. 효율적인 아웃바운드 재사용에 대한 코드에서 구성 또는 액세스할 수 있도록 App Service 계획의 앱에서 참조하는 각 라이브러리에 대한 설명서를 검토하세요. 또한 연결 누수를 방지하도록 올바른 생성 및 릴리스 또는 정리에 대한 라이브러리 설명서 지침을 따릅니다. 이러한 클라이언트 라이브러리 조사 진행 중 여러 인스턴스로 확장하여 영향을 완화할 수 있습니다.

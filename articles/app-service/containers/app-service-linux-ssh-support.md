@@ -1,26 +1,19 @@
 ---
-title: Linux의 App Service에 대한 SSH 지원 - Azure | Microsoft Docs
-description: Linux의 Azure App Service에서 SSH 사용에 대해 자세히 알아봅니다.
+title: Linux 컨테이너에 대 한 SSH 액세스
+description: Azure App Service에서 Linux 컨테이너에 대 한 SSH 세션을 열 수 있습니다. 사용자 지정 Linux 컨테이너는 사용자 지정 이미지를 수정 하 여 지원 됩니다.
 keywords: azure app service, 웹앱, linux, oss
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: 66f9988f-8ffa-414a-9137-3a9b15a5573c
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: fef8a17de4539a1427c269cdc512063d07df195c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066874"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687585"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -50,7 +43,7 @@ TCP 터널링을 사용하여 인증된 WebSocket 연결을 통해 개발 컴퓨
 
 시작하려면 [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치해야 합니다. Azure CLI를 설치하지 않고 작동 방식을 확인하려면 [Azure Cloud Shell](../../cloud-shell/overview.md)을 엽니다. 
 
-[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대 한  _\<구독 id >_ ,  _\<그룹 이름 >_ 및 \_ \<앱 이름 > _를 지정 합니다.
+[az webapp 원격 연결 만들기](/cli/azure/ext/webapp/webapp/remote-connection?view=azure-cli-latest#ext-webapp-az-webapp-remote-connection-create) 명령을 사용하여 앱에 원격 연결을 엽니다. 앱에 대 한 _구독 id >_ , _\<그룹 이름 >_ 및 \_\<앱 이름 > _\<지정 합니다.
 
 ```azurecli-interactive
 az webapp create-remote-connection --subscription <subscription-id> --resource-group <resource-group-name> -n <app-name> &

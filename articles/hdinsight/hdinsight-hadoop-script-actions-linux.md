@@ -1,18 +1,18 @@
 ---
-title: Azure HDInsight 클러스터 사용자 지정 스크립트 작업 개발
-description: Bash 스크립트를 사용 하 여 HDInsight 클러스터 사용자 지정 하는 방법에 알아봅니다. 스크립트 작업을 허용 하는 동안 또는 클러스터 구성 설정을 변경 하거나 추가 소프트웨어를 설치 하려면 클러스터를 만든 후 스크립트를 실행할 수 있습니다.
+title: Azure HDInsight 클러스터를 사용자 지정 하는 스크립트 작업 개발
+description: Bash 스크립트를 사용 하 여 HDInsight 클러스터를 사용자 지정 하는 방법을 알아봅니다. 스크립트 동작을 사용 하면 클러스터를 만들 때 또는 이후에 스크립트를 실행 하 여 클러스터 구성 설정을 변경 하거나 추가 소프트웨어를 설치할 수 있습니다.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/22/2019
-ms.openlocfilehash: 66132a2a6a7b5b89bca0767efe7c194ca3dec051
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 11/28/2019
+ms.openlocfilehash: 23d2c771c8918099c0db2b68c290e7d90077932a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64687444"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687736"
 ---
 # <a name="script-action-development-with-hdinsight"></a>HDInsight를 사용하여 스크립트 작업 개발
 
@@ -26,7 +26,7 @@ Bash 스크립트를 사용하여 HDInsight 클러스터를 사용자 지정하�
 
 | 이 방법을 사용하여 스크립트를 적용... | 클러스터를 생성하는 동안... | 실행 중인 클러스터에서... |
 | --- |:---:|:---:|
-| Azure portal |✓ |✓ |
+| Azure Portal |✓ |✓ |
 | Azure PowerShell |✓ |✓ |
 | Azure 클래식 CLI |&nbsp; |✓ |
 | HDInsight .NET SDK |✓ |✓ |
@@ -44,7 +44,7 @@ HDInsight 클러스터용으로 사용자 지정 스크립트를 개발할 때 �
 * [사전 컴파일한 리소스 사용](#bPS4)
 * [클러스터 사용자 지정 스크립트가 멱등원인지 확인](#bPS3)
 * [클러스터 아키텍처의 고가용성 확인](#bPS5)
-* [Azure Blob Storage를 사용하도록 사용자 지정 구성 요소 구성](#bPS6)
+* SMB 3.0에 대한 지원을 통해 File Storage는 이제 SMB 3.0 클라이언트에서 암호화 및 영구 핸들을 지원합니다.
 * [STDOUT 및 STDERR에 정보 쓰기](#bPS7)
 * [줄 끝을 LF인 파일을 ASCII로 저장](#bps8)
 * [다시 시도 논리를 사용하여 일시적 오류에서 복구](#bps9)
@@ -73,9 +73,9 @@ elif [[ $OS_VERSION == 16* ]]; then
 fi
 ```
 
-### <a name="bps10"></a> 대상 운영 체제 버전
+### <a name="bps10"></a>운영 체제 버전을 대상으로 합니다.
 
-Linux 기반 HDInsight는 Ubuntu Linux 배포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
+HDInsight는 Ubuntu Linux 분포를 기반으로 합니다. HDInsight는 버전이 다르면 다른 버전의 Ubuntu에 의존하는데 이는 스크립트 동작 방식을 변경할 수 있습니다. 예를 들어 HDInsight 3.4 이전 버전은 Upstart를 사용하는 Ubuntu 버전을 기반으로 합니다. 버전 3.5 이상은 Systemd를 사용하는 Ubuntu 16.04를 기반으로 합니다. Systemd 및 Upstart는 다른 명령에 의존하기 때문에 이를 사용하여 작업하기 위해 스크립트가 작성되어야 합니다.
 
 HDInsight 3.4와 3.5 간의 또 다른 중요한 차이는 현재 `JAVA_HOME`이 Java 8을 가리킨다는 것입니다. 다음 코드는 Ubuntu 14 또는 16에서 스크립트가 실행되고 있는지 확인하는 방법을 보여 줍니다.
 
@@ -133,11 +133,11 @@ Systemd와 Upstart 간의 차이점을 이해하려면 [Upstart 사용자에 대
 
 스크립트는 idempotent여야 합니다. 스크립트를 여러 번 실행하는 경우 매번 동일한 상태로 클러스터를 반환해야 합니다.
 
-예를 들어 구성 파일을 수정하는 스크립트는 여러 번 실행하는 경우 중복 항목을 추가해서는 안됩니다.
+예를 들어 구성 파일을 수정 하는 스크립트는 여러 번 실행 될 경우 중복 된 항목을 추가 하지 않아야 합니다.
 
 ### <a name="bPS5"></a>클러스터 아키텍처의 고가용성 확인
 
-Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치하는 구성 요소가 하나의 헤드 노드만 예상하는 경우 두 헤드 노드에 구성 요소를 설치하지 마십시오.
+Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 두 헤드 노드를 제공하며 스크립트 작업은 두 노드에서 실행됩니다. 설치 하는 구성 요소에 헤드 노드가 하나만 있어야 하는 경우 두 헤드 노드에 구성 요소를 설치 하지 마세요.
 
 > [!IMPORTANT]  
 > HDInsight의 일부로 제공되는 서비스는 두 헤드 노드 간에 필요에 따라 장애 조치하도록 설계되었습니다. 이 기능은 스크립트 작업을 통해 설치된 구성 요소를 사용자 지정하도록 확장되지 않습니다. 사용자 지정 구성 요소에 대한 고가용성이 필요한 경우 사용자 고유의 장애 조치 메커니즘을 구현해야 합니다.
@@ -146,7 +146,7 @@ Linux 기반 HDInsight 클러스터는 클러스터 내에서 활성화 되는 �
 
 클러스터에 설치하는 구성 요소에는 Apache HDFS(Hadoop 분산 파일 시스템) 스토리지를 사용하기 위한 기본 구성이 있을 수 있습니다. HDInsight는 Azure Storage 또는 Data Lake Storage를 기본 스토리지로 사용합니다. 클러스터가 삭제되는 경우에도 데이터가 지속되는 HDFS 호환 가능 파일 시스템을 제공합니다. 설치하는 구성 요소가 HDFS 대신 WASB 또는 ADL을 사용하도록 구성해야 할 수 있습니다.
 
-대부분의 작업의 경우 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음 복사 hadoop common.jar 파일을 로컬 파일 시스템에서 클러스터 저장소에:
+대부분의 작업에서는 파일 시스템을 지정할 필요가 없습니다. 예를 들어 다음은 hadoop-common 파일을 로컬 파일 시스템에서 클러스터 저장소로 복사 합니다.
 
 ```bash
 hdfs dfs -put /usr/hdp/current/hadoop-client/hadoop-common.jar /example/jars/
@@ -161,13 +161,13 @@ HDInsight는 STDOUT 및 STDERR로 작성된 스크립트 출력을 기록합니�
 > [!NOTE]  
 > Apache Ambari는 클러스터를 정상적으로 만든 경우에만 사용할 수 있습니다. 클러스터를 만드는 동안 스크립트 작업을 사용하며 만들기에 실패하는 경우 문제 해결 섹션 [스크립트 작업을 사용하여 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md#troubleshooting) 에서 로깅된 정보에 액세스하는 다른 방법을 확인해보세요.
 
-대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 예를 들면 다음과 같습니다.
+대부분의 유틸리티 및 설치 패키지는 STDOUT 및 STDERR에 정보를 쓰지만 추가 로깅을 추가하려 할 수도 있습니다. 텍스트를 STDOUT에 보내려면 `echo`를 사용합니다. 다음은 그 예입니다.
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 예를 들면 다음과 같습니다.
+기본적으로 `echo`는 STDOUT에 문자열을 보냅니다. STDERR에 전달하려면 `echo` 앞에 `>&2`를 추가합니다. 다음은 그 예입니다.
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -188,7 +188,7 @@ line 1: #!/usr/bin/env: No such file or directory
 
 ### <a name="bps9"></a> 다시 시도 논리를 사용하여 일시적 오류에서 복구
 
-파일을 다운로드할 때 apt-get 또는 인터넷을 통해 데이터를 전송하는 기타 작업을 사용하여 패키지를 설치하면 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어 통신하는 원격 리소스가 백업 노드로의 장애 조치(failover) 중일 수 있습니다.
+파일을 다운로드 하거나, apt을 사용 하 여 패키지를 설치 하거나, 인터넷을 통해 데이터를 전송 하는 다른 작업을 수행 하는 경우 일시적인 네트워킹 오류로 인해 작업이 실패할 수 있습니다. 예를 들어,와 통신 하는 원격 리소스는 백업 노드로 장애 조치 (failover) 하는 중일 수 있습니다.
 
 스크립트를 일시적인 오류에 대해 탄력적으로 만들려면 다시 시도 논리를 구현할 수 있습니다. 다음 함수는 재시도 논리를 구현하는 방법을 보여 줍니다. 실패하기 전에 작업을 세 번 다시 시도합니다.
 
@@ -288,7 +288,7 @@ echo "HADOOP_CONF_DIR=/etc/hadoop/conf" | sudo tee -a /etc/environment
 
 * __공개적으로 읽을 수 있는 URI__ 예를 들어 OneDrive, Dropbox 또는 다른 파일 호스팅 서비스에 저장된 데이터에 대한 URL
 
-* HDInsight 클러스터와 연결된 __Azure Data Lake Storage 계정__ HDInsight에서 Azure Data Lake Storage를 사용하는 방법에 대한 자세한 내용은 [빠른 시작: HDInsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조하세요.
+* HDInsight 클러스터와 연결된 __Azure Data Lake Storage 계정__ HDInsight에서 Azure Data Lake Storage를 사용 하는 방법에 대 한 자세한 내용은 [빠른 시작: hdinsight에서 클러스터 설정](../storage/data-lake-storage/quickstart-create-connect-hdi-cluster.md)을 참조 하세요.
 
     > [!NOTE]  
     > HDInsight에서 Data Lake Storage에 액세스하는 데 사용하는 서비스 주체에는 스크립트에 대한 읽기 권한이 있어야 합니다.
@@ -313,9 +313,9 @@ Azure Storage 계정 또는 Azure Data Lake Storage에서 파일을 저장하면
 
 스크립트 작업을 사용하여 다음 메서드를 사용하여 HDInsight 클러스터를 사용자 지정할 수 있습니다.
 
-* Azure portal
+* Azure Portal
 * Azure PowerShell
-* Azure 리소스 관리자 템플릿
+* Azure Resource Manager 템플릿
 * HDInsight .NET SDK
 
 각 메서드 사용에 대한 자세한 내용은 [스크립트 작업을 사용하는 방법](hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -333,16 +333,16 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 **오류**: `$'\r': command not found`. 때로는 `syntax error: unexpected end of file`이 이어집니다.
 
-*원인*: 이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
+*원인*:이 오류는 스크립트에서 줄이 CRLF로 끝날 때 발생합니다. Unix 시스템은 줄 끝에 LF이 필요합니다.
 
 스크립트가 Windows 환경에서 작성된 경우 CRLF은 Windows의 많은 텍스트 편집기에서 줄 끝에 흔하게 쓰이기 때문에 이 문제가 가장 자주 발생합니다.
 
-*해결 방법*: 텍스트 편집기에서 옵션인 경우 줄 끝에 LF 또는 Unix 형식을 선택합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
+*해결*방법: 텍스트 편집기에서 옵션을 선택 하는 경우 줄 끝에 대해 Unix 형식 또는 LF를 선택 합니다. 또한 Unix 시스템에서 다음 명령을 사용하여 CRLF는 LF로 변경할 수 있습니다.
 
 > [!NOTE]  
 > 다음 명령은 CRLF 줄 끝을 LF으로 변경해야 하는 것과 거의 동일합니다. 시스템에서 사용할 수 있는 유틸리티에 따라 하나를 선택합니다.
 
-| 명령 | 메모 |
+| 명령 | 참고 |
 | --- | --- |
 | `unix2dos -b INFILE` |원본 파일이 .BAK 확장으로 백업됩니다. |
 | `tr -d '\r' < INFILE > OUTFILE` |OUTFILE은 끝이 LF인 버전만 포함합니다. |
@@ -353,7 +353,7 @@ Microsoft에서는 HDInsight 클러스터에 구성 요소를 설치하는 샘�
 
 *원인*: 스크립트가 바이트 순서 표시(BOM)를 사용하여 UTF-8로 저장될 때 이 오류가 발생합니다.
 
-*해결 방법*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
+*해상도*: ASCII로 또는 BOM을 사용하지 않고 UTF-8로 파일을 저장합니다. Linux 또는 Unix 시스템에서 다음 명령을 사용하여 BOM을 사용하지 않고 파일을 만들 수도 있습니다.
 
     awk 'NR==1{sub(/^\xef\xbb\xbf/,"")}{print}' INFILE > OUTFILE
 

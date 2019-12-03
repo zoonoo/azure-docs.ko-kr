@@ -1,25 +1,16 @@
 ---
-title: TLS 상호 인증 구성 - Azure App Service
-description: TLS에서 클라이언트 인증서 인증을 사용하도록 앱을 구성하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: TLS 상호 인증 구성
+description: TLS에서 클라이언트 인증서를 인증 하는 방법에 대해 알아봅니다. Azure App Service를 사용 하면 인증을 위해 응용 프로그램 코드에서 클라이언트 인증서를 사용할 수 있습니다.
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a07fa597305771ed3f4da01f2819297fc9cd3d77
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: aa4d0b5089c07cbbeb3d40224518b9eb9a927585
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271684"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672136"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Azure App Service에 대 한 TLS 상호 인증 구성
 

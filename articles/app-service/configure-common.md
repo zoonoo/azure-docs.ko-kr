@@ -1,26 +1,17 @@
 ---
-title: 포털에서 앱 구성-Azure App Service
-description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다.
+title: 포털에서 앱 구성
+description: Azure Portal에서 App Service 앱에 대 한 일반 설정을 구성 하는 방법을 알아봅니다. 앱 설정, 연결 문자열, 플랫폼, 언어 스택, 컨테이너 등
 keywords: azure app service, 웹 앱, 앱 설정, 환경 변수
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
 ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c22f88487fd8b34d48d3012c706bb0415760b21e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 45de3b79263fd43a93fcea73c271ede4bc5f96fe
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470948"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671957"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -34,12 +25,12 @@ App Service에서 앱 설정은 응용 프로그램 코드에 환경 변수로 �
 
 ![애플리케이션 설정](./media/configure-common/open-ui.png)
 
-ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은 web.config 또는 appsettings *의 `<appSettings>`* 에서 설정하는 것과 같지만 App Service의 값이 *web.config* 또는 appsettings의 값을 재정의 합니다 *.* . *Web.config* 또는 *appsettings*에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 암호 (예: Azure mysql 데이터베이스 암호)는 App Service에서 안전 하 게 사용할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
+ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 앱 설정을 설정 하는 것은 web.config 또는 appsettings *의 `<appSettings>`* 에서 설정하는 것과 같지만 App Service의 값이 *web.config* 또는 *appsettings*의 값을 재정의 합니다. *Web.config* 또는 *appsettings*에서 개발 설정 (예: 로컬 MySQL 암호)을 유지할 수 있지만 프로덕션 암호 (예: Azure mysql 데이터베이스 암호)는 App Service에서 안전 하 게 사용할 수 있습니다. 로컬에서 디버그할 때 동일한 코드가 개발 설정을 사용 하 고 Azure에 배포 될 때 프로덕션 암호를 사용 합니다.
 
 마찬가지로 다른 언어 스택은 런타임에 환경 변수로 앱 설정을 가져옵니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -109,7 +100,7 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
 예를 들어 *connectionstring1* 이라는 MySql 연결 문자열은 환경 변수 `MYSQLCONNSTR_connectionString1`로 액세스할 수 있습니다. 언어 스택 관련 단계는 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md#access-environment-variables)
-- [Node.JS](containers/configure-language-nodejs.md#access-environment-variables)
+- [Node.js](containers/configure-language-nodejs.md#access-environment-variables)
 - [PHP](containers/configure-language-php.md#access-environment-variables)
 - [Python](containers/how-to-configure-python.md#access-environment-variables)
 - [Java](containers/configure-language-java.md#data-sources)
@@ -237,7 +228,7 @@ Windows 앱의 경우 IIS 처리기 매핑과 가상 응용 프로그램 및 디
 Linux 앱의 경우 다음을 참조 하세요.
 
 - [ASP.NET Core](containers/configure-language-dotnetcore.md)
-- [Node.JS](containers/configure-language-nodejs.md)
+- [Node.js](containers/configure-language-nodejs.md)
 - [PHP](containers/configure-language-php.md)
 - [Python](containers/how-to-configure-python.md)
 - [Java](containers/configure-language-java.md)
@@ -251,7 +242,7 @@ Linux 앱의 경우 다음을 참조 하세요.
 
 - [Azure App Service에서 사용자 지정 도메인 이름 구성]
 - [Azure App Service에서 스테이징 환경 설정]
-- [Azure App Service에서 SSL 바인딩을 사용 하 여 사용자 지정 DNS 이름을 보호 합니다.](configure-ssl-bindings.md)
+- [Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호](configure-ssl-bindings.md)
 - [진단 로그 사용](troubleshoot-diagnostic-logs.md)
 - [Azure App Service에서 앱 크기 조정]
 - [Azure App Service의 기본 사항 모니터링]

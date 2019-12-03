@@ -1,25 +1,18 @@
 ---
-title: App Service Environment v1 소개 - Azure
-description: 모든 앱을 실행하기 위한 안전한 VNet 가입 전용 배율 단위를 제공하는 App Service Environment v1 기능을 알아봅니다.
-services: app-service
-documentationcenter: ''
+title: ASE v1 소개
+description: App Service Environment v1 기능에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 78e6d4f5-da46-4eb5-a632-b5fdc17d2394
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 32450d0c5fbb5599b286921b9653ae68faf40ecf
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: f655b7793bfbb5bbeddfc2f1f8e7bc973dabeb4c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070147"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687369"
 ---
 # <a name="introduction-to-app-service-environment-v1"></a>App Service Environment v1 소개
 
@@ -67,7 +60,7 @@ App Service Environment에서 지원 되는 사용 가능한 계산 리소스 �
 
 ## <a name="virtual-network-support"></a>Virtual Network 지원
 
-App Service Environment은 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 가상 네트워크 ([가상 네트워크에 대 한 추가 정보][MoreInfoOnVirtualNetworks])에서 만들 수 있습니다.  App Service Environment는 항상 가상 네트워크, 더 정확히 말하자면 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.  
+App Service Environment은 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 가상 네트워크 ([가상 네트워크에 대 한 추가 정보][MoreInfoOnVirtualNetworks] **)에서 만들** 수 있습니다.  App Service Environment는 항상 가상 네트워크, 더 정확히 말하자면 가상 네트워크의 서브넷 내에 존재하므로 가상 네트워크의 보안 기능을 활용하여 인바운드 및 아웃바운드 네트워크 통신을 모두 제어할 수 있습니다.  
 
 App Service Environment는 공개 IP 주소가 있는 인터넷 연결이거나 Azure ILB(내부 부하 분산 장치) 주소만 있는 내부 연결일 수 있습니다.
 

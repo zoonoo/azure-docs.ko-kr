@@ -1,24 +1,18 @@
 ---
-title: ILB App Service Environment와 Application Gateway 통합 - Azure
-description: ILB App Service Environment의 앱을 Application Gateway와 통합하는 방법에 대한 연습
-services: app-service
-documentationcenter: na
+title: Application Gateway와 통합
+description: 이 종단 간 연습에서는 ILB App Service Environment의 앱을 Application Gateway와 통합 하는 방법에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: a6a74f17-bb57-40dd-8113-a20b50ba3050
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 090952a065b8c3b2b25ad737992b68b9bc9aa9ec
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: dfb6d72b3f8f61e1350101173ecec6134a614edf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069480"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687147"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>ILB App Service Environment와 Azure Application Gateway 통합 #
 
@@ -70,11 +64,11 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    b. **계층**에 대해 **WAF**를 선택합니다.
 
-   c. **구독**에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
+   다. **구독**에 대해 App Service Environment 가상 네트워크에서 사용하는 동일한 구독을 선택합니다.
 
    d. **리소스 그룹**에 대해 리소스 그룹을 만들거나 선택합니다.
 
-   e. **위치**에 대해 App Service Environment 가상 네트워크의 위치를 선택합니다.
+   ㅁ. **위치**에 대해 App Service Environment 가상 네트워크의 위치를 선택합니다.
 
    ![새 Application Gateway 만들기 기본 사항][2]
 
@@ -84,11 +78,11 @@ GatewaySubnet이라는 이름이 아닌 서브넷을 사용해야 합니다. Gat
 
    b. **서브넷**에 대해 Application Gateway를 배포해야 하는 서브넷을 선택합니다. VPN Gateway를 만들 수 없게 하므로 GatewaySubnet은 사용하지 마세요.
 
-   c. **IP 주소 유형**으로 **공용**을 선택합니다.
+   다. **IP 주소 유형**으로 **공용**을 선택합니다.
 
    d. **공용 IP 주소**에 대해 공용 IP 주소를 선택합니다. 공용 IP 주소가 없으면 하나 만듭니다.
 
-   e. **프로토콜**로 **HTTP** 또는 **HTTPS**를 선택합니다. HTTPS를 구성하려면 PFX 인증서를 제공해야 합니다.
+   ㅁ. **프로토콜**로 **HTTP** 또는 **HTTPS**를 선택합니다. HTTPS를 구성하려면 PFX 인증서를 제공해야 합니다.
 
    f. **웹 애플리케이션 방화벽**에 대해 방화벽을 사용하도록 설정하고, **검색** 또는 **방지**에 대해서도 적합하게 설정할 수 있습니다.
 

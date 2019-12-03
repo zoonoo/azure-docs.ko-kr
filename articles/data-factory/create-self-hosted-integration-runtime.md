@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 4662e5047e981c74d2422830bc5b152dae738337
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559308"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672304"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 
@@ -105,6 +105,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | 자산                                                    | 설명                                                  | 필수 |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | **RegisterNewNode** "`<AuthenticationKey>`"                     | 지정 된 인증 키를 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아닙니다.       |
+| **RegisterNewNode** "`<AuthenticationKey>`" "`<NodeName>`"      | 지정 된 인증 키와 노드 이름을 사용 하 여 자체 호스팅 integration runtime 노드를 등록 합니다. | 아닙니다.       |
 | **Enableremoteaccess** "`<port>`" ["`<thumbprint>`"]            | 현재 노드에서 원격 액세스를 사용 하도록 설정 하 여 고가용성 클러스터를 설정 합니다. 또는 Azure Data Factory를 거치지 않고 자체 호스팅 IR에 대해 직접 자격 증명을 설정할 수 있습니다. 후자는 동일한 네트워크에 있는 원격 컴퓨터에서 **AzDataFactoryV2LinkedServiceEncryptedCredential** cmdlet을 사용 하 여 수행 합니다. | 아닙니다.       |
 | **Enableremoteaccessincontainer** "`<port>`" ["`<thumbprint>`"] | 노드가 컨테이너에서 실행 될 때 현재 노드에 대 한 원격 액세스를 사용 하도록 설정 합니다. | 아닙니다.       |
 | **DisableRemoteAccess**                                         | 현재 노드에 대 한 원격 액세스를 사용 하지 않도록 설정 합니다. 다중 노드 설정에는 원격 액세스가 필요 합니다. **AzDataFactoryV2LinkedServiceEncryptedCredential** PowerShell cmdlet은 원격 액세스가 사용 하지 않도록 설정 된 경우에도 계속 작동 합니다. 이 동작은 cmdlet이 자체 호스팅 IR 노드와 동일한 컴퓨터에서 실행 되는 경우에만 적용 됩니다. | 아닙니다.       |
@@ -119,7 +120,7 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 | **원래 비 자동 업데이트**                                            | 자체 호스팅 integration runtime 자동 업데이트를 설정 합니다.        | 아닙니다.       |
 | **TurnOffAutoUpdate**                                           | 자체 호스팅 integration runtime 자동 업데이트를 해제 합니다.       | 아닙니다.       |
 | **SwitchServiceAccount** "`<domain\user>`" ["`<password>`"]           | 새 계정으로 실행 되도록 DIAHostService를 설정 합니다. 시스템 계정 및 가상 계정에는 빈 암호 ""를 사용 합니다. | 아닙니다.       |
-| **Loglevel** `<logLevel>`                                       | ETW(Windows용 이벤트 추적) (ETW) 로그 수준을 **해제**, **오류**, **자세히**또는 **모두**로 설정 합니다. 이 속성은 Microsoft 지원 엔지니어가 설치를 디버그 하는 동안 대부분 사용 됩니다. | 아닙니다.       |
+
 
 ## <a name="command-flow-and-data-flow"></a>명령 흐름 및 데이터 흐름
 

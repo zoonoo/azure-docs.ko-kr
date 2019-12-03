@@ -1,24 +1,17 @@
 ---
-title: WebJob SDK 사용 방법 - Azure
-description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 서비스 및 타사 서비스의 데이터에 액세스 하는 이벤트 구동 백그라운드 처리 작업을 만듭니다.
-services: app-service\web, storage
-documentationcenter: .net
+title: WebJobs SDK를 사용 하는 방법
+description: WebJobs SDK에 대한 코드 작성 방법을 알아봅니다. Azure 및 타사 서비스의 데이터에 액세스 하는 이벤트 구동 백그라운드 처리 작업을 만듭니다.
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 67cd7f82597d306c8bf3c463d11457199aec7277
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 8e29c632ff3920c77a757fe45475a12c212cf579
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815736"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684013"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -78,7 +71,7 @@ static void Main(string[] args)
 
 로컬 개발을 보다 효율적으로 수행하기 위해 개발 모드에서 호스트를 실행할 수 있습니다. 개발 모드에서를 실행할 때 변경 되는 일부 설정은 다음과 같습니다.
 
-| 속성 | 개발 설정 |
+| 자산 | 개발 설정 |
 | ------------- | ------------- |
 | `Tracing.ConsoleLevel` | 로그 출력을 최대화하는 `TraceLevel.Verbose`. |
 | `Queues.MaxPollingInterval`  | 값이 작으면 큐 메서드가 즉시 트리거됩니다.  |
@@ -284,11 +277,11 @@ static void Main()
 
 이러한 트리거와 바인딩 형식은 버전 2에 포함 되어 있습니다. `Microsoft.Azure.WebJobs` 패키지의 *x* :
 
-* Linux 사용자 그룹용 Azure Files는 Linux에서 File Storage를 평가하고 채택할 때 피드백을 공유할 수 있도록 포럼을 제공합니다.
+* Blob Storage
 * Queue Storage
 * Table Storage
 
-다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `Use<binding>` 개체에서 `JobHostConfiguration` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 `Microsoft.Azure.WebJobs.Extensions`를 설치 하 고 다음과 같이 `Main` 메서드에서 `UseTimers`를 호출 합니다.
+다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `JobHostConfiguration` 개체에서 `Use<binding>` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 `Microsoft.Azure.WebJobs.Extensions`를 설치 하 고 다음과 같이 `Main` 메서드에서 `UseTimers`를 호출 합니다.
 
 ```cs
 static void Main()
@@ -756,9 +749,9 @@ public static async Task ProcessImage([BlobTrigger("images")] Stream image)
 
 일부 트리거는 동시성 관리를 기본적으로 지원합니다.
 
-* **QueueTrigger**. `JobHostConfiguration.Queues.BatchSize`를 `1`로 설정합니다.
-* **ServiceBusTrigger**. `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls`를 `1`로 설정합니다.
-* **FileTrigger**. `FileProcessor.MaxDegreeOfParallelism`를 `1`로 설정합니다.
+* **QueueTrigger**. `JobHostConfiguration.Queues.BatchSize`을 `1`로 설정합니다.
+* **ServiceBusTrigger**. `ServiceBusConfiguration.MessageOptions.MaxConcurrentCalls`을 `1`로 설정합니다.
+* **FileTrigger**. `FileProcessor.MaxDegreeOfParallelism`을 `1`로 설정합니다.
 
 이러한 설정을 사용하여 함수가 단일 인스턴스에서 싱글톤으로 실행되도록 할 수 있습니다. 웹 앱이 여러 인스턴스로 확장 될 때 함수의 단일 인스턴스만 실행 되도록 하려면 함수 (`[Singleton(Mode = SingletonMode.Listener)]`)에 수신기 수준 singleton 잠금을 적용 합니다. JobHost를 시작 하면 수신기 잠금이 획득 됩니다. 확장된 인스턴스 3개가 동시에 시작되면 인스턴스 중 하나만 잠금을 획득하고 하나의 수신기만 시작됩니다.
 
@@ -839,9 +832,9 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 권장 합니다. [시�
 |추적       | 0 |
 |디버그       | 1 |
 |정보 | 2 |
-|Warning     | 3 |
-|Error       | 4 |
-|심각    | 5 |
+|경고     | 3 |
+|오류       | 4 |
+|위험    | 5 |
 |없음        | 6 |
 
 각 범주를 특정 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)에 독립적으로 필터링 할 수 있습니다. 예를 들어 Blob 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
@@ -916,7 +909,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-다음 사용자 지정 [`ITelemetryInitializer`] 구현을 사용하면 기본 [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry)에 고유한 [`TelemetryConfiguration`]를 추가할 수 있습니다.
+다음 사용자 지정 [`ITelemetryInitializer`] 구현을 사용하면 기본 [`TelemetryConfiguration`]에 고유한 [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry)를 추가할 수 있습니다.
 
 ```cs
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -966,7 +959,7 @@ static void Main()
 
 [`TelemetryConfiguration`]이 생성되면 등록된 모든 [`ITelemetryInitializer`] 유형이 포함됩니다. 자세히 알아보려면 [사용자 지정 이벤트 및 메트릭에 대 한 APPLICATION INSIGHTS API](../azure-monitor/app/api-custom-events-metrics.md)를 참조 하세요.
 
-버전 3 *x*에서는 호스트가 중지 될 때 더 이상 [`TelemetryClient`] 를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 `ApplicationInsightsLoggerProvider`[`TelemetryClient`를 플러시하는 등록된 ]를 자동으로 제거합니다.
+버전 3 *x*에서는 호스트가 중지 될 때 더 이상 [`TelemetryClient`] 를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 [`TelemetryClient`]를 플러시하는 등록된 `ApplicationInsightsLoggerProvider`를 자동으로 제거합니다.
 
 #### <a name="version-2x"></a>버전 2. *x*
 
@@ -1016,4 +1009,4 @@ config.LoggerFactory = new LoggerFactory()
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[' JobHostConfiguration ']: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

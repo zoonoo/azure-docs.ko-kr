@@ -1,25 +1,18 @@
 ---
-title: Azure ExpressRoute의 네트워크 구성 세부 정보 - App Service
-description: ExpressRoute 회로에 연결된 가상 네트워크에 있는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보입니다.
-services: app-service
-documentationcenter: ''
+title: Azure Express 경로 v1 구성
+description: Azure Express 경로를 사용 하는 PowerApps의 App Service Environment에 대 한 네트워크 구성 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
-manager: nirma
-editor: ''
 ms.assetid: 34b49178-2595-4d32-9b41-110c96dde6bf
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: b10bd15538ecca7934a397ca63db1150a0bfc32c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8a83c2f6ac7599ff37237834a85b7771cf4ee502
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070032"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688740"
 ---
 # <a name="network-configuration-details-for-app-service-environment-for-powerapps-with-azure-expressroute"></a>Azure ExpressRoute를 사용하는 PowerApps용 App Service Environment의 네트워크 구성 세부 정보
 
@@ -101,13 +94,13 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > [!IMPORTANT]
 > App Service Environment는 구성 단계를 완료한 후에 배포해야 합니다. 이러한 단계에서 App Service Environment를 배포하기 전에 네트워크 연결을 사용할 수 있는지 확인합니다.
 
-### <a name="step-1-create-a-route-table"></a>1단계: 경로 테이블 만들기
+### <a name="step-1-create-a-route-table"></a>1 단계: 경로 테이블 만들기
 
 다음 코드 조각에 표시된 대로 미국 서부 Azure 지역에서 **DirectInternetRouteTable**이라는 경로 테이블을 만듭니다.
 
 `New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest`
 
-### <a name="step-2-create-routes-in-the-table"></a>2단계: 테이블에서 경로 만들기
+### <a name="step-2-create-routes-in-the-table"></a>2 단계: 테이블에 경로 만들기
 
 경로 테이블에 경로를 추가하여 아웃바운드 인터넷 액세스를 사용하도록 설정합니다.  
 
@@ -126,13 +119,13 @@ DNS 요구 사항을 충족하려면 가상 네트워크에 유효한 DNS 인프
 > 단일 UDR의 기본 상한은 100개 경로입니다. 100개 경로 한도 내에 맞게 Azure IP 주소 범위를 “요약”해야 합니다. UDR 정의 경로는 ExpressRoute 연결에서 보급하는 경로보다 더 구체적이어야 합니다.
 > 
 
-### <a name="step-3-associate-the-table-to-the-subnet"></a>3단계: 서브넷에 테이블 연결
+### <a name="step-3-associate-the-table-to-the-subnet"></a>3 단계: 서브넷에 테이블 연결
 
 App Service Environment를 배포하려는 경우 서브넷에 경로 테이블을 연결합니다. 이 명령은 App Service Environment를 포함하는 **ASESubnet** 서브넷에 **DirectInternetRouteTable** 테이블을 연결합니다.
 
 `Set-AzureSubnetRouteTable -VirtualNetworkName 'YourVirtualNetworkNameHere' -SubnetName 'ASESubnet' -RouteTableName 'DirectInternetRouteTable'`
 
-### <a name="step-4-test-and-confirm-the-route"></a>4단계: 경로 테스트 및 확인
+### <a name="step-4-test-and-confirm-the-route"></a>4 단계: 경로 테스트 및 확인
 
 경로 테이블이 서브넷에 바인딩된 후에 경로를 테스트하고 확인합니다.
 

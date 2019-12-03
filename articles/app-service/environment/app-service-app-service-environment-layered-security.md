@@ -1,28 +1,20 @@
 ---
-title: App Service Environment로 계층화된 보안 아키텍처 - Azure
-description: App Service Environment로 계층화된 보안 아키텍처 구현
-services: app-service
-documentationcenter: ''
+title: 계층화 된 보안 v1
+description: App Service 환경에서 계층화 된 보안 아키텍처를 구현 하는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 73ce0213-bd3e-4876-b1ed-5ecad4ad5601
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/30/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 2d9eedcdc66dceabdd6506c5b64f0c15c874efee
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: a8920e97d315dc7bfd0ba22386b8b637afb7c05e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070136"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688791"
 ---
 # <a name="implementing-a-layered-security-architecture-with-app-service-environments"></a>App Service Environment로로 계층화된 보안 아키텍처 구현
-## <a name="overview"></a>개요
 App Service Environment가 가상 네트워크에 배포된 격리된 런타임 환경을 제공하므로 개발자는 실제 애플리케이션 계층 각각에 서로 다른 수준으로 네트워크 액세스를 제공하는 계층화된 보안 아키텍처를 만들 수 있습니다.
 
 일반적으로 일반 인터넷 액세스로부터 API 백 엔드를 숨기거나 API가 업스트림 웹앱에서 호출될 수 있도록 하기 원합니다.  [NSGs (네트워크 보안 그룹)][NetworkSecurityGroups] 는 App Service 환경이 포함 된 서브넷에서 API 응용 프로그램에 대 한 공용 액세스를 제한 하는 데 사용할 수 있습니다.
@@ -40,7 +32,7 @@ App Service Environment가 가상 네트워크에 배포된 격리된 런타임 
 
 서브넷에는 [nsgs (네트워크 보안 그룹)][NetworkSecurityGroups] 가 적용 되 고 App Service 환경은 서브넷에 배포 되기 때문에 nsgs에 포함 된 규칙은 App Service Environment에서 실행 되는 **모든** 앱에 적용 됩니다.  네트워크 보안 그룹이 "apiase"를 포함하는 서브넷에 적용되면 이 문서에 대한 샘플 아키텍처를 사용하여 "apiase" App Service Environment에서 실행되는 모든 앱은 동일한 집합의 보안 규칙에 의해 보호됩니다. 
 
-* **업스트림 호출자의 아웃바운드 IP 주소 확인:**  업스트림 호출자의 IP 주소는 무엇인가요?  이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다.  App Service Environment 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 App Service Environments에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 합니다.   App Service Environment에서 실행 되는 앱에 대 한 아웃 바운드 IP 주소를 확인 하는 방법에 대 한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조 하세요.
+* **업스트림 호출자의 아웃 바운드 IP 주소 확인:** IP 주소 또는 업스트림 호출자의 주소는 무엇입니까?  이러한 주소는 NSG에서 명시적으로 액세스하도록 허용해야 합니다.  App Service Environment 간의 호출이 "Internet" 호출을 고려하기 때문에 각 세 업스트림 App Service Environments에 할당된 아웃 바운드 IP 주소는 "apiase" 서브넷에 대한 NSG에서 액세스하도록 허용해야 합니다.   App Service Environment에서 실행 되는 앱에 대 한 아웃 바운드 IP 주소를 확인 하는 방법에 대 한 자세한 내용은 [네트워크 아키텍처][NetworkArchitecture] 개요 문서를 참조 하세요.
 * **백 엔드 API 앱 자체를 호출해야 합니까?**  때로는 간과되고 미묘한 점은 백 엔드 애플리케이션이 자신을 호출해야 한다는 시나리오입니다.  또한 App Service Environment에서 백 엔드 API 애플리케이션이 자신을 호출하는 경우 "인터넷" 호출로 처리됩니다.  샘플 아키텍처에서는 "apiase" App Service Environment의 아웃 바운드 IP 주소에서 액세스하도록 허락이 필요합니다.
 
 ## <a name="setting-up-the-network-security-group"></a>네트워크 보안 그룹 설치

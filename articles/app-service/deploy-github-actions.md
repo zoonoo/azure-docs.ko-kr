@@ -1,24 +1,17 @@
 ---
-title: GitHub 작업을 사용 하 여 CI/CD 파이프라인에서 코드 배포-Azure App Service | Microsoft Docs
-description: GitHub 작업을 사용 하 여 코드를 App Service에 배포 하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: GitHub 작업을 사용 하 여 CI/CD 구성
+description: GitHub 작업을 사용 하 여 CI/CD 파이프라인에서 Azure App Service 하는 코드를 배포 하는 방법을 알아봅니다. 빌드 작업을 사용자 지정 하 고 복잡 한 배포를 실행 합니다.
 ms.devlang: na
 ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: 9842057a590b08f2207a1ea166e0ce0d457e4381
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: e3d6e730846388c4b74cfa0b6361629e836b0517
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73620508"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670185"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service에 배포
 

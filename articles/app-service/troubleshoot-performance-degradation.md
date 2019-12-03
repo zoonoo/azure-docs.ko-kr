@@ -1,27 +1,18 @@
 ---
-title: 성능 저하 문제 해결 - Azure App Service | Microsoft Docs
-description: 이 문서에서는 Azure App Service의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 성능 저하 문제 해결
+description: 앱 동작 모니터링, 데이터 수집 및 문제 완화를 비롯 하 여 Azure App Service에서 속도가 느려지는 앱 성능 문제를 해결 하는 방법에 대해 알아보세요.
 tags: top-support-issue
 keywords: 웹앱 성능, 느린 앱, 앱 느림
 ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/03/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3f7389022eaee4268d5d4fc5439b64d7f7f1bf07
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 98c11a72b5aea0fac15d943977402289dc33a970
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066536"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688311"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Azure App Service에서 느린 앱 성능 문제 해결
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)의 느린 앱 성능 문제를 해결하는 데 도움을 줍니다.
@@ -50,7 +41,7 @@ ms.locfileid: "70066536"
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. 애플리케이션 작동을 관찰 및 감시
+### <a name="1-observe-and-monitor-application-behavior"></a>1. 응용 프로그램 동작 관찰 및 모니터링
 #### <a name="track-service-health"></a>서비스 상태를 추적합니다.
 Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 경고를 표시합니다. [Azure Portal](https://portal.azure.com/)에서 서비스의 상태를 추적할 수 있습니다. 자세한 내용은 [서비스 상태 추적](../monitoring-and-diagnostics/insights-service-health.md)을 참조하세요.
 
@@ -67,7 +58,7 @@ Microsoft Azure는 서비스가 중단되거나 성능이 저하될 때마다 �
 
 ![앱 성능 모니터링](./media/app-service-web-troubleshoot-performance-degradation/1-monitor-metrics.png)
 
-자세한 내용은 다음을 참조하세요.
+자세한 내용은
 
 * [Azure App Service에서 앱 모니터링](web-sites-monitor.md)
 * [경고 알림 받기](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)

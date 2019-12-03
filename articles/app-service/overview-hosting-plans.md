@@ -1,26 +1,17 @@
 ---
-title: App Service 계획 개요 - Azure | Microsoft Docs
-description: Azure App Service에 대한 App Service 계획의 작동 방식 및 이러한 계획을 통해 관리 환경을 향상시킬 수 있는 방법을 알아봅니다.
+title: App Service 요금제
+description: Azure App Service에서 App Service 계획의 작동 방식, 고객에 게 요금을 청구 하는 방법 및 요구에 맞게 크기를 조정 하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 규모, 확장 가능, 확장성, App Service 계획, App Service 비용
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/09/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 78440185b4a26bccc8ffb0258416a19aa929af6b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c0b28bd7a854d1b4a8b387e40fb045d47160768d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470247"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672278"
 ---
 # <a name="azure-app-service-plan-overview"></a>Azure App Service 계획 개요
 

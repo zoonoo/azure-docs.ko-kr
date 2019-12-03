@@ -1,25 +1,16 @@
 ---
-title: 코드에서 SSL 인증서 사용-Azure App Service | Microsoft Docs
-description: 클라이언트 인증서를 사용하여 해당 인증서가 필요한 원격 리소스에 연결하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
+title: 코드에서 SSL 인증서 사용
+description: 코드에서 클라이언트 인증서를 사용 하는 방법을 알아봅니다. 클라이언트 인증서를 사용 하 여 원격 리소스를 사용 하 여 인증 하거나 암호화 작업을 사용 하 여 실행 합니다.
 ms.topic: article
 ms.date: 11/04/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1546ded1977e1e26792189e1d992d106d3d77ef2
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: d783b61c372c7d0f8cca13106bf297ab9b55c424
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271280"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671888"
 ---
 # <a name="use-an-ssl-certificate-in-your-code-in-azure-app-service"></a>Azure App Service에서 코드에 SSL 인증서를 사용 합니다.
 
@@ -29,7 +20,7 @@ ms.locfileid: "74271280"
 
 App Service에서 SSL 인증서를 관리할 수 있는 경우 인증서 및 애플리케이션 코드를 별도로 유지 관리하여 중요한 데이터를 보호할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 

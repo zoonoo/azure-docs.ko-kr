@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/13/2018
-ms.openlocfilehash: 229216ee873ade9418574141017aaf88235ba9e4
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: d313fed6a61ac98e596e6f8caca8f0e46a8c9600
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820704"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689070"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Application Insights의 시스템 성능 카운터
 
@@ -139,7 +139,7 @@ using Microsoft.ApplicationInsights.Extensibility.PerfCounterCollector;
 
 ## <a name="performance-counters-for-applications-running-in-azure-web-apps"></a>Azure Web Apps에서 실행 되는 응용 프로그램에 대 한 성능 카운터
 
-Azure Web Apps에 배포 된 ASP.NET 및 ASP.NET Core 응용 프로그램은 모두 특수 한 샌드박스 환경에서 실행 됩니다. 이 환경에서는 시스템 성능 카운터에 대 한 직접 액세스를 허용 하지 않습니다. 그러나 카운터의 제한 된 하위 집합은 [여기](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables)에 설명 된 대로 환경 변수로 노출 됩니다. ASP.NET 및 ASP.NET Core에 대 한 Application Insights SDK는 이러한 특수 환경 변수를 통해 Azure Web Apps에서 성능 카운터를 수집 합니다. 이 환경에서는 카운터의 하위 집합만 사용할 수 있으며 전체 목록은 여기에서 찾을 수 있습니다 [.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
+Azure Web Apps에 배포 된 ASP.NET 및 ASP.NET Core 응용 프로그램은 모두 특수 한 샌드박스 환경에서 실행 됩니다. 이 환경에서는 시스템 성능 카운터에 대 한 직접 액세스를 허용 하지 않습니다. 그러나 카운터의 제한 된 하위 집합은 [여기](https://github.com/projectkudu/kudu/wiki/Perf-Counters-exposed-as-environment-variables)에 설명 된 대로 환경 변수로 노출 됩니다. ASP.NET 및 ASP.NET Core에 대 한 Application Insights SDK는 이러한 특수 환경 변수를 통해 Azure Web Apps에서 성능 카운터를 수집 합니다. 이 환경에서는 카운터의 하위 집합만 사용할 수 있으며 전체 목록은 여기에서 찾을 수 있습니다 [.](https://github.com/microsoft/ApplicationInsights-dotnet-server/blob/develop/WEB/Src/PerformanceCollector/Perf.Shared/Implementation/WebAppPerformanceCollector/CounterFactory.cs)
 
 ## <a name="performance-counters-in-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램의 성능 카운터
 

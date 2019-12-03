@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/24/2019
 ms.author: vilibert
-ms.openlocfilehash: 0dd07b3394e385b3931e01867d467af7559b4f8b
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 20d710f717a9dff26f46ac7a201a9b694f3fbe84
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664168"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684140"
 ---
 # <a name="troubleshooting-a-linux-vm-when-there-is-no-access-to-the-azure-serial-console-and-the-disk-layout-is-using-lvm-logical-volume-manager"></a>Azure 직렬 콘솔에 대 한 액세스 권한이 없고 디스크 레이아웃이 LVM을 사용 하는 경우 Linux VM 문제 해결 (논리 볼륨 관리자)
 
@@ -211,6 +211,29 @@ grub2-mkconfig -o /boot/grub2/grub.cfg
 ### <a name="example-3---enable-serial-console"></a>예제 3-직렬 콘솔 사용
 Azure 직렬 콘솔에 액세스할 수 없는 경우 Linux VM에 대 한 GRUB 구성 매개 변수를 확인 하 고 수정 합니다. [이 문서에서](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-proactive-configuration) 자세한 정보를 찾을 수 있습니다.
 
+### <a name="example-4---kernel-loading-with-problematic-lvm-swap-volume"></a>예제 4-문제가 있는 LVM 스왑 볼륨을 사용한 커널 로드
+
+VM이 완전히 부팅 되지 않고 **dracgprompt** 프롬프트로 전환 될 수 있습니다.
+실패에 대 한 자세한 내용은 Azure 직렬 콘솔에서 찾을 수도 있고, Azure Portal-> boot diagnostics-> Serial log로 이동할 수도 있습니다.
+
+
+다음과 같은 오류가 있을 수 있습니다.
+
+```
+[  188.000765] dracut-initqueue[324]: Warning: /dev/VG/SwapVol does not exist
+         Starting Dracut Emergency Shell...
+Warning: /dev/VG/SwapVol does not exist
+```
+
+이 예제에서는 이름이 **VG/SwapVol** 인 lv를 로드 하도록 grub를 구성 하 고 VM에서이를 찾을 수 없습니다. 이 줄은 LV를 참조 하는 커널이 로드 되는 방법을 보여 줍니다.
+
+```
+[    0.000000] Command line: BOOT_IMAGE=/vmlinuz-3.10.0-1062.4.1.el7.x86_64 root=/dev/mapper/VG-OSVol ro console=tty0 console=ttyS0 earlyprintk=ttyS0 net.ifnames=0 biosdevname=0 crashkernel=256M rd.lvm.lv=VG/OSVol rd.lvm.lv=VG/SwapVol nodmraid rhgb quiet
+[    0.000000] e820: BIOS-provided physical RAM map:
+```
+
+ /Etc/default/grub 구성에서 잘못 된 LV를 제거 하 고 grub2를 다시 빌드합니다.
+
 
 ## <a name="exit-chroot-and-swap-the-os-disk"></a>Chroot를 종료 하 고 OS 디스크를 교환 합니다.
 
@@ -247,4 +270,8 @@ VM을 실행 하는 경우 디스크 교환이 종료 되 고 디스크 교환 �
 
 
 ## <a name="next-steps"></a>다음 단계
-[Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux) 에 대 한 자세한 정보
+다음에 대한 자세한 정보
+
+ [Azure 직렬 콘솔]( https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-linux)
+
+[단일 사용자 모드](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-grub-single-user-mode)

@@ -1,26 +1,20 @@
 ---
-title: 애플리케이션 성능 FAQ - Azure App Service | Microsoft Docs
-description: Azure App Service의 Web Apps 기능에서 가용성, 성능 및 애플리케이션 문제에 대한 질문과 대답을 확인합니다.
-services: app-service\web
-documentationcenter: ''
+title: 응용 프로그램 성능 Faq
+description: Azure App Service의 가용성, 성능 및 응용 프로그램 문제에 대 한 자주 묻는 질문에 대 한 대답을 확인 하세요.
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: top-support-issue
 ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: ibiza
 ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 9cd529424a022edfa64f9053a53cbbe9f756637e
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: a5af98aae420193b8316a48aa60550cef70a9c4a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122064"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671703"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 애플리케이션 성능 FAQ
 
@@ -38,11 +32,11 @@ ms.locfileid: "71122064"
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>높은 CPU 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 CPU 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램에서 필요한 모든 리소스를 가져오는 상위 서비스 계층으로 크기를 조정 하는 것이 좋습니다. 다른 경우에 높은 CPU 사용은 잘못된 반복이나 코딩 사례로 인해 발생할 수 있습니다. CPU 사용 증가를 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. 자세한 내용은 [Capture and analyze a dump file for high CPU consumption for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/)(Web Apps의 높은 CPU 사용에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>높은 메모리 사용 시나리오의 문제는 어떻게 해결하나요?
 
-일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 애플리케이션이 필요한 모든 리소스를 얻도록 상위 서비스 계층으로 크기를 조정하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 항목을 파악하는 프로세스는 두 부분으로 구성됩니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
+일부 높은 메모리 사용 시나리오의 경우 앱에는 실제로 더 많은 컴퓨팅 리소스가 필요할 수 있습니다. 이 경우 응용 프로그램에서 필요한 모든 리소스를 가져오는 상위 서비스 계층으로 크기를 조정 하는 것이 좋습니다. 다른 경우에는 코드의 버그로 인해 메모리 누수가 발생할 수 있습니다. 코딩 사례가 메모리 사용을 증가시킬 수도 있습니다. 높은 메모리 사용을 트리거하는 것을 파악 하는 것은 두 부분으로 이루어진 프로세스입니다. 먼저 프로세스 덤프를 만들고 프로세스 덤프를 분석합니다. Azure Site Extension Gallery의 Crash Diagnoser가 이러한 단계를 둘 다 효율적으로 수행할 수 있습니다. 자세한 내용은 [Capture and analyze a dump file for intermittent high memory for Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/)(Web Apps의 간헐적 높은 메모리에 대한 덤프 파일 캡처 및 분석)를 참조하세요.
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>PowerShell를 사용하여 App Service Web Apps를 어떻게 자동화할 수 있나요?
 
@@ -179,7 +173,7 @@ WebJobs는 백그라운드에서 처리되도록 디자인됩니다. WebJob에�
 
 App Service의 로컬 캐시 기능을 사용할 경우 App Service 인스턴스에 대한 LogFiles 및 Data 폴더의 폴더 구조에 영향을 미칩니다. 로컬 캐시가 사용될 경우 하위 폴더는 스토리지 LogFiles 및 Data 폴더에 생성됩니다. 하위 폴더에는 명명 패턴 "고유 식별자" + 타임스탬프가 사용됩니다. 각 하위 폴더는 웹앱이 실행 중이거나 실행된 VM 인스턴스에 해당합니다.
 
-로컬 캐시를 사용 중인지 확인하려면 App Service **애플리케이션 설정** 탭을 확인합니다. 로컬 캐시가 사용되고 있으면 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`이 `Always`로 설정되어 있습니다.
+로컬 캐시를 사용 하 고 있는지 확인 하려면 App Service **응용 프로그램 설정** 탭을 확인 합니다. 로컬 캐시를 사용 하는 경우 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION` `Always`로 설정 됩니다.
 
 로컬 캐시를 사용하고 있지 않고 이 문제가 발생하지 않으면 지원 요청을 제출합니다.
 

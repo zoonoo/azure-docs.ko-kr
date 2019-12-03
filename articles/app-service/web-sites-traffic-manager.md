@@ -1,26 +1,16 @@
 ---
-title: Traffic Manager를 사용하여 트래픽 제어 - Azure App Service
-description: 이 문서에서는 Azure App Service와 관련된 Azure Traffic Manager의 요약 정보를 제공합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: erikre
-editor: mollybos
+title: Traffic Manager를 사용 하 여 트래픽 제어
+description: Azure App Service와 통합할 때 Azure Traffic Manager를 구성 하는 모범 사례를 알아봅니다.
 ms.assetid: dabda633-e72f-4dd4-bf1c-6e945da456fd
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 02/25/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 2cd53c3c0b3e9acbb8a5a88c7696e8b3089c50c9
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 200effab70b369d69b4e89b1901578ecfe1a1b87
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483373"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684098"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Azure Traffic Manager를 사용하여 Azure App Service 트래픽 제어
 > [!NOTE]

@@ -12,15 +12,15 @@ ms.date: 09/11/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d259be0c04af0fcf3628a9f296730749404610cb
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 3ee4b452d087bfef0e9f5f7c820870da0df8dc3e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68562082"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74683930"
 ---
 # <a name="add-or-remove-group-owners-in-azure-active-directory"></a>Azure Active Directory를 사용하여 그룹 소유자 추가 또는 제거
-Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 사용자 또는 서비스 사용자 일 수 있으며 구성원 자격을 포함 하 여 그룹을 관리할 수 있습니다. 기존 그룹 소유자 또는 그룹 관리 관리자만 그룹을 할당할 수 있습니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다.
+Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관리합니다. 그룹 소유자는 사용자 또는 서비스 사용자 일 수 있으며 구성원 자격을 포함 하 여 그룹을 관리할 수 있습니다. 기존 그룹 소유자 또는 그룹 관리 관리자만 그룹 소유자를 할당할 수 있습니다. 그룹 소유자는 그룹의 멤버일 필요가 없습니다.
 
 그룹에 소유자가 없는 경우 그룹 관리 관리자도 그룹을 관리할 수 있습니다.
 
@@ -28,7 +28,7 @@ Azure AD(Azure Active Directory) 그룹은 그룹 소유자가 소유하고 관�
 다음은 Azure AD 포털을 사용 하 여 사용자를 그룹에 소유자로 추가 하는 방법에 대 한 지침입니다. 서비스 사용자를 그룹 소유자로 추가 하려면 [PowerShell](https://docs.microsoft.com/powershell/module/Azuread/Add-AzureADGroupOwner?view=azureadps-2.0)을 사용 하 여이 작업을 수행 하는 지침을 따르세요.
 
 ### <a name="to-add-a-group-owner"></a>그룹 소유자를 추가하려면
-1. 해당 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 디렉터리에 대한 글로벌 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **Azure Active Directory**를 선택하고 **그룹**을 선택한 다음, 소유자를 추가하려는 그룹을 선택합니다(예: *MDM 정책 - 서부*).
 
@@ -63,10 +63,10 @@ Azure AD를 사용하여 그룹에서 소유자를 제거합니다.
 ## <a name="next-steps"></a>다음 단계
 - [Azure Active Directory 그룹을 사용하여 리소스에 대한 액세스 관리](active-directory-manage-groups.md)
 
-- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-cmdlets.md)
+- [그룹 설정을 구성하는 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-cmdlets.md)
 
-- [그룹을 사용하여 통합 SaaS 앱에 대한 액세스 할당](../users-groups-roles/groups-saasapps.md)
+- [그룹을 사용하여 통합 SaaS 앱에 액세스 할당](../users-groups-roles/groups-saasapps.md)
 
 - [Azure Active Directory와 온-프레미스 ID 통합](../hybrid/whatis-hybrid-identity.md)
 
-- [그룹 설정을 구성하는 Azure Active Directory cmdlets](../users-groups-roles/groups-settings-v2-cmdlets.md)
+- [그룹 설정을 구성하는 Azure Active Directory cmdlet](../users-groups-roles/groups-settings-v2-cmdlets.md)

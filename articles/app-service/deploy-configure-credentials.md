@@ -1,24 +1,16 @@
 ---
-title: 배포 자격 증명 구성 - Azure App Service | Microsoft Docs
-description: Azure App Service 배포 자격 증명 사용 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: jpconnoc
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: 배포 자격 증명 구성
+description: Azure App Service에 있는 배포 자격 증명의 유형과이를 구성 하 고 사용 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: fc9445b64baae0e625b62356fee381329b01e8fd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c4e7a66a9535812da505045c26e7b1e6fbc6c661
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098493"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74669963"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Azure App Service의 배포 자격 증명 구성
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [로컬 Git 배포](deploy-local-git.md) 및 [FTP/S 배포](deploy-ftp.md)를 위해 두 가지 유형의 자격 증명을 지원합니다. 이러한 자격 증명은 Azure 구독 자격 증명과 동일 하지 않습니다.
@@ -48,11 +40,11 @@ JSON 출력에는 암호가 `null`로 나옵니다. `'Conflict'. Details: 409` �
 
 Azure Portal에서 배포 자격 증명 페이지에 액세스 하려면 앱이 하나 이상 있어야 합니다. 사용자 수준 자격 증명을 구성하려면
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **\<any_app >**  > **Deployment center** > FTP대시보드 > 를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **\<Any_app** > **Deployment center** > **FTP** > **대시보드**를 선택 합니다.
 
     ![](./media/app-service-deployment-credentials/access-no-git.png)
 
-    또는 Git 배포를 이미 구성한 경우 **App Services** >  **&lt;any_app >**  > **deployment center** > **FTP/Credentials**를 선택 합니다.
+    또는 Git 배포를 이미 구성한 경우 **App Services** >  **&lt;Any_app >**  > **배포 센터** > **FTP/자격 증명**을 선택 합니다.
 
     ![](./media/app-service-deployment-credentials/access-with-git.png)
 
@@ -71,14 +63,14 @@ Git 배포가 구성 된 경우 페이지는 **git/배포 사용자 이름을**�
 
 ## <a name="use-user-level-credentials-with-ftpftps"></a>FTP/FTPS와 함께 사용자 수준 자격 증명 사용
 
-사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점을 인증 하는 경우 사용자 이름은 다음 형식으로 requirers 됩니다.`<app-name>\<user-name>`
+사용자 수준 자격 증명을 사용 하 여 FTP/FTPS 끝점에 인증 requirers 다음과 같은 형식으로 사용자 이름을 지정 합니다. `<app-name>\<user-name>`
 
 사용자 수준 자격 증명은 특정 리소스가 아니라 사용자에 게 연결 되기 때문에 로그인 작업을 올바른 앱 끝점으로 보내기 위해 사용자 이름이이 형식 이어야 합니다.
 
 ## <a name="appscope"></a>앱 수준 자격 증명 정보 가져오기 및 다시 설정
 앱 수준 자격 증명을 가져오려면
 
-1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **&lt;any_app >**  > **Deployment center** > **FTP/Credentials**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)의 왼쪽 메뉴에서 **App Services** >  **&lt;Any_app** > **배포 센터** > **FTP/자격 증명**을 선택 합니다.
 
 2. **앱 자격 증명**을 선택 하 고 **복사** 링크를 선택 하 여 사용자 이름 또는 암호를 복사 합니다.
 

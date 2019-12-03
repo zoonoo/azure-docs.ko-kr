@@ -1,26 +1,17 @@
 ---
-title: FTP/S를 사용하여 콘텐츠 배포 - Azure App Service | Microsoft Docs
-description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: FTP/S를 사용 하 여 콘텐츠 배포
+description: FTP 또는 FTPS를 사용하여 Azure App Service에 앱을 배포하는 방법을 알아봅니다. 암호화 되지 않은 FTP를 사용 하지 않도록 설정 하 여 웹 사이트 보안 향상
 ms.assetid: ae78b410-1bc0-4d72-8fc4-ac69801247ae
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/18/2019
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 6e8a6820b3cf3031f11ab04d9baf4a7888491c81
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: bccf4fa0b17f261d41c0a80d9f75fe391f591bfb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098038"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671714"
 ---
 # <a name="deploy-your-app-to-azure-app-service-using-ftps"></a>FTP/S를 사용하여 앱에 Azure App Service에 배포
 
@@ -89,7 +80,7 @@ FTP 대시보드에서 **복사**를 클릭하여 FTPS 엔드포인트 및 앱 �
 ## <a name="troubleshoot-ftp-deployment"></a>FTP 배포 문제 해결
 
 - [FTP 배포 문제를 어떻게 해결할 수 있나요?](#how-can-i-troubleshoot-ftp-deployment)
-- [FTP를 수행할 수 없으며 코드를 게시할 수 없습니다. 이 문제는 어떻게 해결할 수 있나요?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
+- [FTP를 수행할 수 없으며 내 코드를 게시할 수 없습니다. 문제를 해결 하려면 어떻게 해야 하나요?](#im-not-able-to-ftp-and-publish-my-code-how-can-i-resolve-the-issue)
 - [수동 모드를 통해 Azure App Service에서 FTP에 연결하려면 어떻게 해야 하나요?](#how-can-i-connect-to-ftp-in-azure-app-service-via-passive-mode)
 
 ### <a name="how-can-i-troubleshoot-ftp-deployment"></a>FTP 배포 문제를 어떻게 해결할 수 있나요?

@@ -1,24 +1,18 @@
 ---
-title: App Service environment 사용 - Azure
-description: Azure App Service Environment에서 앱을 작성, 게시 및 확장하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: na
+title: ASE 사용 및 관리
+description: Azure App Service 환경에서 앱을 만들고, 게시 하 고, 크기를 조정 하는 방법입니다. 한 문서에서 일반적인 작업을 찾습니다.
 author: ccompy
-manager: stefsch
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 841271c474ba8e24bc352bcae1fa037cf382a8ec
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e5c127673e4b0cb6c68aaf0a9790abbf78758670
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470590"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687086"
 ---
 # <a name="use-an-app-service-environment"></a>App Service Environment 사용 #
 
@@ -65,11 +59,11 @@ ASE에서 앱을 만들려면
 
     b. App Service 계획의 이름을 입력합니다.
 
-    c. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
+    다. **위치** 드롭다운 목록에서 해당 ASE를 선택합니다. 
     
-    ㄹ. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
+    d. **격리** 가격 책정 계층을 선택합니다. **선택**을 선택합니다.
 
-    e. **확인**을 선택합니다.
+    ㅁ. **확인**을 선택합니다.
     
     ![격리 가격 책정 계층][2]
 

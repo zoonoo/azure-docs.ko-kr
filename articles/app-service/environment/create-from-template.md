@@ -1,24 +1,18 @@
 ---
-title: Resource Manager 템플릿을 사용하여 App Service Environment 만들기 - Azure
-description: Resource Manager 템플릿을 사용하여 외부 또는 ILB Azure App Service Environment를 만드는 방법을 설명합니다.
-services: app-service
-documentationcenter: na
+title: ARM을 사용 하 여 ASE 만들기
+description: Azure Resource Manager 템플릿을 사용 하 여 외부 또는 ILB App Service 환경을 만드는 방법에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 6eb7d43d-e820-4a47-818c-80ff7d3b6f8e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 60c9d89bc0ab7c63e779a7cadece863540e827aa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0dccefa47789b4658a7bca828b5a820db0d448e5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470593"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688667"
 ---
 # <a name="create-an-ase-by-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 ASE 만들기
 
@@ -44,7 +38,7 @@ ASE 만들기를 자동화하려면:
 
 2. ILB ASE를 만든 후에 ILB ASE 도메인과 일치하는 SSL 인증서를 업로드합니다.
 
-3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootdomain.com))을 사용할 때 ILB ASE의 앱으로 이동하는 SSL 트래픽에 사용됩니다.
+3. 업로드된 SSL 인증서는 해당 "기본" SSL 인증서로서 ILB ASE에 명시적으로 할당됩니다.  이 SSL 인증서는 ASE에 할당된 공용 루트 도메인(예: https://someapp.mycustomrootdomain.com) )을 사용할 때 ILB ASE의 앱으로 이동하는 SSL 트래픽에 사용됩니다.
 
 
 ## <a name="create-the-ase"></a>ASE 만들기
@@ -68,7 +62,7 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 ASE가 작성되려면 1시간 정도 걸립니다. 이 시간이 지나면 ASE가 Portal에서 배포를 트리거한 구독의 ASE 목록에 표시됩니다.
 
 ## <a name="upload-and-configure-the-default-ssl-certificate"></a>"기본" SSL 인증서 업로드 및 구성
-SSL 인증서를 앱에 대한 SSL 연결을 설정하는 데 사용되는 "기본" SSL 인증서로 ASE와 연결해야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우 https://some-random-app.internal-contoso.com에 연결하려면 * *.internal-contoso.com*에 유효한 SSL 인증서가 필요합니다. 
+SSL 인증서를 앱에 대한 SSL 연결을 설정하는 데 사용되는 "기본" SSL 인증서로 ASE와 연결해야 합니다. ASE의 기본 DNS 접미사가 *internal-contoso.com*인 경우 https://some-random-app.internal-contoso.com 에 연결하려면 * *.internal-contoso.com*에 유효한 SSL 인증서가 필요합니다. 
 
 내부 인증 기관을 사용하거나, 외부 발급자로부터 인증서를 구입하거나, 자체 서명된 인증서를 사용하는 등의 방법으로 유효한 SSL 인증서를 구합니다. SSL 인증서의 소스에 관계 없이 다음과 같은 인증서 특성을 올바르게 구성해야 합니다.
 
@@ -153,14 +147,14 @@ New-AzResourceGroupDeployment -Name "CHANGEME" -ResourceGroupName "YOUR-RG-NAME-
 
 변경 내용이 적용되려면 ASE 프런트 엔드당 약 40분이 걸립니다. 예를 들어 두 개의 프런트 엔드를 사용하는 기본 크기 ASE의 경우 템플릿을 완료하는 데 약 1시간 20분이 소요됩니다. 템플릿이 실행되는 동안에는 ASE 크기를 조정할 수 없습니다.  
 
-템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 애플리케이션 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com은 * *.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
+템플릿이 완료되면 HTTPS를 통해 ILB ASE의 앱에 액세스할 수 있습니다. 연결은 기본 SSL 인증서를 통해 보호됩니다. 애플리케이션 이름과 기본 호스트 이름의 조합을 사용하여 ILB ASE의 앱에 주소를 지정할 때 기본 SSL 인증서가 사용됩니다. 예를 들어 https://mycustomapp.internal-contoso.com 은 * *.internal-contoso.com*에 기본 SSL 인증서를 사용합니다.
 
 그러나 개발자는 공용 다중 테넌트 서비스에서 실행되는 앱과 마찬가지로 개별 앱에 대해 사용자 지정 호스트 이름을 구성할 수 있습니다. 또한 개별 앱에 대해 고유한 SNI SSL 인증서 바인딩을 구성할 수도 있습니다.
 
 ## <a name="app-service-environment-v1"></a>App Service 환경 v1 ##
 App Service Environment에는 두 가지 버전(ASEv1 및 ASEv2)이 있습니다. 위의 정보는 ASEv2를 기준으로 작성된 것입니다. 이 섹션은 ASEv1과 ASEv2의 차이를 보여줍니다.
 
-ASEv1에서는 모든 리소스를 수동으로 관리합니다. 여기에는 IP 기반 SSL에 사용되는 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 규모 확장하려면 먼저 해당 App Service를 호스트할 작업자 풀을 규모 확장해야 합니다.
+ASEv1에서는 모든 리소스를 수동으로 관리합니다. 여기에는 IP 기반 SSL에 사용된 프런트 엔드, 작업자 및 IP 주소가 포함됩니다. App Service 계획을 규모 확장하려면 먼저 해당 App Service를 호스트할 작업자 풀을 규모 확장해야 합니다.
 
 ASEv1은 ASEv2와는 다른 가격 책정 모델을 사용합니다. ASEv1에서는 할당된 각 vCPU에 대한 비용을 지불합니다. 여기에는 작업을 호스트하지 않는 프런트 엔드 또는 작업자에 사용되는 vCPU가 포함됩니다. ASEv1에서 ASE의 기본 최대 규모 크기는 총 55개의 호스트입니다. 여기에는 작업자 및 프런트 엔드가 포함됩니다. ASEv1의 한 가지 장점은 클래식 가상 네트워크 및 Resource Manager 가상 네트워크에 배포할 수 있다는 것입니다. ASEv1에 대해 자세히 알아보려면 [App Service Environment v1 소개][ASEv1Intro]를 참조하세요.
 

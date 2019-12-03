@@ -1,19 +1,16 @@
 ---
-title: Azure Files를 사용 하 여 저장소 구성
-description: App Service에서 Windows 컨테이너의 Azure Files를 구성 하 고 연결 하는 방법입니다.
+title: 사용자 지정 저장소 추가 (Windows 컨테이너)
+description: Azure App Service의 사용자 지정 Windows 컨테이너에서 사용자 지정 네트워크 공유를 연결 하는 방법에 대해 알아봅니다. 앱 간에 파일을 공유 하 고, 원격으로 정적 콘텐츠를 관리 하 고, 로컬에서 액세스 합니다.
 author: msangapu-msft
-manager: gwallace
-ms.service: app-service
-ms.workload: web
 ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
-ms.openlocfilehash: 2c12bf45c033fea185d976f1e9d644183407b5ac
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: ad70bbe36369c03225079d1194043e6ceb109c6f
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68297218"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671003"
 ---
 # <a name="configure-azure-files-in-a-windows-container-on-app-service"></a>App Service의 Windows 컨테이너에서 Azure Files 구성
 
@@ -23,7 +20,7 @@ ms.locfileid: "68297218"
 
 이 가이드에서는 Windows 컨테이너의 Azure Storage에 액세스 하는 방법을 보여 줍니다. [Azure Files 공유](https://docs.microsoft.com/azure/storage/files/storage-how-to-use-files-cli) 및 [프리미엄 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-premium-fileshare) 만 지원 됩니다. 이 방법의 Azure Files 공유를 사용 합니다. 혜택에는 보안된 콘텐츠, 콘텐츠 이식성, 여러 앱에 대한 액세스 및 여러 가지 전송 메서드가 포함됩니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
 - [Azure App Service의 기존 Windows 컨테이너 앱](https://docs.microsoft.com/azure/app-service/app-service-web-get-started-windows-container)

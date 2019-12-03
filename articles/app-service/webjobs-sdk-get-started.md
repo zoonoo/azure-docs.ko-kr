@@ -1,24 +1,17 @@
 ---
-title: WebJobs SDK 시작 - Azure
+title: WebJobs SDK 시작
 description: 이벤트 구동 백그라운드 처리를 위한 WebJobs SDK에 대해 간략히 소개합니다. Azure 서비스 및 타사 서비스에서 데이터에 액세스하는 방법을 알아봅니다.
-services: app-service\web, storage
-documentationcenter: .net
 author: ggailey777
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 2b2b8fe383ff4ee3d4b23c2c6e555b44e0cc088c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 33ae3f9f928a55f50f4ecd0c6c98790a384e880b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72390081"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684191"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 시작
 
@@ -26,7 +19,7 @@ ms.locfileid: "72390081"
 
 이 문서에서는 WebJobs을 .NET Core 콘솔 앱으로 배포 하는 방법을 보여 줍니다. WebJobs를 .NET Framework 콘솔 앱으로 배포 하려면 [WebJobs as .NET Framework console apps](webjobs-dotnet-deploy-vs.md#webjobs-as-net-framework-console-apps)를 참조 하세요. .NET Framework 지 원하는 WebJobs SDK 버전 2.x에 관심이 있는 경우 [Visual Studio를 사용 하 여 WebJobs 개발 및 배포-Azure App Service](webjobs-dotnet-deploy-vs.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 개발** 워크 로드를 사용 하 여 [Visual Studio 2019을 설치](/visualstudio/install/) 합니다. Visual Studio는 있지만 해당 워크로드가 없는 경우 **도구 > 도구 및 기능 가져오기**를 선택하여 워크로드를 추가합니다.
 
@@ -100,7 +93,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
    using Microsoft.Extensions.Logging;
    ```
 
-1. [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging)에서 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 메서드를 호출합니다. [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 메서드는 구성에 콘솔 로깅을 추가합니다.
+1. [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder)에서 [`ConfigureLogging`](/dotnet/api/microsoft.aspnetcore.hosting.webhostbuilderextensions.configurelogging) 메서드를 호출합니다. [`AddConsole`](/dotnet/api/microsoft.extensions.logging.consoleloggerextensions.addconsole) 메서드는 구성에 콘솔 로깅을 추가합니다.
 
     ```cs
     builder.ConfigureLogging((context, b) =>
@@ -150,7 +143,7 @@ ASP.NET Core에서 호스트 구성은 [`HostBuilder`](/dotnet/api/microsoft.ext
     Install-Package Microsoft.Azure.WebJobs.Extensions.Storage -Version 3.0.4
     ```
 
-2. `ConfigureWebJobs` 확장 메서드에서 `AddAzureStorage`[`HostBuilder` 인스턴스의 ](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 메서드를 호출하여 Storage 확장을 초기화합니다. 이 시점에서 `ConfigureWebJobs` 메서드는 다음 예제와 유사합니다.
+2. `ConfigureWebJobs` 확장 메서드에서 [`HostBuilder`](/dotnet/api/microsoft.extensions.hosting.hostbuilder) 인스턴스의 `AddAzureStorage` 메서드를 호출하여 Storage 확장을 초기화합니다. 이 시점에서 `ConfigureWebJobs` 메서드는 다음 예제와 유사합니다.
 
     ```cs
     builder.ConfigureWebJobs(b =>
@@ -278,7 +271,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. 프로젝트를 다시 실행합니다.
 
-   `QueueTrigger` 함수에서 `ProcessQueueMessage` 특성을 사용했으므로 WeJobs SDK 런타임은 시작할 때 큐 메시지를 수신 대기합니다. *queue*라는 큐에서 새 큐 메시지를 찾아 함수를 호출합니다.
+   `ProcessQueueMessage` 함수에서 `QueueTrigger` 특성을 사용했으므로 WeJobs SDK 런타임은 시작할 때 큐 메시지를 수신 대기합니다. *queue*라는 큐에서 새 큐 메시지를 찾아 함수를 호출합니다.
 
    [큐 폴링 지수 백오프](../azure-functions/functions-bindings-storage-queue.md#trigger---polling-algorithm)로 인해 런타임에서 메시지를 찾고 함수를 호출하는 데 2분 정도 걸릴 수 있습니다. 이 대기 시간은 [개발 모드](webjobs-sdk-how-to.md#host-development-settings)에서 실행하여 줄일 수 있습니다.
 
@@ -327,13 +320,13 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 1. **연결 문자열** 상자에서 다음 항목을 추가합니다.
 
-   |이름  |연결 문자열  |데이터베이스 유형|
+   |name  |연결 문자열  |데이터베이스 유형|
    |---------|---------|------|
-   |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|사용자 지정|
+   |AzureWebJobsStorage | {앞에서 복사한 Storage 연결 문자열}|맞춤형 서비스|
 
 1. **애플리케이션 설정** 상자에 Application Insights 계측 키가 없으면 앞에서 복사한 계측 키를 추가합니다. (계측 키는 App Service 앱을 만든 방법에 따라 이미 있을 수 있습니다.)
 
-   |이름  |값  |
+   |name  |Value  |
    |---------|---------|
    |APPINSIGHTS_INSTRUMENTATIONKEY | {계측 키} |
 
@@ -406,7 +399,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
 이 섹션에서는 로컬로 다시 실행하여 로깅 데이터가 이제 Application Insights 및 콘솔 둘 다로 이동하는지 확인합니다.
 
-1. **Hello App Insights!** 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function-in-azure)과 동일한 방식으로 Visual Studio의 *서버 탐색기*를 사용하여 큐 메시지를 만듭니다.
+1. *Hello App Insights!* 를 메시지 텍스트로 입력하는 것을 제외하고는 [이전](#trigger-the-function-in-azure)과 동일한 방식으로 Visual Studio의 **서버 탐색기**를 사용하여 큐 메시지를 만듭니다.
 
 1. 프로젝트를 실행합니다.
 
@@ -491,7 +484,7 @@ WebJobs SDK는 Azure의 애플리케이션 설정에서 스토리지 연결 문�
 
    ![Blob 업로드 단추](./media/webjobs-sdk-get-started/blob-upload-button.png)
 
-   c. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
+   다. *Program.cs*를 찾아 선택한 다음, **확인**을 선택합니다.
 
 1. 메시지 텍스트로 *Program.cs*가 포함된 큐 메시지를 앞에서 만든 큐에 만듭니다.
 

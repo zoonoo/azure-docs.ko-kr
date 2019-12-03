@@ -1,25 +1,16 @@
 ---
-title: App Service의 운영 체제 기능 - Azure
-description: Azure App Service에서 웹앱, 모바일 앱 백 엔드, API 앱에 사용할 수 있는 OS 기능에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: mollybos
+title: 운영 체제 기능
+description: Windows에서 Azure App Service의 OS 기능에 대해 알아봅니다. 앱에서 가져오는 파일, 네트워크 및 레지스트리 액세스의 유형을 확인 합니다.
 ms.assetid: 39d5514f-0139-453a-b52e-4a1c06d8d914
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/30/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b108814caaace83cd417dc8858e27ed01d54c39e
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ed84cb2b0cb8d98b12fe787e49c400ba47e4e38a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066776"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671620"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Azure App Service의 운영 체제 기능
 이 문서에서는 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 실행되는 모든 Windows 앱에서 사용할 수 있는 일반적인 기준 운영 체제 기능을 설명합니다. 이 기능에는 파일, 네트워크, 레지스트리 액세스, 진단 로그 및 이벤트가 포함됩니다. 
@@ -54,17 +45,17 @@ App Service에는 로컬 드라이브와 네트워크 드라이브를 포함한 
 <a id="LocalDrives"></a>
 
 ### <a name="local-drives"></a>로컬 드라이브
-근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음을 포함합니다.
+근본적으로 App Service는 Azure PaaS(Platform as a Service) 인프라에서 실행되는 서비스입니다. 따라서 가상 머신에 "부착된" 로컬 드라이브는 Azure에서 실행되는 모든 작업자 역할에서 사용할 수 있는 것과 동일한 드라이브 종류입니다. 다음 내용이 포함됩니다.
 
 - 운영 체제 드라이브(D:\ 드라이브)
 - App Service에서 단독으로 사용하며 고객이 액세스할 수 없는 Azure 패키지 cspkg 파일을 포함하는 애플리케이션 드라이브
 - VM의 크기에 따라 크기가 달라지는 "user" 드라이브(C:\ 드라이브) 
 
-애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 예: 
+애플리케이션이 커질수록 디스크 사용률을 모니터링하는 것이 중요합니다. 디스크 할당량에 도달하면 애플리케이션에 부정적인 영향을 줄 수 있습니다. 다음은 그 예입니다. 
 
 - 앱이 디스크 공간 부족을 나타내는 오류를 throw할 수 있습니다.
 - Kudu 콘솔로 이동하면 디스크 오류가 표시될 수 있습니다.
-- Azure DevOps 또는 Visual Studio에서 배포가 실패할 `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`수 있습니다.
+- `ERROR_NOT_ENOUGH_DISK_SPACE: Web deployment task failed. (Web Deploy detected insufficient space on disk)`를 사용 하 여 Azure DevOps 또는 Visual Studio에서 배포가 실패할 수 있습니다.
 - 앱 성능이 저하될 수 있습니다.
 
 <a id="NetworkDrives"></a>

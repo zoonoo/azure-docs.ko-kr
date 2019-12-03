@@ -7,26 +7,26 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: bd099b9d76e17eda36be1650ef5081e5aaa7e53a
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 9338f0e26595c1ab25ab51578880daf8c0c5bbc4
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "67303539"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672446"
 ---
-# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>빠른 시작: Draft를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
+# <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>빠른 시작: 초안을 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
 Draft는 Kubernetes 클러스터에서 응용 프로그램 컨테이너를 패키지 하 고 실행 하는 데 도움이 되는 오픈 소스 도구입니다. 초안을 사용 하면 변경 내용을 버전 제어에 커밋하지 않고도 코드 변경이 발생할 때 응용 프로그램을 Kubernetes에 신속 하 게 다시 배포할 수 있습니다. 초안에 대 한 자세한 내용은 [GitHub의 초안 설명서][draft-documentation]를 참조 하세요.
 
 이 문서에서는 초안 패키지를 사용 하 고 AKS에서 응용 프로그램을 실행 하는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
-* Docker를 설치 하 고 구성 했습니다. Docker는 [Mac][docker-for-mac], [Windows][docker-for-windows]또는 [Linux][docker-for-linux] 시스템에서 docker를 구성 하는 패키지를 제공 합니다.
-* [투구가 설치](https://github.com/helm/helm/blob/master/docs/install.md)되었습니다.
+* Docker를 설치 하 고 구성 했습니다. Docker는 [Mac][docker-for-mac], [Windows][docker-for-windows] 또는 [Linux][docker-for-linux] 시스템에서 Docker를 구성하는 패키지를 제공합니다.
+* [투구가 설치](https://github.com/helm/helm#install)되었습니다.
 * [초안이 설치][draft-documentation]되었습니다.
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
@@ -143,7 +143,7 @@ kubectl apply -f helm-rbac.yaml
 ```
 
 ## <a name="configure-helm"></a>Helm 구성
-기본 Tiller를 AKS 클러스터에 배포 하려면 [투구 init][helm-init] 명령을 사용 합니다. 클러스터가 RBAC를 사용 하도록 설정 되어 있지 않으면 `--service-account` 인수와 값을 제거 합니다.
+기본 Tiller를 AKS 클러스터에 배포 하려면 [투구 init][helm-init] 명령을 사용 합니다. 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--service-account` 인수와 값을 제거 합니다.
 
 ```console
 helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="linux"
@@ -151,7 +151,7 @@ helm init --service-account tiller --node-selectors "beta.kubernetes.io/os"="lin
 
 ## <a name="configure-draft"></a>Draft 구성
 
-로컬 컴퓨터에 초안을 구성 하지 않은 경우 다음을 `draft init`실행 합니다.
+로컬 컴퓨터에 Draft를 구성 하지 않은 경우 `draft init`를 실행 합니다.
 
 ```console
 $ draft init
@@ -162,7 +162,7 @@ Installing default pack repositories...
 Happy Sailing!
 ```
 
-또한 ACR의 *loginServer* 을 사용 하도록 초안을 구성 해야 합니다. 다음 명령은를 사용 `draft config set` 하 여 `mydraftacr.azurecr.io` 레지스트리로를 사용 합니다.
+또한 ACR의 *loginServer* 을 사용 하도록 초안을 구성 해야 합니다. 다음 명령은 `draft config set`를 사용 하 여 `mydraftacr.azurecr.io`을 레지스트리로 사용 합니다.
 
 ```console
 draft config set registry mydraftacr.azurecr.io
@@ -235,13 +235,13 @@ Connect to java:4567 on localhost:49804
 [java]: >> Listening on 0.0.0.0:4567
 ```
 
-Url을 `localhost` 사용 하 여 브라우저에서 응용 프로그램으로 이동 하 여 샘플 응용 프로그램을 표시 합니다. 위의 예제에서 url `http://localhost:49804`은입니다. 을 사용 하 여 `Ctrl+c`연결을 중지 합니다.
+`localhost` url을 사용 하 여 브라우저에서 응용 프로그램으로 이동 하 여 샘플 응용 프로그램을 확인 합니다. 위의 예제에서 url은 `http://localhost:49804`입니다. `Ctrl+c`를 사용 하 여 연결을 중지 합니다.
 
 ## <a name="access-the-application-on-the-internet"></a>인터넷의 애플리케이션 액세스
 
 이전 단계에서는 AKS 클러스터에 애플리케이션 pod에 대한 프록시 연결을 만들었습니다. 애플리케이션을 개발하고 테스트할 때는 인터넷에서 애플리케이션을 사용할 수 있도록 하는 것이 좋습니다. 인터넷에서 응용 프로그램을 노출 하기 위해 [LoadBalancer][kubernetes-service-loadbalancer]유형의 Kubernetes 서비스를 만들 수 있습니다.
 
-LoadBalancer `charts/example-java/values.yaml` 서비스를 만들도록 업데이트 합니다. *서비스 유형* 값을 *Clusterip* 에서 *LoadBalancer*로 변경 합니다.
+*LoadBalancer* 서비스를 만드는 `charts/example-java/values.yaml`를 업데이트 합니다. *서비스 유형* 값을 *Clusterip* 에서 *LoadBalancer*로 변경 합니다.
 
 ```yaml
 ...
@@ -253,7 +253,7 @@ service:
 ...
 ```
 
-변경 내용을 저장 하 고 파일을 닫은 다음를 `draft up` 실행 하 여 응용 프로그램을 다시 실행 합니다.
+변경 내용을 저장 하 고 파일을 닫은 다음 `draft up`를 실행 하 여 응용 프로그램을 다시 실행 합니다.
 
 ```console
 draft up
@@ -270,11 +270,11 @@ example-java-java   LoadBalancer  10.0.141.72   <pending>     80:32150/TCP   2m
 example-java-java   LoadBalancer   10.0.141.72   52.175.224.118  80:32150/TCP   7m
 ```
 
-*외부 IP* 를 사용 하 여 브라우저에서 응용 프로그램의 부하 분산 장치로 이동 하 여 샘플 응용 프로그램을 확인 합니다. 위의 예제에서 IP `52.175.224.118`는입니다.
+*외부 IP* 를 사용 하 여 브라우저에서 응용 프로그램의 부하 분산 장치로 이동 하 여 샘플 응용 프로그램을 확인 합니다. 위의 예에서는 IP를 `52.175.224.118`합니다.
 
 ## <a name="iterate-on-the-application"></a>애플리케이션 반복
 
-로컬에서 변경을 수행 하 고 다시 `draft up`실행 하 여 응용 프로그램을 반복할 수 있습니다.
+로컬에서 변경을 수행 하 고 `draft up`를 다시 실행 하 여 응용 프로그램을 반복할 수 있습니다.
 
 [Src/main/java/helloworld/Hello의 7 줄][example-java-hello-l7] 에서 반환 된 메시지를 업데이트 합니다.
 

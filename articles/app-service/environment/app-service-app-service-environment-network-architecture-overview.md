@@ -1,28 +1,20 @@
 ---
-title: App Service Environment의 네트워크 아키텍처 개요 - Azure
-description: 앱 서비스 환경의 네트워크 토폴로지의 아키텍처 개요입니다.
-services: app-service
-documentationcenter: ''
+title: 네트워크 아키텍처 v1
+description: App Service 환경의 네트워크 토폴로지에 대 한 아키텍처 개요입니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: stefsch
-manager: erikre
-editor: ''
 ms.assetid: 13d03a37-1fe2-4e3e-9d57-46dfb330ba52
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/04/2016
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 98eb4d7440126bedb3d2e1de5711141eaac8b07a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b1b866f3be789c59eea38c5c22b5557d557440be
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070061"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687343"
 ---
 # <a name="network-architecture-overview-of-app-service-environments"></a>App Service Environment의 네트워크 아키텍처 개요
-## <a name="introduction"></a>소개
 App Service 환경은 항상 [가상 네트워크][virtualnetwork] 의 서브넷 내에 생성 됩니다. App Service Environment에서 실행 되는 앱은 동일한 가상 네트워크 토폴로지 내에 위치한 개인 끝점과 통신할 수 있습니다.  고객은 그들의 가상 네트워크 일부를 잠글 수 있기 때문에 App Service Environment에서 일어나는 네트워크 통신 흐름의 유형을 이해하는 것은 중요합니다.
 
 ## <a name="general-network-flow"></a>일반 네트워크 흐름

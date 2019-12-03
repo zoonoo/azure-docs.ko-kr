@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 2b3fcba755c9ddb28e37400c5cba790ed0df41b9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7097faa64319a46b1efc91233e30ea992d064246
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595136"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687649"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -62,15 +62,15 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 
 ### <a name="optimize-throughput"></a>처리량 최적화
 
-@No__t_0 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 메가 비트 (MB)의 처리량을 `10` 합니다.
+`cap-mbps` 플래그를 사용 하 여 처리량 데이터 속도를 최대값으로 지정할 수 있습니다. 예를 들어 다음 명령은 초당 메가 비트 (MB)의 처리량을 `10` 합니다.
 
 ```azcopy
-azcopy cap-mbps 10
+azcopy --cap-mbps 10
 ```
 
-작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. @No__t_0 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  
+작은 파일을 전송할 때 처리량이 줄어들 수 있습니다. `AZCOPY_CONCURRENCY_VALUE` 환경 변수를 설정 하 여 처리량을 늘릴 수 있습니다. 이 변수는 발생할 수 있는 동시 요청 수를 지정 합니다.  
 
-컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은 `32`로 설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `3000` 이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다. 
+컴퓨터에 5 개 미만의 Cpu가 있는 경우이 변수의 값은 `32`로 설정 됩니다. 그렇지 않으면 기본값은 16에 Cpu 수를 곱한 값과 같습니다. 이 변수의 최대 기본값은 `3000`이지만이 값을 더 높거나 낮게 수동으로 설정할 수 있습니다. 
 
 | 운영 체제 | 명령  |
 |--------|-----------|
@@ -84,7 +84,7 @@ azcopy cap-mbps 10
 
 ### <a name="optimize-memory-use"></a>메모리 사용 최적화
 
-@No__t_0 환경 변수를 설정 하 여 파일을 다운로드 하 고 업로드할 때 AzCopy 사용할 시스템 메모리의 최대 크기를 지정 합니다.
+`AZCOPY_BUFFER_GB` 환경 변수를 설정 하 여 파일을 다운로드 하 고 업로드할 때 AzCopy 사용할 시스템 메모리의 최대 크기를 지정 합니다.
 이 값을 기가바이트 (GB) 단위로 표현 합니다.
 
 | 운영 체제 | 명령  |
@@ -97,7 +97,7 @@ azcopy cap-mbps 10
 
 AzCopy는 모든 작업에 대해 로그 및 계획 파일을 만듭니다. 로그를 사용하여 잠재적 문제를 조사하고 해결할 수 있습니다. 
 
-로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED` 및 `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
+로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`및 `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
 
 기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE$\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 위치 하지만 원하는 경우 해당 위치를 변경할 수 있습니다.
 

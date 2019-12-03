@@ -1,25 +1,16 @@
 ---
-title: 앱 복원 - Azure App Service
-description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: 백업에서 앱 복원
+description: 백업에서 앱을 복원하는 방법에 대해 알아봅니다. 특정 연결 된 데이터베이스는 하나의 작업으로 앱과 함께 복원할 수 있습니다.
 ms.assetid: 4444dbf7-363c-47e2-b24a-dbd45cb08491
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 519cf5388b095c7ca6e0ae7d978608f0824dc3a2
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 1295080d0eec7a4e88029cdadd85863f5f40d034
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066512"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689241"
 ---
 # <a name="restore-an-app-in-azure"></a>Azure에서 앱 복원
 이 문서에서는 이전에 백업한 [Azure App Service](../app-service/overview.md)에서 앱을 복원하는 방법을 보여 줍니다([Azure에서 앱 백업](manage-backup.md) 참조). 요청 시 연결된 데이터베이스와 함께 앱을 이전 상태로 복원하거나, 원래 앱의 백업 중 하나를 기반으로 하여 새 앱을 만들 수 있습니다. Azure App Service는 백업 및 복원을 위해 다음과 같은 데이터베이스를 지원합니다.

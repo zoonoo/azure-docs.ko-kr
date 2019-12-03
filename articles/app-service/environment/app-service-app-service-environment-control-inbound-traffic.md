@@ -1,29 +1,22 @@
 ---
-title: App Service Environment로의 인바운드 트래픽 제어 - Azure
-description: App Service Environment로의 인바운드 트래픽을 제어하도록 네트워크 보안 규칙을 구성하는 방법에 알아봅니다.
-services: app-service
-documentationcenter: ''
+title: 인바운드 트래픽 v1 제어
+description: App Service Environment에 대 한 인바운드 트래픽을 방법 제어 하는 방법을 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
-manager: erikre
-editor: ''
 ms.assetid: 4cc82439-8791-48a4-9485-de6d8e1d1a08
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: c887ae5568bfd0f72f8d90daecd95547ed7b8b7d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: aa43d44a691fa9151959e8817596bdfc9bba65f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070414"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687386"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>App Service Environment로의 인바운드 트래픽을 제어하는 방법
 ## <a name="overview"></a>개요
-App Service Environment은 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork]에서 만들 수 있습니다.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  App Service Environment 만드는 방법에 대 한 자세한 내용은 [App Service Environment를 만드는 방법을][HowToCreateAnAppServiceEnvironment]참조 하세요.
+App Service Environment은 Azure Resource Manager 가상 네트워크 **또는** 클래식 배포 모델 [가상 네트워크][virtualnetwork] **에서 만들** 수 있습니다.  App Service Environment를 만들 때 새 가상 네트워크 및 새 서브넷을 정의할 수 있습니다.  또는 기존 가상 네트워크 및 기존 서브넷에 App Service Environment를 만들 수 있습니다.  2016년 6월에 적용된 변경 내용에 따르면 공용 주소 범위 또는 RFC1918 주소 공간(즉, 프라이빗 주소) 중 하나를 사용하는 가상 네트워크에 ASE를 배포할 수도 있습니다.  App Service Environment 만드는 방법에 대 한 자세한 내용은 [App Service Environment를 만드는 방법을][HowToCreateAnAppServiceEnvironment]참조 하세요.
 
 App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서브넷은 특정 업스트림 IP 주소의 HTTP 및 HTTPS 트래픽만 허용되도록 업스트림 디바이스 및 서비스 뒤의 인바운드 트래픽을 잠그는 데 사용할 수 있는 네트워크 경계를 제공하기 때문입니다.
 
@@ -38,13 +31,13 @@ App Service Environment는 항상 서브넷 내에 만들어야 합니다. 서�
 
 다음은 App Service 환경에서 사용되는 포트 목록입니다. 명확하게 언급이 없는 한 모든 포트는 **TCP**입니다.
 
-* 454:  Azure 인프라에서 SSL을 통해 App Service Environment를 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
-* 455:  Azure 인프라에서 SSL을 통해 App Service Environment를 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
-* 80:  App Service Environment의 App Service 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
+* 454: Azure 인프라에서 SSL을 통해 App Service 환경을 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 455: Azure 인프라에서 SSL을 통해 App Service 환경을 관리 및 유지 보수하는 데 사용되는 **필수 포트** 입니다.  이 포트를 차단하지 마세요.  이 포트는 항상 ASE의 공용 VIP에 바인딩됩니다.
+* 80: App Service 환경의 App Service 계획에서 실행되는 앱에 대한 인바운드 HTTP 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 443: App Service Environment의 App Service 계획에서 실행되는 앱에 대한 인바운드 SSL 트래픽의 기본 포트입니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
-* 21:  FTP에 대한 컨트롤 채널입니다.  FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
-* 990:  FTPS에 대한 컨트롤 채널입니다.  FTPS를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
-* 10001-10020: FTP에 대한 데이터 채널입니다.  제어 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
+* 21: FTP에 대한 컨트롤 채널입니다.  FTP를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
+* 990: FTPS에 대한 컨트롤 채널입니다.  FTPS를 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
+* 10001~10020: FTP에 대한 데이터 채널입니다.  제어 채널과 마찬가지로 FTP를 사용하지 않는 경우 이러한 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩될 수 있습니다.
 * 4016: Visual Studio 2012를 통한 원격 디버깅에 사용됩니다.  이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 4018: Visual Studio 2013을 통한 원격 디버깅에 사용됩니다.  이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
 * 4020: Visual Studio 2015를 통한 원격 디버깅에 사용됩니다.  이 기능을 사용하지 않는 경우 이 포트를 안전하게 차단할 수 있습니다.  ILB 지원 ASE에서 이 포트는 ASE의 ILB 주소에 바인딩됩니다.
@@ -59,7 +52,7 @@ Vnet의 모든 사용자 지정 DNS 서버는 App Service Environment 생성보�
 ## <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
 네트워크 보안 그룹의 작동 방식에 대 한 자세한 내용은 다음 [정보][NetworkSecurityGroups]를 참조 하세요.  다음Azure Service Management 예는 네트워크 보안 그룹을 구성하고 App Service 환경이 포함된 서브넷에 적용하는 방법을 중심으로 설명된 네트워크 보안 그룹에 대한 세부 정보입니다.
 
-**참고:** [Azure Portal](https://portal.azure.com)을 사용하거나 Azure PowerShell을 통해 그래픽 방식으로 네트워크 보안 그룹을 구성할 수 있습니다.
+**참고:** [Azure Portal](https://portal.azure.com) 을 사용하거나 Azure PowerShell을 통해 그래픽 방식으로 네트워크 보안 그룹을 구성할 수 있습니다.
 
 네트워크 보안 그룹은 먼저 구독과 연결된 독립 실행형 엔터티로 만들어집니다. 네트워크 보안 그룹은 Azure 지역에 만들어지므로 App Service Environment와 동일한 지역에 만들어졌는지 확인해야 합니다.
 

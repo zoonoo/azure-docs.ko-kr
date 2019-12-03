@@ -1,25 +1,18 @@
 ---
-title: App Service Environment v1에서 웹앱 만들기 - Azure
-description: App Service Environment v1에서 웹앱 및 App Service 계획을 만드는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
+title: ASE v1에서 웹 앱 만들기
+description: App Service Environment v1에서 웹 앱을 만드는 방법에 대해 알아봅니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
-manager: stefsch
-editor: ''
 ms.assetid: 983ba055-e9e4-495a-9342-fd3708dcc9ac
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: cc40c2296e583ab93a7c34d709cfbf1334ae3926
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 8fb121999176e43f07283e970d7336a7c569eaca
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069840"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688712"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>App Service Environment v1에서 웹앱 만들기
 
@@ -35,10 +28,10 @@ ms.locfileid: "70069840"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 자습서는 App Service Environment를 만든 적이 있는 개발자를 대상으로 합니다. 만들어 본 적이 없는 경우 [App Service Environment 만들기](app-service-web-how-to-create-an-app-service-environment.md)를 참조하세요. 
 
-## <a name="create-a-web-app"></a>웹 앱 만들기
+## <a name="create-a-web-app"></a>웹 응용 프로그램 만들기
 1. [Azure Portal](https://portal.azure.com/)에서 **리소스 만들기 > 웹 + 모바일 > 웹앱**을 클릭합니다. 
    
     ![][1]
@@ -65,7 +58,7 @@ ms.locfileid: "70069840"
     ASE 생성 중에 ASP를 선택한 후 **이름**에서 하위 도메인 업데이트가 표시됩니다.
 
 ## <a name="createplan"></a> App Service 계획 만들기
-App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용해야 하는 작업자는 관리자에 의해 ASE에 할당된 작업자입니다.  즉, 새 계획을 만들려면 ASE 작업자 풀에 할당된 수가 작업자 풀의 모든 계획에서 전체 인스턴스 수보다 많아야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
+App Service Environment에서 App Service 계획을 만들 때 ASE에 공유 작업자가 없기 때문에 작업자 선택이 다릅니다.  사용 해야 하는 작업자는 관리자가 ASE에 할당 한 작업자입니다.  즉, 새 계획을 만들려면 해당 작업자 풀에 이미 있는 모든 계획의 총 인스턴스 수보다 많은 작업 자가 ASE 작업자 풀에 할당 되어야 합니다.  ASE 작업자 풀의 작업자 수가 부족하여 계획을 만들 수 없는 경우 ASE 관리자와 함께 추가해야 합니다.
 
 App Service Environment에서 호스팅되는 App Service 계획의 또 다른 차이점은 가격 책정을 선택할 수 없다는 점입니다.  App Service Environment가 있는 경우 시스템에서 사용되는 컴퓨팅 리소스에 대한 비용을 지불하며 해당 환경의 계획에 대한 추가 요금은 없습니다.  일반적으로 App Service 계획을 만들 때 청구를 결정하는 가격 책정 계획을 선택합니다.  App Service Environment는 기본적으로 콘텐츠를 만들 수 있는 프라이빗 위치입니다.  따라서 콘텐츠 호스트 비용이 아니라 환경에 대한 비용을 지불합니다.
 

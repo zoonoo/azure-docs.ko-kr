@@ -1,24 +1,18 @@
 ---
-title: App Service Environment에 대한 네트워킹 고려 사항 - Azure
-description: ASE 네트워크 트래픽 및 ASE를 사용하여 NSG 및 UDR을 설정하는 방법을 설명합니다.
-services: app-service
-documentationcenter: na
+title: 네트워킹 고려 사항
+description: Ase 네트워크 트래픽 및 ASE를 사용 하 여 네트워크 보안 그룹 및 사용자 정의 경로를 설정 하는 방법에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: ee7e3cb200a20b52a307dba31682a534e9f7b455
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e7d181416123c96e2462180a82c6d0b9670ef5fc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470651"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687134"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -59,7 +53,7 @@ ASE를 배포한 후에는 ASE를 호스팅하는 데 사용되는 서브넷의 
 
 Ase가 작동 하려면 ASE가 다음 포트를 열어야 합니다.
 
-| 사용 | 원본 | 받는 사람 |
+| 사용 | 최저 | - |
 |-----|------|----|
 | 관리 | App Service 관리 주소 | ASE 서브넷: 454, 455 |
 |  ASE 내부 통신 | ASE 서브넷: 모든 포트 | ASE 서브넷: 모든 포트
@@ -90,7 +84,7 @@ Azure Load Balancer 및 ASE 서브넷 간의 통신을 위해서는 최소 포�
 
 ASE는 다음 포트에서 인터넷에 액세스할 수 있는 주소를 전달 합니다.
 
-| 사용 | 포트 |
+| 용도 | 포트 |
 |-----|------|
 | DNS | 53 |
 | 있고 | 123 |
@@ -119,8 +113,8 @@ ASE의 기능적 종속성 외에 포털 환경과 관련된 몇 가지 추가 �
 -   스트리밍 로그
 -   Kudu
 -   확장
--   Process Explorer
--   콘솔
+-   프로세스 탐색기
+-   Console
 
 ILB ASE를 사용 하는 경우 VNet 외부에서 SCM 사이트에 액세스할 수 없습니다. 일부 기능은 앱의 SCM 사이트에 액세스 해야 하기 때문에 앱 포털에서 작동 하지 않습니다. 포털을 사용 하는 대신 SCM 사이트에 직접 연결할 수 있습니다. 
 

@@ -1,25 +1,17 @@
 ---
-title: 클라우드 폴더에서 콘텐츠 동기화 - Azure App Service
-description: 클라우드 폴더에서 콘텐츠 동기화를 통해 Azure App Service에 앱을 배포하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
+title: 클라우드 폴더의 콘텐츠 동기화
+description: OneDrive 또는 Dropbox를 포함 하 여 클라우드 폴더에서 콘텐츠 동기화를 통해 Azure App Service에 앱을 배포 하는 방법에 대해 알아봅니다.
 ms.assetid: 88d3a670-303a-4fa2-9de9-715cc904acec
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/03/2018
-ms.author: cephalin
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 033a9adfd81dc52858ab58e3170e69af6f56c323
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070620"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671745"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
 이 문서에서는 Dropbox 및 OneDrive에서 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)로 사용자 콘텐츠를 동기화하는 방법을 보여 줍니다. 

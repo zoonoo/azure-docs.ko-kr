@@ -1,22 +1,17 @@
 ---
-title: Key Vault 참조 - Azure App Service | Microsoft Docs
-description: Azure App Service 및 Azure Functions의 Azure Key Vault 참조에 대한 개념적 참조 및 설정 가이드
-services: app-service
+title: Key Vault 참조 사용
+description: Azure App Service를 설정 하 고 Azure Functions Azure Key Vault 참조를 사용 하는 방법에 대해 알아봅니다. 응용 프로그램 코드에 Key Vault 암호를 사용할 수 있도록 합니다.
 author: mattchenderson
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 8f237e4c676a53f6df15940a196a998bee529f6b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f0d3d36d3489557f0a07e9400c59debb2dca7073
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817958"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671465"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>App Service 및 Azure Functions에 대 한 Key Vault 참조를 사용 합니다.
 
@@ -48,7 +43,7 @@ Key Vault 참조는 `@Microsoft.KeyVault({referenceString})` 형식이며, 여�
 > [!div class="mx-tdBreakAll"]
 > | 참조 문자열                                                            | 설명                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931).  |
+> | SecretUri=_secretUri_                                                       | **SecretUri**는 버전을 포함하여 Key Vault에 있는 비밀의 전체 데이터 평면 URI여야 합니다(예: https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931 ).  |
 > | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName**은 Key Vault 리소스의 이름이어야 합니다. **SecretName**은 대상 비밀의 이름이어야 합니다. **SecretVersion**은 사용할 비밀의 버전이어야 합니다. |
 
 예를 들어 버전에 대 한 전체 참조는 다음과 같습니다.
@@ -184,7 +179,7 @@ Azure Resource Manager 템플릿을 통해 리소스 배포를 자동화할 때 
 
 ## <a name="troubleshooting-key-vault-references"></a>Key Vault 참조 문제 해결
 
-참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 `@Microsoft.KeyVault(...)` 인 환경 변수가 만들어집니다. 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
+참조가 제대로 확인 되지 않으면 참조 값이 대신 사용 됩니다. 즉, 응용 프로그램 설정의 경우 값이 `@Microsoft.KeyVault(...)` 구문을 포함 하는 환경 변수가 만들어집니다. 이로 인해 응용 프로그램에서 오류를 throw 할 수 있습니다 .이 경우 특정 구조의 비밀이 필요 하기 때문입니다.
 
 가장 일반적으로는 [Key Vault 액세스 정책의](#granting-your-app-access-to-key-vault)잘못 된 구성으로 인해 발생 합니다. 그러나 비밀이 더 이상 존재 하지 않거나 참조 자체의 구문 오류가 원인일 수도 있습니다.
 

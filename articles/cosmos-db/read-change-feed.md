@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB Azure Cosmos DB에서 변경 피드 액세스
 description: 이 문서에서는 Azure Cosmos DB Azure Cosmos DB에서 변경 피드를 읽고 액세스할 수 있는 다양한 옵션에 대해 설명합니다.
-author: markjbrown
-ms.author: mjbrown
+author: TheovanKraay
+ms.author: thvankra
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 3d30c9f946f97f06c1a3ba1cd2e77e1ab151a572
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 11/25/2019
+ms.openlocfilehash: fc7e78a44d03af8952c1e178a3e92b1ee0c6fe66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754880"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688126"
 ---
 # <a name="reading-azure-cosmos-db-change-feed"></a>Cosmos DB 변경 피드 읽기
 
@@ -31,7 +31,13 @@ Azure Functions는 가장 간단하고 권장되는 옵션입니다. Cosmos DB�
 
 ## <a name="using-the-azure-cosmos-db-sql-api-sdk"></a>Azure Cosmos DB SQL API SDK 사용
 
-SDK를 사용하면 변경 피드의 하위 수준 컨트롤을 가져올 수 있습니다. 검사점을 관리 하 고 특정 논리적 파티션 키 등에 액세스할 수 있습니다. 여러 판독기가 있는 경우 `ChangeFeedOptions`를 사용 하 여 읽기 부하를 다른 스레드나 다른 클라이언트에 배포할 수 있습니다. 
+SDK를 사용하면 변경 피드의 하위 수준 컨트롤을 가져올 수 있습니다. 검사점을 관리 하 고 특정 논리적 파티션 키 등에 액세스할 수 있습니다. 여러 판독기가 있는 경우 `ChangeFeedOptions`를 사용 하 여 읽기 부하를 다른 스레드나 다른 클라이언트에 배포할 수 있습니다.
+
+## <a name="change-feed-in-apis-for-cassandra-and-mongodb"></a>Cassandra 및 MongoDB에 대 한 Api의 변경 피드
+
+변경 피드 기능은 MongoDB API에서 변경 스트림으로 표시 되 고 Cassandra API 조건자를 사용 하 여 쿼리 됩니다. MongoDB API에 대 한 구현 세부 정보에 대 한 자세한 내용은 [MongoDB에 대 한 AZURE COSMOS DB api의 변경 스트림](mongodb-change-streams.md)을 참조 하세요.
+
+기본 Apache Cassandra는 cdc (변경 데이터 캡처)를 제공 합니다 .이 메커니즘은 보관을 위해 특정 테이블에 플래그를 지정 하 고 CDC 로그의 구성 가능한 크기에 도달 하면 해당 테이블에 대 한 쓰기를 거부 하는 메커니즘입니다. Cassandra에 대 한 Azure Cosmos DB API의 변경 피드 기능은 CQL을 통해 조건자를 사용 하 여 변경 내용을 쿼리 하는 기능을 향상 시킵니다. 구현 세부 정보에 대 한 자세한 내용은 [Cassandra에 대 한 AZURE COSMOS DB API에서 변경 피드](cassandra-change-feed.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

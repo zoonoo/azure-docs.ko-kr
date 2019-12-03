@@ -1,24 +1,18 @@
 ---
-title: Azure Virtual Network와 앱 통합 - Azure App Service
-description: 신규 또는 기존 Azure 가상 네트워크에 Azure App Service의 앱을 연결하는 방법을 보여 줍니다.
-services: app-service
-documentationcenter: ''
+title: Azure Virtual Network와 앱 통합
+description: Azure App Service Azure Virtual Network와 통합 하는 방법 및 앱을 가상 네트워크에 연결 하는 방법을 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034718"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688301"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure vnet (가상 네트워크][VNETOverview] )를 사용 하면 여러 azure 리소스를 인터넷을 통해 라우팅할 수 없는 네트워크에 저장할 수 있습니다.  
@@ -37,7 +31,7 @@ VNet 통합 기능에는 두 가지 형태가 있습니다.
 
 앱은 한 번에 한 가지 형식의 VNet 통합 기능만 사용할 수 있습니다. 그런 다음 사용 해야 하는 기능에 대 한 질문입니다. 여러 항목에 대해 사용할 수 있습니다. 분명히 차이점는 다음과 같습니다.
 
-| 문제점  | 솔루션 | 
+| 문제  | 솔루션 | 
 |----------|----------|
 | 동일한 지역에서 RFC 1918 주소 (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16)에 도달 하려고 합니다. | 지역 VNet 통합 |
 | 클래식 VNet 또는 다른 지역의 VNet에서 리소스에 도달 하려고 합니다. | 게이트웨이 필요 VNet 통합 |
@@ -216,7 +210,7 @@ ASP VNet 통합 UI에 도달하려면 ASP UI를 열고 **네트워킹**을 선�
 
 ASP VNet 통합 UI에는 ASP의 앱에서 사용하는 모든 VNet이 표시됩니다. 각 VNet에 대한 세부 정보를 보려면 관심 있는 VNet을 클릭합니다. 여기서 수행할 수 있는 두 가지 작업은 다음과 같습니다.
 
-* **네트워크 동기화**. 네트워크 동기화 작업은 게이트웨이 종속 VNet 통합 기능에만 사용할 수 있습니다. 네트워크 동기화 작업을 수행 하면 인증서와 네트워크 정보가 동기화 됩니다. VNet의 DNS를 추가하거나 변경하면 **네트워크 동기화** 작업을 수행해야 합니다. 이 작업이 수행되면 이 VNet을 사용하는 모든 앱이 다시 시작됩니다.
+* **네트워크 동기화**. 네트워크 동기화 작업은 게이트웨이 종속 VNet 통합 기능에만 사용할 수 있습니다. 네트워크 동기화 작업을 수행 하면 인증서와 네트워크 정보가 동기화 됩니다. VNet의 DNS를 추가 하거나 변경 하는 경우 **동기화 네트워크** 작업을 수행 해야 합니다. 이 작업이 수행되면 이 VNet을 사용하는 모든 앱이 다시 시작됩니다.
 * **경로 추가**. 경로를 추가하면 아웃바운드 트래픽이 VNet으로 전달됩니다.
 
 **라우팅** VNet에 정의된 경로는 트래픽을 앱에서 VNet으로 전달하는 데 사용됩니다. 아웃바운드 트래픽을 VNet에 추가로 보내야 하는 경우 해당 주소 블록을 여기에 추가할 수 있습니다. 이 기능은 게이트웨이 필수 VNet 통합 에서만 작동 합니다.
@@ -249,20 +243,20 @@ VNet 및 온-프레미스를 통해 지역 VNet 통합 기능에 도달 하는 �
 
 게이트웨이 필수 VNet 통합 기능 사용에 대 한 세 가지 관련 요금이 있습니다.
 
-* ASP 가격 책정 계층 요금-앱이 Standard, Premium 또는 PremiumV2 App Service 계획에 있어야 합니다. 해당 비용에 대한 자세한 내용은 [가격 책정을 App Service][ASPricing]합니다. 
+* ASP 가격 책정 계층 요금-앱이 Standard, Premium 또는 PremiumV2 App Service 계획에 있어야 합니다. [가격 책정][ASPricing]에서 해당 비용에 대 한 자세한 내용을 볼 수 있습니다 App Service. 
 * 데이터 전송 비용-VNet이 동일한 데이터 센터에 있더라도 데이터 송신 요금이 부과 됩니다. 이러한 요금은 [데이터 전송 가격 정보][DataPricing]에 설명 되어 있습니다. 
 * VPN Gateway 비용-지점 및 사이트 간 VPN에 필요한 VNet 게이트웨이의 비용이 있습니다. 세부 정보는 [VPN Gateway 가격 책정][VNETPricing] 페이지에 있습니다.
 
 
 ## <a name="troubleshooting"></a>문제 해결
-기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 되 면 디버그 콘솔 탭으로 이동 합니다. Azure 포털에 호스트되는 콘솔로 이동하려면 앱에서 도구 -> 콘솔로 이동합니다. 
+기능을 설정하기 쉽다고 해서 환경에 문제가 없는 것은 아닙니다. 원하는 엔드포인트에 액세스하다가 문제가 발생하는 경우, 앱 콘솔에서 연결을 테스트하는 데 사용할 수 있는 유틸리티가 있습니다. 사용할 수 있는 두 개의 콘솔이 있습니다. 하나는 Kudu 콘솔이고, 다른 하나는 Azure Portal의 콘솔입니다. 앱에서 Kudu 콘솔에 도달하려면 도구 -> Kudu로 차례로 이동합니다. [Sitename]. Kudo 콘솔에 연결할 수도 있습니다. 웹 사이트가 로드 되 면 디버그 콘솔 탭으로 이동 합니다. Azure Portal 호스트 된 콘솔로 이동 하려면 앱에서 도구-> 콘솔로 이동 합니다. 
 
 #### <a name="tools"></a>도구
 **ping**, **nslookup** 및 **tracert** 도구는 보안 제약 조건으로 인해 콘솔을 통해 작동되지 않습니다. 공백을 채우기 위해 별도의 두 가지 도구가 추가되었습니다. DNS 기능을 테스트하기 위해 nameresolver.exe라는 도구가 추가되었습니다. 구문은 다음과 같습니다.
 
     nameresolver.exe hostname [optional: DNS Server]
 
-**nameresolver**를 사용하여 앱에서 사용하는 호스트 이름을 확인합니다. 이렇게 하면 DNS에 잘못 구성된 항목이 있는지 또는 DNS 서버에 대한 액세스가 없는지를 테스트할 수 있습니다. 환경 변수 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 살펴보면 앱이 콘솔에서 사용 하는 DNS 서버를 볼 수 있습니다.
+**nameresolver**를 사용하여 앱에서 사용하는 호스트 이름을 확인합니다. 이렇게 하면 DNS에 잘못 구성된 항목이 있는지 또는 DNS 서버에 대한 액세스가 없는지를 테스트할 수 있습니다. 환경 변수 WEBSITE_DNS_SERVER 및 WEBSITE_DNS_ALT_SERVER를 살펴보면 앱이 콘솔에서 사용할 DNS 서버를 볼 수 있습니다.
 
 다음 도구는 호스트와 포트에 대한 TCP 연결을 테스트하는 데 사용할 수 있습니다. 이 도구는 **tcpping**이라고 하며, 구문은 다음과 같습니다.
 

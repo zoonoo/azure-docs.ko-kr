@@ -1,25 +1,22 @@
 ---
-title: Linux에서 Azure Storage의 콘텐츠 제공 - App Service
-description: Linux의 Azure App Service에 있는 Azure Storage의 콘텐츠를 구성하고 제공하는 방법입니다.
-author: msangapu
-manager: jeconnoc
-ms.service: app-service
-ms.workload: web
+title: Linux에서 사용자 지정 저장소 컨테이너 연결
+description: Azure App Service에서 Linux 컨테이너에 사용자 지정 네트워크 공유를 연결 하는 방법에 대해 알아봅니다. 앱 간에 파일을 공유 하 고, 원격으로 정적 콘텐츠를 관리 하 고, 로컬에서 액세스 합니다.
+author: msangapu-msft
 ms.topic: article
 ms.date: 2/04/2019
 ms.author: msangapu
-ms.openlocfilehash: 97c03ad294bba1f8a0285fff4595991ca0acc8b5
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 00c60edeefa5fd8d1304aa5fc301a3b0304f5ca3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71018267"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671783"
 ---
-# <a name="serve-content-from-azure-storage-in-app-service-on-linux"></a>Linux의 App Service에 있는 Azure Storage의 콘텐츠 제공
+# <a name="attach-azure-storage-containers-to-linux-containers"></a>Linux 컨테이너에 Azure Storage 컨테이너 연결
 
-이 가이드는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용하여 Linux의 App Service에서 정적 콘텐츠를 제공하는 방법을 보여줍니다. 보안 콘텐츠, 콘텐츠 이식성, 영구 저장소, 여러 앱에 대 한 액세스 및 여러 가지 전송 방법 등의 이점이 있습니다.
+이 가이드에서는 [Azure Storage](/azure/storage/common/storage-introduction)를 사용 하 여 Linux의 App Service에 네트워크 공유를 연결 하는 방법을 보여 줍니다. 보안 콘텐츠, 콘텐츠 이식성, 영구 저장소, 여러 앱에 대 한 액세스 및 여러 가지 전송 방법 등의 이점이 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 - 기존 웹앱(Linux의 App Service 또는 Web App for Containers)
 - [Azure CLI](/cli/azure/install-azure-cli)(2.0.46 이상)
@@ -64,7 +61,7 @@ az webapp config storage-account add --resource-group <group_name> --name <app_n
 
 스토리지 계정에 연결하려는 다른 디렉터리에 대해 이 작업을 수행해야 합니다.
 
-## <a name="verify"></a>확인
+## <a name="verify"></a>Verify
 
 스토리지 컨테이너가 웹앱에 연결되면 다음 명령을 실행하여 이를 확인할 수 있습니다.
 
@@ -74,9 +71,9 @@ az webapp config storage-account list --resource-group <resource_group> --name <
 
 ## <a name="use-custom-storage-in-docker-compose"></a>Docker Compose에서 사용자 지정 저장소 사용
 
-Azure Storage는 사용자 지정 id를 사용 하 여 다중 컨테이너 앱으로 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면를 실행 [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)합니다.
+Azure Storage는 사용자 지정 id를 사용 하 여 다중 컨테이너 앱으로 탑재할 수 있습니다. 사용자 지정 id 이름을 보려면 [`az webapp config storage-account list --name <app_name> --resource-group <resource_group>`](/cli/azure/webapp/config/storage-account?view=azure-cli-latest#az-webapp-config-storage-account-list)를 실행 합니다.
 
-*Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을에 `custom-id`매핑합니다. 예를 들어:
+*Docker-compose.ci.build.yml* 파일에서 `volumes` 옵션을 `custom-id`에 매핑합니다. 다음은 그 예입니다.
 
 ```yaml
 wordpress:

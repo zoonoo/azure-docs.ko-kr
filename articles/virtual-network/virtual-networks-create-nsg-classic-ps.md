@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/02/2016
+ms.date: 2/02/2019
 ms.author: genli
-ms.openlocfilehash: 5ef80ccd01c9c6979fd95d161d97d0dfaab58b24
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 0f957c5d59dec06057841a95ec48a54462778a69
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71056661"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672492"
 ---
 # <a name="create-a-network-security-group-classic-using-powershell"></a>PowerShell을 사용하여 네트워크 보안 그룹(클래식) 만들기
 [!INCLUDE [virtual-networks-create-nsg-selectors-classic-include](../../includes/virtual-networks-create-nsg-selectors-classic-include.md)]
@@ -65,7 +65,13 @@ ms.locfileid: "71056661"
       -SourceAddressPrefix Internet  -SourcePortRange '*' `
       -DestinationAddressPrefix '*' -DestinationPortRange '80'
     ```
+5. 네트워크 보안 그룹을 서브넷에 연결 합니다.
 
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-Frontend" `
+    | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName "TestVNet" `
+    -Subnet "FrontEnd"
+    ```
 ## <a name="create-an-nsg-for-the-back-end-subnet"></a>백 엔드 서브넷에 대한 NSG 만들기
 
 1. *NSG-BackEnd*라는 네트워크 보안 그룹을 만듭니다.
@@ -94,3 +100,9 @@ ms.locfileid: "71056661"
       -SourceAddressPrefix '*'  -SourcePortRange '*' `
       -DestinationAddressPrefix Internet -DestinationPortRange '*'
    ```
+4. 네트워크 보안 그룹을 서브넷에 연결 합니다.
+    ```powershell   
+    Get-AzureNetworkSecurityGroup -Name "NSG-Backend" `
+    | Set-AzureNetworkSecurityGroupToSubnet -VirtualNetworkName "TestVNet" `
+    -Subnet "BackEnd"
+    ```

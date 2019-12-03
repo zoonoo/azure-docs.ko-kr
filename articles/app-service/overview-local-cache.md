@@ -1,27 +1,17 @@
 ---
-title: 로컬 캐시 개요 - Azure App Service | Microsoft Docs
-description: 이 문서에서는 Azure App Service 로컬 캐시 기능을 사용하도록 설정하고, 크기를 조정하고, 상태를 쿼리하는 방법을 설명합니다.
-services: app-service
-documentationcenter: app-service
-author: cephalin
-manager: jpconnock
-editor: ''
+title: 로컬 캐시
+description: Azure App Service에서 로컬 캐시의 작동 방식, 앱의 로컬 캐시 상태를 사용 하도록 설정 하 고 크기를 조정 하 고 쿼리 하는 방법에 대해 알아봅니다.
 tags: optional
-keywords: ''
 ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
-ms.service: app-service
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 03/04/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4dffa7dcafe4aabe3e8dcb56d4f5084d0c6ef821
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: bce0620ed6be4937c95a2ce01f3d4c175c8bc18d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819671"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687084"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 

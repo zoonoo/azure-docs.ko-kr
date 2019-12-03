@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 08/16/2019
-ms.openlocfilehash: be68c70a105737f232741f02994da87c0c628bd7
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.date: 12/02/2019
+ms.openlocfilehash: 11b581649e6d7a048899394d69e574e8f9a4d22c
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677498"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689204"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -30,9 +30,12 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
    | 설정        |  Value           | 설명  |
    | ------------- |:-------------|:-----|
-   | **Name**      | 전역적으로 고유한 값 | 모니터링할 앱을 식별 하는 이름입니다. |
+   | **Name**      | 고유 값 | 모니터링할 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹 또는 기존 리소스 그룹의 이름입니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치를 선택 합니다. |
+
+> [!NOTE]
+> 서로 다른 리소스 그룹에서 동일한 리소스 이름을 사용할 수 있지만 전역적으로 고유한 이름을 사용 하는 것이 유용할 수 있습니다. 이는 필요한 구문을 간소화 하므로 [리소스 간 쿼리를 수행할](https://docs.microsoft.com/azure/azure-monitor/log-query/cross-workspace-query#identifying-an-application) 계획인 경우에 유용할 수 있습니다.
 
 필요한 필드에 적절 한 값을 입력 한 다음 **검토 + 만들기**를 선택 합니다.
 
@@ -103,7 +106,7 @@ TenantId           : {subid}
  az extension add -n application-insights
 ```
 
-@No__t_0 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다. `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
+`az extension add` 명령을 실행 하지 않으면 다음 오류 메시지가 표시 됩니다. `az : ERROR: az monitor: 'app-insights' is not in the 'az monitor' command group. See 'az monitor --help'.`
 
 이제 다음을 실행 하 여 Application Insights 리소스를 만들 수 있습니다.
 

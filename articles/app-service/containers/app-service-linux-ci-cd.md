@@ -1,26 +1,19 @@
 ---
-title: Web App for Containers를 사용한 지속적인 배포 - Azure App Service | Microsoft Docs
-description: Web App for Containers에서 지속적인 배포를 설정하는 방법
+title: 사용자 지정 Linux 컨테이너에 대 한 CI/CD
+description: Azure App Service에서 사용자 지정 Linux 컨테이너에 대 한 연속 배포를 설정 하는 방법을 알아봅니다. 연속 배포는 Docker 허브 및 ACR에 대해 지원 됩니다.
 keywords: Azure App Service, Linux, OSS
-services: app-service
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+author: msangapu-msft
 ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1dc776f0a61ac1a29ab3fe3ebdd542469863cd50
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: d43491de7500204ed470757a1b744017a8180b57
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071365"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687625"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Web App for Containers를 사용한 연속 배포
 
@@ -30,7 +23,7 @@ ms.locfileid: "70071365"
 
 ![ACR webhook 스크린샷](./media/app-service-webapp-service-linux-ci-cd/ci-cd-acr-02.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
 4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.
@@ -48,7 +41,7 @@ Container Registry에서 Webhook를 클릭하여 현재 webhook를 볼 수 있�
 
 ## <a name="enable-continuous-deployment-with-docker-hub-optional"></a>Docker 허브(선택 사항)를 사용하여 지속적인 배포 활성화
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 페이지의 왼쪽에서 **App Service** 옵션을 선택합니다.
 3. 지속적인 배포를 구성하려는 앱의 이름을 선택합니다.
 4. **컨테이너 설정** 페이지에서 **단일 컨테이너**를 선택합니다.

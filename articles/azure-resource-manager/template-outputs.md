@@ -3,12 +3,12 @@ title: 템플릿의 출력
 description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 09/05/2019
-ms.openlocfilehash: b4c652d71436202b9b6e551f9c582e5c98508259
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 61120b9941a6a20812ea046265ecbe13014d769e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74149176"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689139"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
 
@@ -92,7 +92,7 @@ az group deployment show \
 
 다음 예제에서는 출력을 사용 하는 시나리오를 보여 줍니다.
 
-|템플릿  |설명  |
+|Template  |설명  |
 |---------|---------|
 |[변수 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) | 복잡한 변수를 만들고 해당 값을 출력합니다. 여기서는 리소스를 배포하지 않습니다. |
 |[공용 IP 주소](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) | 공용 IP 주소를 만들고 리소스 ID를 출력합니다. |
@@ -101,4 +101,3 @@ az group deployment show \
 ## <a name="next-steps"></a>다음 단계
 
 * 출력에 사용할 수 있는 속성에 대 한 자세한 내용은 [Azure Resource Manager 템플릿의 구조 및 구문 이해](resource-group-authoring-templates.md)를 참조 하세요.
-* 출력 만들기에 대 한 권장 사항은 [모범 사례-출력](template-best-practices.md#outputs)을 참조 하세요.

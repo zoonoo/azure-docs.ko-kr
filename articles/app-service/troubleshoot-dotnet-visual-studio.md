@@ -1,26 +1,17 @@
 ---
-title: Visual Studio를 사용하여 앱 문제 해결 - Azure App Service
+title: Visual Studio로 문제 해결
 description: Visual Studio 2013에서 기본 제공되는 원격 디버깅, 추적 및 로깅 도구를 사용하여 App Service 앱 문제를 해결하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: .net
-author: cephalin
-manager: cfowler
-editor: ''
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 13ba1ced2d14ed22c89e7df594f3b2a44eea983f
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5c0a236dc6ebf02c859d9db3f25f0e9016ac35ab
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359964"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688379"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Visual Studio를 사용하여 Azure App Service에서 앱 문제 해결
 ## <a name="overview"></a>개요
@@ -44,7 +35,7 @@ Visual Studio Ultimate가 있으면 디버깅에 [IntelliTrace](/visualstudio/de
 
 이 자습서에서는 Visual Studio 2019을 사용 하 고 있다고 가정 합니다. 
 
-로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 애플리케이션에 대해서만 작동합니다.
+로그 스트리밍 기능은 .NET Framework 4 이상을 대상으로 하는 애플리케이션에서만 작동합니다.
 
 ## <a name="sitemanagement"></a>앱 구성 및 관리
 Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?LinkId=529715)에서 사용할 수 있는 앱 관리 기능 및 구성 설정의 일부에 액세스할 수 있습니다. 이 섹션에서는 **서버 탐색기**를 사용하여 사용할 수 있는 기능에 대해 알아봅니다. 최신 Azure 통합 기능을 확인하려면 **클라우드 탐색기** 도 사용해 보십시오. **보기** 메뉴에서 두 창을 모두 열 수 있습니다.
@@ -70,7 +61,7 @@ Visual Studio를 사용하면 [Azure Portal](https://go.microsoft.com/fwlink/?Li
 
     이 사용설명서에서는 로깅 및 추적 드롭다운을 사용합니다. 원격 디버깅도 사용하지만 다른 방법을 사용하여 이를 사용하도록 설정합니다.
 
-    이 창에 있는 애플리케이션 설정 및 연결 문자열 상자에 대한 자세한 내용은 [Azure App Service: 애플리케이션 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조하세요.
+    이 창의 앱 설정 및 연결 문자열 상자에 대 한 자세한 내용은 [Azure App Service: 응용 프로그램 문자열 및 연결 문자열 작동 방식](https://azure.microsoft.com/blog/windows-azure-web-sites-how-application-strings-and-connection-strings-work/)을 참조 하세요.
 
     이 창에서 지원하지 않는 앱 관리 작업을 수행하려는 경우 **관리 포털에서 열기**를 클릭하여 브라우저 창에서 Azure Portal을 엽니다.
 
@@ -345,8 +336,8 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     <trace enabled="true" writeToDiagnosticsTrace="true" mostRecent="true" pageOutput="false" />
     ```
 
-1. Ctrl+F5를 눌러 응용 프로그램을 실행합니다.
-1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가한 후 enter 키를 누릅니다. url은와 유사 `http://localhost:53370/trace.axd`합니다.
+1. Ctrl+F5를 눌러 애플리케이션을 실행합니다.
+1. 브라우저 창의 주소 표시줄에서 *trace.axd* 를 url에 추가 하 고 enter 키를 누릅니다 (url은 `http://localhost:53370/trace.axd`와 유사).
 1. **애플리케이션 추적** 페이지에서 BrowserLink 줄이 아니라 첫 번째 줄의 **세부 정보 보기**를 클릭합니다.
 
     ![trace.axd](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-traceaxd1.png)
@@ -386,7 +377,7 @@ WebJob에서 애플리케이션을 만드는 방법에 대한 자세한 내용�
     하지만 **스트리밍 로그 보기**를 선택한 경우 Visual Studio는 자동으로 **애플리케이션 로깅(파일 시스템)** 을 **오류**로 변경합니다. 이는 오류 수준의 로그가 보고된다는 의미입니다. 추적 로그를 모두 보려면 이 설정을 **자세한 정보 표시**로 변경할 수 있습니다. 심각도 수준을 오류보다 낮은 수준으로 선택하면 그보다 더 높은 심각도 수준의 모든 로그가 보고됩니다. 따라서 자세한 정보 표시를 선택하는 경우 정보, 경고 및 오류 로그도 볼 수 있습니다.  
 
 5. **서버 탐색기**에서 앱을 마우스 오른쪽 단추로 클릭하고 이전과 마찬가지로 **설정 보기**를 클릭합니다.
-6. **애플리케이션 로깅(파일 시스템)** 을 **자세한 정보 표시**로 변경한 다음, **저장**을 클릭합니다.
+6. **애플리케이션 로깅(파일 시스템)** 을 **자세한 정보 표시**로 변경한 후 **저장**을 클릭합니다.
 
     ![추적 수준을 자세한 정보 표시로 설정](./media/web-sites-dotnet-troubleshoot-visual-studio/tws-applogverbose.png)
 7. 이제 **연락처** 페이지가 표시되는 브라우저 창에서 **홈**을 클릭하고 **정보**를 클릭한 후 **연락처**를 클릭합니다.
@@ -657,7 +648,7 @@ App Service 앱 및 WebJob의 원격 디버깅에 대한 자세한 내용은 다
 * [연습: ASP.NET 추적을 System.Diagnostics 추적과 통합](/previous-versions/b0ectfxd(v=vs.140))<br/>
   이 문서도 오래되었지만 소개 자료에서 다루지 않은 일부 추가 정보가 포함되어 있습니다.
 * [ASP.NET MVC Razor 뷰에서 추적](https://blogs.msdn.com/b/webdev/archive/2013/07/16/tracing-in-asp-net-mvc-razor-views.aspx)<br/>
-  Razor 뷰의 추적 정보와 더불어, MVC 애플리케이션의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 애플리케이션의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](/previous-versions/bb397417(v=vs.140))에서 Global.asax를 참조하세요. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
+  Razor 뷰의 추적 정보와 더불어, MVC 애플리케이션의 처리되지 않은 모든 예외를 기록할 수 있도록 오류 필터를 만드는 방법을 설명하는 게시물입니다. Web Forms 애플리케이션의 처리되지 않은 모든 예외를 기록하는 방법에 대한 자세한 내용은 MSDN의 [오류 처리기의 전체 예제](/previous-versions/bb397417(v=vs.140)) 에서 Global.asax를 참조하십시오. MVC 또는 Web Forms 중 하나에서 특정 예외를 기록하되 기본 프레임워크 처리 방식은 그대로 적용하려면 다음 예와 같이 해당 오류를 catch한 후 다시 throw하면 됩니다.
 
     ```csharp
     try

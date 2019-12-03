@@ -1,26 +1,17 @@
 ---
-title: 인증 및 권한 부여 - Azure App Service | Microsoft Docs
-description: Azure App Service에 대한 인증/권한 부여 기능의 개념 참조 및 개요
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
+title: 인증 및 권한 부여
+description: Azure App Service에서 기본 제공 되는 인증 및 권한 부여 지원과, 무단 액세스 로부터 앱을 보호 하는 방법에 대해 알아봅니다.
 ms.assetid: b7151b57-09e5-4c77-a10c-375a262f17e5
-ms.service: app-service
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: cephalin
 ms.reviewer: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 2179f4e7d5350cdf9d82413e4f70647c20c3c399
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: ff0eb102d37f285279c041ff91b7a89e157259eb
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808746"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672253"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service에서 인증 및 권한 부여
 
@@ -32,8 +23,10 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 안전한 인증 및 권한 부여에는 페더레이션, 암호화, [JSON 웹 토큰(JWT)](https://wikipedia.org/wiki/JSON_Web_Token) 관리, [부여 유형](https://oauth.net/2/grant-types/) 등 보안에 대한 깊은 이해가 필요합니다. App Service가 이러한 유틸리티를 제공하기 때문에, 고객에게 비즈니스 가치를 제공하는 데 더 많은 시간과 에너지를 투자할 수 있습니다.
 
-> [!NOTE]
-> 인증 및 승인을 위해 App Service를 사용할 필요가 없습니다. 많은 웹 프레임워크는 보안 기능과 함께 번들로 제공되며, 필요할 경우 이를 사용할 수 있습니다. App Service가 제공하는 것보다 더 많은 유연성이 필요하면 직접 유틸리티를 작성할 수도 있습니다.  
+> [!IMPORTANT]
+> 인증/AuthO에 App Service를 사용할 필요가 없습니다. 많은 웹 프레임워크는 보안 기능과 함께 번들로 제공되며, 필요할 경우 이를 사용할 수 있습니다. App Service가 제공하는 것보다 더 많은 유연성이 필요하면 직접 유틸리티를 작성할 수도 있습니다.  
+>
+> 그러나 원격 인증에 대 한 App Service 이외의 옵션을 사용 하는 경우 [Chrome 80은 쿠키에 대 한 SameSite의 구현에 대 한 주요 변경 내용 (](https://www.chromestatus.com/feature/5088147346030592) 3 월 2020에 출시 된 릴리스 날짜)이 고, 클라이언트 브라우저가 업데이트 되 면 앱의 인증 메커니즘이 중단 될 수 있다는 점에 유의 하세요. ASP.NET Core 설명서에는 응용 프로그램에서이를 해결 하는 방법에 대 한 정보가 포함 되어 있습니다 [. HTTP: Browser SameSite 변경에 영향](/dotnet/core/compatibility/3.0-3.1#http-browser-samesite-changes-impact-authentication)을 줍니다. ASP.NET Core 사용 여부에 관계 없이 주요 브라우저에 대해 이러한 주요 변경 사항을 테스트 하는 방법에 대 한 유용한 지침을 포함 합니다.
 >
 
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.

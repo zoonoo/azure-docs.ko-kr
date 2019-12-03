@@ -1,25 +1,16 @@
 ---
-title: Twitter 인증 구성 - Azure App Service
-description: App Service 앱에 대해 Twitter 인증을 구성 하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: mattchenderson
-manager: syntaxc4
-editor: ''
+title: Twitter 인증 구성
+description: App Service 앱에 대 한 id 공급자로 Twitter 인증을 구성 하는 방법에 대해 알아봅니다.
 ms.assetid: c6dc91d7-30f6-448c-9f2d-8e91104cde73
-ms.service: app-service-mobile
-ms.workload: mobile
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 04/19/2018
-ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 02008b7dc1609a5f28ac6ba2a582933a96428198
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: b5ec17c18cec8053f0732366c0cc5d0c5003e4de
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176950"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670810"
 ---
 # <a name="configure-your-app-service-app-to-use-twitter-login"></a>Twitter 로그인을 사용 하도록 App Service 앱 구성
 
@@ -31,9 +22,9 @@ ms.locfileid: "72176950"
 
 ## <a name="register"></a>Twitter를 사용하여 애플리케이션 등록
 
-1. [Azure Portal] 에 로그인 하 고 응용 프로그램으로 이동 합니다. **URL**을 복사합니다. Twitter 앱을 구성 하는 데 사용 합니다.
+1. [Azure 포털] 에 로그인 하 고 응용 프로그램으로 이동 합니다. **URL**을 복사합니다. Twitter 앱을 구성 하는 데 사용 합니다.
 1. [Twitter 개발자] 웹 사이트로 이동 하 고 twitter 계정 자격 증명을 사용 하 여 로그인 한 다음 **새 앱 만들기**를 선택 합니다.
-1. 새 앱에 대 한 **이름** 및 **설명** 을 입력 합니다. 응용 프로그램의 **URL** 을 **웹 사이트** 필드에 붙여넣습니다. **콜백 url** 필드에 App Service 앱의 url을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. `https://contoso.azurewebsites.net/.auth/login/twitter/callback`) 을 입력합니다. HTTPS 체계를 사용 해야 합니다.
+1. 새 앱에 대 한 **이름** 및 **설명** 을 입력 합니다. 응용 프로그램의 **URL** 을 **웹 사이트** 필드에 붙여넣습니다. **콜백 url** 필드에 App Service 앱의 url을 입력 하 고 `/.auth/login/aad/callback`경로를 추가 합니다. 예: `https://contoso.azurewebsites.net/.auth/login/twitter/callback` HTTPS 체계를 사용 해야 합니다.
 1. 페이지 맨 아래에서 조건을 읽고 동의 합니다. **Twitter 응용 프로그램 만들기**를 선택 합니다. 응용 프로그램 세부 정보가 표시 됩니다.
 1. **설정** 탭을 선택 하 고 **이 응용 프로그램을 사용**하 여 Twitter에 로그인 한 후 **설정 업데이트**를 선택 합니다.
 1. **Keys and Access Tokens** 탭을 선택합니다.
@@ -43,11 +34,11 @@ ms.locfileid: "72176950"
    - 소비자 비밀 (API 비밀)
 
    > [!NOTE]
-   > 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마십시오.
+   > 소비자 암호는 중요한 보안 자격 증명입니다. 다른 사람과 이 암호를 공유하거나 앱과 함께 배포하지 마세요.
 
 ## <a name="secrets"></a>애플리케이션에 Twitter 정보 추가
 
-1. [Azure Portal]에서 응용 프로그램으로 이동 합니다.
+1. [Azure 포털]에서 응용 프로그램으로 이동 합니다.
 1. 설정 > **인증/권한 부여**를 선택 하 고 **App Service 인증이** **설정** 되어 있는지 확인 **합니다.**
 1. **Twitter**를 선택 합니다.
 1. 이전에 얻은 `API Key` 및 `API Secret` 값을 붙여넣습니다.
@@ -79,5 +70,5 @@ ms.locfileid: "72176950"
 
 [Twitter 개발자]: https://go.microsoft.com/fwlink/p/?LinkId=268300
 [twitter.com]: https://go.microsoft.com/fwlink/p/?LinkID=268287
-[Azure Portal]: https://portal.azure.com/
+[Azure 포털]: https://portal.azure.com/
 [xamarin]: ../app-services-mobile-app-xamarin-ios-get-started-users.md

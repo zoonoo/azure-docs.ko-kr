@@ -1,24 +1,15 @@
 ---
-title: ASP.NET Core 앱 구성-Azure App Service | Microsoft Docs
-description: Azure App Service에서 작동 하도록 ASP.NET Core 앱을 구성 하는 방법을 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+title: Linux ASP.NET Core 앱 구성
+description: 앱에 대해 미리 작성 된 ASP.NET Core 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.author: cephalin
-ms.openlocfilehash: b05120148d3b82829c465effbcdc948da950aaf0
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d26c490ad37b25785ff1347cccf1e2be21bba277
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990256"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670460"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux ASP.NET Core 앱 구성
 
@@ -50,7 +41,7 @@ az webapp config set --name <app-name> --resource-group <resource-group-name> --
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET Core 종속성 주입 패턴을 사용 하 여 모든 클래스에서 액세스할 수 있습니다.
+App Service에서 앱 코드 외부에 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 ASP.NET Core 종속성 주입 패턴을 사용 하 여 모든 클래스에서 액세스할 수 있습니다.
 
 ```csharp
 include Microsoft.Extensions.Configuration;
@@ -81,7 +72,7 @@ namespace SomeNamespace
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 메시지가 표시됩니다. App Service에서 자세한 예외 페이지를 표시 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 `ASPNETCORE_ENVIRONMENT` 명령을 실행 하 여 앱 설정을 앱에 추가 합니다.
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 메시지가 표시됩니다. App Service에서 자세한 예외 페이지를 표시 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -91,7 +82,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화 되었는지 여부를 응용 프로그램 논리에서 알고 있어야 하는 경우 *Startup.cs*에서 전달 된 헤더 미들웨어를 구성 합니다.
 
-- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성 합니다.
+- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) 를 사용 하 여 미들웨어를 구성 합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가 합니다.
 - 다른 미들웨어를 호출 하기 전에 `Startup.Configure`에서 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 메서드를 호출 합니다.
 
@@ -141,7 +132,7 @@ project = <project-name>/<project-name>.csproj
 
 ### <a name="using-app-settings"></a>앱 설정 사용
 
-<a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>에서 다음 CLI 명령을 실행 하 여 App Service 앱에 앱 설정을 추가 합니다. *\<앱 이름 >* ,  *\<리소스 그룹 이름 >* 및  *\<프로젝트 이름 >* 을 적절 한 값으로 바꿉니다.
+<a target="_blank" href="https://shell.azure.com">Azure Cloud Shell</a>에서 다음 CLI 명령을 실행 하 여 App Service 앱에 앱 설정을 추가 합니다. *\<앱 이름 >* , *\<리소스 그룹 이름 >* , *\<프로젝트 이름 >* 을 적절 한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PROJECT="<project-name>/<project-name>.csproj"
@@ -158,7 +149,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: SQL Database를 사용하는 ASP.NET Core 앱](tutorial-dotnetcore-sqldb-app.md)
+> [자습서: SQL Database를 사용 하 여 앱 ASP.NET Core](tutorial-dotnetcore-sqldb-app.md)
 
 > [!div class="nextstepaction"]
 > [App Service Linux FAQ](app-service-linux-faq.md)

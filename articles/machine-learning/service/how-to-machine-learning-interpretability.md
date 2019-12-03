@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: 5f1008e8fcbbf7b82a694fd151a9dea9ca7f001e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 14118098e5d476dc07b21462180673b942a6224d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515344"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672547"
 ---
 # <a name="model-interpretability-in-azure-machine-learning-service"></a>Azure Machine Learning 서비스의 모델 interpretability
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -114,4 +114,4 @@ Python `numpy.array`, `pandas.DataFrame`, `iml.datatypes.DenseData`또는 `scipy
 
 ## <a name="next-steps"></a>다음 단계
 
-로컬 및 Azure Machine Learning 원격 계산 리소스 모두에 대 한 모델 학습에 대해 interpretability를 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-aml.md) 참조 하세요. 추가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/tabular-data) 을 참조 하세요.
+로컬 및 Azure Machine Learning 원격 계산 리소스 모두에 대 한 모델 학습에 대해 interpretability를 사용 하도록 설정 [하는 방법을](how-to-machine-learning-interpretability-aml.md) 참조 하세요. 추가 시나리오는 [샘플 노트북](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model) 을 참조 하세요.

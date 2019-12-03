@@ -2,19 +2,19 @@
 title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 데 PowerShell을 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 08/20/2019
-ms.openlocfilehash: 6285b7fc6493090ab0bead5f00124a6eaa02dc7e
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.date: 12/2/2019
+ms.openlocfilehash: 54cfbb4a550ff14705d8d02b0589ee023cf9c225
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172439"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689203"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure Backup을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## <a name="install-azure-powershell"></a>Azure PowerShell 설치
+## <a name="install-azure-powershell"></a>Azure Powershell 설치
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -228,7 +228,7 @@ Server properties updated successfully
 Windows 서버 및 클라이언트에서 Azure Backup으로의 모든 백업은 정책에 따라 제어됩니다. 정책은 세 부분으로 구성됩니다.
 
 1. 백업을 수행하고 서비스와 동기화해야 할 시기를 지정하는 **백업 일정** .
-2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정**입니다.
+2. Azure에 복구 지점을 보존할 기간을 지정하는 **보존 일정** 입니다.
 3. 백업해야 할 항목을 지정하는 **파일 포함/제외 사양** .
 
 이 문서에서는 백업을 자동화하기 때문에 아무것도 구성되지 않은 것으로 가정합니다. 먼저 [New-OBPolicy](https://technet.microsoft.com/library/hh770416.aspx) cmdlet을 사용하여 새로운 백업 정책을 만듭니다.
@@ -569,7 +569,7 @@ The backup operation completed successfully.
 
 1. 원본 볼륨 선택
 2. 복원할 백업 시점 선택
-3. 복원할 항목 선택
+3. 복원할 항목 지정
 4. 복원 프로세스 트리거
 
 ### <a name="picking-the-source-volume"></a>원본 볼륨 선택
@@ -593,95 +593,61 @@ ServerName : myserver.microsoft.com
 
 ### <a name="choosing-a-backup-point-from-which-to-restore"></a>복원할 백업 시점 선택
 
-[Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 백업 시점 목록을 검색합니다. 이 예제에서는 원본 볼륨 *D:* 의 최신 백업 시점을 선택하고 이 시점을 사용하여 특정 파일을 복구합니다.
+[Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 적절한 매개 변수와 함께 실행하여 백업 시점 목록을 검색합니다. 이 예제에서는 원본 볼륨 *C:* 에 대 한 최신 백업 지점을 선택 하 고이를 사용 하 여 특정 파일을 복구 합니다.
 
 ```powershell
-$Rps = Get-OBRecoverableItem -Source $Source[1]
+$Rps = Get-OBRecoverableItem $Source[0]
+$Rps
 ```
 
 ```Output
-IsDir : False
-ItemNameFriendly : D:\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : D:\
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize :
+
+IsDir                : False
+ItemNameFriendly     : C:\
+ItemNameGuid         : \\?\Volume{297cbf7a-0000-0000-0000-401f00000000}\
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : C:\
+PointInTime          : 10/17/2019 7:52:13 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime :
 
-IsDir : False
-ItemNameFriendly : D:\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : D:\
-PointInTime : 17-Jun-15 6:31:31 AM
-ServerName : myserver.microsoft.com
-ItemSize :
+IsDir                : False
+ItemNameFriendly     : C:\
+ItemNameGuid         : \\?\Volume{297cbf7a-0000-0000-0000-401f00000000}\
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : C:\
+PointInTime          : 10/16/2019 7:00:19 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime :
 ```
 
 개체 `$Rps` 는 백업 시점의 배열입니다. 첫 번째 요소는 가장 최근 시점이고 n 번째 요소는 가장 오래된 시점입니다. 최근 시점을 선택하려면 `$Rps[0]`을 사용합니다.
 
-### <a name="choosing-an-item-to-restore"></a>복원할 항목 선택
+### <a name="specifying-an-item-to-restore"></a>복원할 항목 지정
 
-복원할 정확한 파일 또는 폴더를 식별하려면 [Get-OBRecoverableItem](https://technet.microsoft.com/library/hh770399.aspx) cmdlet을 재귀적으로 사용합니다. 이런 방식으로 `Get-OBRecoverableItem`만 사용하여 폴더 계층 구조를 탐색할 수 있습니다.
-
-이 예제에서는 *finances.xls* 파일을 복원하려는 경우 개체 `$FilesFolders[1]`을 사용하여 해당 파일을 참조할 수 있습니다.
+특정 파일을 복원 하려면 루트 볼륨을 기준으로 파일 이름을 지정 합니다. 예를 들어 C:\Test\Cat.job를 검색 하려면 다음 명령을 실행 합니다. 
 
 ```powershell
-$FilesFolders = Get-OBRecoverableItem $Rps[0]
-$FilesFolders
+$Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE
+$Item
 ```
 
 ```Output
-IsDir : True
-ItemNameFriendly : D:\MyData\
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : MyData
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize :
-ItemLastModifiedTime : 15-Jun-15 8:49:29 AM
-```
-
-```powershell
-$FilesFolders = Get-OBRecoverableItem $FilesFolders[0]
-$FilesFolders
-```
-
-```Output
-IsDir : False
-ItemNameFriendly : D:\MyData\screenshot.oxps
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\screenshot.oxps
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : screenshot.oxps
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize : 228313
-ItemLastModifiedTime : 21-Jun-14 6:45:09 AM
-
-IsDir : False
-ItemNameFriendly : D:\MyData\finances.xls
-ItemNameGuid : \?\Volume{b835d359-a1dd-11e2-be72-2016d8d89f0f}\MyData\finances.xls
-LocalMountPoint : D:\
-MountPointName : D:\
-Name : finances.xls
-PointInTime : 18-Jun-15 6:41:52 AM
-ServerName : myserver.microsoft.com
-ItemSize : 96256
+IsDir                : False
+ItemNameFriendly     : C:\Test\cat.jpg
+ItemNameGuid         :
+LocalMountPoint      : C:\
+MountPointName       : C:\
+Name                 : cat.jpg
+PointInTime          : 10/17/2019 7:52:13 PM
+ServerName           : myserver.microsoft.com
+ItemSize             :
 ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
-```
 
-```Get-OBRecoverableItem``` cmdlet을 사용하여 복원할 항목을 검색할 수도 있습니다. 이 예제에서 *finances.xls* 를 검색하려면 다음 명령을 실행하여 파일에 대한 핸들을 가져올 수 있습니다.
-
-```powershell
-$Item = Get-OBRecoverableItem -RecoveryPoint $Rps[0] -Location "D:\MyData" -SearchString "finance*"
 ```
 
 ### <a name="triggering-the-restore-process"></a>복원 프로세스 트리거
@@ -692,7 +658,7 @@ $Item = Get-OBRecoverableItem -RecoveryPoint $Rps[0] -Location "D:\MyData" -Sear
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-이제 [ cmdlet의 출력에서 선택한 ](https://technet.microsoft.com/library/hh770402.aspx)에 대해 `$Item`Start-OBRecovery`Get-OBRecoverableItem` 명령을 사용하여 복원 프로세스를 트리거합니다.
+이제 `Get-OBRecoverableItem` cmdlet의 출력에서 선택한 `$Item`에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원 프로세스를 트리거합니다.
 
 ```powershell
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption

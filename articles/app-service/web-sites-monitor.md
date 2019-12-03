@@ -1,25 +1,18 @@
 ---
-title: 앱 모니터링 - Azure App Service | Microsoft Docs
-description: Azure Portal을 사용하여 Azure App Service에서 앱을 모니터링하는 방법을 알아보세요.
-services: app-service
-documentationcenter: ''
+title: 앱 모니터링
+description: Azure Portal을 사용하여 Azure App Service에서 앱을 모니터링하는 방법을 알아보세요. 보고 되는 할당량 및 메트릭을 파악 합니다.
 author: btardif
-manager: erikre
-editor: ''
 ms.assetid: d273da4e-07de-48e0-b99d-4020d84a425e
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7edff127bb981db985bebb41740744f325306bc8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4c0d3822b5000611d1b5229924cb44d055795468
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546186"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688271"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Azure App Service에서 앱 모니터링
 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)는 [Azure Portal](https://portal.azure.com)의 웹앱, 모바일 백 엔드 및 API 앱에 대해 기본 제공 모니터링 기능을 제공합니다.

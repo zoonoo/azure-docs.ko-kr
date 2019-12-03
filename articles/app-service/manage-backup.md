@@ -1,24 +1,16 @@
 ---
-title: 앱 백업 - Azure App Service
-description: Azure App Service에서 앱의 백업을 만드는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: gwallace
+title: 앱 백업
+description: Azure App Service에서 앱의 백업을 만드는 방법에 대해 알아봅니다. 수동 또는 예약 된 백업을 실행 합니다. 연결 된 데이터베이스를 포함 하 여 백업을 사용자 지정 합니다.
 ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a56abbcb72afc1f45683259d3bd3bf13309cda07
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 783737729601bfef3bee8741a097d4319349f18e
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886057"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671652"
 ---
 # <a name="back-up-your-app-in-azure"></a>Azure에서 앱 백업
 [Azure App Service](overview.md)의 백업 및 복원 기능을 사용하여 수동으로 또는 일정에 따라 앱 백업을 쉽게 만들 수 있습니다. 백업이 무기한 보존 되도록 구성할 수 있습니다. 기존 앱을 덮어쓰거나 다른 앱으로 복원하여 앱을 이전 상태의 스냅샷으로 복원할 수 있습니다.
@@ -126,7 +118,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 > 백업의 개별 데이터베이스는 4GB까지 가능 하지만 백업의 총 최대 크기는 10GB입니다.
 
 ### <a name="exclude-files-from-your-backup"></a>백업에서 파일 제외
-한 번 백업되었고 변경하지 않을 로그 파일과 정적 이미지가 포함된 앱이 있다고 가정해 보겠습니다. 이러한 경우 해당 폴더와 파일을 이후의 백업에서 저장하지 않도록 제외할 수 있습니다. 백업에서 파일과 폴더를 제외하려면 앱의 `_backup.filter` 폴더에 `D:\home\site\wwwroot` 파일을 만듭니다. 이 파일에서 제외할 파일과 폴더의 목록을 지정합니다. 
+한 번 백업되었고 변경하지 않을 로그 파일과 정적 이미지가 포함된 앱이 있다고 가정해 보겠습니다. 이러한 경우 해당 폴더와 파일을 이후의 백업에서 저장하지 않도록 제외할 수 있습니다. 백업에서 파일과 폴더를 제외하려면 앱의 `D:\home\site\wwwroot` 폴더에 `_backup.filter` 파일을 만듭니다. 이 파일에서 제외할 파일과 폴더의 목록을 지정합니다. 
 
 `https://<app-name>.scm.azurewebsites.net/DebugConsole`로 이동 하 여 파일에 액세스할 수 있습니다. 메시지가 표시되면 Azure 계정에 로그인합니다.
 
@@ -142,7 +134,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 \site\wwwroot\Images\2013
 ```
 
-`_backup.filter`ftp`D:\home\site\wwwroot\` 또는 다른 방법을 사용하여 해당 사이트의 [ 디렉터리에 ](deploy-ftp.md) 파일을 업로드합니다. 원한다 면 Kudu `DebugConsole`를 사용 하 여 직접 파일을 만들고 여기에 콘텐츠를 삽입할 수 있습니다.
+[ftp](deploy-ftp.md) 또는 다른 방법을 사용하여 해당 사이트의 `D:\home\site\wwwroot\` 디렉터리에 `_backup.filter` 파일을 업로드합니다. 원한다 면 Kudu `DebugConsole`를 사용 하 여 직접 파일을 만들고 여기에 콘텐츠를 삽입할 수 있습니다.
 
 이제 평소와 같이 [수동](#create-a-manual-backup) 또는 [자동](#configure-automated-backups)으로 백업을 실행합니다. 이제 `_backup.filter`에 지정된 파일과 폴더가 이후에 예약되거나 수동으로 시작되는 백업에서 제외됩니다. 
 
@@ -156,7 +148,7 @@ App Service는 앱에서 사용하도록 구성한 Azure Storage 계정과 컨�
 <a name="aboutbackups"></a>
 
 ## <a name="how-backups-are-stored"></a>백업 저장 방법
-앱에 대해 하나 이상의 백업을 만들면 스토리지 계정의 **컨테이너** 페이지와 앱에 해당 백업이 표시됩니다. 스토리지 계정에서 각 백업은 백업 데이터가 포함된 `.zip` 파일과 해당 `.xml` 파일 콘텐츠의 매니페스트가 포함된 `.zip` 파일로 구성되어 있습니다. 실제로 앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
+앱에 대해 하나 이상의 백업을 만들면 스토리지 계정의 **컨테이너** 페이지와 앱에 해당 백업이 표시됩니다. 스토리지 계정에서 각 백업은 백업 데이터가 포함된 `.zip` 파일과 해당 `.zip` 파일 콘텐츠의 매니페스트가 포함된 `.xml` 파일로 구성되어 있습니다. 실제로 앱 복원을 수행하지 않고 백업에 액세스하고자 한다면 이들 파일의 압축을 풀고 찾아볼 수 있습니다.
 
 앱에 대한 데이터베이스 백업이 .zip 파일의 루트에 저장됩니다. SQL 데이터베이스의 경우 이 파일은 BACPAC 파일(파일 확장명 없음)이며, 가져올 수 있습니다. BACPAC 내보내기를 기반으로 하여 SQL 데이터베이스를 만들려면 [BACPAC 파일을 가져와 새 사용자 데이터베이스 만들기](https://technet.microsoft.com/library/hh710052.aspx)를 참조하세요.
 

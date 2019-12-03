@@ -1,25 +1,16 @@
 ---
-title: 보안 개요 - Azure App Service | Microsoft Docs
+title: 보안
 description: App Service에서 앱 보안을 유지하는 방법과 위협으로부터 앱을 추가로 잠그는 방법을 알아봅니다.
 keywords: azure app service, 웹앱, 모바일 앱, API 앱, 함수 앱, 보안, 안전, 보호, 규정 준수, 준수, 인증서, 트러스트, 암호화, 암호화됨, IP 제한, 인증, 권한 부여, 관리 서비스 ID, 관리 ID, 비밀, 패칭, 패치, 버전, 격리, 네트워크 격리, web app, mobile app, api app, function app, security, secure, secured, compliance, compliant, certificate, certificates, https, ftps, tls, trust, encryption, encrypt, encrypted, ip restriction, authentication, authorization, authn, autho, msi, managed service identity, managed identity, secrets, secret, patching, patch, patches, version, isolation, network isolation, ddos, mitm
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/24/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 07dbbb956dcf6f1204bef2af3a28a0af3eeb5226
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 28394689048e730aa0c84e3bf807ef3afb898b1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470089"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688550"
 ---
 # <a name="security-in-azure-app-service"></a>Azure App Service의 보안
 
@@ -73,7 +64,7 @@ App Service 인증 및 권한 부여는 Azure Active Directory, Microsoft 계정
 
 App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 다음 두 가지 메커니즘을 제공합니다.
 
-- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](overview-managed-identity.md) 또는 [Azure Key Vault](/azure/sql-database/))에서 인증하는 데 사용할 수 있는 [관리 ID](/azure/key-vault/)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
+- **서비스 ID** - 앱 자체의 ID를 사용하여 원격 리소스에 로그인합니다. App Service를 사용하면 다른 서비스(예: [Azure SQL Database](/azure/sql-database/) 또는 [Azure Key Vault](/azure/key-vault/))에서 인증하는 데 사용할 수 있는 [관리 ID](overview-managed-identity.md)를 쉽게 만들 수 있습니다. 이 방식을 설명하는 엔드투엔드 자습서는 [관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호](app-service-web-tutorial-connect-msi.md)를 참조하세요.
 - **OBO(On-Behalf-Of)** - 원격 리소스에 대해 사용자를 대신하도록 위임된 액세스 권한을 만듭니다. Azure Active Directory를 인증 공급자로 사용하면 App Service 앱에서 App Service의 원격 서비스(예: [Azure Active Directory Graph API](../active-directory/develop/active-directory-graph-api.md) 또는 원격 API 앱)에 위임된 로그인을 수행할 수 있습니다. 이 방법에 대한 엔드투엔드 자습서는 [Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여](app-service-web-tutorial-auth-aad.md)를 참조하세요.
 
 ## <a name="connectivity-to-remote-resources"></a>원격 리소스에 대한 연결
@@ -94,7 +85,7 @@ App Service는 백 엔드 서비스를 인증할 때 필요에 따라 별도의 
 
 ### <a name="resources-inside-an-azure-virtual-network"></a>Azure Virtual Network 내 리소스
 
-앱은 [Virtual Network 통합](/azure/virtual-network/)을 통해 [Azure Virtual Network](web-sites-integrate-with-vnet.md)의 리소스에 액세스할 수 있습니다. Virtual Network와의 통합은 지점-사이트 간 VPN을 사용하여 설정됩니다. 그러면 앱에서 개인 IP 주소를 사용하여 Virtual Network의 리소스에 액세스할 수 있습니다. 그러나 지점-사이트 간 연결은 여전히 Azure에서 공유 네트워크를 통과합니다. 
+앱은 [Virtual Network 통합](web-sites-integrate-with-vnet.md)을 통해 [Azure Virtual Network](/azure/virtual-network/)의 리소스에 액세스할 수 있습니다. Virtual Network와의 통합은 지점-사이트 간 VPN을 사용하여 설정됩니다. 그러면 앱에서 개인 IP 주소를 사용하여 Virtual Network의 리소스에 액세스할 수 있습니다. 그러나 지점-사이트 간 연결은 여전히 Azure에서 공유 네트워크를 통과합니다. 
 
 Azure의 공유 네트워크에서 리소스 연결을 완전히 분리하려면 [App Service 환경](environment/intro.md)에서 앱을 만듭니다. App Service 환경은 항상 전용 Virtual Network에 배포되므로 Virtual Network 내에서 앱과 리소스 간의 연결은 완전히 격리됩니다. App Service 환경의 네트워크 보안에 대한 다른 측면은 [네트워크 격리](#network-isolation)를 참조하세요.
 

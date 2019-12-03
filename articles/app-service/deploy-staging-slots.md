@@ -1,26 +1,16 @@
 ---
-title: Azure App Service에서 웹앱에 대한 스테이징 환경 설정| Microsoft Docs
-description: Azure App Service에서 웹앱에 대한 준비된 개시를 사용하는 방법에 대해 알아봅니다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-writer: cephalin
-manager: jpconnoc
-editor: mollybos
+title: 스테이징 환경 설정
+description: 프로덕션이 아닌 슬롯에 앱을 배포 하 고 프로덕션으로 자동 교환 하는 방법에 대해 알아봅니다. 안정성을 높이고 배포에서 앱 가동 중지 시간을 제거 합니다.
 ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
-ms.author: cephalin
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f98ba9851216737712b6be1ec29156ba0b1a68b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 1fec6de65fade0bbb35907f9c69334e16d9193bf
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74382278"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671746"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Azure App Service에서 스테이징 환경 설정
 <a name="Overview"></a>
@@ -295,7 +285,7 @@ Azure PowerShell은 Windows PowerShell을 통해 Azure를 관리하기 위한 cm
 Azure PowerShell을 설치 및 구성하는 방법과 Azure 구독에 Azure PowerShell을 인증하는 방법에 대한 자세한 내용은 [Microsoft Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.  
 
 ---
-### <a name="create-a-web-app"></a>웹앱 만들기
+### <a name="create-a-web-app"></a>웹 응용 프로그램 만들기
 ```powershell
 New-AzWebApp -ResourceGroupName [resource group name] -Name [app name] -Location [location] -AppServicePlan [app service plan name]
 ```

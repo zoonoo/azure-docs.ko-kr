@@ -1,24 +1,18 @@
 ---
-title: App Service Environment 아웃바운드 트래픽 잠금 - Azure
-description: Azure Firewall과 통합하여 아웃바운드 트래픽을 보호하는 방법을 설명합니다
-services: app-service
-documentationcenter: na
+title: 아웃 바운드 트래픽 잠금
+description: Azure 방화벽과 통합 하 여 App Service 환경 내에서 아웃 바운드 트래픽을 보호 하는 방법에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 936fd797786d05edd7cf0f729af33c95ad3b3c56
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: c78749d9d0f0bd4b1dadb8dc0d2f6dd84408a95e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74405670"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687227"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 

@@ -1,25 +1,16 @@
 ---
-title: 마이크로서비스를 예측 가능하게 프로비전 및 배포 - Azure App Service
-description: PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 Azure App Service 내에서 마이크로 서비스로 구성된 애플리케이션을 배포하는 방법을 배워봅시다.
-services: app-service
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: jimbe
+title: ARM을 사용 하 여 예측 가능한 앱 배포
+description: Azure 리소스 관리 템플릿 및 PowerShell 스크립팅을 사용 하 여 예측 가능한 방식으로 여러 Azure App Service 앱을 단일 단위로 배포 하는 방법에 대해 알아봅니다.
 ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/06/2016
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: b13bc43595c09b3700798935f70c401c9311651c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 9ec3a6b39a857f888514b0a3872ae411e1819f3a
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070886"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671820"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Azure에서 마이크로 서비스를 예측 가능하게 프로비전 및 배포
 이 자습서에서는 PowerShell 스크립팅과 JSON 리소스 그룹을 사용한 예측 가능한 방법으로 [Azure App Service](https://azure.microsoft.com/services/app-service/) 내에서 [마이크로 서비스](https://en.wikipedia.org/wiki/Microservices)로 구성된 애플리케이션의 프로비전 및 배포하는 방법을 보여줍니다. 
@@ -51,7 +42,7 @@ Azure PowerShell 설치는 버전 0.8.0부터 Azure 모듈 외에도 Azure 리�
 자세한 내용은 [Azure 리소스 관리자로 Azure PowerShell 사용](../powershell-azure-resource-manager.md)
 
 ### <a name="azure-resource-explorer"></a>Azure 리소스 탐색기
-이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 현재 사용 가능한 정보는 리소스, 올바른 값 등 특정 형식에 대해 설정해야 하는 속성을 보여주기 때문에 템플릿 작성에 매우 유용합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만들 수도 있고, 그런 다음 리소스 그룹을 템플릿화할 수 있도록 탐색기 도구에서 JSON 정의를 검사합니다.
+이 [미리 보기 도구](https://resources.azure.com)를 사용하면 구독 및 개별 리소스에서 모든 리소스 그룹의 JSON 정의를 탐색할 수 있습니다. 도구에서 리소스의 JSON 정의를 편집하고 리소스의 전체 계층을 삭제하며 새 리소스를 만들 수 있습니다.  이 도구에서 쉽게 사용할 수 있는 정보는 특정 유형의 리소스, 올바른 값 등에 대해 설정 해야 하는 속성을 보여 주므로 템플릿 제작에 매우 유용 합니다. [Azure Portal](https://portal.azure.com/)에서 리소스 그룹을 만든 다음 탐색기 도구에서 해당 JSON 정의를 검사 하 여 리소스 그룹을 templatize 수 있습니다.
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 소스 제어용 GitHub를 사용하는 경우 [Azure 단추에 배포](https://azure.microsoft.com/blog/2014/11/13/deploy-to-azure-button-for-azure-websites-2/) 를 README.MD에 배치하여 턴키 배포 UI를 Azure에 사용합니다. 간단한 모든 앱에 이 작업을 수행할 수 있지만, azuredeploy.json 파일을 리포지토리 루트에 배치하면 전체 리소스 그룹을 배포하도록 이를 확장할 수 있습니다. 리소스 그룹을 만들려면 Azure 단추에 배포하 여 리소스 그룹 템플릿을 포함하는 이 JSON 파일을 사용합니다. 예를 들어 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp) 샘플을 참조하여 이 자습서에서 사용합니다.
@@ -96,7 +87,7 @@ Azure 리소스 관리자의 자동화된 오케스트레이션이 설정한 모
 
 JSON 형식의 모든 세부 정보를 설명하지 않겠지만 [더 리소스](#resources) 섹션에 리소스 그룹 템플릿 언어 학습을 위한 링크가 있습니다. 여기에서 앱 배포에 대한 고유의 사용자 지정 템플릿을 만들기 시작하는데 도움이 되는 흥미로운 기능을 보여 주겠습니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 이러한 대부분의 매개 변수가 **Azure에 배포** 단추로 입력하려는 것임을 확인하려면 매개 변수 섹션을 살펴보세요. **Azure에 배포** 버튼 뒤에 사이트는 azuredeploy.json에 정의된 매개 변수를 사용하는 입력 UI를 채웁니다. 이러한 매개 변수는 리소스 이름, 속성 값 등의 리소스 정의 전체에서 사용됩니다.
 
 ### <a name="resources"></a>리소스
@@ -147,7 +138,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 `config/appsettings`를 위한 `properties` 요소에서 `"<name>" : "<value>"` 형식에 두 개의 앱 설정이 있습니다.
 
 * `PROJECT` 은 다중 프로젝트 Visual Studio 솔루션에서 어떤 프로젝트를 사용할지를 Azure 배포를 지시하는 [KUDU 설정](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) 입니다. 소스 제어가 어떻게 구성되는지 나중에 설명하겠지만 ToDoApp 코드가 다중 프로젝트 Visual Studio 솔루션에 존재하므로 이 설정이 필요합니다.
-* `clientUrl` 은 애플리케이션 코드가 사용할 단순한 앱 설정입니다.
+* `clientUrl`은 애플리케이션 코드가 사용할 단순한 앱 설정입니다.
 
 ##### <a name="connection-strings"></a>연결 문자열
 연결 문자열은 중첩된 리소스로 정의됩니다.
@@ -157,7 +148,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 `config/connectionstrings`를 위한 `properties` 요소에서 각 연결 문자열은 `"<name>" : {"value": "…", "type": "…"}`이라는 특정 형식을 가직 이름: 값 쌍으로 정의됩니다. `type` 요소에 대해 가능한 값은 `MySql`, `SQLServer`, `SQLAzure`, 및 `Custom`입니다.
 
 > [!TIP]
-> 연결 문자열 형식의 선언적 목록의 경우 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
+> 연결 문자열 형식의 선언적 목록에 대해 Azure PowerShell에서 다음 명령을 실행합니다. \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType")
 > 
 > 
 
@@ -168,7 +159,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
 
 `RepoUrl` 및 `branch`는 매우 직관적이어야 하며 Git 리포지토리와 게시하려는 분기의 이름을 가리켜야 합니다. 다시, 입력 매개 변수에 의해 정의됩니다. 
 
-`dependsOn` 요소에서 앱 리소스 자체 외에도 `sourcecontrols/web`은 `config/appsettings` 및 `config/connectionstrings`에 따라 달라집니다. 일단 `sourcecontrols/web` 가 구성되기 때문에 Azure 배포 프로세스는 애플리케이션 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 애플리케이션 코드를 실행하기 전에 애플리케이션이 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. 
+`dependsOn` 요소에서 앱 리소스 자체 외에도 `sourcecontrols/web`은 `config/appsettings` 및 `config/connectionstrings`에 따라 달라집니다. 일단 `sourcecontrols/web`가 구성되기 때문에 Azure 배포 프로세스는 애플리케이션 코드를 자동으로 배포, 빌드 및 시작하려 합니다. 따라서 이 종속성을 삽입하면 애플리케이션 코드를 실행하기 전에 애플리케이션이 필요한 앱 설정 및 연결 문자열에 액세스할 수 있는지 확인할 수 있습니다. 
 
 > [!NOTE]
 > 또한 `IsManualIntegration`은 `true`로 설정됩니다. 실제로 GitHub 리포지토리를 소유하지 않기 때문에 [ToDoApp](https://github.com/azure-appservice-samples/ToDoApp)에서 연속 게시를 구성할 권한을 Azure에 실제로 부여할 수 없기 때문에 이 자습서에서는 이 속성이 필요합니다(즉, Azure에 자동 저장소 업데이트 밀어넣기). 이전에 [Azure portal](https://portal.azure.com/)에서 소유자의 GitHub 자격 증명을 사용하도록 구성한 경우에만 지정된 리포지토리에 기본값 `false`을 사용할 수 있습니다. 즉, 이전에 [Azure Portal](https://portal.azure.com/)에서 사용자 자격 증명을 사용하여 모든 앱용 GitHub 또는 BitBucket에 대한 원본 제어를 설정하는 경우 Azure에서는 해당 자격 증명을 기억하고 이후에 GitHub 또는 BitBucket에서 모든 앱을 배포할 때마다 사용합니다. 그러나 이 작업을 미리 수행하지 않은 경우 Azure Resource Manager가 리포지토리 소유자의 자격 증명으로 GitHub 또는 BitBucket에 로그인할 수 없기 때문에 앱의 소스 제어 설정을 구성할 때 JSON 템플릿 배포에 실패합니다.
@@ -239,7 +230,7 @@ JSON에서 간단한 루트 수준 리소스부터 살펴보겠습니다. JSON �
     > 
 16. **배포**을 참조하십시오. **암호 저장**을 선택한 경우, 암호가 **일반 텍스트에서** 매개 변수 파일에 저장됩니다. 그렇지 않은 경우 배포 프로세스 중에 데이터베이스 암호를 입력하라는 메시지가 표시됩니다.
 
-끝났습니다. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure Resource Explorer](https://resources.azure.com) 도구로 이동해야 합니다.
+끝났습니다. 이제 애플리케이션에 배포된 JSON에 추가된 도구를 새 경고 및 자동 크기 조정 설정을 보기 위해 [Azure Portal](https://portal.azure.com/) 및 [Azure 리소스 탐색기](https://resources.azure.com) 도구로 이동해야 합니다.
 
 이 섹션의 단계에서 주로 다음을 수행합니다.
 
@@ -263,7 +254,7 @@ DevOps에서 반복성 및 예측 가능성은 마이크로 서비스로 구성�
 * [Azure 리소스 관리자 템플릿 작성](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Azure 리소스 관리자 템플릿 함수](../azure-resource-manager/resource-group-template-functions.md)
 * [Azure 리소스 관리자 템플릿으로 애플리케이션 배포](../azure-resource-manager/resource-group-template-deploy.md)
-* [Azure 리소스 관리자로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Azure Resource Manager로 Azure PowerShell 사용](../azure-resource-manager/powershell-azure-resource-manager.md)
 * [Azure에서 리소스 그룹 배포 문제 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md)
 
 ## <a name="next-steps"></a>다음 단계

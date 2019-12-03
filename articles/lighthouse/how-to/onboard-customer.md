@@ -3,12 +3,12 @@ title: Azure 위임 리소스 관리에 고객 등록
 description: 고객을 Azure 위임 리소스 관리에 등록하여 고유한 테넌트를 통해 해당 리소스를 액세스하고 관리할 수 있도록 하는 방법을 알아봅니다.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: fde0e82ff2dcf048643524b5a2d076d66a4f5a50
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 88e75b92ca09f3c6671fe4399c4672240f863f66
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463945"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689271"
 ---
 # <a name="onboard-a-customer-to-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 고객 등록
 
@@ -36,7 +36,7 @@ MPN(Microsoft 파트너 네트워크) ID를 온보딩한 구독과 연결하여 
 
 이 정보가 아직 없는 경우 다음 방법 중 하나를 통해 검색할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal의 오른쪽 위에 있는 계정 이름으로 마우스를 가져가거나 **디렉터리 전환**을 선택하여 테넌트 ID를 확인할 수 있습니다. 테넌트 ID를 선택하고 복사하려면 포털 내에서 "Azure Active Directory"를 검색한 다음, **속성**을 선택하고 **디렉터리 ID** 필드에 표시된 값을 복사합니다. 구독의 ID를 찾으려면 "구독"을 검색한 다음, 적절한 구독 ID를 선택합니다.
 
@@ -104,11 +104,11 @@ az ad sp list --query "[?displayName == '<spDisplayName>'].objectId" --output ts
 az role definition list --name "<roleName>" | grep name
 ```
 > [!TIP]
-> 나중에 필요할 때 테넌트의 사용자가 [위임에 대한 액세스 권한을 제거](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)할 수 있도록 고객을 온보딩할 때 [관리 서비스 등록 할당 삭제 역할](#remove-access-to-a-delegation)을 할당하는 것이 좋습니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
+> 나중에 필요할 때 테넌트의 사용자가 [위임에 대한 액세스 권한을 제거](#remove-access-to-a-delegation)할 수 있도록 고객을 온보딩할 때 [관리 서비스 등록 할당 삭제 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#managed-services-registration-assignment-delete-role)을 할당하는 것이 좋습니다. 이 역할을 할당하지 않으면 고객 테넌트의 사용자만 위임된 리소스를 제거할 수 있습니다.
 
 ## <a name="create-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 만들기
 
-고객을 온보딩하려면 다음 정보가 포함된 제품에 대한 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 템플릿을 만들어야 합니다. Azure Portal의 **서비스 공급자 페이지**에서 제품 세부 정보를 볼 때 **mspOfferName** 및 [mspOfferDescription](view-manage-service-providers.md) 값이 고객에게 표시됩니다.
+고객을 온보딩하려면 다음 정보가 포함된 제품에 대한 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/) 템플릿을 만들어야 합니다. Azure Portal의 [서비스 공급자 페이지](view-manage-service-providers.md)에서 제품 세부 정보를 볼 때 **mspOfferName** 및 **mspOfferDescription** 값이 고객에게 표시됩니다.
 
 |필드  |정의  |
 |---------|---------|
@@ -121,8 +121,8 @@ az role definition list --name "<roleName>" | grep name
 
 |온보딩할 대상  |사용하는 Azure Resource Manager 템플릿  |수정할 매개 변수 파일 |
 |---------|---------|---------|
-|구독   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
-|리소스 그룹   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
+|Subscription   |[delegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.json)  |[delegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/delegated-resource-management/delegatedResourceManagement.parameters.json)    |
+|Resource group   |[rgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.json)  |[rgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/rgDelegatedResourceManagement.parameters.json)    |
 |구독 내의 여러 리소스 그룹   |[multipleRgDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.json)  |[multipleRgDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/rg-delegated-resource-management/multipleRgDelegatedResourceManagement.parameters.json)    |
 |구독(Azure Marketplace 게시된 제품을 사용하는 경우)   |[marketplaceDelegatedResourceManagement.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.json)  |[marketplaceDelegatedResourceManagement.parameters.json](https://github.com/Azure/Azure-Lighthouse-samples/blob/master/Azure-Delegated-Resource-Management/templates/marketplace-delegated-resource-management/marketplaceDelegatedResourceManagement.parameters.json)    |
 
@@ -238,7 +238,7 @@ az deployment create –-name <deploymentName \
 
 고객 구독이 Azure 위임 리소스 관리에 성공적으로 온보딩되면 서비스 공급자의 테넌트에 있는 사용자는 구독 및 해당 리소스를 볼 수 있습니다(개별적으로 또는 해당 권한이 있는 Azure AD 그룹의 멤버로서 위의 프로세스를 통해 액세스 권한이 부여된 경우). 이를 확인하려면 다음 방법 중 하나를 사용하여 구독이 표시되는지 확인합니다.  
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 서비스 공급자의 테넌트에서 다음을 수행합니다.
 
@@ -335,10 +335,10 @@ az managedservices assignment list
 
 # Delete the registration assignment
 
-az managedservices assignment delete –assignment <id or full resourceId>
+az managedservices assignment delete --assignment <id or full resourceId>
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 - [테넌트 간 관리 환경](../concepts/cross-tenant-management-experience.md)에 대해 알아봅니다.
-- Azure Portal의 [내 고객](view-manage-customers.md)으로 이동하여 **고객을 보고 관리**합니다.
+- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](view-manage-customers.md)합니다.

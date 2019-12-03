@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 20a08345d8335b4857ca9777efb55f953ee63e9f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9ae6ff5fb5a5bfc6ba9299e06bad9afafc1403f3
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681544"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671582"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -120,6 +120,14 @@ Blob 또는 ADLS 파일 저장소를 기록 하는 데이터 흐름 매핑에서
 ```DateFiles/*_201907*.txt```
 
 와일드 카드를 사용 하 여 파이프라인에는 데이터 흐름 활동이 하나만 포함 됩니다. 이는 내에서 데이터 흐름 실행 작업이 포함 된 ForEach를 사용 하 여 일치 하는 모든 파일에 대해 반복 하는 Blob 저장소에 대 한 조회 보다 더 잘 수행 됩니다.
+
+### <a name="optimizing-for-cosmosdb"></a>CosmosDB 최적화
+
+CosmosDB 싱크에 대 한 처리량 및 일괄 처리 속성 설정은 파이프라인 데이터 흐름 작업에서 해당 데이터 흐름을 실행 하는 동안에만 적용 됩니다. 원래 컬렉션 설정은 데이터 흐름을 실행 한 후 CosmosDB에서 적용 됩니다.
+
+* 일괄 처리 크기: 데이터의 대략적인 행 크기를 계산 하 고 행 크기 * 일괄 처리 크기가 200만 보다 적은지 확인 합니다. 이 경우 일괄 처리 크기를 늘려 더 나은 처리량을 얻습니다.
+* 처리량: 문서를 CosmosDB에 더 빨리 쓸 수 있도록 여기에서 더 높은 처리량 설정을 설정 합니다. 높은 처리량 설정에 따라 높은 수준의 비용을 염두에 두십시오.
+*   쓰기 처리량 예산: 분당 총 RUs 보다 작은 값을 사용 합니다. Spark 파티션 수가 많은 데이터 흐름이 있는 경우 예산 처리량을 설정 하면 해당 파티션에 대 한 균형을 높일 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

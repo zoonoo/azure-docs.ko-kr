@@ -1,22 +1,17 @@
 ---
-title: 템플릿을 사용한 앱 배포 지침 - Azure App Service | Microsoft Docs
-description: 웹앱을 배포하는 Azure Resource Manager 템플릿을 만드는 방법에 대한 권장 사항입니다.
-services: app-service
-documentationcenter: app-service
+title: 템플릿을 사용 하 여 앱 배포
+description: App Service 앱을 프로 비전 하 고 배포 하는 Azure Resource Manager 템플릿을 만드는 방법에 대 한 지침을 찾습니다.
 author: tfitzmac
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 2af3ec61537dc28ab652b669ff46500db19ab307
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 082ef9753f84aef3f867a9dee4b4e9fbf73dd379
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130596"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670108"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용하여 웹앱을 배포하는 방법에 대한 지침
 

@@ -1,25 +1,18 @@
 ---
-title: 앱 별 크기 조정을 사용 하는 고밀도 호스팅-Azure App Service | Microsoft Docs
-description: Azure App Service의 고밀도 호스팅
+title: 고밀도 호스팅을 위한 앱 별 크기 조정
+description: App Service 계획과 독립적으로 앱을 확장 하 고 계획에서 확장 된 인스턴스를 최적화 합니다.
 author: btardif
-manager: erikre
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: a903cb78-4927-47b0-8427-56412c4e3e64
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 7130c9547e0778ce40a0ad1c1ea41607a02df23e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f1ca4958fe2608d0c040ef5b93827a7e71a4151c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088098"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672345"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>앱 별 크기 조정을 사용 하는 Azure App Service의 고밀도 호스팅
 
@@ -140,7 +133,7 @@ App Service 계획은 **PerSiteScaling** 속성을 true(`"perSiteScaling": true`
 1. App Service 계획에서 `PerSiteScaling` 플래그를 true로 설정합니다.
 1. 새 앱이 만들어지고 **1**로 설정된 **numberOfWorkers** 속성이 있는 해당 App Service 계획에 할당됩니다.
    - 이 구성을 사용 하면 가능한 가장 높은 밀도가 생성 됩니다.
-1. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 예:
+1. 작업자 수는 앱마다 독립적으로 구성되어 필요에 따라 추가 리소스를 부여할 수 있습니다. 다음은 그 예입니다.
    - 사용량이 많은 앱은 해당 앱에 대한 더 많은 처리 용량을 갖도록 **numberOfWorkers**를 **3**으로 설정할 수 있습니다.
    - 많이 사용되지 않는 앱은 **numberOfWorkers**를 **1**로 설정합니다.
 

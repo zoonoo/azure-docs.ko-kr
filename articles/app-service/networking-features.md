@@ -1,25 +1,18 @@
 ---
-title: 네트워킹 배포 기능-Azure App Service | Microsoft Docs
-description: 다양 한 App Service 네트워킹 기능을 사용 하는 방법
+title: 네트워킹 기능
+description: Azure App Service의 네트워크 기능 및 보안 또는 기능을 위해 네트워크에 필요한 기능에 대해 알아봅니다.
 author: ccompy
-manager: stefsch
-editor: ''
-services: app-service\web
-documentationcenter: ''
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 801692c53ef268f15edc60d31743aefa6a247a78
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928498"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672327"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 

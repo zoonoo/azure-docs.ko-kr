@@ -11,12 +11,12 @@ author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 65d092b36ed0e339a77bb423f24079caae38ab84
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e7d79b15b6f55d925713e4ef7e49df391e087162
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73821984"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687699"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -28,7 +28,7 @@ Azure [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse
 
 
 > [!NOTE] 
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용 됩니다.
+> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -110,7 +110,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![이벤트 허브](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
 
-9. **Save**를 클릭합니다.
+9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 10. 감사 이벤트를 사용자 지정하려면 [PowerShell cmdlet](#subheading-7) 또는 [REST API](#subheading-9)를 통해 다음 작업을 수행합니다.
 11. 감사 설정을 구성했으면 새로운 위협 감지 기능을 켜고, 보안 경고를 받을 전자 메일을 구성할 수 있습니다. 위협 감지를 사용하면 잠재적인 보안 위협을 나타낼 수 있는 비정상적인 데이터베이스 활동에 대해 사전 경고를 받을 수 있습니다. 자세한 내용은 [위협 감지 시작](sql-database-threat-detection-get-started.md)을 참조하세요.
 
@@ -148,10 +148,13 @@ Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
 
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
 
-- 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 [Azure Event Hubs 설명서](https://docs.microsoft.com/azure/event-hubs/)를 참조하세요.
-- Event Hub의 감사 로그는 [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 UTF-8 인코딩을 통해 JSON 형식을 사용하여 저장됩니다. 감사 로그를 읽으려면 [Avro 도구](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
+- 이벤트 허브에서 감사 로그 데이터를 사용하려면 이벤트를 사용하고 이벤트를 대상에 작성하도록 스트림을 설정해야 합니다. 자세한 내용은 [Azure Event Hubs 설명서](../event-hubs/index.yml)를 참조하세요.
+- Event Hub의 감사 로그는 [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 UTF-8 인코딩을 통해 JSON 형식을 사용하여 저장됩니다. 감사 로그를 읽으려면 [Avro 도구](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
 
 Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그를 보는 데 사용할 수 있는 여러 가지 방법이 있습니다.
+
+> [!NOTE] 
+> 읽기 전용 복제본에 대 한 감사는 자동으로 설정 됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](sql-database-audit-log-format.md)을 참조 하세요. 
 
 - 감사 로그는 설치 중에 선택한 계정에 집계됩니다. [Azure Storage Explorer](https://storageexplorer.com/) 등의 도구를 사용하여 감사 로그를 살펴볼 수 있습니다. Azure Storage에서 감사 로그는 **sqldbauditlogs**라는 컨테이너 내부에 Blob 파일의 컬렉션으로 저장됩니다. 저장소 폴더의 계층 구조, 명명 규칙 및 로그 형식에 대 한 자세한 내용은 [SQL Database 감사 로그 형식](https://go.microsoft.com/fwlink/?linkid=829599)을 참조 하세요.
 
@@ -162,7 +165,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     **감사 레코드**가 열리고, 여기서 로그를 볼 수 있습니다.
 
   - **감사 레코드** 페이지의 맨 위에서 **필터**를 클릭하여 특정 날짜를 볼 수 있습니다.
-  - *감사 원본*을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 **데이터베이스 감사 정책**에서 생성된 감사 레코드 간을 전환할 수 있습니다.
+  - **감사 원본**을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 *데이터베이스 감사 정책*에서 생성된 감사 레코드 간을 전환할 수 있습니다.
   - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
        ![탐색 창][8]

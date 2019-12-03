@@ -2,13 +2,13 @@
 title: 템플릿 모범 사례
 description: Azure Resource Manager 템플릿 작성에 대한 권장되는 방법을 설명합니다. 템플릿을 사용할 때 일반적인 문제를 방지하기 위한 제안을 제공합니다.
 ms.topic: conceptual
-ms.date: 09/12/2019
-ms.openlocfilehash: 7e1b6496302af3edde4d888c67ec3e461d300a5a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/02/2019
+ms.openlocfilehash: d4cf4364b2e835db3d53fa64682a99710ceb2b29
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150306"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689111"
 ---
 # <a name="azure-resource-manager-template-best-practices"></a>Azure Resource Manager 템플릿 모범 사례
 
@@ -32,7 +32,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 중첩된 템플릿을 사용하여 일부 템플릿 제한을 초과할 수 있습니다. 자세한 내용은 [Azure 리소스를 배포할 때 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요. 매개 변수, 변수 또는 출력의 수를 줄이려면 개체에 여러 값을 결합할 수 있습니다. 자세한 내용은 [매개 변수로 개체 사용](resource-manager-objects-as-parameters.md)을 참조하세요.
 
-## <a name="resource-group"></a>리소스 그룹
+## <a name="resource-group"></a>Resource group
 
 리소스 그룹에 리소스를 배포 하는 경우 리소스 그룹은 리소스에 대 한 메타 데이터를 저장 합니다. 메타 데이터는 리소스 그룹의 위치에 저장 됩니다.
 
@@ -93,9 +93,9 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 리소스 유형의 API 버전에 대해서는 매개 변수를 사용하지 마세요. 리소스 속성 및 값은 버전 번호에 따라 달라질 수 있습니다. API 버전이 매개 변수로 설정되면 코드 편집기의 IntelliSense에서 올바른 스키마를 확인할 수 없습니다. 대신, 템플릿에 API 버전을 하드 코드합니다.
 
-* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. `allowedValues`를 너무 광범위하게 사용하는 경우 목록을 최신 상태로 유지하지 않아 유효한 배포를 차단할 수 있습니다.
+* `allowedValues`를 제한적으로 사용합니다. 일부 값이 허용되는 옵션에 포함되지 않도록 해야 하는 경우에만 사용합니다. `allowedValues` 너무 광범위 하 게 사용 하는 경우 목록을 최신 상태로 유지 하지 않는 방식으로 유효한 배포를 차단할 수 있습니다.
 
-* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 **New-AzResourceGroupDeployment** cmdlet의 [ResourceGroupName](/powershell/module/az.resources/new-azresourcegroupdeployment) 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
+* 템플릿의 매개 변수 이름이 PowerShell 배포 명령의 매개 변수와 일치하는 경우 Resource Manager는 템플릿 매개 변수에 **FromTemplate**이라는 접미사를 추가하여 이러한 이름 충돌을 해결합니다. 예를 들어 템플릿에 **ResourceGroupName**이라는 매개 변수가 포함되면 [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) cmdlet의 **ResourceGroupName** 매개 변수와 충돌합니다. 배포하는 동안 **ResourceGroupNameFromTemplate**에 대한 값을 제공하라는 메시지가 표시됩니다.
 
 ### <a name="security-recommendations-for-parameters"></a>매개 변수에 대한 보안 권장 사항
 
@@ -152,7 +152,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
 
 * 리소스에서 `apiVersion`에 대해 변수를 사용하지 마세요. API 버전은 리소스의 스키마를 결정합니다. 종종 리소스에 대한 속성을 변경하지 않고 버전을 변경할 수 없습니다.
 
-* 템플릿의 [변수](resource-group-template-functions-resource.md#reference) 섹션에서 **reference** 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
+* 템플릿의 **변수** 섹션에서 [reference](resource-group-template-functions-resource.md#reference) 함수를 사용할 수 없습니다. **reference** 함수는 리소스의 런타임 상태에서 해당 값을 파생합니다. 하지만 템플릿의 초기 구문 분석 중에 변수가 확인됩니다. 템플릿의 **resources** 또는 **outputs** 섹션에서 직접 **reference** 함수에 필요한 값을 생성합니다.
 
 * 고유해야 하는 리소스 이름에 대한 변수를 포함합니다.
 
@@ -204,7 +204,7 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
    }
    ```
    
-   저장소 계정이 작성 중인 동일한 템플릿에 배포 되 고 저장소 계정의 이름이 템플릿의 다른 리소스와 공유 되지 않는 경우 리소스를 참조할 때 공급자 네임 스페이스나 apiVersion을 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
+   저장소 계정이 작성 중인 동일한 템플릿에 배포 되 고 저장소 계정 이름이 템플릿의 다른 리소스와 공유 되지 않는 경우 리소스를 참조할 때 공급자 네임 스페이스나 apiVersion을 지정할 필요가 없습니다. 다음 예제에서는 간소화된 구문을 보여 줍니다.
    
    ```json
    "diagnosticsProfile": {
@@ -276,23 +276,6 @@ Azure 구독을 관리 하는 방법에 대 한 권장 사항은 [azure enterpri
    > VM 및 확장에 매개 변수로 전달되는 비밀이 암호화되도록 하려면 관련 확장의 **protectedSettings** 속성을 사용합니다.
    > 
    > 
-
-## <a name="outputs"></a>출력
-
-템플릿을 사용하여 공용 IP 주소를 만드는 경우 IP 주소 및 FQDN(정규화된 도메인 이름)의 세부 정보를 반환하는 [출력 섹션](template-outputs.md)을 포함합니다. 출력 값을 사용하여 배포 후 공용 IP 주소 및 FQDN에 대한 세부 정보를 쉽게 검색할 수 있습니다.
-
-```json
-"outputs": {
-    "fqdn": {
-        "value": "[reference(parameters('publicIPAddresses_name')).dnsSettings.fqdn]",
-        "type": "string"
-    },
-    "ipaddress": {
-        "value": "[reference(parameters('publicIPAddresses_name')).ipAddress]",
-        "type": "string"
-    }
-}
-```
 
 ## <a name="next-steps"></a>다음 단계
 

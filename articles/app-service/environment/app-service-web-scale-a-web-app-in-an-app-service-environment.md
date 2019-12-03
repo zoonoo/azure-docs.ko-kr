@@ -1,27 +1,20 @@
 ---
-title: App Service Environment에서 앱을 확장하는 방법 - Azure
-description: App Service Environment에서 앱 확장
-services: app-service
-documentationcenter: ''
+title: ASE v1에서 앱 크기 조정
+description: App Service Environment에서 앱의 크기를 조정 합니다. 이 문서는 레거시 v1 ASE를 사용 하는 고객 에게만 제공 됩니다.
 author: ccompy
-manager: stefsch
-editor: jimbe
 ms.assetid: 78eb1e49-4fcd-49e7-b3c7-f1906f0f22e3
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/17/2016
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 711dc4d59785418d6637eb144b644948ed495e2c
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 43849ca7084f2237c37ad537c50f4e94ac4ea7c0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069724"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688671"
 ---
-# <a name="scaling-apps-in-an-app-service-environment"></a>App Service Environment에서 앱 확장
+# <a name="scaling-apps-in-an-app-service-environment-v1"></a>App Service Environment v1에서 앱 크기 조정
 Azure App Service에서는 일반적으로 다음 세 가지를 확장할 수 있습니다.
 
 * 가격 계획
@@ -39,7 +32,7 @@ ASE에서는 가격 계획을 선택하거나 변경할 필요가 없습니다. 
 
 ![][1]
 
-ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성하는 방법에 대한 자세한 내용은 [App Service 환경을 구성 하는 방법][HowtoConfigureASE]  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대 한 자동 크기 조정 구성에 대 한 자세한 내용은 [App Service Environment 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
+ASP가 있는 작업자 풀의 사용 가능한 컴퓨팅 리소스 수를 초과하여 ASP를 확장할 수 없습니다.  해당 작업자 풀에 컴퓨팅 리소스가 필요한 경우 ASE 관리자에게 추가해 달라고 요청해야 합니다.  ASE를 다시 구성 하는 방법에 대 한 자세한 내용은 [App Service 환경을 구성 하는 방법을][HowtoConfigureASE]참조 하십시오.  일정 또는 메트릭에 따라 용량을 추가하기 위해 ASE 자동 크기 조정 기능을 활용할 수도 있습니다.  ASE 환경 자체에 대 한 자동 크기 조정 구성에 대 한 자세한 내용은 [App Service Environment 자동 크기 조정을 구성 하는 방법][ASEAutoscale]을 참조 하세요.
 
 다양한 작업자 풀의 컴퓨팅 리소스를 사용하여 여러 앱 서비스 계획을 만들거나, 동일한 작업자 풀을 사용할 수 있습니다.  예를 들어 작업자 풀 1에 사용 가능한 컴퓨팅 리소스 10개가 있는 경우 6개의 컴퓨팅 리소스를 사용하여 하나의 앱 서비스 계획을 만들고 나머지 4개의 컴퓨팅 리소스를 사용하는 두 번째 앱 서비스를 만들 수 있습니다.
 

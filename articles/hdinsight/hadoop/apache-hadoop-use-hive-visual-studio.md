@@ -2,24 +2,24 @@
 title: Visual Studio 용 Apache Hive & Data Lake 도구-Azure HDInsight
 description: Azure HDInsight의 Apache Hadoop에서 Data Lake Tools for Visual Studio를 사용하여 Apache Hive 쿼리를 실행하는 방법을 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5b10cc5a8b7468b222fec3f2e66a8258470047ae
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.custom: hdinsightactive
+ms.date: 11/27/2019
+ms.openlocfilehash: 27ab13481525819eb1435f4c9ac256a21acd21fb
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931859"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687793"
 ---
 # <a name="run-apache-hive-queries-using-the-data-lake-tools-for-visual-studio"></a>Visual Studio용 Data Lake 도구를 사용하여 Apache Hive 쿼리 실행
 
 Data Lake Tools for Visual Studio를 사용하여 Apache Hive를 쿼리하는 방법을 알아봅니다. Data Lake 도구를 사용하면 Azure HDInsight에서 Apache Hadoop에 대해 Hive 쿼리를 쉽게 만들고, 제출하고, 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * HDInsight의 Apache Hadoop 클러스터. 이 항목을 만드는 방법에 대 한 자세한 내용은 [리소스 관리자 템플릿을 사용 하 여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기](./apache-hadoop-linux-tutorial-get-started.md)를 참조 하세요.
 
@@ -36,11 +36,11 @@ Hive 쿼리를 만들고 실행하기 위한 두 가지 옵션이 있습니다.
 
 ### <a name="create-an-ad-hoc-hive-query"></a>임시 Hive 쿼리 만들기
 
-임시 쿼리는 **일괄 처리** 또는 **대화형** 모드로 실행할 수 있습니다.
+임시 쿼리를 **일괄 처리** 또는 **대화형** 모드로 실행할 수 있습니다.
 
-1. **Visual Studio**를 엽니다.
+1. **Visual Studio** 를 시작 하 고 **코드를 제외**하 고 계속을 선택 합니다.
 
-2. **서버 탐색기**에서 **Azure** > **HDInsight**로 이동 합니다.
+2. **서버 탐색기**에서 **Azure**를 마우스 오른쪽 단추로 클릭 하 고 **Microsoft Azure 구독에 연결**...을 선택 하 여 로그인 프로세스를 완료 합니다.
 
 3. **HDInsight**를 확장 하 고 쿼리를 실행 하려는 클러스터를 마우스 오른쪽 단추로 클릭 한 다음 **Hive 쿼리 작성**을 선택 합니다.
 
@@ -99,7 +99,7 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
         > MapReduce 작업 또는 Azure 서비스와 같은 외부 원본에서 기본 데이터를 업데이트 해야 하는 경우 외부 테이블을 사용 해야 합니다.
         >
         > 외부 테이블을 삭제하면 데이터는 삭제되지 **않고** 테이블 정의만 삭제됩니다.
-    
+
     * `ROW FORMAT`: 데이터의 형식 지정 방식을 Hive에 알립니다. 이 경우, 각 로그의 필드는 공백으로 구분됩니다.
 
     * `STORED AS TEXTFILE LOCATION`: 데이터가 *example/data* 디렉터리에 저장 되 고 텍스트로 저장 되었음을 Hive에 알립니다.
@@ -138,8 +138,8 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
         > `EXTERNAL` 테이블과 달리 내부 테이블을 삭제하면 기본 데이터도 삭제됩니다.
 
     * `STORED AS ORC`: 데이터를 최적화 된 *행 칼럼* 형식 (ORC) 형식으로 저장 합니다. ORC는 Hive 데이터를 저장하기 위한 고도로 최적화되고 효율적인 형식입니다.
-    
-    * `INSERT OVERWRITE ... SELECT`: `log4jLogs`가 포함된 `[ERROR]` 테이블에서 행을 선택하고 데이터를 `errorLogs` 테이블에 삽입합니다.
+
+    * `INSERT OVERWRITE ... SELECT`: `[ERROR]`가 포함된 `log4jLogs` 테이블에서 행을 선택하고 데이터를 `errorLogs` 테이블에 삽입합니다.
 
 3. 필요한 경우 **대화형** 을 **일괄 처리** 로 변경 하 고 **제출**을 선택 합니다.
 
@@ -149,14 +149,8 @@ Hive 응용 프로그램을 만들어 Hive 쿼리를 실행 하려면 다음 단
 
 여기에서 볼 수 있듯이 Visual Studio용 HDInsight 도구는 HDInsight에서 Hive 쿼리를 수행하는 쉬운 방법을 제공합니다.
 
-HDInsight의 Hive에 대한 일반적인 정보:
+* HDInsight의 Hive에 대 한 일반적인 정보는 [Azure hdinsight의 Apache Hive 및 HiveQL?](hdinsight-use-hive.md) 을 참조 하세요.
 
-* [Azure HDInsight의 Apache Hive 및 HiveQL 무엇 인가요?](hdinsight-use-hive.md)
+* HDInsight에서 Hadoop으로 작업 하는 다른 방법에 대 한 자세한 내용은 [hdinsight의 Apache Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md) 을 참조 하세요.
 
-HDInsight에서 Hadoop으로 작업하는 다른 방법에 관한 정보:
-
-* [HDInsight의 Apache Hadoop에서 MapReduce 사용](hdinsight-use-mapreduce.md)
-
-Visual Studio용 HDInsight 도구에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Visual Studio 용 Data Lake 도구를 사용 하 여 Azure HDInsight에 연결 하 고 Apache Hive 쿼리 실행](apache-hadoop-visual-studio-tools-get-started.md)
+* Visual Studio 용 HDInsight 도구에 대 한 자세한 내용은[Visual studio 용 Data Lake 도구를 사용 하 여 Azure HDInsight에 연결 및 Apache Hive 쿼리 실행을](apache-hadoop-visual-studio-tools-get-started.md) 참조 하세요.
