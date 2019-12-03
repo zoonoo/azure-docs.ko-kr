@@ -1,17 +1,17 @@
 ---
 title: 빠른 시작 - Azure SignalR Service REST API
-description: Azure SignalR Service REST API를 사용하기 위한 빠른 시작입니다.
+description: 다음 샘플에서 Azure SignalR Service와 함께 REST API를 사용하는 방법을 알아봅니다. REST API 사양에 대한 세부 정보를 찾습니다.
 author: sffamily
 ms.service: signalr
 ms.topic: quickstart
-ms.date: 03/01/2019
+ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: 999d44e394d47e350187f9175389e04e68567d5e
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 17371e3bd426ea81b5e7e07610aac0073ea972c9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64724659"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74157690"
 ---
 # <a name="quickstart-broadcast-real-time-messages-from-console-app"></a>빠른 시작: 콘솔 앱에서 실시간 메시지 브로드캐스트
 

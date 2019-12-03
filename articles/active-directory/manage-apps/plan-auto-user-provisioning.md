@@ -12,14 +12,14 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25d1aec836f66ae2ebc007e920cf6ef8a4450919
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473329"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706203"
 ---
-# <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로 비전 배포 계획
+# <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
 많은 조직에서는 최종 사용자 생산성을 위해 ServiceNow, Zscaler 및 여유 시간과 같은 SaaS (software as a service) 응용 프로그램을 사용 합니다. 지금까지 IT 직원은 CSV 파일 업로드 또는 사용자 지정 스크립트를 사용 하 여 각 SaaS 응용 프로그램에서 사용자 id를 안전 하 게 관리 하는 등의 수동 프로 비전 방법에 의존 했습니다. 이러한 프로세스는 오류가 발생 하기 쉬우며 안전 하지 않으며 관리가 어렵습니다.
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 해제를 참조 하세요.
 
-## <a name="learn"></a>유용한 정보
+## <a name="learn"></a>학습
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -69,8 +69,8 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 | 리소스| 링크 및 설명 |
 | - | - |
-| 주문형 웹 세미나| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
-| 비디오| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| 웹 세미나 다시 보기| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
+| 동영상| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 온라인 과정| SkillUp Online: [Id 관리](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Azure AD를 많은 SaaS 응용 프로그램과 통합 하 고 이러한 응용 프로그램에 대 한 사용자 액세스를 보호 하는 방법을 알아봅니다. |
 | 온라인 설명서| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
 | 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)참조 하세요. |
@@ -112,16 +112,17 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>클라우드 HR 응용 프로그램에 대 한 자동 사용자 프로 비전 
 
-이 예제에서는 사용자 및 또는 그룹이 Workday와 같은 클라우드 HR 응용 프로그램에 생성 됩니다.
+이 예제에서는 사용자 및 또는 그룹이 Workday 및 SuccessFactors와 같은 클라우드 HR 응용 프로그램에 생성 됩니다. Azure AD 프로 비전 서비스 및 Azure AD Connect 프로 비전 에이전트는 클라우드 HR 앱 테 넌 트에서 사용자 데이터를 AD로 프로 비전 합니다. AD에서 계정이 업데이트 된 후에는 Azure AD Connect를 통해 Azure AD와 동기화 되며, 메일 주소 및 사용자 이름 특성을 클라우드 HR 앱 테 넌 트에 다시 쓸 수 있습니다.
 
 ![그림 2](media/auto-user-provision-dp/workdayprovisioning.png)
 
-1. 클라우드 HR 시스템에서 만든 계정
-1. 데이터는 Azure AD 프로 비전 서비스 및 프로 비전 에이전트를 통해 온-프레미스 AD로 흐릅니다.
-1. Azure AD에 데이터를 동기화 Azure AD Connect
-1. 이메일 및 사용자 이름 특성은 클라우드 HR 응용 프로그램에 다시 쓸 수 있습니다.
-
-솔루션 아키텍처 및 배포에 대 한 자세한 내용은 [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)을 참조 하세요.
+1.  **Hr 팀** 은 cloud hr 앱 테 넌 트에서 트랜잭션을 수행 합니다.
+2.  **AZURE ad 프로 비전 서비스** 는 클라우드 HR 앱 테 넌 트에서 예약 된 주기를 실행 하 고 AD와 동기화 하기 위해 처리 해야 하는 변경 내용을 식별 합니다.
+3.  **AZURE ad 프로 비전 서비스** 는 ad 계정 만들기/업데이트/사용/사용 안 함 작업을 포함 하는 요청 페이로드를 사용 하 여 Azure AD Connect 프로 비전 에이전트를 호출 합니다.
+4.  **Azure AD Connect 프로 비전 에이전트** 는 서비스 계정을 사용 하 여 AD 계정 데이터를 관리 합니다.
+5.  **Azure AD Connect** 는 델타 동기화를 실행 하 여 AD에서 업데이트를 가져옵니다.
+6.  **Ad** 업데이트는 Azure ad와 동기화 됩니다. 
+7.  **AZURE ad 프로 비전 서비스** 는 azure ad에서 클라우드 HR 앱 테 넌 트로 메일 특성 및 사용자 이름을 쓰기 저장 합니다.
 
 ## <a name="plan-the-deployment-project"></a>배포 프로젝트 계획
 

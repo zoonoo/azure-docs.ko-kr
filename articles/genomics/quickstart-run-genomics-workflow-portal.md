@@ -8,12 +8,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: quickstart
 ms.date: 01/11/2019
-ms.openlocfilehash: eab5714cb43816c617190fc394f6156ab08ff51d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 772fd74446b43869721afe38fb107cfff8404e99
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838718"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539079"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>빠른 시작: Microsoft Genomics 서비스를 통해 워크플로 실행
 
@@ -47,7 +47,8 @@ Microsoft Genomics 계정을 만들려면 [Azure Portal](https://portal.azure.co
 
 
 상단 메뉴 표시줄에 있는 알림을 클릭하여 배포 프로세스를 모니터링할 수 있습니다.
-![Microsoft Genomics 알림](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "MMicrosoft Genomics 알림)
+
+![Microsoft Genomics 알림](./media/quickstart-run-genomics-workflow-portal/genomics-notifications-box.png "Microsoft Genomics 알림")
 
 
 

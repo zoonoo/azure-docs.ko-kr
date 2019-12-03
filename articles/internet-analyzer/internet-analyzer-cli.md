@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: 2952f7f24e92b952daafa682eee9d4605537a37b
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d474442086e2a114f26df279ab2682cd7628a5f5
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839516"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184275"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>CLI를 사용하여 Internet Analyzer 테스트 만들기(미리 보기)
 
@@ -132,5 +132,6 @@ Internet Analyzer CLI는 다음 유형의 리소스를 표시합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Internet Analyzer FAQ](internet-analyzer-faq.md) 읽기
+* 지원되는 명령 및 사용 예제의 전체 목록을 보려면 [Internet Analyzer CLI 참조](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest)를 찾아봅니다.
+* [인터넷 분석기 FAQ](internet-analyzer-faq.md)를 읽어보세요.
 * [Internet Analyzer 클라이언트](internet-analyzer-embed-client.md)를 포함하고 [사용자 지정 엔드포인트](internet-analyzer-custom-endpoint.md)를 만드는 방법에 대해 자세히 알아보세요. 

@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center란? | Microsoft Docs
-description: Azure Security Center, 주요 기능 및 작동 방법에 대해 알아봅니다.
+description: 이 페이지에서는 보안 상태를 검색하여 클라우드 및 온-프레미스 리소스의 적용 범위를 개선하는 Security Center의 주요 이점에 대해 설명합니다.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: e02fd0de00b8feed15fcd51b657afcc015d816f2
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 378ad4fde94e8bccfbdad9765545675822d202ff
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202101"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74558629"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 

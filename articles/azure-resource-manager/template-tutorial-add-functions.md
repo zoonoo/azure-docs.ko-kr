@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿에 템플릿 함수 추가
+title: 자습서 - 템플릿 함수 추가
 description: Azure Resource Manager 템플릿에 템플릿 함수를 추가하여 값을 생성합니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ca6e7f326ba67eac33e4dee5fa844d7676ab864b
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 03a38178ec66c1c1a10934975d20778369d80dbe
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963660"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405971"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 템플릿 함수 추가
 
@@ -25,7 +22,7 @@ ms.locfileid: "71963660"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
@@ -73,7 +70,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>배포 확인
+## <a name="verify-deployment"></a>배포 확인
 
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 

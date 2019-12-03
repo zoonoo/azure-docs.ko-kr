@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: cd0a9a66f3014a39a73cf04badfc67cd2ff4c3de
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61363633"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701802"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -113,7 +113,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ### <a name="desired-property-example"></a>desired 속성 예제
 
-이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 예를 들면 다음과 같습니다.
+이전 예제에서는 솔루션 백 엔드 및 모듈 앱에서 `telemetryConfig` 모듈 쌍 desired 및 reported 속성을 사용하여 이 모듈에 대한 원격 분석 구성을 동기화합니다. 다음은 그 예입니다.
 
 1. 솔루션 백 엔드는 desired 구성 값으로 desired 속성을 설정합니다. 다음은 desired 속성 집합이 포함된 문서의 일부분입니다.
 
@@ -176,14 +176,14 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
   - properties
 
-    | 이름 | 값 |
+    | name | Value |
     | --- | --- |
     $content-type | application/json |
     $iothub-enqueuedtime |  알림이 전송된 시간 |
     $iothub-message-source | twinChangeEvents |
     $content-encoding | utf-8 |
     deviceId | 디바이스의 ID |
-    moduleId | 모듈의 ID |
+    모듈 ID | 모듈의 ID |
     hubName | IoT Hub의 이름 |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 작업의 타임스탬프 |
     iothub-message-schema | deviceLifecycleNotification |
@@ -266,7 +266,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
 
 ## <a name="module-twin-size"></a>모듈 쌍 크기
 
-IoT Hub는 `tags`, `properties/desired` 및 `properties/reported`의 총 값 각각에 8KB의 크기 제한을 적용합니다. 읽기 전용 요소는 제외됩니다.
+IoT Hub은 `tags`값에 8kb 크기 제한을 적용 하 고 `properties/desired` 및 `properties/reported`값에 대해 각각 32 KB 크기 제한을 적용 합니다. 이러한 합계는 읽기 전용 요소를 제외 하 고,
 
 크기는 문자열 상수 외부의 유니코드 제어 문자(세그먼트 C0 및 C1) 및 공백을 제외한 모든 문자의 개수를 세어서 계산됩니다.
 
@@ -275,7 +275,7 @@ IoT Hub는 한도 이상으로 해당 문서의 크기를 증가시키는 모든
 ## <a name="module-twin-metadata"></a>모듈 쌍 메타데이터
 
 IoT Hub는 모듈 쌍 desired 또는 reported 속성에서 각 JSON 개체에 대한 마지막 업데이트의 타임스탬프를 유지합니다. 타임스탬프는 UTC 형식이며 [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 형식 `YYYY-MM-DDTHH:MM:SS.mmmZ`로 인코딩됩니다.
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```json
 {

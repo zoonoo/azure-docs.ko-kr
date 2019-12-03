@@ -1,27 +1,28 @@
 ---
-title: PowerShell을 사용하여 리소스를 감사하는 정책 만들기
-description: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 Azure Policy 할당을 만들 수 있습니다.
-ms.date: 03/11/2019
+title: '빠른 시작: PowerShell을 사용하여 새 정책 할당'
+description: 이 빠른 시작에서는 Azure PowerShell을 사용하여 비규격 리소스를 식별하는 Azure Policy 할당을 만듭니다.
+ms.date: 11/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: 796606e1e34e753e49a9083fca5a441cacf6d03c
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 3ce823a7abfe16e4433128dcdfe073dfcfaeba50
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960122"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482383"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 비준수 리소스를 식별하는 정책 할당 만들기
 
-Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만듭니다. 완료되면 *비준수* 가상 머신을 식별하게 됩니다.
+Azure의 규정 준수를 이해하는 첫 번째 단계는 리소스 상태를 식별하는 것입니다. 이 빠른 시작에서는 관리 디스크를 사용하지 않는 가상 머신을 식별하는 정책 할당을 만듭니다. 완료되면 _비준수_ 가상 머신을 식별하게 됩니다.
 
 명령줄 또는 스크립트에서 Azure 리소스를 관리하는 데 Azure PowerShell 모듈이 사용됩니다.
 이 가이드에서는 Az 모듈을 사용하여 정책 할당을 만드는 방법에 대해 설명합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
+- Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
 - 시작하기 전에, 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. 자세한 내용은 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+
 - Azure PowerShell을 사용하여 Azure Policy Insights 리소스 공급자를 등록합니다. 리소스 공급자를 등록하면 구독이 리소스 공급자와 함께 작동하는지 확인할 수 있습니다. 리소스 공급자를 등록하려면 리소스 공급자 등록 작업을 수행할 수 있는 권한이 있어야 합니다. 이 작업은 참가자 및 소유자 역할에 포함되어 있습니다. 리소스 공급자를 등록하는 다음 명령을 실행합니다.
 
   ```azurepowershell-interactive
@@ -31,9 +32,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
   리소스 공급자를 등록하고 살펴보는 방법에 대한 내용은 [리소스 공급자 및 종류](../../azure-resource-manager/resource-manager-supported-services.md)를 참조하세요.
 
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+
 ## <a name="create-a-policy-assignment"></a>정책 할당 만들기
 
-이 빠른 시작에서는 정책 할당을 만들고 *관리 디스크가 없는 VM 감사* 정의를 할당합니다. 이 정책 정의는 관리 디스크를 사용하지 않는 가상 머신을 식별합니다.
+이 빠른 시작에서는 정책 할당을 만들고 _관리 디스크가 없는 VM 감사_ 정의를 할당합니다. 이 정책 정의는 관리 디스크를 사용하지 않는 가상 머신을 식별합니다.
 
 새 정책 할당을 만들려면 다음 명령을 실행합니다.
 
@@ -50,7 +53,7 @@ New-AzPolicyAssignment -Name 'audit-vm-manageddisks' -DisplayName 'Audit VMs wit
 
 이 명령은 다음 정보를 사용합니다.
 
-- **이름** - 할당의 실제 이름입니다. 이 예제에서는 *audit-vm-manageddisks*가 사용되었습니다.
+- **이름** - 할당의 실제 이름입니다. 이 예제에서는 _audit-vm-manageddisks_가 사용되었습니다.
 - **표시 이름** - 정책 할당에 대한 표시 이름입니다. 이 예제에서는 ‘관리 디스크 할당이 없는 VM 감사’를 사용합니다. 
 - **정의** – 할당을 만드는 데 기준으로 사용되는 정책 정의입니다. 이 예제에서는 ‘관리 디스크를 사용하지 않는 VM 감사’ 정책 정의의 ID입니다. 
 - **범위** - 범위는 정책 할당이 적용되는 리소스 또는 리소스 그룹을 결정합니다. 구독에서 리소스 그룹까지 다양한 범위가 있습니다. 리소스 그룹의 이름으로 &lt;범위&gt;를 바꿉니다.

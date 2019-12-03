@@ -1,6 +1,7 @@
 ---
-title: 네트워크 간 통신 문제 진단 - 자습서 - Azure Portal | Microsoft Docs
-description: Network Watcher의 VPN 진단 기능을 사용하여 Azure 가상 네트워크를 통해 온-프레미스 또는 다른 가상 네트워크에 연결된 Azure 가상 네트워크 간 통신 문제를 진단하는 방법을 알아봅니다.
+title: 자습서 - Azure Portal을 사용하여 네트워크 간 통신 문제 진단
+titleSuffix: Azure Network Watcher
+description: 이 자습서에서는 Network Watcher의 VPN 진단 기능을 사용하여 Azure 가상 네트워크를 통해 온-프레미스 또는 다른 가상 네트워크에 연결된 Azure 가상 네트워크 간 통신 문제를 진단하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -15,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/27/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: e4dc66a5ca6e18b12586b5b03742fba3d6c3d6c4
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e2ec59cf609fcde79d289e321331ca5018401a5e
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64704208"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419725"
 ---
 # <a name="tutorial-diagnose-a-communication-problem-between-networks-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 네트워크 간 통신 문제 진단
 

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad059e6047dd883c0a5aab0d714d999840050584
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: bf05fc30a2b111a12c0b8e131db5117ec784075b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "70213625"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232130"
 ---
 # <a name="tutorial-integrate-adaptive-insights-with-azure-active-directory"></a>자습서: Adaptive Insights와 Azure Active Directory 통합
 
@@ -195,7 +195,7 @@ Azure AD 사용자가 Adaptive Insights에 로그인하려면 Adaptive Insights�
    다. **제출**을 클릭합니다.
 
 > [!NOTE]
-> 다른 Adaptive Insights 사용자 계정 생성 도구 또는 Adaptive Insights가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Adaptive Insights 사용자 계정 생성 도구 또는 Adaptive Insights가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-sso"></a>SSO 테스트 
 

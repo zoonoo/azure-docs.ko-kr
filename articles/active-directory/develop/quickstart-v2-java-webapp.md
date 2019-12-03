@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 93ae820f8c98b749ef8f71b17bf3d540d7886ed6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6645fa30772d7e1556f7a1aae76c7189577c3c1d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73832120"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74452624"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -136,7 +136,7 @@ IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다�
 
 ### <a name="getting-msal"></a>MSAL 가져오기
 
-MSAL4J는 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 Java 라이브러리입니다.
+Java용 MSAL(MSAL4J)은 사용자를 로그인하고 Microsoft ID 플랫폼으로 보호되는 API 액세스에 사용되는 토큰을 요청할 때 사용되는 Java 라이브러리입니다.
 
 Maven이나 Gradle을 사용하여 MSAL4J를 애플리케이션에 추가하고 애플리케이션의 pom.xml(Maven) 또는 build.gradle(Gradle) 파일을 다음과 같이 변경하여 종속성을 관리합니다.
 
@@ -154,7 +154,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '1.0.0'
 
 ### <a name="msal-initialization"></a>MSAL 초기화
 
-MSAL4J를 사용할 파일 맨 위에 다음 코드를 추가하여 MSAL4J에 대한 참조를 추가합니다.
+MSAL4J를 사용할 파일 맨 위에 다음 코드를 추가하여 Java용 MSAL에 대한 참조를 추가합니다.
 
 ```Java
 import com.microsoft.aad.msal4j.*;

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Bing Video Search REST API 및 Java를 사용하여 비디오 검색'
+title: '빠른 시작: REST API 및 Java를 사용하여 비디오 검색 - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Java를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/19/2019
 ms.author: aahi
-ms.openlocfilehash: 0823c115f47bb6bff0396cd154164183cf46d8e4
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 30234758761e06c65e621c7f512ed8cafa02e090
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500691"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378657"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-java"></a>빠른 시작: Bing Video Search REST API 및 Java를 사용하여 비디오 검색
 

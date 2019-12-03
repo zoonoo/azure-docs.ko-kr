@@ -11,16 +11,16 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: e2460ab760811a3db39058eac74d519ca09046c6
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889824"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561592"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 
-Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 메시지 broker입니다. Service Bus는 애플리케이션 및 서비스를 분리할 수 있습니다. Service Bus는 비동기 데이터 및 상태 전송을 위한 안정적인 보안 플랫폼을 제공합니다.
+Microsoft Azure Service Bus는 완전히 관리되는 엔터프라이즈 통합 메시지 broker입니다. Service Bus는 애플리케이션 및 서비스를 분리할 수 있습니다. Service Bus는 데이터 및 상태의 비동기 전송을 위한 안정적인 보안 플랫폼을 제공합니다.
 
 데이터는 *메시지*를 사용하여 서로 다른 애플리케이션 및 서비스간에 전송됩니다. 메시지는 이진 형식이며, JSON, XML 또는 텍스트만 포함할 수 있습니다. 자세한 내용은 [Integration Services](https://azure.com/integration)를 참조하세요.
 

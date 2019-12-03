@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/11/2019
+ms.date: 11/19/2019
 ms.author: hamusa
-ms.openlocfilehash: 46bf756a729441bd3bc4b2b00aaa2c79fa06c0b8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 595b6705b4e876ce5b42a7de831136cb0b62b1f5
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521248"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196439"
 ---
 # <a name="assess-vmware-vms-with-azure-migrate-server-assessment"></a>Azure Migrate를 사용하여 VMware VM 평가: 서버 평가
 
@@ -108,8 +108,8 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 
   **알고리즘** | **해시 값**
   --- | ---
-  MD5 | 27230f3b012187860281b912ee661709
-  SHA256 | c0a5b5998b7f38ac6e57ea9a808ecc4295795e18f9ca99c367585068883f06e7
+  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
+  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ### <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
@@ -172,7 +172,7 @@ Azure Migrate: 서버 평가는 경량 VMware VM 어플라이언스를 실행합
 
 ### <a name="specify-vcenter-server-details"></a>vCenter Server 세부 정보 지정
 1. **vCenter Server 세부 정보 지정**에서 vCenter Server의 이름(FQDN) 또는 IP 주소를 지정합니다. 기본 포트를 그대로 유지하거나 vCenter Server에서 수신하는 사용자 지정 포트를 지정할 수 있습니다.
-2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter Server에서 VM을 검색하는 데 사용할 읽기 전용 계정 자격 증명을 지정합니다. 계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)이 있는지 확인합니다. 이에 따라 vCenter 계정에 대한 액세스를 제한하여 검색 범위를 지정할 수 있습니다. 검색 범위를 지정하는 방법에 대한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조하세요.
+2. **사용자 이름** 및 **암호**에서 어플라이언스가 vCenter 서버에서 VM을 검색하는 데 사용할 vCenter Server 계정 자격 증명을 지정합니다. 계정에 [필요한 검색 권한](migrate-support-matrix-vmware.md#assessment-vcenter-server-permissions)이 있는지 확인합니다. 이에 따라 vCenter 계정에 대한 액세스를 제한하여 검색 범위를 지정할 수 있습니다. 검색 범위를 지정하는 방법에 대한 자세한 내용은 [여기](tutorial-assess-vmware.md#scoping-discovery)를 참조하세요.
 3. **연결 유효성 검사**를 클릭하여 어플라이언스에서 vCenter Server에 연결할 수 있는지 확인합니다.
 
 ### <a name="specify-vm-credentials"></a>VM 자격 증명 지정
@@ -222,7 +222,7 @@ vCenter Server 및 VM 자격 증명(선택 사항)을 지정한 후에는 **저�
 
     마찬가지로 서버 마이그레이션의 경우, 이러한 [권한](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-migration-vcenter-server-permissions)이 할당되어 있는 사용자 정의 역할(<em>Azure _Migrate</em>이라고 할 수 있음)을 마이그레이션할 VM이 호스팅되는 모든 부모 개체의 vCenter 사용자 계정에 적용해야 합니다.
 
-![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
+  ![권한 할당](./media/tutorial-assess-vmware/assign-perms.png)
 
 - 대안으로 데이터 센터 수준에서 사용자 계정 및 역할을 할당하고 자식 개체에 전파하는 것이 있습니다. 그런 다음, 이러한 계정은 검색/마이그레이션하지 않을 모든 개체(예: VM)에 대해 **액세스 못함** 역할을 부여합니다. 이 구성은 복잡합니다. 모든 새로운 자식 개체에게는 부모로부터 상속된 액세스도 자동으로 부여되므로 우발적인 액세스 제어를 공개합니다. 따라서 첫 번째 방법을 사용하는 것이 좋습니다.
 

@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: cd150368898b3f02b4366debbe775ece76b23043
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029799"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184898"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Azure App Configuration 저장소 만들기
 
@@ -71,16 +71,16 @@ echo "$connstring"
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 새 리소스 그룹 및 앱 구성 저장소를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+이 스크립트는 다음 명령을 사용하여 새 리소스 그룹 및 App Configuration 저장소를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
 | 명령 | 메모 |
 |---|---|
 | [az group create](/cli/azure/group#az-group-create) | 모든 리소스가 저장되는 리소스 그룹을 만듭니다. |
-| [az appconfig create](/cli/azure/ext/appconfig/appconfig) | 앱 구성 저장소 리소스를 만듭니다. |
-| [az appconfig key list](/cli/azure/ext/appconfig/appconfig/kv) | 앱 구성 저장소에 저장된 키를 나열합니다. |
+| [az appconfig create](/cli/azure/ext/appconfig/appconfig#ext-appconfig-az-appconfig-create) | App Configuration 저장소 리소스를 만듭니다. |
+| [az appconfig kv list](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-list) | App Configuration 저장소에 저장된 키를 나열합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure CLI에 대한 자세한 내용은 [Azure CLI 설명서](/cli/azure)를 참조하세요.
 
-추가적인 App Configuration CLI 스크립트 샘플은 [Azure App Configuration 설명서](../cli-samples.md)에서 확인할 수 있습니다.
+추가적인 App Configuration CLI 스크립트 샘플은 [Azure App Configuration CLI 샘플](../cli-samples.md)에서 확인할 수 있습니다.

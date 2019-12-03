@@ -1,18 +1,18 @@
 ---
-title: Azure Migrate 정보 | Microsoft Azure
-description: Azure Migrate 서비스의 개요를 제공합니다.
+title: Azure Migrate 정보
+description: Azure Migrate 서비스를 사용하여 서버 평가 및 마이그레이션에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 11/05/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8b1e716e482c49ceba0c600aaba30fe276bdb74d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: a64e7366281f15c94d6551c1f7be27f461737634
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748012"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185786"
 ---
 # <a name="about-azure-migrate"></a>Azure Migrate 정보
 

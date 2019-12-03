@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 여러 이름 패턴
-description: 이 샘플 정책 정의에서는 리소스가 제공된 이름 패턴 중 하나와 일치해야 합니다.
+description: 이 샘플 정책 정의에서는 리소스가 제공된 숫자 또는 숫자 이름 패턴 중 하나와 일치해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 3dcecbf69d4170dd851f1b2678ae0136c86c7e49
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 227b03d0719fcf1a8851213d96b057c9b439a99d
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076513"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463470"
 ---
 # <a name="sample---allow-multiple-name-patterns"></a>샘플 - 여러 이름 패턴 허용
 

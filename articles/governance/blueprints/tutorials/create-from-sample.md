@@ -1,14 +1,14 @@
 ---
-title: 청사진 샘플에서 환경 만들기
-description: 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
-ms.date: 03/05/2019
+title: '자습서: 새 환경에 대한 청사진 샘플'
+description: 이 자습서에서는 청사진 샘플을 사용하여 두 개의 리소스 그룹을 설정하고 각각의 역할 할당을 구성하는 청사진 정의를 만듭니다.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: d23e9b7242c58e4da5fcfe5ef4d29d9f9df6f754
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: f9cc892ab8feadacbdfd00e55fab9f40d7cb2397
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960279"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321727"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>자습서: 청사진 샘플을 사용하여 환경 만들기
 
@@ -183,9 +183,7 @@ ms.locfileid: "73960279"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아보기
-- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
-- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
-- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
-- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+이 자습서에서는 샘플 정의에서 새 청사진을 만드는 방법을 알아보았습니다. Azure Blueprints에 대해 자세히 알아보려면 청사진 수명 주기 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [청사진 수명 주기에 대해 알아보기](../concepts/lifecycle.md)

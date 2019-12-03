@@ -17,7 +17,7 @@ ms.locfileid: "74082920"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure DNS 영역 및 레코드 만들기
 
-공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, Azure DNS에서 *contoso.xyz* 도메인을 호스팅하고 *www.contoso.xyz*를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 구성할 수 있습니다.
+공용 도메인에서 호스트 이름을 확인하기 위한 Azure DNS를 구성할 수 있습니다. 예를 들어 도메인 이름 등록 기관에서 *contoso.xyz* 도메인 이름을 구입한 경우, Azure DNS에서 *contoso.xyz* 도메인을 호스팅하고 *www.contoso.xyz* 를 웹 서버 또는 웹앱의 IP 주소로 확인하도록 구성할 수 있습니다.
 
 이 빠른 시작에서는 테스트 도메인을 만든 다음, *www*를 *10.10.10.10* IP 주소로 확인하는 주소 레코드를 만듭니다.
 

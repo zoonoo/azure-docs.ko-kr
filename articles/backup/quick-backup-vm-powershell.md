@@ -1,20 +1,16 @@
 ---
-title: Azure 빠른 시작 - PowerShell을 사용하여 VM 백업
+title: 빠른 시작 - PowerShell을 사용하여 VM 백업
 description: 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Virtual Machines를 백업하는 방법을 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: 741c6c1f937988dcce41603417a1bc7dc95091cb
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8021ca553a1434c891bee911e85d351c61938594
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74073969"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171955"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>PowerShell을 사용하여 Azure에서 가상 머신 백업
 

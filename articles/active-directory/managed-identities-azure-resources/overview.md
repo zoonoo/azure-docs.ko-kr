@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5a9f83a8f6e8d5e83f30d30da2b1c4c0f722dc3
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: 7ee30962db230417bf3e20a354614a5ebb8f35a0
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73063051"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561902"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Azure 리소스에 대한 관리 ID란?
 
@@ -43,7 +43,7 @@ Azure 리소스에 대한 관리 ID 기능은 Azure 구독용 Azure AD에 무료
 - **보안 주체 ID** - Azure 리소스에 대한 역할 기반 액세스 권한을 부여하는 데 사용되는 관리 ID에 대한 서비스 주체 개체의 개체 ID입니다.
 - **IMDS(Azure Instance Metadata Service)** - Azure Resource Manager를 통해 생성된 모든 IaaS VM에서 액세스할 수 있는 REST 엔드포인트입니다. 이 엔드포인트는 VM 내에서만 액세스할 수 있는, 라우팅이 불가능한 잘 알려진 IP 주소(169.254.169.254)에서 사용할 수 있습니다.
 
-## Azure 리소스에 대한 관리 ID는 어떻게 작동하나요?<a name="how-does-it-work"></a>
+## <a name="how-does-the-managed-identities-for-azure-resources-work"></a>Azure 리소스에 대한 관리 ID는 어떻게 작동하나요?
 
 두 가지 종류의 관리 ID가 있습니다.
 

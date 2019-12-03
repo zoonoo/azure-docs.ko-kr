@@ -1,23 +1,19 @@
 ---
-title: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: 'Kubernetes에서 디버그 및 반복: Visual Studio Code 및 Java'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로서비스 및 Java로 신속하게 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Java, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2154ec3ae99ae816b970c96ffde435f1a3366e99
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 5f0f9991ae8718b60221c3f291b6169f677b59c5
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815853"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325624"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces를 사용하는 Kubernetes에서 Visual Studio Code 및 Java로 디버깅 및 반복
+# <a name="quickstart-debug-and-iterate-on-kubernetes-with-visual-studio-code-and-java---azure-dev-spaces"></a>빠른 시작: Visual Studio Code 및 Java를 사용하여 Kubernetes에서 디버그 및 반복 - Azure Dev Spaces
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 

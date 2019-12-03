@@ -6,19 +6,19 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.openlocfilehash: 4a1d835ebe47ec36bb839da8dcbcd107ffcb9c4c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 11/22/2019
+ms.openlocfilehash: 15d44f95cccf15fd0f7615655f5bbac1b0c35127
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161968"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706052"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
 HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 탄력성를 사용 하면 몇 시간 또는 주말에 클러스터를 축소 하 고 최대 비즈니스 요구 시간 동안 확장할 수 있습니다.
 
-정기적 일괄 처리를 수행 하는 경우에는 해당 작업 전에 HDInsight 클러스터를 몇 분 정도 확장 하 여 클러스터에 적절 한 메모리와 CPU 성능을 확보할 수 있습니다.  나중에, 처리가 완료된 후 사용량이 다시 줄어들면, HDInsight 클러스터를 더 적은 수의 작업자 노드로 축소할 수 있습니다.
+정기적 일괄 처리를 수행 하는 경우에는 해당 작업 전에 HDInsight 클러스터를 몇 분 정도 확장 하 여 클러스터에 적절 한 메모리와 CPU 성능을 확보할 수 있습니다.  나중에 처리가 완료 되 고 사용량이 다시 중단 되 면 HDInsight 클러스터를 더 작은 작업자 노드로 확장할 수 있습니다.
 
 아래에 설명 된 방법 중 하나를 사용 하 여 클러스터를 수동으로 확장 하거나 [자동 크기 조정](hdinsight-autoscale-clusters.md) 옵션을 사용 하 여 CPU, 메모리 및 기타 메트릭에 대 한 응답으로 시스템이 자동으로 확장 및 축소 되도록 할 수 있습니다.
 
@@ -33,9 +33,9 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
-|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --리소스 그룹 \<리소스 그룹 >--name \<Cluster name >--target-instance-count \<NewSize >|
-|[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 \<조정 clusterName \<> 대상 인스턴스 수 > |
-|[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
+|[Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)| [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) --resource Group \<리소스 그룹 >--Name \<Cluster name >--target-instance-Count \<NewSize >|
+|[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스 수 > |
+|[Azure 포털](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
 ![Azure Portal 크기 조정 클러스터 옵션](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
 
@@ -108,7 +108,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 보류 중인 작업 및 실행 중인 작업 목록을 보려면 다음 단계를 수행 하 여 YARN **리소스 관리자 UI**를 사용할 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 클러스터를 선택 합니다.  지침에 대해서는 [클러스터 나열 및 표시](./hdinsight-administer-use-portal-linux.md#showClusters)를 참조하세요. 클러스터가 새 포털 페이지에서 열립니다.
-2. 주 보기에서 **클러스터 대시보드** > **Ambari 홈**으로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
+2. 기본 보기에서 **클러스터 대시보드** > **Ambari home**로 이동 합니다. 클러스터 자격 증명을 입력 합니다.
 3. Ambari UI의 왼쪽 메뉴에 있는 서비스 목록에서 **YARN** 를 선택 합니다.  
 4. YARN 페이지에서 **빠른 링크** 를 선택 하 고 활성 헤드 노드 위로 마우스를 이동한 다음 **ResourceManager UI**를 선택 합니다.
 
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -136,7 +136,7 @@ yarn application -kill "application_1499348398273_0003"
 
 클러스터를 축소 하는 경우 HDInsight는 Apache Ambari 관리 인터페이스를 사용 하 여 먼저 추가 작업자 노드를 서비스 해제 합니다 .이 노드는 해당 HDFS 블록을 다른 온라인 작업자 노드에 복제 합니다. 그 후에 HDInsight는 클러스터를 안전 하 게 확장 합니다. HDFS는 크기 조정 작업을 수행 하는 동안 안전 모드로 전환 되며, 확장이 완료 되 면 발생 합니다. 그러나 일부 경우에는 복제 중인 파일 블록 때문에 크기 조정 작업을 수행 하는 동안 HDFS가 안전 모드에서 중단 됩니다.
 
-기본적으로 HDFS는 사용할 수 있는 각 `dfs.replication` 파일 블록의 복사본 수를 제어 하는 3의 설정으로 구성 됩니다. 파일 블록의 각 복사본은 클러스터의 다른 노드에 저장 됩니다.
+기본적으로 HDFS는 사용할 수 있는 각 파일 블록의 복사본 수를 제어 하는 1의 `dfs.replication` 설정으로 구성 됩니다. 파일 블록의 각 복사본은 클러스터의 다른 노드에 저장 됩니다.
 
 HDFS에서 예상 된 블록 복사본 수를 사용할 수 없는 것을 감지 하는 경우 HDFS는 safe 모드로 전환 되 고 Ambari에서 경고를 생성 합니다. HDFS가 크기 조정 작업을 위해 안전 모드로 전환 되었으나 필요한 노드 수가 복제에 대해 검색 되지 않았기 때문에 안전 모드를 종료할 수 없는 경우 클러스터가 안전 모드에서 중단 될 수 있습니다.
 
@@ -175,7 +175,7 @@ org.apache.http.conn.HttpHostConnectException: Connect to hn0-clustername.server
 
 Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 전에 해당 파일을 수동으로 정리할 수 있습니다.
 
-1. `hive.exec.scratchdir` 구성 속성을 살펴보면 Hive 임시 파일에 사용 되는 위치를 확인 합니다. 이 매개 변수는 다음 `/etc/hive/conf/hive-site.xml`에 설정 됩니다.
+1. `hive.exec.scratchdir` 구성 속성을 살펴보면 Hive 임시 파일에 사용 되는 위치를 확인 합니다. 이 매개 변수는 `/etc/hive/conf/hive-site.xml`내에 설정 됩니다.
 
     ```xml
     <property>
@@ -185,7 +185,7 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
     ```
 
 1. Hive 서비스를 중지하고 모든 쿼리 및 작업이 완료되었는지 확인합니다.
-2. 위에서 찾은 스크래치 디렉터리의 내용을 나열 `hdfs://mycluster/tmp/hive/` 하 여 파일이 포함 되어 있는지 확인 합니다.
+2. 위에서 찾은 스크래치 디렉터리의 내용을 나열 하 여 파일이 포함 되어 있는지 확인 `hdfs://mycluster/tmp/hive/` 합니다.
 
     ```bash
     hadoop fs -ls -R hdfs://mycluster/tmp/hive/hive

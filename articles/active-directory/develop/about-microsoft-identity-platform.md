@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0dc4c29d3a12902b3ce01f9505cba5ac02e921eb
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 0c5fdc1c937136eb512eccf1d4df02a4fcdc3911
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67625357"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533098"
 ---
 # <a name="evolution-of-microsoft-identity-platform"></a>Microsoft ID 플랫폼의 발전
 
@@ -52,7 +52,7 @@ Azure Portal을 사용하여 애플리케이션을 등록 및 구성하고, Micr
 
 Azure Portal **[앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908)** 환경은 Microsoft ID 플랫폼과 통합한 모든 애플리케이션을 관리할 수 있는 단일 포털 환경입니다. 지금까지 애플리케이션 등록 포털을 사용해 본 적이 있는 경우 대신 Azure Portal 앱 등록 환경을 사용해 보세요.
 
-Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플리케이션을 B2C 테넌트에 등록해야 합니다. 이 환경은 Azure Portal의 일부이기도 합니다.
+Azure AD B2C와 통합하려면(소셜 또는 로컬 ID를 인증할 때) 애플리케이션을 Azure AD B2C 테넌트에 등록해야 합니다. 이 환경은 Azure Portal의 일부이기도 합니다.
 
 **Microsoft Graph의 애플리케이션 API**는 현재 미리 보기로 제공됩니다. 이 API를 사용하면 모든 Microsoft ID를 인증하도록 Microsoft ID 플랫폼과 통합된 애플리케이션을 프로그래밍 방식으로 구성할 수 있습니다. 하지만 이 API가 일반 공급될 때까지는 Azure AD Graph 1.6 API 및 애플리케이션 매니페스트를 사용해야 합니다.
 

@@ -14,12 +14,12 @@ ms.topic: sample
 ms.date: 01/18/2018
 ms.author: atsenthi
 ms.custom: mvc
-ms.openlocfilehash: 04cd13efd198f0a4875c0ede525d10cf45220989
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 1ef48f5dd7fabd724dee2c2910e44f47979258b5
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73901494"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74547469"
 ---
 # <a name="add-an-application-certificate-to-a-service-fabric-cluster"></a>Service Fabric 클러스터에 애플리케이션 인증서 추가
 
@@ -38,6 +38,33 @@ $SubjectName = "CN="
 
 $policy = New-AzKeyVaultCertificatePolicy -SubjectName $SubjectName -IssuerName Self -ValidityInMonths 12
 Add-AzKeyVaultCertificate -VaultName $VaultName -Name $CertName -CertificatePolicy $policy
+```
+
+## <a name="or-upload-an-existing-certificate-into-key-vault"></a>또는 Key Vault에 기존 인증서 업로드
+
+```powershell
+$VaultName= ""
+$CertName= ""
+$CertPassword= ""
+$PathToPFX= ""
+
+$Cert = new-object System.Security.Cryptography.X509Certificates.X509Certificate2 $PathToPFX, $CertPassword
+
+$bytes = [System.IO.File]::ReadAllBytes($ExistingPfxFilePath)
+$base64 = [System.Convert]::ToBase64String($bytes)
+$jsonBlob = @{
+   data = $base64
+   dataType = 'pfx'
+   password = $CertPassword
+   } | ConvertTo-Json
+$contentbytes = [System.Text.Encoding]::UTF8.GetBytes($jsonBlob)
+$content = [System.Convert]::ToBase64String($contentbytes)
+
+$SecretValue = ConvertTo-SecureString -String $content -AsPlainText -Force
+
+# Upload the certificate to the key vault as a secret
+$Secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $CertName -SecretValue $SecretValue
+
 ```
 
 ## <a name="update-virtual-machine-scale-sets-profile-with-certificate"></a>인증서를 사용하여 가상 머신 확장 집합 프로필 업데이트

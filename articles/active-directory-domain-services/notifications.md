@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: cd0e77d1534bf540376fd397ee3e6d45bf8c424a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 140edb3162d4f76c741a5692faa19325581a3ba7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546268"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704501"
 ---
 # <a name="configure-email-notifications-for-issues-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 문제에 대 한 전자 메일 알림 구성
 
@@ -58,7 +58,7 @@ Azure AD 디렉터리의 모든 *전역 관리자* 와 *AAD DC Administrators* �
 기존 전자 메일 알림 받는 사람을 검토 하거나 수신자를 더 추가 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다.
-1. Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다.
+1. Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
 1. Azure AD DS 리소스 창의 왼쪽에서 **알림 설정**을 선택 합니다. 전자 메일 알림의 기존 받는 사람이 표시 됩니다.
 1. 전자 메일 받는 사람을 추가 하려면 추가 받는 사람 테이블에 전자 메일 주소를 입력 합니다.
 1. 완료 되 면 상단 탐색에서 **저장** 을 선택 합니다.

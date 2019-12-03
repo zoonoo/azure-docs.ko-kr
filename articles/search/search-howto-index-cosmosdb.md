@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f1e1ae76c44e66c04baaad110b87264279dfdaf1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 33c26ff15095928d6050a77794b74480e364bfb6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530990"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707764"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용 하 여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -246,7 +246,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 > [!NOTE]
 > 분할 된 컬렉션의 경우 기본 문서 키는 Azure Cosmos DB의 `_rid` 속성입니다. 필드 이름은 밑줄 문자로 시작할 수 없기 때문에 Azure Cognitive Search에서 자동으로 `rid`의 이름을 바꿉니다. 또한 Azure Cosmos DB `_rid` 값은 Azure Cognitive Search 키에서 유효 하지 않은 문자를 포함 합니다. 따라서 `_rid` 값은 Base64로 인코딩됩니다.
 > 
-> MongoDB 컬렉션의 경우 Azure Cognitive Search는 `_id` 속성의 이름을 자동으로 `doc_id`합니다.  
+> MongoDB 컬렉션의 경우 Azure Cognitive Search는 `_id` 속성의 이름을 자동으로 `id`합니다.  
 
 ### <a name="mapping-between-json-data-types-and-azure-cognitive-search-data-types"></a>JSON 데이터 형식과 Azure Cognitive Search 데이터 형식 간의 매핑
 | JSON 데이터 형식 | 호환되는 대상 인덱스 필드 형식 |

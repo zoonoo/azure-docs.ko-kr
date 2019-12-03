@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
-ms.openlocfilehash: a7e7498411e68b83f8c05d50f52f73f97df9f797
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 78d4f44e9fe2310fab485804e0aaf70aa0dfbdb0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160597"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233530"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mindflash"></a>자습서: Mindflash와 Azure Active Directory 통합
 
@@ -208,7 +208,7 @@ Azure AD 사용자가 Mindflash에 로그인할 수 있도록 하려면 Mindflas
     b. **추가**를 클릭합니다.
 
 >[!NOTE]
->다른 Mindflash 사용자 계정 생성 도구 또는 Mindflash가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
+>다른 Mindflash 사용자 계정 생성 도구 또는 Mindflash가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다. 
 > 
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

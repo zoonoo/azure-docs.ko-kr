@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: a8a60f23511f71128bea4cc560ad8401b238732d
-ms.sourcegitcommit: 12d67f9e4956bb30e7ca55209dd15d51a692d4f6
+ms.openlocfilehash: 9b9d4c6447b8030c2ae5f7dc22857f77b57f91ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/20/2019
-ms.locfileid: "58223651"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185316"
 ---
 # <a name="azure-cli-samples"></a>Azure CLI 샘플
 
@@ -28,11 +28,11 @@ ms.locfileid: "58223651"
 | | |
 |-|-|
 |**만들기**||
-| [앱 구성 저장소 만들기](./scripts/cli-create-service.md) | 리소스 그룹 및 앱 구성 저장소 인스턴스를 만듭니다.  |
+| [App Configuration 저장소 만들기](./scripts/cli-create-service.md) | 리소스 그룹 및 App Configuration 저장소 인스턴스를 만듭니다.  |
 |**사용**||
 | [키 값에 대한 작업](./scripts/cli-work-with-keys.md) | 키 값을 만들고, 확인하고, 업데이트하고, 삭제합니다. |
 | [키 값 가져오기](./scripts/cli-import.md) | 키 값을 다른 원본에서 가져옵니다. |
 | [키 값 내보내기](./scripts/cli-export.md) | 키 값을 다른 대상으로 내보냅니다. |
 |**삭제**||
-| [앱 구성 저장소 삭제](./scripts/cli-delete-service.md) | 앱 구성 저장소 인스턴스를 삭제합니다.  |
+| [App Configuration 저장소 삭제](./scripts/cli-delete-service.md) | App Configuration 저장소 인스턴스를 삭제합니다.  |
 | | |

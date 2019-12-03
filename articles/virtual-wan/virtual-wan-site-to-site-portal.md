@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 82f662dd00805cf53c0581fb0a2b3322a0207a11
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: e17205af1ede845ea77b04f6f2b4c6babf3bc450
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005721"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482134"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -249,7 +249,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
 * VPN 디바이스 페이지의 지침은 Virtual WAN용으로 작성되지 않았지만 구성 파일의 Virtual WAN 값을 사용하여 VPN 디바이스를 수동으로 구성할 수 있습니다. 
 * VPN Gateway용 다운로드 가능한 디바이스 구성 스크립트는 구성이 다르기 때문에 Virtual WAN에서는 작동하지 않습니다.
 * 새 가상 WAN은 IKEv1 및 IKEv2를 모두 지원할 수 있습니다.
-* 가상 WAN은 경로 기반 VPN 디바이스와 디바이스 지침만 사용할 수 있습니다.
+* 가상 WAN은 정책 기반 및 경로 기반 VPN 디바이스와 디바이스 지침을 모두 사용할 수 있습니다.
 
 ## <a name="viewwan"></a>가상 WAN 보기
 

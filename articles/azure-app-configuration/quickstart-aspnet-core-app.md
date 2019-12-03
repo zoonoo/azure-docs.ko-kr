@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 91712b3f730317e65cda7b48c8f5636b2fb9ab2c
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299945"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185096"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "72299945"
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
+## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -81,7 +81,7 @@ ms.locfileid: "72299945"
 
 암호 관리자 도구는 개발 작업에 대한 중요한 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드 내에서 앱 암호를 실수로 공유하는 경우를 방지할 수 있습니다. 비밀 관리자에 대한 자세한 내용은 [ASP.NET Core에서 개발 중인 앱 비밀 보안 스토리지](https://docs.microsoft.com/aspnet/core/security/app-secrets)를 참조하세요.
 
-## <a name="connect-to-an-app-configuration-store"></a>앱 구성 저장소에 연결
+## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
@@ -95,7 +95,7 @@ ms.locfileid: "72299945"
     ```
 3. *ConnectionStrings:AppConfig*라는 비밀을 비밀 관리자에 추가합니다.
 
-    이 비밀에는 앱 구성 저장소에 액세스하기 위한 연결 문자열이 포함되어 있습니다. 다음 명령의 값을 앱 구성 저장소에 대한 연결 문자열로 바꿉니다.
+    이 비밀에는 App Configuration 저장소에 액세스하기 위한 연결 문자열이 포함되어 있습니다. 다음 명령의 값을 App Configuration 저장소의 연결 문자열로 바꿉니다.
 
     이 명령은 *.csproj* 파일이 있는 동일한 디렉터리에서 실행해야 합니다.
 
@@ -216,7 +216,7 @@ ms.locfileid: "72299945"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 앱 구성 저장소를 만들고, [앱 구성 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 구성 설정을 동적으로 새로 고치도록 웹앱을 구성하는 방법을 보여주는 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 저장소를 만들고, [App Configuration 공급자](https://go.microsoft.com/fwlink/?linkid=2074664)를 통해 ASP.NET Core 웹앱에서 사용했습니다. 구성 설정을 동적으로 새로 고치도록 ASP.NET Core 앱을 구성하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [ASP.NET Core 앱에서 동적 구성 사용](./enable-dynamic-configuration-aspnet-core.md)
+> [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-aspnet-core.md)

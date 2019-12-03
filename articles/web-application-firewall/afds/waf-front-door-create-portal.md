@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Portal을 사용하여 Azure Front Door에 대한 웹 애플리케이션 방화벽 정책 만들기'
+title: '자습서: Azure Front Door에 대한 WAF 정책 만들기 - Azure Portal'
 description: 이 자습서에서는 Azure Portal을 사용하여 WAF(웹 애플리케이션 방화벽) 정책을 만드는 방법을 알아봅니다.
 author: vhorne
 ms.service: web-application-firewall
@@ -7,12 +7,12 @@ services: web-application-firewall
 ms.topic: tutorial
 ms.date: 09/07/2019
 ms.author: victorh
-ms.openlocfilehash: 602a8620ef35ea247c5865d97495ea43a7d7d93c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 991111e01713afe48355aac44a151b98fa828c5f
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73508907"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186716"
 ---
 # <a name="tutorial-create-a-web-application-firewall-policy-on-azure-front-door-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Front Door에 대한 웹 애플리케이션 방화벽 정책 만들기
 

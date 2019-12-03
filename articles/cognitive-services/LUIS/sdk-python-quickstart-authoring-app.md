@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 08/07/2019
+ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: 1b586af569a9406d7fe9fa3d05c198f62f32744f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 97bb86dc702802fd071015364cf205c4f1bb11d5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672011"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422718"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-python"></a>빠른 시작: Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 
@@ -39,7 +39,46 @@ Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>LUIS(Language Understanding) 시작 키 가져오기
 
-[시작 키](luis-how-to-azure-subscription.md#starter-key)를 가져와서 `LUIS_AUTHORING_KEY`라는 키에 대한 환경 변수와 `LUIS_REGION` 키 지역에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+LUIS 작성 리소스를 만들어 [스타터 키](luis-how-to-azure-subscription.md#starter-key)를 가져옵니다. 다음 단계를 위해 키와 키의 영역을 유지합니다.
+
+### <a name="create-an-environment-variable"></a>환경 변수 만들기
+
+키와 키 영역을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
+
+* `LUIS_AUTHORING_KEY` - 요청을 인증하기 위한 리소스 키입니다.
+* `LUIS_REGION` - 키와 연결된 지역입니다. 예: `westus`.
+
+운영 체제에 대한 지침을 사용합니다.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx LUIS_AUTHORING_KEY <replace-with-your-luis-authoring-key
+setx LUIS_REGION <replace-with-your-luis-region>
+```
+
+환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key>
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
+
+```bash
+export LUIS_AUTHORING_KEY=<replace-with-your-luis-authoring-key> 
+export LUIS_REGION=<replace-with-your-luis-region>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
+***
 
 ### <a name="install-the-python-library-for-luis"></a>LUIS용 Python 라이브러리 설치
 

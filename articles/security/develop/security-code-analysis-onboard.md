@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: aaf59de2425e0725958847477f1043a5b7fac68a
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839354"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707244"
 ---
 # <a name="onboarding-and-installing"></a>온 보 딩 및 설치
 
@@ -53,7 +53,8 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 1. 확장이 Azure DevOps 조직과 공유 되 면 Azure DevOps 조직 페이지로 이동 합니다. 이러한 페이지에 대 한 URL 예는 `https://dev.azure.com/contoso`합니다.
 1. 이름 옆의 오른쪽 위 모서리에서 쇼핑 모음 아이콘을 선택 하 고 **확장 관리**를 선택 합니다.
-1. Microsoft 보안 코드 분석 확장을 선택한 다음 Azure DevOps UI 마법사를 열어 설치를 시작 합니다.
+1. **공유**를 선택 합니다.
+1. Microsoft 보안 코드 분석 확장을 선택 하 고 **설치**를 선택 합니다.
 1. 드롭다운 목록에서 확장을 설치할 Azure DevOps 조직을 선택 합니다.
 1. **설치**를 선택합니다. 설치가 완료 된 후에는 확장을 사용 하 여 시작할 수 있습니다.
 

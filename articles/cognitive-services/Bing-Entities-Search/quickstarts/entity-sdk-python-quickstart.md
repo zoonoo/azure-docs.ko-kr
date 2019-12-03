@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Python용 Bing Entity Search SDK를 사용하여 엔터티 검색'
+title: '빠른 시작: Python용 SDK를 사용하여 엔터티 검색 - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Python용 Bing Entity Search SDK를 사용하여 엔터티를 검색하려면 이 빠른 시작을 사용하세요.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 0a4a4e3ce6f318a693b8ee760a0d892eaecb2c82
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 7720304cc017db86b052cee39ca0430e5c1bf9c2
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479014"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327136"
 ---
 # <a name="quickstart-bing-entity-search-sdk-with-python"></a>빠른 시작: Python을 사용하는 Bing Entity Search SDK
 

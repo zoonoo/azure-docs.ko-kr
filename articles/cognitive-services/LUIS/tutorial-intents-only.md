@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 1e39126324de486d118f808b37672c9fd08af711
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4d096ee829a425af3763c212daf5049acccf9f19
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822754"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325908"
 ---
-# <a name="tutorial-build-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
+# <a name="tutorial-build-a-luis-app-to-determine-user-intentions"></a>자습서: 사용자 의도를 확인하는 LUIS 앱 빌드
 
 이 자습서에서는 발화(텍스트)에 따라 사용자의 의도를 예측하는 사용자 지정 앱을 만듭니다. 
 
@@ -58,7 +58,7 @@ ms.locfileid: "73822754"
 
 ## <a name="create-a-new-intent"></a>새 의도 만들기 
 
-1. [미리 보기 LUIS 포털](https://preview.luis.ai)의 앱 **빌드** 섹션 내에서 **+ 만들기**를 선택합니다. 아래에 나열된 새 의도 이름을 입력한 다음, **완료**를 선택합니다.
+1. 포털의 앱 **빌드** 섹션 내에서 **+ 만들기**를 선택합니다. 새 의도 이름 `OrderPizza`를 입력한 다음, **완료**를 선택합니다.
 
     사용자가 피자를 주문하려는 경우 `OrderPizza` 의도가 예측됩니다. 
 
@@ -122,7 +122,7 @@ ms.locfileid: "73822754"
 
     예제 발화와 완전히 똑같지는 않으므로, LUIS가 이 의도에서 예측해야 하는 내용을 배울 수 있는지 여부를 확인하는 좋은 테스트입니다.
 
-    마지막 쿼리 문자열 매개 변수는 `q`로 발화 **쿼리**입니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 좋은 테스트이며, 상위 채점 의도로 `OrderPizza`을 반환해야 합니다. 
+    마지막 쿼리 문자열 매개 변수는 `query`로 발화 **쿼리**입니다. 이 발화는 예제 발화 중 하나와 같지 않습니다. 좋은 테스트이며, 상위 채점 의도로 `OrderPizza`을 반환해야 합니다. 
 
     ```JSON
     {
@@ -148,7 +148,7 @@ ms.locfileid: "73822754"
     }
     ```
 
-    이 앱에 현재 엔터티가 없기 때문에 엔터티 배열이 비어 있습니다. 
+    이 앱에 현재 엔터티가 없기 때문에 엔터티 배열이 비어 있습니다(추출할 발화 내의 데이터 단위). 
 
     JSON 결과는 최고 채점 의도를 **`prediction.topIntent`** 속성으로 식별합니다. 모든 점수는 1에서 0 사이이며, 1에 가까울수록 더 좋은 점수입니다. 
 
@@ -205,4 +205,4 @@ LUIS가 JSON 응답은 반환한 후에 이 요청에서 LUIS가 완료됩니다
 이 자습서에서는 LUIS 앱을 만들고, 의도를 만들고, 각 의도에 예제 발화를 추가하고, 없음 의도에 예제 발화를 추가하고, 엔드포인트에서 학습/게시/테스트했습니다. LUIS 모델을 빌드하는 기본 단계입니다. 
 
 > [!div class="nextstepaction"]
-> [이 앱에 미리 빌드된 의도 및 엔터티 추가](tutorial-machine-learned-entity.md)
+> [이 앱에 분해 가능한 엔터티 추가](tutorial-machine-learned-entity.md)

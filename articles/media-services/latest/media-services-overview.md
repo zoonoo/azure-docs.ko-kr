@@ -17,12 +17,12 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 61ffd4857ca9a330a4cb0eeace89791fc0973f70
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c17f1094e562960e851204b40281f5b04c1d40ce
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575086"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74186068"
 ---
 # <a name="azure-media-services-v3-overview"></a>Azure Media Services v3 개요
 
@@ -53,6 +53,10 @@ Media Services v3를 사용하여 콘텐츠를 인코딩 및 패키징하고, �
 
 > [!TIP]
 > 개발을 시작하기 전에 다음 사항을 검토합니다.<br/>* [기본 개념](concepts-overview.md)(중요 개념인 패키징, 인코딩 및 보호 포함)<br/>* [Media Services v3 API로 개발](media-services-apis-overview.md)(API 액세스, 명명 규칙 등에 대한 정보 포함)
+
+### <a name="sdks"></a>SDK
+
+[Azure Media Services v3 클라이언트 SDK](media-services-apis-overview.md#sdks)로 개발을 시작합니다.
 
 ### <a name="quickstarts"></a>빠른 시작  
 

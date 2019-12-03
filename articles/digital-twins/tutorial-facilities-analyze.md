@@ -1,5 +1,5 @@
 ---
-title: '자습서: 설치된 Azure Digital Twins에서 이벤트 분석'
+title: '자습서: Time Series Insights에서 이벤트 분석 - Azure Digital Twins | Microsoft Docs'
 description: 이 자습서의 단계에 따라 Azure Time Series Insights를 사용하여 Azure Digital Twins 공간의 이벤트를 시각화하고 분석하는 방법을 알아봅니다.
 services: digital-twins
 ms.author: alinast
@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 3df0fa448e320cba6dd3aaba1bb1be09c1a8b49b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74107671"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383054"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins의 이벤트 시각화 및 분석
 
@@ -54,6 +54,8 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. **Event Hubs**를 검색하여 선택합니다. **만들기**를 선택합니다.
 
+    [![Event Hubs 네임스페이스 만들기](./media/tutorial-facilities-analyze/create-event-hubs.png)](./media/tutorial-facilities-analyze/create-event-hubs.png#lightbox)
+
 1. Event Hubs 네임스페이스의 **이름**을 입력합니다. **가격 책정 계층**의 **표준**, **구독**, Digital Twins 인스턴스에 사용한 **리소스 그룹** 및 **위치**를 선택합니다. **만들기**를 선택합니다.
 
 1. Event Hubs 네임스페이스 배포에서 **개요** 창을 선택한 다음, **리소스로 이동**을 선택합니다.
@@ -77,7 +79,10 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
     [![Event Hub 연결 문자열](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
-1. 앞에서 만든 ManageSend 정책을 열고, **연결 문자열--기본 키** 및 **연결 문자열--보조 키** 값을 임시 파일에 복사합니다. 다음 섹션에서 이벤트 허브에 대한 엔드포인트를 만들려면 이러한 값이 필요합니다.
+    > [!TIP]
+    > 네임스페이스 대신 이벤트 허브 인스턴스에 대한 SAS 정책을 만들고 있는지 확인합니다.
+
+1. 앞에서 만든 **ManageSend** 정책을 열고, **연결 문자열--기본 키** 및 **연결 문자열--보조 키** 값을 임시 파일에 복사합니다. 다음 섹션에서 이벤트 허브에 대한 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>이벤트 허브에 대한 엔드포인트 만들기
 
@@ -105,13 +110,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. `Primary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열--기본 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다.
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
 1. `Secondary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열--보조 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다. 
 
-   ```plaintext
+   ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
    ```
 

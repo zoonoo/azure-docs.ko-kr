@@ -1,5 +1,5 @@
 ---
-title: 대량의 데이터에 대한 일괄 처리 유추 실행
+title: 빅 데이터에서 일괄 예측 실행
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning의 일괄 처리 유추를 사용하여 대량의 데이터에 대한 비동기 유추를 수행하는 방법을 알아봅니다. 일괄 처리 유추는 기본적으로 병렬 처리 기능을 제공하며 빅 데이터 사용 사례를 위한 높은 처리량의 fire-and-forget(실행 후 망각) 유추에 맞게 최적화됩니다.
 services: machine-learning
@@ -11,12 +11,12 @@ ms.author: vaidyas
 author: vaidya-s
 ms.date: 11/04/2019
 ms.custom: Ignite2019
-ms.openlocfilehash: 4e7ddf7fc7b18d57b8251d4fb8293ed2f6e83d17
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 3613639b43db1cd5310a7ea5d7fa18f34e22ed44
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929567"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276722"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Azure Machine Learning을 사용하여 대량의 데이터에 대한 일괄 처리 유추 실행
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]

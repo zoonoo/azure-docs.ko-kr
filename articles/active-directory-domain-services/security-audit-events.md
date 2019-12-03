@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 6ff996129cc140c9154edb8fb60840cd48017a5e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73569836"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704285"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용 (미리 보기)
 
@@ -81,8 +81,8 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 > [!IMPORTANT]
 > Azure AD DS 보안 감사는 소급 되지 않습니다. 과거에는 이벤트를 검색 하거나 과거의 이벤트를 재생할 수 없습니다. Azure AD DS는 사용 하도록 설정 된 후에 발생 하는 이벤트만 보낼 수 있습니다.
 
-1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
-1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리되는 도메인(예: *contoso.com*)을 선택합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정 (미리 보기)** 을 선택 합니다.
 1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가**를 선택 합니다.
 

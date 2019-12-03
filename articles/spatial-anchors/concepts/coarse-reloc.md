@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f03d2fba01dadc443da19416871a93a72289c0c6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 87179cbce9fa99d4c3422ce88b630312b5080481
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270141"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706253"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
 
@@ -128,9 +128,9 @@ cloudSpatialAnchorSession.LocationProvider(sensorProvider);
 
 |             | 실내 | 야외 |
 |-------------|---------|----------|
-| GPS         | 끄기 | 다른 |
-| WiFi        | 다른 | 설정 (선택 사항) |
-| 오류 있는 오류 | 설정 (주의 사항, 아래 참조) | 끄기 |
+| GPS         | 해제 | 설정 |
+| WiFi        | 설정 | 설정 (선택 사항) |
+| 오류 있는 오류 | 설정 (주의 사항, 아래 참조) | 해제 |
 
 
 ### <a name="enabling-gps"></a>GPS 사용
@@ -495,7 +495,7 @@ sensors.KnownBeaconProximityUuids(uuids);
 
 ---
 
-Azure 공간 앵커는 목록에 있는 Bluetooth 오류 표시만 추적 합니다. 매우 나열 된 Uuid를 포함 하도록 프로그래밍 된 악의적인 오류는 여전히 서비스 품질에 부정적인 영향을 줄 수 있습니다. 이러한 이유로 해당 배포를 제어할 수 있는 큐 레이트 공간 에서만 오류 신호를 사용 해야 합니다.
+Azure 공간 앵커는 목록에 있는 Bluetooth 오류 표시만 추적 합니다. 허용 되는 Uuid를 포함 하도록 프로그래밍 된 악성 신호는 여전히 서비스 품질에 부정적인 영향을 줄 수 있습니다. 이러한 이유로 해당 배포를 제어할 수 있는 큐 레이트 공간 에서만 오류 신호를 사용 해야 합니다.
 
 ## <a name="querying-with-sensor-data"></a>센서 데이터로 쿼리
 
@@ -665,7 +665,7 @@ GPS를 사용 하 여 쿼리할 때 동일한 추론을 적용 합니다. 장치
 
 |             | HoloLens | Android | iOS |
 |-------------|----------|---------|-----|
-| GPS         | 해당 없음 | [Locationmanager][3] API (GPS 및 네트워크 모두)를 통해 지원 됨 | [Cllocationmanager][4] api를 통해 지원 됨 |
+| GPS         | N/A | [Locationmanager][3] API (GPS 및 네트워크 모두)를 통해 지원 됨 | [Cllocationmanager][4] api를 통해 지원 됨 |
 | WiFi        | 3 초 마다 한 번의 검색 속도로 지원 됨 | 지원됩니다. API 수준 28부터 WiFi 검색은 2 분 마다 4 개의 호출로 제한 됩니다. Android 10에서는 개발자 설정 메뉴에서 제한을 사용 하지 않도록 설정할 수 있습니다. 자세한 내용은 [Android 설명서][5]를 참조 하세요. | 해당 없음-공용 API 없음 |
 | 오류 있는 오류 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 | [Eddystone][1] 및 [ibeacon 장치로][2] 제한 |
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 11/09/2019
 ms.author: helohr
-ms.openlocfilehash: c7ef648dd2610c337bc9146e7a52c04d91907c8e
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: ad0c67cea6a5a9b487cd47aa7c10d10da1438050
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904918"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74384277"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>자습서: 관리 도구 배포
 
@@ -63,10 +63,9 @@ Azure Resource Manager 템플릿을 배포한 후에는 관리 UI를 시작하�
 ### <a name="guidance-for-template-parameters"></a>템플릿 매개 변수에 대한 지침
 도구를 구성하는 매개 변수를 입력하는 방법은 다음과 같습니다.
 
-- RD broker URL:  https:\//rdbroker.wvd.microsoft.com/
-- 리소스 URL:  https:\//mrs-prod.ame.gbl/mrs-RDInfra-prod
-- MFA가 해제된 AAD 자격 증명을 사용하여 Azure에 로그인합니다. [Azure Resource Manager 템플릿을 실행하기 위해 필요한 것](#what-you-need-to-run-the-azure-resource-manager-template)을 참조하세요.
-- 관리 도구의 Azure Active Directory에 등록할 고유한 애플리케이션 이름(예: Apr3UX)을 사용합니다.
+- **isServicePrincipal** 매개 변수의 경우 **false**를 선택합니다.
+- 자격 증명의 경우 다단계 인증이 비활화된 Azure Active Directory 자격 증명을 입력합니다. 이러한 자격 증명은 Azure에 로그인하고 Azure AD 애플리케이션 및 Azure 웹앱 리소스를 만드는 데 사용됩니다. 자세히 알아보려면 [Azure Resource Manager 템플릿을 실행하는 데 필요한 사항](#what-you-need-to-run-the-azure-resource-manager-template)을 참조하세요.
+- **applicationName**의 경우 Azure Active Directory에 등록될 앱의 고유한 이름을 사용합니다. 이 이름은 웹앱 URL에도 사용됩니다. 예를 들어 "Apr3UX"와 같은 이름을 사용할 수 있습니다.
 
 ## <a name="provide-consent-for-the-management-tool"></a>관리 도구 사용 조건에 동의
 

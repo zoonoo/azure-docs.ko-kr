@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 09/23/2019
+ms.date: 11/21/2019
 ms.author: aahi
-ms.openlocfilehash: f7a62d1d2b695726421ba990d0f118eb3ae199da
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 33c9c708adcc196bc7d9b2e8a066d18e4dd20608
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031453"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326613"
 ---
 # <a name="example-detect-sentiment-with-text-analytics"></a>예제: Text Analytics를 사용하여 감정 감지
 
@@ -36,7 +36,7 @@ Text Analytics는 기계 학습 분류 알고리즘을 사용하여 0과1 사이
 
 ## <a name="sentiment-analysis-v3-public-preview"></a>감정 분석 v3 공개 미리 보기
 
-이제 [감정 분석의 다음 버전](https://cognitiveusw2ppe.portal.azure-api.net/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다.
+이제 감정 분석의 다음 버전을 공개 미리 보기에서 사용할 수 있습니다. API의 텍스트 분류 및 채점에 대한 정확성과 세부 정보에서 크게 향상된 기능을 제공합니다. [API 테스트 콘솔](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)을 통해 사용해 보세요.
 
 > [!NOTE]
 > * 감정 분석 v3 요청 형식 및 [데이터 제한](../overview.md#data-limits)은 이전 버전과 동일합니다.

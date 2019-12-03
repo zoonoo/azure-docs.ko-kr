@@ -1,25 +1,25 @@
 ---
-title: Azure Migrate를 사용하여 평가하고 Azure로 마이그레이션할 Hyper-V VM 준비 | Microsoft Docs
-description: Azure Migrate를 사용하여 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 설명합니다.
+title: Azure Migrate를 사용하여 평가/마이그레이션을 위해 Hyper-V VM 준비
+description: Azure Migrate를 사용하여 Hyper-V VM의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/16/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 2f45f70f1c131e1690997cda18a8d612d3af9dee
-ms.sourcegitcommit: a819209a7c293078ff5377dee266fa76fd20902c
+ms.openlocfilehash: f93528e2a35661f8a233aea476a958a079d7cd59
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "71010313"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196256"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>평가하고 Azure로 마이그레이션할 Hyper-V VM 준비
 
 이 문서에서는 [Azure Migrate](migrate-services-overview.md)를 사용하여 온-프레미스 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법에 대해 설명합니다.
 
-[Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다. 
+[Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다.
 
 이 자습서는 Hyper-V VM을 평가하고 Azure로 마이그레이션하는 방법을 보여 주는 시리즈의 첫 번째 자습서입니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
@@ -42,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 
-- Azure 계정에서 Azure Migrate 프로젝트를 만들 수 있는 권한 
+- Azure 계정에서 Azure Migrate 프로젝트를 만들 수 있는 권한
 - 계정에서 Azure Migrate 어플라이언스를 등록할 수 있는 권한. 어플라이언스는 Hyper-V 검색 및 마이그레이션에 사용됩니다. 어플라이언스를 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다.
     - 첫 번째 앱은 Azure Migrate 서비스 엔드포인트와 통신합니다.
     - 두 번째 앱은 등록 중에 만든 Azure Key Vault에 액세스하여 Azure AD 앱 정보 및 어플라이언스 구성 설정을 저장합니다.
@@ -70,7 +70,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 주의해야 할 사항은 다음과 같습니다.
 
 - 앱에는 위에서 설명한 구독에 대한 액세스 권한 이외의 다른 권한이 없습니다.
-- 이러한 권한은 새 어플라이언스를 등록할 때만 필요합니다. 어플라이언스가 설정되면 해당 권한을 제거할 수 있습니다. 
+- 이러한 권한은 새 어플라이언스를 등록할 때만 필요합니다. 어플라이언스가 설정되면 해당 권한을 제거할 수 있습니다.
 
 
 #### <a name="grant-account-permissions"></a>계정 권한 부여
@@ -87,7 +87,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 
 
 
-#### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당 
+#### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
 테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -98,7 +98,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 
 1. Hyper-V 호스트 설정을 확인합니다.
 2. Azure Migrate 어플라이언스에서 WinRM 연결을 통해 호스트에서 PowerShell 명령을 실행할 수 있도록 각 호스트에서 PowerShell 원격을 설정합니다.
-3. VM 디스크가 원격 SMB 스토리지에 있으면 자격 증명을 위임해야 합니다. 
+3. VM 디스크가 원격 SMB 스토리지에 있으면 자격 증명을 위임해야 합니다.
     - Azure Migrate 어플라이언스가 클라이언트로 작동하여 자격 증명을 호스트에 위임할 수 있도록 CredSSP 위임을 사용하도록 설정합니다.
     - 아래에서 설명한 대로 각 호스트가 어플라이언스에 대한 대리자로 작동하도록 설정합니다.
     - 나중에 어플라이언스를 설정할 때 어플라이언스에서 위임을 사용하도록 설정합니다.
@@ -122,7 +122,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
 - 호스트에서 지원되는 버전의 Hyper-V 및 Hyper-V 역할을 실행하는지 확인합니다.
 - WinRM 서비스를 사용하도록 설정하고, 호스트에서 5985(HTTP) 및 5986(HTTPS) 포트를 엽니다(메타데이터 수집에 필요함).
 - 호스트에서 PowerShell 원격을 사용하도록 설정합니다.
-- 호스트에서 관리하는 모든 VM에 Hyper-V 통합 서비스를 사용하도록 설정되어 있는지 확인합니다. 
+- 호스트에서 관리하는 모든 VM에 Hyper-V 통합 서비스를 사용하도록 설정되어 있는지 확인합니다.
 - 필요한 경우 호스트에서 CredSSP를 사용하도록 설정합니다.
 
 스크립트를 다음과 같이 실행합니다.
@@ -133,7 +133,7 @@ Hyper-V 평가를 준비하려면 다음을 수행합니다.
     ```
     C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]
     ```
-    사용 예제: 
+    사용 예제:
     ```
     C:\>CertUtil -HashFile C:\Users\Administrators\Desktop\ MicrosoftAzureMigrate-Hyper-V.ps1
     SHA256
@@ -215,7 +215,7 @@ Azure Migrate에는 온-프레미스 VM을 검색할 수 있는 권한이 필요
 
 Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM에서 Integration Services를 사용하도록 설정해야 합니다.
 
-검색하고 평가하려는 VM의 경우 각 VM에서 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)를 사용하도록 설정합니다. 
+검색하고 평가하려는 VM의 경우 각 VM에서 [Hyper-V Integration Services](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/manage-hyper-v-integration-services)를 사용하도록 설정합니다.
 
 ## <a name="prepare-for-hyper-v-migration"></a>Hyper-V 마이그레이션 준비
 
@@ -226,12 +226,12 @@ Azure Migrate에서 VM의 운영 체제 정보를 캡처할 수 있도록 각 VM
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음을 수행합니다.
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Azure 계정 권한을 설정합니다.
 > * 평가 및 마이그레이션을 위해 Hyper-V 호스트 및 VM을 준비합니다.
 
 Azure Migrate 프로젝트를 만들고 Hyper-V VM을 평가하여 Azure로 마이그레이션하려면 다음 자습서로 계속 진행하세요.
 
-> [!div class="nextstepaction"] 
-> [Hyper-V VM 평가](./tutorial-assess-hyper-v.md) 
+> [!div class="nextstepaction"]
+> [Hyper-V VM 평가](./tutorial-assess-hyper-v.md)

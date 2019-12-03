@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사'
+title: '빠른 시작: REST API 및 C#으로 맞춤법 검사 - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: Bing Spell Check REST API를 사용하여 맞춤법 및 문법 검사를 시작합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 04/11/2019
 ms.author: aahi
-ms.openlocfilehash: 93b5c395a0d121305c092229d862bf9ecaa4789c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: e51c1220e120d157ea4a413b95a7beb20c950518
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936055"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378905"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-c"></a>빠른 시작: Bing Spell Check REST API 및 C#으로 맞춤법 검사
 
@@ -116,7 +116,7 @@ if (response.Headers.TryGetValues("X-MSEdge-ClientID", out IEnumerable<string> h
 
 ### <a name="get-the-response"></a>응답 가져오기
 
-API의 응답을 가져옵니다. JSON 개체를 deserialize하고 콘솔에 출력합니다.
+API의 응답을 가져옵니다. JSON 개체를 역직렬화하고 콘솔에 출력합니다.
 
 ```csharp
 string contentString = await response.Content.ReadAsStringAsync();

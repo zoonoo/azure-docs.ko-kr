@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 07874988c97044ede59c18b8f85a425483679431
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7548d7d7b808472b3f5446fadfe800584f61b1df
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089541"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233347"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sumologic"></a>자습서: SumoLogic과 Azure Active Directory 통합
 
@@ -144,7 +144,7 @@ SumoLogic에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. **SAML**을 클릭합니다.
 
-    ![전역 보안 설정](./media/sumologic-tutorial/ic778557.png "전역 보안 설정")
+    ![글로벌 보안 설정](./media/sumologic-tutorial/ic778557.png "전역 보안 설정")
 
 1. **구성 선택 또는 새로 만들기** 목록에서 **Azure AD**를 선택하고 **구성**을 클릭합니다.
 
@@ -250,7 +250,7 @@ Azure AD 사용자가 SumoLogic에 로그인할 수 있도록 하려면 SumoLogi
     d. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 다른 SumoLogic 사용자 계정 생성 도구 또는 SumoLogic이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 SumoLogic 사용자 계정 생성 도구 또는 SumoLogic이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

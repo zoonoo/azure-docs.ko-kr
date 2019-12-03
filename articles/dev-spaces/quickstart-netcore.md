@@ -1,23 +1,19 @@
 ---
-title: Azure Dev Spaces(Visual Studio Code)를 사용하는 Kubernetes에서 Visual Studio Code 및 .NET Core로 디버그 및 반복
-titleSuffix: Azure Dev Spaces
-author: zr-msft
+title: 'Kubernetes에서 디버그 및 반복: Visual Studio Code 및 .NET Core'
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-ms.author: zarhoads
 ms.date: 07/08/2019
 ms.topic: quickstart
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers, Helm, service mesh, service mesh routing, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b65dc5ed5d6d69ecde2108fcc322e27999704123
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 278ec0683a7ddb3c41f724e06e8ca291d18e3bad
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815850"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325596"
 ---
-# <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>빠른 시작: Azure Dev Spaces(Visual Studio Code)를 사용하는 Kubernetes에서 Visual Studio Code 및 .NET Core로 디버그 및 반복
+# <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio-code-and-net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio Code 및 .NET Core - Azure Dev Spaces
 
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
 

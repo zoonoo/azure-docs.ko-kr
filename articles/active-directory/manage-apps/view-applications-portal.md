@@ -1,6 +1,6 @@
 ---
-title: 테넌트 애플리케이션 보기 - Azure Active Directory | Microsoft Docs
-description: Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트의 애플리케이션을 볼 수 있습니다.
+title: 빠른 시작 - Azure Active Directory를 사용하여 테넌트 애플리케이션 보기
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트의 애플리케이션을 봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,14 +16,14 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 764c7c048dd0398b495ee31421a8e2bc9f8169ee
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 1d40e968bb7079d50e3fa18889ae996c9b59c90f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68477190"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421810"
 ---
-# <a name="view-your-azure-active-directory-tenant-applications"></a>Azure Active Directory 테넌트 애플리케이션 보기
+# <a name="quickstart-view-your-azure-active-directory-tenant-applications"></a>빠른 시작: Azure Active Directory 테넌트 애플리케이션 보기
 
 이 빠른 시작에서는 Azure Portal을 사용하여 Azure AD(Azure Active Directory) 테넌트의 애플리케이션을 봅니다.
 

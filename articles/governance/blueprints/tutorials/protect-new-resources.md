@@ -1,14 +1,14 @@
 ---
-title: 청사진 잠금으로 새 리소스 보호
-description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호하는 방법을 알아봅니다.
-ms.date: 03/28/2019
+title: '자습서: 잠금을 사용하여 새 리소스 보호'
+description: 이 자습서에서는 Azure Blueprints 리소스 잠금 옵션 읽기 전용 및 삭제 안 함을 사용하여 새로 배포한 리소스를 보호합니다.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: e2adbb1e47222055753d4b3690646daa83b32bf1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ee57ff0c08f4fb8aa710dd2fa4dcef664484973d
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960263"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327455"
 ---
 # <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>자습서: Azure Blueprints 리소스 잠금으로 새 리소스 보호
 
@@ -25,7 +25,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
 ## <a name="prerequisites"></a>필수 조건
 
-이 자습서를 완료하려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
 ## <a name="create-a-blueprint-definition"></a>청사진 정의 만들기
 
@@ -53,9 +53,10 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
    1. **추가**를 선택하여 아티팩트를 청사진에 추가합니다.
 
 1. 리소스 그룹 아래에 템플릿 추가:
-   1. **RGtoLock** 항목 아래의 **아티팩트 추가** 행을 선택합니다. 
-   1. **아티팩트 형식** 아래의 **Azure Resource Manager 템플릿**을 선택하고, **아티팩트 표시 이름**을 **StorageAccount**로 설정하고, **설명**은 비워 둡니다. 
-   1. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다. 템플릿을 붙여넣은 후 **추가**를 선택하여 아티팩트를 청사진에 추가합니다.
+   1. **RGtoLock** 항목 아래의 **아티팩트 추가** 행을 선택합니다.
+   1. **아티팩트 형식** 아래의 **Azure Resource Manager 템플릿**을 선택하고, **아티팩트 표시 이름**을 **StorageAccount**로 설정하고, **설명**은 비워 둡니다.
+   1. **템플릿** 탭의 편집기 상자에 다음 Resource Manager 템플릿을 붙여넣습니다.
+      템플릿을 붙여넣은 후 **추가**를 선택하여 아티팩트를 청사진에 추가합니다.
 
    ```json
    {
@@ -224,9 +225,7 @@ Azure Blueprints [리소스 잠금](../concepts/resource-locking.md)을 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
-- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
-- [청사진 리소스 잠금](../concepts/resource-locking.md)을 사용하는 방법 알아보기
-- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [기존 할당을 업데이트](../how-to/update-existing-assignments.md)하는 방법 알아보기
-- 청사진 할당 중에 [문제 해결](../troubleshoot/general.md)
+이 자습서에서는 Azure Blueprints로 배포된 새 리소스를 보호하는 방법을 배웠습니다. Azure Blueprints에 대해 자세히 알아보려면 청사진 수명 주기 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [청사진 수명 주기에 대해 알아보기](../concepts/lifecycle.md)

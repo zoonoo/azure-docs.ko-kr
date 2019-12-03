@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 73facea2b99ee038b16053fd818d93d35da4cbdd
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74196163"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707714"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너 (미리 보기) 란? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -45,7 +45,7 @@ Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이
     + 이전에 학습 된 모델을 사용 하 여 새 데이터에 대 한 예측을 만들려면 **일괄 처리 유추 파이프라인** 을 게시 합니다.
 + 실시간 **유추 파이프라인** 을 실시간 끝점에 [배포](#deploy) 하 여 새 데이터에 대 한 예측을 실시간으로 만듭니다.
 
-![디자이너의 학습, 일괄 처리 유추 및 실시간 유추를 위한 워크플로 다이어그램](media/ui-concept-visual-interface/designer-workflow-diagram.png)
+![디자이너의 학습, 일괄 처리 유추 및 실시간 유추를 위한 워크플로 다이어그램](media/concept-designer/designer-workflow-diagram.png)
 
 ## <a name="pipeline"></a>파이프라인
 
@@ -80,7 +80,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다. 디자이너에서 개별 모듈에 대 한 계산 리소스를 설정할 수 있습니다. 
 
-![모듈 속성](media/ui-concept-visual-interface/properties.png)
+![모듈 속성](media/concept-designer/properties.png)
 
 사용 가능한 기계 학습 알고리즘 라이브러리를 탐색 하는 데 도움이 필요한 경우 [알고리즘 & 모듈 참조 개요](../algorithm-module-reference/module-reference.md) 를 참조 하세요.
 
@@ -88,7 +88,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 작업 영역의 계산 리소스를 사용 하 여 파이프라인을 실행 하 고 배포 된 모델을 실시간 끝점이 나 파이프라인 끝점 (일괄 처리 유추의 경우)으로 호스팅합니다. 지원되는 컴퓨팅 대상은 다음과 같습니다.
 
-| 컴퓨팅 대상 | 학습 | 배포 |
+| 컴퓨팅 대상 | 교육 | 배포 |
 | ---- |:----:|:----:|
 | Azure Machine Learning 컴퓨팅 | ✓ | |
 | Azure Kubernetes Service | | ✓ |
@@ -107,7 +107,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 파이프라인을 **파이프라인 끝점**에 게시할 수도 있습니다. 실시간 끝점과 마찬가지로, 파이프라인 끝점을 사용 하 여 REST 호출을 통해 외부 응용 프로그램에서 새 파이프라인 실행을 제출할 수 있습니다. 그러나 파이프라인 끝점을 사용 하 여 실시간으로 데이터를 보내거나 받을 수 없습니다.
 
-게시 된 파이프라인은 유연 하며 모델을 학습 또는 다시 학습 하 고, batch 추론를 수행 하 고, 새 데이터를 처리 하는 등의 작업을 수행 하는 데 사용할 수 있습니다. 여러 파이프라인을 단일 파이프라인 끝점에 게시 하 고 실행할 파이프라인 버전을 지정할 수 있습니다.
+게시 된 파이프라인은 유연 하며 모델을 학습 또는 다시 학습 하 고, [batch 추론를 수행](how-to-run-batch-predictions-designer.md)하 고, 새 데이터를 처리 하는 등의 작업을 수행 하는 데 사용할 수 있습니다. 여러 파이프라인을 단일 파이프라인 끝점에 게시 하 고 실행할 파이프라인 버전을 지정할 수 있습니다.
 
 게시 된 파이프라인은 각 모듈에 대해 파이프라인 초안에서 정의한 계산 리소스에서 실행 됩니다.
 

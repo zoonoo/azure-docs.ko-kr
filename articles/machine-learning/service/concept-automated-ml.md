@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f8a83fccefe3310fe1a582ef44d72cfbef7e9469
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 1320448b88fa3851196a3dfcb3107921721d364d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133076"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707675"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -98,7 +98,7 @@ ms.locfileid: "74133076"
 
 + Azure Machine Learning studio: [다음 단계를 사용 하 여](how-to-create-portal-experiments.md) **구성 실행** 섹션에서 **기능화 설정 보기** 를 선택 합니다.
 
-+ Python SDK: [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
++ Python SDK: [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
 
 
 ## <a name="time-series-forecasting"></a>시계열 예측

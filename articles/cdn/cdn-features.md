@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/28/2019
+ms.date: 11/15/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 6826c1340de16891933b290eb29bd4fb8d120974
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 64b906c8a6b52d9c9655f3fe2b13d504d8eed4cb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70127912"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278085"
 ---
 # <a name="compare-azure-cdn-product-features"></a>Azure CDN 제품 기능 비교
 
@@ -41,11 +41,11 @@ Azure CDN(Content Delivery Network)에는 다음과 같은 네 가지 제품이 
 | [GSLB(전역 서버 부하 분산)](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-load-balancing-azure)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [빠른 삭제](cdn-purge-endpoint.md)  | **&#x2713;** |**&#x2713;** , 모두 제거 및 와일드카드 제거는 현재 Akamai의 Azure CDN에서 지원되지 않습니다. |**&#x2713;** |**&#x2713;** |
 | [자산 미리 로드](cdn-preload-endpoint.md)  |  | |**&#x2713;** |**&#x2713;** |
-| 캐시/헤더 설정([캐싱 규칙](cdn-caching-rules.md)사용)  |  |**&#x2713;** |**&#x2713;** | |
-| 사용자 지정이 가능한 규칙 기반의 콘텐츠 배달 엔진([규칙 엔진](cdn-rules-engine.md) 사용)  |  | | |**&#x2713;** |
-| 캐시/헤더 설정( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
-| URL 리디렉션/다시 쓰기( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
-| 모바일 디바이스 규칙( [규칙 엔진](cdn-rules-engine.md)사용)  |  | | |**&#x2713;** |
+| 캐시/헤더 설정([캐싱 규칙](cdn-caching-rules.md)사용)  |**&#x2713;** [표준 규칙 엔진](cdn-standard-rules-engine.md) 사용  |**&#x2713;** |**&#x2713;** | |
+| 사용자 지정이 가능한 규칙 기반 콘텐츠 전송 엔진 |**&#x2713;** [표준 규칙 엔진](cdn-standard-rules-engine.md) 사용  | | |**&#x2713;** [규칙 엔진](cdn-rules-engine.md) 사용 |
+| 캐시/헤더 설정  |**&#x2713;** [표준 규칙 엔진](cdn-standard-rules-engine.md) 사용 | | |**&#x2713;** [프리미엄 규칙 엔진](cdn-rules-engine.md) 사용 |
+| URL 리디렉션/재작성 |**&#x2713;** [표준 규칙 엔진](cdn-standard-rules-engine.md) 사용  | | |**&#x2713;** [프리미엄 규칙 엔진](cdn-rules-engine.md) 사용 |
+| 모바일 디바이스 규칙  |**&#x2713;** [표준 규칙 엔진](cdn-standard-rules-engine.md) 사용 | | |**&#x2713;** [프리미엄 규칙 엔진](cdn-rules-engine.md) 사용 |
 | [쿼리 문자열 캐싱](cdn-query-string.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | IPv4/IPv6 이중 스택 | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |
 | [HTTP/2 지원](cdn-http2.md)  | **&#x2713;** |**&#x2713;** |**&#x2713;** |**&#x2713;** |

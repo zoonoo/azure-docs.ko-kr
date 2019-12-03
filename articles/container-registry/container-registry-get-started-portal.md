@@ -1,20 +1,15 @@
 ---
-title: 빠른 시작 - 포털에서 레지스트리 만들기 - Azure Container Registry
+title: 빠른 시작 - 포털에서 레지스트리 만들기
 description: Azure Portal을 사용하여 Azure Container Registry에서 프라이빗 Docker 레지스트리를 만드는 방법을 빠르게 알아봅니다.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: bcf0874266aa83a4b4b932670557854c4688d400
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c5e6de0fdb7d0e46fa9be28483fd894289baf1a3
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931640"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455226"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 프라이빗 컨테이너 레지스트리 만들기
 

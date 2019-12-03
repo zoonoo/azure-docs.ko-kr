@@ -1,26 +1,22 @@
 ---
-title: Azure의 미지불금액 전자 메일 | Microsoft Docs
+title: Azure의 미지불금액 이메일
 description: Azure 구독에 미지불금액이 있는 경우 결제 방법에 대해 설명합니다.
-services: ''
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
 tags: billing
-ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
-ms.service: billing
+ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c042f5cee3d0a1e874729911a2162e48c1630a72
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300295"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74226420"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
 

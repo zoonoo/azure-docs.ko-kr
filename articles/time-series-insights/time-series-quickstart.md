@@ -9,13 +9,13 @@ manager: cshankar
 ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
-ms.date: 09/23/2019
-ms.openlocfilehash: 0253a46cd73679c7c2f50a1e37d26d67578e342e
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 11/15/2019
+ms.openlocfilehash: 7bccc75b4a70e98f069d1ffb86909368105b9a32
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006430"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74167716"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>빠른 시작: Azure Time Series Insights 탐색
 
@@ -38,45 +38,47 @@ Azure Time Series Insights는 완전 관리형 분석, 스토리지 및 시각�
 
 1. Time Series Insights 간단한 둘러보기 페이지가 표시됩니다. **다음**을 선택하여 간단한 둘러보기를 시작합니다.
 
-   [![다음 선택](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![빠른 시작 시작 - 다음 선택](media/quickstart/quickstart-welcome.png)](media/quickstart/quickstart-welcome.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>데모 환경 살펴보기
 
 1. **시간 선택 패널**이 표시됩니다. 이 패널에서 시각화할 시간 프레임을 선택합니다.
 
-   [![시간 선택 패널](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [![시간 선택 패널](media/quickstart/quickstart-time-selection-panel.png)](media/quickstart/quickstart-time-selection-panel.png#lightbox)
 
 1. 시간 프레임을 선택하여 영역으로 끌어서 놓습니다. **검색**을 선택합니다.
 
-   [![시간 프레임 선택](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![시간 프레임 선택](media/quickstart/quickstart-select-time.png)](media/quickstart/quickstart-select-time.png#lightbox)
 
    지정한 시간 프레임에 대해 시각화된 차트가 표시됩니다. 꺾은선형 차트 내에서 다양한 작업을 수행할 수 있습니다. 예를 들어 필터링, 고정, 정렬 및 쌓기를 수행할 수 있습니다.
 
    **시간 선택 패널**로 돌아가려면 다음과 같이 아래쪽 화살표를 선택합니다.
 
-   [![차트](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![차트](media/quickstart/quickstart-select-down-arrow.png)](media/quickstart/quickstart-select-down-arrow.png#lightbox)
 
 1. **기간 패널**에서 **추가**를 선택하고 새 검색 기간을 추가합니다.
 
-   [![항목 추가](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![검색 용어 패널 추가](media/quickstart/quickstart-add-terms.png)](media/quickstart/quickstart-add-terms.png#lightbox)
 
 1. 이 차트에서는 특정 지역을 선택하고, 마우스 오른쪽 단추로 클릭한 다음 **이벤트 탐색**을 선택할 수 있습니다.
 
-   [![이벤트 탐색](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![이벤트 탐색](media/quickstart/quickstart-explore-events.png)](media/quickstart/quickstart-explore-events.png#lightbox)
 
    탐색 중인 지역의 원시 데이터가 그리드로 표시됩니다.
 
-   [![그리드 보기](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![이벤트 탐색 - 그리드 데이터 보기](media/quickstart/quickstart-explore-events-grid-data.png)](media/quickstart/quickstart-explore-events-grid-data.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>데이터 선택 및 필터링
 
 1. 차트의 값을 변경하려면 기간을 편집합니다. 다양한 형식의 값 사이에 어떤 상관 관계가 있는지 확인하려면 또 다른 기간을 추가합니다.
 
-   [![기간 추가](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![기간 추가](media/quickstart/quickstart-add-a-term.png)](media/quickstart/quickstart-add-a-term.png#lightbox)
 
-1. **계열 필터링** 상자에 필터 기간을 입력하여 임시 계열 필터링을 수행합니다. 여기서는 **Station5**를 입력하여 해당 측정소의 온도와 기압 사이의 상관관계를 확인합니다.
+1. 선택한 모든 검색어를 표시하려면 **필터 계열** 상자를 비워 두거나 급조된 시리즈 필터링을 위해 **필터 계열** 상자에 필터 조건을 입력합니다.
 
-   [![계열 필터링](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![계열 필터링](media/quickstart/quickstart-filter-series.png)](media/quickstart/quickstart-filter-series.png#lightbox)
+
+   여기서는 **Station5**를 입력하여 해당 측정소의 온도와 기압 사이의 상관관계를 확인합니다.
 
 빠른 시작을 완료했으면 샘플 데이터 집합을 이용하여 다양한 시각화를 수행해 봅니다.
 

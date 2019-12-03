@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 4ea2a88c92dcd52e99bb98563cf76d2c5501ef6d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a12d4dca61734275ef0e56dfe2a800c64dc52540
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088760"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233302"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-thoughtworks-mingle"></a>자습서: Thoughtworks Mingle과 Azure Active Directory 통합
 
@@ -221,7 +221,7 @@ Azure AD 사용자가 로그인할 수 있도록 Azure Active Directory 사용�
     다. **이 프로필 만들기**를 클릭합니다.
 
 >[!NOTE]
->다른 Thoughtworks Mingle 사용자 계정 생성 도구 또는 Thoughtworks Mingle이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수도 있습니다.
+>다른 Thoughtworks Mingle 사용자 계정 생성 도구 또는 Thoughtworks Mingle이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 > 
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: d2c03143eca9f335c440dfcaee766e205b5c0730
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a683923ba48b1f354f90ac94d746cb92f359e7a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087160"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233315"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-wikispaces"></a>자습서: Wikispaces와 Azure Active Directory 통합
 
@@ -190,7 +190,7 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Azure A
 
 2. **멤버**로 이동합니다.
    
-    ![구성원](./media/wikispaces-tutorial/ic787193.png "구성원")
+    ![멤버](./media/wikispaces-tutorial/ic787193.png "멤버")
 
 3. **피플 초대**를 클릭합니다.
    
@@ -200,7 +200,7 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Azure A
    
     ![피플 초대](./media/wikispaces-tutorial/ic787208.png "피플 초대")
    
-    a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **사용자 이름 또는 이메일 주소** 를 입력합니다.
+    a. 관련된 텍스트 상자에 프로비저닝할 유효한 Azure AD 계정의 **사용자 이름 또는 이메일 주소**를 입력합니다.
    
     b. **보내기**를 클릭합니다.  
       
@@ -208,7 +208,7 @@ Azure AD 사용자가 Wikispaces에 로그인할 수 있도록 하려면 Azure A
     > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크를 포함한 이메일을 받습니다.
     
 > [!NOTE]
-> 다른 Wikispaces 사용자 계정 생성 도구 또는 Wikispaces가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Wikispaces 사용자 계정 생성 도구 또는 Wikispaces가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

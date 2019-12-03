@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c789d48656173721432779aeaba0530950527fa1
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 61e176314c655ef6380a196043fb3159d003cb6e
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646918"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273949"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리(SDK v4)
 
@@ -25,7 +25,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
-[API 참조 설명서](/dotnet/api/overview/azure/key-vault?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
+[API 참조 설명서](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -39,10 +39,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 
 ### <a name="create-new-net-console-app"></a>새 .NET 콘솔 앱 만들기
 
-선호하는 편집기 또는 IDE에서 .NET Core 애플리케이션을 새로 만듭니다.
-
-콘솔 창에서 `dotnet new` 명령을 사용하여 `akv-dotnet`이라는 새 콘솔 앱을 만듭니다.
-
+콘솔 창에서 `dotnet new` 명령을 사용하여 `akv-dotnet`이라는 새 .NET 콘솔 앱을 만듭니다.
 
 ```console
 dotnet new console -n key-vault-console-app
@@ -160,7 +157,7 @@ setx KEY_VAULT_NAME <your-key-vault-name>
 
 ### <a name="authenticate-and-create-a-client"></a>클라이언트 인증 및 만들기
 
-Key Vault 인증을 받고 Key Vault 클라이언트를 생성하는 작업은 위에 나오는 [환경 변수 설정](#set-environmental-variables) 단계의 환경 변수에 따라 달라집니다. Key Vault의 이름은 "https://<your-key-vault-name>.vault.azure.net" 형식의 Key Vault URI로 확장됩니다.
+Key Vault 인증을 받고 Key Vault 클라이언트를 생성하는 작업은 위에 나오는 [환경 변수 설정](#set-environmental-variables) 단계의 환경 변수에 따라 달라집니다. Key Vault의 이름은 "https://\<your-key-vault-name\>.vault.azure.net" 형식의 Key Vault URI로 확장됩니다.
 
 [!code-csharp[Directives](~/samples-key-vault-dotnet-quickstart/key-vault-console-app/Program.cs?name=authenticate)]
 

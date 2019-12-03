@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: cherylmc
-ms.openlocfilehash: 24279ff81daf0a350aa5234e78f27a99b7e4a03e
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 4b64c420290bec687388690f1c901c2ae789a3c8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72528005"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707559"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
@@ -58,7 +58,7 @@ Azure 방호는 특히 AzureBastionSubnet에 배포 됩니다.
 * **진단 로깅 및 기타:** 443에 대 한 아웃 바운드를 AzureCloud로 설정 합니다. 이 서비스 태그 내의 지역 태그는 아직 지원 되지 않습니다.
 * **대상 VM:** 3389 및 22의 아웃 바운드 VirtualNetwork
 
-이 [빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion)nsg 규칙 예제를 참조할 수 있습니다.
+이 [빠른 시작 템플릿에서](https://github.com/Azure/azure-quickstart-templates/tree/master/101-azure-bastion-nsg)nsg 규칙 예제를 참조할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

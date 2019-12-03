@@ -1,5 +1,6 @@
 ---
-title: 가상 머신 네트워크 트래픽 필터 문제 진단 - 빠른 시작 - Azure Portal | Microsoft Docs
+title: '빠른 시작: VM 네트워크 트래픽 필터 문제 진단 - Azure Portal'
+titleSuffix: Azure Network Watcher
 description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
@@ -17,12 +18,12 @@ ms.workload: infrastructure
 ms.date: 04/20/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 6478c82a93cd35eead3972bb4dccf402219d9b7d
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64702915"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74276005"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -45,8 +46,8 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
     |Name|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
@@ -78,7 +79,7 @@ VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허�
 
     |설정            |값                                                                                              |
     |---------          |---------                                                                                          |
-    | 리소스 그룹    | myResourceGroup 선택                                                                            |
+    | Resource group    | myResourceGroup 선택                                                                            |
     | 가상 머신   | myVm 선택                                                                                       |
     | Linux | myvm - VM을 만들 때 포털에서 만든 네트워크 인터페이스의 이름은 다릅니다. |
     | 프로토콜          | TCP                                                                                               |

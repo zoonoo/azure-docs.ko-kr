@@ -15,12 +15,12 @@ ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 1bbcd5e4f8c6a429def84ad77d7dd93fa11b7324
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
+ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819690"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74559016"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 
@@ -67,7 +67,12 @@ Linux의 App Service는 [무료, 기본, 표준 및 프리미엄](https://azure.
 
 ## <a name="troubleshooting"></a>문제 해결
 
-애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다. 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **App Service 로그** 아래에서 **Docker 컨테이너 로깅**을 활성화해야 합니다. 설정은 즉시 적용됩니다. App Service는 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
+> [!NOTE]
+> [Azure Monitoring(미리 보기)](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#send-logs-to-azure-monitor-preview)을 사용하는 새로운 통합 로깅 기능이 있습니다. 
+>
+>
+
+애플리케이션이 시작되지 않거나 앱에서 로깅을 확인하려는 경우 LogFiles 디렉터리에서 Docker 로그를 확인하세요. SCM 사이트 또는 FTP를 통해 이 디렉터리에 액세스할 수 있습니다. 컨테이너에서 `stdout` 및 `stderr`을 로그하려면 **App Service 로그** 아래에서 **애플리케이션 로깅**을 활성화해야 합니다. 설정은 즉시 적용됩니다. App Service는 변경 사항을 감지하고 자동으로 컨테이너를 다시 시작합니다.
 
 **고급 도구**의 **개발 도구** 메뉴에서 SCM 사이트에 액세스할 수 있습니다.
 

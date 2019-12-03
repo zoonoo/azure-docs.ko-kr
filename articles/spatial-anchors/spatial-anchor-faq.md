@@ -1,19 +1,19 @@
 ---
-title: Azure Spatial Anchors에 대한 FAQ | Microsoft Docs
-description: Azure Spatial Anchors는 HoloLens, iOS 및 Android 디바이스에서 디바이스 간 다중 사용자 혼합 현실 환경을 지원하는 관리형 클라우드 서비스 및 개발자 플랫폼입니다. 이러한 FAQ는 기술적 관점에서 서비스에 대한 질문을 다룹니다.
+title: 질문과 대답
+description: Azure Spatial Anchors 서비스에 대한 FAQ입니다.
 author: ramonarguelles
-manager: vicenterivera
+manager: vriveras
 services: azure-spatial-anchors
 ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 06936a196813dacfc1fc9d02945bee4119b7eea8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927506"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277075"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 

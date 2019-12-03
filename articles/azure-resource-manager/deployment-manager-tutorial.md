@@ -1,19 +1,16 @@
 ---
 title: Azure Deployment Manager에서 Resource Manager 템플릿 사용 | Microsoft Docs
 description: Azure Deployment Manager에서 Resource Manager 템플릿을 사용하여 Azure 리소스를 배포합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
-ms.date: 10/10/2019
+ms.date: 11/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 3f10093b1d3087e87279258d04d86fc3d47ba313
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: db130da9943007e647adf77411b456914af9886f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285888"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74307016"
 ---
 # <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>자습서: Azure Deployment Manager에서 Resource Manager 템플릿 사용(공개 미리 보기)
 
@@ -56,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * [Azure Resource Manager 템플릿](./resource-group-overview.md)을 개발한 경험이 있어야 합니다.
 * Azure PowerShell. 자세한 내용은 [Azure PowerShell 시작](https://docs.microsoft.com/powershell/azure/get-started-azureps)을 참조하세요.
-* Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새로운 관리자 권한 PowerShell 창을 열고, 다음 명령을 사용합니다.
+* Deployment Manager cmdlet이 있어야 합니다. 이러한 시험판 cmdlet을 설치하려면 최신 버전의 PowerShellGet이 필요합니다. 최신 버전을 가져오려면 [PowerShellGet 설치](/powershell/scripting/gallery/installing-psget)를 참조하세요. PowerShellGet이 설치되면 PowerShell 창을 닫습니다. 새로운 관리자 권한 PowerShell 창을 열고, 다음 명령을 사용합니다.
 
     ```powershell
     Install-Module -Name Az.DeploymentManager
@@ -189,9 +186,6 @@ Azure Portal에서 컨테이너를 열고 **이진** 및 **템플릿** 폴더와
 
 사용자가 할당한 관리 ID를 만들고 구독에 대한 액세스 제어를 구성해야 합니다.
 
-> [!IMPORTANT]
-> 사용자가 할당한 관리 ID는 [롤아웃](#create-the-rollout-template)과 동일한 위치에 있어야 합니다. 현재 롤아웃을 포함한 Deployment Manager 리소스는 미국 중부 또는 동부 2 지역에서만 만들 수 있습니다. 하지만 이는 Deployment Manager 리소스(예: 서비스 토폴로지, 서비스, 서비스 단위, 롤아웃 및 단계)에만 해당합니다. 대상 리소스는 지원되는 모든 Azure 지역에 배포될 수 있습니다. 이 자습서에서 예를 들면 Deployment Manager 리소스는 미국 중부에 배포되지만 서비스는 미국 동부와 미국 서부에 배포됩니다. 이 제한 사항은 나중에 변경될 예정입니다.
-
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. [사용자가 할당한 관리 ID](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 만듭니다.
 3. 포털의 왼쪽 메뉴에서 **구독**을 선택한 다음, 구독을 선택합니다.
@@ -214,7 +208,7 @@ Azure Portal에서 컨테이너를 열고 **이진** 및 **템플릿** 폴더와
 템플릿에 포함되는 매개 변수는 다음과 같습니다.
 
 * **projectName**: 이 이름은 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe"를 사용하는 경우 서비스 토폴로지 이름은 **jdoe**ServiceTopology입니다.  리소스 이름은 템플릿의 variables 섹션에 정의됩니다.
-* **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 리소스에서 이 위치를 공유합니다. 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
+* **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 리소스에서 이 위치를 공유합니다.
 * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 Blob 컨테이너에 대한 SAS URI입니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 * **templateArtifactRoot**: 템플릿과 매개 변수가 저장되는 Blob 컨테이너의 오프셋 경로입니다. 기본값은 **templates/1.0.0.0**입니다. [아티팩트 준비](#prepare-the-artifacts)에서 설명한 폴더 구조를 변경하려는 경우가 아니면 이 값을 변경하지 마세요. 이 자습서에서는 상대 경로를 사용합니다.  전체 경로는 **artifactSourceSASLocation**, **templateArtifactRoot** 및 **templateArtifactSourceRelativePath**(또는 **parametersArtifactSourceRelativePath**)를 연결하여 생성됩니다.
 * **targetSubscriptionID**: Deployment Manager 리소스를 배포하고 요금이 청구되는 구독 ID입니다. 이 자습서에서는 사용자의 구독 ID를 사용합니다.
@@ -269,7 +263,7 @@ variables 섹션에서는 리소스 이름, 두 서비스 **Service WUS** 및 **
 ![Azure Deployment Manager 자습서 - 롤아웃 템플릿 매개 변수](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-rollout-template-parameters.png)
 
 * **projectName**: 이 이름은 Deployment Manager 리소스에 대한 이름을 만드는 데 사용됩니다. 예를 들어 "jdoe"를 사용하는 경우 롤아웃 이름은 **jdoe**Rollout입니다.  이름은 템플릿의 variables 섹션에 정의됩니다.
-* **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 Deployment Manager 리소스에서 이 위치를 공유합니다. 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
+* **azureResourcelocation**: 이 자습서를 간소화하기 위해 달리 지정하지 않는 한 모든 Deployment Manager 리소스에서 이 위치를 공유합니다.
 * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI입니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 * **binaryArtifactRoot**:  기본값은 **binaries/1.0.0.0**입니다. [아티팩트 준비](#prepare-the-artifacts)에서 설명한 폴더 구조를 변경하려는 경우가 아니면 이 값을 변경하지 마세요. 이 자습서에서는 상대 경로를 사용합니다.  전체 경로는 CreateWebApplicationParameters.json에 지정된 **artifactSourceSASLocation**, **binaryArtifactRoot** 및 **deployPackageUri**를 연결하여 생성됩니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
 * **managedIdentityID**: 배포 작업을 수행하는 사용자가 할당한 관리 ID입니다. [사용자가 할당한 관리 ID 만들기](#create-the-user-assigned-managed-identity)를 참조하세요.
@@ -311,7 +305,7 @@ duration(기간)은 [ISO 8601 표준](https://en.wikipedia.org/wiki/ISO_8601#Dur
 2. 매개 변수 값을 다음과 같이 채웁니다.
 
     * **projectName**: 4-5자의 문자열을 입력합니다. 이 이름은 고유한 Azure 리소스 이름을 만드는 데 사용됩니다.
-    * **azureResourceLocation**: 현재 Azure Deployment Manager 리소스는 **미국 중부** 또는 **미국 동부 2**에서만 만들 수 있습니다.
+    * **azureResourceLocation**: Azure 위치를 지정합니다.
     * **artifactSourceSASLocation**: 서비스 단위 템플릿 및 매개 변수 파일이 배포를 위해 저장되는 루트 디렉터리(Blob 컨테이너)의 SAS URI를 입력합니다.  [아티팩트 준비](#prepare-the-artifacts)를 참조하세요.
     * **binaryArtifactRoot**: 아티팩트의 폴더 구조를 변경하지 않는 한 이 자습서에서는 **binaries/1.0.0.0**을 사용합니다.
     * **managedIdentityID**: 사용자 할당 관리 ID를 입력합니다. [사용자가 할당한 관리 ID 만들기](#create-the-user-assigned-managed-identity)를 참조하세요. 구문은 다음과 같습니다.

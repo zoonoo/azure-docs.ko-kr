@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: ffcff84c7778ec3d6395e1c7a706c0deb2a0dc90
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f462a3743eb33bd33e2d392eba1c5944f40ade4f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72893428"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704521"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>관리되는 도메인의 암호 및 계정 잠금 정책
 
@@ -87,7 +87,7 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다.
+1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
 1. **시스템** 컨테이너를 열고 **암호 설정 컨테이너**합니다.
 
     Azure AD DS 관리 되는 도메인에 대 한 기본 제공 암호 정책이 표시 됩니다. 이 기본 제공 정책은 수정할 수 없습니다. 대신, 기본 정책을 재정의 하는 사용자 지정 암호 정책을 만듭니다.
@@ -112,7 +112,7 @@ Azure에서 응용 프로그램을 빌드하고 실행할 때 사용자 지정 �
 
     ![암호 정책을 적용할 사용자 및 그룹을 선택 합니다.](./media/how-to/fgpp-applies-to.png)
 
-1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *contoso.com*)을 확장 한 다음 **AADDC 사용자**와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
+1. 암호 정책은 그룹에만 적용할 수 있습니다. **위치** 대화 상자에서 도메인 이름 (예: *aadds.contoso.com*)을 확장 한 다음 **AADDC 사용자**와 같은 OU를 선택 합니다. 적용 하려는 사용자 그룹을 포함 하는 사용자 지정 OU가 있는 경우 해당 OU를 선택 합니다.
 
     ![그룹이 속하는 OU를 선택 합니다.](./media/how-to/fgpp-container.png)
 

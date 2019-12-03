@@ -1,17 +1,17 @@
 ---
-title: '자습서: Azure Functions를 사용하여 Azure SignalR Service 인증'
+title: '자습서: Azure Functions를 사용한 인증 - Azure SignalR'
 description: 이 자습서에서는 Azure Functions 바인딩을 위해 Azure SignalR Service 클라이언트를 인증하는 방법을 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.topic: tutorial
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: 28fb3295ef02d508ef04299398a61ea59828df35
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: dfa17720b34962611d240aa7c35ba8092bf99082
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "59278839"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158137"
 ---
 # <a name="tutorial-azure-signalr-service-authentication-with-azure-functions"></a>자습서: Azure Functions를 사용하여 Azure SignalR Service 인증
 
@@ -56,7 +56,7 @@ Azure Functions 앱을 로컬로 빌드하고 테스트합니다. 이 앱은 미
     | Name | 값 |
     |---|---|
     | 리소스 이름 | SignalR Service 인스턴스에 대한 고유한 이름입니다. |
-    | 리소스 그룹 | 고유한 이름으로 새 리소스 그룹을 만듭니다. |
+    | Resource group | 고유한 이름으로 새 리소스 그룹을 만듭니다. |
     | 위치 | 가까운 위치를 선택합니다. |
     | 가격 책정 계층 | 무료 |
 
@@ -148,7 +148,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
     | Name | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | Template | HTTP 트리거 |
+    | 템플릿 | HTTP 트리거 |
     | Name | negotiate |
     | 권한 부여 수준 | 익명 |
 
@@ -207,7 +207,7 @@ Azure Functions 런타임을 로컬로 실행하고 디버그하는 경우 **loc
     | Name | 값 |
     |---|---|
     | 함수 앱 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | Template | HTTP 트리거 |
+    | 템플릿 | HTTP 트리거 |
     | Name | SendMessage |
     | 권한 부여 수준 | 익명 |
 
@@ -317,8 +317,8 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
 
     | Name | 값 |
     |---|---|
-    | 구독 | SignalR Service 인스턴스가 포함된 구독 선택 |
-    | 리소스 그룹 | 동일한 리소스 그룹 선택 |
+    | Subscription | SignalR Service 인스턴스가 포함된 구독 선택 |
+    | Resource group | 동일한 리소스 그룹 선택 |
     | 리소스 이름 | 스토리지 계정에 대한 고유한 이름 |
     | 위치 | 다른 리소스와 동일한 위치 선택 |
     | 성능 | Standard |
@@ -374,10 +374,10 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     | Name | 값 |
     |---|---|
     | 배포할 폴더 | 주 프로젝트 폴더를 선택합니다. |
-    | 구독 | 구독 선택 |
-    | 함수 앱 | **새 Function App 만들기**를 선택합니다. |
+    | Subscription | 구독 선택 |
+    | 함수 앱 | **새 함수 앱 만들기**를 선택합니다. |
     | 함수 앱 이름 | 고유한 이름을 입력합니다. |
-    | 리소스 그룹 | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
+    | Resource group | SignalR Service 인스턴스와 동일한 리소스 그룹을 선택합니다. |
     | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
 
     새 함수 앱이 Azure에 만들어지고 배포가 시작됩니다. 배포가 완료될 때가지 기다립니다.
@@ -393,7 +393,7 @@ Azure에서 실행되는 함수 앱에는 Azure Storage 계정이 필요합니�
     | Name | 값 |
     |---|---|
     | 로컬 설정 파일 | local.settings.json |
-    | 구독 | 구독 선택 |
+    | Subscription | 구독 선택 |
     | 함수 앱 | 이전에 배포한 함수 앱을 선택합니다. |
 
 로컬 설정이 Azure의 함수 앱에 업로드됩니다. 기존 설정을 덮어쓸지 묻는 메시지가 표시되면 **모두 예**를 선택합니다.
@@ -451,7 +451,7 @@ App Service 인증은 Azure Active Directory, Facebook, Twitter, Microsoft 계�
 
     | Name | 값 |
     |---|---|
-    | 구독 | 구독 선택 |
+    | Subscription | 구독 선택 |
     | Storage 계정 | 이전에 만든 스토리지 계정을 선택합니다. |
     | 배포할 폴더 | **찾아보기**를 선택하고 *content* 폴더를 선택합니다. |
 

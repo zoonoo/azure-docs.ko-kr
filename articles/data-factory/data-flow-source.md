@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: 33a63b8a887594747aba03e19c107653e438853f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 27d9b3061794e5673d5ab24fe30d44f46e217c64
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217741"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702049"
 ---
 # <a name="source-transformation-for-mapping-data-flow"></a>매핑 데이터 흐름에 대 한 원본 변환 
 
@@ -30,7 +30,7 @@ ms.locfileid: "74217741"
 * Azure Blob Storage (JSON, Avro, 텍스트, Parquet)
 * Azure Data Lake Storage Gen1 (JSON, Avro, 텍스트, Parquet)
 * Azure Data Lake Storage Gen2 (JSON, Avro, 텍스트, Parquet)
-* Azure SQL 데이터 웨어하우스
+* Azure SQL Data Warehouse
 * Azure SQL Database
 * Azure CosmosDB
 
@@ -123,7 +123,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 모든 원본 설정은 [매핑 데이터 흐름의 변환 식 언어](data-flow-expression-functions.md)를 사용 하 여 식으로 지정할 수 있습니다. 동적 콘텐츠를 추가 하려면 설정 패널에서 필드 내부를 클릭 하거나 마우스로 가리킵니다. **동적 콘텐츠 추가**에 대 한 하이퍼링크를 클릭 합니다. 그러면 식, 정적 리터럴 값 또는 매개 변수를 사용 하 여 동적으로 값을 설정할 수 있는 식 작성기가 시작 됩니다.
 
-![매개 변수](media/data-flow/params6.png "매개 변수")
+![매개 변수](media/data-flow/params6.png "parameters")
 
 ## <a name="sql-source-options"></a>SQL 원본 옵션
 
@@ -131,7 +131,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 **입력:** 원본 위치를 테이블에 표시할지 (```Select * from <table-name>```와 동일) 선택 하거나 사용자 지정 SQL 쿼리를 입력 합니다.
 
-**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법 이기도 합니다. 예제: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
+**쿼리**: 입력 필드에서 쿼리를 선택 하는 경우 원본에 대 한 SQL 쿼리를 입력 합니다. 이 설정은 데이터 집합에서 선택한 테이블을 재정의 합니다. **Order by** 절은 여기서 지원 되지 않지만 전체 SELECT FROM 문을 설정할 수 있습니다. 사용자 정의 테이블 함수를 사용할 수도 있습니다. **select * From udfGetData ()** 는 테이블을 반환 하는 SQL의 UDF입니다. 이 쿼리는 데이터 흐름에서 사용할 수 있는 원본 테이블을 생성 합니다. 쿼리를 사용 하는 것은 테스트 또는 조회를 위해 행을 줄이는 좋은 방법 이기도 합니다. 예: ```Select * from MyTable where customerId > 1000 and customerId < 2000```
 
 **일괄 처리 크기**: 대량 데이터를 읽기로 청크 하는 일괄 처리 크기를 입력 합니다.
 
@@ -139,7 +139,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 * 커밋된 읽기
 * 커밋되지 않은 읽기
 * 반복 가능한 읽기
-* 직렬화 가능
+* 가능
 * 없음 (격리 수준 무시)
 
 ![격리 수준](media/data-flow/isolationlevel.png "격리 수준")
@@ -156,7 +156,7 @@ Azure Blob Storage 또는 Azure Data Lake Storage와 같은 파일 기반 데이
 
 ### <a name="import-schema"></a>스키마 가져오기
 
-복합 데이터 구조를 지 원하는 Avro 및 CosmosDB와 같은 데이터 집합은 스키마 정의가 데이터 집합에 존재 하지 않아도 됩니다. 따라서 "스키마 가져오기" 단추를 클릭 하 여 이러한 종류의 원본에 대 한 프로젝션 탭을 사용할 수 있습니다.
+복합 데이터 구조를 지 원하는 Avro 및 CosmosDB와 같은 데이터 집합은 스키마 정의가 데이터 집합에 존재 하지 않아도 됩니다. 따라서 이러한 형식의 원본에 대해 **프로젝션** 탭에서 **스키마 가져오기** 단추를 클릭할 수 있습니다.
 
 ## <a name="cosmosdb-specific-settings"></a>CosmosDB 특정 설정
 

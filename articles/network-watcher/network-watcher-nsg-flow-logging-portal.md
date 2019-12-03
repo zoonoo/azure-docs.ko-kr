@@ -1,6 +1,7 @@
 ---
-title: VM 간에 네트워크 트래픽 흐름 기록 - 자습서 - Azure Portal | Microsoft Docs
-description: Network Watcher의 NSG 흐름 기록 기능을 사용하여 VM 간에 네트워크 트래픽 흐름을 기록하는 방법을 알아봅니다.
+title: 자습서 - Azure Portal을 사용하여 VM을 오고 가는 네트워크 트래픽 흐름 기록
+titleSuffix: Azure Network Watcher
+description: 이 자습서에서는 Network Watcher의 NSG 흐름 기록 기능을 사용하여 VM 간에 네트워크 트래픽 흐름을 기록하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -17,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 3e5490a4d74f10532764029f7a83788e3e39b592
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69636210"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419621"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 

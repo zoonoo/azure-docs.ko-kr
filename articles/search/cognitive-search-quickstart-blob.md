@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: Azure Portal에서 기술 세트 만들기'
 titleSuffix: Azure Cognitive Search
-description: 데이터 가져오기 마법사를 사용하여 인지 기술을 인덱싱 파이프라인에 추가합니다. 인지 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
+description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search의 인덱싱 파이프라인에 인지 기술을 추가하는 방법에 대해 알아봅니다. 기술에는 OCR(광학 문자 인식)과 자연어 처리가 포함됩니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 2280b718fe949384bb67b1b606ab143ddca8e077
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5e891627b337a0a3a15d0ebfa2b9cc95f27feca4
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113361"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533112"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-cognitive-skillset-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인지 기술 세트 만들기
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 여러 종류의 작은 파일 집합으로 구성된 [샘플 데이터를 다운로드](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4)하세요. 파일의 압축을 풉니다.
 
-1. 현재 구독에서 [Azure 스토리지 계정을 만들거나](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+1. [Azure 스토리지 계정을 만들](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)거나 [기존 계정을 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Azure Cognitive Search와 동일한 지역을 선택합니다. 나중에 다른 연습에서 지식 저장소 기능을 사용해 보려면 StorageV2(범용 V2) 계정 유형을 선택합니다. 그렇지 않으면 임의의 유형을 선택합니다.
 
@@ -41,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    ![Azure Blob Storage의 원본 파일](./media/cognitive-search-quickstart-blob/sample-data.png)
 
-1. 동일한 구독에서 [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
+1. [Azure Cognitive Search 서비스를 만들](search-create-service-portal.md)거나 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 <!-- 1. You are almost done with this resource, but before you leave these pages, use a link on the left navigation pane to open the **Access Keys** page. In many tutorials, especially those that use the REST API, you will need a connection string to retrieve data from Blob storage. A connection string looks similar to the following example: `DefaultEndpointsProtocol=https;AccountName=<YOUR-ACCOUNT-NAME>;AccountKey=<YOUR-ACCOUNT-KEY>;EndpointSuffix=core.windows.net` -->
 
@@ -152,7 +152,7 @@ CTRL + F 키는 특정 결과 집합에 문서가 몇 개나 있는지 확인하
 
 마지막으로, 인덱스를 쿼리하여 내용을 확인할 수 있는 방법을 알아보았습니다. 결국 Azure Cognitive Search에서 제공하는 검색 가능한 인덱스는 [간단](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)하거나 [완전히 확장](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)된 쿼리 구문을 사용하여 쿼리할 수 있습니다. 보강된 필드를 포함하는 인덱스는 다른 인덱스와 비슷합니다. 원하는 경우 표준 또는 [사용자 지정 분석기](search-analyzers.md), [점수 매기기 프로필](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [동의어](search-synonyms.md), [패싯 필터](search-filters-facets.md), 지역 검색, 기타 Azure Cognitive Search 기능을 통합할 수 있습니다.
 
-## <a name="clean-up"></a>정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
@@ -160,12 +160,12 @@ CTRL + F 키는 특정 결과 집합에 문서가 몇 개나 있는지 확인하
 
 무료 서비스를 사용하는 경우 인덱스, 인덱서, 데이터 원본 세 개로 제한됩니다. 포털에서 개별 항목을 삭제하여 제한 이하로 유지할 수 있습니다. 
 
+> [!Tip]
+> 이 연습을 반복하거나 다른 AI 보강 연습을 수행하려면 포털에서 인덱서를 삭제합니다. 인덱서를 삭제하면 Cognitive Services 처리를 위해 무료 일별 트랜잭션 카운터가 0으로 다시 설정됩니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 포털, .NET SDK 또는 REST API를 사용하여 기술 세트를 만들 수 있습니다. 더 자세히 알아보려면 Postman과 더 많은 샘플 데이터를 통해 REST API를 사용해 보세요.
 
 > [!div class="nextstepaction"]
 > [자습서: AI 보강을 사용하여 "비정형 콘텐츠"에 구조 추가](cognitive-search-tutorial-blob.md)
-
-> [!Tip]
-> 이 연습을 반복하거나 다른 AI 보강 연습을 수행하려면 포털에서 인덱서를 삭제합니다. 인덱서를 삭제하면 Cognitive Services 처리를 위해 무료 일별 트랜잭션 카운터가 0으로 다시 설정됩니다.

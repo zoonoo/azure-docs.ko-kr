@@ -1,24 +1,16 @@
 ---
-title: Azure Pipelines를 사용한 지속적인 통합 | Microsoft Docs
+title: Azure Pipelines를 사용한 연속 통합
 description: Azure Resource Manager 템플릿을 지속적으로 빌드, 테스트 및 배포하는 방법을 알아봅니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: carmonm
-editor: ''
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/29/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: daf1e85835401f618d2804285cdb9579360aef15
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 457d2a8868283eed2e211ff26ce77156eee68e01
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052189"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326404"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>자습서: Azure Pipelines를 사용한 Azure Resource Manager 템플릿의 지속적인 통합
 
@@ -50,7 +42,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * 템플릿의 리포지토리를 만드는 데 사용할 **GitHub 계정**. 계정이 없는 경우 [무료로 만들 수 있습니다](https://github.com). GitHub 리포지토리 사용에 대한 자세한 내용은 [GitHub 리포지토리 빌드](/azure/devops/pipelines/repos/github)를 참조하세요.
 * **Git를 설치**합니다. 이 자습서의 지침에서는 *Git Bash* 또는 *Git Shell*을 사용합니다. 지침은 [Git 설치]( https://www.atlassian.com/git/tutorials/install-git)를 참조하세요.
 * **Azure DevOps 조직**. 조직이 없는 경우 무료로 만들 수 있습니다. [조직 또는 프로젝트 컬렉션 만들기]( https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization?view=azure-devops)를 참조하세요.
-* **Resource Manager Tools 확장이 있는 [Visual Studio Code](https://code.visualstudio.com/)** . [확장 설치](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)를 참조하세요.
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./resource-manager-tools-vs-code.md)를 참조하세요.
 
 ## <a name="prepare-a-github-repository"></a>GitHub 리포지토리 준비
 
@@ -162,7 +154,7 @@ Azure에 프로젝트를 배포하는 데 사용되는 서비스 연결을 만�
     * **모든 파이프라인에서 이 연결을 사용하도록 허용합니다**. (선택됨)
 1. **확인**을 선택합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만들기
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 지금까지 다음 작업을 완료했습니다.  GitHub 및 DevOps에 익숙해서 이전 섹션을 건너뛴 경우 다음 작업을 완료해야만 계속 진행할 수 있습니다.
 

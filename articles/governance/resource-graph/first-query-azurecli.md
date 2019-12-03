@@ -1,14 +1,14 @@
 ---
-title: Azure CLI를 사용하여 첫 번째 쿼리 실행
-description: 이 문서에서는 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 안내합니다.
-ms.date: 10/18/2019
+title: '빠른 시작: 첫 번째 Azure CLI 쿼리'
+description: 이 빠른 시작에서는 단계에 따라 Azure CLI에 대한 Resource Graph 확장을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: b74e4314a7755bb067831f955ca02d62485abe4f
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e75152c720d94f084b43f855452e5e8ce4dc6bc8
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958966"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304132"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -16,13 +16,17 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 [Azure CLI](/cli/azure
 
 이 프로세스가 끝나면 선택한 Azure CLI 설치에 확장이 추가되고 첫 번째 Resource Graph 쿼리를 실행하게 됩니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-extension"></a>Resource Graph 확장 추가
 
 Azure CLI를 사용하도록 설정하여 Azure Resource Graph를 쿼리하려면 해당 확장을 추가해야 합니다. 이 확장은 [Windows 10의 bash](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com)(독립형 및 포털 내부형), [Azure CLI Docker 이미지](https://hub.docker.com/r/microsoft/azure-cli/)를 포함하여 Azure CLI가 사용되거나 로컬로 설치될 수 있는 모든 위치에서 작동됩니다.
 
-1. 최신 Azure CLI(최소 **2.0.45**)가 설치되어 있는지 확인하세요. 아직 설치되지 않은 경우 [다음 지침](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)을 따릅니다.
+1. 최신 Azure CLI(최소 **2.0.76**)가 설치되어 있는지 확인하세요. 아직 설치되지 않은 경우 [다음 지침](/cli/azure/install-azure-cli-windows?view=azure-cli-latest)을 따릅니다.
 
 1. 선택한 Azure CLI 환경에서 다음 명령을 사용하여 가져옵니다.
 
@@ -87,10 +91,7 @@ az extension remove -n resource-graph
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
-- [리소스를 살펴 보는](./concepts/explore-resources.md) 방법을 자세히 알아보세요.
-- [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
-- [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리를 실행합니다.
-- [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
-- [고급 쿼리](./samples/advanced.md) 샘플을 살펴봅니다.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.
+이 빠른 시작에서는 Resource Graph 확장을 Azure CLI 환경에 추가하고 첫 번째 쿼리를 실행합니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+
+> [!div class="nextstepaction"]
+> [쿼리 언어에 대한 자세한 정보 가져오기](./concepts/query-language.md)

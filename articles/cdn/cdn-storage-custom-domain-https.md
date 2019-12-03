@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 341383c232718349f091a9c92207bb27cf87cc48
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e6415c9e8e0ab8743042891a2d0d422dffe37bdb
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083028"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74279099"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>자습서: HTTPS를 통해 Azure CDN 사용자 지정 도메인을 사용하여 스토리지 Blob에 액세스
 
@@ -43,11 +43,15 @@ Azure CDN은 SAS 토큰에 추가된 제한 사항을 무시합니다. 예를 �
 동일한 Blob 엔드포인트에 대해 여러 SAS URL을 만드는 경우 쿼리 문자열 캐싱을 설정하는 방안을 고려해 보세요. 이렇게 하면 각 URL이 고유한 엔터티로 처리됩니다. 자세한 내용은 [쿼리 문자열을 사용하여 Azure CDN 캐싱 동작 제어](cdn-query-string.md)를 참조하세요.
 
 ## <a name="http-to-https-redirection"></a>HTTP-HTTPS 리디렉션
-[Azure CDN 규칙 엔진](cdn-verizon-premium-rules-engine.md)으로 [URL 리디렉션 규칙](cdn-verizon-premium-rules-engine-reference-features.md#url-redirect)을 만들어서 HTTP 트래픽을 HTTPS로 리디렉션하도록 선택할 수 있습니다. 이 옵션을 사용하려면 **Verizon의 Azure CDN Premium** 프로필이 필요합니다.
+[표준 규칙 엔진](cdn-standard-rules-engine.md) 또는 [Verizon 프리미엄 규칙 엔진](cdn-verizon-premium-rules-engine.md)으로 URL 리디렉션 규칙을 만들어서 HTTP 트래픽을 HTTPS로 리디렉션하도록 선택할 수 있습니다. 표준 규칙 엔진은 Microsoft 프로필의 Azure CDN에만 사용할 수 있는 반면 Verizon 프리미엄 규칙 엔진은 Verizon 프로필의 Azure CDN 프리미엄에서만 사용할 수 있습니다.
 
-![URL 리디렉션 규칙](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+![Microsoft 리디렉션 규칙](./media/cdn-storage-custom-domain-https/cdn-standard-redirect-rule.png)
 
-이 규칙에서 *Cdn-endpoint-name*은 사용자가 CDN 엔드포인트에 대해 구성한 이름을 참조하며, 드롭다운 목록에서 이름을 선택할 수 있습니다. *Origin-path*의 값은 정적 콘텐츠가 있는 원본 스토리지 계정 내 경로를 참조합니다. 단일 컨테이너의 모든 정적 콘텐츠를 호스팅하는 경우 *origin-path*를 해당 컨테이너의 이름으로 바꿔야 합니다.
+위의 규칙에서 호스트 이름, 경로, 쿼리 문자열 및 조각을 벗어나면 리디렉션에 들어오는 값이 사용됩니다. 
+
+![Verizon 리디렉션 규칙](./media/cdn-storage-custom-domain-https/cdn-url-redirect-rule.png)
+
+위의 규칙에서 *Cdn-endpoint-name*은 사용자가 CDN 엔드포인트에 대해 구성한 이름을 참조하며, 드롭다운 목록에서 이름을 선택할 수 있습니다. *Origin-path*의 값은 정적 콘텐츠가 있는 원본 스토리지 계정 내 경로를 참조합니다. 단일 컨테이너의 모든 정적 콘텐츠를 호스팅하는 경우 *origin-path*를 해당 컨테이너의 이름으로 바꿔야 합니다.
 
 ## <a name="pricing-and-billing"></a>가격 책정 및 대금 청구
 Azure CDN을 통해 Blob에 액세스하는 경우 POP 서버와 원본(Blob Storage) 간 트래픽에는 [Blob Storage 가격](https://azure.microsoft.com/pricing/details/storage/blobs/), POP에서 액세스하는 데이터에는 [Azure CDN 가격](https://azure.microsoft.com/pricing/details/cdn/)으로 요금이 청구됩니다.

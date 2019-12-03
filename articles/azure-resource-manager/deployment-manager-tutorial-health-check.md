@@ -1,19 +1,16 @@
 ---
-title: Azure Deployment Manager에서 Resource Manager 템플릿 사용 | Microsoft Docs
+title: 템플릿과 함께 Azure Deployment Manager 사용
 description: Azure Deployment Manager에서 Resource Manager 템플릿을 사용하여 Azure 리소스를 배포합니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 0ce37a744cdf22beddcef433fca1a64252e1673d
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285675"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74149888"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>자습서: Azure Deployment Manager에서 상태 확인 사용(공개 미리 보기)
 

@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure Portal에서 Azure Resource Manager 템플릿 내보내기
+title: 자습서 - Azure Portal에서 템플릿 내보내기
 description: 내보낸 템플릿을 사용하여 템플릿 개발을 완료하는 방법을 알아봅니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6c22a8e2b479ed7d3a225bc649d89f5302d0f536
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243200"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406020"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>자습서: Azure Portal에서 내보낸 템플릿 사용
 
@@ -25,7 +22,7 @@ ms.locfileid: "72243200"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
@@ -52,7 +49,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 1. **검토 및 만들기**를 선택합니다.
 1. **만들기**를 선택합니다. 리소스를 만드는 데 몇 분 정도 걸립니다.
 
-## <a name="export-the-template"></a>템플릿 내보내기
+## <a name="export-template"></a>템플릿 내보내기
 
 1. **리소스로 이동**을 선택합니다.
 
@@ -71,7 +68,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 > [!IMPORTANT]
 > 일반적으로 내보낸 템플릿은 템플릿을 만들 때 필요한 것보다 더 자세한 정보를 포함합니다. 예를 들어, 내보낸 템플릿의 SKU 개체에는 5개의 속성이 있습니다. 이 템플릿도 괜찮지만 **name** 속성만 사용할 수 있습니다. 내보낸 템플릿으로 시작한 다음, 요구 사항에 맞게 원하는 대로 수정할 수 있습니다.
 
-## <a name="revise-the-existing-template"></a>기존 템플릿 수정
+## <a name="revise-existing-template"></a>기존 템플릿 수정
 
 내보낸 템플릿에는 필요한 JSON이 대부분 제공되지만 템플릿에 맞게 사용자 지정해야 합니다. 사용자의 템플릿과 내보낸 템플릿 간에 매개 변수와 변수의 차이점에 특히 주의해야 합니다. 물론, 내보내기 프로세스는 템플릿에 이미 정의해 놓은 매개 변수와 변수를 알지 못합니다.
 
@@ -81,7 +78,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 

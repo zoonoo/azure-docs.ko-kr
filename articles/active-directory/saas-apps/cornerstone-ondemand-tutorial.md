@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e25b1da7a91dc52aed680bc587dfc20aaee876c4
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 363b5b2dc2891166f779c98c6de1487bc45047a3
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68989564"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227628"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cornerstone-ondemand"></a>자습서: Cornerstone OnDemand와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -141,7 +141,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 사용자 프로비전을 구성하려면 프로비전하려는 Azure AD 사용자에 대한 정보(예: 이름, 이메일)를 [Cornerstone OnDemand 지원팀](mailto:moreinfo@csod.com)에 보냅니다.
 
 >[!NOTE]
->다른 Cornerstone OnDemand 사용자 계정 생성 도구 또는 Cornerstone OnDemand가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>다른 Cornerstone OnDemand 사용자 계정 생성 도구 또는 Cornerstone OnDemand가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트 
 

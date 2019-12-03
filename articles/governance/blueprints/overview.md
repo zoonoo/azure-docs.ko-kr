@@ -1,16 +1,16 @@
 ---
 title: Azure Blueprints 개요
 description: Azure Blueprints 서비스를 통해 Azure 환경에서 아티팩트를 만들고 정의하고 배포하는 방법을 알아봅니다.
-ms.date: 08/26/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.openlocfilehash: dadb7568a720d23f58d23896e84b3155ed2f12f4
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 07d84d658d88e977cd73176861e5c5e080c02857
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048296"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74321771"
 ---
-# <a name="overview-of-the-azure-blueprints-service"></a>Azure Blueprints 서비스 요약
+# <a name="what-is-azure-blueprints"></a>Azure Blueprints란?
 
 엔지니어나 설계자가 청사진을 통해 프로젝트의 설계 매개 변수를 스케치하는 것과 마찬가지로, 클라우드 설계자와 중앙 정보 기술 그룹은 Azure Blueprints를 통해 조직의 표준, 패턴 및 요구 사항을 구현하고 준수하는 반복 가능한 Azure 리소스 집합을 정의할 수 있습니다. 개발 팀은 Azure Blueprints를 통해 네트워킹 등의 기본 제공 구성 요소 집합을 사용하여 조직의 규정을 준수하면서 작성한 믿을 수 있는 새 환경을 빠르게 빌드하고 구축할 수 있으므로 개발 및 제공 시간을 단축할 수 있습니다.
 
@@ -62,7 +62,8 @@ Resource Manager 템플릿과 청사진 중 하나만 선택할 필요는 없습
 ### <a name="blueprint-parameters"></a>청사진 매개 변수
 
 Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플릿에 매개 변수를 전달할 수 있습니다.
-이 두 _아티팩트_ 중 하나를 청사진에 추가하면 다른 아티팩트가 각 청사진 할당에 대해 정의된 값을 제공할지, 아니면 각 청사진 할당이 할당 시에 값을 제공하도록 허용할지를 결정합니다. 이처럼 유동적인 방식이 사용되므로 청사진을 사용할 때마다 미리 정의된 값을 정의할 수도 있고, 할당 시에 해당 값을 결정하도록 설정할 수도 있습니다.
+이 두 _아티팩트_ 중 하나를 청사진에 추가하면 다른 아티팩트가 각 청사진 할당에 대해 정의된 값을 제공할지, 아니면 각 청사진 할당이 할당 시에 값을 제공하도록 허용할지를 결정합니다.
+이처럼 유동적인 방식이 사용되므로 청사진을 사용할 때마다 미리 정의된 값을 정의할 수도 있고, 할당 시에 해당 값을 결정하도록 설정할 수도 있습니다.
 
 > [!NOTE]
 > 청사진은 자체 매개 변수를 포함할 수 있지만 현재는 Portal이 아닌 REST API에서 청사진을 생성하는 경우에만 이러한 매개 변수를 만들 수 있습니다.
@@ -71,7 +72,8 @@ Blueprints에서는 정책/이니셔티브 또는 Azure Resource Manager 템플�
 
 ### <a name="blueprint-publishing"></a>청사진 게시
 
-처음 만든 청사진은 **초안** 모드로 간주됩니다. 할당할 준비가 된 청사진은 **게시**해야 합니다. 청사진을 게시하려면 **버전** 문자열(문자/숫자/하이픈 사용, 최대 20자)과 선택적 **변경 메모**를 정의해야 합니다. **버전**을 정의하면 해당 청사진을 같은 청사진의 이후 변경 버전과 구별할 수 있으며 각 버전을 할당할 수 있습니다. 또한 같은 청사진의 여러 **버전**을 같은 구독에 할당할 수도 있습니다. 청사진을 추가로 변경해도 **게시된** **버전**은 그대로 있으며 **게시되지 않은 변경 내용**도 생성됩니다. 변경이 완료되면 업데이트된 청사진이 새로운 고유 **버전**으로 **게시**되므로 역시 할당 가능합니다.
+처음 만든 청사진은 **초안** 모드로 간주됩니다. 할당할 준비가 된 청사진은 **게시**해야 합니다. 청사진을 게시하려면 **버전** 문자열(문자/숫자/하이픈 사용, 최대 20자)과 선택적 **변경 메모**를 정의해야 합니다. **버전**을 정의하면 해당 청사진을 같은 청사진의 이후 변경 버전과 구별할 수 있으며 각 버전을 할당할 수 있습니다. 또한 같은 청사진의 여러 **버전**을 같은 구독에 할당할 수도 있습니다. 청사진을 추가로 변경해도 **게시된**
+**버전**은 그대로 있으며 **게시되지 않은 변경 내용**도 생성됩니다. 변경이 완료되면 업데이트된 청사진이 새로운 고유 **버전**으로 **게시**되므로 역시 할당 가능합니다.
 
 ## <a name="blueprint-assignment"></a>청사진 할당
 
@@ -135,5 +137,6 @@ Azure Blueprints에 대한 다음 개요는 Azure Friday에서 가져온 것입�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 만들기 - Portal](create-blueprint-portal.md)
-- [청사진 만들기 - REST API](create-blueprint-rest-api.md)
+- [청사진 만들기 - Portal](./create-blueprint-portal.md).
+- [청사진 만들기 - PowerShell](./create-blueprint-powershell.md).
+- [청사진 만들기 - REST API](./create-blueprint-rest-api.md).

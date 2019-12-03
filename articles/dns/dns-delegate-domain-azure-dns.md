@@ -1,18 +1,18 @@
 ---
-title: 자습서 - 도메인 및 하위 도메인을 Azure DNS에 호스트
-description: 이 자습서에서는 DNS 영역을 호스트하도록 Azure DNS를 구성하는 방법을 보여줍니다.
+title: '자습서: 도메인 및 하위 도메인 호스트 - Azure DNS'
+description: 이 문서에서는 DNS 영역을 호스팅하도록 Azure DNS를 구성하는 방법에 대해 알아봅니다.
 services: dns
-author: vhorne
+author: asudbring
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: victorh
-ms.openlocfilehash: 99a3ca0115611f45ed080c39767d13e087b8efb8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: allensu
+ms.openlocfilehash: 062a5beaec30d510d37af436e00f4d57785245cd
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73464232"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74212219"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>자습서: Azure DNS에서 도메인 호스트
 

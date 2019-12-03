@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Bing Video Search REST API 및 Ruby를 사용하여 비디오 검색'
+title: '빠른 시작: REST API 및 Ruby를 사용하여 비디오 검색 - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Ruby를 통해 Bing Video Search REST API로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 1303abb204881833413bf0465909582e49535e1c
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 1f1cde38aa49488a73ce98cc1a9210ed22ebee73
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68500653"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378632"
 ---
 # <a name="quickstart-search-for-videos-using-the-bing-video-search-rest-api-and-ruby"></a>빠른 시작: Bing Video Search REST API 및 Ruby를 사용하여 비디오 검색
 

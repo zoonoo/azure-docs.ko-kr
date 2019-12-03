@@ -5,14 +5,14 @@ services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
 ms.topic: overview
-ms.date: 09/28/2019
+ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: ce70260c6033d22b20675d6f3872c2ffa6368252
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b646035f6a952f679059abab86d94179f447f9ff
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495616"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406223"
 ---
 # <a name="azure-web-application-firewall-on-azure-front-door"></a>Azure Front Door의 Azure 웹 애플리케이션 방화벽
 
@@ -92,16 +92,16 @@ Azure 관리형 규칙 세트는 일반적인 보안 위협에 대한 보호를 
 사용자 지정 규칙은 항상 기본 규칙 세트의 규칙을 평가하기 전에 적용됩니다. 요청이 사용자 지정 규칙과 일치하는 경우 해당 규칙 작업이 적용되고 요청은 기본 규칙 세트의 추가 사용자 지정 규칙 또는 규칙 호출 없이, 차단되거나 백 엔드로 전달됩니다. 또한 WAF 정책에서 기본 규칙 세트를 제거하는 옵션도 제공됩니다.
 
 
-### <a name="bot-protection-rule-preview"></a>봇 보호 규칙(미리 보기)
+### <a name="bot-protection-rule-set-preview"></a>봇 보호 규칙 세트(미리 보기)
 
-WAF에 대해 관리형 봇 보호 규칙 세트를 사용하도록 설정하여 알려진 악성 IP 주소의 요청에 대해 사용자 지정 작업을 수행할 수 있습니다. IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다.
+WAF에 대해 관리형 봇 보호 규칙 세트를 사용하도록 설정하여 알려진 봇 범주의 요청에 대해 사용자 지정 작업을 수행할 수 있습니다. 지원되는 세 가지 봇 범주는 잘못된 봇, 올바른 봇 및 알 수 없는 봇입니다. Bot 서명은 WAF 플랫폼에 의해 관리되고 동적으로 업데이트됩니다. 잘못된 봇에 대한 악성 IP 주소는 Microsoft 위협 인텔리전스 피드에서 제공됩니다. [Intelligent Security Graph](https://www.microsoft.com/security/operations/intelligence)는 Microsoft 위협 인텔리전스를 구동하며 Azure Security Center를 비롯한 여러 서비스에서 사용됩니다. 올바른 봇에는 유효성 검사가 완료된 검색 엔진이 포함됩니다. 알 수 없는 봇 범주에는 추가 봇 그룹이 포함됩니다. 다양한 종류의 봇을 차단, 허용, 기록 또는 리디렉션하는 사용자 지정 작업을 설정할 수 있습니다.
 
 ![봇 보호 규칙 세트](../media/afds-overview/botprotect2.png)
 
 > [!IMPORTANT]
 > 봇 보호 규칙 세트는 현재 공개 미리 보기이며 미리 보기 서비스 수준 계약과 함께 제공됩니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.  자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-봇 보호를 사용하면 악의적 봇의 클라이언트 IP와 일치하는 수신 요청이 FrontdoorWebApplicationFirewallLog 로그에 기록됩니다. 스토리지 계정, 이벤트 허브 또는 로그 분석에서 WAF 로그에 액세스할 수 있습니다. 
+봇 보호를 사용하면 봇 규칙과 일치하는 수신 요청이 FrontdoorWebApplicationFirewallLog 로그에 기록됩니다. 스토리지 계정, 이벤트 허브 또는 로그 분석에서 WAF 로그에 액세스할 수 있습니다.
 
 ## <a name="configuration"></a>구성
 

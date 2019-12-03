@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿에 매개 변수 추가
+title: 자습서 - 템플릿에 매개 변수 추가
 description: Azure Resource Manager 템플릿에 매개 변수를 추가하여 다시 사용할 수 있도록 합니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001508"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406084"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 매개 변수 추가
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001508"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
@@ -33,7 +30,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이 템플릿에 문제가 있음을 알 수 있습니다. 스토리지 계정 이름이 하드 코딩되어 있습니다. 이 템플릿은 매번 동일한 스토리지 계정을 배포하는 데에만 사용할 수 있습니다. 다른 이름의 스토리지 계정을 배포하려면, 새 템플릿을 만들어야 하며, 이것은 배포를 자동화하기에 타당한 방법이 아닙니다.
 
-## <a name="make-your-template-reusable"></a>템플릿을 재사용할 수 있도록 설정
+## <a name="make-template-reusable"></a>템플릿을 재사용할 수 있도록 설정
 
 템플릿을 재사용할 수 있도록, 스토리지 계정 이름을 전달하는 데 사용할 수 있는 매개 변수를 추가하겠습니다. 다음 예제에 강조 표시되어 있는 JSON은 템플릿에서 변경된 내용을 보여줍니다. **storageName** 매개 변수는 문자열로 식별됩니다. 너무 긴 이름은 피하기 위해 최대 길이는 24자로 설정되어 있습니다.
 
@@ -41,7 +38,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 템플릿을 배포해보겠습니다. 다음 예제는 Azure CLI 또는 PowerShell을 사용하여 템플릿을 배포합니다. 스토리지 계정 이름을 배포 명령의 값 중 하나로 제공합니다. 스토리지 계정 이름에 대해 이전 자습서에서 사용한 것과 동일한 이름을 제공합니다.
 
@@ -87,7 +84,7 @@ az group deployment create \
 
 **storageSKU** 매개 변수에는 기본값이 있습니다. 이 값은 배포 중에 값이 지정되지 않은 경우 사용됩니다. 허용되는 값 목록도 있습니다. 이 값은 스토리지 계정을 만드는 데 필요한 값과 일치합니다. 작동하지 않는 SKU는 템플릿 사용자가 전달하지 않도록 합니다.
 
-## <a name="redeploy-the-template"></a>템플릿 다시 배포
+## <a name="redeploy-template"></a>템플릿 다시 배포
 
 다시 배포할 준비가 되었습니다. 기본 SKU가 **Standard_LRS**로 설정되어 있기 때문에 해당 매개 변수에 대한 값을 제공할 필요가 없습니다.
 

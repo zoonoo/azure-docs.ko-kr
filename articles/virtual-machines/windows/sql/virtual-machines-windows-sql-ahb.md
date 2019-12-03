@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: aac20034fb4a528e48d5b383f39205a952878539
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900687"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707510"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -37,16 +37,17 @@ Azure VM에서 SQL Server에 Azure 하이브리드 혜택를 사용 하 고 정�
 
 - Azure Marketplace에서 사용자 라이선스 가져오기 SQL Server 이미지를 사용 하 여 가상 머신을 프로 비전 합니다. 이 옵션은 기업계약 있는 고객만 사용할 수 있습니다.
 - Azure Marketplace에서 종 량 제 SQL Server 이미지를 사용 하 여 가상 머신을 프로 비전 하 고 Azure 하이브리드 혜택를 활성화 합니다.
-- Azure VM에서 자동 설치 SQL Server 하 고, SQL Server VM를 수동으로 [등록](virtual-machines-windows-sql-register-with-resource-provider.md)하 고 Azure 하이브리드 혜택를 활성화 합니다.
+- Azure VM에서 자동 설치 SQL Server 하 고, [SQL VM 리소스 공급자를 사용](virtual-machines-windows-sql-register-with-resource-provider.md)하 여 수동으로 등록 하 고, Azure 하이브리드 혜택를 활성화 합니다.
 
-VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM을 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
+VM이 프로 비전 될 때 SQL Server의 라이선스 유형이 설정 됩니다. 나중에 언제 든 지 변경할 수 있습니다. 라이선스 모델 간을 전환 하면 가동 중지 시간이 발생 하지 않으며, VM 또는 SQL Server 서비스를 다시 시작 하지 않고 추가 비용을 추가 하지 않으며 즉시 적용 됩니다. 실제로 Azure 하이브리드 혜택를 활성화 하면 비용이 *절감* 됩니다.
 
 ## <a name="prerequisites"></a>전제 조건
 
-SQL VM 리소스 공급자를 사용 하려면 SQL Server IaaS 확장이 필요 합니다. 따라서 다음이 필요 합니다.
+SQL Server VM 라이선스 모델을 변경 하려면 다음 요구 사항이 충족 되어야 합니다. 
+
 - [Azure 구독](https://azure.microsoft.com/free/).
-- [소프트웨어 보증](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default). 
 - [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)에 등록 된 [SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 입니다.
+- [소프트웨어 보증](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 은 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)를 활용 하기 위한 요구 사항입니다. 
 
 
 ## <a name="change-the-license-for-vms-already-registered-with-the-resource-provider"></a>리소스 공급자에 이미 등록 된 Vm에 대 한 라이선스 변경 

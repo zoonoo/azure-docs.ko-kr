@@ -1,18 +1,14 @@
 ---
-title: Azure Backup 서비스를 사용하여 Azure Files 파일 공유 백업
+title: 자습서 - Azure Files 파일 공유 백업
 description: 이 자습서에서는 Azure Portal을 사용하여 Recovery Services 자격 증명 모음을 구성하고 Azure 파일 공유를 백업하는 방법에 대해 알아봅니다.
-author: dcurwin
-ms.author: dacurwin
 ms.date: 06/10/2019
 ms.topic: tutorial
-ms.service: backup
-manager: carmonm
-ms.openlocfilehash: a8b08f87441f9b4c67f718dfe9f0c894d0730a5f
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: f3c1956a0344d300fff9a745a4733b7bef45a367
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747060"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171861"
 ---
 # <a name="back-up-azure-file-shares-in-the-azure-portal"></a>Azure Portal의 Azure 파일 공유 백업
 

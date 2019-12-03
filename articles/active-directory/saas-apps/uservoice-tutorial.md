@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/29/2019
 ms.author: jeedes
-ms.openlocfilehash: c0c259d3d05232aa70016771e2a2bce7622730a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7a3302f1ca615fe5005be9ed1f09995ebf432eb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67087629"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232014"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uservoice"></a>자습서: UserVoice와 Azure Active Directory 통합
 
@@ -144,7 +144,7 @@ UserVoice에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 4. **사용자 인증 편집** 대화 상자 페이지에서 다음 단계를 수행합니다.
    
-    ![사용자 인증 편집](./media/uservoice-tutorial/ic777521.png "편집 사용자 인증")
+    ![사용자 인증 편집](./media/uservoice-tutorial/ic777521.png "사용자 인증 편집")
    
     a. **SSO(Single Sign-On)** 를 클릭합니다.
  
@@ -237,7 +237,7 @@ Azure AD 사용자가 UserVoice에 로그인할 수 있으려면 UserVoice에 �
     b. **초대**를 클릭합니다.
 
 > [!NOTE]
-> 다른 UserVoice 사용자 계정 생성 도구 또는 UserVoice가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 UserVoice 사용자 계정 생성 도구 또는 UserVoice가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

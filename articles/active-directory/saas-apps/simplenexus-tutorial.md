@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 1f8041ecea7c297c6eafdedfbedaae62f61e0e8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d368b6cd809ccf4e428974bf7c82c01bc5e035b7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67090589"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233413"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-simplenexus"></a>자습서: SimpleNexus와 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ SimpleNexus에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 �
 Azure AD 사용자가 SimpleNexus에 로그인할 수 있도록 하려면 SimpleNexus로 프로비전되어야 합니다. SimpleNexus의 경우 프로비전은 테넌트 관리자가 수행하는 수동 작업입니다.
 
 > [!NOTE]
-> 다른 SimpleNexus 사용자 계정 생성 도구 또는 SimpleNexus가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 SimpleNexus 사용자 계정 생성 도구 또는 SimpleNexus가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

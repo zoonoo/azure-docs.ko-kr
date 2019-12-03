@@ -1,6 +1,6 @@
 ---
-title: 네트워크 통신 모니터링 - 자습서 - Azure Portal | Microsoft Docs
-description: Azure Network Watcher의 연결 모니터 기능이 있는 두 가상 머신 간의 네트워크 통신을 모니터링하는 방법을 알아봅니다.
+title: 자습서 - Azure Portal을 사용하여 네트워크 통신 모니터링
+description: 이 자습서에서는 Azure Network Watcher의 연결 모니터 기능이 있는 두 가상 머신 간의 네트워크 통신을 모니터링하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 5cac4a46fb35ef955903018028abbe7588c94dc7
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 9d01060a966d55d26d7fc308ee352fb79cc73363
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "66233881"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419702"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 두 가상 머신 간의 네트워크 통신 모니터링
 
@@ -46,7 +46,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ### <a name="create-the-first-vm"></a>첫 번째 VM 만들기
 
 1. Azure Portal의 왼쪽 위 모서리에 있는 **+ 리소스 만들기**를 선택합니다.
-2. **계산**을 선택한 다음, 운영 체제를 선택합니다. 이 자습서에서는 **Windows Server 2016 Datacenter**를 사용합니다.
+2. **컴퓨팅**을 선택한 다음, 운영 체제를 선택합니다. 이 자습서에서는 **Windows Server 2016 Datacenter**를 사용합니다.
 3. 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **확인**을 선택합니다.
 
     |설정|값|
@@ -54,8 +54,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     |Name|myVm1|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
-    |구독| 구독을 선택합니다.|
-    |리소스 그룹| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
+    |Subscription| 구독을 선택합니다.|
+    |Resource group| **새로 만들기**를 선택하고 **myResourceGroup**을 입력합니다.|
     |위치| **미국 동부**를 선택합니다.|
 
 4. VM에 대한 크기를 선택한 다음, **선택**을 선택합니다.
@@ -76,7 +76,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 1 | **Ubuntu Server** 버전 선택 |                                                                         |
 | 3 | Name                                  | myVm2                                                                   |
 | 3 | 인증 유형                   | SSH 공개 키를 붙여넣거나 **암호**를 선택하고 암호를 입력합니다. |
-| 3 | 리소스 그룹                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
+| 3 | Resource group                        | **기존 항목 사용**을 선택하고, **myResourceGroup**을 선택합니다.                 |
 | 6 | 확장                            | **Linux용 Network Watcher 에이전트**                                             |
 
 VM을 배포하는 데 몇 분이 걸립니다. 나머지 단계를 계속하기 전에 VM이 배포를 완료하도록 기다립니다.

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: iainfou
-ms.openlocfilehash: 90d728ceee0b9a4ed5e5e33805de9358aca6530c
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: a24ff1d5f94a50dc30819e6ab86318592da72e45
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996318"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705203"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -24,7 +24,7 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 
 이 문서에서는 SharePoint Server 사용자 프로필 동기화 서비스를 허용 하도록 Azure AD DS를 구성 하는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서를 완료 하려면 다음 리소스와 권한이 필요 합니다.
 
@@ -45,7 +45,7 @@ SharePoint Server에는 사용자 프로필을 동기화 하는 서비스가 포
 Azure AD DS 관리 되는 도메인에서 **AAD DC 서비스 계정** 이라는 보안 그룹이 *사용자* OU (조직 구성 단위)의 일부로 존재 합니다. 이 보안 그룹의 구성원에게 다음 권한이 위임됩니다.
 
 - 루트 DSE에 대 한 **디렉터리 변경 내용 복제** 권한
-- *구성* 명명 컨텍스트 (`cn=configuration` 컨테이너)에 대 한 **디렉터리 변경 내용 복제** 권한입니다.
+- *구성* 명명 컨텍스트 (`cn=configuration` 컨테이너)의 **디렉터리 변경 내용 복제** 권한입니다.
 
 또한 **AAD DC 서비스 계정** 보안 그룹은 기본 제공 그룹인 **Windows 이전 2000 호환 액세스**의 멤버입니다.
 
@@ -62,7 +62,7 @@ Azure AD DS management VM에서 다음 단계를 완료 합니다.
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. 그룹 멤버 자격을 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
+1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 1. **사용자** OU를 선택 하 고 *AAD DC 서비스 계정* 보안 그룹을 선택 합니다.
 1. **멤버**를 선택 하 고 **추가 ...** 를 선택 합니다.
 1. SharePoint 서비스 계정의 이름을 입력 하 고 **확인**을 선택 합니다. 다음 예제에서 SharePoint 서비스 계정의 이름은 *spadmin*입니다.

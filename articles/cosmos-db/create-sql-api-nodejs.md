@@ -1,21 +1,21 @@
 ---
-title: Azure Cosmos DB는 JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 앱 빌드
-description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Node.js 코드 샘플을 제공합니다.
+title: '빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에서 쿼리'
+description: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터를 쿼리하는 앱을 만드는 방법을 설명합니다.
 author: deborahc
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 05/21/2019
+ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: bd9405630a471fc1909b1930db8efb7d0419daaa
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44cdd4307be56d864afb45d619958cc59a3fa978
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73495210"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220527"
 ---
-# <a name="quickstart-build-a-nodejs-app-using-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Node.js 앱 빌드
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터 쿼리
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -25,9 +25,7 @@ ms.locfileid: "73495210"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
-
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [SQL API](sql-api-introduction.md) 계정, 문서 데이터베이스 및 컨테이너를 만드는 방법을 보여줍니다. 그런 다음, [SQL JavaScript SDK](sql-api-sdk-node.md)에서 빌드된 콘솔 앱을 빌드하고 실행합니다. 이 빠른 시작은 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) 버전 2.0을 사용합니다.
+이 빠른 시작에서는 Node.js 앱을 사용하여 Azure Cosmos DB에서 [SQL API](sql-api-introduction.md) 계정에 연결하는 방법을 보여줍니다. 그런 다음, Azure Cosmos DB SQL 쿼리를 사용하여 데이터를 쿼리하고 관리할 수 있습니다. 이 문서에서 빌드하는 Node.js 앱은 [SQL JavaScript SDK](sql-api-sdk-node.md)를 사용합니다. 이 빠른 시작은 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) 버전 2.0을 사용합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -38,7 +36,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     * [Node.js](https://nodejs.org/en/) 버전 v6.0.0 이상
     * [Git](https://git-scm.com/)
 
-## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
+## <a name="create-a-database"></a>데이터베이스 만들기 
 
 [!INCLUDE [cosmos-db-create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
@@ -56,9 +54,9 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="clone-the-sample-application"></a>샘플 애플리케이션 복제
 
-이제 GitHub에서 SQL API 앱을 복제하고, 연결 문자열을 설정하고, 실행해보겠습니다.
+이제 GitHub에서 Node.js 앱을 복제하고 연결 문자열을 설정한 다음, 실행해 보겠습니다.
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"
@@ -78,25 +76,25 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="review-the-code"></a>코드 검토
 
-이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
+이 단계는 선택 사항입니다. Azure Cosmos 데이터베이스 리소스를 코드로 만드는 방법을 알아보려면 다음 코드 조각을 검토하면 됩니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
 이전 버전의 JavaScript SDK에 익숙한 경우 '컬렉션' 및 '문서'라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](https://docs.microsoft.com/azure/cosmos-db/introduction)을 지원하므로 JavaScript SDK 버전 2.0 이상에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 '컨테이너'와 컨테이너의 콘텐츠를 설명하는 '항목'이라는 용어를 사용합니다.
 
 다음 코드 조각은 모두 **app.js** 파일에서 가져옵니다.
 
-* `CosmosClient`가 초기화됩니다.
+* `CosmosClient` 개체가 초기화되었습니다.
 
     ```javascript
     const client = new CosmosClient({ endpoint, key });
     ```
 
-* 새 데이터베이스가 만들어집니다.
+* 새 Azure Cosmos 데이터베이스 만들기
 
     ```javascript
     const { database } = await client.databases.createIfNotExists({ id: databaseId });
     ```
 
-* 새 컨테이너(컬렉션)가 만들어집니다.
+* 데이터베이스 내에 새 컨테이너(컬렉션)가 만들어집니다.
 
     ```javascript
     const { container } = await client.database(databaseId).containers.createIfNotExists({ id: containerId });
@@ -108,7 +106,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     const { item } = await client.database(databaseId).container(containerId).items.create(itemBody);
     ```
 
-* JSON을 통해 SQL 쿼리가 수행됩니다.
+* 패밀리 데이터베이스에서 JSON에 대한 SQL 쿼리가 수행됩니다. 이 쿼리는 "Anderson" 패밀리의 모든 자식을 반환합니다. 
 
     ```javascript
       const querySpec = {
@@ -134,7 +132,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
-이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
+Azure Portal로 돌아가서 Azure Cosmos 계정의 연결 문자열 세부 정보를 가져옵니다. 앱이 데이터베이스에 연결할 수 있도록 연결 문자열을 앱에 복사합니다.
 
 1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정의 왼쪽 탐색 영역에 있는 **키**를 클릭한 다음, **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 `config.js` 파일에 복사하게 됩니다.
 
@@ -151,11 +149,12 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     `config.key = "FILLME"`
     
 ## <a name="run-the-app"></a>앱 실행
+
 1. 터미널에서 `npm install`를 실행하여 필요한 npm 모듈을 설치합니다.
 
 2. 터미널에서 `node app.js`을 실행하여 노드 애플리케이션을 시작합니다.
 
-이제 데이터 탐색기로 돌아가서 이 새 데이터를 쿼리 및 수정하고 작업에 사용할 수 있습니다. 
+Data Explorer로 돌아가서 이 새 데이터를 수정하고 작업에 사용할 수 있습니다.
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
@@ -167,7 +166,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Cosmos 계정을 만들고, Data Explorer를 사용하여 컨테이너를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos 계정을 만들고, 데이터 탐색기를 사용하여 컨테이너를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos 데이터베이스로 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)

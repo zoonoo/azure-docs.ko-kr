@@ -1,22 +1,16 @@
 ---
-title: Azure에서 Blob Storage에 의해 트리거되는 함수 만들기 | Microsoft Docs
+title: Azure에서 Blob 스토리지에 의해 트리거되는 함수 만들기
 description: Azure Functions를 사용하여 Azure Blob Storage에 추가된 항목에 의해 호출되는 서버를 사용하지 않는 함수를 만듭니다.
-services: azure-functions
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
 ms.assetid: d6bff41c-a624-40c1-bbc7-80590df29ded
-ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 10/01/2018
-ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: b8855fa061e07ec77482ca960971db8252608b51
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: be8d7abc6d7bb583516ca75f316edd18965ac395
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096875"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227159"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Azure Blob Storage에 의해 트리거되는 함수 만들기
 

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기'
+title: '빠른 시작: Python을 사용하여 REST API에 검색 요청 보내기 - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작을 사용하여 Python을 통해 Bing Entity Search REST API로 요청을 보내고 JSON 응답을 받습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: fa306ecd7690085d96f561fcf7e043064013344d
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 52695cca2fe49829705ac2283c9f083ada8ae0b0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68478940"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327097"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-python"></a>빠른 시작: Python을 사용하여 Bing Entity Search REST API에 검색 요청 보내기
 

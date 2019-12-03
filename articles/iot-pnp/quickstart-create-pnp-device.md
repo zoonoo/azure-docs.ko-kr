@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4ee9bf218765ea4c3966e7f0a8b20a8108de7655
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 72927dd89a81d2440bf78ba24402f5ce283006da
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931904"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405805"
 ---
 # <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-windows"></a>빠른 시작: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 미리 보기 디바이스 만들기(Windows)
 
@@ -46,46 +46,15 @@ Microsoft 회사 또는 학교 계정으로 로그인하거나 Microsoft 파트�
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
-
-또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. IoT Hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md).
-
-> [!IMPORTANT]
-> 공개 미리 보기 기간에는 **미국 중부**, **북유럽** 및 **일본 동부** 지역에서 만든 IoT 허브에서만 IoT 플러그 앤 플레이를 사용할 수 있습니다.
-
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
-
-```azurecli-interactive
-az extension add --name azure-cli-iot-ext
-```
-
-다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDevice** 자리 표시자를 실제 이름으로 바꿉니다.
-
-```azurecli-interactive
-az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDevice>
-```
-
-방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져오려면 다음 명령을 실행합니다.
-
-```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
-```
-
-다음 명령을 실행하여 허브의 _IoT Hub 연결 문자열_을 가져옵니다.
-
-```azurecli-interactive
-az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
-```
+[!INCLUDE [iot-pnp-prepare-iot-hub-windows.md](../../includes/iot-pnp-prepare-iot-hub-windows.md)]
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
-### <a name="get-azure-iot-device-sdk-for-c"></a>C용 Azure IoT 디바이스 SDK 받기
-
-이 빠른 시작에서는 [Vcpkg](https://github.com/microsoft/vcpkg)를 통해 Azure IoT C 디바이스 SDK를 설치하여 개발 환경을 준비합니다.
+이 빠른 시작에서는 [Vcpkg](https://github.com/microsoft/vcpkg) 라이브러리 관리자를 사용하여 개발 환경에 Azure IoT C 디바이스 SDK를 설치합니다.
 
 1. 명령 프롬프트를 엽니다. 다음 명령을 실행하여 Vcpkg를 설치합니다.
 
-    ```cmd/sh
+    ```cmd
     git clone https://github.com/Microsoft/vcpkg.git
     cd vcpkg
 
@@ -94,13 +63,13 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
     그런 다음, 사용자 전체 [통합](https://github.com/microsoft/vcpkg/blob/master/docs/users/integration.md)을 연결하려면 다음을 실행합니다(참고: 처음 사용할 때 관리자가 필요함).
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe integrate install
     ```
 
 1. 다음과 같이 Azure IoT C 디바이스 SDK Vcpkg를 설치합니다.
 
-    ```cmd/sh
+    ```cmd
     .\vcpkg.exe install azure-iot-sdk-c[public-preview,use_prov_client]
     ```
 
@@ -151,14 +120,14 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. `sample_device` 폴더에 `cmake` 하위 디렉터리를 만들고 해당 폴더로 이동합니다.
 
-    ```cmd\sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
 
 1. 다음 명령을 실행하여 생성된 코드 스텁을 빌드합니다(자리 표시자를 Vcpkg 리포지토리의 디렉터리로 바꿈).
 
-    ```cmd\sh
+    ```cmd
     cmake .. -G "Visual Studio 16 2019" -A Win32 -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="<directory of your Vcpkg repo>\scripts\buildsystems\vcpkg.cmake"
 
     cmake --build .
@@ -166,7 +135,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
     
     > [!NOTE]
     > Visual Studio 2017 또는 2015를 사용하는 경우 사용 중인 빌드 도구에 따라 CMake 생성기를 지정해야 합니다.
-    >```cmd\sh
+    >```cmd
     ># Either
     >cmake .. -G "Visual Studio 15 2017" -Duse_prov_client=ON -Dhsm_type_symm_key:BOOL=ON -DCMAKE_TOOLCHAIN_FILE="{directory of your Vcpkg repo}\scripts\buildsystems\vcpkg.cmake"
     ># or
@@ -178,7 +147,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. 빌드가 성공적으로 완료되면 애플리케이션을 실행하고 IoT Hub 디바이스 연결 문자열을 매개 변수로 전달합니다.
 
-    ```cmd\sh
+    ```cmd
     .\Debug\sample_device.exe "<device connection string>"
     ```
 
@@ -212,11 +181,11 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. _IoT Hub 연결 문자열_을 입력하고 **연결**을 선택합니다.
 
-1. 연결되면 디바이스 개요 페이지가 표시됩니다.
+1. 연결되면 **디바이스** 개요 페이지가 표시됩니다.
 
 1. 회사 리포지토리를 추가하려면 **설정**, **+ 모듈 정의 원본 새로 만들기**, **회사 리포지토리**를 차례로 선택합니다. 회사 모델 리포지토리 연결 문자열을 추가하고 **저장 수 연결**을 선택합니다.
 
-1. 디바이스 개요 페이지에서 이전에 만든 디바이스 ID를 찾아 선택하고 세부 정보를 살펴봅니다.
+1. **디바이스** 개요 페이지로 돌아가서 이전에 만든 디바이스 ID를 찾습니다. 디바이스 애플리케이션이 명령 프롬프트에서 계속 실행 중인 상태에서 Azure IoT 탐색기에 디바이스의 **연결 상태**가 _연결됨_으로 보고되고 있는지 확인합니다(그렇지 않은 경우 **새로 고침**을 연결될 때까지 누릅니다). 디바이스를 선택하여 자세한 내용을 봅니다.
 
 1. ID가 **urn:<YOUR_INTERFACE_NAME>:EnvironmentalSensor:1**인 인터페이스를 확장하여 IoT 플러그 앤 플레이 기본 형식인 속성, 명령 및 원격 분석을 살펴봅니다. 표시되는 인터페이스 이름은 모델을 작성할 때 입력한 이름입니다.
 
@@ -226,7 +195,7 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 
 1. **속성(쓰기 가능)** 페이지를 선택하여 업데이트할 수 있는 쓰기 가능 속성을 살펴봅니다.
 
-1. 속성 **이름**을 확장하고, 새 이름으로 업데이트하고, **쓰기 가능한 속성 업데이트**를 선택합니다.
+1. 속성 **이름**을 확장하고, 새 이름으로 업데이트하고, **쓰기 가능한 속성 업데이트**를 선택합니다. 
 
 1. 새 이름이 **보고된 속성** 열에 표시되는 것을 보려면 페이지 맨 위에 있는 **새로 고침** 단추를 선택합니다.
 
@@ -235,6 +204,8 @@ az iot hub show-connection-string --hub-name <YourIoTHubName> --output table
 1. **blink** 명령을 확장하고 깜박임 시간 간격을 새로 설정합니다. **명령 보내기**를 선택하여 디바이스에서 명령을 호출합니다.
 
 1. 시뮬레이트된 디바이스 명령 프롬프트로 이동한 후 인쇄된 확인 메시지를 읽어 보면서 명령이 예상대로 실행되었는지 확인합니다.
+
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

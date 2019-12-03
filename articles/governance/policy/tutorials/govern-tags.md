@@ -1,14 +1,14 @@
 ---
-title: 태그 거버넌스 관리
-description: Azure Policy의 Modify 효과를 사용하여 신규 및 기존 리소스에 대한 태그 거버넌스 모델을 만들고 적용합니다.
-ms.date: 11/04/2019
+title: '자습서: 태그 거버넌스 관리'
+description: 이 자습서에서는 Azure Policy의 Modify 효과를 사용하여 신규 및 기존 리소스에 대한 태그 거버넌스 모델을 만들고 적용합니다.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: edb74bce5758ae040a6170a8e73be75fc228b001
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e3d6e279b293ea8063c690f9fb69a6f183b2838d
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069669"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482263"
 ---
 # <a name="tutorial-manage-tag-governance-with-azure-policy"></a>자습서: Azure Policy를 사용하여 태그 거버넌스 관리
 
@@ -21,7 +21,16 @@ Azure Policy의 [Modify](../concepts/effects.md#modify) 효과는 리소스 거�
 - 태그 거버넌스가 없는 수천 개의 리소스가 이미 있는 경우
 - 변경해야 하는 기존 분류 체계가 이미 있는 경우
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+이 자습서에서는 다음 작업을 완료할 것입니다.
+
+> [!div class="checklist"]
+> - 비즈니스 요구 사항 식별
+> - 각 요구 사항을 정책 정의에 매핑
+> - 태그 정책을 이니셔티브로 그룹화
+
+## <a name="prerequisites"></a>필수 조건
+
+이 자습서를 완료하려면 Azure 구독이 필요합니다. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
 
 ## <a name="identify-requirements"></a>ID 요구 사항
 
@@ -184,6 +193,16 @@ Azure Policy로 관리되는 Azure 환경과 관련하여 _Env_ 태그 요구 �
 위의 태그 정책이 생성되면 태그 거버넌스를 위한 단일 이니셔티브에 조인하여 관리 그룹 또는 구독에 할당합니다. 그러면 이니셔티브 및 포함된 정책이 기존 리소스의 준수 여부를 평가하고 정책 규칙의 **if** 속성과 일치하는 신규 리소스나 업데이트된 리소스에 대한 요청을 변경합니다. 단, 이 정책은 기존 비준수 리소스를 정의된 태그 변경 내용으로 자동 업데이트하지 않습니다.
 
 [deployIfNotExists](../concepts/effects.md#deployifnotexists) 정책처럼 **Modify** 정책은 수정 작업을 사용하여 기존 비준수 리소스를 변경합니다. [리소스를 수정하는 방법](../how-to/remediate-resources.md)의 지침에 따라 비준수 **Modify** 리소스를 식별하고 정의된 분류 체계에 맞게 태그를 수정할 수 있습니다.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서의 리소스를 모두 마쳤으면 다음 단계를 사용하여 위에서 만든 할당 또는 정의를 삭제합니다.
+
+1. Azure Policy 페이지의 왼쪽 창에 있는 **작성** 아래에서 **정의**(또는 할당을 삭제하려는 경우 **할당**을 선택)를 선택합니다.
+
+1. 제거할 새 이니셔티브 또는 정책 정의(또는 할당)를 검색합니다.
+
+1. 행을 마우스 오른쪽 단추로 클릭하거나 정의(또는 할당) 끝에 있는 줄임표를 선택하고 **정의 삭제**(또는 **할당 삭제**)를 선택합니다.
 
 ## <a name="review"></a>검토
 

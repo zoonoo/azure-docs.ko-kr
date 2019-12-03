@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3ba2f59799629873553fe261abebf59529ad94d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 0e08ef72dca09f873ad1cfcc91e132063b88406b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "73570596"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227526"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-freshservice"></a>자습서: Freshservice와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -95,7 +95,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. SSO가 작동하려면 Freshservice에 SHA-256 지문이 필요합니다. SHA-256 지문을 가져오려면 다음 단계를 수행합니다.
 
-    ![지문](./media/freshservice-tutorial/ic790821.png "지문")
+    ![FingerPrint](./media/freshservice-tutorial/ic790821.png "FingerPrint")
 
     1. 다른 웹 브라우저에서 [링크](https://www.samltool.com/fingerprint.php)를 엽니다.
 
@@ -163,7 +163,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 6. **보안** 섹션에서 다음 단계를 수행합니다.
 
-    ![Single Sign On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
+    ![Single Sign-On](./media/freshservice-tutorial/ic790816.png "Single Sign On")
 
     a. **Single Sign On**을 전환합니다.
 
@@ -210,7 +210,7 @@ Azure AD 사용자가 FreshService에 로그인할 수 있도록 하려면 Fresh
     >  
 
 > [!NOTE]
-> 다른 FreshService 사용자 계정 생성 도구 또는 FreshService가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 FreshService 사용자 계정 생성 도구 또는 FreshService가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

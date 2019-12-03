@@ -1,27 +1,23 @@
 ---
-title: Azure Migrate 서버 평가를 사용하여 물리적 서버 평가 준비
-description: Azure Migrate 서버 평가를 사용하여 물리적 서버의 평가 및 Azure로 마이그레이션을 준비하는 방법을 설명합니다.
+title: Azure Migrate를 사용하여 평가/마이그레이션을 위한 물리적 서버 준비
+description: Azure Migrate를 사용하여 물리적 서버의 평가/마이그레이션을 준비하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/07/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 176dfdabeee6299bba0eb17085be25ced3e97993
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 363549662a17a87513c8426347909142ee405cae
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091911"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196393"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>물리적 서버의 평가 및 Azure로 마이그레이션 준비
 
 이 문서에서는 [Azure Migrate](migrate-services-overview.md)를 사용하여 온-프레미스 물리적 서버의 평가를 준비하는 방법에 대해 설명합니다.
-
-
-> [!NOTE]
-> Azure Migrate 포털에 이러한 기능중 일부가 아직 표시되지 않으면 중단합니다. 이는 다음 주 정도에 표시됩니다.
 
 [Azure Migrate](migrate-overview.md)는 앱, 인프라 및 워크로드를 검색, 평가 및 Microsoft Azure로 마이그레이션하는 데 도움이 되는 도구의 허브를 제공합니다. 허브에는 Azure Migrate 도구와 타사 ISV(독립 소프트웨어 공급업체) 제품이 포함되어 있습니다. 
 
@@ -45,7 +41,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure Migrate 배포를 위한 권한을 설정해야 합니다.
 
-- Azure 계정에서 Azure Migrate 프로젝트를 만들 수 있는 권한 
+- Azure 계정에서 Azure Migrate 프로젝트를 만들 수 있는 권한
 - 계정에서 Azure Migrate 어플라이언스를 등록할 수 있는 권한. 어플라이언스는 Hyper-V 검색 및 마이그레이션에 사용됩니다. 어플라이언스를 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만듭니다.
     - 첫 번째 앱은 Azure Migrate 서비스 엔드포인트와 통신합니다.
     - 두 번째 앱은 등록 중에 만든 Azure Key Vault에 액세스하여 Azure AD 앱 정보 및 어플라이언스 구성 설정을 저장합니다.
@@ -73,7 +69,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 주의해야 할 사항은 다음과 같습니다.
 
 - 앱에는 위에서 설명한 구독에 대한 액세스 권한 이외의 다른 권한이 없습니다.
-- 이러한 권한은 새 어플라이언스를 등록할 때만 필요합니다. 어플라이언스가 설정되면 해당 권한을 제거할 수 있습니다. 
+- 이러한 권한은 새 어플라이언스를 등록할 때만 필요합니다. 어플라이언스가 설정되면 해당 권한을 제거할 수 있습니다.
 
 
 #### <a name="grant-account-permissions"></a>계정 권한 부여
@@ -88,7 +84,7 @@ Azure Migrate 프로젝트를 만들 수 있는 권한이 있는지 확인합니
 > [!NOTE]
 > 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
 
-#### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당 
+#### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당
 
 테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal).
 
@@ -124,12 +120,12 @@ Azure Migrate에는 온-프레미스 서버를 검색할 수 있는 권한이 �
 ## <a name="next-steps"></a>다음 단계
 
 이 자습서에서는 다음을 수행합니다.
- 
-> [!div class="checklist"] 
+
+> [!div class="checklist"]
 > * Azure 계정 권한을 설정합니다.
 > * 물리적 서버 평가를 준비합니다.
 
 Azure Migrate 프로젝트를 만들고 Azure로 마이그레이션을 위해 물리적 서버를 평가하려면 다음 자습서로 계속 진행하세요.
 
-> [!div class="nextstepaction"] 
-> [물리적 서버 평가](./tutorial-assess-physical.md) 
+> [!div class="nextstepaction"]
+> [물리적 서버 평가](./tutorial-assess-physical.md)

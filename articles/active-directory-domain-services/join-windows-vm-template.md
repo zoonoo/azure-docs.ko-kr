@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: 9f35c9c3c6c974c79dc849425fc91b532aed4d22
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 3e1a754d39025136866712cb57026e827c986f6a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755695"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704992"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인에 Windows Server 가상 머신 연결
 
@@ -92,8 +92,8 @@ Windows Server VM을 만들려면 Azure AD DS 관리 되는 도메인에 가입 
     | 기존 VNET 이름        | VM을 연결할 기존 가상 네트워크의 이름 (예: *Myvnet*)입니다. |
     | 기존 서브넷 이름      | *작업 부하*와 같은 기존 가상 네트워크 서브넷의 이름입니다. |
     | DNS 레이블 접두사          | VM에 사용할 DNS 이름 (예: *myvm*)을 입력 합니다. |
-    | VM 크기                   | VM 크기 (예: *Standard_DS2_v2*)를 지정 합니다. |
-    | 가입할 도메인            | Azure AD DS 관리 되는 도메인 DNS 이름 (예: *contoso.com*)입니다. |
+    | VM 크기                   | *Standard_DS2_v2*와 같은 VM 크기를 지정 합니다. |
+    | 가입할 도메인            | Azure AD DS 관리 되는 도메인 DNS 이름 (예: *aadds.contoso.com*)입니다. |
     | 도메인 사용자 이름           | VM을 관리 되는 도메인에 가입 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |
     | 도메인 암호           | 이전 설정에 지정 된 사용자 계정의 암호입니다. |
     | 선택적 OU 경로          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대 한 값을 지정 하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가 됩니다. |

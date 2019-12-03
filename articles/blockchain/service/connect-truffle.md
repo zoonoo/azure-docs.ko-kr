@@ -1,25 +1,19 @@
 ---
-title: Truffle을 사용하여 연결
+title: Truffle을 사용하여 Azure Blockchain Service에 연결
 description: Truffle을 사용하여 Azure Blockchain Service 네트워크에 연결
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
-ms.date: 08/29/2019
+ms.date: 11/20/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: ea64e3fe4789ac0558463ded81c8179db83469d5
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.reviewer: janders
+ms.openlocfilehash: 9ea96aa32072775fe6fb9563442f5e3564d37ea5
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932589"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455804"
 ---
-# <a name="quickstart-use-truffle-to-connect-to-a-transaction-node"></a>빠른 시작: Truffle을 사용하여 트랜잭션 노드에 연결
+# <a name="quickstart-use-truffle-to-connect-to-azure-blockchain-service"></a>빠른 시작: Truffle을 사용하여 Azure Blockchain Service에 연결
 
-Truffle은 Azure Blockchain Service 트랜잭션 노드에 연결하는 데 사용할 수 있는 블록체인 개발 환경입니다.
+이 빠른 시작에서는 Truffle을 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결합니다. 그런 다음, Truffle 대화형 콘솔을 사용하여 **web3** 메서드를 호출하여 blockchain 네트워크와 상호 작용합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -58,12 +52,15 @@ Truffle은 Azure Blockchain Service 트랜잭션 노드에 연결하는 데 사�
 
 Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노드 정보가 필요합니다.
 
-### <a name="transaction-node-endpoint-addresses"></a>트랜잭션 노드 엔드포인트 주소
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Azure Blockchain Service 멤버로 이동합니다. **트랜잭션 노드**와 기본 트랜잭션 노드 링크를 선택합니다.
 
-1. Azure Portal에서 기본 트랜잭션 노드로 이동하여 **트랜잭션 노드 > 연결 문자열**을 선택합니다.
-1. **HTTPS(액세스 키 1)** 에서 엔드포인트 URL을 복사하여 저장합니다. 자습서의 뒷부분에 있는 스마트 계약 구성 파일에 대한 엔드포인트 주소가 필요합니다.
+    ![기본 트랜잭션 노드 선택](./media/connect-truffle/transaction-nodes.png)
 
-    ![트랜잭션 엔드포인트 주소](./media/connect-truffle/endpoint.png)
+1. **연결 문자열**을 선택합니다.
+1. **HTTPS(액세스 키 1)** 에서 연결 문자열을 복사합니다. 다음 섹션에는 문자열이 필요합니다.
+
+    ![연결 문자열](./media/connect-truffle/connection-string.png)
 
 ### <a name="edit-configuration-file"></a>구성 파일 편집
 
@@ -100,7 +97,7 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
 
     Truffle은 기본 트랜잭션 노드에 연결되고 대화형 콘솔을 제공합니다.
 
-    **web3** 개체에서 메서드를 호출하여 트랜잭션 노드와 상호 작용할 수 있습니다.
+    **web3** 개체에서 메서드를 호출하여 블록체인 네트워크와 상호 작용할 수 있습니다.
 
 1. 현재 블록 수를 반환하려면 **getBlockNumber** 메서드를 호출합니다.
 
@@ -122,9 +119,9 @@ Truffle 프로젝트를 구성하려면 Azure Portal의 일부 트랜잭션 노�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Blockchain Service 기본 트랜잭션 노드에 연결하는 Truffle 프로젝트를 만들었습니다.
+이 빠른 시작에서는 Truffle을 사용하여 Azure Blockchain Service 기본 트랜잭션 노드에 연결하고 대화형 콘솔을 사용하여 현재 블록체인 블록 번호를 반환했습니다.
 
-다음 자습서에서는 Etherum 및 Truffle용 Azure Blockchain Development Kit를 사용하여 트랜잭션을 통해 스마트 계약 함수를 생성, 빌드, 배포 및 실행합니다.
+다음 자습서에서 Etherum용 Azure Blockchain Development Kit를 사용하여 트랜잭션을 통해 스마트 계약 함수를 만들고, 빌드하고, 배포하고, 실행해 보세요.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포](send-transaction.md)
+> [Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포](send-transaction.md)

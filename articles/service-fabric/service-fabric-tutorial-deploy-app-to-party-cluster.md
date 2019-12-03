@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/22/2019
 ms.author: mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 4767f43171e8576fcf35ba7304c48b05b85745c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 37c27ae71eddcb5a35b9baeae250bee232c7acb7
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553579"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74213194"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>자습서: Azure의 클러스터에 Service Fabric 애플리케이션 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "72553579"
 * [Service Fabric SDK를 설치](service-fabric-get-started.md)합니다.
 
 > [!NOTE]
-> 체험 계정은 가상 머신을 만들기 위한 요구 사항을 충족하지 못할 수 있습니다. 그러면 자습서가 완료되지 않습니다.
+> 체험 계정은 가상 머신을 만들기 위한 요구 사항을 충족하지 못할 수 있습니다. 그러면 자습서가 완료되지 않습니다. 또한 회사 또는 학교 이외의 계정에는 클러스터와 연결된 keyvault에서 인증서를 만드는 동안 사용 권한 문제가 발생할 수 있습니다. 인증서 생성과 관련된 오류가 발생하면 포털을 사용하여 대신 클러스터를 만듭니다. 
 
 ## <a name="download-the-voting-sample-application"></a>투표 애플리케이션 샘플 다운로드
 

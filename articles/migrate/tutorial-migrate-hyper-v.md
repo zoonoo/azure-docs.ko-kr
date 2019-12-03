@@ -1,19 +1,19 @@
 ---
-title: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션 | Microsoft Docs
-description: 이 문서에서는 Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법에 대해 설명합니다.
+title: Azure Migrate 서버 마이그레이션을 사용하여 Hyper-V VM을 Azure로 마이그레이션
+description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 Hyper-V VM을 Azure로 마이그레이션하는 방법 알아보기
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/18/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 755bb6d019418cf9dae22ebf7ee6a3c94af3c750
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: be5d519269739f09b4a4264292f578b1d7051d26
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309440"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196333"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
-1. Hyper-V 마이그레이션 아키텍처를 [검토](migrate-architecture.md)합니다.
+1. Hyper-V 마이그레이션 아키텍처를 [검토](hyper-v-migration-architecture.md)합니다.
 2. 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-hyper-v.md)하여 마이그레이션을 위해 Azure 및 Hyper-V를 설정합니다. 첫 번째 자습서에서는 다음을 수행합니다.
     - 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)합니다.
     - 마이그레이션을 위해 [온-프레미스 환경을 준비](tutorial-prepare-hyper-v.md#prepare-for-hyper-v-migration)합니다.

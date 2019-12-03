@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 134483764ffcb012ece0769a514683fc9487887f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 813117bce4abd3550ac559109c1650ea4a7cff5c
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073621"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538254"
 ---
 # <a name="create-and-publish-a-product"></a>제품 만들기 및 게시  
 
@@ -57,7 +57,7 @@ Azure API Management에서 제품은 하나 이상의 API뿐만 아니라 사용
     | 승인 필요        | 관리자가 이 제품에 대한 구독을 검토하고 허용하거나 거부하도록 하려면 **승인 필요**를 선택합니다. 상자의 선택을 취소하면 구독 시도가 자동으로 승인됩니다.                                                                                                                         |
     | 구독 수 제한 | 동시에 여러 개의 구독 수를 제한하려면 구독 제한을 입력합니다.                                                                                                                                                                                                                                |
     | 약관              | 구독자가 제품을 사용하기 위해 허용해야 하는 제품의 사용 약관을 포함할 수 있습니다.                                                                                                                                                                                                             |
-    | API                     | 제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/> 제품 만들기 중에 기존 API를 추가할 수 있습니다. 제품 **설정** 페이지 또는 API를 만드는 동안 나중에 제품에 API를 추가할 수 있습니다. |
+    | API                     | 제품은 하나 이상의 API와 연결됩니다. 다양한 API를 포함하고 개발자 포털을 통해 개발자에게 제공할 수 있습니다. <br/> 제품 만들기 중에 기존 API를 추가할 수 있습니다. 제품의 **설정** 페이지 또는 API를 만드는 동안 나중에 제품에 API를 추가할 수 있습니다. |
 
 3. **만들기**를 클릭하여 새 제품을 만듭니다.
 

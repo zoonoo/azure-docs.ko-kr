@@ -1,5 +1,5 @@
 ---
-title: Swift에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법 | Microsoft Docs
+title: Swift의 광역 위치 재결정
 description: Swift에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: bucurb
 manager: dacoghl
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 1d1cd8be740c4d1cbaefcc6b03a42ca188eb26ac
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 1381f6340d1b85376ad5be9e00c596aa921d957f
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093049"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74277188"
 ---
 # <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-swift"></a>Swift에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법
 

@@ -7,12 +7,12 @@ ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 10/24/2019
-ms.openlocfilehash: d0e19c8483321189cb38a4eebdbf7b2cb89785ef
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 0503ebc7a585210f95eb58b0f11ae1dd0a835264
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933034"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278618"
 ---
 # <a name="get-started-with-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 시작
 
@@ -239,4 +239,7 @@ Perf
 
 ## <a name="next-steps"></a>다음 단계
 
-- [검색 쿼리 작성](search-queries.md)에 대해 알아보기
+- [Azure Monitor 로그 쿼리에서 문자열 작업](string-operations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 문자열 작업](advanced-aggregations.md)을 통해 로그 쿼리에서 문자열 데이터를 사용하는 방법에 대해 자세히 알아봅니다.
+- [Azure Monitor 로그 쿼리에서 조인](joins.md)을 통해 여러 테이블의 데이터를 조인하는 방법에 대해 알아봅니다.
+- [KQL 언어 참조](/azure/kusto/query/)에서 전체 Kusto 쿼리 언어에 대한 설명서를 가져옵니다.

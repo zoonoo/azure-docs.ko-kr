@@ -6,29 +6,30 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: b2c840b9de25ff6997037c284c60390e7afa03ec
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 37249cc560d4493c34dd4be6139de03f9c152a08
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125554"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414600"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 * [Python 3.6](https://www.python.org/downloads/) 이상
 * [Visual Studio Code](https://code.visualstudio.com/)
+* 공용 앱 ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
 [!INCLUDE [Use authoring key for endpoint](../includes/get-key-quickstart.md)]
 
-## <a name="get-intent--programmatically"></a>프로그래밍 방식으로 의도 가져오기
+## <a name="get-intent-from-the-prediction-endpoint"></a>예측 엔드포인트에서 의도 가져오기
 
-Python을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다.
+Python을 사용하여 [예측 엔드포인트](https://aka.ms/luis-apim-v3-prediction)를 쿼리하고 예측 결과를 가져옵니다.
 
-1. 다음 코드 조각 중 하나를 `predict.py` 파일에 복사합니다.
+1. 이 코드 조각을 `predict.py`라는 파일에 복사합니다.
 
     ```python
     ########### Python 3.6 #############
@@ -63,10 +64,10 @@ Python을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET 
 
 1. 다음 값을 바꿉니다.
 
-    * `YOUR-KEY`를 시작 키로
-    * `YOUR-ENDPOINT`를 엔드포인트로(예: `westus2.api.cognitive.microsoft.com`)
+    * 시작 키로 있는 `YOUR-KEY`.
+    * 엔드포인트가 있는 `YOUR-ENDPOINT`. 예: `westus2.api.cognitive.microsoft.com`
 
-1. 다음 콘솔 명령을 사용하여 종속성을 설치합니다.
+1. `requests` 종속성을 설치합니다. 이는 HTTP 요청을 수행하는 데 사용됩니다.
 
     ```console
     pip install requests
@@ -78,13 +79,13 @@ Python을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET 
     python predict.py
     ``` 
 
-1. JSON 형식의 예측 응답을 검토합니다.
+1. JSON으로 반환되는 예측 응답을 검토합니다.
 
     ```console
     {'query': 'turn on all lights', 'prediction': {'topIntent': 'HomeAutomation.TurnOn', 'intents': {'HomeAutomation.TurnOn': {'score': 0.5375382}, 'None': {'score': 0.08687421}, 'HomeAutomation.TurnOff': {'score': 0.0207554}}, 'entities': {'HomeAutomation.Operation': ['on'], '$instance': {'HomeAutomation.Operation': [{'type': 'HomeAutomation.Operation', 'text': 'on', 'startIndex': 5, 'length': 2, 'score': 0.724984169, 'modelTypeId': -1, 'modelType': 'Unknown', 'recognitionSources': ['model']}]}}}}
     ```
 
-    가독성을 위한 JSON 응답 형식: 
+    가독성을 위해 형식이 지정된 JSON 응답은 다음과 같습니다. 
 
     ```JSON
     {

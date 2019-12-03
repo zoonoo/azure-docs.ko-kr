@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 02/01/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 95a5df4ca14f4be8553c83dfe8b4d09d00341102
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 22c2f3b91b650bcdbf8eb7368023e068a397323f
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260389"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74305817"
 ---
 # <a name="quickstart-create-and-manage-azure-files-share-with-windows-virtual-machines"></a>빠른 시작: Windows 가상 머신에서 Azure Files 공유 만들기 및 관리
 
@@ -173,7 +173,7 @@ Azure 파일 공유를 사용하려면 먼저 Azure 스토리지 계정을 만�
 
 1. **복원**을 선택합니다. 그러면 공유 스냅샷을 만들 때 전체 디렉터리의 콘텐츠가 원래 위치에 재귀적으로 복사됩니다.
 
-   ![경고 메시지의 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png)
+   ![경고 메시지의 복원 단추](./media/storage-files-quick-create-use-windows/snapshot-windows-restore.png) 참고: 파일이 변경되지 않은 경우 해당 파일이 스냅샷과 동일한 버전이므로 해당 파일의 이전 버전이 표시되지 않습니다. 이는 Windows 파일 서버에서 작동하는 방식과 일치합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

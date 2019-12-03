@@ -1,6 +1,6 @@
 ---
-title: '자습서: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정'
-description: '자습서: IoT Hub Device DPS(Provisioning Service)를 사용하여 [Azure Portal](https://portal.azure.com)에서 디바이스 프로비저닝을 위한 클라우드 리소스 설정'
+title: 포털에서 Azure IoT Hub Device Provisioning Service를 위한 클라우드 설정
+description: 자습서 - IoT Hub Device Provisioning Service를 사용하여 [Azure Portal](https://portal.azure.com)에서 디바이스 프로비저닝을 위한 클라우드 리소스 설정
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: e91627f934357cd67965ea8880db37ff9bfb3fb2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: bdfe851532383e5a051f43cc4b20772f8053dbfc
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112800"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74228306"
 ---
 # <a name="tutorial-configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>자습서: IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전을 위한 클라우드 리소스 구성
 

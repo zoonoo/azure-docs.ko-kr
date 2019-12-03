@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: c639cb059d773042b7f45160dea18bfc2130cae9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fcaf694e7a628232ea252585d6d9a507a9850da
+ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896281"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74287045"
 ---
 # <a name="create-an-azure-iot-central-application-preview-features"></a>Azure IoT Central 애플리케이션 만들기(미리 보기 기능)
 
@@ -46,13 +46,13 @@ ms.locfileid: "73896281"
 
 1. 7일 평가판을 사용하여 이 애플리케이션을 만들지, 아니면 종량제 구독을 사용할지 선택합니다.
     - **평가판** 애플리케이션은 7일 동안 무료로 제공되며 최대 5개의 디바이스를 지원합니다. 만료되기 전에 언제든지 종량제로 변환할 수 있습니다. 평가판 애플리케이션을 만드는 경우 연락처 정보를 입력하고 Microsoft에서 정보 및 팁을 받을 것인지 여부를 선택합니다.
-    - **종량제** 애플리케이션은 처음 2개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요. 종량제 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *지역*을 선택해야 합니다.
+    - **종량제** 애플리케이션은 처음 2개의 디바이스는 무료로 사용하며, 디바이스별로 요금이 청구됩니다. [IoT Central 가격 책정](https://aka.ms/iotcentral-pricing)에 대해 자세히 알아보세요. 종량제 애플리케이션을 만드는 경우 *디렉터리*, *Azure 구독* 및 *위치*를 선택해야 합니다.
         - *디렉터리*는 애플리케이션을 만드는 AAD(Azure Active Directory)입니다. Azure AD에는 사용자 ID, 자격 증명 및 기타 조직 정보가 포함됩니다. Azure AD가 없는 경우 Azure 구독을 만들면 자동으로 하나가 생성됩니다.
         - *Azure 구독*을 사용하여 Azure 서비스 인스턴스를 만들 수 있습니다. IoT Central은 구독에서 리소스를 프로비저닝합니다. Azure 구독이 아직 없는 경우 [Azure 등록 페이지](https://aka.ms/createazuresubscription)에서 만들 수 있습니다. Azure 구독을 만든 후 다시 **애플리케이션 만들기** 페이지로 돌아갑니다. **Azure 구독** 드롭다운에 새 구독이 표시됩니다.
-        - *지역*은 디바이스의 데이터가 저장되는 물리적 위치입니다. 일반적으로 최적의 성능을 얻고 데이터 주권 규정 준수를 보장하려면 디바이스와 물리적으로 가장 가까운 지역을 선택해야 합니다. 지역을 선택하면 나중에 다른 지역으로 애플리케이션을 이동할 수 없습니다.
+        - *위치*는 애플리케이션을 만들려는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)입니다. 일반적으로 최적의 성능을 얻으려면 디바이스와 물리적으로 가장 가까운 위치를 선택해야 합니다. Azure IoT Central 공개 미리 보기는 현재 **미국** 또는 **유럽**에서 사용할 수 있습니다. 위치를 선택하면 나중에 다른 위치로 애플리케이션을 이동할 수 없습니다.
 
         > [!NOTE]
-        > 퍼블릭 미리 보기 기간에는 **미리 보기 애플리케이션**에서 **북유럽** 및 **미국 중부** 지역만 사용할 수 있습니다.
+        > 공개 미리 보기 기간 동안 **미리 보기 애플리케이션**에 사용할 수 있는 유일한 위치는 **유럽** 및**미국**입니다.
 
 1. 사용 약관을 검토하고, 페이지 맨 아래에서 **만들기**를 선택합니다.
 

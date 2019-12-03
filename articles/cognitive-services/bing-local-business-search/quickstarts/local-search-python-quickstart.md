@@ -1,5 +1,5 @@
 ---
-title: 빠른 시작 - Python의 Bing Local Business Search API에 쿼리 보내기
+title: 빠른 시작 - Python의 API에 쿼리 보내기 - Bing Local Business Search
 titleSuffix: Azure Cognitive Services
 description: 이 문서를 사용하여 Python에서 Bing Local Business Search API를 시작합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 11/06/2019
 ms.author: aahi
-ms.openlocfilehash: ec13555b478404c7e2169af5bcb33f37d8afc5bb
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: da8a0a7c27294838f8f5c4459eda890c1cbbec7a
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796152"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326679"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>빠른 시작: Python에서 Bing Local Business Search API에 쿼리 보내기
 

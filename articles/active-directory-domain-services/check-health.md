@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: iainfou
-ms.openlocfilehash: 50b142acb457d16abeb24f22d56b653a38aca76d
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 501214f87a65c71436e262608f7e9b3471cc9775
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70898258"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705420"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 상태를 확인 합니다.
 
@@ -29,7 +29,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 관리 되는 도메인�
 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 볼 수 있습니다. 마지막 백업 시간 및 Azure AD와의 동기화에 대 한 정보는 관리 되는 도메인의 상태 문제를 나타내는 경고와 함께 볼 수 있습니다. Azure AD DS 관리 되는 도메인의 상태를 확인 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다.
-1. Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 합니다.
+1. Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
 1. Azure AD DS 리소스 창의 왼쪽에서 **상태**를 선택 합니다. 다음 예제 스크린샷에서는 정상적인 Azure AD DS 관리 되는 도메인과 마지막 백업 및 Azure AD 동기화의 상태를 보여 줍니다.
 
     ![상태 페이지 개요 Azure Active Directory Domain Services 상태를 보여 주는 Azure Portal](./media/check-health/health-page.png)
@@ -38,12 +38,12 @@ Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 
 
 오른쪽 위의 상태는 Azure AD DS 관리 되는 도메인의 전반적인 상태를 나타냅니다. 상태는 도메인의 모든 기존 경고에 대 한 요소입니다. 다음 표에서는 사용 가능한 상태 표시기에 대해 자세히 설명 합니다.
 
-| Status | 아이콘 | 설명 |
+| 상태 | 아이콘 | 설명 |
 | --- | :----: | --- |
 | 실행 중 | <img src= "./media/active-directory-domain-services-alerts/running-icon.png" width = "15" alt="Green check mark for running"> | Azure AD DS 관리 되는 도메인이 올바르게 실행 중 이며 위험 또는 경고 경고가 없습니다. 도메인에 정보 알림이 있을 수 있습니다. |
 | 주의가 필요 함 (경고) | <img src= "./media/active-directory-domain-services-alerts/warning-icon.png" width = "15" alt="Yellow exclamation mark for warning"> | Azure AD DS 관리 되는 도메인에 중요 한 경고가 없지만 해결 해야 하는 경고 경고가 하나 이상 있습니다. |
 | 주의가 필요 함 (위험) | <img src= "./media/active-directory-domain-services-alerts/critical-icon.png" width = "15" alt="Red exclamation mark for critical"> | Azure AD DS 관리 되는 도메인에 주소가 지정 되어야 하는 중요 한 경고가 하나 이상 있습니다. 경고 및/또는 정보 제공 알림이 있을 수도 있습니다. |
-| 배포 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS 도메인을 배포 하 고 있습니다. |
+| 배포 중 | <img src= "./media/active-directory-domain-services-alerts/deploying-icon.png" width = "15" alt="Blue circular arrows for deploying"> | Azure AD DS 도메인을 배포 하 고 있습니다. |
 
 ## <a name="understand-monitors-and-alerts"></a>모니터 및 경고 이해
 
@@ -53,7 +53,7 @@ Azure AD DS 관리 되는 도메인의 상태에는 두 가지 유형의 정보 
 
 모니터는 정기적으로 확인 되는 Azure AD DS 관리 되는 도메인의 영역입니다. Azure AD DS 관리 되는 도메인에 대 한 활성 경고가 있는 경우이로 인해 모니터 중 하나가 문제를 보고할 수 있습니다. Azure AD Domain Services 현재 다음 영역을 모니터링 합니다.
 
-* 백업
+* Backup
 * Azure AD와 동기화
 
 #### <a name="backup-monitor"></a>백업 모니터
@@ -70,7 +70,7 @@ Azure AD DS 관리 되는 도메인의 상태에는 두 가지 유형의 정보 
 
 Azure AD DS 관리 되는 도메인은 Azure Active Directory와 정기적으로 동기화 됩니다. 사용자 및 그룹 개체의 수와 마지막 동기화 이후 Azure AD 디렉터리에서 변경 된 횟수는 동기화 하는 데 걸리는 시간에 영향을 줍니다. Azure AD DS 관리 되는 도메인이 3 일 전에 마지막으로 동기화 된 경우 모든 활성 경고를 확인 하 고 해결 합니다. 동기화 모니터가 최신 동기화를 표시 하도록 상태를 업데이트 하지 않는 경우 [Azure 지원 요청을 엽니다][azure-support].
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
 Azure AD DS 관리 되는 도메인에서 서비스가 올바르게 실행 될 수 있도록 주소가 지정 되어야 하는 문제에 대 한 경고가 생성 됩니다. 각 경고는 문제를 설명 하 고 문제 해결을 위한 특정 단계를 설명 하는 URL을 제공 합니다. 가능한 경고 및 해결 방법에 대 한 자세한 내용은 [경고 문제 해결](troubleshoot-alerts.md)을 참조 하세요.
 

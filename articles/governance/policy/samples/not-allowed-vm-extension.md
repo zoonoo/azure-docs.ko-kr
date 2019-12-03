@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 허용되지 않는 VM 확장
-description: 이 샘플 정책 정의에서는 가상 머신에서 지정된 확장의 사용이 금지됩니다.
+description: 이 샘플 정책 정의에서는 가상 머신의 매개 변수에 정의된 지정된 확장의 사용이 금지됩니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 639a5dba7e33b9df51be1a7407ac5450af322e86
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 8656cf5111ecdcc793ef8bbe69b8794464e040d2
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069978"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463259"
 ---
 # <a name="sample---not-allowed-vm-extensions"></a>샘플 - 허용되지 않는 VM 확장
 

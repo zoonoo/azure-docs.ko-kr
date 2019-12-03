@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 41e61376d12d447dd480a39ef7200db6af7cca89
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 3a1d99ad282190c61f652179dd08a810c9444064
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172857"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74481160"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경을 위해 Azure Active Directory Domain Services에서 암호 동기화 활성화
 
@@ -51,6 +51,9 @@ Azure AD Connect는 온-프레미스 AD DS 환경의 사용자 계정 및 그룹
 관리되는 도메인에서 사용자를 인증하려면 Azure AD DS에 NTLM 및 Kerberos 인증에 적합한 형식의 암호 해시가 필요합니다. Azure AD DS를 테넌트에서 사용하도록 설정할 때까지 Azure AD는 NTLM 또는 Kerberos 인증에 필요한 형식의 암호 해시를 저장하지 않습니다. 또한 보안상의 이유로 Azure AD는 암호 자격 증명을 일반 텍스트 형식으로 저장하지 않습니다. 따라서 Azure AD는 사용자의 기존 자격 증명에 따라 이러한 NTLM 또는 Kerberos 암호 해시를 자동으로 생성할 수 없습니다.
 
 Azure AD DS에 필요한 NTLM 또는 Kerberos 암호 해시를 동기화하도록 Azure AD Connect를 구성할 수 있습니다. [암호 해시 동기화를 위해 Azure AD Connect를 사용하도록 설정][enable-azure-ad-connect]하는 단계를 완료했는지 확인합니다. 기존 Azure AD Connect 인스턴스가 있는 경우 [최신 버전을 다운로드하고 업데이트][azure-ad-connect-download]하여 NTLM 및 Kerberos에 대한 레거시 암호 해시를 동기화할 수 있도록 합니다. 이 기능은 Azure AD Connect의 초기 릴리스 또는 레거시 DirSync 도구에서 사용할 수 없습니다. Azure AD Connect 버전 *1.1.614.0* 이상이 필요합니다.
+
+> [!IMPORTANT]
+> Azure AD Connect는 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치되고 구성되어야 합니다. 개체를 Azure AD로 개체를 다시 동기화하기 위해 Azure AD DS 관리형 도메인에 Azure AD Connect를 설치하는 것은 지원되지 않습니다.
 
 ## <a name="enable-synchronization-of-password-hashes"></a>암호 해시 동기화 사용
 

@@ -1,18 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿에 리소스 추가
-description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 설명합니다. 스토리지 계정을 배포하는 방법과 템플릿 파일 구문에 대해 알아봅니다.
+title: 자습서 - 템플릿에 리소스 추가
+description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 설명합니다. 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 6b8bd73a1248168ff8f434afa0a9317a8fe0c618
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963580"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74148203"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 리소스 추가
 

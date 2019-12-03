@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 유사 패턴 적용
-description: 이 샘플 정책 정의에서는 리소스가 명명 규칙에 대한 유사 패턴을 충족해야 합니다.
+description: 이 샘플 정책 정의에서는 리소스가 명명 규칙에 대한 매개 변수에 정의된 유사 패턴을 충족해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 34013753c18ad3b84a29b04fead9ea83aeb03d7b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df72db59e0370e82ca9f4aff199498ffdf06d834
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076299"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463601"
 ---
 # <a name="sample---enforce-like-pattern-for-naming-conventions"></a>샘플 - 명명 규칙에 대한 유사 패턴 적용
 

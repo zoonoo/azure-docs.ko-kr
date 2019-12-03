@@ -1,20 +1,15 @@
 ---
-title: 빠른 시작 - 레지스트리 만들기 - Azure CLI - Azure Container Registry
+title: 빠른 시작 - 레지스트리 만들기 - Azure CLI
 description: Azure CLI를 사용한 프라이빗 Docker 컨테이너 레지스트리 만들기에 대해 빠르게 알아봅니다.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 01/22/2019
-ms.author: danlep
 ms.custom: seodec18, H1Hack27Feb2017, mvc
-ms.openlocfilehash: 562f8d41e1f91e408263809bdfc78905317912a1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 551a3659feb39943c9f794484abb6f2da4367f39
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931594"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455159"
 ---
 # <a name="quickstart-create-a-private-container-registry-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 프라이빗 컨테이너 레지스트리 만들기
 

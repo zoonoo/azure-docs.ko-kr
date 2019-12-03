@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f4afd7697272775b8d5558d9c091eeea0d2b9adf
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 74cf0c1e055570df7702465df79dcdfbd8ea9e9f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158017"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232088"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-online"></a>자습서: ArcGIS Online과 Azure Active Directory 통합
 
@@ -223,7 +223,7 @@ ArcGIS Online의 경우 프로비전은 수동 작업입니다.
    
      ![추가 및 검토](./media/arcgis-tutorial/ic784749.png "추가 및 검토")
     
-     a. 프로비전하려는 유효한 AAD 계정의 **전자 메일**, **이름** 및 **성**을 입력합니다.
+     a. 프로비저닝하려는 유효한 Azure AD의 계정 **이메일**, **이름** 및 **성**을 입력합니다.
   
      b. **추가 및 검토**를 클릭합니다.
 5. 입력한 데이터를 검토한 다음 **멤버 추가**를 클릭합니다.

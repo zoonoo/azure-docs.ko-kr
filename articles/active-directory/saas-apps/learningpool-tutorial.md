@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c6f5b2b67ec38ef690f932e189bd2fd9f0dd6da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 5bc0b395fcc874190b67bd99262c3a1c9294c0ac
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159594"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229287"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-learningpool-act"></a>자습서: Learningpool Act와 Azure Active Directory 통합
 
@@ -228,7 +228,7 @@ Learningpool Act에 대한 사용자 프로비저닝을 구성할 작업 항목�
 [Learningpool Act 지원 팀](https://www.Learningpool.com/support)에서 사용자를 만들어야 합니다.
 
 > [!NOTE]
-> 다른 Learningpool Act 사용자 계정 생성 도구 또는 Learningpool Act가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Learningpool Act 사용자 계정 생성 도구 또는 Learningpool Act가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

@@ -11,16 +11,16 @@ ms.date: 03/20/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 2ad83e51a11e08373f2132e861ec1c8f3ac20458
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 148f3f99aac5ce01bd88f1efaecb5821ae94f50a
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686020"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539174"
 ---
 # <a name="quickstart-pause-and-resume-compute-in-azure-sql-data-warehouse-with-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 일시 중지 및 다시 시작
 
-비용 절감을 위해 PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
+비용 절감을 위해 Azure PowerShell을 사용하여 Azure SQL Data Warehouse에서 컴퓨팅을 일시 중지합니다. 데이터 웨어하우스를 사용할 준비가 되면 [컴퓨팅을 다시 시작](sql-data-warehouse-manage-compute-overview.md)합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 

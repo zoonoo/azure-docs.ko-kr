@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 5a6d3c53206d917b5b87f26b7fb351bc5acf5937
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 391ae72a9e2bc78ed120cf4f5fdf844a6248566a
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67095212"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233462"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-overdrive"></a>자습서: Overdrive와 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ Overdrive에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 이 섹션에서는 Overdrive에서 Britta Simon이라는 사용자를 만듭니다. Overdrive는 Just-In-Time 프로비저닝을 지원하며, 기본적으로 사용하도록 설정되어 있습니다. 이 섹션에 작업 항목이 없습니다. Overdrive에 사용자가 아직 없는 경우 인증 후에 새 사용자가 만들어집니다.
 
 >[!NOTE]
->다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>다른 OverDrive 사용자 계정 생성 도구 또는 OverDrive가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 >
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

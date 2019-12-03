@@ -150,9 +150,9 @@
         - name: .NET 사용자 지정 작업
           href: data-factory-use-custom-activities.md
         - name: R 스크립트 호출
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/RunRScriptUsingADFSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/RunRScriptUsingADFSample'
         - name: Azure Analysis Services에서 모델 다시 처리
-          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/Samples/AzureAnalysisServicesProcessSample'
+          href: 'https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/AzureAnalysisServicesProcessSample'
         - name: 컴퓨팅 연결 서비스
           href: data-factory-compute-linked-services.md
     - name: 개발

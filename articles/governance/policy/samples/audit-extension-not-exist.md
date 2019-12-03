@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 확장이 존재하지 않을 경우 감사
-description: 이 샘플 정책 정의는 확장이 가상 머신과 함께 배포되지 않은 경우 감사를 수행합니다.
+description: 이 샘플 정책 정의는 매개 변수에 정의된 확장이 가상 머신과 함께 배포되지 않은 경우 감사합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 72d7728ef89678998a5fc3726d643142e3842635
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 0b81a5f7b59d236cd8edb30cf0cb4f59ed9a7eab
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071442"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463406"
 ---
 # <a name="sample---audit-if-extension-does-not-exist"></a>샘플 - 확장이 존재하지 않을 경우 감사
 

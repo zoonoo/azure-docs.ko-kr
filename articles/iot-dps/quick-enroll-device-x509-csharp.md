@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법'
+title: C#을 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 C#을 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: e43448337f787115c479f2f53ca57b7a20120108
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 3df9afa35b3ae9f7360a5d4b890d3fce209a4b12
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903430"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423326"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-c"></a>빠른 시작: C#을 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -80,13 +79,13 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
 
 1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다. **새 프로젝트 만들기**에서 C# 프로젝트 템플릿의 **콘솔 앱(.NET Core)** 을 선택하고 **다음**을 선택합니다.
 
-1. 프로젝트 이름을 *CreateEnrollmentGroup*으로 지정한 다음, **만들기**를 선택합니다.
+1. 프로젝트 이름을 *CreateEnrollmentGroup*으로 지정한 다음, **만들기**를 누릅니다.
 
     ![Visual C# Windows 클래식 데스크톱 프로젝트 구성](media//quick-enroll-device-x509-csharp/configure-app-vs2019.png)
 
-1. **솔루션 탐색기**에서 **CreateEnrollmentGroup** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 클릭합니다.
+1. 솔루션이 Visual Studio에서 열리면 **솔루션 탐색기** 창에서 **CreateEnrollmentGroup** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
 
-1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service**를 검색하여 선택한 다음, **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service**를 검색하여 선택한 다음, **설치**를 누릅니다.
 
     ![NuGet 패키지 관리자 창](media//quick-enroll-device-x509-csharp/add-nuget.png)
 
@@ -103,12 +102,12 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
 1. `Program` 클래스에 다음 필드를 추가하고 나열된 변경 작업을 수행합니다.  
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private static string EnrollmentGroupId = "enrollmentgrouptest";
    private static string X509RootCertPath = @"{Path to a .cer or .pem file for a verified root CA or intermediate CA X.509 certificate}";
    ```
 
-   * `ProvisioningConnectionString` 자리 표시자 값을 등록을 만들려는 프로비저닝 서비스의 연결 문자열로 바꿉니다.
+   * `ProvisioningServiceConnectionString` 자리 표시자 값을 등록을 만들려는 프로비저닝 서비스의 연결 문자열로 바꿉니다.
 
    * `X509RootCertPath` 자리 표시자 값을 .pem 또는 .cer 파일의 경로로 바꿉니다. 이 파일은 이전에 프로비저닝 서비스를 사용하여 업로드되고 확인된 중간 또는 루트 CA X.509 인증서의 공용 부분을 나타냅니다.
 
@@ -168,7 +167,7 @@ C SDK의 도구 이외에도 *Microsoft Azure IoT SDK for .NET*의 [그룹 인�
 
 ## <a name="run-the-enrollment-group-sample"></a>등록 그룹 샘플 실행
   
-Visual Studio에서 샘플을 실행하여 등록 그룹을 만듭니다. 성공적으로 만들어지면 명령 프롬프트 창에 새 등록 그룹에 대한 속성이 표시됩니다.
+Visual Studio에서 샘플을 실행하여 등록 그룹을 만듭니다. 명령 프롬프트 창이 나타나고 확인 메시지를 표시하기 시작합니다. 성공적으로 만들어지면 명령 프롬프트 창에 새 등록 그룹에 대한 속성이 표시됩니다.
 
 등록 그룹이 만들어졌는지 확인할 수 있습니다. Device Provisioning Service 요약으로 이동하여 **등록 관리**를 선택한 다음, **등록 그룹**을 선택합니다. 샘플에 사용된 등록 ID에 해당하는 새 등록 항목이 표시됩니다.
 
@@ -182,9 +181,9 @@ C# 서비스 샘플을 살펴볼 계획이면 이 빠른 시작에서 만든 리
 
 1. 컴퓨터에서 C# 샘플 출력 창을 닫습니다.
 
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **등록 그룹**을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID*를 선택하고, **삭제**를 선택합니다.
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **등록 그룹**을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID*를 선택하고 **삭제**를 누릅니다.
 
-1. Azure Portal의 Device Provisioning Service에서 **인증서**를 클릭하고, 이 빠른 시작을 위해 업로드한 인증서를 선택한 다음, **인증서 세부 정보** 위쪽에서 **삭제**를 선택합니다.  
+1. Azure Portal의 Device Provisioning Service에서 **인증서**를 선택하고, 이 빠른 시작을 위해 업로드한 인증서를 선택한 다음, **인증서 세부 정보** 위쪽에서 **삭제**를 누릅니다.  
 
 ## <a name="next-steps"></a>다음 단계
 

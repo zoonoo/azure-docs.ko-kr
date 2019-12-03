@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b85c5c6c5642d10c8d917ed9785d0fcf48a5e68
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 5d4bdd554fb7c8817ada80a294f3ecb1c6c85b00
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554127"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707024"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -246,7 +246,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > 이러한 기능은 현재 개발 중입니다.
 >
 
-### <a name="group-administratorgroup-administrator"></a>[그룹 관리자](#group-administrator)
+### <a name="group-administratorgroup-administrator-permissions"></a>[그룹 관리자](#group-administrator-permissions)
 
 이 역할의 사용자는 이름 및 만료 정책 같은 그룹 및 설정을 만들고 관리할 수 있습니다. 이 역할에 사용자를 할당 하면 팀, SharePoint, Yammer와 같은 다양 한 워크 로드에서 Outlook 외에도 테 넌 트의 모든 그룹을 관리 하는 기능을 이해 하는 것이 중요 합니다. 또한 사용자는 Microsoft 관리 센터, Azure Portal 등의 다양 한 관리 포털에서 다양 한 그룹 설정을 관리할 수 있을 뿐만 아니라 팀 및 SharePoint 관리 센터와 같은 워크 로드 관련 작업을 관리할 수도 있습니다.
 
@@ -279,7 +279,9 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="intune-administratorintune-service-administrator-permissions"></a>[Intune 관리자](#intune-service-administrator-permissions)
 
-이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 글로벌 사용 권한을 갖습니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 디바이스를 관리하는 기능을 포함합니다. 자세한 내용은 [Microsoft Intune에서 RBAC(역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)를 참조하세요
+이 역할을 가진 사용자는 해당 서비스가 있는 경우 Microsoft Intune Online 내에서 글로벌 사용 권한을 갖습니다. 또한 이 역할은 정책을 연결하고 그룹을 만들고 관리하기 위해 사용자와 디바이스를 관리하는 기능을 포함합니다. [Microsoft Intune를 사용 하는 RBAC (역할 기반 관리 제어)](https://docs.microsoft.com/intune/role-based-access-control)에 대 한 자세한 정보.
+
+이 역할은 모든 보안 그룹을 만들고 관리할 수 있습니다. 그러나 Intune 관리자는 Office 그룹에 대 한 관리자 권한이 없습니다. 즉, 관리자는 테 넌 트에 있는 모든 Office 그룹의 소유자 또는 구성원 자격을 업데이트할 수 없습니다. 그러나 자신이 만든 Office 그룹을 관리할 수 있습니다 .이 그룹은 최종 사용자 권한의 일부로 제공 됩니다. 따라서 자신이 만든 모든 Office 그룹 (보안 그룹 아님)은 250의 할당량을 기준으로 계산 되어야 합니다.
 
 > [!NOTE]
 > Microsoft Graph API, Azure AD Graph API 및 Azure AD PowerShell에서 이 역할은 “Intune 서비스 관리자”로 식별됩니다. [Azure Portal](https://portal.azure.com)에서 이 역할은 "Intune 관리자"입니다.
@@ -1081,8 +1083,8 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | office365/allEntities/표준/읽기   | Office365 포털의 모든 리소스에 대 한 표준 속성을 읽습니다. |
 
-### <a name="group-administrator"></a>그룹 관리자
-이름 지정 및 만료 정책과 같은 그룹 및 그룹 설정의 모든 측면을 관리할 수 있습니다.
+### <a name="group-administrator-permissions"></a>그룹 관리자 권한
+는 그룹의 모든 측면을 관리 하 고 이름 및 만료 정책 같은 그룹 설정을 관리할 수 있습니다.
 
 | **Actions** | **설명** |
 | --- | --- |

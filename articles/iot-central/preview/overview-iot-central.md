@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 5e84b8777fc7671a19b6d8974f1309eb5af35bd3
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 8cfcbddfc8d50855860af655847f997fb2a01711
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048020"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74479707"
 ---
 # <a name="what-is-azure-iot-central-preview-features"></a>Azure IoT Central(미리 보기 기능)이란?
 
@@ -51,7 +51,7 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 - 배열 스키마 형식은 지원되지 않습니다.
 - 애플리케이션 템플릿 내보내기 및 애플리케이션 복사는 지원되지 않습니다.
 - C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
-- 북유럽 및 미국 중부 지역에서만 사용할 수 있습니다.
+- 미국 및 유럽 지역에서만 사용할 수 있습니다.
 - 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
 
 ## <a name="personas"></a>가상 사용자
@@ -140,6 +140,10 @@ IoT Central 애플리케이션은 Microsoft에서 완벽하게 호스트하므�
 솔루션 개발자는 연결된 디바이스의 스트리밍 데이터에 적용되는 사용자 지정 규칙 및 작업을 정의할 수 있습니다. 운영자는 디바이스 수준에서 이러한 규칙을 사용하거나 사용하지 않도록 설정하여 애플리케이션 내에서 작업을 제어하고 자동화할 수 있습니다.
 
 관리자는 [사용자 역할 및 권한](howto-administer.md)을 사용하여 애플리케이션에 대한 액세스를 관리할 수 있습니다.
+
+## <a name="quotas"></a>할당량
+
+각 Azure 구독에는 IoT 솔루션의 범위에 영향을 줄 수 있는 기본 할당량이 있습니다. 현재 IoT Central은 구독 시 배포할 수 있는 애플리케이션 수를 10개로 제한합니다. 이 제한을 늘려야 하는 경우 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

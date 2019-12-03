@@ -4,22 +4,25 @@ ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/08/2019
-ms.openlocfilehash: a7ae6cb1231e4c202dfd0a39602c03b33099d088
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 5089af4a4e1714d49b844a1b6823487a3f6a8dcf
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554703"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483017"
 ---
 아래 Azure 리소스 중 하나를 만들어 Anomaly Detector 서비스 사용을 시작합니다.
 
-* [평가판 리소스](https://azure.microsoft.com/try/cognitive-services/#decision)(Azure 구독이 필요하지 않음): 
+* <a href="https://azure.microsoft.com/try/cognitive-services/#decision" target="_blank" rel="noopener">평가판 리소스 만들기(새 탭에서 열림)</a>
+    * Azure 구독이 필요하지 않습니다. 
     * 평가판은 7일 동안 유효합니다. 등록 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 평가판 키 및 엔드포인트를 사용할 수 있습니다. 
     * 이 옵션은 Anomaly Detector를 시도하지만 Azure 구독이 없는 경우에 유용합니다.
 
-* [Anomaly Detector 리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector):
-    * 리소스를 삭제할 때까지 [Azure Portal](https://ms.portal.azure.com#blade/HubsExtension/BrowseResourceGroupBlade)를 통해 사용할 수 있습니다.
+* <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAnomalyDetector" target="_blank" rel="noopener">Anomaly Detector 리소스 만들기(새 탭에서 열림)</a>:
+    * 리소스를 삭제할 때까지 Azure Portal을 통해 사용할 수 있습니다.
     * 평가판 가격 책정 계층을 사용하여 서비스를 사용해보고, 나중에 프로덕션용 유료 계층으로 업그레이드합니다.
+
+
 
 ### <a name="create-an-environment-variable"></a>환경 변수 만들기
 
@@ -37,8 +40,8 @@ ms.locfileid: "72554703"
 #### <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
 ```console
-setx ANOMALY_DETECTOR_KEY your-anomaly-detector-key
-setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
+setx ANOMALY_DETECTOR_KEY <replace-with-your-anomaly-detector-key>
+setx ANOMALY_DETECTOR_ENDPOINT <replace-with-your-anomaly-detector-endpoint>
 ```
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
@@ -46,8 +49,8 @@ setx ANOMALY_DETECTOR_ENDPOINT your-anomaly-detector-endpoint
 #### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
@@ -57,8 +60,8 @@ export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 
 ```bash
-export ANOMALY_DETECTOR_KEY=your-anomaly-detector-key
-export ANOMALY_DETECTOR_ENDPOINT=your-anomaly-detector-endpoint
+export ANOMALY_DETECTOR_KEY=<replace-with-your-anomaly-detector-key>
+export ANOMALY_DETECTOR_ENDPOINT=<replace-with-your-anomaly-detector-endpoint>
 ```
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.

@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 게스트 사용자 추가 빠른 시작 - Azure Active Directory | Microsoft Docs
+title: '빠른 시작: PowerShell을 사용하여 게스트 사용자 추가 - Azure AD'
 description: 이 빠른 시작에서는 PowerShell을 사용하여 외부 Azure AD B2B 협업 사용자에게 초대를 보내는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
@@ -12,18 +12,18 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5325529acb66735db0c27c0f5bdfca819e8ec4d8
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 50c283122fe707e922275b6c1a6c576009964855
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65812296"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74273363"
 ---
 # <a name="quickstart-add-a-guest-user-with-powershell"></a>빠른 시작: PowerShell을 사용하여 게스트 사용자 추가
 
 Azure Active Directory B2B 협업을 사용하여 앱 및 서비스에 외부 파트너를 초대할 수 있는 다양한 방법이 있습니다. 이전 빠른 시작에서는 Azure Active Directory 관리 포털에서 게스트 사용자를 직접 추가하는 방법을 살펴보았습니다. PowerShell을 사용하여 게스트 사용자를 한 번에 한 명씩 또는 일괄로 추가할 수 있습니다. 이 빠른 시작에서는 New-AzureADMSInvitation 명령을 사용하여 게스트 사용자 한 명을 Azure 테넌트에 추가합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -75,7 +75,7 @@ Connect-AzureAD -TenantDomain "<Tenant_Domain_Name>"
 
 ## <a name="send-an-invitation"></a>초대 보내기
 
-1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다(**“Sanda”** 및 **sanda\@fabrikam.com**을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
+1. 테스트 메일 계정에 초대를 보내려면 다음 PowerShell 명령을 실행합니다( **“Sanda”** 및 **sanda\@fabrikam.com**을 테스트 메일 계정 이름 및 메일 주소로 바꾸기). 
 
    ```powershell
    New-AzureADMSInvitation -InvitedUserDisplayName "Sanda" -InvitedUserEmailAddress sanda@fabrikam.com -InviteRedirectURL https://myapps.azure.com -SendInvitationMessage $true

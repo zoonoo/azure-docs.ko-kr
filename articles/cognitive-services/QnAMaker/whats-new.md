@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 10/14/2019
+ms.date: 11/08/2019
 ms.author: diberry
-ms.openlocfilehash: 0ce44429c7222e4eaa0ef523dadf0fa08723e975
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 94c2f86b6d0a592e53c2ab1f9833bdb045f81583
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327893"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325885"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -24,6 +24,12 @@ ms.locfileid: "72327893"
 ## <a name="release-notes"></a>릴리스 정보 
 
 QnA Maker의 새로운 기능에 대해 알아봅니다.
+
+### <a name="november-2019"></a>2019년 11월
+
+* QnA Maker에 대한 [미국 정부 클라우드 지원](https://docs.microsoft.com/azure/azure-government/documentation-government-services-aiandcognitiveservices#qna-maker)
+* GA의 [다중 턴](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/multiturn-conversation) 기능
+* 계층 1 언어로 제공되는 [Chit-chat 지원](https://docs.microsoft.com/azure/cognitive-services/qnamaker/how-to/chit-chat-knowledge-base#language-support)
 
 ### <a name="october-2019"></a>2019년 10월
 

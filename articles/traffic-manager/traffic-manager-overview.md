@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/05/2019
+ms.date: 11/23/2019
 ms.author: allensu
-ms.openlocfilehash: 95ef493ed44da8fd8372c11f15c3ab712961783e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 48ce72104c4cc08fc26777aa7111b705c57317f5
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071018"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420272"
 ---
 # <a name="what-is-traffic-manager"></a>Traffic Manager란?
 Azure Traffic Manager는 트래픽을 전 세계 Azure 지역의 서비스에 적절하게 분산하는 한편, 고가용성과 빠른 응답성을 제공하는 DNS 기반 트래픽 부하 분산 장치입니다.
@@ -26,7 +26,8 @@ Traffic Manager는 DNS를 사용하여 클라이언트 요청을 트래픽 라�
 
 >[!NOTE]
 > Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. TLS(Transport Layer Security) 프로토콜 종료("SSL 오프로드") 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리를 확인하려는 경우 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 검토하세요. 지역에 부하를 분산하려는 경우 [Load Balancer](../load-balancer/load-balancer-overview.md)를 검토하세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
-
+>
+> Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 Traffic Manager는 다음 기능을 제공합니다.
 
 ## <a name="increase-application-availability"></a>애플리케이션 가용성 향상
@@ -43,7 +44,7 @@ Azure를 통해 전 세계에 있는 데이터 센터에서 클라우드 서비�
 
 ## <a name="combine-hybrid-applications"></a>하이브리드 애플리케이션 결합
 
-Traffic Manager는 "[클라우드로 버스트](https://azure.microsoft.com/overview/what-is-cloud-bursting/)", "클라우드로 마이그레이션" 및 "클라우드로 장애 조치(Failover)" 시나리오를 포함한 하이브리드 클라우드 및 온-프레미스 배포에 사용할 수 있도록 외부, Azure가 아닌 끝점을 지원합니다.
+Traffic Manager는 &quot;[클라우드로 버스트](https://azure.microsoft.com/overview/what-is-cloud-bursting/)&quot;, &quot;클라우드로 마이그레이션&quot; 및 &quot;클라우드로 장애 조치(Failover)&quot; 시나리오를 포함한 하이브리드 클라우드 및 온-프레미스 배포에 사용할 수 있도록 외부, Azure가 아닌 엔드포인트을 지원합니다.
 
 ## <a name="distribute-traffic-for-complex-deployments"></a>복잡한 배포의 트래픽 분산
 

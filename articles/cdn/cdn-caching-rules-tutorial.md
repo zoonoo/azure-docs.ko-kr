@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: c6da3270de94fd0d5525f28cdd31039f5bd85dbd
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 5330c99f4d42f591944ddc5c58ac98bea6387da5
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594067"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278154"
 ---
 # <a name="tutorial-set-azure-cdn-caching-rules"></a>자습서: Azure CDN 캐싱 규칙 설정
 
 > [!NOTE] 
-> Azure CDN 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준**에만 사용할 수 있습니다. **Verizon의 Azure CDN 프리미엄**에서 유사한 기능을 사용하려면 **관리** 포털에서 [Azure CDN 규칙 엔진](cdn-rules-engine.md)을 사용합니다.
+> 캐싱 규칙은 **Verizon의 Azure CDN 표준** 및 **Akamai의 Azure CDN 표준** 프로필에만 사용할 수 있습니다. **Microsoft의 Azure CDN**의 프로필의 경우 [표준 규칙 엔진](cdn-standard-rules-engine-reference.md)을 사용해야 합니다. **Verizon의 Azure CDN Premium** 프로필의 경우 유사한 기능을 위해 **관리** 포털에서 [Verizon Premium 규칙 엔진](cdn-rules-engine.md)을 사용해야 합니다.
  
 
 이 자습서에서는 Azure CDN(Content Delivery Network) 캐싱 규칙을 사용하여 전역적으로 그리고 사용자 지정 조건(예: URL 경로 및 파일 확장명)에 따라 기본 캐시 만료 동작을 설정하거나 수정하는 방법을 설명합니다. Azure CDN에는 두 가지 유형의 캐싱 규칙이 제공됩니다.

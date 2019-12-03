@@ -1,20 +1,20 @@
 ---
 title: '빠른 시작: REST API를 사용하여 Java에서 검색 인덱스 만들기'
 titleSuffix: Azure Cognitive Search
-description: Java 및 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
+description: 이 Java 빠른 시작에서 Azure Cognitive Search REST API를 사용하여 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 설명합니다.
 manager: nitinme
-author: lisaleib
-ms.author: v-lilei
+author: HeidiSteen
+ms.author: heidist
 ms.devlang: java
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 9f30c30276db6daa0b4afdf3e6bdd8e617dedc52
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5e53167a083b5e89bd88a45452929dd40f0868f2
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792808"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406724"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Java에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -817,7 +817,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     각 쿼리 및 해당 결과에 대한 요약을 찾습니다. 실행은 BUILD SUCCESS 메시지와 0(영) 종료 코드로 완료됩니다.
 
-## <a name="clean-up"></a>정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
@@ -827,10 +827,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 Java 빠른 시작에서는 인덱스를 만들고, 문서를 사용하여 로드하고, 쿼리를 실행하는 일련의 작업을 수행했습니다. 기본 개념에 익숙한 경우 더 심층적인 학습을 위해 추천하는 문서는 다음과 같습니다.
+이 Java 빠른 시작에서는 인덱스를 만들고, 문서를 사용하여 로드하고, 쿼리를 실행하는 일련의 작업을 수행했습니다. 기본 개념에 익숙한 경우 REST의 인덱서 작업을 나열하는 다음 문서를 권장합니다.
 
-+ [인덱스 작업](/rest/api/searchservice/index-operations)
-
-+ [문서 작업](/rest/api/searchservice/document-operations)
-
-+ [인덱서 작업](/rest/api/searchservice/indexer-operations)
+> [!div class="nextstepaction"]
+> [인덱서 작업](/rest/api/searchservice/indexer-operations)

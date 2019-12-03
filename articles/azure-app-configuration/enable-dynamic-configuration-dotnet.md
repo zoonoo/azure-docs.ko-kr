@@ -13,12 +13,12 @@ ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7e28cdacce8eac4774683013ae1c30ca34ebfaad
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72821630"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185245"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
@@ -31,16 +31,15 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 요청에 따라 앱 구성 저장소로 해당 구성을 업데이트하도록 애플리케이션을 설정합니다.
-> * 애플리케이션의 컨트롤러에 최신 구성을 삽입합니다.
-
+> * App Configuration 저장소의 변경에 따라 .NET Framework 앱의 해당 구성을 업데이트하도록 설정합니다.
+> * 애플리케이션에 최신 구성을 삽입합니다.
 ## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
 - [.NET Framework 4.7.1 이상](https://dotnet.microsoft.com/download)
 
-## <a name="create-an-app-configuration-store"></a>앱 구성 저장소 만들기
+## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
@@ -52,7 +51,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
     지금은 **레이블**과 **콘텐츠 형식**을 비워 두세요.
 
-## <a name="create-a-net-console-app"></a>.NET 콘솔 앱 만들기
+## <a name="create-a-net-framework-console-app"></a>.NET Framework 콘솔 앱 만들기
 
 1. Visual Studio를 시작하고 **파일** > **새로 만들기** > **프로젝트**를 차례로 선택합니다.
 
@@ -99,7 +98,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
         PrintMessage().Wait();
     }
     ```
-    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 앱 구성 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `AddAzureAppConfiguration` 메서드에 제공된 옵션에서 `GetRefresher` 메서드를 호출하여 `IConfigurationRefresher`의 인스턴스를 검색할 수 있으며, 이 인스턴스의 `Refresh` 메서드를 사용하여 코드의 아무 곳에서나 새로 고침 작업을 트리거할 수 있습니다.
+    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. `AddAzureAppConfiguration` 메서드에 제공된 옵션에서 `GetRefresher` 메서드를 호출하여 `IConfigurationRefresher`의 인스턴스를 검색할 수 있으며, 이 인스턴스의 `Refresh` 메서드를 사용하여 코드의 아무 곳에서나 새로 고침 작업을 트리거할 수 있습니다.
 
     > [!NOTE]
     > 구성 설정에 대한 기본 캐시 만료 시간은 30초이지만 `ConfigureRefresh` 메서드에 대한 인수로 전달된 옵션 이니셜라이저의 `SetCacheExpiration` 메서드를 호출하여 재정의할 수 있습니다.
@@ -121,7 +120,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 앱 구성 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 
@@ -135,7 +134,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
     ![로컬로 앱 시작](./media/dotnet-app-run.png)
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소 인스턴스를 선택합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
 1. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
 
@@ -156,7 +155,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 관리형 서비스 ID를 추가하여 App Configuration에 대한 액세스 관리를 간소화하고 앱에 대한 자격 증명 관리를 개선했습니다. App Configuration에 대한 액세스를 간소화하는 Azure 관리 서비스 ID를 추가하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 자습서에서는 .NET Framework 앱을 사용하도록 설정하여 App Configuration에서 구성 설정을 동적으로 새로 고칩니다. Azure 관리 ID를 사용하여 App Configuration에 대한 액세스를 간소화하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

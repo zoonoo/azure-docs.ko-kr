@@ -1,21 +1,21 @@
 ---
-title: CSP 파트너 정보를 사용하여 Azure의 Cloudyn에 등록 | Microsoft Docs
+title: CSP 파트너 정보를 사용하여 Azure의 Cloudyn에 등록
 description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 11/18/2019
 ms.topic: quickstart
 ms.custom: seodec18
-ms.service: cost-management
+ms.service: cost-management-billing
 manager: benshy
-ms.openlocfilehash: 17f4069e38b4e4f0ee7a4ef4acc4535198b62b02
-ms.sourcegitcommit: e9a46b4d22113655181a3e219d16397367e8492d
+ms.openlocfilehash: 4255bfc6a0e51e175bd7cba7102069065b477258
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65969189"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74229955"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -30,10 +30,12 @@ CSP 파트너로서 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 
 > 자세한 내용은 [파트너 센터 API에 연결](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx)을 참조하세요.
 >
 > Cloudyn 액세스는 CSP 간접 공급자가 Cloudyn에 등록한 후 CSP 간접 대리점에 제공될 수 있습니다. 그러면 CSP 간접 대리점이 Azure 고객 및 구독에 Cloudyn 액세스를 제공할 수 있습니다.
+>
+>Cloudy는 Microsoft 보안 애플리케이션 모델을 준수합니다. 자세한 내용은 [보안 애플리케이션 모델 프레임워크 사용](/partner-center/develop/enable-secure-app-model)을 참조하세요.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 

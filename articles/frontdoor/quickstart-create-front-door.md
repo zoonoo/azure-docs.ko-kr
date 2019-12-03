@@ -1,5 +1,5 @@
 ---
-title: Azure 빠른 시작 - Azure Portal을 사용하여 고가용성 애플리케이션을 위한 Front Door 프로필 만들기
+title: '빠른 시작: 애플리케이션의 고가용성을 위한 Front Door 프로필 만들기'
 description: 이 빠른 시작 문서에는 고가용성, 고성능 글로벌 웹 애플리케이션을 위한 Front Door를 만드는 방법을 설명합니다.
 services: front-door
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/31/2018
 ms.author: sharadag
-ms.openlocfilehash: 6bcd5bcc2463ec1ab9dcc97644d5046c31bfc78b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67a4f9eb3290ba09a2c19325464cf7ad224856e7
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61461989"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74184506"
 ---
 # <a name="quickstart-create-a-front-door-for-a-highly-available-global-web-application"></a>빠른 시작: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door 만들기
 
@@ -40,7 +40,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      | 설정         | 값     |
      | ---              | ---  |
      | Name           | 웹앱의 고유한 이름을 입력합니다.  |
-     | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD1*을 입력합니다. |
+     | Resource group          | **새로 만들기**를 선택한 다음, *myResourceGroupFD1*을 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanEastUS*를 입력하고 **확인**을 선택합니다. 
      |      위치  |   미국 동부        |
     |||
@@ -52,7 +52,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
      | 설정         | 값     |
      | ---              | ---  |
      | Name           | 웹앱의 고유한 이름을 입력합니다.  |
-     | 리소스 그룹          | **새로 만들기**를 선택한 다음, *myResourceGroupFD2*를 입력합니다. |
+     | Resource group          | **새로 만들기**를 선택한 다음, *myResourceGroupFD2*를 입력합니다. |
      | App Service 계획/위치         | **새로 만들기**를 선택합니다.  App Service 계획에서 *myAppServicePlanWestEurope*을 입력하고 **확인**을 선택합니다. 
      |      위치  |   서유럽      |
     |||

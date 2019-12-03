@@ -1,6 +1,6 @@
 ---
-title: Azure Portal를 사용하여 Azure Cosmos 계정, 컨테이너 및 항목을 만듭니다.
-description: Azure Portal를 사용하여 Azure Cosmos 계정, 컨테이너 및 항목을 만듭니다.
+title: Azure Portal에서 Azure Cosmos 데이터베이스를 만듭니다.
+description: Azure Portal를 사용하여 Azure Cosmos 데이터베이스, 컨테이너 및 항목을 만듭니다.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,14 +8,14 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 09/01/2019
-ms.openlocfilehash: e0a9f4fa6ca5ff7447d2ffaef3eab2f3c54fdeae
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b42a442564812f4386eb94b9bd7b7c9aff9e9f29
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241253"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74220723"
 ---
-# <a name="quickstart-create-an-azure-cosmos-account-container-and-items-with-the-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 Azure Cosmos 계정, 컨테이너 및 항목 만들기
+# <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](create-cosmosdb-resources-portal.md)

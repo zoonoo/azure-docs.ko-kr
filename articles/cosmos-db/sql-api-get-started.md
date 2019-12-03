@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: a8af36da7b9043492f1ed3c77dcc1b35dc2936fe
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132573"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74173899"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -259,7 +259,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 1. F5 키를 선택하여 애플리케이션을 실행합니다.
 
    > [!NOTE]
-   > "503 서비스를 사용할 수 없는 예외"가 표시되면 직접 모드에 필요한 [포트](performance-tips.md#networking)가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 필요한 [포트](performance-tips.md#networking)를 열거나 아래와 같이 게이트웨이 모드를 사용합니다.
+   > "503 서비스를 사용할 수 없는 예외" 오류가 발생하면 직접 연결 모드에 필요한 [포트](performance-tips.md#networking)가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 다음 코드와 같이 필요한 포트를 열거나 게이트웨이 모드 연결을 사용합니다.
    ```csharp
      // Create a new instance of the Cosmos Client in Gateway mode
      this.cosmosClient = new CosmosClient(EndpointUri, PrimaryKey, new CosmosClientOptions()

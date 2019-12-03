@@ -15,12 +15,12 @@ ms.date: 11/22/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: seohack1
-ms.openlocfilehash: 2351e6a63723156cce646a6a1cdda837b18a8f91
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 5429ebb611f852f7672d89de190ddd68dbcb01cf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456815"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707774"
 ---
 # <a name="troubleshoot-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC 문제 해결
 
@@ -90,7 +90,7 @@ CanDelegate        : False
 }
 ```
 
-이러한 역할 할당을 유지 하는 것은 문제가 되지 않지만 다른 역할 할당과 비슷한 단계를 사용 하 여 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-role-assignments), [Azure PowerShell](role-assignments-powershell.md#remove-access)또는 [Azure CLI](role-assignments-cli.md#remove-access) 를 참조 하세요.
+이러한 역할 할당을 유지 하는 것은 문제가 되지 않지만 다른 역할 할당과 비슷한 단계를 사용 하 여 제거할 수 있습니다. 역할 할당을 제거 하는 방법에 대 한 자세한 내용은 [Azure Portal](role-assignments-portal.md#remove-a-role-assignment), [Azure PowerShell](role-assignments-powershell.md#remove-a-role-assignment)또는 [Azure CLI](role-assignments-cli.md#remove-a-role-assignment) 를 참조 하세요.
 
 PowerShell에서 개체 ID 및 역할 정의 이름을 사용 하 여 역할 할당을 제거 하려고 하지만 둘 이상의 역할 할당이 매개 변수와 일치 하는 경우 "제공 된 정보가 역할 할당에 매핑되지 않습니다." 라는 오류 메시지가 표시 됩니다. 다음은 오류 메시지의 예를 보여 줍니다.
 
@@ -149,7 +149,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 다음 항목을 사용하려면 웹 사이트를 포함하는 전체 **리소스 그룹**에 대한 **쓰기** 권한이 필요합니다.  
 
 * SSL 인증서 및 바인딩(SSL 인증서는 같은 리소스 그룹과 지리적 위치의 사이트 간에 공유될 수 있음)  
-* 작업  
+* 경고 규칙  
 * 자동 크기 조정 설정  
 * Application Insights 구성 요소  
 * 웹 테스트  
@@ -171,7 +171,7 @@ Azure Resource Manager는 경우에 따라 성능 향상을 위해 구성 및 �
 
 * 가용성 집합  
 * 부하 분산된 집합  
-* 작업  
+* 경고 규칙  
 
 이러한 타일에 액세스할 수 없는 경우 관리자에게 리소스 그룹에 대한 참가자 권한을 요청합니다.
 

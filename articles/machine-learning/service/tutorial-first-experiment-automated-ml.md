@@ -1,5 +1,5 @@
 ---
-title: 첫 번째 자동화된 ML 분류 실험 만들기
+title: 첫 번째 자동화된 ML 실험 만들기
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning Studio에서 자동화된 기계 학습을 사용하여 분류 모델을 학습시키고 배포하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: ecad41097786a40f7c605a686f085136856c950a
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 04035e23c0c650fb6cbf4fdca3b78ce5e814c9d3
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581572"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74270717"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>자습서: 자동화된 기계 학습을 사용하여 처음으로 분류 모델 만들어보기
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]

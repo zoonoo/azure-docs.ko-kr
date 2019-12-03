@@ -1,21 +1,17 @@
 ---
-title: '자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 유추 | Microsoft Docs'
+title: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 유추
 description: 이 자습서에서는 Azure Functions에서 TensorFlow 기계 학습 모델을 적용하는 방법을 보여 줍니다.
-services: functions
 author: anthonychu
-manager: gwallace
-ms.service: azure-functions
-ms.devlang: python
 ms.topic: tutorial
 ms.date: 07/29/2019
 ms.author: antchu
 ms.custom: mvc
-ms.openlocfilehash: 491adb2719dc7c05a2943634e83027376c9327c3
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: e7c4e1bbd23d43d5e11ab8b26c3d4e1215b4946b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082737"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74230499"
 ---
 # <a name="tutorial-apply-machine-learning-models-in-azure-functions-with-python-and-tensorflow"></a>자습서: Azure Functions에서 Python 및 TensorFlow를 사용하여 기계 학습 모델 적용
 

@@ -1,21 +1,15 @@
 ---
 title: MetaMask를 Azure Blockchain Service 네트워크에 연결
 description: MetaMask를 사용하여 Azure Blockchain Service 네트워크에 연결하고 스마트 계약을 배포합니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
 ms.date: 09/12/2019
 ms.topic: quickstart
-ms.service: azure-blockchain
-ms.reviewer: jackyhsu
-manager: femila
-ms.openlocfilehash: b89e75d406a738fb685bb3294dca8d79a2b9170c
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.reviewer: janders
+ms.openlocfilehash: 21e45b80a9a08dd6bdeefb0ab01fadabaa08cbce
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70966611"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74456033"
 ---
 # <a name="quickstart-use-metamask-to-connect-and-deploy-a-smart-contract"></a>빠른 시작: MetaMask를 사용하여 스마트 계약 연결 및 배포
 
@@ -144,4 +138,4 @@ Remix는 브라우저 기반 Solidity 개발 환경입니다. MetaMask와 Remix�
 이 빠른 시작에서는 MetaMask 브라우저 확장을 사용하여 Azure Blockchain Service 트랜잭션 노드에 연결하고, 스마트 계약을 배포하고, 트랜잭션을 블록체인에 보냈습니다. 다음 자습서에서 Etherum 및 Truffle용 Azure Blockchain Development Kit를 사용하여 트랜잭션을 통해 스마트 계약 함수를 만들고, 빌드하고, 배포하고, 실행해 보세요.
 
 > [!div class="nextstepaction"]
-> [Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포](send-transaction.md)
+> [Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포](send-transaction.md)

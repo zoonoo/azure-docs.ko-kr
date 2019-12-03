@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 태그 및 해당 값 강제 적용
-description: 이 샘플 정책 정의에서는 각각 매개 변수로 설정된 태그 이름 및 값이 필요합니다.
+description: 이 샘플 정책 정의에는 각 Azure 리소스의 매개 변수에 정의된 태그 이름과 값이 필요합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: b48bd1e38264bc98a2ec7b4c5b1a6a929babffaf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d405b5cbe2bdb7b96c74d665171714d1890ef624
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076257"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463330"
 ---
 # <a name="sample---enforce-tag-and-its-value"></a>샘플 - 태그 및 해당 값 강제 적용
 

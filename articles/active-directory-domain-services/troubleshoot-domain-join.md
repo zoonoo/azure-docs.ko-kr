@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: 1016fbc1478ec713d50a2f04bcc80d08288b03f3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 73a76c4442bb8af70168e54a294f2cb100ff653c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827233"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703666"
 ---
 # <a name="troubleshoot-domain-join-problems-with-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 도메인 가입 문제 해결
 
@@ -32,10 +32,10 @@ VM이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 일반적�
 
 1. VM이 Azure AD DS에 대해 사용 하도록 설정 된 동일한 또는 피어 링 가상 네트워크에 연결 되어 있는지 확인 하세요. 그렇지 않으면 VM에서 가입 하기 위해 도메인을 찾아서 연결할 수 없습니다.
     * VM이 동일한 가상 네트워크에 연결 되어 있지 않은 경우에는 가상 네트워크 피어 링 또는 VPN 연결이 *활성* 상태 인지 *확인 하 고* 트래픽이 올바르게 흐를 수 있도록 연결 되어 있는지 확인 합니다.
-1. Azure AD DS 관리 되는 도메인의 도메인 이름 (예: `ping contoso.com`)을 사용 하 여 도메인에 ping을 시도 합니다.
-    * Ping 응답이 실패 하면 `ping 10.0.0.4`과 같이 Azure AD DS 관리 되는 도메인에 대 한 포털의 개요 페이지에 표시 되는 도메인의 IP 주소를 ping 해 봅니다.
+1. `ping aadds.contoso.com`와 같이 Azure AD DS 관리 되는 도메인의 도메인 이름을 사용 하 여 도메인에 ping을 시도 합니다.
+    * Ping 응답이 실패 하면 `ping 10.0.0.4`와 같이 Azure AD DS 관리 되는 도메인에 대 한 포털의 개요 페이지에 표시 되는 도메인의 IP 주소를 ping 해 봅니다.
     * IP 주소를 성공적으로 ping 할 수 있지만 도메인은 ping 할 수 없으면 DNS가 잘못 구성 된 것일 수 있습니다. 가상 네트워크에 대 한 Azure AD DS 관리 되는 도메인 DNS 서버를 구성 했는지 확인 합니다.
-1. @No__t-0과 같이 가상 머신에서 DNS 확인자 캐시를 플러시합니다.
+1. `ipconfig /flushdns`와 같은 가상 머신에서 DNS 확인자 캐시를 플러시합니다.
 
 ### <a name="network-security-group-nsg-configuration"></a>NSG (네트워크 보안 그룹) 구성
 

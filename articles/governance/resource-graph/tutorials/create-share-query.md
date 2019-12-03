@@ -1,18 +1,18 @@
 ---
-title: Azure Portal에서 쿼리 만들기 및 공유
-description: 이 자습서에서는 Resource Graph 쿼리를 만들고 Azure Portal의 다른 사용자와 공유하는 방법을 알아봅니다.
-ms.date: 10/23/2019
+title: '자습서: Azure Portal에서 쿼리 관리'
+description: 이 자습서에서는 Resource Graph 쿼리를 만들고 Azure Portal의 다른 사용자와 새 쿼리를 공유합니다.
+ms.date: 11/21/2019
 ms.topic: tutorial
-ms.openlocfilehash: 65b96da3bd9064f34d75d5e87f1fcf55336d9893
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 00cb3f95112804c81beb6bce6fc35891e6197e60
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958567"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74303948"
 ---
 # <a name="tutorial-create-and-share-an-azure-resource-graph-query-in-the-azure-portal"></a>자습서: Azure Portal에서 Azure Resource Graph 쿼리 만들기 및 공유
 
-Azure Resource Graph Explorer를 사용하여 Azure Portal에 직접 Resource Graph 쿼리를 저장할 수 있습니다. 쿼리 유형으로는 _프라이빗_ 쿼리와 _공유_ 쿼리가 있습니다. 프라이빗 쿼리는 Azure Portal 설정에 저장됩니다. 반면 공유 쿼리는 RBAC(역할 기반 액세스 제어)를 통해 관리하고 리소스 잠금으로 보호할 수 있는 Resource Manager 리소스입니다.
+Azure Resource Graph Explorer를 사용하여 Azure Portal에 직접 Resource Graph 쿼리를 저장할 수 있습니다. 쿼리 유형으로는 _프라이빗_ 쿼리와 _공유_ 쿼리가 있습니다. 프라이빗 쿼리는 Azure Portal 설정에 저장됩니다. 반면 공유 쿼리는 RBAC(역할 기반 액세스 제어)를 통해 관리하고 리소스 잠금으로 보호할 수 있는 Resource Manager 리소스입니다. 두 유형의 쿼리는 모두 미사용으로 암호화됩니다.
 
 Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 걸리는 시간을 절약할 수 있습니다. 쿼리를 공유하면 팀이 반복을 통해 일관성 및 효율성 목표를 실현하는 데 도움이 됩니다.
 
@@ -54,7 +54,7 @@ Azure Portal에 쿼리를 저장하면 자주 사용하는 쿼리를 찾는 데 
 1. **쿼리 열기**를 선택합니다. 유형이 **프라이빗 쿼리**인지 확인합니다. 이제 저장된 이름 **OS별로 VM 수 계산**이 **쿼리 이름** 목록에 표시됩니다. 저장된 쿼리의 제목 링크를 선택하면 해당 쿼리 이름을 사용하는 새 탭에 로드됩니다.
 
    > [!NOTE] 
-   >저장된 쿼리가 열려 있고 탭이 해당 이름을 표시하는 경우 **저장** 단추를 선택하면 저장된 쿼리가 변경 내용으로 업데이트됩니다. 열려 있는 쿼리에서 저장된 쿼리를 새로 만들려면 **다른 이름으로 저장**을 선택하고, 새 쿼리를 저장할 때처럼 계속 진행합니다.
+   > 저장된 쿼리가 열려 있고 탭이 해당 이름을 표시하는 경우 **저장** 단추를 선택하면 저장된 쿼리가 변경 내용으로 업데이트됩니다. 열려 있는 쿼리에서 저장된 쿼리를 새로 만들려면 **다른 이름으로 저장**을 선택하고, 새 쿼리를 저장할 때처럼 계속 진행합니다.
 
 1. 저장된 쿼리를 삭제하려면 **쿼리 열기**를 다시 선택하고, **유형** 필드가 **프라이빗 쿼리**로 설정되었는지 확인합니다. 저장된 `Count VMs by OS` 쿼리의 행에서 **삭제**(휴지통 아이콘)를 선택합니다. 확인 대화 상자에서 **예**를 선택하여 쿼리 삭제를 완료합니다.
    그런 다음, **쿼리 열기** 창을 닫습니다.
@@ -153,9 +153,7 @@ Resources
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Portal](../first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
-- [쿼리 언어](../concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
-- [리소스 검색](../concepts/explore-resources.md) 방법을 자세히 알아봅니다.
-- [시작 쿼리](../samples/starter.md) 샘플을 살펴봅니다.
-- [고급 쿼리](../samples/advanced.md) 샘플을 살펴봅니다.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.
+이 자습서에서는 프라이빗 및 공유 쿼리를 만들었습니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+
+> [!div class="nextstepaction"]
+> [쿼리 언어에 대한 자세한 정보 가져오기](../concepts/query-language.md)

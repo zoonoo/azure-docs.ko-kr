@@ -1,14 +1,14 @@
 ---
-title: 샘플 - SWIFT CSP-CSCF v2020 청사진 - 배포 단계
+title: SWIFT CSP-CSCF v2020 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 포함하여 SWIFT CSP-CSCF v2020 청사진 샘플에 대한 단계를 배포합니다.
 ms.date: 09/24/2019
 ms.topic: sample
-ms.openlocfilehash: d25a35c51d4e93e96edb844fbb2224f13ad4c23e
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 63a3880d0092f1ed6fabb2b024d05eebb79fe58b
+ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037817"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74546483"
 ---
 # <a name="deploy-the-swift-csp-cscf-v2020-blueprint-sample"></a>SWIFT CSP-CSCF v2020 청사진 샘플의 배포
 

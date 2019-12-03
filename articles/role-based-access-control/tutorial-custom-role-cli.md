@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
+title: 자습서 - Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+description: 이 자습서에서 Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: de1805d91f48b5718ecf293c2b8672ba40fb81a9
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 29b0bea851466b5173711441a5a7927c796c9926
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56588163"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419590"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 

@@ -9,12 +9,12 @@ ms.date: 11/26/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 28a387b77c9a4db4be151dffc853617c426c6927
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 5cef0e94a43b3ef16d45f7f43658f962e07b5345
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666560"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707588"
 ---
 # <a name="check-the-encryption-status-of-a-blob"></a>Blob의 암호화 상태를 확인 합니다.
 
@@ -72,7 +72,7 @@ Blob이 생성 된 시간을 확인 하려면 **created** 속성의 값을 확�
 
 ---
 
-### <a name="force-encryption-of-a-blob"></a>Blob의 암호화 강제 적용
+## <a name="force-encryption-of-a-blob"></a>Blob의 암호화 강제 적용
 
 2017 년 10 월 20 일 이전에 만들어진 blob이 백그라운드 프로세스에서 아직 암호화 되지 않은 경우 blob을 다운로드 하 고 다시 업로드 하 여 즉시 암호화가 수행 되도록 할 수 있습니다. 이 작업을 수행 하는 간단한 방법은 AzCopy를 사용 하는 것입니다.
 

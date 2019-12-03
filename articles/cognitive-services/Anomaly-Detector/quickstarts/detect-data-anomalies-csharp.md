@@ -8,30 +8,30 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 10/14/2019
+ms.date: 11/19/2019
 ms.author: aahi
-ms.openlocfilehash: 222fb5d37065bc40e9c96a9ff3487a7ea8ad0570
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 76308e2167cbedae9572f1fb5037dfb394ce4b17
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72554760"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483408"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-c"></a>빠른 시작: Anomaly Detector REST API와 C#을 사용하여 시계열 데이터에서 변칙 검색 
 
 이 빠른 시작을 통해 Anomaly Detector API의 두 가지 검색 모드를 사용하여 시계열 데이터에서 변칙을 검색합니다. 이 C# 애플리케이션은 JSON 형식의 시계열 데이터가 포함된 2개의 API 요청을 보내고 응답을 받습니다.
 
-| API 요청                                        | 애플리케이션 출력                                                                                                                         |
-|----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| API 요청                                        | 애플리케이션 출력                                                                                                                                         |
+|----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 일괄 처리로 변칙 검색                        | 시계열 데이터의 각 데이터 요소에 대한 변칙 상태(및 기타 데이터)와 검색된 변칙의 위치가 포함된 JSON 응답입니다. |
-| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다.                                                                                                                                         |
+| 최신 데이터 요소의 변칙 상태 검색 | 시계열 데이터의 최신 데이터 요소에 대한 변칙 상태(및 기타 데이터)가 포함된 JSON 응답입니다.                                        |
 
- 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다.
+ 이 애플리케이션은 C#으로 작성되었지만, API는 대부분의 프로그래밍 언어와 호환되는 RESTful 웹 서비스입니다. 이 빠른 시작의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/csharp-detect-anomalies.cs)에서 찾을 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 - [Visual Studio 2017 이상](https://visualstudio.microsoft.com/downloads/)의 모든 버전
-
+- 변칙 탐지기 키 및 엔드포인트
 - NuGet 패키지로 사용 가능한 [Json.NET](https://www.newtonsoft.com/json) 프레임워크. Visual Studio에서 Newtonsoft.Json을 NuGet 패키지로 설치하려면 다음을 수행합니다.
     
     1. **솔루션 탐색기**에서 프로젝트를 마우스 오른쪽 단추로 클릭합니다.
@@ -55,11 +55,11 @@ ms.locfileid: "72554760"
 
 2. 구독 키 및 엔드포인트에 대한 변수를 만듭니다. 아래는 변칙 검색에 사용할 수 있는 URI입니다. 나중에 API 요청 URL을 만드는 서비스 엔드포인트에 추가됩니다.
 
-    |검색 방법  |URI  |
-    |---------|---------|
-    |일괄 검색    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
-    |최신 데이터 요소에서 검색     | `/anomalydetector/v1.0/timeseries/last/detect`        |
-    
+    | 검색 방법                   | URI                                              |
+    |------------------------------------|--------------------------------------------------|
+    | 일괄 검색                    | `/anomalydetector/v1.0/timeseries/entire/detect` |
+    | 최신 데이터 요소에서 검색 | `/anomalydetector/v1.0/timeseries/last/detect`   |
+        
     [!code-csharp[initial variables for endpoint, key and data file](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>요청을 보내는 함수 만들기
@@ -76,7 +76,7 @@ ms.locfileid: "72554760"
 
 1. `detectAnomaliesBatch()`라는 새 함수를 만듭니다. 요청을 구성하고 엔드포인트, 구독 키, 일괄 처리 변칙 검색을 위한 URL 및 시계열 데이터와 함께 `Request()` 함수를 호출하여 보냅니다.
 
-2. JSON 개체를 deserialize하여 콘솔에 작성합니다.
+2. JSON 개체를 역직렬화하여 콘솔에 작성합니다.
 
 3. 응답에 `code` 필드가 포함된 경우에는 오류 코드 및 오류 메시지를 출력합니다. 
 
@@ -89,10 +89,10 @@ ms.locfileid: "72554760"
 
 1. `detectAnomaliesLatest()`라는 새 함수를 만듭니다. 요청을 구성하고 엔드포인트, 구독 키, 최신 포인트 변칙 검색을 위한 URL 및 시계열 데이터와 함께 `Request()` 함수를 호출하여 보냅니다.
 
-2. JSON 개체를 deserialize하여 콘솔에 작성합니다.
+2. JSON 개체를 역직렬화하여 콘솔에 작성합니다.
 
-[!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
-
+    [!code-csharp[Detect anomalies latest](~/samples-anomaly-detector/quickstarts/csharp-detect-anomalies.cs?name=detectAnomaliesLatest)]
+ 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>시계열 데이터를 로드하고 요청 보내기
 
 1. 애플리케이션의 main 메서드에서 `File.ReadAllText()`를 사용하여 JSON 시계열 데이터를 로드합니다. 
@@ -107,11 +107,4 @@ ms.locfileid: "72554760"
 * [일괄 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [최신 요소 검색 응답 예제](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
 
-## <a name="next-steps"></a>다음 단계
-
-> [!div class="nextstepaction"]
->[Azure Databricks를 사용하여 스트리밍 변칙 검색](../tutorials/anomaly-detection-streaming-databricks.md)
-
-* [Anomaly Detector API](../overview.md)란?
-* Anomaly Detector API를 사용하는 경우 [모범 사례](../concepts/anomaly-detection-best-practices.md)
-* 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/sdk/csharp-sdk-sample.cs)에서 확인할 수 있습니다.
+[!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

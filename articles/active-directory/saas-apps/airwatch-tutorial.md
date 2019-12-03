@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 07/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f0a684c6a38ba3a95438941f668b36b23d278df
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 772b37816b83c275bae927d825434dc3ca76a35c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227691"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231985"
 ---
 # <a name="tutorial-integrate-airwatch-with-azure-active-directory"></a>자습서: Azure Active Directory와 AirWatch 통합
 
@@ -130,7 +130,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자** 탭을 클릭하고 **Base DN** 텍스트 상자에 도메인 이름을 입력한 다음 **저장**을 클릭합니다.
 
-   ![사용자](./media/airwatch-tutorial/ic791922.png "사용자")
+   ![User](./media/airwatch-tutorial/ic791922.png "사용자")
 
 1. **서버** 탭을 클릭합니다.
 
@@ -164,7 +164,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **사용자** 탭을 다시 클릭합니다.
 
-    ![사용자](./media/airwatch-tutorial/ic791926.png "사용자")
+    ![User](./media/airwatch-tutorial/ic791926.png "사용자")
 
 1. **특성** 섹션에서 다음 단계를 수행합니다.
 
@@ -239,7 +239,7 @@ Azure AD 사용자가 AirWatch에 로그인할 수 있도록 하려면 AirWatch�
    b. **저장**을 클릭합니다.
 
 > [!NOTE]
-> 다른 AirWatch 사용자 계정 생성 도구 또는 AirWatch가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 AirWatch 사용자 계정 생성 도구 또는 AirWatch가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-sso"></a>SSO 테스트
 

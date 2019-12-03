@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/25/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef24d55089938f6721eb6461f57797bca9ed82fe
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 7550ba7f375cb7d8b291c0adf7f0ebded16f0990
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159490"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227510"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lyndacom"></a>자습서: Lynda.com과 Azure Active Directory 통합
 
@@ -189,7 +189,7 @@ Lynda.com을 프로비전하는 사용자를 구성할 작업 항목이 없습�
 사용할 수 있는 사용자 계정이 없으면 자동으로 Lynda.com에 의해 생성됩니다.
 
 > [!NOTE]
-> 다른 Lynda.com 사용자 계정 생성 도구 또는 Lynda.com이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Lynda.com 사용자 계정 생성 도구 또는 Lynda.com이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

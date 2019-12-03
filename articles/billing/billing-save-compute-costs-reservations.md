@@ -3,16 +3,16 @@ title: Azure Reservations란?
 description: 가상 머신, SQL Database, Azure Cosmos DB 및 기타 리소스 비용을 절약하기 위한 Azure 예약 및 가격 책정 정보에 대해 알아봅니다.
 author: yashesvi
 manager: yashar
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 11/22/2019
 ms.author: banders
-ms.openlocfilehash: a002f5a1657454ff5048ab695e62eccd268a5891
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: df15bcc0e4a3ef7629abf7b62f8ff36caf732150
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580087"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420135"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -36,6 +36,12 @@ Azure 예약은 가상 머신, Azure Blob 스토리지 또는 Azure Data Lake St
 - **SQL Database 예약 vCore** - 컴퓨팅 비용만 예약에 포함됩니다. 라이선스는 별도로 청구됩니다.
 - **SQL Data Warehouse** - 예약에 cDWU 사용이 포함됩니다. SQL Data Warehouse 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
 - **App Service 스탬프 요금** - 예약에 스탬프 사용이 포함됩니다. 예약은 작업자에게 적용되지 않으므로 스탬프와 연결된 다른 모든 리소스에는 별도의 요금이 청구됩니다.
+- Azure Database for MySQL
+- Azure Database for PostgreSQL
+- Azure Database for MariaDB
+- Azure Data Explorer
+- 프리미엄 SSD Managed Disks
+
 
 Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 라이선스 비용을 처리할 수 있습니다.
 

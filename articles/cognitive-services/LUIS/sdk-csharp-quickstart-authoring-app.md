@@ -10,12 +10,12 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 08/30/2019
 ms.author: diberry
-ms.openlocfilehash: 6af076f585e7fc9afe870acada744ead2d2e9118
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a28fb779b7a48b598059e9494cb28e9ec57a6e
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672085"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405892"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library-for-net"></a>빠른 시작: .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리
 
@@ -35,11 +35,51 @@ ms.locfileid: "73672085"
 * LUIS(Language Understanding) 포털 계정- [체험 계정 만들기](https://www.luis.ai)
 * 최신 버전의 [.NET Core](https://dotnet.microsoft.com/download/dotnet-core)
 
+
 ## <a name="setting-up"></a>설치
 
 ### <a name="get-your-language-understanding-luis-starter-key"></a>LUIS(Language Understanding) 시작 키 가져오기
 
-[시작 키](luis-how-to-azure-subscription.md#starter-key)를 가져오고 `COGNITIVESERVICE_AUTHORING_KEY`라는 [키 환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+LUIS 작성 리소스를 만들어 [스타터 키](luis-how-to-azure-subscription.md#starter-key)를 가져옵니다. 다음 단계를 위해 키와 키의 영역을 유지합니다.
+
+### <a name="create-an-environment-variable"></a>환경 변수 만들기
+
+키와 키 영역을 사용하여 인증을 위한 두 가지 환경 변수를 만듭니다.
+
+* `COGNITIVESERVICE_AUTHORING_KEY` - 요청을 인증하기 위한 리소스 키입니다.
+* `COGNITIVESERVICE_REGION` - 키와 연결된 지역입니다. 예: `westus`.
+
+운영 체제에 대한 지침을 사용합니다.
+
+#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+
+```console
+setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
+setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
+```
+
+환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
+
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
+
+#### <a name="macostabunix"></a>[macOS](#tab/unix)
+
+`.bash_profile`을 편집하고, 환경 변수를 추가합니다.
+
+```bash
+export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key> 
+export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
+```
+
+환경 변수를 추가한 후에는 콘솔 창에서 `source .bash_profile` 명령을 실행하여 변경 내용을 적용합니다.
+***
 
 ### <a name="create-a-new-c-application"></a>새 C# 애플리케이션 만들기
 
@@ -47,7 +87,7 @@ ms.locfileid: "73672085"
 
 1. 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 dotnet `new` 명령을 사용하여 `language-understanding-quickstart`라는 새 콘솔 앱을 만듭니다. 이 명령은 `Program.cs`라는 단일 소스 파일을 사용하여 간단한 "Hello World" C# 프로젝트를 만듭니다. 
 
-    ```console
+    ```dotnetcli
     dotnet new console -n language-understanding-quickstart
     ```
 
@@ -55,7 +95,7 @@ ms.locfileid: "73672085"
 
 1. 다음을 통해 애플리케이션을 빌드할 수 있습니다.
 
-    ```console
+    ```dotnetcli
     dotnet build
     ```
 
@@ -74,7 +114,7 @@ ms.locfileid: "73672085"
 
 애플리케이션 디렉터리 내에서 다음 명령을 사용하여 .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 설치합니다.
 
-```console
+```dotnetcli
 dotnet add package Microsoft.Azure.CognitiveServices.Language.LUIS.Authoring --version 3.0.0
 ```
 
@@ -109,7 +149,7 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 
 ## <a name="add-the-dependencies"></a>종속성 추가
 
-선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 **Program.cs** 파일을 엽니다. 기존 `using` 코드를 다음 `using` 지시문으로 바꿉니다.
+선호하는 편집기 또는 IDE에서 프로젝트 디렉터리의 *Program.cs* 파일을 엽니다. 기존 `using` 코드를 다음 `using` 지시문으로 바꿉니다.
 
 [!code-csharp[Using statements](~/cognitive-services-dotnet-sdk-samples/documentation-samples/quickstarts/LUIS/LUIS.cs?name=Dependencies)]
 
@@ -188,9 +228,9 @@ LUIS 앱 모델의 기본 개체는 의도입니다. 의도는 사용자 발화 
 
 ## <a name="run-the-application"></a>애플리케이션 실행
 
-애플리케이션 디렉터리에서 dotnet `run` 명령을 사용하여 애플리케이션을 실행합니다.
+애플리케이션 디렉터리에서 `dotnet run` 명령을 사용하여 애플리케이션을 실행합니다.
 
-```console
+```dotnetcli
 dotnet run
 ```
 

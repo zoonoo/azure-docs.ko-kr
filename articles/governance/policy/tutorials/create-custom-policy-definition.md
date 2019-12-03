@@ -1,14 +1,14 @@
 ---
-title: 사용자 지정 정책 정의 만들기
-description: Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure에 적용합니다.
-ms.date: 04/23/2019
+title: '자습서: 사용자 지정 정책 정의 만들기'
+description: 이 자습서에서는 Azure Policy에 대한 사용자 지정 정책 정의를 만들어 사용자 지정 비즈니스 규칙을 Azure 리소스에 적용합니다.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: 97a85eb28cd0dbb2586623fda442d87a5790db2a
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: e30d47ed6e01c4fd8ff061398b1045f9446e466a
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74128792"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483987"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>자습서: 사용자 지정 정책 정의 만들기
 
@@ -31,6 +31,8 @@ ms.locfileid: "74128792"
 > - 사용할 효과 결정
 > - 정책 정의 작성
 
+## <a name="prerequisites"></a>필수 조건
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="identify-requirements"></a>ID 요구 사항
@@ -50,12 +52,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure 리소스의 속성을 확인하는 방법은 여러 가지가 있습니다. 이 자습서에는 각 방법을 살펴보도록 하겠습니다.
 
+- VS Code용 Azure Policy 확장
 - 리소스 관리자 템플릿
   - 기존 리소스 내보내기
   - 환경 만들기
   - 빠른 시작 템플릿(GitHub)
   - 템플릿 참조 문서
 - Azure 리소스 탐색기
+
+### <a name="view-resources-in-vs-code-extension"></a>VS Code 확장에서 리소스 보기
+
+[VS Code 확장](../how-to/extension-for-vscode.md#search-for-and-view-resources)을 사용하여 사용자 환경에서 리소스를 찾고 각 리소스에 대한 Resource Manager 속성을 볼 수 있습니다.
 
 ### <a name="resource-manager-templates"></a>리소스 관리자 템플릿
 
@@ -156,9 +163,14 @@ Azure 리소스를 살펴보는 또 다른 방법은 [Azure Resource Explorer](h
 
 Azure 리소스의 별칭을 확인하는 몇 가지 방법이 있습니다. 이 자습서에는 각 방법을 살펴보도록 하겠습니다.
 
+- VS Code용 Azure Policy 확장
 - Azure CLI
 - Azure PowerShell
 - Azure Resource Graph
+
+### <a name="get-aliases-in-vs-code-extension"></a>VS Code 확장에서 별칭 가져오기
+
+VS Code 확장용 Azure Policy 확장을 사용하면 리소스를 쉽게 찾아보고 [별칭을 검색](../how-to/extension-for-vscode.md#discover-aliases-for-resource-properties)할 수 있습니다.
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -188,7 +200,7 @@ Azure CLI와 마찬가지로, 결과를 보면 스토리지 계정에서 **suppo
 
 ### <a name="azure-resource-graph"></a>Azure Resource Graph
 
-[Azure Resource Graph](../../resource-graph/overview.md)는 미리 보기로 제공되는 신규 서비스입니다. 이 서비스는 Azure 리소스 속성을 찾을 수 있는 또 다른 방법입니다. 다음은 Resource Graph를 사용하여 단일 스토리지 계정을 찾는 샘플 쿼리입니다.
+[Azure Resource Graph](../../resource-graph/overview.md)는 신규 서비스입니다. 이 서비스는 Azure 리소스 속성을 찾을 수 있는 또 다른 방법입니다. 다음은 Resource Graph를 사용하여 단일 스토리지 계정을 찾는 샘플 쿼리입니다.
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'
@@ -301,12 +313,11 @@ Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1
 }
 ```
 
-Azure Resource Graph(미리 보기)는 [Cloud Shell](https://shell.azure.com)을 통해 사용할 수 있으며, 리소스 속성을 쉽고 빠르게 검색할 수 있습니다.
+Azure Resource Graph는 [Cloud Shell](https://shell.azure.com)을 통해 사용할 수 있으며, 리소스 속성을 쉽고 빠르게 검색할 수 있습니다.
 
 ## <a name="determine-the-effect-to-use"></a>사용할 효과 결정
 
-비 규격 리소스를 어떻게 할 것인지 결정하는 사안은 무엇을 평가할 것인지 결정하는 사안만큼 중요합니다. 비 규격 리소스에 대해 나올 수 있는 각 대응을 [효과](../concepts/effects.md)라고 합니다.
-효과는 비 규격 리소스가 로깅되는지, 차단되는지, 데이터가 추가되었는지 또는 리소스를 규정 준수 상태로 되돌리기 위한 배포가 연결되는지 여부를 제어합니다.
+비 규격 리소스를 어떻게 할 것인지 결정하는 사안은 무엇을 평가할 것인지 결정하는 사안만큼 중요합니다. 비 규격 리소스에 대해 나올 수 있는 각 대응을 [효과](../concepts/effects.md)라고 합니다. 효과는 비 규격 리소스가 로깅되는지, 차단되는지, 데이터가 추가되었는지 또는 리소스를 규정 준수 상태로 되돌리기 위한 배포가 연결되는지 여부를 제어합니다.
 
 우리 예에서는 Azure 환경에 비 규격 리소스를 만들지 않을 것이므로 우리에게 필요한 효과는 Deny입니다. 감사는 정책을 Deny로 설정하기 전에 정책의 영향을 확인하기에 좋은 정책 효과입니다. 할당별 효과를 보다 쉽게 변경하는 한 가지 방법은 효과를 매개 변수화하는 것입니다. 자세한 방법은 아래의 [매개 변수](#parameters)를 참조하세요.
 
@@ -439,6 +450,16 @@ Azure Resource Graph(미리 보기)는 [Cloud Shell](https://shell.azure.com)을
 ```
 
 완성된 정의는 새 정책 만들기에 사용할 수 있습니다. 포털 및 각 SDK(Azure CLI, Azure PowerShell 및 REST API)는 여러 방법으로 정의를 수락하므로, 각각의 명령을 검토하여 올바른 사용법을 확인하세요. 그 후 매개 변수화된 효과를 사용하여 적절한 리소스에 할당하고 스토리지 계정의 보안을 관리하세요.
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서의 리소스를 모두 마쳤으면 다음 단계를 사용하여 위에서 만든 할당 또는 정의를 삭제합니다.
+
+1. Azure Policy 페이지의 왼쪽 창에 있는 **작성** 아래에서 **정의**(또는 할당을 삭제하려는 경우 **할당**을 선택)를 선택합니다.
+
+1. 제거할 새 이니셔티브 또는 정책 정의(또는 할당)를 검색합니다.
+
+1. 행을 마우스 오른쪽 단추로 클릭하거나 정의(또는 할당) 끝에 있는 줄임표를 선택하고 **정의 삭제**(또는 **할당 삭제**)를 선택합니다.
 
 ## <a name="review"></a>검토
 

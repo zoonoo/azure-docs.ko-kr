@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8fc58b9cdec1a68dd12b7f70f7521a024f358ce
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 3b5d0e52e927a44d5bce5314e724c1c753809ce0
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73161043"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74231935"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>자습서: Zoho와 Azure Active Directory 통합
 
@@ -209,7 +209,7 @@ Zoho에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합
 Azure AD 사용자가 Zoho mail에 로그인할 수 있도록 하려면 사용자 계정이 Zoho mail로 프로비전되어야 합니다. Zoho mail의 경우, 수동으로 프로비전합니다.
 
 > [!NOTE]
-> 다른 Zoho Mail 사용자 계정 생성 도구 또는 Zoho Mail에서 제공하는 APIs를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Zoho Mail 사용자 계정 생성 도구 또는 Zoho Mail에서 제공하는 APIs를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="to-provision-a-user-account-perform-the-following-steps"></a>사용자 계정을 프로비저닝하려면 다음 단계를 수행합니다.
 

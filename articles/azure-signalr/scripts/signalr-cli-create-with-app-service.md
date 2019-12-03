@@ -1,19 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - App Service를 사용하여 SignalR Service 만들기
-description: Azure CLI 스크립트 샘플 - App Service를 사용하여 SignalR Service 만들기
+title: Azure CLI를 사용하여 App Service를 통해 SignalR Service 만들기
+description: App CLI를 사용하여 App Service로 SignalR Service를 만듭니다. Azure SignalR Service에 대한 모든 CLI 명령에 대해 알아봅니다.
 author: sffamily
 ms.service: signalr
 ms.devlang: azurecli
 ms.topic: sample
-ms.date: 04/20/2018
+ms.date: 11/13/2018
 ms.author: zhshang
 ms.custom: mvc
-ms.openlocfilehash: 09855c45f0a621ef1f51ba7c87443c40b02e00bd
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: eb45adb699ef0f97782e6cdb8e141e254b3993f9
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73578857"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158031"
 ---
 # <a name="create-a-signalr-service-with-an-app-service"></a>App Service로 SignalR Service 만들기
 

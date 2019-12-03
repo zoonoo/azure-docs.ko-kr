@@ -1,20 +1,20 @@
 ---
-title: Azure의 프라이빗 엔드포인트 관리
-description: Azure Portal를 사용하여 프라이빗 엔드포인트를 만드는 방법 알아보기
+title: 빠른 시작 - Azure에서 프라이빗 엔드포인트 관리
+description: 이 빠른 시작에서 Azure Portal를 사용하여 프라이빗 엔드포인트를 만드는 방법 알아보기
 services: private-link
-author: KumudD
+author: asudbring
 ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
-ms.author: kumud
-ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.author: allensu
+ms.openlocfilehash: 2cb3c1d798e48017604d72d8a438d6a1071199ea
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372232"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419773"
 ---
-# <a name="create-a-private-endpoint-using-azure-portal"></a>Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
+# <a name="quickstart-create-a-private-endpoint-using-azure-portal"></a>빠른 시작: Azure Portal를 사용하여 프라이빗 엔드포인트 만들기
 
 프라이빗 엔드포인트는 Azure에서 프라이빗 링크를 만드는 데 사용되는 기본 구성 요소입니다. 프라이빗 엔드포인트는 VM(Virtual Machines) 같은 Azure 리소스가 프라이빗 링크 리소스와 비공개로 통신할 수 있게 해줍니다. 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 프라이빗 엔드포인트가 있는 SQL Database Server인 Azure Virtual Network에서 VM을 만드는 방법에 대해 알아봅니다. 그러면 VM에서 SQL Database Server에 안전하게 액세스할 수 있습니다.
 
@@ -241,4 +241,3 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="next-steps"></a>다음 단계
 
 이 빠른 시작에서는 가상 네트워크, SQL 데이터베이스 서버 및 프라이빗 액세스를 위한 프라이빗 엔드포인트에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결하고 프라이빗 링크를 사용하여 SQL 데이터베이스 서버에 안전하게 전달했습니다. 프라이빗 엔드포인트에 대해 자세히 알아보려면 [Azure 프라이빗 엔드포인트란?](private-endpoint-overview.md)을 참조하세요.
-

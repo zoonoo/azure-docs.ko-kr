@@ -1,18 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿 만들기 및 배포
+title: 자습서 - 템플릿 만들기 및 배포
 description: 첫 번째 Azure Resource Manager 템플릿을 만듭니다. 이 자습서에서는 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 463f9a54648a9e6950f839bd856ccf42bc66dca0
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 9650b8c67e3fd5c786b066c53e78b106935e11e1
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074367"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406031"
 ---
 # <a name="tutorial-create-and-deploy-your-first-azure-resource-manager-template"></a>자습서: 첫 번째 Azure Resource Manager 템플릿을 만들고 배포
 
@@ -96,7 +94,7 @@ az login
 ---
 ## <a name="create-resource-group"></a>리소스 그룹 만들기
 
-템플릿을 배포하는 경우 리소스를 포함할 리소스 그룹을 지정합니다. 배포 명령을 실행하기 전에 먼저 Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 만듭니다. Azure PowerShell과 Azure CLI 중에서 선택하려면 다음 코드 섹션에서 해당 탭을 선택합니다.
+템플릿을 배포하는 경우 리소스를 포함할 리소스 그룹을 지정합니다. 배포 명령을 실행하기 전에 먼저 Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 만듭니다. Azure PowerShell과 Azure CLI 중에서 선택하려면 다음 코드 섹션에서 해당 탭을 선택합니다. 이 문서의 CLI 예제는 Bash 셸에 대해 작성되었습니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -133,7 +131,7 @@ New-AzResourceGroupDeployment `
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
-$templateFile="{provide-the-path-to-the-template-file}"
+templateFile="{provide-the-path-to-the-template-file}"
 az group deployment create \
   --name blanktemplate \
   --resource-group myResourceGroup \

@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js를 사용하여 Azure Device Provisioning Service에 X.509 디바이스를 등록하는 방법'
+title: Node.js를 사용하여 Azure Device Provisioning Service에 X.509 디바이스 등록
 description: 이 빠른 시작에서는 그룹 등록을 사용합니다. 이 빠른 시작에서는 Node.js 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 디바이스를 등록합니다.
 author: wesmc7777
 ms.author: wesmc
@@ -7,15 +7,14 @@ ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 3b2c27b8fc595dae39ed7374ec3647e6b4ba6f23
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 6056859cf1742fc4bda6056ad7c1c78059a8407a
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903423"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423246"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -112,13 +111,13 @@ ms.locfileid: "73903423"
 ## <a name="run-the-enrollment-group-sample"></a>등록 그룹 샘플 실행
  
 1. 샘플을 실행하려면 프로비전 서비스에 대한 연결 문자열이 필요합니다. 
-    1. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다. 
-    2. **공유 액세스 정책**을 클릭한 다음, 해당 속성을 열기 위해 사용하려는 액세스 정책을 클릭합니다. **액세스 정책** 창에서 기본 키 연결 문자열을 복사하고 적어 둡니다. 
+    1. Azure Portal에 로그인하여 왼쪽 메뉴에서 **모든 리소스** 단추를 선택하고 Device Provisioning 서비스를 엽니다. 
+    2. **공유 액세스 정책**을 클릭한 다음, 사용하려는 액세스 정책을 선택하여 해당 속성을 엽니다. **액세스 정책** 창에서 기본 키 연결 문자열을 복사하고 적어 둡니다. 
 
        ![포털에서 프로비전 서비스 연결 문자열 가져오기](./media/quick-enroll-device-x509-node/get-service-connection-string.png) 
 
 
-3. [테스트 인증서 준비](quick-enroll-device-x509-node.md#prepare-test-certificates)에서 설명한 것처럼, 프로비전 서비스를 사용하여 이전에 업로드되고 확인된 X.509 중간 또는 루트 CA 인증서가 포함된 .pem 파일도 필요합니다. 인증서가 업로드되고 확인되었는지 확인하려면 Azure Portal의 Device Provisioning Service 요약 페이지에서 **인증서**를 클릭합니다. 그룹 등록에 사용하려는 인증서를 찾아 해당 상태 값이 *확인됨*인지 확인합니다.
+3. [테스트 인증서 준비](quick-enroll-device-x509-node.md#prepare-test-certificates)에서 설명한 것처럼, 프로비전 서비스를 사용하여 이전에 업로드되고 확인된 X.509 중간 또는 루트 CA 인증서가 포함된 .pem 파일도 필요합니다. 인증서가 업로드되고 확인되었는지 확인하려면 Azure Portal의 Device Provisioning Service 요약 페이지에서 **인증서**를 선택합니다. 그룹 등록에 사용하려는 인증서를 찾아 해당 상태 값이 *확인됨*인지 확인합니다.
 
     ![포털에서 확인된 인증서](./media/quick-enroll-device-x509-node/verify-certificate.png) 
 
@@ -140,8 +139,8 @@ ms.locfileid: "73903423"
 Node.js 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리소스를 정리하지 마세요. 계속하지 않으려면 다음 단계를 사용하여 이 빠른 시작에서 만든 모든 Azure 리소스를 삭제합니다.
  
 1. 컴퓨터에서 Node.js 샘플 출력 창을 닫습니다.
-2. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 클릭한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID*를 선택하고, 블레이드 위쪽의 **삭제** 단추를 클릭합니다.  
-3. Azure Portal의 Device Provisioning Service에서 **인증서**를 클릭하고, 이 빠른 시작을 위해 업로드한 인증서를 클릭한 다음, **인증서 세부 정보** 창 위쪽의 **삭제** 단추를 클릭합니다.  
+2. Azure Portal에서 Device Provisioning Service로 이동하여 **등록 관리**를 선택한 다음, **등록 그룹** 탭을 선택합니다. 이 빠른 시작을 사용하여 등록한 X.509 디바이스의 *그룹 이름* 옆에 있는 확인란을 선택하고 창 위쪽의 **삭제** 단추를 누릅니다.    
+3. Azure Portal의 Device Provisioning Service에서 **인증서**를 선택하여 이 빠른 시작을 위해 업로드한 인증서를 선택하고 **인증서 세부 정보** 창 위쪽의 **삭제** 단추를 누릅니다.  
  
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service를 사용하여 X.509 중간 또는 루트 CA 인증서에 대한 그룹 등록을 만들었습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 

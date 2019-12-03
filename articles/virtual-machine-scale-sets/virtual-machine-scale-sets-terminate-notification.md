@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
 ms.author: vashan
-ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: d3d7f92b3803114321bc7420b5c4ba059aabcb9d
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264671"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705917"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Azure 가상 머신 확장 집합 인스턴스 (미리 보기)에 대 한 종료 알림
 확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. Preview 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연 시간은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.
@@ -67,7 +67,7 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 >확장 집합 인스턴스에 대 한 종료 알림은 API 버전 2019-03-01 이상 에서만 사용할 수 있습니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-새 확장 집합을 만들 때 [AzVmssVM](/powershell/module/az.compute/new-azvmss) cmdlet을 사용 하 여 확장 집합에 종료 알림을 사용 하도록 설정할 수 있습니다.
+새 확장 집합을 만들 때 [AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet을 사용 하 여 확장 집합에 종료 알림을 사용 하도록 설정할 수 있습니다.
 
 ```azurepowershell-interactive
 New-AzVmss `
@@ -84,7 +84,7 @@ New-AzVmss `
 
 위의 예제에서는 5 분의 기본 시간 제한을 사용 하 여 종료 알림이 설정 된 새 확장 집합을 만듭니다. 새 확장 집합을 만들 때 *TerminateScheduledEvents* 매개 변수에는 값이 필요 하지 않습니다. 제한 시간 값을 변경 하려면 *TerminateScheduledEventNotBeforeTimeoutInMinutes* 매개 변수를 통해 원하는 시간 제한을 지정 합니다.
 
-[AzVmssVM](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 기존 확장 집합에 대 한 종료 알림을 사용 하도록 설정 합니다.
+[AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 기존 확장 집합에 대 한 종료 알림을 사용 하도록 설정 합니다.
 
 ```azurepowershell-interactive
 Update-AzVmss `
@@ -157,8 +157,8 @@ POST 요청 본문에 필요한 json은 다음과 같습니다. 요청에 StartR
 -   시간 제한에 대 한 필수 대기 없음 – 이벤트를 받은 후 이벤트의 *NotBefore* 시간이 만료 되기 전에 언제 든 지 terminate 작업을 시작할 수 있습니다.
 -   제한 시간에 필수 삭제 – 미리 보기는 이벤트가 생성 된 후 시간 제한 값을 확장 하는 기능을 제공 하지 않습니다. 제한 시간이 만료 되 면 보류 중인 종료 이벤트가 처리 되 고 VM이 삭제 됩니다.
 -   수정 가능한 시간 제한 값 – 인스턴스를 삭제 하기 전에 언제 든 지 확장 집합 모델에서 *notBeforeTimeout* 속성을 수정 하 고 VM 인스턴스를 최신 모델로 업데이트 하 여 시간 제한 값을 수정할 수 있습니다.
--   보류 중인 삭제 모두 승인 – 승인 되지 않은 VM_1에 보류 중인 삭제가 있고 VM_2에서 다른 terminate 이벤트를 승인한 경우 VM_1에 대 한 terminate 이벤트가 승인 되거나 해당 시간 제한이 경과할 때까지 VM_2가 삭제 되지 않습니다. VM_1에 대 한 terminate 이벤트를 승인 하면 VM_1 및 VM_2가 모두 삭제 됩니다.
--   모든 동시 삭제 승인 – 위의 예제를 확장 하 고, VM_1 및 VM_2의 *NotBefore* time이 같으면 두 종료 이벤트 모두 승인 되어야 합니다. 그렇지 않으면 시간 제한이 만료 되기 전에 VM이 모두 삭제 되지 않습니다.
+-   보류 중인 삭제 모두 승인 – 승인 되지 않은 VM_1에 보류 중인 삭제가 있고 VM_2에서 다른 terminate 이벤트를 승인한 경우 VM_1에 대 한 terminate 이벤트가 승인 되거나 해당 시간 제한이 경과할 때까지 VM_2 삭제 되지 않습니다. VM_1에 대 한 terminate 이벤트를 승인 하면 VM_1 및 VM_2 모두 삭제 됩니다.
+-   모든 동시 삭제 승인 – 위의 예제를 확장 하 고 VM_1 및 VM_2 동일한 *NotBefore* 시간이 있는 경우에는 종료 이벤트를 모두 승인 하거나 시간 제한이 만료 되기 전에 VM을 모두 삭제 하지 않아야 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>ScheduledEventsProfile를 사용 하도록 설정 하지 못했습니다.

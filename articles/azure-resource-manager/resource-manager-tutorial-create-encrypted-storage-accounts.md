@@ -1,25 +1,17 @@
 ---
-title: Azure Resource Manager 템플릿 참조 활용 | Microsoft Docs
+title: 템플릿 참조 활용
 description: Azure Resource Manager 템플릿 참조를 활용하여 암호화된 스토리지 계정을 배포하는 템플릿을 만듭니다.
-services: azure-resource-manager
-documentationcenter: ''
 author: mumian
-manager: dougeby
-editor: tysonn
-ms.service: azure-resource-manager
-ms.workload: multiple
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: seodec18
-ms.openlocfilehash: 81c02c5e39e23b49291561821b0732227feb5c05
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: 99ec64529b90c7a80aea62090f80c55cf4e23510
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62103651"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326492"
 ---
 # <a name="tutorial-utilize-the-azure-resource-manager-template-reference"></a>자습서: Azure Resource Manager 템플릿 참조 활용
 
@@ -44,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 문서를 완료하려면 다음이 필요합니다.
 
-* [Visual Studio Code](https://code.visualstudio.com/) 및 [Resource Manager 도구 확장](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites)
+* Resource Manager 도구 확장이 포함된 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./resource-manager-tools-vs-code.md)를 참조하세요.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
 
@@ -86,7 +78,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     선택할 버전을 모르는 경우 최신 버전을 사용합니다.
 
-4. 암호화 관련 정의 정보를 탐색합니다.  
+4. 암호화 관련 정의 정보를 탐색합니다.
 
     ```json
     "encryption": {

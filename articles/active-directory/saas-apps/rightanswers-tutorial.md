@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: f242b2e33b50aa955446ae2b1f62421d39e58418
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8b1f7590e13be97841aae95ec47eaaa61ab004a9
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098894"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233486"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-rightanswers"></a>자습서: RightAnswers와 Azure Active Directory 통합
 
@@ -191,7 +191,7 @@ Azure AD 사용자가 RightAnswers에 로그인할 수 있도록 하려면 Right
 필요한 경우 첫 번째 Single Sign-On 시도에서 사용자가 자동으로 생성될 수 있습니다.
 
 > [!NOTE]
-> 다른 RightAnswers 사용자 계정 생성 도구 또는 RightAnswers가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 RightAnswers 사용자 계정 생성 도구 또는 RightAnswers가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

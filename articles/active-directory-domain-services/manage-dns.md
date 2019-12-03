@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: c225be5a1123c89d8a470a8dea48b3c57eb893b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f47f112991a4fe2e5b245920db98e5ae7617161a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474583"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704940"
 ---
 # <a name="administer-dns-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 DNS 관리
 
@@ -48,11 +48,11 @@ Azure Active Directory Domain Services (Azure AD DS)에서 키 구성 요소는 
 Azure AD DS에서 DNS 레코드를 만들고 수정 하려면 DNS 서버 도구를 설치 해야 합니다. 이러한 도구는 Windows Server의 기능으로 설치할 수 있습니다. Windows 클라이언트에 관리 도구를 설치 하는 방법에 대 한 자세한 내용은 install [원격 서버 관리 도구 (RSAT)][install-rsat]를 참조 하십시오.
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
-1. VM에 로그인 할 때 기본적으로 **서버 관리자** 열리지 않으면 **시작** 메뉴를 선택 하 고 **서버 관리자**를 선택 합니다.
-1. *서버 관리자* 창의 **대시보드** 창에서 **역할 및 기능 추가**를 선택합니다.
-1. **역할 및 기능 추가 마법사**의 *시작하기 전에* 페이지에서 **다음**을 선택합니다.
+1. VM에 로그인할 때 **서버 관리자**가 기본적으로 열리지 않는 경우 **시작** 메뉴를 선택한 다음, **서버 관리자**를 선택합니다.
+1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
+1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.contoso.com*), **다음**을 차례로 선택합니다.
+1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.aadds.contoso.com*)을 선택 하 고 **다음**을 선택 합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다. 역할 관리 도구 목록에서 **DNS 서버 도구** 기능을 선택합니다.
 
@@ -69,7 +69,7 @@ DNS 서버 도구를 설치 하면 Azure AD DS 관리 되는 도메인에서 DNS
 > Azure AD DS 관리 되는 도메인에서 DNS를 관리 하려면 *AAD DC Administrators* 그룹의 구성원 인 사용자 계정에 로그인 해야 합니다.
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. 이전 섹션에 설치 된 **DNS** 를 비롯 하 여 사용 가능한 관리 도구 목록이 표시 됩니다. Dns **를 선택 하 여 Dns** 관리 콘솔을 시작 합니다.
-1. **Dns 서버에 연결** 대화 상자에서 **다음 컴퓨터**를 선택 하 고 관리 되는 도메인의 DNS 도메인 이름 (예: *contoso.com*)을 입력 합니다.
+1. **Dns 서버에 연결** 대화 상자에서 **다음 컴퓨터**를 선택 하 고 관리 되는 도메인의 DNS 도메인 이름 (예: *aadds.contoso.com*)을 입력 합니다.
 
     ![DNS 콘솔에서 Azure AD DS 관리 되는 도메인에 연결](./media/active-directory-domain-services-admin-guide/dns-console-connect-to-domain.png)
 

@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/08/2019
+ms.date: 11/23/2019
 ms.author: sharadag
-ms.openlocfilehash: 96dae96e16ce033ce15a8f1e9386e5252562654a
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e92e51e8aabf24f1c5c4db31e2e203f391620ecc
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796215"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423479"
 ---
 # <a name="what-is-azure-front-door-service"></a>Azure Front Door Service란?
 Azure Front Door Service를 사용하면 최적의 성능과 고가용성을 지원하는 즉시 글로벌 장애 조치(failover)를 최적으로 구현하여 웹 트래픽의 글로벌 라우팅을 정의, 관리, 모니터링할 수 있습니다. Front Door를 사용하면 글로벌(다중 지역) 소비자 및 기업 애플리케이션을 글로벌 Azure 잠재 고객에게 도달하는 견고한 고성능의 맞춤형 최신 애플리케이션, API 및 콘텐츠로 변환할 수 있습니다.
@@ -26,6 +26,8 @@ Front Door는 Layer 7 또는 HTTP/HTTPS 계층에서 작동하며, TCP가 분할
 
 >[!NOTE]
 > Azure는 사용자 시나리오를 위한 완전히 관리되는 부하 분산 솔루션 모음을 제공합니다. DNS 기반 글로벌 라우팅이 필요하고, TLS(Transport Layer Security) 프로토콜 종료(&quot;SSL 오프로드&quot;) 또는 HTTP/HTTPS 요청별 애플리케이션 계층 처리에 대한 요구 사항이 **없는** 경우 [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 검토하세요. 특정 지역의 서버 간 부하 분산이 필요한 경우 응용 프로그램 계층은 [Application Gateway](../application-gateway/application-gateway-introduction.md)를 살펴보고, 네트워크 계층 부하 분산은 [Load Balancer](../load-balancer/load-balancer-overview.md)를 살펴보세요. 필요에 따라 엔드투엔드 시나리오에서 이러한 솔루션을 조합하여 이점을 얻을 수 있습니다.
+>
+> Azure 부하 분산 옵션 비교는 [Azure의 부하 분산 옵션 개요](https://docs.microsoft.com/azure/architecture/guide/technology-choices/load-balancing-overview)를 참조하세요.
 
 다음 기능이 Front Door에 포함됩니다.
 

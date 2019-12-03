@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 02/19/2019
 ms.author: jeedes
-ms.openlocfilehash: 4f8663d59c263b6fa24e23e286f8eb4e75b888da
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 96966e4b9db5af40eee233d746d5790bbb769455
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159439"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227489"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mcm"></a>자습서: MCM과 Azure Active Directory 통합
 
@@ -186,7 +186,7 @@ MCM에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행합�
 이 섹션에서는 MCM에서 Britta Simon이라는 사용자를 만듭니다.  [MCM 지원 팀](https://mcmtechnology.com/support/)과 협력하여 MCM 플랫폼에 사용자를 추가합니다. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 >[!NOTE]
->다른 MCM 사용자 계정 생성 도구 또는 MCM이 제공한 API를 사용하여 AAD 사용자 계정을 프로비저닝할 수 있습니다.
+>다른 MCM 사용자 계정 생성 도구 또는 MCM이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 
 

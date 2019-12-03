@@ -10,28 +10,28 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: f7b4f926bb9611d87c67276f754a6b596850b59d
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 9e64d184ef0fd120d1bc64ce274ee882b7938df0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645600"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708642"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Azure Synapse Analytics (이전의 SQL DW) 질문과 대답
 
 ## <a name="general"></a>일반
 
-Q. Azure Synapse 란?
+Q. Azure Synapse란?
 
-A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 함께 제공 하는 무한 분석 서비스입니다. 서버를 사용 하지 않는 주문형 또는 프로 비전 된 리소스 (대규모)를 사용 하 여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다. Azure Synapse는 즉시 BI 및 기계 학습 요구에 대 한 데이터를 수집 하 고, 준비 하 고, 관리 하 고, 제공 하기 위해 통합 된 환경과 함께 이러한 두 가지 환경을 제공 합니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
+A. Azure Synapse는 데이터 웨어하우징 및 빅 데이터 분석을 함께 제공 하는 무한 분석 서비스입니다. 서버를 사용 하지 않는 주문형 또는 프로 비전 된 리소스 (대규모)를 사용 하 여 사용자의 용어로 데이터를 자유롭게 쿼리할 수 있습니다. Azure Synapse는 이 두 가지 기능을 즉각적인 BI 및 기계 학습 애플리케이션을 위해 데이터를 수집, 준비, 관리 및 제공할 수 있는 통합 환경에 통합합니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
 
-Q. Azure SQL Data Warehouse 어떻게 되었습니까?
+Q. Azure SQL Data Warehouse는 어떻게 되었나요?
 
 A. Azure Synapse는 SQL DW (Azure SQL Data Warehouse)로 진화 하 고 있습니다. 우리는 동일한 업계 최고의 데이터 웨어하우스를 새로운 수준의 성능 및 기능으로 완전히 새로운 수준으로 만들었습니다. Azure Synapse를 사용 하 여 현재 프로덕션 환경에서 기존 데이터 웨어하우스 워크 로드를 계속 실행 하 고 미리 보기에 있는 새로운 기능을 자동으로 활용할 수 있습니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
 
 Q. SQL Analytics 란?
 
-A. SQL Analytics는 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
+A. SQL Analytics는 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 가리킵니다. 자세한 내용은 [Azure Synapse Analytics 란?](sql-data-warehouse-overview-what-is.md)을 참조 하세요.
 
 Q. Azure Synapse를 시작 어떻게 할까요??
 
@@ -47,7 +47,7 @@ A. SOC 및 ISO와 같은 제품에 대한 다양한 규정 준수 제안에 대�
 
 Q. Power BI 연결할 수 있나요?
 
-A. 예! Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
+A. 예. Power BI는 Azure Synapse를 사용 하 여 직접 쿼리를 지원 하지만 많은 수의 사용자 또는 실시간 데이터를 위한 것이 아닙니다. Power BI 성능을 최적화 하려면 Azure Analysis Services 또는 Analysis Services IaaS를 Power BI 사용 하는 것이 좋습니다.
 
 Q. SQL Analytics 용량 제한은 무엇 인가요?
 
@@ -83,16 +83,12 @@ A. 지원 되지 않는 많은 기능과 지원 되지 않는 [테이블 기능]
 
 ## <a name="tooling-and-administration"></a>도구 및 관리
 
-Q. Visual Studio에서 데이터베이스 프로젝트가 지원되나요?
-
-A. Visual Studio에서는 현재 데이터베이스 프로젝트를 지원 하지 않습니다. 이 기능 제공 요청에 참여하려면 사용자 의견 [데이터베이스 프로젝트 기능 요청]을 방문하세요.
-
 Q. SQL Analytics는 REST Api를 지원 하나요?
 
 A. 예. SQL Database와 함께 사용할 수 있는 대부분의 REST 기능은 SQL Analytics 에서도 사용할 수 있습니다. REST 설명서 페이지 또는 [MSDN]에서 이 API 정보를 찾을 수 있습니다.
 
 
-## <a name="loading"></a>로드
+## <a name="loading"></a>로드 중
 
 Q. 어떤 클라이언트 드라이버가 지원되나요?
 
@@ -104,7 +100,7 @@ A: Orc, RC, Parquet 및 일반 구분 텍스트
 
 Q: PolyBase를 사용 하 여 연결할 수 있는 데이터 소스는 무엇 인가요? 
 
-A: [Azure Data Lake Store] 및 [Azure Storage Blobs]
+A: [Azure Data Lake Storage] 및 [Azure Storage Blobs]
 
 Q: Azure Storage Blob 또는 ADLS에 연결할 때 계산 푸시 다운을 사용할 수 있나요? 
 
@@ -128,8 +124,8 @@ A: HDI는 HDFS 계층으로 ADLS 또는 WASB를 사용할 수 있습니다. 둘 
 [용량 제한]: ./sql-data-warehouse-service-capacity-limits.md
 [데이터 형식]: ./sql-data-warehouse-tables-data-types.md
 [테이블 기능]: ./sql-data-warehouse-tables-overview.md#unsupported-table-features
-[Azure Data Lake Store]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
+[Azure Data Lake Storage]: ./sql-data-warehouse-load-from-azure-data-lake-store.md
 [Azure Storage Blobs]: ./sql-data-warehouse-load-from-azure-blob-storage-with-polybase.md
-[데이터베이스 프로젝트 기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
+[Database projects feature request]: https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/13313247-database-project-from-visual-studio-to-support-azu
 [MSDN]: https://msdn.microsoft.com/library/azure/mt163685.aspx
 [개요]: ./sql-data-warehouse-overview-faq.md

@@ -1,20 +1,15 @@
 ---
-title: 대규모로 Azure 가상 머신 백업
+title: 자습서 - 대규모로 Azure 가상 머신 백업
 description: 이 자습서에서는 Recovery Services 자격 증명 모음을 만들고, 백업 정책을 정의하고, 여러 가상 머신을 동시에 백업하는 방법에 대해 알아봅니다.
-keywords: 가상 머신 백업; vm 백업; Azure vm 백업; 백업 및 재해 복구
-author: dcurwin
-manager: carmonm
-ms.author: dacurwin
 ms.date: 01/31/2019
 ms.topic: tutorial
-ms.service: backup
 ms.custom: mvc
-ms.openlocfilehash: 99a842704325e38cbf1ab9203a56a25bc2273827
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 6034202649e6d9bce75f0069316b79b55e533490
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747022"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171844"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Azure Portal을 사용하여 여러 가상 머신을 백업
 
@@ -37,7 +32,7 @@ Recovery Services 자격 증명 모음에는 백업 데이터, 그리고 보호�
 
 1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고 서비스 목록에서 *Recovery Services*를 입력합니다. 입력하면 리소스 목록이 필터링됩니다. 목록에 Recovery Services 자격 증명 모음이 표시되면 이를 선택하여 Recovery Services 자격 증명 모음 메뉴를 엽니다.
 
-    ![Recovery Services 자격 증명 모음 메뉴 열기](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png) <br/>
+    ![Recovery Services 자격 증명 모음 메뉴 열기](./media/tutorial-backup-vm-at-scale/full-browser-open-rs-vault.png)
 
 2. **Recovery Services 자격 증명 모음** 메뉴에서 **추가**를 클릭하여 Recovery Services 자격 증명 모음 메뉴를 엽니다.
 

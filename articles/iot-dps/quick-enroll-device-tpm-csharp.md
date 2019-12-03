@@ -1,21 +1,20 @@
 ---
-title: '빠른 시작: C#을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록'
-description: Azure 빠른 시작 - C# 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스를 등록합니다. 이 빠른 시작에서는 개별 등록을 사용합니다.
+title: C#을 사용하여 Azure Device Provisioning Service에 TPM 디바이스 등록
+description: 빠른 시작 - C# 서비스 SDK를 사용하여 Azure IoT Hub Device Provisioning Service에 TPM 디바이스를 등록합니다. 이 빠른 시작에서는 개별 등록을 사용합니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/08/2019
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 70f9c9d2ec488854a1b386b872f10e4f54c45a1c
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a95a50e5931f42e442e11fe593a151dd273449e8
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904745"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74423018"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>빠른 시작: C# 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
@@ -52,13 +51,13 @@ ms.locfileid: "73904745"
 
 1. Visual Studio를 열고 **새 프로젝트 만들기**를 선택합니다. **새 프로젝트 만들기**에서 C#의 **콘솔 앱(.NET Core)** 프로젝트 템플릿을 선택하고 **다음**을 선택합니다.
 
-1. 프로젝트 이름을 *CreateTpmEnrollment*로 지정하고 **만들기**를 선택합니다.
+1. 프로젝트 이름을 *CreateTpmEnrollment*로 지정하고 **만들기**를 누릅니다.
 
     ![Visual C# Windows 클래식 데스크톱 프로젝트 구성](media/quick-enroll-device-tpm-csharp/configure-tpm-app-vs2019.png)
 
-1. **솔루션 탐색기**에서 **CreateTpmEnrollment** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음, **NuGet 패키지 관리**를 선택합니다.
+1. 솔루션이 Visual Studio에서 열리면 **솔루션 탐색기** 창에서 **CreateTpmEnrollment** 프로젝트를 마우스 오른쪽 단추로 클릭합니다. **NuGet 패키지 관리**를 선택합니다.
 
-1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service**를 검색하여 선택한 다음, **설치**를 선택합니다.
+1. **NuGet 패키지 관리자** 창에서 **찾아보기**를 선택하고, **Microsoft.Azure.Devices.Provisioning.Service**를 검색하여 선택한 다음, **설치**를 누릅니다.
 
    ![NuGet 패키지 관리자 창](media//quick-enroll-device-tpm-csharp/add-nuget.png)
 
@@ -71,10 +70,10 @@ ms.locfileid: "73904745"
    using Microsoft.Azure.Devices.Provisioning.Service;
    ```
 
-1. `Program` 클래스에 다음 필드를 추가하고 나열된 변경 작업을 수행합니다.
+1. `Program` 클래스에 다음 필드를 추가하여 아래에 나열된 대로 변경합니다.
 
    ```csharp
-   private static string ProvisioningConnectionString = "{Your provisioning service connection string}";
+   private static string ProvisioningConnectionString = "{ProvisioningServiceConnectionString}";
    private const string RegistrationId = "sample-registrationid-csharp";
    private const string TpmEndorsementKey =
        "AToAAQALAAMAsgAgg3GXZ0SEs/gakMyNRqXXJP1S124GUgtk8qHaGzMUaaoABgCAAEMAEAgAAAAAAAEAxsj2gUS" +
@@ -88,11 +87,11 @@ ms.locfileid: "73904745"
    private const ProvisioningStatus OptionalProvisioningStatus = ProvisioningStatus.Enabled;
    ```
 
-   * `ProvisioningConnectionString` 자리 표시자 값을 등록을 만들려는 프로비저닝 서비스의 연결 문자열로 바꿉니다.
+   * `ProvisioningServiceConnectionString` 자리 표시자 값을 등록을 만들려는 프로비저닝 서비스의 연결 문자열로 바꿉니다.
 
    * 필요에 따라 등록 ID, 인증 키, 디바이스 ID 및 프로비전 상태를 변경할 수 있습니다.
 
-   * 시뮬레이션된 디바이스를 프로비저닝하기 위해 [C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md)에서 이 빠른 시작을 사용하는 경우 빠른 시작 인증 키 및 등록 ID를 해당 빠른 시작에서 다운로드한 값으로 바꿉니다. 디바이스 ID를 해당 빠른 시작에서 제안한 값으로 바꾸거나, 고유한 값을 사용하거나, 이 샘플의 기본값을 사용할 수 있습니다.
+   * 시뮬레이션된 디바이스를 프로비저닝하기 위해 [C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md)에서 이 빠른 시작을 사용하는 경우 빠른 시작 인증 키 및 등록 ID를 해당 빠른 시작에서 기록한 값으로 바꿉니다. 디바이스 ID를 해당 빠른 시작에서 제안한 값으로 바꾸거나, 고유한 값을 사용하거나, 이 샘플의 기본값을 사용할 수 있습니다.
 
 1. `Program` 클래스에 다음 메서드를 추가합니다.  이 코드는 개별 등록 항목을 만든 다음, `ProvisioningServiceClient`에서 `CreateOrUpdateIndividualEnrollmentAsync` 메서드를 호출하여 프로비저닝 서비스에 개별 등록을 추가합니다.
 
@@ -143,7 +142,7 @@ ms.locfileid: "73904745"
   
 Visual Studio에서 샘플을 실행하여 TPM 디바이스에 대한 개별 등록 키를 만듭니다.
 
-성공적으로 만들어지면 명령 프롬프트 창에 새 개별 등록에 대한 속성이 표시됩니다.
+명령 프롬프트 창이 나타나고 확인 메시지를 표시하기 시작합니다. 성공적으로 만들어지면 명령 프롬프트 창에 새 개별 등록에 대한 속성이 표시됩니다.
 
 개별 등록이 만들어졌는지 확인할 수 있습니다. Device Provisioning Service 요약으로 이동하여 **등록 관리**를 선택한 다음, **개별 등록**을 선택합니다. 샘플에 사용된 등록 ID에 해당하는 새 등록 항목이 표시됩니다.
 
@@ -159,13 +158,13 @@ C# 서비스 샘플을 살펴볼 계획이면 이 빠른 시작에서 만든 리
 
 1. 컴퓨터에서 C# 샘플 출력 창을 닫습니다.
 
-1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID*를 선택하고, **삭제**를 선택합니다.
+1. Azure Portal에서 Device Provisioning Service로 이동하고, **등록 관리**를 선택한 다음, **개별 등록** 탭을 선택합니다. 이 빠른 시작을 사용하여 만든 등록 항목에 대한 *등록 ID* 옆의 확인란을 선택하고 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 1. [C# 디바이스 SDK를 사용하여 시뮬레이션된 TPM 디바이스 만들기 및 프로비전](quick-create-simulated-device-tpm-csharp.md)의 단계를 수행하여 시뮬레이션된 TPM 디바이스를 만든 경우 다음 단계를 수행합니다.
 
     1. TPM 시뮬레이터 창 및 시뮬레이션된 디바이스에 대한 샘플 출력 창을 닫습니다.
 
-    1. Azure Portal에서 디바이스가 프로비전된 IoT Hub로 이동합니다. **탐색기** 아래의 메뉴에서 **IoT 디바이스**를 선택하고, 디바이스 옆에 있는 확인란을 선택한 다음, **삭제**를 선택합니다.
+    1. Azure Portal에서 디바이스가 프로비전된 IoT Hub로 이동합니다. **탐색기** 아래의 메뉴에서 **IoT 디바이스**를 선택하고 이 빠른 시작에 등록한 디바이스의 *디바이스 ID* 옆의 확인란을 선택한 다음, 창 위쪽에 있는 **삭제** 단추를 누릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

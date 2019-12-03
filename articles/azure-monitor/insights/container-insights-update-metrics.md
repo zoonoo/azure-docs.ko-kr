@@ -7,33 +7,33 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/11/2019
-ms.openlocfilehash: 8fb1c6c65ab9c38ef16cfbc20435b35d0c7a7ce5
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 5a43d7e23c9d6550e8985599786ff968050f19c1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279611"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707495"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용 하도록 설정 하는 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법
 
 컨테이너에 대 한 Azure Monitor AKS (Azure Kubernetes Services) 클러스터 노드 및 pod에서 메트릭을 수집 하 고이를 Azure Monitor 메트릭 저장소에 기록 하는 지원을 소개 합니다. 이 변경은 성능 차트에 집계 계산 (Avg, Count, Max, Min, Sum)을 제공할 때 향상 된 적시성을 제공 하기 위한 것으로, Azure Portal 대시보드의 고정 성능 차트를 지원 하 고 메트릭 경고를 지원 합니다.
 
 >[!NOTE]
->이 기능은 현재 Red Hat OpenShift 클러스터를 지원 하지 않습니다.
+>이 기능은 현재 Azure Red Hat OpenShift 클러스터를 지원 하지 않습니다.
 >
 
 이 기능의 일부로 사용할 수 있는 메트릭은 다음과 같습니다.
 
 | 메트릭 네임스페이스 | 메트릭 | 설명 |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
-| insights.container/pods | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
+| 정보. 컨테이너/노드 | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
+| pod/ | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
 
 이러한 새 기능을 지원 하도록 클러스터를 업데이트 하는 것은 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 하 여 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다.
 
 각 프로세스는 에이전트에서 수집한 데이터를 클러스터 리소스에 게시할 수 있도록 클러스터의 서비스 주체에 **모니터링 메트릭 게시자** 역할을 할당 합니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경 하거나, 리소스를 업데이트 하거나, 데이터를 읽을 수 없습니다. 역할에 대 한 자세한 내용은 [모니터링 메트릭 게시자 역할](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)을 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 다음을 확인 합니다.
 

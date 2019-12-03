@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: d8c4f21630afa4a57d3c3886819ec2842e3cb681
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0106b80259083c6e5e3e527063a18aae2e7c6cee
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73691474"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74421611"
 ---
 # <a name="use-powershell-to-update-the-sync-schema-in-an-existing-sync-group"></a>PowerShell을 사용하여 기존 동기화 그룹의 동기화 스키마 업데이트
 
@@ -31,24 +31,26 @@ PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 자
 SQL 데이터 동기화에 대한 개요는 [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure SQL 데이터 동기화는 이때 Azure SQL Database Managed Instance를 지원하지 **않습니다**.
+> Azure SQL 데이터 동기화는 현재 Azure SQL 데이터베이스 관리형 인스턴스를 지원하지 않습니다.
 
-## <a name="sample-script"></a>샘플 스크립트
+## <a name="examples"></a>예
 
-### <a name="example-1---add-all-tables-to-the-sync-schema"></a>예제 1 - 동기화 스키마에 모든 테이블 추가
+### <a name="add-all-tables-to-the-sync-schema"></a>동기화 스키마에 모든 테이블 추가
 
 다음 예제에서는 데이터베이스 스키마를 새로 고치고 허브 데이터베이스의 모든 유효한 테이블을 동기화 스키마에 추가합니다.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -RefreshDatabaseSchema $true -AddAllTables $true
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> `
+    -SyncGroupName <syncGroupName> -RefreshDatabaseSchema $true -AddAllTables $true
 ```
 
-### <a name="example-2---add-and-remove-tables-and-columns"></a>예제 2 - 테이블과 열 추가 및 제거
+### <a name="add-and-remove-tables-and-columns"></a>테이블과 열 추가 및 제거
 
 다음 예제에서는 동기화 스키마에 `[dbo].[Table1]` 및 `[dbo].[Table2].[Column1]`을 추가하고 `[dbo].[Table3]`를 제거합니다.
 
 ```powershell-interactive
-UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resource_group_name> -ServerName <server_name> -DatabaseName <database_name> -SyncGroupName <sync_group_name> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
+UpdateSyncSchema.ps1 -SubscriptionId <subscriptionId> -ResourceGroupName <resourceGroupName> -ServerName <serverName> -DatabaseName <databaseName> `
+    -SyncGroupName <syncGroupName> -TablesAndColumnsToAdd "[dbo].[Table1],[dbo].[Table2].[Column1]" -TablesAndColumnsToRemove "[dbo].[Table3]"
 ```
 
 ## <a name="script-parameters"></a>스크립트 매개 변수
@@ -57,18 +59,17 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 
 | 매개 변수 | 메모 |
 |---|---|
-| $subscriptionID | 동기화 그룹이 생성되는 구독입니다. |
-| $ResourceGroupName | 동기화 그룹이 생성되는 리소스 그룹입니다.|
-| $ServerName | 허브 데이터베이스의 서버 이름입니다.|
-| $DatabaseName | 허브 데이터베이스 이름입니다. |
-| $SyncGroupName | 동기화 그룹 이름입니다. |
-| $MemberName | 허브 데이터베이스 대신, 동기화 멤버에서 데이터베이스 스키마를 로드하려는 경우 멤버 이름을 지정합니다. 허브에서 데이터베이스 스키마를 로드하려는 경우에는 이 매개 변수를 비워 둡니다. |
-| $TimeoutInSeconds | 스크립트가 데이터베이스 스키마를 새로 고치는 시간 제한입니다. 기본값은 900초입니다. |
-| $RefreshDatabaseSchema | 스크립트가 데이터베이스 스키마를 새로 고쳐야 할지 여부를 지정합니다. 데이터베이스 스키마가 이전 구성에서 변경된 경우(예를 들어 새 테이블이나 새 열을 추가한 경우) 다시 구성하기 전에 스키마를 새로 고쳐야 합니다. 기본값은 false입니다. |
-| $AddAllTables | 이 값이 true이면 모든 유효한 테이블 및 열이 동기화 스키마에 추가됩니다. 값 $TablesAndColumnsToAdd 및 $TablesAndColumnsToRemove는 무시됩니다. |
-| $TablesAndColumnsToAdd | 동기화 스키마에 추가할 테이블 또는 열을 지정합니다. 각 테이블 또는 열 이름은 스키마 이름과 완전히 구분되어야 합니다. 예: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. 여러 테이블 또는 열 이름은 쉼표(,)로 구분해서 지정할 수 있습니다. |
-| $TablesAndColumnsToRemove | 동기화 스키마에서 제거할 테이블 또는 열을 지정합니다. 각 테이블 또는 열 이름은 스키마 이름과 완전히 구분되어야 합니다. 예: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. 여러 테이블 또는 열 이름은 쉼표(,)로 구분해서 지정할 수 있습니다. |
-|||
+| $subscriptionId | 동기화 그룹이 생성되는 구독입니다. |
+| $resourceGroupName | 동기화 그룹이 생성되는 리소스 그룹입니다.|
+| $serverName | 허브 데이터베이스의 서버 이름입니다.|
+| $databaseName | 허브 데이터베이스 이름입니다. |
+| $syncGroupName | 동기화 그룹 이름입니다. |
+| $memberName | 허브 데이터베이스 대신, 동기화 멤버에서 데이터베이스 스키마를 로드하려는 경우 멤버 이름을 지정합니다. 허브에서 데이터베이스 스키마를 로드하려는 경우에는 이 매개 변수를 비워 둡니다. |
+| $timeoutInSeconds | 스크립트가 데이터베이스 스키마를 새로 고치는 시간 제한입니다. 기본값은 900초입니다. |
+| $refreshDatabaseSchema | 스크립트가 데이터베이스 스키마를 새로 고쳐야 할지 여부를 지정합니다. 데이터베이스 스키마가 이전 구성에서 변경된 경우(예를 들어 새 테이블이나 새 열을 추가한 경우) 다시 구성하기 전에 스키마를 새로 고쳐야 합니다. 기본값은 false입니다. |
+| $addAllTables | 이 값이 true이면 모든 유효한 테이블 및 열이 동기화 스키마에 추가됩니다. 값 $TablesAndColumnsToAdd 및 $TablesAndColumnsToRemove는 무시됩니다. |
+| $tablesAndColumnsToAdd | 동기화 스키마에 추가할 테이블 또는 열을 지정합니다. 각 테이블 또는 열 이름은 스키마 이름과 완전히 구분되어야 합니다. 예: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. 여러 테이블 또는 열 이름은 쉼표(,)로 구분해서 지정할 수 있습니다. |
+| $tablesAndColumnsToRemove | 동기화 스키마에서 제거할 테이블 또는 열을 지정합니다. 각 테이블 또는 열 이름은 스키마 이름과 완전히 구분되어야 합니다. 예: `[dbo].[Table1]`, `[dbo].[Table2].[Column1]`. 여러 테이블 또는 열 이름은 쉼표(,)로 구분해서 지정할 수 있습니다. |
 
 ## <a name="script-explanation"></a>스크립트 설명
 
@@ -81,30 +82,29 @@ UpdateSyncSchema.ps1 -SubscriptionId <subscription_id> -ResourceGroupName <resou
 | [Get-AzSqlSyncMember](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncmember) | 동기화 멤버에 대한 정보를 반환합니다. |
 | [Get-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/get-azsqlsyncschema) | 동기화 스키마에 대한 정보를 반환합니다. |
 | [Update-AzSqlSyncSchema](https://docs.microsoft.com/powershell/module/az.sql/update-azsqlsyncschema) | 동기화 스키마를 업데이트합니다. |
-|||
 
 ## <a name="next-steps"></a>다음 단계
 
 Azure PowerShell에 대한 자세한 내용은 [Azure PowerShell 설명서](/powershell/azure/overview)를 참조하세요.
 
-추가 SQL Database PowerShell 스크립트 샘플은 [Azure SQL Database PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
+추가 SQL 데이터베이스 PowerShell 스크립트 샘플은 [Azure SQL 데이터베이스 PowerShell 스크립트](../sql-database-powershell-samples.md)에 있습니다.
 
 SQL 데이터 동기화에 대한 자세한 내용은 다음을 참조하세요.
 
--   개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)
--   데이터 동기화 설정
+- 개요 - [Azure SQL 데이터 동기화를 사용하여 여러 클라우드 및 온-프레미스 데이터베이스에서 데이터 동기화](../sql-database-sync-data.md)
+- 데이터 동기화 설정
     - 포털에서 - [자습서: Azure SQL Database와 SQL Server 온-프레미스 간에 데이터를 동기화하도록 SQL 데이터 동기화 설정](../sql-database-get-started-sql-data-sync.md)
     - PowerShell 사용
-        -  [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](sql-database-sync-data-between-sql-databases.md)
-        -  [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
--   데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](../sql-database-data-sync-agent.md)
--   모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](../sql-database-best-practices-data-sync.md)
--   모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
--   문제 해결 - [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
--   동기화 스키마 업데이트
-    -   Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](../sql-database-update-sync-schema.md)
+        - [PowerShell을 사용하여 여러 Azure SQL 데이터베이스 간 동기화](sql-database-sync-data-between-sql-databases.md)
+        - [PowerShell을 사용하여 Azure SQL Database와 SQL Server 온-프레미스 데이터베이스 간 동기화](sql-database-sync-data-between-azure-onprem.md)
+- 데이터 동기화 에이전트 - [Azure SQL 데이타 동기화용 데이터 동기화 에이전트](../sql-database-data-sync-agent.md)
+- 모범 사례 - [Azure SQL 데이터 동기화에 대한 모범 사례](../sql-database-best-practices-data-sync.md)
+- 모니터 - [Azure Monitor 로그를 사용하여 SQL 데이터 동기화 모니터링](../sql-database-sync-monitor-oms.md)
+- 문제 해결 - [Azure SQL 데이터 동기화 문제 해결](../sql-database-troubleshoot-data-sync.md)
+- 동기화 스키마 업데이트
+    - Transact-SQL 사용 - [Azure SQL 데이터 동기화에서 스키마 변경 내용 복제 자동화](../sql-database-update-sync-schema.md)
 
 SQL Database에 대한 자세한 내용은 다음을 참조하세요.
 
--   [SQL Database 개요](../sql-database-technical-overview.md)
--   [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)
+- [SQL Database 개요](../sql-database-technical-overview.md)
+- [데이터베이스 수명 주기 관리](https://msdn.microsoft.com/library/jj907294.aspx)

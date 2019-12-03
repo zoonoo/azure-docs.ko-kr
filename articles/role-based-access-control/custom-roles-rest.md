@@ -1,6 +1,6 @@
 ---
-title: REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 - Azure | Microsoft Docs
-description: REST API를 사용하여 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 또는 업데이트 역할 만들기-Azure | Microsoft Docs
+description: REST API를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: na
 author: rolyon
@@ -15,20 +15,20 @@ ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 4024f6fdb40c752ef61f348d15f681e81d81c08c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 2e5dcd7593ba0992337396bc7c05cc30351644dc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60596686"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702977"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+# <a name="create-or-update-custom-roles-for-azure-resources-using-the-rest-api"></a>REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 REST API를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 REST API를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
 ## <a name="list-custom-roles"></a>사용자 지정 역할 나열
 
-디렉터리에서 모든 사용자 지정 역할을 나열 하려면 사용 합니다 [역할 정의-목록](/rest/api/authorization/roledefinitions/list) REST API입니다.
+디렉터리의 모든 사용자 지정 역할을 나열 하려면 [역할 정의-목록](/rest/api/authorization/roledefinitions/list) REST API를 사용 합니다.
 
 1. 다음 요청으로 시작합니다.
 
@@ -36,15 +36,15 @@ ms.locfileid: "60596686"
     GET https://management.azure.com/providers/Microsoft.Authorization/roleDefinitions?api-version=2015-07-01&$filter={filter}
     ```
 
-1. 바꿉니다 *{filter}* 역할 형식입니다.
+1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
-    | Filter | 설명 |
+    | 필터링 | 설명 |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기준으로 필터링 |
+    | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
 ## <a name="list-custom-roles-at-a-scope"></a>범위에서 사용자 지정 역할 나열
 
-범위에서 사용자 지정 역할을 나열 하려면 사용 합니다 [역할 정의-목록](/rest/api/authorization/roledefinitions/list) REST API입니다.
+범위에서 사용자 지정 역할을 나열 하려면 [역할 정의-목록](/rest/api/authorization/roledefinitions/list) REST API를 사용 합니다.
 
 1. 다음 요청으로 시작합니다.
 
@@ -54,21 +54,21 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
-1. 바꿉니다 *{filter}* 역할 형식입니다.
+1. *{Filter}* 를 역할 유형으로 바꿉니다.
 
-    | Filter | 설명 |
+    | 필터링 | 설명 |
     | --- | --- |
-    | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기준으로 필터링 |
+    | `$filter=type%20eq%20'CustomRole'` | CustomRole 유형을 기반으로 필터링 |
 
-## <a name="list-a-custom-role-definition-by-name"></a>이름별으로 사용자 지정 역할 정의 나열
+## <a name="list-a-custom-role-definition-by-name"></a>이름별로 사용자 지정 역할 정의 나열
 
-표시 이름을 사용 하 여 사용자 지정 역할에 대 한 정보를 가져오려면를 사용 합니다 [역할 정의 가져오기](/rest/api/authorization/roledefinitions/get) REST API입니다.
+표시 이름으로 사용자 지정 역할에 대 한 정보를 가져오려면 [역할 정의-get](/rest/api/authorization/roledefinitions/get) REST API를 사용 합니다.
 
 1. 다음 요청으로 시작합니다.
 
@@ -78,21 +78,21 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
-1. 바꿉니다 *{filter}* 역할에 대 한 표시 이름을 사용 합니다.
+1. *{Filter}* 를 역할의 표시 이름으로 바꿉니다.
 
-    | Filter | 설명 |
+    | 필터링 | 설명 |
     | --- | --- |
     | `$filter=roleName%20eq%20'{roleDisplayName}'` | 역할의 정확한 표시 이름에 대한 URL 인코딩 형식을 사용합니다. 예: `$filter=roleName%20eq%20'Virtual%20Machine%20Contributor'` |
 
 ## <a name="list-a-custom-role-definition-by-id"></a>ID 별로 사용자 지정 역할 정의 나열
 
-정보를 가져오려면 사용자 지정 역할을 하는 방법에 대 한 고유 식별자를 사용 합니다 [역할 정의 가져오기](/rest/api/authorization/roledefinitions/get) REST API입니다.
+고유한 식별자로 사용자 지정 역할에 대 한 정보를 가져오려면 [역할 정의-get](/rest/api/authorization/roledefinitions/get) REST API를 사용 합니다.
 
 1. [역할 정의 - 나열](/rest/api/authorization/roledefinitions/list) REST API를 사용하여 역할에 대한 GUID 식별자를 가져옵니다.
 
@@ -104,17 +104,17 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 나열하려는 역할에 대한 범위로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 역할 정의의 GUID 식별자로 바꿉니다.
 
 ## <a name="create-a-custom-role"></a>사용자 지정 역할 만들기
 
-사용자 지정 역할을 만들려면 [역할 정의 - 만들기 또는 업데이트](/rest/api/authorization/roledefinitions/createorupdate) REST API를 사용합니다. 이 API를 호출 하려면 있습니다 서명 될 있는 역할이 할당 된 사용자로 로그인 합니다 `Microsoft.Authorization/roleDefinitions/write` 모두에 대 한 권한이 `assignableScopes`. 기본 제공 역할의 경우만 [소유자](built-in-roles.md#owner) 하 고 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 이 사용 권한을 포함 합니다.
+사용자 지정 역할을 만들려면 [역할 정의 - 만들기 또는 업데이트](/rest/api/authorization/roledefinitions/createorupdate) REST API를 사용합니다. 이 API를 호출 하려면 모든 `assignableScopes`에 대 한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있는 역할이 할당 된 사용자로 로그인 해야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 만이 사용 권한을 포함 합니다.
 
 1. 사용자 지정 역할에 대한 권한을 만드는 데 사용할 수 있는 [리소스 공급자 작업](resource-provider-operations.md) 목록을 검토합니다.
 
@@ -152,11 +152,11 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
 
@@ -205,9 +205,9 @@ ms.locfileid: "60596686"
 
 ## <a name="update-a-custom-role"></a>사용자 지정 역할 업데이트
 
-사용자 지정 역할을 업데이트하려면 [역할 정의 - 만들기 또는 업데이트](/rest/api/authorization/roledefinitions/createorupdate) REST API를 사용합니다. 이 API를 호출 하려면 있습니다 서명 될 있는 역할이 할당 된 사용자로 로그인 합니다 `Microsoft.Authorization/roleDefinitions/write` 모두에 대 한 권한이 `assignableScopes`. 기본 제공 역할의 경우만 [소유자](built-in-roles.md#owner) 하 고 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 이 사용 권한을 포함 합니다.
+사용자 지정 역할을 업데이트하려면 [역할 정의 - 만들기 또는 업데이트](/rest/api/authorization/roledefinitions/createorupdate) REST API를 사용합니다. 이 API를 호출 하려면 모든 `assignableScopes`에 대 한 `Microsoft.Authorization/roleDefinitions/write` 권한이 있는 역할이 할당 된 사용자로 로그인 해야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 만이 사용 권한을 포함 합니다.
 
-1. [역할 정의 - 나열 ](/rest/api/authorization/roledefinitions/list) 또는 [ 역할 정의 - 가져오기](/rest/api/authorization/roledefinitions/get) REST API를 사용하여 사용자 지정 역할에 대한 정보를 가져옵니다. 자세한 내용은 참조는 앞서 [사용자 지정 역할 나열](#list-custom-roles) 섹션입니다.
+1. [역할 정의 - 나열 ](/rest/api/authorization/roledefinitions/list) 또는 [ 역할 정의 - 가져오기](/rest/api/authorization/roledefinitions/get) REST API를 사용하여 사용자 지정 역할에 대한 정보를 가져옵니다. 자세한 내용은 이전 [목록 사용자 지정 역할](#list-custom-roles) 섹션을 참조 하세요.
 
 1. 다음 요청으로 시작합니다.
 
@@ -217,11 +217,11 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 사용자 지정 역할의 첫 번째 `assignableScopes`로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
 
@@ -289,9 +289,9 @@ ms.locfileid: "60596686"
 
 ## <a name="delete-a-custom-role"></a>사용자 지정 역할 삭제
 
-사용자 지정 역할을 삭제하려면 [역할 정의 - 삭제](/rest/api/authorization/roledefinitions/delete) REST API를 사용합니다. 이 API를 호출 하려면 있습니다 서명 될 있는 역할이 할당 된 사용자로 로그인 합니다 `Microsoft.Authorization/roleDefinitions/delete` 모두에 대 한 권한이 `assignableScopes`. 기본 제공 역할의 경우만 [소유자](built-in-roles.md#owner) 하 고 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 이 사용 권한을 포함 합니다.
+사용자 지정 역할을 삭제하려면 [역할 정의 - 삭제](/rest/api/authorization/roledefinitions/delete) REST API를 사용합니다. 이 API를 호출 하려면 모든 `assignableScopes`에 대 한 `Microsoft.Authorization/roleDefinitions/delete` 권한이 있는 역할이 할당 된 사용자로 로그인 해야 합니다. 기본 제공 역할의 경우 [소유자](built-in-roles.md#owner) 및 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator) 만이 사용 권한을 포함 합니다.
 
-1. [역할 정의 - 나열 ](/rest/api/authorization/roledefinitions/list) 또는 [역할 정의 - 가져오기](/rest/api/authorization/roledefinitions/get) REST API를 사용하여 사용자 지정 역할의 GUID 식별자를 가져옵니다. 자세한 내용은 참조는 앞서 [사용자 지정 역할 나열](#list-custom-roles) 섹션입니다.
+1. [역할 정의 - 나열 ](/rest/api/authorization/roledefinitions/list) 또는 [역할 정의 - 가져오기](/rest/api/authorization/roledefinitions/get) REST API를 사용하여 사용자 지정 역할의 GUID 식별자를 가져옵니다. 자세한 내용은 이전 [목록 사용자 지정 역할](#list-custom-roles) 섹션을 참조 하세요.
 
 1. 다음 요청으로 시작합니다.
 
@@ -301,11 +301,11 @@ ms.locfileid: "60596686"
 
 1. URI 내에서 *{scope}* 를 삭제하려는 사용자 지정 역할에 대한 범위로 바꿉니다.
 
-    | Scope | Type |
+    | 범위 | Type |
     | --- | --- |
-    | `subscriptions/{subscriptionId}` | 구독 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | 리소스 그룹 |
-    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | Resource |
+    | `subscriptions/{subscriptionId}` | Subscription |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1` | Resource group |
+    | `subscriptions/{subscriptionId}/resourceGroups/myresourcegroup1/ providers/Microsoft.Web/sites/mysite1` | 리소스 |
 
 1. *{roleDefinitionId}* 를 사용자 지정 역할의 GUID 식별자로 바꿉니다.
 

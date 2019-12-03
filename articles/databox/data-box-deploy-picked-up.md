@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 28666aaac4ec221acca00d937d54a753a4e6a055
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 1c375370ec6bae2775ad758688825b92cbbbca50
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172622"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407036"
 ---
 ::: zone target="docs"
 
@@ -123,28 +123,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 2. 디바이스로 데이터 복사가 완료되고 **배송 준비** 실행이 성공했는지 확인합니다.
 3. 디바이스의 전원을 끄고 케이블을 분리합니다.
 4. 디바이스와 함께 제공된 전원 코드를 디바이스 뒷면에 스풀링하고 안전하게 고정합니다.
-5. Quantium Solutions에 픽업을 요청하는 이메일을 전송합니다. Azure Portal에 지정된 서비스 참조 번호를 참조합니다. 다음 이메일 템플릿을 사용합니다. *TAU 코드가 있는 역방향 배송 레이블 요청* 이메일에 포함되는 세부 정보는 다음과 같습니다. 
-
-    ```
-    To: Azure@quantiumsolutions.com
-    Subject: Pickup request for Azure｜Reference number：XXX XXX XXX
-    Body: 
-    - Company name：
-    - Address:
-    - Contact name:
-    - Contact number:
-    - Requested pickup date: mm/dd
-    ```
-6. Quantium Solutions 오스트레일리아가 반송 레이블을 이메일로 보내드립니다.
-7. 반송 레이블을 인쇄하여 배송 상자에 부착합니다.
-8. 택배 회사에 패키지를 전달합니다.
-
-필요한 경우 Quantium Solutions 지원에 이메일(Azure@quantiumsolutions.com)을 보내거나 전화를 걸 수 있습니다.
-
-전화 주문 관련 문의의 경우:
-
-- 먼저 픽업을 위한 이메일을 보냅니다.
-- 전화 상으로 주문 이름을 제공합니다.
+5. [DHL 링크](https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference)에서 온라인으로 픽업을 예약합니다.
 
 ::: zone target="chromeless"
 

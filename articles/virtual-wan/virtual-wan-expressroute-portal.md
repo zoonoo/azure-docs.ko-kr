@@ -1,5 +1,5 @@
 ---
-title: 'Azure Virtual WAN: ExpressRoute 연결 만들기'
+title: 자습서 - Azure Virtual WAN을 사용하여 ExpressRoute 연결 만들기
 description: 이 자습서에서는 Azure Virtual WAN을 사용하여 Azure 및 온-프레미스 환경에 대한 ExpressRoute 연결을 만드는 방법을 알아봅니다.
 services: virtual-wan
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my corporate on-premises network(s) to my VNets using Virtual WAN and ExpressRoute.
-ms.openlocfilehash: 5a394f93c5cc606c26ffa1cc64bf1d61617b05b8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: f9277fae00471bf67682015e017ae6dfa351ad65
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014938"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422873"
 ---
 # <a name="tutorial-create-an-expressroute-association-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용한 ExpressRoute 연결 만들기
 

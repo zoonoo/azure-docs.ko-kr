@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 7fc7bd6fa0067857bde64d43be5799bd50712490
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f49161531753c217e31d0681bcd19043cb47de75
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469688"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185257"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 동적 구성 사용
 
@@ -36,7 +36,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
-> * 앱 구성 저장소의 변경에 따라 해당 구성을 업데이트하도록 애플리케이션을 설정합니다.
+> * App Configuration 저장소의 변경에 따라 해당 구성을 업데이트하도록 애플리케이션을 설정합니다.
 > * 애플리케이션의 컨트롤러에 최신 구성을 삽입합니다.
 
 ## <a name="prerequisites"></a>필수 조건
@@ -78,7 +78,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
             .UseStartup<Startup>();
     ```
 
-    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 앱 구성 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. 새로 고침 작업을 실제로 트리거하려면, 변경이 발생할 때 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 애플리케이션에 대해 구성해야 합니다.
+    `ConfigureRefresh` 메서드는 새로 고침 작업이 트리거될 때 App Configuration 저장소로 구성 데이터를 업데이트하는 데 사용되는 설정을 지정하는 데 사용됩니다. 새로 고침 작업을 실제로 트리거하려면, 변경이 발생할 때 구성 데이터를 새로 고치도록 새로 고침 미들웨어를 애플리케이션에 대해 구성해야 합니다.
 
 2. 새 `Settings` 클래스를 정의하고 구현하는 *Settings.cs* 파일을 추가합니다.
 
@@ -122,7 +122,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     }
     ```
     
-    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청마다 새로 고침 작업이 트리거되고 클라이언트 라이브러리는 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료된 캐시된 값은, 설정 값이 앱 구성 저장소로 업데이트되고 나머지 값은 그대로 유지됩니다.
+    미들웨어는 `Program.cs`의 `AddAzureAppConfiguration` 메서드에 지정된 새로 고침 구성을 사용하여 ASP.NET Core 웹앱에서 받은 각 요청에 대해 새로 고침을 트리거합니다. 각 요청마다 새로 고침 작업이 트리거되고 클라이언트 라이브러리는 등록된 구성 설정의 캐시된 값이 만료되었는지 확인합니다. 만료된 캐시된 값의 경우 설정 값이 App Configuration 저장소로 업데이트되고 나머지 값은 그대로 유지됩니다.
     
     > [!NOTE]
     > 구성 설정에 대한 기본 캐시 만료 시간은 30초이지만 `ConfigureRefresh` 메서드에 대한 인수로 전달된 옵션 이니셜라이저의 `SetCacheExpiration` 메서드를 호출하여 재정의할 수 있습니다.
@@ -195,7 +195,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
     ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-app-launch-local-before.png)
 
-4. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 앱 구성 저장소 인스턴스를 선택합니다.
+4. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
 5. **구성 탐색기**를 선택하고, 다음 키의 값을 업데이트합니다.
 
@@ -210,7 +210,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
     ![로컬로 빠른 시작 앱 새로 고침](./media/quickstarts/aspnet-core-app-launch-local-after.png)
     
     > [!NOTE]
-    > 구성 설정은 기본 만료 시간 30초로 캐시되기 때문에 앱 구성 저장소의 설정이 변경되면 캐시가 만료되어야만 웹앱에 반영됩니다.
+    > 구성 설정은 기본 만료 시간 30초로 캐시되기 때문에 App Configuration 저장소의 설정이 변경되면 캐시가 만료되어야만 웹앱에 반영됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -218,7 +218,7 @@ ASP.NET Core에는 다양한 원본에서 구성 데이터를 읽을 수 있는 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure 관리형 서비스 ID를 추가하여 App Configuration에 대한 액세스 관리를 간소화하고 앱에 대한 자격 증명 관리를 개선했습니다. App Configuration을 사용하는 방법에 대해 자세히 알아보려면 Azure CLI 샘플로 계속 진행하세요.
+이 자습서에서는 ASP.NET Core 웹앱을 사용하도록 설정하여 App Configuration에서 구성 설정을 동적으로 새로 고칩니다. Azure 관리 ID를 사용하여 App Configuration에 대한 액세스를 간소화하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [CLI 샘플](./cli-samples.md)
+> [관리 ID 통합](./howto-integrate-azure-managed-service-identity.md)

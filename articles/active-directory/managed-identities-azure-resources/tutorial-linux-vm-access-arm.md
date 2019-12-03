@@ -1,5 +1,5 @@
 ---
-title: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
+title: 빠른 시작`:` 관리 ID를 사용하여 Azure Resource Manager에 액세스 - Azure AD
 description: Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스하는 프로세스를 단계별로 안내하는 빠른 시작입니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5b9e42da3ae4510c217cb29c211557e28a30074
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66236185"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74326332"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Linux VM 시스템 할당 관리 ID를 사용하여 Azure Resource Manager에 액세스
 
@@ -100,4 +100,5 @@ Azure 리소스에 대한 관리 ID를 사용하면 코드에서 Azure AD 인증
 이 빠른 시작에서는 시스템 할당 관리 ID를 사용하여 Azure Resource Manager API에 액세스하는 방법을 알아보았습니다.  Azure Resource Manager에 대한 자세한 내용은 다음을 참조하세요.
 
 > [!div class="nextstepaction"]
->[Azure 리소스 관리자](/azure/azure-resource-manager/resource-group-overview)
+>[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure PowerShell을 사용하여 사용자 할당 관리 ID 생성, 나열 또는 삭제](how-to-manage-ua-identity-powershell.md)

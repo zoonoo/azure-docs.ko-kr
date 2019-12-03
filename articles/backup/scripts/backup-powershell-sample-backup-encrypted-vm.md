@@ -1,19 +1,15 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Azure VM 백업
+title: PowerShell 스크립트 샘플 - Azure VM 백업
 description: 이 문서에서는 Azure PowerShell 스크립트 샘플을 사용하여 Azure 가상 머신을 백업하는 방법을 알아봅니다.
-author: dcurwin
-manager: carmonm
-ms.service: backup
 ms.topic: sample
 ms.date: 03/05/2019
-ms.author: dacurwin
 ms.custom: mvc
-ms.openlocfilehash: fe2fa6d77f7ec59ef73ac0e8779dcfbd660c0680
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: ad4d290961bd39659283795f6a58ccb815b639b0
+ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747112"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74171795"
 ---
 # <a name="back-up-an-encrypted-azure-virtual-machine-with-powershell"></a>PowerShell을 사용하여 암호화된 Azure 가상 머신 백업
 

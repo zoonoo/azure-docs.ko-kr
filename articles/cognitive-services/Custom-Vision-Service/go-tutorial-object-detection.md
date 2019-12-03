@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Go용 Custom Vision SDK를 사용하여 개체 검색 프로젝트 만들기'
+title: '빠른 시작: Go용 SDK를 사용하여 개체 검색 프로젝트 만들기 - Custom Vision'
 titleSuffix: Azure Cognitive Services
 description: Go SDK를 사용하여 프로젝트를 만들고, 태그를 추가하고, 이미지를 업로드하고, 프로젝트를 학습시키고, 개체를 감지합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: 050d0593f64c939c687601eb25677f2356f4ba51
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: d0734763ca1dd5ab3162ca00748361bee29cefc1
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73519082"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378735"
 ---
 # <a name="quickstart-create-an-object-detection-project-with-the-custom-vision-go-sdk"></a>빠른 시작: Custom Vision Go SDK를 사용하여 개체 검색 프로젝트 만들기
 

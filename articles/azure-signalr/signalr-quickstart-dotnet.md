@@ -1,5 +1,5 @@
 ---
-title: ASP.NET으로 Azure SignalR Service를 사용하는 방법을 알아보기 위한 빠른 시작
+title: ASP.NET으로 개발 - Azure SignalR Service
 description: ASP.NET 프레임워크로 Azure SignalR Service를 사용하여 대화방을 만들기 위한 빠른 시작입니다.
 author: sffamily
 ms.service: signalr
@@ -7,12 +7,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: 8dfb74fc941a9bb6d235093287ac47983c0e0564
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
+ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931833"
+ms.lasthandoff: 11/18/2019
+ms.locfileid: "74158183"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>빠른 시작: ASP.NET과 SignalR Service를 사용하여 대화방 만들기
 

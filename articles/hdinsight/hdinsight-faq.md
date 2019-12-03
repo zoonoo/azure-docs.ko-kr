@@ -8,13 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 044a63274f7f24831b1f791982f36898199616a6
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 11/20/2019
+ms.openlocfilehash: 37b8ad0fc09644d746c3528c174d1bf95d546d0f
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052506"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706258"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -90,7 +90,7 @@ Azure HDInsight 클러스터에는 서로 다른 유형의 가상 머신 또는 
 
 그러나 Microsoft 지원 팀은 다음과 같은 경우에만 지원을 제공할 수 있습니다.
 
-- 스크립트를 로드할 때 발생 하는 문제 또는 오류입니다. 사용자 지정 스크립트를 실행 하는 동안 발생 하는 모든 오류는 지원 티켓 범위를 벗어납니다.
+- 스크립트를 로드할 때 발생 하는 문제 또는 오류입니다. 사용자 지정 스크립트를 실행하는 동안 발생하는 오류는 지원 티켓 범위를 벗어납니다.
 
 - 클러스터 생성 프로세스에 포함 되는 추가 응용 프로그램입니다. 
 
@@ -180,6 +180,11 @@ Hive metastore는 Hive 서버에서 사용 하는 데이터 원본에 대 한 �
 - 에 지 노드: [HDInsight의 Apache Hadoop 클러스터에서 빈에 지 노드 사용](hdinsight-apps-use-edge-node.md)에 설명 된 대로 클러스터에 다른에 지 노드를 추가할 수 있습니다.
 
 - 독립 실행형 노드: 독립 실행형 가상 컴퓨터를 동일한 서브넷에 추가 하 고 개인 끝점 `https://<CLUSTERNAME>-int.azurehdinsight.net`를 사용 하 여 해당 가상 컴퓨터에서 클러스터에 액세스할 수 있습니다. 자세한 내용은 [네트워크 트래픽 제어](hdinsight-plan-virtual-network-deployment.md#networktraffic)를 참조 하세요.
+
+### <a name="should-i-store-data-on-the-local-disk-of-an-edge-node"></a>에 지 노드의 로컬 디스크에 데이터를 저장 해야 하나요?
+
+아니요, 로컬 디스크에 데이터를 저장 하는 것은 좋지 않습니다. 노드가 실패 하면 로컬에 저장 된 모든 데이터가 손실 됩니다. 데이터를 저장 하기 위해 Azure Files 공유를 탑재 하거나 Azure Data Lake Storage Gen2 또는 Azure Blob 저장소에 데이터를 저장 하는 것이 좋습니다.
+
 
 ### <a name="can-i-add-an-existing-hdinsight-cluster-to-another-virtual-network"></a>기존 HDInsight 클러스터를 다른 가상 네트워크에 추가할 수 있나요?
 
@@ -317,7 +322,7 @@ Azure Storage 탐색기를 사용 하 여 사용자의 보안 그룹에 데이�
 
 다음 REST 끝점을 사용 하 여 JSON 형식으로 필요한 정보를 가져올 수 있습니다. 기본 인증 헤더를 사용 하 여 요청을 만듭니다.
 
-- Tez 쿼리 뷰: *https:\//\<클러스터 이름 >. e s t/m s/m s/타임 라인/HIVE_QUERY_ID/*
+- Tez 쿼리 뷰: *https:\//\<클러스터 이름 >* . m s p s/m s/m a p/타임 라인/HIVE_QUERY_ID/
 - Tez Dag View: *https:\//\<클러스터 이름 >. azurehdinsight/ws/v1/timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Azure Active Directory 사용자를 사용 하 여 HDI 클러스터에서 구성 정보를 검색 어떻게 할까요??

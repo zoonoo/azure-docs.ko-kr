@@ -10,12 +10,12 @@ ms.subservice: luis
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: diberry
-ms.openlocfilehash: b65bf177d98d5b0bcbaf9e9eaf06707b43ed7032
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 47913f86edcf83825254775705e38310f3c2c6b4
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647439"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325913"
 ---
 챗봇 또는 다른 클라이언트 애플리케이션에서 LUIS 예측을 받으려면 앱을 엔드포인트에 게시해야 합니다. 
 
@@ -27,7 +27,7 @@ ms.locfileid: "73647439"
 
     ![엔드포인트에 LUIS 게시](../media/howto-publish/publish-app-popup.png)
 
-3. 웹 사이트의 위쪽에 성공이 확인된 녹색 상태 표시줄이 표시되면 게시가 완료됩니다.
+3. 페이지의 위쪽에 성공 여부를 확인하는 상태 표시줄이 표시되면 게시가 완료됩니다.
 
     ![엔드포인트에 LUIS 게시](../media/howto-publish/publish-endpoint-success.png)
 

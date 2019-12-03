@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/26/2019
 ms.author: jeedes
-ms.openlocfilehash: 50f6762c8046850da1e4541f2ccb7688542f7d54
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1fb1a1bc7bfd8b3cc9d7758bf8e80d8759f9357e
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67098483"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227476"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kudos"></a>자습서: Kudos와 Azure Active Directory 통합
 
@@ -224,7 +224,7 @@ Azure AD 사용자가 Kudos에 로그인할 수 있도록 하려면 Kudos에 프
     b. **사용자 만들기**를 클릭합니다.
 
 > [!NOTE]
-> 다른 Kudos 사용자 계정 생성 도구 또는 Kudos가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Kudos 사용자 계정 생성 도구 또는 Kudos가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

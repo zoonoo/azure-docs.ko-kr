@@ -1,23 +1,17 @@
 ---
 title: 블록체인 애플리케이션 만들기 - Azure Blockchain Workbench
-description: Azure Blockchain Workbench 미리 보기에서 블록체인 애플리케이션을 만드는 방법에 대한 자습서입니다.
-services: azure-blockchain
-keywords: ''
-author: PatAltimore
-ms.author: patricka
+description: Azure Blockchain Workbench 미리 보기용 블록체인 애플리케이션을 만드는 방법에 대한 자습서입니다.
 ms.date: 10/14/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: brendal
-manager: femila
-ms.openlocfilehash: a7d7c68840999772461655090d0213ada0997a7a
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 33a9e9c10c07d0808626353a7edfd505e0f60bc9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329103"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74324819"
 ---
-# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench에서 블록체인 애플리케이션 만들기
+# <a name="tutorial-create-a-blockchain-application-for-azure-blockchain-workbench"></a>자습서: Azure Blockchain Workbench용 블록체인 애플리케이션 만들기
 
 Azure Blockchain Workbench를 사용하여 구성 및 스마트 계약 코드로 정의된 다자간 워크플로를 나타내는 블록체인 애플리케이션을 만들 수 있습니다.
 

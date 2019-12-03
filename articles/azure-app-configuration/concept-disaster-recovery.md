@@ -12,12 +12,12 @@ ms.topic: overview
 ms.workload: tbd
 ms.date: 05/29/2019
 ms.author: yegu
-ms.openlocfilehash: c05957cda16c96b841433483a90429aab2b4d22d
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 291f6fe48d81397d293ab54a73e777831e25f6ea
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67706496"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185271"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -25,7 +25,7 @@ ms.locfileid: "67706496"
 
 ## <a name="high-availability-architecture"></a>고가용성 아키텍처
 
-지역 간 중복성을 실현하려면 서로 다른 지역에 여러 개의 앱 구성 저장소를 만들어야 합니다. 이 설정을 사용하면 액세스할 수 없는 기본 저장소를 대체하는 하나 이상의 추가 구성 저장소가 애플리케이션에 있게 됩니다. 다음 다이어그램에서는 애플리케이션과 해당 기본 및 보조 구성 저장소 간의 토폴로지를 보여줍니다.
+지역 간 중복성을 실현하려면 서로 다른 지역에 여러 개의 App Configuration 저장소를 만들어야 합니다. 이 설정을 사용하면 액세스할 수 없는 기본 저장소를 대체하는 하나 이상의 추가 구성 저장소가 애플리케이션에 있게 됩니다. 다음 다이어그램에서는 애플리케이션과 해당 기본 및 보조 구성 저장소 간의 토폴로지를 보여줍니다.
 
 ![지역 중복 저장소](./media/geo-redundant-app-configuration-stores.png)
 

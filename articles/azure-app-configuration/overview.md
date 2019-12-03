@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b26fa822e17ad7e9444b75d4db516ea2ccf5340b
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 01644054868ffc08738e67654ba181c76e7aed39
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129693"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185075"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure App Configuration이란?
 
@@ -63,7 +63,7 @@ App Configuration은 애플리케이션 비밀을 저장하는 데 사용되는 
 | 프로그래밍 언어 및 프레임워크 | 연결 방법 |
 |---|---|
 | .NET Core 및 ASP.NET Core | .NET Core용 App Configuration 공급자 |
-| .NET 및 ASP.NET | .NET용 App Configuration 작성기 |
+| .NET Framework 및 ASP.NET | .NET용 App Configuration 작성기 |
 | Java Spring | Spring Cloud용 App Configuration 클라이언트 |
 | 기타 | App Configuration REST API |
 
@@ -72,7 +72,7 @@ App Configuration은 애플리케이션 비밀을 저장하는 데 사용되는 
 * [ASP.NET Core 빠른 시작](./quickstart-aspnet-core-app.md)
 * [.NET Core 빠른 시작](./quickstart-dotnet-core-app.md)
 * [.NET Framework 빠른 시작](./quickstart-dotnet-app.md)
-* [Azure Function 빠른 시작](./quickstart-azure-function-csharp.md)
+* [Azure Functions 빠른 시작](./quickstart-azure-functions-csharp.md)
 * [Java Spring 빠른 시작](./quickstart-java-spring-app.md)
 * [ASP.NET Core 기능 플래그 빠른 시작](./quickstart-feature-flag-aspnet-core.md)
 * [Spring Boot 기능 플래그 빠른 시작](./quickstart-feature-flag-spring-boot.md)

@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿에 출력 추가
+title: 자습서 - 템플릿에 출력 추가
 description: 구문을 간소화하기 위해 Azure Resource Manager 템플릿에 출력을 추가합니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 654d3f7cbf6362d982549c86e6f54fea1e890cfc
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001529"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405991"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 출력 추가
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001529"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
@@ -49,11 +46,11 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 마지막으로, 스토리지 계정에서 **primaryEndpoints** 속성을 반환합니다.
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 템플릿을 배포하고 반환되는 값을 확인할 준비가 되었습니다.
 
-리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
+리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

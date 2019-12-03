@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Azure Active Directory 조건부 액세스로 보호되는 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구 | Microsoft Docs
+title: 조건부 액세스 권한에는 사용 약관이 필요 - Azure Active Directory
 description: 이 빠른 시작에서는 Azure Active Directory 조건부 액세스로 선택한 클라우드 앱에 대한 액세스 권한을 부여하기 전에 사용 약관에 동의하도록 요구하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 12/14/2018
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba684209b497792cd2f520f6b530168959e62d7f
-ms.sourcegitcommit: 79496a96e8bd064e951004d474f05e26bada6fa0
+ms.openlocfilehash: 3dd1b4cf554e773f49a15ac5cedcbcc5b3e710b9
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67506920"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74380096"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구
 
@@ -105,7 +105,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **새로 만들기** 페이지의 **이름** 텍스트 상자에서 **Isabella에게 TOU 요구**를 입력합니다.
 
-   ![이름](./media/require-tou/71.png)
+   ![Name](./media/require-tou/71.png)
 
 1. **할당** 섹션에서 **사용자 및 그룹**을 클릭합니다.
 

@@ -13,12 +13,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d03fd754e5a8e2872063b8a10bd1293b94d8f3b6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d81f89d5e4c3fb797cfc935764bb80853660ee2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094423"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707536"
 ---
 # <a name="persist-job-and-task-output"></a>작업 및 태스크 출력 유지
 
@@ -50,17 +50,17 @@ Batch 서비스 API를 사용하여 태스크 출력을 유지하는 방법에 �
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리 사용
 
-Batch는 Azure Storage에서 태스크 출력 파일의 이름을 지정하기 위한 선택적인 규칙 집합을 정의합니다. [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)은 이러한 규칙을 설명합니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob 경로의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다.
+Batch는 Azure Storage에서 태스크 출력 파일의 이름을 지정하기 위한 선택적인 규칙 집합을 정의합니다. [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions)(영문)은 이러한 규칙을 설명합니다. 파일 규칙 표준에서는 지정된 출력 파일에 대한 Azure Storage 대상 컨테이너 및 Blob 경로의 이름을 작업 및 태스크의 이름을 기반으로 하여 결정합니다.
 
 출력 데이터 파일의 이름을 지정하는 데 파일 규칙 표준을 사용할지 여부는 사용자에게 달려 있습니다. 원하는 경우 대상 컨테이너와 Blob의 이름을 지정할 수도 있습니다. 파일 규칙 표준을 사용하여 출력 파일 이름을 지정하면 [Azure Portal][portal]에서 출력 파일을 볼 수 있습니다.
 
-및 .NET을 사용 하 C# 여 batch 솔루션을 빌드하는 개발자는 [.Net 용 파일 규칙 라이브러리][nuget_package] 를 사용 하 여 [batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)에 따라 Azure Storage 계정에 태스크 데이터를 유지할 수 있습니다. 파일 규칙 라이브러리는 출력 파일을 Azure Storage로 이동하고 대상 컨테이너와 Blob의 이름을 잘 알려진 방법으로 지정합니다.
+및 .NET을 사용 하 C# 여 batch 솔루션을 빌드하는 개발자는 [.Net 용 파일 규칙 라이브러리][nuget_package] 를 사용 하 여 [batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions)에 따라 Azure Storage 계정에 태스크 데이터를 유지할 수 있습니다. 파일 규칙 라이브러리는 출력 파일을 Azure Storage로 이동하고 대상 컨테이너와 Blob의 이름을 잘 알려진 방법으로 지정합니다.
 
 .NET용 파일 규칙 라이브러리를 사용하여 태스크 출력을 유지하는 방법에 대한 자세한 내용은 [.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지](batch-task-output-file-conventions.md)를 참조하세요.
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>Batch 파일 규칙 표준 구현
 
-.NET 이외의 언어를 사용하는 경우 사용자 고유의 애플리케이션에서 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)을 구현할 수 있습니다.
+.NET 이외의 언어를 사용하는 경우 사용자 고유의 애플리케이션에서 [Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files#conventions)을 구현할 수 있습니다.
 
 검증된 명명 체계가 필요하거나 Azure Portal에서 태스크 출력을 보려는 경우 파일 규칙 이름 지정 표준을 직접 구현할 수도 있습니다.
 
@@ -76,13 +76,13 @@ Batch는 Azure Storage에서 태스크 출력 파일의 이름을 지정하기 �
 
 Batch 솔루션을 디자인할 때 작업 및 태스크 출력과 관련된 다음 요소를 고려해 보세요.
 
-- **컴퓨팅 노드 수명**: 컴퓨팅 노드는 일시적으로만 활성화되는 경우가 많으며 특히 자동 크기 조정이 가능한 풀에서는 항상 일시적으로만 활성화됩니다. 노드가 존재하는 동안과 태스크에 대해 설정한 파일 보존 기간 내에서만 노드에서 실행되는 태스크의 출력을 사용할 수 있습니다. 태스크가 완료된 후 필요할 수 있는 출력을 태스크에서 생성하는 경우 태스크는 출력 파일을 Azure Storage와 같은 영구 저장소에 업로드해야 합니다.
+- **Compute 노드 수명**: Compute 노드는 특히 자동 크기 조정 가능한 풀에서 일시적인 경우가 많습니다. 노드가 존재하는 동안과 태스크에 대해 설정한 파일 보존 기간 내에서만 노드에서 실행되는 태스크의 출력을 사용할 수 있습니다. 태스크가 완료된 후 필요할 수 있는 출력을 태스크에서 생성하는 경우 태스크는 출력 파일을 Azure Storage와 같은 영구 저장소에 업로드해야 합니다.
 
-- **출력 스토리지**: 작업 출력용 데이터 저장소로는 Azure Storage를 사용하는 것이 좋지만 어떤 지속형 스토리지라도 사용 가능합니다. Azure Storage에 태스크 출력을 쓰는 것은 Batch 서비스 API에 통합되어 있습니다. 다른 형태의 영구 스토리지를 사용하는 경우 태스크 출력을 유지하기 위해 애플리케이션 논리를 직접 작성해야 합니다.
+- **출력 스토리지**: Azure Storage는 태스크 출력을 위한 데이터 저장소로 권장되지만 모든 영구 스토리지를 사용할 수 있습니다. Azure Storage에 태스크 출력을 쓰는 것은 Batch 서비스 API에 통합되어 있습니다. 다른 형태의 영구 스토리지를 사용하는 경우 태스크 출력을 유지하기 위해 애플리케이션 논리를 직접 작성해야 합니다.
 
-- **출력 검색**: 작업 출력은 풀의 컴퓨팅 노드에서 직접 검색할 수도 있고, 작업 출력을 영구적으로 저장한 경우에는 Azure Storage 또는 다른 데이터 저장소에서 검색할 수도 있습니다. 태스크의 출력을 컴퓨팅 노드에서 직접 검색하려면 파일 이름과 노드에서의 해당 출력 위치가 필요합니다. Azure Storage에 태스크 출력을 유지하는 경우 Azure Storage SDK를 사용하여 출력 파일을 다운로드하려면 Azure Storage의 파일에 대한 전체 경로가 필요합니다.
+- **출력 검색**: 태스크 출력을 유지하고 있는 경우 풀의 컴퓨팅 노드에서 태스크 출력을 직접 검색하거나 Azure Storage 또는 다른 데이터 저장소에서 태스크 출력을 검색할 수 있습니다. 태스크의 출력을 컴퓨팅 노드에서 직접 검색하려면 파일 이름과 노드에서의 해당 출력 위치가 필요합니다. Azure Storage에 태스크 출력을 유지하는 경우 Azure Storage SDK를 사용하여 출력 파일을 다운로드하려면 Azure Storage의 파일에 대한 전체 경로가 필요합니다.
 
-- **출력 보기**: Azure Portal에서 Batch 태스크로 이동하여 **노드의 파일**을 선택하면 원하는 출력 파일만 표시되는 것이 아니라 태스크와 연관된 모든 파일이 표시됩니다. 컴퓨팅 노드의 파일은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. Azure Storage 하기 위해 유지 한 태스크 출력을 보려면 Azure Portal 또는 [Azure Storage 탐색기][storage_explorer]같은 Azure Storage 클라이언트 응용 프로그램을 사용할 수 있습니다. 포털이나 다른 도구를 사용하여 Azure Storage의 출력 데이터를 보려면 파일의 위치를 파악하여 직접 이동해야 합니다.
+- **출력 보기**: Azure Portal에서 Batch 태스크로 이동하여 **노드의 파일**을 선택한 경우 관심 있는 출력 파일만 표시되는 것이 아니라 태스크와 연관된 모든 파일이 표시됩니다. 컴퓨팅 노드의 파일은 노드가 존재하는 동안 해당 태스크에 대해 설정한 파일 보존 기간 내에서만 사용할 수 있습니다. Azure Storage 하기 위해 유지 한 태스크 출력을 보려면 Azure Portal 또는 [Azure Storage 탐색기][storage_explorer]같은 Azure Storage 클라이언트 응용 프로그램을 사용할 수 있습니다. 포털이나 다른 도구를 사용하여 Azure Storage의 출력 데이터를 보려면 파일의 위치를 파악하여 직접 이동해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

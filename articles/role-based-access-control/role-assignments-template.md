@@ -1,6 +1,6 @@
 ---
-title: RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리 | Microsoft Docs
-description: RBAC(역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 사용자, 그룹 및 애플리케이션의 액세스를 관리하는 방법을 알아봅니다.
+title: Azure RBAC 및 Azure Resource Manager 템플릿을 사용 하 여 역할 할당 추가
+description: Azure RBAC (역할 기반 액세스 제어) 및 Azure Resource Manager 템플릿을 사용 하 여 사용자, 그룹, 서비스 주체 또는 관리 되는 id에 대 한 Azure 리소스에 대 한 액세스 권한을 부여 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,19 +10,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2019
+ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 268913fb7aebd1d6c8b377b95939c3bc1f77daca
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: a183dc3b318cb9d740fe91bf553dc9f0c7ec99c4
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383987"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707819"
 ---
-# <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>RBAC 및 Azure Resource Manager 템플릿을 사용하여 Azure 리소스에 대한 액세스 관리
+# <a name="add-role-assignments-using-azure-rbac-and-azure-resource-manager-templates"></a>Azure RBAC 및 Azure Resource Manager 템플릿을 사용 하 여 역할 할당 추가
 
-[RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md)사용 하 여 Azure 리소스에 대 한 액세스를 관리할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 RBAC 및 템플릿을 사용하여 액세스를 관리할 수 있는 방법을 설명합니다.
+[!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Azure PowerShell 또는 Azure CLI를 사용 하는 것 외에도 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-authoring-templates.md)사용 하 여 역할을 할당할 수 있습니다. 템플릿은 리소스를 일관되고 반복적으로 배포해야 하는 경우 유용할 수 있습니다. 이 문서에서는 템플릿을 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
 ## <a name="get-object-ids"></a>개체 Id 가져오기
 
@@ -64,9 +64,13 @@ $objectid = (Get-AzADServicePrincipal -DisplayName "{name}").id
 objectid=$(az ad sp list --display-name "{name}" --query [].objectId --output tsv)
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-group-scope-without-parameters"></a>리소스 그룹 범위 (매개 변수 제외)에서 역할 할당 만들기
+## <a name="add-a-role-assignment"></a>역할 할당 추가
 
-RBAC에서 액세스 권한을 부여하기 위해 역할 할당을 만듭니다. 다음 템플릿에서는 역할 할당을 만드는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정 됩니다. 다음 템플릿은 다음을 보여줍니다.
+RBAC에서 액세스 권한을 부여 하려면 역할 할당을 추가 합니다.
+
+### <a name="resource-group-without-parameters"></a>리소스 그룹 (매개 변수 없음)
+
+다음 템플릿에서는 역할 할당을 추가 하는 기본적인 방법을 보여 줍니다. 일부 값은 템플릿 내에서 지정 됩니다. 다음 템플릿은 다음을 보여줍니다.
 
 -  리소스 그룹 범위에서 사용자, 그룹 또는 응용 프로그램에 [읽기 권한자](built-in-roles.md#reader) 역할을 할당 하는 방법
 
@@ -107,7 +111,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ![리소스 그룹 범위에서 역할 할당](./media/role-assignments-template/role-assignment-template.png)
 
-## <a name="create-a-role-assignment-at-a-resource-group-or-subscription-scope"></a>리소스 그룹 또는 구독 범위에서 역할 할당 만들기
+### <a name="resource-group-or-subscription"></a>리소스 그룹 또는 구독
 
 이전 템플릿은 매우 유연 하지 않습니다. 다음 템플릿에서는 매개 변수를 사용 하 고 다양 한 범위에서 사용할 수 있습니다. 다음 템플릿은 다음을 보여줍니다.
 
@@ -191,9 +195,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$objectid builtInRoleType=Reader
 ```
 
-## <a name="create-a-role-assignment-at-a-resource-scope"></a>리소스 범위에서 역할 할당 만들기
+### <a name="resource"></a>리소스
 
-리소스 수준에서 역할 할당을 만들어야 하는 경우 역할 할당의 형식이 다릅니다. 역할을 할당할 리소스의 리소스 공급자 네임 스페이스 및 리소스 형식을 제공 합니다. 또한 역할 할당 이름에 리소스 이름을 포함 합니다.
+리소스 수준에서 역할 할당을 추가 해야 하는 경우 역할 할당의 형식이 다릅니다. 역할을 할당할 리소스의 리소스 공급자 네임 스페이스 및 리소스 형식을 제공 합니다. 또한 역할 할당 이름에 리소스 이름을 포함 합니다.
 
 역할 할당의 유형 및 이름에는 다음 형식을 사용 합니다.
 
@@ -287,7 +291,7 @@ az group deployment create --resource-group ExampleGroup --template-file rbac-te
 
 ![리소스 범위에서 역할 할당](./media/role-assignments-template/role-assignment-template-resource.png)
 
-## <a name="create-a-role-assignment-for-a-new-service-principal"></a>새 서비스 사용자에 대 한 역할 할당 만들기
+### <a name="new-service-principal"></a>새 서비스 사용자
 
 새 서비스 주체를 만들고 해당 서비스 주체에 역할을 즉시 할당 하려고 하면 경우에 따라 해당 역할 할당이 실패할 수 있습니다. 예를 들어 관리 되는 id를 새로 만든 다음 동일한 Azure Resource Manager 템플릿에서 해당 서비스 주체에 역할을 할당 하려고 하면 역할 할당이 실패할 수 있습니다. 이 오류가 발생 하는 이유는 복제 지연 일 수 있습니다. 서비스 사용자는 한 지역에 생성 됩니다. 그러나 서비스 사용자를 아직 복제 하지 않은 다른 지역에서 역할 할당이 발생할 수 있습니다. 이 시나리오를 해결 하려면 역할 할당을 만들 때 `principalType` 속성을 `ServicePrincipal`으로 설정 해야 합니다.
 

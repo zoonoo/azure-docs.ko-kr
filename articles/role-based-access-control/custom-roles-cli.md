@@ -1,6 +1,6 @@
 ---
-title: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure CLI를 사용하여 RBAC(역할 기반 액세스 제어)로 Azure 리소스에 대한 사용자 지정 역할을 만드는 방법을 알아봅니다. 여기에는 사용자 지정 역할을 나열, 생성, 업데이트 및 삭제하는 방법이 포함됩니다.
+title: Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트 Microsoft Docs
+description: Azure CLI를 사용 하 여 Azure 리소스에 대 한 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ebced83346a7b130598e4a5f49a72d51ffd18e4f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d2b2ffde66468ae7cb2818010ac374126d2973be
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62118776"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703131"
 ---
-# <a name="create-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+# <a name="create-or-update-custom-roles-for-azure-resources-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기 또는 업데이트
 
-[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 Azure CLI를 사용하여 사용자 지정 역할을 만들고 관리하는 방법에 대해 설명합니다.
+[Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들면 됩니다. 이 문서에서는 Azure CLI를 사용 하 여 사용자 지정 역할을 나열, 생성, 업데이트 또는 삭제 하는 방법을 설명 합니다.
 
-사용자 지정 역할을 만드는 방법에 대한 단계별 자습서는 [자습서: Azure CLI를 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할을 만드는](tutorial-custom-role-cli.md)합니다.
+사용자 지정 역할을 만드는 방법에 대 한 단계별 자습서는 [자습서: Azure CLI 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 사용자 지정 역할을 만들려면 다음이 필요합니다.
 
@@ -65,13 +65,13 @@ az role definition list --output json | jq '.[] | if .roleType == "CustomRole" t
 
 ## <a name="list-a-custom-role-definition"></a>사용자 지정 역할 정의 나열
 
-사용자 지정 역할 정의 나열 하려면 사용 하 여 [az 역할 정의 목록](/cli/azure/role/definition#az-role-definition-list)합니다. 기본 제공 역할을 사용 하면 동일한 명령입니다.
+사용자 지정 역할 정의를 나열 하려면 [az role definition list](/cli/azure/role/definition#az-role-definition-list)를 사용 합니다. 이는 기본 제공 역할에 사용 하는 것과 동일한 명령입니다.
 
 ```azurecli
 az role definition list --name <role_name>
 ```
 
-다음 예제에서는 목록 합니다 *Virtual Machine Operator* 역할 정의:
+다음 예제에서는 *가상 머신 운영자* 역할 정의를 나열 합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator"
@@ -113,7 +113,7 @@ az role definition list --name "Virtual Machine Operator"
 ]
 ```
 
-다음 예제에서는 방금의 작업을 나열 합니다 *Virtual Machine Operator* 역할:
+다음 예제에서는 *가상 머신 운영자* 역할의 작업만 나열 합니다.
 
 ```azurecli
 az role definition list --name "Virtual Machine Operator" --output json | jq '.[] | .permissions[0].actions'
@@ -238,6 +238,6 @@ az role definition delete --name "Virtual Machine Operator"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: Azure CLI를 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
+- [자습서: Azure CLI을 사용 하 여 Azure 리소스에 대 한 사용자 지정 역할 만들기](tutorial-custom-role-cli.md)
 - [Azure 리소스에 대한 사용자 지정 역할](custom-roles.md)
 - [Azure Resource Manager 리소스 공급자 작업](resource-provider-operations.md)

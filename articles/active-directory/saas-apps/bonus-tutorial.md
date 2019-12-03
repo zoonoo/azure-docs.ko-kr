@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f605398896c93d15b7475c05c79361fdcefcfcab
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: ea9c88f8eb8ac7b72f11ff286d2294df8cb70860
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67442782"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74232053"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-bonusly"></a>자습서: Bonusly와 Azure Active Directory 통합
 
@@ -207,7 +207,7 @@ Bonusly에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수행
 Azure AD 사용자가 Bonusly에 로그인하려면 Bonusly에 프로비저닝되어야 합니다. Bonusly의 경우 프로비전은 수동 작업입니다.
 
 > [!NOTE]
-> 다른 Bonusly 사용자 계정 생성 도구 또는 Bonusly가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다. 
+> 다른 Bonusly 사용자 계정 생성 도구 또는 Bonusly가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다. 
 
 **사용자 프로비전을 구성하려면 다음 단계를 수행합니다.**
 

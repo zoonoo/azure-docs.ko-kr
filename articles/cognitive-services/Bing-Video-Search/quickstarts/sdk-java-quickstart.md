@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Java용 Bing Video Search SDK를 사용하여 비디오 검색'
+title: '빠른 시작: Java용 SDK를 사용하여 비디오 검색 - Bing Video Search'
 titleSuffix: Azure Cognitive Services
 description: Java용 Bing Video Search SDK로 비디오 검색 요청을 보내려면 이 빠른 시작을 사용합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 06/26/2019
 ms.author: aahi
-ms.openlocfilehash: 3051f663f277c216fe18513b816bb86478a2efbd
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: cbe5f0023b16aec1ed68e7a78ddb3103f40eb85b
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447001"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74378586"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-java"></a>빠른 시작: Java용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 

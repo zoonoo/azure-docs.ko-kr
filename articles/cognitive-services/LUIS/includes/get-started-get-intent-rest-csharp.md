@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 9ab477ffd7001f0f492f63355baaee26827db845
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2d3a000040ff1b4f6e0ae548b578e8be014dc06a
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125555"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414456"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 * [.NET Core V2.2 이상](https://dotnet.microsoft.com/download)
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 공용 앱 ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125555"
 
 ## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-C#을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다. 
+C#(.NET Core)을 사용하여 [예측 엔드포인트](https://aka.ms/luis-apim-v3-prediction)를 쿼리하고 예측 결과를 가져옵니다.
 
 1. `predict-with-rest`의 프로젝트 및 폴더 이름을 사용하여 C# 언어를 대상으로 하는 새 콘솔 애플리케이션을 만듭니다. 
 
@@ -35,12 +35,14 @@ C#을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API
     dotnet new console -lang C# -n predict-with-rest
     ```
 
-1. 다음 dotnet CLI 명령을 사용하여 필요한 종속성을 설치합니다.
+1. 방금 만든 `predict-with-rest` 디렉터리로 변경하고 다음 명령을 사용하여 필요한 종속성을 설치합니다.  
 
     ```console
+    cd predict-with-rest
     dotnet add package System.Net.Http
     ```
-1. Program.cs를 다음 코드로 덮어씁니다.
+
+1. 즐겨찾는 IDE 또는 편집기에서 `Program.cs`를 엽니다. 그런 다음, `Program.cs`를 다음 코드로 덮어씁니다.
     
    ```csharp
     using System;
@@ -102,10 +104,10 @@ C#을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API
 
 1. 다음 값을 바꿉니다.
 
-    * `YOUR-KEY`를 시작 키로
-    * `YOUR-ENDPOINT`를 엔드포인트로(예: `westus2.api.cognitive.microsoft.com`)
+    * 시작 키로 있는 `YOUR-KEY`.
+    * 엔드포인트가 있는 `YOUR-ENDPOINT`. 예: `westus2.api.cognitive.microsoft.com`
 
-1. 콘솔 애플리케이션을 빌드합니다. 
+1. 다음 명령을 사용하여 콘솔 애플리케이션을 빌드합니다. 
 
     ```console
     dotnet build
@@ -117,7 +119,7 @@ C#을 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API
     dotnet run
     ```
 
-1. JSON 형식의 예측 응답을 검토합니다.
+1. JSON으로 반환되는 예측 응답을 검토합니다.
 
     ```console
     Hit ENTER to exit...

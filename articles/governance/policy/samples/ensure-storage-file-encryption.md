@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 스토리지 파일 암호화 확인
-description: 이 샘플 정책 정의에서는 스토리지 계정에 대해 파일 암호화를 사용할 수 있도록 해야 합니다.
+description: 이 샘플 정책 정의에서는 모든 Azure 스토리지 계정에 대해 파일 암호화를 사용할 수 있도록 해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0c0bb16d05b733ca7eabd665eab2ffea77de2b99
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e10c9a83b0a523848a7c50bc7e2161e92afbca07
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070058"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463431"
 ---
 # <a name="sample---ensure-storage-file-encryption"></a>샘플 - 스토리지 파일 암호화 확인
 

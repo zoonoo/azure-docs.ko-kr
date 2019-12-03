@@ -1,6 +1,6 @@
 ---
-title: '자습서: B2B의 다단계 인증 - Azure Active Directory | Microsoft Docs'
-description: Azure AD B2B를 사용하여 외부 사용자 및 파트너 조직과 공동 작업할 경우 MFA(다단계 인증)를 요구하는 방법을 알아봅니다.
+title: 자습서 - B2B용 다단계 인증 - Azure AD
+description: 이 자습서에서는 Azure AD B2B를 사용하여 외부 사용자 및 파트너 조직과 협업할 때 MFA(다단계 인증)를 요구하는 방법에 대해 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16a2438133f545c57d1046a0c4db94135f8a426d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bddf1642b2013567fbc23278b3d8d32692601d55
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67113194"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74420585"
 ---
 # <a name="tutorial-enforce-multi-factor-authentication-for-b2b-guest-users"></a>자습서: B2B 게스트 사용자에 다단계 인증 적용
 
@@ -41,7 +41,7 @@ ms.locfileid: "67113194"
 > * 조건부 액세스 정책을 테스트합니다.
 > * 테스트 사용자 및 정책을 정리합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -81,7 +81,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 7.  **사용자 및 그룹** 페이지에서 **사용자 및 그룹 선택**을 선택한 후 **모든 게스트 사용자(미리 보기)** 를 선택합니다.
 
     ![선택한 모든 게스트 사용자를 보여 주는 스크린샷](media/tutorial-mfa/tutorial-mfa-policy-6.png)
-9.  **완료**를 선택합니다.
+9.  **완료** 를 선택합니다.
 10. **새로 만들기** 페이지의 **할당** 섹션에서 **클라우드 앱**을 선택합니다.
 11. **클라우드 앱** 페이지에서 **앱 선택**을 선택한 후 **선택**을 선택합니다.
 

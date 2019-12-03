@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 3d55e0e7ecbd52b6d96c657e333c5557388f2721
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406502"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706030"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -73,13 +73,13 @@ Metastore **복사가** 완료 되 면 기존 HDInsight 3.6 클러스터의 [스
 
 아래 표에 있는 값을 사용 합니다. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`를 **복사** 된 Hive metastore에 대 한 적절 한 값으로 바꾸고 공백으로 구분 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
 
-|속성 | 값 |
+|자산 | Value |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|이름|Hive 업그레이드|
+|name|Hive 업그레이드|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
-|노드 유형|헤드|
-|매개 변수|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
+|노드 유형|Head|
+|parameters|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
 
 > [!Warning]  
 > HDInsight 3.6 메타 데이터 스키마를 HDInsight 4.0 스키마로 변환 하는 업그레이드는 되돌릴 수 없습니다.
@@ -174,14 +174,14 @@ HDInsight 3.6 클러스터 내에서 Hive/LLAP 쿼리를 실행 하 고 디버�
 
 HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. HiveCLI은 Hiveserver 1의 thrift 클라이언트 이며, Beeline는 Hiveserver 2에 대 한 액세스를 제공 하는 JDBC 클라이언트입니다. Beeline를 사용 하 여 다른 JDBC 호환 데이터베이스 끝점에 연결할 수도 있습니다. Beeline는 설치 하지 않아도 HDInsight 4.0에서 기본 제공 됩니다.
 
-HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 Ambari Hive 뷰입니다. HDInsight 4.0는 Hive 뷰를 DAS (Hortonworks Data Analytics Studio)로 대체 합니다. DAS는 HDInsight 클러스터에 기본 제공 되지 않으며 공식적으로 지원 되는 패키지가 아닙니다. 그러나 다음과 같이 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 을 사용 하 여 클러스터에 DAS를 설치할 수 있습니다.
+HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 Ambari Hive 뷰입니다. HDInsight 4.0은 Ambari View와 함께 제공 되지 않습니다. 고객이 핵심 HDInsight 서비스가 아닌 DAS (Data Analytics Studio)를 사용할 수 있는 방법을 제공 하 고 있습니다. DAS는 HDInsight 클러스터에 기본 제공 되지 않으며 공식적으로 지원 되는 패키지가 아닙니다. 그러나 다음과 같이 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 을 사용 하 여 클러스터에 DAS를 설치할 수 있습니다.
 
-|속성 | 값 |
+|자산 | Value |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|이름|DAS|
+|name|DAS|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
-|노드 유형|헤드|
+|노드 유형|Head|
 
 5 ~ 10 분 정도 기다린 다음 URL: `https://CLUSTERNAME.azurehdinsight.net/das/`을 사용 하 여 데이터 분석 스튜디오를 시작 합니다.
 

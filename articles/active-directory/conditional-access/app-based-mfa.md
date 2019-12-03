@@ -1,22 +1,22 @@
 ---
-title: 빠른 시작 - Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA(다단계 인증) 요구 | Microsoft Docs
+title: 조건부 액세스 권한이 있는 Azure MFA 필요 - Azure Active Directory
 description: 이 빠른 시작에서는 Azure AD(Azure Active Directory) 조건부 액세스를 사용하여 액세스되는 클라우드 앱 유형에 인증 요구 사항을 연결하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: quickstart
-ms.date: 01/30/2019
+ms.date: 11/21/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a23f8fc10e0e5a19be1f93cc6d6e5e8e301f86d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 55c9188a1320b92aafa5fc67a253b42b6b107711
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474002"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74381089"
 ---
 # <a name="quickstart-require-mfa-for-specific-apps-with-azure-active-directory-conditional-access"></a>빠른 시작: Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구
 

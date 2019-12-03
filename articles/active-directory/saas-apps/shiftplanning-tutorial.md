@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a144bec0a610a5a47e8a9bf3ff6a5de05b239ed
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: fd7cfe93aa39982836944230f860c603c7117ceb
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73159983"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233427"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-humanity"></a>자습서: Azure Active Directory와 Humanity 통합
 
@@ -229,12 +229,12 @@ Azure AD 사용자가 Humanity에 로그인할 수 있도록 하려면 Humanity�
 
     ![직원 저장](./media/shiftplanning-tutorial/iC786625.png "직원 저장")
 
-    a. 관련된 텍스트 상자에 프로비전할 유효한 AAD 계정의 **이름**, **성** 및 **이메일**을 입력합니다.
+    a. 관련된 텍스트 상자에 프로비저닝할 유효한 Azure AD 계정의 **이름**, **성** 및 **이메일**을 입력합니다.
 
     b. **직원 저장**을 클릭합니다.
 
 > [!NOTE]
-> 다른 Humanity 사용자 계정 생성 도구 또는 Humanity가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Humanity 사용자 계정 생성 도구 또는 Humanity가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

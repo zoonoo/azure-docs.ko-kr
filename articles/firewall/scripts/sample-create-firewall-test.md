@@ -1,19 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - Azure Firewall 테스트 환경 만들기
-description: Azure PowerShell 스크립트 샘플 - Azure Firewall 테스트 환경 만들기.
+title: Azure Firewall 테스트 환경 만들기
+description: 이 스크립트 샘플은 방화벽 및 테스트 네트워크 환경을 만듭니다. 이 네트워크에는 세 개의 서브넷이 있는 하나의 VNet(가상 네트워크)이 포함됩니다.
 services: virtual-network
 author: vhorne
 ms.service: firewall
 ms.devlang: powershell
 ms.topic: sample
-ms.date: 8/13/2018
+ms.date: 11/19/2019
 ms.author: victorh
-ms.openlocfilehash: df7897e5b0941f1763f1a10e51d49827bd2ca63d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6cb0eafce354ba54dd161fee52efe46677ad2765
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839274"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74195879"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Azure Firewall 테스트 환경 만들기
 

@@ -8,14 +8,14 @@ ms.author: dpalled
 manager: cshankar
 ms.workload: big-data
 ms.topic: overview
-ms.date: 10/10/2019
+ms.date: 11/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: aa15e9c50cb5cd694a7a6adad352459536292b85
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 042e969b4a0dfea0910a0ef81fae264792cfd85f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012582"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327649"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Azure Time Series Insights란?
 
@@ -84,13 +84,16 @@ Azure Time Series Insights는 새로운 모든 이벤트를 하나의 행으로 
 1. 참조 데이터를 업로드합니다. 이는 추가 서비스가 아닙니다.
 1. Time Series Insights 탐색기를 사용하여 몇 분 만에 데이터를 볼 수 있습니다.
 
-## <a name="time-series-insights-explorer"></a>Time Series Insights 탐색기
+## <a name="explorer"></a>Explorer
 
-다음 다이어그램에서는 Time Series Insights 탐색기를 통해 확인되는 Time Series Insights 데이터의 예를 보여 줍니다.
+Azure Time Series Insights 탐색기를 사용하여 데이터의 추세를 보고, 분석하고, 검색합니다.
 
-![Time Series Insights 탐색기](media/time-series-insights-explorer/explorer4.png)
+![Time Series Insights 탐색기](media/overview/time-series-insights-explorer-panel.png)
+
+[Azure Time Series Insights 탐색기](time-series-insights-explorer.md)를 사용하는 방법과 데이터에서 인사이드를 얻는 방법에 대해 알아봅니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - Azure Time Series Insights 일반 공급 [무료 데모 환경](./time-series-quickstart.md)을 살펴봅니다.
+
 - [Time Series Insights 환경을 계획하는 방법](time-series-insights-environment-planning.md)을 자세히 알아봅니다.

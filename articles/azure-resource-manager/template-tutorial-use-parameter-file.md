@@ -1,19 +1,16 @@
 ---
-title: 자습서 - 매개 변수 파일을 사용하여 Azure Resource Manager 템플릿 배포
+title: 자습서 - 매개 변수 파일을 사용하여 템플릿 배포
 description: Azure Resource Manager 템플릿을 배포하는 데 사용할 값이 포함된 매개 변수 파일을 사용합니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b01e9ece2d194d76c7184a676f17d626c41a011
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177546"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405983"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>자습서: 매개 변수 파일을 사용하여 Resource Manager 템플릿 배포
 
@@ -25,7 +22,7 @@ ms.locfileid: "72177546"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 템플릿에는 배포 중에 제공할 수 있는 매개 변수가 많이 있습니다. 이전 자습서의 끝 부분에서, 템플릿은 다음과 같았습니다.
 
@@ -49,7 +46,7 @@ VS Code에서 다음 내용이 포함된 새 파일을 만듭니다. 이 파일�
 
 이 파일은 프로덕션 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 Standard_GRS를 사용하고, 리소스 이름에 **contoso**를 접두사로 사용하고 **Environment** 태그를 **Production**으로 설정합니다. 실제 프로덕션 환경에서는 무료가 아닌 SKU로 App Service를 사용할 수 있지만 이 자습서에서는 이 SKU를 계속 사용합니다.
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 
@@ -119,7 +116,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>배포 확인
+## <a name="verify-deployment"></a>배포 확인
 
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 

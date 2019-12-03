@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure 빠른 시작 템플릿 사용 | Microsoft Docs
+title: 자습서 - 빠른 시작 템플릿 사용
 description: Azure 빠른 시작 템플릿을 사용하여 템플릿 개발을 완료하는 방법을 알아봅니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 1ddae445fb912b4bb60f257f667784b17b0d6ea5
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001488"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74405945"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>자습서: Azure 빠른 시작 템플릿 사용
 
@@ -25,7 +22,7 @@ ms.locfileid: "72001488"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
@@ -33,7 +30,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이 템플릿은 스토리지 계정 및 App Service 계획을 배포하는 데 사용되지만 여기에 웹 사이트를 추가할 수도 있습니다. 미리 빌드된 템플릿을 사용하여 리소스를 배포하는 데 필요한 JSON을 신속하게 검색할 수 있습니다.
 
-## <a name="find-a-template"></a>템플릿 찾기
+## <a name="find-template"></a>템플릿 찾기
 
 1. [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/)을 엽니다.
 1. **검색**에 **deploy linux web app**(Linux 웹앱 배포)을 입력합니다.
@@ -44,13 +41,13 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
     ![Resource Manager 템플릿 빠른 시작 웹 사이트](./media/template-tutorial-quickstart-template/resource-manager-template-quickstart-template-web-site.png)
 
-## <a name="revise-the-existing-template"></a>기존 템플릿 수정
+## <a name="revise-existing-template"></a>기존 템플릿 수정
 
 빠른 시작 템플릿을 기존 템플릿과 병합합니다.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-WebApp 이름은 Azure에서 고유해야 합니다. 이름이 중복되지 않도록, **webAppPortalName** 변수가 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 에서 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 으로 업데이트되었습니다.
+웹앱 이름은 Azure에서 고유해야 합니다. 이름이 중복되지 않도록, **webAppPortalName** 변수가 **"webAppPortalName": "[concat(parameters('webAppName'), '-webapp')]"** 에서 **"webAppPortalName": "[concat(parameters('webAppName'), uniqueString(resourceGroup().id))]"** 으로 업데이트되었습니다.
 
 `Microsoft.Web/serverfarms` 정의의 끝에 쉼표를 추가하여 `Microsoft.Web/sites` 정의와 리소스 정의를 구분합니다.
 
@@ -60,7 +57,7 @@ App Service 계획으로 설정되는 **dependsOn**이라는 요소가 있음을
 
 **serverFarmId** 속성은 [resourceId](resource-group-template-functions-resource.md#resourceid) 함수를 사용합니다. 이 함수는 리소스의 고유 식별자를 가져옵니다. 이 경우 App Service 계획의 고유 식별자를 가져옵니다. 웹앱은 하나의 특정 App Service 계획과 연결됩니다.
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 Azure CLI 또는 Azure PowerShell을 사용하여 템플릿을 배포합니다.
 

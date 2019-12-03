@@ -1,21 +1,17 @@
 ---
-title: Visual Studio Code 사용 - Azure Blockchain Service
+title: 스마트 계약 생성, 빌드 및 배포 - Azure Blockchain Service
 description: Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service에서 스마트 계약을 만들고 빌드하고 배포하는 방법에 대한 자습서입니다.
-services: azure-blockchain
-author: PatAltimore
-ms.author: patricka
-ms.date: 10/14/2019
+ms.date: 11/20/2019
 ms.topic: tutorial
-ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2d2cb174656f5ed8f13d4463d416455ebb3f9ec9
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329234"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325163"
 ---
-# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>자습서: Visual Studio Code를 사용하여 스마트 계약 생성, 빌드 및 배포
+# <a name="tutorial-create-buildanddeploysmartcontracts-on-azure-blockchain-service"></a>자습서: Azure Blockchain Service에서 스마트 계약 생성, 빌드 및 배포
 
 이 자습서에서는 Visual Studio Code에서 Ethereum 확장용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service에서 스마트 계약을 만들고 빌드하고 배포합니다. 또한 Truffle을 사용하여 트랜잭션을 통해 스마트 계약 함수를 실행합니다.
 
@@ -32,6 +28,21 @@ Etherum용 Azure Blockchain Development Kit를 사용하여 다음을 수행합�
 ## <a name="prerequisites"></a>필수 조건
 
 * [빠른 시작: Visual Studio Code를 사용하여 Azure Blockchain Service 컨소시엄 네트워크에 연결](connect-vscode.md) 완료
+* [Visual Studio Code](https://code.visualstudio.com/Download)
+* [Etherum용 Azure Blockchain Development Kit 확장](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain)
+* [Node.js 10.15.x 이상](https://nodejs.org/download)
+* [Git 2.10.x 이상](https://git-scm.com)
+* [Python 2.7.15](https://www.python.org/downloads/release/python-2715/) python.exe를 경로에 추가합니다. Azure Blockchain Development Kit에는 경로의 Python 버전 2.7.15가 필요합니다.
+* [Truffle 5.0.0](https://www.trufflesuite.com/docs/truffle/getting-started/installation)
+* [Ganache CLI 6.0.0](https://github.com/trufflesuite/ganache-cli)
+
+Windows에서는 node-gyp 모듈에 설치된 C++ 컴파일러가 필요합니다. MSBuild 도구를 사용할 수 있습니다.
+
+* Visual Studio 2017이 설치된 경우 `npm config set msvs_version 2017 -g` 명령을 사용하여 MSBuild 도구를 사용하도록 npm을 구성합니다.
+* Visual Studio 2019가 설치된 경우 npm에 대한 MS 빌드 도구 경로를 설정합니다. 예를 들어 `npm config set msbuild_path "C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Current\Bin\MSBuild.exe"`
+* 그렇지 않으면 *관리자 권한으로 실행* 명령 셸에서 `npm install --global windows-build-tools`를 사용하여 독립 실행형 VS 빌드 도구를 설치합니다.
+
+node-gyp에 대한 자세한 내용은 [GitHub의 node-gyp 리포지토리](https://github.com/node-gyp)를 참조하세요.
 
 ## <a name="create-a-smart-contract"></a>스마트 계약 만들기
 
@@ -165,7 +176,7 @@ Truffle이 블록체인 네트워크에서 스크립트를 실행합니다.
 
 ![스크립트 출력](./media/send-transaction/execute-get.png)
 
-값이 **Hello, blockchain!** 이 아닙니다. 대신, 반환되는 값은 자리 표시자입니다. 계약을 변경하여 배포하는 경우 계약에는 새 계약 주소가 지정되고 스마트 계약 생성자의 값이 상태 변수에 할당됩니다. Truffle 샘플인 **2_deploy_contracts.js** 마이그레이션 스크립트는 스마트 계약을 배포하고 자리 표시자 값을 인수로 전달합니다. 생성자는 **RequestMessage** 상태 변수를 자리 표시자 값으로 설정하고 이를 반환합니다.
+값이 **Hello, blockchain!** 이 아닙니다. 대신, 반환되는 값은 자리 표시자입니다. 계약을 변경하여 배포하는 경우 변경된 계약은 새 주소로 배포되고 스마트 계약 생성자의 값이 상태 변수에 할당됩니다. Truffle 샘플인 **2_deploy_contracts.js** 마이그레이션 스크립트는 스마트 계약을 배포하고 자리 표시자 값을 인수로 전달합니다. 생성자는 **RequestMessage** 상태 변수를 자리 표시자 값으로 설정하고 이를 반환합니다.
 
 1. **RequestMessage** 상태 변수를 설정하고 값을 쿼리하려면 **sendrequest.js** 및 **getmessage.js** 스크립트를 다시 실행합니다.
 

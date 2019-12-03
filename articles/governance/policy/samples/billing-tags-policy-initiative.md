@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 청구 태그 정책 이니셔티브
-description: 이 샘플 정책 정의에서는 비용 센터 및 제품 이름에 대한 지정된 태그 값이 필요합니다.
+description: 이 샘플 정책 이니셔티브(정책 집합)에는 비용 센터 및 제품 이름에 대해 매개 변수에 정의된 지정된 태그 값이 필요합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: e2fc9a7251fbe548b22f24356e555f92a3a6e22f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 449909b160c2b811c62cd8c6592e74dd0f714e41
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076365"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463381"
 ---
 # <a name="sample---billing-tags-policy-initiative"></a>샘플 - 청구 태그 정책 이니셔티브
 

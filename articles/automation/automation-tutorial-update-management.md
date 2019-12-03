@@ -1,20 +1,20 @@
 ---
 title: Azure VM에 대한 업데이트 및 패치 관리
-description: 이 아티클에서는 Azure Automation 업데이트 관리를 사용하여 Azure Windows VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
+description: 이 문서에서는 Azure Automation 업데이트 관리를 사용하여 Azure 및 비 Azure VM에 대한 업데이트 및 패치를 관리하는 방법에 대한 개요를 제공합니다.
 services: automation
-author: zjalexander
+author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 12/04/2018
-ms.author: zachal
+ms.date: 11/20/2019
+ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65bbf58d8514f9fea082b839f57e9aaf3417dc14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469738"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278774"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
@@ -51,15 +51,15 @@ ms.locfileid: "73469738"
 1. 업데이트 관리를 사용하도록 설정할 VM을 선택합니다.
 1. VM 페이지의 **작업** 아래에서 **업데이트 관리**를 선택합니다. **업데이트 관리 사용** 창이 열립니다.
 
-이 VM에 대해 업데이트 관리가 사용되도록 설정되어 있는지를 확인하기 위해 유효성 검사가 수행됩니다. 이 유효성 검사에는 Azure Log Analytics 작업 영역 및 연결된 Automation 계정 검사와 업데이트 관리 솔루션이 작업 영역에 있는지 확인하는 검사가 포함됩니다.
+이 VM에 대해 업데이트 관리가 사용되도록 설정되어 있는지를 확인하기 위해 유효성 검사가 수행됩니다. 이 유효성 검사에는 Log Analytics 작업 영역 및 연결된 Automation 계정 검사와 업데이트 관리 솔루션이 작업 영역에서 활성화되어 있는지 여부가 포함됩니다.
 
-[Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
+[Log Analytics](../azure-monitor/platform/data-platform-logs.md) 작업 영역은 기능 및 서비스(예: 업데이트 관리)에서 생성된 데이터를 수집하는 데 사용됩니다. 이 작업 영역은 여러 원본의 데이터를 검토 및 분석하는 단일 위치를 제공합니다.
 
-또한 유효성 검사 프로세스는 VM이 MMA(Microsoft Monitoring Agent) 및 Automation Hybrid Runbook Worker를 통해 프로비전되는지 확인합니다. 이 에이전트는 Azure Automation과 통신하고 업데이트 상태에 대한 정보를 얻는 데 사용됩니다. 이 에이전트를 사용하려면 Azure Automation 서비스와 통신하고 업데이트를 다운로드하기 위한 443 포트가 필요합니다.
+또한 유효성 검사 프로세스는 Log Analytics 에이전트 및 Automation 하이브리드 runbook worker로 VM이 프로비저닝되었는지 여부를 확인합니다. 이 에이전트는 Azure Automation과 통신하고 업데이트 상태에 대한 정보를 얻는 데 사용됩니다. 이 에이전트를 사용하려면 Azure Automation 서비스와 통신하고 업데이트를 다운로드하기 위한 443 포트가 필요합니다.
 
 등록 중에 다음 필수 구성 요소 중 하나가 누락된 것으로 확인되면 자동으로 추가됩니다.
 
-* [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) 작업 영역
+* [Log Analytics](../azure-monitor/platform/data-platform-logs.md) 작업 영역
 * [Automation 계정](./automation-offering-get-started.md)
 * [Hybrid Runbook Worker](./automation-hybrid-runbook-worker.md)(VM에서 사용)
 
@@ -71,9 +71,9 @@ ms.locfileid: "73469738"
 
 ## <a name="view-update-assessment"></a>업데이트 평가 보기
 
-업데이트 관리를 사용하도록 설정하면 **업데이트 관리** 창이 열립니다. 누락된 업데이트가 있으면 **누락 업데이트** 탭에 누락된 업데이트 목록이 표시됩니다.
+업데이트 관리를 사용하도록 설정하면 **업데이트 관리** 창이 열립니다. 업데이트가 누락된 것으로 식별된 경우 **누락 업데이트** 탭에 누락된 업데이트 목록이 표시됩니다.
 
-**정보 링크** 아래에서 업데이트 링크를 선택하여 새 창에서 업데이트에 대한 지원 아티클을 엽니다. 이 창에서 업데이트에 대한 중요한 정보를 알아볼 수 있습니다.
+**정보 링크** 아래에서 업데이트 링크를 선택하여 업데이트에 대한 지원 문서를 엽니다. 업데이트에 대한 중요한 정보를 알아볼 수 있습니다.
 
 ![업데이트 상태 보기](./media/automation-tutorial-update-management/manageupdates-view-status-win.png)
 

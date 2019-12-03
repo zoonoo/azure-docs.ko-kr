@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 허용되는 부하 분산 장치 SKU
-description: 이 샘플 정책 정의에서는 부하 분산 장치가 승인된 SKU를 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 부하 분산 장치가 매개 변수에 정의된 승인된 SKU를 사용해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: f3872ffc2fc75445f4f51573474fc359227b431b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3d3425211e44dc87d87a962630dec574a60614e7
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076447"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463481"
 ---
 # <a name="sample---allowed-load-balancer-skus"></a>샘플 - 허용되는 부하 분산 장치 SKU
 

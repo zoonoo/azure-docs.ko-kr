@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/18/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 10216b52ded61328a73e5401549a59e6abc4667a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: b158f3738e5d5e33c831e7312c167e5185d19e95
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125553"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414459"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 * [Node.js](https://nodejs.org/) 프로그래밍 언어 
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 공용 앱 ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125553"
 
 ## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-Node.js를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다.
+Node.js를 사용하여 [예측 엔드포인트](https://aka.ms/luis-apim-v3-prediction)를 쿼리하고 예측 결과를 가져옵니다.
 
 1. 다음 코드 조각을 `predict.js` 파일에 복사합니다.
 
@@ -76,24 +76,24 @@ Node.js를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET
     getPrediction().then(()=>console.log("done")).catch((err)=>console.log(err));
     ```
 
-1. 다음 값을 설정합니다.
+1. 다음 값을 바꿉니다.
 
-    * `YOUR-KEY`를 시작 키로
-    * `YOUR-ENDPOINT`를 엔드포인트 URL로
+    * `YOUR-KEY`를 시작 키로 바꿉니다.
+    * `YOUR-ENDPOINT`를 엔드포인트 URL로 바꿉니다. 예: `westus2.api.cognitive.microsoft.com`
 
-1. 명령줄에서 다음 명령을 실행하여 종속성을 설치합니다. 
+1. 다음 명령을 사용하여 `request`, `request-promise` 및 `querystring` 종속성을 설치합니다. 
 
     ```console
     npm install request request-promise querystring
     ```
 
-1. 다음 명령을 사용하여 코드를 실행합니다.
+1. 다음 명령을 사용하여 앱을 실행합니다.
 
     ```console
     node predict.js
     ```
 
- 1. JSON 형식의 예측 응답을 검토합니다.   
+ 1. JSON으로 반환되는 예측 응답을 검토합니다.   
     
     ```console
     {"query":"turn on all lights","prediction":{"topIntent":"HomeAutomation.TurnOn","intents":{"HomeAutomation.TurnOn":{"score":0.5375382},"None":{"score":0.08687421},"HomeAutomation.TurnOff":{"score":0.0207554}},"entities":{"HomeAutomation.Operation":["on"],"$instance":{"HomeAutomation.Operation":[{"type":"HomeAutomation.Operation","text":"on","startIndex":5,"length":2,"score":0.724984169,"modelTypeId":-1,"modelType":"Unknown","recognitionSources":["model"]}]}}}}

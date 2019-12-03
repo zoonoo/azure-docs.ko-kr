@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 태그 및 기본값 적용
-description: 이 샘플 정책 정의는 태그가 제공되지 않은 경우 지정된 태그 이름 및 값을 추가합니다.
+description: 이 샘플 정책 정의는 해당 태그가 제공되지 않은 경우 매개 변수에 정의된 지정된 태그 이름 및 값을 추가합니다.
 ms.date: 01/26/2019
 ms.topic: sample
-ms.openlocfilehash: 0e5bb38b65f4c302fc5a2c4a0a0d3c2da0082a30
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 33d0580d2f6c231c4cd7e73abdaab6cb14c363d9
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74071482"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463683"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>샘플 - 태그 및 기본값 적용
 

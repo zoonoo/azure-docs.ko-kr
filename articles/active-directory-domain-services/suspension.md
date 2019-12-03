@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 31a1c7cd72d57b9c680452d5e84f8fe78f47cebb
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71693308"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74704270"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 성능 상태를 이해 하 고 일시 중단 된 도메인을 해결 합니다.
 
@@ -35,13 +35,13 @@ Azure AD DS 관리 되는 도메인은 다음 상태 중 하나일 수 있습니
 * [실행 중](#running-state)
 * [주의가 필요 함](#needs-attention-state)
 * [일시](#suspended-state)
-* [Deleted](#deleted-state)
+* [삭제됨](#deleted-state)
 
 ## <a name="running-state"></a>실행 상태
 
 올바르게 구성 되 고 문제 없이 실행 되는 Azure AD DS 관리 되는 도메인이 *실행 중* 상태입니다. 이는 관리 되는 도메인에 대 한 원하는 상태입니다.
 
-### <a name="what-to-expect"></a>필요한 항목
+### <a name="what-to-expect"></a>예상 프로그램
 
 * Azure 플랫폼은 관리 되는 도메인의 상태를 정기적으로 모니터링할 수 있습니다.
 * 관리 되는 도메인의 도메인 컨트롤러는 패치 및 정기적으로 업데이트 됩니다.
@@ -56,7 +56,7 @@ Azure AD DS 관리 되는 도메인은 다음 상태 중 하나일 수 있습니
 
 자세한 내용은 [Azure AD DS 관리 되는 도메인에 대 한 경고 문제를 해결 하는 방법][resolve-alerts]을 참조 하세요.
 
-### <a name="what-to-expect"></a>필요한 항목
+### <a name="what-to-expect"></a>예상 프로그램
 
 Azure AD DS 관리 되는 도메인이 *주의 필요* 상태에 있는 경우 azure 플랫폼에서 정기적으로 데이터를 모니터링, 패치, 업데이트 또는 백업 하지 못할 수 있습니다. 잘못 된 네트워크 구성을 사용 하는 경우와 같이 관리 되는 도메인에 대 한 도메인 컨트롤러에 연결할 수 없는 경우가 있습니다.
 
@@ -72,12 +72,12 @@ Azure AD DS 관리 되는 도메인이 *주의 필요* 상태에 있는 경우 a
 Azure AD DS 관리 되는 도메인은 다음 이유 중 하나로 인해 **일시 중단** 된 상태가 됩니다.
 
 * 15일 이내에 해결되지 않은 중요한 경고가 하나 이상 있습니다.
-    * 중요한 경고는 Azure AD DS에 필요한 리소스에 대한 액세스를 차단하는 잘못된 구성으로 인해 발생할 수 있습니다. 관리되는 도메인에서 [AADDS104: 네트워크 오류][alert-nsg] 경고가 15일을 초과하여 해결되지 않은 경우를 예로 들 수 있습니다.
+    * 중요한 경고는 Azure AD DS에 필요한 리소스에 대한 액세스를 차단하는 잘못된 구성으로 인해 발생할 수 있습니다. 관리되는 도메인에서 [AADDS104: 네트워크 오류][alert-nsg] 경고가 16일 이상 해결되지 않은 경우를 예로 들 수 있습니다.
 * Azure 구독에 대 한 청구 문제가 있거나 Azure 구독이 만료 되었습니다.
 
 관리 되는 도메인은 Azure 플랫폼에서 도메인을 관리, 모니터링, 패치 또는 백업할 수 없을 때 일시 중단 됩니다. 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 됩니다. 관리 되는 도메인에 대 한 액세스를 유지 하려면 중요 한 경고를 즉시 해결 합니다.
 
-### <a name="what-to-expect"></a>필요한 항목
+### <a name="what-to-expect"></a>예상 프로그램
 
 Azure AD DS 관리 되는 도메인이 *일시 중단* 된 상태에 있는 경우 다음과 같은 동작이 발생 합니다.
 
@@ -96,7 +96,7 @@ Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 �
 *일시 중단* 된 상태에 있는 Azure AD DS 관리 되는 도메인의 상태를 복원 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다.
-1. 목록에서 Azure AD DS 관리 되는 도메인 (예: *contoso.com*)을 선택 하 고 **상태**를 선택 합니다.
+1. 목록에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 하 고 **상태**를 선택 합니다.
 1. 일시 중단 원인에 따라 경고 (예: *AADDS503* 또는 *AADDS504*)를 선택 합니다.
 1. 경고에 제공 된 해상도 링크를 선택 하 고 단계에 따라 문제를 해결 합니다.
 
@@ -108,7 +108,7 @@ Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 �
 
 Azure AD DS 관리 되는 도메인은 15 일 동안 *일시 중단* 된 상태로 유지 되는 경우 삭제 됩니다. 이 프로세스는 복구할 수 없습니다.
 
-### <a name="what-to-expect"></a>필요한 항목
+### <a name="what-to-expect"></a>예상 프로그램
 
 Azure AD DS 관리 되는 도메인이 *삭제 됨* 상태로 들어가면 다음 동작이 표시 됩니다.
 

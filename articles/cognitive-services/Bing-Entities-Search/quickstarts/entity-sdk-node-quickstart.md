@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Node.js용 Bing Entity Search SDK를 사용하여 검색 요청 보내기'
+title: '빠른 시작: Node.js용 SDK를 사용하여 검색 요청 보내기 - Bing Entity Search'
 titleSuffix: Azure Cognitive Services
 description: Node.js용 Bing Entity Search SDK를 사용하여 엔터티를 검색하려면 이 빠른 시작을 사용하세요.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 07/24/2019
 ms.author: aahi
-ms.openlocfilehash: 40c9062dba5eb3bbed6ee90bfdb0a74c1d6c11d5
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 86c0507c3796693f29170f6059d7774312c2b3f0
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479023"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74323841"
 ---
 # <a name="quickstart-send-a-search-request-with-the-bing-entity-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Entity Search SDK를 사용하여 검색 요청 보내기
 

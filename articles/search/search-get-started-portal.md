@@ -1,19 +1,19 @@
 ---
 title: Azure Portal에서 검색 인덱스 만들기
 titleSuffix: Azure Cognitive Search
-description: 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search에서 첫 번째 검색 인덱스를 만들고 로드하고 쿼리합니다.
+description: 이 포털 빠른 시작에서 데이터 가져오기 마법사를 사용하여 Azure Cognitive Search에서 첫 번째 검색 인덱스를 만들고, 로드하고, 쿼리하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: ee4e9bd5487382ebb6f57996aac5d3de1ff6162a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: be2425d97573e7990ea7f0dfd4c2d999e85fe922
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889967"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74407007"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -25,14 +25,7 @@ ms.locfileid: "73889967"
 > * [Postman](search-get-started-postman.md)
 > * [Python](search-get-started-python.md)
 
-포털을 사용하여 신속하게 개념을 파악하고, 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성합니다.
-
-> [!div class="checklist"]
-> * Azure에서 호스트되는 무료 공용 샘플 데이터 세트로 시작
-> * 데이터를 로드하고 인덱스를 생성하려면 Azure Cognitive Search의 **데이터 가져오기** 마법사 실행
-> * 포털에서 인덱싱 진행률 모니터링
-> * 기존 인덱스 및 이를 수정하기 위한 옵션 보기
-> * **검색 탐색기**를 사용하여 전체 텍스트 검색, 필터, 패싯, 유사 항목 검색, 지리적 검색 살펴보기
+포털의 **데이터 가져오기** 마법사 및 **검색 탐색기** 도구를 사용하여 신속하게 개념을 파악하고, 몇 분 내에 인덱스에 대한 흥미로운 쿼리를 작성합니다.
 
 도구가 너무 제한적인 경우 [.NET에서 Azure Cognitive Search 프로그래밍에 대한 코드 기반 소개](search-howto-dotnet-sdk.md)를 고려하거나 [REST API를 호출하기 위해 Postman](search-get-started-postman.md)을 사용할 수 있습니다. 
 
@@ -265,7 +258,7 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 포털에서 인덱스, 인덱서 및 데이터 원본을 찾는 방법도 알아보았습니다. 향후 어떤 새 데이터 원본이 주어지더라도 포털을 사용하여 최소한의 노력으로 신속하게 정의 또는 필드 컬렉션을 확인할 수 있습니다.
 
-## <a name="clean-up"></a>정리
+## <a name="clean-up-resources"></a>리소스 정리
 
 본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
@@ -275,8 +268,7 @@ Azure Portal에서 **검색 탐색기**를 사용하여 필터, 적중 항목 �
 
 ## <a name="next-steps"></a>다음 단계
 
-프로그래밍 방식 도구를 사용하여 Azure Cognitive Search를 좀 더 자세히 살펴볼 수 있습니다.
+포털은 초기 탐색 및 작은 작업에 유용하지만 초기에 API를 검토하면 보다 심층적으로 개념과 워크플로를 이해하는 데 도움이 됩니다.
 
-* [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
-* [REST API를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-rest-api)
-* [Postman 또는 Fiddler 및 Azure Cognitive Search REST API를 사용하여 인덱스 만들기](search-get-started-postman.md)
+> [!div class="nextstepaction"]
+> [.NET SDK를 사용하여 인덱스 만들기](https://docs.microsoft.com/azure/search/search-create-index-dotnet)

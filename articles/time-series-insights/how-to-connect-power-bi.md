@@ -8,12 +8,12 @@ services: time-series-insights
 ms.service: time-series-insights
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: e218877ee0d29e493a31091ccbce406ed888f8cc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8a464a8a635e0531eba2f9cc6fbceeb9edcea8bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74114735"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705966"
 ---
 # <a name="visualize-data-from-time-series-insights-in-power-bi"></a>Power BI의 Time Series Insights에서 데이터 시각화
 
@@ -29,10 +29,13 @@ Azure Time Series Insights는 클라우드에서 시계열 데이터를 저장, 
 
 아직 없는 경우 [무료 Azure 구독](https://azure.microsoft.com/free/) 에 등록 해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 최신 버전의 [Power BI Desktop](https://powerbi.microsoft.com/downloads/) 다운로드 및 설치
-* [AZURE TIME SERIES INSIGHTS GA 인스턴스](time-series-insights-get-started.md) 또는 [Azure Time Series Insights 미리 보기 인스턴스](time-series-insights-update-how-to-manage.md) 를 가져오거나 만듭니다.
+* [Azure Time Series Insights 미리 보기 인스턴스](time-series-insights-update-how-to-manage.md) 를 만들거나 만듭니다.
+
+> [!IMPORTANT]
+> Power BI 커넥터는 현재 **웜 스토어**용으로 구성 된 Time Series Insights 미리 보기 *종 량* 제 환경에서 지원 됩니다.
 
 ## <a name="connect-data-from-time-series-insights-to-power-bi"></a>Time Series Insights의 데이터를 Power BI에 연결
 
@@ -45,7 +48,7 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
 
 ### <a name="export-data-into-power-bi-desktop"></a>Power BI desktop으로 데이터 내보내기
 
-시작하기:
+시작하려면:
 
 1. Time Series Insights Preview 탐색기를 열고 데이터를 만들어 둡니다.
 1. 만족 하는 보기를 만들었으면 **추가 작업** 드롭다운 메뉴로 이동 하 여 **Power BI에 연결**을 클릭 합니다. 
@@ -65,12 +68,12 @@ Time Series Insights 환경을 Power BI에 연결 하려면 다음 단계를 수
 
        [연결 ![](media/how-to-connect-power-bi/connect-to-power-bi.png)](media/how-to-connect-power-bi/connect-to-power-bi.png#lightbox)
 
-   1. 웜 저장소에 대 한 Time Series Insights 인스턴스를 구성 하지 않은 경우 경고가 표시 됩니다.
+   1. **웜 저장소**에 대 한 Time Series Insights 인스턴스를 구성 하지 않은 경우 경고가 표시 됩니다.
 
        [연결 ![](media/how-to-connect-power-bi/connect-to-power-bi-warning.png)](media/how-to-connect-power-bi/connect-to-power-bi-warning.png#lightbox)
 
        > [!TIP]
-       > Azure Portal에서 웜 저장소에 대 한 기존 인스턴스를 구성할 수 있습니다.
+       > Azure Portal에서 **웜 저장소** 에 대 한 기존 인스턴스를 구성할 수 있습니다.
 
 1. **클립보드에 쿼리 복사를**선택 합니다.
 1. 이제 Power BI Desktop를 시작 합니다.

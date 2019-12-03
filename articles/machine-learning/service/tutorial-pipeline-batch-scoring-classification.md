@@ -1,7 +1,7 @@
 ---
 title: '자습서: 일괄 처리 채점용 ML 파이프라인'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 이미지 분류 모델에서 일괄 처리 채점을 실행하기 위한 기계 학습 파이프라인을 빌드합니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 전문 지식, 즉 기계 학습에 집중할 수 있습니다.
+description: 이 자습서에서는 Azure Machine Learning의 이미지 분류 모델에서 일괄 처리 채점을 실행하기 위한 기계 학습 파이프라인을 빌드합니다. 기계 학습 파이프라인은 속도, 이식성 및 재사용을 통해 워크플로를 최적화하므로 인프라 및 자동화 대신 전문 지식, 즉 기계 학습에 집중할 수 있습니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 11/04/2019
-ms.openlocfilehash: ccd29952693ecbc1db5927d5deabae874b6e9933
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: 11d57031405939e37afade9a9452c5d3a8b9e1e4
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796704"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483301"
 ---
-# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드 및 사용
+# <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 

@@ -5,19 +5,19 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
+ms.tgt_pltfrm: naF
 ms.topic: conceptual
 ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: 264c60c719ffdd94664ae3a85fc67894d14f394d
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 904165c4a221e1db30f9aa1ce1f2ce7b21cf04ed
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484463"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703827"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 
@@ -71,7 +71,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 구성 창에는 다음 Azure Repos 코드 리포지토리 설정이 표시 됩니다.
 
-| 설정 | 설명 | 값 |
+| 설정 | 설명 | Value |
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다.<br/> | Azure DevOps Git 또는 GitHub |
 | **Azure Active Directory** | Azure AD 테넌트 이름입니다. | `<your tenant name>` |
@@ -142,10 +142,10 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 |:--- |:--- |:--- |
 | **리포지토리 유형** | Azure Repos 코드 리포지토리의 유형입니다. | GitHub |
 | **GitHub Enterprise 사용** | GitHub Enterprise를 선택하기 위한 확인란 | 선택 하지 않음 (기본값) |
-| **GitHub Enterprise URL** | GitHub Enterprise 루트 URL입니다. 예: https://github.mydomain.com **GitHub Enterprise 사용** 을 선택한 경우에만 필요 | `<your GitHub enterprise url>` |                                                           
+| **GitHub Enterprise URL** | GitHub Enterprise 루트 URL입니다. 예: https://github.mydomain.com. **GitHub Enterprise 사용** 을 선택한 경우에만 필요 | `<your GitHub enterprise url>` |                                                           
 | **GitHub 계정** | 사용자 GitHub 계정 이름. 이 이름은 https:\//r e s t e r s name}/{저장소 이름}에서 찾을 수 있습니다. 이 페이지로 이동하면 GitHub 계정에 GitHub OAuth 자격 증명을 입력하라는 메시지가 표시됩니다. | `<your GitHub account name>` |
 | **리포지토리 이름**  | GitHub 코드 리포지토리 이름입니다. GitHub 계정은 소스 코드를 관리하기 위한 Git 리포지토리를 포함합니다. 새 리포지토리를 만들거나 계정에 이미 있는 기존 리포지토리를 사용할 수 있습니다. | `<your repository name>` |
-| **협업 분기** | 게시에 사용되는 GitHub 협업 분기입니다. 기본적으로 마스터입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch>` |
+| **협업 분기** | 게시에 사용되는 GitHub 협업 분기입니다. 기본적으로 master입니다. 다른 분기에서 리소스를 게시하려는 경우 이 설정을 변경합니다. | `<your collaboration branch>` |
 | **루트 폴더** | GitHub 협업 분기의 루트 폴더입니다. |`<your root folder name>` |
 | **리포지토리로 기존 Data Factory 리소스 가져오기** | UX 제작 캔버스에서 GitHub 리포지토리로 기존 data factory 리소스를 가져올지 여부를 지정 합니다. JSON 형식의 연결된 Git 리포지토리로 데이터 팩터리 리소스를 가져오려면 상자를 선택합니다. 이 작업은 각 리소스를 개별적으로 내보냅니다(즉, 연결된 서비스 및 데이터 세트를 별도 JSON으로 내보냄). 이 상자를 선택하지 않으면 기존 리소스를 가져오지 않습니다. | 선택됨(기본값) |
 | **리소스를 가져올 분기** | 데이터 팩터리 리소스(파이프라인, 데이터 세트, 연결된 서비스 등)를 가져올 분기를 지정합니다. 다음 분기 중 하나로 리소스를 가져올 수 있습니다. a. 협업 b. 새로 만들기 c. 기존 리소스 사용 |  |
@@ -186,7 +186,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
-게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -225,7 +225,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
-### <a name="permissions"></a>사용 권한
+### <a name="permissions"></a>권한
 
 일반적으로 모든 팀 멤버에 게 팩터리를 업데이트할 수 있는 권한이 필요 하지 않습니다. 다음 사용 권한 설정을 사용 하는 것이 좋습니다.
 
@@ -236,7 +236,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="using-passwords-from-azure-key-vault"></a>Azure Key Vault의 암호 사용
 
-Azure Key Vault 사용 하 여 Data Factory 연결 된 서비스에 대 한 연결 문자열 또는 암호를 저장 하는 것이 좋습니다. 보안상의 이유로 Git에 이러한 비밀 정보를 저장 하지 않으므로 연결 된 서비스에 대 한 모든 변경 내용이 Azure Data Factory 서비스에 즉시 게시 됩니다.
+Azure Key Vault를 사용 하 여 Data Factory 연결 된 서비스에 대 한 연결 문자열 또는 암호를 저장 하는 것이 좋습니다. 보안상의 이유로 Git에 이러한 비밀 정보를 저장 하지 않으므로 연결 된 서비스에 대 한 모든 변경 내용이 Azure Data Factory 서비스에 즉시 게시 됩니다.
 
 또한 Key Vault를 사용 하면 리소스 관리자 템플릿 배포 중에 이러한 암호를 제공 하지 않아도 되므로 지속적인 통합 및 배포를 더 쉽게 수행할 수 있습니다.
 
@@ -251,10 +251,10 @@ Azure Key Vault 사용 하 여 Data Factory 연결 된 서비스에 대 한 연�
 1. 공동 작업 분기에서 모든 리소스 삭제
 1. 변경 내용을 공동 작업 분기에 병합 하는 끌어오기 요청 만들기 
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백**을 선택하세요.
 
-![사용자 의견](media/author-visually/provide-feedback.png)
+![피드백](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 76b7c9436b8d1d466a69df7e5427991df0a9c63e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 277548c859370a700973d9f60556fe38e94548b0
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125549"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74280383"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -25,7 +25,7 @@ ms.locfileid: "74125549"
 > [!div class="checklist"]
 >
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
+> * [LUIS(Language Understanding) 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=windows)
 

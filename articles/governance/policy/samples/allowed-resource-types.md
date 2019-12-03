@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 허용되는 리소스 종류
-description: 이 샘플 정책 정의에서는 승인된 리소스 종류만 배포되도록 보장합니다.
+description: 이 샘플 정책 정의에서는 매개 변수에 정의된 승인된 리소스 유형만 배포되도록 보장합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 16f941cfca419b3fce86101bf8df1b6850858cc9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 5fdf17ff037aaf6f8094bb811e2e6e5a61093250
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076419"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463425"
 ---
 # <a name="sample---allowed-resource-types"></a>샘플 - 허용되는 리소스 종류
 

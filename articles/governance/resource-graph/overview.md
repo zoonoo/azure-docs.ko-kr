@@ -1,16 +1,16 @@
 ---
 title: Azure Resource Graph 개요
-description: Azure Resource Graph 서비스가 어떻게 대규모의 복잡한 리소스 쿼리를 지원하는지 알아봅니다.
+description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: f75a2b65b59a9f0367a6c52c2a1cf058df5b59c3
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 7a96faa8502fca6fc501985cd677ac28454f1ba1
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958741"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406695"
 ---
-# <a name="overview-of-the-azure-resource-graph-service"></a>Azure Resource Graph 서비스 개요
+# <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
 Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수행할 수 있는 효율적인 고성능 리소스 탐색 기능을 제공하여 작업 환경을 효과적으로 관리할 수 있도록 Azure Resource Management를 확장할 수 있게 디자인된 Azure의 서비스입니다. 이러한 쿼리는 다음 기능을 제공합니다.
 
@@ -92,6 +92,3 @@ Resource Graph는 Azure CLI, Azure PowerShell, Azure SDK for .NET 등을 지원�
 - [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
 - [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
 - [Azure PowerShell](first-query-powershell.md)로 첫 번째 쿼리를 실행합니다.
-- [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
-- [시작 쿼리](./samples/starter.md)로 시작합니다.
-- [고급 쿼리](./samples/advanced.md)를 통해 이해를 향상시킵니다.

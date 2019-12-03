@@ -1,20 +1,15 @@
 ---
-title: 자습서 - Azure Container Instances에 사용할 컨테이너 이미지 준비
+title: 자습서 - 배포용 컨테이너 이미지 준비
 description: Azure Container Instances 자습서 1/3부 - 컨테이너 이미지에서 Azure Container Instances에 배포할 앱 준비
-services: container-instances
-author: dlepow
-manager: gwallace
-ms.service: container-instances
 ms.topic: tutorial
 ms.date: 03/21/2018
-ms.author: danlep
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 719237f63d387cf56ab7947f8f168e0aa4351376
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 487dca97dc47bf214bedf38f44b2d29a71567cbb
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68325579"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74533334"
 ---
 # <a name="tutorial-create-a-container-image-for-deployment-to-azure-container-instances"></a>자습서: Azure Container Instances에 배포할 컨테이너 이미지 만들기
 

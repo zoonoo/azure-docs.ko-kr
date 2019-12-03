@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 6/27/2019
 ms.author: sutalasi
-ms.openlocfilehash: cc72cb4134e6492478805421e448df26a8dc4554
-ms.sourcegitcommit: 6c2c97445f5d44c5b5974a5beb51a8733b0c2be7
+ms.openlocfilehash: d74e28ce470c23bbc8ee2081532a198c260ccea5
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73622421"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706374"
 ---
 # <a name="set-up-disaster-recovery-for-a-multi-tier-sharepoint-application-for-disaster-recovery-using-azure-site-recovery"></a>Azure Site Recovery를 사용하여 다중 계층 SharePoint 애플리케이션에 대한 재해 복구 설정
 
@@ -34,7 +34,7 @@ Azure에 대 한 다중 계층 응용 프로그램을 복구 하는 방법에 �
 > [!VIDEO https://channel9.msdn.com/Series/Azure-Site-Recovery/Disaster-Recovery-of-load-balanced-multi-tier-applications-using-Azure-Site-Recovery/player]
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 항목을 이해해야 합니다.
 
@@ -62,10 +62,10 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 **시나리오** | **보조 사이트로** | **Azure로**
 --- | --- | ---
-**Hyper-V** | 예 | 예
-**VMware** | 예 | 예
-**물리적 서버** | 예 | 예
-**Azure** | 해당 없음 | 예
+**Hyper-V** | yes | yes
+**VMware** | yes | yes
+**물리적 서버** | yes | yes
+**Azure** | 해당 없음 | yes
 
 
 ### <a name="things-to-keep-in-mind"></a>주의할 사항
@@ -82,7 +82,7 @@ Site Recovery는 응용 프로그램에 관계 없이 지원 되는 컴퓨터에
 
 * Active Directory 및 DNS 보호에 대한 지침은 [Active Directory 및 DNS 보호](site-recovery-active-directory.md) 문서를 참조하세요.
 
-* SQL Server에서 실행되는 데이터베이스 계층 보호에 관한 지침은 [SQL Server 보호](site-recovery-active-directory.md) 문서를 참조하세요.
+* SQL Server에서 실행되는 데이터베이스 계층 보호에 관한 지침은 [SQL Server 보호](site-recovery-sql.md) 문서를 참조하세요.
 
 ## <a name="networking-configuration"></a>네트워킹 구성
 
@@ -180,7 +180,7 @@ Traffic Manager가 가용성 사후 장애 조치(Failover)를 자동으로 감�
 ## <a name="doing-a-test-failover"></a>테스트 장애 조치 수행
 [이 지침](site-recovery-test-failover-to-azure.md)에 따라 테스트 장애 조치를 수행합니다.
 
-1.  Azure Portal로 이동하여 Recovery Service 자격 증명 모음을 선택합니다.
+1.  Azure Portal로 이동하여 복구 서비스 자격 증명 모음을 선택합니다.
 2.  SharePoint 애플리케이션에 대해 만든 복구 계획을 클릭합니다.
 3.  '테스트 장애 조치'를 클릭합니다.
 4.  복구 지점 및 Azure 가상 네트워크를 선택하여 테스트 장애 조치 프로세스를 시작합니다.

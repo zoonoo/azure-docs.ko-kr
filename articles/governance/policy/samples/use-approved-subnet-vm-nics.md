@@ -1,14 +1,14 @@
 ---
 title: 샘플 - VM NIC에 대해 승인된 서브넷 사용
-description: 이 샘플 정책 정의에서는 네트워크 인터페이스가 승인된 서브넷을 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 네트워크 인터페이스가 매개 변수에 정의된 승인된 서브넷을 사용해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 912dbae5fe22e68604502055fe3c5b369e26e5c3
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c78b14b49efe663d5693c64d8fd9ac38b6aa2a62
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069766"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463139"
 ---
 # <a name="sample---use-approved-subnet-for-vm-network-interfaces"></a>샘플 - VM 네트워크 인터페이스에 대해 승인된 서브넷 사용
 

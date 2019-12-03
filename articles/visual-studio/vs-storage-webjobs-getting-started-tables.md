@@ -13,14 +13,15 @@ ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 042f2659d3691e8c51e092bf69473187b8615ee6
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e4d8299c06bfa5b0f33bff8fa592a2fa549c695c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299959"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707611"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Azure Storage 시작(Azure WebJob 프로젝트)
+
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
 
 ## <a name="overview"></a>개요
@@ -31,42 +32,48 @@ Azure Table Storage 서비스를 사용하면 많은 양의 구조화된 데이�
 일부 코드 조각에서는 **Table** 특성이 수동으로 호출된 함수, 즉 트리거 특성 중 하나를 사용하지 않고 호출된 함수에서 사용됩니다.
 
 ## <a name="how-to-add-entities-to-a-table"></a>테이블에 엔터티를 추가하는 방법
+
 테이블에 엔터티를 추가 하려면 **ICollector\<t >** 또는 **iasynccollector\<t >** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **t** 는 추가 하려는 엔터티의 스키마를 지정 합니다. 특성 생성자는 테이블의 이름을 지정하는 문자열 매개 변수를 사용합니다.
 
 다음 코드 샘플은 **Person** 엔터티를 *Ingress*라는 테이블에 추가합니다.
 
-        [NoAutomaticTrigger]
-        public static void IngressDemo(
-            [Table("Ingress")] ICollector<Person> tableBinding)
-        {
-            for (int i = 0; i < 100000; i++)
-            {
-                tableBinding.Add(
-                    new Person() {
-                        PartitionKey = "Test",
-                        RowKey = i.ToString(),
-                        Name = "Name" }
-                    );
-            }
-        }
+```csharp
+[NoAutomaticTrigger]
+public static void IngressDemo(
+    [Table("Ingress")] ICollector<Person> tableBinding)
+{
+    for (int i = 0; i < 100000; i++)
+    {
+        tableBinding.Add(
+            new Person() {
+                PartitionKey = "Test",
+                RowKey = i.ToString(),
+                Name = "Name" }
+            );
+    }
+}
+```
 
 일반적으로 **ICollector**에서 사용되는 유형은 **TableEntity**에서 파생되거나 **ITableEntity**를 구현하지만 반드시 그런 것은 아닙니다. 다음 **Person** 클래스 중 하나는 이전 **Ingress** 메서드에 표시된 코드와 함께 작동합니다.
 
-        public class Person : TableEntity
-        {
-            public string Name { get; set; }
-        }
+```csharp
+public class Person : TableEntity
+{
+    public string Name { get; set; }
+}
 
-        public class Person
-        {
-            public string PartitionKey { get; set; }
-            public string RowKey { get; set; }
-            public string Name { get; set; }
-        }
+public class Person
+{
+    public string PartitionKey { get; set; }
+    public string RowKey { get; set; }
+    public string Name { get; set; }
+}
+```
 
 Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **CloudStorageAccount** 매개 변수를 추가할 수 있습니다.
 
 ## <a name="real-time-monitoring"></a>실시간 모니터링
+
 데이터 수신 함수는 많은 양의 데이터를 처리하는 경우가 많기 때문에 WebJobs SDK 대시보드에서는 실시간 모니터링 데이터를 제공합니다. **호출 로그** 섹션에 함수가 여전히 실행 중인지 표시됩니다.
 
 ![수신 함수 실행](./media/vs-storage-webjobs-getting-started-tables/ingressrunning.png)
@@ -80,71 +87,80 @@ Azure 스토리지 API로 직접 작업하려는 경우 메서드 서명에 **Cl
 ![수신 함수 완료](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>테이블에서 여러 엔터티를 읽는 방법
+
 테이블을 읽으려면 **IQueryable\<t >** 매개 변수와 함께 **table** 특성을 사용 합니다. 여기서 **t** 형식은 **Tableentity** 에서 파생 되거나 **itableentity**를 구현 합니다.
 
 다음 코드 샘플은 **Ingress** 테이블에서 모든 행을 읽고 기록합니다.
 
-        public static void ReadTable(
-            [Table("Ingress")] IQueryable<Person> tableBinding,
-            TextWriter logger)
-        {
-            var query = from p in tableBinding select p;
-            foreach (Person person in query)
-            {
-                logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
-                    person.PartitionKey, person.RowKey, person.Name);
-            }
-        }
+```csharp
+public static void ReadTable(
+    [Table("Ingress")] IQueryable<Person> tableBinding,
+    TextWriter logger)
+{
+    var query = from p in tableBinding select p;
+    foreach (Person person in query)
+    {
+        logger.WriteLine("PK:{0}, RK:{1}, Name:{2}",
+            person.PartitionKey, person.RowKey, person.Name);
+    }
+}
+```
 
 ### <a name="how-to-read-a-single-entity-from-a-table"></a>테이블에서 단일 엔터티를 읽는 방법
+
 단일 테이블 엔터티에 바인딩할 때 파티션 키 및 행 키를 지정할 수 있는 추가 매개 변수 두 개가 포함된 **Table** 특성 생성자가 있습니다.
 
-다음 코드 샘플은 큐 메시지에서 받은 파티션 키 및 행 키를 기반으로 **Person** 엔터티에 대한 테이블 행을 읽습니다.  
+다음 코드 샘플은 큐 메시지에서 받은 파티션 키 및 행 키를 기반으로 **Person** 엔터티에 대한 테이블 행을 읽습니다.
 
-        public static void ReadTableEntity(
-            [QueueTrigger("inputqueue")] Person personInQueue,
-            [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
-            TextWriter logger)
-        {
-            if (personInTable == null)
-            {
-                logger.WriteLine("Person not found: PK:{0}, RK:{1}",
-                        personInQueue.PartitionKey, personInQueue.RowKey);
-            }
-            else
-            {
-                logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
-                        personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
-            }
-        }
-
+```csharp
+public static void ReadTableEntity(
+    [QueueTrigger("inputqueue")] Person personInQueue,
+    [Table("persontable","{PartitionKey}", "{RowKey}")] Person personInTable,
+    TextWriter logger)
+{
+    if (personInTable == null)
+    {
+        logger.WriteLine("Person not found: PK:{0}, RK:{1}",
+                personInQueue.PartitionKey, personInQueue.RowKey);
+    }
+    else
+    {
+        logger.WriteLine("Person found: PK:{0}, RK:{1}, Name:{2}",
+                personInTable.PartitionKey, personInTable.RowKey, personInTable.Name);
+    }
+}
+```
 
 이 예제의 **Person** 클래스는 **ITableEntity**를 구현할 필요가 없습니다.
 
 ## <a name="how-to-use-the-net-storage-api-directly-to-work-with-a-table"></a>.NET 스토리지 API를 직접 사용하여 테이블로 작업하는 방법
+
 **CloudTable** 개체에서 **Table** 특성을 사용하여 테이블 작업을 보다 유연하게 수행할 수 있습니다.
 
 다음 코드 샘플은 **CloudTable** 개체를 사용하여 *Ingress* 테이블에 단일 엔터티를 추가합니다.
 
-        public static void UseStorageAPI(
-            [Table("Ingress")] CloudTable tableBinding,
-            TextWriter logger)
+```csharp
+public static void UseStorageAPI(
+    [Table("Ingress")] CloudTable tableBinding,
+    TextWriter logger)
+{
+    var person = new Person()
         {
-            var person = new Person()
-                {
-                    PartitionKey = "Test",
-                    RowKey = "100",
-                    Name = "Name"
-                };
-            TableOperation insertOperation = TableOperation.Insert(person);
-            tableBinding.Execute(insertOperation);
-        }
+            PartitionKey = "Test",
+            RowKey = "100",
+            Name = "Name"
+        };
+    TableOperation insertOperation = TableOperation.Insert(person);
+    tableBinding.Execute(insertOperation);
+}
+```
 
 **CloudTable** 개체를 사용하는 방법에 대한 자세한 내용은 [.NET을 사용하여 Azure Table Storage 시작](../storage/storage-dotnet-how-to-use-tables.md)을 참조하세요.
 
 ## <a name="related-topics-covered-by-the-queues-how-to-article"></a>큐 방법 문서에서 다루는 관련 항목
+
 큐 메시지에 의해 트리거되는 테이블을 처리하는 방법 또는 테이블 처리에 특정하지 않은 WebJobs SDK 시나리오에 대한 자세한 내용은 [Azure Queue Storage 및 Visual Studio 연결된 서비스(WebJob 프로젝트) 시작](../storage/vs-storage-webjobs-getting-started-queues.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.
 
+이 문서에서는 Azure 테이블 작업에 대한 일반적인 시나리오를 처리하는 방법을 보여 주는 코드 샘플을 제공했습니다. Azure Webjob 및 Webjob SDK를 사용하는 방법에 대한 자세한 내용은 [Azure WebJobs 설명서 리소스](https://go.microsoft.com/fwlink/?linkid=390226)를 참조하세요.

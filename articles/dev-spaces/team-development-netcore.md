@@ -1,22 +1,18 @@
 ---
-title: .NET Core 및 VS Code를 사용하여 Azure Dev Spaces로 팀 개발
-titleSuffix: Azure Dev Spaces
+title: .NET Core 및 Visual Studio Code를 사용한 팀 개발
 services: azure-dev-spaces
-ms.service: azure-dev-spaces
-author: zr-msft
-ms.author: zarhoads
 ms.date: 07/09/2018
 ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: bccbcf6665fa08ba940e3d4c9ad6099fffe96d3e
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 30d132b78279e9ae1ca190c0037c962a7cbd8e6f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132040"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74325504"
 ---
-# <a name="team-development-with-azure-dev-spaces-using-net-core-and-vs-code"></a>.NET Core 및 VS Code를 사용하여 Azure Dev Spaces로 팀 개발
+# <a name="team-development-using-net-core-and-visual-studio-code-with-azure-dev-spaces"></a>Azure Dev Spaces와 함께 .NET Core 및 Visual Studio Code를 사용한 팀 개발
 
 이 자습서에서는 개발자 팀이 Dev Spaces를 사용하여 동일한 Kubernetes 클러스터에서 동시에 공동 작업을 수행할 수 있는 방법을 알아봅니다.
 

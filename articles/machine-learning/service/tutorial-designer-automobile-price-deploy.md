@@ -1,7 +1,7 @@
 ---
 title: '자습서: 디자이너를 사용하여 Machine Learning 모델 배포'
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning 디자이너(미리 보기)의 예측 분석 솔루션을 빌드하는 방법을 알아봅니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
+description: 이 자습서에서는 Azure Machine Learning 디자이너(미리 보기)에서 예측 분석 솔루션을 빌드하는 방법을 보여줍니다. 끌어서 놓기 모듈을 사용하여 기계 학습 모델을 학습, 채점 및 배포합니다.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 724a38cb516e5689f817e9ddeaa867b17274971b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 31b06f3ad102f39d1a9f95dee2bd98b5d0a3b310
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73932035"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74483320"
 ---
 # <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 Machine Learning 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ ms.locfileid: "73932035"
 
     이제 파이프라인이 다음과 비슷할 것입니다. 
 
-   ![배포 준비 후 예상되는 파이프라인 구성을 보여주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/real-time-inference-pipeline.png)
+   ![배포 준비 후 예상되는 파이프라인 구성을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/real-time-inference-pipeline.png)
 
     **유추 파이프라인 만들기**를 선택하면 다음과 같은 여러 작업이 수행됩니다.
     
@@ -70,7 +70,7 @@ ms.locfileid: "73932035"
 
 1. 탐색 리본에서 **유추 클러스터** >  **+ 새로 만들기**를 선택합니다.
 
-    ![새 유추 클러스터 창으로 이동하는 방법을 보여주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/new-inference-cluster.png)
+    ![새 유추 클러스터 창으로 이동하는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/new-inference-cluster.png)
 
 1. 유추 클러스터 창에서 새 Kubernetes 서비스를 구성합니다.
 
@@ -96,7 +96,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 1. **배포**를 선택합니다.
 
-    ![새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/setup-endpoint.png)
+    ![새 실시간 엔드포인트를 설정하는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/setup-endpoint.png)
 
     배포가 완료된 후 캔버스 위의 성공 알림이 나타납니다. 몇 분 정도 걸릴 수 있습니다.
 
@@ -106,7 +106,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
 1. **엔드포인트** 페이지에서 배포한 엔드포인트를 선택합니다.
 
-    ![최근에 만든 엔드포인트가 강조 표시된 실시간 엔드포인트를 보여주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/endpoints.png)
+    ![최근에 만든 엔드포인트가 강조 표시된 실시간 엔드포인트를 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/endpoints.png)
 
 1. **테스트**를 선택합니다.
 
@@ -114,7 +114,7 @@ AKS 서비스 프로비저닝이 완료된 후에는 실시간 유추 파이프�
 
     포털에서 테스트 요청을 엔드포인트에 제출하고 결과를 표시합니다. 입력 데이터에 대해 가격 값이 생성되지만 예측 값을 생성하는 데는 사용되지 않습니다.
 
-    ![강조 표시된 가격에 대한 채점 레이블을 사용하여 실시간 엔드포인트를 테스트하는 방법을 보여주는 스크린샷](./media/ui-tutorial-automobile-price-deploy/test-endpoint.png)
+    ![강조 표시된 가격에 대한 채점 레이블을 사용하여 실시간 엔드포인트를 테스트하는 방법을 보여주는 스크린샷](./media/tutorial-designer-automobile-price-deploy/test-endpoint.png)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

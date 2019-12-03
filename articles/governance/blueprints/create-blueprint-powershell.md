@@ -1,32 +1,26 @@
 ---
-title: PowerShell로 청사진 만들기
-description: Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
-ms.date: 08/21/2019
+title: '빠른 시작: PowerShell로 청사진 만들기'
+description: 이 빠른 시작에서는 Azure Blueprints를 사용하여 PowerShell을 통해 아티팩트를 만들고 정의하고 배포합니다.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 4cc181a7e0b07448d6dd538cfb1621d1efa43a80
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ed337fa040804159dae3194de1befc43ff2b698f
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960420"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327459"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-powershell"></a>빠른 시작: PowerShell로 Azure Blueprint 정의 및 할당
 
 청사진을 만들고 할당하는 방법을 알면 공통 패턴 정의를 통해 Resource Manager 템플릿, 정책, 보안 등을 기반으로 재사용이 가능하고 신속하게 배포할 수 있는 구성을 개발할 수 있습니다. 이 자습서에서는 Azure Blueprint를 사용하여 조직 내에서 청사진을 작성, 게시 및 할당하는 것과 관련된 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-> [!div class="checklist"]
-> - 새 청사진을 만들고 지원되는 다양한 아티팩트 추가
-> - 아직 **초안** 상태인 기존 청사진 변경
-> - 청사진을 **게시**하여 할당할 준비가 되었다고 표시
-> - 기존 구독에 청사진 할당
-> - 할당된 청사진의 상태 및 진행률 확인
-> - 구독에 할당된 청사진 제거
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
-
 아직 설치되지 않은 경우 [Az.Blueprint 모듈 추가](./how-to/manage-assignments-ps.md#add-the-azblueprint-module)를 수행하여 PowerShell 갤러리에서 **Az.Blueprint** 모듈을 설치하고 유효성을 검사합니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-a-blueprint"></a>청사진 만들기
 
@@ -397,9 +391,7 @@ Remove-AzBlueprintAssignment -Name 'assignMyBlueprint'
 
 ## <a name="next-steps"></a>다음 단계
 
-- [청사진 수명 주기](./concepts/lifecycle.md)에 대해 알아봅니다.
-- [정적 및 동적 매개 변수](./concepts/parameters.md) 사용 방법 이해
-- [청사진 시퀀싱 순서](./concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](./concepts/resource-locking.md)을 활용하는 방법 알아보기
-- [기존 할당을 업데이트](./how-to/update-existing-assignments.md)하는 방법 알아보기
-- [일반 문제 해결 방법](./troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+이 빠른 시작에서는 PowerShell을 사용하여 청사진을 생성, 할당 및 제거했습니다. Azure Blueprints에 대해 자세히 알아보려면 청사진 수명 주기 문서를 참조하세요.
+
+> [!div class="nextstepaction"]
+> [청사진 수명 주기에 대해 알아보기](./concepts/lifecycle.md)

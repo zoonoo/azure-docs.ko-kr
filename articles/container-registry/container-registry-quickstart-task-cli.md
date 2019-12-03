@@ -1,20 +1,14 @@
 ---
-title: 빠른 시작 - Azure Container Registry에서 컨테이너 이미지 빌드 및 실행
+title: 빠른 시작 - 컨테이너 이미지 빌드 및 실행
 description: Azure Container Registry를 사용하여 클라우드에 주문형 컨테이너 이미지를 빌드하고 실행하는 작업을 신속하게 실행합니다.
-services: container-registry
-author: dlepow
-manager: gwallace
-ms.service: container-registry
 ms.topic: quickstart
 ms.date: 04/02/2019
-ms.author: danlep
-ms.custom: ''
-ms.openlocfilehash: b97249aa61916975fa641d4620179be33e1d5276
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: f0b510607a4d0acf12e0b9caa43835c1cfe6a83d
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73931543"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74454942"
 ---
 # <a name="quickstart-build-and-run-a-container-image-using-azure-container-registry-tasks"></a>빠른 시작: Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 및 실행
 

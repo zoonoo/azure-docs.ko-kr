@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/04/2019
 ms.author: jeedes
-ms.openlocfilehash: fd75cc392bb30d15b665190eef8fbea39d692ee3
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dfa5fbcf5df8ee314aab3e4a8228d81e7e14565b
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73160333"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233526"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-new-relic"></a>자습서: New Relic과 Azure Active Directory 통합
 
@@ -225,7 +225,7 @@ Azure Active Directory 사용자가 New Relic에 로그인할 수 있도록 하�
     다. **이 사용자 추가**를 클릭합니다.
 
 >[!NOTE]
->다른 New Relic 사용자 계정 생성 도구 또는 New Relic이 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+>다른 New Relic 사용자 계정 생성 도구 또는 New Relic이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 > 
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트 

@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: markjbrown
 ms.author: mjbrown
 ms.date: 07/26/2019
-ms.openlocfilehash: 773e55bd1908c04e1c73d998348d36b685524715
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: df662353f7c9c788158ce2dfe05385f022289466
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075654"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74539092"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>로컬 개발 및 테스트에 Azure Cosmos Emulator 사용
 
@@ -27,7 +27,7 @@ Azure Cosmos DB 서비스의 에뮬레이션이 충실한 경우 에뮬레이터
 
 [Azure Cosmos DB 데이터 마이그레이션 도구](https://github.com/azure/azure-documentdb-datamigrationtool)를 사용하여 Azure Cosmos Emulator와 Azure Cosmos DB 서비스 간에 데이터를 마이그레이션할 수 있습니다.
 
-Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습니다. docker pull 명령은 [Docker 허브](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)를 참조하고 에뮬레이터 소스 코드는 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)를 참조하세요.
+Windows Docker 컨테이너에서 Azure Cosmos Emulator를 실행할 수 있습니다. docker pull 명령은 [Docker Hub](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/)를 참조하고 `Dockerfile` 및 자세한 내용은 [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker)를 참조하세요.
 
 ## <a name="differences-between-the-emulator-and-the-service"></a>에뮬레이터와 서비스 간 차이
 

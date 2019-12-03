@@ -1,6 +1,6 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기 | Microsoft Docs
-description: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
+title: 자습서 - Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+description: 이 자습서에서 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
 services: active-directory
 documentationCenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 269bd74aca85ddbc2bafda30542c48f8ab391b32
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66158852"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74419756"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 

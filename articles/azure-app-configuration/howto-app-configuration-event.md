@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 05/30/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: d41ce06279536e3479b96d8d7afedf81624dbc9b
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 32a3131c8ff6a01a35fbe42750384dd303a23140
+ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326593"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74185167"
 ---
 # <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
 
@@ -48,7 +48,7 @@ az group create --name <resource_group_name> --location westus
 
 ## <a name="create-an-app-configuration"></a>App Configuration 만들기
 
-`<appconfig_name>`을 앱 구성의 고유한 이름으로 바꾸고, `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
+`<appconfig_name>`을 App Configuration의 고유한 이름으로 바꾸고, `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
 
 ```azurecli-interactive
 az appconfig create \
@@ -80,7 +80,7 @@ az group deployment create \
 
 ## <a name="subscribe-to-your-app-configuration"></a>App Configuration 구독
 
-항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 앞에서 만든 앱 구성을 구독하고, 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<appconfig_name>`에는 앞에서 만든 값을 사용합니다.
+항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 앞에서 만든 App Configuration을 구독하고, 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<appconfig_name>`에는 앞에서 만든 값을 사용합니다.
 
 웹앱에 대한 엔드포인트는 접미사 `/api/updates/`를 포함해야 합니다.
 
@@ -126,7 +126,7 @@ az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리
-이 앱 구성과 이벤트 구독을 계속 사용할 계획이라면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
+이 App Configuration과 이벤트 구독을 계속 사용할 계획이라면 이 문서에서 만든 리소스를 정리하지 마세요. 계속하지 않으려는 경우 다음 명령을 사용하여 이 문서에서 만든 리소스를 삭제합니다.
 
 `<resource_group_name>`을 위에서 만든 리소스 그룹으로 바꿉니다.
 

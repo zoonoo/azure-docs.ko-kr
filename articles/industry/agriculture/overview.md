@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: overview
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 12882860b8a9beadd4e56cbb151d670fac4da43b
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: ff28ae7dbff40910ac0431fb47f7f0be3e1569c0
+ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797159"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74538138"
 ---
 # <a name="overview-of-azure-farmbeats"></a>Azure FarmBeats 개요
 
@@ -36,11 +36,11 @@ Azure FarmBeats는 다음을 수행하는 강력하고 간단한 방법을 제�
 - 집계된 데이터 세트를 토대로 AI/ML 모델을 빌드하여 실행 가능한 인사이트를 얻습니다.
 - 농장 상태 권장 지침을 제공하여 디지털 농업 솔루션을 빌드하거나 보강합니다.
 
-Azure FarmBeat 구성 요소에 대해서는 이 문서의 다음 섹션에서 설명합니다.
+Azure FarmBeats 구성 요소에 대해서는 이 문서의 다음 섹션에서 설명합니다.
 
 ## <a name="data-hub"></a>데이터 허브
 
-여러 공급자의 다양한 농업 데이터 세트를 집계, 정규화 및 컨텍스트화할 수 있도록 하는 API 계층입니다. 이 미리 보기에서는 두 개의 센서 공급자 [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), 1개의 위성 영상 공급자 [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), 2개의 드론 영상 공급자 [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/)를 활용할 수 있습니다. 데이터 허브는 API 플랫폼으로 설계되었으며, Azure FarmBeats와 연결하기 위해 좀 더 많은 공급자와 공조하고 있으므로 솔루션을 빌드하는 동안 더 많은 옵션을 선택할 수 있습니다.
+Azure FarmBeats Data 허브는 API 계층으로, 여러 공급자의 다양한 농업 데이터 세트를 집계, 정규화 및 컨텍스트화할 수 있습니다. 이 미리 보기에서는 2개의 센서 공급자 [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), 1개의 위성 영상 공급자 [Sentinel-2](https://sentinel.esa.int/web/sentinel/home), 3개의 드론 영상 공급자 [senseFly](https://www.sensefly.com/), [SlantRange](https://slantrange.com/), [DJI](https://dji.com/)를 활용할 수 있습니다. 데이터 허브는 API 플랫폼으로 설계되었으며, Azure FarmBeats와 연결하기 위해 좀 더 많은 공급자와 공조하고 있으므로 솔루션을 빌드하는 동안 더 많은 옵션을 선택할 수 있습니다.
 
 ## <a name="accelerator"></a>액셀러레이터
 
@@ -48,8 +48,8 @@ Azure FarmBeat 구성 요소에 대해서는 이 문서의 다음 섹션에서 �
 
 ## <a name="resources"></a>리소스
 
-FarmBeats [블로그](https://aka.ms/AzureFarmBeats) 및 [포럼](https://aka.ms/FarmBeatsMSDN)을 방문하세요.
+자세한 내용은 Azure FarmBeats [블로그](https://aka.ms/AzureFarmBeats) 및 [포럼](https://aka.ms/FarmBeatsMSDN)을 방문하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure FarmBeats를 시작하려면 [Azure Marketplace](https://aka.ms/FarmBeatsMarketplace)를 방문하여 배포하세요.
+Azure FarmBeats를 시작하려면 [Azure 마켓플레이스](https://aka.ms/FarmBeatsMarketplace)를 방문하여 배포 프로세스를 시작합니다.

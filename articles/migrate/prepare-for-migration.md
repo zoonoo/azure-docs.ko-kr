@@ -1,19 +1,19 @@
 ---
-title: Azure Migrate를 사용하여 Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
-description: 이 문서에서는 Azure Migrate를 사용하여 Azure로 마이그레이션하기 위해 온-프레미스 머신을 준비하는 방법을 설명합니다.
+title: Azure Migrate를 사용하여 마이그레이션을 위한 머신 준비
+description: Azure Migrate를 사용하여 마이그레이션하기 위한 온-프레미스 머신을 준비하는 방법을 알아봅니다.
 author: rayne-wiselman
 manager: carmonm
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 10/03/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 61b4f41a0b36945413e45a357a5ca73ac75ceb98
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c13bc79fccc74da431ba1a6399870b261b24c57
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73480128"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196432"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Azure로 마이그레이션하기 위한 온-프레미스 머신 준비
 
@@ -46,8 +46,7 @@ ms.locfileid: "73480128"
 
 - VMware VM의 경우 Azure Migrate 서버 마이그레이션은 [에이전트리스 또는 에이전트 기반 마이그레이션](server-migrate-overview.md)을 지원합니다. [에이전트리스](migrate-support-matrix-vmware.md#migration---limitations) 및 [에이전트 기반](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) 마이그레이션에 대한 VMware VM 요구 사항/지원을 확인합니다.
 - Hyper-V VM에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements)을 확인합니다.
-- 온-프레미스 물리적 머신 또는 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements)을 확인합니다. 이러한 요구 사항은 VMware VM 요구 사항과 비슷합니다.
-
+- 온-프레미스 물리적 머신 또는 다른 가상화된 서버에 대한 [마이그레이션 요구 사항 및 지원](migrate-support-matrix-physical.md)을 확인합니다. 
 
 
 

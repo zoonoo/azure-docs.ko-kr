@@ -6,17 +6,20 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/13/2019
+ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 63fe6c4a2d02489b5e25100aa6aa23407bbe6bc7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 3af951d120282767bd71bc569d8c0bfe39dafffe
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72809374"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705459"
 ---
-# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
+# <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal-preview"></a>Azure Portal (미리 보기)를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위해 고객이 관리 하는 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
+
+>[!NOTE]
+> 이 기능은 현재 미리 보기로 제공됩니다. 프로덕션 환경에서는를 사용 하지 않는 것이 좋습니다.
 
 ## <a name="overview"></a>개요
 이제 Azure Event Hubs는 Microsoft에서 관리 하는 키 또는 고객이 관리 하는 키 (Bring Your Own Key – BYOK)를 사용 하 여 미사용 데이터를 암호화 하는 옵션을 지원 합니다. 이 기능을 사용 하면 미사용 Azure Event Hubs 데이터를 암호화 하는 데 사용 되는 고객 관리 키에 대 한 액세스를 만들고, 회전 하 고, 사용 하지 않도록 설정할 수 있습니다.
@@ -110,7 +113,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
 | category | 태스크의 분류를 정의 합니다. 예를 들어 키 자격 증명 모음의 키를 사용 하지 않도록 설정 하는 경우 정보 범주 이거나 키를 래핑 해제할 수 없는 경우 오류가 발생할 수 있습니다. |
 | resourceId | Azure Resource Manager 리소스 ID |
-| KeyVault | 키 자격 증명 모음의 전체 이름입니다. |
+| keyVault | 키 자격 증명 모음의 전체 이름입니다. |
 | key | Event Hubs 네임 스페이스를 암호화 하는 데 사용 되는 키 이름입니다. |
 | 버전 | 사용 되는 키의 버전입니다. |
 | operation | 키 자격 증명 모음의 키에 대해 수행 되는 작업입니다. 예를 들어 키, 줄 바꿈 또는 래핑 해제를 사용 하거나 사용 하지 않도록 설정 합니다. |

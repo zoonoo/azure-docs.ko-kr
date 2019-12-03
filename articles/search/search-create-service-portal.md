@@ -1,19 +1,19 @@
 ---
 title: '빠른 시작: 포털에서 검색 서비스 만들기'
 titleSuffix: Azure Cognitive Search
-description: Azure Portal에서 Azure Cognitive Search 리소스를 프로비저닝합니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
+description: 이 포털 빠른 시작에서는 Azure Portal에서 Azure Cognitive Search 리소스를 설정하는 방법을 알아봅니다. 리소스 그룹, 지역 및 SKU 또는 가격 책정 계층을 선택합니다.
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 75a7cce55627a981d0d0b0f23a119fac6de920ef
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ec794f66866f9773f8b7c0fc57b644d8a13d697a
+ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112108"
+ms.lasthandoff: 11/26/2019
+ms.locfileid: "74534557"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>빠른 시작: 포털에서 Azure Cognitive Search서비스 만들기
 
@@ -41,7 +41,7 @@ PowerShell을 선호합니까? Azure Resource Manager [서비스 템플릿](http
 
 ## <a name="choose-a-subscription"></a>구독을 선택합니다.
 
-구독 ID 및 리소스 그룹을 설정하는 것이 첫 번째 단계입니다. 둘 이상의 구독이 있는 경우 데이터 또는 파일 스토리지 서비스도 있는 구독을 선택합니다. Azure Cognitive Search는 [*인덱서*](search-indexer-overview.md)를 통해 인덱싱하기 위해 Azure Table 및 Blob 스토리지, SQL Database 및 Azure Cosmos DB를 자동으로 검색할 수 있지만, 동일한 구독의 서비스에 대해서만 가능합니다.
+구독이 둘 이상 있는 경우 검색 서비스에 대해 하나의 구독을 선택합니다.
 
 ## <a name="set-a-resource-group"></a>리소스 그룹 설정
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/10/2019
 ms.author: jeedes
-ms.openlocfilehash: e6a8a25e88d4193562c818f30efd5eb017c372fd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 663958ae367162eaeb336c819d1d219dc74a2cbe
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089300"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233277"
 ---
 # <a name="tutorial-integrate-syncplicity-with-azure-active-directory"></a>자습서: Azure Active Directory와 Syncplicity 통합
 
@@ -152,7 +152,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ### <a name="create-syncplicity-test-user"></a>Syncplicity 테스트 사용자 만들기
 
-AAD 사용자가 로그인할 수 있도록 Syncplicity 애플리케이션에 프로비전되어야 합니다. 이 섹션은 Syncplicity에 AAD 사용자 계정을 만드는 방법을 설명합니다.
+Azure AD 사용자가 로그인할 수 있도록 Syncplicity 애플리케이션에 프로비저닝되어야 합니다. 이 섹션은 Syncplicity에 Azure AD 사용자 계정을 만드는 방법을 설명합니다.
 
 **사용자 계정을 Syncplicity에 프로비전하려면 다음 단계를 수행합니다.**
 
@@ -167,7 +167,7 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 애플리케이션에 �
     ![계정 정보](./media/syncplicity-tutorial/ic769765.png "계정 정보")
 
     > [!NOTE]
-    > AAD 계정 소유자가 해당 계정을 확인 및 활성화하기 위한 링크가 포함된 이메일을 받게 됩니다.
+    > Azure AD 계정 소유자가 해당 계정을 확인 및 활성화하기 위한 링크가 포함된 이메일을 받게 됩니다.
 
 1. 회사에서 새 사용자가 구성원이 되고자 하는 그룹을 선택하고 **다음**을 클릭합니다.
 
@@ -181,7 +181,7 @@ AAD 사용자가 로그인할 수 있도록 Syncplicity 애플리케이션에 �
     ![Syncplicity 폴더](./media/syncplicity-tutorial/ic769773.png "Syncplicity 폴더")
 
 > [!NOTE]
-> 다른 Syncplicity 사용자 계정 생성 도구 또는 Syncplicity가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 Syncplicity 사용자 계정 생성 도구 또는 Syncplicity가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-sso"></a>SSO 테스트
 

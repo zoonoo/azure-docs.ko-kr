@@ -7,12 +7,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 225d9b715c56e4813a8e26d881c876e7bd498155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 46e6f19a071986cf12590e9bd5c420e070572a14
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204209"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707094"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Key Vault 및 Azure PowerShell를 사용 하 여 저장소 계정 키 관리
 
@@ -42,13 +42,13 @@ Azure AD 테 넌 트는 등록 된 각 응용 프로그램을 [서비스 사용�
 
 Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응용 프로그램입니다. Key Vault은 각 Azure 클라우드에서 동일한 응용 프로그램 ID로 등록 됩니다.
 
-| 테 넌 트 | 클라우드 | 애플리케이션 ID |
+| 테 넌 트 | 클라우드 | 애플리케이션 UI |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| 기타  | 임의의 값 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| 다른  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 가이드를 완료 하려면 먼저 다음을 수행 해야 합니다.
 
@@ -74,7 +74,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourResourceGroupName> `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` , <YourStorageAccountName>및 자리<YourKeyVaultName> 표시자를 업데이트 하 고 위의 [서비스 사용자 응용 프로그램 ID](#service-principal-application-id)에 지정 된 대로 $keyVaultSpAppId를로 설정 해야 합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourResourceGroupName>, <YourStorageAccountName>및 <YourKeyVaultName> 자리 표시자를 업데이트 하 고 위의 [서비스 사용자 응용 프로그램 ID](#service-principal-application-id)에 지정 된 대로 $keyVaultSpAppId을 `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`로 설정 해야 합니다.
 
 또한 Azure PowerShell [AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) 및 [AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) cmdlet을 사용 하 여 사용자 ID와 Azure storage 계정의 컨텍스트를 가져옵니다.
 
@@ -191,12 +191,12 @@ Key Vault를 요청 하 여 공유 액세스 서명 토큰을 생성할 수도 �
 
 - 계정 공유 액세스 서명 정의를 설정 합니다. 
 - Blob, 파일, 테이블 및 큐 서비스에 대 한 계정 공유 액세스 서명 토큰을 만듭니다. 토큰은 리소스 유형 서비스, 컨테이너 및 개체에 대해 생성 됩니다. 토큰은 지정 된 시작 및 종료 날짜를 사용 하 여 https를 통해 모든 사용 권한으로 만들어집니다.
-- 자격 증명 모음에서 관리 되는 저장소 공유 액세스 서명 정의를 Key Vault 설정 합니다. 정의에는 만들어진 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 정의는 공유 액세스 서명 유형이 `account` 며 N 일 동안 유효 합니다.
+- 자격 증명 모음에서 관리 되는 저장소 공유 액세스 서명 정의를 Key Vault 설정 합니다. 정의에는 만들어진 공유 액세스 서명 토큰의 템플릿 URI가 있습니다. 이 정의는 `account` 공유 액세스 서명 유형 이며 N 일 동안 유효 합니다.
 - 공유 액세스 서명이 키 자격 증명 모음에 암호로 저장 되었는지 확인 합니다.
 - 
 ### <a name="set-variables"></a>변수 설정
 
-먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourStorageAccountName> 및<YourKeyVaultName> 자리 표시자를 업데이트 해야 합니다.
+먼저 다음 단계에서 PowerShell cmdlet에 사용할 변수를 설정 합니다. <YourStorageAccountName> 및 <YourKeyVaultName> 자리 표시자를 업데이트 해야 합니다.
 
 또한 Azure PowerShell [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) cmdlet을 사용 하 여 Azure storage 계정의 컨텍스트를 가져옵니다.
 
@@ -225,7 +225,7 @@ $SasToken 값은 다음과 같습니다.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>공유 액세스 서명 정의 생성
 
-Azure PowerShell [AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet을 사용 하 여 공유 액세스 서명 정의를 만듭니다.  원하는 `-Name` 이름을 매개 변수에 제공할 수 있습니다.
+Azure PowerShell [AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) cmdlet을 사용 하 여 공유 액세스 서명 정의를 만듭니다.  사용자가 선택한 이름을 `-Name` 매개 변수에 제공할 수 있습니다.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -238,7 +238,7 @@ Azure PowerShell [AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaul
 먼저 주요 자격 증명 모음에서 공유 액세스 서명 정의를 찾습니다.
 
 ```azurepowershell-interactive
-Get-AzKeyVaultSecret -vault-name <YourKeyVaultName>
+Get-AzKeyVaultSecret -VaultName <YourKeyVaultName>
 ```
 
 SAS 정의에 해당 하는 암호에는 다음 속성이 포함 됩니다.

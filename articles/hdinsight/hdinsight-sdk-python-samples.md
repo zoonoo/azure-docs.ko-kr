@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/08/2019
-ms.openlocfilehash: 14d7c6c6352528207a20071908c31ea684dde19d
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 64e1f172a947cb08795272fe2a022e9d7beac7a6
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903629"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74215736"
 ---
 # <a name="azure-hdinsight-python-samples"></a>Azure HDInsight: Python 샘플
 
@@ -21,6 +21,9 @@ ms.locfileid: "73903629"
 > * [.NET 예제](hdinsight-sdk-dotnet-samples.md)
 > * [Java 예제](hdinsight-sdk-java-samples.md)
 <!-- * [Go Examples](hdinsight-sdk-go-samples.md)-->
+
+> [!Important]
+> Python 2.7은 2020년 1월 1일부터 사용되지 않습니다. 여전히 Python 2.7을 사용하는 경우 HDInsight Python SDK를 사용하려면 3.7로 업그레이드하세요.  
 
 이 문서는 다음을 제공합니다.
 

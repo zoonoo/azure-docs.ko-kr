@@ -1,14 +1,14 @@
 ---
 title: 샘플 - Network Watcher가 없는 영역에 대한 감사
-description: 이 샘플 정책 정의는 Network Watcher를 특정 지역에 대해 사용하도록 설정되지 않은 경우 감사합니다.
+description: 이 샘플 정책 정의는 매개 변수에 정의된 지정된 지역에 대해 Network Watcher가 활성화되지 않은 경우 감사합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 8d820cfea34eec91c7d4b050d58046b357f2ddd9
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: b7efc9894e3158dcf2f1535e34d31c4abf0c4aa8
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74070004"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463284"
 ---
 # <a name="sample---audit-if-network-watcher-is-not-enabled-for-region"></a>샘플 - 지역에서 Network Watcher를 사용할 수 없는 경우 감사
 

@@ -1,27 +1,19 @@
 ---
 title: Microsoft Flow, Logic Apps, Functions 및 WebJobs란? - Azure
 description: 다음 통합 작업에 최적화된 Microsoft 클라우드 서비스를 비교합니다. Microsoft Flow, Logic Apps, Functions 및 WebJobs.
-services: functions, logic-apps
-documentationcenter: na
-author: ggailey777
-manager: jeconnoc
-keywords: Microsoft Flow, Flow, Logic Apps, Azure Functions, Functions, Azure Webjobs, Webjobs, 이벤트 처리, 동적 컴퓨팅, 서버리스 아키텍처
-ms.service: azure-functions
 ms.topic: overview
 ms.date: 04/09/2018
-ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: e599ff280481549f68822d96f97b85f2516b1593
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a20729e7c47e6bf2ad77e47fa228495d8b482aab
+ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082741"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74278621"
 ---
 # <a name="what-are-microsoft-flow-logic-apps-functions-and-webjobs"></a>Microsoft Flow, Logic Apps, Functions 및 WebJobs란?
 
-이 문서에서는 다음 Microsoft 클라우드 서비스를 비교합니다.
-
+이 문서에서는 다음 Microsoft 클라우드를 비교합니다. 
 * [Microsoft Flow](https://flow.microsoft.com/)
 * [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/)
 * [Azure 기능](https://azure.microsoft.com/services/functions/)
@@ -56,8 +48,8 @@ Functions 및 Logic Apps는 서버가 없는 워크로드를 활성화하는 Azu
 
 Azure Functions의 경우 코드를 작성하고 [지속성 함수 확장](durable/durable-functions-overview.md)을 사용하여 오케스트레이션을 개발합니다. Logic Apps의 경우 GUI를 사용하거나 구성 파일을 편집하여 오케스트레이션을 만듭니다.
 
-오케스트레이션을 빌드할 때 논리 앱에서 함수를 호출하고 함수에서 논리 앱을 호출하여 서비스를 짜 맞출 수 있습니다. 서비스의 기능 또는 개인 기본 설정에 따라 각 오케스트레이션을 빌드하는 방법을 선택합니다. 다음 표는 이러한 서비스 간의 주요 차이점 중 일부를 나열합니다.
- 
+오케스트레이션을 빌드할 때 논리 앱에서 함수를 호출하고 함수에서 논리 앱을 호출하여 서비스를 짜 맞출 수 있습니다. 서비스의 기능 또는 개인 기본 설정에 따라 각 오케스트레이션을 빌드하는 방법을 선택합니다. 다음 표는 이들 간의 주요 차이점 중 일부를 나열합니다.
+
 |  | 지속성 함수 | Logic Apps |
 | --- | --- | --- |
 | 개발 | 코드 중심(명령적) | 디자이너 중심(선언적) |

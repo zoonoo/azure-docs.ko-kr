@@ -1,21 +1,15 @@
 ---
 title: Azure Blockchain Service 개요
 description: Azure Blockchain Service 개요
-services: azure-blockchain
-keywords: 블록체인
-author: PatAltimore
-ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 11/21/2019
 ms.topic: overview
-ms.service: azure-blockchain
 ms.reviewer: janders
-manager: femila
-ms.openlocfilehash: 9fcf75a07d1caf7b411c315d11ce984cbe35df75
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 02cc955822987e3be6f5a2184fc49e5510b29626
+ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73577192"
+ms.lasthandoff: 11/24/2019
+ms.locfileid: "74455921"
 ---
 # <a name="what-is-azure-blockchain-service"></a>Azure Blockchain Service란?
 
@@ -31,7 +25,7 @@ Azure Blockchain Service는 여러 원장 프로토콜을 지원하도록 고안
 
 ## <a name="network-deployment-and-operations"></a>네트워크 배포 및 작업
 
-Azure Blockchain Service 배포는 Azure Blockchain 확장을 사용하여 Visual Studio Code에서뿐만 아니라 Azure Portal, Azure CLI를 통해서도 수행할 수 있습니다.  트랜잭션 및 유효성 검사기 노드의 프로비저닝, 서비스 관리형 스토리지 뿐만 아니라 보안 격리를 위한 Azure Virtual Network를 비롯한 배포가 간소화됩니다.  또한 새 블록체인 멤버를 배포하는 경우 사용자는 컨소시엄을 만들거나 참가하기도 합니다.  컨소시엄에서는 다른 Azure 구독에 속하는 여러 당사자가 공유 블록체인에서 서로 안전하게 통신할 수 있게 됩니다.  이 간소화된 배포는 블록체인 네트워크 배포를 며칠에서 몇 분으로 단축합니다.
+Azure Blockchain Service는 Azure Portal이나 Azure CLI를 통해 배포할 수도 있고, Azure Blockchain 확장을 사용하여 Visual Studio Code를 통해 배포할 수도 있습니다. 트랜잭션 및 유효성 검사기 노드의 프로비저닝, 서비스 관리형 스토리지 뿐만 아니라 보안 격리를 위한 Azure Virtual Network를 비롯한 배포가 간소화됩니다.  또한 새 블록체인 멤버를 배포하는 경우 사용자는 컨소시엄을 만들거나 참가하기도 합니다.  컨소시엄에서는 다른 Azure 구독에 속하는 여러 당사자가 공유 블록체인에서 서로 안전하게 통신할 수 있게 됩니다.  이 간소화된 배포는 블록체인 네트워크 배포를 며칠에서 몇 분으로 단축합니다.
 
 ### <a name="performance-and-service-tiers"></a>성능 및 서비스 계층
 
@@ -43,13 +37,13 @@ Azure Blockchain Service는 두 가지 서비스 계층인 *기본* 및 *표준*
 
 ### <a name="security-and-maintenance"></a>보안 및 유지 관리
 
-첫 번째 블록체인 멤버를 프로비저닝한 후에는 멤버에 트랜잭션 노드를 더 추가할 수 있습니다.  기본적으로 트랜잭션 노드는 방화벽 규칙을 통해 보호되므로 액세스할 수 있게 구성해야 해야 합니다.  또한 모든 트랜잭션 노드는 TLS를 통해 동작 중인 데이터를 암호화합니다.  방화벽 규칙, 기본 인증, 액세스 키 및 Azure Active Directory 통합을 비롯하여 트랜잭션 노드 액세스 보안을 유지하기 위한 여러 옵션이 있습니다. 자세한 내용은 [트랜잭션 노드 구성](configure-transaction-nodes.md) 및 [Azure Active Directory 액세스 구성](configure-aad.md)을 참조하세요.
+첫 번째 블록체인 멤버를 프로비저닝한 후에는 멤버에 트랜잭션 노드를 더 추가할 수 있습니다.  기본적으로 트랜잭션 노드는 방화벽 규칙을 통해 보호되므로 액세스가 가능하도록 구성해야 해야 합니다.  또한 모든 트랜잭션 노드는 TLS를 통해 동작 중인 데이터를 암호화합니다.  방화벽 규칙, 기본 인증, 액세스 키 및 Azure Active Directory 통합을 포함하여 트랜잭션 노드 액세스 보안을 유지하기 위한 여러 옵션이 있습니다. 자세한 내용은 [트랜잭션 노드 구성](configure-transaction-nodes.md) 및 [Azure Active Directory 액세스 구성](configure-aad.md)을 참조하세요.
 
 관리 서비스인 Azure Blockchain Service는 고가용성을 위해 구성된 최신 호스트 운영 체제 및 원장 소프트웨어 스택 업데이트(표준 계층에만 해당)로 블록체인 멤버의 노드를 패치하여 기존 IaaS 블록체인 노드에 필요한 많은 DevOps를 줄여줍니다.  패치 및 업데이트에 대한 자세한 내용은 [지원되는 Azure Blockchain Service 원장 버전](ledger-versions.md)을 참조하세요.
 
 ### <a name="monitoring-and-logging"></a>모니터링 및 로깅
 
-또한 Azure Blockchain Service는 Azure Monitor 서비스를 통해 풍부한 메트릭을 제공하여 노드 CPU, 메모리 및 스토리지 사용에 대한 인사이트와 트랜잭션 및 마이닝 블록, 트랜잭션 큐 깊이, 활성 연결과 같은 블록체인 네트워크 활동에 대한 유용한 인사이트를 얻을 수 있도록 합니다.  블록체인 애플리케이션에 중요한 인사이트를 볼 수 있도록 메트릭을 사용자 지정할 수 있습니다.  또한 경고에 임계값을 정의하여 사용자가 메일 또는 문자 메시지를 보내거나, 논리 앱, Azure 함수를 실행하거나, 사용자 지정된 웹후크로 전송하는 것과 같은 작업을 트리거할 수 있도록 합니다.
+또한 Azure Blockchain Service는 Azure Monitor Service를 통해 노드의 CPU, 메모리 및 스토리지 사용량에 대한 인사이트를 제공하는 풍부한 메트릭을 제공합니다.  또한 Azure Monitor는 채굴한 트랜잭션 및 블록, 트랜잭션 큐 수준, 활성 연결 등과 같이 블록체인 네트워크 활동에 대한 유용한 인사이트를 제공합니다.  블록체인 애플리케이션에 중요한 인사이트를 볼 수 있도록 메트릭을 사용자 지정할 수 있습니다.  또한 경고에 임계값을 정의하여 사용자가 메일 또는 문자 메시지를 보내거나, 논리 앱, Azure 함수를 실행하거나, 사용자 지정된 웹후크로 전송하는 것과 같은 작업을 트리거할 수 있도록 합니다.
 
 ![메트릭](./media/overview/metrics.png)
 
@@ -65,7 +59,11 @@ Azure Log Analytics를 통해 사용자는 Quorum 원장과 관련된 로그 또
 
 ## <a name="develop-using-familiar-development-tools"></a>친숙한 개발 도구를 사용하여 개발
 
-오픈 소스 Quorum Ethereum 원장을 기준으로, 기존 Ethereum 애플리케이션에 대해 수행하는 것과 동일한 방식으로 Azure Blockchain Service용 애플리케이션을 개발할 수 있습니다. 선두적인 업계 파트너와 협력하면서 Azure Blockchain Development Kit Visual Studio Code 확장을 사용하여 개발자들은 Truffle Suite와 같은 친숙한 도구를 통해 스마트 계약을 빌드할 수 있습니다. 개발자는 Azure Blockchain Development Kit 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 사용자는 Azure Blockchain Visual Studio Code 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 자세한 내용은 [VS Code Marketplace의 Azure Blockchain Development Kit](https://aka.ms/vscodebcextension) 및 [Azure Blockchain Development Kit 사용자 가이드](https://aka.ms/vscodebcextensionwiki )를 참조하세요.
+오픈 소스 Quorum Ethereum 원장을 기준으로, 기존 Ethereum 애플리케이션에 대해 수행하는 것과 동일한 방식으로 Azure Blockchain Service용 애플리케이션을 개발할 수 있습니다. 선두적인 업계 파트너와 협력하면서 Azure Blockchain Development Kit Visual Studio Code 확장을 사용하여 개발자들은 Truffle Suite와 같은 친숙한 도구를 통해 스마트 계약을 빌드할 수 있습니다. 개발자는 Azure Blockchain Development Kit 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 사용자는 Azure Blockchain Visual Studio Code 확장을 사용하여 하나의 IDE에서 스마트 계약을 빌드 및 배포할 수 있도록 컨소시엄을 만들거나 기존 컨소시엄에 연결할 수 있습니다. 자세한 내용은 [VS Code 마켓플레이스의 Azure Blockchain Development Kit](https://aka.ms/vscodebcextension) 및 [Azure Blockchain Development Kit 사용자 가이드](https://aka.ms/vscodebcextensionwiki)를 참조하세요.
+
+## <a name="publish-blockchain-data"></a>블록체인 데이터 게시
+
+Azure Blockchain Service용 Blockchain Data Manager는 Azure Blockchain Service 트랜잭션 데이터를 캡처, 변환 및 Azure Event Grid 항목으로 전송하여 안정적이고 확장 가능한 블록체인 원장을 Azure 서비스와 통합합니다. Blockchain Data Manager를 사용하여 오프 체인 애플리케이션과 데이터 저장소를 통합할 수 있습니다. 자세한 내용은 [Azure Blockchain Service용 Blockchain Data Manager](data-manager.md)를 참조하세요.
 
 ## <a name="support-and-feedback"></a>지원 및 피드백
 

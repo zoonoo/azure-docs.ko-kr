@@ -1,21 +1,21 @@
 ---
-title: '자습서: Spare를 사용하여 Azure Databricks로 Azure Data Lake Storage Gen2 데이터에 액세스 | Microsoft Docs'
+title: '자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark | Microsoft Docs'
 description: 이 자습서에서는 Azure Databricks 클러스터에서 Spark 쿼리를 실행하여 Azure Data Lake Storage Gen2 스토리지 계정의 데이터에 액세스하는 방법을 보여 줍니다.
 author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: tutorial
-ms.date: 03/11/2019
+ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: 0607c2b848a486e24654081bd7937cb734394e58
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: bbe936fd572a8e23fb6e7c5da4a4bffef1c8bf7e
+ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331830"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74327528"
 ---
-# <a name="tutorial-access-data-lake-storage-gen2-data-with-azure-databricks-using-spark"></a>자습서: Spark를 사용하여 Azure Databricks로 Data Lake Storage Gen2 데이터에 액세스
+# <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
 이 자습서에서는 Azure Databricks 클러스터를 Azure Data Lake Storage Gen2가 활성화된 Azure 스토리지 계정에 저장된 데이터에 연결하는 방법을 보여줍니다. 이 연결을 통해 기본적으로 사용자의 클러스터에서 데이터에 대한 쿼리 및 분석을 실행할 수 있습니다.
 

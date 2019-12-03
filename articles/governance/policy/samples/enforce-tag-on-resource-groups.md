@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 리소스 그룹에 태그 및 값 강제 적용
-description: 이 샘플 정책 정의에서는 리소스 그룹에 대한 태그 및 값이 필요합니다.
+description: 이 샘플 정책 정의에는 리소스 그룹의 매개 변수에 정의된 태그 및 값이 필요합니다.
 ms.date: 01/31/2019
 ms.topic: sample
-ms.openlocfilehash: 1a4bf9d27971b149e3df422987f58d0f184181c2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d04c48e2633e1a23990723c91a66cf8ec219b160
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076266"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463632"
 ---
 # <a name="sample---enforce-tag-and-its-value-on-resource-groups"></a>샘플 - 리소스 그룹에 태그 및 해당 값 강제 적용
 

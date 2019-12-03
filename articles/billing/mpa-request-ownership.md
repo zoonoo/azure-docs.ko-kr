@@ -5,23 +5,23 @@ author: amberbhargava
 manager: amberb
 editor: banders
 tags: billing
-ms.service: billing
+ms.service: cost-management-billing
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 312808517c80041cb45e2e8ac46566c1f59884e1
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: d68d95619b6aa6e8098c282977866c4bc21a357c
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376793"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561046"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
-관리 서비스 및 Azure 사용에 대해 통합된 단일 청구서를 제공하기 위해 CSP(클라우드 솔루션 공급자)는 EA(기업계약)를 사용하여 고객의 Azure 구독에 대한 청구 소유권을 얻을 수 있습니다.
+관리 서비스 및 Azure 사용에 대해 통합된 단일 청구서를 제공하기 위해 CSP(클라우드 솔루션 공급자)는 Direct EA(기업계약)를 사용하여 고객의 Azure 구독에 대한 청구 소유권을 얻을 수 있습니다.
 
 이 기능은 [Azure Expert MSP](https://partner.microsoft.com/membership/azure-expert-msp)로 인증된 CSP 직접 청구 파트너에 대해서만 사용할 수 있습니다. Microsoft 거버넌스 및 정책의 영향을 받을 수 있으며 특정 고객에 대한 검토 및 승인이 필요할 수 있습니다.
 

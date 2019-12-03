@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 02/20/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9307bbe58afc45468f222f5b510585d528de532a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 81594e6a21372f2b4dacedbda638cc87bad966db
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73158047"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74227558"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-ideascale"></a>자습서: IdeaScale과 Azure Active Directory 통합
 
@@ -241,7 +241,7 @@ Azure AD 사용자가 IdeaScale에 로그인할 수 있도록 하려면 IdeaScal
     > Azure Active Directory 계정 보유자는 활성화되기 전에 계정을 확인하기 위한 링크가 포함된 전자 메일을 받습니다.
 
 > [!NOTE]
-> 다른 IdeaScale 사용자 계정 생성 도구 또는 IdeaScale이 제공한 API를 사용하여 AAD 사용자 계정을 프로비저닝할 수도 있습니다.
+> 다른 IdeaScale 사용자 계정 생성 도구 또는 IdeaScale이 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

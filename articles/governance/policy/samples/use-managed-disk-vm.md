@@ -1,14 +1,14 @@
 ---
 title: 샘플 - 관리 디스크를 사용하여 VM 만들기
-description: 이 샘플 정책 정의에서는 가상 머신이 관리 디스크를 사용해야 합니다.
+description: 이 샘플 정책 정의에서는 가상 머신과 가상 머신 확장 집합이 관리 디스크를 사용해야 합니다.
 ms.date: 01/23/2019
 ms.topic: sample
-ms.openlocfilehash: 0ad21e255e771cd94c6f2eb794e20dc9b67f49d5
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e849f30c57a6e9776eec561d79cbb263f647b45e
+ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74069778"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74463034"
 ---
 # <a name="sample---create-vm-using-managed-disk"></a>샘플 - 관리 디스크를 사용하여 VM 만들기
 

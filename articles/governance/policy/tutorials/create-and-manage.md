@@ -1,14 +1,14 @@
 ---
-title: 규정 준수를 적용하는 정책 만들기 및 관리
-description: Azure Policy를 사용하여 표준을 적용하고, 규정 준수 및 감사 요구 사항을 충족하며, 비용을 통제하고, 보안 및 성능 일관성을 유지하며, 엔터프라이즈 수준 디자인 원칙을 적용합니다.
-ms.date: 02/04/2019
+title: '자습서: 규정 준수를 적용하는 정책 빌드'
+description: 이 자습서에서는 정책을 사용하여 표준을 적용하고, 비용을 제어하고, 보안을 유지하고, 엔터프라이즈 수준의 디자인 원칙을 적용합니다.
+ms.date: 11/25/2019
 ms.topic: tutorial
-ms.openlocfilehash: abbe4334767a48cf6444ce5aa7822cc8a79f9f69
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 75a1d892a88f2b5bbdbec2a1b8d525245bb1e86f
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959539"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74482323"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>자습서: 규정 준수를 적용하는 정책 만들기 및 관리
 
@@ -20,7 +20,11 @@ ms.locfileid: "73959539"
 > - 규정 비준수 또는 거부된 리소스 해결
 > - 조직 전체에서 새 정책 구현
 
-기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+기존 리소스의 현재 규정 준수 상태를 식별하는 정책을 할당하려는 경우 이 빠른 시작 문서를 통해 방법을 살펴보세요.
+
+## <a name="prerequisites"></a>필수 조건
+
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 ## <a name="assign-a-policy"></a>정책 할당
 
@@ -443,7 +447,7 @@ az policy definition list
 
 1. 행을 마우스 오른쪽 단추로 클릭하거나 정의(또는 할당) 끝에 있는 줄임표를 선택하고 **정의 삭제**(또는 **할당 삭제**)를 선택합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="review"></a>검토
 
 이 자습서에서는 다음 작업을 성공적으로 완료했습니다.
 
@@ -452,6 +456,8 @@ az policy definition list
 > - 여러 리소스에 대한 규정 준수를 추적하기 위한 이니셔티브 정의 만들기 및 할당
 > - 규정 비준수 또는 거부된 리소스 해결
 > - 조직 전체에서 새 정책 구현
+
+## <a name="next-steps"></a>다음 단계
 
 정책 정의의 구조에 대한 자세한 내용은 다음 문서를 참조하세요.
 

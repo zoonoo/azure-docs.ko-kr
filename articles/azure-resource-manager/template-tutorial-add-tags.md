@@ -1,19 +1,16 @@
 ---
-title: 자습서 - Azure Resource Manager 템플릿의 리소스에 태그 추가
+title: 자습서 - 템플릿의 리소스에 태그 추가
 description: Azure Resource Manager 템플릿에 배포하는 리소스에 태그를 추가합니다. 태그를 사용하여 리소스를 논리적으로 구성할 수 있습니다.
-services: azure-resource-manager
 author: mumian
-manager: carmonmills
-ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 078d85b3120baf5b8bea9c305fb1f97763f8df59
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177561"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406058"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 태그 추가
 
@@ -25,7 +22,7 @@ ms.locfileid: "72177561"
 
 Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShell 또는 Azure CLI가 있어야 합니다. 자세한 내용은 [템플릿 도구](template-tutorial-create-first-template.md#get-tools)를 참조하세요.
 
-## <a name="review-your-template"></a>템플릿 검토
+## <a name="review-template"></a>템플릿 검토
 
 이전 템플릿에서는 스토리지 계정, App Service 계획 및 웹앱을 배포했습니다.
 
@@ -41,7 +38,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-the-template"></a>템플릿 배포
+## <a name="deploy-template"></a>템플릿 배포
 
 템플릿을 배포하고 결과를 확인할 시간입니다.
 
@@ -71,7 +68,7 @@ az group deployment create \
 
 ---
 
-## <a name="verify-the-deployment"></a>배포 확인
+## <a name="verify-deployment"></a>배포 확인
 
 Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있습니다.
 
@@ -86,7 +83,7 @@ Azure Portal에서 리소스 그룹을 탐색하여 배포를 확인할 수 있�
 
 다음 자습서로 이동하는 경우에는 리소스 그룹을 삭제할 필요가 없습니다.
 
-지금 중지하는 경우 리소스 그룹을 삭제하여 배포된 리소스를 정리합니다.
+지금 중지하는 경우에는 리소스 그룹을 삭제하여 배포된 리소스를 정리하는 것이 좋습니다.
 
 1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.

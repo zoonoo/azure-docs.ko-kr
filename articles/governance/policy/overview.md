@@ -1,21 +1,20 @@
 ---
 title: Azure 정책 개요
 description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다.
-ms.date: 12/06/2018
+ms.date: 11/25/2019
 ms.topic: overview
-ms.openlocfilehash: e6b74eb2ffe15256523e46f0c246ba9f4d399c4d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db6a7c592213b0ef8a17466300c37c859e96476b
+ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959317"
+ms.lasthandoff: 11/25/2019
+ms.locfileid: "74484018"
 ---
-# <a name="overview-of-the-azure-policy-service"></a>Azure Policy 서비스 개요
+# <a name="what-is-azure-policy"></a>Azure Policy이란?
 
 거버넌스는 조직이 효과적이고 효율적으로 IT를 사용하여 목표를 달성할 수 있는지 확인합니다. 비즈니스 목표와 IT 프로젝트를 구분하여 이 요구를 충족합니다.
 
-회사에서 해결할 수 없는 IT 문제가 많이 있나요?
-좋은 IT 거버넌스에는 문제를 관리하고 방지할 수 있는 이니셔티브 계획과 전략적 수준의 우선 순위 설정이 필요합니다. 이 전략적 요구를 충족하는 데 Azure Policy가 사용됩니다.
+회사에서 해결할 수 없는 IT 문제가 많이 있나요? 좋은 IT 거버넌스에는 문제를 관리하고 방지할 수 있는 이니셔티브 계획과 전략적 수준의 우선 순위 설정이 필요합니다. 이 전략적 요구를 충족하는 데 Azure Policy가 사용됩니다.
 
 Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는 Azure의 서비스입니다. 이러한 정책은 리소스에 대해 다양한 규칙과 효과를 적용하여 리소스를 회사 표준 및 서비스 수준 계약을 준수하는 상태로 유지합니다. Azure Policy는 할당된 정책의 비준수에 대해 리소스를 평가하여 이 요구를 충족합니다. 예를 들어 환경에서 특정 SKU 크기의 가상 머신만을 허용하는 정책이 있을 수 있습니다. 이 정책을 구현하면 새 리소스와 기존 리소스의 규정 준수가 평가됩니다. 올바른 정책 유형을 사용하여 기존 리소스가 규정을 준수하도록 만들 수 있습니다. 이 문서의 뒷부분에서 Azure Policy를 사용하여 정책을 만들고 구현하는 방법을 자세히 살펴보겠습니다.
 
@@ -35,7 +34,7 @@ Azure Policy에는 여러 권한이 있는데, 다음 두 리소스 공급자에
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자(미리 보기)** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자**와 **읽기 권한자**는 둘 다 모든 읽기 Azure Policy 작업을 사용할 수 있지만, **기여자**는 수정을 트리거할 수도 있습니다.
+여러 기본 제공 역할은 Azure Policy 리소스에 대한 권한을 부여합니다. **리소스 정책 기여자** 역할은 대부분의 Azure Policy 작업을 포함합니다. **소유자**는 전체 권한을 보유합니다. **기여자**와 **읽기 권한자**는 둘 다 모든 읽기 Azure Policy 작업을 사용할 수 있지만, **기여자**는 수정을 트리거할 수도 있습니다.
 
 기본 제공 역할에 필수 권한이 없는 경우 [사용자 지정 역할](../../role-based-access-control/custom-roles.md)을 만듭니다.
 
@@ -81,6 +80,9 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 
 이니셔티브 정의는 가장 중요한 단일 목표를 달성하기 위해 맞춤화된 정책 정의의 컬렉션입니다. 이니셔티브 정의를 사용하면 정책 정의 관리 및 할당을 더 쉽게 수행할 수 있습니다. 정책 집합을 단일 항목으로 그룹화하여 단순화합니다. 예를 들어 이름이 **Azure Security Center에서 모니터링 사용**이면서 목표가 Azure Security Center의 모든 사용 가능한 보안 권장 사항을 모니터링하는 것인 이니셔티브를 만들 수 있습니다.
 
+> [!NOTE]
+> SDK(예: Azure CLI 및 Azure PowerShell)는 **PolicySet**라는 속성과 매개 변수를 사용하여 이니셔티브를 참조합니다.
+
 이 이니셔티브에 따라 다음과 같은 정책 정의가 있게 됩니다.
 
 - **Security Center의 암호화되지 않은 SQL 데이터베이스 모니터링** - 암호화되지 않은 SQL 데이터베이스 및 서버 모니터링
@@ -125,11 +127,12 @@ Portal을 통해 정책 정의 및 할당을 설정하는 방법에 대한 자�
 - 정의 및 할당을 만들 때는 조직 계층 구조를 고려합니다. 관리 그룹 또는 구독 수준과 같은 상위 수준에서 정의를 만드는 것이 좋습니다. 그런 후에, 다음 하위 수준에서 할당을 만듭니다. 관리 그룹에서 정의를 만드는 경우 할당 범위를 해당 관리 그룹 내의 구독 또는 리소스 그룹으로 축소할 수 있습니다.
 
 - 단일 정책 정의에 대해서도 이니셔티브 정의를 만들고 할당하는 것이 좋습니다.
-예를 들어 정책 정의 *policyDefA*가 있고, 이니셔티브 정의 *initiativeDefC* 아래에 만듭니다. 나중에 *policyDefA*와 비슷한 목표로 *policyDefB*에 대한 다른 정책 정의를 만드는 경우 *initiativeDefC* 아래에 추가하고 함께 추적할 수 있습니다.
+  예를 들어 정책 정의 *policyDefA*가 있고, 이니셔티브 정의 *initiativeDefC* 아래에 만듭니다. 나중에 *policyDefA*와 비슷한 목표로 *policyDefB*에 대한 다른 정책 정의를 만드는 경우 *initiativeDefC* 아래에 추가하고 함께 추적할 수 있습니다.
 
 - 이니셔티브 할당을 만들고 나면, 이니셔티브에 추가한 정책 정의도 해당 이니셔티브 할당의 일부가 됩니다.
 
-- 이니셔티브 할당을 평가할 때 이니셔티브 내의 모든 정책도 평가됩니다. 정책을 개별적으로 평가해야 하는 경우 이니셔티브에 포함하지 않는 것이 좋습니다.
+- 이니셔티브 할당을 평가할 때 이니셔티브 내의 모든 정책도 평가됩니다.
+  정책을 개별적으로 평가해야 하는 경우 이니셔티브에 포함하지 않는 것이 좋습니다.
 
 ## <a name="video-overview"></a>비디오 개요
 
@@ -141,8 +144,6 @@ Azure Policy의 다음 개요는 Build 2018에서부터 시작됩니다. 슬라�
 
 이제 Azure Policy 개요와 몇 가지 핵심 개념을 살펴보았으므로 다음과 같은 단계를 권장합니다.
 
-- [포털을 사용하여 정책 정의를 할당합니다](assign-policy-portal.md).
-- [Azure CLI를 사용하여 정책 정의를 할당합니다](assign-policy-azurecli.md).
-- [PowerShell을 사용하여 정책 정의를 할당합니다](assign-policy-powershell.md).
-- [Azure 관리 그룹으로 리소스 구성](..//management-groups/overview.md)을 포함하는 관리 그룹을 검토합니다.
-- Channel 9에서 [Azure Policy를 통해 Azure 환경 제어](https://channel9.msdn.com/events/Build/2018/THR2030)를 봅니다.
+- [포털을 사용하여 정책 정의를 할당합니다](./assign-policy-portal.md).
+- [Azure CLI를 사용하여 정책 정의를 할당합니다](./assign-policy-azurecli.md).
+- [PowerShell을 사용하여 정책 정의를 할당합니다](./assign-policy-powershell.md).

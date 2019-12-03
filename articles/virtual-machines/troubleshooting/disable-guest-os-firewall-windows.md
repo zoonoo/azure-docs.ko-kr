@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2c3f733ad5af46c16a6880b8988754fd81ddabb0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030590"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705541"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Azure VM에서 게스트 OS 방화벽 사용 안 함
 
@@ -27,7 +27,7 @@ ms.locfileid: "72030590"
 
 ## <a name="solution"></a>솔루션
 
-이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용하려면 Microsoft 모범 사례가 필요합니다. 방화벽 규칙을 구성하는 방법은 필요한 VM 액세스 수준에 따라 달라집니다.
+이 문서에서 설명하는 프로세스는 문제를 해결하는 용도로 사용되므로 실제 문제 해결, 즉, 방화벽 규칙을 올바르게 설정하는 방법에 집중할 수 있습니다. Windows 방화벽 구성 요소를 사용 하도록 설정 하는 것이 좋습니다. 방화벽 규칙을 구성 하는 방법은 필요한 VM에 대 한 액세스 수준에 따라 달라 집니다.
 
 ### <a name="online-solutions"></a>온라인 솔루션 
 
@@ -60,7 +60,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 2.  PowerShell 콘솔 창을 엽니다.
 
-3.  다음 명령을 실행 합니다.
+3.  다음 명령을 실행합니다.
 
     ```powershell
     Enter-PSSession (New-PSSession -ComputerName "<HOSTNAME>" -Credential (Get-Credential) -SessionOption (New-PSSessionOption -SkipCACheck -SkipCNCheck)) 
@@ -78,7 +78,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 2.  CMD 인스턴스를 열고 해당 DIP를 통해 VM에 액세스합니다.
 
-3.  다음 명령을 실행 합니다.
+3.  다음 명령을 실행합니다.
 
     ```cmd
     psexec \\<DIP> -u <username> cmd
@@ -118,7 +118,7 @@ Azure 에이전트가 작동 중인 경우 [사용자 지정 스크립트 확장
 
 어떤 방법으로도 VM에 연결할 수 없는 경우 사용자 지정 스크립트 확장이 실패할 것이며, 시스템 디스크를 통해 직접 작업하여 오프라인 모드로 작업해야 합니다. 이렇게 하려면 다음 단계를 수행하세요.
 
-1.  [복구 VM에 OS 디스크를 연결합니다](troubleshoot-recovery-disks-portal-windows.md).
+1.  [복구 VM에 시스템 디스크 연결](troubleshoot-recovery-disks-portal-windows.md).
 
 2.  복구 VM에 대한 원격 데스크톱 연결을 시작합니다.
 

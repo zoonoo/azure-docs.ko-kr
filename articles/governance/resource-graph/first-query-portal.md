@@ -1,20 +1,22 @@
 ---
-title: Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리 실행
-description: 이 문서에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 안내합니다.
-ms.date: 10/21/2019
+title: '빠른 시작: 첫 번째 포털 쿼리'
+description: 이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 Azure Portal에서 첫 번째 쿼리를 실행하는 단계를 따릅니다.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 9cb8fdfcc68e2ef8e19a8fce2545d2939ac13e06
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 5cf355e78ad51e06d7ba27d48dd352f35b4c0740
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958837"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406788"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>빠른 시작: Azure Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리 실행
 
 Azure Resource Graph의 강력한 기능은 Azure Resource Graph Explorer를 통해 Azure Portal에서 직접 사용할 수 있습니다. Resource Graph Explorer는 쿼리할 수 있는 Azure Resource Manager 리소스 종류 및 속성에 대해 탐색 가능한 정보를 제공합니다. 또한 Resource Graph Explorer는 여러 쿼리를 사용하고, 결과를 평가하며, 쿼리 결과 중 일부를 Azure 대시보드에 고정할 수 있는 차트로 변환하는 데 사용할 수 있는 깔끔한 인터페이스를 제공합니다.
 
 이 빠른 시작의 끝부분에서는 Azure Portal 및 Resource Graph Explorer를 사용하여 첫 번째 Resource Graph 쿼리를 실행하고 결과를 대시보드에 고정했습니다.
+
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -117,9 +119,7 @@ Azure Portal 환경에서 Resource Graph 샘플 대시보드를 제거하려면 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
-- [리소스를 살펴 보는](./concepts/explore-resources.md) 방법을 자세히 알아보세요.
-- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
-- [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
-- [고급 쿼리](./samples/advanced.md) 샘플을 살펴봅니다.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.
+이 빠른 시작에서는 Azure Resource Graph Explorer를 사용하여 첫 번째 쿼리를 실행하고 Resource Graph에서 구동하는 대시보드 예제를 살펴보았습니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+
+> [!div class="nextstepaction"]
+> [쿼리 언어에 대한 자세한 정보 가져오기](./concepts/query-language.md)

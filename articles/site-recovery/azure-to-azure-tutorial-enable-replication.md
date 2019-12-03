@@ -5,15 +5,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 11/12/2019
+ms.date: 11/28/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 502f71365d78bd8fd949d17fe8907817394586b2
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 8a99bdb1d181142b456c00f696d0271805f1567a
+ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961490"
+ms.lasthandoff: 11/27/2019
+ms.locfileid: "74561496"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -143,7 +143,7 @@ Site Recovery는 대상 지역에 대한 기본 설정 및 복제 정책을 만�
     **대상 위치** | 재해 복구에 사용되는 대상 지역입니다.<br/><br/> 대상 위치가 Site Recovery 자격 증명 모음의 위치와 일치하는 것이 좋습니다.
     **대상 리소스 그룹** | 장애 조치 후 Azure VM을 보유하는 대상 지역의 리소스 그룹입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 리소스 그룹을 만듭니다. 원본 가상 머신이 호스트되는 지역을 제외한 모든 지역이 대상 리소스 그룹의 위치가 될 수 있습니다.
     **대상 가상 네트워크** | 장애 조치 후 VM이 있는 대상 지역의 네트워크입니다.<br/><br/> 기본적으로 Site Recovery는 "asr" 접미사를 사용하여 대상 지역에 새 가상 네트워크(및 서브넷)를 만듭니다.
-    **캐시 스토리지 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세한 정보](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)
+    **캐시 스토리지 계정** | Site Recovery에서 원본 지역의 스토리지 계정을 사용합니다. 원본 VM의 변경 내용이 이 계정으로 전송된 후 대상 위치에 복제됩니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정해야 합니다. [자세한 정보](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions). 또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
     **대상 스토리지 계정(원본 VM에서 비관리형 디스크를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 새 스토리지 계정을 만들어서 원본 VM 스토리지 계정을 미러링합니다.<br/><br/> 방화벽 지원 캐시 스토리지 계정을 사용하는 경우 **신뢰할 수 있는 Microsoft 서비스 허용**을 사용하도록 설정합니다.
     **복제본 Managed Disks(원본 VM에서 Managed Disks를 사용하는 경우)** : | 기본적으로 Site Recovery는 대상 지역에 복제본 관리 디스크를 만들어 원본 VM의 관리 디스크를 이 관리 디스크와 동일한 스토리지 유형(표준 또는 프리미엄)으로 미러링합니다. 디스크 유형만 사용자 지정할 수 있습니다. 
     **대상 가용성 집합** | 기본적으로 Azure Site Recovery는 원본 지역에서 가용성 세트에 있는 VM 부분의 이름에 “asr” 접미사가 있는 대상 지역에 새 가용성 세트를 만듭니다. Azure Site Recovery에서 만든 가용성 집합이 이미 있는 경우 해당 가용성 집합이 재사용 됩니다.

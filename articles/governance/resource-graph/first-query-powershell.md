@@ -1,14 +1,14 @@
 ---
-title: PowerShell을 사용하여 첫 번째 쿼리 실행
-description: 이 문서에서는 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행하는 단계를 안내합니다.
-ms.date: 10/18/2019
+title: '빠른 시작: 첫 번째 PowerShell 쿼리'
+description: 이 빠른 시작에서는 단계에 따라 Azure PowerShell에 대한 Resource Graph 모듈을 사용하도록 설정하고 첫 번째 쿼리를 실행합니다.
+ms.date: 11/21/2019
 ms.topic: quickstart
-ms.openlocfilehash: 6aaddcfc6cae16501ba6544f9789aa3ac1d13136
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: dd96324671f46f98d5b6c8bae1839a5b02d38b23
+ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958773"
+ms.lasthandoff: 11/21/2019
+ms.locfileid: "74304139"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 첫 번째 Resource Graph 쿼리 실행
 
@@ -16,7 +16,11 @@ Azure Resource Graph를 사용하는 첫 번째 단계는 Azure PowerShell용 �
 
 이 프로세스가 끝나면 선택한 Azure PowerShell 설치에 모듈이 추가되고 첫 번째 Resource Graph 쿼리를 실행하게 됩니다.
 
+## <a name="prerequisites"></a>필수 조건
+
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
+
+[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="add-the-resource-graph-module"></a>Resource Graph 모듈 추가
 
@@ -28,7 +32,7 @@ Azure Resource Graph 모듈에는 다음 소프트웨어가 필요합니다.
 
 - Azure PowerShell 1.0.0 이상 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
 
-- PowerShellGet 2.0.1 이상 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/gallery/installing-psget)을 따릅니다.
+- PowerShellGet 2.0.1 이상 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/scripting/gallery/installing-psget)을 따릅니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
@@ -103,10 +107,7 @@ Uninstall-Module -Name 'Az.ResourceGraph'
 
 ## <a name="next-steps"></a>다음 단계
 
-- [쿼리 언어](./concepts/query-language.md)에 대한 자세한 정보를 가져옵니다.
-- [리소스를 살펴 보는](./concepts/explore-resources.md) 방법을 자세히 알아보세요.
-- [Azure Portal](first-query-portal.md)을 사용하여 첫 번째 쿼리를 실행합니다.
-- [Azure CLI](first-query-azurecli.md)로 첫 번째 쿼리를 실행합니다.
-- [시작 쿼리](./samples/starter.md) 샘플을 참조하세요.
-- [고급 쿼리](./samples/advanced.md) 샘플을 살펴봅니다.
-- [UserVoice](https://feedback.azure.com/forums/915958-azure-governance)에서 피드백을 제공합니다.
+이 빠른 시작에서는 Resource Graph 모듈을 Azure PowerShell 환경에 추가하고 첫 번째 쿼리를 실행합니다. 리소스 그래프 언어에 대한 자세한 내용을 보려면 쿼리 언어 정보 페이지로 이동하세요.
+
+> [!div class="nextstepaction"]
+> [쿼리 언어에 대한 자세한 정보 가져오기](./concepts/query-language.md)

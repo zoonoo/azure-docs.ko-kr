@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Bing Spell Check REST API 및 PHP로 맞춤법 검사'
+title: '빠른 시작: REST API 및 PHP로 맞춤법 검사 - Bing Spell Check'
 titleSuffix: Azure Cognitive Services
 description: 이 간단한 PHP 애플리케이션은 Bing Spell Check API에 요청을 보내고 제안된 수정 사항을 반환합니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 4437297c99e346209cf1f7a8973ea0f6f81894af
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 8c95f0960c098ad56affc641996f1b52681d473e
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110796"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74383859"
 ---
 # <a name="quickstart-check-spelling-with-the-bing-spell-check-rest-api-and-php"></a>빠른 시작: Bing Spell Check REST API 및 PHP로 맞춤법 검사
 

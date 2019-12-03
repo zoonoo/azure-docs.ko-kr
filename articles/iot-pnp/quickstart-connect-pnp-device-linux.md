@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 38a6deb8d021c5e6a20d765cc7aee5b86042f557
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 802578c79fa086c74a56db8d47f83ae96d6b0194
+ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73585979"
+ms.lasthandoff: 11/17/2019
+ms.locfileid: "74152146"
 ---
-# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub"></a>빠른 시작: Linux에서 실행되는 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub에 연결
+# <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-to-iot-hub-c-linux"></a>빠른 시작: Linux에서 실행되는 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub(C Linux)에 연결
 
 이 빠른 시작에서는 Linux에서 샘플 IoT 플러그 앤 플레이 디바이스 애플리케이션을 빌드하고, IoT Hub에 연결하고, Azure CLI를 사용하여 디바이스에서 허브로 전송된 정보를 확인하는 방법을 보여 줍니다. 샘플 애플리케이션은 C로 작성되었으며 C용 Azure IoT 디바이스 SDK에 포함되어 있습니다. 솔루션 개발자는 디바이스 코드를 볼 필요 없이 Azure CLI를 사용하여 IoT 플러그 앤 플레이 디바이스의 기능을 이해할 수 있습니다.
 
@@ -43,15 +43,14 @@ gcc --version
 
 ## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
 
-또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+또한 이 빠른 시작을 완료하려면 Azure 구독의 Azure IoT Hub가 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. IoT Hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md).
 
 > [!IMPORTANT]
 > 공개 미리 보기 기간에는 **미국 중부**, **북유럽** 및 **일본 동부** 지역에서 만든 IoT 허브에서만 IoT 플러그 앤 플레이를 사용할 수 있습니다.
 
 Azure CLI을 로컬로 사용하는 경우 `az` 버전은 **2.0.73** 이상이어야 합니다. Azure Cloud Shell은 최신 버전을 사용합니다. `az --version` 명령을 사용하여 컴퓨터에 설치된 버전을 확인합니다.
 
-다음과 같이 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
-
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
@@ -66,31 +65,29 @@ az login
 
 Azure Cloud Shell을 사용하는 경우 이미 자동으로 로그인되어 있습니다.
 
-IoT Hub가 없는 경우 [다음 지침에 따라 새로 만듭니다](../iot-hub/iot-hub-create-using-cli.md). 공개 미리 보기 기간에는 북유럽, 미국 중부 및 일본 동부에서 IoT 플러그 앤 플레이를 사용할 수 있습니다. 이러한 지역 중 하나에 허브를 만들어야 합니다.
-
-다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 자리 표시자를 실제 IoT Hub 이름으로 바꿉니다.
+다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDeviceID** 자리 표시자를 사용자 고유의 _IoT Hub 이름_ 및 _디바이스 ID_로 바꿉니다.
 
 ```azurecli-interactive
-az iot hub device-identity create --hub-name [YourIoTHubName] --device-id mydevice
+az iot hub device-identity create --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
-다음 명령을 실행하여 방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져옵니다.
+방금 등록한 디바이스의 _디바이스 연결 문자열_을 가져오려면 다음 명령을 실행합니다(나중에 사용하기 위해 참조).
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --hub-name [YourIoTHubName] --device-id mydevice --output table
+az iot hub device-identity show-connection-string --hub-name <YourIoTHubName> --device-id <YourDevice> --output table
 ```
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 
-이 빠른 시작에서는 Azure IoT C 디바이스 SDK를 복제하고 빌드하는 데 사용할 수 있는 개발 환경을 준비합니다.
+이 빠른 시작에서는 Azure IoT Hub Device C SDK를 복제하고 빌드하는 데 사용할 수 있는 개발 환경을 준비합니다.
 
-명령 프롬프트를 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 복제합니다.
+선택한 디렉터리에서 명령 프롬프트를 엽니다. 다음 명령을 실행하여 [Azure IoT C SDK 및 라이브러리](https://github.com/Azure/azure-iot-sdk-c) GitHub 리포지토리를 이 위치에 복제합니다.
 
 ```bash
 git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 ```
 
-이 명령을 완료하는 데 몇 분 정도 걸립니다.
+이 작업을 완료하는 데 몇 분 정도가 걸립니다.
 
 ## <a name="build-the-code"></a>코드 빌드
 
@@ -129,9 +126,9 @@ git clone https://github.com/Azure/azure-iot-sdk-c --recursive -b public-preview
 
 1. 디바이스 SDK 루트 폴더의 `digitaltwin_client/samples/digitaltwin_sample_environmental_sensor` 폴더에서 `EnvironmentalSensor.interface.json` 파일을 선택합니다. **열기**를 선택하고 **저장**을 선택하여 리포지토리에 인터페이스 파일을 업로드합니다.
 
-1. **회사 리포지토리**를 선택한 다음, **연결 문자열**을 선택합니다. 이 빠른 시작 뒷부분에서 사용할 예정이므로 첫 번째 회사 모델 리포지토리 연결 문자열을 기록해 둡니다.
+1. **회사 리포지토리**를 선택한 다음, **연결 문자열**을 선택합니다. 이 빠른 시작 뒷부분에서 사용할 때 _첫 번째 회사 모델 리포지토리 연결 문자열_을 기록해 둡니다.
 
-## <a name="run-the-sample"></a>샘플 실행
+## <a name="run-the-device-sample"></a>디바이스 샘플 실행
 
 SDK에서 샘플 애플리케이션을 실행하여 IoT Hub에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트합니다. 샘플 애플리케이션을 실행하려면 다음을 수행합니다.
 
@@ -144,10 +141,10 @@ SDK에서 샘플 애플리케이션을 실행하여 IoT Hub에 원격 분석을 
 1. 다음과 같이 실행 파일을 실행합니다.
 
     ```bash
-    ./digitaltwin_sample_device "{your device connection string}"
+    ./digitaltwin_sample_device "<YourDeviceConnectionString>"
     ```
 
-시뮬레이트된 디바이스는 원격 분석을 보내고, 명령을 수신 대기하고, 속성 업데이트를 수신하기 시작합니다.
+이제 디바이스가 명령 및 속성 업데이트를 받을 준비가 되었으며 허브로 원격 분석 데이터를 보내기 시작했습니다. 다음 단계를 완료하면서 샘플을 계속 실행합니다.
 
 ### <a name="use-the-azure-iot-cli-to-validate-the-code"></a>Azure IoT CLI를 사용하여 코드의 유효성을 검사합니다.
 
@@ -156,14 +153,15 @@ SDK에서 샘플 애플리케이션을 실행하여 IoT Hub에 원격 분석을 
 다음 명령을 사용하여 샘플 디바이스가 보내는 원격 분석을 볼 수 있습니다. 출력에 원격 분석이 표시되기까지 1~ 2분 정도 기다려야 할 수 있습니다.
 
 ```azurecli-interactive
-az iot dt monitor-events --hub-name {your IoT hub} --device-id mydevice
+az iot dt monitor-events --hub-name <YourIoTHubName> --device-id <YourDeviceID>
 ```
 
 다음 명령을 사용하여 디바이스에서 보낸 속성을 볼 수 있습니다.
 
 ```azurecli-interactive
-az iot dt list-properties --hub-name {your IoT hub} --device-id mydevice --interface sensor --source private --repo-login "{your company model repository connection string}"
+az iot dt list-properties --hub-name <YourIoTHubName> --device-id <YourDeviceID> --interface sensor --source private --repo-login "<YourCompanyModelRepositoryConnectionString>"
 ```
+[!INCLUDE [iot-pnp-clean-resources.md](../../includes/iot-pnp-clean-resources.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

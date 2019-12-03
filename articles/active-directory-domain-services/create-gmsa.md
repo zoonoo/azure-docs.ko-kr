@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: a943d2a8453cb727e9d01e35b12ca90d939ee5e8
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9dc7e6341f77fc17ae26f34ea029b3eb5414dcbc
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546304"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705310"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Azure AD Domain Services에서 그룹 관리 서비스 계정 (gMSA) 만들기
 
@@ -65,7 +65,7 @@ Azure AD DS 관리 되는 도메인은 Microsoft에서 잠그고 관리할 수 �
 > [!TIP]
 > 이러한 단계를 완료 하 여 gMSA를 만들려면 [관리 VM을 사용][tutorial-create-management-vm]합니다. 이 관리 VM에는 필수 AD PowerShell cmdlet 및 관리 되는 도메인에 대 한 연결이 이미 있어야 합니다.
 
-다음 예제에서는 *contoso.com*이라는 Azure AD DS 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
+다음 예제에서는 *aadds.contoso.com*이라는 Azure AD DS 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
 
 ```powershell
 New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
@@ -75,20 +75,20 @@ New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
 
 * **-Name** 은 *WebFarmSvc* 로 설정 됩니다.
 * **-Path** 매개 변수는 이전 단계에서 만든 gMSA에 대 한 사용자 지정 OU를 지정 합니다.
-* *WebFarmSvc.contoso.com* 에 대 한 DNS 항목 및 서비스 주체 이름 설정
+* *WebFarmSvc.aadds.contoso.com* 에 대 한 DNS 항목 및 서비스 주체 이름 설정
 * *CONTOSO-SERVER $* 의 보안 주체는 id를 사용 하 여 암호를 검색할 수 있습니다.
 
 고유한 이름과 도메인 이름을 지정 합니다.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.contoso.com `
+    -DNSHostName WebFarmSvc.aadds.contoso.com `
     -Path "OU=MYNEWOU,DC=contoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.contoso.com/contoso.com, `
-        http/WebFarmSvc.contoso.com/contoso, `
-        http/WebFarmSvc/contoso.com, `
+    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
+        http/WebFarmSvc.aadds.contoso.com/contoso, `
+        http/WebFarmSvc/aadds.contoso.com, `
         http/WebFarmSvc/contoso `
     -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
 ```

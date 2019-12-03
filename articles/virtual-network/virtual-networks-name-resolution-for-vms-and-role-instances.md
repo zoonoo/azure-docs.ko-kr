@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: ebacd386221ed12e1171034eb5d23236bd234849
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 69e9e09b3f2c488f62732e0a74d212126826e8bf
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176046"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707580"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -206,7 +206,7 @@ Azure Resource Manager 배포 모델을 사용하는 경우 가상 네트워크 
 클래식 배포 모델을 사용할 때 Azure Portal 또는 [네트워크 구성 파일](https://msdn.microsoft.com/library/azure/jj157100)에서 가상 네트워크에 대한 DNS 서버를 지정할 수 있습니다. 클라우드 서비스의 경우 DNS 서버는 [서비스 구성 파일](https://msdn.microsoft.com/library/azure/ee758710)을 통해 또는 [New-AzureVM](/powershell/module/servicemanagement/azure/new-azurevm)을 사용하여 지정할 수 있습니다.
 
 > [!NOTE]
-> 이미 배포된 가상 네트워크 또는 가상 머신에 대한 DNS 설정을 변경하면 영향을 받는 각 VM을 다시 시작해야 변경사항이 적용됩니다.
+> 이미 배포 된 가상 네트워크 또는 가상 머신에 대 한 DNS 설정을 변경 하는 경우 새 DNS 설정을 적용 하려면 가상 네트워크에서 영향을 받는 모든 Vm에 대해 DHCP 임대 갱신을 수행 해야 합니다. Windows OS를 실행 하는 Vm의 경우 VM에서 직접 `ipconfig /renew`를 입력 하 여이 작업을 수행할 수 있습니다. 이러한 단계는 OS에 따라 달라 집니다. 해당 OS 유형에 대 한 관련 설명서를 참조 하세요. 
 >
 >
 

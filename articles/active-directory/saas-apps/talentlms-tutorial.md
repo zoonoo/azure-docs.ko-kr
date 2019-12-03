@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 04/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0243a3e0ed83abc1edead5ecece4fd5c6ff1cad9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 970ab9de270b1227884a13ac578d4c439043b20c
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67089156"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74233374"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-talentlms"></a>자습서: TalentLMS와 Azure Active Directory 통합
 
@@ -137,7 +137,7 @@ TalentLMS에서 Azure AD Single Sign-On을 구성하려면 다음 단계를 수�
 
 1. **계정 및 설정** 섹션에서 **사용자** 탭을 클릭합니다.
 
-    ![계정 & 설정](./media/talentlms-tutorial/IC777296.png "계정 & 설정")
+    ![계정 및 설정](./media/talentlms-tutorial/IC777296.png "계정 및 설정")
 
 1. **SSO(Single Sign-On)** 를 클릭합니다.
 
@@ -240,7 +240,7 @@ Azure AD 사용자가 TalentLMS에 로그인할 수 있도록 하려면 TalentLM
     d. **사용자 추가**를 클릭합니다.
 
 > [!NOTE]
-> 다른 TalentLMS 사용자 계정 생성 도구 또는 TalentLMS가 제공한 API를 사용하여 AAD 사용자 계정을 프로비전할 수 있습니다.
+> 다른 TalentLMS 사용자 계정 생성 도구 또는 TalentLMS가 제공한 API를 사용하여 Azure AD 사용자 계정을 프로비저닝할 수 있습니다.
 
 ### <a name="test-single-sign-on"></a>Single Sign-On 테스트
 

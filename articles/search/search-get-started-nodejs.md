@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: REST API를 사용하여 Node.js에서 검색 인덱스 만들기'
 titleSuffix: Azure Cognitive Search
-description: JavaScript에서 인덱스 생성, 데이터 로드, 쿼리 방법을 보여주는 Azure Cognitive Search에 대한 Node.js 샘플입니다.
+description: 이 Node.js 빠른 시작에서 JavaScript 및 REST API를 사용하여 Azure Cognitive Search에서 인덱스를 만들고, 데이터를 로드하고, 쿼리를 실행하는 방법을 알아봅니다.
 author: HeidiSteen
 manager: nitinme
 ms.author: heidist
@@ -9,12 +9,12 @@ ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: 8b7308b5289ba747dba90716b495ca1ba6afb209
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
+ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73719997"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74406929"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -684,11 +684,12 @@ async queryAsync(searchTerm) {
 
 `run` 함수의 전반적인 동작은 Azure Cognitive Search 인덱스가 있는 경우 해당 인덱스를 삭제하고, 인덱스를 만들고, 일부 데이터를 추가하고, 몇 가지 쿼리를 수행하는 것입니다.  
 
-## <a name="clean-up"></a>정리 
+## <a name="clean-up-resources"></a>리소스 정리
 
 본인 소유의 구독으로 이 모듈을 진행하고 있는 경우에는 프로젝트가 끝날 때 여기서 만든 리소스가 계속 필요한지 확인하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
 
 왼쪽 탐색 창의 **모든 리소스** 또는 **리소스 그룹** 링크를 사용하여 포털에서 리소스를 찾고 관리할 수 있습니다.
+
 무료 서비스를 사용하는 경우 인덱스, 인덱서, 데이터 원본 세 개로 제한됩니다. 포털에서 개별 항목을 삭제하여 제한 이하로 유지할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계

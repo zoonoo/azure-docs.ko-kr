@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32511b638d4674198ce919b8b3a90e67b1c3cfc7
-ms.sourcegitcommit: c174d408a5522b58160e17a87d2b6ef4482a6694
+ms.openlocfilehash: 96d212df51a58125e3b959a18f5cf2ac9d391d30
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/18/2019
-ms.locfileid: "58793257"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74422383"
 ---
 # <a name="restore-a-deleted-office-365-group-in-azure-active-directory"></a>Azure Active Directory에서 삭제된 Office 365 그룹 복원
 
@@ -31,7 +31,7 @@ Azure AD(Azure Active Directory)에서 Office 365 그룹을 삭제하는 경우 
 
 역할 | 권한
 --------- | ---------
-글로벌 관리자, 파트너 계층 2 지원 및 Intune 관리자 | 모든 삭제된 Office 365 그룹을 복원할 수 있음
+글로벌 관리자, 그룹 관리자, 파트너 계층 2 지원 및 Intune 관리자 | 모든 삭제된 Office 365 그룹을 복원할 수 있음
 사용자 관리자 및 파트너 계층 1 지원 | 회사 관리자 역할에 할당된 그룹을 제외한 모든 삭제된 Office 365 그룹을 복원할 수 있음
 사용자 | 소유한 Office 365 그룹 중 삭제된 모든 그룹을 복원할 수 있음
 

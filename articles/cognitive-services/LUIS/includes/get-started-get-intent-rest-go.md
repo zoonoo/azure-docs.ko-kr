@@ -6,20 +6,20 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/17/2019
+ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: 6d2955a77c06f371975a7a14675eedceab7c98ae
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 5054ee9a23458944257a8010aaab6268d25042a7
+ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74125552"
+ms.lasthandoff: 11/22/2019
+ms.locfileid: "74414635"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 * [Go](https://golang.org/) 프로그래밍 언어  
 * [Visual Studio Code](https://code.visualstudio.com/)
-* 공용 앱 ID: df67dcdb-c37d-46af-88e1-8b97951ca1c2
+* 공용 앱 ID: `df67dcdb-c37d-46af-88e1-8b97951ca1c2`
 
 ## <a name="get-luis-key"></a>LUIS 키 가져오기
 
@@ -27,7 +27,7 @@ ms.locfileid: "74125552"
 
 ## <a name="get-intent-programmatically"></a>프로그래밍 방식으로 의도 가져오기
 
-Go를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API](https://aka.ms/luis-apim-v3-prediction)를 쿼리합니다.
+Go를 사용하여 [예측 엔드포인트](https://aka.ms/luis-apim-v3-prediction)를 쿼리하고 예측 결과를 가져옵니다.
 
 1. 이름이 `predict.go`인 새 파일을 만듭니다. 다음 코드를 추가합니다.
     
@@ -85,8 +85,8 @@ Go를 사용하여 예측 결과를 가져오는 예측 엔드포인트 GET [API
 
 1. 다음 값을 바꿉니다.
 
-    * `YOUR-KEY`를 시작 키로
-    * `YOUR-ENDPOINT`를 엔드포인트로(예: `westus2.api.cognitive.microsoft.com`)
+    * 시작 키로 있는 `YOUR-KEY`.
+    * 엔드포인트가 있는 `YOUR-ENDPOINT`. 예: `westus2.api.cognitive.microsoft.com`
 
 1. 파일을 만든 위치와 같은 디렉터리에서 명령 프롬프트에 다음 명령을 입력하여 Go 파일을 컴파일합니다.
 

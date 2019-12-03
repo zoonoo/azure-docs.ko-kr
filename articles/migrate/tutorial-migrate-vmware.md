@@ -1,18 +1,18 @@
 ---
-title: 에이전트 없는 Azure Migrate 서버 마이그레이션을 사용하여 온-프레미스 VMware VM을 Azure로 마이그레이션 | Microsoft Docs
-description: Azure Migrate를 사용하여 에이전트 없이 온-프레미스 VMware VM을 Azure로 마이그레이션하는 방법을 설명합니다.
+title: 에이전트 없는 Azure Migrate Server Migration으로 VMware VM 마이그레이션
+description: Azure Migrate를 사용하여 VMware VM의 에이전트 없는 마이그레이션을 실행하는 방법에 대해 알아봅니다.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/04/2019
+ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: ec7d10a1d9fec43c149c068fb408211db76d19eb
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 2b4aad83abc92170df5a7e7cfa7f7751b49b3424
+ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309372"
+ms.lasthandoff: 11/19/2019
+ms.locfileid: "74196411"
 ---
 # <a name="migrate-vmware-vms-to-azure-agentless"></a>VMware VM을 Azure로 마이그레이션(에이전트 없음)
 
@@ -48,12 +48,11 @@ Azure Migrate 서버 마이그레이션 도구를 사용하여 VMware VM을 Azur
 
 이 자습서를 시작하기 전에 다음을 수행해야 합니다.
 
-1. VMware 마이그레이션 아키텍처를 [이해](migrate-architecture.md)합니다.
-2. 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)하여 마이그레이션을 위해 Azure 및 VMware를 설정합니다. 특히 이 자습서에서는 다음을 수행해야 합니다.
+1. 이 시리즈의 [첫 번째 자습서를 완료](tutorial-prepare-vmware.md)하여 마이그레이션을 위해 Azure 및 VMware를 설정합니다. 특히 이 자습서에서는 다음을 수행해야 합니다.
     - 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-vmware.md#prepare-azure)합니다.
     - 마이그레이션을 위해 [온-프레미스 환경을 준비](tutorial-prepare-vmware.md#prepare-for-agentless-vmware-migration)합니다.
     
-3. Azure Migrate 서버 평가를 사용하여 VMware VM을 평가한 후에 해당 VM을 Azure로 마이그레이션하는 것이 좋습니다. 평가를 설정하려면 [이 시리즈의 두 번째 자습서를 완료](tutorial-assess-vmware.md)합니다. VM을 평가하지 않을 경우 이 자습서를 건너뛸 수 있습니다. 평가를 시도하는 것이 좋지만 마이그레이션을 시도하기 전에는 평가를 실행할 필요가 없습니다.
+2. Azure Migrate 서버 평가를 사용하여 VMware VM을 평가한 후에 해당 VM을 Azure로 마이그레이션하는 것이 좋습니다. 평가를 설정하려면 [이 시리즈의 두 번째 자습서를 완료](tutorial-assess-vmware.md)합니다. VM을 평가하지 않을 경우 이 자습서를 건너뛸 수 있습니다. 평가를 시도하는 것이 좋지만 마이그레이션을 시도하기 전에는 평가를 실행할 필요가 없습니다.
 
 
 
