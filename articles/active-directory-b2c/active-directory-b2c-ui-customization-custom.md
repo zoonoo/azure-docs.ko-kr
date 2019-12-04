@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ef4ddc422041de623b96f3a0c85f067427cacd7
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2f0e13b4e68ee4b94a254cb8497a44cc0b8b470f
+ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374220"
+ms.lasthandoff: 11/20/2019
+ms.locfileid: "74209439"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -23,7 +23,7 @@ ms.locfileid: "72374220"
 
 이 문서를 완료 하면 브랜드와 모양을 사용 하 여 등록 및 로그인 사용자 지정 정책을 사용할 수 있습니다. Azure AD B2C(Azure Active Directory B2C)를 사용하면 사용자에게 제공되는 HTML 및 CSS 콘텐츠를 거의 완벽하게 제어할 수 있습니다. 사용자 지정 정책을 사용하는 경우 Azure Portal의 컨트롤을 사용하는 대신 XML로 UI 사용자 지정을 구성합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>선행 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "72374220"
 
 제목에 제품의 브랜드 이름이 포함된 HTML 콘텐츠를 만듭니다.
 
-1. 다음 HTML 코드 조각을 복사합니다. *\<body\>* 태그 내에 있는 *\<div id="api"\>\</div\>* 라는 빈 요소와 함께 잘 구성된 HTML5입니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 나타냅니다.
+1. 다음 HTML 코드 조각을 복사합니다. *\<body\>\< 태그 내에 있는 \>* div id="api" *\</div\>* 라는 빈 요소와 함께 잘 구성된 HTML5입니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 나타냅니다.
 
    ```html
    <!DOCTYPE html>
@@ -63,7 +63,7 @@ ms.locfileid: "72374220"
 
 Blob storage에서이 HTML 콘텐츠를 호스팅하려면 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **허브** 메뉴에서 **새로 만들기** > **스토리지** > **스토리지 계정**을 차례로 선택합니다.
 1. 스토리지 계정에 대한 **구독**을 선택합니다.
 1. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
@@ -93,19 +93,19 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 1. **업로드**를 선택합니다.
 1. 업로드 한 **customize-ui** blob을 선택 합니다.
 1. **Url** 텍스트 상자의 오른쪽에서 **클립보드에 복사** 아이콘을 선택 하 여 url을 클립보드에 복사 합니다.
-1. 웹 브라우저에서 복사한 URL로 이동 하 여 업로드 한 blob에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 경우 예를 들어 `ResourceNotFound` 오류가 발생 하는 경우 컨테이너 액세스 형식이 **blob**으로 설정 되어 있는지 확인 합니다.
+1. 웹 브라우저에서 복사한 URL로 이동 하 여 업로드 한 blob에 액세스할 수 있는지 확인 합니다. 액세스할 수 없는 경우, 예를 들어 `ResourceNotFound` 오류가 발생 한 경우 컨테이너 액세스 형식이 **blob**으로 설정 되어 있는지 확인 합니다.
 
 ## <a name="configure-cors"></a>CORS 구성
 
 다음 단계를 수행 하 여 원본 간 리소스 공유에 대 한 Blob 저장소를 구성 합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
+1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com`. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 1. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 1. **허용된 헤더**에 별표(*)를 입력합니다.
 1. **노출된 헤더**에 별표(*)를 입력합니다.
 1. **최대 기간**에 200을 입력합니다.
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **Save**를 클릭합니다.
 
 ## <a name="test-cors"></a>CORS 테스트
 
@@ -119,12 +119,12 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 
 UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 요소를 기본 파일에서 확장 파일로 복사합니다.
 
-1. 정책의 기본 파일을 엽니다(예: 예를 들어 <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> 입니다. 사용자 지정 정책 시작 팩에 포함 된 정책 파일 중 하나로, 필수 구성 요소, [사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom)에서 가져와야 합니다.
+1. 정책의 기본 파일을 엽니다(예: 예를 들어 <em>`SocialAndLocalAccounts/` **`TrustFrameworkBase.xml`** </em> 합니다. 사용자 지정 정책 시작 팩에 포함 된 정책 파일 중 하나로, 필수 구성 요소, [사용자 지정 정책 시작](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-get-started-custom)에서 가져와야 합니다.
 1. **ContentDefinitions** 요소의 전체 내용을 검색한 후 복사합니다.
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다.
-1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`
+1. 복사한 XML에서 **을 포함하는** ContentDefinition`Id="api.signuporsignin"` 요소를 검색합니다.
+1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`.
 
     사용자 지정 정책이 다음과 비슷해야 합니다.
 
@@ -148,7 +148,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 ## <a name="upload-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드
 
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **ID 경험 프레임워크**를 선택합니다.
 1. **모든 정책**을 클릭합니다.
 1. **업로드 정책**을 클릭합니다.
@@ -181,12 +181,12 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 
 샘플을 사용 하는 방법에 대 한 단계는 다음과 같습니다.
 
-1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. Sample_templates 아래에서 템플릿 폴더를 선택 합니다. @No__t-0 또는 `contoso`을 사용할 수 있습니다.
-1. 이전 섹션에 설명 된 대로 `css`, `fonts` 및 `images` 폴더에 있는 모든 파일을 Blob 저장소에 업로드 합니다.
-1. 그런 다음 `wingtip` 또는 `contoso` (첫 번째 단계에서 선택한 항목 중 하나)의 루트에서 각 @no__t 64, 파일을 열고 "http://localhost"의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 Url로 바꿉니다.
-1. @No__t 64, 파일을 저장 하 고 Blob 저장소에 업로드 합니다.
+1. 로컬 컴퓨터에서 리포지토리를 복제 합니다. Sample_templates에서 템플릿 폴더를 선택 합니다. `wingtip` 또는 `contoso`를 사용할 수 있습니다.
+1. 이전 섹션에 설명 된 대로 `css`, `fonts`및 `images` 폴더에 있는 모든 파일을 Blob 저장소에 업로드 합니다.
+1. 그런 다음 `wingtip` 또는 `contoso` (첫 번째 단계에서 선택한 항목 중 하나)의 루트에서 각 \*파일을 열고 "http://localhost"의 모든 인스턴스를 2 단계에서 업로드 한 css, 이미지 및 글꼴 파일의 Url로 바꿉니다.
+1. \*파일을 저장 하 고 Blob 저장소에 업로드 합니다.
 1. 이제 [확장 파일 수정](#modify-the-extensions-file)의 앞에서 설명한 대로 확장 파일을 수정 합니다.
-1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 @no__t 64, 파일에서 참조를 확인 합니다.
+1. 누락 된 글꼴, 이미지 또는 CSS가 표시 되 면 확장 정책 및 \*파일에서 참조를 확인 합니다.
 
 ### <a name="content-definition-ids"></a>콘텐츠 정의 ID
 
@@ -207,4 +207,4 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정할 수 있는 UI 요소에 대 한 자세한 내용은 [기본 제공 정책의 ui 사용자 지정을 위한 참조 가이드](active-directory-b2c-reference-ui-customization.md)를 참조 하세요.
+사용자 지정할 수 있는 UI 요소에 대 한 자세한 내용은 [사용자 흐름에 대 한 ui 사용자 지정을 위한 참조 가이드](active-directory-b2c-reference-ui-customization.md)를 참조 하세요.

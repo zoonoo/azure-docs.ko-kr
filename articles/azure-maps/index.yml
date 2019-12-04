@@ -45,7 +45,7 @@ sections:
         style: unordered
         items:
           - html: <a href="/azure/azure-maps/tutorial-geofence">지오펜스 설정</a>
-          - html: <a href="/azure-maps/tutorial-iot-hub-maps">공간 분석</a>
+          - html: <a href="/azure/azure-maps/tutorial-iot-hub-maps">공간 분석</a>
           - html: <a href=/azure/azure-maps/tutorial-ev-routing">Azure Notebooks(Python)를 사용한 EV 라우팅</a>
   - title: 참고 자료
     items:
