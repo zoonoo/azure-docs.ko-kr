@@ -1,22 +1,22 @@
 ---
-title: Azure Database for MariaDB에서 MariaDB 방화벽 규칙 만들기 및 관리
+title: 방화벽 규칙 관리-Azure Portal-Azure Database for MariaDB
 description: Azure Portal을 사용한 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: e9ab243692f5a4a1ec7de25774f5bad867698fc3
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 70e6611cc3006424bcd1bc3a0f0838ad40c09634
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60746401"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766024"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
-서버 수준 방화벽 규칙은 지정된 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB에 액세스하는 것을 관리하는 데 사용할 수 있습니다.
+서버 수준 방화벽 규칙은 지정 된 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다.
 
-Virtual Network (VNet) 규칙은 서버에 대한 액세스를 보호하는 데도 사용할 수 있습니다. [Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리하기](howto-manage-vnet-portal.md)에 대해 자세히 알아보세요.
+VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure Portal를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-portal.md)방법에 대해 자세히 알아보세요.
 
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Azure Portal에서 서버 수준 방화벽 규칙 만들기
 
@@ -24,7 +24,7 @@ Virtual Network (VNet) 규칙은 서버에 대한 액세스를 보호하는 데�
 
    ![Azure Portal - 보안 연결 클릭](./media/howto-manage-firewall-portal/1-connection-security.png)
 
-2. 도구 모음에서 **클라이언트 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 사용자 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
+2. 도구 모음에서 **내 IP 추가**를 클릭합니다. 이렇게 하면 Azure 시스템에서 감지한 컴퓨터의 공용 IP 주소를 사용하는 방화벽 규칙이 자동으로 만들어집니다.
 
    ![Azure Portal - 내 IP 추가 클릭](./media/howto-manage-firewall-portal/2-add-my-ip.png)
 
@@ -49,11 +49,11 @@ Azure의 애플리케이션에서 Azure Database for MariaDB 서버에 연결할
 
 ## <a name="manage-existing-firewall-rules-in-the-azure-portal"></a>Azure Portal에서 기존 방화벽 규칙을 관리합니다.
 방화벽 규칙을 관리하는 단계를 반복합니다.
-* 현재 컴퓨터를 추가하려면 **+ 클라이언트 IP 추가**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
+* 현재 컴퓨터를 추가하려면 **+ 내 IP 추가**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 추가 IP 주소를 추가하려면 **규칙 이름**, **시작 IP** 및 **끝 IP**를 입력합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 수정하려면 규칙의 필드 중 하나를 클릭한 후 수정합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 * 기존 규칙을 삭제하려면 줄임표[...]를 클릭하고 **삭제**를 클릭합니다. **저장**을 클릭하여 변경 내용을 저장합니다.
 
 ## <a name="next-steps"></a>다음 단계
- - 마찬가지로, [Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리하기](howto-manage-firewall-cli.md)를 확인할 수 있습니다.
- - [Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리하기](howto-manage-vnet-portal.md)를 통해 서버에 대한 액세스 보안을 더욱 강화합니다.
+ - 마찬가지로 [Azure CLI를 사용 하 여 Azure Database for MariaDB 방화벽 규칙을 만들고 관리](howto-manage-firewall-cli.md)하는 스크립트를 사용할 수 있습니다.
+ - [Azure Portal를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리](howto-manage-vnet-portal.md)하 여 서버에 대 한 액세스를 강화 합니다.

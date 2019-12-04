@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: 68ada90699fe9a9db6faeb32a04e8eb02c176944
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74157645"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786778"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용 하 여 개발 및 구성 Azure Functions
 
@@ -40,7 +40,7 @@ Azure Functions 및 Azure SignalR 서비스를 사용 하 여 빌드한 서버 �
 
 HTTP로 트리거된 Azure 함수 및 *SignalRConnectionInfo* 입력 바인딩을 사용 하 여 연결 정보 개체를 생성 합니다. 함수는 `/negotiate`로 끝나는 HTTP 경로를 포함 해야 합니다.
 
-Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRConnectionInfo* 입력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#signalr-connection-info-input-binding)를 참조 하세요.
+Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRConnectionInfo* 입력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#input)를 참조 하세요.
 
 인증 된 토큰을 만드는 방법에 대 한 자세한 내용은 [App Service 인증 사용](#using-app-service-authentication)을 참조 하세요.
 
@@ -50,7 +50,7 @@ Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRCo
 
 하나 이상의 그룹에 사용자를 추가할 수 있습니다. *SignalR* 출력 바인딩을 사용 하 여 그룹에 사용자를 추가 하거나 그룹에서 사용자를 제거할 수도 있습니다.
 
-자세한 내용은 [ *SignalR* 출력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#signalr-output-binding)를 참조 하세요.
+자세한 내용은 [ *SignalR* 출력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#output)를 참조 하세요.
 
 ### <a name="signalr-hubs"></a>SignalR 허브
 
@@ -107,7 +107,7 @@ JavaScript/TypeScript 클라이언트는 협상 함수에 대해 HTTP 요청을 
 * `CORS`-클라이언트 응용 프로그램의 원본인 기준 URL을 입력 합니다.
 * `CORSCredentials`-"withCredentials" 요청을 허용 하도록 `true`로 설정 합니다.
 
-예:
+예제:
 
 ```json
 {

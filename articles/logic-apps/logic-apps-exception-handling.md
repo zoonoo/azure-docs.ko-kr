@@ -1,20 +1,19 @@
 ---
-title: 오류 및 예외 처리-Azure Logic Apps
+title: 오류 및 예외 처리
 description: Azure Logic Apps에서 오류 및 예외 처리 패턴에 대해 알아보기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: dereklee
 ms.author: deli
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/31/2018
 ms.topic: article
-ms.openlocfilehash: 828bea50a66b90f35843901ae2d7c703ffa58f2d
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: 781abb1ce92a9d96a93ac0c6b04d55075d752db8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208178"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792072"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -28,9 +27,9 @@ ms.locfileid: "70208178"
 
 재시도 정책 유형은 다음과 같습니다. 
 
-| 형식 | Description | 
+| Type | 설명 | 
 |------|-------------| 
-| **Default** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
+| **기본값** | 이 정책은 7.5초마다 *기하급수적으로 증가하는* 간격으로 최대 4번의 다시 시도를 보냅니다. 7.5초마다 증가하지만 5 ~ 45초 사이로 제한됩니다. | 
 | **지수 간격**  | 이 정책은 다음 요청을 보내기 전에 기하급수적으로 증가하는 범위에서 선택된 임의의 간격만큼 대기합니다. | 
 | **고정 간격**  | 이 정책은 다음 요청을 보내기 전에 지정된 간격만큼 대기합니다. | 
 | **없음**  | 요청을 다시 보내지 않습니다. | 
@@ -70,19 +69,19 @@ ms.locfileid: "70208178"
 
 *필수*
 
-| 값 | 형식 | Description |
+| Value | Type | 설명 |
 |-------|------|-------------|
-| <*retry-policy-type*> | String | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
-| <*retry-interval*> | String | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
-| <*retry-attempts*> | Integer | 재시도 횟수이며, 1~90 사이여야 합니다. | 
+| <*retry-policy-type*> | string | 사용할 재시도 정책 유형(`default`, `none`, `fixed` 또는 `exponential`) | 
+| <*retry-interval*> | string | 해당 값이 [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)을 사용해야 하는 재시도 간격입니다. 기본 최소 간격은 `PT5S`이고 최대 간격은 `PT1D`입니다. 지수 간격 정책을 사용하면 다른 최소값 및 최대값을 지정할 수 있습니다. | 
+| <*retry-attempts*> | 정수 | 재시도 횟수이며, 1~90 사이여야 합니다. | 
 ||||
 
 *선택 사항*
 
-| 값 | 형식 | 설명 |
+| Value | Type | 설명 |
 |-------|------|-------------|
-| <*minimum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
-| <*maximum-interval*> | String | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
+| <*minimum-interval*> | string | 지수 간격 정책에서 임의로 선택한 간격의 최소 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
+| <*maximum-interval*> | string | 지수 간격 정책에서 임의로 선택한 간격의 최대 간격([ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations)) | 
 |||| 
 
 다른 정책 유형에 대한 자세한 내용은 다음과 같습니다.
@@ -224,9 +223,9 @@ ms.locfileid: "70208178"
 
 범위에서 실패를 catch하는 것이 유용하지만, 실패한 작업과 반환된 오류 또는 상태 코드를 정확히 파악하는 데 도움이 되는 컨텍스트가 필요할 수 있습니다.
 
-함수 [`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. 함수 `result()` 는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체에는 `@actions()` 개체와 동일한 특성 (예: 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 id 및 출력)이 포함 됩니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 보내려면 `@result()` `runAfter` 속성을 사용 하 여 식을 쉽게 쌍으로 연결할 수 있습니다.
+[`result()`](../logic-apps/workflow-definition-language-functions-reference.md#result) 함수는 범위에 있는 모든 작업의 결과에 대 한 컨텍스트를 제공 합니다. `result()` 함수는 범위 이름인 단일 매개 변수를 수락 하 고 해당 범위 내에서 모든 작업 결과를 포함 하는 배열을 반환 합니다. 이러한 작업 개체는 작업의 시작 시간, 종료 시간, 상태, 입력, 상관 관계 Id 및 출력과 같은 `@actions()` 개체와 동일한 특성을 포함 합니다. 범위 내에서 실패 한 작업에 대 한 컨텍스트를 전송 하려면 `@result()` 식을 `runAfter` 속성과 쉽게 연결할 수 있습니다.
 
-**실패** 한 결과가 포함 된 범위에서 각 작업에 대 한 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 식에 `@result()` [**필터 배열**](../connectors/connectors-native-query.md) 작업과 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프를 쌍으로 연결할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다.
+**실패** 한 결과가 포함 된 범위에서 각 작업에 대 한 작업을 실행 하 고 실패 한 작업까지 결과 배열을 필터링 하려면 `@result()` 식을 [**필터 배열**](../connectors/connectors-native-query.md) 작업 및 [**for each**](../logic-apps/logic-apps-control-flow-loops.md) 루프와 쌍으로 연결할 수 있습니다. 필터링된 결과 배열을 사용하고 **For each** 루프를 사용하여 각 오류에 대한 작업을 수행할 수 있습니다.
 
 다음 예제에서는 자세한 설명과 함께 "My_Scope" 범위 내에서 실패한 작업의 응답 본문이 포함된 HTTP POST 요청을 보냅니다.
 
@@ -318,7 +317,7 @@ ms.locfileid: "70208178"
 }
 ```
 
-다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 앞에서 설명한 대로  **\@result ()** 응답에서 기타 유용한 속성을 포함할 수도 있습니다.
+다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링된 실패 배열 전체를 허용하는 범위 외부에서 단일 예외 처리 작업을 실행하고 **For each** 작업을 제거하도록 선택할 수 있습니다. 앞에서 설명한 대로 **\@result ()** 응답에서 기타 유용한 속성을 포함할 수도 있습니다.
 
 ## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics 및 메트릭
 

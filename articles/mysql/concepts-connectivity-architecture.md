@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL의 연결 아키텍처
+title: 연결 아키텍처-Azure Database for MySQL
 description: Azure Database for MySQL 서버에 대 한 연결 아키텍처를 설명 합니다.
 author: kummanish
 ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/15/2019
-ms.openlocfilehash: c4fecfadefedf10f7e11534b4efbd197c4d7fdae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: 22c77bee95533606156ec6cc337af1d743018005
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213148"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765327"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Azure Database for MySQL의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MySQL 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MySQL 연결 아키텍처에 대해 설명 합니다.
@@ -51,11 +51,11 @@ ms.locfileid: "74213148"
 | 한국 중부 | 52.231.32.42 | |
 | 한국 남부 | 52.231.200.86 |  |
 | 미국 중북부 | 23.98.55.75 | 23.96.178.199 |
-| 유럽 북부 | 191.235.193.75 | 40.113.93.91 |
+| 북유럽 | 191.235.193.75 | 40.113.93.91 |
 | 미국 중남부 | 23.98.162.75 | 13.66.62.124 |
-| 아시아 남동부 | 23.100.117.95 | 104.43.15.0 |
+| 동남아시아 | 23.100.117.95 | 104.43.15.0 |
 | 남아프리카 공화국 북부 | 102.133.152.0 | |
-| 남아프리카 서부 | 102.133.24.0 | |
+| 남아프리카 공화국 서부 | 102.133.24.0 | |
 | 아랍에미리트 북부 | 65.52.248.0 | |
 | 영국 남부 | 51.140.184.11 | |
 | 영국 서부 | 51.141.8.11| |
@@ -65,15 +65,7 @@ ms.locfileid: "74213148"
 ||||
 
 > [!NOTE]
-> *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
-
-## <a name="connection-redirection"></a>연결 리디렉션
-
-Azure Database for MySQL은 클라이언트 응용 프로그램과 MySQL 서버 간의 네트워크 대기 시간을 줄이는 데 도움이 되는 추가 연결 정책 **리디렉션**기능을 지원 합니다. 이 기능을 사용 하 여 Azure Database for MySQL 서버에 초기 TCP 세션이 설정 된 후 서버는 MySQL 서버를 호스트 하는 노드의 백 엔드 주소를 클라이언트에 반환 합니다. 이후에는 모든 후속 패킷이 서버에 직접 전달 되 고 게이트웨이는 무시 됩니다. 패킷이 서버에 직접 전달 되 면 대기 시간 및 처리량이 향상 됩니다.
-
-이 기능은 엔진 버전이 5.6, 5.7 및 8.0 인 Azure Database for MySQL 서버에서 지원 됩니다.
-
-리디렉션의 미리 보기 지원은 Microsoft에서 개발한 [PHP mysqlnd_azure](https://github.com/microsoft/mysqlnd_azure) 확장에서 제공 되며 [PECL](https://pecl.php.net/package/mysqlnd_azure)에서 사용할 수 있습니다. 응용 프로그램에서 리디렉션을 사용 하는 방법에 대 한 자세한 내용은 [리디렉션 구성](./howto-redirection.md) 문서를 참조 하세요. 
+> *미국 동부 2* 에는 `52.167.104.0`의 3 차 IP 주소도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

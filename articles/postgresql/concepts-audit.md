@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL 단일 서버에서 pgAudit를 사용 하 여 감사 로깅
+title: 감사 로깅-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL의 pgAudit 감사 로깅에 대 한 개념-단일 서버.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2019
-ms.openlocfilehash: 49ad7334c418e29c821320608be729e060b4a8ae
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4a41e5eda3ca2bd92d78a81d73c1ad4c859e25a3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331326"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764562"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -39,10 +39,10 @@ Azure Storage, Event Hubs 또는 Azure Monitor 로그에 대 한 로깅을 설�
 
 PgAudit를 설치 하려면 서버 공유 미리 로드 라이브러리에이를 포함 해야 합니다. Postgres의 `shared_preload_libraries` 매개 변수를 변경 하려면 서버를 다시 시작 해야 적용 됩니다. [Azure Portal](howto-configure-server-parameters-using-portal.md), [Azure CLI](howto-configure-server-parameters-using-cli.md)또는 [REST API](/rest/api/postgresql/configurations/createorupdate)를 사용 하 여 매개 변수를 변경할 수 있습니다.
 
-[Azure portal](https://portal.azure.com) 사용:
+[Azure Portal](https://portal.azure.com)사용:
 
    1. Azure Database for PostgreSQL 서버를 선택합니다.
-   2. 사이드바에서 **서버 매개 변수**를 선택합니다.
+   2. 사이드바에서 **서버 매개 변수**를 선택 합니다.
    3. `shared_preload_libraries` 매개 변수를 검색합니다.
    4. **Pgaudit**를 선택 합니다.
    5. 서버를 다시 시작 하 여 변경 내용을 적용 합니다.

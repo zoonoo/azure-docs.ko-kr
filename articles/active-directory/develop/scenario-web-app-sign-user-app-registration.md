@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50e4778693e448b9a989d70d3ca8cf91c76ce380
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766075"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -68,27 +68,27 @@ ms.locfileid: "74482055"
    1. **이름** 섹션에 앱 사용자에 게 표시 되는 의미 있는 응용 프로그램 이름을 입력 합니다. 예를 들어 **Mailapp-openidconnect-v2**를 입력 합니다.
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **https://localhost:44326/** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
-1. **인증** 메뉴를 선택 합니다. 
+1. **인증** 메뉴를 선택 합니다.
 1. **고급 설정** | **암시적 허용** 섹션에서 **ID 토큰**을 선택 합니다. 이 샘플을 사용 하려면 사용자에 게 로그인 할 수 있는 [암시적 grant 흐름이](v2-oauth2-implicit-grant-flow.md) 필요 합니다.
 1. **저장**을 선택합니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-1. **응용 프로그램 등록 페이지가** 표시 되 면 응용 프로그램에 대 한 표시 이름을 입력 합니다. 예를 들어 **java-webapp**을 입력 합니다. 
+1. **응용 프로그램 등록 페이지가** 표시 되 면 응용 프로그램에 대 한 표시 이름을 입력 합니다. 예를 들어 **java-webapp**을 입력 합니다.
 1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서 계정을**선택 하 고 **응용 프로그램 유형**으로 **웹 앱/** a p i를 선택 합니다.
 1. **등록** 을 선택 하 여 응용 프로그램을 등록 합니다.
-1. 왼쪽 메뉴에서 **인증**을 선택 합니다. **Uri 리디렉션**에서 **웹**을 선택 합니다. 
+1. 왼쪽 메뉴에서 **인증**을 선택 합니다. **Uri 리디렉션**에서 **웹**을 선택 합니다.
 
 1. 두 개의 리디렉션 Uri (로그인 페이지의 경우 하나, 그래프 페이지의 경우 하나)를 입력 합니다. 둘 다에 대해 동일한 호스트 및 포트 번호를 사용 하 고, 로그인 페이지에 **/msal4jsample/secure/aad** 을, 사용자 정보 페이지에 대해 **msal4jsample/graph/me** 를 사용 합니다.
- 
+
    기본적으로이 샘플은 다음을 사용 합니다.
 
    - **http://localhost:8080/msal4jsample/secure/aad**
    - **http://localhost:8080/msal4jsample/graph/me**
 
-1. **고급 설정** 섹션에서 **로그 아웃 URL** 을 **http://localhost:8080/msal4jsample/sign_out** 로 설정 합니다. 그런 다음 **저장**을 선택합니다.
+  그런 다음 **저장**을 선택합니다.
 
-1. 메뉴에서 **인증서 & 암호** 를 선택 합니다. 
+1. 메뉴에서 **인증서 & 암호** 를 선택 합니다.
 1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택 하 고 다음을 수행 합니다.
 
    1. 키 설명을 입력 합니다.
@@ -104,7 +104,6 @@ ms.locfileid: "74482055"
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
 1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트에 대 한 Visual Studio 구성 파일을 구성 하는 데 필요 합니다.
-1. **인증** 섹션을 선택 합니다. **고급 설정**에서 **로그 아웃 URL** 을 **http://localhost:5000/logout** 로 설정 합니다. 그런 다음 **저장**을 선택합니다.
 1. 왼쪽 메뉴에서 **인증서 & 암호**를 선택 합니다.
 1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택 하 고 다음을 수행 합니다.
 

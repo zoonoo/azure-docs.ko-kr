@@ -9,12 +9,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: 9aa41e63c275737874d57ba016e297a64f3eb124
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5219ff94b29d4fd02edb8567ae59884ced07b37e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823013"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791359"
 ---
 # <a name="commercial-marketplace-transaction-capabilities-and-considerations"></a>상업적 marketplace 트랜잭션 기능 및 고려 사항
 
@@ -66,7 +66,7 @@ SaaS 앱의 경우 게시자는 Azure 인프라 사용 요금 및 소프트웨�
 
 * 종량제: 소프트웨어 라이선스 요금이 사용된 Azure 인프라를 기준으로 시간당, 코어당(vCPU) 가격 책정 요금으로 표시됩니다. 이는 Virtual Machines 및 Azure 애플리케이션에만 적용됩니다.
 
-* • 구독 가격: 소프트웨어 라이선스 요금은 정액 요금 또는 사용자 단위로 청구 되는 월별 또는 연간 반복 요금으로 제공 됩니다. 이는 SaaS 앱 및 Azure 응용 프로그램 관리 앱에만 적용 됩니다.
+* 구독 가격: 소프트웨어 라이선스 요금은 월별 또는 연간 요금으로 청구 되는 월별 또는 연간 요금으로 제공 됩니다. 이는 SaaS 앱 및 Azure 응용 프로그램 관리 앱에만 적용 됩니다.
 
 * 평가판 소프트웨어: 30일 또는 90일 동안 소프트웨어 라이선스 요금이 부과되지 않습니다.
 
@@ -92,7 +92,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 이 옵션을 사용 하면 공개적으로 제공 되는 제품 보다 더 높거나 낮은 가격 책정을 사용할 수 있습니다. 프라이빗 제품은 할인하거나 제품에 대한 프리미엄을 추가하는 데 사용될 수 있습니다. 프라이빗 제품은 제품 수준에서 Azure 구독을 허용 목록에 추가하면 둘 이상의 고객이 사용할 수 있습니다.
 
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 **종량제** 
 
@@ -163,7 +163,7 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 예를 들어, 고객이 신용 카드를 사용하여 구매하는 경우:
 
-|설명    |    Date  |
+|설명    |    날짜  |
 |----------|----------|
 |주문 기간   | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(월)   | 2018년 8월 30일 |
@@ -177,12 +177,12 @@ Microsoft에서는 고객 들이 Microsoft의 상용 Marketplace 및 게시자�
 
 고객이 기업 계약을 사용하여 구매하는 경우:
 
-| 설명 |    Date  |
+| 설명 |    날짜  |
 |----------|----------|
 |주문 기간 | 2018년 8월 15일 - 2018년 8월 30일 |
 |기간 종료일(분기) | 2018년 9월 30일 |
 |청구 날짜 | 2018년 10월 15일 |
-|에스크로 기간(신용 카드만 해당, 30일) | 해당 없음 |
+|에스크로 기간(신용 카드만 해당, 30일) | n/a |
 |수금 기간 시작일 | 2018년 10월 15일 |
 |수금 기간 종료일(최대 90일) | 2019년 1월 15일 |
 |고객 지불 날짜 | 2018년 12월 30일 |

@@ -13,15 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2019
 ms.author: memildin
-ms.openlocfilehash: bf33fe29b18b09bf903e1fc331f1c378eacb3e17
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 21feed73d025e0c0a4b2c7bb07d23f450780126e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201724"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766789"
 ---
-# <a name="protect-your-network-resources-in-azure-security-center"></a>Azure Security Center에서 네트워크 리소스 보호
+# <a name="protect-your-network-resources"></a>네트워크 리소스 보호
 Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리소스의 보안 상태를 지속적으로 분석합니다. Security Center에서 잠재적인 보안 취약점을 식별하는 경우 리소스를 보호하고 강화하는 데 필요한 컨트롤을 구성하는 과정을 안내하는 권장 사항을 만듭니다.
+
+이 문서에서는 Azure Security Center 리소스 보안 섹션의 **네트워킹** 페이지와 여기에 표시 되는 권장 사항 중 일부에 대해 설명 합니다.
+
+네트워킹에 대 한 권장 사항의 전체 목록은 [네트워킹 권장 사항](recommendations-network.md)을 참조 하세요.
 
 이 문서에서는 네트워크 보안 관점에서 Azure 리소스에 적용되는 권장 사항을 설명합니다. 네트워킹 권장 사항은 차세대 방화벽, 네트워크 보안 그룹, JIT VM 액세스 허용 범위가 과도하게 큰 인바운드 트래픽 규칙 등에 초점을 둡니다. 네트워킹 권장 사항 및 수정 작업 목록은 [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md)를 참조하세요.
 
@@ -131,31 +135,8 @@ Azure Security Center는 네트워크 보안 모범 사례에 대한 Azure 리�
 
 세 번째 수준은 이전에 설명한 것과 유사한 가상 머신을 표시합니다. 리소스를 클릭 하 여 자세히 알아보거나 필요한 보안 제어 또는 구성을 적용할 수 있습니다.
 
-## <a name="network-recommendations"></a>네트워크 권장 사항
-
-|권장 사항 이름|설명|severity|보안 점수|리소스 형식|
-|----|----|----|----|----|----|
-|서브넷 수준의 네트워크 보안 그룹을 사용 하도록 설정 해야 합니다.|네트워크 보안 그룹을 사용 하 여 서브넷에 배포 된 리소스에 대 한 네트워크 액세스를 제어 합니다.|높음/보통|30|Subnet|
-|가상 컴퓨터는 네트워크 보안 그룹에 연결 해야 합니다.|가상 머신의 네트워크 액세스를 제어하기 위해 네트워크 보안 그룹을 활성화합니다.|높음/보통|30|가상 머신|
-|인터넷 연결 Vm을 사용 하는 허용 되는 네트워크 보안 그룹에 대 한 액세스를 제한 해야 합니다.|기존 허용 규칙의 액세스를 제한 하 여 인터넷 연결 Vm의 네트워크 보안 그룹을 강화 합니다.|높음|20|가상 머신|
-|IaaS NSGs의 웹 응용 프로그램에 대 한 규칙을 강화 해야 합니다.|웹 응용 프로그램 포트와 관련 하 여 과도 하 게 허용 되는 NSG 규칙을 사용 하 여 웹 응용 프로그램을 실행 하는 가상 컴퓨터의 NSG (네트워크 보안 그룹)를 강화 합니다.|높음|20|가상 머신|
-|App Services에 대 한 액세스를 제한 해야 합니다.|너무 광범위 한 범위에서 인바운드 트래픽을 거부 하도록 네트워킹 구성을 변경 하 여 App Services에 대 한 액세스를 제한 합니다.|높음|10|앱 서비스|
-|가상 머신에서 관리 포트를 닫아야 합니다.|가상 머신의 네트워크 보안 그룹을 강화 하 여 관리 포트에 대 한 액세스를 제한 합니다.|높음|10|가상 머신|
-DDoS Protection 표준을 사용하도록 설정해야 합니다.|DDoS protection service standard를 사용 하도록 설정 하 여 공용 Ip가 있는 응용 프로그램이 포함 된 가상 네트워크를 보호 합니다. DDoS protection을 사용 하면 네트워크 대규모 및 프로토콜 공격을 완화할 수 있습니다.|높음|10|가상 네트워크|
-|가상 머신에서 IP 전달을 사용 하지 않도록 설정 해야 합니다.|IP 전달을 사용 하지 않습니다. 가상 컴퓨터의 NIC에서 IP 전달을 사용 하는 경우 컴퓨터는 다른 대상으로 주소가 지정 된 트래픽을 수신할 수 있습니다. IP 전달은 거의 필요 하지 않습니다 (예: VM을 네트워크 가상 어플라이언스로 사용 하는 경우). 따라서 네트워크 보안 팀에서 검토 해야 합니다.|보통|10|가상 머신|
-|웹 애플리케이션에 HTTPS를 통해서만 액세스 가능|웹 응용 프로그램에 대해 "HTTPS만" 액세스를 사용 하도록 설정 합니다. HTTPS를 사용 하 여 서버/서비스 인증을 보장 하 고 전송 중인 데이터를 네트워크 계층 도청 공격 으로부터 보호 합니다.|보통|20|웹 애플리케이션|
-|Just-in-time 네트워크 액세스 제어는 가상 컴퓨터에 적용 되어야 합니다.|JIT (just-in-time) VM (가상 컴퓨터) 액세스 제어를 적용 하 여 선택한 포트에 대 한 액세스 권한을 영구적으로 잠그고, 권한 있는 사용자가 제한 된 시간 동안만 JIT를 통해 해당 포트를 열 수 있도록 합니다.|높음|20|가상 머신|
-|HTTPS를 통해서만 함수 앱에 액세스할 수 있어야 합니다.|함수 앱에 대해 "HTTPS만" 액세스를 사용 하도록 설정 합니다. HTTPS를 사용 하 여 서버/서비스 인증을 보장 하 고 전송 중인 데이터를 네트워크 계층 도청 공격 으로부터 보호 합니다.|보통|20|함수 앱|
-|Storage 계정에 보안 전송을 사용하도록 설정해야 합니다.|저장소 계정에 대 한 보안 전송을 사용 하도록 설정 합니다. 보안 전송은 사용자의 스토리지 계정이 보안 연결(HTTPS)에서 오는 요청만 수락하도록 강제 적용하는 옵션입니다. HTTPS를 사용 하면 서버와 서비스 간의 인증을 보장할 뿐 아니라 메시지 가로채기 (man-in-the-middle), 도청 및 세션 하이재킹과 같은 네트워크 계층 공격 으로부터 전송 중인 데이터를 보호 합니다.|높음|20|Storage 계정|
-
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 다른 Azure 리소스 유형에 적용되는 권장 사항에 대해 자세히 알아보려면 다음을 참조하세요.
 
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 Azure SQL 서비스 보호](security-center-sql-service-recommendations.md)
-
-보안 센터에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
-* [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.

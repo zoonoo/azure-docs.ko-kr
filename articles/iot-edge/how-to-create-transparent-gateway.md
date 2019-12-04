@@ -8,12 +8,12 @@ ms.date: 08/17/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d0ac7fa3a1dbb1c91da5b9919bc2c62de74213b5
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: c005dcd91412552e2b10c27a7809ca4bc46d4709
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456792"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792330"
 ---
 # <a name="configure-an-iot-edge-device-to-act-as-a-transparent-gateway"></a>IoT Edge 디바이스를 투명 게이트웨이로 작동하도록 구성
 
@@ -46,7 +46,7 @@ ms.locfileid: "74456792"
 
 다음 단계는 인증서를 만들어 게이트웨이의 올바른 위치에 설치 하는 과정을 안내 합니다. 머신을 사용하여 인증서를 생성한 다음, IoT Edge 디바이스로 복사할 수 있습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * 인증서를 만들 수 있는 개발 컴퓨터입니다. 
 * Azure IoT Edge 디바이스를 게이트웨이로 구성합니다. 다음 운영 체제 중 하나에 IoT Edge 설치 단계를 사용 합니다.
@@ -284,13 +284,13 @@ Azure IoT Edge git 리포지토리에는 테스트 인증서를 생성 하는 �
 
 IoT Hub와의 모든 통신은 아웃 바운드 연결을 통해 수행 되므로 표준 IoT Edge 장치는 작동 하기 위해 인바운드 연결이 필요 하지 않습니다. 게이트웨이 장치는 다운스트림 장치에서 메시지를 수신 해야 하기 때문에 다릅니다. 다운스트림 장치와 게이트웨이 장치 사이에 방화벽이 있는 경우 방화벽을 통해 통신도 가능 해야 합니다.
 
-게이트웨이 시나리오가 작동 하려면 다운스트림 장치에서 인바운드 트래픽에 대해 IoT Edge 허브의 지원 되는 프로토콜 중 하나 이상을 열어야 합니다. 지원 되는 프로토콜은 MQTT, AMQP 및 HTTPS입니다. 
+게이트웨이 시나리오가 작동 하려면 다운스트림 장치에서 인바운드 트래픽에 대해 IoT Edge 허브의 지원 되는 프로토콜 중 하나 이상을 열어야 합니다. 지원 되는 프로토콜은 MQTT, AMQP, HTTPS, Websocket을 통한 MQTT, Websocket을 통한 AMQP입니다. 
 
-| 포트 | 프로토콜 |
+| Port | 프로토콜 |
 | ---- | -------- |
 | 8883 | MQTT |
 | 5671 | AMQP |
-| 443 | HTTPS <br> MQTT+WS <br> AMQP+WS | 
+| 443 | HTTPS <br> MQTT + WS <br> AMQP + WS | 
 
 ## <a name="route-messages-from-downstream-devices"></a>다운스트림 디바이스에서 메시지 라우팅
 IoT Edge 런타임은 모듈에서 전송한 메시지와 같은 다운스트림 디바이스에서 전송된 메시지를 라우팅할 수 있습니다. 이 기능을 사용 하면 클라우드에서 데이터를 전송 하기 전에 게이트웨이에서 실행 되는 모듈에서 분석을 수행할 수 있습니다. 

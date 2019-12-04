@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e77368c7c0c104e777595a16735a7cf1e797a48
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: dfb4b7d2cb34855208eb54c6d30b29e4bbff636b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539017"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766619"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -123,13 +123,9 @@ Azure AD는 등록 된 도메인 마다 별도의 암호 만료 정책을 지원
   
 임시 암호 기능을 사용 하면 자격 증명의 소유권 전송이 처음 사용 될 때 완료 되어 둘 이상의 개인이 해당 자격 증명을 알고 있는 기간을 최소화할 수 있습니다.
 
-Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려면 Azure AD Connect 서버에서 다음 명령을 실행 하 여 <AAD Connector Name>을 사용자 환경에 맞는 커넥터 이름으로 바꿔 *ForcePasswordResetOnLogonFeature* 기능을 사용 하도록 설정할 수 있습니다.
+Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려면 Azure AD Connect 서버에서 다음 명령을 실행 하 여 *ForcePasswordResetOnLogonFeature* 기능을 사용 하도록 설정할 수 있습니다.
 
-`Set-ADSyncAADCompanyFeature -ConnectorName "<AAD Connector name>" -ForcePasswordResetOnLogonFeature $true`
-
-다음 명령을 사용 하 여 커넥터 이름을 확인할 수 있습니다.
-
-`(Get-ADSyncConnector | where{$_.ListName -eq "Windows Azure Active Directory (Microsoft)"}).Name`
+`Set-ADSyncAADCompanyFeature  -ForcePasswordResetOnLogonFeature $true`
 
 주의: 다음 번에 로그온 할 때 사용자에 게 암호를 강제로 변경 하려면 암호를 변경 해야 합니다.  AD Connect는 암호 변경 플래그를 단독으로 선택 하지 않으며 암호 해시 동기화 중에 발생 하는 검색 된 암호 변경을 보완 합니다.
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 09defe9648208e2300594169add990d4bcbd7a39
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112581"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790490"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Azure Cognitive Search에서 보강 문서의 증분 인덱싱을 설정 하는 방법
 
@@ -41,13 +41,32 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>2 단계: cache 속성 추가
 
-GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 단일 속성만 필요 하며,이는 Azure Storage 계정에 대 한 연결 문자열입니다.
+< < < < < < < GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 저장소 계정에 대 한 연결 문자열인 `storageConnectionString` 단일 속성만 필요 합니다. = = = = = = = GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 단일 속성만 필요 하며,이는 Azure Storage 계정에 대 한 연결 문자열입니다.
+>>>>>>> 3519a330aa86b6827d31403690529105825b1b16
 
 ```json
-    "cache": {
-        "storageConnectionString": "[your storage connection string]"
+{
+    "name": "myIndexerName",
+    "targetIndexName": "myIndex",
+    "dataSourceName": "myDatasource",
+    "skillsetName": "mySkillset",
+    "cache" : {
+        "storageConnectionString" : "Your storage account connection string",
+        "enableReprocessing": true,
+        "id" : "Auto generated Id you do not need to set"
+    },
+    "fieldMappings" : [],
+    "outputFieldMappings": [],
+    "parameters": {
+        "configuration": {
+            "enableAnnotationCache": true
+        }
     }
+}
 ```
+#### <a name="enable-reporocessing"></a>Reporocessing 사용
+
+필요에 따라 캐시 내에서 부울 속성 `enableReprocessing` 설정할 수 있습니다 .이 속성은 기본적으로 true로 설정 됩니다. `enableReprocessing` 플래그를 사용 하면 인덱서의 동작을 제어할 수 있습니다. 인덱서가 인덱스에 새 문서를 추가 하는 우선 순위를 지정 하려는 시나리오에서 플래그를 false로 설정 합니다. 새 문서를 사용 하 여 인덱서를 catch 하면 플래그를 true로 대칭 이동 하면 인덱서가 기존 문서를 최종 일관성으로 구동 하기 시작할 수 있습니다. `enableReprocessing` 플래그가 false로 설정 된 기간 동안 인덱서는 캐시에만 기록 하지만 보강 파이프라인에 대 한 식별 된 변경 내용에 따라 기존 문서를 처리 하지 않습니다.
 
 ### <a name="step-3-reset-the-indexer"></a>3 단계: 인덱서 다시 설정
 

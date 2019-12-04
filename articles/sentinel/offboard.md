@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: a45f273078a622de5e256457fc45b6cb6cae512f
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 4c0c415235fd290bc47ac402a6b81a1afa7af903
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464130"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74777437"
 ---
-# <a name="remove-azure-sentinel-from-your-tenant"></a>테 넌 트에서 Azure 센티널 제거
+# <a name="remove-azure-sentinel-from-your-workspace"></a>작업 영역에서 Azure 센티널 제거
 
-Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서는 테 넌 트에서이를 제거 하는 방법을 설명 합니다.
+Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서는 작업 영역에서 제거 하는 방법을 설명 합니다.
 
 ## <a name="how-to-delete-azure-sentinel"></a>Azure 센티널을 삭제 하는 방법
 
@@ -49,7 +49,7 @@ Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서�
 연결이 끊어진 후에는 오프 보 딩 프로세스가 시작 됩니다.
 
 **이러한 커넥터의 구성이 삭제 됩니다.**
--   Office 365
+-   PowerApps
 
 -   AWS
 
@@ -67,9 +67,9 @@ Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서�
 
 -   인시던트 (조사 메타 데이터 포함)
 
--   작업
+-   경고 규칙
 
--   책갈피
+-   내부의
 
 플레이 북, 저장 된 통합 문서, 저장 된 구하기 쿼리 및 노트북은 삭제 되지 않습니다. **제거 된 데이터로 인해 일부는 중단 될 수 있습니다. 수동으로 제거할 수 있습니다.**
 

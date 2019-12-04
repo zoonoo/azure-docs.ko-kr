@@ -1,20 +1,17 @@
 ---
-title: 여러 ISEs에 대 한 액세스 설정-Azure Logic Apps
+title: 여러 ISEs에 대 한 액세스 설정
 description: ISEs (여러 integration service environment)의 경우 단일 공용 아웃 바운드 IP 주소를 설정 하 여 Azure Logic Apps에서 외부 시스템에 액세스할 수 있습니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 11/27/2019
-ms.openlocfilehash: f35b6836012df7ac3879070f7a85fbfb21b456c0
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: f3b422a55b7e2abbc8b1538183fd57fb234900d4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74549246"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792692"
 ---
 # <a name="set-up-access-for-multiple-integration-service-environments-in-azure-logic-apps"></a>Azure Logic Apps에서 여러 통합 서비스 환경에 대 한 액세스 설정
 

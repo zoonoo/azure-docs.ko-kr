@@ -1,28 +1,24 @@
 ---
-title: Azure Logic Apps에서 SMTP에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 SMTP에 연결
 description: Azure Logic Apps를 사용하여 SMTP(Simple Mail Transfer Protocol) 계정을 통해 이메일을 전송하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: d4141c08-88d7-4e59-a757-c06d0dc74300
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 1649f197d4dbd88e2b485ab32f254a2d09696a84
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: fb501a158c839e6d4d71fc2af5ae50e48c248466
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050749"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789157"
 ---
 # <a name="send-email-from-your-smtp-account-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SMTP 계정에서 이메일 보내기
 
-Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하여 SMTP 계정에서 이메일을 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 또한 다른 작업에서 SMTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SMTP에서 이메일을 보낸 후 Slack 커넥터를 사용하여 Slack 팀에 알릴 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하여 SMTP 계정에서 이메일을 전송하는 자동화된 작업 및 워크플로를 만들 수 있습니다. 또한 다른 작업에서 SMTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 SMTP에서 이메일을 보낸 후 Slack 커넥터를 사용하여 Slack 팀에 알릴 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -42,7 +38,7 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. SMTP 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 
 
@@ -53,14 +49,14 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 1. 메시지가 표시되면 이 연결 정보를 제공합니다.
 
-   | 속성 | 필수 | Description |
+   | 자산 | 필수 | 설명 |
    |----------|----------|-------------|
-   | **연결 이름** | 예 | SMTP 서버에 대한 연결의 이름 | 
-   | **SMTP 서버 주소** | 예 | SMTP 서버에 대한 주소 | 
-   | **사용자 이름** | 예 | SMTP 계정에 대한 사용자 이름 | 
-   | **암호** | 예 | SMTP 계정에 대한 암호 | 
-   | **SMTP 서버 포트** | 아니요 | 사용하려는 SMTP 서버의 특정 포트 | 
-   | **SSL 사용?** | 아니요 | SSL 암호화를 설정하거나 해제합니다. | 
+   | **연결 이름** | yes | SMTP 서버에 대한 연결의 이름 | 
+   | **SMTP 서버 주소** | yes | SMTP 서버에 대한 주소 | 
+   | **사용자 이름** | yes | SMTP 계정에 대한 사용자 이름 | 
+   | **암호** | yes | SMTP 계정에 대한 암호 | 
+   | **SMTP 서버 포트** | 아닙니다. | 사용하려는 SMTP 서버의 특정 포트 | 
+   | **SSL 사용?** | 아닙니다. | SSL 암호화를 설정하거나 해제합니다. | 
    |||| 
 
 1. 선택한 작업에 필요한 정보를 입력합니다. 
@@ -69,7 +65,7 @@ Azure Logic Apps 및 SMTP(Simple Mail Transfer Protocol) 커넥터를 사용하�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/smtpconnector/)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/smtpconnector/)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

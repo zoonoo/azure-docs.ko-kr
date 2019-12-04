@@ -1,17 +1,17 @@
 ---
-title: Virtual Network (VNet) 서비스 끝점 개요 Azure Database for PostgreSQL의 단일 서버
-description: VNet (Virtual Network) 서비스 끝점이 Azure Database for PostgreSQL 단일 서버에서 작동 하는 방법에 대해 알아봅니다.
-author: bolzmj
-ms.author: mbolz
+title: 가상 네트워크 규칙-Azure Database for PostgreSQL-단일 서버
+description: Vnet (virtual network) 서비스 끝점을 사용 하 여 Azure Database for PostgreSQL 단일 서버에 연결 하는 방법을 알아봅니다.
+author: rachel-msft
+ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: b03be62a634d04f41513e7cf27c3cb55f69da438
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 11ffd323c5f775a795899cc35706493cba6d933b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68609979"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768659"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL 단일 서버에 대 한 Virtual Network 서비스 끝점 및 규칙 사용
 
@@ -23,7 +23,7 @@ ms.locfileid: "68609979"
 
 > [!NOTE]
 > 이 기능은 범용 및 메모리 최적화 서버에 대해 Azure Database for PostgreSQL이 배포된 모든 Azure 퍼블릭 클라우드 지역에서 사용할 수 있습니다.
-> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure VM(가상 머신)이 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
+> VNet 피어링의 경우 서비스 엔드포인트가 있는 공통 VNet 게이트웨이를 통해 트래픽이 이동하며 피어로 이동되어야 하는 경우 게이트웨이 VNet의 Azure Virtual Machines가 Azure Database for PostgreSQL 서버에 액세스할 수 있도록 허용하는 ACL/VNet 규칙을 만드세요.
 
 <a name="anch-terminology-and-description-82f" />
 
@@ -51,11 +51,11 @@ ms.locfileid: "68609979"
 
 작업을 수행할 때까지 서브넷의 VM은 Azure Database for PostgreSQL 서버와 통신할 수 없습니다. 통신을 설정하는 한 동작은 가상 네트워크 규칙을 생성하는 것입니다. VNet 규칙 접근 방식을 선택하는 원리에는 방화벽에서 제공된 경쟁 보안 옵션에 관련된 비교-대비 토론이 필요합니다.
 
-### <a name="a-allow-access-to-azure-services"></a>A. Azure 서비스 방문 허용
+### <a name="a-allow-access-to-azure-services"></a>A. Azure 서비스에 대한 액세스 허용
 
 연결 보안 창에는 **Azure 서비스에 대한 액세스 허용**이라고 표시된 **켜기/끄기** 단추가 있습니다. **켜기** 설정은 모든 Azure IP 주소와 모든 Azure 서브넷에서 보낸 통신을 허용합니다. 이러한 Azure IP 또는 서브넷은 사용자가 소유할 수 없습니다. 이 **켜기** 설정은 Azure Database for PostgreSQL에 필요한 것보다 더 개방적일 수 있습니다. 가상 네트워크 규칙 기능으로 훨씬 더 세밀하게 제어할 수 있습니다.
 
-### <a name="b-ip-rules"></a>2\. IP 규칙
+### <a name="b-ip-rules"></a>B. IP 규칙
 
 Azure Database for PostgreSQL 방화벽을 사용하면 Azure Database for PostgreSQL 데이터베이스에 대한 통신이 수락되는 IP 주소 범위를 지정할 수 있습니다. 이 방법은 Azure 프라이빗 네트워크 외부에 있는 안정적인 IP 주소에 적합합니다. 하지만 Azure 프라이빗 네트워크 내부의 많은 노드는 *동적* IP 주소로 구성됩니다. 동적 IP 주소는, 예를 들어 VM이 다시 시작될 때 변경될 수 있습니다. 프로덕션 환경의 방화벽 규칙에서는 동적 IP 주소를 지정하면 안 됩니다.
 
@@ -63,7 +63,7 @@ VM에 대한 *정적* IP 주소를 가져와서 IP 옵션을 복원할 수 있�
 
 그러나 정적 IP 방법은 관리가 어려워질 수 있고 대규모로 이루어질 경우 비용이 많이 듭니다. 가상 네트워크 규칙은 설정 및 관리가 더 쉽습니다.
 
-### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>3\. 서비스 엔드포인트를 정의하지 않고 서브넷에서 Azure Database for PostgreSQL을 설치할 수 없습니다.
+### <a name="c-cannot-yet-have-azure-database-for-postgresql-on-a-subnet-without-defining-a-service-endpoint"></a>C. 서비스 엔드포인트를 정의하지 않고 서브넷에서 Azure Database for PostgreSQL을 설치할 수 없습니다.
 
 **Microsoft.Sql** 서버가 가상 네트워크에 있는 서브넷의 노드인 경우 가상 네트워크 내의 모든 노드가 Azure Database for PostgreSQL 서버와 통신할 수 있습니다. 이 경우에 VM은 가상 네트워크 규칙이나 IP 규칙이 없이도 Azure Database for PostgreSQL과 통신할 수 있습니다.
 
@@ -96,7 +96,7 @@ Virtual Network 서비스 엔드포인트 관리에는 보안 역할 분리가 �
 
 네트워크 관리자 및 데이터베이스 관리자 역할에는 가상 네트워크 규칙을 관리하는 데 필요한 것보다 많은 기능이 포함됩니다. 해당 기능의 하위 집합만 필요합니다.
 
-Azure에서 [RBAC (역할 기반 액세스 제어)][rbac-what-is-813s] 를 사용 하 여 필요한 기능 하위 집합만 포함 하는 단일 사용자 지정 역할을 만들 수 있습니다. 네트워크 관리자 또는 데이터베이스 관리자를 포함하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자 지정 역할에 사용자를 추가할 경우 다른 두 개의 주요 관리자 역할에 사용자를 추가하는 것보다 보안 노출의 노출 영역이 감소합니다.
+Azure에서 [RBAC (역할 기반 액세스 제어)][rbac-what-is-813s] 를 사용 하 여 필요한 기능 하위 집합만 포함 하는 단일 사용자 지정 역할을 만들 수 있습니다. 네트워크 관리자 또는 데이터베이스 관리자를 포함 하는 대신 사용자 지정 역할을 사용할 수 있습니다. 사용자를 사용자 지정 역할에 추가 하 고 다른 두 개의 주요 관리자 역할에 사용자를 추가 하는 경우 보안 노출의 노출 영역이 낮습니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL 및 VNet 서브넷이 서로 다른 구독에 있는 경우도 있습니다. 이러한 경우에는 다음과 같은 구성을 확인해야 합니다.
@@ -116,7 +116,7 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
 
 - 가상 네트워크 규칙은 Azure Resource Manager 가상 네트워크에만 적용 됩니다. [클래식 배포 모델][arm-deployment-model-568f] 네트워크는 그렇지 않습니다.
 
-- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for PostgreSQL에 대한 가상 네트워크 서비스 엔드포인트를 설정하면 모든 Azure Database 서비스 (Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure SQL Data Warehouse)에 엔드포인트를 사용하도록 설정할 수 있습니다.
+- **Microsoft.Sql** 서비스 태그를 사용하여 Azure Database for PostgreSQL에 가상 네트워크 서비스 엔드포인트를 설정하면 모든 Azure 데이터베이스 서비스(Azure Database for MySQL, Azure Database for PostgreSQL, Azure SQL Database 및 Azure SQL Data Warehouse)에 엔드포인트를 사용하도록 설정할 수 있습니다.
 
 - VNet 서비스 엔드포인트는 범용 및 메모리 최적화 서버에 대해서만 지원됩니다.
 
@@ -124,7 +124,7 @@ Azure Database for PostgreSQL의 경우 가상 네트워크 규칙 기능에는 
     - [S2S (사이트 간) VPN (가상 사설망)][vpn-gateway-indexmd-608y]
     - [Express][expressroute-indexmd-744v] 경로를 통해 온-프레미스
 
-## <a name="expressroute"></a>ExpressRoute
+## <a name="expressroute"></a>Express Route
 
 네트워크를 [express][expressroute-indexmd-744v]경로를 사용 하 여 Azure 네트워크에 연결 된 경우 각 회로는 Microsoft Edge에서 두 개의 공용 IP 주소를 사용 하 여 구성 됩니다. 두 개의 IP 주소는 Azure 공용 피어링을 사용하여 Azure Storage와 같은 Microsoft 서비스에 연결하는 데 사용됩니다.
 

@@ -1,8 +1,7 @@
 ---
-title: IBM 메인프레임에서 3270 앱에 연결-Azure Logic Apps
+title: IBM 메인프레임에서 3270 앱에 연결
 description: Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 Azure에서 3270 화면 기반 앱 통합 및 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: ChristopherHouser
 ms.author: chrishou
@@ -10,12 +9,12 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: f039d0cbfa2b34fecbcdee53ebe2b56b6e9b6d69
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787567"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789242"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
 

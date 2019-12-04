@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB의 연결 아키텍처
+title: 연결 아키텍처-Azure Database for MariaDB
 description: Azure Database for MariaDB 서버에 대 한 연결 아키텍처를 설명 합니다.
 author: kummanish
 ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 05/23/2019
-ms.openlocfilehash: 5c24a89ca12c36a54a84c61c6343ce960da012c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.date: 12/02/2019
+ms.openlocfilehash: 6e2e39381e1500f86bce55726dda0286385d1674
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73498076"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772895"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -67,7 +67,7 @@ ms.locfileid: "73498076"
 ||||
 
 > [!NOTE]
-> *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
+> *미국 동부 2* 에는 `52.167.104.0`의 3 차 IP 주소도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

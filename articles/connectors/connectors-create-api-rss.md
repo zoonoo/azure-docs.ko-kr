@@ -1,22 +1,18 @@
 ---
-title: Azure Logic Apps에서 RSS 피드에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 RSS 피드에 연결
 description: Azure Logic Apps를 사용하여 RSS 피드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: a10a6277-ed29-4e68-a881-ccdad6fd0ad8
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 70b250074395977f70ac1b3eb0ce3ffdc96fced1
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 3f1e092c2ff325cdcbc32c617af316d6fbe6dd74
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050839"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789344"
 ---
 # <a name="manage-rss-feeds-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 RSS 피드 관리
 
@@ -27,9 +23,9 @@ Azure Logic Apps 및 RSS 커넥터를 통해 모든 RSS 피드에 대한 자동�
 
 Really Simple Syndication이라고도 하는 RSS(Rich Site Summary)는 웹 배포를 위한 인기 있는 형식으로서, 블로그 게시물 및 뉴스 헤드라인 같이 자주 업데이트되는 콘텐츠를 게시하는 데 사용됩니다. 많은 콘텐츠 게시자는 사용자가 해당 콘텐츠를 구독할 수 있도록 RSS 피드를 제공합니다. 
 
-RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 다른 작업에 사용할 수 있게 할 수 있습니다. 논리 앱에서 RSS 동작을 사용하여 RSS 피드에서 작업을 수행할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -55,7 +51,7 @@ RSS 트리거를 사용하여 RSS 피드에서 응답을 가져오고 출력을 
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/rss/)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/rss/)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

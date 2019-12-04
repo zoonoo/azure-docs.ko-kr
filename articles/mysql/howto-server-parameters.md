@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL에서 서버 매개 변수를 구성하는 방법
+title: 서버 매개 변수 구성-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는 Azure Portal을 사용하여 Azure Database for MySQL에서 사용 가능한 서버 매개 변수를 구성하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: d589800f62f96510a09d23cb6e8794177121c6dd
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.date: 12/02/2019
+ms.openlocfilehash: f803b7cccf3520c309e6b33d99b5565cfc4fdd01
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419707"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764919"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mysql-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 서버 매개 변수 구성 방법
 
@@ -41,23 +41,23 @@ InnoDB 버퍼 풀 크기는 구성할 수 없으며 [가격 책정 계층](conce
 |:---|---:|---:|---:|
 |Basic| 1| 832| |
 |Basic| 2| 2560| |
-|범용| 2| 3584| 7168|
-|범용| 4| 7680| 15360|
-|범용| 8| 15360| 30720|
-|범용| 16| 31232| 62464|
-|범용| 32| 62976| 125952|
-|범용| 64| 125952| 251904|
-|메모리 최적화| 2| 7168| 14336|
-|메모리 최적화| 4| 15360| 30720|
-|메모리 최적화| 8| 30720| 61440|
-|메모리 최적화| 16| 62464| 124928|
-|메모리 최적화| 32| 125952| 251904|
+|일반적인 용도| 2| 3584| 7168|
+|일반적인 용도| 4| 7680| 15360|
+|일반적인 용도| 8| 15360| 30720|
+|일반적인 용도| 16| 31232| 62464|
+|일반적인 용도| 32| 62976| 125952|
+|일반적인 용도| 64| 125952| 251904|
+|메모리에 최적화| 2| 7168| 14336|
+|메모리에 최적화| 4| 15360| 30720|
+|메모리에 최적화| 8| 30720| 61440|
+|메모리에 최적화| 16| 62464| 124928|
+|메모리에 최적화| 32| 125952| 251904|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 
 |**매개 변수**|**고정 값**|
 | :------------------------ | :-------- |
-|기본 계층의 innodb_file_per_table|OFF|
+|기본 계층의 innodb_file_per_table|끄기|
 |innodb_flush_log_at_trx_commit|1|
 |sync_binlog|1|
 |innodb_log_file_size|512MB|
@@ -101,4 +101,4 @@ SET time_zone = 'US/Pacific';
 
 ## <a name="next-steps"></a>다음 단계
 
-- [MySQL용 Azure Database에 대한 연결 라이브러리](concepts-connection-libraries.md)
+- [Azure Database for MySQL에 대한 연결 라이브러리](concepts-connection-libraries.md).

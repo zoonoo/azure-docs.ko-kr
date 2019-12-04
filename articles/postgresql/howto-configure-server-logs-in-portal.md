@@ -1,29 +1,29 @@
 ---
-title: Azure Portal에서 Azure Database for PostgreSQL 단일 서버에서 서버 로그 구성 및 액세스
-description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에서 서버 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
+title: 로그 관리-Azure Portal-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 있는 서버 로그 (.log 파일)를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: c77e708e14d34545754ca38095aedb63ff0172a1
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 3da48a9b6d3acb1f2811bc279de7963fa1d83918
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841515"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763694"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Azure Portal에서 Azure Database for PostgreSQL 단일 서버 로그 구성 및 액세스
 
-Azure portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.md)를 구성, 나열 및 다운로드합니다.
+Azure Portal에서 [Azure Database for PostgreSQL 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 이 문서의 단계를 수행 하려면 [Azure Database for PostgreSQL 서버가](quickstart-create-server-database-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
 쿼리 로그 및 오류 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for PostgreSQL 서버를 선택합니다.
 

@@ -1,22 +1,18 @@
 ---
-title: Azure Logic Apps에서 Trello에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 Trello에 연결
 description: Azure Logic Apps를 사용하여 Trello 프로젝트에서 목록, 보드 및 카드를 모니터링하고 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: fe7a4377-5c24-4f72-ab1a-6d9d23e8d895
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: ae77488df6ce58d8cab61933f50d24edec35b1ab
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 5c4fcb9b4fea1a4d982b5cf665564599d371b7cb
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050734"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789140"
 ---
 # <a name="monitor-and-manage-trello-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Trello를 모니터링 및 관리
 
@@ -28,9 +24,9 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 * 보드, 보드 레이블, 보드의 카드, 카드 주석, 카드 멤버, 팀 멤버 및 멤버로 속한 팀을 나열합니다. 
 * 팀을 가져옵니다.
 
-트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+트리거를 사용하여 Trello 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Trello 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Trello 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 새 카드가 보드 또는 목록에 추가될 때 Slack 커넥터를 사용하여 메시지를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -65,7 +61,7 @@ Azure Logic Apps 및 Trello 커넥터를 사용하면 다음과 같이 Trello �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/trello/)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/trello/)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

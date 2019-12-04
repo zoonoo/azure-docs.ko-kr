@@ -2,21 +2,18 @@
 title: 전원 자동화에서 Azure Logic Apps로 흐름 내보내기
 description: Azure Resource Manager 템플릿으로 내보내 전원 자동화에서 Azure Logic Apps로 흐름 마이그레이션
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: e0dda5c2097243143d18851c47e7006c81769c87
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4512fd8a236c888937eb60a75d01cfb0ef2c1913
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583248"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792635"
 ---
-# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>전원 자동화에서 흐름을 내보내고 Azure Logic Apps에 배포
+# <a name="export-flows-from-power-automate-and-deploy-to-azure-logic-apps"></a>Power Automate에서 흐름을 내보내고 Azure Logic Apps에 배포
 
 흐름의 기능을 확장 하 고 확장 하려면 [전원 자동화](https://flow.microsoft.com) 에서 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)로 흐름을 마이그레이션할 수 있습니다. 논리 앱에 대 한 Azure Resource Manager 템플릿으로 흐름을 내보내고, 해당 논리 앱 템플릿을 Azure 리소스 그룹에 배포한 다음 논리 앱 디자이너에서 해당 논리 앱을 열 수 있습니다.
 
@@ -25,7 +22,7 @@ ms.locfileid: "73583248"
 >
 > 전원 자동화에서 내보낸 OpenAPI 기반 흐름은 현재 논리 앱 템플릿으로 배포에 대해 지원 되지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -144,7 +141,7 @@ ms.locfileid: "73583248"
 
    ![배포 매개 변수 편집](./media/export-from-microsoft-flow-logic-app-template/edit-parameters-deployment.png)
 
-   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 예:
+   배포가 시작되면 Visual Studio **출력** 창에 앱의 배포 상태가 표시됩니다. 상태가 표시되지 않으면 **출력 표시** 목록을 연 다음, Azure 리소스 그룹을 선택 합니다. 다음은 그 예입니다.
 
    ![출력 창](./media/export-from-microsoft-flow-logic-app-template/output-window.png)
 

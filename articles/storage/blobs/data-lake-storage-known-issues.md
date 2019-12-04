@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3ea77eb5dd8a03f877164179e3accc3a6f6d0aef
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 7fac09ff236e4bb2c63691f9dc1ad41bb49edae4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548325"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793352"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 알려진 문제
 
@@ -48,14 +48,12 @@ Blob Api 및 Data Lake Storage Gen2 Api는 동일한 데이터에 대해 작동�
 
 <a id="api-scope-data-lake-client-library" />
 
-## <a name="api-scope-for-data-lake-storage-client-library-for-sdk-powershell-and-cli"></a>SDK, Powershell 및 CLI 용 Data Lake Storage 클라이언트 라이브러리의 API 범위
-
-### <a name="filesystem-support-in-sdks"></a>Sdk에서 파일 시스템 지원
+## <a name="filesystem-support-in-sdks"></a>Sdk에서 파일 시스템 지원
 
 - .NET, Java 및 Python은 공개 미리 보기로 제공 됩니다. 다른 Sdk는 현재 지원 되지 않습니다.
 - Get 및 Set Acl 작업은 현재 재귀적이 아닙니다.
 
-### <a name="filesystem-support-in-powershell-and-azure-cli"></a>PowerShell 및 Azure CLI에서 파일 시스템 지원
+## <a name="filesystem-support-in-powershell-and-azure-cli"></a>PowerShell 및 Azure CLI에서 파일 시스템 지원
 
 Get 및 Set Acl 작업은 현재 재귀적이 아닙니다.
 
@@ -77,7 +75,6 @@ Get 및 Set Acl 작업은 현재 재귀적이 아닙니다.
 | **진단 로깅** |진단 로그가 지원 됩니다 (미리 보기).<br><br>Azure Portal에서 로그를 사용 하도록 설정 하는 것은 현재 지원 되지 않습니다. PowerShell을 사용 하 여 로그를 사용 하도록 설정 하는 방법의 예는 다음과 같습니다. <br><br>`$storageAccount = Get-AzStorageAccount -ResourceGroupName <resourceGroup> -Name <storageAccountName>`<br><br>`Set-AzStorageServiceLoggingProperty -Context $storageAccount.Context -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays <days>`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. <br><br>이 예제에 표시 된 대로 `Blob`를 `-ServiceType` 매개 변수의 값으로 지정 해야 합니다. <br><br>현재 Azure Storage 탐색기 진단 로그를 보는 데 사용할 수 없습니다. 로그를 보려면 AzCopy 또는 Sdk를 사용 하세요.
 | **변경할 수 없는 저장소** |아직 지원 되지 않음 <br><br>변경할 수 없는 저장소는 데이터를 [웜 (한 번 쓰기, 많은 읽기)](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutable-storage) 상태에 저장 하는 기능을 제공 합니다.|
 | **개체 수준 계층** |쿨 및 archive 계층이 지원 됩니다. 보관 계층은 미리 보기 상태입니다. 다른 모든 액세스 계층은 아직 지원 되지 않습니다. <br><br> 현재 보관 액세스 계층에 영향을 주는 일부 버그가 있습니다.  [여기](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2EUNXd_ZNJCq_eDwZGaF5VURjFLTDRGS0Q4VVZCRFY5MUVaTVJDTkROMi4u)에서 보관 액세스 계층의 미리 보기에 등록 합니다.|
-| **Powershell 및 CLI 지원** | 제한 된 기능 <br><br>Blob 작업이 지원 됩니다. 디렉터리 작업 및 Acl (액세스 제어 목록) 설정은 아직 지원 되지 않습니다. |
 | **정적 웹 사이트** |아직 지원 되지 않음 <br><br>특히 [정적 웹 사이트](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website)에 파일을 제공 하는 기능입니다.|
 | **타사 응용 프로그램** | 제한 된 지원 <br><br>REST Api를 사용 하 여 작동 하는 타사 응용 프로그램은 Data Lake Storage Gen2와 함께 사용 하는 경우 계속 작동 합니다. <br>Blob Api를 호출 하는 응용 프로그램은 작동할 가능성이 높습니다.|
 |**일시 삭제** |아직 지원 되지 않음|

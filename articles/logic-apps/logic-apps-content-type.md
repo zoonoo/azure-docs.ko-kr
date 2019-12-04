@@ -1,20 +1,17 @@
 ---
-title: 콘텐츠 형식 처리-Azure Logic Apps
+title: 콘텐츠 형식 처리
 description: Logic Apps가 디자인 타임 및 런타임에 콘텐츠 형식을 처리하는 방법 알아보기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/20/2018
-ms.openlocfilehash: 97897da13c70c29834b1fc276829b316416efd8d
-ms.sourcegitcommit: 10251d2a134c37c00f0ec10e0da4a3dffa436fb3
+ms.openlocfilehash: 75d9285c4a838c2057c0f23841c3a2f465789c7c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/13/2019
-ms.locfileid: "67868919"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791524"
 ---
 # <a name="handle-content-types-in-azure-logic-apps"></a>Azure Logic Apps에서 콘텐츠 형식 처리
 
@@ -62,7 +59,7 @@ Logic Apps는 JSON 콘텐츠의 속성을 나타내는 친숙한 토큰을 생�
   
   1. 요청 트리거에서 **샘플 페이로드를 사용하여 스키마 생성**을 선택합니다.  
   
-  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 예를 들어: 
+  2. **샘플 JSON 페이로드를 입력하거나 붙여넣기**에서 샘플 페이로드를 입력하고 **완료**를 선택합니다. 다음은 그 예입니다. 
 
      ![샘플 JSON 페이로드 입력](./media/logic-apps-content-type/request-trigger.png)
 
@@ -139,13 +136,13 @@ Logic Apps는 항상 수신한 HTTP 요청 또는 응답의 `Content-Type`을 �
 
 이 목록은 다음 [함수](../logic-apps/workflow-definition-language-functions-reference.md)를 사용할 때 Logic Apps가 콘텐츠를 변환하는 방법을 설명합니다.
 
-* `json()`: 데이터를로 캐스팅 합니다.`application/json`
-* `xml()`: 데이터를로 캐스팅 합니다.`application/xml`
-* `binary()`: 데이터를로 캐스팅 합니다.`application/octet-stream`
-* `string()`: 데이터를로 캐스팅 합니다.`text/plain`
+* `json()`: 데이터를 `application/json`로 캐스팅합니다.
+* `xml()`: 데이터를 `application/xml`로 캐스팅합니다.
+* `binary()`: 데이터를 `application/octet-stream`로 캐스팅합니다.
+* `string()`: 데이터를 `text/plain`로 캐스팅합니다.
 * `base64()`: 콘텐츠를 b a s e 64로 인코딩된 문자열로 변환 합니다.
-* `base64toString()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`text/plain`
-* `base64toBinary()`: B a s e 64로 인코딩된 문자열을로 변환 합니다.`application/octet-stream`
+* `base64toString()`: b a s e 64로 인코딩된 문자열을 `text/plain` 변환
+* `base64toBinary()`: b a s e 64로 인코딩된 문자열을 `application/octet-stream` 변환
 * `dataUri()`: 문자열을 데이터 URI로 변환 합니다.
 * `dataUriToBinary()`: 데이터 URI를 이진 문자열로 변환 합니다.
 * `dataUriToString()`: 데이터 URI를 문자열로 변환 합니다.

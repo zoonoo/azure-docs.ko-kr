@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 88a1280fb4a91d7ba45f2d0cfe92e604cd66ff0b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 22c304b26eddaee4444f6eb12957e2a6fedf7810
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672593"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793290"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -34,12 +34,12 @@ ms.locfileid: "74672593"
 
 **정정 작업**: Azure Portal 방문 하 여 다음 단계를 수행 합니다.
 
-1. FarmBeats Data hub 리소스 그룹으로 이동 합니다.   
-2. **이벤트 허브** (DatafeedEventHubNamespace ...)를 선택 합니다.  들어오는 메시지의 수를 확인 합니다.   
+1. FarmBeats Data hub 리소스 그룹으로 이동 합니다.   
+2. **이벤트 허브** (DatafeedEventHubNamespace ...)를 선택 하 고 들어오는 메시지의 수를 확인 합니다.   
 3. **들어오는 메시지가 없는**경우 장치 파트너에 게 문의 하세요.  
 4. **들어오는 메시지가**있는 경우 데이터 허브 및 가속기 로그를 사용 하 여 farmbeatssupport@microsoft.com에 연결 하 고 캡처된 원격 분석을 사용 합니다.
 
-로그를 다운로드 하는 방법을 이해 하려면 문서의 [로그 섹션](#collect-logs-manually) 을 참조 하세요.  
+로그를 다운로드 하는 방법을 이해 하려면 문서의 [로그 섹션](#collect-logs-manually) 을 참조 하세요.  
 
 ### <a name="dont-have-the-eventhub-connection-string"></a>Eventhub 연결 문자열이 없습니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "74672593"
 
 **증상**: 장치가 설치 되 고 FarmBeats를 장치 파트너와 연결 했습니다. 장치가 온라인 상태이 고 원격 분석 데이터를 전송 하지만 오프 라인으로 표시 됩니다.
 
-**정정 동작**:이 장치에 대해 보고 간격이 구성 되지 않았습니다. 보고 간격을 설정 하려면 장치 제조업체에 문의 하세요. 
+**정정 동작**:이 장치에 대해 보고 간격이 구성 되지 않았습니다. 보고 간격을 설정 하려면 장치 제조업체에 문의 하세요. 
 
 ### <a name="error-deleting-a-resource"></a>리소스를 삭제 하는 동안 오류 발생
 
@@ -135,44 +135,44 @@ ms.locfileid: "74672593"
 
 **정정 작업**: 실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
-### <a name="sentinel-hub-wrongurlor-not-accessible"></a>센티널 허브 URL이 잘못 되었거나 액세스할 수 없음 
+### <a name="sentinel-hub-wrong-url-or-not-accessible"></a>센티널 허브 URL이 잘못 되었거나 액세스할 수 없음 
 
-**작업 실패 메시지**: 오류가 발생 했습니다. 액세스 하려는 페이지를 일시적으로 사용할 수 없습니다. 
+**작업 실패 메시지**: 오류가 발생 했습니다. 액세스 하려는 페이지를 일시적으로 사용할 수 없습니다. 
 
 **수정 동작**:
-1.  브라우저에서 센티널 URL (https://scihub.copernicus.eu/dhus/) 을 열고 웹 사이트에 액세스할 수 있는지 확인 합니다. 
-2.  웹 사이트에 액세스할 수 없는 경우 방화벽/회사 네트워크 등이 있는지 확인 하 고, 위의 URL을 허용 하는 데 필요한 단계를 수행 합니다. 
+1.  브라우저에서 센티널 URL (https://scihub.copernicus.eu/dhus/) 을 열고 웹 사이트에 액세스할 수 있는지 확인 합니다. 
+2.  웹 사이트에 액세스할 수 없는 경우 방화벽/회사 네트워크 등이 있는지 확인 하 고, 위의 URL을 허용 하는 데 필요한 단계를 수행 합니다. 
 3.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.  
 
 ### <a name="sentinel-server-down-for-maintenance"></a>유지 관리를 위한 센티널 서버 작동 중단
 
-**작업 실패 메시지**: Copernicus 오픈 액세스 허브가 곧 다시 출시 될 예정입니다. 불편을 끼쳐 드려 지금은 몇 가지 유지 관리 작업을 수행 하 고 있습니다. 곧 다시 온라인 상태가 될 예정입니다. 
+**작업 실패 메시지**: Copernicus 오픈 액세스 허브가 곧 다시 출시 될 예정입니다. 불편을 끼쳐 드려 지금은 몇 가지 유지 관리 작업을 수행 하 고 있습니다. 곧 다시 온라인 상태가 될 예정입니다. 
 
 **수정 동작**:
 
-1.  이 문제는 센티널 서버에서 유지 관리 작업을 수행 하는 경우 발생할 수 있습니다. 
-2.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
-3.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
+1.  이 문제는 센티널 서버에서 유지 관리 작업을 수행 하는 경우 발생할 수 있습니다. 
+2.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
+3.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
 4.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
 ### <a name="sentinel-maximum-number-of-connections-reached"></a>센티널 최대 연결 수에 도달 했습니다.
 
-**작업 실패 메시지**: "<username>" 사용자가 수행 하는 최대 두 개의 동시 흐름 수 
+**작업 실패 메시지**: "<username>" 사용자가 수행 하는 최대 두 개의 동시 흐름 수 
 
 **정정 작업**
-1.  위의 이유로 인해 작업이 실패 하면 다른 배포/소프트웨어에서 동일한 센티널 계정이 사용 됩니다. 
+1.  위의 이유로 인해 작업이 실패 하면 다른 배포/소프트웨어에서 동일한 센티널 계정이 사용 됩니다. 
 2.  사용자는 새 센티널 계정을 만들고 새 센티널 사용자 이름 및 암호를 사용 하 여 데이터 허브를 업그레이드 하기 위한 설치 관리자를 다시 실행할 수 있습니다.  
 3.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
-### <a name="sentinel-server-refused-connection"></a>센티널 서버가 연결을 거부 했습니다. 
+### <a name="sentinel-server-refused-connection"></a>센티널 서버가 연결을 거부 했습니다. 
 
 **작업 실패 메시지**:
 
-서버에서 연결을 거부 했습니다. http://172.30.175.69:8983/solr/dhus 
+서버에서 연결을 거부 했습니다. http://172.30.175.69:8983/solr/dhus 
 
-**정정 동작**: 센티널 서버에서 유지 관리 작업을 수행 하는 경우이 문제가 발생할 수 있습니다. 
-1.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
-2.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
+**정정 동작**: 센티널 서버에서 유지 관리 작업을 수행 하는 경우이 문제가 발생할 수 있습니다. 
+1.  위의 이유로 인해 작업/파이프라인이 실패 하면 잠시 후에 작업을 다시 제출 합니다. 
+2.  사용자는 https://scihub.copernicus.eu/news/ 를 방문 하 여 계획/계획 되지 않은 센티널 유지 관리 활동에 대 한 정보를 확인할 수 있습니다.  
 3.  실패 한 작업을 다시 실행 하거나, 5-7 일의 날짜 범위에 대해 위성 인덱스 작업을 실행 하 고, 작업이 성공 했는지 확인 합니다.
 
 
@@ -281,11 +281,11 @@ Azure Storage 탐색기에 [설치 하 고 배포]( https://docs.microsoft.com/a
 
 ## <a name="high-cpu-usage"></a>높은 CPU 사용량
 
-**오류**: 높은 CPU 사용량 경고를 참조 하는 전자 메일 경고를 받게 됩니다. 
+**오류**: 높은 CPU 사용량 경고를 참조 하는 전자 메일 경고를 받게 됩니다. 
 
-**수정 동작**: 
+**수정 동작**: 
 1.  FarmBeats Data hub 리소스 그룹으로 이동 합니다.
-2.  App service를 선택 합니다.  
+2.  App service를 선택 합니다.  
 3.  수직 확장 (App Service 계획)으로 이동 하 고 적절 한 [가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/windows/) 을 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계

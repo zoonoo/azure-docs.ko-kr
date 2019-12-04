@@ -1,24 +1,24 @@
 ---
-title: Azure CLI를 사용하여 Azure Database for MariaDB의 서버 로그에 액세스
-description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용하여 Azure Database for MariaDB의 서버 로그에 액세스하는 방법을 설명합니다.
-author: rachel-msft
-ms.author: raagyema
+title: 저속 쿼리 로그 액세스-Azure CLI-Azure Database for MariaDB
+description: 이 문서에서는 Azure CLI 명령줄 유틸리티를 사용 하 여 Azure Database for MariaDB에서 저속 로그에 액세스 하는 방법을 설명 합니다.
+author: ajlam
+ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 06/12/2019
-ms.openlocfilehash: ffc724ef5133ee25643a966d2b6d8448a4c3a920
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 32e73835732538813f90de5cb737429373c3762a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767384"
 ---
-# <a name="configure-and-access-server-logs-by-using-azure-cli"></a>Azure CLI를 사용하여 서버 로그 구성 및 액세스
-Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MariaDB 서버 로그를 다운로드할 수 있습니다.
+# <a name="configure-and-access-slow-query-logs-by-using-azure-cli"></a>Azure CLI를 사용 하 여 느리게 쿼리 로그 구성 및 액세스
+Azure 명령줄 유틸리티인 Azure CLI를 사용 하 여 Azure Database for MariaDB 느리게 쿼리 로그를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+## <a name="prerequisites"></a>전제 조건
+이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
 - [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-cli.md)
 - [Azure CLI](/cli/azure/install-azure-cli) 또는 브라우저의 Azure Cloud Shell
 

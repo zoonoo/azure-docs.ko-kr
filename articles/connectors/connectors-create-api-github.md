@@ -1,22 +1,18 @@
 ---
-title: GitHub에 연결-Azure Logic Apps
+title: GitHub에 연결
 description: GitHub REST API 및 Azure Logic Apps를 사용하여 GitHub 이벤트 모니터링
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/02/2018
 tags: connectors
-ms.openlocfilehash: 6a6e2a803ee2a272189abf0f21796b2305eea40b
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 7dc865f520b6f4667ace720e656a210e0252d1a1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050896"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789772"
 ---
 # <a name="connect-to-github-from-azure-logic-apps"></a>Azure Logic Apps에서 GitHub에 연결
 
@@ -28,9 +24,9 @@ GitHub 커넥터를 시작하려면 [먼저 논리 앱을 만듭니다](../logic
 
 논리 앱에서 GitHub 커넥터를 사용하려면 먼저 *연결*을 만들고, 다음 속성에 대한 세부 정보를 제공해야 합니다. 
 
-| 속성 | 필수 | 설명 | 
+| 자산 | 필수 | 설명 | 
 | -------- | -------- | ----------- | 
-| 토큰 | 예 | GitHub 자격 증명을 제공합니다. |
+| 토큰 | yes | GitHub 자격 증명을 제공합니다. |
 
 연결을 만든 후에 이 작업을 실행하고 이 문서에서 설명하는 트리거를 수신 대기할 수 있습니다.
 

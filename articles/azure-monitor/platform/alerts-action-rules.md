@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: anantr
 ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: a858388a11cfdf36bacb1e5840f00fc6ef097867
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555707"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767690"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "72555707"
 
 ### <a name="suppression-of-alerts"></a>경고 표시 안 함
 
-경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 계획 된 유지 관리 기간 동안 억제에서 업무 외 시간 동안 억제로의 범위입니다. 예를 들어 **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다. 
+경고가 생성 하는 알림을 표시 하지 않는 것이 유용한 여러 시나리오가 있습니다. 이러한 시나리오는 업무 시간 외 시간에는 계획 된 유지 관리 기간 동안 억제에서 억제로의 범위입니다. 예를 들어 **ContosoVM** 를 담당 하는 팀은 **ContosoVM** 가 계획 된 유지 관리를 수행 하기 때문에 예정 된 주말에 대 한 경고 알림을 표시 하지 않습니다. 
 
 팀은 **ContosoVM** 에서 수동으로 구성 된 각 경고 규칙을 사용 하지 않도록 설정할 수 있지만 (유지 관리 후 다시 사용 하도록 설정) 간단한 프로세스가 아닙니다. 작업 규칙은 제거 기간을 유연 하 게 구성할 수 있는 기능을 사용 하 여 대규모 경고 억제를 정의 하는 데 도움이 됩니다. 이전 예제에서 팀은 주말의 모든 경고 알림을 표시 하지 않는 **ContosoVM** 에 대 한 하나의 작업 규칙을 정의할 수 있습니다.
 

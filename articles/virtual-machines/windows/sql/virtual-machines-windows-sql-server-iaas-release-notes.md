@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: 2f89b57257088b0b647fd5f0159a58c2ac03bda7
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c122baa21c5d94b57f29cb0530f0a2655faa87d0
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72897251"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790385"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server에 대 한 설명서 변경
 
@@ -56,7 +56,7 @@ Azure를 사용 하면 기본 제공 SQL Server 이미지를 사용 하 여 VM (
 | --- | --- |
 | **새 SQL IaaS 설치 모드** | 이제 SQL Server IaaS 확장을 [경량 모드로](virtual-machines-windows-sql-server-agent-extension.md) 설치 하 여 SQL Server 서비스를 다시 시작 하지 않도록 할 수 있습니다.  |
 | **SQL Server 버전 수정** | 이제 SQL Server VM의 [버전 속성](virtual-machines-windows-sql-change-edition.md) 을 변경할 수 있습니다. |
-| **SQL VM 리소스 공급자에 대 한 변경 내용** | 새 SQL IaaS 모드를 사용 하 여 [SQL VM 리소스 공급자에 SQL Server VM를 등록할](virtual-machines-windows-sql-register-with-resource-provider.md) 수 있습니다. 이 기능에는 [Windows 2008 이미지가](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms)포함 됩니다.|
+| **SQL VM 리소스 공급자에 대 한 변경 내용** | 새 SQL IaaS 모드를 사용 하 여 [SQL VM 리소스 공급자에 SQL Server VM를 등록할](virtual-machines-windows-sql-register-with-resource-provider.md) 수 있습니다. 이 기능에는 [Windows Server 2008](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) 이미지가 포함 됩니다.|
 | **Azure 하이브리드 혜택를 사용 하 여 사용자 라이선스 이미지 가져오기** | Azure Marketplace에서 배포 된 사용자 고유의 라이선스 이미지는 이제 [라이선스 유형을 종 량](virtual-machines-windows-sql-ahb.md#remarks)제로 전환할 수 있습니다.| 
 | &nbsp; | &nbsp; |
 

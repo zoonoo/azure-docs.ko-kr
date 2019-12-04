@@ -1,21 +1,17 @@
 ---
-title: Azure Logic Apps에서 웹 API 및 REST API 배포 및 호출 | Microsoft Docs
-description: Azure Logic Apps에서 시스템 통합 워크플로에 대한 웹 API 및 REST API 배포 및 호출
+title: Azure Logic Apps에서 웹 Api & REST Api 배포 및 호출
+description: Azure Logic Apps에서 시스템 통합 워크플로에 대 한 REST Api & 웹 Api 배포 및 호출
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, stepsic, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.assetid: f113005d-0ba6-496b-8230-c1eadbd6dbb9
 ms.date: 05/26/2017
-ms.openlocfilehash: a9049ba1fbd7d3bdce061d277f6a7a02d9b1e4b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d1305be54a22b1460000a357074cbb1f67123bd6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60740414"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790760"
 ---
 # <a name="deploy-and-call-custom-apis-from-workflows-in-azure-logic-apps"></a>Azure Logic Apps의 워크플로에서 사용자 지정 API 배포 및 호출
 

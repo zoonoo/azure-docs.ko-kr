@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4d970e61fc2628843ef847526dcdb4e44bf9796f
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4b61cbc8a3e870e9fd2123fd3dcbd941c5dde80c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176923"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786948"
 ---
 # <a name="work-with-databases-containers-and-items-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스, 컨테이너 및 항목 작업
 
@@ -56,7 +56,7 @@ Azure Cosmos 컨테이너를 만들 때 다음 모드 중 하나로 처리량을
 * **공유 프로 비전 된 처리량 모드**: 이러한 컨테이너는 프로 비전 된 처리량을 동일한 데이터베이스의 다른 컨테이너와 공유 합니다 (전용 프로 비전 된 처리량으로 구성 된 컨테이너 제외). 즉, 데이터베이스에서 프로 비전 된 처리량은 모든 "공유 처리량" 컨테이너 간에 공유 됩니다. 자세히 알아보려면 [Azure Cosmos 데이터베이스에서 처리량을 프로 비전 하는 방법](how-to-provision-database-throughput.md)을 참조 하세요.
 
 > [!NOTE]
-> 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 컨테이너를 만든 후 전용 처리량 모드에서 공유 처리량 모드로 전환 하거나 그 반대로 전환 하려면 새 컨테이너를 만들고 데이터를 새 컨테이너로 마이그레이션해야 합니다. Azure Cosmos DB 변경 피드 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
+> 데이터베이스 및 컨테이너를 만들 때만 공유 및 전용 처리량을 구성할 수 있습니다. 컨테이너를 만든 후 전용 처리량 모드에서 공유 처리량 모드로 전환하거나 그 반대로 전환하려면 새 컨테이너를 만들고 데이터를 새 컨테이너로 마이그레이션해야 합니다. Azure Cosmos DB 변경 피드 기능을 사용 하 여 데이터를 마이그레이션할 수 있습니다.
 
 전용 또는 공유 프로 비전 된 처리량 모드를 사용 하 여 컨테이너를 만들지 여부에 관계 없이 Azure Cosmos 컨테이너는 탄력적으로를 확장할 수 있습니다.
 
@@ -82,7 +82,7 @@ Azure Cosmos 컨테이너에는 시스템 정의 속성 집합이 있습니다. 
 
 | 시스템 정의 속성 | 시스템 생성 또는 사용자 구성 가능 | 용도 | SQL API | Cassandra API | Azure Cosmos DB API for MongoDB | Gremlin API | Table API |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|\_id | 시스템 생성 | 컨테이너의 고유 식별자 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+|\_rid | 시스템 생성 | 컨테이너의 고유 식별자 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_etag | 시스템 생성 | 낙관적 동시성 제어에 사용되는 엔터티 태그 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_ts | 시스템 생성 | 컨테이너의 마지막 업데이트 타임스탬프 | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |
 |\_자체 | 시스템 생성 | 컨테이너의 주소 지정 가능 URI | yes | 아닙니다. | 아닙니다. | 아닙니다. | 아닙니다. |

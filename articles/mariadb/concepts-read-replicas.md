@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB의 읽기 복제본
+title: 복제본 읽기-Azure Database for MariaDB
 description: Azure Database for MariaDB에서 읽기 복제본에 대해 알아봅니다. 영역 선택, 복제본 만들기, 복제본에 연결, 복제 모니터링 및 복제 중지에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: f761cb1c4e895cd0960a0a07033e609acf9ef601
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 12/03/2019
+ms.openlocfilehash: 7e63afee87d69a80a656ba7c5923b6f313268e2f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158420"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790438"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 읽기 복제본
 
@@ -45,7 +45,9 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 ### <a name="universal-replica-regions"></a>유니버설 복제본 영역
 마스터 서버가 있는 위치에 관계 없이 다음 지역에서 읽기 복제본을 만들 수 있습니다. 지원 되는 범용 복제본 영역에는 다음이 포함 됩니다.
 
-오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부, 미국 서 부 2.
+오스트레일리아 동부, 오스트레일리아 남동쪽, 미국 중부, 동아시아, 미국 동부, 미국 동부 2, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부, 미국 중 북부, 북부 유럽, 미국 동부, 동남 아시아, 영국 남부, 영국 서부, 유럽 서부, 미국 서 부.
+
+\* 미국 서 부 2는 지역 간 복제 위치로 일시적으로 사용할 수 없습니다.
 
 
 ### <a name="paired-regions"></a>쌍을 이루는 지역
@@ -63,7 +65,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 ## <a name="create-a-replica"></a>복제본 만들기
 
-마스터 서버에 기존 복제본 서버가 없는 경우 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다.
+마스터 서버에 기존 복제본 서버가 없는 경우 마스터는 먼저 복제를 위한 준비를 위해 다시 시작 됩니다.
 
 복제본 만들기 워크플로를 시작 하면 빈 Azure Database for MariaDB 서버가 만들어집니다. 새 서버는 마스터 서버에 있는 데이터로 채워집니다. 생성 시간은 마스터의 데이터 양과 지난 주 전체 백업 이후의 시간에 따라 달라집니다. 시간은 몇 분에서 몇 시간까지 걸릴 수 있습니다.
 
@@ -78,7 +80,7 @@ GTID 복제에 대 한 자세한 내용은 [Mariadb 복제 설명서](https://ma
 
 복제본은 마스터 서버에서 해당 관리자 계정을 상속합니다. 마스터 서버의 모든 사용자 계정은 읽기 복제본으로 복제됩니다. 마스터 서버에서 사용 가능한 사용자 계정을 사용해야만 읽기 복제본에 연결할 수 있습니다.
 
-일반 Azure Database for MariaDB 서버에서와 같이 호스트 이름 및 유효한 사용자 계정을 사용 하 여 복제본에 연결할 수 있습니다. 관리자 사용자 이름 **myadmin**을 사용한 **myreplica**라는 이름의 서버의 경우, mysql CLI를 사용하여 복제본에 연결할 수 있습니다.
+일반 Azure Database for MariaDB 서버에서와 같이 호스트 이름 및 유효한 사용자 계정을 사용 하 여 복제본에 연결할 수 있습니다. 관리자 사용자 이름 **myreplica**을 사용 하 여 **myreplica** 라는 서버에 대해 mysql CLI를 사용 하 여 복제본에 연결할 수 있습니다.
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -98,10 +100,10 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 마스터 및 복제본 간의 복제를 중지할 수 있습니다. 마스터 서버와 읽기 복제본 사이에서 복제가 중지된 후에 복제본은 독립 실행형 서버가 됩니다. 독립 실행형 서버의 데이터는 복제 중지 명령이 시작될 때 복제본에서 사용할 수 있던 데이터입니다. 독립 실행형 서버는 마스터 서버를 따라잡지 않습니다.
 
-복제본에 복제를 중지하려는 경우 이전 마스터 및 다른 복제본에 대한 모든 링크가 손실됩니다. 마스터 및 해당 복제본 간의 자동 장애 조치는 없습니다.
+복제본에 대 한 복제를 중지 하도록 선택 하면 이전 마스터 및 기타 복제본에 대 한 모든 링크가 손실 됩니다. 마스터와 해당 복제본 사이에는 자동화 된 장애 조치가 없습니다.
 
 > [!IMPORTANT]
-> 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
+> 독립 실행형 서버는 복제본으로 다시 만들 수 없습니다.
 > 읽기 복제본에서 복제를 중지하기 전에 복제본에 필요한 모든 데이터가 있는지 확인하십시오.
 
 [복제본에 대한 복제를 중지](howto-read-replicas-portal.md)하는 방법을 알아봅니다.
@@ -114,7 +116,7 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 ### <a name="master-server-restart"></a>마스터 서버 다시 시작
 
-기존 복제본이 없는 마스터에 대한 복제본을 만들 때 마스터 복제를 준비하기 위해 마스터가 먼저 다시 시작됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다.
+기존 복제본이 없는 마스터에 대 한 복제본을 만들 때 마스터는 먼저 다시 시작 되어 복제를 위한 준비가 됩니다. 이를 고려 하 여 사용량이 많지 않은 기간 동안 이러한 작업을 수행 합니다.
 
 ### <a name="new-replicas"></a>새 복제본
 
@@ -122,16 +124,16 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 ### <a name="replica-configuration"></a>복제본 구성
 
-복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 계산 세대, vCores, 저장소, 백업 보존 기간 및 MariaDB 엔진 버전 등의 몇 가지 설정을 마스터 서버와 독립적으로 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우를 제외하고 독립적으로 변경할 수 있습니다.
+복제본은 마스터와 같은 서버 구성을 사용하여 생성됩니다. 복제본을 만든 후에는 계산 세대, vCores, 저장소, 백업 보존 기간 및 MariaDB 엔진 버전 등의 몇 가지 설정을 마스터 서버와 독립적으로 변경할 수 있습니다. 가격 책정도 기본 계층에서 다른 계층으로 또는 다른 계층에서 기본 계층으로 변경하는 경우 이외의 다른 방식으로 독립적으로 변경할 수 있습니다.
 
 > [!IMPORTANT]
-> 마스터 서버 구성을 새 값으로 업데이트하기 전에 복제본의 구성을 같거나 더 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터에 대한 변경 내용을 유지할 수 있습니다.
+> 마스터 서버 구성을 새 값으로 업데이트하기 전에 복제본의 구성을 같거나 더 큰 값으로 업데이트합니다. 이렇게 하면 복제본이 마스터 변경 내용을 유지할 수 있습니다.
 
 복제본을 만들 때 방화벽 규칙, 가상 네트워크 규칙 및 매개 변수 설정은 마스터 서버에서 복제본으로 상속 됩니다. 그런 다음 복제본의 규칙은 독립적입니다.
 
 ### <a name="stopped-replicas"></a>중지된 복제본
 
-마스터 서버와 읽기 복제본 간의 복제를 중지한 경우 중지된 복제본은 읽기 및 쓰기를 허용하는 독립 실행형 서버가 됩니다. 독립 실행형 서버를 다시 복제본으로 만들 수 없습니다.
+마스터 서버와 읽기 복제본 간의 복제를 중지 하면 중지 된 복제본이 읽기와 쓰기를 모두 수락 하는 독립 실행형 서버가 됩니다. 독립 실행형 서버는 복제본으로 다시 만들 수 없습니다.
 
 ### <a name="deleted-master-and-standalone-servers"></a>삭제된 마스터 및 독립 실행형 서버
 
@@ -145,13 +147,13 @@ Azure Database for MariaDB은 Azure Monitor에서 **복제 지연 시간 (초)**
 
 데이터가 동기화되지 않고 데이터가 손실 또는 손상될 가능성으로부터 데이터를 보호하기 위해 읽기 복제본을 사용하는 경우 일부 서버 매개 변수는 업데이트할 수 없도록 잠깁니다.
 
-다음 서버 매개 변수가 마스터와 복제본 서버에서 잠깁니다.
+다음 서버 매개 변수는 마스터 서버와 복제 서버 모두에서 잠깁니다.
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-[ `event_scheduler` ](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) 매개 변수는 복제본 서버에서 잠겨 있습니다.
+[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) 매개 변수가 복제본 서버에서 잠겨 있습니다.
 
-### <a name="other"></a>기타
+### <a name="other"></a>다른
 
 - 복제본의 복제본 만들기는 지원되지 않습니다.
 - 메모리 내 테이블은 복제본이 동기화 되지 않을 수 있습니다. 이는 MariaDB 복제 기술의 제한 사항입니다.

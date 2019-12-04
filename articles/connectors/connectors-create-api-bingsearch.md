@@ -1,22 +1,18 @@
 ---
-title: Bing Search에 연결-Azure Logic Apps
+title: Bing Search에 연결
 description: Bing Search REST API 및 Azure Logic Apps 소식
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: c3b6cb61e2f7b91b3b1e3595da2d105c5cdb01c8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026775"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789957"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Bing Search 및 Azure Logic Apps 소식
 
@@ -24,10 +20,10 @@ ms.locfileid: "72026775"
 
 예를 들어 검색 조건에 따라 뉴스 항목을 찾고, Twitter에서 해당 항목을 Twitter 피드의 트윗으로 게시할 수 있습니다.
 
-Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다.
 커넥터 관련 기술 정보는 [Bing Search 커넥터 참조](https://docs.microsoft.com/connectors/bingsearch/)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * [Cognitive Services 계정](../cognitive-services/cognitive-services-apis-create-account.md)
 
@@ -45,7 +41,7 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 2. 검색 상자에 필터로 "Bing Search"를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
 
-   이 예에서는 다음 트리거를 사용 합니다. **Bing Search 새 뉴스 문서**
+   이 예제에서는 **Bing Search - 새 뉴스 기사** 트리거를 사용합니다.
 
    ![Bing Search 트리거 찾기](./media/connectors-create-api-bing-search/add-trigger.png)
 
@@ -54,16 +50,16 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
    이 예제에서는 Bing Search에서 일치하는 뉴스 기사를 반환하는 기준을 제공합니다.
 
-   | 속성 | 필수 | Value | 설명 |
+   | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
-   | Search Query | 예 | <*search-words*> | 사용하려는 검색 키워드를 입력합니다. |
-   | Market | 예 | <*locale*> | 검색 로캘입니다. 기본값은 "en-US"이지만 다른 값을 선택할 수 있습니다. |
-   | Safe Search | 예 | <*search-level*> | 성인물을 제외하기 위한 필터 수준입니다. 기본값은 "보통"이지만 다른 수준을 선택할 수 있습니다. |
-   | Count | 아니요 | <*results-count*> | 지정된 결과 수만 반환합니다. 기본값은 20이지만 다른 값을 지정할 수 있습니다. 반환된 결과의 실제 수는 지정된 수 미만일 수 있습니다. |
-   | Offset | 아니요 | <*skip-value*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
+   | 검색 쿼리 | yes | <*search-words*> | 사용하려는 검색 키워드를 입력합니다. |
+   | 시장 | yes | <*locale*> | 검색 로캘입니다. 기본값은 "en-US"이지만 다른 값을 선택할 수 있습니다. |
+   | 안전 검색 | yes | <*search-level*> | 성인물을 제외하기 위한 필터 수준입니다. 기본값은 "보통"이지만 다른 수준을 선택할 수 있습니다. |
+   | 카운트 | 아닙니다. | <*results-count*> | 지정된 결과 수만 반환합니다. 기본값은 20이지만 다른 값을 지정할 수 있습니다. 반환된 결과의 실제 수는 지정된 수 미만일 수 있습니다. |
+   | Offset | 아닙니다. | <*skip-value*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
    |||||
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![트리거 설정](./media/connectors-create-api-bing-search/bing-search-trigger.png)
 
@@ -105,13 +101,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
    이 예제에서는 트리거 결과의 하위 집합을 반환하는 기준을 제공합니다.
 
-   | 속성 | 필수 | Value | 설명 |
+   | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
-   | Search Query | 예 | <*search-expression*> | 트리거 결과를 쿼리하는 식을 입력합니다. 동적 콘텐츠 목록의 필드에서 선택하거나 식 작성기를 사용하여 식을 만들 수 있습니다. |
-   | Market | 예 | <*locale*> | 검색 로캘입니다. 기본값은 "en-US"이지만 다른 값을 선택할 수 있습니다. |
-   | Safe Search | 예 | <*search-level*> | 성인물을 제외하기 위한 필터 수준입니다. 기본값은 "보통"이지만 다른 수준을 선택할 수 있습니다. |
-   | Count | 아니요 | <*results-count*> | 지정된 결과 수만 반환합니다. 기본값은 20이지만 다른 값을 지정할 수 있습니다. 반환된 결과의 실제 수는 지정된 수 미만일 수 있습니다. |
-   | Offset | 아니요 | <*skip-value*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
+   | 검색 쿼리 | yes | <*search-expression*> | 트리거 결과를 쿼리하는 식을 입력합니다. 동적 콘텐츠 목록의 필드에서 선택하거나 식 작성기를 사용하여 식을 만들 수 있습니다. |
+   | 시장 | yes | <*locale*> | 검색 로캘입니다. 기본값은 "en-US"이지만 다른 값을 선택할 수 있습니다. |
+   | 안전 검색 | yes | <*search-level*> | 성인물을 제외하기 위한 필터 수준입니다. 기본값은 "보통"이지만 다른 수준을 선택할 수 있습니다. |
+   | 카운트 | 아닙니다. | <*results-count*> | 지정된 결과 수만 반환합니다. 기본값은 20이지만 다른 값을 지정할 수 있습니다. 반환된 결과의 실제 수는 지정된 수 미만일 수 있습니다. |
+   | Offset | 아닙니다. | <*skip-value*> | 결과를 반환하기 전에 건너뛸 결과 수입니다. |
    |||||
 
    예를 들어 범주 이름이 "tech"라는 단어를 포함하는 결과를 찾는다고 가정합니다.
@@ -152,14 +148,14 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결 정보에 대한 메시지가 표시되면 다음과 같은 세부 정보를 입력합니다.
 
-   | 속성 | 필수 | Value | 설명 |
+   | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
-   | 연결 이름 | 예 | <*connection-name*> | 연결에 만들 이름 |
-   | API 버전 | 예 | <*API-version*> | 기본적으로 Bing Search API 버전은 현재 버전으로 설정됩니다. 필요에 따라 이전 버전을 선택할 수 있습니다. |
-   | API 키 | 예 | <*API-key*> | 이전에 가져온 Bing Search API 키입니다. 키가 없는 경우 [이제 API 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 가져옵니다. |  
+   | 연결 이름 | yes | <*connection-name*> | 연결에 만들 이름 |
+   | API 버전 | yes | <*API-version*> | 기본적으로 Bing Search API 버전은 현재 버전으로 설정됩니다. 필요에 따라 이전 버전을 선택할 수 있습니다. |
+   | API 키 | yes | <*API-key*> | 이전에 가져온 Bing Search API 키입니다. 키가 없는 경우 [이제 API 키](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api)를 가져옵니다. |  
    |||||  
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![연결 만들기](./media/connectors-create-api-bing-search/bing-search-create-connection.png)
 

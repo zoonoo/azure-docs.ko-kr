@@ -3,12 +3,12 @@ title: SKU를 사용할 수 없음 오류
 description: Azure Resource Manager를 사용 하 여 리소스를 배포할 때 SKU에서 사용할 수 없음 오류 문제를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 10/19/2018
-ms.openlocfilehash: 56afca6b6a59ca08f3fd59c4d9b3ebf12bda415a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 0b3696d3207a88d87b11e65f4697473963f960d5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150482"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769152"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>SKU 사용할 수 없음 오류 해결
 
@@ -29,6 +29,8 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 ## <a name="cause"></a>원인
 
 선택한 리소스 SKU(예: VM 크기)를 선택한 위치에 사용할 수 없는 경우 이 오류가 나타납니다.
+
+Azure 스폿 VM 또는 별색 확장 집합 인스턴스를 배포 하는 경우이 위치에 Azure 지점에 대 한 용량이 없습니다. 자세한 내용은 [지점 오류 메시지](../virtual-machines/error-codes-spot.md)를 참조 하세요.
 
 ## <a name="solution-1---powershell"></a>해결 방법 1 - PowerShell
 

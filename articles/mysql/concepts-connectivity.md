@@ -1,18 +1,18 @@
 ---
-title: 일시적인 오류를 처리 하 고 Azure Database for MySQL에 효율적으로 연결 Microsoft Docs
+title: 일시적인 연결 오류-Azure Database for MySQL
 description: 일시적인 연결 오류를 처리 하 고 Azure Database for MySQL에 효율적으로 연결 하는 방법을 알아봅니다.
 keywords: mysql 연결, 연결 문자열, 연결 문제, 일시적인 오류, 연결 오류, 효율적으로 연결
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/09/2018
-ms.openlocfilehash: 4bc5281c891a9d4cd27a48aa365e6cfcec16ad82
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.date: 12/02/2019
+ms.openlocfilehash: b598fafbbfce9a2c0a824dd6530d07a5933a2873
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598264"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765209"
 ---
 # <a name="handle-transient-errors-and-connect-efficiently-to-azure-database-for-mysql"></a>일시적인 오류를 처리 하 고 Azure Database for MySQL에 효율적으로 연결
 

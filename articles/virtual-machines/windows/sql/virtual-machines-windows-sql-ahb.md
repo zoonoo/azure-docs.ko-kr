@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 08/05/2019
+ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 06d7b7abe7741c465f3d40a90340e03b2c24f258
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 0aa2cbad75319de93c34128a09f94971e5c70216
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707510"
+ms.locfileid: "74790619"
 ---
 # <a name="change-the-license-model-for-a-sql-server-virtual-machine-in-azure"></a>Azure에서 SQL Server 가상 컴퓨터에 대 한 라이선스 모델 변경
 이 문서에서는 **SqlVirtualMachine**새 SQL vm 리소스 공급자를 사용 하 여 AZURE에서 vm (가상 머신)에 대 SQL Server 한 라이선스 모델을 변경 하는 방법을 설명 합니다.
@@ -95,29 +95,16 @@ PowerShell을 사용 하 여 라이선스 모델을 변경할 수 있습니다.
 
 ```powershell-interactive
 # Switch your SQL Server VM license from pay-as-you-go to bring-your-own
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="AHUB"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType AHUB
 ```
 
 다음 코드 조각은 사용자 자신의 라이선스 모델을 종 량 제로 전환 합니다.
 
 ```powershell-interactive
 # Switch your SQL Server VM license from bring-your-own to pay-as-you-go
-#example: $SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName AHBTest -ResourceName AHBTest
-$SqlVm = Get-AzResource -ResourceType Microsoft.SqlVirtualMachine/SqlVirtualMachines -ResourceGroupName <resource_group_name> -ResourceName <VM_name>
-$SqlVm.Properties.sqlServerLicenseType="PAYG"
-<# the following code snippet is only necessary if using Azure Powershell version > 4
-$SqlVm.Kind= "LicenseChange"
-$SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-$SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new() #>
-$SqlVm | Set-AzResource -Force 
+Update-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name> -LicenseType PAYG
 ```
+
 ---
 
 ## <a name="change-the-license-for-vms-not-registered-with-the-resource-provider"></a>리소스 공급자에 등록 되지 않은 Vm에 대 한 라이선스 변경
@@ -138,44 +125,29 @@ SQL Server VM SQL VM 리소스 공급자에 등록 된 경우에만 SQL Server V
 
 ## <a name="limitations"></a>제한 사항
 
-- 라이선스 모델 변경은 소프트웨어 보증이 있는 고객만 사용할 수 있습니다.
-- 라이선스 모델 변경은 Standard 및 Enterprise edition SQL Server 에서만 지원 됩니다. Express, Web 및 Developer의 라이선스 변경은 지원 되지 않습니다. 
-- 라이선스 모델 변경은 Azure Resource Manager 모델을 통해 배포 된 가상 컴퓨터에 대해서만 지원 됩니다. 클래식 모델을 통해 배포 된 Vm은 지원 되지 않습니다. 클래식에서 리소스 관리자 모델로 VM을 마이그레이션하고 SQL VM 리소스 공급자를 사용 하 여 등록할 수 있습니다. VM이 SQL VM 리소스 공급자에 등록 되 면 VM에서 라이선스 모델 변경 내용이 제공 됩니다.
-- 라이선스 모델 변경은 공용 클라우드 설치에 대해서만 사용할 수 있습니다.
-- 라이선스 모델 변경은 단일 NIC (네트워크 인터페이스)가 있는 가상 컴퓨터 에서만 지원 됩니다. NIC가 둘 이상 있는 가상 머신에서는 먼저 Azure Portal를 사용 하 여 Nic 중 하나를 제거한 후 절차를 시도 합니다. 그렇지 않으면 다음과 유사한 오류가 표시 됩니다. 
-   
-  `The virtual machine '\<vmname\>' has more than one NIC associated.` 
-   
-  라이선스 모델을 변경한 후에는 VM에 NIC를 다시 추가할 수 있지만 자동 패치 및 백업과 같은 Azure Portal의 SQL Server 구성 페이지에서 수행 되는 작업은 더 이상 지원 되지 않는 것으로 간주 됩니다.
+라이선스 모델을 변경 하는 작업은 다음과 같습니다.
+   - [소프트웨어 보증이](https://www.microsoft.com/en-us/licensing/licensing-programs/software-assurance-overview)있는 고객만 사용할 수 있습니다.
+   - Standard 및 Enterprise edition SQL Server에만 지원 됩니다. Express, Web 및 Developer의 라이선스 변경은 지원 되지 않습니다. 
+   - Azure Resource Manager 모델을 통해 배포 된 가상 컴퓨터에만 지원 됩니다. 클래식 모델을 통해 배포 된 가상 머신은 지원 되지 않습니다. 
+   - 공용 클라우드 설치에만 사용할 수 있습니다. 
+   - 단일 NIC (네트워크 인터페이스)가 있는 가상 컴퓨터 에서만 지원 됩니다. 
+
 
 ## <a name="known-errors"></a>알려진 오류
 
 ### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>리소스 그룹 '\<리소스 그룹 > '에서 ' SqlVirtualMachine/SqlVirtualMachines/\<리소스 그룹 > ' 리소스를 찾을 수 없습니다.
+
 이 오류는 SQL VM 리소스 공급자에 등록 되지 않은 SQL Server VM에서 라이선스 모델을 변경 하려고 할 때 발생 합니다.
 
 `The Resource 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' under resource group '\<resource-group>' was not found. The property 'sqlServerLicenseType' cannot be found on this object. Verify that the property exists and can be set.`
 
 리소스 공급자에 구독을 등록 한 다음 [리소스 공급자를 사용](virtual-machines-windows-sql-register-with-resource-provider.md)하 여 SQL Server VM를 등록 해야 합니다. 
 
-### <a name="cannot-validate-argument-on-parameter-sku"></a>'Sku' 매개 변수의 인수가 유효한지 확인할 수 없음
-4\.0 이후의 Azure PowerShell 버전을 사용 하 여 SQL Server VM 라이선스 모델을 변경 하려고 하면이 오류가 발생할 수 있습니다.
 
-`Set-AzResource: Cannot validate argument on parameter 'Sku'. The argument is null or empty. Provide an argument that is not null or empty, and then try the command again.`
+## <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>가상 컴퓨터 '\<vmname\>'에 둘 이상의 NIC가 연결 되어 있습니다.
 
-이 오류를 해결 하려면 이전에 언급 한 PowerShell 코드 조각에서 라이선스 모델을 전환할 때 다음 줄의 주석 처리를 제거 합니다.
+이 오류는 NIC가 둘 이상 있는 가상 컴퓨터에서 발생 합니다. 라이선스 모델을 변경 하기 전에 Nic 중 하나를 제거 합니다. 라이선스 모델을 변경한 후에는 VM에 NIC를 다시 추가할 수 있지만 Azure Portal의 작업 (예: 자동 백업 및 패치 적용)은 더 이상 지원 되지 않습니다. 
 
-  ```powershell-interactive
-  # the following code snippet is necessary if using Azure Powershell version > 4
-  $SqlVm.Kind= "LicenseChange"
-  $SqlVm.Plan= [Microsoft.Azure.Management.ResourceManager.Models.Plan]::new()
-  $SqlVm.Sku= [Microsoft.Azure.Management.ResourceManager.Models.Sku]::new()
-  ```
-  
-다음 코드를 사용하여 Azure PowerShell 버전을 확인합니다.
-  
-  ```powershell-interactive
-  Get-Module -ListAvailable -Name Azure -Refresh
-  ```
 
 ## <a name="next-steps"></a>다음 단계
 

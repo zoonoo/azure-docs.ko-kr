@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84e9d484da1b59c456b30cf0b465ec6de5af77d1
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 1ed91396dd747bb800d88bc3cd083439a5648624
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014307"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786370"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -36,7 +36,7 @@ ms.locfileid: "74014307"
 
 ## <a name="how-can-i-display-failed-sign-ins"></a>실패한 로그인을 표시하려면 어떻게 해야 합니까? 
 
-[Azure Portal](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)에서 [로그인 보고서](https://portal.azure.com)로 이동합니다.
+[Azure Portal](https://portal.azure.com)에서 [로그인 보고서](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns)로 이동합니다.
 
 ![로그인 활동](./media/reference-sign-ins-error-codes/61.png "로그인 작업")
 
@@ -53,7 +53,7 @@ ms.locfileid: "74014307"
 ## <a name="error-codes"></a>오류 코드
 
 
-|Error|설명|
+|오류|설명|
 |---|---|
 |16000|이것은 오류 조건이 아닌 내부 구현 세부 정보입니다. 이 참조를 무시해도 됩니다.|
 |20001|페더레이션 ID 공급자에 문제가 있습니다. 이 문제를 해결하려면 IDP에 문의하세요.|
@@ -107,7 +107,7 @@ ms.locfileid: "74014307"
 |50128|도메인 이름이 잘못되었습니다. 테넌트를 식별하는 정보가 요청에 없거나 제공된 자격 증명으로 암시되지 않습니다.|
 |50129|디바이스는 작업 공간에 연결되지 않았습니다. **작업 공간 연결**에는 디바이스를 등록할 필요가 없습니다.|
 |50130|클레임 값을 알려진 인증 방법으로 해석할 수 없습니다.|
-|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예를 들어 Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
+|50131|다양 한 조건부 액세스 오류에 사용 됩니다. 예: Windows 디바이스 상태가 잘못되었습니다. 의심스러운 활동, 액세스 정책 및 보안 정책 결정으로 인해 요청이 차단되었습니다.|
 |50132|다음과 같은 이유로 자격 증명이 철회되었습니다.<ul><li>SSO 아티팩트가 잘못되었거나 만료되었습니다.</li><li>애플리케이션에 대한 세션이 최신 상태가 아닙니다.</li><li>자동 로그인 요청을 보냈지만 Azure AD를 사용하는 사용자의 세션이 유효하지 않거나 만료되었습니다.</li></ul>|
 |50133|만료 또는 최근 암호 변경으로 인해 세션이 잘못되었습니다.|
 |50135|계정이 위험하므로 암호를 변경해야 합니다.|
@@ -181,7 +181,8 @@ ms.locfileid: "74014307"
 |90051| 잘못 된 위임 토큰입니다. 잘못 된 국가별 클라우드 ID ({cloudId})가 지정 되었습니다.|
 |90072| 먼저 계정을 테넌트에서 외부 사용자로 추가해야 합니다. 다른 Azure AD 계정으로 로그아웃했다가 다시 로그인합니다.|
 |90094| 권한 부여를 위해서는 관리자 권한이 필요합니다. 테넌트 관리자에게 이 애플리케이션에 대한 동의를 제공하도록 요청하세요.|
-|500021|테 넌 트가 회사 프록시에 의해 제한 됩니다. 리소스 액세스를 거부 합니다.|
+|500011| 이름이 <site address> 인 리소스 보안 주체가 <tenant ID>테 넌 트에 없습니다. 이 오류는 테넌트의 관리자가 애플리케이션을 설치하지 않았거나 테넌트의 사용자가 동의하지 않은 경우에 발생할 수 있습니다. 잘못된 테넌트에 인증 요청을 보냈을 수도 있습니다.|
+|500021| 테 넌 트가 회사 프록시에 의해 제한 됩니다. 리소스 액세스를 거부 합니다.|
 |500121| 강력한 인증 요청 중에 인증에 실패 했습니다.|
 |500133| 어설션이 유효한 시간 범위 내에 있지 않습니다. 사용자 어설션에 대해 사용하기 전에 액세스 토큰이 만료되지 않았는지 확인하거나 새 토큰을 요청합니다.|
 |530021|응용 프로그램이 조건부 액세스 승인 된 앱 요구 사항을 충족 하지 않습니다.|

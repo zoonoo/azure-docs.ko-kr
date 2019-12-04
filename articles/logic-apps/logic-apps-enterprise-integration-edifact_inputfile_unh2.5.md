@@ -1,24 +1,23 @@
 ---
-title: EDIFACT 메시지의 UNH 2.5 세그먼트-Azure Logic Apps
+title: EDIFACT 메시지의 UNH 2.5 세그먼트
 description: 엔터프라이즈 통합 팩를 사용 하 여 Azure Logic Apps에서 UNH 2.5 세그먼트로 EDIFACT 메시지를 해결 합니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 04/27/2017
-ms.openlocfilehash: c30c35375a45171c938f80e94dd7d9be4c3ee8b1
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ad50cbb423f8c60f1caad159bc1a20cf96ed98aa
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679944"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792547"
 ---
 # <a name="handle-edifact-documents-with-unh25-segments-in-azure-logic-apps"></a>Azure Logic Apps에서 UNH2.5 세그먼트를 사용하여 EDIFACT 문서를 처리합니다.
 
-EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 조회에 사용 됩니다. 예를 들어이 샘플 EDIFACT 메시지에서 UNH 필드는 `EAN008` 됩니다.
+EDIFACT 문서에 UNH 2.5 세그먼트가 있으면 세그먼트가 스키마 조회에 사용 됩니다. 예를 들어이 샘플 EDIFACT 메시지에서 UNH 필드는 `EAN008`됩니다.
 
 `UNH+SSDD1+ORDERS:D:03B:UN:EAN008`
 

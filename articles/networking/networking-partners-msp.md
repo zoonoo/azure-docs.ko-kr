@@ -7,16 +7,16 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: sukishen
-ms.openlocfilehash: 3151d72c0e74e7eb694ef2bdd5737f65992fe905
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 10c27c18b8003bf286789e478f504bca98ebe7ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824374"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766485"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Azure 네트워킹 MSP 파트너 정보
 
-[Azure 네트워킹 MSP (관리 서비스 공급자) 파트너 프로그램](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) 을 사용 하면 네트워크 서비스 중심 Msps, 통신 및 SIs (시스템 통합자)가 azure의 네트워킹 제품 포트폴리오를 중심으로 클라우드 및 하이브리드 네트워킹 서비스를 제공할 수 있습니다. 및 서비스.
+[Azure 네트워킹 MSP (관리 서비스 공급자) 파트너 프로그램](https://azure.microsoft.com/blog/enhancing-the-customer-experience-with-the-azure-networking-msp-partner-program/) 을 사용 하면 네트워크 서비스 중심 Msps, 통신 및 SIs (시스템 통합자)가 azure의 네트워킹 제품과 서비스 포트폴리오를 중심으로 클라우드 및 하이브리드 네트워킹 서비스를 제공할 수 있습니다.
 
 Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모든 측면에서 엔터프라이즈 클라우드 네트워킹 요구 사항과 과제를 해결 하는 특수 한 관리 서비스 공급자 집합입니다. 관리 되는 네트워크 서비스에는 네트워크 아키텍처, 계획, 배포, 운영, 유지 관리 및 최적화와 같은 서비스가 하나 이상 포함 되어 있습니다.
 
@@ -28,33 +28,34 @@ Azure 네트워킹 MSPs는 클라우드 및 하이브리드 네트워킹의 모�
 
 Azure 네트워킹 MSP 파트너에서 제공 하는 관리 되는 클라우드 네트워킹 서비스에 대 한 자세한 내용은이 섹션의 링크를 사용 하세요. 클라우드 네트워크 서비스 파트너가 아래 섹션에 나열 되어 있지 않으면 공급자에 게 문의 하세요. ManagedVirtualWAN@microsoft.com으로 이메일을 전송하여 연락할 수 있습니다. 
 
-| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** | **관리 되는 네트워크 보안 서비스** |**관리 되는 네트워크에 지 계산** |
+| **MSP** | **클라우드 네트워크 변환 서비스** | **관리 되는 Express 경로** | **관리 되는 가상 WAN** | **관리 되는 네트워크 보안 서비스** |**관리 되는 다중 액세스에 지 계산** |
 | ---| ---| ---| ---| ---| ---|
-|[Amdocs](https://www.amdocs.com/)|||||예|
-|[ANS 그룹 영국](https://www.ans.co.uk/)|예|예||||
-|[Aryaka 네트워크](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|예 |예 |예 | | |
-|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|예|예|예|||
-|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|예|||||
-|[차원 데이터](https://www.dimensiondata.com/)|예|||||
-|[Equinix](https://www.equinix.com/)|예|예||||
-|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|예|예||||
-|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|예||||예|
-|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|예|예||||
-|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|예|예||||
-|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|예|예||||
-|[KINX](https://www.kinx.net/service/cloud/?lang=en)|예|||||
-|[액체 텔레콤](https://liquidcloud.africa/azure-networking)|예|예||||
-|[Macquarie 통신](https://macquariecloudservices.com/azure-managed-services/)|예|예|예|||
-|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|예|예||||
-|[OmniClouds](https://omniclouds.com/services/)|예|예||||
-|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|예|예||||
-|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|예|예||||
-|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|예|예||||
-|[Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|예|예|예|예||
-|[TCTS](https://www.tatacommunications-ts.com/index.php)|예|예|예|||
-|[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|예||||예|
-|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|예|예|예|||
-|[유의 IT](https://vigilant.it/manage-cloud-service/)|예|예||||
+|[Amdocs](https://www.amdocs.com/)|||||yes|
+|[ANS 그룹 영국](https://www.ans.co.uk/)|yes|yes||||
+|[Aryaka 네트워크](https://www.aryaka.com/azure-msp-vwan-managed-service-provider-launch-partner-aryaka/)|yes |yes |yes | | |
+|[BT](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)|yes|yes|yes|||
+|[Coevolve](https://www.coevolve.com/services/azure-networking-services/)|yes||yes|yes||
+|[Colt](https://www.colt.net/why-colt/strategic-alliances/microsoft-partnership/msp/)|yes|||||
+|[차원 데이터](https://www.dimensiondata.com/)|yes|||||
+|[Equinix](https://www.equinix.com/)|yes|yes||||
+|[IIJ](https://www.iij.ad.jp/biz/cloudex/)|yes|yes||||
+|[Infosys](https://www.infosys.com/services/microsoft-cloud-business/pages/index.aspx)|yes||||yes|
+|[InterCloud](https://intercloud.com/partners/microsoft-azure/)|yes|yes||||
+|[Interxion](https://www.interxion.com/products/interconnection/cloud-connect/support-your-cloud-strategy/)|yes|yes||||
+|[IX Reach](https://www.ixreach.com/services/sdn-cloud-connect/)|yes|yes||||
+|[KINX](https://www.kinx.net/service/cloud/?lang=en)|yes|||||
+|[액체 텔레콤](https://liquidcloud.africa/azure-networking)|yes|yes||||
+|[Macquarie 통신](https://macquariecloudservices.com/azure-managed-services/)|yes|yes|yes|||
+|[Megaport](https://www.megaport.com/services/microsoft-expressroute/)|yes|yes||||
+|[OmniClouds](https://omniclouds.com/services/)|yes|yes||||
+|[Oncore Cloud Services]( https://www.oncore.cloud/services/ue-for-expressroute/)|yes|yes||||
+|[Orixcom]( https://www.orixcom.com/cloud-solutions/)|yes|yes||||
+|[Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)|yes|yes||||
+|[Tata 통신](https://www.tatacommunications.com/about/our-alliances/microsoft-alliance/)|yes|yes|yes|yes||
+|[TCTS](https://www.tatacommunications-ts.com/index.php)|yes|yes|yes|||
+|[Tech Mahindra](https://networkservices.techmahindra.com/pages/default.aspx)|yes||||yes|
+|[Vandis](https://www.vandis.com/microsoft-azure-practice/)|yes|yes|yes|||
+|[유의 IT](https://vigilant.it/manage-cloud-service/)|yes|yes||||
 
 ## <a name="expressroute"></a>Express 경로 파트너
 

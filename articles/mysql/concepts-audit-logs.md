@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL에 대 한 감사 로그
+title: 감사 로그-Azure Database for MySQL
 description: Azure Database for MySQL에서 사용할 수 있는 감사 로그와 로깅 수준을 사용 하도록 설정 하는 데 사용할 수 있는 매개 변수를 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/26/2019
-ms.openlocfilehash: 42881fcb12f29ec14bbdc0ec4942b2eef17c7312
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.date: 12/02/2019
+ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72434410"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773571"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
 
@@ -35,7 +35,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 > [!Note]
 > `sql_text`의 경우 로그는 2048 자를 초과 하는 경우 잘립니다.
 
-| **이벤트** | **설명** |
+| **Event** | **설명** |
 |---|---|
 | `CONNECTION` | -연결 시작 (성공 또는 실패) <br> -세션 중에 다른 사용자/암호를 사용 하 여 사용자 재인증 <br> -연결 종료 |
 | `DML_SELECT`| 쿼리 선택 |

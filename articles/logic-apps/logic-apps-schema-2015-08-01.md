@@ -1,21 +1,19 @@
 ---
-title: 2015년 8월 1일 미리 보기의 스키마 업데이트 - Azure Logic Apps | Microsoft Docs
+title: 8 월-1-2015 미리 보기의 스키마 업데이트
 description: Azure Logic Apps의 논리 앱 정의에 대한 2015-08-01-preview 스키마 버전 업데이트
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 0d03a4d4-e8a8-4c81-aed5-bfd2a28c7f0c
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/31/2016
-ms.openlocfilehash: 92f522c72f69218e55b1ee4cfff74511a30288b0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b6746baaede777eb8c2afcae9eb3fe80b669c468
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60553762"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792849"
 ---
 # <a name="schema-updates-for-azure-logic-apps---august-1-2015-preview"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2015년 8월 1일 미리 보기
 
@@ -39,7 +37,7 @@ ms.locfileid: "60553762"
 
 ### <a name="managed-apis"></a>관리되는 API
 
-Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등의 몇 가지 API를 관리합니다. 관리되는 일부 API를 Bing Translate처럼 있는 그대로 사용할 수도 있지만, 구성 즉 “연결”이 필요한 경우도 있습니다. 
+Microsoft는 사용자를 대신해서 Office 365, Salesforce, Twitter, FTP 등의 몇 가지 API를 관리합니다. 관리되는 일부 API를 Bing Translate처럼 있는 그대로 사용할 수도 있지만, 구성 즉 “연결”이 필요한 경우도 있습니다.
 
 예를 들어, Office 365를 사용하는 경우 Office 365 로그인 토큰을 포함하는 연결을 만들어야 합니다. 이 토큰은 논리 앱에서 항상 Office 365 API를 호출할 수 있도록 안전하게 저장되어 새로 고침됩니다. SQL이나 FTP 서버에 연결하려는 경우에는 연결 문자열이 있는 연결을 만들어야 합니다. 
 

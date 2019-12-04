@@ -1,20 +1,17 @@
 ---
-title: 연속 데이터를 처리 하는 작업 예약-Azure Logic Apps
+title: 연속 데이터를 처리 하는 작업 예약
 description: Azure Logic Apps에서 슬라이딩 윈도우를 사용 하 여 연속 데이터를 처리 하는 되풀이 작업 만들기 및 실행
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: deli, klam, LADocs
+ms.reviewer: deli, klam, logicappspm
 ms.topic: conceptual
 ms.date: 05/25/2019
-ms.openlocfilehash: 0312d9480d00d4430cd5d42dc22ef9dac005ee2e
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: ab4bf802772c95d8c48a8cdba48def05e8a2761b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72679055"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786914"
 ---
 # <a name="schedule-and-run-tasks-for-contiguous-data-by-using-the-sliding-window-trigger-in-azure-logic-apps"></a>에서 슬라이딩 윈도우 트리거를 사용 하 여 연속 된 데이터에 대 한 작업 예약 및 실행 Azure Logic Apps
 

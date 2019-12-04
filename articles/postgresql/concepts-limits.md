@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL의 제한-단일 서버
+title: 한도 Azure Database for PostgreSQL-단일 서버
 description: 이 문서에서는 연결 수 및 저장소 엔진 옵션과 같은 Azure Database for PostgreSQL 단일 서버에 대 한 제한을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b9cef4753b6fd324b38d7254139fe288463a0c0c
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d74206ebdf35a8f5b353553cb89e954cb2313611
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123901"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768540"
 ---
 # <a name="limits-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 제한-단일 서버
 다음 섹션에서는 데이터베이스 서비스의 용량 및 기능 제한에 대해 설명합니다. 리소스 (계산, 메모리, 저장소) 계층에 대해 알아보려면 [가격 책정 계층](concepts-pricing-tiers.md) 문서를 참조 하세요.
@@ -23,19 +23,19 @@ ms.locfileid: "74123901"
 
 |**가격 책정 계층**| **vCore**| **최대 연결** | **최대 사용자 연결** |
 |---|---|---|---|
-|기본| 1| 55 | 50|
-|기본| 2| 105 | 100|
-|범용| 2| 150| 145|
-|범용| 4| 250| 245|
-|범용| 8| 480| 475|
-|범용| 16| 950| 945|
-|범용| 32| 1500| 1495|
-|범용| 64| 1900| 1895|
-|메모리 최적화| 2| 300| 295|
-|메모리 최적화| 4| 500| 495|
-|메모리 최적화| 8| 960| 955|
-|메모리 최적화| 16| 1900| 1895|
-|메모리 최적화| 32| 1987| 1982|
+|Basic| 1| 55 | 50|
+|Basic| 2| 105 | 100|
+|일반적인 용도| 2| 150| 145|
+|일반적인 용도| 4| 250| 245|
+|일반적인 용도| 8| 480| 475|
+|일반적인 용도| 16| 950| 945|
+|일반적인 용도| 32| 1500| 1495|
+|일반적인 용도| 64| 1900| 1895|
+|메모리에 최적화| 2| 300| 295|
+|메모리에 최적화| 4| 500| 495|
+|메모리에 최적화| 8| 960| 955|
+|메모리에 최적화| 16| 1900| 1895|
+|메모리에 최적화| 32| 1987| 1982|
 
 연결 한도를 초과하면 다음과 같은 오류가 발생할 수 있습니다.
 > 오류: 너무 많은 클라이언트가 이미 연결되어 있습니다.

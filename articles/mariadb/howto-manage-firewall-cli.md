@@ -1,25 +1,25 @@
 ---
-title: Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
+title: 방화벽 규칙 관리-Azure CLI-Azure Database for MariaDB
 description: 이 문서에서는 Azure CLI 명령줄을 사용하여 Azure Database for MariaDB 방화벽 규칙을 만들고 관리하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 04/09/2019
-ms.openlocfilehash: 562987b953f0a8a20a917e208f43557bd768c0a0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: 6690c0862b83af70f3beda4190547d6fbb80a601
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61038623"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764255"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-firewall-rules-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 방화벽 규칙 만들기 및 관리
-서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소에서 MariaDB 서버에 대 한 Azure Database에 대 한 액세스 관리를 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. MariaDB 방화벽에 대 한 Azure Database의 개요를 보려면 [MariaDB 서버 방화벽 규칙에 대 한 Azure Database](./concepts-firewall-rules.md)합니다.
+서버 수준 방화벽 규칙은 특정 IP 주소 또는 IP 주소 범위에서 Azure Database for MariaDB 서버에 대 한 액세스를 관리 하는 데 사용할 수 있습니다. 편리한 Azure CLI 명령을 사용하면 서버를 관리하는 방화벽 규칙을 만들고, 업데이트하고, 삭제하며, 표시할 수 있습니다. Azure Database for MariaDB 방화벽에 대 한 개요는 [Azure Database for MariaDB 서버 방화벽 규칙](./concepts-firewall-rules.md)을 참조 하세요.
 
-Virtual Network (VNet) 규칙도 서버에 대한 액세스 보안에 사용할 수 있습니다. [Azure CLI를 사용하여 VNet 서비스 엔드포인트 만들기 및 관리하기](howto-manage-vnet-cli.md)에 대해 자세히 알아보세요.
+VNet (Virtual Network) 규칙을 사용 하 여 서버에 대 한 액세스를 보호할 수도 있습니다. [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리 하는](howto-manage-vnet-cli.md)방법에 대해 자세히 알아보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli).
 * [Azure Database for MariaDB 서버 및 데이터베이스](quickstart-create-mariadb-server-database-using-azure-cli.md)
 
@@ -33,7 +33,7 @@ Virtual Network (VNet) 규칙도 서버에 대한 액세스 보안에 사용할 
 - **show**: Azure MariaDB 서버 방화벽 규칙의 세부 정보를 표시합니다.
 - **update**: Azure MariaDB 서버 방화벽 규칙을 업데이트합니다.
 
-## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Azure에 로그인 하 고 MariaDB 서버용 Azure Database 목록
+## <a name="sign-in-to-azure-and-list-your-azure-database-for-mariadb-servers"></a>Azure에 로그인 하 고 Azure Database for MariaDB 서버를 나열 합니다.
 **az login** 명령을 사용하여 Azure 계정으로 Azure CLI를 안전하게 연결합니다.
 
 1. 명령줄에서 다음 명령을 실행합니다.
@@ -121,4 +121,4 @@ az mariadb server firewall-rule delete --resource-group myresourcegroup --server
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for MariaDB 서버 방화벽 규칙](./concepts-firewall-rules.md)에 대해 자세히 알아봅니다.
 - [Azure Portal을 사용하여 Azure Database for MariaDB 방화벽 규칙을 만들고 관리합니다](./howto-manage-firewall-portal.md).
-- [Azure CLI를 사용하여 VNet 서비스 엔드포인트 만들기 및 관리하기](howto-manage-vnet-cli.md)를 통해 서버에 대한 액세스 보안을 더욱 강화합니다.
+- [Azure CLI를 사용 하 여 Virtual Network 서비스 끝점 및 규칙을 만들고 관리](howto-manage-vnet-cli.md)하 여 서버에 대 한 액세스를 강화 합니다.

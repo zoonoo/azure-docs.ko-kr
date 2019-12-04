@@ -5,20 +5,20 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: troubleshooting
-ms.date: 10/02/2019
+ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 1470bb049cffce52ae921057bdaece40f3d3161c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607405"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791147"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -123,7 +123,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 1. 세션 호스트 VM에서 새 버전의 에이전트를 다운로드 합니다.
 2. 작업 관리자를 시작 하 고 서비스 탭에서 RDAgentBootLoader 서비스를 중지 합니다.
 3. 새 버전의 Windows 가상 데스크톱 에이전트에 대 한 설치 관리자를 실행 합니다.
-4. 등록 토큰을 입력 하 라는 메시지가 표시 되 면 INVALID_TOKEN 항목을 제거 하 고 next (새 토큰이 필요 하지 않음)를 누릅니다.
+4. 등록 토큰을 입력 하 라는 메시지가 표시 되 면 INVALID_TOKEN 항목을 제거 하 고 다음을 누릅니다 (새 토큰은 필요 하지 않음).
 5. 설치 마법사를 완료 합니다.
 6. 작업 관리자를 열고 RDAgentBootLoader 서비스를 시작 합니다.
 
@@ -233,7 +233,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 다음 지침에 따라 동일한 서브넷과 도메인에서 업데이트 관리를 실행 합니다.
 
 1. 수정이 적용 되는 VM에 RDP (standard 원격 데스크톱 프로토콜)를 연결 합니다.
-2. https://docs.microsoft.com/sysinternals/downloads/psexec에서 PsExec를 다운로드 합니다.
+2. https://docs.microsoft.com/sysinternals/downloads/psexec 에서 PsExec를 다운로드 합니다.
 3. 다운로드 한 파일의 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec 압축을 푼 폴더로 이동 합니다.
@@ -309,7 +309,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정 사용 안 함
 
-VM에서 그룹 정책 편집기를 열고 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** > 으로 이동 하 여 그룹 정책 설정을 확인 **원격 데스크톱 세션 호스트** > **라이선스** > **원격 데스크톱 라이선싱 모드를 설정**합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
+VM에서 그룹 정책 편집기를 열고 **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** ** > 원격 데스크톱 세션 호스트** > **라이선스** > **원격 데스크톱 라이선싱 모드를 설정**하 여 그룹 정책 설정을 확인 합니다. 그룹 정책 설정을 **사용**하는 경우 **사용 안 함**으로 변경 합니다. 이미 사용 하지 않도록 설정 되어 있으면 그대로 둡니다.
 
 >[!NOTE]
 >도메인을 통해 그룹 정책을 설정 하는 경우 이러한 Windows 10 Enterprise 다중 세션 Vm을 대상으로 하는 정책에서이 설정을 사용 하지 않도록 설정 합니다.
@@ -333,7 +333,7 @@ VM에서 그룹 정책 편집기를 열고 **관리 템플릿** > **Windows 구�
 
 ### <a name="version-1903"></a>버전 1903
 
-버전 번호가 "1903" 인 경우 [KB4517211 업데이트를](https://support.microsoft.com/help/4517211)설치 합니다.
+Azure 갤러리에서 최신 버전의 Windows 10 버전 1903 이미지를 사용 하 여 호스트 운영 체제를 다시 배포 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

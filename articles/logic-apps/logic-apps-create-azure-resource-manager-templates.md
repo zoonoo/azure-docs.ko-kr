@@ -1,24 +1,21 @@
 ---
-title: 배포용 논리 앱 템플릿 만들기-Azure Logic Apps
+title: 배포용 논리 앱 템플릿 만들기
 description: 에서 배포를 자동화 하기 위한 Azure Resource Manager 템플릿을 만드는 방법에 대해 알아봅니다 Azure Logic Apps
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 07/26/2019
-ms.openlocfilehash: 57e9cec16326068cc7de74b8f7266fbe47808fed
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d9b2dc7432ee1b847c8c7900a3e91daa71b5a771
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845441"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793196"
 ---
 # <a name="create-azure-resource-manager-templates-to-automate-deployment-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 배포를 자동화 하는 Azure Resource Manager 템플릿 만들기
 
-논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요를 보려면 [개요: Azure Resource Manager 템플릿을](logic-apps-azure-resource-manager-templates-overview.md)사용 하 여 논리 앱에 대 한 배포를 자동화 합니다.
+논리 앱 만들기 및 배포를 자동화 하는 데 도움이 되도록이 문서에서는 논리 앱에 대 한 [Azure Resource Manager 템플릿을](../azure-resource-manager/resource-group-overview.md) 만들 수 있는 방법에 대해 설명 합니다. 워크플로 정의 및 배포에 필요한 기타 리소스를 포함 하는 템플릿의 구조 및 구문에 대 한 개요는 [개요: Azure Resource Manager 템플릿을 사용 하 여 논리 앱에 대 한 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)를 참조 하세요.
 
 Azure Logic Apps는 다시 사용할 수 있는 [미리 빌드된 논리 앱 Azure Resource Manager 템플릿을](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) 제공 합니다 .이 템플릿을 사용 하 여 논리 앱을 만들 뿐만 아니라 배포에 사용할 리소스와 매개 변수를 정의할 수 있습니다. 이 템플릿을 자체 비즈니스 시나리오에 사용하거나 요구 사항에 맞게 사용자 지정할 수 있습니다.
 
@@ -79,7 +76,7 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 다음 항목을
 
 LogicAppTemplate 모듈에서 모든 Azure 테 넌 트 및 구독 액세스 토큰을 사용 하려면 Azure Resource Manager API를 호출 하는 간단한 명령줄 도구인 [Azure Resource Manager 클라이언트 도구](https://github.com/projectkudu/ARMClient)를 설치 합니다.
 
-이 도구를 사용 `Get-LogicAppTemplate` 하 여 명령을 실행 하는 경우 명령은 먼저 ARMClient 도구를 통해 액세스 토큰을 가져오고, 토큰을 PowerShell 스크립트로 파이프 하 고, 템플릿을 JSON 파일로 만듭니다. 도구에 대 한 자세한 내용은 [Azure Resource Manager 클라이언트 도구에 대 한이 문서](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)를 참조 하세요.
+이 도구를 사용 하 여 `Get-LogicAppTemplate` 명령을 실행 하면 명령은 먼저 ARMClient 도구를 통해 액세스 토큰을 가져오고, 토큰을 PowerShell 스크립트로 파이프 하 고, 템플릿을 JSON 파일로 만듭니다. 도구에 대 한 자세한 내용은 [Azure Resource Manager 클라이언트 도구에 대 한이 문서](https://blog.davidebbo.com/2015/01/azure-resource-manager-client.html)를 참조 하세요.
 
 ### <a name="generate-template-with-powershell"></a>PowerShell을 사용 하 여 템플릿 생성
 
@@ -89,7 +86,7 @@ LogicAppTemplate 모듈을 설치 하 고 [Azure CLI](https://docs.microsoft.com
 PS> Get-LogicAppTemplate -Token (az account get-access-token | ConvertFrom-Json).accessToken -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
 ```
 
-[Azure Resource Manager 클라이언트 도구의](https://github.com/projectkudu/ARMClient)토큰에서 파이프에 대 한 권장 사항을 따르려면 Azure 구독 ID를 대신 `$SubscriptionId` 하 여 다음 명령을 실행 합니다.
+[Azure Resource Manager 클라이언트 도구의](https://github.com/projectkudu/ARMClient)토큰에서 파이프에 대 한 권장 사항을 따르려면 `$SubscriptionId` AZURE 구독 ID 인 대신이 명령을 실행 합니다.
 
 ```text
 PS> armclient token $SubscriptionId | Get-LogicAppTemplate -LogicApp <logic-app-name> -ResourceGroup <Azure-resource-group-name> -SubscriptionId $SubscriptionId -Verbose | Out-File C:\template.json
@@ -107,10 +104,10 @@ Azure Key Vault 참조 (정적 전용)를 사용 하 여 추출 하려면 다음
 PS> Get-ParameterTemplate -TemplateFile $filename -KeyVault Static | Out-File $fileNameParameter
 ```
 
-| 매개 변수 | 필수 | Description |
+| parameters | 필수 | 설명 |
 |------------|----------|-------------|
-| TemplateFile | 예 | 템플릿 파일에 대 한 파일 경로입니다. |
-| KeyVault | 아니요 | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |
+| TemplateFile | yes | 템플릿 파일에 대 한 파일 경로입니다. |
+| KeyVault | 아닙니다. | 가능한 키 자격 증명 모음 값을 처리 하는 방법을 설명 하는 열거형입니다. 기본값은 `None`입니다. |
 ||||
 
 ## <a name="next-steps"></a>다음 단계

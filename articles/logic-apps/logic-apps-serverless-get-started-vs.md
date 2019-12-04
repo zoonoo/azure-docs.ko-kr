@@ -1,21 +1,17 @@
 ---
-title: Visual Studio에서 첫 번째 서버 리스 앱 빌드-Azure Logic Apps
+title: Visual Studio에서 첫 번째 서버 리스 앱 빌드
 description: Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 서버 리스 앱 빌드, 배포 및 관리
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: vs-azure
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 06/20/2019
-ms.openlocfilehash: 76ab76440ddc25f4b1cf51f7d540a6e21614541d
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 4ed2ad2d2ff92e9320a7b9c773c4d6e5857fb905
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680123"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792957"
 ---
 # <a name="build-your-first-serverless-app-by-using-azure-logic-apps-and-azure-functions-in-visual-studio"></a>Visual Studio에서 Azure Logic Apps 및 Azure Functions를 사용 하 여 첫 번째 서버 리스 앱 빌드
 
@@ -68,7 +64,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
    ![Visual Studio에서 새 프로젝트 만들기](./media/logic-apps-serverless-get-started-vs/create-new-project-visual-studio.png)
 
-1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드**  > **Azure 리소스 그룹**을 선택 합니다.
+1. **설치됨** 아래에서 **Visual C#** 또는 **Visual Basic**을 선택합니다. 그런 다음 **클라우드** > **Azure 리소스 그룹**을 선택 합니다.
 
    > [!NOTE]
    > **클라우드** 범주 또는 **azure 리소스 그룹** 프로젝트가 없는 경우 Azure SDK for Visual Studio를 설치 했는지 확인 합니다.
@@ -104,7 +100,7 @@ Visual Studio에서 서버를 사용 하지 않는 응용 프로그램을 빌드
 
 Visual Studio의 논리 앱 디자이너에서 논리 앱을 열려면 Azure에 이미 배포 된 Azure 리소스 그룹이 있어야 합니다. 그러면 디자이너에서 리소스 및 서비스에 대한 연결을 논리 앱에 만들 수 있습니다. 이 작업의 경우 다음 단계에 따라 Visual Studio에서 Azure Portal 솔루션을 배포 합니다.
 
-1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 **배포**  > **새로 만들기**를 선택 합니다.
+1. 솔루션 탐색기의 리소스 프로젝트 바로 가기 메뉴에서 **배포** > **새로 만들기**를 선택 합니다.
 
    ![리소스 그룹에 대한 새 배포 만들기](./media/logic-apps-serverless-get-started-vs/deploy.png)
 

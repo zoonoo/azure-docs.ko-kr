@@ -1,5 +1,5 @@
 ---
-title: 서버를 사용하지 않음
+title: 서버리스
 description: 이 문서에서는 새 서버리스 컴퓨팅 계층에 대해 설명하고 이를 기존의 프로비저닝된 컴퓨팅 계층과 비교합니다.
 services: sql-database
 ms.service: sql-database
@@ -7,16 +7,16 @@ ms.subservice: service
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: moslake
+author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 11/04/2019
-ms.openlocfilehash: fecc394080f54f023529ed2da8c9690c38c1da08
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/03/2019
+ms.openlocfilehash: a304b7fb0ba90d4ccf3805f47a5b04a2d3d8765e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818271"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775586"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 
@@ -67,7 +67,7 @@ ms.locfileid: "73818271"
 |:---|:---|:---|
 |**데이터베이스 사용 패턴**| 시간이 지남에 따라 평균 계산 사용률이 낮은 간헐적이 고 예측할 수 없는 사용 |  시간이 지남에 따라 더 높은 평균 계산 사용률 또는 탄력적 풀을 사용 하는 여러 데이터베이스를 사용 하는 보다 일반적인 사용 패턴.|
 | **성능 관리 작업** |더 적음|더 많음|
-|**컴퓨팅 크기 조정**|자동|설명서|
+|**컴퓨팅 크기 조정**|자동|Manual|
 |**컴퓨팅 응답성**|비활성 기간 후 낮음|즉시|
 |**청구 세분성**|초당|시간당|
 
@@ -157,19 +157,19 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
    |서비스 목표 이름|서비스 계층|하드웨어 세대|최대 vCore 수|
    |---|---|---|---|
-   |GP_S_Gen5_1|범용|5세대|1|
-   |GP_S_Gen5_2|범용|5세대|2|
-   |GP_S_Gen5_4|범용|5세대|4|
-   |GP_S_Gen5_6|범용|5세대|6|
-   |GP_S_Gen5_8|범용|5세대|8|
-   |GP_S_Gen5_10|범용|5세대|10|
-   |GP_S_Gen5_12|범용|5세대|12|
-   |GP_S_Gen5_14|범용|5세대|14|
-   |GP_S_Gen5_16|범용|5세대|16|
+   |GP_S_Gen5_1|일반적인 용도|Gen5|1|
+   |GP_S_Gen5_2|일반적인 용도|Gen5|2|
+   |GP_S_Gen5_4|일반적인 용도|Gen5|4|
+   |GP_S_Gen5_6|일반적인 용도|Gen5|6|
+   |GP_S_Gen5_8|일반적인 용도|Gen5|8|
+   |GP_S_Gen5_10|일반적인 용도|Gen5|10|
+   |GP_S_Gen5_12|일반적인 용도|Gen5|12|
+   |GP_S_Gen5_14|일반적인 용도|Gen5|14|
+   |GP_S_Gen5_16|일반적인 용도|Gen5|16|
 
 2. 필요에 따라 최소 vCores 및 autopause delay를 지정 하 여 기본값을 변경 합니다. 다음 표에는 이러한 매개 변수에 사용할 수 있는 값이 나와 있습니다.
 
-   |매개 변수|값 선택|기본값|
+   |매개 변수를 포함해야 합니다.|값 선택|기본값|
    |---|---|---|---|
    |최소 vCores|구성 된 최대 vCores에 따라 다름- [리소스 제한](sql-database-vcore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.|0.5개 vCore|
    |자동 일시 중지 지연|최소: 60 분 (1 시간)<br>최대: 10080 분 (7 일)<br>증가: 60 분<br>자동 일시 중지 사용 안 함: -1|60분|
@@ -245,13 +245,13 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 ## <a name="modifying-serverless-configuration"></a>서버를 사용 하지 않는 구성 수정
 
-### <a name="maximum-vcores"></a>최대 vCore 수
+### <a name="maximum-vcores"></a>최대 vCore
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
 `MaxVcore` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
 
-### <a name="minimum-vcores"></a>최소 vCore 수
+### <a name="minimum-vcores"></a>최소 vCore
 
 #### <a name="use-powershell"></a>PowerShell 사용
 
@@ -281,7 +281,7 @@ Autopause 지연 수정은 `AutoPauseDelayInMinutes` 인수를 사용 하 여 Po
 
 응용 프로그램 패키지의 리소스 사용 및 서버를 사용 하지 않는 데이터베이스의 사용자 풀 모니터링에 대 한 메트릭은 다음 표에 나와 있습니다.
 
-|엔터티|메트릭|설명|Units|
+|엔터티|메트릭|설명|단위|
 |---|---|---|---|
 |앱 패키지|app_cpu_percent|앱에 허용되는 최대 vCore 수에 대한 앱에서 사용한 vCore 수의 백분율입니다.|백분율|
 |앱 패키지|app_cpu_billed|보고 기간 동안 앱에 대해 요금이 청구되는 컴퓨팅의 양입니다. 이 기간 동안에 대한 지불 금액은 이 메트릭과 vCore 단가를 곱한 값입니다. <br><br>이 메트릭의 값은 시간이 지남에 따라 사용된 최대 CPU와 사용된 초당 메모리를 집계하여 결정됩니다. 사용된 양이 최소 vCore 수 및 최소 메모리로 설정된 최소 프로비저닝된 양보다 적으면 최소 프로비저닝된 양에 대한 요금이 청구됩니다. 청구 목적으로 CPU와 CPU를 비교 하기 위해 메모리는 Vcores 당 3gb의 메모리 용량을 크기 조정 하 여 vCores 단위로 정규화 됩니다.|vCore 시간(초)|
@@ -310,7 +310,7 @@ Get-AzSqlDatabase `
 
 리소스 제한의 경우 서버를 사용 하지 않는 [계산 계층](sql-database-vCore-resource-limits-single-databases.md#general-purpose---serverless-compute---gen5)을 참조 하세요.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 청구되는 컴퓨팅 양은 초 단위로 사용된 최대 CPU와 메모리입니다. 사용된 CPU와 메모리의 양이 각각에 대해 프로비저닝된 최소 양보다 적으면 프로비저닝된 양에 대해 청구됩니다. 청구의 목적으로 CPU를 메모리와 비교하기 위해 메모리는 vCore당 메모리 양(GB 단위)을 3GB로 다시 조정하여 vCore 단위로 정규화됩니다.
 

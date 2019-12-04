@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 4aa9e93831b902ff9f0a0659c650cd2ca123b1a3
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74124016"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775836"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -82,7 +82,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl**를 두 번 클릭 합니다.
     * Mac 및 Linux: 터미널에서 `openssl`를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
+3. `s_client -showcerts -connect microsoft.com:443`.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 확실 하 게 알지 못하는 경우 주제 `("s:")`와 발급자 `("i:")` 동일한 위치를 기록해 둡니다.
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해 `-----END CERTIFICATE-----`를 통해 `-----BEGIN CERTIFICATE-----` 모든 항목을 복사 하 여 새 .cer 파일에 붙여넣습니다.
 6. Storage 탐색기를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
@@ -95,7 +95,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
 
-1. 메뉴에서 **미리 보기** 로 이동 하 > **장치 코드 로그인을 사용**합니다.
+1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램** > **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
 4. **로그인**을 선택 합니다.
@@ -313,7 +313,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+3. 다음 명령 실행:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
@@ -322,7 +322,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+3. 다음 명령 실행:
    ```bash
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
@@ -331,7 +331,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+3. 다음 명령 실행:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
@@ -340,7 +340,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)설치 합니다.
-3. 다음 명령을 실행합니다.
+3. 다음 명령 실행:
    ```bash
    sudo apt install libgnome-keyring-dev
    ```
@@ -370,4 +370,4 @@ Azure Portal에서 **탐색기에서 열기** 단추가 작동 하지 않으면 
 
 이러한 해결 방법이 없는 경우 [GitHub에서 문제를 엽니다](https://github.com/Microsoft/AzureStorageExplorer/issues). 왼쪽 아래 모서리에 있는 **GitHub에 문제 보고** 단추를 선택 하 여이 작업을 수행할 수도 있습니다.
 
-![사용자 의견](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![피드백](./media/storage-explorer-troubleshooting/feedback-button.PNG)

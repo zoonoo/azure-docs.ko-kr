@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB의 비즈니스 연속성 이해
+title: 비즈니스 연속성-Azure Database for MariaDB
 description: Azure Database for MariaDB 서비스를 사용 하는 경우 비즈니스 연속성 (지정 시간 복원, 데이터 센터 중단, 지역 복원)에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: d364c3a5fafaca514baade25cd3f5b4c0f10dc26
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 76e749b26be5a5204b247d294f26da169f84094c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973605"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773020"
 ---
 # <a name="understand-business-continuity-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 비즈니스 연속성 이해
 
@@ -23,10 +23,10 @@ Azure Database for MariaDB에는 자동화된 백업 및 사용자가 지역 복
 
 다음 표에서는 ERT와 RPO에서 사용 가능한 기능을 비교합니다.
 
-| **기능** | **기본** | **범용** | **메모리에 최적화** |
+| **기능** | **Basic** | **범용** | **메모리에 최적화** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | 백업에서 특정 시점 복원 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 | 보존 기간 내 모든 복원 지점 |
-| 지리적으로 복제된 백업에서 지역 복원 | 지원되지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
+| 지리적으로 복제된 백업에서 지역 복원 | 지원하지 않음 | ERT < 12시간<br/>RPO < 1시간 | ERT < 12시간<br/>RPO < 1시간 |
 
 > [!IMPORTANT]
 > 서버를 삭제하면 해당 서버에 포함된 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 삭제된 서버는 복원할 수 없습니다.

@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB Query Performance Insight
+title: Query Performance Insight-Azure Database for MariaDB
 description: 이 문서에서는의 Query Performance Insight 기능에 대해 설명 Azure Database for MariaDB
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31aacfea7c68614add0229c3a9c494de4714fe16
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: eb124f40ff915b56011d5f16cd83a9358960621e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73604028"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772305"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mariadb"></a>Azure Database for MariaDB Query Performance Insight
 
@@ -35,7 +35,7 @@ Query Performance Insight를 사용하면 가장 오랫동안 실행되는 쿼�
 
 Query Performance Insight에서 쿼리 텍스트를 보는 데 필요한 **소유자** 또는 **참가자** 권한입니다. **읽기 권한자**는 차트 및 표를 볼 수 있지만 쿼리 텍스트는 볼 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Query Performance Insight가 작동하려면 [쿼리 저장소](concepts-query-store.md)에 데이터가 있어야 합니다.
 

@@ -1,44 +1,44 @@
 ---
-title: Azure 업데이트 관리에서 Windows 에이전트 확인 결과 이해
-description: 업데이트 관리 에이전트의 문제를 해결하는 방법을 알아봅니다.
+title: Azure의 Windows Hybrid Runbook Worker 상태 이해 업데이트 관리
+description: 업데이트 관리를 지 원하는 Windows에서 Hybrid Runbook Worker 관련 된 문제를 해결 하는 방법에 대해 알아봅니다.
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 11/25/2019
+ms.date: 12/03/2019
 ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: 72fdfe912a5560ce0c0e3886dd3c56cf9534dc22
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: bb5b5214c96162147e1bd005e994ec04e0a1ddb7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480791"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763660"
 ---
-# <a name="understand-the-windows-agent-check-results-in-update-management"></a>업데이트 관리에서 Windows 에이전트 확인 결과 이해
+# <a name="understand-the-windows-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리의 Windows Hybrid Runbook Worker 상태 이해
 
-업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Worker 에이전트의 상태를 확인하여 기본 문제를 검토할 수 있습니다. 이 문서에서는 Azure Portal의 Azure 머신 및 [오프라인 시나리오](#troubleshoot-offline)의 경우 Azure 이외 머신에 대해 문제 해결사를 실행하는 방법을 설명합니다.
+업데이트 관리에서 컴퓨터가 **준비**를 표시하지 않는 이유에는 여러 가지가 있을 수 있습니다. 업데이트 관리에서 Hybrid Runbook Worker 에이전트의 상태를 확인 하 여 근본적인 문제를 확인할 수 있습니다. 이 문서에서는 [오프 라인 시나리오](#troubleshoot-offline)에서 Azure Portal 및 비 azure 컴퓨터에서 azure 컴퓨터에 대 한 문제 해결사를 실행 하는 방법을 설명 합니다.
 
 다음 목록은 컴퓨터가 나타낼 수 있는 세 가지 준비 상태입니다.
 
-* **준비** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간 이내입니다.
-* **연결이 끊김** - 업데이트 에이전트가 배포되었으며 마지막으로 확인된 시간이 1시간을 넘습니다.
-* **구성되지 않음** - 업데이트 에이전트가 확인되지 않거나 온보딩을 완료하지 않았습니다.
+* **준비** 됨-Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
+* **연결 끊김** -Hybrid Runbook Worker 배포 되었으며 마지막으로 1 시간 전에 표시 되었습니다.
+* **구성 되지 않음** -Hybrid Runbook Worker를 찾을 수 없거나 등록을 완료 하지 못했습니다.
 
 > [!NOTE]
 > Azure Portal 표시 되는 내용과 컴퓨터의 현재 상태 사이에 약간의 지연이 있을 수 있습니다.
 
 ## <a name="start-the-troubleshooter"></a>문제 해결사 시작
 
-Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. Azure 이외 머신의 경우 해당 링크를 클릭하면 이 문서로 이동합니다. Azure 이외 머신의 문제를 해결하려면 [오프라인 지침](#troubleshoot-offline)을 참조하세요.
+Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 **문제 해결** 링크를 클릭하여 **업데이트 에이전트 문제 해결** 페이지를 시작합니다. 비 Azure 컴퓨터의 경우 링크를 통해이 문서를 볼 수 있습니다. 비 Azure 컴퓨터 문제를 해결 하려면 [오프 라인 지침](#troubleshoot-offline) 을 참조 하세요.
 
 ![가상 머신의 업데이트 관리 목록](../media/update-agent-issues/vm-list.png)
 
 > [!NOTE]
-> 에이전트의 상태를 확인하려면 VM을 실행해야 합니다. VM이 실행되고 있는 않은 경우 **VM 시작** 단추가 나타납니다.
+> Hybrid Runbook Worker 상태를 확인 하려면 VM이 실행 중 이어야 합니다. VM이 실행되고 있는 않은 경우 **VM 시작** 단추가 나타납니다.
 
-**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령](../../virtual-machines/windows/run-command.md)을 사용하여 에이전트 종속성을 확인하는 스크립트를 머신에서 실행합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
+**업데이트 에이전트 문제 해결** 페이지에서 **검사 실행**을 선택하여 문제 해결사를 시작합니다. 문제 해결사는 [실행 명령을](../../virtual-machines/windows/run-command.md) 사용 하 여 컴퓨터에서 종속성을 확인 하는 스크립트를 실행 합니다. 문제 해결사가 완료되면 검사 결과를 반환합니다.
 
 ![업데이트 에이전트 문제 해결 페이지](../media/update-agent-issues/troubleshoot-page.png)
 
@@ -50,9 +50,9 @@ Azure 머신의 경우 포털의 **업데이트 에이전트 준비** 열에서 
 
 ### <a name="operating-system"></a>운영 체제
 
-운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나가 실행 중인지 확인합니다.
+운영 체제 검사는 Hybrid Runbook Worker에서 다음 운영 체제 중 하나를 실행 하 고 있는지 여부를 확인 합니다.
 
-|운영 체제  |참고 사항  |
+|운영 체제  |참고  |
 |---------|---------|
 |Windows Server 2008 R2 RTM, Windows Server 2008 | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상 |.NET Framework 4.6 이상이 필요 합니다. ([.NET Framework 다운로드](/dotnet/framework/install/guide-for-developers))<br/> Windows PowerShell 5.1이 필요 합니다.  ([Windows Management Framework 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))        |
@@ -206,4 +206,3 @@ CheckResultMessageArguments : {}
 ## <a name="next-steps"></a>다음 단계
 
 Hybrid Runbook Worker의 문제를 더 많이 해결하려면 [Hybrid Runbook Worker 문제 해결](hybrid-runbook-worker.md)을 참조하세요.
-

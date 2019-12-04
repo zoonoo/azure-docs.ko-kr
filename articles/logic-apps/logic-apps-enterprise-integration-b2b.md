@@ -1,27 +1,25 @@
 ---
-title: B2B 엔터프라이즈 통합 만들기 - Azure Logic Apps | Microsoft Docs
+title: B2B 엔터프라이즈 통합 만들기
 description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps에서 B2B 데이터 수신
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 20fc3722-6f8b-402f-b391-b84e9df6fcff
 ms.date: 07/08/2016
-ms.openlocfilehash: 05368f627c5e9482a43d5e30b0e16b1d47f6217c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39966b8171296a8608b9436485f7682d114c8410
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60999179"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793105"
 ---
 # <a name="receive-b2b-data-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 B2B 데이터 수신
 
 파트너와 규약이 있는 통합 계정을 만들면 [엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md)을 사용하여 논리 앱을 위한 B2B 워크플로를 만들 준비가 되었습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어야 합니다. [엔터프라이즈 통합 계정을 만드는 방법](../logic-apps/logic-apps-enterprise-integration-accounts.md)에 대해 알아보세요.
 
@@ -109,5 +107,5 @@ AS2 및 X12 작업을 사용하려면 엔터프라이즈 통합 계정이 있어
 * B2B 작업을 사용하면 통합 계정에서 파트너와 규약을 쉽게 만들고 논리 앱에서 사용할 수 있습니다.
 * 논리 앱을 다른 작업으로 확장하면 다른 앱과 서비스(예: SalesForce) 간에 데이터를 보내고 받을 수 있습니다.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md)

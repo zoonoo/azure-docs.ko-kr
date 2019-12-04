@@ -2,19 +2,16 @@
 title: Azure Logic Apps에서 통합 서비스 환경 관리
 description: Azure Logic Apps에 대 한 ISE (통합 서비스 환경)에서 네트워크 상태를 확인 하 고 논리 앱, 연결, 사용자 지정 커넥터 및 통합 계정 관리
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/01/2019
-ms.openlocfilehash: 6a6b096911ac8596fe29aeb4596f1da6d5266794
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 1d91813e0f39207bcf7768de89600a6bdee0fc53
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967802"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792628"
 ---
 # <a name="manage-your-integration-service-environment-ise-in-azure-logic-apps"></a>Azure Logic Apps에서 ISE (통합 서비스 환경) 관리
 
@@ -22,7 +19,7 @@ Ise [(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isola
 
 ## <a name="view-your-ise"></a>ISE 보기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. 포털의 검색 상자에 "integration service environment"를 입력 한 다음 **Integration Service environment**를 선택 합니다.
 

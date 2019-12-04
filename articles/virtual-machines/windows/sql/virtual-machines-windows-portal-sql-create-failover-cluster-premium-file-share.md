@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 10a3c2bf421c7182dca00dfcbf7c3f559141a745
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7676077f0122cb731d2d5d2c7acf78acbd8aa1a7
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084071"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792197"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -45,9 +45,7 @@ Azure IaaS VM 장애 조치 (failover) 클러스터에서는 서버당 단일 NI
 - [Azure 리소스 그룹](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드 에서만 지원 됩니다. 전체 확장 모드에서 경량 모드로 변경 하려면 해당 Vm에 대 한 **Sql 가상 컴퓨터** 리소스를 삭제 한 다음 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 모드로 sql VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 **SQL 가상 컴퓨터** 리소스를 삭제 하는 경우 올바른 가상 컴퓨터 옆의 확인란을 선택 취소 합니다.
->
-> 전체 확장은 자동화 된 백업, 패치 및 고급 포털 관리와 같은 기능을 지원 합니다. 이러한 기능은 에이전트가 [경량](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) 관리 모드로 다시 설치 된 후 SQL Server vm에 대해 작동 하지 않습니다.
+> SQL Server 현재 Azure 가상 컴퓨터의 장애 조치 (failover) 클러스터 인스턴스는 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)의 [경량 관리 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes) 에서만 지원 됩니다. 전체 확장 모드에서 경량 모드로 변경 하려면 해당 Vm에 대 한 **Sql 가상 컴퓨터** 리소스를 삭제 한 다음 경량 모드로 sql VM 리소스 공급자에 등록 합니다. Azure Portal를 사용 하 여 **SQL 가상 컴퓨터** 리소스를 삭제 하는 경우 **올바른 가상 컴퓨터 옆의 확인란을 선택 취소**합니다. 전체 확장은 자동화 된 백업, 패치, 고급 포털 관리 등의 기능을 지원 합니다. 이러한 기능은 에이전트가 경량 관리 모드로 다시 설치 된 후 SQL Vm에 대해 작동 하지 않습니다.
 
 프리미엄 파일 공유는 많은 워크 로드의 요구 사항을 충족 하는 IOPS 및 전체 용량을 제공 합니다. IO를 많이 사용 하는 워크 로드의 경우 관리 되는 프리미엄 디스크 또는 ultra disks에 따라 [스토리지 공간 다이렉트를 사용 하 여 장애 조치 클러스터 인스턴스를 SQL Server](virtual-machines-windows-portal-sql-create-failover-cluster.md)합니다.  
 
@@ -73,7 +71,7 @@ SQL Server 라이선싱에 대한 자세한 내용은 [가격 책정](https://ww
 
 Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failover) 클러스터에 대해 지원 되지 않습니다. Filestream을 사용 하려면 [스토리지 공간 다이렉트](virtual-machines-windows-portal-sql-create-failover-cluster.md)를 사용 하 여 클러스터를 배포 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 단계를 완료 하기 전에 다음이 이미 있어야 합니다.
 
@@ -154,7 +152,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 목적 | TCP 포트 | 참고 사항
+   | 용도 | TCP 포트 | 참고
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.
@@ -177,7 +175,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 1. RDP를 사용 하 여 SQL Server FCI가 서비스 계정에 사용할 계정을 사용 하 여 SQL Server VM에 연결 합니다.
 1. 관리 PowerShell 명령 콘솔을 엽니다.
 1. 포털에서 작업 하는 동안 이전에 저장 한 명령을 실행 합니다.
-1. 파일 탐색기 또는 **실행** 대화 상자 (Windows 로고 키 + r)를 사용 하 여 공유로 이동 합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`를 사용 합니다. 예: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
+1. 파일 탐색기 또는 **실행** 대화 상자 (Windows 로고 키 + r)를 사용 하 여 공유로 이동 합니다. 네트워크 경로 `\\storageaccountname.file.core.windows.net\filesharename`를 사용 합니다. 위치(예:`\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
 1. 새로 연결 된 파일 공유에 SQL 데이터 파일을 저장할 폴더를 하나 이상 만듭니다.
 1. 클러스터에 참여 하는 각 SQL Server VM에 대해 이러한 단계를 반복 합니다.
@@ -418,7 +416,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
    - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **역할**의 SQL Server Fci 역할 아래에서 **서버 이름**아래에 있는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.
 
-   - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 **이 있는 동일한 속성 페이지의** 장애 조치(Failover) 클러스터 관리자`<SQL Server FCI IP Address Resource Name>`에서 확인할 수 있습니다.  
+   - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 `<SQL Server FCI IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자**에서 확인할 수 있습니다.  
 
    - `<nnnnn>`: 부하 분산 장치 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.
 
@@ -461,7 +459,7 @@ Azure virtual machines에서 MSDTC는 Windows Server 2016 이전 버전에서는
 - 클러스터형 MSDTC 리소스는 공유 저장소를 사용 하도록 구성할 수 없습니다. Windows Server 2016에서는 MSDTC 리소스를 만들 경우 저장소를 사용할 수 있는 경우에도 사용할 수 있는 공유 저장소가 표시 되지 않습니다. 이 문제는 Windows Server 2019에서 수정되었습니다.
 - 기본 부하 분산 장치는 RPC 포트를 처리 하지 않습니다.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 - [Windows 클러스터 기술](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server 장애 조치 (Failover) 클러스터 인스턴스](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 12/02/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5343387da7b2027e1071b19be826e329494cdd3e
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452939"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766364"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Windows 10 장치에 대 한 암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "74452939"
 
 |     |
 | --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="requirements"></a>요구 사항
@@ -56,22 +56,22 @@ ms.locfileid: "74452939"
 조직에서는 조직의 요구 사항에 따라 Windows 로그인에 보안 키를 사용할 수 있도록 다음 방법 중 하나 이상을 사용 하도록 선택할 수 있습니다.
 
 - [Intune을 사용 하 여 사용](#enable-with-intune)
-   - [대상 Intune 배포](#targeted-intune-deployment)
+- [대상 Intune 배포](#targeted-intune-deployment)
 - [프로 비전 패키지를 사용 하 여 사용](#enable-with-a-provisioning-package)
 
 ### <a name="enable-with-intune"></a>Intune을 사용 하 여 사용
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. Windows **등록 > windows 등록** 을 >  > **장치 등록** 을 **Microsoft Intune** 하 여 **비즈니스용 windows Hello** > **속성**으로 이동 합니다.
 1. **설정** 에서 **로그인에 대 한 보안 키 사용** 을 사용 **으로 설정**합니다.
 
 로그인에 대 한 보안 키 구성은 비즈니스용 Windows Hello 구성에 종속 되지 않습니다.
 
-#### <a name="targeted-intune-deployment"></a>대상 Intune 배포
+### <a name="targeted-intune-deployment"></a>대상 Intune 배포
 
 특정 장치 그룹을 대상으로 자격 증명 공급자를 사용 하도록 설정 하려면 Intune을 통해 다음 사용자 지정 설정을 사용 합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. **Microsoft Intune** > **장치 구성** > 프로필로 이동 하 여 **프로필 만들기**를 > 합니다.
 1. 다음 설정을 사용 하 여 새 프로필을 구성 합니다.
    1. 이름: Windows 로그인에 대 한 보안 키
@@ -80,7 +80,7 @@ ms.locfileid: "74452939"
    1. 프로필 유형: 사용자 지정
    1. 사용자 지정 OMA-URI 설정:
       1. 이름: Windows 로그인에 대 한 FIDO 보안 키를 설정 합니다.
-      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. 데이터 형식: Integer
       1. 값: 1
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
@@ -133,7 +133,7 @@ Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 �
    1. 하위 범주: FIDO
 1. 로그를 캡처하려면 **문제 다시 만들기** 옵션을 사용 합니다.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="does-this-work-in-my-on-premises-environment"></a>온-프레미스 환경에서 작동 하나요?
 

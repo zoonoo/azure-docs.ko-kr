@@ -1,20 +1,17 @@
 ---
-title: 논리 앱 호출, 트리거 또는 중첩-Azure Logic Apps
+title: 논리 앱 호출, 트리거 또는 중첩
 description: Azure Logic Apps에서 논리 앱 워크플로를 호출, 트리거 또는 중첩 하기 위해 HTTP 끝점을 설정 합니다.
 services: logic-apps
-ms.service: logic-apps
 ms.workload: integration
-author: ecfan
-ms.author: klam
-ms.reviewer: klam, jehollan, LADocs
+ms.reviewer: klam, jehollan, logicappspm
 ms.topic: article
 ms.date: 11/04/2019
-ms.openlocfilehash: 27a3bf036cce27a5f215068ff71928cb7e181452
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: dbb91106ad00e1a82e2e6e9c470e61764a4ad4c4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833968"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792024"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-http-endpoints-in-azure-logic-apps"></a>Azure Logic Apps에서 HTTP 끝점을 사용 하 여 논리 앱 호출, 트리거 또는 중첩
 
@@ -31,7 +28,7 @@ HTTP 끝점을 설정 하기 위해 논리 앱에서 들어오는 요청을 받�
 
 논리 앱을 처음 접하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -39,7 +36,7 @@ HTTP 끝점을 설정 하기 위해 논리 앱에서 들어오는 요청을 받�
 
 ## <a name="create-a-callable-endpoint"></a>호출 가능 끝점 만들기
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 만들고 엽니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. 논리 앱 디자이너에서 빈 논리 앱을 만들고 엽니다.
 
    이 예제에서는 요청 트리거를 사용 하지만 들어오는 HTTP 요청을 받을 수 있는 트리거를 사용할 수 있습니다. 모든 원칙은 이러한 트리거에 동일 하 게 적용 됩니다. 요청 트리거에 대 한 자세한 내용은 [Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답](../connectors/connectors-native-reqres.md)을 참조 하세요.
 
@@ -305,7 +302,7 @@ HTTP 끝점을 만든 후 끝점의 전체 URL에 HTTP `POST` 요청을 전송 �
 }
 ```
 
-## <a name="q--a"></a>질문과 대답
+## <a name="q--a"></a>질문과 답변
 
 #### <a name="q-what-about-url-security"></a>Q: URL 보안이란 무엇입니까?
 

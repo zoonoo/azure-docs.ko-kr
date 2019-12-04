@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 1f312e8a5034d238e4802e9323bc1b5ac5cdae21
-ms.sourcegitcommit: f226cdd6406372b5693d46b6d04900f2f0cda4e6
+ms.openlocfilehash: 9e8817f802ca1d73ca0f6bfa2b32b1b14b37d7da
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73906243"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773554"
 ---
 # <a name="create-an-nfs-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 NFS 볼륨 만들기
 
@@ -32,9 +32,6 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 [Azure NetApp Files에 서브넷 위임](azure-netapp-files-delegate-subnet.md)
 
 ## <a name="considerations"></a>고려 사항 
-
-> [!IMPORTANT] 
-> NFSv4.1 기능에 액세스하려면 허용 목록이 필요합니다.  허용 목록를 요청하려면 <anffeedback@microsoft.com>에 요청을 제출합니다. 
 
 * 사용할 NFS 버전 결정  
   NFSv3는 다양 한 사용 사례를 처리할 수 있으며 대부분의 엔터프라이즈 응용 프로그램에 일반적으로 배포 됩니다. 응용 프로그램에 필요한 버전 (NFSv3 또는 NFSv 4.1)의 유효성을 검사 하 고 적절 한 버전을 사용 하 여 볼륨을 만들어야 합니다. 예를 들어 [Apache ActiveMQ](https://activemq.apache.org/shared-file-system-master-slave)를 사용 하는 경우 NFSv3를 통해 nfsv 4.1의 파일 잠금이 권장 됩니다. 

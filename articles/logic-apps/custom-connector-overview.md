@@ -1,20 +1,17 @@
 ---
-title: 사용자 지정 커넥터 항목 링크 - Azure Logic Apps | Microsoft Docs
+title: 사용자 지정 커넥터 토픽 링크
 description: 사용자 지정 커넥터를 만들고, 사용하고, 공유하고, 인증하는 방법 항목에 대한 링크
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+ms.reviewer: divswa, logicappspm
 ms.topic: article
 ms.date: 1/30/2018
-ms.openlocfilehash: c4cc0201b8ac61c54aadcc59b549877238b95e54
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: d91d46e0119c22f4f2538ab5ea982ca4418256cf
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574470"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792660"
 ---
 # <a name="custom-connectors-in-logic-apps"></a>Logic Apps의 사용자 지정 커넥터
 

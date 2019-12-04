@@ -2,19 +2,18 @@
 title: 개요-Azure 서버 리스
 description: 인프라에 대해 걱정 하지 않고 클라우드에서 강력한 솔루션 만들기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: jeffhollan
 ms.author: jehollan
-ms.reviewer: klam, estfan, LADocs
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 03/30/2017
-ms.openlocfilehash: 363002712bdd06e74360de9af186f5a458a4999d
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d658efd278425358a2a931fe976827c3bae4247d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "68385366"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792833"
 ---
 # <a name="overview-azure-serverless-with-azure-logic-apps-and-azure-functions"></a>개요: Azure Logic Apps 및 Azure Functions를 사용 하 여 Azure 서버 리스
 
@@ -32,7 +31,7 @@ ms.locfileid: "68385366"
 
 Logic Apps를 시작하려면 [첫 번째 논리 앱 만들기](quickstart-create-first-logic-app-workflow.md)로 시작합니다. Logic Apps에 대 한 자세한 기술 정보는 [개발자 참조](logic-apps-workflow-definition-language.md)를 참조 하세요.
 
-## <a name="what-is-azure-functions"></a>Azure Functions 이란?
+## <a name="what-is-azure-functions"></a>Azure Functions란?
 
 Azure Functions는 클라우드에서 코드 또는 "함수"를 쉽게 실행 하기 위한 서비스입니다. 전체 앱 또는 필요한 인프라에 대해 걱정 하지 않고 현재 문제에 필요한 코드만 작성할 수 있습니다. Functions는 개발 생산성을 높일 수 있으며 C#, F#, Node.js, Python, PHP 등의 원하는 개발 언어를 사용할 수 있습니다. 코드가 실행 되는 시간에 대해서만 비용을 지불 하 고 필요에 따라 Azure를 확장 합니다.
 

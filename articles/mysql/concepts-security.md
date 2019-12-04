@@ -1,19 +1,19 @@
 ---
-title: Azure Database for MySQL의 보안-단일 서버
-description: Azure Database for MySQL 단일 서버에서 보안 기능에 대 한 개요입니다.
+title: 보안-Azure Database for MySQL
+description: Azure Database for MySQL의 보안 기능에 대 한 개요입니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 06f895d2e8cd7936141c9f35c5ed0c81fb7e3e15
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: 421604bcec5277d337b7e7f73a869f40fa73158a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485056"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764970"
 ---
-# <a name="security-in-azure-database-for-mysql---single-server"></a>Azure Database for MySQL의 보안-단일 서버
+# <a name="security-in-azure-database-for-mysql"></a>Azure Database for MySQL의 보안
 
 Azure Database for MySQL 서버에서 데이터를 보호 하는 데 사용할 수 있는 여러 보안 계층이 있습니다. 이 문서에서는 이러한 보안 옵션을 설명 합니다.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Database for MySQL의 성능 권장 사항
+title: 성능 권장 사항-Azure Database for MySQL
 description: 이 문서에서는의 성능 권장 사항 기능에 대해 설명 Azure Database for MySQL
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 1371b286f5e9bd82345e17c11e910c68fac9fed2
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.date: 12/02/2019
+ms.openlocfilehash: f957459cf20a018ae53ba6ec90fb478dd0c69044
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73603158"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770903"
 ---
 # <a name="performance-recommendations-in-azure-database-for-mysql"></a>Azure Database for MySQL의 성능 권장 사항
 
 **적용 대상:** Azure Database for MySQL 5.7
 
-성능 권장 사항 기능은 데이터베이스를 분석 하 여 향상 된 성능을 위한 사용자 지정 제안을 만듭니다. 권장 사항을 생성 하기 위해 분석은 스키마를 비롯 한 다양 한 데이터베이스 특성을 살펴봅니다. 서버에서 [쿼리 저장소](concepts-query-store.md) 를 사용 하도록 설정 하 여 성능 권장 사항 기능을 완벽 하 게 활용 합니다. 성능 스키마가 OFF 인 경우 쿼리 저장소를 켜면 기능에 필요한 performance_schema 및 performance schema 악기의 하위 집합이 활성화 됩니다. 성능 권장 사항을 구현한 후 성능을 테스트 하 여 이러한 변경의 영향을 평가 해야 합니다.
+성능 권장 사항 기능은 데이터베이스를 분석 하 여 향상 된 성능을 위한 사용자 지정 제안을 만듭니다. 권장 사항을 생성 하기 위해 분석은 스키마를 비롯 한 다양 한 데이터베이스 특성을 살펴봅니다. 서버에서 [쿼리 저장소](concepts-query-store.md) 를 사용 하도록 설정 하 여 성능 권장 사항 기능을 완벽 하 게 활용 합니다. 성능 스키마가 OFF 인 경우 쿼리 저장소를 켜면 기능에 필요한 performance_schema 및 성능 스키마 계기의 하위 집합이 활성화 됩니다. 성능 권장 사항을 구현한 후 성능을 테스트 하 여 이러한 변경의 영향을 평가 해야 합니다.
 
 ## <a name="permissions"></a>권한
 
@@ -33,7 +33,7 @@ MySQL server에 대 한 Azure Portal 페이지의 메뉴 모음에 있는 **지�
 
 분석 **을 선택 하 고 분석** 을 시작 하는 데이터베이스를 선택 합니다. 워크 로드에 따라 분석을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 분석이 완료되면 포털에 알림이 표시됩니다. 분석은 데이터베이스에 대 한 심층 검사를 수행 합니다. 사용량이 적은 기간에 분석을 수행 하는 것이 좋습니다.
 
-권장 사항을 찾은 경우 권장 사항 목록과이 권장 구성을 생성 한 관련 쿼리 ID **가 권장 사항 창에** 표시 됩니다. 쿼리 ID를 사용 하 여 [query_store](concepts-query-store.md#mysqlquery_store) 뷰를 사용 하 여 쿼리에 대 한 자세한 정보를 확인할 수 있습니다.
+권장 사항을 찾은 경우 권장 사항 목록과이 권장 구성을 생성 한 관련 쿼리 ID **가 권장 사항 창에** 표시 됩니다. 쿼리 ID를 사용 하 여 [mysql. query_store](concepts-query-store.md#mysqlquery_store) 뷰를 사용 하 여 쿼리에 대 한 자세한 내용을 확인할 수 있습니다.
 
 ![성능 권장 사항 새 페이지](./media/concepts-performance-recommendations/performance-recommendations-result.png)
 

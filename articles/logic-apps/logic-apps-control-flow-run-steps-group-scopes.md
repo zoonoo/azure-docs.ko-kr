@@ -1,20 +1,17 @@
 ---
-title: 범위 별로 작업 그룹화 및 실행 Azure Logic Apps
+title: 범위 별로 작업 그룹화 및 실행
 description: Azure Logic Apps의 그룹 상태에 따라 실행 되는 범위 지정 작업을 만듭니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: b0f53d1dbcd5b8bbbe38ffe3dd9ba62087ed3432
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: b84db69f79b1611347a4c55d929e5426141e7ac6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680014"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791499"
 ---
 # <a name="run-actions-based-on-group-status-by-using-scopes-in-azure-logic-apps"></a>Azure Logic Apps 범위를 사용 하 여 그룹 상태에 따라 작업 실행
 
@@ -150,7 +147,7 @@ ms.locfileid: "72680014"
   
        이제 **본문** 필드가 다음 예와 같습니다.
 
-       "본문" 필드를 ![Finished ](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+       "본문" 필드를 ![했습니다](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
    <!-- markdownlint-enable MD038 -->
 
 1. 논리 앱을 저장합니다.

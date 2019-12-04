@@ -1,35 +1,37 @@
 ---
-title: 시계열 변칙 검색 및 Azure 데이터 탐색기에서 예측
-description: 변칙 검색 및 Azure 데이터 탐색기를 사용 하 여 예측을 위해 시계열 데이터를 분석 하는 방법에 알아봅니다.
+title: Azure 데이터 탐색기에서 시계열 변칙 검색 및 예측
+description: Azure 데이터 탐색기를 사용 하 여 변칙 검색 및 예측에 대 한 시계열 데이터를 분석 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
-ms.reviewer: jasonh
+ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: f40350129a12c7865051bcae80b74b6f9c069179
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65233531"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766041"
 ---
-# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>변칙 검색 및 Azure 데이터 탐색기에서 예측
+# <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Azure 데이터 탐색기의 변칙 검색 및 예측
 
-Azure 데이터 탐색기는 클라우드 서비스 또는 IoT 장치에서 원격 분석 데이터의 지속적으로 수집을 수행합니다. 이 데이터는 모니터링 서비스 상태, 실제 프로덕션 프로세스, 사용 추세 및 부하 예측 같은 다양 한 정보에 대 한 분석 됩니다. 선택한 메트릭이 메트릭 정상적인 기준 일반적인 패턴을 기준으로 편차 패턴을 찾을 시계열에서 분석을 수행 합니다. Azure 데이터 탐색기에 생성, 조작 및 여러 시계열 분석에 대 한 기본 지원을 포함합니다. 만들 수 있으며 거의 실시간으로 모니터링 솔루션 및 워크플로 사용 하도록 설정 시간 (초)에서 수천 개의 시계열 분석.
+Azure 데이터 탐색기는 클라우드 서비스 또는 IoT 장치에서 원격 분석 데이터를 지속적으로 수집 합니다. 이 데이터는 서비스 상태 모니터링, 물리적 프로덕션 프로세스, 사용 추세 및 부하 예측 등의 다양 한 통찰력을 위해 분석 됩니다. 분석은 선택 된 메트릭의 시계열에서 수행 되어 일반적인 일반 기준선 패턴을 기준으로 메트릭의 편차 패턴을 찾습니다. Azure 데이터 탐색기에는 여러 시계열의 생성, 조작 및 분석을 위한 기본 지원이 포함 되어 있습니다. 몇 초 안에 수천 개의 시계열을 만들고 분석할 수 있으며 거의 실시간으로 모니터링 하는 솔루션 및 워크플로를 사용할 수 있습니다.
 
-이 문서에서는 Azure Data Explorer 시간 시계열 변칙 검색 및 예측 기능을 자세히 설명합니다. 적용 가능 기간 시리즈 함수는 모델을 기반으로 강력한 잘 알려진 분해, 여기서 각 원래 시계열을 서비스로 분해할 계절성, 추세, 및 나머지 구성 요소입니다. 비정상 상태는 계절성을 추정 하면 됩니다 예측 하는 동안 나머지 구성 요소에서 이상 값으로 감지 하 고 추세 구성 요소. Azure Data Explorer 구현에는 자동 계절성 검색, 강력한 이상 분석 및 시간 (초)에 시계열의 프로세스 수천 대에 벡터화 된 구현에서 기본 분해 모델을 상당히 개선 되었습니다.
+이 문서에서는 Azure 데이터 탐색기 time series 변칙 검색 및 예측 기능을 자세히 설명 합니다. 적용 가능한 시계열 함수는 원래의 시계열이 계절, 추세 및 잔여 구성 요소로 분해 되는 강력한 잘 알려진 분해 모델을 기반으로 합니다. 이상 값은 잔여 구성 요소에서 이상 값으로 검색 되며, 예측은 계절 및 추세 구성 요소를 추정 하 여 수행 됩니다. Azure 데이터 탐색기 구현은 자동 계절성 검색, 강력한 이상 분석 및 벡터화 구현을 통해 기본 분해 모델을 크게 향상 시켜 몇 초만에 수천 개의 시계열을 처리할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-읽기 [Azure 데이터 탐색기에서 시계열 분석 시간](/azure/data-explorer/time-series-analysis) 시간 시리즈 기능에 대 한 개요입니다.
+시계열 기능 개요는 [Azure 데이터 탐색기에서 시계열 분석](/azure/data-explorer/time-series-analysis) 을 참조 하세요.
 
-## <a name="time-series-decomposition-model"></a>시간 시계열 분해 모델
+## <a name="time-series-decomposition-model"></a>시계열 분해 모델
 
-시계열 예측 및 변칙 검색에 대 한 azure 데이터 탐색기 네이티브 구현에는 잘 알려진 분해 모델을 사용합니다. 이 모델은 정기적이 고 서비스 트래픽, 하트 비트 구성 요소 및 IoT 정기적인 측정이 향후 메트릭 값을 예측 하 고 비정상적인 것을 감지 하기 등의 추세 동작 매니페스트를 예상 하는 메트릭의 시계열에 적용 됩니다. 이 회귀 프로세스의 것으로 가정 하는 이전에 알려진 이외의 계절별 추세 동작을 시리즈 무작위로 분산 시간. 다음에서 계절성을 향후 메트릭 값 및 추세 구성 요소를 통칭 하 여 기준, 명명 된 예측 하 고 나머지 파트를 무시할 수 있습니다. 또한 나머지 부분만 사용 하 여 이상 값 분석을 기반으로 하는 비정상적인 값을 검색할 수 있습니다.
-함수를 사용 하 여 분해 모델을 만들려면 [ `series_decompose()` ](/azure/kusto/query/series-decomposefunction)합니다. `series_decompose()` 함수는 시계열 집합 및 각 시계열의 계절성, 추세, 나머지, 및 기본 구성 요소를 자동으로 분해 합니다. 
+시계열 예측에 대 한 Azure 데이터 탐색기 네이티브 구현 및 변칙 검색은 잘 알려진 분해 모델을 사용 합니다. 이 모델은 주기적으로 매니페스트 되어야 하는 시계열의 시계열 및 추세 동작 (예: 서비스 트래픽, 구성 요소 하트 비트 및 IoT 정기적 측정)에 적용 되어 향후 메트릭 값을 예측 하 고 비정상적인 항목을 검색 합니다. 이 회귀 프로세스의 가정은 이전에 알려진 계절 및 추세 동작을 제외 하 고 시계열은 무작위로 분산 된다는 것입니다. 그런 다음 계절 및 추세 구성 요소에서 앞으로 명명 된 기준선의 메트릭 값을 예측 하 고 나머지 부분은 무시할 수 있습니다. 잔여 부분만 사용 하 여 이상 값 분석을 기반으로 비정상 값을 검색할 수도 있습니다.
+분해 모델을 만들려면 [`series_decompose()`](/azure/kusto/query/series-decomposefunction)함수를 사용 합니다. `series_decompose()` 함수는 일련의 시계열을 사용 하 고 각 시계열을 계절, 추세, 잔여 및 기준 구성 요소로 자동으로 분해 합니다. 
 
 예를 들어 다음 쿼리를 사용 하 여 내부 웹 서비스의 트래픽을 분해할 수 있습니다.
+
+**\[** [**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WQ3WrDMAyF7/sUukvCnDXJGIOVPEULuwxqoixm/gm2+jf28JObFjbYrmyho3M+yRCD1a5jaGFAJtaW8qaqX8qqLqvnYrMySYHnvxRNWT1B07xW1U03JFEzbVYDWd9Z/KAuUtAUm9UXpLJcSnAH2+LxPZe3AO9gJ6ZbRjvDGLy9EbG/BUemOXnvLxD1AOJ1mijQtWhbyHbbOgOA9RogkqGeAaXn3g1BooVb6OiDNHpD6CjAUccDGv2JrL0TSzozuQHyPYqHdqRkDKN3aBRwkJaCQJIoQ4VsuXh2A/Xezj5SWkVBWSvI0vSoOSsWpLtEpyDwY4KTW8nnJ5ws+2+eAhSyOxjkd+HDVVcIfHplp2TYTxgYTpqnnDUbarM32gPO86PY4jjqfmGw3vGkftNlCi5xNprbWW5kYvENQQnqDh8CAAA=) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -42,19 +44,21 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, decomposition', ysplit=panels)
 ```
 
-![시간 시계열 분해](media/anomaly-detection/series-decompose-timechart.png)
+![시계열 분해](media/anomaly-detection/series-decompose-timechart.png)
 
-* 원래 시계열 이라고 **num** 빨간색으로 합니다. 
-* 함수를 사용 하 여 계절성의 자동 검색으로 프로세스를 시작 [ `series_periods_detect()` ](/azure/kusto/query/series-periods-detectfunction) 추출 합니다 **계절** (자주색)의 패턴.
-* 함수를 사용 하 여 선형 회귀를 실행 하 고 원래 시계열에서 계절성 패턴을 뺍니다 [ `series_fit_line()` ](/azure/kusto/query/series-fit-linefunction) 찾으려고 합니다 **추세** 구성 요소 (옅은 파란색).
-* 함수 뺍니다 추세 이며 나머지는 **잔여** 구성 요소 (녹색).
-* 함수는 계절성을 추가 하 고 추세 구성 요소를 생성 하는 마지막으로 **기준** (파란색)에 있습니다.
+* 원본 시계열의 레이블은 **num** (빨간색)으로 지정 됩니다. 
+* 이 프로세스는 [`series_periods_detect()`](/azure/kusto/query/series-periods-detectfunction) 함수를 사용 하 여 계절성를 자동으로 검색 하 고 **계절** 패턴 (자주색)을 추출 합니다.
+* 계절 패턴은 원래 시계열에서 빼서 선형 회귀는 함수 [`series_fit_line()`](/azure/kusto/query/series-fit-linefunction) 를 사용 하 여 실행 되어 **추세** 구성 요소 (연한 파란색)를 찾습니다.
+* 함수는 추세를 빼고 **나머지는 나머지 구성 요소** (녹색)입니다.
+* 마지막으로 함수는 계절 및 추세 구성 요소를 추가 하 여 **기준선** 을 생성 합니다 (파란색).
 
 ## <a name="time-series-anomaly-detection"></a>시계열 변칙 검색
 
-함수 [ `series_decompose_anomalies()` ](/azure/kusto/query/series-decompose-anomaliesfunction) 시계열 집합에서 비정상적인 요소를 찾습니다. 이 함수를 호출 `series_decompose()` 분해 모델 및 다음 실행을 만들려고 [ `series_outliers()` ](/azure/kusto/query/series-outliersfunction) 잔여 구성 요소입니다. `series_outliers()` fence은 Tukey의 테스트를 사용 하 여 잔여 구성 요소의 각 요소에 대 한 이상 점수를 계산 합니다. 1\.5 보다 높거나 낮은-1.5 변칙 점수에는 각각 거부 또는 가벼운 이상 증가 나타냅니다. 변칙 점수 3.0 위 또는 아래-3.0입니다. 강력한 변칙을 나타냅니다. 
+[`series_decompose_anomalies()`](/azure/kusto/query/series-decompose-anomaliesfunction) 함수는 시계열 집합에서 비정상 요소를 찾습니다. 이 함수는 `series_decompose()`를 호출 하 여 분해 모델을 만든 다음 나머지 구성 요소에서 [`series_outliers()`](/azure/kusto/query/series-outliersfunction) 를 실행 합니다. `series_outliers()`은 Kekey의 fence 테스트를 사용 하 여 잔여 구성 요소의 변칙 점수를 계산 합니다. 1\.5 이상인 1.5 이상 점수는 각각 가벼운 이상 증가 또는 거부를 의미 합니다. 3\.0 이상인 이상 점수 또는-3.0은 강력한 비정상을 의미 합니다. 
 
-다음 쿼리를 사용 하면 변칙을 검색할 내부 웹 서비스 트래픽이 있습니다.
+다음 쿼리를 사용 하면 내부 웹 서비스 트래픽에서 변칙을 검색할 수 있습니다.
+
+**\[** [**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA3WR3W7CMAyF73mKI25KpRbaTmjSUJ8CpF1WoXVptPxUifmb9vBLoGO7GFeR7ePv2I4ihpamYdToBBNLTYuqKF/zosyLdbqZqagQl/8UVV68oKreimLSdVFUDZtZR9o2WnxQ48lJ8tXsCzHM7yHMUdfidFiEN4U12AXoloUe0Turp4nYTsaeaYzs/RVedgis80CObkFdI9ltywTAagV4UtQyRKiZgyLEaTGZ9taFQqtIGHI4SX8USn4KltYEJF2YTIeFMFaHPPkMvrWOMuxFoEpDaVjujmo6aq0erafmIY+7ZCiX6wx5mSGJHb3kJA1sF8jB8q69toNwjLPkYfGTseqoja//eLNkRXXyTnuIcVyCneh72cL2YQdtDQ8ZHvIkDcsfPWH+3AvPvObx0FMXD/RLhfDYW9VhtNKwj/8U69M1b2S//AbRUQMWQQIAAA==) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -69,15 +73,17 @@ demo_make_series2
 
 ![시계열 변칙 검색](media/anomaly-detection/series-anomaly-detection.png)
 
-* 빨간색으로 원래 시계열입니다. 
-* 기준선 (계절별 추세 +) 구성 요소 (파란색).
-* 비정상적인 요소 (자주색) 원래 시계열을 기반으로 합니다. 비정상적인 지점 예상된 기준 값에서 크게 벗어난 합니다.
+* 원본 시계열 (빨간색)입니다. 
+* 기준선 (계절 + 추세) 구성 요소 (파란색)입니다.
+* 원본 시계열 위쪽의 비정상 시점 (자주색)입니다. 비정상 지점은 예상 되는 기준선 값을 크게 벗어난 것입니다.
 
 ## <a name="time-series-forecasting"></a>시계열 예측
 
-함수 [ `series_decompose_forecast()` ](/azure/kusto/query/series-decompose-forecastfunction) 집합이 시계열의 미래 값을 예측 합니다. 이 함수 호출 `series_decompose()` 모델 및 그런 다음 각 시계열에 대 한 분해를 빌드하려면 미래 기준 구성 요소를 추정 합니다.
+함수 [`series_decompose_forecast()`](/azure/kusto/query/series-decompose-forecastfunction) 는 시계열 집합의 미래 값을 예측 합니다. 이 함수는 `series_decompose()`를 호출 하 여 분해 모델을 작성 한 다음 각 시계열에 대해 기준선 구성 요소를 미래로 추정 합니다.
 
-다음 쿼리를 사용 하면 다음 주 웹 서비스 트래픽의 예측할 수 있습니다.
+다음 쿼리를 사용 하면 다음 주 웹 서비스 트래픽을 예측할 수 있습니다.
+
+**\[** [**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA22QzW6DMBCE73mKuQFqKISqitSIW98gkXpEDl5iK9hG9uanUR++dqE99YRGO8x845EYRtuO0UIKJtaG8qbebMt6U9avxW41Joe4/+doyvoFTfNW14tPJlOjZqGc1w9n263crSQZ1xlxpi6Q1xSa1ReSLGcJezGtuJ7y+C3gLA6xZM/CTBi8MwshuxnkaUlGYJpS5/ETQUvEzJsiTz+ibZEd9psMQFUBgUbqGSLe7GkkpBVYygfn46EfSVjyuOpwEaN+CNbOxki6M1mZTNSLkAbOv3WSemcmF6j7vSX8dcTUlvOFsZJcFDHFx4wYnmp7JTzjplnlrHmkNvugI8Q0PYO9GAbdww0RyDjLav1XHLnBimAjEG5E5zQ7vRP284x36hOOTtxZ8Q3The8P2QEAAA==) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -88,19 +94,21 @@ demo_make_series2
 | make-series num=avg(num) on TimeStamp from min_t to max_t+horizon step dt by sid 
 | where sid == 'TS1'   //  select a single time series for a cleaner visualization
 | extend forecast = series_decompose_forecast(num, toint(horizon/dt))
-| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decmposition')
+| render timechart with(title='Web app. traffic of a month, forecasting the next week by Time Series Decomposition')
 ```
 
 ![시계열 예측](media/anomaly-detection/series-forecasting.png)
 
-* 원래 메트릭 (빨강)입니다. 미래 값이 없는 및 기본적으로 0으로 설정 합니다.
-* 다음 주 값을 예측 하려면 (파란색)의 초기 구성 요소를 추정 합니다.
+* 원래 메트릭 (빨간색)입니다. 이후 값이 누락 되 고 기본적으로 0으로 설정 됩니다.
+* 기본 구성 요소 (파란색)를 추정 하 여 다음 주의 값을 예측 합니다.
 
 ## <a name="scalability"></a>확장성
 
-Azure 데이터 탐색기 쿼리 언어 구문을 통해 여러 시계열 처리에 대 한 단일 호출 수 있습니다. 효과적인 변칙 검색 및 수천 개의 거의 실시간 시나리오에서 카운터를 모니터링 하는 경우 예측에 중요 한 빠른 성능을 위해 최적화 된 고유 구현 수 있습니다.
+Azure 데이터 탐색기 쿼리 언어 구문을 사용 하면 단일 호출을 통해 여러 시계열을 처리할 수 있습니다. 고유 하 게 최적화 된 구현에서는 거의 실시간 시나리오에서 수천 개의 카운터를 모니터링 하는 경우 효과적인 변칙 검색 및 예측에 매우 중요 한 빠른 성능을 사용할 수 있습니다.
 
-다음 쿼리는 동시에 세 시계열의 처리를 보여 줍니다.
+다음 쿼리에서는 세 시계열을 동시에 처리 하는 방법을 보여 줍니다.
+
+**\[** [**쿼리를 실행하려면 클릭**](https://dataexplorer.azure.com/clusters/help/databases/Samples?query=H4sIAAAAAAAAA21Qy26DMBC85yvmFlChcUirSI34ikTqETl4KVawjfDmqX587UCaHuqLtePxPLYjhtG2YpRQkom1oaQQy3Uulrl4TzezLjLk5T9GkYsViuJDiImnIqlox6F1g745W67VZqbIuMrIA1WeBk2+mH0jjvk4wh5NKU9fSbhTOItdMNmyND2awZkpIbsxyMukDM/UR8/9FV6rIEkXJqvgmsYTl7X0lISHspzvtqt5hjdxPxkeYBHA4gGKFMBiAUilIAfWja617CY1NG4ASX/FSfuj7PRNsg4ZXANz7Fj3HSGuBmOjZ5hYbcSqIBwbZpNk+iQFcQpx4/omrqLamd55qh5v41d22nIybWChOI0qQ9Cg4e5ftyE6zprbhDV3VM4/aQ/Z96/gQTahU4wsYZzlNvs11vYL3BJsCIQz0eHed/W30jz9AUEBI0ktAgAA) **\]**
 
 ```kusto
 let min_t = datetime(2017-01-05);
@@ -115,12 +123,12 @@ demo_make_series2
 | render timechart with(title='Web app. traffic of a month, forecasting the next week for 3 time series')
 ```
 
-![시간 시계열 확장성](media/anomaly-detection/series-scalability.png)
+![시계열 확장성](media/anomaly-detection/series-scalability.png)
 
 ## <a name="summary"></a>요약
 
-이 문서는 시계열 변칙 검색 및 예측에 대 한 네이티브 Azure 데이터 탐색기 함수를 설명합니다. 각 원본 시계열 변칙 검색 및/또는 예측에 대 한 계절성, 추세 및 나머지 구성으로 분해 됩니다. 이러한 기능은 거의 요청, 오류 감지 및 예측 유지 관리 등의 실시간 모니터링 시나리오에 사용할 수 있습니다 하 고 예측을 로드 합니다.
+이 문서에서는 시계열 변칙 검색 및 예측에 대 한 기본 Azure 데이터 탐색기 함수에 대해 자세히 설명 합니다. 각 원본 시계열은 비정상 및/또는 예측을 검색 하기 위한 계절, 추세 및 잔여 구성 요소로 분해 됩니다. 이러한 기능은 거의 실시간 모니터링 시나리오 (예: 오류 검색, 예측 유지 관리, 수요 및 부하 예측)에 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대 한 자세한 [기계 학습 기능](/azure/data-explorer/machine-learning-clustering) Azure 데이터 탐색기에서.
+Azure 데이터 탐색기의 [기계 학습 기능](/azure/data-explorer/machine-learning-clustering) 에 대해 알아봅니다.

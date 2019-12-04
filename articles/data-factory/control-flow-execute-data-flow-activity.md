@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 5623907346ee3882ad53a27695336ba4bc449db8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679938"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769578"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -49,12 +49,12 @@ ms.locfileid: "73679938"
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 허용되는 값 | 필수
+자산 | 설명 | 허용되는 값 | 필수
 -------- | ----------- | -------------- | --------
-데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | 예
-integrationRuntime | 데이터 흐름이 실행 되는 계산 환경 | IntegrationRuntimeReference | 예
+데이터 | 실행 되는 데이터 흐름에 대 한 참조입니다. | DataFlowReference | yes
+integrationRuntime | 데이터 흐름이 실행 되는 계산 환경 | IntegrationRuntimeReference | yes
 linkedService | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 저장소 계정 | LinkedServiceReference | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
-스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | 문자열 | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
+스테이징. folderPath | SQL DW 원본 또는 싱크를 사용 하는 경우 PolyBase 스테이징에 사용 되는 blob 저장소 계정의 폴더 경로 | string | 데이터 흐름이 SQL DW를 읽거나 쓰는 경우에만
 
 ![데이터 흐름 실행](media/data-flow/activity-data-flow.png "데이터 흐름 실행")
 
@@ -79,7 +79,7 @@ Azure SQL Data Warehouse를 싱크 또는 원본으로 사용 하는 경우 Poly
 
 데이터 흐름에서 매개 변수가 있는 데이터 집합을 사용 하는 경우 **설정** 탭에서 매개 변수 값을 설정 합니다.
 
-![데이터 흐름 매개 변수 실행](media/data-flow/params.png "매개 변수")
+![데이터 흐름 매개 변수 실행](media/data-flow/params.png "parameters")
 
 ### <a name="parameterized-data-flows"></a>매개 변수가 있는 데이터 흐름
 
@@ -98,6 +98,43 @@ Azure SQL Data Warehouse를 싱크 또는 원본으로 사용 하는 경우 Poly
 ## <a name="monitoring-the-data-flow-activity"></a>데이터 흐름 작업 모니터링
 
 데이터 흐름 작업은 분할, 단계 시간 및 데이터 계보 정보를 볼 수 있는 특별 한 모니터링 환경을 포함 합니다. **작업**아래의 안경 아이콘을 통해 모니터링 창을 엽니다. 자세한 내용은 [데이터 흐름 모니터링](concepts-data-flow-monitoring.md)을 참조 하세요.
+
+### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>후속 작업에서 데이터 흐름 활동 결과 사용
+
+데이터 흐름 작업은 각 싱크에 쓰여진 행 수와 각 원본에서 읽은 행에 대 한 메트릭을 출력 합니다. 이러한 결과는 활동 실행 결과의 `output` 섹션에서 반환 됩니다. 반환 되는 메트릭은 아래 json의 형식으로 되어 있습니다.
+
+``` json
+{
+    "runStatus": {
+        "metrics": {
+            "<your sink name1>": {
+                "rowsWritten": <number of rows written>,
+                "sinkProcessingTime": <sink processing time in ms>,
+                "sources": {
+                    "<your source name1>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    "<your source name2>": {
+                        "rowsRead": <number of rows read>
+                    },
+                    ...
+                }
+            },
+            "<your sink name2>": {
+                ...
+            },
+            ...
+        }
+    }
+}
+```
+
+예를 들어 이름이 ' dataflowActivity ' 인 활동에서 ' sink1 ' 라는 싱크에 기록 된 행 수를 가져오려면 `@activity('dataflowActivity').output.runStatus.metrics.sink1.rowsWritten`를 사용 합니다.
+
+해당 싱크에 사용 된 ' source1 ' 라는 소스에서 읽은 행 수를 가져오려면 `@activity('dataflowActivity').output.runStatus.metrics.sink1.sources.source1.rowsRead`를 사용 합니다.
+
+> [!NOTE]
+> 싱크에 기록 된 행이 없으면 메트릭에 표시 되지 않습니다. `contains` 함수를 사용 하 여 존재 여부를 확인할 수 있습니다. 예를 들어 `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')`는 sink1에 기록 된 행이 있는지 여부를 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL의 백업 및 복원
+title: 백업 및 복원-Azure Database for MySQL
 description: Azure Database for MySQL 서버를 자동 백업하고 복원하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 02/28/2018
-ms.openlocfilehash: a2a1fb5f84612630d4168c8af908ed86330938c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/02/2019
+ms.openlocfilehash: d5941ef7ac2236137fada7202a8dd3cf2ebcc120
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74213131"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776293"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Azure Database for MySQL의 백업 및 복원
 
@@ -21,9 +21,9 @@ Azure Database for MySQL은 자동으로 서버 백업을 만들어 사용자가
 
 Azure Database for MySQL는 데이터 파일과 트랜잭션 로그의 백업을 수행 합니다. 지원 되는 최대 저장소 크기에 따라 전체 및 차등 백업 (4 TB의 최대 저장소 서버) 또는 스냅숏 백업 (최대 16TB의 저장소 서버)을 수행 합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 [따라](howto-restore-server-portal.md#set-backup-configuration) 최대 35 일을 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
 
-### <a name="backup-frequency"></a>백업 빈도
+### <a name="backup-frequency"></a>Backup 주기
 
-일반적으로 전체 백업은 매주 실행 되 고 차등 백업은 최대 4 TB의 저장소를 지 원하는 서버에 대해 매일 두 번 발생 합니다. 스냅숏 백업은 최대 16TB의 저장소를 지 원하는 서버에서 하루에 한 번 이상 발생 합니다. 두 경우 모두에서 트랜잭션 로그 백업은 5 분 마다 발생 합니다. 서버를 만든 후 즉시 전체 백업의 첫 번째 스냅숏이 예약 됩니다. 초기 전체 백업은 복원 된 대량 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅숏이 instantanious 서버는 최대 16tb의 저장소를 지 원하는 서버를 만든 시간으로 다시 복원할 수 있습니다.
+일반적으로 전체 백업은 매주 실행 되 고 차등 백업은 최대 4 TB의 저장소를 지 원하는 서버에 대해 매일 두 번 발생 합니다. 스냅샷 백업은 최대 16TB의 스토리지를 지원하는 서버에서 하루에 한 번 이상 수행됩니다. 두 경우 모두 트랜잭션 로그 백업은 5분마다 수행됩니다. 서버를 만든 후 즉시 전체 백업의 첫 번째 스냅숏이 예약 됩니다. 초기 전체 백업은 복원 된 대량 서버에서 더 오래 걸릴 수 있습니다. 새 서버를 복원할 수 있는 가장 빠른 시점은 초기 전체 백업이 완료되는 시점입니다. 스냅숏이 instantanious 서버는 최대 16tb의 저장소를 지 원하는 서버를 만든 시간으로 다시 복원할 수 있습니다.
 
 ### <a name="backup-redundancy-options"></a>백업 중복 옵션
 
@@ -52,7 +52,7 @@ Azure Database for MySQL에서 복원을 수행하면 원래 서버의 백업에
 > [!IMPORTANT]
 > 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 해당 서버에 속한 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
 
-### <a name="point-in-time-restore"></a>지정 시간 복원
+### <a name="point-in-time-restore"></a>특정 시점 복원
 
 백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 컴퓨팅 세대, vCore 수, 스토리지 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
 

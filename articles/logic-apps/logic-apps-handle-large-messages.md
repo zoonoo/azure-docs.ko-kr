@@ -1,25 +1,18 @@
 ---
-title: 큰 메시지 처리 - Azure Logic Apps | Microsoft Docs
+title: 대용량 메시지 처리
 description: Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 크기를 처리하는 방법 알아보기
 services: logic-apps
-documentationcenter: ''
+ms.suite: integration
 author: shae-hurst
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: logic-apps
-ms.workload: logic-apps
-ms.devlang: ''
-ms.tgt_pltfrm: ''
+ms.author: shhurst
 ms.topic: article
 ms.date: 4/27/2018
-ms.author: shhurst
-ms.openlocfilehash: ed086c4c36711f92ba654a64856b43a5fdaadf5f
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: e583bf53021d772db54c30ed5a4c9ea2a029e093
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69989917"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792011"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Azure Logic Apps에서 청크 분할을 사용하여 큰 메시지 처리
 
@@ -117,18 +110,18 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
 1. 논리 앱에서 빈 메시지 본문이 있는 초기 HTTP POST 또는 PUT 요청을 보냅니다. 요청 헤더에는 논리 앱에서 청크로 업로드하려는 콘텐츠에 대한 다음 정보가 포함됩니다.
 
-   | Logic Apps 요청 헤더 필드 | 값 | 형식 | Description |
+   | Logic Apps 요청 헤더 필드 | Value | Type | 설명 |
    |---------------------------------|-------|------|-------------|
-   | **x-ms-transfer-mode** | chunked | String | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
-   | **x-ms-content-length** | <*content-length*> | Integer | 청크 분할 이전의 전체 콘텐츠 크기(바이트)입니다. |
+   | **x-ms-transfer-mode** | chunked | string | 콘텐츠가 청크로 업로드됨을 나타냅니다. |
+   | **x-ms-content-length** | <*content-length*> | 정수 | 청크 분할 이전의 전체 콘텐츠 크기(바이트)입니다. |
    ||||
 
 2. 엔드포인트에서 "200" 성공 상태 코드와 다음과 같은 선택적 정보로 응답합니다.
 
-   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | 설명 |
+   | 엔드포인트 응답 헤더 필드 | Type | 필수 | 설명 |
    |--------------------------------|------|----------|-------------|
-   | **x-ms-chunk-size** | Integer | 아니요 | 제안된 청크 크기(바이트)입니다. |
-   | **Location**: | String | 예 | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
+   | **x-ms-chunk-size** | 정수 | 아닙니다. | 제안된 청크 크기(바이트)입니다. |
+   | **위치** | string | yes | HTTP PATCH 메시지를 보낼 URL 위치입니다. |
    ||||
 
 3. 논리 앱에서 각각 다음 정보가 포함된 후속 HTTP PATCH 메시지를 만들어 보냅니다.
@@ -137,19 +130,19 @@ HTTP 작업에서 청크 분할 콘텐츠를 업로드하려면 작업의 `runti
 
    * 각 PATCH 메시지에 전송되는 콘텐츠 청크에 대한 다음과 같은 헤더 세부 정보:
 
-     | Logic Apps 요청 헤더 필드 | 값 | 형식 | Description |
+     | Logic Apps 요청 헤더 필드 | Value | Type | 설명 |
      |---------------------------------|-------|------|-------------|
-     | **Content-Range** | <*range*> | String | 시작 값, 끝 값 및 전체 콘텐츠 크기를 포함하여 현재 콘텐츠 청크에 대한 바이트 범위입니다(예: "bytes=0-1023/10100"). |
-     | **Content-Type** | <*content-type*> | String | 청크 분할 콘텐츠의 형식입니다. |
-     | **Content-Length** | <*content-length*> | 문자열 | 현재 청크의 길이(바이트 크기)입니다. |
+     | **Content-Range** | <*range*> | string | 시작 값, 끝 값 및 전체 콘텐츠 크기를 포함하여 현재 콘텐츠 청크에 대한 바이트 범위입니다(예: "bytes=0-1023/10100"). |
+     | **Content-Type** | <*content-type*> | string | 청크 분할 콘텐츠의 형식입니다. |
+     | **Content-Length** | <*content-length*> | string | 현재 청크의 길이(바이트 크기)입니다. |
      |||||
 
 4. 각 패치 요청 후 끝점은 "200" 상태 코드 및 다음 응답 헤더를 사용 하 여 각 청크를 확인 합니다.
 
-   | 엔드포인트 응답 헤더 필드 | 형식 | 필수 | Description |
+   | 엔드포인트 응답 헤더 필드 | Type | 필수 | 설명 |
    |--------------------------------|------|----------|-------------|
-   | **범위** | 문자열 | 예 | 끝점에서 받은 콘텐츠의 바이트 범위입니다 (예: "bytes = 0-1023"). |   
-   | **x-ms-chunk-size** | Integer | 아니요 | 제안된 청크 크기(바이트)입니다. |
+   | **Range** | string | yes | 끝점에서 받은 콘텐츠의 바이트 범위입니다 (예: "bytes = 0-1023"). |   
+   | **x-ms-chunk-size** | 정수 | 아닙니다. | 제안된 청크 크기(바이트)입니다. |
    ||||
 
 예를 들어 다음 작업 정의에서는 청크 분할 콘텐츠를 엔드포인트에 업로드하기 위한 HTTP POST 요청을 보여 줍니다. 작업의 `runTimeConfiguration` 속성에서 `contentTransfer` 속성은 `transferMode`를 `chunked`로 설정합니다.

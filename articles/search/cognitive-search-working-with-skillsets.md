@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: acf7305a46e9fc3d19f96f88cf2e9ab5eacddd7c
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113652"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790891"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 개념 및 컴퍼지션
 
@@ -44,8 +44,8 @@ ms.locfileid: "74113652"
 |데이터 원본 \ 구문 분석 모드|기본값|JSON, JSON 줄 & CSV|
 |---|---|---|
 |Blob Storage|/문서/내용<br>/document/normalized_images/*<br>…|/document/{key1}<br>/document/{key2}<br>…|
-|SQL|/document/{column1}<br>/document/{column2}<br>…|해당 없음 |
-|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|해당 없음|
+|SQL|/document/{column1}<br>/document/{column2}<br>…|N/A |
+|Cosmos DB|/document/{key1}<br>/document/{key2}<br>…|N/A|
 
  기술이 실행 되 면 보강 트리에 새 노드를 추가 합니다. 이러한 새 노드는 다운스트림 기술에 대 한 입력으로 사용 하거나, 기술 자료 저장소로 프로젝션 하거나, 인덱스 필드에 매핑할 수 있습니다. 강화은 변경할 수 없습니다. 만든 후에는 노드를 편집할 수 없습니다. 기술력과가 더 복잡 하므로 보강 트리가 필요 하지만 보강 트리의 모든 노드가 인덱스나 기술 자료 저장소로 만들어야 하는 것은 아닙니다. 인덱스 또는 기술 자료 저장소에 강화의 하위 집합만 선택적으로 보관할 수 있습니다.
 
@@ -65,7 +65,7 @@ ms.locfileid: "74113652"
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext`는 [shaper skills](cognitive-search-skill-shaper.md) 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. `sourceContext`를 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. `sourceContext` 사용은 다음 섹션에 나와 있습니다.
+`sourceContext`는 기술 입력 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. 기술 자료 저장소에 기술 또는 프로젝트에 대 한 입력으로 전달 하기 위해 새 oject 만들어야 할 수도 있습니다. 보강 노드는 보강 트리의 유효한 JSON 개체가 아닐 수도 있고 트리의 노드가 생성 될 때 해당 노드의 상태만 반환 하는 경우 강화를 기술 입력 이나 프로젝션으로 사용 하면 올바른 형식의 JSON 개체를 만들어야 합니다. `sourceContext`를 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. `sourceContext` 사용은 다음 섹션에 나와 있습니다. 보강를 생성 한 기술 출력에서 기본 형식이 아닌 유효한 JSON 개체 인지 확인 합니다.
 
 ### <a name="projections"></a>프로젝션
 

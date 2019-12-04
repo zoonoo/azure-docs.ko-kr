@@ -1,21 +1,19 @@
 ---
-title: B2B 메시지에 대한 사용자 지정 추적 스키마 - Azure Logic Apps | Microsoft Docs
+title: B2B 메시지에 대 한 사용자 지정 추적 스키마
 description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps 통합 계정에서 B2B 메시지를 모니터링하는 사용자 지정 추적 스키마 만들기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 433ae852-a833-44d3-a3c3-14cca33403a2
 ms.date: 01/27/2017
-ms.openlocfilehash: 76a9ece9e925543e856136a798a60038316caad9
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 7d7c5ef9e9a86c8b061a56fe41c0c8bbfc5ddbb3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67203051"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792789"
 ---
 # <a name="create-custom-tracking-schemas-that-monitor-end-to-end-workflows-in-azure-logic-apps"></a>Azure Logic Apps에서 엔드투엔드 워크플로를 모니터링하는 사용자 지정 추적 스키마 만들기
 
@@ -56,22 +54,22 @@ ms.locfileid: "67203051"
 }
 ```
 
-| 자산 | 필수 | 형식 | 설명 |
+| 자산 | 필수 | Type | 설명 |
 | --- | --- | --- | --- |
-| sourceType | 예 |   | 실행 원본의 유형입니다. 허용되는 값은**Microsoft.Logic/workflows** 및 **custom**입니다. |
-| source | 예 |   | 소스 형식이 **Microsoft.Logic/workflows**이면 소스 정보는 이 스키마를 따라야 합니다. 소스 형식이 **custom**이면 스키마는 JToken입니다. |
-| systemId | 예 | String | 논리 앱 시스템 ID입니다. |
-| runId | 예 | String | 논리 앱 실행 ID입니다. |
-| operationName | 예 | String | 작업의 이름(예: action 또는 trigger)입니다. |
-| repeatItemScopeName | 예 | String | 작업이 `foreach`/`until` 루프에 있으면 아이템 이름을 반복합니다. |
-| repeatItemIndex | 예 | Integer | 작업이 `foreach`/`until` 루프에 있는지의 여부입니다. 반복된 항목 인덱스를 나타냅니다. |
-| trackingId | 아닙니다. | String | 메시지에 상호 연결할 추적 ID입니다. |
-| correlationId | 아닙니다. | String | 메시지에 상호 연결할 상관 관계 ID입니다. |
-| clientRequestId | 아닙니다. | String | 클라이언트는 메시지에 상호 연결하기 위해 이 항목을 채울 수 있습니다. |
-| eventLevel | 예 |   | 이벤트의 수준입니다. |
-| eventTime | 예 |   | UTC 형식 YYYY-MM-DDTHH:MM:SS.00000Z의 이벤트 시간입니다. |
-| recordType | 예 |   | 트랙 레코드의 유형입니다. 허용되는 값은 **custom**입니다. |
-| record | 예 |   | 사용자 지정 레코드 유형입니다. 허용된 형식은 JToken입니다. |
+| sourceType | yes |   | 실행 원본의 유형입니다. 허용되는 값은**Microsoft.Logic/workflows** 및 **custom**입니다. |
+| source | yes |   | 소스 형식이 **Microsoft.Logic/workflows**이면 소스 정보는 이 스키마를 따라야 합니다. 소스 형식이 **custom**이면 스키마는 JToken입니다. |
+| systemId | yes | string | 논리 앱 시스템 ID입니다. |
+| runId | yes | string | 논리 앱 실행 ID입니다. |
+| operationName | yes | string | 작업의 이름(예: action 또는 trigger)입니다. |
+| repeatItemScopeName | yes | string | 작업이 `foreach`/`until` 루프에 있으면 아이템 이름을 반복합니다. |
+| repeatItemIndex | yes | 정수 | 작업이 `foreach`/`until` 루프에 있는지의 여부입니다. 반복된 항목 인덱스를 나타냅니다. |
+| trackingId | 아닙니다. | string | 메시지에 상호 연결할 추적 ID입니다. |
+| correlationId | 아닙니다. | string | 메시지에 상호 연결할 상관 관계 ID입니다. |
+| clientRequestId | 아닙니다. | string | 클라이언트는 메시지에 상호 연결하기 위해 이 항목을 채울 수 있습니다. |
+| eventLevel | yes |   | 이벤트의 수준입니다. |
+| eventTime | yes |   | UTC 형식 YYYY-MM-DDTHH:MM:SS.00000Z의 이벤트 시간입니다. |
+| recordType | yes |   | 트랙 레코드의 유형입니다. 허용되는 값은 **custom**입니다. |
+| record | yes |   | 사용자 지정 레코드 유형입니다. 허용된 형식은 JToken입니다. |
 ||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B 프로토콜 추적 스키마
@@ -84,4 +82,4 @@ ms.locfileid: "67203051"
 ## <a name="next-steps"></a>다음 단계
 
 * [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 자세히 알아봅니다.
-* 에 대 한 자세한 [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)
+* [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 에 대해 알아봅니다.

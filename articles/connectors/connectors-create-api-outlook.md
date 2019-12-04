@@ -1,34 +1,30 @@
 ---
-title: Outlook.com에 연결 - Azure Logic Apps | Microsoft Docs
+title: Outlook.com에 연결
 description: Outlook.com REST API 및 Azure Logic Apps를 사용하여 이메일, 일정 및 연락처 관리
 services: logic-apps
-ms.service: logic-apps
-author: ecfan
-ms.author: estfan
-manager: jeconnoc
-ms.assetid: 87113c85-d158-4dd5-9ed5-5748130003d6
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/18/2016
-ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 4586255e96647267bc913f2bc054610163e16bd3
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 750efc2cb928bf127c4f3c68d5a58c5f52ca7d51
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050886"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789371"
 ---
 # <a name="manage-email-calendars-and-contacts-in-outlookcom-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Outlook.com에서 이메일, 일정 및 연락처 관리
 
 이 문서에서는 Box 커넥터가 있는 논리 앱에서 Outlook.com 계정을 만들고 관리하는 방법을 보여 줍니다. 이러한 방식으로 다음과 같이 Outlook.com 계정에 대한 작업 및 워크플로를 자동화하는 논리 앱을 만들 수 있습니다.
 
-* 이메일 보내기 
+* 이메일을 보냅니다. 
 * 회의 예약
 * 연락처 추가 
 
 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * [Outlook.com 계정](https://outlook.live.com/owa/)
 

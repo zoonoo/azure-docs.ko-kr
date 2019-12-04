@@ -1,22 +1,22 @@
 ---
-title: PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
-description: Azure Database for PostgreSQL-단일 서버와 SSL 연결을 사용하는 관련된 응용 프로그램을 구성하기 위한 지침 및 정보입니다.
+title: SSL-Azure Database for PostgreSQL-단일 서버
+description: Azure Database for PostgreSQL-단일 서버에 대 한 SSL 연결을 구성 하는 방법에 대 한 지침 및 정보입니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 686adfb2998eff10ef4b9f378163b164ba970c56
-ms.sourcegitcommit: aa66898338a8f8c2eb7c952a8629e6d5c99d1468
+ms.openlocfilehash: 21b4dffa135e1311be8c738c634de22304665695
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67461849"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768149"
 ---
-# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-단일 서버에 대한 Azure Database에서 SSL 연결 구성
-PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간 SSL 연결 적용 서버와 응용 프로그램 간의 데이터 스트림을 암호화 함으로써 "man-에--the-middle" 공격 으로부터 보호할 수 있습니다.
+# <a name="configure-ssl-connectivity-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 SSL 연결 구성
+PostgreSQL용 Azure 데이터베이스는 SSL(Secure Sockets Layer)을 사용해서 PostgreSQL 서비스에 클라이언트 애플리케이션을 연결하는 것을 선호합니다. 데이터베이스 서버와 클라이언트 응용 프로그램 간에 SSL 연결을 적용 하면 서버와 응용 프로그램 간에 데이터 스트림을 암호화 하 여 "메시지 가로채기 (man-in-the-middle)" 공격 으로부터 보호 합니다.
 
-기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 클라이언트 응용 프로그램이 SSL 연결을 지원 하지 않는 경우 SSL을 요구 하지 않도록 설정할 수 있습니다. 
+기본적으로 PostgreSQL 데이터베이스 서비스는 SSL 연결을 요구하도록 구성됩니다. 클라이언트 응용 프로그램이 SSL 연결을 지원 하지 않는 경우 SSL 필요를 사용 하지 않도록 선택할 수 있습니다. 
 
 ## <a name="enforcing-ssl-connections"></a>SSL 연결 적용
 Azure Portal 및 CLI를 통해 프로비전된 모든 MySQL용 Azure 데이터베이스 서버의 경우 SSL 연결 적용이 기본적으로 활성화됩니다. 
@@ -41,23 +41,23 @@ az postgres server update --resource-group myresourcegroup --name mydemoserver -
 ```
 
 ## <a name="ensure-your-application-or-framework-supports-ssl-connections"></a>애플리케이션 또는 프레임워크가 SSL 연결을 지원하는지 확인합니다.
-데이터베이스 서비스용 PostgreSQL을 사용 하는 일부 응용 프로그램 프레임 워크 설치 하는 동안 SSL를 기본적으로 사용 하지 마십시오. PostgreSQL 서버에 SSL 연결이 적용 하지만 응용 프로그램 SSL 구성 되지 않은 경우 응용 프로그램 데이터베이스 서버에 연결할 실패할 수 있습니다. 애플리케이션의 설명서를 참조하여 SSL 연결을 설정하는 방법을 알아보세요.
+데이터베이스 서비스에 대해 PostgreSQL를 사용 하는 일부 응용 프로그램 프레임 워크는 설치 하는 동안 기본적으로 SSL을 사용 하도록 설정 하지 않습니다. PostgreSQL 서버에서 SSL 연결을 적용 하지만 응용 프로그램이 SSL로 구성 되지 않은 경우 응용 프로그램이 데이터베이스 서버에 연결 하지 못할 수 있습니다. 애플리케이션의 설명서를 참조하여 SSL 연결을 설정하는 방법을 알아보세요.
 
 
 ## <a name="applications-that-require-certificate-verification-for-ssl-connectivity"></a>SSL 연결을 위해 인증서 확인이 필요한 애플리케이션
-경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. PostgreSQL 서버에 위치한에 대 한 Azure Database에 연결 하려면 인증서가 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 입니다. 인증서 파일을 다운로드 하 고 원하는 위치에 저장 합니다. 
+경우에 따라 안전한 연결을 위해 애플리케이션에 신뢰할 수 있는 CA(인증 기관) 인증서 파일(.cer)에서 생성되는 로컬 인증서 파일이 필요합니다. Azure Database for PostgreSQL 서버에 연결 하기 위한 인증서는 https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem 에 있습니다. 인증서 파일을 다운로드 하 여 원하는 위치에 저장 합니다. 
 
-### <a name="connect-using-psql"></a>Psql을 사용하여 연결
-다음 예제에서는 psql 명령줄 유틸리티를 사용 하 여 PostgreSQL 서버에 연결 하는 방법을 보여 줍니다. 사용 된 `sslmode=verify-full` SSL 인증서 유효성 검사를 적용 하려면 연결 문자열 설정 합니다. 로컬 인증서 파일 경로를 전달 합니다 `sslrootcert` 매개 변수입니다.
+### <a name="connect-using-psql"></a>Psql을 사용 하 여 연결
+다음 예제에서는 psql 명령줄 유틸리티를 사용 하 여 PostgreSQL 서버에 연결 하는 방법을 보여 줍니다. `sslmode=verify-full` 연결 문자열 설정을 사용 하 여 SSL 인증서 확인을 적용 합니다. 로컬 인증서 파일 경로를 `sslrootcert` 매개 변수에 전달 합니다.
 
-Psql 연결 문자열의 예는 다음과 같습니다.
+다음은 psql 연결 문자열의 예입니다.
 ```
 psql "sslmode=verify-full sslrootcert=BaltimoreCyberTrustRoot.crt host=mydemoserver.postgres.database.azure.com dbname=postgres user=myusern@mydemoserver"
 ```
 
 > [!TIP]
-> 에 전달 된 값을 확인 `sslrootcert` 저장 한 인증서에 대 한 파일 경로 일치 합니다.
+> `sslrootcert` 전달 된 값이 저장 한 인증서의 파일 경로와 일치 하는지 확인 합니다.
 
 
 ## <a name="next-steps"></a>다음 단계
-다양 한 응용 프로그램 연결 옵션 검토 [PostgreSQL 용 Azure Database에 대 한 연결 라이브러리](concepts-connection-libraries.md)합니다.
+[Azure Database for PostgreSQL에 대 한 연결 라이브러리](concepts-connection-libraries.md)에서 다양 한 응용 프로그램 연결 옵션을 검토 합니다.

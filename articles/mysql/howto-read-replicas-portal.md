@@ -1,23 +1,23 @@
 ---
-title: 복제본 읽기 & 관리 (Azure Portal)-Azure Database for MySQL
+title: 읽기 복제본 관리-Azure Portal-Azure Database for MySQL
 description: Azure Portal를 사용 하 여 Azure Database for MySQL에서 읽기 복제본을 설정 하 고 관리 하는 방법을 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 56dc2df243c7ebc8e6aedf655795173c478ef99b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972867"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762609"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL에서 읽기 복제본을 만들고 관리하는 방법
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MySQL 서비스에서 읽기 복제본을 만들고 관리 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 마스터 서버로 사용할 [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -28,7 +28,7 @@ ms.locfileid: "71972867"
 
 다음 단계에 따라 읽기 복제본 서버를 만들 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 마스터로 사용할 기존 Azure Database for MySQL 서버를 선택합니다. 이 작업은 **개요** 페이지를 엽니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "71972867"
 
     ![Azure Database for MySQL-복제본 이름](./media/howto-read-replica-portal/replica-name.png)
 
-6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버와 동일합니다.
+6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버의와 동일 합니다.
 
     ![Azure Database for MySQL-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
 

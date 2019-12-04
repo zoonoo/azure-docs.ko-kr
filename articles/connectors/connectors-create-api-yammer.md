@@ -1,22 +1,18 @@
 ---
-title: Azure Logic Apps에서 Yammer에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 Yammer에 연결
 description: Azure Logic Apps를 사용하여 Yammer에서 메시지, 피드 등을 모니터링, 게시 및 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: b5ae0827-fbb3-45ec-8f45-ad1cc2e7eccc
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 9228a94dcf27d8987b16e2caa2681cf973db0657
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 194c08d034d44ba0a4472b3b516fc45d1d262d28
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050650"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789072"
 ---
 # <a name="monitor-and-manage-your-yammer-account-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Yammer 계정 모니터링 및 관리
 
@@ -26,9 +22,9 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
 * 메시지, 그룹, 네트워크, 사용자의 세부 정보 등을 가져옵니다.
 * 메시지 등을 게시합니다.
 
-트리거를 사용하여 Yammer 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Yammer 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Yammer 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 피드 또는 그룹에 새 메시지가 표시되면 Slack 커넥터를 사용하여 해당 메시지를 공유할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+트리거를 사용하여 Yammer 계정에서 응답을 가져오고 다른 작업에서 출력을 사용하도록 할 수 있습니다. Yammer 계정을 사용하여 작업을 수행하는 작업을 사용할 수 있습니다. 또한 다른 작업에서 Yammer 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어, 피드 또는 그룹에 새 메시지가 표시되면 Slack 커넥터를 사용하여 해당 메시지를 공유할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -71,7 +67,7 @@ Azure Logic Apps 및 Yammer 커넥터를 사용하면 다음과 같이 다른 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/yammer/)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/yammer/)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

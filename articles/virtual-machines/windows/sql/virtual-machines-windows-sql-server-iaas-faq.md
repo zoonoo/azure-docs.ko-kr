@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: eeda78c69c21fafcbe64071422bf7d73a4737249
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c3b4fabb319a3ea76ee62c8c699d4613184a4e76
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208308"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791055"
 ---
 # <a name="frequently-asked-questions-for-sql-server-running-on-windows-virtual-machines-in-azure"></a>Azure의 Windows Virtual Machines에서 실행되는 SQL Server에 대한 질문과 대답
 
@@ -63,7 +63,7 @@ ms.locfileid: "70208308"
 
 1. **가상 머신 갤러리에 표시되지 않은 구성을 설정할 수 있습니까(예: Windows 2008 R2 + SQL Server 2012)?**
 
-   아니요. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 Azure Portal 또는 [PowerShell](virtual-machines-windows-ps-sql-create.md)을 통해 제공된 이미지 중 하나를 선택해야 합니다. 그러나 Windows VM을 배포 하 고 자체 설치 SQL Server 수 있습니다. 그런 다음 [SQL Server VM 리소스 공급자에 SQL Server VM를 등록](virtual-machines-windows-sql-register-with-resource-provider.md) 하 여 포털에서 SQL Server VM을 관리 하 고 자동화 된 패치 적용 및 자동 백업 등의 기능을 활용 해야 합니다. 
+   아닙니다. SQL Server가 포함된 가상 머신 갤러리 이미지의 경우 Azure Portal 또는 [PowerShell](virtual-machines-windows-ps-sql-create.md)을 통해 제공된 이미지 중 하나를 선택해야 합니다. 그러나 Windows VM을 배포 하 고 자체 설치 SQL Server 수 있습니다. 그런 다음 [SQL Server VM 리소스 공급자에 SQL Server VM를 등록](virtual-machines-windows-sql-register-with-resource-provider.md) 하 여 포털에서 SQL Server VM을 관리 하 고 자동화 된 패치 적용 및 자동 백업 등의 기능을 활용 해야 합니다. 
 
 
 ## <a name="creation"></a>만들기
@@ -76,7 +76,7 @@ ms.locfileid: "70208308"
 
    가장 먼저 SQL Server 인스턴스를 사용하여 Azure 가상 머신을 만듭니다. 그런 다음 온-프레미스 데이터베이스를 해당 인스턴스로 마이그레이션합니다. 데이터 마이그레이션 전략에 대해서는 [Azure VM의 SQL Server로 SQL Server 데이터베이스 마이그레이션](virtual-machines-windows-migrate-sql.md)을 참조하세요.
 
-## <a name="licensing"></a>라이선싱
+## <a name="licensing"></a>라이선스
 
 1. **Azure VM에 라이선스가 있는 내 SQL Server 사본을 설치하려면 어떻게 해야 합니까?**
 
@@ -97,11 +97,11 @@ ms.locfileid: "70208308"
 
 1. **라이선싱 모델을 전환할 때 SQL Server 가동 중지 시간이 필요한가요?**
 
-   아니요. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 그러나 SQL Server VM 리소스 공급자를 사용 하 여 SQL Server VM를 등록 하기 위해 [Sql iaas 확장](virtual-machines-windows-sql-server-agent-extension.md) 은 필수 구성 요소 이며 _전체_ 모드로 sql iaas 확장을 설치 하면 SQL Server 서비스가 다시 시작 됩니다. 따라서 SQL IaaS 확장을 설치 해야 하는 경우 제한 된 기능을 위해 _경량_ 모드로 설치 하거나 유지 관리 기간 동안 _전체_ 모드로 설치 합니다. _경량_ 모드로 설치 된 SQL IaaS 확장은 언제 든 지 _전체_ 모드로 업그레이드할 수 있지만 SQL Server 서비스를 다시 시작 해야 합니다. 
+   아닙니다. [라이선싱 모델을 변경](virtual-machines-windows-sql-ahb.md)해도 SQL Server 가동 중지 시간이 필요하지 않습니다. 변경 내용이 즉시 적용되기 때문에 VM을 다시 시작하지 않아도 됩니다. 그러나 SQL Server VM 리소스 공급자를 사용 하 여 SQL Server VM를 등록 하기 위해 [Sql iaas 확장](virtual-machines-windows-sql-server-agent-extension.md) 은 필수 구성 요소 이며 _전체_ 모드로 sql iaas 확장을 설치 하면 SQL Server 서비스가 다시 시작 됩니다. 따라서 SQL IaaS 확장을 설치 해야 하는 경우 제한 된 기능을 위해 _경량_ 모드로 설치 하거나 유지 관리 기간 동안 _전체_ 모드로 설치 합니다. _경량_ 모드로 설치 된 SQL IaaS 확장은 언제 든 지 _전체_ 모드로 업그레이드할 수 있지만 SQL Server 서비스를 다시 시작 해야 합니다. 
 
 1. **Azure Portal를 사용 하 여 동일한 VM에서 여러 인스턴스를 관리할 수 있나요?**
 
-   아니요. 포털 관리는 SQL Server IaaS 에이전트 확장에 의존 하는 SQL Server VM 리소스 공급자에서 제공 하는 기능입니다. 따라서 리소스 공급자에 확장에 대 한 동일한 제한이 적용 됩니다. 포털은 기본 인스턴스 하나 또는 명명 된 인스턴스 하나를 올바르게 구성 하기만 하면 관리할 수 있습니다. 이러한 제한 사항에 대 한 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조 하세요. 
+   아닙니다. 포털 관리는 SQL Server IaaS 에이전트 확장에 의존 하는 SQL Server VM 리소스 공급자에서 제공 하는 기능입니다. 따라서 리소스 공급자에 확장에 대 한 동일한 제한이 적용 됩니다. 포털은 기본 인스턴스 하나 또는 명명 된 인스턴스 하나를 올바르게 구성 하기만 하면 관리할 수 있습니다. 이러한 제한 사항에 대 한 자세한 내용은 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 참조 하세요. 
 
 1. **CSP 구독으로 Azure 하이브리드 혜택을 활성화할 수 있나요?**
 
@@ -109,7 +109,7 @@ ms.locfileid: "70208308"
 
 1. **새 SQL Server VM 리소스 공급자를 사용 하 여 VM을 등록 하면 추가 비용이 발생 하나요?**
 
-   아니요. SQL Server VM 리소스 공급자는 추가 요금 없이 Azure VM에서 SQL Server에 대 한 추가 관리 효율성만을 설정 합니다. 
+   아닙니다. SQL Server VM 리소스 공급자는 추가 요금 없이 Azure VM에서 SQL Server에 대 한 추가 관리 효율성만을 설정 합니다. 
 
 1. **모든 고객에 게 SQL Server VM 리소스 공급자를 사용할 수 있나요?**
  
@@ -129,21 +129,21 @@ ms.locfileid: "70208308"
 
 1. **클래식 모델을 사용 하 여 배포 된 SQL Server VM에서 라이선스 모델을 전환할 수 있나요?**
 
-   아니요. 클래식 VM에서는 라이선스 모델 변경이 지원 되지 않습니다. VM을 Azure Resource Manager 모델로 마이그레이션하고 SQL Server VM 리소스 공급자를 사용 하 여 등록할 수 있습니다. VM이 SQL Server VM 리소스 공급자에 등록 되 면 VM에서 라이선스 모델 변경 내용이 제공 됩니다. 
+   아닙니다. 클래식 VM에서는 라이선스 모델 변경이 지원 되지 않습니다. VM을 Azure Resource Manager 모델로 마이그레이션하고 SQL Server VM 리소스 공급자를 사용 하 여 등록할 수 있습니다. VM이 SQL Server VM 리소스 공급자에 등록 되 면 VM에서 라이선스 모델 변경 내용이 제공 됩니다. 
    
 
 
 ## <a name="administration"></a>관리
 
-1. **같은 VM에 SQL Server의 두 번째 인스턴스를 설치할 수 있나요? 기본 인스턴스의 설치된 기능을 변경할 수 있나요?**
+1. **동일한 VM에 SQL Server의 두 번째 인스턴스를 설치할 수 있나요? 기본 인스턴스의 설치 된 기능을 변경할 수 있나요?**
 
    예. SQL Server 설치 미디어는 **C** 드라이브의 폴더에 있습니다. 이 위치에서 **Setup.exe** 를 실행하여 새 SQL Server 인스턴스를 실행하거나 컴퓨터에 설치된 다른 SQL Server 기능을 변경합니다. 자동화 된 백업, 자동화 된 패치, Azure Key Vault 통합과 같은 일부 기능은 기본 인스턴스 또는 제대로 구성 된 명명 된 인스턴스 (질문 3 참조)에 대해서만 작동 합니다. 
 
 1. **SQL Server의 기본 인스턴스를 제거할 수 있나요?**
 
-   예, 그러나 몇 가지 고려 사항이 있습니다. 먼저 SQL Server 관련 된 청구는 VM의 라이선스 모델에 따라 계속 해 서 발생할 수 있습니다. 둘째, 이전 응답에서 설명한 대로 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용 하는 기능이 있습니다. IaaS 확장을 제거 하지 않고 기본 인스턴스를 제거 하는 경우에도 확장은 기본 인스턴스를 계속 찾고 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 즉, **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
+   예, 그러나 몇 가지 고려 사항이 있습니다. 먼저 SQL Server 관련 된 청구는 VM의 라이선스 모델에 따라 계속 해 서 발생할 수 있습니다. 둘째, 이전 응답에서 설명한 대로 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)을 사용 하는 기능이 있습니다. IaaS 확장을 제거 하지 않고 기본 인스턴스를 제거 하는 경우에도 확장은 기본 인스턴스를 계속 찾고 이벤트 로그 오류를 생성할 수 있습니다. 이러한 오류는 두 원본 **Microsoft SQL Server 자격 증명 관리** 및 **Microsoft SQL Server IaaS 에이전트**에서 발생합니다. 오류 중 하나는 다음과 유사할 수 있습니다.
 
-      SQL Server에 연결하는 중에 네트워크 관련 오류 또는 인스턴스별 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
+      SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다.
 
    기본 인스턴스를 제거하려면 [SQL Server IaaS 에이전트 확장](virtual-machines-windows-sql-server-agent-extension.md)도 제거합니다. 
 
@@ -171,7 +171,7 @@ ms.locfileid: "70208308"
 
 1. **SQL Server VM 리소스 공급자에 등록 한 후에 SQL Server 2008/2008 R2 인스턴스를 업그레이드할 수 있나요?**
 
-   예. 설치 미디어를 사용 하 여 SQL Server 버전 및 버전을 업그레이드 한 후 _에이전트 없음_ 에서 _전체_로 [SQL IaaS 확장 모드](virtual-machines-windows-sql-register-with-resource-provider.md#change-management-modes) 를 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화 된 백업 및 자동화 된 패치 등 SQL IaaS 확장의 모든 이점에 액세스할 수 있습니다. 
+   예. 설치 미디어를 사용 하 여 SQL Server 버전 및 버전을 업그레이드 한 후 _에이전트 없음_ 에서 _전체_로 [SQL IaaS 확장 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)를 업그레이드할 수 있습니다. 이렇게 하면 포털 관리 효율성, 자동화 된 백업 및 자동화 된 패치 등 SQL IaaS 확장의 모든 이점에 액세스할 수 있습니다. 
 
 ## <a name="general"></a>일반
 

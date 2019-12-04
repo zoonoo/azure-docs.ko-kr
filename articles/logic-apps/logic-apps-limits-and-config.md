@@ -1,20 +1,17 @@
 ---
-title: 제한 및 구성-Azure Logic Apps
+title: 제한 사항 및 구성
 description: '기간, 처리량 및 용량과 같은 서비스 제한 및 허용 되는 IP 주소와 같은 구성 값 (예: Azure Logic Apps'
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 89b4a08a3ecb85abd56f0b2ae852123ac2883364
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 13bced5cb692366f46032d51c3b635533110d781
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74547540"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791965"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -71,7 +68,7 @@ ms.locfileid: "74547540"
 
    > [!NOTE]
    > 다중 테 넌 트 Azure에서 논리 앱의 경우 90 일 기본 제한은 최대 제한과 동일 합니다. 이 값은 줄일 수만 있습니다.
-   > 통합 서비스 환경에서 논리 앱의 경우 90-일 기본 제한을 decreause 하거나 늘릴 수 있습니다.
+   > 통합 서비스 환경의 논리 앱에 대해 90 일 기본 제한을 줄이거나 늘릴 수 있습니다.
 
 <a name="looping-debatching-limits"></a>
 

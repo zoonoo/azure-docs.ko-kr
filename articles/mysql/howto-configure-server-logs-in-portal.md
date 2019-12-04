@@ -1,29 +1,29 @@
 ---
-title: Azure Portal에서 Azure Database for MySQL의 저속 쿼리 로그 구성 및 액세스
+title: 저속 쿼리 로그 액세스-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 저속 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 09/30/2019
-ms.openlocfilehash: 7eeeb729973e484e9acb26f3ac8cc42693f72eea
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.date: 12/02/2019
+ms.openlocfilehash: 52d219a94676e0f1ce4ceac31b0b50c9d36665ba
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841553"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770580"
 ---
 # <a name="configure-and-access-slow-query-logs-from-the-azure-portal"></a>Azure Portal에서 느리게 쿼리 로그 구성 및 액세스
 
 Azure Portal에서 [Azure Database for MySQL 저속 쿼리 로그](concepts-server-logs.md) 를 구성, 나열 및 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서의 단계를 수행 하려면 [Azure Database for MySQL 서버가](quickstart-create-mysql-server-database-using-azure-portal.md)있어야 합니다.
 
 ## <a name="configure-logging"></a>로깅 구성
 MySQL 느린 쿼리 로그에 대한 액세스를 구성합니다. 
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 2. Azure Database for MySQL 서버를 선택합니다.
 

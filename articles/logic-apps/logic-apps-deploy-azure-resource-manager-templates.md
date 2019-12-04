@@ -1,26 +1,23 @@
 ---
-title: 논리 앱 템플릿 배포-Azure Logic Apps
+title: 논리 앱 템플릿 배포
 description: Azure Logic Apps에 대해 만든 Azure Resource Manager 템플릿을 배포 하는 방법을 알아봅니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 083c908609ebcf1bdc6dcad5e37ae03daa41758f
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 73c4c8839bd1d9e37f3dc4f0802ad5a648b1026b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706499"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793054"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포
 
 논리 앱에 대 한 Azure Resource Manager 템플릿을 만든 후에 다음과 같은 방법으로 템플릿을 배포할 수 있습니다.
 
-* [Azure Portal](#portal)
+* [Azure 포털](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
@@ -94,10 +91,10 @@ az group deployment create -g <Azure-resource-group-name> --template-uri https:/
 Azure Pipelines를 사용 하는 Azure Resource Manager 템플릿의 CI/CD에 대 한 지속적인 통합 및 지속적인 배포에 대 한 자세한 내용은 다음 항목 및 샘플을 참조 하세요.
 
 * [Azure Pipelines와 리소스 관리자 템플릿 통합](../azure-resource-manager/vs-resource-groups-project-devops-pipelines.md)
-* [자습서: Azure Pipelines를 사용 하 Azure Resource Manager 템플릿에 대 한 지속적인 통합](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
+* [자습서: Azure Pipelines를 사용 하 여 Azure Resource Manager 템플릿에 대 한 지속적인 통합](../azure-resource-manager/resource-manager-tutorial-use-azure-pipelines.md)
 * [샘플: Azure Logic Apps에서 Azure Service Bus 큐에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-service-bus-queues-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
-* [샘플: Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
+* [샘플: Azure DevOps에서 Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure Logic Apps에서 통합 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
 
 Azure Pipelines 사용에 대 한 일반적인 개략적인 단계는 다음과 같습니다.

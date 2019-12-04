@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL 단일 서버를 사용 하 여 Azure Active Directory 인증
+title: Active Directory 인증-Azure Database for PostgreSQL 단일 서버
 description: Azure Database for PostgreSQL 단일 서버 인증을 위한 Azure Active Directory의 개념에 대해 알아봅니다.
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 47637396581beeafb0748066cd6a66f011e8eaa1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ec853657d6dd1f3b019d8a414cfa28edc1083b29
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73518737"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769917"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL를 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -43,7 +43,7 @@ Azure Active Directory 인증을 구성 하 고 사용 하려면 다음 프로�
 > [!NOTE]
 > Azure AD를 만들고 채운 후 Azure Database for PostgreSQL를 사용 하 여 Azure AD를 구성 하는 방법을 알아보려면 [Azure Database for PostgreSQL에 대해 AZURE ad를 사용 하 여 구성 및 로그인](howto-configure-sign-in-aad-authentication.md)을 참조 하세요.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>건축
 
 다음 고급 다이어그램은 Azure Database for PostgreSQL에서 Azure AD 인증을 사용 하 여 인증을 작동 하는 방법을 요약 합니다. 화살표는 통신 경로 나타냅니다.
 

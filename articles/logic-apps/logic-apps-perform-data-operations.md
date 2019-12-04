@@ -1,21 +1,17 @@
 ---
-title: 데이터에 대 한 작업 수행-Azure Logic Apps
+title: 데이터에 대 한 작업 수행
 description: Azure Logic Apps에서 데이터 출력 및 형식을 변환, 관리 및 조작합니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: a21b7f510b6da40d3ab2c72fcfbcb2a746b75db1
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: f98daf301e8e17ad3f0bfb850ded1a8ed8bce417
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990514"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793124"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Azure Logic Apps에서 데이터 작업 수행
 
@@ -676,7 +672,7 @@ JSON (JavaScript Object Notation) 콘텐츠의 속성을 참조 하거나 액세
 
 1. **맵** 상자의 왼쪽 열에서 원본 배열의 각 값을 할당하려는 속성 이름을 제공합니다. 오른쪽 열에서 속성을 할당하려는 값을 나타내는 식을 지정합니다.
 
-   이 예제에서는 각 배열 항목에 액세스 하는 식에서 `item()` 함수를 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"를 지정 합니다. 
+   이 예제에서는 각 배열 항목에 액세스 하는 식에서 `item()` 함수를 사용 하 여 정수 배열의 각 값을 할당 하는 속성 이름으로 "Product_ID"을 지정 합니다. 
 
    ![JSON 개체 속성 및 배열을 만들 값 지정](./media/logic-apps-perform-data-operations/configure-select-action-2.png)
 

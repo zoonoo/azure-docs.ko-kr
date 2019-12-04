@@ -1,17 +1,17 @@
 ---
-title: MySQL용 Azure 데이터베이스에 데이터를 복제하도록 데이터 내부 복제를 구성합니다.
+title: 데이터에서 복제 구성-Azure Database for MySQL
 description: 이 문서에서는 Azure Database for MySQL에 대해 데이터 내부 복제를 설정하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 08/31/2018
-ms.openlocfilehash: 7d56d7f8fcbd53d4f69863d260591ef80f3d7188
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 12/02/2019
+ms.openlocfilehash: eaebcf50084223e1c1f4df30294bece96cffda6d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61459082"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74774299"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database for MySQL 데이터 내부 복제를 구성하는 방법
 
@@ -153,7 +153,7 @@ ms.locfileid: "61459082"
    - master_password: 마스터 서버의 암호
    - master_log_file: 실행 중인 `show master status`의 이진 로그 파일 이름
    - master_log_pos: 실행 중인 `show master status`의 이진 로그 위치
-   - master_ssl_ca: CA 인증서의 컨텍스트. SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
+   - master_ssl_ca: CA 인증서의 컨텍스트 SSL을 사용하지 않는 경우 빈 문자열을 전달합니다.
        - 이 매개 변수를 변수로 전달하는 것이 좋습니다. 자세한 내용은 다음 예제를 참조하세요.
 
 > [!NOTE]

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 76ab8784f04f3c67e4ea8062505931783048dea1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: c44228d7e1456bce870765935beb011cb24626d5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113591"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790939"
 ---
 # <a name="what-is-incremental-indexing-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 인덱싱 이란?
 
@@ -47,7 +47,7 @@ ms.locfileid: "74113591"
     },
     "fieldMappings" : [],
     "outputFieldMappings": [],
-    "parameters":{}
+    "parameters": {}
 }
 ```
 
@@ -83,7 +83,7 @@ PUT https://customerdemos.search.windows.net/skillsets/callcenter-text-skillset?
 
 ### <a name="invalidating-changes"></a>변경 내용 무효화
 
-변경 내용 무효화는 드물게 발생하지만 보강 파이프라인의 상태에 상당한 영향을 미칩니다. 변경 내용이 무효화되면 전체 캐시가 더 이상 유효하지 않습니다. 변경 내용 무효화의 예로 데이터 원본이 업데이트되는 경우가 있습니다. 저장소 계정에서 키를 회전 하는 것과 같이 변경으로 인해 캐시가 무효화 되지 않아야 하는 경우에는 `ignoreResetRequirement` querystring 매개 변수를 특정 리소스의 업데이트 작업에서 `true`으로 설정 하 여 작업이 수행 되도록 해야 합니다. 거부 되지 않습니다.
+변경 내용 무효화는 드물게 발생하지만 보강 파이프라인의 상태에 상당한 영향을 미칩니다. 변경 내용이 무효화되면 전체 캐시가 더 이상 유효하지 않습니다. 변경 내용 무효화의 예로 데이터 원본이 업데이트되는 경우가 있습니다. 저장소 계정에서 키를 회전 하는 것과 같이 변경으로 인해 캐시가 무효화 되지 않아야 하는 경우에는 `ignoreResetRequirement` querystring 매개 변수를 특정 리소스의 업데이트 작업에서 `true`으로 설정 하 여 작업이 거부 되지 않도록 해야 합니다.
 
 캐시를 무효화할 수 있는 변경 내용의 전체 목록은 다음과 같습니다.
 

@@ -1,21 +1,19 @@
 ---
-title: 2016년 6월 1일 스키마 업데이트 - Azure Logic Apps | Microsoft Docs
+title: 스키마 업데이트 6 월-1-2016
 description: Azure Logic Apps의 논리 앱 정의에 대한 업데이트된 스키마 버전 2016-06-01
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: kevinlam1
 ms.author: klam
-ms.reviewer: estfan, LADocs
-ms.assetid: 349d57e8-f62b-4ec6-a92f-a6e0242d6c0e
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 07/25/2016
-ms.openlocfilehash: 0558c309cc22f39c2ed439b7930443ca0adb071e
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: e2f65f1c52dc7dfb2e4e4bf66f5c7e82f4b802b8
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68385383"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792884"
 ---
 # <a name="schema-updates-for-azure-logic-apps---june-1-2016"></a>Azure Logic Apps에 대한 스키마 업데이트 - 2016년 6월 1일
 
@@ -155,7 +153,7 @@ Azure Logic Apps에 대한 [업데이트된 스키마](https://schema.management
 
 ### <a name="new-trackedproperties-for-actions"></a>작업에 대한 새 'trackedProperties'
 
-작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 예:
+작업에는 `runAfter` 및 `type` 속성의 형제인 `trackedProperties`이라는 추가 속성이 있을 수 있습니다. 이 개체는 워크플로의 일부로 내보내고 Azure 진단 원격 분석에 포함할 특정 작업 입력 또는 출력을 지정합니다. 다음은 그 예입니다.
 
 ``` json
 {

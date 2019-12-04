@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 12/02/2019
 ms.author: rkarlin
-ms.openlocfilehash: 02d87ed5f26d36b7cd438b0d818c7bdcce43520d
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464119"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74762705"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
@@ -30,9 +30,9 @@ RBAC를 사용 하 여 보안 운영 팀 내에서 역할을 만들고 Azure 센
 
 세 가지 기본 제공 Azure 센티널 역할이 있습니다.  
 **모든 Azure 센티널 기본 제공 역할은 Azure 센티널 작업 영역에서 데이터에 대 한 읽기 액세스 권한을 부여 합니다.**
-- **Azure 센티널 판독기**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-reader) 을 참조 하세요.
-- **Azure 센티널 응답자**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-responder) 을 참조 하세요.
-- **Azure 센티널 참여자**: 자세한 내용은 [기본 제공 역할](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor) 을 참조 하세요.
+- [Azure 센티널 판독기](../role-based-access-control/built-in-roles.md#azure-sentinel-reader)
+- [Azure 센티널 응답자](../role-based-access-control/built-in-roles.md#azure-sentinel-responder)
+- [Azure 센티널 기여자](../role-based-access-control/built-in-roles.md#azure-sentinel-contributor)
 
 Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할은 Azure 센티널 작업 영역 및 기타 리소스에 대 한 액세스를 포함 하는 광범위 한 사용 권한 집합을 부여할 수 있습니다.
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 258675a343387eb6930cd3511bf885bf510050c6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6261de14f80f966718507d2d3506e55db9786df9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404219"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74785860"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
@@ -41,11 +41,14 @@ Azure AD ID 보호에 따라 사용하도록 설정 - 이 방법은 Azure AD ID 
 
 Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가지 상태를 갖습니다.
 
-| 가동 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
-|:---:|:---:|:---:|:--:|:--:|
-| 사용 안 함 |Azure MFA에 등록되지 않은 새 사용자에 대한 기본 상태입니다. |아니오 |아니오 |아니오 |
-| Enabled |사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. |아니요.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure MFA 등록이 필요합니다. |
-| 적용 |사용자가 등록되었으며 Azure MFA를 위한 등록 프로세스를 완료했습니다. |예. 앱에 앱 암호가 필요합니다. |예. 로그인할 때 Azure MFA가 필요합니다. | 예. 로그인할 때 Azure MFA가 필요합니다. |
+> [!IMPORTANT]
+> 조건부 액세스 정책을 통해 Azure MFA를 사용 하도록 설정 하면 사용자의 상태가 변경 되지 않습니다. 사용자가 사용 하지 않도록 설정 된 것으로 표시 되는 것은 아닙니다. 조건부 액세스는 상태를 변경 하지 않습니다. **조직에서는 사용자가 조건부 액세스 정책을 활용 하는 경우 사용자를 사용 하도록 설정 하거나 적용 하지 않아야 합니다.**
+
+| 상태 | 설명 | 영향 받는 비브라우저 앱 | 영향 받는 브라우저 앱 | 영향 받는 최신 인증 |
+|:---:| --- |:---:|:--:|:--:|
+| 사용 안 함 | Azure MFA에 등록되지 않은 새 사용자에 대한 기본 상태입니다. | 아닙니다. | 아닙니다. | 아닙니다. |
+| 사용 | 사용자가 Azure MFA에 등록되었지만 등록하지 않았습니다. 다음에 로그인할 때 등록하라는 메시지가 표시됩니다. | 아닙니다.  등록 프로세스가 완료될 때까지 계속 작업합니다. | 예. 세션이 만료되면 Azure MFA 등록이 필요합니다.| 예. 액세스 토큰이 만료되면 Azure MFA 등록이 필요합니다. |
+| 적용 | 사용자가 등록되었으며 Azure MFA를 위한 등록 프로세스를 완료했습니다. | 예. 앱에 앱 암호가 필요합니다. | 예. 로그인할 때 Azure MFA가 필요합니다. | 예. 로그인할 때 Azure MFA가 필요합니다. |
 
 사용자의 상태는 관리자가 사용자를 Azure MFA에 등록했는지 그리고 사용자가 등록 프로세스를 완료했는지 여부를 반영합니다.
 
@@ -82,7 +85,7 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 
 [Azure AD PowerShell](/powershell/azure/overview)을 사용하여 사용자 상태를 변경하려면 `$st.State`를 변경합니다. 여기에는 세 가지 상태가 있습니다.
 
-* Enabled
+* 사용
 * 적용
 * 사용 안 함  
 

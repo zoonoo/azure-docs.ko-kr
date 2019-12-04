@@ -1,20 +1,17 @@
 ---
-title: 일반적인 시나리오 & 예제 Azure Logic Apps
+title: 일반적인 시나리오 & 예제
 description: Azure Logic Apps에 대 한 예제, 일반적인 시나리오, 자습서 및 연습을 찾습니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 9e245d1a0054d9de5b8b524416c8c92eb02353a7
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: ff6136dea8a25a39e045665d61bdd5d93eeb58a5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73025514"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792130"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Azure Logic Apps의 일반적인 시나리오, 예제, 자습서 및 연습
 

@@ -1,24 +1,21 @@
 ---
-title: 관리 id를 사용 하 여 인증-Azure Logic Apps
+title: 관리되는 ID를 사용하여 인증
 description: 관리 id를 사용 하 여 자격 증명 또는 암호를 사용 하 여 로그인 하지 않고 다른 Azure Active Directory 테 넌 트의 리소스에 액세스
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/21/2019
-ms.openlocfilehash: 2d1dbde2499dbe793a895f894e5ae83c36c54449
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 49c925cfe61084d8fedfdf953d469db4bd2c10b1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200632"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792681"
 ---
 # <a name="authenticate-access-to-azure-resources-by-using-managed-identities-in-azure-logic-apps"></a>Azure Logic Apps에서 관리 되는 id를 사용 하 여 Azure 리소스에 대 한 액세스 인증
 
-다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 액세스 하 고 로그인 하지 않고 id를 인증 하기 위해 논리 앱은 시스템 할당 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) (이전의 관리 서비스 ID 또는 MSI)를 사용할 수 있습니다. 자격 증명 또는 암호. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. 이 문서에서는 논리 앱에서 시스템 할당 관리 id를 설정 하 고 사용 하는 방법을 보여 줍니다. 현재 관리 되는 id는 관리 되는 커넥터나 연결이 아닌 [특정 기본 제공 트리거 및 작업](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls)에서만 작동 합니다.
+다른 Azure Active Directory (Azure AD) 테 넌 트의 리소스에 액세스 하 고 로그인 하지 않고 id를 인증 하기 위해 논리 앱은 자격 증명이 나 비밀이 아닌 시스템 할당 [관리 id](../active-directory/managed-identities-azure-resources/overview.md) (이전의 관리 서비스 ID 또는 MSI)를 사용할 수 있습니다. 이 ID는 Azure에서 관리되며, 비밀을 제공하거나 순환할 필요가 없기 때문에 자격 증명을 보호하는 데 도움이 됩니다. 이 문서에서는 논리 앱에서 시스템 할당 관리 id를 설정 하 고 사용 하는 방법을 보여 줍니다. 현재 관리 되는 id는 관리 되는 커넥터나 연결이 아닌 [특정 기본 제공 트리거 및 작업](../logic-apps/logic-apps-securing-a-logic-app.md#add-authentication-to-outbound-calls)에서만 작동 합니다.
 
 자세한 내용은 다음 항목을 참조하세요.
 

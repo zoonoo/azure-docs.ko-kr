@@ -1,17 +1,17 @@
 ---
-title: Azure Portal을 사용한 Azure Database for MariaDB VNet 서비스 엔드포인트와 규칙 만들기 및 관리 | Microsoft Docs
+title: VNet 끝점 관리-Azure Portal-Azure Database for MariaDB
 description: Azure Portal을 사용한 Azure Database for MariaDB VNet 서비스 엔드포인트와 규칙 만들기 및 관리
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 02/26/2019
-ms.openlocfilehash: 392428c0498458f49c439a0553d581a302c0c242
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.date: 12/02/2019
+ms.openlocfilehash: 66e7c2160317d71ced7517e1ec19014c1475c915
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610104"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764102"
 ---
 # <a name="create-and-manage-azure-database-for-mariadb-vnet-service-endpoints-and-vnet-rules-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB VNet 서비스 엔드포인트와 VNet 규칙 만들기 및 관리
 
@@ -24,12 +24,12 @@ VNet(Virtual Network) 서비스 엔드포인트 및 규칙이 Virtual Network의
 
 1. MariaDB 서버 페이지의 설정 제목에서 **연결 보안**을 클릭하여 Azure Database for MariaDB의 연결 보안 창을 엽니다.
 
-2. Azure 서비스 액세스 허용 컨트롤이 **해제**되어 있는지 확인합니다.
+2. Azure 서비스에 대 한 액세스 허용 컨트롤이 **OFF**로 설정 되어 있는지 확인 합니다.
 
 > [!Important]
-> 컨트롤이 설정으로 되어 있으면 Azure MariaDB 데이터베이스 서버는 모든 서브넷으로부터의 통신을 허용합니다. 컨트롤을 설정으로 두게 되면 보안 관점에서 과도하게 액세스할 수도 있습니다. Azure database for MariaDB의 가상 네트워크 규칙 기능과 협력하여 Microsoft Azure Virtual Network 서비스 엔드포인트 기능을 함께 사용하여 보안 영역을 줄일 수 있습니다.
+> 설정 하는 경우 Azure MariaDB 데이터베이스 서버는 모든 서브넷의 통신을 허용 합니다. 제어 집합을 ON으로 유지하면 보안 관점에서 과도하게 액세스할 수도 있습니다. Microsoft Azure Virtual Network 서비스 끝점 기능은 Azure Database for MariaDB의 가상 네트워크 규칙 기능을 함께 사용 하 여 보안 노출 영역을 줄일 수 있습니다.
 
-3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md)
+3. 다음으로, **+ 기존 가상 네트워크 추가**를 클릭합니다. 기존 VNet이 없는 경우 **+ 새 가상 네트워크 만들기**를 클릭할 수 있습니다. [빠른 시작: Azure Portal을 사용하여 가상 네트워크 만들기](../virtual-network/quick-create-portal.md) 참조
 
    ![Azure Portal - 보안 연결 클릭](./media/howto-manage-vnet-portal/1-connection-security.png)
 

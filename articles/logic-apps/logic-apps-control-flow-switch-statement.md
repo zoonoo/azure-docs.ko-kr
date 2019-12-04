@@ -1,20 +1,17 @@
 ---
-title: 워크플로에 switch 문 추가 - Azure Logic Apps | Microsoft Docs
+title: 워크플로에 switch 문 추가
 description: Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 제어하는 switch 문을 만드는 방법입니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: 2a3f8ee5cba3110d392555fad78c1cb2513b5d4e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5c40feec2dca65e4bc9617a71a6d0a8e4c872a3a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60683131"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793241"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Azure Logic Apps에서 특정 값에 따라 워크플로 작업을 실행하는 switch 문 만들기
 
@@ -26,13 +23,13 @@ ms.locfileid: "60683131"
 > 모든 프로그래밍 언어와 마찬가지로 Switch 문도 같음 연산자만을 지원합니다. 다른 관계 연산자(예: "보다 큼")가 필요하면 [조건문](../logic-apps/logic-apps-control-flow-conditional-statement.md)을 사용합니다.
 > 결정적 실행 동작을 보장하려면 케이스에 동적 토큰 또는 식 대신 고유하고 정적인 값이 있어야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 체험 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 이 문서의 예를 수행하려면 Outlook.com 또는 Office 365 Outlook 계정으로 [이 샘플 논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
-  1. 전자 메일을 보내는 작업을 추가 하면 찾기 및이 작업을 대신 선택 합니다. **승인 이메일 보내기**
+  1. 전자 메일을 보내는 작업을 추가하는 경우 **승인 전자 메일 보내기**를 대신 선택합니다.
 
      !["승인 이메일 보내기" 선택](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
@@ -45,9 +42,9 @@ ms.locfileid: "60683131"
 
 1. 이 예제에서는 샘플 워크플로 끝에 switch 문을 추가합니다. 마지막 단계를 수행한 후 **새 단계**를 선택합니다.
 
-   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음 **작업 추가**를 선택합니다.
+   단계 사이에 switch 문을 추가하려면 switch 문을 추가하려는 화살표 위로 포인터를 이동합니다. 표시되는 **더하기 기호**( **+** )를 선택한 다음, **작업 추가**를 선택합니다.
 
-1. 검색 상자에 필터로 "switch"를 입력합니다. 현재 선택한 작업: **스위치-컨트롤**
+1. 검색 상자에 필터로 "switch"를 입력합니다. **전환 - 제어** 작업을 선택합니다.
 
    ![switch 추가](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
@@ -66,7 +63,7 @@ ms.locfileid: "60683131"
 
 1. 해당 케이스에 다음 작업을 추가합니다.
 
-   | 케이스 # | **SelectedOption** | 액션(Action) |
+   | 케이스 # | **SelectedOption** | 실행력 |
    |--------|--------------------|--------|
    | 케이스 1 | **승인** | 승인자가 **승인**을 선택한 경우에만 RSS 항목에 대한 세부 정보를 보내는 Outlook **이메일 보내기** 작업을 추가합니다. |
    | 케이스 2 | **거부** | 다른 승인자에게 RSS 항목이 거부되었음을 알리는 Outlook **이메일 보내기** 작업을 추가합니다. |

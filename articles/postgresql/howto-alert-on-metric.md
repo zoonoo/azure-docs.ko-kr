@@ -1,19 +1,19 @@
 ---
-title: Azure 포털에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고 구성
-description: 이 문서에서는 Azure portal에서 Azure Database for PostgreSQL-단일 서버에 대한 메트릭 경고를 구성 및 액세스하는 방법을 설명합니다.
+title: 경고 구성-Azure Portal Azure Database for PostgreSQL 단일 서버
+description: 이 문서에서는 Azure Portal에서 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭 경고를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 000dfe2d3e594c71f9c7ebbff7bce7141243668a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fe099dcb49d176d27466c08749a5873904d1ae2f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067323"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766840"
 ---
-# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure portal을 사용하여 Azure Database for PostgreSQL -단일 서버에 대한 메트릭 경고 설정
+# <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---single-server"></a>Azure Portal를 사용 하 여 Azure Database for PostgreSQL 단일 서버에 대 한 메트릭에 대 한 경고를 설정 합니다.
 
 이 문서에서는 Azure Portal을 사용하여 Azure Database for PostgreSQL 경고를 설정하는 방법을 보여 줍니다. Azure 서비스의 모니터링 메트릭을 기반으로 경고를 받을 수 있습니다.
 
@@ -25,7 +25,7 @@ ms.locfileid: "65067323"
 * Webhook를 호출합니다.
 
 다음을 통해 경고에 대한 정보를 구성하고 가져올 수 있습니다.
-* [Azure Portal](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
+* [Azure 포털](../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
 * [Azure CLI](../azure-monitor/platform/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/metricalerts)
 

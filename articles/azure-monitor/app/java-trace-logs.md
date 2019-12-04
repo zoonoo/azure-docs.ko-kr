@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/18/2019
-ms.openlocfilehash: 23e3116a0cc3283191d00079e0926dc206e677f0
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: a1a0a1462c8a4e52a065eafad315aab3ddae5f3b
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819346"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784598"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Application Insights에서 Java 추적 로그 탐색
 추적에 Logback 또는 Log4J(v1.2 또는 v2.0)를 사용하는 경우 추적 로그를 살펴보고 검색할 수 있는 Application Insights에 추적 로그를 자동으로 전송할 수 있습니다.
@@ -22,27 +22,41 @@ ms.locfileid: "72819346"
 
 ## <a name="using-the-application-insights-java-agent"></a>Application Insights Java 에이전트 사용
 
-`AI-Agent.xml` 파일에서 기능을 사용 하도록 설정 하 여 로그를 자동으로 캡처하도록 Application Insights Java 에이전트를 구성할 수 있습니다.
+기본적으로 Application Insights Java 에이전트는 `WARN` 수준 이상에서 수행 된 로깅을 자동으로 캡처합니다.
+
+`AI-Agent.xml` 파일을 사용 하 여 캡처된 로깅 임계값을 변경할 수 있습니다.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ApplicationInsightsAgent>
    <Instrumentation>
-      <BuiltIn enabled="true">
-         <Logging enabled="true" />
+      <BuiltIn>
+         <Logging threshold="info"/>
       </BuiltIn>
    </Instrumentation>
-   <AgentLogger />
 </ApplicationInsightsAgent>
 ```
 
-또는 아래 지침을 따를 수 있습니다.
+`AI-Agent.xml` 파일을 사용 하 여 Java 에이전트의 로깅 캡처를 사용 하지 않도록 설정할 수 있습니다.
 
-## <a name="install-the-java-sdk"></a>Java SDK 설치
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn>
+         <Logging enabled="false"/>
+      </BuiltIn>
+   </Instrumentation>
+</ApplicationInsightsAgent>
+```
+
+## <a name="alternatively-as-opposed-to-using-the-java-agent-you-can-follow-the-instructions-below"></a>또는 Java 에이전트를 사용 하는 것과는 달리 아래 지침을 따를 수 있습니다.
+
+### <a name="install-the-java-sdk"></a>Java SDK 설치
 
 아직 수행 하지 않은 경우 지침에 따라 [Java 용 APPLICATION INSIGHTS SDK][java]를 설치 합니다.
 
-## <a name="add-logging-libraries-to-your-project"></a>프로젝트에 로깅 라이브러리 추가
+### <a name="add-logging-libraries-to-your-project"></a>프로젝트에 로깅 라이브러리 추가
 *프로젝트에 적합한 방법을 선택합니다.*
 
 #### <a name="if-youre-using-maven"></a>Maven을 사용하는 경우...
@@ -123,7 +137,7 @@ ms.locfileid: "72819346"
 | Log4J v1.2 |[Log4J v1.2 어펜더 Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>로깅 프레임워크에 어펜더 추가
+### <a name="add-the-appender-to-your-logging-framework"></a>로깅 프레임워크에 어펜더 추가
 추적 가져오기를 시작하려면 관련 코드 조각을 Log4J 및 Logback 구성 파일과 병합합니다. 
 
 *Logback*

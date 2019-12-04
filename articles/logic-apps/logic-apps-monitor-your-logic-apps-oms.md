@@ -1,20 +1,19 @@
 ---
-title: Azure Monitor를 사용 하 여 논리 앱 모니터링-Azure Logic Apps
+title: Azure Monitor를 사용 하 여 논리 앱 모니터링
 description: Azure Monitor 로그를 사용 하 여 문제를 해결 하 고 논리 앱 실행을 진단 하기 위한 정보 및 디버깅 데이터 가져오기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, LADocs
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/29/2019
-ms.openlocfilehash: a038a05f03ce7a209ae82203441750749bc6c4c4
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 305b50c86a468354f049fcc57fcb79b537e8dfed
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70138756"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791905"
 ---
 # <a name="get-insights-and-debugging-data-for-logic-apps-by-using-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 논리 앱에 대 한 통찰력 및 디버깅 데이터 가져오기
 
@@ -65,7 +64,7 @@ ms.locfileid: "70138756"
 
    ![Log Analytics 작업 영역 선택](./media/logic-apps-monitor-your-logic-apps-oms/select-log-analytics-workspace.png)
 
-1. 개요 창의**모니터링 솔루션 구성** **Log Analytics** > 아래에서 **솔루션 보기**를 선택 합니다.
+1. 개요 창의 **Log Analytics 시작** > **모니터링 솔루션 구성**에서 **솔루션 보기**를 선택 합니다.
 
    !["솔루션 보기"를 선택 합니다.](media/logic-apps-monitor-your-logic-apps-oms/log-analytics-workspace.png)
 

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/21/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 97541484501a3ecdd1bd5998314c1ee9e7a4e3a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4ee9d651e1ec7807d191bc3393c0c280ce1e52f9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489081"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790543"
 ---
 # <a name="bulk-register-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에서 SQL 가상 머신 대량 등록
 
@@ -30,7 +30,7 @@ ms.locfileid: "73489081"
 
 리소스 공급자에 대 한 자세한 내용은 [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 리소스 공급자에 SQL Server VM을 등록 하려면 다음이 필요 합니다. 
 
@@ -222,7 +222,7 @@ Please find the detailed report in  file RegisterSqlVMScriptReport1571314821.txt
 
 제공 된 스크립트를 사용 하 여 리소스 공급자에 SQL Server Vm을 등록 하는 경우 다음을 고려 하십시오.
 
-- 리소스 공급자를 등록 하려면 SQL Server VM에서 실행 되는 게스트 에이전트가 필요 합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이러한 가상 컴퓨터는 실패 하므로 [noagent 관리 모드](virtual-machines-windows-sql-register-with-resource-provider.md#register-sql-server-2008-or-2008-r2-on-windows-server-2008-vms)를 사용 하 여 수동으로 등록 해야 합니다.
+- 리소스 공급자를 등록 하려면 SQL Server VM에서 실행 되는 게스트 에이전트가 필요 합니다. Windows Server 2008 이미지에는 게스트 에이전트가 없으므로 이러한 가상 컴퓨터는 실패 하므로 [noagent 관리 모드](virtual-machines-windows-sql-register-with-resource-provider.md#management-modes)를 사용 하 여 수동으로 등록 해야 합니다.
 - 투명 오류를 해결 하기 위해 기본 제공 되는 재시도 논리가 있습니다. 가상 컴퓨터가 성공적으로 등록 되 면 신속한 작업입니다. 그러나 등록에 실패 하면 각 가상 머신이 다시 시도 됩니다.  따라서 실제 시간 요구 사항은 오류 유형 및 수에 따라 달라 지지만 등록 프로세스를 완료 하는 데 상당한 시간이 걸릴 수 있습니다. 
 
 ## <a name="full-script"></a>전체 스크립트

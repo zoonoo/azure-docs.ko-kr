@@ -1,20 +1,19 @@
 ---
-title: Liquid 변환을 사용하여 JSON 데이터 변환 - Azure Logic Apps | Microsoft Docs
+title: 액체 변환으로 JSON 데이터 변환
 description: Logic Apps 및 Liquid 템플릿을 사용하여 고급 JSON 변환에 대한 변환 또는 맵을 만듭니다.
 services: logic-apps
-ms.service: logic-apps
+ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: estfan, LADocs
-ms.suite: integration
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 08/16/2018
-ms.openlocfilehash: 203c57a2755a3287566a774e2878a87b847337b9
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 962a3cf214d202fa9f7640d74036c6700196a5ee
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70900653"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792501"
 ---
 # <a name="perform-advanced-json-transformations-with-liquid-templates-in-azure-logic-apps"></a>Azure Logic Apps에서 Liquid 템플릿을 사용하여 고급 JSON 변환 수행
 
@@ -22,7 +21,7 @@ ms.locfileid: "70900653"
 
 논리 앱에서 액체 변환을 수행 하려면 먼저 액체 템플릿을 사용 하 여 json에 대 한 JSON 매핑을 정의 하 고 해당 맵을 통합 계정에 저장 해야 합니다. 이 문서에서는 이러한 Liquid 템플릿 또는 맵을 만들고 사용하는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [Azure 계정을 사용하여 시작](https://azure.microsoft.com/free/)할 수 있습니다. 또는 [종량제 구독에 등록합니다](https://azure.microsoft.com/pricing/purchase-options/).
 
@@ -58,7 +57,7 @@ ms.locfileid: "70900653"
    }
    ```
 
-2. [Azure Portal](https://portal.azure.com)에 로그인합니다. Azure 주 메뉴에서 **모든 리소스**를 선택합니다. 검색 상자에서 통합 계정을 찾고 선택합니다.
+2. [Azure portal](https://portal.azure.com)에 로그인합니다. Azure 주 메뉴에서 **모든 리소스**를 선택합니다. 검색 상자에서 통합 계정을 찾고 선택합니다.
 
    ![통합 계정 선택](./media/logic-apps-enterprise-integration-liquid-transform/select-integration-account.png)
 
@@ -68,9 +67,9 @@ ms.locfileid: "70900653"
 
 4. **추가**를 선택하고 맵에 이러한 세부 정보를 제공합니다.
 
-   | 속성 | 값 | 설명 | 
+   | 자산 | Value | 설명 | 
    |----------|-------|-------------|
-   | **이름** | JsonToJsonTemplate | 맵의 이름이며, 이 예제에서는 "JsonToJsonTemplate"입니다. | 
+   | **Name** | JsonToJsonTemplate | 맵의 이름이며, 이 예제에서는 "JsonToJsonTemplate"입니다. | 
    | **맵 유형** | **liquid** | 맵의 형식입니다. JSON부터 JSON 변환의 경우 **Liquid**를 선택해야 합니다. | 
    | **Map** | "SimpleJsonToJsonTemplate.liquid" | 변환에 사용할 기존 Liquid 템플릿이나 맵 파일이며 이 예제에서는 "SimpleJsonToJsonTemplate.liquid"입니다. 이 파일을 찾으려면 파일 선택기를 사용할 수 있습니다. |
    ||| 
@@ -84,7 +83,7 @@ ms.locfileid: "70900653"
 2. Logic Apps 디자이너에서 논리 앱에 [요청 트리거](../connectors/connectors-native-reqres.md#add-request)를 추가합니다.
 
 3. 트리거 아래에서 **새 단계**를 선택합니다. 
-   검색 상자에서 필터로 "liquid"를 입력하고, **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
+   검색 상자에 필터로 "liquid"를 입력하고 **JSON을 JSON으로 변환 - Liquid** 작업을 선택합니다.
 
    ![Liquid 작업 찾기 및 선택](./media/logic-apps-enterprise-integration-liquid-transform/search-action-liquid.png)
 

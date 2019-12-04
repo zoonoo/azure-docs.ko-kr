@@ -1,20 +1,19 @@
 ---
-title: Azure Monitor 로그를 사용 하 여 B2B 메시지 추적-Azure Logic Apps | Microsoft Docs
+title: Azure Monitor 로그를 사용하여 B2B 메시지 추적
 description: Azure Log Analytics를 사용하여 통합 계정 및 Azure Logic Apps에 대한 B2B 통신 추적
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 10/19/2018
-ms.openlocfilehash: 33c4efb2b783b5071513f069beac9cdf73c373a8
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 3726b0c8c22614d2acc797295543e69f9358d69c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997855"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792924"
 ---
 # <a name="track-b2b-messages-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용하여 B2B 메시지 추적
 
@@ -31,7 +30,7 @@ ms.locfileid: "69997855"
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * 진단 로깅과 함께 설정된 논리 앱. [논리 앱을 만드는 방법](quickstart-create-first-logic-app-workflow.md) 및 [해당 논리 앱에 대한 로깅을 설정하는 방법](../logic-apps/logic-apps-monitor-your-logic-apps.md#azure-diagnostics)을 알아봅니다.
 
@@ -146,17 +145,17 @@ B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지�
 
 다음은 각 AS2 메시지에 대한 속성 설명입니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
-| 발신자 | **수신 설정**에 지정된 게스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 AS2 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | AS2 작업이 설정된 논리 앱 |
-| Status | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
+| 상태 | AS2 메시지 상태 <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되지 않습니다. <br>성공 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정 및 수신됩니다. 또는 MDN이 전송됩니다. <br>실패 = 유효하지 않은 AS2 메시지를 받았습니다. MDN이 설정되지 않습니다. <br>보류 중 = 유효한 AS2 메시지를 받거나 보냈습니다. MDN이 설정되었고 MDN을 기다립니다. |
 | Ack | MDN 메시지 상태 <br>수락됨 = 양의 MDN을 받거나 보냈습니다. <br>보류 중 = MDN을 받거나 보낼 때까지 대기 중입니다. <br>거부됨 = 음의 MDN을 받거나 보냈습니다. <br>필요하지 않음 = 규약에 MDN이 설정되지 않습니다. |
-| Direction | AS2 메시지 방향 |
-| 상관 관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
+| 방향 | AS2 메시지 방향 |
+| 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 ID | AS2 메시지 헤더의 AS2 메시지 ID |
-| timestamp | AS2 작업이 메시지를 처리한 시간 |
+| Timestamp | AS2 작업이 메시지를 처리한 시간 |
 |          |             |
 
 <a name="as2-folder-file-names"></a>
@@ -177,19 +176,19 @@ B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지�
 
 다음은 각 X12 메시지에 대한 속성 설명입니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
-| 발신자 | **수신 설정**에 지정된 게스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 X12 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | X12 작업이 설정된 논리 앱 |
-| Status | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| 상태 | X12 메시지 상태 <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 X12 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 X12 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | Ack | 기능 Ack(997) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
-| Direction | X12 메시지 방향 |
-| 상관 관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
+| 방향 | X12 메시지 방향 |
+| 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 유형 | EDI X12 메시지 유형 |
 | ICN | X12 메시지의 교환 컨트롤 번호 |
 | TSCN | X12 메시지의 트랜잭션 집합 컨트롤 번호 |
-| timestamp | X12 작업이 메시지를 처리한 시간 |
+| Timestamp | X12 작업이 메시지를 처리한 시간 |
 |          |             |
 
 <a name="x12-folder-file-names"></a>
@@ -210,19 +209,19 @@ B2B 메시지가 처리된 후 **Logic Apps B2B** 타일에서 해당 메시지�
 
 다음은 각 EDIFACT 메시지에 대한 속성 설명입니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
-| 발신자 | **수신 설정**에 지정된 게스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 호스트 파트너 |
+| 보낸 사람 | **수신 설정**에 지정된 게스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 호스트 파트너 |
 | 받는 사람 | **수신 설정**에 지정된 호스트 파트너 또는 EDIFACT 규약의 **송신 설정**에 지정된 게스트 파트너 |
 | 논리 앱 | EDIFACT 작업이 설정된 논리 앱 |
-| Status | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
+| 상태 | EDIFACT 메시지 상태 <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되지 않습니다. <br>성공 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되고 수신되었거나 기능 Ack가 전송되었습니다. <br>실패 = 유효하지 않은 EDIFACT 메시지를 받거나 보냈습니다. <br>보류 중 = 유효한 EDIFACT 메시지를 받거나 보냈습니다. 기능 Ack가 설정되었고 기능 Ack를 기다립니다. |
 | Ack | 기능 Ack (CONTRL) 상태 <br>수락됨 = 양의 기능 Ack를 받거나 보냈습니다. <br>거부됨 = 음의 기능 Ack를 받거나 보냈습니다. <br>보류 중 = 기능 Ack를 기다렸지만 받지 못했습니다. <br>보류 중 = 기능 Ack를 생성했지만 파트너에게 보낼 수 없습니다. <br>필요하지 않음 = 기능 Ack가 설정되지 않습니다. |
-| Direction | EDIFACT 메시지 방향 |
-| 상관 관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
+| 방향 | EDIFACT 메시지 방향 |
+| 상관관계 ID | 논리 앱의 모든 트리거와 작업을 상호 연결하는 ID |
 | 메시지 유형 | EDIFACT 메시지 형식 |
 | ICN | EDIFACT 메시지의 교환 컨트롤 번호 |
 | TSCN | EDIFACT 메시지의 트랜잭션 집합 컨트롤 번호 |
-| timestamp | EDIFACT 작업이 메시지를 처리한 시간 |
+| Timestamp | EDIFACT 작업이 메시지를 처리한 시간 |
 |          |               |
 
 <a name="edifact-folder-file-names"></a>

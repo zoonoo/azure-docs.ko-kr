@@ -1,30 +1,28 @@
 ---
-title: 플랫 파일 인코딩 또는 디코딩 - Azure Logic Apps | Microsoft Docs
+title: 플랫 파일 인코딩 또는 디코딩
 description: Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 엔터프라이즈 통합용 플랫 파일 인코딩 또는 디코딩
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 53d9935f68c21238cb4f90f78e543a7ab343ced2
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61467312"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74792525"
 ---
 # <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩을 사용하여 플랫 파일 인코딩 또는 디코딩
 
-B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대해 자세히 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다.  
+B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내기 전에 XML 콘텐츠를 인코딩하려 할 수 있습니다. 논리 앱에서 플랫 파일 인코딩 커넥터를 사용하여 이 작업을 수행할 수 있습니다. 만든 논리 앱은 HTTP 요청 트리거를 포함하여 다른 애플리케이션 또는 다양한 [커넥터](../connectors/apis-list.md)에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 논리 앱에 대 한 자세한 내용은 [논리 앱 설명서](logic-apps-overview.md "논리 앱에 대 한 자세한 정보")를 참조 하세요.  
 
 ## <a name="create-the-flat-file-encoding-connector"></a>플랫 파일 인코딩 커넥터 만들기
 다음 단계를 수행하여 플랫 파일 인코딩 커넥터를 논리 앱을 추가합니다.
 
-1. 논리 앱을 만들고 [통합 계정에 연결](logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결하는 방법 알아보기")에서도 다양한 원본의 XML 콘텐츠를 가져올 수 있습니다. 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.  
+1. 논리 앱을 만들고 [통합 계정에 연결](logic-apps-enterprise-integration-accounts.md "논리 앱에 통합 계정을 연결 하는 방법 알아보기")합니다. 이 계정은 XML 데이터를 인코딩하는 데 사용할 스키마를 포함합니다.  
 1. **요청 - HTTP 요청을 받은 경우** 트리거를 논리 앱에 추가합니다.  
    ![선택할 트리거의 스크린샷](./media/logic-apps-enterprise-integration-b2b/flatfile-1.png)    
 1. 다음을 수행하여 플랫 파일 인코딩 작업을 추가합니다.
@@ -33,7 +31,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
-    c. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    
     d. 목록에서 **플랫 파일 Encoding** 옵션을 선택합니다.   
    ![플랫 파일 Encoding 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -63,7 +61,7 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
    
     b. 더하기 기호를 선택한 후에 표시되는 **작업 추가** 링크를 선택합니다.
    
-    c. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
+    다. 검색 상자에 *플랫* 을 입력하여 사용하려는 작업에 대해 모든 작업을 필터링합니다.
    
     d. 목록에서 **플랫 파일 디코딩** 옵션을 선택합니다.   
    ![플랫 파일 디코딩 옵션의 스크린샷](media/logic-apps-enterprise-integration-flatfile/flatfile-2.png)   
@@ -80,5 +78,5 @@ B2B(Business-to-Business) 시나리오에서 비즈니스 파트너에게 보내
 이제 HTTP 엔드포인트에 요청하고 요청 본문에 디코딩하려는 XML 콘텐츠를 포함하여 커넥터를 테스트할 수 있습니다.  
 
 ## <a name="next-steps"></a>다음 단계
-* [엔터프라이즈 통합 팩에 대해 자세히 알아보기](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기")  
+* [엔터프라이즈 통합 팩에 대해 자세히 알아보세요](logic-apps-enterprise-integration-overview.md "엔터프라이즈 통합 팩에 대해 알아보기").  
 

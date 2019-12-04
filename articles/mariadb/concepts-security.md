@@ -1,19 +1,19 @@
 ---
-title: Azure Database for MariaDB의 보안-단일 서버
-description: Azure Database for MariaDB 단일 서버에서 보안 기능에 대 한 개요입니다.
+title: 보안-Azure Database for MariaDB
+description: Azure Database for MariaDB의 보안 기능에 대 한 개요입니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 11/25/2019
-ms.openlocfilehash: 1a2d7ac449c131519473afaa80eb3a57c287eb28
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: d23eabdacc57a3f5a10d9e3b132a6daac42fbd4d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485186"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74772152"
 ---
-# <a name="security-in-azure-database-for-mariadb---single-server"></a>Azure Database for MariaDB의 보안-단일 서버
+# <a name="security-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 보안
 
 Azure Database for MariaDB 서버에서 데이터를 보호 하는 데 사용할 수 있는 여러 보안 계층이 있습니다. 이 문서에서는 이러한 보안 옵션을 설명 합니다.
 

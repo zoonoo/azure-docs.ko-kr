@@ -1,22 +1,18 @@
 ---
-title: Excel Online에 연결-Azure Logic Apps
+title: Excel Online에 연결
 description: Excel Online REST API 및 Azure Logic Apps를 사용하여 데이터 관리
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 08/23/2018
 tags: connectors
-ms.openlocfilehash: d3c6395f7fd66e1b89fc49536e228249bc4ed2a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a4356b4f88df3fc457917be563a79e9054a1638e
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70859243"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789794"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 Excel Online 데이터 관리
 
@@ -28,7 +24,7 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 그런 다음, 다른 서비스에 대한 작업을 사용하여 이러한 작업의 출력을 사용할 수 있습니다. 예를 들어 매주 워크시트를 만드는 작업을 사용하는 경우 Office 365 Outlook 커넥터를 사용하여 확인 이메일을 보내는 다른 작업을 사용할 수 있습니다.
 
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
 > [!NOTE]
 > [비즈니스용 Excel Online](/connectors/excelonlinebusiness/) 및 [OneDrive용 Excel Online](/connectors/excelonline/) 커넥터는 Azure Logic Apps와 작동하며 [PowerApps용 Excel 커넥터](/connectors/excel/)와 다릅니다.
@@ -48,7 +44,7 @@ Azure Logic Apps 및 Excel Online 커넥터를 사용하여 비즈니스 또는 
 
 ## <a name="add-excel-action"></a>Excel 작업 추가
 
-1. [Azure Portal](https://portal.azure.com)의 Logic App 디자이너에서 논리 앱을 엽니다(아직 열려 있지 않은 경우).
+1. [Azure Portal](https://portal.azure.com)의 Logic Apps 디자이너에서 논리 앱을 엽니다(아직 열려 있지 않은 경우).
 
 1. 트리거 아래에서 **새 단계**를 선택합니다.
 

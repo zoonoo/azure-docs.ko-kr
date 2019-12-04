@@ -3,17 +3,17 @@ title: Azure Automation에서 모듈 관리
 description: 이 문서에서는 Azure Automation 모듈을 관리 하는 방법을 설명 합니다.
 services: automation
 ms.service: automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 06/05/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/03/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 492dd182c782b0f6375c2f857cfa4921b065c546
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 65759b32889f9a99b0322823bb8a4924788e8c09
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231585"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786472"
 ---
 # <a name="manage-modules-in-azure-automation"></a>Azure Automation에서 모듈 관리
 
@@ -34,7 +34,15 @@ Azure Automation powershell 기반 runbook에서 사용할 Automation 계정으�
 New-AzureRmAutomationModule -Name <ModuleName> -ContentLinkUri <ModuleUri> -ResourceGroupName <ResourceGroupName> -AutomationAccountName <AutomationAccountName>
 ```
 
-### <a name="azure-portal"></a>Azure 포털
+동일한 cmdlet을 사용 하 여 PowerShell 갤러리에서 모듈을 직접 가져올 수도 있습니다. [PowerShell 갤러리](https://www.powershellgallery.com)에서 **ModuleName** 및 **ModuleVersion** 을 잡기를 확인 합니다.
+
+```azurepowershell-interactive
+$moduleName = <ModuleName>
+$moduleVersion = <ModuleVersion>
+New-AzAutomationModule -AutomationAccountName <AutomationAccountName> -ResourceGroupName <ResourceGroupName> -Name $moduleName -ContentLinkUri "https://www.powershellgallery.com/api/v2/package/$moduleName/$moduleVersion"
+```
+
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**아래에서 **모듈** 을 선택 합니다. **+ 모듈 추가를**클릭 합니다. 모듈이 포함 된 **.zip** 파일을 선택 하 고 **확인** 을 클릭 하 여 프로세스 가져오기를 시작 합니다.
 
@@ -42,7 +50,7 @@ Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**�
 
 PowerShell 갤러리의 모듈은 [PowerShell 갤러리](https://www.powershellgallery.com) 에서 직접 가져오거나 Automation 계정에서 가져올 수 있습니다.
 
-PowerShell 갤러리에서 모듈을 가져오려면 https://www.powershellgallery.com으로 이동 하 여 가져올 모듈을 검색 합니다. **배포를 클릭 하** 여 **설치 옵션**아래의 **Azure Automation** 탭에서 Azure Automation 합니다. 이 작업을 수행하면 Azure Portal이 열립니다. **가져오기** 페이지에서 Automation 계정을 선택 하 고 **확인**을 클릭 합니다.
+PowerShell 갤러리에서 모듈을 가져오려면 https://www.powershellgallery.com 으로 이동 하 여 가져올 모듈을 검색 합니다. **배포를 클릭 하** 여 **설치 옵션**아래의 **Azure Automation** 탭에서 Azure Automation 합니다. 이 작업을 수행하면 Azure Portal이 열립니다. **가져오기** 페이지에서 Automation 계정을 선택 하 고 **확인**을 클릭 합니다.
 
 ![가져오기 모듈 PowerShell 갤러리](../media/modules/powershell-gallery.png)
 
@@ -54,7 +62,7 @@ Automation 계정에서 직접 PowerShell 갤러리 모듈을 가져올 수도 �
 
 모듈에 문제가 있거나 이전 버전의 모듈로 롤백해야 하는 경우 Automation 계정에서 삭제할 수 있습니다. Automation 계정을 만들 때 가져온 [기본 모듈](#default-modules) 의 원래 버전은 삭제할 수 없습니다. 삭제 하려는 모듈이 설치 된 [기본 모듈](#default-modules) 중 하나에 대 한 최신 버전인 경우 Automation 계정과 함께 설치 된 버전으로 롤백됩니다. 그렇지 않으면 Automation 계정에서 삭제 한 모든 모듈이 제거 됩니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Portal에서 Automation 계정으로 이동 하 고 **공유 리소스**아래에서 **모듈** 을 선택 합니다. 제거 하려는 모듈을 선택 합니다. **모듈** 페이지에서 Clcick를 **삭제**합니다. 이 모듈이 [기본 모듈](#default-modules)중 하나인 경우 Automation 계정을 만들 때 제공 된 버전으로 롤백됩니다.
 
@@ -70,15 +78,19 @@ Remove-AzureRmAutomationModule -Name <moduleName> -AutomationAccountName <automa
 
 다음은 모든 Automation 계정으로 가져온 내부 `Orchestrator.AssetManagement.Cmdlets` 모듈의 cmdlet 목록입니다. 이러한 cmdlet은 runbook 및 DSC 구성에서 액세스할 수 있으며 Automation 계정 내에서 자산과 상호 작용할 수 있습니다. 또한 내부 cmdlet을 사용 하 여 암호화 된 **변수** 값, **자격 증명**및 암호화 된 **연결** 필드에서 암호를 검색할 수 있습니다. Azure PowerShell cmdlet은 이러한 암호를 검색할 수 없습니다. 이러한 cmdlet을 사용 하는 경우 azure에 인증 하는 데 실행 계정을 사용 하는 것과 같이 Azure에 암시적으로 연결 하지 않아도 됩니다.
 
-|이름|설명|
+>[!NOTE]
+>이러한 내부 cmdlet은 Hybrid Runbook Worker에서 사용할 수 없으며, Azure에서 실행 중인 runbook 에서만 액세스할 수 있습니다. 컴퓨터에서 직접 실행 되는 runbook 또는 사용자 환경의 리소스에 대해 해당 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Automation/?view=azurermps-6.13.0) 또는 [Az 모듈](../az-modules.md) 을 사용 합니다. 
+>
+
+|name|설명|
 |---|---|
 |Get-AutomationCertificate|`Get-AutomationCertificate [-Name] <string> [<CommonParameters>]`|
 |Get-AutomationConnection|`Get-AutomationConnection [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]` |
 |Get-AutomationPSCredential|`Get-AutomationPSCredential [-Name] <string> [<CommonParameters>]` |
 |Get-AutomationVariable|`Get-AutomationVariable [-Name] <string> [-DoNotDecrypt] [<CommonParameters>]`|
 |Set-AutomationVariable|`Set-AutomationVariable [-Name] <string> -Value <Object> [<CommonParameters>]` |
-|Start-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
-|Wait-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
+|시작-AutomationRunbook|`Start-AutomationRunbook [-Name] <string> [-Parameters <IDictionary>] [-RunOn <string>] [-JobId <guid>] [<CommonParameters>]`|
+|대기-AutomationJob|`Wait-AutomationJob -Id <guid[]> [-TimeoutInMinutes <int>] [-DelayInSeconds <int>] [-OutputJobsTransitionedToRunning] [<CommonParameters>]`|
 
 ## <a name="add-a-connection-type-to-your-module"></a>모듈에 연결 형식 추가
 
@@ -253,13 +265,13 @@ MyOutputType이 유효한 형식인 `[OutputType([<MyOutputType>])]`를 추가 �
 | AzureRM.Storage | 1.0.3 |
 | ComputerManagementDsc | 5.0.0.0 |
 | GPRegistryPolicyParser | 0.2 |
-| Microsoft.PowerShell.Core | 0 |
-| Microsoft.PowerShell.Diagnostics |  |
-| Microsoft.PowerShell.Management |  |
-| Microsoft.PowerShell.Security |  |
-| Microsoft.PowerShell.Utility |  |
-| Microsoft.WSMan.Management |  |
-| Orchestrator.AssetManagement.Cmdlets | 1 |
+| Microsoft. PowerShell. 핵심 | 0 |
+| Microsoft. PowerShell. 진단 |  |
+| Microsoft. PowerShell. 관리 |  |
+| Microsoft. PowerShell. 보안 |  |
+| Microsoft PowerShell 유틸리티 |  |
+| Microsoft WSMan. 관리 |  |
+| Orchestrator. Cmdlet | 1 |
 | PSDscResources | 2.9.0.0 |
 | SecurityPolicyDsc | 2.1.0.0 |
 | StateConfigCompositeResources | 1 |

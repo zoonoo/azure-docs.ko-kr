@@ -1,17 +1,17 @@
 ---
-title: 감사 로그 구성 및 액세스-Azure Database for MySQL
+title: 감사 로그에 액세스-Azure Portal-Azure Database for MySQL
 description: 이 문서에서는 Azure Portal에서 Azure Database for MySQL의 감사 로그를 구성 하 고 액세스 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.date: 12/02/2019
+ms.openlocfilehash: ff1a6c63b6eb99acdef955806a138e3e22b8902a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350400"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773713"
 ---
 # <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Azure Portal에서 Azure Database for MySQL에 대 한 감사 로그 구성 및 액세스
 
@@ -20,9 +20,9 @@ Azure Portal에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.
 > [!IMPORTANT]
 > 감사 로그 기능은 현재 미리 보기로 제공 됩니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
+이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
 
 - [Azure Database for MySQL 서버](quickstart-create-mysql-server-database-using-azure-portal.md)
 
@@ -30,7 +30,7 @@ Azure Portal에서 [Azure Database for MySQL 감사 로그](concepts-audit-logs.
 
 감사 로깅을 사용 하도록 설정 하 고 구성 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. Azure Database for MySQL 서버를 선택합니다.
 

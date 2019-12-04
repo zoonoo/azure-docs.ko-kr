@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MariaDB 관리 저장 프로시저
-description: Azure Database for MySQL에서 데이터 복제를 구성 하 고, 표준 시간대를 설정 하 고, 쿼리를 중지 하는 데 도움이 되는 저장 프로시저에 대해 알아봅니다.
+title: 관리 저장 프로시저-Azure Database for MariaDB
+description: Azure Database for MariaDB에서 데이터 복제를 구성 하 고, 표준 시간대를 설정 하 고, 쿼리를 중지 하는 데 도움이 되는 저장 프로시저에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 09/20/2019
-ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.date: 12/02/2019
+ms.openlocfilehash: 9378f2cc62172043dbcaf13e88e9df4b6e61df9b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973463"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769951"
 ---
 # <a name="azure-database-for-mariadb-management-stored-procedures"></a>Azure Database for MariaDB 관리 저장 프로시저
 
@@ -25,11 +25,11 @@ ms.locfileid: "71973463"
 
 |**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
 |-----|-----|-----|-----|
-|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|해당 사항 없음|SSL 모드를 사용하여 데이터를 전송하려면 CA 인증서의 컨텍스트를 master_ssl_ca 매개 변수로 전달합니다. </br><br>SSL을 사용하지 않고 데이터를 전송하려면 빈 문자열을 master_ssl_ca 매개 변수로 전달합니다.|
-|*mysql.az_replication _start*|해당 사항 없음|해당 사항 없음|복제를 시작합니다.|
-|*mysql.az_replication _stop*|해당 사항 없음|해당 사항 없음|복제를 중지합니다.|
-|*mysql.az_replication _remove_master*|해당 사항 없음|해당 사항 없음|마스터 및 복제본 간의 복제 관계를 제거합니다.|
-|*mysql.az_replication_skip_counter*|해당 사항 없음|해당 사항 없음|복제 오류 하나를 건너뜁니다.|
+|*mysql.az_replication_change_master*|master_host<br/>master_user<br/>master_password<br/>master_port<br/>master_log_file<br/>master_log_pos<br/>master_ssl_ca|N/A|SSL 모드를 사용하여 데이터를 전송하려면 CA 인증서의 컨텍스트를 master_ssl_ca 매개 변수로 전달합니다. </br><br>SSL을 사용하지 않고 데이터를 전송하려면 빈 문자열을 master_ssl_ca 매개 변수로 전달합니다.|
+|*mysql.az_replication _start*|N/A|N/A|복제를 시작합니다.|
+|*mysql.az_replication _stop*|N/A|N/A|복제를 중지합니다.|
+|*mysql.az_replication _remove_master*|N/A|N/A|마스터 및 복제본 간의 복제 관계를 제거합니다.|
+|*mysql.az_replication_skip_counter*|N/A|N/A|복제 오류 하나를 건너뜁니다.|
 
 Azure Database for MariaDB에서 마스터와 복제본 사이에 입력 데이터 복제을 설정 하려면 [입력 데이터 복제 구성 하는 방법](howto-data-in-replication.md)을 참조 하세요.
 
@@ -39,9 +39,9 @@ Azure Database for MariaDB에서 마스터와 복제본 사이에 입력 데이�
 
 |**저장 프로시저 이름**|**입력 매개 변수**|**출력 매개 변수**|**사용 정보**|
 |-----|-----|-----|-----|
-|*mysql. az _kill*|processlist_id|해당 사항 없음|[@No__t-1](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결을 실행 하는 모든 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
-|*mysql. az _kill_query*|processlist_id|해당 사항 없음|[@No__t-1](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
-|*mysql. az _load_l*|해당 사항 없음|해당 사항 없음|@No__t-0 매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 합니다 (예: "US/태평양").|
+|*mysql. az_kill*|processlist_id|N/A|[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결을 실행 하는 문을 종료 한 후 제공 된 processlist_id 연결 된 연결을 종료 합니다.|
+|*mysql. az_kill_query*|processlist_id|N/A|[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) 명령과 동일 합니다. 는 연결이 현재 실행 중인 문을 종료 합니다. 연결 자체의 활성 상태를 유지 합니다.|
+|*mysql. az_load_timezone*|N/A|N/A|`time_zone` 매개 변수를 명명 된 값으로 설정할 수 있도록 표준 시간대 테이블을 로드 합니다 (예: "US/태평양").|
 
 ## <a name="next-steps"></a>다음 단계
 - [입력 데이터 복제](howto-data-in-replication.md) 를 설정 하는 방법을 알아봅니다.

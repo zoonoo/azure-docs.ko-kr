@@ -1,27 +1,21 @@
 ---
-title: 논리 앱에서 쿼리 작업 추가 | Microsoft Docs
-description: 배열 필터링과 같은 작업을 수행하기 위한 쿼리 작업의 개요입니다.
-services: ''
-documentationcenter: ''
-author: jeffhollan
-manager: erikre
-editor: ''
-tags: connectors
-ms.assetid: 34e702c7-f9e5-4885-9266-fc7404adecfe
-ms.service: logic-apps
+title: 논리 앱에서 쿼리 동작 추가
+description: 필터 배열과 같은 작업을 수행 하기 위한 쿼리 작업 개요
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 07/20/2016
-ms.author: jehollan
-ms.openlocfilehash: 10332b95e0d385d7155003efcc52b4bae3969313
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+tags: connectors
+ms.openlocfilehash: 2e5c9d371a280b776699b2e10d3e8e94b5f41f6f
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973760"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74787135"
 ---
 # <a name="get-started-with-the-query-action"></a>쿼리 작업 시작
+
 쿼리 작업을 사용하면 배치 및 배열을 통해 다음을 수행하는 워크플로를 완료할 수 있습니다.
 
 * 데이터베이스에서 모든 높은 우선순위 레코드에 대한 작업을 만듭니다.
@@ -30,8 +24,9 @@ ms.locfileid: "71973760"
 논리 앱에서 쿼리 작업 사용을 시작하려면 [논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 참조하세요.
 
 ## <a name="use-the-query-action"></a>쿼리 작업 사용
+
 작업은 논리 앱에 정의된 워크플로에 의해 수행되는 작업입니다. 
-[작업에 대해 자세히 알아봅니다](../connectors/apis-list.md).  
+[동작에 대해 자세히 알아보세요.](../connectors/apis-list.md)  
 
 쿼리 작업에는 디자이너에 표시되는 배열 필터링이라는 작업 한 개가 있습니다. 이를 통해 배열을 쿼리하고 필터링된 결과 집합을 반환할 수 있습니다.
 
@@ -55,21 +50,21 @@ ms.locfileid: "71973760"
 ## <a name="query-action"></a>쿼리 작업
 여기에는 이 커넥터가 지원하는 동작에 대한 세부 정보가 나와 있습니다. 커넥터에는 한 개의 가능한 작업이 있습니다.
 
-| 작업 | 설명 |
+| 실행력 | 설명 |
 | --- | --- |
 | 배열 필터링 |배열에 있는 각 항목에 대한 조건을 평가하고 결과를 반환 |
 
 ## <a name="action-details"></a>작업 세부 정보
-쿼리 작업은 한 개의 가능한 작업을 제공합니다. 다음 표에서는 작업의 필수 및 선택적 입력 필드와 함께 작업 사용과 연관된 해당 출력 세부 정보를 설명합니다.
+쿼리 작업은 한 개의 가능한 작업을 제공합니다. 다음 표에서는 동작의 필수 및 선택적 입력 필드와 함께 동작 사용과 연관된 해당 출력 세부 정보를 설명합니다.
 
 ### <a name="filter-array"></a>배열 필터링
-HTTP 아웃바운드 요청을 하는 작업에 대한 입력 필드는 다음과 같습니다.
+HTTP 아웃바운드 요청을 하는 동작에 대한 입력 필드는 다음과 같습니다.
 A*는 필수 필드 임을 의미합니다.
 
-| Display name | 속성 이름 | 설명 |
+| 표시 이름 | 속성 이름 | 설명 |
 | --- | --- | --- |
 | 원본* |from |필터링할 배열 |
-| 조건* |여기서 |각 항목에 대해 평가할 조건 |
+| 조건* |여기서, |각 항목에 대해 평가할 조건 |
 
 <br>
 
@@ -78,7 +73,7 @@ HTTP 요청에 대한 출력 세부 정보는 다음과 같습니다.
 
 | 속성 이름 | 데이터 형식 | 설명 |
 | --- | --- | --- |
-| 필터링된 배열 |배열 |각 필터링된 결과에 대한 개체를 포함하는 배열 |
+| 필터링된 배열 |array |각 필터링된 결과에 대한 개체를 포함하는 배열 |
 
 ## <a name="next-steps"></a>다음 단계
 이제 플랫폼을 사용해 보고 [논리 앱을 만듭니다](../logic-apps/quickstart-create-first-logic-app-workflow.md). [API 목록](apis-list.md)에서 논리 앱의 사용 가능한 다른 커넥터를 확인할 수 있습니다.

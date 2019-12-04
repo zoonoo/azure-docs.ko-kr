@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL의 연결 아키텍처
-description: Azure Database for PostgreSQL 서버에 대 한 연결 아키텍처를 설명 합니다.
+title: 연결 아키텍처-Azure Database for PostgreSQL-단일 서버
+description: Azure Database for PostgreSQL 단일 서버의 연결 아키텍처에 대해 설명 합니다.
 author: kummanish
 ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 5288c3025e523e767082f4ab7cfbb08805a74eaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cbb3c3b3b91bf5111efcf6f2a53cfb40b48f3fe7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500097"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74768880"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Azure Database for PostgreSQL의 연결 아키텍처
 이 문서에서는 Azure Database for PostgreSQL 연결 아키텍처 뿐만 아니라 Azure 내부 및 외부의 클라이언트에서 Azure Database for PostgreSQL 데이터베이스 인스턴스로 트래픽이 전송 되는 방법에 대해 설명 합니다.
@@ -65,7 +65,7 @@ ms.locfileid: "73500097"
 ||||
 
 > [!NOTE]
-> *미국 동부 2*에는 `52.167.104.0`의 3차 IP 주소도 있습니다.
+> *미국 동부 2* 에는 `52.167.104.0`의 3 차 IP 주소도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

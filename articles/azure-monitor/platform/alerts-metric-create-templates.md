@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 3bc17830a4852aa3af1a22f53e54c86ee002150d
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099747"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775780"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "73099747"
 이 문서에서는 [Azure Resource Manager 템플릿](../../azure-resource-manager/resource-group-authoring-templates.md)을 사용하여 Azure Monitor에서 [최신 메트릭 경고](../../azure-monitor/platform/alerts-metric-near-real-time.md)를 구성하는 방법을 설명합니다. Resource Manager 템플릿을 사용하면 환경 전체에서 일관되고 재현 가능한 방법으로 경보를 프로그래밍 방식으로 설정할 수 있습니다. 최신 메트릭 경고는 현재 [이 리소스 유형 집합](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported)에 대해 사용할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 종류에 대 한 메트릭 경고를 만들기 위한 리소스 템플릿: Azure Log Analytics 작업 영역 (즉, `Microsoft.OperationalInsights/workspaces`)에는 추가 단계가 필요 합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
+> 리소스 종류에 대 한 메트릭 경고를 만들기 위한 리소스 템플릿: Azure Log Analytics 작업 영역 (예: `Microsoft.OperationalInsights/workspaces`)에 추가 단계가 필요 합니다. 자세한 내용은 [로그에 대한 메트릭 경고 - 리소스 템플릿](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs)의 문서를 참조하세요.
 
 기본적인 단계는 다음과 같습니다.
 
@@ -551,9 +551,11 @@ az group deployment create \
 >
 > 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
 
-## <a name="template-for-a-more-advanced-static-threshold-metric-alert"></a>추가 고급 정적 임계값 메트릭 경고에 대한 템플릿
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-multiple-criteria"></a>여러 기준을 모니터링 하는 정적 임계값 메트릭 경고의 템플릿
 
-최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용하여 차원 메트릭에 대한 추가 고급 메트릭 경고를 작성하고 여러 조건을 지정할 수 있습니다.
+최신 메트릭 경고는 다차원 메트릭에 대한 경고를 지원하고 여러 조건을 지원합니다. 다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 메트릭 경고 규칙을 만들고 여러 조건을 지정할 수 있습니다.
+
+경고 규칙에 여러 조건이 포함 되어 있으면 차원 사용은 각 조건 내에서 차원 당 하나의 값으로 제한 됩니다.
 
 이 연습의 목적을 위해 아래의 json을 advancedstaticmetricalert.json으로 저장합니다.
 
@@ -784,13 +786,243 @@ az group deployment create \
 
 >[!NOTE]
 >
-> 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
+> 경고 규칙에 여러 조건이 포함 된 경우 차원 사용은 각 조건 내에서 차원 당 하나의 값으로 제한 됩니다.
 
-## <a name="template-for-a-more-advanced-dynamic-thresholds-metric-alert"></a>추가 고급 동적 임계값 메트릭 경고에 대한 템플릿
+## <a name="template-for-a-static-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링 하는 정적 메트릭 경고의 템플릿
 
-다음 템플릿을 사용하여 차원 메트릭에 대한 추가 고급 동적 임계값 메트릭 경고를 작성합니다. 여러 기준은 현재 지원되지 않습니다.
+다음 템플릿을 사용 하 여 차원 메트릭에 대 한 정적 메트릭 경고 규칙을 만들 수 있습니다.
 
-동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만들 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
+단일 경고 규칙은 한 번에 여러 메트릭 시계열을 모니터링할 수 있습니다. 그러면 관리할 경고 규칙이 줄어듭니다.
+
+아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
+1. **ResponsType** -"\*" 와일드 카드를 사용 하면 이후의 값을 포함 하 여 **responsetype** 차원의 각 값에 대해 다른 시계열이 개별적으로 모니터링 됩니다.
+2. **Apiname** - **Getblob** 및 **putblob** 차원 값에 대해서만 다른 시계열이 모니터링 됩니다.
+
+예를 들어이 경고 규칙으로 모니터링할 수 있는 몇 가지 잠재적인 시계열은 다음과 같습니다.
+- 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *getblob*
+- 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *putblob*
+- 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *getblob*
+- 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *putblob*
+
+이 연습의 목적을 위해 아래 json을 multidimensionalstaticmetricalert로 저장 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "Resource ID of the resource emitting the metric that will be used for the comparison."
+            }
+        },
+        "criterion":{
+            "type": "object",
+            "metadata": {
+                "description": "Criterion includes metric name, dimension values, threshold and an operator. The alert rule fires when ALL criteria are met"
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": { 
+        "criteria": "[array(parameters('criterion'))]"
+     },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": "[variables('criteria')]"
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+위의 템플릿을 아래 제공된 매개 변수 파일과 함께 사용할 수 있습니다. 
+
+이 연습의 목적을 위해 아래 json을 multidimensionalstaticmetricalert로 저장 하 고 수정 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New multi-dimensional metric alert rule (replace with your alert name)"
+        },
+        "alertDescription": {
+            "value": "New multi-dimensional metric alert rule created via template (replace with your alert description)"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
+        },
+        "criterion": {
+            "value": {
+                    "name": "Criterion",
+                    "metricName": "Transactions",
+                    "dimensions": [
+                        {
+                            "name":"ResponseType",
+                            "operator": "Include",
+                            "values": ["*"]
+                        },
+                        {
+                "name":"ApiName",
+                            "operator": "Include",
+                            "values": ["GetBlob", "PutBlob"]    
+                        }
+                    ],
+                    "operator": "GreaterThan",
+                    "threshold": "5",
+                    "timeAggregation": "Total"
+                }
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
+        }
+    }
+}
+```
+
+
+현재 작업 디렉터리의 PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 메트릭 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupofTargetResource `
+  -TemplateFile multidimensionalstaticmetricalert.json -TemplateParameterFile multidimensionalstaticmetricalert.parameters.json
+```
+
+
+
+Azure CLI 사용
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupofTargetResource \
+    --template-file multidimensionalstaticmetricalert.json \
+    --parameters @multidimensionalstaticmetricalert.parameters.json
+```
+
+
+## <a name="template-for-a-dynamic-thresholds-metric-alert-that-monitors-multiple-dimensions"></a>여러 차원을 모니터링 하는 동적 임계값 메트릭 경고에 대 한 템플릿
+
+다음 템플릿을 사용 하 여 차원 메트릭에 대 한 고급 동적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
+
+단일 동적 임계값 경고 규칙은 한 번에 수백 개의 메트릭 시계열 (다양 한 형식)에 대 한 맞춤형 임계값을 만들 수 있으며,이로 인해 관리할 경고 규칙이 줄어듭니다.
+
+아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
+1. **ResponsType** -앞에 나오는 값을 포함 하 여 **responsetype** 차원의 각 값에 대해 서로 다른 시계열이 개별적으로 모니터링 됩니다.
+2. **Apiname** - **Getblob** 및 **putblob** 차원 값에 대해서만 다른 시계열이 모니터링 됩니다.
+
+예를 들어이 경고 규칙으로 모니터링할 수 있는 몇 가지 잠재적인 시계열은 다음과 같습니다.
+- 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *getblob*
+- 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *putblob*
+- 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *getblob*
+- 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *putblob*
 
 이 연습의 목적을 위해 아래의 json을 advanceddynamicmetricalert.json으로 저장합니다.
 
@@ -936,7 +1168,7 @@ az group deployment create \
         "resourceId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourcegroup-name/providers/Microsoft.Storage/storageAccounts/replace-with-storage-account"
         },
-        "criterion1": {
+        "criterion": {
             "value": {
                     "criterionType": "DynamicThresholdCriterion",
                     "name": "1st criterion",
@@ -945,12 +1177,12 @@ az group deployment create \
                         {
                             "name":"ResponseType",
                             "operator": "Include",
-                            "values": ["Success"]
+                            "values": ["*"]
                         },
                         {
                             "name":"ApiName",
                             "operator": "Include",
-                            "values": ["GetBlob"]
+                            "values": ["GetBlob", "PutBlob"]
                         }
                     ],
                     "operator": "GreaterOrLessThan",
@@ -961,7 +1193,7 @@ az group deployment create \
                     },
                     "timeAggregation": "Total"
                 }
-        }
+        },
         "actionGroupId": {
             "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-actiongroup-name"
         }
@@ -997,11 +1229,11 @@ az group deployment create \
 
 >[!NOTE]
 >
-> 메트릭 경고는 다른 리소스 그룹에서 대상 리소스로 만들 수 있지만, 대상 리소스와 동일한 리소스 그룹을 사용하는 것이 좋습니다.
+> 동적 임계값을 사용 하는 메트릭 경고 규칙에 대 한 여러 조건은 현재 지원 되지 않습니다.
 
-## <a name="template-for-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링하는 메트릭 경고에 대한 템플릿
+## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿
 
-이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며 가상 컴퓨터 및 Databox Edge 장치에 대해서만 지원 됩니다.
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며, 가상 컴퓨터, SQL 데이터베이스, SQL 탄력적 풀 및 Databox Edge 장치에 대해서만 지원 됩니다.
 
 동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만드는 데 유용할 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
 
@@ -1836,6 +2068,7 @@ az group deployment create \
             "type": "string",
             "defaultValue": "PT1M",
             "allowedValues": [
+                "PT1M",
                 "PT5M",
                 "PT15M",
                 "PT30M",

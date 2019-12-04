@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL에서 Azure Portal를 사용 하 여 저장소 자동 확장-단일 서버
-description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 Azure Portal를 사용 하 여 저장소 자동 증가를 사용 하도록 설정 하는 방법을 설명 합니다.
+title: 저장소 자동 증가-Azure Portal-Azure Database for PostgreSQL-단일 서버
+description: 이 문서에서는 Azure Database for PostgreSQL 단일 서버에서 Azure Portal를 사용 하 여 저장소 자동 증가를 구성 하는 방법을 설명 합니다.
 author: ambhatna
 ms.author: ambhatna
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/29/2019
-ms.openlocfilehash: 1d028093b030e1f2cf00ceae9297563c36c314c5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 5e4f9d68d02edf456394d4ce10b7b6af5f8643d9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142860"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769237"
 ---
 # <a name="auto-grow-storage-using-the-azure-portal-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL에서 Azure Portal를 사용 하 여 저장소 자동 확장-단일 서버
 이 문서에서는 워크 로드에 영향을 주지 않고 확장 되도록 Azure Database for PostgreSQL server 저장소를 구성 하는 방법을 설명 합니다.
@@ -32,7 +32,7 @@ PostgreSQL server storage 자동 증가를 설정 하려면 다음 단계를 수
 
 3. **자동 증가** 섹션에서 **예** 를 선택 하 여 저장소 자동 증가를 사용 하도록 설정 합니다.
 
-    ![Azure Database for PostgreSQL Settings_Pricing_tier-자동 증가](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    ![Azure Database for PostgreSQL-Settings_Pricing_tier-자동 증가](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
 
 4. **확인** 을 클릭하여 변경 내용을 저장합니다.
 

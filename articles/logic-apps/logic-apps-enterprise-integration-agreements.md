@@ -1,20 +1,19 @@
 ---
-title: 거래 업체 규약-Azure Logic Apps
+title: 거래 업체 규약
 description: Azure Logic Apps 및 엔터프라이즈 통합 팩를 사용 하 여 거래 업체 간의 규약 만들기 및 관리
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
-ms.reviewer: jonfan, estfan, LADocs
+ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 06/22/2019
-ms.openlocfilehash: 35ebaab47edd110258f537dbbb044387515ed6c4
-ms.sourcegitcommit: d37991ce965b3ee3c4c7f685871f8bae5b56adfa
+ms.openlocfilehash: 521a0ef4053be55e6c7322da5af26ccfc6c844e5
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72680413"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790731"
 ---
 # <a name="create-and-manage-trading-partner-agreements-in-azure-logic-apps"></a>Azure Logic Apps에서 거래 업체 규약 만들기 및 관리
 
@@ -29,7 +28,7 @@ ms.locfileid: "72680413"
 
 RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaNet 메시지](../logic-apps/logic-apps-enterprise-integration-rosettanet.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -41,8 +40,8 @@ RosettaNet 메시지 교환에 대 한 규약을 만들려면 [Exchange RosettaN
 
 ## <a name="create-agreements"></a>규약 만들기
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+Azure의 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에서 필터로 "통합"을 입력 합니다. 결과에서 다음 리소스: **통합 계정** 을 선택 합니다.
 
    ![통합 계정 찾기](./media/logic-apps-enterprise-integration-agreements/find-integration-accounts.png)
 
@@ -58,14 +57,14 @@ Azure 주 메뉴에서 **모든 서비스**를 선택합니다. 검색 상자에
 
    !["추가" 선택](./media/logic-apps-enterprise-integration-agreements/agreement-2.png)
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 자산 | 필수 | Value | 설명 |
    |----------|----------|-------|-------------|
-   | **이름** | 예 | <*agreement-name*> | 규약의 이름 |
-   | **계약 유형** | 예 | **AS2**, **X12**또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
-   | **호스트 파트너** | 예 | <*host-partner-name*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
-   | **호스트 Id** | 예 | <*host-partner-identifier*> | 호스트 파트너의 식별자입니다. |
-   | **게스트 파트너** | 예 | <*guest-partner-name*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
-   | **게스트 Id** | 예 | <*guest-partner-identifier*> | 게스트 파트너의 식별자입니다. |
+   | **Name** | yes | <*규약-이름*> | 규약의 이름 |
+   | **계약 유형** | yes | **AS2**, **X12**또는 **EDIFACT** | 규약에 대 한 프로토콜 유형입니다. 규약 파일을 만들 때 해당 파일의 내용이 규약 유형과 일치 해야 합니다. | |  
+   | **호스트 파트너** | yes | <*호스트-이름*> | 호스트 파트너는 규약을 지정 하는 조직을 나타냅니다. |
+   | **호스트 Id** | yes | <*호스트-파트너 식별자*> | 호스트 파트너의 식별자입니다. |
+   | **게스트 파트너** | yes | <*게스트 파트너 이름*> | 게스트 파트너는 호스트 파트너와 비즈니스를 수행하는 조직을 나타냅니다. |
+   | **게스트 Id** | yes | <*게스트-파트너 식별자*> | 게스트 파트너의 식별자입니다. |
    | **수신 설정** | 다름 | 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너 로부터 들어오는 모든 메시지를 수신 하는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>[AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) -  <br>[EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) -  <br>[X12 메시지 설정](logic-apps-enterprise-integration-x12.md) -  |
    | **송신 설정** | 다름 | 다름 | 이러한 속성은 호스트 파트너가 규약의 게스트 파트너에 게 보내는 모든 메시지를 보내는 방법을 지정 합니다. 자세한 내용은 해당 계약 유형을 참조 하세요. <p>[AS2 메시지 설정](../logic-apps/logic-apps-enterprise-integration-as2-message-settings.md) -  <br>[EDIFACT 메시지 설정](logic-apps-enterprise-integration-edifact.md) -  <br>[X12 메시지 설정](logic-apps-enterprise-integration-x12.md) -  |
    |||||

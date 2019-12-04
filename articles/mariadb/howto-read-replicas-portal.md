@@ -1,23 +1,23 @@
 ---
-title: Azure Database for MariaDB에서 읽기 복제본 만들기 및 관리
+title: 읽기 복제본 관리-Azure Portal-Azure Database for MariaDB
 description: 이 문서에서는 포털을 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 설정 하 고 관리 하는 방법을 설명 합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: cceb1814089436efe4d4f9352f40f24d6eae790d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 12/02/2019
+ms.openlocfilehash: 7e290e6d773485b84ef42c7a79abf084e3b0da9f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123603"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765939"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mariadb-using-the-azure-portal"></a>Azure Portal를 사용 하 여 Azure Database for MariaDB에서 읽기 복제본을 만들고 관리 하는 방법
 
 이 문서에서는 Azure Portal를 사용 하 여 Azure Database for MariaDB 서비스에서 읽기 복제본을 만들고 관리 하는 방법에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - 마스터 서버로 사용 되는 [Azure Database for MariaDB 서버](quickstart-create-mariadb-server-database-using-azure-portal.md) 입니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "71123603"
 
 다음 단계에 따라 읽기 복제본 서버를 만들 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com/)할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 2. 마스터로 사용 하려는 기존 Azure Database for MariaDB 서버를 선택 합니다. 이 작업은 **개요** 페이지를 엽니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "71123603"
 
     ![Azure Database for MariaDB-복제본 이름](./media/howto-read-replica-portal/replica-name.png)
 
-6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버와 동일합니다.
+6. 복제 서버의 위치를 선택 합니다. 기본 위치는 마스터 서버의와 동일 합니다.
 
     ![Azure Database for MariaDB-복제본 위치](./media/howto-read-replica-portal/replica-location.png)
 

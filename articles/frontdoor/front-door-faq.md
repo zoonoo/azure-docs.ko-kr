@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2019
 ms.author: sharadag
-ms.openlocfilehash: c8f95a1de85fd2eb00b0525fca8e62ade87dd57f
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: fa9de74c89ba3f0351169f143146dc21b80ee666
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184651"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790537"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 질문과 대답
 
@@ -134,7 +134,7 @@ Azure 전면 도어 (AFD)에는 트래픽을 라우팅하는 공용 IP 또는 �
 
 [Azure Front 도어 서비스에 대해 문서화 된 시간 제한 및 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#azure-front-door-service-limits)에 대해 알아봅니다.
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 ### <a name="how-does-azure-front-door-service-support-high-availability-and-scalability"></a>Azure Front 도어 서비스는 고가용성 및 확장성을 어떻게 지원 하나요?
 
@@ -180,6 +180,8 @@ Azure Front 도어 서비스는 응용 프로그램의 확장성 요구를 충�
 - TLS_RSA_WITH_AES_128_CBC_SHA256
 - TLS_RSA_WITH_AES_256_CBC_SHA
 - TLS_RSA_WITH_AES_128_CBC_SHA
+- TLS_DHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_DHE_RSA_WITH_AES_256_GCM_SHA384
 
 ### <a name="does-azure-front-door-service-also-support-re-encryption-of-traffic-to-the-backend"></a>Azure Front 도어 서비스는 백 엔드에 대 한 트래픽 다시 암호화도 지원 하나요?
 
@@ -213,5 +215,5 @@ Azure Front 도어 서비스에 감사 로그를 사용할 수 있습니다. 포
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
-- [Front Door 작동 방식](front-door-routing-architecture.md)에 대해 알아보세요.
+- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

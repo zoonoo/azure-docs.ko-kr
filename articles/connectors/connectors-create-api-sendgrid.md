@@ -1,22 +1,18 @@
 ---
-title: Azure Logic Apps에서 SendGrid에 연결 | Microsoft Docs
+title: Azure Logic Apps에서 SendGrid에 연결
 description: Azure Logic Apps를 사용하여 SendGrid에서 이메일을 보내고 메일 목록을 관리하는 작업 및 워크플로 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
+ms.reviewer: klam, logicappspm
 ms.topic: article
-tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 4f5efd73ef2a08069e3b9f2c7d60be99c209ddca
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+tags: connectors
+ms.openlocfilehash: 998020c5e39c8d50e8a14c74c43b7b435752f43d
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050820"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789310"
 ---
 # <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SendGrid에서 이메일을 보내고 메일 그룹 관리
 
@@ -29,9 +25,9 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
 이러한 작업을 수행하려면 논리 앱에서 SendGrid 작업을 사용할 수 있습니다. SendGrid 작업의 출력을 사용하기 위한 다른 작업도 있을 수 있습니다. 
 
 이 커넥터에서는 논리 앱을 시작하고 **되풀이** 트리거 같은 별도 트리거를 사용하도록 작업만 제공합니다. 예를 들어, 받는 사람을 목록에 정기적으로 추가하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 받는 사람 및 목록에 대한 이메일을 보낼 수 있습니다.
-논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
+논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
@@ -68,7 +64,7 @@ Azure Logic Apps 및 SendGrid 커넥터를 사용하여 이메일을 보내고 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/sendgrid/)를 검토하세요.
+커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/sendgrid/)를 참조하세요.
 
 ## <a name="get-support"></a>지원 받기
 

@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 944ecaaceedbff6ed1f86c4b8eb5786ce2b5bae5
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: cdf4e5dfc48fdeee86526257d6d8c47a464ce113
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706203"
+ms.locfileid: "74786421"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -90,11 +90,11 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 1. 사용자/그룹은 SAP와 같은 온-프레미스 HR 응용 프로그램/시스템에서 만들어집니다. 
 
-1. Azure AD Connect 에이전트는 로컬 AD에서 Azure AD에 대 한 id (사용자 및 그룹)의 예약 된 동기화를 실행 합니다.
+1. **Azure AD Connect 에이전트** 는 로컬 Ad에서 Azure ad에 대 한 id (사용자 및 그룹)의 예약 된 동기화를 실행 합니다.
 
-1. Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
+1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
 
-1. Azure AD 프로 비전 서비스는 초기 주기 이후에 변경 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기에](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)변경 내용을 푸시합니다.
+1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 변경 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기에](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)변경 내용을 푸시합니다.
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>클라우드 전용 엔터프라이즈에 대 한 자동 사용자 프로 비전
 
@@ -106,9 +106,9 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 1. 사용자/그룹은 Azure AD에서 생성 됩니다.
 
-1. Azure AD 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
+1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
 
-1. Azure AD 프로 비전 서비스는 초기 주기 이후에 업데이트 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)를 수행 합니다.
+1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 업데이트 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)를 수행 합니다.
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>클라우드 HR 응용 프로그램에 대 한 자동 사용자 프로 비전 
 

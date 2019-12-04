@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL 용 Azure AD 구성 및 로그인 단일 서버
-description: Azure Database for PostgreSQL 단일 서버를 사용 하 여 인증을 위해 Azure Active Directory를 설정 하는 방법에 대해 알아봅니다.
+title: Azure Active Directory Azure Database for PostgreSQL 사용-단일 서버
+description: Azure Database for PostgreSQL 단일 서버를 사용 하 여 인증을 위해 AAD (Azure Active Directory)를 설정 하는 방법에 대해 알아봅니다.
 author: lfittl
 ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: d5abfe4cc6aa0679d8009343fa24c1059700bb79
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c929ac1c171547a4ff485fc43f0f329440f9c3b5
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73516033"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74763643"
 ---
 # <a name="use-azure-active-directory-for-authenticating-with-postgresql"></a>PostgreSQL를 사용 하 여 인증을 위해 Azure Active Directory 사용
 
@@ -45,7 +45,7 @@ Azure Database for PostgreSQL 데이터베이스에 Azure AD 사용자를 추가
 1. 먼저 azure ad 사용자 `<user>@yourtenant.onmicrosoft.com`가 Azure AD 테 넌 트의 유효한 사용자 인지 확인 합니다.
 2. Azure AD 관리 사용자로 Azure Database for PostgreSQL 인스턴스에 로그인 합니다.
 3. Azure Database for PostgreSQL에서 역할 `<user>@yourtenant.onmicrosoft.com`를 만듭니다.
-4. Azure_ad_user 역할의 멤버 `<user>@yourtenant.onmicrosoft.com` 확인 합니다. 이는 Azure AD 사용자 에게만 제공 되어야 합니다.
+4. Azure_ad_user 역할의 멤버 `<user>@yourtenant.onmicrosoft.com` 만듭니다. 이는 Azure AD 사용자 에게만 제공 되어야 합니다.
 
 **예제:**
 
@@ -193,7 +193,7 @@ GRANT azure_ad_user TO "existinguser@yourtenant.onmicrosoft.com";
 
 ### <a name="case-2-postgresql-username-is-different-than-the-azure-ad-user-principal-name"></a>사례 2: PostgreSQL username이 Azure AD 사용자 계정 이름과 다릅니다.
 
-PostgreSQL 사용자가 Azure AD에 없거나 다른 사용자 이름을 사용 하는 경우 Azure AD 그룹을 사용 하 여이 PostgreSQL 사용자로 인증할 수 있습니다. PostgreSQL 사용자와 일치 하는 이름으로 Azure AD 그룹을 만든 다음 기존 PostgreSQL 사용자에 게 azure_ad_user을 부여 하 여 기존 Azure Database for PostgreSQL 사용자를 Azure AD로 마이그레이션할 수 있습니다.
+PostgreSQL 사용자가 Azure AD에 없거나 다른 사용자 이름을 사용 하는 경우 Azure AD 그룹을 사용 하 여이 PostgreSQL 사용자로 인증할 수 있습니다. PostgreSQL 사용자와 일치 하는 이름으로 Azure AD 그룹을 만든 다음 기존 PostgreSQL 사용자에 게 역할 azure_ad_user를 부여 하 여 기존 Azure Database for PostgreSQL 사용자를 Azure AD로 마이그레이션할 수 있습니다.
 
 ```sql
 GRANT azure_ad_user TO "DBReadUser";

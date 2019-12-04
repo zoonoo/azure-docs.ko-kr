@@ -1,22 +1,18 @@
 ---
-title: Office 365 사용자에 연결 - Azure Logic Apps | Microsoft Docs
+title: Office 365 사용자에 연결
 description: Office 365 사용자 REST API 및 Azure Logic Apps을 사용하여 사용자 프로필 관리
-author: ecfan
-manager: jeconnoc
-ms.author: estfan
+services: logic-apps
+ms.suite: integration
+ms.reviewer: klam, logicappspm
 ms.date: 08/18/2016
 ms.topic: article
-ms.service: logic-apps
-services: logic-apps
-ms.reviewer: klam, LADocs
-ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 3865fbc4fbc39da0860218565b0a8956b2dad8ee
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: addb64a9b43c51af8363caa6f0fb3261a618e893
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62105874"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789525"
 ---
 # <a name="get-started-with-the-office-365-users-connector"></a>Office 365 사용자 커넥터 시작
 Office 365 사용자에 연결하여 프로필 가져오기, 사용자 검색 등을 수행합니다. Office 365 사용자를 사용하여 다음을 수행할 수 있습니다.

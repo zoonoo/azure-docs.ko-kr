@@ -1,17 +1,17 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 187906a912c999142d764de6ad5da3daccf63ba7
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: e42292f7848eba0b4545b713f7bbc491f35fe4a9
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182457"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789372"
 ---
-1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 예를 들어이 트리거를 선택 합니다. **새 전자 메일이 도착했을 때**
+1. 검색 상자에 “outlook.com”을 필터로 입력합니다. 이 예제에서는 **새 이메일이 도착하는 경우** 트리거를 선택합니다.
 
    ![Outlook.com 트리거 또는 작업 찾기](./media/connectors-create-api-outlook/select-outlook.png)
 
@@ -19,7 +19,7 @@ ms.locfileid: "67182457"
 
    ![Outlook.com 계정에 로그인](./media/connectors-create-api-outlook/sign-in-outlook.png)  
 
-3. Outlook.com 계정 자격 증명을 선택합니다.
+1. Outlook.com 계정 자격 증명을 선택합니다.
 
    ![로그인 계정 선택](./media/connectors-create-api-outlook/outlook-sign-in.png)  
 

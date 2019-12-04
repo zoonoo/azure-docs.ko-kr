@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: a1c6f2d869d8d7ad865005ebd319beac56bdbacd
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: aa32f671756b8ba7f17c25592b6a15b66de42b2c
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720085"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790015"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 소개
 
@@ -32,7 +32,7 @@ ms.locfileid: "73720085"
 
 ## <a name="benefits-of-knowledge-store"></a>지식 저장소의 이점
 
-지식 저장소는 BLOB과 같은 비정형 및 준정형 데이터 파일, 분석을 실행한 이미지 파일 또는 새 양식으로 변형된 정형 데이터에서 수집한 구조, 상황 및 실제 콘텐츠를 제공합니다. 단계별 [연습](knowledge-store-howto.md)에서는 조밀한 JSON 문서를 하위 구조체로 분할 하는 방법, 다시 구성를 새 구조체로 분할 하는 방법, 그리고 기계 학습 및 데이터 과학 같은 다운스트림 프로세스에 사용할 수 있는 방법을 확인할 수 있습니다. dss.
+지식 저장소는 BLOB과 같은 비정형 및 준정형 데이터 파일, 분석을 실행한 이미지 파일 또는 새 양식으로 변형된 정형 데이터에서 수집한 구조, 상황 및 실제 콘텐츠를 제공합니다. 단계별 [연습](knowledge-store-howto.md)에서는 조밀한 JSON 문서를 하위 구조체로 분할 하는 방법, 다시 구성를 새 구조체로 분할 하는 방법, 그리고 machine learning 및 데이터 과학 워크 로드와 같은 다운스트림 프로세스에 사용할 수 있는 방법에 대해 알아봅니다.
 
 AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것이 유용하지만 지식 저장소의 진정한 기능은 데이터를 변형시키는 능력입니다. 기본 기술 세트로 시작하고, 이를 반복하여 증가하는 수준의 구조를 추가한 다음, Azure Cognitive Search 이외의 다른 앱에서 사용할 수 있는 새 구조로 결합할 수 있습니다.
 
@@ -61,7 +61,9 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
 
 + Azure Cognitive Search와 동일한 지역에 있는 저장소 계정에 연결 합니다. 
 
-+ 프로젝션은 테이블-개체 쌍입니다. `Tables`는 Azure Table 스토리지의 보강된 문서에 대한 물리적 표현을 정의합니다. `Objects`는 Azure Blob 스토리지의 물리적 개체를 정의합니다.
++ 프로젝션은 테이블 형식, JSON 개체 또는 파일 일 수 있습니다. `Tables`는 Azure Table 스토리지의 보강된 문서에 대한 물리적 표현을 정의합니다. Azure Blob storage에서 실제 JSON 개체를 정의 `Objects` 합니다. `Files`은 유지 되는 문서에서 추출 된 이미지와 같은 이진 파일입니다.
+
++ 프로젝션은 프로젝션 개체의 컬렉션으로, 각 프로젝션 개체는 `tables`, `objects` 및 `files`포함할 수 있습니다. 단일 프로젝션 내에서 투영 된 강화는 형식 (테이블, 개체 또는 파일) 간에 프로젝션 된 경우에도 관련 됩니다. 프로젝션 개체 간의 프로젝션은 관련이 없으며 독립적입니다. 동일한 셰이프를 프로젝션 된 여러 개의 프로젝션 개체로 사용할 수 있습니다.
 
 ```json
 {
@@ -109,7 +111,10 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
             ], 
             "objects": [ 
                
-            ]      
+            ], 
+            "files": [
+
+            ]  
         },
         { 
             "tables": [ 
@@ -121,13 +126,17 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
                 "source": "/document/Review", 
                 "key": "/document/Review/Id" 
                 } 
-            ]      
+            ],
+            "files": [
+                
+            ]  
         }        
     ]     
     } 
 }
 ```
 
+이 샘플에는 이미지를 포함 하지 않습니다. 파일 프로젝션을 사용 하는 방법에 대 한 예제는 [프로젝션 작업](knowledge-store-projection-overview.md)을 참조 하세요.
 ### <a name="sources-of-data-for-a-knowledge-store"></a>지식 저장소에 대한 데이터 원본
 
 지식 저장소가 AI 보강 파이프라인에서 출력되는 경우 입력은 무엇일까요? 추출, 보강 및 궁극적으로 지식 저장소에 저장하려는 원본 데이터는 검색 인덱서에서 지원하는 모든 Azure 데이터 원본에서 가져올 수 있습니다. 
@@ -148,14 +157,14 @@ AI 보강 파이프라인에서 생성할 수 있는 기능을 확인하는 것�
 
 | Object | REST API | 설명 |
 |--------|----------|-------------|
-| 데이터 원본(data source) | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 Azure 데이터 원본을 식별하는 리소스입니다.  |
+| 데이터 원본 | [데이터 원본 만들기](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | 보강된 문서를 만드는 데 사용되는 원본 데이터를 제공하는 외부 Azure 데이터 원본을 식별하는 리소스입니다.  |
 | 기술 세트 | [기술 세트 만들기(api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 인덱싱 중에 보강 파이프라인에 사용되는 [기본 제공 기술](cognitive-search-predefined-skills.md) 및 [사용자 지정 인식 기술](cognitive-search-custom-skill-interface.md)의 사용을 조정하는 리소스입니다. 기술 세트에는 자식 요소로서 `knowledgeStore` 정의가 있습니다. |
-| 인덱스 | [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 검색 인덱스를 표현 하는 스키마입니다. 원본 데이터 또는 보강 단계에서 생성되는 필드에 매핑되는 인덱스의 필드(예: 엔터티 인식으로 생성된 조직 이름에 대한 필드)입니다. |
-| 인덱서 | [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 기술 세트를 통해 보강된 원본 데이터로 채워진 인덱스 스키마를 기반으로 하는 검색 인덱스입니다.  |
+| index | [인덱스 만들기](https://docs.microsoft.com/rest/api/searchservice/create-index)  | 검색 인덱스를 표현 하는 스키마입니다. 원본 데이터 또는 보강 단계에서 생성되는 필드에 매핑되는 인덱스의 필드(예: 엔터티 인식으로 생성된 조직 이름에 대한 필드)입니다. |
+| 인덱서 | [인덱서 만들기(api-version=2019-05-06)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)  | 데이터 원본, 기술 집합, 원본 및 중간 데이터 구조에서 대상 인덱스로 필드 연결 및 인덱스 자체를 포함하는 인덱싱 중에 사용되는 리소스를 정의하는 구성 요소입니다. 데이터 수집 및 보강을 위한 트리거가 인덱서를 실행합니다. 출력은 원본 데이터로 채워지고 기술 세트를 통해 보강된 인덱스 스키마 기반의 검색 인덱스입니다.  |
 
 ### <a name="physical-composition-of-a-knowledge-store"></a>지식 저장소의 물리적 컴퍼지션
 
- *정의의 요소인*프로젝션`knowledgeStore`은 의도된 용도와 일치하도록 출력의 스키마와 구조를 명확히 표현합니다. 서로 다른 형식 및 모양으로 데이터를 사용하는 애플리케이션이 있는 경우 여러 프로젝션을 정의할 수 있습니다. 
+ `knowledgeStore` 정의의 요소인 *프로젝션*은 의도된 용도와 일치하도록 출력의 스키마와 구조를 명확히 표현합니다. 서로 다른 형식 및 모양으로 데이터를 사용하는 애플리케이션이 있는 경우 여러 프로젝션을 정의할 수 있습니다. 
 
 프로젝션은 개체 또는 테이블로서 다음과 같이 명시될 수 있습니다.
 

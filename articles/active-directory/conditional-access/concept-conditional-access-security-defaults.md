@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 806447f788b7a394b29ee08e8b562662c2cc3e1b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 420a046ddf66270f52001d4ff4f3ad49895d4c11
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208391"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74784557"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -77,7 +77,7 @@ Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개의 Azure
 
 조직에서는 다음을 포함 하 여 Azure Resource Manager API를 통해 관리 되는 다양 한 Azure 서비스를 사용 합니다.
 
-- Azure 포털 
+- Azure Portal 
 - Azure PowerShell 
 - Azure CLI
 
@@ -124,6 +124,20 @@ Azure Resource Manager에 액세스 하 고 구성을 업데이트 하려는 사
 1.  **Azure Active Directory** > **속성**으로 이동 합니다.
 1. **보안 기본값 관리**를 선택 합니다.
 1. **보안 기본값 사용** 설정/해제를 **예**로 설정 합니다.
+1. **저장**을 선택합니다.
+
+## <a name="disabling-security-defaults"></a>보안 기본값 사용 안 함
+
+보안 기본값을 대체 하는 조건부 액세스 정책을 구현 하도록 선택 하는 조직은 보안 기본값을 사용 하지 않도록 설정 해야 합니다. 
+
+![조건부 액세스를 사용 하도록 설정 하는 경고 메시지 보안 기본값 사용 안 함](./media/concept-conditional-access-security-defaults/security-defaults-disable-before-conditional-access.png)
+
+디렉터리에서 보안 기본값을 사용 하지 않도록 설정 하려면:
+
+1. 보안 관리자, 조건부 액세스 관리자 또는 전역 관리자 권한으로 [Azure Portal](https://portal.azure.com) 에 로그인 합니다.
+1.  **Azure Active Directory** > **속성**으로 이동 합니다.
+1. **보안 기본값 관리**를 선택 합니다.
+1. **보안 기본값 사용** 을 **아니요**로 설정 합니다.
 1. **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계

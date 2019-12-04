@@ -1,21 +1,19 @@
 ---
-title: SFTP 계정에 연결-Azure Logic Apps
+title: SFTP 계정에 연결
 description: Azure Logic Apps를 사용하여 SSH를 통해 SFTP 서버에 대한 파일을 모니터링, 만들기, 관리, 전송 및 수신하는 작업 및 프로세스 자동화
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.reviewer: divswa, klam, LADocs
+author: divyaswarnkar
+ms.reviewer: divswa, klam, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: 20702f5bc0dfc513d1fba84b69595dec885613ac
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837103"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789276"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -31,11 +29,11 @@ ms.locfileid: "73837103"
 
 SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
 
-## <a name="limits"></a>제한
+## <a name="limits"></a>Limits
 
 SFTP 커넥터는 *50 MB 미만의* 파일만 처리 하 고 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 하지 않습니다. 큰 파일의 경우 [SFTP-SSH 커넥터](../connectors/connectors-sftp-ssh.md)를 사용 합니다. Sftp 커넥터와 SFTP-ssh 커넥터 간의 차이점을 보려면 SFTP-ssh 문서에서 [Sftp 비교-ssh와 sftp](../connectors/connectors-sftp-ssh.md#comparison) 를 검토 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -94,7 +92,7 @@ SFTP 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 
 
    1. **편집** > **복사**를 선택합니다.
 
-   1. 추가한 SFTP 트리거 또는 작업에서 *SSH 프라이빗 키* 속성으로 복사한 **전체** 키를 붙여넣습니다. 이는 여러 줄을 지원합니다. 키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
+   1. 추가한 SFTP 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다. 키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
 
 1. 연결 세부 정보 입력이 완료되면 **만들기**를 선택합니다.
 
