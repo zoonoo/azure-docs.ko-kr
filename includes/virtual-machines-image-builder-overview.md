@@ -1,16 +1,16 @@
 ---
 author: cynthn
 ms.author: cynthn
-ms.date: 04/30/2019
+ms.date: 11/25/2019
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 2bd40db51d82bd2278bd716615636968adf8277b
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 2a763bbd50f009ae469be889e6ebae0b0d90848b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72391715"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74796101"
 ---
 표준화 된 VM (가상 머신) 이미지를 사용 하면 조직에서 클라우드로 마이그레이션하고 배포의 일관성을 유지할 수 있습니다. 이미지에는 일반적으로 미리 정의 된 보안 및 구성 설정 및 필수 소프트웨어가 포함 되어 있습니다. 사용자 고유의 이미징 파이프라인을 설정 하려면 시간, 인프라 및 설정이 필요 하지만, Azure VM 이미지 작성기를 사용 하면 이미지를 설명 하는 간단한 구성을 제공 하 고, 서비스에 제출 하 고, 이미지를 빌드하고 배포할 수 있습니다.
  
@@ -33,9 +33,9 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하 여 Windo
 - VHD 형식으로 이미지 만들기
  
 
-## <a name="regions"></a>Regions
+## <a name="regions"></a>개 지역
 이러한 지역에서 Azure 이미지 작성기 서비스를 미리 볼 수 있습니다. 이미지는 이러한 영역 외부에 배포할 수 있습니다.
-- East US
+- 미국 동부
 - 미국 동부 2
 - 미국 중서부
 - 미국 서부
@@ -58,7 +58,7 @@ AIB은 다음에 대 한 소스로 RHEL ISO의를 지원 합니다.
 
 RHEL 7.6 Iso은 지원 되지 않지만 테스트 되 고 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 
 ![Azure 이미지 작성기의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -73,7 +73,7 @@ Azure 이미지 작성기는 Azure 리소스 공급자가 액세스할 수 있�
 
 1. 이미지 템플릿을 json 파일로 만듭니다. 이 json 파일에는 이미지 원본, 사용자 지정 및 배포에 대 한 정보가 포함 되어 있습니다. [Azure 이미지 작성기 GitHub 리포지토리에](https://github.com/danielsollondon/azvmimagebuilder/tree/master/quickquickstarts)는 여러 예제가 있습니다.
 1. 서비스에 제출 하면 지정 하는 리소스 그룹에 이미지 템플릿 아티팩트가 만들어집니다. 배경에서 이미지 작성기는 필요에 따라 원본 이미지 또는 ISO 및 스크립트를 다운로드 합니다. 이러한 리소스는 구독에서 자동으로 생성 되는 별도의 리소스 그룹에 저장 됩니다. IT_\<DestinationResourceGroup > _\<TemplateName > 형식입니다. 
-1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경에서 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹에 VM (D1v2), 네트워크, 공용 IP 및 저장소를 만듭니다.
+1. 이미지 템플릿이 만들어지면 이미지를 빌드할 수 있습니다. 배경에서 이미지 작성기는 템플릿 및 원본 파일을 사용 하 여 VM을 만듭니다 (기본 크기: Standard_D1_v2), 네트워크, 공용 IP, NSG 및 저장소\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹 IT_ 합니다.
 1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 프로세스에 대해 만들어진 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹의 추가 리소스를 삭제 합니다.
 
 

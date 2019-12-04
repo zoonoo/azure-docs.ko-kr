@@ -8,17 +8,18 @@ ms.topic: include
 ms.date: 07/22/2019
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: a01455da36e8ab573773fec2a6da1f7903b8ea20
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: eb2d663a56084fc625c95f1f1a6236385880180d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224331"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795654"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md) |지역 당 25000<sup>1</sup> . |25000 지역입니다. |
 | [구독](../articles/billing-buy-sign-up-azure-subscription.md)당 VM 총 코어 수 |지역 당 20<sup>개의 1</sup> | 지원에 문의하세요. |
+| Azure 스폿 VM [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 총 코어 수 |지역 당 20<sup>개의 1</sup> | 지원에 문의하세요. |
 | Dv2 및 F와 같은 시리즈 당 VM, [구독](../articles/billing-buy-sign-up-azure-subscription.md) 당 코어 수 |지역 당 20<sup>개의 1</sup> | 지원에 문의하세요. |
 | 구독 당 [공동 관리자](../articles/billing-add-change-azure-subscription-administrator.md) |무제한. |무제한. |
 | 구독당 하위 지역별 [스토리지 계정](../articles/storage/common/storage-quickstart-create-account.md) |250 |250 |
@@ -26,7 +27,7 @@ ms.locfileid: "74224331"
 | 구독 당 [가용성 집합](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) |2000 지역입니다. |2000 지역입니다. |
 | Azure Resource Manager API 요청 크기 |4194304 바이트 |4194304 바이트 |
 | 구독 당 태그<sup>2</sup> |무제한. |무제한. |
-| 구독 당 고유한 태그 계산<sup>2</sup> | 10,000 | 10,000 |
+| 구독 당 고유한 태그 계산<sup>2</sup> | 10000 | 10000 |
 | [클라우드 서비스](../articles/cloud-services/cloud-services-choose-me.md) |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | [선호도 그룹](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) |N/A<sup>3</sup> |N/A<sup>3</sup> |
 | 위치별 [구독 수준 배포](../articles/azure-resource-manager/deploy-to-subscription.md) | 800<sup>4</sup> | 800 |
