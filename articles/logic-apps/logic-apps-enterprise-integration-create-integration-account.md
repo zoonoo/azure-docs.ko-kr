@@ -1,20 +1,19 @@
 ---
-title: B2B 통합 계정 만들기 또는 관리-Azure Logic Apps
+title: B2B 통합 계정 만들기 또는 관리
 description: Azure Logic Apps와 엔터프라이즈 통합을 위한 통합 계정 만들기, 연결 및 관리
 services: logic-apps
-ms.service: logic-apps
-ms.workload: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: de184b189c00cce64932a3ab17d41ed84e197a7e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 650355bc79e786839377a9b3e574dfbfa08868d6
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534079"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793072"
 ---
 # <a name="create-and-manage-integration-accounts-for-b2b-enterprise-integrations-in-azure-logic-apps"></a>Azure Logic Apps에서 B2B 엔터프라이즈 통합에 대 한 통합 계정 만들기 및 관리
 

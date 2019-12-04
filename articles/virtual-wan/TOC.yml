@@ -40,6 +40,8 @@
       href: virtual-wan-custom-ipsec-portal.md
     - name: 사용자 VPN(지점 및 사이트 간)에 대한 인증서 구성
       href: certificates-point-to-site.md
+    - name: 사용자 VPN에 대한 Azure AD 인증 구성(미리 보기)
+      href: virtual-wan-point-to-site-azure-ad.md
     - name: 자동화 구성(Virtual WAN 파트너)
       href: virtual-wan-configure-automation-providers.md
     - name: 라우팅 구성

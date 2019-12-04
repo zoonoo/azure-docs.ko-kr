@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/19/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ab8c8a582b90976ada20b1e970c9e9648d14b2a9
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: c8ac3b2ada99634f8f35c211f2dd7695f9174ce9
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596445"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74667970"
 ---
 # <a name="single-page-sign-in-using-the-oauth-20-implicit-flow-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 OAuth 2.0 암시적 흐름을 사용 하 여 단일 페이지 로그인
 
@@ -27,7 +27,7 @@ ms.locfileid: "72596445"
 
 이러한 애플리케이션을 지원하기 위해 Azure AD B2C(Azure Active Directory B2C)에서는 OAuth 2.0 암시적 흐름을 사용합니다. OAuth 2.0 암시적 권한 부여 흐름은 [OAuth 2.0 사양의 4.2 섹션](https://tools.ietf.org/html/rfc6749)(영문)에서 설명하고 있습니다. 암시적 흐름에서 앱은 서버 간 교환 없이 Azure AD(Azure Active Directory) 권한 부여 엔드포인트에서 직접 토큰을 받습니다. 모든 인증 논리 및 세션 처리는 페이지 리디렉션 또는 팝업 상자를 사용 하 여 JavaScript 클라이언트에서 전적으로 수행 됩니다.
 
-Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리 사용자 흐름과 같은 정책을 앱에 추가할 수 있습니다. 이 문서의 예제 HTTP 요청에서 **{테 넌 트}. onmicrosoft .com** 이 예로 사용 되었습니다. @No__t_0은 테 넌 트의 이름으로 바꾸고 사용자 흐름을 만든 경우에는 해당 테 넌 트의 이름으로 바꿉니다.
+Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인증 및 권한 부여보다 더 많은 작업을 수행합니다. Azure AD B2C는 [정책 매개 변수](active-directory-b2c-reference-policies.md)를 도입했습니다. 정책 매개 변수를 사용하면 OAuth 2.0을 통해 가입, 로그인 및 프로필 관리 사용자 흐름과 같은 정책을 앱에 추가할 수 있습니다. 이 문서의 예제 HTTP 요청에서 **{테 넌 트}. onmicrosoft .com** 이 예로 사용 되었습니다. `{tenant}`은 테 넌 트의 이름으로 바꾸고 사용자 흐름을 만든 경우에는 해당 테 넌 트의 이름으로 바꿉니다.
 
 암시적 로그인 흐름은 다음 그림과 비슷합니다. 각 단계는 이 문서의 뒷부분에서 자세히 설명합니다.
 
@@ -37,7 +37,7 @@ Azure AD B2C는 표준 OAuth 2.0 암시적 흐름을 확장하여 단순한 인�
 
 웹 응용 프로그램이 사용자를 인증 하 고 사용자 흐름을 실행 해야 하는 경우 사용자를 `/authorize` 끝점으로 보낼 수 있습니다. 사용자가 사용자 흐름에 따라 동작을 수행 합니다.
 
-이 요청에서 클라이언트는 `scope` 매개 변수에서 사용자 로부터 얻어야 하는 사용 권한 및 사용자의 실행 흐름을 표시 합니다. 요청이 어떻게 작동 하는지 확인 하려면 브라우저에 요청을 붙여넣은 후 실행 해 보세요. `{tenant}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. @No__t_0를 테 넌 트에 이전에 등록 한 응용 프로그램의 앱 ID로 바꿉니다. @No__t_0를 테 넌 트에서 만든 정책 이름으로 바꿉니다 (예: `b2c_1_sign_in`.
+이 요청에서 클라이언트는 `scope` 매개 변수에서 사용자 로부터 얻어야 하는 사용 권한 및 사용자의 실행 흐름을 표시 합니다. 요청이 어떻게 작동 하는지 확인 하려면 브라우저에 요청을 붙여넣은 후 실행 해 보세요. `{tenant}`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6`를 테 넌 트에 이전에 등록 한 응용 프로그램의 앱 ID로 바꿉니다. `{policy}`를 테 넌 트에서 만든 정책 이름으로 바꿉니다 (예: `b2c_1_sign_in`.
 
 ```HTTP
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/authorize?
@@ -53,7 +53,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 매개 변수를 포함해야 합니다. | 필수 | 설명 |
 | --------- | -------- | ----------- |
 |넌| yes | Azure AD B2C 테 넌 트의 이름|
-|policy| yes| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
+|policy| yes| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`. |
 | client_id | yes | [Azure Portal](https://portal.azure.com/) 응용 프로그램에 할당 된 응용 프로그램 ID입니다. |
 | response_type | yes | OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `token` 응답 형식이 포함될 수도 있습니다. `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다.  `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
 | redirect_uri | 아닙니다. | 앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
@@ -166,22 +166,22 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 | 매개 변수를 포함해야 합니다. | Required? | 설명 |
 | --- | --- | --- |
 |넌| 필수 | Azure AD B2C 테 넌 트의 이름|
-policy| 필수| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up` 또는 `b2c_1_edit_profile`. |
+policy| 필수| 실행할 사용자 흐름입니다. Azure AD B2C 테 넌 트에서 만든 사용자 흐름의 이름을 지정 합니다. 예: `b2c_1_sign_in`, `b2c_1_sign_up`또는 `b2c_1_edit_profile`. |
 | client_id |필수 |[Azure Portal](https://portal.azure.com)에서 앱에 할당된 애플리케이션 ID입니다. |
 | response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다.  `token` 응답 형식이 포함될 수도 있습니다. 여기서 `token`을 사용하면 앱에서 권한 부여 엔드포인트에 대한 두 번째 요청을 수행하지 않고도 권한 부여 엔드포인트에서 액세스 토큰을 즉시 받을 수 있습니다. `token` 응답 형식을 사용하는 경우 `scope` 매개 변수에는 토큰을 발급할 리소스를 나타내는 범위가 포함되어야 합니다. |
 | redirect_uri |권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 리디렉션 URI입니다. URL로 인코딩해야 한다는 점을 제외하고는 포털에서 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | scope |필수 |공백으로 구분된 범위 목록입니다.  토큰을 가져오려면 원하는 리소스에 필요한 모든 범위를 포함합니다. |
-| response_mode |권장 |결과 토큰을 앱으로 다시 보내는 데 사용되는 메서드를 지정합니다. 암시적 흐름의 경우 `fragment`를 사용 합니다. 다른 두 가지 모드를 지정 하 고 `query` 하 고 `form_post` 수 있지만 암시적 흐름에서는 작동 하지 않습니다. |
+| response_mode |권장 |결과 토큰을 앱으로 다시 보내는 데 사용되는 메서드를 지정합니다. 암시적 흐름의 경우 `fragment`를 사용 합니다. 다른 두 가지 모드를 지정 하 고 `query` 하 고 `form_post`수 있지만 암시적 흐름에서는 작동 하지 않습니다. |
 | state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다.  사용하려는 임의 콘텐츠의 문자열일 수 있습니다.  일반적으로 교차 사이트 요청 위조 공격을 방지하기 위해 임의로 생성된 고유 값이 사용됩니다.  또한 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보를 인코드하는 데 사용됩니다. 예를 들어 사용자가 있던 페이지 또는 보기입니다. |
 | nonce |필수 |앱에서 생성한 요청에 포함된 값이며, 결과 ID 토큰에 클레임으로 포함됩니다.  그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열입니다. |
 | prompt |필수 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 `prompt=none`을 사용하여 iFrame이 로그인 페이지에 머물지 않고 즉시 반환되는지 확인합니다. |
-| login_hint |필수 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 사용자가 지정된 시간에 가질 수 있는 여러 세션을 구분하기 위해 이 힌트에 해당 사용자의 사용자 이름을 포함합니다. @No__t_0 클레임을 사용 하 여 이전 로그인에서 사용자 이름을 추출할 수 있습니다 (`preferred_username` 클레임을 받기 위해 `profile` 범위가 필요 함). |
+| login_hint |필수 |숨겨진 iFrame에서 토큰을 새로 고치고 가져오려면 사용자가 지정된 시간에 가질 수 있는 여러 세션을 구분하기 위해 이 힌트에 해당 사용자의 사용자 이름을 포함합니다. `preferred_username` 클레임을 사용 하 여 이전 로그인에서 사용자 이름을 추출할 수 있습니다 (`preferred_username` 클레임을 받기 위해 `profile` 범위가 필요 함). |
 | domain_hint |필수 |`consumers` 또는 `organizations`일 수 있습니다.  숨겨진 iframe에서 토큰을 새로 고치고 가져오는 경우 요청에 `domain_hint` 값을 포함 합니다.  이전 로그인의 ID 토큰에서 `tid` 클레임을 추출 하 여 사용할 값을 결정 합니다 (`tid` 클레임을 받기 위해 `profile` 범위가 필요 함). `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용합니다.  그렇지 않으면 `domain_hint=organizations`를 사용합니다. |
 
 `prompt=none` 매개 변수를 설정하면 이 요청이 즉시 성공하거나 실패하고 애플리케이션으로 돌아갑니다.  성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 표시된 리디렉션 URI에서 앱으로 보내집니다.
 
 ### <a name="successful-response"></a>성공적인 응답
-@No__t_0를 사용한 성공적인 응답은 다음 예제와 같습니다.
+`response_mode=fragment`를 사용한 성공적인 응답은 다음 예제와 같습니다.
 
 ```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -201,7 +201,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 | scope |access_token이 유효한 범위입니다. |
 
 ### <a name="error-response"></a>오류 응답
-오류 응답은 앱에서 적절히 처리할 수 있도록 리디렉션 URI에 보낼 수도 있습니다.  @No__t_0의 경우 예상 되는 오류는 다음 예제와 같습니다.
+오류 응답은 앱에서 적절히 처리할 수 있도록 리디렉션 URI에 보낼 수도 있습니다.  `prompt=none`의 경우 예상 되는 오류는 다음 예제와 같습니다.
 
 ```HTTP
 GET https://aadb2cplayground.azurewebsites.net/#
@@ -233,7 +233,7 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 | 넌 | yes | Azure AD B2C 테 넌 트의 이름 |
 | policy | yes | 애플리케이션에서 사용자를 로그아웃하는 데 사용하려는 사용자 흐름입니다. |
 | post_logout_redirect_uri | 아닙니다. | 성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다. 포함 되어 있지 않으면 Azure AD B2C 사용자에 게 일반 메시지를 표시 합니다. |
-| state | 아닙니다. | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램은 요청 및 응답에서 `state` 값이 동일한 지 확인 해야 합니다. |
+| state | 아닙니다. | 요청에 `state` 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 응용 프로그램은 요청 및 응답의 `state` 값이 동일한 지 확인 해야 합니다. |
 
 
 > [!NOTE]
@@ -249,5 +249,5 @@ GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/
 GitHub의이 샘플은 사용자가 [hello.exe][github-hello-js] 를 기반으로 하는 간단한 웹 응용 프로그램에서 Azure AD B2C를 시작 하 고 팝업 스타일 인증을 사용 하는 데 도움을 주기 위한 것입니다.
 
 <!-- Links - EXTERNAL -->
-[github-hello-js-example]: https://github.com/azure-ad-b2c/apps/tree/master/spa/javascript-hellojs-singlepageapp-popup
+[github-hello-js-example]: https://github.com/Azure-Samples/active-directory-b2c-javascript-hellojs-singlepageapp
 [github-hello-js]: https://github.com/MrSwitch/hello.js

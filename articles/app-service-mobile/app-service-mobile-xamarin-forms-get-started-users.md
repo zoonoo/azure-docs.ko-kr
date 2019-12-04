@@ -1,25 +1,17 @@
 ---
-title: Xamarin.Forms 앱에서 Mobile Apps에 대한 인증 시작 | Microsoft Docs
-description: Mobile Apps를 사용하여 AAD, Google, Facebook, Twitter, Microsoft 등의 다양한 ID 공급자를 통해 Xamarin Forms 앱 사용자를 인증하는 방법을 알아봅니다.
-services: app-service\mobile
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
+title: Xamarin Forms 앱에서 인증 시작
+description: Mobile Apps를 사용 하 여 AAD, Google, Facebook, Twitter, Microsoft 등의 id 공급자를 통해 Xamarin Forms 앱 사용자를 인증 하는 방법을 알아봅니다.
 ms.assetid: 9c55e192-c761-4ff2-8d88-72260e9f6179
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: d9bd698535b09ecb5c484eefcbe31228eb99e04f
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 90d26d6469c5f3e238ac2410cdccb8ef5e0c160f
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388400"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668339"
 ---
 # <a name="add-authentication-to-your-xamarin-forms-app"></a>Xamarin Forms 앱에 인증 추가
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]

@@ -127,8 +127,12 @@
           href: security-center-monitoring.md
         - name: 머신 및 응용 프로그램 보호
           href: security-center-virtual-machine-protection.md
+        - name: 머신 및 앱 권장 사항 참조
+          href: recommendations-compute-and-apps.md
         - name: 네트워크 리소스 사용
           href: security-center-network-recommendations.md
+        - name: 네트워크 권장 사항 참조
+          href: recommendations-network.md
         - name: 파일 및 스토리지 서비스 보호
           href: security-center-sql-service-recommendations.md
         - name: ID 및 액세스 보호

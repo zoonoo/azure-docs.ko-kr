@@ -1,10 +1,10 @@
 ### YamlMime:Yaml
-ms.openlocfilehash: 8f0811dacfbedd59726fcdfe58d6a71cb02797da
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.openlocfilehash: 798a3ad1a2e81eae8621ae43d47d41031603331f
+ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68968411"
+ms.lasthandoff: 11/23/2019
+ms.locfileid: "74734463"
 groups:
 - id: programming-languages-set-one
   title: 프로그래밍 언어
@@ -20,3 +20,83 @@ groups:
     title: Node.js
   - id: programming-language-go
     title: Go
+- id: cogsvcs-text-analytics-features
+  title: 텍스트 분석 기능
+  prompt: 텍스트 분석 기능 제품 선택
+  pivots:
+  - id: text-analytics-key-phrase-extraction
+    title: 핵심 문구 추출
+  - id: text-analytics-language-detection
+    title: 언어 검색
+  - id: text-analytics-sentiment-analysis
+    title: 감정 분석
+- id: client-operating-system
+  title: 프로그래밍 언어
+  prompt: 클라이언트 운영 체제 선택
+  pivots:
+  - id: client-operating-system-linux
+    title: Linux
+  - id: client-operating-system-macos
+    title: MacOS
+  - id: client-operating-system-windows
+    title: Windows
+- id: programming-languages-set-two
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 언어 자세히 보기...
+- id: programming-languages-set-three
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-cpp
+    title: C++
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+- id: programming-languages-set-four
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-java
+    title: Java
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-more
+    title: 언어 자세히 보기...
+- id: programming-languages-set-five
+  title: 프로그래밍 언어
+  prompt: 프로그래밍 언어 선택
+  pivots:
+  - id: programming-language-csharp
+    title: C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-nodejs
+    title: Node.js
+  - id: programming-language-go
+    title: Go
+  - id: programming-language-ruby
+    title: Ruby
+- id: URL-test-interface
+  title: URL 테스트 도구
+  prompt: 다음 중 하나 선택
+  pivots:
+  - id: url-test-tool-curl
+    title: cURL
+  - id: url-test-tool-postman
+    title: postman

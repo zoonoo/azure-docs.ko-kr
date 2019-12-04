@@ -1,17 +1,18 @@
 ---
-author: ecfan
 ms.service: logic-apps
 ms.topic: include
-ms.date: 11/03/2016
+author: ecfan
 ms.author: estfan
-ms.openlocfilehash: 46a6fcb57a21f3f1e30b39fc6967256550e31616
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.date: 11/03/2016
+ms.openlocfilehash: 94f18b20d84a1929368053c44b4f07793e385b38
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182463"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74789544"
 ---
-### <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
+
 * [MicrosoftTranslator](https://www.microsoft.com/translator) 계정  
 
 논리 앱에서 MicrosoftTranslator 계정을 사용하려면 먼저 MicrosoftTranslator 계정에 연결하도록 논리 앱에 권한을 부여해야 합니다. 다행히 Azure Portal의 논리 앱 내에서 이를 쉽게 수행할 수 있습니다.  

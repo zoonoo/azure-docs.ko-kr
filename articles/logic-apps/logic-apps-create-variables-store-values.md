@@ -1,21 +1,17 @@
 ---
-title: 값을 저장 하기 위한 변수 만들기 및 관리-Azure Logic Apps
+title: 값을 저장 하기 위한 변수 만들기 및 관리
 description: Azure Logic Apps 변수를 사용 하 여 값을 저장 하 고 관리 하는 방법
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0f7947e4a96a49e3a7a3b0059a1b20b21ac8cbd1
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 9b3ba7ff20e581988c3e862cff3bbf6d5ee96bf4
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180795"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793161"
 ---
 # <a name="store-and-manage-values-by-using-variables-in-azure-logic-apps"></a>Azure Logic Apps 변수를 사용 하 여 값 저장 및 관리
 
@@ -33,13 +29,13 @@ ms.locfileid: "71180795"
 > [!IMPORTANT]
 > 기본적으로 "For each" 루프의 주기는 병렬로 실행 됩니다. 루프에서 변수를 사용 하는 경우 변수가 예측 가능한 결과를 반환 하도록 루프를 [순차적](../logic-apps/logic-apps-control-flow-loops.md#sequential-foreach-loop) 으로 실행 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독. 구독이 없는 경우 [무료 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 변수를 만들려는 논리 앱
 
-  논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작을 검토 하세요. 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토하세요.
+  논리 앱을 처음 접하는 경우 [Azure Logic Apps?](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토 하세요.
 
 * 논리 앱의 첫 번째 단계인 [트리거](../logic-apps/logic-apps-overview.md#logic-app-concepts)
 
@@ -63,20 +59,20 @@ ms.locfileid: "71180795"
 
    * 단계 사이에 작업을 추가 하려면 더하기 기호 ( **+** )가 표시 되도록 연결 하는 화살표 위로 마우스를 이동 합니다. 더하기 기호를 선택한 다음 **작업 추가**를 선택 합니다.
 
-1. **작업 선택**아래의 검색 상자에 필터로를 입력 `variables` 합니다. 작업 목록에서 **변수 초기화**를 선택 합니다.
+1. **작업 선택** 아래의 검색 상자에 `variables`을 필터로 입력합니다. 작업 목록에서 **변수 초기화**를 선택 합니다.
 
    ![작업 선택](./media/logic-apps-create-variables-store-values/select-initialize-variable-action.png)
 
 1. 아래에서 설명 하는 대로 변수에 대 한 정보를 제공 합니다.
 
-   | 속성 | 필요한 공간 | Value |  설명 |
+   | 자산 | 필수 | Value |  설명 |
    |----------|----------|-------|--------------|
-   | **이름** | 예 | <*variable-name*> | 증가할 변수의 이름입니다. |
-   | **형식** | 예 | <*variable-type*> | 변수의 데이터 형식입니다. |
-   | **Value** | 아니요 | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+   | **Name** | yes | <*variable-name*> | 증가할 변수의 이름입니다. |
+   | **형식** | yes | <*variable-type*> | 변수의 데이터 형식입니다. |
+   | **값** | 아닙니다. | <*start-value*> | 변수의 초기 값 <p><p>**팁**: 선택 사항이지만, 변수의 시작 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    |||||
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![변수 초기화](./media/logic-apps-create-variables-store-values/initialize-variable.png)
 
@@ -101,7 +97,7 @@ ms.locfileid: "71180795"
 ```
 
 > [!NOTE]
-> **변수 초기화** 작업 `variables` 에는 배열로 구조화 된 섹션이 있지만 작업에서 한 번에 하나의 변수만 만들 수 있습니다. 각 새 변수에는 개별 **변수 초기화** 작업이 필요 합니다.
+> **변수 초기화** 작업에는 배열로 구조화 된 `variables` 섹션이 있지만 작업에서 한 번에 하나의 변수만 만들 수 있습니다. 각 새 변수에는 개별 **변수 초기화** 작업이 필요 합니다.
 
 다른 몇 가지 변수 형식에 대한 예는 다음과 같습니다.
 
@@ -183,7 +179,7 @@ ms.locfileid: "71180795"
 
 변수의 내용을 검색하거나 참조하기 위해 논리 앱 디자이너 및 코드 보기 편집기에서 [variables() 함수](../logic-apps/workflow-definition-language-functions-reference.md#variables)를 사용할 수도 있습니다. 변수를 참조하는 경우, 작업의 출력을 참조하는 일반적인 방법인 작업 이름이 아니라 변수 이름을 토큰으로 사용합니다.
 
-예를 들어이 식은 `variables()` 함수를 사용 하 여 [이 문서에서 이전에 만든](#append-value) 배열 변수에서 항목을 가져옵니다. 함수 `string()` 는 다음과 같이 문자열 형식으로 변수의 내용을 반환 합니다.`"1, 2, 3, red"`
+예를 들어이 식은 `variables()` 함수를 사용 하 여 [이 문서에서 이전에 만든](#append-value) 배열 변수에서 항목을 가져옵니다. `string()` 함수는 변수의 내용을 문자열 형식으로 반환 합니다. `"1, 2, 3, red"`
 
 ```json
 @{string(variables('myArrayVariable'))}
@@ -209,13 +205,13 @@ ms.locfileid: "71180795"
 
 1. 변수 증가에 대한 다음 정보를 입력합니다.
 
-   | 속성 | 필요한 공간 | Value |  설명 |
+   | 자산 | 필수 | Value |  설명 |
    |----------|----------|-------|--------------|
-   | **이름** | 예 | <*variable-name*> | 증가할 변수의 이름입니다. |
-   | **Value** | 아니요 | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+   | **Name** | yes | <*variable-name*> | 증가할 변수의 이름입니다. |
+   | **값** | 아닙니다. | <*increment-value*> | 변수를 증가하는 데 사용되는 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 증가하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
    ||||
 
-   예를 들어 다음과 같은 가치를 제공해야 합니다.
+   다음은 그 예입니다.
 
    ![증가 값 예제](./media/logic-apps-create-variables-store-values/increment-variable-action-information.png)
 
@@ -236,7 +232,7 @@ ms.locfileid: "71180795"
 },
 ```
 
-## <a name="example-create-loop-counter"></a>예: 루프 카운터 만들기
+## <a name="example-create-loop-counter"></a>예제: 루프 카운터 만들기
 
 변수는 일반적으로 루프가 실행되는 횟수를 계산하는 데 사용됩니다. 이 예제에서는 메일의 첨부 파일 수를 계산하는 루프를 만들어 이 작업의 변수를 만들고 사용하는 방법을 보여 줍니다.
 
@@ -259,7 +255,7 @@ ms.locfileid: "71180795"
 
    1. **변수 초기화** 작업에서 **새 단계**를 선택 합니다.
 
-   1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에 검색 필터로를 `for each` 입력 하 고 **각각에 대해**를 선택 합니다.
+   1. **작업 선택** 아래에서 **기본 제공**을 선택합니다. 검색 상자에 검색 필터로 `for each`를 입력 하 고 **각각에 대해를**선택 합니다.
 
       ![“For each” 루프 추가](./media/logic-apps-create-variables-store-values/add-loop.png)
 
@@ -330,10 +326,10 @@ ms.locfileid: "71180795"
 
 다음은 **변수 감소** 작업의 속성입니다.
 
-| 속성 | 필요한 공간 | Value |  설명 |
+| 자산 | 필수 | Value |  설명 |
 |----------|----------|-------|--------------|
-| **이름** | 예 | <*variable-name*> | 감소할 변수의 이름입니다. | 
-| **Value** | 아니요 | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소시키기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
+| **Name** | yes | <*variable-name*> | 감소할 변수의 이름입니다. | 
+| **값** | 아닙니다. | <*increment-value*> | 변수를 감소하기 위한 값입니다. 기본값은 1입니다. <p><p>**팁**: 선택 사항이지만, 변수를 감소하기 위한 특정 값을 항상 알 수 있도록 이 값을 설정하는 것이 좋습니다. |
 ||||| 
 
 디자이너에서 코드 뷰 편집기로 전환 하는 경우, 다음은 JSON 형식의 논리 앱 정의 내에 **감소 변수** 작업을 표시 하는 방법입니다.
@@ -363,10 +359,10 @@ ms.locfileid: "71180795"
 
 다음은 **변수 설정** 작업의 속성입니다.
 
-| 속성 | 필요한 공간 | Value |  설명 |
+| 자산 | 필수 | Value |  설명 |
 |----------|----------|-------|--------------|
-| **이름** | 예 | <*variable-name*> | 변경할 변수의 이름입니다. |
-| **Value** | 예 | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. |
+| **Name** | yes | <*variable-name*> | 변경할 변수의 이름입니다. |
+| **값** | yes | <*new-value*> | 변수에 할당할 값입니다. 둘 다 데이터 형식이 같아야 합니다. |
 ||||| 
 
 > [!NOTE]
@@ -417,14 +413,14 @@ ms.locfileid: "71180795"
    * **문자열 변수에 추가**
    * **배열 변수에 추가** 
 
-1. 문자열 또는 배열의 마지막 항목으로 추가할 값을 입력합니다. 이 값은 필수 사항입니다.
+1. 문자열 또는 배열의 마지막 항목으로 추가할 값을 입력합니다. 이 값은 필수입니다.
 
 다음은 **추가...** 작업의 속성입니다.
 
-| 속성 | 필요한 공간 | Value |  설명 |
+| 자산 | 필수 | Value |  설명 |
 |----------|----------|-------|--------------|
-| **이름** | 예 | <*variable-name*> | 변경할 변수의 이름입니다. |
-| **Value** | 예 | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. |
+| **Name** | yes | <*variable-name*> | 변경할 변수의 이름입니다. |
+| **값** | yes | <*append-value*> | 추가하려는 값으로, 임의 형식일 수 있습니다. |
 |||||
 
 디자이너에서 코드 뷰 편집기로 전환 하는 경우 다음은 JSON 형식인 논리 앱 정의 내 **에 배열 변수에 추가** 작업이 표시 되는 방법입니다. 이 예제에서는 배열 변수를 만들고 배열의 마지막 항목으로 다른 값을 추가합니다. 결과는 `[1,2,3,"red"]` 배열을 포함하는 업데이트된 변수입니다.

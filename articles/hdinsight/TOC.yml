@@ -49,6 +49,8 @@
           href: ./hdinsight-selecting-vm-size.md
         - name: 클러스터 용량 계획
           href: ./hdinsight-capacity-planning.md
+        - name: 클러스터 관리 모범 사례
+          href: ./cluster-management-best-practices.md
         - name: 가용성 및 안정성
           href: ./hdinsight-high-availability-linux.md
         - name: 스토리지 옵션 비교

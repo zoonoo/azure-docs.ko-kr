@@ -1,25 +1,17 @@
 ---
-title: Azure 모바일 앱(Xamarin iOS)에 대해 오프라인 동기화 사용
-description: App Service 모바일 앱을 사용하여 Xamarin iOS 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
-documentationcenter: xamarin
-author: elamalani
-manager: cfowler
-editor: ''
-services: app-service\mobile
+title: 오프 라인 동기화 사용 (Xamarin iOS)
+description: App Service 모바일 앱을 사용 하 여 Xamarin iOS 응용 프로그램에서 오프 라인 데이터를 캐시 및 동기화 하는 방법을 알아봅니다.
 ms.assetid: 828a287c-5d58-4540-9527-1309ebb0f32b
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: fc4fd639f364a0d0852ed066d26eb0e3cf73e68c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 615f8f028182178928d3d755c102daceef402ef4
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388379"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668244"
 ---
 # <a name="enable-offline-sync-for-your-xamarinios-mobile-app"></a>Xamarin.iOS 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]

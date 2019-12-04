@@ -231,8 +231,8 @@
           href: virtual-machine-scale-sets-placement-groups.md
         - name: 확장 집합 템플릿을 변환하여 관리 디스크 사용
           href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: 낮은 우선 순위 사용
-          href: virtual-machine-scale-sets-use-low-priority.md
+        - name: 스폿 인스턴스 사용
+          href: use-spot.md
     - name: 관리
       items:
         - name: 일반적인 관리 작업

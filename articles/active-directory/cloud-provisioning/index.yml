@@ -1,0 +1,50 @@
+### YamlMime:Landing
+title: Azure AD Connect 클라우드 프로비저닝 설명서
+summary: 클라우드 프로비저닝은 클라우드에 모든 것을 유지함으로써 온-프레미스 사용자의 관리를 단순화하고 자동화할 수 있도록 지원합니다.
+metadata:
+  author: billmath
+  description: 클라우드 프로비저닝은 기존 AD 포리스트에서 이러한 사용자를 동기화하는 클라우드 관리 규칙을 통해 Azure AD 사용자의 관리를 단순화하고 자동화할 수 있도록 지원합니다.
+  ms.author: billmath
+  ms.collection: na
+  ms.date: 09/05/2019
+  ms.service: active-directory
+  ms.subservice: na
+  ms.topic: landing-page
+  services: active-directory
+  ms.openlocfilehash: 89f3cf397322be65166e05c20b2e1d978a837581
+  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74795244"
+landingContent:
+- title: 클라우드 프로비저닝 정보
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure AD Connect 클라우드 프로비저닝이란?
+      url: what-is-cloud-provisioning.md
+- title: 사용자 및 그룹의 수명 주기를 관리하는 최상의 솔루션을 구현하는 방법 알아보기
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 단일 AD 포리스트를 단일 Azure AD 테넌트와 통합
+      url: tutorial-single-forest.md
+    - text: 기존 포리스트 및 새 포리스트를 단일 Azure AD 테넌트와 통합
+      url: tutorial-existing-forest.md
+    - text: 기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝
+      url: tutorial-pilot-aadc-aadccp.md
+- title: 클라우드 프로비저닝 시작
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure AD Connect 클라우드 프로비저닝의 필수 구성 요소
+      url: how-to-prerequisites.md
+    - text: Azure AD Connect 클라우드 프로비저닝 설치
+      url: how-to-install.md
+    - text: Azure AD Connect 클라우드 프로비저닝 에이전트 구성
+      url: how-to-configure.md
+  - linkListType: reference
+    links:
+    - text: 지원되는 토폴로지 및 시나리오
+      url: plan-cloud-provisioning-topologies.md

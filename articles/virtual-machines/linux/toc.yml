@@ -74,8 +74,9 @@
         - name: 네트워크 성능
           href: ../..//virtual-network/virtual-network-optimize-network-bandwidth.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: VM 유형 및 크기
-      href: sizes.md
       items:
+        - name: 크기 패밀리
+          href: sizes.md
         - name: 2세대 VM
           href: generation-2.md
         - name: 범용 가상 컴퓨터
@@ -103,6 +104,16 @@
               href: n-series-driver-setup.md
         - name: 고성능 컴퓨팅
           href: sizes-hpc.md
+        - name: 예약 인스턴스
+          items:
+            - name: VM 선불
+              href: prepay-reserved-vm-instances.md
+            - name: Azure 예약이란?
+              href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
+            - name: VM 인스턴스 크기 유연성
+              href: reserved-vm-instance-size-flexibility.md
+        - name: 스폿 VM
+          href: spot-vms.md
         - name: 이전 세대
           href: sizes-previous-gen.md
         - name: 격리된 크기
@@ -186,6 +197,16 @@
               href: dedicated-hosts-cli.md
             - name: 포털
               href: dedicated-hosts-portal.md
+        - name: 스폿 VM 배포
+          items:
+            - name: CLI
+              href: spot-cli.md
+            - name: 포털
+              href: ../windows/spot-portal.md?toc=/azure/virtual-machines/linux/toc.json
+            - name: 템플릿
+              href: spot-template.md
+            - name: 오류 코드
+              href: ../error-codes-spot.md?toc=/azure/virtual-machines/linux/toc.json
     - name: VM 보안
       items:
         - name: 권장 사항

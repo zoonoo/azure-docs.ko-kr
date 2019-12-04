@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/09/2019
 ms.author: victorh
-ms.openlocfilehash: 8f3a732d5d6128ff38f81f715113e87710b11c47
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: 66978f313f5cb3881f8befc61289d7de0f4214cb
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847266"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668140"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -35,7 +35,7 @@ Application Gateway 및 WAF (웹 응용 프로그램 방화벽)는 Standard_v2 �
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-Standard_v2 및 WAF_v2 SKU는 미국 중 북부, 미국 동부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 동부, 북부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부와 같은 지역에서 사용할 수 있습니다. , 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 대한민국 중부, 대한민국 남부, 인도 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
+Standard_v2 및 WAF_v2 SKU는 미국 중 북부, 미국 동부, 미국 서 부, 미국 서 부 2, 미국 동부, 미국 동부 2, 미국 동부, 북부, 유럽 서부, 동남 아시아, 프랑스 중부, 영국 서부, 일본 동부, 일본 서 부, 오스트레일리아 동부와 같은 지역에서 사용할 수 있습니다. , 오스트레일리아 남동쪽, 브라질 남부, 캐나다 중부, 캐나다 동부, 동아시아, 대한민국 중부, 한국 남부, 영국 남부, 인도 중부, 인도 서 부, 인도 남부.
 
 ## <a name="pricing"></a>가격
 
@@ -168,11 +168,11 @@ Application Gateway 및 WAF는 다음과 같은 두 가지 모드로 확장 되�
 |뺀|세부 정보|
 |--|--|
 |인증 인증서|지원되지 않습니다.<br>자세한 내용은 [Application Gateway의 엔드투엔드 SSL 개요](ssl-overview.md#end-to-end-ssl-with-the-v2-sku)를 참조하세요.|
-|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원되지 않음|
-|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원되지 않음|
+|동일한 서브넷에서 Standard_v2와 표준 애플리케이션 게이트웨이 혼합|지원하지 않음|
+|Application Gateway 서브넷의 UDR(사용자 정의 경로)|지원하지 않음|
 |인바운드 포트 범위에 대한 NSG| - 65200 ~ 65535(Standard_v2 SKU)<br>- 65503 ~ 65534(Standard SKU)<br>자세한 내용은 [FAQ](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet)을 참조하세요.|
 |Azure 진단의 성능 로그|지원되지 않습니다.<br>Azure 메트릭을 사용해야 합니다.|
-|결제|청구는 2019 년 7 월 1 일에 시작 되도록 예약 됩니다.|
+|청구|청구는 2019 년 7 월 1 일에 시작 되도록 예약 됩니다.|
 |FIPS 모드|현재는 지원되지 않습니다.|
 |ILB 전용 모드|현재는 지원되지 않습니다. 공용 및 ILB 모드가 함께 지원됩니다.|
 |Netwatcher 통합|지원되지 않습니다.|

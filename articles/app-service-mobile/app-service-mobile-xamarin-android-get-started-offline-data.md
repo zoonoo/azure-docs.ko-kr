@@ -1,25 +1,17 @@
 ---
-title: Azure 모바일 앱(Xamarin.Android)에 대해 오프라인 동기화 사용
-description: App Service 모바일 앱을 사용하여 Xamarin 안드로이드 애플리케이션에서 오프라인 데이터를 캐시 및 동기화하는 방법을 알아봅니다.
-documentationcenter: xamarin
-author: elamalani
-manager: crdun
-editor: ''
-services: app-service\mobile
+title: 오프 라인 동기화 사용 (Xamarin Android)
+description: App Service 모바일 앱을 사용 하 여 Xamarin Android 응용 프로그램에서 오프 라인 데이터를 캐시 및 동기화 하는 방법을 알아봅니다.
 ms.assetid: 91d59e4b-abaa-41f4-80cf-ee7933b32568
-ms.service: app-service-mobile
-ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.author: emalani
-ms.openlocfilehash: e27f85a4653b43f2ade77a57ddd5c9471e0a424b
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: c1119a803f160c1833cd87413263b868928b82c2
+ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388501"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74668348"
 ---
 # <a name="enable-offline-sync-for-your-xamarinandroid-mobile-app"></a>Xamarin.Android 모바일 앱에 대해 오프라인 동기화 사용
 
