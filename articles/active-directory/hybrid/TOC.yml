@@ -148,8 +148,6 @@
               href: plan-migrate-adfs-password-hash-sync.md
             - name: 페더레이션에서 PTA로 마이그레이션
               href: plan-migrate-adfs-pass-through-authentication.md
-            - name: 클라우드 인증 - 스테이징된 롤아웃(공개 미리 보기)
-              href: how-to-connect-staged-rollout.md
         - name: 하이브리드 ID 설계 고려 사항
           items:
             - name: 하이브리드 ID 설계 고려 사항 개요

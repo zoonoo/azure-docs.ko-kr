@@ -1,5 +1,5 @@
 - name: Bing Autosuggest 설명서
-  href: index.yml
+  href: ../Bing-Web-Search/index.yml
 - name: 개요
   items:
     - name: Bing Autosuggest란?

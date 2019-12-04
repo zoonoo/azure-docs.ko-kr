@@ -164,11 +164,11 @@
           href: event-hubs-service-endpoints.md
         - name: Event Hubs 네임스페이스에서 Virtual Networks 통합 및 방화벽 사용
           href: event-hubs-tutorial-virtual-networks-firewalls.md
-        - name: 미사용 데이터를 암호화하기 위한 고객 관리형 키 구성
+        - name: 미사용 데이터를 암호화하기 위한 고객 관리형 키 구성(미리 보기)
           href: configure-customer-managed-key.md
     - name: 문제 해결
       items:
-        - name: 예외
+        - name: 문제 해결 가이드
           href: event-hubs-messaging-exceptions.md
 - name: 참고 자료
   items:

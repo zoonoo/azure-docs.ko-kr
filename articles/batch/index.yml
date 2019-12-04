@@ -10,12 +10,12 @@ metadata:
   author: laurenhughes
   ms.author: lahugh
   ms.date: 09/23/2019
-  ms.openlocfilehash: d7bc942451968e4c1f87aa6ea6a64cd8ce5c03ae
-  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.openlocfilehash: 6d994673332d9dc4a5ebc77e7468e0a200d8e271
+  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 10/17/2019
-  ms.locfileid: "72527980"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74786081"
 landingContent:
 - title: Azure Batch 정보
   linkLists:
@@ -77,6 +77,8 @@ landingContent:
       url: batch-pool-vm-sizes.md
     - text: 할당량 및 제한
       url: batch-quota-limit.md
+    - text: 모범 사례
+      url: best-practices.md
 - title: API 참조
   linkLists:
   - linkListType: reference
