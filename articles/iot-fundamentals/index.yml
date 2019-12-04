@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 09/04/2019
-  ms.openlocfilehash: cbd3a4dbaa80119d72cd54efa7dd2dc751b91b40
-  ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+  ms.openlocfilehash: 2ea0087c000af2e57604109bb11b625d8ec75154
+  ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/23/2019
-  ms.locfileid: "74422823"
+  ms.lasthandoff: 12/03/2019
+  ms.locfileid: "74773929"
 highlightedContent:
   items:
   - title: Azure IoT란?
@@ -80,7 +80,7 @@ conceptualContent:
       itemType: quickstart
       text: 연결된 팩터리 솔루션 사용
     footerLink:
-      url: ../iot-accelerators/index.md
+      url: ../iot-accelerators/index.yml
       text: 자세히 보기
   - title: 에지 디바이스에서 클라우드 인텔리전스 실행
     links:

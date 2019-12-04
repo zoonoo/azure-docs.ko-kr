@@ -300,7 +300,7 @@
         - name: 일괄 처리 예측 실행
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference
           href: how-to-run-batch-predictions.md
-        - name: 일괄 처리 예측에 디자이너 사용
+        - name: 디자이너 일괄 처리 예측
           displayName: score scoring asynchronous consume pipeline parallelrunstep inference designer
           href: how-to-run-batch-predictions-designer.md
     - name: 모델 모니터링

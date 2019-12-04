@@ -28,15 +28,31 @@
       href: tutorial-custom-role-cli.md
 - name: 개념
   items:
-    - name: 역할 정의 이해
-      href: role-definitions.md
     - name: Azure Resource용 PIM
       href: pim-azure-resource.md
     - name: Azure 관리에 대한 조건부 액세스
       href: conditional-access-azure-management.md
 - name: 방법 가이드
   items:
-    - name: 액세스 관리
+    - name: 역할 정의 나열
+      items:
+        - name: 개요
+          href: role-definitions.md
+        - name: 역할 정의 나열
+          href: role-definitions-list.md
+        - name: 기본 제공 역할
+          href: built-in-roles.md
+    - name: 역할 할당 나열
+      items:
+        - name: 포털
+          href: role-assignments-list-portal.md
+        - name: PowerShell
+          href: role-assignments-list-powershell.md
+        - name: CLI
+          href: role-assignments-list-cli.md
+        - name: REST API
+          href: role-assignments-list-rest.md
+    - name: 역할 할당 추가 또는 제거
       items:
         - name: 포털
           href: role-assignments-portal.md
@@ -50,9 +66,9 @@
           href: role-assignments-rest.md
         - name: 템플릿
           href: role-assignments-template.md
-    - name: 액세스 거부
+    - name: 거부 할당 목록
       items:
-        - name: 거부 할당
+        - name: 개요
           href: deny-assignments.md
         - name: 포털
           href: deny-assignments-portal.md
@@ -60,7 +76,7 @@
           href: deny-assignments-powershell.md
         - name: REST API
           href: deny-assignments-rest.md
-    - name: 사용자 지정 역할
+    - name: 사용자 지정 역할 만들기
       items:
         - name: 개요
           href: custom-roles.md
@@ -72,7 +88,7 @@
           href: custom-roles-rest.md
     - name: 활동 로그 보기
       href: change-history-report.md
-    - name: 모든 구독을 관리하도록 액세스 권한 상승
+    - name: 액세스 권한 상승
       href: elevate-access-global-admin.md
     - name: 클래식 관리자
       href: classic-administrators.md
@@ -80,8 +96,6 @@
       href: troubleshooting.md
 - name: 참고 자료
   items:
-    - name: 기본 제공 역할
-      href: built-in-roles.md
     - name: 리소스 공급자 작업
       href: resource-provider-operations.md
     - name: RBAC 제한
