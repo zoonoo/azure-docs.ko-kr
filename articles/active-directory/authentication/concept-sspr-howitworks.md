@@ -1,5 +1,5 @@
 ---
-title: Self-service password reset deep dive - Azure Active Directory
+title: 셀프 서비스 암호 재설정 심층 살펴보기-Azure Active Directory
 description: SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요?
 services: active-directory
 ms.service: active-directory
@@ -13,7 +13,7 @@ ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: e88669b5453069d9f6bb64e803adc65baf8afc6b
 ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 11/23/2019
 ms.locfileid: "74420713"
@@ -54,11 +54,11 @@ SSPR(셀프 서비스 암호 재설정)은 어떻게 작동하나요? 인터페�
 
 ## <a name="authentication-methods"></a>인증 방법
 
-SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상을 선택해야 합니다. 이러한 옵션을 "게이트"라고 하는 경우도 있습니다. 사용자가 필요할 때 한 인증 방법에 액세스하지 못하는 상황에서 더 유연하게 사용할 수 있게 **두 개 이상의 인증 방법을 선택**하는 것이 좋습니다. Additional details about the methods listed below can be found in the article [What are authentication methods?](concept-authentication-methods.md).
+SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상을 선택해야 합니다. 이러한 옵션을 "게이트"라고 하는 경우도 있습니다. 사용자가 필요할 때 한 인증 방법에 액세스하지 못하는 상황에서 더 유연하게 사용할 수 있게 **두 개 이상의 인증 방법을 선택**하는 것이 좋습니다. 아래에 나열 된 방법에 대 한 추가 정보는 [인증 방법 이란?](concept-authentication-methods.md)문서에서 찾을 수 있습니다.
 
 * 모바일 앱 알림
-* Mobile app code
-* 이메일
+* 모바일 앱 코드
+* EMail
 * 휴대폰
 * 사무실 전화
 * 보안 질문
@@ -66,12 +66,12 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 사용자는 관리자가 사용하도록 설정한 인증 방법으로 데이터를 표시하는 경우에만 자신의 암호를 재설정할 수 있습니다.
 
 > [!IMPORTANT]
-> Starting in March of 2019 the phone call options will not be available to MFA and SSPR users in free/trial Azure AD tenants. SMS messages are not impacted by this change. Phone call will continue to be available to users in paid Azure AD tenants. This change only impacts free/trial Azure AD tenants.
+> 2019 년 3 월부터, 무료/평가판 Azure AD 테 넌 트의 MFA 및 SSPR 사용자가 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 > [!WARNING]
 > Azure 관리자 역할이 할당된 계정은 [관리자 재설정 정책의 차이점](concept-sspr-policy.md#administrator-reset-policy-differences) 섹션에 정의된 메서드를 사용해야 합니다.
 
-![Authentication methods selection in the Azure portal][Authentication]
+![Azure Portal의 인증 방법 선택][Authentication]
 
 ### <a name="number-of-authentication-methods-required"></a>필수 인증 방법의 수
 
@@ -81,7 +81,7 @@ SSPR을 사용하는 경우 인증 방법으로 다음 옵션 중 하나 이상�
 
 사용자에 대해 최소한의 필요한 인증 방법이 등록되지 않은 경우 관리자가 사용자의 암호를 다시 설정하도록 지시하는 오류 페이지가 표시됩니다.
 
-#### <a name="mobile-app-and-sspr"></a>Mobile app and SSPR
+#### <a name="mobile-app-and-sspr"></a>모바일 앱 및 SSPR
 
 Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법으로 사용할 경우 다음 주의 사항에 유의해야 합니다.
 
@@ -95,13 +95,13 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 사용자에게는 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)에서 셀프 서비스 암호 재설정 등록을 위해 모바일 앱을 등록할 수 있는 옵션이 없습니다. 사용자는 [https://aka.ms/mfasetup](https://aka.ms/mfasetup)에서 또는 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)의 새로운 보안 정보 등록 미리 보기에서 자신의 모바일 앱을 등록할 수 있습니다.
 
 > [!WARNING]
-> 사용자가 [https://aka.ms/setupsecurityinfo](https://aka.ms/setupsecurityinfo)에서 새 환경에 액세스할 수 있으려면 [셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)](concept-registration-mfa-sspr-converged.md)를 사용하도록 설정해야 합니다.
+> 사용자가 [](concept-registration-mfa-sspr-converged.md)[에서 새 환경에 액세스할 수 있으려면 https://aka.ms/setupsecurityinfo셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication에 대한 등록 수렴(공개 미리 보기)](https://aka.ms/setupsecurityinfo)를 사용하도록 설정해야 합니다.
 
 > [!IMPORTANT]
-> The authenticator app cannot be selected as the only authentication method when configuring a 1-gate policy. Similarly, the authenticator app and only one additional method cannot be selected when configuring a 2-gates policy.
-> Then, when configuring SSPR policies that include the authenticator app as a method, at least an additional method should be selected when configuring a 1-gate policy, and at least two additional methods should be selected when configuring a 2-gates policy.
-> The reason for this requirement is because the current SSPR registration experience does not include the option to register the authenticator app. The option to register the authenticator app is included with the new [Converged registration for self-service password reset and Azure Multi-Factor Authentication (Public preview)](concept-registration-mfa-sspr-converged.md).
-> Allowing policies that only use the authenticator app (for 1-gate policies), or the authenticator app and only one additional method (for 2-gates policies), could lead to users being blocked from registering for  SSPR until they have been configured to use the new registration experience.
+> 1 게이트 정책을 구성할 때 인증자 앱을 유일한 인증 방법으로 선택할 수 없습니다. 마찬가지로, authenticator 앱과 2 게이트 정책을 구성할 때 하나의 추가 메서드만 선택할 수 있습니다.
+> 그러면 인증자 앱을 메서드로 포함 하는 SSPR 정책을 구성 하는 경우 1 게이트 정책을 구성할 때 최소한 추가 방법을 선택 해야 하며, 2 게이트 정책을 구성할 때 적어도 두 개 이상의 추가 방법을 선택 해야 합니다.
+> 이 요구 사항에 대 한 이유는 현재 SSPR 등록 환경에 인증자 앱을 등록 하는 옵션이 포함 되어 있지 않기 때문입니다. Authenticator 앱을 등록 하는 옵션이 [셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication (공개 미리 보기)에 대 한 새 수렴 형 등록과](concept-registration-mfa-sspr-converged.md)함께 포함 되어 있습니다.
+> Authenticator 앱만 사용 하는 정책 (1-게이트 정책의 경우) 또는 인증자 앱과 하나의 추가 방법 (2 게이트 정책의 경우)만 허용 하면 새를 사용 하도록 구성 될 때까지 사용자가 SSPR에 대 한 등록을 차단 하 게 됩니다. 등록 환경.
 
 ### <a name="change-authentication-methods"></a>인증 방법 변경
 
@@ -115,7 +115,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 사용자가 사용할 수 있는 인증 방법 유형을 변경하면 사용 가능한 최소 데이터 양이 없는 경우 사용자가 실수로 SSPR을 사용할 수 없게 될 수 있습니다.
 
-예제:
+예:
 1. 원래 정책은 필요한 두 가지 인증 방법으로 구성됩니다. 사무실 전화 번호와 보안 질문만 사용합니다. 
 2. 관리자는 더 이상 보안 질문을 사용하지 않도록 정책을 변경하지만 휴대폰 및 보조 메일은 사용하도록 허용합니다.
 3. 입력한 휴대폰 또는 대체 이메일 필드가 없는 사용자는 암호를 다시 설정할 수 없습니다.
@@ -126,13 +126,13 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 이 옵션을 사용하려면 사용자가 Azure AD를 사용하는 애플리케이션에 로그인한 경우 암호 재설정 등록을 완료해야 합니다. 이 워크플로에는 다음 애플리케이션이 포함됩니다.
 
-* PowerApps
-* Azure Portal
+* Office 365
+* Azure 포털
 * 액세스 패널
 * 페더레이션된 애플리케이션
 * Azure AD를 사용하여 애플리케이션 사용자 지정
 
-등록 요구를 사용하지 않도록 설정된 경우 사용자가 수동으로 등록할 수 있습니다. [액세스 패널]의 **프로필** 탭 아래에서 [https://aka.ms/ssprsetup](https://aka.ms/ssprsetup)을 방문하거나 **암호 재설정에 등록** 링크를 선택할 수 있습니다.
+등록 요구를 사용하지 않도록 설정된 경우 사용자가 수동으로 등록할 수 있습니다. [액세스 패널]의 [프로필 https://aka.ms/ssprsetup 탭 아래에서 ](https://aka.ms/ssprsetup)을 방문하거나 **암호 재설정에 등록** 링크를 선택할 수 있습니다.
 
 > [!NOTE]
 > 사용자가 **취소**를 선택하거나 창을 닫으면 암호 재설정 등록 포털을 해제할 수 있습니다. 그러나 이 경우에는 등록을 완료할 때까지 로그인할 때마다 등록하도록 요구하는 메시지가 표시됩니다.
@@ -145,7 +145,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 유효한 값은 0-730일이며, 여기서 "0"은 사용자가 해당 인증 정보를 다시 확인하도록 요청받지 않습니다.
 
-## <a name="notifications"></a>공지
+## <a name="notifications"></a>알림
 
 ### <a name="notify-users-on-password-resets"></a>사용자에게 암호 재설정에 대해 알림
 
@@ -161,7 +161,7 @@ Microsoft Authenticator 앱과 같은 모바일 앱을 암호 재설정 방법�
 
 Azure AD Connect를 설치, 구성 및 사용 설정하는 경우 온-프레미스 통합을 위해 다음과 같은 추가 옵션이 있습니다. 이 옵션이 회색으로 표시되면 쓰기 저장이 제대로 구성되지 않은 것입니다. 자세한 내용은 [비밀번호 쓰기 저장 구성](howto-sspr-writeback.md)을 참조하세요.
 
-![Validating password writeback is enabled and working][Writeback]
+![비밀 번호 쓰기 저장이 사용 하도록 설정 되어 있고 작동 하는지 확인][Writeback]
 
 이 페이지에서는 현재 구성에 따라 다음 메시지 중 하나가 표시되는 온-프레미스 쓰기 저장 클라이언트의 빠른 상태를 제공합니다.
 
@@ -198,14 +198,14 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 * 셀프 서비스 등록을 통해 **로그인한 사용자** - 제휴한 조직에서 [셀프 서비스 등록](../users-groups-roles/directory-self-service-signup.md) 기능을 사용하여 테넌트에 가입한 경우 등록한 전자 메일을 통해 암호를 다시 설정하도록 합니다.
 * **B2B 사용자** - 새 [Azure AD B2B 기능](../active-directory-b2b-what-is-azure-ad-b2b.md)을 사용하여 만든 모든 새 B2B 사용자는 초대 프로세스 중에 등록한 전자 메일을 통해 암호를 다시 설정할 수 있습니다.
 
-이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com 으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
+이 시나리오를 테스트하려면 이러한 파트너 사용자 중 하나로 https://passwordreset.microsoftonline.com으로 이동합니다. 대체 전자 메일 또는 인증 전자 메일이 정의되어 있으면 암호 재설정이 예상대로 작동합니다.
 
 > [!NOTE]
 > Hotmail.com, Outlook.com 또는 기타 개인 이메일 주소와 같이 Azure AD 테넌트에 게스트 액세스 권한이 부여된 Microsoft 계정은 Azure AD SSPR을 사용할 수 없습니다. [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429/microsoft-account-sign-in-cant) 문서에 있는 정보를 사용하여 암호를 다시 설정해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-다음 문서에서는 Azure AD를 통한 암호 재설정에 대한 추가 정보를 제공합니다.
+다음 문서는 Azure AD를 통한 암호 재설정에 대한 추가 정보를 제공합니다.
 
 * [성공적인 SSPR 롤아웃을 어떻게 완료합니까?](howto-sspr-deployment.md)
 * [암호 재설정 또는 변경](../user-help/active-directory-passwords-update-your-own-password.md)
@@ -217,7 +217,7 @@ Azure AD 셀프 서비스 암호 재설정은 Active Directory에서 관리자�
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [I think something is broken. How do I troubleshoot SSPR?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Authentication]: ./media/concept-sspr-howitworks/manage-authentication-methods-for-password-reset.png "사용 가능한 Azure AD 인증 방법 및 필요한 수량"

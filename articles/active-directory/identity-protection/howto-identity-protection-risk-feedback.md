@@ -1,6 +1,6 @@
 ---
-title: Provide risk feedback in Azure Active Directory Identity Protection
-description: How and why should you provide feedback on Identity Protection risk detections.
+title: Azure Active Directory Identity Protection에서 위험 피드백 제공
+description: Id 보호 위험 검색에 대 한 피드백을 제공 하는 방법과 이유
 services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
@@ -18,46 +18,46 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 11/22/2019
 ms.locfileid: "74382090"
 ---
-# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>How To: Give risk feedback in Azure AD Identity Protection
+# <a name="how-to-give-risk-feedback-in-azure-ad-identity-protection"></a>방법: Azure AD ID 보호에서 위험 피드백 제공
 
-Azure AD Identity Protection allows you to give feedback on its risk assessment. The following document lists the scenarios where you would like to give feedback on Azure AD Identity Protection’s risk assessment and how we incorporate it.
+Azure AD ID 보호를 사용 하 여 위험 평가에 대 한 피드백을 제공할 수 있습니다. 다음 문서에서는 Azure AD ID 보호의 위험 평가 및 통합 방법에 대 한 피드백을 제공 하려는 시나리오를 나열 합니다.
 
-## <a name="what-is-a-detection"></a>What is a detection?
+## <a name="what-is-a-detection"></a>검색 이란?
 
-An Identity Protection detection is an indicator of suspicious activity from an identity risk perspective. These suspicious activities are called risk detections. These identity-based detections can be based on heuristics, machine learning or can come from partner products. These detections are used to determine sign-in risk and user risk,
+Id 보호 검색은 id 위험 관점에서 의심 스러운 활동을 나타내는 지표입니다. 이러한 의심 스러운 활동을 위험 검색 이라고 합니다. 이러한 id 기반 검색은 추론, 기계 학습 또는 파트너 제품의 제공을 기반으로 할 수 있습니다. 이러한 검색은 로그인 위험 및 사용자 위험을 확인 하는 데 사용 됩니다.
 
-* User risk represents the probability an identity is compromised.
-* Sign-in risk represents the probability a sign-in is compromised (for example, the sign-in is not authorized by the identity owner).
+* 사용자 위험은 id가 손상 된 확률을 나타냅니다.
+* 로그인 위험은 로그인이 손상 될 확률을 나타냅니다. 예를 들어 로그인은 id 소유자가 권한을 부여 받지 않습니다.
 
-## <a name="why-should-i-give-risk-feedback-to-azure-ads-risk-assessments"></a>Why should I give risk feedback to Azure AD’s risk assessments? 
+## <a name="why-should-i-give-risk-feedback-to-azure-ads-risk-assessments"></a>Azure AD의 위험 평가에 위험 피드백을 제공 해야 하는 이유는 무엇 인가요? 
 
-There are several reasons why you should give Azure AD risk feedback:
+Azure AD 위험 피드백을 제공 해야 하는 이유는 여러 가지가 있습니다.
 
-- **You found Azure AD’s user or sign-in risk assessment incorrect**. For example, a sign-in shown in ‘Risky sign-ins’ report was benign and all the detections on that sign-in were false positives.
-- **You validated that Azure AD’s user or sign-in risk assessment was correct**. For example, a sign-in shown in ‘Risky sign-ins’ report was indeed malicious and you want Azure AD to know that all the detections on that sign-in were true positives.
-- **You remediated the risk on that user outside of Azure AD Identity Protection** and you want the user’s risk level to be updated.
+- **AZURE AD의 사용자 또는 로그인 위험 평가가 잘못**되었습니다. 예를 들어 ' 위험한 로그인 ' 보고서에 표시 된 로그인이 무해 하 고 해당 로그인에 대 한 모든 검색은 가양성 이었습니다.
+- **AZURE AD의 사용자 또는 로그인 위험 평가가 올바른지 유효성을 검사 했습니다**. 예를 들어 ' 위험한 로그인 ' 보고서에 표시 된 로그인은 정말 악성 이며, 해당 로그인에 대 한 모든 검색이 참 긍정 임을 Azure AD에서 알고 있어야 합니다.
+- **Azure AD ID 보호 외부에서 해당 사용자에 대 한 위험을 재구성** 하 고 사용자의 위험 수준을 업데이트 하려고 합니다.
 
-## <a name="how-does-azure-ad-use-my-risk-feedback"></a>How does Azure AD use my risk feedback?
+## <a name="how-does-azure-ad-use-my-risk-feedback"></a>Azure AD는 어떻게 위험 피드백을 사용 하나요?
 
-Azure AD uses your feedback to update the risk of the underlying user and/or sign-in and the accuracy of these events. This feedback helps secure the end user. For example, once you confirm a sign-in is compromised, Azure AD immediately increases the user’s risk and sign-in’s aggregate risk (not real-time risk) to High. If this user is included in your user risk policy to force High risk users to securely reset their passwords, the user will automatically remediate itself the next time they sign-in.
+Azure AD는 사용자 의견을 사용 하 여 기본 사용자 및/또는 로그인의 위험을 업데이트 하 고 이러한 이벤트의 정확도를 업데이트 합니다. 이 피드백은 최종 사용자를 보호 하는 데 도움이 됩니다. 예를 들어 로그인이 손상 된 것을 확인 한 후 Azure AD는 사용자의 위험 및 로그인의 집계 위험 (실시간 위험 아님)을 높은 수준으로 즉시 증가 시킵니다. 사용자 위험 정책에이 사용자를 포함 하 여 높은 위험 사용자가 암호를 안전 하 게 다시 설정 하도록 하는 경우 사용자는 다음 번에 로그인 할 때 자동으로 자동으로 재구성 됩니다.
 
-## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>How should I give risk feedback and what happens under the hood?
+## <a name="how-should-i-give-risk-feedback-and-what-happens-under-the-hood"></a>사용자 의견을 제공 하는 방법 및 내부적으로 어떤 일이 발생 하나요?
 
-Here are the scenarios and mechanisms to give risk feedback to Azure AD.
+Azure AD에 위험 피드백을 제공 하는 시나리오 및 메커니즘은 다음과 같습니다.
 
-| 시나리오 | How to give feedback? | What happens under the hood? | 참고 |
+| 시나리오 | 사용자 의견을 제공 하는 방법 | 후드에서 어떻게 되나요? | 참고 사항 |
 | --- | --- | --- | --- |
-| **Sign-in not compromised (False positive)** <br> ‘Risky sign-ins’ report shows an at-risk sign-in [Risk state = At risk] but that sign-in was not compromised. | Select the sign-in and click on ‘Confirm sign-in safe’. | Azure AD will move the sign-in’s aggregate risk to none [Risk state = Confirmed safe; Risk level (Aggregate) = -] and will reverse its impact on the user risk. | Currently, the ‘Confirm sign-in safe’ option is only available in ‘Risky sign-ins’ report. |
-| **Sign-in compromised (True positive)** <br> ‘Risky sign-ins’ report shows an at-risk sign-in [Risk state = At risk] with low risk [Risk level (Aggregate) = Low] and that sign-in was indeed compromised. | Select the sign-in and click on ‘Confirm sign-in compromised’. | Azure AD will move the sign-in’s aggregate risk and the user risk to High [Risk state = Confirmed compromised; Risk level = High]. | Currently, the ‘Confirm sign-in compromised’ option is only available in ‘Risky sign-ins’ report. |
-| **User compromised (True positive)** <br> ‘Risky users’ report shows an at-risk user [Risk state = At risk] with low risk [Risk level = Low] and that user was indeed compromised. | Select the user and click on ‘Confirm user compromised’. | Azure AD will move the user risk to High [Risk state = Confirmed compromised; Risk level = High] and will add a new detection ‘Admin confirmed user compromised’. | Currently, the ‘Confirm user compromised’ option is only available in ‘Risky users’ report. <br> The detection ‘Admin confirmed user compromised’ is shown in the tab ‘Risk detections not linked to a sign-in’ in the ‘Risky users’ report. |
-| **User remediated outside of Azure AD Identity Protection (True positive + Remediated)** <br> ‘Risky users’ report shows an at-risk user and I have subsequently remediated the user outside of Azure AD Identity Protection. | 1. Select the user and click ‘Confirm user compromised’. (This process confirms to Azure AD that the user was indeed compromised.) <br> 2. Wait for the user’s ‘Risk level’ to go to High. (This time gives Azure AD the needed time to take the above feedback to the risk engine.) <br> 3. Select the user and click ‘Dismiss user risk’. (This process confirms to Azure AD that the user is no longer compromised.) |  Azure AD moves the user risk to none [Risk state = Dismissed; Risk level = -] and closes the risk on all existing sign-ins having active risk. | Clicking ‘Dismiss user risk’ will close all risk on the user and past sign-ins. This action cannot be undone. |
-| **User not compromised (False positive)** <br> ‘Risky users’ report shows at at-risk user but the user is not compromised. | Select the user and click ‘Dismiss user risk’. (This process confirms to Azure AD that the user is not compromised.) | Azure AD moves the user risk to none [Risk state = Dismissed; Risk level = -]. | Clicking ‘Dismiss user risk’ will close all risk on the user and past sign-ins. This action cannot be undone. |
-| I want to close the user risk but I am not sure whether the user is compromised / safe. | Select the user and click ‘Dismiss user risk’. (This process confirms to Azure AD that the user is no longer compromised.) | Azure AD moves the user risk to none [Risk state = Dismissed; Risk level = -]. | Clicking ‘Dismiss user risk’ will close all risk on the user and past sign-ins. This action cannot be undone. We recommend you remediate the user by clicking on ‘Reset password’ or request the user to securely reset/change their credentials. |
+| **로그인이 손상 되지 않음 (거짓 긍정)** <br> ' 위험한 로그인 ' 보고서는 위험에 노출 된 로그인 [위험 상태 = At 위험]을 표시 하지만 해당 로그인이 손상 되지 않았습니다. | 로그인을 선택 하 고 ' 안전 하 게 로그인 확인 '을 클릭 합니다. | Azure AD는 로그인의 집계 위험을 없음 [위험 상태 = 안전 하 게 확인 됨]으로 이동 합니다. 위험 수준 (집계) =-]은 사용자 위험에 대 한 영향을 되돌립니다. | 현재 ' 안전 하 게 로그인 확인 ' 옵션은 ' 위험한 로그인 ' 보고서 에서만 사용할 수 있습니다. |
+| **로그인이 손상 되었습니다 (참 긍정).** <br> ' 위험한 로그인 ' 보고서는 위험 수준 [위험 수준 = (집계) = 낮음]이 고 로그인이 실제로 손상 되었다는 위험에 노출 된 로그인 [위험 상태 = At 위험]을 보여 줍니다. | 로그인을 선택 하 고 ' 손상 된 로그인 확인 '을 클릭 합니다. | Azure AD는 로그인의 집계 위험을 이동 하 고 사용자 위험을 높음 [위험 상태 = 손상 확인 됨을 확인 합니다. 위험 수준 = 높음]. | 현재 ' 로그인이 손상 되었는지 확인 ' 옵션은 ' 위험한 로그인 ' 보고서 에서만 사용할 수 있습니다. |
+| **사용자 손상 (참 긍정)** <br> ' 위험한 사용자 ' 보고서에 위험 수준 [위험 수준 = 낮음]이 있는 위험 수준 사용자 [위험 상태 = 위험]이 표시 되 고 해당 사용자가 실제로 손상 되었습니다. | 사용자를 선택 하 고 ' 사용자의 손상 확인 '을 클릭 합니다. | Azure AD는 사용자 위험을 높음 [위험 상태 = 손상 확인 됨으로 이동 합니다. 위험 수준 = 높음] 및 새 검색 ' 관리자 확인 사용자가 손상 되었습니다. '가 추가 됩니다. | 현재 ' 사용자 확인 확인 ' 옵션은 ' 위험한 사용자 ' 보고서 에서만 사용할 수 있습니다. <br> ' 관리자 확인 사용자가 손상 되었습니다. '는 ' 위험한 사용자 ' 보고서의 ' 로그인에 연결 되지 않은 위험 검색 ' 탭에 표시 됩니다. |
+| **사용자가 Azure AD ID 보호 외부에서 재구성 됨 (참 긍정 + 재구성 됨)** <br> ' 위험한 사용자 ' 보고서는 위험에 노출 된 사용자를 표시 하 고 이후에 Azure AD ID 보호 외부에서 사용자를 재구성 했습니다. | 1. 사용자를 선택 하 고 ' 사용자가 손상 확인 '을 클릭 합니다. 이 프로세스는 사용자가 실제로 손상 되었다는 것을 Azure AD에서 확인 합니다. <br> 2. 사용자의 ' 위험 수준 '이 높음으로 전환 될 때까지 기다립니다. 이번에는 Azure AD에서 위의 피드백을 위험 엔진으로 이동 하는 데 필요한 시간을 제공 합니다. <br> 3. 사용자를 선택 하 고 ' 사용자 위험 해제 '를 클릭 합니다. (이 프로세스는 사용자가 더 이상 손상 되지 않도록 Azure AD를 확인 합니다.) |  Azure AD는 사용자 위험을 없음 [위험 상태 = 해제 됨]으로 이동 합니다. 위험 수준 =-]을 (를) 설정 하면 모든 기존 로그인에서 위험을 발생 하 게 됩니다. | ' 사용자의 사용자 해제 '를 클릭 하면 사용자 및 과거 로그인에 대 한 모든 위험이 닫힙니다. 이 작업은 실행 취소할 수 없습니다. |
+| **사용자가 손상 되지 않음 (거짓 긍정)** <br> ' 위험한 사용자 ' 보고서는 위험에 노출 된 사용자에 게 표시 되지만 사용자가 손상 되지 않습니다. | 사용자를 선택 하 고 ' 사용자 위험 해제 '를 클릭 합니다. (이 프로세스는 사용자가 손상 되지 않았음을 Azure AD에서 확인 합니다.) | Azure AD는 사용자 위험을 없음 [위험 상태 = 해제 됨]으로 이동 합니다. 위험 수준 =-]. | ' 사용자의 사용자 해제 '를 클릭 하면 사용자 및 과거 로그인에 대 한 모든 위험이 닫힙니다. 이 작업은 실행 취소할 수 없습니다. |
+| 사용자 위험을 종결 하려고 하지만 사용자의 손상 여부는 확실 하지 않습니다. | 사용자를 선택 하 고 ' 사용자 위험 해제 '를 클릭 합니다. (이 프로세스는 사용자가 더 이상 손상 되지 않도록 Azure AD를 확인 합니다.) | Azure AD는 사용자 위험을 없음 [위험 상태 = 해제 됨]으로 이동 합니다. 위험 수준 =-]. | ' 사용자의 사용자 해제 '를 클릭 하면 사용자 및 과거 로그인에 대 한 모든 위험이 닫힙니다. 이 작업은 실행 취소할 수 없습니다. ' 암호 다시 설정 '을 클릭 하 여 사용자를 수정 하거나 사용자에 게 자격 증명을 안전 하 게 다시 설정/변경 하도록 요청 하는 것이 좋습니다. |
 
-Feedback on user risk detections in Identity Protection is processed offline and may take some time to update. The risk processing state column will provide the current state of feedback processing.
+Id 보호에서 사용자 위험 검색에 대 한 피드백은 오프 라인으로 처리 되 고 업데이트 하는 데 다소 시간이 걸릴 수 있습니다. 위험 처리 상태 열은 피드백 처리의 현재 상태를 제공 합니다.
 
-![Risk processing state for risky user report](./media/howto-identity-protection-risk-feedback/risky-users-provide-feedback.png)
+![위험한 사용자 보고서의 위험 처리 상태](./media/howto-identity-protection-risk-feedback/risky-users-provide-feedback.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Active Directory Identity Protection risk detections reference](risk-events-reference.md)
+- [Azure Active Directory Identity Protection 위험 검색 참조](risk-events-reference.md)
