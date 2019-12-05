@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 02632e5bc84c7406ce3a42eb4be71cf6aaf75c15
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: e8fc6e8c2f37dcd3edec24fb4d8ed81b32a84bd0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075769"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816584"
 ---
 # <a name="scenario-availability"></a>시나리오 가용성
 
@@ -27,7 +27,7 @@ ms.locfileid: "74075769"
   - C++/Swindows & Linux
   - C#/Windows & UWP & Unity
   - Java (Jre 및 Android)
-  - Python
+  - 파이썬
   - Swift
   - Objective-C
   - TTS REST API은 다른 모든 상황에서 사용할 수 있습니다.

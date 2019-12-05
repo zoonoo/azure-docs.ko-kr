@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 11/06/2019
-ms.openlocfilehash: 5adb342b733563fd0b062dd263a4fdd83259d166
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0e2dcec15566749b58c439b68532829b67716754
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792063"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815111"
 ---
 # <a name="connect-to-on-premises-data-sources-from-azure-logic-apps"></a>Azure Logic Apps에서 온-프레미스 데이터 원본에 연결
 
@@ -70,7 +70,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. Azure Portal 검색 상자에 "온-프레미스 데이터 게이트웨이"를 입력 하 고 **온-프레미스 데이터**게이트웨이를 선택 합니다.
 
-   !["온-프레미스 데이터 게이트웨이" 찾기](./media/logic-apps-gateway-connection/find-on-premises-data-gateway.png)
+   !["온-프레미스 데이터 게이트웨이" 찾기](./media/logic-apps-gateway-connection/search-for-on-premises-data-gateway.png)
 
 1. **온-프레미스 데이터 게이트웨이**아래에서 **추가**를 선택 합니다.
 
@@ -89,7 +89,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
    다음은 게이트웨이 리소스와 동일한 지역에 있고 동일한 Azure 계정에 연결 된 게이트웨이 설치를 보여 주는 예제입니다.
 
-   ![데이터 게이트웨이 리소스 만들기에 대 한 세부 정보 제공](./media/logic-apps-gateway-connection/add-azure-data-gateway-information.png)
+   ![데이터 게이트웨이 리소스 만들기에 대 한 세부 정보 제공](./media/logic-apps-gateway-connection/on-premises-data-gateway-create-connection.png)
 
 <a name="connect-logic-app-gateway"></a>
 
@@ -128,7 +128,7 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 1. 논리 앱에 대 한 모든 API 연결을 찾으려면 논리 앱의 메뉴에 있는 **개발 도구**아래에서 **api 연결**을 선택 합니다.
 
-   ![논리 앱 메뉴에서 "API 연결"을 선택 합니다.](./media/logic-apps-gateway-connection/logic-app-find-api-connections.png)
+   ![논리 앱 메뉴에서 "API 연결"을 선택 합니다.](./media/logic-apps-gateway-connection/logic-app-api-connections.png)
 
 1. 원하는 게이트웨이 연결을 선택 하 고 **API 연결 편집**을 선택 합니다.
 
@@ -137,8 +137,8 @@ Azure Logic Apps는 데이터 게이트웨이를 통해 읽기 및 쓰기 작업
 
 Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
-* 기본 Azure 메뉴에서 **모든 서비스** > **웹** > **API 연결**로 이동합니다.
-* 또는 기본 Azure 메뉴에서 **모든 리소스**로 이동합니다. **유형** 필터를 **API 연결**로 설정 합니다.
+* Azure Portal 메뉴에서 **모든 서비스** > **웹** > **API 연결**을 선택 합니다.
+* 또는 Azure Portal 메뉴에서 **모든 리소스**를 선택 합니다. **유형** 필터를 **API 연결**로 설정 합니다.
 
 <a name="change-delete-gateway-resource"></a>
 
@@ -146,13 +146,13 @@ Azure 구독에 연결된 모든 API 연결을 찾으려면:
 
 다른 게이트웨이 리소스를 만들거나, 게이트웨이 설치를 다른 게이트웨이 리소스에 연결 하거나, 게이트웨이 리소스를 제거 하려면 게이트웨이 설치에 영향을 주지 않고 게이트웨이 리소스를 삭제할 수 있습니다.
 
-1. 기본 Azure 메뉴에서 **모든 리소스**를 선택 합니다. 게이트웨이 리소스를 찾아 선택합니다.
+1. Azure Portal 메뉴에서 **모든 리소스**를 선택 하거나 모든 페이지에서 **모든 리소스** 를 검색 하 고 선택 합니다. 게이트웨이 리소스를 찾아 선택합니다.
 
 1. 게이트웨이 리소스 메뉴에서 아직 선택하지 않은 경우 **온-프레미스 데이터 게이트웨이**를 선택합니다. 게이트웨이 리소스 도구 모음에서 **삭제**를 선택 합니다.
 
    다음은 그 예입니다.
 
-   ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway-resource.png)
+   ![Azure에서 게이트웨이 리소스 삭제](./media/logic-apps-gateway-connection/delete-on-premises-data-gateway.png)
 
 <a name="faq"></a>
 

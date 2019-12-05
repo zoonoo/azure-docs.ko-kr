@@ -9,12 +9,12 @@ ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 32bcb12f39d65d63af1c6595c0d57c695ce0533f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792224"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806935"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -24,35 +24,13 @@ ms.locfileid: "74792224"
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
-## <a name="authenticate-with-the-azure-identity-library"></a>Azure Id 라이브러리를 사용 하 여 인증
-
-.NET 용 Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다.
-
-개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
-
-다른 개발 도구는 웹 브라우저를 통해 로그인 하 라는 메시지를 표시할 수 있습니다. 서비스 주체를 사용 하 여 개발 환경에서 인증할 수도 있습니다. 자세한 내용은 [포털에서 Azure 앱에 대 한 Id 만들기](../../active-directory/develop/howto-create-service-principal-portal.md)를 참조 하세요.
-
-인증 후에 Azure Id 클라이언트 라이브러리는 토큰 자격 증명을 가져옵니다. 그런 다음이 토큰 자격 증명은 Azure Storage에 대해 작업을 수행 하기 위해 만드는 서비스 클라이언트 개체에 캡슐화 됩니다. 라이브러리는 적절 한 토큰 자격 증명을 가져와이를 원활 하 게 처리 합니다.
-
-Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)를 참조 하세요.
-
 ## <a name="assign-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC 역할 할당
 
 Azure AD 보안 주체가 blob 데이터에 액세스 하려고 할 때 해당 보안 주체에 게 리소스에 대 한 권한이 있어야 합니다. 보안 주체가 Azure에서 관리 되는 id이 든, 개발 환경에서 코드를 실행 하는 Azure AD 사용자 계정 인지에 관계 없이 보안 주체는 Azure Storage의 blob 데이터에 대 한 액세스 권한을 부여 하는 RBAC 역할을 할당 받아야 합니다. RBAC를 통해 사용 권한을 할당 하는 방법에 대 한 자세한 내용은 [Azure Active Directory 사용 하 여 Azure blob 및 큐에](../common/storage-auth-aad.md#assign-rbac-roles-for-access-rights)대 한 액세스 권한 부여에서 **액세스 권한에 대 한 RBAC 역할 할당** 섹션을 참조 하세요.
 
-## <a name="install-the-packages"></a>패키지 설치
+[!INCLUDE [storage-install-packages-blob-and-identity-include](../../../includes/storage-install-packages-blob-and-identity-include.md)]
 
-이 문서의 예제에서는 [Blob 저장소에 대 한 최신 버전의 Azure Storage 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Storage.Blobs)를 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
-
-```powershell
-Install-Package Azure.Storage.Blobs
-```
-
-이 문서의 예제에서는 Azure AD 자격 증명을 사용 하 여 인증 하기 위해 최신 버전의 [.net 용 Azure id 클라이언트 라이브러리](https://www.nuget.org/packages/Azure.Identity/) 도 사용 합니다. 패키지를 설치 하려면 NuGet 패키지 관리자 콘솔에서 다음 명령을 실행 합니다.
-
-```powershell
-Install-Package Azure.Identity
-```
+Azure Storage에서 Azure Id 클라이언트 라이브러리를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 azure [리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](../common/storage-auth-aad-msi.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)에서 **azure id 라이브러리를 사용** 하 여 인증 섹션을 참조 하세요.
 
 ## <a name="add-using-directives"></a>지시문을 사용하여 추가
 
@@ -258,5 +236,6 @@ private static async Task ReadBlobWithSasAsync(Uri sasUri)
 
 ## <a name="see-also"></a>참고 항목
 
+- [SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여](../common/storage-sas-overview.md)
 - [사용자 위임 키 가져오기 작업](/rest/api/storageservices/get-user-delegation-key)
 - [사용자 위임 SAS (REST API) 만들기](/rest/api/storageservices/create-user-delegation-sas)

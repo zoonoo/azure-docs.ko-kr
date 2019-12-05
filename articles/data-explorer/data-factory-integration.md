@@ -8,12 +8,12 @@ ms.reviewer: tomersh26
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/14/2019
-ms.openlocfilehash: dd2b3bd584bb39810e0a5c9acde1a961330c273d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 51683e529f832e06efbe8eb71466f3b27d95fcb1
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74093762"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819129"
 ---
 # <a name="integrate-azure-data-explorer-with-azure-data-factory"></a>Azure Data Factory와 Azure 데이터 탐색기 통합
 
@@ -90,7 +90,7 @@ Azure 데이터 탐색기로 데이터를 복사 하기 위한 수집 명령과 
 
 다음 표에서는 Azure Data Factory와의 통합에서 다양 한 단계에 필요한 사용 권한을 나열 합니다.
 
-| 단계 | 작업(Operation) | 최소 권한 수준 | 참고 사항 |
+| 단계 | 작업(Operation) | 최소 권한 수준 | 참고 |
 |---|---|---|---|
 | **연결 된 서비스 만들기** | 데이터베이스 탐색 | *데이터베이스 뷰어* <br>ADF를 사용 하는 로그인 한 사용자에 게는 데이터베이스 메타 데이터를 읽을 수 있는 권한이 있어야 합니다. | 사용자는 데이터베이스 이름을 수동으로 입력할 수 있습니다. |
 | | 연결을 테스트 | *데이터베이스 모니터* 또는 *테이블 수집기* <br>서비스 주체에는 데이터베이스 수준 `.show` 명령 또는 테이블 수준 수집을 실행할 수 있는 권한이 있어야 합니다. | <ul><li>TestConnection은 데이터베이스가 아니라 클러스터에 대 한 연결을 확인 합니다. 데이터베이스가 존재 하지 않더라도 성공할 수 있습니다.</li><li>테이블 관리자 권한이 충분 하지 않습니다.</li></ul>|
@@ -103,28 +103,105 @@ Azure 데이터 탐색기로 데이터를 복사 하기 위한 수집 명령과 
 | **ADX를 원본으로** | 쿼리 실행 | *데이터베이스 뷰어* <br>서비스 주체는 데이터베이스 메타 데이터를 읽을 수 있는 권한이 있어야 합니다. | |
 | **Kusto 명령** | | 각 명령의 권한 수준에 따라 |
 
-## <a name="performance"></a>성능 
+## <a name="performance"></a>성능 중심 
 
 Azure 데이터 탐색기가 원본인 경우 쿼리를 포함 하는 조회, 복사 또는 명령 작업을 사용 하는 경우 성능 정보에 대 한 [쿼리 모범 사례](/azure/kusto/query/best-practices) 및 [복사 작업을 위한 ADF 설명서](/azure/data-factory/copy-activity-performance)를 참조 하세요.
   
 이 섹션에서는 Azure 데이터 탐색기 싱크로 복사 작업을 사용 하는 방법을 설명 합니다. Azure 데이터 탐색기 싱크에 대 한 예상 처리량은 11-13 MBps입니다. 다음 표에서는 Azure 데이터 탐색기 싱크의 성능에 영향을 주는 매개 변수를 자세히 설명 합니다.
 
-| 매개 변수를 포함해야 합니다. | 참고 사항 |
+| 매개 변수를 포함해야 합니다. | 참고 |
 |---|---|
 | **구성 요소 지리적 근접성** | 모든 구성 요소를 동일한 지역에 저장 합니다.<ul><li>원본 및 싱크 데이터 저장소.</li><li>ADF 통합 런타임.</li><li>ADX 클러스터.</li></ul>하나 이상의 통합 런타임이 ADX 클러스터와 동일한 지역에 있는지 확인 합니다. |
 | **DIUs 수** | ADF에서 사용 되는 4 개의 DIUs 마다 하나의 VM <br>파일이 여러 파일을 사용 하는 파일 기반 저장소 인 경우에만 DIUs를 늘릴 수 있습니다. 그러면 각 VM은 서로 다른 파일을 병렬로 처리 합니다. 따라서 하나의 큰 파일을 복사 하는 경우 여러 개의 작은 파일을 복사 하는 것 보다 대기 시간이 더 깁니다.|
 |**ADX 클러스터의 금액 및 SKU** | ADX 노드 수가 많으면 수집 처리 시간이 향상 됩니다.|
-| **병렬로** | 데이터베이스에서 대량의 데이터를 복사 하려면 데이터를 분할 한 다음 각 파티션을 병렬로 복사 하는 ForEach 루프를 사용 하거나 [데이터베이스에서 Azure 데이터 탐색기 템플릿으로 대량 복사](data-factory-template.md)를 사용 합니다. 참고: 복사 작업의 **병렬 처리 수준** **설정** > adx와 관련이 없습니다. |
+| **Parallelism** | 데이터베이스에서 대량의 데이터를 복사 하려면 데이터를 분할 한 다음 각 파티션을 병렬로 복사 하는 ForEach 루프를 사용 하거나 [데이터베이스에서 Azure 데이터 탐색기 템플릿으로 대량 복사](data-factory-template.md)를 사용 합니다. 참고: 복사 작업의 **병렬 처리 수준** **설정** > adx와 관련이 없습니다. |
 | **데이터 처리 복잡성** | 대기 시간은 원본 파일 형식, 열 매핑 및 압축에 따라 다릅니다.|
 | **Integration runtime을 실행 하는 VM** | <ul><li>Azure 복사의 경우 ADF Vm 및 컴퓨터 Sku를 변경할 수 없습니다.</li><li> 온-프레미스에서 Azure로 복사 하는 경우 자체 호스팅 IR을 호스트 하는 VM이 충분히 강력한 지 확인 합니다.</li></ul>|
 
-## <a name="monitor-activity-progress"></a>작업 진행률 모니터링
+## <a name="tips-and-common-pitfalls"></a>팁 및 일반적인 문제
+
+### <a name="monitor-activity-progress"></a>작업 진행률 모니터링
 
 * 데이터 *읽기* 는 이진 파일 크기에 따라 계산 되 *는 반면, 데이터는 직렬화* 및 압축을 푼 후 메모리 내 크기에 따라 계산 되므로 작업 진행률을 모니터링할 때 데이터 *쓰기* 속성은 *데이터 읽기* 속성 보다 훨씬 클 수 있습니다.
 
 * 작업 진행률을 모니터링할 때 데이터가 Azure 데이터 탐색기 싱크에 기록 되는 것을 볼 수 있습니다. Azure 데이터 탐색기 테이블을 쿼리하면 데이터가 도착 하지 않은 것을 볼 수 있습니다. 이는 Azure 데이터 탐색기에 복사할 때 두 단계가 있기 때문입니다. 
     * 첫 번째 단계에서는 원본 데이터를 읽고, 900-MB 청크로 분할 하 고, 각 청크를 Azure Blob에 업로드 합니다. 첫 번째 단계는 ADF 활동 진행률 보기에서 볼 수 있습니다. 
     * 두 번째 단계는 모든 데이터가 Azure Blob에 업로드 된 후에 시작 됩니다. Azure 데이터 탐색기 engine 노드는 blob을 다운로드 하 고 데이터를 싱크 테이블에 수집 합니다. 그러면 데이터가 Azure 데이터 탐색기 테이블에 표시 됩니다.
+
+### <a name="failure-to-ingest-csv-files-due-to-improper-escaping"></a>잘못 된 이스케이프로 인해 CSV 파일을 수집 하지 못했습니다.
+
+Azure 데이터 탐색기에는 CSV 파일이 [RFC 4180](https://www.ietf.org/rfc/rfc4180.txt)와 일치 하는 것으로 예상 됩니다.
+다음이 필요 합니다.
+* 이스케이프를 필요로 하는 문자를 포함 하는 필드 (예: "및 새 줄)는 공백 없이 **"** 문자로 시작 하 고 끝나야 합니다. "문자 ( **" "** )를 사용 하 여 필드 *내의* 모든 **"** **문자를** 이스케이프 합니다. 예를 들어 _"hello," "_ " ""는 단일 레코드를 포함 하는 유효한 CSV 파일이 며 내용 _Hello, "세계"_ 가 있는 단일 열 또는 필드가 있습니다.
+* 파일의 모든 레코드는 동일한 수의 열과 필드를 포함 해야 합니다.
+
+Azure Data Factory 백슬래시 (이스케이프) 문자를 허용 합니다. Azure Data Factory를 사용 하 여 백슬래시 문자를 사용 하 여 CSV 파일을 생성 하는 경우 파일을 Azure 데이터 탐색기 수집 하지 못합니다.
+
+#### <a name="example"></a>예제
+
+다음 텍스트 값: Hello, "세계"<br/>
+ABC DEF<br/>
+"ABC\D" EF<br/>
+"ABC DEF<br/>
+
+다음과 같이 적절 한 CSV 파일에 표시 되어야 합니다. "Hello," "" ""<br/>
+"ABC DEF"<br/>
+"" "ABC DEF"<br/>
+"" "ABC\D" "EF"<br/>
+
+기본 이스케이프 문자 (백슬래시)를 사용 하면 Azure 데이터 탐색기에서 다음 CSV가 작동 하지 않습니다. "Hello, \"세계\""<br/>
+"ABC DEF"<br/>
+"\"ABC DEF"<br/>
+"\"ABC\D\"EF"<br/>
+
+### <a name="nested-json-objects"></a>중첩 된 JSON 개체
+
+JSON 파일을 Azure 데이터 탐색기에 복사할 때 다음 사항에 유의 하세요.
+* 배열은 지원 되지 않습니다.
+* JSON 구조에 개체 데이터 형식이 포함 된 경우 Azure Data Factory는 개체의 자식 항목을 평면화 하 고 각 자식 항목을 Azure 데이터 탐색기 테이블의 다른 열에 매핑하려고 합니다. 전체 개체 항목이 Azure 데이터 탐색기의 단일 열에 매핑되도록 하려면 다음을 수행 합니다.
+    * 전체 JSON 행을 Azure 데이터 탐색기의 단일 동적 열에 수집 합니다.
+    * Azure Data Factory의 JSON 편집기를 사용 하 여 파이프라인 정의를 수동으로 편집 합니다. **매핑**
+       * 각 자식 항목에 대해 만들어진 여러 매핑을 제거 하 고, 개체 유형을 테이블 열에 매핑하는 단일 매핑을 추가 합니다.
+       * 닫는 대괄호 뒤에 쉼표를 추가 하 고 다음을 추가 합니다.<br/>
+       `"mapComplexValuesToString": true`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
+
+### <a name="specify-additionalproperties-when-copying-to-azure-data-explorer"></a>Azure 데이터 탐색기에 복사할 때 AdditionalProperties 지정
+
+> [!NOTE]
+> 이 기능은 현재 JSON 페이로드를 수동으로 편집 하 여 사용할 수 있습니다. 
+
+복사 작업의 "싱크" 섹션 아래에 다음과 같이 단일 행을 추가 합니다.
+
+```json
+"sink": {
+    "type": "AzureDataExplorerSink",
+    "additionalProperties": "{\"tags\":\"[\\\"drop-by:account_FiscalYearID_2020\\\"]\"}"
+},
+```
+
+값의 이스케이프는 어려울 수 있습니다. 다음 코드 조각을 참조로 사용 합니다.
+
+```csharp
+static void Main(string[] args)
+{
+       Dictionary<string, string> additionalProperties = new Dictionary<string, string>();
+       additionalProperties.Add("ignoreFirstRecord", "false");
+       additionalProperties.Add("csvMappingReference", "Table1_mapping_1");
+       IEnumerable<string> ingestIfNotExists = new List<string> { "Part0001" };
+       additionalProperties.Add("ingestIfNotExists", JsonConvert.SerializeObject(ingestIfNotExists));
+       IEnumerable<string> tags = new List<string> { "ingest-by:Part0001", "ingest-by:IngestedByTest" };
+       additionalProperties.Add("tags", JsonConvert.SerializeObject(tags));
+       var additionalPropertiesForPayload = JsonConvert.SerializeObject(additionalProperties);
+       Console.WriteLine(additionalPropertiesForPayload);
+       Console.ReadLine();
+}
+```
+
+인쇄 된 값:
+
+```json
+{"ignoreFirstRecord":"false","csvMappingReference":"Table1_mapping_1","ingestIfNotExists":"[\"Part0001\"]","tags":"[\"ingest-by:Part0001\",\"ingest-by:IngestedByTest\"]"}
+```
 
 ## <a name="next-steps"></a>다음 단계
 

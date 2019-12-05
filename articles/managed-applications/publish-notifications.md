@@ -8,12 +8,12 @@ ms.reviewer: ''
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: a00e5be4493b8c8116e2925e88a3ce4bf8cfb722
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 8cf9fc0b3d9c13ebc5309be6d27c7be0f2e60878
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74085318"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805691"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>알림과 Azure Managed Applications
 
@@ -31,7 +31,7 @@ Azure 관리 되는 응용 프로그램 알림을 통해 게시자는 관리 되
 6. 알림 요청을 구문 분석 하 고 알림을 바탕으로 비즈니스 논리를 구현 하려면 아래의 **알림 스키마** 설명서를 따르세요.
 
 ## <a name="adding-service-catalog-application-definition-notifications"></a>서비스 카탈로그 응용 프로그램 정의 알림 추가
-#### <a name="azure-portal"></a>Azure 포털
+#### <a name="azure-portal"></a>Azure Portal
 시작 하려면 [Azure Portal을 통해 서비스 카탈로그 응용 프로그램 게시](./publish-portal.md) 를 참조 하세요.
 
 ![포털의 서비스 카탈로그 응용 프로그램 정의 알림](./media/publish-notifications/service-catalog-notifications.png)
@@ -72,12 +72,12 @@ Azure 관리 되는 응용 프로그램 알림을 통해 게시자는 관리 되
 EventType | ProvisioningState | 알림에 대 한 트리거
 ---|---|---
 PUT | 수락됨 | 응용 프로그램을 넣은 후에 관리 되는 리소스 그룹을 만들고 프로젝션 했습니다. (관리 되는 RG 내의 배포를 시작 하기 전에를 시작 합니다.)
-PUT | 성공함 | PUT 후에 관리 되는 응용 프로그램의 전체 프로 비전이 성공 했습니다.
-PUT | Failed | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
-패치 | 성공함 | 관리 되는 응용 프로그램 인스턴스를 성공적으로 패치 한 후 태그, jit 액세스 정책 또는 관리 id를 업데이트 합니다.
-DELETE | 삭제 | 사용자가 관리 되는 앱 인스턴스의 삭제를 시작 하는 즉시
-DELETE | Deleted | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
-DELETE | Failed | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
+PUT | Succeeded | PUT 후에 관리 되는 응용 프로그램의 전체 프로 비전이 성공 했습니다.
+PUT | 실패 | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
+패치 | Succeeded | 관리 되는 응용 프로그램 인스턴스를 성공적으로 패치 한 후 태그, jit 액세스 정책 또는 관리 id를 업데이트 합니다.
+삭제 | 삭제 중 | 사용자가 관리 되는 앱 인스턴스의 삭제를 시작 하는 즉시
+삭제 | 삭제됨 | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
+삭제 | 실패 | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
 ## <a name="notification-schema"></a>알림 스키마
 알림을 처리 하기 위해 webhook 끝점을 실행 하는 경우 페이로드를 구문 분석 하 여 중요 한 속성을 가져온 다음 알림에 대 한 동작을 수행 해야 합니다. 서비스 카탈로그와 Marketplace에서 관리 하는 응용 프로그램 알림은 모두 아래에 설명 된 작은 차이를 사용 하 여 동일한 속성을 많이 제공 합니다.
 
@@ -132,6 +132,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Succeeded",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -152,6 +155,9 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
     "applicationId": "subscriptions/<subId>/resourceGroups/<rgName>/providers/Microsoft.Solutions/applications/<applicationName>",
     "eventTime": "2019-08-14T19:20:08.1707163Z",
     "provisioningState": "Failed",
+    "billingDetails": {
+        "resourceUsageId":"<resourceUsageId>"
+    },
     "plan": {
         "publisher": "publisherId",
         "product": "offer",
@@ -177,14 +183,15 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 eventType | 알림을 트리거한 이벤트의 유형입니다. (예: "PUT", "PATCH", "DELETE")
 applicationId | 알림이 트리거된 관리 되는 응용 프로그램의 정규화 된 리소스 식별자입니다. 
 eventTime | 알림을 트리거한 이벤트의 타임 스탬프입니다. (UTC ISO 8601 형식의 날짜 및 시간)
-ProvisioningState | 관리 되는 응용 프로그램 인스턴스의 프로 비전 상태입니다. (예: "성공", "실패", "삭제", "삭제 됨")
+provisioningState | 관리 되는 응용 프로그램 인스턴스의 프로 비전 상태입니다. (예: "성공", "실패", "삭제", "삭제 됨")
+billingDetails | 관리 되는 응용 프로그램 인스턴스의 청구 정보입니다. Marketplace에서 사용 세부 정보를 쿼리 하는 데 사용할 수 있는 resourceUsageId을 포함 합니다.
 error | *ProvisioningState가 실패 한 경우에만 지정*됩니다. 오류 코드, 메시지 및 오류의 원인이 되는 문제에 대 한 세부 정보를 포함 합니다.
 applicationDefinitionId | *서비스 카탈로그 관리 되는 응용 프로그램에만 지정*됩니다. 관리 되는 응용 프로그램 인스턴스가 프로 비전 된 응용 프로그램 정의의 정규화 된 리소스 식별자를 나타냅니다.
 계획 | *Marketplace 관리 응용 프로그램에만 지정*됩니다. 관리 되는 응용 프로그램 인스턴스의 게시자, 제품, sku 및 버전을 나타냅니다.
 
 ## <a name="endpoint-authentication"></a>끝점 인증
 Webhook 끝점의 보안을 유지 하 고 알림의 신뢰성을 확인 하려면 다음을 수행 합니다.
-- https://your-endpoint.com?sig=Guid와 같이 webhook URI 위에 쿼리 매개 변수를 제공 합니다. 각 알림을 사용 하 여 쿼리 매개 변수 `sig` `Guid`예상 값이 있는지 신속 하 게 확인 합니다.
+- https://your-endpoint.com?sig=Guid 와 같이 webhook URI 위에 쿼리 매개 변수를 제공 합니다. 각 알림을 사용 하 여 쿼리 매개 변수 `sig` `Guid`예상 값이 있는지 신속 하 게 확인 합니다.
 - ApplicationId를 사용 하 여 관리 되는 응용 프로그램 인스턴스에서 GET을 실행 합니다. 일관성을 유지 하기 위해 provisioningState이 알림의 provisioningState 일치 하는지 확인 합니다.
 
 ## <a name="notification-retries"></a>알림 다시 시도

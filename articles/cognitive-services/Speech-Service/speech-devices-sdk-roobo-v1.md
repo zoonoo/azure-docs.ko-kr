@@ -1,5 +1,5 @@
 ---
-title: 음성 장치 SDK Roobo 스마트 오디오 개발자 키트 v1-Speech Service
+title: 음성 장치 SDK Roobo 스마트 오디오 개발자 키트 v1-Speech service
 titleSuffix: Azure Cognitive Services
 description: 음성 장치 SDK, Roobo Smart Audio Dev Kit v1을 시작 하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 08bac7cd833f52d2dfec4561c2f87330a4119748
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9add5b063b67ddcc4cd5bf93e7f5b570b004e5ca
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68552871"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815584"
 ---
-# <a name="device-roobo-smart-audio-dev-kit"></a>디바이스: Roobo 스마트 오디오 개발자 키트
+# <a name="device-roobo-smart-audio-dev-kit"></a>장치: Roobo 스마트 오디오 개발자 키트
 
 이 문서에서는 Roobo Smart Audio Dev Kit에 대 한 장치 관련 정보를 제공 합니다.
 
@@ -54,12 +54,12 @@ ms.locfileid: "68552871"
     > [!NOTE]
     > 이러한 명령은 Android Studio 설치의 일부인 Android Debug Bridge, `adb.exe`를 사용합니다. 이 도구는 C:\Users\[사용자 이름]\AppData\Local\Android\Sdk\platform-tools에 있습니다. 이 디렉터리를 경로에 추가하면 `adb`를 더 편리하게 호출할 수 있습니다. 그렇지 않으면, `adb`를 호출하는 모든 명령에 adb.exe 설치의 전체 경로를 지정해야 합니다.
     >
-    > 오류가 `no devices/emulators found` 표시 되 면 USB 케이블이 연결 되어 있고 고품질 케이블 인지 확인 합니다. `adb devices`를 사용하여 컴퓨터가 디바이스 목록을 반환할 때 개발 키트와 통신할 수 있는지 확인할 수 있습니다.
+    > `no devices/emulators found` 오류가 표시 되 면 USB 케이블이 연결 되어 있고 고품질 케이블 인지 확인 합니다. `adb devices`를 사용하여 컴퓨터가 디바이스 목록을 반환할 때 개발 키트와 통신할 수 있는지 확인할 수 있습니다.
     >
     > [!TIP]
     > PC의 마이크와 스피커를 음소거하여 개발 키트의 마이크를 사용하고 있는지 확인하세요. 이렇게 하면 디바이스를 PC에서 오디오로 실수로 트리거하지 않습니다.
 
-1. 스피커를 개발 키트에 연결하려면 오디오 라인 출력에 연결할 수 있습니다. 3.5 mm 아날로그 플러그를 사용 하는 우수한 품질의 스피커를 선택 해야 합니다.
+1. Dev kit에 스피커를 연결 하려는 경우 오디오 라인에 스피커를 연결할 수 있습니다. 3.5 mm 아날로그 플러그를 사용 하는 우수한 품질의 스피커를 선택 해야 합니다.
 
     ![Vysor 오디오](media/speech-devices-sdk/qsg-14.png)
 

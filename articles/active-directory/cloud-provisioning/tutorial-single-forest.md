@@ -11,12 +11,12 @@ ms.date: 12/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95a0cbdc02f7adacf2e3ffa8ca21491f44fe4b7f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 33b7db8d08c285056e637eb962b28eef0e74fc94
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793848"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814105"
 ---
 # <a name="tutorial-integrate-a-single-forest-with-a-single-azure-ad-tenant"></a>자습서: 단일 포리스트를 단일 Azure AD 테 넌 트와 통합
 
@@ -51,23 +51,30 @@ ms.locfileid: "74793848"
    - 인증서 유효성을 검사 하려면 다음 Url을 차단 해제 합니다. **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**및 **www\.microsoft.com:80**. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 
 ## <a name="install-the-azure-ad-connect-provisioning-agent"></a>Azure AD Connect 프로 비전 에이전트 설치
-1. 엔터프라이즈 관리자 권한으로 사용할 서버에 로그인 합니다.  [기본 AD 및 Azure 환경](tutorial-basic-ad-azure.md) 자습서를 사용 하는 경우 DC1이 됩니다.
-2. [여기](https://go.microsoft.com/fwlink/?linkid=2109037)에서 Azure AD Connect 프로 비전 에이전트를 다운로드 합니다.
-3. Azure AD Connect 프로 비전 에이전트 (AADConnectProvisionin)를 실행 합니다.
-4. gAgent. 설치 관리자)
-3. 시작 화면에서 사용 조건에 **동의** 하 고 **설치**를 클릭 합니다.</br>
-![시작 화면](media/how-to-install/install1.png)</br>
+1. 도메인에 가입 된 서버에 로그인 합니다.  [기본 AD 및 Azure 환경](tutorial-basic-ad-azure.md) 자습서를 사용 하는 경우 DC1이 됩니다.
+2. 클라우드 전용 전역 관리자 자격 증명을 사용 하 여 Azure Portal에 로그인 합니다.
+3. 왼쪽에서 **Azure Active Directory**를 선택 하 고 **Azure AD Connect**를 클릭 한 다음 가운데에서 **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 
-4. 이 작업이 완료 되 면 구성 마법사가 시작 됩니다.  Azure AD 전역 관리자 계정으로 로그인 합니다.  IE 보안 강화를 사용 하도록 설정 하면 로그인이 차단 됩니다.  이 경우 설치를 닫고, 서버 관리자에서 IE 보안 강화를 사용 하지 않도록 설정 하 고, **AAD Connect 프로 비전 에이전트 마법사** 를 클릭 하 여 설치를 다시 시작 합니다.
-5. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 클릭 한 다음 Active Directory 도메인 관리자 계정으로 로그인 합니다.  참고: 도메인 관리자 계정에는 암호 변경 요구 사항이 없어야 합니다. 암호가 만료 되거나 변경 되는 경우 새 자격 증명을 사용 하 여 에이전트를 다시 구성 해야 합니다. 이 작업을 수행 하면 온-프레미스 디렉터리가 추가 됩니다.  **다음**을 누릅니다.</br>
-![시작 화면](media/how-to-install/install3.png)</br>
+   ![Azure Portal](media/how-to-install/install6.png)
 
-6. **구성 완료** 화면에서 **확인**을 클릭 합니다.  이 작업은 에이전트를 등록 하 고 다시 시작 합니다.</br>
-![시작 화면](media/how-to-install/install4.png)</br>
+4. **에이전트 다운로드**를 클릭 합니다.
+5. Azure AD Connect 프로 비전 에이전트를 실행 합니다.
+6. 시작 화면에서 사용 조건에 **동의** 하 고 **설치**를 클릭 합니다.
 
-7. 이 작업이 완료 되 면 **에이전트 구성이 성공적으로 확인 되었다는** 알림이 표시 됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
+   ![시작 화면](media/how-to-install/install1.png)
+
+7. 이 작업이 완료 되 면 구성 마법사가 시작 됩니다.  Azure AD 전역 관리자 계정으로 로그인 합니다.  IE 보안 강화를 사용 하도록 설정 하면 로그인이 차단 됩니다.  이 경우 설치를 닫고, 서버 관리자에서 IE 보안 강화를 사용 하지 않도록 설정 하 고, **AAD Connect 프로 비전 에이전트 마법사** 를 클릭 하 여 설치를 다시 시작 합니다.
+8. **Active Directory 연결** 화면에서 **디렉터리 추가** 를 클릭 한 다음 Active Directory 도메인 관리자 계정으로 로그인 합니다.  참고: 도메인 관리자 계정에는 암호 변경 요구 사항이 없어야 합니다. 암호가 만료 되거나 변경 되는 경우 새 자격 증명을 사용 하 여 에이전트를 다시 구성 해야 합니다. 이 작업을 수행 하면 온-프레미스 디렉터리가 추가 됩니다.  **다음**을 누릅니다.
+
+   ![시작 화면](media/how-to-install/install3.png)
+
+9. **구성 완료** 화면에서 **확인**을 클릭 합니다.  이 작업은 에이전트를 등록 하 고 다시 시작 합니다.
+
+   ![시작 화면](media/how-to-install/install4.png)
+
+10. 이 작업이 완료 되 면 **에이전트 구성이 성공적으로 확인 되었다는** 알림이 표시 됩니다.  **끝내기**를 클릭할 수 있습니다.</br>
 ![시작 화면](media/how-to-install/install5.png)</br>
-8. 초기 시작 화면이 계속 표시 되 면 **닫기**를 클릭 합니다.
+11. 초기 시작 화면이 계속 표시 되 면 **닫기**를 클릭 합니다.
 
 
 ## <a name="verify-agent-installation"></a>에이전트 설치 확인

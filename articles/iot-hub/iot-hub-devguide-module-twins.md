@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: menchi
-ms.openlocfilehash: b6ab1e3e01f66e071e3d16b196b3ecdcd30c2620
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 064bfd7a51f3ccb0252f37fbaa11ebc122a4b97f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701802"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807428"
 ---
 # <a name="understand-and-use-module-twins-in-iot-hub"></a>IoT Hub의 모듈 쌍 이해 및 사용
 
@@ -186,7 +186,7 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지를 �
     모듈 ID | 모듈의 ID |
     hubName | IoT Hub의 이름 |
     operationTimestamp | [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) 작업의 타임스탬프 |
-    iothub-message-schema | deviceLifecycleNotification |
+    iothub-message-schema | twinChangeNotification |
     opType | "replaceTwin" 또는 "updateTwin" |
 
     메시지 시스템 속성 앞에 `$` 기호를 붙입니다.

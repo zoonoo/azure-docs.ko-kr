@@ -9,12 +9,12 @@ ms.date: 11/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3e24cb2d4b5b82f6878647cdd631bd8ebca16199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666167"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806589"
 ---
 # <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -36,13 +36,13 @@ Azure 리소스에 관리 되는 id를 사용 하 여 VM에서 blob 및 큐에 �
 
 ## <a name="authenticate-with-the-azure-identity-library"></a>Azure Id 라이브러리를 사용 하 여 인증
 
-Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개발 환경 또는 Azure에서 실행 되 고 있는지 여부를 인증 하는 데 동일한 코드를 사용할 수 있다는 것입니다. Azure 환경에서 실행 되는 코드에서 클라이언트 라이브러리는 Azure 리소스에 대 한 관리 되는 id를 인증 합니다. 개발 환경에서 관리 id가 존재 하지 않으므로 클라이언트 라이브러리는 테스트 목적으로 사용자 또는 서비스 주체를 인증 합니다.
+Azure Id 클라이언트 라이브러리는 azure [SDK](https://github.com/Azure/azure-sdk)에 대 한 azure AD 토큰 인증 지원을 제공 합니다. .NET, Java, Python 및 JavaScript 용 Azure Storage 클라이언트 라이브러리의 최신 버전은 Azure Id 라이브러리와 통합 되어 Azure Storage 요청에 대 한 권한 부여를 위한 OAuth 2.0 토큰을 획득 하는 간단 하 고 안전한 방법을 제공 합니다.
 
-.NET 용 Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다.
+Azure Id 클라이언트 라이브러리의 장점은 응용 프로그램이 개발 환경 또는 Azure에서 실행 되 고 있는지 여부를 인증 하는 데 동일한 코드를 사용할 수 있다는 것입니다. .NET 용 Azure Id 클라이언트 라이브러리는 보안 주체를 인증 합니다. 코드가 Azure에서 실행 되는 경우 보안 주체는 Azure 리소스에 대 한 관리 되는 id입니다. 개발 환경에서 관리 id가 존재 하지 않으므로 클라이언트 라이브러리는 테스트 목적으로 사용자 또는 서비스 주체를 인증 합니다.
 
 인증 후에 Azure Id 클라이언트 라이브러리는 토큰 자격 증명을 가져옵니다. 그런 다음이 토큰 자격 증명은 Azure Storage에 대해 작업을 수행 하기 위해 만드는 서비스 클라이언트 개체에 캡슐화 됩니다. 라이브러리는 적절 한 토큰 자격 증명을 가져와이를 원활 하 게 처리 합니다.
 
-Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)를 참조 하세요.
+.NET 용 Azure Id 클라이언트 라이브러리에 대 한 자세한 내용은 [.net 용 Azure id 클라이언트 라이브러리](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/identity/Azure.Identity)를 참조 하세요. Azure Id 클라이언트 라이브러리에 대 한 참조 설명서는 [Azure Id 네임 스페이스](/dotnet/api/azure.identity)를 참조 하세요.
 
 ### <a name="assign-role-based-access-control-rbac-roles-for-access-to-data"></a>데이터에 액세스 하기 위한 RBAC (역할 기반 액세스 제어) 역할 할당
 
@@ -50,7 +50,7 @@ Azure AD 보안 주체가 blob 또는 큐 데이터에 액세스 하려는 경�
 
 ### <a name="authenticate-the-user-in-the-development-environment"></a>개발 환경에서 사용자 인증
 
-개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
+개발 환경에서 코드가 실행 되는 경우 인증을 자동으로 처리 하거나 사용 중인 도구에 따라 브라우저 로그인이 필요할 수 있습니다. 예를 들어 Microsoft Visual Studio는 SSO (Single Sign-On)를 지원 하므로 활성 Azure AD 사용자 계정이 인증에 자동으로 사용 됩니다. SSO에 대 한 자세한 내용은 [응용 프로그램에 대 한 Single sign-on](../../active-directory/manage-apps/what-is-single-sign-on.md)을 참조 하세요.
 
 다른 개발 도구는 웹 브라우저를 통해 로그인 하 라는 메시지를 표시할 수 있습니다.
 
@@ -161,6 +161,6 @@ async static Task CreateBlockBlobAsync(string accountName, string containerName,
 
 ## <a name="next-steps"></a>다음 단계
 
-- Azure storage에 대 한 RBAC 역할에 대해 자세히 알아보려면 [rbac를 사용 하 여 저장소 데이터에 대 한 액세스 권한 관리](storage-auth-aad-rbac.md)를 참조 하세요.
-- 스토리지 애플리케이션 내에서 컨테이너와 큐에 대한 액세스 권한을 부여하는 방법을 알아보려면 [스토리지 애플리케이션에서 Azure AD 사용](storage-auth-aad-app.md)을 참조하세요.
-- Azure AD 자격 증명을 사용 하 여 Azure CLI 및 PowerShell 명령을 실행 하는 방법을 알아보려면 [AZURE ad 자격 증명을 사용 하 여 Azure CLI 또는 powershell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](storage-auth-aad-script.md)를 참조 하세요.
+- [RBAC를 사용 하 여 저장소 데이터에 대 한 액세스 권한을 관리](storage-auth-aad-rbac.md)합니다.
+- [저장소 응용 프로그램과 함께 AZURE AD를 사용](storage-auth-aad-app.md)합니다.
+- [AZURE AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스](storage-auth-aad-script.md)합니다.

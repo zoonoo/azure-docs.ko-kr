@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 10/22/2019
 ms.author: yegu
-ms.openlocfilehash: 585828855cdbd3a585ced1aa6803482c3f26f0f4
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 74fcce412b2673a3ec9e4809cef018f1afbc3530
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74121586"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812847"
 ---
 # <a name="remove-tls-10-and-11-from-use-with-azure-cache-for-redis"></a>Redis 용 Azure Cache를 사용 하 여 TLS 1.0 및 1.1을 제거 합니다.
 
@@ -33,7 +33,7 @@ TLS (전송 계층 보안) 버전 1.2 이상에 대 한 독점 사용에 대 한
 
 Redis .NET 클라이언트는 .NET Framework 4.5.2 이전 버전에서 기본적으로 가장 이른 TLS 버전을 사용 하 고 .NET Framework 4.6 이상에서 최신 TLS 버전을 사용 합니다. 이전 버전의 .NET Framework 사용 하는 경우 TLS 1.2을 수동으로 사용 하도록 설정할 수 있습니다.
 
-* **Stackexchange:** 연결 문자열에 `ssl=true` 및 `sslprotocls=tls12`를 설정 합니다.
+* **Stackexchange:** 연결 문자열에 `ssl=true` 및 `sslprotocols=tls12`를 설정 합니다.
 * **Servicestack. Redis:** [Servicestack 지침](https://github.com/ServiceStack/ServiceStack.Redis/pull/247)을 따릅니다.
 
 ### <a name="net-core"></a>.NET Core
@@ -84,11 +84,11 @@ PHP 7.3 이상에서 Predis은 최신 TLS 버전을 사용 합니다.
 
 PhpRedis는 PHP 버전에서 TLS를 지원 하지 않습니다.
 
-### <a name="python"></a>Python
+### <a name="python"></a>파이썬
 
 Redis-py는 기본적으로 TLS 1.2를 사용 합니다.
 
-### <a name="go"></a>GO
+### <a name="go"></a>이동
 
 Redigo은 기본적으로 TLS 1.2를 사용 합니다.
 

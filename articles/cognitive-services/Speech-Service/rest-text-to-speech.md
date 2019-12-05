@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9fa0157bd458d2de028cab8ff9c836761e99562f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 779df2794267a1cb62d9918fc718da02e94c48cb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73481210"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816615"
 ---
 # <a name="text-to-speech-rest-api"></a>Text-to-Speech REST API
 
-Speech Services를 사용 하면 [텍스트를 합성 된 음성으로 변환](#convert-text-to-speech) 하 고 REST api 집합을 사용 하 여 지역에 대해 [지원 되는 음성 목록을 가져올](#get-a-list-of-voices) 수 있습니다. 사용 가능한 각 엔드포인트은 지역과 연결 됩니다. 사용 하려는 엔드포인트/지역에 대 한 구독 키가 필요 합니다.
+음성 서비스를 사용 하면 [텍스트를 합성 된 음성으로 변환](#convert-text-to-speech) 하 고 REST api 집합을 사용 하 여 지역에 대해 [지원 되는 음성 목록을 가져올](#get-a-list-of-voices) 수 있습니다. 사용 가능한 각 끝점은 지역과 연결됩니다. 사용하려는 끝점/지역에 대한 구독 키가 필요합니다.
 
 텍스트를 음성으로 변환 REST API는 인공신경망 및 표준 텍스트를 음성으로 보이스를 지원하며, 해당 음성 각각은 로캘로 식별되는 특정 언어를 지원합니다.
 
@@ -29,7 +29,7 @@ Speech Services를 사용 하면 [텍스트를 합성 된 음성으로 변환](#
 > [!IMPORTANT]
 > 비용은 표준, 사용자 지정 및 인공신경망 음성별로 다릅니다. 자세한 내용은 [가격 책정](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
-이 API를 사용 하기 전에 다음을 이해 합니다.
+이 API를 사용하기 전에 다음을 이해합니다.
 
 * Text-to-Speech REST API에는 인증 헤더가 필요합니다. 즉, 서비스에 액세스하기 위해 토큰 교환을 완료해야 합니다. 자세한 내용은 [인증](#authentication)을 참조하세요.
 
@@ -37,7 +37,7 @@ Speech Services를 사용 하면 [텍스트를 합성 된 음성으로 변환](#
 
 ## <a name="get-a-list-of-voices"></a>음성 목록 가져오기
 
-`voices/list` 엔드포인트을 사용 하면 특정 지역/엔드포인트에 대 한 전체 음성 목록을 가져올 수 있습니다.
+`voices/list` 끝점을 사용하면 특정 지역/끝점에 대한 음성의 전체 목록을 가져올 수 있습니다.
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
@@ -65,7 +65,7 @@ Speech Services를 사용 하면 [텍스트를 합성 된 음성으로 변환](#
 
 ### <a name="request-headers"></a>헤더 요청
 
-다음 표에서는 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 보여 줍니다.
+아래 표는 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
 
 | 헤더 | 설명 | 필수/선택 사항 |
 |--------|-------------|---------------------|
@@ -73,7 +73,7 @@ Speech Services를 사용 하면 [텍스트를 합성 된 음성으로 변환](#
 
 ### <a name="request-body"></a>요청 본문
 
-이 엔드포인트에 대 한 `GET` 요청에는 본문이 필요 하지 않습니다.
+이 끝점에 대한 `GET` 요청에는 본문이 필요하지 않습니다.
 
 ### <a name="sample-request"></a>샘플 요청
 
@@ -91,7 +91,7 @@ Authorization: Bearer [Base64 access_token]
 이 응답은 응답의 구조를 설명 하기 위해 잘렸습니다.
 
 > [!NOTE]
-> 음성 가용성은 지역/엔드포인트에 따라 다릅니다.
+> 음성 가용성은 영역/끝점에 따라 다릅니다.
 
 ```json
 [
@@ -146,7 +146,7 @@ Authorization: Bearer [Base64 access_token]
 
 ## <a name="convert-text-to-speech"></a>텍스트 음성 변환
 
-`v1` 엔드포인트을 사용 하면 [SSML (음성 합성 마크업) 언어](speech-synthesis-markup.md)를 사용 하 여 텍스트를 음성으로 변환할 수 있습니다.
+`v1` 끝점을 사용하면 [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md)를 사용하여 텍스트 음성 변환이 가능합니다.
 
 ### <a name="regions-and-endpoints"></a>지역 및 엔드포인트
 
@@ -156,7 +156,7 @@ Authorization: Bearer [Base64 access_token]
 
 ### <a name="request-headers"></a>헤더 요청
 
-다음 표에서는 텍스트 음성 변환 요청에 대 한 필수 및 선택적 헤더를 보여 줍니다.
+아래 표는 텍스트 음성 변환 요청에 대한 필수 및 선택적 헤더를 나열합니다.
 
 | 헤더 | 설명 | 필수/선택 사항 |
 |--------|-------------|---------------------|
@@ -208,11 +208,11 @@ Authorization: Bearer [Base64 access_token]
 </voice></speak>
 ```
 
-언어 관련 예제는 빠른 시작을 참조 하세요.
+언어별 예제에 대한 빠른 시작을 참조하세요.
 
-* [.NET Core,C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
+* [.NET Core, C#](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-csharp&tabs=dotnetcore)
 * [Python](~/articles/cognitive-services/Speech-Service/quickstarts/text-to-speech.md?pivots=programming-language-python)
-* [Node.JS](quickstart-nodejs-text-to-speech.md)
+* [Node.js](quickstart-nodejs-text-to-speech.md)
 
 ### <a name="http-status-codes"></a>HTTP 상태 코드
 
@@ -224,7 +224,7 @@ Authorization: Bearer [Base64 access_token]
 | 400 | 잘못된 요청 | 필수 매개 변수가 없거나 비어 있거나 null입니다. 또는 필수 또는 선택적 매개 변수에 전달된 값이 올바르지 않습니다. 일반적인 문제는 헤더가 너무 긴 경우입니다. |
 | 401 | 권한 없음 | 요청에 권한이 없습니다. 구독 키 또는 토큰이 유효하고 올바른 영역에 있는지 확인하세요. |
 | 413 | 요청 엔터티가 너무 큼 | SSML 입력이 1024자보다 깁니다. |
-| 415 | 지원 되지 않는 미디어 유형 | 잘못 된 `Content-Type`를 제공 했을 수 있습니다. `Content-Type` `application/ssml+xml`으로 설정 해야 합니다. |
+| 415 | 지원되지 않는 미디어 유형 | 잘못 된 `Content-Type`를 제공 했을 수 있습니다. `Content-Type` `application/ssml+xml`으로 설정 해야 합니다. |
 | 429 | 너무 많은 요청 | 구독에 허용되는 요청의 할당량 또는 속도가 초과되었습니다. |
 | 502 | 잘못된 게이트웨이 | 네트워크 또는 서버 쪽 문제입니다. 잘못된 헤더를 나타낼 수도 있습니다. |
 
@@ -232,6 +232,6 @@ HTTP 상태가 `200 OK`인 경우 응답 본문은 요청된 형식으로 오디
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)

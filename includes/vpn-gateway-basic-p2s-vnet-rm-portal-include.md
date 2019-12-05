@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 3d9826e3eae2a60b217df1406d26d83c78fbdefb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a826bb01a906153b4ca2a3c854623c83b6192aec
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "67673441"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828979"
 ---
 Azure 포털을 사용하여 Resource Manager 배포 모델에서 VNet을 만들려면 아래 단계를 따릅니다. 스크린샷은 예제로 제공됩니다. 사용자 고유의 값으로 대체해야 합니다. 가상 네트워크 작업에 대한 자세한 내용은 [Virtual Network 개요](../articles/virtual-network/virtual-networks-overview.md)를 참조하세요.
 
@@ -22,10 +22,12 @@ Azure 포털을 사용하여 Resource Manager 배포 모델에서 VNet을 만들
 >
 >
 
-1. 브라우저에서 [Azure Portal](https://portal.azure.com)로 이동하고 필요한 경우 Azure 계정으로 로그인합니다.
-2. 페이지 맨 아래에 있는 **+** 를 사용하여 응용 프로그램에 Single Sign-On 할 수 있습니다. **마켓플레이스 검색** 필드에 "Virtual Network"를 입력합니다. 반환된 목록에서 **Virtual Network**를 찾아서 클릭하여 **Virtual Network** 페이지를 엽니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.  Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택 합니다. **새로 만들기** 페이지가 열립니다.
 
-   ![Virtual Network 리소스 페이지 찾기](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/newvnetportal700.png "가상 네트워크 리소스 찾기 페이지")
+2. **Marketplace 검색**에서 *가상 네트워크* 를 입력 하 고 결과에서 **Virtual Network** 를 선택 합니다.
+
+   ![Virtual Network 리소스 페이지 찾기](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/search-marketplace-for-virtual-network.png "가상 네트워크 리소스 찾기 페이지")
+
 3. Virtual Network 페이지 아래쪽 근처의 **배포 모델 선택** 목록에서 **리소스 관리자**를 선택한 다음 **만들기**를 클릭합니다.
 
    ![리소스 관리자 선택](./media/vpn-gateway-basic-p2s-vnet-rm-portal-include/resourcemanager250.png "리소스 관리자 선택")

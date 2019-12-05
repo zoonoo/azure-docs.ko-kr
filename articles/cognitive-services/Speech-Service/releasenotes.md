@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: f38e23f0648d802ba7b09391d6f6bbd0c093d989
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 74b34a1d65f6beb097a649658c508da6ff48f1ac
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888166"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816609"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -209,7 +209,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **향상된 기능/변경 사항**
 
-- Python
+- 파이썬
   - SpeechConfig의 매개 변수 확인 및 오류 메시지를 개선했습니다.
   - 연결 개체에 대한 지원을 추가했습니다.
   - Windows에서 32비트 Python(x86)을 지원합니다.
@@ -248,7 +248,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **새로운 기능**
 
-- Python
+- 파이썬
   - 이 릴리스에서는 베타 버전의 Python(3.5 이상)이 지원됩니다. 자세한 내용은 여기를 참조 하십시오.] (python.md).
 - JavaScript
   - JavaScript용 Speech SDK가 오픈 소스로 제공됩니다. 소스 코드는 [GitHub](https://github.com/Microsoft/cognitive-services-speech-sdk-js)에서 사용할 수 있습니다.
@@ -390,9 +390,9 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 - 인식 이벤트: NoMatch 이벤트 유형이 Error 이벤트에 병합되었습니다.
 - C#의 SpeechOutputFormat이 C++에 맞게 OutputFormat으로 이름이 바뀌었습니다.
 - `AudioInputStream` 인터페이스의 일부 메서드 반환 형식이 다음과 같이 약간 변경되었습니다.
-  - Java에서 `read` 메서드는 이제 `long` 대신 `int`을 반환합니다.
-  - C#에서 `Read` 메서드는 이제 `uint` 대신 `int`을 반환합니다.
-  - C++에서 `Read` 및 `GetFormat` 메서드는 이제 `size_t` 대신 `int`를 반환합니다.
+  - Java에서 `read` 메서드는 이제 `int` 대신 `long`을 반환합니다.
+  - C#에서 `Read` 메서드는 이제 `int` 대신 `uint`을 반환합니다.
+  - C++에서 `Read` 및 `GetFormat` 메서드는 이제 `int` 대신 `size_t`를 반환합니다.
 - C++: 오디오 입력 스트림의 인스턴스가 이제 `shared_ptr`로만 전달될 수 있습니다.
 
 **버그 수정**
@@ -419,7 +419,7 @@ JavaScript 전용 릴리스입니다. 추가한 기능은 없습니다. 다음�
 
 **호환성이 손상되는 변경**
 
-- C#의 `SpeechRecognitionResult.Text`가 `SpeechRecognitionResult.RecognizedText`로 변경되었습니다.
+- C#의 `SpeechRecognitionResult.RecognizedText`가 `SpeechRecognitionResult.Text`로 변경되었습니다.
 
 **버그 수정**
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 57350bd00a33c36b5aef3a0ccd3034b4db3d2c55
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e8deb8ed16186862349cecf70c9d617a4ad30399
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227963"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806901"
 ---
 # <a name="create-an-azure-data-lake-storage-gen2-storage-account"></a>Azure Data Lake Storage Gen2 스토리지 계정 만들기
 
@@ -21,11 +21,11 @@ Azure Data Lake Storage Gen2는 HDFS(Hadoop 분산 파일 시스템)에서 작�
 
 이 문서에서는 Azure Portal, Azure PowerShell 또는 Azure CLI를 통해 계정을 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다. 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-|           | 필수 요소 |
+|           | 필수 조건 |
 |-----------|--------------|
 |포털     | 없음         |
 |PowerShell | 이 문서에는 PowerShell 모듈 Az. Storage 버전 **0.7** 이상이 필요 합니다. 현재 버전을 찾으려면 `Get-Module -ListAvailable Az.Storage` 명령을 실행합니다. 이 명령을 실행한 후에 결과가 나타나지 않거나 **0.7**보다 낮은 버전이 표시되는 경우에는 PowerShell 모듈을 업그레이드해야 합니다. 이 가이드의 [PowerShell 모듈 업그레이드](#upgrade-your-powershell-module) 섹션을 참조하세요.
@@ -49,7 +49,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 문서
 
 ## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Data Lake Storage Gen2가 사용되는 스토리지 계정 만들기
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
 > [!NOTE]
 > Data Lake Storage Gen2 기능을 활용하려면 새 스토리지 계정을 **StorageV2(범용 V2)** 유형으로 만들어야 합니다.  
@@ -58,7 +58,7 @@ Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Az
 
 ## <a name="create-an-account-using-the-azure-portal"></a>Azure Portal을 사용하여 계정 만들기
 
-[Azure Portal](https://portal.azure.com)에 로그인합니다.
+[Azure portal](https://portal.azure.com)에 로그인합니다.
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
@@ -199,7 +199,7 @@ az storage account create `
     --location westus2 `
     --sku Standard_LRS `
     --kind StorageV2 `
-    --hierarchical-namespace true
+    --enable-hierarchical-namespace true
 ```
 
 ### <a name="clean-up-resources"></a>리소스 정리

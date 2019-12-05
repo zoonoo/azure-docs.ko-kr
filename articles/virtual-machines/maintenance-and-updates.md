@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: shants
-ms.openlocfilehash: 8e522b49c53dd40a4438755520481383984c1e01
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 45dba8de8ef735bdb9df102ac367e6a1653bf481
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74535887"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807088"
 ---
 # <a name="maintenance-for-virtual-machines-in-azure"></a>Azure에서 가상 머신 유지 관리
 
@@ -29,7 +29,7 @@ Azure는 가상 컴퓨터에 대 한 호스트 인프라의 안정성, 성능 �
 
 이 페이지에서는 Azure에서 두 가지 유형의 유지 관리를 모두 수행하는 방법을 설명합니다. 계획 되지 않은 이벤트 (중단)에 대 한 자세한 내용은 [Windows 용 vm의 가용성 관리](./windows/manage-availability.md) 또는 [Linux](./linux/manage-availability.md)에 대 한 해당 문서를 참조 하세요.
 
-VM 내에서 Windows 또는 [Linux](/linux/scheduled-events.md)용 [Scheduled Events를 사용 하](/windows/scheduled-events.md) 여 예정 된 유지 관리에 대 한 알림을 받을 수 있습니다.
+VM 내에서 Windows 또는 [Linux](./linux/scheduled-events.md)용 [Scheduled Events를 사용 하](./windows/scheduled-events.md) 여 예정 된 유지 관리에 대 한 알림을 받을 수 있습니다.
 
 
 
@@ -43,7 +43,7 @@ VM 내에서 Windows 또는 [Linux](/linux/scheduled-events.md)용 [Scheduled Ev
 
 재부팅 하지 않아도 되는 이러한 유지 관리 작업은 한 번에 하나의 장애 도메인에 적용 됩니다. 경고 상태 신호를 수신 하면 중지 됩니다. 
 
-이러한 종류의 업데이트는 일부 응용 프로그램에 영향을 줄 수 있습니다. VM이 다른 호스트로 실시간 마이그레이션되는 경우 일부 중요 한 워크 로드는 VM 일시 중지까지 몇 분 안에 약간의 성능 저하가 발생할 수 있습니다. VM 유지 관리를 준비 하 고 Azure 유지 관리 중의 영향을 줄이려면 이러한 응용 프로그램에 대해 Windows 또는 [Linux](/linux/scheduled-events.md) [에 대 한 Scheduled Events](/windows/scheduled-events.md) 사용해 보세요. 
+이러한 종류의 업데이트는 일부 응용 프로그램에 영향을 줄 수 있습니다. VM이 다른 호스트로 실시간 마이그레이션되는 경우 일부 중요 한 워크 로드는 VM 일시 중지까지 몇 분 안에 약간의 성능 저하가 발생할 수 있습니다. VM 유지 관리를 준비 하 고 Azure 유지 관리 중의 영향을 줄이려면 이러한 응용 프로그램에 대해 Windows 또는 [Linux](./linux/scheduled-events.md) [에 대 한 Scheduled Events](./windows/scheduled-events.md) 사용해 보세요. 
 
 다시 부팅 하지 않아도 되는 유지 관리를 관리 하는 데 도움이 될 수 있는 공개 미리 보기의 기능 (유지 관리 제어)도 있습니다. [Azure 전용 호스트](./linux/dedicated-hosts.md) 또는 [격리 된 VM](../security/fundamentals/isolation-choices.md)중 하나를 사용 해야 합니다. 유지 관리 제어를 통해 플랫폼 업데이트를 건너뛰고 35 일의 롤링 기간 내에 업데이트를 적용할 수 있습니다. 자세한 내용은 [유지 관리 제어를 사용 하 여 업데이트 제어 및 Azure CLI](maintenance-control-cli.md)를 참조 하세요.
 

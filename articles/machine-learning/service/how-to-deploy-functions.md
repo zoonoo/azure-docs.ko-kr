@@ -10,12 +10,12 @@ ms.author: vaidyas
 author: vaidyas
 ms.reviewer: larryfr
 ms.date: 11/22/2019
-ms.openlocfilehash: 9fba3221656405f2bf2b1654b43d687f1915cca6
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: d35f0bbc057c97ed4f8b6429c0573fa6bcf3742f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74542395"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807377"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Azure Functions에 machine learning 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -234,7 +234,7 @@ print(blob.location)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [함수](https://docs.microsoft.com/azure/azure-functions/functions-create-function-linux-custom-imag) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
+* [함수](/azure/azure-functions/functions-create-function-linux-custom-image) 설명서에서 함수 앱을 구성 하는 방법에 대해 알아봅니다.
 * Blob 저장소에 대 한 자세한 내용은 [Azure blob storage 바인딩](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob)을 트리거합니다.
 * [Azure App Service에 모델을 배포](how-to-deploy-app-service.md)합니다.
 * [웹 서비스로 배포된 ML 모델 사용](how-to-consume-web-service.md)

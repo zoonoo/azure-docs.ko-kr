@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: e9781d9c277d19257d9b00bea3106adb3b04ffd6
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: fff92057bc9812a5ef1488a46ed469382ad3ace3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672512"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806884"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
 
@@ -25,14 +25,14 @@ Azure Storage 계정에 대해 [개인 끝점](../../private-link/private-endpoi
 - Vnet에서 데이터의 반출을 차단할 수 있도록 하 여 vnet (가상 네트워크)에 대 한 보안을 강화 합니다.
 - 개인 피어 링을 사용 하 여 [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) 또는 [연결할 expressroutes](../../expressroute/expressroute-locations.md) 를 사용 하 여 VNet에 연결 하는 온-프레미스 네트워크에서 저장소 계정에 안전 하 게 연결 합니다.
 
-## <a name="conceptual-overview"></a>개념적 개요
+## <a name="conceptual-overview"></a>개념 개요
 ![Azure Storage 개요에 대 한 개인 끝점](media/storage-private-endpoints/storage-private-endpoints-overview.jpg)
 
 개인 끝점은 VNet ( [Virtual Network](../../virtual-network/virtual-networks-overview.md) )의 Azure 서비스에 대 한 특별 한 네트워크 인터페이스입니다. 저장소 계정에 대 한 개인 끝점을 만들 때 VNet 및 저장소의 클라이언트 간에 보안 연결을 제공 합니다. 개인 끝점에는 VNet의 IP 주소 범위에서 IP 주소가 할당 됩니다. 개인 끝점과 저장소 서비스 간의 연결은 보안 개인 링크를 사용 합니다.
 
 VNet의 응용 프로그램은 **다른 방법으로 사용 하는 것과 동일한 연결 문자열 및 권한 부여 메커니즘을 사용 하 여**개인 끝점을 통해 저장소 서비스에 원활 하 게 연결할 수 있습니다. 개인 끝점은 REST 및 SMB를 포함 하 여 저장소 계정에서 지 원하는 모든 프로토콜과 함께 사용할 수 있습니다.
 
-[서비스 끝점](/azure/virtual-network/virtual-network-service-endpoints-overview.md)을 사용 하는 서브넷에서 개인 끝점을 만들 수 있습니다. 따라서 서브넷의 클라이언트는 서비스 끝점을 사용 하 여 다른 저장소 계정에 액세스 하는 동안 개인 끝점을 사용 하 여 하나의 저장소 계정에 연결할 수 있습니다.
+[서비스 끝점](../../virtual-network/virtual-network-service-endpoints-overview.md)을 사용 하는 서브넷에서 개인 끝점을 만들 수 있습니다. 따라서 서브넷의 클라이언트는 서비스 끝점을 사용 하 여 다른 저장소 계정에 액세스 하는 동안 개인 끝점을 사용 하 여 하나의 저장소 계정에 연결할 수 있습니다.
 
 VNet에서 스토리지 서비스에 대한 프라이빗 엔드포인트를 만들면 스토리지 계정 소유자에게 승인을 위해 동의 요청이 전송됩니다. 개인 끝점의 생성을 요청 하는 사용자가 저장소 계정의 소유자 이기도 한 경우이 동의 요청은 자동으로 승인 됩니다.
 
@@ -115,8 +115,8 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 전용 끝점을 지원 하기 위해 자체 DNS 서버를 구성 하는 방법에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-- [Azure 가상 네트워크의 리소스 이름 확인](/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-- [전용 끝점에 대 한 DNS 구성](/private-link/private-endpoint-overview#dns-configuration)
+- [Azure 가상 네트워크의 리소스 이름 확인](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
+- [전용 끝점에 대 한 DNS 구성](/azure/private-link/private-endpoint-overview#dns-configuration)
 
 ## <a name="pricing"></a>가격
 

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 31ae271a4ad6aa1370828640884a54eb2669804d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d1bbfb43c6e2319706f5eeac15fa1d60791b62b9
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012714"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807261"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Azure Portal을 사용하여 Time Series Insights 환경에 대한 참조 데이터 집합 만들기
 
@@ -34,7 +34,7 @@ ms.locfileid: "74012714"
 
 ## <a name="add-a-reference-data-set"></a>참조 데이터 집합 추가
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 
 1. 기존 Azure Time Series Insights 환경을 찾습니다. Azure Portal의 왼쪽에 있는 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
@@ -44,59 +44,73 @@ ms.locfileid: "74012714"
 
 1. Time Series Insights 탐색기에서 환경 선택기를 확장 합니다. 활성 환경을 선택합니다. 탐색기 페이지에서 오른쪽 상단에 있는 참조 데이터 아이콘을 선택합니다.
 
-   [참조 데이터 ![추가](media/add-reference-data-set/add-reference-data.png)](media/add-reference-data-set/add-reference-data.png#lightbox)
+   [참조 데이터 ![추가](media/add-reference-data-set/tsi-select-environment-and-data-icons.png)](media/add-reference-data-set/tsi-select-environment-and-data-icons.png#lightbox)
 
 1. **+ 데이터 집합 추가** 단추를 선택하여 새 데이터 집합 추가를 시작합니다.
 
-   [데이터 집합 추가 ![](media/add-reference-data-set/add-data-set.png)](media/add-reference-data-set/add-data-set.png#lightbox)
+   [데이터 집합 추가 ![](media/add-reference-data-set/tsi-add-a-reference-data-set.png)](media/add-reference-data-set/tsi-add-a-reference-data-set.png#lightbox)
 
 1. **새 참조 데이터 집합** 페이지에서 데이터의 형식을 선택합니다.
 
    - 쉼표로 구분된 데이터에 대해 **CSV**를 선택합니다. 첫 번째 행은 머리글 행으로 처리됩니다.
    - JSON (JavaScript object notation) 형식의 데이터에 대해 **Json 배열을** 선택 합니다.
 
-   [데이터 형식을 선택 ![합니다.](media/add-reference-data-set/add-data.png)](media/add-reference-data-set/add-data.png#lightbox)
+   [데이터 형식을 선택 ![합니다.](media/add-reference-data-set/tsi-select-data-upload-option.png)](media/add-reference-data-set/tsi-select-data-upload-option.png#lightbox)
 
 1. 다음 두 가지 방법 중 하나를 사용하여 데이터를 제공합니다.
 
    - 데이터를 텍스트 편집기에 붙여 넣습니다. 그런 다음, **참조 데이터 구문 분석** 단추를 선택합니다.
    - **파일 선택** 단추를 선택하여 로컬 텍스트 파일의 데이터를 추가합니다.
 
-   예를 들어 CSV 데이터 붙여넣기: [![붙여넣은 csv 데이터](media/add-reference-data-set/csv-data-pasted.png)](media/add-reference-data-set/csv-data-pasted.png#lightbox)
+   예를 들어 CSV 데이터 붙여넣기: [![붙여넣은 csv 데이터](media/add-reference-data-set/select-csv-and-enter-data.png)](media/add-reference-data-set/select-csv-and-enter-data.png#lightbox)
 
-   예를 들어 json 배열 데이터 붙여넣기: [![json 데이터 붙여넣기](media/add-reference-data-set/json-data-pasted.png)](media/add-reference-data-set/json-data-pasted.png#lightbox)
+   예를 들어 json 배열 데이터 붙여넣기: [![json 데이터 붙여넣기](media/add-reference-data-set/select-json-option-and-enter-data.png)](media/add-reference-data-set/select-json-option-and-enter-data.png#lightbox)
 
    데이터 값을 구문 분석하는 동안 오류가 발생하면 페이지 하단에 빨간색으로 오류가 표시됩니다(예: `CSV parsing error, no rows extracted`).
 
 1. 데이터가 구문 분석되면 데이터 그리드에 데이터를 나타내는 열 및 행이 표시됩니다.  데이터 그리드가 정확한지 검토합니다.
 
-   [참조 데이터 ![추가](media/add-reference-data-set/parse-data.png)](media/add-reference-data-set/parse-data.png#lightbox)
+   [참조 데이터 ![추가](media/add-reference-data-set/review-displayed-data-grid.png)](media/add-reference-data-set/review-displayed-data-grid.png#lightbox)
 
 1. 각 열을 검토하여 예상되는 데이터 형식을 확인한 후, 필요에 따라 데이터 형식을 변경합니다.  열 머리글에서 데이터 형식 기호를 선택합니다. 예를 들어 double(숫자 데이터)의 경우 **#** 을 선택하고, 부울의 경우 **T|F**를 선택하고, 문자열의 경우 **Abc**를 선택합니다.
 
-   [열 머리글에서 데이터 형식을 선택할 ![.](media/add-reference-data-set/choose-datatypes.png)](media/add-reference-data-set/choose-datatypes.png#lightbox)
+   [열 머리글에서 데이터 형식을 선택할 ![.](media/add-reference-data-set/select-column-types.png)](media/add-reference-data-set/select-column-types.png#lightbox)
 
-1. 필요한 경우 열 머리글의 이름을 바꿉니다. 해당 속성을 이벤트 원본에 조인하려면 키 열 이름이 필요합니다. 참조 데이터 키 열 이름이 들어오는 데이터의 이벤트 이름과 정확하게(대/소문자 포함) 일치하는지 확인합니다. 키가 아닌 열 이름은 해당 참조 데이터 값을 사용하여 들어오는 데이터를 확장하는 데 사용됩니다.
+1. 필요한 경우 열 머리글의 이름을 바꿉니다. 해당 속성을 이벤트 원본에 조인하려면 키 열 이름이 필요합니다. 
 
-1. 필요에 따라 **행 추가** 또는 **열 추가** 를 선택 하 여 참조 데이터 값을 더 추가 합니다.
+   > [!IMPORTANT]
+   > 참조 데이터 키 열 이름이 들어오는 데이터의 이벤트 이름과 정확하게(대/소문자 포함) 일치하는지 확인합니다. 키가 아닌 열 이름은 해당 참조 데이터 값을 사용하여 들어오는 데이터를 확장하는 데 사용됩니다.
 
 1. 필요에 따라 특정 행을 검토하려면 **행 필터링...** 필드에 값을 입력합니다. 필터는 데이터를 검토하는 데 유용하지만 데이터를 업로드할 때는 적용되지 않습니다.
 
 1. 데이터 그리드 위의 **데이터 집합 이름** 필드에 입력하여 데이터 집합 이름을 지정합니다.
 
-    [데이터 집합의 이름을 ![합니다.](media/add-reference-data-set/name-reference-dataset.png)](media/add-reference-data-set/name-reference-dataset.png#lightbox)
+    [데이터 집합의 이름을 ![합니다.](media/add-reference-data-set/enter-reference-data-set-name.png)](media/add-reference-data-set/enter-reference-data-set-name.png#lightbox)
 
 1. 데이터 그리드 위의 드롭다운을 선택하여 데이터 집합에 **기본 키** 열을 제공합니다.
 
-    [키 열을 선택 ![합니다.](media/add-reference-data-set/set-primary-key.png)](media/add-reference-data-set/set-primary-key.png#lightbox)
+    [키 열을 선택 ![합니다.](media/add-reference-data-set/select-primary-key-column.png)](media/add-reference-data-set/select-primary-key-column.png#lightbox)
 
-    필요에 따라 보조 키 열을 복합 기본 키로 추가하려면 **+** 단추를 선택합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
+    **(선택 사항)** **+** 단추를 선택 하 여 보조 키 열을 복합 기본 키로 추가 합니다. 선택을 실행 취소해야 할 경우 드롭다운 목록에서 빈 값을 선택하여 보조 키를 제거합니다.
 
 1. 데이터를 업로드하려면 **행 업로드** 단추를 선택합니다.
 
-    [업로드 ![](media/add-reference-data-set/upload-rows.png)](media/add-reference-data-set/upload-rows.png#lightbox)
+    [행을 업로드 하 고 데이터를 확인 ![합니다.](media/add-reference-data-set/confirm-upload-reference-data.png)](media/add-reference-data-set/confirm-upload-reference-data.png#lightbox)
 
     이 페이지에서는 완료된 업로드를 확인하고 **데이터 세트가 업로드됨** 메시지를 표시합니다.
+
+    > [!WARNING]
+    > 참조 데이터 집합 사이에 공유 되는 열 또는 속성은 **중복 된 속성 이름** 업로드 오류를 표시 합니다. 오류가 발생 해도 참조 데이터 집합이 성공적으로 업로드 되는 것은 방지 되지 않습니다. 중복 된 속성 이름을 공유 하는 행을 결합 하 여 제거할 수 있습니다.
+
+1. 필요에 따라 **행 추가**, **대량 행 가져오기**또는 **열 추가** 를 선택 하 여 참조 데이터 값을 추가 합니다.
+
+    [행을 추가 하거나 행을 대량으로 가져오거나 열을 추가 ![합니다.](media/add-reference-data-set/add-row-or-bulk-upload.png)](media/add-reference-data-set/add-row-or-bulk-upload.png#lightbox)
+
+   > [!IMPORTANT]
+   > 고유 키를 다른 행과 공유 하는 모든 행의 열은 해당 고유 키를 공유 하는 마지막으로 추가 된 행에 의해 재정의 됩니다.
+
+   > [!NOTE]
+   > 추가 된 행은 *사각형* 일 필요가 **없습니다** . 참조 데이터 집합의 다른 항목에 대 한 열이 더 적거나, 더 많거나, 달라질 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

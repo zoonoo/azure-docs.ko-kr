@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/26/2019
 ms.author: tamram
 ms.custom: include
-ms.openlocfilehash: 0adf1280fa50e9ee594f3025dff70786f5ba2199
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: de79ea50d12ab322d1e28d0ad650df30ecc0c222
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666168"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806588"
 ---
 ## <a name="install-client-library-packages"></a>클라이언트 라이브러리 패키지 설치
 
@@ -31,5 +31,3 @@ Install-Package Azure.Storage.Blobs
 ```powershell
 Install-Package Azure.Identity
 ```
-
-Azure Storage에서 Azure Id 클라이언트 라이브러리를 사용 하 여 인증 하는 방법에 대 한 자세한 내용은 azure [리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여](/azure/storage/common/storage-auth-aad-msi?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json#authenticate-with-the-azure-identity-library)에서 **azure id 라이브러리를 사용** 하 여 인증 섹션을 참조 하세요.

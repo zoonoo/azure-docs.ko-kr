@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/09/2019
 ms.author: donkim
-ms.openlocfilehash: 80eb0a2018ece23de80e8eb9c4a68c149b590440
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 5c90c91791af8a9a16039e9650765bd24433ff38
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111373"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815823"
 ---
 # <a name="quickstart-create-a-custom-command-preview"></a>빠른 시작: 사용자 지정 명령 만들기 (미리 보기)
 
 이 문서에서는 호스트 된 사용자 지정 명령 응용 프로그램을 만들고 테스트 하는 방법을 배웁니다.
 응용 프로그램은 "tv 켜기"와 같은 utterance을 인식 하 고 간단한 메시지 "확인, tv 켜기"를 사용 하 여 응답 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 음성 구독. [음성 서비스를 무료로 사용해 보세요](~/articles/cognitive-services/speech-service/get-started.md).
 
@@ -106,9 +106,9 @@ turn on the tv
 | ---------- | -------------------------------------- | -------------------------------------------------- |
 | 규칙 이름  | "ConfirmationResponse"                 | 규칙의 용도를 설명 하는 이름입니다.          |
 | 조건 | 없음                                   | 규칙을 실행할 수 있는 시기를 결정 하는 조건    |
-| 동작    | SpeechResponse "확인, TV 켜기" | 규칙 조건이 참인 경우 수행할 동작입니다. |
+| 작업    | SpeechResponse "확인, TV 켜기" | 규칙 조건이 참인 경우 수행할 동작입니다. |
 
-## <a name="try-it-out"></a>체험
+## <a name="try-it-out"></a>사용해 보기
 
 테스트 채팅 패널을 사용 하 여 동작을 테스트 합니다.
 

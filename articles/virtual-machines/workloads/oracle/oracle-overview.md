@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
-ms.openlocfilehash: 71caa6730e3a00f3aa80329d6b87d2531fdd8049
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 6ab41182d59f8c96edfca4854aad5f9a13f53436
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73891472"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806612"
 ---
 # <a name="overview-of-oracle-applications-and-solutions-on-azure"></a>Azure의 Oracle 응용 프로그램 및 솔루션 개요
 
@@ -42,7 +42,7 @@ Azure에서 사용할 수 있는 Oracle Linux 되지 않은 이미지에 대 한
 
 * Oracle WebLogic 서버 12.1.2
 
-* Oracle Linux (UEK) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 및 7.6
+* UEK (Unbreakable Enterprise Kernel) 6.8, 6.9, 6.10, 7.3, 7.4, 7.5 및 7.6을 사용 하 여 Oracle Linux 
 
 ## <a name="high-availability-and-disaster-recovery-options"></a>고가용성 및 재해 복구 옵션
 
@@ -91,3 +91,5 @@ Azure에서 Oracle 응용 프로그램을 배포 하는 것은 "사용자의 라
 * Azure 인프라에 [ORACLE VM 이미지](oracle-vm-solutions.md) 를 배포 하는 방법에 대해 자세히 알아보세요.
 
 * [Azure와 OCI를 상호](oracle-oci-overview.md)연결 하는 방법에 대해 자세히 알아보세요.
+
+* Ignite 2019에서 [Azure의 Oracle 개요 세션](https://myignite.techcommunity.microsoft.com/sessions/82915) 을 확인 하세요. 

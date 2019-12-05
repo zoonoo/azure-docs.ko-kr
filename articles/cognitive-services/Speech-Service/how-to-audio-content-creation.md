@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 2fa4bcb9db6f836346167b76e609a1437df88b04
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554988"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806208"
 ---
 # <a name="audio-content-creation"></a>오디오 콘텐츠 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "74554988"
 
 ## <a name="how-does-it-work"></a>작동 방식
 
-이 다이어그램에서는 사용자 지정 된 음성-텍스트 출력을 조정 하 고 내보내는 데 필요한 단계를 보여 줍니다. 각 단계에 대 한 자세한 내용을 보려면 아래 링크를 사용 하세요.
+이 다이어그램에서는 사용자 지정 된 음성-텍스트 출력을 조정 하 고 내보내는 데 필요한 단계를 보여 줍니다. 각 단계에 대해 자세히 알아보려면 아래 링크를 사용합니다.
 
 ![](media/audio-content-creation/audio-content-creation-diagram.jpg)
 

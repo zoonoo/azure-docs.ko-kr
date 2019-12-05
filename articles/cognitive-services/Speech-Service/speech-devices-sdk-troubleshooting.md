@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wellsi
-ms.openlocfilehash: 9a757402360b4b69e760315a809482be9b4e04d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c590e0972de289a36890a75b220eddbded701ea8
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558901"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815569"
 ---
 # <a name="troubleshoot-the-speech-devices-sdk"></a>Speech Devices SDK 문제 해결
 

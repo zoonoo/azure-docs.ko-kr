@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: f1c89b9ac7aeb51f43ef84267b20f83b408fd56c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4bd42acbf682b51e17f60702e5695cfb29db812b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172483"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806442"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -60,7 +60,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 
 - **Windows vm:** Windows Vm의 경우 Backup 서비스는 VSS와 조정 하 여 VM 디스크의 앱 일치 스냅숏을 만듭니다.
 
-  - 기본적으로 Azure Backup은 전체 VSS 백업을 만듭니다. [자세히 알아봅니다](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
+  - 기본적으로 Azure Backup은 전체 VSS 백업을 만듭니다. [자세히 알아보기](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
   - Azure Backup VSS 복사 백업을 사용 하도록 설정을 변경 하려면 명령 프롬프트에서 다음 레지스트리 키를 설정 합니다.
 
     **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
@@ -79,7 +79,7 @@ Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 --- | --- | --- | ---
 **애플리케이션 일관성** | 앱 일관성이 있는 백업은 메모리 콘텐츠 및 보류 중인 I/O 작업을 캡처합니다. 앱 일치 스냅숏은 VSS 기록기 (또는 Linux 용 사전/사후 스크립트)를 사용 하 여 백업이 발생 하기 전에 앱 데이터의 일관성을 유지 합니다. | 앱 일치 스냅숏을 사용 하 여 VM을 복구 하는 경우 VM이 부팅 됩니다. 데이터 손상 또는 손실이 없습니다. 앱이 일관성 있는 상태로 시작됩니다. | Windows: 모든 VSS 기록기 성공<br/><br/> Linux: 사전/사후 스크립트를 구성 하 고 성공 했습니다.
 **파일 시스템 일치** | 파일 시스템 일치 백업은 모든 파일의 스냅숏을 동시에 가져와서 일관성을 제공 합니다.<br/><br/> | 파일 시스템 일치 스냅숏을 사용 하 여 VM을 복구 하는 경우 VM이 부팅 됩니다. 데이터 손상 또는 손실이 없습니다. 앱은 자체 “수정” 메커니즘을 구현하여 복원된 데이터가 일관성 있는지 확인해야 합니다. | Windows: 일부 VSS 기록기가 실패 했습니다. <br/><br/> Linux: 기본값 (사전/사후 스크립트가 구성 되지 않았거나 실패 한 경우)
-**크래시 일관성** | 크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다.<br/><br/> 크래시 일관성이 있는 복구 지점은 운영 체제 또는 앱의 데이터 일관성을 보장하지 않습니다. | 보장은 없지만 VM은 일반적으로 부팅 된 다음 디스크 검사를 시작 하 여 손상 오류를 수정 합니다. 크래시 전에 디스크로 전송 되지 않은 모든 메모리 내 데이터 또는 쓰기 작업은 손실 됩니다. 앱이 고유한 데이터 확인을 구현합니다. 예를 들어 데이터베이스 앱은 확인을 위해 트랜잭션 로그를 사용할 수 있습니다. 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일치 될 때까지 트랜잭션을 롤백합니다. | VM이 종료 상태
+**크래시 일관성** | 크래시 일관성 스냅숏은 일반적으로 백업 시 Azure VM이 종료 되는 경우에 발생 합니다. 백업 시 디스크에 이미 존재하는 데이터만 캡처 및 백업됩니다. | 는 VM 부팅 프로세스에서 시작 하 여 디스크 검사 후에 손상 오류를 수정 합니다. 크래시 전에 디스크로 전송 되지 않은 모든 메모리 내 데이터 또는 쓰기 작업은 손실 됩니다. 앱이 고유한 데이터 확인을 구현합니다. 예를 들어 데이터베이스 앱은 확인을 위해 트랜잭션 로그를 사용할 수 있습니다. 트랜잭션 로그에 데이터베이스에 없는 항목이 있는 경우 데이터베이스 소프트웨어는 데이터가 일치 될 때까지 트랜잭션을 롤백합니다. | VM이 종료 (중지 됨/할당 취소 됨) 상태입니다.
 
 ## <a name="backup-and-restore-considerations"></a>백업 및 복원 고려 사항
 
@@ -134,16 +134,6 @@ OS 디스크 | 4,095GB | 17GB
 데이터 디스크 2 | 4,095GB | 0GB
 
 이 경우 VM의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호 된 인스턴스 크기 (47 g b)는 월별 청구의 기반이 됩니다. VM의 데이터 양이 증가 함에 따라 청구 변경 내용이 일치 하는 데 사용 되는 보호 된 인스턴스 크기입니다.
-
-<a name="limited-public-preview-backup-of-vm-with-disk-sizes-up-to-30tb"></a>
-
-## <a name="public-preview-backup-of-vm-with-disk-sizes-up-to-30-tb"></a>공개 미리 보기: 최대 30tb의 디스크 크기를 포함 하는 VM 백업
-
-이제 Azure Backup은 최대 30tb의 강력한 [Azure Managed Disks](https://azure.microsoft.com/blog/larger-more-powerful-managed-disks-for-azure-virtual-machines/) 에 대 한 공개 미리 보기를 지원 합니다. 이 미리 보기는 관리 되는 가상 컴퓨터에 대 한 프로덕션 수준 지원을 제공 합니다.
-
-VM의 모든 디스크에 대해 최대 30tb의 디스크 크기와 최대 256 TB를 결합 하 여 가상 머신의 백업은 기존 백업에 영향을 주지 않고 원활 하 게 작동 해야 합니다. 가상 컴퓨터가 이미 Azure Backup로 구성 된 경우 큰 크기의 디스크에 대해 실행 되는 백업을 가져오는 데 필요한 사용자 작업은 없습니다.
-
-백업이 구성 된 디스크가 많은 Azure Virtual Machines는 성공적으로 백업 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

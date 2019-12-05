@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: fcd3e5fd6db0d7c18a5f9bfba030cd3d809b452f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e41653e4644b09cc357510223e5ee86c3806ae2c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802527"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806116"
 ---
 # <a name="deploy-a-custom-model"></a>사용자 지정 모델 배포
 
@@ -44,7 +44,7 @@ ms.locfileid: "70802527"
 
 * [Speech SDK](speech-sdk.md)를 사용하여 사용자 지정 끝점을 사용합니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

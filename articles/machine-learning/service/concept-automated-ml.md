@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 4ed27009a3549757881c84d92b3b29b60ecbfbc1
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: d8628bd62df650d76b0666b650af88038dbbda1f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790572"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807122"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -98,7 +98,7 @@ ms.locfileid: "74790572"
 
 + Azure Machine Learning studio: [다음 단계를 사용 하 여](how-to-create-portal-experiments.md) **구성 실행** 섹션에서 **기능화 설정 보기** 를 선택 합니다.
 
-+ Python SDK: [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
++ Python SDK: [`AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
 
 ## <a name="prevent-over-fitting"></a>과도 맞춤 방지
 

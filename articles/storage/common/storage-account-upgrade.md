@@ -7,16 +7,16 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: tamram
-ms.openlocfilehash: edee0e2efadd8e92ebf3533f0716c82029a0c680
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e24b7efb9f4af9f730ce79751e2fc5a9d210edbd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791692"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806986"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 저장소 계정으로 업그레이드
 
-범용 v2 저장소 계정은 최신 Azure Storage 기능을 지원 하 고 범용 v1 및 Blob 저장소 계정의 모든 기능을 포함 합니다. 범용 v2 계정은 대부분의 스토리지 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 일반-전용 만드세요 v2 계정은 핫, 쿨 또는 보관 사이에서 핫 또는 쿨 및 blob 수준 계층화의 기본 계정 액세스 계층을 지원 합니다.
+범용 v2 저장소 계정은 최신 Azure Storage 기능을 지원 하 고 범용 v1 및 Blob 저장소 계정의 모든 기능을 포함 합니다. 범용 v2 계정은 대부분의 스토리지 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 계정은 핫, 쿨 또는 보관 사이에서 핫 또는 쿨 및 blob 수준 계층화의 기본 계정 액세스 계층을 지원 합니다.
 
 범용 v1 또는 Blob storage 계정에서 범용 v2 저장소 계정으로 업그레이드 하는 것은 간단 합니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다.
 
@@ -59,11 +59,11 @@ az storage account update -g <resource-group> -n <storage-account> --set kind=St
 
 ## <a name="specify-an-access-tier-for-blob-data"></a>Blob 데이터에 대한 액세스 계층을 지정합니다.
 
-범용 v2 계정은 모든 Azure Storage 서비스 및 데이터 개체를 지원하지만 액세스 계층은 Blob Storage의 블록 blob에 대해서만 사용할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드 하는 경우 blob 데이터에 대 한 액세스 계층을 지정할 수 있습니다.
+범용 v2 계정은 모든 Azure storage 서비스 및 데이터 개체를 지원 하지만 액세스 계층은 Blob storage 내의 블록 blob에만 적용 됩니다. 범용 v2 저장소 계정으로 업그레이드 하는 경우 핫 또는 쿨의 기본 계정 액세스 계층을 지정할 수 있습니다 .이 계층은 개별 blob 액세스 계층 매개 변수가 지정 되지 않은 것 처럼 blob 데이터를 업로드할 기본 계층을 나타냅니다.
 
-액세스 계층을 사용하면 예상된 사용량 패턴에 따라 가장 비용 효율적인 스토리지를 선택할 수 있습니다. 블록 Blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
+Blob 액세스 계층을 사용 하 여 예상 되는 사용량 패턴에 따라 가장 비용 효율적인 저장소를 선택할 수 있습니다. 블록 blob은 핫, 쿨 또는 보관 계층에 저장할 수 있습니다. 액세스 계층에 대한 자세한 내용은 [Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](../blobs/storage-blob-storage-tiers.md)을 참조하세요.
 
-기본적으로 새 저장소 계정이 핫 액세스 계층에 만들어지고 범용 v1 저장소 계정이 핫 액세스 계층으로 업그레이드 됩니다. 업그레이드 후에 데이터를 사용하는 액세스 계층을 탐색하는 경우 사용자의 시나리오를 고려합니다. 범용 v2 계정으로 마이그레이션하기 위한 일반적인 사용자 시나리오는 다음 두 가지입니다.
+기본적으로 새 저장소 계정이 핫 액세스 계층에 만들어지고 범용 v1 저장소 계정을 핫 또는 쿨 계정 계층으로 업그레이드할 수 있습니다. 업그레이드 시 계정 액세스 계층을 지정 하지 않으면 기본적으로 핫으로 업그레이드 됩니다. 업그레이드에 사용할 액세스 계층을 탐색 하는 경우 현재 데이터 사용 시나리오를 고려 하세요. 범용 v2 계정으로 마이그레이션하기 위한 일반적인 사용자 시나리오는 다음 두 가지입니다.
 
 * 기존 범용 v1 저장소 계정이 있고 blob 데이터에 대 한 올바른 저장소 액세스 계층을 사용 하 여 범용 v2 저장소 계정으로 업그레이드를 평가 하려고 합니다.
 * 범용 v2 저장소 계정을 사용 하도록 결정 했거나 이미 하나 있는 경우 blob 데이터에 대 한 핫 또는 쿨 저장소 액세스 계층을 사용 해야 하는지 여부를 평가 하려고 합니다.

@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: df65267924cfbfdc856b81928c4b6d7029f61184
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665970"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806629"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Storage에 대 한 고객 관리 키 구성
 
@@ -91,7 +91,7 @@ az keyvault key create
 
 기본적으로 Azure Storage 암호화는 Microsoft 관리 키를 사용 합니다. 고객 관리 키에 대 한 Azure Storage 계정을 구성 하 고 저장소 계정과 연결할 키를 지정 합니다.
 
-저장소 계정의 암호화 설정을 업데이트 하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. 또한이 예제에서는 키 자격 증명 모음 URI 및 키 버전을 쿼리 합니다 .이 두 값은 모두 키를 저장소 계정에 연결 하는 데 필요 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+저장소 계정의 암호화 설정을 업데이트 하려면 [az storage account update](/cli/azure/storage/account#az-storage-account-update)를 호출 합니다. 또한이 예제에서는 키 자격 증명 모음 URI와 최신 키 버전을 쿼리 합니다 .이 두 값은 모두 저장소 계정에 키를 연결 하는 데 필요 합니다. 대괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli-interactive
 key_vault_uri=$(az keyvault show \
@@ -102,7 +102,7 @@ key_vault_uri=$(az keyvault show \
 key_version=$(az keyvault key list-versions \
     --name <key> \
     --vault-name <key-vault> \
-    --query [].kid \
+    --query [-1].kid \
     --output tsv | cut -d '/' -f 6)
 az storage account update 
     --name <storage-account> \

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 72029d1d56c9d561e629cc750244fd7de8ec113a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cec3131d791d591375fd87d1c080294c9034a815
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500915"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806221"
 ---
 # <a name="about-direct-line-speech"></a>직접 선 음성 정보
 
@@ -45,17 +45,17 @@ ms.locfileid: "73500915"
 
 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다. 이러한 샘플은 몇 가지 인기 있는 프로그래밍 언어로 도우미에 연결 하기 위한 클라이언트 응용 프로그램을 포함 합니다.
 
-* [음성 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
+* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
 * [자습서: 음성 SDK를 통해 길잡이 활성화C#](tutorial-voice-enable-your-bot-speech-sdk.md)
 
 ## <a name="customization"></a>사용자 지정
 
-Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 사용자 지정 옵션의 전체 범위를 사용할 수 있습니다.
+Speech service를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](supported-languages.md)참조).
+> 언어/로캘마다 사용자 지정 옵션이 다릅니다([지원되는 언어](supported-languages.md) 참조).
 
-음성 도우미에 대 한 직접 줄 음성 및 관련 기능은 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿에](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)적합 합니다. 직접 라인 음성은 호환 봇에서 작동할 수 있지만 이러한 리소스는 고품질의 대화형 환경 뿐만 아니라 빠르게 시작할 수 있는 일반적인 지원 기술 및 모델에 재사용 가능한 기준을 제공 합니다.
+음성 도우미에 대 한 직접 줄 음성 및 관련 기능은 [가상 길잡이 솔루션 및 엔터프라이즈 템플릿에](https://docs.microsoft.com/azure/bot-service/bot-builder-enterprise-template-overview)적합 합니다. Direct Line Speech는 호환 가능한 봇과 함께 작동할 수 있지만,  이러한 리소스는 고품질 대화형 환경 뿐만 아니라 빠른 시작을 위한 일반적인 지원 기술과 모델을 위한 재사용 가능한 기준선을 제공합니다.
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -64,7 +64,7 @@ Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [무료로 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](get-started.md)
 * [음성 SDK 가져오기](speech-sdk.md)
 * [기본 봇 생성 및 배포](https://docs.microsoft.com/azure/bot-service/bot-builder-tutorial-basic-deploy?view=azure-bot-service-4.0)
 * [가상 길잡이 솔루션 및 엔터프라이즈 템플릿 가져오기](https://github.com/Microsoft/AI)

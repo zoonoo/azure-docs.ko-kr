@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 1eeb2e7ccf5c365fedd02a8de4c6b442dd3d5bc8
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 81b4ffc8f77673e52bb78f891e3de618b67e0d1b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075808"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806065"
 ---
 # <a name="how-to-create-human-labeled-transcriptions"></a>인간 레이블의 기록을 만드는 방법
 
@@ -29,7 +29,7 @@ ms.locfileid: "74075808"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 문자 | 참고 사항 |
+| 피할 문자 | 대체 문자 | 참고 |
 | ------------------- | ------------ | ----- |
 | "Hello world" | "Hello world" | 적절한 ASCII 문자를 사용하여 여는 따옴표 및 닫는 따옴표가 대체되었습니다. |
 | John’s day | John's day | 아포스트로피가 적절한 ASCII 문자를 사용하여 대체되었습니다. |
@@ -84,7 +84,7 @@ ms.locfileid: "74075808"
 
 다음은 몇 가지 예입니다.
 
-| 피할 문자 | 대체 문자   | 참고 사항 |
+| 피할 문자 | 대체 문자   | 참고 |
 | ------------------- | -------------- | ----- |
 | "你好" | "你好" | 여는 따옴표와 닫는 따옴표가 적절한 문자로 대체되었습니다. |
 | 需要什么帮助? | 需要什么帮助？| 물음표가 적절한 문자로 대체되었습니다. |

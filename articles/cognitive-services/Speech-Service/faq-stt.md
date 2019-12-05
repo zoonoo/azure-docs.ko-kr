@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/17/2019
+ms.date: 12/4/2019
 ms.author: panosper
-ms.openlocfilehash: 277d8e3fe8f54b8e95d8acc93d26100d3ac64db1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 575dda47b5e6fc0d70ef80dfd7a1baba0f63be2d
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74110711"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74814847"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>음성 텍스트 변환에 대한 질문과 대답
 
@@ -65,11 +65,32 @@ ms.locfileid: "74110711"
 
 기준 V1.0의 모델을 적응시키고 배포하면 배포는 원래 상태를 유지합니다. 고객은 새 버전의 기준선을 사용 하 고 다시 배포 하는 readapt 배포 된 모델을 서비스 해제할 수 있습니다.
 
+**Q: 내 모델을 다운로드하여 로컬로 실행할 수 있나요?**
+
+**A**: 모델을 다운로드하여 로컬로 실행할 수 없습니다.
+
+**Q: 내 요청이 기록되나요?**
+
+**A**: 배포를 만들 때 추적을 해제하는 옵션을 사용할 수 있습니다. 이 경우 오디오 또는 전사는 기록되지 않습니다. 그렇지 않으면 일반적으로 Azure에서 보안 스토리지에 요청이 기록됩니다.
+
+**Q: 내 요청이 제한되나요?**
+
+**A**: REST API의 경우 5초당 25개 요청으로 제한됩니다. 자세한 내용은 [음성을 텍스트로 변환](speech-to-text.md)에 대한 페이지에서 찾을 수 있습니다.
+
+**Q: 이중 채널 오디오에 대 한 요금은 어떻게 청구 되나요?**
+
+**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 파일의 기간에 따라 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다.
+
+> [!IMPORTANT]
+> 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
+
+## <a name="increasing-concurrency"></a>동시성 증대
+
 **Q: 포털에 제공되는 모델보다 배포된 모델에 대해 더 높은 동시성이 필요하면 어떻게 해야 하나요?**
 
 **A**: 모델은 20개씩 증분하는 동시 요청으로 강화할 수 있습니다.
 
-더 높은 규모를 요구 하는 경우 [음성 지원](mailto:speechsupport@microsoft.com?subject=Request%20for%20higher%20concurrency%20for%20Speech-to-text) 에 문의 하세요.
+필요한 정보를 사용 하 여 [Azure 지원 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 지원 요청을 만듭니다. [지원 페이지](support.md)에 언급 된 공개 채널 (GitHub, stackoverflow, ...) 중 하나에 정보를 게시 하지 마십시오.
 
 ***사용자 지정 모델***에 대 한 동시성을 늘리려면 다음 정보가 필요 합니다.
 
@@ -97,25 +118,6 @@ or
   - 표시 된 서비스에서 동시성을 증가 시킬 음성 서비스를 선택 합니다.
   - 이 서비스에 대 한 `Properties`를 표시 합니다.
   - 전체 `Resource ID`를 복사 합니다.
-
-**Q: 내 모델을 다운로드하여 로컬로 실행할 수 있나요?**
-
-**A**: 모델은 다운로드하여 로컬로 실행할 수 없습니다.
-
-**Q: 내 요청이 기록되나요?**
-
-**A**: 배포를 만들 때 추적을 해제하는 옵션을 사용할 수 있습니다. 이 경우 오디오 또는 전사는 기록되지 않습니다. 그렇지 않으면 일반적으로 Azure에서 보안 스토리지에 요청이 기록됩니다.
-
-**Q: 내 요청이 제한되나요?**
-
-**A**: REST API의 경우 5초당 25개 요청으로 제한됩니다. 자세한 내용은 [음성을 텍스트로 변환](speech-to-text.md)에 대한 페이지에서 찾을 수 있습니다.
-
-**Q: 이중 채널 오디오에 대 한 요금은 어떻게 청구 되나요?**
-
-**A**: 각 채널을 별도로 제출 하는 경우 (각 채널은 자체 파일에) 파일의 기간에 따라 요금이 청구 됩니다. 각 채널이 함께 멀티플렉싱 단일 파일을 제출 하면 단일 파일의 기간에 대 한 요금이 청구 됩니다.
-
-> [!IMPORTANT]
-> 그 밖의 개인 정보 보호 문제로 인해 Custom Speech Service를 사용할 수 없는 경우에는 지원 채널 중 한 곳에 문의하세요.
 
 ## <a name="importing-data"></a>데이터 가져오기
 
@@ -189,7 +191,7 @@ or
 
 **Q: 테 넌 트 모델에서 어떤 음성 환경이 개선 되나요?**
 
-**A:** 테 넌 트 모델을 사용 하도록 설정 하 고 만들고 게시 하면, 음성 서비스를 사용 하 여 빌드된 엔터프라이즈 응용 프로그램에 대 한 인식을 개선 하는 데 사용 됩니다. 또한 엔터프라이즈에 대 한 멤버 자격을 나타내는 사용자 AAD 토큰을 전달 합니다.
+**A:** 테 넌 트 모델을 사용 하도록 설정 하 고 만들고 게시 하면, 음성 서비스를 사용 하 여 빌드된 모든 엔터프라이즈 응용 프로그램에 대 한 인식을 개선 하는 데 사용 됩니다. 또한 엔터프라이즈에 대 한 멤버 자격을 나타내는 사용자 AAD 토큰을 전달 합니다.
 
 음성 서비스 응용 프로그램에 대 한 테 넌 트 모델을 만들 때 받아쓰기 및 PowerPoint 캡션 등 Office 365에 내장 된 음성 환경은 변경 되지 않습니다.
 

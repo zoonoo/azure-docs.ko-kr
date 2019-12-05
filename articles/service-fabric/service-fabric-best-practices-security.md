@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: fec81e843753656d651c6d5d0b73077a964be9d4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828520"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807445"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric 보안 
 
@@ -166,7 +166,7 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 ```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>MSI(관리 서비스 ID)를 사용하여 Azure 리소스에 Service Fabric 애플리케이션 인증
 
-Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work)을 참조하세요.
+Azure 리소스에 대한 관리 ID에 대한 자세한 내용은 [Azure 리소스에 대한 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md#how-does-the-managed-identities-for-azure-resources-work)을 참조하세요.
 Azure Service Fabric 클러스터는 [관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-managed-identities-for-azure-resources)를 지원하는 Virtual Machine Scale Sets에서 호스팅됩니다.
 MSI를 인증하는 데 사용할 수 있는 서비스 목록을 가져오려면 [Azure Active Directory 인증을 지원하는 Azure 서비스](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication)를 참조하세요.
 
@@ -216,8 +216,8 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 ## <a name="windows-security-baselines"></a>Windows 보안 기준
 [기준을 직접 만드는 것이 아니라 Microsoft 보안 기준과 같이 널리 알려져 있고 잘 테스트 된 업계 표준 구성을 구현 하는 것이 좋습니다](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). Virtual Machine Scale Sets에서 프로 비전 하는 옵션은 Azure DSC (필요한 상태 구성) 확장 처리기를 사용 하 여 Vm이 온라인 상태가 되 면 프로덕션 소프트웨어를 실행 하는 Vm을 구성 하는 것입니다.
 
-## <a name="azure-firewall"></a>Azure 방화벽
-[Azure 방화벽은 Azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 기본 제공 되는 고가용성 및 무제한 클라우드 확장성을 갖춘 완전 한 상태 저장 방화벽 as a service입니다. ](https://docs.microsoft.com/azure/firewall/overview); 이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
+## <a name="azure-firewall"></a>Azure Firewall
+[Azure 방화벽은 azure Virtual Network 리소스를 보호 하는 관리 되는 클라우드 기반 네트워크 보안 서비스입니다. 이는 기본 제공 고가용성 및 무제한 클라우드 확장성이 있는 완전 한 상태 저장 방화벽으로 서의 서비스입니다.](https://docs.microsoft.com/azure/firewall/overview) 이를 통해 와일드 카드를 포함 하 여 지정 된 FQDN (정규화 된 도메인 이름) 목록으로 아웃 바운드 HTTP/S 트래픽을 제한할 수 있습니다. 이 기능에는 SSL 종료가 필요하지 않습니다. Windows 업데이트에 대 한 [Azure 방화벽 FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags) 를 활용 하 고 Microsoft Windows 업데이트 끝점에 대 한 네트워크 트래픽을 방화벽을 통해 이동할 수 있도록 하는 것이 좋습니다. [템플릿을 사용 하 여 Azure 방화벽 배포](https://docs.microsoft.com/azure/firewall/deploy-template) 리소스 템플릿 정의에 대 한 샘플을 제공 합니다. Service Fabric 응용 프로그램에 공통적인 방화벽 규칙은 클러스터 가상 네트워크에 대해 다음을 허용 하는 것입니다.
 
 - *download.microsoft.com
 - *servicefabric.azure.com
@@ -263,7 +263,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 > Windows Defender를 사용하지 않는 경우 구성 규칙에 대한 맬웨어 방지 설명서를 참조하세요. Linux에서는 Windows Defender가 지원되지 않습니다.
 
 ## <a name="platform-isolation"></a>플랫폼 격리
-기본적으로 Service Fabric 응용 프로그램에는 Service Fabric 런타임 자체에 대 한 액세스 권한이 부여 됩니다 .이는 다른 형식으로 매니페스트 됩니다. 환경 변수는 응용 프로그램 및 패브릭 파일에 해당 하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md) 입니다. 응용 프로그램 관련 요청을 수락 하는 프로세스 간 통신 끝점과 패브릭에서 응용 프로그램이 자신을 인증 하는 데 사용 해야 하는 클라이언트 인증서입니다. 서비스에서 신뢰 하지 않는 코드를 대비해 야 하는 경우 명시적으로 필요 하지 않은 경우에는 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 응용 프로그램 매니페스트의 정책 섹션에서 다음 선언을 사용 하 여 런타임에 대 한 액세스를 제거 합니다. 
+기본적으로 Service Fabric 응용 프로그램에는 Service Fabric 런타임 자체에 대 한 액세스 권한이 부여 됩니다. 즉, 응용 프로그램 및 패브릭 파일에 해당 하는 호스트의 파일 경로를 가리키는 [환경 변수](service-fabric-environment-variables-reference.md) , 응용 프로그램별 요청을 수락 하는 프로세스 간 통신 끝점, 패브릭에서 응용 프로그램을 인증 하는 데 사용 해야 하는 클라이언트 인증서를 각기 다른 형식으로 매니페스트 합니다. 서비스에서 신뢰 하지 않는 코드를 대비해 야 하는 경우 명시적으로 필요 하지 않은 경우에는 SF 런타임에 대 한이 액세스를 사용 하지 않도록 설정 하는 것이 좋습니다. 응용 프로그램 매니페스트의 정책 섹션에서 다음 선언을 사용 하 여 런타임에 대 한 액세스를 제거 합니다. 
 
 ```xml
 <ServiceManifestImport>
@@ -276,8 +276,8 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 
 ## <a name="next-steps"></a>다음 단계
 
-* Windows Server를 실행하는 VM 또는 컴퓨터에 클러스터 만들기: [Windows Server용 Service Fabric 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)
-* Linux를 실행하는 VM 또는 컴퓨터에 클러스터 만들기: [Linux 클러스터 만들기](service-fabric-cluster-creation-via-portal.md)
+* Windows server를 실행 하는 Vm 또는 컴퓨터에서 클러스터 만들기: [Windows server에 대 한 클러스터 만들기를 Service Fabric](service-fabric-cluster-creation-for-windows-server.md)합니다.
+* Vm 또는 Linux를 실행 하는 컴퓨터에서 클러스터 만들기: [linux 클러스터를 만듭니다](service-fabric-cluster-creation-via-portal.md).
 * [Service Fabric 지원 옵션](service-fabric-support.md)에 대해 알아봅니다.
 
 [Image1]: ./media/service-fabric-best-practices/generate-common-name-cert-portal.png

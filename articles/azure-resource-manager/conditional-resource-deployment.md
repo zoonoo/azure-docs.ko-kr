@@ -2,13 +2,13 @@
 title: 템플릿을 사용한 조건부 배포
 description: Azure Resource Manager 템플릿에서 리소스를 조건부로 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/03/2019
-ms.openlocfilehash: e3d78f875e39628194ac30310314e59e2ef19fdb
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/03/2019
+ms.openlocfilehash: ec2337686f92bb631ae4b08ce125eb576cd8bd69
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74147178"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806476"
 ---
 # <a name="conditional-deployment-in-resource-manager-templates"></a>리소스 관리자 템플릿의 조건부 배포
 
@@ -78,6 +78,8 @@ ms.locfileid: "74147178"
 조건부로 배포 되는 리소스에 [참조](resource-group-template-functions-resource.md#reference) 또는 [목록](resource-group-template-functions-resource.md#list) 함수를 사용 하는 경우 리소스가 배포 되지 않은 경우에도 함수가 평가 됩니다. 함수가 존재 하지 않는 리소스를 참조 하는 경우 오류가 발생 합니다.
 
 [If](resource-group-template-functions-logical.md#if) 함수를 사용 하 여 리소스가 배포 될 때 함수가 조건에 대해서만 계산 되도록 합니다. If를 사용 하 고 조건부로 배포 된 리소스를 참조 하는 샘플 템플릿은 [if 함수](resource-group-template-functions-logical.md#if) 를 참조 하세요.
+
+리소스를 다른 리소스와 동일 하 게 조건부 리소스에 [종속 된 것으로](resource-group-define-dependencies.md) 설정 합니다. 조건부 리소스가 배포 되지 않은 경우 Azure Resource Manager은 필요한 종속성에서 자동으로 제거 합니다.
 
 ## <a name="condition-with-complete-mode"></a>Complete 모드의 조건
 

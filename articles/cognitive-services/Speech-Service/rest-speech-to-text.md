@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 137ab722df280d17fe5ccc5c07acfd323feb6531
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: f617bed0d2d93d8c8586d5708e0e356934817f4a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091220"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816641"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -38,25 +38,25 @@ ms.locfileid: "74091220"
 
 ## <a name="query-parameters"></a>쿼리 매개 변수
 
-이 매개 변수는 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
+이 매개 변수를 REST 요청의 쿼리 문자열에 포함할 수 있습니다.
 
-| 매개 변수를 포함해야 합니다. | 설명 | 필수/선택 |
+| 매개 변수를 포함해야 합니다. | 설명 | 필수/선택 사항 |
 |-----------|-------------|---------------------|
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 선택 사항 |
-| `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 `masked`입니다 .이 경우 사용 금지를 별표로 대체 하는 `removed`, 결과의 모든 비속어를 제거 하는 `raw`또는 결과의 불경를 포함 하는입니다. 기본 설정은 `masked`입니다. | 선택 사항 |
+| `profanity` | 인식 결과에서 욕설을 처리하는 방법을 지정합니다. 허용 되는 값은 `masked`입니다 .이 경우 사용 금지를 별표로 대체 하는 `removed`, 결과의 모든 비속어를 제거 하는 `raw`또는 결과의 불경를 포함 하는입니다. 기본 설정은 `masked`입니다. | 선택 사항 |
 
-## <a name="request-headers"></a>요청 헤더
+## <a name="request-headers"></a>헤더 요청
 
 이 표에는 음성 텍스트 변환 요청에 대한 필수 헤더 및 선택적 헤더가 나와 있습니다.
 
-|헤더| 설명 | 필수/선택 |
+|헤더| 설명 | 필수/선택 사항 |
 |------|-------------|---------------------|
-| `Ocp-Apim-Subscription-Key` | 음성 서비스 구독 키입니다. | 이 헤더 또는 `Authorization`가 필요합니다. |
-| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`가 필요합니다. |
+| `Ocp-Apim-Subscription-Key` | Speech Service 구독 키입니다. | 이 헤더 또는 `Authorization`이 필요합니다. |
+| `Authorization` | 앞에 `Bearer` 단어가 표시되는 인증 토큰입니다. 자세한 내용은 [인증](#authentication)을 참조하세요. | 이 헤더 또는 `Ocp-Apim-Subscription-Key`이 필요합니다. |
 | `Content-type` | 제공된 오디오 데이터의 형식과 코덱을 설명합니다. 허용되는 값은 `audio/wav; codecs=audio/pcm; samplerate=16000` 및 `audio/ogg; codecs=opus`입니다. | 필수 |
 | `Transfer-Encoding` | 단일 파일이 아닌 청크 분할된 오디오 데이터가 전송되고 있음을 지정합니다. 오디오 데이터를 청크 분할하는 경우에만 이 헤더를 사용합니다. | 선택 사항 |
-| `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. 음성 서비스는 초기 요청을 승인 하 고 추가 데이터를 기다립니다 합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
+| `Expect` | 청크 분할된 전송을 사용하는 경우 `Expect: 100-continue`를 전송합니다. Speech Service는 초기 요청을 인식하고 추가 데이터를 대기합니다.| 청크 분할된 오디오 데이터를 전송하는 경우에 필요합니다. |
 | `Accept` | 제공하는 경우 `application/json`이어야 합니다. 음성 서비스는 JSON에서 결과를 제공 합니다. 일부 요청 프레임 워크는 호환 되지 않는 기본값을 제공 합니다. 항상 `Accept`를 포함 하는 것이 좋습니다. | 선택 사항이지만 권장됩니다. |
 
 ## <a name="audio-formats"></a>오디오 형식
@@ -91,7 +91,7 @@ Expect: 100-continue
 
 | HTTP 상태 코드 | 설명 | 가능한 원인 |
 |------------------|-------------|-----------------|
-| 100 | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송으로 사용함) |
+| 100 | 계속하기 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송으로 사용함) |
 | 200 | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
 | 400 | 잘못된 요청 | 지원 되지 않는 언어 코드, 잘못 된 오디오 파일 등은 제공 되지 않습니다. |
 | 401 | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
@@ -153,7 +153,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 `RecognitionStatus` 필드에는 다음 값이 포함될 수 있습니다.
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 |--------|-------------|
 | `Success` | 성공적으로 인식했고 `DisplayText` 필드가 있습니다. |
 | `NoMatch` | 오디오 스트림에서 음성이 감지되었지만 대상 언어의 단어가 일치하지 않습니다. 일반적으로 인식 언어는 사용자가 말하는 것과 다른 언어를 의미합니다. |
@@ -164,7 +164,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 > [!NOTE]
 > 오디오가 욕설로만 구성되어 있고 `profanity` 쿼리 매개 변수가 `remove`로 설정되어 있는 경우 서비스는 음성 결과를 변환하지 않습니다.
 
-`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `simple`와 함께 `NBest` 형식과 동일한 데이터를 포함합니다. 이러한 결과는 가장 가능성이 낮은 것부터 순위가 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `Display` 목록의 각 결과에 대한 `NBest`로 제공됩니다.
+`detailed` 형식은 동일한 인식 결과에 대한 대체 해석 목록인 `NBest`와 함께 `simple` 형식과 동일한 데이터를 포함합니다. 이러한 결과는 가장 가능성이 낮은 것부터 순위가 높습니다. 첫 번째 항목은 기본 인식 결과와 같습니다.  `detailed` 형식을 사용하는 경우 `DisplayText`는 `NBest` 목록의 각 결과에 대한 `Display`로 제공됩니다.
 
 `NBest` 목록의 각 개체에는 다음이 포함됩니다.
 
@@ -174,7 +174,7 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 | `Lexical` | 인식된 텍스트의 어휘 형태, 즉 인식된 실제 단위입니다. |
 | `ITN` | 전화 번호, 숫자, 축약어("doctor smith"가 "dr smith")가 포함된 인식된 텍스트의 역 텍스트 정규화된("기본형") 형태와 적용된 기타 변형입니다. |
 | `MaskedITN` | 요청된 경우 욕설 마스킹이 적용된 ITN 형태입니다. |
-| `Display` | 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다. 이 매개 변수는 형식이 `DisplayText`로 설정된 경우에 제공되는 `simple`와 동일합니다. |
+| `Display` | 문장 부호 및 대문자로 표시가 추가된 인식된 텍스트의 표시 형태입니다. 이 매개 변수는 형식이 `simple`로 설정된 경우에 제공되는 `DisplayText`와 동일합니다. |
 
 ## <a name="sample-responses"></a>샘플 응답
 
@@ -217,6 +217,6 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
-- [어쿠스틱 모델 사용자 지정](how-to-customize-acoustic-models.md)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [음향 모델 사용자 지정](how-to-customize-acoustic-models.md)
 - [언어 모델 사용자 지정](how-to-customize-language-model.md)
