@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/12/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: cba54c65a314919b5509e1de029ad05f8722baa2
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 1643b20c6c157c43e93967cef364e703dbf4478e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075452"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829060"
 ---
 |**VPN<br>게이트웨이<br>생성** |**SKU**   | **S2S/VNet 간<br>터널** | **P2S<br> SSTP 연결** | **P2S<br> IKEv2/OpenVPN 연결** | **집계<br>처리량 벤치마크** | **BGP** | **Zone-redundant** |
 |---            |---         | ---        | ---       | ---            | ---       | ---       | ---|
@@ -27,12 +27,12 @@ ms.locfileid: "74075452"
 |        |            |            |           |                |           |           |     |
 |**생성 2**|**VpnGw2**  | 최대 30*   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 아니요 |
 |**생성 2**|**VpnGw3**  | 최대 30*   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw4**  | 최대 30*   | 최대 128  | 최대 1000      | 5Gbps    | 지원됨 | 아니요 |
-|**생성 2**|**VpnGw5**  | 최대 30*   | 최대 128  | 최대 1000      | 10Gbps   | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw4**  | 최대 30*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 아니요 |
+|**생성 2**|**VpnGw5**  | 최대 30*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 아니요 |
 |**생성 2**|**VpnGw2AZ**| 최대 30*   | 최대 128  | 최대 500       | 1.25Gbps | 지원됨 | 예 |
 |**생성 2**|**VpnGw3AZ**| 최대 30*   | 최대 128  | 최대 1000      | 2.5Gbps  | 지원됨 | 예 |
-|**생성 2**|**VpnGw4AZ**| 최대 30*   | 최대 128  | 최대 1000      | 5Gbps    | 지원됨 | 예 |
-|**생성 2**|**VpnGw5AZ**| 최대 30*   | 최대 128  | 최대 1000      | 10Gbps   | 지원됨 | 예 |
+|**생성 2**|**VpnGw4AZ**| 최대 30*   | 최대 128  | 최대 5,000      | 5Gbps    | 지원됨 | 예 |
+|**생성 2**|**VpnGw5AZ**| 최대 30*   | 최대 128  | 최대 10000      | 10Gbps   | 지원됨 | 예 |
 
 (*) S2S VPN 터널이 30개 넘게 필요한 경우 [가상 WAN](../articles/virtual-wan/virtual-wan-about.md)을 사용해야 합니다.
 

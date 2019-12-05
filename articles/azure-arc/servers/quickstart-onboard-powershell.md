@@ -10,12 +10,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.topic: quickstart
-ms.openlocfilehash: ddade9472517d080d01b04c853db9dd1848fe0f3
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7fb24d53876ab8c06fca4fbfe929c06a889335f3
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668461"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74786353"
 ---
 # <a name="quickstart-connect-machines-to-azure-using-azure-arc-for-servers---powershell"></a>빠른 시작: 서버용 Azure Arc를 사용하여 Azure에 머신 연결 - PowerShell
 
@@ -175,7 +175,7 @@ azcmagent connect \
 **Linux**의 경우 서버에 프록시 서버가 필요하면 다음 중 하나를 수행할 수 있습니다.
 
 * 위의 [에이전트 설치](#download-and-install-the-agent) 섹션에서 `--proxy`를 사용하여 `install_linux_hybrid_agent.sh` 스크립트를 실행합니다.
-* 에이전트를 이미 설치한 경우 `/opt/azcmagent/bin/hybridrp_proxy add https://{proxy-url}:{proxy-port}` 명령을 실행하면 프록시가 구성되고 에이전트가 다시 시작됩니다.
+* 에이전트를 이미 설치한 경우 `/opt/azcmagent/bin/hybridrp_proxy add http://{proxy-url}:{proxy-port}` 명령을 실행하면 프록시가 구성되고 에이전트가 다시 시작됩니다.
 
 #### <a name="windows"></a>Windows
 
@@ -183,7 +183,7 @@ azcmagent connect \
 
 ```powershell
 # If a proxy server is needed, execute these commands with actual proxy URL
-[Environment]::SetEnvironmentVariable("https_proxy", "{https:\\proxy-url:proxyport}", "Machine")
+[Environment]::SetEnvironmentVariable("https_proxy", "http://{proxy-url}:{proxy-port}", "Machine")
 $env:https_proxy = [System.Environment]::GetEnvironmentVariable("https_proxy","Machine")
 # The agent service needs to be restarted after the proxy environment variable is set in order for the changes to take effect.
 Restart-Service -Name himds

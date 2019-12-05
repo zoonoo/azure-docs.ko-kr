@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 10/12/2019
+ms.date: 12/01/2019
 ms.author: b-juche
-ms.openlocfilehash: 06ebe8ed22453289fa02c238d9b2e6ef13191f2a
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 912fd6bde4d00cca304a1506465a524cda947a07
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73888541"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769849"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>빠른 시작: Azure NetApp Files 설정 및 NFS 볼륨 만들기 
 
@@ -257,9 +257,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     * 볼륨의 NFS 버전(**NFSv3** 또는 **NFSv4.1**)을 선택합니다.  
       NFS 버전에 대한 [고려 사항](azure-netapp-files-create-volumes.md#considerations) 및 [모범 사례](azure-netapp-files-create-volumes.md#best-practice)를 참조하세요. 
       
-> [!IMPORTANT] 
-> NFSv4.1 기능에 액세스하려면 허용 목록이 필요합니다.  허용 목록를 요청하려면 <anffeedback@microsoft.com>에 요청을 제출합니다. 
-
   ![빠른 시작에 대한 NFS 프로토콜 지정](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. **검토 + 만들기**를 클릭합니다.

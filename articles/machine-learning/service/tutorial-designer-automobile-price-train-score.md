@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: ee08ba61aec23078227c40b92771d1728040c4cf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3d0efbaec6905d0d24d9dc1c310d472958011960
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228478"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702060"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
@@ -55,7 +55,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **디자이너**를 선택합니다.
 
-    ![디자이너에 액세스하는 방법을 보여 주는 시각적 작업 영역의 스크린샷](./media/tutorial-designer-automobile-price-train-score/launch-visual-interface.png)
+    ![디자이너에 액세스하는 방법을 보여 주는 시각적 작업 영역의 스크린샷](./media/tutorial-designer-automobile-price-train-score/launch-designer.png)
 
 1. **사용하기 쉬운 미리 작성된 모듈**을 선택합니다.
 

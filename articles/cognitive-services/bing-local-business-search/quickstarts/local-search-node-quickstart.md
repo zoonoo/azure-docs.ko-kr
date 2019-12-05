@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 09/13/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: db9132936604e8eed17bbdf173ce1b766fb1b334
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: beab594126ce292ea1fc47e399a12274dbb31aa3
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326699"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665698"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Bing Local Business Search API에 쿼리 보내기
 
@@ -43,7 +43,7 @@ Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.
 
 이 데모의 전체 코드는 다음과 같습니다.
 
-```
+```javascript
 'use strict';
 
 let https = require('https');

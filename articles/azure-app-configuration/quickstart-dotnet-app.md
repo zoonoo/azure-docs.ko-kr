@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/09/2019
 ms.author: lcozzens
-ms.openlocfilehash: 36cfe79f5c2735e6d6737d471430deb989905cdc
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: f1fd1c21789c272bf8deae72ef64f2bbb1c6b3cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185048"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707447"
 ---
 # <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>빠른 시작: Azure App Configuration을 사용하여 .NET Framework 앱 만들기
 
@@ -112,7 +112,7 @@ ms.locfileid: "74185048"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 새 App Configuration 저장소를 만들고, .NET Framework 콘솔 앱에 사용했습니다. 애플리케이션이 시작된 후에는 `ConfiguratoinManager`의 `AppSettings` 값은 변경되지 않습니다. 그러나 App Configuration .NET Standard 구성 공급자 라이브러리는 .NET Framework 앱에서도 사용할 수 있습니다. .NET Framework 앱에서 구성 설정을 동적으로 새로 고치도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
+이 빠른 시작에서는 새 App Configuration 저장소를 만들고, .NET Framework 콘솔 앱에 사용했습니다. 애플리케이션이 시작된 후에는 `ConfigurationManager`의 `AppSettings` 값은 변경되지 않습니다. 그러나 App Configuration .NET Standard 구성 공급자 라이브러리는 .NET Framework 앱에서도 사용할 수 있습니다. .NET Framework 앱에서 구성 설정을 동적으로 새로 고치도록 설정하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [동적 구성을 사용하도록 설정](./enable-dynamic-configuration-dotnet.md)

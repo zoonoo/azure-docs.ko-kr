@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-local-business
 ms.topic: quickstart
-ms.date: 11/06/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: da8a0a7c27294838f8f5c4459eda890c1cbbec7a
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a73851a4c88998a377a5123d411948946173fa89
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74326679"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664933"
 ---
 # <a name="quickstart-send-a-query-to-the-bing-local-business-search-api-in-python"></a>빠른 시작: Python에서 Bing Local Business Search API에 쿼리 보내기
 
@@ -41,7 +41,7 @@ Bing API를 사용하는 [Cognitive Services API 계정](https://docs.microsoft.
 
 이 데모의 전체 코드는 다음과 같습니다.
 
-```
+```python
 import http.client, urllib.parse
 import json
 
