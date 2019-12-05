@@ -21,6 +21,8 @@
   items:
     - name: FarmBeats 배포
       href: prepare-for-deployment.md
+    - name: 사용자 관리
+      href: manage-users.md
     - name: 팜 관리
       href: manage-farms.md
     - name: 센서 데이터 가져오기

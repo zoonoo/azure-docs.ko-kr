@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.topic: landing-page
 ms.date: 10/3/2018
 ms.author: genli
-ms.openlocfilehash: d7ceb3acb1d2e3d174f3b665ec6210d3ddac9970
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: bdb459a69557269a20d36f05acc2da502064efb9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059160"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851352"
 ---
 # <a name="troubleshooting-azure-virtual-machines"></a>Azure 가상 머신 문제 해결
 
 ## <a name="tools-for-troubleshooting"></a>문제 해결 도구
 
-- [직렬 콘솔](serial-console-windows.md)
+- [직렬 콘솔](serial-console-overview.md)
 - [부팅 진단](boot-diagnostics.md)
 - [Windows VM: 문제 해결을 위해 OS 디스크를 다른 VM에 연결](troubleshoot-recovery-disks-portal-windows.md)
 - [Linux VM: 문제 해결을 위해 OS 디스크를 다른 VM에 연결](troubleshoot-recovery-disks-portal-linux.md)
@@ -46,7 +46,7 @@ ms.locfileid: "71059160"
 
 **VM 부팅 오류**
 
-* [BitLocker 부팅 오류](troubleshoot-bitlocker-boot-error.md) 
+* [BitLocker 부팅 오류](troubleshoot-bitlocker-boot-error.md)
 * [Windows 부팅 중에 “파일 시스템 확인” 표시](troubleshoot-check-disk-boot-error.md)
 * [블루 스크린 오류](troubleshoot-common-blue-screen-error.md)
 * [VM 시작이 “Windows 준비 중”에서 중단되는 경우](troubleshoot-vm-boot-configure-update.md)
