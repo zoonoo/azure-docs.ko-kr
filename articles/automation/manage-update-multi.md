@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 70f4f4163a143354cd1fe5adf031c4d9cd87a46e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 16e79043db80b69d2a2ca7d0a90e6d4921c15b22
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278675"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806510"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>여러 컴퓨터의 업데이트 관리
 
@@ -25,7 +25,7 @@ ms.locfileid: "74278675"
 - 필수 업데이트의 설치 예약
 - 배포 결과를 검토하여 업데이트 관리를 사용하는 모든 가상 머신에 업데이트가 성공적으로 적용되었는지 확인
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 업데이트 관리를 사용하려면 다음이 필요합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "74278675"
 
 업데이트 관리를 지원하는 운영 체제는 다음과 같습니다.
 
-|운영 체제  |참고 사항  |
+|운영 체제  |참고  |
 |---------|---------|
 |Windows Server 2008, Windows Server 2008 R2 RTM    | 업데이트 평가만 지원합니다.         |
 |Windows Server 2008 R2 SP1 이상     |Windows PowerShell 4.0 이상이 필요합니다. ([WMF 4.0 다운로드](https://www.microsoft.com/download/details.aspx?id=40855))</br> Windows PowerShell 5.1은 안정성 개선을 위해 필요합니다. ([WMF 5.1 다운로드](https://www.microsoft.com/download/details.aspx?id=54616))         |
@@ -101,10 +101,10 @@ Windows 및 Linux 용 Log Analytics 에이전트는 업데이트 관리를 사�
 
 | 연결된 원본 | 지원됨 | 설명 |
 | --- | --- | --- |
-| Windows 에이전트 |예 |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |예 |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
-| Operations Manager 관리 그룹 |예 |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
-| Azure Storage 계정 |아니오 |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
+| Windows 에이전트 |yes |업데이트 관리에서 Windows 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 필요한 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |yes |업데이트 관리에서 Linux 에이전트로부터 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필요한 업데이트를 설치하기 시작합니다. |
+| Operations Manager 관리 그룹 |yes |업데이트 관리에서 연결된 관리 그룹의 에이전트로부터 시스템 업데이트에 대한 정보를 수집합니다. |
+| Azure Storage 계정 |아닙니다. |Azure Storage는 시스템 업데이트에 대한 정보를 포함하지 않습니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -119,6 +119,10 @@ Linux 컴퓨터의 경우 호환성 검사는 기본적으로 매시간 수행 �
 ## <a name="schedule-an-update-deployment"></a>업데이트 배포 예약
 
 업데이트를 설치하려면 릴리스 일정 및 서비스 기간 이후로 배포를 예약합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
+
+>[!NOTE]
+>업데이트 배포를 예약 하는 경우 대상 컴퓨터의 업데이트 배포를 처리 하는 **MicrosoftOMSComputers** runbook에 연결 된 [일정](shared-resources/schedules.md) 리소스를 만듭니다. 배포를 만든 후 Azure Portal에서 또는 PowerShell을 사용 하 여 일정 리소스를 삭제 하면 예약 된 업데이트 배포가 중단 되 고 포털에서 다시 구성 하려고 할 때 오류가 표시 됩니다. 해당 배포 일정을 삭제 하 여 일정 리소스를 삭제할 수 있습니다.
+>
 
 하나 이상의 가상 머신에 대해 새 업데이트 배포를 예약하려면 **업데이트 관리** 아래에서 **업데이트 배포 예약**을 선택합니다.
 

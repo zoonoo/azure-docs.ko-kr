@@ -1,7 +1,7 @@
 ---
 title: 실시간 대화 기록 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 음성 SDK를 사용 하 여 실시간 대화 기록을 사용 하는 방법을 알아봅니다. C++, 및 Java C#에서 사용할 수 있습니다.
+description: 음성 SDK를 사용 하 여 실시간 대화 기록을 사용 하는 방법을 알아봅니다. C++, C#, 및 Java에서 사용할 수 있습니다.
 services: cognitive-services
 author: markamos
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: 4ee597f96d28b43b9c69d1515634aadde2f0ab7c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 93f0117096a5601632ccced6b698e84a0714bbd4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73608074"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805810"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>실시간 대화 기록 (미리 보기)
 
@@ -35,7 +35,7 @@ Speech SDK의 **ConversationTranscriber** API를 사용 하면 `PullStream` 또�
 - [ROOBO 장치 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Android/Speech%20Devices%20SDK%20Starter%20App/example/app/src/main/java/com/microsoft/cognitiveservices/speech/samples/sdsdkstarterapp/Conversation.java)
 - [Azure Kinect Dev Kit 샘플 코드](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/blob/master/Samples/Windows_Linux/SampleDemo/src/com/microsoft/cognitiveservices/speech/samples/Cts.java)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 음성 서비스 구독입니다. 아직 없는 경우 [음성 평가판 구독을 얻을](https://azure.microsoft.com/try/cognitive-services/) 수 있습니다.
 

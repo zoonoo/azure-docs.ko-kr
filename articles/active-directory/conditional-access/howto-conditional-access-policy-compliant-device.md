@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37db9b9679e904aed33de404e91c9f461d3388d7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 83a4323c2679bdf55709aeaed82134b7b4457fee
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150873"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803702"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 준수 장치 필요
 
@@ -34,7 +34,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 다음 단계는 리소스에 액세스 하는 장치가 조직의 Intune 준수 정책을 준수 하는 것으로 표시 되도록 요구 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
 
 1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **조건부 액세스**를 > **Azure Active Directory** 으로 이동 합니다.
+1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정 합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당**아래에서 **사용자 및 그룹** 을 선택 합니다.

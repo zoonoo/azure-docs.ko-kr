@@ -1,7 +1,7 @@
 ---
 title: Android에서 음성 SDK를 사용 하 여 코덱 압축 오디오 스트리밍
 titleSuffix: Azure Cognitive Services
-description: Android에서 음성 SDK를 사용 하 여 Azure Speech Services로 압축 된 오디오를 스트리밍하는 방법에 대해 알아봅니다.
+description: Android에서 음성 SDK를 사용 하 여 압축 된 오디오를 음성 서비스로 스트리밍하는 방법에 대해 알아봅니다.
 services: cognitive-services
 author: amitkumarshukla
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: amishu
-ms.openlocfilehash: 76a4b010dd54a9cc6224432adf615814520ef4fd
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 01135229167dde3784137ab1b06dfc931766a2e0
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74109911"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74805844"
 ---
 # <a name="how-to-use-codec-compressed-audio-input-with-the-speech-sdk-on-android"></a>방법: Android에서 음성 SDK를 사용 하 여 코덱 압축 오디오 입력 사용
 
-Speech SDK의 **압축된 오디오 입력 스트림** API는 PullStream 또는 PushStream을 사용하여 압축 오디오를 음성 서비스로 스트림하는 방법을 제공합니다.
+Speech SDK의 **압축 오디오 입력 스트림** API는 PullStream 또는 pushstream을 사용 하 여 압축 오디오를 음성 서비스로 스트리밍하는 방법을 제공 합니다.
 
 > [!IMPORTANT]
 > 스트리밍 압축 입력 오디오는 현재 [ C++Linux의, C#및 Java (ubuntu 16.04, ubuntu 18.04, Debian 9)에서](how-to-use-codec-compressed-audio-input-streams.md)지원 됩니다. Android의 Java 및 [iOS 플랫폼의 목적-C](how-to-use-codec-compressed-audio-input-streams-ios.md) 에서도 지원 됩니다.
@@ -37,7 +37,7 @@ Wav/PCM에 대해서는 메인 라인 음성 설명서를 참조하십시오. Wa
 
 코덱 압축 오디오는 [GStreamer](https://gstreamer.freedesktop.org)을 사용 하 여 구현 됩니다. 라이선스의 이유로 Gstreamer 이진 파일은 SDK를 사용 하 여 컴파일되지 않습니다. Android 용으로 미리 빌드된 이진 파일을 사용 해야 합니다. 미리 빌드된 라이브러리를 다운로드 하려면 [Android 개발용 설치](https://gstreamer.freedesktop.org/documentation/installing/for-android-development.html?gi-language=c)를 참조 하세요.
 
-`libgstreamer_android.so` 필요 합니다. GStreamer 플러그 인이 `libgstreamer_android.so`에 연결 되어 있는지 확인 합니다.
+`libgstreamer_android.so`는 필수입니다. GStreamer 플러그 인이 `libgstreamer_android.so`에 연결 되어 있는지 확인 합니다.
 
 ```make
 GSTREAMER_PLUGINS := coreelements app audioconvert mpg123 audioresample audioparsers ogg opusparse opus wavparse alaw mulaw flac
@@ -133,7 +133,7 @@ ndk-build -C $(pwd)/gstreamer "NDK_APPLICATION_MK=Application.mk" APP_ABI=armeab
 
 ## <a name="example-code-using-codec-compressed-audio-input"></a>코덱 압축 오디오 입력을 사용하는 예제 코드
 
-음성 서비스로 압축 오디어 형식으로 스트리밍하려면, `PullAudioInputStream` 또는 `PushAudioInputStream`를 생성합니다. 그런 다음, 스트림 클래스의 인스턴스에서 `AudioConfig`를 생성하여 스트림의 압축 형식을 지정합니다.
+압축 오디오 형식을 음성 서비스로 스트리밍하려면 `PullAudioInputStream` 또는 `PushAudioInputStream`를 만듭니다. 그런 다음, 스트림 클래스의 인스턴스에서 `AudioConfig`를 생성하여 스트림의 압축 형식을 지정합니다.
 
 `myPullStream`이라고 하는 입력 스트림 클래스가 있고 OPUS/OGG를 사용하고 있다고 가정하겠습니다. 코드는 다음과 비슷할 수 있습니다.
 
@@ -159,5 +159,5 @@ String text = result.getText();
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+- [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 - [Java에서 음성을 인식 하는 방법을 참조 하세요.](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-java)

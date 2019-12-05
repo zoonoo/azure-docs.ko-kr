@@ -18,16 +18,16 @@ ms.author: abpati
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 148b9a4a890b22db63f03c673f5d779547a589e1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 0aada339ab68eeb7f29eeb815611a8e434e6a998
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485030"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803651"
 ---
 # <a name="active-directory-federation-services-support-in-msal-for-python"></a>Python 용 MSAL에서 지원 Active Directory Federation Services
 
-Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 Python 용 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 앱에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 앱은 Python 라이브러리에 대해 MSAL을 사용 하 여 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 시나리오에 대 한 자세한 내용은 [개발자를 위한 AD FS 시나리오](https://docs.microsoft.com/windows-server/identity/ad-fs/overview/ad-fs-scenarios-for-developers)를 참조 하십시오.
+Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 Python 용 MSAL (Microsoft 인증 라이브러리)을 사용 하 여 앱에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 앱은 Python 라이브러리에 대해 MSAL을 사용 하 여 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 시나리오에 대 한 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/ad-fs-development)를 참조 하십시오.
 
 일반적으로 AD FS에 대해 인증 하는 방법에는 두 가지가 있습니다.
 

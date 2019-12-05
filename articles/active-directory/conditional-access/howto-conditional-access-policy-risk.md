@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 102371f8af45a1a51715dbfb11afc3f0f4e457d7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e4130b05be1a4abb2166514b730c3d21bd5ece97
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150691"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803583"
 ---
 # <a name="conditional-access-risk-based-conditional-access"></a>조건부 액세스: 위험 기반 조건부 액세스
 
@@ -84,4 +84,4 @@ Microsoft는 연구원, 법 집행 기관, Microsoft의 다양한 보안 팀, �
 
 [작동 방법: Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md)
 
-[Azure Active Directory Identity Protection 이란?](../identity-protection/overview.md)
+[Azure Active Directory Identity Protection이란?](../identity-protection/overview.md)

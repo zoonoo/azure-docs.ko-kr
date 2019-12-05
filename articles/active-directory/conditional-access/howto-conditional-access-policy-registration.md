@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 10/23/2019
+ms.date: 12/03/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5864424f003ce9254a6452d8374d78c54516f2bc
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 08c1db1a8e377edd1bf9b8f1b942e65b970edf56
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74322745"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74803684"
 ---
 # <a name="conditional-access-require-trusted-location-for-mfa-registration"></a>조건부 액세스: MFA 등록을 위해 신뢰할 수 있는 위치 필요
 
@@ -26,7 +26,7 @@ ms.locfileid: "74322745"
 
 다음 정책은 모든 선택한 사용자에 게 적용 되며, 결합 된 등록 환경을 사용 하 여 등록을 시도 하 고, 신뢰할 수 있는 네트워크로 표시 된 위치에서 연결 하지 않는 한 액세스를 차단 합니다.
 
-1. **Azure Portal**에서 **Azure Active Directory** > **조건부 액세스**로 이동 합니다.
+1. **Azure Portal**에서 **Azure Active Directory** > **보안** > **조건부 액세스**로 이동 합니다.
 1. **새 정책**을 선택합니다.
 1. 이름에이 정책의 이름을 입력 합니다. 예를 들어 **신뢰할 수 있는 네트워크에 대 한 보안 정보 등록이 결합**되어 있습니다.
 1. **할당**에서 **사용자 및 그룹**을 클릭 하 고이 정책을 적용할 사용자 및 그룹을 선택 합니다.
@@ -44,7 +44,7 @@ ms.locfileid: "74322745"
 1. **액세스 제어** 에서 **Grant** > 합니다.
    1. **액세스 차단**을 클릭 합니다.
    1. 그런 다음 **선택**을 클릭합니다.
-1. **정책 사용** 을 **켜기**로 설정 합니다.
+1. **정책 사용**을 **켜기**로 설정합니다.
 1. 그런 다음 **Save**를 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계

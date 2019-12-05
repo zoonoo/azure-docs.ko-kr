@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: a38beb0700e470d325545a2523143ecdab9f6dfb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: df5aade7244f69e7264f901364ecc164351eec50
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74777420"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815793"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Office 365 로그의 데이터 연결
 
@@ -42,12 +42,12 @@ ms.locfileid: "74777420"
 
 1. Azure 센티널에서 **데이터 커넥터** 를 선택한 다음 **Office 365** 타일을 클릭 합니다.
 
-2. 아직 사용 하도록 설정 하지 않은 경우 **데이터 커넥터** 블레이드로 이동 하 고 **Office 365** 커넥터를 선택 하 여 수행할 수 있습니다. 여기에서 **커넥터 열기 페이지** 를 클릭 하 고 구성 섹션에서 **작업 영역에서 Office 365 솔루션** 사용을 클릭 하 **여 사용** 하도록 설정할 수 있습니다. 이미 사용 하도록 설정 된 경우 연결 화면에서 이미 사용 하도록 설정 된 것으로 식별 됩니다.
+2. 아직 사용 하도록 설정 하지 않은 경우 **데이터 커넥터** 블레이드로 이동 하 고 **Office 365** 커넥터를 선택 하 여 수행할 수 있습니다. 여기에서 **커넥터 열기 페이지** 를 클릭 하 고 구성 섹션에서 **작업 영역에서 Office 365 솔루션** 사용을 클릭 **하 여 사용** 하도록 설정할 수 있습니다. 이미 사용 하도록 설정 된 경우 연결 화면에서 이미 사용 하도록 설정 된 것으로 식별 됩니다.
 1. Office 365에서는 여러 테 넌 트의 데이터를 Azure 센티널로 스트리밍할 수 있습니다. 연결 하려는 각 테 넌 트에 대해 **Azure 센티널에**테 넌 트 연결 아래에 테 넌 트를 추가 합니다. 
 1. Active Directory 화면이 열립니다. Azure 센티널에 연결 하려는 각 테 넌 트에서 전역 관리자에 게 인증 하 고 해당 로그를 읽을 수 있도록 Azure 센티널에 사용 권한을 제공 하 라는 메시지가 표시 됩니다. 
-5. Stream Office 365 활동 로그에서 **선택** 을 클릭 하 여 Azure 센티널로 스트리밍할 로그 유형을 선택 합니다. 현재 Azure 센티널은 Exchange와 SharePoint를 지원 합니다.
+5. 테 넌 트 목록에는 Azure AD 디렉터리 ID (테 넌 트 ID)와 Exchange 및 Sharepoint 로그에 대 한 두 개의 확인란이 표시 됩니다. 센티널에서 수집 하려는 모든 서비스 또는 나열 된 서비스를 선택할 수 있습니다. 현재 Azure 센티널은 기존 Office365 services 내에서 Exchange 및 SharePoint 로그를 지원 합니다.
 
-4. **변경 내용 적용**을 클릭 합니다.
+4. 서비스 (Exchange, sharepoint 등)를 선택한 후에는 페이지의 테 넌 트 추가 프레임에서 저장을 클릭할 수 있습니다. 
 
 3. Office 365 로그에 대 한 Log Analytics에서 관련 스키마를 사용 하려면 **작업**을 검색 합니다.
 

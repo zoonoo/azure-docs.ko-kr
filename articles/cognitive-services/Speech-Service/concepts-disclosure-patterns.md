@@ -3,19 +3,19 @@ title: 공개 디자인 패턴
 titleSuffix: Azure Cognitive Services
 description: 공개에 대 한 디자인 패턴 및 모범 사례입니다.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/10/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: e0cb73f224f53441ad4f23298a035f95d59b9f7c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 3e7d8ee2b156a30b11cda79798a8af8a8ecf4f64
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558999"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776625"
 ---
 # <a name="disclosure-design-patterns"></a>디자인 패턴 공개
 이제 가상 음성 환경을 위한 올바른 [공개 수준을](concepts-disclosure-guidelines.md#disclosure-assessment) 결정 했으므로 잠재적 디자인 패턴을 살펴보는 것이&#39;좋습니다.&#39;
@@ -108,7 +108,7 @@ ms.locfileid: "74558999"
 
 가상 음성 환경에 의미 있고 눈에 띄는 영향을 주는 선택 항목을 제공 합니다.
 
-사용자 기본 설정 ![](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
+![사용자 기본 설정](media/responsible-ai/disclosure-patterns/customization-user-control.png)<br/>
 *사용자 기본 설정을 통해 사용자는 환경을 사용자 지정 하 고 개선할 수 있습니다.*
 
 권장 사항

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 276e741a9462c19a3cba9ad1f9ac44e2da7ef1d3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: cd1f516b3d3840262d9221db772f2c186650462e
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580696"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807394"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -23,7 +23,7 @@ ms.locfileid: "73580696"
 이 문서에서는 Azure Machine Learning에서 자동화 된 machine learning을 사용 하 여 시계열 예측 회귀 모델을 학습 하는 방법에 대해 알아봅니다. 예측 모델을 구성 하는 것은 자동화 된 machine learning을 사용 하 여 표준 회귀 모델을 설정 하는 것과 유사 하지만 시계열 데이터로 작업 하기 위한 특정 구성 옵션 및 전처리 단계가 있습니다. 다음 예제에서는 다음 방법을 보여 줍니다.
 
 * 시계열 모델링에 대 한 데이터 준비
-* [`AutoMLConfig`](/python/api/azureml-train-automl/azureml.train.automl.automlconfig) 개체의 특정 시계열 매개 변수 구성
+* [`AutoMLConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 개체의 특정 시계열 매개 변수 구성
 * 시계열 데이터를 사용 하 여 예측 실행
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE2X1GW]
@@ -57,7 +57,7 @@ ms.locfileid: "73580696"
 
 ARIMA (자동 회귀 Integrated 이동 평균)는 시계열 예측에 사용 되는 인기 있는 통계 방법입니다. 이 예측 기술은 데이터에서 주기 등의 추세에 대 한 증거를 표시 하는 단기 예측 시나리오에서 일반적으로 사용 됩니다 .이 시나리오는 예측할 수 없으며 모델 또는 예측 하기 어려울 수 있습니다. 자동 ARIMA는 데이터를 고정 된 데이터로 변환 하 여 일관 되 고 신뢰할 수 있는 결과를 수신 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -122,7 +122,7 @@ test_labels = test_data.pop(label).values
 |`target_rolling_window_size`|예측 값을 생성 하는 데 사용할 수 *있는 기록 기간* < = 학습 집합 크기입니다. 생략 하는 경우 *n* 은 전체 학습 집합 크기입니다. 모델을 학습할 때 특정 분량의 기록만 고려 하려는 경우이 매개 변수를 지정 합니다.||
 |`enable_dnn`|DNNs 예측을 사용 하도록 설정 합니다.||
 
-자세한 내용은 [참조 설명서](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py) 를 참조 하세요.
+자세한 내용은 [참조 설명서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 를 참조 하세요.
 
 시간 계열 설정을 사전 개체로 만듭니다. `time_column_name`를 데이터 집합의 `day_datetime` 필드로 설정 합니다. `grain_column_names` 매개 변수를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 저장소 A와 B에 대 한 하나입니다. 마지막으로 전체 테스트 집합을 예측 하기 위해 `max_horizon`를 50으로 설정 합니다. `target_rolling_window_size`를 사용 하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 2 개 기간의 대상 값에 단일 지연 시간을 지정 합니다.
 

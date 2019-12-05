@@ -1,5 +1,5 @@
 ---
-title: 대화 내용 이란? (미리 보기)-음성 서비스
+title: 대화 내용 (미리 보기) 이란 무엇 인가요? -음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 대화 기록은 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 (diarization 라고도 함)와 결합 하 여 실시간 및/또는 비동기 기록을 제공 하는 음성-텍스트 솔루션입니다. 대화창.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c15b053028bd707159a632c98faaea8b9954a9b
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075839"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806289"
 ---
 # <a name="what-is-conversation-transcription-preview"></a>대화 내용 (미리 보기) 이란 무엇 인가요?
 
-대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_라고도 함)와 결합 하 여 실시간 및/또는 비동기를 제공 하는 [음성 텍스트](speech-to-text.md) 솔루션입니다. 모든 대화의 기록입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
+대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 [음성-텍스트](speech-to-text.md) 솔루션입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
 
 ## <a name="key-features"></a>주요 기능
 
@@ -34,7 +34,7 @@ ms.locfileid: "74075839"
 > [!NOTE]
 > 대화를 통해 회의실의 스피커 수에 제한이 없지만 세션당 2-10 스피커에 대해 최적화 됩니다.
 
-## <a name="use-cases"></a>사용 사례
+## <a name="use-cases"></a>사례 사용
 
 ### <a name="inclusive-meetings"></a>포괄 모임
 
@@ -44,7 +44,7 @@ ms.locfileid: "74075839"
 
 모임 참가자는 회의에 집중할 수 있으며, 메모를 대화로 가져갈 수 있습니다. 참가자가 회의에 적극적으로 참여할 수 있으며, 회의 중에 메모를 작성 하는 대신 기록을 사용 하 여 다음 단계를 빠르게 진행할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 이는 대화 기록을 작동 하는 방법에 대 한 개략적인 개요입니다.
 

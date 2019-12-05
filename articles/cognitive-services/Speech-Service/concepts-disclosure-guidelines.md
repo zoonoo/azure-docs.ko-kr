@@ -3,19 +3,19 @@ title: 공개 디자인 지침
 titleSuffix: Azure Cognitive Services
 description: 공개 디자인 지침 및 공개 수준 평가를 소개 합니다.
 services: cognitive-services
-author: angle
+author: sharonlo101
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/09/2019
+ms.date: 12/03/2019
 ms.author: angle
-ms.openlocfilehash: 7dffa3d9f6e96adc6146a1059e7360c77926ece3
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fe38c6b7cfb1abbaf3f1079dd8bff66b51b98091
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837389"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74776388"
 ---
 # <a name="disclosure-design-guidelines"></a>디자인 지침 공개
 음성 환경의 가상 특성에 대해 투명 하 게 하 여 고객과 신뢰를 구축 하 고 유지 관리 하는 방법을 알아보세요.
@@ -43,7 +43,7 @@ ms.locfileid: "73837389"
 **오류를 수용 합니다.**
 <br>에이전트의 기능을 보강 하는 데 실패를 사용 합니다.
 
-## <a name="how-to-use-this-guide"></a>이 가이드를 사용 하는 방법
+## <a name="how-to-use-this-guide"></a>이 가이드를 사용하는 방법
 
 이 가이드는 가상 음성 환경에 가장 적합 한 공개 패턴을 결정 하는 데 도움이 됩니다. 그런 다음 사용 방법과 시기에 대 한 예제를 제공 합니다. 이러한 각 패턴은 사용자가 가운데 맞춤 디자인을 적용 하면서도 합성 음성에 대 한 사용자의 투명도를 최대화 하도록 디자인 되었습니다.
 

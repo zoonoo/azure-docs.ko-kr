@@ -1,5 +1,5 @@
 ---
-title: 일괄 처리 기록을 사용 하는 방법-Speech Service
+title: 일괄 처리 기록을 사용 하는 방법-Speech service
 titleSuffix: Azure Cognitive Services
 description: Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디오를 전사하려는 경우에 이상적입니다. 전용 REST API를 사용하면 SAS(공유 액세스 서명) URI가 있는 오디오 파일을 가리키고 비동기식으로 전사를 수신할 수 있습니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: panosper
-ms.openlocfilehash: 158a99b1691e59fa58207f3c9291ca9d37a6679c
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 2cccd17ce04b3954a7d0720d9ba25bbe792da3b6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538127"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806340"
 ---
 # <a name="why-use-batch-transcription"></a>Batch Transcription을 사용하는 이유
 
@@ -28,7 +28,7 @@ Batch Transcription은 Azure Blob과 같이 스토리지에 많은 양의 오디
 Speech Service의 모든 기능과 마찬가지로, [시작 가이드](get-started.md)에 따라 [Azure Portal](https://portal.azure.com)에서 구독 키를 만듭니다. 기준 모델에서 전사를 가져오려는 경우 키 만들기만 수행하면 됩니다.
 
 >[!NOTE]
-> Batch Transcription을 사용하려면 Speech Services를 위한 표준 구독(S0)이 필요합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
+> 일괄 처리 기록을 사용 하려면 Speech (표준 구독) 서비스를 사용 해야 합니다. 체험 구독 키(F0)는 작동하지 않습니다. 자세한 내용은 [가격 책정 및 제한](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)을 참조하세요.
 
 ### <a name="custom-models"></a>사용자 지정 모델
 
@@ -89,12 +89,12 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 | `ProfanityFilterMode` | 인식 결과에서 욕설을 처리하는 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `None`, 욕설을 별표로 바꾸는 `masked`, 결과에서 모든 욕설을 제거하는 `removed`, 또는 “profanity” 태그를 추가하는 `tags`입니다. 기본 설정은 `masked`입니다. |
 | `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `None`, 명시적인 문장 부호를 의미하는 `dictated`, 디코더가 문장 부호를 처리하도록 하는 `automatic`, 지정된 문장 부호 또는 자동을 의미하는 `dictatedandautomatic`입니다. |
  | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
- | `AddSentiment` | Utterance에 감정를 추가 하도록 지정 합니다. 허용 되는 값은 감정 utterance 및 `false` (기본값)를 사용 하지 않도록 설정 하는 `true`입니다. |
+ | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
  | `AddDiarization` | 두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하는 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.|
 
 ### <a name="storage"></a>스토리지
 
-일괄 처리 기록은 오디오를 읽고 저장소에 대 한 비디오를 작성 하기 위해 [Azure Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 를 지원 합니다.
+일괄 처리 기록은 오디오를 읽고 기록을 저장소에 쓰기 위해 [Azure Blob 저장소](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)를 지원합니다.
 
 ## <a name="speaker-separation-diarization"></a>스피커 분리 (Diarization)
 
@@ -127,17 +127,17 @@ Diarization에 대 한 오디오 기록 요청이 처리 되도록 요청 하려
 
 ## <a name="sentiment"></a>감정
 
-감정는 Batch 기록 API의 새로운 기능이 며, 콜 센터 도메인의 중요 한 기능입니다. 고객은 다음에 대 한 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다.
+감정은 일괄 처리 기록 API의 새로운 기능이자 호출 센터 도메인의 중요한 기능입니다. 고객은 다음 요청에 `AddSentiment` 매개 변수를 사용할 수 있습니다.
 
-1.  고객 만족도에 대 한 통찰력 얻기
-2.  에이전트의 성능에 대 한 통찰력 얻기 (호출 하는 팀)
-3.  호출이 음수 방향으로 전환 된 정확한 시점 파악
-4.  음수 호출을 긍정으로 전환할 때의 올바른 기능 파악
-5.  제품 또는 서비스에 대 한 고객 및 고객의 싫어요 파악
+1.  고객 만족도에 대한 통찰력 얻기
+2.  에이전트(호출을 수행하는 팀)의 성능에 대한 통찰력 확보
+3.  부정 방향으로 호출될 때의 정확한 시점을 파악
+4.  부정 호출이 긍정으로 바뀔 경우를 파악
+5.  제품이나 서비스에 대해 고객이 좋아하는 점과 싫어하는 점을 식별
 
-감정는 오디오 세그먼트로 점수를 매긴 것입니다. 오디오 세그먼트는 utterance (오프셋) 시작과 바이트 스트림 끝의 검색 침묵 사이의 시간 경과 시간으로 정의 됩니다. 해당 세그먼트 내의 전체 텍스트는 감정을 계산 하는 데 사용 됩니다. 전체 호출 또는 각 채널의 전체 음성에 대해 집계 감정 값을 계산 하지 않습니다. 이러한 집계는 추가 적용을 위해 도메인 소유자에 게 남아 있습니다.
+감정은 오디어 세그먼트가 발언의 시작(오프셋)과 바이트 스트림 끝의 침묵 감지 사이의 시간 경과로 정의되는 오디오 세그먼트당 점수가 매겨집니다. 해당 세그먼트 내의 전체 텍스트가 감정 계산에 사용됩니다. 전체 호출 또는 각 채널의 전체 음성에 대한 종합 감정의 값은 계산하지 않습니다. 이러한 집계는 추가 적용을 위해 도메인 소유자에 게 남아 있습니다.
 
-감정는 어휘 형식에 적용 됩니다.
+감정은 어휘 폼에 적용됩니다.
 
 JSON 출력 샘플은 다음과 같습니다.
 

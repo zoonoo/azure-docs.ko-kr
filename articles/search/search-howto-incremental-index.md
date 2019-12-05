@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 348bc2d92f636d1f3c3b50ea31334355da59a60f
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 92da697c95f2b9ea544bb1f9bfa689c13bd0d2ae
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790490"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806765"
 ---
 # <a name="how-to-set-up-incremental-indexing-of-enriched-documents-in-azure-cognitive-search"></a>Azure Cognitive Search에서 보강 문서의 증분 인덱싱을 설정 하는 방법
 
@@ -41,8 +41,7 @@ api-key: [admin key]
 
 ### <a name="step-2-add-the-cache-property"></a>2 단계: cache 속성 추가
 
-< < < < < < < GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 저장소 계정에 대 한 연결 문자열인 `storageConnectionString` 단일 속성만 필요 합니다. = = = = = = = GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 단일 속성만 필요 하며,이는 Azure Storage 계정에 대 한 연결 문자열입니다.
->>>>>>> 3519a330aa86b6827d31403690529105825b1b16
+GET 요청에서 응답을 편집 하 여 `cache` 속성을 인덱서에 추가 합니다. 캐시 개체에는 저장소 계정에 대 한 연결 문자열인 `storageConnectionString` 단일 속성만 필요 합니다. 
 
 ```json
 {

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 77dc50df7b46aeb6ddfddf92710d576f85492471
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: f710b8bfdd4dcfd3b7a63aa0b457036ab7037016
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801551"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806099"
 ---
 # <a name="evaluate-custom-speech-accuracy"></a>사용자 지정 음성 정확도 평가
 
@@ -29,9 +29,9 @@ ms.locfileid: "70801551"
 
 잘못 식별된 단어는 세 가지 범주로 나뉩니다.
 
-* 삽입 (I): 가설 기록에 잘못 추가된 단어
-* 삭제(D): 가설 기록에서 검색되지 않는 단어
-* 대체(S): 참조 및 가설 간의 대체된 단어
+* 삽입 (I): 가설 성적 증명서에 잘못 추가 된 단어
+* 삭제 (D): 가설 성적 증명서에서 감지 되지 않은 단어
+* 대체 (S): 참조와 가설 사이에서 대체 된 단어입니다.
 
 예를 들면 다음과 같습니다.
 
@@ -62,14 +62,14 @@ ms.locfileid: "70801551"
 
 ## <a name="side-by-side-comparison"></a>나란히 비교
 
-*Succeeded*로 상태 변경이 표시되어 테스트가 완료되면, 테스트에 포함된 두 모델에 대한 WER 숫자를 찾을 수 있습니다. 테스트 세부 정보 페이지를 보려면 테스트 이름을 클릭합니다. 이 세부 정보 페이지는 제출된 데이터 집합에서 기록과 함께 두 모델의 인식 결과 나타내는 데이터 집합의 모든 발언을 나열합니다. 나란히 비교 검사를 위해 삽입, 삭제 및 대체를 비롯한 여러 가지 오류 형식을 전환할 수 있습니다. 오디오를 듣고 사람 레이블 기록 및 두 가지 음성-텍스트 모델의 결과를 표시하는 각 열의 인식 결과를 비교함으로써, 어떤 모델이 요구를 충족하는지, 추가 학습과 개선이 필요한 곳은 어디인지를 결정할 수 있습니다.
+*Succeeded*로 상태 변경이 표시되어 테스트가 완료되면, 테스트에 포함된 두 모델에 대한 WER 숫자를 찾을 수 있습니다. 테스트 세부 정보 페이지를 보려면 테스트 이름을 클릭합니다. 이 세부 정보 페이지는 데이터 집합의 모든 발언을 나열하며, 제출된 데이터 집합의 기록과 함께 두 모델의 인식 결과를 나타냅니다. 나란히 비교 검사를 위해 삽입, 삭제 및 대체를 비롯한 여러 가지 오류 형식 간 전환할 수 있습니다. 오디오를 듣고 사람 레이블 기록 및 두 가지 음성-텍스트 모델의 결과를 표시하는 각 열의 인식 결과를 비교함으로써, 어떤 모델이 요구를 충족하는지, 추가 학습과 개선이 필요한 곳은 어디인지를 결정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [모델 학습](how-to-custom-speech-train-model.md)
 * [모델 배포](how-to-custom-speech-deploy-model.md)
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [데이터 준비 및 테스트](how-to-custom-speech-test-data.md)
 * [데이터 검사](how-to-custom-speech-inspect-data.md)

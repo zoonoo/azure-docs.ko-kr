@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 62210bf480d09ce2a256a44b7554ac53aa06eb0c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd3e27aefe03ee30e721fcbb915d9ad4b3821618
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73579695"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806306"
 ---
-# <a name="custom-commands-preview"></a>사용자 지정 명령 (미리 보기)
+# <a name="custom-commands-preview"></a>사용자 지정 명령(미리 보기)
 
 [음성 도우미](voice-assistants.md) 는 사용자를 수신 하 고 응답으로 작업을 수행 하 여 자주 말하는 경우를 말합니다. [음성 텍스트](speech-to-text.md) 를 사용 하 여 사용자의 음성을 높여줄 다음 텍스트에 대 한 자연어 이해에 대 한 작업을 수행 합니다. 이 작업에는 [텍스트를 음성](text-to-speech.md)으로 생성 하 여 생성 된 비서의 음성 출력이 포함 되는 경우가 많습니다. 장치는 Speech SDK의 `DialogServiceConnector` 개체를 사용 하 여 도우미에 연결 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "73579695"
 
    ![사용자 지정 명령의 제작 흐름 (미리 보기)](media/voice-assistants/custom-commands-flow.png "사용자 지정 명령 (미리 보기) 제작 흐름")
 
-10 분 이내에 코드를 실행 하도록 설계 된 빠른 시작을 제공 합니다.
+10분 이내에 코드를 실행하도록 디자인된 빠른 시작을 제공합니다.
 
 * [사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-new.md)
 * [매개 변수를 사용 하 여 사용자 지정 명령 (미리 보기) 응용 프로그램 만들기](quickstart-custom-speech-commands-create-parameters.md)
@@ -45,14 +45,14 @@ ms.locfileid: "73579695"
 
 사용자 지정 명령 (미리 보기)을 사용 하 여 음성 도우미를 만드는 샘플 코드는 GitHub에서 사용할 수 있습니다.
 
-* [음성 도우미 샘플 (SDK)](https://aka.ms/csspeech/samples)
+* [음성 도우미 샘플(SDK)](https://aka.ms/csspeech/samples)
 
 ## <a name="customization"></a>사용자 지정
 
-Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 사용자 지정 옵션의 전체 범위를 사용할 수 있습니다.
+음성 서비스를 사용 하 여 빌드된 음성 도우미는 음성 [텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](supported-languages.md)참조).
+> 언어/로캘마다 사용자 지정 옵션이 다릅니다([지원되는 언어](supported-languages.md) 참조).
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -60,5 +60,5 @@ Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [무료로 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](get-started.md)
 * [음성 SDK 가져오기](speech-sdk.md)

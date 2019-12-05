@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 403768bc81b476dd144d5e4496f3501a3001da8a
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: d687d1d353c1734c5d98121f658003afde2eb182
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195931"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812914"
 ---
 # <a name="about-voice-assistants"></a>음성 도우미 정보
 
-Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의 애플리케이션과 환경을 위해 자연스럽고 인간과 유사한 대화형 인터페이스를 만들 수 있도록 해줍니다.
+음성 도우미는 음성 서비스를 사용 하 여 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다.
 
 음성 도우미 서비스는 (1) 봇 Framework의 Direct Line Speech channel 또는 (2) 작업 완료를 위한 통합 사용자 지정 명령 (미리 보기) 서비스를 사용 하는 장치 및 비서 구현 간에 빠르고 안정적인 상호 작용을 제공 합니다.
 
@@ -29,7 +29,7 @@ Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의
 
 ## <a name="choosing-an-assistant-solution"></a>길잡이 솔루션 선택
 
-음성 도우미를 만드는 첫 번째 단계는 수행할 작업을 결정 하는 것입니다. Azure Speech Services는 길잡이 상호 작용을 작성 하기 위한 여러 보충 솔루션을 제공 합니다. Bot Framework의 [Direct Line Speech](direct-line-speech.md) channel에서 제공 하는 유연성과 유연성을 원하는 지 여부에 관계 없이 간단한 시나리오에 대 한 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하면 적절 한 도구를 시작 하는 데 도움이 됩니다.
+음성 도우미를 만드는 첫 번째 단계는 수행할 작업을 결정 하는 것입니다. Speech service는 길잡이 상호 작용을 작성 하기 위한 여러 보충 솔루션을 제공 합니다. Bot Framework의 [Direct Line Speech](direct-line-speech.md) channel에서 제공 하는 유연성과 유연성을 원하는 지 여부에 관계 없이 간단한 시나리오에 대 한 [사용자 지정 명령 (미리 보기)](custom-commands.md) 을 선택 하면 적절 한 도구를 시작 하는 데 도움이 됩니다.
 
 | 수행하려는 작업 | 다음을 고려 하십시오. | 예를 들어... |
 |-------------------|------------------|----------------|
@@ -49,12 +49,12 @@ Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의
 | 범주 | 기능 |
 |----------|----------|
 |[사용자 지정 키워드](speech-devices-sdk-create-kws.md) | 사용자는 "안녕하세요 Contoso"와 같은 사용자 지정 키워드를 사용 하 여 도우미와 대화를 시작할 수 있습니다. 앱은 [여기에서 생성할 수 있는](speech-devices-sdk-create-kws.md)사용자 지정 키워드를 사용 하 여 구성할 수 있는 Speech SDK의 사용자 지정 키워드 엔진을 사용 하 여이를 수행 합니다. 음성 도우미는 서비스 측 키워드 확인을 사용 하 여 키워드 활성화의 정확도를 향상 시킬 수 있습니다 (장치에 대해서만).
-|[음성 텍스트](speech-to-text.md) | 음성 도우미는 Azure Speech Services의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
-|[텍스트 음성 변환](text-to-speech.md) | 길잡이의 텍스트 응답은 Azure Speech Services에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 브랜드에 음성을 제공 하는 사용자 지정 고품질 신경망을 빌드하는 기능을 제공 합니다. 자세히 알아보려면 [microsoft에 문의](mailto:mstts@microsoft.com)하세요.
+|[음성 텍스트](speech-to-text.md) | 음성 도우미는 음성 서비스의 [음성 텍스트](speech-to-text.md) 를 사용 하 여 실시간 오디오를 인식 된 텍스트로 변환 합니다. 이 텍스트는 길잡이 구현 및 클라이언트 응용 프로그램 모두에 transcribed 수 있습니다.
+|[텍스트 음성 변환](text-to-speech.md) | 길잡이의 텍스트 응답은 음성 서비스에서 [텍스트 음성 변환](text-to-speech.md) 을 사용 하 여 합성 됩니다. 이러한 합성은 클라이언트 응용 프로그램에서 오디오 스트림으로 사용할 수 있게 됩니다. Microsoft는 브랜드에 음성을 제공 하는 사용자 지정 고품질 신경망을 빌드하는 기능을 제공 합니다. 자세히 알아보려면 [microsoft에 문의](mailto:mstts@microsoft.com)하세요.
 
 ## <a name="getting-started-with-voice-assistants"></a>음성 도우미 시작
 
-10 분 이내에 코드를 실행 하도록 설계 된 빠른 시작을 제공 합니다. 이 표에는 언어 별로 구성 된 음성 도우미 빠른 시작 목록이 포함 되어 있습니다.
+10분 이내에 코드를 실행하도록 디자인된 빠른 시작을 제공합니다. 이 표에는 언어 별로 구성 된 음성 도우미 빠른 시작 목록이 포함 되어 있습니다.
 
 | 빠른 시작 | 플랫폼 | API 참조 |
 |------------|----------|---------------|
@@ -75,10 +75,10 @@ Azure Speech Services를 사용하는 음성 도우미는 개발자가 자신의
 
 ## <a name="customization"></a>사용자 지정
 
-Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 사용자 지정 옵션의 전체 범위를 사용할 수 있습니다.
+음성 서비스를 사용 하 여 빌드된 음성 도우미는 음성 [텍스트](speech-to-text.md), [텍스트 음성 변환](text-to-speech.md)및 [사용자 지정 키워드 선택](speech-devices-sdk-create-kws.md)에 사용할 수 있는 모든 사용자 지정 옵션을 사용할 수 있습니다.
 
 > [!NOTE]
-> 사용자 지정 옵션은 언어/로캘에 따라 다릅니다 ( [지원 되는 언어](supported-languages.md)참조).
+> 언어/로캘마다 사용자 지정 옵션이 다릅니다([지원되는 언어](supported-languages.md) 참조).
 
 ## <a name="reference-docs"></a>참조 문서
 
@@ -87,7 +87,7 @@ Azure Speech Services를 사용 하 여 빌드된 음성 도우미는 [음성 �
 
 ## <a name="next-steps"></a>다음 단계
 
-* [무료로 Speech Service 구독 키 받기](get-started.md)
+* [평가판 Speech Service 구독 키 받기](get-started.md)
 * [음성 SDK 가져오기](speech-sdk.md)
 * [사용자 지정 명령에 대 한 자세한 정보 (미리 보기)](custom-commands.md)
 * [직접 라인 음성에 대 한 자세한 정보](direct-line-speech.md)

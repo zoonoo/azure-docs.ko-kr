@@ -1,7 +1,7 @@
 ---
 title: 음성 디바이스 SDK 가져오기
 titleSuffix: Azure Cognitive Services
-description: Speech Service는 다양한 디바이스 및 오디오 원본에서 작동합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. 이 문서에서는 음성 장치 SDK에 액세스 하 여 개발을 시작 하는 방법을 알아봅니다.
+description: 음성 서비스는 다양 한 장치 및 오디오 소스에서 작동 합니다. 이제 일치하는 하드웨어 및 소프트웨어를 사용하여 음성 애플리케이션을 한 단계 업그레이드할 수 있습니다. 이 문서에서는 음성 장치 SDK에 액세스 하 여 개발을 시작 하는 방법을 알아봅니다.
 services: cognitive-services
 author: erhopf
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: b60c8735833c3012523c5cc0d7eea6a50e9d10b6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: cdf447239da2f99c208ebd555f3d68e0302699b8
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559692"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806238"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Cognitive Services Speech Devices SDK 가져오기
 
@@ -23,7 +23,7 @@ ms.locfileid: "68559692"
 
 ## <a name="choose-a-development-kit"></a>개발 키트 선택
 
-|장치|사양|Description|시나리오|
+|디바이스|사양|설명|시나리오|
 |--|--|--|--|
 |[Roobo 스마트 오디오 개발자 키트](https://ddk.roobo.com)</br> / [빠른시작](speech-devices-sdk-android-quickstart.md)![roobo 스마트 오디오 개발자 키트 ](media/speech-devices-sdk/device-roobo-v1.jpg) [설정](speech-devices-sdk-roobo-v1.md)|7 Mic 배열, ARM SOC, WIFI, 오디오 출력, IO. </br>[Android](speech-devices-sdk-android-quickstart.md)|고품질의 기록 및 음성 시나리오를 개발 하기 위한 Microsoft Mic 배열 및 프론트 프로세싱 SDK를 적용 하는 첫 번째 음성 장치 SDK|대화 기록, 스마트 스피커, 음성 에이전트, Wearable|
 |[Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)</br> / [빠른시작](speech-devices-sdk-windows-quickstart.md)![ Azure Kinect DK](media/speech-devices-sdk/device-azure-kinect-dk.jpg) [설치](https://docs.microsoft.com/azure/Kinect-dk/set-up-azure-kinect-dk)|7 Mic 배열 RGB 및 깊이 카메라. </br>[Windows](speech-devices-sdk-windows-quickstart.md)/[Linux](speech-devices-sdk-linux-quickstart.md)|고급 AI (인공 지능) 센서를 사용 하 여 정교한 컴퓨터 비전과 음성 모델을 빌드하기 위한 개발자 키트입니다. 이 도구는 다양 한 계산 유형을 수용 하기 위해 여러 모드, 옵션 및 Sdk를 갖춘 하나의 소형 장치에서 최고의 공간 마이크 배열 및 깊이 카메라를 비디오 카메라 및 방향 센서와 결합 합니다.|대화 내용, 로봇 공학, 스마트 빌드|

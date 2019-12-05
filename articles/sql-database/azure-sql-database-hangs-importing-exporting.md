@@ -9,12 +9,12 @@ author: v-miegge
 ms.author: ramakoni
 ms.reviewer: ''
 ms.date: 09/27/2019
-ms.openlocfilehash: 29edd7da42a5eb4586cd52cc0f913a56e199a5ba
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e1638c9779ca50507a1ce30dd3bbc9c18248964a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73808273"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74807071"
 ---
 # <a name="azure-sql-database-importexport-service-takes-a-long-time-to-import-or-export-a-database"></a>Azure SQL Database Import/Export 서비스는 데이터베이스를 가져오거나 내보내는 데 시간이 오래 걸립니다.
 
@@ -22,7 +22,7 @@ Azure SQL Database Import/Export 서비스를 사용 하는 경우 프로세스�
 
 ## <a name="azure-sql-database-importexport-service"></a>Azure SQL Database Import/Export 서비스
 
-Azure SQL Database Import/Export 서비스는 모든 Azure 데이터 센터에서 실행 되는 REST 기반 웹 서비스입니다. 이 서비스는 [데이터베이스 가져오기](https://docs.microsoft.com/azure/sql-database/sql-database-import#import-from-a-bacpac-file-in-the-azure-portal) 또는 [내보내기](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) 옵션을 사용 하 여 Azure Portal에서 SQL 데이터베이스를 이동할 때 호출 됩니다. 서비스는 Azure SQL database와 Azure Blob storage 간에 가져오기 및 내보내기를 수행 하는 무료 요청 큐 및 계산 서비스를 제공 합니다.
+Azure SQL Database Import/Export 서비스는 모든 Azure 데이터 센터에서 실행 되는 REST 기반 웹 서비스입니다. 이 서비스는 [데이터베이스 가져오기](sql-database-import.md#using-azure-portal) 또는 [내보내기](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-azure-portal) 옵션을 사용 하 여 Azure Portal에서 SQL 데이터베이스를 이동할 때 호출 됩니다. 서비스는 Azure SQL database와 Azure Blob storage 간에 가져오기 및 내보내기를 수행 하는 무료 요청 큐 및 계산 서비스를 제공 합니다.
 
 가져오기 및 내보내기 작업은 기존 물리적 데이터베이스 백업을 나타내지 않고, 특수 BACPAC 형식을 사용 하는 데이터베이스의 논리적 백업입니다. BACPAC 형식을 사용 하면 Microsoft SQL Server와 Azure SQL Database 버전에 따라 다를 수 있는 물리적 형식을 사용 하지 않아도 됩니다. 따라서이를 사용 하 여 데이터베이스를 SQL Server 데이터베이스 및 SQL 데이터베이스로 안전 하 게 복원할 수 있습니다.
 
@@ -39,7 +39,7 @@ Azure SQL Database 가져오기/내보내기 서비스는 가져오기 및 내�
 
 * [SQLPackage 유틸리티를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-the-sqlpackage-utility).
 * [SSMS (SQL Server Management Studio)를 사용 하 여 BACPAC 파일로 내보냅니다](https://docs.microsoft.com/azure/sql-database/sql-database-export#export-to-a-bacpac-file-using-sql-server-management-studio-ssms).
-* Microsoft SQL Server Data-Tier Application Framework (DacFx) API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 합니다. 자세한 내용은 다음을 참조 하세요.
+* Microsoft SQL Server Data-Tier Application Framework (DacFx) API를 사용 하 여 코드에서 직접 BACPAC 가져오기 또는 내보내기를 실행 합니다. 자세한 내용은 다음을 참조하세요.
   * [데이터 계층 응용 프로그램 내보내기](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application)
   * [Microsoft SqlServer 네임 스페이스](https://docs.microsoft.com/dotnet/api/microsoft.sqlserver.dac)
   * [다운로드 DACFx](https://www.microsoft.com/download/details.aspx?id=55713)

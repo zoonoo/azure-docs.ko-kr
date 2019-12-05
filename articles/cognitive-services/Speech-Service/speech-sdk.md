@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f6446a2dbe3f111c9c617e78a0bdd98f6cea9153
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 58738c9180fcc45a6958ea61b26d898caf4f3061
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468772"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819125"
 ---
 # <a name="about-the-speech-sdk"></a>Speech SDK 정보
 
-음성 SDK (소프트웨어 개발 키트)는 응용 프로그램에 음성 서비스 기능에 대 한 액세스를 제공 하 여 음성 지원 소프트웨어를 보다 쉽게 개발할 수 있도록 합니다. 현재, Sdk는 **음성 텍스트**, **텍스트 음성**변환, **음성 번역**, **의도 인식**및 **봇 프레임 워크의 직접 줄 음성 채널**에 대 한 액세스를 제공 합니다. 기능 및 지원 되는 플랫폼에 대 한 일반적인 개요는 설명서 [입력 페이지](https://aka.ms/csspeech)에서 찾을 수 있습니다.
+음성 SDK(소프트웨어 개발 키트)를 사용하면 애플리케이션에서 Speech 서비스의 기능에 액세스할 수 있으므로 음성 지원 소프트웨어를 더 쉽게 개발할 수 있습니다. 현재, Sdk는 **음성 텍스트**, **텍스트 음성**변환, **음성 번역**, **의도 인식**및 **봇 프레임 워크의 직접 줄 음성 채널**에 대 한 액세스를 제공 합니다. 기능 및 지원 되는 플랫폼에 대 한 일반적인 개요는 설명서 [입력 페이지](https://aka.ms/csspeech)에서 찾을 수 있습니다.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
@@ -71,7 +71,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
   |path|설명|
   |-|-|
-  |`license.md`|라이선스|
+  |`license.md`|License|
   |`ThirdPartyNotices.md`|타사 알림|
   |`include`|C 및 C++용 헤더 파일|
   |`lib/x64`|애플리케이션과 연결할 기본 x64 라이브러리|
@@ -103,5 +103,5 @@ Java SDK는 [Speech Devices SDK](speech-devices-sdk.md)에도 포함됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Speech 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
+* [음성 평가판 구독 가져오기](https://azure.microsoft.com/try/cognitive-services/)
 * [C#에서 음성을 인식하는 방법 참조](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnet)
