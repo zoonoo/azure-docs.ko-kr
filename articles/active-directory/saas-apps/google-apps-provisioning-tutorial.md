@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: beaa8561028a9e21d0623c0eb8e19592f3cad055
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7c259371ccdb55eff01eb7f0605315b17c33cdd3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167870"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842750"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "74167870"
 - G Suite 대상 특성 이름이 [여기](https://developers.google.com/admin-sdk/directory)에 정의 된 것과 일치 하도록 업데이트 되었습니다.
 - 기본 특성 매핑을 업데이트 했습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 G Suite와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -86,13 +86,13 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
     ![새 도메인 추가][21]
 
-    c. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
+    다. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
 
     ![사용자의 도메인 이름을 입력합니다.][22]
 
     d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google을 사용 하 여 도메인을 확인 하는 방법에 대 한 포괄적인 지침은 [사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)을 참조 하세요.
 
-    e. G Suite에 추가 하려는 추가 도메인에 대해 위의 단계를 반복 합니다.
+    ㅁ. G Suite에 추가 하려는 추가 도메인에 대해 위의 단계를 반복 합니다.
 
 5. 다음으로 G Suite에서 사용자 프로 비전을 관리 하는 데 사용할 관리자 계정을 결정 합니다. **관리자 역할**로 이동 합니다.
 
@@ -134,7 +134,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
 ### <a name="to-configure-automatic-user-provisioning-for-g-suite-in-azure-ad"></a>Azure AD에서 G Suite에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램**을 선택한 다음 **모든 응용 프로그램**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -160,11 +160,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
 7. Azure Portal에서 **연결 테스트**를 선택하여 Azure AD가 앱에 연결할 수 있는지 확인합니다. 연결에 실패하면 G Suite 계정에 팀 관리자 권한이 있는지 확인합니다. 그런 다음 **권한 부여** 단계를 다시 시도합니다.
 
-8. **알림 이메일** 필드에 프로비전 오류 알림을 받을 개인 또는 그룹의 이메일 주소를 입력하고, **오류가 발생할 경우 이메일 알림 보내기** 확인란을 선택합니다.
+8. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
     ![알림 이메일](common/provisioning-notification-email.png)
 
-8. **저장**을 클릭합니다.
+8. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 G Suite에 동기화를**선택 합니다.
 
@@ -178,7 +178,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
     ![G Suite 그룹 매핑](media/google-apps-provisioning-tutorial/groupmappings.png)
 
-12. **특성 매핑** 섹션에서 Azure AD에서 G Suite로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 G Suite의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
+12. **특성 매핑** 섹션에서 Azure AD에서 G Suite로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 G Suite의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다. UI는 Azure AD와 G Suite 간의 기본 특성 매핑 집합을 표시 합니다. 새 매핑 추가를 클릭 하 여 조직 단위와 같은 추가 특성을 추가 하도록 선택할 수 있습니다. 
 
     ![G Suite 그룹 특성](media/google-apps-provisioning-tutorial/groupattributes.png)
 
@@ -204,6 +204,9 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
+
+## <a name="common-issues"></a>일반 문제
+* 권한 부여 오류는 GSuite의 관리자에 대 한 연결을 설정 하는 데 사용 되는 계정이 아닌 경우에 발생할 수 있습니다. 액세스 권한을 부여 하는 데 사용 되는 계정에 사용자가 프로 비전 해야 하는 **모든 도메인** 에 대 한 관리자 권한이 있는지 확인 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

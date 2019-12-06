@@ -1,5 +1,5 @@
 ---
-title: System Center Operations Manager와 VM용 Azure Monitor 통합 | Microsoft Docs
+title: Operations Manager와 VM용 Azure Monitor Map 통합 | Microsoft Docs
 description: VM용 Azure Monitor는 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑합니다. 이 문서에서는 맵 기능을 사용 하 여 Operations Manager에서 배포 응용 프로그램 다이어그램을 자동으로 만드는 방법을 설명 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/12/2019
-ms.openlocfilehash: 3523756e89506e90407090db105fdced5853d9d9
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: f1acf3c1574fd94606d75c6250dedd40a9c7ea4d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553967"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849822"
 ---
-# <a name="system-center-operations-manager-integration-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor Map 기능과 System Center Operations Manager 통합
+# <a name="integrate-system-center-operations-manager-with-azure-monitor-for-vms-map-feature"></a>VM용 Azure Monitor Map 기능과 System Center Operations Manager 통합
 
-VM용 Azure Monitor에서 Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux Vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 지도 기능과 System Center Operations Manager 간의 이러한 통합을 통해 VM용 Azure Monitor의 동적 종속성 맵을 기반으로 하는 Operations Manager에서 분산 응용 프로그램 다이어그램을 자동으로 만들 수 있습니다. 
+VM용 Azure Monitor에서 Azure 또는 사용자 환경에서 실행 되는 Windows 및 Linux Vm (가상 머신)에서 검색 된 응용 프로그램 구성 요소를 볼 수 있습니다. 지도 기능과 System Center Operations Manager 간의 이러한 통합을 통해 VM용 Azure Monitor의 동적 종속성 맵을 기반으로 하는 Operations Manager에서 분산 응용 프로그램 다이어그램을 자동으로 만들 수 있습니다. 이 문서에서는이 기능을 지원 하도록 System Center Operations Manager 관리 그룹을 구성 하는 방법을 설명 합니다.
 
 >[!NOTE]
 >이미 서비스 맵를 배포한 경우 VM 상태 및 성능을 모니터링 하는 추가 기능을 포함 하는 VM용 Azure Monitor에서 지도를 볼 수 있습니다. VM용 Azure Monitor의 맵 기능은 독립 실행형 서비스 맵 솔루션을 대체 하기 위한 것입니다. 자세한 내용은 [VM용 Azure Monitor 개요](vminsights-overview.md)를 참조하세요.

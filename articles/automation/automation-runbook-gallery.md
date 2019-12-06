@@ -4,17 +4,17 @@ description: Microsoft 및 커뮤니티의 Runbook과 모듈을 Azure Automation
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 86eebf33f870780871e4c873936e491772c73b63
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 94910d0f42ad6b208cac54dd2826cbd2d917504b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231622"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850723"
 ---
 # <a name="runbook-and-module-galleries-for-azure-automation"></a>Azure Automation용 Runbook 및 모듈 갤러리
 
@@ -50,7 +50,7 @@ Azure Portal를 사용 하 여 PowerShell 갤러리에서 직접 가져올 수 �
 
 ### <a name="adding-a-powershell-runbook-to-the-gallery"></a>갤러리에 PowerShell runbook 추가
 
-다른 고객에 게 유용 하다 고 생각 되는 PowerShell 갤러리에 runbook을 추가 하는 것이 좋습니다. PowerShell 갤러리은 PowerShell 모듈 및 PowerShell 스크립트를 허용 합니다. Runbook을 [PowerShell 갤러리에 업로드](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package)하 여 추가할 수 있습니다.
+다른 고객에 게 유용 하다 고 생각 되는 PowerShell 갤러리에 runbook을 추가 하는 것이 좋습니다. PowerShell 갤러리에서는 PowerShell 모듈 및 PowerShell 스크립트를 게시할 수 있습니다. Runbook을 [PowerShell 갤러리에 업로드](/powershell/scripting/gallery/how-to/publishing-packages/publishing-a-package)하 여 추가할 수 있습니다.
 
 > [!NOTE]
 > 그래픽 runbook은 PowerShell 갤러리에서 지원 되지 않습니다.

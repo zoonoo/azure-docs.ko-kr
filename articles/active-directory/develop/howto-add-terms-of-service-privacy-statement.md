@@ -1,30 +1,26 @@
 ---
-title: 앱에 대 한 서비스 및 개인정보취급방침 약관 | Azure
+title: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 | Microsoft
 description: Azure AD를 사용하도록 등록된 앱의 서비스 약관 및 개인정보처리방침을 구성하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b0a01b50573405964b09339d03e84c62dbdd8582
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67482861"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842812"
 ---
-# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 및 개인정보취급방침 조건 구성
+# <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
 Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌드하고 관리하는 개발자는 앱의 서비스 약관 및 개인정보처리방침에 대한 링크를 포함해야 합니다. 서비스 약관 및 개인정보처리방침은 사용자 동의 환경을 통해 사용자에게 표시됩니다. 서비스 약관 및 개인정보처리방침은 사용자가 앱을 믿고 사용할 수 있게 도와줍니다. 서비스 약관 및 개인정보처리방침은 여러 디렉터리에서 사용되거나 모든 Microsoft 계정에 제공되는 사용자용 다중 테넌트 앱에서 특히 중요합니다.
 
@@ -60,16 +56,16 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 * [앱 개체 JSON을 사용하여](#app-object-json)
 * [MSGraph 베타 REST API를 사용하여](#msgraph-beta-rest-api)
 
-### <a name="azure-portal"></a>Azure portal을 사용 하 여
-Azure portal에서 다음이 단계를 수행 합니다.
+### <a name="azure-portal"></a>Azure Portal 사용
+Azure Portal에서 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
-3. 엽니다는 **브랜드** 창입니다.
+3. **브랜딩** 창을 엽니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.
 5. 변경 내용을 저장합니다.
 
-    ![앱 속성에는 서비스 및 개인정보취급방침 Url의 용어가 포함 되어 있습니다.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
+    ![앱 속성에는 서비스 약관 및 개인정보 처리 방침 Url이 포함 됩니다.](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)
 
 ### <a name="app-object-json"></a>앱 개체 JSON을 사용하여
 

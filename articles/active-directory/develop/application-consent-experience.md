@@ -3,7 +3,6 @@ title: Azure AD 애플리케이션 동의 환경 이해
 titleSuffix: Microsoft identity platform
 description: Azure AD에서 애플리케이션을 관리 및 개발할 때 Azure AD 동의 환경을 사용하는 방법을 확인하기 위해 해당 환경에 대해 알아보기
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -11,19 +10,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.author: ryanwi
 ms.reviewer: zachowd
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4356a0a26aa586f99766cc5166c17d301a9a194d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: ddffe07ec22e21671a1350eeb29d367166fe2799
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803909"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844229"
 ---
 # <a name="understanding-azure-ad-application-consent-experiences"></a>Azure AD 애플리케이션 동의 환경 이해
 

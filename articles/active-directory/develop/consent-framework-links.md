@@ -2,7 +2,6 @@
 title: 애플리케이션 동의 작동 원리 | Microsoft Docs
 description: Azure AD 동의 프레임워크 작동 원리를 이해하여 Azure AD에서 애플리케이션을 개발할 때 이러한 프레임워크를 사용하는 방법 알아보기
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -10,18 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5ccdce6ac9e3107e0cf4dd4b68b49918fffeae
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 0c79d9226b3a8965ad6ce853350f2e4c46617b5b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68324615"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843430"
 ---
 # <a name="how-application-consent-works"></a>애플리케이션 동의 작동 원리
 

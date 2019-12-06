@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: cfe0caaf199821358f8a66ac65ae75c38336c725
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228085"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851165"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -22,7 +22,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 개인 링크 리소스 (이 예제에서는 저장소 계정)에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
@@ -34,33 +34,33 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력합니다. |
+    | name | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | 구독 | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | Location | **WestCentralUS**를 선택합니다.|
+    | Subscription | 구독을 선택합니다.|
+    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 위치 | **WestCentralUS**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
 1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
 
-### <a name="create-virtual-machine"></a>가상 머신 만들기
+### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
 1. Azure Portal 화면 왼쪽 상단에서 **리소스 만들기** > **계산** > **가상 컴퓨터**를 선택 합니다.
 
 1. **가상 머신 만들기 - 기본 사항**에서 다음 정보를 입력하거나 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
-    | Region | **WestCentralUS**를 선택합니다. |
+    | 지역 | **WestCentralUS**를 선택합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
     | 이미지 | **Windows Server 2019 Datacenter**를 선택합니다. |
     | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
@@ -80,11 +80,11 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 1. **가상 머신 만들기 - 네트워킹**에서 다음 정보를 선택합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | 가상 네트워크 | 기본값인 **MyVirtualNetwork**를 그대로 둡니다.  |
     | 주소 공간 | 기본값인 **10.1.0.0/24**를 그대로 둡니다.|
-    | Subnet | 기본값인 **mySubnet(10.1.0.0/24)** 을 그대로 둡니다.|
+    | 서브넷 | 기본값인 **mySubnet(10.1.0.0/24)** 을 그대로 둡니다.|
     | 공용 IP | 기본값 **(신규) myVm-ip**를 그대로 둡니다. |
     | 공용 인바운드 포트 | **선택한 포트 허용**을 선택합니다. |
     | 인바운드 포트 선택 | **HTTP** 및 **RDP**를 선택합니다.|
@@ -101,15 +101,15 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 1. **저장소 계정 만들기-기본 사항**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
     | Storage 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
-    | Region | **WestCentralUS**를 선택합니다. |
-    | 성능| 기본값인 **표준**을 그대로 둡니다. |
+    | 지역 | **WestCentralUS**를 선택합니다. |
+    | 성능 중심| 기본값인 **표준**을 그대로 둡니다. |
     | 계정 종류 | 기본 **저장소 (범용 v2)** 를 그대로 둡니다. |
     | 복제 | **읽기 액세스 지역 중복 저장소 (RA-GRS)** 를 선택 합니다. |
     |||
@@ -119,17 +119,17 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 5. **저장소 계정 만들기-네트워킹**에서 **개인 끝점 추가**를 선택 합니다. 
 6. **개인 끝점 만들기**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | **프로젝트 정보** | |
-    | 구독 | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
-    |Location|**WestCentralUS**를 선택합니다.|
-    |이름| *MyPrivateEndpoint*를 입력 합니다.  |
+    | Subscription | 구독을 선택합니다. |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    |위치|**WestCentralUS**를 선택합니다.|
+    |name| *MyPrivateEndpoint*를 입력 합니다.  |
     |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
-    | Subnet |  *mySubnet*을 선택합니다. |
+    | 서브넷 |  *mySubnet*을 선택합니다. |
     | **프라이빗 DNS 통합**|  |
     | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
     | 프라이빗 DNS 영역  | 기본값인 * * (New) privatelink.blob.core.windows.net * *를 그대로 둡니다. |
@@ -143,7 +143,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
-다음과 같이 인터넷에서 VM *myvm* 에 연결 합니다.
+다음과 같이 인터넷에서 *myVm* VM에 연결합니다.
 
 1. 포털의 검색 창에 *myVm*을 입력합니다.
 
@@ -169,9 +169,6 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 ## <a name="access-storage-account-privately-from-the-vm"></a>VM에서 개인적으로 저장소 계정 액세스
 
 이 섹션에서는 개인 끝점을 사용 하 여 저장소 계정에 비공개로 연결 합니다.
-
-> [!IMPORTANT]
-> 저장소에 대 한 DNS 구성에는 특정 계정의 FQDN을 포함 하도록 호스트 파일에 대 한 수동 수정이 필요 합니다. Windows에 대 한 관리자 권한을 사용 하 여 다음 파일을 수정 하세요. c:\Windows\System32\Drivers\etc\hosts 또는 Linux/etc/hosts [개인 IP 주소] myaccount.blob.core.windows.net의 이전 단계에서 계정의 DNS 정보를 포함 합니다.
 
 1.  *myVM*의 원격 데스크톱에서 PowerShell을 엽니다.
 2.  `nslookup mystorageaccount.blob.core.windows.net`를 입력 하면 다음과 같은 메시지가 표시 됩니다.
@@ -203,7 +200,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, 저장소 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
-1. 포털 맨 위에 있는  *검색* 상자에  myResourceGroup을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
+1. 포털 맨 위에 있는 **검색** 상자에  *myResourceGroup* 을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다. 
 2. **리소스 그룹 삭제**를 선택합니다. 
 3. **리소스 그룹 이름 입력** 에 *myresourcegroup* 를 입력 하 고 **삭제**를 선택 합니다. 
 

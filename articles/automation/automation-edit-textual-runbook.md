@@ -4,17 +4,17 @@ description: 이 문서에서는 텍스트 편집기를 사용하여 Azure Autom
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/01/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: bd220b6ff1102c2ef2f436e0af013f253b5820a3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 5a7eec0a7650f9c8e04a8d1062d32b6feb7d1d99
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478295"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850859"
 ---
 # <a name="editing-textual-runbooks-in-azure-automation"></a>Azure Automation에서 텍스트 Runbook 편집
 
@@ -98,7 +98,7 @@ Publish-AzureRmAutomationRunbook -Name $runbookName -AutomationAccountName $auto
 * [Azure Automation에서 Runbook 관리](manage-runbooks.md)
 * [PowerShell 워크플로 학습](automation-powershell-workflow.md)
 * [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md)
-* [Certificates](automation-certificates.md)
+* [인증서](automation-certificates.md)
 * [연결](automation-connections.md)
 * [자격 증명](automation-credentials.md)
 * [일정](automation-schedules.md)

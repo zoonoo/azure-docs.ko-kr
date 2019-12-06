@@ -2,27 +2,24 @@
 title: Azure AD 앱 개발자를 위한 지원 및 도움말 옵션 | Microsoft Docs
 description: Microsoft ID(Azure Active Directory 및 Microsoft 계정)와 통합되는 애플리케이션을 만들 때 개발과 관련된 질문 및 문제에 대한 지원 및 도움말을 얻는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 3f1c6d89af1d88be9a241c94462b17edf0c93de2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72429973"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843192"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -84,7 +81,7 @@ Stack Overflow의 다음 게시물에는 질문하는 방법과 소스 코드를
 라이브러리 및 해당 GitHub 리포지토리 목록은 다음을 참조 하세요.
 
 * [ADAL](active-directory-authentication-libraries.md) 라이브러리 및 GitHub 리포지토리
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal .Js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [msal. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)및 [msal .obj _c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [msal .Js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [msal. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)및 [msal. obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) 라이브러리 및 GitHub 리포지토리
 
 ## <a name="open-a-support-request"></a>지원 요청 열기
 

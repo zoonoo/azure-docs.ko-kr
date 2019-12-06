@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 11/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 43b6d541cfb3d2e5bd583223d9d93921982c65e0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 152df830f11cd5a73235559c5c5d65ced44f22fa
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039450"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842121"
 ---
 # <a name="how-to-connect-and-sign-on-to-an-azure-virtual-machine-running-windows"></a>Windows를 실행하는 Azure 가상 머신에 연결하고 로그온하는 방법
 Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP(원격 데스크톱) 세션을 시작합니다. 먼저 가상 머신에 연결한 다음 로그온합니다.
@@ -27,13 +27,11 @@ Azure Portal의 **연결** 단추를 사용하여 Windows 데스크톱에서 RDP
 Mac에서 Windows VM에 연결하려면 [Microsoft 원격 데스크톱](https://aka.ms/rdmac)과 같이 Mac용 RDP 클라이언트를 설치해야 합니다.
 
 ## <a name="connect-to-the-virtual-machine"></a>가상 컴퓨터에 연결
-1. 아직 로그인하지 않은 경우 [Azure 포털](https://portal.azure.com/)에 로그인합니다.
-2. 왼쪽 메뉴에서 **Virtual Machines**를 선택합니다.
-3. 목록에서 가상 컴퓨터를 선택합니다.
-4. 가상 머신에 대한 페이지 위쪽에서 **연결**을 선택합니다.
-2. **가상 머신에 연결** 페이지에서 적절한 IP 주소와 포트를 선택합니다. 대부분의 경우에는 기본 IP 주소 및 포트를 사용해야 합니다. **RDP 파일 다운로드**를 선택합니다. VM에 Just-In-Time 정책이 설정되어 있으면 먼저 **액세스 요청** 단추를 선택하여 액세스 권한을 요청해야 RDP 파일을 다운로드할 수 있습니다. Just-In-Time 정책과 관련된 자세한 내용은 [Just-In-Time 정책을 사용하여 가상 머신 액세스 관리](../../security-center/security-center-just-in-time.md)를 참조하세요.
-2. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 선택합니다. 
-2. `.rdp` 파일은 알 수 없는 게시자가 제공한 파일이라는 경고가 표시됩니다. 예상된 동작입니다. **원격 데스크톱 연결** 창에서 **연결**을 선택하여 계속합니다.
+1. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 VM에 연결 합니다. **가상 컴퓨터**를 검색 하 고 선택 합니다.
+2. 목록에서 가상 컴퓨터를 선택합니다.
+3. 가상 컴퓨터 페이지의 시작 부분에서 **연결**을 선택 합니다.
+4. **가상 컴퓨터에 연결** 페이지에서 **RDP**를 선택 하 고 적절 한 **IP 주소** 및 **포트 번호**를 선택 합니다. 대부분의 경우에는 기본 IP 주소 및 포트를 사용해야 합니다. **RDP 파일 다운로드**를 선택합니다. VM에 Just-In-Time 정책이 설정되어 있으면 먼저 **액세스 요청** 단추를 선택하여 액세스 권한을 요청해야 RDP 파일을 다운로드할 수 있습니다. Just-In-Time 정책과 관련된 자세한 내용은 [Just-In-Time 정책을 사용하여 가상 머신 액세스 관리](../../security-center/security-center-just-in-time.md)를 참조하세요.
+5. 다운로드한 RDP 파일을 열고 메시지가 표시되면 **연결**을 선택합니다. `.rdp` 파일은 알 수 없는 게시자가 제공한 파일이라는 경고가 표시됩니다. 예상된 동작입니다. **원격 데스크톱 연결** 창에서 **연결**을 선택하여 계속합니다.
    
     ![알 수 없는 게시자에 대한 경고의 스크린샷입니다.](./media/connect-logon/rdp-warn.png)
 3. **Windows 보안** 창에서 **추가 선택 사항** 및 **다른 계정 사용**을 차례로 선택합니다. 가상 머신의 계정에 대한 자격 증명을 입력한 다음, **확인**을 선택합니다.

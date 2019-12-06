@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f87f1b2561b65590dfe29d7d2c8d1318e3d35e1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381849"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848445"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "74381849"
 
 |     |
 | --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="requirements"></a>요구 사항
@@ -50,7 +50,7 @@ ms.locfileid: "74381849"
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 사용 방법
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. **인증 방법 정책 (미리 보기)**  > **Azure Active Directory** > **보안** > **인증 방법** 으로 이동 합니다.
 1. Method **FIDO2 Security 키**아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요

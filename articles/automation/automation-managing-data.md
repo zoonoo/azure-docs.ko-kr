@@ -4,17 +4,17 @@ description: 이 문서는 Azure Automation 환경 관리에 대한 여러 항�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9de5909ddca5fd36f3fafcb79e2a4ad519402c9c
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: da1b151a150dfbf602593451d3d68043352b73eb
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476595"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850774"
 ---
 # <a name="managing-azure-automation-data"></a>Azure Automation 데이터 관리
 이 문서는 Azure Automation 환경 관리에 대한 여러 항목을 포함합니다.
@@ -26,7 +26,7 @@ Azure Automation은 90일이 넘은 작업을 자동으로 삭제하고 영구�
 
 다음 표에는 여러 리소스에 대한 보존 정책이 요약되어 있습니다.
 
-| Data | 정책 |
+| 데이터 | 정책 |
 |:--- |:--- |
 | 계정 |사용자가 계정을 삭제한 후 90일이 지나면 영구적으로 제거됩니다. |
 | 자산 |사용자가 자산을 삭제한 후 90일이 지나거나 사용자가 자산을 유지하는 계정을 삭제한 후 90일이 지나면 영구적으로 제거됩니다. |
@@ -39,9 +39,9 @@ Azure Automation은 90일이 넘은 작업을 자동으로 삭제하고 영구�
 
 보존 정책은 모든 사용자에게 적용되며 지금은 사용자 지정할 수 없습니다.
 
-그러나 긴 기간에 대 한 데이터를 유지 해야 할 경우 전달할 수 있습니다 runbook 작업 로그를 Azure Monitor 로그.  자세한 내용은 검토 [Azure Monitor 로그로 Azure Automation 작업 데이터 전달](automation-manage-send-joblogs-log-analytics.md)합니다.   
+그러나 더 오랜 기간 동안 데이터를 유지 해야 하는 경우 runbook 작업 로그를 Azure Monitor 로그에 전달할 수 있습니다.  자세한 내용은 [Azure Automation 작업 데이터를 Azure Monitor 로그로 전달](automation-manage-send-joblogs-log-analytics.md)을 검토 하세요.   
 
-## <a name="backing-up-azure-automation"></a>Azure Automation 백업
+## <a name="backing-up-azure-automation"></a>Azure Automation Backup
 Microsoft Azure에서 자동화 계정을 삭제하면 Runbook, 모듈, 구성, 설정, 작업, 자산 등 해당 계정의 모든 개체가 삭제됩니다. 계정을 삭제한 후에는 개체를 복구할 수 없습니다.  자동화 계정을 삭제하기 전에 다음 정보를 사용하여 자동화 계정의 내용을 백업할 수 있습니다. 
 
 ### <a name="runbooks"></a>Runbook
@@ -71,7 +71,7 @@ Azure Automation 계정의 표준인 지역에서 복제는 중복성을 위해 
 | --- | --- |
 | 미국 중남부 |미국 중북부 |
 | 미국 동부 2 |미국 중부 |
-| 서유럽 |유럽 북부 |
+| 서유럽 |북유럽 |
 | 동남아시아 |동아시아 |
 | 일본 동부 |일본 서부 |
 

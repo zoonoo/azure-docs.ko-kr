@@ -1,6 +1,6 @@
 ---
 title: Azure Cosmos DB 계정으로 작업
-description: 이 문서에서는 Azure Cosmos DB 계정을 만들고 사용하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Cosmos 계정을 만들고 사용 하는 방법을 설명 합니다. 또한 Azure Cosmos 계정에 있는 요소의 계층 구조를 보여 줍니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 57b2cffbf8085e6d393765190a6dfc2dead51625
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d29ed68b2945b2473b33aa88176e6f5d832a0fba
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757082"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872267"
 ---
 # <a name="work-with-azure-cosmos-account"></a>Azure Cosmos 계정 작업
 

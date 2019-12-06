@@ -4,17 +4,17 @@ description: 변경 내용 추적의 파일 콘텐츠 변경 기능을 사용하
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/03/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6aef9a24e3337d1f5a5a6c9ac6b510cc7f9a66a5
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 4ab88aa2dc604172f00d875353dabba61fd101af
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478641"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850587"
 ---
 # <a name="view-contents-of-a-file-that-is-being-tracked-with-change-tracking"></a>변경 내용 추적으로 추적 중인 파일의 콘텐츠 보기
 
@@ -75,5 +75,5 @@ ms.locfileid: "67478641"
 > [!div class="nextstepaction"]
 > [환경 변경 문제 해결](automation-tutorial-troubleshoot-changes.md)
 
-* 사용 하 여 [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
+* [Azure Monitor 로그의 로그 검색](../log-analytics/log-analytics-log-searches.md) 을 사용 하 여 자세한 변경 내용 추적 데이터를 볼 수 있습니다.
 

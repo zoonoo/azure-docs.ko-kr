@@ -4,74 +4,61 @@ description: Azure Portal에서 클래식 정책을 마이그레이션하기 위
 services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
-ms.topic: article
-ms.date: 11/21/2019
+ms.topic: conceptual
+ms.date: 12/04/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: nigu
+ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75d664f6e61dbbaaf0b8ab74c392596a206ff644
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 16c6ce46af8fb9a9ab4be5fcc63ccd4909374e4f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380548"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846177"
 ---
-# <a name="what-is-a-policy-migration-in-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory에서 정책 마이그레이션 이란? 
+# <a name="conditional-access-classic-policy-migration"></a>조건부 액세스 클래식 정책 마이그레이션
 
-[조건부 액세스](../active-directory-conditional-access-azure-portal.md) 는 권한 있는 사용자가 클라우드 앱에 액세스 하는 방법을 제어 하는 데 사용할 수 있는 azure AD (azure Active directory)의 기능입니다. 용도는 동일 하지만, 새 Azure Portal의 릴리스는 조건부 액세스의 작동 방식에 대 한 상당한 개선 사항을 도입 했습니다.
+조건부 액세스는 Azure Active Directory에서 신호를 주고 결정을 내리고 조직 정책을 적용하기 위해 사용하는 도구입니다. 조건부 액세스는 새로운 ID 중심 제어 평면의 핵심입니다. 용도는 동일 하지만, 새 Azure Portal의 릴리스는 조건부 액세스의 작동 방식에 대 한 상당한 개선 사항을 도입 했습니다.
 
 Azure Portal에서 만들지 않은 정책을 마이그레이션하는 것을 고려해야 하는 이유는 다음과 같습니다.
 
 - 이전에는 처리할 수 없었던 시나리오를 이제 처리할 수 있습니다.
-- 통합하여 관리해야 하는 정책의 수를 줄일 수 있습니다.   
+- 통합하여 관리해야 하는 정책의 수를 줄일 수 있습니다.
 - 모든 조건부 액세스 정책을 하나의 중앙 위치에서 관리할 수 있습니다.
-- Azure 클래식 포털의 사용이 중지됩니다.   
+- Azure 클래식 포털의 사용이 중지됩니다.
 
 이 문서에서는 기존 조건부 액세스 정책을 새 프레임 워크로 마이그레이션하기 위해 알아야 할 사항을 설명 합니다.
- 
+
 ## <a name="classic-policies"></a>클래식 정책
 
-[Azure Portal](https://portal.azure.com) [에서 조건부 액세스 정책 페이지는](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) 조건부 액세스 정책에 대 한 진입점입니다. 그러나 사용자 환경에서이 페이지를 사용 하 여 만든 조건부 액세스 정책도 있을 수 있습니다. 이러한 정책은 *클래식 정책*이라고 합니다. 클래식 정책은 다음에서 만든 조건부 액세스 정책입니다.
+[Azure Portal](https://portal.azure.com)에서 조건부 액세스 정책은 **Azure Active Directory** > **보안** > **조건부 액세스**에서 찾을 수 있습니다. 조직에서이 페이지를 사용 하 여 오래 된 조건부 액세스 정책을 만들지 않았을 수도 있습니다. 이러한 정책은 *클래식 정책*이라고 합니다. 클래식 정책은 다음에서 만든 조건부 액세스 정책입니다.
 
 - Azure 클래식 포털
 - Intune 클래식 포털
 - Intune 앱 보호 포털
 
-**조건부 액세스** 페이지의 **관리** 섹션에서 [**클래식 정책 (미리 보기)** ](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 을 클릭 하 여 클래식 정책에 액세스할 수 있습니다. 
+**조건부 액세스** 페이지의 **관리** 섹션에서 [**클래식 정책**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/ClassicPolicies) 을 클릭 하 여 클래식 정책에 액세스할 수 있습니다. 
 
-![Azure Active Directory](./media/policy-migration/71.png)
+![클래식 정책 보기를 표시 하는 Azure AD의 조건부 액세스](./media/policy-migration/71.png)
 
 **클래식 정책** 보기는 다음과 같은 옵션을 제공합니다.
 
 - 클래식 정책을 필터링합니다.
- 
-   ![Azure Active Directory](./media/policy-migration/72.png)
-
 - 클래식 정책을 사용하지 않도록 설정합니다.
-
-   ![Azure Active Directory](./media/policy-migration/73.png)
-   
 - 클래식 정책의 설정을 검토 하 고 사용 하지 않도록 설정 합니다.
 
-   ![Azure Active Directory](./media/policy-migration/74.png)
+   ![기존 정책 구성을 포함 한 클래식 정책 세부 정보](./media/policy-migration/74.png)
 
-클래식 정책을 사용하지 않도록 설정한 경우 이 단계를 더 이상 되돌릴 수 없습니다. 이러한 이유로 **세부 정보** 보기를 사용하여 클래식 정책에서 그룹 멤버십을 수정할 수 있습니다. 
+> [!WARNING]
+> 비활성화 한 후에는 클래식 정책을 다시 사용 하도록 설정할 수 없습니다.
 
-![Azure Active Directory](./media/policy-migration/75.png)
+클래식 정책의 자세히 보기를 사용 하면 설정을 문서화 하 고, 포함 된 그룹 또는 제외 된 그룹을 수정 하 고, 정책을 사용 하지 않도록 설정할 수 있습니다.
 
-모든 포함된 사용자 및 그룹에 대해 정책을 사용하지 않도록 설정하기 전에 선택한 그룹을 변경하거나 특정 그룹을 제외하여 소수의 테스트 사용자에게 사용하지 않도록 설정된 클래식 정책의 효과를 테스트할 수 있습니다. 
+![정책 세부 정보-포함 하거나 제외할 그룹](./media/policy-migration/75.png)
 
-## <a name="azure-ad-conditional-access-policies"></a>Azure AD 조건부 액세스 정책
-
-Azure Portal의 조건부 액세스를 사용 하 여 하나의 중앙 위치에서 모든 정책을 관리할 수 있습니다. 조건부 액세스를 변경 하는 방법의 구현이 있으므로 클래식 정책을 마이그레이션하기 전에 기본 개념을 숙지 해야 합니다.
-
-참조
-
-- 기본 개념과 용어에 대 한 자세한 내용은 [Azure Active Directory의 조건부 액세스 기능을 사용](../active-directory-conditional-access-azure-portal.md) 합니다.
-- 조직에서 조건부 액세스를 배포 하는 방법에 대 한 몇 가지 지침을 얻기 위해 [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md) 입니다.
-- [Azure Active Directory 조건부 액세스를 사용 하 여 특정 앱에 대해 MFA를 요구](app-based-mfa.md) 하 여 Azure Portal 사용자 인터페이스를 숙지 합니다.
+선택한 그룹을 변경 하거나 특정 그룹을 제외 하 여 포함 된 모든 사용자 및 그룹에 대 한 정책을 사용 하지 않도록 설정 하기 전에 일부 테스트 사용자에 대해 사용 하지 않도록 설정 된 클래식 정책의 효과를 테스트할 수 있습니다.
  
 ## <a name="migration-considerations"></a>마이그레이션 고려 사항
 
@@ -86,27 +73,25 @@ Azure Portal의 조건부 액세스를 사용 하 여 하나의 중앙 위치에
    - 시나리오에 필요한 경우 여러 조건을 결합합니다. 
    - 여러 권한 부여 요구 사항을 액세스 제어로 선택하고 논리 *OR*(선택한 제어 중 하나가 필요함) 또는 논리 *AND*(선택한 모든 제어가 필요함)로 결합합니다.
 
-   ![Azure Active Directory](./media/policy-migration/25.png)
-
 ### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
 
 **Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 **Office 365 Exchange Online** 클래식 정책을 마이그레이션하는 경우 하나의 새 정책으로 통합하지 못할 수 있습니다. 
 
 예를 들어 모든 클라이언트 앱 유형을 지원하려는 경우에 해당합니다. **Exchange Active Sync**가 클라이언트 앱 조건으로 있는 새 정책에서는 다른 클라이언트 앱을 선택할 수 없습니다.
 
-![Azure Active Directory](./media/policy-migration/64.png)
+![클라이언트 앱을 선택 하는 조건부 액세스](./media/policy-migration/64.png)
 
 클래식 정책에 여러 조건이 포함되어 있는 경우에도 하나의 새 정책으로 통합할 수 없습니다. **Exchange Active Sync**가 클라이언트 앱 조건으로 구성되어 있는 새 정책은 다른 조건을 지원하지 않습니다.   
 
-![Azure Active Directory](./media/policy-migration/08.png)
+![Exchange ActiveSync는 선택한 조건을 지원 하지 않습니다.](./media/policy-migration/08.png)
 
 **Exchange Active Sync**가 클라이언트 앱 조건으로 구성된 새 정책이 있는 경우 다른 모든 조건이 구성되지 않도록 해야 합니다. 
 
-![Azure Active Directory](./media/policy-migration/16.png)
+![조건부 액세스 조건](./media/policy-migration/16.png)
  
-[Exchange Active Sync](technical-reference.md#approved-client-app-requirement)가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 **앱 기반** 클래식 정책에서는 **지원되는** 디바이스 플랫폼과 **지원되지 않는**[디바이스 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
+**Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 Office 365 Exchange Online의 [앱 기반](technical-reference.md#approved-client-app-requirement) 클래식 정책에서는 **지원되는** 디바이스 플랫폼과 **지원되지 않는**[디바이스 플랫폼](technical-reference.md#device-platform-condition)이 허용됩니다. 관련된 새 정책에서는 개별 디바이스 플랫폼을 구성할 수 없으며 [지원되는 디바이스 플랫폼](technical-reference.md#device-platform-condition)으로만 지원을 제한할 수 있습니다. 
 
-![Azure Active Directory](./media/policy-migration/65.png)
+![조건부 액세스에서 Exchange ActiveSync를 선택 합니다.](./media/policy-migration/65.png)
 
 다음과 같은 경우에는 **Exchange Active Sync**가 클라이언트 앱 조건으로 포함된 여러 클래식 정책을 통합할 수 있습니다.
 
@@ -120,7 +105,7 @@ Azure Portal의 조건부 액세스를 사용 하 여 하나의 중앙 위치에
  
 이 경우 두 요구 사항이 모두 선택된 하나의 새 정책으로 클래식 정책을 통합할 수 있습니다.
 
-![Azure Active Directory](./media/policy-migration/62.png)
+![조건부 액세스 권한 부여 컨트롤](./media/policy-migration/62.png)
 
 ### <a name="device-platforms"></a>디바이스 플랫폼
 
@@ -128,9 +113,10 @@ Azure Portal의 조건부 액세스를 사용 하 여 하나의 중앙 위치에
 
 새 정책에서는 개별적으로 지원할 [디바이스 플랫폼](technical-reference.md#device-platform-condition)을 선택해야 합니다.
 
-![Azure Active Directory](./media/policy-migration/41.png)
+![조건부 액세스 장치 플랫폼 선택](./media/policy-migration/41.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-- 조건부 액세스 정책을 구성하는 방법을 알아보려면 [Azure Active Directory 조건부 액세스를 사용하는 특정 앱에 MFA 요구](app-based-mfa.md)를 참조하세요.
-- 사용자 환경에 대한 조건부 액세스 정책을 구성할 준비가 완료된 경우 Azure Active Directory의 [조건부 액세스 모범 사례](best-practices.md)를 참조하세요. 
+- [조건부 액세스에 대 한 보고서 전용 모드를 사용 하 여 새로운 정책 결정의 영향을 확인 합니다.](concept-conditional-access-report-only.md)
+- 조건부 액세스 정책을 구성 하는 방법을 알아보려면 [조건부 액세스 공용 정책](concept-conditional-access-policy-common.md)을 참조 하세요.
+- 사용자 환경에 대 한 조건부 액세스 정책을 구성할 준비가 되 면 [방법: Azure Active Directory에서 조건부 액세스 배포 계획](plan-conditional-access.md)문서를 참조 하세요. 

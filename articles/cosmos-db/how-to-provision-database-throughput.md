@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 데이터베이스 처리량 프로비전
-description: Azure Cosmos DB의 데이터베이스 수준에서 처리량을 프로비전하는 방법 알아보기
+description: Azure Portal, CLI, PowerShell 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos DB에서 데이터베이스 수준으로 처리량을 프로 비전 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 64a8bc9f4c9f5192dad22cb55cb4d2c4816d4fa5
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 8b64d933057b3ddb07f5f99889c7d7c23c74f545
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575152"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873661"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Azure Cosmos DB의 데이터베이스에 대한 처리량 프로비전
 
@@ -21,7 +21,7 @@ ms.locfileid: "73575152"
 
 ### <a id="portal-sql"></a>SQL(Core) API
 
-1. [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 Azure Cosmos 계정을 선택합니다.
 

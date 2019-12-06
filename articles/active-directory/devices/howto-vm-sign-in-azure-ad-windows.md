@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac52fa7eab055a2b2e9154481019d49acdca65d9
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ba8f4f715856538b9555b1bcb8c8a812503fabd2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420545"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842410"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Azure Active Directory 인증 (미리 보기)을 사용 하 여 Azure에서 Windows 가상 머신에 로그인
 
@@ -24,7 +24,7 @@ ms.locfileid: "74420545"
 
 |     |
 | --- |
-| Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| Azure Windows Vm에 대 한 azure AD 로그인은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경우 다음과 같은 여러 가지 이점이 있습니다.
@@ -33,7 +33,7 @@ Azure AD 인증을 사용 하 여 Azure에서 Windows Vm에 로그인 하는 경
 - 에서는 더 이상 로컬 관리자 계정을 관리할 필요가 없습니다.
 - Azure RBAC를 사용 하면 필요에 따라 Vm에 적절 한 액세스 권한을 부여 하 고 더 이상 필요 하지 않을 때 제거할 수 있습니다.
 - VM에 대 한 액세스를 허용 하기 전에 Azure AD 조건부 액세스에서 다음과 같은 추가 요구 사항을 적용할 수 있습니다. 
-   - Multi-Factor Authentication
+   - Multi-factor authentication
    - 로그인 위험 검사
 - VDI 배포에 포함 되는 Azure Windows Vm의 Azure AD 조인을 자동화 하 고 크기를 조정 합니다.
 
@@ -116,6 +116,9 @@ az vm create \
     --admin-username azureuser \
     --admin-password yourpassword
 ```
+
+> [!NOTE]
+> Azure AD 로그인 VM 확장을 설치 하기 전에 가상 머신에서 시스템 할당 관리 id를 사용 하도록 설정 해야 합니다.
 
 VM 및 지원 리소스를 만드는 데 몇 분이 걸립니다.
 
@@ -230,24 +233,24 @@ VM이 Azure AD 조인 프로세스를 완료 하려면 AADLoginForWindows 확장
 
    | 실행할 명령 | 예상 출력 |
    | --- | --- |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/instance?api-version=2017-08-01" | Azure VM에 대 한 올바른 정보 |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01" | Azure 구독과 연결 된 유효한 테 넌 트 ID |
-   | 말아-H 메타 데이터: true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01" | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01 " | Azure VM에 대 한 올바른 정보 |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/info?api-version=2018-02-01 " | Azure 구독과 연결 된 유효한 테 넌 트 ID |
+   | curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01 " | 이 VM에 할당 된 관리 id에 대해 Azure Active Directory에서 발급 한 유효한 액세스 토큰 |
 
    > [!NOTE]
    > [http://calebb.net/](http://calebb.net/)와 같은 도구를 사용 하 여 액세스 토큰을 디코딩할 수 있습니다. 액세스 토큰의 "appid"가 VM에 할당 된 관리 id와 일치 하는지 확인 합니다.
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
    
-   - 말아 https://login.microsoftonline.com/-D –
-   - 말아 https://login.microsoftonline.com/`<TenantID>`/-D –
+   - 말아 https://login.microsoftonline.com/ -D –
+   - 말아 https://login.microsoftonline.com/`<TenantID>` /-D –
 
    > [!NOTE]
    > `<TenantID>`를 Azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다.
 
-   - 말아 https://enterpriseregistration.windows.net/-D-
-   - 말아 https://device.login.microsoftonline.com/-D-
-   - 말아 https://pas.windows.net/-D-
+   - 말아 https://enterpriseregistration.windows.net/ -D-
+   - 말아 https://device.login.microsoftonline.com/ -D-
+   - 말아 https://pas.windows.net/ -D-
 
 1. 장치 상태는 `dsregcmd /status`를 실행 하 여 볼 수 있습니다. 장치 상태를 `AzureAdJoined : YES`으로 표시 하는 것이 목표입니다.
 
@@ -274,15 +277,15 @@ AADLoginForWindows extension이 특정 오류 코드와 함께 실패 하는 경
 
 1. 명령줄을 사용 하 여 VM에서 필요한 끝점에 액세스할 수 있는지 확인 합니다.
 
-   - 말아 https://login.microsoftonline.com/-D –
-   - 말아 https://login.microsoftonline.com/`<TenantID>`/-D –
+   - 말아 https://login.microsoftonline.com/ -D –
+   - 말아 https://login.microsoftonline.com/`<TenantID>` /-D –
    
    > [!NOTE]
    > `<TenantID>`를 Azure 구독과 연결 된 Azure AD 테 넌 트 ID로 바꿉니다. 테 넌 트 ID를 찾아야 하는 경우 계정 이름 위로 마우스를 이동 하 여 디렉터리/테 넌 트 ID를 가져오거나 Azure Portal에서 디렉터리 ID > Azure Active Directory > 속성을 선택할 수 있습니다.
 
-   - 말아 https://enterpriseregistration.windows.net/-D-
-   - 말아 https://device.login.microsoftonline.com/-D-
-   - 말아 https://pas.windows.net/-D-
+   - 말아 https://enterpriseregistration.windows.net/ -D-
+   - 말아 https://device.login.microsoftonline.com/ -D-
+   - 말아 https://pas.windows.net/ -D-
 
 1. "호스트 `<URL>`를 확인할 수 없습니다."와 함께 명령이 실패 하는 경우이 명령을 실행 하 여 VM에서 사용 중인 DNS 서버를 확인 합니다.
    

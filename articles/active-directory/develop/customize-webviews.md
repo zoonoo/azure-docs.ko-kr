@@ -3,27 +3,23 @@ title: 브라우저 및 WebViews 사용자 지정
 titleSuffix: Microsoft identity platform
 description: IOS 및 macOS 용 MSAL에서 사용자를 로그인 하는 데 사용 하는 브라우저 환경을 사용자 지정 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: tylermsft
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb314e46094bb6c283a17508c35b7fc17e010e5
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803370"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843328"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>방법: iOS/macOS에 대 한 브라우저 및 웹 보기 사용자 지정
 
@@ -70,11 +66,11 @@ IOS의 경우 `ASWebAuthenticationSession`, `SFAuthenticationSession`및 `SFSafa
 
 | 기술    | 브라우저 종류  | iOS 가용성 | macOS 가용성 | 쿠키 및 기타 데이터 공유  | MSAL 가용성 | SSO |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
-| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 시스템 | iOS12 이상 | macOS 10.15 이상 | yes | iOS만 | w/Safari 인스턴스
-| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 시스템 | iOS11 이상 | N/A | yes | iOS만 |  w/Safari 인스턴스
-| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | N/A | 아닙니다. | iOS만 | 아니요 * *
-| **SFSafariViewController** | 시스템 | iOS10 | N/A | yes | iOS만 |  w/Safari 인스턴스
-| **WKWebView**  | 앱 내 | iOS8 이상 | macOS 10.10 이상 | 아닙니다. | iOS 및 macOS | 아니요 * *
+| [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | 시스템 | iOS12 이상 | macOS 10.15 이상 | yes | iOS에만 해당 | w/Safari 인스턴스
+| [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | 시스템 | iOS11 이상 | N/A | yes | iOS에만 해당 |  w/Safari 인스턴스
+| [SFSafariViewController](https://developer.apple.com/documentation/safariservices/sfsafariviewcontroller) | 시스템 | iOS11 이상 | N/A | 아닙니다. | iOS에만 해당 | 아니요**
+| **SFSafariViewController** | 시스템 | iOS10 | N/A | yes | iOS에만 해당 |  w/Safari 인스턴스
+| **WKWebView**  | 앱 내 | iOS8 이상 | macOS 10.10 이상 | 아닙니다. | iOS 및 macOS | 아니요**
 
 \* * SSO가 작동 하려면 앱 간에 토큰을 공유 해야 합니다. 이를 위해서는 토큰 캐시 또는 iOS 용 Microsoft Authenticator와 같은 broker 응용 프로그램이 필요 합니다.
 

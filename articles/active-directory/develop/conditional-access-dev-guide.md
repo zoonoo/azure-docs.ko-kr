@@ -2,7 +2,6 @@
 title: 조건부 액세스 Azure Active Directory 개발자 지침
 description: Azure AD 조건부 액세스를 위한 개발자 지침 및 시나리오
 services: active-directory
-keywords: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
@@ -11,17 +10,15 @@ ms.date: 02/28/2019
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91947c243b521e970a89152f76abe9a99142b89d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 69fcb50cb8273fa9e6606e1d071249ed17c78786
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373997"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843736"
 ---
 # <a name="developer-guidance-for-azure-active-directory-conditional-access"></a>조건부 액세스 Azure Active Directory 개발자 지침
 
@@ -114,7 +111,7 @@ Web API 1에서 항상 다운스트림 API를 호출하는 것은 아니므로 W
 Azure AD는 몇 가지 흥미로운 데이터가 포함된 HTTP 응답을 반환합니다.
 
 > [!NOTE]
-> 이 경우 multi-factor authentication 오류 설명 이지만 조건부 액세스와 관련 하 여 다양 한 `interaction_required`을 사용할 수 있습니다.
+> 이 인스턴스에서는 multi-factor authentication 오류 설명 이지만 조건부 액세스와 관련 하 여 다양 한 `interaction_required` 가능 합니다.
 
 ```
 HTTP 400; Bad Request
@@ -146,7 +143,7 @@ claims={"access_token":{"polids":{"essential":true,"Values":["<GUID>"]}}}
 
 ![새 토큰을 요청하는 여러 서비스에 액세스하는 앱](./media/conditional-access-dev-guide/app-accessing-multiple-services-new-token.png)
 
-앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생 하면 최종 사용자가 조건부 액세스를 준수할 기회가 있습니다. 요청이 `AcquireTokenSilentAsync` 또는 `PromptBehavior.Never` 인 경우에만 적용 됩니다 .이 경우 앱은 대화형 ```AcquireToken``` 요청을 수행 하 여 최종 사용자에 게 정책을 준수할 수 있는 기회를 제공 해야 합니다.
+앱에서 ADAL 라이브러리를 사용하는 경우 토큰을 획득하지 못하면 항상 대화형으로 다시 시도합니다. 이 대화형 요청이 발생 하면 최종 사용자가 조건부 액세스를 준수할 기회가 있습니다. 요청이 `AcquireTokenSilentAsync` `PromptBehavior.Never` 이거나 응용 프로그램에서 최종 사용자에 게 정책을 준수할 수 있는 기회를 제공 하기 위해 대화형 ```AcquireToken``` 요청을 수행 해야 하는 경우에만 적용 됩니다.
 
 ## <a name="scenario-single-page-app-spa-using-adaljs"></a>시나리오: ADAL.js를 사용하는 SPA(단일 페이지 앱)
 

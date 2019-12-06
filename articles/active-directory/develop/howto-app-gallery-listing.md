@@ -2,28 +2,24 @@
 title: Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열 | Microsoft Docs
 description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/16/2019
 ms.author: ryanwi
-ms.reviewer: elisol, bryanla
+ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c77657101f5cd8a117b2163386f6d551b7985458
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374080"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842781"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -38,7 +34,7 @@ ms.locfileid: "72374080"
 - 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
 - Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](consent-framework.md) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 데이터베이스 계정을 관리하는 방법 알아보기
-description: Azure Cosmos DB에서 데이터베이스 계정을 관리하는 방법 알아보기
+description: Azure Portal, PowerShell, CLI 및 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 관리 하는 방법을 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 049be390403fe984ed4f8f38a4cdc86e24060e49
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 61670d757611bd0c1dd11c389282b18edb3d7fa1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582629"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873678"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Azure Cosmos 계정 관리
 

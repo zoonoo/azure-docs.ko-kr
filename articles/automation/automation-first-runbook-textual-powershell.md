@@ -5,17 +5,17 @@ keywords: azure powershell, powershell 스크립트 자습서, powershell 자동
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 11/27/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ae9daaf797d3d82200ee094b63bad1f5c1ff68cc
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f950a2fed2fbd355fc99453f09b655463e67102d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743813"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850876"
 ---
 # <a name="my-first-powershell-runbook"></a>내 첫 번째 PowerShell Runbook
 
@@ -163,7 +163,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. Runbook을 테스트할 수 있도록 **테스트 창**을 클릭합니다.
 1. **시작** 을 클릭하여 테스트를 시작합니다. 일단 완료되면 다음과 비슷한 출력을 수신하여 계정의 기본 정보를 표시해야 합니다. 이 출력에서는 실행 계정이 유효한지 확인합니다.
 
-   ![Authenticate](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
+   ![인증](media/automation-first-runbook-textual-powershell/runbook-auth-output.png)
 
 ## <a name="add-code-to-start-a-virtual-machine"></a>가상 머신을 시작하기 위한 코드 추가
 
@@ -230,7 +230,7 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
 1. 창을 닫습니다.
 1. **게시** 를 클릭하여 Runbook의 새 버전을 게시합니다.
 1. 이전 단계에서 실행시킨 가상 머신을 중지합니다.
-1. **확인**을 클릭하여 Runbook을 시작합니다. 시작하려는 가상 머신의 **VMName** 및 **ResourceGroupName**을 입력합니다.<br><br> ![매개 변수 전달](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
+1. **확인**을 클릭하여 Runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및 **ResourceGroupName**을 입력합니다.<br><br> ![매개 변수 전달](media/automation-first-runbook-textual-powershell/automation-pass-params.png)<br>
 1. Runbook이 완료되면 가상 머신이 시작되었다는 것을 확인합니다.
 
 ## <a name="differences-from-powershell-workflow"></a>PowerShell 워크플로의 차이점

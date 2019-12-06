@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 만들기
-description: Azure Cosmos DB에서 컨테이너를 만드는 방법 알아보기
+description: Azure Portal, .Net, Java, Python, node.js 및 기타 Sdk를 사용 하 여 Azure Cosmos DB에서 컨테이너를 만드는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4eaa2974817bfcd8bef83e5139d75a2d4c2ec107
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242416"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873712"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "72242416"
 
 ### <a id="portal-sql"></a>SQL API
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 계정을 선택합니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "72242416"
 
 ### <a id="portal-mongodb"></a>Azure Cosmos DB API for MongoDB
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-mongodb-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "72242416"
 
 ### <a id="portal-cassandra"></a>Cassandra API
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-cassandra-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
 
@@ -72,7 +72,7 @@ ms.locfileid: "72242416"
 
 ### <a id="portal-gremlin"></a>Gremlin API
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-graph-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
 
@@ -89,7 +89,7 @@ ms.locfileid: "72242416"
 
 ### <a id="portal-table"></a>Table API
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-table-dotnet.md#create-a-database-account) 기존 계정을 선택합니다.
 
@@ -116,7 +116,7 @@ ms.locfileid: "72242416"
 * [Azure CLI를 사용 하 여 Gremlin 그래프 만들기](./scripts/cli/gremlin/create.md)
 * [Azure CLI를 사용 하 여 Table API 테이블 만들기](./scripts/cli/table/create.md)
 
-## PowerShell<a id="ps-sql"></a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin">을 사용 하 여 컨테이너 만들기<a id="ps-table"></a>
+## PowerShell<a id="ps-sql"> </a><a id="ps-mongodb"><a id="ps-cassandra"></a><a id="ps-gremlin">를 사용 하 여 컨테이너 만들기<a id="ps-table"></a>
 
 아래 링크는 PowerShell을 사용 하 여 Azure Cosmos DB에 대 한 컨테이너 리소스를 만드는 방법을 보여 줍니다.
 
@@ -168,5 +168,5 @@ session.Execute(CREATE TABLE myKeySpace.myTable(
 
 * [Azure Cosmos DB에서 분할](partitioning-overview.md)
 * [Azure Cosmos DB의 요청 단위](request-units.md)
-* [컨테이너 및 데이터베이스에 대한 처리량 프로비전](set-throughput.md)
+* [컨테이너 및 데이터베이스의 처리량 프로비전](set-throughput.md)
 * [Azure Cosmos 계정 작업](account-overview.md)

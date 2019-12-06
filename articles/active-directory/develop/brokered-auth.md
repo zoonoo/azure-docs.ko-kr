@@ -1,32 +1,27 @@
 ---
 title: Android에서 조정 된 인증 | Microsoft
+titlesuffix: Microsoft identity platform
 description: Microsoft id 플랫폼에서 Android 용 조정 된 인증 & 권한 부여에 대 한 개요
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
-ms.reviewer: shoatman
+ms.reviewer: shoatman, hahamil, brianmel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a535cbefc3520cbf0c0fc14fbcfd0dd9ebd92ac
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f5204ad71efa2587341600d2c5c1e5195d15445e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175646"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843719"
 ---
-# <a name="brokered-auth-in-android"></a>Android에서 조정 된 인증
-
-## <a name="introduction"></a>소개
+# <a name="brokered-authentication-in-android"></a>Android에서 조정 된 인증
 
 Microsoft 인증 브로커 중 하나를 사용 하 여 장치 차원의 SSO (Single Sign-on)에 참여 하 고 조직 조건부 액세스 정책을 충족 해야 합니다. Broker와 통합 하면 다음과 같은 이점이 있습니다.
 

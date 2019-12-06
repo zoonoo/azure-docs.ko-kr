@@ -2,28 +2,24 @@
 title: Microsoft ID 플랫폼의 인증 | Azure
 description: V2.0 (Microsoft identity platform)에서 인증의 기본 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 0c84e7d0-16aa-4897-82f2-f53c6c990fd9
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 317efa17b294e859ef8a092451aca70b5b836fe7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0ffe0773c943983fc098d41f56b21b898682b2a0
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167806"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843991"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
@@ -43,7 +39,7 @@ Azure AD (Azure Active Directory)는 클라우드의 중앙 집중식 id 공급�
 
 Microsoft id 플랫폼은 OAuth 2.0 및 Openid connect Connect와 같은 업계 표준 프로토콜과 다양 한 오픈 소스 라이브러리를 지원 하 여 id를 서비스로 제공 함으로써 응용 프로그램 개발자에 대 한 인증을 간소화 합니다. 신속 하 게 코딩을 시작 하는 데 도움이 되는 플랫폼입니다. 이 플랫폼을 사용하면 개발자가 모든 Microsoft ID에 로그인하고, Microsoft Graph, 기타 Microsoft API 또는 개발자가 빌드한 API를 호출하기 위한 토큰을 가져오는 애플리케이션을 빌드할 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼의 진화](about-microsoft-identity-platform.md)를 참조 하세요.
 
-### <a name="tenants"></a>테 넌 트
+### <a name="tenants"></a>테넌트
 
 클라우드 id 공급자는 많은 조직에 서비스를 제공 합니다. 서로 다른 조직의 사용자를 유지 하기 위해 Azure AD는 조직 마다 하나의 테 넌 트를 사용 하 여 테 넌 트로 분할 됩니다.
 
@@ -143,7 +139,7 @@ Microsoft id 플랫폼에서 **응용 프로그램 개체** 는 응용 프로그
 
 웹 앱 개발자는 모든 또는 특정 페이지에 인증이 필요한 지 여부를 나타낼 수 있습니다. 예를 들어 ASP.NET/ASP.NET Core에서는 컨트롤러 작업에 `[Authorize]` 특성을 추가 하 여이 작업을 수행 합니다. 
 
-이 특성을 사용 하면 ASP.NET는 사용자의 id가 포함 된 세션 쿠키의 존재 여부를 확인 합니다. 쿠키가 없는 경우 ASP.NET는 인증을 지정 된 id 공급자로 리디렉션합니다. Id 공급자가 Azure AD 인 경우 웹 앱은 인증을 https://login.microsoftonline.com으로 리디렉션하고 로그인 대화 상자를 표시 합니다.
+이 특성을 사용 하면 ASP.NET는 사용자의 id가 포함 된 세션 쿠키의 존재 여부를 확인 합니다. 쿠키가 없는 경우 ASP.NET는 인증을 지정 된 id 공급자로 리디렉션합니다. Id 공급자가 Azure AD 인 경우 웹 앱은 인증을 https://login.microsoftonline.com 으로 리디렉션하고 로그인 대화 상자를 표시 합니다.
 
 ### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>웹 앱이 Azure AD에 로그인을 위임 하 고 토큰을 가져오는 방법
 

@@ -12,21 +12,23 @@ ms.date: 10/22/2018
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a187ea9d22efa40c482ea8930be0271d84a899a
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8ba3cc27777d13448b0e1114413128b550b0b2f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273982"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842291"
 ---
 # <a name="configure-the-way-end-users-consent-to-an-application-in-azure-active-directory"></a>최종 사용자가 Azure Active Directory에서 애플리케이션에 동의하는 방법을 구성합니다.
 사용자가 애플리케이션 권한에 동의하는 방법을 구성하는 방법에 대해 알아봅니다. 관리자 동의를 허용하여 사용자 환경을 간소화할 수 있습니다. 이 문서에서는 사용자 동의를 구성하는 다양한 방법을 제공합니다. 이러한 방법은 Azure AD(Azure Active Directory) 테넌트의 모든 최종 사용자에게 적용됩니다. 
 
 애플리케이션에 동의하는 방법에 대한 자세한 내용은 [Azure Active Directory 동의 프레임워크](../develop/consent-framework.md)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 관리자 동의를 허용하려면 전역 관리자, 애플리케이션 관리자 또는 클라우드 애플리케이션 관리자 권한으로 로그인해야 합니다.
+
+Microsoft Graph 및 Azure AD Graph에 대 한 사용 권한에 관리자 동의를 부여 하려면 전역 관리자 권한이 필요 합니다. 
 
 애플리케이션에 대한 액세스를 제한하려면 사용자 할당이 필요하며, 애플리케이션에 사용자 또는 그룹을 할당해야 합니다.  자세한 내용은 [사용자 및 그룹을 할당하는 메서드](methods-for-assigning-users-and-groups.md)를 참조하세요.
 

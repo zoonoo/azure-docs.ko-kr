@@ -1,18 +1,18 @@
 ---
 title: Azure Functions에서 Azure Cosmos DB 변경 피드를 사용하는 방법
-description: Azure Functions에서 Azure Cosmos DB 변경 피드 사용
+description: Azure Functions를 사용 하 여 Azure Cosmos DB 변경 피드에 연결 합니다. 나중에 모든 새 이벤트에서 트리거되는 사후 Azure 함수를 만들 수 있습니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 95fec1ef57c1d70ea484de9ad49b3410ed8594a4
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 215ecc1e392f8e7051173fb6f589fb940c26f17d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757064"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872250"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용 하는 서버 리스 이벤트 기반 아키텍처
 

@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 변경 피드 프로세서 라이브러리 사용
-description: Azure Cosmos DB 변경 피드 프로세서 라이브러리 사용.
+description: Azure Cosmos DB 변경 피드 프로세서 라이브러리를 사용 하 여 변경 피드, 변경 피드 프로세서의 구성 요소 및 구현 수명 주기를 읽는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 4bd7a31abf47664d1a6ffdd39fe46d9370dbbc97
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: ea2b72e926923357e9ee7dac87720292fbbf9696
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72757037"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872233"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -39,7 +39,7 @@ ms.locfileid: "72757037"
 
 ## <a name="implementing-the-change-feed-processor"></a>변경 피드 프로세서 구현
 
-항목의 지점은 `GetChangeFeedProcessorBuilder` 호출 하는 `Container` 인스턴스에서 항상 모니터링 되는 컨테이너입니다.
+항목의 지점은 `GetChangeFeedProcessorBuilder`호출 하는 `Container` 인스턴스에서 항상 모니터링 되는 컨테이너입니다.
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
 
@@ -51,7 +51,7 @@ ms.locfileid: "72757037"
 
 마지막으로 `WithInstanceName` 및 `WithLeaseContainer`를 사용 하 여 임대 상태를 유지 하는 컨테이너를 사용 하 여이 프로세서 인스턴스의 이름을 정의 합니다.
 
-@No__t_0를 호출 하면 `StartAsync`를 호출 하 여 시작할 수 있는 프로세서 인스턴스가 제공 됩니다.
+`Build`를 호출 하면 `StartAsync`를 호출 하 여 시작할 수 있는 프로세서 인스턴스가 제공 됩니다.
 
 ## <a name="processing-life-cycle"></a>처리 수명 주기
 

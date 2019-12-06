@@ -1,5 +1,5 @@
 ---
-title: Azure AD Connect 프로 비전 에이전트 설치
+title: Azure AD Connect 클라우드 프로 비전 에이전트를 설치 하는 중
 description: 이 항목에서는 프로 비전 에이전트를 설치 하는 방법을 단계별로 설명 합니다.
 services: active-directory
 author: billmath
@@ -11,14 +11,14 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8cf479d4962f6d7aa9a0ba43b48f99bd67566fb6
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 11e3b2a113d46ff3d8799927f56fa66601c94ed5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794485"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846235"
 ---
-# <a name="install-azure-ad-connect-provisioning-agent"></a>프로 비전 에이전트 Azure AD Connect 설치
+# <a name="install-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로 비전 에이전트 설치
 이 문서에서는 Azure AD Connect 프로 비전 에이전트에 대 한 설치 프로세스와 Azure Portal에서 초기에 구성 하는 방법을 안내 합니다.
 
 >[!IMPORTANT]

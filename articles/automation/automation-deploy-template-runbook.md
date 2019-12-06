@@ -4,18 +4,18 @@ description: Runbook에서 Azure Storage에 저장된 Azure Resource Manager 템
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: powershell,  runbook, json, azure automation
-ms.openlocfilehash: d9fab97c8c42c7ff7993c3d7203deb8a58a10bc9
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 922a4e8d98405de9e2b8420da4abf0e157011546
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476704"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850927"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Azure Automation PowerShell Runbook에 Azure Resource Manager 템플릿 배포
 
@@ -25,7 +25,7 @@ ms.locfileid: "67476704"
 
 이 문서에서는 [Azure Storage](../storage/common/storage-introduction.md)에 저장된 Resource Manager 템플릿을 사용하여 새 Azure Storage 계정을 배포하는 PowerShell Runbook을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음과 같은 항목이 필요합니다.
 
@@ -240,7 +240,7 @@ Get-AzureRmStorageAccount
 
 ## <a name="summary"></a>요약
 
-정말 간단하죠. 이제 Azure Automation, Azure Storage 및 Resource Manager 템플릿을 사용하여 모든 Azure 리소스를 배포할 수 있습니다.
+이것으로 끝입니다. 이제 Azure Automation, Azure Storage 및 Resource Manager 템플릿을 사용하여 모든 Azure 리소스를 배포할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

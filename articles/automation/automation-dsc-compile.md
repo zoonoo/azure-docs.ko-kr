@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에 대한 DSC(필요한 상태
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6d3cca9d8954d9ac158d88b393c46672da3faa19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fdea8ed9a9e59a169a6ffb525ed286eb7d1ada53
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231712"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850910"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Azure Automation 상태 구성에서 DSC 구성 컴파일
 
@@ -124,7 +124,7 @@ PSCredentials을 매개 변수로 전달하는 방법에 대한 정보는 아래
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>복합 리소스를 포함 하는 Azure Automation에서 구성 컴파일
 
-**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. [복합 리소스](/powershell/scripting/dsc/resources/authoringresourcecomposite)에 대해 자세히 알아보려면 **복합 리소스: DSC 구성을 리소스로 사용**을 참조하세요.
+**복합 리소스**를 사용하면 구성 내에서 중첩된 리소스로 DSC 구성을 사용할 수 있습니다. 이렇게 하면 단일 리소스에 여러 구성을 적용할 수 있습니다. **복합 리소스**에 대해 자세히 알아보려면 [복합 리소스: DSC 구성을 리소스로 사용](/powershell/scripting/dsc/resources/authoringresourcecomposite)을 참조하세요.
 
 > [!NOTE]
 > **복합 리소스** 를 포함 하는 구성이 올바르게 컴파일되도록 하려면 먼저 복합 리소스가 의존 하는 DSC 리소스를에서 Azure Automation로 먼저 가져와야 합니다.
@@ -189,9 +189,9 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 
 ### <a name="working-with-assets-in-azure-automation-during-compilation"></a>컴파일하는 동안 Azure Automation의 자산 작업
 
-자산 참조는 Azure Automation 상태 구성 및 Runbook에서 동일합니다. 자세한 내용은 다음 항목을 참조하세요.
+자산 참조는 Azure Automation 상태 구성 및 Runbook에서 동일합니다. 자세한 내용은
 
-- [Certificates](automation-certificates.md)
+- [인증서](automation-certificates.md)
 - [연결](automation-connections.md)
 - [자격 증명](automation-credentials.md)
 - [변수](automation-variables.md)
@@ -202,7 +202,7 @@ Azure Automation에서 DSC 구성은 `Get-AutomationPSCredential` cmdlet를 사�
 
 자격 증명을 노드 구성(MOF 구성 문서)에서 안전하게 유지하려면 노드 구성 MOF 파일에 자격 증명을 암호화해야 합니다. 그러나 현재 PowerShell DSC가 노드 구성 MOF을 생성하는 동안 자격 증명을 일반 텍스트로 출력해도 되는지 알아야 합니다. PowerShell DSC은 Azure Automation이 컴파일 작업을 통해 생성된 후에 전체 MOF 파일을 암호화한다는 것을 모르기 때문입니다.
 
-구성 데이터를 사용 하 여 생성 된 노드 구성 Mof에서 일반 텍스트로 자격 증명이 출력 되도록 PowerShell DSC에 지시할 수 있습니다. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 `PSDscAllowPlainTextPassword = $true`ConfigurationData**를 통해** 을 전달해야 합니다.
+구성 데이터를 사용 하 여 생성 된 노드 구성 Mof에서 일반 텍스트로 자격 증명이 출력 되도록 PowerShell DSC에 지시할 수 있습니다. DSC 구성에 표시되고 자격 증명을 사용하는 각 노드 블록 이름의 경우 **ConfigurationData**를 통해 `PSDscAllowPlainTextPassword = $true`을 전달해야 합니다.
 
 다음 예제에서는 Automation 자격 증명 자산을 사용하는 DSC 구성을 보여줍니다.
 
@@ -293,4 +293,4 @@ Import-AzureRmAutomationDscNodeConfiguration -AutomationAccountName 'MyAutomatio
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation 상태 구성에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Azure Automation 상태 구성 cmdlet](/powershell/module/azurerm.automation/#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용하여 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
+- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용한 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.

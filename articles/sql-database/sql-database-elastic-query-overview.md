@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 07/01/2019
-ms.openlocfilehash: 9566ac7169144d984f9200734c99eb10368b3142
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 12/05/2019
+ms.openlocfilehash: 827fab0661a58bfa7d28452960ea6df64d18bf84
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823746"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873746"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database 탄력적 쿼리 개요(미리 보기)
 
@@ -56,10 +56,10 @@ ms.locfileid: "73823746"
 탄력적 쿼리의 고객 시나리오는 다음 포톨로지로 구분됩니다.
 
 * **수직 분할 – 데이터베이스 간 쿼리** (토폴로지 1): 한 데이터 계층의 많은 데이터베이스 간에 데이터를 수직으로 분할합니다. 일반적으로 서로 다른 테이블 집합이 서로 다른 데이터베이스에 상주합니다. 즉 스키마가 데이터베이스마다 서로 다릅니다. 예를 들어, 재고의 모든 테이블은 한 데이터베이스 안에 있지만 모든 회계 관련 테이블은 보조 데이터베이스에 있습니다. 이 토폴로지의 일반적인 사용 사례에서는 여러 데이터베이스의 테이블에서 쿼리하거나 보고서를 컴파일해야 합니다.
-* **행 분할 – 분할** (토폴로지 2): 데이터가 수평 확장된 데이터 계층에서 수평으로 배포되기 위해 분할됩니다. 이 방법에서는 스키마가 모든 분할 데이터베이스에서 동일합니다. 이 방법을 "분할"이라고도 합니다. 분할은 (1)탄력적 데이터베이스 도구 라이브러리 또는 (2)자체 분할을 사용하여 수행 및 관리됩니다. 탄력적 쿼리는 여러 분할에서 보고서를 쿼리 또는 컴파일하는 데 사용됩니다.
+* **행 분할 – 분할** (토폴로지 2): 데이터가 수평 확장된 데이터 계층에서 수평으로 배포되기 위해 분할됩니다. 이 방법에서는 스키마가 모든 분할 데이터베이스에서 동일합니다. 이 방법을 "분할"이라고도 합니다. 분할은 (1)탄력적 데이터베이스 도구 라이브러리 또는 (2)자체 분할을 사용하여 수행 및 관리됩니다. 탄력적 쿼리는 여러 분할에서 보고서를 쿼리 또는 컴파일하는 데 사용됩니다. 분할는 일반적으로 탄력적 풀 내의 데이터베이스입니다. 탄력적 쿼리는 데이터베이스가 공통 스키마를 공유 하는 한 한 번에 탄력적 풀의 모든 데이터베이스를 쿼리 하는 효율적인 방법으로 간주할 수 있습니다.
 
 > [!NOTE]
-> 탄력적 쿼리는 대부분의 처리(필터링, 집계)를 외부 소스 쪽에서 수행할 수 있는 보고 시나리오에 가장 적합합니다. 원격 데이터베이스에서 많은 양의 데이터를 전송하는 ETL 작업에는 적합하지 않습니다. 쿼리가 보다 복잡한 과도한 보고 작업 부하 또는 데이터 웨어하우징 시나리오의 경우, [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/)사용을 고려합니다.
+> 탄력적 쿼리는 대부분의 처리(필터링, 집계)를 외부 소스 쪽에서 수행할 수 있는 보고 시나리오에 가장 적합합니다. 원격 데이터베이스에서 많은 양의 데이터를 전송하는 ETL 작업에는 적합하지 않습니다. 더 복잡 한 쿼리를 포함 하는 대량의 보고 작업 또는 데이터 웨어하우징 시나리오의 경우 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics)를 사용 하는 것도 고려 합니다.
 >  
 
 ## <a name="vertical-partitioning---cross-database-queries"></a>수직 분할 – 데이터베이스 간 쿼리
@@ -118,6 +118,9 @@ DDL 문을 실행한 후에는 원격 테이블인 “mytable”에 로컬 테�
 
 코딩을 시작하려면 [행 분할(분할)을 위한 탄력적 데이터베이스 쿼리 시작하기](sql-database-elastic-query-getting-started.md)를 참조하세요.
 
+> [!IMPORTANT]
+> 큰 데이터베이스 집합에 대해 탄력적 쿼리를 성공적으로 실행 하면 쿼리를 실행 하는 동안 각 데이터베이스의 가용성에 크게 좌우 됩니다. 데이터베이스 중 하나를 사용할 수 없는 경우에는 전체 쿼리가 실패 합니다. 수백 또는 수천 개의 데이터베이스를 한 번에 쿼리 하려는 경우 클라이언트 응용 프로그램에 다시 시도 논리가 포함 되어 있는지 확인 하거나, [Elastic Database 작업](https://docs.microsoft.com/azure/sql-database/sql-database-job-automation-overview#elastic-database-jobs-preview) (미리 보기)을 활용 하 고 데이터베이스의 더 작은 하위 집합을 쿼리하여 각 쿼리의 결과를 단일 대상으로 통합 하는 것이 좋습니다.
+
 ## <a name="t-sql-querying"></a>T-SQL 쿼리
 
 외부 데이터 원본과 외부 테이블을 정의한 후에는 일반 SQL Server 연결 문자열을 사용하여 외부 테이블을 정의한 데이터베이스에 연결할 수 있습니다. 이 연결을 통해 외부 테이블에서 T-SQL 문을 실행할 수 있는데, 여기에는 다음과 같은 제한 사항이 있습니다. [수평 분할](sql-database-elastic-query-horizontal-partitioning.md) 및 [수직 분할](sql-database-elastic-query-vertical-partitioning.md)에 대한 설명서 항목에서 T-SQL 쿼리의 자세한 내용 및 예제를 찾을 수 있습니다.
@@ -144,7 +147,7 @@ Elastic Database 쿼리는 Azure SQL Database 데이터베이스의 비용 안�
 * 외부 테이블에 대한 열 통계는 현재 지원되지 않습니다. 테이블 통계는 지원되지만 수동으로 만들어야 합니다.
 * 탄력적 쿼리는 Azure SQL Database 에서만 작동 합니다. 온-프레미스 SQL Server 또는 VM에서 SQL Server를 쿼리 하는 데 사용할 수 없습니다.
 
-## <a name="feedback"></a>사용자 의견
+## <a name="feedback"></a>피드백
 
 아래 MSDN 포럼 또는 Stack Overflow에서 탄력적 쿼리에 대한 경험과 의견을 나눌 수 있습니다. 모든 종류의 서비스에 대한 사용자 의견에 관심이 있습니다.(결함, 조잡함, 기능의 격차)
 

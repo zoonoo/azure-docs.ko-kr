@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: cynthn
-ms.openlocfilehash: 5557028304d0e2bd5940dd9b01dddf525806d0c6
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 01619027ddc79530dc9541584efa9a3e518f5136
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033671"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842061"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Azure에서 일반화된 VM의 관리 이미지 만들기
 
@@ -44,7 +44,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 1. Windows VM에 로그인합니다.
    
-2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep으로 변경한 다음, `sysprep.exe`를 실행합니다.
+2. 관리자로 명령 프롬프트 창을 엽니다. 디렉터리를 %windir%\system32\sysprep로 변경한 후 `sysprep.exe`를 실행합니다.
    
 3. **시스템 준비 도구** 대화 상자에서 **시스템 OOBE(첫 실행 경험) 시작**을 선택하고 **일반화** 확인란을 선택합니다.
    
@@ -70,9 +70,9 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 ## <a name="create-a-managed-image-in-the-portal"></a>포털에서 관리 이미지 만들기 
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다.
+1. VM 이미지를 관리 하려면 [Azure Portal](https://portal.azure.com) 로 이동 합니다. **가상 컴퓨터**를 검색 하 고 선택 합니다.
 
-2. 왼쪽 메뉴에서 **가상 머신**을 선택하고 목록에서 VM을 선택합니다.
+2. 목록에서 VM을 선택 합니다.
 
 3. VM의 **가상 머신** 페이지 위쪽 메뉴에서 **캡처**를 선택합니다.
 
@@ -80,7 +80,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 4. **이름**에서 미리 입력된 이름을 적용하거나 이미지에 사용할 이름을 입력합니다.
 
-5. **리소스 그룹**에서 **새로 만들기**를 선택하고 이름을 입력하거나 **기존 항목 사용**을 선택하고 드롭다운 목록에서 사용할 리소스 그룹을 선택합니다.
+5. **리소스 그룹**에 대해 **새로 만들기** 를 선택 하 고 이름을 입력 하거나 드롭다운 목록에서 사용할 리소스 그룹을 선택 합니다.
 
 6. 이미지가 만들어진 후 원본 VM을 삭제하려면 **이미지를 만든 후 이 가상 머신을 자동으로 삭제**를 선택합니다.
 
@@ -88,7 +88,7 @@ Windows VM을 일반화하려면 다음 단계를 수행합니다.
 
 8. **만들기**를 선택하여 이미지를 만듭니다.
 
-9. 생성된 이미지는 리소스 그룹의 리소스 목록에 **이미지** 리소스로 표시됩니다.
+생성된 이미지는 리소스 그룹의 리소스 목록에 **이미지** 리소스로 표시됩니다.
 
 
 
@@ -120,7 +120,7 @@ VM 이미지를 만들려면 다음 단계를 수행합니다.
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName -Force
     ```
     
-3. 가상 컴퓨터의 상태를 **일반화됨**으로 설정합니다. 
+3. 가상 머신의 상태를 **일반화됨**으로 설정합니다. 
    
     ```azurepowershell-interactive
     Set-AzVm -ResourceGroupName $rgName -Name $vmName -Generalized
@@ -218,7 +218,7 @@ OS 디스크의 이미지만 만들려면 관리 디스크 ID를 OS 디스크로
 
 ## <a name="create-an-image-from-a-vm-that-uses-a-storage-account"></a>저장소 계정을 사용 하는 VM에서 이미지 만들기
 
-관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename* . 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
+관리 디스크를 사용 하지 않는 VM에서 관리 되는 이미지를 만들려면 저장소 계정에서 OS VHD의 URI가 다음 형식으로 필요 합니다. https://*mystorageaccount*. blob.core.windows.net/*vhdcontainer*/*vhdfilename*. 이 예제의 VHD는 *vhdcontainer* 컨테이너의 *mystorageaccount*에 있으며 VHD 파일 이름은 *vhdfilename.vhd*입니다.
 
 
 1.  일부 변수를 만듭니다.

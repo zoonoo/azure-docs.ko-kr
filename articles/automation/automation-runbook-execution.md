@@ -4,17 +4,17 @@ description: Azure Automation의 Runbook이 처리되는 방법에 대한 자세
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2f8fa4c378ed394930a4018c58b99ed919cbc2c2
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: ddeeaeccc0a10d19a070a91d7bd9bef2b31c0570
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886958"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850757"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -32,7 +32,7 @@ Azure 구독에 연결하면 작업에서 Azure 리소스에 액세스할 수 �
 
 Azure Automation의 Runbook은 Azure의 샌드박스 또는 [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 실행할 수 있습니다. 샌드박스는 여러 작업에서 사용할 수 있는 Azure의 공유 환경입니다. 동일한 샌드박스를 사용하는 작업에는 샌드박스의 리소스 제한이 적용됩니다. Hybrid Runbook Worker는 역할을 호스트 하는 컴퓨터와 환경의 리소스에 대해 runbook을 직접 실행 하 여 로컬 리소스를 관리할 수 있습니다. Runbook은 Azure Automation에 저장 및 관리된 후 하나 이상의 할당된 컴퓨터에 전달됩니다. 대부분의 runbook은 Azure 샌드박스에서 쉽게 실행할 수 있습니다. Azure 샌드박스를 통해 하이브리드 Runbook을 선택하여 Runbook을 실행하도록 추천되는 특정 시나리오가 있습니다. 몇 가지 예제 시나리오의 목록은 다음 표를 참조하세요.
 
-|Task|최선의 선택|참고 사항|
+|작업|최선의 선택|참고|
 |---|---|---|
 |Azure 리소스와 통합|Azure 샌드박스|Azure에서 호스팅되며, 인증이 더 간단합니다. Azure VM에서 Hybrid Runbook Worker를 사용하는 경우 [Azure 리소스에 대한 관리 ID](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 사용할 수 있습니다.|
 |Azure 리소스를 관리하는 최적의 성능|Azure 샌드박스|스크립트가 동일한 환경에서 실행 되므로 대기 시간이 줄어듭니다.|
@@ -149,7 +149,7 @@ Start-AzureRmAutomationRunbook `
 
 #### <a name="erroractionpreference"></a>$ErrorActionPreference
 
-[$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 기본 설정 변수는 PowerShell이 종료 되지 않는 오류에 응답 하는 방법을 결정 합니다. 종료 오류는 `$ErrorActionPreference`의 영향을 받지 않으며 항상 종료 됩니다. `$ErrorActionPreference`를 사용 하면 `Get-ChildItem` cmdlet의 `PathNotFound`와 같은 일반적인 종료 되지 않는 오류가 발생 하 여 runbook이 완료 되지 않습니다. 다음 예에서는 `$ErrorActionPreference`를 사용 하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 `Write-Output` 줄이 실행 되지 않습니다.
+[$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 기본 설정 변수는 PowerShell이 종료 되지 않는 오류에 응답 하는 방법을 결정 합니다. 종료 오류는 `$ErrorActionPreference`의 영향을 받지 않으며 항상 종료 됩니다. `$ErrorActionPreference`를 사용 하면 `Get-ChildItem` cmdlet의 `PathNotFound`와 같은 일반적인 종료 되지 않는 오류가 발생 하 여 runbook이 완료 되지 않습니다. 다음 예에서는 `$ErrorActionPreference`를 사용하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 `Write-Output` 줄이 실행 되지 않습니다.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -177,7 +177,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>반환할
+#### <a name="throw"></a>Throw
 
 [Throw](/powershell/module/microsoft.powershell.core/about/about_throw) 를 사용 하 여 종료 오류를 생성할 수 있습니다. 이는 runbook에서 고유한 논리를 정의 하는 경우에 유용할 수 있습니다. 스크립트를 중지 해야 하는 특정 조건이 충족 되는 경우 `throw`를 사용 하 여 스크립트를 중지할 수 있습니다. 다음 예에서는 `throw`를 사용 하는 데 필요한 함수 매개 변수를 보여 줍니다.
 
@@ -201,17 +201,17 @@ Azure 샌드박스에서 실행 되는 Runbook 작업은 장치나 응용 프로
 
 다음 표에서는 작업의 가능한 여러 상태를 설명합니다. PowerShell에는 두 가지 유형의 오류, 즉 종료되는 오류와 종료되지 않는 오류가 있습니다. 종료되는 오류는 발생하는 경우 Runbook 상태를 **실패**로 설정합니다. 종료되지 않는 오류를 사용하면 오류 발생 후에도 스크립트가 계속 진행될 수 있습니다. 종료되지 않는 오류의 예는 존재하지 않는 경로로 `Get-ChildItem` cmdlet을 사용하는 것입니다. PowerShell은 경로가 없다는 것을 확인하고 오류가 throw한 후 다음 폴더로 계속 진행됩니다. 이 오류는 Runbook 상태를 **실패**로 설정하지 않으며 **완료**로 표시될 수 있습니다. 종료되지 않는 오류에서 강제로 Runbook을 중지하려면 cmdlet에서 `-ErrorAction Stop`을 사용할 수 있습니다.
 
-| 가동 상태 | 설명 |
+| 상태 | 설명 |
 |:--- |:--- |
 | Completed |작업이 완료되었습니다. |
-| Failed |[그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다. [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |
+| 실패 |[그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다. [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |
 | Failed, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |
 | Queued |작업이 시작될 수 있도록 Automation 작업자의 리소스가 사용 가능한 상태가 되기를 기다리고 있습니다. |
-| Starting |작업이 작업자에게 지정되었으며 시스템이 작업을 시작하고 있습니다. |
+| 시작 중 |작업이 작업자에게 지정되었으며 시스템이 작업을 시작하고 있습니다. |
 | Resuming |시스템이 일시 중단된 후 작업을 재개하는 중입니다. |
 | 실행 중 |작업이 실행 중입니다. |
 | Running, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 도달했기 때문에 언로드되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다. |
-| 중지 |작업이 완료되기 전에 사용자에 의해 중지되었습니다. |
+| 중지됨 |작업이 완료되기 전에 사용자에 의해 중지되었습니다. |
 | 중지 중 |시스템이 작업을 중지하는 중입니다. |
 | 일시 중단 |작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. Runbook에 검사점이 없으면 Runbook의 처음부터 시작됩니다. 검사점이 있으면 다시 시작되고 마지막 검사점에서 재개될 수 있습니다. 예외가 발생하는 경우에만 시스템에서 Runbook을 일시 중단합니다. 기본적으로 ErrorActionPreference는 **Continue**로 설정되며, 이는 오류 발생 시 작업이 계속 실행된다는 의미입니다. 이 기본 설정 변수가 **Stop** 으로 설정된 경우 오류 발생 시 작업이 일시 중단됩니다. [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md) 에만 적용됩니다. |
 | Suspending |시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 지난 경우 완료되어야만 일시 중단할 수 있습니다. [그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md) 에만 적용됩니다. |

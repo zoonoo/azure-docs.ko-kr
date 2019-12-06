@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 41a2b1a7d9aa5089ba2ee73cd3c5c5c5e31f5225
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 0518b13ea228b4834a095a9bf126b131e70a5f45
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607681"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851556"
 ---
 # <a name="quotas-and-service-plans-for-azure-spring-cloud"></a>Azure 스프링 클라우드의 할당량 및 서비스 계획
 
@@ -23,15 +23,14 @@ ms.locfileid: "73607681"
 
 Azure 스프링 클라우드는 미리 보기 기간 동안 하나의 서비스 계층만 제공 합니다.
 
-리소스 | Amount
+리소스 | 금액
 ------- | -------
-vCPU | 4
-메모리 | 8gb
-Azure 스프링 클라우드 구독 | 1
-구독 당 지역별 Azure 스프링 클라우드 서비스 인스턴스 수 | 2
-Azure 스프링 클라우드 서비스 인스턴스당 총 앱 인스턴스 수 | 50
+vCPU | 서비스 인스턴스당 4 개
+메모리 | 서비스 인스턴스당 8gb
+구독당 지역별 Azure Spring Cloud 서비스 인스턴스 수 | 10
+Azure Spring Cloud 서비스 인스턴스당 총 앱 인스턴스 수 | 500
 스프링 응용 프로그램당 총 앱 인스턴스 수 | 20
-영구적 볼륨 | 10 x 50 Gb
+영구적 볼륨 | 10x50GB
 
 할당량에 도달 하면 다음과 같은 오류 400 메시지가 표시 됩니다. "할당량은 *Azure 스프링 클라우드 서비스가 생성 된 지역 지역* *에서 구독 구독에* 대 한 제한을 초과 합니다.
 

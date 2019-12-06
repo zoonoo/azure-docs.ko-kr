@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bf338ad0c555038cd99c3604d69ab80371d6ea22
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e3d85850fb18b80490bba44b293ece7765124133
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74804977"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74846116"
 ---
 # <a name="common-conditional-access-policies"></a>일반 조건부 액세스 정책
 
@@ -44,4 +44,5 @@ ms.locfileid: "74804977"
 
 ## <a name="next-steps"></a>다음 단계
 
-[조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
+- [조건부 액세스 What If 도구를 사용 하 여 로그인 동작을 시뮬레이션 합니다.](troubleshoot-conditional-access-what-if.md)
+- [조건부 액세스에 대 한 보고서 전용 모드를 사용 하 여 새로운 정책 결정의 영향을 확인 합니다.](concept-conditional-access-report-only.md)

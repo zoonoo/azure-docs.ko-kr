@@ -1,25 +1,25 @@
 ---
 title: Azure Cosmos 컨테이너의 고유 키 정의
-description: Azure Cosmos 컨테이너의 고유 키를 정의하는 방법 알아보기
+description: Azure Portal, PowerShell, .Net, Java 및 기타 다양 한 Sdk를 사용 하 여 Azure Cosmos 컨테이너에 대 한 고유 키를 정의 하는 방법을 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 2f61afd12a50b1b135419585bfada52d7ef98f3a
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: fa62495a7b51c9a06a91102299378c15e811eae0
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811651"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872114"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너의 고유 키 정의
 
 이 문서에서는 Azure Cosmos 컨테이너를 만들 때 [고유 키](unique-keys.md)를 정의하는 여러 다른 방법을 제공합니다. 현재, Azure Portal을 사용하거나 SDK 중 하나를 통해 이 작업을 수행할 수 있습니다.
 
-## <a name="use-the-azure-portal"></a>Azure Portal 사용
+## <a name="use-the-azure-portal"></a>Azure 포털 사용
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. [새 Azure Cosmos 계정을 만들거나](create-sql-api-dotnet.md#create-account) 기존 계정을 선택합니다.
 

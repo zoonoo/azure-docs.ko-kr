@@ -10,12 +10,12 @@ author: xiaoharper
 ms.author: amlstudiodocs
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 4324d33a9da66c5f49645e1c8014bd5f57d37bd9
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: a2c1ba1d4cd2dfdbf2a94005c539e70705486ba4
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837740"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851097"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
@@ -34,7 +34,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 * **[학습 실험 만들기]** -클래식 버전의 Studio에서 많은 기본 제공 기계 학습 알고리즘 집합을 사용 하 여 제공 하는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트할 수 있습니다.
 * **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
-* 새 웹 서비스 **[ 또는 ]** 클래식 웹 서비스 **[로 ]배포** - 예측 실험을 Azure 웹 서비스로 배포하는 경우 사용자는 데이터를 모델로 전송하고 모델의 예측을 수신할 수 있습니다.
+* **[새 웹 서비스]** 또는 **[클래식 웹 서비스]** 로 **배포** - 예측 실험을 Azure 웹 서비스로 배포하는 경우 사용자는 데이터를 모델로 전송하고 모델의 예측을 수신할 수 있습니다.
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
 
@@ -87,7 +87,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 ### <a name="test-your-new-web-service"></a>새 웹 서비스 테스트
 
-새 웹 서비스를 테스트하려면 일반적인 작업에서 **웹 서비스 테스트** 를 클릭합니다. 테스트 페이지에서 웹 서비스를 RRS(요청-응답 서비스) 또는 BES(일괄 처리 실행 서비스)로 테스트할 수 있습니다.
+새 웹 서비스를 테스트하려면 일반적인 작업에서 **웹 서비스 테스트**를 클릭합니다. 테스트 페이지에서 웹 서비스를 RRS(요청-응답 서비스) 또는 BES(일괄 처리 실행 서비스)로 테스트할 수 있습니다.
 
 RRS 테스트 페이지에서는 실험에 대해 정의된 입력, 출력 및 모든 전역 매개 변수를 표시합니다. 웹 서비스를 테스트하려면 입력에 적절한 값을 수동으로 입력하거나 테스트 값을 포함하는 CSV(쉼표로 구분된 값) 형식의 파일을 제공할 수 있습니다.
 
@@ -121,7 +121,7 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 
 ### <a name="manage-your-new-web-service"></a>새 웹 서비스 관리
 
-새 웹 서비스 Machine Learning Studio (클래식) 웹 서비스 포털을 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml-test.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **Batch 요청 로그**를 클릭합니다.
+Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 웹 서비스를 관리할 수 있습니다. [기본 포털 페이지](https://services.azureml.net/)에서 **웹 서비스**를 클릭합니다. 웹 서비스 페이지에서 서비스를 삭제하거나 복사할 수 있습니다. 특정 서비스를 모니터링하려면 서비스를 클릭한 다음 **대시보드**를 클릭합니다. 웹 서비스와 연결된 배치 작업을 모니터링하려면 **Batch 요청 로그**를 클릭합니다.
 
 ### <a id="multi-region"></a> 여러 지역에 새 웹 서비스 배포
 
@@ -222,8 +222,8 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment
 [예측 실험으로 변환]: #convert-the-training-experiment-to-a-predictive-experiment
-[ 또는 ]: #deploy-it-as-a-new-web-service
-[로 ]: #deploy-it-as-a-classic-web-service
+[새 웹 서비스]: #deploy-it-as-a-new-web-service
+[클래식 웹 서비스]: #deploy-it-as-a-classic-web-service
 [신규]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service

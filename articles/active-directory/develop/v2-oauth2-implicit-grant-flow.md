@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1775106d7f8de9f6bbc2d9a36114e5bfda2625cb
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 64ac4ded3c81ca83762e8665b06e96e3f3caf893
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207619"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74842563"
 ---
 # <a name="microsoft-identity-platform-and-implicit-grant-flow"></a>Microsoft id 플랫폼 및 암시적 허용 흐름
 
@@ -55,7 +55,7 @@ Microsoft id 플랫폼 끝점을 사용 하 여 Microsoft의 개인 및 회사 �
 처음에 사용자를 앱에 로그인 하려면 [Openid connect Connect](v2-protocols-oidc.md) 인증 요청을 보내고 Microsoft id 플랫폼 끝점에서 `id_token`를 가져올 수 있습니다.
 
 > [!IMPORTANT]
-> ID 토큰 및/또는 액세스 토큰을 성공적으로 요청 하려면 [Azure Portal-앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지의 앱 등록에서 **id 토큰** 및을 선택 하 여 해당 하는 암시적 권한 부여 흐름을 사용 하도록 설정 해야 합니다. 또는 **액세스 토큰** **암시적 grant** 섹션입니다. 사용 하도록 설정 되지 않은 경우 `unsupported_response` 오류가 반환 됩니다. **입력 매개 변수 ' response_type '에 대해 제공 된 값이이 클라이언트에 허용 되지 않습니다. 필요한 값은 ' 코드 '입니다** .
+> ID 토큰 및/또는 액세스 토큰을 성공적으로 요청 하려면 **암시적 권한** 부여 섹션에서 **id 토큰** 및. 또는 **액세스 토큰** 을 선택 하 여 [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지의 앱 등록에서 해당 하는 암시적 권한 부여 흐름을 사용 하도록 설정 해야 합니다. 사용 하도록 설정 되지 않은 경우 `unsupported_response` 오류가 반환 됩니다. **입력 매개 변수 ' response_type '에 대해 제공 된 값이이 클라이언트에 허용 되지 않습니다. 필요한 값은 ' 코드 '입니다** .
 
 ```
 // Line breaks for legibility only
@@ -71,14 +71,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 암시적 흐름을 사용 하 여 로그인을 테스트 하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize..를 클릭 합니다.</a> 로그인 한 후 브라우저는 주소 표시줄에 `id_token`를 사용 하 여 `https://localhost/myapp/`으로 리디렉션됩니다.
+> 암시적 흐름을 사용 하 여 로그인을 테스트 하려면 <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=id_token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=openid&response_mode=fragment&state=12345&nonce=678910" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize.. 를 클릭 합니다.</a> 로그인 한 후 브라우저는 주소 표시줄에 `id_token` 를 사용 하 여 `https://localhost/myapp/` 으로 리디렉션됩니다.
 >
 
-| 매개 변수 |  | 설명 |
+| 매개 변수를 포함해야 합니다. |  | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. |
-| `response_type` | 필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. ph x="1" /&gt; 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response_type를 사용 하는 경우 `scope` 매개 변수는 토큰을 발급할 리소스를 나타내는 범위를 포함 해야 합니다 (예: Microsoft Graph에 대 한 사용자 읽기).  |
+| `response_type` | 필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. response_type `token`을 포함할 수도 있습니다. `token` 을 여기서 사용하면 앱은 권한 부여 엔드포인트에 두 번째 요청을 수행하지 않고 권한 부여 엔드포인트에서 즉시 액세스 토큰을 받을 수 있습니다. `token` response_type를 사용 하는 경우 `scope` 매개 변수는 토큰을 발급할 리소스를 나타내는 범위를 포함 해야 합니다 (예: Microsoft Graph에 대 한 사용자 읽기).  |
 | `redirect_uri` | 권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. |
 | `scope` | 필수 |공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다. Openid connect Connect (id_tokens)의 경우 동의 UI의 "로그인" 권한으로 변환 되는 범위 `openid`를 포함 해야 합니다. 필요에 따라 추가 사용자 데이터에 대 한 액세스 권한을 얻기 위해 `email` 및 `profile` 범위를 포함할 수도 있습니다. 액세스 토큰을 요청 하는 경우 다양 한 리소스에 대 한 동의를 요청 하기 위해이 요청에 다른 범위를 포함할 수도 있습니다. |
 | `response_mode` | 선택 사항 |결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 는 기본적으로 액세스 토큰에 대해서만 쿼리 하지만 요청에 id_token 포함 된 경우에는 fragment를 사용 합니다. |
@@ -104,7 +104,7 @@ GET https://localhost/myapp/#
 &state=12345
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
 | `token_type` |`response_type`이 `token`을 포함하는 경우 포함됩니다. 항상 `Bearer`입니다. |
@@ -123,7 +123,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -154,10 +154,10 @@ URL의 쿼리 매개 변수에 대한 자세한 내용은 [로그인 요청 보�
 > [!TIP]
 > 아래 요청을 브라우저 탭에 복사하여 붙여 넣으세요! (`login_hint` 값을 사용자에 대한 올바른 값으로 바꾸는 것을 잊지 마세요)
 >
->`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2user.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
+>`https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=token&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&scope=https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&response_mode=fragment&state=12345&nonce=678910&prompt=none&login_hint={your-username}`
 >
 
-`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 애플리케이션에 반환됩니다. 성공적인 응답은 `redirect_uri` 매개 변수에 지정된 메서드를 사용하여 지정된 `response_mode`의 앱으로 전송됩니다.
+`prompt=none` 매개 변수로 인해, 이 요청은 즉시 성공하거나 실패하고 애플리케이션에 반환됩니다. 성공적인 응답은 `response_mode` 매개 변수에 지정된 메서드를 사용하여 지정된 `redirect_uri`의 앱으로 전송됩니다.
 
 #### <a name="successful-response"></a>성공적인 응답
 
@@ -172,7 +172,7 @@ access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q..
 &scope=https%3A%2F%2Fgraph.windows.net%2Fdirectory.read
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `access_token` |`response_type`이 `token`을 포함하는 경우 포함됩니다. Microsoft Graph의 경우 앱에서 요청한 액세스 토큰입니다. 액세스 토큰을 디코드 하거나 검사 하지 않아야 합니다 .이 토큰은 불투명 문자열로 처리 되어야 합니다. |
 | `token_type` | 항상 `Bearer`입니다. |
@@ -191,7 +191,7 @@ error=user_authentication_required
 &error_description=the+request+could+not+be+completed+silently
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `error` |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -210,7 +210,7 @@ Openid connect Connect `end_session_endpoint`를 사용 하면 앱에서 Microso
 https://login.microsoftonline.com/{tenant}/oauth2/v2.0/logout?post_logout_redirect_uri=https://localhost/myapp/
 ```
 
-| 매개 변수 |  | 설명 |
+| 매개 변수를 포함해야 합니다. |  | 설명 |
 | --- | --- | --- |
 | `tenant` |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요. |
 | `post_logout_redirect_uri` | 권장 | 로그아웃이 완료된 후 사용자가 반환되어야 하는 URL입니다. 이 값은 애플리케이션에 대해 등록된 리디렉션 URI 중 하나와 일치해야 합니다. 포함 되지 않은 경우 사용자가 Microsoft id 플랫폼 끝점에서 일반 메시지를 표시 합니다. |

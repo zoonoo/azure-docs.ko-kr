@@ -4,25 +4,25 @@ description: Azure Automation 상태 구성(DSC)에서 가장 일반적인 작�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 9fce9a769dd6d88c9926913d22716666284938c1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243618"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850961"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Azure Automation 상태 구성 시작하기
 
 이 문서에서는 Azure Automation 상태 구성으로 만들기, 가져오기 및 구성 컴파일링, 관리할 머신 온보딩 및 보고서 보기 등과 같은 가장 일반적인 작업을 수행하는 방법을 설명합니다. Azure Automation 상태 구성에 대한 개요는 [Azure Automation 상태 구성 개요](automation-dsc-overview.md)를 참조하세요. DSC(필요한 상태 구성) 설명서는 [Windows PowerShell 필요한 상태 구성 개요](/powershell/scripting/dsc/overview/overview)를 참조하세요.
 
-이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 수행하지 않고 이미 설정된 샘플 환경을 원하는 경우 다음 Resource Manager 템플릿을 사용할 수 있습니다. [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration) 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
+이 문서에서는 Azure Automation 상태 구성 사용에 대한 단계별 가이드를 제공합니다. 이 문서에 설명된 단계를 따르지 않고 이미 설정된 샘플 환경을 원하는 경우 Resource Manager 템플릿인 [Azure Automation 관리되는 노드 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration)을 사용할 수 있습니다. 이 템플릿은 Azure Automation 상태 구성에 의해 관리되는 Azure VM을 포함하는 완료된 Azure Automation 상태 구성 환경을 설정합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 이 문서의 예제를 완료하려면 다음이 필요합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "72243618"
 
 다음으로 Automation 계정으로 구성을 가져옵니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 탭을 클릭한 다음, **+ 추가**를 클릭합니다.
@@ -81,7 +81,7 @@ ms.locfileid: "72243618"
 
 구성을 가져온 후에 Azure 포털에서 볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 탭을 클릭한 다음, **TestConfig**(이전 절차에서 가져온 구성의 이름)를 클릭합니다.
@@ -96,7 +96,7 @@ ms.locfileid: "72243618"
 노드에 원하는 상태를 적용하려면 먼저 해당 상태를 정의하는 DSC 구성을 하나 이상의 노드 구성(MOF 문서)으로 컴파일한 다음 Automation DSC 끌어오기 서버에 배치해야 합니다. Azure Automation 상태 구성에서 구성 컴파일에 대한 자세한 설명은 [Azure Automation 상태 구성에서 구성을 컴파일](automation-dsc-compile.md)을 참조하세요.
 구성 컴파일에 대한 자세한 내용은 [DSC 구성](/powershell/scripting/dsc/configurations/configurations)을 참조하세요.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 탭을 클릭한 다음, **TestConfig**(이전에 가져온 구성의 이름)를 클릭합니다.
@@ -111,7 +111,7 @@ ms.locfileid: "72243618"
 
 컴파일을 시작한 후에 **구성** 페이지의 **컴파일 작업** 타일에서 볼 수 있습니다. **컴파일 작업** 타일은 현재 실행 중인, 완료된 및 실패한 작업을 표시합니다. 컴파일 작업 페이지를 열면 발생한 모든 오류 또는 경고, 구성에서 사용된 입력 매개 변수 및 컴파일 로그를 포함한 해당 작업에 대한 정보를 표시합니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 탭을 클릭한 다음, **TestConfig**(이전에 가져온 구성의 이름)를 클릭합니다.
@@ -125,7 +125,7 @@ ms.locfileid: "72243618"
 
 컴파일 작업을 성공적으로 완료하면 하나 이상의 새 노드 구성을 만듭니다. 노드 구성은 끌어오기 서버에 배포되고 하나 이상의 노드에서 가져오고 적용될 준비가 된 MOF 문서입니다. **상태 구성(DSC)** 페이지의 Automation 계정에서 노드 구성을 볼 수 있습니다. 노드 구성은 *ConfigurationName*.*NodeName*의 형식으로 이름을 가집니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **컴파일된 구성** 탭을 클릭합니다.
@@ -138,7 +138,7 @@ Azure Automation 상태 구성을 사용하여 Azure VM(클래식 및 Resource M
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리용 Azure Resource Manager VM 온보드하려면
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지의 **노드** 탭에서 **+ 추가**를 클릭합니다.
@@ -164,7 +164,7 @@ Azure는 VM 온보딩 프로세스를 시작합니다. 완료되면 Automation �
 
 **상태 구성(DSC)** 페이지의 **노드** 탭의 Automation 계정에서 관리를 위해 온보드된 모든 머신의 목록을 볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **노드** 탭을 클릭합니다.
@@ -173,10 +173,10 @@ Azure는 VM 온보딩 프로세스를 시작합니다. 완료되면 Automation �
 
 Azure Automation 상태 구성이 관리되는 노드에 대한 일관성 검사를 수행할 때마다 노드는 끌어오기 서버에 상태 보고서를 보냅니다. 해당 노드에 대한 페이지에서 이러한 보고서를 볼 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
-1. **상태 구성(DSC)** 페이지에서 **노드** 탭을 클릭합니다. 여기에서 구성 상태 개요 및 각 노드에 대한 세부 정보를 볼 수 있습니다.
+1. **상태 구성 (DSC)** 페이지에서 **노드** 탭을 클릭 합니다. 여기서는 구성 상태 개요와 각 노드에 대 한 세부 정보를 볼 수 있습니다.
 
    ![노드 페이지의 스크린 샷](./media/automation-dsc-getting-started/NodesTab.png)
 
@@ -203,7 +203,7 @@ Azure Automation 상태 구성이 관리되는 노드에 대한 일관성 검사
 
 처음에 할당한 것과 다른 노드 구성을 사용하도록 노드를 할당할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **노드** 탭을 클릭합니다.
@@ -220,7 +220,7 @@ Azure Automation 상태 구성이 관리되는 노드에 대한 일관성 검사
 
 Azure Automation DSC에 의해 노드를 더 이상 관리하지 않으려는 경우 등록 취소할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 블레이드의 **구성 관리**에서 **상태 구성(DSC)** 을 클릭합니다.
 1. **상태 구성(DSC)** 페이지에서 **노드** 탭을 클릭합니다.

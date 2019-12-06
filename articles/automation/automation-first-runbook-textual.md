@@ -5,17 +5,17 @@ keywords: Powershell 워크플로, Powershell 워크플로 예제, 워크플로 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4973a5215d93a1ce9d0a80f83264dd8c1fbe0888
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: dea13d084d80ce787cb8d6cf6146325d8c556b37
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887216"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850842"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -27,11 +27,11 @@ ms.locfileid: "73887216"
 
 이 자습서는 Azure Automation에서 [PowerShell 워크플로 Runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적하는 방법을 설명하면서 테스트하고 게시하는 간단한 Runbook으로 시작합니다. 그런 다음 실제로 Azure 리소스를 관리하도록 Runbook을 수정합니다. 이 경우에 Azure Virtual Machine을 시작합니다. 마지막으로 Runbook 매개 변수를 추가하여 Runbook을 더 강력하게 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
-* Azure 구독. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
+* 동작합니다. 구독이 아직 없는 경우 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/)하거나 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 등록할 수 있습니다.
 * [Automation 계정](automation-offering-get-started.md) .  이 계정은 가상 머신을 시작하고 중지할 수 있는 권한이 있어야 합니다.
 * Azure 가상 머신. 프로덕션 VM이 되지 않도록이 컴퓨터를 중지 하 고 시작 합니다.
 
@@ -117,7 +117,7 @@ runbook에 직접 코드를 입력하거나 라이브러리 컨트롤에서 cmdl
 1. MyFirstRunbook 페이지로 돌아가려면 스트림 페이지와 작업 페이지를 닫습니다.
 1. **작업** 을 클릭 하 여이 runbook에 대 한 작업 페이지를 엽니다. 이 페이지에는 Runbook에서 만든 모든 작업이 나열됩니다. 작업을 한 번만 실행했으므로 하나의 작업만 표시됩니다.
 
-   ![작업](media/automation-first-runbook-textual/runbook-control-job-tile.png)
+   ![교육](media/automation-first-runbook-textual/runbook-control-job-tile.png)
 
 1. 이 작업을 클릭 하 여 runbook을 시작할 때 표시 된 것과 동일한 작업 페이지를 열 수 있습니다. 이 작업을 통해 예전으로 돌아가 특정 Runbook에 대해 생성된 모든 작업의 세부 정보를 볼 수 있습니다.
 
@@ -202,11 +202,11 @@ Runbook은 현재 Runbook에 하드 코딩된 가상 머신을 시작하지만, 
 3. 창을 닫습니다.
 4. **게시** 를 클릭하여 Runbook의 새 버전을 게시합니다.
 5. 이전 단계에서 실행시킨 가상 머신을 중지합니다.
-6. **시작** 을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및 **ResourceGroupName**을 입력합니다.
+6. **시작**을 클릭하여 runbook을 시작합니다. 시작하려는 가상 컴퓨터의 **VMName** 및 **ResourceGroupName**을 입력합니다.
 
    ![Runbook 시작](media/automation-first-runbook-textual/automation-pass-params.png)
 
-7. Runbook이 완료되면 가상 컴퓨터가 시작되었다는 것을 확인합니다.
+7. Runbook이 완료되면 가상 머신이 시작되었다는 것을 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

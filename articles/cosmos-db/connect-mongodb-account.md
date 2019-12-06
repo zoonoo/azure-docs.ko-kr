@@ -1,22 +1,22 @@
 ---
 title: Azure Cosmos DB에 MongoDB 애플리케이션 연결
-description: Azure Cosmos DB에 MongoDB 앱을 연결하는 방법입니다.
+description: 에서 연결 문자열을 가져와 Azure Cosmos DB에 MongoDB 앱을 연결 하는 방법에 대해 알아봅니다 Azure Portal
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
-ms.date: 05/21/2019
+ms.date: 12/02/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 30b37b86bbe0e91887932423fa1884d8bd49333c
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0f2cd1b7228f2cc9cadb84232222f658a512a81f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756999"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872165"
 ---
 # <a name="connect-a-mongodb-application-to-azure-cosmos-db"></a>Azure Cosmos DB에 MongoDB 애플리케이션 연결
-MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos 데이터베이스를 MongoDB 앱에 대 한 데이터 저장소로 사용할 수 있습니다. 
+MongoDB 연결 문자열을 사용하여 MongoDB 앱을 Azure Cosmos DB에 연결하는 방법에 대해 알아봅니다. 그런 다음 Azure Cosmos 데이터베이스를 MongoDB 앱의 데이터 저장소로 사용할 수 있습니다. 
 
 이 자습서에서는 연결 문자열 정보를 검색하는 다음 두 가지 방법을 제공합니다.
 

@@ -3,27 +3,23 @@ title: 국가별 클라우드의 Azure Active Directory를 사용 하 여 인증
 titleSuffix: Microsoft identity platform
 description: 국가별 클라우드의 앱 등록 및 인증 엔드포인트에 관해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/28/2019
 ms.author: negoe
 ms.reviewer: negoe,CelesteDG
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f1f80744043893dd7206bc6388b8e080c07d0f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 5501b9ceff8659233d1021ad03549eea524ddd78
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803894"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74843923"
 ---
 # <a name="national-clouds"></a>국가별 클라우드
 
@@ -84,6 +80,6 @@ Microsoft id 플랫폼을 사용 하 여 응용 프로그램을 빌드하는 방
 다음에 대해 자세히 알아봅니다.
 
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure 중국 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure 독일](https://docs.microsoft.com/azure/germany/)
 - [Azure AD 인증 기본 사항](authentication-scenarios.md)

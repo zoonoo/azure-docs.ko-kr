@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB의 고가용성
-description: 이 문서에서는 Azure Cosmos DB에서 고가용성을 제공하는 방법을 설명합니다.
+description: 이 문서에서는 Azure Cosmos 계정에 연결 된 모든 지역에서 데이터를 투명 하 게 복제 하 여 고가용성을 제공 하 Azure Cosmos DB는 방법을 설명 합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: ab6544e4535f2d2c2e88284f61251f177d457a84
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 1dab10592c8a34bc9df4425785e6dae95e44f219
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146657"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872097"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Azure Cosmos DB의 고가용성
 
@@ -34,8 +34,8 @@ Cosmos 계정이 *n* 개의 Azure 지역에 걸쳐 배포 되는 경우 모든 �
 
 |작업 유형  | 단일 지역 |다중 지역(단일 지역 쓰기)|다중 지역(다중 지역 쓰기) |
 |---------|---------|---------|-------|
-|Writes    | 99.99    |99.99   |99.999|
-|Reads     | 99.99    |99.999  |99.999|
+|쓰기    | 99.99    |99.99   |99.999|
+|읽기     | 99.99    |99.999  |99.999|
 
 > [!NOTE]
 > 실제로 제한 된 부실, 세션, 일관 된 접두사 및 최종 일관성 모델에 대 한 실제 쓰기 가용성이 게시 된 Sla 보다 훨씬 더 높습니다. 모든 일관성 수준에 대한 실제 읽기 가용성은 게시된 SLA보다 훨씬 높습니다.
@@ -78,10 +78,10 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 
 * 영국 남부
 * 동남아시아 
-* East US
+* 미국 동부
 * 미국 동부 2 
 * 미국 중부
-* 유럽 서부
+* 서유럽
 * 미국 서부 2
 
 > [!NOTE] 
@@ -106,7 +106,7 @@ Azure Cosmos 계정에 대 한 다중 지역 쓰기를 구성 하는 경우 추�
 > 다중 지역 Azure Cosmos 계정에 대 한 가용성 영역 지원을 사용 하도록 설정 하려면 계정에 다중 마스터 쓰기를 사용 하도록 설정 해야 합니다.
 
 
-새 또는 기존 Azure Cosmos 계정에 영역을 추가할 때 영역 중복성을 사용 하도록 설정할 수 있습니다. Azure Cosmos 계정에서 영역 중복성을 사용 하도록 설정 하려면 특정 위치에 `isZoneRedundant` 대 한 `true` 플래그를로 설정 해야 합니다. 이 플래그는 위치 속성 내에서 설정할 수 있습니다. 예를 들어 다음 powershell 코드 조각은 "동남 아시아" 지역에 대해 영역 중복성을 사용 하도록 설정 합니다.
+새 또는 기존 Azure Cosmos 계정에 영역을 추가할 때 영역 중복성을 사용 하도록 설정할 수 있습니다. Azure Cosmos 계정에서 영역 중복성을 사용 하도록 설정 하려면 특정 위치에 대 한 `true` `isZoneRedundant` 플래그를 설정 해야 합니다. 이 플래그는 위치 속성 내에서 설정할 수 있습니다. 예를 들어 다음 powershell 코드 조각은 "동남 아시아" 지역에 대해 영역 중복성을 사용 하도록 설정 합니다.
 
 ```powershell
 $locations = @( 
@@ -146,8 +146,8 @@ Azure Cosmos 계정을 만들 때 Azure Portal를 사용 하 여 가용성 영�
 
 이제 다음 문서를 읽을 수 있습니다.
 
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
 * [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [글로벌 배포 - 내부 살펴보기](global-dist-under-the-hood.md)
+* [전역 분산 - 내부 살펴보기](global-dist-under-the-hood.md)
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [여러 쓰기 영역으로 Cosmos 계정을 구성 하는 방법](how-to-multi-master.md)
