@@ -2,28 +2,24 @@
 title: Azure AD에서 SAML 프로토콜을 사용하는 방법 | Microsoft Docs
 description: 이 문서에서는 Azure Active Directory에서 Single Sign-on 및 Single Sign-Out SAML 프로필에 대한 개요를 제공합니다.
 services: active-directory
-documentationcenter: .net
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 88125cfc-45c1-448b-9903-a629d8f31b01
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/05/2018
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c53cb7ee7bc76b07059d68962c606cdcf866196
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 57c5f21e04b2d3adad975be0368d9435583b4f72
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835258"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844672"
 ---
 # <a name="how-azure-ad-uses-the-saml-protocol"></a>Azure AD에서 SAML 프로토콜을 사용하는 방법
 
@@ -37,7 +33,7 @@ Azure AD는 클라우드 서비스의 **메타데이터 URI**를 사용하여 �
 
 Azure Active Directory는 테넌트별 및 공통(테넌트 독립적) single sign-on 및 single sign-out 엔드포인트를 노출합니다. 이러한 URL은 단순히 식별자가 아니라 주소 지정이 가능한 위치를 나타내므로 엔드포인트로 이동하여 메타데이터를 읽을 수 있습니다.
 
-* 테넌트별 엔드포인트는 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. *\<Tenantdomainname >* 자리 표시자는 Azure AD 테 넌 트의 등록 된 도메인 이름 또는 TenantID GUID를 나타냅니다. 예를 들어 contoso.com 테넌트의 페더레이션 메타데이터는 https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml 에 있습니다.
+* 테넌트별 엔드포인트는 `https://login.microsoftonline.com/<TenantDomainName>/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. *TenantDomainName >* 자리 표시자\<는 Azure AD 테 넌 트의 등록 된 도메인 이름 또는 TenantID GUID를 나타냅니다. 예를 들어 contoso.com 테넌트의 페더레이션 메타데이터는 https://login.microsoftonline.com/contoso.com/FederationMetadata/2007-06/FederationMetadata.xml 에 있습니다.
 
 * 테넌트 독립적 엔드포인트는 `https://login.microsoftonline.com/common/FederationMetadata/2007-06/FederationMetadata.xml`에 있습니다. 이 엔드포인트 주소에는 테넌트 도메인 이름 또는 ID 대신 **common**이 나타납니다.
 

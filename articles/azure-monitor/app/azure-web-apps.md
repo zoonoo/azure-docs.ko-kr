@@ -6,13 +6,13 @@ ms.subservice: application-insights
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/04/2019
-ms.openlocfilehash: e4fc00d3889d10dddb9ec147a19f06a7211f53be
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 12/04/2019
+ms.openlocfilehash: 86a94cfdbd2c1755907bc13aa698fba92f5ce649
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230308"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850077"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -37,7 +37,9 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 > [!NOTE]
 > 에이전트 기반 모니터링과 수동 SDK 기반 계측이 모두 검색 된 경우에는 수동 계측 설정만 허용 됩니다. 이는 중복 데이터가 전송 되지 않도록 방지 하기 위한 것입니다. 이에 대 한 자세한 내용을 보려면 아래의 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) 을 확인 하세요.
 
-## <a name="enable-agent-based-monitoring-for-net-applications"></a>.NET 응용 프로그램에 대해 에이전트 기반 모니터링 사용
+## <a name="enable-agent-based-monitoring"></a>에이전트 기반 모니터링 사용
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED와 urlCompression의 조합은 지원 되지 않습니다. 자세한 내용은 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)의 설명을 참조 하세요.
@@ -73,7 +75,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     * 지원 되는 적응 샘플링 원격 분석 프로세서 설정 목록에 대해서는 [코드](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) 및 [관련 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sampling)를 참조할 수 있습니다.
 
-## <a name="enable-agent-based-monitoring-for-net-core-applications"></a>.NET Core 응용 프로그램에 대 한 에이전트 기반 모니터링 사용
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2
 
@@ -94,11 +96,27 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-## <a name="enable-client-side-monitoring-for-net-applications"></a>.NET 응용 프로그램에 대 한 클라이언트 쪽 모니터링 사용
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+App Service 웹 앱 내에서 **설정** > Application Insights > **사용**을 **선택** 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기 상태입니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Java App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/확장 기반 모니터링을 지원 하지 않습니다. Java 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [수동으로 응용 프로그램을 계측](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started)해야 합니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/확장 기반 모니터링을 지원 하지 않습니다. Python 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [수동으로 응용 프로그램을 계측](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)해야 합니다.
+
+---
+
+## <a name="enable-client-side-monitoring"></a>클라이언트 쪽 모니터링 사용
+
+# <a name="nettabnet"></a>[.NET](#tab/net)
 
 클라이언트 쪽 모니터링이 ASP.NET에 대해 옵트인 (opt in) 됩니다. 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면:
 
-* **설정** > * * * * 응용 프로그램 설정 * * * *을 선택 합니다.
+* 선택 **설정을** > ** **응용 프로그램 설정** **
    * 응용 프로그램 설정에서 새 **앱 설정 이름** 및 **값**을 추가 합니다.
 
      이름: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -111,7 +129,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려면 응용 프로그램 설정에서 연결 된 키 값 쌍을 제거 하거나 값을 false로 설정 합니다.
 
-## <a name="enable-client-side-monitoring-for-net-core-applications"></a>.NET Core 응용 프로그램에 대 한 클라이언트 쪽 모니터링 사용
+# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
 
 클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이**있는 .net Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
 
@@ -128,6 +146,20 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 ![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
+# <a name="nodejstabnodejs"></a>[Node.js](#tab/nodejs)
+
+Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Java 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
+
+---
+
 ## <a name="automate-monitoring"></a>모니터링 자동화
 
 Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 하려면 응용 프로그램 설정만 설정 해야 합니다.
@@ -136,10 +168,10 @@ Application Insights에서 원격 분석 컬렉션을 사용 하도록 설정 �
 
 ### <a name="application-settings-definitions"></a>응용 프로그램 설정 정의
 
-|앱 설정 이름 |  정의 | 값 |
+|앱 설정 이름 |  정의 | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | 런타임 모니터링을 제어 하는 기본 확장입니다. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`. |
+|XDT_MicrosoftApplicationInsights_Mode |  기본 모드 에서만 최적의 성능을 보장 하기 위해 필수 기능을 사용할 수 있습니다. | `default` 또는 `recommended`입니다. |
 |InstrumentationEngine_EXTENSION_VERSION | 이진 재작성 엔진 `InstrumentationEngine`를 켤 지 여부를 제어 합니다. 이 설정은 성능에 영향을 주며 콜드 시작/시작 시간에 영향을 줍니다. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | SQL & Azure 테이블 텍스트가 종속성 호출과 함께 캡처될 수 있는지 여부를 제어 합니다. 성능 경고:이 설정에는 `InstrumentationEngine`필요 합니다. | `~1` |
 
@@ -302,7 +334,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 실행 중인 확장의 버전을 확인 하려면 다음을 방문 `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-![Url 경로 http://yoursitename.scm.azurewebsites.net/ApplicationInsights의 스크린샷](./media/azure-web-apps/extension-version.png)
+![Url 경로 http://yoursitename.scm.azurewebsites.net/ApplicationInsights 의 스크린샷](./media/azure-web-apps/extension-version.png)
 
 ### <a name="upgrade-from-versions-100---265"></a>버전 1.0.0에서 업그레이드-2.6.5
 
@@ -322,12 +354,12 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 다음은 Azure 앱 서비스에서 실행 되는 .NET 및 .NET Core 기반 응용 프로그램에 대 한 확장/에이전트 기반 모니터링에 대 한 단계별 문제 해결 가이드입니다.
 
 > [!NOTE]
-> Java 및 node.js 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure 앱 서비스 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
+> Java 응용 프로그램은 수동 SDK 기반 계측을 통해 Azure 앱 서비스 에서만 지원 되므로 아래 단계는 이러한 시나리오에 적용 되지 않습니다.
 
 1. `ApplicationInsightsAgent`를 통해 응용 프로그램을 모니터링 하는지 확인 합니다.
     * `ApplicationInsightsAgent_EXTENSION_VERSION` 앱 설정이 "~ 2" 값으로 설정 되어 있는지 확인 합니다.
 2. 응용 프로그램이 모니터링 해야 하는 요구 사항을 충족 하는지 확인 합니다.
-    * `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`로 이동
+    * `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`으로 이동
 
     ![https://yoursitename.scm.azurewebsites/applicationinsights 결과 페이지의 스크린샷](./media/azure-web-apps/app-insights-sdk-status.png)
 
@@ -350,8 +382,8 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 | `AppAlreadyInstrumented:true` | 이 값은 확장에서 SDK의 일부 측면이 응용 프로그램에 이미 있고 백오프 됨을 감지 했음을 나타냅니다. `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation`또는 `Microsoft.ApplicationInsights`에 대 한 참조가 원인일 수 있습니다.  | 참조를 제거 합니다. 이러한 참조 중 일부는 특정 Visual Studio 템플릿에서 기본적으로 추가 되며, 이전 버전의 Visual Studio에서는 `Microsoft.ApplicationInsights`에 대 한 참조를 추가할 수 있습니다.
 |`AppAlreadyInstrumented:true` | 응용 프로그램이 .NET Core 2.1 또는 2.2를 대상으로 하 고 [AspNetCore](https://www.nuget.org/packages/Microsoft.AspNetCore.All) 를 참조 하는 경우에는 Application Insights를 가져오고 확장이 백오프 됩니다. | .NET Core 2.1, 2.2의 고객은 AspNetCore를 대신 사용 하는 [것이 좋습니다](https://github.com/aspnet/Announcements/issues/287) .|
 |`AppAlreadyInstrumented:true` | 이 값은 이전 배포에서 앱 폴더에 위의 dll이 있는 경우에도 발생할 수 있습니다. | 이러한 dll이 제거 되도록 앱 폴더를 정리 합니다. 로컬 앱의 bin 디렉터리와 App Service의 wwwroot 디렉터리를 모두 확인 합니다. App Service 웹 앱의 wwwroot 디렉터리를 확인 하려면: 고급 도구 (Kudu) > 디버그 콘솔 > CMD > home\site\wwwroot).
-|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값은 확장에서 응용 프로그램의 `Microsoft.AspNet.TelemetryCorrelation`에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다. | 참조를 제거 합니다.
-|`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장에서 응용 프로그램의 `System.Diagnostics.DiagnosticSource`에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| 참조를 제거 합니다.
+|`AppContainsAspNetTelemetryCorrelationAssembly: true` | 이 값은 확장에서 응용 프로그램의 `Microsoft.AspNet.TelemetryCorrelation`에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다. | 참조를 제거합니다.
+|`AppContainsDiagnosticSourceAssembly**:true`|이 값은 확장에서 응용 프로그램의 `System.Diagnostics.DiagnosticSource`에 대 한 참조를 검색 하 여 백오프 함을 나타냅니다.| 참조를 제거합니다.
 |`IKeyExists:false`|이 값은 AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`에 계측 키가 없음을 나타냅니다. 가능한 원인: 값이 실수로 제거 되었거나 자동화 스크립트에서 값을 설정 하는 것을 잊은 경우 | 설정이 App Service 응용 프로그램 설정에 표시 되는지 확인 합니다.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED 및 urlCompression은 지원 되지 않습니다.
@@ -369,7 +401,7 @@ Application Insights 에이전트/확장에 대 한 최신 정보는 [릴리스]
 * [라이브 앱에서 프로파일러를 실행합니다](../app/profiler.md).
 * [Azure Functions](https://github.com/christopheranderson/azure-functions-app-insights-sample) - Application Insights로 Azure Functions 모니터링
 * [Azure 진단을 사용](../platform/diagnostics-extension-to-application-insights.md) 하여 Application Insights에 보냅니다.
-* [서비스 상태 메트릭을 모니터링](../platform/data-platform.md) 하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
-* [경고 알림을 수신](../platform/alerts-overview.md) 합니다.
+* [서비스 상태 메트릭을 모니터링](../platform/data-platform.md)하여 서비스를 사용 가능하며 응답할 수 있는 상태로 유지합니다.
+* 작업 이벤트가 발생하거나 메트릭이 임계값을 초과할 때마다 [경고 알림을 수신](../platform/alerts-overview.md)합니다.
 * [JavaScript 앱 및 웹 페이지용 Application Insights](javascript.md)를 사용하여 웹 페이지로 이동하는 브라우저에서 클라이언트 원격 분석을 가져옵니다.
 * [가용성 웹 테스트를 설정](monitor-web-app-availability.md) 합니다.

@@ -2,13 +2,13 @@
 title: 게스트 구성 정책을 만드는 방법
 description: Azure PowerShell를 사용 하 여 Windows 또는 Linux Vm에 대 한 Azure Policy 게스트 구성 정책을 만드는 방법에 대해 알아봅니다.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2e653d07e783425afdcd71f9d58e3569692faaf9
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: d31c03f05f3a27207eb4c184b78cb531f8bb43d6
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74407047"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873083"
 ---
 # <a name="how-to-create-guest-configuration-policies"></a>게스트 구성 정책을 만드는 방법
 
@@ -188,7 +188,7 @@ Azure Policy 게스트 구성에서 런타임에 사용 되는 암호를 관리 
 
 1. 마지막으로, 사용자 지정 리소스 내에서 위에 생성 된 클라이언트 ID를 사용 하 여 컴퓨터에서 사용할 수 있는 토큰을 사용 하 여 Key Vault에 액세스 합니다.
 
-   Key Vault 인스턴스에 대 한 `client_id` 및 url을 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema) 으로 전달 하 여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록 하거나 값을 변경 해야 할 수 있습니다.
+   Key Vault 인스턴스에 대한 `client_id` 및 url을 리소스에 [속성](/powershell/scripting/dsc/resources/authoringresourcemof#creating-the-mof-schema)으로 전달하여 여러 환경에 대해 리소스를 업데이트할 필요가 없도록하거나 값을 변경해야 할 수 있습니다.
 
 사용자 할당 id를 사용 하 여 Key Vault에서 비밀을 검색 하기 위해 사용자 지정 리소스에서 다음 코드 샘플을 사용할 수 있습니다. Key Vault 요청에서 반환 된 값은 일반 텍스트입니다. 자격 증명 개체에 저장 하는 것이 가장 좋습니다.
 
@@ -296,7 +296,7 @@ New-GuestConfigurationPolicy
     -Verbose
 ```
 
-Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예제를 참조하세요.
+Linux 정책의 경우 구성에 **AttributesYmlContent** 속성을 포함 하 고 적절 하 게 값을 덮어씁니다. 게스트 구성 에이전트는 InSpec에서 특성을 저장 하는 데 사용 하는 YaML 파일을 자동으로 만듭니다. 아래 예를 참조하세요.
 
 ```azurepowershell-interactive
 Configuration FirewalldEnabled {

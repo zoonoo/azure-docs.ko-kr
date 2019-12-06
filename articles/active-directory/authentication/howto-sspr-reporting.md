@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55ef15bd1fe922aa44227d2fea3d882d4320146f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: d3b05c45d218c0f85817b4b5023ac22401879f81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786723"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847221"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Azure AD 암호 관리에 대한 보고 옵션
 
@@ -81,7 +81,7 @@ Azure Portal 환경에서 암호 재설정 및 암호 재설정 등록 활동을
 * [암호 재설정(관리자)](#activity-type-reset-password-by-admin): 관리자가 Azure Portal에서 사용자를 대신하여 암호를 재설정했음을 나타냅니다.
 * [암호 재설정(셀프 서비스)](#activity-type-reset-password-self-service): 사용자가 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com)에서 자신의 암호를 성공적으로 재설정했음을 나타냅니다.
 * [셀프 서비스 암호 재설정 흐름 활동 진행률](#activity-type-self-serve-password-reset-flow-activity-progress): 암호 재설정 프로세스의 일부로 사용자가 진행하는 각각의 특정 단계(예: 특정 암호 재설정 인증 게이트 전달)를 나타냅니다.
-* [사용자 계정 잠금 해제 (셀프 서비스)](#activity-type-unlock-a-user-account-self-service): 사용자가 계정 잠금 해제의 Active Directory 기능을 사용 하 여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com) 에서 자신의 암호를 재설정 하지 않고 Active Directory 계정을 성공적으로 잠금 해제 했음을 나타냅니다. 다시 설정 하지 않습니다.
+* [사용자 계정 잠금 해제 (셀프 서비스)](#activity-type-unlock-a-user-account-self-service): 사용자가 다시 설정 하지 않고 계정 잠금 해제의 Active Directory 기능을 사용 하 여 [Azure AD 암호 재설정 포털](https://passwordreset.microsoftonline.com) 에서 자신의 암호를 재설정 하지 않고 Active Directory 계정을 성공적으로 잠금 해제 했음을 나타냅니다.
 * [사용자가 셀프 서비스 암호 재설정 등록](#activity-type-user-registered-for-self-service-password-reset): 사용자가 현재 지정된 테넌트 암호 재설정 정책에 따라 자신의 암호를 재설정하는 데 필요한 모든 정보를 등록했음을 나타냅니다.
 
 ### <a name="activity-type-blocked-from-self-service-password-reset"></a>활동 유형: 셀프 서비스 암호 다시 설정에서 차단

@@ -1,5 +1,5 @@
 ---
-title: 역할 기반 access control을 사용 하 여 Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기 | Microsoft 문서
+title: Azure Monitor 통합 문서 액세스 제어
 description: 역할 기반 access control을 사용 하 여 미리 작성 되 고 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e2f1388d9823744d2382f1818ecb8dcb613895bc
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: c9b9f9ca2a9c08c05a3ce32230a39ca79625cd72
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166188"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872930"
 ---
 # <a name="access-control"></a>액세스 제어
 

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 493ccceb2156b454f485d48c76b776f97ffd65c7
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ad4a30b9bcd537a59f3d2ef17d3d2f215c1f4b98
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704285"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848897"
 ---
-# <a name="enable-security-audits-for-azure-active-directory-domain-services-preview"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용 (미리 보기)
+# <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
 Azure AD DS (Azure Active Directory Domain Services) 보안 감사를 통해 Azure에서 대상 리소스에 대 한 보안 이벤트를 스트리밍할 수 있습니다. 이러한 리소스에는 Azure Storage, Azure Log Analytics 작업 영역 또는 Azure Event Hub가 포함 됩니다. 보안 감사 이벤트를 사용 하도록 설정 하면 Azure AD DS는 선택한 범주의 감사 된 모든 이벤트를 대상 리소스로 보냅니다. Azure Event Hubs을 사용 하 여 azure storage에 이벤트를 보관 하 고 이벤트를 SIEM (보안 정보 및 이벤트 관리) 소프트웨어 (또는 이와 동등한)로 스트리밍할 수 있습니다. 또는 고유한 분석을 수행 하 고 Azure Portal에서 Azure Log Analytics 작업 영역을 사용할 수 있습니다.
 
@@ -47,7 +47,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 
  Azure AD DS 보안 감사는 특정 작업에서 감사 가능한 이벤트를 트리거할 때 다음 이벤트 Id를 기록 합니다.
 
-| 이벤트 범주 이름 | 이벤트 ID |
+| 이벤트 카테고리 이름 | 이벤트 ID |
 |:---|:---|
 |계정 로그온 보안|4767, 4774, 4775, 4776, 4777|
 |계정 관리 보안|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
@@ -83,7 +83,7 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 
 1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
-1. Azure AD DS 창의 왼쪽에서 **진단 설정 (미리 보기)** 을 선택 합니다.
+1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택 합니다.
 1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가**를 선택 합니다.
 
     ![Azure AD Domain Services에 대 한 진단 설정 추가](./media/security-audit-events/add-diagnostic-settings.png)
@@ -175,7 +175,7 @@ Azure PowerShell를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용
 * [Azure Monitor 설명서](https://docs.microsoft.com/azure/azure-monitor/)
 * [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)
 * [Azure Monitor에서 로그 쿼리 시작](../azure-monitor/log-query/get-started-queries.md)
-* [Log Analytics 데이터의 대시보드 만들기 및 공유](../azure-monitor/learn/tutorial-logs-dashboards.md)
+* [Log Analytics 데이터 대시보드 만들기 및 공유](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
 다음 샘플 쿼리를 사용 하 여 Azure AD DS에서 보안 감사 이벤트 분석을 시작할 수 있습니다.
 

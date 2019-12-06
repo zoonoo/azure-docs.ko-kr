@@ -1,5 +1,5 @@
 ---
-title: 여러 dispate Azure 데이터 원본의 Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기 | Microsoft 문서
+title: 통합 문서 데이터 원본 Azure Monitor | Microsoft 문서
 description: 여러 데이터 원본에서 빌드된 미리 작성 된 사용자 지정 매개 변수화 된 Azure Monitor 통합 문서를 사용 하 여 복잡 한 보고 간소화
 services: azure-monitor
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: dd5068da31c3aa863fc56022834a28b60ee15004
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 368da2baaea1be41331d77f4dae1bdd9567b8cc5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166201"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872896"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Azure Monitor 통합 문서 데이터 원본
 

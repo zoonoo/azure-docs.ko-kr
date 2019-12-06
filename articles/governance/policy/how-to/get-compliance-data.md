@@ -2,13 +2,13 @@
 title: 정책 준수 데이터 가져오기
 description: Azure Policy 평가 및 효과는 준수를 결정합니다. Azure 리소스의 준수 세부 정보를 가져오는 방법에 대해 알아봅니다.
 ms.date: 02/01/2019
-ms.topic: conceptual
-ms.openlocfilehash: 8cb95f0a9479da27ea6b9ef8ec6836f915aa4030
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.topic: how-to
+ms.openlocfilehash: 891c9c72d8e83dc8f9adb930e8ebd11b70f6aad8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132812"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873151"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Azure 리소스의 준수 데이터 가져오기
 
@@ -22,11 +22,11 @@ Azure Policy의 가장 큰 혜택 중 하나는 구독 및 구독의 [데이터 
 준수를 보고하는 메서드를 살펴보기 전에 호환성 정보가 업데이트되는 시기 및 평가 주기를 트리거하는 빈도 및 이벤트를 살펴보겠습니다.
 
 > [!WARNING]
-> 준수 상태가 **등록 되지 않음**으로 보고 되는 경우 **Microsoft Policyinsights** 리소스 공급자가 등록 되어 있고 [의 rbac에 설명 된 대로 사용자에 게 적절 한 rbac (역할 기반 액세스 제어) 권한이 있는지 확인 합니다. Azure Policy](../overview.md#rbac-permissions-in-azure-policy).
+> 준수 상태가 **등록 되지 않음**으로 보고 되는 경우에는 **Microsoft Policyinsights** 리소스 공급자가 등록 되어 있고 [Azure Policy rbac](../overview.md#rbac-permissions-in-azure-policy)에 설명 된 대로 적절 한 rbac (역할 기반 액세스 제어) 권한이 있는지 확인 합니다.
 
 ## <a name="evaluation-triggers"></a>평가 트리거
 
-완료된 평가 주기의 결과는 `Microsoft.PolicyInsights` 및 `PolicyStates` 작업을 통해 `PolicyEvents` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API 작업에 대 한 자세한 내용은 [Azure Policy insights](/rest/api/policy-insights/)를 참조 하세요.
+완료된 평가 주기의 결과는 `PolicyStates` 및 `PolicyEvents` 작업을 통해 `Microsoft.PolicyInsights` 리소스 공급자에서 사용할 수 있습니다. Azure Policy Insights REST API 작업에 대 한 자세한 내용은 [Azure Policy insights](/rest/api/policy-insights/)를 참조 하세요.
 
 할당된 정책 및 이니셔티브의 평가는 다양한 이벤트의 결과로 발생합니다.
 
@@ -53,13 +53,13 @@ REST API 호출로 구독 또는 리소스 그룹에 대한 평가 검사를 시
 
 검사는 구독 또는 리소스 그룹에서 리소스의 평가를 지원합니다. 다음 URI 구조를 사용하여 REST API **POST** 명령으로 범위별 검사를 시작합니다.
 
-- 구독
+- Subscription
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
   ```
 
-- 리소스 그룹
+- Resource group
 
   ```http
   POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
@@ -86,10 +86,10 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 | 리소스 상태 | 영향 | 정책 평가 | 규정 준수 상태 |
 | --- | --- | --- | --- |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | true | 비준수 |
-| Exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | 준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | true | 비준수 |
-| 새로 만들기 | Audit, AuditIfNotExist\* | False | 준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 참 | 비준수 |
+| exists | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | 거짓 | 규정 준수 |
+| 신규 | Audit, AuditIfNotExist\* | 참 | 비준수 |
+| 신규 | Audit, AuditIfNotExist\* | 거짓 | 규정 준수 |
 
 \* Append, DeployIfNotExist 및 AuditIfNotExist 효과는 IF 문이 TRUE여야 합니다.
 또한 이 효과는 비준수가 되려면 존재 조건이 FALSE가 되어야 합니다. TRUE인 경우 IF 조건이 관련 리소스에 대한 존재 조건의 평가를 트리거합니다.
@@ -147,7 +147,7 @@ Azure Portal에서는 환경에서 준수 상태를 시각화하고 이해하는
 
 리소스가 **비규격**으로 확인 되는 경우 여러 가지 원인이 있을 수 있습니다. 리소스가 **호환** 되지 않는 이유를 확인 하거나 변경 내용을 확인 하려면 [비준수 확인](./determine-non-compliance.md)을 참조 하세요.
 
-## <a name="command-line"></a>명령 줄
+## <a name="command-line"></a>명령줄
 
 포털에서 사용할 수 있는 정보는 REST API (with [ARMClient](https://github.com/projectkudu/ARMClient)포함), Azure PowerShell 및 Azure CLI (미리 보기)를 사용 하 여 검색할 수 있습니다.
 REST API에 대 한 자세한 내용은 [Azure Policy Insights](/rest/api/policy-insights/) 참조를 참조 하세요. REST API 참조 페이지에는 각 작업에서 브라우저에서 직접 시도할 수 있는 녹색 '시도' 단추가 있습니다.

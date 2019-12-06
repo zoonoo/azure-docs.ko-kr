@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서 드롭다운 매개 변수에 대 한 자세한 정보 | Microsoft 문서
+title: Azure Monitor 통합 문서 드롭다운 매개 변수
 description: 드롭다운 매개 변수를 포함 하는 미리 작성 된 사용자 지정 매개 변수가 있는 통합 문서로 복잡 한 보고 간소화
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 20a1c5f4b4ef12f81e801769a2ee1b5f08860e38
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: df30b71e6ec9e982988ed75b187db08255e24b61
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165213"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872879"
 ---
 # <a name="workbook-drop-down-parameters"></a>통합 문서 드롭다운 매개 변수
 

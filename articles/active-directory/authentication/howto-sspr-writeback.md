@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1acda877ecadc8ad0abd09b78d5453743e2470b1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 67737aed3bd9961a37dc761fddf608d9bcfe3ffe
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381148"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847255"
 ---
 # <a name="how-to-configure-password-writeback"></a>방법: 비밀번호 쓰기 저장 구성
 
@@ -65,8 +65,8 @@ SSPR 범위 내에 있으려면 Azure AD Connect 유틸리티에 지정된 계�
 
 * **암호 다시 설정** 
 * **암호 변경** 
-* **쓰기 권한** 켜짐 `lockoutTime`
-* **쓰기 권한** 켜짐 `pwdLastSet`
+* **쓰기 권한** 켜짐`lockoutTime`
+* **쓰기 권한** 켜짐`pwdLastSet`
 * 다음에 대해 **확장 권한** 켜짐:
    * 포리스트에 있는 *각 도메인*의 루트 개체
    * SSPR 범위에 포함되도록 하려는 사용자 OU(조직 구성 단위)

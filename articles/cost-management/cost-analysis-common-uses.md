@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/16/2019
+ms.date: 12/04/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: adwise
 ms.custom: ''
-ms.openlocfilehash: 01087f3e40e278490abb87d0ab3b7b6ab5052b6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4798b6908069af229c2bed4a2e5f38fa60e0d554
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74219485"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849108"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
@@ -64,6 +64,8 @@ Azure 서비스를 기준으로 비용을 보면 인프라의 일부를 가장 �
 ## <a name="view-costs-for-a-specific-tag"></a>특정 태그에 대 한 비용 보기
 
 많은 Azure 사용자가 비용을 범주화 하기 위해 비용 센터 또는 개발 환경 (프로덕션 및 테스트)과 같은 리소스에 태그를 적용 합니다. 태그는 비용 분석에서 차원으로 표시 됩니다. 차원을 사용 하 여 사용자 지정 태그 분류에 대 한 통찰력을 얻을 수 있습니다.
+
+태그에 대 한 지원은 리소스에 태그를 적용 *한 후* 보고 된 사용에 적용 됩니다. 태그는 비용 롤업에 소급 적용 되지 않습니다.
 
 1. Azure Portal에서 해당 범위에 대 한 비용 분석으로 이동 합니다. 예: **Cost Management + 청구** > **Cost Management** > **비용 분석**
 1. 태그에 대해 **Group by** 를 선택 합니다.

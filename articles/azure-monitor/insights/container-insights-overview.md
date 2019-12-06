@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 11/18/2019
-ms.openlocfilehash: 12860d70cad2dbcfa3d06bf4df6939dd27ab3ab3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8267f8148269f8b1a0717435e57614f09c229de1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279637"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841407"
 ---
 # <a name="azure-monitor-for-containers-overview"></a>컨테이너용 Azure Monitor 개요
 
@@ -49,7 +49,7 @@ ms.locfileid: "74279637"
 * [Azure Red Hat OpenShift에 배포](../../openshift/intro-openshift.md)된 컨테이너 워크 로드를 모니터링 합니다.
 
     >[!NOTE]
-    >Red Hat OpenShift에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
+    >Azure Red Hat OpenShift에 대 한 지원은 현재 공개 미리 보기의 기능입니다.
     >
 
 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 클러스터를 모니터링 하는 방법을 알아보는 데 도움이 되는 중간 수준의 심층 정보를 제공 하는 다음 비디오를 확인 하세요.

@@ -2,13 +2,13 @@
 title: 규정 비준수 리소스 수정
 description: 이 가이드에서는 Azure Policy 정책을 준수 하지 않는 리소스를 수정 하는 과정을 안내 합니다.
 ms.date: 09/09/2019
-ms.topic: conceptual
-ms.openlocfilehash: 8f1d263286a7504e7a8234ebd944bbbee69c5303
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: how-to
+ms.openlocfilehash: 341a325aa7a82c8b1f6366c3a674848c60a8fb5e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267351"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873049"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Azure Policy를 사용하여 비준수 리소스 수정
 
@@ -76,7 +76,7 @@ $assignment = New-AzPolicyAssignment -Name 'sqlDbTDE' -DisplayName 'Deploy SQL D
 
 ### <a name="grant-defined-roles-with-powershell"></a>PowerShell을 사용하여 정의된 역할 부여
 
-Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 `$policyDef`roleDefinitionIds**에 대해** 에서 정책 정의를 반복하며, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
+Azure Active Directory를 통해 새 관리 ID 복제를 완료해야 필요한 역할을 해당 ID에 부여할 수 있습니다. 다음 예제에서는 복제가 완료된 후 **roleDefinitionIds**에 대해 `$policyDef`에서 정책 정의를 반복하며, [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment)를 사용하여 새 관리 ID에 역할을 부여합니다.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array

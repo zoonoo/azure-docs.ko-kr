@@ -2,27 +2,24 @@
 title: Azure Active Directory Graph API | Microsoft Docs
 description: REST API 엔드포인트를 통해 Azure AD에 프로그래밍 방식으로 액세스할 수 있는 Azure AD Graph API에 대한 개요 및 빠른 시작 가이드입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 5471ad74-20b3-44df-a2b5-43cde2c0a045
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30c1b5a3600c48dc548561df3cd2f955347a7e64
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: c74c02d8a82c27c71ce01cd122082010487b453e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533027"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845045"
 ---
 # <a name="azure-active-directory-graph-api"></a>Azure Active Directory Graph API
 

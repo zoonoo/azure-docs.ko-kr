@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a76aa0ca7cbda3f2db564c220ba12fec60f60509
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381872"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848479"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "74381872"
 > [!NOTE]
 > 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator

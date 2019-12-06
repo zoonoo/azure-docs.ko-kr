@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 ARRAY_CONTAINS
-description: Azure Cosmos DB의 SQL 시스템 함수 ARRAY_CONTAINS에 대해 알아봅니다.
+description: 배열에 지정 된 값이 포함 되어 있는지 여부를 나타내는 부울 값을 반환 하는 Azure Cosmos DB에 SQL 시스템 함수를 포함 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 247956ccc2718c9bf192b4d704a48014753c00dc
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 115667c93bbb832926a7939cf250a02b6fef8baa
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348695"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873491"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
 지정된 값이 배열에 포함되는지를 나타내는 부울 값을 반환합니다. 명령 내에서 부울 식을 사용하여 개체의 부분 또는 전체 일치를 확인할 수 있습니다. 
@@ -38,9 +38,9 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
   부울 값을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
-  다음 예제에서는 `ARRAY_CONTAINS`을 사용 하 여 배열의 멤버 자격을 확인 하는 방법을 보여 줍니다.  
+  다음 예제에서는 `ARRAY_CONTAINS`를 사용 하 여 배열의 멤버 자격을 확인 하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT   

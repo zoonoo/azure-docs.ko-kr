@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서 사용자 지정 매개 변수를 사용 하 여 대화형 보고서 만들기 | Microsoft 문서
+title: 사용자 지정 매개 변수를 사용 하 여 통합 문서 Azure Monitor
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
 services: azure-monitor
 author: mrbullwinkle
@@ -10,14 +10,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: eeb6eb5d8b3ad6498ff90a9afe1fa4f2c18d30e5
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165954"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872845"
 ---
-# <a name="interactive-workbooks"></a>대화형 통합 문서
+# <a name="interactive-workbooks"></a>대화형 Workbooks
 
 통합 문서를 사용 하면 작성자가 소비자를 위한 대화형 보고서 및 환경을 만들 수 있습니다. 대화형 작업은 여러 가지 방법으로 지원 됩니다.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09aa95e55b3d253ef41724298247694b9883e31f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3bc0f0dbcd08df887b2484be6ca8c92a85962c1c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381771"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848292"
 ---
 # <a name="azure-multi-factor-authentication-user-data-collection"></a>Azure Multi-Factor Authentication 사용자 데이터 컬렉션
 
@@ -30,7 +30,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 
 인증 시도(보고 및 문제 해결에 사용):
 
-- 타임 스탬프
+- Timestamp
 - 사용자 이름
 - 이름
 - 성
@@ -71,7 +71,7 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 활성화(Microsoft Authenticator 모바일 앱에서 계정을 활성화하기 위한 시도):
 - 사용자 이름
 - 계정 이름
-- 타임 스탬프
+- Timestamp
 - 활성화 코드 결과 가져오기
 - 활성화 성공
 - 활성화 오류
@@ -87,9 +87,9 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 사용자 이름으로 차단
 - 사용자 이름
 - 국가 코드
-- Phone Number
+- 전화 번호
 - 서식이 지정된 전화 번호
-- 내선 번호
+- 확장
 - 새 내선 번호
 - Blocked
 - 차단 이유
@@ -107,9 +107,9 @@ MFA 서버, NPS 확장 및 Windows Server 2016 Azure MFA AD FS 어댑터는 다�
 - 사용자 이름으로 바이패스
 - 사용자 이름
 - 국가 코드
-- Phone Number
+- 전화 번호
 - 서식이 지정된 전화 번호
-- 내선 번호
+- 확장
 - 새 내선 번호
 - 바이패스 이유
 - 완료 타임스탬프

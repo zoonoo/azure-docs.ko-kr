@@ -1,20 +1,21 @@
 ---
-title: 컨테이너에 대해 Azure Monitor를 사용 하 여 성능 경고 만들기 | Microsoft Docs
-description: 이 문서에서는 컨테이너에 Azure Monitor를 사용 하 여 메모리 및 CPU 사용률에 대 한 로그 쿼리를 기반으로 사용자 지정 경고를 만드는 방법을 설명 합니다.
+title: 컨테이너의 Azure Monitor에 대 한 성능 경고 만들기 | Microsoft Docs
+description: 이 문서에서는 컨테이너의 Azure Monitor에서 메모리 및 CPU 사용률에 대 한 로그 쿼리를 기반으로 사용자 지정 경고를 만드는 방법을 설명 합니다.
 ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 04/26/2019
-ms.openlocfilehash: dd92f5aedd1fbc51531730e6a7826322570cd1b1
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 66baa3095744c8b486430d587b992ba507d87733
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195012"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74841628"
 ---
 # <a name="how-to-set-up-alerts-for-performance-problems-in-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor의 성능 문제에 대 한 경고를 설정 하는 방법
+
 컨테이너 Azure Monitor Azure Container Instances에 배포 된 컨테이너 작업 부하 또는 AKS (Azure Kubernetes Service)에 호스트 된 관리 되는 Kubernetes 클러스터에 대 한 성능을 모니터링 합니다.
 
 이 문서에서는 다음과 같은 경우에 경고를 사용 하도록 설정 하는 방법을 설명 합니다.
@@ -30,6 +31,7 @@ ms.locfileid: "74195012"
 Azure Monitor 경고에 익숙하지 않은 경우 시작 하기 전에 [Microsoft Azure의 경고 개요](../platform/alerts-overview.md) 를 참조 하세요. 로그 쿼리를 사용 하는 경고에 대해 자세히 알아보려면 [Azure Monitor의 로그 경고](../platform/alerts-unified-log.md)를 참조 하세요. 메트릭 경고에 대 한 자세한 내용은 [Azure Monitor에서 메트릭 경고](../platform/alerts-metric-overview.md)를 참조 하세요.
 
 ## <a name="resource-utilization-log-search-queries"></a>리소스 사용률 로그 검색 쿼리
+
 이 섹션의 쿼리는 각 경고 시나리오를 지원 합니다. 이 문서에서 [경고 만들기](#create-an-alert-rule) 섹션의 7 단계에서 사용 됩니다.
 
 다음 쿼리는 평균 CPU 사용률을 1 분 마다 구성원 노드의 CPU 사용률의 평균으로 계산 합니다.  
@@ -278,13 +280,14 @@ InsightsMetrics
 ```
 
 ## <a name="create-an-alert-rule"></a>경고 규칙 만들기
-앞에서 제공 된 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor에서 로그 경고를 만들려면 다음 단계를 수행 합니다.  
+
+앞에서 제공 된 로그 검색 규칙 중 하나를 사용 하 여 Azure Monitor에서 로그 경고를 만들려면 다음 단계를 수행 합니다. ARM 템플릿을 사용 하 여 만들려면 [Azure 리소스 템플릿을 사용 하 여 샘플 로그 경고 만들기](../platform/alerts-log.md#sample-log-alert-creation-using-azure-resource-template)를 참조 하세요.
 
 >[!NOTE]
 >컨테이너 리소스 사용률에 대 한 경고 규칙을 만들기 위해 다음 절차에서는 [로그 경고에 대 한 api 기본 설정 전환](../platform/alerts-log-api-switch.md)에 설명 된 대로 새 로그 경고 API로 전환 해야 합니다.
 >
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **모니터** 를 선택 합니다. **정보**아래에서 **컨테이너**를 선택 합니다.
 3. 모니터링 되는 **클러스터** 탭의 목록에서 클러스터를 선택 합니다.
 4. **모니터링**아래의 왼쪽 창에서 **로그** 를 선택 하 여 Azure Monitor 로그 페이지를 엽니다. 이 페이지를 사용 하 여 Azure Log Analytics 쿼리를 작성 하 고 실행 합니다.

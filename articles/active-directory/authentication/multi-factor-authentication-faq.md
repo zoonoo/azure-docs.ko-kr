@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/18/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37f375b6d4284b4728b2337dc5ab5186ce22772c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4b15389f25b54a377f75baca7993565b41e65462
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167775"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847119"
 ---
 # <a name="frequently-asked-questions-about-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication에 대한 질문과 대답
 
@@ -34,7 +34,7 @@ Multi-Factor Authentication 서버를 사용하면 사용자의 데이터가 온
 * **이름과 성** (선택 사항)
 * **전자 메일 주소** (선택 사항)
 * **전화 번호** (음성 통화 또는 SMS 인증을 수행할 때)
-* **디바이스 토큰**(모바일 앱 인증을 수행할 때)
+* **디바이스 토큰** (모바일 앱 인증을 수행할 때)
 * **인증 모드**
 * **인증 결과**
 * **Multi-Factor Authentication 서버 이름**
@@ -61,7 +61,7 @@ Multi-Factor Authentication 서버에 선택적 필드를 구성할 수 있습�
 
 Microsoft는 동일한 번호를 통한 일관적인 SMS 또는 음성 기반 Multi-Factor Authentication 즉시 이행을 보장하지 않습니다. 사용자를 위해, SMS 이행성을 향상하기 위한 조정 작업을 수시로 진행하고 있는 Microsoft는 언제든지 짧은 코드를 추가하거나 제거할 수 있습니다. Microsoft는 미국 및 캐나다 외에도 국가/지역에 대 한 간단한 코드를 지원 하지 않습니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 [Multi-Factor Authentication 가격 책정 페이지](https://azure.microsoft.com/pricing/details/multi-factor-authentication/) 또는 [Azure Multi-Factor Authentication 획득 방법](concept-mfa-licensing.md)에 대한 설명서를 참조하여 대부분의 청구 관련 질문에 대답할 수 있습니다.
 
@@ -202,7 +202,7 @@ Windows Server 2012 R2의 보안 변경 때문에 Azure Multi-Factor Authenticat
 
 모바일 앱에서 해당 계정을 제거하려면 이 절차에 따라 알린 다음 다시 추가합니다.
 
-1. [Azure 포털 프로필](https://account.activedirectory.windowsazure.com/profile/) 로 이동한 후 조직 계정으로 로그인합니다.
+1. [Azure 포털 프로필](https://account.activedirectory.windowsazure.com/profile/)로 이동한 후 조직 계정으로 로그인합니다.
 2. **추가 보안 인증**을 선택합니다.
 3. 모바일 앱에서 기존 계정을 제거합니다.
 4. **구성**을 클릭하고 지침에 따라 모바일 앱을 다시 구성합니다.

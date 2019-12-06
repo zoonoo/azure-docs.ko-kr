@@ -1,5 +1,5 @@
 ---
-title: '가상 네트워크 성능 문제 해결: Azure | Microsoft Docs'
+title: '네트워크 링크 성능 문제 해결: Azure'
 description: 이 페이지는 Azure 네트워크 링크 성능을 테스트하는 표준화된 방법을 제공합니다.
 services: expressroute
 author: tracsman
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/20/2017
 ms.author: jonor
 ms.custom: seodec18
-ms.openlocfilehash: 9ec310ffaa9d2bb297abde9341bf7b6c2dc763b4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb68919fba731caa32dcca3f4c991b8881afc6f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60883319"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869649"
 ---
 # <a name="troubleshooting-network-performance"></a>네트워크 성능 문제 해결
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 
 ## <a name="network-components"></a>네트워크 구성 요소
 문제 해결 방법을 자세히 살펴보기 전에 일반적인 용어 및 구성 요소를 살펴보겠습니다. 이 토론을 통해 Azure에서 연결이 가능하게 해주는 엔드투엔드 체인의 각 구성 요소에 대해 알아볼 것입니다.
-[![1]][1]
+![1][1]
 
 크게 요약하자면, 다음과 같은 세 가지 주요 네트워크 라우팅 도메인이 있습니다.
 
@@ -38,7 +38,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 
 오른쪽에서 왼쪽으로 다이어그램을 보면서 각 구성 요소를 간략하게 살펴보겠습니다.
  - **가상 머신** - 서버에 여러 NIC가 있을 수 있으며 고정 경로, 기본 경로 및 운영 체제 설정이 개발자의 생각대로 트래픽을 주고 받도록 만들어야 합니다. 또한 각 VM SKU에는 대역폭 제한이 있습니다. 작은 VM SKU를 사용하는 경우 NIC에 제공되는 대역폭에 따라 트래픽이 제한됩니다. 저는 VM의 대역폭을 충분한 수준으로 유지하기 위해 테스트용으로 DS5v2를 주로 사용합니다(비용을 줄이기 위해 테스트가 끝나면 삭제).
- - **NIC** - 의심스러운 NIC에 할당된 개인 IP를 알아야 합니다.
+ - **NIC** - 의심스러운 NIC에 할당된 프라이빗 IP를 알아야 합니다.
  - **NIC NSG** - NIC 수준에서 적용되는 특정 NSG가 있을 수 있으며, NSG 규칙 집합이 전달하려는 트래픽에 적합해야 합니다. 예를 들어 테스트 트래픽을 전달할 수 있도록 iPerf에 대한 5201, RDP에 대한 3389 또는 SSH에 대한 22를 열어야 합니다.
  - **VNet 서브넷** - NIC는 특정 서브넷에 할당되며, 해당 서브넷과 연결된 NIC 및 규칙을 알고 있어야 합니다.
  - **서브넷 NSG** - NIC와 마찬가지로, 서브넷에도 NSG를 적용할 수 있습니다. NSG 규칙 집합이 전달하려는 트래픽에 적합해야 합니다. (NIC에 대한 인바운드 트래픽의 경우 서브넷 NSG가 먼저 적용되고, 이와 반대로 VM의 아웃바운드 트래픽의 경우 NIC NSG가 먼저 적용된 후 서브넷 NSG가 작동합니다).
@@ -59,7 +59,7 @@ Azure는 온-프레미스 네트워크에서 Azure에 빠르고 안정적으로 
 이러한 도구와 메서드를 개발자가 설치하여 사용할 수 있는 PowerShell 모듈(AzureCT) 하나에 통합했습니다.
 
 ### <a name="azurect---the-azure-connectivity-toolkit"></a>AzureCT - Azure 연결 도구 키트
-AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능 테스트][Performance Doc]라는 두 가지 구성 요소를 포함하고 있습니다. 이 문서에서는 성능 테스트에 대한 내용만 다루기 때문에 이 PowerShell 모듈의 두 가지 링크 성능 명령을 집중적으로 살펴볼 것입니다.
+AzureCT PowerShell 모듈에는 두 가지 구성 요소인 [가용성 테스트][Availability Doc] 와 [성능 테스트가][Performance Doc]있습니다. 이 문서에서는 성능 테스트에 대한 내용만 다루기 때문에 이 PowerShell 모듈의 두 가지 링크 성능 명령을 집중적으로 살펴볼 것입니다.
 
 성능 테스트에 이 도구 키트를 사용하기 위한 세 가지 기본 단계가 있습니다. 1) PowerShell 모듈을 설치하고, 2) 지원 애플리케이션 iPerf 및 PSPing을 설치하고, 3) 성능 테스트를 실행합니다.
 
@@ -93,7 +93,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 
     PowerShell 출력 형식은 다음과 비슷합니다.
 
-    [![4]][4]
+    ![4][4]
 
     모든 iPerf 및 PSPing 테스트의 구체적인 결과는 "C:\ACTTools"의 AzureCT 도구 디렉터리에 있는 개별 텍스트 파일에 들어 있습니다.
 
@@ -118,7 +118,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 ## <a name="advanced-expressroute-troubleshooting"></a>고급 ExpressRoute 문제 해결
 클라우드 에지가 실제로 어디인지 확실하지 않은 경우 Azure 구성 요소를 격리하는 것이 어려울 수 있습니다. ExpressRoute를 사용하는 경우 에지는 MSEE(Microsoft Enterprise Edge)라고 하는 네트워크 구성 요소입니다. **ExpressRoute를 사용하는 경우** MSEE는 Microsoft의 네트워크와 처음으로 접촉하는 접촉 지점이자 Microsoft 네트워크를 떠나는 마지막 홉입니다. VNet 게이트웨이와 ExpressRoute 회로 사이에 연결 개체를 만드는 것은 실제로는 MSEE에 대한 연결을 만드는 것입니다. Azure 네트워크 문제를 격리하여 문제가 Azure에 있다는 것을 증명하거나 WAN 또는 회사 네트워크로 추가 다운스트림하려면 MSEE를 첫 번째 또는 마지막 홉으로 인식(이동하는 방향에 따라)하는 것이 중요합니다. 
 
-[![2]][2]
+![2][2]
 
 >[!NOTE]
 > MSEE는 Azure 클라우드에 있지 않습니다. ExpressRoute는 Azure가 아닌 Microsoft 네트워크의 에지에 있습니다. ExpressRoute로 MSEE와 연결되면 Microsoft의 네트워크에 연결된 것이며, 여기서 Office 365(Microsoft 피어링을 통해) 또는 Azure(프라이빗 및/또는 Microsoft 피어링을 통해) 같은 클라우드 서비스로 이동할 수 있습니다.
@@ -130,7 +130,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 ### <a name="test-plan"></a>테스트 계획
 1. VM1 및 VM2 간의 Get-LinkPerformance 테스트를 실행합니다. 이 테스트는 문제가 로컬에 있는지 여부에 대한 실마리를 제공합니다. 이 테스트의 결과로 생성되는 대기 시간 및 대역폭이 용인 가능한 수준인 경우 로컬 VNet 로컬 네트워크가 양호하다고 표시할 수 있습니다.
 2. 로컬 VNet 트래픽이 양호하다고 가정하고 VM1 및 VM3 간의 Get LinkPerformance 테스트를 실행합니다. 이 테스트는 Microsoft 네트워크를 거쳐 MSEE까지 갔다가 다시 Azure로 돌아오는 연결을 실행합니다. 이 테스트의 결과로 생성되는 대기 시간 및 대역폭이 용인 가능한 수준인 경우 Azure 네트워크가 양호하다고 표시할 수 있습니다.
-3. Azure를 제외하면 회사 네트워크에서 비슷한 테스트 순서를 수행할 수 있습니다. 이 테스트도 잘 진행되면 서비스 공급자 또는 ISP를 작업하여 WAN 연결을 진단할 시간입니다. 예제: 두 지점 사이에서 또는 데스크와 데이터 센터 서버 사이에서 이 테스트를 실행합니다. 테스트 대상에 따라 해당 경로를 실행할 수 있는 엔드포인트(서버, PC 등)를 찾아봅니다.
+3. Azure를 제외하면 회사 네트워크에서 비슷한 테스트 순서를 수행할 수 있습니다. 이 테스트도 잘 진행되면 서비스 공급자 또는 ISP를 작업하여 WAN 연결을 진단할 시간입니다. 예: 두 지점 사이에서 또는 데스크와 데이터 센터 서버 사이에서 이 테스트를 실행합니다. 테스트 대상에 따라 해당 경로를 실행할 수 있는 엔드포인트(서버, PC 등)를 찾아봅니다.
 
 >[!IMPORTANT]
 > 공통 위치(개인적으로는 OneNote 또는 Excel을 선호합니다)에 각 테스트의 실행 시간을 표시하고 결과를 기록하는 것이 중요합니다. 여러 테스트 실행의 결과 데이터를 비교할 수 있고 데이터에 "허점"이 없도록 각 테스트 실행의 결과가 동일해야 합니다. 제가 문제 해결에 AzureCT를 사용하는 주된 이유는 테스트 간의 일관성입니다. *마법*은 제가 실행하는 부하 시나리오의 정확성에 있는 것이 아니라 모든 테스트에서 *일관적인 테스트 및 데이터 출력*을 얻는다는 사실에 있습니다. 특히 문제가 산발적으로 발생하는 경우 매번 시간을 기록하고 일관적인 데이터를 얻는 것이 매우 중요합니다. 성실하게 데이터를 수집하면 동일한 시나리오를 다시 테스트하는 시간을 줄일 수 있습니다(저는 이 사실을 몇 년 전에 어렵게 배웠습니다).
@@ -144,7 +144,7 @@ AzureCT PowerShell 모듈은 [가용성 테스트][Availability Doc] 및 [성능
 
 WAN 문제인 경우 서비스 공급자 또는 ISP와 테스트 결과를 공유하면 그들이 바로 문제 해결을 시작하고 여러분이 이미 테스트한 내용을 다시 살펴보는 번거로움을 피할 수 있습니다. 하지만 여러분이 테스트한 결과를 그들이 다시 확인하려 하더라도 불쾌하게 생각하지는 마세요. 타인이 보고한 결과를 토대로 문제를 해결할 때에는 "신뢰하되 검증하라"는 모토를 잊어서는 안 됩니다.
 
-Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네트워크 설명서][Network Docs]를 검토하고 여전히 [지원 티켓을 열어야][Ticket Link] 하는지 결정해야 합니다.
+Azure를 사용 하 여 문제를 최대한 자세히 파악 했으면 [Azure 네트워크 설명서][Network Docs] 를 검토 하 고 필요한 경우 [지원 티켓을 열어야][Ticket Link]합니다.
 
 ## <a name="references"></a>참조
 ### <a name="latencybandwidth-expectations"></a>대기 시간/대역폭 예상치
@@ -160,7 +160,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
  - 프라이빗 피어링을 사용하도록 설정된 식별된 위치의 10Gbps Premium ExpressRoute 회로.
  - 지정된 지역의 UltraPerformance 게이트웨이를 사용하는 Azure VNet.
  - VNet에서 Windows Server 2016을 실행하는 DS5v2 VM. VM은 도메인에 가입되지 않았으며, AzureCT가 설치된 기본 Azure 이미지(최적화 또는 사용자 지정 없는)를 사용하여 빌드되었습니다.
- - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 예를 들면 다음과 같습니다.
+ - 6회의 테스트가 실행되었으며, 테스트마다 AzureCT Get-LinkPerformance 명령을 사용하여 5분 부하 테스트를 수행했습니다. 다음은 그 예입니다.
 
     ```powershell
     Get-LinkPerformance -RemoteHost 10.0.0.1 -TestSeconds 300
@@ -169,7 +169,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
  - "대기 시간" 열 데이터는 무부하 테스트(iPerf를 실행하지 않고 TCP 대기 시간 테스트)에서 얻습니다.
  - "최대 대역폭" 열 데이터는 1Mb 창 크기의 16 TCP 흐름 부하 테스트에서 얻습니다.
 
-[![3]][3]
+![3][3]
 
 ### <a name="latencybandwidth-results"></a>대기 시간/대역폭 결과
 >[!IMPORTANT]
@@ -179,7 +179,7 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 
 | | | | | | |
 |-|-|-|-|-|-|
-|ExpressRoute<br/>위치|Azure<br/>지역|예상<br/>거리(km)|대기 시간|1 세션<br/>대역폭|최대<br/>대역폭|
+|Express Route<br/>위치|Azure<br/>지역|예상<br/>거리(km)|대기 시간|1 세션<br/>Bandwidth|최대<br/>Bandwidth|
 | 시애틀 | 미국 서부 2        |    191km |   5ms | 262.0Mbits/sec |  3.74Gbits/sec |
 | 시애틀 | 미국 서부          |  1,094km |  18ms |  82.3Mbits/sec |  3.70Gbits/sec |
 | 시애틀 | 미국 중부       |  2,357km |  40ms |  38.8Mbits/sec |  2.55Gbits/sec |
@@ -198,13 +198,13 @@ Azure에서 문제를 최대한 구체적으로 격리한 후에는 [Azure 네�
 \* 브라질까지의 대기 시간은 직선 거리가 파이버 실행 거리와 크게 다르다는 것을 보여 주는 좋은 예입니다. 저는 대기 시간이 160ms 근처일 것으로 예상했지만 실제로는 189ms입니다. 어딘가에 네트워크 문제가 있어서 제 예상과 다른 결과가 나올 수도 있지만, 대부분은 파이버 실행이 브라질까지 직선으로 가는 것이 아니라 시애틀에서 브라질까지 이동할 때 약 1,000km를 더 이동하기 때문입니다.
 
 ## <a name="next-steps"></a>다음 단계
-1. [https://aka.ms/AzCT][ACT]의 GitHub에서 Azure 연결 도구 키트 다운로드
-2. [링크 성능 테스트][Performance Doc]에 대한 지침 수행
+1. GitHub에서 Azure 연결 도구 키트 다운로드 [https://aka.ms/AzCT][ACT]
+2. [링크 성능 테스트][Performance Doc] 에 대 한 지침을 따릅니다.
 
 <!--Image References-->
 [1]: ./media/expressroute-troubleshooting-network-performance/network-components.png "Azure 네트워크 구성 요소"
-[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "ExpressRoute 문제 해결"
-[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "성능 테스트 환경"
+[2]: ./media/expressroute-troubleshooting-network-performance/expressroute-troubleshooting.png "Express 경로 문제 해결"
+[3]: ./media/expressroute-troubleshooting-network-performance/test-diagram.png "Perf 테스트 환경"
 [4]: ./media/expressroute-troubleshooting-network-performance/powershell-output.png "PowerShell 출력"
 
 <!--Link References-->

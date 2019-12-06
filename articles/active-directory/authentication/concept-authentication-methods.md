@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/16/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry, michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a7110ad3e6c9c66179c90c02c1572ee83cb9f15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: ee0dd0cd83ab27dd728a7572b6fcd69c40bb1b00
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420776"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848751"
 ---
 # <a name="what-are-authentication-methods"></a>인증 방법이란?
 
@@ -26,14 +26,14 @@ ms.locfileid: "74420776"
 
 관리자는 사용자가 액세스 권한이 없는 경우 필요한 최소 인증 방법 수보다 많이 선택할 수 있게 하는 것이 좋습니다.
 
-|인증 방법|사용법|
+|인증 방법|사용량|
 | --- | --- |
 | 암호 | MFA 및 SSPR |
 | 보안 질문 | SSPR만 |
 | 메일 주소 | SSPR만 |
 | Microsoft Authenticator 앱 | MFA 및 SSPR |
 | OATH 하드웨어 토큰 | MFA 및 SSPR용 공개 미리 보기 |
-| sms | MFA 및 SSPR |
+| SMS | MFA 및 SSPR |
 | 음성 통화 | MFA 및 SSPR |
 | 앱 암호 | 특정 경우 MFA만 |
 
@@ -41,7 +41,7 @@ ms.locfileid: "74420776"
 
 |     |
 | --- |
-| MFA 및 SSPR의 OATH 하드웨어 토큰은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| MFA 및 SSPR의 OATH 하드웨어 토큰은 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="password"></a>암호
@@ -160,7 +160,7 @@ OATH는 OTP(일회성 암호) 코드 생성 방법을 지정하는 공개 표준
 
 ![MFA 서버 OATH 토큰 블레이드에 OATH 토큰 업로드](media/concept-authentication-methods/mfa-server-oath-tokens-azure-ad.png)
 
-OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+OATH 하드웨어 토큰은 공개 미리 보기의 일부로 지원됩니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
 토큰이 확보되면 아래 예제와 같이 UPN, 일련 번호, 비밀 키, 시간 간격, 제조업체 및 모델이 포함된 CSV(쉼표로 구분된 값) 파일 형식으로 업로드해야 합니다.
 
@@ -186,7 +186,7 @@ CSV 파일의 크기에 따라 처리하는 데 몇 분 정도가 소요될 수 
 
 휴대폰 사용자에게는 두 옵션이 제공됩니다.
 
-사용자가 자신의 휴대폰 번호를 디렉터리에는 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 사용자가 **암호 재설정 등록 포털**을 통해 [인증 전화](https://aka.ms/ssprsetup) 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
+사용자가 자신의 휴대폰 번호를 디렉터리에는 표시하지 않는 대신 암호 재설정에는 사용하도록 하려면 관리자가 디렉터리에 해당 휴대폰 번호를 채우지 않아야 합니다. 사용자가 [암호 재설정 등록 포털](https://aka.ms/ssprsetup)을 통해 **인증 전화** 특성을 채워야 합니다. 관리자는 사용자의 프로필에서 이 정보를 볼 수 있지만 다른 곳에 게시되지는 않습니다.
 
 올바르게 작동하려면 전화 번호가 *+국가코드 전화번호* 형식으로 저장되어야 합니다(예: +1 4255551234).
 

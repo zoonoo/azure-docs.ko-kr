@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 EXP
-description: Azure Cosmos DB의 SQL 시스템 함수 EXP에 대해 알아봅니다.
+description: 지정 된 숫자 식의 지 수 값을 반환 하는 Azure Cosmos DB의 지 수 (EXP) SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 21c7ae63f46f2acd961245c59805220174c106f1
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 76d614264124e1ce4138663b702ff6d899b3aa4e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351033"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873321"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
  지정된 숫자 식의 지수 값을 반환합니다.  
@@ -38,9 +38,9 @@ EXP (<numeric_expr>)
   
   숫자의 지수는 **e** 상수를 거듭제곱하는 횟수입니다. 예를 들어 EXP(1.0) = e^1.0 = 2.71828182845905이며, EXP(10) = e^10 = 22026.4657948067입니다.  
   
-  숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그도 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
+  숫자의 자연 로그의 지수는 숫자 자체, 즉 EXP (LOG (n)) = n입니다. 그리고 숫자의 지수의 자연 로그는 숫자 자체, 즉 LOG (EXP (n)) = n입니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (10)의 지수 값을 반환합니다.  
   

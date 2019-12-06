@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 9146430f512b065553d4c5362af8655eb01c1206
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: d14b81075d1e1f98449ef655c3e00f172c7f407b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74530967"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873780"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -89,12 +89,11 @@ Windows Server 2019 | Server Core, 데스크톱 환경 포함 서버에 대해 �
 Windows Server 2016  | 지원 되는 Server Core, 데스크톱 환경 포함 서버.
 Windows Server 2012 R2 | 지원됩니다.
 Windows Server 2012 | 지원됩니다.
-Windows Server 2008 R2 SP1/SP2 | 지원됩니다.<br/><br/> Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월) 버전부터 Windows Server 2008 R2 SP1/s p 2를 실행 하는 컴퓨터에 Windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
-Windows Server 2008 SP2 | Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월 출시 예정)에서 Windows Server 2008 s p 2를 실행 하는 컴퓨터에 SSU (Windows [서비스 스택 업데이트](https://support.microsoft.com/help/4493730) ) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows Server 2008 R2 SP1/SP2 | 지원됩니다.<br/><br/> Azure Vm에 대 한 모바일 서비스 확장 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 windows Server 2008 R2 SP1/s p 2를 실행 하는 컴퓨터에 windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Windows 10(x64) | 지원됩니다.
 Windows 8.1 (x64) | 지원됩니다.
-Windows 8 (x64) | 지원됩니다.
-Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장의 9.30 (릴리스 2019 년 11 월) 버전에서 Windows 7 s p 1을 실행 하는 컴퓨터에는 Windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
+Windows 8(x64) | 지원됩니다.
+Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 Windows 7 s p 1을 실행 하는 컴퓨터에 windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 
 
 
@@ -213,7 +212,7 @@ Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대�
 Linux OS용 ADE(Azure Disk Encryption) | 지원됨 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
 디스크 핫 제거 | 지원하지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
-디스크 제외 | 지원은. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
+디스크 제외 | 지지도. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
 Storage Spaces Direct  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |

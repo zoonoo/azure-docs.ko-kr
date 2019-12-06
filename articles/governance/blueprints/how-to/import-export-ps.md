@@ -2,17 +2,17 @@
 title: PowerShell을 사용 하 여 청사진 가져오기 및 내보내기
 description: 청사진 정의를 코드로 사용 하는 방법에 대해 알아봅니다. Export 및 import 명령을 사용 하 여 공유, 소스 제어 및 관리 합니다.
 ms.date: 09/03/2019
-ms.topic: conceptual
-ms.openlocfilehash: 2822fd1aea1911ba264113d43595346a612ebc50
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: fc7b9818072665d79deaf8a456868943e8428730
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406350"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873202"
 ---
 # <a name="import-and-export-blueprint-definitions-with-powershell"></a>PowerShell을 사용 하 여 청사진 정의 가져오기 및 내보내기
 
-Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니다. 조직에서 청사진을 사용 하 여 이동할 때 청사진 정의를 관리 코드로 간주 해야 합니다. 이 개념을 종종 IaC (Infrastructure as Code) 라고 합니다. 청사진 정의를 코드로 처리 하면 Azure Portal 제공 하는 것 이상의 추가 이점을 제공 합니다. 이러한 이점은 다음과 같습니다.
+Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니다. 조직에서 청사진을 사용 하 여 이동할 때 청사진 정의를 관리 코드로 간주 해야 합니다. 이 개념을 종종 IaC (Infrastructure as Code) 라고 합니다. 청사진 정의를 코드로 처리 하면 Azure Portal 제공 하는 것 이상의 추가 이점을 제공 합니다. 등록에 따른 혜택은 다음과 같습니다.
 
 - 청사진 정의 공유
 - 청사진 정의 백업
@@ -23,7 +23,7 @@ Azure 청사진은 Azure Portal를 통해 완벽 하 게 관리할 수 있습니
 
 코드에 따라 청사진 정의를 관리 하는 것은 어떤 이유로 든 도움이 됩니다. 이 문서에서는 [Az. 청사진](https://powershellgallery.com/packages/Az.Blueprint/) 모듈의 `Import-AzBlueprintWithArtifact` 및 `Export-AzBlueprintWithArtifact` 명령을 사용 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 문서에서는 Azure 청사진에 대 한 일반적인 실무 지식을 전제로 합니다. 아직 수행 하지 않은 경우 다음 문서를 진행 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서를 사용 하 여 대화형 보고서 만들기 | 리소스 매개 변수 | Microsoft 문서
+title: Azure Monitor 통합 문서 리소스 매개 변수
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cd170fdc3bed04a81c66d83b9e75ed77e3c0a5a
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: adc9855d30a3b286cfbc3489ec639ab8b460e314
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165850"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872811"
 ---
 # <a name="workbook-resource-parameters"></a>통합 문서 리소스 매개 변수
 

@@ -2,28 +2,24 @@
 title: Microsoft id 플랫폼에서 지 원하는 인증 프로토콜에 대 한 자세한 정보 Microsoft
 description: Microsoft id 플랫폼 끝점에서 지 원하는 OAuth 2.0 및 Openid connect Connect 프로토콜에 대 한 가이드입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 5fb4fa1b-8fc4-438e-b3b0-258d8c145f22
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 446d7178973c1d43d55ff89c429b05c2a10118ba
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 50f2b4d5da2cdda35de0adc5dc646065f2b64a41
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835282"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844705"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 
@@ -64,7 +60,7 @@ https://login.microsoftonline.com/{tenant}/oauth2/v2.0/token
 
 여기서 `{tenant}` 은 네 개의 서로 다른 값 중 하나를 가질 수 있습니다.
 
-| 값 | 설명 |
+| Value | 설명 |
 | --- | --- |
 | `common` | 개인 Microsoft 계정과 Azure AD의 회사/학교 계정이 모두 있는 사용자가 애플리케이션에 로그인할 수 있습니다. |
 | `organizations` | Azure AD의 회사/학교 계정이 있는 사용자만 애플리케이션에 로그인할 수 있습니다. |

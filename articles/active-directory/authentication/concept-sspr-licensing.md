@@ -6,21 +6,21 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 08/19/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d7a23ed0a84ebd671c69744dfec145763ef6897
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 598f3bd8500a59cd41cc4126915e6cccbd4fb2f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622728"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848564"
 ---
 # <a name="licensing-requirements-for-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정의 라이선스 요구 사항
 
-Azure Active Directory (Azure AD)는 여러 버전으로 제공 됩니다. 무료, 프리미엄 P1 및 Premium P2를 제공 합니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
+Azure AD (Azure Active Directory)는 Free, Premium P1 및 Premium P2의 여러 버전으로 제공 됩니다. 변경, 재설정, 잠금 해제, 쓰기 저장 등 여러 Azure AD 버전에서 제공되는 여러 기능이 모여서 셀프 서비스 암호 재설정을 구성합니다. 이 문서에서는 차이점을 설명하려고 합니다. 각 Azure AD 버전에 포함된 기능에 대한 자세한 내용은 [Azure Active Directory 가격 책정 페이지](https://azure.microsoft.com/pricing/details/active-directory/)를 참조하세요.
 
 ## <a name="compare-editions-and-features"></a>버전 및 기능 비교
 
@@ -70,5 +70,5 @@ Azure AD가 이제 그룹 기반 라이선스를 지원합니다. 관리자는 �
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)

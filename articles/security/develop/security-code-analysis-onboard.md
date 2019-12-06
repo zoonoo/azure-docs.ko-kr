@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 77be6d8518774a1e2656e23024490dd9c1431865
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707244"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851505"
 ---
 # <a name="onboarding-and-installing"></a>온 보 딩 및 설치
 
@@ -31,23 +31,23 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장을 온 보 딩
 
 - 다음 지원 서비스 중 하나를 사용 하는 경우 기술 계정 관리자에 게 문의 하 여 기존 시간을 구입 하거나 교환 하 여 확장에 대 한 액세스 권한을 얻으십시오.
-   - 통합 지원 고급 계층
-   - 통합 지원 성능 계층
-   - 개발자를 위한 프리미어 지원
-   - 파트너에 대 한 프리미어 지원
-   - Enterprise에 대 한 프리미어 지원
+  - 통합 지원 고급 계층
+  - 통합 지원 성능 계층
+  - 개발자를 위한 프리미어 지원
+  - 파트너에 대 한 프리미어 지원
+  - Enterprise에 대 한 프리미어 지원
 - 다음 지원 서비스 중 하나가 있거나 Microsoft 지원 계획이 없는 경우 적격 지원 제공으로 업그레이드 해야 합니다.
-   - 파트너에 대한 Azure 지원
-   - Azure Basic 지원
-   - Azure 개발자 지원
-   - Azure 표준 지원
-   - Azure 전문가 지원
-   - 통합 지원 코어 계층
+  - 파트너에 대한 Azure 지원
+  - Azure Basic 지원
+  - Azure 개발자 지원
+  - Azure 표준 지원
+  - Azure 전문가 지원
+  - 통합 지원 코어 계층
 - 적격 지원 제공 서비스를 구입 하려면 [지원 서비스 홈 페이지로](https://www.microsoft.com/enterprise/services/support)이동 하세요.
 - 지원 계약이 준비 되 면 기술 계정 관리자에 게 문의 하 여 필요한 모든 세부 정보를 수집 하는 데 도움을 받으세요.
 
 >[!NOTE]
-> Microsoft 파트너 네트워크에 등록 된 파트너인 경우 파트너에 대 한 프리미어 지원를 구매할 수 있습니다. 그렇지 않은 경우 앞에서 언급 한 적격 지원 제품 중 하나를 구매 해야 합니다.
+>지원 계약이 없는 경우 타사 파트너를 활용 하 여 통합 지원 계획을 구입 하지 않고도 확장을 구매할 수 있는 파트너 구매 프로그램을 사용 하 고 있습니다. [메일을 보내주세요](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). 이 옵션에 관심이 있는 것을 알려주세요. 이 옵션을 사용할 수 있게 되 면 바로 관심을 가져 서 사용자에 게 다시 문의 합니다.
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장 프로그램 설치
 
@@ -61,7 +61,7 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 >[!NOTE]
 > 확장을 설치 하기 위한 액세스 권한이 없더라도 설치 단계를 계속 진행 합니다. 설치 과정에서 Azure DevOps 조직 관리자에 대 한 액세스를 요청할 수 있습니다.
 
-확장을 설치한 후에는 보안 개발 빌드 작업이 표시 되 고 Azure 파이프라인에 추가 될 수 있습니다.
+확장을 설치한 후에는 보안 개발 빌드 작업이 표시 되 고 Azure Pipelines에 추가할 수 있습니다.
 
 ## <a name="adding-specific-build-tasks-to-your-azure-devops-pipeline"></a>Azure DevOps 파이프라인에 특정 빌드 작업 추가
 
@@ -87,6 +87,6 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 ## <a name="next-steps"></a>다음 단계
 
-빌드 작업을 구성 하는 방법에 대 한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md)를 참조 하세요.
+빌드 작업을 구성 하는 방법에 대 한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md) 또는 [yaml 구성 가이드](yaml-configuration.md)를 참조 하세요.
 
 확장 및 제공 된 도구에 대 한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인 하세요.

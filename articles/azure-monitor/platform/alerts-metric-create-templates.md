@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 9/27/2018
+ms.date: 12/5/2019
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 0d3cbe8c3d2d7931e3e4cc052eedc844a296ccf0
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 496e8673e1cbf31f4c71db00b7eaf1c0618e509f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775780"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872947"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 알림 만들기
 
@@ -795,10 +795,10 @@ az group deployment create \
 단일 경고 규칙은 한 번에 여러 메트릭 시계열을 모니터링할 수 있습니다. 그러면 관리할 경고 규칙이 줄어듭니다.
 
 아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
-1. **ResponsType** -"\*" 와일드 카드를 사용 하면 이후의 값을 포함 하 여 **responsetype** 차원의 각 값에 대해 다른 시계열이 개별적으로 모니터링 됩니다.
-2. **Apiname** - **Getblob** 및 **putblob** 차원 값에 대해서만 다른 시계열이 모니터링 됩니다.
+1. **ResponsType** -"\*" 와일드 카드를 사용 하는 것은 미래 값을 포함 하 여 **responsetype** 차원의 각 값에 대해 개별적으로 모니터링 하는 것을 의미 합니다.
+2. **Apiname** -다른 시계열은 **Getblob** 및 **putblob** 차원 값에 대해서만 모니터링 됩니다.
 
-예를 들어이 경고 규칙으로 모니터링할 수 있는 몇 가지 잠재적인 시계열은 다음과 같습니다.
+예를 들어이 경고 규칙으로 모니터링 되는 몇 가지 잠재적인 시계열은 다음과 같습니다.
 - 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *getblob*
 - 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *putblob*
 - 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *getblob*
@@ -1016,9 +1016,9 @@ az group deployment create \
 
 아래 예제에서 경고 규칙은 **트랜잭션** 메트릭에 대 한 **Responsetype** 및 **apiname** 차원의 차원 값 조합을 모니터링 합니다.
 1. **ResponsType** -앞에 나오는 값을 포함 하 여 **responsetype** 차원의 각 값에 대해 서로 다른 시계열이 개별적으로 모니터링 됩니다.
-2. **Apiname** - **Getblob** 및 **putblob** 차원 값에 대해서만 다른 시계열이 모니터링 됩니다.
+2. **Apiname** -다른 시계열은 **Getblob** 및 **putblob** 차원 값에 대해서만 모니터링 됩니다.
 
-예를 들어이 경고 규칙으로 모니터링할 수 있는 몇 가지 잠재적인 시계열은 다음과 같습니다.
+예를 들어이 경고 규칙으로 모니터링 되는 몇 가지 잠재적인 시계열은 다음과 같습니다.
 - 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *getblob*
 - 메트릭 = *트랜잭션*, Responsetype = *Success*, Apiname = *putblob*
 - 메트릭 = *트랜잭션*, Responsetype = *서버 시간 제한*, Apiname = *getblob*
@@ -1230,6 +1230,270 @@ az group deployment create \
 >[!NOTE]
 >
 > 동적 임계값을 사용 하는 메트릭 경고 규칙에 대 한 여러 조건은 현재 지원 되지 않습니다.
+
+
+## <a name="template-for-a-static-threshold-metric-alert-that-monitors-a-custom-metric"></a>사용자 지정 메트릭을 모니터링 하는 정적 임계값 메트릭 경고의 템플릿
+
+다음 템플릿을 사용 하 여 사용자 지정 메트릭에 고급 정적 임계값 메트릭 경고 규칙을 만들 수 있습니다.
+
+Azure Monitor의 사용자 지정 메트릭에 대 한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview)을 참조 하세요.
+
+사용자 지정 메트릭에 대 한 경고 규칙을 만들 때 메트릭 이름과 메트릭 네임 스페이스를 모두 지정 해야 합니다.
+
+이 연습의 목적을 위해 아래 json을 customstaticmetricalert로 저장 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the alert"
+            }
+        },
+        "alertDescription": {
+            "type": "string",
+            "defaultValue": "This is a metric alert",
+            "metadata": {
+                "description": "Description of alert"
+            }
+        },
+        "alertSeverity": {
+            "type": "int",
+            "defaultValue": 3,
+            "allowedValues": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ],
+            "metadata": {
+                "description": "Severity of alert {0,1,2,3,4}"
+            }
+        },
+        "isEnabled": {
+            "type": "bool",
+            "defaultValue": true,
+            "metadata": {
+                "description": "Specifies whether the alert is enabled"
+            }
+        },
+        "resourceId": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Full Resource ID of the resource emitting the metric that will be used for the comparison. For example /subscriptions/00000000-0000-0000-0000-0000-00000000/resourceGroups/ResourceGroupName/providers/Microsoft.compute/virtualMachines/VM_xyz"
+            }
+        },
+        "metricName": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Name of the metric used in the comparison to activate the alert."
+            }
+        },
+        "metricNamespace": {
+            "type": "string",
+            "minLength": 1,
+            "metadata": {
+                "description": "Namespace of the metric used in the comparison to activate the alert."
+            }
+        },
+        "operator": {
+            "type": "string",
+            "defaultValue": "GreaterThan",
+            "allowedValues": [
+                "Equals",
+                "NotEquals",
+                "GreaterThan",
+                "GreaterThanOrEqual",
+                "LessThan",
+                "LessThanOrEqual"
+            ],
+            "metadata": {
+                "description": "Operator comparing the current value with the threshold value."
+            }
+        },
+        "threshold": {
+            "type": "string",
+            "defaultValue": "0",
+            "metadata": {
+                "description": "The threshold value at which the alert is activated."
+            }
+        },
+        "timeAggregation": {
+            "type": "string",
+            "defaultValue": "Average",
+            "allowedValues": [
+                "Average",
+                "Minimum",
+                "Maximum",
+                "Total",
+                "Count"
+            ],
+            "metadata": {
+                "description": "How the data that is collected should be combined over time."
+            }
+        },
+        "windowSize": {
+            "type": "string",
+            "defaultValue": "PT5M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H",
+                "PT6H",
+                "PT12H",
+                "PT24H"
+            ],
+            "metadata": {
+                "description": "Period of time used to monitor alert activity based on the threshold. Must be between one minute and one day. ISO 8601 duration format."
+            }
+        },
+        "evaluationFrequency": {
+            "type": "string",
+            "defaultValue": "PT1M",
+            "allowedValues": [
+                "PT1M",
+                "PT5M",
+                "PT15M",
+                "PT30M",
+                "PT1H"
+            ],
+            "metadata": {
+                "description": "How often the metric alert is evaluated represented in ISO 8601 duration format"
+            }
+        },
+        "actionGroupId": {
+            "type": "string",
+            "defaultValue": "",
+            "metadata": {
+                "description": "The ID of the action group that is triggered when the alert is activated or deactivated"
+            }
+        }
+    },
+    "variables": {  },
+    "resources": [
+        {
+            "name": "[parameters('alertName')]",
+            "type": "Microsoft.Insights/metricAlerts",
+            "location": "global",
+            "apiVersion": "2018-03-01",
+            "tags": {},
+            "properties": {
+                "description": "[parameters('alertDescription')]",
+                "severity": "[parameters('alertSeverity')]",
+                "enabled": "[parameters('isEnabled')]",
+                "scopes": ["[parameters('resourceId')]"],
+                "evaluationFrequency":"[parameters('evaluationFrequency')]",
+                "windowSize": "[parameters('windowSize')]",
+                "criteria": {
+                    "odata.type": "Microsoft.Azure.Monitor.SingleResourceMultipleMetricCriteria",
+                    "allOf": [
+                        {
+                            "name" : "1st criterion",
+                            "metricName": "[parameters('metricName')]",
+                            "metricNamespace": "[parameters('metricNamespace')]",
+                            "dimensions":[],
+                            "operator": "[parameters('operator')]",
+                            "threshold" : "[parameters('threshold')]",
+                            "timeAggregation": "[parameters('timeAggregation')]"
+                        }
+                    ]
+                },
+                "actions": [
+                    {
+                        "actionGroupId": "[parameters('actionGroupId')]"
+                    }
+                ]
+            }
+        }
+    ]
+}
+```
+
+위의 템플릿을 아래 제공된 매개 변수 파일과 함께 사용할 수 있습니다. 
+
+이 연습의 목적을 위해 아래 json을 customstaticmetricalert로 저장 하 고 수정 합니다.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "alertName": {
+            "value": "New alert rule on a custom metric"
+        },
+        "alertDescription": {
+            "value": "New alert rule on a custom metric created via template"
+        },
+        "alertSeverity": {
+            "value":3
+        },
+        "isEnabled": {
+            "value": true
+        },
+        "resourceId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/replace-with-resourceGroup-name/providers/microsoft.insights/components/replace-with-application-insights-resource-name"
+        },
+        "metricName": {
+            "value": "The custom metric name"
+        },
+        "metricNamespace": {
+            "value": "Azure.ApplicationInsights"
+        },
+        "operator": {
+          "value": "GreaterThan"
+        },
+        "threshold": {
+            "value": "80"
+        },
+        "timeAggregation": {
+            "value": "Average"
+        },
+        "actionGroupId": {
+            "value": "/subscriptions/replace-with-subscription-id/resourceGroups/resource-group-name/providers/Microsoft.Insights/actionGroups/replace-with-action-group"
+        }
+    }
+}
+```
+
+
+현재 작업 디렉터리의 PowerShell 또는 Azure CLI를 사용한 템플릿 및 매개 변수 파일을 사용하여 메트릭 경고를 만들 수 있습니다.
+
+Azure PowerShell 사용
+```powershell
+Connect-AzAccount
+
+Select-AzSubscription -SubscriptionName <yourSubscriptionName>
+ 
+New-AzResourceGroupDeployment -Name AlertDeployment -ResourceGroupName ResourceGroupOfTargetResource `
+  -TemplateFile customstaticmetricalert.json -TemplateParameterFile customstaticmetricalert.parameters.json
+```
+
+
+
+Azure CLI 사용
+```azurecli
+az login
+
+az group deployment create \
+    --name AlertDeployment \
+    --resource-group ResourceGroupOfTargetResource \
+    --template-file customstaticmetricalert.json \
+    --parameters @customstaticmetricalert.parameters.json
+```
+
+>[!NOTE]
+>
+> [Azure Portal를 통해 사용자 지정 메트릭을 검색](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview#browse-your-custom-metrics-via-the-azure-portal) 하 여 특정 사용자 지정 메트릭의 메트릭 네임 스페이스를 찾을 수 있습니다.
+
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿
 
@@ -3180,7 +3444,7 @@ az group deployment create \
     --parameters @list-of-vms-dynamic.parameters.json
 ```
 
-## <a name="template-for-a-availability-test-along-with-availability-test-alert"></a>가용성 테스트 경고와 함께 가용성 테스트에 대 한 템플릿
+## <a name="template-for-an-availability-test-along-with-a-metric-alert"></a>메트릭 경고와 함께 가용성 테스트에 대 한 템플릿
 
 [Application Insights 가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 는 전 세계 다양 한 위치에서 웹 사이트/응용 프로그램의 가용성을 모니터링 하는 데 도움이 됩니다. 가용성 테스트 경고는 특정 위치 수에서 가용성 테스트가 실패할 경우 사용자에 게 알립니다.
 메트릭 경고와 동일한 리소스 종류의 가용성 테스트 경고 (metricAlerts/) 다음 샘플 Azure Resource Manager 템플릿을 사용 하 여 간단한 가용성 테스트 및 관련 경고를 설정할 수 있습니다.

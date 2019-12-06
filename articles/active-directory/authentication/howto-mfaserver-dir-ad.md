@@ -6,18 +6,18 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.custom: seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b02d6468ede0d5748409a620a6641109cd523a09
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: b51c6284c0d7ee21f67d37465100f84d4b2f5ae2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404221"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848088"
 ---
 # <a name="directory-integration-between-azure-mfa-server-and-active-directory"></a>Azure MFA 서버와 Active Directory 간의 디렉터리 통합
 
@@ -99,8 +99,8 @@ Azure Multi-Factor Authentication에는 다음 세 가지 필터 옵션이 있�
 | 휴대폰 |사용자 레코드에 휴대폰 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 mobile입니다. |
 | 팩스 |사용자 레코드에 팩스 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 facsimileTelephoneNumber입니다. |
 | IP 전화 |사용자 레코드에 IP 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 ipphone입니다. |
-| 사용자 지정 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
-| 내선 번호 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
+| 맞춤형 서비스 |사용자 레코드에 사용자 지정 전화 번호를 포함하는 특성의 이름을 입력합니다.  기본값은 없습니다. |
+| 확장 |사용자 레코드에 전화 내선 번호를 포함하는 특성의 이름을 입력합니다.  내선 번호 필드의 값은 기본 전화 번호에 대한 내선 번호로만 사용됩니다.  기본값은 없습니다. <br><br>내선 번호 특성이 지정되지 않은 경우 내선 번호를 전화 특성의 일부로 포함시킬 수 있습니다. 이 경우 올바르게 구문 분석하도록 'x'의 확장명을 앞에 둡니다.  예를 들어 555-123-4567 x890에서 555-123-4567은 전화 번호이고 890은 내선 번호입니다. |
 | 기본값 복원 단추 |모든 특성을 기본값으로 다시 되돌리려면 **기본값 복원**을 클릭합니다.  기본값은 일반 Active Directory 또는 ADAM 스키마에서 제대로 작동합니다. |
 
 특성을 편집 하려면 특성 탭에서 **편집** 을 클릭 합니다.  그러면 특성을 편집할 수 있는 창이 표시 됩니다. 모든 특성 옆의 **...** 을 선택하여 표시할 특성을 선택할 수 있는 창을 엽니다.

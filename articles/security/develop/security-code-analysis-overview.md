@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: c3e22b34dbb770af2b4a719f8b4eaf040b724c47
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 963bc909b69962cded0a50d717e3a653d3d69769
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695423"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851471"
 ---
 # <a name="about-microsoft-security-code-analysis"></a>Microsoft 보안 코드 분석 정보
 
@@ -112,6 +112,6 @@ Microsoft 보안 코드 분석 확장에는 세 가지 후 처리 작업도 있�
 
 Microsoft 보안 코드 분석을 등록 하 고 설치 하는 방법에 대 한 지침은 [온 보 딩 및 설치 가이드](security-code-analysis-onboard.md)를 참조 하세요.
 
-빌드 작업을 구성 하는 방법에 대 한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md)를 참조 하세요.
+빌드 작업을 구성 하는 방법에 대 한 자세한 내용은 [구성 가이드](security-code-analysis-customize.md) 또는 [yaml 구성 가이드](yaml-configuration.md)를 참조 하세요.
 
 확장 및 제공 된 도구에 대 한 추가 질문이 있는 경우 [FAQ 페이지](security-code-analysis-faq.md)를 확인 하세요.

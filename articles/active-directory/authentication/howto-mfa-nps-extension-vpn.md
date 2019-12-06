@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa0158b99d10b426efb02ca31cef2bc0053a976f
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 6c2ccfc2219c063a9cef25f82cef33f446993a02
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404682"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848377"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Azure용 네트워크 정책 서버 확장을 사용하여 VPN 인프라를 Azure MFA와 통합
 
@@ -72,7 +72,7 @@ Azure용 NPS 확장을 NPS와 통합한 경우 성공적인 인증 흐름 결과
 7. 연결 시도가 인증되고 권한이 부여된 후에 확장이 설치된 NPS에서 RADIUS *액세스 허용* 메시지를 VPN 서버(RADIUS 클라이언트)로 보냅니다.
 8. 사용자가 VPN 서버의 가상 포트에 대한 액세스 권한을 부여받고 암호화된 VPN 터널을 설정합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 섹션에서는 MFA를 VPN과 통합 하기 전에 완료 해야 하는 필수 구성 요소를 자세히 설명 합니다. 이 문서를 시작하기 전에 다음과 같은 필수 조건이 있어야 합니다.
 
@@ -240,11 +240,11 @@ NPS 확장을 설치하려면 Azure Active Directory의 GUID를 알고 있어야
 
 7. **RADIUS 서버 추가** 창에서 다음을 수행합니다.
 
-    가. **서버 이름** 상자에서 이전 섹션에서 구성한 RADIUS 서버의 이름 또는 IP 주소를 입력합니다.
+    a. **서버 이름** 상자에서 이전 섹션에서 구성한 RADIUS 서버의 이름 또는 IP 주소를 입력합니다.
 
     b. **공유 비밀**에서 **변경**을 선택하고 이전에 만들어 기록해 둔 공유 비밀 암호를 입력합니다.
 
-    c. **제한 시간 (초)** 상자에 **30**값을 입력 합니다.  
+    다. **제한 시간 (초)** 상자에 **30**값을 입력 합니다.  
     이 시간 제한 값은 두 번째 인증 요소를 완료할 수 있을 만큼 충분한 시간을 허용하는 데 필요합니다.
 
     ![제한 시간을 구성 하는 RADIUS 서버 추가 창](./media/howto-mfa-nps-extension-vpn/image16.png)

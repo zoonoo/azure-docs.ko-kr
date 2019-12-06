@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 2969791204474a7d73493ce6397c52255f7eab4a
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a1fd99ee595c4ae91ccd06aa41fa421ca8fcc074
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151303"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851703"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>작업을 트리거하기 위해 Event Grid를 사용하여 IoT Hub 이벤트에 대응
 
@@ -23,7 +23,7 @@ Azure IoT Hub는 이벤트 알림을 다른 서비스에 보내고 다운스트�
 
 ![Azure Event Grid 아키텍처](./media/iot-hub-event-grid/event-grid-functional-model.png)
 
-## <a name="regional-availability"></a>국가별 가용성
+## <a name="regional-availability"></a>지역별 가용성
 
 Event Grid가지 원되는 지역의 IoT Hub에 대해 Event Grid 통합을 사용할 수 있습니다. 최신 지역 목록을 보려면 [Azure Event Grid 소개](../event-grid/overview.md)를 참조하세요.
 
@@ -184,13 +184,11 @@ Event Grid를 통해 원격 분석 이벤트를 구독할 때 IoT Hub는 기본 
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>디바이스 연결됨 및 디바이스 연결 끊김 이벤트에 대한 제한
 
-디바이스 연결됨 및 디바이스 연결 끊김 이벤트를 받으려면 디바이스에 대한 C2D 링크 또는 D2C 링크를 열어야 합니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [Receive ASYNC API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet)를 호출 하 여 C2D 링크를 열 수 있습니다.
+장치 연결 상태 이벤트를 수신 하려면 장치에서 Iot Hub를 사용 하 여 ' ' C2D Receive Message ' 작업 또는 '이 원격 분석 전송 ' 작업을 수행 해야 합니다. 그러나 장치에서 AMQP 프로토콜을 사용 하 여 Iot Hub에 연결 하는 경우에는 ' C2D Receive Message ' 작업을 수행 하는 것이 좋습니다. 그렇지 않으면 몇 분 동안 연결 상태 알림이 지연 될 수 있습니다. 디바이스가 MQTT 프로토콜을 사용하는 경우, IoT Hub는 C2D 링크를 열어둡니다. AMQP의 경우 [수신 비동기 API](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), IoT Hub C# SDK 또는 [amqp 용 장치 클라이언트](iot-hub-amqp-support.md#device-client)를 호출 하 여 C2D 링크를 열 수 있습니다.
 
 원격 분석 데이터를 보내는 경우 D2C 링크가 열려 있습니다. 
 
-장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결을 자주 끊기) 모든 단일 연결 상태를 전송 하지는 않지만 최종적으로 일치 하는 *마지막* 연결 상태를 게시 합니다. 예를 들어 장치가 처음에 연결 된 상태에 있는 경우 몇 초 동안 연결이 깜박이 며 연결 된 상태로 돌아갑니다. 초기 연결 상태 이후 새 장치 연결 상태 이벤트가 게시 되지 않습니다. 
-
-IoT Hub가 중단되는 경우에는 중단이 끝나는 즉시 디바이스 연결 상태를 게시합니다. 중단된 상태에서 디바이스 연결이 끊기면 디바이스 연결 끊김 이벤트가 10분 내에 게시됩니다.
+장치 연결이 깜박이는 경우 (장치에서 연결 하 고 연결이 자주 끊어진 경우) 모든 단일 연결 상태를 전송 하지는 않지만 깜박임이 계속 될 때까지 주기적인 스냅숏에서 수행 된 현재 연결 상태를 게시 합니다. 서로 다른 시퀀스 번호 또는 서로 다른 연결 상태 이벤트를 사용 하 여 동일한 연결 상태 이벤트를 수신 하면 장치 연결 상태가 변경 된 것을 의미 합니다.
 
 ## <a name="tips-for-consuming-events"></a>이벤트 사용하기 위한 팁
 

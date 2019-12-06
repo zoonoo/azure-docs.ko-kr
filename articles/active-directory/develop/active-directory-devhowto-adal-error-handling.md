@@ -2,25 +2,22 @@
 title: ADAL (Azure AD 인증 Library) 클라이언트에 대 한 오류 처리 모범 사례
 description: ADAL 클라이언트 애플리케이션에 대한 오류 처리 지침 및 모범 사례를 제공합니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.author: ryanwi
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374198"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845198"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
 
@@ -577,6 +574,7 @@ window.Logging = {
     }
 };
 ```
+
 ## <a name="related-content"></a>관련 콘텐츠
 
 * [Azure AD 개발자 가이드][AAD-Dev-Guide]
@@ -586,7 +584,7 @@ window.Logging = {
 
 아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
 
-[![은 "Microsoft에 로그인" 단추를 표시 합니다.][AAD-Sign-In]][AAD-Sign-In]
+[!["Microsoft에 로그인" 단추를 표시 합니다.][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md

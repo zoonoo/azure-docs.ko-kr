@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e1d53d63b40ad62a4d21cbad22a67e9e9781b1f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f98373fe8eab07519e665ab1eddfd7a9ce6b7e22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381707"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847869"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -55,7 +55,7 @@ ms.locfileid: "74381707"
 * 각 도메인에 있는 하나 이상의 도메인 컨트롤러와 암호 보호를 위해 프록시 서비스를 호스팅하는 하나 이상의 서버 간에 네트워크 연결이 존재 해야 합니다. 이 연결을 통해 도메인 컨트롤러에서 RPC 끝점 매퍼 포트 135 및 프록시 서비스의 RPC 서버 포트에 액세스할 수 있어야 합니다. 기본적으로 RPC 서버 포트는 동적 RPC 포트 이지만 [정적 포트를 사용](#static)하도록 구성할 수 있습니다.
 * Azure AD 암호 보호 프록시 서비스가 설치 될 모든 컴퓨터에는 다음 끝점에 대 한 네트워크 액세스 권한이 있어야 합니다.
 
-    |**Endpoint**|**목적**|
+    |**엔드포인트**|**목적**|
     | --- | --- |
     |`https://login.microsoftonline.com`|인증 요청|
     |`https://enterpriseregistration.windows.net`|Azure AD 암호 보호 기능|
@@ -124,7 +124,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    * 서비스가 실행 되 고 있는지 확인 하려면 다음 PowerShell 명령을 사용 합니다.
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`.
+      `Get-Service AzureADPasswordProtectionProxy | fl`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
 
      결과는 "실행 중" **상태** 를 표시 합니다.
 
@@ -302,7 +302,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 다음은 그 예입니다.
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 

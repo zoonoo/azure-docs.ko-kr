@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98668fc836aa21bdd14831c4a801557cdab5a202
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 24fa03fe12f584e9da32b547f0d8128e5ff28803
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381658"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847731"
 ---
 # <a name="azure-ad-password-protection-operational-procedures"></a>Azure AD 암호 보호 운영 절차
 
@@ -32,7 +32,7 @@ ms.locfileid: "74381658"
 1. **Windows Server Active Directory에 대한 암호 보호를 사용하도록 설정**을 **예**로 설정합니다.
 1. [배포 가이드](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy)에 설명된 대로, 처음에는 **모드**를 **감사**로 설정하는 것이 좋습니다.
    * 기능에 익숙해진 후 **모드**를 **강제 적용**으로 전환하면 됩니다.
-1. **저장**
+1. 페이지 맨 아래에 있는 **저장**
 
 ![Azure Portal에서 Azure AD 암호 보호 구성 요소를 사용하도록 설정](./media/howto-password-ban-bad-on-premises-operations/authentication-methods-password-protection-on-prem.png)
 

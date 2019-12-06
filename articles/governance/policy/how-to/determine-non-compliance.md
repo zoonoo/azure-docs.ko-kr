@@ -2,13 +2,13 @@
 title: 규정 비준수의 원인 확인
 description: 리소스가 비규격 인 경우 여러 가지 원인이 있을 수 있습니다. 비준수를 일으킨 원인을 확인 하는 방법을 알아보세요.
 ms.date: 04/26/2019
-ms.topic: conceptual
-ms.openlocfilehash: 839e6c61c4a44ba7c7581290408bb997b53b8f96
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.topic: how-to
+ms.openlocfilehash: 213797a1eafda10d5e97fbc60fc143de975fe221
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74279407"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873134"
 ---
 # <a name="determine-causes-of-non-compliance"></a>규정 비준수의 원인 확인
 
@@ -81,7 +81,7 @@ Azure 리소스가 정책 규칙을 준수 하지 않는 것으로 확인 되 �
 
 다음 행렬은 가능한 각 _이유_ 를 정책 정의의 책임 [조건](../concepts/definition-structure.md#conditions) 에 매핑합니다.
 
-|Reason | 조건 |
+|이유 | 조건 |
 |-|-|
 |현재 값은 대상 값을 키로 포함 해야 합니다. |containsKey 또는 **not** notContainsKey |
 |현재 값은 대상 값을 포함 해야 합니다. |contains 또는 **not** notcontains |
@@ -111,7 +111,7 @@ _게스트 구성_ 범주에 있는 _AUDITIFNOTEXISTS_ 정책의 경우 VM 내�
 
 VM에 직접 로그인 할 수 있는 액세스 권한이 없을 수도 있지만 VM이 _비규격_인 이유를 보고 해야 합니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 정책 준수 세부 정보를 보기 위해 위의 섹션에서 설명한 것과 동일한 단계를 수행 하 여 시작 합니다.
 

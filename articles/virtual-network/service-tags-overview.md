@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 33ee7351e547ee5ef57ef07f67ba6f5f4410b57f
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 152b9f3974f24644e55bed68f5ed65faa90d7fe7
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384151"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851658"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -38,41 +38,42 @@ ms.locfileid: "74384151"
 
 
 
-| 태그 | 목적 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
+| 태그 | 용도 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| **ApiManagement** | APIM 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아니오 | 예 |
-| **AppService**    | App Service 서비스입니다. 이 태그는 WebApp 프런트 엔드에 대 한 아웃 바운드 보안 규칙에 권장 됩니다. | 아웃바운드 | 예 | 예 |
-| **AppServiceManagement** | 전용 배포 App Service Environment에 대 한 관리 트래픽 | 둘 다 | 아니오 | 예 |
-| **AzureActiveDirectory** | Azure Active Directory 서비스입니다. | 아웃바운드 | 아니오 | 예 |
-| **AzureActiveDirectoryDomainServices** | 전용 배포 Azure Active Directory Domain Services에 대 한 관리 트래픽 | 둘 다 | 아니오 | 예 |
-| **AzureBackup** |Azure Backup 서비스입니다.<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 아니오 | 예 |
-| **AzureCloud** | 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)입니다. | 아웃바운드 | 예 | 예 |
-| **AzureConnectors** | 프로브/백 엔드 연결용 커넥터를 Logic Apps 합니다. | 인바운드 | 예 | 예 |
-| **AzureContainerRegistry** | Azure Container Registry 서비스입니다. | 아웃바운드 | 예 | 예 |
-| **Microsoft.azurecosmosdb** | Azure Cosmos 데이터베이스 서비스입니다. | 아웃바운드 | 예 | 예 |
-| **AzureDataLake** | Azure Data Lake 서비스입니다. | 아웃바운드 | 아니오 | 예 |
-| **AzureIoTHub** | Azure IoT Hub 서비스입니다. | 아웃바운드 | 아니오 | 아니오 |
-| **AzureKeyVault** | Azure KeyVault 서비스.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 예 | 예 |
-| **AzureLoadBalancer** | Azure의 인프라 부하 분산 장치. 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 둘 다 | 아니오 | 아니오 |
-| **AzureMachineLearning** | Azure Machine Learning 서비스입니다. | 아웃바운드 | 아니오 | 예 |
-| **AzureMonitor** | Log Analytics, App Insights, AzMon 및 사용자 지정 메트릭 (4Gb 끝점)을 지정 합니다.<br/><br/>*참고:* Log Analytics의 경우이 태그는 **저장소** 태그에 종속 됩니다. | 아웃바운드 | 아니오 | 예 |
-| **AzurePlatformDNS** | 기본 인프라 (기본) DNS 서비스입니다.<br/><br>이 태그를 사용 하 여 기본 DNS를 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 경우 주의 하세요. [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아니오 | 아니오 |
-| **AzurePlatformIMDS** | 기본 인프라 서비스인 IMDS<br/><br/>이 태그를 사용 하 여 기본 IMDS를 사용 하지 않도록 설정할 수 있습니다.  이 태그를 사용 하는 경우 주의 하세요. [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아니오 | 아니오 |
-| **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용 하 여 라이선스에 대 한 기본값을 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 경우 주의 하세요.  [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아니오 | 아니오 |
-| **AzureTrafficManaged** | Azure Traffic Manager 프로브 IP 주소.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. | 인바운드 | 아니오 | 예 |  
-| **BatchNodeManagement** | 전용 배포 Azure Batch에 대 한 관리 트래픽 | 둘 다 | 아니오 | 예 |
-| **CognitiveServicesManagement** | 트래픽에 대 한 주소 범위 Cognitive Services | 아웃바운드 | 아니오 | 아니오 |
-| **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | 예 | 아니오 |
-| **EventHub** | Azure EventHub 서비스. | 아웃바운드 | 예 | 예 |
-| **게이트웨이 관리자** | VPN/앱 게이트웨이 전용 배포에 대 한 관리 트래픽 | 인바운드 | 아니오 | 아니오 |
-| **인터넷** | 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다. | 둘 다 | 아니오 | 아니오 |
-| **MicrosoftContainerRegistry** | Microsoft Container Registry 서비스입니다. | 아웃바운드 | 예 | 예 |
-| **Service Bus** | 프리미엄 서비스 계층을 사용 하 여 서비스를 Azure Service Bus 합니다. | 아웃바운드 | 예 | 예 |
-| **ServiceFabric** | Service Fabric 서비스입니다. | 아웃바운드 | 아니오 | 아니오 |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse 서비스입니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
-| **SqlManagement** | SQL 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아니오 | 예 |
-| **Storage** | Azure Storage 서비스입니다. <br/><br/>*참고:* 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
-| **VirtualNetwork** | 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 IP 주소 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 가상 네트워크 [게이트웨이에](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)연결 된 가상 네트워크, 가상 [IP ](security-overview.md#azure-platform-considerations) [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 호스트 및 주소 접두사의 주소입니다. 이 태그에는 기본 경로가 포함 될 수도 있습니다. | 둘 다 | 아니오 | 아니오 |
+| **ApiManagement** | APIM 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | yes |
+| **AppService**    | App Service 서비스입니다. 이 태그는 WebApp 프런트 엔드에 대 한 아웃 바운드 보안 규칙에 권장 됩니다. | 아웃바운드 | yes | yes |
+| **AppServiceManagement** | 전용 배포 App Service Environment에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | yes |
+| **AzureActiveDirectory** | Azure Active Directory 서비스입니다. | 아웃바운드 | 아닙니다. | yes |
+| **AzureActiveDirectoryDomainServices** | 전용 배포 Azure Active Directory Domain Services에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | yes |
+| **AzureBackup** |Azure Backup 서비스입니다.<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 아닙니다. | yes |
+| **AzureCloud** | 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=41653)입니다. | 아웃바운드 | yes | yes |
+| **AzureConnectors** | 프로브/백 엔드 연결용 커넥터를 Logic Apps 합니다. | 인바운드 | yes | yes |
+| **AzureContainerRegistry** | Azure Container Registry 서비스입니다. | 아웃바운드 | yes | yes |
+| **Microsoft.azurecosmosdb** | Azure Cosmos 데이터베이스 서비스입니다. | 아웃바운드 | yes | yes |
+| **AzureDataLake** | Azure Data Lake 서비스입니다. | 아웃바운드 | 아닙니다. | yes |
+| **AzureHDInsight** | Azure HDInsight 서비스. | 인바운드 | yes | 아닙니다. |
+| **AzureIoTHub** | Azure IoT Hub 서비스입니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **AzureKeyVault** | Azure KeyVault 서비스.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | yes | yes |
+| **AzureLoadBalancer** | Azure의 인프라 부하 분산 장치. 태그는 Azure의 상태 프로브가 시작되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations)(168.63.129.16)로 변환됩니다. Azure Load Balancer를 사용하지 않는 경우 이 규칙을 재정의할 수 있습니다. | 둘 다 | 아닙니다. | 아닙니다. |
+| **AzureMachineLearning** | Azure Machine Learning 서비스입니다. | 아웃바운드 | 아닙니다. | yes |
+| **AzureMonitor** | Log Analytics, App Insights, AzMon 및 사용자 지정 메트릭 (4Gb 끝점)을 지정 합니다.<br/><br/>*참고:* Log Analytics의 경우이 태그는 **저장소** 태그에 종속 됩니다. | 아웃바운드 | 아닙니다. | yes |
+| **AzurePlatformDNS** | 기본 인프라 (기본) DNS 서비스입니다.<br/><br>이 태그를 사용 하 여 기본 DNS를 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 경우 주의 하세요. [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **AzurePlatformIMDS** | 기본 인프라 서비스인 IMDS<br/><br/>이 태그를 사용 하 여 기본 IMDS를 사용 하지 않도록 설정할 수 있습니다.  이 태그를 사용 하는 경우 주의 하세요. [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **AzurePlatformLKM** | Windows 라이선스 또는 키 관리 서비스입니다.<br/><br/>이 태그를 사용 하 여 라이선스에 대 한 기본값을 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 경우 주의 하세요.  [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) 참조 하는 것이 좋습니다. 이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **AzureTrafficManaged** | Azure Traffic Manager 프로브 IP 주소.<br/><br/>Traffic Manager 프로브 IP 주소에 대한 자세한 내용은 [Azure Traffic Manager FAQ](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-faqs)에서 찾을 수 있습니다. | 인바운드 | 아닙니다. | yes |  
+| **BatchNodeManagement** | 전용 배포 Azure Batch에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | yes |
+| **CognitiveServicesManagement** | 트래픽에 대 한 주소 범위 Cognitive Services | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **Dynamics365ForMarketingEmail** | Dynamics 365 마케팅 메일 서비스의 주소 범위입니다. | 아웃바운드 | yes | 아닙니다. |
+| **EventHub** | Azure EventHub 서비스. | 아웃바운드 | yes | yes |
+| **게이트웨이 관리자** | VPN/앱 게이트웨이 전용 배포에 대 한 관리 트래픽 | 인바운드 | 아닙니다. | 아닙니다. |
+| **인터넷** | 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure에서 소유하는 공용 IP 주소 공간](https://www.microsoft.com/download/details.aspx?id=41653)이 포함됩니다. | 둘 다 | 아닙니다. | 아닙니다. |
+| **MicrosoftContainerRegistry** | Microsoft Container Registry 서비스입니다. | 아웃바운드 | yes | yes |
+| **Service Bus** | 프리미엄 서비스 계층을 사용 하 여 서비스를 Azure Service Bus 합니다. | 아웃바운드 | yes | yes |
+| **ServiceFabric** | Service Fabric 서비스입니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse 서비스입니다.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. | 아웃바운드 | yes | yes |
+| **SqlManagement** | SQL 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | yes |
+| **Storage** | Azure Storage 서비스입니다. <br/><br/>*참고:* 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 Azure Storage 계정이 아닌 Azure Storage 서비스를 나타냅니다. | 아웃바운드 | yes | yes |
+| **VirtualNetwork** | 가상 네트워크 주소 공간 (가상 네트워크에 대해 정의 된 모든 IP 주소 범위), 연결 된 모든 온-프레미스 주소 공간, [피어 링](virtual-network-peering-overview.md) 가상 네트워크 또는 [가상 네트워크 게이트웨이에](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-network%3ftoc.json)연결 된 가상 네트워크, [사용자 정의 경로](virtual-networks-udr-overview.md)에 사용 되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations) 및 주소 접두사입니다. 이 태그에는 기본 경로가 포함 될 수도 있습니다. | 둘 다 | 아닙니다. | 아닙니다. |
 
 >[!NOTE]
 >*클래식* (사전 Azure Resource Manager) 환경에서 작업 하는 경우 위의 태그의 선택 집합이 지원 됩니다.  대체 철자를 사용 합니다.
@@ -97,7 +98,7 @@ ms.locfileid: "74384151"
 ### <a name="service-tag-discovery-api-public-preview"></a>서비스 태그 검색 API (공개 미리 보기)
 IP 주소 범위 세부 정보를 사용 하 여 서비스 태그의 현재 목록을 프로그래밍 방식으로 검색할 수 있습니다.
 
-- [REST (영문)](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
+- [REST](https://docs.microsoft.com/rest/api/virtualnetwork/servicetags/list)
 - [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/Get-AzNetworkServiceTag?view=azps-2.8.0&viewFallbackFrom=azps-2.3.2)
 - [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 

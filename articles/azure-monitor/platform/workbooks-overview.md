@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기 | Microsoft docs
+title: Azure Monitor 통합 문서 개요
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2cbc128e59472e36e2b5685efdf4cd02144edf15
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165928"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872862"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -43,7 +43,7 @@ ms.locfileid: "73165928"
 * [Text](workbooks-visualizations.md#text)
 * [차트](workbooks-visualizations.md#charts)
 * [배경](workbooks-visualizations.md#grids)
-* [패가](workbooks-visualizations.md#tiles)
+* [타일](workbooks-visualizations.md#tiles)
 * [트리나](workbooks-visualizations.md#trees)
 * [그래프](workbooks-visualizations.md#graphs)
 

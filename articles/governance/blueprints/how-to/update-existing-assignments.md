@@ -2,13 +2,13 @@
 title: 포털에서 기존 할당 업데이트
 description: Azure 청사진의 포털에서 기존 청사진 할당을 업데이트 하는 메커니즘에 대해 알아봅니다.
 ms.date: 11/21/2019
-ms.topic: conceptual
-ms.openlocfilehash: b4cf03d88103b85bc00dbd815816ead2740f2093
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.topic: how-to
+ms.openlocfilehash: 3cce84127475b2f11388b4ad4eb48dedec19cd1d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406388"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873168"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>기존 청사진 할당을 업데이트하는 방법
 
@@ -50,7 +50,7 @@ ms.locfileid: "74406388"
   - 정책 할당의 정의가 변경되면 새 정책 할당이 만들어집니다.
     이전에 배포된 정책 할당은 그대로 남아 있습니다.
   - 정책 할당 아티팩트를 청사진에서 제거해도 배포된 정책 할당은 그대로 남아 있습니다.
-- Azure 리소스 관리자 템플릿
+- Azure Resource Manager 템플릿
   - 템플릿은 Resource Manager를 통해 **PUT**으로 처리됩니다. 리소스 유형마다 이 작업을 처리하는 방법이 다르므로, 포함된 각 리소스의 설명서를 검토하여 Blueprints에서 실행할 때 이 작업이 미치는 영향을 확인해야 합니다.
 
 ## <a name="possible-errors-on-updating-assignments"></a>할당 업데이트 시 발생 가능한 오류

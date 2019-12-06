@@ -2,28 +2,23 @@
 title: Azure AD 앱에 선택적 클레임을 제공 하는 방법을 알아봅니다.
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)에 사용자 지정 또는 추가 클레임을 추가하기 위한 한 가이드입니다.
-documentationcenter: na
 author: rwike77
-services: active-directory
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/03/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74e680979ccbcc94f8a49e993c6d64797ab80b1
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803413"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844722"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
 
@@ -220,10 +215,10 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
    유효한 값은 다음과 같습니다.
 
-   - 모두가
-   - SecurityGroup
+   - "모두"
+   - "SecurityGroup"
    - DistributionList
-   - DirectoryRole
+   - "DirectoryRole"
 
    다음은 그 예입니다.
 
@@ -257,17 +252,17 @@ SAML 토큰 내에서 이러한 클레임은 `http://schemas.microsoft.com/ident
 
    | 선택적 클레임 스키마 | Value |
    |----------|-------------|
-   | **이름의** | "그룹" 이어야 합니다. |
+   | **name:** | "그룹" 이어야 합니다. |
    | **원본** | 사용되지 않습니다. Null 생략 또는 지정 |
-   | **데** | 사용되지 않습니다. False를 생략 하거나 지정 합니다. |
+   | **essential:** | 사용되지 않습니다. False를 생략 하거나 지정 합니다. |
    | **AdditionalProperties** | 추가 속성의 목록입니다.  유효한 옵션은 "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name", "emit_as_roles"입니다. |
 
    AdditionalProperties에서 "sam_account_name", "dns_domain_and_sam_account_name", "netbios_domain_and_sam_account_name" 중 하나만 필요 합니다.  둘 이상의가 있는 경우 첫 번째가 사용 되 고 나머지는 무시 됩니다.
 
-   일부 응용 프로그램에는 역할 클레임의 사용자에 대 한 그룹 정보가 필요 합니다.  클레임 유형을 그룹 클레임에서 역할 클레임으로 변경 하려면 추가 속성에 "emit_as_roles"를 추가 합니다.  그룹 값은 역할 클레임에 내보내집니다.
+   일부 응용 프로그램에는 역할 클레임의 사용자에 대 한 그룹 정보가 필요 합니다.  클레임 유형을 그룹 클레임에서 역할 클레임으로 변경 하려면 추가 속성에 "emit_as_roles"을 추가 합니다.  그룹 값은 역할 클레임에 내보내집니다.
 
    > [!NOTE]
-   > "Emit_as_roles"를 사용 하는 경우 사용자가 할당 된 것으로 구성 된 응용 프로그램 역할은 역할 클레임에 표시 되지 않습니다.
+   > "Emit_as_roles"을 사용 하는 경우 사용자가 할당 된 것으로 구성 된 응용 프로그램 역할은 역할 클레임에 표시 되지 않습니다.
 
 **예:** Dnsdomainnamenameformat 형식의 OAuth 액세스 토큰에서 그룹을 그룹 이름으로 내보냅니다.
 

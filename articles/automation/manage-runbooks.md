@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 Runbook을 관리하는 
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5a477811e46d97375d4dce4d83072dda60ca797c
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 42b973ce8a25abff60211afb34ef719d42366175
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68717223"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850502"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -29,7 +29,7 @@ Azure Portal 또는 Windows PowerShell 중 하나를 사용하여 Azure Automati
 1. Azure Portal에서 Automation 계정을 엽니다.
 2. Hub에서 **Runbook**을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **새 Runbook 만들기**를 클릭합니다.
-4. Runbook의 **이름** 을 입력하고 [유형](automation-runbook-types.md)을 선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄 및 대시를 사용할 수 있습니다.
+4. Runbook의 **이름** 을 입력하고 [유형](automation-runbook-types.md)을 선택합니다. Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
 5. **만들기** 를 클릭하여 Runbook을 만들고 편집기를 엽니다.
 
 ### <a name="create-a-runbook-with-powershell"></a>PowerShell을 사용하여 Runbook 만들기
@@ -63,7 +63,7 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 2. Hub에서 **Runbook**을 클릭하여 Runbook 목록을 엽니다.
 3. **Runbook 추가** 단추를 클릭하고 **가져오기**를 클릭합니다.
 4. **Runbook 파일** 을 클릭하여 가져올 파일을 선택합니다.
-5. **이름** 필드가 활성화된 경우 변경이 가능합니다.  Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 밑줄 및 대시를 사용할 수 있습니다.
+5. **이름** 필드가 활성화된 경우 변경이 가능합니다.  Runbook 이름은 문자로 시작해야 하며 문자, 숫자, 언더바, 대시 등이 포함될 수 있습니다.
 6. [Runbook 형식](automation-runbook-types.md)이 자동으로 선택되지만 해당 제한을 고려한 후에 형식을 변경할 수 있습니다.
 7. 새 Runbook이 Automation 계정의 Runbook 목록에 표시됩니다.
 8. 실행에 앞서 [Runbook을 게시](#publish-a-runbook) 해야 합니다.
@@ -71,7 +71,7 @@ Azure Automation에 스크립트 파일을 가져오려면 다음 절차를 사�
 > [!NOTE]
 > 그래픽 Runbook 또는 그래픽 PowerShell 워크플로 Runbook을 가져온 후 필요에 따라 다른 형식으로 변환할 수도 있습니다. 텍스트 Runbook으로는 변환할 수 없습니다.
 
-### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Windows powershell 스크립트 파일에서 runbook을 가져오려면
+### <a name="to-import-a-runbook-from-a-script-file-with-windows-powershell"></a>Windows PowerShell을 사용하여 스크립트 파일에서 Runbook을 가져오려면
 
 [Import-AzureRMAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/import-azurermautomationrunbook) cmdlet을 사용하여 스크립트 파일을 PowerShell 워크플로 Runbook 초안으로 가져올 수 있습니다. 해당 Runbook이 이미 있는 경우 *-Force* 매개 변수를 사용하지 않으면 가져오기에 실패합니다.
 
@@ -101,12 +101,12 @@ Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며
 1. Runbook에 매개 변수가 있는 경우 왼쪽 창에 나열되며, 여기서 테스트에 사용할 값을 제공할 수 있습니다.
 1. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 테스트를 실행하려는 경우는 **실행 설정**을 **Hybrid Worker**로 변경하고 대상 그룹의 이름을 선택합니다.  그렇지 않은 경우 기본 **Azure** 를 유지하여 클라우드에서 테스트를 실행합니다.
 1. **시작** 단추를 클릭하여 테스트를 시작합니다.
-1. Runbook이 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽](automation-runbook-types.md#graphical-runbooks)인 경우 출력 창 아래의 단추를 사용하여 테스트 중에 중지하거나 일시 중단할 수 있습니다. Runbook을 일시 중단하는 경우 일시 중단되기 전에 현재 작업이 완료됩니다. Runbook이 일시 중단되면 중지하거나 다시 시작할 수 있습니다.
+1. Runbook이 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽](automation-runbook-types.md#graphical-runbooks)인 경우 출력 창 아래의 단추를 사용하여 테스트 중에 중지하거나 일시 중단할 수 있습니다. Runbook을 일시 중단하는 경우 일시 중단하기 전에 현재 작업을 완료합니다. Runbook이 일시 중단되면 중지하거나 다시 시작할 수 있습니다.
 1. 출력 창에서 Runbook의 출력을 검사합니다.
 
 ## <a name="publish-a-runbook"></a>Runbook 게시
 
-새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다.  Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 게시됨 버전은 초안 버전 변경 내용의 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
+새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다.  Automation의 각 Runbook에는 초안 버전과 게시된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있게 되면 이를 게시합니다. 그러면 초안 버전이 게시된 버전을 덮어씁니다.
 
 ### <a name="azure-portal"></a>Azure Portal
 

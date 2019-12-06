@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 SQL 상수
-description: Azure Cosmos DB의 SQL 상수에 대해 알아보기
+description: Azure Cosmos DB의 SQL 쿼리 상수가 특정 데이터 값을 나타내는 데 사용 되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: 41cafeb76b7b9481a78ffcff179676d0aa7bf6fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002039"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873423"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB SQL 쿼리 상수  
 
@@ -27,7 +27,7 @@ ms.locfileid: "71002039"
 |**Number**|IEEE 754 표준의 두 자리 부동 소수점 숫자입니다.|  
 |**String**|0개 이상의 유니코드 문자 시퀀스입니다. 문자열은 작은따옴표 또는 큰 따옴표로 묶어야 합니다.|  
 |**Array**|0개 이상의 요소 시퀀스입니다. 각 요소는 **Undefined**를 제외한 모든 스칼라 데이터 형식의 값일 수 있습니다.|  
-|**개체**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
+|**Object**|순서가 지정되지 않은 0개 이상의 이름/값 쌍의 집합입니다. 이름은 유니코드 문자열이며, 값은 **Undefined**를 제외한 모든 스칼라 데이터 형식이 될 수 있습니다.|  
   
 ## <a name="bk_syntax"></a>구문과
   
@@ -59,7 +59,7 @@ ms.locfileid: "71002039"
   
 ```  
   
-##  <a name="bk_arguments"></a>인수의
+##  <a name="bk_arguments"></a> 인수
   
 * `<undefined_constant>; Undefined`  
   

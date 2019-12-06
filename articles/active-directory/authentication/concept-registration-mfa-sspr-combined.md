@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3221e6424b449066510667f8067e3bc6d8aec12a
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2b484acc0dc1a92a857f254ed37392ffb29eddb8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381953"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848632"
 ---
 # <a name="combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 (미리 보기)
 
@@ -49,15 +49,15 @@ Azure AD 통합 보안 정보 등록은 현재 Azure 미국 정부, Azure 독일
 
 |   | 등록 | 변경 | 삭제 |
 | --- | --- | --- | --- |
-| Microsoft Authenticator | 예 (최대 5 개) | 아니오 | 예 |
-| 기타 authenticator 앱 | 예 (최대 5 개) | 아니오 | 예 |
-| 하드웨어 토큰 | 아니오 | 아니오 | 예 |
-| Phone | 예 | 예 | 예 |
-| 대체 전화 | 예 | 예 | 예 |
-| 사무실 전화 | 아니오 | 아니오 | 아니오 |
-| EMail | 예 | 예 | 예 |
-| 보안 질문 | 예 | 아니오 | 예 |
-| 앱 암호 | 예 | 아니오 | 예 |
+| Microsoft Authenticator | 예 (최대 5 개) | 아닙니다. | yes |
+| 기타 authenticator 앱 | 예 (최대 5 개) | 아닙니다. | yes |
+| 하드웨어 토큰 | 아닙니다. | 아닙니다. | yes |
+| 전화 | yes | yes | yes |
+| 대체 전화 | yes | yes | yes |
+| 사무실 전화 | 아닙니다. | 아닙니다. | 아닙니다. |
+| 이메일 | yes | yes | yes |
+| 보안 질문 | yes | 아닙니다. | yes |
+| 앱 암호 | yes | 아닙니다. | yes |
 
 > [!NOTE]
 > 앱 암호는 Multi-Factor Authentication에 대해 적용 된 사용자만 사용할 수 있습니다. 조건부 액세스 정책을 통해 Multi-Factor Authentication을 사용 하도록 설정 된 사용자는 앱 암호를 사용할 수 없습니다.
@@ -95,7 +95,7 @@ Azure AD에 더 많은 인증 방법을 추가 하기 때문에 이러한 메서
 
 등록이 적용 되 면 사용자는 대부분의 보안 수준에서 Multi-Factor Authentication 및 SSPR 정책을 준수 하는 데 필요한 최소 메서드 수를 표시 합니다.
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 - 사용자가 SSPR에 대해 사용 하도록 설정 되어 있습니다. SSPR 정책에서는 모바일 앱 코드, 전자 메일 및 휴대폰을 다시 설정 하 고 사용 하도록 설정 하는 두 가지 방법이 필요 합니다.
    - 이 사용자는 두 가지 메서드를 등록 해야 합니다.

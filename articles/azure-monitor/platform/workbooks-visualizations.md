@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor 통합 문서 시각화를 사용 하 여 대화형 보고서 만들기 | Microsoft 문서
+title: Azure Monitor 통합 문서 시각화
 description: 텍스트, 차트, 표, 트리 및 그래프를 포함 한 모든 Azure Monitor 통합 문서 시각화 요소에 대해 알아봅니다.
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d878e8b5dd49ba517f85ebb74332bc6a245c33ca
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: bcc60c0f934111f779e3fdedc399881acb16f208
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73165057"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872794"
 ---
 # <a name="azure-monitor-workbook-visualizations"></a>Azure Monitor 통합 문서 시각화
 
@@ -96,7 +96,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 | `Size` | 컨트롤의 세로 크기입니다. | 소형, 중형 또는 큼 |
 | `Color palette` | 차트에 사용할 색상표입니다. `Split by` 매개 변수를 사용 하는 경우 무시 됩니다. | 파랑, 녹색, 빨강 등 |
 
-## <a name="grids"></a>배경
+## <a name="grids"></a>표
 
 표 또는 테이블은 사용자에 게 데이터를 제공 하는 일반적인 방법입니다. 통합 문서를 사용 하면 사용자가 표의 열에 대해 개별적으로 스타일을 지정 하 여 보고서에 대 한 풍부한 UI를 제공할 수 있습니다.
 
@@ -149,7 +149,7 @@ Azure Monitor 통합 문서는 보고 요구 사항에 맞게 다양 한 시각�
 
 ![타일 요약 보기의 스크린샷](./media/workbooks-visualizations/tiles-read-mode.png)
 
-## <a name="trees"></a>트리나
+## <a name="trees"></a>Trees
 
 통합 문서는 트리-그리드를 통해 계층 뷰를 지원 합니다. 트리를 사용 하면 드릴 다운 환경에서 일부 행을 다음 수준으로 확장할 수 있습니다.
 

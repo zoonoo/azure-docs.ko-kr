@@ -2,13 +2,13 @@
 title: 프로그래밍 방식으로 정책 만들기
 description: 이 문서에서는 Azure CLI, Azure PowerShell 및 REST API를 사용 하 여 Azure Policy에 대 한 정책을 프로그래밍 방식으로 만들고 관리 하는 방법을 안내 합니다.
 ms.date: 01/31/2019
-ms.topic: conceptual
-ms.openlocfilehash: 98af714e5aaf8e103b81e77c9960589fa0ee6b77
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.topic: how-to
+ms.openlocfilehash: e81f0ca43788d8f36dde0a58d2ecd4b1604fd77e
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74463544"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873066"
 ---
 # <a name="programmatically-create-policies"></a>프로그래밍 방식으로 정책 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "74463544"
 
 규정 준수에 대한 내용은 [준수 데이터 가져오기](get-compliance-data.md)를 참조하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작하기 전에 다음 필수 조건을 충족시키는지 확인합니다.
 
@@ -87,7 +87,7 @@ ms.locfileid: "74463544"
 
    _ContosoRG_를 원하는 리소스 그룹의 이름으로 바꿉니다.
 
-   `New-AzPolicyAssignment`의 **범위** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스와 함께 작동 합니다. 이 매개 변수는 **의** ResourceId`Get-AzResourceGroup` 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
+   `New-AzPolicyAssignment`의 **범위** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스와 함께 작동 합니다. 이 매개 변수는 `Get-AzResourceGroup`의 **ResourceId** 속성이 반환하는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **Scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다.
    `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
@@ -216,7 +216,7 @@ Azure Resource Manager PowerShell 모듈을 사용하여 리소스 정책을 관
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   **의** --scope`az policy assignment create` 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **--scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
+   `az policy assignment create`의 **--scope** 매개 변수는 관리 그룹, 구독, 리소스 그룹 또는 단일 리소스를 사용하여 작동합니다. 매개 변수는 전체 리소스 경로를 사용합니다. 각 컨테이너에 대한 **--scope** 패턴은 다음과 같습니다. `{rName}`, `{rgName}`, `{subId}` 및 `{mgName}`을 각각 리소스 이름, 리소스 그룹 이름, 구독 ID 및 관리 그룹 이름으로 바꿉니다. `{rType}`은 리소스의 **리소스 종류**로 바꿉니다(예: VM에 대한 `Microsoft.Compute/virtualMachines`).
 
    - 리소스 - `/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - 리소스 그룹 - `/subscriptions/{subID}/resourceGroups/{rgName}`

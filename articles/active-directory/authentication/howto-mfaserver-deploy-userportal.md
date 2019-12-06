@@ -1,22 +1,22 @@
 ---
-title: Azure MFA 서버-Azure Active Directory에 사용자 포털
+title: Azure MFA 서버에 대 한 사용자 포털-Azure Active Directory
 description: Azure MFA 및 사용자 포털을 시작합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f6feceff234bed51bcf6adf34f51313fa348d77
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 886e6a33428d672a40eae821e035d0b5b7f25578
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67056039"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848173"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버의 사용자 포털
 
@@ -29,7 +29,7 @@ ms.locfileid: "67056039"
 사용자 환경에 따라 Azure Multi-factor Authentication 서버와 동일한 서버 또는 다른 인터넷 연결 서버에서 사용자 포털을 배포하는 것이 좋습니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ![MFA 서버 사용자 포털 로그인 페이지](./media/howto-mfaserver-deploy-userportal/portal.png)
 
@@ -118,7 +118,7 @@ IIS 서버에 SSL 인증서를 구성하는 방법에 대한 질문이 있다면
 
 1. Azure Multi-Factor Authentication 서버 콘솔에서 **사용자 포털** 아이콘을 클릭합니다. 설정 탭에서 사용자 포털 URL 텍스트 상자에 **사용자 포털 URL**을 입력합니다. 이 URL은 메일 기능이 사용되도록 설정된 경우 Azure Multi-Factor Authentication 서버로 가져올 때 사용자에게 전송되는 메일에 포함됩니다.
 2. 사용자 포털에서 사용하려는 설정을 선택합니다. 예를 들어 사용자가 자신의 인증 방법을 선택할 수 있도록 허용되면, 사용자가 선택할 수 있는 방법과 함께 **사용자가 방법을 선택할 수 있도록 허용** 옵션이 선택되어 있는지 확인합니다.
-3. **관리자** 탭에서 관리자가 누구여야 하는지 정의합니다. 추가/편집 상자에서 확인란 및 드롭다운을 사용하여 세분화된 관리 권한을 만들 수 있습니다.
+3. 관리자 탭에서 관리자가 **되어야 하는** 사용자를 정의 합니다. 추가/편집 상자에서 확인란 및 드롭다운을 사용 하 여 세부적인 관리 권한을 만들 수 있습니다.
 
 선택적 구성:
 
@@ -146,7 +146,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 | 로깅 사용 | 사용자 포털에서 로깅을 사용합니다. 로그 파일은 C:\Program Files\Multi-Factor Authentication Server\Logs에 있습니다. |
 
 > [!IMPORTANT]
-> 전화 통화 옵션의 2019 년 3 월부터 Azure AD 체험/평가판 테 넌 트에서 MFA 서버 사용자에 게 제공 되지 않습니다. SMS 메시지는이 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자에 게 사용 가능 하도록 계속 됩니다. 이 변경은 Azure AD 체험/평가판 테 넌 트에만 영향을 줍니다.
+> 2019 년 3 월부터 무료/평가판 Azure AD 테 넌 트의 MFA 서버 사용자는 전화 통화 옵션을 사용할 수 없습니다. SMS 메시지는 이러한 변경의 영향을 받지 않습니다. 전화 통화는 유료 Azure AD 테 넌 트의 사용자가 계속 사용할 수 있습니다. 이 변경 내용은 무료/평가판 Azure AD 테 넌 트에만 영향을 줍니다.
 
 이러한 설정을 사용하도록 설정하고 사용자 포털에 로그인하면 해당 설정이 포털에서 사용자에게 표시됩니다.
 
@@ -154,7 +154,7 @@ Azure Multi-Factor Authentication 서버에서는 사용자 포털에 대한 몇
 
 ### <a name="self-service-user-enrollment"></a>셀프 서비스 사용자 등록
 
-사용자가 로그인하고 등록할 수 있게 하려면 설정 탭에서 **사용자 로그인 허용**과 **사용자 등록 허용** 옵션을 선택해야 합니다. 선택한 설정은 사용자 로그인 환경에 영향을 줍니다.
+사용자가 로그인 하 고 등록 하려면 설정 탭에서 사용자가 로그인 할 수 **있도록 허용** 및 **사용자 등록 허용** 옵션을 선택 해야 합니다. 선택한 설정은 사용자 로그인 환경에 영향을 줍니다.
 
 예를 들어 사용자 포털에 처음으로 로그인하면 [Azure Multi-Factor Authentication 사용자 설정] 페이지로 이동합니다. Azure Multi-Factor Authentication 구성 방식에 따라 사용자는 인증 방법을 선택할 수 있습니다.
 

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB에서 처리량 크기 조정
-description: 이 문서에서는 Azure Cosmos DB에서 처리량을 탄력적으로 크기 조정하는 방법을 설명합니다.
-author: dharmas-cosmos
+description: 이 문서에서는 Azure Cosmos 계정이 프로 비전 되는 여러 지역에 걸쳐 처리량을 확장 하 Azure Cosmos DB는 방법을 설명 합니다.
+author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: dharmas
+ms.date: 12/02/2019
+ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 29a92f04a1d36004fa082bfafe2310f9e0e3e5c6
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 440f23afcd08326261be30432ad1f0ecb16f55fd
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467596"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873508"
 ---
 # <a name="globally-scale-provisioned-throughput"></a>전역적으로 프로비전된 처리량 크기 조정 
 
@@ -34,7 +34,7 @@ Cosmos 컨테이너가 *' R '* RUs로 구성 되어 있고 Cosmos 계정과 연�
 
 - Cosmos 계정이 여러 쓰기 지역으로 구성 된 경우 컨테이너에서 전역적으로 사용할 수 있는 총 RUs = *R* x (*N*+ 1). 추가 *R* RUs는 지역 전체에서 업데이트 충돌 및 앤티 엔트로피 트래픽을 처리 하도록 자동으로 프로 비전 됩니다.
 
-[일관성 모델](consistency-levels.md) 을 선택 하는 것도 처리량에 영향을 줍니다. 더 강력한 일관성 수준 (예: *제한 된 부실* *일관성 수준)과 비교 하 여 더 완화 된 일관성 수준 (예: 세션, 일관 된 접두사 및 최종 일관성)에 대해 약 2x 읽기 처리량을 얻을 수 있습니다. 강력한* 일관성).
+[일관성 모델](consistency-levels.md) 을 선택 하는 것도 처리량에 영향을 줍니다. 더 강력한 일관성 수준 (예: *제한 된 부실* 또는 *강력한* 일관성)과 비교 하 여 더 완화 된 일관성 수준 (예: *세션*, *일관 된 접두사* 및 *최종* 일관성)에 대해 약 2x 읽기 처리량을 얻을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

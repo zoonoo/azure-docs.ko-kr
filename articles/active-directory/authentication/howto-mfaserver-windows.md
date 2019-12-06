@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa52dcf08a5e4b152d9fe0db36710e41a5a79fe7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: faab28a714b1a62e1e34de5b07119aa3018db24e
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67057314"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847972"
 ---
 # <a name="windows-authentication-and-azure-multi-factor-authentication-server"></a>Windows 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -27,15 +27,15 @@ Azure Multi-Factor Authentication 서버의 Windows 인증 섹션을 사용하�
 * 신뢰할 수 있는 IP는 애플리케이션이 클라이언트 IP에 인증을 제공할 수 있는지 여부에 따라 달라집니다. 현재는 터미널 서비스만 지원됩니다.  
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 > [!NOTE]
 > 이 기능은 Windows Server 2012 R2에서 보안 터미널 서비스를 보안하는 데 지원되지 않습니다.
 
-## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용 하 여 응용 프로그램을 보호 하려면 다음 절차를 따르십시오
+## <a name="to-secure-an-application-with-windows-authentication-use-the-following-procedure"></a>Windows 인증을 사용 하 여 응용 프로그램을 보호 하려면 다음 절차를 따르십시오.
 
 1. Azure Multi-Factor Authentication 서버에서 Windows 인증 아이콘을 클릭합니다.
-   ![MFA 서버에서 Windows 인증](./media/howto-mfaserver-windows/windowsauth.png)
+   MFA 서버에서 Windows 인증 ![](./media/howto-mfaserver-windows/windowsauth.png)
 2. **Windows 인증 사용** 확인란을 선택합니다. 이 상자는 기본적으로 선택되지 않습니다.
 3. 애플리케이션 탭에서 관리자는 Windows 인증을 위해 하나 이상의 애플리케이션을 구성할 수 있습니다.
 4. 서버 또는 애플리케이션을 선택합니다. 서버/애플리케이션이 사용되는지 여부를 지정합니다. **확인**을 클릭합니다.

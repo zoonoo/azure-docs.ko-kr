@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights 원격 분석 데이터 모델 - 종속성 원격 분석 | Microsoft Docs
+title: Azure Monitor Application Insights 종속성 데이터 모델
 description: 종속성 원격 분석을 위한 Azure Application Insights 데이터 모델
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/17/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: e0923c20b11aa02f380af1faa6766d2346ad1fb2
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 5021d3b34816159fc78590a5947ddd3a790303ee
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677440"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872641"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>종속성 원격 분석: Application Insights 데이터 모델
 

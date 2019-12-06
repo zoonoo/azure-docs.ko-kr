@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 61deb5361c9857956318f8b9b4ca836fcfa65d48
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e11f560c2b101d86d41feb3f6c93cffe7c1a748d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73798129"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851454"
 ---
 # <a name="generate-soil-moisture-heatmap"></a>토양 습기 열 지도 생성
 
@@ -24,7 +24,7 @@ ms.locfileid: "73798129"
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-다음을 확인 합니다.  
+다음을 확인합니다.  
 
 - Azure 구독.
 - Azure FarmBeats의 실행 중인 인스턴스입니다.
@@ -93,4 +93,4 @@ Azure FarmBeats에 센서 계정을 연결한 후에는 관심 있는 팜에 토
 
 ## <a name="next-steps"></a>다음 단계
 
-토양 습기 열 지도를 성공적으로 생성 했으므로 [센서 배치를 생성](generate-maps.md#sensor-placement-maps) 하 고 [기록 된 원격 분석 데이터를 수집](ingest-historical-telemetry-data.md)하는 방법을 알아보세요. 
+토양 습기 열 지도를 성공적으로 생성 했으므로 [센서 배치를 생성](generate-maps.md#sensor-placement-map) 하 고 [기록 된 원격 분석 데이터를 수집](ingest-historical-telemetry-data.md)하는 방법을 알아보세요. 

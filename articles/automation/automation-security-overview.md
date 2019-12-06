@@ -5,18 +5,18 @@ keywords: 자동화 보안, 안전한 자동화, 자동화 인증
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
 ROBOTS: NOINDEX
-ms.openlocfilehash: 88f1826191934ee76c565bd73de907a26d368c88
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0a05497c05051576868c1311857d58caa0d76055
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476834"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850672"
 ---
 # <a name="introduction-to-authentication-in-azure-automation"></a>Azure Automation의 인증 소개  
 Azure Automation을 사용하여 Azure, 온-프레미스 및 AWS(Amazon 웹 서비스)와 같은 기타 클라우드 공급자의 리소스에 대해 작업을 자동화할 수 있습니다.  Runbook이 필요한 작업을 수행하려면 구독 내에서 최소의 권한으로 리소스에 안전하게 액세스할 수 있는 권한이 있어야 합니다.
@@ -42,11 +42,11 @@ Azure Resource Manager에서 역할 기반 액세스 제어를 사용하여 Azur
 ## <a name="authentication-methods"></a>인증 방법
 다음 테이블에는 Azure Automation에서 지원하는 각 환경에 대한 다양한 인증 방법과 Runbook에 대한 인증 설정 방법을 설명하는 문서가 요약되어 있습니다.
 
-| 방법 | Environment | 문서 |
+| 방법 | Environment | 기사 |
 | --- | --- | --- |
 | Azure AD 사용자 계정 만들기 |Azure Resource Manager 및 Azure 클래식 |[Azure AD 사용자 계정으로 Runbook 인증](automation-create-aduser-account.md) |
 | Azure 실행 계정 |Azure 리소스 관리자 |[Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md) |
 | Azure 클래식 실행 계정 |Azure 클래식 |[Azure 실행 계정으로 Runbook 인증](automation-sec-configure-azure-runas-account.md) |
 | Windows 인증 |온-프레미스 데이터 센터 |[Hybrid Runbook Worker용 Runbook 인증](automation-hybrid-runbook-worker.md) |
-| AWS 자격 증명 |Amazon Web Services |[AWS(Amazon 웹 서비스)로 Runbook 인증](automation-config-aws-account.md) |
+| AWS 자격 증명 |Amazon 웹 서비스 비교 |[AWS(Amazon 웹 서비스)로 Runbook 인증](automation-config-aws-account.md) |
 

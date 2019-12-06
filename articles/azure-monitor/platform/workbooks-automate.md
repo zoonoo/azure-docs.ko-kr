@@ -1,5 +1,5 @@
 ---
-title: Azure Resource Manager 템플릿을 사용 하 여 프로그래밍 방식으로 Azure Monitor 통합 문서 관리 | Microsoft 문서
+title: Azure Monitor 통합 문서 및 Azure Resource Manager 템플릿
 description: Azure Resource Manager 템플릿을 통해 배포 된 미리 작성 되 고 사용자 지정 매개 변수화 된 Azure Monitor 통합 문서를 통해 복잡 한 보고 간소화
 services: azure-monitor
 author: mrbullwinkle
@@ -10,12 +10,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: d5e22093fa796a9fbd60dc2bc242f37a6cac7cf0
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166110"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872913"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
