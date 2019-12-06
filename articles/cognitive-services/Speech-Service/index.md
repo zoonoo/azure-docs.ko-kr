@@ -1,19 +1,19 @@
 ---
 layout: HubPage
-ms.date: 10-19-2019
+ms.date: 11-21-2019
 ms.topic: hub-page
 title: Speech Service 설명서
-description: Speech Service를 시작합니다.
-ms.openlocfilehash: e9fda2788b28ba882b5c5eb232bfd2ffbc85f049
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+description: Speech Service를 시작합니다. 음성을 인식하거나, 음성을 합성하거나, 실시간 번역을 받거나, 대화를 받아쓰거나, 음성을 봇 경험에 통합합니다.
+ms.openlocfilehash: 2ec258501b89d9ff801974b38f6717bf7af2eafc
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406185"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74840802"
 ---
-<div id="main" class="v2">    
+<div id="main" class="v2">
     <div class="container">
-        <h1>Speech Service 설명서</h1>
+        <h1>음성 서비스 설명서</h1>
         <ul class="pivots">
             <li>
                 <a href="#start">시작</a>
@@ -58,7 +58,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                          
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/sr-blob">
                                     <div class="cardSize">
@@ -127,8 +127,8 @@ ms.locfileid: "74406185"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>문서화</h3>
-                                                    <p>Speech Service와 이를 앱, 도구 및 제품에서 사용하는 방법에 대해 자세히 알아봅니다.</p>
+                                                    <h3>문서 읽기</h3>
+                                                    <p>앱, 도구 및 제품에 음성 인식을 추가하는 방법에 대해 알아봅니다. 개념, 자습서, API 참조 및 릴리스 정보가 포함되어 있습니다.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -215,7 +215,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                                
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/tts-pricing">
                                     <div class="cardSize">
@@ -246,14 +246,14 @@ ms.locfileid: "74406185"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>문서화</h3>
-                                                    <p>Speech Service와 이를 앱, 도구 및 제품에서 사용하는 방법에 대해 자세히 알아봅니다.</p>
+                                                    <h3>문서 읽기</h3>
+                                                    <p>앱, 도구 및 제품에 음성 합성을 추가하는 방법에 대해 알아봅니다. 개념, 자습서, API 참조 및 릴리스 정보가 포함되어 있습니다.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                               
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -315,7 +315,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -427,14 +427,14 @@ ms.locfileid: "74406185"
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>문서화</h3>
-                                                    <p>Speech Service와 이를 앱, 도구 및 제품에서 사용하는 방법에 대해 자세히 알아봅니다.</p>
+                                                    <h3>문서 읽기</h3>
+                                                    <p>앱, 도구 및 제품에 음성 번역을 추가하는 방법에 대해 알아봅니다. 개념, 자습서, API 참조 및 릴리스 정보가 포함되어 있습니다.</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li>              
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -534,7 +534,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -597,6 +597,68 @@ ms.locfileid: "74406185"
                                     </div>
                                 </a>
                             </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#support">지원</a>
+                        <ul id="support" class="cardsC">
+                            <li>
+                                <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&q=cognitive&type=&language=">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_octokitty.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>GitHub 문제</h3>
+                                                    <p>GitHub에서 미해결 문제를 찾아보고 또는 음성 SDK에 대한 새 문제를 만듭니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://stackoverflow.com/questions/tagged/microsoft-cognitive">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo_stackoverflow.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>스택 오버플로</h3>
+                                                    <p>질문을 하고, 스택 오버플로에 대한 음성 서비스 커뮤니티의 도움을 받으세요.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://cognitive.uservoice.com/forums/912208-speech-service">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/logos/logo-uservoice.svg" style="width:140px" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>UserVoice 포럼</h3>
+                                                    <p>아이디어를 공유하거나, 향상된 기능을 제안하거나, 음성 서비스에 대한 새 기능을 요청하세요.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                                                    
                         </ul>
                     </li>
                 </ul>
@@ -663,7 +725,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                             <li>
                                 <a href="https://aka.ms/speech/custom-sr-languages">
                                     <div class="cardSize">
@@ -702,7 +764,7 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                            
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -805,9 +867,100 @@ ms.locfileid: "74406185"
                                         </div>
                                     </div>
                                 </a>
-                            </li>                                                         
+                            </li>
                         </ul>
                     </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#scenarios">시나리오</a>
+                <ul id="scenarios">
+                    <li>
+                        <a href="#use-cases">사용 사례</a>
+                        <ul id="use-cases" class="cardsC">
+                            <li>
+                                <a href="call-center-transcription.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_recognition_from_blob.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>호출 센터 전사</h3>
+                                                    <p>음성 텍스트 변환의 일반적인 시나리오는 IVR(대화형 음성 응답) 시스템과 같은 소스에서 발생할 수 있는 대량의 전화 통신을 전사하는 것입니다. </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="scenario-availability.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_programming_languages.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>시나리오 및 기능 가용성</h3>
+                                                    <p>플랫폼 및 프로그래밍 언어별로 시나리오 및 기능 가용성에 대해 알아봅니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#deploy-architecture">배포</a>
+                        <ul id="deploy-architecture" class="cardsC">
+                            <li>
+                                <a href="speech-container-howto.md?tabs=stt">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="https://docs.microsoft.com/media/illustrations/virtualization-containers-about.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>컨테이너에 음성 서비스 배포</h3>
+                                                    <p>Docker를 사용하여 음성 서비스를 컨테이너 인스턴스에 배포합니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="regions.md">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage bgdAccent1">
+                                                        <img src="media/hub/speech_generic_how_to.jpg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>지원되는 지역</h3>
+                                                    <p>음성 서비스가 지원되는 위치에 대해 알아봅니다.</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>                                    
+                        </ul>
+                    </li>                    
                 </ul>
             </li>
         </ul>

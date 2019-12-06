@@ -87,7 +87,7 @@
           href: deploy-kcd.md
         - name: 암호 및 계정 잠금 정책 구성
           href: password-policy.md
-        - name: 보안 감사 이벤트 활성화(미리 보기)
+        - name: 보안 감사 이벤트 활성화
           href: security-audit-events.md
     - name: 도메인 가입 VM
       items:

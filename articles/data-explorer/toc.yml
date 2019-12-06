@@ -102,8 +102,12 @@
           href: data-lake-query-data.md
         - name: Azure Monitor에서 데이터 쿼리
           href: query-monitor-data.md
-        - name: Python
-          href: python-query-data.md
+        - name: KQL 인라인 Python 디버그
+          href: debug-inline-python.md
+        - name: SDK 사용
+          items:
+            - name: Python
+              href: python-query-data.md
         - name: 시계열 분석 및 Machine Learning
           items:
             - name: 시계열 분석

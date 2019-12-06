@@ -48,13 +48,13 @@
           displayName: 'n-depth, constraint, descriptor, phrase list, entity'
         - name: 3. 사용자 표현에서 감정 가져오기
           href: tutorial-publish-settings.md
-    - name: 앱 빌드
+    - name: 엔터티 생성 및 사용
       items:
-        - name: 정규식을 사용하여 적절한 형식의 데이터 가져오기
-          href: luis-quickstart-intents-regex-entity.md
-        - name: 목록을 사용하여 정확히 일치하는 텍스트 가져오기
-          href: luis-quickstart-intent-and-list-entity.md
-        - name: 역할 엔터티를 사용하여 관련 데이터 가져오기
+        - name: 정규식 엔터티
+          href: tutorial-regex-entity.md
+        - name: 엔터티 나열
+          href: tutorial-list-entity.md
+        - name: 엔터티 역할
           href: tutorial-entity-roles.md
           displayName: 'roles, geographyV2, context'
         - name: 복합 엔터티를 사용하여 관련 데이터를 그룹화 및 추출

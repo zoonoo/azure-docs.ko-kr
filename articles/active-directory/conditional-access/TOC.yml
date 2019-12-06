@@ -12,10 +12,6 @@
       href: require-tou.md
     - name: 세션 위험이 감지되면 액세스 차단
       href: app-sign-in-risk.md
-- name: 자습서
-  items:
-    - name: 클래식 MFA 정책 마이그레이션
-      href: policy-migration-mfa.md
 - name: 개념
   expanded: false
   items:
@@ -37,6 +33,8 @@
       href: service-dependencies.md
     - name: What if 도구
       href: what-if-tool.md
+    - name: 클래식 정책 마이그레이션
+      href: policy-migration.md
     - name: 기준 보호 정책
       href: concept-baseline-protection.md
 - name: 방법 가이드
@@ -83,7 +81,7 @@
     - name: 로그인 빈도 및 브라우저 지속성 컨트롤
       href: howto-conditional-access-session-lifetime.md
     - name: 클래식 정책 마이그레이션
-      href: policy-migration.md
+      href: policy-migration-mfa.md
     - name: 조건부 액세스 채택
       href: howto-conditional-access-adoption-kit.md
     - name: 문제 해결

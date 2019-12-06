@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: ada64d6bbce4fe7401bbfc078ba0903a28f06971
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d31e30991056cc891e63347a2c88e7fc4caeab28
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74796016"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74875433"
 ---
 ### <a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -59,3 +59,7 @@ Azure Bastion은 현재 VM 내에서 en-us-qwerty 키보드 레이아웃을 지�
 
 아니요. Azure Bastion 서브넷에서 UDR은 지원되지 않습니다.
 동일한 가상 네트워크에서 Azure Bastion과 Azure Firewall/NVA(네트워크 가상 어플라이언스)를 모두 포함하는 시나리오의 경우, Azure Bastion과 VM 간의 통신이 비공개이기 때문에 Azure Bastion 서브넷에서 Azure Firewall으로 트래픽을 강제로 전송할 필요가 없습니다. 자세한 내용은 [Bassion으로 Azure Firewall 뒤에 있는 VM에 액세스](https://azure.microsoft.com/blog/accessing-virtual-machines-behind-azure-firewall-with-azure-bastion/)를 참조하세요.
+
+### <a name="filetransfer"></a>Azure Bastion RDP 세션에서 파일 전송이 지원되나요?
+
+새 기능을 추가하기 위해 노력하고 있습니다. 현재 파일 전송은 지원되지 않지만 로드맵의 일부입니다. [Azure Bastion Feedback 페이지](https://feedback.azure.com/forums/217313-networking?category_id=367303)에서 새로운 기능에 대한 피드백을 공유해 주시기 바랍니다.
