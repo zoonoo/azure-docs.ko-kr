@@ -2,28 +2,24 @@
 title: Azure Access Control Service에서 마이그레이션 | Microsoft Docs
 description: Azure ACS(Access Control Service)에서 앱 및 서비스를 이동하기 위한 옵션에 대해 알아보세요.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59a2cc971fbc1df967bc2655c672ab8f419eef71
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c04377877619c96f139f4b6c1cf826573524d900
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835526"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845555"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -115,7 +111,7 @@ Access Control에 대한 자세한 내용은 [Access Control Service 2.0(보관)
 
 Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
-- **2017년 11월**:  클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
+- **2017년 11월**: 클래식 Azure Portal의 Azure AD 관리자 환경이 [사용 중지됩니다](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). 현재 새로운 전용 URL `https://manage.windowsazure.com?restoreClassic=true`에서 Access Control에 대한 네임스페이스를 관리할 수 있습니다. 필요한 경우 이 URl를 사용하여 기존 네임스페이스를 보고, 네임스페이스를 사용하거나 사용하지 않도록 설정하고, 네임스페이스를 삭제합니다.
 - **2018년 4월 2일**: Azure 클래식 포털이 완전히 사용 중지됩니다. 즉, 더 이상 URL을 통해 Access Control 네임스페이스 관리를 사용할 수 없습니다. 이 시점에서는 Access Control을 사용 또는 사용하지 않도록 설정 하거나, 삭제하거나, 열거할 수 없습니다. 하지만 `https://\<namespace\>.accesscontrol.windows.net`에서는 Access Control 관리 포털이 완벽하게 작동됩니다. Access Control의 다른 모든 구성 요소는 계속해서 정상적으로 작동합니다.
 - **2018년 11월 7일**: 모든 Access Control 구성 요소가 영구적으로 종료됩니다. 즉, Access Control 관리 포털, 관리 서비스, STS, 토큰 변환 규칙 엔진이 종료됩니다. 이 시점에서 Access Control(\<namespace\>.accesscontrol.windows.net에 위치)로 전송된 모든 요청이 실패합니다. 이 시점 전까지 기존 앱과 서비스를 다른 기술로 모두 마이그레이션 완료해야 합니다.
 
@@ -130,7 +126,7 @@ Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
 Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우드 서비스는 현재 하나 이상의 대체 인증 수단을 지원합니다. 각 서비스마다 올바른 인증 메커니즘이 달라집니다. 공식적인 지침은 각 서비스에 대한 특정 설명서를 참조하는 것이 좋습니다. 참고를 위해 아래에서 각 서비스의 설명서를 안내하고 있습니다.
 
-| 서비스 | 지침 |
+| 서비스 | 인도 |
 | ------- | -------- |
 | Azure Service Bus | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -151,7 +147,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 
 SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레미스 및 하이브리드 시나리오에서 인증 목적으로 사용 되는 ACS가 오래 되었습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
 
-| 기능 | 지침 |
+| 기능 | 인도 |
 | ------- | -------- |
 | Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제 [온-프레미스 앱의 Azure AD 앱 갤러리 sharepoint를 사용 하 여 sharepoint를 AZURE AD에 직접 연결할](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)수 있습니다. |
 | [SharePoint 온-프레미스에서 서버 간 인증 & 앱 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
@@ -164,8 +160,8 @@ SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레�
 
 - WIF(Windows Identity Foundation)와의 심층적인 통합.
 - Google, Facebook, Yahoo, Azure Active Directory 및 AD FS 계정, Microsoft 계정과의 페더레이션.
-- 다음 인증 프로토콜에 대한 지원: OAuth 2.0 Draft 13, WS-Trust 및 WS-Federation(Web Services Federation).
-- 다음 토큰 형식에 대한 지원: JWT(JSON Web Token), SAML 1.1, SAML 2.0 및 SWT(Simple Web Token).
+- OAuth 2.0 초안 13, Ws-Trust, WS-Federation(Web Services Federation) 인증 프로토콜 지원.
+- JWT(JSON 웹 토큰), SAML 1.1, SAML 2.0, SWT(단순 웹 토큰) 토큰 형식 지원.
 - 사용자가 로그인할 계정 유형을 직접 선택할 수 있는, WIF에 통합된 홈 영역 검색 환경. 이 환경은 웹 애플리케이션에 의해 호스팅되며 원하는 대로 사용자 지정이 가능합니다.
 - 웹 애플리케이션이 Access Control로부터 수신한 클레임을 다음과 같이 사용자 지정할 수 있는 토큰 변환:
     - ID 공급자의 클레임 전달.
@@ -202,17 +198,17 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | WIF | 지원됨 | 지원됨(제한된 명령만 사용 가능) |
 | WS-Federation | 지원됨 | 지원됨 |
 | OAuth 2.0 | 초안 13 지원 | 최신 사양인 RFC 6749 지원 |
-| WS-Trust | 지원됨 | 지원되지 않음 |
+| WS-Trust | 지원됨 | 지원하지 않음 |
 | **토큰 형식** | | |
 | JWT | 베타에서 지원 | 지원됨 |
-| SAML 1.1 | 지원됨 | Preview |
+| SAML 1.1 | 지원됨 | 미리 보기 |
 | SAML 2.0 | 지원됨 | 지원됨 |
-| SWT | 지원됨 | 지원되지 않음 |
-| **사용자 지정** | | |
-| 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원되지 않음 |
+| SWT | 지원됨 | 지원하지 않음 |
+| **사용자 정의** | | |
+| 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원하지 않음 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
-| **자동화** | | |
+| **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 | Microsoft Graph 및 Azure AD Graph API를 통해 지원 |
 
 Azure AD가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 앱에 Azure AD를 통합하는 두 가지 방법을 모두 알고 있어야 합니다.
@@ -250,20 +246,20 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | 개인용 Microsoft 계정 | 지원됨 | 지원됨 | 
 | Facebook, Google, Yahoo 계정 | 지원됨 | Facebook 및 Google은 기본적으로 지원, Yahoo는 사용자 지정 정책을 사용하여 OpenID Connect 페더레이션을 통해 지원 |
 | **프로토콜 및 SDK 호환성** | | |
-| WIF(Windows Identity Foundation) | 지원됨 | 지원되지 않음 |
-| WS-Federation | 지원됨 | 지원되지 않음 |
+| WIF(Windows Identity Foundation) | 지원됨 | 지원하지 않음 |
+| WS-Federation | 지원됨 | 지원하지 않음 |
 | OAuth 2.0 | 초안 13 지원 | 최신 사양인 RFC 6749 지원 |
-| WS-Trust | 지원됨 | 지원되지 않음 |
+| WS-Trust | 지원됨 | 지원하지 않음 |
 | **토큰 형식** | | |
 | JWT | 베타에서 지원 | 지원됨 |
-| SAML 1.1 | 지원됨 | 지원되지 않음 |
-| SAML 2.0 | 지원됨 | 지원되지 않음 |
-| SWT | 지원됨 | 지원되지 않음 |
-| **사용자 지정** | | |
+| SAML 1.1 | 지원됨 | 지원하지 않음 |
+| SAML 2.0 | 지원됨 | 지원하지 않음 |
+| SWT | 지원됨 | 지원하지 않음 |
+| **사용자 정의** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 사용자 지정 CSS를 이용하여 UI 사용자 지정 가능 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |
-| **자동화** | | |
+| **Automation** | | |
 | 구성 및 관리 작업 자동화 | Access Control 관리 서비스를 통해 지원 |- Azure AD Graph API를 통한 사용자 생성 허용<br />- B2C 테넌트, 애플리케이션 또는 정책을 프로그래밍 방식으로 생성 불가 |
 
 Azure AD B2C가 애플리케이션 및 서비스에 적합한 마이그레이션 경로라고 판단한 경우, 다음 리소스를 살펴보세요.
@@ -309,7 +305,7 @@ Access Control에서 발행한 토큰으로 보호되는 웹 서비스의 경우
     - 서비스 ID를 위해 만든 단순한 암호
     - 대칭 키 또는 X509 인증서를 사용하여 서명된 SWT
     - 신뢰할 수 있는 ID 공급자(주로 AD FS 인스턴스)가 발행한 SAML 토큰
-- 다음 토큰 형식에 대한 지원: JWT, SAML 1.1, SAML 2.0 및 SWT.
+- JWT, SAML 1.1, SAML 2.0 및 SWT 토큰 형식 지원.
 - 단순 토큰 변환 규칙.
 
 Access Control의 서비스 ID는 일반적으로 서버-투-서버(S2S) 인증을 구현하는 데 사용됩니다. 

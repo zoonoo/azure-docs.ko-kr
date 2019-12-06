@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 COS
-description: Azure Cosmos DB SQL 시스템 함수 COS에 대해 알아봅니다.
+description: Azure Cosmos DB의 코사인 (COS) SQL 시스템 함수가 지정 된 식에서 라디안으로 지정 된 각도의 삼각 코사인을 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 7e64127b7af749af87b90331c3f175957cfa7f09
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 05546ef531059e05a1426a288a48446d63d8e5df
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351075"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873406"
 ---
 # <a name="cos-azure-cosmos-db"></a>COS (Azure Cosmos DB)
- 지정된 된 식의 라디안에서 지정된 된 각도의 삼각 코사인을 반환합니다.  
+ 지정된 식의 라디안에서 지정된 각도의 삼각 코사인을 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -32,9 +32,9 @@ COS(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
-  다음 예에서는 지정 된 각도의 `COS`을 계산 합니다.  
+  다음 예에서는 지정 된 각도의 `COS` 계산 합니다.  
   
 ```sql
 SELECT COS(14.78) AS cos  

@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 10/04/2019
+ms.date: 12/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 3611e61b303997a4291f4436403bb0a95e647e65
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dfdaef0002f068dc4c9044e979b169de779cf6d5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686026"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851284"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 메모리 및 동시성 제한
 Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에 할당된 메모리 및 동시성 제한을 살펴봅니다.  
@@ -50,13 +50,13 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 최대 서비스 수준은 DW30000c 이며 계산 노드당 60 개의 계산 노드 및 하나의 배포를 포함 합니다. 예를 들어 DW30000c에서 600TB 데이터 웨어하우스는 컴퓨팅 노드당 약 10TB를 처리합니다.
 
 ## <a name="concurrency-maximums-for-workload-groups"></a>작업 그룹의 동시성 최대값
-작업 그룹-링크 TBD가 도입 되면서 동시성 슬롯의 개념은 더 이상 적용 되지 않습니다.  요청당 리소스는 작업 그룹 정의에 지정 된 백분율 단위로 할당 됩니다.  그러나 동시성 슬롯을 제거 하는 경우에도 서비스 수준에 따라 쿼리당 필요한 리소스 양이 최소화 됩니다.  아래 표에서는 서비스 수준 및 달성할 수 있는 연결 된 동시성에서 쿼리당 필요한 최소 리소스 양을 정의 했습니다. 
+[작업 그룹](sql-data-warehouse-workload-isolation.md)의 도입으로 인해 더 이상 동시성 슬롯의 개념이 적용 되지 않습니다.  요청당 리소스는 작업 그룹 정의에 지정 된 백분율 단위로 할당 됩니다.  그러나 동시성 슬롯을 제거 하는 경우에도 서비스 수준에 따라 쿼리당 필요한 리소스 양이 최소화 됩니다.  아래 표에서는 서비스 수준 및 달성할 수 있는 연결 된 동시성에서 쿼리당 필요한 최소 리소스 양을 정의 했습니다. 
 
 |서비스 수준|최대 동시 쿼리 수|REQUEST_MIN_RESOURCE_GRANT_PERCENT에 대해 지원 되는 최소%|
 |---|---|---|
 |DW100c|4|25%|
 |DW200c|8|12.5%|
-|DW300c|12|20cm(8|
+|DW300c|12|8%|
 |DW400c|16|6.25%|
 |DW500c|20|5%|
 |DW1000c|32|3%|
@@ -73,7 +73,7 @@ Azure SQL Data Warehouse에서 다양한 성능 수준과 리소스 클래스에
 ||||
 
 ## <a name="concurrency-maximums-for-resource-classes"></a>리소스 클래스에 대 한 동시성 최대값
-각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯을 기반으로 쿼리를 큐에 넣습니다. 쿼리는 충분 한 동시성 슬롯을 사용할 수 있을 때까지 큐에서 대기 합니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) 및 동시성 슬롯은 CPU 우선 순위를 결정 합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
+각 쿼리에 효율적으로 실행할 수 있을 만큼 충분한 리소스가 있는지 확인하기 위해 SQL Data Warehouse는 각 쿼리에 동시성 슬롯을 할당하여 리소스 사용률을 추적합니다. 시스템은 중요도 및 동시성 슬롯 수에 따라 큐에 쿼리를 추가합니다. 충분한 동시성 슬롯을 사용할 수 있을 때까지 쿼리는 큐에서 기다립니다. [중요도](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance)와 동시성 슬롯은 CPU 우선 순위를 결정합니다. 자세한 내용은 [워크로드 분석](analyze-your-workload.md)을 참조하세요.
 
 **정적 리소스 클래스**
 

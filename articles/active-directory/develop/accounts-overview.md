@@ -2,27 +2,24 @@
 title: Microsoft id 플랫폼 계정 및 테 넌 트 프로필 (Android) | Microsoft
 description: Android 용 Microsoft id 플랫폼 계정 개요
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
+ms.devlang: java
 ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7beab6759524037f86c83429644c1bb1fffe4d07
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 9af7d8c5a1793b34dd609c2cfd68fb468884ef8f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679842"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845725"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
@@ -32,10 +29,10 @@ MSAL (Microsoft 인증 라이브러리) API는 *사용자* 라는 용어를 *계
 
 Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 
-  - 고유 식별자입니다.
-  - 계정 소유권/제어를 시연 하는 데 사용 되는 하나 이상의 자격 증명입니다.
-  - 다음과 같은 특성으로 구성 된 하나 이상의 프로필입니다.
-    - 사진, 지정 된 이름, 제품군 이름, 제목, 사무실 위치
+- 고유 식별자입니다.  
+- 계정 소유권/제어를 시연 하는 데 사용 되는 하나 이상의 자격 증명입니다.
+- 다음과 같은 특성으로 구성 된 하나 이상의 프로필입니다.
+  - 사진, 지정 된 이름, 제품군 이름, 제목, 사무실 위치
 - 계정에는 기관 또는 레코드 시스템의 원본이 있습니다. 계정이 만들어지고 해당 계정과 연결 된 자격 증명이 저장 된 시스템입니다. Microsoft id 플랫폼과 같은 다중 테 넌 트 시스템에서 레코드 시스템은 계정을 만든 `tenant`입니다. 이 테 넌 트를 `home tenant`라고도 합니다.
 - Microsoft id 플랫폼의 계정에는 다음과 같은 레코드 시스템이 있습니다.
   - Azure Active Directory B2C를 포함 하 Azure Active Directory입니다.
@@ -49,7 +46,6 @@ Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
   - 계정에 대 한 표현인이 로컬 레코드는 원래 계정에 바인딩됩니다.
   - MSAL은이 로컬 레코드를 `Tenant Profile`으로 노출 합니다.
   - 테 넌 트 프로필은 직함, 사무실 위치, 연락처 정보 등 로컬 컨텍스트에 적합 한 다양 한 특성을 가질 수 있습니다.
- 
 - 하나 이상의 테 넌 트에 계정이 있을 수 있으므로 계정에는 프로필이 둘 이상 있을 수 있습니다.
 
 > [!NOTE]
@@ -102,7 +98,7 @@ IAccount account = app.getAccount("<tom@live.com woodgrovebank user object id>")
 MSAL은 액세스 토큰을 요청 하는 것 외에도 항상 각 테 넌 트의 ID 토큰을 요청 합니다. 이를 위해 항상 다음 범위를 요청 합니다.
 
 - openid
-- profiles
+- 프로필
 
 ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`는 계정에 대 한 이름/값 쌍 이며, 요청을 수행 하는 데 사용 됩니다.
 
@@ -110,7 +106,7 @@ ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`는 계�
 
 계정이 여러 조직에서 구성원 또는 게스트가 될 수 있지만, MSAL은 서비스를 쿼리하여 해당 계정이 구성원 인 테 넌 트 목록을 가져옵니다. 대신, MSAL은 생성 된 토큰 요청의 결과로 계정이 있는 테 넌 트 목록을 작성 합니다.
 
-계정 개체에 노출 되는 클레임은 항상 계정에 대 한 ' home 테 넌 트 '/{authority}의 클레임입니다. 해당 계정이 홈 테 넌 트에 대 한 토큰을 요청 하는 데 사용 되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  예를 들어:
+계정 개체에 노출 되는 클레임은 항상 계정에 대 한 ' home 테 넌 트 '/{authority}의 클레임입니다. 해당 계정이 홈 테 넌 트에 대 한 토큰을 요청 하는 데 사용 되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  다음은 그 예입니다.
 
 ```java
 // Psuedo Code
@@ -130,7 +126,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>테 넌 트 프로필 클레임 액세스
 
-다른 테 넌 트에 표시 되는 계정에 대 한 클레임에 액세스 하려면 먼저 계정 개체를 `IMultiTenantAccount`로 캐스팅 해야 합니다. 모든 계정은 다중 테 넌 트 일 수 있지만 MSAL을 통해 사용할 수 있는 테 넌 트 프로필 수는 현재 계정을 사용 하 여 토큰을 요청한 테 넌 트를 기반으로 합니다.  예를 들어:
+다른 테 넌 트에 표시 되는 계정에 대 한 클레임에 액세스 하려면 먼저 계정 개체를 `IMultiTenantAccount`로 캐스팅 해야 합니다. 모든 계정은 다중 테 넌 트 일 수 있지만 MSAL을 통해 사용할 수 있는 테 넌 트 프로필 수는 현재 계정을 사용 하 여 토큰을 요청한 테 넌 트를 기반으로 합니다.  다음은 그 예입니다.
 
 ```java
 // Psuedo Code
@@ -145,7 +141,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 계정을 사용 하 여 `acquireTokenSilent`를 사용 하 여 토큰을 요청 하려는 경우 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예를 들어:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 계정을 사용 하 여 `acquireTokenSilent`를 사용 하 여 토큰을 요청 하려는 경우 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 다음은 그 예입니다.
 
 ```java
 // Get Account For Policy
