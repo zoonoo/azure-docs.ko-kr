@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 10/08/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e073b4ff366c05cdf429f81d46647cd330604057
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 28d4dd3f0d4432930d62bb499fe72533b79d2a08
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74081570"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848734"
 ---
 # <a name="passwordless-authentication-options"></a>Passwordless 인증 옵션
 
@@ -69,7 +69,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 
 다음 공급자는 암호 없는 환경과 호환 되는 것으로 알려진 다양 한 폼 팩터를 FIDO2 보안 키를 제공 합니다. Microsoft는 고객이 FIDO 동맹 뿐만 아니라 공급 업체에 연락 하 여 이러한 키의 보안 속성을 평가 하도록 권장 합니다.
 
-| 공급자 | 연락처 |
+| 공급자 | 지원 문의 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

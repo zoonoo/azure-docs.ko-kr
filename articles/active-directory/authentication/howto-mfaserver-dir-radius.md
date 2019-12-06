@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f773914fcdd205e9cb6b7e3505904eb9550f16
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 9dd2aa7d804b4609e3e2fc1e38b6e29056b5d5ac
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404271"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848054"
 ---
 # <a name="integrate-radius-authentication-with-azure-multi-factor-authentication-server"></a>Azure Multi-Factor Authentication 서버와 RADIUS 인증 통합
 
@@ -39,7 +39,7 @@ RADIUS 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authentica
 1. Azure Multi-Factor Authentication 서버에서 왼쪽 메뉴의 RADIUS 인증 아이콘을 클릭합니다.
 2. **RADIUS 인증 사용** 확인란을 선택합니다.
 3. 클라이언트 탭에서 Azure MFA RADIUS 서비스가 비표준 포트에서 RADIUS 요청을 수신해야 하는 경우 인증 및 계정 포트를 변경합니다.
-4. **추가**를 클릭합니다.
+4. **추가**으로 로그온합니다.
 5. Azure Multi-Factor Authentication 서버, 애플리케이션 이름(옵션) 및 공유 비밀을 인증하는 어플라이언스/서버의 IP 주소를 입력합니다.
 
    애플리케이션 이름이 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.

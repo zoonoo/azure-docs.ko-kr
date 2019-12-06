@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44e25efcb068fe51f05dbbde50e8a96da492a735
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381242"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847289"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>방법: Windows 로그인 화면에서 암호 재설정 사용
 
@@ -45,12 +45,12 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 
 ## <a name="windows-10-password-reset"></a>Windows 10 암호 재설정
 
-### <a name="windows-10-prerequisites"></a>Windows 10 필수 구성 요소
+### <a name="windows-10-prerequisites"></a>Windows 10 필수 조건
 
 - 관리자는 Azure Portal에서 Azure AD 셀프 서비스 암호 재설정을 사용 하도록 설정 해야 합니다.
 - **사용자는이 기능을 사용 하기 전에 SSPR에 등록 해야 합니다.**
 - 네트워크 프록시 요구 사항
-   - Windows 10 장치 
+   - Windows 10 디바이스 
        - `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대 한 포트 443
        - Windows 10 장치는 컴퓨터 수준 프록시 구성만 지원 합니다.
 - Windows 10, 버전 4 월 2018 업데이트 (v1803) 이상을 실행 하 고 장치는 다음 중 하나 여야 합니다.
@@ -59,7 +59,7 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 
 ### <a name="enable-for-windows-10-using-intune"></a>Intune을 사용 하 여 Windows 10 사용
 
-Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 방법을 사용하려면 디바이스를 Intune에 등록해야 합니다.
+Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도록 설정하는 가장 유연한 방법은 구성 변경을 배포하는 것입니다. Intune을 사용하면 여러분이 정의하는 특정 머신 그룹에 구성 변경 내용을 배포할 수 있습니다. 이 메서드는 디바이스의 Intune 등록이 필요합니다.
 
 #### <a name="create-a-device-configuration-policy-in-intune"></a>Intune에서 디바이스 구성 정책 만들기
 
@@ -78,7 +78,7 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
       - **값**을 **1**로 설정
       - **확인**
    - **확인**
-1. 갤러리 헤더에서 **만들기**
+1. **만들기**
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
 
 ### <a name="enable-for-windows-10-using-the-registry"></a>레지스트리를 사용 하 여 Windows 10 사용
@@ -113,7 +113,7 @@ Azure AD 감사 로그에는 암호 재설정이 발생하는 IP 주소 및 Clie
 > [!WARNING]
 > 자동 negotiate로 설정 된 것이 아니라 TLS 1.2을 사용 하도록 설정 해야 합니다.
 
-### <a name="install"></a>설치
+### <a name="install"></a>Install
 
 1. 사용할 Windows 버전에 대해 적절한 설치 관리자를 다운로드합니다.
    - [https://aka.ms/sspraddin](https://aka.ms/sspraddin)의 Microsoft 다운로드 센터에서 소프트웨어를 지원합니다.

@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: alkarche
-ms.openlocfilehash: dffdffdfa80d940c4a50d0a6630c665164f24d5c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 09e4616bc7cbb4361ad067ed64984ed95e9a20c5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230448"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849193"
 ---
 # <a name="work-with-azure-functions-proxies"></a>Azure Functions 프록시 사용
 
@@ -25,7 +25,7 @@ ms.locfileid: "74230448"
 
 이 섹션에서는 함수 포털에서 프록시를 만드는 방법을 보여 줍니다.
 
-1. [Azure Portal]을 열고 함수 앱으로 이동합니다.
+1. [Azure 포털]을 열고 함수 앱으로 이동합니다.
 2. 왼쪽 창에서 **새 프록시**를 선택합니다.
 3. 프록시의 이름을 제공합니다.
 4. **경로 템플릿** 및 **HTTP 메서드**를 지정하여 이 함수 앱에 노출되는 엔드포인트를 구성합니다. 이러한 매개 변수는 [HTTP 트리거]에 대한 규칙에 따라 동작합니다.
@@ -70,7 +70,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 #### <a name="route-template-parameters"></a>경로 템플릿 매개 변수
 경로 템플릿에 사용된 매개 변수는 이름으로 참조할 수 있습니다. 이러한 매개 변수 이름은 중괄호({})로 묶습니다.
 
-예를 들어 프록시에 `/pets/{petId}`와 같은 경로 템플릿이 있는 경우 백 엔드 URL은 `{petId}`와 같이 `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}` 값을 포함할 수 있습니다. 경로 템플릿이 와일드카드로 끝나면(예: `/api/{*restOfPath}`) 값 `{restOfPath}`는 들어오는 요청의 나머지 경로 세그먼트에 대한 문자열 표현이 됩니다.
+예를 들어 프록시에 `/pets/{petId}`와 같은 경로 템플릿이 있는 경우 백 엔드 URL은 `https://<AnotherApp>.azurewebsites.net/api/pets/{petId}`와 같이 `{petId}` 값을 포함할 수 있습니다. 경로 템플릿이 와일드카드로 끝나면(예: `/api/{*restOfPath}`) 값 `{restOfPath}`는 들어오는 요청의 나머지 경로 세그먼트에 대한 문자열 표현이 됩니다.
 
 #### <a name="additional-request-parameters"></a>추가 요청 매개 변수
 경로 템플릿 매개 변수 외에도 구성 값에 다음 값을 사용할 수 있습니다.
@@ -100,13 +100,13 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 `"debug":true` 플래그를 `proxies.json`의 프록시에 추가하면 디버그 로깅을 사용하도록 설정됩니다. 로그는 `D:\home\LogFiles\Application\Proxies\DetailedTrace`에 저장되며 고급 도구(kudu)를 통해 액세스할 수 있습니다. 모든 HTTP 응답에는 로그 파일에 액세스할 수 있는 URL이 포함된 `Proxy-Trace-Location` 헤더도 포함됩니다.
 
-`Proxy-Trace-Enabled`로 설정된 `true` 헤더를 추가하면 클라이언트 쪽에서 프록시를 디버그할 수 있습니다. 또한 파일 시스템에 추적을 기록하며 추적 URL을 응답의 헤더로 반환합니다.
+`true`로 설정된 `Proxy-Trace-Enabled` 헤더를 추가하면 클라이언트 쪽에서 프록시를 디버그할 수 있습니다. 또한 파일 시스템에 추적을 기록하며 추적 URL을 응답의 헤더로 반환합니다.
 
 ### <a name="block-proxy-traces"></a>프록시 추적 차단
 
 보안상의 이유로 서비스 호출자가 추적을 생성하도록 허용하지 않을 수 있습니다. 로그인 자격 증명이 없으면 추적 내용에 액세스할 수 없지만 추적을 생성하면 리소스가 소비되고 Function 프록시가 사용되는 것이 노출됩니다.
 
-`"debug":false`의 특정 프록시에 `proxies.json`를 추가하면 추적을 완전히 사용하지 않도록 설정됩니다.
+`proxies.json`의 특정 프록시에 `"debug":false`를 추가하면 추적을 완전히 사용하지 않도록 설정됩니다.
 
 ## <a name="advanced-configuration"></a>고급 구성
 
@@ -146,7 +146,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 ### <a name="disableProxies"></a> 개별 프록시 사용 안 함
 
-`"disabled": true` 파일의 프록시에 `proxies.json`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondition을 충족하는 모든 요청이 404를 반환합니다.
+`proxies.json` 파일의 프록시에 `"disabled": true`를 추가하면 개별 프록시를 사용하지 않도록 설정할 수 있습니다. 이렇게 하면 matchCondition을 충족하는 모든 요청이 404를 반환합니다.
 ```json
 {
     "$schema": "http://json.schemastore.org/proxies",
@@ -173,7 +173,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 
 프록시는 \를 이스케이프 기호로 사용하여 JSON 파일에서 모든 문자열을 읽습니다. 프록시는 또한 중괄호를 해석합니다. 아래 예제 전체를 참조하세요.
 
-|문자|이스케이프된 문자|예|
+|문자|이스케이프된 문자|예제|
 |-|-|-|
 |{ 또는 }|{{ 또는 }}|`{{ example }}` --> `{ example }`
 | \ | \\\\ | `example.com\\text.html` --> `example.com\text.html`
@@ -184,7 +184,7 @@ Azure Functions 프록시를 사용해서 백 엔드에서 요청 및 응답을 
 requestOverrides 개체는 백 엔드 리소스가 호출될 때 요청에 대한 변경 내용을 정의합니다. 개체는 다음 속성으로 정의됩니다.
 
 * **backend.request.method**: 백 엔드를 호출하는 데 사용될 HTTP 메서드입니다.
-* **backend.request.querystring.\<ParameterName\>** : 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 설정하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공되면 매개 변수는 백 엔드 요청에 포함되지 않습니다.
+* **backend.request.querystring.\<ParameterName\>** : 백 엔드에 대한 호출에 설정할 수 있는 쿼리 문자열 매개 변수입니다. *\<ParameterName\>* 을 설정하려는 매개 변수 이름으로 바꿉니다. 빈 문자열이 제공 되 면 매개 변수는 백 엔드 요청에 계속 포함 됩니다.
 * **backend.request.headers.\<HeaderName\>** : 백 엔드 호출을 위해 설정할 수 있는 헤더입니다. *\<HeaderName\>* 을 설정하려는 헤더 이름으로 바꿉니다. 빈 문자열을 제공하면 헤더는 백 엔드 요청에 포함되지 않습니다.
 
 값은 애플리케이션 설정 및 원래 클라이언트 요청의 매개 변수를 참조할 수 있습니다.
@@ -243,7 +243,7 @@ requestOverrides 개체는 클라이언트에 다시 전달된 응답에 대한 
 > [!NOTE] 
 > 이 예제에서 응답 본문은 직접 설정되므로 `backendUri` 속성이 필요하지 않습니다. 다음 예제에서는 모의 API에 Azure Functions 프록시를 어떻게 사용할 수 있는지를 보여 줍니다.
 
-[Azure Portal]: https://portal.azure.com
+[Azure 포털]: https://portal.azure.com
 [HTTP 트리거]: https://docs.microsoft.com/azure/azure-functions/functions-bindings-http-webhook
 [Modify the back-end request]: #modify-backend-request
 [Modify the response]: #modify-response

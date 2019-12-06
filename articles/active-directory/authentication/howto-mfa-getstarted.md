@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e91a82442b2d436736719d629f70c8dec0e5a6c
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
-ms.translationtype: HT
+ms.openlocfilehash: ccffe8d104792d9723c1541466067de3ea2c2e66
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558548"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848394"
 ---
 # <a name="planning-a-cloud-based-azure-multi-factor-authentication-deployment"></a>클라우드 기반 Azure Multi-Factor Authentication 배포 계획
 
@@ -283,16 +283,16 @@ MFA에 등록 되지 않은 사용자가 인증을 시도 하는 경우 수행�
 
 이 설정은 사용자가 MFA에 등록되지 않은 경우 수행할 작업을 결정하기 위한 것입니다. 이 설정이 변경 되는 영향은 아래 표에 나와 있습니다.
 
-| 설정 | 사용자 MFA 상태 | Effects |
+| 설정 | 사용자 MFA 상태 | 효과 |
 | --- | --- | --- |
 | 키가 없습니다. | 등록 되지 않음 | MFA 챌린지 실패 |
 | True/설정 안 함으로 설정 되는 값 | 등록 되지 않음 | MFA 챌린지 실패 |
 | 키가 False로 설정 되었습니다. | 등록 되지 않음 | MFA 없는 인증 |
-| False 또는 True로 설정 되는 키 | 등록 | MFA를 사용 하 여 인증 해야 합니다. |
+| False 또는 True로 설정 되는 키 | 등록됨 | MFA를 사용 하 여 인증 해야 합니다. |
 
 ### <a name="integrate-with-active-directory-federation-services"></a>Active Directory Federation Services와 통합
 
-조직이 Azure AD와 페더레이션 되는 경우 Azure Multi-Factor Authentication를 사용 하 여 온-프레미스와 클라우드에서 [AD FS 리소스를 보호할](multi-factor-authentication-get-started-adfs.md)수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. 이제 Windows Server 2016부터 기본 인증을 위해 Azure MFA를 구성할 수 있습니다.
+조직이 Azure AD와 페더레이션 되는 경우 Azure Multi-Factor Authentication를 사용 하 여 온-프레미스와 클라우드에서 [AD FS 리소스를 보호할](multi-factor-authentication-get-started-adfs.md)수 있습니다. Azure MFA를 사용 하 여 암호를 줄이고 보다 안전한 인증 방법을 제공할 수 있습니다. Windows Server 2016 부터는 기본 인증을 위해 Azure MFA를 지금 구성할 수 있습니다.
 
 Windows Server 2012 r 2의 AD FS와 달리 AD FS 2016 Azure MFA 어댑터는 Azure AD와 직접 통합 되며 온-프레미스 Azure MFA 서버가 필요 하지 않습니다. Azure MFA 어댑터는 Windows Server 2016에 기본 제공 되며 추가 설치는 필요 하지 않습니다.
 

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05230e39175e71f4eec2c99cd6cbd2f44f05df30
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ce2b420c2124c86610058ce2f31cd6d7bf620a97
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766364"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848462"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-preview"></a>Windows 10 장치에 대 한 암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -80,7 +80,7 @@ ms.locfileid: "74766364"
    1. 프로필 유형: 사용자 지정
    1. 사용자 지정 OMA-URI 설정:
       1. 이름: Windows 로그인에 대 한 FIDO 보안 키를 설정 합니다.
-      1. OMA-URI:./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
+      1. OMA-URI: ./Device/Vendor/MSFT/PassportForWork/SecurityKey/UseSecurityKeyForSignin
       1. 데이터 형식: Integer
       1. 값: 1
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.

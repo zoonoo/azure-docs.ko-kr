@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에 기본적으로 제공되�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 06/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 23475fb77210eeea0568bb996529c81458db9c6c
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 76514e620f044b78b992db2b88733e69dbabf135
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382773"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850638"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법
 
@@ -38,11 +38,11 @@ Automation 계정에서 Azure 모듈을 업데이트 하려면 오픈 소스로 
 
 다음은 이 프로세스를 사용하여 Azure 모듈을 업데이트할 때 고려해야 하는 몇 가지 사항입니다.
 
-* 이 runbook은 기본적으로 **Azure** 및 **AzureRm** 모듈의 업데이트를 지원 합니다. 이 runbook은 **Az** modules의 업데이트도 지원 합니다. 이 runbook을 사용 하 여 모듈을 업데이트 하 `Az` 는 방법에 대 한 자세한 내용은 [Azure 모듈 runbook 업데이트 추가](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 정보를 검토 하세요. Automation 계정에서 `Az` 모듈을 사용 하는 경우 고려해 야 할 중요 한 추가 요소가 있습니다. 자세한 내용은 [automation 계정에서 Az modules 사용](az-modules.md)을 참조 하세요.
+* 이 runbook은 기본적으로 **Azure** 및 **AzureRm** 모듈의 업데이트를 지원 합니다. 이 runbook은 **Az** modules의 업데이트도 지원 합니다. 이 runbook을 사용 하 여 `Az` 모듈을 업데이트 하는 방법에 대 한 자세한 내용은 [Azure 모듈 Runbook 업데이트 추가](https://github.com/microsoft/AzureAutomation-Account-Modules-Update/blob/master/README.md) 정보를 검토 하세요. Automation 계정에서 `Az` 모듈을 사용할 때 고려해 야 하는 추가 중요 요소가 있습니다. 자세한 내용은 [Automation 계정에서 Az Modules 사용](az-modules.md)을 참조 하세요.
 
 * 이 Runbook을 시작하기 전에 Automation 계정에 [Azure 실행 계정 자격 증명](manage-runas-account.md)이 만들어져 있는지 확인합니다.
 
-* 이 코드를 runbook 대신 일반 PowerShell 스크립트로 사용할 수 있습니다. 먼저 [connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용 하 여 Azure에 로그인 한 다음 스크립트에 전달 `-Login $false` 하면 됩니다.
+* 이 코드를 runbook 대신 일반 PowerShell 스크립트로 사용할 수 있습니다. 먼저 [connect-azurermaccount](/powershell/module/azurerm.profile/connect-azurermaccount) 명령을 사용 하 여 Azure에 로그인 한 다음 스크립트에 `-Login $false`를 전달 하면 됩니다.
 
 * 소버린 클라우드에서 이 Runbook을 사용하려면 `AzureRmEnvironment` 매개 변수를 사용하여 올바른 환경을 Runbook에 전달합니다.  허용되는 값은 **AzureCloud**, **AzureChinaCloud**, **AzureGermanCloud** 및 **AzureUSGovernment**입니다. `Get-AzureRmEnvironment | select Name`을 사용하여 이러한 값을 가져올 수 있습니다. 이 매개 변수에 값을 전달하지 않으면 Runbook이 기본적으로 **AzureCloud** Azure 퍼블릭 클라우드로 설정됩니다.
 

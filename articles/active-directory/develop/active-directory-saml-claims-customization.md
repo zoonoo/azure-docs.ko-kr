@@ -3,27 +3,24 @@ title: Azure AD에서 엔터프라이즈 앱에 대 한 SAML 토큰 클레임 �
 titleSuffix: Microsoft identity platform
 description: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임을 사용자 지정하는 방법을 알아보세요.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: f1daad62-ac8a-44cd-ac76-e97455e47803
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1490a25e69ff22fde1f5c870868f20ea6f9a1cf7
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: f5e9dd48695ab28879b151c4b3a37b72c551f9c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046981"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844790"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정
 
@@ -61,7 +58,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 | NameID 형식 | 설명 |
 |---------------|-------------|
-| **Default** | Azure AD는 기본 원본 형식을 사용 합니다. |
+| **기본값** | Azure AD는 기본 원본 형식을 사용 합니다. |
 | **지속적** | Azure AD는 NameID 형식으로 영구를 사용 합니다. |
 | **EmailAddress** | Azure AD는 EmailAddress을 NameID 형식으로 사용 합니다. |
 | **지정 되지 않은** | Azure AD는 NameID 형식으로 지정 되지 않은를 사용 합니다. |
@@ -73,9 +70,9 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| 이름 | 설명 |
+| name | 설명 |
 |------|-------------|
-| Email | 사용자의 이메일 주소입니다. |
+| 이메일 | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN (사용자 계정 이름) |
 | onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
 | objectId | Azure AD에서 사용자의 Objectid |

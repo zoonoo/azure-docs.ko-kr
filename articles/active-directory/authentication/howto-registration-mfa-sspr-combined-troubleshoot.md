@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: troubleshooting
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3f2a60367a8b76464611878e850fff0c4ba8803
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ab7c38d23cb1f05e07488810640aeb791ded3d4a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381395"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847391"
 ---
 # <a name="troubleshooting-combined-security-information-registration-preview"></a>결합 된 보안 정보 등록 문제 해결 (미리 보기)
 
@@ -35,7 +35,7 @@ ms.locfileid: "74381395"
 
 다음 표에서는 결합 된 등록에 의해 생성 된 모든 감사 이벤트를 보여 줍니다.
 
-| 활동 | 가동 상태 | Reason | 설명 |
+| 작업 | 상태 | 이유 | 설명 |
 | --- | --- | --- | --- |
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 성공 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 이 이벤트는 사용자가 성공적으로 등록을 완료 했을 때 발생 합니다.|
 | 사용자가 필요한 모든 보안 정보를 등록 했습니다. | 실패 | 사용자가 보안 정보 등록을 취소 했습니다. | 이 이벤트는 사용자가 인터럽트 모드에서 등록을 취소할 때 발생 합니다.|
@@ -73,7 +73,7 @@ ms.locfileid: "74381395"
 
 다음 단계는 사용자 또는 사용자 그룹을 롤백하는 데 도움이 됩니다.
 
-#### <a name="prerequisites"></a>선행 조건
+#### <a name="prerequisites"></a>전제 조건
 
 1. 적절 한 Azure AD PowerShell 모듈을 설치 합니다. PowerShell 창에서 다음 명령을 실행하여 모듈을 설치합니다.
 

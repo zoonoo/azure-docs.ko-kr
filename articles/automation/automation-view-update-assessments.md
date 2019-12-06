@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 배포에 대 한 업데이트 평
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d4e20b2924504b714dff9f5ba650f9b25c1c26c3
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: d27df57e9371f16a15d3a18b7722598062377d88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690855"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850519"
 ---
 # <a name="view-azure-update-management-update-assessments"></a>Azure 업데이트 관리 업데이트 평가 보기
 
@@ -30,7 +30,7 @@ Azure Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨�
 
 **누락 업데이트**를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트를 필요로 하는 컴퓨터 수, 운영 체제 세부 정보 및 자세한 정보에 대 한 링크가 모두 표시 됩니다. **로그 검색** 창에도 업데이트에 대 한 자세한 정보가 표시 됩니다.
 
-![누락 된 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![누락 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## <a name="update-classifications"></a>업데이트 분류
 

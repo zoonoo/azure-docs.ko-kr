@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20e9f0b9a993d2a8af9b9d91399fdd49f9a06eaa
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f1cc696e6351281ec9bd84cc6611d81d9148cda1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381841"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848428"
 ---
 # <a name="securing-cloud-resources-with-azure-multi-factor-authentication-and-ad-fs"></a>Azure Multi-Factor Authentication 및 AD FS를 사용하여 클라우드 리소스 보안 유지
 
@@ -58,8 +58,8 @@ ms.locfileid: "74381841"
 
 1. AD FS 관리를 엽니다.
 2. 왼쪽에서 **신뢰 당사자 트러스트**를 선택합니다.
-3. **Microsoft Office 365 Id 플랫폼** 을 마우스 오른쪽 단추로 클릭 하 고 **클레임 규칙 편집 ...** 
-   ![ADFS 콘솔-클레임 규칙 편집을 선택](./media/howto-mfa-adfs/trustedip1.png)
+3. 마우스 오른쪽 단추로 클릭 **Microsoft Office 365 Id 플랫폼** 선택한 **클레임 규칙 편집...** 
+   ![ADFS 콘솔-클레임 규칙 편집](./media/howto-mfa-adfs/trustedip1.png)
 4. 발급 변환 규칙에서 **규칙 추가** 를 클릭 하
    ![클레임 규칙 추가를 클릭](./media/howto-mfa-adfs/trustedip2.png)
 5. 변환 클레임 규칙 추가 마법사의 드롭다운 목록에서 **들어오는 클레임 통과 또는 필터링**을 선택하고 **다음**을 클릭합니다.
@@ -77,7 +77,7 @@ ms.locfileid: "74381841"
             => issue(claim = c);
     ![사용자 지정 클레임을 만들어 사용자 로그인 유지](./media/howto-mfa-adfs/trustedip5.png)
 13. **Finish**를 클릭합니다.
-14. **적용**을 클릭합니다.
+14. **Apply**를 클릭합니다.
 15. **확인**을 클릭합니다.
 16. AD FS 관리를 닫습니다.
 
@@ -85,7 +85,7 @@ ms.locfileid: "74381841"
 
 이제 클레임이 적용되었으므로 신뢰할 수 있는 IP를 구성할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. **명명 된 위치** > **조건부 액세스** 를 > **Azure Active Directory** 을 선택 합니다.
 3. **조건부 액세스-명명 된 위치** 블레이드에서 **MFA 신뢰할 수 있는 ip 구성** 을 선택 합니다.
 

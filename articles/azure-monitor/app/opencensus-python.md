@@ -8,25 +8,25 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ca34a92dc69cb500efb55f575420d47607cd1a46
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74132219"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849788"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 수집 및 Python 응용 프로그램의 로깅을 지원 합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 모니터링 데이터를 Azure Monitor으로 전송 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/)를 사용 하지만, 이전 버전은 사소한 변경 내용으로 작업할 가능성이 높습니다.
 
-## <a name="sign-in-to-the-azure-portal"></a>Azure 포털에 로그인합니다.
+## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-[Azure Portal](https://portal.azure.com/)에 로그인합니다.
+[Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 ## <a name="create-an-application-insights-resource-in-azure-monitor"></a>Azure Monitor에서 Application Insights 리소스 만들기
 
@@ -38,9 +38,9 @@ Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분�
 
 1. 구성 상자가 표시 됩니다. 다음 표를 사용 하 여 입력 필드를 채웁니다.
 
-   | 설정        | 값           | 설명  |
+   | 설정        | Value           | 설명  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
+   | **Name**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹의 이름입니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
 
@@ -268,7 +268,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     90
     ```
 
-3. 값 입력은 데모용으로 유용 하지만, 궁극적으로 메트릭 데이터를 Azure Monitor으로 내보내야 합니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
+3. 값을 입력 하는 것은 데모용으로 유용 하지만 궁극적으로는 로그 데이터를 Azure Monitor으로 내보내야 합니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
 
     ```python
     import logging
@@ -295,7 +295,53 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 
 4. 내보내기가 로그 데이터를 Azure Monitor으로 보냅니다. `traces`에서 데이터를 찾을 수 있습니다.
 
-5. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)을 참조 하세요.
+5. 로그 메시지의 형식을 지정 하기 위해 기본 제공 Python [로깅 API](https://docs.python.org/3/library/logging.html#formatter-objects)에서 `formatters`를 사용할 수 있습니다.
+
+    ```python
+    import logging
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    
+    format_str = '%(asctime)s - %(levelname)-8s - %(message)s'
+    date_format = '%Y-%m-%d %H:%M:%S'
+    formatter = logging.Formatter(format_str, date_format)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    handler = AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    
+    def valuePrompt():
+        line = input("Enter a value: ")
+        logger.warning(line)
+    
+    def main():
+        while True:
+            valuePrompt()
+    
+    if __name__ == "__main__":
+        main()
+    ```
+
+6. 로그에 사용자 지정 차원을 추가할 수도 있습니다. 이러한 값은 Azure Monitor `customDimensions`에서 키-값 쌍으로 나타납니다.
+> [!NOTE]
+> 이 기능이 작동 하려면 사전을 로그에 인수로 전달 해야 합니다. 다른 모든 데이터 구조는 무시 됩니다. 문자열 형식을 유지 하려면 사전에 저장 하 고 인수로 전달 합니다.
+
+    ```python
+    import logging
+    
+    from opencensus.ext.azure.log_exporter import AzureLogHandler
+    
+    logger = logging.getLogger(__name__)
+    # TODO: replace the all-zero GUID with your instrumentation key.
+    logger.addHandler(AzureLogHandler(
+        connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
+    )
+    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+    ```
+
+7. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#logs-correlation)을 참조 하세요.
 
 ## <a name="view-your-data-with-queries"></a>쿼리를 사용 하 여 데이터 보기
 

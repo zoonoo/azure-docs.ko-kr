@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: article
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: annaba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: effa03f042b44890fccd474128e75bd1c0f782a3
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: f9f38c160a72b6c414cdde7d29e4056a4068cdc6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381982"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848819"
 ---
 # <a name="azure-active-directory-certificate-based-authentication-on-android"></a>Android에서 Azure Active Directory 인증서 기반 인증
 
@@ -37,7 +37,7 @@ Android 디바이스는 연결할 때 자신의 디바이스에서 클라이언�
 | --- | --- |
 | Azure Information Protection 앱 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | Intune 회사 포털 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
-| Microsoft 팀 |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
+| Microsoft Teams |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | OneNote |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | OneDrive |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |
 | Outlook |![이 응용 프로그램에 대 한 지원을 나타내는 확인 표시][1] |

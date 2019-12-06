@@ -3,16 +3,16 @@ title: Azure Monitor에서 메트릭 경고가 작동하는 방식을 이해합�
 description: 메트릭 경고로 수행할 수 있는 작업과 Azure Monitor에서 메트릭 경고가 작동하는 방식에 대한 개요를 제공합니다.
 author: rboucher
 ms.author: robb
-ms.date: 11/18/2019
+ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: aa54b9ce23ffab266ed6403e3525ae1290d99cec
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775724"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850060"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -125,7 +125,7 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 
-지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 가상 머신에서만 지원됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
+지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 virtual machines, SQL server 데이터베이스, SQL server 탄력적 풀 및 데이터 상자에 지 장치 에서만 지원 됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
 
 다음 세 가지 방법 중 하나로 단일 메트릭 경고를 통해 모니터링 범위를 지정할 수 있습니다.
 

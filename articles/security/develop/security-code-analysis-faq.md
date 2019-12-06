@@ -12,21 +12,21 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: de76467cc741a65a851e5f3a7ec424d0326aebb2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828242"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851522"
 ---
-# <a name="frequently-asked-questions"></a>질문과 대답
+# <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 질문이 있나요? 자세한 내용은 다음 FAQ를 확인 하세요.
 
 ## <a name="general-faq"></a>일반 FAQ
 
 ### <a name="can-i-install-the-extension-on-my-visual-studio-team-foundation-server-instance-instead-of-on-an-azure-devops-instance"></a>Azure DevOps 인스턴스 대신 Visual Studio Team Foundation Server 인스턴스에 확장을 설치할 수 있나요?
 
-아니요. Visual Studio Team Foundation Server의 다운로드 및 설치에는 확장을 사용할 수 없습니다.
+아닙니다. Visual Studio Team Foundation Server의 다운로드 및 설치에는 확장을 사용할 수 없습니다.
 
 ### <a name="do-i-have-to-run-microsoft-security-code-analysis-with-my-build"></a>빌드를 사용 하 여 Microsoft 보안 코드 분석을 실행 해야 하나요? 
 
@@ -55,7 +55,7 @@ ms.locfileid: "71828242"
 
 ### <a name="can-i-run-a-build-task-like-credential-scanner-across-multiple-repositories-in-an-azure-devops-build"></a>Azure DevOps 빌드에서 여러 리포지토리에서 자격 증명 스캐너와 같은 빌드 작업을 실행할 수 있나요?
 
-아니요. 단일 파이프라인의 여러 리포지토리에 대해 보안 개발 도구를 실행 하는 것은 지원 되지 않습니다.
+아닙니다. 단일 파이프라인의 여러 리포지토리에 대해 보안 개발 도구를 실행 하는 것은 지원 되지 않습니다.
 
 ### <a name="the-output-file-i-specified-isnt-being-created-or-i-cant-find-the-output-file-i-specified"></a>지정한 출력 파일을 만들지 않았거나 지정한 출력 파일을 찾을 수 없습니다.
 
@@ -88,9 +88,9 @@ ms.locfileid: "71828242"
 
 설치 시 확장에서 제공 하는 보안 빌드 작업은 조직의 모든 사용자가 사용할 수 있게 됩니다. Azure 파이프라인을 만들거나 편집할 때 이러한 작업은 빌드-작업 컬렉션 목록에서 사용할 수 있습니다. 그렇지 않으면 Azure DevOps 조직에 확장을 설치 해도 아무런 영향을 주지 않습니다. 설치 시 계정 설정, 프로젝트 설정 또는 파이프라인이 수정 되지 않습니다.
 
-### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>확장을 설치 하면 기존 Azure 파이프라인이 수정 되나요? 
+### <a name="does-installing-the-extension-modify-my-existing-azure-pipelines"></a>확장을 설치 하면 기존 Azure Pipelines 수정 됩니까? 
 
-아니요. 확장을 설치 하면 보안 빌드 작업을 파이프라인에 추가 하는 데 사용할 수 있습니다. 도구가 빌드 프로세스를 사용할 수 있도록 빌드 정의를 추가 하거나 업데이트 해야 합니다.
+아닙니다. 확장을 설치 하면 보안 빌드 작업을 파이프라인에 추가 하는 데 사용할 수 있습니다. 도구가 빌드 프로세스를 사용할 수 있도록 빌드 정의를 추가 하거나 업데이트 해야 합니다.
 
 ## <a name="task-specific-faq"></a>작업 관련 FAQ
 
@@ -121,7 +121,7 @@ ms.locfileid: "71828242"
 
 ##### <a name="to-suppress-all-secrets-in-a-specified-file-or-to-suppress-the-secrets-file-itself"></a>지정 된 파일의 모든 암호를 표시 하지 않거나 암호 파일 자체를 표시 하지 않으려면
 
-파일 식은 파일 이름일 수 있습니다. 전체 파일 경로 또는 파일 이름의 basename 될 수도 있습니다. 와일드 카드 지원 되지 않습니다.
+파일 식은 파일 이름일 수 있습니다. 전체 파일 경로 또는 파일 이름의 basename 될 수도 있습니다. 와일드카드는 지원되지 않습니다.
 
 다음 예에서는 \<InputPath > \src\JS\lib\angular.js 파일을 표시 하지 않는 방법을 보여 줍니다.
 
@@ -192,7 +192,7 @@ ms.locfileid: "71828242"
 
 전체 오류 메시지:
 
-"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는 이 문제를 해결 하려면 동일한 설정이 복원에 사용 되 고 빌드 또는 게시와 같은 후속 작업에 사용 되는지 확인 합니다. 일반적으로이 문제는 RuntimeIdentifier 속성이 빌드 중에 설정 되었지만 복원 중에는 설정 되지 않은 경우 발생할 수 있습니다. "
+"오류: 프로젝트가 Microsoft. x. x. x. x. x *. x. x. x. x. x. x. x. x. x*. x를 사용 하 여 복원 되었지만 현재 설정을 사용 하는 경우에는 이 문제를 해결하려면 복원 및 빌드 또는 게시와 같은 후속 작업에 대해 동일한 설정을 사용해야 합니다. 일반적으로 복원 중이 아닌, 빌드 또는 게시 중에 RuntimeIdentifier 속성이 설정된 경우 이 문제가 발생할 수 있습니다."
 
 Roslyn 분석기 태스크가 컴파일의 일부로 실행 되기 때문에 빌드 컴퓨터의 소스 트리가 빌드 가능한 상태 여야 합니다.
 
@@ -222,9 +222,6 @@ Roslyn 분석기 빌드 작업은 MSBuild 빌드 작업에서 MSBuild 로그에 
 
 추가 지원이 필요한 경우 Microsoft 보안 코드 분석 지원은 월요일부터 금요일 오전 9:00 시부터 오후 5:00 시 태평양 표준시로 제공 됩니다.
 
-  - 온 보 딩: 시작 하려면 기술 계정 관리자에 게 문의 하세요.
+- 온 보 딩: [온 보 딩 설명서](security-code-analysis-onboard.md) 를 참조 하세요.
   
-  - 지원: [Microsoft 보안 코드 분석 지원](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request)팀에 전자 메일을 보내세요.
-
-  >[!NOTE] 
-  >Microsoft와 유료 지원 관계가 없을 수 있습니다. 또는 Phoenix 카탈로그에서 서비스를 구입 하지 못하도록 하는 지원 제공이 있을 수 있습니다. 이러한 조건 중 하나에 해당 하는 경우 자세한 내용은 [지원 서비스 홈 페이지](https://www.microsoft.com/enterprise/services/support) 를 참조 하세요.
+- 지원: [Microsoft 보안 코드 분석 지원](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Support%20Request) 팀에 전자 메일 보내기

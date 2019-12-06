@@ -4,18 +4,18 @@ description: 변경 내용 추적 솔루션을 사용하면 사용자 환경에�
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0fc0aeab4e9603995130392e3560325ccaba1ffc
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 1fd800062c4a8362919b1818550b2fca9fa3eb88
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886813"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850553"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
@@ -95,16 +95,16 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 2. **변경 내용 추적** 페이지에서 **Linux 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
 3. **변경 내용 추적에 대해 Linux 파일 추가**에서 추적할 파일 또는 디렉터리에 대한 정보를 입력하고, **저장**을 클릭합니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
 |그룹     | 논리적으로 파일을 그룹화하는 그룹 이름입니다.        |
-|경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/*.conf"       |
+|경로 입력     | 파일을 확인할 경로입니다. 예: "/etc/* .conf"       |
 |경로 유형     | 추적할 항목 유형이며, 가능한 값은 File 및 Directory입니다.        |
 |재귀     | 추적할 항목을 찾을 때 재귀가 사용되는지 결정합니다.        |
 |sudo 사용     | 항목을 확인할 때 sudo가 사용되는지 여부를 결정합니다.         |
-|링크     | 디렉터리를 트래버스할 때 기호화된 링크에서 처리하는 방법을 결정합니다.<br> **무시** - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
+|링크     | 이 설정은 디렉터리를 트래버스할 때 심볼 링크가 처리되는 방법을 결정합니다.<br> **무시** - 바로 가기 링크가 무시되고 참조된 파일/디렉터리가 포함되지 않습니다.<br>**Follow** - 재귀 중에 기호화된 링크를 따르고 참조된 파일/디렉터리도 포함합니다.<br>**관리** - 기호화된 링크를 따르고 반환된 콘텐츠를 변경할 수 있도록 허용합니다.     |
 |모든 설정에 대한 파일 콘텐츠 업로드| 추적된 변경 내용에 대해 파일 콘텐츠 업로드를 설정 또는 해제합니다. 사용 가능한 옵션: **True** 또는 **False**입니다.|
 
 > [!NOTE]
@@ -118,7 +118,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 2. **변경 내용 추적** 페이지에서 **Windows 파일**을 선택한 다음, **+ 추가**를 클릭하여 추적할 새 파일을 추가합니다.
 3. **변경 내용 추적에 대해 Windows 파일 추가**에서 추적할 파일에 대한 정보를 입력하고, **저장**을 클릭합니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 파일의 이름입니다.        |
@@ -150,7 +150,7 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 2. **변경 내용 추적** 페이지에서 **Windows 레지스트리**를 선택한 다음, **+ 추가**를 클릭하여 추적할 새 레지스트리 키를 추가합니다.
 3. **변경 내용 추적에 대해 Windows 레지스트리 추가**에서 추적할 키에 대한 정보를 입력하고 **저장**을 클릭합니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 |사용     | 설정이 적용되는지 여부를 결정합니다.        |
 |Item Name     | 추적할 레지스트리 키의 식별 이름입니다.        |
@@ -196,11 +196,11 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 | **리소스** | **제한**| **참고 사항** |
 |---|---|---|
-|파일|500||
+|File|500||
 |레지스트리|250||
 |Windows 소프트웨어|250|소프트웨어 핫픽스를 포함 하지 않음|
 |Linux 패키지|1250||
-|서비스|250||
+|Services|250||
 |디먼|250||
 
 변경 내용 추적 및 인벤토리를 사용하는 머신의 평균 Log Analytics 데이터 사용량은 월별 약 40MB입니다. 이 값은 근사값이며, 사용자 환경에 따라 변경될 수 있습니다. 사용자 환경을 모니터링하여 정확한 사용량을 확인하는 것이 좋습니다.
@@ -221,7 +221,7 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 레지스트리 키의 변경 내용을 모니터링하는 목적은 타사 코드 및 맬웨어가 활성화될 수 있는 확장성 지점을 정확하게 찾기 위한 것입니다. 다음 목록에서는 미리 구성된 레지스트리 키의 목록을 보여 줍니다. 이러한 키는 구성되어 있지만 사용할 수 없습니다. 이러한 레지스트리 키를 추적하려면 각 레지스트리 키를 사용하도록 설정해야 합니다.
 
 > [!div class="mx-tdBreakAll"]
-> |레지스트리 키 | 목적 |
+> |레지스트리 키 | 용도 |
 > |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 > |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Windows 탐색기에 직접 연결되고 일반적으로 Explorer.exe를 사용하여 In Process에서 실행되는 일반적인 자동 시작 항목을 모니터링합니다.
 > |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | 시작 시 실행되는 스크립트를 모니터링합니다.
@@ -249,8 +249,8 @@ Windows 서비스에 대한 기본 컬렉션 빈도는 30분입니다. 빈도를
 |---------|---------|
 |*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
 |*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|\* .azure-automation.net|*.azure-automation.us|
+|\*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>변경 내용 추적 사용
 

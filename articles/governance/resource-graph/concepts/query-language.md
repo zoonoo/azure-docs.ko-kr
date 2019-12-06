@@ -1,14 +1,14 @@
 ---
 title: 쿼리 언어 이해
 description: 리소스 그래프 테이블에 대해 설명 하 고 Azure 리소스 그래프에서 사용할 수 있는 Kusto 데이터 형식, 연산자 및 함수에 대해 설명 합니다.
-ms.date: 10/21/2019
+ms.date: 12/05/2019
 ms.topic: conceptual
-ms.openlocfilehash: baef46f4ba6f899c2c0a1392f87006223d75a4e1
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: a3503ce8d83b5bd47872db4b1de0eadb88be432c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73959045"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851216"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Azure Resource Graph 쿼리 언어 이해
 
@@ -65,14 +65,15 @@ Resources
 
 다음은 특정 샘플과 함께 리소스 그래프에서 지 원하는 KQL 테이블 형식 연산자의 목록입니다.
 
-|KQL |리소스 그래프 샘플 쿼리 |참고 사항 |
+|KQL |리소스 그래프 샘플 쿼리 |참고 |
 |---|---|---|
 |[count](/azure/kusto/query/countoperator) |[키 자격 증명 모음 수](../samples/starter.md#count-keyvaults) | |
 |[distinct](/azure/kusto/query/distinctoperator) |[특정 별칭에 대한 고유 값 표시](../samples/starter.md#distinct-alias-values) | |
 |[extend](/azure/kusto/query/extendoperator) |[OS 유형별 가상 머신 개수 계산](../samples/starter.md#count-os) | |
 |[join](/azure/kusto/query/joinoperator) |[구독 이름이 있는 키 자격 증명 모음](../samples/advanced.md#join) |지원 되는 조인 특색: [innerunique](/azure/kusto/query/joinoperator#default-join-flavor), [inner](/azure/kusto/query/joinoperator#inner-join), [leftouter](/azure/kusto/query/joinoperator#left-outer-join). 단일 쿼리에서 `join` 3 개로 제한 됩니다. 브로드캐스트 조인과 같은 사용자 지정 조인 전략은 허용 되지 않습니다. 단일 테이블 내에서 또는 _리소스_ 와 _ResourceContainers_ 테이블 간에 사용할 수 있습니다. |
 |[limit](/azure/kusto/query/limitoperator) |[모든 공용 IP 주소 나열](../samples/starter.md#list-publicip) |`take`의 동의어 |
-|[mv-확장](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_Rowlimit_ 최대 400 |
+|[mvexpand](/azure/kusto/query/mvexpandoperator) | | 레거시 연산자, 대신 `mv-expand`를 사용 합니다. _Rowlimit_ max 400. 기본값은 128입니다. |
+|[mv-확장](/azure/kusto/query/mvexpandoperator) |[특정 쓰기 위치를 사용하여 Cosmos DB 나열](../samples/advanced.md#mvexpand-cosmosdb) |_Rowlimit_ max 400. 기본값은 128입니다. |
 |[주문을](/azure/kusto/query/orderoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) |`sort`의 동의어 |
 |[project](/azure/kusto/query/projectoperator) |[리소스를 이름별로 나열](../samples/starter.md#list-resources) | |
 |[project-away](/azure/kusto/query/projectawayoperator) |[결과에서 열 제거](../samples/advanced.md#remove-column) | |
@@ -119,4 +120,4 @@ Resources
 
 - [시작 쿼리에서](../samples/starter.md)사용 중인 언어를 참조 하세요.
 - [고급 쿼리에서](../samples/advanced.md)고급 사용을 참조 하세요.
-- [리소스를 탐색](explore-resources.md)하는 방법에 대해 자세히 알아보세요.
+- [리소스 검색](explore-resources.md) 방법을 자세히 알아봅니다.

@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8388d5b22cddcf148c68f35758ccdf797abbcd9e
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 283bd56b9d9cbe412e9c28127dd9dab7decc2d7c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420620"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848309"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -43,7 +43,7 @@ Azure MFA가 사용되는 NPS 서버를 필요한 만큼 많이 만들 수 있�
 
 VPN 서버는 인증 요청을 라우팅하므로 새로운 Azure MFA 사용 NPS 서버에 유의해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 NPS 확장은 기존 인프라와 함께 사용할 수 있습니다. 시작하기 전에 다음 필수 조건을 갖추고 있는지 확인합니다.
 
@@ -221,7 +221,7 @@ NPS 확장을 사용하여 RADIUS 클라이언트에 대해 MFA를 사용하도�
 
 MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 수행할 작업을 결정할 수 있습니다. *HKLM\Software\Microsoft\AzureMFA* 레지스트리 경로에서 *REQUIRE_USER_MATCH* 레지스트리 설정을 사용하여 기능 동작을 제어합니다. 이 설정에는 다음과 같은 단일 구성 옵션이 있습니다.
 
-| Key | 값 | 기본값 |
+| 키 | Value | 기본값 |
 | --- | ----- | ------- |
 | REQUIRE_USER_MATCH | TRUE/FALSE | 설정되지 않음(TRUE와 동일) |
 
@@ -235,7 +235,7 @@ MFA에 등록되지 않은 사용자가 있는 경우 인증을 시도할 때 �
 
 다음 스크립트는 TechNet 갤러리에서 NPS 확장 문제를 해결할 때 기본 상태 검사 단계를 수행 하는 데 사용할 수 있습니다.
 
-[MFA_NPS_Troubleshooter. ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
+[MFA_NPS_Troubleshooter.ps1](https://gallery.technet.microsoft.com/Azure-MFA-NPS-Extension-648de6bb)
 
 ---
 
@@ -286,7 +286,7 @@ Get-MsolServicePrincipalCredential -AppPrincipalId "981f26a1-7f43-403b-a875-f8b0
 1. NPS 서버를 다시 시작합니다.
 2. 클라이언트 인증서가 예상대로 설치되었는지 확인합니다.
 3. 인증서가 Azure AD의 테넌트와 연결되어 있는지 확인합니다.
-4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/에 액세스할 수 있는지 확인합니다.
+4. 확장을 실행하는 서버에서 https://login.microsoftonline.com/ 에 액세스할 수 있는지 확인합니다.
 
 ---
 
@@ -298,7 +298,7 @@ AD Connect가 실행 중이고 사용자가 Windows Active Directory와 Azure Ac
 
 ### <a name="why-do-i-see-http-connect-errors-in-logs-with-all-my-authentications-failing"></a>내 모든 인증이 실패한 상태의 로그에 HTTP 연결 오류가 표시되는 이유는 무엇입니까?
 
-NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com에 액세스할 수 있는지 확인합니다.
+NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com 에 액세스할 수 있는지 확인합니다.
 
 ---
 
@@ -310,7 +310,7 @@ NPS 확장을 실행하는 서버에서 https://adnotifications.windowsazure.com
 
 ## <a name="managing-the-tlsssl-protocols-and-cipher-suites"></a>TLS/SSL 프로토콜 및 암호 그룹 관리
 
-조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 아티클에서 찾을 수 있습니다.
+조직에서 필요하지 않는 경우 오래되고 약한 암호 그룹을 사용하지 않도록 설정하거나 제거하는 것이 좋습니다. 이 작업을 완료하는 방법에 대한 정보는 [AD FS에 대한 SSL/TLS 프로토콜 및 암호 그룹 관리](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/manage-ssl-protocols-in-ad-fs) 문서에서 찾을 수 있습니다.
 
 ### <a name="additional-troubleshooting"></a>추가 문제 해결
 

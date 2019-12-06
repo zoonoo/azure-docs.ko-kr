@@ -2,28 +2,24 @@
 title: Azure Active Directory와 통합 하는 방법 | Microsoft Docs
 description: 응용 프로그램을 Azure Active Directory와 통합 하 고, 간소화 된 로그인, id 관리, multi-factor authentication 및 access control과 같은 기능에 대 한 리소스를 얻는 이점에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: d13bba54-96bd-4b81-bee9-c8025ffa1648
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/08/2019
 ms.author: ryanwi
-ms.reviewer: bryanla
+ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 2815fbebd54a1e373aa8b3058f85d092c0bb098f
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72374042"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844892"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Azure Active Directory와의 통합
 

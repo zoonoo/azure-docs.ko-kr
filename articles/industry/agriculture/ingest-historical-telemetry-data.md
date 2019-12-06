@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 27aec53fd2e92e19f1c749e833217fb8b5deae57
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 0ab2ba2c49dd0d0f946358c8f52a6daaf7428dd1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672568"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851420"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -27,7 +27,7 @@ ms.locfileid: "74672568"
 
 Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해야 합니다. 이 단계에서는 장치 파트너로 Azure FarmBeats에 액세스할 수 있는 클라이언트를 만들고 이후 단계에서 필요한 다음 값을 제공 합니다.
 
-- API 끝점 – https://<datahub>azurewebsites.net와 같은 데이터 허브 URL입니다.
+- API 끝점 – 데이터 허브 URL입니다 (예: https://\<datahub >).
 - 테넌트 ID
 - 클라이언트 ID
 - 클라이언트 암호
@@ -87,7 +87,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |    **디바이스**             |                      |
 |   DeviceModelId     |     연결 된 장치 모델의 ID  |
 |  hardwareId          | MAC 주소 등의 장치에 대 한 고유 ID
-|  reportingInterval        |   보고 간격 (초)
+|  ReportingInterval        |   보고 간격 (초)
 |  위치            |  장치 위도 (-90 ~ + 90)/경도 (-180 ~ 180)/상승 (미터)   
 |ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드는 게이트웨이로 parentDeviceId를 포함 합니다.  |
 |    name            | 리소스를 식별 하는 이름입니다. 장치 파트너는 파트너 측의 장치 이름과 일치 하는 이름을 보내야 합니다. 파트너 장치 이름이 사용자 정의 이면 동일한 사용자 정의 이름을 FarmBeats에 전파 해야 합니다.|
@@ -119,7 +119,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
 **메타 데이터를 만들기 위한 API 요청**
 
-API 요청을 만들려면 HTTP (POST) 메서드와 API 서비스에 대 한 URL, 쿼리할 리소스에 대 한 URI, 요청을 만들거나 삭제 하기 위해 데이터를 전송 하 고 하나 이상의 HTTP 요청 헤더를 추가 합니다. API 서비스에 대 한 URL은 API 끝점 (예: 데이터 허브 URL (https://<yourdatahub>. azurewebsites.net))입니다.  
+API 요청을 만들려면 HTTP (POST) 메서드와 API 서비스에 대 한 URL, 쿼리할 리소스에 대 한 URI, 요청을 만들거나 삭제 하기 위해 데이터를 전송 하 고 하나 이상의 HTTP 요청 헤더를 추가 합니다. API 서비스에 대 한 URL은 API 끝점 (예: 데이터 허브 URL (https://\<)의 datahub >)입니다.  
 
 **인증**:
 
@@ -135,11 +135,33 @@ FarmBeats Data hub는 위의 섹션에서 생성 한 다음 자격 증명을 필
 headers = *{"Authorization": "Bearer " + access_token, …}*
 ```
 
+다음은 FarmBeats에 대 한 후속 API 호출에 사용할 수 있는 액세스 토큰을 제공 하는 샘플 Python 코드입니다. 
+
+```python
+import azure 
+
+from azure.common.credentials import ServicePrincipalCredentials 
+import adal 
+#FarmBeats API Endpoint 
+ENDPOINT = "https://<yourdatahub>.azurewebsites.net" [Azure website](https://<yourdatahub>.azurewebsites.net)
+CLIENT_ID = "<Your Client ID>"   
+CLIENT_SECRET = "<Your Client Secret>"   
+TENANT_ID = "<Your Tenant ID>" 
+AUTHORITY_HOST = 'https://login.microsoftonline.com' 
+AUTHORITY = AUTHORITY_HOST + '/' + TENANT_ID 
+#Authenticating with the credentials 
+context = adal.AuthenticationContext(AUTHORITY) 
+token_response = context.acquire_token_with_client_credentials(ENDPOINT, CLIENT_ID, CLIENT_SECRET) 
+#Should get an access token here 
+access_token = token_response.get('accessToken') 
+```
+
+
 **HTTP 요청 헤더**:
 
 FarmBeats Data hub에 대 한 API 호출을 만들 때 지정 해야 하는 가장 일반적인 요청 헤더는 다음과 같습니다.
 
-- Content-type: application/json
+- Content-Type: application/json
 - 권한 부여: 전달자 < 액세스-토큰 >
 - 수락: application/json
 
@@ -271,6 +293,26 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 **원격 분석 메시지를 클라이언트로 보내기**
 
 EventHub 클라이언트로 설정 된 연결이 있으면 EventHub로 메시지를 json으로 보낼 수 있습니다.  
+
+다음은 원격 분석을 지정 된 이벤트 허브에 클라이언트로 보내는 샘플 Python 코드입니다.
+
+```python
+import azure
+from azure.eventhub import EventHubClient, Sender, EventData, Receiver, Offset
+EVENTHUBCONNECTIONSTRING = "<EventHub Connection String provided by customer>"
+EVENTHUBNAME = "<EventHub Name provided by customer>"
+
+write_client = EventHubClient.from_connection_string(EVENTHUBCONNECTIONSTRING, eventhub=EVENTHUBNAME, debug=False)
+sender = write_client.add_sender(partition="0")
+write_client.run()
+for i in range(5):
+    telemetry = "<Canonical Telemetry message>"
+    print("Sending telemetry: " + telemetry)
+    sender.send(EventData(telemetry))
+write_client.stop()
+
+```
+
 기록 센서 데이터 형식을 Azure FarmBeats에서 인식 하는 정식 형식으로 변환 합니다. 정식 메시지 형식은 다음과 같습니다.  
 
 ```json

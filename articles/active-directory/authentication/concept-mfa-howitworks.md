@@ -1,22 +1,22 @@
 ---
 title: Azure MFA 작동 방식-Azure Active Directory
-description: 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다.
+description: Azure Multi-Factor Authentication은 간편한 로그인 프로세스를 원하는 사용자의 요구를 충족시키는 동시에 데이터와 애플리케이션에 대한 액세스 보호를 지원합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1036d7e8aef29e3185452d5088e660d474726e4
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381966"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848683"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>작동 방법: Azure Multi-Factor Authentication
 
@@ -24,7 +24,7 @@ ms.locfileid: "74381966"
 
 * 사용자가 알고 있는 정보(일반적으로 암호)
 * 사용자가 보유한 디바이스(예: 휴대폰과 같이 쉽게 복제되지 않는 신뢰할 수 있는 디바이스)
-* 사용자의 신체 관련 항목(생체 공학)
+* 사용자의 신원 정보(생체 인식)
 
 <center>
 

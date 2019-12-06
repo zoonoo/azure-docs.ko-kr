@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d6a87b5797ea5c8f4ac116d6df9e6a48204f1fd
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: b448e6ce7c8b4522d5e7bdbafb39eccca982fdee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381910"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848513"
 ---
 # <a name="authentication-methods-usage--insights-preview"></a>인증 방법 사용 & insights (미리 보기)
 
@@ -27,13 +27,13 @@ ms.locfileid: "74381910"
 다음 역할은 사용 및 정보에 액세스할 수 있습니다.
 
 - 전역 관리자
-- 보안 판독기
+- 보안 읽기 권한자
 - 보안 관리자
 - 보고서 구독자
 
 사용 및 정보에 액세스 하는 데 추가 라이선스가 필요 하지 않습니다. Azure Multi-Factor Authentication 및 SSPR (셀프 서비스 암호 재설정) 라이선스 정보는 [Azure Active Directory 가격 책정 사이트](https://azure.microsoft.com/pricing/details/active-directory/)에서 찾을 수 있습니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 인증 방법 사용 및 정보에 액세스 하려면:
 
@@ -65,7 +65,7 @@ ms.locfileid: "74381910"
 
 등록 세부 정보 보고서에는 각 사용자에 대 한 다음 정보가 표시 됩니다.
 
-- 이름
+- name
 - 사용자 이름
 - 등록 상태 (모두, 등록 됨, 등록 되지 않음)
 - 활성화 상태 (모두, 사용, 사용 안 함)
@@ -80,7 +80,7 @@ ms.locfileid: "74381910"
 
 세부 정보 다시 설정 보고서는 지난 30 일 동안 다음과 같은 등록 및 다시 설정 이벤트를 표시 합니다.
 
-- 이름
+- name
 - 사용자 이름
 - 기능 (모두, 등록, 다시 설정)
 - 인증 방법 (앱 알림, 앱 코드, 전화 통화, Office 통화, SMS, 전자 메일, 보안 질문)

@@ -3,27 +3,23 @@ title: Azure AD에서 엔터프라이즈 응용 프로그램에 대 한 역할 �
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 엔터프라이즈 애플리케이션에 SAML 토큰에서 발급된 역할 클레임을 구성하는 방법 알아보기
 services: active-directory
-documentationcenter: ''
 author: jeevansd
 manager: CelesteDG
-editor: ''
 ms.assetid: eb2b3741-3cde-45c8-b639-a636f3df3b74
 ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c671626a431a47e5100cf42ca0c9e29ab580ab3a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4657a69347eb2294877e6bd2d7de8e41c0c2ef26
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803501"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74845300"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 

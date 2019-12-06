@@ -1,22 +1,22 @@
 ---
-title: RDG 및 RADIUS-Azure Active Directory를 사용 하 여 Azure MFA 서버
+title: RADIUS-Azure Active Directory를 사용 하는 RDG 및 Azure MFA 서버
 description: RADIUS를 사용하여 RD(Remote Desktop) 게이트웨이 및 Azure Multi-Factor Authentication을 배포하는 데 도움이 되는 Azure Multi-Factor Authentication 페이지입니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a129030e8071dc590562ca5ca203d8d735f0449e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9ef90ce9e6d3849a4c778326b02040f0b1fc764a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052543"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848020"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>RADIUS를 사용한 원격 데스크톱 게이트웨이 및 Azure Multi-Factor Authentication 서버
 
@@ -27,9 +27,9 @@ ms.locfileid: "67052543"
 별도의 서버에 Multi-Factor Authentication 서버를 설치합니다. 이 서버는 원격 데스크톱 게이트웨이 서버의 NPS로 RADIUS 요청을 다시 프록시합니다. NPS에서 사용자 이름과 암호의 유효성을 검사한 후 Multi-Factor Authentication 서버로 응답을 반환합니다. 그런 다음 MFA 서버에서 두 번째 인증 단계를 수행하고 결과를 게이트웨이로 반환합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - 도메인에 가입된 Azure MFA 서버. 설치되어 있지 않은 경우 [Azure Multi-factor Authentication 서버 시작](howto-mfaserver-deploy.md)의 단계를 따릅니다.
 - 기존 구성된 NPS 서버.
@@ -82,7 +82,7 @@ Azure Multi-Factor Authentication 서버는 RD 게이트웨이 및 NPS 사이의
 3. **대상** 탭으로 이동하고 **RADIUS 서버** 라디오 단추를 선택합니다.
 4. **추가**를 선택하고 NPS 서버의 IP 주소, 공유 암호 및 포트를 입력합니다. 중앙 NPS를 사용하지 않는 한 RADIUS 클라이언트와 RADIUS 대상은 동일합니다. 공유 암호는 NPS 서버에서 RADIUS 클라이언트 섹션의 설정 하나와 일치해야 합니다.
 
-![MFA 서버에서 radius 인증](./media/howto-mfaserver-nps-rdg/radius.png)
+![MFA 서버의 Radius 인증](./media/howto-mfaserver-nps-rdg/radius.png)
 
 ## <a name="next-steps"></a>다음 단계
 

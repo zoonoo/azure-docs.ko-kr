@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a0d7edb6c7faafcad55e827c2d9e3d2eeea40f5
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c1c00d0f4ba365442762df6e041f02ea0a39f099
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60358035"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847306"
 ---
 # <a name="deploy-password-reset-without-requiring-end-user-registration"></a>최종 사용자를 등록할 필요 없이 암호 재설정 배포
 
@@ -47,7 +47,7 @@ Azure AD Connect에서 기본 설정을 사용한 경우 다음과 같은 매핑
 
 전역 관리자는 다음 스크린샷에 표시된 대로 사용자에 대한 인증 연락처 정보를 수동으로 설정할 수 있습니다.
 
-![인증에 Azure AD에서 사용자에 대 한 정보를 문의][Contact]
+![Azure AD의 사용자에 대 한 인증 연락처 정보][Contact]
 
 전화 필드가 채워지고 휴대폰이 SSPR 정책에서 활성화되는 경우 사용자는 암호 재설정 등록 페이지와 암호 재설정 워크플로 중 해당 번호를 볼 수 있습니다.
 
@@ -164,7 +164,7 @@ Get-AzureADUser | select DisplayName,UserPrincipalName,otherMails,Mobile,Telepho
 * [비밀번호 쓰기 저장은 무엇이며, 왜 관심을 가져야 합니까?](howto-sspr-writeback.md)
 * [SSPR 작업은 어떻게 보고 합니까?](howto-sspr-reporting.md)
 * [모든 SSPR 옵션과 그 의미는 무엇입니까?](concept-sspr-howitworks.md)
-* [무엇인가 손상된 문제가 있습니다. SSPR 문제는 어떻게 해결합니까?](active-directory-passwords-troubleshoot.md)
+* [뭐가 손상 된 것으로 생각 합니다. SSPR 문제 해결을 어떻게 할까요??](active-directory-passwords-troubleshoot.md)
 * [다른 곳에서 다루지 않았던 질문이 있습니다.](active-directory-passwords-faq.md)
 
 [Contact]: ./media/howto-sspr-authenticationdata/user-authentication-contact-info.png "전역 관리자는 사용자의 인증 연락처 정보를 수정할 수 있습니다."

@@ -2,29 +2,25 @@
 title: 앱 등록 (레거시)에서 새로운 앱 등록 환경으로 전환 하기 위한 학습 가이드 Azure Portal
 description: Azure Portal의 새로운 앱 등록 환경 소개
 services: active-directory
-documentationcenter: ''
 author: archieag
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2019
 ms.author: aragra
 ms.reviewer: lenalepa, keyam
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01d543262a9eb358643c0860b24ac4306d2c5edf
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 2f49cac5c8c49fb5c53d3320cb0ab52e0f61acda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927088"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74844263"
 ---
-# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>앱 등록 (레거시)에서 Azure Portal의 새로운 앱 등록 환경으로 전환
+# <a name="transitioning-from-app-registrations-legacy-to-the-new-app-registrations-experience-in-the-azure-portal"></a>앱 등록(레거시)에서 Azure Portal의 새로운 앱 등록 환경으로 전환
 
 Azure Portal에서 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 많은 향상 된 기능을 찾을 수 있습니다. Azure Portal에서 앱 등록 (레거시) 환경에 대해 잘 알고 있는 경우이 교육 가이드를 사용 하 여 새 환경 사용을 시작 하세요.
 
@@ -59,7 +55,7 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 
 레거시 환경에는 **속성** 페이지가 있습니다. **속성** 에는 다음 필드가 있습니다.
 
-- **이름**
+- **Name**
 - **개체 ID**
 - **애플리케이션 ID**
 - **앱 ID URI**
@@ -67,7 +63,7 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 - **홈페이지 URL**
 - **로그아웃 URL**
 - **서비스 약관 URL**
-- **개인정보 취급 방침 URL**
+- **개인정보처리방침 URL**
 - **애플리케이션 유형**
 - **다중 테 넌 트**
 
@@ -115,7 +111,7 @@ Azure Active Directory에서 여기에 설명 된 새 응용 프로그램 등록
 
 레거시 환경에서는 단일 테 넌 트 앱만 삭제할 수 있습니다. 다중 테 넌 트 앱에 대해 삭제 단추를 사용할 수 없습니다. 새 환경에서는 모든 상태에서 앱을 삭제할 수 있지만 작업을 확인 해야 합니다. 자세한 내용은 [빠른 시작: Microsoft id 플랫폼을 사용 하 여 등록 된 응용 프로그램 제거](quickstart-remove-app.md)를 참조 하세요.
 
-## <a name="application-manifest"></a>애플리케이션 매니페스트
+## <a name="application-manifest"></a>애플리케이션 매니페스트.
 
 레거시 및 새로운 환경은 매니페스트 편집기에서 JSON 형식에 대해 서로 다른 버전을 사용 합니다. 자세한 내용은 [Azure Active Directory 응용 프로그램 매니페스트](reference-app-manifest.md)를 참조 하세요.
 

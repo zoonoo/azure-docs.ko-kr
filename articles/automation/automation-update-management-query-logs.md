@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 관리에 대 한 로그를 쿼리
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 09/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d53e41fc902241d796cf8b10ae35c50c090a803a
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 4797e3a348b057fa21677649e4cb7de78de0d8b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72377539"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850621"
 ---
 # <a name="query-update-records-for-update-management-in-log-analytics"></a>Log Analytics에서 업데이트 관리에 대 한 업데이트 레코드 쿼리
 

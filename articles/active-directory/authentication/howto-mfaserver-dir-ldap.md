@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 07/11/2018
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc67fb216451bd19fe8cfb327c101aa989228b01
-ms.sourcegitcommit: 084630bb22ae4cf037794923a1ef602d84831c57
+ms.openlocfilehash: 6e24442abd707706e035bc1f9dc0a46951e0711a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67536905"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74848071"
 ---
 # <a name="ldap-authentication-and-azure-multi-factor-authentication-server"></a>LDAP 인증 및 Azure Multi-Factor Authentication 서버
 
@@ -25,7 +25,7 @@ ms.locfileid: "67536905"
 Azure Multi-Factor Authentication을 LDAP 프록시로 사용하려면 Azure Multi-Factor Authentication 서버를 LDAP 클라이언트(예: VPN 어플라이언스, 애플리케이션)와 LDAP 디렉터리 서버 사이에 삽입합니다. Azure Multi-Factor Authentication 서버가 클라이언트 서버 및 LDAP 디렉터리와 모두 통신할 수 있도록 구성되어야 합니다. 이 구성에서 Azure Multi-Factor Authentication 서버는 클라이언트 서버 및 애플리케이션의 LDAP 요청을 수락하고 대상 LDAP 디렉터리 서버에 전달하여 기본 자격 증명의 유효성을 검사합니다. LDAP 디렉터리가 기본 자격 증명의 유효성을 검사하면 Azure Multi-Factor Authentication은 두 번째 ID 검증을 수행하고 다시 LDAP 클라이언트로 응답을 보냅니다. LDAP 서버 인증 및 2단계 검증이 모두 성공해야만 전체 인증에 성공합니다.
 
 > [!IMPORTANT]
-> 2019 년 7 월 1 일을 기준으로 Microsoft 새 배포에 대 한 MFA 서버 제공 되지 않습니다. 해당 사용자의 multi-factor authentication 인증을 요구 하는 새 고객은 클라우드 기반 Azure Multi-factor Authentication을 사용 해야 합니다. 7 월 1 일 전에 MFA 서버를 활성화 한 기존 고객 최신 버전으로 향후 업데이트를 다운로드 하 고 일반적인 방식으로 정품 인증 자격 증명을 생성 하는 일을 할 수 있습니다.
+> 2019 년 7 월 1 일부 터 Microsoft는 더 이상 새 배포에 대해 MFA 서버를 제공 하지 않습니다. 사용자에 게 multi-factor authentication을 요구 하려는 새 고객은 클라우드 기반 Azure Multi-Factor Authentication를 사용 해야 합니다. 7 월 1 일 이전에 MFA 서버를 활성화 한 기존 고객은 최신 버전을 다운로드 하 고, 나중에 업데이트 하 고 활성화 자격 증명을 생성할 수 있습니다.
 
 ## <a name="configure-ldap-authentication"></a>LDAP 인증 구성
 
@@ -36,11 +36,11 @@ LDAP 인증을 구성하려면 Windows 서버에 Azure Multi-Factor Authenticati
 1. Azure Multi-Factor Authentication 서버의 왼쪽 메뉴에서 LDAP 인증 아이콘을 선택합니다.
 2. **LDAP 인증 사용** 확인란을 선택합니다.
 
-   ![MFA 서버에서 LDAP 인증](./media/howto-mfaserver-dir-ldap/ldap2.png)
+   ![MFA 서버의 LDAP 인증](./media/howto-mfaserver-dir-ldap/ldap2.png)
 
 3. LDAP 요청을 수신하기 위해 Azure Multi-Factor Authentication LDAP 서비스가 비표준 포트에 바인딩해야 하는 경우 클라이언트 탭에서 TCP 포트 및 SSL 포트를 변경합니다.
 4. 클라이언트에서 Azure Multi-Factor Authentication 서버까지 LDAPS를 사용하려는 경우 MFA 서버와 동일한 서버에 SSL 인증서가 설치되어야 합니다. SSL 인증서 상자 옆에 있는 **찾아보기**를 클릭하고 보안 연결에 사용할 인증서를 선택합니다.
-5. **추가**를 클릭합니다.
+5. **추가**으로 로그온합니다.
 6. [LDAP 클라이언트 추가] 대화 상자에서 서버 및 애플리케이션 이름(선택 사항)을 인증하는 애플리케이션의 IP 주소, 서버 및 애플리케이션을 입력합니다. 애플리케이션 이름이 Azure Multi-Factor Authentication 보고서에 나타나며 SMS 또는 모바일 앱 인증 메시지 내에 표시될 수 있습니다.
 7. 모든 사용자를 서버로 가져왔거나 가져올 예정이고 2단계 확인을 적용하는 경우 **Azure Multi-Factor Authentication 사용자 일치 필요** 확인란을 선택합니다. 많은 수의 사용자를 서버에 아직 가져오지 않았거나 2단계 확인에서 제외할 예정이면 이 확인란을 선택 취소합니다. 이 기능에 대한 자세한 내용은 MFA 서버 도움말 파일을 참조하세요.
 
@@ -51,7 +51,7 @@ LDAP 클라이언트를 더 추가하려면 이 단계를 반복합니다.
 Azure Multi-Factor Authentication이 LDAP 인증을 받도록 구성된 경우 해당 인증을 LDAP 디렉터리로 프록시해야 합니다. 따라서 대상 탭에는 LDAP 대상을 사용하기 위해 단일한 회색 옵션만 표시됩니다.
 
 > [!NOTE]
-> Active Directory Domain Services 이외의 디렉터리를 사용 하려면 디렉터리 통합 보장 되지 않습니다.
+> 디렉터리 통합은 Active Directory Domain Services 이외의 디렉터리에서 작동 하지 않을 수 있습니다.
 
 1. LDAP 디렉터리 연결을 구성하려면 **디렉터리 통합** 아이콘을 클릭합니다.
 2. 설정 탭에서 **특정 LDAP 구성 사용** 라디오 단추를 선택합니다.
@@ -62,15 +62,15 @@ Azure Multi-Factor Authentication이 LDAP 인증을 받도록 구성된 경우 �
 
 5. **테스트** 단추를 클릭하여 LDAP 연결을 테스트합니다.
 6. LDAP 연결 테스트가 성공한 경우 **확인** 단추를 클릭합니다.
-7. **필터** 탭을 클릭합니다. Active Directory에서 컨테이너, 보안 그룹 및 사용자를 로드하도록 서버가 미리 구성되어 있습니다. 다른 LDAP 디렉터리에 바인딩하는 경우 표시되는 필터를 편집해야 합니다. 필터에 대한 자세한 내용은 **도움말** 링크를 클릭합니다.
-8. **특성** 탭을 클릭합니다. Active Directory의 특성을 매핑하도록 서버가 미리 구성되어 있습니다.
+7. **필터** 탭을 클릭 합니다. 서버는 Active Directory에서 컨테이너, 보안 그룹 및 사용자를 로드 하도록 미리 구성 되어 있습니다. 다른 LDAP 디렉터리에 바인딩하는 경우 표시되는 필터를 편집해야 합니다. 필터에 대한 자세한 내용은 **도움말** 링크를 클릭합니다.
+8. **특성** 탭을 클릭 합니다. 서버는 Active Directory의 특성을 매핑하도록 미리 구성 되어 있습니다.
 9. 다른 LDAP 디렉터리에 바인딩하거나 미리 구성된 특성 매핑을 변경하려는 경우 **편집...** 을 클릭합니다.
 10. Edit Attributes(특성 편집) 대화 상자에서 디렉터리에 대한 LDAP 특성 매핑을 수정합니다. 각 필드 옆에 있는 **…** 단추를 클릭하면 특성 이름을 입력하거나 선택할 수 있습니다. 특성에 대한 자세한 내용은 **도움말** 링크를 클릭합니다.
 11. **확인** 단추를 클릭합니다.
 12. **회사 설정** 아이콘을 클릭하고 **사용자 이름 확인** 탭을 선택합니다.
 13. 도메인에 가입된 서버에서 Active Directory에 연결하는 경우 **사용자 이름과 일치하는 Windows 보안 식별자(SID) 사용** 라디오 단추를 선택한 상태로 그대로 둡니다. 그렇지 않으면 **사용자 이름과 일치하는 LDAP 고유 식별자 특성 사용** 라디오 단추를 선택합니다.
 
-**사용자 이름과 일치하는 LDAP 고유 식별자 특성 사용** 라디오 단추를 선택한 경우 Azure Multi-factor Authentication 서버에서는 각 사용자 이름을 LDAP 디렉터리의 고유 식별자로 결정하려고 합니다. LDAP 검색은 [디렉터리 통합 -> 특성] 탭에서 정의된 사용자 이름 특성에 대해 수행됩니다. 사용자가 인증하는 경우 사용자 이름은 LDAP 디렉터리에서 고유 식별자로 확인됩니다. Azure Multi-Factor Authentication 데이터 파일에서 사용자를 일치시키기 위해 고유 식별자를 사용합니다. 이를 통해 대/소문자 구분 비교 및 길고 짧은 사용자 이름 형식 사용이 가능합니다.
+**사용자 이름과 일치하는 LDAP 고유 식별자 특성 사용** 라디오 단추를 선택한 경우 Azure Multi-factor Authentication 서버에서는 각 사용자 이름을 LDAP 디렉터리의 고유 식별자로 결정하려고 합니다. LDAP 검색은 디렉터리 통합-> 특성 탭에 정의 된 사용자 이름 특성에 대해 수행 됩니다. 사용자가 인증 하는 경우 사용자 이름은 LDAP 디렉터리의 고유 식별자로 확인 됩니다. Azure Multi-Factor Authentication 데이터 파일에서 사용자를 일치시키기 위해 고유 식별자를 사용합니다. 이를 통해 대/소문자 구분 비교 및 길고 짧은 사용자 이름 형식 사용이 가능합니다.
 
 이 단계를 완료한 후에 MFA 서버는 구성된 클라이언트의 LDAP 액세스 요청에 대해 구성된 포트에서 수신하고 인증하기 위해 LDAP 디렉터리로 해당 요청의 프록시 역할을 담당합니다.
 

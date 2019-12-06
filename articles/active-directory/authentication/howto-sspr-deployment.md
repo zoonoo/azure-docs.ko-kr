@@ -6,17 +6,17 @@ ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.author: joflore
-author: MicrosoftGuyJFlo
+ms.author: iainfou
+author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b9f340ad12fbf26190a17bc4df97bfc95473093c
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bc2c68c53a7c03d1de08e5cde528f27aa61b0096
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381298"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74847272"
 ---
 # <a name="deploy-azure-ad-self-service-password-reset"></a>Azure AD 셀프 서비스 암호 재설정 배포
 
@@ -56,19 +56,19 @@ SSPR를 배포 하기 전에 조직에서는 시간에 따라 발생 하는 암�
 
 권장 값과 함께 SSPR를 사용 하도록 설정 하려면 다음 설정이 필요 합니다.
 
-| 영역 | 설정 | 값 |
+| 영역 | 설정 | Value |
 | --- | --- | --- |
 | **SSPR 속성** | 셀프 서비스 암호 재설정 사용 | 파일럿 **/프로덕션용** 으로 **선택한** 그룹 |
 | **인증 방법** | 등록 하는 데 필요한 인증 방법 | 다시 설정 하는 데 필요한 것 보다 항상 1 개 이상 |
 |   | 다시 설정 하는 데 필요한 인증 방법 | 1개 또는 2개 |
-| **등록** | 로그인 시 사용자가 등록하도록 요구 | 예 |
-|   | 사용자가 인증 정보를 다시 확인 하도록 요청 하기 전 까지의 일 수 | 90 – 180 일 |
-| **알림** | 사용자에게 암호 재설정에 대해 알림 | 예 |
-|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | 예 |
-| **사용자 지정** | 기술 지원팀 링크 사용자 지정 | 예 |
-|   | 사용자 지정 기술 지원팀 전자 메일 또는 URL | 지원 사이트 또는 메일 주소 |
-| **온-프레미스 통합** | 온-프레미스 AD에 암호 다시 쓰기 | 예 |
-|   | 사용자가 암호를 재설정 하지 않고 계정의 잠금을 해제할 수 있도록 허용 | 예 |
+| **등록** | 로그인 시 사용자가 등록하도록 요구 | yes |
+|   | 사용자가 인증 정보를 다시 확인해야 하기 전의 일 수 | 90 – 180 일 |
+| **Notifications** | 사용자에게 암호 재설정에 대해 알림 | yes |
+|   | 다른 관리자가 암호를 재설정하면 모든 관리자에게 알림 | yes |
+| **사용자 지정** | 기술 지원팀 링크 사용자 지정 | yes |
+|   | 사용자 지정 기술 지원팀 메일 또는 URL | 지원 사이트 또는 메일 주소 |
+| **온-프레미스 통합** | 온-프레미스 AD에 암호 다시 쓰기 | yes |
+|   | 사용자가 암호를 재설정 하지 않고 계정의 잠금을 해제할 수 있도록 허용 | yes |
 
 ### <a name="sspr-properties-recommendations"></a>SSPR 속성 권장 사항
 
