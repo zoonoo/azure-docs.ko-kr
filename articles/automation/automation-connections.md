@@ -4,17 +4,17 @@ description: Azure Automation의 연결 자산은 외부 서비스 또는 runboo
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90b2234607ad120c43e241fe4ae5222fe285803e
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 621441afaa9bef08a8ebf3b0af082c6a17c77b1b
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001654"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850434"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Azure Automation의 연결 자산
 
@@ -61,7 +61,7 @@ Azure Automation에서는 세 가지 유형의 기본 제공 연결을 사용할
 ## <a name="python2-functions"></a>Python2 함수
 다음 표의 함수는 Python2 Runbook의 연결에 액세스하는 데 사용됩니다.
 
-| 기능 | 설명 |
+| 함수 | 설명 |
 |:---|:---|
 | automationassets.get_automation_connection | 연결을 검색합니다. 연결의 속성이 있는 사전을 반환합니다. |
 

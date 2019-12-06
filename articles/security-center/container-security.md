@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 31e45906dfeafcd2af1651347dde9dc6d3c6fb7c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9cb4f6ec7331a2d0eb03beb2680c882484b69541
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769220"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868493"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -59,8 +59,7 @@ Security Center 권장 사항에 대 한 자세한 내용은 [가상 머신 보�
 
 Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
-호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure container service](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)를 참조 하세요.
-
+호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 감지](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)를 참조 하세요.
 
 ## <a name="to-view-the-security-posture-of-your-container-related-resources"></a>컨테이너 관련 리소스의 보안 상태를 보려면
 1.  Security Center의 **& 앱 계산** 페이지를 엽니다.

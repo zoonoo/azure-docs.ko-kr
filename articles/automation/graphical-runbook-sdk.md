@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation Graphical Runbook SDK를 사�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/20/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e4229079a1fa50295eef85b42f91bbc1b4a21fc3
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: a06c190931fdd0f49132f815b153c08ece68c9f3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478601"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849550"
 ---
 # <a name="use-the-azure-automation-graphical-runbook-sdk"></a>Azure Automation Graphical Runbook SDK 사용
 
@@ -95,7 +95,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 
 작업은 `Orchestrator.GraphRunbook.Model` 네임스페이스에서 다음 클래스에 의해 구현됩니다.
 
-|클래스  |활동  |
+|클래스  |작업  |
 |---------|---------|
 |CommandActivity     | PowerShell 명령(cmdlet, 함수 등)을 호출합니다.        |
 |InvokeRunbookActivity     | 다른 Runbook 인라인을 호출합니다.        |
@@ -103,7 +103,7 @@ var initializeRunbookVariable = runbook.AddActivity(
 |WorkflowScriptActivity     | Runbook의 컨텍스트에서 PowerShell 또는 PowerShell 워크플로 코드의 블록을 실행합니다(Runbook 유형에 따라). 강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 스크립트 블록을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 단일 PowerShell 명령을 호출해야 하는 경우 CommandActivity를 사용합니다.        |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 작업을 파생하지 마십시오. Azure Automation은 사용자 지정 작업 유형과 함께 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 작업을 파생하지 마십시오. Azure Automation은 사용자 지정 작업 유형으로 Runbook을 사용할 수 없습니다.
 
 CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 값 설명자로 제공되어야 합니다. 값 설명자는 실제 매개 변수 값이 생성되어야 하는 방법을 지정합니다. 다음 값 설명자가 현재 제공됩니다.
 
@@ -119,7 +119,7 @@ CommandActivity 및 InvokeRunbookActivity 매개 변수는 직접 값이 아닌 
 |PowerShellExpressionValueDescriptor     | 작업을 호출하기 직전에 평가될 자유 양식 PowerShell 식을 지정합니다.  <br/>강력한 도구이지만 과도하게 사용하지 마십시오. UI는 이 식을 텍스트로 표시합니다. 실행 엔진은 제공된 블록을 검은색 상자로 처리하고 기본 구문 검사를 제외하고 해당 콘텐츠를 분석하는 시도를 하지 않습니다. 가능한 경우 보다 구체적인 값 설명자를 사용합니다.      |
 
 > [!NOTE]
-> 제공된 클래스에서 사용자 고유의 값 설명자를 파생하지 마십시오. Azure Automation은 사용자 지정 값 설명자 유형과 함께 Runbook을 사용할 수 없습니다.
+> 제공된 클래스에서 사용자 고유의 값 설명자를 파생하지 마십시오. Azure Automation은 사용자 지정 값 설명자 유형으로 Runbook을 사용할 수 없습니다.
 
 작업을 연결하는 링크를 인스턴스화하고 Runbook에 추가합니다.
 

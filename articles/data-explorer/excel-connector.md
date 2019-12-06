@@ -7,12 +7,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 18c6499afe450a0387b0d9f0f13ee4378e0a21a9
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 42f52581d8f2f80deb5d6250ed54ab64fc1ba4d3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173834"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849057"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-excel"></a>Excel 용 Azure 데이터 탐색기 커넥터를 사용 하 여 데이터 시각화
 
@@ -23,7 +23,7 @@ Azure 데이터 탐색기 Excel native connector는 쿼리 결과를 Excel로 �
 ## <a name="define-kusto-query-as-an-excel-data-source-and-load-the-data-to-excel"></a>Kusto를 Excel 데이터 원본으로 쿼리하고 Excel에 데이터 로드
 
 1. **Microsoft Excel**을 엽니다.
-1. **데이터** 탭 > 에서 azure의 azure**데이터 탐색기에서** **데이터** > 가져오기를 선택 합니다.
+1. **데이터** 탭에서 Azure **데이터 탐색기의** **azure > 에서** **데이터 가져오기** > 를 선택 합니다.
 
     ![Azure Data Explorer에서 데이터 가져오기](media/excel-connector/get-data-from-adx.png)
 
@@ -31,20 +31,20 @@ Azure 데이터 탐색기 Excel native connector는 쿼리 결과를 Excel로 �
 
     ![Azure 데이터 탐색기 (Kusto) 창](media/excel-connector/adx-connection-window.png)
     
-    |필드   |Description |
+    |필드   |설명 |
     |---------|---------|
-    |**클러스터**   |   클러스터 이름 (필수)      |    
-    |**데이터베이스 백업**     |    데이터베이스의 이름      |    
+    |**Cluster**   |   클러스터 이름 (필수)      |    
+    |**데이터베이스**     |    데이터베이스의 이름      |    
     |**테이블 이름 또는 Azure 데이터 탐색기 쿼리**    |     테이블 또는 Azure 데이터 탐색기 쿼리의 이름    | 
     
     **고급 옵션:**
 
-     |필드   |Description |
+     |필드   |설명 |
     |---------|---------|
     |**쿼리 결과 레코드 수 제한**     |     Excel로 로드 되는 레코드 수 제한  |    
     |**쿼리 결과 데이터 크기 제한 (바이트)**    |    데이터 크기 제한      |   
     |**결과 집합 잘림을 사용 하지 않습니다.**    |         |      
-    |**추가 Set 문 (세미콜론으로 구분)**    |    데이터 `set` 원본에 적용할 문 추가     |   
+    |**추가 Set 문 (세미콜론으로 구분)**    |    데이터 원본에 적용할 `set` 문 추가     |   
 
 1.  **탐색기** 창에서 올바른 테이블로 이동 합니다. 테이블 미리 보기 창에서 데이터 **변환** 을 선택 하 여 데이터를 변경 하거나 **로드** 를 선택 하 여 Excel로 로드 합니다.
 
@@ -75,3 +75,6 @@ Azure 데이터 탐색기 Excel native connector는 쿼리 결과를 Excel로 �
 
 1. 전체 대시보드를 만들어 데이터를 모니터링 합니다.
 
+## <a name="next-steps"></a>다음 단계
+
+[Microsoft Excel로 가져온 Azure 데이터 탐색기 Kusto 쿼리를 사용 하 여 데이터 시각화](excel-blank-query.md)

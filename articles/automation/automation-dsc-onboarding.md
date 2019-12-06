@@ -4,17 +4,17 @@ description: Azure Automation 상태 구성을 통한 관리를 위한 머신 �
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: cf95a66cf68cf0b33444a17cf762bae79db4b50c
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243428"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850332"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -60,7 +60,7 @@ Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되
 
 ![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
+### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
 
 Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure Automation 상태 구성으로 전환 하는 예제 템플릿은 [필요한 상태에서 관리 되는 서버 구성 서비스](https://azure.microsoft.com/resources/templates/101-automation-configuration/) 를 참조 하세요.
 가상 머신 확장 집합을 관리 하는 경우에는 [Azure Automation에서 관리 하는 예제 템플릿 VM 크기 집합 구성](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/)을 참조 하세요.

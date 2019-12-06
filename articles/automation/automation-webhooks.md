@@ -4,17 +4,17 @@ description: 클라이언트가 Azure Automation에서 HTTP 호출을 통해 run
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 153e910ea85ae843c6d4db51e709b58e441f6761
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: bc03425a64486e449b4df93ea187435a1e893dda
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061444"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849601"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>웹후크를 사용하여 Azure Automation Runbook 시작
 
@@ -30,14 +30,14 @@ ms.locfileid: "70061444"
 
 다음 표에서는 Webhook에 대해 구성해야 하는 속성을 설명합니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
-| 이름 |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
+| name |클라이언트에 노출되지 않으므로 원하는 webhook 이름을 지정할 수 있습니다. Azure Automation에서 Runbook을 식별하는 용도로만 사용됩니다. <br> 가장 좋은 방법은 webhook를 사용할 클라이언트와 관련된 이름을 지정하는 것입니다. |
 | URL |webhook의 URL은 클라이언트가 webhook에 연결된 runbook을 시작하기 위해 HTTP POST로 호출하는 고유한 주소입니다. webhook를 만들 때 자동으로 생성됩니다. 사용자 지정 URL을 지정할 수 없습니다. <br> <br> URL에는 타사 시스템이 추가 인증 없이 runbook을 호출할 수 있게 해주는 보안 토큰이 포함됩니다. 따라서 암호처럼 취급해야 합니다. 보안상의 이유로 이 URL은 Azure 포털에서 webhook가 생성될 때만 볼 수 있습니다. 이 URL을 나중에 사용할 수 있도록 안전한 위치에 기록해 둡니다. |
-| 만료일 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
-| Enabled |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |
+| 만료 날짜 |각 webhook는 인증서처럼 만료 날짜가 있으며, 이 날짜가 되면 인증서를 더 이상 사용할 수 없습니다. webhook가 만료되지 않는 한 webhook를 생성한 후 이 만료 날짜를 수정할 수 있습니다. |
+| 사용 |webhook는 생성될 때 기본적으로 사용하도록 설정됩니다. 사용 안함으로 설정할 경우 어떤 클라이언트도 webhook를 사용할 수 없습니다. webhook를 만들 때 또는 만든 후 언제든지 **사용** 속성으로 설정할 수 있습니다. |
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 
 webhook는 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 정의할 수 있습니다. webhook에는 runbook의 모든 필수 매개 변수 값이 포함되어야 하고 선택적 매개 변수 값이 포함 될 수 있습니다. 웹후크에 구성된 매개 변수 값은 웹후크를 만든 후에도 수정할 수 있습니다. 단일 runbook에 연결된 여러 webhook는 각각 다른 매개 변수 값을 사용할 수 있습니다.
 
@@ -47,7 +47,7 @@ webhook는 runbook을 시작할 때 사용되는 runbook 매개 변수 값을 �
 
 **$WebhookData** 개체의 속성은 다음과 같습니다.
 
-| 속성 | Description |
+| 자산 | 설명 |
 |:--- |:--- |
 | WebhookName |Webhook의 이름입니다. |
 | RequestHeader |들어오는 POST 요청의 헤더를 포함한 해시 테이블입니다. |

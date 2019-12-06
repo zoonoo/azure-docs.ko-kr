@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d87f935f503098757e4efe402b37958283431b6e
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 32f3c439460ddc61dbf08fc4e8d7b7a000aa20f9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120541"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849176"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Salesforce 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Salesforce로 자동 프로비전 및 프로비전 해제하도록 Salesforce 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -40,7 +40,7 @@ Salesforce 샌드박스 환경을 사용하는 경우 [Salesforce 샌드박스 �
 
 ## <a name="assigning-users-to-salesforce"></a>Salesforce에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다.
 
 프로비전 서비스를 구성하고 사용하도록 설정하려면 먼저 Salesforce 앱에 대한 액세스가 필요한 Azure AD의 사용자 또는 그룹을 결정해야 합니다. 결정했으면 [엔터프라이즈 앱에 사용자 또는 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal)의 지침에 따라 사용자를 Salesforce 앱에 할당할 수 있습니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
-## <a name="common-issues"></a>일반적인 문제
+## <a name="common-issues"></a>일반 문제
 * Salesforce에 대 한 액세스 권한을 부여 하는 데 문제가 있는 경우 다음을 확인 합니다.
     * 사용 된 자격 증명에는 Salesforce에 대 한 관리자 액세스 권한이 있습니다.
     * 사용 중인 Salesforce 버전은 웹 액세스 (예: 개발자, 엔터프라이즈, 샌드박스 및 Salesforce의 무제한 버전)를 지원 합니다.
@@ -129,6 +129,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 * **SalesforceDuplicateUserName:** 다른 Salesforce.com 테 넌 트에서 중복 된 ' Username ' Salesforce.com를 포함 하므로 사용자를 프로 비전 할 수 없습니다.  Salesforce.com에서 ' Username ' 특성의 값은 모든 Salesforce.com 테 넌 트에서 고유 해야 합니다.  기본적으로 Azure Active Directory 사용자의 userPrincipalName은 Salesforce.com에서 ' Username '이 됩니다.   두 가지 옵션이 있습니다.  한 가지 옵션은 다른 테 넌 트도 관리 하는 경우 다른 Salesforce.com 테 넌 트에서 중복 된 ' Username '이 있는 사용자를 찾고 이름을 바꾸는 것입니다.  다른 옵션은 디렉터리가 통합 된 Salesforce.com 테 넌 트에 대 한 Azure Active Directory 사용자의 액세스 권한을 제거 하는 것입니다. 다음 동기화 시도 시이 작업을 다시 시도 합니다. 
 * **SalesforceRequiredFieldMissing:** Salesforce를 사용 하려면 사용자에 게 특정 특성을 제공 하 여 사용자를 했습니다 만들거나 업데이트 해야 합니다. 이 사용자에 게 필요한 특성 중 하나가 없습니다. Salesforce로 프로 비전 하려는 모든 사용자에 게 전자 메일 및 별칭과 같은 특성이 채워져 있는지 확인 합니다. [특성 기반 범위 지정 필터](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)를 사용 하 여 이러한 특성이 없는 사용자의 범위를 지정할 수 있습니다. 
 * Salesforce로 프로 비전 하는 기본 특성 매핑에는 SingleAppRoleAssignments 식이 포함 되어 Azure AD의 appRoleAssignments를 Salesforce의 ProfileName에 매핑합니다. 특성 매핑이 하나의 역할 프로 비전만 지원 하므로 사용자에 게 Azure AD에서 여러 앱 역할 할당이 없는지 확인 합니다. 
+* Salesforce를 사용 하려면 전자 메일 업데이트를 변경 하기 전에 수동으로 승인 해야 합니다. 따라서 프로 비전 로그에 여러 항목이 표시 되어 사용자의 전자 메일을 업데이트할 수 있습니다 (전자 메일 변경이 승인 될 때까지).
 
 
 ## <a name="additional-resources"></a>추가 리소스

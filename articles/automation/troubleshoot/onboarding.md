@@ -2,18 +2,18 @@
 title: 업데이트 관리, 변경 내용 추적 및 인벤토리 온보딩 오류 문제 해결
 description: 업데이트 관리, 변경 내용 추적 및 인벤토리 솔루션에 관한 온보딩 오류 문제를 해결하는 방법을 알아봅니다.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/22/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 8b4ee999bb23abdcea3411720bde244b2da4e89f
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 0371c59ae63389bc3f7f0132260b0d98f496086c
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516409"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849312"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>솔루션을 온보딩할 때 발생하는 오류 문제 해결
 
@@ -23,7 +23,7 @@ ms.locfileid: "68516409"
 
 ### <a name="node-rename"></a>시나리오: 등록 된 노드의 이름을 바꾸려면 다시 등록/등록 해야 합니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 노드가 Azure Automation 등록 된 다음 운영 체제 컴퓨터 이름이 변경 됩니다.  노드의 보고서는 원래 이름을 사용 하 여 계속 표시 됩니다.
 
@@ -31,14 +31,14 @@ ms.locfileid: "68516409"
 
 등록 된 노드의 이름을 변경 해도 Azure Automation의 노드 이름은 업데이트 되지 않습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 Azure Automation 상태 구성에서 노드를 등록 취소 한 후 다시 등록 하십시오.  이 시간 전에 서비스에 게시 된 보고서는 더 이상 사용할 수 없습니다.
 
 
-### <a name="resigning-cert"></a>시나리오: Https 프록시를 통해 인증서를 다시 서명 하는 것은 지원 되지 않습니다.
+### <a name="resigning-cert"></a>시나리오: https 프록시를 통해 인증서를 다시 서명 하는 것은 지원 되지 않습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 사용자는 https 트래픽을 종료 하 고 새 인증서를 사용 하 여 트래픽을 다시 암호화 하는 프록시 솔루션을 통해 연결할 때 서비스에서 연결을 허용 하지 않는다고 보고 했습니다.
 
@@ -46,15 +46,15 @@ Azure Automation 상태 구성에서 노드를 등록 취소 한 후 다시 등�
 
 Azure Automation은 트래픽을 암호화 하는 데 사용 되는 인증서를 다시 서명 하는 것을 지원 하지 않습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
-이 문제에 대 한 해결 방법은 없습니다.
+이 문제에 대한 해결 방법이 없습니다.
 
 ## <a name="general-errors"></a>일반 오류
 
-### <a name="missing-write-permissions"></a>시나리오: 온보딩이 실패하고 솔루션을 사용할 수 없다는 메시지가 표시됨
+### <a name="missing-write-permissions"></a>시나리오: 메시지를 사용 하 여 온 보 딩 실패-솔루션을 사용 하도록 설정할 수 없음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 가상 컴퓨터를 솔루션에 등록 하려고 할 때 다음 메시지 중 하나가 표시 됩니다.
 
@@ -70,13 +70,13 @@ The solution cannot be enabled on this VM because the permission to read the wor
 
 이 오류는 가상 머신, 작업 영역 또는 사용자에 대 한 권한이 잘못 되었거나 누락 된 경우에 발생 합니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
-가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. 오류가 `The solution cannot be enabled on this VM because the permission to read the workspace is missing`표시 되 면 VM이 작업 영역에 등록 `Microsoft.OperationalInsights/workspaces/read` 여부를 확인할 수 있는 권한이 있는지 확인 합니다.
+가상 머신 온보딩을 위한 권한이 올바른지 확인합니다. [가상 머신을 온보딩하는 데 필요한 권한](../automation-role-based-access-control.md#onboarding)을 검토한 후에 솔루션을 다시 온보딩해 보세요. `The solution cannot be enabled on this VM because the permission to read the workspace is missing`오류가 표시 되 면 VM이 작업 영역에 등록 여부를 확인할 수 있는 `Microsoft.OperationalInsights/workspaces/read` 권한이 있는지 확인 합니다.
 
-### <a name="diagnostic-logging"></a>시나리오: 메시지를 사용 하 여 등록 실패-진단 로깅에 대 한 자동화 계정을 구성 하지 못했습니다.
+### <a name="diagnostic-logging"></a>시나리오: 진단 로깅에 대 한 자동화 계정을 구성 하지 못했습니다. 메시지를 사용 하 여 온 보 딩 실패
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 가상 머신을 솔루션에 온보딩하려고 하면 다음 메시지가 표시됩니다.
 
@@ -88,13 +88,13 @@ Failed to configure automation account for diagnostic logging
 
 가격 책정 계층이 구독의 청구 모델과 일치 하지 않는 경우이 오류가 발생할 수 있습니다. 자세한 내용은 [Azure Monitor의 사용량 및 예상 비용 모니터링](https://aka.ms/PricingTierWarning)을 참조 하세요.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 Log Analytics 작업 영역을 수동으로 만들고 온 보 딩 프로세스를 반복 하 여 만든 작업 영역을 선택 합니다.
 
 ### <a name="computer-group-query-format-error"></a>시나리오: ComputerGroupQueryFormatError
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 이 오류 코드는 솔루션을 대상으로 사용되는 저장된 검색 컴퓨터 그룹 쿼리 형식이 올바르지 않음을 의미합니다. 
 
@@ -102,13 +102,13 @@ Log Analytics 작업 영역을 수동으로 만들고 온 보 딩 프로세스�
 
 사용자가 쿼리를 변경했거나 시스템에서 변경되었을 수 있습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 이 솔루션에 대한 쿼리를 삭제하고, 솔루션을 다시 온보딩하여 쿼리를 다시 만들 수 있습니다. 쿼리를 작업 영역 내의 **저장된 검색**에서 찾을 수 있습니다. 쿼리의 이름은 **MicrosoftDefaultComputerGroup**이고, 쿼리의 범주는 이 쿼리와 연결된 솔루션의 이름입니다. 여러 솔루션이 사용되도록 설정되면 **MicrosoftDefaultComputerGroup**이 **저장된 검색** 아래에 여러 번 표시됩니다.
 
 ### <a name="policy-violation"></a>시나리오: PolicyViolation
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 이 오류 코드는 하나 이상의 정책 위반으로 인해 배포가 실패했음을 의미합니다.
 
@@ -116,7 +116,7 @@ Log Analytics 작업 영역을 수동으로 만들고 온 보 딩 프로세스�
 
 작업이 완료될 수 없는 위치에 정책이 있습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 솔루션을 성공적으로 배포하려면 표시된 정책을 변경하는 것이 좋습니다. 정의할 수 있는 정책 유형이 다양하기 때문에 필요한 특정 변경 사항은 위반된 정책에 따라 달라집니다. 예를 들어 리소스 그룹 내 특정 유형의 리소스 콘텐츠를 변경할 수 있는 권한을 거부한 리소스 그룹에 정책이 정의된 경우, 예를 들면 다음과 같은 조치를 취할 수 있습니다.
 
@@ -128,9 +128,9 @@ Log Analytics 작업 영역을 수동으로 만들고 온 보 딩 프로세스�
 
 Azure Portal의 오른쪽 위 모퉁이에 있는 알림을 확인 하거나 automation 계정이 포함 된 리소스 그룹으로 이동 하 고 **설정** 아래에서 **배포** 를 선택 하 여 실패 한 배포를 확인 합니다. Azure Policy에 대해 자세히 알아보려면 [Azure Policy 개요](../../governance/policy/overview.md?toc=%2fazure%2fautomation%2ftoc.json)를 참조하세요.
 
-### <a name="unlink"></a>시나리오: 작업 영역의 연결을 끊는 중 오류 발생
+### <a name="unlink"></a>시나리오: 작업 영역의 연결을 끊는 동안 오류 발생
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 작업 영역의 연결을 해제 하려고 할 때 다음과 같은 오류가 표시 됩니다.
 
@@ -142,12 +142,12 @@ The link cannot be updated or deleted because it is linked to Update Management 
 
 이 오류는 연결 된 Automation 계정 및 Log 분석 작업 영역에 따라 달라 지는 Log Analytics 작업 영역에서 솔루션을 활성 상태로 유지 하는 경우에 발생 합니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 이 문제를 해결 하려면 작업 영역에서 다음 솔루션을 사용 하는 경우 제거 해야 합니다.
 
 * 업데이트 관리
-* 변경 내용 추적
+* 변경 추적
 * 작업이 없는 동안 VM 시작/중지
 
 솔루션을 제거 하면 작업 영역 연결을 끊을 수 있습니다. 작업 영역 및 Automation 계정에서 해당 솔루션의 기존 아티팩트를 정리 하는 것도 중요 합니다.  
@@ -156,7 +156,7 @@ The link cannot be updated or deleted because it is linked to Update Management 
   * Automation 계정에서 업데이트 배포 (일정) 제거
 * 작업이 없는 동안 VM 시작/중지
   * **설정** > **잠금**에서 Automation 계정의 솔루션 구성 요소에 대 한 잠금을 제거 합니다.
-  * 작업 시간 외 Vm 시작/중지 솔루션을 제거 하는 추가 단계를 보려면 [작업 시간 외 Vm 시작/중지 솔루션을 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
+  * 작업 시간 외 VM 시작/중지 솔루션을 제거 하는 추가 단계를 보려면 [작업 시간 외 VM 시작/중지 솔루션을 제거](../automation-solution-vm-management.md##remove-the-solution)합니다.
 
 ## <a name="mma-extension-failures"></a>MMA 확장 오류
 
@@ -172,7 +172,7 @@ MMA나 Linux용 Log Analytics 에이전트 설치는 다양한 이유로 인해 
 
 가상 머신의 MMA 확장이 외부 리소스와 통신할 수 없으며 배포가 실패합니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 다음은 반환되는 오류 메시지의 예입니다.
 
@@ -192,7 +192,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 * 방화벽 설정이 필요한 포트 및 주소에 대한 액세스를 차단했습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 통신을 위해 적절한 포트와 주소가 열려 있는지 확인합니다. 포트와 주소 목록은 [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning)을 참조하세요.
 
@@ -200,7 +200,7 @@ Please verify the VM has a running VM agent, and can establish outbound connecti
 
 설치를 차단 하는 다른 설치 또는 작업으로 인해 배포 중에 Microsoft Monitoring Agent 확장을 설치 하지 못했습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 다음은 반환될 수 있는 오류 메시지의 예입니다.
 
@@ -223,7 +223,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 * 다른 설치 프로그램이 실행 중입니다.
 * 템플릿을 배포 하는 동안 다시 부팅 하기 위해 시스템이 트리거됨
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 이 오류는 본질적으로 일시적인 문제입니다. 배포를 다시 시도하여 확장 프로그램을 설치하십시오.
 
@@ -231,7 +231,7 @@ The Microsoft Monitoring Agent failed to install on this machine. Please try to 
 
 시간 초과로 인해 MMA 확장 설치가 완료 되지 않았습니다.
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 다음 예는 반환 될 수 있는 오류 메시지입니다.
 
@@ -243,7 +243,7 @@ Install failed for plugin (name: Microsoft.EnterpriseCloud.Monitoring.MicrosoftM
 
 이 오류는 설치 하는 동안 가상 컴퓨터의 부하가 높을 때 발생 합니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 VM의 부하가 낮을 때 MMA 확장을 설치합니다.
 

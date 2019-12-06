@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
-ms.date: 04/01/2019
+author: mgoedtel
+ms.author: magoedte
+ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2567536cd81eb2339622868a731948b1380614ad
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 74d4cb80fbac41294b57bf13f23c2c63babb71ef
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478439"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849448"
 ---
 # <a name="source-control-integration-in-azure-automation---legacy"></a>Azure Automation에서 소스 제어 통합 - 레거시
 
@@ -32,7 +32,7 @@ ms.locfileid: "67478439"
 
 ## <a name="step-1--create-a-github-repository"></a>1단계 - GitHub 리포지토리 만들기
 
-이미 GitHub 계정과 Azure Automation에 연결하려는 리포지토리가 있는 경우 기존 계정에 로그인하고 아래의 2단계부터 시작합니다. 이동이 고, 그렇지 [GitHub](https://github.com/), 새 계정을 등록 하 고 [새 리포지토리 만들기](https://help.github.com/articles/create-a-repo/)합니다.
+이미 GitHub 계정과 Azure Automation에 연결하려는 리포지토리가 있는 경우 기존 계정에 로그인하고 아래의 2단계부터 시작합니다. 그렇지 않은 경우 [GitHub](https://github.com/)로 이동 하 여 새 계정을 등록 하 고 [새 리포지토리를 만듭니다](https://help.github.com/articles/create-a-repo/).
 
 ## <a name="step-2--set-up-source-control-in-azure-automation"></a>2단계 - Azure Automation에서 원본 제어 설정
 
@@ -54,18 +54,18 @@ ms.locfileid: "67478439"
    3. **SubFolder**에서 Runbook을 동기화하려면 Runbook 폴더 경로는 */RootFolder/SubFolder*입니다.
 4. 매개 변수를 구성하면 **원본 제어 설정**페이지에서 매개 변수가 표시됩니다.  
 
-    ![설정을 보여 주는 원본 제어 페이지](media/source-control-integration-legacy/automation-SourceControlConfigure.png)
+    ![설정을 표시 하는 소스 제어 페이지](media/source-control-integration-legacy/automation-SourceControlConfigure.png)
 5. **확인**을 클릭하면 이제 Automation 계정에 대한 원본 제어 통합이 구성되며 GitHub 정보로 업데이트되어야 합니다. 이 부분을 클릭하여 모든 원본 제어 동기화 작업 기록을 볼 수 있습니다.  
 
-    ![현재 구성 된 소스 제어 구성에 대 한 값](media/source-control-integration-legacy/automation-RepoValues.png)
-6. 소스 제어를 설정 하면 두 [변수 자산](automation-variables.md) Automation 계정에 만들어집니다. 또한 승인 된 응용 프로그램은 GitHub 계정에 추가 됩니다.
+    ![현재 구성 된 소스 제어 구성의 값](media/source-control-integration-legacy/automation-RepoValues.png)
+6. 원본 제어를 설정한 후에는 두 개의 [변수 자산이](automation-variables.md) Automation 계정에 만들어집니다. 또한 승인 된 응용 프로그램은 GitHub 계정에 추가 됩니다.
 
    * **Microsoft.Azure.Automation.SourceControl.Connection** 변수는 아래와 같이 연결 문자열의 값을 포함합니다.  
 
      | **매개 변수** | **값** |
      |:--- |:--- |
      | `Name`  |Microsoft.Azure.Automation.SourceControl.Connection |
-     | `Type`  |문자열 |
+     | `Type`  |string |
      | `Value` |{"Branch":\<*분기 이름*>,"RunbookFolderPath":\<*Runbook 폴더 경로*>,"ProviderType":\<*GitHub에 대한 값 1을 가짐*>,"Repository":\<*리포지토리 이름*>,"Username":\<*GitHub 사용자 이름*>} |
 
    * **Microsoft.Azure.Automation.SourceControl.OAuthToken**변수는 OAuthToken의 안전하고 암호화된 값을 포함합니다.  
@@ -76,11 +76,11 @@ ms.locfileid: "67478439"
      | `Type`  | 알수 없음(암호화됨) |
      | `Value` | <*암호화된 OAuthToken*> |  
 
-     ![원본 제어 변수를 표시 하는 창](media/source-control-integration-legacy/automation-Variables.png)  
+     ![소스 제어 변수를 표시 하는 창](media/source-control-integration-legacy/automation-Variables.png)  
 
-   * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 애플리케이션으로 추가됩니다. 애플리케이션을 보려면: GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
+   * **Automation 원본 제어**는 GitHub 계정에 권한이 부여된 애플리케이션으로 추가됩니다. 애플리케이션을 보려면 GitHub 홈페이지에서 **프로필** > **설정** > **애플리케이션**으로 이동합니다. 이 애플리케이션을 사용하면 Azure Automation이 Automation 계정에 GitHub 리포지토리를 동기화할 수 있습니다.  
 
-     ![GitHub에서 응용 프로그램 설정](media/source-control-integration-legacy/automation-GitApplication.png)
+     ![GitHub의 응용 프로그램 설정](media/source-control-integration-legacy/automation-GitApplication.png)
 
 ## <a name="using-source-control-in-automation"></a>자동화에서 원본 제어 사용
 
@@ -91,17 +91,17 @@ Runbook 체크 인을 사용하면 Azure Automation에서 Runbook에 대한 변�
 1. Automation 계정에서 [새 텍스트 Runbook 만들기](automation-first-runbook-textual.md) 또는 [기존 텍스트 Runbook 편집](automation-edit-textual-runbook.md)을 수행합니다. 이 runbook은 PowerShell 워크플로 또는 PowerShell 스크립트 runbook일 수 있습니다.  
 2. Runbook을 편집한 후에 저장하고 **편집** 페이지에서 **체크 인**을 클릭합니다.  
 
-    ![GitHub 단추에 체크 인을 표시 하는 창](media/source-control-integration-legacy/automation-CheckinButton.png)
+    ![GitHub로 체크 인 단추를 표시 하는 창](media/source-control-integration-legacy/automation-CheckinButton.png)
 
      > [!NOTE] 
      > Azure Automation의 체크 인은 현재 원본 제어에 있는 코드를 덮어씁니다. 체크 인에 해당하는 Git 명령줄 명령은 **git add + git commit + git push**입니다.  
 
 3. **체크 인**을 클릭하면 확인메시지가 표시되고 **예**를 클릭하여 계속합니다.  
 
-    ![소스 제어에 체크 인 확인 대화 상자](media/source-control-integration-legacy/automation-CheckinMessage.png)
+    ![소스 제어에 체크 인을 확인 하는 대화 상자](media/source-control-integration-legacy/automation-CheckinMessage.png)
 4. 체크 인은 원본 제어 Runbook을 시작합니다. **Sync-MicrosoftAzureAutomationAccountToGitHubV1** 이 runbook은 GitHub에 연결하고 Azure Automation에서 리포지토리에 변경 내용을 푸시합니다. 체크 인 작업 기록을 보려면 **원본 제어 통합** 탭으로 돌아가서 [리포지토리 동기화] 페이지를 클릭하여 엽니다. 이 페이지에는 모든 원본 제어 작업이 표시됩니다.  보려는 작업을 선택하고 클릭하여 세부 정보를 봅니다.  
 
-    ![동기화 작업의 결과 표시 하는 창](media/source-control-integration-legacy/automation-CheckinRunbook.png)
+    ![동기화 작업의 결과를 보여 주는 창](media/source-control-integration-legacy/automation-CheckinRunbook.png)
 
    > [!NOTE]
    > 원본 제어 Runbook은 보거나 편집할 수 없는 특별한 Automation Runbook입니다. Runbook 목록에 표시되지는 않지만 작업 목록에 표시되는 동기화 작업을 확인할 수 있습니다.
@@ -109,35 +109,34 @@ Runbook 체크 인을 사용하면 Azure Automation에서 Runbook에 대한 변�
 5. 수정된 Runbook의 이름은 체크 인된 Runbook의 입력 매개 변수로 전송됩니다. **리포지토리 동기화** 페이지에서 Runbook을 펼쳐 [작업 세부 정보를 확인](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal)할 수 있습니다.  
 
     ![동기화 작업에 대 한 입력을 표시 하는 창](media/source-control-integration-legacy/automation-CheckinInput.png)
-6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다.  다음 커밋 메시지가 있는 커밋이 리포지토리에 있어야 합니다. **Azure Automation에서 *Runbook 이름*을 업데이트했습니다.**  
+6. 변경 내용을 보기 위해 작업이 완료되면 GitHub 리포지토리를 새로 고칩니다.  커밋 메시지(**Azure Automation에서 *Runbook 이름*을 업데이트했습니다**)가 있는 커밋이 리포지토리에 있어야 합니다.  
 
 ### <a name="sync-runbooks-from-source-control-to-azure-automation"></a>원본 제어에서 Azure Automation에 runbook 동기화
 
 [리포지토리 동기화] 페이지의 동기화 단추를 사용하면 리포지토리의 Runbook 폴더 경로에 있는 모든 Runbook을 Automation 계정으로 끌어올 수 있습니다. 동일한 리포지토리는 둘 이상의 Automation 계정에 동기화될 수 있습니다. Runbook을 동기화하는 단계는 아래와 같습니다.
 
-1. 원본 제어를 설정한 Automation 계정에서 **원본 제어 통합/리포지토리 동기화** 페이지를 열고 **동기화**를 클릭합니다.  확인 메시지가 표시되면 **예**를 클릭하여 계속합니다.  
+1. 원본 제어를 설정한 Automation 계정에서 **원본 제어 통합/리포지토리 동기화** 페이지를 열고 **동기화**를 클릭 합니다.  확인 메시지가 표시 되 면 **예** 를 클릭 하 여 계속 합니다.  
 
-    ![모든 runbook을 확인 하는 메시지를 사용 하 여 동기화 단추는 동기화 합니다.](media/source-control-integration-legacy/automation-SyncButtonwithMessage.png)
+    ![모든 runbook을 동기화 하는 메시지를 확인 하는 동기화 단추](media/source-control-integration-legacy/automation-SyncButtonwithMessage.png)
 
-2. 동기화는 Runbook을 시작합니다. **Sync-MicrosoftAzureAutomationAccountFromGitHubV1** 이 Runbook은 GitHub에 연결하고 리포지토리에서 Azure Automation으로 변경 내용을 끌어옵니다. 이 작업에 대한 **리포지토리 동기화** 페이지에 새 작업이 표시됩니다. 동기화 작업에 대한 세부 정보를 보려면 클릭하여 작업 세부 정보 페이지를 엽니다.  
+2. 동기화는 Runbook을 시작합니다. **Sync-MicrosoftAzureAutomationAccountFromGitHubV1**. 이 Runbook은 GitHub에 연결하고 리포지토리에서 Azure Automation으로 변경 내용을 끌어옵니다. 이 작업에 대한 **리포지토리 동기화** 페이지에 새 작업이 표시됩니다. 동기화 작업에 대한 세부 정보를 보려면 클릭하여 작업 세부 정보 페이지를 엽니다.  
 
-    ![GitHub 리포지토리에서 동기화 작업의 동기화 결과 표시 하는 창](media/source-control-integration-legacy/automation-SyncRunbook.png)
+    ![GitHub 리포지토리에서 동기화 작업의 동기화 결과를 표시 하는 창](media/source-control-integration-legacy/automation-SyncRunbook.png)
 
     > [!NOTE]
     > 원본 제어의 동기화는 현재 원본 제어에 있는 **모든** Runbook에 대한 Automation 계정에 현재 존재하는 Runbook의 초안 버전을 덮어씁니다. 동기화에 해당하는 Git 명령줄 명령은 **git pull**입니다.
 
-![일시 중단 된 원본 제어 동기화 작업에서 모든 로그를 표시 하는 창](media/source-control-integration-legacy/automation-AllLogs.png)
+![일시 중단 된 소스 제어 동기화 작업의 모든 로그를 표시 하는 창입니다.](media/source-control-integration-legacy/automation-AllLogs.png)
 
 ## <a name="disconnecting-source-control"></a>원본 제어 연결 끊기
 
 GitHub 계정과의 연결을 끊으려면 [리포지토리 동기화] 페이지를 열고 **연결 해제**를 클릭합니다. 원본 제어 연결을 끊으면 이전에 동기화된 Runbook이 여전히 Automation 계정에 남아 있지만 [리포지토리 동기화] 페이지는 활성화되지 않습니다.  
 
-  ![원본 제어 연결을 끊지 연결 끊기 단추를 보여 주는 창](media/source-control-integration-legacy/automation-Disconnect.png)
+  ![소스 제어의 연결을 끊는 연결 끊기 단추를 표시 하는 창](media/source-control-integration-legacy/automation-Disconnect.png)
 
 ## <a name="next-steps"></a>다음 단계
 
 원본 제어 통합에 대한 자세한 내용은 다음 리소스를 참조하세요.  
 
 * [Azure Automation: Azure Automation에서 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
-* [즐겨 찾는 원본 제어 시스템에 대한 투표](https://www.surveymonkey.com/r/?sm=2dVjdcrCPFdT0dFFI8nUdQ%3d%3d)  
-* [Azure Automation: Azure DevOps를 사용하여 Runbook 원본 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  
+* [Azure Automation: Azure DevOps를 사용하여 Runbook 소스 제어 통합](https://azure.microsoft.com/blog/azure-automation-integrating-runbook-source-control-using-visual-studio-online/)  

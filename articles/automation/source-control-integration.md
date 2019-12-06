@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 GitHub를 사용하는 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 44ab9688471a87e6db3712cc61b8abb194d54ac3
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73886524"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850162"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -26,7 +26,7 @@ Azure Automation는 다음과 같은 세 가지 형식의 원본 제어를 지�
 * Azure Repos (Git)
 * Azure Repos (TFVC)
 
-## <a name="pre-requisites"></a>필수 구성 요소
+## <a name="pre-requisites"></a>필수 조건
 
 * 소스 제어 리포지토리 (GitHub 또는 Azure Repos)
 * [실행 계정](manage-runas-account.md)
@@ -45,14 +45,14 @@ Automation 계정 내에서 **원본 제어** 를 선택 하 고 **+ 추가** �
 
 **소스 제어 요약** 페이지에서 정보를 입력하고 **저장**을 클릭합니다. 다음 표는 사용 가능한 필드에 대한 설명을 보여 줍니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
 |소스 제어 이름     | 소스 컨트롤에 대 한 친숙 한 이름입니다. *이 이름에는 문자와 숫자만 포함 되어야 합니다.*        |
 |소스 제어 형식     | 소스 제어 소스의 형식입니다. 사용 가능한 옵션은 다음과 같습니다.</br> GitHub</br>Azure Repos (Git)</br> Azure Repos (TFVC)        |
 |리포지토리     | 리포지토리 또는 프로젝트의 이름입니다. 처음 200 리포지토리가 반환 됩니다. 리포지토리를 검색 하려면 필드에 이름을 입력 하 고 **GitHub에서 검색**을 클릭 합니다.|
 |Branch     | 소스 파일을 끌어올 분기입니다. TFVC 소스 제어 형식에 대해 분기 대상 지정을 사용할 수 없습니다.          |
 |폴더 경로     | 동기화 할 runbook을 포함 하는 폴더입니다. 예:/Runbooks </br>*지정 된 폴더의 runbook만 동기화 됩니다. 재귀는 지원 되지 않습니다.*        |
-|자동 동기화<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
+|Auto Sync<sup>1</sup>     | 소스 제어 리포지토리에서 커밋이 이루어질 때 자동 동기화를 설정 또는 해제합니다.         |
 |Runbook 게시     | **On**으로 설정 된 경우 runbook이 원본 제어에서 동기화 된 후 자동으로 게시 됩니다.         |
 |설명     | 추가 정보를 제공하는 텍스트 필드        |
 

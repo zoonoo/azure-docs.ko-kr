@@ -2,18 +2,18 @@
 title: 업데이트 관리 오류 문제 해결
 description: 업데이트 관리 관련 된 문제를 해결 하는 방법을 알아봅니다.
 services: automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/31/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2aebcf05cbc818997943ed3bab19fb1fd8a83592
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a42b05239ae1ddf8909e288486694bf57595b195
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72786052"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849244"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -21,7 +21,7 @@ ms.locfileid: "72786052"
 
 Hybrid Worker 에이전트에 대 한 에이전트 문제 해결사를 사용 하 여 기본 문제를 확인 합니다. 이 문제 해결사에 대한 자세한 내용은 [업데이트 에이전트 문제 해결](update-agent-issues.md)을 참조하세요. 다른 모든 문제를 해결 하려면 다음 문제 해결 지침을 따르십시오.
 
-VM (가상 컴퓨터)에서 솔루션을 등록 하는 동안 문제가 발생 하는 경우 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 에서 이벤트 ID 4502 및이 포함 된 이벤트 세부 정보를 포함 하는 이벤트에 대 한 **Operations Manager** 로그를 확인 합니다. **Microsoft.enterprisemanagement.reporting.code. Health service eventmessage**.
+VM (가상 컴퓨터)에서 솔루션을 등록 하는 동안 문제가 발생 하는 경우 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 에서 이벤트 ID 4502 및 microsoft.enterprisemanagement.reporting.code를 포함 하는 이벤트 세부 정보를 포함 하는 이벤트에 대 한 **Operations Manager** 로그를 확인 합니다. **eventmessage**.
 
 다음 섹션에서는 특정 오류 메시지와 각각에 대 한 가능한 해결 방법을 중점적으로 설명 합니다. 다른 온 보 딩 문제는 [솔루션 등록 문제 해결](onboarding.md)을 참조 하세요.
 
@@ -68,7 +68,7 @@ Hybrid Runbook Worker를 다시 등록 하 고 다시 설치 해야 할 수 있�
   | where OperationCategory == 'Data Collection Status'
   | sort by TimeGenerated desc
   ```
-  @No__t_0 결과를 얻는 경우 작업 영역에 도달 하 여 데이터가 저장 되지 않도록 중지 된 할당량이 정의 됩니다. 작업 영역에서 **사용량 및 예상 비용**  > **데이터 볼륨 관리** 로 이동 하 여 할당량을 확인 하거나 제거 합니다.
+  `Data collection stopped due to daily limit of free data reached. Ingestion status = OverQuota` 결과를 얻는 경우 작업 영역에 도달 하 여 데이터가 저장 되지 않도록 중지 된 할당량이 정의 됩니다. 작업 영역에서 **사용량 및 예상 비용** > **데이터 볼륨 관리** 로 이동 하 여 할당량을 확인 하거나 제거 합니다.
 
 * 이러한 단계를 수행 해도 문제가 해결 되지 않으면 windows [Hybrid Runbook Worker 배포](../automation-windows-hrw-install.md) 의 단계를 수행 하 여 windows 용 Hybrid Worker를 다시 설치 합니다. 또는 Linux의 경우 [linux Hybrid Runbook Worker를 배포](../automation-linux-hrw-install.md)합니다.
 
@@ -138,7 +138,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 ### <a name="resolution"></a>해상도
 
-다음 해결 방법을 사용 하 여 예약 된 항목을 가져옵니다. @No__t_1 스위치와 함께 [AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 사용 하 여 일정을 만들 수 있습니다. 그런 다음 [AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+다음 해결 방법을 사용 하 여 예약 된 항목을 가져옵니다. `-ForUpdate` 스위치와 함께 [AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 사용 하 여 일정을 만들 수 있습니다. 그런 다음 [AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet을 사용 하 여 다른 테 넌 트의 컴퓨터를 `-NonAzureComputer` 매개 변수에 전달 합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
 
 ```azurepowershell-interactive
@@ -187,11 +187,11 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 ### <a name="resolution"></a>해상도
 
-해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 게다가
+해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 또한
 
 * 컴퓨터가 존재 하 고 연결할 수 있는지 확인 합니다. 존재 하지 않는 경우 배포를 편집 하 고 컴퓨터를 제거 합니다.
 * 업데이트 관리에 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-update-management.md#ports) 섹션을 참조 하 고 컴퓨터가 이러한 요구 사항을 충족 하는지 확인 합니다.
-* Log Analytics에서 다음 쿼리를 실행 하 여 `SourceComputerId` 변경 된 환경에서 컴퓨터를 찾을 수 있습니다. @No__t_0 값이 같지만 `SourceComputerId` 값이 다른 컴퓨터를 찾습니다. 
+* Log Analytics에서 다음 쿼리를 실행 하 여 `SourceComputerId` 변경 된 환경에서 컴퓨터를 찾을 수 있습니다. `Computer` 값이 같지만 `SourceComputerId` 값이 다른 컴퓨터를 찾습니다. 
 
    ```loganalytics
    Heartbeat | where TimeGenerated > ago(30d) | distinct SourceComputerId, Computer, ComputerIP

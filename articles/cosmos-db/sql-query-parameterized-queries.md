@@ -1,25 +1,25 @@
 ---
 title: Azure Cosmos DB의 매개 변수가 있는 쿼리
-description: SQL 매개 변수가 있는 쿼리에 대 한 자세한 정보
+description: SQL 매개 변수가 있는 쿼리를 통해 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 하는 방법을 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: tisande
-ms.openlocfilehash: 45c1344c32e35f60f35ba8ed105e912d92574cce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: e15a8236723c1efd80f27f2d253e9bbc44af4b0b
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003602"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870822"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Azure Cosmos DB의 매개 변수가 있는 쿼리
 
 Cosmos DB는 익숙한 @ 표기법으로 표현 된 매개 변수가 있는 쿼리를 지원 합니다. 매개 변수가 있는 SQL은 사용자 입력의 강력한 처리 및 이스케이프를 제공 하 고 SQL 주입을 통해 실수로 데이터가 노출 되는 것을 방지 합니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
-`lastName` 예를 들어 및 `address.state` 를 매개 변수로 사용 하는 쿼리를 작성 하 고 사용자 입력을 `address.state` 기준으로 다양 `lastName` 한 값에 대해 실행할 수 있습니다.
+예를 들어 `lastName` 및 `address.state`를 매개 변수로 사용 하는 쿼리를 작성 하 고 사용자 입력에 따라 `lastName` 및 `address.state`의 다양 한 값에 대해 실행할 수 있습니다.
 
 ```sql
     SELECT *

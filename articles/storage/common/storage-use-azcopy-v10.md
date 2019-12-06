@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: af24a6b6d165ba60a0d88a4ddf74a4f18836e813
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 0572a18e530eaff2b5a2d8aa8ced5af26f762aa8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111764"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873933"
 ---
 # <a name="get-started-with-azcopy"></a>AzCopy 시작
 
@@ -98,8 +98,8 @@ Azure Active Directory를 사용 하 여 각 명령에 SAS 토큰을 추가 하�
 
 - 컨테이너 (파일 시스템)
 - Storage 계정
-- 리소스 그룹
-- 구독
+- Resource group
+- Subscription
 
 역할을 확인 하 고 할당 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

@@ -4,19 +4,19 @@ description: Azure Automation State Configuration, DSC 및 Chocolatey 패키지 
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f4512b79873d7f770b32a452a02c53bc5575bdac
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: ddbf652c35c4f1504e3253838a983fd0f6039401
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243597"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850366"
 ---
-# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예제: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
+# <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>사용 예: Automation State Configuration 및 Chocolatey를 사용하여 Virtual Machines에 연속 배포
 
 DevOps 업계에는 연속 통합 파이프라인의 여러 시점에서 개발자를 지원하는 여러 도구가 있습니다. Azure Automation State Configuration이 DevOps 팀이 채택할 수 있는 새로운 옵션으로 추가되었습니다. 이 문서에서는 Windows 컴퓨터에 대 한 CD(연속 배포)를 보여줍니다. 이 방법을 간편하게 확장하여 역할(예: 웹 사이트)에서 필요한 만큼의 Windows 컴퓨터를 포함하고 추가적인 역할도 구성할 수 있습니다.
 
@@ -54,11 +54,11 @@ Resource Manager 템플릿의 핵심 기능은 프로비전되었을 때 VM에 V
 Chocolatey는 MSI, MSU, ZIP 등과 같은 다양한 형태의 설치 패키지를 처리할 수 있습니다. 또한 Chocolatey의 기본 기능이 부족할 경우 PowerShell을 완전히 활용하여 실제 설치를 수행할 수 있습니다. 패키지 리포지토리를 통해 연결할 수 있는 위치에 패키지를 배치 합니다. 이 사용 예는 Auzre Blob Storage 계정의 공용 폴더를 사용하지만 어디에나 있을 수 있습니다. Chocolatey는 패키지 메타데이터의 관리를 위해 NuGet 서버 및 기타 제품과 기본적으로 연동됩니다. [이 문서](https://github.com/chocolatey/choco/wiki/How-To-Host-Feed) 에서는 이러한 옵션에 대해 설명합니다. 이 사용 예는 NuGet을 사용합니다. Nuspec은 패키지에 관한 메타데이터입니다. Nuspec은 NuPkg에 "컴파일"되어 NuGet 서버에 저장됩니다. 구성에서 이름으로 패키지를 요청하고 NuGet 서버를 참조할 경우 Chocolatey DSC 리소스(이제 VM에 있음)가 패키지를 포착하여 설치합니다. 특정 버전의 패키지를 요청할 수도 있습니다.
 
 그림의 왼쪽 하단에는 Azure Resource Manager 템플릿이 있습니다. 이 사용 예에서는 VM 확장이 VM을 Azure Automation State Configuration 풀 서버(즉, 풀 서버)에 노드로 등록합니다. 구성은 풀 서버에 저장됩니다.
-사실 일반 텍스트로 1번, MOF 파일로 컴파일 1번 등(이에 대해 알고 있는 상황), 두 번 저장됩니다. 포털에서 MOF는 "노드 구성"입니다(단순 "구성"과 반대). 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
+실제로는 두 번 저장 됩니다. 즉, 일반 텍스트로 한 번, MOF 파일로 컴파일된 후에는 두 번 저장 됩니다. 포털에서 MOF는 단순히 "구성"이 아닌 "노드 구성"입니다. 노드와 관련한 아티팩트이므로 노드가 그 구성을 알고 있습니다. 아래의 세부 정보는 노드 구성을 노드에 할당하는 방법을 보여줍니다.
 
 아마도 이미 윗 부분 또는 대부분을 수행하고 있을 것입니다. Nuspec를 생성, 컴파일 및 NuGet 서버에 저장하는 작업은 간단합니다. 이미 VM을 관리하고 있습니다. 연속 배포의 다음 단계로 이동하려면 풀 서버를 설정하고(1회), 노드를 풀 서버에 등록하고(1회), 여기에 구성을 만들어 저장해야 합니다(최초). 그러면 패키지가 업그레이드되어 리포지토리에 배포되며 풀 서버에서 구성 및 노드 구성을 새로 고칩니다.(필요에 따라 반복)
 
-Resource Manager 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및 나머지 모두에 등록하는 데 도움이 되도록 설계된PowerShell cmdlet이 있습니다. 자세한 내용은 문서: [Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드](automation-dsc-onboarding.md)를 참조하세요.
+Resource Manager 템플릿으로 시작하지 않아도 괜찮습니다. VM을 풀 서버 및 나머지 모두에 등록하는 데 도움이 되도록 설계된PowerShell cmdlet이 있습니다. 자세한 내용은 [Azure Automation State Configuration을 통한 관리를 위한 머신 온보드](automation-dsc-onboarding.md) 문서를 참조하세요.
 
 ## <a name="step-1-setting-up-the-pull-server-and-automation-account"></a>1단계: 풀 서버 및 자동화 계정 설정
 
@@ -69,7 +69,7 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-Automation 계정을 미국 동부 2, 미국 중남부, 미국 버지니아 주 정부, 유럽 서부, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 유럽 북부 등의 지역(즉, 위치) 중 하나에 놓을 수 있습니다.
+자동화 계정을 미국 동부 2, 미국 중남부, 미국 버지니아 주 정부, 유럽 서부, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 유럽 북부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
 
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>2단계: Resource Manager 템플릿에 대한 VM 확장 조정
 
@@ -86,7 +86,7 @@ Azure Automation 계정에 DSC 리소스를 설치하기 위해 PowerShell 갤�
 Azure Portal에 최근에 추가된 또 다른 방법을 사용하면 새 모듈을 당겨오거나 기존 모듈을 업데이트할 수 있습니다. Automation 계정 리소스, 자산 타일 및 모듈 타일을 차례로 클릭합니다. 갤러리 찾아보기 아이콘을 사용하면 갤러리에서 모듈의 목록을 보고 세부 정보로 드릴다운하고 궁극적으로 Automation 계정으로 가져올 수 있습니다. 이는 모듈을 최신 상태로 유지할 수 있는 좋은 방법입니다. 그리고 가져오기 기능은 다른 모듈의 종속성을 확인하여 동기화에서 빠져 나가지 않도록 합니다.
 
 또는 수동 방법이 있습니다. Windows 컴퓨터용 PowerShell 통합 모듈의 폴더 구조는 Azure Automation에서의 예상 폴더 구조와 다소 차이가 있습니다.
-여기에는 약간의 사용자 조정 작업이 필요합니다. 어려운 작업도 아니고 리소스당 한 번만 수행합니다(향후 업그레이드하지 않으려는 경우). PowerShell 통합 모듈 제작에 대한 자세한 내용은 [Azure Automation에 대한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/) 문서를 참조하세요.
+여기에는 약간의 사용자 조정 작업이 필요합니다. 그러나이 작업은 어려울 수 있으며 나중에 업그레이드 하려고 하지 않는 한 리소스 당 한 번만 수행 됩니다. PowerShell 통합 모듈을 제작 하는 방법에 대 한 자세한 내용은 [Azure Automation에 대 한 통합 모듈 제작](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/) 문서를 참조 하세요.
 
 - 다음과 같이 사용자 워크스테이션에 필요한 모듈을 설치합니다.
   - [Windows Management Framework, v5](https://aka.ms/wmf5latest) 설치(Windows 10에는 필요 없음)

@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 LOG10
-description: Azure Cosmos DB의 SQL 시스템 함수 LOG10에 대해 알아봅니다.
+description: 지정 된 숫자 식의 상용 로그를 반환 하 Azure Cosmos DB의 LOG10 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 56f1e96e7d4ee1b5f38ee7392665e17819ae554b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5950a2a40a78716a76e49fcdaeb3129948b6a0e1
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349722"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871060"
 ---
 # <a name="log10-azure-cosmos-db"></a>LOG10 (Azure Cosmos DB)
  지정한 숫자 식의 상용 로그(밑 10)를 반환합니다.  
@@ -36,7 +36,7 @@ LOG10 (<numeric_expr>)
   
   LOG10과 POWER 함수는 서로 역의 관계가 있습니다. 예를 들어 10 ^ LOG10(n) = n입니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
   다음 예제에서는 변수를 선언하고 지정된 변수 (100)의 LOG10 값을 반환합니다.  
   

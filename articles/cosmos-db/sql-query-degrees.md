@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의도
-description: Azure Cosmos DB의 SQL 시스템 함수도에 대해 알아봅니다.
+description: 라디안으로 지정 된 각도에 해당 하는 각도 (도)를 반환 하는 Azure Cosmos DB의 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d8c2109c2c11f137b1966741a95d1d0c02895016
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 5f432f5ef57c8eccc0cf629f00d2231364785b9a
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351186"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871332"
 ---
 # <a name="degrees-azure-cosmos-db"></a>도 (Azure Cosmos DB)
- 라디안에서으로 지정 된 각도 (도) 해당 각도 반환 합니다.  
+ 라디안에서 지정된 각도로 해당하는 각도를 반환합니다.  
   
 ## <a name="syntax"></a>구문
   
@@ -32,7 +32,7 @@ DEGREES (<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
   다음 예제에서는 PI/2 라디안 각도의 각도 수를 반환합니다.  
   

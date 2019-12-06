@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 LINQ to SQL 변환
-description: LINQ 쿼리를 Azure Cosmos DB SQL 쿼리에 매핑합니다.
+description: 지원 되는 LINQ 연산자 및 LINQ 쿼리가 Azure Cosmos DB의 SQL 쿼리에 매핑되는 방법에 대해 알아봅니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/30/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: ad6dcf7307955300a781a7a649b6ac76b3c69589
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d8dd6392cf22852a10c1dc2600edcbc647f3c510
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003547"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871162"
 ---
 # <a name="linq-to-sql-translation"></a>LINQ to SQL 변환
 
@@ -23,7 +23,7 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 - 쿼리 평가 시 기본 데이터 형식의 상수 값을 포함 하는 상수 값입니다.
   
-- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 예를 들어:
+- 개체 또는 배열 요소의 속성을 참조 하는 속성/배열 인덱스 식입니다. 다음은 그 예입니다.
   
   ```
     family.Id;
@@ -58,21 +58,21 @@ Azure Cosmos DB 쿼리 공급자는 LINQ 쿼리에서 Cosmos DB SQL 쿼리로 �
 
 SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지원 합니다.
 
-- **Select**: 프로젝션은 개체 생성을 포함 하 여 SQL SELECT로 변환 합니다.
-- **Where**: 필터를 sql로 변환 하 고, 및에서 `&&`sql `||`연산자 `!` 로의 변환을 지원 합니다.
+- **Select**: 개체 생성을 포함 하 여 SQL select로 프로젝션 변환을 선택 합니다.
+- **Where**: 필터는 sql로 변환 하 고 `&&`, `||`및 `!`에서 sql 연산자로의 변환을 지원 합니다.
 - **SelectMany**: SQL JOIN 절에 대한 배열 해제를 허용합니다. 를 사용 하 여 배열 요소를 필터링 하는 식을 연결 하거나 중첩 합니다.
-- **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 여 ORDER BY로 변환 합니다.
+- **OrderBy** 및 **OrderByDescending**: ASC 또는 DESC를 사용 하 여 ORDER by로 변환 합니다.
 - 집계를 위한 **Count**, **Sum**, **Min**, **Max** 및 **Average** 연산자와 해당 비동기 동급 연산자 **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync** 및 **AverageAsync**
 - **CompareTo**: 범위 비교로 변환합니다. .NET에서는 비교할 수 없기 때문에 일반적으로 문자열에 사용 됩니다.
 - **Take**: 쿼리에서 결과를 제한 하기 위해 SQL TOP으로 변환 합니다.
-- **수치 연산 함수**: `Abs`.Net ,`Pow`,, `Asin` `Atan` `Ceiling` ,,`Exp`,,,,,,에서의 변환을 지원 합니다. `Cos` `Acos` `Floor` `Log` `Log10` `Round` ,,,`Truncate` , 및는 해당 하는 SQL 기본 제공 함수입니다. `Sign` `Sin` `Sqrt` `Tan`
-- **문자열 함수**: `Concat`.Net ,`ToUpper`,, `Count` `EndsWith``IndexOf` ,,`Reverse`,,,,,,에서의 변환을 지원 합니다. `Replace` `Contains` `StartsWith` `SubString` `ToLower` `TrimEnd`해당 하 `TrimStart` 는 SQL 기본 제공 함수에 대 한 및입니다.
-- **배열 함수**: 는 .net `Concat`, `Contains`및 `Count` 에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
-- **지리 공간적 확장 함수**: 에서는 `Distance` `IsValidDetailed`스텁 메서드,, 및`Within` 에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다. `IsValid`
-- **사용자 정의 함수 확장 함수**: 스텁 메서드에서 `UserDefinedFunctionProvider.Invoke` 해당 사용자 정의 함수로의 변환을 지원 합니다.
-- **기타**: 및 조건부 연산자 `Coalesce` 의 변환을 지원 합니다. 는 컨텍스트에 `Contains` 따라의 String CONTAINS, ARRAY_CONTAINS 또는 SQL로 변환할 수 있습니다.
+- **수치 연산 함수**: .net `Abs`, `Acos`, `Asin`, `Atan`, `Ceiling`, `Cos`, `Exp`, `Floor`, `Log`, `Log10`, `Pow`, `Round`, `Sign`, `Sin`, `Sqrt`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
+- **문자열 함수**: .net `Concat`, `Contains`, `Count`, `EndsWith`,`IndexOf`, `Replace`, `Reverse`, `StartsWith`, `SubString`, `ToLower`, `ToUpper`, `TrimEnd`및 `TrimStart`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
+- **배열 함수**: .net `Concat`, `Contains`및 `Count`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
+- **지리 공간적 확장 함수**: 스텁 메서드 `Distance`, `IsValid`, `IsValidDetailed`및 `Within`에서 해당 하는 SQL 기본 제공 함수로의 변환을 지원 합니다.
+- **사용자 정의 함수 확장 함수**: 스텁 메서드 `UserDefinedFunctionProvider.Invoke`에서 해당 하는 사용자 정의 함수로의 변환을 지원 합니다.
+- **기타**: `Coalesce` 및 조건부 연산자의 변환을 지원 합니다. 는 컨텍스트에 따라 `Contains`를 String CONTAINS, ARRAY_CONTAINS 또는 SQL로 변환할 수 있습니다.
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 다음 예에서는 표준 LINQ 쿼리 연산자 중 일부를 Cosmos DB 쿼리로 변환 하는 방법을 보여 줍니다.
 
@@ -192,7 +192,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 
 ### <a name="concatenation"></a>연결
 
-구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결 된 쿼리는 선택적 `SelectMany` 쿼리로 시작 하 고 그 다음에 여러 `Select` or `Where` 연산자를 사용할 수 있습니다.
+구문은 `input(.|.SelectMany())(.Select()|.Where())*`입니다. 연결 된 쿼리는 선택적 `SelectMany` 쿼리로 시작 하 고 그 다음에 여러 `Select` 또는 `Where` 연산자를 사용할 수 있습니다.
 
 **연결, 예 1:**
 
@@ -264,7 +264,7 @@ SQL .NET SDK에 포함 된 LINQ 공급자는 다음과 같은 연산자를 지�
 
 ### <a name="nesting"></a>중첩
 
-구문은 `input.SelectMany(x=>x.Q())` 입니다. 여기서 `Q` 는 `Select`, `SelectMany`또는 연산자입니다.`Where`
+구문은 `input.SelectMany(x=>x.Q())` `Q` `Select`, `SelectMany`또는 `Where` 연산자입니다.
 
 중첩 쿼리는 외부 컨테이너의 각 요소에 내부 쿼리를 적용 합니다. 한 가지 중요 한 기능은 내부 쿼리가 자체 조인과 같이 외부 컨테이너에 있는 요소의 필드를 참조할 수 있다는 것입니다.
 

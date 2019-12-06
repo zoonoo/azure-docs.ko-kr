@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 80d356426fe312708d64cc4284dbb1fd925e47c7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd8e46ecf7e65d768d16c8680fb7ab6796c74ea6
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233341"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849340"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -87,13 +87,13 @@ Workday 통합을 시작하기 전에 다음과 같은 필수 조건을 확인�
 
 이 섹션에서는 계획의 다음 측면을 다룹니다.
 
-* [필수 조건](#prerequisites)
+* [필수 구성 요소](#prerequisites)
 * [배포할 프로비전 커넥터 앱 선택](#selecting-provisioning-connector-apps-to-deploy)
 * [Azure AD Connect 프로비전 에이전트 배포 계획](#planning-deployment-of-azure-ad-connect-provisioning-agent)
 * [여러 Active Directory 도메인과 통합](#integrating-with-multiple-active-directory-domains)
 * [Workday-Active Directory 사용자 특성 매핑 및 변환 계획](#planning-workday-to-active-directory-user-attribute-mapping-and-transformations)
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -153,8 +153,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+| 아닙니다. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -164,8 +164,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아니요. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 아닙니다. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -175,8 +175,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아니요. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-| 아니요. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| 아닙니다. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -236,16 +236,16 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 **통합 시스템 사용자를 만들려면**
 
-1. Administrator 계정을 사용하여 Workday 테넌트에 로그인합니다. **Workday 애플리케이션**의 검색 상자에서 사용자 만들기를 입력하고 **통합 시스템 사용자 만들기**를 클릭합니다.
+1. 관리자 계정을 사용 하 여 Workday 테 넌 트에 로그인 합니다. **Workday 애플리케이션**의 검색 상자에서 사용자 만들기를 입력하고 **통합 시스템 사용자 만들기**를 클릭합니다.
 
-    ![사용자 만들기](./media/workday-inbound-tutorial/wd_isu_01.png "사용자 만들기")
+   ![사용자 만들기](./media/workday-inbound-tutorial/wd_isu_01.png "사용자 만들기")
 2. 새 통합 시스템 사용자에 대한 사용자 이름과 암호를 입력하여 **통합 시스템 사용자 만들기** 작업을 완료합니다.  
   
-* 이 사용자는 프로그래밍 방식으로 로그인할 것이므로 **다음 로그인할 때 새 암호 필요** 옵션을 선택하지 않습니다.
-* 사용자의 세션이 너무 빨리 시간 초과되지 않도록 **세션 시간 초과 분**을 기본값인 0으로 둡니다.
-* 통합 시스템 암호가 있는 사용자가 Workday에 로그인하지 못하게 하는 추가 보안 계층을 제공하기 때문에 **UI 세션 허용 안 함** 옵션을 선택합니다.
+   * 이 사용자는 프로그래밍 방식으로 로그인할 것이므로 **다음 로그인할 때 새 암호 필요** 옵션을 선택하지 않습니다.
+   * 사용자의 세션이 너무 빨리 시간 초과되지 않도록 **세션 시간 초과 분**을 기본값인 0으로 둡니다.
+   * 통합 시스템 암호가 있는 사용자가 Workday에 로그인하지 못하게 하는 추가 보안 계층을 제공하기 때문에 **UI 세션 허용 안 함** 옵션을 선택합니다.
 
-    ![통합 시스템 사용자 만들기](./media/workday-inbound-tutorial/wd_isu_02.png "통합 시스템 사용자 만들기")
+   ![통합 시스템 사용자 만들기](./media/workday-inbound-tutorial/wd_isu_02.png "통합 시스템 사용자 만들기")
 
 ### <a name="creating-an-integration-security-group"></a>통합 보안 그룹 만들기
 
@@ -356,20 +356,44 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 이 섹션에서는 Workday에서 통합 범위 안의 각 Active Directory 도메인으로 사용자 계정을 프로비전하는 단계를 제공합니다.
 
-* [온-프레미스 프로비전 에이전트 설치 및 구성](#part-1-install-and-configure-on-premises-provisioning-agents)
-* [프로비전 커넥터 앱 추가 및 Workday에 대한 연결 만들기](#part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday)
-* [특성 매핑 구성](#part-3-configure-attribute-mappings)
+* [프로 비전 커넥터 앱을 추가 하 고 프로 비전 에이전트를 다운로드 합니다.](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent)
+* [온-프레미스 프로비전 에이전트 설치 및 구성](#part-2-install-and-configure-on-premises-provisioning-agents)
+* [Workday 및 Active Directory에 대 한 연결 구성](#part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory)
+* [특성 매핑 구성](#part-4-configure-attribute-mappings)
 * [사용자 프로비저닝 사용 및 시작](#enable-and-launch-user-provisioning)
 
-### <a name="part-1-install-and-configure-on-premises-provisioning-agents"></a>1부: 온-프레미스 프로비전 에이전트 설치 및 구성
+### <a name="part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent"></a>1 부: 프로 비전 커넥터 앱을 추가 하 고 프로 비전 에이전트 다운로드
 
-Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Framework가 있고 원하는 Active Directory 도메인에 대한 네트워크 액세스 권한이 있는 서버에 에이전트를 설치해야 합니다.
+**Workday에서 Active Directory로의 프로비전을 구성하려면:**
+
+1. <https://portal.azure.com>(으)로 이동
+
+2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
+
+3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
+
+4. **애플리케이션 추가**를 선택하고 **모두** 범주를 선택합니다.
+
+5. **Active Directory에 Workday 프로비전**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
+
+6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
+
+7. **프로비전** **모드**를 **자동**으로 변경합니다.
+
+8. 표시 된 정보 배너를 클릭 하 여 프로 비전 에이전트를 다운로드 합니다. 
+
+   ![에이전트 다운로드](./media/workday-inbound-tutorial/pa-download-agent.png "에이전트 다운로드 화면")
+
+
+### <a name="part-2-install-and-configure-on-premises-provisioning-agents"></a>2 부: 온-프레미스 프로 비전 에이전트 설치 및 구성
+
+온-프레미스 Active Directory에 프로 비전 하려면 .NET 4.7.1 + Framework 및 원하는 Active Directory 도메인에 대 한 네트워크 액세스 권한이 있는 서버에 프로 비전 에이전트를 설치 해야 합니다.
 
 > [!TIP]
 > [여기](https://docs.microsoft.com/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed)에 제공된 지침을 사용하여 서버에서 .NET Framework 버전을 확인할 수 있습니다.
 > 서버에 .NET 4.7.1 이상이 설치되어 있지 않으면 [여기](https://support.microsoft.com/help/4033342/the-net-framework-4-7-1-offline-installer-for-windows)에서 다운로드할 수 있습니다.  
 
-.NET 4.7.1 이상을 배포했으면 **[온-프레미스 프로비전 에이전트를 여기에서](https://go.microsoft.com/fwlink/?linkid=847801)** 다운로드하고 아래 제공된 단계에 따라 에이전트 구성을 완료할 수 있습니다.
+다운로드 한 에이전트 설치 관리자를 서버 호스트로 전송 하 고 아래 제공 된 단계에 따라 에이전트 구성을 완료 합니다.
 
 1. 새 에이전트를 설치 하려는 Windows Server에 로그인 합니다.
 
@@ -418,33 +442,20 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
    
 1. 에이전트 설치를 확인하고 “서비스” 스냅인을 열고 “Microsoft Azure AD Connect Provisioning Agent”라는 서비스를 찾아 해당 에이전트가 실행 중인지 확인합니다.
   
-   ![서비스](./media/workday-inbound-tutorial/services.png)
+   ![Services](./media/workday-inbound-tutorial/services.png)
 
-### <a name="part-2-adding-the-provisioning-connector-app-and-creating-the-connection-to-workday"></a>2부: 프로비전 커넥터 앱을 추가하고 Workday에 대한 연결 만들기
+### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>3 부: 프로 비전 앱에서 Workday 및 Active Directory에 대 한 연결 구성
+이 단계에서는 Azure Portal에서 Workday 및 Active Directory와의 연결을 설정 합니다. 
 
-**Workday에서 Active Directory로의 프로비전을 구성하려면:**
+1. Azure Portal에서 Workday로 돌아가서 [1 부에서](#part-1-add-the-provisioning-connector-app-and-download-the-provisioning-agent) 만든 사용자 프로 비전 앱을 Active Directory 합니다.
 
-1. <https://portal.azure.com>
-
-2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
-
-3. **엔터프라이즈 애플리케이션**, **모든 애플리케이션**을 차례로 선택합니다.
-
-4. **애플리케이션 추가**를 선택하고 **모두** 범주를 선택합니다.
-
-5. **Active Directory에 Workday 프로비전**을 검색하고, 갤러리에서 해당 앱을 추가합니다.
-
-6. 앱이 추가되고 앱 세부 정보 화면이 표시되면 **프로비전**을 선택합니다.
-
-7. **프로비전** **모드**를 **자동**으로 변경합니다.
-
-8. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
+1. 다음과 같이 **관리자 자격 증명** 섹션을 완료합니다.
 
    * **관리자 사용자 이름** – 테넌트 도메인 이름이 추가된 Workday 통합 시스템 계정의 사용자 이름을 입력합니다. 다음과 같이 표시 됩니다. **username\@tenant_name**
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
 
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
@@ -461,11 +472,11 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
-     ![Azure 포털](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
-### <a name="part-3-configure-attribute-mappings"></a>3 부: 특성 매핑 구성
+### <a name="part-4-configure-attribute-mappings"></a>4 부: 특성 매핑 구성
 
 이 섹션에서는 사용자 데이터가 Workday에서 Active Directory로 흐르는 방식을 구성하겠습니다.
 
@@ -526,7 +537,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-   ![Azure 포털](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
@@ -580,7 +591,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 **클라우드 전용 사용자에 대한 Workday-Azure Active Directory 프로비전을 구성하려면:**
 
-1. <https://portal.azure.com>로 이동합니다.
+1. [https://editor.swagger.io](<https://portal.azure.com>) 로 이동합니다.
 
 2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -600,7 +611,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -677,7 +688,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
 **Workday 쓰기 저장 커넥터를 구성하려면**
 
-1. <https://portal.azure.com>
+1. <https://portal.azure.com>(으)로 이동
 
 2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -697,7 +708,7 @@ Active Directory 온-프레미스로 프로비전하려면 .NET 4.7.1 이상 Fra
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -726,7 +737,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 1. **프로비전** 탭에서 **프로비전 상태**를 **켜기**로 설정합니다.
 
-2. **Save**를 클릭합니다.
+2. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 3. 이 작업을 수행하면 초기 동기화가 시작되고, Workday 테넌트에 있는 사용자 수에 따라 동기화에 걸리는 시간이 달라질 수 있습니다. 
 
@@ -734,7 +745,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-   ![Azure 포털](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -837,7 +848,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
-  ![Azure 포털](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft에서 프로비전 에이전트 업데이트를 자동으로 푸시하나요?
 
@@ -1317,7 +1328,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 8. **형식**에 대해 특성에 해당하는 형식(**문자열**이 가장 일반적임)을 선택합니다.
 
-9. **API 식**에 대해 Workday Studio에서 복사한 XPath 식을 입력합니다. 예제: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
+9. **API 식**에 대해 Workday Studio에서 복사한 XPath 식을 입력합니다. 예: `wd:Worker/wd:Worker_Data/wd:Personal_Data/wd:Birth_Date/text()`
 
 10. **특성 추가**를 선택합니다.
 

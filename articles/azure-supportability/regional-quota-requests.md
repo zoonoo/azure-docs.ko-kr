@@ -7,16 +7,16 @@ ms.date: 06/07/2019
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 6c2d7dc64bca00ce664dc470e7c4405d69b49779
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 132cf6ccfec5af9951f5dc6d6a3c6d3c81363d81
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531515"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850009"
 ---
 # <a name="standard-quota-regional-vcpu-limit-increase"></a>표준 할당량: 지역 vCPU 제한 증가 
 
-리소스 관리자는 가상 컴퓨터에 대 한 두 가지 유형의 vCPU 할당량을 지원 합니다. **종 량 제 vm** 및 **예약 VM 인스턴스** 는 표준 할당량을 사용 합니다. **낮은 우선 순위 vm** 은 낮은 우선 순위 할당량을 사용 합니다. 
+리소스 관리자는 가상 컴퓨터에 대 한 두 가지 유형의 vCPU 할당량을 지원 합니다. **종 량 제 vm** 및 **예약 VM 인스턴스** 는 표준 할당량을 사용 합니다. **지점 vm** 은 스폿 할당량을 사용 합니다. 
 
 종 량 제 및 예약 VM 인스턴스에 대 한 표준 vCPU 할당량은 각 지역의 각 구독에 대해 두 개의 계층으로 적용 됩니다.
  
@@ -26,7 +26,7 @@ ms.locfileid: "74531515"
 
 [가상 머신 vCPU 할당량 페이지](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) 및 [Azure 구독 및 서비스 제한](https://aka.ms/quotalimits) 페이지에서 표준 vcpu 할당량에 대해 자세히 알아보세요.
 
-[여기](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)에서 **낮은 우선 순위 VM vcpu 제한을 높이** 는 방법에 대해 자세히 알아보세요.
+이에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/azure-supportability/low-priority-quota)에서 **지점 VM vcpu 제한** 을 참조 하세요.
 
 **도움말 + 지원** 블레이드 또는 포털의 **사용량 + 할당량** 블레이드를 통해 **표준 VM의 총 지역 vcpu 한도** 를 늘릴 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "74531515"
 
 아래 지침에 따라 Azure Portal에서 제공 하는 Azure의 ' 도움말 + 지원 ' 블레이드를 통해 지원 요청을 만듭니다. 
 
-1. https://portal.azure.com 에서 **도움말 + 지원**을 선택 합니다.
+1. [https://portal.azure.com](https://portal.azure.com )을 선택 **도움말 + 지원**합니다.
 
 ![도움말 + 지원](./media/resource-manager-core-quotas-request/helpsupport.png)
  

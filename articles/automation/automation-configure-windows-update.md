@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure 업데이트 관리에서 작동 하도�
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 813d34f9c07e6c2909c483f040d4f3bf09b3ad24
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 804f42121293e142cf77ad73c4aab36e62e3242d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690848"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850417"
 ---
 # <a name="configure-windows-update-settings-for-update-management"></a>업데이트 관리에 대 한 Windows 업데이트 설정 구성
 
@@ -34,7 +34,7 @@ $WUSettings.Save()
 
 ## <a name="disable-automatic-installation"></a>자동 설치 사용 안 함
 
-기본적으로 Azure Vm (가상 머신)에서 자동 업데이트 설치가 사용 됩니다. 이로 인해 업데이트를 설치 하도록 예약 하기 전에 업데이트 관리 수 있습니다. @No__t_1 `NoAutoUpdate` 레지스트리 키를 설정 하 여이 동작을 사용 하지 않도록 설정할 수 있습니다. 다음 PowerShell 코드 조각에서는이 작업을 수행 하는 방법을 보여 줍니다.
+기본적으로 Azure Vm (가상 머신)에서 자동 업데이트 설치가 사용 됩니다. 이로 인해 업데이트를 설치 하도록 예약 하기 전에 업데이트 관리 수 있습니다. `1``NoAutoUpdate` 레지스트리 키를 설정 하 여이 동작을 사용 하지 않도록 설정할 수 있습니다. 다음 PowerShell 코드 조각에서는이 작업을 수행 하는 방법을 보여 줍니다.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -43,11 +43,11 @@ Set-ItemProperty -Path $AutoUpdatePath -Name NoAutoUpdate -Value 1
 
 ## <a name="configure-reboot-settings"></a>다시 부팅 설정 구성
 
-**업데이트 배포** 설정에서 **다시 부팅 안 함** 을 지정한 경우에도 [다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 및 레지스트리 키를 [편집 하 여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 에 나열 된 레지스트리 키로 인해 컴퓨터가 다시 부팅 될 수 있습니다. . 이러한 레지스트리 키는 사용자 환경에 가장 적합 하도록 구성 해야 합니다.
+**업데이트 배포** 설정에서 **다시 부팅 안 함** 을 지정한 경우에도 [다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 및 레지스트리 키를 [편집 하 여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 에 나열 된 레지스트리 키로 인해 컴퓨터가 다시 부팅 될 수 있습니다. 이러한 레지스트리 키는 사용자 환경에 가장 적합 하도록 구성 해야 합니다.
 
 ## <a name="enable-updates-for-other-microsoft-products"></a>다른 Microsoft 제품에 대한 업데이트 사용
 
-기본적으로 Windows 업데이트는 Windows에 대해서만 업데이트를 제공 합니다. **Windows 업데이트를 업데이트할 때 다른 Microsoft 제품에 대 한 업데이트 제공** 설정을 사용 하도록 설정 하면 Microsoft SQL Server 및 기타 microsoft 소프트웨어에 대 한 보안 패치를 비롯 한 다른 제품에 대 한 업데이트도 수신 됩니다. 이 옵션은 그룹 정책을 통해 구성할 수 없습니다. 다른 Microsoft 업데이트를 사용 하도록 설정 하려는 시스템에서 다음 PowerShell 명령을 실행 합니다. 업데이트 관리는이 설정을 준수 합니다.
+기본적으로 Windows 업데이트는 Windows용 업데이트만 제공합니다. **Windows 업데이트를 업데이트할 때 다른 Microsoft 제품에 대 한 업데이트 제공** 설정을 사용 하도록 설정 하면 Microsoft SQL Server 및 기타 microsoft 소프트웨어에 대 한 보안 패치를 비롯 한 다른 제품에 대 한 업데이트도 수신 됩니다. 이 옵션은 그룹 정책을 통해 구성할 수 없습니다. 다른 Microsoft 업데이트를 사용 하도록 설정 하려는 시스템에서 다음 PowerShell 명령을 실행 합니다. 업데이트 관리는이 설정을 준수 합니다.
 
 ```powershell
 $ServiceManager = (New-Object -com "Microsoft.Update.ServiceManager")

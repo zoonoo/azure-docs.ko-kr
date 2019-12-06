@@ -1,7 +1,7 @@
 ---
 title: ML 실험 & 메트릭 기록
 titleSuffix: Azure Machine Learning
-description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 학습 스크립트에 로깅을 추가 하 고 실행의 기록 된 결과를 확인 합니다.  Start_logging 또는 ScriptRunConfig를 사용 합니다.
+description: Azure ML 실험을 모니터링 하 고 실행 메트릭을 모니터링 하 여 모델 생성 프로세스를 향상 시킵니다. 학습 스크립트에 로깅을 추가 하 고 실행의 기록 된 결과를 확인 합니다.  실행 .log, start_logging 또는 ScriptRunConfig를 사용 합니다.
 services: machine-learning
 author: sdgilley
 ms.author: sgilley
@@ -10,14 +10,14 @@ ms.service: machine-learning
 ms.subservice: core
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: d8a2c456c725a3170bc940bf17dec6b0c4ad2c3e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a60691222c6f5f31a5b5c97df029790c1fd690ed
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73584538"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873885"
 ---
 # <a name="monitor-azure-ml-experiment-runs-and-metrics"></a>Azure ML 실험 실행 및 메트릭 모니터링
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -34,15 +34,15 @@ ms.locfileid: "73584538"
 
 실험을 학습하는 동안 실행에 추가할 수 있는 메트릭은 다음과 같습니다. 실행 시 추적할 수 있는 메트릭에 대한 자세한 목록을 보려면 [Run 클래스 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py)를 참조하세요.
 
-|형식| Python 함수 | 참고 사항|
+|Type| Python 함수 | 참고|
 |----|:----|:----|
-|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
-|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
-|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
-|테이블|함수:<br>`run.log_table(name, value, description='')`<br><br>예:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
-|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
-|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
-|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
+|스칼라 값 |함수:<br>`run.log(name, value, description='')`<br><br>예제:<br>run.log(“accuracy”, 0.95) |숫자 또는 문자열 값을 지정된 이름의 실행에 기록합니다. 메트릭을 실행에 기록하면 해당 메트릭이 실험의 실행 기록에 저장됩니다.  하나의 실행 내에서 동일한 메트릭을 여러 번 기록할 수 있으며 결과는 해당 메트릭의 벡터로 간주됩니다.|
+|목록|함수:<br>`run.log_list(name, value, description='')`<br><br>예제:<br>run.log_list(“accuracies”, [0.6, 0.7, 0.87]) | 값 목록을 지정된 이름의 실행에 기록합니다.|
+|행|함수:<br>`run.log_row(name, description=None, **kwargs)`<br>예제:<br>run.log_row(“Y over X”, x=1, y=0.4) | *log_row*를 사용하여 kwargs에 설명된 대로 열이 여러 개 있는 메트릭을 만듭니다. 명명된 각 매개 변수는 지정된 값이 있는 열을 생성합니다.  *log_row*는 임의의 튜플을 로깅하기 위해 한 번 호출되거나 루프에서 여러 번 호출되어 전체 테이블을 생성할 수 있습니다.|
+|Table|함수:<br>`run.log_table(name, value, description='')`<br><br>예제:<br>run.log_table(“Y over X”, {”x”:[1, 2, 3], “y”:[0.6, 0.7, 0.89]}) | 사전 개체를 지정된 이름의 실행에 기록합니다. |
+|이미지|함수:<br>`run.log_image(name, path=None, plot=None)`<br><br>예제:<br>`run.log_image("ROC", plt)` | 이미지를 실행 기록에 로깅합니다. log_image를 사용하여 이미지 파일이나 matplotlib 도면을 실행에 기록합니다.  이러한 이미지는 실행 기록에서 볼 수 있고 비교할 수 있습니다.|
+|실행 태그 지정|함수:<br>`run.tag(key, value=None)`<br><br>예제:<br>run.tag(“selected”, “yes”) | 문자열 키와 선택적 문자열 값을 사용하여 실행에 대한 태그를 지정합니다.|
+|파일 또는 디렉터리 업로드|함수:<br>`run.upload_file(name, path_or_stream)`<br> <br> 예제:<br>run.upload_file("best_model.pkl", "./model.pkl") | 파일을 실행 기록에 업로드합니다. 실행은 지정된 출력 디렉터리에서 파일을 자동으로 캡처합니다. 이 디렉터리는 대부분의 실행 형식에 대해 기본적으로 "./outputs"로 지정됩니다.  pload_file은 추가 파일을 업로드해야 하거나 출력 디렉터리를 지정하지 않은 경우에만 사용합니다. outputs 디렉터리에 업로드되도록 이름에 `outputs`를 추가하는 것이 좋습니다. `run.get_file_names()`를 호출하여 이 실행 기록와 연결된 모든 파일을 나열할 수 있습니다.|
 
 > [!NOTE]
 > 스칼라, 목록, 행 및 테이블에 대한 메트릭은 부동 소수점, 정수 또는 문자열 형식일 수 있습니다.
@@ -232,6 +232,25 @@ ms.locfileid: "73584538"
 
 ## <a name="view-run-details"></a>실행 세부 정보 보기
 
+### <a name="view-activequeued-runs-from-the-browser"></a>브라우저에서 활성/대기 중인 실행 보기
+
+모델 학습에 사용 되는 계산 대상은 공유 리소스입니다. 따라서 지정 된 시간에 큐에 대기 중이거나 활성 상태인 실행이 여러 개 있을 수 있습니다. 브라우저에서 특정 계산 대상에 대 한 실행을 확인 하려면 다음 단계를 사용 합니다.
+
+1. [Azure Machine Learning studio](https://ml.azure.com/)에서 작업 영역을 선택한 다음 페이지의 왼쪽에서 __계산__ 을 선택 합니다.
+
+1. 학습 __클러스터__ 를 선택 하 여 학습에 사용 되는 계산 대상 목록을 표시 합니다. 그런 다음 클러스터를 선택 합니다.
+
+    ![학습 클러스터 선택](./media/how-to-track-experiments/select-training-compute.png)
+
+1. __실행__을 선택 합니다. 이 클러스터를 사용 하는 실행 목록이 표시 됩니다. 특정 실행에 대 한 세부 정보를 보려면 __실행__ 열의 링크를 사용 합니다. 실험에 대 한 세부 정보를 보려면 __실험__ 열의 링크를 사용 합니다.
+
+    ![학습 클러스터에 대 한 실행 선택](./media/how-to-track-experiments/show-runs-for-compute.png)
+    
+    > [!TIP]
+    > 실행에는 자식 실행이 포함 될 수 있으므로 하나의 학습 작업으로 여러 항목이 생성 될 수 있습니다.
+
+실행이 완료 되 면이 페이지에 더 이상 표시 되지 않습니다. 완료 된 실행에 대 한 정보를 보려면 스튜디오의 __실험__ 섹션을 방문 하 여 실험 및 실행을 선택 합니다. 자세한 내용은 [쿼리 실행 메트릭](#queryrunmetrics) 섹션을 참조 하세요.
+
 ### <a name="monitor-run-with-jupyter-notebook-widget"></a>Jupyter 노트북 위젯을 사용 하 여 모니터 실행
 **ScriptRunConfig** 메서드를 사용 하 여 실행을 제출 하는 경우 [Jupyter 위젯을](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py)사용 하 여 실행 진행률을 볼 수 있습니다. 실행 제출과 마찬가지로, 위젯은 비동기이며 작업이 완료될 때까지 10-15초 간격으로 라이브 업데이트를 제공합니다.
 
@@ -271,6 +290,7 @@ print(run.get_portal_url())
 
 모델 학습 및 모니터링은 백그라운드에서 수행되므로 기다리는 동안 다른 작업을 실행할 수 있습니다. 또한 모델에서 학습을 완료할 때까지 기다린 후에 더 많은 코드를 실행할 수도 있습니다. **ScriptRunConfig**를 사용하면 ```run.wait_for_completion(show_output = True)```를 사용하여 모델 학습이 완료된 시점을 표시할 수 있습니다. ```show_output``` 플래그는 자세한 정보를 출력합니다. 
 
+<a id="queryrunmetrics"></a>
 
 ### <a name="query-run-metrics"></a>실행 메트릭 쿼리
 
@@ -299,7 +319,7 @@ print(run.get_portal_url())
 |두 개의 숫자 열을 사용하여 테이블 기록|`run.log_table(name='Sine Wave', value=sines)`|두 개의 변수 꺽은선형 차트|
 
 
-## <a name="example-notebooks"></a>노트북 예제
+## <a name="example-notebooks"></a>예제 Notebook
 다음 Notebook은 문서의 개념을 보여줍니다.
 * [how-to-use-azureml/training/train-within-notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-within-notebook)
 * [how-to-use-azureml/training/train-on-local](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-on-local)

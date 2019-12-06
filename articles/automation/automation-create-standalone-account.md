@@ -4,17 +4,17 @@ description: 이 문서는 Azure Automation에서 예제 보안 주체 인증을
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cdea358daa3bd0f9e738a0454613ea774a0e6dc
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 0dcfcfe5bc6e59eeb4ccb7272ed3f68edc9c4172
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146639"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850400"
 ---
 # <a name="create-a-standalone-azure-automation-account"></a>독립 실행형 Azure Automation 계정 만들기
 
@@ -24,21 +24,21 @@ Automation 계정에서는 Azure Resource Manager 또는 클래식 배포 모델
 
 Azure Portal에서 Automation 계정을 만드는 경우 이러한 계정이 자동으로 생성됩니다.
 
-* **실행 계정** 이 계정에서 수행하는 작업은 다음과 같습니다.
+* **실행 계정**. 이 계정에서 수행하는 작업은 다음과 같습니다.
   * Azure AD(Azure Active Directory)에서 서비스 주체 만들기
-  * 인증서 만들기
+  * 인증서를 만듭니다.
   * Runbook을 사용하여 Azure Resource Manager 리소스를 관리하는 참가자 RBAC(역할 기반 액세스 제어)를 할당합니다.
 
 이러한 계정을 만들면 Runbook을 신속하게 빌드하고 배포하기 시작하여 자동화 요구 사항을 지원할 수 있습니다.
 
-## <a name="permissions-required-to-create-an-automation-account"></a>Automation 계정을 만드는 데 필요한 사용 권한
+## <a name="permissions-required-to-create-an-automation-account"></a>Automation 계정을 만드는 데 필요한 권한
 
-Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 작업을 완료하려면 다음과 같은 권한이 있어야 합니다.
+Automation 계정을 만들거나 업데이트하고 이 문서에서 설명하는 작업을 완료하는 데 필요한 권한은 다음과 같습니다.
 
-* Automation 계정을 만들려면 Azure AD 사용자 계정을 **Microsoft. Automation** 리소스에 대한 소유자 역할과 동일한 권한이 있는 역할에 추가해야 합니다. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
-* Azure Portal의**사용자 설정** **관리** >  **Azure Active Directory** > 에서 **앱 등록** **예**로 설정 된 경우 Azure AD 테 넌 트의 관리자가 아닌 사용자가 활성으로 등록할 수 있습니다. [ 디렉터리 응용 프로그램](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions). **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
+* Automation 계정을 만들려면 Azure AD 사용자 계정을 Microsoft의 소유자 역할과 동일한 권한을 가진 역할에 추가 해야 합니다 **. 자동화** 리소스. 자세한 내용은 [Azure Automation의 역할 기반 액세스 제어](automation-role-based-access-control.md)를 참조하세요.
+* Azure Portal의 **Azure Active Directory** > **관리** > **사용자 설정**에서 **앱 등록** 가 **예**로 설정 된 경우 Azure AD 테 넌 트의 관리자가 아닌 사용자가 [응용 프로그램을 Active Directory 등록할](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions)수 있습니다. **앱 등록 설정**이 **아니요**로 설정된 경우, 이 작업을 수행하는 사용자는 Azure AD의 전역 관리자여야 합니다.
 
-사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 “만들 수 있는 권한이 없습니다.”라는 메시지가 표시됩니다.
+사용자는 구독의 전역 관리자/공동 관리자 역할에 추가되기 전에 해당 구독의 Active Directory 인스턴스에 속한 멤버가 아닌 경우 Active Directory에 게스트로 추가됩니다. 이 시나리오에서는 **Automation 계정 추가** 페이지에 "만들 수 있는 권한이 없습니다."라는 메시지가 표시됩니다.
 
 사용자가 글로벌 관리자/공동 관리자 역할에 먼저 추가된 경우, 구독의 Active Directory 인스턴스에서 제거한 다음, Active Directory의 전체 사용자 역할에 다시 추가할 수 있습니다.
 
@@ -47,7 +47,7 @@ Automation 계정을 만들거나 업데이트하고 이 문서에서 설명한 
 1. Azure Portal에서 **Azure Active Directory** 창으로 이동합니다.
 1. **사용자 및 그룹**을 선택합니다.
 1. **모든 사용자**를 선택합니다.
-1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필에서 **사용자 형식** 특성 값은 **게스트**가 아니어야 합니다.
+1. 특정 사용자를 선택한 후에 **프로필**을 선택합니다. 사용자 프로필의 **사용자 유형** 특성 값은 **Guest**가 아니어야 합니다.
 
 ## <a name="create-a-new-automation-account-in-the-azure-portal"></a>Azure Portal에서 새 Automation 계정 만들기
 
@@ -68,7 +68,7 @@ Azure Portal에서 Azure Automation 계정을 만들려면 다음 단계를 완�
    >
    > ![Automation 계정 경고 추가](media/automation-create-standalone-account/create-account-without-perms.png)
 
-1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다. *Automation 계정 이름은 하위 지역 및 리소스 그룹별로 고유합니다. 삭제된 Automation 계정에 대한 이름을 즉시 사용할 수 있습니다.*
+1. **Automation 계정 추가** 창의 **이름** 상자에 새 Automation 계정의 이름을 입력합니다. 이 이름은 선택 후 변경할 수 없습니다. *Automation 계정 이름은 지역 및 리소스 그룹에 따라 고유 합니다. 삭제 된 Automation 계정의 이름은 즉시 사용 하지 못할 수 있습니다.*
 1. 구독이 하나 이상인 경우는 **구독** 상자에서 새 계정에 사용하려는 구독을 지정합니다.
 1. **리소스 그룹**에서 기존 또는 새 리소스 그룹을 입력하거나 선택합니다.
 1. **위치**에서 Azure 데이터 센터 위치를 선택합니다.

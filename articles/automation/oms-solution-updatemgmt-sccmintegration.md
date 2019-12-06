@@ -4,17 +4,17 @@ description: 이 문서는 SCCM 관리되는 컴퓨터의 업데이트를 관리
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 92a93982cdd042a92b006cab7052ad4a6fee6fff
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 345adeee37f5f9bc4c794eb9bb624e7797197f22
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478194"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850213"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>업데이트 관리와 System Center Configuration Manager 통합
 
@@ -22,11 +22,11 @@ PC, 서버 및 모바일 디바이스를 관리하기 위해 System Center Confi
 
 Configuration Manager에서 소프트웨어 업데이트 배포를 만들고 미리 준비하여 관리되는 Windows 서버를 보고 및 업데이트하고, [업데이트 관리 솔루션](automation-update-management.md)을 사용하여 완료된 업데이트 배포에 대한 자세한 상태를 확인할 수 있습니다. Configuration Manager를 사용하여 업데이트 규정 준수 보고를 수행하지만 Windows 서버를 통해 업데이트 배포를 관리하지 않는 경우, 보안 업데이트가 업데이트 관리 솔루션으로 관리되는 동안 Configuration Manager에 계속 보고할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Automation 계정에 추가된 [업데이트 관리 솔루션](automation-update-management.md)이 있어야 합니다.
 * 현재 System Center Configuration Manager 환경에서 관리되는 Windows 서버는 업데이트 관리 솔루션을 사용하도록 설정되어 있는 Log Analytics 작업 영역에 보고해야 합니다.
-* 이 기능은 System Center Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Azure Monitor 로그를 사용 하 여 Configuration Manager 중앙 관리 사이트 또는 독립 실행형 기본 사이트를 통합 하 고 컬렉션을 가져옵니다, 검토 [Azure Monitor에 연결할 Configuration Manager 로그](../azure-monitor/platform/collect-sccm.md)합니다.  
+* 이 기능은 System Center Configuration Manager 현재 분기 버전 1606 이상에서 사용할 수 있습니다. Configuration Manager 중앙 관리 사이트나 독립 실행형 기본 사이트를 Azure Monitor 로그 및 가져오기 컬렉션과 통합 하려면 [Azure Monitor 로그에 Configuration Manager 연결](../azure-monitor/platform/collect-sccm.md)을 검토 합니다.  
 * Windows 에이전트는 WSUS(Windows Server Update Services) 서버와 통신하도록 구성되거나 Configuration Manager에서 보안 업데이트를 받지 않는 경우 Microsoft Update에 대한 액세스 권한이 있어야 합니다.   
 
 주로 기존 Configuration Manager 환경으로 Azure IaaS에 호스트되는 클라이언트를 관리하는 방법은 Azure 데이터 센터와 사용자 인프라 사이의 연결에 따라 달라집니다. 이 연결은 디자인 변경에 영향을 줍니다. 사용자는 Configuration Manager 인프라 및 그러한 필수 변경 사항을 지원하기 위해 관련된 비용을 마련해야 할 수도 있습니다. 계속하기 전에 평가해야 하는 계획 고려 사항에 대해 알아보려면 [Azure에서 Configuration Manager - 질문과 대답](/sccm/core/understand/configuration-manager-on-azure#networking)을 검토하세요.

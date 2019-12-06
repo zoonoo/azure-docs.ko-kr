@@ -4,17 +4,17 @@ description: System Center Orchestrator에서 Azure Automation으로 Runbook 및
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb5a77668cce96ef45a960908612b502f1520e25
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: b34554798130d9741318e0f518c32a41f82a17e3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67477597"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849669"
 ---
 # <a name="migrating-from-orchestrator-to-azure-automation-beta"></a>Orchestrator에서 Azure Automation으로 마이그레이션(Beta)
 [System Center Orchestrator](https://technet.microsoft.com/library/hh237242.aspx) 의 Runbook은 특별히 Orchestrator용으로 작성된 통합 팩의 활동을 기반으로 하는 반면, Azure Automation의 Runbook은 Windows PowerShell을 기반으로 합니다.  Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)은 해당 활동이 PowerShell cmdlet, 자식 Runbook 및 자산을 나타내는 Orchestrator Runbook과 모양이 유사합니다.
@@ -42,7 +42,7 @@ Integration Pack Converter는 [OIT(Orchestrator Integration Toolkit)](https://te
 
 Integration Pack Converter를 실행하면 통합 팩(.oip) 파일을 선택할 수 있는 마법사가 제공됩니다.  이 마법사는 해당 통합 팩에 포함된 활동을 나열하며 이를 통해 마이그레이션할 활동을 선택할 수 있습니다.  마법사를 완료하면 원래 통합 팩의 각 활동에 대한 해당 cmdlet이 포함된 통합 모듈이 만들어집니다.
 
-### <a name="parameters"></a>매개 변수
+### <a name="parameters"></a>parameters
 통합 팩에 있는 활동의 모든 속성은 통합 모듈에서 해당 cmdlet의 매개 변수로 변환됩니다.  Windows PowerShell cmdlet에는 모든 cmdlet에서 사용할 수 있는 [일반 매개 변수](https://technet.microsoft.com/library/hh847884.aspx) 집합이 있습니다.  예를 들어 -Verbose 매개 변수를 사용하면 cmdlet에서 해당 작업에 대한 자세한 정보를 출력합니다.  일반 매개 변수와 이름이 같은 매개 변수는 cmdlet에서 사용할 수 없습니다.  일반 매개 변수와 이름이 같은 속성이 활동에 있는 경우 마법사에서 다른 매개 변수 이름을 제공하라는 메시지를 표시합니다.
 
 ### <a name="monitor-activities"></a>모니터링 활동
@@ -96,7 +96,7 @@ ConvertFrom-SCORunbook -RunbookPath "c:\runbooks\MyRunbooks.ois_export" -Module 
 ### <a name="log-files"></a>로그 파일
 Runbook Converter는 동일한 위치에 있는 다음 로그 파일을 변환된 runbook으로 만듭니다.  파일이 이미 있는 경우 마지막 변환에서 정보를 사용하여 덮어씁니다.
 
-| 파일 | 목차 |
+| File | 콘텐츠 |
 |:--- |:--- |
 | Runbook Converter - Progress.log |성공적으로 변환된 각 작업에 대한 정보 및 변환되지 않은 각 활동에 대한 경고를 포함하는 변환의 자세한 단계입니다. |
 | Runbook Converter - Summary.log |변환된 runbook에 필요한 변수를 만드는 등 수행해야 하는 경고 및 후속 작업을 포함한 마지막 변환의 요약입니다. |

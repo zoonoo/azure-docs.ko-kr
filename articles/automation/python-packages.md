@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation에서 Python 2 패키지를 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f98b1454ff59eae62bcab7792fd7fd742babfb23
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: f20865b92df2a197410f209cf921c5e573723286
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478222"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850196"
 ---
 # <a name="manage-python-2-packages-in-azure-automation"></a>Azure Automation에서 Python 2 패키지 관리
 
@@ -30,27 +30,27 @@ Automation 계정의 **공유 리소스** 아래에서 **Python 2 패키지**를
 
 ![Python 패키지 추가](media/python-packages/upload-package.png)
 
-에 나열 된 패키지를 가져오면 합니다 **Python 2 패키지** Automation 계정에서 페이지입니다. 패키지를 제거해야 하는 경우 해당 패키지를 선택하고 패키지 페이지에서 **삭제**를 선택합니다.
+패키지를 가져온 후에는 Automation 계정의 **Python 2 패키지** 페이지에 나열 됩니다. 패키지를 제거해야 하는 경우 해당 패키지를 선택하고 패키지 페이지에서 **삭제**를 선택합니다.
 
 ![패키지 목록](media/python-packages/package-list.png)
 
-## <a name="import-packages-with-dependencies"></a>종속성을 사용 하 여 패키지 가져오기
+## <a name="import-packages-with-dependencies"></a>종속성이 있는 패키지 가져오기
 
-Azure automation는 가져오기 프로세스 중 python 패키지에 대 한 종속성을 확인 하지 않습니다. 두 가지 방법으로 모든 종속성을 사용 하 여 패키지를 가져옵니다. 다음 단계 중 하나에 Automation 계정으로 패키지를 가져와야 하는 데 필요 합니다.
+Azure automation은 가져오기 프로세스 중에 python 패키지에 대 한 종속성을 확인 하지 않습니다. 모든 종속성이 있는 패키지를 가져오는 방법에는 두 가지가 있습니다. 다음 단계 중 하나만 사용 하 여 패키지를 Automation 계정으로 가져올 수 있습니다.
 
 ### <a name="manually-download"></a>수동으로 다운로드
 
-Windows 64 비트에서 사용 하 여 컴퓨터 [python2.7](https://www.python.org/downloads/release/latest/python2) 하 고 [pip](https://pip.pypa.io/en/stable/) 패키지 및 모든 해당 종속성을 다운로드 하려면 다음 명령을 설치 합니다.
+[Python 2.7](https://www.python.org/downloads/release/latest/python2) 및 [pip](https://pip.pypa.io/en/stable/) 가 설치 된 Windows 64 비트 컴퓨터에서 다음 명령을 실행 하 여 패키지 및 해당 종속성을 모두 다운로드 합니다.
 
 ```cmd
 C:\Python27\Scripts\pip2.7.exe download -d <output dir> <package name>
 ```
 
-패키지는 다운로드 한 후에 automation 계정으로 가져올 수 있습니다.
+패키지가 다운로드 되 면 automation 계정으로 가져올 수 있습니다.
 
 ### <a name="runbook"></a>Runbook
 
-Python runbook을 가져올 [Azure Automation 계정으로 pypi에서 패키지를 가져오기 Python 2](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) Automation 계정으로 갤러리의 합니다. 실행 설정이 설정 되어 있는지 확인 **Azure** 매개 변수를 사용 하 여 runbook을 시작 합니다. Runbook 실행 계정을 작동 하려면 Automation 계정에 대 한 필요 합니다. 각 매개 변수 확인 해야 하는지 먼저 해당 스위치를 사용 하 여 다음 목록 및 이미지에 표시 된 대로:
+Python runbook [가져오기 python 2 패키지를 pypi에서 Azure Automation 계정으로](https://gallery.technet.microsoft.com/scriptcenter/Import-Python-2-packages-57f7d509) 갤러리에서 Automation 계정으로 가져옵니다. 실행 설정이 **Azure** 로 설정 되었는지 확인 하 고 매개 변수를 사용 하 여 runbook을 시작 합니다. Runbook은 Automation 계정이 작동 하려면 실행 계정이 필요 합니다. 각 매개 변수에 대해 다음 목록과 이미지에 표시 된 것 처럼 스위치를 사용 하 여 시작 하도록 합니다.
 
 * -s \<subscriptionId\>
 * -g \<resourceGroup\>
@@ -59,13 +59,13 @@ Python runbook을 가져올 [Azure Automation 계정으로 pypi에서 패키지�
 
 ![패키지 목록](media/python-packages/import-python-runbook.png)
 
-Runbook을 사용 하면 예를 들어를 다운로드 하려면 패키지를 지정할 수 있습니다 `Azure` (네 번째 매개 변수) 다운로드 모든 Azure 모듈 및 모든 해당 종속성에 대 한 105입니다.
+Runbook을 사용 하면 다운로드할 패키지 (예: 네 번째 매개 변수)를 지정 하 여 모든 Azure 모듈과 해당 종속성 (105) `Azure`을 다운로드할 수 있습니다.
 
-Runbook이 완료 되 면 확인할 수 있습니다 합니다 **Python 2 패키지** 페이지의 **공유 리소스** 확인 하려면 Automation 계정에서 이러한 패키지를 가져온 올바르게 합니다.
+Runbook이 완료 되 면 Automation 계정의 **공유 리소스** 에서 **Python 2 패키지** 페이지를 확인 하 여 패키지를 올바르게 가져왔는지 확인할 수 있습니다.
 
 ## <a name="use-a-package-in-a-runbook"></a>Runbook에서 패키지 사용
 
-패키지를 가져온 후 runbook에서 이제 사용할 수 있습니다. 다음 예제에서는 [ Azure Automation 유틸리티 패키지](https://github.com/azureautomation/azure_automation_utility)를 사용합니다. 이 패키지가 있으면 Azure Automation에서 Python을 더욱 쉽게 사용할 수 있습니다. 이 패키지를 사용하려면 GitHub 리포지토리의 지침에 따라 `from azure_automation_utility import get_automation_runas_credential` 등의 명령(실행 계정을 검색하는 함수를 가져오는 명령)을 사용하여 Runbook에 패키지를 추가합니다.
+패키지를 가져온 후에는 runbook에서 패키지를 사용할 수 있습니다. 다음 예제에서는 [ Azure Automation 유틸리티 패키지](https://github.com/azureautomation/azure_automation_utility)를 사용합니다. 이 패키지가 있으면 Azure Automation에서 Python을 더욱 쉽게 사용할 수 있습니다. 이 패키지를 사용하려면 GitHub 리포지토리의 지침에 따라 `from azure_automation_utility import get_automation_runas_credential` 등의 명령(실행 계정을 검색하는 함수를 가져오는 명령)을 사용하여 Runbook에 패키지를 추가합니다.
 
 ```python
 import azure.mgmt.resource

@@ -4,17 +4,17 @@ description: 변수 자산은 Azure Automation의 모든 runbook과 DSC 구성�
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fe008d20ab43636b59861bcc5a7914ba0fca17e
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: e56a1c9a158974266b810d31a0e9bb898262761a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910057"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849431"
 ---
 # <a name="variable-assets-in-azure-automation"></a>Azure Automation의 변수 자산
 
@@ -41,7 +41,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 다음은 Automation에서 사용할 수 있는 변수 형식의 목록입니다.
 
-* String
+* string
 * 정수
 * DateTime
 * Boolean
@@ -51,7 +51,7 @@ Azure Portal에서 변수를 만들 때 드롭다운 목록에서 해당 데이�
 
 AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자동화 자격 증명 자산을 만들고 관리하는 데 사용됩니다. 이는 자동화 runbook 및 DSC 구성에서 사용할 수 있는 [AzureRM 모듈](/powershell/azure/overview)의 일부로 제공 됩니다.
 
-| Cmdlet | Description |
+| Cmdlet | 설명 |
 |:---|:---|
 |[Get-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/Get-AzureRmAutomationVariable)|기존 변수의 값을 검색합니다.|
 |[New-AzureRmAutomationVariable](/powershell/module/AzureRM.Automation/New-AzureRmAutomationVariable)|새 변수를 만들고 해당 값을 설정합니다.|
@@ -62,7 +62,7 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 
 다음 표의 활동은 runbook 및 DSC 구성의 변수에 액세스 하는 데 사용 됩니다. Get-azurermautomationvariable와 Get-help Variable cmdlet의 차이점은이 문서의 시작 부분에 설명 되어 있습니다.
 
-| 활동 | Description |
+| 활동 | 설명 |
 |:---|:---|
 |Get-AutomationVariable|기존 변수의 값을 검색합니다.|
 |Set-AutomationVariable|기존 변수의 값을 설정합니다.|
@@ -72,7 +72,7 @@ AzureRM에 대해 다음 표의 cmdlet은 Windows PowerShell을 사용하여 자
 
 다음 테이블의 함수는 Python2 Runbook의 변수 액세스 및 검색에 사용됩니다.
 
-|Python2 함수|Description|
+|Python2 함수|설명|
 |:---|:---|
 |automationassets.get_automation_variable|기존 변수의 값을 검색합니다. |
 |automationassets.set_automation_variable|기존 변수의 값을 설정합니다. |

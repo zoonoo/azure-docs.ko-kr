@@ -6,16 +6,16 @@ author: antvgski
 manager: igorstan
 ms.service: sql-data-warehouse
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 12/04/2019
 ms.author: anvang
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f05e54a3dd4b69fff2bc7d122391d145b222b295
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 49a250a43c7b2654e1317981c853b0117fa0cf28
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692557"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851794"
 ---
 # <a name="database-collation-support-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대 한 데이터베이스 데이터 정렬 지원
 
@@ -25,7 +25,7 @@ ms.locfileid: "73692557"
 ## <a name="changing-collation"></a>데이터 정렬 변경
 기본 데이터 정렬을 변경 하려면 프로 비전 환경의 데이터 정렬 필드를 간단 하 게 업데이트 합니다.
 
-예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS로 변경 하기만 하면 됩니다. 
+예를 들어, 기본 데이터 정렬을 대/소문자를 구분 하도록 변경 하려면 데이터 정렬의 이름을 SQL_Latin1_General_CP1_CI_AS에서 SQL_Latin1_General_CP1_CS_AS으로 변경 하면 됩니다. 
 
 ## <a name="list-of-unsupported-collation-types"></a>지원 되지 않는 데이터 정렬 형식 목록
 *   Japanese_Bushu_Kakusu_140_BIN
@@ -100,5 +100,9 @@ ms.locfileid: "73692557"
 *   SQL_EBCDIC277_2_CP1_CS_AS
 
 ## <a name="checking-the-current-collation"></a>현재 데이터 정렬 확인
-데이터베이스에 대 한 현재 데이터 정렬을 확인 하려면 다음 T-sql 코드 조각을 실행할 수 있습니다. SELECT DATABASEPROPERTYEX (DB_NAME (), ' Collation ')를 데이터 정렬로 ' Collation '을 속성 매개 변수로 전달 하는 경우 DatabasePropertyEx 함수는 지정 된 데이터베이스에 대 한 현재 데이터 정렬을 반환 합니다. 자세한 내용은 MSDN의 DatabasePropertyEx 함수를 확인할 수 있습니다.
+데이터베이스의 현재 데이터 정렬을 확인 하려면 다음 T-sql 코드 조각을 실행할 수 있습니다.
+```sql
+SELECT DATABASEPROPERTYEX(DB_NAME(), 'Collation') AS Collation;
+```
+' Collation '을 속성 매개 변수로 전달 하는 경우 DatabasePropertyEx 함수는 지정 된 데이터베이스에 대 한 현재 데이터 정렬을 반환 합니다. 자세한 내용은 MSDN의 DatabasePropertyEx 함수를 확인할 수 있습니다.
 

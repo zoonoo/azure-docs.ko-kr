@@ -4,17 +4,17 @@ description: 이 문서에서는 Azure Automation의 VM 중지 및 시작과 관
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860a47386b31403b6a3d41fc2473b1e1040889a7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1817d8e060f944b1bcc31c8ea9eb4fbcff58a165
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162042"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850111"
 ---
 # <a name="troubleshoot-the-startstop-vms-during-off-hours-solution"></a>작업 시간 외 VM 시작/중지 문제 해결
 
@@ -62,7 +62,7 @@ Start-AzureRmVm : Run Login-AzureRmAccount to login
 4. Log Analytics 작업 영역에 잠금이 있습니다.
 5. 오래 된 버전의 AzureRM 모듈 또는 시작/중지 솔루션이 있습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
 
@@ -92,7 +92,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 모든 VM이 시작 또�
 3. Runbook 실행 중에 오류가 발생한 것일 수 있습니다.
 4. VM이 제외되었을 수 있습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
 
@@ -133,7 +133,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 3. 실행 계정에 VM에 대한 충분한 권한이 없을 수 있습니다.
 4. VM에 시작 또는 중지를 방해하는 문제가 있을 수 있습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 다음 목록에서 문제의 잠재적인 해결 방법이나 검색 위치를 확인합니다.
 
@@ -165,7 +165,7 @@ VM 시작/중지 솔루션을 구성했지만 구성된 일부 VM이 시작 또�
 
 실패 원인은 여러 가지 중 하나일 수 있습니다. Azure Portal에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다. **작업** 페이지에서 Runbook의 작업을 찾아 작업 실패를 확인합니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md)을 사용하여 VM을 시작 및 중지하는 것이 좋습니다. 이 솔루션은 Microsoft에서 작성한 것입니다. 사용자 지정 Runbook은 Microsoft에서 지원하지 않습니다. [Runbook 문제 해결](runbooks.md) 문서를 참조하여 사용자 지정 Runbook에 대한 솔루션을 찾을 수 있습니다. 이 문서에서는 모든 유형의 Runbook에 대한 일반 지침 및 문제 해결 방법을 제공합니다. [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 
@@ -179,7 +179,7 @@ Azure Automation에서 [작업 시간 외 VM 시작/중지 솔루션](../automat
 
 VM의 잘못된 태그 지정 때문입니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 다음 단계를 수행하여 솔루션이 올바르게 구성되었는지 확인합니다.
 
@@ -199,7 +199,7 @@ VM의 잘못된 태그 지정 때문입니다.
 
 이 문제는 잘못 구성되었거나 만료된 실행 계정으로 인해 발생할 수 있습니다. 또한 Automation 계정 실행 계정이 VM 리소스에 대해 부적절한 사용 권한을 갖기 때문일 수 있습니다.
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 실행 계정이 제대로 구성되어 있는지 확인하려면 Azure Portal에서 Automation 계정으로 이동한 후 **계정 설정** 아래에서 **실행 계정**을 선택합니다. 다음은 실행 계정의 상태입니다. 실행 계정이 잘못 구성되었거나 만료된 경우 이러한 상태가 표시됩니다.
 
@@ -222,7 +222,7 @@ VM의 잘못된 태그 지정 때문입니다.
 > [!NOTE]
 > 작업 시간 외 VM 시작/중지 솔루션은 솔루션을 배포할 때 Automation 계정으로 가져온 Azure 모듈을 사용 하 여 테스트 되었습니다. 솔루션은 현재 최신 버전의 Azure 모듈에서 작동 하지 않습니다. 작업 시간 외 VM 시작/중지 솔루션을 실행 하는 데 사용 하는 Automation 계정에만 영향을 줍니다. [에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 에 설명 된 대로 다른 Automation 계정에서 최신 버전의 Azure 모듈을 계속 사용할 수 있습니다 Azure Automation
 
-### <a name="resolution"></a>해결 방법
+### <a name="resolution"></a>해상도
 
 많은 오류를 해결하려면 솔루션을 제거 및 업데이트하는 것이 좋습니다. 솔루션을 업데이트하는 방법을 알아보려면 [작업 시간 외 VM 시작/중지 솔루션](../automation-solution-vm-management.md#update-the-solution)을 참조하세요. 또한 [작업 스트림을](../automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) 검사 하 여 오류를 찾을 수 있습니다. 포털에서 Automation 계정으로 이동한 후 **프로세스 자동화**에서 **작업**을 선택합니다.
 

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 컨테이너 쿼리
-description: Azure Cosmos DB에서 컨테이너를 쿼리하는 방법 알아보기
+description: 파티션 내, 교차 파티션 및 부분 교차 파티션 쿼리를 사용 하 여 Azure Cosmos DB에서 컨테이너를 쿼리 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 799fa43ad6ff12e5fa84326cbb41842e76daff12
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 88ebb8bb80ec3406c98b77db481994d415b04373
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092962"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872029"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Azure Cosmos 컨테이너 쿼리
 
@@ -19,7 +19,7 @@ ms.locfileid: "70092962"
 
 ## <a name="in-partition-query"></a>파티션 내 쿼리
 
-컨테이너에서 데이터를 쿼리 할 때 쿼리에 파티션 키 필터가 지정되어 있으면 Azure Cosmos DB가 쿼리를 자동으로 처리합니다. 필터에 지정된 파티션 키 값에 해당하는 파티션으로 쿼리를 라우팅합니다. 예를 들어 다음 쿼리는 파티션 키 값 `DeviceId`에 해당하는 모든 문서를 포함하는 `XMS-0001` 파티션으로 라우팅됩니다.
+컨테이너에서 데이터를 쿼리 할 때 쿼리에 파티션 키 필터가 지정되어 있으면 Azure Cosmos DB가 쿼리를 자동으로 처리합니다. 필터에 지정된 파티션 키 값에 해당하는 파티션으로 쿼리를 라우팅합니다. 예를 들어 다음 쿼리는 파티션 키 값 `XMS-0001`에 해당하는 모든 문서를 포함하는 `DeviceId` 파티션으로 라우팅됩니다.
 
 ```csharp
 // Query using partition key into a class called, DeviceReading

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1588a27453dbc223e6aa1dd993905d274e5e1242
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d74bd67dedb70308061e54c05d23a4bb63adc8f8
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480336"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851335"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
@@ -69,7 +69,7 @@ Azure 구독이 아직 없는 경우 Microsoft 파트너 센터에서 만들 수
 
 자세한 내용은 [Azure 구독](https://docs.microsoft.com/azure/guides/developer/azure-developer-guide#understanding-accounts-subscriptions-and-billing)을 참조하세요.
 
-## <a name="region"></a>Region
+## <a name="region"></a>지역
 
 Azure IoT Central 응용 프로그램을 만들려는 지역 또는 [지리](https://azure.microsoft.com/global-infrastructure/geographies/) 를 선택 합니다. 일반적으로 최적의 성능을 얻으려면 장치에 물리적으로 가장 가까운 지역을 선택 해야 합니다.
 

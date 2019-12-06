@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB SQL 쿼리의 스칼라 식
-description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다.
+description: Azure Cosmos DB에 대 한 스칼라 식 SQL 구문에 대해 알아봅니다. 이 문서에서는 연산자를 사용 하 여 스칼라 식을 복합 식으로 결합 하는 방법에 대해서도 설명 합니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c35ad65a584f8ee95142e9bc85a58b5b6cd99744
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003533"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870737"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Azure Cosmos DB SQL 쿼리의 스칼라 식
 
@@ -63,7 +63,7 @@ ms.locfileid: "71003533"
   
 - `<scalar_expression>'['"property_name"|array_index']'`  
   
-   배열의 인덱스 `property_name` `array_index` 를 사용 하는 이름 또는 배열 요소를 사용 하 여 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
+   배열의 인덱스 `array_index`를 사용 하 여 이름 `property_name` 또는 배열 요소가 포함 된 속성의 값을 나타냅니다. 속성/배열 인덱스가 존재하지 않거나 속성/배열이 아닌 값에서 참조되면 식이 undefined 값으로 평가됩니다.  
   
 - `unary_operator <scalar_expression>`  
   
@@ -105,7 +105,7 @@ ms.locfileid: "71003533"
   
   배열을 만들 때 **undefined** 값이 할당된 요소 값은 건너뛰고 만든 개체에 포함되지 않습니다. 이렇게 하면 건너뛴 인덱스가 만드는 배열에 포함되지 않는 방식으로 다음에 정의된 요소가 해당 위치로 이동합니다.  
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3

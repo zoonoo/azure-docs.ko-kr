@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 배열 및 개체 작업
-description: Azure Cosmos DB에 대 한 배열 및 개체 생성 SQL 구문에 대해 알아봅니다.
+description: Azure Cosmos DB에서 배열 및 개체를 만드는 SQL 구문에 대해 알아봅니다. 또한이 문서에서는 배열 개체에 대 한 작업을 수행 하는 몇 가지 예제를 제공 합니다.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/21/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 17a0e4ddf5acd267a4cfbb68c218fe9409a91d57
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5b2801b0a71f04803955e9d8bc18a97133019996
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003926"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870924"
 ---
 # <a name="working-with-arrays-and-objects-in-azure-cosmos-db"></a>Azure Cosmos DB에서 배열 및 개체 작업
 
@@ -90,7 +90,7 @@ SQL API는 JSON 배열에 대 한 반복을 지원 하며, FROM 소스에 있는
     ]
 ```
 
-다음 쿼리는 `children` `Families` 컨테이너에서 반복을 수행 합니다. 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 `children`결과를 분할 하 고 단일 배열로 평면화 합니다.  
+다음 쿼리는 `Families` 컨테이너의 `children` 반복을 수행 합니다. 출력 배열은 앞의 쿼리와 다릅니다. 이 예제에서는 `children`를 분할 하 고 결과를 단일 배열로 평면화 합니다.  
 
 ```sql
     SELECT *

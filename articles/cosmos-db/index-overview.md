@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB의 인덱싱
-description: Azure Cosmos DB에서 인덱싱의 작동 방식을 파악하고
+description: Azure Cosmos DB에서 인덱싱이 작동 하는 방식을 이해 하 고 범위, 공간, 복합 인덱스와 같은 다양 한 종류의 인덱스를 지원 합니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 65186262095560d7ae54d32b218d1c01f1fb921d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299791"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873627"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Azure Cosmos DB 인덱싱-개요
 
 Azure Cosmos DB은 스키마를 포함 하지 않는 데이터베이스 이며 스키마 또는 인덱스 관리를 처리할 필요 없이 응용 프로그램에서 반복할 수 있습니다. 기본적으로 Azure Cosmos DB는 스키마를 정의 하거나 보조 인덱스를 구성 하지 않고도 [컨테이너](databases-containers-items.md#azure-cosmos-containers) 의 모든 항목에 대 한 모든 속성을 자동으로 인덱싱합니다.
 
-이 문서의 목표는 Azure Cosmos DB 데이터를 인덱싱하는 방법과 인덱스를 사용 하 여 쿼리 성능을 개선 하는 방법을 설명 하는 것입니다. [인덱싱 정책을](index-policy.md)사용자 지정 하는 방법을 살펴보기 전에이 섹션을 진행 하는 것이 좋습니다.
+이 문서에서는 Azure Cosmos DB의 데이터 인덱싱 방법과 인덱스를 사용하여 쿼리 성능을 개선하는 방법을 설명합니다. [인덱싱 정책을](index-policy.md)사용자 지정 하는 방법을 살펴보기 전에이 섹션을 진행 하는 것이 좋습니다.
 
 ## <a name="from-items-to-trees"></a>항목에서 트리로
 

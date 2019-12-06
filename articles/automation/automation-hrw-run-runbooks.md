@@ -4,17 +4,17 @@ description: 이 문서에서는 Hybrid Runbook Worker 역할이 있는 로컬 �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9c7084954fe58351a6f9af40552714faa34685ad
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: c8da5736869a39815d9abf33cf4a03353681b193
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887058"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849720"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -56,7 +56,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-[PSCredential 일반 매개 변수](automation-powershell-workflow.md#inlinescript)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](/powershell/module/psworkflow/about/about_workflowcommonparameters)를 사용할 수도 있습니다.
+[PSCredential 일반 매개 변수](/powershell/module/psworkflow/about/about_workflowcommonparameters)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](automation-powershell-workflow.md#inlinescript)를 사용할 수도 있습니다.
 
 ### <a name="runas-account"></a>실행 계정
 
@@ -284,7 +284,7 @@ sudo chown -R nxautomation ~/.gnupg
 
 #### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 사용할 수 있도록 인증 키 설정
 
-인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` 섹션에서 다음 예제를 포함하도록 설정 파일(`[worker-optional]`)을 수정합니다.
+인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `[worker-optional]` 섹션에서 다음 예제를 포함하도록 설정 파일(`/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf`)을 수정합니다.
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx

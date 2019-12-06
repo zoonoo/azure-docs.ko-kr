@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a90151679b71364d93446d1acc46a461d2a9d8f9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4cd8e483d6c189e311fdb1925ad0f2effc2affe1
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278177"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849152"
 ---
 # <a name="tutorial-configure-slack-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Slack 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Slack으로 자동으로 프로비전 및 프로비전 해제하도록 Slack 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -66,19 +66,19 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 4. **프로비전 모드**를 **자동**으로 설정합니다.
 
-   ![Slack 프로비전](./media/slack-provisioning-tutorial/Slack1.PNG)
+   ![Slack 프로비전](./media/slack-provisioning-tutorial/slack1.png)
 
 5. **관리자 자격 증명** 섹션에서 **권한 부여**를 클릭합니다. 그러면 새 브라우저 창에서 Slack 권한 부여 대화 상자가 열립니다.
 
 6. 새 창에서 팀 관리자 계정을 사용하여 Slack에 로그인합니다. 표시된 권한 부여 대화 상자에서 프로비전을 사용하도록 설정하려는 Slack 팀을 선택한 다음, **권한 부여**를 선택합니다. 완료되면 Azure Portal로 돌아가서 프로비전 구성을 완료합니다.
 
-    ![권한 부여 대화 상자](./media/slack-provisioning-tutorial/Slack3.PNG)
+    ![권한 부여 대화 상자](./media/slack-provisioning-tutorial/slackauthorize.png)
 
 7. Azure Portal에서 **연결 테스트**를 클릭하여 Azure AD가 Slack 앱에 연결되었는지 확인합니다. 연결에 실패하면 Slack 계정에 팀 관리자 권한이 있는지 확인하고 "권한 부여" 단계를 다시 시도합니다.
 
 8. 프로비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 **알림 전자 메일** 필드에 입력하고 아래 확인란을 선택합니다.
 
-9. **Save**를 클릭합니다.
+9. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 10. 매핑 섹션에서 **Azure Active Directory 사용자를 Slack에 동기화**를 선택합니다.
 
@@ -86,7 +86,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 12. Slack에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
-13. **Save**를 클릭합니다.
+13. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 사용자 및 그룹 섹션에서 Slack에 할당된 모든 사용자 및/또는 그룹의 초기 동기화가 시작됩니다. 초기 동기화는 서비스가 실행되는 동안 약 10분마다 발생하는 차후 동기화보다 수행하는 데 더 오래 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Slack 앱에서 프로비전 서비스에서 수행하는 모든 작업을 설명하는 프로비전 작업 보고서에 연결된 링크를 이용할 수 있습니다.
 
@@ -102,7 +102,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 3. **특성 매핑** 섹션에서 Azure AD에서 Slack으로 동기화할 그룹 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Slack의 그룹을 일치시키는 데 사용됩니다. 
 
-4. **Save**를 클릭합니다.
+4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 이제 **사용자 및 그룹** 섹션의 Slack에 할당된 모든 그룹 개체는 Azure AD에서 Slack으로 완전하게 동기화됩니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 Slack 앱에서 프로비저닝 서비스에서 수행하는 모든 작업을 설명하는 프로비저닝 활동 로그에 연결된 링크를 이용할 수 있습니다.
 

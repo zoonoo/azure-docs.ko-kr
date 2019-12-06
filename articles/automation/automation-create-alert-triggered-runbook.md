@@ -4,17 +4,17 @@ description: Azure 경고가 발생할 경우 실행할 Runbook을 트리거하�
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c818114df436dbbd3ac1a51b6eeec00b9eec4d3
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: c4afcbced2879a2a6d50112b6388cdf5c8098b1d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915723"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850383"
 ---
 # <a name="use-an-alert-to-trigger-an-azure-automation-runbook"></a>경고를 사용하여 Azure Automation Runbook 트리거
 
@@ -33,7 +33,7 @@ ms.locfileid: "70915723"
 
 경고가 Runbook을 호출할 때 실제 호출은 웹후크에 대한 HTTP POST 요청입니다. POST 요청의 본문에는 경고와 관련된 유용한 속성을 포함하는 JSON으로 포맷된 개체가 포함되어 있습니다. 다음 표에는 각 경고 유형에 대한 페이로드 스키마 링크가 나열되어 있습니다.
 
-|알림  |설명|페이로드 스키마  |
+|경고  |설명|페이로드 스키마  |
 |---------|---------|---------|
 |[일반 경고](../azure-monitor/platform/alerts-common-schema.md?toc=%2fazure%2fautomation%2ftoc.json)|현재 Azure에서 경고 알림에 대 한 소비 환경을 표준화 하는 일반적인 경고 스키마입니다.|일반적인 경고 페이로드 스키마|
 |[활동 로그 경고](../azure-monitor/platform/activity-log-alerts.md?toc=%2fazure%2fautomation%2ftoc.json)    |Azure 활동 로그의 새 이벤트가 특정 조건과 일치하는 경우 알림을 보냅니다. 예를 들어 `Delete VM` 작업이 **myProductionResourceGroup**에서 발생하거나 새 Azure Service Health 이벤트가 **활성** 상태로 표시되는 경우입니다.| [활동 로그 경고 페이로드 스키마](../azure-monitor/platform/activity-log-alerts-webhook.md)        |
@@ -175,7 +175,7 @@ Runbook은 **AzureRunAsConnection** [실행 계정](automation-create-runas-acco
 경고는 경고에 의해 트리거되는 작업 컬렉션인 작업 그룹을 사용 합니다. Runbook은 작업 그룹에서 사용할 수 있는 많은 작업 중 하나일 뿐입니다.
 
 1. Automation 계정에서 **모니터링**아래에 있는 **경고** 를 선택 합니다.
-1. **+ 새 경고 규칙**을 선택 합니다.
+1. **+ 새 경고 규칙**을 선택합니다.
 1. **리소스**에서 **선택** 을 클릭 합니다. **리소스 선택** 페이지에서 경고를 해제할 VM을 선택 하 고 **완료**를 클릭 합니다.
 1. **조건**에서 **조건 추가** 를 클릭 합니다. **CPU 백분율** 등 사용 하려는 신호를 선택 하 고 **완료**를 클릭 합니다.
 1. **신호 논리 구성** 페이지에서 **경고 논리**아래에 **임계값** 을 입력 하 고 **완료**를 클릭 합니다.

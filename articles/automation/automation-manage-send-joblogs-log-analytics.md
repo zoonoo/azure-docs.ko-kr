@@ -4,27 +4,27 @@ description: 이 문서에서는 작업 상태 및 runbook 작업 스트림을 A
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/05/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ff455ed355d4412bcf042208d2fd1e7a2a11b965
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: d2433e8193026b8aaa3cbf29eb1411c7449a4953
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186771"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849737"
 ---
 # <a name="forward-job-status-and-job-streams-from-automation-to-azure-monitor-logs"></a>Automation에서 Azure Monitor 로그로 작업 상태 및 작업 스트림 전달
 
 Automation에서는 Log Analytics 작업 영역으로 Runbook 작업 상태 및 작업 스트림을 보낼 수 있습니다. 이 프로세스는 작업 영역 링크 설정을 포함하지 않고 완전히 독립적입니다. 개별 작업에 대해 Azure Portal에서 또는 PowerShell을 사용하여 작업 로그 및 작업 스트림을 볼 수 있으며 이를 통해 보다 간단한 조사가 가능합니다. 이제 Azure Monitor 로그를 사용 하 여 다음을 수행할 수 있습니다.
 
-* Automation 작업에 대한 통찰력 확보
+* Automation 작업에 대한 인사이트를 얻습니다.
 * Runbook 작업 상태(예: 실패 또는 일시 중단)를 기반으로 이메일 또는 경고 트리거
-* 작업 스트림에서 고급 쿼리 작성
-* Automation 계정 간에 작업 상호 연결
-* 시간별 작업 기록 시각화
+* 작업 스트림에서 고급 쿼리를 작성합니다.
+* Automation 계정 간에 작업 상관 관계를 지정합니다.
+* 시간별 작업 기록을 시각화합니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
@@ -68,7 +68,7 @@ Automation 계정의 *Name*을 찾으려면 Azure Portal의 **Automation 계정*
 
 이 스크립트를 실행 한 후 작성 중인 새 JobLogs 또는 Joblogs의 Azure Monitor 로그에 레코드가 표시 되기 전에 시간이 걸릴 수 있습니다.
 
-로그를 보려면 log analytics 로그 검색에서 다음 쿼리를 실행 합니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
+로그를 보려면 log analytics 로그 검색에서 다음 쿼리를 실행 합니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION"`
 
 ### <a name="verify-configuration"></a>구성 확인
 
@@ -89,21 +89,21 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 가지 유형의 레�
 
 ### <a name="job-logs"></a>작업 로그
 
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
 | Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
-| ResultType |runbook 작업의 상태입니다. 가능한 값은<br>- 신규<br>-만듦<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
+| ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 신규<br>-만듦<br>- 시작됨<br>- 중지됨<br>- 일시 중단됨<br>- 실패<br>- 완료됨 |
 | 범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| Resource | Automation 계정의 이름입니다. |
+| 리소스 | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그가 데이터를 수집 하는 방법입니다. Azure 진단의 경우 항상 *Azure*입니다. |
-| ResultDescription |runbook 작업 결과 상태를 설명합니다. 가능한 값은<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
+| ResultDescription |runbook 작업 결과 상태를 설명합니다. 가능한 값은 다음과 같습니다.<br>- 작업 시작<br>- 작업 실패<br>- Job Completed입니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
-| resourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
+| ResourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
 | SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
 | ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
@@ -111,22 +111,22 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 가지 유형의 레�
 
 
 ### <a name="job-streams"></a>작업 스트림
-| 속성 | Description |
+| 자산 | 설명 |
 | --- | --- |
 | TimeGenerated |runbook 작업이 실행된 날짜 및 시간입니다. |
 | RunbookName_s |runbook의 이름입니다. |
 | Caller_s |작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다. |
-| StreamType_s |작업 스트림의 유형입니다. 가능한 값은<br>\- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
+| StreamType_s |작업 스트림의 유형입니다. 가능한 값은 다음과 같습니다.<br>\- 진행<br>- 출력<br>- 경고<br>- 오류<br>- 디버그<br>- Verbose입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | JobId_g |runbook 작업의 ID인 GUID입니다. |
-| ResultType |runbook 작업의 상태입니다. 가능한 값은<br>- 진행 중 |
+| ResultType |runbook 작업의 상태입니다. 가능한 값은 다음과 같습니다.<br>- 진행 중 |
 | 범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다. |
 | OperationName | Azure에서 수행되는 작업 유형을 지정합니다. Automation의 경우 이 값은 Job입니다. |
-| Resource | Automation 계정의 이름입니다. |
+| 리소스 | Automation 계정의 이름입니다. |
 | SourceSystem | Azure Monitor 로그가 데이터를 수집 하는 방법입니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResultDescription |runbook의 출력 스트림을 포함합니다. |
 | CorrelationId |runbook 작업의 상관 관계 ID인 GUID입니다. |
-| resourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
+| ResourceId |Runbook의 Azure Automation 계정 리소스 ID를 지정합니다. |
 | SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
 | ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
@@ -144,7 +144,7 @@ Automation 작업 로그를 Azure Monitor 로그로 보내기 시작 했으므�
 경고 규칙을 만들려면 경고를 호출해야 하는 runbook 작업 레코드에 대한 로그 검색을 만드는 것으로 시작합니다. **경고** 단추를 클릭하여 경고 규칙을 만들고 구성합니다.
 
 1. Log Analytics 작업 영역 개요 페이지에서 **로그 보기**를 클릭 합니다.
-2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")`  다음을 사용하여 RunbookName별로 그룹화할 수도 있습니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
+2. 쿼리 필드에 다음 검색을 입력하여 경고에 대한 로그 검색 쿼리를 만듭니다. `AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended")` 다음을 사용하여 RunbookName별로 그룹화할 수도 있습니다.`AzureDiagnostics | where ResourceProvider == "MICROSOFT.AUTOMATION" and Category == "JobLogs" and (ResultType == "Failed" or ResultType == "Suspended") | summarize AggregatedValue = count() by RunbookName_s`
 
    둘 이상의 Automation 계정 또는 구독에서 작업 영역으로의 로그를 설정한 경우 구독 또는 Automation 계정별로 경고를 그룹화할 수 있습니다. Automation 계정 이름은 JobLogs 검색의 리소스 필드에서 찾을 수 있습니다.
 3. **규칙 만들기** 화면을 열려면 페이지 위쪽에서 **+ 새 경고 규칙**을 클릭합니다. 경고 구성 옵션에 자세한 내용은 [Azure의 로그 경고](../azure-monitor/platform/alerts-unified-log.md)를 참조하세요.

@@ -4,17 +4,17 @@ description: Runbook 입력 매개 변수는 Runbook이 시작될 때 Runbook에
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 02/14/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3fb89af0363ddc25f2bccfa1169834aa856e514a
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: be7d244f5aa422b2083d35fc56a52318a4379b79
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478242"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850230"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -32,7 +32,7 @@ Azure Automation의 PowerShell 및 PowerShell 워크플로 Runbook은 다음과 
 |:--- |:--- |
 | `Type` |필수 사항입니다. 매개 변수 값에 필요한 데이터 형식입니다. 모든 .NET 형식이 유효합니다. |
 | `Name` |필수 사항입니다. 매개 변수의 이름입니다. 이름은 Runbook 내에서 고유해야 하고 문자, 숫자 또는 밑줄 문자를 포함할 수 있습니다. 문자로 시작해야 합니다. |
-| `Mandatory` |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을 **\$true**로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을 **\$false**로 설정한 경우 값은 선택 사항입니다. |
+| `Mandatory` |선택 사항입니다. 매개 변수에 대해 값을 제공해야 하는지 여부를 지정합니다. 이 값을true\$로 설정한 경우 Runbook이 시작될 때 값을 지정해야 합니다. 이 값을false\$로 설정한 경우 값은 선택 사항입니다. |
 | `Default value` |선택 사항입니다. Runbook이 시작될 때 값을 전달하지 않으면 매개 변수에 대해 사용될 값을 지정합니다. 기본값을 매개 변수에 대해 설정할 수 있으며 필수 설정에 관계 없이 자동으로 매개 변수를 선택적으로 만듭니다. |
 
 Windows PowerShell은 유효성 검사, 별칭, 매개 변수 설정과 같이 여기에 나열된 것 보다 많은 입력 매개 변수의 특성을 지원합니다. 그러나 Azure Automation은 현재 위에 나열된 입력 매개 변수만을 지원합니다.
@@ -73,7 +73,7 @@ Runbook에 object 형식 입력 매개 변수가 있는 경우 값에 전달하�
 ```
 
 > [!NOTE]
-> `\$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `\$null`이 **아니라** 빈 문자열이 됩니다.  
+> `\$null` 기본값을 가진 선택적인 `[String]` 유형 매개 변수에 값을 전달하지 않으면 이 매개 면수의 값이 `\$null`이 **아니라** 빈 문자열이 됩니다.
 
 ## <a name="configure-input-parameters-in-graphical-runbooks"></a>그래픽 Runbook에서 입력 매개 변수 구성
 
@@ -146,7 +146,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 
 #### <a name="start-a-published-runbook-by-using-powershell-cmdlets-and-assign-parameters"></a>PowerShell cmdlet을 사용하여 게시된 Runbook 시작 및 매개 변수 할당
 
-* **Azure Resource Manager cmdlet:** [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
+* **Azure Resource Manager cmdlet:** [Start-AzureRmAutomationRunbook](/powershell/module/azurerm.automation/start-azurermautomationrunbook)을 사용하여 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
 
@@ -156,7 +156,7 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
   Start-AzureRmAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
   ```
 
-* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다.
+* **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
   **예제:**
 
@@ -232,13 +232,13 @@ Runbook은 Azure 포털, webhook, PowerShell cmdlet, REST API 또는 SDK 등 여
 요청 URI에서 다음 매개 변수를 바꿉니다.
 
 * **subscriptionId:** Azure 구독 ID입니다.  
-* **resourceGroupName:** Automation 계정에 대한 리소스 그룹의 이름입니다.
-* **automationAccountName:** 지정된 클라우드 서비스 내에 호스트되는 자동화 계정의 이름입니다.  
+* **resourceGroupName:** Automation 계정에 대 한 리소스 그룹의 이름입니다.
+* **Automationaccountname:** 지정 된 클라우드 서비스 내에서 호스트 되는 automation 계정의 이름입니다.  
 * **jobName:** 작업의 GUID입니다. **[GUID]::NewGuid().ToString()** 명령을 사용하여 PowerShell에서 GUID를 만들 수 있습니다.
 
 Runbook 작업에 매개 변수를 전달하기 위해 요청 본문을 사용합니다. JSON 형식으로 제공되는 다음 두 가지 속성을 사용합니다.
 
-* **Runbook 이름:** 필수 사항입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  
+* **Runbook 이름:** 필수입니다. 시작할 작업 시작에 대한 Runbook의 이름입니다.  
 * **Runbook 매개 변수:** 선택 사항입니다. 이름이 문자열 형식이어야 하고 값은 유효한 JSON 값일 수 있는 (이름, 값) 형식인 매개 변수 목록의 사전입니다.
 
 이전에 **VMName** 및 **resourceGroupName**을 매개 변수로 만든 **Get-AzureVMTextual** Runbook을 시작하려는 경우 요청 본문에 다음 JSON 형식을 사용합니다.

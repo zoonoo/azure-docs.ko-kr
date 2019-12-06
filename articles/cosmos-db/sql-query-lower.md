@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어 낮음
-description: Azure Cosmos DB의 SQL 시스템 함수에 대해 자세히 알아보세요.
+description: 대문자 데이터를 소문자로 변환한 후 문자열 식을 반환 하는 Azure Cosmos DB의 낮은 SQL 시스템 함수에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3a9c122ef65772458b832d3b1651e7e63e42985e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 8f7cd864d90b8ab17a180a00a7a6d4bb683da9be
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349712"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873304"
 ---
 # <a name="lower-azure-cosmos-db"></a>LOWER (Azure Cosmos DB)
  대문자 데이터를 소문자로 변환한 후에 문자열 식을 반환합니다.  
@@ -32,9 +32,9 @@ LOWER(<str_expr>)
   
   문자열 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
-  다음 예에서는 쿼리에서 `LOWER`을 사용 하는 방법을 보여 줍니다.  
+  다음 예에서는 쿼리에서 `LOWER`를 사용 하는 방법을 보여 줍니다.  
   
 ```sql
 SELECT LOWER("Abc") AS lower

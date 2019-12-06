@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에서 다중 마스터를 구성하는 방법
-description: Azure Cosmos DB의 애플리케이션에서 다중 마스터를 구성하는 방법을 알아봅니다.
+description: Azure Cosmos DB에서 다른 Sdk를 사용 하 여 응용 프로그램에 대 한 다중 마스터를 구성 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: e86cacbd76a70c8b114d65a77ff013d32327a2d0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 654baed649093add2aa62f4ba81bf6ce7c3e0df5
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093096"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873644"
 ---
 # <a name="configure-multi-master-in-your-applications-that-use-azure-cosmos-db"></a>Azure Cosmos DB를 사용하는 애플리케이션에서 다중 마스터 구성
 
@@ -112,6 +112,6 @@ client = cosmos_client.CosmosClient(self.account_endpoint, {
 * [Azure Cosmos DB의 일관성 수준](consistency-levels.md)
 * [Azure Cosmos DB에서 적절한 일관성 수준 선택](consistency-levels-choosing.md)
 * [Azure Cosmos DB의 일관성, 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
-* [다양한 일관성 수준의 가용성 및 성능 절충](consistency-levels-tradeoffs.md)
+* [다양한 일관성 수준에 대한 가용성 및 성능의 장단점](consistency-levels-tradeoffs.md)
 * [전역적으로 프로비전된 처리량 크기 조정](scaling-throughput.md)
-* [글로벌 배포: 내부 살펴보기](global-dist-under-the-hood.md)
+* [전역 배포: 내부적으로](global-dist-under-the-hood.md)

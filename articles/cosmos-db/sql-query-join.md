@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대 한 SQL 조인 쿼리
-description: Azure Cosmos DB에 대 한 SQL 구문 조인에 대해 알아봅니다.
+description: Azure Cosmos DB에서 여러 테이블을 조인 하 여 데이터를 쿼리 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: d78904fde53da0e800a69d2148a9c4e3acf57307
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494417"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871145"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Azure Cosmos DB의 조인
 
@@ -35,7 +35,7 @@ ms.locfileid: "73494417"
   
     `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3}의 경우 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
     `input_alias1 = C,`의 경우 {4, 5}  
   
@@ -49,19 +49,19 @@ ms.locfileid: "73494417"
   
 - 컨테이너 범위로 `<from_source1>`을 지정하고 집합 {A, B, C}를 나타냅니다.  
   
-- `<from_source2>`을 참조하는 문서 범위로 `input_alias1`를 지정하고 다음 집합을 나타냅니다.  
+- `input_alias1`을 참조하는 문서 범위로 `<from_source2>`를 지정하고 다음 집합을 나타냅니다.  
   
     `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3}의 경우 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
     `input_alias1 = C,`의 경우 {4, 5}  
   
-- `<from_source3>`을 참조하는 문서 범위로 `input_alias2`를 지정하고 다음 집합을 나타냅니다.  
+- `input_alias2`을 참조하는 문서 범위로 `<from_source3>`를 지정하고 다음 집합을 나타냅니다.  
   
     `input_alias2 = 1,`의 경우 {100, 200}  
   
-    {300}의 경우 `input_alias2 = 3,`  
+    `input_alias2 = 3,`의 경우 {300}  
   
 - `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM 절은 다음과 같은 튜플을 만듭니다.  
   
@@ -82,7 +82,7 @@ ms.locfileid: "73494417"
   
     `input_alias1 = A,`의 경우 {1, 2}  
   
-    {3}의 경우 `input_alias1 = B,`  
+    `input_alias1 = B,`의 경우 {3}  
   
     `input_alias1 = C,`의 경우 {4, 5}  
   
@@ -90,7 +90,7 @@ ms.locfileid: "73494417"
   
     `input_alias2 = A,`의 경우 {100, 200}  
   
-    {300}의 경우 `input_alias2 = C,`  
+    `input_alias2 = C,`의 경우 {300}  
   
 - `<from_source1> JOIN <from_source2> JOIN <from_source3>` FROM 절은 다음과 같은 튜플을 만듭니다.  
   
@@ -101,7 +101,7 @@ ms.locfileid: "73494417"
   > [!NOTE]
   > 이렇게 하면 `<from_source2>`와 `<from_source3>`의 범위를 모두 동일한 `<from_source1>`로 지정했기 때문에 두 원본의 교차곱을 만들고,  이로 인해 A 값이 있는 4개(2x2) 튜플, B 값이 있는 0개(1x0) 튜플 및 C 값이 있는 2개(2x1) 튜플을 만들었습니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 다음 예제는 JOIN 절의 작동 방식을 보여 줍니다. 이러한 예제를 실행 하기 전에 샘플 [제품군 데이터](sql-query-getting-started.md#upload-sample-data)를 업로드 합니다. 다음 예제에서는 소스와 빈 집합의 각 항목에 대 한 교차곱이 비어 있기 때문에 결과가 비어 있습니다.
 

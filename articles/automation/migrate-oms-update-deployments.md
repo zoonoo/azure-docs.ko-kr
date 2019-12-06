@@ -4,17 +4,17 @@ description: 이 문서에서는 기존 OMS 업데이트 배포를 Azure로 마�
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 07/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2cc05dc0970211b066d9e431cc7aba06cbd126eb
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 08b3f11f3e44c6580df9942aab2a890115c79ba3
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67478299"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849499"
 ---
 # <a name="migrate-your-oms-update-deployments-to-azure"></a>OMS 업데이트 배포를 Azure로 마이그레이션
 
@@ -57,9 +57,9 @@ OMS 포털에서 만든 모든 업데이트 배포에는 존재하는 업데이�
 
 머신이 업데이트되려면 기존 OMS 배포에서 사용되는 저장된 검색을 선택합니다.
 
-| 자산 | Description |
+| 자산 | 설명 |
 | --- | --- |
-|Name |업데이트 배포를 식별하는 고유 이름입니다. |
+|name |업데이트 배포를 식별하는 고유 이름입니다. |
 |운영 체제| **Linux** 또는 **Windows**를 선택합니다.|
 |업데이트할 컴퓨터 |저장된 검색, 가져온 그룹을 선택하거나 드롭다운에서 머신을 선택하고 개별 머신을 선택합니다. **머신**을 선택한 경우 머신의 준비는 **업데이트 에이전트 준비** 열에 표시됩니다.</br> Azure Monitor 로그에서 컴퓨터 그룹을 만드는 다른 방법에 대해 알아보려면 [Azure Monitor 로그의 컴퓨터 그룹](../azure-monitor/platform/computer-groups.md)을 참조하세요. |
 |업데이트 분류|필요한 모든 업데이트 분류를 선택합니다. CentOS는 기본적으로 이 기능을 지원하지 않습니다.|

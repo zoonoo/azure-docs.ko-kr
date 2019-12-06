@@ -4,17 +4,17 @@ description: 자습서 - Azure Automation 상태 구성으로 서버 구성 관�
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 72e5018dc1212e57dc190c05cc54158d37ca7fe1
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0339796f028a0cc0b19533be06127544db396f92
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231490"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850094"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>원하는 상태로 서버 구성 및 드리프트 관리
 
@@ -27,7 +27,7 @@ Azure Automation 상태 구성을 사용하면 서버 구성을 지정하고 시
 > - 관리되는 노드에 노드 구성 할당
 > - 관리되는 노드에 대한 준수 상태 확인
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -101,7 +101,7 @@ Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Automati
 
 ### <a name="specify-configuration-mode-settings"></a>구성 모드 설정 지정
 
-VM을 관리되는 노드로 등록할 때 구성의 속성도 지정할 수 있습니다. 예를 들어 `ApplyOnly`ConfigurationMode**속성의 값으로**를 지정하여 컴퓨터의 상태를 한 번만 적용하도록 지정할 수 있습니다(즉 DSC에서 초기 검사 후 구성을 적용하지 않음).
+VM을 관리되는 노드로 등록할 때 구성의 속성도 지정할 수 있습니다. 예를 들어 **ConfigurationMode** 속성의 값으로 `ApplyOnly`를 지정하여 컴퓨터의 상태를 한 번만 적용하도록 지정할 수 있습니다(즉 DSC에서 초기 검사 후 구성을 적용하지 않음).
 
 ```powershell
 Register-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -AzureVMName 'DscVm' -ConfigurationMode 'ApplyOnly'
@@ -130,7 +130,7 @@ $node = Get-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -Autom
 Set-AzureRmAutomationDscNode -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'myAutomationAccount' -NodeConfigurationName 'TestConfig.WebServer' -NodeId $node.Id
 ```
 
-그러면 등록된 DSC 노드(`TestConfig.WebServer`)에 노드 구성(`DscVm`)이 할당됩니다.
+그러면 등록된 DSC 노드(`DscVm`)에 노드 구성(`TestConfig.WebServer`)이 할당됩니다.
 기본적으로 DSC 노드에서는 30분마다 노드 구성이 준수되는지 확인합니다.
 준수 확인 간격을 변경하는 방법에 대한 자세한 내용은 [로컬 구성 관리자 구성](/powershell/scripting/dsc/managing-nodes/metaConfig)을 참조하세요.
 
@@ -170,7 +170,7 @@ Azure Automation 상태 구성에 노드를 추가 하는 경우 로컬 Configur
 > 현재 노드에 적용 되는 구성에는 영향을 주지 않습니다.
 > 현재 구성을 제거 하려면 [PowerShell](https://docs.microsoft.com/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument?view=powershell-5.1) 을 사용 하거나 로컬 구성 파일을 삭제 합니다 (Linux 노드의 유일한 옵션).
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 Azure Automation에서 목차의 **상태 구성 (DSC)** 을 클릭 합니다.
 그런 다음 **노드** 를 클릭 하 여 서비스에 등록 된 노드 목록을 표시 합니다.
@@ -188,4 +188,4 @@ PowerShell을 사용 하 여 Azure Automation 상태 구성 서비스에서 노�
 - DSC 구성을 대상 노드에 할당할 수 있도록 DSC 구성을 컴파일하는 방법에 대해 알아보려면 [Azure Automation 상태 구성에서 구성 컴파일](automation-dsc-compile.md)을 참조하세요.
 - PowerShell cmdlet 참조는 [Azure Automation 상태 구성 cmdlet](/powershell/module/azurerm.automation/#automation)을 참조하세요.
 - 가격 책정 정보는 [Azure Automation 상태 구성 가격 책정](https://azure.microsoft.com/pricing/details/automation/)을 참조하세요.
-- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용하여 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.
+- 지속적인 배포 파이프라인에서 Azure Automation 상태 구성을 사용하는 예제는 [Azure Automation 상태 구성 및 Chocolatey를 사용한 지속적인 배포](automation-dsc-cd-chocolatey.md)를 참조하세요.

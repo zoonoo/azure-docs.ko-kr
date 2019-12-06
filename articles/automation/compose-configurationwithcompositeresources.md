@@ -5,17 +5,17 @@ keywords: PowerShell DSC, 필요한 상태 구성, PowerShell DSC Azure, 복합 
 services: automation
 ms.service: automation
 ms.subservice: dsc
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 08/21/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d9d16d9d9967af5bf8f9e13406e13d5637325f52
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: e9552adad1f15422eb60c34f2548324aeb03ee74
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243362"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849567"
 ---
 # <a name="composing-dsc-configurations-in-azure-automation-state-configuration-dsc-using-composite-resources"></a>복합 리소스를 사용하여 Azure Automation 상태 구성(DSC)에서 DSC 구성 작성
 
@@ -28,7 +28,7 @@ Azure Automation은 [복합 리소스 가져오기 및 컴파일](automation-dsc
 
 Azure Portal의 복합 리소스에서 구성을 할당하려면 먼저 구성을 작성해야 합니다. 이 작업은 **상태 구성(DSC)** 페이지에서 또한 **구성** 또는 **컴파일된 구성** 탭에서 **구성 작성**을 사용하여 수행할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽에서 **모든 리소스**를 클릭한 다음 Automation 계정의 이름을 클릭합니다.
 1. **Automation 계정** 페이지의 **구성 관리**에서 **상태 구성(DSC)** 을 선택합니다.
 1. **상태 구성(DSC)** 페이지에서 **구성** 또는 **컴파일된 구성** 탭을 클릭한 다음, 페이지 맨 위에 있는 메뉴에서 **구성 작성**을 클릭합니다.
@@ -41,7 +41,7 @@ Azure Portal의 복합 리소스에서 구성을 할당하려면 먼저 구성�
 
 새 구성이 저장되면 이 구성은 컴파일을 위해 제출됩니다. 가져온 모든 구성처럼 컴파일 작업 상태를 볼 수 있습니다. 자세한 내용은 [컴파일 작업 보기](automation-dsc-getting-started.md#viewing-a-compilation-job)를 참조하세요.
 
-컴파일이 성공적으로 완료되면 새 구성이 **컴파일된 구성** 탭에 표시됩니다. 새 구성이 이 탭에 표시되면 [다른 노드 구성에 노드 다시 할당](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration) 단계를 사용하여 관리되는 노드에 해당 구성을 할당할 수 있습니다.
+컴파일이 성공적으로 완료 되 면 **컴파일된** 구성 탭에 새 구성이 표시 됩니다. 이 탭에 표시 되 면 [다른 노드 구성에 노드 재할당](automation-dsc-getting-started.md#reassigning-a-node-to-a-different-node-configuration)의 단계를 사용 하 여 관리 노드에 할당할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

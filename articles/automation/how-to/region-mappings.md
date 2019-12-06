@@ -4,21 +4,21 @@ description: 이 문서에서는 솔루션을 지원 하기 위해 Automation �
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/20/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: cd4500b4ef6492f0b6499bb1e9aa1a773313e860
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 965d6b206bb64e90fe59798ce0c37ccf029117f5
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498361"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849516"
 ---
 # <a name="workspace-mappings"></a>작업 영역 매핑
 
-업데이트 관리, 변경 내용 추적 및 인벤토리 또는 작업 시간 외 Vm 시작/중지 솔루션을 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 특정 영역만 지원 됩니다. 이 매핑은 Automation 계정 및 Log Analytics 작업 영역에만 적용 됩니다. Automation 계정 또는 Log Analytics 작업 영역에 보고 하는 리소스는 다른 지역에 있을 수 있습니다.
+업데이트 관리, 변경 내용 추적 및 인벤토리 또는 작업 시간 외 VM 시작/중지 솔루션과 같은 솔루션을 사용 하도록 설정 하면 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 특정 영역만 지원 됩니다. 이 매핑은 Automation 계정 및 Log Analytics 작업 영역에만 적용 됩니다. Automation 계정 또는 Log Analytics 작업 영역에 보고 하는 리소스는 다른 지역에 있을 수 있습니다.
 
 ## <a name="supported-mappings"></a>지원 되는 매핑
 
@@ -49,7 +49,7 @@ ms.locfileid: "68498361"
 
 ## <a name="unlink-workspace"></a>작업 영역 연결 해제
 
-Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속 하기 전에 업데이트 관리, 변경 내용 추적 및 인벤토리를 제거 하거나, 사용 하는 경우 업무 시간 외 Vm 시작/중지 솔루션을 사용 하는 경우 해당 솔루션을 제거 해야 합니다. 제거 하지 않으면이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
+Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않기로 결정 한 경우 Azure Portal에서 직접 계정 연결을 해제할 수 있습니다. 계속 하기 전에 먼저 업데이트 관리, 변경 내용 추적 및 인벤토리 또는 작업 시간 외 VM 시작/중지 솔루션을 사용 하는 경우 해당 솔루션을 제거 해야 합니다. 제거 하지 않으면이 프로세스를 계속 진행할 수 없습니다. 가져온 특정 솔루션에 대한 문서를 검토하여 제거에 필요한 단계를 이해하세요.
 
 이러한 솔루션을 제거한 후에 다음 단계에 따라 Automation 계정 연결을 해제할 수 있습니다.
 
@@ -66,7 +66,7 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 * 업데이트 일정 - 각 일정에는 사용자가 만든 업데이트 배포와 일치하는 이름이 지정됩니다.
 
-* 솔루션에 대해 생성 되는 Hybrid worker 그룹-각각은 `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`와 비슷하게 이름이 지정 됩니다.
+* 솔루션에 대해 만들어진 Hybrid worker 그룹-각각 `machine1.contoso.com_9ceb8108-26c9-4051-b6b3-227600d715c8`와 비슷하게 이름이 지정 됩니다.
 
 작업이 없는 동안 VM 시작/중지를 사용한 경우 솔루션을 제거한 후 더 이상 필요하지 않은 다음 항목을 제거할 수도 있습니다.
 
@@ -89,4 +89,4 @@ Automation 계정을 Log Analytics 작업 영역에 더 이상 통합 하지 않
 
 작업이 없는 동안 VM 시작/중지
 
-* [업무 시간 외 Vm 시작/중지 배포](../automation-solution-vm-management.md)
+* [작업 시간 외 VM 시작/중지 배포](../automation-solution-vm-management.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: automation
 ms.subservice: update-management
 manager: carmonm
-ms.openlocfilehash: def0ac11edfa5a17a8e506c79d91885dd3c9ab66
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 924c2fd176b5b8e45352d616d226f484e814450d
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770396"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849262"
 ---
 # <a name="understand-the-linux-hybrid-runbook-worker-health-in-update-management"></a>업데이트 관리의 Linux Hybrid Runbook Worker 상태 이해
 
@@ -179,4 +179,4 @@ Passed: TCP test for {ods.systemcenteradvisor.com} (port 443) succeeded
 
 ## <a name="next-steps"></a>다음 단계
 
-Hybrid Runbook Worker의 추가 문제를 해결하려면 [문제 해결 - Hybrid Runbook Worker](hybrid-runbook-worker.md)를 참조하세요.
+Hybrid Runbook Worker와 관련 된 추가 문제를 해결 하려면 [문제 해결-Hybrid Runbook worker](hybrid-runbook-worker.md)를 참조 하세요.

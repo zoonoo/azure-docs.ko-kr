@@ -4,25 +4,25 @@ description: 이 문서에서는 변경 내용 추적 문제 해결에 대한 �
 services: automation
 ms.service: automation
 ms.subservice: change-inventory-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 01/31/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: beb0b89bdbf143c89a83c0813313a8bbda7235d4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 482b263b7c8427276d4fdb8681372c2be1ae69ee
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68564860"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849397"
 ---
 # <a name="troubleshoot-change-tracking-and-inventory"></a>변경 내용 추적 및 인벤토리 문제 해결
 
 ## <a name="windows"></a>Windows
 
-### <a name="records-not-showing-windows"></a>시나리오: 변경 내용 추적 레코드가 Windows 머신에 표시되지 않음
+### <a name="records-not-showing-windows"></a>시나리오: Windows 컴퓨터에 대 한 변경 내용 추적 레코드가 표시 되지 않음
 
-#### <a name="issue"></a>문제점
+#### <a name="issue"></a>문제
 
 변경 내용 추적을 위해 등록된 Windows 머신에 대한 인벤토리 또는 변경 내용 추적 결과가 표시되지 않습니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "68564860"
 3. 변경 내용 추적용 관리 팩이 다운로드되지 않았습니다.
 4. 온보딩 중인 VM이 현재 설치된 Microsoft Monitoring Agent를 사용하여 sysprep 되지 않은 머신에서 복제된 것일 수 있습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 1. **Microsoft Monitoring Agent**(HealthService.exe)가 머신에서 실행되고 있는지 확인합니다.
 1. 머신에서 **이벤트 뷰어**를 확인하여 단어가 `changetracking`인 이벤트를 검색합니다.

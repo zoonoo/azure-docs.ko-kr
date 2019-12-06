@@ -4,7 +4,7 @@ description: PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 
 services: virtual-machines-windows
 documentationcenter: virtual-machines
 author: v-miegge
-manager: ???
+manager: dcscontentpm
 editor: v-miegge
 tags: azure-service-management
 ms.assetid: ''
@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/01/2019
 ms.author: v-miegge
 ms.custom: mvc
-ms.openlocfilehash: d3931d2affd77ce53b6ace9cc043e0272eaaf954
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b03ac071ba508955d07002fc55dc96e007dfc2d6
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74040074"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74873967"
 ---
 # <a name="collect-details-about-all-vms-in-a-subscription-with-powershell"></a>PowerShell을 사용 하 여 구독의 모든 Vm에 대 한 세부 정보 수집
 
@@ -30,7 +30,7 @@ ms.locfileid: "74040074"
 
 ## <a name="launch-azure-cloud-shell"></a>Azure Cloud Shell 시작
 
-Azure Cloud Shell은 이 항목의 단계를 실행하는 데 사용할 수 있는 체험용 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
+Azure Cloud Shell은 이 항목의 단계를 실행하는 데 무료로 사용할 수 있는 대화형 셸입니다. 공용 Azure 도구가 사전 설치되어 계정에서 사용하도록 구성되어 있습니다. 
 
 Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **사용해 보세요**를 선택하기만 하면 됩니다. 또한 [https://shell.azure.com/powershell](https://shell.azure.com/powershell)로 이동하여 별도의 브라우저 탭에서 Cloud Shell을 시작할 수도 있습니다. **복사**를 선택하여 코드 블록을 복사하여 Cloud Shell에 붙여넣고, Enter 키를 눌러 실행합니다.
 
@@ -72,10 +72,10 @@ $report | Export-CSV "$home/$reportName"
 ## <a name="script-explanation"></a>스크립트 설명
 이 스크립트는 다음 명령을 사용 하 여 구독에서 Vm의 세부 정보에 대 한 csv 내보내기를 만듭니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
 
-|명령|참고 사항|
+|명령|참고|
 |-|-|
 |[Select-AzSubscription](https://docs.microsoft.com/powershell/module/Az.Accounts/Set-AzContext)|현재 세션에서 사용할 cmdlet에 대 한 테 넌 트, 구독 및 환경을 설정 합니다.|
-|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|가상 컴퓨터의 속성을 가져옵니다.|
+|[Get-AzVM](https://docs.microsoft.com/powershell/module/Az.Compute/Get-AzVM)|가상 머신의 속성을 가져옵니다.|
 |[Get-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzPublicIpAddress)|공용 IP 주소를 가져옵니다.|
 |[Get-AzNetworkInterface](https://docs.microsoft.com/powershell/module/Az.Network/Get-AzNetworkInterface)|네트워크 인터페이스를 가져옵니다.|
 

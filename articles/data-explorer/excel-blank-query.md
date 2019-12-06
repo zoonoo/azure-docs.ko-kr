@@ -7,18 +7,18 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 55198e0c38c2922d69b68d9ce62e16ea25e9cc44
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 4999000e2084922b43b8085034f545d4b5c644a9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173730"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849091"
 ---
 # <a name="visualize-data-using-an-azure-data-explorer-kusto-query-imported-into-microsoft-excel"></a>Microsoft Excel로 가져온 Azure 데이터 탐색기 Kusto 쿼리를 사용 하 여 데이터 시각화
 
 Azure 데이터 탐색기는 Excel에서 데이터에 연결 하는 두 가지 옵션을 제공 합니다. 기본 커넥터를 사용 하거나 Azure 데이터 탐색기에서 쿼리를 가져옵니다. 이 문서에서는 Azure 데이터 탐색기에서 Excel로 쿼리를 가져와서 데이터를 시각화 하는 방법을 보여 줍니다. 데이터에 대 한 추가 계산 또는 시각화를 수행 하려면 Kusto query를 Excel 데이터 원본으로 추가 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure [데이터 탐색기 도움말 클러스터](https://dataexplorer.azure.com/clusters/help/databases/Samples) 에 연결할 수 있도록 azure Active directory의 구성원 인 조직 전자 메일 계정 
@@ -68,3 +68,7 @@ Azure 데이터 탐색기는 Excel에서 데이터에 연결 하는 두 가지 �
 1. 이제 데이터가 Excel에 있습니다. **새로 고침** 단추를 선택 하 여 쿼리를 새로 고칩니다.
 
     ![Excel에서 데이터 보기](media/excel-blank-query/data-in-excel.png)
+
+## <a name="next-steps"></a>다음 단계
+
+[Excel 용 Azure 데이터 탐색기 커넥터를 사용 하 여 데이터 시각화](excel-connector.md)

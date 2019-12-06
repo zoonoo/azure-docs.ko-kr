@@ -1,18 +1,18 @@
 ---
 title: Azure Cosmos DB 쿼리 언어의 ASIN
-description: Azure Cosmos DB의 SQL 시스템 함수 ASIN에 대해 알아봅니다.
+description: Azure Cosmos DB의 아크사인 (ASIN) SQL 시스템 함수가 사인 값이 지정 된 숫자 식인 각도를 라디안으로 반환 하는 방법에 대해 알아봅니다.
 author: ginamr
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 5a64fc8d8f87d38f001bf2bc9dd581692c97fe64
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3e790eb5ae5eb780637b199a1a65dec2dd02d1bc
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348499"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871741"
 ---
 # <a name="asin-azure-cosmos-db"></a>ASIN (Azure Cosmos DB)
  사인 값이 지정된 숫자 식인 라디안에서 각도를 반환합니다. 아크사인이라고도 합니다.  
@@ -32,9 +32,9 @@ ASIN(<numeric_expr>)
   
   숫자 식을 반환합니다.  
   
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
   
-  다음 예에서는-1의 `ASIN`을 반환 합니다.  
+  다음 예에서는-1의 `ASIN` 반환 합니다.  
   
 ```sql
 SELECT ASIN(-1) AS asin  

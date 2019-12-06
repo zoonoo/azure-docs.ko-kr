@@ -1,23 +1,23 @@
 ---
 title: Azure Cosmos DB에서 분할
-description: Azure Cosmos DB 분할 개요
+description: Azure Cosmos DB 분할 및 파티션 키를 선택할 때의 모범 사례와 논리적 파티션을 관리 하는 방법에 대해 알아봅니다.
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/01/2019
-ms.openlocfilehash: 38b4e4c2541bf30bd9c95d9c0ec61779b0d1d7bb
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.date: 12/02/2019
+ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753255"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74871995"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 
 Azure Cosmos DB는 분할을 사용 하 여 응용 프로그램의 성능 요구에 맞게 데이터베이스의 개별 컨테이너를 확장 합니다. 분할에서 컨테이너의 항목은 *논리적 파티션*이라는 별개의 하위 집합으로 나뉩니다. 논리적 파티션은 컨테이너의 각 항목과 연결 된 *파티션 키* 의 값에 따라 형성 됩니다. 논리적 파티션의 모든 항목에는 동일한 파티션 키 값이 있습니다.
 
-예를 들어 컨테이너는 항목을 포함 합니다. 각 항목에는 `UserID` 속성에 대 한 고유한 값이 있습니다. @No__t_0 컨테이너의 항목에 대 한 파티션 키로 사용 되 고 1000 고유 `UserID` 값이 있는 경우 해당 컨테이너에 대해 1000 논리 파티션이 만들어집니다.
+예를 들어 컨테이너는 항목을 포함 합니다. 각 항목에는 `UserID` 속성에 대 한 고유한 값이 있습니다. `UserID` 컨테이너의 항목에 대 한 파티션 키로 사용 되 고 1000 고유 `UserID` 값이 있는 경우 해당 컨테이너에 대해 1000 논리 파티션이 만들어집니다.
 
 항목의 논리적 파티션을 결정 하는 파티션 키 외에도 컨테이너의 각 항목에는 *항목 ID* (논리 파티션 내에서 고유)가 있습니다. 파티션 키와 항목 ID를 결합 하면 항목을 고유 하 게 식별 하는 항목의 *인덱스가*생성 됩니다.
 

@@ -4,17 +4,17 @@ description: 이 문서에서는 PowerShell 또는 포털에서 실행 계정을
 services: automation
 ms.service: automation
 ms.subservice: shared-capabilities
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/24/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd7e94261d8302224b0e31e5f4ac46978dfa812f
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: ae73188fa8818c84806709dc7518e3d5760ae187
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72690873"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849533"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation 실행 계정 관리
 
@@ -372,7 +372,7 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 인증서를 자동으로 갱신 하기 위해 automation runbook을 사용할 수 있습니다. [GitHub](https://github.com/ikanni/PowerShellScripts/blob/master/AzureAutomation/RunAsAccount/GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1) 의 다음 스크립트는 automation 계정에서이 기능을 사용 하도록 설정 합니다.
 
-- @No__t_0 스크립트는 주별 일정을 만들어 실행 계정 인증서를 갱신 합니다.
+- `GrantPermissionToRunAsAccountAADApplication-ToRenewCertificateItself-CreateSchedule.ps1` 스크립트는 주별 일정을 만들어 실행 계정 인증서를 갱신 합니다.
 - 이 스크립트는 automation 계정에 **AutomationRunAsCredential** runbook을 추가 합니다.
   - GitHub의 스크립트: [Update-AutomationRunAsCredential](https://github.com/azureautomation/runbooks/blob/master/Utility/ARM/Update-AutomationRunAsCredential.ps1)에서 runbook 코드를 볼 수도 있습니다.
   - 또한 파일의 PowerShell 코드를 사용 하 여 필요에 따라 인증서를 수동으로 갱신할 수 있습니다.
@@ -407,10 +407,10 @@ Azure Automation의 실행 계정은 Azure에서 Azure cmdlet으로 리소스를
 
 ## <a name="limiting-run-as-account-permissions"></a>실행 계정 권한 제한
 
-Azure의 리소스에 대 한 자동화 대상을 제어 하려면 PowerShell 갤러리에서 Update-AutomationRunAsAccountRoleAssignments 스크립트를 실행 하 여 기존 실행 계정 서비스 주체를 변경 하 여 사용자 지정 역할을 만들고 사용할 수 있습니다 [.](https://aka.ms/AA5hug8) 정의. 이 역할은 [Key Vault](https://docs.microsoft.com/azure/key-vault/)를 제외한 모든 리소스에 대 한 권한을 가집니다.
+Azure의 리소스에 대 한 자동화 대상을 제어 하려면 PowerShell 갤러리에서 [Update-AutomationRunAsAccountRoleAssignments](https://aka.ms/AA5hug8) 스크립트를 실행 하 여 기존 실행 계정 서비스 주체를 변경 하 여 사용자 지정 역할 정의를 만들고 사용할 수 있습니다. 이 역할은 [Key Vault](https://docs.microsoft.com/azure/key-vault/)를 제외한 모든 리소스에 대 한 권한을 가집니다.
 
 > [!IMPORTANT]
-> @No__t_0 스크립트를 실행 한 후 RunAs 계정을 사용 하 여 KeyVault에 액세스 하는 runbook은 더 이상 작동 하지 않습니다. Azure KeyVault에 대 한 호출에 대 한 계정의 runbook을 검토 해야 합니다.
+> `Update-AutomationRunAsAccountRoleAssignments.ps1` 스크립트를 실행 한 후 RunAs 계정을 사용 하 여 KeyVault에 액세스 하는 runbook은 더 이상 작동 하지 않습니다. Azure KeyVault에 대 한 호출에 대 한 계정의 runbook을 검토 해야 합니다.
 >
 > Azure Automation runbook에서 KeyVault에 대 한 액세스를 사용 하도록 설정 하려면 키 [자격 증명 모음에 RunAs 계정을 추가](#add-permissions-to-key-vault)해야 합니다.
 
@@ -422,7 +422,7 @@ $roleDefinition.NotActions.Add("Microsoft.Compute/*")
 $roleDefinition | Set-AzureRMRoleDefinition
 ```
 
-실행 계정에서 사용 하는 서비스 주체가 **참가자** 에 게 있는지 또는 사용자 지정 역할 정의로 이동 하는지 확인 하려면 Automation 계정으로 이동 하 고 **계정 설정**에서**Azure 실행 계정** >  **실행 계정** 을 선택 합니다. **역할** 에서 사용 중인 역할 정의를 찾을 수 있습니다.
+실행 계정에서 사용 하는 서비스 주체가 **참가자** 에 게 있는지 또는 사용자 지정 역할 정의로 이동 하는지 확인 하려면 Automation 계정으로 이동 하 고 **계정 설정**에서 **Azure 실행 계정** > **실행 계정** 을 선택 합니다. **역할** 에서 사용 중인 역할 정의를 찾을 수 있습니다.
 
 [![](media/manage-runas-account/verify-role.png "Verify the Run As Account role")](media/manage-runas-account/verify-role-expanded.png#lightbox)
 
@@ -435,7 +435,7 @@ Azure Automation에서 Key Vault를 관리할 수 있도록 허용 하 고 실�
 * Key Vault에 대 한 사용 권한 부여
 * 액세스 정책 설정
 
-PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault](https://aka.ms/AA5hugb) 스크립트를 사용 하 여 Keyvault에 실행 계정 권한을 부여 하거나, [응용 프로그램에 키 자격 증명 모음에](../key-vault/key-vault-group-permissions-for-apps.md) 대 한 액세스 권한 부여를 방문 하 여 설정에 대 한 자세한 내용을 확인할 수 있습니다. KeyVault에 대 한 사용 권한.
+PowerShell 갤러리에서 [Extend-AutomationRunAsAccountRoleAssignmentToKeyVault](https://aka.ms/AA5hugb) 스크립트를 사용 하 여 Keyvault에 실행 계정 권한을 부여 하거나, [응용 프로그램에 키 자격 증명 모음에](../key-vault/key-vault-group-permissions-for-apps.md) 대 한 액세스 권한 부여를 방문 하 여 keyvault의 설정 권한에 대 한 자세한 내용을 확인할 수 있습니다.
 
 ## <a name="misconfiguration"></a>잘못된 구성
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/22/2019
 ms.author: helohr
-ms.openlocfilehash: 6b4e1a5024fec07ca73c79d2742933b7b115e6c2
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 3347cfee8b54efa9c52b23deff8c44387195fd63
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384316"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74851182"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -28,16 +28,6 @@ Citrix는 사용자 밀도와 성능을 향상 시키고, 주문형 워크 로�
 
 - [파트너 웹 사이트로 이동](https://more.citrix.com/wvd)합니다.
 
-## <a name="cloudhouse"></a>Cloudhouse
-
-![Cloudhouse 로고](./media/partners/cloudhouse.png)
-
-Cloudhouse는 최신 Windows 운영 체제와 호환 되지 않는 응용 프로그램을 비롯 하 여 모든 응용 프로그램을 Windows에 이동할 수 있는 턴키 응용 프로그램 마이그레이션 서비스를 고객에 게 제공 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 고객이 다중 세션 Windows 10을 실제로 활용할 수 있도록 하는 가상 데스크톱 환경 
-
-입증 된 Cloudhouse 컨테이너 화 기술을 활용 하 여 Cloudhouse 서비스는 Windows XP, Windows 7 또는 Windows 8 용으로 설계 된 응용 프로그램을 비롯 한 모든 응용 프로그램을 사용 하 여 코드를 변경 하지 않고도 최신 Windows 가상 데스크톱에 배포 합니다. 사용자 환경에 영향을 줍니다. Cloudhouse는 기본 운영 체제에서 응용 프로그램을 격리 하 여 Windows 가상 데스크톱의 가치를 더 추가 하 여 Windows 서비스 업데이트가 컨테이너 화 된 응용 프로그램에 영향을 주지 않고 롤아웃 되도록 합니다. 
-
-- [파트너 웹 사이트로 이동](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)합니다.
-
 ## <a name="vmware"></a>VMware
 
 ![VMware 로고](./media/partners/vmware.png)
@@ -48,6 +38,17 @@ Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microso
 
 - [Microsoft Azure에서 수평 클라우드의 기술 미리 보기에 등록](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)합니다.
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
+
+
+## <a name="cloudhouse"></a>Cloudhouse
+
+![Cloudhouse 로고](./media/partners/cloudhouse.png)
+
+Cloudhouse는 최신 Windows 운영 체제와 호환 되지 않는 응용 프로그램을 비롯 하 여 모든 응용 프로그램을 Windows에 이동할 수 있는 턴키 응용 프로그램 마이그레이션 서비스를 고객에 게 제공 하는 Windows 가상 데스크톱 부가 서비스 공급자입니다. 고객이 다중 세션 Windows 10을 실제로 활용할 수 있도록 하는 가상 데스크톱 환경 
+
+입증 된 Cloudhouse 컨테이너 화 기술을 활용 하 여 Cloudhouse 서비스는 Windows XP, Windows 7 또는 Windows 8 용으로 설계 된 응용 프로그램을 비롯 한 모든 응용 프로그램을 사용 하 여 코드를 변경 하지 않고도 최신 Windows 가상 데스크톱에 배포 합니다. 사용자 환경에 영향을 줍니다. Cloudhouse는 기본 운영 체제에서 응용 프로그램을 격리 하 여 Windows 가상 데스크톱의 가치를 더 추가 하 여 Windows 서비스 업데이트가 컨테이너 화 된 응용 프로그램에 영향을 주지 않고 롤아웃 되도록 합니다. 
+
+- [파트너 웹 사이트로 이동](https://cloudhouse.com/resources/migrate-everything-to-windows-10-on-microsoft-windows-virtua)합니다.
 
 ## <a name="cloudjumper"></a>CloudJumper
 

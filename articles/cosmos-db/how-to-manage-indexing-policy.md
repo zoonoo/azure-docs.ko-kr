@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB의 인덱싱 정책 관리
-description: Azure Cosmos DB의 인덱싱 정책 관리 방법을 알아봅니다.
+description: 인덱싱 정책을 관리 하 고, 인덱싱에서 속성을 포함 하거나 제외 하는 방법, 다른 Azure Cosmos DB Sdk를 사용 하 여 인덱싱을 정의 하는 방법에 대해 알아봅니다.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/28/2019
+ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 46d0124eb701b0c2d779a96c8efd50ba43e8fc07
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034443"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74872063"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
-Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱싱 정책](index-policy.md)에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대 한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용 합니다. 이 정책은 사용자 지정 인덱싱 정책을 사용 하 여 재정의할 수 있습니다.
+Azure Cosmos DB에서 데이터는 각 컨테이너에 대해 정의된 [인덱싱 정책](index-policy.md)에 따라 인덱싱됩니다. 새로 만든 컨테이너에 대한 기본 인덱싱 정책은 모든 문자열 또는 숫자에 대해 범위 인덱스를 적용합니다. 이 정책은 사용자 지정 인덱싱 정책으로 재정의할 수 있습니다.
 
 ## <a name="indexing-policy-examples"></a>인덱싱 정책 예제
 
@@ -346,7 +346,7 @@ Azure Cosmos DB에서 인덱싱 정책은 아래 방법 중 하나를 사용 하
 
 Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 직접 편집할 수 있는 JSON 문서로 저장합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 새 Azure Cosmos 계정을 만들거나 기존 계정을 선택합니다.
 
@@ -389,7 +389,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `PopulateQuotaInfo`로 설정하는 `true` 개체를 전달합니다.
+인덱스 변환 진행률을 추적하려면 `PopulateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달합니다.
 
 ```csharp
 // retrieve the container's details
@@ -457,7 +457,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Java SDK 사용
 
-`DocumentCollection`Java SDK[(해당 사용법에 관한 ](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)이 빠른 시작[ 참조)의 ](create-sql-api-java.md) 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
+[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-java.md) 참조)의 `DocumentCollection` 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
 
 ```java
 // Retrieve the container's details
@@ -539,7 +539,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>Node.js SDK 사용
 
-`ContainerDefinition`Node.js SDK[(해당 사용법에 관한 ](https://www.npmjs.com/package/@azure/cosmos)이 빠른 시작[ 참조)의 ](create-sql-api-nodejs.md) 인터페이스는 `indexingPolicy`를 변경하고 `indexingMode` 및 `includedPaths`를 제거할 수 있는 `excludedPaths` 개체를 표시합니다.
+[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-nodejs.md) 참조)의 `ContainerDefinition` 인터페이스는 `indexingMode`를 변경하고 `includedPaths` 및 `excludedPaths`를 제거할 수 있는 `indexingPolicy` 개체를 표시합니다.
 
 컨테이너의 세부 정보를 검색 합니다.
 
@@ -596,7 +596,7 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `populateQuotaInfo`로 설정하는 `true` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
+컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `populateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
 
 ```javascript
 // retrieve the container's details

@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB에 대 한 SQL 하위 쿼리
-description: Azure Cosmos DB의 SQL 하위 쿼리 및 일반적인 사용 사례에 대해 알아봅니다.
+description: 에서 SQL 하위 쿼리 및 일반적인 사용 사례와 다양 한 하위 쿼리 형식에 대해 알아보세요 Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/23/2019
+ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: cea9963f5073834a24ede44306eb89414909fc83
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003489"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74870567"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 SQL 하위 쿼리 예제
 
@@ -23,14 +23,14 @@ ms.locfileid: "71003489"
 
 하위 쿼리는 다음과 같은 두 가지 기본 유형이 있습니다.
 
-* **상관**관계: 외부 쿼리의 값을 참조 하는 하위 쿼리입니다. 하위 쿼리는 외부 쿼리에서 처리 하는 각 행에 대해 한 번씩 평가 됩니다.
+* **상관 관계가**지정 됨: 외부 쿼리에서 값을 참조 하는 하위 쿼리입니다. 하위 쿼리는 외부 쿼리에서 처리 하는 각 행에 대해 한 번씩 평가 됩니다.
 * **상관 관계가 지정 되지 않음**: 외부 쿼리와 독립적인 하위 쿼리입니다. 외부 쿼리에 의존 하지 않고 자체적으로 실행할 수 있습니다.
 
 > [!NOTE]
 > Azure Cosmos DB는 상호 관련 된 하위 쿼리만 지원 합니다.
 
 하위 쿼리는 반환 되는 행 및 열 수를 기준으로 추가로 분류할 수 있습니다. 다음 세 가지 유형이 있습니다.
-* **테이블**: 여러 행과 여러 열을 반환 합니다.
+* **테이블**: 여러 행 및 여러 열을 반환 합니다.
 * **다중 값**: 여러 행과 단일 열을 반환 합니다.
 * **스칼라**: 단일 행과 단일 열을 반환 합니다.
 
@@ -47,7 +47,7 @@ Azure Cosmos DB의 SQL 쿼리는 항상 단일 열 (단순 값 또는 복잡 한
 
 다중값 하위 쿼리는 WHERE 절의 모든 교차 조인이 아니라 각 select-many 식 다음에 조건자를 푸시하여 조인 식을 최적화할 수 있습니다.
 
-다음 쿼리를 고려해 보세요.
+다음과 같은 쿼리를 고려해 보세요.
 
 ```sql
 SELECT Count(1) AS Count
@@ -79,7 +79,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 하위 쿼리는 Udf (사용자 정의 함수), 복잡 한 문자열 또는 산술 식과 같은 비용이 많이 드는 식으로 쿼리를 최적화 하는 데 도움이 됩니다. JOIN 식과 함께 하위 쿼리를 사용 하 여 식을 한 번만 계산 하 고이를 여러 번 참조할 수 있습니다.
 
-다음 쿼리는 UDF `GetMaxNutritionValue` 를 두 번 실행 합니다.
+다음 쿼리는 UDF `GetMaxNutritionValue`를 두 번 실행 합니다.
 
 ```sql
 SELECT c.id, udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue
@@ -109,7 +109,7 @@ JOIN (SELECT udf.GetMaxNutritionValue(c.nutrients) AS MaxNutritionValue) m
 WHERE m.MaxNutritionValue > 100
 ```
 
-이 접근 방식은 Udf로 제한 되지 않습니다. 잠재적으로 비용이 많이 드는 식에 적용 됩니다. 예를 들어 수학 함수 `avg`를 사용 하 여 동일한 방법을 사용할 수 있습니다.
+이 접근 방식은 Udf로 제한 되지 않습니다. 잠재적으로 비용이 많이 드는 식에 적용 됩니다. 예를 들어 `avg`수학 함수를 사용 하 여 동일한 방법을 사용할 수 있습니다.
 
 ```sql
 SELECT TOP 1000 c.id, AvgNutritionValue
@@ -124,23 +124,23 @@ WHERE AvgNutritionValue > 80
 
 예를 들어 다음과 같은 참조 데이터 집합을 고려해 보십시오.
 
-| **Unit** | **이름**            | **곱한** | **기본 단위** |
+| **단위** | **Name**            | **곱한** | **기본 단위** |
 | -------- | ------------------- | -------------- | ------------- |
 | ng       | Nanogram            | 1.00E-09       | G          |
 | µg       | 마이크로 문법           | 1.00E-06       | G          |
 | mg       | Milligram           | 1.00E-03       | G          |
-| g        | G                | 1.00 E + 00       | G          |
+| g        | G                | 1.00 e + 00       | G          |
 | kg       | Kilogram            | 1.00E+03       | G          |
-| mg       | Megagram            | 1.00 E + 06       | G          |
-| Gg       | Gigagram            | 1.00 E + 09       | G          |
+| Mg       | Megagram            | 1.00 e + 06       | G          |
+| Gg       | Gigagram            | 1.00 e + 09       | G          |
 | nJ       | Nanojoule           | 1.00E-09       | 줄         |
 | µJ       | 마이크로 joule          | 1.00E-06       | 줄         |
 | mJ       | Millijoule          | 1.00E-03       | 줄         |
-| J        | 줄               | 1.00 E + 00       | 줄         |
+| J        | 줄               | 1.00 e + 00       | 줄         |
 | kJ       | Kilojoule           | 1.00E+03       | 줄         |
-| MJ       | Megajoule           | 1.00 E + 06       | 줄         |
-| GJ       | Gigajoule           | 1.00 E + 09       | 줄         |
-| 마다      | Calorie             | 1.00 E + 00       | calorie       |
+| MJ       | Megajoule           | 1.00 e + 06       | 줄         |
+| GJ       | Gigajoule           | 1.00 e + 09       | 줄         |
+| 마다      | Calorie             | 1.00 e + 00       | calorie       |
 | kcal     | Calorie             | 1.00E+03       | calorie       |
 | IU       | 국제 단위 |                |               |
 
@@ -191,7 +191,7 @@ WHERE n.units = r.unit
 
 다음은 몇 가지 예입니다.
 
-**예제 1**
+**예 1**
 
 ```sql
 SELECT 1 AS a, 2 AS b
@@ -211,7 +211,7 @@ SELECT (SELECT VALUE 1) AS a, (SELECT VALUE 2) AS b
 ]
 ```
 
-**예제 2**
+**예 2**
 
 ```sql
 SELECT TOP 5 Concat('id_', f.id) AS id
@@ -291,7 +291,7 @@ FROM food f
 ]
 ```
 
-**예제 2**
+**예 2**
 
 여러 집계 함수 식이 포함 된 하위 쿼리는 다음과 같습니다.
 
@@ -351,7 +351,7 @@ WHERE count_mg > 20
 
 ## <a name="exists-expression"></a>EXISTS 식
 
-Azure Cosmos DB는 EXISTS 식을 지원 합니다. Azure Cosmos DB SQL API에 기본 제공 되는 집계 스칼라 하위 쿼리입니다. Exists는 하위 쿼리 식을 사용 하 고 하위 쿼리가 행을 반환 하는 경우 true를 반환 하는 부울 식입니다. 그렇지 않으면 false를 반환 합니다.
+Azure Cosmos DB는 EXISTS 식을 지원 합니다. Azure Cosmos DB SQL API에 기본 제공 되는 집계 스칼라 하위 쿼리입니다. Exists는 하위 쿼리 식을 사용 하 고 하위 쿼리가 행을 반환 하는 경우 true를 반환 하는 부울 식입니다. 그렇지 않으면 false를 반환합니다.
 
 Azure Cosmos DB SQL API는 부울 식과 다른 스칼라 식을 구분 하지 않으므로 SELECT 절과 WHERE 절 모두에 EXISTS를 사용할 수 있습니다. 이는 T-sql과 달리 부울 식 (예: EXISTS, BETWEEN 및 IN)은 필터로 제한 됩니다.
 
@@ -368,7 +368,7 @@ SELECT EXISTS (SELECT undefined)
 
 하위 쿼리는 개체의 선택 된 목록에 있는 값 목록을 묶습니다. 선택한 목록에 값이 없으면 하위 쿼리는 단일 값 '{}'을 반환 합니다. 이 값은 정의 되어 있으므로 EXISTS가 true로 평가 됩니다.
 
-### <a name="example-rewriting-array_contains-and-join-as-exists"></a>예제: ARRAY_CONTAINS를 다시 작성 하 고 EXISTS로 조인
+### <a name="example-rewriting-array_contains-and-join-as-exists"></a>예: ARRAY_CONTAINS 재작성 및 EXISTS로 조인
 
 ARRAY_CONTAINS의 일반적인 사용 사례는 배열에 항목이 있는지 여부에 따라 문서를 필터링 하는 것입니다. 이 경우 태그 배열에 "주황색" 이라는 항목이 포함 되어 있는지 확인 하 게 됩니다.
 
@@ -386,9 +386,9 @@ FROM food f
 WHERE EXISTS(SELECT VALUE t FROM t IN f.tags WHERE t.name = 'orange')
 ```
 
-또한 ARRAY_CONTAINS는 값이 배열 내의 요소와 같은지 확인할 수 있습니다. 배열 속성에 더 복잡 한 필터가 필요한 경우 JOIN을 사용 합니다.
+또한 ARRAY_CONTAINS은 값이 배열 내의 요소와 같은지만 확인할 수 있습니다. 배열 속성에 더 복잡 한 필터가 필요한 경우 JOIN을 사용 합니다.
 
-배열의 단위와 `nutritionValue` 속성을 기준으로 필터링 하는 다음 쿼리를 고려 하십시오. 
+배열의 단위 및 `nutritionValue` 속성을 기준으로 필터링 하는 다음 쿼리를 고려 하십시오. 
 
 ```sql
 SELECT VALUE c.description

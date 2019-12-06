@@ -4,17 +4,17 @@ description: 이 문서에서는 업데이트 배포에 대 한 사전 스크립
 services: automation
 ms.service: automation
 ms.subservice: update-management
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 05/17/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 860eaf5d37b3d3064e3b10bd1dab02c04b95ab5b
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: a5d68b64fc24577621c82be62f833c356e8fb9c2
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755502"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74850247"
 ---
 # <a name="manage-pre-and-post-scripts"></a>사전 및 사후 스크립트 관리
 
@@ -119,7 +119,7 @@ Runbook을 사전 또는 사후 스크립트로 사용 하려면 runbook을 Auto
 모든 속성을 포함 하는 전체 예제는 [이름으로 소프트웨어 업데이트 구성 가져오기](/rest/api/automation/softwareupdateconfigurations/getbyname#examples)에서 찾을 수 있습니다.
 
 > [!NOTE]
-> @No__t_0 개체에는 컴퓨터에 대 한 중복 된 항목이 포함 될 수 있습니다. 이로 인해 미리 스크립트나 사후 스크립트가 동일한 컴퓨터에서 여러 번 실행 될 수 있습니다. 이 동작을 해결 하려면 `Sort-Object -Unique`를 사용 하 여 스크립트에서 고유한 VM 이름만 선택 합니다.
+> `SoftwareUpdateConfigurationRunContext` 개체에는 컴퓨터에 대 한 중복 된 항목이 포함 될 수 있습니다. 이로 인해 미리 스크립트나 사후 스크립트가 동일한 컴퓨터에서 여러 번 실행 될 수 있습니다. 이 동작을 해결 하려면 `Sort-Object -Unique`를 사용 하 여 스크립트에서 고유한 VM 이름만 선택 합니다.
 
 
 ## <a name="stopping-a-deployment"></a>배포 중지

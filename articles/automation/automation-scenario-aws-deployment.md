@@ -4,22 +4,22 @@ description: 이 문서에서는 Azure Automation을 사용하여 Amazon Web Ser
 services: automation
 ms.service: automation
 ms.subservice: process-automation
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 31eda5a293f7154d32c508b7b9c1bf0f9f604f2e
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: d2a58d3e79301f277143d8c4b6e810a377a211b9
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476907"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849635"
 ---
 # <a name="azure-automation-scenario---provision-an-aws-virtual-machine"></a>Azure Automation 시나리오 - AWS 가상 머신 프로비전
 이 문서에서는 Azure Automation을 사용하여 AWS(Amazon Web Service) 구독에서 가상 머신을 프로비전하고 해당 VM에 특정 이름을 지정하는 방법을 설명합니다. 이는 AWS에서 VM “태그 지정”이라고 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 이 문서에서는 Azure Automation 계정 및 AWS 구독이 필요합니다. Azure Automation 계정을 설정하고 AWS 구독 자격 증명으로 구성하는 데 대한 자세한 내용은 [Configure Authentication with Amazon Web Services(Amazon Web Services로 인증 구성)](automation-config-aws-account.md)를 참조하세요. 이 계정은 아래 단계에서 참조되므로 먼저 AWS 구독 자격 증명으로 생성하거나 업데이트한 다음 진행해야 합니다.
 
 ## <a name="deploy-amazon-web-services-powershell-module"></a>Amazon Web Services PowerShell 모듈 배포
@@ -87,7 +87,7 @@ AWS PowerShell 모듈을 배포한 후에는 Runbook을 작성하여 PowerShell 
 9. Runbook을 저장하고 **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
 
 ### <a name="testing-the-aws-vm-runbook"></a>AWS VM Runbook 테스트
-Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 구체적으로 살펴보면 다음과 같습니다.  
+Runbook 테스트를 진행하기 전에 몇 가지 사항을 확인해야 합니다. 특히 다음과 같은 혜택이 있습니다.  
 
 * AWS에 대해 인증하기 위한 **AWScred** 라는 이름의 자산을 만들거나 스크립트가 자격 증명 자산의 이름을 참조하도록 업데이트되었습니다.    
 * Azure Automation에서 AWS PowerShell 모듈을 가져왔습니다.  

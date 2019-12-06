@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 4fc0654aab1c68888e86dc95de658bc69a01e02d
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 2a5d01978d8a4883d760e7ecf84afa381dfd563d
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123986"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74868561"
 ---
 # <a name="azure-kubernetes-services-integration-with-security-center-preview"></a>Security Center와 Azure Kubernetes Services 통합 (미리 보기)
 AKS (Azure Kubernetes Service)는 컨테이너 화 된 응용 프로그램 개발, 배포 및 관리를 위한 Microsoft의 관리 되는 서비스입니다. 
@@ -41,7 +41,7 @@ Security Center AKS 마스터 노드에서 이미 수집 된 데이터를 사용
 
 * **환경 강화** -Security Center Kubernetes 클러스터의 구성을 지속적으로 모니터링 하 고 업계 표준을 반영 하는 보안 권장 사항을 생성 합니다.
 
-* **런타임 보호** -다음 AKS 원본에 대 한 지속적인 분석 Security Center을 통해 호스트 *및* AKS 클러스터 수준에서 검색 된 위협 및 악의적인 활동을 경고 합니다. 자세한 내용은 [Azure container service를 참조 하세요. ](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)):
+* **런타임 보호** -다음 AKS 원본에 대 한 지속적인 분석 Security Center을 통해 호스트 *및* AKS 클러스터 수준에서 검색 된 위협 및 악의적인 활동을 경고 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 감지](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)를 참조 하세요.
     * 네트워크 데이터, 프로세스 만들기 등의 원시 보안 이벤트
     * Kubernetes 감사 로그
 

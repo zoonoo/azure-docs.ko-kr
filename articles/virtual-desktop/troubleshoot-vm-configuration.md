@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: ae02b09278acef6498d5b94d1af6fa93abe205a9
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3312b5ba6f97dc51f5eeff06eeb194e367935e08
+ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791147"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74869530"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
@@ -81,10 +81,10 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 다음 지침에 따라 구성 요소가 설치 되었는지 확인 하 고 오류 메시지를 확인 합니다.
 
 1. **제어판** > **프로그램** > **프로그램 및 기능**을 선택 하 여 두 구성 요소가 설치 되어 있는지 확인 합니다. **Windows 가상 데스크톱 에이전트** 및 **Windows 가상 데스크톱 에이전트 부팅 로더에서** 표시 되지 않으면 VM에 설치 되지 않습니다.
-2. **파일 탐색기** 를 열고 **C:\Windows\Temp\scriptlogs.log**로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
-3. **C:\Windows\Temp\scriptlogs.log** 파일이 있는 경우이 파일을 열고 오류 메시지를 확인 합니다.
+2. **파일 탐색기** 를 열고 **C:\Windows\Temp\ScriptLog.log**로 이동 합니다. 파일이 없는 경우 두 구성 요소를 설치한 PowerShell DSC가 제공 된 보안 컨텍스트에서 실행 될 수 없음을 나타냅니다.
+3. **C:\Windows\Temp\ScriptLog.log** 파일이 있는 경우이 파일을 열고 오류 메시지를 확인 합니다.
 
-### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptlogslog-is-also-missing"></a>오류: Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 에이전트 부팅 로더가 없습니다. C:\Windows\Temp\scriptlogs.log도 없습니다.
+### <a name="error-windows-virtual-desktop-agent-and-windows-virtual-desktop-agent-boot-loader-are-missing-cwindowstempscriptloglog-is-also-missing"></a>오류: Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 에이전트 부팅 로더가 없습니다. C:\Windows\Temp\ScriptLog.log도 없습니다.
 
 **원인 1:** Azure Resource Manager 템플릿에 대 한 입력 중에 제공 된 자격 증명이 잘못 되었거나 사용 권한이 부족 합니다.
 
@@ -98,7 +98,7 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 - 테 넌 트 이름이 정확 하 고 테 넌 트가 Windows 가상 데스크톱에 존재 하는지 확인 합니다.
 - 계정에 최소한 RDS 참가자 권한이 있는지 확인 합니다.
 
-### <a name="error-authentication-failed-error-in-cwindowstempscriptlogslog"></a>오류: 인증에 실패 했습니다. C:\Windows\Temp\scriptlogs.log에서 오류가 발생 했습니다.
+### <a name="error-authentication-failed-error-in-cwindowstempscriptloglog"></a>오류: 인증에 실패 했습니다. C:\Windows\Temp\ScriptLog.log에서 오류가 발생 했습니다.
 
 **원인:** PowerShell DSC를 실행할 수 있었지만 Windows 가상 데스크톱에 연결할 수 없습니다.
 

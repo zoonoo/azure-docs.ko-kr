@@ -4,17 +4,17 @@ description: 이 문서에는 DSC(Desired State Configuration) 문제 해결에 
 services: automation
 ms.service: automation
 ms.subservice: ''
-author: bobbytreed
-ms.author: robreed
+author: mgoedtel
+ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ab9a39cfba082ea4c4d1cc6c29764619011d8cb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231549"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849363"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -59,11 +59,11 @@ An error occurred while deleting the DSC configuration '<name>'.  Error-details:
 
 이 오류는 해결 하기 위해 계획 된 일시적인 문제입니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 * Az Cmdlet "AzAutomationDscConfiguration"를 사용 하 여 구성을 삭제 합니다.
 * 이 cmdlet에 대 한 설명서는 아직 업데이트 되지 않았습니다.  그때까지 AzureRM 모듈에 대 한 설명서를 참조 하세요.
-  * [Export-azurermautomationdscconfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
+  * [Remove-AzureRmAutomationDSCConfiguration](/powershell/module/azurerm.automation/Remove-AzureRmAutomationDscConfiguration)
 
 ### <a name="failed-to-register-agent"></a>시나리오: Dsc 에이전트를 등록 하지 못했습니다.
 
@@ -86,7 +86,7 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 
 이 오류는 일반적으로 방화벽, 컴퓨터가 프록시 서버 뒤에 있거나 기타 네트워크 오류로 인해 발생 합니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 컴퓨터에 DSC Azure Automation의 적절 한 끝점에 대 한 액세스 권한이 있는지 확인 하 고 다시 시도 하세요. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning) 을 참조 하세요.
 
@@ -104,7 +104,7 @@ The attempt to get the action from server https://<url>//accounts/<account-id>/N
 
 이 오류는 일반적으로 노드가 노드 구성 이름(예: ABC.WebServer) 대신 구성 이름(예: ABC)에 할당된 경우에 발생합니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 * "구성 이름"이 아니라 "노드 구성 이름"을 사용 하 여 노드를 할당 하 고 있는지 확인 합니다.
 * Azure 포털 또는 PowerShell cmdlet을 사용하여 노드 구성을 노드에 할당할 수 있습니다.
@@ -126,7 +126,7 @@ Compilation completed successfully, but no node configuration.mofs were generate
 
 DSC 구성에서 **Node** 키워드 다음에 오는 식이 `$null`로 평가되면 노드 구성이 생성되지 않습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
@@ -147,7 +147,7 @@ No instance found with given property values
 
 WMF 버전을 업그레이드했고 WMI가 손상되었습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 이 문제를 해결 하려면 [DSC의 알려진 문제 및 제한 사항](https://docs.microsoft.com/powershell/scripting/wmf/known-issues/known-issues-dsc) 문서에 있는 지침을 따르세요.
 
@@ -165,7 +165,7 @@ System.InvalidOperationException error processing property 'Credential' of type 
 
 구성에서 자격 증명을 사용 했지만 각 노드 구성에 대해 **PSDscAllowPlainTextPassword** 를 true로 설정 하는 적절 한 **ConfigurationData** 을 제공 하지 않았습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 * 구성에 설명 된 각 노드 구성에 대해 적절 한 **ConfigurationData** 를 전달 하 여 **PSDscAllowPlainTextPassword** 를 true로 설정 해야 합니다. 자세한 내용은 [Azure Automation DSC의 자산](../automation-dsc-compile.md#working-with-assets-in-azure-automation-during-compilation)을 참조하세요.
 
@@ -183,7 +183,7 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 일반적으로이 오류는 노드에 서비스에 없는 노드 구성 이름이 할당 될 때 발생 합니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 * 서비스의 이름과 정확히 일치 하는 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
 * 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드를 온 보 딩 하지만 노드 구성을 할당 하지 않습니다.
@@ -202,7 +202,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 `/tmp` 위치가 `noexec`으로 설정 된 경우 현재 버전의 DSC에서 구성을 적용 하지 못하는 것으로 확인 되었습니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 * `/tmp` 위치에서 `noexec` 옵션을 제거 합니다.
 
@@ -218,7 +218,7 @@ This event indicates that failure happens when LCM is processing the configurati
 
 컴파일 서비스의 알려진 문제입니다.
 
-#### <a name="resolution"></a>해결 방법
+#### <a name="resolution"></a>해상도
 
 가장 좋은 해결 방법은 로컬로 또는 CI/CD 파이프라인에서 컴파일하고 MOF 파일을 서비스에 직접 업로드 하는 것입니다.  서비스의 컴파일이 요구 사항인 경우 다음으로 가장 좋은 해결 방법은 이름에 겹치지 않도록 컴파일 작업을 분할 하는 것입니다.
 
