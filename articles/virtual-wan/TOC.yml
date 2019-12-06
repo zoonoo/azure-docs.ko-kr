@@ -24,8 +24,6 @@
           href: migrate-from-hub-spoke-topology.md
         - name: 글로벌 전송 네트워크 아키텍처
           href: virtual-wan-global-transit-network-architecture.md
-        - name: Virtual WAN의 Office 365 제어판
-          href: virtual-wan-office365-overview.md
 - name: 방법 가이드
   items:
     - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결

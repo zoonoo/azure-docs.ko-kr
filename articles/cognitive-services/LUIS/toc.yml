@@ -60,9 +60,6 @@
         - name: 복합 엔터티를 사용하여 관련 데이터를 그룹화 및 추출
           href: luis-tutorial-composite-entity.md
           displayName: roles
-        - name: 간단한 엔터티를 사용하여 이름 가져오기
-          href: luis-quickstart-primary-and-secondary-data.md
-          displayName: roles
     - name: 앱 개선
       items:
         - name: 알 수 없는 예측 수정

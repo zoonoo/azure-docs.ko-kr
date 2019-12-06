@@ -64,8 +64,6 @@
           href: howto-conditional-access-policy-compliant-device.md
     - name: 레거시 인증 차단
       href: block-legacy-authentication.md
-    - name: MFA에 대한 조건부 액세스 등록
-      href: '../authentication/howto-registration-mfa-sspr-combined.md#conditional-access-policies-for-combined-registration'
     - name: 승인된 클라이언트 앱 필요
       href: app-based-conditional-access.md
     - name: 앱 보호 정책 필요
