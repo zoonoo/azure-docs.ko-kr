@@ -1,20 +1,21 @@
 ---
-title: 읽기 액세스 지역 중복 저장소 (RA-GZRS 또는 RA-GRS)를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인 | Microsoft Docs
-description: Azure RA-GZRS 또는 RA GRS storage를 사용 하 여 가동 중단을 처리할 수 있을 정도로 고가용성 응용 프로그램을 설계 하는 방법입니다.
+title: 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인
+titleSuffix: Azure Storage
+description: 읽기 액세스 지역 중복 저장소를 사용 하 여 가동 중단을 처리할 수 있을 정도로 유연 하 게 고가용성 응용 프로그램을 설계 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 8cb644495d99b331ec95eb0a9759be45a65e97a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673124"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895334"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>읽기 액세스 지역 중복 저장소를 사용 하 여 항상 사용 가능한 응용 프로그램 디자인
 
@@ -27,7 +28,7 @@ Azure Storage와 같은 클라우드 기반 인프라의 일반적인 기능은 
 
 이 문서에서는 주 지역의 가동 중단을 처리 하도록 응용 프로그램을 디자인 하는 방법을 보여 줍니다. 주 지역을 사용할 수 없게 되 면 응용 프로그램은 보조 지역에 대 한 읽기 작업을 대신 수행 하도록 조정할 수 있습니다. 시작 하기 전에 저장소 계정이 RA-GRS 또는 RA-GZRS에 대해 구성 되어 있는지 확인 합니다.
 
-보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조하세요.
+보조 지역과 쌍을 이루는 주 지역에 대한 정보는 [BCDR(비즈니스 연속성 및 재해 복구): Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)을 참조합니다.
 
 이 문서에는 코드 조각이 포함되어 있고 끝 부분에는 다운로드하여 실행할 수 있는 전체 샘플에 대한 링크가 있습니다.
 
@@ -203,11 +204,11 @@ Azure Storage 클라이언트 라이브러리를 사용 하면 다시 시도할 
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | 트랜잭션 A: <br> 주 지역에 <br> 직원 엔터티 삽입 |                                   |                    | 트랜잭션 A가 주 지역에 삽입됐지만<br> 아직 복제되지 않음 |
 | T1       |                                                            | 트랜잭션 A가 <br> 보조 지역에<br> 복제됨 | T1 | 트랜잭션 A가 보조 지역에 복제됨. <br>마지막 동기화 시간이 업데이트됨.    |
-| T2       | 트랜잭션 B:<br>업데이트<br> 직원 엔터티<br> 업데이트  |                                | T1                 | 트랜잭션 B가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
-| T3       | 트랜잭션 C:<br> 주 지역에서 <br>관리자<br>엔터티<br>업데이트 |                    | T1                 | 트랜잭션 C가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
+| T2       | 트랜잭션 B:<br>주 지역에서<br> 직원 엔터티<br> 업데이트  |                                | T1                 | 트랜잭션 B가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
+| T3       | 트랜잭션 C:<br> 주 지역에서 <br>administrator<br>엔터티<br>업데이트 |                    | T1                 | 트랜잭션 C가 주 지역에 기록됐지만<br> 아직 복제되지 않음  |
 | *T4*     |                                                       | 트랜잭션 C가 <br>보조 지역에<br> 복제됨 | T1         | 트랜잭션 C가 보조 지역에 복제됨.<br>트랜잭션 B가 아직 복제되지 않아서 <br>LastSyncTime이 업데이트되지 않음|
 | *T5*     | 보조 지역의 <br>엔터티 읽기                           |                                  | T1                 | 트랜잭션 B가 아직 복제되지 <br> 않아서 직원 엔터티에 대해 <br> 부실한 값을 얻음 C가 복제되었기 때문에<br> 관리자 역할 엔터티에 대해<br> 새 값을 얻음 트랜잭션 B가 복제되지 않았기<br> 때문에 마지막 동기화 시간이<br> 아직 업데이트되지 않음. 엔터티 날짜/시간이 마지막<br>동기화 시간보다 나중이기 때문에 <br>관리자 역할 엔터티가 불일치 <br>상태라고 볼 수 있음 |
-| *T6*     |                                                      | 트랜잭션 B가<br> 보조 지역에<br> 보조 | T6                 | *T6* – C까지 모든 트랜잭션이 <br>복제됨. 마지막 동기화<br> 시간이 업데이트됨 |
+| *T6*     |                                                      | 트랜잭션 B가<br> 보조 지역에<br> 복제됨 | T6                 | *T6* – C까지 모든 트랜잭션이 <br>복제됨. 마지막 동기화<br> 시간이 업데이트됨 |
 
 이 예제에서는 T5 지점에서 클라이언트가 보조 지역을 읽는 것으로 전환한다고 가정합니다. 지금은 **관리자 역할** 엔터티를 성공적으로 읽을 수 있지만 이 엔터티에는 관리자 수에 대한 값이 포함되어 있고 이 값은 현재 보조 지역에 관리자로 표시되어 있는 **직원** 엔터티의 수와 일치하지 않습니다. 클라이언트는 이 값을 표시할 수 있지만 정보가 불일치할 위험이 있을 수 있습니다. 아니면 클라이언트에서 업데이트 순서가 바뀌어 진행되었으므로 **관리자 역할**이 잠재적으로 불일치 상태인지를 파악하려고 시도한 다음 사용자에게 이 사실을 알릴 수 있습니다.
 
@@ -219,7 +220,7 @@ PowerShell 또는 Azure CLI를 사용 하 여 마지막 동기화 시간을 검�
 
 ### <a name="powershell"></a>PowerShell
 
-PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 지역에서 복제 통계 가져오기를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+PowerShell을 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 지역에서 복제 통계 가져오기를 지 원하는 Azure Storage 미리 보기 모듈을 설치 합니다. 예를 들어:
 
 ```powershell
 Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.1.1-preview –AllowPrerelease –AllowClobber –Force
@@ -235,7 +236,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Azure CLI를 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 저장소 계정의 lastSyncTime 속성을 확인 **geoReplicationStats** . @No__t-0 매개 변수를 사용 하 여 **geoReplicationStats**아래에 중첩 된 속성의 값을 반환 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+Azure CLI를 사용 하 여 저장소 계정에 대 한 마지막 동기화 시간을 가져오려면 저장소 계정의 lastSyncTime 속성을 확인 **geoReplicationStats** . `--expand` 매개 변수를 사용 하 여 **geoReplicationStats**아래에 중첩 된 속성의 값을 반환 합니다. 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
 
 ```azurecli
 $lastSyncTime=$(az storage account show \

@@ -1,7 +1,7 @@
 ---
 title: Video Indexer란?
 titleSuffix: Azure Media Services
-description: Azure Media Services Video Indexer 서비스에 대 한 개요입니다.
+description: 이 문서에서는 Azure Media Services Video Indexer 서비스에 대 한 개요를 제공 합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 09/23/2019
 ms.author: juliako
-ms.openlocfilehash: 9f6a5fa96034e0bf43ddd573a425de8d114d47ce
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a942277b5616f3e8220e7fc0fd00f7d660d76d3e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575108"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892705"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -33,7 +33,7 @@ Video Indexer의 정보는 다양 한 시나리오에 적용할 수 있습니다
 
 * *심층 검색*: 비디오에서 추출한 정보를 사용 하 여 비디오 라이브러리에서 검색 환경을 향상 시킵니다. 예를 들어, 음성 단어와 얼굴을 인덱싱하면 특정 단어를 스포크 하거나 두 사람이 함께 표시 되는 경우 비디오에서 시간을 찾는 검색 환경을 사용할 수 있습니다. 비디오에서 이러한 정보를 기반으로 하는 검색은 뉴스 기관, 교육용 institutes of, 방송사, 엔터테인먼트 콘텐츠 소유자, 엔터프라이즈 LOB 앱에 적용 되며 사용자가 검색 해야 하는 비디오 라이브러리가 있는 모든 업계에 적용 됩니다.
 * *콘텐츠 만들기*: 정보를 사용 하 여 정보를 추출 하는 Video Indexer에 따라 트레일러를 만들거나, reels, 소셜 미디어 콘텐츠 또는 뉴스 클립을 선택 합니다. 사용자와 레이블 모양에 대 한 키 프레임, 장면 표식 및 타임 스탬프는 생성 프로세스를 훨씬 더 빠르고 쉽게 만들 수 있도록 하 고, 사용자가 만드는 콘텐츠에 필요한 비디오 부분으로 이동할 수 있도록 합니다.
-* *내게 필요한 옵션*: 장애가 있는 사용자가 콘텐츠를 사용할 수 있도록 할지 또는 다른 언어를 사용 하 여 다른 지역에 콘텐츠를 배포 하려는 경우 비디오에서 제공 하는 기록 및 번역을 사용할 수 있습니다. 여러 언어의 인덱서입니다.
+* *내게 필요한 옵션*: 장애가 있는 사용자가 콘텐츠를 사용할 수 있도록 할지 또는 다른 언어를 사용 하 여 콘텐츠를 다른 지역에 배포 하려는 경우 여러 언어로 된 비디오 인덱서에서 제공 되는 기록 및 번역을 사용할 수 있습니다.
 * *수익 화*: Video Indexer 비디오의 가치를 높이는 데 도움이 될 수 있습니다. 예를 들어 광고 수익 (뉴스 미디어, 소셜 미디어 등)을 사용 하는 업계는 ad 서버에 대 한 추가 신호로 추출 된 정보를 사용 하 여 관련 광고를 제공할 수 있습니다.
 * *콘텐츠*조정: 텍스트 및 시각적 콘텐츠 중재 모델을 사용 하 여 사용자가 부적절 한 콘텐츠에서 안전 하 게 보호 하 고 게시 한 콘텐츠가 조직의 값과 일치 하는지 확인 합니다. 특정 비디오를 자동으로 차단 하거나 콘텐츠에 대 한 사용자에 게 경고할 수 있습니다.
 * *권장 사항*: 비디오 정보를 사용 하 여 사용자 참여를 개선 하 고 사용자에 게 관련 된 비디오를 표시할 수 있습니다. 각 비디오에 추가 메타 데이터를 태그 지정 하 여 가장 관련성이 높은 비디오를 사용자에 게 제안 하 고 필요에 따라 비디오 부분을 강조할 수 있습니다.

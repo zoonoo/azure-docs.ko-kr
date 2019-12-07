@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 10/26/2017
 ms.author: tomfitz
-ms.openlocfilehash: 21f4e0aa339eb0c746f9b9b06f8aaada6c4d4b71
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7f00a99a31a4543ef45c90a86820e627134d8963
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61043459"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888702"
 ---
 # <a name="work-with-resources-in-the-managed-resource-group-for-azure-managed-application"></a>Azure 관리되는 애플리케이션의 관리되는 리소스 그룹에서 리소스 작업
 
 이 문서에서는 관리되는 애플리케이션의 일부로 배포되는 리소스를 업데이트하는 방법에 대해 설명합니다. 관리되는 애플리케이션의 게시자는 관리되는 리소스 그룹의 리소스에 대한 액세스 권한이 있습니다. 이러한 리소스를 업데이트하려면 관리되는 애플리케이션과 연결된 관리되는 리소스 그룹을 찾아 해당 리소스 그룹의 리소스에 액세스해야 합니다.
 
-이 문서에서는 [Azure Management Services를 통한 관리되는 웹 애플리케이션(IaaS)](https://github.com/Azure/azure-managedapp-samples/tree/master/samples/201-managed-web-app) 샘플 프로젝트에서 관리되는 애플리케이션을 배포했다고 가정합니다. 이 관리되는 애플리케이션에는 **Standard_D1_v2** 가상 컴퓨터가 포함됩니다. 이 관리되는 애플리케이션을 배포하지 않은 경우에도 이 문서를 통해 관리되는 리소스 그룹 업데이트를 위한 절차에 익숙해질 수 있습니다.
+이 문서에서는 [Azure Management Services를 통한 관리되는 웹 애플리케이션(IaaS)](https://github.com/Azure/azure-managedapp-samples/tree/master/Managed%20Application%20Sample%20Packages/201-managed-web-app) 샘플 프로젝트에서 관리되는 애플리케이션을 배포했다고 가정합니다. 이 관리되는 애플리케이션에는 **Standard_D1_v2** 가상 컴퓨터가 포함됩니다. 이 관리되는 애플리케이션을 배포하지 않은 경우에도 이 문서를 통해 관리되는 리소스 그룹 업데이트를 위한 절차에 익숙해질 수 있습니다.
 
 다음 이미지는 배포된 관리되는 애플리케이션을 보여 줍니다.
 

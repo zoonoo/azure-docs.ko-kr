@@ -1,6 +1,6 @@
 ---
 title: AES-128 동적 암호화 및 키 전달 서비스 사용 | Microsoft Docs
-description: Microsoft Azure Media Services를 사용하면 AES 128비트 암호화 키로 암호화된 콘텐츠를 배달할 수 있습니다. Media Services는 권한 있는 사용자에게 암호화 키를 제공하는 키 배달 서비스도 제공합니다. 이 항목에서는 AES-128로 동적으로 암호화하는 방법과 키 배달 서비스를 사용하는 방법을 보여 줍니다.
+description: 이 항목에서는 AES-128로 동적으로 암호화하는 방법과 키 배달 서비스를 사용하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 2b96d968cb1ad2ec903dbf9788e1fbae22bd2b7d
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 01153317b49e4543f10faa517bce7bcc01ce22d4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014965"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895826"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>AES-128 동적 암호화 및 키 전달 서비스 사용
 > [!div class="op_single_selector"]
@@ -55,9 +55,9 @@ Media Services 키 배달 서비스를 사용하거나 동적 암호화도 사�
 
 4. [콘텐츠 키의 인증 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy). 콘텐츠 키 인증 정책을 구성해야 합니다. 콘텐츠 키가 클라이언트에 배달되려면 먼저 클라이언트에서 정책을 충족해야 합니다.
 
-5. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(초기화 벡터)가 포함되어 있습니다. (AES-128에는 암호화 및 암호 해독을 위한 동일한 IV가 필요합니다.) 또한 이 구성에는 배달 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두) 및 동적 암호화 형식(예: 봉투(Envelope) 또는 동적이지 않은 암호화)도 포함됩니다.
+5. [자산에 대한 배달 정책을 구성합니다](media-services-protect-with-aes128.md#configure_asset_delivery_policy). 배달 정책 구성에는 키 획득 URL 및 IV(초기화 벡터)가 포함되어 있습니다. (AES-128에는 암호화 및 암호 해독을 위해 동일한 IV가 필요 합니다.) 구성에는 배달 프로토콜 (예: MPEG, HLS, 부드러운 스트리밍 또는 모두)과 동적 암호화 유형 (예: 봉투 (envelope) 또는 동적 암호화 없음)도 포함 됩니다.
 
-    동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어 PlayReady 암호화는 Smooth/DASH에 적용하고, AES 봉투(envelope)는 HLS에 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜은 스트리밍에서 차단됩니다. (HLS만 프로토콜로 지정하는 단일 정책을 추가하는 경우가 여기에 해당됨) 자산 배달 정책이 전혀 정의되어 있지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
+    동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어 PlayReady 암호화는 Smooth/DASH에 적용하고, AES 봉투(envelope)는 HLS에 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜은 스트리밍에서 차단됩니다. (HLS만 프로토콜로 지정 하는 단일 정책을 추가 하는 경우를 예로 들 수 있습니다.) 자산 배달 정책이 전혀 정의 되지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
 6. 스트리밍 URL을 얻기 위해 [주문형 로케이터를 만듭니다](media-services-protect-with-aes128.md#create_locator).
 
@@ -65,7 +65,7 @@ Media Services 키 배달 서비스를 사용하거나 동적 암호화도 사�
 
 이 문서의 끝부분에서 전체 [.NET 예제](media-services-protect-with-aes128.md#example)가 나와 있습니다.
 
-다음 이미지는 위에서 설명한 워크플로를 보여 줍니다. 여기서는 인증에 토큰을 사용합니다.
+다음 이미지에서는 앞에서 설명한 워크플로를 보여 줍니다. 여기서는 인증에 토큰을 사용합니다.
 
 ![AES-128로 보호](./media/media-services-content-protection-overview/media-services-content-protection-with-aes.png)
 
@@ -168,7 +168,7 @@ HLS의 경우 루트 매니페스트는 세그먼트 파일로 나뉩니다.
     QualityLevels(842459)/Manifest(video,format=m3u8-aapl)
     …
 
-텍스트 편집기에서 세그먼트 파일 중 하나를 여는 경우 (예: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/매니페스트 (video, format = m3u8-aapl-v3-aapl) 이 파일은 파일이 암호화 되었음을 나타내는 #EXT X 키를 포함 합니다.
+텍스트 편집기에서 세그먼트 파일 중 하나를 열면 (예: http:\//test001.origin.mediaservices.windows.net/8bfe7d6f-34e3-4d1a-b289-3e48a8762490/BigBuckBunny.ism/QualityLevels (514369)/매니페스트 (video, format = m3u8-aapl-v3-aapl) 해당 파일이 암호화 되었음을 나타내는 #EXT-X 키를 포함 합니다.
 
     #EXTM3U
     #EXT-X-VERSION:4
@@ -260,5 +260,5 @@ Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮�
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 893b617a965b0823b8d630e036d5d5f923647f8f
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73944218"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891782"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -27,7 +27,7 @@ Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure A
 
 이 테이블은 관련 항목 목록입니다.
 
-항목 |  세부 정보
+주제 |  세부 정보
 --------- | --------- |
 Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스를 [이전 버전에서 최신 버전으로 업그레이드](how-to-upgrade-previous-version.md) 하는 다른 방법입니다.
 필요한 사용 권한 | 업데이트를 적용하는 데 필요한 사용 권한은 [계정 및 사용 권한](reference-connect-accounts-permissions.md#upgrade)을 참조하세요.
@@ -70,7 +70,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 
 
 ### <a name="release-status"></a>릴리스 상태
-9/25/2019: 인시던트 조사가 완료 될 때까지 수동 다운로드에서 제거 되었습니다.
+9/25/2019: 자동 업그레이드에 대해서만 릴리스 되었습니다.
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 - 새로운 문제 해결 도구는 "사용자 동기화 안 함", "그룹 동기화 안 함" 또는 "그룹 구성원 동기화 안 함" 시나리오를 해결 하는 데 도움이 됩니다.
@@ -115,8 +115,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 > 이 문제를 해결 하려면 **Adsync** 모듈을 가져온 다음 Azure AD Connect 서버에서`Set-ADSyncDirSyncConfiguration` powershell cmdlet을 실행 해야 합니다.  다음 단계를 사용할 수 있습니다.
 >
 >1. 관리자로 모드에서 Powershell 열기
->2. `Import-Module "ADSync"`를 실행합니다.
->3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`를 실행합니다.
+>2. `Import-Module "ADSync"`을 실행합니다.
+>3. `Set-ADSyncDirSyncConfiguration -AnchorAttribute ""`을 실행합니다.
  
 ### <a name="release-status"></a>릴리스 상태 
 
@@ -469,7 +469,7 @@ Azure AD Connect 버전 1.1.654.0 이상에서는 Azure AD Connect가 AD DS 계�
 *   특정 개체에서 SELF와 관련된 ACE를 제외하고 ACE를 모두 제거합니다. SELF의 경우 기본 사용 권한을 그대로 유지할 수 있습니다.
 *   다음과 같은 특정 권한을 할당합니다.
 
-형식     | 이름                          | Access               | 적용 대상
+Type     | name                          | 액세스               | 적용 대상
 ---------|-------------------------------|----------------------|--------------|
 허용    | SYSTEM                        | 모든 권한         | 이 개체  |
 허용    | 엔터프라이즈 관리자             | 모든 권한         | 이 개체  |
@@ -503,7 +503,7 @@ Where
 >[!NOTE] 
 >$credential.UserName은 FQDN\username 형식이어야 합니다. 예: contoso.com\admin 
 
-##### <a name="example"></a>예:
+##### <a name="example"></a>예제:
 
 ```powershell
 Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbackdc,DC=com" -Credential $credential 
@@ -634,7 +634,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 ### <a name="seamless-single-sign-on"></a>Seamless Single Sign-On
 #### <a name="fixed-issues"></a>해결된 문제
-* [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-sso.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-pta-upgrade-preview-authentication-agents.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
+* [원활한 Single Sign-On](how-to-connect-sso.md) 활성화를 시도하는 경우 Azure AD Connect 마법사가 오류를 반환하도록 하는 문제가 해결되었습니다. 오류 메시지는 *“Microsoft Azure AD Connect 인증 에이전트 구성에 실패했습니다”* 입니다. 이 문제는 이 [아티클](how-to-connect-pta-upgrade-preview-authentication-agents.md)에서 설명된 단계에 따라 [통과 인증](how-to-connect-sso.md)을 위해 인증 에이전트의 미리 보기 버전을 수동으로 업그레이드한 기존 고객에게 영향을 미칩니다.
 
 
 ## <a name="115610"></a>1.1.561.0
@@ -660,7 +660,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](how-to-connect-install-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
 
-*   [새로 고침](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 단추를 클릭한 경우 Synchronization Service Manager에서 *디렉터리 파티션 구성 화면*이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
@@ -688,7 +688,7 @@ Set-ADSyncRestrictedPermissions -ObjectDN "CN=TestAccount1,CN=Users,DC=bvtadwbac
 
 * OU 기반 필터링을 사용하는 경우에도 Azure AD Connect 마법사에서 [도메인 및 OU 필터링 화면](how-to-connect-install-custom.md#domain-and-ou-filtering)이 *모든 도메인 및 OU 동기화* 옵션이 선택되었음을 표시하는 문제가 해결되었습니다.
 
-*   [새로 고침](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering) 단추를 클릭한 경우 Synchronization Service Manager에서 *디렉터리 파티션 구성 화면*이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
+*   *새로 고침* 단추를 클릭한 경우 Synchronization Service Manager에서 [디렉터리 파티션 구성 화면](how-to-connect-sync-configure-filtering.md#organizational-unitbased-filtering)이 오류를 반환하는 문제가 해결되었습니다. 오류 메시지는 다음과 같습니다. *“도메인을 새로 고치는 동안 오류가 발생했습니다. ‘System.Collections.ArrayList’ 형식의 개체를 캐스트하여 ‘Microsoft.DirectoryServices.MetadirectoryServices.UI.PropertySheetBase.MaPropertyPages.PartitionObject를 입력할 수 없습니다.”* 새 AD 도메인을 기존 AD 포리스트에 추가하고 새로 고침 단추를 사용하여 Azure AD Connect를 업데이트하려는 경우에 이 오류가 발생합니다.
 
 #### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 
@@ -812,9 +812,9 @@ CBool(
     |CertFriendlyName|CertThumbprint|CertExtensionOids|
     |CertFormat|CertNotAfter|CertPublicKeyOid|
     |CertSerialNumber|CertNotBefore|CertPublicKeyParametersOid|
-    |CertVersion|CertSignatureAlgorithmOid|여기서|
+    |CertVersion|CertSignatureAlgorithmOid|선택|
     |CertKeyAlgorithmParams|CertHashString|Where|
-    |||With|
+    |||사용|
 
 * 고객이 그룹 개체에 대한 sAMAccountName, domainNetBios 및 domainFQDN과 사용자 개체에 대한 distinguishedName을 전달하는 사용자 지정 동기화 규칙을 만들 수 있도록 스키마가 다음과 같이 변경되었습니다.
 
@@ -1123,7 +1123,7 @@ AD FS 관리
 
 * 설치 파일이 기본 C:\Program Files 폴더에 없는 경우 이전 릴리스에서 업그레이드되지 않습니다.
 * 설치하고 설치 마법사의 마지막 단계에서 **동기화 프로세스 시작**을 선택 취소하면 설치 마법사를 다시 실행해도 스케줄러를 사용할 수 없습니다.
-* 날짜/시간 형식이 US-en이 아닌 서버에서는 스케줄러가 작동하지 않습니다. 또한 올바른 시간을 반환하도록 `Get-ADSyncScheduler` 도 차단합니다.
+* 날짜/시간 형식이 US-en이 아닌 서버에서는 스케줄러가 작동하지 않습니다. 또한 올바른 시간을 반환하도록 `Get-ADSyncScheduler`도 차단합니다.
 * 로그인 옵션으로 AD FS를 사용하는 Azure AD Connect의 이전 릴리스를 설치하고 업그레이드하는 경우 설치 마법사를 다시 실행할 수 없습니다.
 
 ## <a name="111050"></a>1.1.105.0
@@ -1133,8 +1133,8 @@ AD FS 관리
 
 * [Automatic upgrade](how-to-connect-install-automatic-upgrade.md) 기능
 * 설치 마법사에서 Azure Multi-Factor Authentication 및 Privileged Identity Management를 사용하여 전역 관리자를 지원합니다.
-  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com에 대한 트래픽을 허용하도록 설정해야 합니다.
-  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com을 추가해야 합니다.
+  * Multi-Factor Authentication을 사용하는 경우 프록시에서 https://secure.aadcdn.microsoftonline-p.com 에 대한 트래픽을 허용하도록 설정해야 합니다.
+  * Multi-Factor Authentication이 제대로 작동하려면 신뢰할 수 있는 사이트 목록에 https://secure.aadcdn.microsoftonline-p.com 을 추가해야 합니다.
 * 초기 설치 후 사용자의 로그인 방법 변경을 허용합니다.
 * 설치 마법사에서 [도메인 및 OU 필터링](how-to-connect-install-custom.md#domain-and-ou-filtering) 을 허용합니다. 이는 일부 도메인을 사용할 수 없는 포리스트로의 연결도 허용합니다.
 * 동기화 엔진에 [Scheduler](how-to-connect-sync-feature-scheduler.md)가 기본 제공됩니다.

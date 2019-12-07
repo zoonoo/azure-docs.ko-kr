@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 API에 연결-Python
-description: Python을 사용 하 여 Media Services v3 API에 연결 하는 방법을 알아봅니다.
+description: 이 문서에서는 Python을 사용 하 여 Media Services v3 API에 연결 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: juliako
-ms.openlocfilehash: 2ceebd88f4988f23bf9cd32bd827aaca67d70461
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 98a8cdf4120cf56184eb5735249640e3423acdf4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307868"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888464"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Media Services v3 API에 연결-Python
 
@@ -27,7 +27,7 @@ ms.locfileid: "70307868"
 ## <a name="prerequisites"></a>전제 조건
 
 - [Python.org](https://www.python.org/downloads/) 에서 Python 다운로드
-- 환경 변수를 설정 해야 `PATH` 합니다.
+- `PATH` 환경 변수를 설정 해야 합니다.
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
 - [Api 액세스](access-api-cli-how-to.md) 항목의 단계를 따릅니다. 이후 단계에서 필요한 구독 ID, 응용 프로그램 ID (클라이언트 ID), 인증 키 (비밀) 및 테 넌 트 ID를 기록 합니다.
 
@@ -38,8 +38,8 @@ ms.locfileid: "70307868"
 
 Python을 사용 하 여 Azure Media Services 작업 하려면 이러한 모듈을 설치 해야 합니다.
 
-* 모듈 `azure-mgmt-resource` 은 Active Directory 용 Azure 모듈을 포함 합니다.
-* Media Services 엔터티를 포함 하는 모듈입니다.`azure-mgmt-media`
+* Active Directory에 대 한 Azure 모듈을 포함 하는 `azure-mgmt-resource` 모듈.
+* Media Services 엔터티를 포함 하는 `azure-mgmt-media` 모듈.
 
 명령줄 도구를 열고 다음 명령을 사용 하 여 모듈을 설치 합니다.
 

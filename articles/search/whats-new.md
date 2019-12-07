@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 247378461a99d42f21a67a2c0aebc7019727f3a0
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: b1df328f151a4085ec0aadd1b880048f81483a51
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555153"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901319"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -29,7 +29,11 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 ## <a name="feature-announcements"></a>기능 알림
 
-2019 년 11 월 4 일-Ignite 회의
+### <a name="december-2019"></a>12 월 2019
+
++ [앱 만들기 (미리 보기)](search-create-app-portal.md) 는 다운로드 가능한 HTML 파일을 생성 하는 포털의 새 마법사입니다. 이 파일에는 검색 서비스의 인덱스에 바인딩된 운영 "localhost" 스타일 웹 앱을 렌더링 하는 포함 된 스크립트가 포함 되어 있습니다. 페이지는 마법사에서 구성할 수 있으며 검색 표시줄, 결과 영역, 사이드바 탐색 및 typeahead.js 쿼리 지원을 포함할 수 있습니다. HTML 오프 라인을 수정 하 여 워크플로 또는 모양을 확장 하거나 사용자 지정할 수 있습니다.
+
+### <a name="november-2019---ignite-conference"></a>11 월 2019-Ignite 회의
 
 + [증분 인덱싱 (미리 보기)](cognitive-search-incremental-indexing-conceptual.md) 을 사용 하면 보강 파이프라인을 수정할 때 다시 처리할 단계를 선택 하 고 선택할 수 있습니다. 증분 인덱싱은 이전에 분석 한 이미지 내용이 있는 경우에 유용 합니다. 비용이 많이 드는 분석의 출력은 저장 된 후 추가 인덱싱 또는 보강의 기준으로 사용 됩니다.
 
@@ -44,7 +48,7 @@ API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않
 
 + [Azure Data Lake Storage Gen2 (미리 보기)](search-howto-index-azure-data-lake-storage.md), [Cosmos DB Gremlin API (미리](search-howto-index-cosmosdb.md)보기) 및 [Cosmos DB Cassandra API (미리 보기)](search-howto-index-cosmosdb.md) 는 이제 인덱서에 지원 됩니다. [이 양식을](https://aka.ms/azure-cognitive-search/indexer-preview)사용 하 여 등록할 수 있습니다. 미리 보기 프로그램에 동의 하면 확인 전자 메일을 받게 됩니다.
 
-7 월 24 2019
+### <a name="july-2019"></a>2019년 7월
 
 + 일반적으로 [Azure Government 클라우드에서](../azure-government/documentation-government-services-webandmobile.md#azure-cognitive-search)사용할 수 있습니다.
 

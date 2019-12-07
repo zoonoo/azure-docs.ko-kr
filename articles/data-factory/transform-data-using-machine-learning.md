@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 예측 데이터 파이프라인 만들기
+title: 예측 데이터 파이프라인 만들기
 description: Azure Data Factory에서 Azure Machine Learning - Batch 실행 작업을 사용하여 예측 파이프라인을 만드는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.date: 02/20/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 24568940a0f6e550ae0fe7658b81ba1c3b3d3556
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: dc2104495f231a316a1354100ecc105e8fda5bb4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683769"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893844"
 ---
 # <a name="create-predictive-pipelines-using-azure-machine-learning-and-azure-data-factory"></a>Azure Machine Learning 및 Azure Data Factory를 사용하여 예측 파이프라인 만들기
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -66,7 +66,7 @@ Azure Data Factory를 사용 하면 예측 분석을 위해 게시 된 [Azure Ma
 
 JSON 정의에서 속성에 대한 설명은 [연결된 컴퓨팅 서비스](compute-linked-services.md) 문서를 참조하세요.
 
-Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 서비스를 모두 지원합니다. Data Factory에서 사용할 적합한 기능을 선택할 수 있습니다. Azure Machine Learning 연결된 서비스를 만드는 데 필요한 정보를 가져오려면 모든 새 웹 서비스 및 클래식 웹 서비스가 나열된 https://services.azureml.net으로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청**을 복사합니다.
+Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 서비스를 모두 지원합니다. Data Factory에서 사용할 적합한 기능을 선택할 수 있습니다. Azure Machine Learning 연결된 서비스를 만드는 데 필요한 정보를 가져오려면 모든 새 웹 서비스 및 클래식 웹 서비스가 나열된 https://services.azureml.net 으로 이동합니다. 액세스하려는 웹 서비스를 클릭하고 **사용** 페이지를 클릭합니다. **apiKey** 속성의 **기본 키** 및 **mlEndpoint** 속성의 **Batch 요청**을 복사합니다.
 
 ![Azure Machine Learning 웹 서비스](./media/transform-data-using-machine-learning/web-services.png)
 
@@ -124,15 +124,15 @@ Azure Machine Learning은 예측 실험에 클래식 웹 서비스 및 새 웹 �
 }
 ```
 
-| 속성          | 설명                              | 필수 |
+| 자산          | 설명                              | 필수 |
 | :---------------- | :--------------------------------------- | :------- |
-| name              | 파이프라인의 작업 이름입니다.     | 예      |
-| description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
-| type              | Data Lake Analytics U-SQL 활동의 경우 활동 형식은 **AzureMLBatchExecution**입니다. | 예      |
-| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | 예      |
-| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아니요       |
-| globalParameters  | Azure Machine Learning Studio 일괄 처리 실행 서비스 엔드포인트에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning Studio 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure Machine Learning Studio 일괄 처리 실행 요청의 GlobalParameters 속성에 전달됩니다. | 아니요       |
+| 이름              | 파이프라인의 작업 이름입니다.     | yes      |
+| description       | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
+| type              | Data Lake Analytics U-SQL 활동의 경우 활동 형식은 **AzureMLBatchExecution**입니다. | yes      |
+| linkedServiceName | Azure Machine Learning 연결된 서비스에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요. | yes      |
+| webServiceInputs  | Azure Machine Learning 웹 서비스 입력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 입력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 입력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
+| webServiceOutputs | Azure Machine Learning 웹 서비스 출력의 이름을 매핑하는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning 웹 서비스에 정의된 출력 매개 변수와 일치해야 합니다. 값은 Azure Storage 연결된 서비스 및 출력 Blob 위치를 지정하는 FilePath 속성 쌍입니다. | 아닙니다.       |
+| globalParameters  | Azure Machine Learning Studio 일괄 처리 실행 서비스 엔드포인트에 전달되는 키, 값 쌍입니다. 키는 게시된 Azure Machine Learning Studio 웹 서비스에 정의된 웹 서비스 매개 변수의 이름과 일치해야 합니다. 값은 Azure Machine Learning Studio 일괄 처리 실행 요청의 GlobalParameters 속성에 전달됩니다. | 아닙니다.       |
 
 ### <a name="scenario-1-experiments-using-web-service-inputsoutputs-that-refer-to-data-in-azure-blob-storage"></a>시나리오1: Azure Blob Storage의 데이터를 참조하는 웹 서비스 입력/출력을 사용하여 실험
 

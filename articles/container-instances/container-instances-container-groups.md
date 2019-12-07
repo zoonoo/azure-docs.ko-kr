@@ -4,12 +4,12 @@ description: 저장소 및 네트워크와 같은 수명 주기 및 리소스를
 ms.topic: article
 ms.date: 11/01/2019
 ms.custom: mvc
-ms.openlocfilehash: bba0aa35ef52d498bdb2028c7180f01b6c5f81ec
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: c4d5217fe96ca2669397bb7f2a94c6394c002534
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706321"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896592"
 ---
 # <a name="container-groups-in-azure-container-instances"></a>Azure Container Instances의 컨테이너 그룹
 
@@ -68,7 +68,9 @@ Azure Container Instances는 그룹의 인스턴스에 대 한 [리소스 요청
 
 ## <a name="networking"></a>네트워킹
 
-컨테이너 그룹은 IP 주소와 해당 IP 주소에서 포트 네임스페이스를 공유합니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너는 포트 네임 스페이스를 공유 하기 때문에 포트 매핑이 지원 되지 않습니다. 그룹 내의 컨테이너는 해당 포트가 그룹의 IP 주소에서 외부에 노출 되지 않는 경우에도 노출 된 포트의 localhost를 통해 서로 연결할 수 있습니다.
+컨테이너 그룹은 외부 연결 IP 주소와 해당 IP 주소에 대 한 포트 네임 스페이스를 공유할 수 있습니다. 외부 클라이언트가 그룹 내 컨테이너에 도달하게 지원하려면 IP 주소와 컨테이너에서 해당 포트를 공개해야 합니다. 그룹 내의 컨테이너는 포트 네임 스페이스를 공유 하기 때문에 포트 매핑이 지원 되지 않습니다. 
+
+컨테이너 그룹 내에서 컨테이너 인스턴스는 해당 포트가 그룹의 IP 주소 또는 컨테이너에서 외부에 노출 되지 않는 경우에도 모든 포트의 localhost를 통해 서로 연결할 수 있습니다.
 
 필요에 따라 컨테이너 그룹을 [Azure virtual network][virtual-network] (미리 보기)에 배포 하 여 컨테이너가 가상 네트워크의 다른 리소스와 안전 하 게 통신할 수 있도록 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 | Microsoft Docs
-description: 비디오 조정은 비디오에서 잠재적인 성인/외설 콘텐츠를 검색하는 데 도움이 됩니다.
+description: Azure Media Content Moderator media 프로세서는 비디오에서 잠재적 성인 및 외설 콘텐츠를 검색 하는 데 도움이 됩니다.
 services: media-services
 documentationcenter: ''
 author: sanjeev3
@@ -14,24 +14,24 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: eb16f5e1e72e5a9379ad530ab9677adba2ccbbcd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465680"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896009"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 
 
 ## <a name="overview"></a>개요
-**Azure Media Content Moderator** MP(미디어 프로세서)를 통해 비디오에 컴퓨터 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다.
+**Azure Media Content Moderator** MP(미디어 프로세서)를 통해 비디오에 컴퓨터 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하고 싶을 수 있습니다.
 
 **Azure Media Content Moderator** MP는 현재 미리 보기 상태입니다.
 
 이 문서에서는 **Azure Media Content Moderator**에 대한 세부 정보를 제공하고 .NET용 Media Services SDK와 함께 사용하는 방법을 보여 줍니다.
 
 ## <a name="content-moderator-input-files"></a>Content Moderator 입력 파일
-동영상 파일입니다. 현재 다음 형식이 지원됩니다. MP4, MOV 및 WMV.
+동영상 파일입니다. 현재 MP4, MOV 및 WMV 형식이 지원됩니다.
 
 ## <a name="content-moderator-output-files"></a>Content Moderator 출력 파일
 JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프레임이 포함됩니다. 가능한 성인/외설 콘텐츠에 대한 신뢰도 점수와 함께 키 프레임이 반환됩니다. 또한 검토가 권장되는지 여부를 나타내는 부울 플래그가 포함됩니다. 검토 권장 플래그에는 성인/외설 점수의 내부 임계값을 기준으로 값이 할당됩니다.
@@ -46,7 +46,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 | 요소 | 설명 |
 | --- | --- |
-| version |Content Moderator 버전입니다. |
+| 버전 |Content Moderator 버전입니다. |
 | timescale |동영상의 초당 "틱"입니다. |
 | offset |타임스탬프의 시간 오프셋입니다. Video API 버전 1.0에서 이 값은 항상 0입니다. 이 값은 나중에 변경할 수 있습니다. |
 | framerate |동영상의 초당 프레임 수입니다. |
@@ -59,7 +59,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 |요소|설명|
 |---|---|
-| start |“틱” 단위의 첫 이벤트 시작 시간입니다. |
+| 시작 |“틱” 단위의 첫 이벤트 시작 시간입니다. |
 | duration |"틱" 단위의 조각 길이입니다. |
 | interval |"틱" 단위의 조각 내 각 이벤트 항목 간격입니다. |
 | [events](#events-json-elements) |각 이벤트는 클립을 나타내고, 각 클립에는 해당 기간 내에 검색 및 추적된 키 프레임이 포함됩니다. 이벤트 배열입니다. 외부 배열은 하나의 시간 간격을 나타냅니다. 내부 배열은 해당 특정 시점에 발생한 0개 이상의 이벤트로 구성됩니다.|
@@ -220,10 +220,10 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

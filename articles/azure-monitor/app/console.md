@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: 9e198d3ea24383a532c5fbc3bfdcb1d1d7e49a92
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689046"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889144"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -27,7 +27,7 @@ ms.locfileid: "74689046"
 ## <a name="getting-started"></a>시작
 
 * [Azure Portal](https://portal.azure.com)에서 [Application Insights 리소스를 만듭니다](../../azure-monitor/app/create-new-resource.md). 애플리케이션 유형으로 **일반**을 선택합니다.
-* 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다. 
+* 계측 키를 복사합니다. 만든 새 리소스의 **필수** 드롭다운에서 키를 찾습니다.
 * 최신 [Microsoft.ApplicationInsights](https://www.nuget.org/packages/Microsoft.ApplicationInsights) 패키지를 설치합니다.
 * 원격 분석을 추적하기 전에 코드에서 계측 키를 설정합니다(또는 APPINSIGHTS_INSTRUMENTATIONKEY 환경 변수 설정). 그런 다음, 수동으로 원격 분석을 추적하고 Azure Portal에서 확인할 수 있습니다.
 
@@ -39,6 +39,10 @@ var telemetryClient = new TelemetryClient(configuration);
 telemetryClient.TrackTrace("Hello World!");
 ```
 
+> [!NOTE]
+> 원격 분석은 즉시 전송 되지 않습니다. 원격 분석 항목은 ApplicationInsights SDK에서 일괄 처리 되 고 전송 됩니다. `Track()` 메서드를 호출한 직후에 종료 되는 콘솔 앱에서,이 문서의 뒷부분에 나오는 [전체 예제](#full-example) 와 같이 앱이 종료 되기 전에 `Flush()` 및 `Sleep`를 수행 하지 않으면 원격 분석을 보낼 수 없습니다.
+
+
 * [Microsoft.ApplicationInsights.DependencyCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector) 패키지의 최신 버전을 설치합니다. 이 패키지는 HTTP, SQL 또는 기타 외부 종속성 호출을 자동으로 추적합니다.
 
 코드를 통해 또는 `ApplicationInsights.config` 파일을 사용하여 Application Insights를 초기화하고 구성할 수 있습니다. 가능한 한 조기에 초기화를 수행해야 합니다. 
@@ -47,6 +51,7 @@ telemetryClient.TrackTrace("Hello World!");
 > **ApplicationInsights.config**에 대한 지침은 .NET Framework를 대상으로 하는 앱에만 적용되고 .NET Core 애플리케이션에는 적용되지 않습니다.
 
 ### <a name="using-config-file"></a>구성 파일 사용
+
 기본적으로 Application Insights SDK는 `TelemetryConfiguration`을 만들 때 작업 디렉터리에서 `ApplicationInsights.config` 파일을 찾습니다.
 
 ```csharp

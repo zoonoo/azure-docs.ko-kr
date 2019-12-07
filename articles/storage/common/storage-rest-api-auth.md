@@ -1,5 +1,6 @@
 ---
-title: 공유 키 인증을 사용 하 여 Azure Storage REST API 작업 호출 | Microsoft Docs
+title: 공유 키 인증을 사용 하 여 REST API 작업 호출
+titleSuffix: Azure Storage
 description: Azure Storage REST API를 사용 하 여 공유 키 권한 부여를 통해 Blob 저장소에 대 한 요청을 수행할 수 있습니다.
 services: storage
 author: tamram
@@ -9,18 +10,18 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 05f71d4952d5f500a93adbb740739a46e9036ac1
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 13e9abb2a7b79ad9355261832145766e424c3df6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803069"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895170"
 ---
-# <a name="using-the-azure-storage-rest-api"></a>Azure Storage REST API 사용
+# <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
 이 문서에서는 인증 헤더를 구성 하는 방법을 비롯 하 여 Azure Storage REST Api를 호출 하는 방법을 보여 줍니다. REST에 대해 알지 못하는 개발자의 관점에서 작성 되었으며 REST 호출을 수행 하는 방법을 알 수 없습니다. REST 작업을 호출 하는 방법을 파악 한 후에는이 정보를 활용 하 여 다른 Azure Storage REST 작업을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다. 
 
@@ -58,9 +59,9 @@ REST API에 대 한 호출은 클라이언트에서 수행 하는 요청과 서�
 
 [BLOB 서비스 REST API](/rest/api/storageservices/Blob-Service-REST-API)를 보시면, Blob Storage에서 수행할 수 있는 모든 작업이 있습니다. 스토리지 클라이언트 라이브러리는 REST API를 감싸고 이는 래퍼로, REST API를 직접 사용하지 않고도 간단하게 스토리지에 액세스할 수 있게 해줍니다. 하지만 위에서 언급했듯이, 가끔 스토리지 클라이언트 라이브러리 대신 REST API를 사용하는 경우가 있습니다.
 
-## <a name="rest-api-reference-list-containers-api"></a>REST API 참조: 목록 컨테이너 API
+## <a name="list-containers-operation"></a>컨테이너 작업 나열
 
-[Listcontainers](/rest/api/storageservices/List-Containers2) 작업에 대 한 REST API 참조의 페이지를 살펴보세요. 이 정보는 요청 및 응답에서 일부 필드가 제공 되는 위치를 이해 하는 데 도움이 됩니다.
+[Listcontainers](/rest/api/storageservices/List-Containers2) 작업에 대 한 참조를 검토 합니다. 이 정보는 요청 및 응답에서 일부 필드가 제공 되는 위치를 이해 하는 데 도움이 됩니다.
 
 **요청 메서드**: GET. 이 동사는 요청 개체의 속성으로 지정되는 HTTP 메서드입니다. 호출하는 API에 따라 이 동사의 다른 값으로 HEAD, PUT 및 DELETE가 포함됩니다.
 
@@ -132,29 +133,29 @@ using (var httpRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri)
 `x-ms-date` 및 `x-ms-version`에 대 한 요청 헤더를 추가 합니다. 코드의 이 위치는 호출에 필요한 추가 요청 헤더를 추가하는 위치이기도 합니다. 이 예에는 추가 헤더가 없습니다. 추가 헤더를 전달 하는 API의 예로는 컨테이너 ACL 설정 작업이 있습니다. 이 API 호출은 "x-y-공용-액세스" 라는 헤더와 액세스 수준에 대 한 값을 추가 합니다.
 
 ```csharp
-    // Add the request headers for x-ms-date and x-ms-version.
-    DateTime now = DateTime.UtcNow;
-    httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
-    httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
-    // If you need any additional headers, add them here before creating
-    //   the authorization header.
+// Add the request headers for x-ms-date and x-ms-version.
+DateTime now = DateTime.UtcNow;
+httpRequestMessage.Headers.Add("x-ms-date", now.ToString("R", CultureInfo.InvariantCulture));
+httpRequestMessage.Headers.Add("x-ms-version", "2017-07-29");
+// If you need any additional headers, add them here before creating
+//   the authorization header.
 ```
 
 인증 헤더를 만드는 메서드를 호출하고 요청 헤더에 추가합니다. 인증 헤더를 만드는 방법은 문서 뒷부분에서 살펴보겠습니다. 메서드 이름은 GetAuthorizationHeader이고, 이 코드 조각에서 볼 수 있습니다.
 
 ```csharp
-    // Get the authorization header and add it.
-    httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
-        storageAccountName, storageAccountKey, now, httpRequestMessage);
+// Get the authorization header and add it.
+httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetAuthorizationHeader(
+    storageAccountName, storageAccountKey, now, httpRequestMessage);
 ```
 
 이 시점에 `httpRequestMessage`에는 인증 헤더를 완전히 갖춘 REST 요청이 포함되어 있습니다.
 
-## <a name="call-the-rest-api-with-the-request"></a>요청을 사용하여 REST API 호출
+## <a name="send-the-request"></a>요청 보내기
 
-요청을 만들었으니, 이제 SendAsync를 호출하여 REST 요청을 보낼 수 있습니다. SendAsync는 API를 호출하고 응답을 다시 가져옵니다. 응답 StatusCode(200이면 정상)를 검사한 다음 응답을 구문 분석합니다. 이 예에서는 컨테이너의 XML 목록을 가져옵니다. 요청을 만들고 실행한 다음, 컨테이너 목록에 대한 응답을 검사하려면 GetRESTRequest 메서드를 호출하는 코드를 살펴보겠습니다.
+이제 요청을 생성 했으므로 SendAsync 메서드를 호출 하 여 Azure Storage로 보낼 수 있습니다. 응답 상태 코드의 값이 200 인지 확인 합니다. 즉, 작업이 성공 했음을 의미 합니다. 그런 다음 응답을 구문 분석 합니다. 이 예에서는 컨테이너의 XML 목록을 가져옵니다. 요청을 만들고 실행한 다음, 컨테이너 목록에 대한 응답을 검사하려면 GetRESTRequest 메서드를 호출하는 코드를 살펴보겠습니다.
 
-```csharp 
+```csharp
     // Send the request.
     using (HttpResponseMessage httpResponseMessage =
       await new HttpClient().SendAsync(httpRequestMessage, cancellationToken))
@@ -571,4 +572,4 @@ Content-Length: 1135
 - [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
 - [파일 서비스 REST API](/rest/api/storageservices/file-service-rest-api)
 - [큐 서비스 REST API](/rest/api/storageservices/queue-service-rest-api)
-- [테이블 서비스 REST API](/rest/api/storageservices/table-service-rest-api)
+- [Table Service REST API](/rest/api/storageservices/table-service-rest-api)

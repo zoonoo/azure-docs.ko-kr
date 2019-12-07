@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 오류 코드 | Microsoft 문서
-description: 이 항목에서는 Azure Media Services 오류 코드에 대한 개요를 제공합니다.
+description: Media Services에서 지원 되지 않는 작업에 대 한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수 있습니다. 이 문서에서는 Azure Media Services v2 API 오류 코드에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f3c362730e7908e88b363659b7fa580b6f2cddf1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f5a2dd68d86a7a38fc7f2942351c42c84742d104
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61217236"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887071"
 ---
 # <a name="azure-media-services-error-codes"></a>Azure Media Services 오류 코드
 Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원되지 않는 작업에 대한 인증 토큰 만료와 같은 문제에 따라 서비스에서 HTTP 오류 코드를 받을 수도 있습니다. 다음은 Media Services에서 반환되는 **HTTP 오류 코드** 및 가능한 원인의 목록입니다.  
@@ -116,12 +116,12 @@ Microsoft Azure Media Services를 사용할 경우 Media Services에서 지원�
 > 
 > 
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services 관리 오류 코드](https://msdn.microsoft.com/library/windowsazure/dn167016.aspx)
 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

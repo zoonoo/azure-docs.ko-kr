@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, I want to understand zone-redundant gateways.
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 09/21/2018
+ms.date: 12/05/2019
 ms.author: cherylmc
-ms.openlocfilehash: d076e2b0057f0ba666fa47ffd0b3d7d1fcc14631
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c13e7b507291d7671ac861fc7a8683c87be947a1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725593"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896660"
 ---
 # <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>Azure 가용성 영역의 영역 중복 가상 네트워크 게이트웨이 정보
 
@@ -39,21 +39,9 @@ ms.locfileid: "68725593"
 
 ## <a name="gwskus"></a>게이트웨이 SKU
 
-영역 중복 및 영역 게이트웨이는 새 게이트웨이 SKU로 제공됩니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다.
+영역 중복 및 영역 게이트웨이는 새 게이트웨이 SKU로 제공됩니다. Azure AZ 지역에 새 가상 네트워크 게이트웨이 SKU가 추가되었습니다. 이러한 SKU는 영역 중복 및 영역 게이트웨이 특정 SKU라는 점을 제외하고 ExpressRoute 및 VPN Gateway에 해당하는 기존 SKU와 비슷합니다. SKU 이름에서 "AZ"를 기준으로 이러한 Sku를 식별할 수 있습니다.
 
-새 게이트웨이 SKU는 다음과 같습니다.
-
-### <a name="vpn-gateway"></a>VPN 게이트웨이
-
-* VpnGw1AZ
-* VpnGw2AZ
-* VpnGw3AZ
-
-### <a name="expressroute"></a>ExpressRoute
-
-* ErGw1AZ
-* ErGw2AZ
-* ErGw3AZ
+게이트웨이 Sku에 대 한 자세한 내용은 [VPN Gateway sku](vpn-gateway-about-vpngateways.md#gwsku) 및 [Express 경로 게이트웨이 sku](../expressroute/expressroute-about-virtual-network-gateways.md#gwsku)를 참조 하세요.
 
 ## <a name="pipskus"></a>공용 IP SKU
 

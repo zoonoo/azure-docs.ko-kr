@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services REST API 호출에 대해 Postman 구성
-description: Media Services REST API 호출에 대해 Postman을 구성하는 방법을 알아봅니다.
+description: 이 문서에서는 AMS (Azure Media Services) REST Api를 호출 하는 데 사용할 수 있도록 Postman을 구성 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2019
+ms.date: 12/05/2019
 ms.author: juliako
-ms.openlocfilehash: 7b4e2d14e8719808db138a4f2607b19cece401a6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: eee46bd8642f5ad4a8d036b9f6bf9a464c0d09f3
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839592"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74888107"
 ---
 # <a name="configure-postman-for-media-services-rest-api-calls"></a>Media Services REST API 호출에 대해 Postman 구성
 
@@ -26,13 +26,13 @@ ms.locfileid: "73839592"
 
 개발을 시작 하기 전에 [Media Services V3 api를 사용 하 여 개발](media-services-apis-overview.md)을 검토 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름과 Media Services 계정 이름을 기억해 두어야 합니다. 
 - [API에 액세스](access-api-cli-how-to.md)하는 데 필요한 정보 가져오기
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 일부 AMS REST 자습서에 표시되는 REST API를 실행합니다. 
 
-    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인 또는 **Telerik Fiddler**를 사용할 수도 있습니다. 
+    지금은 **Postman**을 사용하고 있지만 어떤 REST 도구도 괜찮습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 > [!IMPORTANT]
 > [명명 규칙](media-services-apis-overview.md#naming-conventions)을 검토 합니다.
@@ -54,7 +54,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 
     ![환경 관리](./media/develop-with-postman/postman-import-env.png)
 4. **환경 관리** 대화 상자에서 **가져오기**를 클릭합니다.
-2. `Azure Media Service v3 Environment.postman_environment.json`을 복제할 때 다운로드한 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 파일을 찾습니다.
+2. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Azure Media Service v3 Environment.postman_environment.json` 파일을 찾습니다.
 6. **Azure Media Service v3 Environment** 환경이 추가되었습니다.
 
     > [!Note]
@@ -69,7 +69,7 @@ Postman 컬렉션 및 환경 파일이 포함된 GitHub 리포지토리를 복�
 ### <a name="configure-the-collection"></a>컬렉션 구성
 
 1. **가져오기**를 클릭하여 컬렉션 파일을 가져옵니다.
-1. `Media Services v3.postman_collection.json`을 복제할 때 다운로드한 `https://github.com/Azure-Samples/media-services-v3-rest-postman.git` 파일을 찾습니다.
+1. `https://github.com/Azure-Samples/media-services-v3-rest-postman.git`을 복제할 때 다운로드한 `Media Services v3.postman_collection.json` 파일을 찾습니다.
 3. **Media Services v3.postman_collection.json** 파일을 선택합니다.
 
     ![파일 가져오기](./media/develop-with-postman/postman-import-collection.png)

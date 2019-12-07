@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 원격 분석 | Microsoft Docs
-description: 이 문서에서는 Azure Media Services 원격 분석에 대한 개요를 제공합니다.
+description: 이 문서에서는 Microsoft Azure Media Services 원격 분석에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8e8b493881662483e66dd835d1cc68a471b18454
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e2cbb36158722a47518f575b391340b5e25bd908
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60545523"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895788"
 ---
 # <a name="azure-media-services-telemetry"></a>Azure Media Services 원격 분석  
 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분석/메트릭 데이터에 액세스할 수 있습니다. 현재 버전의 AMS를 사용하면 라이브 **Channel**, **StreamingEndpoint** 및 라이브 **Archive** 엔터티에 대한 원격 분석 데이터를 수집할 수 있습니다. 
 
@@ -53,7 +53,7 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 - Azure Table Storage에서 직접 데이터를 읽습니다(예: Storage SDK 사용). 원격 분석 스토리지 테이블에 대한 설명을 보려면 **이** 항목의 [원격 분석 정보 사용](https://msdn.microsoft.com/library/mt742089.aspx) 을 참조하세요.
 
-또는
+or
 
 - [이](media-services-dotnet-telemetry.md) 항목에 설명된 것처럼 스토리지 데이터를 읽기 위한 Media Services .NET SDK의 지원을 사용합니다. 
 
@@ -74,13 +74,13 @@ AMS(Azure Media Services)를 사용하면 해당 서비스에 대한 원격 분�
 
 원격 분석 데이터는 단일 테이블 "TelemetryMetrics20160321"에 집계되어 저장됩니다. 여기서 "20160321"은 생성된 테이블의 날짜입니다. 원격 분석 시스템은 00:00 UTC 기반으로 각 날마다 별도의 테이블을 만듭니다. 이 테이블은 지정된 기간 내의 수집 비트 전송률, 보낸 바이트 수 등의 되풀이 값을 저장하는 데 사용됩니다. 
 
-자산|값|예제/참고 사항
+자산|Value|예제/참고 사항
 ---|---|---
 PartitionKey|{account ID}_{entity ID}|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66<br/<br/>계정 ID는 여러 Media Services 계정이 동일한 스토리지 계정에 기록되는 워크플로를 간소화하기 위해 파티션 키에 포함됩니다.
 RowKey|{seconds to midnight}_{random value}|01688_00199<br/><br/>행 키는 파티션 내의 상위 n개 스타일 쿼리를 허용하기 위해 자정까지 남은 시간(초)부터 시작됩니다. 자세한 내용은 [이](../../cosmos-db/table-storage-design-guide.md#log-tail-pattern) 문서를 참조하세요. 
-타임 스탬프|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
+Timestamp|날짜/시간|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 Type|원격 분석 데이터를 제공하는 엔터티 형식|Channel/StreamingEndpoint/Archive<br/><br/>이벤트 형식은 문자열 값입니다.
-이름|원격 분석 이벤트의 이름입니다.|ChannelHeartbeat/StreamingEndpointRequestLog
+name|원격 분석 이벤트의 이름입니다.|ChannelHeartbeat/StreamingEndpointRequestLog
 ObservedTime|원격 분석 이벤트가 발생한 시간(UTC)|2016-09-09T22:42:36.924Z<br/><br/>원격 분석을 보내는 엔터티(예: 채널)가 관측된 시간을 제공합니다. 구성 요소 간에 시간 동기화 문제가 있을 수 있으므로 이 값은 근사치입니다.
 ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 엔터티별 속성|이벤트에 의해 정의|StreamName: stream1, Bitrate 10123, …<br/><br/>나머지 속성은 지정된 이벤트 형식에 대해 정의됩니다. Azure 테이블 콘텐츠는 키/값 쌍입니다.  즉, 테이블 행마다 서로 다른 속성 집합을 갖습니다.
@@ -89,19 +89,19 @@ ServiceID|{service ID}|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 
 각각이 다음 빈도로 푸시되는 세 가지 유형의 엔터티별 원격 분석 데이터 항목이 있습니다.
 
-- 스트리밍 엔드포인트: 30초마다
-- 라이브 채널: 매분
-- 라이브 보관: 매분
+- 스트리밍 엔드포인트: 30초 간격
+- 라이브 채널: 1분 간격
+- 라이브 보관: 1분 간격
 
 **스트리밍 엔드포인트**
 
-자산|값|예
+자산|Value|예시
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 Type|Type|StreamingEndpoint
-이름|이름|StreamingEndpointRequestLog
+name|name|StreamingEndpointRequestLog
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 HostName|엔드포인트의 호스트 이름|builddemoserver.origin.mediaservices.windows.net
@@ -114,13 +114,13 @@ E2ELatency|평균 엔드투엔드 대기 시간|250
 
 **라이브 채널**
 
-자산|값|예제/참고 사항
+자산|Value|예제/참고 사항
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
+Timestamp|Timestamp|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
 Type|Type|채널
-이름|이름|ChannelHeartbeat
+name|name|ChannelHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 TrackType|비디오/오디오/텍스트 트랙 유형|비디오/오디오
@@ -132,20 +132,20 @@ OverlapCount|수집의 겹침|0
 DiscontinuityCount|트랙 불연속성|0
 LastTimestamp|마지막으로 수집된 데이터 타임스탬프|1800488800
 NonincreasingCount|증가하지 않는 타임스탬프로 인해 삭제된 조각 수|2
-UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |True
-UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|True
-UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |True
-Healthy|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|True<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
+UnalignedKeyFrames|키 프레임이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준) |참
+UnalignedPresentationTime|프레젠테이션 시간이 정렬되지 않은 조각을 수신했는지 여부(전체 품질 수준/트랙)|참
+UnexpectedBitrate|오디오/비디오 트랙의 계산된/실제 비트 전송률이 40,000bps보다 크고 IncomingBitrate == 0, 또는 IncomingBitrate 및 actualBitrate이 50% 다른 경우 True |참
+정상|다음과 같은 경우 True <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> 위 항목이 모두 0|참<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 **라이브 보관**
 
-자산|값|예제/참고 사항
+자산|Value|예제/참고 사항
 ---|---|---
 PartitionKey|PartitionKey|e49bef329c29495f9b9570989682069d_64435281c50a4dd8ab7011cb0f4cdf66
 RowKey|RowKey|01688_00199
-타임 스탬프|타임 스탬프|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
-Type|Type|보관
-이름|이름|ArchiveHeartbeat
+Timestamp|Timestamp|Azure 테이블에서의 자동 타임스탬프 2016-09-09T22:43:42.241Z
+Type|Type|Archive
+name|name|ArchiveHeartbeat
 ObservedTime|ObservedTime|2016-09-09T22:42:36.924Z
 ServiceID|서비스 ID|f70bd731-691d-41c6-8f2d-671d0bdc9c7e
 ManifestName|프로그램 URL|asset-eb149703-ed0a-483c-91c4-e4066e72cce3/a0a5cfbf-71ec-4bd2-8c01-a92a2b38c9ba.ism
@@ -153,7 +153,7 @@ TrackName|트랙의 이름|audio_1
 TrackType|트랙 유형|오디오/비디오
 CustomAttribute|동일한 이름 및 비트 전송률을 갖는 다른 트랙 간을 구분하는 16진수 문자열(다중 카메라 각도)|
 Bitrate|트랙 비트 전송률|785000
-Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경우 True|True(이러한 두 값은 메트릭으로 표시되지 않고 소스 이벤트에 있음)<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
+정상|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경우 True|True(이러한 두 값은 메트릭으로 표시되지 않고 소스 이벤트에 있음)<br/><br/>Healthy는 다음 조건 중 하나라도 충족되면 false를 반환하는 복합 함수입니다.<br/><br/>- FragmentDiscardedCount > 0<br/>- ArchiveAcquisitionError == True
 
 ## <a name="general-qa"></a>일반 질문과 답변
 
@@ -220,6 +220,6 @@ Healthy|FragmentDiscardedCount == 0 && ArchiveAcquisitionError == False인 경�
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

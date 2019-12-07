@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba5455680647b90b113d31c55816a2e0b0131b33
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1fe38b434c4e54b375b22d76c573d3bbe88b0e16
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60243599"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889943"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Azure Active Directory 통과 인증: 빠른 시작
 
@@ -68,9 +68,9 @@ Azure AD(Azure Active Directory) 통과 인증을 사용하면 사용자가 온-
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이나 프록시에서 DNS 허용 목록을 허용하면 **\*.msappproxy.net** 및 **\*.servicebus.windows.net**에 대한 연결을 허용 목록에 추가합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.
    - 인증 에이전트는 초기 등록을 위해 **login.windows.net** 및 **login.microsoftonline.com**에 액세스해야 합니다. 이러한 URL에 대한 방화벽도 엽니다.
-   - 인증서 유효성 검사를 위해 다음 Url을 차단 해제: **mscrl.microsoft.com:80**를 **crl.microsoft.com:80**하십시오 **ocsp.msocsp.com:80**, 및 **www \.microsoft.com:80**합니다. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
+   - 인증서 유효성을 검사 하려면 다음 Url을 차단 해제 합니다. **mscrl.microsoft.com:80**, **crl.microsoft.com:80**, **ocsp.msocsp.com:80**및 **www\.microsoft.com:80**. 이러한 URL은 다른 Microsoft 제품과의 인증서 유효성 검사에 사용되므로 이러한 URL을 이미 차단 해제했을 수 있습니다.
 
-## <a name="step-2-enable-the-feature"></a>2단계: 기능 사용
+## <a name="step-2-enable-the-feature"></a>2단계: 기능 활성화
 
 [Azure AD Connect](whatis-hybrid-identity.md)를 통해 통과 인증을 사용하도록 설정합니다.
 
@@ -100,7 +100,7 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 
 ![Azure Active Directory 관리 센터: Azure AD Connect 창](./media/how-to-connect-pta-quick-start/pta7.png)
 
-![Azure Active Directory 관리 센터: 통과 인증 창](./media/how-to-connect-pta-quick-start/pta8.png)
+![Azure Active Directory 관리 센터 - 통과 인증 창](./media/how-to-connect-pta-quick-start/pta8.png)
 
 이 단계에서는 테넌트에 있는 모든 관리되는 도메인의 사용자가 통과 인증을 사용하여 로그인할 수 있습니다. 하지만 페더레이션된 도메인의 사용자는 AD FS 또는 이전에 구성한 다른 페더레이션 공급자를 사용하여 계속 로그인합니다. 도메인을 페더레이션된 도메인에서 관리되는 도메인으로 전환하면 해당 도메인의 모든 사용자가 자동으로 통과 인증을 사용하여 로그인하기 시작합니다. 통과 인증 기능은 클라우드 전용 사용자에게 영향을 주지 않습니다.
 
@@ -111,24 +111,24 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
 >[!IMPORTANT]
 >프로덕션 환경의 테넌트에서 실행되는 최소 3개의 인증 에이전트를 확보하는 것이 좋습니다. 테넌트당 인증 에이전트 40개라는 시스템 제한이 있습니다. 모범 사례로, 인증 에이전트를 실행하는 모든 서버를 계층 0 시스템으로 처리합니다([참조](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material) 항목 참조).
 
-여러 명의 통과 인증 에이전트를 설치 하면 고가용성 있지만 인증 에이전트 간에 결정적 하지 부하 분산. 테 넌 트에 필요한 인증 에이전트 수를 확인 하려면 최대 및 평균 부하 테 넌 트에 표시 되는 로그인 요청을 고려 합니다. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
+여러 통과 인증 에이전트를 설치 하면 고가용성이 보장 되지만 인증 에이전트 간의 결정적 부하 분산은 보장 되지 않습니다. 테 넌 트에 대해 필요한 인증 에이전트 수를 결정 하려면 테 넌 트에 표시 될 것으로 생각 되는 로그인 요청의 최대 및 평균 부하를 고려 합니다. 벤치마크의 경우, 단일 인증 에이전트는 표준 4코어 CPU, 16GB RAM 서버에서 초당 300~400건의 인증을 처리할 수 있습니다.
 
 네트워크 트래픽을 예측하려면 다음 크기 조정 지침을 사용합니다.
 - 각 요청에는 크기가 (0.5K + 1K * num_of_agents)바이트인 페이로드(즉, Azure AD에서 인증 에이전트로 이동하는 데이터)가 있습니다. 여기에서 "num_of_agents"는 테넌트에 등록된 인증 에이전트 수를 나타냅니다.
 - 각 응답의 페이로드(즉, 인증 에이전트에서 Azure AD로 이동하는 데이터) 크기는 1K 바이트입니다.
 
-대부분의 고객에 대 한 총에서 3 명의 인증 에이전트는 고가용성 및 용량에 대 한 충분 한입니다. 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치해야 합니다.
+대부분의 고객은 고가용성 및 용량을 위해 총 세 개의 인증 에이전트가 면 충분 합니다. 로그인 대기 시간을 개선하려면 도메인 컨트롤러에 가까운 곳에 인증 에이전트를 설치해야 합니다.
 
-시작 하려면 인증 에이전트 소프트웨어를 다운로드 하려면 다음이 지침을 따릅니다.
+시작 하려면 다음 지침에 따라 인증 에이전트 소프트웨어를 다운로드 합니다.
 
 1. 인증 에이전트의 최신 버전(버전 1.5.193.0 이상)을 다운로드하려면 테넌트의 전역 관리자 자격 증명을 사용하여 [Azure Active Directory 관리 센터](https://aad.portal.azure.com)에 로그인합니다.
 2. 왼쪽 창에서 **Azure Active Directory**를 선택합니다.
 3. **Azure AD Connect**, **통과 인증**, **에이전트 다운로드**를 차례로 선택합니다.
 4. **약관 동의 및 다운로드** 단추를 선택합니다.
 
-![Azure Active Directory 관리 센터: 인증 에이전트 다운로드 단추](./media/how-to-connect-pta-quick-start/pta9.png)
+![Azure Active Directory 관리 센터 - 인증 에이전트 다운로드 버튼](./media/how-to-connect-pta-quick-start/pta9.png)
 
-![Azure Active Directory 관리 센터: 에이전트 다운로드 창](./media/how-to-connect-pta-quick-start/pta10.png)
+![Azure Active Directory 관리 센터 - 에이전트 다운로드 창](./media/how-to-connect-pta-quick-start/pta10.png)
 
 >[!NOTE]
 >[인증 에이전트 소프트웨어를 직접 다운로드](https://aka.ms/getauthagent)할 수도 있습니다. 설치하기 _전에_ 인증 에이전트의 [서비스 약관](https://aka.ms/authagenteula)을 검토하고 동의합니다.
@@ -145,25 +145,25 @@ Azure AD Connect를 처음 설치하는 경우 [사용자 지정 설치 경로](
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
-        $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
+        $cred = New-Object -TypeName System.Management.Automation.PSCredential -ArgumentList $User, $SecurePassword
 3. **C:\Program Files\Microsoft Azure AD Connect Authentication Agent**로 이동하여 사용자가 만든 `$cred` 개체를 사용하여 다음 스크립트를 실행합니다.
 
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 >[!IMPORTANT]
->인증 에이전트를 가상 컴퓨터에 설치 하는 경우 다른 인증 에이전트를 설치 하려면 가상 컴퓨터를 복제할 수 없습니다. 이 메서드는 **지원 되지 않는**합니다.
+>가상 컴퓨터에 인증 에이전트가 설치 되어 있는 경우 가상 컴퓨터를 복제 하 여 다른 인증 에이전트를 설정할 수 없습니다. 이 메서드는 **지원 되지**않습니다.
 
-## <a name="step-5-configure-smart-lockout-capability"></a>5단계: 스마트 잠금 기능 구성
+## <a name="step-5-configure-smart-lockout-capability"></a>5 단계: 스마트 잠금 기능 구성
 
-스마트 잠금 사용자의 암호를 추측 하는 위험 인물을 잠그는 또는 무작위 메서드를 사용 하 여 참여를 지원 합니다. Azure AD의 스마트 잠금 설정 및/또는 적절 한 잠금 설정의 온-프레미스 Active Directory를 구성 하 여 공격 필터링 할 수 있습니다 Active Directory에 도달 하기 전에 합니다. 읽기 [이 문서에서는](../authentication/howto-password-smart-lockout.md) 사용자 계정을 보호 하기 위해 테 넌 트의 스마트 잠금 설정을 구성 하는 방법에 자세히 알아보려면 합니다.
+스마트 잠금 기능을 사용 하면 사용자의 암호를 추측 하거나 무차별 암호 대입 메서드를 사용 하 여 시작 하려는 잘못 된 행위자를 잠글 수 있습니다. Azure AD 및/또는 온-프레미스 Active Directory의 적절 한 잠금 설정에서 스마트 잠금 설정을 구성 하 여 Active Directory에 도달 하기 전에 공격을 필터링 할 수 있습니다. 사용자 계정을 보호 하기 위해 테 넌 트에서 스마트 잠금 설정을 구성 하는 방법에 대 한 자세한 내용은 [이 문서](../authentication/howto-password-smart-lockout.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 - [AD FS에서 통과 인증으로 마이그레이션](https://aka.ms/adfstoptadp) - AD FS(또는 기타 페더레이션 기술)에서 통과 인증으로 마이그레이션하는 방법에 대한 자세한 가이드입니다.
 - [스마트 잠금](../authentication/howto-password-smart-lockout.md): 테넌트에서 스마트 잠금 기능을 구성하여 사용자 계정을 보호하는 방법을 알아봅니다.
 - [현재 제한 사항](how-to-connect-pta-current-limitations.md): 현재 통과 인증이 지원되는 시나리오와 지원되지 않는 시나리오를 알아봅니다.
 - [기술 심층 분석](how-to-connect-pta-how-it-works.md): 통과 인증 기능이 작동하는 원리를 이해합니다.
-- [질문과 대답](how-to-connect-pta-faq.md): 자주 묻는 질문에 대한 대답을 찾습니다.
+- [질문과 대답](how-to-connect-pta-faq.md): 자주 하는 질문과 대답을 살펴봅니다.
 - [문제 해결](tshoot-connect-pass-through-authentication.md): 통과 인증 기능의 일반적인 문제를 해결하는 방법을 알아봅니다.
 - [보안 심층 분석](how-to-connect-pta-security-deep-dive.md): 통과 인증 기능에 대한 기술 정보를 가져옵니다.
-- [Azure AD Seamless SSO](how-to-connect-sso.md): 이 보완 기능을 자세히 알아봅니다.
+- [Azure AD Seamless SSO](how-to-connect-sso.md): 보완적인 Azure AD Seamless SSO 기능을 알아봅니다.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): Azure Active Directory 포럼을 사용하여 새 기능 요청을 제출합니다.

@@ -1,5 +1,5 @@
 ---
-title: LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
+title: LastModifiedDate를 기준으로 새 파일 및 변경 된 파일 복사
 description: 솔루션 템플릿을 사용 하 여 LastModifiedDate Azure Data Factory으로 새 파일 및 변경 된 파일을 복사 하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: aaa7114113d5f0330d2dc7d656b0d91963931512
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ca752fb75b8e151de925d3b5604a7e7182d82e92
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684223"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896287"
 ---
 # <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>LastModifiedDate를 사용 하 여 새 파일 및 변경 된 파일 복사 Azure Data Factory
 
@@ -33,9 +33,9 @@ ms.locfileid: "73684223"
 
 템플릿은 다음 네 개의 매개 변수를 정의 합니다.
 -  *FolderPath_Source* 은 원본 저장소에서 파일을 읽을 수 있는 폴더 경로입니다. 기본 값을 고유한 폴더 경로로 바꾸어야 합니다.
--  *FolderPath_Destination* 은 대상 저장소에 파일을 복사 하려는 폴더 경로입니다. 기본 값을 고유한 폴더 경로로 바꾸어야 합니다.
+-  *FolderPath_Destination* 은 대상 저장소에 파일을 복사할 폴더 경로입니다. 기본 값을 고유한 폴더 경로로 바꾸어야 합니다.
 -  *LastModified_From* 는 LastModifiedDate 특성이이 datetime 값 보다 크거나 같은 파일을 선택 하는 데 사용 됩니다.  마지막으로 복사 되지 않은 새 파일만 선택 하기 위해이 datetime 값은 파이프라인이 마지막으로 트리거된 시간 일 수 있습니다. 기본 값인 ' 2019-02-01T00:00:00Z '를 UTC 표준 시간대의 예상 LastModifiedDate 바꿀 수 있습니다. 
--  *LastModified_To* 는 LastModifiedDate 특성이이 datetime 값 앞에 있는 파일을 선택 하는 데 사용 됩니다. 마지막으로 복사 되지 않은 새 파일만 선택 하기 위해이 datetime 값이 현재 시간 일 수 있습니다.  기본 값인 ' 2019-02-01T00:00:00Z '를 UTC 표준 시간대의 예상 LastModifiedDate 바꿀 수 있습니다. 
+-  이 날짜/시간 값 이전의 LastModifiedDate 특성을 가진 파일을 선택 하는 데 사용 됩니다. *LastModified_To* 마지막으로 복사 되지 않은 새 파일만 선택 하기 위해이 datetime 값이 현재 시간 일 수 있습니다.  기본 값인 ' 2019-02-01T00:00:00Z '를 UTC 표준 시간대의 예상 LastModifiedDate 바꿀 수 있습니다. 
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
@@ -51,7 +51,7 @@ ms.locfileid: "73684223"
 
     ![대상에 대한 새 연결 만들기](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
-4. **이 템플릿 사용**을 선택 합니다.
+4. **이 템플릿 사용**을 선택합니다.
 
     ![이 템플릿 사용](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
@@ -62,8 +62,8 @@ ms.locfileid: "73684223"
 6. **디버그**를 선택 하 고 **매개 변수에** 대 한 값을 작성 한 다음 **마침**을 선택 합니다.  아래 그림에서 다음과 같이 매개 변수를 설정 합니다.
    - **FolderPath_Source** =  **/source/**
    - **FolderPath_Destination** =  **/destination/**
-   - **LastModified_From** =  **2019-02-01t00:00:00z**
-   - **LastModified_To** = **2019-03-01t00:00:00z**
+   - **LastModified_From** =  **2019-02-01T00:00:00Z**
+   - **LastModified_To** = **2019-03-01T00:00:00Z**
     
      예는 *2019-02-01T00:00:00z* 와 *2019-03-01t00:00:00z* 사이의 timespan 내에 마지막으로 수정 된 파일이 폴더 */source/* *에서 폴더로 복사*되는 것을 나타냅니다.  사용자 고유의 매개 변수로 바꿀 수 있습니다.
     
@@ -88,8 +88,8 @@ ms.locfileid: "73684223"
 11. 다음과 같이 **트리거 실행 매개 변수에** 대 한 값을 작성 하 고 **마침**을 선택 합니다.
     - **FolderPath_Source** =  **/source/** .  를 원본 데이터 저장소의 폴더로 바꿀 수 있습니다.
     - **FolderPath_Destination** =  **/destination/** .  를 대상 데이터 저장소의 폴더로 바꿀 수 있습니다.
-    - **LastModified_From** =   **\@trigger (). outputs starttime**.  이 변수는 파이프라인이 마지막으로 트리거된 시간을 확인 하는 트리거의 시스템 변수입니다.
-    - **LastModified_To** =  **\@trigger (). 출력 windowendtime**.  이 시간 동안 파이프라인이 트리거되는 시간을 결정 하는 트리거의 시스템 변수입니다.
+    - **트리거 () =  \@** **LastModified_From** 합니다.  이 변수는 파이프라인이 마지막으로 트리거된 시간을 확인 하는 트리거의 시스템 변수입니다.
+    - **트리거 () = \@** **LastModified_To** 합니다.  이 시간 동안 파이프라인이 트리거되는 시간을 결정 하는 트리거의 시스템 변수입니다.
     
     ![입력 매개 변수](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     

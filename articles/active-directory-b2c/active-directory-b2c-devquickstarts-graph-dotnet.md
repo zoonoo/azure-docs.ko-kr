@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e0b87757326b5e2a54a78a38bbcd5bef8e6f5be2
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 42378c4377057902937b718555489636bc5dcbaa
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74119975"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900008"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Azure AD Graph API 사용
 
@@ -33,7 +33,7 @@ B2C 테 넌 트의 경우 Graph API와 통신 하는 두 가지 기본 모드가
 >[!IMPORTANT]
 > Azure AD B2C 디렉터리에서 사용자를 관리 하려면 [AZURE AD Graph API](../active-directory/develop/active-directory-graph-api-quickstart.md) 를 사용 **해야 합니다** . Azure AD Graph API는 Microsoft Graph API와 다릅니다. 자세한 내용은 MSDN 블로그 게시물의 [Microsoft Graph 또는 AZURE AD Graph](https://blogs.msdn.microsoft.com/aadgraphteam/2016/07/08/microsoft-graph-or-azure-ad-graph/)를 확인 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 애플리케이션 또는 사용자를 만들기 전에 Azure AD B2C 테넌트가 필요합니다. 아직 없는 경우 [Azure Active Directory B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md).
 
@@ -73,7 +73,7 @@ B2C 테 넌 트와 함께 Azure AD Graph API을 사용 하려면 Azure Active Di
 
 이제 Azure AD B2C 응용 프로그램에 사용자를 삭제 하거나 B2C 테 넌 트에서 암호를 업데이트 하는 데 필요한 추가 권한이 있습니다.
 
-## <a name="get-the-sample-code"></a>샘플 코드 다운로드
+## <a name="get-the-sample-code"></a>샘플 코드 가져오기
 
 코드 샘플은 [ADAL (Active Directory 인증 라이브러리)](../active-directory/develop/active-directory-authentication-libraries.md) 을 사용 하 여 Azure AD Graph API와 상호 작용 하는 .net 콘솔 응용 프로그램입니다. 이 코드에서는 API를 호출 하 여 Azure AD B2C 테 넌 트에서 사용자를 프로그래밍 방식으로 관리 하는 방법을 보여 줍니다.
 
@@ -97,7 +97,7 @@ git clone https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet.git
     </appSettings>
     ```
 
-1. 솔루션을 빌드합니다. 솔루션 탐색기에서 **B2CGraphClient** 솔루션을 마우스 오른쪽 단추로 클릭 한 다음 **솔루션 다시 빌드**를 선택 합니다.
+1. 솔루션을 빌드하십시오. 솔루션 탐색기에서 **B2CGraphClient** 솔루션을 마우스 오른쪽 단추로 클릭 한 다음 **솔루션 다시 빌드**를 선택 합니다.
 
 빌드에 성공 하면 `B2CGraphClient\bin\Debug`에서 `B2C.exe` 콘솔 응용 프로그램을 찾을 수 있습니다.
 
@@ -290,7 +290,7 @@ B2C Get-User <user-object-id>
 B2C Get-User <filter-query-expression>
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 ```cmd
 B2C Get-User 2bcf1067-90b6-4253-9991-7f16449c2d91
@@ -332,7 +332,7 @@ B2C Get-B2C-Application
 B2C Get-Extension-Attribute <object-id-in-the-output-of-the-above-command>
 ```
 
-출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 예를 들어:
+출력은 각 사용자 지정 특성의 세부 정보를 표시 합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -363,6 +363,5 @@ B2C Update-User <object-id-of-user> <path-to-json-file>
 사용자 고유의 응용 프로그램에이 기능을 통합 하는 경우 B2C 응용 프로그램에 대 한 몇 가지 주요 사항을 명심 해야 합니다.
 
 * 테 넌 트에서 필요한 권한을 응용 프로그램에 부여 합니다.
-* 이제 ADAL(MSAL 아님)을 사용하여 액세스 토큰을 가져와야 합니다. (또한 라이브러리를 사용하지 않고 직접 프로토콜 메시지를 보낼 수 있습니다.)
 * Graph API를 호출할 때 `api-version=1.6`을 사용합니다.
 * 소비자 사용자를 만들고 업데이트하는 경우 위에서 설명한 대로 필수적인 몇 가지 속성이 있습니다.

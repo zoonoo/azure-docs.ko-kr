@@ -1,22 +1,23 @@
 ---
-title: Azure CLI를 사용 하 여 blob에 대 한 Azure AD 액세스 권한을 관리 하 고 RBAC를 사용 하 여 데이터를 큐에 대기 Azure Storage
-description: Azure CLI를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 컨테이너 및 큐에 대 한 액세스 권한을 할당 합니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
+title: Azure CLI를 사용 하 여 데이터 액세스를 위한 RBAC 역할 할당
+titleSuffix: Azure Storage
+description: Azure CLI를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 사용 권한을 할당 하는 방법을 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: abe35f3193e2d7ff9a949ca7cd330cb58da2b78c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673201"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891971"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐
+# <a name="use-azure-cli-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure CLI를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할을 할당 합니다.
 
 Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다.
 
@@ -28,7 +29,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
 [!INCLUDE [storage-auth-rbac-roles-include](../../../includes/storage-auth-rbac-roles-include.md)]
 
-## <a name="determine-resource-scope"></a>리소스 범위 결정 
+## <a name="determine-resource-scope"></a>리소스 범위 결정
 
 [!INCLUDE [storage-auth-resource-scope-include](../../../includes/storage-auth-resource-scope-include.md)]
 
@@ -58,7 +59,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ### <a name="container-scope"></a>컨테이너 범위
 
-컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
+컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수에 대 한 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>

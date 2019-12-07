@@ -3,12 +3,12 @@ title: Azure Files 백업 FAQ
 description: 이 문서에서는 Azure Backup 서비스를 사용하여 Azure 파일 공유를 보호하는 방법에 대한 일반적인 질문과 답변을 검색합니다.
 ms.date: 07/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: bf04458d859601de7ca0e9d07f6a3dbf506a51e6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: bc4d7f9ad6512831687b974ae68870314775457d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173103"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892574"
 ---
 # <a name="questions-about-backing-up-azure-files"></a>Azure Files 백업에 대한 질문
 
@@ -70,6 +70,18 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 - US Gov 애리조나(UGA)
 - US Gov 텍사스(UGT)
 - US Gov 버지니아(UGV)
+- 오스트레일리아 중부 (ACL)
+- 인도 서 부 (INW)
+- 남아프리카 공화국 북부 (SAN)
+- 아랍에미리트 북부 (UAN)
+- 프랑스 중부 (FRC)
+- 독일 북부 (GN)                       
+- 독일 중서부 (GWC)
+- 남아프리카 공화국 서 (본)
+- 아랍에미리트 Central (UAC)
+- NWE (노르웨이 동부)     
+- NWW (노르웨이 서 부)
+- SZN (스위스 북부)
 
 위에 나열되지 않은 특정 지역에서 사용해야 하는 경우 [AskAzureBackupTeam@microsoft.com](email:askazurebackupteam@microsoft.com)으로 문의하세요.
 
@@ -79,7 +91,7 @@ Azure 파일 공유에 대한 Backup은 현재 미리 보기로 제공되며 다
 
 ### <a name="can-i-protect-two-different-file-shares-from-the-same-storage-account-to-different-vaults"></a>동일한 스토리지 계정의 두 파일 공유를 서로 다른 자격 증명 모음에서 보호할 수 있나요?
 
-아니요. 한 스토리지 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
+아닙니다. 한 스토리지 계정의 모든 파일 공유는 동일한 자격 증명 모음에서만 보호할 수 있습니다.
 
 ## <a name="backup"></a>Backup
 

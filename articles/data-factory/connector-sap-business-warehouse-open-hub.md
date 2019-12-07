@@ -1,27 +1,26 @@
 ---
-title: Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
+title: 개방형 허브를 통해 SAP Business Warehouse에서 데이터 복사
 description: Azure Data Factory 파이프라인의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 지원되는 싱크 데이터 저장소로 데이터를 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.author: jingwang
-ms.openlocfilehash: f4ee4ec40aeecdb902be3cf93beb9ee25350e262
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 8048d64eccab26477b83031b96fe810796486668
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680315"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895579"
 ---
 # <a name="copy-data-from-sap-business-warehouse-via-open-hub-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Open Hub를 통해 SAP Business Warehouse에서 데이터 복사
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Open Hub를 통해 SAP BW(Business Warehouse)에서 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 SAP BW(Business Warehouse)에서 Open Hub를 통해 데이터를 복사하는 방법을 설명합니다. 이 문서는 복사 작업에 대한 일반적인 개요를 제공하는 [복사 작업 개요](copy-activity-overview.md) 문서를 기반으로 합니다.
 
 >[!TIP]
 >SAP 데이터 통합 시나리오에 대 한 ADF의 전반적인 지원에 대 한 자세한 내용은 [Azure Data Factory 백서를 사용 하 여 sap 데이터 통합](https://github.com/Azure/Azure-DataFactory/blob/master/whitepaper/SAP%20Data%20Integration%20using%20Azure%20Data%20Factory.pdf) 에서 자세한 소개, comparsion 및 지침을 참조 하세요.
@@ -44,7 +43,7 @@ Open Hub를 통해 SAP Business Warehouse에서 지원되는 모든 싱크 데�
 
 ## <a name="sap-bw-open-hub-integration"></a>SAP BW Open Hub 통합 
 
-[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램에는 고객 SAP 시스템의 일반적인 흐름 중 하나가 나와 있습니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
+[SAP BW Open Hub Service](https://wiki.scn.sap.com/wiki/display/BI/Overview+of+Open+Hub+Service)를 사용하면 SAP BW에서 데이터를 효율적으로 추출할 수 있습니다. 다음 다이어그램은 고객 SAP 시스템의 일반적인 흐름 중 하나를 보여줍니다. 여기서 데이터는 SAP ECC -> PSA -> DSO -> Cube로 이동됩니다.
 
 SAP BW OHD(Open Hub 대상)에 따라 SAP 데이터가 릴레이되는 대상이 정의됩니다. DTP (SAP 데이터 전송 Process)에서 지원 되는 모든 개체를 개방형 허브 데이터 원본 (예: DSO, InfoCube, DataSource 등)으로 사용할 수 있습니다. 오픈 허브 대상 유형-릴레이 된 데이터가 저장 되는 위치-데이터베이스 테이블 (로컬 또는 원격) 및 플랫 파일 일 수 있습니다. 이 SAP BW Open Hub 커넥터를 사용하면 BW에서 OHD 로컬 테이블의 데이터를 복사할 수 있습니다. 다른 형식을 사용하는 경우에는 다른 커넥터를 통해 데이터베이스 또는 파일 시스템에 직접 연결할 수 있습니다.
 
@@ -73,7 +72,7 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 적절 한 델타 처리를 위해 동일한 열려 있는 허브 테이블에 있는 다른 DTPs의 요청 Id를 가질 수 없습니다. 따라서 각 OHD (개방형 허브 대상)에 대해 두 개 이상의 DTP를 만들지 않아야 합니다. 동일한 InfoProvider에서 전체 및 델타 추출을 필요로 하는 경우 동일한 InfoProvider에 대해 두 개의 OHDs를 만들어야 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 SAP Business Warehouse 커넥터를 사용하려면 다음 작업을 수행해야 합니다.
 
@@ -104,16 +103,16 @@ ADF SAP BW 열린 허브 커넥터는 두 가지 선택적 속성인 `excludeLas
 
 SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | 예 |
-| server | SAP BW 인스턴스가 상주하는 서버의 이름. | 예 |
-| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | 예 |
-| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | 예 |
+| type | Type 속성은 **SapOpenHub** 로 설정 해야 합니다. | yes |
+| 서버 | SAP BW 인스턴스가 상주하는 서버의 이름. | yes |
+| systemNumber | SAP BW 시스템의 시스템 번호.<br/>허용되는 값: 문자열로 표현되는 두 자리 10진수 | yes |
+| clientId | SAP W 시스템에 있는 클라이언트의 클라이언트 ID.<br/>허용되는 값: 문자열로 표현되는 세 자리 10진수 | yes |
 | language | SAP 시스템에서 사용하는 언어입니다. | No(기본값: **EN**)|
-| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | 예 |
-| password | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |예 |
+| userName | SAP 서버에 대한 액세스 권한이 있는 사용자의 이름입니다. | yes |
+| 암호 | 사용자에 대한 암호입니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. [필수 조건](#prerequisites)에 설명된 대로 자체 호스팅 Integration Runtime이 필요합니다. |yes |
 
 **예제:**
 
@@ -146,10 +145,10 @@ SAP Business Warehouse Open Hub 연결된 서비스에 지원되는 속성은 �
 
 SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 속성을 **SapOpenHubTable**로 설정합니다. 지원되는 속성은 다음과 같습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | 예 |
-| openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | 예 |
+| type | 이 속성은 **SapOpenHubTable**로 설정해야 합니다.  | yes |
+| openHubDestinationName | 복사할 데이터가 있는 Open Hub 대상의 이름입니다. | yes |
 
 데이터 집합의 `excludeLastRequest` 및 `baseRequestId`를 설정 하는 경우 계속 해 서 있는 그대로 지원 되지만 작업 원본에서 새 모델을 사용 하는 것이 좋습니다.
 
@@ -180,11 +179,11 @@ SAP BW Open Hub 간에 데이터를 복사하려면 데이터 세트의 형식 �
 
 SAP BW 열려 있는 허브에서 데이터를 복사 하려면 복사 작업 **원본** 섹션에서 다음 속성을 지원 합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | 예 |
+| type | 복사 작업 원본의 **type** 속성은 **SapOpenHubSource**로 설정 해야 합니다. | yes |
 | excludeLastRequest | 마지막 요청의 레코드를 제외할지 여부입니다. | No(기본값: **true**) |
-| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아니요 |
+| baseRequestId | 델타 로드의 요청 ID입니다. 설정하는 경우 requestId가 이 속성의 값**보다 큰** 데이터만 검색됩니다.  | 아닙니다. |
 
 >[!TIP]
 >항상 테이블의 기존 데이터를 모두 로드하고 덮어쓰거나, 테스트를 위해 DTP를 한 번만 실행하는 등 Open Hub 테이블에 단일 요청 ID를 통해 생성된 데이터만 포함되는 경우에는 "excludeLastRequest" 옵션 선택을 취소하여 데이터를 외부로 복사해야 합니다.
@@ -230,14 +229,14 @@ SAP BW Open Hub에서 데이터를 복사할 때는 SAP BW 데이터 형식에�
 
 | SAP ABAP 형식 | Data Factory 중간 데이터 형식 |
 |:--- |:--- |
-| C(문자열) | 문자열 |
+| C(문자열) | string |
 | I(정수) | Int32 |
-| F(부동) | Double |
-| D(날짜) | 문자열 |
-| T(시간) | 문자열 |
+| F(부동) | DOUBLE |
+| D(날짜) | string |
+| T(시간) | string |
 | P(BCD 압축, 통화, 10진수, 수량) | 10진수 |
-| N(숫자) | 문자열 |
-| X(이진 및 원시) | 문자열 |
+| N(숫자) | string |
+| X(이진 및 원시) | string |
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성
 

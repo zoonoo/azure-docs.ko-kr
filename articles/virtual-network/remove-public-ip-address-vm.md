@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/04/2019
 ms.author: kumud
-ms.openlocfilehash: beb2655b0796adbe289b0af104dead2d15e584db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1c27af30f97ea967d170b2cccaefb2e95f8fedaf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74852160"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900753"
 ---
 # <a name="dissociate-a-public-ip-address-from-an-azure-vm"></a>Azure VM에서 공용 IP 주소 분리 
 
@@ -51,7 +51,7 @@ ms.locfileid: "74852160"
     --name ipconfigmyVM \
     --resource-group myResourceGroup \
     --nic-name myVMVMNic \
-    --remove PublicIpAdress
+    --remove PublicIpAddress
    ```
 
    VM에 연결 된 네트워크 인터페이스의 이름을 모르는 경우 [az vm nic list](/cli/azure/vm/nic?view=azure-cli-latest#az-vm-nic-list) 명령을 사용 하 여이를 확인 합니다. 예를 들어 다음 명령은 *Myvm*이라는 리소스 그룹에서 *MYVM* 이라는 vm에 연결 된 네트워크 인터페이스의 이름을 나열 합니다.
@@ -68,11 +68,18 @@ ms.locfileid: "74852160"
 
      이전 예제에서 *Myvmvmnic* 는 네트워크 인터페이스의 이름입니다.
 
-   - 네트워크 인터페이스에 대 한 IP 구성의 이름을 모르는 경우 [az network nic IP-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) 명령을 사용 하 여 검색 합니다. 예를 들어 다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 IP 구성의 이름을 나열 합니다.
+   - 네트워크 인터페이스에 대 한 IP 구성의 이름을 모르는 경우 [az network nic IP-config list](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-list) 명령을 사용 하 여 검색 합니다. 예를 들어 다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 공용 IP 구성의 이름을 나열 합니다.
 
      ```azurecli-interactive
      az network nic ip-config list --nic-name myVMVMNic --resource-group myResourceGroup --out table
      ```
+
+   - 네트워크 인터페이스에 대 한 공용 IP 구성의 이름을 모르는 경우 [az network nic ip-https show](/cli/azure/network/nic/ip-config?view=azure-cli-latest#az-network-nic-ip-config-show) 명령을 사용 하 여 검색 합니다. 예를 들어 다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 있는 *Myvmvmnic* 라는 네트워크 인터페이스에 대 한 공용 IP 구성의 이름을 나열 합니다.
+
+     ```azurecli-interactive
+     az network nic ip-config show --name ipconfigmyVM --nic-name myVMVMNic --resource-group myResourceGroup --query publicIPAddress.id
+     ```
+
 
 ## <a name="powershell"></a>PowerShell
 
@@ -106,13 +113,13 @@ ms.locfileid: "74852160"
 
      ```azurepowershell-interactive
      $nic = Get-AzNetworkInterface -Name myVMVMNic -ResourceGroupName myResourceGroup
-     $nic.IPConfigurations
+     $nic.IPConfigurations.id
      ```
 
      출력에는 다음 예제와 비슷한 하나 이상의 줄이 포함 됩니다. 예제 출력에서 *Ipconfigmyvm* 은 IP 구성의 이름입니다.
   
      ```
-     Id     : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM
+     "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Network/networkInterfaces/myVMVMNic/ipConfigurations/ipconfigmyVM"
      ```
 
 ## <a name="next-steps"></a>다음 단계

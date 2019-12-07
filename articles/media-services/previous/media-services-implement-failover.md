@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용하여 장애 조치 스트리밍 구현 | Microsoft Docs
-description: 이 항목에서는 장애 조치 스트리밍 시나리오를 구현하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Media Services를 사용 하 여 장애 조치 스트리밍 시나리오를 구현 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ea5238df50ff050140453ce655ea041669f6080c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 195f7f089b84e1665f4dd078a7da141d531c2185
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67051644"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887184"
 ---
-# <a name="implement-failover-streaming-with-media-services"></a>Media Services를 사용 하 여 스트리밍 장애 조치 구현 
+# <a name="implement-failover-streaming-with-media-services"></a>Media Services를 사용 하 여 장애 조치 스트리밍 구현 
 
 이 연습에서는 주문형 스트리밍에 대한 중복성을 처리 하기 위해 한 자산에서 다른 자산으로 콘텐츠(Blob)를 복사하는 방법을 보여줍니다. 이 시나리오는 데이터 센터에서 가동이 중단되는 경우 두 데이터 센터 간에 장애 조치할 Azure Content Delivery Network를 설정하려는 경우에 유용합니다. 이 연습에서는 Azure Media Services SDK, Azure Media Services REST API 및 Azure Storage SDK를 사용하여 다음 작업을 설명합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "67051644"
 * 자산을 암호화한 스토리지(AssetCreationOptions.StorageEncrypted)는 복제에 지원되지 않습니다(암호화 키가 Media Services 계정 모두에서 다르기 때문임). 
 * 동적 패키징을 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태인지 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 * 신규 또는 기존 Azure 구독의 Media Services 계정 2개. [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * 운영 체제: Windows 7, Windows 2008 R2 또는 Windows 8.
 * .NET Framework 4.5 또는 .NET Framework 4
@@ -62,7 +62,7 @@ ms.locfileid: "67051644"
 1. Visual Studio를 사용하여 C# 콘솔 애플리케이션 프로젝트가 포함된 새 솔루션을 만듭니다. 이름에 **HandleRedundancyForOnDemandStreaming**을 입력하고 **확인**을 클릭합니다.
 2. **HandleRedundancyForOnDemandStreaming.csproj** 프로젝트 파일과 동일한 수준에 **SupportFiles** 폴더를 만듭니다. **SupportFiles** 폴더에서 **OutputFiles** 및 **MP4Files** 폴더를 만듭니다. .mp4 파일을 **MP4Files** 폴더에 복사합니다. (이 예제에서는 **BigBuckBunny.mp4** 파일을 사용합니다.) 
 3. **Nuget**을 사용하여 Media Services와 관련된 DLL에 참조를 추가합니다. **Visual Studio 주 메뉴**에서 **도구** > **라이브러리 패키지 관리자** > **패키지 관리자 콘솔**을 선택합니다. 콘솔 창에 **Install-Package windowsazure.mediaservices**를 입력하고 Enter를 누릅니다.
-4. 이 프로젝트에 필요한 다음과 같은 다른 참조를 추가합니다. System.Configuration, System.Runtime.Serialization 및 System.Web.
+4. System.Configuration, System.Runtime.Serialization 및 System.Web와 같이 이 프로젝트에 필요한 다른 참조를 추가합니다.
 5. 기본적으로 **Programs.cs** 파일에 추가한 **using** 문을 다음 중 하나로 바꿉니다.
    
         using System;
@@ -936,6 +936,6 @@ ms.locfileid: "67051644"
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor를 통해 Media Services 진단 로그 모니터링 Microsoft Docs
-description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅 및 확인 하는 방법을 보여 줍니다.
+description: 이 문서에서는 Azure Monitor를 통해 진단 로그를 라우팅하고 표시 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 42724ae3619312c2cc172be0e143291cd7fa2a70
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261116"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887954"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -26,14 +26,14 @@ ms.locfileid: "71261116"
 
 이 문서에서는 저장소 계정에 데이터를 라우팅하는 방법을 보여 주고 데이터를 확인 합니다. 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md)
 - [모니터 Media Services 메트릭 및 진단 로그를](media-services-metrics-diagnostic-logs.md)검토 합니다.
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에 데이터 라우팅
 
-1. Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 1. 에서 Media Services 계정으로 이동 하 고 **모니터**에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다. 
 
     ![진단 설정 섹션](media/media-services-diagnostic-logs/logs01.png)
@@ -49,7 +49,7 @@ ms.locfileid: "71261116"
 
    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs02.png)
 1. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 스토리지 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
-1. **저장**을 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
 
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -174,7 +174,7 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 }
 ```
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [진단 로그 Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md)

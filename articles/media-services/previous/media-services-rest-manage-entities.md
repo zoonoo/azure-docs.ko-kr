@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 Media Services 엔터티 관리 | Microsoft Docs
-description: REST API를 사용하여 Media Services 엔터티를 관리하는 방법을 알아봅니다.
+description: 이 문서에서는 REST API를 사용 하 여 Media Services 엔터티를 관리 하는 방법을 보여 줍니다.
 author: juliako
 manager: femila
 editor: ''
@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ffbf30f2bfdf0a175513a8d2b9182b35c39f6aae
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 1ecbca99a65d99cc3b8d842a7b61d858398a80ff
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761712"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74885707"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리  
 
 > [!div class="op_single_selector"]
-> * [REST (영문)](media-services-rest-manage-entities.md)
+> * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
@@ -34,7 +34,7 @@ Microsoft Azure Media Services는 OData v3에 빌드된 REST 기반 서비스입
 이 항목에서는 REST를 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다.
 
 >[!NOTE]
-> 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
+> 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일 보다 오래된 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항  
 
@@ -172,6 +172,6 @@ File Storage에 대한 가용성 섹션을 확인하세요.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

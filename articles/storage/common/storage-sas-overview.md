@@ -1,20 +1,21 @@
 ---
-title: SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
+title: SAS (공유 액세스 서명)를 사용 하 여 데이터에 대 한 제한 된 액세스 권한 부여
+titleSuffix: Azure Storage
 description: SAS (공유 액세스 서명)를 사용 하 여 blob, 큐, 테이블 및 파일을 비롯 한 Azure Storage 리소스에 대 한 액세스 권한을 위임 하는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e4a5f83e3f4d26c2321ed1b4c48a385d07e6489d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72382003"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895146"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>SAS (공유 액세스 서명)를 사용 하 여 Azure Storage 리소스에 대 한 제한 된 액세스 권한 부여
 

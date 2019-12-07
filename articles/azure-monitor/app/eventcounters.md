@@ -4,15 +4,15 @@ description: Application Insights에서 시스템 및 사용자 지정 .NET/.NET
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cithomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 0762819239e8fd71a015f317776a94280806db53
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 1719c917ee2a4c0a11e4a79953a8b67e946d5931
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72677159"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889127"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
@@ -59,7 +59,7 @@ Application Insights는 새로 릴리스된 nuget 패키지의 일부인 `EventC
 
 ## <a name="customizing-counters-to-be-collected"></a>수집할 카운터 사용자 지정
 
-다음 예제에서는 카운터를 추가/제거 하는 방법을 보여 줍니다. @No__t_1 또는 `AddApplicationInsightsWorkerService()`를 사용 하 여 Application Insights 원격 분석 컬렉션을 사용 하도록 설정한 후 응용 프로그램의 `ConfigureServices` 메서드에서이 사용자 지정을 수행 합니다. ASP.NET Core 응용 프로그램의 예제 코드는 다음과 같습니다. 다른 유형의 응용 프로그램은 [이](worker-service.md#configuring-or-removing-default-telemetrymodules) 문서를 참조 하세요.
+다음 예제에서는 카운터를 추가/제거 하는 방법을 보여 줍니다. `AddApplicationInsightsTelemetry()` 또는 `AddApplicationInsightsWorkerService()`를 사용 하 여 Application Insights 원격 분석 컬렉션을 사용 하도록 설정한 후 응용 프로그램의 `ConfigureServices` 메서드에서이 사용자 지정을 수행 합니다. ASP.NET Core 응용 프로그램의 예제 코드는 다음과 같습니다. 다른 유형의 응용 프로그램은 [이](worker-service.md#configuring-or-removing-default-telemetrymodules) 문서를 참조 하세요.
 
 ```csharp
     using Microsoft.ApplicationInsights.Extensibility.EventCounterCollector;
@@ -98,7 +98,7 @@ Application Insights는 새로 릴리스된 nuget 패키지의 일부인 `EventC
 [메트릭 탐색기](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-charts)에서 eventcounter 메트릭을 보려면 Application Insights 리소스를 선택 하 고 로그 기반 메트릭을 메트릭 네임 스페이스로 선택 합니다. 그런 다음 EventCounter 메트릭은 PerformanceCounter 범주 아래에 표시 됩니다.
 
 > [!div class="mx-imgBorder"]
-> Application Insights에 보고 된 ![Event 카운터 ](./media/event-counters/metrics-explorer-counter-list.png)
+> Application Insights](./media/event-counters/metrics-explorer-counter-list.png)에 보고 된 ![이벤트 카운터
 
 ## <a name="event-counters-in-analytics"></a>분석의 이벤트 카운터
 
@@ -111,7 +111,7 @@ performanceCounters | summarize avg(value) by name
 ```
 
 > [!div class="mx-imgBorder"]
-> Application Insights에 보고 된 ![Event 카운터 ](./media/event-counters/analytics-event-counters.png)
+> Application Insights](./media/event-counters/analytics-event-counters.png)에 보고 된 ![이벤트 카운터
 
 최근 기간 동안 특정 카운터 (예: `ThreadPool Completed Work Item Count`)의 차트를 가져오려면 다음 쿼리를 실행 합니다.
 
@@ -123,7 +123,7 @@ performanceCounters
 | render timechart
 ```
 > [!div class="mx-imgBorder"]
-> Application Insights의 단일 카운터 ![Chat ](./media/event-counters/analytics-completeditems-counters.png)
+> Application Insights에서 단일 카운터의 채팅을 ![](./media/event-counters/analytics-completeditems-counters.png)
 
 다른 원격 분석과 마찬가지로 **performanceCounters**에도 앱이 실행되는 호스트 서버 인스턴스의 ID를 나타내는 `cloud_RoleInstance` 열이 있습니다. 위의 쿼리는 인스턴스당 카운터 값을 표시 하며 다른 서버 인스턴스의 성능을 비교 하는 데 사용할 수 있습니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 출력 메타데이터 스키마 | Microsoft 문서
-description: 이 항목에서는 Azure Media Services 출력 메타데이터 스키마에 대한 개요를 제공합니다.
+description: 이 문서에서는 Azure Media Services 출력 메타 데이터 스키마에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 42227095c69924cd2922673d020b349aa29f2daa
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f0c6b60e2be625d1f869c3eda4acb9dfd3c6e9e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129749"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74886815"
 ---
 # <a name="output-metadata"></a>출력 메타데이터
 ## <a name="overview"></a>개요
-인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다. 예를 들어 MP4 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩하며, 미리 보기 이미지와 오버레이를 만듭니다. 태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기 등이 포함됩니다. 출력 자산에는 출력된 자산에 대한 메타데이터가 있는 파일도 포함됩니다. 메타데이터 XML 파일의 이름은 &lt;source_file_name&gt;_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml).  
+인코딩 작업은 일부 인코딩 태스크를 수행할 입력 자산(또는 자산)과 연결됩니다. 예를 들어 MP4 파일을 H.264 MP4 적응 비트 전송률 집합으로 인코딩하며, 미리 보기 이미지와 오버레이를 만듭니다. 태스크가 완료되는 즉시 출력 자산이 생성됩니다.  출력 자산에는 비디오, 오디오, 미리 보기 등이 포함 됩니다. 출력 자산에는 출력 자산에 대 한 메타 데이터가 있는 파일도 포함 됩니다. 메타데이터 XML 파일의 이름은 &lt;source_file_name&gt;_manifest.xml 형식입니다(예: BigBuckBunny_manifest.xml).  
 
 Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 자산을 검사하지 않습니다. 입력 자산이 작업에서 처리되는 경우 입력 메타데이터는 아티팩트로만 생성됩니다. 따라서 이 아티팩트는 출력 자산에 기록됩니다. 다른 도구는 입력 자산 및 출력 자산에 대한 메타데이터를 생성하는 데 사용됩니다. 따라서 입력 메타데이터는 출력 메타데이터와 스키마가 약간 다를 수 있습니다.
 
@@ -37,7 +37,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 인코딩 작업에 대한 AssetFile 항목의 컬렉션입니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **AssetFile**<br/><br/> minOccurs="0" maxOccurs="1" |AssetFiles 컬렉션의 일부인 AssetFile 요소입니다. |
 
@@ -45,14 +45,14 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |미디어 자산 파일 이름입니다. |
 | **크기**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:long** |자산 파일의 크기(바이트)입니다. |
 | **Duration**<br/><br/> 필수 |**xs:duration** |콘텐츠 재생 시간입니다. |
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **Sources** |이 AssetFile을 생성하기 위해 처리된 입력/원본 미디어 파일의 컬렉션입니다. 자세한 내용은 Source 요소를 참조하세요. |
 | **VideoTracks**<br/><br/> minOccurs="0" maxOccurs="1" |각각의 실제 AssetFile에는 적절한 컨테이너 형식으로 인터리빙된 0개 이상의 비디오 트랙이 포함될 수 있습니다. 자세한 내용은 VideoTracks 요소를 참조하세요. |
@@ -64,7 +64,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **원본**<br/><br/> minOccurs="1" maxOccurs="unbounded" |이 자산을 생성할 때 사용되는 입력/원본 파일입니다. 자세한 내용은 Source 요소를 참조하세요. |
 
@@ -74,7 +74,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | --- | --- | --- |
 | **Name**<br/><br/> 필수 |**xs:string** |입력 원본 파일 이름입니다. |
 
@@ -84,7 +84,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **VideoTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 비디오 트랙입니다. 자세한 내용은 VideoTrack 요소를 참조하세요. |
 
@@ -94,9 +94,9 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 0 기준 인덱스입니다. **참고:**  이 **ID**가 반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 비디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이 **id** 는 MP4 파일에 사용 되는 것과 같은 것은 아닙니다. |
 | **FourCC**<br/><br/> 필수 |**xs:string** |비디오 코덱 FourCC 코드입니다. |
 | **프로필** |**xs:string** |H264 프로파일입니다(H264 코덱에만 적용). |
 | **Level** |**xs:string** |H264 수준입니다(H264 코덱에만 적용). |
@@ -116,7 +116,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **AudioTrack**<br/><br/> minOccurs="1" maxOccurs="unbounded" |부모 AssetFile의 특정 오디오 트랙입니다. 자세한 내용은 AudioTrack 요소를 참조하세요. |
 
@@ -126,9 +126,9 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | --- | --- | --- |
-| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 0 기준 인덱스입니다. **참고:**  반드시 MP4 파일에 사용되는 TrackID일 필요는 없습니다. |
+| **Id**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |이 오디오 트랙의 인덱스 (0부터 시작)입니다. **참고:**  이는 MP4 파일에 사용 된 것과 같은 것은 아닙니다. |
 | **Codec** |**xs:string** |오디오 트랙 코덱 문자열입니다. |
 | **EncoderVersion** |**xs:string** |EAC3에 필요한 선택적 인코더 버전 문자열입니다. |
 | **Channels**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |오디오 채널 수입니다. |
@@ -137,7 +137,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 | **BitsPerSample**<br/><br/> minInclusive ="0"<br/><br/> 필수 |**xs:int** |wFormatTag 형식 샘플당 비트입니다. |
 
 ### <a name="child-elements"></a>자식 요소
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | **LoudnessMeteringResultParameters**<br/><br/> minOccurs="0" maxOccurs="1" |음량 측정 결과 매개 변수입니다. 자세한 내용은 LoudnessMeteringResultParameters 요소를 참조하세요. |
 
@@ -147,7 +147,7 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 [XML 예제](#xml)에서 XML 예제를 찾을 수 있습니다.  
 
 ### <a name="attributes"></a>특성
-| 이름 | 형식 | 설명 |
+| name | Type | 설명 |
 | --- | --- | --- |
 | **DPLMVersionInformation** |**xs:string** |**DPLM**(Dolby Professional Loudness Metering) 개발 키트 버전입니다. |
 | **DialogNormalization**<br/><br/> minInclusive="-31" maxInclusive="-1"<br/><br/> 필수 |**xs:int** |DPLM을 통해 생성되며, LoudnessMetering을 설정할 때 필요합니다. |
@@ -602,5 +602,5 @@ Media Services는 메타데이터를 생성하기 위해 선제적으로 입력 
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

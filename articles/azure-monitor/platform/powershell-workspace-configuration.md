@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/19/2019
-ms.openlocfilehash: 9d5bbaf02798c0fd87c40f1d952db19aac7b0b7e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9404bbf0ad79df41b0b5960977d6605697da5df5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932089"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894578"
 ---
 # <a name="manage-log-analytics-workspace-in-azure-monitor-using-powershell"></a>PowerShell을 사용 하 여 Azure Monitor에서 Log Analytics 작업 영역 관리
 
@@ -219,7 +219,7 @@ New-AzOperationalInsightsCustomLogDataSource -ResourceGroupName $ResourceGroup -
 
 사용 가능한 메트릭에 대한 자세한 내용은 [Azure Monitor에서 지원되는 메트릭](../../azure-monitor/platform/metrics-supported.md)을 참조하세요.
 
-사용 가능한 로그에 대한 자세한 내용은 [진단 로그에 지원되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조하세요.
+사용 가능한 로그에 대 한 자세한 내용은 [리소스 로그에 대해 지원 되는 서비스 및 스키마](../../azure-monitor/platform/diagnostic-logs-schema.md)를 참조 하세요.
 
 ```powershell
 $workspaceId = "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"

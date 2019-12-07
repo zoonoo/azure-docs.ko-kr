@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory의 Databricks를 사용하여 데이터 변환
+title: Databricks를 사용 하 여 데이터 변환
 description: 솔루션 템플릿을 사용하여 Azure Data Factory의 Databricks 노트북을 통해 데이터를 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 12/10/2018
 ms.author: abnarain
 ms.reviewer: douglasl
-ms.openlocfilehash: 471c1d9610fa346b0eac44c73fe02f4510bd2889
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5b39e354d503910d20141ce19c625eb79b4a7353
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684242"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891000"
 ---
 # <a name="transform-data-by-using-databricks-in-azure-data-factory"></a>Azure Data Factory의 Databricks를 사용하여 데이터 변환
 
@@ -33,7 +33,7 @@ ms.locfileid: "73684242"
 
 ![1](media/solution-template-Databricks-notebook/Databricks-tutorial-image01.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 1.  **싱크**로 사용할, `sinkdata`라는 컨테이너 및 **Blob Storage 계정**을 만듭니다. 나중에 템플릿에서 참조되므로 **스토리지 계정 이름**, **컨테이너 이름** 및 **액세스 키**를 적어 둡니다.
 

@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: a7c64284c958fa8b3ec89c2b27515fe167a04011
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 2e162b30a0227c5f04c74dae01413177d1623235
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73811142"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901238"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>SQL Hyperscale 성능 문제 해결 진단
 
@@ -44,13 +44,14 @@ ms.locfileid: "73811142"
  
 계산 복제본에서 읽기가 실행 되 면 버퍼 풀 또는 로컬 RBPEX 캐시에 데이터가 없으면 getPage (pageId, LSN) 함수 호출이 실행 되 고 해당 페이지 서버에서 페이지가 인출 됩니다. 페이지 서버에서 읽기는 원격 읽기 이므로 로컬 RBPEX 읽기 보다 느립니다. IO 관련 성능 문제를 해결할 때 비교적 느린 원격 페이지 서버 읽기를 통해 수행 된 Io 수를 확인할 수 있어야 합니다.
 
-여러 Dmv 및 확장 이벤트에는 페이지 서버에서 원격 읽기 수를 지정 하는 열과 필드가 있으며 총 읽기와 비교할 수 있습니다. 
+여러 Dmv 및 확장 이벤트에는 페이지 서버에서 원격 읽기 수를 지정 하는 열과 필드가 있으며 총 읽기와 비교할 수 있습니다. 쿼리 저장소는 또한 쿼리 실행 시간 통계의 일부로 원격 읽기를 캡처합니다.
 
-- 보고서 페이지 서버 읽기 열은 다음과 같은 실행 Dmv에서 사용할 수 있습니다.
+- 보고서 페이지 서버 읽기의 열은 다음과 같은 실행 Dmv 및 카탈로그 뷰에서 사용할 수 있습니다.
     - [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql/)
     - [sys.dm_exec_query_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-stats-transact-sql/)
     - [sys.dm_exec_procedure_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-procedure-stats-transact-sql/)
-    - [sys. dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.dm_exec_trigger_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-trigger-stats-transact-sql/)
+    - [sys.query_store_runtime_stats](/sql/relational-databases/system-catalog-views/sys-query-store-runtime-stats-transact-sql/)
 - 페이지 서버 읽기는 다음과 같은 확장 이벤트에 추가 됩니다.
     - sql_statement_completed
     - sp_statement_completed
@@ -59,7 +60,7 @@ ms.locfileid: "73811142"
     - scan_stopped
     - query_store_begin_persist_runtime_stat
     - 쿼리-store_execution_runtime_info
-- ActualPageServerReads/ActualPageServerReadAheads는 실제 계획에 대 한 쿼리 계획 XML에 추가 됩니다. 예:
+- ActualPageServerReads/ActualPageServerReadAheads는 실제 계획에 대 한 쿼리 계획 XML에 추가 됩니다. 다음은 그 예입니다.
 
 `<RunTimeCountersPerThread Thread="8" ActualRows="90466461" ActualRowsRead="90466461" Batches="0" ActualEndOfScans="1" ActualExecutions="1" ActualExecutionMode="Row" ActualElapsedms="133645" ActualCPUms="85105" ActualScans="1" ActualLogicalReads="6032256" ActualPhysicalReads="0" ActualPageServerReads="0" ActualReadAheads="6027814" ActualPageServerReadAheads="5687297" ActualLobLogicalReads="0" ActualLobPhysicalReads="0" ActualLobPageServerReads="0" ActualLobReadAheads="0" ActualLobPageServerReadAheads="0" />`
 

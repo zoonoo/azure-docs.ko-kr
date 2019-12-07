@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services 이벤트에 대응 | Microsoft Docs
-description: Azure Event Grid를 사용하여 Media Services 이벤트를 구독합니다.
+description: 이 문서에서는 Azure Event Grid를 사용 하 여 Media Services 이벤트를 구독 하는 방법을 설명 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 08/08/2019
 ms.author: juliako
-ms.openlocfilehash: 07ad39bdcec6e4b00d3b47553930fc05694ca2af
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e24bacb0ea7ab406442022915872fc77e9cc1a5e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026627"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887887"
 ---
 # <a name="handling-event-grid-events"></a>Event Grid 이벤트 처리
 

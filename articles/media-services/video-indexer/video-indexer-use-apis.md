@@ -1,7 +1,7 @@
 ---
 title: Video Indexer API 사용
 titleSuffix: Azure Media Services
-description: Azure Media Services Video Indexer API를 시작 하기 위한 자습서입니다.
+description: 이 문서에서는 Azure Media Services Video Indexer API를 시작 하는 방법을 설명 합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: e1fcfcd9e6bcb6108573f032d81f10ccc2be1e57
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839631"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892688"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
@@ -99,7 +99,7 @@ API와 통합을 시작할 준비가 되었습니다. [각 Video Indexer REST AP
     https://www.videoindexer.ai/accounts/00000000-f324-4385-b142-f77dacb0a368/videos/d45bf160b5/
     ```
 
-## <a name="recommendations"></a>추천
+## <a name="recommendations"></a>권장 사항
 
 이 섹션에는 Video Indexer API를 사용할 때의 몇 가지 추천 사항이 나와 있습니다.
 

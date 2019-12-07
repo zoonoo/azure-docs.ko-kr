@@ -1,5 +1,5 @@
 ---
-title: Azure-SSIS Integration Runtime에 대 한 Azure Active Directory 사용
+title: Azure-SSIS Integration Runtime에 대해 AAD 사용
 description: 이 문서에서는 Azure Data Factory에 대해 관리 ID와 함께 Azure Active Directory 인증을 사용하도록 설정하여 Azure-SSIS Integration Runtime을 만드는 방법을 설명합니다.
 services: data-factory
 ms.service: data-factory
@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 manager: mflasko
 ms.date: 5/14/2019
-ms.openlocfilehash: 6973e72b06d51241e883038936270fd0931365d7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9d03d0668b8519ae811b5d275e61b370ceb30e78
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217707"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896184"
 ---
 # <a name="enable-azure-active-directory-authentication-for-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime을 위한 Azure Active Directory 인증 활성화
 
@@ -198,7 +198,7 @@ PowerShell을 사용하여 Azure-SSIS IR을 프로비전하려면 다음 작업�
 
 1.  [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v5.5.0-March2018)  모듈을 설치합니다.
 
-2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+2.  스크립트에서 `CatalogAdminCredential` 매개 변수를 설정하지 마세요. 다음은 그 예입니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `

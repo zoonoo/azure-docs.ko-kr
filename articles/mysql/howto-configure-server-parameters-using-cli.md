@@ -6,13 +6,13 @@ ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 2a53debb72cfd5da73c2bceb7993288eb828237a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/05/2019
+ms.openlocfilehash: 0250810d25b0abb5bf675d8c91f3c0678d895c37
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770529"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893164"
 ---
 # <a name="customize-server-parameters-by-using-azure-cli"></a>Azure CLI를 사용 하 여 서버 매개 변수 사용자 지정
 Azure 명령줄 유틸리티인 Azure CLI를 사용하여 Azure Database for MySQL 서버의 구성 매개 변수를 나열하고, 표시하며, 업데이트할 수 있습니다. 엔진 구성의 하위 집합은 서버 수준에서 노출되고 수정할 수 있습니다. 
@@ -63,6 +63,9 @@ MySQL 명령줄 또는 MySQL Workbench와 같은 도구에서 `az_load_timezone`
 ```sql
 CALL mysql.az_load_timezone();
 ```
+
+> [!IMPORTANT]
+> 표준 시간대 테이블이 제대로 채워졌는지 확인 하려면 서버를 다시 시작 해야 합니다. 서버를 다시 시작 하려면 [Azure Portal](howto-restart-server-portal.md) 또는 [CLI](howto-restart-server-cli.md)를 사용 합니다.
 
 사용 가능한 표준 시간대 값을 보려면 다음 명령을 실행합니다.
 

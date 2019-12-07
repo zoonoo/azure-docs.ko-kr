@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c487ed02abda652a384f2f295c3edac4b56fc654
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7e8ce4f2fbdffc46d18a5f94496e9433c01a65fb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027237"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900949"
 ---
 # <a name="create-a-dynamic-group-and-check-status"></a>동적 그룹 만들기 및 상태 확인
 
@@ -47,10 +47,10 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 ## <a name="to-create-a-group-membership-rule"></a>그룹 멤버 자격 규칙 만들기
 
 1. 전역 관리자, Intune 관리자 또는 테 넌 트의 사용자 관리자 역할에 있는 계정을 사용 하 여 [AZURE AD 관리 센터](https://aad.portal.azure.com) 에 로그인 합니다.
-1. **그룹**을 선택합니다.
+1. **그룹**을 검색 하 고 선택 합니다.
 1. **모든 그룹**을 선택하고 **새 그룹**을 선택합니다.
 
-   ![새 그룹을 추가 하는 명령 선택](./media/groups-create-rule/new-group-creation.png)
+   ![새 그룹을 추가 하는 명령 선택](./media/groups-create-rule/create-new-group-azure-active-directory.png)
 
 1. **그룹** 페이지에서 새 그룹에 대 한 이름 및 설명을 입력 합니다. 사용자 또는 장치 중 하나에 대 한 **멤버 자격 유형을** 선택한 다음 **동적 쿼리 추가**를 선택 합니다. 규칙 작성기는 최대 5 개의 식을 지원 합니다. 5 개 이상의 식을 추가 하려면 텍스트 상자를 사용 해야 합니다.
 
@@ -88,7 +88,7 @@ Azure AD는 중요 한 규칙을 더 신속 하 게 만들고 업데이트 하�
 - **진행 중**: 업데이트가 현재 진행 중입니다.
 - **알 수 없음**: 마지막 업데이트 시간을 검색할 수 없습니다. 새 그룹 일 수 있습니다.
 
-특정 그룹에 대한 멤버 자격 규칙을 처리하는 동안 오류가 발생하면 해당 그룹에 대한 **개요 페이지** 맨 위에 경고가 표시됩니다. 테넌트 내의 모든 그룹에 대해 보류 중인 동적 멤버 자격 업데이트를 24시간 이상 동안 처리할 수 없는 경우 **모든 그룹** 위에 경고가 표시됩니다.
+특정 그룹에 대한 멤버 자격 규칙을 처리하는 동안 오류가 발생하면 해당 그룹에 대한 **개요 페이지** 맨 위에 경고가 표시됩니다. 24 시간 넘게 테 넌 트 내의 모든 그룹에 대해 보류 중인 동적 구성원 업데이트를 처리할 수 없는 경우 **모든 그룹**의 맨 위에 경고가 표시 됩니다.
 
 ![오류 메시지 경고 처리](./media/groups-create-rule/processing-error.png)
 

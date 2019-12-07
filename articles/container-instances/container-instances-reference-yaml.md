@@ -3,12 +3,12 @@ title: 컨테이너 그룹에 대 한 YAML 참조
 description: 컨테이너 그룹을 구성 하는 Azure Container Instances에서 지원 되는 YAML 파일에 대 한 참조
 ms.topic: article
 ms.date: 08/12/2019
-ms.openlocfilehash: 5603f2e0f63c4f83a6d3761feb540abb8b8b7d5c
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8497330a327201c4c64e9f7ae57e6fc4225b52de
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533499"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896565"
 ---
 # <a name="yaml-reference-azure-container-instances"></a>YAML 참조: Azure Container Instances
 
@@ -38,7 +38,7 @@ properties: # Properties of container group
       image: string # Container image used to create the instance
       command:
       - string
-      ports: # Exposed ports on the instance
+      ports: # External-facing ports exposed on the instance, must also be set in group ipAddress property 
       - protocol: string
         port: integer
       environmentVariables:
@@ -166,7 +166,7 @@ properties: # Properties of container group
 |  containers | array | yes | 컨테이너 그룹 내의 컨테이너입니다.[컨테이너 개체](#Container)  -  |
 |  imageRegistryCredentials | array | 아닙니다. | 컨테이너 그룹을 만들 때 기준이 되는 이미지 레지스트리 자격 증명입니다. - [ImageRegistryCredential 개체](#ImageRegistryCredential) |
 |  restartPolicy | enum | 아닙니다. | 컨테이너 그룹 내의 모든 컨테이너에 대 한 다시 시작 정책입니다. - `Always` 항상 다시 시작-오류 발생 시 다시 시작 `OnFailure` `Never` 다시 시작 안 함 -Always, OnFailure, Never |
-|  \ | object | 아닙니다. | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
+|  \\ | object | 아닙니다. | 컨테이너 그룹의 IP 주소 유형입니다. - [IpAddress 개체](#IpAddress) |
 |  osType | enum | yes | 컨테이너 그룹의 컨테이너에 필요한 운영 체제 유형입니다. -Windows 또는 Linux |
 |  volumes | array | 아닙니다. | 이 컨테이너 그룹의 컨테이너로 탑재할 수 있는 볼륨의 목록입니다.[볼륨 개체](#Volume)  -  |
 |  진단 | object | 아닙니다. | 컨테이너 그룹에 대 한 진단 정보입니다. - [ContainerGroupDiagnostics 개체](#ContainerGroupDiagnostics) |
@@ -203,7 +203,7 @@ properties: # Properties of container group
 |  ---- | ---- | ---- | ---- |
 |  ports | array | yes | 컨테이너 그룹에 노출 된 포트 목록입니다. - [Port 개체](#Port) |
 |  type | enum | yes | IP가 공용 인터넷 또는 개인 VNET에 노출 되는지 여부를 지정 합니다. -공용 또는 개인 |
-|  tcp/ip | 문자열 | 아닙니다. | 공용 인터넷에 노출 되는 IP입니다. |
+|  ip | 문자열 | 아닙니다. | 공용 인터넷에 노출 되는 IP입니다. |
 |  dnsNameLabel | 문자열 | 아닙니다. | IP의 Dns 이름 레이블입니다. |
 
 
@@ -272,7 +272,7 @@ properties: # Properties of container group
 |  name | Type | 필수 | Value |
 |  ---- | ---- | ---- | ---- |
 |  protocol | enum | 아닙니다. | 포트와 연결 된 프로토콜입니다. -TCP 또는 UDP |
-|  포트 | 정수 | yes | 포트 번호입니다. |
+|  포트 | 정수 | yes | 포트 번호 |
 
 
 <a id="AzureFileVolume" />
@@ -358,7 +358,7 @@ properties: # Properties of container group
 
 |  name | Type | 필수 | Value |
 |  ---- | ---- | ---- | ---- |
-|  재시도 | object | 아닙니다. | [ContainerExec 개체](#ContainerExec) 에 대 한 실행 명령 |
+|  exec | object | 아닙니다. | [ContainerExec 개체](#ContainerExec) 에 대 한 실행 명령 |
 |  httpGet | object | 아닙니다. | [ContainerHttpGet 개체](#ContainerHttpGet) 에 대 한 Http 설정 가져오기 |
 |  initialDelaySeconds | 정수 | 아닙니다. | 초기 지연 시간 (초)입니다. |
 |  periodSeconds | 정수 | 아닙니다. | 기간 (초)입니다. |

@@ -14,12 +14,12 @@ ms.subservice: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer; MarkMorow
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65714f67dde79847bf07efda358a4e1f9ea938d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 87cdd5ff303cbb001e482137df1d4241487fc6d2
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028445"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900793"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Azure AD에서 하이브리드 및 클라우드 배포를 위한 권한 있는 액세스 보안
 
@@ -94,7 +94,7 @@ Azure AD Privileged Identity Management가 설정되면 다음을 수행합니�
 
 2. Privileged Identity Management를 사용하려는 테넌트를 선택하려면, Azure Portal의 오른쪽 위 모서리에서 사용자 이름을 선택합니다.
 
-3. **모든 서비스**를 선택하고, **Azure AD Privileged Identity Management**에 대한 목록을 필터링합니다.
+3. Azure Portal 메뉴에서 **모든 서비스** 를 선택 하 고 **Azure AD Privileged Identity Management**목록을 필터링 합니다.
 
 4. **모든 서비스** 목록에서 Privileged Identity Management를 열고 대시보드에 고정합니다.
 
@@ -261,7 +261,7 @@ Azure AD Privileged Identity Management를 이미 사용하고 있는 경우 필
 
 #### <a name="determine-exposure-to-password-based-sign-in-protocols-if-using-exchange-online"></a>암호 기반 로그인 프로토콜에 대한 노출 확인(Exchange Online을 사용하는 경우)
 
-과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제 클라우드의 사이버 공격에 대 한 위험이 있으므로 자격 증명이 손상 된 경우 모든 잠재적 사용자를 식별 하는 것이 좋습니다. 해당 자격 증명이 손상 된 경우에는 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 사용자 이름/암호를 통해 전자 메일에 로그인 할 수 없습니다. [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)을 차단할 수 있습니다. Exchnage online을 통해 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 에 대 한 세부 정보를 확인 하세요. 
+과거에는 프로토콜에서 사용자 이름/암호 조합이 디바이스, 이메일 계정, 전화 등에 포함되어 있다고 가정했습니다. 그러나 이제 클라우드의 사이버 공격에 대 한 위험이 있으므로 자격 증명이 손상 된 경우 모든 잠재적 사용자를 식별 하는 것이 좋습니다. 해당 자격 증명이 손상 된 경우에는 강력한 인증 요구 사항 및 조건부 액세스를 구현 하 여 사용자 이름/암호를 통해 전자 메일에 로그인 할 수 없습니다. [조건부 액세스를 사용 하 여 레거시 인증](https://docs.microsoft.com/azure/active-directory/conditional-access/block-legacy-authentication)을 차단할 수 있습니다. Exchange online을 통해 [기본 인증을 차단 하는 방법](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/disable-basic-authentication-in-exchange-online) 에 대 한 세부 정보를 확인 하세요. 
 
 #### <a name="complete-a-roles-review-assessment-for-office-365-roles-if-using-office-365"></a>Office 365 역할에 대한 역할 검토 평가 수행(Office 365를 사용하는 경우)
 

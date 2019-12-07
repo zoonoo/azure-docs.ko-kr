@@ -13,14 +13,14 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/26/2019
+ms.date: 12/06/2019
 ms.author: cabailey
-ms.openlocfilehash: e72b9012b41f50b36ba7d92582d0c697e6db0683
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546856"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900448"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위협 감지
 
@@ -70,7 +70,7 @@ ms.locfileid: "74546856"
 
 5. 명령 모음에서 **재생** 을 선택 합니다.
     
-    명령 모음 아래의 상태 표시줄에는 라이브 스트림 실행 중인지 아니면 일시 중지 되었는지 여부가 표시 됩니다. 다음 예제에서는 세션이 실행 됩니다.
+    명령 모음 아래의 상태 표시줄에는 라이브 스트림 세션이 실행 중인지 아니면 일시 중지 되었는지 여부가 표시 됩니다. 다음 예제에서는 세션이 실행 됩니다.
     
     > [!div class="mx-imgBorder"]
     > ![Azure 센티널 구하기](./media/livestream/livestream-session.png)에서 라이브 스트림 세션을 만듭니다.
@@ -110,7 +110,6 @@ ms.locfileid: "74546856"
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 Azure 센티널에서 사냥 라이브 스트림를 사용 하는 방법을 알아보았습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-
 
 - [위협에 대 한 사전 구하기](hunting.md)
 - [노트북을 사용 하 여 자동화 된 구하기 캠페인 실행](notebooks.md)

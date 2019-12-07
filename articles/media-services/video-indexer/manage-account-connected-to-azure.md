@@ -1,7 +1,7 @@
 ---
 title: Video Indexer 계정 관리
 titleSuffix: Azure Media Services
-description: 이 문서에는 Azure에 연결된 Video Indexer 계정을 관리하는 방법을 설명합니다.
+description: 이 문서에서는 Azure에 연결 된 Video Indexer 계정을 관리 하는 방법을 보여 줍니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: a8221cdcf7afe82ee969f645d7f459c69519711d
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4f8491e31747eda9cbe8689ba7db3026df0ff3ad
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838978"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892773"
 ---
 # <a name="manage-a-video-indexer-account-connected-to-azure"></a>Azure에 연결된 Video Indexer 계정 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "73838978"
 > [!NOTE]
 > 이 항목에서 설명하는 계정 구성 조정을 수행하려면 Video Indexer 계정 소유자여야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [Azure에 연결](connect-to-azure.md)에서 설명한 대로 Video Indexer 계정을 Azure에 연결합니다. 
 
@@ -56,7 +56,7 @@ Video Indexer 계정이 Azure에 연결되면 다음 항목이 표시됩니다.
 
 자동 크기 조정은 1RU 미만으로 축소되거나 Media Services 계정의 기본 제한을 초과하도록 확장되지는 않습니다. 제한을 늘리려면 서비스 요청을 만드세요. 할당량 및 제한 사항과 지원 티켓을 여는 방법에 대한 자세한 내용은 [할당량 및 제한 사항](../../media-services/previous/media-services-quotas-and-limitations.md)을 참조하세요.
 
-![등록](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
+![계정 등록](./media/manage-account-connected-to-azure/autoscale-reserved-units.png)
 
 ## <a name="errors-and-warnings"></a>오류 및 경고
 

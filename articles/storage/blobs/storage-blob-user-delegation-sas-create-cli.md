@@ -1,20 +1,21 @@
 ---
-title: Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만듭니다 Azure Storage
-description: Azure CLI를 사용 하 여 Azure Storage에서 Azure Active Directory 자격 증명을 사용 하 여 사용자 위임 SAS를 만드는 방법에 대해 알아봅니다.
+title: Azure CLI를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+titleSuffix: Azure Storage
+description: Azure CLI를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 85f49799472c92770cc8a503a5a1be0b496387f7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673313"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892552"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Azure CLI (미리 보기)를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -40,7 +41,7 @@ Azure AD 보안 주체에 RBAC 역할을 할당할 수 있는 권한이 없는 �
 
 다음 예에서는 **저장소 Blob 데이터 참가자** 역할을 할당 합니다. 여기에는 **Microsoft Storage/Storageaccounts/Blobservices/generateUserDelegationKey** action이 포함 됩니다. 역할의 범위는 저장소 계정 수준에서 지정 됩니다.
 
-꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -57,7 +58,7 @@ Azure CLI를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서명 하
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-사용자 위임 SAS를 만들 때 `--auth-mode login` 및 `--as-user parameters`이 필요 합니다. Azure Storage에 대 한 요청이 Azure AD 자격 증명으로 인증 되도록 `--auth-mode` 매개 변수에 대 한 *로그인* 을 지정 합니다. 반환 된 SAS가 사용자 위임 SAS 여야 함을 나타내려면 `--as-user` 매개 변수를 지정 합니다.
+사용자 위임 SAS를 만들 때 `--auth-mode login` 및 `--as-user parameters` 필요 합니다. Azure Storage에 대 한 요청이 Azure AD 자격 증명으로 인증 되도록 `--auth-mode` 매개 변수에 대 한 *로그인* 을 지정 합니다. 반환 된 SAS가 사용자 위임 SAS 여야 함을 나타내려면 `--as-user` 매개 변수를 지정 합니다.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>컨테이너에 대 한 사용자 위임 SAS 만들기
 
@@ -117,7 +118,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?se=2019-
 
 Azure CLI에서 사용자 위임 SAS를 해지 하려면 [az storage account revoke-keys](/cli/azure/storage/account#az-storage-account-revoke-delegation-keys) 명령을 호출 합니다. 이 명령은 지정 된 저장소 계정과 연결 된 모든 사용자 위임 키를 해지 합니다. 이러한 키와 연결 된 공유 액세스 서명은 무효화 됩니다.
 
-꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```azurecli-interactive
 az storage account revoke-delegation-keys \

@@ -1,24 +1,25 @@
 ---
-title: Azure PowerShell를 사용 하 여 blob에 대 한 Azure AD 액세스 권한을 관리 하 고 RBAC를 사용 하 여 데이터를 큐에 대기 Azure Storage
-description: Azure PowerShell를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 컨테이너 및 큐에 대 한 액세스 권한을 할당 합니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
+title: PowerShell을 사용 하 여 데이터 액세스를 위한 RBAC 역할 할당
+titleSuffix: Azure Storage
+description: PowerShell을 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 사용 권한을 할당 하는 방법에 대해 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 57d30803f20d17ee31c3d42d9a26e04c1b0832b6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673187"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892020"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>PowerShell을 사용 하 여 Azure blob에 대 한 액세스 권한 부여 및 RBAC를 사용 하 여 데이터 큐
+# <a name="use-powershell-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>PowerShell을 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할 할당
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다. 
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 컨테이너 또는 큐에 액세스하는 데 사용되는 사용 권한의 공통 집합을 포함하는 기본 제공 RBAC 역할 집합을 정의합니다.
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
@@ -60,7 +61,7 @@ Storage Queue Data Reader                 Allows for read access to Azure Storag
 
 ### <a name="container-scope"></a>컨테이너 범위
 
-컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수의 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
+컨테이너에 범위가 지정 된 역할을 할당 하려면 `--scope` 매개 변수에 대 한 컨테이너 범위를 포함 하는 문자열을 지정 합니다. 컨테이너의 범위는 다음과 같은 형식입니다.
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>

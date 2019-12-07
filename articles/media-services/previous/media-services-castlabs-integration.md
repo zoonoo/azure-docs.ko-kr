@@ -1,6 +1,6 @@
 ---
 title: castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공 | Microsoft 문서
-description: 이 문서에서는 Azure Media Services(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다. PlayReady 라이선스는 Media Services PlayReady 라이선스 서버에서 제공되며 Widevine 라이선스는 castLabs 라이선스 서버에서 제공됩니다.
+description: 이 문서에서는 Azure Media Services(AMS)를 사용하여 PlayReady와 Widevine DRM이 모두 있는 AMS에서 동적으로 암호화된 스트림을 전달하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 9c61fad333037074f392b019ae61c161673e4008
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
+ms.openlocfilehash: c038480c9a49c96aaba7c7ff7299c8ebea31b81f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016685"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887784"
 ---
 # <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>castLabs를 사용하여 Azure Media Services에 Widevine 라이선스 제공 
 > [!div class="op_single_selector"]
@@ -58,7 +58,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 
 | 발급자 | 선택한 STS(보안 토큰 서비스)의 발급자 문자열 |
 | --- | --- |
-| 대상 사용자 |사용된 STS의 대상 문자열 |
+| 대상 |사용된 STS의 대상 문자열 |
 | 클레임 |클레임 집합 |
 | NotBefore |토큰의 시작 유효성 |
 | 만료 |토큰의 종료 유효성 |
@@ -68,7 +68,7 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 
 다음 표에서는 castLabs의 JWT 토큰을 설명합니다. 
 
-| 이름 | 설명 |
+| name | 설명 |
 | --- | --- |
 | optData |사용자에 대한 정보가 포함된 JSON 문자열. |
 | crt |자산, 해당 자산의 라이선스 정보 및 재생 권한에 대한 정보가 포함된 JSON 문자열. |
@@ -118,6 +118,6 @@ castLabs 및 AMS는 둘 다 라이선스를 인증하는 데 사용되는 JWT(JS
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

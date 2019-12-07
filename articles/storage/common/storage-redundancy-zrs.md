@@ -1,22 +1,23 @@
 ---
-title: ZRS(영역 중복 스토리지)에서 고가용성 Azure Storage 애플리케이션 빌드 | Microsoft Docs
+title: ZRS (영역 중복 저장소)를 사용 하 여 항상 사용 가능한 응용 프로그램 빌드
+titleSuffix: Azure Storage
 description: ZRS(영역 중복 스토리지)는 고가용성 애플리케이션을 빌드하는 간단한 방법을 제공합니다. ZRS는 데이터센터의 하드웨어 오류뿐 아니라 일부 지역적인 재해로부터 보호합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/28/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: a86d94110e78b7ace0e963469e9f236f7cc72ab4
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555465"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895189"
 ---
-# <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>항상 사용 가능한 Azure Storage 응용 프로그램을 빌드하기 위한 ZRS (영역 중복 저장소)
+# <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>ZRS (영역 중복 저장소)를 사용 하 여 항상 사용 가능한 응용 프로그램 빌드
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 

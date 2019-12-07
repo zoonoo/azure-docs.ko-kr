@@ -2,23 +2,23 @@
 title: RBAC 역할 및 사용 권한
 description: Azure RBAC(역할 기반 액세스 제어)와 IAM(ID 및 액세스 관리)을 사용하여 Azure Container Registry에서 리소스에 대한 세분화된 사용 권한을 제공합니다.
 ms.topic: article
-ms.date: 03/20/2019
-ms.openlocfilehash: 8ef4f26dfd59c7b3b177ef58fa23e08f7e66d328
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 12/02/2019
+ms.openlocfilehash: 3fb103ac4c4dac736b3c0fc99b2cf49f01e9e005
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456246"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893487"
 ---
 # <a name="azure-container-registry-roles-and-permissions"></a>Azure Container Registry 역할 및 권한
 
-Azure Container Registry 서비스는 Azure Container Registry에 대한 다양한 수준의 권한을 제공하는 Azure 역할 세트를 지원합니다. Azure RBAC([역할 기반 액세스 제어](../role-based-access-control/index.yml))를 사용하여 레지스트리를 조작해야 하는 사용자 또는 서비스 주체에 특정 권한을 할당합니다.
+Azure Container Registry 서비스는 Azure Container Registry에 대해 서로 다른 수준의 사용 권한을 제공 하는 [기본 제공 azure 역할](../role-based-access-control/built-in-roles.md) 집합을 지원 합니다. Azure [역할 기반 액세스 제어](../role-based-access-control/index.yml) (RBAC)를 사용 하 여 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 특정 권한을 할당 합니다. 
 
 | 역할/권한       | [Resource Manager 액세스](#access-resource-manager) | [레지스트리 만들기/삭제](#create-and-delete-registry) | [이미지 푸시](#push-image) | [이미지 풀](#pull-image) | [이미지 데이터 삭제](#delete-image-data) | [정책 변경](#change-policies) |   [이미지 서명](#sign-images)  |
 | ---------| --------- | --------- | --------- | --------- | --------- | --------- | --------- |
 | 소유자 | X | X | X | X | X | X |  |  
-| 참여자 | X | X | X |  X | X | X |  |  
-| 읽기 권한자 | X |  |  | X |  |  |  |
+| 기여자 | X | X | X |  X | X | X |  |  
+| 판독기 | X |  |  | X |  |  |  |
 | AcrPush |  |  | X | X | |  |  |  
 | AcrPull |  |  |  | X |  |  |  |  
 | AcrDelete |  |  |  |  | X |  |  |
@@ -68,8 +68,25 @@ Azure Container Registry를 만들고 삭제하는 기능입니다.
 
 일반적으로 자동화된 프로세스에 할당되는, 서비스 주체를 사용하는 이미지 서명 기능입니다. 일반적으로 이 권한은 [이미지 푸시](#push-image)와 결합되어 신뢰할 수 있는 이미지를 레지스트리에 푸시할 수 있도록 합니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조하세요.
 
+## <a name="custom-roles"></a>사용자 지정 역할
+
+다른 Azure 리소스와 마찬가지로 Azure Container Registry 하는 세분화 된 권한으로 고유한 [사용자 지정 역할](../role-based-access-control/custom-roles.md) 을 만들 수 있습니다. 그런 다음 사용자, 서비스 주체 또는 레지스트리와 상호 작용 해야 하는 다른 id에 사용자 지정 역할을 할당 합니다. 
+
+사용자 지정 역할에 적용할 권한을 결정 하려면 Microsoft.containerregistry [작업](../role-based-access-control/resource-provider-operations.md#microsoftcontainerregistry)목록을 참조 하거나, [기본 제공 ACR 역할](../role-based-access-control/built-in-roles.md)의 허용 된 작업을 검토 하거나, 다음 명령을 실행 합니다.
+
+```azurecli
+az provider operation show --namespace Microsoft.ContainerRegistry
+```
+
+사용자 지정 역할을 정의 하려면 [사용자 지정 역할을 만드는 단계](../role-based-access-control/custom-roles.md#steps-to-create-a-custom-role)를 참조 하세요.
+
+> [!IMPORTANT]
+> 사용자 지정 역할에서 Azure Container Registry는 현재 모든 일치 작업에 대 한 액세스 권한을 부여 하는 `Microsoft.ContainerRegistry/*` 또는 `Microsoft.ContainerRegistry/registries/*`와 같은 와일드 카드를 지원 하지 않습니다. 역할에서 필수 작업을 개별적으로 지정 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Portal](../role-based-access-control/role-assignments-portal.md), [Azure CLI](../role-based-access-control/role-assignments-cli.md) 또는 기타 Azure 도구를 사용하여 Azure ID에 RBAC 역할을 할당하는 방법을 자세히 알아봅니다.
 
 * Azure Container Registry의 [인증 옵션](container-registry-authentication.md)에 대해 알아봅니다.
+
+* 컨테이너 레지스트리에서 [리포지토리 범위 권한](container-registry-repository-scoped-permissions.md) (미리 보기)을 사용 하도록 설정 하는 방법에 대해 알아봅니다.

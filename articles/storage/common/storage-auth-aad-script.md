@@ -1,20 +1,21 @@
 ---
-title: Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스 | Microsoft Docs
+title: Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
+titleSuffix: Azure Storage
 description: Azure CLI 및 PowerShell은 Azure Storage blob 및 큐 데이터에서 명령을 실행 하기 위해 Azure AD 자격 증명으로 로그인을 지원 합니다. 세션에 액세스 토큰이 제공되고 호출 작업에 권한을 부여하는 데 사용됩니다. 사용 권한은 Azure AD 보안 주체에 할당 된 RBAC 역할에 따라 달라 집니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: e1c7f4531dee8673cc5b6dfe675e4c793144931e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 07abb9d604c14a5c78a088cb07f57088b84552a6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71671096"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891867"
 ---
 # <a name="run-azure-cli-or-powershell-commands-with-azure-ad-credentials-to-access-blob-or-queue-data"></a>Azure AD 자격 증명을 사용 하 여 Azure CLI 또는 PowerShell 명령을 실행 하 여 blob 또는 큐 데이터에 액세스
 
@@ -30,16 +31,16 @@ RBAC (역할 기반 액세스 제어)를 통해 blob에 사용 권한을 할당 
 
 ## <a name="call-cli-commands-using-azure-ad-credentials"></a>Azure AD 자격 증명을 사용 하 여 CLI 명령 호출
 
-Azure CLI는 blob `--auth-mode` 및 큐 데이터 작업에 대 한 매개 변수를 지원 합니다.
+Azure CLI는 blob 및 큐 데이터 작업을 위한 `--auth-mode` 매개 변수를 지원 합니다.
 
-- Azure AD 보안 주체 `login` 를 사용 하 여 로그인 하려면 매개변수를로설정합니다.`--auth-mode`
+- Azure AD 보안 주체를 사용 하 여 로그인 하려면 `--auth-mode` 매개 변수를 `login`로 설정 합니다.
 - 계정에 대한 인증 매개 변수가 제공되지 않을 경우 계정 키를 쿼리하려면 `--auth-mode` 매개 변수를 레거시 `key` 값으로 설정합니다. 
 
-다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure CLI에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다. 
+다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure CLI에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다. 
 
 1. Azure CLI 버전 2.0.46 이상을 설치 했는지 확인 합니다. `az --version`을 실행하여 설치된 버전을 확인합니다.
 
-1. 을 `az login` 실행 하 고 브라우저 창에서 인증 합니다. 
+1. `az login`를 실행 하 고 브라우저 창에서 인증 합니다. 
 
     ```azurecli
     az login
@@ -67,7 +68,7 @@ Azure CLI는 blob `--auth-mode` 및 큐 데이터 작업에 대 한 매개 변�
     > [!IMPORTANT]
     > RBAC 역할 할당을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
 
-1. 매개 변수가 로`login` 설정 된 [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) 명령을 호출 하 여 Azure AD 자격 증명을 사용 하 여 컨테이너를 만듭니다. `--auth-mode`
+1. `login`로 설정 된 `--auth-mode` 매개 변수를 사용 하 여 [az storage container create](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) 명령을 호출 하 고 Azure AD 자격 증명을 사용 하 여 컨테이너를 만듭니다.
 
     ```azurecli
     az storage container create \ 
@@ -84,7 +85,7 @@ Azure CLI는 blob `--auth-mode` 및 큐 데이터 작업에 대 한 매개 변�
 
 Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 사용 하 여 Azure Storage에 대해 후속 작업을 실행 하려면 저장소 계정을 참조 하는 저장소 컨텍스트를 만들고 `-UseConnectedAccount` 매개 변수를 포함 합니다.
 
-다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure PowerShell에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+다음 예제에서는 Azure AD 자격 증명을 사용 하 여 Azure PowerShell에서 새 저장소 계정으로 컨테이너를 만드는 방법을 보여 줍니다. 꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 1. [AzAccount](/powershell/module/az.accounts/connect-azaccount) 명령을 사용 하 여 Azure 계정에 로그인 합니다.
 
@@ -111,7 +112,7 @@ Azure PowerShell를 사용 하 여 로그인 하 고 Azure AD 자격 증명을 �
       -Location $location `
     ```
 
-1. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)를 호출 하 여 새 저장소 계정을 지정 하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 동작 하는 경우 자격 증명을 반복 해 서 전달 하는 대신 컨텍스트를 참조할 수 있습니다. Azure AD `-UseConnectedAccount` 자격 증명을 사용 하 여 후속 데이터 작업을 호출 하는 매개 변수를 포함 합니다.
+1. [AzStorageContext](/powershell/module/az.storage/new-azstoragecontext)를 호출 하 여 새 저장소 계정을 지정 하는 저장소 계정 컨텍스트를 가져옵니다. 저장소 계정에서 동작 하는 경우 자격 증명을 반복 해 서 전달 하는 대신 컨텍스트를 참조할 수 있습니다. Azure AD 자격 증명을 사용 하 여 후속 데이터 작업을 호출 하려면 `-UseConnectedAccount` 매개 변수를 포함 합니다.
 
     ```powershell
     $ctx = New-AzStorageContext -StorageAccountName "<storage-account>" -UseConnectedAccount

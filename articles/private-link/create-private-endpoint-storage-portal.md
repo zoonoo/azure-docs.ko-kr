@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bd3e33fde3f4249064bfbe1973ee95f680630673
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 2a2a96a823867ea7700933c8253a0ba500b0e1cf
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851165"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899818"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -132,7 +132,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
     | 서브넷 |  *mySubnet*을 선택합니다. |
     | **프라이빗 DNS 통합**|  |
     | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
-    | 프라이빗 DNS 영역  | 기본값인 * * (New) privatelink.blob.core.windows.net * *를 그대로 둡니다. |
+    | 프라이빗 DNS 영역  | 기본값 **(New) privatelink.blob.core.windows.net**을 그대로 둡니다. |
     |||
 7. **확인**을 선택합니다. 
 8. **검토 + 만들기**를 선택합니다. **검토 + 만들기** 페이지로 이동됩니다. 여기서 구성이 유효한지 검사됩니다. 
@@ -151,7 +151,7 @@ https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고 컴퓨터에 다운로드합니다.
 
-1. 다운로드 한 .rdp* 파일을 엽니다.
+1. *다운로드 한 .rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 

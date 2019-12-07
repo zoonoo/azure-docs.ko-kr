@@ -3,21 +3,21 @@ title: Azure IoT Central에서 규칙에 대해 웹후크 만들기 | Microsoft 
 description: 규칙이 실행되면 자동으로 다른 애플리케이션에 알리기 위해 Azure IoT Central에 웹 후크를 만듭니다.
 author: viv-liu
 ms.author: viviali
-ms.date: 10/21/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: d1f99be5f21cbf8f1dcfe4a32595a639d3760494
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 206c93c291654d22e945c3064e3c581dceb50cea
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929926"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895480"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central-preview-features"></a>Azure IoT Central의 규칙에 대 한 웹 후크 작업 만들기 (미리 보기 기능)
 
-*이 항목의 내용은 빌더와 관리자에게 적용됩니다.*
+‘이 항목의 내용은 빌더와 관리자에게 적용됩니다.’
 
 웹후크를 사용하면 원격 모니터링 및 알림을 위해 IoT Central 앱을 다른 애플리케이션 및 서비스에 연결할 수 있습니다. 웹후크는 IoT Central 앱에서 규칙이 트리거될 때마다 연결하는 다른 애플리케이션 및 서비스에 자동으로 알립니다. IoT Central 앱은 규칙이 트리거될 때마다 다른 응용 프로그램의 HTTP 끝점에 POST 요청을 보냅니다. 페이로드는 장치 세부 정보 및 규칙 트리거 세부 정보를 포함 합니다.
 

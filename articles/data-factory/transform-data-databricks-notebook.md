@@ -1,5 +1,5 @@
 ---
-title: Databricks 노트북을 사용 하 여 데이터 변환-Azure
+title: Databricks 노트북을 사용 하 여 데이터 변환
 description: Databricks Notebook을 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ manager: jroth
 ms.reviewer: maghan
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: 685a7863af74bf90c819453b41078b48ab6d2045
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0768c16562a3931249dbbbc8f836ae14e7d0958b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683921"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893997"
 ---
 # <a name="transform-data-by-running-a-databricks-notebook"></a>Databricks Notebook을 실행하여 데이터 변환
 
@@ -57,15 +57,15 @@ Databricks Notebook 활동에 대한 샘플 JSON 정의는 다음과 같습니�
 
 다음 표에서는 JSON 정의에 사용하는 JSON 속성을 설명합니다.
 
-|속성|설명|필수|
+|자산|설명|필수|
 |---|---|---|
-|name|파이프라인의 작업 이름입니다.|예|
-|설명|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아니오|
-|type|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|예|
-|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|예|
-|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|예|
-|baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|아니오|
-|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. \<문자열, 개체>의 배열일 수 있습니다.|아니오|
+|이름|파이프라인의 작업 이름입니다.|yes|
+|description|작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.|아닙니다.|
+|type|Databricks Notebook 활동의 경우 활동 유형은 DatabricksNotebook입니다.|yes|
+|linkedServiceName|Databricks Notebook이 실행되는 Databricks 연결된 서비스의 이름입니다. 이 연결된 서비스에 대한 자세한 내용은  [연결된 서비스 Compute](compute-linked-services.md)  문서를 참조하세요.|yes|
+|notebookPath|Databricks 작업 영역에서 실행할 노트북의 절대 경로입니다. 이 경로는 슬래시로 시작해야 합니다.|yes|
+|baseParameters|키-값 쌍의 배열입니다. 각 활동 실행에 기본 매개 변수를 사용할 수 있습니다. 노트북에서 지정되지 않은 매개 변수를 사용하는 경우, 노트북의 기본값이 사용됩니다. 매개 변수에 대한 자세한 정보는 [Databricks Notebook](https://docs.databricks.com/api/latest/jobs.html#jobsparampair)을 참조하세요.|아닙니다.|
+|라이브러리|작업을 실행할 클러스터에 설치할 라이브러리의 목록입니다. \<문자열, 개체>의 배열일 수 있습니다.|아닙니다.|
 
 
 ## <a name="supported-libraries-for-databricks-activities"></a>Databricks 활동의 지원되는 라이브러리

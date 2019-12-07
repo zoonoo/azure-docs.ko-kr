@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 5739883984d4087d2b2a1bda66c01ff3cfa10eb0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/04/2019
+ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894271"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
@@ -56,7 +56,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(CounterValue) by Computer, bin(TimeGenerated, 1h)
     ```
 
-* 초당 들어오는 메시지 수:
+* 초당 들어오는 메시지 수: (`your_kafka_cluster_name`을 클러스터 이름으로 바꿉니다.)
 
     ```kusto
     metrics_kafka_CL 
@@ -64,7 +64,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_MessagesInPerSec_Count_value_d) by HostName_s, bin(TimeGenerated, 1h)
     ```
 
-* 초당 수신 바이트:
+* 초당 수신 바이트: (`wn0-kafka`를 작업자 노드 호스트 이름으로 바꿉니다.)
 
     ```kusto
     metrics_kafka_CL 
@@ -72,16 +72,13 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesInPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
 
-* 초당 나가는 바이트:
+* 초당 나가는 바이트: (`your_kafka_cluster_name`을 클러스터 이름으로 바꿉니다.)
 
     ```kusto
     metrics_kafka_CL 
     | where ClusterName_s == "your_kafka_cluster_name" and InstanceName_s == "kafka-BrokerTopicMetrics-BytesOutPerSec-Count" 
     | summarize AggregatedValue = avg(kafka_BrokerTopicMetrics_BytesOutPerSec_Count_value_d) by bin(TimeGenerated, 1h)
     ```
-
-    > [!IMPORTANT]  
-    > 쿼리 값을 클러스터 관련 정보로 바꿉니다. 예를 들어 `ClusterName_s`를 클러스터의 이름으로 설정해야 합니다. `HostName_s`는 클러스터의 작업자 노드 도메인 이름으로 설정해야 합니다.
 
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.
 
@@ -100,6 +97,6 @@ Azure Monitor에 대 한 자세한 내용은 [Azure Monitor 개요](../../log-an
 Apache Kafka 작업에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [HDInsight 클러스터 간 Apache Kafka 미러링](apache-kafka-mirroring.md)
-* [HDInsight의 Apache Kafka 확장성 개선](apache-kafka-scalability.md)
+* [HDInsight에서 Apache Kafka 규모 증가](apache-kafka-scalability.md)
 * [Apache Kafka에서 Apache Spark 스트리밍(DStream) 사용](../hdinsight-apache-spark-with-kafka.md)
 * [Apache Kafka에서 Apache Spark 구조적 스트림 사용](../hdinsight-apache-kafka-spark-structured-streaming.md)

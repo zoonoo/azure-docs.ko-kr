@@ -4,12 +4,12 @@ description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: bdb59e5ec461288c89e4c7d036488b5eaeb9472a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 1fb739c8d517654c7258fd3a58c93ab29602f228
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554870"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894065"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -51,7 +51,8 @@ Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소�
 
 ### <a name="view-azure-backup-data-by-using-log-analytics"></a>Log Analytics를 사용 하 여 Azure Backup 데이터 보기
 
-템플릿을 배포한 후 Azure Backup의 모니터링 및 보고에 대 한 솔루션이 작업 영역 요약 영역에 표시 됩니다. 요약으로 이동 하려면 다음 경로 중 하나를 수행 합니다.
+> [!IMPORTANT]
+> LA 보고 템플릿은 현재 Azure진단 모드에서 레거시 이벤트 AzureBackupReport의 데이터를 지원 합니다. 이 템플릿을 사용 하려면 [Azure 진단 모드에서 자격 증명 모음 진단 설정을 구성](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events#legacy-event)해야 합니다. 
 
 - **Azure Monitor**: **Insights** 섹션에서 **자세히** 를 선택 하 고 관련 작업 영역을 선택 합니다.
 - **Log Analytics 작업 영역**: 관련 작업 영역을 선택한 다음 **일반**에서 **작업 영역 요약**을 선택 합니다.

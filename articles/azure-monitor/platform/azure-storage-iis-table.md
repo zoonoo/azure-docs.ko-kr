@@ -7,14 +7,14 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 04/12/2017
-ms.openlocfilehash: 8f70ecc96269783c29c566fb89bd617f034316b1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2d2d8d43cb5ee91810d639c4ee8925d185987954
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932683"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893555"
 ---
-# <a name="collect-azure-diagnostic-logs-from-azure-storage"></a>Azure Storage에서 Azure 진단 로그 수집
+# <a name="collect-azure-resource-logs-from-azure-storage"></a>Azure Storage에서 Azure 리소스 로그 수집
 
 테이블 저장소에 진단을 쓰는 다음 서비스에 대 한 로그 또는 blob 저장소에 기록 된 IIS 로그를 읽을 수 Azure Monitor.
 

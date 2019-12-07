@@ -7,12 +7,12 @@ ms.date: 11/26/2019
 ms.author: fauhse
 ms.subservice: files
 description: StorSimple은 수명 종료 제품 이며 Azure File Sync는로 마이그레이션할 솔루션입니다. 마이그레이션 개념에 대해 알아보고 사용자 지정 된 마이그레이션 도움말에 대 한 AzureFiles@microsoft.com에 연결 합니다.
-ms.openlocfilehash: edad4d1c6be2c39dbf8150b6ab8979ae3924fb53
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 1cc88080522a62085d9a515223512ef25c20a9e4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666664"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895091"
 ---
 # <a name="storsimple-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 마이그레이션
 
@@ -26,7 +26,7 @@ StorSimple에서 바로 마이그레이션 계획을 시작 하는 것이 중요
 StorSimple에서 Azure File Sync로 마이그레이션해야 하는 고객은 자체적으로 진행 하지 않아도 된다는 점에 유의 해야 합니다.
 
 > [!IMPORTANT]
-> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 전자 메일 AzureFiles@microsoft.com입니다.
+> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 AzureFiles@microsoft .com을 메일로 보냅니다.
 
 ## <a name="migration-approach"></a>마이그레이션 방법
 Azure File Sync로 마이그레이션하는 작업은 온-프레미스 및 제한 된 가동 중지 시간에 미치는 영향을 최소화 하면서 클라우드 쪽을 시작 합니다.
@@ -35,7 +35,7 @@ StorSimple 7000 시리즈에서 마이그레이션해야 하는 경우 첫 번�
 AzureFiles@microsoft.com에 도달 하면 적절 한 수의 loaner 장치를 구성 하는 데 도움이 됩니다.
 
 ### <a name="general-approach"></a>일반적인 방법
-![#B0](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "임시 가상 어플라이언스 및 Windows Server를 통해 온-프레미스 StorSimple 어플라이언스를 교체 하는 새 온-프레미스 Windows Server에 대 한 클라우드 쪽 마이그레이션 소개")
+![Alt](media/storage-sync-files-storsimple-migration/storsimple-docs-overview-concept.png "임시 가상 어플라이언스 및 Windows Server를 통해 온-프레미스 StorSimple 어플라이언스를 교체 하는 새 온-프레미스 Windows Server에 대 한 클라우드 쪽 마이그레이션 소개")
 
 1. 온-프레미스 StorSimple 어플라이언스의 볼륨 클론을 사용 하 여 임시 StorSimple 가상 어플라이언스에 탑재 합니다.
 2. ISCSI를 통해 가상 어플라이언스를 임시 Azure VM에 연결 합니다.
@@ -61,13 +61,13 @@ AzureFiles@microsoft.com에 도달 하면 적절 한 수의 loaner 장치를 구
 왼쪽 이미지에는 다음과 같이 표시 됩니다. 표준 Azure File Sync 배포 기능은 Azure File Sync를 통해 여러 Azure 파일 공유 및 Windows Server에 연결 됩니다. 단일 서버는 다른 로컬 폴더를 서로 다른 파일 공유에 동시에 연결할 수 있습니다.
 또한 한 Azure 파일 공유는 여러 다른 서버에 동기화 할 수 있습니다 .이 경우 지점에 캐시 된 데이터가 필요 합니다. 또한 온-프레미스 저장소 공간을 보다 효율적으로 사용 하기 위해 클라우드 계층화 정책을 최적화할 수 있는지 확인 합니다.
 
-![#B0](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "마이그레이션이 완료 된 후의 목표를 보여 주는 그림입니다. 클라우드 또는 Windows Server에서 파일에 액세스 하는 사용자 및 응용 프로그램을 사용 하 여 온-프레미스 Windows Server와 동기화 하는 많은 파일 공유를 보여 줍니다.")
+![Alt](media/storage-sync-files-storsimple-migration/storsimple-docs-goal.PNG "마이그레이션이 완료 된 후의 목표를 보여 주는 그림입니다. 클라우드 또는 Windows Server에서 파일에 액세스 하는 사용자 및 응용 프로그램을 사용 하 여 온-프레미스 Windows Server와 동기화 하는 많은 파일 공유를 보여 줍니다.")
 
 ## <a name="next-steps"></a>다음 단계
 Azure Files 및 Azure File Sync에 익숙해져야 합니다. 성공적인 마이그레이션을 위해 Azure File Sync 용어 및 배포 패턴을 이해 하는 것이 중요 합니다. 이 개요 문서의 모든 단계에 대 한 자세한 정보를 제공 합니다. 마이그레이션을 계획 하 고 실행 하는 동안 사용자 지정 된 도움말을 확인 하려면 Microsoft에 문의 하세요.
 
 > [!IMPORTANT]
-> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 전자 메일 AzureFiles@microsoft.com입니다.
+> Microsoft는 마이그레이션하는 고객을 지원 하기 위해 최선을 다하고 있습니다. 마이그레이션 중에 지원 뿐만 아니라 사용자 지정 된 마이그레이션 계획에 대 한 AzureFiles@microsoft .com을 메일로 보냅니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 Azure File Sync를 처음 접하는 경우 대상 서비스로 Azure File Sync에는 두 가지 기본 문서를 읽는 것이 좋습니다.

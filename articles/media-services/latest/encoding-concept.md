@@ -1,7 +1,7 @@
 ---
 title: Media Services를 사용 하 여 비디오 및 오디오 인코딩
 titleSuffix: Azure Media Services
-description: Azure Media Services를 사용 하 여 비디오 및 오디오 인코딩에 대해 알아봅니다.
+description: 이 문서에서는 Azure Media Services를 사용 하 여 비디오 및 오디오 인코딩에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: d3de307b1dadf302004fa9fd02c8cf23e36b3046
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e9a0a8c8709e41bb7778878f76024263cdc32481
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574273"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896080"
 ---
 # <a name="encoding-video-and-audio-with-media-services"></a>Media Services를 사용 하 여 비디오 및 오디오 인코딩
 
@@ -26,7 +26,7 @@ Media Services의 용어 인코딩은 디지털 비디오 및/또는 오디오�
 
 비디오는 일반적으로 [점진적 다운로드](https://en.wikipedia.org/wiki/Progressive_download) 또는 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)통해 장치 및 앱에 배달 됩니다.
 
-* 점진적 다운로드를 통해 제공 하기 위해 Azure Media Services를 사용 하 여 디지털 미디어 파일 (메자닌)을 [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) 파일로 변환할 수 있습니다. 여기에는 [H.](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) s s 4 코덱으로 인코딩된 비디오가 포함 되 고 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) 로 인코딩된 오디오는 포함 됩니다. 코덱은. 이 MP4 파일은 저장소 계정의 자산에 기록 됩니다. Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 하 여 파일을 직접 다운로드할 수 있습니다. 저장소에서 특정 컨테이너 이름을 사용 하 여 출력 자산을 만든 경우 해당 위치를 사용 합니다. 그렇지 않으면 Media Services를 사용 하 여 [자산 컨테이너 url을 나열할](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)수 있습니다. 
+* 점진적 다운로드를 통해 제공 하기 위해 Azure Media Services를 사용 하 여 디지털 미디어 파일 (메자닌)을 [MP4](https://en.wikipedia.org/wiki/MPEG-4_Part_14) 파일로 변환할 수 있습니다. 여기에는 [H.](https://en.wikipedia.org/wiki/H.264/MPEG-4_AVC) s s 4 코덱으로 인코딩된 비디오와 [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) 코덱으로 인코딩된 오디오가 포함 됩니다. 이 MP4 파일은 저장소 계정의 자산에 기록 됩니다. Azure Storage Api 또는 Sdk (예: [저장소 REST API](../../storage/common/storage-rest-api-auth.md) 또는 [.net SDK](../../storage/blobs/storage-quickstart-blobs-dotnet.md))를 사용 하 여 파일을 직접 다운로드할 수 있습니다. 저장소에서 특정 컨테이너 이름을 사용 하 여 출력 자산을 만든 경우 해당 위치를 사용 합니다. 그렇지 않으면 Media Services를 사용 하 여 [자산 컨테이너 url을 나열할](https://docs.microsoft.com/rest/api/media/assets/listcontainersas)수 있습니다. 
 * 적응 비트 전송률 스트리밍을 통해 콘텐츠를 준비 하려면 메자닌 파일을 여러 비트 전송률 (높은 수준에서 낮은 수준)으로 인코딩해야 합니다. 품질의 정상 전환을 보장 하기 위해 비트 전송률이 감소 하므로 비디오 해상도가 낮아집니다. 이로 인해이를 위한 인코딩 사다리 (해상도 및 비트 전송률이 [자동 생성 된 적응 비트 전송률 사다리](autogen-bitrate-ladder.md)참조) 라는 테이블이 생성 됩니다. Media Services를 사용 하 여 여러 비트 전송률로 메자닌 파일을 인코딩할 수 있습니다. 이렇게 하면 저장소 계정의 자산에 기록 된 MP4 파일 및 관련 스트리밍 구성 파일 집합을 얻게 됩니다. 그런 다음 Media Services의 [동적 패키징](dynamic-packaging-overview.md) 기능을 사용 하 여 [MPEG-대시](https://en.wikipedia.org/wiki/Dynamic_Adaptive_Streaming_over_HTTP) 및 [HLS](https://en.wikipedia.org/wiki/HTTP_Live_Streaming)와 같은 스트리밍 프로토콜을 통해 비디오를 배달할 수 있습니다. 이렇게 하려면 [스트리밍 로케이터](streaming-locators-concept.md) 를 만들고 지원 되는 프로토콜에 해당 하는 스트리밍 url을 작성 해야 합니다 .이 url은 해당 기능에 따라 장치/앱으로 전달 될 수 있습니다.
 
 다음 다이어그램에서는 동적 패키징을 사용 하는 주문형 인코딩에 대 한 워크플로를 보여 줍니다.
@@ -52,7 +52,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 
 비디오를 처리 하는 작업을 제출 하는 경우 입력 비디오를 찾을 수 있는 위치 Media Services 알려 주어 야 합니다. 옵션 중 하나는 HTTPS URL을 작업 입력으로 지정 하는 것입니다. 현재 Media Services v3은 HTTPS Url을 통한 청크 분할 전송 인코딩을 지원 하지 않습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 * [.NET을 사용 하 여 HTTPS URL에서 인코딩](stream-files-dotnet-quickstart.md)
 * [REST를 사용 하 여 HTTPS URL에서 인코딩](stream-files-tutorial-with-rest.md)
@@ -63,7 +63,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 
 입력 비디오는 Media Service 자산으로 저장할 수 있으며 이 경우 파일(로컬 또는 Azure Blob Storage에 저장됨)을 기반으로 입력 자산을 만듭니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 [기본 제공 기본 설정을 사용 하 여 로컬 파일 인코딩](job-input-from-local-file-how-to.md)
 
@@ -76,7 +76,7 @@ Media Services를 사용하여 인코딩하는 경우 미리 설정을 사용하
 > [!TIP]
 > 비디오를 다시 인코딩하지 않고 비디오의 하위 립를 스트리밍하려면 동적 패키지를 사용 하는 [미리 필터링 매니페스트](filters-dynamic-manifest-overview.md)를 사용 하는 것이 좋습니다.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 예를 참조 하세요.
 
@@ -122,7 +122,7 @@ Media Services는 다음과 같은 기본 제공 인코딩 미리 설정을 지�
 
 Media Services는 특정 인코딩 필요 및 요구 사항을 충족하기 위해 미리 설정에 포함된 모든 값을 완전히 사용자 지정할 수 있도록 지원합니다. 인코더 사전 설정을 사용자 지정 하는 방법을 보여 주는 예제는 아래 목록을 참조 하세요.
 
-#### <a name="examples"></a>예
+#### <a name="examples"></a>예시
 
 - [.NET을 사용 하 여 사전 설정 사용자 지정](customize-encoder-presets-how-to.md)
 - [CLI를 사용 하 여 사전 설정 사용자 지정](custom-preset-cli-howto.md)
@@ -145,4 +145,4 @@ Media Services v 3에서 사전 설정은 API 자체에서 강력한 형식의 �
 * [Media Services를 사용 하 여 업로드, 인코딩 및 스트리밍합니다](stream-files-tutorial-with-api.md).
 * [기본 제공 기본 설정을 사용 하 여 HTTPS URL에서 인코딩합니다](job-input-from-http-how-to.md).
 * [기본 제공 기본 설정을 사용 하 여 로컬 파일을 인코딩합니다](job-input-from-local-file-how-to.md).
-* [특정 시나리오 또는 장치 요구 사항을 대상으로 지정 하는 사용자 지정 사전 설정을 작성](customize-encoder-presets-how-to.md)합니다.
+* [특정 시나리오 또는 디바이스 요구 사항을 대상으로 사용자 지정 사전 설정 빌드](customize-encoder-presets-how-to.md)

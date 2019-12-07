@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 091d7f598a9841ae45b4248ad8a07a355203445a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894244"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893640"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md) 를 사용 하 여 데이터에 대 한 정보를 신속 하 게 파악 하는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이 고 유용한 쿼리를 만들려면 원하는 데이터의 위치와 구성 방법 등의 몇 가지 기본 개념을 이해 해야 합니다. 이 문서에서는 시작 하는 데 필요한 기본 개념을 제공 합니다.
@@ -27,7 +27,7 @@ Azure Monitor 로그의 데이터는 Log Analytics 작업 영역 또는 Applicat
 ![테이블](media/logs-structure/queries-tables.png)
 
 ## <a name="log-analytics-workspace"></a>Log Analytics 작업 영역
-Application Insights를 제외 하 고 Azure Monitor 로그에 의해 수집 된 모든 데이터는 [Log Analytics 작업 영역](../platform/manage-access.md)에 저장 됩니다. 특정 요구 사항에 따라 하나 이상의 작업 영역을 만들 수 있습니다. Azure 리소스의 활동 로그 및 진단 로그, virtual machines의 에이전트, insights 및 모니터링 솔루션의 데이터와 같은 [데이터 원본은](../platform/data-sources.md) 온 보 딩의 일부로 구성 하는 하나 이상의 작업 영역에 데이터를 기록 합니다. [Azure Security Center](/azure/security-center/) 및 [Azure 센티널](/azure/sentinel/) 과 같은 다른 서비스 에서도 Log Analytics 작업 영역을 사용 하 여 데이터를 저장 하므로 다른 원본의 모니터링 데이터와 함께 로그 쿼리를 사용 하 여 분석할 수 있습니다.
+Application Insights를 제외 하 고 Azure Monitor 로그에 의해 수집 된 모든 데이터는 [Log Analytics 작업 영역](../platform/manage-access.md)에 저장 됩니다. 특정 요구 사항에 따라 하나 이상의 작업 영역을 만들 수 있습니다. 활동 로그 및 Azure 리소스의 리소스 로그, virtual machines의 에이전트, insights 및 모니터링 솔루션의 데이터 등의 [데이터 원본은](../platform/data-sources.md) 온 보 딩의 일부로 구성 하는 하나 이상의 작업 영역에 데이터를 기록 합니다. [Azure Security Center](/azure/security-center/) 및 [Azure 센티널](/azure/sentinel/) 과 같은 다른 서비스 에서도 Log Analytics 작업 영역을 사용 하 여 데이터를 저장 하므로 다른 원본의 모니터링 데이터와 함께 로그 쿼리를 사용 하 여 분석할 수 있습니다.
 
 다른 종류의 데이터는 작업 영역의 다른 테이블에 저장 되 고 각 테이블에는 고유한 속성 집합이 있습니다. 표준 테이블 집합이 만들어질 때 작업 영역에 추가 되 고, 등록 되는 다른 데이터 원본, 솔루션 및 서비스에 대 한 새 테이블이 추가 됩니다. [데이터 수집기 API](../platform/data-collector-api.md)를 사용 하 여 사용자 지정 테이블을 만들 수도 있습니다.
 
@@ -43,7 +43,7 @@ union withsource = table *
 | summarize count() by table
 | sort by table asc
 ```
-만든 테이블에 대 한 자세한 내용은 각 데이터 원본에 대 한 설명서를 참조 하세요. 예를 들면 [에이전트 데이터 원본](../platform/agent-data-sources.md), [진단 로그](../platform/diagnostic-logs-schema.md)및 [모니터링 솔루션](../insights/solutions-inventory.md)에 대 한 아티클이 있습니다.
+만든 테이블에 대 한 자세한 내용은 각 데이터 원본에 대 한 설명서를 참조 하세요. 예를 들면 [에이전트 데이터 원본](../platform/agent-data-sources.md), [리소스 로그](../platform/diagnostic-logs-schema.md)및 [모니터링 솔루션](../insights/solutions-inventory.md)에 대 한 아티클이 있습니다.
 
 ### <a name="workspace-permissions"></a>작업 영역 권한
 작업 영역에서 데이터에 대 한 액세스를 제공 하기 위한 액세스 제어 전략 및 권장 사항을 이해 하려면 [Azure Monitor 로그 배포 디자인](../platform/design-logs-deployment.md) 을 참조 하세요. 작업 영역에 대 한 액세스 권한을 부여 하는 것 외에도 [테이블 수준 RBAC](../platform/manage-access.md#table-level-rbac)를 사용 하 여 개별 테이블에 대 한 액세스를 제한할 수 있습니다.
@@ -59,8 +59,8 @@ Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램�
 | browserTimings      | 들어오는 데이터를 처리 하는 데 걸린 시간과 같은 클라이언트 성능에 대 한 데이터입니다. |
 | customEvents        | 응용 프로그램에서 만든 사용자 지정 이벤트입니다. |
 | customMetrics       | 응용 프로그램에서 만든 사용자 지정 메트릭입니다. |
-| 관계도        | 응용 프로그램에서 외부 구성 요소에 대 한 호출입니다. |
-| 단          | 응용 프로그램 런타임에서 throw 되는 예외입니다. |
+| 종속성        | 응용 프로그램에서 외부 구성 요소에 대 한 호출입니다. |
+| 예외          | 응용 프로그램 런타임에서 throw 되는 예외입니다. |
 | pageViews           | 브라우저 정보를 사용 하 여 각 웹 사이트 보기에 대 한 데이터입니다. |
 | performanceCounters | 응용 프로그램을 지 원하는 계산 리소스의 성능 측정 |
 | requests            | 각 응용 프로그램 요청에 대 한 세부 정보입니다.  |

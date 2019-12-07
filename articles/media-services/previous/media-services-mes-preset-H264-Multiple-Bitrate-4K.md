@@ -1,6 +1,6 @@
 ---
 title: H264 다중 비트 전송률 4K Media Encoder Standard 사전 설정-Azure | Microsoft Docs
-description: 이 항목은 **H264 다중 비트 전송률 4K** 태스크 미리 설정에 대한 개요를 제공합니다.
+description: 이 문서에서는 Media Encoder Standard **H264 다중 비트 전송률 4k** 태스크 미리 설정에 대 한 개요를 제공 합니다.
 author: Juliako
 manager: femila
 editor: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: e2c5339731267a00e3423e79bc25b9d03d274bfd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cec0fa3bd059cd31d9bd94773b0cce42d0f12a75
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61129587"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74887020"
 ---
 # <a name="h264-multiple-bitrate-4k"></a>H264 다중 비트 전송률 4K
 `Media Encoder Standard`는 인코딩 작업을 만들 때 사용할 수 있는 인코딩 미리 설정을 정의합니다. `preset name`을 사용하여 미디어 파일을 인코딩할 형식을 지정할 수 있습니다. 또는 자신만의 JSON 또는 XML 기반 미리 설정(UTF-8 또는 UTF-16 인코딩을 사용하여)을 만들 수 있습니다. 그런 다음 사용자 지정 미리 설정을 인코더에 전달합니다. `Media Encoder Standard` 인코더에서 지원되는 모든 미리 설정 이름의 목록을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](media-services-mes-presets-overview.md)을 참조하세요.  
@@ -32,7 +32,7 @@ ms.locfileid: "61129587"
 >  4K 인코딩으로 프리미엄 예약 단위 유형을 가져와야 합니다. 자세한 내용은 [Encoding 크기를 조정하는 방법](https://azure.microsoft.com/documentation/articles/media-services-portal-encoding-units)을 참조하세요.  
   
 > [!NOTE]
->  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예를 들면 다음과 같습니다. 1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
+>  계층에서 `Width` 및 `Height` 값을 수정하는 경우 가로 세로 비율을 일관적으로 유지해야 합니다. 예: 1920x1080, 1280x720, 1080x576, 640x360. 가로 세로 비율을 혼합하여 사용하지 말아야 합니다. 예: 1280x720, 720x480, 640x360.  
   
  XML  
   

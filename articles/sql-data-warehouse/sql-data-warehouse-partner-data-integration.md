@@ -11,12 +11,12 @@ ms.date: 03/27/2019
 ms.author: mabasile
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c6951ad129a564193a33a4c21fb97e9000ac8dc2
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 8dd111017076e4a1a6a93ac7d53c253a85a09376
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555457"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74890096"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>SQL Data Warehouse 데이터 통합 파트너
 데이터 웨어하우스 솔루션을 만들려면 다양한 업계 최고의 도구에서 선택합니다. 이 문서에서는 Azure SQL Data Warehouse을 지 원하는 공식 데이터 통합 솔루션을 사용 하는 Microsoft 파트너 회사를 강조 합니다.
@@ -32,10 +32,10 @@ ms.locfileid: "74555457"
 | ![Informatica][4] |**1. Azure에 대 한 Informatica Cloud Services**<br> Informatica Cloud는 셀프 서비스 데이터 마이그레이션, 통합 및 관리 기능을 제공 하는 최고의 솔루션을 제공 합니다. 고객은 다양 한 종류의 원본에서 Azure로 페타바이트 데이터를 빠르고 안정적으로 가져오고 내보낼 수 있습니다. Azure용 Informatica Cloud Services는 Azure SQL Data Warehouse, SQL 데이터베이스, Blob Storage, Data Lake Store 및 Azure Cosmos DB에 네이티브, 대용량 및 고성능 연결을 제공합니다. <br><br> **2. Informatica PowerCenter** PowerCenter는 데이터 통합 프로젝트를 전력망 하 여 데이터 통합 프로젝트를 가속화 하 고 수동 코딩 보다 신속 하 게 비즈니스에 데이터를 제공 하는 메타 데이터 기반 데이터 통합 플랫폼입니다. 데이터 통합 투자의 기반으로 사용 됩니다. |**Azure에 대 한 Informatica Cloud services**<br>[제품 페이지][informatica_Cloud_Services_website]<br>[Azure Marketplace][informatica_Cloud_Services_marketplace]<br><br> **Informatica PowerCenter**<br>[제품 페이지][informatica_PowerCenter_website]<br> [Azure Marketplace][informatica_PowerCenter_byol]<br>|
 | ![정보 작성기][5] |**정보 작성기 (전체 Gen 데이터 관리)**<br>정보 작성기의 전체 세대 데이터 관리 플랫폼은 데이터 통합, 데이터 품질 및 마스터 데이터 관리 솔루션을 제공 합니다. 형식, 위치, 볼륨 또는 대기 시간에 관계 없이 모든 데이터를 쉽게 액세스 하 고, 이동 하 고, 혼합할 수 있습니다.|[제품 페이지][omnifocus_website]<br> [Azure Marketplace][omnigen_marketplace] |
 | ![Qubole][9] |**Qubole**<br>Qubole는 사용자가 ETL, 분석 및 AI/ML 워크 로드를 수행할 수 있도록 하는 클라우드 네이티브 플랫폼을 제공 합니다. Apache Spark, TensorFlow, Presto, 통풍, Hadoop, Hive 등 다양 한 종류의 오픈 소스 엔진을 지원 합니다. SQL 쿼리 도구, 노트북, 강력한 오픈 소스 엔진을 활용 하는 대시보드로 데이터를 처리 하기 위한 사용 하기 쉬운 최종 사용자 도구를 제공 합니다.|[제품 페이지][qubole_website]<br> [Azure Marketplace][qubole_marketplace] |
-| ![세그먼트가][10] |**세그먼트**<br>세그먼트는 다양 한 원본에서 들어오는 고객 데이터를 이해 하는 데 도움이 되는 데이터 관리 및 분석 솔루션입니다. 이를 통해 데이터를 200 개 이상의 도구에 연결 하 여 더 나은 결정, 제품 및 환경을 만들 수 있습니다. 세그먼트는 기본 제공 데이터 커넥터를 사용 하 여 여러 데이터 원본을 사용자의 웨어하우스로 변환 하 고 로드 합니다.|[제품 페이지][segment_website]<br> |
+| ![세그먼트][10] |**세그먼트**<br>세그먼트는 다양 한 원본에서 들어오는 고객 데이터를 이해 하는 데 도움이 되는 데이터 관리 및 분석 솔루션입니다. 이를 통해 데이터를 200 개 이상의 도구에 연결 하 여 더 나은 결정, 제품 및 환경을 만들 수 있습니다. 세그먼트는 기본 제공 데이터 커넥터를 사용 하 여 여러 데이터 원본을 사용자의 웨어하우스로 변환 하 고 로드 합니다.|[제품 페이지][segment_website]<br> |
 | ![Skyvia][11] |**Skyvia (데이터 통합)**<br>Skyvia 데이터 통합은 데이터 가져오기를 자동화 하는 마법사를 제공 합니다. 이 마법사를 사용 하 여 다양 한 종류의 원본 (CRMs, 응용 프로그램 데이터베이스, CSV 파일 등) 간에 데이터를 마이그레이션할 수 있습니다. |[제품 페이지][segment_website]<br> |
 | ![SnapLogic][6] |**SnapLogic**<br>SnapLogic 플랫폼을 사용 하면 고객은 데이터를 Microsoft Azure SQL Data Warehouse으로 신속 하 게 전송할 수 있습니다. 단일 솔루션에서 수백 개의 응용 프로그램, 서비스 및 IoT 시나리오를 통합할 수 있는 기능을 제공 합니다.|[제품 페이지][snaplogic_website]<br>[Azure Marketplace][snaplogic_marketplace]<br> |
-| ![StreamSets][15] |**StreamSets**<br>StreamSets는 DataOps에 대 한 데이터 통합 플랫폼을 제공 합니다. Azure SQL Data Warehouse에 데이터를 통합 하기 위한 전체 디자인-배포-작업 수명 주기를 operationalizes 합니다. 스트리밍, 일괄 처리 또는 변경 된 데이터 캡처 데이터 전달 방법을 통해 웨어하우스 간에 데이터를 신속 하 게 수집 하 고 통합할 수는 없지만, 종단 간 데이터 흐름 표시 유형을 제공 하는 스마트 데이터 파이프라인을 사용 하는 연속 작업을 보장 합니다. 복구.|[제품 페이지][streamsets_website]|
+| ![StreamSets][16] |**StreamSets**<br>StreamSets는 DataOps에 대 한 데이터 통합 플랫폼을 제공 합니다. Azure SQL Data Warehouse에 데이터를 통합 하기 위한 전체 디자인-배포-작업 수명 주기를 operationalizes 합니다. 스트리밍, 일괄 처리 또는 변경 된 데이터 캡처 데이터 전달 방법을 통해 웨어하우스 간에 데이터를 신속 하 게 수집 하 고 통합할 수는 없지만, 종단 간 데이터 흐름 표시 유형을 제공 하는 스마트 데이터 파이프라인을 사용 하는 연속 작업을 보장 합니다. 복구.|[제품 페이지][streamsets_website]|
 | ![Talend][12] |**Talend 클라우드**<br>Talend Cloud는 클라우드 또는 온-프레미스에서 데이터를 연결, 액세스 및 변환 하기 위한 엔터프라이즈 데이터 통합 플랫폼입니다. 광범위 한 연결, 기본 제공 데이터 품질 및 최신 빅 데이터 및 클라우드 기술에 대 한 기본 지원을 제공 하는 iPaaS (integration platform as a service) 제품입니다. |[제품 페이지][talend_website]<br> [Azure Marketplace][talend_marketplace] |
 | ![모든 확장][13] |**모든 확장**<br>대상 확장의 검색 허브는 데이터를 최대 10 번까지 가속화 하는 통합 데이터 관리 플랫폼을 제공 하 여 기업에서 최신 데이터 공간을 구축 하는 데 도움이 됩니다. 단일 플랫폼에서 데이터 액세스, 데이터 모델링 및 규정 준수에 대 한 자동화 및 기능을 제공 하 여 일상적인 ETL (추출, 변환 및 로드) 또는 ELT (추출, 로드 및 변환)를 넘어 이동 합니다. 검색 허브는 클라우드 규모 분석을 위한 긴밀 한 데이터 패브릭을 제공 하므로 분석 및 AI에 대 한 다양 한 데이터 사일로, 카탈로그, 모델, 이동 및 문서 데이터를 연결 하 고 통합할 수 있습니다. | [제품 페이지][timextender_website] |
 | ![Trifacta][14] |**Trifacta Wrangler**<br> Trifacta를 사용 하면 개인 및 조직이 분석을 위해 다양 한 데이터를 탐색 하 고 조인할 수 있습니다. Trifacta Wrangler는 대규모의 최종 사용자에 게 데이터를 지원 해야 하는 데이터 랭 글 링 워크 로드를 처리 하도록 설계 되었습니다.|[제품 페이지][trifacta_website]<br> [Azure Marketplace][trifacta_marketplace] |

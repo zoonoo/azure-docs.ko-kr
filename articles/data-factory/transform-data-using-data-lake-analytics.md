@@ -1,23 +1,23 @@
 ---
-title: U-SQL 스크립트를 사용 하 여 데이터 변환-Azure
+title: U-SQL 스크립트를 사용 하 여 데이터 변환
 description: Azure Data Lake Analytics 컴퓨팅 서비스에서 U-SQL 스크립트를 실행하여 데이터를 처리하거나 변환하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/01/2018
-ms.author: abnarain
-ms.openlocfilehash: 53fb6773becff9f76c9658171965fbd148e94bc8
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: cb0ff5d93afc0941faa84028ad6454371cd0442c
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73683867"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893895"
 ---
 # <a name="transform-data-by-running-u-sql-scripts-on-azure-data-lake-analytics"></a>Azure Data Lake Analytics에서 U-SQL 스크립트를 실행하여 데이터 변환 
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -34,13 +34,13 @@ Azure 데이터 레이크 분석 컴퓨팅 서비스와 Azure Data Factory에 �
 
 다음 표에는 JSON 정의에서 사용하는 일반 속성에 대한 설명이 나와 있습니다. 
 
-| 속성                 | 설명                              | 필수                                 |
+| 자산                 | 설명                              | 필수                                 |
 | ------------------------ | ---------------------------------------- | ---------------------------------------- |
-| **type**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | 예                                      |
-| **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | 예                                      |
-| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아니요                                       |
-| **subscriptionId**       | Azure 구독 ID입니다.                    | 아니요                                       |
-| **resourceGroupName**    | Azure 리소스 그룹 이름                | 아니요                                       |
+| **type**                 | type 속성은 **AzureDataLakeAnalytics**로 설정해야 합니다. | yes                                      |
+| **accountName**          | Azure 데이터 레이크 분석 계정 이름입니다.  | yes                                      |
+| **dataLakeAnalyticsUri** | Azure 데이터 레이크 분석 URI입니다.           | 아닙니다.                                       |
+| **subscriptionId**       | Azure 구독 ID입니다.                    | 아닙니다.                                       |
+| **resourceGroupName**    | Azure 리소스 그룹 이름                | 아닙니다.                                       |
 
 ### <a name="service-principal-authentication"></a>서비스 주체 인증
 Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics 서비스에 연결하기 위해 서비스 사용자 인증이 필요합니다. 서비스 사용자 인증을 사용하려면 Azure AD(Azure Active Directory)에서 애플리케이션 엔터티를 등록하고 해당 엔터티에서 사용하는 Data Lake Analytics 및 Data Lake Store에 대한 액세스 권한을 부여합니다. 자세한 단계는 [서비스 간 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 참조하세요. 연결된 서비스를 정의하는 데 사용되므로 다음 값을 적어둡니다.
@@ -53,11 +53,11 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 속성을 지정하여 서비스 주체 인증을 사용합니다.
 
-| 속성                | 설명                              | 필수 |
+| 자산                | 설명                              | 필수 |
 | :---------------------- | :--------------------------------------- | :------- |
-| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | 예      |
-| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | 예      |
-| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | 예      |
+| **servicePrincipalId**  | 애플리케이션의 클라이언트 ID를 지정합니다.     | yes      |
+| **servicePrincipalKey** | 애플리케이션의 키를 지정합니다.           | yes      |
+| **테넌트**              | 애플리케이션이 있는 테넌트 정보(도메인 이름 또는 테넌트 ID)를 지정합니다. Azure Portal의 오른쪽 위 모서리에 마우스를 이동하여 검색할 수 있습니다. | yes      |
 
 **예제: 서비스 주체 인증**
 ```json
@@ -117,19 +117,19 @@ Azure Data Lake Analytics 연결된 서비스에는 Azure Data Lake Analytics �
 
 다음 표에는 이 작업과 관련된 속성 이름과 설명이 나와 있습니다. 
 
-| 속성            | 설명                              | 필수 |
+| 자산            | 설명                              | 필수 |
 | :------------------ | :--------------------------------------- | :------- |
-| name                | 파이프라인의 작업 이름입니다.     | 예      |
-| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아니요       |
-| type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | 예      |
-| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |예       |
-| scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | 예      |
-| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | 예      |
-| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아니요       |
-| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아니요       |
-| 매개 변수          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아니요       |
-| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아니요       |
-| compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아니요 |
+| 이름                | 파이프라인의 작업 이름입니다.     | yes      |
+| description         | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다.  | 아닙니다.       |
+| type                | Data Lake Analytics U-SQL 작업의 경우 작업 형식은 **DataLakeAnalyticsU-SQL**입니다. | yes      |
+| linkedServiceName   | Azure Data Lake Analytics에 연결된 서비스입니다. 이 연결된 서비스에 대한 자세한 내용은 [컴퓨팅 연결 서비스](compute-linked-services.md) 문서를 참조하세요.  |yes       |
+| scriptPath          | U-SQL 스크립트가 포함된 폴더 경로입니다. 파일 이름은 대/소문자를 구분합니다. | yes      |
+| scriptLinkedService | 스크립트가 포함된 스토리지를 **Azure Data Lake Store** 또는 **Azure Storage**에 연결하는 연결된 서비스입니다. | yes      |
+| degreeOfParallelism | 작업을 실행하는 데 동시에 사용되는 최대 노드 수입니다. | 아닙니다.       |
+| 우선 순위            | 대기열에 있는 모든 작업 중에서 먼저 실행해야 하는 작업을 결정합니다. 번호가 낮을수록 우선 순위가 높습니다. | 아닙니다.       |
+| parameters          | U-SQL 스크립트에 전달할 매개 변수입니다.    | 아닙니다.       |
+| runtimeVersion      | 사용할 U-SQL 엔진의 런타임 버전입니다. | 아닙니다.       |
+| compilationMode     | <p>U-SQL의 컴파일 모드 다음과 같은 값 중 하나여야 합니다. **의미 체계:** 의미 체계 확인 및 필요한 온전성 검사만을 수행합니다 **전체:** 구문 검사, 최적화, 코드 생성 등을 비롯하여 전체 컴파일을 수행합니다. **SingleBox:** SingleBox에 TargetType 설정을 사용하여 전체 컴파일을 수행합니다. 이 속성에 대한 값을 지정하지 않으면 서버가 최적의 컴파일 모드를 결정합니다. | 아닙니다. |
 
 스크립트 정의에 대해서는 [SearchLogProcessing.txt](#sample-u-sql-script)를 참조하세요. 
 
@@ -176,7 +176,7 @@ Azure Data Lake Analytics 서비스에서 실행되는 작업에 대한 파이�
 }
 ```
 
-동적 매개 변수를 대신 사용할 수 있습니다. 예: 
+동적 매개 변수를 대신 사용할 수 있습니다. 다음은 그 예입니다. 
 
 ```json
 "parameters": {

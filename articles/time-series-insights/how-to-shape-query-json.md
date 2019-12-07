@@ -7,14 +7,14 @@ ms.author: dpalled
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 10/09/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 386d10c8e4bd7d5f46d2081d5a26371fb37ff30f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 3d611806d31719899d249b29ed4b0ea499280252
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006994"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894905"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>JSON 셰이프 쿼리 성능 최대화 
 
@@ -98,7 +98,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | deviceId | messageId | deviceLocation |
    | --- | --- | --- |
    | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FYYY | LINE\_DATA | 미국 |
 
 * Time Series Insights 이벤트 테이블, 평면화 후:
 
@@ -106,7 +106,7 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
    | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FYYY | LINE\_DATA | 미국 | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
 
 > [!NOTE]
 > - **deviceId** 열은 다수의 다양한 디바이스에서 열 헤더로 사용합니다. **DeviceId** 값을 고유 속성 이름으로 설정 하면 총 장치 수가 595 (S1 환경) 또는 795 (S2 환경)에서 다른 5 개의 열로 제한 됩니다.
@@ -169,8 +169,8 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | --- | --- | --- | --- | --- | --- |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s |
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | 흐름 속도 | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi |
+   | FYYY | pumpRate | LINE\_DATA | 미국 | 흐름 속도 | ft3/s |
+   | FYYY | oilPressure | LINE\_DATA | 미국 | Engine Oil Pressure | psi |
 
 * Time Series Insights 이벤트 테이블, 평면화 후:
 
@@ -180,8 +180,8 @@ Azure cloud로 전송 될 때 JSON으로 serialize 되는 [IoT 장치 메시지 
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 34.7 |
    | FXXX | pumpRate | LINE\_DATA | EU | 흐름 속도 | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
    | FXXX | oilPressure | LINE\_DATA | EU | Engine Oil Pressure | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | US | 흐름 속도 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FYYY | pumpRate | LINE\_DATA | 미국 | 흐름 속도 | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | LINE\_DATA | 미국 | Engine Oil Pressure | psi | 2018-01-17T01:18:00Z | 22.2 |
 
 > [!NOTE]
 > - **DeviceId** 및 **tagId** 열은 제에서 다양 한 장치 및 태그의 열 머리글로 사용 됩니다. 각각을 고유한 특성으로 사용 하 여 쿼리를 594 (S1 환경) 또는 794 (S2 환경)의 6 개 열이 있는 총 장치 수로 제한 합니다.

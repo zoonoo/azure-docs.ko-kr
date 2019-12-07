@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: e8bb1d3328f95b647a788c53afe3ac1455eefa13
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 9958b241c44d619efea2f9ad516a2bd6d4f33d6e
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74665341"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892603"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
@@ -102,17 +102,19 @@ HANA에 대 한 여러 컨테이너 데이터베이스에서 표준 구성은 SY
 SAP HANA 1.0 데이터베이스를 보호 하 고 2.0로 업그레이드 하려는 경우 아래에 설명 된 단계를 수행 합니다.
 
 - 이전 SDC 데이터베이스에 대 한 데이터 보존을 사용 하 여 [보호를 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database) 합니다.
+- 업그레이드를 수행 합니다. 완료 후 HANA는 이제 시스템 DB 및 테 넌 트 DB를 사용 하 여 MDC를 사용 합니다.
 - (Sid 및 mdc)의 올바른 세부 정보를 사용 하 여 [등록 전 스크립트](https://aka.ms/scriptforpermsonhana) 를 다시 실행 합니다.
-- 확장을 다시 등록 합니다 (백업 > 보기 세부 정보-관련 Azure VM-> 다시 등록 > 선택).
+- Azure Portal에서 동일한 컴퓨터에 대 한 확장을 다시 등록 합니다 (백업 > 보기 세부 정보-관련 Azure VM-> 다시 등록 > 선택).
 - 동일한 VM에 대해 Db 다시 검색을 클릭 합니다. 이 작업은 2 단계에서 새 Db를 표시 하 고, 올바른 세부 정보 (SYSTEMDB 및 SDC가 아닌 테 넌 트 DB)를 표시 합니다.
-- 이러한 새 데이터베이스를 보호 합니다.
+- 이러한 새 데이터베이스에 대 한 백업을 구성 합니다.
 
 ## <a name="upgrading-without-an-sid-change"></a>SID 변경 없이 업그레이드
 
 다음에 설명 된 대로 SID 변경을 발생 시 키 지 않는 OS 또는 SAP HANA로의 업그레이드가 처리 될 수 있습니다.
 
 - 데이터베이스에 대 한 데이터 보관을 사용 하 여 [보호 중지](sap-hana-db-manage.md#stop-protection-for-an-sap-hana-database)
-- [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana) 를 다시 실행 합니다.
+- 업그레이드를 수행 합니다.
+- [사전 등록 스크립트](https://aka.ms/scriptforpermsonhana)를 다시 실행 합니다. 일반적으로 업그레이드 프로세스가 필요한 역할을 제거 하는 것을 볼 수 있습니다. 사전 등록 스크립트를 실행 하면 필요한 모든 역할을 확인 하는 데 도움이 됩니다.
 - 데이터베이스에 대 한 [보호 다시 시작](sap-hana-db-manage.md#resume-protection-for-an-sap-hana-database)
 
 ## <a name="next-steps"></a>다음 단계

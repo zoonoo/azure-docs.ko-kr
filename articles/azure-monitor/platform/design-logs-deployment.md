@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: MGoedtel
 ms.author: magoedte
 ms.date: 09/20/2019
-ms.openlocfilehash: ae737b908aad95f61cef922b493b41752da68f14
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 373c498b9ce58062e42f4318c9fa94688556d8c5
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932359"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894218"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 
@@ -80,7 +80,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
 
     ![작업 영역에서 컨텍스트 Log Analytics](./media/design-logs-deployment/query-from-workspace.png)
 
-* **리소스-컨텍스트**: Azure Portal의 리소스 메뉴에서 **로그** 를 선택 하는 경우와 같이 특정 리소스, 리소스 그룹 또는 구독에 대 한 작업 영역에 액세스 하는 경우 사용자가 보유 하 고 있는 모든 테이블의 리소스만 로그를 볼 수 있습니다. 에 대 한 액세스. 이 모드의 쿼리는 해당 리소스와 연결 된 데이터만으로 범위가 지정 됩니다. 이 모드는 세분화 된 RBAC도 가능 하 게 합니다.
+* **리소스-컨텍스트**: Azure Portal의 리소스 메뉴에서 **로그** 를 선택 하는 경우와 같이 특정 리소스, 리소스 그룹 또는 구독에 대 한 작업 영역에 액세스 하는 경우 액세스 권한이 있는 모든 테이블의 리소스에 대 한 로그를 볼 수 있습니다. 이 모드의 쿼리는 해당 리소스와 연결 된 데이터만으로 범위가 지정 됩니다. 이 모드는 세분화 된 RBAC도 가능 하 게 합니다.
 
     ![리소스에서 컨텍스트 Log Analytics](./media/design-logs-deployment/query-from-resource.png)
 
@@ -90,7 +90,7 @@ RBAC (역할 기반 액세스 제어)를 사용 하면 작업 영역에서 모�
     > - Service Fabric
     > - Application Insights
     >
-    > 쿼리를 실행 하 고 관심이 있는 레코드를 검사 하 여 로그가 리소스와 제대로 연결 되어 있는지 테스트할 수 있습니다. [_Resourceid](log-standard-properties.md#_resourceid) 속성에 올바른 리소스 ID가 있으면 리소스 중심 쿼리에서 데이터를 사용할 수 있습니다.
+    > 쿼리를 실행 하 고 관심이 있는 레코드를 검사 하 여 로그가 리소스와 제대로 연결 되어 있는지 테스트할 수 있습니다. [_ResourceId](log-standard-properties.md#_resourceid) 속성에 올바른 리소스 ID가 있으면 리소스 중심 쿼리에서 데이터를 사용할 수 있습니다.
 
 Azure Monitor는 로그 검색을 수행 하는 컨텍스트에 따라 올바른 모드를 자동으로 결정 합니다. 범위는 항상 Log Analytics의 왼쪽 위 섹션에 표시 됩니다.
 
@@ -147,7 +147,7 @@ Operation
 
 다른 팀에서 유지 관리 하는 인프라 및 응용 프로그램을 지 원하는 인프라와 응용 프로그램을 지 원하는 모든 리소스, 모니터링 솔루션 및 VM용 Azure Monitor Application Insights 정보는 IT 조직에 수집 된 로그 데이터를 전달 하도록 구성 되어 있습니다. 중앙 집중식 공유 작업 영역. 각 팀의 사용자에 게 액세스 권한이 부여 된 리소스에 대 한 로그에 대 한 액세스 권한이 부여 됩니다.
 
-작업 영역 아키텍처를 배포한 후에는 [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 Azure 리소스에 적용할 수 있습니다. 정책을 정의 하 고 Azure 리소스의 호환성을 보장 하는 방법을 제공 하므로 모든 진단 로그를 특정 작업 영역으로 보낼 수 있습니다. 예를 들어, Azure 가상 머신 또는 가상 머신 확장 집합을 사용 하면 작업 영역 준수 및 보고서 결과를 평가 하는 기존 정책을 사용 하거나 비준수 인 경우 사용자 지정 하 여 수정할 수 있습니다.  
+작업 영역 아키텍처를 배포한 후에는 [Azure Policy](../../governance/policy/overview.md)를 사용 하 여 Azure 리소스에 적용할 수 있습니다. 정책을 정의 하 고 Azure 리소스에 대 한 준수를 보장 하는 방법을 제공 하므로 모든 리소스 로그를 특정 작업 영역으로 보낼 수 있습니다. 예를 들어, Azure 가상 머신 또는 가상 머신 확장 집합을 사용 하면 작업 영역 준수 및 보고서 결과를 평가 하는 기존 정책을 사용 하거나 비준수 인 경우 사용자 지정 하 여 수정할 수 있습니다.  
 
 ## <a name="workspace-consolidation-migration-strategy"></a>작업 영역 통합 마이그레이션 전략
 
@@ -160,7 +160,7 @@ Operation
 * 프로덕션 환경에서 구현 하기 전에 개발 환경에서 응용 프로그램 팀 및 테스트에 대 한 리소스에 부여 된 액세스를 확인 합니다.
 * **리소스 또는 작업 영역 권한 사용**을 사용 하도록 작업 영역을 구성 합니다.
 * 작업 영역을 읽고 쿼리할 수 있는 응용 프로그램 팀을 제거 합니다.
-* 원본에 배포 된, 컨테이너 및/또는 VM용 Azure Monitor, Automation 계정 및 업데이트 관리, Vm 시작/중지 등의 관리 솔루션에 대 한 Azure Monitor 등의 모니터링 솔루션을 사용 하 고 구성 합니다. 환경이.
+* 원본 작업 영역에 배포 된 컨테이너 및/또는 VM용 Azure Monitor, Automation 계정, 업데이트 관리, Vm 시작/중지 등의 관리 솔루션에 대 한 Azure Monitor 등의 모니터링 솔루션을 사용 하 고 구성 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

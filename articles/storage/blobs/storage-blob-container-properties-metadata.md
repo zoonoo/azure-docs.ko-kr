@@ -1,18 +1,19 @@
 ---
-title: .NET-Azure Storage를 사용 하 여 blob 컨테이너에 대 한 속성 및 메타 데이터 관리
+title: .NET을 사용 하 여 blob 컨테이너에 대 한 속성 및 메타 데이터 관리
+titleSuffix: Azure Storage
 description: .NET 클라이언트 라이브러리를 사용 하 여 시스템 속성을 설정 및 검색 하 고 Azure Storage 계정의 blob 컨테이너에 사용자 지정 메타 데이터를 저장 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/10/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: d63c78fedb8dbd48655d36fecc3544fd512072e3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 17ed10d424d606091bd2b7d6f3e325955c48a5a2
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673366"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894201"
 ---
 # <a name="manage-container-properties-and-metadata-with-net"></a>.NET을 사용 하 여 컨테이너 속성 및 메타 데이터 관리
 
@@ -20,7 +21,7 @@ Blob 컨테이너는 시스템 속성 및 사용자 정의 메타 데이터와 �
 
 ## <a name="about-properties-and-metadata"></a>속성 및 메타 데이터 정보
 
-- **시스템 속성**: 시스템 속성은 각 Blob 저장소 리소스에 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. .NET 용 Azure Storage 클라이언트 라이브러리는 이러한 속성을 유지 관리 합니다.
+- **시스템 속성**: 각 Blob 저장소 리소스에 시스템 속성이 있습니다. 그 중 일부를 읽거나 설정할 수 있지만 나머지는 읽기 전용입니다. 일부 시스템 속성은 내부적으로 특정 표준 HTTP 헤더에 해당합니다. .NET 용 Azure Storage 클라이언트 라이브러리는 이러한 속성을 유지 관리 합니다.
 
 - **사용자 정의 메타 데이터**: 사용자 정의 메타 데이터는 Blob 저장소 리소스에 대해 지정 하는 하나 이상의 이름-값 쌍으로 구성 됩니다. 메타 데이터를 사용 하 여 리소스와 함께 추가 값을 저장할 수 있습니다. 메타데이터 값은 고유한 목적으로만 사용되며 리소스의 동작 방식에 영향을 주지 않습니다.
 
@@ -127,7 +128,7 @@ public static async Task ReadContainerMetadataAsync(CloudBlobContainer container
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [컨테이너 속성 가져오기 작업](/rest/api/storageservices/get-container-properties)
 - [컨테이너 메타 데이터 설정 작업](/rest/api/storageservices/set-container-metadata)

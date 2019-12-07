@@ -1,18 +1,19 @@
 ---
-title: Azure Portal - Azure Storage에서 스토리지 계정 설정 관리 | Microsoft Docs
+title: Azure Portal에서 스토리지 계정 설정 관리
+titleSuffix: Azure Storage
 description: Azure Portal에서 액세스 제어 설정 구성, 계정 액세스 키 재생성, 액세스 계층 변경 또는 계정에서 사용하는 복제 유형 수정을 포함하여 스토리지 계정 설정을 관리하는 방법에 대해 알아봅니다. 또한 포털에서 스토리지 계정을 삭제하는 방법도 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/06/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
-ms.openlocfilehash: 3c01cc870b20c8256b215eb700548e6cd69ad0d5
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 93d3bf3d17348a0f5ad62118fcb9c9a0c6f2f656
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748994"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892382"
 ---
 # <a name="manage-storage-account-settings-in-the-azure-portal"></a>Azure Portal에서 스토리지 계정 설정 관리
 
@@ -77,4 +78,4 @@ Azure 가상 머신과 연결된 스토리지 계정을 삭제하려고 하는 �
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Storage 계정 개요](storage-account-overview.md)
-- [스토리지 계정을 만드는](storage-quickstart-create-account.md)
+- [스토리지 계정 만들기](storage-quickstart-create-account.md)

@@ -7,22 +7,22 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 3ad0bdc2ec5db2f34a3bb6a1b8fda54cf9037483
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 177c110ce9679f3d564918dfac50b3e3f66f84ce
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555689"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893589"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 
 > [!NOTE]
-> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 지원합니다. 클래식 경고는 [사용이 중지될 예정](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)입니다.  
+> 이 문서에서는 기존 클래식 메트릭 경고를 만드는 방법을 설명합니다. 이제 Azure Monitor는 [최신 근 실시간 메트릭 경고 및 새 경고 환경](../../azure-monitor/platform/alerts-overview.md)을 지원합니다. 아직 새 경고를 지원 하지 않는 리소스에 대 한 사용이 제한 되어 있지만 클래식 경고는 사용이 [중지](https://docs.microsoft.com/azure/azure-monitor/platform/monitoring-classic-retirement)됩니다. 
 >
 
 경고를 통해 데이터에 대한 조건을 구성하고 최신 모니터링 데이터가 조건에 일치하면 알림을 받을 수 있습니다.
 
-## <a name="old-and-new-alerting-capabilities"></a>이전 및 새 경고 기능
+## <a name="old-and-new-alerting-capabilities"></a>이전 경고 및 새로운 경고 기능
 
 이전 Azure Monitor에서 Application Insights, Log Analytics 및 Service Health에는 개별 경고 기능이 있습니다. 시간이 경과함에 따라 Azure가 개선되어 여러 다른 경고 방법과 사용자 인터페이스를 결합했습니다. 통합은 여전히 진행 중입니다.
 
@@ -54,7 +54,7 @@ Azure Portal의 클래식 경고 사용자 화면에서만 클래식 경고를 �
 
 * **클래식 활동 로그 경고** - 사용자가 할당한 필터 기준에 부합하는 활동 로그 이벤트 항목을 트리거하는 스트리밍 로그 경고입니다. 이러한 경고는 "활성화됨" 상태에서만 동작합니다. 경고 엔진은 필터 기준을 모든 새 이벤트에 간단히 적용합니다. 검색을 사용하여 이전 항목을 찾을 수 없습니다. 이러한 경고를 통해 예를 들어 “가상 머신 삭제” 와 같이 새 Service Health 문제가 발생하거나 사용자 또는 애플리케이션이 구독에서 작업을 수행할 경우에 알림을 받을 수 있습니다.
 
-Azure Monitor를 통해 제공되는 진단 로그 데이터의 경우 데이터를 Log Analytics(이전 OMS)로 전달하고 Log Analytics 쿼리 경고를 사용합니다. 이제 Log Analytics는 [새로운 경고 메서드](../../azure-monitor/platform/alerts-overview.md)를 사용합니다. 
+Azure Monitor를 통해 사용할 수 있는 리소스 로그 데이터의 경우 데이터를 Log Analytics로 라우팅하고 로그 쿼리 경고를 사용 합니다. 이제 Log Analytics는 [새로운 경고 메서드](../../azure-monitor/platform/alerts-overview.md)를 사용합니다. 
 
 다음 다이어그램에서는 Azure Monitor의 데이터 원본을 요약하고 그러한 데이터에 대해 경고 받는 방법을 개념적으로 설명약합니다.
 

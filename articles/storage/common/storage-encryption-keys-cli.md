@@ -1,22 +1,23 @@
 ---
-title: Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성 Azure Storage
+title: Azure CLI를 사용 하 여 고객 관리 키 구성
+titleSuffix: Azure Storage
 description: Azure CLI를 사용 하 여 Azure Storage 암호화를 위해 고객이 관리 하는 Azure Key Vault 키를 구성 하는 방법을 알아봅니다. 고객 관리 키를 사용 하 여 액세스 제어를 만들고, 회전 하 고, 비활성화 하 고, 취소할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/03/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: fd3b7767bad104f4074b2460ecba3fe89d5a23e1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 9b9ec315954f5916339bb006cb020acc28886839
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806629"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895316"
 ---
-# <a name="configure-customer-managed-keys-for-azure-storage-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Storage에 대 한 고객 관리 키 구성
+# <a name="configure-customer-managed-keys-with-azure-key-vault-by-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure Key Vault에서 고객이 관리 하는 키 구성
 
 [!INCLUDE [storage-encryption-configure-keys-include](../../../includes/storage-encryption-configure-keys-include.md)]
 

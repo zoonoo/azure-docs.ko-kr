@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 93b03622f03c095a61291f4a6d25284e5052c35a
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 2126415c3ae7ecb14a47c79dacd67aee656cd745
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555189"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894298"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -557,7 +557,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 - copyIndex()
 - deployment()
 - list*
-- newGuid ()
+- newGuid()
 - pickZones()
 - providers()
 - reference()
@@ -566,7 +566,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에 사용 되는 것과는 다릅니다.
 
-- addDays (dateTime, numberOfDaysToAdd)
+- addDays(dateTime, numberOfDaysToAdd)
   - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
   - **Numberofdaystoadd**: [필수] 정수-더할 일 수
 - utcNow ()-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
@@ -597,6 +597,31 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 리소스 유형에 대한 특정 속성에 액세스하려면 속성 별칭을 사용합니다. 별칭을 사용하면 리소스의 속성에 허용되는 값이나 조건을 제한할 수 있습니다. 각 별칭은 주어진 리소스 유형에 대해 서로 다른 API 버전의 경로에 매핑됩니다. 정책 평가 중에 정책 엔진은 해당 API 버전에 대한 속성 경로를 가져옵니다.
 
 별칭의 목록은 항상 업데이트됩니다. 현재 Azure Policy에서 지원하는 별칭을 찾으려면 다음 방법 중 하나를 사용합니다.
+
+- Visual Studio Code Azure Policy 확장 (권장)
+
+  [Visual Studio Code에 대 한 Azure Policy 확장](../how-to/extension-for-vscode.md) 을 사용 하 여 리소스 속성에 대 한 별칭을 보고 검색할 수 있습니다.
+
+  ![Visual Studio Code Azure Policy 확장](../media/extension-for-vscode/extension-hover-shows-property-alias.png)
+
+- Azure Resource Graph
+
+  `project` 연산자를 사용 하 여 리소스의 **별칭** 을 표시 합니다.
+
+  ```kusto
+  Resources
+  | where type=~'microsoft.storage/storageaccounts'
+  | limit 1
+  | project aliases
+  ```
+  
+  ```azurecli-interactive
+  az graph query -q "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
+  
+  ```azurepowershell-interactive
+  Search-AzGraph -Query "Resources | where type=~'microsoft.storage/storageaccounts' | limit 1 | project aliases"
+  ```
 
 - Azure PowerShell
 

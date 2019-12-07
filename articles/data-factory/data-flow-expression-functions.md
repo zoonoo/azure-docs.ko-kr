@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory의 데이터 흐름 매핑 기능에서 식 함수
+title: 매핑 데이터 흐름의 식 함수
 description: 데이터 흐름 매핑의 식 함수에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
+manager: anandsub
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: dc742fc625604e71909f49c7453a9215dce71e35
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: f384c440dab06660c95f635dde02ced5b3e54d94
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596974"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896307"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>데이터 흐름 매핑의 데이터 변환 식 
-
-
 
 ## <a name="expression-functions"></a>식 함수
 
@@ -122,7 +121,7 @@ ___
 ___
 ### <code>byName</code>
 <code><b>byName(<i>&lt;column name&gt;</i> : string, [<i>&lt;stream name&gt;</i> : string]) => any</b></code><br/><br/>
-스트림에서 이름을 기준으로 열 값을 선택 합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치 하는 항목이 여러 개 있는 경우 첫 번째 일치 항목이 반환 됩니다. 일치 하는 항목이 없으면 NULL 값을 반환 합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING) 중 하나로 변환 되어야 합니다.  디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.
+스트림에서 이름을 기준으로 열 값을 선택 합니다. 선택적 스트림 이름을 두 번째 인수로 전달할 수 있습니다. 일치 하는 항목이 여러 개 있는 경우 첫 번째 일치 항목이 반환 됩니다. 일치 하는 항목이 없으면 NULL 값을 반환 합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다.  디자인 타임에 알려진 열 이름은 해당 이름 으로만 처리 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.
 
 * ``toString(byName('parent'))``
 
@@ -139,7 +138,7 @@ ___
 ___
 ### <code>byPosition</code>
 <code><b>byPosition(<i>&lt;position&gt;</i> : integer) => any</b></code><br/><br/>
-스트림에서 상대 위치 (1부터) 만큼 열 값을 선택 합니다. 위치가 범위를 벗어나면 NULL 값을 반환 합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING) 중 하나로 변환 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.
+스트림에서 상대 위치 (1부터) 만큼 열 값을 선택 합니다. 위치가 범위를 벗어나면 NULL 값을 반환 합니다. 반환 된 값은 형식 변환 함수 (TO_DATE, TO_STRING ...) 중 하나로 변환 되어야 합니다. 계산 된 입력은 지원 되지 않지만 매개 변수 대체를 사용할 수 있습니다.
 
 * ``toString(byPosition(1))``
 
@@ -1067,7 +1066,7 @@ ___
 ___
 ### <code>regexExtract</code>
 <code><b>regexExtract(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, [<i>&lt;match group 1-based index&gt;</i> : integral]) => string</b></code><br/><br/>
-지정된 정규식 패턴에 대해 일치하는 부분 문자열을 추출합니다. 마지막 매개 변수는 일치 그룹을 식별하고 생략하면 기본적으로 1이 지정됩니다. 이스케이프 없이 문자열을 일치 시키려면 ' <regex> ' (큰따옴표)를 사용 하십시오.
+지정된 정규식 패턴에 대해 일치하는 부분 문자열을 추출합니다. 마지막 매개 변수는 일치 그룹을 식별하고 생략하면 기본적으로 1이 지정됩니다. 이스케이프 없이 문자열을 일치 시키려면 '<regex>' (큰따옴표)를 사용 하십시오.
 
 * ``regexExtract('Cost is between 600 and 800 dollars', '(\\d+) and (\\d+)', 2) -> '800'``
 
@@ -1076,7 +1075,7 @@ ___
 ___
 ### <code>regexMatch</code>
 <code><b>regexMatch(<i>&lt;string&gt;</i> : string, <i>&lt;regex to match&gt;</i> : string) => boolean</b></code><br/><br/>
-문자열이 지정된 정규식 패턴과 일치하는지 확인합니다. 이스케이프 없이 문자열을 일치 시키려면 ' <regex> ' (큰따옴표)를 사용 하십시오.
+문자열이 지정된 정규식 패턴과 일치하는지 확인합니다. 이스케이프 없이 문자열을 일치 시키려면 '<regex>' (큰따옴표)를 사용 하십시오.
 
 * ``regexMatch('200.50', '(\\d+).(\\d+)') -> true``
 
@@ -1085,7 +1084,7 @@ ___
 ___
 ### <code>regexReplace</code>
 <code><b>regexReplace(<i>&lt;string&gt;</i> : string, <i>&lt;regex to find&gt;</i> : string, <i>&lt;substring to replace&gt;</i> : string) => string</b></code><br/><br/>
-Regex 패턴의 모든 항목을 지정 된 문자열의 다른 부분 문자열로 바꿉니다. ' <regex> ' (back 따옴표)를 사용 하 여 문자열을 이스케이프 없이 찾습니다.
+Regex 패턴의 모든 항목을 지정 된 문자열의 다른 부분 문자열로 바꿉니다. '<regex>' (back 따옴표)를 사용 하 여 문자열을 이스케이프 없이 찾습니다.
 
 * ``regexReplace('100 and 200', '(\\d+)', 'bojjus') -> 'bojjus and bojjus'``
 
@@ -1143,7 +1142,7 @@ ___
 ___
 ### <code>round</code>
 <code><b>round(<i>&lt;number&gt;</i> : number, [<i>&lt;scale to round&gt;</i> : number], [<i>&lt;rounding option&gt;</i> : integral]) => double</b></code><br/><br/>
-선택적인 배율 및 선택적 반올림 모드를 지정 하 여 숫자를 반올림 합니다. 소수 자릿수가 생략 된 경우 기본값은 0입니다.  이 모드를 생략 하면 기본적으로 ROUND_HALF_UP (5)로 설정 됩니다. 반올림 값에는 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY가 포함 됩니다.
+선택적인 배율 및 선택적 반올림 모드를 지정 하 여 숫자를 반올림 합니다. 소수 자릿수가 생략 된 경우 기본값은 0입니다.  이 모드를 생략 하면 기본적으로 ROUND_HALF_UP (5)로 설정 됩니다. 반올림 값에는 1-ROUND_UP 2-ROUND_DOWN 3-ROUND_CEILING 4-ROUND_FLOOR 5-ROUND_HALF_UP 6-ROUND_HALF_DOWN 7-ROUND_HALF_EVEN 8-ROUND_UNNECESSARY이 포함 됩니다.
 
 * ``round(100.123) -> 100.0``
 

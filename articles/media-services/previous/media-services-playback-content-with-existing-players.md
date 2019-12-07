@@ -1,6 +1,6 @@
 ---
 title: 기존 플레이어를 사용하여 콘텐츠 재생 - Azure | Microsoft Docs
-description: 이 항목에서는 콘텐츠를 재생하는 데 사용할 수 있는 기존 플레이어를 나열합니다.
+description: 이 문서에서는 콘텐츠를 재생 하는 데 사용할 수 있는 기존 플레이어를 나열 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 0da8ce396ce07b7c9859fcfccb5cb524c0ce21c1
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: fdcaa7d8eec0065ad9acd76df9918ed7bccc081b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69015286"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895868"
 ---
 # <a name="playing-your-content-with-existing-players"></a>기존 플레이어를 사용하여 콘텐츠 재생
 Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 및 Mpeg-dash와 같은 여러 인기 있는 스트리밍 형식을 지원합니다. 이 항목에는 스트림을 테스트하는 데 사용할 수 있는 기존 플레이어가 나와 있습니다.
@@ -60,10 +60,10 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 
 [https://dashif.org](https://dashif.org)
 
-### <a name="other"></a>기타
+### <a name="other"></a>다른
 다음을 이용하여 HLS URL을 테스트할 수도 있습니다.
 
-* iOS 디바이스에서 **Safari** 또는
+* **Safari** 또는
 * **3ivx HLS 플레이어**
 
 ## <a name="developing-video-players"></a>비디오 플레이어 개발
@@ -72,7 +72,7 @@ Azure Media Services는 부드러운 스트리밍, HTTP 라이브 스트리밍 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [AMSPlayer]: ./media/media-services-playback-content-with-existing-players/media-services-portal-player.png

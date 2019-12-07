@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 8a8a2f32de905ab7c12f4886d889b2a6fc20c449
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899145"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893317"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -45,7 +45,7 @@ Azure Monitor는 네트워크 모니터링에 대 한 다음 솔루션을 제공
 
 Application Gateway 및 네트워킹 보안 그룹 중 하나 또는 둘 다에 대해 진단 및 해당 솔루션을 사용할 수 있습니다.
 
-특정 리소스 유형에 진단 로깅을 사용하도록 설정하지 않고 솔루션을 설치하면 해당 리소스의 대시보드 블레이드가 비어 있고 오류 메시지가 표시됩니다.
+특정 리소스 종류에 대 한 진단 리소스 로깅을 사용 하지 않고 솔루션을 설치 하는 경우 해당 리소스에 대 한 대시보드 블레이드가 비어 있고 오류 메시지를 표시 합니다.
 
 > [!NOTE]
 > 2017 년 1 월에 응용 프로그램 게이트웨이 및 네트워크 보안 그룹에서 Log Analytics 작업 영역으로 로그를 전송 하는 지원 되는 방법이 변경 되었습니다. **Azure Networking Analytics(사용되지 않음)** 솔루션을 표시하는 경우 수행해야 할 단계는 [이전 Networking Analytics 솔루션에서 마이그레이션](#migrating-from-the-old-networking-analytics-solution)을 참조하세요.
@@ -100,7 +100,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 #### <a name="enable-azure-network-diagnostics-using-powershell"></a>PowerShell을 사용하여 Azure 네트워크 진단 사용 설정
 
-다음 PowerShell 스크립트는 애플리케이션 게이트웨이에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
+다음 PowerShell 스크립트는 응용 프로그램 게이트웨이에 대해 리소스 로깅을 사용 하도록 설정 하는 방법의 예를 제공 합니다.
 
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
@@ -141,7 +141,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 > 해당 기능이 [트래픽 분석](../../network-watcher/traffic-analytics.md)으로 대체되었으므로 네트워크 보안 그룹 분석 솔루션은 커뮤니티 지원으로 이동합니다.
 > - 이제 솔루션은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/oms-azurensg-solution/)에서 지원되고 곧 Azure Marketplace에서 더 이상 지원되지 않습니다.
 > - 이미 해당 작업 영역에 솔루션을 추가한 기존 고객의 경우 변경 없이 계속 작동됩니다.
-> - Microsoft는 진단 설정을 사용하여 NSG 진단 로그를 작업 영역으로 전송하도록 계속 지원합니다.
+> - Microsoft는 진단 설정을 사용 하 여 NSG 리소스 로그를 작업 영역으로 전송 하는 작업을 계속 지원 합니다.
 
 네트워크 보안 그룹에는 다음 로그가 지원됩니다.
 
@@ -171,7 +171,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 
 ### <a name="enable-azure-network-diagnostics-using-powershell"></a>PowerShell을 사용하여 Azure 네트워크 진단 사용 설정
 
-다음 PowerShell 스크립트는 네트워크 보안 그룹에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
+다음 PowerShell 스크립트는 네트워크 보안 그룹에 대 한 리소스 로깅을 사용 하도록 설정 하는 방법의 예를 제공 합니다.
 ```powershell
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

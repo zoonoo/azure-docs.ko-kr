@@ -1,22 +1,23 @@
 ---
-title: 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기) - Azure Storage
+title: 재해 복구 및 저장소 계정 장애 조치 (failover) (미리 보기)
+titleSuffix: Azure Storage
 description: Azure Storage는 지역 중복 스토리지 계정에 대해 계정 장애 조치(미리 보기)를 지원합니다. 계정 장애 조치(failover)의 경우 기본 엔드포인트를 사용할 수 없는 경우 스토리지 계정에 대해 장애 조치(failover) 프로세스를 시작할 수 있습니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 02/25/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: d9daff390aa1678c25f4bf9c29b0293d96c43f48
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 7bbad4adce88b8b669c5c5739bfa45b079f321d0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775931"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895362"
 ---
-# <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Azure Storage에서 재해 복구 및 스토리지 계정 장애 조치(Failover)(미리 보기)
+# <a name="disaster-recovery-and-account-failover-preview"></a>재해 복구 및 계정 장애 조치 (failover) (미리 보기)
 
 Microsoft는 Azure 서비스를 항상 사용할 수 있도록 하기 위해 노력합니다. 그러나 계획되지 않은 서비스 중단이 발생할 수 있습니다. 애플리케이션에 복원력이 필요한 경우 지역 중복 스토리지를 사용하여 데이터를 두 번째 지역에서 복제하는 것이 좋습니다. 또한 고객은 지역 서비스 중단을 처리하기 위해 재해 복구 계획을 설정하는 것이 좋습니다. 재해 복구 계획의 중요한 부분은 기본 엔드포인트를 사용할 수 없는 경우 보조 엔드포인트로의 장애 조치(failover)를 준비하는 것입니다. 
 

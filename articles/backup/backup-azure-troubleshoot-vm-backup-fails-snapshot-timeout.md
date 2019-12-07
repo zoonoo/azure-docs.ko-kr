@@ -4,12 +4,12 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: c4ee8cbeeec21c4af0cc3a7fd83844bc8c676add
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172597"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894014"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -22,10 +22,12 @@ ms.locfileid: "74172597"
 **오류 코드**: UserErrorGuestAgentStatusUnavailable <br>
 **오류 메시지**: VM 에이전트가 Azure Backup과 통신할 수 없습니다.<br>
 
-Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나, 설치 되지 않았거나 Azure Backup 서비스에서 스냅숏을 트리거하기를 방지할 수 있습니다.  
+Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나, 설치 되지 않았거나 Azure Backup 서비스에서 스냅숏을 트리거하기를 방지할 수 있습니다.
 
-- VM 에이전트가 중지 되었거나 일관 되지 않은 상태에 있는 경우 에이전트를 **다시 시작** 하 고 백업 작업을 다시 시도 합니다 (주문형 백업 시도). 에이전트를 다시 시작하는 단계는 [Windows VM](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 또는 [Linux VM](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)을 참조하세요.
-- VM 에이전트가 설치 되어 있지 않거나 오래 된 경우 VM 에이전트를 설치/업데이트 한 후 백업 작업을 다시 시도 하십시오. 에이전트를 설치/업데이트 하는 단계는 [Windows vm](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 또는 [Linux vm](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent)을 참조 하세요.  
+- Vm **> 설정 > 속성 블레이드** > Vm **상태가** **실행 중** 이 고 **에이전트 상태가** **준비**됨 인지 확인 하 > Azure Portal을 엽니다. VM 에이전트가 중지 되었거나 일관 되지 않은 상태에 있는 경우 에이전트를 다시 시작 하십시오.<br>
+  - Windows Vm의 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.<br>
+  - Linux Vm의 경우 다음 [단계](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.
+
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.
 
@@ -41,6 +43,16 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
 **원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**
+
+## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-VM이 프로 비전 실패 상태에 있습니다.
+
+**오류 코드**: UserErrorVmProvisioningStateFailed<br>
+**오류 메시지**: VM이 프로 비전 실패 상태에 있습니다.<br>
+
+이 오류는 확장 오류 중 하나에서 VM을 프로 비전 실패 상태로 전환 하는 경우에 발생 합니다.<br>**Azure Portal > VM > 설정 > 확장 > 확장 상태를 열고** 모든 확장이 **프로 비전 성공** 상태 인지 확인 합니다.
+
+- VMSnapshot 확장이 실패 상태 이면 실패 한 확장을 마우스 오른쪽 단추로 클릭 하 고 제거 합니다. 임시 백업을 트리거합니다 .이는 확장을 다시 설치 하 고 백업 작업을 실행 합니다.  <br>
+- 다른 확장이 실패 상태 이면 백업을 방해할 수 있습니다. 이러한 확장 문제가 해결 되었는지 확인 한 후 백업 작업을 다시 시도 하십시오.  
 
 ## <a name="usererrorrpcollectionlimitreached---the-restore-point-collection-max-limit-has-reached"></a>UserErrorRpCollectionLimitReached - 복원 지점 컬렉션이 최대 한도에 도달했습니다.
 
@@ -133,13 +145,13 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 제대로 작동하려면 Backup 확장이 Azure 공용 IP 주소에 연결되어야 합니다. 확장이 Azure Storage 엔드포인트(HTTP URL)에 명령을 보내 VM의 스냅샷을 관리합니다. 확장이 공용 인터넷에 액세스할 수 없는 경우 백업은 결국 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 네트워크 문제를 해결하려면 [네트워크 연결 설정](backup-azure-arm-vms-prepare.md#establish-network-connectivity)을 참조하세요.
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
@@ -155,7 +167,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -188,11 +200,11 @@ Waagent에 대 한 자세한 정보 로깅이 필요한 경우 다음 단계를 
 
 VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사용합니다. 스토리지 계정에 액세스할 수 없거나 스냅샷 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 해결 방법 |
+| 원인 | 솔루션 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .
@@ -201,7 +213,7 @@ VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사
 
 확장을 로드할 수 없는 경우 스냅샷을 만들 수 없기 때문에 백업이 실패합니다.
 
-#### <a name="solution"></a>해결 방법
+#### <a name="solution"></a>솔루션
 
 확장을 제거하여 강제로 VMSnapshot 확장을 다시 로드합니다. 다음 백업 시도 시 확장이 다시 로드됩니다.
 
@@ -219,7 +231,7 @@ Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시되지 않으면 [
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 리소스 옵션**으로 이동한 다음, AzureBackupRG_`<Geo>`_`<number>` 형식의 복원 지점 컬렉션 리소스 그룹을 선택합니다.
 3. **설정** 섹션에서 **잠금**을 선택하여 잠금을 표시합니다.
 4. 잠금을 제거하려면 줄임표를 선택하고 **삭제**를 클릭합니다.
@@ -248,7 +260,7 @@ VM의 리소스 그룹 또는 VM 자체를 삭제 하는 경우 관리 디스크
 
 리소스 그룹의 잠금으로 인해 제거 되지 않는 복원 지점의 컬렉션을 수동으로 지우려면 다음 단계를 수행 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. **허브** 메뉴에서 **모든 리소스**를 클릭하고 사용자 VM이 있는, AzureBackupRG_`<Geo>`_`<number>` 형식의 리소스 그룹을 선택합니다.
 
     ![잠금 삭제](./media/backup-azure-arm-vms-prepare/resource-group.png)

@@ -1,6 +1,6 @@
 ---
 title: REST를 사용하여 콘텐츠 키 만들기 | Microsoft Docs
-description: 자산에 대한 보안 액세스를 제공하는 콘텐츠 키를 만드는 방법에 대해 알아봅니다.
+description: 이 문서에서는 자산에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 만드는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 84fd4f0971c56d8cf2cdf138ba8ac8ea1a6e07eb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 9927de3ab3fb68cea17095d7255fd8a68f66c9a8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60711529"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901485"
 ---
 # <a name="create-content-keys-with-rest"></a>REST를 사용하여 콘텐츠 키 만들기
 > [!div class="op_single_selector"]
-> * [REST (영문)](media-services-rest-create-contentkey.md)
+> * [REST](media-services-rest-create-contentkey.md)
 > * [.NET](media-services-dotnet-create-contentkey.md)
 > 
 > 
@@ -32,7 +32,7 @@ Media Services를 사용하면 암호화된 자산을 제공할 수 있습니다
 
 새 자산을 만들 때(예: [파일 업로드](media-services-rest-upload-files.md) 전) **StorageEncrypted**, **CommonEncryptionProtected** 또는 **EnvelopeEncryptionProtected** 암호화 옵션을 지정할 수 있습니다. 
 
-클라이언트에 자산을 제공할 때 다음 두 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-rest-configure-asset-delivery-policy.md)할 수 있습니다. **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption**.
+클라이언트에 자산을 제공할 때 **DynamicEnvelopeEncryption** 또는 **DynamicCommonEncryption** 암호화 중 하나를 사용하여 [자산이 동적으로 암호화되도록 구성](media-services-rest-configure-asset-delivery-policy.md)할 수 있습니다.
 
 암호화된 자산은 **ContentKey**와 연관되어야 합니다. 이 문서에서는 콘텐츠 키를 만드는 방법을 설명합니다.
 
@@ -177,7 +177,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     }
 
 
-다음 예제에서는 저장소 암호화("1")에 대해 설정된 **ContentKeyType**과 "0"으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
+다음 예제에서는 스토리지 암호화(&quot;1&quot;)에 대해 설정된 **ContentKeyType**과 &quot;0&quot;으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
 
 요청
 
@@ -253,6 +253,6 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

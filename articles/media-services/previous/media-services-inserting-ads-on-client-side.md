@@ -1,6 +1,6 @@
 ---
 title: 클라이언트 쪽에 광고 삽입 | Microsoft 문서
-description: 이 토픽에서는 클라이언트 쪽에 광고를 삽입하는 방법을 보여 줍니다.
+description: 이 문서에서는 클라이언트 쪽의 미디어에 광고를 삽입 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 37ee600a2f7d621d3fefb2f70c26b6c29f738ea9
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f56c897fd6f5ce7e5129a4500ecaacbaf0a75f3b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73162697"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895959"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.

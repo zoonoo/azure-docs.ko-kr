@@ -11,12 +11,12 @@ author: sihhu
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: ''
-ms.openlocfilehash: 426a93473b969c166a847374d1b4c039055e92d5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: d22bfb0743bc18102e665a63f7e36ed75dd39cab
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73716104"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900322"
 ---
 # <a name="version-and-track-datasets-in-experiments"></a>실험의 버전 및 트랙 데이터 집합
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ ms.locfileid: "73716104"
 * 새 데이터를 다시 학습에 사용할 수 있는 경우
 * 다른 데이터 준비 또는 기능 엔지니어링 방법을 적용 하는 경우
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 자습서에서는 다음이 필요합니다.
 
@@ -146,7 +146,24 @@ prep_step = PythonScriptStep(script_name="prepare.py",
 
 ## <a name="track-datasets-in-experiments"></a>실험에서 데이터 집합 추적
 
-각 Machine Learning 실험에 대해 등록 된 모델의 `Run` 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다.
+각 Machine Learning 실험에 대해 실험 `Run` 개체를 통해 입력으로 사용 되는 데이터 집합을 쉽게 추적할 수 있습니다.
+
+다음 코드는 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) 메서드를 사용 하 여 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
+
+```Python
+# get input datasets
+inputs = run.get_details()['inputDatasets']
+input_dataset = inputs[0]['dataset']
+
+# list the files referenced by input_dataset
+input_dataset.to_path()
+```
+
+[Azure Machine Learning Studio](https://ml.azure.com/)를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
+
+다음 이미지는 Azure Machine Learning Studio 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 고 `keras-mnist`실험의 특정 실행에 대 한 **속성** 탭을 엽니다.
+
+![입력 데이터 집합](media/how-to-version-datasets/input-datasets.png)
 
 데이터 집합을 사용 하 여 모델을 등록 하려면 다음 코드를 사용 합니다.
 
@@ -156,26 +173,7 @@ model = run.register_model(model_name='keras-mlp-mnist',
                            datasets =[('training data',train_dataset)])
 ```
 
-등록 후 Python 또는 [Azure Machine Learning Studio](https://ml.azure.com/)를 사용 하 여 데이터 집합에 등록 된 모델의 목록을 볼 수 있습니다.
-
-다음 코드는 [`get_details()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-details--) 메서드를 사용 하 여 실험 실행에 사용 된 입력 데이터 집합을 추적 합니다.
-
-```Python
-# get input datasets
-inputs = run.get_details()['inputDatasets']
-train_dataset = inputs[0]['dataset']
-
-# list the files referenced by train_dataset
-train_dataset.to_path()
-```
-
-[Azure Machine Learning Studio](https://ml.azure.com/)를 사용 하 여 실험에서 `input_datasets`를 찾을 수도 있습니다. 
-
-다음 이미지는 Azure Machine Learning Studio 실험의 입력 데이터 집합을 찾을 수 있는 위치를 보여 줍니다. 이 예에서는 **실험** 창으로 이동 하 고 `keras-mnist`실험의 특정 실행에 대 한 **속성** 탭을 엽니다.
-
-![입력 데이터 집합](media/how-to-version-datasets/input-datasets.png)
-
-데이터 집합을 사용 하는 모델을 찾을 수도 있습니다. 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 해당 데이터 집합을 사용 하는 모델 목록을 표시 합니다. 
+등록 후 Python 또는 [Azure Machine Learning Studio](https://ml.azure.com/)를 사용 하 여 데이터 집합에 등록 된 모델의 목록을 볼 수 있습니다. 다음 뷰는 **자산**아래의 **데이터 집합** 창에서 가져온 것입니다. 데이터 집합을 선택 하 고 **모델** 탭을 선택 하 여 데이터 집합에 등록 된 모델 목록을 표시 합니다. 
 
 ![입력 데이터 집합 모델](media/how-to-version-datasets/dataset-models.png)
 

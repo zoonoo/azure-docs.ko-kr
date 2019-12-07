@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1a1cba2c4572b2f898f631aefbbf316fae1195ac
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7b431cee3b8e5fc168dec2766442d6f6b9869d1e
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596351"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900366"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>장치 id 및 데스크톱 가상화
 
@@ -43,19 +43,20 @@ VDI 환경에 대해 Azure AD에서 장치 id를 구성 하기 전에 지원 되
 
 | 장치 id 유형 | Id 인프라 | Windows 디바이스 | VDI 플랫폼 버전 | 지원됨 |
 | --- | --- | --- | --- | --- |
-| 하이브리드 Azure AD 가입 | 제휴 | Windows 현재 * * * 및 Windows 하위 수준 * * * * | 영구적 | 예 |
-|   |   |   | 비영구 | 예 |
-|   | 관리 됨 * * | Windows 현재 및 Windows 하위 수준 | 영구적 | 예 |
-|   |   | Windows 하위 수준 | 비영구 | 예 |
-|   |   | Windows 현재 | 비영구 | 아니오 |
-| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아니오 |
-|   |   |   | 비영구 | 아니오 |
-|   | 관리 | Windows 현재 | 영구적 | 아니오 |
-|   |   |   | 비영구 | 아니오 |
-| Azure AD 등록 | 페더레이션 | Windows 현재 | 영구적 | 아니오 |
-|   |   |   | 비영구 | 아니오 |
-|   | 관리 | Windows 현재 | 영구적 | 아니오 |
-|   |   |   | 비영구 | 아니오 |
+| 하이브리드 Azure AD 가입 | 제휴 | Windows 현재 * * * 및 Windows 하위 수준 * * * * | 영구적 | yes |
+|   |   | Windows 현재 | 비영구 | 아닙니다. |
+|   |   | Windows 하위 수준 | 비영구 | yes |
+|   | 관리 됨 * * | Windows 현재 및 Windows 하위 수준 | 영구적 | yes |
+|   |   | Windows 현재 | 비영구 | 아닙니다. |
+|   |   | Windows 하위 수준 | 비영구 | yes |
+| Azure AD 가입 | 페더레이션 | Windows 현재 | 영구적 | 아닙니다. |
+|   |   |   | 비영구 | 아닙니다. |
+|   | Managed | Windows 현재 | 영구적 | 아닙니다. |
+|   |   |   | 비영구 | 아닙니다. |
+| Azure AD 등록 | 페더레이션 | Windows 현재 | 영구적 | 아닙니다. |
+|   |   |   | 비영구 | 아닙니다. |
+|   | Managed | Windows 현재 | 영구적 | 아닙니다. |
+|   |   |   | 비영구 | 아닙니다. |
 
 \* **페더레이션된** id 인프라 환경은 AD FS 또는 기타 타사 IDP 같은 id 공급자를 사용 하는 환경을 나타냅니다.
 
@@ -79,8 +80,7 @@ VM (가상 머신) 스냅숏을 사용 하 여 추가 Vm을 만드는 경우, Az
 비영구 VDI를 배포 하는 경우 IT 관리자는 Azure AD에서 오래 된 장치를 관리 하는 데 주의를 기울여야 합니다. IT 관리자는 아래 지침을 구현 하는 것이 좋습니다. 이렇게 하지 않으면 영구적이 지 않은 VDI 플랫폼에서 등록 된 오래 된 하이브리드 Azure AD 조인 장치가 많은 디렉터리에 생성 됩니다.
 
 - 데스크톱을 VDI 기반으로 표시 하는 컴퓨터의 표시 이름에 접두사를 만들고 사용 합니다.
-- 다음 명령을 로그 오프 스크립트의 일부로 구현 합니다. 이러한 명령은 Azure AD에 대 한 최상의 호출을 트리거하여 장치를 삭제 합니다.
-   - Windows 현재 장치의 경우 – dsregcmd/leave
+- 다음 명령을 로그 오프 스크립트의 일부로 구현 합니다. 이 명령은 Azure AD에 대 한 최상의 노력을 트리거하여 장치를 삭제 합니다.
    - Windows 하위 수준 장치의 경우-autoworkplace/leave
 - [오래 된 장치를 관리](manage-stale-devices.md)하는 프로세스를 정의 하 고 구현 합니다.
    - 비영구 하이브리드 Azure AD 조인 장치를 식별 하는 전략을 사용 하는 경우 이러한 장치를 정리 하는 방법에 대 한 정보를 활용 하 여 오래 된 많은 장치에서 디렉터리가 소비 되지 않도록 할 수 있습니다.

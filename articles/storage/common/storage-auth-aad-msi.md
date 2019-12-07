@@ -1,22 +1,23 @@
 ---
-title: Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여-Azure Storage
-description: Azure Blob 및 Queue storage는 Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 리소스에 대 한 액세스 권한을 부여 합니다. Azure 리소스에 관리 되는 id를 사용 하 여 Azure virtual machines, 함수 앱, 가상 머신 확장 집합 등에서 실행 되는 응용 프로그램의 blob 및 큐에 대 한 액세스 권한을 부여할 수 있습니다.
+title: 관리 id를 사용 하 여 데이터에 대 한 액세스 권한 부여
+titleSuffix: Azure Storage
+description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure virtual machines, 함수 앱, 가상 머신 확장 집합 등에서 실행 되는 응용 프로그램의 blob 및 큐 데이터에 대 한 액세스 권한을 부여 하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 11/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3bb3b632a184985f9a3a27d0e56e940ec7c30885
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: c0b07cc001f65ff369f87954779634b8b49ba4ec
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806589"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892054"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-and-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 Azure Active Directory 및 관리 id를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
+# <a name="authorize-access-to-blob-and-queue-data-with-managed-identities-for-azure-resources"></a>Azure 리소스에 대 한 관리 id를 사용 하 여 blob 및 큐 데이터에 대 한 액세스 권한 부여
 
 Azure Blob 및 Queue Storage는 [Azure 리소스에 대한 관리 ID를 사용](../../active-directory/managed-identities-azure-resources/overview.md)하는 Azure Active Directory(Azure AD) 인증을 지원합니다. Azure 리소스에 대 한 관리 되는 id는 azure Vm (가상 머신), 함수 앱, 가상 머신 확장 집합 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 blob 및 큐 데이터 액세스 권한을 부여할 수 있습니다. Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.  
 

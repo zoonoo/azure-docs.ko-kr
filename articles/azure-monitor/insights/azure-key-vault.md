@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8863280407de5d02b53a203b2b6385477aa9f8ae
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899205"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74889110"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -51,7 +51,7 @@ Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 
 8. *저장* 을 클릭 하 여 Log Analytics 작업 영역에 대 한 진단 로깅을 사용 하도록 설정 합니다.
 
 ### <a name="enable-key-vault-diagnostics-using-powershell"></a>PowerShell을 사용하여 Key Vault 진단 사용 설정
-다음 PowerShell 스크립트는 `Set-AzDiagnosticSetting`을 사용하여 Key Vault에 진단 로깅을 사용하도록 설정하는 방법에 대한 예제를 제공합니다.
+다음 PowerShell 스크립트는 `Set-AzDiagnosticSetting`을 사용 하 여 Key Vault에 대 한 리소스 로깅을 사용 하는 방법의 예를 제공 합니다.
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 

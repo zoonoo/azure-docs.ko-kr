@@ -1,21 +1,22 @@
 ---
-title: 클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여-Azure Storage
+title: 클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
+titleSuffix: Azure Storage
 description: Azure Active Directory를 사용 하 여 클라이언트 응용 프로그램 내에서 인증 하 고, OAuth 2.0 토큰을 획득 하 고, Azure Blob storage 및 Queue storage에 대 한 요청에 권한을 부여 합니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/18/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ca6b055b5d3702cea4ca1986ad1c81b59f76cee3
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: e05557b0391a1d698dad000aa9df54424588afe0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299628"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892263"
 ---
-# <a name="authorize-access-to-blobs-and-queues-with-azure-active-directory-from-a-client-application"></a>클라이언트 응용 프로그램에서 Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
+# <a name="acquire-a-token-from-azure-ad-for-authorizing-requests-from-a-client-application"></a>클라이언트 응용 프로그램의 요청에 대 한 권한 부여를 위해 Azure AD에서 토큰 획득
 
 Azure Blob 저장소 또는 큐 저장소에서 Azure Active Directory (Azure AD)를 사용 하는 경우의 주요 이점은 자격 증명을 코드에 더 이상 저장할 필요가 없다는 점입니다. 대신 Microsoft id 플랫폼 (이전의 Azure AD)에서 OAuth 2.0 액세스 토큰을 요청할 수 있습니다. Azure AD는 응용 프로그램을 실행 하는 보안 주체 (사용자, 그룹 또는 서비스 사용자)를 인증 합니다. 인증에 성공 하면 Azure AD는 응용 프로그램에 액세스 토큰을 반환 하 고 응용 프로그램은 액세스 토큰을 사용 하 여 Azure Blob 저장소 또는 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다.
 

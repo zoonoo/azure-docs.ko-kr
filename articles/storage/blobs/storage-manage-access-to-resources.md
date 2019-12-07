@@ -1,19 +1,20 @@
 ---
-title: 컨테이너 및 Azure Blob Storage의 Blob에 대한 공용 읽기 권한을 사용하도록 설정 | Microsoft Docs
+title: 컨테이너 및 blob에 대 한 공용 읽기 액세스 관리
+titleSuffix: Azure Storage
 description: 컨테이너와 Blob에서 익명 액세스를 사용하도록 설정하는 방법 및 프로그래밍 방식으로 액세스하는 방법을 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 09/19/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: d0e3121fe773a9725eb7cfd9e8b14d0ed86f3fbb
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4d9a54c220861b19d67b07998e609ee72897446a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673308"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892485"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>컨테이너 및 Blob에 대한 익명 읽기 권한 관리
 
@@ -23,12 +24,12 @@ ms.locfileid: "71673308"
 
 ## <a name="grant-anonymous-users-permissions-to-containers-and-blobs"></a>컨테이너 및 Blob에 익명의 사용자 권한 부여
 
-기본적으로 컨테이너와 그 안의 모든 blob은 적절 한 권한이 부여 된 사용자만 액세스할 수 있습니다. 익명 사용자에 게 컨테이너와 해당 blob에 대 한 읽기 액세스 권한을 부여 하려면 컨테이너 공용 액세스 수준을 설정 하면 됩니다. 컨테이너에 대 한 공용 액세스 권한을 부여 하면 익명 사용자가 요청을 승인 하지 않고도 공개적으로 액세스할 수 있는 컨테이너 내에서 blob을 읽을 수 있습니다.
+기본적으로, 컨테이너와 컨테이너 내의 모든 Blob은 적절한 권한이 부여된 사용자만 액세스할 수 있습니다. 익명 사용자에게 컨테이너와 해당 Blob에 대한 읽기 권한을 부여하려면 컨테이너 퍼블릭 액세스 수준을 설정할 수 있습니다. 컨테이너에 대 한 공용 액세스 권한을 부여 하면 익명 사용자가 요청을 승인 하지 않고도 공개적으로 액세스할 수 있는 컨테이너 내에서 blob을 읽을 수 있습니다.
 
 다음 권한으로 컨테이너를 구성할 수 있습니다.
 
-- **공용 읽기 권한이 없습니다.** 컨테이너 및 해당 blob는 저장소 계정 소유자만 액세스할 수 있습니다. 이것이 새로운 모든 컨테이너에 대한 기본 설정입니다.
-- **Blob에 대 한 공용 읽기 액세스 전용:** 컨테이너 내의 blob은 익명 요청에서 읽을 수 있지만 컨테이너 데이터는 사용할 수 없습니다. 익명 클라이언트는 컨테이너 내의 Blob을 열거할 수 없습니다.
+- **공용 읽기 액세스 권한 없음:** 스토리지 계정 소유자만 컨테이너 및 해당 Blob에 액세스할 수 있습니다. 이것이 새로운 모든 컨테이너에 대한 기본 설정입니다.
+- **Blob 전용 공용 읽기 권한:** 이 컨테이너 내의 Blob은 익명 요청을 통해 읽을 수 있지만 컨테이너 데이터는 읽을 수 없습니다. 익명 클라이언트는 컨테이너 내의 Blob을 열거할 수 없습니다.
 - **컨테이너 및 해당 blob에 대 한 공용 읽기 권한:** 익명 요청을 통해 모든 컨테이너 및 blob 데이터를 읽을 수 있습니다. 클라이언트는 익명 요청을 통해 컨테이너 내에서 Blob을 열거할 수 있지만 스토리지 계정 내에서 컨테이너를 열거할 수는 없습니다.
 
 ### <a name="set-container-public-access-level-in-the-azure-portal"></a>Azure Portal에서 컨테이너 공용 액세스 수준을 설정 합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: b91e235824085977f1570e664b43d028a905407b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 0023710ff3cfe180b628d1da14b8a3ea9c136026
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869802"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896245"
 ---
 # <a name="access-azure-cosmos-db-from-virtual-networks-vnet"></a>가상 네트워크(VNet)에서 Azure Cosmos DB 액세스
 
@@ -42,9 +42,9 @@ Azure Cosmos DB에 대한 서비스 엔드포인트가 서브넷에서 사용하
 
 ### <a name="are-additional-rbac-permissions-needed-for-azure-cosmos-accounts-with-vnet-service-endpoints"></a>VNET 서비스 끝점을 사용 하는 Azure Cosmos 계정에 대 한 추가 RBAC 권한이 필요 한가요?
 
-Azure Cosmos 계정에 VNET 서비스 끝점을 추가한 후 계정 설정을 변경 하려면 Azure Cosmos 계정에 구성 된 모든 Vnet에 대 한 `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` 작업에 액세스 해야 합니다. 속성을 평가 하기 전에 권한 부여 프로세스에서 데이터베이스 및 가상 네트워크 리소스에 해당 하는 작업의 유효성을 검사 하기 때문에이 작업이 필요 합니다.
+Azure Cosmos 계정에 VNet 서비스 끝점을 추가한 후 계정 설정을 변경 하려면 Azure Cosmos 계정에 구성 된 모든 Vnet에 대 한 `Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action` 작업에 액세스 해야 합니다. 이 권한은 속성을 평가 하기 전에 권한 부여 프로세스에서 리소스 (예: 데이터베이스 및 가상 네트워크 리소스)에 대 한 액세스의 유효성을 검사 하기 때문에 필요 합니다.
  
-사용자가 Azure CLI를 사용 하 여 VNET Acl을 지정 하지 않은 경우에도 권한 부여는 작업의 유효성을 검사 합니다. 현재 Azure Cosmos 계정의 제어 평면은 Azure Cosmos 계정의 전체 상태를 설정 하도록 지원 합니다. 제어 평면 호출에 대 한 매개 변수 중 하나가 `virtualNetworkRules`입니다. 이 매개 변수가 지정 되지 않은 경우 Azure CLI는 get database를 호출 하 여 `virtualNetworkRules`를 검색 하 고 update 호출에서이 값을 사용 합니다.
+사용자가 Azure CLI를 사용 하 여 VNET Acl을 지정 하지 않더라도 권한 부여는 VNet 리소스 작업에 대 한 사용 권한의 유효성을 검사 합니다. 현재 Azure Cosmos 계정의 제어 평면은 Azure Cosmos 계정의 전체 상태를 설정 하도록 지원 합니다. 제어 평면 호출에 대 한 매개 변수 중 하나가 `virtualNetworkRules`입니다. 이 매개 변수를 지정 하지 않으면 Azure CLI에서 `virtualNetworkRules`를 검색 하 고 업데이트 호출에서이 값을 사용 하는 get database 호출을 수행 합니다.
 
 ### <a name="do-the-peered-virtual-networks-also-have-access-to-azure-cosmos-account"></a>피어링된 가상 네트워크도 Azure Cosmos 계정에 액세스할 수 있나요? 
 Azure Cosmos 계정에 추가된 가상 네트워크 및 해당 서브넷만 액세스할 수 있습니다. 피어링된 가상 네트워크 내 서브넷이 계정에 추가될 때까지는 피어링된 해당 VNet이 계정에 액세스할 수 없습니다.

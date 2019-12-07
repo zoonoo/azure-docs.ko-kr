@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: 818ebbf15cdbc985c7a1cc14597dc538e62894cf
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c0b30ecb9bc2b029141e528139f2b8a308c3a8dd
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793382"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892841"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Azure Metadata Service: Linux VM에 예정된 이벤트
 
@@ -76,7 +76,7 @@ VNET 사용 VM의 경우 메타데이터 서비스를 정적 경로 조정 불�
 
 | 버전 | 릴리스 종류 | 개 지역 | 릴리스 정보 | 
 | - | - | - | - | 
-| 2017-11-01 | 일반 공급 | 전체 | <li> 낮은 우선 순위의 VM 제거 EventType ' Preempt '에 대 한 지원이 추가 됨<br> | 
+| 2017-11-01 | 일반 공급 | 전체 | <li> 스폿 VM 제거 EventType ' Preempt '에 대 한 지원이 추가 됨<br> | 
 | 2017-08-01 | 일반 공급 | 전체 | <li> IaaS VM의 리소스 이름에서 앞에 붙은 밑줄이 제거됨<br><li>모든 요청에 대해 메타데이터 헤더 요구 사항이 적용됨 | 
 | 2017-03-01 | 미리 보기 | 전체 | <li>최초 릴리스
 
@@ -129,7 +129,7 @@ curl -H Metadata:true http://169.254.169.254/metadata/scheduledevents?api-versio
 |자산  |  설명 |
 | - | - |
 | EventId | 이 이벤트의 GUID(Globally Unique Identifier)입니다. <br><br> 예제: <br><ul><li>602d9444-d2cd-49c7-8624-8643e7171297  |
-| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신이 몇 초 동안 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결이 일시 중단 될 수 있지만 메모리 나 열린 파일에는 영향을 주지 않습니다.<li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 우선 순위가 낮은 가상 컴퓨터를 삭제 하는 중입니다. 삭제 된 디스크가 손실 됩니다.|
+| EventType | 이 이벤트로 인해 발생하는 결과입니다. <br><br> 값 <br><ul><li> `Freeze`: 가상 머신이 몇 초 동안 일시 중지 되도록 예약 됩니다. CPU 및 네트워크 연결이 일시 중단 될 수 있지만 메모리 나 열린 파일에는 영향을 주지 않습니다.<li>`Reboot`: Virtual Machine을 다시 부팅하도록 예약합니다(비영구 메모리가 손실됨). <li>`Redeploy`: Virtual Machine을 다른 노드로 이동하도록 예약합니다(임시 디스크가 손실됨). <li>`Preempt`: 가상 컴퓨터를 삭제 하는 중입니다 (임시 디스크가 손실 됨).|
 | ResourceType | 이 이벤트가 영향을 주는 리소스 형식입니다. <br><br> 값 <ul><li>`VirtualMachine`|
 | 리소스| 이 이벤트가 영향을 주는 리소스 목록입니다. 이 목록은 하나의 [업데이트 도메인](manage-availability.md)에서 컴퓨터를 포함하도록 보장하지만 UD의 모든 컴퓨터를 포함할 수는 없습니다. <br><br> 예제: <br><ul><li> ["FrontEnd_IN_0", "BackEnd_IN_0"] |
 | EventStatus | 이 이벤트의 상태입니다. <br><br> 값 <ul><li>`Scheduled`: `NotBefore` 속성에 지정된 시간 이후 시작하도록 이 이벤트를 예약합니다.<li>`Started`: 이 이벤트가 시작되었습니다.</ul> `Completed` 또는 유사한 상태가 제공되지 않았습니다. 이벤트가 완료되면 더 이상 반환되지 않습니다.

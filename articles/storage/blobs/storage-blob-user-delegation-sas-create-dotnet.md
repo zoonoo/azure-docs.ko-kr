@@ -1,20 +1,21 @@
 ---
-title: .NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기-Azure Storage
-description: .NET 클라이언트 라이브러리를 사용 하 여 Azure Storage에서 Azure Active Directory 자격 증명을 사용 하 여 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
+title: .NET을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+titleSuffix: Azure Storage
+description: Azure Storage .NET 클라이언트 라이브러리를 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 12/03/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: dada27f1fa08cdaa6c2495246375869ea5a8ab9e
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 915f2895fbc1e543fbbfbb408ba27eb758a40515
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806935"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892535"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>.NET (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 

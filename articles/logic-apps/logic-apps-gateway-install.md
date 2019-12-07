@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
-ms.date: 11/06/2019
-ms.openlocfilehash: 9f933a9ad63af11bcfee7c90f17318f5a237b962
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 12/05/2019
+ms.openlocfilehash: 4fbfb31feb2183e3175a96023cbb3b08c4d18027
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792105"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893689"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Azure Logic Apps에 온-프레미스 데이터 게이트웨이 설치
 
@@ -86,14 +86,6 @@ ms.locfileid: "74792105"
 
 1. [로컬 컴퓨터에서 게이트웨이 설치 관리자를 다운로드하고 실행합니다](https://aka.ms/on-premises-data-gateway-installer).
 
-1. 설치 관리자가 열리면 **다음**을 선택 합니다.
-
-   ![게이트웨이 설치 관리자의 소개 화면](./media/logic-apps-gateway-install/gateway-intro-screen.png)
-
-1. 표준 모드인 **온-프레미스 데이터 게이트웨이 (권장)** 를 선택 하 고 **다음**을 선택 합니다.
-
-   ![데이터 게이트웨이에 대 한 실행 모드를 선택 합니다.](./media/logic-apps-gateway-install/select-gateway-running-mode.png)
-
 1. 최소 요구 사항을 검토 하 고, 기본 설치 경로를 유지 하 고, 사용 약관에 동의한 다음, **설치**를 선택 합니다.
 
    ![요구 사항을 검토 하 고 사용 약관에 동의 합니다.](./media/logic-apps-gateway-install/review-and-accept-terms-of-use.png)
@@ -104,7 +96,7 @@ ms.locfileid: "74792105"
 
    게이트웨이 설치는 하나의 Azure 계정에만 연결할 수 있습니다.
 
-1. **이 컴퓨터에 새 게이트웨이 등록** > **다음**을 선택 합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
+1. **이 컴퓨터에 새 게이트웨이를 등록합니다.**  > **다음**을 선택합니다. 이 단계에서는 게이트웨이 [클라우드 서비스](#gateway-cloud-service)에 게이트웨이 설치를 등록 합니다.
 
    ![로컬 컴퓨터에 게이트웨이 등록](./media/logic-apps-gateway-install/register-gateway-local-computer.png)
 
@@ -150,7 +142,7 @@ ms.locfileid: "74792105"
 온-프레미스 데이터 게이트웨이는 클라우드 연결에 대 한 [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) 에 따라 다르며 게이트웨이의 연결 된 Azure 지역에 해당 하는 아웃 바운드 연결을 설정 합니다. 회사 환경에서 인터넷에 액세스 하기 위해 트래픽이 프록시 또는 방화벽을 통과 해야 하는 경우이 제한으로 인해 온-프레미스 데이터 게이트웨이가 게이트웨이 클라우드 서비스에 연결 하지 못할 수 있으며 Azure Service Bus. 게이트웨이에는 조정할 수 있는 여러 통신 설정이 있습니다. 자세한 내용은 다음 항목을 참조하세요.
 
 * [온-프레미스 데이터 게이트웨이에 대 한 통신 설정 조정](https://docs.microsoft.com/data-integration/gateway/service-gateway-communication)
-* [온-프레미스 데이터 게이트웨이에 대 한 프록시 설정 구성](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
+* [온-프레미스 데이터 게이트웨이에 대한 프록시 설정 구성](https://docs.microsoft.com/data-integration/gateway/service-gateway-proxy)
 
 <a name="high-availability"></a>
 
@@ -234,7 +226,7 @@ Azure AD 테 넌 트의 모든 온-프레미스 데이터 게이트웨이에 대
 
 1. 결과가 데이터 원본에서 게이트웨이로 다시 전송된 후 게이트웨이 클라우드 서비스로 전송됩니다. 게이트웨이 클라우드 서비스에서 해당 결과를 사용합니다.
 
-### <a name="authentication-to-on-premises-data-sources"></a>온-프레미스 데이터 원본에 대 한 인증
+### <a name="authentication-to-on-premises-data-sources"></a>온-프레미스 데이터 원본에 대한 인증
 
 저장 된 자격 증명은 게이트웨이에서 온-프레미스 데이터 원본에 연결 하는 데 사용 됩니다. 사용자에 관계 없이 게이트웨이는 저장 된 자격 증명을 사용 하 여 연결 합니다. Power BI에서 Analysis Services에 대 한 DirectQuery, LiveConnect 등의 특정 서비스에 대 한 인증 예외가 있을 수 있습니다.
 

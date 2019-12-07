@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 4fe405d4027535eb6b0211f7a3f997194b8819aa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580758"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894734"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -71,10 +71,10 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 
 | 작업 영역 관리 작업   | 포털              | 스튜디오 | Python SDK/R SDK       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| 작업 영역 만들기        | **&check;**     | | **&check;** | **&check;** |
+| 작업 영역 생성        | **&check;**     | | **&check;** | **&check;** |
 | 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    |
-| Enterprise edition으로 업그레이드    | **&check;** |  | |     |
-| 계산 리소스 만들기 및 관리    |   | **&check;** | **&check;** |  **&check;**   |
+| Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     |
+| 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | 노트북 VM 만들기 |   | **&check;** | |     |
 
 
