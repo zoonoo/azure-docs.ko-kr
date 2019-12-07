@@ -178,7 +178,7 @@
               href: dealing-with-duplicates.md
     - name: 배포
       items:
-        - name: VNet에 클러스터 배포
+        - name: 가상 네트워크에 클러스터 배포
           href: vnet-deployment.md
     - name: 모니터
       items:
