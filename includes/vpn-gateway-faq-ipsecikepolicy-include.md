@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/06/2019
+ms.date: 12/05/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 345822847ddd60794cd912ccb52c14f6e240cd66
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 80c961c1aa4da199fa87b97bc8e0a37e60c2235f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075401"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74903067"
 ---
 ### <a name="is-custom-ipsecike-policy-supported-on-all-azure-vpn-gateway-skus"></a>사용자 지정 IPsec/IKE 정책은 모든 Azure VPN Gateway SKU에서 지원되나요?
 사용자 지정 IPsec/IKE 정책은 기본 SKU를 제외한 모든 Azure Sku에서 지원 됩니다.
@@ -101,7 +101,7 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 예. Azure에서 VNet 간 터널은 두 개의 연결 리소스(각 방향당 하나씩)로 구성됩니다. 두 연결 리소스에 동일한 정책이 있어야 합니다. 그렇지 않으면 VNet 간 연결이 설정되지 않습니다.
 
 ### <a name="does-custom-ipsecike-policy-work-on-expressroute-connection"></a>ExpressRoute 연결에서 사용자 지정 IPsec/IKE 정책이 작동하나요?
-아니요. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
+아닙니다. IPsec/IKE 정책은 Azure VPN Gateway를 통해 S2S VPN 및 VNet 간 연결에서만 작동합니다.
 
 ### <a name="how-do-i-create-connections-with-ikev1-or-ikev2-protocol-type"></a>IKEv1 또는 IKEv2 프로토콜 유형을 사용 하 여 연결을 만들 어떻게 할까요? 있나요?
 기본 SKU를 제외 하 고 모든 경로 기반 VPN 유형 Sku에서 IKEv1 연결을 만들 수 있습니다. 연결을 만드는 동안 연결 프로토콜 유형 (IKEv1 또는 IKEv2)을 지정할 수 있습니다. 연결 프로토콜 유형을 지정 하지 않으면 해당 하는 경우에는 기본 옵션으로 IKEv2가 사용 됩니다. 자세한 내용은 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworkgatewayconnection?) 설명서를 참조 하세요. SKU 유형 및 IKEv1/IKEv2 지원에 대 한 자세한 내용은 [게이트웨이를 정책 기반 VPN 장치에 연결](../articles/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps.md)을 참조 하세요.
@@ -110,10 +110,10 @@ SA 수명은 로컬 사양일 뿐이며 일치하지 않아도 됩니다.
 예. IKEv1와 IKEv2 연결 간의 전송은 지원 됩니다.
 
 ### <a name="can-i-have-ikev1-site-to-site-connections-on-basic-skus-of-routebased-vpn-type"></a>경로 기반 VPN 유형의 기본 Sku에 대 한 IKEv1 사이트 간 연결을 사용할 수 있나요?
-아니요. 경로 기반 VPN 유형의 기본 Sku를 제외한 모든 경로 기반 VPN Sku는 사이트 간 연결을 위한 IKEv1 연결을 지원 합니다.
+아닙니다. 기본 SKU는이를 지원 하지 않습니다.
 
 ### <a name="can-i-change-the-connection-protocol-type-after-the-connection-is-created-ikev1-to-ikev2-and-vice-versa"></a>연결을 만든 후 연결 프로토콜 유형을 변경할 수 있나요? (IKEv1에서 IKEv2로 또는 그 반대로)?
-아니요. 연결이 만들어지면 IKEv1/IKEv2 프로토콜을 변경할 수 없습니다. 원하는 프로토콜 유형을 사용 하 여 새 연결을 삭제 하 고 다시 만들어야 합니다.
+아닙니다. 연결이 만들어지면 IKEv1/IKEv2 프로토콜을 변경할 수 없습니다. 원하는 프로토콜 유형을 사용 하 여 새 연결을 삭제 하 고 다시 만들어야 합니다.
 
 ### <a name="where-can-i-find-more-configuration-information-for-ipsec"></a>IPsec에 대한 추가 구성 정보는 어디에서 찾을 수 있나요?
 [S2S 또는 VNet 간 연결에 대한 IPsec/IKE 정책 구성](../articles/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell.md)을 참조하세요.
