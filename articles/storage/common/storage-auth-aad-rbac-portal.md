@@ -1,24 +1,25 @@
 ---
-title: Azure Portal를 사용 하 여 RBAC를 사용 하 여 blob에 대 한 Azure AD 액세스 권한 및 큐 데이터 관리-Azure Storage | Microsoft Docs
-description: Azure Portal에서 RBAC (역할 기반 액세스 제어)를 사용 하 여 컨테이너 및 큐에 대 한 액세스 권한을 보안 주체에 게 할당 합니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
+title: Azure Portal를 사용 하 여 데이터 액세스에 대 한 RBAC 역할을 할당 합니다.
+titleSuffix: Azure Storage
+description: Azure Portal를 사용 하 여 RBAC (역할 기반 액세스 제어)를 통해 Azure Active Directory 보안 주체에 권한을 할당 하는 방법에 대해 알아봅니다. Azure Storage는 Azure AD를 통해 인증에 대 한 기본 제공 및 사용자 지정 RBAC 역할을 지원 합니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 07/25/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b11b2c42087b8724c7d90b87bc33965eb7270dc6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e1544303ee7b792a00f7afb57fe62b7b86a300f8
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74421977"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891955"
 ---
-# <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Azure Portal에서 RBAC를 사용 하 여 Azure blob 및 큐 데이터에 대 한 액세스 권한 부여
+# <a name="use-the-azure-portal-to-assign-an-rbac-role-for-access-to-blob-and-queue-data"></a>Azure Portal를 사용 하 여 blob 및 큐 데이터에 액세스 하기 위한 RBAC 역할을 할당 합니다.
 
-Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다. 
+Azure AD(Azure Active Directory)에서는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)를 통해 보호된 리소스에 액세스 권한을 부여합니다. Azure Storage는 blob 또는 큐 데이터에 액세스 하는 데 사용 되는 일반 사용 권한 집합을 포함 하는 기본 제공 RBAC 역할 집합을 정의 합니다.
 
 RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 주체에 대 한 해당 리소스에 대 한 액세스 권한을 부여 합니다. 액세스 권한은 구독, 리소스 그룹, 스토리지 계정 또는 개별 컨테이너나 큐의 수준에 범위를 지정할 수 있습니다. Azure AD 보안 주체는 사용자, 그룹, 응용 프로그램 서비스 주체 또는 [azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md)일 수 있습니다.
 
@@ -65,7 +66,7 @@ RBAC 역할이 Azure AD 보안 주체에 할당 되 면 Azure는 해당 보안 �
 
     ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](media/storage-auth-aad-rbac-portal/add-rbac-role.png)
 
-1. **Save**를 클릭합니다. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요. 역할을 할당받은 ID가 해당 역할에 따라 나열되어 표시됩니다. 예를 들어 다음 이미지에서는 추가된 사용자에게 이제 *sample-container*라는 컨테이너의 데이터에 대한 읽기 권한이 있음을 보여줍니다.
 
     ![역할에 할당 된 사용자 목록을 보여 주는 스크린샷](media/storage-auth-aad-rbac-portal/container-scoped-role.png)
 

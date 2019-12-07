@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 92de47041791c8b6c540844adb62391268b81c34
-ms.sourcegitcommit: fa5ce8924930f56bcac17f6c2a359c1a5b9660c9
+ms.openlocfilehash: 83b91be52694076373d950e0ad785ef22671ef4f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73200512"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894525"
 ---
 # <a name="collect-azure-resource-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 리소스 로그를 수집 합니다.
 Azure의 [리소스 로그](resource-logs-overview.md) 는 azure 리소스의 내부 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 합니다. 이 문서에서는 Log Analytics 작업 영역에서 리소스 로그를 수집 하는 방법에 대해 설명 합니다 .이를 통해 강력한 로그 쿼리를 사용 하 여 Azure Monitor 로그에 수집 된 다른 모니터링 데이터를 분석 하 고 경고와 같은 기타 Azure Monitor 기능을 활용할 수 있습니다 가상화. 
@@ -53,11 +53,11 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
 | ResourceProvider    | 범주     | 문자열(UTF-8 형식) 또는  | b  | C  | D  | E  | F  | G  | H  | I  |
 | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- | -- |
-| Microsoft Service1 | AuditLogs    | x | y1 | z1 |    |    |    |    |    |    |
-| Microsoft Service1 | ErrorLogs    |    |    |    | 사분기 | w1 | e1 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | L1 |
-| Microsoft Service1 | ErrorLogs    |    |    |    | 2 | w2 | e2 |    |    |    |
-| Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | 3 |
+| Microsoft Service1 | AuditLogs    | x1 | y1 | z1 |    |    |    |    |    |    |
+| Microsoft Service1 | ErrorLogs    |    |    |    | q1 | w1 | e1 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j1 | k1 | l1 |
+| Microsoft Service1 | ErrorLogs    |    |    |    | q2 | w2 | e2 |    |    |    |
+| Service2 | AuditLogs    |    |    |    |    |    |    | j3 | k3 | l3 |
 | Microsoft Service1 | AuditLogs    | x5 | y5 | z5 |    |    |    |    |    |    |
 | ... |
 
@@ -70,7 +70,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
     | 리소스 공급자 | 범주 | 문자열(UTF-8 형식) 또는 | b | C |
     | -- | -- | -- | -- | -- |
-    | Service1 | AuditLogs | x | y1 | z1 |
+    | Service1 | AuditLogs | x1 | y1 | z1 |
     | Service1 | AuditLogs | x5 | y5 | z5 |
     | ... |
 
@@ -78,16 +78,16 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 
     | 리소스 공급자 | 범주 | D | E | F |
     | -- | -- | -- | -- | -- | 
-    | Service1 | ErrorLogs |  사분기 | w1 | e1 |
-    | Service1 | ErrorLogs |  2 | w2 | e2 |
+    | Service1 | ErrorLogs |  q1 | w1 | e1 |
+    | Service1 | ErrorLogs |  q2 | w2 | e2 |
     | ... |
 
 - *Service2AuditLogs* 테이블은 다음과 같습니다.  
 
     | 리소스 공급자 | 범주 | G | H | I |
     | -- | -- | -- | -- | -- |
-    | Service2 | AuditLogs | j1 | k1 | L1|
-    | Service2 | AuditLogs | j3 | k3 | 3|
+    | Service2 | AuditLogs | j1 | k1 | l1|
+    | Service2 | AuditLogs | j3 | k3 | l3|
     | ... |
 
 
@@ -110,7 +110,7 @@ AzureDiagnostics 테이블은 다음과 같이 표시 됩니다.
 ### <a name="column-limit-in-azurediagnostics"></a>AzureDiagnostics의 열 제한
 Azure Monitor 로그의 모든 테이블에 대 한 500 속성 제한이 있습니다. 이 한도에 도달 하면 첫 번째 500 외부의 속성을 포함 하는 데이터를 포함 하는 모든 행이 수집 시 삭제 됩니다. *Azurediagnostics* 테이블은 모든 Azure 서비스에 대 한 속성을 포함 하므로 특히이 제한에 취약 합니다.
 
-여러 서비스에서 진단 로그를 수집 하는 경우 _Azurediagnostics_ 는이 제한을 초과할 수 있으며 데이터가 누락 됩니다. 모든 Azure 서비스에서 리소스 특정 모드를 지원할 때까지 여러 작업 영역에 쓰도록 리소스를 구성 하 여 500 열 제한에 도달할 가능성을 줄여야 합니다.
+여러 서비스에서 리소스 로그를 수집 하는 경우 _Azurediagnostics_ 는이 제한을 초과할 수 있으며 데이터가 누락 됩니다. 모든 Azure 서비스에서 리소스 특정 모드를 지원할 때까지 여러 작업 영역에 쓰도록 리소스를 구성 하 여 500 열 제한에 도달할 가능성을 줄여야 합니다.
 
 ### <a name="azure-data-factory"></a>Azure Data Factory
 Azure Data Factory은 매우 자세한 로그 집합으로 인해 많은 열을 작성 하는 것으로 알려진 서비스 이며, 잠재적으로 _Azurediagnostics_ 가 제한을 초과 하 게 됩니다. 리소스 특정 모드를 사용 하기 전에 구성 된 모든 진단 설정의 경우 모든 작업에 대해 고유 하 게 명명 된 사용자 매개 변수에 대해 새로 만들어진 새 열이 있습니다. 활동 입력 및 출력의 자세한 특성으로 인해 더 많은 열이 생성 됩니다.

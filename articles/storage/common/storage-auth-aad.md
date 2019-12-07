@@ -1,22 +1,23 @@
 ---
-title: Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여 Microsoft Docs
+title: Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
+titleSuffix: Azure Storage
 description: Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한을 부여 합니다.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/02/2019
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: aed61e5cf32ed0148e8b9eee6edf44daa03acd17
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 445d98ab07a91b056d4cf747f7c0f4cf1cdf9d53
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72598100"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891816"
 ---
-# <a name="authorize-access-to-azure-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Azure blob 및 큐에 대 한 액세스 권한 부여
+# <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
 Azure Storage는 AD (Azure Active Directory)를 사용 하 여 Blob 및 큐 저장소에 대 한 요청에 권한을 부여할 수 있습니다. Azure AD에서는 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰을 사용 하 여 Blob 또는 큐 저장소에 있는 리소스에 액세스 하는 요청을 인증할 수 있습니다.
 

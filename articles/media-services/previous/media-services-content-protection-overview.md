@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services를 사용한 콘텐츠 보호 | Microsoft Docs
-description: 이 기사는 Media Services 콘텐츠 보호에 대한 개요를 제공합니다.
+description: 이 문서에서는 Azure Media Services v 2를 통한 콘텐츠 보호 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,19 +14,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 8259b58c7f30b63084e970bd9aed99642a43226f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61216172"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901263"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요 
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
-Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
+Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
 다음 이미지는 Media Services 콘텐츠 보호 워크플로를 보여 줍니다. 
 
@@ -48,7 +48,7 @@ Azure Media Services를 사용하여 컴퓨터를 떠날 때부터 스토리지,
 
 플레이어가 스트림을 요청하면 Media Services는 지정된 키를 사용하고 AES 암호화되지 않은 키 또는 DRM 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 Media Services 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-## <a name="aes-128-clear-key-vs-drm"></a>AES-128 암호화되지 않은 키 및 DRM
+## <a name="aes-128-clear-key-vs-drm"></a>AES-128 암호화 되지 않은 키 및 DRM
 고객들은 종종 AES 암호화 또는 DRM 시스템을 사용해야 할지 여부를 궁금해 합니다. 두 시스템 간의 주요 차이점은 AES 암호화를 사용하면 콘텐츠 키가 암호화되지 않은 형식으로 클라이언트에 전송된다는 것입니다. 그 결과 콘텐츠를 암호화하는 데 사용되는 키는 일반 텍스트로 클라이언트에 대한 네트워크 추적에서 볼 수 있습니다. AES-128 암호화되지 않은 키 암호화는 뷰어가 신뢰할 만한 당사자(예: 직원이 볼 수 있도록 회사 내에 배포되는 회사 비디오 암호화)인 사용 사례에 적합합니다.
 
 PlayReady, Widevine, 및 FairPlay 은 모두 AES-128 암호화되지 않은 키와 비교해서 더 높은 수준의 암호화를 제공합니다. 콘텐츠 키는 암호화된 형식으로 전송됩니다. 또한 암호 해독은 악의적인 사용자가 공격하기에 좀 더 어려운 운영 체제 수준의 보안 환경에서 처리됩니다. DRM은 뷰어가 신뢰할 만한 당사자가 아니고 가장 높은 수준의 보안이 필요한 사용 사례에 권장됩니다.
@@ -86,7 +86,7 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 * 다음과 같은 암호화 형식을 지정할 수 있습니다.
   * **cenc**: PlayReady 또는 Widevine인 경우(일반 암호화)
   * **cbcs-aapl**: FairPlay인 경우(AES CBC 암호화)
-  * **cbc**: AES 봉투 암호화
+  * **cbc**: AES 봉투(Envelope) 암호화
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서는 콘텐츠 보호를 시작하기 위한 다음 단계를 설명합니다.
@@ -96,7 +96,7 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
 * [PlayReady 및/또는 Widevine으로 보호 ](media-services-protect-with-playready-widevine.md)
 * [FairPlay로 보호](media-services-protect-hls-with-FairPlay.md)
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 
 * [JWT 토큰 인증](http://www.gtrifonov.com/2015/01/03/jwt-token-authentication-in-azure-media-services-and-dynamic-encryption/)
 * [Azure Active Directory와 Azure Media Services OWIN MVC 기반 앱을 Azure Active Directory와 통합하고 JWT 클레임을 기반으로 하는 콘텐츠 키 배달을 제한합니다](http://www.gtrifonov.com/2015/01/24/mvc-owin-azure-media-services-ad-integration/).

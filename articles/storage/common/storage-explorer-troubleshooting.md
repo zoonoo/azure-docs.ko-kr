@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: d9967b6f1177281759dd66122ffd0183bb2b813d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e3a9b733b055469e22d3b107c0f9f49b768756c4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775836"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895256"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -98,7 +98,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램** > **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
-4. **로그인**을 선택 합니다.
+4. **로그인**을 선택합니다.
 5. 다음 패널의 지침을 따릅니다.
 
 기본 브라우저가 이미 다른 계정에 로그인 되어 있으므로 사용 하려는 계정에 로그인 할 수 없는 경우 다음 중 하나를 수행 합니다.
@@ -301,7 +301,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 
 이러한 패키지는 Linux에서 Storage 탐색기 하기 위한 가장 일반적인 요구 사항입니다.
 
-* [.NET Core 2.0 런타임](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x)
+* [.NET Core 2.2 런타임](https://docs.microsoft.com/en-us/dotnet/core/install/dependencies?tabs=netcore22&pivots=os-linux)
 * `libgconf-2-4`
 * `libgnome-keyring0` 또는 `libgnome-keyring-dev`
 * `libgnome-keyring-common`

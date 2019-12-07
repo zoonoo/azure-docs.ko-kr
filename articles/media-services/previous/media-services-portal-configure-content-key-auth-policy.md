@@ -1,6 +1,6 @@
 ---
 title: Azure Portal을 사용하여 콘텐츠 키 인증 정책 구성 | Microsoft Docs
-description: 콘텐츠 키에 대한 인증 정책을 구성하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 콘텐츠 키에 대 한 권한 부여 정책을 구성 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b046ce5a8647abe601a6327667241d98445ce1e4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 64f5afdc8eb24758fac6faa0cc6d1e4e1002b5db
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61130560"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895841"
 ---
 # <a name="configure-a-content-key-authorization-policy"></a>콘텐츠 키 인증 정책 구성
 [!INCLUDE [media-services-selector-content-key-auth-policy](../../../includes/media-services-selector-content-key-auth-policy.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "61130560"
 
 플레이어가 동적으로 암호화되도록 설정된 스트림을 요청하는 경우, Media Services는 구성된 키를 사용하고 AES 또는 DRM 암호화를 사용하여 동적으로 사용자의 콘텐츠를 암호화합니다. 스트림을 해독하기 위해 플레이어는 키 배달 서비스에서 키를 요청합니다. 사용자에게 키를 얻을 수 있는 권한이 있는지 여부를 결정하기 위해 서비스는 키에 지정된 권한 부여 정책을 평가합니다.
 
-여러 콘텐츠 키를 가지거나 Media Services 키 배달 서비스가 아닌 키/라이선스 배달 서비스 URL을 지정하려면 Media Services 키 배달 서비스 Media Services .NET SDK 또는 REST API를 사용하세요. 자세한 내용은 다음을 참조하세요.
+여러 콘텐츠 키를 가지거나 Media Services 키 배달 서비스가 아닌 키/라이선스 배달 서비스 URL을 지정하려면 Media Services 키 배달 서비스 Media Services .NET SDK 또는 REST API를 사용하세요. 자세한 내용은
 
 * [Media Services .NET SDK를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md)
 * [Media Services REST API를 사용하여 콘텐츠 키 권한 부여 정책 구성](media-services-rest-configure-content-key-auth-policy.md)
@@ -42,7 +42,7 @@ ms.locfileid: "61130560"
 * Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 엔드포인트가 “실행 중” 상태에 있어야 합니다. 
 * 사용자의 자산은 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다. 자세한 내용은 [자산 인코딩](media-services-encode-asset.md)을 참조하세요.
 * 키 배달 서비스는 ContentKeyAuthorizationPolicy 및 관련 개체(정책 옵션 및 제한 사항)를 15분 동안 캐시합니다. ContentKeyAuthorizationPolicy를 만들고 토큰 제한을 사용하도록 지정하고, 테스트한 다음, 정책을 개방형 제한으로 업데이트할 수 있습니다. 이 프로세스를 수행할 경우 대략 15분 후에 정책이 개방형 버전으로 전환됩니다.
-* Media Services 스트리밍 엔드포인트는 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 “\*” 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dash.js의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dashjs 제한을 해결하기 위해, 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
+* Media Services 스트리밍 엔드포인트는 실행 전 응답에서 CORS 'Access-Control-Allow-Origin' 헤더 값을 “\*” 와일드카드로 설정합니다. 이 값은 Azure Media Player, Roku 및 JWPlayer 등을 망라한 대부분의 플레이어에서 작동합니다. 그러나 자격 증명 모드가 “include”로 설정된 상태에서 dash.js의 XMLHttpRequest가 “\*” 와일드카드를 Access-Control-Allow-Origin 값으로 허용하지 않으므로 dash.js를 사용하는 일부 플레이어에서는 작동하지 않습니다. 이러한 dash.js 제한을 해결하기 위해 단일 도메인에서 클라이언트를 호스트하는 경우 Media Services가 실행 전 응답 헤더에서 해당 도메인을 지정할 수 있습니다. 도움이 필요한 경우 Azure Portal을 통해 지원 티켓을 엽니다.
 
 ## <a name="configure-the-key-authorization-policy"></a>키 인증 정책 구성
 키 인증 정책을 구성하려면 **콘텐츠 보호** 페이지를 선택하세요.
@@ -83,7 +83,7 @@ PlayReady로 콘텐츠를 보호하려는 경우 권한 부여 정책에서 지�
 ## <a name="next-steps"></a>다음 단계
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 [open_policy]: ./media/media-services-portal-configure-content-key-auth-policy/media-services-protect-content-with-open-restriction.png

@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 10/10/2019
+ms.date: 12/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: ca38ebb015552042591fb4cc6b7edfe99527e79f
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: ff723f490a3f6d34f652e0b21e5f6e0b16f0a841
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74007058"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900229"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Time Series Insights 환경에서 문제 진단 및 해결
 
@@ -38,7 +38,7 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>원인 B: 이벤트 원본 키에 필요한 사용 권한이 없습니다.
 
-* Azure IoT Hub에 있는 IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다. **iothubowner** 또는 **service** 정책에는 **서비스 연결** 권한이 있으므로 둘 다 사용할 수 있습니다.
+* Azure IoT Hub에 있는 IoT Hub의 경우 **서비스 연결** 사용 권한이 있는 키를 제공해야 합니다. 둘 다 **서비스 연결** 권한이 있으므로 **iothubowner** 또는 **서비스** 정책 중 하나를 선택 합니다.
 
    [![IoT Hub 서비스 연결 사용 권한](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
@@ -50,13 +50,17 @@ Azure Time Series Insights는 JSON 데이터만 지원합니다. JSON 샘플의 
 
 IoT Hub 또는 이벤트 허브를 등록할 경우 데이터를 읽는 데 사용할 소비자 그룹을 설정해야 합니다. 이 소비자 그룹은 *공유할 수 없습니다*. 소비자 그룹이 공유되면 기본 IoT Hub 또는 이벤트 허브는 자동으로 한 명의 읽기 권한자와의 연결을 임의로 끊습니다. Time Series Insights에서 읽을 고유한 소비자 그룹을 제공합니다.
 
+### <a name="cause-d-the-environment-has-just-been-provisioned"></a>원인 D: 환경이 프로 비전 된 것입니다.
+
+환경 및 해당 데이터를 처음 만든 후 몇 분 내에 데이터를 Time Series Insights 탐색기에 표시 합니다.
+
 ## <a name="problem-some-data-is-shown-but-data-is-missing"></a>문제: 일부 데이터가 표시 되지만 데이터가 누락 되었습니다.
 
 데이터가 부분적으로만 표시되고 지연되는 것처럼 보이면 여러 가지 가능성을 고려해야 합니다.
 
 ### <a name="cause-a-your-environment-is-being-throttled"></a>원인 A: 사용자 환경을 제한 하 고 있습니다.
 
-데이터가 있는 이벤트 원본을 만든 후에 환경을 프로비전할 경우 일반적으로 제한이 발생합니다. Azure IoT Hub 및 Azure Event Hubs는 최대 7일 동안의 데이터를 저장합니다. Time Series Insights는 항상 이벤트 원본에서 가장 오래된 이벤트부터 시작합니다(선입선출 또는 *FIFO*).
+데이터를 포함 하는 이벤트 원본을 만든 후 환경이 프로 비전 되는 경우 [제한이](time-series-insights-environment-mitigate-latency.md) 일반적인 문제입니다. Azure IoT Hub 및 Azure Event Hubs는 최대 7일 동안의 데이터를 저장합니다. Time Series Insights는 항상 이벤트 원본에서 가장 오래된 이벤트부터 시작합니다(선입선출 또는 *FIFO*).
 
 예를 들어, S1, 단일 단위 Time Series Insights 환경에 연결할 때 이벤트 원본에 5백만 개의 이벤트가 있는 경우 Time Series Insights는 하루에 약 1백만 개의 이벤트를 읽습니다. Time Series Insights가 5일의 대기 시간을 겪게 되는 것처럼 보일 수 있습니다. 그렇지만 실제로는 작업 환경이 제한되고 있는 것입니다.
 

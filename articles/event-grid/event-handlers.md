@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: spelluru
-ms.openlocfilehash: 279d7f2ac6481f3aa3ebd8e5a18a52b9e52f6201
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: c88ef8c3996b1e7d998d3eff12c15077ec2482ff
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169312"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900727"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -28,7 +28,7 @@ ms.locfileid: "74169312"
 |---------|---------|
 |[자습서: Event Grid 및 Microsoft 팀을 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
 
-## <a name="azure-functions"></a>Azure 기능
+## <a name="azure-functions"></a>Azure Function
 
 이벤트에 대한 serverless 응답으로 Azure Functions를 사용합니다.
 
@@ -42,7 +42,7 @@ Azure Functions를 처리기로 사용할 때는 일반 HTTP 트리거 대신 Ev
 | [자습서: 데이터 웨어하우스로 빅 데이터 스트림](event-grid-event-hubs-integration.md) | Event Hubs가 캡처 파일을 만들 때 Event Grid는 함수 앱에 이벤트를 보냅니다. 앱은 캡처 파일을 검색하고 데이터를 데이터 웨어하우스에 마이그레이션합니다. |
 | [자습서: Azure Service Bus-Azure Event Grid 통합 예제](../service-bus-messaging/service-bus-to-event-grid-integration-example.md?toc=%2fazure%2fevent-grid%2ftoc.json) | Event Grid는 Service Bus 토픽의 메시지를 함수 앱 및 논리 앱에 전송합니다. |
 
-## <a name="event-hubs"></a>Event Hubs
+## <a name="event-hubs"></a>Event Hubs(영문)
 
 솔루션이 이벤트를 처리할 수 있는 속도보다 더 빠르게 이벤트를 가져오는 경우 Event Hubs를 사용하세요. 애플리케이션이 자체 일정에 따라 Event Hubs의 이벤트를 처리합니다. 들어오는 이벤트를 처리하도록 이벤트 처리 규모를 확장할 수 있습니다.
 
@@ -79,7 +79,7 @@ Logic Apps를 사용하여 이벤트에 응답하는 비즈니스 프로세스�
 
 엔터프라이즈 응용 프로그램에서 버퍼링 또는 명령 & 제어 시나리오에서 사용 하기 위해 Event Grid의 이벤트를 Service Bus 큐에 직접 라우팅할 수 있습니다.
 
-Azure Portal에서 이벤트 구독을 만드는 동안 "Service Bus 큐"를 끝점 유형으로 선택 하 고 "선택 및 끝점"을 클릭 하 여 Service Bus 큐를 선택 합니다.
+Azure Portal에서 이벤트 구독을 만드는 동안 끝점 유형으로 "Service Bus 큐"를 선택한 다음 "끝점 선택"을 클릭 하 여 Service Bus 큐를 선택 합니다.
 
 #### <a name="using-cli-to-add-a-service-bus-queue-handler"></a>CLI를 사용 하 여 Service Bus 큐 처리기 추가
 
@@ -97,7 +97,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-### <a name="service-bus-topics"></a>Service Bus 토픽
+### <a name="service-bus-topics"></a>Service Bus 항목
 
 Service Bus 항목을 사용 하 여 Azure 시스템 이벤트를 처리 하기 위해 Event Grid의 이벤트를 Service Bus 항목으로 직접 라우트 하거나 명령 & 메시징 시나리오를 제어할 수 있습니다.
 

@@ -1,7 +1,7 @@
 ---
 title: Video Indexer에 대한 질문과 대답 - Azure
 titleSuffix: Azure Media Services
-description: Video Indexer에 대한 질문과 대답을 확인합니다.
+description: 이 문서에서는 Azure Media Services Video Indexer에 대해 자주 묻는 질문에 대 한 대답을 제공 합니다.
 services: media-services
 author: Juliako
 manager: femila
@@ -10,14 +10,14 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: 95f2af1b192564290551f9ed31f0fe158b4536f6
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: fc5457fd44bd27731cad6269ee95aed838a3d755
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838224"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892790"
 ---
-# <a name="frequently-asked-questions"></a>질문과 대답
+# <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 이 문서에서는 Video Indexer에 대한 질문과 대답을 확인합니다.
 
@@ -59,7 +59,7 @@ Video Indexer에는 웹 기반 인터페이스에서 600분, API를 통해 2,400
 
 ### <a name="what-media-formats-does-video-indexer-support"></a>Video Indexer에서 지원하는 미디어 형식은 무엇인가요?
 
-Video Indexer는 가장 일반적인 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) 목록을 참조하세요.
+Video Indexer는 대부분의 널리 사용되는 미디어 형식을 지원합니다. 자세한 내용은 [Azure Media Encoder Standard 형식](https://docs.microsoft.com/azure/media-services/latest/media-encoder-standard-formats) 목록을 참조하세요.
 
 ### <a name="how-to-do-i-upload-a-media-into-video-indexer"></a>Video Indexer로 미디어를 어떻게 업로드하나요?
 
@@ -71,7 +71,7 @@ Video Indexer API 및 Video Indexer 웹 기반 인터페이스를 사용하여 �
 
 ### <a name="can-i-create-customized-workflows-to-automate-processes-with-video-indexer"></a>사용자 지정 워크플로를 만들어 Video Indexer를 사용한 프로세스를 자동화할 수 있나요?
 
-예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/services/logic-apps/)에서 Video Indexer용 [Logic Apps](https://flow.microsoft.com/en-us/) 및 [Flow](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
+예, Logic Apps, Flow 및 [Azure Functions](https://azure.microsoft.com/services/functions/)과 같은 서버리스 기술에 Video Indexer를 통합할 수 있습니다. [여기](https://azure.microsoft.com/blog/logic-apps-flow-connectors-will-make-automating-video-indexer-simpler-than-ever/)에서 Video Indexer용 [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 및 [Flow](https://flow.microsoft.com/en-us/) 커넥터에 대한 자세한 정보를 확인할 수 있습니다. 
 
 ### <a name="in-which-azure-regions-is-video-indexer-available"></a>어떤 Azure 지역에서 Video indexer를 사용할 수 있나요?
 

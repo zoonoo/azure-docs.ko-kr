@@ -1,6 +1,6 @@
 ---
 title: Azure 주문형 미디어 인코더 개요 | Microsoft Docs
-description: 이 항목에서는 Azure 주문형 미디어 인코더에 대 한 개요를 제공 합니다.
+description: Azure Media Services는 클라우드에서 미디어의 인코딩에 대한 여러 옵션을 제공합니다. 이 문서에서는 Azure 주문형 미디어 인코더에 대 한 개요를 제공 합니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: 5c55b419b88a66d2e1acf1687478ab35d9f0a059
-ms.sourcegitcommit: 3f78a6ffee0b83788d554959db7efc5d00130376
+ms.openlocfilehash: d5d5b8a7328ee82e94d494795617832cb0258667
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70019042"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901509"
 ---
 # <a name="overview-of-azure-on-demand-media-encoders"></a>Azure 주문형 미디어 인코더 개요 
 
@@ -37,7 +37,7 @@ Azure Media Services 계정이 만들어지면 **기본** 스트리밍 엔드포
 Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 지원합니다.
 
 * [미디어 인코더 표준](media-services-encode-asset.md#media-encoder-standard)
-* [미디어 인코더 Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
+* [Media Encoder Premium 워크플로](media-services-encode-asset.md#media-encoder-premium-workflow)
 
 이 문서에서는 주문형 미디어 인코더에 대한 간략한 개요와 보다 자세한 정보를 제공하는 문서에 대한 링크를 제공합니다. 또한 항목에서는 인코더에 대한 비교를 제공합니다.
 
@@ -68,10 +68,10 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ### <a name="create-overlays"></a>오버레이 만들기
 자세한 내용은 [미디어 인코더 표준을 사용하여 오버레이를 만드는 방법](media-services-advanced-encoding-with-mes.md#overlay)을 참조하세요.
 
-### <a name="see-also"></a>참고자료
+### <a name="see-also"></a>참고 항목
 [Media Services 블로그](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
-## <a name="media-encoder-premium-workflow"></a>Media Encoder Premium Workflow
+## <a name="media-encoder-premium-workflow"></a>미디어 인코더 Premium 워크플로
 ### <a name="overview"></a>개요
 [Azure Media Services의 프리미엄 Encoding 소개](https://azure.microsoft.com/blog/2015/03/05/introducing-premium-encoding-in-azure-media-services/)
 
@@ -86,7 +86,7 @@ Media Services는 이 문서에서 설명하는 다음 주문형 인코더를 �
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>관련 문서

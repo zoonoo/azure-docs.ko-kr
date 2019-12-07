@@ -7,18 +7,19 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
-ms.openlocfilehash: 5a0a7e59e71e51a109af0f89cbb7ba580b2b97e6
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 21c1380862638ef671b31f0fdec42009d217aca7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967198"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893215"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
 AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케이션 가동 시간이 중요합니다. AKS는 가용성 집합에 여러 노드를 사용하여 고가용성을 제공합니다. 그러나 이러한 여러 노드는 지역 장애 로부터 시스템을 보호 하지 않습니다. 가동 시간을 최대화 하려면 비즈니스 연속성을 유지 하 고 재해 복구를 준비 하기 위해 미리 계획을 세워야 합니다.
 
-이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 여기에서는 다음과 같은 작업을 수행하는 방법에 대해 배우게 됩니다.
+이 문서에서는 AKS에서 비즈니스 연속성 및 재해 복구를 계획 하는 방법에 중점을 둔 문서입니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 여러 지역에서 AKS 클러스터를 계획 합니다.
@@ -33,9 +34,9 @@ AKS(Azure Kubernetes Services)에서 클러스터를 관리할 때 애플리케�
 
 AKS 클러스터는 단일 Azure 지역에 배포됩니다. 지역 장애 로부터 시스템을 보호 하려면 여러 지역의 여러 AKS 클러스터에 응용 프로그램을 배포 합니다. AKS 클러스터를 배포할 위치를 계획 하는 경우 다음을 고려 하십시오.
 
-* [**AKS 지역 가용성**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): 사용자에게 가까운 Azure 지역을 선택합니다. AKS는 계속 해 서 새 지역으로 확장 됩니다.
-* [**Azure 쌍을 이루는 지역**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): 지리적 영역으로는 서로 쌍을 이루는 두 Azure 지역을 선택합니다. 쌍을 이루는 지역은 플랫폼 업데이트를 조정 하 고 필요한 경우 복구 작업의 우선 순위를 지정 합니다.
-* **서비스 가용성**: 쌍을 이루는 지역이 핫/핫, 핫/웜 또는 핫/콜드 이어야 하는지 여부를 결정 합니다. 두 지역을 동시에 실행 하 고 한 지역이 트래픽 처리를 시작할 *준비가 되셨습니까* ? 또는 한 지역에서 트래픽 제공을 준비 하는 데 시간을 사용 하 시겠습니까?
+* [**AKS 지역 가용성**](https://docs.microsoft.com/azure/aks/quotas-skus-regions#region-availability): 사용자에 게 가까운 지역을 선택 합니다. AKS는 계속 해 서 새 지역으로 확장 됩니다.
+* [**Azure 쌍을 이루는 지역**](https://docs.microsoft.com/azure/best-practices-availability-paired-regions): 지리적 영역에 대해 서로 쌍을 이루는 두 지역을 선택 합니다. 쌍을 이루는 지역은 플랫폼 업데이트를 조정 하 고 필요한 경우 복구 작업의 우선 순위를 지정 합니다.
+* **서비스 가용성**: 페어링된 지역이 핫/핫, 핫/웜 또는 핫/콜드 이어야 하는지 여부를 결정 합니다. 두 지역을 동시에 실행 하 고 한 지역이 트래픽 처리를 시작할 *준비가 되셨습니까* ? 또는 한 지역에서 트래픽 제공을 준비 하는 데 시간을 사용 하 시겠습니까?
 
 AKS 지역 가용성 및 쌍을 이루는 지역은 공동 고려 사항입니다. 지역 재해 복구를 함께 관리하도록 설계된 쌍을 이루는 지역에 AKS 클러스터를 배포합니다. 예를 들어 미국 동부 및 미국 서 부에서 AKS을 사용할 수 있습니다. 이러한 지역은 쌍을 이룹니다. AKS BC/DR 전략을 만들 때이 두 지역을 선택 합니다.
 
@@ -61,6 +62,12 @@ Traffic Manager DNS 조회를 수행 하 고 사용자의 가장 적합 한 끝�
 
 Traffic Manager는 DNS (계층 3)를 사용 하 여 트래픽을 셰이프 합니다. [Azure Front 도어 서비스](https://docs.microsoft.com/azure/frontdoor/front-door-overview) 는 HTTP/HTTPS (계층 7) 라우팅 옵션을 제공 합니다. Azure Front 도어 서비스의 추가 기능에는 SSL 종료, 사용자 지정 도메인, 웹 응용 프로그램 방화벽, URL 재작성 및 세션 선호도가 포함 됩니다. 애플리케이션 트래픽 요구 사항을 검토하여 어떤 솔루션이 가장 적합한지 알아보세요.
 
+### <a name="interconnect-regions-with-global-virtual-network-peering"></a>글로벌 가상 네트워크 피어 링을 사용 하 여 지역 상호 연결
+
+클러스터가 서로 통신 해야 하는 경우 가상 [네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 통해 두 가상 네트워크를 서로 연결할 수 있습니다. 이 기술은 서로 다른 지리적 지역에도 불구 하 고 Microsoft의 백본 네트워크에서 높은 대역폭을 제공 하 여 가상 네트워크를 서로 상호 연결할 수 있습니다.
+
+AKS 클러스터가 실행 되는 가상 네트워크를 피어 링 하는 필수 구성 요소는 AKS 클러스터의 표준 Load Balancer를 사용 하 여 가상 네트워크 피어 링을 통해 kubernetes 서비스에 연결할 수 있도록 하는 것입니다.
+
 ## <a name="enable-geo-replication-for-container-images"></a>컨테이너 이미지에 지역 복제 사용
 
 **모범 사례**: 컨테이너 이미지를 Azure Container Registry에 저장 하 고 각 AKS 지역에 레지스트리를 지역 복제 합니다.
@@ -74,14 +81,14 @@ AKS에 애플리케이션을 배포하고 실행하려면 컨테이너 이미지
 Container Registry 지역에서 복제를 사용 하 여 동일한 지역에서 이미지를 가져오는 경우 결과는 다음과 같습니다.
 
 * **더 빠름**: 동일한 Azure 지역 내에서 고속의 대기 시간이 짧은 네트워크 연결에서 이미지를 끌어옵니다.
-* **안정성 향상**: 지역을 사용할 수 없는 경우 AKS 클러스터는 사용 가능한 컨테이너 레지스트리에서 이미지를 가져옵니다.
-* **비용**절감: 데이터 센터 간 네트워크 송신 요금이 발생하지 않습니다.
+* **더 안정적**: 지역을 사용할 수 없는 경우 AKS 클러스터는 사용 가능한 컨테이너 레지스트리에서 이미지를 가져옵니다.
+* **비용**절감: 데이터 센터 간에 네트워크 송신 비용이 없습니다.
 
 지역에서 복제는 *프리미엄* SKU 컨테이너 레지스트리 기능입니다. 지역에서 복제를 구성 하는 방법에 대 한 자세한 내용은 [Container Registry 지역에서 복제](https://docs.microsoft.com/azure/container-registry/container-registry-geo-replication)를 참조 하세요.
 
 ## <a name="remove-service-state-from-inside-containers"></a>컨테이너 내부에서 서비스 상태 제거
 
-**모범 사례**: 가능 하면 서비스 상태를 컨테이너 내부에 저장 하지 마세요. 대신, 다중 지역 복제를 지 원하는 Azure PaaS (platform as a service)를 사용 합니다.
+**모범 사례**: 가능한 경우 컨테이너 내에 서비스 상태를 저장 하지 마세요. 대신, 다중 지역 복제를 지 원하는 Azure PaaS (platform as a service)를 사용 합니다.
 
 *서비스 상태* 는 서비스가 작동 하는 데 필요한 메모리 내 또는 디스크 내 데이터를 나타냅니다. 상태의 예로는 서비스에서 읽고 쓰는 데이터 구조 및 멤버 변수를 들 수 있습니다. 서비스를 설계 하는 방법에 따라 상태에는 디스크에 저장 된 파일 또는 기타 리소스가 포함 될 수도 있습니다. 예를 들어 데이터베이스에서 데이터 및 트랜잭션 로그를 저장 하는 데 사용 하는 파일이 상태에 포함 될 수 있습니다.
 

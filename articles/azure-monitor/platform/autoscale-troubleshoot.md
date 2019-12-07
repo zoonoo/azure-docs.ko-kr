@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/4/2019
 ms.author: robb
 ms.subservice: autoscale
-ms.openlocfilehash: 14e2f79383aa45125ce6955f3611a75ece1df10d
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 410c182075d0aa288ad05195958c396f1a357ff1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152945"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893572"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Azure 자동 크기 조정 문제 해결
  
@@ -115,7 +115,7 @@ Azure Monitor 지원 되는 서비스와 마찬가지로 [진단 설정을](diag
 
 ![자동 크기 조정 진단 설정](media/autoscale-troubleshoot/diagnostic-settings.png)
 
-위의 그림은 Azure Portal 자동 크기 조정 진단 설정을 보여 줍니다. 여기서 진단 로그 탭을 선택 하 고 로그 수집 및 라우팅을 사용 하도록 설정할 수 있습니다. *AutoscaleSettings/* 으로 리소스 종류를 선택 하 여 진단 설정에 대해 REST API, CLI, PowerShell, 리소스 관리자 템플릿을 사용 하 여 동일한 작업을 수행할 수도 있습니다. 
+위의 그림은 Azure Portal 자동 크기 조정 진단 설정을 보여 줍니다. 여기에서 진단/리소스 로그 탭을 선택 하 고 로그 수집 및 라우팅을 사용 하도록 설정할 수 있습니다. *AutoscaleSettings/* 으로 리소스 종류를 선택 하 여 진단 설정에 대해 REST API, CLI, PowerShell, 리소스 관리자 템플릿을 사용 하 여 동일한 작업을 수행할 수도 있습니다. 
 
 ## <a name="troubleshooting-using-autoscale-logs"></a>자동 크기 조정 로그를 사용 하 여 문제 해결 
 

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/05/2019
 ms.author: b-juche
-ms.openlocfilehash: 84496fbc8a415171172d0a138f647ecb0310b6c7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7f1e9500a9268e0fba054f7065e858cd801aca7b
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173590"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894099"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Windows 또는 Linux 가상 머신에 대한 볼륨 탑재 또는 탑재 해제 
 
@@ -41,6 +41,12 @@ ms.locfileid: "74173590"
     * `$ANFIP`은 볼륨 속성 블레이드에서 찾은 Azure NetApp Files 볼륨의 IP 주소입니다.
     * `$FILEPATH`은 Azure NetApp Files 볼륨의 내보내기 경로입니다.
     * `$MOUNTPOINT`는 NFS 내보내기를 탑재 하는 데 사용 되는 Linux 호스트에 생성 되는 디렉터리입니다.
+
+4. NFS를 사용 하 여 Windows에 볼륨을 탑재 하려는 경우:
+
+    a. 먼저 Unix 또는 Linux VM에 볼륨을 탑재 합니다.  
+    b. 볼륨에 대해 `chmod 777` 또는 `chmod 775` 명령을 실행 합니다.  
+    다. Windows에서 NFS 클라이언트를 통해 볼륨을 탑재 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

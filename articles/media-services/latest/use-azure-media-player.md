@@ -1,6 +1,6 @@
 ---
 title: Azure Media Player를 사용하여 재생 - Azure | Microsoft Docs
-description: 이 항목에서는 Azure Media Player에 대한 개요를 제공합니다.
+description: Azure Media Player는 다양한 브라우저 및 디바이스의 Microsoft Azure Media Services에서 미디어 콘텐츠를 재생하기 위해 작성된 웹 비디오 플레이어입니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/17/2019
 ms.author: juliako
-ms.openlocfilehash: 6157f59d96770298d947a1cf6ca28aa343e1a0d4
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 8f1639a21e3783f587904c2a8085fd2f555ff5b8
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311816"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900348"
 ---
 # <a name="azure-media-player-overview"></a>Azure Media Player 개요
 

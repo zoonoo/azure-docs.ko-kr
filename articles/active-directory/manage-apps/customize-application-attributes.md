@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 82c1a536bb86f0b3a4fe6a24af00379686ccc292
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: c8337d18b5c6b484e45e6cefaec98e2684155a02
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641498"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900416"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -78,12 +78,12 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
   - **만드는 동안에만** -이 매핑은 사용자 생성 작업에만 적용 됩니다.
 
 ## <a name="matching-users-in-the-source-and-target--systems"></a>원본 및 대상 시스템의 사용자 일치
-Azure AD 프로 비전 서비스는 최적의 (사용자가 대상 시스템에서 종료 하지 않음) 및 brownfield (대상 시스템에 이미 있는 사용자) 시나리오 모두에 배포할 수 있습니다. 두 시나리오를 모두 지원 하기 위해 프로 비전 서비스는 일치 하는 특성의 개념을 사용 합니다. 일치 하는 특성을 사용 하 여 원본에서 사용자를 고유 하 게 식별 하 고 대상의 사용자와 일치 하는 방법을 결정할 수 있습니다. 배포 계획의 일부로 원본 및 대상 시스템에서 사용자를 고유 하 게 식별 하는 데 사용할 수 있는 특성을 식별 합니다. 참고 사항:
+Azure AD 프로 비전 서비스는 "최적의" 시나리오 (사용자가 대상 시스템에서 종료 하지 않음) 및 "brownfield" 시나리오 (사용자가 대상 시스템에 이미 있는 경우)에 배포할 수 있습니다. 두 시나리오를 모두 지원 하기 위해 프로 비전 서비스는 일치 하는 특성의 개념을 사용 합니다. 일치 특성을 사용 하면 원본에서 사용자를 고유 하 게 식별 하 고 대상의 사용자와 일치 하는 방법을 결정할 수 있습니다. 배포 계획의 일부로 원본 및 대상 시스템에서 사용자를 고유 하 게 식별 하는 데 사용할 수 있는 특성을 식별 합니다. 참고 사항:
 
 - **일치 하는 특성은 고유 해야 합니다.** 고객은 userPrincipalName, 메일 또는 개체 ID와 같은 특성을 일치 하는 특성으로 사용 하는 경우가 많습니다.
-- **여러 특성을 일치 하는 특성으로 사용할 수 있습니다.** 사용자를 일치 시킬 때 평가할 여러 특성을 정의 하 고, 해당 사용자가 평가 되는 순서 (UI에서 일치 하는 우선 순위로 정의 됨)를 정의할 수 있습니다. 예를 들어 세 개의 특성을 일치 하는 특성으로 정의 하 고 처음 두 특성을 평가한 후 사용자가 고유 하 게 일치 하는 경우 서비스는 세 번째 특성을 evaluat 하지 않습니다. 서비스는 지정 된 순서 대로 일치 하는 특성을 평가 하 고 일치 항목이 발견 되 면 계산을 중지 합니다.  
+- **여러 특성을 일치 하는 특성으로 사용할 수 있습니다.** 사용자를 일치 시킬 때 평가할 여러 특성을 정의 하 고, 해당 사용자가 평가 되는 순서 (UI에서 일치 하는 우선 순위로 정의 됨)를 정의할 수 있습니다. 예를 들어 세 개의 특성을 일치 하는 특성으로 정의 하 고 처음 두 특성을 평가한 후 사용자가 고유 하 게 일치 하는 경우 서비스는 세 번째 특성을 평가 하지 않습니다. 서비스는 지정 된 순서 대로 일치 하는 특성을 평가 하 고 일치 항목이 발견 되 면 계산을 중지 합니다.  
 - **원본 및 대상의 값이 정확 하 게 일치 하지** 않아도 됩니다. 대상의 값은 원본에 있는 값의 몇 가지 간단한 함수 일 수 있습니다. 따라서 소스와 대상의 emailAddress 특성을 가질 수 있으며 일부 문자를 일부 상수 값으로 대체 하는 emailAddress 특성의 함수를 사용 하 여 일치 시킬 수 있습니다.  
-- **특성의 조합을 기반으로 하는 일치가 지원 되지 않습니다.** 대부분의 응용 프로그램은 두 속성을 기반으로 하는 쿼리를 지원 하지 않습니다. 따라서 특성의 조합을 기반으로 하 여 일치 시킬 수 없습니다. 다른 속성 뒤의 단일 속성을 평가할 수 있습니다.
+- **특성의 조합을 기반으로 하는 일치가 지원 되지 않습니다.** 대부분의 응용 프로그램에서는 두 가지 속성을 기반으로 하는 쿼리를 지원 하지 않습니다. 따라서 특성의 조합을 기준으로 일치 시킬 수 없습니다. 다른 속성 뒤의 단일 속성을 평가할 수 있습니다.
 - **모든 사용자에 게 하나 이상의 일치 하는 특성에 대 한 값이 있어야 합니다.** 일치 하는 특성을 하나 정의 하는 경우 모든 사용자에 게 원본 시스템의 해당 특성 값이 있어야 합니다. 예를 들어 userPrincipalName을 일치 하는 특성으로 정의 하는 경우 모든 사용자에 게 userPrincipalName가 있어야 합니다. 일치 하는 특성 (예: extensionAttribute1 및 메일)을 여러 개 정의 하는 경우 모든 사용자가 일치 하는 특성을 가질 필요가 없습니다. 사용자 한 명에 게는 extensionAttribute1 있지만 메일은 없지만 다른 사용자는 메일을 포함할 수 있지만 extensionAttribute1는 없습니다. 
 - **대상 응용 프로그램은 일치 하는 특성에 대 한 필터링을 지원 해야 합니다.** 응용 프로그램 개발자는 해당 사용자 또는 그룹 API에서 특성의 하위 집합에 대 한 필터링을 허용 합니다. 갤러리의 응용 프로그램의 경우 기본 특성 매핑이 대상 응용 프로그램의 API에서 필터링을 지 원하는 특성에 대 한 것을 확인 합니다. 대상 응용 프로그램에 대해 일치 하는 기본 특성을 변경 하는 경우 타사 API 설명서를 참조 하 여 특성을 필터링 할 수 있는지 확인 합니다.  
 
@@ -134,7 +134,61 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 - **API 식** -특정 프로 비전 커넥터 (예: Workday)에 대 한 설명서에서 작업을 수행 하도록 지시 하지 않는 한를 사용 하지 마세요.
 - 참조 된 **개체 특성** -참조 형식 특성인 경우이 메뉴에서 특성에 연결 된 값을 포함 하는 대상 응용 프로그램의 테이블 및 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정 된 응용 프로그램에 대해 지원 되는 참조 테이블 및 기본 ID 필드는 미리 구성 되어 있으며 현재 Azure Portal를 사용 하 여 편집할 수 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용 하 여 편집할 수 있습니다.
 
-새 특성을 추가하려면 지원되는 특성 목록의 끝 부분으로 스크롤하고, 제공된 입력을 사용하여 위의 필드를 채우고, **특성 추가**를 선택합니다. 특성을 다 추가했으면 **저장**을 선택합니다. 그런 다음 특성 매핑 편집기에서 사용할 수 있게 하려면 새 특성에 대 한 **프로 비전** 탭을 다시 로드 해야 합니다.
+#### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>SCIM 규격 응용 프로그램에 사용자 지정 확장 특성 프로 비전
+SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의 하는 동시에 스키마를 확장 하 여 응용 프로그램의 요구를 충족할 수 있도록 합니다. SCIM 응용 프로그램에 사용자 지정 특성을 추가 하려면 다음을 수행 합니다.
+   1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인 하 고, **엔터프라이즈 응용 프로그램**을 선택 하 고, 응용 프로그램을 선택 하 고, **프로 비전**을 선택 합니다.
+   2. **매핑**아래에서 사용자 지정 특성을 추가 하려는 개체 (사용자 또는 그룹)를 선택 합니다.
+   3. 페이지 맨 아래에서 **고급 옵션 표시**를 선택 합니다.
+   4. *응용 프로그램*에 대 한 * * 특성 목록 편집을 선택 합니다.
+   5. 특성 목록의 맨 아래에 제공 된 필드에 사용자 지정 특성에 대 한 정보를 입력 합니다. 그런 다음 **특성 추가**를 선택 합니다.
+
+SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시 된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다 (예: urn: ietf: params: scim: 스키마: extension: 2.0: CustomExtensionName: CustomAttribute).
+
+이러한 지침은 SCIM 사용 응용 프로그램에만 적용 됩니다. ServiceNow 및 Salesforce와 같은 응용 프로그램은 SCIM을 사용 하 여 Azure AD와 통합 되지 않으므로 사용자 지정 특성을 추가할 때이 특정 네임 스페이스를 요구 하지 않습니다.
+
+사용자 지정 특성은 참조 특성 또는 다중 값 특성 일 수 없습니다. 사용자 지정 다중 값 확장 특성은 현재 갤러리의 응용 프로그램에 대해서만 지원 됩니다.  
+ 
+**확장 특성이 있는 사용자의 예제 표현:**
+
+```json
+   {
+     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
+      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
+     "userName":"bjensen",
+     "externalId":"bjensen",
+     "name":{
+       "formatted":"Ms. Barbara J Jensen III",
+       "familyName":"Jensen",
+       "givenName":"Barbara"
+     },
+     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
+     "employeeNumber": "701984",
+     "costCenter": "4130",
+     "organization": "Universal Studios",
+     "division": "Theme Park",
+     "department": "Tour Operations",
+     "manager": {
+       "value": "26118915-6090-4610-87e4-49d8ca9f808d",
+       "$ref": "../Users/26118915-6090-4610-87e4-49d8ca9f808d",
+       "displayName": "John Smith"
+     }
+   },
+     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
+     "CustomAttribute": "701984",
+   },
+   "meta": {
+     "resourceType": "User",
+     "created": "2010-01-23T04:56:22Z",
+     "lastModified": "2011-05-13T04:42:34Z",
+     "version": "W\/\"3694e05e9dff591\"",
+     "location":
+ "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
+   }
+ }
+```
+
+
 ## <a name="provisioning-a-role-to-a-scim-app"></a>SCIM 앱에 역할 프로 비전
 다음 단계를 사용 하 여 응용 프로그램에 사용자의 역할을 프로 비전 합니다. 아래 설명은 사용자 지정 SCIM 응용 프로그램에만 적용 됩니다. Salesforce 및 ServiceNow와 같은 갤러리 응용 프로그램의 경우 미리 정의 된 역할 매핑을 사용 합니다. 아래 글머리 기호는 AppRoleAssignments 특성을 응용 프로그램에서 예상 하는 형식으로 변환 하는 방법을 설명 합니다.
 

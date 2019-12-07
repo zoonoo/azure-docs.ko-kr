@@ -3,18 +3,18 @@ title: 사용자 지정 분석으로 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 사용자 지정 분석 및 시각화를 수행 하도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Databricks를 사용 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a29cae2fabe1542a7498bca19dc0a6e147d1d024
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 59fb0dfbc44746853f25437e8e13a1cbc317e151
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895151"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895534"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks-preview-features"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장 (미리 보기 기능)
 
@@ -29,19 +29,19 @@ ms.locfileid: "73895151"
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 장치 원격 분석을 분석 하 고 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 방법 가이드의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
+이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="iot-central-application"></a>응용 프로그램 IoT Central
+### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 결제 계획 | Pay-As-You-Go |
+| 결제 계획 | 종량제 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -53,7 +53,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCentralAnalysis** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -61,25 +61,25 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **IoTCen
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 이름    | 네임 스페이스 이름 선택 |
-| 가격 책정 계층 | 기본 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | IoTCentralAnalysis |
-| Location | 미국 동부 |
+| name    | 네임 스페이스 이름 선택 |
+| 가격 책정 계층 | Basic |
+| Subscription | 사용자의 구독 |
+| Resource group | IoTCentralAnalysis |
+| 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
 ### <a name="azure-databricks-workspace"></a>Azure Databricks 작업 영역
 
 Azure Portal를 사용 하 여 다음 설정으로 [Azure Databricks 서비스를 만듭니다](https://portal.azure.com/#create/Microsoft.Databricks) .
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
 | 작업 영역 이름    | 작업 영역 이름 선택 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | IoTCentralAnalysis |
-| Location | 미국 동부 |
+| Subscription | 사용자의 구독 |
+| Resource group | IoTCentralAnalysis |
+| 위치 | 미국 동부 |
 | 가격 책정 계층 | Standard |
 
 필요한 리소스를 만든 경우 **IoTCentralAnalysis** 리소스 그룹은 다음 스크린샷 처럼 보입니다.
@@ -108,15 +108,15 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
-    | 사용 | 다른 |
+    | 사용 | 설정 |
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
-    | 측정값 | 다른 |
-    | 디바이스 | 꺼짐 |
-    | 디바이스 템플릿 | 꺼짐 |
+    | 측정값 | 설정 |
+    | 디바이스 | 해제 |
+    | 디바이스 템플릿 | 해제 |
 
 ![데이터 내보내기 구성](media/howto-create-custom-analytics/cde-configuration.png)
 
@@ -132,13 +132,13 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 
 다음 표의 정보를 사용 하 여 클러스터를 만듭니다.
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
 | 클러스터 모드 | Standard |
 | Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
 | Python 버전 | 3 |
-| 자동 크기 조정 사용 | 아니오 |
+| 자동 크기 조정 사용 | 아닙니다. |
 | 비활성 시간 (분) 후 종료 | 30 |
 | 작업자 유형 | Standard_DS3_v2 |
 | 작업자 | 1 |

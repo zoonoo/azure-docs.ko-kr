@@ -1,7 +1,7 @@
 ---
 title: Video Indexer를 사용할 수 있는 지역 - Azure
 titleSuffix: Azure Media Services
-description: 이 문서에서는 Video Indexer를 사용할 수 있는 Azure 지역에 대해 설명합니다.
+description: 이 문서에서는 Azure Media Services Video Indexer을 사용할 수 있는 Azure 지역에 대해 설명 합니다.
 services: media-services
 author: anikaz
 manager: johndeu
@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: anzaman
-ms.openlocfilehash: b67c89e02091d57b4f2dc901005c2dae36deafc2
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6ba6f189f4290bb2751adf9b44135eeda7266ca0
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73838192"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892756"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Video Indexer가 있는 Azure 지역
 
@@ -29,7 +29,7 @@ Video Indexer API에는 호출을 라우팅할 Azure 지역으로 설정해야 �
 az account list-locations
 ```
 
-일단 위에 표시된 줄을 실행하면 모든 Azure 지역 목록이 표시됩니다. 찾으려는 *displayName*이 있는 Azure 지역으로 이동한 후 *location* 매개 변수에 대해 해당 **name** 값을 사용합니다.
+일단 위에 표시된 줄을 실행하면 모든 Azure 지역 목록이 표시됩니다. 찾으려는 *displayName*이 있는 Azure 지역으로 이동한 후 **location** 매개 변수에 대해 해당 *name* 값을 사용합니다.
 
 예를 들어 미국 서부 2의 Azure 지역에서(아래에 표시됨)는 **location** 매개 변수에 "westus2"를 사용합니다.
 
@@ -48,4 +48,4 @@ az account list-locations
 
 - [API를 사용하여 언어 모델 사용자 지정](customize-language-model-with-api.md)
 - [API를 사용하여 브랜드 모델 사용자 지정](customize-brands-model-with-api.md)
-- [API를 사용하여 개인 모델 사용자 지정](customize-person-model-with-api.md)
+- [API를 사용하여 사용자 모델 사용자 지정](customize-person-model-with-api.md)

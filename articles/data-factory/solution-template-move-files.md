@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory를 사용 하 여 파일 기반 저장소 간에 파일 이동
+title: 파일 기반 저장소 간에 파일 이동
 description: Azure Data Factory를 사용 하 여 솔루션 템플릿을 사용 하 여 파일 기반 저장소 간에 파일을 이동 하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 7/12/2019
-ms.openlocfilehash: f6f83917e84a880fb86b5f592c4d51b03462753d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e0f9179918016b9eaec04b0d559e25ed7973f18a
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684108"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896211"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory 파일 이동
 
@@ -43,7 +43,7 @@ ms.locfileid: "73684108"
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
-1. **파일 이동** 템플릿으로 이동 합니다. 기존 연결을 선택 하거나 파일을 이동 하려는 원본 파일 저장소에 대 한 **새** 연결을 만듭니다. **DataSource_Folder** 및 **DataSource_File** 는 소스 파일 저장소의 동일한 연결에 대 한 참조입니다.
+1. **파일 이동** 템플릿으로 이동 합니다. 기존 연결을 선택 하거나 파일을 이동 하려는 원본 파일 저장소에 대 한 **새** 연결을 만듭니다. **DataSource_Folder** 및 **DataSource_File** 은 원본 파일 저장소의 동일한 연결에 대 한 참조입니다.
 
     ![원본에 대한 새 연결 만들기](media/solution-template-move-files/move-files1.png)
 
@@ -51,7 +51,7 @@ ms.locfileid: "73684108"
 
     ![대상에 대한 새 연결 만들기](media/solution-template-move-files/move-files2.png)
 
-3. **이 템플릿 사용**을 선택 합니다.
+3. **이 템플릿 사용**을 선택합니다.
 
     ![이 템플릿 사용](media/solution-template-move-files/move-files3.png)
     

@@ -1,5 +1,5 @@
 ---
-title: Azure Data Factory 포함 된 컨트롤 테이블을 사용 하 여 데이터베이스에서의 델타 복사
+title: 컨트롤 테이블을 사용 하 여 데이터베이스에서의 델타 복사
 description: 솔루션 템플릿을 사용하여 증분 방식으로 Azure Data Factory의 데이터베이스에서 새 행 또는 업데이트된 행만 복사하는 방법을 알아봅니다.
 services: data-factory
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/24/2018
-ms.openlocfilehash: c9ab1d005cf71dbe03546ce5b6014f616a872f8d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 22723033b59fafc0b9dfd1ae4fc08e5f6e9145ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684216"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896224"
 ---
 # <a name="delta-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 델타 복사
 
@@ -44,7 +44,7 @@ ms.locfileid: "73684216"
 - *Data_Source_WaterMarkColumn* 는 새 행 또는 업데이트 된 행을 식별 하는 데 사용 되는 원본 테이블의 열 이름입니다. 이 열의 형식은 일반적으로 *datetime*, *INT*또는 유사 합니다.
 - *Data_Destination_Folder_Path* 또는 *Data_Destination_Table_Name* 는 대상 저장소에서 데이터가 복사 되는 위치입니다.
 - *Control_Table_Table_Name* 는 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블입니다.
-- *Control_Table_Column_Name* 는 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블의 열입니다.
+- *Control_Table_Column_Name* 은 상위 워터 마크 값을 저장 하는 외부 컨트롤 테이블의 열입니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
@@ -100,7 +100,7 @@ ms.locfileid: "73684216"
 
     ![제어 테이블 데이터 저장소에 대한 새 연결 만들기](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable6.png)
 
-7. **이 템플릿 사용**을 선택 합니다.
+7. **이 템플릿 사용**을 선택합니다.
 
      ![이 템플릿 사용](media/solution-template-delta-copy-with-control-table/DeltaCopyfromDB_with_ControlTable7.png)
     

@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.reviewer: sgilley
 ms.author: sanpil
 author: sanpil
-ms.date: 11/12/2019
+ms.date: 12/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 329fa301917fec368b0e76ab970d8ece72aa66c5
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 85c80a5b9f2c0ac7b73fb51fd8138e3aae0b0221
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561415"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894681"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Azure Machine Learning SDK를 사용 하 여 machine learning 파이프라인 만들기 및 실행
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -526,10 +526,9 @@ p.disable()
 
 파이프라인의 동작을 최적화 하 고 사용자 지정 하기 위해 캐싱 및 다시 사용에 대 한 몇 가지 작업을 수행할 수 있습니다. 예를 들어 다음을 선택할 수 있습니다.
 + [단계 정의](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py)중에 `allow_reuse=False`를 설정 하 여 **단계의 기본 재사용을 해제** 합니다. 불필요 한 실행을 제거 하면 민첩성을 제공 하므로 공동 작업 환경에서 파이프라인을 사용할 때 재사용할 수 있습니다. 그러나 재사용을 옵트아웃 (opt out) 할 수 있습니다.
-+ **스크립트를 넘어서 해시를 확장**하 여를 사용 하 여 다른 파일 및 디렉터리에 대 한 절대 경로 또는 상대 경로를 source_directory 합니다 `hash_paths=['<file or directory']` 
 + `pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`를 사용 하 여 **실행의 모든 단계에 대해 출력 다시 생성**
 
-기본적으로 단계에 대 한 `allow_reuse` 사용 되며 주 스크립트 파일만 해시 됩니다. 따라서 지정 된 단계의 스크립트가 동일 하 게 유지 되는 경우 (`script_name`, 입력 및 매개 변수) 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.  
+기본적으로 단계에 대 한 `allow_reuse` 활성화 되 고 단계 정의에 지정 된 `source_directory` 해시 됩니다. 따라서 지정 된 단계에 대 한 스크립트는 동일 하 게 유지 되 고 (`script_name`, 입력 및 매개 변수)` source_directory` 변경 된 다른 항목이 없으면 이전 단계 실행의 출력이 다시 사용 되 고, 작업이 계산에 전송 되지 않고, 이전 실행의 결과를 다음 단계에서 즉시 사용할 수 있습니다.
 
 ```python
 step = PythonScriptStep(name="Hello World",

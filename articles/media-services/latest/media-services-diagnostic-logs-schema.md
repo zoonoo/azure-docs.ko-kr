@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/20/2019
 ms.author: juliako
-ms.openlocfilehash: f95258368664aabeb89426afb83854378c0e4429
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 2f5fcf4d9106bf37bcc81388e48afe689f4ef4d6
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261093"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896055"
 ---
 # <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
@@ -34,19 +34,19 @@ ms.locfileid: "71261093"
 
 ## <a name="key-delivery-log-schema"></a>키 배달 로그 스키마
 
-### <a name="properties"></a>속성
+### <a name="properties"></a>properties
 
 이러한 속성은 키 배달 로그 스키마에만 적용 됩니다.
 
-|이름|설명|
+|name|설명|
 |---|---|
 |keyId|요청 된 키의 ID입니다.|
-|keyType|다음 값 중 하나일 수 있습니다. "Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine".|
+|keyType|"Clear" (암호화 없음), "FairPlay", "PlayReady" 또는 "Widevine" 값 중 하나일 수 있습니다.|
 |policyName|정책의 Azure Resource Manager 이름입니다.|
 |tokenType|토큰 형식입니다.|
 |statusMessage|상태 메시지입니다.|
 
-### <a name="examples"></a>예
+### <a name="examples"></a>예시
 
 키 배달 요청 스키마의 속성입니다.
 

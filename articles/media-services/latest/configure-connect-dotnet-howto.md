@@ -1,6 +1,6 @@
 ---
 title: Azure Media Services v3 API-.NET에 연결
-description: .NET을 사용 하 여 Media Services v3 API에 연결 하는 방법을 알아봅니다.
+description: 이 문서에서는 .NET을 사용 하 여 Media Services v3 API에 연결 하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/18/2019
 ms.author: juliako
-ms.openlocfilehash: b2cfe8014e6ffbd7a6d5449192acde9780a2d303
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b8f4de1a5b9d8216ae2442631f5f9135c3c72d0b
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122879"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899902"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Media Services v3 API-.NET에 연결
 
 이 문서에서는 서비스 사용자 로그인 메서드를 사용 하 여 Azure Media Services v3 .NET SDK에 연결 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md) 리소스 그룹 이름 및 Media Services 계정 이름을 명심 해야 합니다.
 - .NET 개발에 사용할 도구를 설치 합니다. 이 문서의 단계에서는 [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 사용 하는 방법을 보여 줍니다. Visual Studio Code를 사용할 수 있습니다. [작업 C# ](https://code.visualstudio.com/docs/languages/csharp)을 참조 하세요. 또는 다른 코드 편집기를 사용할 수 있습니다.
@@ -35,15 +35,15 @@ ms.locfileid: "71122879"
 ## <a name="create-a-console-application"></a>콘솔 애플리케이션 만들기
 
 1. Visual Studio를 시작합니다. 
-1. **파일** 메뉴에서 **새** > **프로젝트**를 클릭 합니다. 
+1. **파일** 메뉴에서 **새로 만들기** > **프로젝트**를 클릭 합니다. 
 1. **.Net Core** 콘솔 응용 프로그램을 만듭니다.
 
-이 항목의 샘플 앱은 대상 `netcoreapp2.0`입니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 ' async main '을 사용 합니다. 자세한 내용은이 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 를 참조 하세요.
+이 항목의 샘플 앱은 `netcoreapp2.0`를 대상으로 합니다. 이 코드에서는 C# 7.1부터 사용할 수 있는 ' async main '을 사용 합니다. 자세한 내용은이 [블로그](https://blogs.msdn.microsoft.com/benwilli/2017/12/08/async-main-is-available-but-hidden/) 를 참조 하세요.
 
 ## <a name="add-required-nuget-packages"></a>필요한 NuGet 패키지 추가
 
 1. Visual Studio에서 **도구** > **nuget 패키지 관리자** > **nuget 관리자 콘솔**을 선택 합니다.
-2. **패키지 관리자 콘솔** 창에서 명령을 사용 `Install-Package` 하 여 다음 NuGet 패키지를 추가 합니다. 예를 들어, `Install-Package Microsoft.Azure.Management.Media`을 입력합니다.
+2. **패키지 관리자 콘솔** 창에서 `Install-Package` 명령을 사용 하 여 다음 NuGet 패키지를 추가 합니다. 예: `Install-Package Microsoft.Azure.Management.Media`
 
 |패키지|설명|
 |---|---|
@@ -63,14 +63,14 @@ ms.locfileid: "71122879"
 
 ### <a name="set-values-in-appsettingsjson"></a>Appsettings에서 값을 설정 합니다.
 
-`az ams account sp create` [액세스 api](access-api-cli-how-to.md)에 설명 된 대로 명령을 실행 합니다. 명령은 "appsettings"에 복사 해야 하는 json을 반환 합니다.
+[액세스 api](access-api-cli-how-to.md)에 설명 된 대로 `az ams account sp create` 명령을 실행 합니다. 명령은 "appsettings"에 복사 해야 하는 json을 반환 합니다.
  
 ## <a name="add-configuration-file"></a>구성 파일 추가
 
 편의상 "appsettings"에서 값을 읽는 구성 파일을 추가 합니다.
 
 1. 프로젝트에 새 .cs 클래스를 추가 합니다. 이름을 `ConfigWrapper`로 지정합니다. 
-1. 이 파일에 다음 코드를 붙여 넣습니다 (이 예제에서는 네임 스페이스가 인 것 `ConsoleApp1`으로 가정).
+1. 이 파일에 다음 코드를 붙여 넣습니다 (이 예제에서는 네임 스페이스가 `ConsoleApp1`된 것으로 가정).
 
 ```csharp
 using System;
@@ -228,9 +228,9 @@ namespace ConsoleApp1
 
 ## <a name="next-steps"></a>다음 단계
 
-- [자습서: 비디오 업로드, 인코딩 및 스트리밍 - .NET](stream-files-tutorial-with-api.md) 
-- [자습서: Media Services v3으로 라이브 스트리밍 - .NET](stream-live-tutorial-with-api.md)
-- [자습서: Media Services v3으로 비디오 분석 - .NET](analyze-videos-tutorial-with-api.md)
+- [자습서: 비디오 업로드, 인코딩 및 스트리밍-.NET](stream-files-tutorial-with-api.md) 
+- [자습서: Media Services v3로 라이브 스트리밍-.NET](stream-live-tutorial-with-api.md)
+- [자습서: Media Services v3-.NET을 사용 하 여 비디오 분석](analyze-videos-tutorial-with-api.md)
 - [로컬 파일에서 작업 입력 만들기 - .NET](job-input-from-local-file-how-to.md)
 - [HTTPS URL에서 작업 입력 만들기 - .NET](job-input-from-http-how-to.md)
 - [사용자 지정 변환으로 인코딩 - .NET](customize-encoder-presets-how-to.md)
@@ -240,7 +240,7 @@ namespace ConsoleApp1
 - [Media Services로 필터 만들기 - .NET](filters-dynamic-manifest-dotnet-howto.md)
 - [Media Services v3 및 Azure Functions v2의 고급 비디오 주문형 예제](https://aka.ms/ams3functions)
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 * [.NET 참조](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * 더 많은 코드 예제는 [.NET SDK 샘플](https://github.com/Azure-Samples/media-services-v3-dotnet) 리포지토리를 참조 하세요.

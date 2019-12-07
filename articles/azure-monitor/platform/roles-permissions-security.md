@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: johnkem
 ms.subservice: ''
-ms.openlocfilehash: 424d57c59dea11a49faf7a7bb32d85772ef4de8c
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: d223c3483becdc8ba44bc14ec16150cf1b001943
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305160"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894533"
 ---
 # <a name="roles-permissions-and-security-in-azure-monitor"></a>Azure Monitor의 역할, 권한 및 보안
 
@@ -24,7 +24,7 @@ ms.locfileid: "74305160"
 ## <a name="built-in-monitoring-roles"></a>기본 제공 모니터링 역할
 Azure Monitor의 기본 제공 역할은 구독에서 리소스에 대한 액세스를 제한하면서, 인프라 모니터링을 담당하는 사용자는 필요한 데이터를 확보 및 구성할 수 있게 지원하도록 설계되었습니다. Azure Monitor는 Monitoring Reader와Monitoring Contributor 등, 바로 사용할 수 있는 2가지 역할을 제공합니다.
 
-### <a name="monitoring-reader"></a>Monitoring Reader
+### <a name="monitoring-reader"></a>모니터링 읽기 권한자
 Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터링 데이터를 볼 수 있지만 리소스를 수정하거나 모니터링 리소스와 관련한 설정은 편집할 수 없습니다. 이 역할은 다음이 필요한 지원과 같은 조직의 사용자나 운영 엔지니어에게 적합합니다.
 
 * 포털의 모니터링 대시보드를 확인하고 자체 프라이빗 모니터링 대시보드를 만듭니다.
@@ -48,7 +48,7 @@ Monitoring Reader 역할이 할당된 사용자는 구독에서 모든 모니터
 > 
 > 
 
-### <a name="monitoring-contributor"></a>모니터링 참가자
+### <a name="monitoring-contributor"></a>Monitoring Contributor
 Monitoring Reader 역할이 할당된 사용자는 구독의 모든 모니터링 데이터를 볼 수 있으며, 모니터링 설정을 만들거나 수정할 수 있지만 다른 리소스는 수정할 수 없습니다. 이 역할은 Monitoring Reader 역할의 상위 집합이며, 조직의 모니터링 팀 구성원이거나 위의 권한 외에도 다음이 필요한 관리되는 서비스 제공자인 사용자에게 적합합니다.
 
 * 공유 대시보드로 모니터링 대시보드를 게시합니다.
@@ -116,7 +116,7 @@ New-AzRoleDefinition -Role $role
 모니터링 데이터, 특히 로그 파일에는 IP 주소나 사용자 이름 같은 중요 정보가 포함될 수 있습니다. Azure의 모니터링 데이터는 다음 3가지 기본 형태로 제공됩니다.
 
 1. 활동 로그. Azure 구독에서 모든 제어 관련 작업을 설명합니다.
-2. 진단 로그. 리소스가 내보낸 로그입니다.
+2. 리소스 로그는 리소스에서 내보낸 로그입니다.
 3. 메트릭. 리소스가 내보낸 항목입니다.
 
 이 세 데이터 형식은 스토리지 계정에 저장되거나 이벤트 허브에 스트리밍되며, 모두 범용 Azure 리소스입니다. 범용 리소스이기 때문에 이 항목의 만들기, 삭제 및 액세스는 관리자에게 예약된 권한이 필요한 작업입니다. 오용을 방지하기 위해 모니터링 관련 리소스에는 다음 방법을 적용하는 것이 좋습니다.
@@ -182,7 +182,7 @@ Azure Monitor에서 사용하도록 설정하는 서비스를 제공하려면 Az
 ### <a name="secured-storage-accounts"></a>보안 스토리지 계정 
 
 모니터링 데이터는 스토리지 계정에 기록되는 경우가 많습니다. 스토리지 계정에 복사한 데이터는 인증되지 않은 사용자가 액세스할 수 없도록 하는 것이 좋습니다. 추가 보안을 위해, “선택된 네트워크”를 사용하도록 스토리지 계정을 제한하여 권한 있는 리소스 및 신뢰할 수 있는 Microsoft 서비스만 스토리지 계정에 액세스할 수 있도록 네트워크 액세스를 잠글 수 있습니다.
-![Azure Storage 설정 대화 상자](./media/roles-permissions-security/secured-storage-example.png) Azure Monitor는 이러한 “신뢰할 수 있는 Microsoft 서비스” 중 하나로 간주됩니다. 신뢰할 수 있는 Microsoft 서비스가 보안 스토리지에 액세스할 수 있도록 허용하면 Azure Monitor에서 보안 스토리지 계정에 액세스할 수 있으며, 이러한 보호된 조건에서 Azure Monitor 진단 로그, 활동 로그 및 메트릭을 스토리지 계정에 작성할 수 있습니다. Log Analytics에서 보안 스토리지의 로그를 읽을 수도 있습니다.   
+![Azure Storage 설정 대화 Azure Monitor](./media/roles-permissions-security/secured-storage-example.png)는 신뢰할 수 있는 Microsoft 서비스에서 보안 저장소에 액세스할 수 있도록 허용 하는 경우 이러한 "신뢰할 수 있는 microsoft 서비스" 중 하나로 간주 됩니다. Azure Monitor는 보안 저장소 계정에 액세스할 수 있습니다. 이러한 보호 된 조건에 따라 저장소 계정에 Azure Monitor 리소스 로그, 활동 로그 및 메트릭을 쓸 수 있도록 합니다. Log Analytics에서 보안 스토리지의 로그를 읽을 수도 있습니다.   
 
 
 자세한 내용은 [네트워크 보안 및 Azure Storage](../../storage/common/storage-network-security.md)를 참조하세요.

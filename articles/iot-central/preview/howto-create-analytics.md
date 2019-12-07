@@ -3,17 +3,17 @@ title: Azure IoT Central 응용 프로그램에서 장치 데이터 분석 | Mic
 description: Azure IoT Central 응용 프로그램에서 장치 데이터를 분석 합니다.
 author: ankitgup
 ms.author: ankitgup
-ms.date: 10/17/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 77ee15d581cfc17af01ae0fa53139edc331a4fea
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: e4cf4469833e28a594996b981a47a964131026a7
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73896009"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895720"
 ---
 # <a name="how-to-use-analytics-to-analyze-device-data"></a>분석을 사용 하 여 장치 데이터를 분석 하는 방법
 

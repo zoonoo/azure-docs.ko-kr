@@ -3,18 +3,18 @@ title: 사용자 지정 규칙 및 알림을 사용 하 여 Azure IoT Central �
 description: 솔루션 개발자는 장치에서 원격 분석 전송을 중지할 때 전자 메일 알림을 보내도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Stream Analytics, Azure Functions 및 SendGrid를 사용 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/01/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 56ff01af6466e90ff4b69cd37c1638265c59b873
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bdaa08e8c3b104c7269c1fb4169779d98b4e0880
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895866"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895723"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid-preview-features"></a>Stream Analytics, Azure Functions 및 SendGrid (미리 보기 기능)를 사용 하 여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -30,19 +30,19 @@ ms.locfileid: "73895866"
 * 장치에서 데이터 전송을 중지 한 경우를 검색 하는 Stream Analytics 쿼리를 만듭니다.
 * Azure Functions 및 SendGrid 서비스를 사용 하 여 전자 메일 알림을 보냅니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-이 방법 가이드의 단계를 완료하려면 활성 Azure 구독이 필요합니다.
+이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-### <a name="iot-central-application"></a>응용 프로그램 IoT Central
+### <a name="iot-central-application"></a>IoT Central 애플리케이션
 
 다음 설정을 사용 하 여 [Azure IoT Central 응용 프로그램](https://aka.ms/iotcentral) 웹 사이트에서 IoT Central 응용 프로그램을 만듭니다.
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 결제 계획 | Pay-As-You-Go |
+| 결제 계획 | 종량제 |
 | 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
@@ -54,7 +54,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
-### <a name="resource-group"></a>리소스 그룹
+### <a name="resource-group"></a>Resource group
 
 Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **DetectStoppedDevices** 라는 [리소스 그룹을 만듭니다](https://portal.azure.com/#create/Microsoft.ResourceGroup) . IoT Central 응용 프로그램과 동일한 위치에 Azure 리소스를 만듭니다.
 
@@ -62,25 +62,25 @@ Azure Portal를 사용 하 여 만든 다른 리소스를 포함 하는 **Detect
 
 Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이스를 만듭니다](https://portal.azure.com/#create/Microsoft.EventHub) .
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 이름    | 네임 스페이스 이름 선택 |
-| 가격 책정 계층 | 기본 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | DetectStoppedDevices |
-| Location | 미국 동부 |
+| name    | 네임 스페이스 이름 선택 |
+| 가격 책정 계층 | Basic |
+| Subscription | 사용자의 구독 |
+| Resource group | DetectStoppedDevices |
+| 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
-### <a name="stream-analytics-job"></a>작업 Stream Analytics
+### <a name="stream-analytics-job"></a>Stream Analytics 작업
 
 Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 만듭니다](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) .
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 이름    | 작업 이름 선택 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | DetectStoppedDevices |
-| Location | 미국 동부 |
+| name    | 작업 이름 선택 |
+| Subscription | 사용자의 구독 |
+| Resource group | DetectStoppedDevices |
+| 위치 | 미국 동부 |
 | 호스팅 환경 | 클라우드 |
 | 스트리밍 단위 | 3 |
 
@@ -88,27 +88,27 @@ Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 �
 
 다음 설정을 사용 하 여 [함수 앱을 만들려면 Azure Portal를](https://portal.azure.com/#create/Microsoft.FunctionApp) 사용 합니다.
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
 | 앱 이름    | 함수 앱 이름 선택 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | DetectStoppedDevices |
+| Subscription | 사용자의 구독 |
+| Resource group | DetectStoppedDevices |
 | OS | Windows |
 | 호스팅 계획 | 소비 계획 |
-| Location | 미국 동부 |
+| 위치 | 미국 동부 |
 | 런타임 스택 | .NET |
-| Storage | 새로 만들기 |
+| 스토리지 | 새로 만들기 |
 
 ### <a name="sendgrid-account"></a>SendGrid 계정
 
 Azure Portal를 사용 하 여 다음 설정으로 [SendGrid 계정을 만듭니다](https://portal.azure.com/#create/Sendgrid.sendgrid) .
 
-| 설정 | 값 |
+| 설정 | Value |
 | ------- | ----- |
-| 이름    | SendGrid 계정 이름 선택 |
+| name    | SendGrid 계정 이름 선택 |
 | 암호 | 암호 만들기 |
-| 구독 | 사용자의 구독 |
-| 리소스 그룹 | DetectStoppedDevices |
+| Subscription | 사용자의 구독 |
+| Resource group | DetectStoppedDevices |
 | 가격 책정 계층 | F1 무료 |
 | 연락처 정보 | 필수 정보 입력 |
 
@@ -244,20 +244,20 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. Azure Portal에서 Stream Analytics 작업으로 이동 하 여 **작업 토폴로지** 에서 **입력**을 선택 하 고 **+ 스트림 입력 추가**를 선택한 다음 **이벤트 허브**를 선택 합니다.
 1. 이전에 만든 이벤트 허브를 사용 하 여 입력을 구성 하려면 다음 표의 정보를 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | 입력 별칭 | centraltelemetry |
-    | 구독 | 사용자의 구독 |
+    | Subscription | 사용자의 구독 |
     | 이벤트 허브 네임스페이스 | 이벤트 허브 네임 스페이스 |
     | 이벤트 허브 이름 | 기존- **centralexport** 사용 |
 
 1. **작업 토폴로지**에서 **출력**을 선택 하 고 **+ 추가**를 선택한 다음, **Azure 함수**를 선택 합니다.
 1. 다음 표의 정보를 사용 하 여 출력을 구성한 후 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | 출력 별칭 | emailnotification |
-    | 구독 | 사용자의 구독 |
+    | Subscription | 사용자의 구독 |
     | 함수 앱 | 함수 앱 |
     | 함수  | HttpTrigger1 |
 
@@ -314,15 +314,15 @@ test-device-3   2019-05-02T14:24:28.919Z
 1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
-    | 설정 | 값 |
+    | 설정 | Value |
     | ------- | ----- |
     | 표시 이름 | Event Hubs로 내보내기 |
-    | 사용 | 다른 |
+    | 사용 | 설정 |
     | Event Hubs 네임스페이스 | Event Hubs 네임 스페이스 이름 |
     | 이벤트 허브 | centralexport |
-    | 측정값 | 다른 |
-    | 디바이스 | 꺼짐 |
-    | 디바이스 템플릿 | 꺼짐 |
+    | 측정값 | 설정 |
+    | 디바이스 | 해제 |
+    | 디바이스 템플릿 | 해제 |
 
 ![연속 데이터 내보내기 구성](media/howto-create-custom-rules/cde-configuration.png)
 

@@ -1,5 +1,5 @@
 ---
-title: '계산 대상: 모델을 학습 하 고 배포 하는 위치'
+title: 계산 대상 이란?
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 모델을 학습 하거나 배포할 위치를 정의 합니다.
 services: machine-learning
@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 75e789ac1f9c161bc67ba90062be39f986f5b140
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: dd4ac07ddf94bd7fc12a2673ce76fb0b9f4d2ccb
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580602"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901421"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -67,6 +67,6 @@ Azure Machine Learning studio, Azure Portal, SDK, 리소스 관리자 템플릿 
 
 ## <a name="next-steps"></a>다음 단계
 
-방법 배우기:
+방법 알아보기
 * [모델 학습을 위한 계산 대상 설정](how-to-set-up-training-targets.md)
 * [계산 대상에 모델 배포](how-to-deploy-and-where.md)

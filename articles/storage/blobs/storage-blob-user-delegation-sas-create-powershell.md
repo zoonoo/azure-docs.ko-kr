@@ -1,20 +1,21 @@
 ---
-title: PowerShell (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기-Azure Storage
-description: PowerShell을 사용 하 여 Azure Storage에서 Azure Active Directory 자격 증명을 사용 하 여 SAS (공유 액세스 서명)를 만드는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
+titleSuffix: Azure Storage
+description: PowerShell을 사용 하 여 Azure Active Directory 자격 증명으로 사용자 위임 SAS (미리 보기)를 만드는 방법에 대해 알아봅니다.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: conceptual
-ms.date: 08/29/2019
+ms.topic: how-to
+ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 0164c97adf720a618179908298223c54bf48824e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 5f4947921a77f2bc94d1810c9b1d1951431d3d71
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673332"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892518"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-powershell-preview"></a>PowerShell (미리 보기)을 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS 만들기
 
@@ -31,7 +32,7 @@ PowerShell을 사용 하 여 사용자 위임 SAS를 만들려면 먼저 Az. Sto
 1. 모든 이전 Azure PowerShell 설치를 제거합니다.
 
     - **설정**에 있는 **앱 및 기능** 설정을 사용하여 Windows에서 이전에 설치한 Azure PowerShell을 제거합니다.
-    - 에서 모든 **Azure** 모듈을 `%Program Files%\WindowsPowerShell\Modules`제거 합니다.
+    - `%Program Files%\WindowsPowerShell\Modules`에서 모든 **Azure** 모듈을 제거 합니다.
 
 1. 최신 버전의 PowerShellGet이 설치되어 있는지 확인합니다. Windows PowerShell 창을 열고 다음 명령을 실행하여 최신 버전을 설치합니다.
 
@@ -86,7 +87,7 @@ Azure AD 보안 주체에 RBAC 역할을 할당할 수 있는 권한이 없는 �
 
 다음 예에서는 **저장소 Blob 데이터 참가자** 역할을 할당 합니다. 여기에는 **Microsoft Storage/Storageaccounts/Blobservices/generateUserDelegationKey** action이 포함 됩니다. 역할의 범위는 저장소 계정 수준에서 지정 됩니다.
 
-꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -102,9 +103,9 @@ Azure PowerShell를 사용 하 여 사용자 위임 SAS를 만들 때 SAS에 서
 
 사용자 위임 키가 유효한 최대 간격은 시작 날짜 로부터 7 일 이므로 시작 시간의 7 일 이내에 SAS에 대 한 만료 시간을 지정 해야 합니다. 사용자 위임 키가 만료 된 후에는 SAS가 유효 하지 않으므로 만료 시간이 7 일을 초과 하는 SAS는 7 일 동안만 유효 합니다.
 
-Azure PowerShell 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만들려면 먼저 `-UseConnectedAccount` 매개 변수를 지정 하 여 새 Azure Storage 컨텍스트 개체를 만듭니다. @No__t-0 매개 변수는 명령이 로그인 할 때 사용 하는 Azure AD 계정으로 컨텍스트 개체를 만드는 것을 지정 합니다.
+Azure PowerShell를 사용 하 여 컨테이너 또는 blob에 대 한 사용자 위임 SAS를 만들려면 먼저 `-UseConnectedAccount` 매개 변수를 지정 하 여 새 Azure Storage 컨텍스트 개체를 만듭니다. `-UseConnectedAccount` 매개 변수는 명령에서 로그인 한 Azure AD 계정으로 컨텍스트 개체를 만드는 것을 지정 합니다.
 
-꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 $ctx = New-AzStorageContext -StorageAccountName <storage-account> -UseConnectedAccount
@@ -158,7 +159,7 @@ https://storagesamples.blob.core.windows.net/sample-container/blob1.txt?sv=2018-
 
 Azure PowerShell에서 사용자 위임 SAS를 해지 하려면 **AzStorageAccountUserDelegationKeys** 명령을 호출 합니다. 이 명령은 지정 된 저장소 계정과 연결 된 모든 사용자 위임 키를 해지 합니다. 이러한 키와 연결 된 공유 액세스 서명은 무효화 됩니다.
 
-꺾쇠 괄호 안의 자리 표시자 값을 사용자 고유의 값으로 대체 해야 합니다.
+꺾쇠 괄호로 묶인 자리 표시자 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
 Revoke-AzStorageAccountUserDelegationKeys -ResourceGroupName <resource-group> `

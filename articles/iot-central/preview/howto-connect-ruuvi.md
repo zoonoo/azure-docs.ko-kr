@@ -9,13 +9,13 @@ ms.custom:
 - iot-p0-scenario
 ms.author: avneets
 author: avneet723
-ms.date: 10/19/2019
-ms.openlocfilehash: a068ea3f51e4faa6497c7b1a93192a924753c7c9
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.date: 11/27/2019
+ms.openlocfilehash: 9be8fbad8811d758f9ac4205c0d1e60e0d82e07f
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895099"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895487"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에 RuuviTag 센서 연결
 
@@ -29,7 +29,7 @@ RuuviTag는 매우 심한 (Bluetooth 저 에너지)를 통해 통신 하며, Azu
 
 Rigado Cascade 500 게이트웨이 장치를 설정 하려면 [여기의 지침](./howto-connect-rigado-cascade-500.md) 을 따르세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 RuuviTag 센서를 연결 하려면 다음 리소스가 필요 합니다.
 

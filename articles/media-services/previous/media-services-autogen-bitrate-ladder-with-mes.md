@@ -1,6 +1,6 @@
 ---
 title: Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성-Azure | Microsoft Docs
-description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다. 입력 해상도 및 비트 전송률은 초과되지 않습니다. 예를 들어, 입력이 3Mbps에서 720p이고 출력이 최적 시 720p로 유지되는 경우 3Mbps보다 낮은 전송률로 시작됩니다.
+description: 이 항목에서는 MES(Media Encoder Standard)를 사용하여 입력 해상도 및 비트 전송률을 기반으로 비트 전송률 사다리를 자동 생성하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 14575e0c95acf1345fc3358b323083d86d8eedee
-ms.sourcegitcommit: 0c906f8624ff1434eb3d3a8c5e9e358fcbc1d13b
+ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69543541"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896012"
 ---
 #  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Media Encoder Standard를 사용 하 여 비트 전송률 사다리 자동 생성  
 
@@ -171,7 +171,7 @@ namespace AdaptiveStreamingMESPresest
 
 이 섹션에서는 **적응 스트리밍** 사전 설정으로 인코딩한 결과로 MES에 의해 생성된 출력 계층의 세 가지 예를 보여 줍니다. 
 
-### <a name="example-1"></a>예제 1
+### <a name="example-1"></a>예 1
 높이가 "1080"이고 프레임 속도가 "29.970"인 원본은 6개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -183,7 +183,7 @@ namespace AdaptiveStreamingMESPresest
 |5|270|480|720|
 |6|180|320|380|
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 높이가 "720"이고 프레임 속도가 "23.970"인 원본은 5개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -194,7 +194,7 @@ namespace AdaptiveStreamingMESPresest
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>예제 3
+### <a name="example-3"></a>예 3
 높이가 "360"이고 프레임 속도가 "29.970"인 원본은 3개의 비디오 계층을 생성합니다.
 
 |계층|높이|너비|비트 전송률(kbps)|
@@ -205,9 +205,9 @@ namespace AdaptiveStreamingMESPresest
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [Media Services Encoding 개요](media-services-encode-asset.md)
 

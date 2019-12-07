@@ -4,16 +4,16 @@ description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
-author: cijothomas
-ms.author: cithomas
+author: mrbullwinkle
+ms.author: mbullwin
 ms.date: 03/14/2019
 ms.reviewer: vitalyg
-ms.openlocfilehash: c124e6c433f83212c0db815a2fd06cfcfdf86253
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 4b0dca1215cfecea5c9943bd27ee8a5c1de45311
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73884723"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74893368"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -340,7 +340,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 > 
 > 
 
-2. `sampler` 구성의 일부로 `Tracer`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 ProbabilitySampler가 사용 됩니다. ProbabilitySampler는 기본적으로 1/10000의 요금을 사용 합니다. 즉, 모든 1만 요청 중 하나가 Application Insights 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
+2. `Tracer` 구성의 일부로 `sampler`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 ProbabilitySampler가 사용 됩니다. ProbabilitySampler는 기본적으로 1/10000의 요금을 사용 합니다. 즉, 모든 1만 요청 중 하나가 Application Insights 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
 
 3. 샘플러를 지정할 때 `Tracer`가 0.0에서 1.0 사이의 샘플링 비율에서 샘플러를 지정하는지 확인합니다. 샘플링 률 1.0은 100%를 나타내므로 모든 요청은 Application Insights에 대 한 원격 분석으로 전송 됩니다.
 
@@ -502,7 +502,7 @@ ASP.NET 버전 2.0.0 및 Java SDK 버전 2.0.1 이상에서 SDK의 고정 비율
 
 *원격 분석을 두 번 이상 샘플링할 수 있나요?*
 
-* 아니요. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다. '
+* 아닙니다. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다. '
 
 *샘플링은 왜 간단히 "각 원격 분석 형식의 X 퍼센트를 수집"하지 않습니까?*
 

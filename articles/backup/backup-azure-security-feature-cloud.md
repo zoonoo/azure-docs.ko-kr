@@ -3,16 +3,16 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b6ce2f9400ad46150fbd4ee86f126b137b5f7800
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 0be85bf57510f575f238012b9bd1ef21e44e3cf1
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278223"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74894031"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
-맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다.
+맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다. 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. 이러한 추가 14 일 동안 "일시 삭제" 상태의 백업 데이터를 보존 하는 것은 고객에 게 비용을 부과 하지 않습니다.
 
 > [!NOTE]
 > 일시 삭제는 삭제 된 백업 데이터만 보호 합니다. 백업을 사용 하지 않고 VM을 삭제 하면 일시 삭제 기능은 데이터를 보존 하지 않습니다. 모든 리소스는 전체 복원 력을 보장 하기 위해 Azure Backup로 보호 되어야 합니다.
@@ -24,7 +24,7 @@ ms.locfileid: "74278223"
 
 일시 삭제는 현재 미국 서 부, 동아시아, 캐나다 중부, 캐나다 동부, 프랑스 중부, 프랑스 남부, 대한민국 중부, 대한민국, 영국 남부, 영국 서부, 오스트레일리아 동부, 오스트레일리아 남부 동부, 유럽 서 부, 미국 서 부, 미국 서 부, 미국 미국, 미국 서 부에서 지원 됩니다. 동아시아, 미국 중 북부, 미국 중 북부, 일본 동부, 일본 서 부, 인도 남부, 인도 중부, 인도 서 부, 미국 동부 2, 스위스 북부, 스위스 서부, 모든 국가 지역.
 
-### <a name="soft-delete-for-vms"></a>Vm에 대 한 일시 삭제
+### <a name="soft-delete-for-vms-using-azure-portal"></a>Azure Portal를 사용 하는 Vm에 대 한 일시 삭제
 
 1. VM의 백업 데이터를 삭제 하려면 백업을 중지 해야 합니다. Azure Portal 복구 서비스 자격 증명 모음으로 이동 하 여 백업 항목을 마우스 오른쪽 단추로 클릭 하 고 **백업 중지**를 선택 합니다.
 
@@ -66,9 +66,59 @@ ms.locfileid: "74278223"
 
 자세한 내용은 아래의 질문과 대답 (질문과 [대답](backup-azure-security-feature-cloud.md#frequently-asked-questions) ) 섹션을 참조 하세요.
 
+### <a name="soft-delete-for-vms-using-azure-powershell"></a>Azure Powershell을 사용 하 여 Vm에 대 한 일시 삭제
+
+> [!IMPORTANT]
+> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
+
+Azure Portal에 대해 위에서 설명한 것 처럼 Azure Powershell을 사용 하는 동안 단계 순서가 동일 합니다.
+
+#### <a name="delete-the-backup-item-using-azure-powershell"></a>Azure Powershell을 사용 하 여 백업 항목 삭제
+
+[AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS cmdlet을 사용 하 여 백업 항목을 삭제 합니다.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
+
+백업 항목의 ' e n t e r '가 ' NotDeleted '에서 ' ToBeDeleted '로 변경 됩니다. 백업 데이터는 14 일 동안 보존 됩니다. 삭제 작업을 되돌리려면 실행 취소-삭제를 수행 해야 합니다.
+
+#### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Azure Powershell을 사용 하 여 삭제 작업 실행 취소
+
+먼저 일시 삭제 상태 (즉, 삭제 됨)에 있는 관련 백업 항목을 가져옵니다.
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+그런 다음 실행 취소- [AzRecoveryServicesBackupItemDeletion](https://docs.microsoft.com/powershell/module/az.recoveryservices/undo-azrecoveryservicesbackupitemdeletion?view=azps-3.1.0) PS cmdlet을 사용 하 여 실행 취소 작업을 수행 합니다.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+백업 항목의 ' DeleteState '는 ' NotDeleted '로 돌아갑니다. 그러나 보호는 계속 중지 됩니다. 보호를 다시 사용 하도록 설정 하려면 [백업을 다시 시작](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#change-policy-for-backup-items) 해야 합니다.
+
 ## <a name="disabling-soft-delete"></a>일시 삭제 사용 안 함
 
 일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다. 백업 관리자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 모두 삭제 하면 복원 기능 없이 즉시 제거 됩니다. 일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
+
+### <a name="disabling-soft-delete-using-azure-portal"></a>Azure Portal를 사용 하 여 일시 삭제 사용 안 함
 
 일시 삭제를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
 
@@ -76,17 +126,36 @@ ms.locfileid: "74278223"
 2. 속성 창에서 **보안 설정** -> **업데이트**를 선택 합니다.  
 3. 보안 설정 창의 **일시 삭제**아래에서 **사용 안 함**을 선택 합니다.
 
-
 ![일시 삭제 사용 안 함](./media/backup-azure-security-feature-cloud/disable-soft-delete.png)
+
+### <a name="disabling-soft-delete-using-azure-powershell"></a>Azure Powershell을 사용 하 여 일시 삭제 사용 안 함
+
+> [!IMPORTANT]
+> Azure PS를 사용 하 여 일시 삭제를 사용 하는 데 필요한 Az Service 버전은 min 2.2.0입니다. ```Install-Module -Name Az.RecoveryServices -Force```를 사용 하 여 최신 버전을 가져옵니다.
+
+사용 하지 않도록 설정 하려면 [AzRecoveryServicesVaultBackupProperty](https://docs.microsoft.com/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty?view=azps-3.1.0) PS cmdlet을 사용 합니다.
+
+```powershell
+Set-AzRecoveryServicesVaultProperty -VaultId $myVaultID -SoftDeleteFeatureState Disable
+
+
+StorageModelType       :
+StorageType            :
+StorageTypeState       :
+EnhancedSecurityState  : Enabled
+SoftDeleteFeatureState : Disabled
+```
 
 ## <a name="permanently-deleting-soft-deleted-backup-items"></a>일시 삭제 된 백업 항목을 영구적으로 삭제
 
-일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 영구적으로 삭제 하려면 삭제 한 후 삭제 하 고 다시 삭제 하 여 영구적으로 삭제 합니다. 
+일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 영구적으로 삭제 하려면 삭제 한 후 삭제 하 고 다시 삭제 하 여 영구적으로 삭제 합니다.
+
+### <a name="using-azure-portal"></a>Azure 포털 사용
 
 다음 단계를 수행하세요.
 
 1. [일시 삭제를 사용 하지 않도록 설정](#disabling-soft-delete)하는 단계를 수행 합니다. 
-2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목** 으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다. 
+2. Azure Portal에서 자격 증명 모음으로 이동 하 고, **백업 항목** 으로 이동 하 고, 일시 삭제 된 VM을 선택 합니다.
 
 ![일시 삭제 된 VM 선택](./media/backup-azure-security-feature-cloud/vm-soft-delete.png)
 
@@ -109,6 +178,42 @@ ms.locfileid: "74278223"
 
 7. 항목에 대 한 백업 데이터를 삭제 하려면 **삭제**를 선택 합니다. 알림 메시지를 통해 백업 데이터가 삭제 되었음을 알 수 있습니다.
 
+### <a name="using-azure-powershell"></a>Azure Powershell 사용
+
+일시 삭제를 사용 하지 않도록 설정 하기 전에 항목이 삭제 된 경우 일시 삭제 된 상태가 됩니다. 삭제 작업을 즉시 삭제 하려면 삭제 작업을 취소 한 후 다시 수행 해야 합니다.
+
+일시 삭제 된 상태에 있는 항목을 식별 합니다.
+
+```powershell
+
+Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}
+
+Name                                     ContainerType        ContainerUniqueName                      WorkloadType         ProtectionStatus     HealthStatus         DeleteState
+----                                     -------------        -------------------                      ------------         ----------------     ------------         -----------
+VM;iaasvmcontainerv2;selfhostrg;AppVM1    AzureVM             iaasvmcontainerv2;selfhostrg;AppVM1       AzureVM              Healthy              Passed               ToBeDeleted
+
+$myBkpItem = Get-AzRecoveryServicesBackupItem -BackupManagementType AzureVM -WorkloadType AzureVM -VaultId $myVaultID -Name AppVM1
+```
+
+일시 삭제를 사용 하도록 설정 했을 때 수행 된 삭제 작업을 취소 합니다.
+
+```powershell
+Undo-AzRecoveryServicesBackupItemDeletion -Item $myBKpItem -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM     12/5/2019 12:47:40 PM     65311982-3755-46b5-8e53-c82ea4f0d2a2
+```
+
+이제 일시 삭제를 사용할 수 없으므로 삭제 작업으로 인해 백업 데이터가 즉시 제거 됩니다.
+
+```powershell
+Disable-AzRecoveryServicesBackupProtection -Item $myBkpItem -RemoveRecoveryPoints -VaultId $myVaultID -Force
+
+WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
+------------     ---------            ------               ---------                 -------                   -----
+AppVM1           DeleteBackupData     Completed            12/5/2019 12:44:15 PM     12/5/2019 12:44:50 PM     0488c3c2-accc-4a91-a1e0-fba09a67d2fb
+```
 
 ## <a name="other-security-features"></a>기타 보안 기능
 
@@ -130,7 +235,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)를 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 ### <a name="soft-delete"></a>일시 삭제
 
@@ -164,15 +269,15 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 일시 삭제 기간 보다 이전 데이터를 삭제할 수 있나요?
 
-아니요. 일시 삭제 된 항목은 강제로 삭제할 수 없으며 14 일이 지나면 자동으로 삭제 됩니다. 이 보안 기능은 백업 된 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하기 위해 사용 됩니다.  VM에서 다른 작업을 수행 하기 전에 14 일 동안 기다려야 합니다.  일시 삭제 된 항목은 요금이 청구 되지 않습니다.  일시 삭제 하도록 표시 된 Vm을 14 일 이내에 새 자격 증명 모음으로 다시 보호 해야 하는 경우 Microsoft 지원에 문의 하세요.
+아닙니다. 일시 삭제 된 항목은 강제로 삭제할 수 없으며 14 일이 지나면 자동으로 삭제 됩니다. 이 보안 기능은 백업 된 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하기 위해 사용 됩니다.  VM에서 다른 작업을 수행 하기 전에 14 일 동안 기다려야 합니다.  일시 삭제 된 항목은 요금이 청구 되지 않습니다.  일시 삭제 하도록 표시 된 Vm을 14 일 이내에 새 자격 증명 모음으로 다시 보호 해야 하는 경우 Microsoft 지원에 문의 하세요.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>PowerShell 또는 CLI에서 일시 삭제 작업을 수행할 수 있나요?
 
-아니요, PowerShell 또는 CLI에 대 한 지원은 현재 사용할 수 없습니다.
+일시 삭제 작업은 [Powershell](#soft-delete-for-vms-using-azure-powershell)을 사용 하 여 수행할 수 있습니다. 현재 CLI는 지원 되지 않습니다.
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>Azure vm의 SQL Server 및 Azure Vm의 SAP HANA 같은 다른 클라우드 워크 로드에 대해 일시 삭제가 지원 되나요?
 
-아니요. 현재 일시 삭제는 Azure virtual machines에 대해서만 지원 됩니다.
+아닙니다. 현재 일시 삭제는 Azure virtual machines에 대해서만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

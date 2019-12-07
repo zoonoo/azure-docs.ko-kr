@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 12/02/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b00e699eb49d88e41dff18d6c86024c9b0537e50
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e8a3397cd8229a84103fdcbb116bf61648a6ba22
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872318"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895556"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager 리소스 공급자 작업
 
@@ -5534,14 +5534,14 @@ ms.locfileid: "74872318"
 > | 실행력 | Microsoft.Sql/managedInstances/databases/recommendedSensitivityLabels/read | 지정된 데이터베이스의 민감도 레이블을 나열합니다. |
 > | 실행력 | Microsoft .Sql/managedInstances/databases/recommendedSensitivityLabels/write | Batch 업데이트 권장 민감도 레이블 |
 > | 실행력 | Microsoft .Sql/managedInstances/databases/restoreDetails/read | 복원이 진행 되는 동안 관리 되는 데이터베이스 복원 세부 정보를 반환 합니다. |
-> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/read | 관리 되는 데이터베이스 스키마를 가져옵니다. |
-> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | 관리 되는 데이터베이스 열 가져오기 |
+> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/read | 관리 되는 데이터베이스 스키마를 가져옵니다. (스키마 전용) |
+> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/read | 관리 되는 데이터베이스 열 가져오기 (스키마 전용) |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/delete | 지정된 열의 민감도 레이블을 삭제합니다. |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/disable/action | 지정 된 열에서 민감도 권장 사항을 사용 하지 않도록 설정 |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/enable/action | 지정 된 열에 대 한 민감도 권장 사항 사용 |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/read | 지정된 열의 민감도 레이블을 가져옵니다. |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/columns/sensitivityLabels/write | 지정된 열의 민감도 레이블을 만들거나 업데이트합니다. |
-> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/read | 관리 되는 데이터베이스 테이블 가져오기 |
+> | 실행력 | Microsoft.Sql/managedInstances/databases/schemas/tables/read | 관리 되는 데이터베이스 테이블 가져오기 (스키마 전용) |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | 지정 된 서버에 대해 구성 된 관리 되는 데이터베이스 위협 검색 정책의 목록을 검색 합니다. |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | 지정된 관리되는 데이터베이스에 대한 데이터베이스 위협 검색 정책을 변경합니다. |
 > | 실행력 | Microsoft.Sql/managedInstances/databases/securityEvents/read | 관리되는 데이터베이스 보안 이벤트를 검색합니다. |
@@ -5680,14 +5680,14 @@ ms.locfileid: "74872318"
 > | 실행력 | Microsoft.Sql/servers/databases/restorePoints/delete | 데이터베이스에 대한 복원 지점을 삭제합니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/restorePoints/read | 데이터베이스의 복원 지점을 반환합니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/resume/action | Azure SQL Datawarehouse 데이터베이스를 다시 시작합니다. |
-> | 실행력 | Microsoft.Sql/servers/databases/schemas/read | 데이터베이스 스키마를 가져옵니다. |
-> | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 데이터베이스 열을 가져옵니다. |
+> | 실행력 | Microsoft.Sql/servers/databases/schemas/read | 데이터베이스 스키마를 가져옵니다 (스키마에만 해당). |
+> | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/read | 데이터베이스 열을 가져옵니다 (스키마에만 해당). |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/delete | 지정된 열의 민감도 레이블을 삭제합니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/disable/action | 지정 된 열에서 민감도 권장 사항을 사용 하지 않도록 설정 |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/enable/action | 지정 된 열에 대 한 민감도 권장 사항 사용 |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/read | 지정된 열의 민감도 레이블을 가져옵니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/columns/sensitivityLabels/write | 지정된 열의 민감도 레이블을 만들거나 업데이트합니다. |
-> | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/read | 데이터베이스 테이블을 가져옵니다. |
+> | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/read | 데이터베이스 테이블을 가져옵니다 (스키마에만 해당). |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/read | 데이터베이스에 대한 인덱스 권장 사항 목록을 검색합니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/schemas/tables/recommendedIndexes/write | 인덱스 권장 사항을 적용합니다. |
 > | 실행력 | Microsoft.Sql/servers/databases/securityAlertPolicies/read | 지정 된 서버에 대해 구성 된 데이터베이스 위협 검색 정책 목록을 검색 합니다. |

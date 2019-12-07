@@ -1,23 +1,22 @@
 ---
-title: Azure Data Factory를 사용 하 여 SAP Cloud for Customer 간에 데이터 복사
+title: SAP Cloud for Customer 간에 데이터 복사
 description: Data Factory를 사용하여 SAP Cloud for Customer에서 지원되는 싱크 데이터 저장소로 데이터를 복사하거나 지원되는 원본 데이터 저장소에서 SAP Cloud for Customer로 데이터를 복사하는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/02/2019
-ms.author: jingwang
-ms.openlocfilehash: 5c47eead8bc8428f533374b2d4892ed684c1f3c7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 56f4c8094e8b1e763a10cef3a87a5801d72794b4
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73680274"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896331"
 ---
 # <a name="copy-data-from-sap-cloud-for-customer-c4c-using-azure-data-factory"></a>Azure Data Factory를 사용하여 SAP Cloud for Customer(C4C) 간에 데이터 복사
 
@@ -47,12 +46,12 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 다음은 SAP Cloud for Customer 연결된 서비스에 대해 지원되는 속성입니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **SapCloudForCustomer**로 설정해야 합니다. | 예 |
-| URL | SAP C4C OData 서비스의 URL입니다. | 예 |
-| 사용자 이름 | SAP C4C에 연결할 사용자 이름을 지정합니다. | 예 |
-| password | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 암호를 참조](store-credentials-in-key-vault.md)합니다. | 예 |
+| type | type 속성은 **SapCloudForCustomer**로 설정해야 합니다. | yes |
+| URL | SAP C4C OData 서비스의 URL입니다. | yes |
+| username | SAP C4C에 연결할 사용자 이름을 지정합니다. | yes |
+| 암호 | username에 지정한 사용자 계정의 암호를 지정합니다. 이 필드를 SecureString으로 표시하여 Data Factory에 안전하게 저장하거나 [Azure Key Vault에 저장되는 비밀을 참조](store-credentials-in-key-vault.md)합니다. | yes |
 | connectVia | 데이터 저장소에 연결하는 데 사용할 [Integration Runtime](concepts-integration-runtime.md)입니다. 지정하지 않으면 기본 Azure Integration Runtime을 사용합니다. | 원본에는 아니요이고 싱크에는 예입니다 |
 
 >[!IMPORTANT]
@@ -87,10 +86,10 @@ SAP Cloud for Customer에서 지원되는 모든 싱크 데이터 저장소로 �
 
 SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 type 속성을 **SapCloudForCustomerResource**로 설정합니다. 다음과 같은 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 세트의 type 속성은 **SapCloudForCustomerResource**로 설정해야 합니다. |예 |
-| path | SAP C4C OData 엔터티의 경로를 지정합니다. |예 |
+| type | 데이터 세트의 type 속성은 **SapCloudForCustomerResource**로 설정해야 합니다. |yes |
+| 경로 | SAP C4C OData 엔터티의 경로를 지정합니다. |yes |
 
 **예제:**
 
@@ -119,10 +118,10 @@ SAP Cloud for Customer에서 데이터를 복사하려면 데이터 세트의 ty
 
 SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원본 형식을 **SapCloudForCustomerSource**로 설정합니다. 복사 작업 **source** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **SapCloudForCustomerSource**로 설정해야 합니다.  | 예 |
-| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아니요 |
+| type | type 속성은 **SapCloudForCustomerSource**로 설정해야 합니다.  | yes |
+| 쿼리 | 데이터를 읽을 사용자 지정 OData 쿼리를 지정합니다. | 아닙니다. |
 
 특정 날짜에 대한 데이터를 가져오는 샘플 쿼리: `"query": "$filter=CreatedOn ge datetimeoffset'2017-07-31T10:02:06.4202620Z' and CreatedOn le datetimeoffset'2017-08-01T10:02:06.4202620Z'"`
 
@@ -162,11 +161,11 @@ SAP Cloud for Customer에서 데이터를 복사하려면 복사 작업의 원�
 
 SAP Cloud for Customer로 데이터를 복사하려면 복사 작업의 싱크 형식을 **SapCloudForCustomerSink**로 설정합니다. 복사 작업 **sink** 섹션에서 다음 속성이 지원됩니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | type 속성은 **SapCloudForCustomerSink**로 설정해야 합니다.  | 예 |
-| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아니요. 기본값은 “Insert”입니다. |
-| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아니요. 기본값은 10입니다. |
+| type | type 속성은 **SapCloudForCustomerSink**로 설정해야 합니다.  | yes |
+| writeBehavior | 작업의 쓰기 동작입니다. “Insert”, “Update”가 될 수 있습니다. | 아닙니다. 기본값은 “Insert”입니다. |
+| writeBatchSize | 쓰기 작업의 일괄 처리 크기입니다. 최상의 성능을 얻기 위한 일괄 처리 크기는 테이블이나 서버에 따라 다를 수 있습니다. | 아닙니다. 기본값은 10입니다. |
 
 **예제:**
 
@@ -218,16 +217,16 @@ SAP Cloud for Customer에서 데이터를 복사하는 경우 SAP Cloud for Cust
 | Edm.Byte | Byte[] |
 | Edm.DateTime | DateTime |
 | Edm.Decimal | 10진수 |
-| Edm.Double | Double |
+| Edm.Double | DOUBLE |
 | Edm.Single | 단일 |
-| Edm.Guid | Guid |
+| Edm.Guid | GUID |
 | Edm.Int16 | Int16 |
 | Edm.Int32 | Int32 |
 | Edm.Int64 | Int64 |
 | Edm.SByte | Int16 |
-| Edm.String | 문자열 |
-| Edm.Time | TimeSpan |
-| Edm.DateTimeOffset | Datetimeoffset |
+| Edm.String | string |
+| Edm.Time | timespan |
+| Edm.DateTimeOffset | DateTimeOffset |
 
 
 ## <a name="lookup-activity-properties"></a>조회 작업 속성

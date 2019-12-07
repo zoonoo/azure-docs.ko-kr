@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 497efda857dcd7de3079d702be00a094d221b779
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 130ce05e332f4705feb4acd54cbeb25d25a82532
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72034845"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74900821"
 ---
 # <a name="assign-licenses-to-users-by-group-membership-in-azure-active-directory"></a>Azure Active Directory에서 그룹 멤버 자격별로 사용자에게 라이선스 할당
 
@@ -41,7 +41,7 @@ ms.locfileid: "72034845"
 
 1. **모든 제품**에서 제품 이름을 선택 하 여 Office 365 Enterprise E5와 Enterprise Mobility + Security E3을 모두 선택 합니다. 할당을 시작 하려면 페이지 위쪽에서 **할당** 을 선택 합니다.
 
-   ![라이선스를 할당할 제품 선택](./media/licensing-groups-assign/all-products-assign.png)
+   ![라이선스를 할당할 제품 선택](./media/licensing-groups-assign/licenses-all-products-assign.png)
   
 1. **라이선스 할당** 페이지에서 사용자 **및 그룹** 을 선택 하 여 사용자 및 그룹 목록을 엽니다.
 
@@ -73,9 +73,9 @@ ms.locfileid: "72034845"
 
 1. 라이선스처리에 대한 자세한 내용은 **Azure Active Directory** > **사용자 및 그룹** > *그룹 이름* > **감사 로그**를 참조하세요. 다음 작업을 확인 합니다.
 
-   - 활동: `Start applying group based license to users`. 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 구성원에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
+   - 작업: `Start applying group based license to users`. 시스템이 그룹에 대한 라이선스 할당 변경을 선택하고 모든 사용자 구성원에게 적용하기 시작하면 로깅됩니다. 수행된 변경 내용에 대한 정보가 포함됩니다.
 
-   - 활동: `Finish applying group based license to users`. 시스템이 그룹의 모든 사용자에 대한 처리를 완료하면 로깅됩니다. 성공적으로 처리된 사용자 수와 그룹 라이선스를 할당하지 못한 사용자 수에 대한 요약 정보가 포함되어 있습니다.
+   - 작업: `Finish applying group based license to users`. 시스템이 그룹의 모든 사용자에 대한 처리를 완료하면 로깅됩니다. 성공적으로 처리된 사용자 수와 그룹 라이선스를 할당하지 못한 사용자 수에 대한 요약 정보가 포함되어 있습니다.
 
    [이 섹션을 읽고](licensing-group-advanced.md#use-audit-logs-to-monitor-group-based-licensing-activity) 감사 로그를 사용하여 그룹 기반 라이선스에 의한 변경 내용을 분석하는 방법에 대해 자세히 알아보세요.
 
@@ -89,7 +89,7 @@ ms.locfileid: "72034845"
 
 1. 사용자를 선택 하 여 사용자의 **라이선스** 페이지를 엽니다. 이 페이지에는 현재 사용자에 게 할당 된 모든 라이선스가 표시 됩니다. 이 예에서는 사용자에게 **키오스크 사용자** 그룹에서 상속된 Office 365 Enterprise E1 라이선스가 있습니다. 이 라이선스는 시스템에서 **HR Department** 그룹에 적용하려고 하는 E3 라이선스와 충돌합니다. 결과적으로 해당 그룹의 어떠한 라이선스도 사용자에게 할당되지 않았습니다.
 
-   ![사용자에 대 한 모든 라이선스 충돌 보기](./media/licensing-groups-assign/user-license-view.png)
+   ![사용자에 대 한 모든 라이선스 충돌 보기](./media/licensing-groups-assign/user-licence-conflicting-service-plans.png)
 
 1. 이 충돌을 해결하기 위해 **키오스크 사용자** 그룹에서 해당 사용자를 제거합니다. Azure AD에서 변경 내용을 처리한 후에 **HR Department** 라이선스가 올바르게 할당됩니다.
 

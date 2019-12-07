@@ -3,17 +3,17 @@ title: Azure IoT Central의 아키텍처 개념 | Microsoft Docs
 description: 이 문서에서는 Azure IoT Central의 아키텍처와 관련된 주요 개념을 소개합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 11/12/2019
+ms.date: 11/27/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 66792d9d0a8b1cd72ef8f22481016a35f37a1597
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 9004e74d1b42a2b50ef57da58d9a79497e17f1ed
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013897"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74895760"
 ---
 # <a name="azure-iot-central-architecture-preview-features"></a>Azure IoT Central 아키텍처 (미리 보기 기능)
 
@@ -36,7 +36,7 @@ Azure IoT Central에서, 디바이스가 애플리케이션과 교환할 수 있
 
 ## <a name="azure-iot-edge-devices"></a>Azure IoT Edge 디바이스
 
-[Azure IoT sdk](https://github.com/Azure/azure-iot-sdks)를 사용 하 여 만든 장치 뿐만 아니라 [Azure IoT Edge 장치](../../iot-edge/about-iot-edge.md) 를 IoT Central 응용 프로그램에 연결할 수도 있습니다. IoT Edge를 사용 하면 IoT Central에서 관리 하는 IoT 장치에서 직접 클라우드 인텔리전스 및 사용자 지정 논리를 실행할 수 있습니다. IoT Edge 런타임을 사용 하면 다음을 수행할 수 있습니다.
+[Azure IoT SDK](https://github.com/Azure/azure-iot-sdks)를 사용하여 만든 디바이스 뿐만 아니라 [Azure IoT Edge 디바이스](../../iot-edge/about-iot-edge.md)도 IoT Central 애플리케이션에 연결할 수 있습니다. IoT Edge를 사용 하면 IoT Central에서 관리 하는 IoT 장치에서 직접 클라우드 인텔리전스 및 사용자 지정 논리를 실행할 수 있습니다. IoT Edge 런타임을 사용하면 다음을 수행할 수 있습니다.
 
 - 디바이스에 워크로드를 설치하고 업데이트합니다.
 - 장치에서 IoT Edge 보안 표준을 유지 합니다.
@@ -70,7 +70,7 @@ IoT Central IoT Edge 장치에 대해 다음 기능을 사용 하도록 설정 �
 IoT Central IoT Edge 장치 유형을 다음과 같이 분류 합니다.
 
 - 리프 장치. IoT Edge 장치는 다운스트림 리프 장치를 포함할 수 있지만 이러한 장치는 IoT Central에서 프로 비전 되지 않습니다.
-- 다운스트림 장치를 사용 하는 게이트웨이 장치 게이트웨이 장치와 다운스트림 장치는 모두 IoT Central에서 프로 비전 됩니다.
+- 다운스트림 장치를 사용 하는 게이트웨이 장치 게이트웨이 디바이스와 다운스트림 디바이스 둘 다 IoT Central에 프로비저닝됩니다.
 
 ![IoT Edge 개요를 사용 하 여 IoT Central](./media/concepts-architecture/gatewayedge.png)
 
@@ -119,7 +119,7 @@ Azure IoT Central은 애플리케이션 데이터를 클라우드에 저장합�
 
 Azure IoT Central은 디바이스에서 보낸 측정값 데이터에 시계열 저장소를 사용합니다. 분석 서비스에서 사용하는 디바이스의 시계열 데이터.
 
-## <a name="analytics"></a>분석
+## <a name="analytics"></a>분석기능
 
 분석 서비스는 애플리케이션에서 표시하는 사용자 지정 보고 데이터를 생성합니다. 운영자는 애플리케이션에 표시되는 [분석을 사용자 지정](howto-create-analytics.md)할 수 있습니다. 분석 서비스는 [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/) 위에 빌드되며, 디바이스에서 보낸 측정값 데이터를 처리합니다.
 

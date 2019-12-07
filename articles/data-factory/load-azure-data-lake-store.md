@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
+title: Azure Data Lake Storage Gen1에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 복사
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: jingwang
-ms.openlocfilehash: b8e5841e6869bd6f19b07bf71434de809cdcb74f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: adad770926b23e0529d5a6e08605a338d958ae09
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672728"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74892960"
 ---
 # <a name="load-data-into-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure Data Lake Storage Gen1에 데이터 로드
 
@@ -36,13 +36,13 @@ Azure Data Factory를 사용하여 Data Lake Storage Gen1으로 데이터를 로
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Data Lake Storage Gen1 간에 데이터 복사](connector-azure-data-lake-store.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Data Lake Storage Gen1 계정: Data Lake Storage Gen1 계정이 없는 경우 [Data Lake Storage Gen1 계정 만들기](../data-lake-store/data-lake-store-get-started-portal.md#create-a-data-lake-storage-gen1-account)의 지침을 참조하세요.
 * Amazon S3: 이 문서는 Amazon S3에서 데이터를 복사하는 방법을 보여줍니다. 다음과 같은 유사한 단계를 수행하여 다른 데이터 저장소를 사용할 수 있습니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 선택합니다.
    

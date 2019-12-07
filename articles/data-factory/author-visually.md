@@ -1,23 +1,21 @@
 ---
-title: Azure Data Factory에서 시각적 작성
+title: 시각적 작성
 description: Azure Data Factory에서 시각적 작성을 사용하는 방법에 알아봅니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/09/2019
 author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
-manager: craigg
-ms.openlocfilehash: 71f0e283c9609e949cc9b09f20a16c6f5c9c3e50
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.date: 01/09/2019
+ms.openlocfilehash: 734a9de3eaa44a149c10d1a268d09024f3ef279d
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681608"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74891629"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Azure Data Factory에서 시각적 작성
 
@@ -47,11 +45,11 @@ Azure Data Factory에서 많은 속성을 지정 하기 위해 정적 값 대신
 
 식 언어에 대 한 자세한 내용은 [Azure Data Factory의 식 및 함수](control-flow-expression-language-functions.md)를 참조 하세요.
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백**을 선택하세요.
 
-![사용자 의견](media/author-visually/provide-feedback.png)
+![피드백](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>다음 단계
 
