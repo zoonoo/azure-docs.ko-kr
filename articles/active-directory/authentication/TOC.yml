@@ -43,8 +43,6 @@
       items:
         - name: MFA 작동 방법
           href: concept-mfa-howitworks.md
-        - name: MFA 사용
-          href: concept-mfa-get-started.md
         - name: 사용자 라이선스
           href: concept-mfa-licensing.md
         - name: 인증 공급자 관리

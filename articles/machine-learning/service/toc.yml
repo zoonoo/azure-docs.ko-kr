@@ -152,7 +152,7 @@
     - name: 데이터 작업
       items:
         - name: 데이터 저장소에서 데이터 가져오기
-          displayName: 'blob, get, fileshare, access storage'
+          displayName: 'blob, get, fileshare, access storage, mount, download'
           href: how-to-access-data.md
         - name: 데이터 세트 추가 및 등록
           displayName: 'data, dataset'

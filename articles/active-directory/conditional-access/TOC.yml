@@ -17,8 +17,6 @@
   items:
     - name: 일반 조건부 액세스 정책
       href: concept-conditional-access-policy-common.md
-    - name: 보안 기본값
-      href: concept-conditional-access-security-defaults.md
     - name: 조건부 액세스 정책 구성 요소
       href: concept-conditional-access-policies.md
     - name: 조건
