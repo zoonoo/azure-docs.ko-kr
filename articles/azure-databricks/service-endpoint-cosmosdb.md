@@ -1,5 +1,5 @@
 ---
-title: Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
+title: 자습서 - Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
 description: 이 자습서에서는 Cosmos DB에 대해 서비스 엔드포인트를 사용하도록 설정한 가상 네트워크에서 Azure Databricks를 구현하는 방법을 설명합니다.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 04/17/2019
-ms.openlocfilehash: d1268ea2cfc22e6350edb32230588a497be8bc79
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 4ac8c01e986cf1f3158c615a0791ba476e5bf1bb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67054588"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706155"
 ---
 # <a name="tutorial-implement-azure-databricks-with-a-cosmos-db-endpoint"></a>자습서: Cosmos DB 엔드포인트를 사용하여 Azure Databricks 구현
 
@@ -57,7 +57,7 @@ ms.locfileid: "67054588"
 
    |설정|값|
    |-------|-----|
-   |구독|*구독*|
+   |Subscription|*구독*|
    |리소스 그룹|*리소스 그룹*|
    |계정 이름|db-vnet-service-endpoint|
    |API|Core(SQL)|
