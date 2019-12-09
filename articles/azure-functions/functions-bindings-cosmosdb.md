@@ -6,12 +6,12 @@ ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: seodec18
-ms.openlocfilehash: 18bbfd1b54947bb88ba8f06c65a17b90430b38a3
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: bae027fc5a3b6ce7b4246c403841fa529b8884cb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305233"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925953"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Azure Functions 1.x의 Azure Cosmos DB 바인딩
 
@@ -22,7 +22,7 @@ ms.locfileid: "74305233"
 이 문서에서는 Azure Functions에서 [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) 바인딩을 사용하는 방법을 설명합니다. Azure Functions는 Azure Cosmos DB에 대한 트리거, 입력 및 출력 바인딩을 지원합니다.
 
 > [!NOTE]
-> 이 문서는 Azure Functions 1.x에 대한 것입니다. Functions 2.x에서 이러한 바인딩을 사용하는 방법에 대한 내용은 [Azure Functions 2.x에 대한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조하세요.
+> 이 문서는 Azure Functions 1.x에 대한 것입니다. 함수 2.x 이상에서 이러한 바인딩을 사용 하는 방법에 대 한 자세한 내용은 Azure Functions 2.x [에 대 한 Azure Cosmos DB 바인딩](functions-bindings-cosmosdb-v2.md)을 참조 하세요.
 >
 >이 바인딩의 원래 이름은 DocumentDB입니다. 함수 버전 1.x에서 트리거만 Cosmos DB로 명명되었습니다. 입력 바인딩, 출력 바인딩 및 NuGet 패키지는 DocumentDB 이름을 유지합니다.
 
@@ -180,8 +180,8 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type** || `cosmosDBTrigger`으로 설정해야 합니다. |
-|**direction** || `in`으로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
+|**type** || `cosmosDBTrigger`로 설정해야 합니다. |
+|**direction** || `in`로 설정해야 합니다. 이 매개 변수는 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. |
 |**name** || 변경 사항이 포함된 문서 목록을 나타내는 함수 코드에 사용되는 변수 이름. |
 |**connectionStringSetting**|**ConnectionStringSetting** | 모니터링되는 Azure Cosmos DB 계정에 연결하는 데 사용되는 연결 문자열을 포함하고 있는 앱 설정의 이름입니다. |
 |**databaseName**|**DatabaseName**  | 컬렉션이 모니터링되는 Azure Cosmos DB 데이터베이스의 이름입니다. |
@@ -1115,8 +1115,8 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     || `documentdb`으로 설정해야 합니다.        |
-|**direction**     || `in`으로 설정해야 합니다.         |
+|**type**     || `documentdb`로 설정해야 합니다.        |
+|**direction**     || `in`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** |**DatabaseName** |문서를 포함하는 데이터베이스입니다.        |
 |**collectionName** |**CollectionName** | 문서를 포함하는 컬렉션의 이름입니다. |
@@ -1454,8 +1454,8 @@ JavaScript에서는 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-|**type**     || `documentdb`으로 설정해야 합니다.        |
-|**direction**     || `out`으로 설정해야 합니다.         |
+|**type**     || `documentdb`로 설정해야 합니다.        |
+|**direction**     || `out`로 설정해야 합니다.         |
 |**name**     || 함수에서 문서를 나타내는 바인딩 매개 변수의 이름입니다.  |
 |**databaseName** | **DatabaseName**|문서가 만들어진 컬렉션을 포함하는 데이터베이스입니다.     |
 |**collectionName** |**CollectionName**  | 문서가 만들어진 컬렉션의 이름입니다. |

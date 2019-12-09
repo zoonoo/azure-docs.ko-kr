@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory에서 구성 가능한 토큰 수명
+title: 구성 가능한 Azure AD 토큰 수명
 titleSuffix: Microsoft identity platform
 description: Azure AD에서 발급한 토큰의 수명을 설정하는 방법을 알아봅니다.
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5abd6928ed92b80caabe71dd27dc2db2e53b1abf
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c195a5da6b04a919947c0ae65d7d6109115627d2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845249"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918392"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Azure Active Directory에서 구성 가능한 토큰 수명(미리 보기)
 

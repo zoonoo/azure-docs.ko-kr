@@ -1,29 +1,25 @@
 ---
-title: 클라이언트 응용 프로그램 구성 (Microsoft 인증 라이브러리)
+title: MSAL (클라이언트 응용 프로그램 구성) | Microsoft
 titleSuffix: Microsoft identity platform
-description: MSAL (Microsoft 인증 라이브러리)의 공용 클라이언트 및 기밀 클라이언트 응용 프로그램에 대 한 구성 옵션에 대해 알아봅니다.
+description: MSAL (Microsoft 인증 라이브러리)을 사용 하는 공용 클라이언트 및 기밀 클라이언트 응용 프로그램에 대 한 구성 옵션에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/27/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5d9a18f1ab5b86cbdb74a61a9520e89ecf920478
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f3fd70757fe5ce8761fd3444f3f0dd31e2bfcc3b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803196"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917066"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -128,7 +124,7 @@ MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
 `RedirectUri` 속성을 사용 하 여 리디렉션 URI를 재정의할 수 있습니다 (예: broker를 사용 하는 경우). 다음은 해당 시나리오에 대 한 리디렉션 Uri의 몇 가지 예입니다.
 
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos` = $ "msauth. {번들 ID}:/인증 ";
+- `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
 
 IOS에 대 한 자세한 내용은 [Microsoft Authenticator를 사용 하는 ios 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션](msal-net-migration-ios-broker.md) 및 [Ios에서 broker 활용](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)을 참조 하세요.
 Android에 대 한 추가 정보는 [android에서](brokered-auth.md)조정 된 인증을 참조 하세요.

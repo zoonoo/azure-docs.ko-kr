@@ -3,25 +3,24 @@ title: 데이터 관리 게이트웨이에 대한 릴리스 정보
 description: 데이터 관리 게이트웨이 릴리스 정보
 services: data-factory
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: bb89ed08b05f9a8f271ceee400bc609881e7048d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 9d0e31a89494477e048c7a2f9f7b8165e08d1a2f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682580"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924271"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>데이터 관리 게이트웨이에 대한 릴리스 정보
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
+> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [V2의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요.
 
 최신 데이터 통합의 과제 중 하나는 온-프레미스 간 및 온-프레미스에서 클라우드로 데이터를 이동하는 것입니다. Data Factory를 사용하면 하이브리드 데이터 이동을 지원하기 위해 온-프레미스에 설치할 수 있는 에이전트인 데이터 관리 게이트웨이와 이러한 통합을 수행할 수 있습니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "73682580"
 - Oracle에서 10진수 null 값을 원본으로 잘못 읽는 문제가 수정되었습니다.
 
 ## <a name="2661922"></a>2.6.6192.2
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새 소식
 - 고객이 게이트웨이 등록 경험에 대한 피드백을 제공할 수 있습니다.
 - 새 압축 형식 지원: ZIP (Deflate)
 
@@ -82,7 +81,7 @@ ms.locfileid: "73682580"
 
 ## <a name="2461511"></a>2.4.6151.1
 
-### <a name="whats-new"></a>새로운 기능
+### <a name="whats-new"></a>새 소식
 
 - 이제 데이터 원본 자격 증명을 로컬로 저장할 수 있습니다. 자격 증명은 암호화됩니다. 데이터 원본 자격 증명은 기존 게이트웨이에서 내보낸 백업 파일을 사용하여 온-프레미스에서 모두 복구하고 복원할 수 있습니다.
 

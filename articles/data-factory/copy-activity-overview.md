@@ -4,20 +4,19 @@ description: Azure Data Factory의 복사 작업에 대해 알아봅니다. 지�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: jingwang
-ms.openlocfilehash: fa2876b88a520480813ebfb8af8219d53c32057a
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 40bddaab6db5e7ed777ec55ca469a9e2d1c35c98
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075555"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927538"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Azure Data Factory의 복사 작업
 
@@ -66,7 +65,7 @@ Azure Data Factory에서 복사 작업을 사용 하 여 온-프레미스 및 �
 
 복사 작업을 사용 하도록 설정 하는 서비스는 [Azure integration runtime 위치](concepts-integration-runtime.md#integration-runtime-location)에 나열 된 지역 및 지역에서 전역적으로 사용할 수 있습니다. 전역적으로 사용 가능한 토폴로지에서는 대개 지역 간 홉이 없는 효율적인 데이터 이동이 가능합니다. 특정 지역에서 Data Factory 및 데이터 이동의 가용성을 확인 하려면 [지역별 제품](https://azure.microsoft.com/regions/#services) 을 참조 하세요.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 Azure Data Factory에서 복사 작업을 사용 하려면 다음을 수행 해야 합니다.
 
@@ -126,19 +125,19 @@ Azure Data Factory에서 복사 작업을 사용 하려면 다음을 수행 해�
 
 #### <a name="syntax-details"></a>구문 세부 정보
 
-| 속성 | 설명 | 필수 여부 |
+| 자산 | 설명 | Required? |
 |:--- |:--- |:--- |
-| type | 복사 활동의 경우를 `Copy`으로 설정 합니다. | 예 |
-| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | 예 |
-| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | 예 |
-| typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | 예 |
-| 원본 | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/><br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
-| sink | 데이터를 쓰기 위한 복사 싱크 유형과 해당 속성을 지정 합니다.<br/><br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | 예 |
-| translator | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/><br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 아니오 |
-| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조 하세요. | 아니오 |
-| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조 하세요. | 아니오 |
-| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/><br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance.md#staged-copy)를 참조 하세요. | 아니오 |
-| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 아니오 |
+| type | 복사 활동의 경우를 `Copy`으로 설정 합니다. | yes |
+| inputs | 원본 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 입력만 지원 합니다. | yes |
+| outputs | 싱크 데이터를 가리키는 만든 데이터 집합을 지정 합니다. 복사 작업은 단일 출력만 지원 합니다. | yes |
+| typeProperties | 속성을 지정 하 여 복사 작업을 구성 합니다. | yes |
+| source | 복사 원본 유형 및 데이터 검색을 위한 해당 속성을 지정 합니다.<br/><br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | yes |
+| 싱크 | 데이터를 쓰기 위한 복사 싱크 유형과 해당 속성을 지정 합니다.<br/><br/>자세한 내용은 [지원 되는 데이터 저장소 및 형식](#supported-data-stores-and-formats)에 나열 된 커넥터 문서의 "복사 작업 속성" 섹션을 참조 하세요. | yes |
+| 번역기 | 원본에서 싱크로의 명시적 열 매핑을 지정합니다. 이 속성은 기본 복사 동작이 사용자의 요구를 충족 하지 않는 경우에 적용 됩니다.<br/><br/>자세한 내용은 [복사 활동의 스키마 매핑](copy-activity-schema-and-type-mapping.md)을 참조 하세요. | 아닙니다. |
+| dataIntegrationUnits | [Azure integration runtime](concepts-integration-runtime.md) 에서 데이터 복사에 사용 하는 전력의 양을 나타내는 측정값을 지정 합니다. 이러한 단위는 이전에는 DMU (클라우드 데이터 이동 단위)로 알려져 있었습니다. <br/><br/>자세한 내용은 [데이터 통합 단위](copy-activity-performance.md#data-integration-units)를 참조 하세요. | 아닙니다. |
+| parallelCopies | 원본에서 데이터를 읽고 싱크에 데이터를 쓸 때 복사 작업에서 사용할 병렬 처리를 지정 합니다.<br/><br/>자세한 내용은 [병렬 복사](copy-activity-performance.md#parallel-copy)를 참조 하세요. | 아닙니다. |
+| enableStaging<br/>stagingSettings | 원본에서 싱크로 데이터를 직접 복사 하는 대신 Blob 저장소에서 중간 데이터를 준비할 지 여부를 지정 합니다.<br/><br/>유용한 시나리오 및 구성 세부 정보에 대 한 자세한 내용은 [준비 된 복사](copy-activity-performance.md#staged-copy)를 참조 하세요. | 아닙니다. |
+| enableSkipIncompatibleRow<br/>redirectIncompatibleRowSettings| 원본에서 싱크로 데이터를 복사할 때 호환 되지 않는 행을 처리 하는 방법을 선택 합니다.<br/><br/>자세한 내용은 [내결함성](copy-activity-fault-tolerance.md)을 참조 하세요. | 아닙니다. |
 
 ## <a name="monitoring"></a>모니터링
 
@@ -184,15 +183,15 @@ Azure SQL Data Warehouse으로 복사 하** ![작업 실행 세부 정보를 모
 | throughput | 데이터 전송 률입니다. | 부동 소수점 수 (KBps) |
 | sourcePeakConnections | 복사 작업을 실행 하는 동안 원본 데이터 저장소에 설정 된 최대 동시 연결 수입니다. | Int32 값 (단위 없음) |
 | sinkPeakConnections| 복사 작업을 실행 하는 동안 싱크 데이터 저장소에 설정 된 최대 동시 연결 수입니다.| Int32 값 (단위 없음) |
-| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용할지 여부를 지정 합니다. | 부울 |
-| redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | 부울 |
-| hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | 부울 |
+| sqlDwPolyBase | 데이터를 SQL Data Warehouse에 복사할 때 PolyBase를 사용할지 여부를 지정 합니다. | Boolean |
+| redshiftUnload | Redshift에서 데이터를 복사할 때 언로드가 사용 되는지 여부입니다. | Boolean |
+| hdfsDistcp | HDFS에서 데이터를 복사할 때 DistCp를 사용할지 여부를 지정 합니다. | Boolean |
 | effectiveIntegrationRuntime | 작업을 실행 하는 데 사용 되는 IR (통합 런타임) 또는 런타임이 `<IR name> (<region if it's Azure IR>)`형식으로 되어 있습니다. | 텍스트(문자열) |
 | usedDataIntegrationUnits | 복사 중 효율적인 데이터 통합 단위입니다. | Int32 값 |
 | usedParallelCopies | 복사 동안 유효한 parallelCopies입니다. | Int32 값 |
 | redirectRowPath | `redirectIncompatibleRowSettings` 속성에서 구성 하는 blob 저장소에서 건너뛴 호환 되지 않는 행의 로그 경로입니다. 이 문서의 뒷부분에 나오는 [내결함성](#fault-tolerance) 을 참조 하세요. | 텍스트(문자열) |
-| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다.<br/><br/>Data Factory은 `detailedDurations`에서 다양 한 단계에 소요 된 자세한 기간 (초)도 보고 합니다. 이러한 단계의 기간은 제외 됩니다. 지정 된 복사 작업 실행에 적용 되는 기간만 표시 됩니다.<br/>**큐 기간** (`queuingDuration`): 통합 런타임에 복사 작업을 실제로 시작 하기 전 까지의 시간입니다. 자체 호스팅 IR을 사용 하는 경우이 값이 크면 IR 용량과 사용량을 확인 하 고 워크 로드에 따라 규모를 확장 하거나 축소 합니다. <br/>**복사 전 스크립트 지속 시간** (`preCopyScriptDuration`): 복사 작업이 IR에서 시작 하 고 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 시점 사이에 경과 된 시간입니다. 사전 복사 스크립트를 구성할 때 적용 됩니다. <br/>**첫 번째 바이트 까지의 시간** (`timeToFirstByte`): 이전 단계의 끝과 IR이 원본 데이터 저장소에서 첫 번째 바이트를 받는 시간 사이에 경과 된 시간입니다. 파일 기반이 아닌 소스에 적용 됩니다. 이 값이 크면 쿼리 또는 서버를 확인 하 고 최적화 합니다.<br/>**전송 기간** (`transferDuration`): 이전 단계의 끝과 IR이 원본에서 싱크로 모든 데이터를 전송 하는 시간 사이에 경과 된 시간입니다. | String |
-| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 및 튜닝](#performance-and-tuning) 을 참조 하세요. | String |
+| executionDetails | 복사 작업을 수행 하는 단계 및 해당 단계, 기간, 구성 등에 대해 자세히 설명 합니다. 이 섹션은 변경 될 수 있으므로이 섹션을 구문 분석 하지 않는 것이 좋습니다.<br/><br/>Data Factory은 `detailedDurations`에서 다양 한 단계에 소요 된 자세한 기간 (초)도 보고 합니다. 이러한 단계의 기간은 제외 됩니다. 지정 된 복사 작업 실행에 적용 되는 기간만 표시 됩니다.<br/>**큐 기간** (`queuingDuration`): 통합 런타임에 복사 작업을 실제로 시작 하기 전 까지의 시간입니다. 자체 호스팅 IR을 사용 하는 경우이 값이 크면 IR 용량과 사용량을 확인 하 고 워크 로드에 따라 규모를 확장 하거나 축소 합니다. <br/>**복사 전 스크립트 지속 시간** (`preCopyScriptDuration`): 복사 작업이 IR에서 시작 하 고 복사 작업에서 싱크 데이터 저장소의 사전 복사 스크립트 실행을 완료 하는 시점 사이에 경과 된 시간입니다. 사전 복사 스크립트를 구성할 때 적용 됩니다. <br/>**첫 번째 바이트 까지의 시간** (`timeToFirstByte`): 이전 단계의 끝과 IR이 원본 데이터 저장소에서 첫 번째 바이트를 받는 시간 사이에 경과 된 시간입니다. 파일 기반이 아닌 소스에 적용 됩니다. 이 값이 크면 쿼리 또는 서버를 확인 하 고 최적화 합니다.<br/>**전송 기간** (`transferDuration`): 이전 단계의 끝과 IR이 원본에서 싱크로 모든 데이터를 전송 하는 시간 사이에 경과 된 시간입니다. | 배열 |
+| perfRecommendation 사항 | 성능 튜닝 팁을 복사 합니다. 자세한 내용은 [성능 및 튜닝](#performance-and-tuning) 을 참조 하세요. | 배열 |
 
 ```json
 "output": {

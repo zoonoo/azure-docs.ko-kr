@@ -1,5 +1,5 @@
 ---
-title: Azure AD 테 넌 트 앱에 대 한 클레임 사용자 지정 (공개 미리 보기)
+title: Azure AD 테 넌 트 앱에 대 한 클레임 사용자 지정
 titleSuffix: Microsoft identity platform
 description: 이 페이지에서는 Azure Active Directory 클레임 매핑을 설명합니다.
 services: active-directory
@@ -14,12 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12726a1ad9b04bdfe2cd279d36a696bb011e4122
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c8d15631c30566d7588b562f1bb0d6ba5280e699
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845351"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918426"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>방법: 테넌트의 특정 앱용 토큰에서 내보낸 클레임 사용자 지정(미리 보기)
 

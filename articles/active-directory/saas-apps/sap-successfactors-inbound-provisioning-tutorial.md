@@ -14,15 +14,19 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2019
 ms.author: chmutali
-ms.openlocfilehash: 85f3c8b9bc4167350b8a56f118128b89df142611
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: cc17b8158c847bff5f07d6088a99566dc499d1bf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896923"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914776"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning-preview"></a>자습서: 사용자 프로 비전을 Active Directory SAP SuccessFactors 구성 (미리 보기)
-이 자습서에서는 SuccessFactors Employee Central에서 Active Directory 및 Azure Active Directory에 대 한 작업자 데이터를 가져오기 위해 수행 해야 하는 단계를 설명 하 고 전자 메일 주소를 SuccessFactors에 선택적으로 쓰기 합니다.
+이 자습서는 SuccessFactors Employee Central에서 Active Directory (AD) 및 Azure AD로 사용자를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있도록 합니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../manage-apps/sap-successfactors-attribute-reference.md) 검색을 지원 합니다.
+
+>[!NOTE]
+>SuccessFactors에서 프로 비전 하려는 사용자에 게 온-프레미스 AD 계정 및 선택적으로 Azure AD 계정이 필요한 경우이 자습서를 사용 합니다. SuccessFactors의 사용자에 게 Azure AD 계정 (클라우드 전용 사용자)만 필요한 경우 Azure AD 사용자 프로 비전 [에 SAP SuccessFactors 구성](sap-successfactors-inbound-provisioning-cloud-only-tutorial.md) 의 자습서를 참조 하세요. 
+
 
 ## <a name="overview"></a>개요
 
@@ -69,7 +73,7 @@ Azure AD 사용자 프로 비전 서비스에서 지 원하는 SuccessFactors �
 4. Azure AD Connect 프로비전 에이전트는 서비스 계정을 사용하여 AD 계정 데이터를 추가/업데이트합니다.
 5. Azure AD Connect 동기화 엔진은 델타 동기화를 실행 하 여 AD에서 업데이트를 가져옵니다.
 6. Active Directory 업데이트는 Azure Active Directory와 동기화됩니다.
-7. SuccessFactors 쓰기 저장 커넥터가 구성 된 경우 사용 된 일치 특성에 따라 전자 메일 특성과 사용자 이름을 SuccessFactors에 다시 씁니다.
+7. [SuccessFactors 쓰기 저장 (Writeback) 앱](sap-successfactors-writeback-tutorial.md) 이 구성 된 경우 사용 된 일치 특성에 따라 SuccessFactors에 전자 메일 특성을 다시 씁니다.
 
 ## <a name="planning-your-deployment"></a>배포 계획
 
@@ -109,6 +113,10 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 * 동일한 상자에서 아래로 스크롤하고 **Employee CENTRAL API**를 선택 합니다. ODATA API를 사용 하 여 읽고 ODATA API를 사용 하 여 편집 하려면 아래와 같이 사용 권한을 추가 합니다. SuccessFactors에 쓰기 저장 시나리오에 동일한 계정을 사용 하려는 경우 편집 옵션을 선택 합니다. 
   > [!div class="mx-imgBorder"]
   > 읽기 쓰기 권한을 ![](./media/sap-successfactors-inbound-provisioning/odata-read-write-perm.png)
+
+  >[!NOTE]
+  >이 프로 비전 앱에서 검색 된 특성의 전체 목록은 [SuccessFactors 특성 참조](../manage-apps/sap-successfactors-attribute-reference.md) 를 참조 하세요.
+
 * **완료**를 클릭합니다. **변경 내용 저장**을 클릭합니다.
 
 ### <a name="create-a-permission-group-for-the-api-user"></a>API 사용자에 대 한 권한 그룹 만들기
@@ -294,6 +302,10 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성을 Active Directory 특성에 매핑하는 방법을 정의할 수 있습니다.
 
+  >[!NOTE]
+  >응용 프로그램에서 지 원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../manage-apps/sap-successfactors-attribute-reference.md) 를 참조 하세요.
+
+
 1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
 
       * **매핑 유형**
@@ -347,20 +359,9 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 ## <a name="next-steps"></a>다음 단계
 
+* [인바운드 프로 비전에 대해 지원 되는 SuccessFactors 특성에 대 한 자세한 정보](../manage-apps/sap-successfactors-attribute-reference.md)
+* [SuccessFactors에 전자 메일 쓰기 저장을 구성 하는 방법 알아보기](sap-successfactors-writeback-tutorial.md)
 * [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
 * [SuccessFactors와 Azure Active Directory 간에 Single Sign-On를 구성 하는 방법에 대해 알아봅니다.](successfactors-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 * [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../manage-apps/export-import-provisioning-configuration.md)
-
-
-
-
-
-
-
-
-
-
-
-
-

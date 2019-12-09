@@ -1,17 +1,18 @@
 ---
-title: 데이터 흐름 피벗 변환 Azure Data Factory 매핑
+title: 데이터 흐름 피벗 변환 매핑
 description: Azure Data Factory 매핑 데이터 흐름 피벗 변환을 사용 하 여 행에서 열로 데이터 피벗
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 01/30/2019
-ms.openlocfilehash: e59f0623b898fedada63e51fabbaf88d8b17f59d
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 8f23b5e61e1aee83172a12466fac8d5b5003fea8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387787"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930298"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Azure 데이터 팩터리 피벗 변환
 
@@ -20,7 +21,7 @@ ADF Data Flow의 피벗을 하나 이상의 그룹화 열의 고유한 행 값�
 
 ![피벗 옵션](media/data-flow/pivot1.png "피벗 1")
 
-## <a name="group-by"></a>그룹화 방법
+## <a name="group-by"></a>Group By
 
 ![피벗 옵션](media/data-flow/pivot2.png "피벗 2")
 

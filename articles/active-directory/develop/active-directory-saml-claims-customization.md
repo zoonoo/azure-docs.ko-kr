@@ -1,5 +1,5 @@
 ---
-title: Azure AD에서 엔터프라이즈 앱에 대 한 SAML 토큰 클레임 사용자 지정
+title: Azure AD 앱 SAML 토큰 클레임 사용자 지정
 titleSuffix: Microsoft identity platform
 description: Azure AD의 엔터프라이즈 애플리케이션에 대한 SAML 토큰에 발급된 클레임을 사용자 지정하는 방법을 알아보세요.
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f5e9dd48695ab28879b151c4b3a37b72c551f9c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 14e1a466902ccb47d57e5f9590ba94bf08c76ec5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844790"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918443"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정
 

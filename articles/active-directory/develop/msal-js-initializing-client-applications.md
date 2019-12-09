@@ -1,29 +1,25 @@
 ---
-title: 클라이언트 응용 프로그램 초기화 (JavaScript 용 Microsoft 인증 라이브러리)
+title: MSAL .js 클라이언트 앱 초기화 | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft 인증 라이브러리 (MSAL .js)를 사용 하 여 클라이언트 응용 프로그램을 초기화 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25f2776b9b5683a345c55af4bc0020fef8109edd
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: b041d8777f81f1796a2e2f7926f324e3b601bd93
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150637"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916505"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 초기화 하는 방법을 설명 합니다. 사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
@@ -115,7 +111,7 @@ export type Configuration = {
 - **clientID**: 필수 항목입니다. 응용 프로그램의 clientID는 응용 프로그램 등록 포털에서 가져와야 합니다.
 
 - **authority**: 선택 사항입니다. MSAL에서 토큰을 요청할 수 있는 디렉터리를 나타내는 URL입니다. 기본값은 `https://login.microsoftonline.com/common`입니다.
-    * Azure AD에서 https://&lt;인스턴스&gt;/&lt;대상&gt;&lt;인스턴스&gt;는 id 공급자 도메인 (예: `https://login.microsoftonline.com`)이 고 &lt;대상 그룹은 식별자입니다. 로그인 대상을 나타내는입니다. 다음 값을 사용할 수 있습니다.
+    * Azure AD에서 https://&lt;인스턴스&gt;/&lt;대상&gt;&lt;인스턴스&gt;는 id 공급자 도메인 (예: `https://login.microsoftonline.com`)이 고 &lt;대상 그룹은 로그인 대상을 나타내는 식별자입니다. 다음 값을 사용할 수 있습니다.
         * `https://login.microsoftonline.com/<tenant>`은 테 넌 트에 연결 된 도메인 (예: contoso.onmicrosoft.com) 이거나 특정 조직의 사용자 로그인에만 사용 되는 디렉터리의 `TenantID` 속성을 나타내는 GUID입니다.
         * `https://login.microsoftonline.com/common`-회사 및 학교 계정이 나 Microsoft 개인 계정으로 사용자를 로그인 하는 데 사용 됩니다.
         * `https://login.microsoftonline.com/organizations/`-회사 및 학교 계정으로 사용자를 로그인 하는 데 사용 됩니다.

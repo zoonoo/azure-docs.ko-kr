@@ -1,29 +1,25 @@
 ---
-title: Single sign-on (JavaScript 용 Microsoft 인증 라이브러리)
+title: Single sign-on (MSAL .js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 사용 하 여 Single Sign-On 환경을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da39b8435acdd11108a945c6bac5147dc8b6ad50
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 921c02e682c722a4e96f98fb0fc54d7fcbb82220
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150585"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916267"
 ---
 # <a name="single-sign-on-with-msaljs"></a>MSAL.js를 사용한 Single Sign-On
 
@@ -92,7 +88,7 @@ userAgentApplication.acquireTokenSilent(request).then(function(response) {
 
 **Login 힌트 사용**
 
-SID 클레임이 구성 되지 않았거나 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 요청 매개 변수에 `login_hint`를 제공 하 고, 선택적으로 MSAL의 대화형 메서드에서 `extraQueryParameters`로 `domain_hint` 수 있습니다 (@no __t_3_, `loginRedirect`, `acquireTokenPopup` 및 `acquireTokenRedirect`). 다음은 그 예입니다.
+구성 된 SID 클레임이 없거나, 대화형 인증 호출에서 계정 선택 프롬프트를 무시 해야 하는 경우 요청 매개 변수에 `login_hint`를 제공 하 고, MSAL의 대화형 방법 (`loginPopup`, `loginRedirect`, `acquireTokenPopup` 및 `acquireTokenRedirect`)에서 필요에 따라 `domain_hint`을 `extraQueryParameters` 하 여이 작업을 수행할 수 있습니다. 다음은 그 예입니다.
 
 ```javascript
 var request = {
@@ -108,12 +104,12 @@ userAgentApplication.loginRedirect(request);
 
 * **loginHint** 는 ID 토큰의 `preferred_username` 클레임으로 설정 해야 합니다.
 
-* **domain_hint** 는/pros 인증 기관을 사용할 때만 전달 해야 합니다. 도메인 힌트는 tid (테 넌 트 ID)에 의해 결정 됩니다.  ID 토큰의 `tid` 클레임이 `9188040d-6c67-4c5b-b112-36a304b66dad` 인 경우 소비자입니다. 그렇지 않으면 조직입니다.
+* **domain_hint** 는/ss 인증 기관을 사용 하는 경우에만 전달 해야 합니다. 도메인 힌트는 tid (테 넌 트 ID)에 의해 결정 됩니다.  ID 토큰의 `tid` 클레임이 `9188040d-6c67-4c5b-b112-36a304b66dad` 인 경우 소비자입니다. 그렇지 않으면 조직입니다.
 
 로그인 힌트 및 도메인 힌트에 대 한 값에 대 한 자세한 내용은 [여기](v2-oauth2-implicit-grant-flow.md) 를 참조 하세요.
 
 > [!Note]
-> SID와 login_hint는 동시에 전달할 수 없습니다. 이로 인해 오류 응답이 발생 합니다.
+> SID와 login_hint를 동시에 전달할 수 없습니다. 이로 인해 오류 응답이 발생 합니다.
 
 ## <a name="sso-without-msaljs-login"></a>MSAL .js 로그인을 사용 하지 않는 SSO
 

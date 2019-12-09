@@ -2,7 +2,6 @@
 title: 지정 된 API에 대 한 권한 선택 | Microsoft Docs
 description: 개발하는 애플리케이션의 클라이언트 및 리소스 애플리케이션에 대한 사용 권한 요청 방법을 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: ''
@@ -10,18 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.custom: aaddev
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: abae311057ac5cfadb72faa0df525fdbec17f757
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: d459325b6c02a4109825ea7de984b57ff3d7ae00
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68321052"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921384"
 ---
 # <a name="how-to-select-permissions-for-a-given-api"></a>지정된 API에 대한 사용 권한을 선택하는 방법 
 

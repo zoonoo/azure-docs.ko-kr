@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights에서 Java 웹앱에 대한 성능 모니터링 | Microsoft Docs
+title: Java 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: Application Insights로 Java 웹 사이트의 확장된 성능 및 사용량 모니터링
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 01/10/2019
-ms.openlocfilehash: 181a1f253157fe112d42753d6f824a327457a2fa
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8194c4b16d114be9b2b95ff56dea59d98cfdae10
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819403"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931141"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Java 웹 앱에서 종속성, catch 한 예외 및 메서드 실행 시간 모니터링
 
@@ -90,8 +90,8 @@ Azure 앱 서비스에 대해 다음을 수행 합니다.
 
 키: `JAVA_OPTS` 값: `-javaagent:D:/home/site/wwwroot/applicationinsights-agent-2.5.0.jar`
 
-최신 버전의 Java 에이전트는 [여기](https://github.com/Microsoft/ApplicationInsights-Java/releases
-)에서 릴리스를 확인 하세요. 
+최신 버전의 Java 에이전트는 [여기 에](https://github.com/Microsoft/ApplicationInsights-Java/releases
+)서 릴리스를 확인 하세요. 
 
 에이전트는 D:/home/site/wwwroot/directory에서 종료 되도록 프로젝트에 리소스로 패키지 되어야 합니다. **개발 도구** > **고급 도구** > **디버그 콘솔** 하 고 사이트 디렉터리의 내용을 검사 하 여 에이전트가 올바른 App Service 디렉터리에 있는지 확인할 수 있습니다.    
 

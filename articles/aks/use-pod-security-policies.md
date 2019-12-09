@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 131a71e27bba1c37b6d50b718b8eac788109a59f
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933760"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926404"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 
@@ -486,7 +486,7 @@ kubectl delete -f psp-deny-privileged-clusterrolebinding.yaml
 kubectl delete -f psp-deny-privileged-clusterrole.yaml
 ```
 
-[Kubectl delete][kubectl-delete] 명령을 사용 하 여 네트워크 정책을 삭제 하 고 yaml 매니페스트의 이름을 지정 합니다.
+[Kubectl delete][kubectl-delete] 명령을 사용 하 여 보안 정책을 삭제 하 고 yaml 매니페스트의 이름을 지정 합니다.
 
 ```console
 kubectl delete -f psp-deny-privileged.yaml

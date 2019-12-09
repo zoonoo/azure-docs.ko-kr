@@ -2,23 +2,23 @@
 title: Hadoop MapReduce 작업을 사용 하 여 데이터 변환
 description: Azure HDInsight 클러스터에서 Azure Data Factory의 Hadoop MapReduce 프로그램을 실행하여 데이터를 처리하는 방법을 알아봅니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 8f66062f5de514390a8e4a3fdea85dd645ff0da1
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 01/16/2018
+ms.openlocfilehash: 5d38e3126442bcf34c96cead2b2ea59507b50b8c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893810"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912872"
 ---
 # <a name="transform-data-using-hadoop-mapreduce-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop MapReduce 활동을 사용하여 데이터 변환
+
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
 > * [버전 1](v1/data-factory-map-reduce.md)
 > * [현재 버전](transform-data-using-hadoop-map-reduce.md)

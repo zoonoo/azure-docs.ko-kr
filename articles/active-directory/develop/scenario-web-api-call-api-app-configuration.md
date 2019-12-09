@@ -1,5 +1,6 @@
 ---
-title: 다운스트림 웹 Api를 호출 하는 web API (앱의 코드 구성)-Microsoft identity platform
+title: 웹 Api를 호출 하는 web API 구성 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 web API를 빌드하는 방법 알아보기 (앱 코드 구성)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5bae9f565dd37fbd3bcae38833662e13e0b7ac6d
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 219724186e3fa69fec35e89435af495b662c871d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73960643"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919752"
 ---
 # <a name="web-api-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 API-코드 구성
 

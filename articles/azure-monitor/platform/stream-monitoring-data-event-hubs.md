@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 952485a3bb8feb1434f4f4705f6c07176dd1e1f6
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 254cbc995da9380f108970fb981c000fca7dc63f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894477"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925818"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub"></a>Azure 모니터링 데이터를 이벤트 허브로 스트리밍
 Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스에서 응용 프로그램 및 서비스에 대 한 전체 스택 모니터링 솔루션을 제공 합니다. Azure Monitor 사용 하 여 해당 데이터를 분석 하 고 다양 한 모니터링 시나리오에 활용 하는 것 외에도 사용자 환경의 다른 모니터링 도구에 해당 데이터를 전송 해야 할 수 있습니다. 대부분의 경우 모니터링 데이터를 외부 도구로 스트리밍하는 가장 효과적인 방법은 [Azure Event Hubs](/azure/event-hubs/)를 사용 하는 것입니다. 이 문서에서는 다양 한 원본에서 이벤트 허브로 모니터링 데이터를 스트리밍하는 방법에 대 한 간략 한 설명을 제공 하 고 자세한 지침에 대 한 링크를 제공 합니다.
@@ -45,18 +45,19 @@ Azure Monitor는 Azure, 다른 클라우드 및 온-프레미스에서 응용 �
 이벤트 허브로 직접 스트리밍할 수 없는 데이터의 경우 Azure storage에 작성 한 다음 [blob 저장소에서 데이터를 가져와서](../../connectors/connectors-create-api-azureblobstorage.md#add-action) [이벤트 허브에 메시지로 푸시하](../../connectors/connectors-create-api-azure-event-hubs.md#add-action)는 시간 트리거된 논리 앱을 사용할 수 있습니다. 
 
 
-## <a name="tools-with-azure-monitor-integration"></a>Azure Monitor 통합 도구
+## <a name="partner-tools-with-azure-monitor-integration"></a>Azure Monitor 통합이 포함 된 파트너 도구
 
 Azure Monitor를 사용 하 여 모니터링 데이터를 이벤트 허브로 라우팅하는 것은 외부 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다. Azure Monitor 통합 도구에 대 한 예는 다음과 같습니다.
 
-| 도구 | 설명 |
-|:---|:---|
-|  IBM QRadar | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Qradar DSM 구성](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)에서 Azure와의 통합에 대해 자세히 알아볼 수 있습니다. |
-| Splunk | [Splunk에 대 한 Azure Monitor 추가 기능은](https://splunkbase.splunk.com/app/3534/) 기능은 splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. 설명서는 [Splunk의 Azure Monitor 추가](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)기능에서 사용할 수 있습니다.<br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우 예를 들어, 프록시를 사용 하거나 Splunk 클라우드에서 실행 하는 경우 Event hub의 새 메시지에 의해 트리거되는 [Splunk 용 Azure Function](https://github.com/Microsoft/AzureFunctionforSplunkVS)을 사용 하 여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. |
-| sumologic | Event hub의 데이터를 사용 하는 SumoLogic를 설정 하는 방법에 대 한 지침은 [Event hub의 Azure 감사 앱에 대 한 로그 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)에서 사용할 수 있습니다. |
-| ArcSight | ArcSight Azure 이벤트 허브 스마트 커넥터는 [arcsight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 사용할 수 있습니다. |
-| Syslog 서버 | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수를 기반으로](https://github.com/miguelangelopereira/azuremonitor2syslog/)하는 솔루션을 사용할 수 있습니다.
-| LogRhythm | 이벤트 허브에서 로그를 수집 하도록 LogRhythm를 설정 하는 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 제공 됩니다. 
+| 도구 | Azure에서 호스트 | 설명 |
+|:---|:---| :---|
+|  IBM QRadar | 아닙니다. | Microsoft Azure DSM 및 Microsoft Azure 이벤트 허브 프로토콜은 [IBM 지원 웹 사이트](https://www.ibm.com/support)에서 다운로드할 수 있습니다. [Qradar DSM 구성](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0)에서 Azure와의 통합에 대해 자세히 알아볼 수 있습니다. |
+| Splunk | 아닙니다. | [Splunk에 대 한 Azure Monitor 추가 기능은](https://splunkbase.splunk.com/app/3534/) 기능은 splunkbase에서 사용할 수 있는 오픈 소스 프로젝트입니다. 설명서는 [Splunk의 Azure Monitor 추가](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk)기능에서 사용할 수 있습니다.<br><br> Splunk 인스턴스에 추가 기능을 설치할 수 없는 경우 예를 들어, 프록시를 사용 하거나 Splunk 클라우드에서 실행 하는 경우 Event hub의 새 메시지에 의해 트리거되는 [Splunk 용 Azure Function](https://github.com/Microsoft/AzureFunctionforSplunkVS)을 사용 하 여 이러한 이벤트를 Splunk HTTP 이벤트 수집기로 전달할 수 있습니다. |
+| sumologic | 아닙니다. | Event hub의 데이터를 사용 하는 SumoLogic를 설정 하는 방법에 대 한 지침은 [Event hub의 Azure 감사 앱에 대 한 로그 수집](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)에서 사용할 수 있습니다. |
+| ArcSight | 아닙니다. | ArcSight Azure 이벤트 허브 스마트 커넥터는 [arcsight 스마트 커넥터 컬렉션](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852)의 일부로 사용할 수 있습니다. |
+| Syslog 서버 | 아닙니다. | Azure Monitor 데이터를 syslog 서버로 직접 스트리밍하려면 [Azure 함수를 기반으로](https://github.com/miguelangelopereira/azuremonitor2syslog/)하는 솔루션을 사용할 수 있습니다.
+| LogRhythm | 아닙니다.| 이벤트 허브에서 로그를 수집 하도록 LogRhythm를 설정 하는 지침은 [여기](https://logrhythm.com/six-tips-for-securing-your-azure-cloud-environment/)에서 제공 됩니다. 
+|Logz.io | yes | 자세한 내용은 [Azure에서 실행 되는 Java 앱에 대 한 Logz.io를 사용 하 여 모니터링 및 로깅 시작](https://docs.microsoft.com/azure/java/java-get-started-with-logzio) 을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

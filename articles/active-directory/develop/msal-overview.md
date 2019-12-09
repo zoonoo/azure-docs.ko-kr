@@ -1,29 +1,25 @@
 ---
-title: MSAL (Microsoft 인증 라이브러리)에 대해 알아보기
+title: MSAL에 대 한 자세한 정보 Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 통해 애플리케이션 개발자는 보안 웹 API를 호출하기 위한 토큰을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dedd9f3458118117546a900aa1a2c8c5aa627100
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 718c33fc8a834a6abbbc9f1a1c33e02eb810a991
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473720"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915290"
 ---
 # <a name="overview-of-microsoft-authentication-library-msal"></a>MSAL(Microsoft 인증 라이브러리) 개요
 MSAL(Microsoft 인증 라이브러리)을 통해 개발자는 보안 웹 API에 액세스하기 위해 Microsoft ID 플랫폼 엔드포인트에서 [토큰](developer-glossary.md#security-token)을 획득할 수 있습니다. 이러한 웹 API에는 Microsoft Graph, 기타 Microsoft API, 타사 웹 API 또는 사용자의 웹 API가 있습니다. MSAL은 다양한 애플리케이션 아키텍처와 플랫폼을 지원하는 .NET, JavaScript, Android 및 iOS에서 사용할 수 있습니다.
@@ -60,7 +56,7 @@ MSAL은 다음을 비롯한 여러 가지 애플리케이션 시나리오에 사
 | [Android용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-android)|Android|
 | [IOS 및 macOS 용 MSAL](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|iOS 및 macOS|
 | [MSAL Java (미리 보기)](https://github.com/AzureAD/microsoft-authentication-library-for-java)|Java|
-| [MSAL Python (미리 보기)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|Python|
+| [MSAL Python (미리 보기)](https://github.com/AzureAD/microsoft-authentication-library-for-python)|파이썬|
 
 ## <a name="differences-between-adal-and-msal"></a>ADAL과 MSAL의 차이점
 

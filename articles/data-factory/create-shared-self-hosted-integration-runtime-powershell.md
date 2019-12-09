@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: abnarain
 author: nabhishek
 manager: anansub
 ms.custom: seo-lt-2019
 ms.date: 10/31/2018
-ms.openlocfilehash: a8ac5bdaab915e46f5d5074c991703790d429e50
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b83c61d05cbc9d84c74d03004839a21505519fa
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218238"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928457"
 ---
 # <a name="create-a-shared-self-hosted-integration-runtime-in-azure-data-factory"></a>Azure Data Factory에서 공유 자체 호스팅 통합 런타임 만들기
 
@@ -46,13 +45,13 @@ Azure Data Factory UI를 사용 하 여 자체 호스트 된 공유 IR을 만들
 ## <a name="create-a-shared-self-hosted-ir-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR 만들기
 
 Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 다음 단계를 수행할 수 있습니다. 
-1. 데이터 팩터리를 만듭니다. 
+1. 데이터 팩터리 만들기 
 1. 자체 호스팅 통합 런타임을 만듭니다.
 1. 다른 데이터 팩터리와 자체 호스팅 통합 런타임을 공유합니다.
 1. 연결된 통합 런타임을 만듭니다.
 1. 공유를 취소합니다.
 
-### <a name="prerequisites"></a>선행 조건 
+### <a name="prerequisites"></a>전제 조건 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -63,7 +62,7 @@ Azure PowerShell를 사용 하 여 공유 자체 호스팅 IR을 만들려면 �
 > [!NOTE]  
 > Data Factory를 현재 사용할 수 있는 Azure 지역 목록을 보려면 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=data-factory)에서 관심 있는 지역을 선택합니다.
 
-### <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+### <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. Windows PowerShell ISE(통합 스크립팅 환경)를 시작합니다.
 

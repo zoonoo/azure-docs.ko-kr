@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: mlearned
-ms.openlocfilehash: 70272413ef4952cfeed558dd313f12096204d569
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 601f89c4510899dbb1f5d8a238961d9a4e5864e0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74120498"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913708"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 스토리지 옵션
 
@@ -41,7 +41,7 @@ AKS(Azure Kubernetes Service)에서 실행되는 애플리케이션은 데이터
 Kubernetes에서 볼륨은 단순히 정보를 저장하고 검색할 수 있는 기존 디스크 이상의 것을 나타낼 수 있습니다. 또한 Kubernetes 볼륨은 컨테이너에서 사용할 수 있도록 데이터를 Pod에 삽입하는 방법으로도 사용할 수 있습니다. Kubernetes의 일반적인 추가 볼륨 유형은 다음과 같습니다.
 
 - *emptyDir* - 일반적으로 Pod용 사용 후 삭제 공간으로 사용됩니다. Pod 내의 모든 컨테이너에서 볼륨의 데이터에 액세스할 수 있습니다. 이 볼륨 유형에 기록된 데이터는 Pod의 수명 동안만 유지되며, Pod가 삭제되면 해당 볼륨도 삭제됩니다. 이 볼륨은 일반적으로 기본 로컬 노드 디스크 스토리지를 사용하지만 노드의 메모리에만 존재할 수도 있습니다.
-- *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 Secret(비밀) 개체를 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. Secret은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
+- *비밀* - 암호와 같은 중요한 데이터를 Pod에 삽입하는 데 사용됩니다. 먼저 Kubernetes API를 사용하여 비밀을 만듭니다. Pod 또는 배포를 정의할 때 특정 비밀을 요청할 수 있습니다. 비밀은 예약된 Pod가 있고 비밀이 필요한 노드에만 제공되며, 디스크에 기록되지 않고 *tmpfs*에 저장됩니다. 비밀이 필요한 노드의 마지막 Pod가 삭제되면 노드의 tmpfs에서 비밀이 삭제됩니다. 비밀은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 - *configMap* - 애플리케이션 구성 정보와 같은 키-값 쌍 속성을 Pod에 삽입하는 데 사용됩니다. 컨테이너 이미지 내에서 애플리케이션 구성 정보를 정의하는 대신, 배포할 때 Pod의 새 인스턴스에 쉽게 업데이트하고 적용할 수 있는 Kubernetes 리소스로 정의할 수 있습니다. Secret을 사용하는 것과 마찬가지로, 먼저 Kubernetes API를 사용하여 ConfigMap 개체를 만듭니다. 그러면 Pod 또는 배포를 정의할 때 이 ConfigMap을 요청할 수 있습니다. ConfigMap은 지정된 네임스페이스 내에 저장되며 동일한 네임스페이스 내의 Pod에서만 액세스할 수 있습니다.
 
 ## <a name="persistent-volumes"></a>영구적 볼륨
@@ -60,8 +60,8 @@ Premium 및 Standard와 같은 다른 계층의 스토리지를 정의하기 위
 
 AKS에서 만드는 두 가지 초기 StorageClass는 다음과 같습니다.
 
-- *default* - Azure Standard Storage를 사용하여 Managed Disk를 만듭니다. 회수 정책은 사용된 Pod가 삭제되면 기본 Azure Disk도 삭제됨을 나타냅니다.
-- *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 또 다시 회수 정책은 사용된 Pod가 삭제되면 기본 Azure Disk도 삭제됨을 나타냅니다.
+- *default* - Azure Standard Storage를 사용하여 Managed Disk를 만듭니다. 회수 정책은 사용 중인 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
+- *managed-premium* - Azure Premium 스토리지를 사용하여 Managed Disk를 만듭니다. 회수 정책은 다시 사용 하는 영구 볼륨이 삭제 될 때 기본 Azure 디스크가 삭제 됨을 나타냅니다.
 
 영구적 볼륨에 대해 지정된 StorageClass가 없는 경우 기본 StorageClass가 사용됩니다. 영구적 볼륨을 요청하는 경우 필요한 스토리지를 적절하게 사용하도록 주의해야 합니다. `kubectl`을 사용하여 추가로 필요한 StorageClass를 만들 수 있습니다. 다음 예제에서는 Premium Managed Disks를 사용하고, Pod가 삭제되면 기본 Azure Disk를 *유지*해야 한다고 지정합니다.
 

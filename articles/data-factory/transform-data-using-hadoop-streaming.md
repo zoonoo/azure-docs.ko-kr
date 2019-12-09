@@ -1,22 +1,21 @@
 ---
 title: Hadoop 스트리밍 작업을 사용 하 여 데이터 변환
 description: Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 HDInsight 클러스터에서 Hadoop 스트리밍 프로그램을 실행함으로써 데이터를 변환하는 방법을 설명합니다.
-services: data-factory
-documentationcenter: ''
-ms.service: data-factory
-ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/16/2018
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: 01237218e30859015b1c8f0a5adeebd8b9bdf7eb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+manager: shwang
+services: data-factory
+ms.service: data-factory
+ms.workload: data-services
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 01/16/2018
+ms.openlocfilehash: 1c12a10dfdf8e69cf05ab30d0e6aa48fea5803a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893793"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912891"
 ---
 # <a name="transform-data-using-hadoop-streaming-activity-in-azure-data-factory"></a>Azure Data Factory에서 Hadoop 스트리밍 작업을 사용하여 데이터 변환
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]

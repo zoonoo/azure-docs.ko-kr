@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: d628bbe889617464fe97695a17687d5f02cc61bc
-ms.sourcegitcommit: 8a2949267c913b0e332ff8675bcdfc049029b64b
+ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74305320"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912476"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Azure Machine Learning 다양 한 계산 대상에서 다양 한 지원을 제�
 
 ## <a name="whats-an-estimator"></a>평가기?
 
-인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다. 이 클래스를 사용 하 여 간편 하 게 실행 구성을 생성할 수 있습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다.
+인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다. 클래스에는 실행 구성을 쉽게 구성 하 고 사용자 지정할 수 있는 메서드가 포함 되어 있으므로 학습에 평가기를 사용 하는 것이 좋습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다. 계산 대상에서 데이터 파일을 사용할 수 있도록 해야 하는 경우 [Azure Machine Learning 데이터 집합으로 학습](how-to-train-with-datasets.md)을 참조 하세요.
 
 PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
 
@@ -305,7 +305,7 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 
 1. 컴퓨팅 대상의 이름을 입력합니다. 
 
-1. **학습**에 사용할 컴퓨팅 유형으로 __Machine Learning 컴퓨팅__을 선택합니다. 
+1. __학습__에 사용할 컴퓨팅 유형으로 **Machine Learning 컴퓨팅**을 선택합니다. 
 
     >[!NOTE]
     >Azure Machine Learning Compute는 Azure Machine Learning studio에서 만들 수 있는 유일한 관리 되는 계산 리소스입니다.  다른 모든 컴퓨팅 리소스는 만든 후에 연결할 수 있습니다.
@@ -364,7 +364,7 @@ Azure Machine Learning에 대 한 [CLI 확장](reference-azure-machine-learning-
 
 ## <a name="set-up-with-vs-code"></a>VS Code로 설정
 
-Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상을 액세스, 생성 및 관리할 수 있습니다.
+Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create-and-manage-compute-targets) 을 사용 하 여 작업 영역과 연결 된 계산 대상에 액세스 하 고 만들고 관리할 수 있습니다.
 
 ## <a id="submit"></a>Azure Machine Learning SDK를 사용 하 여 학습 실행 제출
 
@@ -412,7 +412,7 @@ Azure Machine Learning에 대 한 [VS Code 확장](how-to-vscode-tools.md#create
 
 또는
 
-* `Estimator`추정기를 사용하여 ML 모델 학습[에 표시된 대로 ](how-to-train-ml-models.md) 개체와 함께 실험을 제출합니다.
+* [추정기를 사용하여 ML 모델 학습](how-to-train-ml-models.md)에 표시된 대로 `Estimator` 개체와 함께 실험을 제출합니다.
 * 하이퍼 [매개 변수 조정을](how-to-tune-hyperparameters.md)위해 하이퍼 드라이브 실행을 제출 합니다.
 * [VS Code 확장](how-to-vscode-tools.md#train-and-tune-models)을 통해 실험을 제출 합니다.
 

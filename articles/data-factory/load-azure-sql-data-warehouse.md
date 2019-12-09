@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
+title: Azure SQL Data Warehouse에 데이터 로드
 description: Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터 복사
 services: data-factory
-documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 06/22/2018
-ms.author: jingwang
-ms.openlocfilehash: 538751b1e93dfec66c35ea3768bde603c198df32
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 732d5d170ee647dc0dfdbf4d09a12617c8c9bcce
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672757"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931522"
 ---
 # <a name="load-data-into-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Azure SQL Data Warehouse에 데이터 로드
 
@@ -36,14 +36,14 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 > [!NOTE]
 > 자세한 내용은 [Azure Data Factory를 사용하여 Azure SQL Data Warehouse 간에 데이터 복사](connector-azure-sql-data-warehouse.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * Azure SQL Data Warehouse: 데이터 웨어하우스에는 SQL 데이터베이스에서 복사된 데이터를 보관하고 있습니다. Azure SQL Data Warehouse가 아직 없는 경우 [SQL Data Warehouse 만들기](../sql-data-warehouse/sql-data-warehouse-get-started-tutorial.md)의 지침을 참조하세요.
 * Azure SQL Database: 이 자습서는 Adventure Works LT 샘플 데이터가 포함된 Azure SQL 데이터베이스에서 데이터를 복사합니다. [Azure SQL 데이터베이스 만들기](../sql-database/sql-database-get-started-portal.md)의 지침을 따라 SQL 데이터베이스를 만들 수 있습니다. 
 * Azure 스토리지 계정: Azure Storage는 대량 복사 작업에서 _스테이징_ Blob으로 사용됩니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
@@ -85,11 +85,11 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
     ![Azure SQL DB 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-db-source.png)
 
-    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+    다. **새 연결된 서비스** 페이지에서, DB 이름과 서버 이름을 드롭다운 목록에서 선택하고, 사용자 이름 및 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
     ![Azure SQL DB 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-db.png)
 
-    ㄹ. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
+    d. 새로 만든 연결된 서비스를 원본으로 선택하고 **다음**을 클릭합니다.
 
     ![원본 연결된 서비스 선택](./media/load-azure-sql-data-warehouse/select-source-linked-service.png)
 
@@ -107,11 +107,11 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
 
     ![Azure SQL DW 선택](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
-    c. **새 연결 된 서비스** 페이지의 드롭다운 목록에서 서버 이름과 DB 이름을 선택 하 고 사용자 이름 및 암호를 지정 합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
+    다. **새 연결된 서비스** 페이지에서, DB 이름과 서버 이름을 드롭다운 목록에서 선택하고, 사용자 이름 및 암호를 지정합니다. **연결 테스트**를 클릭하여 설정의 유효성을 검사한 다음, **마침**을 선택합니다.
    
     ![Azure SQL DW 구성](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
-    ㄹ. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
+    d. 새로 만든 연결된 서비스를 싱크로 선택하고 **다음**을 클릭합니다.
 
     ![연결된 싱크 서비스 선택](./media/load-azure-sql-data-warehouse/select-sink-linked-service.png)
 
@@ -136,7 +136,7 @@ Azure Data Factory를 사용하여 Azure SQL Data Warehouse로 데이터를 로�
    
     ![Azure Storage 구성](./media/load-azure-sql-data-warehouse/configure-blob-storage.png)
 
-    c. **고급 설정** 섹션에서 **형식 기본값 사용** 옵션의 선택을 취소한 다음, **다음**을 선택합니다.
+    다. **고급 설정** 섹션에서 **형식 기본값 사용** 옵션의 선택을 취소한 다음, **다음**을 선택합니다.
 
     ![PolyBase 구성](./media/load-azure-sql-data-warehouse/configure-polybase.png)
 

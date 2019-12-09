@@ -1,29 +1,25 @@
 ---
-title: Microsoft Authentication Library for .NET의 클라이언트 어설션
+title: 클라이언트 어설션 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)의 기밀 클라이언트 응용 프로그램에 대 한 서명 된 클라이언트 어설션 지원에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/18/2019
 ms.author: jmprieur
-ms.reviewer: ''
+ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66ff02e4c95594f0155ab31e3c99a0eb269626d9
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 4731a7265265c48bed02e836de91d61971b9be14
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74168134"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921916"
 ---
 # <a name="confidential-client-assertions"></a>기밀 클라이언트 어설션
 
@@ -55,7 +51,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 
 Azure AD에서 필요한 클레임은 다음과 같습니다.
 
-클레임 형식 | 값 | 설명
+클레임 유형 | Value | 설명
 ---------- | ---------- | ----------
 aud | https://login.microsoftonline.com/{tenantId}/v2.0 | "Aud" (대상) 클레임은 JWT가 의도 된 받는 사람을 식별 합니다 (여기서는 Azure AD) [RFC 7519, 섹션 4.1.3]을 참조 하세요.
 exp | 27 2019 15:04:17 GMT + 0200 (결혼 전 일광 절약 시간) | "exp"(만료 시간) 클레임은 JWT가 그 이후에는 처리를 허용하지 않아야 하는 만료 시간을 식별합니다. [RFC 7519, Section 4.1.4]를 참조 하세요.

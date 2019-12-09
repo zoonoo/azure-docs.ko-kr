@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 593c9ea9c37cc5684e85604340f8aae3d84d9afb
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 4f9a2842f99c7f8b0bb9f820584fb2cd4e41a2b2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546363"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927888"
 ---
 # <a name="deploy-azure-file-sync"></a>Azure 파일 동기화 배포
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -400,6 +400,10 @@ if ($cloudTieringDesired) {
 - 클라우드 끝점을 만든 후에는 초기 동기화를 시작 하기 전에 클라우드에서 파일을 검색 하는 프로세스를 실행 Azure File Sync. 이 프로세스를 완료 하는 데 걸리는 시간은 네트워크 속도, 사용 가능한 대역폭, 파일 및 폴더 수와 같은 다양 한 요소에 따라 다릅니다. 미리 보기 릴리스의 대략적인 추정에서 검색 프로세스는 약 10개 파일/초의 속도로 실행됩니다. 따라서 클라우드에 데이터를 사전 시드할 경우 사전 시드가 빠르게 실행되더라도 시스템이 정상적으로 실행되기까지 오랜 시간이 걸릴 수 있습니다.
 
 ## <a name="self-service-restore-through-previous-versions-and-vss-volume-shadow-copy-service"></a>이전 버전 및 VSS를 통한 셀프 서비스 복원 (볼륨 섀도 복사본 서비스)
+
+> [!IMPORTANT]
+> 다음 정보는 저장소 동기화 에이전트의 버전 9 이상 에서만 사용할 수 있습니다. 9 보다 낮은 버전은 StorageSyncSelfService cmdlet을 포함 하지 않습니다.
+
 이전 버전은 볼륨의 서버 쪽 VSS 스냅숏을 사용 하 여 파일의 복원 가능한 버전을 SMB 클라이언트에 제공 하는 Windows 기능입니다.
 이를 통해 IT 관리자의 복원에 의존 하는 대신 일반적으로 셀프 서비스 복원 이라고 하는 강력한 시나리오를 정보 근로자에 게 직접 사용할 수 있습니다.
 

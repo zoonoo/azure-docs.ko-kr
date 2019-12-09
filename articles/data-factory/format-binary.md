@@ -2,19 +2,19 @@
 title: Azure Data Factory의 이진 형식
 description: 이 항목에서는 Azure Data Factory에서 이진 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 815933f1f08b873ae1438d6b2f1e6cd922fe886a
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 8ebb4f0d1a06a7bf29dc46cd696b6acfd2527095
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548235"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927387"
 ---
 # <a name="binary-format-in-azure-data-factory"></a>Azure Data Factory의 이진 형식
 
@@ -76,7 +76,7 @@ ms.locfileid: "74548235"
 | 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성을 **Binarysource**로 설정 해야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ### <a name="binary-as-sink"></a>싱크로 이진 파일
 
@@ -85,7 +85,7 @@ ms.locfileid: "74548235"
 | 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **Binarysink**로 설정 되어야 합니다. | yes      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ## <a name="next-steps"></a>다음 단계
 

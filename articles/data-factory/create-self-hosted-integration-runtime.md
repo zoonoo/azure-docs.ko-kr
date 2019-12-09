@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory에서 자체 호스팅 통합 런타임 만들기
+title: 자체 호스팅 Integration Runtime 만들기
 description: 데이터 팩터리가 개인 네트워크의 데이터 저장소에 액세스할 수 있도록 하는 Azure Data Factory에서 자체 호스팅 통합 런타임을 만드는 방법에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
-manager: craigg
-ms.openlocfilehash: f4eb275d8e1303ba68a23ac4ea0135c81c6a452a
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+manager: anandsub
+ms.custom: seo-lt-2019
+ms.date: 06/18/2019
+ms.openlocfilehash: 0d04ea7d7003f274b252e057b7afced7759bfaae
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672304"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928519"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>자체 호스팅 통합 런타임 만들기 및 구성
 

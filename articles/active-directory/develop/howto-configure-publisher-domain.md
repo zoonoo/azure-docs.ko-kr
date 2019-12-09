@@ -3,27 +3,23 @@ title: 응용 프로그램의 게시자 도메인 구성
 titleSuffix: Microsoft identity platform
 description: 응용 프로그램의 게시자 도메인을 구성 하 여 사용자가 자신의 정보가 전송 되는 위치를 알 수 있도록 하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3558e589004e0488e5b96b0e39bd3f5ceea69658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 032fca669a617c938473b0d0c27a754faa60b528
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013052"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917848"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
 
@@ -55,9 +51,9 @@ ms.locfileid: "74013052"
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 
-1. 계정이 둘 이상의 Azure AD 테 넌 트에 있는 경우:
-   1. 페이지의 오른쪽 위 모퉁이에 있는 메뉴에서 프로필을 선택 하 고 **디렉터리를 전환**합니다.
-   1. 응용 프로그램을 만들려는 Azure AD 테 넌 트로 세션을 변경 합니다.
+1. 계정이 여러 Azure AD 테넌트에 있는 경우:
+   1. 페이지의 오른쪽 위 모서리에 있는 메뉴에서 프로필을 선택한 다음, **디렉터리를 전환**합니다.
+   1. 애플리케이션을 만들려는 Azure AD 테넌트로 세션을 변경합니다.
 
 1. [Azure Active Directory > 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 으로 이동 하 여 구성 하려는 앱을 찾아 선택 합니다.
 

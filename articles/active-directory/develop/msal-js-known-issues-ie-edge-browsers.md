@@ -1,29 +1,25 @@
 ---
-title: Internet Explorer 및 Microsoft Edge (JavaScript 용 MSAL)의 알려진 문제
+title: Internet Explorer & Microsoft Edge에 대 한 MSAL js 문제 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Internet Explorer 및 Microsoft Edge 브라우저에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 사용 하는 경우의 문제에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: troubleshooting
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/16/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b4e24a02bcce372f020833a82b685748432c39
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: fe9f8ff420698d5afe617973abc7874256efe260
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934835"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916386"
 ---
 # <a name="known-issues-on-internet-explorer-and-microsoft-edge-browsers-with-msaljs"></a>MSAL .js를 사용 하는 Internet Explorer 및 Microsoft Edge 브라우저의 알려진 문제
 

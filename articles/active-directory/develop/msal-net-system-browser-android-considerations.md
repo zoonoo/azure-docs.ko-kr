@@ -1,29 +1,25 @@
 ---
-title: Xamarin Android 시스템 브라우저 고려 사항 (Microsoft Authentication Library for .NET)
+title: Xamarin Android 시스템 브라우저 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
-description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하는 경우 Xamarin Android에서 시스템 브라우저를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
+description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 Xamarin Android에서 시스템 브라우저를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f83283cc02c60eb452d0e414c0b21843b48f343b
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 1d3ea2554fac8654b052e3e38633af23e7c778b3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73150367"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915459"
 ---
 #  <a name="xamarin-android-system-browser-considerations-with-msalnet"></a>MSAL.NET를 사용한 Xamarin Android 시스템 브라우저 고려 사항
 
@@ -35,11 +31,11 @@ MSAL.NET 2.4.0-preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 
 | 사용자 지정 탭이 지원 되는 브라우저 | 패키지 이름 |
 |------| ------- |
-|Chrome | com. android chrome|
-|Microsoft Edge | .com. emmx|
-|Firefox | org. firefox|
-|Ecosia | ecosia|
-|키 위 | kiwibrowser|
+|Chrome | com.android.chrome|
+|Microsoft Edge | com.microsoft.emmx|
+|Firefox | org.mozilla.firefox|
+|Ecosia | com.ecosia.android|
+|키 위 | com.kiwibrowser.browser|
 |감 | com. 용감한 브라우저|
 
 테스트에 따라 사용자 지정 탭이 지원 되는 브라우저 외에도, 사용자 지정 탭을 지원 하지 않는 몇 가지 브라우저가 인증에 대해 작동 합니다. Opera, Opera Mini, InBrowser 및 Maxthon. 자세한 내용은 [테스트 결과에 대 한 테이블](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Android-system-browser#devices-and-browsers-tested)을 참조 하세요.
@@ -58,21 +54,21 @@ MSAL.NET 2.4.0-preview부터 MSAL.NET는 Chrome 이외의 브라우저를 지원
 
 | | 브라우저&ast;     |  결과  | 
 | ------------- |:-------------:|:-----:|
-| Huawei/One + | Chrome&ast; | 합격|
-| Huawei/One + | 에 지&ast; | 합격|
-| Huawei/One + | Firefox&ast; | 합격|
-| Huawei/One + | 용감한&ast; | 합격|
+| Huawei/One+ | Chrome&ast; | 합격|
+| Huawei/One+ | Edge&ast; | 합격|
+| Huawei/One+ | Firefox&ast; | 합격|
+| Huawei/One+ | 용감한&ast; | 합격|
 | 1 + | Ecosia&ast; | 합격|
 | 1 + | 키 위&ast; | 합격|
-| Huawei/One + | Opera | 합격|
+| Huawei/One+ | Opera | 합격|
 | Huawei | 운영 체제 | 합격|
-| Huawei/One + | InBrowser | 합격|
+| Huawei/One+ | InBrowser | 합격|
 | 1 + | Maxthon | 합격|
-| Huawei/One + | DuckDuckGo | 사용자가 인증을 취소 함|
-| Huawei/One + | UC 브라우저 | 사용자가 인증을 취소 함|
+| Huawei/One+ | DuckDuckGo | 사용자가 인증을 취소 함|
+| Huawei/One+ | UC 브라우저 | 사용자가 인증을 취소 함|
 | 1 + | Dolphin | 사용자가 인증을 취소 함|
 | 1 + | CM 브라우저 | 사용자가 인증을 취소 함|
-| Huawei/One + | 설치 안 됨 | AndroidActivityNotFound 예|
+| Huawei/One+ | 설치 안 됨 | AndroidActivityNotFound 예|
 
 사용자 지정 탭을 지 원하는 &ast;
 

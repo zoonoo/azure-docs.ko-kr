@@ -1,22 +1,21 @@
 ---
-title: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
+title: 데이터 흐름 통합 변환 매핑
 description: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 4832cd2036f615d1e90d5e7a21c1a9832c2fa837
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: adba1eb61676dbebcb356490b14b279ebe69c644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387126"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930158"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>데이터 흐름 통합 변환 매핑
-
-
+# <a name="azure-data-factory-mapping-data-flow-union-transformation"></a>데이터 흐름 통합 변환 Azure Data Factory 매핑
 
 공용 구조체는 여러 데이터 스트림을 하나로 결합하고 해당 스트림의 SQL 공용 구조체를 공용 구조체 변환의 새 출력으로 사용합니다. 조인 키가 없어도 각 입력 스트림의 모든 스키마가 데이터 흐름 내에 결합 됩니다.
 

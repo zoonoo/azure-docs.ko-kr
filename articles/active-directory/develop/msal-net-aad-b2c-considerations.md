@@ -1,29 +1,25 @@
 ---
-title: Azure AD B2C (Microsoft Authentication Library for .NET)
+title: Azure AD B2C (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Azure AD B2C를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0996c5635223800a981497256654b7e418bf4163
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175606"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921920"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -170,9 +166,9 @@ MSAL.Net는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 이러한 두 클레임은 다 수의 Azure AD B2C 시나리오에서 누락 되었습니다. 
 
-고객의 영향은 사용자 이름 필드를 표시 하려고 할 때 값으로 "토큰 응답에서 누락"을 가져오는 것입니다. 이 경우 Azure AD B2C는 소셜 계정 및 Idtoken (외부 id 공급자)의 제한으로 인해 preferred_username의 IdToken에서 값을 반환 하지 않기 때문입니다. 사용자가 로컬 계정, Facebook, Google, GitHub 등을 사용 하 여 로그인 할 수 있기 때문에 Azure AD에서 preferred_username에 대 한 값을 반환 합니다. Azure AD B2C 단, 사용자가 로컬 계정, Facebook, Google, GitHub 등을 사용 하 여 로그인 할 수 있기 때문에 Azure AD B2C에 대해 일관 된 값이 없습니다. MSAL에서 ADAL과의 캐시 호환성을 차단 해제 하려면 IdToken이 preferred_username에 아무것도 반환 하지 않을 때 Azure AD B2C 계정을 처리할 때 끝에 "토큰 응답에서 누락"을 사용 하기로 결정 했습니다. Preferred_username에 대 한 값을 반환 하 여 라이브러리 간에 캐시 호환성을 유지 해야 합니다.
+고객의 영향은 사용자 이름 필드를 표시 하려고 할 때 값으로 "토큰 응답에서 누락"을 가져오는 것입니다. 이 경우 Azure AD B2C는 소셜 계정 및 Idtoken (외부 id 공급자)의 제한으로 인해 preferred_username의 IdToken에 값을 반환 하지 않기 때문입니다. 사용자가 로컬 계정, Facebook, Google, GitHub 등을 사용 하 여 로그인 할 수 있기 때문에 Azure AD는 사용자가 누구이 고 Azure AD B2C에 대해 사용자가 로그인 할 수 있으므로 preferred_username 값을 반환 합니다. preferred_username에 사용할 Azure AD B2C에는 일관 된 값이 없습니다. MSAL에서 ADAL과의 캐시 호환성을 차단 해제 하려면 IdToken이 preferred_username에 대해 아무 것도 반환 하지 않을 때 Azure AD B2C 계정을 처리할 때 끝에 "토큰 응답에서 누락"을 사용 하기로 결정 했습니다. MSAL은 라이브러리 간에 캐시 호환성을 유지 하기 위해 preferred_username 값을 반환 해야 합니다.
 
-### <a name="workarounds"></a>방법과
+### <a name="workarounds"></a>해결 방법
 
 #### <a name="mitigation-for-the-missing-tenant-id"></a>누락 된 테 넌 트 ID에 대 한 완화
 
@@ -189,4 +185,4 @@ Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰�
 
 | 샘플 | 플랫폼 | 설명|
 |------ | -------- | -----------|
-|[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 Web API에 액세스 하는 방법을 보여주는.|
+|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 Web API에 액세스 하는 방법을 보여주는.|

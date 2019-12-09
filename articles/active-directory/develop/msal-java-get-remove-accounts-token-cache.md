@@ -3,27 +3,23 @@ title: Java 용 MSAL을 사용 하 여 토큰 캐시에서 계정 가져오기 �
 titleSuffix: Microsoft identity platform
 description: Java 용 Microsoft 인증 라이브러리를 사용 하 여 토큰 캐시에서 계정을 보고 제거 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa6c4c53d04f227db7a9a83946182c109dc06d39
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: a40c5f2e272a44727d4da91600093e8dc691a95f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452489"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916641"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Java 용 MSAL을 사용 하 여 토큰 캐시에서 계정 가져오기 및 제거
 
@@ -56,6 +52,6 @@ IAccount accountToBeRemoved = accounts.stream().filter(
 pca.removeAccount(accountToBeRemoved).join();
 ```
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 Java 용 MSAL을 사용 하는 경우 [java 용 msal의 사용자 지정 토큰 캐시 serialization](msal-java-token-cache-serialization.md)에 대해 알아봅니다.

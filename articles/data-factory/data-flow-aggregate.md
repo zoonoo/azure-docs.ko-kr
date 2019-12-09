@@ -1,24 +1,25 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 집계 변환
+title: 데이터 흐름 매핑의 집계 변환
 description: 매핑 데이터 흐름 집계 변환을 사용 하 여 Azure Data Factory에서 대규모로 데이터를 집계 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 3f21367c36ae31aa2115c109933a581bef464baf
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 74b96bf2cac0de7c57e496c637f2e3ef549eb61f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676907"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930467"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 집계 변환 
 
 집계 변환은 데이터 스트림에서 열의 집계를 정의 합니다. 식 작성기를 사용 하면 SUM, MIN, MAX 및 COUNT와 같은 여러 유형의 집계를 기존 또는 계산 열로 그룹화 하 여 정의할 수 있습니다.
 
-## <a name="group-by"></a>그룹화 방법
+## <a name="group-by"></a>Group By
 
 기존 열을 선택 하거나 집계에 대해 group by 절로 사용할 새 계산 열을 만듭니다. 기존 열을 사용 하려면 드롭다운에서 해당 열을 선택 합니다. 새 계산 열을 만들려면 절 위로 마우스를 이동 하 고 **계산 열**을 클릭 합니다. [데이터 흐름 식 작성기](concepts-data-flow-expression-builder.md)가 열립니다. 계산 열을 만든 후에는 **이름** 필드에 출력 열 이름을 입력 합니다. 추가 group by 절을 추가 하려는 경우 기존 절을 마우스로 가리키고 더하기 아이콘을 클릭 합니다.
 

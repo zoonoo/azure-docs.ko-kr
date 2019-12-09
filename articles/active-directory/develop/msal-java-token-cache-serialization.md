@@ -3,27 +3,23 @@ title: Java 용 MSAL의 사용자 지정 토큰 캐시 serialization
 titleSuffix: Microsoft identity platform
 description: Java 용 MSAL에 대 한 토큰 캐시를 직렬화 하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: sangonzal
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: sagonzal
-ms.reviewer: navyasri.canumalla
+ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7323a47095c58958503cecf16189ed875fac3b4d
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: e2166cda772c358ed060b0e52a7410c7039fedf5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452610"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916539"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-java"></a>Java 용 MSAL의 사용자 지정 토큰 캐시 serialization
 
@@ -65,6 +61,6 @@ PublicClientApplication app =
 PublicClientApplication.builder("my_client_id").setTokenCacheAccessAspect(persistenceAspect).build();
 ```
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 [Java 용 MSAL을 사용 하 여 토큰 캐시에서 계정을 가져오고 제거 하는](msal-java-get-remove-accounts-token-cache.md)방법에 대해 알아봅니다.

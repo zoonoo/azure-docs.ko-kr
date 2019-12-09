@@ -7,21 +7,25 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 12/06/2019
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 522cb9b75d5c0db270f8ba4a65850e35a2e8c4fd
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: fdbf0eb849549071b4cbbb961c9e9f71fce1faf8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685686"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923636"
 ---
 # <a name="load-data-from-azure-data-lake-storage-to-sql-data-warehouse"></a>Azure Data Lake Storage에서 SQL Data Warehouse 데이터 로드
-PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage Azure SQL Data Warehouse에 데이터를 로드 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다.
+이 가이드에서는 PolyBase 외부 테이블을 사용 하 여 Azure Data Lake Storage에서 Azure SQL Data Warehouse로 데이터를 로드 하는 방법을 설명 합니다. Data Lake Storage에 저장 된 데이터에 대해 임시 쿼리를 실행할 수 있지만 최상의 성능을 위해 데이터를 SQL Data Warehouse으로 가져오는 것이 좋습니다. 
 
+> [!NOTE]  
+> 로드 하는 대신 현재 공개 미리 보기로 제공 되는 [복사 문이](https://docs.microsoft.com/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest) 있습니다. COPY 문에 대 한 피드백을 제공 하려면 메일을 sqldwcopypreview@service.microsoft.com메일 그룹으로 보냅니다.
+>
 > [!div class="checklist"]
+
 > * Data Lake Storage에서 로드 하는 데 필요한 데이터베이스 개체를 만듭니다.
 > * Data Lake Storage 디렉터리에 연결 합니다.
 > * Azure SQL Data Warehouse에 데이터 로드
@@ -33,14 +37,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 이 자습서를 실행하려면 다음이 필요합니다.
 
-* 서비스 간 인증에 사용할 Azure Active Directory 애플리케이션. 만들려면 [Active Directory 인증](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)을 따릅니다.
-
 * Azure SQL Data Warehouse입니다. [Azure SQL Data Warehouse 쿼리 및 만들기](create-data-warehouse-portal.md)를 참조합니다.
-
-* Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../data-lake-store/data-lake-store-get-started-portal.md)참조 하세요. 
+* Data Lake Storage 계정. [Azure Data Lake Storage 시작을](../data-lake-store/data-lake-store-get-started-portal.md)참조 하세요. 이 저장소 계정에는 저장소 계정 키, Azure Directory 응용 프로그램 사용자 또는 저장소 계정에 대 한 적절 한 RBAC 역할이 있는 AAD 사용자를 로드 하려면 다음 자격 증명 중 하나를 구성 하거나 지정 해야 합니다. 
 
 ##  <a name="create-a-credential"></a>자격 증명 만들기
-Data Lake Storage 계정에 액세스 하려면 다음 단계에서 사용 되는 자격 증명 암호를 암호화 하기 위해 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. Gen2에 대 한 데이터베이스 범위 자격 증명에서 저장소 계정 키를 사용할 수도 있습니다. 
+AAD 통과를 사용 하 여 인증 하는 경우이 섹션을 건너뛰고 "외부 데이터 원본 만들기"를 진행할 수 있습니다. AAD 통과를 사용 하는 경우에는 데이터베이스 범위 자격 증명을 만들거나 지정할 필요가 없지만, AAD 사용자에 게는 저장소 계정에 대 한 적절 한 RBAC 역할 (저장소 Blob 데이터 판독기, 참가자 또는 소유자 역할)이 있어야 합니다. 자세한 내용은 [여기](https://techcommunity.microsoft.com/t5/Azure-SQL-Data-Warehouse/How-to-use-PolyBase-by-authenticating-via-AAD-pass-through/ba-p/862260)에 설명 되어 있습니다. 
+
+Data Lake Storage 계정에 액세스 하려면 자격 증명 암호를 암호화 하는 데이터베이스 마스터 키를 만들어야 합니다. 그런 다음 암호를 저장 하는 데이터베이스 범위 자격 증명을 만듭니다. 서비스 주체 (Azure Directory 응용 프로그램 사용자)를 사용 하 여 인증 하는 경우 데이터베이스 범위 자격 증명은 AAD에 설정 된 서비스 주체 자격 증명을 저장 합니다. 데이터베이스 범위 자격 증명을 사용 하 여 Gen2에 대 한 저장소 계정 키를 저장할 수도 있습니다.
 
 서비스 주체를 사용 하 여 Data Lake Storage에 연결 하려면 **먼저** Azure Active Directory 응용 프로그램을 만들고, 액세스 키를 만들고, Data Lake Storage 계정에 대 한 액세스 권한을 응용 프로그램에 부여 해야 합니다. 지침은 [Active Directory를 사용 하 여 Azure Data Lake Storage에 인증을](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)참조 하세요.
 
@@ -75,7 +78,7 @@ WITH
     SECRET = '<azure_storage_account_key>'
 ;
 
--- It should look something like this when authenticating using service principals:
+-- It should look something like this when authenticating using service principal:
 CREATE DATABASE SCOPED CREDENTIAL ADLSCredential
 WITH
     IDENTITY = '536540b4-4239-45fe-b9a3-629f97591c0c@https://login.microsoftonline.com/42f988bf-85f1-41af-91ab-2d2cd011da47/oauth2/token',
@@ -84,7 +87,7 @@ WITH
 ```
 
 ## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
-이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 명령을 사용하여 데이터의 위치를 저장합니다. 
+이 [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) 명령을 사용하여 데이터의 위치를 저장합니다. AAD 통과를 사용 하 여 인증 하는 경우 자격 증명 매개 변수가 필요 하지 않습니다. 
 
 ```sql
 -- C (for Gen1): Create an external data source
@@ -204,7 +207,7 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ## <a name="optimize-statistics"></a>통계를 최적화합니다.
 로드 직후 단일 열 통계를 만드는 것이 가장 좋습니다. 통계에 대한 몇 가지 선택 사항이 있습니다. 예를 들어 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는 데 시간이 오래 걸릴 수 있습니다. 쿼리 조건자에 위치하지 않을 특정 열에 대해 알고 있다면 이들 열에 대한 통계 생성 과정은 건너뛸 수 있습니다.
 
-단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 `prc_sqldw_create_stats`통계[ 문서에 저장된 프로시저 코드 샘플 ](sql-data-warehouse-tables-statistics.md)를 사용할 수 있습니다.
+단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 [통계](sql-data-warehouse-tables-statistics.md) 문서에 저장된 프로시저 코드 샘플 `prc_sqldw_create_stats`를 사용할 수 있습니다.
 
 다음 예제는 통계를 만들기 위한 좋은 출발점이 됩니다. 차원 테이블의 각 열과 팩트 테이블의 각 조인 열의 단일 열 통계를 생성합니다. 이후 언제라도 다른 팩트 테이블 열에 단일 또는 여러 열 통계를 추가할 수 있습니다.
 
@@ -216,8 +219,8 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 
 다음 작업을 수행했습니다.
 > [!div class="checklist"]
-> * Data Lake Storage Gen1에서 로드하기 위해 데이터베이스 개체를 만들었습니다.
-> * Data Lake Storage Gen1 디렉터리에 연결했습니다.
+> * Data Lake Storage에서 로드 하는 데 필요한 데이터베이스 개체를 만들었습니다.
+> * Data Lake Storage 디렉터리에 연결 되어 있습니다.
 > * Azure SQL Data Warehouse에 데이터를 로드했습니다.
 >
 

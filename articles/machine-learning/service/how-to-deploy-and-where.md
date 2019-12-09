@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/13/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 63d2aa5c9e4ec751d9b95ba0d884e6dc17e207bb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: bb86d551d83668a3558cf63827a64a481cf87e02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276785"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927006"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -376,7 +376,7 @@ def run(data):
 더 많은 예제를 보려면 다음 스크립트를 참조 하십시오.
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
-* [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
+* [Tensorflow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
 * [Keras](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training-with-deep-learning/train-hyperparameter-tune-deploy-with-keras)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -417,7 +417,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLRequest` 클래스는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
+> `AMLRequest` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
 >
 > 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
 >
@@ -463,7 +463,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLResponse` 클래스는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
+> `AMLResponse` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
 >
 > 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
 >
@@ -530,7 +530,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 | 컴퓨팅 대상 | 배포 구성 예 |
 | ----- | ----- |
-| Local | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| 지방 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -852,7 +852,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 ## <a name="download-a-model"></a>모델 다운로드
 사용자 고유의 실행 환경에서 사용 하기 위해 모델을 다운로드 하려는 경우 다음 SDK/CLI 명령을 사용 하 여이 작업을 수행할 수 있습니다.
 
-SDK
+SDK:
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -867,6 +867,9 @@ az ml model download --model-id mymodel:1 --target-dir model_folder
 코드 없는 모델 배포는 현재 미리 보기로 제공 되며 다음과 같은 기계 학습 프레임 워크를 지원 합니다.
 
 ### <a name="tensorflow-savedmodel-format"></a>Tensorflow SavedModel 형식
+코드 없는 모델 배포를 사용 하려면 Tensorflow 모델을 **SavedModel 형식** 으로 등록 해야 합니다.
+
+SavedModel를 만드는 방법에 대 한 자세한 내용은 [이 링크](https://www.tensorflow.org/guide/saved_model) 를 참조 하세요.
 
 ```python
 from azureml.core import Model
@@ -902,7 +905,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Scikit-모델 배우기
+### <a name="scikit-learn-models"></a>Scikit-learn 모델
 
 모든 기본 제공 scikit 모델 유형에 대해서는 코드 모델 배포가 지원 되지 않습니다.
 
@@ -961,9 +964,9 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. 
+패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 다음은 그 예입니다. 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`. 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 
 
 모델을 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
 

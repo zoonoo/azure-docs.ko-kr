@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/04/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e99a1b6482c8b1383040e6bd1447c16c236c9f1a
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 04b5b8621cdd74addaa481a24efee22746c96240
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67659852"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925647"
 ---
 다음 표에서는 각 개발 환경에서 이 바인딩에 대한 지원을 추가하는 방법을 보여줍니다.
 
-| 개발 환경               | 다음에서 지원을 추가하려면 <br>Functions 2.x  |
+| 개발 환경               | 지원을 추가 하려면 |
 |----------------------|----------------|
 |로컬 개발 - C# 클래스 라이브러리       | [패키지 설치](../articles/azure-functions/functions-bindings-register.md#vs) |
 |로컬 개발 - C# 스크립트, JavaScript, F # |[확장 등록](../articles/azure-functions/functions-bindings-register.md#extension-bundles)         |

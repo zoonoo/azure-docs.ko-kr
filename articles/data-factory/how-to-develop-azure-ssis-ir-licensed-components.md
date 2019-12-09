@@ -1,23 +1,22 @@
 ---
-title: 'Azure SSIS 통합 런타임에 대 한 사용이 허가 된 구성 요소 설치 '
+title: Azure에 대 한 사용이 허가 된 구성 요소 설치-SSIS 통합 런타임
 description: ISV가 Azure-SSIS 통합 런타임에 대한 유료 또는 라이선스 사용자 지정 구성 요소를 개발하고 설치하는 방법을 알아봄
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 08/01/2019
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: f1f8a017153d95beed4979b6059383a41cd6a972
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/01/2019
+ms.openlocfilehash: 599b54f8a5d97ee5ed29ce4df16980f456ffb919
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673592"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914577"
 ---
 # <a name="install-paid-or-licensed-custom-components-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS 통합 런타임에 대한 라이선스 사용자 지정 구성 요소 설치
 

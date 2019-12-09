@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 0be50ef43774be6082a4ede330f65296094552de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c16fea8f710751a051995ecece8a3d0ce8f933c7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786846"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926463"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -99,7 +99,7 @@ AzCopy는 모든 작업에 대해 로그 및 계획 파일을 만듭니다. 로�
 
 로그에는 실패 상태 (`UPLOADFAILED`, `COPYFAILED`및 `DOWNLOADFAILED`), 전체 경로 및 오류의 원인이 포함 됩니다.
 
-기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE$\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 위치 하지만 원하는 경우 해당 위치를 변경할 수 있습니다.
+기본적으로 로그 및 계획 파일은 Windows의 `%USERPROFILE%\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 위치 하지만 원하는 경우 해당 위치를 변경할 수 있습니다.
 
 > [!IMPORTANT]
 > Microsoft 지원에 대 한 요청을 제출 하거나, 타사와 관련 된 문제를 해결 하는 경우 실행 하려는 명령의 교정 된 버전을 공유 합니다. 이렇게 하면 SAS를 실수로 공유 하지 않습니다. 수정 버전은 로그 파일의 시작 부분에서 찾을 수 있습니다.
@@ -151,7 +151,7 @@ azcopy jobs resume <job-id> --destination-sas="<sas-token>"
 
 ## <a name="change-the-location-of-the-plan-and-log-files"></a>계획 및 로그 파일의 위치를 변경 합니다.
 
-기본적으로 계획 및 로그 파일은 Windows의 `%USERPROFILE$\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 있습니다. 이 위치를 변경할 수 있습니다.
+기본적으로 계획 및 로그 파일은 Windows의 `%USERPROFILE%\.azcopy` 디렉터리 또는 Mac 및 Linux의 `$HOME$\.azcopy` 디렉터리에 있습니다. 이 위치를 변경할 수 있습니다.
 
 ### <a name="change-the-location-of-plan-files"></a>계획 파일의 위치를 변경 합니다.
 

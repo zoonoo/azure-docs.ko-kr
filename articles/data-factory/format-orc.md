@@ -2,34 +2,34 @@
 title: Azure Data Factory ORC 형식
 description: 이 항목에서는 Azure Data Factory에서 ORC 형식을 처리 하는 방법을 설명 합니다.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: jingwang
-ms.openlocfilehash: a5125b53d960ddead063435666de5b26ce0bc291
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5f83e9bbcdfffdd9b19786012295ff5643116551
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73674755"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927377"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Azure Data Factory ORC 형식
 
 **ORC 파일을 구문 분석 하거나 데이터를 ORC 형식으로 기록**하려는 경우이 문서를 따릅니다. 
 
-ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud 저장소](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md)및 [SFTP](connector-sftp.md).
+ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector-amazon-simple-storage-service.md), [azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [파일 시스템](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), [SFTP](connector-sftp.md).
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 ORC 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 속성         | 설명                                                  | 필수 |
+| 자산         | 설명                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | 데이터 집합의 type 속성은 **Orc**로 설정 해야 합니다. | 예      |
-| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | 예      |
+| type             | 데이터 집합의 type 속성은 **Orc**로 설정 해야 합니다. | yes      |
+| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
 
 다음은 Azure Blob Storage ORC 데이터 집합의 예입니다.
 
@@ -68,19 +68,19 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 
 복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **Orcsource**로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 type 속성은 **Orcsource**로 설정 해야 합니다. | yes      |
+| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ### <a name="orc-as-sink"></a>ORC
 
 복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                  | 필수 |
+| 자산      | 설명                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | 복사 작업 원본의 type 속성은 **Orcsink**로 설정 해야 합니다. | 예      |
-| 나이 설정 | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아니요       |
+| type          | 복사 작업 원본의 type 속성은 **Orcsink**로 설정 해야 합니다. | yes      |
+| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
 
 ## <a name="using-self-hosted-integration-runtime"></a>자체 호스팅 Integration Runtime 사용
 
@@ -93,7 +93,7 @@ ORC 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](connector
 - **OpenJDK 사용**: IR 버전 3.13부터 지원됩니다. 다른 모든 필수 OpenJDK 어셈블리와 함께 jvm.dll을 자체 호스팅 IR 머신으로 패키지하고, 이에 따라 JAVA_HOME 시스템 환경 변수를 설정합니다.
 
 > [!TIP]
-> 자체 호스팅 Integration Runtime를 사용 하 여 ORC 형식으로 데이터를 복사 하 고 "java를 호출할 때 오류가 발생 했습니다. **OutOfMemoryError: java 힙 공간**"을 사용 하 여 데이터를 복사 하는 경우 컴퓨터에 `_JAVA_OPTIONS` 환경 변수를 추가할 수 있습니다. 자체 호스팅 IR을 호스트 하 여 JVM의 최소/최대 힙 크기를 조정 하 여 이러한 복사본을 강화 한 후 파이프라인을 다시 실행 합니다.
+> 자체 호스팅 Integration Runtime를 사용 하 여 데이터를 ORC 형식으로 복사 하 고 "java를 호출할 때 오류가 발생 했습니다. **OutOfMemoryError: java 힙 공간**"을 사용 하는 경우 자체 호스팅 IR을 호스트 하는 컴퓨터에 `_JAVA_OPTIONS` 환경 변수를 추가 하 여 JVM의 최소/최대 힙 크기를 조정 하 여 이러한 복사본을 강화 한 후 파이프라인을 다시 실행할 수 있습니다.
 
 ![자체 호스팅 IR에서 JVM 힙 크기 설정](./media/supported-file-formats-and-compression-codecs/set-jvm-heap-size-on-selfhosted-ir.png)
 

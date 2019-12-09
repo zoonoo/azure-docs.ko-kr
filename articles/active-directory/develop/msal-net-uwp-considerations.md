@@ -1,29 +1,25 @@
 ---
-title: 유니버설 Windows 플랫폼 고려 사항 (.NET 용 Microsoft 인증 라이브러리)
+title: UWP 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)과 함께 유니버설 Windows 플랫폼를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27a41ad084d21c7623011b5678fb84ed27d68325
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: d14546a63db952119303428140c65ee402010816
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802670"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921785"
 ---
 # <a name="universal-windows-platform-specific-considerations-with-msalnet"></a>MSAL.NET의 유니버설 Windows 플랫폼 관련 고려 사항
 UWP에는 MSAL.NET을 사용할 때 고려해 야 할 몇 가지 고려 사항이 있습니다.
@@ -70,5 +66,5 @@ HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execu
 
 샘플 | 플랫폼 | 설명 
 |------ | -------- | -----------|
-|[활성-디렉터리-dotnet-v2-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Msal.net를 사용 하는 유니버설 Windows 플랫폼 클라이언트 응용 프로그램으로, Azure AD v2.0 끝점을 사용 하 여 인증 하는 사용자에 대 한 Microsoft Graph에 액세스 합니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-native-uwp.png)|
+|[active-directory-dotnet-native-uwp-v2](https://github.com/azure-samples/active-directory-dotnet-native-uwp-v2) | UWP | Msal.net를 사용 하는 유니버설 Windows 플랫폼 클라이언트 응용 프로그램으로, Azure AD v2.0 끝점을 사용 하 여 인증 하는 사용자에 대 한 Microsoft Graph에 액세스 합니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-native-uwp.png)|
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/Azure-Samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 AAD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다. <br>![토폴로지](media/msal-net-uwp-considerations/topology-xamarin-native.png)|

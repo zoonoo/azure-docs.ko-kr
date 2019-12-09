@@ -3,27 +3,23 @@ title: MSAL .js와 ADAL의 차이점
 titleSuffix: Microsoft identity platform
 description: MSAL.js(JavaScript용 Microsoft 인증 라이브러리)과 ADAL.js(JavaScript용 Azure AD 인증 라이브러리)의 차이점과 사용할 라이브러리를 선택하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: navyasric
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d831f9f1cf8dbf565d569f63ee6215fac80949d
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: e3696eb90abbb35f4d989649b4a1198aec69b9a5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803179"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916913"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS와 ADAL JS의 차이점
 
@@ -66,7 +62,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
     API의 URI를 appidURI/scope 형식으로 사용하여 리소스 API에 대한 범위를 요청할 수 있습니다. 예를 들어 https:\//mytenant.onmicrosoft.com/myapi/api.read입니다.
 
-    MS Graph API에 대해서만 범위 값 `user.read`은 https: \//Graph. .com/User. 읽기와를 서로 교환 하 여 사용할 수 있습니다.
+    MS Graph API에 대해서만 범위 값 `user.read` https:\//graph.microsoft.com/User.Read에 매핑됩니다.
 
     ```javascript
     var request = {

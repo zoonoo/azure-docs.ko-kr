@@ -1,30 +1,26 @@
 ---
-title: 모든 Azure AD 사용자에게 로그인할 수 있는 앱을 작성하는 방법
+title: Azure AD 사용자를 로그인 하는 앱 빌드
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory 테 넌 트에서 사용자를 로그인 할 수 있는 다중 테 넌 트 응용 프로그램을 빌드하는 방법을 보여 줍니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
-editor: ''
 ms.assetid: 35af95cb-ced3-46ad-b01d-5d2f6fd064a3
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f7f31e0254ad4963ce6946a108d84c97027f30b
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 73a5d30761b25f6233e298cac2602fb701a2987f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803943"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917780"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -46,7 +42,7 @@ ms.locfileid: "72803943"
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
 
-기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. [Azure Portal][AZURE-portal] 에서 응용 프로그램 등록의 **인증** 창에 있는 **지원 되는 계정 유형** 스위치를 찾아 조직의 계정으로 설정 하 여 등록을 다중 테 넌 트로 만들 수 있습니다.  **디렉터리**.
+기본적으로 Azure AD에서 웹앱/API 등록은 단일 테넌트입니다. [Azure Portal][AZURE-portal] 에서 응용 프로그램 등록의 **인증** 창에 있는 **지원 되는 계정 유형** 스위치를 찾아 **조직 디렉터리의 계정**으로 설정 하 여 등록을 다중 테 넌 트로 만들 수 있습니다.
 
 애플리케이션을 다중 테넌트에 지정하려면 먼저 Azure AD에 고유한 글로벌 애플리케이션의 앱 ID URI가 있어야 합니다. 앱 ID URI는 프로토콜 메시지에서 애플리케이션을 식별하는 방법 중 하나입니다. 단일 테넌트 애플리케이션의 경우 앱 ID URI이 해당 테넌트 내에서 고유한 것으로 충분합니다. 다중 테넌트 애플리케이션의 경우, 앱 ID URI이 전역적으로 고유해야 Azure AD가 모든 테넌트에서 애플리케이션을 찾을 수 있습니다. 앱 ID URI이 Azure AD 테넌트의 확인된 도메인과 일치하는 호스트 이름을 갖게 함으로써 전역 고유성이 적용됩니다.
 

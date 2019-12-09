@@ -1,5 +1,5 @@
 ---
-title: 다단계 웹 테스트 및 Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램 모니터링 | Microsoft Docs
+title: 다단계 웹 테스트를 사용 하 여 모니터링-Azure 애플리케이션 정보
 description: Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램을 모니터링 하도록 다단계 웹 테스트 설정
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 80a39151a3d40c9b9d7cb49c6ab41aab602c5991
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817394"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928961"
 ---
 # <a name="multi-step-web-tests"></a>다단계 웹 테스트
 
@@ -27,7 +27,7 @@ ms.locfileid: "72817394"
 * Visual Studio 2017 Enterprise 이상
 * Visual Studio 웹 성능 및 부하 테스트 도구.
 
-테스트 도구 필수 구성 요소를 찾을 수 있습니다. **웹 성능 및 부하 테스트 도구** > **디버깅 및 테스트**  > **개별 구성 요소**  >  **Visual Studio 설치 관리자** 를 시작 합니다.
+테스트 도구 필수 구성 요소를 찾을 수 있습니다. **웹 성능 및 부하 테스트 도구** > **디버깅 및 테스트** > **개별 구성 요소** > **Visual Studio 설치 관리자** 를 시작 합니다.
 
 ![웹 성능 및 부하 테스트 도구 항목 옆에 있는 확인란을 선택 하 여 개별 구성 요소가 선택 된 Visual Studio 설치 관리자 UI의 스크린샷](./media/availability-multistep/web-performance-load-testing.png)
 
@@ -43,7 +43,7 @@ Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Vis
 
 ## <a name="upload-the-web-test"></a>웹 테스트 업로드
 
-1. 가용성 창의 Application Insights 포털에서 **테스트 만들기**  > **테스트 형식**  > **다단계 웹 테스트**를 선택 합니다.
+1. 가용성 창의 Application Insights 포털에서 **테스트 만들기** > **테스트 형식** > **다단계 웹 테스트**를 선택 합니다.
 
 2. 테스트 위치, 빈도 및 경고 매개 변수를 설정 합니다.
 
@@ -68,7 +68,7 @@ Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Vis
 |----|----|----|
 |**거의 실시간 (미리 보기)** | 거의 실시간으로 경고를 사용 하는 것이 좋습니다. 이 유형의 경고 구성은 가용성 테스트를 만든 후에 수행 됩니다.  |
 |**클래식** | 새 가용성 테스트에 대 한 클래식 경고를 사용 하는 것이 더 이상 권장 되지 않습니다.|
-|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는**최소 5 개의 테스트 위치를 사용 하는 테스트 위치-2의 수**  =  **경고 위치 임계값** 입니다.|
+|**경고 위치 임계값**|최소 3/5 위치를 사용하는 것이 좋습니다. 경고 위치 임계값과 테스트 위치 수 간의 최적 관계는 **최소 5 개의 테스트 위치를 사용 하는 테스트 위치-2의 수** = **경고 위치 임계값** 입니다.|
 
 ## <a name="configuration"></a>구성
 
@@ -114,7 +114,7 @@ Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Vis
 | 인증서 암호 | 포함 된 개인 키에 대 한 액세스 권한을 부여 하는 클라이언트 인증서의 암호입니다. |
 | 클라이언트 인증서  | Base64 인코딩 형식의 개인 키가 있는 클라이언트 인증서 값입니다. |
 | 이름 식별자 | 토큰에 대 한 이름 식별자입니다. |
-| 다음 이후 | 토큰을 사용할 timespan입니다.  기본값은 5 분입니다. |
+| 다음 날짜까지 | 토큰을 사용할 timespan입니다.  기본값은 5분입니다. |
 | 이전이 아님 | 이전에 만든 토큰이 유효 하 게 되는 시간 범위는 시간을 기울입니다.  기본값은 (음수) 5 분입니다. |
 | 대상 컨텍스트 매개 변수 이름 | 생성 된 어설션을 수신 하는 컨텍스트 매개 변수입니다. |
 

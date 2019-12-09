@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 등록 된 앱에 앱 역할을 추가 하 고 토큰에서 수신 합니다.
+title: 앱 역할을 추가 하 고 토큰에서 가져옵니다. | Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory에 등록된 애플리케이션에서 앱 역할을 추가하고 이 역할에 사용자와 그룹을 할당하여 토큰의 `roles` 클레임으로 받는 방법을 알아봅니다.
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fca807913d2753828d55c095c1a3b380340fd95
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 0fe116b5ae26522c9bce0322123836a6e08d3cfd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843158"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917917"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 

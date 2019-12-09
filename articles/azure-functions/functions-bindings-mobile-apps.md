@@ -5,17 +5,17 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 474cdc52d34d3f5e00dee69b7cc9861042cbcc04
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 051b8780a102a8a1ec4d3979cc53b686e2823dc8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231123"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928607"
 ---
 # <a name="mobile-apps-bindings-for-azure-functions"></a>Azure Functions의 Mobile Apps 바인딩 
 
 > [!NOTE]
-> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. 이는 Azure Functions 2.x에서 지원되지 않습니다.
+> Azure Mobile Apps 바인딩은 Azure Functions 1.x에만 사용할 수 있습니다. Azure Functions 2.x 이상에서는 지원 되지 않습니다.
 
 이 문서에서는 Azure Functions에서 [Azure Mobile Apps](../app-service-mobile/app-service-mobile-value-prop.md) 바인딩을 사용하여 작업하는 방법을 설명합니다. Azure Functions는 Mobile Apps에 대한 입력 및 출력 바인딩을 지원합니다.
 
@@ -310,9 +310,9 @@ public static object Run(
 
 C# 스크립트 함수에서 `out object` 형식의 명명된 출력 매개 변수를 사용하여 출력 레코드에 액세스합니다. C# 클래스 라이브러리에서 `MobileTable` 특성은 다음 유형 중 하나와 함께 사용할 수 있습니다.
 
-* `ICollector<T>`가 `IAsyncCollector<T>` 또는 `T` 속성이 있는 type인 경우, `JObject` 또는 `public string Id`.
+* `T`가 `JObject` 또는 `public string Id` 속성이 있는 type인 경우, `ICollector<T>` 또는 `IAsyncCollector<T>`.
 * `out JObject`
-* `out T`가 `out T[]` 속성이 있는 type인 경우, `T` 또는 `public string Id`.
+* `T`가 `public string Id` 속성이 있는 type인 경우, `out T` 또는 `out T[]`.
 
 Node.js 함수에서 `context.bindings.<name>`을 사용하여 출력 레코드에 액세스합니다.
 

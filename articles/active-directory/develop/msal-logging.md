@@ -1,29 +1,25 @@
 ---
-title: MSAL (Microsoft Authentication Library) 응용 프로그램 로그인
+title: MSAL 앱에 로그인 | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리) 애플리케이션에서 로깅하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/11/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5960389389e4b75794a7334c0bff12ce3ac0f170
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 9a71093ee05e032a5df89bb0560b6daa82e2fbf2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452469"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916148"
 ---
 # <a name="logging-in-msal-applications"></a>MSAL 응용 프로그램 로그인
 
@@ -182,7 +178,7 @@ MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그�
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```objc
 [MSALGlobalConfig.loggerConfig setLogCallback:^(MSALLogLevel level, NSString *message, BOOL containsPII)
@@ -215,15 +211,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = NO;
 
 IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|수준  |설명 |
+|Level  |설명 |
 |---------|---------|
 | `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
 | `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
-| `MSALLogLevelWarning` | 기록 |
+| `MSALLogLevelWarning` | 경고 |
 | `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```objc
 MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
@@ -233,7 +229,7 @@ MSALGlobalConfig.loggerConfig.logLevel = MSALLogLevelVerbose;
 
 MSAL 로그 메시지의 메시지 부분은 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 형식입니다.
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 
@@ -260,7 +256,7 @@ MSAL 로깅을 캡처하도록 콜백을 설정 하 고 자체 응용 프로그�
 typedef void (^MSALLogCallback)(MSALLogLevel level, NSString *message, BOOL containsPII);
 ```
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.setLogCallback { (level, message, containsPII) in
@@ -292,15 +288,15 @@ MSALGlobalConfig.loggerConfig.piiEnabled = false
 
 IOS 및 macOS 용 MSAL을 사용 하 여 로깅할 때 로깅 수준을 설정 하려면 다음 값 중 하나를 사용 합니다.
 
-|수준  |설명 |
+|Level  |설명 |
 |---------|---------|
 | `MSALLogLevelNothing`| 모든 로깅 사용 안 함 |
 | `MSALLogLevelError` | 기본 수준은 오류가 발생 한 경우에만 정보를 출력 합니다. |
-| `MSALLogLevelWarning` | 기록 |
+| `MSALLogLevelWarning` | 경고 |
 | `MSALLogLevelInfo` |  매개 변수 및 다양 한 키 집합 작업을 포함 하는 라이브러리 진입점 |
 |`MSALLogLevelVerbose`     |  API 추적 |
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 ```swift
 MSALGlobalConfig.loggerConfig.logLevel = .verbose
@@ -310,7 +306,7 @@ MSALGlobalConfig.loggerConfig.logLevel = .verbose
 
 MSAL 로그 메시지의 메시지 부분은 `TID = <thread_id> MSAL <sdk_ver> <OS> <OS_ver> [timestamp - correlation_id] message` 형식입니다.
 
-예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음은 그 예입니다.
 
 `TID = 551563 MSAL 0.2.0 iOS Sim 12.0 [2018-09-24 00:36:38 - 36764181-EF53-4E4E-B3E5-16FE362CFC44] acquireToken returning with error: (MSALErrorDomain, -42400) User cancelled the authorization session.`
 

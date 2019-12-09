@@ -5,19 +5,18 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 author: djpmsft
 ms.author: daperlov
 manager: jroth
 ms.reviewer: maghan
-ms.openlocfilehash: 2589e56d3170b235f31d07f902eb75c749e8573f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 88500ecbc56b34551a0cbd3ca94727ba4bbcda9f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73679293"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930653"
 ---
 # <a name="set-variable-activity-in-azure-data-factory"></a>Azure Data Factory의 변수 설정 작업
 
@@ -25,10 +24,10 @@ Data Factory 파이프라인에서 정의된 String, Bool 또는 Array 형식의
 
 ## <a name="type-properties"></a>형식 속성
 
-속성 | 설명 | 필수
+자산 | 설명 | 필수
 -------- | ----------- | --------
-name | 파이프라인의 작업 이름입니다. | 예
-description | 작업이 어떤 일을 수행하는지 설명하는 텍스트입니다. | no
+이름 | 파이프라인의 작업 이름 | yes
+description | 작업이 어떤 일을 수행하는지 설명하는 텍스트 | no
 type | 작업 형식은 SetVariable입니다. | 예
 값 | 지정된 변수를 설정하는 데 사용하는 문자열 리터럴 또는 식 개체 값입니다. | 예
 variableName | 이 작업에 의해 설정되는 변수의 이름입니다. | 예

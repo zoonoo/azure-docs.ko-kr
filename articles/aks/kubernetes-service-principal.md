@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: e24d930ec82ea92a040efeed3056a10917ce2b2a
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: ded3fc97c4cdf041fdf50d7b4aa9a9b2fbdf1c84
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263913"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74913502"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -20,7 +20,7 @@ Azure Api와 상호 작용 하기 위해 AKS 클러스터에는 [AD (Azure Activ
 
 이 문서에서는 AKS 클러스터에 대한 서비스 주체를 만들고 사용하는 방법을 보여줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 Azure AD 서비스 주체를 만들려면 Azure AD 테넌트에 애플리케이션을 등록하고 구독의 역할에 해당 애플리케이션을 할당할 수 있는 사용 권한이 있어야 합니다. 필요한 사용 권한이 없으면 필요한 사용 권한을 할당하거나 AKS 클러스터로 사용하기 위한 서비스 주체를 미리 만들도록 Azure AD 또는 구독 관리자에 요청해야 합니다.
 
@@ -43,7 +43,7 @@ az aks create --name myAKSCluster --resource-group myResourceGroup
 Azure CLI를 사용 하 여 서비스 주체를 수동으로 만들려면 [az ad sp create-rbac][az-ad-sp-create] 명령을 사용 합니다. 다음 예제에서 `--skip-assignment` 매개 변수는 추가 기본 할당이 할당되는 것을 방지합니다.
 
 ```azurecli-interactive
-az ad sp create-for-rbac --skip-assignment
+az ad sp create-for-rbac --skip-assignment --name myAKSClusterServicePrincipal
 ```
 
 다음 예제와 유사하게 출력됩니다. 사용자 고유의 `appId` 및 `password`를 기록해 둡니다. 이러한 값은 다음 섹션에서 AKS 클러스터를 만들 때 사용됩니다.
@@ -51,8 +51,8 @@ az ad sp create-for-rbac --skip-assignment
 ```json
 {
   "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
-  "displayName": "azure-cli-2019-03-04-21-35-28",
-  "name": "http://azure-cli-2019-03-04-21-35-28",
+  "displayName": "myAKSClusterServicePrincipal",
+  "name": "http://myAKSClusterServicePrincipal",
   "password": "e763725a-5eee-40e8-a466-dc88d980f415",
   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
@@ -60,7 +60,7 @@ az ad sp create-for-rbac --skip-assignment
 
 ## <a name="specify-a-service-principal-for-an-aks-cluster"></a>AKS 클러스터에 대한 서비스 주체 지정
 
-[Az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만들 때 기존 서비스 주체를 사용 하려면 `--service-principal` 및 `--client-secret` 매개 변수를 사용 하 여 [az ad sp create – rbac][az-ad-sp-create] 명령의 출력에서 `appId` 및 `password`를 지정 합니다.
+[Az AKS create][az-aks-create] 명령을 사용 하 여 AKS 클러스터를 만들 때 기존 서비스 주체를 사용 하려면 `--service-principal` 및 `--client-secret` 매개 변수를 사용 하 여 [az ad sp create-rbac][az-ad-sp-create] 명령의 출력에서 `appId`을 지정 하 고 `password` 합니다.
 
 ```azurecli-interactive
 az aks create \
@@ -93,7 +93,7 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 
 ### <a name="azure-container-registry"></a>Azure Container Registry
 
-컨테이너 이미지 저장소로 ACR (Azure Container Registry)를 사용 하는 경우 이미지를 읽고 가져오도록 AKS 클러스터에 대 한 서비스 주체에 게 사용 권한을 부여 해야 합니다. 현재 권장 되는 구성은 [az aks create][az-aks-create] 또는 [az aks update] [az-aks-update] 명령을 사용 하 여 레지스트리와 통합 하 고 서비스 주체에 적절 한 역할을 할당 하는 것입니다. 자세한 단계는 [Azure Kubernetes Service에서 Azure Container Registry 인증][aks-to-acr]을 참조 하세요.
+컨테이너 이미지 저장소로 ACR (Azure Container Registry)를 사용 하는 경우 이미지를 읽고 가져오도록 AKS 클러스터에 대 한 서비스 주체에 게 사용 권한을 부여 해야 합니다. 현재 권장 되는 구성은 [az aks create][az-aks-create] 또는 [az aks update][az-aks-update] 명령을 사용 하 여 레지스트리와 통합 하 고 서비스 주체에 적절 한 역할을 할당 하는 것입니다. 자세한 단계는 [Azure Kubernetes Service에서 Azure Container Registry 인증][aks-to-acr]을 참조 하세요.
 
 ### <a name="networking"></a>네트워킹
 
@@ -129,7 +129,7 @@ AKS와 Azure AD 서비스 주체를 사용하는 경우 다음 고려 사항을 
 - 기본적으로 서비스 주체 자격 증명은 1 년 동안 유효 합니다. 언제 든 지 [서비스 주체 자격 증명을 업데이트 하거나 회전할][update-credentials] 수 있습니다.
 - 모든 서비스 주체는 Azure AD 애플리케이션과 연결됩니다. Kubernetes 클러스터에 대한 서비스 주체는 유효한 모든 Azure AD 애플리케이션 이름(예: *https://www.contoso.org/example* )과 연결할 수 있습니다. 애플리케이션에 대한 URL은 실제 엔드포인트일 필요가 없습니다.
 - 서비스 주체 **클라이언트 ID**를 지정할 때 `appId` 값을 사용합니다.
-- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일 `/etc/kubernetes/azure.json`에 저장 됩니다.
+- Kubernetes 클러스터의 에이전트 노드 Vm에서 서비스 주체 자격 증명은 파일에 저장 됩니다 `/etc/kubernetes/azure.json`
 - [Az aks create][az-aks-create] 명령을 사용 하 여 서비스 주체를 자동으로 생성 하는 경우 서비스 주체 자격 증명은 명령을 실행 하는 데 사용 되는 컴퓨터의 파일 `~/.azure/aksServicePrincipal.json`에 기록 됩니다.
 - [Az AKS create][az-aks-create]에서 만든 AKS 클러스터를 삭제 하는 경우 자동으로 생성 된 서비스 주체는 삭제 되지 않습니다.
     - 서비스 주체를 삭제 하려면 *servicePrincipalProfile* 클러스터에 대해 쿼리 한 다음 [az ad app delete][az-ad-app-delete]를 사용 하 여 삭제 합니다. 다음 리소스 그룹과 클러스터 이름을 고유한 값으로 바꿉니다.
@@ -173,6 +173,7 @@ Azure Active Directory 서비스 주체에 대 한 자세한 내용은 [응용 �
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-update]: /cli/azure/aks#az-aks-update
 [rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
 [rbac-custom-role]: ../role-based-access-control/custom-roles.md
 [rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor

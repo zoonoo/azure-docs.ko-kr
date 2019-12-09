@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 3563b56e596f5c79f2107bdbf74219a19c6c0d06
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: bff3547456c03ae313e7465238872670965765f1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784615"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927677"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -89,6 +89,19 @@ GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 �
 ## <a name="datasets-and-data-preparation"></a>데이터 집합 및 데이터 준비
 
 Azure Machine Learning 데이터 집합에 대 한 알려진 문제입니다.
+
+### <a name="typeerror-filenotfound-no-such-file-or-directory"></a>TypeError: FileNotFound: 해당 파일 또는 디렉터리가 없습니다.
+
+이 오류는 사용자가 제공 하는 파일 경로가 파일이 있는 위치가 아닌 경우에 발생 합니다. 계산 대상에서 데이터 집합을 탑재 한 위치와 파일을 참조 하는 방법이 일치 하는지 확인 해야 합니다. 결정적 상태를 보장 하려면 계산 대상에 데이터 집합을 탑재할 때 추상 경로를 사용 하는 것이 좋습니다. 예를 들어 다음 코드에서는 계산 대상의 파일 시스템 루트 아래에 데이터 집합을 탑재 `/tmp`합니다. 
+
+```python
+# Note the leading / in '/tmp/dataset'
+script_params = {
+    '--data-folder': dset.as_named_input('dogscats_train').as_mount('/tmp/dataset'),
+} 
+```
+
+선행 슬래시 ('/')를 포함 하지 않는 경우 작업 디렉터리에 접두사를 지정 해야 합니다. 예를 들어 계산 대상에 `/mnt/batch/.../tmp/dataset` 하 여 데이터 집합을 탑재할 위치를 지정 해야 합니다. 
 
 ### <a name="fail-to-read-parquet-file-from-http-or-adls-gen-2"></a>HTTP 또는 ADLS Gen 2에서 Parquet 파일을 읽지 못했습니다.
 
@@ -215,7 +228,7 @@ Azure Kubernetes Service 클러스터에 설치 된 Azure Machine Learning 구�
 > [!WARNING]
 > 다음 작업을 수행 하기 전에 Azure Kubernetes 서비스 클러스터의 버전을 확인 합니다. 클러스터 버전이 1.14 보다 크거나 같은 경우 클러스터를 Azure Machine Learning 작업 영역에 다시 연결할 수 없습니다.
 
-Azure Machine Learning 작업 영역에서 클러스터를 분리 한 다음 클러스터를 작업 영역에 다시 연결 하 여 이러한 업데이트를 적용할 수 있습니다. 클러스터에서 SSL을 사용 하도록 설정한 경우 클러스터를 다시 연결할 때 SSL 인증서와 개인 키를 제공 해야 합니다. 
+Azure Machine Learning 작업 영역에서 클러스터를 분리 하 여 이러한 업데이트를 적용 한 다음 클러스터를 작업 영역에 다시 연결할 수 있습니다. 클러스터에서 SSL을 사용 하도록 설정한 경우 클러스터를 다시 연결할 때 SSL 인증서와 개인 키를 제공 해야 합니다. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -263,8 +276,8 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
  ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
 이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
 
-### <a name="horovod-is-shutdown"></a>Horovod가 종료 되었습니다.
-대부분의 경우이 예외는 horovod를 종료 시킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 있는 `Traceback`를 확인 합니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+### <a name="horovod-is-shut-down"></a>Horovod가 종료 되었습니다.
+대부분의 경우이 예외는 horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 있는 `Traceback`를 확인 합니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
 
 ## <a name="labeling-projects-issues"></a>프로젝트 문제 레이블 지정
 
@@ -282,6 +295,6 @@ Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경�
 
 레이블이 지정 된 모든 이미지를 로드 하려면 **첫 번째** 단추를 선택 합니다. **첫 번째** 단추는 목록 맨 앞으로 다시 이동 하지만 레이블이 지정 된 모든 데이터를 로드 합니다.
 
-### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>개체 검색을 위한 레이블을 지정 하는 동안 Esc 키를 누르면 왼쪽 위 모퉁이에 크기가 0 인 레이블이 생성 됩니다. 이 상태의 레이블 전송에 실패 합니다.
+### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>개체 검색에 대 한 레이블을 지정 하는 동안 Esc 키를 누르면 왼쪽 위 모퉁이에 크기가 0 인 레이블이 생성 됩니다. 이 상태의 레이블 전송에 실패 합니다.
 
 옆의 십자 표시를 클릭 하 여 레이블을 삭제 합니다.

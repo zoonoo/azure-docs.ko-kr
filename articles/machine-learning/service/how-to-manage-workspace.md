@@ -10,43 +10,43 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9e3915a2f55680fc2e24ac63d5e7170ada026c2e
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: c7ff51c18d4ec41c706518631071e8feb3bafe59
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73615220"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912452"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Azure Portal에서 Azure Machine Learning 작업 영역 만들기 및 관리
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 [Azure Machine Learning](overview-what-is-azure-ml.md)에 대 한 Azure Portal에서 [**Azure Machine Learning 작업 영역**](concept-workspace.md) 을 만들고, 확인 하 고, 삭제 합니다.  포털은 작업 영역을 시작 하는 가장 쉬운 방법 이지만 변경 내용 또는 automation 증가 요구 사항에 따라 [CLI를 사용 하 여](reference-azure-machine-learning-cli.md)작업 영역을 만들고 삭제할 수도 있습니다 (예를 들어, [Python 코드를](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 사용 하거나 [VS Code 확장을 통해](how-to-vscode-tools.md#get-started-with-azure-machine-learning-for-visual-studio-code)).
 
-## <a name="create-a-workspace"></a>작업 영역 만들기
+## <a name="create-a-workspace"></a>작업 영역 생성
 
-작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+작업 영역을 만들려면 Azure 구독이 필요합니다. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
-1. Azure 구독에 대 한 자격 증명을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다. 
+1. Azure 구독에 대한 자격 증명을 사용하여 [Azure Portal](https://portal.azure.com/)에 로그인합니다. 
 
 1. Azure Portal의 왼쪽 위 모서리에서 **+ 리소스 만들기**를 선택합니다.
 
       ![새 리소스 만들기](../../../includes/media/aml-create-in-portal/create-workspace.gif)
 
-1. 검색 표시줄을 사용 하 여 **Machine Learning**를 찾을 수 있습니다.
+1. 검색 창을 사용하여 **Machine Learning**을 찾습니다.
 
-1. **Machine Learning**를 선택 합니다.
+1. **Machine Learning**을 선택합니다.
 
-1. **Machine Learning** 창에서 **만들기** 를 선택 하 여 시작 합니다.
+1. **Machine Learning** 창에서 **만들기**를 선택하여 시작합니다.
 
 1. 새 작업 영역을 구성하려면 다음 정보를 제공하세요.
 
    필드|설명 
    ---|---
    작업 영역 이름 |작업 영역을 식별하는 고유한 이름을 입력합니다. 이 예제에서는 **docs-ws**를 사용합니다. 이름은 리소스 그룹 전체에서 고유해야 합니다. 다른 사용자가 만든 작업 영역과 구별되고 기억하기 쉬운 이름을 사용하세요.  
-   구독 |사용할 Azure 구독을 선택합니다.
-   리소스 그룹 | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 
+   Subscription |사용할 Azure 구독을 선택합니다.
+   Resource group | 구독의 기존 리소스 그룹을 사용하거나 이름을 입력하여 새 리소스 그룹을 만듭니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유합니다. 이 예에서는 **docs-aml**을 사용합니다. 
    위치 | 사용자 및 데이터 리소스와 가장 가까운 위치를 선택하여 작업 영역을 만듭니다.
-   작업 영역 버전 | **기본** 또는 **엔터프라이즈**를 선택 합니다.  이 작업 영역 버전은 액세스 및 가격 책정을 사용할 수 있는 기능을 결정 합니다. [Basic 및 Enterprise edition 제품](overview-what-is-azure-ml.md#sku)에 대해 자세히 알아보세요. 
+   Workspace Edition | **기본** 또는 **엔터프라이즈**를 선택 합니다.  이 작업 영역 버전은 액세스 및 가격 책정을 사용할 수 있는 기능을 결정 합니다. [Basic 및 Enterprise edition 제품](overview-what-is-azure-ml.md#sku)에 대해 자세히 알아보세요. 
 
     ![작업 영역 구성](media/how-to-manage-workspace/select-edition.png)
 
@@ -73,15 +73,15 @@ ms.locfileid: "73615220"
 
 작업 영역을 Basic edition에서 Enterprise edition으로 업그레이드 하 여 낮은 코드 환경 및 향상 된 보안 기능 등의 향상 된 기능을 활용할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다.
 
 1. 업그레이드 하려는 작업 영역을 선택 합니다.
 
-1. 위쪽 또는 업그레이드 메시지에서 **업그레이드** 를 선택 합니다.
+1. 페이지의 오른쪽 위에서 자세히 **알아보기** 를 선택 합니다.
 
-    ![작업 영역 업그레이드](media/how-to-manage-workspace/upgrade.png)
+   [작업 영역을 업그레이드 ![](media/how-to-manage-workspace/upgrade.png)](media/how-to-manage-workspace/upgrade.png#lightbox)
 
-1. **업데이트 확인**을 선택 합니다.
+1. 표시 되는 창에서 **업그레이드** 를 선택 합니다.
 
 
 > [!IMPORTANT]
@@ -91,7 +91,7 @@ ms.locfileid: "73615220"
 
 1. 위쪽 검색 필드에 **Machine Learning**을 입력 합니다.  
 
-1. **Machine Learning**를 선택 합니다.
+1. **Machine Learning**을 선택합니다.
 
    ![Azure Machine Learning 작업 영역 검색](media/how-to-manage-workspace/find-workspaces.png)
 

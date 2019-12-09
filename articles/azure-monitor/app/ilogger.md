@@ -1,5 +1,5 @@
 ---
-title: ILogger를 사용하여 Azure Application Insights에서 .NET 추적 로그 살펴보기
+title: ILogger-Azure 애플리케이션 Insights를 사용 하 여 .NET 추적 로그 탐색
 description: ASP.NET Core 및 콘솔 응용 프로그램과 함께 Azure 애플리케이션 Insights ILogger 공급자를 사용 하는 샘플입니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 02/19/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: c561ecf8e47a6792626353fef65ce94f1fd0330a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 86ed494d3a6005ae74ee3f1aa4d5aa53ffc3098e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893334"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931149"
 ---
 # <a name="applicationinsightsloggerprovider-for-net-core-ilogger-logs"></a>ApplicationInsightsLoggerProvider for .NET Core ILogger logs
 

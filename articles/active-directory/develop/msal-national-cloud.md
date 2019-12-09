@@ -1,28 +1,25 @@
 ---
-title: 국가별 클라우드에서 MSAL (Microsoft 인증 라이브러리) 사용-Microsoft identity platform
+title: 국가 클라우드 앱에서 MSAL 사용 | Microsoft
+titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)을 사용 하면 응용 프로그램 개발자가 보안 웹 Api를 호출 하기 위해 토큰을 획득할 수 있습니다. 이러한 웹 Api는 Microsoft Graph, 다른 Microsoft Api, 파트너 웹 api 또는 고유한 web API 일 수 있습니다. MSAL은 다수의 애플리케이션 아키텍처와 플랫폼을 지원합니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: negoe
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f1c73d89b0efc17e8f8836d080595927d500ad6
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481869"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916046"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -38,7 +35,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -74,7 +71,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
-1. [Azure Portal](https://portal.azure.us/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.us/)에 로그인합니다.
     
    다른 국가별 클라우드의 Azure Portal 끝점을 찾으려면 [앱 등록 끝점](authentication-national-cloud.md#app-registration-endpoints)을 참조 하세요.
 
@@ -105,7 +102,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 ### <a name="step-4-configure-your-javascript-spa"></a>4 단계: JavaScript SPA 구성
 
-프로젝트 설정 중에 생성된 `index.html` 파일에서 애플리케이션 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `<script></script>` 파일 본문의 `index.html` 태그 내에 추가합니다.
+프로젝트 설정 중에 생성된 `index.html` 파일에서 애플리케이션 등록 정보를 추가합니다. 맨 위에 있는 다음 코드를 `index.html` 파일 본문의 `<script></script>` 태그 내에 추가합니다.
 
 ```javascript
 const msalConfig = {
@@ -230,5 +227,5 @@ if let application = try? MSALPublicClientApplication(configuration: config) { /
 
 - [국가별 클라우드의 인증](authentication-national-cloud.md)
 - [Azure Government](https://docs.microsoft.com/azure/azure-government/)
-- [Azure 중국 21Vianet](https://docs.microsoft.com/azure/china/)
+- [Azure China 21Vianet](https://docs.microsoft.com/azure/china/)
 - [Azure 독일](https://docs.microsoft.com/azure/germany/)

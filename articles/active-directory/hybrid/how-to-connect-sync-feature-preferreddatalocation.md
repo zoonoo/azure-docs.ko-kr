@@ -16,12 +16,12 @@ ms.date: 11/11/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0a1d3de1b3eb5aebd89e6601f95c449851d4a1a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5a493179e6e657a1d99d7cdb808629bae7332567
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889589"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918970"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Azure Active Directory Connect 동기화: Office 365 리소스에 대한 기본 데이터 위치 구성
 이 항목의 목적은 Azure Active Directory (Azure AD) Connect 동기화에서 기본 데이터 위치에 대 한 특성을 구성 하는 방법을 안내 하는 것입니다. 누군가가 Office 365에서 다중 지역 기능을 사용 하는 경우이 특성을 사용 하 여 사용자의 Office 365 데이터의 지리적 위치를 지정 합니다. *region(지역)* 과 *Geo(지역)* 라는 용어는 서로 바꿔 사용할 수 있습니다.
@@ -251,7 +251,7 @@ Active Directory 스키마를 2019로 업데이트 하 고 스키마 확장 전�
 1. PowerShell 세션을 시작합니다.
 2. `Set-ADSyncScheduler -SyncCycleEnabled $true` cmdlet을 실행하여 예약된 동기화를 다시 사용하도록 설정합니다.
 
-## <a name="step-8-verify-the-result"></a>8단계: 결과 확인
+## <a name="step-9-verify-the-result"></a>9 단계: 결과 확인
 구성을 확인하고 사용자를 위해 적용해야 합니다.
 
 1. 사용자의 선택한 특성에 해당 지역을 추가합니다. 사용 가능한 지역 목록은 이 표에서 확인할 수 있습니다.  

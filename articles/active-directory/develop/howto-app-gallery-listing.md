@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/16/2019
+ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e1763b8d6402a6093499f1f06253fe4c7502255
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 54c51a10f950fb5381ab29968a866772dcaec78c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842781"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918011"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
@@ -42,6 +42,10 @@ ms.locfileid: "74842781"
 - 암호 SSO의 경우 응용 프로그램에서 폼 인증을 지원 하는지 확인 하 여 예상 대로 작동 하도록 Single Sign-On 수 있도록 암호 보관을 수행할 수 있도록 합니다.
 - 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
 
+**개발자 용 Azure AD를 가져오는 방법**
+
+모든 프리미엄 Azure AD 기능을 제공 하는 무료 테스트 계정 (90 일 무료)을 얻을 수 있으며,이를 통해 개발 작업을 수행 하는 동안 확장할 수 있습니다. https://docs.microsoft.com/office/developer-program/office-365-developer-program
+
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
 응용 프로그램 통합이 Azure AD에서 작동 하는지 테스트 한 후에는 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 액세스 요청을 제출 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
@@ -59,6 +63,26 @@ ms.locfileid: "74842781"
 팀이 세부 정보를 검토하고 적절하게 액세스 권한을 부여합니다. 요청이 승인 되 면 포털에 로그인 하 고 홈 페이지에서 요청 **제출 (ISV)** 타일을 선택 하 여 요청을 제출할 수 있습니다.
 
 ![홈 페이지의 ISV (요청 제출) 타일](./media/howto-app-gallery-listing/homepage.png)
+
+## <a name="issues-on-logging-into-portal"></a>포털에 로그인 하는 문제
+
+로그인 하는 동안이 오류가 표시 되는 경우 문제에 대 한 세부 정보와 문제를 해결 하는 방법이 여기에 있습니다.
+
+* 아래와 같이 로그인이 차단 된 경우:
+
+  ![갤러리에서 응용 프로그램을 확인 하는 문제](./media/howto-app-gallery-listing/blocked.png)
+
+**무슨 일이죠:**
+
+게스트 사용자는 Azure AD 이기도 한 홈 테 넌 트에 페더레이션 됩니다. 게스트 사용자는 위험 수준이 높습니다. Microsoft는 높은 위험 수준의 사용자가 해당 리소스에 액세스할 수 없도록 합니다. 모든 위험 수준 사용자 (직원 또는 손님/공급 업체)는 Microsoft 리소스에 액세스 하기 위해 위험을 수정 하거나 종결 해야 합니다. 게스트 사용자의 경우이 사용자 위험은 홈 테 넌 트에서 발생 하 고 정책은 리소스 테 넌 트 (이 경우 Microsoft)에서 제공 됩니다.
+ 
+**보안 솔루션:**
+
+* MFA 등록 게스트 사용자는 자신의 사용자 위험을 수정 합니다. 게스트 사용자가 해당 홈 테 넌 트에서 https://aka.ms/sspr) (홈 테 넌 트에서 MFA 및 SSPR 필요)를 수행 하 여이 작업을 수행할 수 있습니다. 보안 된 암호 변경 또는 재설정은 온-프레미스이 아닌 Azure AD에서 시작 해야 합니다.
+
+* 게스트 사용자는 관리자에 게 위험을 해결 합니다. 이 경우 관리자가 암호 재설정 (임시 암호 생성)을 수행 합니다. Id 보호는 필요 하지 않습니다. 게스트 사용자의 관리자는 https://aka.ms/RiskyUsers 로 이동 하 여 ' 암호 재설정 '을 클릭 합니다.
+
+* 게스트 사용자는 관리자에 게 위험을 종결 하거나 해제 합니다. 이 경우에도 Id 보호가 필요 하지 않습니다. 관리자는 https://aka.ms/RiskyUsers 로 이동 하 여 ' 사용자 위험 해제 '를 클릭할 수 있습니다. 그러나 관리자는 사용자 위험을 닫기 전에이가 거짓 긍정 위험 평가 인지 확인 하기 위해 기한 성실을 수행 해야 합니다. 그렇지 않으면 조사 하지 않고 위험 평가를 억제 하 여 및 Microsoft의 리소스를 위험에 노출 합니다.
 
 > [!NOTE]
 > 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
@@ -79,6 +103,7 @@ Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD�
   ![갤러리에 SAML 2.0 또는 WS-급지됨 응용 프로그램 나열](./media/howto-app-gallery-listing/saml.png)
 
   * **Saml 2.0** 또는 **ws 급지됨**를 사용 하 여 갤러리의 목록에 응용 프로그램을 추가 하려는 경우 표시 된 대로 **saml 2.0/ws 공급** 을 선택 합니다.
+
   * 액세스에 문제가 있는 경우 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요.
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>암호 SSO를 사용 하 여 SSO 구현

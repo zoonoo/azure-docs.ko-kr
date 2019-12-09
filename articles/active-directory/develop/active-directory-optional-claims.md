@@ -1,7 +1,7 @@
 ---
-title: Azure AD 앱에 선택적 클레임을 제공 하는 방법을 알아봅니다.
+title: Azure AD 앱에 선택적 클레임 제공 | Microsoft
 titleSuffix: Microsoft identity platform
-description: Azure Active Directory에서 발급하는 SAML 2.0 및 JWT(JSON 웹 토큰)에 사용자 지정 또는 추가 클레임을 추가하기 위한 한 가이드입니다.
+description: Azure Active Directory에서 발급 한 SAML 2.0 및 JWT (JSON 웹 토큰) 토큰에 사용자 지정 또는 추가 클레임을 추가 하는 방법입니다.
 author: rwike77
 manager: CelesteDG
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1364a491122ae15f86bec98afbfd4e5110e8e07
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 323415c18497f19b4c8f29a303b6ec59dfda1885
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844722"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918273"
 ---
 # <a name="how-to-provide-optional-claims-to-your-azure-ad-app"></a>방법: Azure AD 앱에 선택적 클레임 제공
 

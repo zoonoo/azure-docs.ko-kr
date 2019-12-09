@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ea0f9e07b476459824c8166781f549d788185ba
-ms.sourcegitcommit: d47a30e54c5c9e65255f7ef3f7194a07931c27df
+ms.openlocfilehash: 6a9e410be7a52291d19478dbfb8e9ad30f144ccb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73024777"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74914066"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Office 365 그룹에 대한 만료 정책 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "73024777"
 
 만료할 그룹을 설정한 경우 다음이 적용됩니다.
 
-- 만료 될 때 사용자 활동이 있는 그룹이 자동으로 갱신 됨
+- 만료가 다가올 때 사용자 활동이 있는 그룹이 자동으로 갱신됩니다.
 - 그룹이 자동으로 갱신 되지 않은 경우 그룹 소유자에 게 그룹을 갱신 하 라는 알림이 표시 됩니다.
 - 갱신하지 않는 모든 그룹은 삭제됩니다.
 - 삭제된 Office 365 그룹은 그룹 소유자 또는 관리자에 의해 30일 이내로 복원될 수 있습니다.
@@ -62,7 +62,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 
 역할 | 권한
 -------- | --------
-전역 관리자 또는 사용자 관리자 | Office 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음<br>Office 365 그룹을 갱신할 수 있음
+전역 관리자, 그룹 관리자 또는 사용자 관리자 | Office 365 그룹 만료 정책 설정을 만들거나, 읽거나, 업데이트하거나, 삭제할 수 있음<br>Office 365 그룹을 갱신할 수 있음
 사용자 | 소유하는 Office 365 그룹을 갱신할 수 있음<br>소유하는 Office 365 그룹을 복원할 수 있음<br>만료 정책 설정을 읽을 수 있음
 
 삭제된 그룹을 복원하는 권한에 대한 자세한 내용은 [Azure Active Directory에서 삭제된 Office 365 그룹 복원](groups-restore-deleted.md)을 참조하세요.
@@ -88,7 +88,7 @@ Azure AD PowerShell cmdlet을 다운로드하여 설치하는 방법에 대한 �
 > [!NOTE]
 > 만료 시간 간격 보다 오래 된 그룹을 처음으로 설정 하는 경우 그룹을 자동으로 갱신 하거나 소유자가 갱신 하지 않는 한 만료 될 때까지 35 일로 설정 됩니다.
 >
-> 동적 그룹을 삭제 및 복원 하는 경우 새 그룹으로 표시 되 고 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24 시간이 걸릴 수 있습니다.
+> 동적 그룹을 삭제 및 복원 하는 경우 새 그룹으로 표시 되 고 규칙에 따라 다시 채워집니다. 이 프로세스는 최대 24시간이 소요될 수 있습니다.
 >
 > 팀에서 사용 하는 그룹에 대 한 만료 알림은 팀 소유자 피드에 표시 됩니다.
 

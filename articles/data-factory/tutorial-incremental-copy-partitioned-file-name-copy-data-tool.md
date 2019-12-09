@@ -9,17 +9,16 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 746b5cbcc58f6c722623446227417e6c94dd0a80
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9c72bc9c0862820b72fbecee7966e946f4ba0001
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217443"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928045"
 ---
 # <a name="incrementally-copy-new-files-based-on-time-partitioned-file-name-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 시간 분할 된 파일 이름에 따라 새 파일을 증분 복사
 
@@ -31,11 +30,11 @@ ms.locfileid: "74217443"
 이 자습서에서는 다음 단계를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
@@ -53,7 +52,7 @@ ms.locfileid: "74217443"
 
 2. **Destination**이라는 컨테이너를 만듭니다. [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
@@ -69,7 +68,7 @@ ms.locfileid: "74217443"
 3. 새 데이터 팩터리를 만들 Azure **구독**을 선택합니다. 
 4. **리소스 그룹**에 대해 다음 단계 중 하나를 사용합니다.
      
-    가. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
+    a. **기존 항목 사용**을 선택하고 드롭다운 목록에서 기존 리소스 그룹을 선택합니다.
 
     b. **새로 만들기**를 선택하고 리소스 그룹의 이름을 입력합니다. 
          
@@ -95,22 +94,22 @@ ms.locfileid: "74217443"
    
 2. **속성** 페이지에서 다음 단계를 수행 합니다.
 
-    가. **작업 이름**아래에서 **DeltaCopyFromBlobPipeline**을 입력 합니다.
+    a. **작업 이름**아래에서 **DeltaCopyFromBlobPipeline**을 입력 합니다.
 
     b. **작업 흐름 또는 작업 일정**에서 **일정에 따라 정기적으로 실행**을 선택 합니다.
 
-    c. **트리거 유형**에서 **연속 창**을 선택 합니다.
+    다. **트리거 유형**에서 **연속 창**을 선택 합니다.
     
     d. **되풀이**에서 **1 시간**을 입력 합니다. 
     
-    e. **다음**을 선택합니다. 
+    ㅁ. **다음**을 선택합니다. 
     
     Data Factory UI에서 지정한 작업 이름이 있는 파이프라인을 만듭니다. 
 
     ![속성 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/copy-data-tool-properties-page.png)
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    가. **+ 새 연결 만들기**를 클릭 하 여 연결을 추가 합니다.
+    a. **+ 새 연결 만들기**를 클릭 하 여 연결을 추가 합니다.
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page.png)
     
@@ -118,7 +117,7 @@ ms.locfileid: "74217443"
 
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-blob.png)
     
-    c. **새 연결 된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 하 고 **마침**을 클릭 합니다.
+    다. **새 연결 된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 하 고 **마침**을 클릭 합니다.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -127,7 +126,7 @@ ms.locfileid: "74217443"
    ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/source-data-store-page-select-linkedservice.png)
 4. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 수행합니다.
     
-    가. **원본** 컨테이너를 찾아 선택한 다음 선택을 선택 **합니다.**
+    a. **원본** 컨테이너를 찾아 선택한 다음 선택을 선택 **합니다.**
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-input-file-folder.png)
     
@@ -135,7 +134,7 @@ ms.locfileid: "74217443"
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-loading-behavior.png)
     
-    c. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 형식으로 변경 합니다.
+    다. 동적 폴더 경로를 **원본/{year}/{month}/{day}/{hour}/** 로 작성 하 고 다음 형식으로 변경 합니다.
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name.png)
     
@@ -147,7 +146,7 @@ ms.locfileid: "74217443"
     ![대상 데이터 저장소 페이지](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/destination-data-store-page-select-linkedservice.png) 
 6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 수행 합니다.
     
-    가. **대상** 폴더를 찾아서 선택 하 **고 선택을 클릭 합니다**.
+    a. **대상** 폴더를 찾아서 선택 하 **고 선택을 클릭 합니다**.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/choose-output-file-folder.png)   
     
@@ -155,7 +154,7 @@ ms.locfileid: "74217443"
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/input-file-name2.png)    
     
-    c. **다음**을 누릅니다.
+    다. **다음**을 누릅니다.
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/click-next-after-output-folder.png)  
 7. **설정** 페이지에서 **다음**을 선택합니다. 
@@ -175,7 +174,7 @@ ms.locfileid: "74217443"
 
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs2.png)
     
-    Azure Storage 탐색기 (https://storageexplorer.com/)를 사용 하 여 파일을 검사 하 여 동일한를 확인할 수도 있습니다.
+    Azure Storage 탐색기 (https://storageexplorer.com/) 를 사용 하 여 파일을 검사 하 여 동일한를 확인할 수도 있습니다.
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs3.png)
 12. 새 이름이 **file2 .txt**인 다른 빈 텍스트 파일을 만듭니다. 저장소 계정에서 파일 경로 **원본/2019/02/26/15** 폴더에 file2 파일을 업로드 합니다.   [Azure Storage Explorer](https://storageexplorer.com/)와 같은 다양한 도구를 사용하여 이러한 작업을 수행할 수 있습니다.   
@@ -197,7 +196,7 @@ ms.locfileid: "74217443"
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs7.png) 
     
-    Azure Storage 탐색기 (https://storageexplorer.com/)를 사용 하 여 동일한를 확인할 수도 있습니다. **대상** 컨테이너에서 파일을 검색 하려면
+    Azure Storage 탐색기 (https://storageexplorer.com/) 를 사용 하 여 동일한를 확인할 수도 있습니다. **대상** 컨테이너에서 파일을 검색 하려면
     
     ![파이프라인 실행 모니터링](./media/tutorial-incremental-copy-partitioned-file-name-copy-data-tool/monitor-pipeline-runs8.png)
 

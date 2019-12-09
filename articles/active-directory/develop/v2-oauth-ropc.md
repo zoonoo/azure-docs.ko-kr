@@ -1,6 +1,7 @@
 ---
-title: Microsoft id 플랫폼을 사용 하 여 ROPC (리소스 소유자 암호 자격 증명) 권한 부여를 사용 하 여 사용자 로그인 | Microsoft
-description: 리소스 소유자 암호 자격 증명 권한 부여를 사용하여 브라우저 없는 인증 흐름을 지원합니다.
+title: 리소스 소유자 암호 자격 증명 부여를 사용 하 여 로그인 | Microsoft
+titleSuffix: Microsoft identity platform
+description: ROPC (리소스 소유자 암호 자격 증명) 부여를 사용 하 여 브라우저 없는 인증 흐름을 지원 합니다.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,14 +18,14 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4504a1ae60aaac790ca15c120433159c2ff78fa
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207778"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919327"
 ---
-# <a name="microsoft-identity-platform-and-the-oauth-20-resource-owner-password-credentials"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
+# <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
 Microsoft id 플랫폼은 응용 프로그램이 암호를 직접 처리 하 여 사용자에 게 로그인 할 수 있도록 하는 [OAuth 2.0 리소스 소유자 암호 자격 증명 (ROPC) 부여](https://tools.ietf.org/html/rfc6749#section-4.3)를 지원 합니다.  이 문서에서는 응용 프로그램에서 프로토콜에 대해 직접 프로그래밍 하는 방법을 설명 합니다.  가능 하면 [토큰을 획득 하 고 보안 웹 api를 호출](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows)하는 대신 지원 되는 Msal (Microsoft 인증 라이브러리)을 사용 하는 것이 좋습니다.  [MSAL을 사용 하는 샘플 앱](sample-v2-code.md)에 대해서도 살펴봅니다.
 
@@ -68,11 +69,11 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| 매개 변수 | 조건 | 설명 |
+| 매개 변수를 포함해야 합니다. | 조건 | 설명 |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. | 
-| `grant_type` | 필수 | `password`으로 설정해야 합니다. |
+| `grant_type` | 필수 | `password`로 설정해야 합니다. |
 | `username` | 필수 | 사용자의 메일 주소입니다. |
 | `password` | 필수 | 사용자 암호입니다. |
 | `scope` | 권장 | 앱에 필요한 [범위](v2-permissions-and-consent.md) 또는 권한의 공백으로 구분된 목록입니다. 대화형 흐름에서 관리자 또는 사용자는 미리 이러한 범위에 동의 해야 합니다. |
@@ -94,9 +95,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수 | 형식 | 설명 |
+| 매개 변수를 포함해야 합니다. | 형식 | 설명 |
 | --------- | ------ | ----------- |
-| `token_type` | 문자열 | 항상 `Bearer`로 설정합니다. |
+| `token_type` | string | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |
 | `expires_in`| int | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청된 [범위](v2-permissions-and-consent.md)에 대해 발급되었습니다. |
@@ -109,12 +110,12 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 사용자가 올바른 사용자 이름 또는 암호를 입력하지 않았거나 클라이언트가 요청된 동의를 수신하지 못한 경우 인증에 실패합니다.
 
-| Error | 설명 | 클라이언트 작업 |
+| 오류 | 설명 | 클라이언트 작업 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위가 부여 되지 않은 경우 `consent_required` 오류가 반환 됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
 | `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 형식은 `/common` 또는 `/consumers` 인증 컨텍스트에서 지원 되지 않습니다.  대신 `/organizations` 또는 테 넌 트 ID를 사용 합니다. |
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 * [샘플 콘솔 애플리케이션](https://github.com/azure-samples/active-directory-dotnetcore-console-up-v2)을 사용하여 직접 ROPC를 사용해 보세요.
 * V2.0 끝점을 사용 해야 하는지 여부를 확인 하려면 [Microsoft id 플랫폼 제한 사항](active-directory-v2-limitations.md)을 참조 하세요.

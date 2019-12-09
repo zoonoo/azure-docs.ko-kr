@@ -4,25 +4,25 @@ description: Azure Data Factory를 사용하여 Office 365에서 데이터 복�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 0c938caef81063409d3c8d6632cd7e8df99f1ea1
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 896265311a67b74ccf9d0226a2969284ee491c9b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672612"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931431"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Azure Data Factory를 사용하여 Office 365에서 데이터 로드
 
 이 문서에서는 Data Factory를 사용하여 _Office 365에서 Azure Blob Storage로 데이터를 로드_하는 방법을 설명합니다. Azure Data Lake Gen1 또는 Gen2로 데이터를 복사할 때도 이와 유사한 단계를 따를 수 있습니다. Office 365에서 데이터를 복사하는 작업과 관련된 일반 정보는 [Office 365 커넥터 문서](connector-office-365.md)를 참조하세요.
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **분석** > **Data Factory**를 선택합니다. 
    
@@ -45,7 +45,7 @@ ms.locfileid: "73672612"
 
 5. **작성 및 모니터링** 타일을 선택하여 별도의 탭에서 데이터 통합 애플리케이션을 시작합니다.
 
-## <a name="create-a-pipeline"></a>파이프라인을 만듭니다.
+## <a name="create-a-pipeline"></a>파이프라인 만들기
 
 1. "시작하기" 페이지에서 **파이프라인 만들기**를 선택합니다.
  
@@ -128,7 +128,7 @@ ms.locfileid: "73672612"
 
 ![작업 모니터링](./media/load-office-365-data/activity-status.png) 
 
-이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업이 표시 됩니다. **진행**중인 상태 이며, "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 멤버가 데이터 추출이 진행되기 전에 Privileged Access Management에서 요청을 승인해야 합니다.
+이 컨텍스트에 대 한 데이터를 처음으로 요청 하는 경우 (액세스 하는 데이터 테이블의 조합, 데이터 액세스를 요청 하는 대상 계정 및 데이터 액세스 요청을 만드는 사용자 id) 복사 작업 상태는 **진행**중으로 표시 되며, 작업 아래에서 "세부 정보" 링크를 클릭 하면 상태가 **RequesetingConsent**로 표시 됩니다.  데이터 액세스 승인자 그룹의 멤버가 데이터 추출이 진행되기 전에 Privileged Access Management에서 요청을 승인해야 합니다.
 
 _동의 요청 중 상태:_ 
 ![활동 실행 세부 정보 - 요청 동의](./media/load-office-365-data/activity-details-request-consent.png) 

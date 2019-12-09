@@ -3,10 +3,8 @@ title: 오류 및 예외 (MSAL)
 titleSuffix: Microsoft identity platform
 description: MSAL 응용 프로그램에서 오류 및 예외, 조건부 액세스 및 클레임 문제를 처리 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.devlang: na
@@ -15,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
 ms.author: twhitney
-ms.reviewer: saeeda
+ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 753296596982279a14ff2775b0e129048dbe8369
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482074"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916777"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>MSAL 예외 및 오류 처리
 
@@ -266,7 +264,7 @@ Java 용 MSAL에는 `MsalClientException`, `MsalServiceException`및 `MsalIntera
 
 MSAL은 더 나은 사용자 환경을 제공 하는 데 사용할 수 있는 `reason` 필드를 노출 합니다. 예를 들어 `reason` 필드를 사용 하면 사용자에 게 암호가 만료 되었거나 일부 리소스를 사용 하는 데 동의 해야 함을 사용자에 게 알릴 수 있습니다. 지원 되는 값은 `InteractionRequiredExceptionReason` 열거형의 일부입니다.
 
-| Reason | 의미 | 권장 처리 |
+| 이유 | 의미 | 권장 처리 |
 |---------|-----------|-----------------------------|
 | `BasicAction` | 대화형 인증 흐름 중 사용자 조작을 통해 조건을 확인할 수 있습니다. | 대화형 매개 변수를 사용 하 여 `acquireToken` 호출 |
 | `AdditionalAction` | 상태는 대화형 인증 흐름 외부의 시스템과의 추가 수정 조작으로 해결할 수 있습니다. | 대화형 매개 변수를 사용 하 여 `acquireToken`를 호출 하 여 수행할 수정 작업을 설명 하는 메시지를 표시 합니다. 사용자가 수정 작업을 완료할 가능성이 없는 경우 호출 앱에서 추가 작업을 필요로 하는 흐름을 숨기도록 선택할 수 있습니다. |
@@ -516,7 +514,7 @@ IOS 및 macOS 오류에 대 한 MSAL의 전체 목록은 [Msalerror 열거형](h
 
 ### <a name="net"></a>.NET
 
-MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)으로 표시됩니다.
+MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)으로 표시됩니다.
 
 클레임 챌린지를 처리 하려면 `PublicClientApplicationBuilder` 클래스의 `.WithClaim()` 메서드를 사용 해야 합니다.
 
