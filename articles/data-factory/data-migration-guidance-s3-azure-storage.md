@@ -1,36 +1,35 @@
 ---
-title: Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터를 마이그레이션합니다.
+title: Amazon S3에서 Azure Storage로 데이터 마이그레이션
 description: Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Storage 데이터를 마이그레이션합니다.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 4d4e0453105dacfbf35624a2a9acb9d5994f4dea
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 30990c3d1e3f885e8984227425d3e8e5c44b9286
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675736"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927484"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Azure Data Factory를 사용 하 여 Amazon s 3에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
 Azure Data Factory는 Amazon s 3에서 Azure Blob Storage 또는 Azure Data Lake Storage Gen2으로 대규모로 데이터를 마이그레이션하는 데 성능과 강력 하 고 비용 효율적인 메커니즘을 제공 합니다.  이 문서에서는 데이터 엔지니어와 개발자에 대 한 다음 정보를 제공 합니다. 
 
 > [!div class="checklist"]
-> * 성능 
+> * 성능 중심 
 > * 복원 력
 > * 네트워크 보안
 > * 개략적인 솔루션 아키텍처 
 > * 구현 모범 사례  
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 ADF는 서로 다른 수준에서 병렬 처리를 허용 하는 서버 리스 아키텍처를 제공 합니다 .이 아키텍처를 통해 개발자는 네트워크 대역폭과 저장소 IOPS 및 대역폭을 완벽 하 게 활용 하 여 환경에 대 한 데이터 이동 처리량을 최대화할 수 있습니다. 
 
@@ -93,7 +92,7 @@ S 3에서 Blob으로 이진 복사를 수행 하 고 s 3에서 ADLS Gen2로 복�
 
 ### <a name="delta-data-migration"></a>델타 데이터 마이그레이션 
 
-AWS s 3에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간이 분할 된 명명 규칙을 사용 하는 것입니다. AWS S3의 데이터가 파일 또는 폴더 이름 (예:/yyyy/mm/dd/file.csv)의 시간 조각 정보를 사용 하 여 분할 된 시간입니다. 파이프라인은 증분 복사할 파일/폴더를 쉽게 식별할 수 있습니다. 
+AWS s 3에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 효율적인 방법은 시간 분할 명명 규칙을 사용 하는 것입니다. 즉, AWS S3의 데이터가 파일 또는 폴더 이름 (예:/yyyy/mm/dd/file.csv)의 시간 조각 정보를 사용 하 여 분할 된 경우 파이프라인은 증분 복사할 파일/폴더를 쉽게 식별할 수 있습니다. 
 
 또는 AWS S3의 데이터가 시간 분할 되지 않은 경우 ADF는 새 파일 또는 변경 된 파일을 LastModifiedDate에서 식별할 수 있습니다.   ADF는 AWS S3의 모든 파일을 검색 하 고 마지막으로 수정 된 타임 스탬프가 특정 값 보다 큰 새 파일 및 업데이트 된 파일만 복사 하는 방식으로 작동 합니다.  S 3에 많은 파일이 있는 경우 초기 파일 검색은 필터 조건과 일치 하는 파일 수에 관계 없이 시간이 오래 걸릴 수 있습니다.  이 경우 초기 스냅숏 마이그레이션에 동일한 ' 접두사 ' 설정을 사용 하 여 데이터를 먼저 분할 하는 것이 좋습니다. 따라서 파일 검색은 병렬로 수행 될 수 있습니다.  
 
@@ -101,7 +100,7 @@ AWS s 3에서 새로운 파일 또는 변경 된 파일을 식별 하는 가장 
 
 개인 링크를 통해 데이터를 마이그레이션하거나 Amazon S3 방화벽에서 특정 IP 범위를 허용 하려면 Azure Windows VM에 자체 호스팅 Integration runtime을 설치 해야 합니다. 
 
-- 각 Azure VM에 대해 시작 하는 권장 구성은 32 vCPU 및 128 GB 메모리로 Standard_D32s_v3 됩니다.  데이터 마이그레이션 중에 IR VM의 CPU 및 메모리 사용률을 계속 모니터링 하 여 더 나은 성능을 위해 VM을 확장 하거나 비용을 절약 하기 위해 VM을 확장할 필요가 있는지 확인할 수 있습니다. 
+- 각 Azure VM에 대해 시작 하는 권장 구성은 32 vCPU 및 128 GB 메모리로 Standard_D32s_v3 있습니다.  데이터 마이그레이션 중에 IR VM의 CPU 및 메모리 사용률을 계속 모니터링 하 여 더 나은 성능을 위해 VM을 확장 하거나 비용을 절약 하기 위해 VM을 확장할 필요가 있는지 확인할 수 있습니다. 
 - 단일 자체 호스팅 IR을 사용 하 여 최대 4 개의 VM 노드를 연결 하 여 규모를 확장할 수도 있습니다.  자체 호스팅 IR에 대해 실행 되는 단일 복사 작업은 자동으로 파일 집합을 분할 하 고 모든 VM 노드를 활용 하 여 파일을 병렬로 복사 합니다.  고가용성을 위해 데이터 마이그레이션 중 단일 실패 지점을 방지 하기 위해 2 개의 VM 노드로 시작 하는 것이 좋습니다. 
 
 ### <a name="rate-limiting"></a>속도 제한 

@@ -1,23 +1,22 @@
 ---
-title: 'SSIS integration runtime에서 패키지 실행 문제 해결 '
+title: SSIS integration runtime에서 패키지 실행 문제 해결
 description: 이 문서에서는 SSIS integration runtime에서 SSIS 패키지 실행에 대 한 문제 해결 지침을 제공 합니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 04/15/2019
-author: wenjiefu
 ms.author: wenjiefu
+author: wenjiefu
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 9692c754e59eba02d3d483d44430150107d703a4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+manager: shwang
+ms.custom: seo-lt-2019
+ms.date: 04/15/2019
+ms.openlocfilehash: c0aa33cce8dc163722557b1ef868cf0de8bea8fe
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217530"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928741"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>SSIS integration runtime에서 패키지 실행 문제 해결
 
@@ -156,7 +155,7 @@ Azure SSIS 통합 런타임이 자체 호스팅 통합 런타임을 사용 하 �
   * 실행 로그는 [SSMS 보고서](https://docs.microsoft.com/sql/integration-services/performance/monitor-running-packages-and-other-operations?view=sql-server-2017#reports) 또는 SSIS 패키지 실행 작업에서 지정한 로그 폴더에서 찾을 수 있습니다.
   * vNet은 다른 방법으로 온-프레미스 데이터에 액세스 하는 데도 사용할 수 있습니다. 자세한 내용은 [AZURE SSIS integration runtime을 가상 네트워크에 가입](join-azure-ssis-integration-runtime-virtual-network.md) 에서 찾을 수 있습니다.
 
-### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 작업 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", " effectiveIntegrationRuntime ":" ... "," executionDuration ": ...," durationInQueue ": {" integrationRuntimeQueue ": ...}}"
+### <a name="error-message-staging-task-status-failed-staging-task-error-errorcode-2906-errormessage-package-execution-failed-output-operationerrormessages-ssis-executor-exit-code--1n-loglocation-ssistelemetryexecutionlog-effectiveintegrationruntime--executionduration--durationinqueue--integrationruntimequeue--"></a>오류 메시지: "준비 작업 상태: 실패 준비 태스크 오류: ErrorCode: 2906, ErrorMessage: 패키지를 실행 하지 못했습니다., 출력: {"OperationErrorMessages": "SSIS Executor 종료 코드:-1. \ n", "LogLocation": "...\\SSISTelemetry\\ExecutionLog\\...", "effectiveIntegrationRuntime": "...", "Executionlog": ..., "durationInQueue": {"integrationRuntimeQueue": ...}} "
 
 자체 호스팅 integration C++ runtime 컴퓨터에 Visual runtime이 설치 되어 있는지 확인 합니다. 자세한 내용은 [ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](self-hosted-integration-runtime-proxy-ssis.md#prepare-self-hosted-ir) 에서 찾을 수 있습니다.
 

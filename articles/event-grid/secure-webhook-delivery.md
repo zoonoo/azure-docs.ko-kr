@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: babanisa
-ms.openlocfilehash: 9ee1dd74384725b3fffbfea7144c3a536b50c531
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 074378668b0516936e11968ea8c800d3daa667bb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74174552"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931550"
 ---
 # <a name="publish-events-to-azure-active-directory-protected-endpoints"></a>Azure Active Directory 보호 된 끝점에 이벤트 게시
 
@@ -22,9 +22,9 @@ ms.locfileid: "74174552"
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
-## <a name="create-and-azure-ad-application"></a>Azure AD 응용 프로그램 만들기
+## <a name="create-an-azure-ad-application"></a>Azure AD 응용 프로그램 만들기
 
-먼저 보호 된 끝점에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview을 참조하세요.
+먼저 보호 된 끝점에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 를 참조하세요.
     - 디먼 앱에서 호출 하도록 보호 된 API를 구성 합니다.
     
 ## <a name="enable-event-grid-to-use-your-azure-ad-application"></a>Event Grid를 사용 하 여 Azure AD 응용 프로그램 사용

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: 8ac93e7ed1638137e70086ac22fa9bb97606830e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9bdc180bf0dfd6f35fb18f5c76176a68d8f1644
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228055"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74912990"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -42,11 +42,11 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 
 개인 링크 서비스를 더 이상 사용 하지 않는 경우 해당 서비스를 삭제할 수 있습니다. 그러나 서비스를 삭제 하기 전에 연결 된 개인 끝점 연결이 없는지 확인 합니다. 모든 연결을 거부 하 고 서비스를 삭제할 수 있습니다.
 
-## <a name="properties"></a>속성
+## <a name="properties"></a>properties
 
 개인 링크 서비스는 다음 속성을 지정 합니다. 
 
-|속성 |설명  |
+|자산 |설명  |
 |---------|---------|
 |프로 비전 상태 (provisioningState)  |개인 링크 서비스에 대 한 현재 프로 비전 상태를 나열 하는 읽기 전용 속성입니다. 적용 가능한 프로 비전 상태는 "삭제 중;입니다. 오류가 열었습니다 업데이트 중 ". 프로 비전 상태가 "성공" 인 경우 개인 링크 서비스를 프로 비전 했습니다.        |
 |별칭 (별칭)     | 별칭은 서비스에 대 한 전역적으로 고유한 읽기 전용 문자열입니다. 서비스에 대 한 고객 데이터를 마스킹하는 동시에 서비스에 대 한 공유 하기 쉬운 이름을 만들 수 있습니다. 개인 링크 서비스를 만들 때 Azure는 고객과 공유할 수 있는 서비스에 대 한 별칭을 생성 합니다. 고객은이 별칭을 사용 하 여 서비스에 대 한 연결을 요청할 수 있습니다.          |
@@ -101,7 +101,6 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 - 표준 Load Balancer 에서만 지원 됨 
 - IPv4 트래픽만 지원 합니다.
 - TCP 트래픽만 지원 합니다.
-- 동일한 지역의 개인 끝점 에서만 연결할 수 있습니다.
 - Azure Portal에서 환경 만들기 및 관리가 지원 되지 않음
 - 프록시 프로토콜을 사용 하는 클라이언트 연결 정보를 서비스 공급자가 사용할 수 없음
 

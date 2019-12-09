@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: reference
 ms.date: 11/08/2019
 ms.author: alkarche
-ms.openlocfilehash: 6884c8f1bf7a462b5d93f5c9ea23a2f64021fd9e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: a947ff11fbbe418af84ff49033cba3857bb8447f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74328496"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925177"
 ---
 # <a name="azure-functions-warm-up-trigger"></a>Azure Functions 준비 트리거
 
@@ -22,7 +22,7 @@ ms.locfileid: "74328496"
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 [WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지, 버전 **3.0.5** 이상이 필요 합니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 리포지토리에 있습니다. 
 
@@ -245,8 +245,8 @@ Python에서 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-| **type** | n/a| 필수 - `warmupTrigger`로 설정해야 합니다. |
-| **direction** | n/a| 필수 - `in`로 설정해야 합니다. |
+| **type** | n/a| 필수 - `warmupTrigger`으로 설정해야 합니다. |
+| **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |
 | **name** | n/a| 필수-함수 코드에 사용 되는 변수 이름입니다.|
 
 ## <a name="trigger---usage"></a>트리거 - 사용

@@ -1,25 +1,26 @@
 ---
-title: Azure Data Factory의 복사 작업 성능 및 확장성 가이드
+title: 복사 작업 성능 및 확장성 가이드
 description: 복사 작업을 사용할 때 Azure Data Factory에서 데이터 이동의 성능에 영향을 주는 주요 요소에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
+ms.author: jingwang
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/24/2019
-ms.author: jingwang
-ms.openlocfilehash: 701eaad8d36b352e946ae8d74204876b41ecb53d
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 1b1b02e310c98a78006d258333c0ec10e89e3b31
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678277"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927458"
 ---
 # <a name="copy-activity-performance-and-scalability-guide"></a>복사 작업 성능 및 확장성 가이드
+
 > [!div class="op_single_selector" title1="사용 중인 Azure Data Factory의 버전을 선택 합니다."]
 > * [버전 1](v1/data-factory-copy-activity-performance.md)
 > * [현재 버전](copy-activity-performance.md)
@@ -96,7 +97,7 @@ ADF 복사본은 다양 한 수준에서 확장 가능 합니다.
 
 3. **여러 복사본을 동시에 실행 하 여 집계 처리량을 최대화 하는 방법:**
 
-   이제 단일 복사 작업의 성능을 최대화 했으므로 네트워크, 원본 데이터 저장소 및 대상 데이터 저장소 환경의 처리량 상한을 아직 획득 하지 않은 경우 ADF를 사용 하 여 여러 개의 복사 작업을 병렬로 실행할 수 있습니다. [For each 루프](control-flow-for-each-activity.md)와 같은 제어 흐름 생성자.
+   이제 단일 복사 작업의 성능을 최대화 했으므로 (네트워크, 원본 데이터 저장소 및 대상 데이터 저장소) 환경의 처리량 상한을 아직 획득 하지 않은 경우 [For each 루프](control-flow-for-each-activity.md)와 같은 ADF 제어 흐름 구문을 사용 하 여 여러 개의 복사 작업을 병렬로 실행할 수 있습니다.
 
 4. **성능 튜닝 팁 및 최적화 기능.** 경우에 따라 복사 작업을 Azure Data Factory 실행 하면 다음 예제와 같이 [복사 작업 모니터링](copy-activity-overview.md#monitor-visually)위에 "성능 튜닝 팁" 메시지가 표시 됩니다. 메시지는 지정 된 복사 실행에 대해 확인 된 병목 상태를 알려 줍니다. 또한 복사 처리량을 향상 시키기 위해 변경 해야 하는 사항에 대해 안내 합니다. 성능 튜닝 팁은 현재 다음과 같은 제안 사항을 제공 합니다.
 
@@ -150,7 +151,7 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 > [!NOTE]
 > Azure Blob/ADLS Gen1/ADLS Gen2/Amazon S3/Google Cloud Storage/cloud FTP/cloud SFTP에서 또는 파티션 옵션 사용 클라우드 관계형 데이터 저장소 ( [Oracle](connector-oracle.md#oracle-as-source)/[Netezza](connector-netezza.md#netezza-as-source)/[Teradata](connector-teradata.md#teradata-as-source)포함)에서 다른 클라우드 데이터 저장소로 여러 파일을 복사 하는 경우에만 현재 4 개 보다 큰 dius 설정이 적용 됩니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -193,11 +194,11 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 **주의할 사항:**
 
 - 파일 기반 저장소 간에 데이터를 복사 하는 경우 **parallelCopies** 는 파일 수준에서 병렬 처리를 결정 합니다. 단일 파일 내의 청크는 자동으로 투명 하 게 발생 합니다. 지정 된 원본 데이터 저장소 형식에 가장 적합 한 청크 크기를 사용 하 여 데이터를 병렬로 로드 하 고 **parallelCopies**에 직교 하도록 디자인 되었습니다. 런타임 시 데이터 이동 서비스에서 복사 작업에 사용하는 병렬 복사의 실제 수는 사용자가 보유한 파일의 수를 넘지 않습니다. 복사 동작이 **Mergefile**인 경우 복사 작업은 파일 수준 병렬 처리를 사용할 수 없습니다.
-- 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)에서 데이터를 복사 하는 경우 데이터를 파일 기반으로 하는 저장소로 복사 합니다. 이동 서비스는 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
+- 파일 기반이 아닌 저장소 ( [Oracle](connector-oracle.md#oracle-as-source), [Netezza](connector-netezza.md#netezza-as-source), [Teradata](connector-teradata.md#teradata-as-source), [sap 테이블](connector-sap-table.md#sap-table-as-source)및 [sap Open Hub](connector-sap-business-warehouse-open-hub.md#sap-bw-open-hub-as-source) 커넥터를 사용 하는 원본으로 데이터 분할을 사용 하는 원본으로)의 데이터를 파일 기반 저장소로 복사 하는 경우 데이터 이동 서비스는 **parallelCopies** 속성을 무시 합니다. 병렬 처리를 지정하더라도 이 경우에는 적용되지 않습니다.
 - **ParallelCopies** 속성은 **dataIntegrationUnits**와 직교 합니다. 전자는 모든 데이터 통합 단위에서 계산됩니다.
 - **ParallelCopies** 속성의 값을 지정 하는 경우 원본 및 싱크 데이터 저장소에 대 한 부하 증가를 고려해 야 합니다. 또한 하이브리드 복사의 경우와 같이 복사 작업을 통해 권한을 부여 하는 경우 자체 호스팅 통합 런타임에 대 한 부하 증가를 고려해 야 합니다. 이러한 부하가 증가 하는 것은 특히 동일한 데이터 저장소에 대해 실행 되는 동일한 활동의 여러 활동 또는 동시 실행이 있는 경우에 발생 합니다. 데이터 저장소 또는 자체 호스팅 통합 런타임이 부하가 많은 경우에는 부하를 완화 하기 위해 **parallelCopies** 값을 줄입니다.
 
-**예:**
+**예제:**
 
 ```json
 "activities":[
@@ -237,16 +238,16 @@ Azure Data Factory는 다음과 같은 성능 최적화 기능을 제공 합니�
 
 현재 다른 자체 호스팅 IRs을 통해 연결 된 두 데이터 저장소 간에 데이터를 복사할 수 없습니다. 이러한 시나리오의 경우 원본에서 준비로 복사 하 고 스테이징에서 싱크로 복사 하기 위해 명시적으로 연결 된 복사 활동 두 개를 구성할 수 있습니다.
 
-#### <a name="configuration"></a>Configuration
+#### <a name="configuration"></a>구성
 
 복사 작업에서 **Enablestaging** 설정을 구성 하 여 데이터를 대상 데이터 저장소에 로드 하기 전에 Blob 저장소에 준비 해야 하는지 여부를 지정 합니다. **Enablestaging** 을 `TRUE`로 설정 하는 경우 다음 표에 나열 된 추가 속성을 지정 합니다. 또한 준비에 대 한 Azure Storage 또는 저장소 공유 액세스 서명 연결 된 서비스가 없는 경우 만들어야 합니다.
 
-| 속성 | 설명 | 기본값 | 필수 |
+| 자산 | 설명 | 기본값 | 필수 |
 | --- | --- | --- | --- |
-| enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |False |아니오 |
-| linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse에 데이터를 로드 하는 데 공유 액세스 서명이 포함 된 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |해당 없음 |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
-| path |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |해당 없음 |아니오 |
-| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |False |아니오 |
+| enableStaging |중간 준비 저장소를 통해 데이터를 복사할지 여부를 지정합니다. |거짓 |아닙니다. |
+| linkedServiceName |중간 준비 저장소로 사용할 Storage 인스턴스를 참조하여 이름을 [AzureStorage](connector-azure-blob-storage.md#linked-service-properties) 연결 서비스로 지정합니다. <br/><br/> PolyBase를 통해 SQL Data Warehouse에 데이터를 로드 하는 데 공유 액세스 서명이 포함 된 저장소를 사용할 수 없습니다. 다른 모든 시나리오에서는 사용할 수 있습니다. |N/A |예, **enableStaging**이 TRUE로 설정된 경우입니다. |
+| 경로 |준비 데이터를 포함할 Blob Storage 경로를 지정합니다. 경로를 제공 하지 않으면 서비스에서 임시 데이터를 저장 하는 컨테이너를 만듭니다. <br/><br/> 공유 액세스 서명을 포함한 스토리지를 사용하거나 특정 위치에 임시 데이터가 필요한 경우에만 경로를 지정합니다. |N/A |아닙니다. |
+| enableCompression |대상에 복사 하기 전에 데이터를 압축 해야 하는지 여부를 지정 합니다. 이 설정은 전송되는 데이터 양을 줄입니다. |거짓 |아닙니다. |
 
 >[!NOTE]
 > 압축을 사용 하는 준비 된 복사를 사용 하는 경우 스테이징 blob 연결 된 서비스에 대 한 서비스 주체 또는 MSI 인증이 지원 되지 않습니다.

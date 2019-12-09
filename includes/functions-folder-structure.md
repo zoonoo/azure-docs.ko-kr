@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 4460d19de1859a8a3c51d91d418b948b5d3532a6
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: fd220a4a955a8b2cd583c2fe9e3899cb36c1587d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666719"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935952"
 ---
 특정 함수 앱의 모든 기능에 대한 코드는 호스트 구성 파일 및 하나 이상의 하위 폴더를 포함하는 루트 프로젝트 폴더에 있습니다. 각 하위 폴더에는 별도의 함수에 대 한 코드가 포함 되어 있습니다. 폴더 구조는 다음과 같은 표현으로 표시 됩니다.
 
@@ -31,7 +31,7 @@ FunctionApp
  | - bin
 ```
 
-함수 런타임의 버전 2.x에서 함수 앱의 모든 함수는 동일한 언어 스택을 공유 해야 합니다.  
+버전 2.x 이상의 함수 런타임에서 함수 앱의 모든 함수는 동일한 언어 스택을 공유 해야 합니다.  
 
 [Host-a](../articles/azure-functions/functions-host-json.md) 파일은 런타임 별 구성을 포함 하며 함수 앱의 루트 폴더에 있습니다. *Bin* 폴더에는 함수 앱에 필요한 패키지 및 기타 라이브러리 파일이 포함 되어 있습니다. 함수 앱 프로젝트에 대한 언어별 요구 사항을 참조하세요.
 

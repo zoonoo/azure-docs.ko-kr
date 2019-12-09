@@ -4,19 +4,19 @@ description: Azure Data Factory UI의 데이터 복사 도구에 대한 정보�
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
-manager: craigg
+manager: anandsub
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/18/2018
 ms.author: yexu
-ms.openlocfilehash: b5c93213199cac399487f949a3a8cb04c2d9addb
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a6de5c28115d3a451256cc43d26552c269ba245a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73678329"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927490"
 ---
 # <a name="copy-data-tool-in-azure-data-factory"></a>Azure Data Factory의 데이터 복사 도구
 Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 데이터 통합 시나리오의 첫 번째 단계인 Data Lake로의 데이터 수집 프로세스를 용이하게 하며 최적화합니다.  이 도구는 시간을 절감합니다. 특히, Azure Data Factory를 사용하여 처음으로 데이터 원본에서 데이터를 수집할 때 시간 절감 효과를 얻을 수 있습니다. 이 도구를 사용할 경우 몇 가지 이점은 다음과 같습니다.
@@ -91,7 +91,7 @@ Azure Data Factory 데이터 복사 도구는 일반적으로 엔드투엔드 �
 
 **파일 또는 폴더**의 **찾아보기** 단추를 클릭하여 이러한 폴더(예: 2016->03->01->02)중 하나를 찾아서 **선택**을 클릭합니다. 텍스트 상자에 2016/03/01/02가 표시됩니다. 
 
-그런 후 **2016**을 **{year}** 로, **03**을 **{month}** 로, **01**을 **{day}** 로, **02**를 **{hour}** 로 바꾼 다음 **탭** 키를 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
+그런 후 **2016**을 **{year}** 로, **03**을 **{month}** 로, **01**을 **{day}** 로, **02**를 **{hour}** 로 바꾼 다음, **탭** 키를 누릅니다. 이러한 네 가지 변수의 형식을 선택하는 드롭다운 목록이 표시됩니다.
 
 ![파일 또는 폴더 필터링](./media/copy-data-tool/filter-file-or-folder.png)
 

@@ -1,17 +1,17 @@
 ---
-author: larryfr
+author: Blackmist
 ms.service: machine-learning
 ms.topic: include
 ms.date: 10/06/2019
 ms.author: larryfr
-ms.openlocfilehash: 0463dbd67f27f6664ab246ad56af9c6fb95c52ee
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 2124b5241015ca74ff6507767396b1a27bd1191d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682127"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74935954"
 ---
-`deploymentconfig.json` 문서의 항목은 [deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py)에 대 한 매개 변수에 매핑됩니다. 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
+`deploymentconfig.json` 문서의 항목은 AksWebservice에 대 한 매개 변수에 매핑됩니다 [. deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py). 다음 표에서는 JSON 문서의 엔터티 및 메서드에 대 한 매개 변수의 매핑에 대해 설명 합니다.
 
 | JSON 엔터티 | 메서드 매개 변수 | 설명 |
 | ----- | ----- | ----- |
