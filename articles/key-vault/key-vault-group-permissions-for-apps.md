@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7c31c04137a8d36adfe41a18cbc276a45483b05b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467169"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707189"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>액세스 제어 정책을 사용하여 Key Vault 인증 제공
 
@@ -220,6 +220,7 @@ Add-AzADGroupMember -TargetGroupObjectId <groupId> -MemberObjectId <objectId>
 
 마지막으로, Azure CLI [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) 명령 또는 Azure PowerShell [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.7.0) cmdlet을 사용하여 키 자격 증명 모음에 대한 액세스 권한을 AD 그룹에 부여합니다. 예제는 위의 [키 자격 증명 모음에 대한 액세스 권한을 애플리케이션, Azure AD 그룹 또는 사용자에 부여](#give-the-principal-access-to-your-key-vault) 섹션을 참조하세요.
 
+또한 애플리케이션에는 Key Vault에 할당된 ID 및 액세스 관리(IAM) 역할이 하나 이상 필요합니다. 그렇지 않으면 로그인 할 수 없고 구독에 액세스할 수 있는 권한이 없어 실패합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

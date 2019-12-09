@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 - Azure Database for MySQL 서버 크기 조정
+title: CLI 스크립트 - 크기 조정 서버 - Azure Database for MySQL
 description: 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 MySQL 서버용 Azure Database를 다양한 성능 수준으로 확장합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 08/07/2019
-ms.openlocfilehash: f54b3f6fa8bb37f57479d6a9e7bc05340e411a48
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.date: 12/02/2019
+ms.openlocfilehash: 54082daeeee2d5cc894aee49e2c3456e377637f1
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882934"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771314"
 ---
 # <a name="monitor-and-scale-an-azure-database-for-mysql-server-using-azure-cli"></a>Azure CLI를 사용하여 MySQL용 Azure Database 모니터링 및 확장
 이 샘플 CLI 스크립트는 메트릭을 쿼리한 후에 단일 Azure Database for MySQL 서버에 대한 컴퓨팅 및 스토리지를 확장합니다. 컴퓨팅을 확장하거나 축소할 수 있습니다. 스토리지는 확장만 가능합니다.

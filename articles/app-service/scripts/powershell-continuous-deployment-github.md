@@ -1,25 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - GitHub 지속적인 배포를 사용하여 앱 만들기 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - GitHub의 연속 배포를 사용하여 웹앱 만들기
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: erikre
-editor: ''
+title: 'PowerShell: GitHub에서 지속적으로 배포'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 GitHub에서 CI/CD로 앱을 만드는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 42f901f8-02f7-4869-b22d-d99ef59f874c
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: bc8be33ede80070b8e9928e01d07b6066f1c887c
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: eee6ac9f9c469f9e1a9344ab4a30626c219d7836
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70113568"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685162"
 ---
 # <a name="create-a-web-app-with-continuous-deployment-from-github"></a>GitHub의 연속 배포를 사용하여 웹앱 만들기
 

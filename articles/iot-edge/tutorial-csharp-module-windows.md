@@ -1,5 +1,5 @@
 ---
-title: Windows용 C# 모듈 개발 자습서 - Azure IoT Edge | Microsoft Docs
+title: 자습서 - Azure IoT Edge를 사용하여 Windows용 C# 모듈 개발
 description: 이 자습서에서는 C# 코드를 사용하여 IoT Edge 모듈을 만들고, Windows IoT Edge 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f37f0f3fe57015cc733d67f16e64bdf58a8a6b7
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 041efc62b32e8d8c0c477d9d5715882fd7899cd9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560998"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701935"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 

@@ -1,5 +1,5 @@
 ---
-title: C#에서 Azure Database for MySQL에 연결
+title: C#을 사용하여 연결 - Azure Database for MySQL
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 C#(.NET) 코드 샘플을 제공합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: csharp
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: e0536440ea38f127a34639ffb40e5015154ec550
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: 2f740d21c7fb59a05fa1df4a0b3b1385cf2f0831
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53547459"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770784"
 ---
 # <a name="azure-database-for-mysql-use-net-c-to-connect-and-query-data"></a>Azure Database for MySQL: .NET(C#)을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 C# 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 C#을 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.

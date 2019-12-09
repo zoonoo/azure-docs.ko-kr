@@ -1,26 +1,17 @@
 ---
-title: MySQL을 사용한 PHP(Laravel) - Azure App Service | Microsoft Docs
+title: '자습서: MySQL을 사용하는 PHP 앱'
 description: MySQL 데이터베이스에 연결하여 Azure에서 PHP 앱이 작동하도록 하는 방법에 대해 알아봅니다. Laravel은 자습서에서 사용됩니다.
-services: app-service\web
-documentationcenter: php
-author: cephalin
-manager: erikre
-editor: ''
 ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: bae64b2a7ce91aa9738f8d3dbdf55a15edf8957f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: d827270c89160097f76a7fdb36f9a6f97525064b
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480942"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671999"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>자습서: Azure에서 PHP 및 MySQL 앱 빌드
 

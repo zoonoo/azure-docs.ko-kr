@@ -563,7 +563,7 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: 클라우드 서비스
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
-                    - name: JSON Lines 진단 로그 형식
+                    - name: JSON 줄 리소스 로그 형식
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: 문제 해결
                       href: platform/diagnostics-extension-troubleshooting.md
@@ -1163,7 +1163,7 @@
           href: platform/metrics-supported.md
         - name: 최신 경고에 대해 지원되는 메트릭
           href: platform/alerts-metric-near-real-time.md
-    - name: '리소스 로그 서비스, 범주 및 스키마'
+    - name: '플랫폼 로그 서비스, 범주 및 스키마'
       href: platform/diagnostic-logs-schema.md
     - name: Azure CLI
       href: /cli/azure/monitor?view=azure-cli-latest

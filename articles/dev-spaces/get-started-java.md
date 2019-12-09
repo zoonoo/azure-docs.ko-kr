@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: Azure에서 컨테이너 및 마이크로 서비스를 통한 신속한 Kubernetes 개발
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1dc7005ac0d1cb520e4c0452196a2b47665f9b5c
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 5888547939759984effb10aa2c7c6b2add135d12
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325838"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708386"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Java
 
@@ -43,9 +43,10 @@ az login
 다음을 실행하여 구독을 볼 수 있습니다. 
 
 ```cmd
-az account list
+az account list --output table
 ```
-JSON 출력에서 `isDefault: true`이 포함된 구독을 찾습니다.
+
+*IsDefault*에 대해 *True*가 있는 구독을 찾습니다.
 사용하려는 구독이 없으면 기본 구독을 변경할 수 있습니다.
 
 ```cmd

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 3a88f4fc14286a60feb9d72676827b0cce91eb25
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 276de42f2a37a0e48cd323e285760c00e6db9f32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500531"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818226"
 ---
 > [!NOTE]
 > 유니버설 Windows 플랫폼을 사용하여 PC, Xbox, Surface Hub 및 기타 디바이스를 비롯하여 Windows 10을 지원하는 모든 디바이스에서 실행되는 앱을 개발할 수 있습니다.
@@ -25,7 +25,7 @@ ms.locfileid: "73500531"
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=uwp)
 
@@ -61,7 +61,7 @@ ms.locfileid: "73500531"
 
    ![C#으로 작성된 샘플 UWP 음성 합성 애플리케이션 - 빠른 시작](~/articles/cognitive-services/Speech-Service/media/sdk/qs-text-to-speech-uwp-helloworld-window.png)
 
-1. 텍스트 상자에 일부 텍스트를 입력하고 **음성 읽기**를 클릭합니다. 해당 텍스트는 Speech Services로 전송되고 음성으로 합성되어 스피커로 재생됩니다.
+1. 텍스트 상자에 일부 텍스트를 입력하고 **음성 읽기**를 클릭합니다. 해당 텍스트는 Speech Service로 전송되고 음성으로 합성되어 스피커로 재생됩니다.
 
     ![음성 합성 사용자 인터페이스](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-uwp-ui-result.png)
 

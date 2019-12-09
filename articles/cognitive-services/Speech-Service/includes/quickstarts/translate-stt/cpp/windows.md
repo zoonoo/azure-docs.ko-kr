@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성을 텍스트로 변환, C++(Windows) - Speech Service'
+title: '빠른 시작: 음성 텍스트 변환, C++(Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/24/2019
 ms.author: erhopf
-ms.openlocfilehash: d23e6a75486439d38d94294aaeebd84f9394144c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: efbd38d130a3ad88389d524946ed21cb66d06b7c
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500419"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816873"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -113,7 +113,7 @@ ms.locfileid: "73500419"
 
 1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 독일어)로 번역하고 전사합니다. 그런 다음, 음성 서비스가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 독일어)로 번역하고 전사합니다. 그런 다음, Speech Service가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
 ````
 Say something...

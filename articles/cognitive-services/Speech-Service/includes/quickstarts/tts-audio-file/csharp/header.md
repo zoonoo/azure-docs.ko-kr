@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 오디오 파일로 음성 합성, C# - Speech Service'
+title: '빠른 시작: 오디오 파일에 음성 합성, C# - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,11 +10,11 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 4c0acb1ac5a4f198d4f7b81883282f36792a1c80
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3f60311aea19229c55c2c69df7b8cb04e9349a32
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500475"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817905"
 ---
-바로 이동하는 것을 원하는 경우 GitHub에서 모든 <a href="https://aka.ms/speech/github-csharp">Speech SDK C# 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.
+바로 들어가려면 GitHub에서 모든 <a href="https://aka.ms/speech/github-csharp">Speech SDK C# 샘플</a>을 보거나 다운로드합니다. 그렇지 않으면 시작하겠습니다.

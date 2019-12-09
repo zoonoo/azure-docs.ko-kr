@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 1044519110d8b0ae7b5a50860c8116d73b6b70bc
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bd063102a4c0cbdc4b62df027e643b117b412278
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559374"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74812863"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-nodejs"></a>빠른 시작: Node.js를 사용하여 텍스트-음성 변환 음성 목록 가져오기
 
@@ -29,7 +29,7 @@ ms.locfileid: "68559374"
 
 * [Node 8.12.x 이상](https://nodejs.org/en/)
 * [Visual Studio](https://visualstudio.microsoft.com/downloads/), [Visual Studio Code](https://code.visualstudio.com/download) 또는 즐겨 사용하는 텍스트 편집기
-* Speech Service에 대한 Azure 구독 키. [평가판을 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키입니다. [평가판을 가져올 수 있습니다](get-started.md).
 
 ## <a name="create-a-project-and-require-dependencies"></a>프로젝트 만들기 및 종속성 요구
 

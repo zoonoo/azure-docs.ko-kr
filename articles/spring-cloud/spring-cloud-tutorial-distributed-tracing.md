@@ -1,17 +1,17 @@
 ---
-title: '자습서: Azure Spring Cloud에서 분산 추적 사용 | Microsoft Docs'
-description: Azure Application Insights를 통해 Spring Cloud의 분산 추적을 사용하는 방법 알아보기
+title: 자습서 - Azure Spring Cloud에서 분산 추적 사용
+description: 이 자습서에서는 Azure Application Insights를 통해 Spring Cloud의 분산 추적을 사용하는 방법을 보여줍니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a9d2100103cdd5858d0d58cf6ef77a6ccac3745f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c049ecbea3c630e0f7d08e4a42bd441ba3f5cfa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607556"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708767"
 ---
 # <a name="tutorial-using-distributed-tracing-with-azure-spring-cloud"></a>자습서: Azure Spring Cloud에서 분산 추적 사용
 

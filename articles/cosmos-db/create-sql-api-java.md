@@ -1,6 +1,6 @@
 ---
-title: Java를 사용하여 문서 데이터베이스 만들기 - Azure Cosmos DB
-description: Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
+title: 빠른 시작 - Java를 사용하여 Azure Cosmos DB를 통해 문서 데이터베이스 만들기
+description: 이 빠른 시작에서는 Azure Cosmos DB SQL API에 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 author: SnehaGunda
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d5a32780f8598c0843958b99f02cd18aa33bea2e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73582840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708173"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
 

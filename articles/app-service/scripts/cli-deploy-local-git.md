@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - 로컬 Git 리포지토리에서 앱을 만들고 코드 배포 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - App Service 앱 만들기 및 로컬 Git 리포지토리의 코드 배포
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: 로컬 Git 리포지토리에서 배포'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 로컬 Git 리포지토리에서 코드를 배포하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 048f98aa-f708-44cb-9b9e-953f67dc6da8
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 747d215810710c6810df02dca556d7a685ae4060
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 768b3319b1366f45df1fbcaf1039853c0501a8cf
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136740"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686168"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-from-a-local-git-repository-using-azure-cli"></a>Azure CLI를 사용하여 로컬 Git 리포지토리에서 App Service 앱을 만들고 코드 배포
 

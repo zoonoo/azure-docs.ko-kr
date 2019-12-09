@@ -1,5 +1,5 @@
 ---
-title: C#을 사용하여 Azure Database for PostgreSQL - 단일 서버에 연결
+title: C#을 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 C#(.NET) 코드 샘플을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc, devcenter
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 546626b1bf655ce6755e0a34ae8d8a85bcf6990f
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 4ac462873d34faa5ffa9d1e1bd873734be88e442
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067307"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767979"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-net-c-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 단일 서버: .NET(C#)을 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 C# 애플리케이션을 사용하여 PostgreSQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 C#을 사용하여 개발하는 것에 익숙하고 PostgreSQL용 Azure Database 작업에 익숙하지 않다고 가정합니다.

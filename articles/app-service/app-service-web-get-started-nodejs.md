@@ -1,27 +1,18 @@
 ---
-title: Node.js 웹앱 만들기 - Azure App Service | Microsoft Docs
-description: 몇 분 안에 Azure App Service Web Apps에서 첫 번째 Node.js Hello World를 배포합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: '빠른 시작: Node.js 웹앱 만들기'
+description: 몇 분 안에 첫 번째 Node.js Hello World를 Azure App Service에 배포합니다. App Service에 배포하는 여러 가지 방법 중 하나인 Visual Studio Code를 사용하여 배포합니다.
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 09/30/2019
-ms.author: cephalin
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 98d939c69bb03666dbeed124778b06f8a7e73532
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471461"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671356"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기 
 

@@ -1,22 +1,18 @@
 ---
-title: 엔터프라이즈 통합을 위한 작업 자동화 - Azure Logic Apps
+title: 엔터프라이즈 통합을 위한 작업 자동화
 description: Azure Logic Apps를 사용하여 엔터프라이즈 통합을 위한 최소한의 코드로 앱, 데이터, 서비스 및 시스템을 통합하는 워크플로를 자동화하는 방법을 알아봅니다.
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
-ms.openlocfilehash: 22b8558c8808afacc6ef92bd0fd41d3adbc92bf5
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 2327632fc2a71855874bb8fe45e97af430fa696a
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533840"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791847"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>개요 - Azure Logic Apps란?
 

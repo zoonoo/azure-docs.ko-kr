@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 Azure Database for MySQL에 연결
+title: Java를 사용하여 연결 - Azure Database for MySQL
 description: 이 빠른 시작에서는 MySQL 데이터베이스용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019
 ms.topic: quickstart
 ms.devlang: java
-ms.date: 08/08/2019
-ms.openlocfilehash: 9df95a754d4bd423ddd7f57c634b86bd33e906ca
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.date: 12/02/2019
+ms.openlocfilehash: 5f463434261dd782bb180f55986cc0f05c71cbe9
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155532"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770750"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-mysql"></a>빠른 시작: Java를 사용하여 Azure Database for MySQL에서 데이터 연결 및 쿼리
 

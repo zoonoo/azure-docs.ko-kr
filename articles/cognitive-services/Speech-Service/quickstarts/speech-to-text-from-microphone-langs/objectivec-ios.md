@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 0d353b115acbf48bfffa6c2033b507721de501c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 652754c31711df7b14c055b31d6d96a6b0217d29
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500671"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815597"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 iOS에서 Objective-C로 음성 인식
 
@@ -27,7 +27,7 @@ ms.locfileid: "73500671"
 
 시작하기 전에 다음 항목이 필요합니다.
 
-* Speech Service에 대한 [구독 키](~/articles/cognitive-services/Speech-Service/get-started.md)
+* Speech Service에 대한 [구독 키](~/articles/cognitive-services/Speech-Service/get-started.md)입니다.
 * [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) 이상이 설치된 macOS 머신
 * iOS 버전 9.3 이상으로 설정된 대상
 

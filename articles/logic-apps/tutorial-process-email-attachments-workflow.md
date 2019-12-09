@@ -1,22 +1,18 @@
 ---
-title: 여러 Azure 서비스를 사용하여 작업 자동화 - Azure Logic Apps
+title: 여러 Azure 서비스를 사용하여 작업 자동화
 description: 자습서 - Azure Logic Apps, Azure Storage 및 Azure Functions를 사용하여 이메일을 처리하는 자동화된 워크플로 만들기
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-author: ecfan
-ms.author: estfan
-ms.manager: carmonm
-ms.reviewer: klam, LADocs
+ms.reviewer: klam, logicappspm
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 52c9a23e3e00075e934b9f9f22a835090e02f1b9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 6486427753543e0f4fe9a197b6825a555ef2fc70
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820214"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74793476"
 ---
 # <a name="tutorial-automate-tasks-to-process-emails-by-using-azure-logic-apps-azure-functions-and-azure-storage"></a>자습서: Azure Logic Apps, Azure Functions 및 Azure Storage를 사용하여 이메일을 처리하는 작업 자동화
 

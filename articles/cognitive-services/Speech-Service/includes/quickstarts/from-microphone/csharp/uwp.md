@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 0d1da9a9ef32aed1975595bb15909b9531ab2400
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5f83f249228c96021979edc14c092eded03b96e4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500653"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818750"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=uwp)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=uwp)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
 
@@ -86,7 +87,7 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 
    ![마이크 액세스 권한 요청](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-10-access-prompt.png)
 
-1. **마이크 입력을 사용하여 음성 인식**을 클릭하고 디바이스의 마이크에 짧은 영어 구나 문장을 말합니다. 음성은 Speech Services로 전송되어 텍스트로 변환되고 창에 표시됩니다.
+1. **마이크 입력을 사용하여 음성 인식**을 클릭하고 디바이스의 마이크에 짧은 영어 구나 문장을 말합니다. 음성은 음성 서비스로 전송되어 텍스트로 변환되고 창에 표시됩니다.
 
    ![음성 인식 사용자 인터페이스](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-uwp-11-ui-result.png)
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: bidishac
-ms.openlocfilehash: 54a5be769ace97ffa9a4f5f38a9227d9565abfd1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 29f6596408a825a571682d14aceca01fa8108515
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111701"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815864"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-java-preview"></a>빠른 시작: Speech SDK를 사용하여 음성 도우미 만들기, Java(미리 보기)
 
@@ -30,7 +30,7 @@ ms.locfileid: "74111701"
 - 운영 체제: Windows(64비트), Ubuntu Linux 16.04/18.04(64비트) 또는 macOS 10.13 이상
 - [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 - [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-- Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
+- Speech Service에 대한 Azure 구독 키입니다. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 - Bot Framework 버전 4.2 이상을 사용하여 만든 미리 구성된 봇. 봇은 음성 입력을 수신할 수 있도록 새로운 "Direct Line Speech" 채널을 구독해야 합니다.
 
   > [!NOTE]
@@ -477,7 +477,7 @@ F11 키를 선택하거나 **실행** > **디버그**를 선택합니다.
 ## <a name="see-also"></a>참고 항목
 
 - [음성 도우미 정보](voice-assistants.md)
-- [무료로 Speech Service 구독 키 받기](get-started.md)
+- [평가판 Speech Service 구독 키 받기](get-started.md)
 - [사용자 지정 키워드](speech-devices-sdk-create-kws.md)
 - [봇에 Direct Line Speech 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [GitHub에서 Java 샘플 살펴보기](https://aka.ms/csspeech/samples)

@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 - Azure Database for MySQL 만들기
+title: CLI 스크립트 - 서버 만들기 - Azure Database for MySQL
 description: 이 샘플 CLI 스크립트는 MySQL 서버용 Azure Database를 만들고 서버 수준 방화벽 규칙을 구성합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.custom: mvc
 ms.topic: sample
-ms.date: 02/28/2018
-ms.openlocfilehash: 6a73041218ab6182d8aa3df6261697cc8dd4efe7
-ms.sourcegitcommit: 71ee622bdba6e24db4d7ce92107b1ef1a4fa2600
+ms.date: 12/02/2019
+ms.openlocfilehash: a210d2d11c9d9fccd000a6dffbf1f8730bda0c8b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/17/2018
-ms.locfileid: "53535511"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765799"
 ---
 # <a name="create-a-mysql-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Azure CLI를 사용하여 MySQL 서버 만들기 및 방화벽 규칙 구성
 이 샘플 CLI 스크립트는 MySQL 서버용 Azure Database를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 MySQL 서버에 액세스할 수 있습니다.

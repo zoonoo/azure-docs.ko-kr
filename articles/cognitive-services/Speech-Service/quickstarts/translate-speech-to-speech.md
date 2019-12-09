@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성을 음성으로 번역 - Speech Service'
+title: '빠른 시작: 음성 대 음성 번역 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 빠른 시작에서는 Speech SDK를 사용하여 한 언어에서 다른 언어의 텍스트로 음성을 대화형으로 변환합니다.
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 551fa6fe336f6d4d11f95fba5530e4a250a736be
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 393f1aa6a8fe74d6fef7d5d544dec490078089d0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681926"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817706"
 ---
 # <a name="quickstart-translate-speech-to-speech"></a>빠른 시작: 음성을 음성으로 번역
 

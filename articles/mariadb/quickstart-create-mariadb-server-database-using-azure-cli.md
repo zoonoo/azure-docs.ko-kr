@@ -1,19 +1,19 @@
 ---
-title: '빠른 시작: Azure Database for MariaDB 서버 만들기 - Azure CLI'
+title: '빠른 시작: 서버 만들기 - Azure CLI - Azure Database for MariaDB'
 description: 이 빠른 시작에서는 Azure CLI를 사용하여 Azure 리소스 그룹에서 Azure Database for MariaDB 서버를 만드는 방법을 살펴봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 01/09/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 7d94834523e331ff048f787760561739765e7023
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5cfdcf2664871849d4488be4320f6aa03e296ce7
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171404"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770036"
 ---
 # <a name="create-an-azure-database-for-mariadb-server-by-using-the-azure-cli"></a>Azure CLI를 사용하여 Azure Database for MariaDB 서버 만들기
 
@@ -59,7 +59,7 @@ storage-size | **51200** | 서버의 스토리지 용량입니다(단위는 메�
 admin-user | **myadmin** | 관리자 로그인에 대한 사용자 이름입니다. **admin-user** 매개 변수는 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
 admin-password | *사용자 암호* | 관리자 사용자의 암호입니다. 암호는 8-128자여야 합니다. 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자 및 영숫자가 아닌 문자
 
-sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
+sku-name 매개 변수 값은 아래 예에서와 같이 {가격 책정 계층}\_{컴퓨팅 세대}\_{vCores} 규칙을 따릅니다.
 + `--sku-name B_Gen5_1`은 기본, 5세대 및 1개 vCore에 매핑됩니다. 이 옵션은 사용 가능한 가장 작은 SKU입니다.
 + `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
 + `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.

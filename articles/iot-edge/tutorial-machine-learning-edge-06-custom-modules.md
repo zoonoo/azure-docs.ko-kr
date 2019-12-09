@@ -1,6 +1,6 @@
 ---
 title: '자습서: 사용자 지정 모듈 만들기 및 배포 - Azure IoT Edge의 Machine Learning'
-description: '자습서: 기계 학습 모델을 통해 리프 디바이스의 데이터를 처리하고 인사이트를 IoT Hub에 보내는 IoT Edge 모듈을 만들고 배포합니다.'
+description: 이 자습서에서는 기계 학습 모델을 통해 리프 디바이스의 데이터를 처리한 다음, 인사이트를 IoT Hub에 보내는 IoT Edge 모듈을 만들고 배포하는 방법을 보여줍니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 7bfe620510d5ff88a20c518be1f4dd1fb422daa2
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d9890a393d9b2955c1eb0c9894d454a774af68ef
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106555"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701840"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>자습서: 사용자 지정 IoT Edge 모듈 만들기 및 배포
 

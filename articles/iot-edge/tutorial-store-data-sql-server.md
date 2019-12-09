@@ -1,6 +1,6 @@
 ---
-title: 자습서 - SQL 모듈을 사용하여 데이터 저장 - Azure IoT Edge | Microsoft Docs
-description: SQL Server 모듈을 사용하여 IoT Edge 디바이스에서 데이터를 로컬로 저장하는 방법 알아보기
+title: 자습서 - Azure IoT Edge를 사용하여 SQL 모듈로 데이터 저장
+description: 이 자습서에서는 SQL Server 모듈을 사용하여 IoT Edge 디바이스에서 데이터를 로컬로 저장하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 5a3133100621cee2e786c4001df02f2316b1e4ec
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: dc8e3e92a9b843291643fe3a43092a6ac9b9c7cb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457058"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701906"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>자습서: SQL Server 데이터베이스로 에지에 데이터 저장
 

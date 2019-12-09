@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/17/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: acd601512f2240802de47483a015f03a226da115
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: b65cf26bcea628f784eb086d1b9c88febade25f6
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795636"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828983"
 ---
 ### <a name="what-is-the-difference-between-an-azure-virtual-network-gateway-vpn-gateway-and-an-azure-virtual-wan-vpn-gateway"></a>Azure 가상 네트워크 게이트웨이(VPN Gateway)와 Azure Virtual WAN VPN Gateway의 차이는 무엇인가요?
 
@@ -113,7 +113,9 @@ Virtual WAN과 다른 지역의 VNet에 연결할 수 있습니다.
 
 ### <a name="can-spoke-vnets-connected-to-a-virtual-hub-communicate-with-each-other"></a>가상 허브에 연결된 VNet 스포크는 서로 통신할 수 있나요?
 
-예. 스포크 VNet은 Virtual Network 피어링을 통해 직접 통신할 수 있습니다. 자세한 내용은 [Virtual Network 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 참조하세요. 허브를 통해 전이적으로 통신하는 VNet도 지원합니다.
+예. 표준 Virtual WAN은 Vnet이 연결된 Virtual WAN 허브를 통해 Vnet 간 전이적 연결을 지원합니다. Virtual WAN 용어에서는 이러한 경로를 단일 지역 내의 Virtual WAN 허브에 연결된 VNet의 경우 "로컬 Virtual WAN VNet 전송"이라고 하며, 둘 이상의 지역에 걸친 여러 Virtual WAN 허브를 통해 연결된 VNet의 경우 "글로벌 Virtual WAN VNet 전송"이라고 합니다. VNet 전송은 공개 미리 보기 동안 최대 3Gbps의 처리량을 지원합니다. 글로벌 전송이 GA 상태가 되면 처리량이 확장됩니다.   
+
+일부 시나리오에서는 로컬 또는 글로벌 Virtual WAN VNet 전송 외에도 [가상 네트워크 피어링](../articles/virtual-network/virtual-network-peering-overview.md)을 사용하여 스포크 Vnet 간에 직접 피어링할 수도 있습니다. 이 경우 Vnet 피어링은 Virtual WAN 허브를 통한 전이적 연결보다 우선적으로 적용됩니다. 
 
 ### <a name="what-is-a-branch-connection-to-azure-virtual-wan"></a>Azure Virtual WAN에 대한 분기 연결이란?
 

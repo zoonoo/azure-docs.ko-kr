@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 07/05/2019
 ms.author: yinhew
-ms.openlocfilehash: ba0e04d4dadd9d3a4bea41aeb0a66b37f454f030
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fc5d0e0a7f693df87e754383a123dc1cebfdd94c
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500567"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818381"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=linux)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=linux)
 
@@ -32,7 +32,7 @@ ms.locfileid: "73500567"
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/text-to-speech/helloworld.cpp#code)]
 
-1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 Speech Services 구독 키로 바꿉니다.
+1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 
@@ -87,7 +87,7 @@ ms.locfileid: "73500567"
    ./helloworld
    ```
 
-1. 콘솔 창에서 일부 텍스트를 입력하라는 메시지가 나타납니다. 몇 가지 단어나 문장을 입력합니다. 입력한 텍스트는 Speech Services로 전송되고 스피커에서 재생되는 음성으로 합성됩니다.
+1. 콘솔 창에서 일부 텍스트를 입력하라는 메시지가 나타납니다. 몇 가지 단어나 문장을 입력합니다. 입력한 텍스트는 Speech Service로 전송되고 음성으로 합성되어 스피커로 재생됩니다.
 
    ```text
    Type some text that you want to speak...

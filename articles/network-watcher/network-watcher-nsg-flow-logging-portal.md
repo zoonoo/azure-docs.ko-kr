@@ -18,12 +18,12 @@ ms.workload: infrastructure-services
 ms.date: 04/30/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: a5d600e761ce3c3cebbe155c6be7e0f5a377eb32
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: afa1d2ca59bacec2695aaff0cacb119a8fbf787b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419621"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766602"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
 
@@ -127,7 +127,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
    ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 스토리지 계정을 선택합니다.
-4. **Blob service**에서 **Blob**을 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
+4. **Blob 서비스**에서 **컨테이너**를 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
 5. 컨테이너에서 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 탐색합니다. 다음 명명 규칙에 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![흐름 로그](./media/network-watcher-nsg-flow-logging-portal/log-file.png)

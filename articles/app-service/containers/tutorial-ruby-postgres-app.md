@@ -1,23 +1,16 @@
 ---
-title: Linux에서 Postgres를 사용하는 Ruby(Rails) - Azure App Service | Microsoft Docs
-description: Azure에서 PostgreSQL 데이터베이스에 연결하여 Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다. Rails는 자습서에서 사용됩니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-ms.service: app-service-web
-ms.workload: web
+title: '자습서: Postgres가 포함된 Linux Ruby 앱'
+description: Azure의 PostgreSQL 데이터베이스와 연결하여 Azure App Service에서 Linux Ruby 앱이 작동하도록 하는 방법에 대해 알아봅니다. Rails는 자습서에서 사용됩니다.
 ms.devlang: ruby
 ms.topic: tutorial
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3ec19b1c564c09406ab1f29c38aef6332d80f8f1
-ms.sourcegitcommit: 031e4165a1767c00bb5365ce9b2a189c8b69d4c0
+ms.openlocfilehash: 6af9da060f7742fe2a9b9656199edd5feb67bec1
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/13/2019
-ms.locfileid: "59544691"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687402"
 ---
 # <a name="build-a-ruby-and-postgres-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 Ruby 및 Postgres 앱 빌드
 

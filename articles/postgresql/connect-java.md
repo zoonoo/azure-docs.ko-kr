@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Java를 사용하여 Azure Database for PostgreSQL - 단일 서버에 연결'
+title: Java를 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 Java 코드 샘플을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: seo-java-august2019
 ms.devlang: java
 ms.topic: quickstart
 ms.date: 05/06/2019
-ms.openlocfilehash: b729881d30248bb4c3a717d70009cd68da91cf94
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 269eb1fe744a31f1f4501c5790e06c1a5e06bab6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211847"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74767894"
 ---
 # <a name="quickstart-use-java-to-connect-to-and-query-data-in-azure-database-for-postgresql---single-server"></a>빠른 시작: Java를 사용하여 Azure Database for PostgreSQL - 단일 서버에서 데이터에 연결 및 쿼리
 이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 Java를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.

@@ -1,18 +1,18 @@
 ---
-title: PHP에서 Azure Database for MySQL에 연결
+title: PHP를 사용하여 연결 - Azure Database for MySQL
 description: 이 빠른 시작에서는 MySQL용 Azure Database의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 여러 PHP 코드 샘플을 제공합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 76d721ca102ae0affeba23c46d5da9fd44743f5b
-ms.sourcegitcommit: 4eeeb520acf8b2419bcc73d8fcc81a075b81663a
+ms.date: 12/02/2019
+ms.openlocfilehash: b8923000b0bbc75e6d96b1b27a1154ef8ff87f24
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/19/2018
-ms.locfileid: "53608769"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770716"
 ---
 # <a name="azure-database-for-mysql-use-php-to-connect-and-query-data"></a>Azure Database for MySQL: PHP를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 PHP를 사용한 개발에 익숙하고Azure Database for MySQL를 처음 사용한다고 가정합니다.
@@ -33,7 +33,7 @@ ms.locfileid: "53608769"
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](https://secure.php.net/downloads.php) 다운로드.
 - PHP를 설치하고 [PHP 매뉴얼](https://secure.php.net/manual/install.unix.php)에서 자세한 구성 정보 참조.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](https://windows.php.net/download#php-7.1) 다운로드.
 - PHP를 설치하고 [PHP 매뉴얼](https://secure.php.net/manual/install.windows.php)에서 자세한 구성 정보 참조.
 

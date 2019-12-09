@@ -13,12 +13,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 598168285ee67921ab17ab8c2ce780753c562f81
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 6ecce4dc97272f03a3151708cd9c047212c36e03
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70072353"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707196"
 ---
 # <a name="monitor-published-apis"></a>게시된 API 모니터링
 
@@ -183,10 +183,10 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | 자산  | Type | 설명 |
 | ------------- | ------------- | ------------- |
 | isRequestSuccess | 부울 | HTTP 요청이 완료되고 응답 상태 코드가 2xx 또는 3xx 범위 이내이면 True입니다. |
-| time | 날짜-시간 | 게이트웨이에서 HTTP 요청을 수신하는 타임스탬프 |
+| time | 날짜-시간 | 게이트웨이가 요청을 처리하는 시점의 타임스탬프 |
 | operationName | 문자열 | 상수 값 'Microsoft.ApiManagement/GatewayLogs' |
 | category | 문자열 | 상수 값 'GatewayLogs' |
-| durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초) |
+| durationMS | 정수 | 게이트웨이에서 요청을 수신한 순간부터 응답이 완전히 전송될 때까지 걸린 시간(밀리초)입니다. clienTime, cacheTime 및 backendTime이 포함됩니다. |
 | callerIpAddress | 문자열 | 즉각적인 게이트웨이 호출자의 IP 주소(중간자 가능) |
 | correlationId | 문자열 | API Management에서 할당하는 고유의 http 요청 식별자 |
 | location | 문자열 | 요청을 처리한 게이트웨이가 있었던 Azure 지역의 이름 |
@@ -214,7 +214,7 @@ API Management는 현재 다음 스키마를 갖는 각 항목으로 개별 API 
 | apimSubscriptionId | 문자열 | 현재 요청에 대한 구독 엔터티 식별자 | 
 | backendId | 문자열 | 현재 요청에 대한 백 엔드 엔터티 식별자 | 
 | lastError | object | 마지막 요청 처리 오류 | 
-| elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간까지 경과한 시간(밀리초) | 
+| elapsed | 정수 | 게이트웨이에서 요청을 받은 순간부터 오류가 발생한 순간 사이에 경과된 시간(밀리초) | 
 | source | 문자열 | 오류를 발생시킨 정책 또는 처리 내부 처리기의 이름 | 
 | scope | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 범위 | 
 | section | 문자열 | 오류를 발생시킨 정책이 포함되어 있는 정책 문서의 섹션 | 

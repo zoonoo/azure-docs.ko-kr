@@ -1,24 +1,17 @@
 ---
-title: SSL 바인딩으로 사용자 지정 DNS 이름 보호 - Azure App Service | Microsoft Docs
-description: App Service Certificate를 구입하고 App Service 앱에 바인딩하는 방법을 알아봅니다
-services: app-service
-author: cephalin
-manager: gwallace
+title: SSL 바인딩으로 사용자 지정 DNS 보호
+description: 인증서로 TLS/SSL 바인딩을 만들어 사용자 지정 도메인에 대한 HTTPS 액세스를 보호합니다. HTTPS 또는 TLS 1.2를 적용하여 웹 사이트의 보안을 향상시킵니다.
 tags: buy-ssl-certificates
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 10/25/2019
-ms.author: cephalin
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 259a4d33ba6e8c072f8df906da4784119b299822
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b967e4cfad2444e39c7df8cfddcc2154bd48367d
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73509057"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670686"
 ---
 # <a name="secure-a-custom-dns-name-with-an-ssl-binding-in-azure-app-service"></a>Azure App Service에서 SSL 바인딩으로 사용자 지정 DNS 이름 보호
 

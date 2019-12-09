@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 5236536abbe8ad7a415f0ea94036edf49b892052
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 42f4b093ddec763bddb651e2ff24d51b613d5009
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500657"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818897"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=linux)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=linux)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -32,9 +33,12 @@ ms.locfileid: "73500657"
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/cpp/linux/from-microphone/helloworld.cpp#code)]
 
-1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 Speech Services 구독 키로 바꿉니다.
+1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
+
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 ## <a name="build-the-app"></a>앱 빌드
 
@@ -87,7 +91,7 @@ ms.locfileid: "73500657"
    ./helloworld
    ```
 
-1. 아무 말이나 하라는 메시지가 콘솔 창에 나타납니다. 영어 구 또는 문장을 말씀하세요. 음성은 Speech Services로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
+1. 아무 말이나 하라는 메시지가 콘솔 창에 나타납니다. 영어 구 또는 문장을 말하세요. 음성은 음성 서비스로 전송되어 텍스트로 변환되고, 동일한 창에 표시됩니다.
 
    ```text
    Say something...

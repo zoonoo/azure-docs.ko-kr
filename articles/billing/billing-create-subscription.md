@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
-ms.openlocfilehash: 7ca7256cbe42949141bc216ee1cb5c89ceac935c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: bd561f616c9e120a38f1c6b125e349684f82942e
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74226382"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74665613"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
 
@@ -36,7 +36,7 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |---------|---------|
 |EA(기업 계약) |  기업계약 등록에 대한 계정 소유자 역할 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](billing-understand-ea-roles.md)를 참조하세요.    |
 |MCA(Microsoft 고객 계약) |  청구서 섹션, 청구 프로필 또는 청구 계정에 대한 소유자 또는 기여자 역할 또는 청구서 섹션의 Azure 구독 작성자 역할  자세한 내용은 [구독 청구 역할 및 작업](billing-understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.    |
-|MPA(Microsoft 파트너 계약) |   파트너 조직의 글로벌 관리자 및 관리 에이전트 역할 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.  |
+|MPA(Microsoft 파트너 계약) |   CSP 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.  Azure 구독을 만들려면 사용자가 파트너 테넌트에 서명해야 합니다.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Azure Portal에 구독 만들기
 

@@ -1,25 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹앱에 사용자 지정 도메인 할당 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹앱에 사용자 지정 도메인 할당
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'PowerShell: 사용자 지정 도메인 할당'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 사용자 지정 도메인을 앱에 할당하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 356f5af9-f62e-411c-8b24-deba05214103
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 03/20/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3ca13355271e28c21a6daab2af02fb46d0b7b87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f7de667292ed89caa2895f6db3f7d8d6abf15f85
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087872"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685595"
 ---
 # <a name="assign-a-custom-domain-to-a-web-app-using-powershell"></a>PowerShell을 사용하여 웹앱에 사용자 지정 도메인 할당
 

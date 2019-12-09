@@ -1,17 +1,17 @@
 ---
-title: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법 | Microsoft Docs
-description: 이 문서에서는 Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 보여줍니다.
+title: 자습서 - Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법
+description: 이 자습서에서는 Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 보여줍니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 6c5cd4ac384affaedbd813f9395f997f92eb69c4
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: a9911798e42db55d5aaae90c933cfb64945b244c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74151112"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708818"
 ---
 # <a name="tutorial-bind-an-azure-database-for-mysql-instance-to-your-azure-spring-cloud-application"></a>자습서: Azure Database for MySQL 인스턴스를 Azure Spring Cloud 애플리케이션에 바인딩 
 
@@ -65,4 +65,3 @@ Azure Spring Cloud 인스턴스를 아직 배포하지 않은 경우 [빠른 시
 
 > [!div class="nextstepaction"]
 > [Spring Cloud 서비스 레지스트리를 사용하여 서비스 검색 및 등록을 사용하도록 설정하는 방법](spring-cloud-service-registration.md)
-

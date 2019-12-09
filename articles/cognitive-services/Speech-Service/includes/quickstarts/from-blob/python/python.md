@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Blob Storage에 저장된 음성 인식, C# - Speech Service'
+title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, C# - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 40b226796b4dfb9aced3c6b00eba1a12bad66894
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 9223fa484d45b927059c73e23e0607526e70fae4
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500787"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828914"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -36,7 +36,7 @@ ms.locfileid: "73500787"
 
 1. [https://editor.swagger.io](https://editor.swagger.io ) 로 이동합니다.
 1. **파일**을 클릭한 다음, **URL 가져오기**를 클릭합니다.
-1. Speech Services 구독 지역을 포함한 Swagger URL(예: `https://<your-region>.cris.ai/docs/v2.0/swagger`)을 입력합니다.
+1. Speech Service 구독 지역을 포함한 Swagger URL(예: `https://<your-region>.cris.ai/docs/v2.0/swagger`)을 입력합니다.
 1. **클라이언트 생성**을 클릭하고 **Python**을 선택합니다.
 1. 클라이언트 라이브러리를 저장합니다.
 1. 파일 시스템 어딘가에 다운로드한 python-client-generated.zip의 압축을 풉니다.
@@ -99,7 +99,7 @@ pip install requests
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 
-이제 앱을 빌드하고 Speech Service를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
+이제 앱을 빌드하고 음성 서비스를 사용하여 음성 인식을 테스트할 준비가 되었습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

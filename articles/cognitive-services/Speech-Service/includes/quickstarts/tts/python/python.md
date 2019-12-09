@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/14/2019
 ms.author: yulili
-ms.openlocfilehash: 36e48a5d513daa951c1e92017ba9a2322b009703
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 990e795d0331df41ff098ed498508d6ecfd58f0e
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500611"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818238"
 ---
 ## <a name="prerequisites"></a>필수 조건
 

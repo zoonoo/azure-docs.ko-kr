@@ -10,20 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: f0d9a4d2a86b13d5e2d37a900f27d2977f63de14
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e492381c4ab2f7ab41b5363ed70f9c5c6b12ce99
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500693"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818694"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=android)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="create-a-user-interface"></a>사용자 인터페이스 만들기
 
@@ -71,7 +72,7 @@ ms.locfileid: "73500693"
 
    ![배포 대상 선택 창 스크린샷](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-12-deploy.png)
 
-애플리케이션에서 단추를 선택하여 음성 인식 섹션을 시작합니다. 다음 15초간의 영어 음성이 Speech Services로 전송되어 전사됩니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
+애플리케이션에서 단추를 선택하여 음성 인식 섹션을 시작합니다. 다음 15초의 영어 음성이 음성 서비스로 전송되어 스크립트로 바뀝니다. 결과가 Android 애플리케이션과, Android Studio의 logcat 창에 표시됩니다.
 
 ![Android 애플리케이션 스크린샷](~/articles/cognitive-services/Speech-Service/media/sdk/qs-java-android-13-gui-on-device.png)
 

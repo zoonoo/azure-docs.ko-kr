@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 04/04/2019
+ms.date: 11/29/2019
 ms.author: aahi
-ms.openlocfilehash: f11d23207a21af5c73831d0edd5ffc9eaa59c119
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280666"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74689327"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
 
@@ -29,7 +29,7 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>녹음된 인바운드 고객 전화 분석
 
-Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [샘플 코드](https://github.com/rlagh2/callcenteranalytics)를 참조하세요.
+Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [Github의](https://github.com/rlagh2/callcenteranalytics) 샘플 코드를 참조하세요.
 
 ![감정 분석을 사용하여 고객 서비스 전화에서 인사이트를 획득하는 과정을 자동화하는 방법을 설명하는 이미지](media/use-cases/azure-inbound.svg)
 

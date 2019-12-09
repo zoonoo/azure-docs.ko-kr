@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ef26074b0dd6450895c6aa81d5ab8853e652b41e
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: 61f9ff575c927cdafa4aa26fbad0ebb6e257b010
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325384"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815238"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>자습서: 종속 리소스가 있는 Azure Resource Manager 템플릿 만들기
 
@@ -86,7 +86,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
     ![Visual Studio Code Azure Resource Manager 템플릿 - 공용 IP 주소 정의](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
 4. 네 번째 리소스를 확장합니다. 리소스 종류는 `Microsoft.Network/networkInterfaces`입니다.
 
-    ![Visual Studio Code Azure Resource Manager 템플릿 dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
+    ![Visual Studio Code Azure Resource Manager 템플릿 dependsOn](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
     dependsOn 요소를 사용하면 한 리소스를 하나 이상의 리소스에 종속된 것으로 정의할 수 있습니다. 이 리소스는 다음과 같은 다른 두 리소스에 종속됩니다.
 
@@ -111,15 +111,15 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 템플릿을 배포하는 방법에는 여러 가지가 있습니다.  이 자습서에서는 Azure Portal에서 Cloud Shell을 사용합니다.
 
 1. [Cloud Shell](https://shell.azure.com)에 로그인합니다.
-2. Cloud shell의 왼쪽 위 모서리에서 **PowerShell**을 선택한 다음, **확인**을 선택합니다.  이 자습서에서는 PowerShell을 사용합니다.
-3. Cloud shell에서 **파일 업로드**를 선택합니다.
+1. Cloud shell의 왼쪽 위 모서리에서 **PowerShell**을 선택한 다음, **확인**을 선택합니다.  이 자습서에서는 PowerShell을 사용합니다.
+1. Cloud shell에서 **파일 업로드**를 선택합니다.
 
     ![Azure Portal - Cloud Shell 파일 업로드](./media/resource-manager-tutorial-create-templates-with-dependent-resources/azure-portal-cloud-shell-upload-file.png)
-4. 자습서의 앞부분에서 저장한 템플릿을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.  이름이 같은 파일이 있는 경우 알림 없이 기존 파일을 덮어씁니다.
+1. 자습서의 앞부분에서 저장한 템플릿을 선택합니다. 기본 이름은 **azuredeploy.json**입니다.  이름이 같은 파일이 있는 경우 알림 없이 기존 파일을 덮어씁니다.
 
     필요에 따라 **ls $HOME** 명령 및 **cat $HOME/azuredeploy.json** 명령을 사용하여 파일이 성공적으로 업로드되었는지 확인할 수 있습니다.
 
-5. Cloud shell에서 다음 PowerShell 명령을 실행합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
+1. Cloud shell에서 다음 PowerShell 명령을 실행합니다. 보안을 강화하려면 가상 머신 관리자 계정에 생성된 암호를 사용합니다. [필수 조건](#prerequisites)을 참조하세요.
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
@@ -135,18 +135,20 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
         -adminPassword $adminPassword `
         -dnsLabelPrefix $dnsLabelPrefix `
         -TemplateFile "$HOME/azuredeploy.json"
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
-8. 다음 PowerShell 명령을 실행하여 새로 만든 가상 머신을 나열합니다.
+1. 다음 PowerShell 명령을 실행하여 새로 만든 가상 머신을 나열합니다.
 
     ```azurepowershell
     $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"
     Get-AzVM -Name SimpleWinVM -ResourceGroupName $resourceGroupName
+    Write-Host "Press [ENTER] to continue ..."
     ```
 
     가상 머신 이름은 템플릿 내에서 **SimpleWinVM**으로 하드 코딩됩니다.
 
-9. 가상 머신에 RDP를 수행하여 가상 머신이 성공적으로 생성되었는지 확인합니다.
+1. 가상 머신에 RDP를 수행하여 가상 머신이 성공적으로 생성되었는지 확인합니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

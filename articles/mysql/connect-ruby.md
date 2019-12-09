@@ -1,5 +1,5 @@
 ---
-title: Ruby를 사용하여 Azure Database for MySQL에 연결
+title: Ruby를 사용하여 연결 - Azure Database for MySQL
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Ruby 코드 샘플을 제공합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 5dbb2226e33928d9d79358a84192b57c44841de4
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: dc8c7352856b11cb6cc4c9c404eb567cb72b720d
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351638"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770648"
 ---
 # <a name="azure-database-for-mysql-use-ruby-to-connect-and-query-data"></a>Azure Database for MySQL: Ruby를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 Windows, Ubuntu Linux 및 Mac 플랫폼에서 [Ruby](https://www.ruby-lang.org) 애플리케이션 및 [mysql2](https://rubygems.org/gems/mysql2) gem을 사용하여 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Ruby를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "58351638"
 ## <a name="install-ruby"></a>Ruby 설치
 Ruby, Gem 및 MySQL2 라이브러리를 자신의 컴퓨터에 설치합니다. 
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. [Ruby](https://rubyinstaller.org/downloads/) 버전 2.3을 다운로드하고 설치합니다.
 2. 시작 메뉴에서 새 명령 프롬프트(cmd)를 시작합니다.
 3. 디렉터리를 Ruby 버전 2.3에 대한 디렉터리로 변경합니다. `cd c:\Ruby23-x64\bin`

@@ -1,5 +1,5 @@
 ---
-title: Linux용 C# 모듈 개발 자습서 - Azure IoT Edge| Microsoft Docs
+title: 자습서 - Azure IoT Edge를 사용하여 Linux용 C# 모듈 개발
 description: 이 자습서에서는 C# 코드를 사용하여 IoT Edge 모듈을 만들고, Linux IoT Edge 디바이스에 배포하는 방법을 보여줍니다.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: cabe30c08d13f0ebeb8e0ce784ea29a0b5d61bec
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 371500a43bf868a154fb813f2b0bbbd4170b7887
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560963"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707050"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-linux-devices"></a>자습서: Linux 디바이스용 C# IoT Edge 모듈 개발
 

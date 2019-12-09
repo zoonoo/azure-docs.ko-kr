@@ -51,6 +51,10 @@
       href: concepts-custom-role-definition.md
     - name: 리소스 온보딩
       href: concepts-custom-providers-resourceonboarding.md
+    - name: 사용자 지정 공급자 연결을 위한 Azure Policy
+      href: concepts-custom-providers-built-in-policy.md
+    - name: 관리되는 애플리케이션 연결을 위한 Azure Policy
+      href: concepts-managed-applications-built-in-policy.md
 - name: 방법 가이드
   items:
     - name: 사용자 지정 공급자

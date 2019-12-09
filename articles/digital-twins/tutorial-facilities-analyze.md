@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: c52bf372f21d9c2ef3d1a148aadd899435ad4181
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: cab13fd65e9fdbd7179e6ba759b1aa696ef95fa1
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383054"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790326"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-azure-digital-twins-by-using-time-series-insights"></a>자습서: Time Series Insights를 사용하여 Azure Digital Twins의 이벤트 시각화 및 분석
 
@@ -82,7 +82,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
     > [!TIP]
     > 네임스페이스 대신 이벤트 허브 인스턴스에 대한 SAS 정책을 만들고 있는지 확인합니다.
 
-1. 앞에서 만든 **ManageSend** 정책을 열고, **연결 문자열--기본 키** 및 **연결 문자열--보조 키** 값을 임시 파일에 복사합니다. 다음 섹션에서 이벤트 허브에 대한 엔드포인트를 만들려면 이러한 값이 필요합니다.
+1. 앞에서 만든 **ManageSend** 정책을 열고, **연결 문자열—기본 키** 및 **연결 문자열—보조 키** 값을 임시 파일에 복사합니다. 다음 섹션에서 이벤트 허브에 대한 엔드포인트를 만들려면 이러한 값이 필요합니다.
 
 ### <a name="create-an-endpoint-for-the-event-hub"></a>이벤트 허브에 대한 엔드포인트 만들기
 
@@ -108,13 +108,13 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
       path: Name_of_your_Event_Hub
     ```
 
-1. `Primary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열--기본 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다.
+1. `Primary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열—기본 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다.
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey1GUID;EntityPath=nameOfYourEventHub
    ```
 
-1. `Secondary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열--보조 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다. 
+1. `Secondary_connection_string_for_your_event_hub` 자리 표시자를 이벤트 허브의 **연결 문자열—보조 키** 값으로 바꿉니다. 이 연결 문자열의 형식이 다음과 같은지 확인합니다. 
 
    ```ConnectionString
    Endpoint=sb://nameOfYourEventHubNamespace.servicebus.windows.net/;SharedAccessKeyName=ManageSend;SharedAccessKey=yourShareAccessKey2GUID;EntityPath=nameOfYourEventHub
@@ -145,7 +145,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
     [![Time Series Insights 인스턴스를 만드는 선택 영역](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
-1. **이벤트 원본** 탭에서 **이름**을 입력하고, **원본 유형**으로 **이벤트 허브**를 선택하고, 다른 값이 올바르게 선택되었는지 확인합니다. **이벤트 허브 액세스 정책 이름**으로 **ManageSend**를 선택한 다음, 이전 섹션에서 만든 소비자 그룹을 **이벤트 허브 소비자 그룹**으로 선택합니다. **검토 + 만들기**를 선택합니다.
+1. **이벤트 원본** 탭에서 **이름**을 입력하고, **원본 유형**으로 **이벤트 허브**를 선택하고, 사용자가 만든 이벤트 허브를 참조하기 위해 다른 값이 올바르게 선택되었는지 확인합니다. **이벤트 허브 액세스 정책 이름**으로 **ManageSend**를 선택한 다음, 이전 섹션에서 만든 소비자 그룹을 **이벤트 허브 소비자 그룹**으로 선택합니다. **검토 + 만들기**를 선택합니다.
 
     [![이벤트 원본을 생성하는 선택 영역](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 

@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 1a08a5413ae41ef8c17e817a01be9e9efcb7ff99
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 74bc77fbb9436983c26c572b521d96795f14cfcd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500677"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818913"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=windows)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -40,13 +41,16 @@ ms.locfileid: "73500677"
 
 1. 메뉴 모음에서 **파일** > **모두 저장**을 선택합니다.
 
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
+
 ## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
 1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
 1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션은 음성을 Speech Services로 전송하고, 텍스트로 바꿔서 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션은 음성을 Speech Service로 전송하고, 텍스트로 바꿔서 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
    ![성공한 인식 이후 콘솔 출력](~/articles/cognitive-services/Speech-Service/media/sdk/qs-cpp-windows-08-console-output-release.png)
 

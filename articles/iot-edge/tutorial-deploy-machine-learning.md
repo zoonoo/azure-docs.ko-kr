@@ -1,5 +1,5 @@
 ---
-title: '자습서: 디바이스에 Azure Machine Learning 배포 - Azure IoT Edge'
+title: 자습서 - Azure IoT Edge를 사용하여 디바이스에 Azure Machine Learning 배포
 description: 이 자습서에서는 Azure Machine Learning을 만든 다음, Edge 디바이스에 모듈로 배포합니다.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3f1bd4ce5b701652318679f3277bc7c9109fa529
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 3d46e0695238ed7a09f180fe59063f8e2590f307
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457629"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701931"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>자습서: Azure Machine Learning을 IoT Edge 모듈로 배포(미리 보기)
 
@@ -165,4 +165,3 @@ IoT Edge 디바이스에서 모든 개별 모듈에서 보낸 메시지를 볼 �
 
 > [!div class="nextstepaction"]
 > [Custom Vision 서비스를 사용하여 이미지 분류](tutorial-deploy-custom-vision.md)
-

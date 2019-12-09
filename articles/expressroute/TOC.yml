@@ -26,7 +26,7 @@
           href: expressroute-locations-providers.md
         - name: 공급자별 위치
           href: expressroute-locations.md
-    - name: 가상 네트워크 게이트웨이 및 FastPath
+    - name: 가상 네트워크 게이트웨이 정보
       href: expressroute-about-virtual-network-gateways.md
     - name: 필수 조건
       href: expressroute-prerequisites.md
@@ -40,6 +40,8 @@
       href: expressroute-qos.md
     - name: 클래식에서 Resource Manager로의 회로 이동 정보
       href: expressroute-move.md
+    - name: ExpressRoute FastPath 정보
+      href: about-fastpath.md
     - name: ExpressRoute Direct 정보
       href: expressroute-erdirect-about.md
     - name: ExpressRoute Global Reach 정보

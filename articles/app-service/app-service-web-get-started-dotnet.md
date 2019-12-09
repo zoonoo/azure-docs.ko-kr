@@ -1,25 +1,16 @@
 ---
-title: C# ASP.NET Core 웹앱 만들기 - Azure App Service | Microsoft Docs
-description: 기본 C# ASP.NET Core 웹앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: cfowler
-editor: ''
+title: '빠른 시작: C# ASP.NET Core 앱 만들기'
+description: Visual Studio에서 기본 C# ASP.NET Core 웹앱 템플릿을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 919e717811b3b04ca7407772fcf11f293d58508c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 285e4cc1f38dd2adb5934e49d87b43e09d74ce11
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471611"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672104"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Azure에서 ASP.NET Core 웹앱 만들기
 

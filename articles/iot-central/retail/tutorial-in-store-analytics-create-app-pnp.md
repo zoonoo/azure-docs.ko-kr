@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기'
+title: 자습서 - Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
 description: 이 자습서에서는 IoT Central에서 매장 내 분석 소매점 애플리케이션을 만드는 방법을 보여 줍니다. 애플리케이션을 만들고 사용자 지정한 후 센서 디바이스를 추가합니다.
 services: iot-central
 ms.service: iot-central
@@ -11,12 +11,12 @@ ms.custom:
 ms.author: timlt
 author: timlt
 ms.date: 11/12/2019
-ms.openlocfilehash: 071d432ba2769705213cb98cee644b64e9e81b6e
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 145aa87841c6334f7fa12535103b5e97db9c6918
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112891"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702036"
 ---
 # <a name="tutorial-create-an-in-store-analytics-application-in-azure-iot-central"></a>자습서: Azure IoT Central에서 매장 내 분석 애플리케이션 만들기
 

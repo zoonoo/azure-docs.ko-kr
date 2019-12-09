@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - GitHub에서 지속적인 배포를 사용하여 앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - GitHub에서 앱을 만들고 지속적으로 배포
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: GitHub에서 연속 배포'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 GitHub에서 CI/CD로 앱을 만드는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 0205c991-0989-4ca3-bb41-237dcc964460
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 09/02/2019
-ms.author: cephalin
+ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 02853186a1f28d8c6db6b5421c6ebba0640461cb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 829f1507bdf69522f1baf5af1c8d92455608334f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "71057882"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688476"
 ---
 # <a name="create-an-app-service-app-with-continuous-deployment-from-github-using-cli"></a>CLI를 사용하여 GitHub에서 지속적인 배포를 통해 App Service 앱 만들기
 

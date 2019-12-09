@@ -1,14 +1,14 @@
 ---
 title: CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 컨트롤
 description: Azure Policy에 대한 CIS Microsoft Azure Foundations 벤치마크 청사진 샘플 추천 매핑입니다.
-ms.date: 10/01/2019
+ms.date: 11/04/2019
 ms.topic: sample
-ms.openlocfilehash: 55abac9f7479f0ee7d1adddea64cb81a1c7cf2b5
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 34d38f34dcd4233706f9b4578bc2dc2a644e4c2c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544538"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707419"
 ---
 # <a name="recommendation-mapping-of-the-cis-microsoft-azure-foundations-benchmark-blueprint-sample"></a>CIS Microsoft Azure Foundations 벤치마크 청사진 샘플에 대한 추천 매핑
 
@@ -40,6 +40,12 @@ ms.locfileid: "74544538"
 - 소유자 권한이 있는 외부 계정은 구독에서 제거해야 합니다.
 - 읽기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
 - 쓰기 권한이 있는 외부 계정을 구독에서 제거해야 합니다.
+
+## <a name="123-ensure-that-no-custom-subscription-owner-roles-are-created"></a>1.23 사용자 지정 구독 소유자 역할이 만들어지지 않았는지 확인
+
+이 청사진은 제거해야 할 수 있는 사용자 지정 구독 소유자 역할을 모니터링할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- 사용자 지정 구독 소유자 역할이 없어야 합니다.
 
 ## <a name="21-ensure-that-standard-pricing-tier-is-selected"></a>2.1 표준 가격 책정 계층이 선택되어 있는지 확인
 
@@ -243,11 +249,35 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 
 - MySQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
 
+## <a name="412-ensure-server-parameter-log_checkpoints-is-set-to-on-for-postgresql-database-server"></a>4.12 PostgreSQL Database Server에 대해 'log_checkpoints' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 검사점을 기록할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대해 로그 검사점을 사용하도록 설정해야 합니다.
+
 ## <a name="413-ensure-enforce-ssl-connection-is-set-to-enabled-for-postgresql-database-server"></a>4.13 PostgreSQL Database Server에 대해 'SSL 연결 적용'이 '사용'으로 설정되어 있는지 확인
 
 이 청사진은 PostgreSQL 데이터베이스 서버에서 SSL 연결을 적용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - PostgreSQL 데이터베이스 서버에 대해 SSL 연결 적용을 사용하도록 설정해야 합니다.
+
+## <a name="414-ensure-server-parameter-log_connections-is-set-to-on-for-postgresql-database-server"></a>4.14 PostgreSQL Database Server에 대해 'log_connections' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 연결을 기록할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대해 로그 연결을 사용하도록 설정해야 합니다.
+
+## <a name="415-ensure-server-parameter-log_disconnections-is-set-to-on-for-postgresql-database-server"></a>4.15 PostgreSQL Database Server에 대해 'log_disconnections' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 연결 끊김을 기록할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대한 연결 끊김을 기록해야 합니다.
+
+## <a name="416-ensure-server-parameter-log_duration-is-set-to-on-for-postgresql-database-server"></a>4.16 PostgreSQL Database Server에 대해 'log_duration' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
+
+이 청사진은 PostgreSQL 데이터베이스 서버에서 완료된 명령문의 기간을 기록할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- PostgreSQL 데이터베이스 서버에 대해 로그 기간을 사용하도록 설정해야 합니다.
 
 ## <a name="417-ensure-server-parameter-connection_throttling-is-set-to-on-for-postgresql-database-server"></a>4.17 PostgreSQL Database Server에 대해 'connection_throtling' 서버 매개 변수가 'ON'으로 설정되어 있는지 확인
 
@@ -350,6 +380,71 @@ Azure Storage 암호화는 모든 새 스토리지 계정 및 기존 스토리�
 이 청사진은 보안 연결을 통해서만 웹 애플리케이션에 액세스할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
 
 - 웹 애플리케이션에 HTTPS를 통해서만 액세스 가능
+
+## <a name="93-ensure-web-app-is-using-the-latest-version-of-tls-encryption"></a>9.3 웹앱에서 최신 버전의 TLS 암호화를 사용하고 있는지 확인
+
+이 청사진은 웹앱에서 최신 TLS 버전을 사용할 수 있도록 지원하는 [Azure 정책](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱에서 최신 TLS 버전을 사용해야 합니다.
+- 함수 앱에서 최신 TLS 버전을 사용해야 합니다.
+- 웹앱에서 최신 TLS 버전을 사용해야 합니다.
+
+## <a name="94-ensure-the-web-app-has-client-certificates-incoming-client-certificates-set-to-on"></a>9.4 웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인
+
+이 청사진은 올바른 인증서를 사용하는 클라이언트만 웹앱에 연결할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인합니다.
+- 함수 앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인합니다.
+- 웹앱에서 '클라이언트 인증서(들어오는 클라이언트 인증서)'가 '켜기'로 설정되어 있는지 확인합니다.
+
+## <a name="95-ensure-that-register-with-azure-active-directory-is-enabled-on-app-service"></a>9.5 App Service에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인
+
+이 청사진은 웹앱에서 관리 ID를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인합니다.
+- 함수 앱에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인합니다.
+- 웹앱에서 [Azure Active Directory에 등록]을 사용하도록 설정되어 있는지 확인합니다.
+
+## <a name="96-ensure-that-net-framework-version-is-the-latest-if-used-as-a-part-of-the-web-app"></a>9.6 웹앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인
+
+이 청사진은 웹앱에서 최신 버전의 .Net Framework를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 '.Net Framework' 버전인지 확인합니다.
+
+## <a name="97-ensure-that-php-version-is-the-latest-if-used-to-run-the-web-app"></a>9.7 웹앱을 실행하는 데 사용되는 경우 최신의 'PHP 버전'인지 확인
+
+이 청사진은 웹앱에서 최신 버전의 PHP를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'PHP 버전'인지 확인합니다.
+
+## <a name="98-ensure-that-python-version-is-the-latest-if-used-to-run-the-web-app"></a>9.8 웹앱을 실행하는 데 사용되는 경우 최신의 'Python 버전'인지 확인
+
+이 청사진은 웹앱에서 최신 버전의 Python을 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'Python 버전'인지 확인합니다.
+
+## <a name="99-ensure-that-java-version-is-the-latest-if-used-to-run-the-web-app"></a>9.9 웹앱을 실행하는 데 사용되는 경우 최신의 'Java 버전'인지 확인
+
+이 청사진은 웹앱에서 최신 버전의 Java를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- 함수 앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+- 웹앱의 일부로 사용되는 경우 최신의 'Java 버전'인지 확인합니다.
+
+## <a name="910-ensure-that-http-version-is-the-latest-if-used-to-run-the-web-app"></a>9.10 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인
+
+이 청사진은 웹앱에서 최신 버전의 HTTP를 사용할 수 있도록 지원하는 [Azure Policy](../../../policy/overview.md) 정의를 할당합니다.
+
+- API 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- 함수 앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+- 웹앱을 실행하는 데 사용되는 경우 최신의 'HTTP 버전'인지 확인합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

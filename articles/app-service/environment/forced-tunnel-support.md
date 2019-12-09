@@ -1,24 +1,18 @@
 ---
-title: App Service Environment가 강제 터널링되도록 구성 - Azure
-description: 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정
-services: app-service
-documentationcenter: na
+title: 강제 터널링 구성
+description: 가상 네트워크에서 아웃바운드 트래픽이 강제 터널링될 때 App Service Environment가 작동하도록 설정하는 방법을 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 384cf393-5c63-4ffb-9eb2-bfd990bc7af1
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e80c0e4e57f8af067c17d0dcfefd26ce7ce8255f
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: e0164ac3903c63632c97c4a089066cf6ad23b31b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70069463"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687190"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>강제 터널링으로 App Service Environment 구성
 

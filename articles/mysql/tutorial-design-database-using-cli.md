@@ -1,19 +1,19 @@
 ---
-title: '자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인'
+title: '자습서: 서버 디자인 - Azure CLI - Azure Database for MySQL'
 description: 이 자습서에서는 명령줄에서 Azure CLI를 사용하여 MySQL용 Azure Database 서버 및 데이터베이스를 만들고 관리하는 방법을 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 04/29/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 00c2efacab72c08d33b0004650bece2c369c757b
-ms.sourcegitcommit: c53a800d6c2e5baad800c1247dce94bdbf2ad324
+ms.openlocfilehash: 00beae5a65e61f814d3498dbb41af02aaf0287fb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/30/2019
-ms.locfileid: "64935992"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771216"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for MySQL 디자인
 
@@ -58,7 +58,7 @@ az mysql server create 명령을 사용하여 Azure Database for MySQL 서버를
 ```azurecli-interactive
 az mysql server create --resource-group myresourcegroup --name mydemoserver --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen5_2 --version 5.7
 ```
-sku-name 매개 변수 값은 아래 예에서 같이 {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 따릅니다.
+sku-name 매개 변수 값은 아래 예에서와 같이 {가격 책정 계층}\_{컴퓨팅 세대}\_{vCores} 규칙을 따릅니다.
 + `--sku-name B_Gen5_2`는 기본, 5세대 및 vCore 2개에 매핑됩니다.
 + `--sku-name GP_Gen5_32`는 범용, 5세대 및 vCore 32개에 매핑됩니다.
 + `--sku-name MO_Gen5_2`는 메모리 최적화, 5세대 및 vCore 2개에 매핑됩니다.

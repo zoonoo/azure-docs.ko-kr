@@ -1,5 +1,5 @@
 ---
-title: Key Vault를 사용하여 Blob 스토리지에 액세스 - Azure Databricks
+title: 자습서 - Azure Databricks를 통해 Key Vault를 사용하여 Blob 스토리지에 액세스
 description: 이 자습서에서는 키 자격 증명 모음에 저장된 비밀을 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스하는 방법을 설명합니다.
 author: mamccrea
 ms.author: mamccrea
@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 16339590c3cfb11235ef4763c2e32c71b521c709
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: f1472d7043a092f35e10fdedbf4c52740e87c51c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539063"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706137"
 ---
 # <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>자습서: Azure Key Vault를 사용하여 Azure Databricks에서 Azure Blob Storage에 액세스
 

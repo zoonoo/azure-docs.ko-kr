@@ -1,25 +1,18 @@
 ---
-title: Docker Compose를 사용하여 다중 컨테이너 앱 만들기 - Azure App Service
-description: Azure Web App for Containers에서 몇 분 안에 첫 번째 다중 컨테이너 앱 배포
+title: '빠른 시작: 다중 컨테이너 앱 만들기'
+description: 첫 번째 다중 컨테이너 앱을 배포하여 Azure App Service에서 다중 컨테이너 앱을 시작하세요.
 keywords: Azure App Service, 웹앱, Linux, Docker, Compose, 다중 컨테이너, 다중-컨테이너, 컨테이너용 웹앱, 다중 컨테이너, 컨테이너, wordpress, azure db for mysql, 컨테이너를 포함한 프로덕션 데이터베이스
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
+author: msangapu-msft
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89cf13fd4405b9ddcbc5b31fad9f0c945aef64aa
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0fdba3afe7e0977496af105e39fb5d7e657df2f0
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071119"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687523"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 

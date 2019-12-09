@@ -1,19 +1,19 @@
 ---
-title: '자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전'
+title: '자습서: Azure Database for MySQL 만들기 - Azure Resource Manager 템플릿'
 description: 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버의 배포를 프로비전하고 자동화하는 방법을 설명합니다.
 author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.devlang: json
 ms.topic: tutorial
-ms.date: 12/21/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: 69025dd70ffe88c1592cf656e956b3e78a97a5e7
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73163912"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771103"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>자습서: Azure Resource Manager 템플릿을 사용하여 Azure Database for MySQL 서버 프로비전
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비저닝
-description: 자습서 - Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT 허브에 디바이스 프로비저닝
+title: 자습서 - Azure IoT Hub Device Provisioning Service를 사용하여 디바이스 프로비전
+description: 이 자습서에서는 Azure IoT Hub Device Provisioning Service를 사용하여 단일 IoT 허브에 디바이스를 프로비저닝하는 방법을 보여줍니다.
 author: wesmc7777
 ms.author: wesmc
 ms.date: 11/12/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 6be3832163d4aa857b15f73671985b96d864b730
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 358fa1fdc767919720ecb26497c818f4945badb6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228302"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702473"
 ---
 # <a name="tutorial-provision-the-device-to-an-iot-hub-using-the-azure-iot-hub-device-provisioning-service"></a>자습서: Azure IoT Hub Device Provisioning Service를 사용하여 IoT Hub에 디바이스를 프로비전
 

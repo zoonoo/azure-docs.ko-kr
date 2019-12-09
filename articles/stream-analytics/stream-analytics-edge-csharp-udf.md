@@ -1,6 +1,6 @@
 ---
-title: Visual Studio에서 Azure Stream Analytics 작업에 대한 C# 사용자 정의 함수 작성(미리 보기)
-description: Visual Studio에서 Stream Analytics 작업용으로 C# 사용자 정의 함수를 작성하는 방법을 알아봅니다.
+title: 자습서 - Visual Studio에서 Azure Stream Analytics 작업에 대한 C# 사용자 정의 함수 작성(미리 보기)
+description: 이 자습서에서는 Visual Studio에서 Stream Analytics 작업용으로 C# 사용자 정의 함수를 작성하는 방법을 보여줍니다.
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
@@ -9,12 +9,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: d6cf420c8baceb243e8c4d70c8bcbc95ec626c3a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: d600c891f35a0719012707bdc2cb45101e14e090
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990254"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707354"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-azure-stream-analytics-job-preview"></a>자습서: Azure Stream Analytics 작업용 C# 사용자 정의 함수 작성(미리 보기)
 

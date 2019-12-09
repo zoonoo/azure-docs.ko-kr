@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 디바이스에 Custom Vision 분류자 배포 - Azure IoT Edge | Microsoft Docs
+title: 자습서 - Azure IoT Edge를 사용하여 디바이스에 Custom Vision 분류자 배포
 description: 이 자습서에서는 Custom Vision 및 IoT Edge를 사용하여 컴퓨터 비전 모델을 컨테이너로 실행하는 방법을 알아봅니다.
 services: iot-edge
 author: kgremban
@@ -9,12 +9,12 @@ ms.date: 10/15/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 3418c57493e19580f0d3dbd9ea979b0322d930b8
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 41a2fac48980cf376c833b022b833cfcf1e99821
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74457297"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74701869"
 ---
 # <a name="tutorial-perform-image-classification-at-the-edge-with-custom-vision-service"></a>자습서: Custom Vision Service를 사용하여 에지에서 이미지 분류 수행
 

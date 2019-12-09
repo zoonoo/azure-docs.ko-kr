@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 10/20/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7327031a7cd05674e9823f21601aab34c859f540
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 686ac8013879eff8adc4476d56119bbb4a169900
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74423573"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74813115"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>자습서: ExpressRoute 회로 만들기 및 수정
 
@@ -45,9 +45,12 @@ ms.locfileid: "74423573"
 > [!IMPORTANT]
 > ExpressRoute 회로는 서비스 키가 발급된 순간부터 비용이 청구됩니다. 연결 공급자가 회로를 프로비전할 준비가 된 후에 이 작업을 수행하도록 하십시오.
 
-1. 새 리소스를 만드는 옵션을 선택하여 ExpressRoute 회로를 만들 수 있습니다. 아래 이미지에 표시된 대로, **리소스 만들기** > **네트워킹** > **ExpressRoute**를 클릭합니다.
+새 리소스를 만드는 옵션을 선택하여 ExpressRoute 회로를 만들 수 있습니다. 
 
-   ![ExpressRoute 회로 만들기](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit1.png)
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다. 다음 이미지에 표시된 대로 **네트워킹** > **ExpressRoute**를 선택합니다.
+
+   ![ExpressRoute 회로 만들기](./media/expressroute-howto-circuit-portal-resource-manager/create-an-expressroute-circuit.png)
+
 2. **ExpressRoute**를 클릭하면 **ExpressRoute 회로 만들기** 페이지가 표시됩니다. 이 페이지의 값에 데이터를 입력할 때 올바른 SKU 계층(Standard 또는 Premium) 및 데이터 계량 청구 모델(제한 없음 또는 요금제)을 지정해야 합니다.
 
    ![SKU 계층 및 데이터 요금제 구성](./media/expressroute-howto-circuit-portal-resource-manager/createcircuit.png)
@@ -146,7 +149,7 @@ ExpressRoute 회로를 사용하려면 다음 상태여야 합니다.
 
 ExpressRoute 회로를 수정하려면 **구성**을 클릭합니다.
 
-![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modifycircuit.png)
+![회로 수정](./media/expressroute-howto-circuit-portal-resource-manager/modify-circuit-configuration.png)
 
 ## <a name="delete"></a>ExpressRoute 회로 프로비전 해제 및 삭제
 

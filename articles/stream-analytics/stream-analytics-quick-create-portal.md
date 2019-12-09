@@ -1,5 +1,5 @@
 ---
-title: Azure Portal을 사용하여 Stream Analytics 작업 만들기 | Microsoft Docs
+title: 빠른 시작 - Azure Portal을 사용하여 Stream Analytics 작업 만들기
 description: 이 빠른 시작은 Stream Analytics 작업을 만들고, 입력, 출력을 구성하고, 쿼리를 정의하여 시작하는 방법을 보여줍니다.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 06/21/2019
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: e05d293760b88cd02fdffae60e762f040a4d1311
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 65114f2ddb7567b47ac3951fbaf6664654e379f0
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67449227"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707363"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Stream Analytics 작업 만들기
 
@@ -37,8 +37,8 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
-   |구독  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
-   |리소스 그룹   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
+   |Subscription  | \<구독\> |  사용할 Azure 구독을 선택합니다. |
+   |Resource group   |   asaquickstart-resourcegroup  |   **새로 만들기**를 선택하고 계정의 새로운 리소스 그룹 이름을 입력합니다. |
    |지역  |  \<사용자와 가장 가까운 지역 선택\> | IoT Hub를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다. |
    |IoT Hub 이름  | MyASAIoTHub  |   IoT Hub의 이름을 선택합니다.   |
 
@@ -89,8 +89,8 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |작업 이름   |  MyASAJob   |   Stream Analytics 작업을 식별하는 이름을 입력합니다. Stream Analytics 작업 이름은 영숫자 문자, 하이픈, 밑줄만 사용할 수 있으며 길이가 3자에서 63자 사이여야 합니다. |
-   |구독  | \<구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
-   |리소스 그룹   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
+   |Subscription  | \<구독\> |  이 작업에 사용할 Azure 구독을 선택합니다. |
+   |Resource group   |   asaquickstart-resourcegroup  |   IoT Hub와 동일한 리소스 그룹을 선택합니다. |
    |위치  |  \<사용자와 가장 가까운 지역 선택\> | Stream Analytics 작업을 호스트할 수 있는 지리적 위치를 선택합니다. 성능을 향상하고 데이터 전송 비용을 줄이기 위해 사용자에게 가장 가까운 위치를 사용합니다. |
    |스트리밍 단위  | 1  |   스트리밍 단위는 작업을 실행하는 데 필요한 컴퓨팅 리소스를 나타냅니다. 기본적으로 이 값은 1로 설정됩니다. 스트리밍 단위 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 단위의 이해 및 크기 조정](stream-analytics-streaming-unit-consumption.md) 문서를 참조하세요.   |
    |호스팅 환경  |  클라우드  |   Stream Analytics 작업은 클라우드 또는 에지에 배포할 수 있습니다. 클라우드를 사용하면 Azure 클라우드에 배포할 수 있고, 에지를 사용하면 IoT Edge 디바이스에 배포할 수 있습니다. |
@@ -114,7 +114,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |입력 별칭  |  IoTHubInput   |  작업의 입력을 식별하는 이름을 입력합니다.   |
-   |구독   |  \<구독\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
+   |Subscription   |  \<구독\> |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
    |IoT Hub  |  MyASAIoTHub |  이전 섹션에서 만든 IoT Hub의 이름을 입력합니다. |
 
 4. 다른 옵션을 기본값으로 유지하고 **저장**을 선택하여 설정을 저장합니다.  
@@ -132,7 +132,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
    |**설정**  |**제안 값**  |**설명**  |
    |---------|---------|---------|
    |출력 별칭 |   BlobOutput   |   작업의 출력을 식별하는 이름을 입력합니다. |
-   |구독  |  \<구독\>  |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
+   |Subscription  |  \<구독\>  |  만든 스토리지 계정이 있는 Azure 구독을 선택합니다. 동일한 또는 다른 구독에 스토리지 계정이 있을 수 있습니다. 이 예제에서는 동일한 구독에 스토리지 계정을 만들었다고 가정합니다. |
    |Storage 계정 |  asaquickstartstorage |   스토리지 계정의 이름을 선택하거나 입력합니다. 스토리지 계정 이름은 동일한 구독에 만들어진 경우에 자동으로 감지됩니다.       |
    |컨테이너 |   container1  |  스토리지 계정에서 만든 기존 컨테이너를 선택합니다.   |
 
@@ -173,7 +173,7 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
 
 2. **작업 시작** 아래에서 **작업 출력 시작 시간** 필드에 **지금**을 선택합니다. 그런 다음, **시작**을 선택하여 작업을 시작합니다.
 
-3. 몇 분 후 포털에서 작업에 대한 출력으로 구성한 저장소 계정 및 컨테이너를 찾습니다. 이제 컨테이너에서 출력 파일을 볼 수 있습니다. 작업이 처음으로 시작되는 데 몇 분이 소요되며, 시작된 후 데이터가 도착하는 것과 동일하게 계속해서 실행됩니다.  
+3. 몇 분 후 포털에서 작업에 대한 출력으로 구성한 스토리지 계정 및 컨테이너를 찾습니다. 이제 컨테이너에서 출력 파일을 볼 수 있습니다. 작업이 처음으로 시작되는 데 몇 분이 소요되며, 시작된 후 데이터가 도착하는 것과 동일하게 계속해서 실행됩니다.  
 
    ![변환된 출력](./media/stream-analytics-quick-create-portal/check-asa-results.png)
 
@@ -193,4 +193,3 @@ Stream Analytics 작업을 정의하기 전에 입력 데이터를 준비해야 
 
 > [!div class="nextstepaction"]
 > [Azure Stream Analytics를 사용하여 실시간 부정 행위 감지](stream-analytics-real-time-fraud-detection.md)
-

@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/28/2019
 ms.author: erhopf
-ms.openlocfilehash: af3a070b714a9f86c8120f9bfd81bd41b8295f97
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2750ba0336830d84f969a333a5aa30e9f10f8e6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500453"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817278"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
 
@@ -117,7 +117,7 @@ ms.locfileid: "73500453"
 
 1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 음성 서비스로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, 음성 서비스가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, Speech Service가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
 ````
 Say something...

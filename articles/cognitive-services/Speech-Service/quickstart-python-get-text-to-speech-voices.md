@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: ac96c3ce3924b8b2fe834e2b350e95ce23c52e1f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b20a8aabbd41c09efb6818cac2999a8c84b669fc
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559349"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816432"
 ---
 # <a name="quickstart-get-the-list-of-text-to-speech-voices-using-python"></a>빠른 시작: Python을 사용하여 텍스트-음성 변환 음성 목록 가져오기
 

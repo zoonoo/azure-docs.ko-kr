@@ -1,25 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - 앱에 대한 예약된 백업 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 앱에 대한 예약된 백업 만들기
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: 예약된 백업 만들기'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱에 대해 예약된 백업을 만드는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
-ms.service: app-service-web
-ms.workload: web
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c16a5c3cb51ab8ca571eb99acbe6a3034cb8ee21
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e301b5503cee939846bdcfd1d0c4e755f3debe21
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088121"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686765"
 ---
 # <a name="create-a-scheduled-backup-for-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 대한 예약된 백업 만들기
 

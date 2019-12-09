@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: c45e75038d1731c933ccf8bf26f9de573e409292
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: cd45657beacd04eb2376af3e4297eae051157778
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500433"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816745"
 ---
 이 빠른 시작에서는 [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md)를 사용하여 한 언어에서 다른 언어의 텍스트로 음성을 대화형으로 변환합니다. 몇 가지 필수 구성 요소를 충족한 후 음성 텍스트 변환 작업은 다석 가지 단계를 수행하면 됩니다.
 > [!div class="checklist"]

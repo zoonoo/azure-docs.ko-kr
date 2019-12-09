@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 05/20/2019
-ms.openlocfilehash: 677ea48244f8417670a2645ab67fa08c1f869f1a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 11179d6adc676ae99257442b186a15e69dcc4a03
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142593"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74764476"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -23,7 +23,7 @@ ms.locfileid: "70142593"
 
 Azure Cosmos DB Table API 또는 Azure Table Storage를 사용하여 클라우드에 정형 NoSQL 데이터를 저장하고, 스키마 없이 디자인된 키/특성 저장소를 제공할 수 있습니다. Azure Cosmos DB Table API 및 Table Storage는 모두 스키마가 없기 때문에 애플리케이션의 요구 사항이 변화함에 따라 데이터를 쉽게 적응시킬 수 있습니다. Azure Cosmos DB Table API 또는 Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주소록, 디바이스 정보 또는 서비스에 필요한 다른 유형의 메타데이터와 같은 유연한 데이터 세트를 저장할 수 있습니다. 
 
-이 자습서에서는 Azure Cosmo DB Table API 및 Azure Table Storage 시나리오를 사용하여 [Microsoft Azure Cosmos DB Table Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)을 사용하는 방법을 보여주는 샘플을 설명합니다. Azure 서비스에 특정된 연결을 사용해야 합니다. 테이블을 만들고, 데이터를 삽입/업데이트하고, 데이터를 쿼리하고, 테이블을 삭제하는 방법을 설명하는 C# 예제를 사용하여 이러한 시나리오를 살펴보겠습니다.
+이 자습서에서는 Azure Cosmos DB Table API 및 Azure Table Storage 시나리오를 사용하여 [.NET용 Microsoft Azure Cosmos DB Table Library](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)를 사용하는 방법을 보여주는 샘플을 설명합니다. Azure 서비스에 특정된 연결을 사용해야 합니다. 테이블을 만들고, 데이터를 삽입/업데이트하고, 데이터를 쿼리하고, 테이블을 삭제하는 방법을 설명하는 C# 예제를 사용하여 이러한 시나리오를 살펴보겠습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 

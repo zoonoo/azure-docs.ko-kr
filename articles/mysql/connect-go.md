@@ -1,5 +1,5 @@
 ---
-title: Go를 사용하여 Azure Database for MySQL에 연결
+title: Go를 사용하여 연결 - Azure Database for MySQL
 description: 이 빠른 시작에서는 MySQL용 Azure Database에서 데이터를 연결하고 쿼리하는 데 사용할 수 있는 몇 가지 Go 코드 샘플을 제공합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
-ms.date: 02/28/2018
-ms.openlocfilehash: 3cd25f935a38f5192811d7f7886d3c6654d5d221
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: b3ee0caa380cacc697a87307c3107b93aa241afb
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58351799"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770767"
 ---
 # <a name="azure-database-for-mysql-use-go-language-to-connect-and-query-data"></a>Azure Database for MySQL: Go 언어를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [Go](https://golang.org/) 언어로 작성된 코드를 사용하여 Windows, Ubuntu Linux 및 Apple macOS 플랫폼에서 MySQL용 Azure Database에 연결하는 방법을 보여 줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 항목에서는 Go를 사용하여 개발하는 데 익숙하고 MySQL용 Azure Database를 처음 사용한다고 가정합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "58351799"
 ## <a name="install-go-and-mysql-connector"></a>Go 및 MySQL 커넥터 설치
 [Go](https://golang.org/doc/install) 및 [MySQL용 go-sql-driver](https://github.com/go-sql-driver/mysql#installation)를 자신의 컴퓨터에 설치합니다. 사용하는 플랫폼에 따라 해당 섹션의 다음 단계를 수행합니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 1. [설치 지침](https://golang.org/doc/install)에 따라 Microsoft Windows용 Go를 [다운로드](https://golang.org/dl/)하고 설치합니다.
 2. [시작] 메뉴에서 [명령 프롬프트]를 선택합니다.
 3. 다음과 같이 프로젝트 폴더를 만듭니다. `mkdir  %USERPROFILE%\go\src\mysqlgo`.

@@ -9,12 +9,12 @@ ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 11/12/2019
-ms.openlocfilehash: 492fa7f4989a40ea1d5ec91a4fbf4dbbe79ef6ce
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7700c61a978532a63fc5b3298d45b8e7041dba40
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383269"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790352"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>자습서: Logic Apps를 사용하여 Azure Digital Twins 공간으로부터 알림 수신
 
@@ -118,9 +118,9 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
 1. Logic Apps 리소스가 배포되면 연 다음, **논리 앱 디자이너** 창을 엽니다. 
 
-1. **Event Grid 리소스 이벤트가 발생하는 경우** 트리거를 선택합니다. 메시지가 표시되면 Azure 계정으로 테넌트에 로그인합니다. 메시지가 표시되면 Event Grid 리소스에 대한 **액세스 허용**을 선택합니다. **계속**을 선택합니다.
+1. **Event Grid 리소스 이벤트가 발생하는 경우** 트리거를 선택합니다. **Azure Event Grid** 옵션을 확장하고 메시지가 표시되면 Azure 계정으로 테넌트에 로그인합니다. 메시지가 표시되면 Event Grid 리소스에 대한 **액세스 허용**을 선택합니다. **계속**을 선택합니다.
 
-1. **리소스 이벤트가 발생하는 경우(미리 보기)** 창에서 다음을 수행합니다. 
+1. **리소스 이벤트가 발생하는 경우** 창에서 다음을 수행합니다. 
    
    a. 이전에 Event Grid 토픽를 만드는 데 사용한 **구독**을 선택합니다.
 
@@ -128,7 +128,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    다. **리소스 이름**에 대한 드롭다운 상자에서 Event Grid 리소스를 선택합니다.
 
-   [![Logic App 디자이너 창](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
+   [![논리 앱 디자이너 창](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. **새 단계** 단추를 선택합니다.
 
@@ -186,7 +186,7 @@ Azure Digital Twins 인스턴스를 배포하고, 공간을 프로비전하고, 
 
    [![Logic Apps "이메일 보내기" 선택 영역](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
-1. **Logic App 디자이너** 창의 맨 위에서 **저장** 단추를 선택합니다.
+1. **논리 앱 디자이너** 창의 맨 위에서 **저장** 단추를 선택합니다.
 
 1. 명령 창에서 Digital Twins 샘플의 **device-connectivity** 폴더로 이동하고 `dotnet run` 명령을 실행하여 센서 데이터를 시뮬레이션합니다.
 

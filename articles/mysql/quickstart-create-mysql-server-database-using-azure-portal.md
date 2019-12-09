@@ -1,18 +1,18 @@
 ---
-title: '빠른 시작: Azure Database for MySQL 서버 만들기 - Azure Portal'
+title: '빠른 시작: 서버 만들기 - Azure Portal - Azure Database for MySQL'
 description: 이 문서에서는 Azure Portal을 사용하여 약 5분 안에 Azure Database for MySQL 서버 샘플을 만드는 과정을 안내합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 04/15/2019
-ms.openlocfilehash: ae19ff5adc220326e32b82bdba676a037e98fabe
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 12/02/2019
+ms.openlocfilehash: 1dfe4840d49983c4ae273c16ae16f6df253d509e
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195134"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74770359"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기
 

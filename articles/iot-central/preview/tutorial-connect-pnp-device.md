@@ -1,6 +1,6 @@
 ---
-title: IoT 플러그 앤 플레이 미리 보기 디바이스를 Azure IoT Central에 연결 | Microsoft Docs
-description: 디바이스 기능 모델을 사용하여 디바이스 코드를 만듭니다. 그런 다음, 디바이스 코드를 실행하고, 디바이스가 IoT Central 애플리케이션에 연결되는 것을 확인하고, 자동으로 생성되는 보기를 사용합니다.
+title: 자습서 - IoT 플러그 앤 플레이 미리 보기 디바이스를 Azure IoT Central에 연결
+description: 이 자습서에서는 디바이스 기능 모델을 사용하여 디바이스 코드를 만드는 방법을 보여줍니다. 그런 다음, 디바이스 코드를 실행하고, 디바이스가 IoT Central 애플리케이션에 연결되는 것을 확인하고, 자동으로 생성되는 보기를 사용합니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 08/08/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: be03684f89382f198c13540bbdfb3de5bf8513a6
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74404558"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702855"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
 

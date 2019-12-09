@@ -4,18 +4,17 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure 이�
 services: event-hubs
 documentationcenter: ''
 author: ShubhaVijayasarathy
-manager: timlt
 ms.service: event-hubs
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 11/05/2019
+ms.date: 12/02/2019
 ms.author: shvija
-ms.openlocfilehash: 209bdb919a505e55bdfb8868d556fa1ad08db2fe
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a94e67af927365eda2b8b98240285e7cd3079a95
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73717956"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688140"
 ---
 # <a name="quickstart-create-an-event-hub-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 이벤트 허브 만들기
 Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
@@ -59,9 +58,11 @@ Event Hubs 네임스페이스는 정규화된 도메인 이름으로 참조되�
 
    ![추가 단추](./media/event-hubs-quickstart-portal/event-hubs-add-toolbar.png)
 4. **네임스페이스 만들기** 페이지에서 다음 단계를 수행합니다.
-    1. 네임스페이스의 이름을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
-    2. 가격 책정 계층(기본 또는 표준)을 선택합니다.
-    3. 네임스페이스를 만들려는 **구독**을 선택합니다.
+    1. 네임스페이스의 **이름**을 입력합니다. 시스템에서 사용 가능한 이름인지 즉시 확인합니다.
+    2. **가격 책정 계층**(기본 또는 표준)을 선택합니다.
+    3. **Kafka 사용** 옵션이 자동으로 사용하도록 설정되어 있습니다. Azure Event Hubs는 Kafka 엔드포인트를 제공합니다. 이 엔드포인트를 통해 Event Hubs 네임스페이스가 [Apache Kafka](https://kafka.apache.org/intro) 메시지 프로토콜 및 API를 고유하게 해석할 수 있습니다. 이 기능을 사용하면 프로토콜 클라이언트를 변경하거나 자체 클러스터를 실행하지 않고도 Kafka 항목과 마찬가지로 이벤트 허브와 통신할 수 있습니다. Event Hubs는 [Apache Kafka 버전 1.0](https://kafka.apache.org/10/documentation.html) 이상을 지원합니다.
+    4. 네임스페이스를 만들려는 **구독**을 선택합니다.
+    5. 기존 **리소스 그룹**을 선택하거나 새 리소스 그룹을 만듭니다. 
     4. 네임스페이스의 **위치**를 선택합니다.
     5. **만들기**를 선택합니다. 시스템에서 리소스를 완전히 프로비전하기까지 몇 분 동안 기다려야 할 수 있습니다.
 

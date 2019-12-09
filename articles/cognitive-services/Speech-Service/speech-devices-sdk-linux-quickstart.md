@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: 18b96e9afbf2a83b917d6848b419fb76518035de
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74090436"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815317"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>빠른 시작: Linux에서 Speech Devices SDK 샘플 앱 실행
 
@@ -23,7 +23,7 @@ ms.locfileid: "74090436"
 
 애플리케이션은 Speech SDK 패키지와 64비트 Linux(Ubuntu 16.04, Ubuntu 18.04, Debian 9) 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
-이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Services](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -35,7 +35,7 @@ ms.locfileid: "74090436"
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
-* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 /home/wcaltest/JRE-Sample-Release에 추출되었다고 가정합니다.

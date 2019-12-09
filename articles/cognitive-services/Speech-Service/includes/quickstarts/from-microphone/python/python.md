@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 마이크에서 음성 인식, Python  - Speech Service'
+title: '빠른 시작: 마이크에서 음성 인식, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에 따라 Python용 Speech SDK를 사용하여 음성을 텍스트로 변환하는 콘솔 애플리케이션을 만듭니다. 작업을 마치면 컴퓨터의 마이크를 사용하여 실시간으로 음성을 텍스트로 변환할 수 있습니다.
 services: cognitive-services
@@ -10,22 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 7fe11876a7ba20981f784bc41ce8094178591371
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a417c2a269ce66c291eda3c4c76f8d48f0ebad95
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500691"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818718"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
-> * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 ## <a name="support-and-updates"></a>지원 및 업데이트
 
@@ -48,6 +48,9 @@ python quickstart.py
 또는 [Speech SDK 샘플 리포지토리](https://github.com/Azure-Samples/cognitive-services-speech-sdk/)에서 [Jupyter](https://jupyter.org) Notebook으로 이 빠른 시작 자습서를 다운로드하고 노트북으로 실행할 수 있습니다.
 
 ### <a name="sample-code"></a>샘플 코드
+
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 [!code-python[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/python/from-microphone/quickstart.py#code)]
 

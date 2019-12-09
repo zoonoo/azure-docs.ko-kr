@@ -1,26 +1,16 @@
 ---
 title: Ruby 앱 구성 - Azure App Service
-description: 이 자습서에서는 Linux의 Azure App Service에 대한 Ruby 앱을 작성하고 구성하는 옵션을 설명합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+description: 앱에 대해 미리 빌드된 Ruby 컨테이너를 구성하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 71734396e90987fb1e318f3d8bb01d957fc0fda1
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b17bec5663cc8e9d199ad79bb5282b052b8c0182
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071298"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670401"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Azure App Service용 Linux Ruby 앱 구성
 

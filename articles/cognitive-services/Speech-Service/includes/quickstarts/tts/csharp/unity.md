@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 281fbcf3f42160b18adcad3f06f6ef4a7b8de243
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f3b3d68e0154913e3eb6d101965ad33530502954
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500473"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818320"
 ---
 > [!NOTE]
 > Unity는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터, ARM32 및 ARM64)를 지원합니다.
@@ -25,7 +25,7 @@ ms.locfileid: "73500473"
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=unity)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=unity)
 
@@ -83,7 +83,7 @@ ms.locfileid: "73500473"
 ## <a name="run-the-application-in-the-unity-editor"></a>Unity 편집기에서 애플리케이션 실행
 
 * 메뉴 모음의 아래쪽에 있는 Unity 편집기 도구 모음에서 **재생** 단추를 선택합니다.
-* 앱이 시작되면 입력 필드에 텍스트를 입력하고, 단추를 선택합니다. 텍스트가 Speech Services로 전송되고, 음성으로 합성되어 스피커에서 재생됩니다.
+* 앱이 시작되면 입력 필드에 텍스트를 입력하고, 단추를 선택합니다. 해당 텍스트는 Speech Service로 전송되고 음성으로 합성되어 스피커로 재생됩니다.
 
   [![Unity 게임 창에서 실행 중인 빠른 시작의 스크린샷](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-inline.png)](~/articles/cognitive-services/speech-service/media/sdk/qs-tts-csharp-unity-output-expanded.png#lightbox)
 

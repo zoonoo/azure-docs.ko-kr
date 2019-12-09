@@ -22,6 +22,8 @@
   items:
     - name: Internet Analyzer FAQ
       href: internet-analyzer-faq.md
+    - name: Internet Analyzer 문제 해결
+      href: troubleshoot.md
     - name: Internet Analyzer CLI 참조
       href: 'https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest'
     - name: Azure 로드맵

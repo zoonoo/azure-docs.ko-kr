@@ -1,24 +1,15 @@
 ---
-title: 사용자 지정 Windows 컨테이너 실행(미리 보기) - Azure App Service | Microsoft Docs
-description: Azure App Service에 사용자 지정 Windows 컨테이너를 배포하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: '빠른 시작: Windows 컨테이너(미리 보기)'
+description: 첫 번째 사용자 지정 Windows 컨테이너를 Azure App Service에 배포합니다. 컨테이너화를 활용하여 Windows 컨테이너를 원하는 방식으로 사용자 지정합니다.
 ms.topic: quickstart
 ms.date: 08/30/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 230ff96aaf2c78827c7c4da92abe0f356cc2643e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0b618c4f1a24e4089cac2ddf34e61bab156aefdd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241853"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671344"
 ---
 # <a name="run-a-custom-windows-container-in-azure-preview"></a>Azure에서 사용자 지정 Windows 컨테이너 실행(미리 보기)
 
@@ -96,7 +87,7 @@ ms.locfileid: "70241853"
 
 1. **웹앱 만들기**에서 구독 및 **리소스 그룹**을 선택합니다. 필요한 경우 새 리소스 그룹을 만들 수 있습니다.
 
-1. *win-container-demo*와 같은 앱 이름을 제공하고, **운영 체제**에 대해 **Windows**를 선택합니다. **다음: Docker**를 선택하여 계속합니다.
+1. *win-container-demo*와 같은 앱 이름을 제공하고, **운영 체제**에 대해 **Windows**를 선택합니다. 완료되면 **다음: Docker**를 선택하여 계속합니다.
 
    ![Web App for Containers 만들기](media/app-service-web-get-started-windows-container/create-web-app-continer.png)
 

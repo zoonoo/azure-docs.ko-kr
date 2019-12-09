@@ -1,19 +1,19 @@
 ---
-title: '빠른 시작: 소스 코드에서 Spring Cloud 애플리케이션 시작'
-description: 소스 코드에서 직접 Azure Spring Cloud 애플리케이션을 시작하는 방법을 알아봅니다.
+title: 빠른 시작 - 소스 코드에서 Spring Cloud 애플리케이션 시작
+description: 이 빠른 시작에서는 소스 코드에서 직접 Azure Spring Cloud 애플리케이션을 시작하는 방법을 알아봅니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 7ca80966ccab83991246f0ed7ea35cf2c9524b1d
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 6e18ac6c0fa97125b89ea5760a5d7da6c1545393
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721279"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708885"
 ---
-# <a name="launch-your-spring-cloud-application-from-source-code"></a>소스 코드에서 Spring Cloud 애플리케이션 시작
+# <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>빠른 시작: 소스 코드에서 Spring Cloud 애플리케이션 시작
 
 Azure Spring Cloud를 사용하면 Azure에서 Spring Cloud 기반 마이크로서비스 애플리케이션을 쉽게 실행할 수 있습니다.
 

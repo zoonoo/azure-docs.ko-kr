@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 마이크에서 음성 인식, C++(Unity) - Speech Service'
+title: '빠른 시작: 마이크에서 음성 인식, C#(Unity) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,24 +10,27 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: babc6b1c0b6207d404091db3117f95f6d71c53ac
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0a9eddf147eedfa972e0574e62c9e7c2eace84f
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500637"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818872"
 ---
 > [!NOTE]
 > Unity용 Speech SDK는 Windows 데스크톱(x86 및 x64) 또는 유니버설 Windows 플랫폼(x86, x64, ARM/ARM64), Android(x86, ARM32/64) 및 iOS(x64 시뮬레이터, ARM32 및 ARM64)를 지원합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=unity)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=unity) 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
+> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=unity)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
+
+이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
 
 ## <a name="create-a-unity-project"></a>Unity 프로젝트 만들기
 
@@ -86,7 +89,7 @@ Unity 프로젝트에 대한 샘플 스크립트 코드를 추가하려면 다�
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/unity/from-microphone/Assets/Scripts/HelloWorld.cs#code)]
 
-1. `YourSubscriptionKey` 문자열을 찾아서 Speech Services 구독 키로 바꿉니다.
+1. `YourSubscriptionKey` 문자열을 찾아서 Speech Service 구독 키로 바꿉니다.
 
 1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다. 예를 들어 평가판을 사용하는 경우 지역은 `westus`입니다.
 
@@ -117,7 +120,7 @@ Unity 프로젝트에 대한 샘플 스크립트 코드를 추가하려면 다�
 
 1. [**게임** 보기](https://docs.unity3d.com/Manual/GameView.html)로 이동하여 **Text** 개체에서 **음성을 인식하려면 단추를 클릭하세요**를 표시할 때까지 기다립니다. (애플리케이션이 시작되지 않았거나 응답할 준비가 되지 않은 경우 **새 텍스트**가 표시됩니다.)
 
-1. 단추를 선택하고 컴퓨터의 마이크에 영어 구 또는 문장을 말합니다. 음성은 Speech Services로 전송되고, **게임** 보기에 표시되는 텍스트로 전사됩니다.
+1. 단추를 선택하고 컴퓨터의 마이크에 영어 구 또는 문장을 말합니다. 음성은 Speech Service로 전송되고 **게임** 보기에 표시되는 텍스트로 전사됩니다.
 
    [![Unity 편집기의 게임 보기](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png)](~/articles/cognitive-services/Speech-Service/media/sdk/qs-csharp-unity-03-output-inline.png#lightbox)
 

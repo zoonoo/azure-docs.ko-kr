@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2019
 ms.author: travisw
-ms.openlocfilehash: 75ecbe8351e68b77a59b40709a2beb15d09b16df
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 25d74b640f1bf567792c317626da0178ead7e34f
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500805"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816234"
 ---
 # <a name="quickstart-create-a-voice-assistant-with-the-speech-sdk-uwp"></a>빠른 시작: Speech SDK를 사용하여 음성 도우미 만들기, UWP
 
@@ -31,7 +31,7 @@ ms.locfileid: "73500805"
 이 빠른 시작에는 다음이 필요합니다.
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
+* Speech Service에 대한 Azure 구독 키입니다. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 * 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
 
   > [!NOTE]
@@ -292,7 +292,7 @@ ms.locfileid: "73500805"
 1. `InitializeDialogServiceConnector`의 메서드 본문에 다음 코드 조각을 추가합니다. 이 코드는 구독 정보를 사용하여 `DialogServiceConnector`를 만듭니다.
 
     ```csharp
-    // Create a BotFrameworkConfig by providing a Speech Service subscription key
+    // Create a BotFrameworkConfig by providing a Speech service subscription key
     // the RecoLanguage property is optional (default en-US)
     const string speechSubscriptionKey = "YourSpeechSubscriptionKey"; // Your subscription key
     const string region = "YourServiceRegion"; // Your subscription service region.
@@ -422,7 +422,7 @@ ms.locfileid: "73500805"
 ## <a name="see-also"></a>참고 항목
 
 - [음성 도우미 정보](voice-assistants.md)
-- [무료로 Speech Service 구독 키 받기](get-started.md)
+- [평가판 Speech Service 구독 키 받기](get-started.md)
 - [사용자 지정 키워드](speech-devices-sdk-create-kws.md)
 - [봇에 Direct Line Speech 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [GitHub에서 C# 샘플 살펴보기](https://aka.ms/csspeech/samples)

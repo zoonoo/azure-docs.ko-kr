@@ -1,5 +1,5 @@
 ---
-title: MySQL용 Azure Database에 대한 Azure CLI 샘플
+title: Azure CLI 샘플 - Azure Database for MySQL
 description: 이 문서는 MySQL용 Azure Database와 상호 작용하는 데 사용할 수 있는 Azure CLI 코드 샘플을 나열합니다.
 author: ajlam
 ms.author: andrela
@@ -7,13 +7,13 @@ ms.service: mysql
 ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
-ms.date: 02/28/2018
-ms.openlocfilehash: c5ecaf5ba893cce38327d38236d593e06b31abb9
-ms.sourcegitcommit: 87bd7bf35c469f84d6ca6599ac3f5ea5545159c9
+ms.date: 12/02/2019
+ms.openlocfilehash: 18c52505ddf82cb29b13a9ee7621db5c3422eab6
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/22/2019
-ms.locfileid: "58350941"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769764"
 ---
 # <a name="azure-cli-samples-for-azure-database-for-mysql"></a>MySQL용 Azure Database에 대한 Azure CLI 샘플 
 다음 테이블은 MySQL용 Azure Database의 Azure CLI 샘플 스크립트에 대한 링크를 포함합니다.

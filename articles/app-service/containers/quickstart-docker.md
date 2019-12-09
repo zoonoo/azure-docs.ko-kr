@@ -1,19 +1,18 @@
 ---
-title: Linux에 Docker 앱 배포 - Azure App Service
-description: Linux용 Azure App Services에 Docker 이미지를 배포하는 방법
-author: msangapu
+title: '빠른 시작: 사용자 지정 Linux 컨테이너 실행'
+description: Azure Container Registries를 사용하여 첫 번째 사용자 지정 컨테이너를 배포하여 Azure App Service에서 Linux 컨테이너를 시작하세요.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/28/2019
 ms.topic: quickstart
-ms.service: app-service
-ms.openlocfilehash: 2a7dc477b4cd0be0c50569d84e10cfe1d666eac9
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 14ea5444d3d8827919405a4d5aa8a176746c2e72
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70392702"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688956"
 ---
-# <a name="deploy-to-azure-using-docker"></a>Docker를 사용하여 Azure에 배포
+# <a name="deploy-a-custom-linux-container-to-azure-app-service"></a>Azure App Service에 사용자 지정 Linux 컨테이너 배포
 
 App Service on Linux는 .NET, PHP, Node.js 등의 언어 지원을 통해 Linux에서 미리 정의된 애플리케이션 스택을 제공합니다. 또한 사용자 지정 Docker 이미지를 사용하여 Azure에 아직 정의되지 않은 애플리케이션 스택에 웹앱을 실행할 수도 있습니다. 이 빠른 시작에서는 ACR([Azure Container Registry](/azure/container-registry))에서 App Service로 이미지를 배포하는 방법을 보여 줍니다.
 

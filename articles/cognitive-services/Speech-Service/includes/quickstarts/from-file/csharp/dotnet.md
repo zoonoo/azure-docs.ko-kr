@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: fdb747212914769b8551d9cd12f1fbc8a01245dc
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7fc7edcb37b31022afb989199bd54e55589e1849
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500835"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819408"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -26,16 +26,18 @@ ms.locfileid: "73500835"
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
 
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
+
 ## <a name="open-your-project-in-visual-studio"></a>Visual Studio에서 프로젝트 열기
 
 첫 번째 단계로 Visual Studio에서 프로젝트를 열어야 합니다.
 
-1. Visual Studio 2019를 실행합니다.
+1. Visual Studio 2019를 시작합니다.
 2. 프로젝트를 로드하고 `Program.cs`를 엽니다.
 
 ## <a name="start-with-some-boilerplate-code"></a>몇 가지 상용구 코드로 시작
 
-프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다. `RecognizeSpeechAsync()`라는 비동기 메서드를 만들어야 합니다.
+프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다. `RecognizeSpeechAsync()`라는 비동기 메서드를 만듭니다.
 
 ````C#
 
@@ -66,6 +68,7 @@ namespace helloworld
 
 > [!NOTE]
 > 이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 참조하세요.
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 ````C#
 var config = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");

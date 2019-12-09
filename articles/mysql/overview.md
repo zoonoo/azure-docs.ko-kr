@@ -1,18 +1,18 @@
 ---
-title: Azure Database for MySQL 관계형 데이터베이스 서비스 개요
+title: 개요 - Azure Database for MySQL
 description: MySQL 커뮤니티 버전을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스인 Azure Database for MySQL 서비스에 대해 알아봅니다.
 author: ajlam
 ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
-ms.date: 11/25/2019
-ms.openlocfilehash: 680b5e9ef8e7e8ed59d3b502b49fc1b45d016e80
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: b7b29a07e9d56a9b961192352d0bfa13a8986d7a
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483524"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74775120"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>MySQL용 Azure Database란?
 

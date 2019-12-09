@@ -1,5 +1,5 @@
 ---
-title: Azure CLI 스크립트 - Azure Database for MariaDB 만들기
+title: CLI 스크립트 - 서버 만들기 - Azure Database for MariaDB
 description: 이 샘플 CLI 스크립트는 Azure Database for MariaDB 서버를 만들고 서버 수준 방화벽 규칙을 구성합니다.
 author: ajlam
 ms.author: andrela
@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: sample
 ms.custom: mvc
 ms.date: 11/28/2018
-ms.openlocfilehash: a7e8a4c8f8572cfdd236b1752e89b3a1b4e7b758
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 3e0c17bbb413c2036ad1a3794dc029aaef0fe68c
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66171377"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771741"
 ---
 # <a name="create-a-mariadb-server-and-configure-a-firewall-rule-using-the-azure-cli"></a>Azure CLI를 사용하여 MariaDB 서버 만들기 및 방화벽 규칙 구성
 이 샘플 CLI 스크립트는 Azure Database for MariaDB 서버를 만들고 서버 수준 방화벽 규칙을 구성합니다. 스크립트가 성공적으로 실행되면 모든 Azure 서비스 및 구성된 IP 주소에서 MariaDB 서버에 액세스할 수 있습니다.

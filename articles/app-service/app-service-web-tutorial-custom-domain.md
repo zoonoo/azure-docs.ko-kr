@@ -1,27 +1,18 @@
 ---
-title: 기존 사용자 지정 DNS 이름 매핑 - Azure App Service | Microsoft Docs
+title: '자습서: 기존 사용자 지정 DNS 이름 매핑'
 description: Azure App Service의 웹앱, 모바일 앱 백 엔드 또는 API 앱에 기존 사용자 지정 DNS 도메인 이름(베니티 도메인)을 추가하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, 도메인 매핑, 도메인 이름, 기존 도메인, 호스트 이름
-services: app-service\web
-documentationcenter: nodejs
-author: cephalin
-manager: erikre
-editor: ''
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 06/06/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fa8acbab8179eea752607c4410851d74ae4e9444
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 37bb1193056894ea824f4aa1723fb327f54bccae
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73835867"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672069"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-app-service"></a>자습서: Azure App Service에 기존 사용자 지정 DNS 이름 매핑
 

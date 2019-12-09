@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Blob storage에 저장된 음성 인식 - Speech Service'
+title: '빠른 시작: Blob 스토리지에 저장된 음성 인식 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 195c4c94f7ab00a8740c9dd14aad0d0fd0daa9b7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ef61139056ad194d89e2a67cb4ac1b1414a3380b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500773"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74829046"
 ---
 이 빠른 시작에서는 [Batch Transcription REST API](../../../batch-transcription.md)를 사용하여 [SAS Blob](https://aka.ms/ignite2019/speech/placeholder)에 저장된 음성을 인식합니다. 몇 가지 필수 구성 요소를 충족한 후 REST API를 사용하여 음성을 인식하는 작업은 몇 가지 단계를 수행하면 됩니다.
 > [!div class="checklist"]

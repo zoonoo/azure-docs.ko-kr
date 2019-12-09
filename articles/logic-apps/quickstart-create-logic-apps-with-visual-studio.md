@@ -1,23 +1,18 @@
 ---
-title: Visual Studio에서 작업 워크플로 자동화 - Azure Logic Apps
+title: Visual Studio에서 작업 워크플로 자동화
 description: Azure Logic Apps 및 Visual Studio를 사용하여 엔터프라이즈 통합을 위한 반복 워크플로 만들기, 예약 및 실행
 services: logic-apps
-ms.service: logic-apps
 ms.suite: integration
-ms.workload: azure-vs
-author: ecfan
-ms.author: estfan
-ms.reviewer: klam, LADocs
-ms.manager: carmonm
+ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 11/08/2019
-ms.openlocfilehash: e7ce31f489ae274eddb02c1bfb7e57eb486f5851
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: f4d10f6b0934e7dea9779f45d0f05d7c28966965
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73796857"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819151"
 ---
 # <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>빠른 시작: Azure Logic Apps를 사용하여 자동화된 작업, 프로세스 및 워크플로 만들기 - Visual Studio
 
@@ -196,11 +191,11 @@ Azure 리소스 그룹 프로젝트를 사용하는 경우 **빈 논리 앱** �
 
 1. 논리 앱을 만드는 데 사용된 동일한 계정으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. Azure 기본 메뉴에서 **리소스 그룹**을 선택합니다. 논리 앱의 리소스 그룹을 선택하고 **개요**를 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 **리소스 그룹**을 선택합니다. 논리 앱의 리소스 그룹을 선택합니다.
 
 1. **개요** 페이지에서 **리소스 그룹 삭제**를 선택합니다. 리소스 그룹 이름을 입력하여 확인하고, **삭제**를 선택합니다.
 
-   !["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-logic-apps-with-visual-studio/delete-resource-group.png)
+   !["리소스 그룹" > "개요" > "리소스 그룹 삭제"](./media/quickstart-create-logic-apps-with-visual-studio/clean-up-resources.png)
 
 1. 로컬 컴퓨터에서 Visual Studio 솔루션을 삭제합니다.
 

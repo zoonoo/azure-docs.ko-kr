@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: df8dfc72dea9289fc13d648b05b59f6d1bd9b3e0
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 9fc7ccb1d619e36990fbc1b654a2b7be36a287e1
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273583"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705991"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-idc"></a>자습서: IDC와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -93,7 +93,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     **로그온 URL** 텍스트 상자에 `https://www.idc.com/saml-welcome/<SamlWelcomeCode>` URL을 입력합니다.
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 [IDC 클라이언트 지원팀](mailto:webchanneldev@idc.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 식별자 및 회신 URL로 해당 값을 업데이트합니다. 이러한 값을 얻으려면 IDC 클라이언트 지원팀에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **페더레이션 메타데이터 XML**을 찾고, **다운로드**를 선택하여 인증서를 컴퓨터에 다운로드 및 저장합니다.
 
@@ -135,7 +135,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-idc-sso"></a>IDC SSO 구성
 
-**IDC** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [IDC 지원 팀](mailto:webchanneldev@idc.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**IDC** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 IDC 지원 팀으로 보냅니다. IDC는 SAML SSO 연결이 양쪽에 제대로 설정되도록 이 설정을 구성합니다.
 
 ### <a name="create-idc-test-user"></a>IDC 테스트 사용자 만들기
 

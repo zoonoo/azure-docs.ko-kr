@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 음성을 여러 언어로 번역, C++(.NET Core Windows)- Speech Service'
+title: '빠른 시작: 음성을 여러 언어로 번역, C#(.NET Core Windows)- Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 947c0dd8a15efa8ac296aa598d883951816e759d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 8ea3c0bd1ab12004b51c3c9b56eb8a8370da6f36
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500437"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817197"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -117,7 +117,7 @@ ms.locfileid: "73500437"
 
 1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 음성 서비스로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, 음성 서비스가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, Speech Service가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
 ````
 Say something...

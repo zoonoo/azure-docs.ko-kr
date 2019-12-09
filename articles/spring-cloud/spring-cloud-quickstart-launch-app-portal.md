@@ -1,17 +1,17 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작'
-description: Azure Portal을 사용하여 Azure Spring Cloud에 샘플 애플리케이션을 배포합니다.
+title: 빠른 시작 - Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Spring Cloud에 샘플 애플리케이션을 배포합니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/4/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 8a34dcd31ba15ed949fa0a50ec904da96a048a7d
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 891952000f633d7d873c6d76c475916acc8ac4ec
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560058"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708855"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Spring Cloud 애플리케이션 시작
 
@@ -72,13 +72,17 @@ az extension add --name spring-cloud
 
 1. 서비스 **개요** 페이지로 이동하여 **구성 서버**를 선택합니다.
 
-1. **기본 리포지토리** 섹션에서 **URI**를 "https\://github.com/Azure-Samples/piggymetrics"로 설정하고 **LABEL**을 "config"로 설정하고 **적용**을 선택하여 변경 내용을 저장합니다.
+1. **기본 리포지토리** 섹션에서 **URI**를 "https\://github.com/Azure-Samples/piggymetrics"로 설정합니다.
+
+1. **LABEL**을 "config"로 설정합니다.
+
+1. **적용**을 선택하여 변경 내용을 저장합니다.
 
     ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>마이크로서비스 애플리케이션 빌드 및 배포
 
-1. [Azure Cloudshell](https://shell.azure.com)을 열고 샘플 앱 리포지토리를 로컬 컴퓨터에 복제합니다.  여기서는 먼저 앱을 복제하기 전에 `source-code`라는 임시 디렉터리를 만듭니다.
+1. [Azure Cloud Shell](https://shell.azure.com)을 열고 샘플 앱 리포지토리를 로컬 머신에 복제합니다.  여기서는 먼저 앱을 복제하기 전에 `source-code`라는 임시 디렉터리를 만듭니다.
 
     ```azurecli
     mkdir source-code
@@ -123,7 +127,7 @@ az extension add --name spring-cloud
 
 1. `gateway` 애플리케이션을 선택하여 **개요** 페이지를 표시합니다.
 
-1. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 이 작업은 몇 분 정도 걸릴 수 있습니다.
+1. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다.
 
     ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 

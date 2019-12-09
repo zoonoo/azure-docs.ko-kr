@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Android에서 Speech Devices SDK 실행'
+title: '빠른 시작: Android에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Android Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: c3eb6ec28879a7c53feb270e33857cd67dc06b0b
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: ccc6c2554576d91d2236fb84f81c8aeccdc07be7
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111695"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815346"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 Speech Devices SDK 샘플 앱 실행
 
 이 빠른 시작에서는 Android용 Speech Devices SDK를 사용하여 음성 지원 제품을 빌드하거나 [대화 전사](conversation-transcription-service.md) 디바이스로 사용하는 방법을 알아봅니다.
 
-이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Services](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 샘플 애플리케이션의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,11 +36,11 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
   > [!NOTE]
   > Android-Sample-Release.zip 파일에는 Android 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\Android-Sample-Release에 추출되었다고 가정합니다.
 
-- [Speech Service에 대한 Azure 구독 키](get-started.md)를 확보합니다.
+- [Speech Service에 대한 Azure 구독 키](get-started.md)를 가져옵니다.
 
 - 대화 전사를 사용하려는 경우 [순환 마이크 디바이스](get-speech-devices-sdk.md)를 사용해야 하며, 이 기능은 현재 "미국 중부" 및 "동아시아" 지역에서 "en-US" 및 "zh-CN"으로만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
-- Speech Services를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요.
+- Speech Service를 사용하여 사용자의 발언에서 의도(또는 작업)을 식별하려는 경우에는 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요.
 
   [간단한 LUIS 모델을 만들거나](https://docs.microsoft.com/azure/cognitive-services/luis/) LUIS-example.json LUIS 모델 샘플을 사용할 수 있습니다. LUIS 모델 샘플은 [Speech Devices SDK 다운로드 사이트](https://aka.ms/sdsdk-luis)에서 사용할 수 있습니다. 모델의 JSON 파일을 [LUIS 포털](https://www.luis.ai/home)에 업로드하려면 **새 앱 가져오기**를 선택한 다음, JSON 파일을 선택합니다.
 

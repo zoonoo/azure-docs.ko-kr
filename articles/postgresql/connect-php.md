@@ -1,5 +1,5 @@
 ---
-title: PHP를 사용하여 Azure Database for PostgreSQL - 단일 서버에 연결
+title: PHP를 사용하여 - Azure Database for PostgreSQL - 단일 서버에 연결
 description: 이 빠른 시작에서는 Azure Database for PostgreSQL - 단일 서버의 데이터를 연결하고 쿼리하는 데 사용할 수 있는 PHP 코드 샘플을 제공합니다.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: php
 ms.topic: quickstart
 ms.date: 2/28/2018
-ms.openlocfilehash: c6320eabd4d5808e8cfe1d39ec4a72bbbce42f77
-ms.sourcegitcommit: 0ae3139c7e2f9d27e8200ae02e6eed6f52aca476
+ms.openlocfilehash: 6e453201eb499f65ee7f3b8c17cbf0e5127182b0
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65067313"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74766381"
 ---
 # <a name="azure-database-for-postgresql---single-server-use-php-to-connect-and-query-data"></a>Azure Database for PostgreSQL - 단일 서버: PHP를 사용하여 데이터 연결 및 쿼리
 이 빠른 시작에서는 [PHP](https://secure.php.net/manual/intro-whatis.php) 애플리케이션을 사용하여 Azure Database for PostgreSQL에 연결하는 방법을 보여줍니다. SQL 문을 사용하여 데이터베이스의 데이터를 쿼리, 삽입, 업데이트 및 삭제하는 방법을 보여 줍니다. 이 문서의 단계에서는 개발자가 PHP를 사용하여 개발하는 것에 익숙하고 Azure Database for PostgreSQL 작업에 익숙하지 않다고 가정합니다.
@@ -26,7 +26,7 @@ ms.locfileid: "65067313"
 ## <a name="install-php"></a>PHP 설치
 사용자의 서버에 PHP를 설치하거나 PHP를 포함하는 Azure [웹앱](../app-service/overview.md)을 만듭니다.
 
-### <a name="windows"></a> Windows
+### <a name="windows"></a>Windows
 - [PHP 7.1.4 스레드로부터 안전하지 않은(x64) 버전](https://windows.php.net/download#php-7.1) 다운로드
 - PHP를 설치하고 [PHP 매뉴얼](https://secure.php.net/manual/install.windows.php)에서 자세한 구성 정보 참조
 - 이 코드는 PHP 설치에 포함된 **pgsql** 클래스(ext/php_pgsql.dll)를 사용합니다. 

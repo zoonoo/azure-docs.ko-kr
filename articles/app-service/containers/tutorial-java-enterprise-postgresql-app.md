@@ -1,22 +1,18 @@
 ---
-title: Linux에서 Java Enterprise 웹앱 빌드 - Azure App Service | Microsoft Docs
-description: Linux 기반 Azure App Service의 Wildfly에서 작동하는 Java Enterprise 앱을 만드는 방법을 알아봅니다.
+title: '자습서: Linux의 Java Enterprise 앱'
+description: Azure의 PostgreSQL 데이터베이스에 연결하여 Azure App Service on Linux의 Wildfly에서 작동하도록 하는 방법을 알아봅니다.
 author: JasonFreeberg
-manager: routlaw
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: tutorial
 ms.date: 11/13/2018
 ms.author: jafreebe
 ms.custom: seodec18
-ms.openlocfilehash: 2d26d9e145030e5972289c224dc2f76078d67527
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 84f22d52e9a92707a26a4e64f194e82cca87757d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68498493"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687446"
 ---
 # <a name="tutorial-build-a-java-ee-and-postgres-web-app-in-azure"></a>자습서: Azure에서 Java EE 및 Postgres 웹앱 빌드
 

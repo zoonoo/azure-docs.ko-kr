@@ -1,26 +1,17 @@
 ---
-title: Azure CLI 샘플 - App Service | Microsoft Docs
-description: Azure CLI 샘플 - App Service
-services: app-service
-documentationcenter: app-service
-author: syntaxc4
-manager: erikre
-editor: ggailey777
+title: CLI 샘플
+description: 몇 가지 일반적인 App Service 시나리오에 대한 Azure CLI 샘플을 찾습니다. App Service 배포 또는 관리 작업을 자동화하는 방법을 알아봅니다.
 tags: azure-service-management
 ms.assetid: 53e6a15a-370a-48df-8618-c6737e26acec
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: app-service
 ms.date: 12/12/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: dc8a08c61250994b6083e3936820e1e6025593a6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 06f03e0005c4f98370bb1f6430fff506f9145d5a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066694"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688520"
 ---
 # <a name="cli-samples-for-azure-app-service"></a>Azure App Service에 대한 CLI 샘플
 

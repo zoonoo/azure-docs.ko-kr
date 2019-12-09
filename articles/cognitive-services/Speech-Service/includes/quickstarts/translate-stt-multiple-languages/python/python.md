@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: fe969b45384568a41fe74415995b0173450eeaf4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 44fafa361744f3c405cdb5c7ad416146fc0b1de2
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500515"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817228"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -91,7 +91,7 @@ ms.locfileid: "73500515"
    python quickstart.py
    ```
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 음성 서비스로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, 음성 서비스가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 프랑스어 및 독일어)로 번역하고 전사합니다. 그런 다음, Speech Service가 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
    ```
    Say something...

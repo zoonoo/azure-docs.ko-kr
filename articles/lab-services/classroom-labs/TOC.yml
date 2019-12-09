@@ -72,6 +72,8 @@
           href: how-to-enable-remote-desktop-linux.md
         - name: 템플릿 VM에서 중첩된 가상화 사용
           href: how-to-enable-nested-virtualization-template-vm.md
+        - name: Windows 템플릿 VM 준비
+          href: how-to-prepare-windows-template.md
     - name: 클래스룸 랩에서 VM에 연결(학생)
       items:
         - name: 클래스룸 랩 액세스

@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: b68bd69c6d00ac177466f8fdaabd89649c910287
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72790300"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74790304"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -98,7 +98,7 @@ Service Bus는 조정된 메시징 시스템입니다. 소비하는 주체에서
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요. 
-
+- [Azure의 비동기 메시징 옵션](/azure/architecture/guide/technology-choices/messaging)
 - [이벤트, 데이터 요소 및 메시지 - 데이터에 적합한 Azure 메시지 서비스 선택](https://azure.microsoft.com/blog/events-data-points-and-messages-choosing-the-right-azure-messaging-service-for-your-data/)
 - [Storage 큐 및 Service Bus 큐 - 비교 및 대조](../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 - Event Grid를 시작하려면 [Azure Event Grid를 사용하여 사용자 지정 이벤트 만들기 및 라우팅](custom-event-quickstart.md)을 참조하세요.

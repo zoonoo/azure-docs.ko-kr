@@ -1,27 +1,20 @@
 ---
-title: Windows에서 Java 웹앱 만들기 - Azure App Service
-description: 이 빠른 시작에서는 몇 분 안에 Windows의 Azure App Service에서 첫 번째 Java Hello World를 배포합니다.
+title: '빠른 시작: Windows에서 Java 앱 만들기'
+description: 몇 분 안에 Windows의 Azure App Service에 첫 번째 Java Hello World를 배포합니다. App Service에 대한 Maven 플러그 인을 사용하면 Java 앱을 편리하게 배포할 수 있습니다.
 keywords: azure, 앱 서비스, 웹앱, windows, java, maven, 빠른 시작
-services: app-service\web
-documentationcenter: ''
 author: msangapu-msft
-manager: jeconnoc
-editor: ''
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d119ffdcb952405f17e0df152c817df9a8a63110
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73833636"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74672170"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 

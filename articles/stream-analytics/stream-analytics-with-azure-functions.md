@@ -1,5 +1,5 @@
 ---
-title: Azure Stream Analytics 작업에서 Azure Functions 실행
+title: 자습서 - Azure Stream Analytics 작업에서 Azure Functions 실행
 description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
 services: stream-analytics
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.date: 06/05/2019
 ms.author: mamccrea
 ms.reviewer: jasonh
-ms.openlocfilehash: 1ea454f82232fdae17544efc2f0bdfd4601c497e
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 189f38c075c5faa91295633d1e4cbde1f7e573a2
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72934208"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707298"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 

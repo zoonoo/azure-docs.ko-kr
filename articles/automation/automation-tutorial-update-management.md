@@ -6,15 +6,15 @@ author: mgoedtel
 ms.service: automation
 ms.subservice: update-management
 ms.topic: tutorial
-ms.date: 11/20/2019
+ms.date: 12/03/2019
 ms.author: magoedte
 ms.custom: mvc
-ms.openlocfilehash: 65ce4234da3f44de11522a626d2c0d10524e4673
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 44372f32227bbfef46a72afa6f9b0bd88b29905b
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278774"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74806561"
 ---
 # <a name="manage-updates-and-patches-for-your-azure-vms"></a>Azure VM에 대한 업데이트 및 패치 관리
 
@@ -127,6 +127,10 @@ Automation 계정이 이미 리소스로 선택되었습니다. 변경하려면 
 ## <a name="schedule-an-update-deployment"></a>업데이트 배포 예약
 
 따라서 릴리스 일정 및 서비스 기간 이후로 배포를 예약하여 업데이트를 설치합니다. 배포에 포함할 업데이트 형식을 선택할 수 있습니다. 예를 들어 중요 업데이트나 보안 업데이트를 포함하고 업데이트 롤업은 제외할 수 있습니다.
+
+>[!NOTE]
+>업데이트 배포를 예약하면 대상 머신에서 업데이트 배포를 처리하는 **MicrosoftOMSComputers** runbook에 연결된 [일정](shared-resources/schedules.md) 리소스가 만들어집니다. 배포를 만든 후 Azure Portal에서 또는 PowerShell을 사용하여 일정 리소스를 삭제하면 예약된 업데이트 배포가 중단되고 포털에서 다시 구성하려고 할 때 오류가 표시됩니다. 해당 배포 일정을 삭제해야만 일정 리소스를 삭제할 수 있습니다.  
+>
 
 VM에 대한 새 업데이트 배포를 예약하려면 **업데이트 관리**로 이동한 다음, **업데이트 배포 예약**을 선택합니다.
 

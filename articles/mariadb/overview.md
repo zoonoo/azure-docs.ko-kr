@@ -1,18 +1,18 @@
 ---
-title: Azure Database for MariaDB 관계형 데이터베이스 서비스 개요
+title: 개요 - Azure Database for MariaDB
 description: MySQL 커뮤니티 버전을 기반으로 하는 Microsoft 클라우드의 관계형 데이터베이스 서비스인 Azure Database for MariaDB 서비스에 대해 알아봅니다.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/25/2019
-ms.openlocfilehash: aed2e090a1e3a6a4c80f70ba25da9a903a6192c1
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.date: 12/02/2019
+ms.openlocfilehash: f2dc6ec2fb99addc6a2c050c072e0221fd2c8e0b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74484156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74769084"
 ---
 # <a name="what-is-azure-database-for-mariadb"></a>Azure Database for MariaDB란?
 
@@ -53,7 +53,7 @@ Azure에서는 Microsoft에서 관리하는 데이터 센터로 구성된 글로
 
 ## <a name="secure-your-data"></a>데이터 보호
 
-Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데이터 보안의 전통을 이어갑니다. Azure Database for MariaDB는 액세스를 제한하고, 미사용 및 이동 중인 데이터를 보호하며, 모니터 작업을 지원하는 기능을 제공합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/trustcenter/security)를 방문하세요. Azure Database for MySQL 보안 기능에 대한 자세한 내용은 [보안 개요](concepts-security.md)를 참조하세요.
+Azure 데이터베이스는 Azure Database for MariaDB가 가지고 있는 데이터 보안의 전통을 이어갑니다. Azure Database for MariaDB는 액세스를 제한하고, 미사용 및 이동 중인 데이터를 보호하며, 모니터 작업을 지원하는 기능을 제공합니다. Azure의 플랫폼 보안에 대한 자세한 내용을 보려면 [Azure 보안 센터](https://www.microsoft.com/trustcenter/security)를 방문하세요. Azure Database for MariaDB 보안 기능에 대한 자세한 내용은 [보안 개요](concepts-security.md)를 참조하세요.
 
 ## <a name="contacts"></a>연락처
 

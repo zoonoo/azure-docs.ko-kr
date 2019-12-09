@@ -1,18 +1,18 @@
 ---
-title: '자습서: Azure Portal를 사용하여 Azure Database for MySQL 디자인'
+title: '자습서: 서버 디자인 - Azure Portal - Azure Database for MySQL'
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Database for MySQL 서버 및 데이터베이스를 만들고 관리하는 방법에 대해 설명합니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: tutorial
-ms.date: 03/20/2018
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: d9c6a16dd7e6c32a71d496abe8a67e23cc075a6d
-ms.sourcegitcommit: adb6c981eba06f3b258b697251d7f87489a5da33
+ms.openlocfilehash: ee33af4992745aeaeb99551cc173c39e224a298b
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66515812"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74771159"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Database for MySQL 데이터베이스 디자인
 Azure Database for MySQL은 클라우드에서 항상 사용 가능한 MySQL 데이터베이스를 실행, 관리 및 크기 조정할 수 있게 하는 관리 서비스입니다. Azure Portal을 사용하면 쉽게 서버를 관리하고 데이터베이스를 디자인할 수 있습니다.
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](h
 원하는 웹 브라우저를 열고 [Microsoft Azure Portal](https://portal.azure.com/)을 방문합니다. 자격 증명을 입력하여 포털에 로그인합니다. 기본 보기는 서비스 대시보드입니다.
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Azure Database for MySQL 서버 만들기
-MySQL용 Azure Database 서버는 정의된 [계산 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트를 사용하여 만들어집니다. 서버는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 내에 만들어집니다.
+MySQL용 Azure Database 서버는 정의된 [컴퓨팅 및 스토리지 리소스](./concepts-compute-unit-and-storage.md) 세트를 사용하여 만들어집니다. 서버는 [Azure 리소스 그룹](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 내에 만들어집니다.
 
 1. **데이터베이스** > **MySQL용 Azure Database**로 이동합니다. **데이터베이스** 범주 아래에서 MySQL 서버를 찾을 수 없으면 **모두 표시**를 클릭하여 사용 가능한 모든 데이터베이스 서비스를 표시합니다. 검색 상자에 **MySQL용 Azure Database**를 입력하여 신속하게 서비스를 찾을 수도 있습니다.
    
@@ -47,15 +47,15 @@ MySQL용 Azure Database 서버는 정의된 [계산 및 스토리지 리소스](
     **설정** | **제안 값** | **필드 설명** 
     ---|---|---
     서버 이름 | 고유 서버 이름 | Azure Database for MySQL 서버를 식별하는 고유한 이름을 선택합니다. 예를 들어 mydemoserver가 있습니다. 제공한 서버 이름에 *.mysql.database.azure.com* 도메인 이름이 추가됩니다. 서버 이름은 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있으며, 3-63자여야 합니다.
-    구독 | 사용자의 구독 | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
-    리소스 그룹 | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다.
+    Subscription | 사용자의 구독 | 서버에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
+    Resource group | *myresourcegroup* | 새 또는 기존 리소스 그룹 이름을 제공합니다.
     원본 선택 | *비어 있음* | 새 서버를 처음부터 만들려면 *비어 있음*을 선택합니다. (기존 Azure Database for MySQL 서버의 지역 백업에서 서버를 만드는 경우 *백업*을 선택합니다).
     서버 관리자 로그인 | myadmin | 서버에 연결할 때 사용할 로그인 계정입니다. 관리자 로그인 이름은 **azure_superuser**, **admin**, **administrator**, **root**, **guest** 또는 **public**일 수 없습니다.
     암호 | *사용자 선택* | 서버 관리자 계정의 새 암호를 제공합니다. 8-128자여야 합니다. 사용자 암호는 다음 범주 중 세 개의 문자를 포함해야 합니다. 영문 대문자, 영문 소문자, 숫자(0-9) 및 영숫자가 아닌 문자(!, $, #, % 등).
     암호 확인 | *사용자 선택*| 관리자 계정 암호를 확인합니다.
     위치 | *사용자와 가장 가까운 지역*| 사용자 또는 다른 Azure 애플리케이션에 가장 가까운 위치를 선택합니다.
     버전 | *최신 버전*| 최신 버전입니다(다른 버전이 필요한 특정 요구 사항이 없는 경우).
-    가격 책정 계층 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 계산, 스토리지 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *5세대*, *vCore 2개*, *5GB* 및 *7일*은 **세대 계산**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
+    가격 책정 계층 | **범용**, **5세대**, **vCore 2개**, **5GB**, **7일**, **지역 중복** | 새 서버에 대한 컴퓨팅, 스토리지 및 백업 구성입니다. **가격 책정 계층**을 선택합니다. 그런 다음, **범용** 탭을 선택합니다. *Gen 5*, *vCore 2개*, *5GB* 및 *7일*은 **컴퓨팅 세대**, **vCore**, **스토리지** 및 **백업 보존 기간**에 대한 기본 값입니다. 해당 슬라이더를 그대로 둘 수 있습니다. 지역 중복 스토리지에서 서버 백업을 사용하도록 설정하려면 **백업 중복 옵션**에서 **지역 중복**을 선택합니다. 이 가격 책정 계층 선택을 저장하려면 **확인**을 선택합니다. 다음 스크린샷은 이러한 선택을 캡처한 것입니다.
     
    ![가격 책정 계층](./media/tutorial-design-database-using-portal/3-pricing-tier.png)
 

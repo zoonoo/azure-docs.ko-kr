@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Windows에서 Speech Devices SDK 실행'
+title: '빠른 시작: Windows에서 Speech Devices SDK 실행 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: Windows Speech Devices SDK를 시작하기 위한 필수 구성 요소 및 지침입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: erhopf
-ms.openlocfilehash: e4da99d895ba7a6d9ce537ab513ce4cc248aff7a
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111675"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815546"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>빠른 시작: Windows에서 Speech Devices SDK 샘플 앱 실행
 
@@ -23,7 +23,7 @@ ms.locfileid: "74111675"
 
 애플리케이션은 Speech SDK 패키지와 64비트 Windows 기반의 Eclipse Java IDE(v4)를 사용하여 빌드됩니다. 64비트 Java 8 JRE(Java Runtime Environment)에서 실행됩니다.
 
-이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Services](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
+이 가이드에는 Speech Service 리소스와 함께 [Azure Cognitive Service](get-started.md) 계정이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
@@ -36,7 +36,7 @@ ms.locfileid: "74111675"
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) 또는 [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)만 해당.
 * [Microsoft Visual C++ 재배포 가능 패키지](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads)
-* Speech Service에 대한 Azure 구독 키. [무료로 가져올 수 있습니다](get-started.md).
+* Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
    > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\JRE-Sample-Release에 추출되었다고 가정합니다.

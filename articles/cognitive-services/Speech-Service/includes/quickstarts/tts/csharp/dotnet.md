@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/27/2019
 ms.author: yinhew
-ms.openlocfilehash: af101862e824d6527c08c232812913565536bb4a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 38dac73d253245fce86ac419c7a4eb3a106df3f0
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500537"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818325"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=dotnet)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=dotnet)
 
@@ -32,7 +32,7 @@ ms.locfileid: "73500537"
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/dotnet/text-to-speech/helloworld/Program.cs#code)]
 
-1. `YourSubscriptionKey` 문자열을 찾아서 Speech Services 구독 키로 바꿉니다.
+1. `YourSubscriptionKey` 문자열을 찾아서 Speech Service 구독 키로 바꿉니다.
 
 1. `YourServiceRegion` 문자열을 찾아서 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다. 예를 들어 평가판 구독을 사용하는 경우 지역은 `westus`입니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "73500537"
 
 1. **디버그** > **디버깅 시작**(또는 **F5** 선택)을 선택하여 **helloworld** 애플리케이션을 시작합니다.
 
-1. 영어 구 또는 문장을 입력합니다. 애플리케이션은 텍스트를 음성 서비스로 전송하고, 여기서 합성된 음성을 스피커에서 재생하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 입력합니다. 애플리케이션은 텍스트를 Speech Service로 전송하고, 여기서 합성된 음성을 스피커에서 재생하기 위해 애플리케이션으로 다시 보냅니다.
 
    ![음성 합성 사용자 인터페이스](~/articles/cognitive-services/Speech-Service/media/sdk/qs-tts-csharp-dotnet-windows-console-output.png)
 

@@ -1,24 +1,18 @@
 ---
-title: App Service Environment에서 내부 부하 분산 장치 만들기 - Azure
-description: 인터넷에 연결되지 않은 Azure App Service Environment를 만들고 사용하는 방법에 대한 세부 정보
-services: app-service
-documentationcenter: na
+title: ARM을 사용하여 ILB ASE 만들기
+description: Azure Resource Manager 템플릿을 사용하여 내부 부하 분산 장치(ILB ASE)로 App Service 환경을 만드는 방법을 알아봅니다. 인터넷에서 앱을 완전히 격리합니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/05/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 07b47374484cf954b1fc4279c93dddcc6cec7e61
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: ae1d04043c740456368b0831bee84490778f0171
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470562"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687202"
 ---
 # <a name="create-and-use-an-internal-load-balancer-app-service-environment"></a>내부 Load Balancer App Service Environment 만들기 및 사용 
 

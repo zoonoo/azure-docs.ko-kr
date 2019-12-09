@@ -1,25 +1,18 @@
 ---
-title: App Service Environment에 대해 WAF(웹 애플리케이션 방화벽) 구성 - Azure
-description: App Service Environment의 앞에 웹 애플리케이션 방화벽을 구성하는 방법에 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: naziml
-manager: erikre
-editor: jimbe
+title: WAF 구성
+description: Azure Application Gateway 또는 타사 WAF를 사용하여 App Service Environment 앞에 WAF(웹 애플리케이션 방화벽)를 구성하는 방법에 대해 알아봅니다.
+author: ccompy
 ms.assetid: a2101291-83ba-4169-98a2-2c0ed9a65e8d
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 03/03/2018
-ms.author: naziml
+ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 01224e4270ba8a7c7df4a311823dd6156038438a
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: ba53438eb5ae1870cb180b169348ab0f92e5f305
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070058"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688764"
 ---
 # <a name="configuring-a-web-application-firewall-waf-for-app-service-environment"></a>App Service Environment에 대한 웹 애플리케이션 방화벽(WAF) 구성
 ## <a name="overview"></a>개요

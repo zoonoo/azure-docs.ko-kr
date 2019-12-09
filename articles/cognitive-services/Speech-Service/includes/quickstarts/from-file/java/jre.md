@@ -4,19 +4,21 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0ba76ed2bd7d6259307e2e8046c4695786ff3045
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0dbfab9b1886b39f166b94447fed8dc6707404bd
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500851"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74795559"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=jre)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=jre)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -108,6 +110,9 @@ ms.locfileid: "73500851"
 1. `whatstheweatherlike.wav` 문자열을 고유한 파일 이름으로 바꿉니다.
 
 1. 프로젝트에 대한 변경 내용을 저장합니다.
+
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 

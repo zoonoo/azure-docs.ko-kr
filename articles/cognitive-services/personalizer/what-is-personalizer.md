@@ -10,16 +10,16 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 6b55ce851bb12e37aed37039889aa8e69223a286
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73467196"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707941"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
-Azure Personalizer는 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 공통 실시간 동작을 통해 학습합니다.
+Azure Personalizer는 애플리케이션이 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 공통 실시간 동작을 통해 학습합니다.
 
 * 사용자 및 콘텐츠에 대한 정보를 제공하고 사용자에게 표시할 상위 작업을 받으세요. 
 * Personalizer를 사용하기 전에 데이터를 지우고 레이블을 지정할 필요가 없습니다.
@@ -60,8 +60,8 @@ Personalizer는 사용자 프로필 정보를 지속 및 관리하거나 개별 
 
 Personalizer 서비스는 다음과 같은 두 가지 API를 제공합니다.
 
-* 사용자에 대한 정보(_기능_) 및 개인 설정할 콘텐츠(_작업_)를 보냅니다. Personalizer는 최상위 작업으로 응답합니다.
-* 순위가 [보상 점수](concept-rewards.md)로 얼마나 잘 작동하는 지에 대한 피드백을 Personalizer에 보냅니다. 
+* *Rank*: Rank API를 사용하여 현재 _컨텍스트_에서 표시할 _작업_을 결정합니다. 작업은 각각에 대한 ID 및 정보(_기능_)가 있는 JSON 개체의 배열로 전송됩니다. 컨텍스트는 다른 JSON 개체로 전송됩니다. API는 애플리케이션이 사용자에게 렌더링해야 하는 actionId를 반환합니다.
+* *보상*: 사용자가 애플리케이션과 상호 작용한 후 개인 설정이 0과 1 사이의 숫자로 얼마나 잘 작동하는지 측정하여 [보상 점수](concept-rewards.md)로 보냅니다. 
 
 ![개인 설정에 대한 이벤트의 기본 시퀀스](media/what-is-personalizer/personalization-intro.png)
 

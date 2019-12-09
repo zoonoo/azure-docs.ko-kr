@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 5dc33de19ef71a0714052a6457bef9f32fc159c3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92fe564b849c728952dd549757be42b8b5131b25
+ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720153"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74791036"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
@@ -116,6 +116,8 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 | 인덱서 |  외부 데이터 원본에서 검색 가능한 데이터 및 메타데이터를 추출하고 문서 크래킹을 위한 인덱스와 데이터 원본 간의 필드 간 매핑에 따라 인덱스를 채우는 크롤러입니다. AI 보강의 경우 인덱서는 기술 세트를 호출하고, 인덱스의 대상 필드에 보강 출력을 연결하는 필드 매핑을 포함합니다. 인덱서 정의에는 파이프라인 작업에 대한 모든 지침과 참조가 포함되며 인덱서를 실행하면 파이프라인이 호출됩니다. 추가 구성을 통해 기존 처리를 다시 사용하고 변경된 단계 및 기술만 실행할 수 있습니다. | [인덱서](search-indexer-overview.md) 및 [증분 인덱싱(미리 보기)](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. |
 | 데이터 원본  | Azure에서 지원되는 유형의 외부 데이터 소스에 연결할 때 인덱서에 사용되는 개체입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 인덱스 | 필드 구조와 사용법을 정의하는 인덱스 스키마에서 작성된 Azure Cognitive Search의 지속형 검색 인덱스입니다. | [기본 인덱스 만들기](search-what-is-an-index.md)를 참조하세요. | 
+| 지식 저장소 | 검색 인덱스 외에도 보강 문서 모양을 지정하고 프로젝션 할 수 있는 스토리지 계정 | [지식 저장소 소개](knowledge-store-concept-intro.md)를 참조하세요. | 
+| 인덱서 캐시 | 스토리지 계정 기술 출력은 인덱서에 의해 캐시됩니다. 이 캐시를 사용하면 인덱서가 기술 세트를 편집할 때 많은 수의 문서를 다시 처리하는 비용을 최소화할 수 있습니다. | [증분 인덱싱](cognitive-search-incremental-indexing-conceptual.md)을 참조하세요. | 
 
 <a name="where-do-i-start"></a>
 

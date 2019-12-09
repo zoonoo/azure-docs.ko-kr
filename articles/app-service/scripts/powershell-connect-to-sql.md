@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - SQL Database에 앱 연결 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - SQL Database에 App Service 앱 연결
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: SQL Database에 연결'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 SQL Database에 연결하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 055440a9-fff1-49b2-b964-9c95b364e533
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: 799fb67b20c45653ec741a92ec7a75aff2f8c509
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bb5fc8bcc99a4439276f53325c029635143c86c5
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70087823"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685395"
 ---
 # <a name="connect-an-app-service-app-to-a-sql-database"></a>SQL Database에 App Service 앱 연결
 

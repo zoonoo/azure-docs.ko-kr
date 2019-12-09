@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/28/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: fd03072f4e69fac43874e822ebb06063436ef72c
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e8d7e7764a01dbd0169efae093bac4d984982108
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73646142"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708663"
 ---
 # <a name="continuous-integration-and-deployment-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 지속적인 통합 및 배포
 
@@ -25,12 +25,8 @@ ms.locfileid: "73646142"
 
 - [원본 제어 통합 자습서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-source-control-integration) 살펴보기
 
-- SQL Data Warehouse(미리 보기)에 SSDT 미리 보기 비트(16.3 미리 보기 2 이상)가 설치된 [자체 호스팅 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=azure-devops#install) 만들기
-
 - Azure DevOps 설정 및 연결
 
-  > [!NOTE]
-  > SSDT는 현재 미리 보기 상태로 있어 자체 호스팅 에이전트를 활용해야 합니다. Microsoft 호스팅 에이전트는 몇 개월 내에 업데이트됩니다.
 
 ## <a name="continuous-integration-with-visual-studio-build"></a>Visual Studio 빌드와의 지속적인 통합
 
@@ -49,9 +45,9 @@ ms.locfileid: "73646142"
 이 시점에서 원본 제어 리포지토리 마스터 분기에 대한 체크 인에서 데이터베이스 프로젝트의 성공적인 Visual Studio 빌드를 자동으로 트리거하는 간단한 환경이 있습니다. 로컬 데이터베이스 프로젝트를 변경하고 마스터 분기에서 변경 내용을 체크 인하여 자동화가 엔드투엔드 방식으로 작동하는지 확인합니다.
 
 
-## <a name="continuous-deployment-with-the-azure-sql-database-deployment-task"></a>Azure SQL Database 배포 작업을 사용한 지속적인 배포
+## <a name="continuous-deployment-with-the-azure-sql-data-warehouse-or-database-deployment-task"></a>Azure SQL Data Warehouse(또는 Database) 배포 작업을 사용한 지속적인 배포
 
-1. [Azure SQL Database 배포 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다.
+1. [Azure SQL Database 배포 작업](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/sql-azure-dacpac-deployment?view=azure-devops)을 사용하여 새 작업을 추가하고, 대상 데이터 웨어하우스에 연결하는 데 필요한 필드를 채웁니다. 이 작업이 실행되면 이전 빌드 프로세스에서 생성된 DACPAC가 대상 데이터 웨어하우스에 배포됩니다. [Azure SQL Datawarehouse 배포 작업](https://marketplace.visualstudio.com/items?itemName=ms-sql-dw.SQLDWDeployment)을 사용할 수도 있습니다. 
 
       ![배포 작업](media/sql-data-warehouse-continuous-integration-and-deployment/4-deployment-task.png "배포 작업")
 

@@ -1,24 +1,18 @@
 ---
-title: App Service Environment 소개 - Azure
-description: Azure App Service Environment의 간략한 개요
-services: app-service
-documentationcenter: na
+title: 소개
+description: Azure App Service Environments를 통해 완전히 격리된 전용 환경에서 앱을 확장, 보호 및 최적화하는 방법을 알아봅니다.
 author: ccompy
-manager: stefsch
 ms.assetid: 3c7eaefa-1850-4643-8540-428e8982b7cb
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 5a7374af71b262a72b680ac215f6960f961b3a15
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 35b667056698fdb2563ad9b1be9af19bcc98c1cc
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73470617"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688605"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>App Service Environment 소개 #
  

@@ -1,26 +1,17 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 웹 서버 로그를 사용하여 웹앱 모니터링
-services: app-service\web
-documentationcenter: ''
-author: syntaxc4
-manager: erikre
-editor: ''
+title: 'PowerShell: 웹 서버 로그로 모니터링'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 웹 서버 로그를 사용하여 앱을 모니터링하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 5805d7cd-9e56-4eba-bd85-75b013690ff5
-ms.service: app-service
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 03/20/2017
-ms.author: cfowler
 ms.custom: mvc
-ms.openlocfilehash: e9e376de3356a23df648f77738fd2c84cb26d97f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 79b5ef411abde3a4ef293516a43adaa1e669b6d9
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098305"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74684618"
 ---
 # <a name="monitor-a-web-appwith-web-server-logs"></a>웹 서버 로그로 웹앱 모니터링
 

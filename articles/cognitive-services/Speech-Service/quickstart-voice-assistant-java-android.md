@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 58bc33c54a7bd878d717b2c6e44d9ac8657c245f
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 077f34e94423918d324eb41b56ab84c64a0db719
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74111784"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74816204"
 ---
 # <a name="quickstart-create-a-voice-assistant-in-java-on-android-by-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 Android에서 Java로 음성 도우미 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "74111784"
 
 ## <a name="prerequisites"></a>필수 조건
 
-- Speech Service에 대한 Azure 구독 키. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
+- Speech Service에 대한 Azure 구독 키입니다. [Azure Portal](https://portal.azure.com)에서 [무료로 얻거나](get-started.md) 새로 만듭니다.
 - 이전에 [Direct Line Speech 채널](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)을 사용하여 만들고 구성한 봇
 - [Android Studio](https://developer.android.com/studio/) v3.3 이상
 
@@ -260,7 +260,7 @@ ms.locfileid: "74111784"
 
     * `YourSpeechSubscriptionKey`를 구독 키로 바꿉니다.
 
-    * `YourServiceRegion`은 구독과 연결된 [지역](regions.md)으로 바꿉니다. 현재는 음성 서비스 지역의 하위 집합에만 Direct Line Speech가 지원됩니다. 자세한 내용은 [지역](regions.md#voice-assistants)을 참조하세요.
+    * `YourServiceRegion`은 구독과 연결된 [지역](regions.md)으로 바꿉니다. 현재는 Speech Service 지역의 하위 집합에만 Direct Line Speech가 지원됩니다. 자세한 내용은 [지역](regions.md#voice-assistants)을 참조하세요.
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 
@@ -285,7 +285,7 @@ ms.locfileid: "74111784"
 
 ## <a name="see-also"></a>참고 항목
 - [음성 도우미 정보](voice-assistants.md)
-- [무료로 Speech Service 구독 키 받기](get-started.md)
+- [평가판 Speech Service 구독 키 받기](get-started.md)
 - [사용자 지정 키워드](speech-devices-sdk-create-kws.md)
 - [봇에 Direct Line Speech 연결](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech)
 - [GitHub에서 Java 샘플 살펴보기](https://aka.ms/csspeech/samples)

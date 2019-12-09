@@ -1,27 +1,18 @@
 ---
-title: Azure CLI 스크립트 샘플 - 앱에 사용자 지정 SSL 인증서 바인딩 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 앱에 사용자 지정 SSL 인증서 바인딩
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'CLI: 앱에 SSL 인증서 업로드 및 바인딩'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 사용자 지정 SSL 인증서를 앱에 바인딩하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: eb95d350-81ea-4145-a1e2-6eea3b7469b2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 89483c6396ea344a035ec22bf79e2f90dada4c96
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1ef07cb55af4b9fe9f54d58bbd496789928c1cec
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136908"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686680"
 ---
 # <a name="bind-a-custom-ssl-certificate-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 SSL 인증서 바인딩
 

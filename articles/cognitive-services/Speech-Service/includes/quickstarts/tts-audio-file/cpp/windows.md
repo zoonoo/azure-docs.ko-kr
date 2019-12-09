@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 오디오 파일로 음성 합성(Windows), C++ - Speech Service'
+title: '빠른 시작: 오디오 파일에 음성 합성, C++(Windows) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 0f166fedd1044ba3b7076f3fb7eb14becbc1272b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 024e6121e950ba27cf18b65434d712af80d1ec17
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500533"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817894"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=windows)
 

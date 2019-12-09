@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Blob storage에 저장된 음성 인식, Java - Speech Service'
+title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, Java - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,11 +11,11 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 8fb09db2d64248e620d01fe5f93d12ab5d6bf59a
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: fe274bed99ab9029c6ee7b213c79da08b4eebe1a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500797"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828809"
 ---
 [!INCLUDE [jre](./jre.md)]

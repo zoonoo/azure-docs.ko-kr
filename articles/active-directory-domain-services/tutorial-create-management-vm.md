@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 2aec10ab07b78aaacf34340b268f9b7dfbe69eb5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: d8a5f4756f3a6799c7f1b08973e0a84603cb4571
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73172339"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74703643"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -105,7 +105,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
 1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.contoso.com*), **다음**을 차례로 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aadds.contoso.com*), **다음**을 차례로 선택합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다.
 
@@ -125,7 +125,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
     ![서버에 설치된 관리 도구 목록](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. **Active Directory 관리 센터**를 선택합니다.
-1. Azure AD DS 관리되는 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *contoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
+1. Azure AD DS 관리형 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aadds.contoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
 
     ![Azure AD DS 관리되는 도메인의 사용 가능한 컨테이너 부분 나열](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 

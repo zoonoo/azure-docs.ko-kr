@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Blob Storage에 저장된 음성 인식, C++ - 음성 서비스'
+title: '빠른 시작: Blob 스토리지에 저장된 음성 인식, C++ - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 2173dbabc83ff0a03c0cfd18e02a6f3183ef90e2
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 313332689b0f2df9698f868297c72be7d8bde5bb
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500771"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828739"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -53,7 +53,7 @@ vcpkg install nlohmann-json
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다.
 
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=7-32,187-190,300-309)]
-`YourSubscriptionKey`, `YourServiceRegion`및 `YourFileUrl` 값을 고유한 값으로 바꿔야 합니다.
+(`YourSubscriptionKey`, `YourServiceRegion`및 `YourFileUrl` 값을 고유한 값으로 바꿔야 합니다.)
 
 ## <a name="json-wrappers"></a>JSON 래퍼
 
@@ -65,16 +65,16 @@ REST API는 JSON 형식으로 요청을 가져오고 JSON으로 결과를 반환
 
 ## <a name="create-and-configure-an-http-client"></a>Http 클라이언트 만들기 및 구성
 가장 먼저 필요한 것은 올바른 기본 URL과 인증 집합이 있는 Http 클라이언트입니다.
-`recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]에 이 코드 삽입
+이 코드를 `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=191-197)]에 삽입
 
 ## <a name="generate-a-transcription-request"></a>전사 요청 생성
 다음으로, 전사 요청을 생성합니다. `recognizeSpeech` [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=199-203)]에 이 코드 추가
 
 ## <a name="send-the-request-and-check-its-status"></a>요청을 보내고 상태 확인
-이제 음성 서비스에 요청을 게시하고 초기 응답 코드를 확인합니다. 이 응답 코드는 서비스에서 요청을 받았는지 여부를 표시합니다. 서비스는 전사 상태를 저장할 위치에 해당하는 Url을 응답 헤더에 반환합니다.
+이제 Speech Service에 요청을 게시하고 초기 응답 코드를 확인합니다. 이 응답 코드는 서비스에서 요청을 받았는지 여부를 표시합니다. 서비스는 전사 상태를 저장할 위치에 해당하는 Url을 응답 헤더에 반환합니다.
 [!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/from-blob/helloworld.cpp?range=204-216)]
 
-## <a name="wait-for-the-transcription-to-complete"></a>전사가 완료될 때까지 대기
+## <a name="wait-for-the-transcription-to-complete"></a>전사를 완료할 때까지 대기
 서비스는 전사를 비동기식으로 처리하므로 상태를 폴링해야 하는 경우가 있습니다. 5초마다 확인합니다.
 
 요청을 게시할 때 가져온 Url에서 콘텐츠를 검색하여 상태를 확인할 수 있습니다. 콘텐츠를 다시 가져오는 경우 쉽게 상호 작용할 수 있도록 도우미 클래스 중 하나로 역직렬화합니다.

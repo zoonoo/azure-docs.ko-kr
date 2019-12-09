@@ -1,27 +1,19 @@
 ---
-title: Azure CLI 스크립트 샘플 - 앱 만들기 및 스테이징 슬롯에 코드 배포 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - App Service 앱 만들기 및 스테이징 슬롯에 코드 배포
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: 스테이징 슬롯에 배포'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 스테이징 슬롯에 코드를 배포하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 2b995dcd-e471-4355-9fda-00babcdb156e
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 069dbcb5784414e63d093b7e38c399f358f830fb
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 1997d421a51e833e09b8d3062ba42bc0a2cf406b
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136732"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686192"
 ---
 # <a name="create-an-app-service-app-and-deploy-code-to-a-staging-environment-using-azure-cli"></a>Azure CLI를 사용하여 App Service 앱 만들기 및 스테이징 환경에 코드 배포
 

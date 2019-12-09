@@ -1,26 +1,16 @@
 ---
-title: Python 앱 구성 - Azure App Service
-description: 이 자습서에서는 Linux의 Azure App Service용 Python 앱을 작성하고 구성하는 옵션을 설명합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.assetid: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
+title: Linux Python 앱 구성
+description: 앱에 대해 미리 빌드된 Python 컨테이너를 구성하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: quickstart
 ms.date: 03/28/2019
-ms.author: cephalin
 ms.reviewer: astay; kraigb
 ms.custom: seodec18
-ms.openlocfilehash: 8563e0ac060e5cce6853472dfb1c51c6c2c36a4d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: b8de6df5761baef79310062614f578a92f17b826
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071082"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74670474"
 ---
 # <a name="configure-a-linux-python-app-for-azure-app-service"></a>Azure App Service용 Linux Python 앱 구성
 

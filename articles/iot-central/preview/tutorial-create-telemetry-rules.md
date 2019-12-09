@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Central 애플리케이션에서 규칙 만들기 및 관리 | Microsoft Docs
-description: Azure IoT Central 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거되면 이메일 보내기 등의 작업을 자동으로 호출합니다.
+title: 자습서 - Azure IoT Central 애플리케이션에서 규칙 만들기 및 관리
+description: 이 자습서에서는 Azure IoT Central 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거될 때 이메일 보내기와 같은 작업을 자동으로 호출하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 10/24/2019
@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 6327ee8a1b0d52c933844670d9b8098c2c3c4f09
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: e2ec01e372ebda79272b585ea6f1708029ea7b13
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73958156"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74702535"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application-preview-features"></a>자습서: Azure IoT Central 애플리케이션에서 규칙을 만들고 알림 설정(미리 보기 기능)
 

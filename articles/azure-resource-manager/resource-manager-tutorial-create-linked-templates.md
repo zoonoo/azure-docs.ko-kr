@@ -2,15 +2,15 @@
 title: 연결된 템플릿 만들기
 description: 가상 머신을 만들기 위해 연결된 Azure Resource Manager 템플릿을 만드는 방법 알아보기
 author: mumian
-ms.date: 10/04/2019
+ms.date: 12/03/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9764edb986b2ee847e3fcecda228f53551b462c3
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e8964335d8c436cc590c36c3ea01fac02ed2280a
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325419"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815253"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>자습서: 연결된 Azure Resource Manager 템플릿 만들기
 
@@ -45,6 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     ```azurecli-interactive
     openssl rand -base64 32
     ```
+
     Azure Key Vault는 암호화 키 및 기타 비밀을 보호하기 위한 것입니다. 자세한 내용은 [자습서: Resource Manager 템플릿 배포에 Azure Key Vault 통합](./resource-manager-tutorial-use-key-vault.md)을 참조하세요. 또한 3개월 마다 암호를 업데이트하는 것도 좋습니다.
 
 ## <a name="open-a-quickstart-template"></a>빠른 시작 템플릿 열기
@@ -55,42 +56,46 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
 * **연결된 템플릿**: 스토리지 계정을 만듭니다.
 
 1. Visual Studio Code에서 **파일**>**파일 열기**를 차례로 선택합니다.
-2. **파일 이름**에서 다음 URL을 붙여넣습니다.
+1. **파일 이름**에서 다음 URL을 붙여넣습니다.
 
     ```url
     https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
     ```
-3. **열기**를 선택하여 파일을 엽니다.
-4. 템플릿에 5개 리소스가 정의되어 있습니다.
+
+1. **열기**를 선택하여 파일을 엽니다.
+1. 템플릿에 6개의 리소스가 정의되어 있습니다.
 
    * [`Microsoft.Storage/storageAccounts`](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts)
    * [`Microsoft.Network/publicIPAddresses`](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)
+   * [`Microsoft.Network/networkSecurityGroups`](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)
    * [`Microsoft.Network/virtualNetworks`](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)
    * [`Microsoft.Network/networkInterfaces`](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)
    * [`Microsoft.Compute/virtualMachines`](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines)
 
      템플릿을 사용자 지정하기 전에 템플릿 스키마에 대한 몇 가지 기본 사항을 이해하는 것이 좋습니다.
-5. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
-6. **파일**>**이름으로 저장**을 선택하여 **linkedTemplate.json**이라는 이름으로 다른 파일의 복사본을 만듭니다.
+1. **파일**>**다른 이름으로 저장**을 선택하여 파일 복사본을 로컬 컴퓨터에 **azuredeploy.json**이라는 이름으로 저장합니다.
+1. **파일**>**이름으로 저장**을 선택하여 **linkedTemplate.json**이라는 이름으로 다른 파일의 복사본을 만듭니다.
 
 ## <a name="create-the-linked-template"></a>연결된 템플릿 만들기
 
 연결된 템플릿은 스토리지 계정을 만듭니다. 연결된 템플릿을 독립 실행형 템플릿으로 사용하여 스토리지 계정을 만들 수 있습니다. 이 자습서에서 연결된 템플릿은 두 개의 매개 변수를 사용하고 값을 기본 템플릿으로 다시 전달합니다. 이 "반환" 값은 `outputs` 요소에서 정의됩니다.
 
 1. 파일이 열려 있지 않은 경우 Visual Studio Code에서 **linkedTemplate.json**을 엽니다.
-2. 다음과 같이 변경합니다.
+1. 다음과 같이 변경합니다.
 
     * **location** 이외의 모든 매개 변수를 제거합니다.
     * **storageAccountName**이라는 매개 변수를 추가합니다.
-        ```json
-        "storageAccountName":{
-          "type": "string",
-          "metadata": {
-              "description": "Azure Storage account name."
-          }
-        },
-        ```
-        스토리지 계정 이름과 위치는 기본 템플릿에서 연결된 템플릿으로 매개 변수로 전달됩니다.
+
+      ```json
+      "storageAccountName":{
+        "type": "string",
+        "metadata": {
+            "description": "Azure Storage account name."
+        }
+      },
+      ```
+
+      스토리지 계정 이름과 위치는 기본 템플릿에서 연결된 템플릿으로 매개 변수로 전달됩니다.
 
     * **variables** 요소 및 모든 변수 정의를 제거합니다.
     * 스토리지 계정 이외의 모든 리소스를 제거합니다. 총 4개의 리소스를 제거합니다.
@@ -110,6 +115,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
             }
         }
         ```
+
        **storageUri**는 기본 템플릿에서 가상 머신 리소스 정의에 필요합니다.  출력 값으로 기본 템플릿에 값을 다시 전달합니다.
 
         완료되면 템플릿은 다음과 같습니다.
@@ -138,7 +144,7 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
               "type": "Microsoft.Storage/storageAccounts",
               "name": "[parameters('storageAccountName')]",
               "location": "[parameters('location')]",
-              "apiVersion": "2018-07-01",
+              "apiVersion": "2018-11-01",
               "sku": {
                 "name": "Standard_LRS"
               },
@@ -154,7 +160,8 @@ Azure 퀵 스타트 템플릿은 Resource Manager 템플릿용 저장소입니�
           }
         }
         ```
-3. 변경 내용을 저장합니다.
+
+1. 변경 내용을 저장합니다.
 
 ## <a name="upload-the-linked-template"></a>연결된 템플릿 업로드
 
@@ -208,9 +215,10 @@ $templateURI = New-AzStorageBlobSASToken `
     -ExpiryTime (Get-Date).AddHours(8.0) `
     -FullUri
 
-echo "You need the following values later in the tutorial:"
-echo "Resource Group Name: $resourceGroupName"
-echo "Linked template URI with SAS token: $templateURI"
+Write-Host "You need the following values later in the tutorial:"
+Write-Host "Resource Group Name: $resourceGroupName"
+Write-Host "Linked template URI with SAS token: $templateURI"
+Write-Host "Press [ENTER] to continue ..."
 ```
 
 1. **사용해 보세요** 녹색 단추를 선택하여 Azure Cloud Shell 창을 엽니다.
@@ -226,22 +234,7 @@ echo "Linked template URI with SAS token: $templateURI"
 기본 템플릿은 azuredeploy.json이라고 합니다.
 
 1. 열려 있지 않은 경우 Visual Studio Code에서 **azuredeploy.json**을 엽니다.
-2. 템플릿에서 스토리지 계정 리소스 정의를 삭제합니다.
-
-    ```json
-    {
-      "type": "Microsoft.Storage/storageAccounts",
-      "name": "[variables('storageAccountName')]",
-      "location": "[parameters('location')]",
-      "apiVersion": "2018-07-01",
-      "sku": {
-        "name": "Standard_LRS"
-      },
-      "kind": "Storage",
-      "properties": {}
-    },
-    ```
-3. 스토리지 계정 정의가 있던 위치로 다음 json 코드 조각을 추가합니다.
+1. 스토리지 계정 리소스 정의를 다음 json 코드 조각으로 바꿉니다.
 
     ```json
     {
@@ -251,7 +244,7 @@ echo "Linked template URI with SAS token: $templateURI"
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
+              "uri":""
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},
@@ -268,8 +261,8 @@ echo "Linked template URI with SAS token: $templateURI"
     * 연결된 템플릿을 호출할 때 [증분](./deployment-modes.md) 배포 모드만 사용할 수 있습니다.
     * `templateLink/uri`는 연결된 템플릿 URI를 포함합니다. 연결된 템플릿(SAS 토큰이 있는 템플릿)을 업로드할 때 얻을 수 있는 URI로 값을 업데이트합니다.
     * `parameters`를 사용하여 기본 템플릿의 값을 연결된 템플릿에 전달합니다.
-4. 연결된 템플릿(SAS 토큰이 있는 값)을 업로드할 때 얻은 값으로 `uri` 요소의 값을 업데이트했는지 확인합니다. 실제로 URI를 매개 변수에 제공하려고 합니다.
-5. 수정된 템플릿을 저장합니다.
+1. 연결된 템플릿(SAS 토큰이 있는 값)을 업로드할 때 얻은 값으로 `uri` 요소의 값을 업데이트했는지 확인합니다. 실제로 URI를 매개 변수에 제공하려고 합니다.
+1. 수정된 템플릿을 저장합니다.
 
 ## <a name="configure-dependency"></a>종속성 구성
 
@@ -290,6 +283,7 @@ echo "Linked template URI with SAS token: $templateURI"
             }
     }
     ```
+
     기본 템플릿에서 이 값은 필수입니다.
 
 1. 열려 있지 않은 경우 Visual Studio Code에서 azuredeploy.json을 엽니다.

@@ -1,18 +1,17 @@
 ---
-title: Node.js 웹앱 만들기 - Azure App Service
-description: Azure App Service에 Node.js 앱을 배포하는 방법
-author: msangapu
+title: '빠른 시작: Linux Node.js 앱 만들기'
+description: 첫 번째 Node.js 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service에서 Linux 앱을 시작하세요.
+author: msangapu-msft
 ms.author: msangapu
 ms.date: 08/12/2019
 ms.topic: quickstart
-ms.service: app-service
 ms.devlang: javascript
-ms.openlocfilehash: 32e141cae98e3fe34c8207f1565a82d2d76bdd25
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: fb79f4b87d8ddc5303fea834c81329315401464a
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72439213"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688980"
 ---
 # <a name="create-a-nodejs-app-in-azure"></a>Azure에서 Node.js 앱 만들기
 
@@ -61,7 +60,7 @@ VS Code에서 상태 표시줄에는 Azure 이메일 주소가 표시되고, **A
 
 ### <a name="scaffold-a-new-application-with-the-express-generator"></a>Express 생성기를 사용하여 새 애플리케이션 스캐폴드
 
-[Express](https://www.expressjs.com)는 Node.js 애플리케이션을 빌드하고 실행하는 데 널리 사용되는 프레임워크입니다. [Express 생성기](https://expressjs.com/en/starter/generator.html) 도구를 사용하여 새 Express 애플리케이션을 스캐폴드할(만들) 수 있습니다. Express 생성기는 npm 모듈로 제공되며, npm 명령줄 도구 `npx`를 사용하여 직접(설치 없이) 실행할 수 있습니다.
+[Express](https://www.expressjs.com)는 Node.js 애플리케이션을 빌드하고 실행하는 데 널리 사용되는 프레임워크입니다. [Express 생성기](https://expressjs.com/en/starter/generator.html) 도구를 사용하여 새 Express 애플리케이션을 스캐폴드할(만들) 수 있습니다. Express 생성기는 npm 모듈로 제공되며, npm 명령줄 도구`npx`를 사용하여 직접(설치 없이) 실행할 수 있습니다.
 
 ```bash
 npx express-generator myExpressApp --view pug --git

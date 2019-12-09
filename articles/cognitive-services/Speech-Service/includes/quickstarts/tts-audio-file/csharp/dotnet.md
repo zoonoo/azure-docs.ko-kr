@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: 오디오 파일에 음성 합성, C#(.NET) - 음성 서비스'
+title: '빠른 시작: 오디오 파일에 음성 합성, C#(.NET) - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 24f44d02170866645711cb302453a009d2935fbf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0b34c65f6b7003cbdd4d99b684fe2b5a3249c410
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500523"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818044"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -91,7 +91,7 @@ using (var synthesizer = new SpeechSynthesizer(config, fileOutput))
 
 ## <a name="synthesize-text-using-speaktextasync"></a>SpeakTextAsync를 사용하여 텍스트 합성
 
-`SpeechSynthesizer` 개체에서 `SpeakTextAsync()` 메서드를 호출합니다. 이 메서드는 텍스트를 오디오로 변환하는 음성 서비스로 텍스트를 보냅니다. `config.VoiceName`을 명시적으로 지정하지 않으면 `SpeechSynthesizer`에서 기본 음성을 사용합니다.
+`SpeechSynthesizer` 개체에서 `SpeakTextAsync()` 메서드를 호출합니다. 이 메서드는 텍스트를 오디오로 변환하는 Speech Service로 텍스트를 보냅니다. `config.VoiceName`을 명시적으로 지정하지 않으면 `SpeechSynthesizer`에서 기본 음성을 사용합니다.
 
 using 문 내에 다음 코드를 추가합니다.
 ````C#

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 27e471bb1b155ab245e68712031eef4efb4d5b34
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5758361e1c4de6e824f0df33eacd940cad8eca70
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500625"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817753"
 ---
 # <a name="quickstart-synthesize-speech-in-objective-c-on-macos-using-the-speech-sdk"></a>빠른 시작: Speech SDK를 사용하여 macOS에서 Objective-C로 음성 합성
 

@@ -10,21 +10,23 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: wolfma
-ms.openlocfilehash: 09e0b6fbfcb8541a0756a855d4548e456a7b5c90
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 005d3c36525546443f96ec2134a2c8f9ad44b4dd
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500843"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819434"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=windows)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=windows)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -84,13 +86,16 @@ ms.locfileid: "73500843"
 
 1. 메뉴 모음에서 **파일** > **모두 저장**을 선택합니다.
 
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
+
 ## <a name="build-and-run-the-application"></a>애플리케이션 빌드 및 실행
 
 1. 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택하여 애플리케이션을 빌드합니다. 코드는 이제 오류 없이 컴파일됩니다.
 
 1. **디버그** > **디버깅 시작**을 선택하거나, **F5** 키를 눌러 **helloworld** 애플리케이션을 시작합니다.
 
-1. 오디오 파일이 Speech Services로 전송되고 파일의 첫 번째 발화가 텍스트로 변환되어 동일한 창에 표시됩니다.
+1. 오디오 파일이 Speech Service로 전송되고 파일의 첫 번째 발화가 텍스트로 변환되어 동일한 창에 표시됩니다.
 
    ```text
    Recognizing first result...

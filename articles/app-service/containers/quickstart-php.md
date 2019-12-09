@@ -1,25 +1,16 @@
 ---
-title: Linux에서 PHP 앱 만들기 - Azure App Service | Microsoft Docs
-description: 몇 분 안에 Linux의 App Service에서 첫 번째 PHP Hello World를 배포합니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: '빠른 시작: Linux에서 PHP 앱 만들기'
+description: 첫 번째 PHP 앱을 App Service의 Linux 컨테이너에 배포하여 Azure App Service에서 Linux 앱을 시작하세요.
 ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 03/27/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 414d34065b78db0f76683752b93d5ed89ebcdf75
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071192"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687540"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 앱 만들기
 

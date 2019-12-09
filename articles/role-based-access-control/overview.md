@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 59708be1de53ab231ccb6dc89bd56c795734fccc
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 1b40f8e070606a4c21def592fb6104e42e25f9f6
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176815"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707926"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Azure 리소스에 대한 RBAC(역할 기반 액세스 제어)란?
 
@@ -61,7 +61,7 @@ RBAC를 사용하여 리소스에 대한 액세스를 제어하는 방법은 역
 
 ### <a name="role-definition"></a>역할 정의
 
-*역할 정의*는 권한 컬렉션입니다. 때로는 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 역할은 소유자처럼 대략적일 수도 있고 가상 머신 판독기처럼 구체적일 수도 있습니다.
+*역할 정의*는 권한 컬렉션입니다. 일반적으로 단지 *역할*이라고 합니다. 역할 정의에는 읽기, 쓰기 및 삭제와 같이 수행할 수 있는 작업이 나열됩니다. 역할은 소유자처럼 대략적일 수도 있고 가상 머신 판독기처럼 구체적일 수도 있습니다.
 
 ![역할 할당에 대한 역할 정의](./media/overview/rbac-role-definition.png)
 

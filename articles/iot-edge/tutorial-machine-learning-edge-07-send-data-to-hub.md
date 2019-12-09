@@ -1,6 +1,6 @@
 ---
 title: '자습서: 투명 게이트웨이를 통해 디바이스 데이터 보내기 - Azure IoT Edge의 Machine Learning'
-description: '자습서: 개발 머신을 시뮬레이션된 IoT Edge 디바이스로 사용하여 투명 게이트웨이로 구성된 디바이스를 통해 IoT Hub로 데이터를 보냅니다.'
+description: 이 자습서에서는 개발 머신을 시뮬레이션된 IoT Edge 디바이스로 사용하여 투명 게이트웨이로 구성된 디바이스를 통해 IoT Hub로 데이터를 보내는 방법을 보여줍니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 1a1974a9d9e635bad4094e38c2c194ff49993611
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 50f339b257110f0a5dc0ac08b9f40043ee384afb
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113950"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706904"
 ---
 # <a name="tutorial-send-data-via-transparent-gateway"></a>자습서: 투명 게이트웨이를 통해 데이터 보내기
 

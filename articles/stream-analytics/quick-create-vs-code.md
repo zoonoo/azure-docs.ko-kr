@@ -1,5 +1,5 @@
 ---
-title: Visual Studio Code에서 Azure Stream Analytics 클라우드 작업 만들기
+title: 빠른 시작 - Visual Studio Code에서 Azure Stream Analytics 클라우드 작업 만들기
 description: 이 빠른 시작에서는 Visual Studio Code를 사용하여 Stream Analytics 작업을 만들고, 입/출력을 구성하고, 쿼리를 정의하여 시작하는 방법을 보여줍니다.
 ms.service: stream-analytics
 author: mamccrea
@@ -7,12 +7,12 @@ ms.author: mamccrea
 ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 35e2711bbb3cd6dc0662146a566014dd65d879bc
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1deb042ecffe8a46c70374a0ee15344a31043be8
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72935097"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707401"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code(미리 보기)에서 Azure Stream Analytics 클라우드 작업 만들기
 

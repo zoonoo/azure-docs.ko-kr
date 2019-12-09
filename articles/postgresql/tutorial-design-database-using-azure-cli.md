@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인'
+title: '자습서: Azure Database for PostgreSQL 디자인 - 단일 서버 - Azure CLI'
 description: 이 자습서에서는 Azure CLI를 사용하여 첫 번째 Azure Database for PostgreSQL - 단일 서버를 만들고, 구성하고, 쿼리하는 방법을 보여줍니다.
 author: rachel-msft
 ms.author: raagyema
@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: db0ff9facbd8609955c5ef1918b0f8a6aa53ea65
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f1f4c07f3dc694bcae9b540c71a11e53a00eb7f
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447232"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74773683"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-azure-cli"></a>자습서: Azure CLI를 사용하여 Azure Database for PostgreSQL - 단일 서버 디자인 
 이 자습서에서는 Azure CLI(명령줄 인터페이스) 및 기타 유틸리티를 사용하여 다음을 수행하는 방법에 대해 알아봅니다.
@@ -132,7 +132,7 @@ az postgres server show --resource-group myresourcegroup --name mydemoserver
    ```
 
    > [!TIP]
-   > URL 경로를 사용하여 Postgres에 연결하려는 경우 URL은 사용자 이름에서 @ 기호를 `%40`으로 인코딩합니다. 예를 들어 psql에 대한 연결 문자열은 다음과 같습니다.
+   > URL 경로를 사용하여 Postgres에 연결하려는 경우 URL의 사용자 이름에서 @ 기호가 `%40`으로 인코딩됩니다. 예를 들어 psql에 대한 연결 문자열은 다음과 같습니다.
    > ```
    > psql postgresql://myadmin%40mydemoserver@mydemoserver.postgres.database.azure.com:5432/postgres
    > ```

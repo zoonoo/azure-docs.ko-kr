@@ -1,5 +1,5 @@
 ---
-title: '빠른 시작: Blob storage에 저장된 음성 인식 - Speech Service'
+title: '빠른 시작: Blob 스토리지에 저장된 음성 인식 - Speech Service'
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: c95fba97c2c6f79024e7a39222ac14f152898c71
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 8b23ab250a68b0337f4f5bdc283b5d2c52498e40
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021143"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74828740"
 ---
 ## <a name="additional-language-and-platform-support"></a>추가 언어 및 플랫폼 지원
 

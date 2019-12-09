@@ -1,6 +1,6 @@
 ---
-title: '자습서: Azure IoT Central에서 디바이스 모니터링'
-description: '자습서: 운영자로서 Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링합니다.'
+title: 자습서 - Azure IoT Central에서 디바이스 모니터링
+description: 이 자습서에서는 운영자로서 Microsoft Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
 ms.date: 11/13/2019
@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a07a822e863c5ff5d695a20c02bd8d295721efda
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c04793f22e146491efdffc81f28e1719542af054
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480257"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74705852"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>자습서: Azure IoT Central을 사용하여 디바이스 모니터링
 

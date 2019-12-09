@@ -1,19 +1,19 @@
 ---
-title: 빠른 시작 - 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
+title: '빠른 시작: az mysql up을 사용하여 Azure Database for MySQL 만들기'
 description: Azure CLI(명령줄 인터페이스) up 명령을 사용하여 Azure Database for MySQL 서버를 만드는 빠른 시작 가이드입니다.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: quickstart
-ms.date: 3/18/2019
+ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: aa0d2a9e990faa8d99355744824f34e26aeb519e
-ms.sourcegitcommit: f68b0e128f0478444740172f54e92b453df696be
+ms.openlocfilehash: 4bb5c62a7df53548ff59a03c6ccc8fb28f1503d3
+ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/18/2019
-ms.locfileid: "58137915"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74765686"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>빠른 시작: 간단한 Azure CLI 명령을 사용하여 Azure Database for MySQL 만들기 - az mysql up(미리 보기)
 
@@ -60,7 +60,7 @@ az mysql up
 ---|---|---
 서버 이름 | 시스템 생성 | Azure Database for MySQL 서버를 식별하는 고유한 이름입니다.
 resource-group | 시스템 생성 | 새 Azure 리소스 그룹입니다.
-sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. 기본값은 2개의 vCore가 있는 범용 5세대 서버입니다. 계층에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요.
+sku-name | GP_Gen5_2 | SKU의 이름입니다. {가격 책정 계층}\_{계산 세대}\_{vCores} 규칙을 축약형으로 따릅니다. 기본값은 2개의 vCore가 있는 범용 5세대 서버입니다. 계층에 대한 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/mysql/)를 참조하세요.
 backup-retention | 7 | 백업을 보존하는 기간입니다. 단위는 일입니다.
 geo-redundant-backup | 사용 안 함 | 이 서버에 지역 중복 백업을 사용할 것인지 여부를 결정합니다.
 location | westus2 | 서버에 대한 Azure 위치입니다.
@@ -75,8 +75,8 @@ admin-password | 시스템 생성 | 관리자 사용자의 암호입니다.
 
 서버가 만들어지면 다음과 같은 설정이 제공됩니다.
 
-- "devbox"라는 방화벽 규칙이 만들어집니다. Azure CLI에서 `az mysql up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용 목록에 추가합니다.
-- "Azure 서비스에 대한 액세스 허용"이 켜기로 설정됩니다. 이 설정은 구독에 없는 리소스를 포함하여 모든 Azure 리소스로부터의 연결을 허용하도록 서버의 방화벽을 구성합니다.
+- “devbox”라는 방화벽 규칙이 만들어집니다. Azure CLI에서 `az mysql up` 명령이 실행되는 머신의 IP 주소를 검색하여 해당 IP 주소를 허용 목록에 추가합니다.
+- “Azure 서비스에 대한 액세스 허용”이 켜기로 설정됩니다. 이 설정은 구독에 없는 리소스를 포함하여 모든 Azure 리소스로부터의 연결을 허용하도록 서버의 방화벽을 구성합니다.
 - `wait_timeout` 매개 변수가 8시간으로 설정됩니다.
 - "sampledb"라는 빈 데이터베이스가 만들어집니다.
 - "sampledb"에 대한 권한이 있는 "root"라는 새 사용자가 만들어집니다.

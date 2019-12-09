@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩 | Microsoft Docs
-description: Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법 알아보기
+title: 자습서 - Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩
+description: 이 자습서에서는 Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩하는 방법을 알아봅니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 10/06/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 76a2b9f305f041a19b8d7ace8234a804825f6a0e
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 7e796c6f8b2ae17ba267a19da1d909087163d99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607125"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708841"
 ---
 # <a name="tutorial-bind-an-azure-cosmos-db-to-your-azure-spring-cloud-application"></a>자습서: Azure Cosmos DB를 Azure Spring Cloud 애플리케이션에 바인딩
 

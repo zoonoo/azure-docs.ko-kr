@@ -1,25 +1,19 @@
 ---
-title: Azure PowerShell 스크립트 샘플 - 다른 구독의 앱 백업 복원 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 다른 구독에 있는 백업에서 웹앱 복원
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jpconnoc
-editor: ''
+title: 'PowerShell: 다른 구독으로 백업 복원'
+description: Azure PowerShell을 사용하여 App Service의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 다른 구독에서 백업을 복원하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: a2a27d94-d378-4c17-a6a9-ae1e69dc4a72
-ms.service: app-service-web
-ms.workload: web
 ms.topic: sample
 ms.date: 11/21/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5f293f290bd0c8b6c5546d37a43dde64a5af4f82
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8168fbedd1a639dce0ab8bd076e14ab24e2f6d1e
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098413"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685813"
 ---
 # <a name="restore-a-web-app-from-a-backup-in-another-subscription-using-powershell"></a>PowerShell을 사용하여 다른 구독에 있는 백업에서 웹앱 복원
 

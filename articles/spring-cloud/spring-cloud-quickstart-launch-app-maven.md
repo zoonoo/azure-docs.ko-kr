@@ -1,17 +1,17 @@
 ---
-title: '빠른 시작: Maven을 사용하여 애플리케이션 시작 - Azure Spring Cloud'
-description: Maven을 사용하여 샘플 애플리케이션 시작
+title: 빠른 시작 - Azure Spring Cloud에서 Maven을 사용하여 애플리케이션 시작
+description: 이 빠른 시작에서는 Maven을 사용하여 샘플 애플리케이션을 시작합니다.
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: jeconnoc
-ms.openlocfilehash: 1a719b878f3e5fbade3adf453ac7d0604ea85077
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: ea840d1e133c213c907e596e5eb0a651820291c9
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384073"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74708874"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 

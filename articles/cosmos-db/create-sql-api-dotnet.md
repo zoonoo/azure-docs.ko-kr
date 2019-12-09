@@ -1,6 +1,6 @@
 ---
-title: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
-description: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 방법을 알아봅니다.
+title: 빠른 시작 - .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
+description: 이 빠른 시작에서 .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정 리소스를 관리하는 방법을 알아봅니다.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 07/12/2019
-ms.openlocfilehash: d74af7297018fe8814475d7dc259b5a0d81d2910
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 0981ed30c6bcd9d4246ce1eb047aa66168e3884a
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561438"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707911"
 ---
 # <a name="quickstart-build-a-net-console-app-to-manage-azure-cosmos-db-sql-api-resources"></a>빠른 시작: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 리소스 관리
 

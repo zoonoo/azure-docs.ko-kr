@@ -1,25 +1,18 @@
 ---
-title: 정적 HTML 웹앱 만들기 - Azure App Service | Microsoft Docs
-description: 정적 HTML 샘플 앱을 배포하여 Azure App Service에서 웹앱을 실행하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: '빠른 시작: 정적 HTML 웹앱 만들기'
+description: 몇 분 안에 첫 번째 HTML Hello World를 Azure App Service에 배포합니다. App Service에 배포하는 여러 가지 방법 중 하나인 Git를 사용하여 배포합니다.
+author: msangapu-msft
 ms.assetid: 60495cc5-6963-4bf0-8174-52786d226c26
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 12c034e6521a1afd25e2390502faec39461bf5b5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c2aca1996d1ec764dcdca30c7657ee360b9c355
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73471492"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671480"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Azure에서 정적 HTML 웹앱 만들기
 

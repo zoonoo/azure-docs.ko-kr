@@ -10,21 +10,22 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: d0d1cfee535a04203d9ff995b94fcad5d432ed3e
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: ecfdc74c72284da97ebf3107140911e666a3a12d
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961189"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818847"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
-시작하기 전에 다음을 확인해야 합니다.
+시작하기 전에:
 
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=xamarin)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=xamarin)
+> * 오디오 캡처를 위해 마이크에 액세스할 수 있는지 확인합니다.
 
 이미 이 작업을 수행한 경우 매우 유용합니다. 계속 진행하겠습니다.
 
@@ -135,7 +136,7 @@ ms.locfileid: "73961189"
 
    ![마이크 액세스 권한 요청](../../../../media/sdk/qs-csharp-xamarin-uwp-access-prompt.png)
 
-1. **음성 인식 시작**을 선택하고, 디바이스의 마이크에 영어 문구 또는 문장을 말합니다. 음성은 Speech Services로 전송되어 텍스트로 변환되고 창에 표시됩니다.
+1. **음성 인식 시작**을 선택하고, 디바이스의 마이크에 영어 문구 또는 문장을 말합니다. 음성은 음성 서비스로 전송되어 텍스트로 변환되고 창에 표시됩니다.
 
    ![음성 인식 사용자 인터페이스](../../../../media/sdk/qs-csharp-xamarin-uwp-ui-result.png)
 * * *

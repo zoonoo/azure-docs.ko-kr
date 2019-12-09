@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: a3a651286fec9328c6d1835f68a4651212b5bd8c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5cd7173d2df6f08b79d544a3a371039c24d5882a
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500841"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74819284"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -25,6 +25,8 @@ ms.locfileid: "73500841"
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=macos)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=macos)
+
+[!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 
 ## <a name="add-sample-code"></a>샘플 코드 추가
 
@@ -74,12 +76,14 @@ ms.locfileid: "73500841"
 
    ````
 
-1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 Speech Services 구독 키로 바꿉니다.
+1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 
 1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
 
 1. `whatstheweatherlike.wav` 문자열을 고유한 파일 이름으로 바꿉니다.
 
+> [!NOTE]
+> Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 ## <a name="build-the-app"></a>앱 빌드
 
@@ -106,7 +110,7 @@ ms.locfileid: "73500841"
    ./helloworld
    ```
 
-1. 오디오 파일이 Speech Services로 전송되고 파일의 첫 번째 발화가 텍스트로 변환되어 동일한 창에 표시됩니다.
+1. 오디오 파일이 Speech Service로 전송되고 파일의 첫 번째 발화가 텍스트로 변환되어 동일한 창에 표시됩니다.
 
    ```text
    Recognizing first result...

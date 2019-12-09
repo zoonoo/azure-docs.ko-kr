@@ -1,25 +1,16 @@
 ---
-title: 관리 ID를 사용하여 SQL Database 연결 보호 - Azure App Service | Microsoft Docs
+title: '자습서: 관리 ID를 사용하여 데이터 액세스'
 description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안전하게 만드는 방법과 이를 다른 Azure 서비스에 적용하는 방법에 대해 알아봅니다.
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: syntaxc4
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: f10d3ee78dffb32db01a48ccf935e5443fae08b6
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 53dc6291d699ce08e08d3504bfcd63a525eb9196
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227459"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671186"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 

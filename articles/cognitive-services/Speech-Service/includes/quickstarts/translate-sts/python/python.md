@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: e09d3fd2e880a01522b59d60a80f448192c0b689
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db6cbce03805b904dbac80eb8d2c6fcd38ede6ee
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500555"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74817499"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=python)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=python)
 
@@ -101,7 +101,7 @@ ms.locfileid: "73500555"
    python quickstart.py
    ```
 
-1. 영어 구 또는 문장을 말씀하세요. 애플리케이션은 음성 서비스로 음성을 전송하고, 여기서 텍스트(이 예제에서는 독일어)로 번역하고 전사합니다. 그런 다음, Speech Services는 합성된 오디오와 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
+1. 영어 구 또는 문장을 말씀하세요. 애플리케이션이 Speech Service로 음성을 전송하고, 여기서 텍스트(이 예제에서는 독일어)로 번역하고 전사합니다. 그런 다음, Speech Service는 합성된 오디오와 텍스트를 표시하기 위해 애플리케이션으로 다시 보냅니다.
 
    ```
    Say something...

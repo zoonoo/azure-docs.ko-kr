@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - Azure CLI를 사용하여 수동으로 앱 크기 조정 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Azure CLI를 사용하여 수동으로 App Service 크기 조정
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: 수동으로 앱 크기 조정'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 앱을 수동으로 크기 조정하는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 251d9074-8fff-4121-ad16-9eca9556ac96
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 5a15a16b05adedf9f7c8738ae26174120a86efd8
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: c05eed7485d0915140bdc95ebeb466fa1efc077d
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136652"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685866"
 ---
 # <a name="scale-an-app-service-app-manually-using-azure-cli"></a>Azure CLI를 사용하여 수동으로 App Service 앱 크기 조정
 

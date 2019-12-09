@@ -1,26 +1,17 @@
 ---
-title: '자습서: CORS를 사용하여 RESTful API 호스트 - Azure App Service'
-description: Azure App Service에서 CORS 지원을 통해 RESTful API를 호스팅하는 방법을 알아봅니다.
-services: app-service\api
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
+title: '자습서: CORS를 통한 RESTful API 호스팅'
+description: Azure App Service에서 CORS 지원을 통해 RESTful API를 호스팅하는 방법을 알아봅니다. App Service는 프런트 엔드 웹앱과 백 엔드 API를 모두 호스팅할 수 있습니다.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
-ms.service: app-service
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/21/2018
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: e2eca624fabf30eae86c480ede6c4bdffc2226bc
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255137"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671118"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>자습서: Azure App Service에서 CORS를 통해 RESTful API 호스팅
 

@@ -1,26 +1,19 @@
 ---
-title: Linux의 App Service 소개 - Azure | Microsoft Docs
-description: Linux의 Azure App Service에 대해 알아봅니다.
+title: 기본 Linux 컨테이너에서 코드 실행
+description: Azure App Service는 미리 빌드된 Linux 컨테이너에서 코드를 실행할 수 있습니다. Azure에서 Linux 웹 애플리케이션을 실행하는 방법을 알아보세요.
 keywords: azure app service, linux, oss
-services: app-service
-documentationcenter: ''
 author: msangapu-msft
-manager: gwallace
-editor: ''
 ms.assetid: bc85eff6-bbdf-410a-93dc-0f1222796676
-ms.service: app-service
-ms.workload: na
-ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 1/11/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 966eb6068ff545dde284463866bfeee3d5074069
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: 381f1486f13907aa52558029789e49bc4e5c4961
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559016"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74687608"
 ---
 # <a name="introduction-to-azure-app-service-on-linux"></a>Linux의 Azure App Service 소개
 

@@ -1,5 +1,5 @@
 ---
-title: '자습서: 에지에 있는 Stream Analytics - Azure IoT Edge'
+title: 자습서 - Azure IoT Edge를 사용하는 에지에 있는 Stream Analytics
 description: 이 자습서에서는 IoT Edge 디바이스에 Azure Stream Analytics를 모듈로 배포합니다.
 author: kgremban
 ms.author: kgremban
@@ -7,12 +7,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7fbbe32efcedd4fa2635db1cc21f7ce98557515b
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: b4c4415819ba614bb584f1bc5cb0acfe136c174c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74452537"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707059"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 

@@ -1,6 +1,6 @@
 ---
 title: '자습서: 시뮬레이션된 디바이스 데이터 생성 - Azure IoT Edge의 Machine Learning'
-description: '자습서: 나중에 기계 학습 모델을 학습하는 데 사용할 수 있는 시뮬레이션된 원격 분석 데이터를 생성하는 가상 디바이스를 만듭니다.'
+description: 이 자습서에서는 나중에 기계 학습 모델을 학습하는 데 사용할 수 있는 시뮬레이션된 원격 분석 데이터를 생성하는 가상 디바이스를 만듭니다.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 51d93e5b83d203f3fa99b69cc5f2877bbfdb6fb1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: d51a577b8a460e872b2baddcb668b13981609e40
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112861"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707738"
 ---
 # <a name="tutorial-generate-simulated-device-data"></a>자습서: 시뮬레이션된 디바이스 데이터 생성
 

@@ -1,5 +1,5 @@
 ---
-title: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
+title: 빠른 시작 - Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 description: 이 빠른 시작에서는 Azure PowerShell 모듈을 사용하여 Azure Stream Analytics 작업을 배포하고 실행하는 방법을 설명합니다.
 services: stream-analytics
 author: mamccrea
@@ -8,12 +8,12 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
-ms.openlocfilehash: f46f437ffd79ae9d0457606a72719ef13314aa1c
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 44fe16caf6805819b0d942a02f5138fe766ae99c
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66116980"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74707315"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Stream Analytics 작업 만들기
 

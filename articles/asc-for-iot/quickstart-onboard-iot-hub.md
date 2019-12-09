@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: IoT Hub에서 IoT용 Azure Security Center 서비스 사용'
-description: 이 빠른 시작에서는 IoT Hub에서 IoT용 Azure Security Center 서비스를 사용하도록 설정하는 방법을 알아봅니다.
+description: Azure IoT Hub에서 Azure Security Center for IoT 보안 서비스를 온보드하고 활성화하는 방법에 대해 알아봅니다.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/08/2019
 ms.author: mlottner
-ms.openlocfilehash: 641ba4c8d3b0e54132c19a493e1e4bf17bb28e13
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: 0b1f09cfaf107802e1ce6586b3f96b14269aaced
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904107"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664865"
 ---
 # <a name="quickstart-onboard-azure-security-center-for-iot-service-in-iot-hub"></a>빠른 시작: IoT Hub에서 IoT용 Azure Security Center 서비스 온보딩
 

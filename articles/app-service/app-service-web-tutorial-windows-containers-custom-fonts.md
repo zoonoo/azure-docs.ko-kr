@@ -1,24 +1,15 @@
 ---
-title: Windows 컨테이너를 사용하여 ASP.NET 앱 빌드(미리 보기) - Azure App Service | Microsoft Docs
-description: Azure App Service에 사용자 지정 Windows 컨테이너를 배포하고, 컨테이너에 사용자 지정 소프트웨어를 배포하는 방법을 알아봅니다.
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
-ms.topic: quickstart
+title: '자습서: 컨테이너를 사용하는 레거시 앱(미리 보기)'
+description: 사용자 지정 Windows 컨테이너를 Azure App Service로 마이그레이션하고 컨테이너에 사용자 지정 소프트웨어를 배포하는 방법을 알아봅니다.
+ms.topic: tutorial
 ms.date: 10/22/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6f9005b0e73e60bf479d0d3c059c301668f3b848
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 5fc65a4d3f9989ac462d7716b7652a1011281413
+ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72787329"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74671970"
 ---
 # <a name="migrate-an-aspnet-app-to-azure-app-service-using-a-windows-container-preview"></a>Windows 컨테이너를 사용하여 ASP.NET 앱을 Azure App Service로 마이그레이션(미리 보기)
 

@@ -1,26 +1,17 @@
 ---
-title: Linux에서 엔드투엔드 사용자 인증 및 권한 부여 - Azure App Service | Microsoft Docs
-description: App Service 인증 및 권한 부여를 사용하여 Linux에서 실행되는 App Service 앱을 보호하는 방법을 알아봅니다. 여기에는 원격 API에 대한 액세스가 포함됩니다.
+title: '자습서: 사용자 인증 E2E(Linux)'
+description: App Service 인증 및 권한 부여를 사용하여 원격 API에 대한 액세스를 포함하여 App Service Linux 앱을 엔드투엔드로 보호하는 방법을 알아봅니다.
 keywords: App Service, Azure App Service, authN, authZ, 보호, 보안, 다중 계층, Azure Active Directory, Azure AD
-services: app-service\web
-documentationcenter: dotnet
-author: cephalin
-manager: cfowler
-editor: ''
-ms.service: app-service-web
-ms.workload: web
-ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/14/2019
-ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: a50a1183cb2e57e8e98f1940f1c14284e89088c3
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 71aec33d5afe1a909f460ddae2d5cb0552857fee
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019226"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74688935"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service-on-linux"></a>자습서: Linux의 Azure App Service에서 엔드투엔드 사용자 인증 및 권한 부여
 

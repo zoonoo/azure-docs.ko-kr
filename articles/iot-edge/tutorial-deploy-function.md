@@ -1,5 +1,5 @@
 ---
-title: 자습서 - 디바이스에 Azure 함수 배포 Azure IoT Edge | Microsoft Docs
+title: '자습서: 모듈로 Azure 함수 배포 - Azure IoT Edge'
 description: 이 자습서에서는 Azure 함수를 IoT Edge 모듈로 개발한 다음, 에지 디바이스에 배포합니다.
 author: kgremban
 manager: philmea
@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1db64c2cc68dc9c47d4f2cf5f63eb0667907d737
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 8edd6028e73690829129168d912b312247d8b880
+ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456708"
+ms.lasthandoff: 12/01/2019
+ms.locfileid: "74664117"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>자습서: IoT Edge 모듈로 Azure 함수 배포
 

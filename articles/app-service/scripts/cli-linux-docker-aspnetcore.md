@@ -1,27 +1,20 @@
 ---
-title: Azure CLI 스크립트 샘플 - Docker 허브에서 ASP.NET Core 앱 만들기 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - Docker 허브에서 App Service에 ASP.NET Core 앱 만들기 | Microsoft Docs
-services: appservice
-documentationcenter: appservice
-author: msangapu
-manager: jeconnoc
-editor: ''
+title: 'CLI: Docker에서 ASP.NET Core 앱 만들기'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 Docker Hub에서 ASP.NET Core 앱을 만드는 방법을 보여줍니다.
+author: msangapu-msft
 tags: azure-service-management
 ms.assetid: 3a2d1983-ff7b-476a-ac44-49ec2aabb31a
-ms.service: app-service
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: web
 ms.date: 12/11/2017
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 136d0d6976b046244ee9e6a24e68d5304a5c352b
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 80190fa767da6c593b99d79a71ebce661d561253
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136709"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74685997"
 ---
 # <a name="create-an-aspnet-core-app-in-a-docker-container-from-docker-hub-using-azure-cli"></a>Azure CLI를 사용하여 Docker 허브에서 Docker 컨테이너에 ASP.NET Core 앱 만들기
 

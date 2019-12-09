@@ -1,27 +1,18 @@
 ---
-title: Azure CLI 스크립트 샘플 - 앱에 사용자 지정 도메인 매핑 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 앱에 사용자 지정 도메인 매핑
-services: app-service\web
-documentationcenter: ''
-author: cephalin
-manager: jeconnoc
-editor: ''
+title: 'CLI: 사용자 지정 도메인을 앱에 매핑'
+description: Azure CLI를 사용하여 App Service 앱의 배포 및 관리를 자동화하는 방법을 알아봅니다. 이 샘플에서는 사용자 지정 도메인을 앱에 매핑하는 방법을 보여줍니다.
 tags: azure-service-management
 ms.assetid: 5ac4a680-cc73-4578-bcd6-8668c08802c2
-ms.service: app-service-web
-ms.workload: web
 ms.devlang: azurecli
-ms.tgt_pltfrm: na
 ms.topic: sample
 ms.date: 12/11/2017
-ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 58d13498e1b86421ae04f5a3aa60cf0c44242a39
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 2f96acf6a57ab254d975d827a3493420dde0662f
+ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66136946"
+ms.lasthandoff: 12/02/2019
+ms.locfileid: "74686710"
 ---
 # <a name="map-a-custom-domain-to-an-app-service-app-using-cli"></a>CLI를 사용하여 App Service 앱에 사용자 지정 도메인 매핑
 

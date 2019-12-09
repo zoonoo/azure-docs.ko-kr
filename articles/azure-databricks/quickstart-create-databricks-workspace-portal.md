@@ -1,6 +1,6 @@
 ---
-title: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
-description: 빠른 시작은 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다.
+title: 빠른 시작 - Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Databricks 작업 영역, Apache Spark 클러스터를 만들고 Spark 작업을 실행하는 방법을 보여줍니다.
 services: azure-databricks
 ms.service: azure-databricks
 author: mamccrea
@@ -10,12 +10,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 004557ab3eb73f3f793b0514913260a414645d40
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 23d04062d5db7c944b7734f5e8339342548062fa
+ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74129376"
+ms.lasthandoff: 12/03/2019
+ms.locfileid: "74706189"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Databricks에서 Spark 작업 실행
 

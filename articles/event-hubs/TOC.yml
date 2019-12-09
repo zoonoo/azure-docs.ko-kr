@@ -170,6 +170,8 @@
       items:
         - name: 문제 해결 가이드
           href: event-hubs-messaging-exceptions.md
+        - name: Resource Manager 예외
+          href: resource-manager-exceptions.md
 - name: 참고 자료
   items:
     - name: Java

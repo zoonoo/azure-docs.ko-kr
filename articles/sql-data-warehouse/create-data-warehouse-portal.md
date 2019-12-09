@@ -11,12 +11,12 @@ ms.date: 05/28/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a9a68e9d71324ba05e24ba98802863211a569689
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 4ae1d9ce8a4683f8d55962843fb1070ef24b3a87
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839934"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815808"
 ---
 # <a name="quickstart-create-and-query-an-azure-sql-data-warehouse-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure SQL Data Warehouse 생성 및 쿼리
 
@@ -51,16 +51,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     | 설정 | 제안 값 | 설명 |
     | :------ | :-------------- | :---------- |
-    | **데이터베이스 이름** | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. 데이터 웨어하우스는 데이터베이스의 한 종류입니다.|
     | **구독** | 사용자의 구독 | 구독에 대한 자세한 내용은 [구독](https://account.windowsazure.com/Subscriptions)을 참조하세요. |
     | **리소스 그룹** | myResourceGroup | 유효한 리소스 그룹 이름은 [명명 규칙 및 제한 사항](/azure/architecture/best-practices/resource-naming)을 참조하세요. |
-    | **원본 선택** | 샘플 | 샘플 데이터베이스를 로드하도록 지정합니다. 데이터 웨어하우스는 데이터베이스의 한 종류입니다. |
-    | **샘플 선택** | AdventureWorksDW | AdventureWorksDW 샘플 데이터베이스를 로드하도록 지정합니다. |
+    | **데이터 웨어하우스 이름** | mySampleDataWarehouse | 유효한 데이터베이스 이름은 [데이터베이스 식별자](/sql/relational-databases/databases/database-identifiers)를 참조하세요. 데이터 웨어하우스는 데이터베이스의 한 종류입니다.|
     ||||
 
     ![데이터 웨어하우스 만들기](media/create-data-warehouse-portal/select-sample.png)
 
-4. **서버**를 클릭하여 새 데이터베이스에 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
+4. 기존 **서버**를 선택하거나 **새로 만들기**를 클릭하여 새 데이터베이스에 대한 새 서버를 만들고 구성합니다. 다음 정보로 **새 서버 폼**을 작성합니다. 
 
     | 설정 | 제안 값 | 설명 |
     | :------ | :-------------- | :---------- |
@@ -82,7 +80,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 8. **적용**을 클릭합니다.
 
-9. SQL Data Warehouse 폼을 완료했으면 **만들기**를 클릭하여 데이터베이스를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
+9. SQL Data Warehouse 폼의 기본 사항 탭을 완료했으면 **검토 + 만들기**를 클릭하여 데이터베이스를 프로비저닝합니다. 프로비전하는 데 몇 분이 걸립니다.
 
     ![만들기 클릭](media/load-data-from-azure-blob-storage-using-polybase/click-create.png)
 

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 10/28/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 599f59df1a18dfe77d66c497c52a05d7d2e3b6d6
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c7e63008e6c54d517c0d4c0e1661a9836f9f38c3
+ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74280376"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74815971"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
@@ -46,6 +46,7 @@ ms.locfileid: "74280376"
 `IntentRecognizer` 개체를 초기화하기 전에 LUIS 엔드포인트 키와 지역을 사용하는 구성을 만들어야 합니다. `RecognizeIntentAsync()` 메서드에 이 코드를 삽입합니다.
 
 이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 참조하세요.
+Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.
 
 > [!NOTE]
 > 음성 의도 변환 인식에는 엔드포인트 키만 유효하므로 시작 키 또는 저작 키가 아닌 LUIS 엔드포인트 키를 사용하는 것이 중요합니다. 올바른 키를 가져오는 방법에 대한 지침에 대해서는 [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](~/articles/cognitive-services/Speech-Service/quickstarts/create-luis.md)를 참조하세요.

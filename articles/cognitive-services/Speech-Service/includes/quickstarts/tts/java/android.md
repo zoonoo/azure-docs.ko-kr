@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 47120c6b6fee945938ac5348091be55795077f6c
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e38b1bdd3258675dfac9a155f7cee338a1f8f806
+ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500591"
+ms.lasthandoff: 12/04/2019
+ms.locfileid: "74818459"
 ---
 ## <a name="prerequisites"></a>필수 조건
 
 시작하기 전에 다음을 확인해야 합니다.
 
 > [!div class="checklist"]
-> * [Azure Search Resource 만들기](../../../../get-started.md)
+> * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [개발 환경 설정](../../../../quickstarts/setup-platform.md?tabs=android)
 > * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?tabs=android)
 
