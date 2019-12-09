@@ -3,19 +3,19 @@ title: 테넌트 간 관리 환경
 description: Azure 위임 리소스 관리를 통해 테넌트 간 관리 환경을 사용하도록 설정할 수 있습니다.
 ms.date: 11/7/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2db1cfd7cc8145ff3020bf232021b4f1a63b2ddd
-ms.sourcegitcommit: 95931aa19a9a2f208dedc9733b22c4cdff38addc
+ms.openlocfilehash: 0f69fc6b606f2f848b9a14d29addbbde11f07a3e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74464037"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927998"
 ---
 # <a name="cross-tenant-management-experiences"></a>테넌트 간 관리 환경
 
 서비스 공급자는 [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 사용하여 [Azure Portal](https://portal.azure.com)의 고유한 테넌트 내에서 여러 고객에 대한 Azure 리소스를 관리할 수 있습니다. 대부분의 작업 및 서비스는 관리형 테넌트의 위임된 Azure 리소스에서 수행할 수 있습니다. 이 문서에서는 Azure 위임 리소스 관리를 효과적으로 수행할 수 있는 고급 시나리오 중 일부에 대해 설명합니다.
 
 > [!NOTE]
-> 테넌트 간 관리를 간소화하기 위해 자체 테넌트가 여러 개 있는 엔터프라이즈 내에서 Azure 위임 리소스 관리를 사용할 수도 있습니다.
+> Azure 위임 된 리소스 관리는 [여러 AZURE AD 테 넌 트가 있는 엔터프라이즈 내에서](enterprise.md) 사용 하 여 테 넌 트 간 관리를 간소화할 수도 있습니다.
 
 ## <a name="understanding-customer-tenants"></a>고객 테넌트 이해
 
@@ -135,4 +135,4 @@ Azure 위임 리소스 관리를 사용하면 다른 테넌트의 다른 계정�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Resource Manager 템플릿을 사용](../how-to/onboard-customer.md)하거나 [개인 또는 공용 관리형 서비스 제품을 Azure Marketplace에 게시](../how-to/publish-managed-services-offers.md)하여 Azure 위임 리소스 관리에 고객을 온보딩합니다.
-- Azure Portal의 [내 고객](../how-to/view-manage-customers.md)으로 이동하여 **고객을 보고 관리**합니다.
+- Azure Portal의 **내 고객**으로 이동하여 [고객을 보고 관리](../how-to/view-manage-customers.md)합니다.

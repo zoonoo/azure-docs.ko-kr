@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights로 Java 웹앱 분석 | Microsoft Docs
+title: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,16 +7,16 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 28fbb5fcfba2b346d0519dec79e538b1e513b7dd
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 0686cea590ca26096b443dba21b05dc3335c7add
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72817135"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927249"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집](auto-collect-dependencies.md#java)하 고, 성능 문제 및 예외를 진단 하 고, 앱을 [사용 하 여][api] 사용자가 수행 하는 작업을 추적 
+[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측하고, 종속성을 추적하고, 성능 카운터를 수집하고](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고, 앱을 사용 하 여 사용자가 수행 하는 작업을 [코드 기록][api] 추적 
 
 ![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
 

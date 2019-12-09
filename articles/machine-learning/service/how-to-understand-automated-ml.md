@@ -3,19 +3,19 @@ title: 자동화 된 ML 결과 이해
 titleSuffix: Azure Machine Learning
 description: 자동화 된 각 기계 학습 실행에 대 한 차트 및 메트릭을 보고 이해 하는 방법에 대해 알아봅니다.
 services: machine-learning
-author: cartacioS
-ms.author: sacartac
+author: RachelKellam
+ms.author: rakellam
 ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7f8789076b00cd2b5a0694cf1f52e5dfe1569aee
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 12/05/2019
+ms.openlocfilehash: 3572d2dffc38f18cbf02aa2e9de98b74ee8ff939
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73571359"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930948"
 ---
 # <a name="understand-automated-machine-learning-results"></a>자동화 된 machine learning 결과 이해
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,9 +27,9 @@ ms.locfileid: "73571359"
 + [회귀 모델에 대 한 메트릭, 차트 및 그래프](#regression)
 + [모델 interpretability 및 기능 중요도](#explain-model)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * SDK 또는 Azure Machine Learning studio에서 자동화 된 machine learning 실행에 대 한 실험을 만듭니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "73571359"
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 분류 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [metrics](#classification-metrics)
++ [Metrics](#classification-metrics)(메트릭)
 + [혼동 행렬](#confusion-matrix)
 + [정밀도-리콜 차트](#precision-recall-chart)
 + [ROC(수신기 작동 특성)](#roc)
@@ -90,7 +90,7 @@ f1_score_macro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균�
 f1_score_micro|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. 마이크로는 전체 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="micro"|
 f1_score_weighted|F1 score(F1 점수)는 정밀도 및 재현율의 조화 평균입니다. Weighted(가중치)는 각 클래스에 대한 F1 점수의 클래스 빈도별 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.f1_score.html)|average="weighted"|
 log_loss|이 함수는 (다항) 로지스틱 회귀와 그 확장(예: 신경망)에 사용되는 손실 함수로, 지정된 확률적 분류자 예측에 대한 true 레이블의 음수 로그 유사도로 정의됩니다. {0,1}에서 true 레이블 yt를 사용 하는 단일 샘플 및 yt = 1 인 예상 확률 yt의 경우 로그 손실은-log P (yt&#124;yt) =-(yt 로그 (yt) + (1-yt) 로그 (1-yt)입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.log_loss.html)|없음|
-norm_macro_recall|Normalized Macro Recall(정규화된 매크로 재현율)은 임의 성능 점수가 0이고 완벽한 성능 점수가 1이 되도록 정규화된 매크로 재현율입니다. 이는 norm_macro_recall: = (recall_score_macro)/(1-R)로 구현 됩니다. 여기서 R은 임의 예측에 대해 예상 되는 recall_score_macro 값입니다 (예: 이진 분류의 경우 R = 0.5, C 클래스 분류 문제의 경우 R = (1/C)).|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "매크로" |
+norm_macro_recall|Normalized Macro Recall(정규화된 매크로 재현율)은 임의 성능 점수가 0이고 완벽한 성능 점수가 1이 되도록 정규화된 매크로 재현율입니다. 이는 norm_macro_recall: = (recall_score_macro-R)/(1-R)로 구현 됩니다. 여기서 R은 임의 예측에 대해 예상 되는 recall_score_macro 값 (예: 이진 분류의 경우 R = 0.5, C 클래스 분류 문제의 경우 R = (1/C))입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average = "매크로" |
 precision_score_macro|전체 자릿수는 레이블이 올바르게 지정 된 예측 요소의 백분율입니다. 매크로는 각 클래스에 대 한 전체 자릿수의 산술 평균입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="macro"|
 precision_score_micro|전체 자릿수는 레이블이 올바르게 지정 된 예측 요소의 백분율입니다. 마이크로는 총 참 긍정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="micro"|
 precision_score_weighted|전체 자릿수는 레이블이 올바르게 지정 된 예측 요소의 백분율입니다. 가중치가 적용 되는 각 클래스에 대 한 전체 자릿수의 산술 평균은 각 클래스의 실제 인스턴스 수로 가중치를 지정 합니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.precision_score.html)|average="weighted"|
@@ -98,71 +98,115 @@ recall_score_macro|회수는 특정 클래스의 요소에 레이블이 올바�
 recall_score_micro|회수는 특정 클래스의 요소에 레이블이 올바르게 지정 된 비율입니다. 마이크로는 총 참 긍정, 거짓 부정 및 거짓 긍정을 계산 하 여 전역적으로 계산 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="micro"|
 recall_score_weighted|회수는 특정 클래스의 요소에 레이블이 올바르게 지정 된 비율입니다. 가중치는 각 클래스에 대 한 최대 회수의 산술 평균 이며 각 클래스의 실제 인스턴스 수로 가중치가 지정 됩니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.recall_score.html)|average="weighted"|
 weighted_accuracy|가중치가 적용 되는 정확도는 각 예제에 지정 된 가중치가 해당 예제의 true 클래스에서 true 인스턴스의 비율과 같음을 나타내는 정확도입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.accuracy_score.html)|sample_weight는 대상의 각 요소에 대한 해당 클래스의 비율과 동일한 벡터입니다.|
-
+<a name="confusion-matrix"></a>
 ### <a name="confusion-matrix"></a>혼동 행렬
+#### <a name="what-is-a-confusion-matrix"></a>혼동 행렬 이란?
+혼동 행렬은 분류 모델의 성능을 설명하는 데 사용됩니다. 각 행은 데이터 집합의 실제 클래스 또는 실제 클래스의 인스턴스를 표시 하 고, 각 열은 모델에 의해 예측 된 클래스의 인스턴스를 나타냅니다. 
 
-혼동 행렬은 분류 모델의 성능을 설명하는 데 사용됩니다. 각 행은 true 클래스 인스턴스를 표시하고, 각 열은 예측된 클래스 인스턴스를 나타냅니다. 혼동 행렬은 지정된 모델에 대해 올바르게 분류된 레이블과 잘못 분류된 레이블을 표시합니다.
+#### <a name="what-does-automated-ml-do-with-the-confusion-matrix"></a>자동 ML에서 혼동 행렬을 사용 하 여 수행 하는 작업은 무엇 인가요?
+분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화 된 ML은 true 레이블 (행)과 비교 하 여 예측 된 각 레이블 (열)의 빈도를 표시 합니다. 이 어두운 색은 행렬의 특정 부분에서 더 높은 수입니다. 
 
-분류 문제를 위해 Azure Machine Learning은 빌드된 각 모델에 대한 혼동 행렬을 자동으로 제공합니다. 각 혼동 행렬에 대해 자동화 된 ML은 각 예측 된 레이블의 빈도와 각 진정한 레이블 교차를 표시 합니다. 이 어두운 색은 행렬의 특정 부분에서 더 높은 수입니다. 가장 이상적인 색은 행렬의 대각선을 따라 하는 것입니다. 
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+모델에서 제공 하는 예측 값과 데이터 집합의 실제 값을 비교 합니다. 이로 인해 모델의 값 대부분이 대각선을 따라 증가 하는 경우 기계 학습 모델의 정확도는 높아집니다. 즉, 모델이 올바른 값을 예측 합니다. 모델에 불균형 클래스가 있는 경우 혼동 행렬은 편향 모델을 검색 하는 데 도움이 됩니다.
 
-예 1: 정확도가 낮은 분류 모델 ![정확도가 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
+##### <a name="example-1-a-classification-model-with-poor-accuracy"></a>예 1: 정확도가 낮은 분류 모델
+![정확도가 낮은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix1.png)
 
-예 2: 정확도가 높은 분류 모델 (이상적인)은 높은 정확도를 갖춘 분류 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
+##### <a name="example-2-a-classification-model-with-high-accuracy"></a>예 2: 정확도가 높은 분류 모델 
+![정확도가 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-confusion-matrix2.png)
 
+##### <a name="example-3-a-classification-model-with-high-accuracy-and-high-bias-in-model-predictions"></a>예 3: 모델 예측에서 정확도 및 높은 바이어스가 높은 분류 모델
+![모델 예측의 정확도 및 높은 바이어스가 높은 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-biased-model.png)
 
+<a name="precision-recall-chart"></a>
 ### <a name="precision-recall-chart"></a>정밀도-리콜 차트
+#### <a name="what-is-a-precision-recall-chart"></a>전체 자릿수 리콜 차트 란?
+전체 자릿수 리콜 곡선은 전체 자릿수와 모델 회수 간의 관계를 보여 줍니다. 용어 전체 자릿수는 모델에서 모든 인스턴스의 레이블을 올바르게 표시 하는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다.
 
-이 차트를 사용하면 각 모델의 정밀도-리콜 곡선을 비교하여 특정 비즈니스 문제에 대해 정밀도와 리콜 간에 허용되는 관계가 있는 모델을 확인할 수 있습니다. 이 차트에는 매크로 평균 정밀도-리콜, 마이크로 평균 정밀도-리콜 및 모델의 모든 클래스와 관련된 정밀도-리콜이 표시됩니다.
+#### <a name="what-does-automated-ml-do-with-the-precision-recall-chart"></a>자동 ML은 전체 자릿수 리콜 차트를 어떻게 사용 하나요?
 
-정밀도라는 용어는 분류자가 모든 인스턴스에 올바른 레이블을 지정할 수 있는 기능을 나타냅니다. 리콜은 분류자가 특정 레이블의 인스턴스를 모두 찾을 수 있는 기능을 나타냅니다. 정밀도-리콜 곡선은 이러한 두 개념 간의 관계를 표시합니다. 모델이 100% 정밀도와 100% 정확도를 갖는 것이 이상적입니다.
+이 차트를 사용하면 각 모델의 정밀도-리콜 곡선을 비교하여 특정 비즈니스 문제에 대해 정밀도와 리콜 간에 허용되는 관계가 있는 모델을 확인할 수 있습니다. 이 차트에는 매크로 평균 정밀도-리콜, 마이크로 평균 정밀도-리콜 및 모델의 모든 클래스와 관련된 정밀도-리콜이 표시됩니다. 
 
-예제 1: 낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델 ![낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
+매크로-평균은 각 클래스와 별개로 메트릭을 계산 하 고 평균을 취하여 모든 클래스를 동일 하 게 처리 합니다. 그러나 마이크로 평균은 평균 계산을 위해 모든 클래스의 기여를 집계 합니다. 데이터 집합에 클래스 불균형이 있는 경우에는 마이크로 평균이 좋습니다.
 
-예 2: ~ 100% precision 및 ~ 100% 회수 (이상적인)를 포함 하는 분류 모델 ![분류 모델의 높은 전체 자릿수 및 회수](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+비즈니스 문제의 목표에 따라 이상적인 전체 자릿수 리콜 곡선이 다를 수 있습니다. 몇 가지 예가 아래에 나와 있습니다.
 
-### <a name="roc"></a>ROC
+##### <a name="example-1-a-classification-model-with-low-precision-and-low-recall"></a>예 1: 낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델
+![낮은 정밀도 및 낮은 회수를 포함 하는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
+##### <a name="example-2-a-classification-model-with-100-precision-and-100-recall"></a>예 2: ~ 100% precision 및 ~ 100% 회수를 사용 하는 분류 모델 
+분류 모델의 높은 전체 자릿수 및 회수를 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+<a name="roc"></a>
+### <a name="roc-chart"></a>ROC 차트
+
+#### <a name="what-is-a-roc-chart"></a>ROC 차트 란?
 ROC(수신기 작동 특성)는 특정 모델에 대해 올바르게 분류된 레이블 및 잘못 분류된 레이블의 플롯입니다. ROC 곡선은 가양성 레이블을 표시하지 않으므로 바이어스가 높은 데이터 세트에서 모델을 학습할 때는 제공하는 정보가 적을 수 있습니다.
 
-예 1: 작은 레이블 및 높은 false 레이블이 있는 분류 모델 ![작은 레이블 및 상위 거짓 레이블이 있는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+#### <a name="what-does-automated-ml-do-with-the-roc-chart"></a>자동화 된 ML은 ROC 차트를 사용 하 여 수행 하는 작업은 무엇 인가요?
+자동화 된 ML은 모델의 모든 클래스와 연결 된 매크로 평균 정밀도 재호출, 마이크로 평균 정밀도 재호출 및 전체 자릿수 재호출을 생성 합니다. 
 
-예 2: true 레이블 및 낮은 false 레이블이 있는 분류 모델은 true 레이블 및 하위 레이블이 높은 분류 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+매크로-평균은 각 클래스와 별개로 메트릭을 계산 하 고 평균을 취하여 모든 클래스를 동일 하 게 처리 합니다. 그러나 마이크로 평균은 평균 계산을 위해 모든 클래스의 기여를 집계 합니다. 데이터 집합에 클래스 불균형이 있는 경우에는 마이크로 평균이 좋습니다.
 
-### <a name="lift-curve"></a>리프트 곡선
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+이상적으로 모델은 100% 진정한 긍정 요금에 가까울수록 0% false 긍정 률에 가까울수록 좋습니다. 
 
+##### <a name="example-1-a-classification-model-with-low-true-labels-and-high-false-labels"></a>예 1: 작은 레이블 및 상위 거짓 레이블이 있는 분류 모델
+![작은 레이블 및 상위 거짓 레이블이 있는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-1.png)
+
+##### <a name="example-2-a-classification-model-with-high-true-labels-and-low-false-labels"></a>예 2: 중요 한 레이블 및 하위 false 레이블이 있는 분류 모델
+매우 중요 한 레이블 및 낮은 false 레이블이 있는 분류 모델을 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-roc-2.png)
+<a name="lift-curve"></a>
+### <a name="lift-chart"></a>리프트 차트
+#### <a name="what-is-a-lift-chart"></a>리프트 차트 란?
+리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 정확 하 게 사용 하지 않고도 생성 된 모델을 사용 하 여 수행할 수 있는 더 나은 방법을 보여 줍니다.
+#### <a name="what-does-automated-ml-do-with-the-lift-chart"></a>자동 ML은 리프트 차트를 사용 하 여 수행 하는 작업은 무엇 인가요?
 특정 모델의 값 게인을 보기 위해 Azure Machine Learning을 사용하여 자동으로 빌드된 모델 리프트를 기준선과 비교할 수 있습니다.
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
 
-리프트 차트는 분류 모델의 성능을 평가하는 데 사용됩니다. 모델을 사용하지 않을 경우와 비교해서 모델을 사용할 경우 예상할 수 있는 성능 향상을 보여 줍니다. 
-
-예 1: 모델을 임의로 선택 하는 모델 ![임의 선택 모델 보다 성능이 저하](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
-
-예 2: 모델은 임의의 선택 모델 ![보다 효율적으로 수행 되는 분류 모델을 보다 효율적으로 수행](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
-
-### <a name="gains-curve"></a>게인 곡선
+##### <a name="example-1-a-classification-model-that-does-worse-than-a-random-selection-model"></a>예 1: 임의 선택 모델 보다 더 나쁜 분류 모델
+![임의 선택 모델 보다 더 나쁜 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve1.png)
+##### <a name="example-2-a-classification-model-that-performs-better-than-a-random-selection-model"></a>예 2: 임의 선택 모델 보다 더 나은 성능을 발휘 하는 분류 모델
+더 나은](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-lift-curve2.png)
+를 수행 하는 분류 모델을 ![합니다.<a name="gains-curve"></a>
+### <a name="gains-chart"></a>향상 차트
+#### <a name="what-is-a-gains-chart"></a>향상 된 차트는 무엇 인가요?
 
 게인 차트는 데이터의 각 부분별로 분류 모델의 성능을 평가합니다. 데이터 세트의 각 백분위수에 대해, 임의 선택 모델과 비교해서 예상할 수 있는 성능 향상을 보여 줍니다.
 
+#### <a name="what-does-automated-ml-do-with-the-gains-chart"></a>자동 ML의 이점 차트는 어떻게 되나요?
 누적 게인 차트를 사용하면 모델에서 원하는 게인에 해당하는 백분율을 사용하여 분류 경계를 선택하는 데 도움이 됩니다. 이 정보는 동반되는 리프트 차트의 결과를 살펴보는 또 다른 방법을 제공합니다.
 
-예 1: 최소한의 이득을 사용 하 여 분류 모델 ![최소한의 이득](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+##### <a name="example-1-a-classification-model-with-minimal-gain"></a>예 1: 최소한의 획득으로 분류 모델 사용
+![최소한의 이득을 갖춘 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve1.png)
 
-예 2: 상당한 이득을 가진 분류 모델 ![상당한 이득을 얻는 분류 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+##### <a name="example-2-a-classification-model-with-significant-gain"></a>예 2: 상당한 이득을 가진 분류 모델
+상당한 이득을 가진 분류 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-gains-curve2.png)
+<a name="calibration-plot"></a>
+### <a name="calibration-chart"></a>보정 차트
 
-### <a name="calibration-plot"></a>보정 플롯
+#### <a name="what-is-a-calibration-chart"></a>보정 차트 란?
+보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다.
+#### <a name="what-does-automated-ml-do-with-the-calibration-chart"></a>자동 ML에서 보정 차트를 사용 하 여 수행 하는 작업은 무엇 인가요?
+모든 분류 문제에 대해 마이크로 평균, 매크로 평균 및 지정된 예측 모델의 각 클래스의 보정 선을 검토할 수 있습니다.
 
-모든 분류 문제에 대해 마이크로 평균, 매크로 평균 및 지정된 예측 모델의 각 클래스의 보정 선을 검토할 수 있습니다. 
+매크로-평균은 각 클래스와 별개로 메트릭을 계산 하 고 평균을 취하여 모든 클래스를 동일 하 게 처리 합니다. 그러나 마이크로 평균은 평균 계산을 위해 모든 클래스의 기여를 집계 합니다. 
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+ 잘 보정 된 모델은 y = x 줄에 맞게 정렬 됩니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다. 
 
-보정 플롯은 예측 모델의 신뢰도를 표시하는 데 사용됩니다. 이 작업을 위해 예측 확률과 실제 확률 간의 관계를 보여 주며, 여기서 “확률”은 특정 인스턴스가 일부 레이블에서 속할 가능성을 나타냅니다. 잘 보정된 모델은 y=x 선과 일치하며, 이 경우 해당 예측의 신뢰도가 상당히 높음을 의미합니다. 신뢰도가 과도한 모델은 y=0 선과 일치하며, 이 경우 예측된 확률은 있지만 실제 확률이 없음을 의미합니다.
 
-예 1: 잘 보정 된 모델 ![ 보다 잘 보정 된 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
+##### <a name="example-1-a-well-calibrated-model"></a>예 1: 잘 보정 된 모델
+![ 잘 보정 되는 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve1.png)
 
-예 2: 과도 하 게 확신 하는 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
+##### <a name="example-2-an-over-confident-model"></a>예 2: 보다 확실 한 모델
+![보다 확실 한 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-calib-curve2.png)
 
 ## <a name="regression"></a>회귀 결과
 
 다음 메트릭과 차트는의 자동화 된 기계 학습 기능을 사용 하 여 작성 하는 모든 회귀 모델에 사용할 수 있습니다 Azure Machine Learning
 
-+ [metrics](#reg-metrics)
++ [Metrics](#reg-metrics)(메트릭)
 + [예측 및 True](#pvt)
 + [나머지 히스토그램](#histo)
 
@@ -185,34 +229,38 @@ normalized_root_mean_squared_error|Normalized root mean squared error(정규화�
 root_mean_squared_log_error|Root mean squared log error(제곱 평균 로그 오차)는 예상 제곱 로그 오차의 제곱근입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|없음|
 normalized_root_mean_squared_log_error|Noramlized Root mean squared log error(정규화된 제곱 평균 로그 오차)는 제곱 평균 로그 오차를 데이터 범위로 나눈 것입니다.|[계산](https://scikit-learn.org/stable/modules/generated/sklearn.metrics.mean_squared_log_error.html)|데이터 범위로 나누기|
 
-### <a name="pvt"></a>예측 및 True
-
+### <a name="pvt"></a>예측 및 실제 차트
+#### <a name="what-is-a-predicted-vs-true-chart"></a>예측 된 차트 및 진정한 차트
 예측 된 값과 True는 회귀 문제에 대 한 예측 값과 해당 하는 실제 값 간의 관계를 보여 줍니다. 예측된 값이 y=x 선에 가까울수록 예측 모델의 정확도가 향상되기 때문에 이 그래프를 사용하여 모델의 성능을 측정할 수 있습니다.
 
+#### <a name="what-does-automated-ml-do-with-the-predicted-vs-true-chart"></a>자동화 된 ML은 예측 된 차트와 실제 차트에서 수행 하는 작업은 무엇 인가요?
 각 실행 후에 각 회귀 모델에 대한 예측 대 실제 그래프를 확인할 수 있습니다. 데이터 개인 정보를 보호하기 위해 값은 함께 bin 처리되고 각 bin의 크기가 차트 영역의 아래쪽에 막대형 그래프로 표시됩니다. 밝은 음영 영역을 통해 오차 범위를 표시하는 예측 모델과 모델의 이상적인 값을 비교할 수 있습니다.
 
-예 1: 예측이 낮은 회귀 모델 ![예측의 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+##### <a name="example-1-a-classification-model-with-low-accuracy"></a>예 1: 정확도가 낮은 분류 모델
+![예측 정확도가 낮은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression1.png)
 
-예 2: 예측에서 정확도가 높은 회귀 모델 [![예측에서 정확도가 높은 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
+##### <a name="example-2-a-regression-model-with-high-accuracy"></a>예 2: 정확도가 높은 회귀 모델 
+[예측에서 정확도가 높은 회귀 모델 ![](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2.png)](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression2-expanded.png)
 
 
 
-### <a name="histo"></a>잔차의 히스토그램
-
+### <a name="histo"></a>잔차 차트의 히스토그램
+#### <a name="what-is-a-residuals-chart"></a>잔차 차트 란?
 나머지는 관찰된 y - 예측된 y를 나타냅니다. 바이어스가 낮은 오차 범위를 표시하려면 나머지 히스토그램의 모양이 0을 중심으로 하는 벨 곡선이어야 합니다. 
+#### <a name="what-does-automated-ml-do-with-the-residuals-chart"></a>자동 ML은 잔차 차트를 사용 하 여 수행 하는 작업은 무엇 인가요?
+자동 ML은 예측의 오류 분포를 보여 주는 잔차 차트를 자동으로 제공 합니다.
+#### <a name="what-does-a-good-model-look-like"></a>좋은 모델의 모양은 무엇입니까?
+좋은 모델에는 일반적으로 0 주위에 종 모양의 또는 오류가 있습니다.
 
-예제 1: 오류에서 바이어스가 있는 회귀 모델 ![SA 회귀 모델은 해당 오류에 바이어스를 사용 하 여](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
+##### <a name="example-1-a-regression-model-with-bias-in-its-errors"></a>예 1: 오류가 발생 한 편차를 포함 하는 회귀 모델
+![오류에서 바이어스를 사용 하 여 SA 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression3.png)
 
-예 2: 오류를 보다 균등 하 게 분산 하는 회귀 모델 ![보다 균등 하 게 분산 된 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
+##### <a name="example-2-a-regression-model-with-more-even-distribution-of-errors"></a>예제 2: 오류를 보다 균등 하 게 분산 하는 회귀 모델
+![오류를 균등 하 게 배포 하는 회귀 모델](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-regression4.png)
 
 ## <a name="explain-model"></a>모델 interpretability 및 기능 중요도
-
-기능 중요도를 사용 하면 각 기능이 모델 생성에 얼마나 중요 한지 확인할 수 있습니다. 이 계산은 실행 시간을 크게 증가 시킬 수 있으므로 기본적으로 해제 되어 있습니다.   모든 모델에 대 한 모델 설명을 사용 하도록 설정 하거나 가장 적합 한 모델만 설명할 수 있습니다.
-
-모델 전체 및 예측 모델의 클래스별로 기능 중요도 점수를 검토할 수 있습니다. 각 클래스 및 전체와 비교해서 기능별로 중요도를 확인할 수 있습니다.
-
-![기능 설명 기능](./media/how-to-understand-automated-ml/feature-importance.gif)
-
+자동화 된 ML은 실행에 대 한 machine learning interpretability 대시보드를 제공 합니다.
 Interpretability 기능을 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 자동화 된 ML 실험에서 interpretability를 사용 하도록 설정 [하는 방법](how-to-machine-learning-interpretability-automl.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계

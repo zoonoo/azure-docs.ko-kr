@@ -6,16 +6,15 @@ documentationcenter: ''
 author: kromerm
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.author: makromer
 ms.date: 10/07/2019
-ms.openlocfilehash: 3f05b9ae490ea2b9d8e7b89ce02c7c1eb818bb0a
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 47126d1cf51f4b27863bb0b11e73cfe5592b8d57
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74769578"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929878"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Azure Data Factory의 데이터 흐름 작업
 
@@ -85,13 +84,13 @@ Azure SQL Data Warehouse를 싱크 또는 원본으로 사용 하는 경우 Poly
 
 데이터 흐름이 매개 변수화 된 경우 **매개 변수** 탭에서 데이터 흐름 매개 변수의 동적 값을 설정 합니다. ADF 파이프라인 식 언어 (문자열 형식에만 해당) 또는 데이터 흐름 식 언어를 사용 하 여 동적 또는 리터럴 매개 변수 값을 할당할 수 있습니다. 자세한 내용은 [데이터 흐름 매개 변수](parameters-data-flow.md)를 참조 하세요.
 
-![데이터 흐름 매개 변수 실행 예제](media/data-flow/parameter-example.png "매개 변수 예제")
+![데이터 흐름 매개 변수 실행 예제](media/data-flow/parameter-example.png "매개 변수 예")
 
 ## <a name="pipeline-debug-of-data-flow-activity"></a>데이터 흐름 작업의 파이프라인 디버그
 
 데이터 흐름 작업을 사용 하 여 디버그 파이프라인 실행을 실행 하려면 위쪽 표시줄의 **데이터 흐름 디버그** 슬라이더를 통해 데이터 흐름 디버그 모드를 전환 해야 합니다. 디버그 모드를 사용 하면 활성 Spark 클러스터에 대해 데이터 흐름을 실행할 수 있습니다. 자세한 내용은 [디버그 모드](concepts-data-flow-debug-mode.md)를 참조 하세요.
 
-![디버그 단추](media/data-flow/debugbutton.png "디버그 단추")
+![디버그 단추](media/data-flow/debugbutton.png "디버깅 단추")
 
 디버그 파이프라인은 데이터 흐름 작업 설정에 지정 된 통합 런타임 환경이 아닌 활성 디버그 클러스터에 대해 실행 됩니다. 디버그 모드를 시작할 때 디버그 계산 환경을 선택할 수 있습니다.
 

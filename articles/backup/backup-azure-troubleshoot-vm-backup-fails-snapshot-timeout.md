@@ -4,12 +4,13 @@ description: 에이전트, 확장명 및 디스크와 관련된 Azure Backup 오
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 23b10bed3b741ec76167eb5a976bf5737d20b173
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.service: backup
+ms.openlocfilehash: 5e435d1169d5f148bfa2910174bf1f2835806c8b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894014"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928235"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -25,8 +26,8 @@ ms.locfileid: "74894014"
 Azure VM 에이전트가 중지 되었거나, 기한이 지난 상태 이거나, 설치 되지 않았거나 Azure Backup 서비스에서 스냅숏을 트리거하기를 방지할 수 있습니다.
 
 - Vm **> 설정 > 속성 블레이드** > Vm **상태가** **실행 중** 이 고 **에이전트 상태가** **준비**됨 인지 확인 하 > Azure Portal을 엽니다. VM 에이전트가 중지 되었거나 일관 되지 않은 상태에 있는 경우 에이전트를 다시 시작 하십시오.<br>
-  - Windows Vm의 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.<br>
-  - Linux Vm의 경우 다음 [단계](https://docs.microsoft.com/en-us/azure/backup/backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.
+  - Windows Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.<br>
+  - Linux Vm의 경우 다음 [단계](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms) 를 수행 하 여 게스트 에이전트를 다시 시작 합니다.
 
 
 ## <a name="guestagentsnapshottaskstatuserror---could-not-communicate-with-the-vm-agent-for-snapshot-status"></a>GuestAgentSnapshotTaskStatusError - 스냅샷 상태에 대해 VM 에이전트와 통신할 수 없습니다.

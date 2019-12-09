@@ -1,5 +1,5 @@
 ---
-title: 리디렉션 URI/회신 URL 제한 및 제한 사항-Microsoft id 플랫폼
+title: 리디렉션 URI & 회신 URL 제한-Microsoft identity platform | Microsoft
 description: 회신 Url/리디렉션 Url 제한 & 제한 사항
 author: SureshJa
 ms.author: sureshja
@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389590"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920330"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>리디렉션 URI/회신 URL 제한 및 제한 사항
 
@@ -36,14 +36,14 @@ ms.locfileid: "72389590"
 앱 등록에 추가 하는 각 리디렉션 URI에 대해 최대 256 문자를 사용할 수 있습니다.
 
 ## <a name="supported-schemes"></a>지원 되는 구성표
-현재 Azure AD 응용 프로그램 모델은 모든 조직의 Azure Active Directory (Azure AD) 테 넌 트에서 Microsoft 회사 또는 학교 계정에 로그인 하는 앱에 대 한 HTTP 및 HTTPS 스키마를 모두 지원 합니다. 응용 프로그램 매니페스트의 `signInAudience` 필드가 *AzureADMyOrg* 또는 *AzureADMultipleOrgs*로 설정 되어 있습니다. 개인 Microsoft 계정 및 회사 및 학교 계정에 로그인 하는 앱의 경우 (`signInAudience`이 *AzureADandPersonalMicrosoftAccount*로 설정 됨) HTTPS 스키마만 허용 됩니다.
+현재 Azure AD 응용 프로그램 모델은 모든 조직의 Azure Active Directory (Azure AD) 테 넌 트에서 Microsoft 회사 또는 학교 계정에 로그인 하는 앱에 대 한 HTTP 및 HTTPS 스키마를 모두 지원 합니다. 응용 프로그램 매니페스트의 `signInAudience` 필드는 *AzureADMyOrg* 또는 *AzureADMultipleOrgs*로 설정 됩니다. 개인 Microsoft 계정 및 회사 및 학교 계정 ( *AzureADandPersonalMicrosoftAccount*로 설정 `signInAudience`)에 로그인 하는 앱의 경우 HTTPS 스키마만 허용 됩니다.
 
 > [!NOTE]
 > 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서는 개발자가 HTTP 스키마를 사용 하 여 UI에 uri를 추가할 수 없습니다. 회사 또는 학교 계정에 로그인 하는 앱에 대 한 HTTP Uri 추가는 앱 매니페스트 편집기를 통해서만 지원 됩니다. 앞으로 새 앱은 리디렉션 URI에서 HTTP 스키마를 사용할 수 없습니다. 그러나 리디렉션 Uri에 HTTP 체계가 포함 된 이전 앱은 계속 작동 합니다. 개발자는 리디렉션 Uri에서 HTTPS 체계를 사용 해야 합니다.
 
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Uri에서 와일드 카드를 사용 하는 제한 사항
 
-@No__t-0과 같은 와일드 카드 Uri는 편리 하지만이를 피해 야 합니다. 리디렉션 URI에서 와일드 카드를 사용 하면 보안에 영향을 미칩니다. OAuth 2.0 사양 ([RFC 6749의 3.1.2 섹션](https://tools.ietf.org/html/rfc6749#section-3.1.2))에 따라 리디렉션 끝점 uri는 절대 uri 여야 합니다. 
+`https://*.contoso.com`와 같은 와일드 카드 Uri는 편리 하지만이를 피해 야 합니다. 리디렉션 URI에서 와일드 카드를 사용 하면 보안에 영향을 미칩니다. OAuth 2.0 사양 ([RFC 6749의 3.1.2 섹션](https://tools.ietf.org/html/rfc6749#section-3.1.2))에 따라 리디렉션 끝점 uri는 절대 uri 여야 합니다. 
 
 Azure AD 응용 프로그램 모델은 개인 Microsoft 계정과 회사 또는 학교 계정에 로그인 하도록 구성 된 앱에 대 한 와일드 카드 Uri를 지원 하지 않습니다. 그러나 현재 조직의 Azure AD 테 넌 트에서 회사 또는 학교 계정에 로그인 하도록 구성 된 앱에는 와일드 카드 Uri를 사용할 수 있습니다. 
  

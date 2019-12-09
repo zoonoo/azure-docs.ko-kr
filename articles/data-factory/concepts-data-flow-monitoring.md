@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름 시각적 모니터링
+title: 데이터 흐름 시각적 모니터링 매핑
 description: Azure Data Factory 데이터 흐름을 시각적으로 모니터링하는 방법
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/07/2019
-ms.openlocfilehash: e522ede7da669f6e684fc9a07adcc506a69e77e9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 93d92286fa9eecbc64229059274cc8f9ed99e21e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74267899"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928270"
 ---
 # <a name="monitor-data-flows"></a>데이터 흐름 모니터링
 

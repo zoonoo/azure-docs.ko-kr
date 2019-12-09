@@ -3,27 +3,23 @@ title: MSAL을 사용 하 여 토큰 획득 및 캐시
 titleSuffix: Microsoft identity platform
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 토큰을 획득 및 캐시하는 방법을 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/07/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2df30156cde0244209f5f07c2627887252642525
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: e1cb16b5635afcfac51063ec569ca74a0ecd3b6b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903011"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917168"
 ---
 # <a name="acquire-and-cache-tokens-using-the-microsoft-authentication-library-msal"></a>MSAL (Microsoft 인증 라이브러리)을 사용 하 여 토큰 가져오기 및 캐시
 
@@ -52,7 +48,7 @@ MSAL은 토큰을 획득한 후에 캐시합니다.  애플리케이션 코드�
 Microsoft Graph API의 경우에만 범위 값 `user.read`는 `https://graph.microsoft.com/User.Read` 형식에 매핑하고 서로 교환해서 사용할 수 있습니다.
 
 > [!NOTE]
-> Azure Resource Manager API(https://management.core.windows.net/)와 같은 특정 웹 API에서 액세스 토큰의 대상 그룹 클레임(aud)에는 후행 ‘/’가 필요합니다. 이 경우 API에서 토큰이 유효하려면 범위를 https://management.core.windows.net//user_impersonation(이중 슬래시에 주의)으로 전달해야 합니다.
+> Azure Resource Manager API(https://management.core.windows.net/) 와 같은 특정 웹 API에서 액세스 토큰의 대상 그룹 클레임(aud)에는 후행 ‘/’가 필요합니다. 이 경우 API에서 토큰이 유효하려면 범위를 https://management.core.windows.net//user_impersonation (이중 슬래시에 주의)으로 전달해야 합니다.
 
 ### <a name="request-dynamic-scopes-for-incremental-consent"></a>증분 동의에 대한 동적 범위 요청
 
@@ -86,7 +82,7 @@ MSAL은 하나의 토큰 캐시(또는 기밀 클라이언트 애플리케이션
 
 일반적으로 토큰을 획득하는 메서드는 공용 클라이언트 애플리케이션인지 아니면 기밀 클라이언트 애플리케이션인지에 따라 달라집니다.
 
-### <a name="public-client-applications"></a>공용 클라이언트 애플리케이션
+### <a name="public-client-applications"></a>퍼블릭 클라이언트 애플리케이션
 
 공용 클라이언트 애플리케이션(데스크톱 또는 모바일 앱)의 경우 다음과 같습니다.
 - 사용자가 UI 또는 팝업 창을 통해 로그인하도록 하여 토큰을 대화형으로 획득하는 경우가 많습니다.
@@ -97,7 +93,7 @@ MSAL은 하나의 토큰 캐시(또는 기밀 클라이언트 애플리케이션
 ### <a name="confidential-client-applications"></a>기밀 클라이언트 애플리케이션
 
 기밀 클라이언트 애플리케이션(웹앱, 웹 API 또는 Windows 서비스와 같은 디먼 애플리케이션)의 경우 다음과 같습니다.
-- **클라이언트 자격 증명 흐름**을 사용하여 사용자가 아니라 [애플리케이션 자체](msal-authentication-flows.md#client-credentials)에 대한 토큰을 획득합니다. 이는 동기화 도구 또는 특정 사용자가 아니라 일반적으로 사용자를 처리하는 도구에 사용할 수 있습니다. 
+- [클라이언트 자격 증명 흐름](msal-authentication-flows.md#client-credentials)을 사용하여 사용자가 아니라 **애플리케이션 자체**에 대한 토큰을 획득합니다. 이는 동기화 도구 또는 특정 사용자가 아니라 일반적으로 사용자를 처리하는 도구에 사용할 수 있습니다. 
 - 웹 API에 대한 [On-Behalf-Of 흐름](msal-authentication-flows.md#on-behalf-of)을 사용하여 사용자를 대신해 API를 호출합니다. 사용자 어설션(예: SAML 또는 JWT 토큰)에 따라 토큰을 획득하기 위해 애플리케이션이 클라이언트 자격 증명을 사용하여 식별됩니다. 이 흐름은 서비스 간 호출에서 특정 사용자의 리소스에 액세스해야 하는 애플리케이션에서 사용됩니다.
 - 사용자가 권한 부여 요청 URL을 통해 로그인하면 웹앱에서 [권한 부여 코드 흐름](msal-authentication-flows.md#authorization-code)을 사용하여 토큰을 획득합니다. OpenID Connect 애플리케이션은 일반적으로 이 메커니즘을 사용합니다. 이 경우 사용자가 OpenID Connect를 사용하여 로그인한 다음, 사용자를 대신하여 웹 API에 액세스할 수 있습니다.
 

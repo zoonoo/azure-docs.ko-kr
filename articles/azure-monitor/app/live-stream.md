@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights의 사용자 지정 메트릭 및 진단을 사용한 라이브 메트릭 스트림 | Microsoft Docs
+title: 라이브 메트릭 스트림로 진단-Azure 애플리케이션 Insights
 description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니터링하고 오류, 추적 및 이벤트의 라이브 피드를 통해 문제를 진단할 수 있습니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 69aaa61bb0be9a5f07de85ff4ef81b28a86aefaa
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: ac2aabe12697336377df808e02e283dde0e4da16
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73575608"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927217"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -22,7 +22,7 @@ ms.locfileid: "73575608"
 라이브 메트릭 스트림을 사용하여 다음을 수행할 수 있습니다.
 
 * 릴리스되는 동안 성능 및 실패 수를 확인하여 수정된 부분의 유효성을 검사합니다.
-* 테스트 로드의 영향을 확인하고 문제를 실시간으로 진단합니다. 
+* 테스트 로드의 영향을 확인하고 문제를 실시간으로 진단합니다.
 * 확인하려는 메트릭을 선택 및 필터링하여 특정 테스트 세션에 중점을 두거나 알려진 문제를 필터링합니다.
 * 예외 추적이 발생하면 가져옵니다.
 * 필터를 사용하여 가장 관련성이 높은 KPI를 찾아 봅니다.
@@ -33,7 +33,7 @@ ms.locfileid: "73575608"
 
 라이브 메트릭은 현재 ASP.NET, ASP.NET Core, Azure Functions, Java 및 node.js 앱에 대해 지원 됩니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 1. 웹앱에 [Application Insights를 아직 설치](../../azure-monitor/azure-monitor-app-hub.md)하지 않은 경우 지금 수행합니다.
 2. 표준 Application Insights 패키지 외에 [Microsoft.ApplicationInsights.PerfCounterCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/)는 라이브 메트릭 스트림을 활성화하는 데 필요합니다.
@@ -45,7 +45,7 @@ ms.locfileid: "73575608"
 
 4. 필터에 고객 이름과 같은 중요한 데이터를 사용할 경우 [컨트롤 채널을 보호](#secure-the-control-channel)합니다.
 
-### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
+### <a name="no-data-check-your-server-firewall"></a>데이터가 없으세요? 서버 방화벽을 확인합니다.
 
 [라이브 메트릭 스트림의 나가는 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)가 서버의 방화벽에서 열려 있는지 확인합니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "73575608"
 |대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|무료|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
+|체험판|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
 |컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
@@ -183,7 +183,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="supported-features-table"></a>지원 되는 기능 표
 
-| language                         | 기본 메트릭       | 성능 메트릭 | 사용자 지정 필터링    | 샘플 원격 분석    | 프로세스별 CPU 분할 |
+| 언어                         | 기본 메트릭       | 성능 메트릭 | 사용자 지정 필터링    | 샘플 원격 분석    | 프로세스별 CPU 분할 |
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET                             | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +) | 지원 됨 (V 2.7.2 +)  |
 | .NET Core (target = .net Framework)| 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +) | 지원 됨 (V 2.4.1 +)  |
@@ -204,7 +204,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>문제 해결
 
-데이터가 없나요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
+데이터가 없으세요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)

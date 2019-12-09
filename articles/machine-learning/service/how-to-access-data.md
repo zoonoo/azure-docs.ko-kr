@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: d2e86c06cca26da2776459f3c20bf921a02ed89b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ee6ab1ada540f4f664e6782a1fffc63cc7df95e4
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894705"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928576"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -24,14 +24,14 @@ ms.locfileid: "74894705"
 이 문서에서는 Azure Machine Learning datastores를 통해 Azure storage 서비스에서 데이터에 쉽게 액세스 하는 방법을 알아봅니다. 데이터 저장소는 구독 ID 및 토큰 권한 부여와 같은 연결 정보를 저장 하는 데 사용 됩니다. 데이터 저장소를 사용 하면 스크립트에 연결 정보를 하드 코딩 하지 않고도 저장소에 액세스할 수 있습니다. 이러한 [Azure storage 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다. 지원 되지 않는 저장소 솔루션의 경우 machine learning 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure storage 솔루션으로 데이터를 이동 하는 것이 좋습니다. [데이터를 이동 하는 방법을 알아봅니다](#move). 
 
 이 방법에는 다음 작업의 예가 나와 있습니다.
-* [데이터 저장소 등록](#access)
-* [작업 영역에서 데이터 저장소 가져오기](#get)
-* [데이터 저장소를 사용 하 여 데이터 업로드 및 다운로드](#up-and-down)
-* [학습 중 데이터 액세스](#train)
-* [Azure로 데이터 이동](#move)
+* 데이터 저장소 등록
+* 작업 영역에서 데이터 저장소 가져오기
+* 데이터 저장소를 사용 하 여 데이터 업로드 및 다운로드
+* 학습 중 데이터 액세스
+* Azure storage 서비스로 데이터 이동
 
 ## <a name="prerequisites"></a>전제 조건
-
+.NET framework 4.5.2 이상이
 - Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 서비스의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 - Azure [Blob 컨테이너](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) 또는 [azure 파일 공유](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)를 사용 하는 azure storage 계정
@@ -58,7 +58,13 @@ Azure storage 솔루션을 데이터 저장소로 등록 하면 특정 작업 �
 
 모든 register 메서드는 [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py) 클래스에 있으며 register_azure_ * 형식입니다.
 
-Register () 메서드를 채우는 데 필요한 정보는 [Azure Portal](https://portal.azure.com)를 통해 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지는 계정 이름과 컨테이너 또는 파일 공유 이름과 같은 정보를 제공 합니다. 계정 키 또는 SAS 토큰과 같은 인증 정보를 보려면 왼쪽의 **설정** 창에서 **계정 키** 로 이동 합니다. 
+Register () 메서드를 채우는 데 필요한 정보는 [Azure Machine Learning studio](https://ml.azure.com) 및 다음 단계를 통해 찾을 수 있습니다.
+
+1. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. 
+2. **개요** 페이지는 계정 이름과 컨테이너 또는 파일 공유 이름과 같은 정보를 제공 합니다. 
+3. 계정 키 또는 SAS 토큰과 같은 인증 정보를 보려면 왼쪽의 **설정** 창에서 **계정 키** 로 이동 합니다. 
+
+>중요 한 저장소 계정이 VNET에 있는 경우 Azure blob 데이터 저장소 만들기만 지원 됩니다. 매개 변수를 `True` `grant_workspace_access` 설정 하 여 작업 영역에 저장소 계정에 대 한 액세스 권한을 부여 합니다.
 
 다음 예에서는 Azure Blob 컨테이너 또는 Azure 파일 공유를 데이터 저장소로 등록 하는 방법을 보여 줍니다.
 
@@ -74,7 +80,6 @@ Register () 메서드를 채우는 데 필요한 정보는 [Azure Portal](https:
                                                           account_key='your storage account key',
                                                           create_if_not_exists=True)
     ```
-    저장소 계정이 VNET에 있는 경우 Azure blob 데이터 저장소 만들기만 지원 됩니다. 매개 변수를 `True` `grant_workspace_access` 설정 하 여 작업 영역에 저장소 계정에 대 한 액세스 권한을 부여 합니다.
 
 + **Azure 파일 공유 데이터 저장소**의 경우 [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore(class)?view=azure-ml-py#register-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-)를 사용 합니다. 
 
@@ -104,7 +109,7 @@ Azure Machine Learning studio에서 몇 가지 단계를 수행 하 여 새 데�
   
 양식을 채우는 데 필요한 정보는 [Azure Portal](https://portal.azure.com)를 통해 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지는 계정 이름과 컨테이너 또는 파일 공유 이름과 같은 정보를 제공 합니다. 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 왼쪽의 **설정** 창에서 **계정 키** 로 이동 합니다.
 
-다음 예제에서는 Azure blob 데이터 저장소를 만들기 위한 폼의 모양을 보여 줍니다. 
+다음 예제에서는 Azure blob 데이터 저장소 생성에 대해 양식이 표시 되는 모양을 보여 줍니다. 
     
  ![새 데이터 저장소](media/how-to-access-data/new-datastore-form.png)
 
@@ -128,7 +133,7 @@ for name, datastore in datastores.items():
     print(name, datastore.datastore_type)
 ```
 
-작업 영역을 만들 때 Azure Blob 컨테이너와 Azure 파일 공유는 각각 `workspaceblobstore` 및 `workspacefilestore` 라는 작업 영역에 등록 됩니다. 작업 영역에 연결 된 저장소 계정에 프로 비전 되는 파일 공유 및 Blob 컨테이너에 대 한 연결 정보를 저장 합니다. `workspaceblobstore`은 기본 데이터 저장소로 설정 됩니다.
+작업 영역을 만들 때 Azure Blob 컨테이너와 Azure 파일 공유는 각각 `workspaceblobstore` 및 `workspacefilestore` 이라는 작업 영역에 자동으로 등록 됩니다. 이러한 파일은 작업 영역에 연결 된 저장소 계정에 프로 비전 되는 Blob 컨테이너 및 파일 공유의 연결 정보를 저장 합니다. `workspaceblobstore`은 기본 데이터 저장소로 설정 됩니다.
 
 작업 영역의 기본 데이터 저장소를 가져오려면 다음 코드를 사용합니다.
 
@@ -189,7 +194,7 @@ datastore.download(target_path='your target path',
 
 Way|방법|설명|
 ----|-----|--------
-탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 를 사용 하 여 계산 대상에 데이터 저장소를 탑재 합니다.
+탑재| [`as_mount()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-mount--)| 를 사용 하 여 계산 대상에 데이터 저장소를 탑재 합니다. 탑재 되 면 계산 대상에서 데이터 저장소의 모든 파일에 액세스할 수 있습니다.
 다운로드|[`as_download()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-download-path-on-compute-none-)|를 사용 하 여 `path_on_compute`에 지정 된 위치에 데이터 저장소의 콘텐츠를 다운로드 합니다. <br><br> 이 다운로드는 실행 전에 발생 합니다.
 업로드|[`as_upload()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.azure_storage_datastore.abstractazurestoragedatastore?view=azure-ml-py#as-upload-path-on-compute-none-)| `path_on_compute`에 지정 된 위치에서 데이터 저장소에 파일을 업로드 하는 데 사용 합니다. <br><br> 이 업로드는 실행 후에 수행 됩니다.
 
@@ -207,13 +212,14 @@ datastore.path('./bar').as_download()
 
 ### <a name="examples"></a>예시 
 
-다음 코드 예제는 학습 중 데이터에 액세스 하기 위한 [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스에만 적용 됩니다. 
+다음 코드 예제는 학습 중 데이터에 액세스 하기 위한 [`Estimator`](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) 클래스에만 적용 됩니다.
 
 `script_params`는 entry_script에 대 한 매개 변수를 포함 하는 사전입니다. 이를 사용 하 여 데이터 저장소를 전달 하 고 계산 대상에서 데이터를 사용할 수 있는 방법을 설명 합니다. 종단 간 [자습서](tutorial-train-models-with-aml.md)에서 자세히 알아보세요.
 
 ```Python
 from azureml.train.estimator import Estimator
 
+# notice '/' is in front, this indicates the absolute path
 script_params = {
     '--data_dir': datastore.path('/bar').as_mount()
 }

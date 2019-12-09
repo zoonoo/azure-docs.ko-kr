@@ -1,18 +1,19 @@
 ---
-title: 매핑 데이터 흐름의 스키마 드리프트 | Azure Data Factory
+title: 데이터 흐름 매핑의 스키마 드리프트
 description: 스키마 드리프트를 사용하여 Azure Data Factory에서 복원력 있는 데이터 흐름 빌드
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/12/2019
-ms.openlocfilehash: 8c2764535515d0aeb1eb65a1621148fa58317cac
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 9daf7973a2e48f866a8d0b93a682851d31dc3af7
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553704"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928549"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>데이터 흐름 매핑의 스키마 드리프트
 
@@ -64,7 +65,7 @@ Azure Data Factory은 데이터 흐름을 다시 컴파일할 필요 없이 일�
 
 ![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted1.png "지도 데이터베이스가 드리프트")
 
-생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 한 후 MovieId은 파생 열에 `toInteger(byName('movieId'))`로 정의 되 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
+생성 된 파생 열 변환에서 각 데이터베이스가 드리프트 열은 검색 된 이름 및 데이터 형식에 매핑됩니다. 위의 데이터 미리 보기에서 ' movieId ' 열은 정수로 검색 됩니다. **Map 데이터베이스가 드리프트** 을 클릭 하면 파생 열에서 movieId가 `toInteger(byName('movieId'))`로 정의 되 고 다운스트림 변환의 스키마 뷰에 포함 됩니다.
 
 ![지도 데이터베이스가 드리프트](media/data-flow/mapdrifted2.png "지도 데이터베이스가 드리프트")
 

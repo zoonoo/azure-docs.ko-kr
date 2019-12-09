@@ -1,23 +1,22 @@
 ---
-title: 'Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결 '
+title: SSIS Integration Runtime 관리 문제 해결
 description: 이 문서에서는 ssis Integration Runtime (SSIS IR)의 관리 문제에 대 한 문제 해결 지침을 제공 합니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/08/2019
 author: chinadragon0515
 ms.author: dashe
 ms.reviewer: sawinark
-manager: craigg
-ms.openlocfilehash: 3452fc2274eb646acb19c0e6a203ebadcb81cad5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: mflasko
+ms.custom: seo-lt-2019
+ms.date: 07/08/2019
+ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684031"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931936"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
 
@@ -77,7 +76,7 @@ IR을 실행하는 동안 오류가 발생하는 경우 네트워크 보안 그�
 
 ### <a name="invalidcatalogdb"></a>InvalidCatalogDb
 
-이러한 종류의 오류 메시지는 다음과 같습니다. "잘못 된 개체 이름 ' catalog_properties '." 이 경우 이름이 SSISDB 인 데이터베이스가 이미 있지만 SSIS IR을 통해 생성 되지 않았거나 마지막 SSIS IR 프로 비전에서 오류로 인해 데이터베이스가 잘못 된 상태에 있습니다. 이름이 SSISDB인 기존 데이터베이스를 삭제하거나 IR에 대한 새 Azure SQL Database 서버 또는 관리되는 인스턴스를 구성할 수 있습니다.
+이러한 종류의 오류 메시지는 다음과 같습니다. "잘못 된 개체 이름 ' 카탈로그. catalog_properties '." 이 경우 이름이 SSISDB 인 데이터베이스가 이미 있지만 SSIS IR을 통해 생성 되지 않았거나 마지막 SSIS IR 프로 비전에서 오류로 인해 데이터베이스가 잘못 된 상태에 있습니다. 이름이 SSISDB인 기존 데이터베이스를 삭제하거나 IR에 대한 새 Azure SQL Database 서버 또는 관리되는 인스턴스를 구성할 수 있습니다.
 
 ## <a name="custom-setup-issues"></a>사용자 지정 설치 문제
 
@@ -105,7 +104,7 @@ IR이 실행 중인 경우 IR을 중지하고 새 사용자 지정 설정 컨테
 
 ### <a name="customsetupscripttimeout"></a>CustomSetupScriptTimeout
 
-이 오류는 사용자 지정 설정 스크립트 실행 시간 초과를 나타냅니다. 스크립트가 자동으로 실행 되 고 대화형 입력이 필요 하지 않은지 확인 하 고 blob 컨테이너에 필요한 사용자 지정 설치 파일만 포함 되어 있는지 확인 합니다. 먼저 로컬 컴퓨터에서 스크립트를 테스트 하는 것이 좋습니다. 또한 Blob 컨테이너에서 사용자 지정 설정 실행 로그도 확인해야 합니다. 사용자 지정 설정의 최대 기간은 시간이 초과되기 전 45분이며, 최대 기간에는 컨테이너에서 모든 파일을 다운로드하여 SSIS IR에 설치하는 시간이 포함됩니다. 시간이 더 필요한 경우 지원 티켓을 요청합니다.
+이 오류는 사용자 지정 설정 스크립트 실행 시간 초과를 나타냅니다. 스크립트가 자동으로 실행되고 대화형 입력이 필요하지 않은지 확인하고 BLOB 컨테이너에 필요한 사용자 지정 설정 파일만 포함되어 있는지 확인합니다. 먼저 로컬 컴퓨터에서 스크립트를 테스트하는 것이 좋습니다. 또한 Blob 컨테이너에서 사용자 지정 설정 실행 로그도 확인해야 합니다. 사용자 지정 설정의 최대 기간은 시간이 초과되기 전 45분이며, 최대 기간에는 컨테이너에서 모든 파일을 다운로드하여 SSIS IR에 설치하는 시간이 포함됩니다. 시간이 더 필요한 경우 지원 티켓을 요청합니다.
 
 ### <a name="customsetupscriptloguploadfailure"></a>CustomSetupScriptLogUploadFailure
 

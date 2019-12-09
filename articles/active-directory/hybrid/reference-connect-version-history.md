@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461298e4f195d88ced5015af26226a9f7b12f737
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3414bc21afb88d2683261ea1ce1398a0b1bfeece
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891782"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922286"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -38,9 +38,23 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 이 프로세스를 진행 하는 동안 릴리스 버전 번호는 "1.3. X. 0"과 같이 부 릴리스 번호 위치에 "X"가 표시 됩니다 .이는이 문서의 릴리스 정보가 "1.3"로 시작 하는 모든 버전에 대해 유효 함을 나타냅니다. 릴리스 프로세스를 완료 하는 즉시 릴리스 버전 번호는 가장 최근에 릴리스된 버전으로 업데이트 되 고 릴리스 상태는 "다운로드 및 자동 업그레이드를 위해 릴리스"로 업데이트 됩니다.
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
+## <a name="14380"></a>1.4.38.0
+### <a name="release-status"></a>릴리스 상태
+12/6/2019: 다운로드를 위한 릴리스입니다. 자동 업그레이드를 통해 사용할 수 없습니다.
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+- Azure AD Domain Services에 대 한 암호 해시 동기화가 Kerberos 해시의 패딩에 적절 한 계정으로 업데이트 되었습니다.  이를 통해 AAD에서 Azure AD Domain Services로 암호를 동기화 하는 동안 성능을 향상 시킬 수 있습니다.
+- 인증 에이전트와 service bus 간에 신뢰할 수 있는 세션에 대 한 지원이 추가 되었습니다.
+- 이 릴리스는 인증 에이전트와 클라우드 서비스 간의 통신에 TLS 1.2을 적용 합니다.
+- 인증 에이전트와 클라우드 서비스 간의 websocket 연결에 대 한 DNS 캐시를 추가 했습니다.
+- 에이전트 연결을 테스트 하기 위해 클라우드에서 특정 에이전트를 대상으로 하는 기능을 추가 했습니다.
+
+### <a name="fixed-issues"></a>해결된 문제
+- 릴리스 1.4.18.0에는 ps를 실행 하는 동안 제공 되는 admin credentialss 대신 로그인 windows 자격 증명을 사용 하는 DSSO에 대 한 PowerShell cmdlet이 있습니다. AADConnect 사용자 인터페이스를 통해 여러 포리스트에서 DSSO 사용 하도록 설정할 수 없는 경우에 발생 합니다. 
+- AADConnect 사용자 인터페이스를 통해 모든 포리스트에서 동시에 DSSO 사용 하도록 수정 되었습니다.
+
 ## <a name="14320"></a>1.4.32.0
 ### <a name="release-status"></a>릴리스 상태
-11/08/2019: 다운로드를 위해 릴리스 되었습니다. 자동 업그레이드에 사용할 수 없음
+11/08/2019: 다운로드를 위해 릴리스 되었습니다. 자동 업그레이드를 통해 사용할 수 없습니다.
 
 >[!IMPORTANT]
 >이 Azure AD Connect 릴리스의 내부 스키마 변경으로 인해 MSOnline PowerShell을 사용 하 여 ADFS 트러스트 관계 구성 설정을 관리 하는 경우 MSOnline PowerShell 모듈을 1.1.183.57 버전 이상으로 업데이트 해야 합니다.

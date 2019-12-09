@@ -1,33 +1,29 @@
 ---
-title: MSAL (Android Microsoft Authentication Library) 구성 파일 이해
+title: Android Microsoft 인증 라이브러리 구성 파일 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 응용 프로그램 구성을 나타내는 MSAL (Android Microsoft Authentication Library) 구성 파일에 대 한 개요입니다.
 services: active-directory
-documentationcenter: ''
 author: shoatman
-manager: nadima
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/12/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c06bc1ebf3b87f622029e9e875fe478eae7e6a30
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f643022c85a44b2202fcbd91be50664882c8ba7b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803161"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916829"
 ---
-# <a name="android-microsoft-authentication-library-msal-configuration-file"></a>MSAL (Android Microsoft Authentication Library) 구성 파일
+# <a name="android-microsoft-authentication-library-configuration-file"></a>Android Microsoft 인증 라이브러리 구성 파일
 
-MSAL은 기본 [구성 JSON 파일](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) 을 제공 하며,이 파일을 사용 하 여 기본 기관과 같은 항목에 대 한 공용 클라이언트 앱의 동작을 정의 합니다.
+Android MSAL (Microsoft 인증 라이브러리)은 기본 [구성 JSON 파일](https://github.com/AzureAD/microsoft-authentication-library-for-android/blob/dev/msal/src/main/res/raw/msal_default_config.json) 을 제공 하며,이 파일을 사용 하 여 기본 기관과 같은 항목에 대 한 공용 클라이언트 앱의 동작을 정의 합니다.
 
 이 문서는 구성 파일의 다양 한 설정과 MSAL 기반 앱에서 사용할 구성 파일을 지정 하는 방법을 이해 하는 데 도움이 됩니다.
 
@@ -162,7 +158,7 @@ HTTP 시간 제한에 대해 다음과 같은 전역 설정을 구성 합니다.
 
 앱 내에서 한 번에 사용할 수 있는 계정 수를 지정 합니다. 사용 가능한 값은
 
-- `MULTIPLE` (기본값)
+- `MULTIPLE`(기본값)
 - `SINGLE`
 
 이 설정과 일치 하지 않는 계정 모드를 사용 하 여 `PublicClientApplication`를 구성 하면 예외가 발생 합니다.

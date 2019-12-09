@@ -1,18 +1,20 @@
 ---
-title: 데이터 흐름 Azure Data Factory 문제 해결
+title: 데이터 흐름 문제 해결
 description: Azure Data Factory에서 데이터 흐름 문제를 해결 하는 방법에 대해 알아봅니다.
 services: data-factory
+ms.author: makromer
 author: kromerm
+manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/08/2019
-ms.author: makromer
-ms.openlocfilehash: 1b2309ec71cb3d43f4e5a39b80db593ab201c614
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: b972bbeac419d88afdd257a7fd19587dbaedf0d9
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721356"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930167"
 ---
 # <a name="troubleshoot-azure-data-factory-data-flows"></a>데이터 흐름 Azure Data Factory 문제 해결
 
@@ -83,6 +85,14 @@ ms.locfileid: "73721356"
 - **원인**: 여러 중첩 된 줄에서 단일 문서를 사용 하 여 JSON 소스에서 읽을 때, ADF를 통해 ADF는 새 문서가 시작 되는 위치를 확인할 수 없으며 이전 문서가 종료 됩니다.
 
 - **해결**방법: json 데이터 집합을 사용 하는 원본 변환에서 "json 설정"을 확장 하 고 "단일 문서"를 설정 합니다.
+
+### <a name="error-message-duplicate-columns-found-in-join"></a>오류 메시지: 조인에 중복 된 열이 있습니다.
+
+- **증상**: 조인 변환이 왼쪽 및 오른쪽 모두의 열에서 중복 된 열 이름을 포함 하 고 있습니다.
+
+- **원인**: 조인 중인 스트림에 일반적인 열 이름이 있습니다.
+
+- **해결**방법: 조인 뒤에 Select transforamtion를 추가 하 고 입력 및 출력 모두에 대해 "중복 열 제거"를 선택 합니다.
 
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침

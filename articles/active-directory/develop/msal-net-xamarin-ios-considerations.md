@@ -1,29 +1,25 @@
 ---
-title: Xamarin iOS 고려 사항 (Microsoft Authentication Library for .NET)
+title: Xamarin iOS 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin iOS를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cc4eb0084e0606251d3fbd80d08723701c6a260
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f04074dfd9055fa4791f6fdce6bcf296aae8ff61
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175628"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921469"
 ---
 # <a name="xamarin-ios-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin iOS 관련 고려 사항
 Xamarin iOS에서 MSAL.NET 사용 시 고려해 야 할 몇 가지 고려 사항이 있습니다.
@@ -97,7 +93,7 @@ PublicClientApplication.iOSKeychainSecurityGroup = "com.microsoft.msalrocks";
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>IOS 응용 프로그램에서 토큰 캐시 공유 사용
 
-MSAL 2.x에서 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지 하는 데 사용할 키 집합 액세스 그룹을 지정할 수 있습니다. 이 설정을 사용 하면 [ADAL.NET](https://aka.ms/adal-net), MSAL.NET 응용 프로그램 및로 [개발 된 네이티브 iOS 응용 프로그램을 사용 하 여 개발 된 키 집합 액세스 그룹을 포함 하는 여러 응용 프로그램 간에 토큰 캐시를 공유할 수 있습니다. ADAL. objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 또는 [msal. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)).
+MSAL 2.x에서 여러 응용 프로그램에 걸쳐 토큰 캐시를 유지 하는 데 사용할 키 집합 액세스 그룹을 지정할 수 있습니다. 이 설정을 사용 하면 [ADAL.NET](https://aka.ms/adal-net), MSAL.NET 응용 프로그램 및 ADAL을 사용 하 여 개발한 네이티브 iOS 응용 프로그램을 포함 하 여 동일한 키 집합 액세스 그룹을 포함 하는 여러 응용 프로그램 간에 토큰 캐시를 공유할 수 있습니다 [. Objc](https://github.com/AzureAD/azure-activedirectory-library-for-objc) 또는 [msal. objc](https://github.com/AzureAD/microsoft-authentication-library-for-objc)
 
 토큰 캐시를 공유 하면 동일한 키 집합 액세스 그룹을 사용 하는 모든 응용 프로그램 간에 Single Sign-On 수 있습니다.
 

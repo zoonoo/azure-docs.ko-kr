@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: prishet
-ms.openlocfilehash: b01370bb8c86da07549775ec1a1399e09c80f9af
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 0a57e87cc408d111893cbb2beaf4fc5afee2eca2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74534262"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930779"
 ---
 # <a name="use-java-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2에서 Acl & 파일에 대 한 Java 사용 (미리 보기)
 
@@ -32,15 +32,7 @@ ms.locfileid: "74534262"
 
 ## <a name="set-up-your-project"></a>프로젝트 설정
 
-시작 하려면 텍스트 편집기에서 *pom .xml* 파일을 엽니다. 종속성 그룹에 다음 종속성 요소를 추가합니다.
-
-```xml
-<dependency>
-  <groupId>com.azure</groupId>
-  <artifactId>azure-storage-file-datalake</artifactId>
-  <version>12.0.0-preview.6</version>
-</dependency>
-```
+시작 하려면 [이 페이지](https://search.maven.org/artifact/com.azure/azure-storage-file-datalake) 를 열고 최신 버전의 Java 라이브러리를 찾습니다. 그런 다음 텍스트 편집기에서 *pom .xml* 파일을 엽니다. 해당 버전을 참조 하는 종속성 요소를 추가 합니다.
 
 그런 다음 이러한 imports 문을 코드 파일에 추가 합니다.
 

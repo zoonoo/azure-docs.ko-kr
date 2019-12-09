@@ -1,29 +1,25 @@
 ---
-title: 인증 흐름 (Microsoft 인증 라이브러리)
+title: MSAL 인증 흐름 | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)에서 사용 하는 인증 흐름 및 부여에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 10/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55d618a24b957fedb6fc2af3e75b7a7d2bd23d96
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2c818b7d7508555e1233d4ef954502728f65abfb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73473814"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917202"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -42,9 +38,9 @@ ms.locfileid: "73473814"
 
 ## <a name="how-each-flow-emits-tokens-and-codes"></a>각 흐름에서 토큰 및 코드를 내보내는 방법
  
-클라이언트를 구축 하는 방법에 따라 Microsoft id 플랫폼에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다.  이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 권한 부여 코드를 생성할 수 있으며 서로 다른 토큰을 사용 하 여 작업을 수행할 수 있습니다. 이 차트는 개요를 ide로 합니다.
+클라이언트를 구축 하는 방법에 따라 Microsoft id 플랫폼에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다.  이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 인증 코드를 생성 하 고 다른 토큰을 사용 하 여 작동 하도록 할 수 있습니다. 이 차트에서는 다음 개요를 제공 합니다.
  
-|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 권한 부여 코드 | 
+|흐름 | 필요 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[인증 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -106,7 +102,7 @@ MSAL은 [OAuth 2 just-in-time 인증 흐름](v2-oauth2-on-behalf-of-flow.md)을 
 
 ![흐름에 대 한 다이어그램](media/msal-authentication-flows/on-behalf-of.png)
 
-위의 다이어그램에서:
+위의 다이어그램에서 다음을 확인할 수 있습니다.
 
 1. 응용 프로그램은 web API에 대 한 액세스 토큰을 획득 합니다.
 2. 클라이언트 (웹, 데스크톱, 모바일 또는 단일 페이지 응용 프로그램)는 HTTP 요청의 인증 헤더에 액세스 토큰을 전달자 토큰으로 추가 하 여 보호 된 웹 API를 호출 합니다. Web API는 사용자를 인증 합니다.
@@ -154,9 +150,9 @@ MSAL은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 
 
 ![장치 코드 흐름 다이어그램](media/msal-authentication-flows/device-code.png)
 
-위의 다이어그램에서:
+위의 다이어그램에서 다음을 확인할 수 있습니다.
 
-1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin)). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
+1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin) ). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
 
 2. 인증에 성공 하면 명령줄 앱은 백 채널을 통해 필요한 토큰을 수신 하 고이를 사용 하 여 필요한 웹 API 호출을 수행 합니다.
 

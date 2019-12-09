@@ -1,5 +1,5 @@
 ---
-title: 웹 Api를 호출 하는 모바일 앱-앱의 코드 구성
+title: 웹 Api를 호출 하는 모바일 앱 구성 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법에 대해 알아봅니다 (앱 코드 구성).
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f55e73fa1a73908d7e77bacc6af24ea1a40ba92
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 2c5160d88e390f9bfe905dfee0684983a7a49365
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803726"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919888"
 ---
 # <a name="mobile-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 모바일 앱-앱 등록
 

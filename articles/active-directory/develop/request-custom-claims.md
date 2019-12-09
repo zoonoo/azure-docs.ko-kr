@@ -1,5 +1,5 @@
 ---
-title: IOS 및 macOS 용 MSAL을 사용 하 여 사용자 지정 클레임을 요청 하는 방법
+title: 사용자 지정 클레임 요청 (MSAL iOS/macOS) | Microsoft
 titleSuffix: Microsoft identity platform
 description: 사용자 지정 클레임을 요청 하는 방법을 알아봅니다.
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c34da9e8faa8c2c2e24e7f00569e2b7c8af674f
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 65b85a5c551b4e26c39959a1bd4f435a5fa4fe6e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802599"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920313"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>방법: iOS 및 macOS 용 MSAL을 사용 하 여 사용자 지정 클레임 요청
 

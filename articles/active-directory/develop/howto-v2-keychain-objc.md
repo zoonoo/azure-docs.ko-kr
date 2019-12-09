@@ -3,27 +3,23 @@ title: 키 집합 구성
 titleSuffix: Microsoft identity platform
 description: 앱이 키 집합에서 토큰을 캐시할 수 있도록 키 집합을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: ''
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: twhitney
-ms.reviewer: ''
+ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69991d105ff3523310f54e65596f2f379b547052
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 8b4599549e15d6ebe4d0bd04f96c89df86b0c0cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803796"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917508"
 ---
 # <a name="configure-keychain"></a>키 집합 구성
 
@@ -51,7 +47,7 @@ MacOS 10.15 이상 (macOS Catalina.properties)에서 MSAL은 키 집합 액세�
 
 다른 키 집합 액세스 그룹을 사용 하려는 경우 다음과 같이 `MSALPublicClientApplication`를 만들기 전에 `MSALPublicClientApplicationConfig` 만들 때 사용자 지정 그룹을 전달할 수 있습니다.
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 MSALPublicClientApplicationConfig *config = [[MSALPublicClientApplicationConfig alloc] initWithClientId:@"your-client-id"
@@ -67,9 +63,7 @@ MSALPublicClientApplication *application = [[MSALPublicClientApplication alloc] 
 // and only shared with other applications declaring the same access group
 ```
 
-
-
-Swift:
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "your-client-id",
@@ -85,25 +79,27 @@ do {
 }       
 ```
 
-
+---
 
 ## <a name="disable-keychain-sharing"></a>키 집합 공유 사용 안 함
 
 여러 앱 간에 SSO 상태를 공유 하거나 키 집합 액세스 그룹을 사용 하지 않으려면 응용 프로그램 번들 ID를 keychainGroup로 전달 하 여 키 집합 공유를 사용 하지 않도록 설정 합니다.
 
-Objective-C:
+# <a name="objective-ctabobjc"></a>[Objective-C](#tab/objc)
 
 ```objc
 config.cacheConfig.keychainSharingGroup = [[NSBundle mainBundle] bundleIdentifier];
 ```
 
-Swift:
+# <a name="swifttabswift"></a>[Swift](#tab/swift)
 
 ```swift
 if let bundleIdentifier = Bundle.main.bundleIdentifier {
     config.cacheConfig.keychainSharingGroup = bundleIdentifier
 }
 ```
+
+---
 
 ## <a name="handle--34018-error-failed-to-set-item-into-keychain"></a>핸들-34018 오류 (항목을 키 집합으로 설정 하지 못함)
 

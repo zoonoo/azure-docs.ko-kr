@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 데이터 흐름 그래프
+title: 데이터 흐름 그래프
 description: 데이터 팩터리 데이터 흐름 그래프를 사용 하는 방법
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/04/2019
-ms.openlocfilehash: 38f85dea554000daf89689a311c091bc9796a658
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: da180bfb1aec29fa15b070fd73ba84d708ada927
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74015900"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928317"
 ---
 # <a name="mapping-data-flow-graphs"></a>데이터 흐름 그래프 매핑
 

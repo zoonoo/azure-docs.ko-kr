@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 143a05944799ff04f9c21384f85a4b00cc65b750
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: de36f760fb637ad02446265927e7df7aa91b2abf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545722"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928371"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Azure Functions의 타이머 트리거 
 
@@ -26,7 +26,7 @@ ms.locfileid: "74545722"
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 타이머 트리거는 [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) GitHub 리포지토리에 있습니다.
 
@@ -327,7 +327,7 @@ App service에 배포 되지 않은 함수 앱에서 저장소 계정을 공유 
 
 | Functions 버전 | 설정                                              |
 | ----------------- | ---------------------------------------------------- |
-| 2.x               | `AzureFunctionsWebHost__hostid` 환경 변수 |
+| 2.x 이상  | `AzureFunctionsWebHost__hostid`환경 변수 |
 | 1.x               | *호스트 json* 의 `id`                                  |
 
 식별 값을 생략 하거나 각 함수 앱의 식별 구성을 다른 값으로 수동으로 설정할 수 있습니다.

@@ -4,21 +4,20 @@ description: Data Factory 파이프라인에서 메타 데이터 가져오기 �
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: ''
 ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: c62a7de1f16a3d7d286f48500117c256804c0f24
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546923"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928558"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
 
@@ -141,7 +140,7 @@ ms.locfileid: "74546923"
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | yes 
 dataset | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | yes
 formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아닙니다.
-나이 설정 | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아닙니다.
+storeSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아닙니다.
 
 ## <a name="sample-output"></a>샘플 출력
 

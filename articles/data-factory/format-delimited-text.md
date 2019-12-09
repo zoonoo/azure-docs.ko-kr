@@ -2,19 +2,19 @@
 title: Azure Data Factory에서 분리 된 텍스트 형식
 description: 이 항목에서는 Azure Data Factory에서 구분 된 텍스트 형식을 처리 하는 방법에 대해 설명 합니다.
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: jingwang
-ms.openlocfilehash: 9a1a019e7dea2f0c71b40530baaffff79d003774
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 77d2daf3fa17632d8a1c633c23815e0035e45481
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74548295"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931253"
 ---
 # <a name="delimited-text-format-in-azure-data-factory"></a>Azure Data Factory에서 분리 된 텍스트 형식
 
@@ -79,7 +79,7 @@ ms.locfileid: "74548295"
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSource**로 설정 해야 합니다. | yes      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분 된 텍스트 읽기 설정** 표를 참조 하세요. | 아닙니다.       |
-| 나이 설정  | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. | 아닙니다.       |
+| storeSettings  | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. | 아닙니다.       |
 
 `formatSettings`아래의 지원 되는 **구분 된 텍스트 읽기 설정** :
 
@@ -96,14 +96,14 @@ ms.locfileid: "74548295"
 | -------------- | ------------------------------------------------------------ | -------- |
 | type           | 복사 작업 원본의 type 속성은 **DelimitedTextSink**로 설정 해야 합니다. | yes      |
 | formatSettings | 속성 그룹입니다. 아래의 **구분 된 텍스트 쓰기 설정** 표를 참조 하세요. |          |
-| 나이 설정  | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다.  | 아닙니다.       |
+| storeSettings  | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다.  | 아닙니다.       |
 
 `formatSettings`에서 지원 되는 **구분 된 텍스트 쓰기 설정** :
 
 | 자산      | 설명                                                  | 필수                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | FormatSettings의 형식은 **DelimitedTextWriteSetting**로 설정 해야 합니다. | yes                                                   |
-| FileExtension | 출력 파일의 이름 (예: `.csv`, `.txt`)을 사용 하는 데 사용 되는 파일 확장명입니다. `fileName`를 출력 DelimitedText 데이터 집합에 지정 하지 않은 경우에는 지정 해야 합니다. | 출력 데이터 집합에 파일 이름이 지정 되지 않은 경우 예 |
+| fileExtension | 출력 파일의 이름 (예: `.csv`, `.txt`)을 사용 하는 데 사용 되는 파일 확장명입니다. `fileName`를 출력 DelimitedText 데이터 집합에 지정 하지 않은 경우에는 지정 해야 합니다. | 출력 데이터 집합에 파일 이름이 지정 되지 않은 경우 예 |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 

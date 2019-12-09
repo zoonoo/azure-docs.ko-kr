@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/14/2019
 ms.author: kaanan
-ms.openlocfilehash: 99cd9fc1da009660023a246c5210e7f54bdebcfd
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: f287d3782148ca48a0367fa2a6a9a346a0299684
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73177415"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931350"
 ---
 # <a name="virtual-network-tap"></a>가상 네트워크 TAP
 
@@ -52,11 +52,11 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 - [RSA NetWitness® Platform](https://www.rsa.com/azure)
 - [Vectra Cognito](https://vectra.ai/microsoftazure)
 
-다음 그림은 가상 네트워크 TAP이 작동하는 방법을 보여 줍니다. 가상 네트워크에 배포된 가상 머신에 연결된 [네트워크 인터페이스](virtual-network-network-interface.md)에 TAP 구성을 추가할 수 있습니다. 대상은 모니터링된 네트워크 인터페이스 또는 [피어링된 가상](virtual-network-peering-overview.md) 네트워크와 동일한 가상 네트워크의 가상 네트워크 IP 주소입니다. 가상 네트워크 TAP에 대한 수집기 솔루션은 고가용성을 위해 [Azure 내부 부하 분산 장치](../load-balancer/load-balancer-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#concepts) 배후에 배포될 수 있습니다. 개별 솔루션에 대한 배포 옵션을 평가하려면 [파트너 솔루션](#virtual-network-tap-partner-solutions)을 참조하세요.
+다음 그림은 가상 네트워크 TAP이 작동하는 방법을 보여 줍니다. 가상 네트워크에 배포된 가상 머신에 연결된 [네트워크 인터페이스](virtual-network-network-interface.md)에 TAP 구성을 추가할 수 있습니다. 대상은 모니터링된 네트워크 인터페이스 또는 [피어링된 가상](virtual-network-peering-overview.md) 네트워크와 동일한 가상 네트워크의 가상 네트워크 IP 주소입니다. 고가용성을 위해 가상 네트워크 탭에 대 한 수집기 솔루션을 Azure 내부 부하 분산 장치 뒤에 배포할 수 있습니다. 개별 솔루션에 대한 배포 옵션을 평가하려면 [파트너 솔루션](#virtual-network-tap-partner-solutions)을 참조하세요.
 
 ![가상 네트워크 TAP이 작동하는 방법](./media/virtual-network-tap/architecture.png)
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 가상 네트워크 탭을 만들기 전에 미리 보기에 등록 된 확인 메일을 수신 하 고, [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 배포 모델을 사용 하 여 만든 하나 이상의 가상 컴퓨터와 동일한 Azure 지역에서 탭 트래픽을 집계 하기 위한 파트너 솔루션을 받아야 합니다. 가상 네트워크에 파트너 솔루션이 없다면 [파트너 솔루션](#virtual-network-tap-partner-solutions)을 참조하여 하나의 솔루션을 배포합니다. 동일한 가상 네트워크 TAP 리소스를 사용하여 동일하거나 다른 구독의 여러 네트워크 인터페이스에서 트래픽을 집계할 수 있습니다. 모니터링된 네트워크 인터페이스가 다른 구독에 있는 경우 구독은 동일한 Azure Active Directory 테넌트에 연결되어야 합니다. 또한 모니터링된 네트워크 인터페이스 및 TAP 트래픽 집계를 위한 대상 엔드포인트는 동일한 지역의 피어링된 가상 네트워크에 있을 수 있습니다. 이 배포 모델을 사용하는 경우 [가상 네트워크 피어링](virtual-network-peering-overview.md)이 가상 네트워크 TAP을 구성하기 전에 사용하도록 설정되어 있어야 합니다.
 
@@ -64,7 +64,7 @@ Azure 가상 네트워크 TAP(터미널 액세스 지점)을 사용하면 네트
 
 네트워크 인터페이스에 TAP 구성을 적용하는 데 사용하는 계정은 다음 표에서 필요한 작업이 할당된 [네트워크 기여자](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json#network-contributor) 역할 또는 [사용자 지정](../role-based-access-control/custom-roles.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 역할에 할당되어야 합니다.
 
-| 작업 | 이름 |
+| 실행력 | name |
 |---|---|
 | Microsoft.Network/virtualNetworkTaps/* | 가상 네트워크 TAP 리소스를 만들고,업데이트하고, 읽고, 삭제해야 함 |
 | Microsoft.Network/networkInterfaces/read | TAP이 구성될 네트워크 인터페이스 리소스를 읽어야 함 |

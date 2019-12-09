@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 07/09/2018
 ms.author: cshoe
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ee78234b43e94a5c537161556410ee6246e625ca
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3c24e8b6098ba33a2e738a7f5f310ae7e65ee516
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230955"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74925288"
 ---
 # <a name="twilio-binding-for-azure-functions"></a>Azure Functions에 대한 Twilio 바인딩
 
@@ -25,7 +25,7 @@ Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuge
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 Twilio 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Twilio](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Twilio) NuGet 패키지 버전 3.x에서 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Twilio/) GitHub 리포지토리에 있습니다.
 
@@ -197,15 +197,15 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-## <a name="example---functions-2x"></a>예제 - Functions 2.x
+## <a name="example---functions-2x-and-higher"></a>예제-함수 2.x 이상
 
 언어 관련 예제를 참조하세요.
 
-* [2.x C#](#2x-c-example)
-* [2.x C# 스크립트(.csx)](#2x-c-script-example)
-* [2.x JavaScript](#2x-javascript-example)
+* [2.x +C#](#2x-c-example)
+* [2.x + C# 스크립트 (csx)](#2x-c-script-example)
+* [2.x + JavaScript](#2x-javascript-example)
 
-### <a name="2x-c-example"></a>2.x C# 예제
+### <a name="2x-c-example"></a>2.x + C# 예
 
 다음 예제에서는 큐 메시지에서 트리거되면 문자 메시지를 보내는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
 
@@ -240,7 +240,7 @@ namespace TwilioQueueOutput
 
 이 예제에서는 메서드 반환 값과 `TwilioSms` 특성을 사용합니다. 또는 `out CreateMessageOptions` 매개 변수나, `ICollector<CreateMessageOptions>` 또는 `IAsyncCollector<CreateMessageOptions>` 매개 변수와 특성을 사용합니다.
 
-### <a name="2x-c-script-example"></a>2.x C# 스크립트 예제
+### <a name="2x-c-script-example"></a>2.x + C# 스크립트 예제
 
 다음 예에서는 *function.json* 파일의 Twilio 출력 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 이 함수는 `out` 매개 변수를 사용하여 문자 메시지를 보냅니다.
 
@@ -326,7 +326,7 @@ public static async Task Run(string myQueueItem, IAsyncCollector<CreateMessageOp
 }
 ```
 
-### <a name="2x-javascript-example"></a>2.x JavaScript 예제
+### <a name="2x-javascript-example"></a>2.x + JavaScript 예제
 
 다음 예에서는 Twilio 출력 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다.
 

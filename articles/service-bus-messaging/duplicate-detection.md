@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: bee8c1d2a1cd313c7fe59d8e53379dc57554e98c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618578"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924632"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -62,11 +62,13 @@ ms.locfileid: "68618578"
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
+Service Bus 메시징에 대해 자세히 알아보려면 다음 토픽을 참조하세요.
 
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)
 * [Service Bus 토픽 및 구독을 사용하는 방법](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+
+클라이언트 코드가 이전과 동일한 *MessageId* 를 사용 하 여 메시지를 다시 전송할 수 없는 시나리오에서는 안전 하 게 다시 처리할 수 있는 메시지를 설계 하는 것이 중요 합니다. [Idempotence에 대 한이 블로그 게시물](https://particular.net/blog/what-does-idempotent-mean) 에서는이를 수행 하는 방법에 대 한 다양 한 기술을 설명 합니다.
 
 [1]: ./media/duplicate-detection/create-queue.png
 [2]: ./media/duplicate-detection/queue-prop.png

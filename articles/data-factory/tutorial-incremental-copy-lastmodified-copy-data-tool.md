@@ -2,24 +2,22 @@
 title: 새 파일 및 업데이트 된 파일을 증분 방식으로 복사 하는 데이터 도구
 description: Azure 데이터 팩터리를 만든 다음 데이터 복사 도구를 사용 하 여 LastModifiedDate에 따라 새 파일을 증분 방식으로 로드 합니다.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 1/24/2019
-ms.openlocfilehash: 5c20196bd243d025d58f7cc08e015e1e0038e178
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5ff3ade800b2a3474a68a34dc77d0c9b009e8822
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217798"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923134"
 ---
 # <a name="incrementally-copy-new-and-changed-files-based-on-lastmodifieddate-by-using-the-copy-data-tool"></a>데이터 복사 도구를 사용 하 여 LastModifiedDate를 기반으로 새 파일 및 변경 된 파일 증분 복사
 
@@ -30,14 +28,14 @@ ms.locfileid: "74217798"
 > [!NOTE]
 > Azure Data Factory를 처음 사용하는 경우 [Azure Data Factory 소개](introduction.md)를 참조하세요.
 
-이 자습서에서는 다음과 같은 작업을 수행 합니다.
+이 자습서에서는 다음 태스크를 수행합니다.
 
 > [!div class="checklist"]
-> * 데이터 팩터리를 만듭니다.
+> * 데이터 팩터리 만들기
 > * 데이터 복사 도구를 사용하여 파이프라인 만들기
 > * 파이프라인 및 작업 실행을 모니터링합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * **Azure storage 계정**: Blob storage를 _원본_ 및 _싱크_ 데이터 저장소로 사용 합니다. Azure Storage 계정이 없는 경우 [스토리지 계정 만들기](../storage/common/storage-quickstart-create-account.md)의 지침을 참조하세요.
@@ -50,7 +48,7 @@ ms.locfileid: "74217798"
 
 2. **Destination**이라는 컨테이너를 만듭니다. 
 
-## <a name="create-a-data-factory"></a>데이터 팩터리를 만듭니다.
+## <a name="create-a-data-factory"></a>데이터 팩터리 만들기
 
 1. 왼쪽 메뉴에서 **리소스 만들기** > **데이터 + 분석** > **Data Factory**를 차례로 선택합니다. 
    
@@ -92,15 +90,15 @@ ms.locfileid: "74217798"
    
 2. **속성** 페이지에서 다음 단계를 수행 합니다.
 
-    가. **작업 이름**아래에서 **DeltaCopyFromBlobPipeline**을 입력 합니다.
+    a. **작업 이름**아래에서 **DeltaCopyFromBlobPipeline**을 입력 합니다.
 
     b. **작업 흐름** 또는 **작업 일정**에서 **일정에 따라 정기적으로 실행**을 선택 합니다.
 
-    c. **트리거 유형**에서 **연속 창**을 선택 합니다.
+    다. **트리거 유형**에서 **연속 창**을 선택 합니다.
     
     d. **되풀이**에서 **15 분**을 입력 합니다. 
     
-    e. **다음**을 선택합니다. 
+    ㅁ. **다음**을 선택합니다. 
     
     Data Factory UI에서 지정한 작업 이름이 있는 파이프라인을 만듭니다. 
 
@@ -108,7 +106,7 @@ ms.locfileid: "74217798"
     
 3. **원본 데이터 저장소** 페이지에서 다음 단계를 완료합니다.
 
-    가. **+ 새 연결 만들기**를 선택 하 여 연결을 추가 합니다.
+    a. **+ 새 연결 만들기**를 선택 하 여 연결을 추가 합니다.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page.png)
 
@@ -116,7 +114,7 @@ ms.locfileid: "74217798"
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-select-blob.png)
 
-    c. **새 연결 된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 하 고 **마침**을 선택 합니다.
+    다. **새 연결 된 서비스** 페이지의 **저장소 계정 이름** 목록에서 저장소 계정을 선택 하 고 **마침**을 선택 합니다.
     
     ![원본 데이터 저장소 페이지](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/source-data-store-page-linkedservice.png)
     
@@ -126,7 +124,7 @@ ms.locfileid: "74217798"
 
 4. **입력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
     
-    가. **원본** 폴더를 찾아 선택한 **다음 선택을 선택 합니다.**
+    a. **원본** 폴더를 찾아 선택한 **다음 선택을 선택 합니다.**
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-input-file-folder.png)
     
@@ -134,7 +132,7 @@ ms.locfileid: "74217798"
     
     ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-loading-behavior.png)
     
-    c. **이진 복사** 를 선택 하 고 **다음**을 선택 합니다.
+    다. **이진 복사** 를 선택 하 고 **다음**을 선택 합니다.
     
      ![입력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/check-binary-copy.png)
      
@@ -144,7 +142,7 @@ ms.locfileid: "74217798"
     
 6. **출력 파일 또는 폴더 선택** 페이지에서 다음 단계를 완료합니다.
     
-    가. **대상** 폴더를 찾아서 선택한 **후 선택을 선택 합니다.**
+    a. **대상** 폴더를 찾아서 선택한 **후 선택을 선택 합니다.**
     
     ![출력 파일 또는 폴더 선택](./media/tutorial-incremental-copy-lastmodified-copy-data-tool/choose-output-file-folder.png)
     

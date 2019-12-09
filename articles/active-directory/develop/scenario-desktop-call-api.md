@@ -1,6 +1,6 @@
 ---
-title: Web api를 호출 하는 데스크톱 앱 (웹 API 호출)-Microsoft identity platform
-description: Web api를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기
+title: 데스크톱 앱에서 웹 Api 호출-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8160ec489f891764b102b5ba23a687b53376f738
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ce8cf2d75257bb3d751de1c3b251a9a3326bce0a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175364"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920160"
 ---
 # <a name="desktop-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 데스크톱 앱-web API 호출
 

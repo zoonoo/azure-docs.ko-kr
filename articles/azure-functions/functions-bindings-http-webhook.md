@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 598074a6d5093c4febd4d62266a1c852200e3f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231182"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926349"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -22,7 +22,7 @@ HTTP 트리거는 [웹후크](https://en.wikipedia.org/wiki/Webhook)에 응답�
 
 [!INCLUDE [HTTP client best practices](../../includes/functions-http-client-best-practices.md)]
 
-이 문서의 코드는 기본적으로 .NET Core를 사용하는 Functions 2.x 구문으로 설정됩니다. 1\.x 구문에 대한 자세한 내용은 [1.x 기능 템플릿](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)을 참조하세요.
+이 문서의 코드는 기본적으로 기능 버전 2.x 이상에서 사용 되는 .NET Core를 사용 하는 구문을 사용 합니다. 1\.x 구문에 대한 자세한 내용은 [1.x 기능 템플릿](https://github.com/Azure/azure-functions-templates/tree/v1.x/Functions.Templates/Templates)을 참조하세요.
 
 ## <a name="packages---functions-1x"></a>패키지 - Functions 1.x
 
@@ -30,7 +30,7 @@ HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.or
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>패키지 - Functions 2.x
+## <a name="packages---functions-2x-and-higher"></a>패키지-함수 2.x 이상
 
 HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Http) NuGet 패키지 버전 3.x에 제공됩니다. 이 패키지에 대한 소스 코드는 [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub 리포지토리에 있습니다.
 
@@ -40,13 +40,13 @@ HTTP 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Http](https://www.nuget.or
 
 HTTP 트리거를 사용하면 HTTP 요청으로 함수를 호출할 수 있습니다. HTTP 트리거를 사용하여 서버리스 API를 만들고 웹후크에 응답할 수 있습니다.
 
-기본적으로 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다. 응답을 수정하려면 [HTTP 출력 바인딩](#output)을 구성합니다.
+기본적으로 HTTP 트리거는 함수 1.x에서 빈 본문을 사용 하 여 HTTP 200 OK를 반환 하거나, 함수 2.x 이상에서 본문이 비어 있는 HTTP 204을 반환 합니다. 응답을 수정하려면 [HTTP 출력 바인딩](#output)을 구성합니다.
 
 ## <a name="trigger---example"></a>트리거 - 예제
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 [ 매개 변수를 찾는 ](functions-dotnet-class-library.md)C# 함수`name`를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
+다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
 
 ```cs
 [FunctionName("HttpTriggerCSharp")]
@@ -195,7 +195,7 @@ module.exports = function(context, req) {
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
-다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여 줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
+다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
 *function.json* 파일은 다음과 같습니다.
 
@@ -356,7 +356,7 @@ public HttpResponseMessage run(
 
 #### <a name="read-parameter-from-a-route"></a>경로에서 매개 변수 읽기
 
-이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. T
+이 예제에서는 라우팅 경로에서 ```id```라는 필수 매개 변수와 선택적 매개 변수 ```name```을 읽은 후 이러한 매개 변수를 사용하여 콘텐츠 형식 ```application/json```으로 클라이언트에 반환되는 JSON 문서를 빌드합니다. 조
 
 ```java
 @FunctionName("TriggerStringRoute")
@@ -424,7 +424,7 @@ public class ToDoItem {
 
 ```
 
-이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```body``` 클래스의 ```HttpMessageResponse.Builder``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
+이 예제에서는 POST 요청의 본문을 읽습니다. 요청 본문은 자동으로 ```ToDoItem``` 개체로 역직렬화된 후 콘텐츠 형식 ```application/json```을 사용하여 클라이언트에 반환됩니다. ```ToDoItem``` 매개 변수는 ```HttpMessageResponse.Builder``` 클래스의 ```body``` 속성에 할당될 때 Functions 런타임에 의해 직렬화됩니다.
 
 ```java
 @FunctionName("TriggerPojoPost")
@@ -517,8 +517,8 @@ public HttpResponseMessage<String> HttpTrigger(
 
 |function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
-| **type** | n/a| 필수 - `httpTrigger`로 설정해야 합니다. |
-| **direction** | n/a| 필수 - `in`로 설정해야 합니다. |
+| **type** | n/a| 필수 - `httpTrigger`으로 설정해야 합니다. |
+| **direction** | n/a| 필수 - `in`으로 설정해야 합니다. |
 | **name** | n/a| 필수 - 요청 또는 요청 본문의 함수 코드에 사용되는 변수 이름입니다. |
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |키가 있는 경우 함수를 호출하기 위해 요청에 포함되어야 하는 키를 결정합니다. 권한 부여 수준은 다음 값 중 하나일 수 있습니다. <ul><li><code>anonymous</code>&mdash;: API 키가 필요하지 않습니다.</li><li><code>function</code>&mdash;: 함수 전용 API 키가 필요합니다. authLevel 속성 값을 제공하지 않을 경우 기본값입니다.</li><li><code>admin</code>&mdash;: 마스터 키가 필요합니다.</li></ul> 자세한 내용은 [권한 부여 키](#authorization-keys)에 대한 섹션을 참조하세요. |
 | **methods** |**메서드** | 함수에서 응답할 HTTP 메서드의 배열입니다. 이 속성을 지정하지 않으면 함수에서 모든 HTTP 메서드에 응답합니다. [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조하세요. |
@@ -670,7 +670,7 @@ public class HttpTriggerJava {
 
 ---
 
-기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. `http.routePrefix`host.json[ 파일에서 ](functions-host-json.md) 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
+기본적으로 모든 함수 경로에는 *api* 접두사가 붙습니다. [host.json](functions-host-json.md) 파일에서 `http.routePrefix` 속성을 사용하여 접두사를 사용자 지정하거나 제거할 수도 있습니다. 다음 예제에서는 *host.json* 파일에서 빈 문자열을 접두사로 사용하여 *api* 경로 접두사를 제거합니다.
 
 ```json
 {
@@ -684,7 +684,7 @@ public class HttpTriggerJava {
 
 함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다. 
 
-데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 Functions 2.x 런타임에서만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
+데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 2.x 이상의 함수 런타임에만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -774,7 +774,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 > 키가 있으면 개발 중에 HTTP 엔드포인트를 난독 처리할 수는 있지만, 프로덕션 환경에서 HTTP 트리거를 보호할 수는 없습니다. 자세히 알아보려면 [프로덕션 환경에서 HTTP 엔드포인트 보호](#secure-an-http-endpoint-in-production)를 참조하세요.
 
 > [!NOTE]
-> Functions 1.x 런타임에서는 웹후크 공급자가 키를 사용하여 공급자가 지원하는 항목에 따라 다양한 방식으로 요청에 권한을 부여할 수 있습니다. 여기에 대해서는 [웹후크 및 키](#webhooks-and-keys)에서 다룹니다. 버전 2.x 런타임에서는 웹후크 공급자가 기본적으로 지원되지 않습니다.
+> Functions 1.x 런타임에서는 웹후크 공급자가 키를 사용하여 공급자가 지원하는 항목에 따라 다양한 방식으로 요청에 권한을 부여할 수 있습니다. 여기에 대해서는 [웹후크 및 키](#webhooks-and-keys)에서 다룹니다. 버전 2.x 이상의 함수 런타임에는 웹 후크 공급자에 대 한 기본 제공 지원이 포함 되지 않습니다.
 
 다음과 같이 두 가지 유형의 키가 있습니다.
 
@@ -825,9 +825,9 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 ### <a name="webhooks"></a>Webhook
 
 > [!NOTE]
-> 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 버전 2.x에서 HTTP 트리거의 성능 향상을 위해 이렇게 변경되었습니다.
+> 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 이 변경은 버전 2.x 이상에서 HTTP 트리거의 성능을 향상 시키기 위해 이루어졌습니다.
 
-버전 1.x에서 웹후크 템플릿은 웹후크 페이로드용으로 추가 유효성 검사를 제공합니다. 버전 2.x의 경우 기본 HTTP 트리거가 계속 작동하며, 웹후크에는 이 방식을 사용하는 것이 좋습니다. 
+버전 1.x에서 웹후크 템플릿은 웹후크 페이로드용으로 추가 유효성 검사를 제공합니다. 버전 2.x 이상에서 기본 HTTP 트리거는 계속 작동 하며 웹 후크에 권장 되는 방법입니다. 
 
 #### <a name="github-webhooks"></a>GitHub 웹후크
 
@@ -848,22 +848,22 @@ Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 �
 
 ## <a name="trigger---limits"></a>트리거 - 제한
 
-HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 `httpRuntime`Web.config 파일[의 ](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) 요소에 의해 지정됩니다.
+HTTP 요청 길이는 100MB(104,857,600바이트)로 제한되고 URL 길이는 4KB(4,096바이트)로 제한됩니다. 이러한 제한은 런타임의 [Web.config 파일](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config)의 `httpRuntime` 요소에 의해 지정됩니다.
 
 HTTP 트리거를 사용하는 함수가 약 2.5분 안에 완료되지 않으면 게이트웨이가 시간 제한을 적용하고 HTTP 502 오류를 반환합니다. 함수는 계속 실행되지만 HTTP 응답은 반환할 수 없습니다. 장기 실행 함수의 경우 비동기 패턴을 따르고 요청 상태를 ping할 수 있는 위치를 반환하는 것이 좋습니다. 함수 실행 시간에 대한 정보는 [크기 조정 및 호스팅 - 소비 계획](functions-scale.md#timeout)을 참조하세요.
 
 ## <a name="output"></a>출력
 
-HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용합니다. 이 바인딩에는 HTTP 트리거가 필요하며 트리거 요청과 관련된 응답을 사용자 지정할 수 있습니다. HTTP 출력 바인딩을 제공하지 않으면 HTTP 트리거는 Functions 1.x에서 본문이 비어 있는 HTTP 200 OK 또는 Functions 2.x에서 본문이 비어 있는 HTTP 204 No Content를 반환합니다.
+HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용합니다. 이 바인딩에는 HTTP 트리거가 필요하며 트리거 요청과 관련된 응답을 사용자 지정할 수 있습니다. HTTP 출력 바인딩이 제공 되지 않으면 HTTP 트리거는 함수 1.x에서 빈 본문을 사용 하 여 HTTP 200 OK를 반환 하거나, 함수 2.x 이상에서 본문이 비어 있는 HTTP 204을 반환 합니다.
 
 ## <a name="output---configuration"></a>출력 - 구성
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |설명  |
+|자산  |설명  |
 |---------|---------|
-| **type** |`http`으로 설정해야 합니다. |
-| **direction** | `out`으로 설정해야 합니다. |
+| **type** |`http`로 설정해야 합니다. |
+| **direction** | `out`로 설정해야 합니다. |
 | **name** | 응답에 대한 함수 코드에 사용되는 변수 이름이거나 반환 값을 사용하는 `$return`입니다. |
 
 ## <a name="output---usage"></a>출력 - 사용
@@ -874,7 +874,7 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 
 ## <a name="hostjson-settings"></a>host.json 설정
 
-이 섹션에서는 버전 2.x에서 이 바인딩에 사용할 수 있는 글로벌 구성 설정을 설명합니다. 아래 예제 host.json 파일에는 이 바인딩에 대한 버전 2.x 설정만 포함되어 있습니다. 버전 2.x의 글로벌 구성 설정에 대한 자세한 내용은 [Azure Functions 버전 2.x에 대한 host.json 참조](functions-host-json.md)를 참조하세요.
+이 섹션에서는 버전 2.x 이상에서이 바인딩에 사용할 수 있는 전역 구성 설정에 대해 설명 합니다. 아래의 예제 호스트 json 파일에는이 바인딩에 대 한 버전 2.x + 설정만 포함 되어 있습니다. 2\.x 이상 버전의 전역 구성 설정에 대 한 자세한 내용은 [Azure Functions에 대 한 호스트 json 참조](functions-host-json.md)를 참조 하세요.
 
 > [!NOTE]
 > Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md#http)를 참조하세요.
@@ -899,11 +899,11 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 }
 ```
 
-|속성  |기본값 | 설명 |
+|자산  |기본값 | 설명 |
 |---------|---------|---------| 
 | customHeaders|없음|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 콘텐츠 형식 스니핑을 방지 하기 위해 `X-Content-Type-Options` 헤더를 응답에 추가 합니다. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.<br/><sup>\*</sup> 소비 계획의 기본값은 `true`입니다. 전용 계획의 기본값은 `false`입니다.|
-|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>속성</th><th>설명</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>미리 로드</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
+|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>자산</th><th>설명</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>preload</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|병렬로 실행 되는 최대 http 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스(메모리/cpu/소켓)를 사용하는 http 함수가 있으면 동시성이 너무 높은 문제가 발생할 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup> 소비 계획의 기본값은 100입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |maxOutstandingRequests|200<sup>\*</sup>|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다. <br/>소비 계획의 <sup>\*</sup>\The 기본값은 200입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |

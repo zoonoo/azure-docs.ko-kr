@@ -2,23 +2,22 @@
 title: SQL Database 장애 조치 (failover)에 대 한 Azure-SSIS Integration Runtime 구성
 description: 이 문서에서는 SSISDB 데이터베이스에 대해 Azure SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure SSIS Integration Runtime을 구성하는 방법을 설명합니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: ''
 ms.devlang: powershell
-ms.topic: conceptual
-ms.date: 08/14/2018
 author: swinarko
 ms.author: sawinark
+manager: mflasko
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 6e709a25c6c33a1fc80a110435035b1473d92681
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.topic: conceptual
+ms.custom: seo-lt-2019
+ms.date: 08/14/2018
+ms.openlocfilehash: 92f7d25a9c19409b220b6a71fba87da91e51a415
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681384"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928491"
 ---
 # <a name="configure-the-azure-ssis-integration-runtime-with-azure-sql-database-geo-replication-and-failover"></a>Azure SQL Database 지역에서 복제 및 장애 조치(failover)를 사용하여 Azure-SSIS Integration Runtime 구성
 
@@ -40,7 +39,7 @@ SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세
 
 - SQL Database 서버가 가상 네트워크 서비스 엔드포인트 규칙으로 구성되지 *않았습니다*.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 장애 조치(Failover)가 발생하는 경우 Azure-SSIS IR에 투명하게 진행됩니다. Azure-SSIS IR은 장애 조치(Failover) 그룹의 새로운 주 데이터베이스에 자동으로 연결됩니다.
 
@@ -60,7 +59,7 @@ SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세
 
 - 데이터베이스 서버는 가상 네트워크로 구성된 SQL Database Managed Instance입니다.
 
-### <a name="solution"></a>해결 방법
+### <a name="solution"></a>솔루션
 
 장애 조치(Failover)가 발생하면 다음을 수행해야 합니다.
 
@@ -72,7 +71,7 @@ SQL Database의 지역에서 복제 및 장애 조치(Failover)에 대한 자세
 
 다음 섹션에서는 이러한 단계를 좀 더 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 - 서버에 동시에 가동 중단되는 경우 Azure SQL Database 서버에 대한 재해 복구를 사용하도록 설정했는지 확인합니다. 자세한 내용은 [Azure SQL Database의 비즈니스 연속성 개요](../sql-database/sql-database-business-continuity.md)를 참조하세요.
 
@@ -105,7 +104,7 @@ Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시�
 
 현재 지역에서 ADF 또는 Azure-SSIS IR 재해가 발생 하면 SSISDB가 새 지역에서 새 Azure-SSIS IR를 계속 사용 하도록 할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>전제 조건
 
 - 현재 지역에서 가상 네트워크를 사용하는 경우 새 지역에서 다른 가상 네트워크를 사용하여 Azure SSIS 통합 런타임에 연결해야 합니다. 자세한 내용은 [Azure-SSIS 통합 런타임을 가상 네트워크에 조인](join-azure-ssis-integration-runtime-virtual-network.md)을 참조하세요.
 
@@ -115,7 +114,7 @@ Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시�
 
 Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시작 하려면 다음 단계를 따릅니다.
 
-1. 저장 프로시저를 실행 하 여 SSISDB가 **\<new_data_factory_name\>** 또는 **\<new_integration_runtime_name\>** 에 연결 되도록 합니다.
+1. 저장 프로시저를 실행 하 여 SSISDB를 **\<new_data_factory_name\>** 또는 **\<new_integration_runtime_name\>** 에 연결 합니다.
    
   ```SQL
     EXEC [catalog].[failover_integration_runtime] @data_factory_name='<new_data_factory_name>', @integration_runtime_name='<new_integration_runtime_name>'
@@ -130,7 +129,7 @@ Azure-SSIS IR을 중지하고, IR을 새 지역으로 전환하고, 다시 시�
      ```
     이 PowerShell 명령에 대 한 자세한 내용은 [powershell을 사용 하 여 Azure 데이터 팩터리 만들기](quickstart-create-data-factory-powershell.md) 를 참조 하세요.
 
-3. Azure PowerShell를 사용 하 여 새 지역에 **\<new_integration_runtime_name\>** 라는 새 Azure-SSIS IR를 만듭니다.
+3. Azure PowerShell를 사용 하 여 새 지역에 **\<new_integration_runtime_name\>** 이라는 새 Azure-SSIS IR를 만듭니다.
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName "new resource group name" `

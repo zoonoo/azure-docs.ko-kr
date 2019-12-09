@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼에서 지 원하는 인증 프로토콜에 대 한 자세한 정보 Microsoft
+title: Microsoft id 플랫폼에서 지원 되는 권한 부여 프로토콜 | Microsoft
 description: Microsoft id 플랫폼 끝점에서 지 원하는 OAuth 2.0 및 Openid connect Connect 프로토콜에 대 한 가이드입니다.
 services: active-directory
 author: rwike77
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 50f2b4d5da2cdda35de0adc5dc646065f2b64a41
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f04ba26f592c02814412493cf4811e30aefa6ee3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844705"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74918291"
 ---
 # <a name="microsoft-identity-platform-protocols"></a>Microsoft id 플랫폼 프로토콜
 

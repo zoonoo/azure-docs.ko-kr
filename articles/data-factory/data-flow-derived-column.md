@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 파생 열 변환
+title: 매핑 데이터 흐름의 파생 열 변환
 description: 데이터 흐름 파생 열 변환을 사용 하 여 Azure Data Factory에서 대규모로 데이터를 변환 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: 387af25b87fdedff5d15ccb6a03819ad8b020e9a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676881"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930388"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 파생 열 변환
 
@@ -46,7 +47,7 @@ ms.locfileid: "73676881"
 
 ### <a name="example"></a>예제
 
-아래 예제는 들어오는 스트림을 `MoviesYear` 하 고 두 개의 파생 열을 만드는 `CleanData` 라는 파생 열입니다. 첫 번째 파생 열 `Rating` 등급 값을 사용 하 여 열을 정수 형식으로 바꿉니다. 두 번째 파생 열은 이름이 ' 영화 '로 시작 하는 각 열과 일치 하는 패턴입니다. 일치 하는 각 열에 대해 ' movie_ ' 접두사가 접두사로 일치 하는 열의 값과 같은 `movie` 열을 만듭니다. 
+아래 예제는 들어오는 스트림을 `MoviesYear` 하 고 두 개의 파생 열을 만드는 `CleanData` 라는 파생 열입니다. 첫 번째 파생 열 `Rating` 등급 값을 사용 하 여 열을 정수 형식으로 바꿉니다. 두 번째 파생 열은 이름이 ' 영화 '로 시작 하는 각 열과 일치 하는 패턴입니다. 일치 하는 각 열에 대해 일치 하는 열의 값과 같은 `movie` 열을 만듭니다 .이 열은 ' movie_ ' 접두사가 붙습니다. 
 
 Data Factory UX에서이 변환은 아래 이미지와 같습니다.
 

@@ -3,27 +3,23 @@ title: Python 용 MSAL의 사용자 지정 토큰 캐시 serialization | Microso
 titleSuffix: Microsoft identity platform
 description: Python 용 MSAL에 대 한 토큰 캐시를 직렬화 하는 방법 알아보기
 services: active-directory
-documentationcenter: dev-center-name
 author: rayluo
-manager: henrikm
-editor: ''
+manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/13/2019
 ms.author: rayluo
-ms.reviewer: navyasri.canumalla
+ms.reviewer: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae6628e1fd4929723f11a2195136f94532a4ed76
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: bb77d05070543e35ac0addae933c5ca864e68dbc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74152737"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915365"
 ---
 # <a name="custom-token-cache-serialization-in-msal-for-python"></a>Python 용 MSAL의 사용자 지정 토큰 캐시 serialization
 

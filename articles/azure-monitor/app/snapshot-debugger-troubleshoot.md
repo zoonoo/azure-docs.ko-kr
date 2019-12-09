@@ -1,5 +1,5 @@
 ---
-title: Azure 애플리케이션 Insights 스냅숏 디버거 관련 된 문제 해결 | Microsoft Docs
+title: Azure 애플리케이션 Insights 스냅숏 디버거 문제 해결
 description: 이 문서에서는 Application Insights 스냅숏 디버거를 사용 하도록 설정 하거나 사용 하는 데 문제가 있는 개발자를 위한 문제 해결 단계 및 정보를 제공 합니다.
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -8,12 +8,12 @@ author: brahmnes
 ms.author: mbullwin
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ec70f202a496ec368a483278994c7c5ccb24f40b
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ded4a1a718d2cb061aba5f0d27565633e6cb603a
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899820"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932098"
 ---
 # <a id="troubleshooting"></a>Application Insights 스냅숏 디버거 또는 스냅숏 보기를 사용 하도록 설정 하는 문제 해결
 응용 프로그램에 대 한 Application Insights 스냅숏 디버거를 사용 하도록 설정 했지만 예외에 대 한 스냅숏이 표시 되지 않는 경우 다음 지침을 사용 하 여 문제를 해결할 수 있습니다. 스냅숏이 생성 되지 않는 이유는 여러 가지가 있을 수 있습니다. 스냅숏 상태 검사를 실행 하 여 가능한 일반적인 원인 중 일부를 식별할 수 있습니다.
@@ -36,12 +36,12 @@ ms.locfileid: "72899820"
 게시된 애플리케이션에서 올바른 계측 키를 사용하는 있는지 확인합니다. 일반적으로 계측 키는 ApplicationInsights.config 파일에서 읽습니다. 포털에 표시된 Application Insights 리소스에 대한 계측 키와 동일한 값인지 확인합니다.
 
 ## <a name="preview-versions-of-net-core"></a>.NET Core 미리 보기 버전
-응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 사용 하도록 설정 [](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) [하는 것 외에도 응용 프로그램과 함께 다른 환경에 대 한 스냅숏 디버거 사용의 지침을 따릅니다. Application Insights 창](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+응용 프로그램에서 .NET Core의 미리 보기 버전을 사용 하 고 스냅숏 디버거 포털의 [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) 통해 사용 하도록 설정 된 경우 스냅숏 디버거 시작 되지 않을 수 있습니다. [Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해를 사용 하도록 설정 하는 ***것 외에도*** 응용 프로그램과 함께 [microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하려면 먼저 [다른 환경에 대 한 스냅숏 디버거 사용](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) 의 지침을 따릅니다.
 
 
 ## <a name="upgrade-to-the-latest-version-of-the-nuget-package"></a>최신 버전의 NuGet 패키지로 업그레이드
 
-[포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. Microsoft.applicationinsights.snapshotcollector NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 NuGet 패키지 관리자를 사용 하 여 최신 버전의를 사용 하 고 있는지 확인 합니다 [.](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) Microsoft.applicationinsights.snapshotcollector. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167에 있습니다.
+[포털의 Application Insights 창을](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)통해 스냅숏 디버거을 사용 하도록 설정한 경우 응용 프로그램은 이미 최신 NuGet 패키지를 실행 하 고 있어야 합니다. [Microsoft.applicationinsights.snapshotcollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) NuGet 패키지를 포함 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 Visual Studio의 Nuget 패키지 관리자를 사용 하 여 microsoft.applicationinsights.snapshotcollector의 최신 버전을 사용 하 고 있는지 확인 합니다. 릴리스 정보는 https://github.com/Microsoft/ApplicationInsights-Home/issues/167 에 있습니다.
 
 ## <a name="check-the-uploader-logs"></a>업로더 로그 확인
 
@@ -170,7 +170,7 @@ Snapshot Collector는 잘 알려진 위치 몇 곳에서 Snapshot Uploader 바�
 
 업로더를 시작할 수 없으면 Snapshot Collector는 `UploaderCannotStartFromShadowCopy` 오류를 보고합니다. 메시지 본문에 `System.UnauthorizedAccessException`이 포함되는 경우가 많습니다. 일반적으로 이 오류는 권한이 축소된 계정으로 애플리케이션이 실행되기 때문에 발생합니다. 계정에 섀도 복사본 폴더에 쓸 수 있는 권한은 있지만 코드를 실행할 수 있는 권한이 없습니다.
 
-이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 `ExceptionDuringConnect`"Uploader failed to start." _(업로드를 시작하지 못했습니다.)라는_  오류 다음에 발생합니다.
+이러한 오류는 일반적으로 시작하는 동안 발생하기 때문에 _"Uploader failed to start."_ (업로드를 시작하지 못했습니다.)라는 `ExceptionDuringConnect` 오류 다음에 발생합니다.
 
 이러한 오류를 해결하려면 `ShadowCopyFolder` 구성을 통해 섀도 복사본 폴더를 수동으로 지정하면 됩니다. ApplicationInsights.config를 사용하는 예:
 

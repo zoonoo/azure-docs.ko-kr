@@ -1,6 +1,6 @@
 ---
-title: .NET 앱에 대 한 Azure 애플리케이션 Insights 스냅숏 디버거 업그레이드 | Microsoft Docs
-description: Azure 앱 Services 또는 Nuget 패키지를 통해 스냅숏 디버거를 최신 버전으로 업그레이드 하는 방법
+title: Azure 애플리케이션 Insights 스냅숏 디버거 업그레이드
+description: Azure 앱 Services의 최신 버전 또는 Nuget 패키지를 통해 .NET 앱 용 스냅숏 디버거를 업그레이드 하는 방법
 ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: conceptual
@@ -8,12 +8,12 @@ author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 51642dde3de16f2bed3ca247e573237effb30917
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: d246fb36cc56a90faaf00c5b47ba69580a9c8a5d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73935979"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927183"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>스냅숏 디버거 업그레이드
 

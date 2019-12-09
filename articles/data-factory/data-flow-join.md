@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름의 조인 변환
+title: 매핑 데이터 흐름의 조인 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 조인 변환을 사용 하 여 두 데이터 소스의 데이터를 결합 합니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/17/2019
-ms.openlocfilehash: 1e9315195ceae435447739055105a66ee81e2a6a
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: 09d2c1d063c542583dc11fab0805a9392661426f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74122930"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930339"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 조인 변환
 
@@ -42,7 +43,7 @@ Full outer join은 양쪽의 모든 열과 행을 일치 하지 않는 열에 �
 
 크로스 조인은 조건에 따라 두 스트림의 교차곱을 출력 합니다. 같지 않은 조건을 사용 하는 경우 사용자 지정 식을 크로스 조인 조건으로 지정 합니다. 출력 스트림은 조인 조건을 충족 하는 모든 행이 됩니다. 모든 행 조합을 출력 하는 데카르트 곱을 만들려면 `true()`를 조인 조건으로 지정 합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 1. **오른쪽 스트림** 드롭다운에서 조인 하는 데이터 스트림을 선택 합니다.
 1. **조인 유형** 선택

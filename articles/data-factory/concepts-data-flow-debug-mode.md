@@ -1,22 +1,21 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름 디버그 모드
+title: 매핑 데이터 흐름 디버그 모드
 description: 데이터 흐름을 빌드할 때 대화형 디버그 세션 시작
-author: kromerm
 ms.author: makromer
+author: kromerm
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 09/06/2019
-ms.openlocfilehash: c65ed14abb86b3b434e46fbe857487b06e217aad
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: 18848695327a374f12fbe5a34d03366b050d8b65
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387364"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928357"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>매핑 데이터 흐름 디버그 모드
-
-
 
 ## <a name="overview"></a>개요
 
@@ -63,19 +62,19 @@ Data Flow에서 디버그 모드로 실행하는 경우에는 데이터가 싱�
 
 단위 테스트 조인, 존재 또는 조회 변환을 수행 하는 경우 테스트에 대해 몇 가지 알려진 데이터 집합을 사용 해야 합니다. 위의 디버그 설정 옵션을 사용 하 여 테스트에 사용할 임시 파일을 설정할 수 있습니다. 이는 많은 데이터 집합에서 행을 제한 하거나 샘플링 하는 경우 테스트를 위해 흐름으로 읽어올 행과 키를 예측할 수 없기 때문에 필요 합니다. 결과는 명확 하지 않으므로 조인 조건이 실패할 수 있습니다.
 
-### <a name="quick-actions"></a>빠른 작업
+### <a name="quick-actions"></a>바로 가기
 
 데이터 미리 보기가 표시 되 면 빠른 변환을 생성 하 여 열을 형식 캐스팅, 제거 또는 수정할 수 있습니다. 열 머리글을 클릭 한 다음 데이터 미리 보기 도구 모음에서 옵션 중 하나를 선택 합니다.
 
-![빠른 작업](media/data-flow/quick-actions1.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions1.png "바로 가기")
 
 수정을 선택 하면 데이터 미리 보기가 즉시 새로 고쳐집니다. 오른쪽 위 모서리에서 **확인** 을 클릭 하 여 새 변환을 생성 합니다.
 
-![빠른 작업](media/data-flow/quick-actions2.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions2.png "바로 가기")
 
 **형식 캐스팅** 및 **Modify** 는 파생 열 변환을 생성 하 고 **Remove** 는 Select 변환을 생성 합니다.
 
-![빠른 작업](media/data-flow/quick-actions3.png "빠른 작업")
+![빠른 작업](media/data-flow/quick-actions3.png "바로 가기")
 
 > [!NOTE]
 > 데이터 흐름을 편집 하는 경우 빠른 변환을 추가 하기 전에 데이터 미리 보기를 다시 인출 해야 합니다.

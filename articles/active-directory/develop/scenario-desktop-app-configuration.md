@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱 (코드 구성)-Microsoft identity platform
-description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법에 대해 알아봅니다 (앱 코드 구성).
+title: 웹 Api를 호출 하는 데스크톱 앱 구성-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 데스크톱 앱의 코드를 구성 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6baf7d21748b5b524745f26302e70612dab29a8d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 0d31a70ebc63a5e9a16e0da00623bd5855f0a7d1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175426"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920262"
 ---
 # <a name="desktop-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 데스크톱 앱-코드 구성
 

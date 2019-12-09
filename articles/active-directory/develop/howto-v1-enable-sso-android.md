@@ -2,7 +2,6 @@
 title: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정하는 방법 | Microsoft Docs
 description: ADAL SDK의 기능을 사용하여 애플리케이션 전체에서 Single Sign-On을 사용하도록 설정하는 방법입니다.
 services: active-directory
-documentationcenter: ''
 author: rwike77
 manager: CelesteDG
 ms.assetid: 40710225-05ab-40a3-9aec-8b4e96b6b5e7
@@ -17,14 +16,14 @@ ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb11a4a926c676d37a0bf6be456e3b831a5d8357
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962646"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917559"
 ---
-# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO 사용
+# <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -34,11 +33,11 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 참조 하세요. [앱 등록](quickstart-register-app.md)
+- Azure AD(Azure Active Directory)에 대한 레거시 포털을 사용하여 앱 프로비전. 자세한 내용은 [앱 등록](quickstart-register-app.md) 을 참조 하세요.
 - [Azure AD Android SDK](https://github.com/AzureAD/azure-activedirectory-library-for-android)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
@@ -108,7 +107,7 @@ SDK가 broker 애플리케이션과 함께 작동하여 SSO를 사용하도록 �
 2. 새 리디렉션 URI 설정 및 앱과 앱 등록에 이를 제공
 3. Android 매니페스트에서 올바른 사용 권한 설정
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 broker 모드 사용
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 브로커 모드 활성화
 
 "설정" 또는 인증 인스턴스의 초기 설정을 만들 때 브로커를 사용하는 애플리케이션에 대한 기능은 설정되어 있습니다. 앱에서 이를 수행하려면
 
@@ -116,9 +115,9 @@ SDK가 broker 애플리케이션과 함께 작동하여 SSO를 사용하도록 �
 AuthenticationSettings.Instance.setUseBroker(true);
 ```
 
-#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2단계: URL 구성표를 사용하여 새 리디렉션 URI 설정
+#### <a name="step-2-establish-a-new-redirect-uri-with-your-url-scheme"></a>2단계: URL 구성표와 함께 새 리디렉션 URI 설정
 
-적절 한 응용 프로그램에 반환 된 수신 하는지 확인 하기 위해 자격 증명 토큰에 있는 되도록 응용 프로그램으로 다시 호출 Android 운영 체제에서 확인할 수 있도록에서 해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 애플리케이션에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 애플리케이션에 등록돼야 합니다.
+올바른 응용 프로그램이 자격 증명 토큰을 반환 하는지 확인 하기 위해 Android 운영 체제에서 확인할 수 있는 방식으로 응용 프로그램을 다시 호출 하는지 확인 해야 합니다. Android 운영 체제는 Google Play 스토어에서 인증서의 해시를 사용합니다. 불량 애플리케이션에서 인증서의 이 해시를 스푸핑할 수 없습니다. 브로커 애플리케이션의 URI와 함께 Microsoft는 토큰이 올바른 애플리케이션에 반환되는지 확인합니다. 고유한 리디렉션 URI는 애플리케이션에 등록돼야 합니다.
 
 리디렉션 URI는 다음의 적절한 형식이어야 합니다.
 
@@ -128,7 +127,7 @@ AuthenticationSettings.Instance.setUseBroker(true);
 
 [Azure Portal](https://portal.azure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정할 수 있습니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
 
-#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3단계: 애플리케이션에 올바른 권한 설정
+#### <a name="step-3-set-up-the-correct-permissions-in-your-application"></a>3단계: 애플리케이션에 올바른 사용 권한 설정
 
 Android에서 브로커 애플리케이션은 Android OS의 계정 관리자 기능을 사용하여 애플리케이션 간에 자격 증명을 관리합니다. Android에서 브로커를 사용하려면 앱 매니페스트에 AccountManager 계정을 사용할 수 있는 권한이 있어야 합니다. 이러한 사용 권한은 [여기의 계정 관리자에 대한 Google 설명서](https://developer.android.com/reference/android/accounts/AccountManager.html)에 자세히 설명돼 있습니다.
 

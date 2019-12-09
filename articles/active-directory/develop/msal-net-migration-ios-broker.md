@@ -1,34 +1,30 @@
 ---
-title: Microsoft Authenticator를 사용 하는 Xamarin iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
+title: Xamarin iOS ADAL을 MSAL.NET로 마이그레이션
 titleSuffix: Microsoft identity platform
-description: .NET 용 Azure AD 인증 라이브러리 (ADAL.NET)에서 Microsoft Authenticator를 사용 하는 Xamarin iOS 응용 프로그램을 MSAL.NET (Microsoft Authentication Library for .NET)로 마이그레이션하는 방법에 대해 알아봅니다.
-documentationcenter: dev-center-name
+description: Microsoft Authenticator를 사용 하는 Xamarin iOS 앱을 ADAL.NET에서 MSAL.NET로 마이그레이션하는 방법에 대해 알아봅니다.
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c64f9f371424eddc7295b6ec40bda1ebdaaafd5
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 4e70865c897e408f1cebb7359d0890d27b11243b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175578"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74921817"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 
 Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker를 사용 하 고 있습니다. 이제 릴리스 4.3 이후 iOS에서 broker를 지 원하는 .NET 용 [Microsoft Authentication Library](msal-overview.md) (MSAL.NET)로 마이그레이션할 시간입니다. 
 
-어디에서 시작 해야 하나요? 이 문서는 ADAL에서 MSAL으로 Xamarin iOS 앱을 마이그레이션하는 데 도움이 됩니다.
+어디서 시작해야 합니까? 이 문서는 ADAL에서 MSAL으로 Xamarin iOS 앱을 마이그레이션하는 데 도움이 됩니다.
 
 ## <a name="prerequisites"></a>전제 조건
 이 문서에서는 iOS broker와 통합 된 Xamarin iOS 앱이 이미 있다고 가정 합니다. 그렇지 않으면 MSAL.NET로 직접 이동 하 여 해당 위치에서 broker 구현을 시작 합니다. 새 응용 프로그램을 사용 하 여 MSAL.NET에서 iOS broker를 호출 하는 방법에 대 한 자세한 내용은 [이 설명서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications)를 참조 하세요.
@@ -41,7 +37,7 @@ Azure Active Directory Authentication Library for .NET (ADAL.NET) 및 iOS broker
 
 사용 하도록 설정 합니다.
 
-- Single sign-on.
+- Single Sign-On
 - 장치 식별-일부 [조건부 액세스 정책](../conditional-access/overview.md)에 필요 합니다. 자세한 내용은 [장치 관리](../conditional-access/conditions.md#device-platforms)를 참조 하세요.
 - 응용 프로그램 id 확인-일부 엔터프라이즈 시나리오에도 필요 합니다. 자세한 내용은 [INTUNE MAM (모바일 응용 프로그램 관리)](https://docs.microsoft.com/intune/mam-faq)을 참조 하세요.
 

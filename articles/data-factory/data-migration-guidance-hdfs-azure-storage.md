@@ -1,23 +1,22 @@
 ---
-title: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다.
+title: 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터 마이그레이션
 description: Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션하는 방법에 대해 알아봅니다.
 services: data-factory
-documentationcenter: ''
-author: dearandyxu
 ms.author: yexu
+author: dearandyxu
 ms.reviewer: ''
-manager: ''
+manager: shwang
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 8/30/2019
-ms.openlocfilehash: b952be49bf5bc00b338aa04ed51e9dc451b5c4f9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: afccbdbbfd5b8ddeefa621448d6170d937b518f0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73675825"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931443"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-hadoop-cluster-to-azure-storage"></a>Azure Data Factory를 사용 하 여 온-프레미스 Hadoop 클러스터에서 Azure Storage로 데이터를 마이그레이션합니다. 
 
@@ -30,13 +29,13 @@ Data Factory은 온-프레미스 HDFS에서 Azure로 데이터를 마이그레�
 
 이 문서에서는 두 가지 방법에 대 한 다음 정보를 제공 합니다.
 > [!div class="checklist"]
-> * 성능 
+> * 성능 중심 
 > * 복원 력
 > * 네트워크 보안
 > * 개략적인 솔루션 아키텍처 
 > * 구현 모범 사례  
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 Data Factory DistCp 모드에서 처리량은 DistCp 도구를 독립적으로 사용 하는 경우와 동일 합니다. Data Factory DistCp 모드는 기존 Hadoop 클러스터의 용량을 최대화 합니다. 대량 클러스터 간 또는 클러스터 내 복사를 위해 DistCp를 사용할 수 있습니다. 
 
@@ -82,7 +81,7 @@ Data Factory native integration runtime 모드에서 단일 복사 작업 실행
 - 이 아키텍처에서 데이터는 Azure Express 경로를 통해 개인 피어 링 링크를 통해 마이그레이션됩니다. 데이터는 공용 인터넷을 통과 하지 않습니다.
 - DistCp 도구는 Azure Storage 가상 네트워크 끝점으로 Express 경로 개인 피어 링을 지원 하지 않습니다. 통합 런타임을 통해 Data Factory의 기본 기능을 사용 하 여 데이터를 마이그레이션하는 것이 좋습니다.
 - 이 아키텍처의 경우 Azure 가상 네트워크의 Windows VM에 Data Factory 자체 호스팅 통합 런타임을 설치 해야 합니다. 수동으로 VM을 확장 하거나 여러 Vm으로 확장 하 여 네트워크 및 저장소 IOPS 또는 대역폭을 완벽 하 게 활용할 수 있습니다.
-- Data Factory 자체 호스팅 통합 런타임을 설치한 상태에서 각 Azure VM에 대해 시작 하는 권장 구성은 32 vCPU 및 128 GB의 메모리로 Standard_D32s_v3 됩니다. 데이터 마이그레이션 중 vm의 CPU 및 메모리 사용량을 모니터링 하 여 더 나은 성능을 위해 VM을 확장 하거나 비용을 줄이기 위해 vm을 확장할 필요가 있는지 여부를 확인할 수 있습니다.
+- 각 Azure VM (Data Factory 자체 호스팅 통합 런타임이 설치 된)에 대해 시작 하는 권장 구성은 32 vCPU 및 128 GB의 메모리로 Standard_D32s_v3 됩니다. 데이터 마이그레이션 중 vm의 CPU 및 메모리 사용량을 모니터링 하 여 더 나은 성능을 위해 VM을 확장 하거나 비용을 줄이기 위해 vm을 확장할 필요가 있는지 여부를 확인할 수 있습니다.
 - 단일 자체 호스팅 통합 런타임을 사용 하 여 최대 4 개의 VM 노드를 연결 하 여 규모를 확장할 수도 있습니다. 자체 호스팅 통합 런타임에 대해 실행 되는 단일 복사 작업은 자동으로 파일 집합을 분할 하 고 모든 VM 노드를 사용 하 여 파일을 병렬로 복사 합니다. 고가용성을 위해 데이터 마이그레이션 중 단일 오류 시나리오를 방지 하기 위해 두 개의 VM 노드로 시작 하는 것이 좋습니다.
 - 이 아키텍처를 사용 하는 경우 초기 스냅숏 데이터 마이그레이션 및 델타 데이터 마이그레이션을 사용할 수 있습니다.
 

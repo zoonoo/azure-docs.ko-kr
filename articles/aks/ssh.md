@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: mlearned
-ms.openlocfilehash: d855e7a65b7e1ad24dcfc4fe6a6d5e02f9004bb0
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74089552"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926366"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 
@@ -41,7 +41,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 SCALE_SET_NAME=$(az vmss list --resource-group $CLUSTER_RESOURCE_GROUP --query [0].name -o tsv)
 ```
 
-위의 예에서는 *CLUSTER_RESOURCE_GROUP*에 *Myresourcegroup* 의 *myAKSCluster* 에 대 한 클러스터 리소스 그룹의 이름을 할당 합니다. 그런 다음이 예제에서는 *CLUSTER_RESOURCE_GROUP* 를 사용 하 여 확장 집합 이름을 나열 하 고 *SCALE_SET_NAME*에 할당 합니다.  
+위의 예에서는 *CLUSTER_RESOURCE_GROUP*에 *Myresourcegroup* 의 *myAKSCluster* 에 대 한 클러스터 리소스 그룹의 이름을 할당 합니다. 그런 다음이 예제에서는 *CLUSTER_RESOURCE_GROUP* 를 사용 하 여 확장 집합 이름을 나열 하 고 *SCALE_SET_NAME*에 할당 합니다.
 
 > [!IMPORTANT]
 > 이번에는 Azure CLI를 사용 하 여 가상 머신 확장 집합 기반 AKS 클러스터에 대 한 SSH 키만 업데이트 해야 합니다.
@@ -100,7 +100,7 @@ CLUSTER_RESOURCE_GROUP=$(az aks show --resource-group myResourceGroup --name myA
 az vm list --resource-group $CLUSTER_RESOURCE_GROUP -o table
 ```
 
-위의 예에서는 *CLUSTER_RESOURCE_GROUP*에 *Myresourcegroup* 의 *myAKSCluster* 에 대 한 클러스터 리소스 그룹의 이름을 할당 합니다. 그런 다음이 예제에서는 *CLUSTER_RESOURCE_GROUP* 를 사용 하 여 가상 컴퓨터 이름을 나열 합니다. 예제 출력에는 가상 컴퓨터의 이름이 표시 됩니다. 
+위의 예에서는 *CLUSTER_RESOURCE_GROUP*에 *Myresourcegroup* 의 *myAKSCluster* 에 대 한 클러스터 리소스 그룹의 이름을 할당 합니다. 그런 다음이 예제에서는 *CLUSTER_RESOURCE_GROUP* 를 사용 하 여 가상 컴퓨터 이름을 나열 합니다. 예제 출력에는 가상 컴퓨터의 이름이 표시 됩니다.
 
 ```
 Name                      ResourceGroup                                  Location
@@ -144,7 +144,7 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
 1. `debian` 컨테이너 이미지를 실행하고 여기에 터미널 세션을 연결합니다. 이 컨테이너를 사용하여 AKS 클러스터에서 노드가 있는 SSH 세션을 만들 수 있습니다.
 
     ```console
-    kubectl run -it --rm aks-ssh --image=debian
+    kubectl run --generator=run-pod/v1 -it --rm aks-ssh --image=debian
     ```
 
     > [!TIP]
@@ -158,21 +158,12 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
     apt-get update && apt-get install openssh-client -y
     ```
 
-1. 컨테이너에 연결 되지 않은 새 터미널 창을 열고 [kubectl get pod][kubectl-get] 명령을 사용 하 여 AKS 클러스터에 pod를 나열 합니다. 이전 단계에서 만든 Pod는 다음 예제와 같이 *aks-ssh* 이름으로 시작합니다.
+1. 컨테이너에 연결 되지 않은 새 터미널 창을 열고 개인 SSH 키를 도우미 pod에 복사 합니다. 이 개인 키는 AKS 노드에 대 한 SSH를 만드는 데 사용 됩니다. 
 
-    ```
-    $ kubectl get pods
-    
-    NAME                       READY     STATUS    RESTARTS   AGE
-    aks-ssh-554b746bcf-kbwvf   1/1       Running   0          1m
-    ```
-
-1. 이전 단계에서는 문제를 해결 하려는 AKS 노드에 공용 SSH 키를 추가 했습니다. 이제 개인 SSH 키를 도우미 pod에 복사 합니다. 이 개인 키는 AKS 노드에 대 한 SSH를 만드는 데 사용 됩니다.
-
-    이전 단계에서 가져온 고유한 *aks-ssh* Pod 이름을 입력합니다. 필요에 따라 *~/.ssh/id_rsa*를 프라이빗 SSH 키의 위치로 변경합니다.
+   필요에 따라 *~/.ssh/id_rsa*를 프라이빗 SSH 키의 위치로 변경합니다.
 
     ```console
-    kubectl cp ~/.ssh/id_rsa aks-ssh-554b746bcf-kbwvf:/id_rsa
+    kubectl cp ~/.ssh/id_rsa $(kubectl get pod -l run=aks-ssh -o jsonpath='{.items[0].metadata.name}'):/id_rsa
     ```
 
 1. 컨테이너에 대 한 터미널 세션으로 돌아가서 복사 된 `id_rsa` 개인 SSH 키에 대 한 사용 권한을 사용자 읽기 전용으로 업데이트 합니다.
@@ -185,22 +176,22 @@ AKS 노드에 SSH를 연결하려면 AKS 클러스터에서 도우미 Pod를 실
 
     ```console
     $ ssh -i id_rsa azureuser@10.240.0.4
-    
+
     ECDSA key fingerprint is SHA256:A6rnRkfpG21TaZ8XmQCCgdi9G/MYIMc+gFAuY9RUY70.
     Are you sure you want to continue connecting (yes/no)? yes
     Warning: Permanently added '10.240.0.4' (ECDSA) to the list of known hosts.
-    
+
     Welcome to Ubuntu 16.04.5 LTS (GNU/Linux 4.15.0-1018-azure x86_64)
-    
+
      * Documentation:  https://help.ubuntu.com
      * Management:     https://landscape.canonical.com
      * Support:        https://ubuntu.com/advantage
-    
+
       Get cloud support with Ubuntu Advantage Cloud Guest:
         https://www.ubuntu.com/business/services/cloud
-    
+
     [...]
-    
+
     azureuser@aks-nodepool1-79590246-0:~$
     ```
 

@@ -1,5 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱 (앱에 대 한 토큰 획득)-Microsoft identity platform
+title: 웹 Api를 호출 하는 데스크톱 앱의 토큰 가져오기 | Microsoft
+titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기 (앱에 대 한 토큰 획득)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce79a2dcbb0d79d84019c350eb4693160c8f7d50
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: e33eed25f79d90bd513e79b23619fd4c575bc874
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175473"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74920229"
 ---
 # <a name="desktop-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 데스크톱 앱-토큰 획득
 
@@ -260,7 +261,7 @@ MSAL은 대부분의 플랫폼에 대 한 웹 UI 구현을 제공 하지만, 브
 
 `.WithCustomWebUI`를 사용 하려면 다음을 수행 해야 합니다.
 
-  1. `ICustomWebUi` 인터페이스를 구현 합니다 ( [여기](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)참조). 기본적으로 권한 부여 코드 URL (MSAL.NET에서 계산)을 허용 하 `AcquireAuthorizationCodeAsync` 하나의 메서드를 구현 하 여 사용자가 id 공급자와의 상호 작용을 통과 하 게 한 다음 id 공급자가 제공 하는 URL을 다시 반환 하도록 해야 합니다. 구현 (권한 부여 코드 포함)을 다시 호출 합니다. 문제가 발생 하는 경우에는 MSAL과의 적절 한 상호 작용을 위해 구현에서 `MsalExtensionException` 예외를 throw 해야 합니다.
+  1. `ICustomWebUi` 인터페이스를 구현 합니다 ( [여기](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/blob/053a98d16596be7e9ca1ab916924e5736e341fe8/src/Microsoft.Identity.Client/Extensibility/ICustomWebUI.cs#L32-L70)참조). 기본적으로 인증 코드 URL (MSAL.NET에서 계산)을 허용 하는 `AcquireAuthorizationCodeAsync` 하나의 메서드를 구현 하 여 사용자가 id 공급자와의 상호 작용을 수행한 다음, id 공급자가 구현을 다시 호출 하는 URL (권한 부여 코드 포함)을 다시 반환 해야 합니다. 문제가 발생 하는 경우에는 MSAL과의 적절 한 상호 작용을 위해 구현에서 `MsalExtensionException` 예외를 throw 해야 합니다.
   2. `AcquireTokenInteractive` 호출에서 사용자 지정 웹 UI의 인스턴스를 전달 하는 `.WithCustomUI()` 한정자를 사용할 수 있습니다.
 
      ```CSharp
@@ -418,7 +419,7 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 - Windows 통합 인증은 자동 흐름입니다.
   - 응용 프로그램의 사용자가 응용 프로그램을 사용 하려면 이전에 동의한 해야 합니다.
   - 또는 테 넌 트 관리자가 응용 프로그램을 사용 하려면 테 넌 트의 모든 사용자에 게 이전에 동의한 해야 합니다.
-  - 즉, 다음을 수행 합니다.
+  - 즉, 다음과 같습니다.
     - 개발자가 Azure Portal에 대 한 **권한 부여** 단추를 누르면 됩니다.
     - 또는 테 넌 트 관리자가 응용 프로그램 등록의 **API 사용 권한** 탭에 있는 **{테 넌 트 도메인}에 대 한 권한 부여/해지 관리자 동의** ( [웹 api 액세스 권한 추가](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)참조)를 눌렀습니다.
     - 또는 사용자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다 ( [개별 사용자 동의 요청](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent)참조).
@@ -1108,7 +1109,7 @@ MSAL.NET에서는 메모리 내 토큰 캐시가 기본적으로 제공됩니다
 
 이 전략은 공용 클라이언트 응용 프로그램 (데스크톱) 또는 기밀 클라이언트 응용 프로그램 (웹 앱/웹 API, 디먼 앱)에 대 한 토큰 캐시 serialization을 작성 하는 경우에 따라 다릅니다.
 
-MSAL V2. x에는 캐시를 MSAL.NET 형식 (MSAL에 공통 되는 통합 형식 캐시 및 플랫폼 전체)에만 serialize 하 고, [레거시](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) 토큰 캐시를 지원 하려는 경우에 따라 몇 가지 옵션이 있습니다. ADAL V3 직렬화.
+MSAL V2. x에는 캐시를 MSAL.NET 형식 (MSAL에 공통 되는 통합 형식 캐시 및 플랫폼 전체)에만 serialize 하 고 ADAL V3의 [레거시](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Token-cache-serialization) 토큰 캐시 serialization도 지원 하려는 경우에 따라 몇 가지 옵션이 있습니다.
 
 ADAL.NET, ADAL.NET 및 MSAL.NET 간에 SSO 상태를 공유 하는 토큰 캐시 serialization의 사용자 지정은 다음 샘플의 일부로 설명 됩니다. [active directory-dotnet-v1--v2](https://github.com/Azure-Samples/active-directory-dotnet-v1-to-v2)
 

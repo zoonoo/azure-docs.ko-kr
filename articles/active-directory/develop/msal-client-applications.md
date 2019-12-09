@@ -1,29 +1,25 @@
 ---
-title: 클라이언트 응용 프로그램 (Microsoft 인증 라이브러리)
+title: MSAL (공용 및 비밀 클라이언트 앱) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)의 공용 클라이언트 및 기밀 클라이언트 응용 프로그램에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/25/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c57d3a13f9f03fa635c6c9425e2049e2a2c885
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4ad2f271ae0eea2e393aad4eb972eff211655b02
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803205"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74917100"
 ---
 # <a name="public-client-and-confidential-client-applications"></a>공용 클라이언트 및 기밀 클라이언트 응용 프로그램
 MSAL (Microsoft 인증 라이브러리)은 두 가지 유형의 클라이언트, 즉 공용 클라이언트와 기밀 클라이언트를 정의 합니다. 두 클라이언트 유형은 권한 부여 서버와 안전 하 게 인증 하 고 클라이언트 자격 증명의 기밀성을 유지 하는 기능으로 구분 됩니다. 반면, ADAL (Azure AD 인증 라이브러리)은 Azure AD에 대 한 연결 인 *인증 컨텍스트* 를 사용 합니다.

@@ -1,20 +1,21 @@
 ---
-title: Azure Data Factory에서 데이터 흐름 매핑
+title: 데이터 흐름 매핑
 description: Azure Data Factory에서 데이터 흐름을 매핑하는 방법에 대 한 개요
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/7/2019
-ms.openlocfilehash: ed2502ffebbacf5e66e3e4738e2e88ce7fb8a562
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 397ecdb805f0be9f374c53ae7128f806bfb789d3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73681552"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928301"
 ---
-# <a name="what-are-mapping-data-flows"></a>매핑 데이터 흐름 이란?
+# <a name="what-are-mapping-data-flows"></a>데이터 흐름 매핑이란?
 
 데이터 흐름 매핑은 Azure Data Factory에서 시각적으로 디자인 된 데이터 변환입니다. 데이터 흐름을 통해 데이터 엔지니어는 코드를 작성 하지 않고도 그래픽 데이터 변환 논리를 개발할 수 있습니다. 결과 데이터 흐름은 확장 된 Spark 클러스터를 사용 하는 Azure Data Factory 파이프라인 내에서 작업으로 실행 됩니다. 기존 Data Factory 일정, 제어, 흐름 및 모니터링 기능을 통해 데이터 흐름 활동을 조작 가능한 수 있습니다.
 
@@ -32,17 +33,17 @@ ms.locfileid: "73681552"
 
 데이터 흐름 캔버스는 위쪽 막대, 그래프 및 구성 패널의 세 부분으로 구분 됩니다. 
 
-![캔버스](media/data-flow/canvas1.png "Canvas")
+![캔버스](media/data-flow/canvas1.png "캔버스")
 
 ### <a name="graph"></a>그래프
 
 그래프는 변환 스트림을 표시 합니다. 하나 이상의 싱크로 전달 되는 원본 데이터의 계보를 보여 줍니다. 새 원본을 추가 하려면 **원본 추가**를 선택 합니다. 새 변환을 추가 하려면 기존 변환의 오른쪽 아래에 있는 더하기 기호를 선택 합니다.
 
-![캔버스](media/data-flow/canvas2.png "Canvas")
+![캔버스](media/data-flow/canvas2.png "캔버스")
 
 ### <a name="azure-integration-runtime-data-flow-properties"></a>Azure integration runtime 데이터 흐름 속성
 
-![디버그 단추](media/data-flow/debugbutton.png "디버그 단추")
+![디버그 단추](media/data-flow/debugbutton.png "디버깅 단추")
 
 ADF에서 데이터 흐름에 대 한 작업을 시작 하는 경우 브라우저 UI의 맨 위에 있는 데이터 흐름에 대해 "디버그" 스위치를 설정 하는 것이 좋습니다. 그러면 대화형 디버깅, 데이터 미리 보기 및 파이프라인 디버그 실행에 사용할 Azure Databricks 클러스터가 실행 됩니다. 사용자 지정 [Azure Integration Runtime](concepts-integration-runtime.md)를 선택 하 여 사용 되는 클러스터의 크기를 설정할 수 있습니다. 디버그 세션은 마지막 데이터 미리 보기 또는 마지막 디버그 파이프라인 실행 후 최대 60 분 동안 활성 상태를 유지 합니다.
 

@@ -1,29 +1,25 @@
 ---
-title: Xamarin Android 고려 사항 (.NET 용 Microsoft 인증 라이브러리)
+title: Xamarin Android 고려 사항 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/24/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d6af9753887ffa593a44fba9faa3376066417a8
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 6cb28b8465bf74351c5c6efe9d80dcc01137be5d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802639"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74915525"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때의 구체적인 고려 사항을 설명 합니다.

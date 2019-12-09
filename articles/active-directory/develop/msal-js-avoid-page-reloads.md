@@ -1,32 +1,28 @@
 ---
-title: 페이지 다시 로드 방지 (JavaScript 용 Microsoft 인증 라이브러리)
+title: 페이지 다시 로드 방지 (MSAL .js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft Authentication Library (MSAL)를 사용 하 여 토큰을 자동으로 획득 하 고 갱신할 때 페이지 다시 로드를 방지 하는 방법에 대해 알아봅니다.
 services: active-directory
-documentationcenter: dev-center-name
 author: TylerMSFT
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.subservice: develop
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29edafdc27a3835653f82ec36d576a4871e66155
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803110"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74916438"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>MSAL를 사용 하 여 토큰을 자동으로 획득 하 고 갱신할 때 페이지를 다시 로드 하지 않습니다.
-JavaScript 용 Microsoft Authentication Library (MSAL)는 숨겨진 `iframe` 요소를 사용 하 여 백그라운드에서 토큰을 자동으로 가져오고 갱신 합니다. Azure AD는 토큰 요청에 지정 된 등록 된 redirect_uri로 토큰을 다시 반환 합니다 (기본적으로 앱의 루트 페이지). 응답이 302 이므로 `iframe`에서 로드 `redirect_uri`에 해당 하는 HTML이 생성 됩니다. 일반적으로 앱의 `redirect_uri`는 루트 페이지 이므로 다시 로드 됩니다.
+JavaScript 용 Microsoft Authentication Library (MSAL)는 숨겨진 `iframe` 요소를 사용 하 여 백그라운드에서 토큰을 자동으로 가져오고 갱신 합니다. Azure AD는 토큰을 토큰 요청에 지정 된 등록 된 redirect_uri으로 다시 반환 합니다 (기본적으로 앱의 루트 페이지). 응답이 302 이므로 `iframe`에서 로드 `redirect_uri`에 해당 하는 HTML이 생성 됩니다. 일반적으로 앱의 `redirect_uri`는 루트 페이지 이므로 다시 로드 됩니다.
 
 다른 경우에는 응용 프로그램의 루트 페이지로 이동 하는 데 인증이 필요한 경우 중첩 된 `iframe` 요소나 `X-Frame-Options: deny` 오류가 발생할 수 있습니다.
 

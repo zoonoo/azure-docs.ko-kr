@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 54e28a9d434500915aa8cc8e07ade3592e5aa96c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 5d9ca8d0df3eb0186add5c40765c87a4409a5660
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185611"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926418"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -51,7 +51,7 @@ HBase 및 LLAP 워크 로드에 대 한 자동 크기 조정 지원도 공개 �
 
 ### <a name="hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대 한 HDInsight 가속 쓰기 
 
-가속 쓰기는 Azure 프리미엄 SSD 관리 디스크를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. 자세한 내용은 [Apache HBase에 대 한 Azure HDInsight 가속 쓰기](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes)를 참조 하세요.
+가속 쓰기는 Azure 프리미엄 SSD 관리 디스크를 사용하여 Apache HBase WAL(Write Ahead Log)의 성능을 개선합니다. 자세한 내용은 [Apache HBase에 대한 Azure HDInsight 가속 쓰기](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-accelerated-writes)를 참조하세요.
 
 ### <a name="custom-ambari-db"></a>사용자 지정 Ambari DB
 
@@ -90,4 +90,4 @@ A 시리즈 Vm은 비교적 낮은 CPU와 메모리 용량으로 인해 ESP 클�
 HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니다. 
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
-이 릴리스에 대 한 구성 요소 버전은 변경 되지 않습니다. HDInsight 4.0 ad HDInsight 3.6의 최신 구성 요소 버전은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)에서 찾을 수 있습니다.
+이 릴리스에 대 한 구성 요소 버전은 변경 되지 않습니다. HDInsight 4.0 및 HDInsight 3.6의 최신 구성 요소 버전은 [여기](https://docs.microsoft.com/azure/hdinsight/hdinsight-component-versioning)에서 찾을 수 있습니다.

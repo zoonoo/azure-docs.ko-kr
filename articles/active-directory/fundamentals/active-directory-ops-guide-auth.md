@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 40e0ba21d472097e34938878ddc1fa0c47b30417
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 85281088692d1c4b0245eb9d069519198f8f315d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74803736"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919344"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -292,16 +292,16 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 
 ### <a name="consent-grants"></a>승인 허가
 
-불법 승인 부여 공격에서 공격자는 연락처 정보, 전자 메일 또는 문서와 같은 데이터에 대 한 액세스를 요청 하는 Azure AD 등록 응용 프로그램을 만듭니다. 사용자는 피싱 공격을 통해 악의적인 응용 프로그램에 대 한 동의를 부여 하거나 악의적인 웹 사이트를 방문 하는 경우에는 간접적으로 액세스할 수 있습니다.
+불법 승인 부여 공격에서 공격자는 연락처 정보, 전자 메일 또는 문서와 같은 데이터에 대 한 액세스를 요청 하는 Azure AD 등록 응용 프로그램을 만듭니다. 악의적인 웹 사이트를 방문 하는 경우 사용자는 피싱 공격을 통해 악의적인 응용 프로그램에 대 한 동의를 허용할 수 있습니다.
 
-다음은 Microsoft 클라우드 서비스에 대해 확인할 수 있는 권한입니다.
+다음은 Microsoft 클라우드 서비스에 대해 확인할 수 있는 권한이 있는 앱 목록입니다.
 
-- 앱 또는 위임 된 \*응용 프로그램 ReadWrite 권한
-- 위임 된 권한이 있는 응용 프로그램은 사용자를 대신 하 여 전자 메일을 읽거나 보내거나 관리할 수 있습니다.
-- 다음 사용 권한을 부여 받은 응용 프로그램:
+- 앱 또는 위임 된 \*ReadWrite 권한
+- 위임 된 권한이 있는 앱은 사용자 대신 전자 메일을 읽거나, 보내거나, 관리할 수 있습니다.
+- 다음 사용 권한을 부여 받은 앱:
 
 | 리소스 | 사용 권한 |
-| -------------------------- | -------------------- |
+| :- | :- |
 | Office 365 Exchange Online | 그런. AccessAsUser. 모두 |
 | | EWS. AccessAsUser. 모두 |
 | | 메일. 읽기 |
@@ -309,11 +309,19 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-이 시나리오를 방지 하기 위해 [Office 365의 불법 승인 허용을 검색](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하 고 수정 하 여 필요한 것 보다 더 많은 권한이 부여 된 응용 프로그램 또는 응용 프로그램을 식별 하 고 수정 하는 것을 참조 해야 합니다. 앱 사용 권한 정기 검토를 예약 하 고 필요 하지 않은 경우 제거 합니다. 또는 셀프 서비스를 완전히 제거 하 고 거 버 넌 스 절차를 설정 합니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다.
+
+|리소스 | 사용 권한 |
+| :- | :- |
+| Azure AD 그래프 | Directory.AccessAsUser.All |
+| Microsoft Graph | Directory.AccessAsUser.All |
+| Azure REST API | user_impersonation |
+
+이 시나리오를 방지 하기 위해 [Office 365의 불법 승인 허용을 검색](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하 고 수정 하 여 필요한 것 보다 더 많은 권한이 부여 된 응용 프로그램 또는 응용 프로그램을 식별 하 고 수정 하는 것을 참조 해야 합니다. 그런 다음 [셀프 서비스를 완전히 제거](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) 하 고 [거 버 넌 스 절차를 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)합니다. 마지막으로, 앱 사용 권한 정기 검토를 예약 하 고 필요 하지 않은 경우 제거 합니다.
 
 #### <a name="consent-grants-recommended-reading"></a>동의 부여 권장 읽기
 
-- [AD (Azure Active Directory) Graph API 권한 범위](https://msdn.microsoft.com/library/azure/ad/graph/howto/azure-ad-graph-api-permission-scopes)
+- [Microsoft Graph 사용 권한](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>사용자 및 그룹 설정
 

@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 데스크톱 앱 (프로덕션으로 이동)-Microsoft identity platform
-description: 웹 Api를 호출 하는 데스크톱 앱을 빌드하는 방법 알아보기 (프로덕션으로 이동)
+title: 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동-Microsoft id 플랫폼 | Microsoft
+description: 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -17,16 +17,16 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5331f01c5dc6acf01f567dbe4c332853bf7aa47e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 81a5e57d0ef37a3a2e758e42f122c8e014c94958
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175559"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919986"
 ---
 # <a name="desktop-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 데스크톱 앱-프로덕션으로 이동
 
-이 문서에서는 응용 프로그램을 개선 하 고 프로덕션으로 이동 하기 위한 세부 정보를 제공 합니다.
+이 문서에서는 웹 Api를 호출 하는 데스크톱 앱을 프로덕션으로 이동 하기 위한 세부 정보를 제공 합니다.
 
 ## <a name="handling-errors-in-desktop-applications"></a>데스크톱 응용 프로그램의 오류 처리
 

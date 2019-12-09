@@ -1,23 +1,21 @@
 ---
-title: 'Azure-SSIS Integration Runtime Enterprise 버전 프로비전 '
+title: Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 description: 이 문서에서는 Azure-SSIS Integration Runtime Enterprise 버전의 기능 및 프로비전하는 방법을 설명합니다.
 services: data-factory
-documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 04/13/2018
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
-manager: craigg
-ms.openlocfilehash: 8c9db18d416d508dd5a98cbacc14b7db6c075a55
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+manager: anandsub
+ms.openlocfilehash: 8096da955da0266f3727197f21d67c33d099aa4f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73673965"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74922655"
 ---
 # <a name="provision-enterprise-edition-for-the-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime Enterprise 버전 프로비전
 
@@ -48,7 +46,7 @@ Azure-SSIS Integration Runtime Enterprise 버전에서는 다음과 같은 고�
 
 1.  [Azure PowerShell](/powershell/azure/install-az-ps)를 다운로드하여 설치합니다.
 
-2.  PowerShell을 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성하는 경우 Azure-SSIS IR을 시작하기 전에 `Set-AzDataFactoryV2IntegrationRuntime`Edition**매개 변수 값으로**Enterprise**를 지정하여** 을 실행합니다. 샘플 스크립트는 다음과 같습니다.
+2.  PowerShell을 사용하여 Azure-SSIS IR을 프로비전하거나 다시 구성하는 경우 Azure-SSIS IR을 시작하기 전에 **Edition** 매개 변수 값으로 **Enterprise**를 지정하여 `Set-AzDataFactoryV2IntegrationRuntime`을 실행합니다. 샘플 스크립트는 다음과 같습니다.
 
     ```powershell
     $MyAzureSsisIrEdition = "Enterprise"

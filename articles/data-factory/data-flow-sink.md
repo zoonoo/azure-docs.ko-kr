@@ -1,5 +1,5 @@
 ---
-title: 데이터 흐름 매핑 기능에서 싱크 변환 설정
+title: 매핑 데이터 흐름에서 싱크 변환 설정
 description: 매핑 데이터 흐름에서 싱크 변환을 설정 하는 방법에 대해 알아봅니다.
 author: kromerm
 ms.author: makromer
@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/03/2019
-ms.openlocfilehash: 707c0e93b88f34d4663d3dbe20bb2e9e4991a332
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 828487aba651d10e5c906050dab544c097b49762
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217922"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930267"
 ---
 # <a name="sink-transformation-for-a-data-flow"></a>데이터 흐름에 대 한 싱크 변환
 
@@ -112,7 +112,7 @@ Azure Blob 저장소 또는 Data Lake Storage 싱크 형식의 경우 변환 된
 
 CosmosDB에서 데이터를 방문 하는 경우 다음과 같은 추가 옵션을 고려해 야 합니다.
 
-* 파티션 키: 필수 필드입니다. 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예제: ```/movies/title```
+* 파티션 키: 필수 필드입니다. 컬렉션에 대 한 파티션 키를 나타내는 문자열을 입력 합니다. 예: ```/movies/title```
 * 처리량:이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용 하려는 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
 
 ## <a name="next-steps"></a>다음 단계

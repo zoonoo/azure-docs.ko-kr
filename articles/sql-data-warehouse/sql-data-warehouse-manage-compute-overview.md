@@ -2,21 +2,21 @@
 title: 계산 리소스 관리
 description: Azure SQL Data Warehouse의 성능 확장 기능을 알아봅니다. DWU를 조정하여 확장하거나 데이터 웨어하우스를 일시 중지하여 비용을 절약합니다.
 services: sql-data-warehouse
-author: kevinvngo
+author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
 ms.date: 11/12/2019
-ms.author: kevin
+ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 936d92d085420e1386e29a924470b9bac9200d43
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039094"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923592"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 컴퓨팅 관리
 Azure SQL Data Warehouse에서 컴퓨팅 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -59,7 +59,7 @@ SQL Data Warehouse는 크기 조정 작업을 수행하기 위해 먼저 들어�
 
 최적의 데이터 웨어하우스 단위 수를 찾는 데 권장되는 사항은 다음과 같습니다.
 
-- 개발 중인 데이터 웨어하우스의 경우 우선 더 적은 수의 데이터 웨어하우스 단위를 선택하여 시작합니다.  적합한 시작 지점은 DW400 또는 DW200입니다.
+- 개발 중인 데이터 웨어하우스의 경우 우선 더 적은 수의 데이터 웨어하우스 단위를 선택하여 시작합니다.  좋은 출발점은 DW400c 또는 DW200c입니다.
 - 애플리케이션 성능을 모니터링하여 선택한 데이터 웨어하우스 단위 수와 관찰한 성능을 비교합니다.
 - 선형 크기 조정을 가정하고 데이터 웨어하우스 단위를 늘리거나 줄이는 데 필요한 크기를 결정합니다. 
 - 비즈니스 요구 사항에 맞는 최적 성능 수준에 도달할 때까지 계속 조정합니다.

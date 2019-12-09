@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름 선택 변환
+title: 데이터 흐름 매핑 선택 변환
 description: Azure Data Factory 매핑 데이터 흐름 선택 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: 6ef9712dd2fd6b8d53fd4ad2c3e07e1d6c8f1aec
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: a255d89aa4850d1249f1af9bdd0cb43b0826914f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387192"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930240"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>데이터 흐름 매핑 선택 변환
 

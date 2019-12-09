@@ -6,15 +6,14 @@ services: expressroute
 author: charwen
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 12/06/2019
 ms.author: charwen
-ms.custom: seodec18
-ms.openlocfilehash: 0643ce99ce4ba9328abc3f7a8c8e7061026611b9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: aba07e0a1dd8e7b1db8677907672d919ef034057
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031786"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74926222"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections-classic"></a>ExpressRoute 및 사이트 간 공존 연결 구성(클래식)
 > [!div class="op_single_selector"]
@@ -78,6 +77,10 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
   
     이 절차에서 함께 사용할 수 있는 연결을 만들려면 게이트웨이를 삭제한 다음 공존할 수 있는 새 게이트웨이를 구성해야 합니다. 이 경우 게이트웨이 및 연결을 삭제하고 다시 만드는 동안 크로스-프레미스 연결을 위한 가동 중지 시간이 발생하지만 VM 또는 서비스를 새 가상 네트워크로 마이그레이션할 필요는 없습니다. VM 및 서비스는 그렇게 구성된 경우 게이트웨이를 구성하는 동안 부하 분산 장치를 통해 계속 통신할 수 있습니다.
 
+## <a name="install-powershell-cmdlets"></a>PowerShell cmdlet 설치
+
+[!INCLUDE [classic powershell install instructions](../../includes/expressroute-poweshell-classic-install-include.md)]
+
 ## <a name="new"></a>새 가상 네트워크 및 공존 연결을 만들려면
 이 절차는 VNet 만들기를 안내하고 함께 사용하는 사이트 간 및 ExpressRoute 연결을 만듭니다.
 
@@ -122,7 +125,7 @@ ExpressRoute에 대한 백업으로 사이트 간 VPN 연결을 구성할 수 �
 5. ExpressRoute 게이트웨이를 ExpressRoute 회로에 연결합니다. 이 단계를 완료하면 ExpressRoute를 통해 온-프레미스 네트워크와 Azure 간의 연결이 설정됩니다.
    
         New-AzureDedicatedCircuitLink -ServiceKey <service-key> -VNetName MyAzureVNET
-6. <a name="vpngw"></a>그런 다음 사이트 간 VPN 게이트웨이를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
+6. <a name="vpngw"></a>그런 다음 사이트 간 VPN Gateway를 만듭니다. GatewaySKU는 *Standard*, *HighPerformance* 또는 *UltraPerformance*이어야 하고 GatewayType은 *DynamicRouting*이어야 합니다.
    
         New-AzureVirtualNetworkGateway -VNetName MyAzureVNET -GatewayName S2SVPN -GatewayType DynamicRouting -GatewaySKU  HighPerformance
    

@@ -1,17 +1,18 @@
 ---
-title: 데이터 흐름 조회 변환 Azure Data Factory 매핑
+title: 데이터 흐름 조회 변환 매핑
 description: 데이터 흐름 조회 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/03/2019
-ms.openlocfilehash: 01a1dba18e21a38695146560bbf85cf1a042ba02
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596551"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930324"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>데이터 흐름 조회 변환 Azure Data Factory 매핑
 
@@ -47,7 +48,7 @@ ms.locfileid: "72596551"
 
 Data Factory에서 데이터 흐름은 스케일 아웃 Spark 환경에서 실행 됩니다. 데이터 집합을 작업자 노드 메모리 공간에 맞출 수 있는 경우 조회 성능을 최적화할 수 있습니다.
 
-![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 조인")
+![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 참가")
 
 ### <a name="broadcast-join"></a>브로드캐스트 조인
 
@@ -60,4 +61,4 @@ Data Factory에서 데이터 흐름은 스케일 아웃 Spark 환경에서 실�
 ## <a name="next-steps"></a>다음 단계
 
 * [조인](data-flow-join.md) 및 [존재](data-flow-exists.md) 변환은 ADF 매핑 데이터 흐름에서 유사한 작업을 수행 합니다. 다음으로 이러한 변환을 살펴보세요.
-* @No__t_1와 [조건부 분할](data-flow-conditional-split.md) 을 사용 하 여 일치 하는 값 및 일치 하지 않는 값에 대 한 행 분할
+* ```isMatch()```와 [조건부 분할](data-flow-conditional-split.md) 을 사용 하 여 일치 하는 값 및 일치 하지 않는 값에 대 한 행 분할

@@ -4,25 +4,24 @@ description: 데이터 게이트웨이를 설정하여 온-프레미스와 클�
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 ms.assetid: 7bf6d8fd-04b5-499d-bd19-eff217aa4a9c
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 52bce71abd6ecf30b5a3661c2e6033537357db3a
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 039a19f38da4e651ee35fe60ba2b95a40cf890b0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682483"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931900"
 ---
 # <a name="move-data-between-on-premises-sources-and-the-cloud-with-data-management-gateway"></a>온-프레미스 원본과 클라우드 간에 데이터 관리 게이트웨이로 데이터 이동
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
+> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory를 사용하여 온-프레미스 및 클라우드 간에 데이터 복사](../tutorial-hybrid-copy-powershell.md)를 참조하세요.
 
 이 문서에서는 Data Factory를 사용하여 온-프레미스 데이터 저장소와 클라우드 데이터 저장소 간에 데이터 통합의 개요를 제공합니다. [데이터 이동 활동](data-factory-data-movement-activities.md) 문서 및 [데이터 세트](data-factory-create-datasets.md)와 [파이프라인](data-factory-create-pipelines.md)과 같은 기타 Data Factory 핵심 개념 문서를 작성합니다.
 
@@ -37,7 +36,7 @@ ms.locfileid: "73682483"
 ## <a name="walkthrough-copy-on-premises-data-to-cloud"></a>연습: 클라우드에 온-프레미스 데이터 복사
 이 연습에서는 다음 단계를 수행합니다. 
 
-1. 데이터 팩터리를 만듭니다.
+1. 데이터 팩터리 만들기
 2. 데이터 관리 게이트웨이를 만듭니다. 
 3. 원본 및 싱크 데이터 저장소에 대한 연결된 서비스를 만듭니다.
 4. 입력 및 출력 데이터를 나타낼 데이터 세트를 만듭니다.
@@ -51,9 +50,9 @@ ms.locfileid: "73682483"
 * **SQL Server**. 이 자습서에서는 온-프레미스 SQL Server 데이터베이스를 **원본** 데이터 저장소로 사용합니다. 
 
 ## <a name="create-data-factory"></a>데이터 팩터리 만들기
-이 단계에서는 Azure 포털을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
+이 단계에서는 Azure Portal을 사용하여 **ADFTutorialOnPremDF**라는 Azure Data Factory 인스턴스를 만듭니다.
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure 포털](https://portal.azure.com) 에 로그인합니다.
 2. **리소스 만들기**를 클릭하고 **인텔리전스 + 분석** 및 **데이터 팩터리**를 차례로 클릭합니다.
 
    ![새로 만들기->DataFactory](./media/data-factory-move-data-between-onprem-and-cloud/NewDataFactoryMenu.png)  
@@ -77,7 +76,7 @@ ms.locfileid: "73682483"
    >
 7. 만들기가 완료되면 다음 이미지에서 보여준 대로 **데이터 팩터리** 페이지가 표시됩니다.
 
-   ![데이터 팩터리 홈 페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
+   ![데이터 팩터리 홈페이지](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDataFactoryHomePage.png)
 
 ## <a name="create-gateway"></a>게이트웨이 만들기
 1. **데이터 팩터리** 페이지에서 **작성자 및 배포** 타일을 클릭하여 데이터 팩터리에 대한 **편집기**를 시작합니다.
@@ -118,7 +117,7 @@ ms.locfileid: "73682483"
 5. 몇 분 정도 기다리거나 다음과 같은 알림 메시지가 나타날 때까지 기다립니다.
 
     ![성공적인 게이트웨이 설치](./media/data-factory-move-data-between-onprem-and-cloud/gateway-install-success.png)
-6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 애플리케이션을 시작합니다. **검색** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
+6. 컴퓨터에서 **데이터 관리 게이트웨이 구성 관리자** 애플리케이션을 시작합니다. **Search** 창에서 **데이터 관리 게이트웨이**를 입력하여 이 유틸리티에 액세스합니다. **C:\Program Files\Microsoft Data Management Gateway\2.0\Shared** 폴더에서 **ConfigManager.exe** 실행 파일을 찾을 수도 있습니다.
 
     ![게이트웨이 구성 관리자](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDMGConfigurationManager.png)
 7. `adftutorialgateway is connected to the cloud service` 메시지를 확인합니다. 맨 아래 상태 표시줄에 **색 확인 표시**와 함께 **클라우드 서비스에 연결됨**이 표시됩니다.
@@ -139,7 +138,7 @@ ms.locfileid: "73682483"
    * 게이트웨이에서 사용 중인 인증서를 보거나 내보냅니다.
    * 게이트웨이에서 사용하는 HTTPS 엔드포인트를 변경합니다.    
    * 게이트웨이에서 사용할 HTTP 프록시를 설정합니다.     
-9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **애플리케이션 및 서비스 로그**데이터 관리 게이트웨이 ->  노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
+9. (선택 사항) 게이트웨이와 관련된 모든 문제를 해결하는 데 사용할 수 있는 자세한 정보 로깅을 활성화하려면 **진단** 탭으로 전환하고 **자세한 정보 로깅 사용** 옵션을 체크합니다. 로깅 정보는 **애플리케이션 및 서비스 로그** -> **데이터 관리 게이트웨이** 노드 아래의 **이벤트 뷰어**에서 찾을 수 있습니다.
 
     ![진단 탭](./media/data-factory-move-data-between-onprem-and-cloud/diagnostics-tab.png)
 
@@ -147,13 +146,13 @@ ms.locfileid: "73682483"
 
    * 게이트웨이를 사용하여 온-프레미스 데이터 원본에 대한 **연결 테스트** 섹션을 사용합니다.
    * **로그 보기**를 클릭하여 이벤트 뷰어 창에서 데이터 관리 게이트웨이 로그를 확인합니다.
-   * **로그 보내기** 를 클릭하여 지난 7일 간의 로그가 포함된 zip 파일을 Microsoft에 업로드하여 문제를 원활하게 해결할 수 있습니다.
+   * **로그 보내기**를 클릭하여 지난 7일 간의 로그가 포함된 zip 파일을 Microsoft에 업로드하여 문제를 원활하게 해결할 수 있습니다.
 10. **진단** 탭의 **연결 테스트** 섹션에서 데이터 저장소 유형으로 **SqlServer**를 선택하고, 데이터베이스 서버 이름과 데이터베이스 이름을 입력하며, 인증 유형을 지정하고, 사용자 이름과 암호를 입력하며, **테스트**를 클릭하여 게이트웨이를 데이터베이스에 연결할 수 있는지 여부를 테스트합니다.
 11. 웹 브라우저로 전환하고, **Azure Portal**의 **구성** 페이지에서 **확인**을 클릭한 다음 **새 데이터 게이트웨이** 페이지에서 [확인]을 클릭합니다.
 12. 왼쪽 트리의 **데이터 게이트웨이** 아래에 **adftutorialgateway**가 표시되어야 합니다.  이 항목을 클릭하면 연결된 JSON이 나타납니다.
 
 ## <a name="create-linked-services"></a>연결된 서비스 만들기
-이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob 저장소를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 만듭니다.
+이 단계에서는 두 개의 연결된 서비스인 **AzureStorageLinkedService** 및 **SqlServerLinkedService**를 만듭니다. **SqlServerLinkedService**는 온-프레미스 SQL Server 데이터베이스를 연결하며 **AzureStorageLinkedService** 연결된 서비스는 Azure Blob Storage를 Data Factory에 연결합니다. 이 연습의 뒷부분에서는 온-프레미스 SQL Server 데이터베이스에서 Azure Blob Storage로 데이터를 복사하는 파이프라인을 만듭니다.
 
 #### <a name="add-a-linked-service-to-an-on-premises-sql-server-database"></a>온-프레미스 SQL Server 데이터베이스에 연결된 서비스 추가
 1. **데이터 팩터리 편집기**의 도구 모음에서 **새 데이터 저장소**를 클릭하고 **SQL Server**를 선택합니다.
@@ -184,7 +183,7 @@ ms.locfileid: "73682483"
 4. **배포**를 클릭하여 **AzureStorageLinkedService**를 배포합니다.
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
-이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = &gt; Azure Blob Storage)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 세트을 만듭니다. 데이터 세트를 만들기 전에 다음 단계를 수행합니다(목록 뒤에 자세한 단계가 나옴).
+이 단계에서는 복사 작업(온-프레미스 SQL Server 데이터베이스 = &gt; Azure Blob Storage)의 입력 및 출력 데이터를 나타내는 입력 및 출력 데이터 세트를 만듭니다. 데이터 세트를 만들기 전에 다음 단계를 수행합니다(목록 뒤에 자세한 단계가 나옴).
 
 * 데이터 팩터리에 연결된 서비스로 추가한 SQL Server 데이터베이스에서 **emp**라는 테이블을 만들고 테이블에 몇 가지 샘플 항목을 삽입합니다.
 * 데이터 팩터리에 연결된 서비스로 추가한 Azure Blob Storage 계정에서 **adftutorial**로 명명된 BLOB 컨테이너를 만듭니다.
@@ -250,7 +249,7 @@ ms.locfileid: "73682483"
 
 ### <a name="create-output-dataset"></a>출력 데이터 세트 만들기
 
-1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**을 클릭하고 **Azure Blob Storage**를 클릭합니다.
+1. **데이터 팩터리 편집기**의 명령 모음에서 **새 데이터 세트**를 클릭하고 **Azure Blob Storage**를 클릭합니다.
 2. 오른쪽 창의 JSON을 다음 텍스트로 바꿉니다.
 
     ```JSON   
@@ -360,7 +359,7 @@ ms.locfileid: "73682483"
    * activities 섹션에는 **type**이 **Copy**로 설정된 작업 하나밖에 없습니다.
    * 작업에 대한 **입력**을 **EmpOnPremSQLTable**로 설정하고 작업에 대한 **출력**을 **OutputBlobTable**로 설정합니다.
    * **TypeProperties** 섹션에서 **sqlsource** 를 **원본 유형** 으로 지정 하 고 **blobsink** 를 **싱크 유형**으로 지정 합니다.
-   * `select * from emp`SqlSource**의** sqlReaderQuery**속성에 대해 SQL 쿼리**을 지정합니다.
+   * **SqlSource**의 **sqlReaderQuery** 속성에 대해 SQL 쿼리 `select * from emp`을 지정합니다.
 
    start 및 end 날짜/시간은 둘 다 [ISO 형식](https://en.wikipedia.org/wiki/ISO_8601)(영문)이어야 합니다. 예: 2014-10-14T16:32:41Z. **종료** 시간은 선택 사항이지만 이 자습서에서는 사용합니다.
 
@@ -375,7 +374,7 @@ ms.locfileid: "73682483"
 **축하합니다.** Azure 데이터 팩터리, 연결된 서비스, 데이터 세트 및 파이프라인을 성공적으로 만들고 해당 파이프라인을 예약했습니다.
 
 #### <a name="view-the-data-factory-in-a-diagram-view"></a>다이어그램 뷰에서 데이터 팩터리 보기
-1. **Azure 포털**에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :
+1. **Azure Portal**에서 **ADFTutorialOnPremDF** 데이터 팩터리의 홈페이지에 있는 **다이어그램** 타일을 클릭합니다. :
 
     ![다이어그램 링크](./media/data-factory-move-data-between-onprem-and-cloud/OnPremDiagramLink.png)
 2. 다음 이미지와 유사한 다이어그램이 표시됩니다.
@@ -385,7 +384,7 @@ ms.locfileid: "73682483"
     확대, 축소, 100% 확대, 크기에 맞게, 자동으로 파이프라인 및 데이터 세트 위치 지정, 계보 정보 표시(선택한 항목의 업스트림/다운스트림 항목 강조 표시)를 수행할 수 있습니다.  개체(입출력 데이터 세트 또는 파이프라인)를 두 번 클릭하면 해당 속성을 볼 수 있습니다.
 
 ## <a name="monitor-pipeline"></a>파이프라인 모니터링
-이 단계에서는 Azure 포털을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 세트와 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
+이 단계에서는 Azure Portal을 사용하여 Azure Data Factory에서 어떤 일이 일어나는지 모니터링합니다. 또한 PowerShell cmdlet을 사용하여 데이터 세트와 파이프라인을 모니터링할 수도 있습니다. 모니터링에 대한 자세한 내용은 [파이프라인 모니터링 및 관리](data-factory-monitor-manage-pipelines.md) 서를 참조하세요.
 
 1. 다이어그램에서 **EmpOnPremSQLTable**을 두 번 클릭합니다.  
 

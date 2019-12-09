@@ -1,5 +1,5 @@
 ---
-title: 웹 Api를 호출 하는 모바일 앱-앱에 대 한 토큰 가져오기
+title: 모바일 앱에서 웹 Api를 호출 하는 토큰 가져오기 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 웹 Api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기 (앱에 대 한 토큰 가져오기)
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b1d6a0e4bfffaaf4ed0fa836bcf62a7f1104e6a
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 1101a1923e094c22e9f6a82853f4dec4deb089a1
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803775"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74919922"
 ---
 # <a name="mobile-app-that-calls-web-apis---get-a-token"></a>웹 Api를 호출 하는 모바일 앱-토큰 가져오기
 

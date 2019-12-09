@@ -1,22 +1,22 @@
 ---
-title: Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 로드
+title: SAP Business Warehouse에서 데이터 로드
 description: Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사 (BW)
 services: data-factory
-documentationcenter: ''
 author: linda33wj
-manager: craigg
+ms.author: jingwang
+manager: shwang
 ms.reviewer: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/22/2019
-ms.author: jingwang
-ms.openlocfilehash: 0c96ecff27a57b3277e7c8105766059b739d11af
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 7d9c0000964348b7c9c83ccbc2490677614c50cd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73672659"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931461"
 ---
 # <a name="copy-data-from-sap-business-warehouse-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 SAP Business Warehouse에서 데이터 복사
 
@@ -25,7 +25,7 @@ ms.locfileid: "73672659"
 > [!TIP]
 > SAP BW에서 데이터를 복사 하는 방법에 대 한 일반적인 내용은 SAP BW Open Hub 통합 및 델타 추출 흐름을 참조 하세요. [Azure Data Factory를 사용 하 여 개방형 허브를 통해 SAP Business Warehouse에서 데이터 복사](connector-sap-business-warehouse-open-hub.md)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 - **Azure Data Factory**: 없는 경우 [데이터 팩터리를 만드는](quickstart-create-data-factory-portal.md#create-a-data-factory)단계를 수행 합니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "73672659"
 - **SAP BW 사용자에 게 다음 권한이 필요**합니다.
 
   - RFC (원격 함수 호출) 및 SAP BW에 대 한 권한 부여입니다.
-  - **S_SDSAUTH** authorization 개체의 "Execute" 작업에 대 한 사용 권한
+  - **S_SDSAUTH** 권한 부여 개체의 "실행" 작업에 대 한 사용 권한
 
 - **SAP .net connector 3.0를 사용 하는 [자체 호스팅 IR (통합 런타임)](concepts-integration-runtime.md#self-hosted-integration-runtime)** 다음 설정 단계를 따르세요.
 
@@ -46,7 +46,7 @@ ms.locfileid: "73672659"
 
 ## <a name="do-a-full-copy-from-sap-bw-open-hub"></a>SAP BW 열려 있는 허브에서 전체 복사본을 만듭니다.
 
-Azure Portal에서 데이터 팩터리로 이동 합니다. **작성자 & 모니터** 를 선택 하 여 별도의 탭에서 Data Factory UI를 엽니다.
+Azure Portal에서 Data Factory로 이동합니다. **작성자 & 모니터** 를 선택 하 여 별도의 탭에서 Data Factory UI를 엽니다.
 
 1. **시작** 하기 페이지에서 **데이터 복사** 를 선택 하 여 데이터 복사 도구를 엽니다.
 
@@ -101,7 +101,7 @@ Azure Portal에서 데이터 팩터리로 이동 합니다. **작성자 & 모니
 
     ![복사 설정 구성](media/load-sap-bw-data/configure-copy-settings.png)
 
-12. **요약** 페이지에서 설정을 검토 합니다. 그런 후 **다음**을 선택합니다.
+12. **요약** 페이지에서 설정을 검토합니다. 그런 후 **다음**을 선택합니다.
 
 13. **배포** 페이지에서 **모니터** 를 선택 하 여 파이프라인을 모니터링 합니다.
 
@@ -212,7 +212,7 @@ Azure Portal에서 데이터 팩터리로 이동 합니다. **작성자 & 모니
 
    DTP에 대해 실행 중인 병렬 SAP 작업 프로세스의 수를 늘릴 수 있습니다.
 
-   ![만들기-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
+   ![create-sap-bw-ohd-delta3](media/load-sap-bw-data/create-sap-bw-ohd-delta3.png)
 
 2. 프로세스 체인에서 DTP를 예약 합니다.
 

@@ -9,15 +9,14 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/3/2019
-ms.openlocfilehash: 99b7de8c0e24fdbd12742b26394e61c956638525
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 52629b8e2e190cc041116e6f65488480712baf01
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74038268"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929798"
 ---
 # <a name="migrate-on-premises-ssis-workloads-to-ssis-in-adf"></a>ADF에서 온-프레미스 SSIS 워크 로드를 SSIS로 마이그레이션
 
@@ -42,7 +41,7 @@ DMA (Data Migration Assistant)는이 목적을 위해 로컬에서 설치 및 �
 ### <a name="four-storage-types-for-ssis-packages"></a>SSIS 패키지에 대 한 4 가지 저장소 유형
 
 - SSIS 카탈로그 (SSISDB). 이는 SQL Server 2012에서 도입 되었으며 SSIS 프로젝트/패키지 작업에 사용 되는 저장 프로시저, 뷰 및 테이블 반환 함수 집합을 포함 합니다.
-- 파일 시스템입니다.
+- 파일 시스템
 - MSDB (SQL Server 시스템 데이터베이스).
 - SSIS 패키지 저장소. 다음은 두 하위 유형 위에 있는 패키지 관리 계층입니다.
   - MSDB는 SSIS 패키지를 저장 하는 데 사용 되는 SQL Server의 시스템 데이터베이스입니다.
@@ -54,7 +53,7 @@ Dma는 현재 **dma 버전 v 5.0**이후 **파일 시스템**, **패키지 저�
 
 ## <a name="migration"></a>마이그레이션
 
-원본 SSIS 패키지의 [저장소 유형과](#four-storage-types-for-ssis-packages) 데이터베이스 작업의 마이그레이션 대상에 **따라 ssis 패키지를 마이그레이션하는** 단계와 ssis 패키지 실행을 예약 하는 **SQL Server 에이전트 작업이** 다를 수 있습니다. 다음과 같은 두 가지 시나리오가 있습니다.
+원본 SSIS 패키지의 [저장소 유형과](#four-storage-types-for-ssis-packages) 데이터베이스 작업의 마이그레이션 대상에 **따라 ssis 패키지를 마이그레이션하는** 단계와 ssis 패키지 실행을 예약 하는 **SQL Server 에이전트 작업이** 다를 수 있습니다. 다음과 같은 2가지 시나리오가 있습니다.
 
 - [**관리 되는 인스턴스** 를 데이터베이스 작업 대상으로 Azure SQL Database](#azure-sql-database-managed-instance-as-database-workload-destination)
 - [데이터베이스 작업 대상으로 **Azure SQL Database**](#azure-sql-database-as-database-workload-destination)
@@ -87,7 +86,7 @@ Dma는 현재 **dma 버전 v 5.0**이후 **파일 시스템**, **패키지 저�
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure에 배포 된 SSIS 패키지 유효성 검사](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-validate-packages)
+- [Azure에 배포된 SSIS 패키지 유효성 검사](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-validate-packages)
 - [Azure에 배포 된 SSIS 패키지 실행](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-run-packages)
 - [Azure-SSIS Integration Runtime 모니터링](https://docs.microsoft.com/azure/data-factory/monitor-integration-runtime#azure-ssis-integration-runtime)
 - [Azure에서 SSIS 패키지 실행 예약](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-schedule-packages)

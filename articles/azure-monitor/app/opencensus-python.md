@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2114e60b5ed684063ed100279ea19f561bd335ea
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: af16643ed877ca427a22428afec028264de7a5d8
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849788"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928996"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
@@ -61,7 +61,16 @@ python -m pip install opencensus-ext-azure
 
 SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 대 한 다양 한 유형의 원격 분석 (추적, 메트릭 및 로그)을 보냅니다. 이러한 원격 분석 형식에 대 한 자세한 내용은 [데이터 플랫폼 개요](https://docs.microsoft.com/azure/azure-monitor/platform/data-platform)를 참조 하세요. 다음 지침을 사용 하 여 세 가지 내보내기를 통해 이러한 원격 분석 유형을 보냅니다.
 
+## <a name="telemetry-type-mappings"></a>원격 분석 형식 매핑
+
+다음은 Azure Monitor에서 볼 수 있는 원격 분석 유형에 OpenCensus가 제공 하는 내보내기입니다.
+
+![OpenCensus에서 Azure Monitor로 원격 분석 유형을 매핑하는 스크린샷](./media/opencensus-python/0012-telemetry-types.png)
+
 ### <a name="trace"></a>추적
+
+> [!NOTE]
+> OpenCensus의 `Trace`은 [분산 추적](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)을 나타냅니다. `AzureExporter`는 Azure Monitor에 `requests` 및 `dependency` 원격 분석을 보냅니다.
 
 1. 먼저 일부 추적 데이터를 로컬로 생성 해 보겠습니다. Python 유휴 또는 원하는 편집기에서 다음 코드를 입력 합니다.
 
@@ -293,7 +302,10 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
         main()
     ```
 
-4. 내보내기가 로그 데이터를 Azure Monitor으로 보냅니다. `traces`에서 데이터를 찾을 수 있습니다.
+4. 내보내기가 로그 데이터를 Azure Monitor으로 보냅니다. `traces`에서 데이터를 찾을 수 있습니다. 
+
+> [!NOTE]
+> 이 컨텍스트의 `traces` `Tracing`와 동일 하지 않습니다. `traces`은 `AzureLogHandler`을 활용할 때 Azure Monitor에 표시 되는 원격 분석의 유형을 나타냅니다. `Tracing` OpenCensus의 개념을 참조 하 고 [분산 추적](https://docs.microsoft.com/azure/azure-monitor/app/distributed-tracing)에 연결 합니다.
 
 5. 로그 메시지의 형식을 지정 하기 위해 기본 제공 Python [로깅 API](https://docs.python.org/3/library/logging.html#formatter-objects)에서 `formatters`를 사용할 수 있습니다.
 

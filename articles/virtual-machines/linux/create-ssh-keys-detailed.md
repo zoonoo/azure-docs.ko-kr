@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 12/06/2019
 ms.author: cynthn
-ms.openlocfilehash: 61f24776bb9ec9443df421dcbcf35dcc83ec2bc9
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: eea078a4fb8287a4f07db478adf059eecce9ed82
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036500"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929706"
 ---
 # <a name="detailed-steps-create-and-manage-ssh-keys-for-authentication-to-a-linux-vm-in-azure"></a>자세한 단계: Azure에서 Linux VM 인증을 위해 SSH 키 만들기 및 관리 
 SSH(보안 셸) 키 쌍을 사용하면 인증을 위해 기본적으로 SSH 키를 사용하는 Linux 가상 머신을 Azure에서 만들 수 있으므로 로그인할 때 암호가 필요하지 않습니다. Azure Portal, Azure CLI, Resource Manager 템플릿 또는 기타 도구를 사용하여 만든 VM은 SSH 연결을 위해 SSH 키 인증을 설정하는 배포의 일부로 SSH 공개 키를 포함할 수 있습니다. 
@@ -52,7 +52,7 @@ SSH 키는 기본적으로 `~/.ssh` 디렉터리에 보관됩니다.  `~/.ssh` �
 다음 `ssh-keygen` 명령은 기본적으로 `~/.ssh` 디렉터리에 2048비트 SSH RSA 공개 및 프라이빗 키 파일을 생성합니다. SSH 키 쌍이 현재 위치에 있으면 이러한 파일은 덮어쓰여집니다.
 
 ```bash
-ssh-keygen -t rsa -b 2048
+ssh-keygen -m PEM -t rsa -b 4096
 ```
 
 ### <a name="detailed-example"></a>자세한 예제
@@ -60,6 +60,7 @@ ssh-keygen -t rsa -b 2048
 
 ```bash
 ssh-keygen \
+    -m PEM \
     -t rsa \
     -b 4096 \
     -C "azureuser@myserver" \
@@ -70,6 +71,8 @@ ssh-keygen \
 **설명된 명령**
 
 `ssh-keygen` = 키를 만드는 데 사용한 프로그램
+
+`-m PEM` = 키의 형식을 PEM으로 지정 합니다.
 
 `-t rsa` = 이 경우 RSA 형식으로 만들 키 유형
 
@@ -84,7 +87,7 @@ ssh-keygen \
 ### <a name="example-of-ssh-keygen"></a>ssh-keygen 예제
 
 ```bash
-ssh-keygen -t rsa -b 2048 -C "azureuser@myserver"
+ssh-keygen -t -m PEM rsa -b 4096 -C "azureuser@myserver"
 Generating public/private rsa key pair.
 Enter file in which to save the key (/home/azureuser/.ssh/id_rsa):
 Enter passphrase (empty for no passphrase):
@@ -92,19 +95,19 @@ Enter same passphrase again:
 Your identification has been saved in /home/azureuser/.ssh/id_rsa.
 Your public key has been saved in /home/azureuser/.ssh/id_rsa.pub.
 The key fingerprint is:
-14:a3:cb:3e:78:ad:25:cc:55:e9:0c:08:e5:d1:a9:08 azureuser@myserver
-The keys randomart image is:
-+--[ RSA 2048]----+
-|        o o. .   |
-|      E. = .o    |
-|      ..o...     |
-|     . o....     |
-|      o S =      |
-|     . + O       |
-|      + = =      |
-|       o +       |
-|        .        |
-+-----------------+
+SHA256:vFfHHrpSGQBd/oNdvNiX0sG9Vh+wROlZBktNZw9AUjA azureuser@myserver
+The key's randomart image is:
++---[RSA 4096]----+
+|        .oE=*B*+ |
+|          o+o.*++|
+|           .oo++*|
+|       .    .B+.O|
+|        S   o=BO.|
+|         . .o++o |
+|        . ... .  |
+|         ..  .   |
+|           ..    |
++----[SHA256]-----+
 ```
 
 #### <a name="saved-key-files"></a>저장된 키 파일
@@ -129,11 +132,11 @@ ls -al ~/.ssh
 
 ## <a name="generate-keys-automatically-during-deployment"></a>배포 동안 키를 자동으로 생성
 
-VM을 만들기 위해 [Azure CLI](/cli/azure)를 사용하는 경우 [ 옵션으로 ](/cli/azure/vm)az vm create`--generate-ssh-keys` 명령을 실행하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키는 ~/.ssh 디렉터리에 저장됩니다. 이미 해당 위치에 있는 경우 이 명령 옵션은 키를 덮어쓰지 않습니다.
+VM을 만들기 위해 [Azure CLI](/cli/azure)를 사용하는 경우 `--generate-ssh-keys` 옵션으로 [az vm create](/cli/azure/vm) 명령을 실행하여 SSH 공개 및 프라이빗 키 파일을 선택적으로 생성할 수 있습니다. 키는 ~/.ssh 디렉터리에 저장됩니다. 이미 해당 위치에 있는 경우 이 명령 옵션은 키를 덮어쓰지 않습니다.
 
 ## <a name="provide-ssh-public-key-when-deploying-a-vm"></a>VM을 배포하는 경우 SSH 공개 키 제공
 
-인증을 위해 SSH 키를 사용하는 Linux VM을 만들려면 Azure Portal, CLI, Resource Manager 템플릿 또는 기타 방법을 사용하여 VM을 만들 때 SSH 공개 키를 제공합니다. 포털을 사용하는 경우 공개 키 자체를 입력합니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI](/cli/azure)을 사용하는 경우 [ 옵션으로 ](/cli/azure/vm)az vm create`--ssh-key-value` 명령을 실행하여 이 공개 키의 위치나 값을 지정합니다. 
+인증을 위해 SSH 키를 사용하는 Linux VM을 만들려면 Azure Portal, CLI, Resource Manager 템플릿 또는 기타 방법을 사용하여 VM을 만들 때 SSH 공개 키를 제공합니다. 포털을 사용하는 경우 공개 키 자체를 입력합니다. 기존 공개 키를 사용하여 VM을 만들기 위해 [Azure CLI](/cli/azure)을 사용하는 경우 `--ssh-key-value` 옵션으로 [az vm create](/cli/azure/vm) 명령을 실행하여 이 공개 키의 위치나 값을 지정합니다. 
 
 SSH 공개 키의 형식을 잘 모르는 경우 다음과 같이 `cat`을 실행하여 공개 키를 확인할 수 있습니다. 이때 `~/.ssh/id_rsa.pub`를 사용자 고유의 공개 키 파일 위치로 대체합니다.
 
@@ -181,7 +184,7 @@ VM이 Just-In-Time 액세스 정책을 사용하는 경우에는 액세스 권�
 eval "$(ssh-agent -s)"
 ```
 
-이제 `ssh-agent` 명령을 사용하여 프라이빗 키를 `ssh-add`에 추가합니다.
+이제 `ssh-add` 명령을 사용하여 프라이빗 키를 `ssh-agent`에 추가합니다.
 
 ```bash
 ssh-add ~/.ssh/id_rsa

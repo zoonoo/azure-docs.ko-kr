@@ -9,19 +9,18 @@ ms.reviewer: ''
 manager: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 6ea9134085812b99d59ad64aa2c9ec1b2ff827d9
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 38010e3aaa2d0544dfbfe19135d25250d2b021a2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73684391"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929773"
 ---
 # <a name="ssis-migration-with-azure-sql-database-managed-instance-as-the-database-workload-destination"></a>Azure SQL Database 관리 되는 인스턴스를 데이터베이스 작업 대상으로 SSIS 마이그레이션
 
-SQL Server Azure SQL Database 온-프레미스에서 관리 되는 인스턴스로 데이터베이스 워크 로드를 마이그레이션하는 경우 [Azure Data Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)(DMS) 및 [Azure SQL Database 관리 되는 인스턴스 마이그레이션에 대 한 네트워크 토폴로지를 잘 알고 있어야 합니다. DMS 사용](https://docs.microsoft.com/azure/dms/resource-network-topologies).
+SQL Server Azure SQL Database 온-프레미스에서 관리 되는 인스턴스로 데이터베이스 작업을 마이그레이션할 때 dms ( [Azure Data Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)) 및 [dms를 사용 하 여 관리 되는 인스턴스 마이그레이션의 Azure SQL Database 네트워크 토폴로지](https://docs.microsoft.com/azure/dms/resource-network-topologies)를 잘 알고 있어야 합니다.
 
 이 문서에서는 ssis 카탈로그 (SSISDB)에 저장 된 SSIS (SQL Server Integration Service) 패키지와 SSIS 패키지 실행을 예약 하는 SQL Server 에이전트 작업을 마이그레이션하는 방법에 대해 중점적으로 설명 합니다.
 
@@ -35,7 +34,7 @@ Azure SQL Database 관리 되는 인스턴스에는 온-프레미스 SQL Server 
 
 ## <a name="additional-resources"></a>추가 리소스
 
-- [Azure 데이터 팩터리](https://docs.microsoft.com/azure/data-factory/introduction)
+- [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction)
 - [Azure-SSIS Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)
 - [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview)
 - [DMS를 사용 하 여 Azure SQL Database 관리 되는 인스턴스 마이그레이션에 대 한 네트워크 토폴로지](https://docs.microsoft.com/azure/dms/resource-network-topologies)

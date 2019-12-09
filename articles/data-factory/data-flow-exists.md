@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름에 존재 하는 변환
+title: 매핑 데이터 흐름의 존재 변환
 description: Azure Data Factory 매핑 데이터 흐름에서 exists 변환을 사용 하 여 기존 행을 확인 합니다.
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 10/16/2019
-ms.openlocfilehash: a477eba246c4ebcfbd32e92f1fd30c301ea1cc5b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: efcc45dcf3565b70305323701810c49c4a720394
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73676725"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930405"
 ---
 # <a name="exists-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 존재 변환
 

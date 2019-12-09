@@ -4,19 +4,17 @@ description: 감사 로그 SQL Database 구성 하는 방법을 이해 합니다
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
 ms.topic: conceptual
 author: barmichal
 ms.author: mibar
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 3b7a3c295d2edd60c70f47ea155a5d747a3bfb03
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873763"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928629"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 
@@ -32,16 +30,16 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 `sqldbauditl
 
     Server1/Database1/SqlDbAuditing_ServerAudit_NoRetention/2019-02-03/12_23_30_794_0.xel
 
-[읽기 전용 복제본](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-read-scale-out) 감사 로그는 동일한 컨테이너에 저장 됩니다. 컨테이너 내의 디렉터리 계층 구조는 `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`형식입니다. Blob 파일 이름이 동일한 형식을 공유 합니다. 읽기 전용 복제본의 감사 로그는 동일한 컨테이너에 저장 됩니다.
+[읽기 전용 복제본](sql-database-read-scale-out.md) 감사 로그는 동일한 컨테이너에 저장 됩니다. 컨테이너 내의 디렉터리 계층 구조는 `<ServerName>/<DatabaseName>/<AuditName>/<Date>/RO/`형식입니다. Blob 파일 이름이 동일한 형식을 공유 합니다. 읽기 전용 복제본의 감사 로그는 동일한 컨테이너에 저장 됩니다.
 
 
 ### <a name="event-hub"></a>이벤트 허브
 
-감사 이벤트는 감사 구성 중에 정의 된 네임 스페이스 및 이벤트 허브에 기록 되 고, [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 utf-8 인코딩을 사용 하 여 JSON 형식 지정을 사용 하 여 저장 됩니다. 감사 로그를 읽으려면 [Avro 도구](https://docs.microsoft.com/azure/event-hubs/event-hubs-capture-overview#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
+감사 이벤트는 감사 구성 중에 정의 된 네임 스페이스 및 이벤트 허브에 기록 되 고, [Apache Avro](https://avro.apache.org/) 이벤트의 본문에서 캡처되고 utf-8 인코딩을 사용 하 여 JSON 형식 지정을 사용 하 여 저장 됩니다. 감사 로그를 읽으려면 [Avro 도구](../event-hubs/event-hubs-capture-overview.md#use-avro-tools) 또는 이 형식을 처리하는 유사한 도구를 사용할 수 있습니다.
 
 ### <a name="log-analytics"></a>Log Analytics
 
-감사 이벤트는 구성 하는 동안 정의 된 Log Analytics 작업 영역에 기록 되 고 범주 `SQLSecurityAuditEvents``AzureDiagnostics` 테이블에 기록 됩니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-search)를 참조하세요.
+감사 이벤트는 구성 하는 동안 정의 된 Log Analytics 작업 영역에 기록 되 고 범주 `SQLSecurityAuditEvents``AzureDiagnostics` 테이블에 기록 됩니다. Log Analytics 검색 언어 및 명령에 대한 유용한 추가 정보는 [Log Analytics 검색 참조](../log-analytics/log-analytics-log-search.md)를 참조하세요.
 
 ## <a id="subheading-1"></a>감사 로그 필드
 

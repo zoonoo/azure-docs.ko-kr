@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: a732e80549747f7c683a73bf0f16c40d48decea6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: bb75fd8aafdc886a8753fa2e6be30d9d7f83bb6f
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546341"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927870"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Azure 파일 동기화 배포에 대한 계획
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -106,7 +106,7 @@ Azure File Sync를 배포 하기 전에 Azure File Sync evaluation cmdlet을 사
     | Windows Server 2012 R2 | Datacenter 및 Standard | 전체 및 코어 |
     | 저장소에 대 한 Windows Server IoT 2019| Datacenter 및 Standard | 전체 및 코어 |
     | Windows Storage Server 2016| Datacenter 및 Standard | 전체 및 코어 |
-    | Windows Storage Server 2012 R2| Datacenter 및 Standard | 전체 및 코어 |
+    | Windows  Storage  Server  2012  R2| Datacenter 및 Standard | 전체 및 코어 |
 
     이후 버전의 Windows Server는 출시되면 추가될 예정입니다.
 
@@ -159,14 +159,14 @@ Windows Server 장애 조치(Failover) 클러스터링은 "범용 파일 서버"
 
 ### <a name="data-deduplication"></a>데이터 중복 제거
 **Windows server 2016 및 Windows server 2019**   
-데이터 중복 제거는 Windows Server 2016에서 클라우드 계층화를 사용 하는 볼륨에서 지원 됩니다. 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 더 많은 저장소를 프로 비전 하지 않고 온-프레미스에서 더 많은 파일을 캐시할 수 
+Windows Server 2016 및 Windows Server 2019에서 클라우드 계층화를 사용하면 볼륨의 데이터 중복 제거가 지원됩니다. 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 더 많은 저장소를 프로 비전 하지 않고 온-프레미스에서 더 많은 파일을 캐시할 수 
 
 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 사용 하도록 설정 하면 서버 끝점 위치 내의 중복 제거 최적화 파일은 클라우드 계층화 정책 설정에 따라 일반 파일과 비슷하게 계층화 됩니다. 중복 제거 최적화 파일이 계층화 되 면 데이터 중복 제거 가비지 수집 작업이 자동으로 실행 되어 볼륨의 다른 파일에서 더 이상 참조 되지 않는 불필요 한 청크를 제거 하 여 디스크 공간을 회수 합니다.
 
 볼륨 절감은 서버에만 적용 됩니다. Azure 파일 공유의 데이터는 중복 제거 된 되지 않습니다.
 
 > [!Note]  
-> 데이터 중복 제거 및 클라우드 계층화는 향후 업데이트에서 수정 될 버그로 인해 현재 서버 2019의 동일한 볼륨에서 지원 되지 않습니다.
+> Windows Server 2019에서 클라우드 계층화를 사용 하는 볼륨에서 데이터 중복 제거를 지원 하려면 Windows update [KB4520062](https://support.microsoft.com/help/4520062) 가 설치 되어 있어야 하 Azure File Sync 고 에이전트 버전 9.0.0.0 이상이 필요 합니다.
 
 **Windows Server 2012 R2**  
 Azure File Sync는 Windows Server 2012 r 2의 동일한 볼륨에서 데이터 중복 제거 및 클라우드 계층화를 지원 하지 않습니다. 볼륨에서 데이터 중복 제거를 사용 하는 경우 클라우드 계층화를 사용 하지 않도록 설정 해야 합니다. 

@@ -4,21 +4,20 @@ description: Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱�
 services: data-factory
 documentationcenter: ''
 author: linda33wj
-manager: craigg
+manager: shwang
 ms.assetid: f8d46e1e-5c37-4408-80fb-c54be532a4ab
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: da867ae62ce4480c5d5854ae3f28ad258421905d
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 5b1170f721cf8521cfe1762df0cc616c938ddf28
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809182"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74929990"
 ---
 # <a name="push-data-to-an-azure-cognitive-search-index-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cognitive Search 인덱스에 데이터 푸시
 > [!div class="op_single_selector" title1="사용 중인 Data Factory 서비스 버전을 선택합니다."]
@@ -26,7 +25,7 @@ ms.locfileid: "73809182"
 > * [버전 2(현재 버전)](../connector-azure-search.md)
 
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 최신 버전의 Data Factory 서비스를 사용 하는 경우 v 2 [의 Azure Cognitive Search 커넥터](../connector-azure-search.md)를 참조 하세요.
+> 이 문서는 Data Factory 버전 1에 적용됩니다. 최신 버전의 Data Factory 서비스를 사용 하는 경우 v 2 [의 Azure Cognitive Search 커넥터](../connector-azure-search.md)를 참조 하세요.
 
 이 문서에서는 복사 작업을 사용 하 여 지원 되는 원본 데이터 저장소에서 Azure Cognitive Search 인덱스로 데이터를 푸시하는 방법을 설명 합니다. 지원되는 원본 데이터 저장소는 [지원되는 원본 및 싱크](data-factory-data-movement-activities.md#supported-data-stores-and-formats) 테이블의 원본 열에 나열됩니다. 이 문서는 복사 작업 및 지원되는 데이터 저장소 조합을 사용하여 데이터 이동의 일반적인 개요를 보여주는 [데이터 이동 활동](data-factory-data-movement-activities.md) 문서를 작성합니다.
 
@@ -38,7 +37,7 @@ ms.locfileid: "73809182"
 ## <a name="getting-started"></a>시작
 다른 도구/a p i를 사용 하 여 원본 데이터 저장소에서 검색 인덱스로 데이터를 푸시하는 복사 작업을 사용 하 여 파이프라인을 만들 수 있습니다.
 
-파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md) 를 참조하세요.
+파이프라인을 만드는 가장 쉬운 방법은 **복사 마법사**를 사용하는 것입니다. 데이터 복사 마법사를 사용하여 파이프라인을 만드는 방법에 대한 빠른 연습은 [자습서: 복사 마법사를 사용하여 파이프라인 만들기](data-factory-copy-data-wizard-tutorial.md)를 참조하세요.
 
 또한 다음 도구를 사용 하 여 파이프라인을 만들 수 있습니다. **Visual Studio**, **Azure PowerShell** **Azure Resource Manager 템플릿**, **.net API**및 **REST API**. 복사 작업을 사용하여 파이프라인을 만드는 단계별 지침은 [복사 작업 자습서](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)를 참조하세요.
 
@@ -48,7 +47,7 @@ ms.locfileid: "73809182"
 2. 복사 작업의 입력 및 출력 데이터를 나타내는 **데이터 세트**를 만듭니다.
 3. 입력으로 데이터 세트를, 출력으로 데이터 세트를 사용하는 복사 작업을 통해 **파이프라인**을 만듭니다.
 
-마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API를 사용하는 경우(.NET API 제외) JSON 형식을 사용하여 데이터 팩터리 엔터티를 직접 정의합니다.  검색 인덱스에 데이터를 복사 하는 데 사용 되는 Data Factory 엔터티에 대 한 JSON 정의가 포함 된 샘플은이 문서의 [json 예: 온-프레미스 SQL Server에서 Azure Cognitive Search 인덱스 섹션으로 데이터 복사](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) 섹션을 참조 하세요.
+마법사를 사용하는 경우 이러한 Data Factory 엔터티(연결된 서비스, 데이터 세트 및 파이프라인)에 대한 JSON 정의가 자동으로 생성됩니다. 도구/API(.NET API 제외)를 사용하는 경우 JSON 형식을 사용하여 이러한 Data Factory 엔터티를 정의합니다.  검색 인덱스에 데이터를 복사 하는 데 사용 되는 Data Factory 엔터티에 대 한 JSON 정의가 포함 된 샘플은이 문서의 [json 예: 온-프레미스 SQL Server에서 Azure Cognitive Search 인덱스 섹션으로 데이터 복사](#json-example-copy-data-from-on-premises-sql-server-to-azure-cognitive-search-index) 섹션을 참조 하세요.
 
 다음 섹션에서는 검색 인덱스에 한정 된 Data Factory 엔터티를 정의 하는 데 사용 되는 JSON 속성에 대해 자세히 설명 합니다.
 
@@ -56,20 +55,20 @@ ms.locfileid: "73809182"
 
 다음 표에서는 Azure Cognitive Search 연결 된 서비스와 관련 된 JSON 요소에 대 한 설명을 제공 합니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | 예 |
-| URL | 검색 서비스에 대 한 URL입니다. | 예 |
-| key | 검색 서비스에 대 한 관리 키입니다. | 예 |
+| type | 형식 속성은 **AzureSearch**로 설정되어야 합니다. | yes |
+| URL | 검색 서비스에 대 한 URL입니다. | yes |
+| key | 검색 서비스에 대 한 관리 키입니다. | yes |
 
 ## <a name="dataset-properties"></a>데이터 세트 속성
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트 만들기](data-factory-create-datasets.md) 문서를 참조하세요. 구조, 가용성 및 JSON 데이터 세트의 정책과 같은 섹션이 모든 데이터 세트 형식에 대해 유사합니다. **typeProperties** 섹션은 데이터 세트의 각 형식마다 다릅니다. **AzureSearchIndex** 데이터 세트 형식의 데이터 세트에 대한 typeProperties 섹션에는 다음 속성이 있습니다.
 
-| 속성 | 설명 | 필수 |
+| 자산 | 설명 | 필수 |
 | -------- | ----------- | -------- |
-| type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| 예 |
-| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | 예 |
+| type | 형식 속성은 **AzureSearchIndex**로 설정되어야 합니다.| yes |
+| indexName | 검색 인덱스의 이름입니다. Data Factory는 인덱스를 만들지 않습니다. 인덱스는 Azure Cognitive Search에 있어야 합니다. | yes |
 
 
 ## <a name="copy-activity-properties"></a>복사 작업 속성
@@ -77,10 +76,10 @@ ms.locfileid: "73809182"
 
 복사 작업의 경우 싱크가 **AzureSearchIndexSink** 형식이면 typeProperties 섹션에서 다음과 같은 속성을 사용할 수 있습니다.
 
-| 속성 | 설명 | 허용되는 값 | 필수 |
+| 자산 | 설명 | 허용되는 값 | 필수 |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아니요 |
-| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아니요 |
+| WriteBehavior | 문서가 인덱스에 이미 있는 경우 병합할지 또는 바꿀지를 지정합니다. [WriteBehavior 속성](#writebehavior-property)을 참조하세요.| 병합(기본값)<br/>업로드| 아닙니다. |
+| writeBatchSize | 버퍼 크기가 writeBatchSize에 도달할 때 검색 인덱스에 데이터를 업로드 합니다. 자세한 내용은 [WriteBatchSize 속성](#writebatchsize-property)을 참조하세요. | 1~1,000입니다. 기본값은 1,000입니다. | 아닙니다. |
 
 ### <a name="writebehavior-property"></a>WriteBehavior 속성
 데이터를 쓸 때 AzureSearchSink가 삽입됩니다. 즉, 문서를 작성할 때 문서 키가 검색 인덱스에 이미 있는 경우 Azure Cognitive Search는 충돌 예외를 throw 하는 대신 기존 문서를 업데이트 합니다.
@@ -100,11 +99,11 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 | Azure Cognitive Search 데이터 형식 | Azure Cognitive Search 싱크에서 지원 됨 |
 | ---------------------- | ------------------------------ |
-| 문자열 | Y |
+| string | Y |
 | Int32 | Y |
 | Int64 | Y |
-| Double | Y |
-| 부울 | Y |
+| DOUBLE | Y |
+| Boolean | Y |
 | DataTimeOffset | Y |
 | 문자열 배열 | N |
 | GeographyPoint | N |
@@ -115,9 +114,9 @@ Azure Cognitive Search 서비스는 문서를 일괄 처리로 작성할 수 있
 
 1. [AzureSearch](#linked-service-properties) 형식의 연결된 서비스
 2. [OnPremisesSqlServer](data-factory-sqlserver-connector.md#linked-service-properties)형식의 연결된 서비스
-3. [SqlServerTable](data-factory-create-datasets.md) 형식의 입력 [데이터 세트](data-factory-sqlserver-connector.md#dataset-properties)
-4. [AzureSearchIndex](data-factory-create-datasets.md) 형식의 출력 [데이터 세트](#dataset-properties)
-4. [SqlSource](data-factory-create-pipelines.md) 및 [AzureSearchIndexSink](data-factory-sqlserver-connector.md#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](#copy-activity-properties)
+3. [SqlServerTable](data-factory-sqlserver-connector.md#dataset-properties) 형식의 입력 [데이터 세트](data-factory-create-datasets.md)
+4. [AzureSearchIndex](#dataset-properties) 형식의 출력 [데이터 세트](data-factory-create-datasets.md)
+4. [SqlSource](data-factory-sqlserver-connector.md#copy-activity-properties) 및 [AzureSearchIndexSink](#copy-activity-properties)를 사용하는 복사 작업의 [파이프라인](data-factory-create-pipelines.md)
 
 이 샘플은 온-프레미스 SQL Server 데이터베이스에서 시계열 데이터를 복사 하 여 시간별로 인덱스를 검색 합니다. 이 샘플에 사용된 JSON 속성은 샘플 다음에 나오는 섹션에서 설명합니다.
 

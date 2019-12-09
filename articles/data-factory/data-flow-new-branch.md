@@ -1,24 +1,23 @@
 ---
-title: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
+title: 데이터 흐름 새 분기 변환 매핑
 description: 데이터 흐름 새 분기 변환 Azure Data Factory 매핑
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: de8cb74d788e3ca7599f226e4204c4b09112e70c
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: b4617689fe1ab14856bde9a4e8134b12aa6d815b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72387209"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930309"
 ---
 # <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>데이터 흐름 새 분기 변환 Azure Data Factory 매핑
 
-
-
-![분기 옵션](media/data-flow/menu.png "메뉴가")
+![분기 옵션](media/data-flow/menu.png "메뉴")
 
 분기는 데이터 흐름의 현재 데이터 스트림을 사용하고 다른 스트림에 복제합니다. 새 분기를 사용하여 동일한 데이터 스트림에 대해 여러 개의 작업 및 변환 세트를 수행할 수 있습니다.
 
@@ -29,4 +28,4 @@ ms.locfileid: "72387209"
 > [!NOTE]
 > “새 분기”는 분기하려는 현재 위치 뒤에 후속 변환이 있는 경우에만 + 변환 메뉴에 동작으로 표시됩니다. 즉, 선택 후 다른 변환을 추가할 때까지는 “새 분기” 옵션이 끝에 표시되지 않습니다.
 
-![분기할](media/data-flow/branch2.png "분기 2")
+![분기](media/data-flow/branch2.png "분기 2")

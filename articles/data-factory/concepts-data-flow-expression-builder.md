@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름 식 작성기
+title: 데이터 흐름 식 작성기 매핑
 description: 데이터 흐름 Azure Data Factory 매핑하기 위한 식 작성기
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 11/17/2019
-ms.openlocfilehash: 0eb2c2692ed2444a85e7253c6fdd8734385ff881
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: seo-lt-2019
+ms.date: 12/06/2019
+ms.openlocfilehash: 7d8f02647224c971c44bff51f09315c53c53e9a3
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672259"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928346"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>데이터 흐름 식 작성기 매핑
 
@@ -50,6 +51,16 @@ ms.locfileid: "74672259"
 한 줄 및 여러 줄 주석 구문을 사용하여 식에 주석을 추가합니다.
 
 ![설명](media/data-flow/comments.png "의견")
+
+## <a name="string-interpolation"></a>문자열 보간
+
+리터럴 문자열 텍스트를 식과 함께 묶으려면 큰따옴표를 사용 합니다. 식 함수, 열 및 매개 변수를 포함할 수 있습니다. 이는 쿼리 문자열에 매개 변수를 포함할 때 문자열 연결을 광범위 하 게 사용 하지 않도록 하는 데 매우 유용 합니다.
+
+* ```"My favorite movie is {iif(instr(title,', The')>0,"The {split(title,', The')[1]}",title)}"```
+
+* ```"select * from {$tablename} where orderyear > {$year}"```
+
+* ```"Total cost with sales tax is {round(totalcost * 1.08,2)}"```
 
 ## <a name="regular-expressions"></a>정규식
 

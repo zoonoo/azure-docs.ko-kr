@@ -1,23 +1,23 @@
 ---
-title: Azure Data Factory의 통합 런타임
+title: 통합 런타임
 description: Azure Data Factory의 통합 런타임에 대해 알아봅니다.
 services: data-factory
 documentationcenter: ''
+ms.author: abnarain
 author: nabhishek
-manager: craigg
+manager: shwang
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 05/31/2019
-ms.author: abnarain
-ms.openlocfilehash: 0b137edbfb5ca439d4ba15614225ec0973511763
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74218807"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927162"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
@@ -40,7 +40,7 @@ Data Factory는 세 유형의 통합 런타임을 제공하며, 데이터 통합
 
 IR 유형 | 공용 네트워크 | 프라이빗 네트워크
 ------- | -------------- | ---------------
-Azure | 데이터 흐름<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
+Azure | Data Flow<br/>데이터 이동<br/>작업 디스패치 | &nbsp;
 자체 호스팅 | 데이터 이동<br/>작업 디스패치 | 데이터 이동<br/>작업 디스패치
 Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
@@ -48,12 +48,12 @@ Azure-SSIS | SSIS 패키지 실행 | SSIS 패키지 실행
 
 ![통합 런타임의 다양한 유형](media/concepts-integration-runtime/different-integration-runtimes.png)
 
-## <a name="azure-integration-runtime"></a>Azure 통합 런타임
+## <a name="azure-integration-runtime"></a>Azure Integration Runtime
 Azure 통합 런타임은 다음을 수행할 수 있습니다.
 
 - Azure에서 데이터 흐름 실행 
 - 클라우드 데이터 저장소 간에 복사 작업 실행
-- 공용 네트워크에서 다음과 같은 변환 작업을 디스패치 합니다. Databricks 노트북/Jar/Python 작업, HDInsight Hive 작업, HDInsight Pig 작업, HDInsight MapReduce 작업, HDInsight Spark 작업, hdinsight Streaming activity, Machine 일괄 처리 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업을 학습 합니다.
+- 공용 네트워크에서 다음과 같은 변환 작업을 디스패치 합니다. Databricks 노트북/Jar/Python 작업, hdinsight Hive 작업, hdinsight Pig 작업, hdinsight MapReduce 작업, HDInsight Spark 작업, HDInsight Streaming activity, Machine Learning Batch 실행 작업, Machine Learning 업데이트 리소스 작업, 저장 프로시저 작업, Data Lake Analytics U-SQL 작업, .NET 사용자 지정 작업, 웹 작업, 조회 작업 및 메타 데이터 가져오기 작업
 
 ### <a name="azure-ir-network-environment"></a>Azure IR 네트워크 환경
 Azure Integration Runtime는 액세스 가능한 공용 끝점을 사용 하 여 데이터 저장소 및 계산 서비스에 대 한 연결을 지원 합니다. Azure Virtual Network 환경에는 자체 호스팅 통합 런타임을 사용합니다.
@@ -121,7 +121,7 @@ Azure IR의 특정 위치를 설정할 수 있으며, 데이터 이동 또는 �
 
 - 복사 작업에서는 ADF가 자동으로 싱크 및 원본 데이터 저장소를 검색하여 동일한 영역에서 최적의 위치를 선택하고(사용 가능한 경우), 데이터 팩터리 영역을 사용할 대안을 검색할 수 없는 경우에는 동일한 지리에서 가장 가까운 위치를 선택하기 위해 노력합니다.
 
-- Lookup/GetMetadata/Delete 활동 실행 (파이프라인 활동이 라고도 함), 변환 활동 디스패치 (외부 활동) 및 제작 작업 (테스트 연결, 폴더 목록 및 테이블 목록 찾아보기, 데이터 미리 보기), ADF 는 data factory 지역에서 IR을 사용 합니다.
+- Lookup/GetMetadata/Delete 활동 실행 (파이프라인 활동이 라고도 함), 변환 활동 디스패치 (외부 활동) 및 제작 작업 (테스트 연결, 폴더 목록 및 테이블 목록 찾아보기, 데이터 미리 보기), ADF는 data factory 지역에서 IR을 사용 합니다.
 
 - 데이터 흐름의 경우 ADF는 data factory 지역에서 IR을 사용 합니다. 
 

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: b09e5366584e9974e67d47d34f22a3483be14f7a
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 5b473af780bdd68b8fc0dd3dc0430c4f4fd3255b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805759"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927654"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -196,25 +196,25 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 
 나열 되지 않은 지역에서 Hyperscale 데이터베이스를 만들 수 있는 기능을 요청 하려면 다음을 수행 합니다.
 
-1. [Azure 도움말 및 지원 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) 로 이동 합니다.
+1. Azure Portal 메뉴에서 **도움말 + 지원**을 선택 하거나 모든 페이지에서 **도움말 + 지원** 을 검색 하 고 선택 합니다.
 
-2. [ **새 지원 요청** 을 클릭 합니다.](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
-
-    ![Azure 도움말 및 지원 블레이드](media/sql-database-service-tier-hyperscale/request-screen-1.png)
+2. [Azure 도움말 및 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에서 [**새 지원 요청**](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 선택 합니다.
 
 3. **문제 유형**에서 **서비스 및 구독 제한 (할당량)** 을 선택 합니다.
 
 4. 데이터베이스를 만드는 데 사용할 구독을 선택 합니다.
 
-5. **할당량 유형**에서 **SQL database** 를 선택 합니다.
+5. **할당량 유형**에서 **SQL database**를 선택 합니다.
 
-6. **다음: 솔루션** 을 클릭 합니다.
+    ![Azure 도움말 및 지원 블레이드](media/sql-database-service-tier-hyperscale/new-support-request-screen.png)
 
-1. **세부 정보 제공** 을 클릭 합니다.
+6. **다음: 솔루션**을 클릭 합니다.
+
+7. **세부 정보 제공**을 클릭 합니다.
 
     ![문제점 세부 정보](media/sql-database-service-tier-hyperscale/request-screen-2.png)
 
-8. **SQL Database 할당량 유형**선택: **기타 할당량 요청**
+8. **SQL Database 할당량 유형**: **기타 할당량 요청**을 선택 합니다.
 
 9. 다음 템플릿을 입력 합니다.
 
@@ -227,11 +227,11 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
     > 예상 TB 수 
     >
 
-10. **심각도 C**를 선택합니다.
+10. **심각도 C**를 선택 합니다.
 
 11. 적절 한 연락 방법을 선택 하 고 세부 정보를 입력 합니다.
 
-12. **저장** 후 **계속** 을 클릭 합니다.
+12. **저장** 및 **계속**을 클릭 합니다.
 
 ## <a name="known-limitations"></a>알려진 제한 사항
 이는 GA를 기준으로 하는 Hyperscale 서비스 계층에 대 한 현재 제한 사항입니다.  가능한 한 많은 제한 사항을 제거 하기 위해 적극적으로 노력 하 고 있습니다.
@@ -240,7 +240,7 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 | :---- | :--------- |
 | 논리 서버에 대 한 백업 관리 창은 SQL server에서 필터링 되는 Hyperscale 데이터베이스를 표시 하지 않습니다.  | Hyperscale에는 백업을 관리 하는 별도의 방법이 있지만 장기 보존 및 지정 시간 백업 보존 설정은 적용/무효화 되지 않습니다. 따라서 하이퍼스케일 데이터베이스가 백업 관리 창에 나타나지 않습니다. |
 | 특정 시점 복원 | 데이터베이스가 하이퍼 크기 조정 서비스 계층으로 마이그레이션되면 마이그레이션 전의 특정 시점으로의 복원은 지원 되지 않습니다.|
-| 비 Hyperscale DB를 Hypserscale로 또는 그 반대로 복원 | Hyperscale 데이터베이스를 Hyperscale이 아닌 데이터베이스로 복원할 수 없으며 hyperscale 데이터베이스를 Hyperscale 데이터베이스로 복원할 수 없습니다.|
+| Hyperscale DB를 Hyperscale으로 또는 그 반대로 복원 | Hyperscale 데이터베이스를 Hyperscale이 아닌 데이터베이스로 복원할 수 없으며 hyperscale 데이터베이스를 Hyperscale 데이터베이스로 복원할 수 없습니다.|
 | 데이터베이스에 1TB 보다 큰 데이터 파일이 하나 이상 있으면 마이그레이션이 실패 합니다. | 경우에 따라이 문제를 해결 하려면 많은 파일을 1TB 미만으로 축소 해야 할 수 있습니다. 마이그레이션 프로세스 중에 사용 되는 데이터베이스를 마이그레이션하는 경우 1tb 보다 큰 파일이 없는지 확인 합니다. 다음 쿼리를 사용 하 여 데이터베이스 파일의 크기를 확인 합니다. `SELECT *, name AS file_name, size * 8. / 1024 / 1024 AS file_size_GB FROM sys.database_files WHERE type_desc = 'ROWS'`;|
 | 관리되는 인스턴스 | 현재는 Hyperscale 데이터베이스에서 Azure SQL Database Managed Instance 지원 되지 않습니다. |
 | 탄력적 풀 |  탄력적 풀은 현재 SQL Database Hyperscale에서 지원 되지 않습니다.|
@@ -251,7 +251,8 @@ Azure SQL Database Hyperscale 계층은 현재 다음 지역에서 사용할 수
 | 데이터베이스 복사 | 아직 데이터베이스 복사를 사용 하 여 Azure SQL Hyperscale에서 새 데이터베이스를 만들 수는 없습니다. |
 | TDE/AKV 통합 | Azure Key Vault를 사용 하는 투명 한 데이터베이스 암호화 (일반적으로 사용자 지정 키 또는 BYOK 라고도 함)는 Azure SQL Database Hyperscale에 대해 아직 지원 되지 않지만 서비스 관리 키를 사용 하는 TDE는 완전히 지원 됩니다. |
 |Intelligent Database 기능 | "강제 계획" 옵션을 제외 하 고 다른 모든 자동 조정 옵션은 Hyperscale에서 아직 지원 되지 않습니다. 옵션은 사용 하도록 설정 된 것 처럼 보일 수 있지만 권장 사항이 나 작업은 적용 되지 않습니다. |
-| 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE는 현재 Azure SQL Hyperscale 데이터베이스에서 지원 되지 않습니다. |
+| 데이터베이스 축소 | DBCC SHRINKDATABASE 또는 DBCC SHRINKFILE는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. |
+| 데이터베이스 무결성 검사 | DBCC CHECKDB는 현재 Hyperscale 데이터베이스에 대해 지원 되지 않습니다. Azure SQL Database의 데이터 무결성 관리에 대 한 자세한 내용은 [Azure SQL Database의 데이터 무결성](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/) 을 참조 하세요. |
 
 ## <a name="next-steps"></a>다음 단계
 

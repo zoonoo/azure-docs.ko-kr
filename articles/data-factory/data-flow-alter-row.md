@@ -1,17 +1,18 @@
 ---
-title: Azure Data Factory 매핑 데이터 흐름 변경 행 변환
+title: 매핑 데이터 흐름 변경 행 변환
 description: Azure Data Factory 매핑 데이터 흐름을 사용 하 여 데이터베이스 대상을 업데이트 하는 방법 Alter Row 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 03/12/2019
-ms.openlocfilehash: 7a782c62165aa6f2641c2ebe8e4600198ec373c5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 1301b89ef1a6fb02356c6dcd4e568401eb5e9cd2
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486200"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930471"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>행 변환 변경 Azure Data Factory
 
@@ -26,12 +27,12 @@ ms.locfileid: "73486200"
 
 ## <a name="indicate-a-default-row-policy"></a>기본 행 정책 지정
 
-Alter Row 변환을 만들고 조건이 `true()` 인 행 정책을 지정 합니다. 이전에 정의 된 식 중 하나를 충족 하지 않는 각 행은 지정 된 행 정책에 대해 표시 됩니다. 기본적으로 조건 식을 충족 하지 않는 각 행은 `Insert`에 대해 표시 됩니다.
+Alter Row 변환을 만들고 조건 `true()`를 사용 하 여 행 정책을 지정 합니다. 이전에 정의 된 식 중 하나를 충족 하지 않는 각 행은 지정 된 행 정책에 대해 표시 됩니다. 기본적으로 조건 식을 충족 하지 않는 각 행은 `Insert`표시 됩니다.
 
 ![Alter row one policy](media/data-flow/alter-row4.png "Alter row one policy")
 
 > [!NOTE]
-> 모든 행을 하나의 정책으로 표시 하려면 해당 정책에 대 한 조건을 만들고 조건을 `true()`으로 지정할 수 있습니다.
+> 모든 행을 하나의 정책으로 표시 하려면 해당 정책에 대 한 조건을 만들고 조건을 `true()`지정 하면 됩니다.
 
 ## <a name="view-policies"></a>정책 보기
 

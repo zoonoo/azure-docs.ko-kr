@@ -3,12 +3,12 @@ title: 태그 및 매니페스트 제거
 description: 제거 명령을 사용 하 여 연령 및 태그 필터를 기반으로 Azure container registry에서 여러 태그와 매니페스트를 삭제 하 고 선택적으로 제거 작업을 예약 합니다.
 ms.topic: article
 ms.date: 08/14/2019
-ms.openlocfilehash: 65169927f7a1cffa88a2d909217e636417f695cc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 0ec1f5f6f5c3c572b8558c971b58e46cce36e3fd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456474"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74923100"
 ---
 # <a name="automatically-purge-images-from-an-azure-container-registry"></a>Azure container registry에서 자동으로 이미지 제거
 
@@ -33,11 +33,10 @@ Azure CLI 명령을 사용 하 여 단일 이미지 태그나 매니페스트를
 > [!NOTE]
 > `acr purge` `write-enabled` 특성이 `false`로 설정 된 이미지 태그 또는 리포지토리를 삭제 하지 않습니다. 자세한 내용은 [Azure container registry에서 컨테이너 이미지 잠그기](container-registry-image-lock.md)를 참조 하세요.
 
-`acr purge`은 [ACR 작업](container-registry-tasks-overview.md)에서 컨테이너 명령으로 실행 되도록 설계 되었으므로 태스크가 실행 되는 레지스트리를 사용 하 여 자동으로 인증 됩니다. 
+`acr purge`은 [ACR 작업](container-registry-tasks-overview.md)에서 컨테이너 명령으로 실행 되도록 설계 되었으므로 태스크가 실행 되는 레지스트리를 사용 하 여 자동으로 인증 하 고 해당 위치에서 작업을 수행 합니다. 이 문서의 태스크 예제는 정규화 된 컨테이너 이미지 명령 대신 `acr purge` 명령 [별칭](container-registry-tasks-reference-yaml.md#aliases) 을 사용 합니다.
 
 최소한 `acr purge`를 실행 하는 경우 다음을 지정 합니다.
 
-* `--registry`-명령을 실행 하는 Azure container registry입니다. 
 * `--filter`-리포지토리의 태그를 필터링 하기 위한 리포지토리 및 *정규식* 입니다. 예: `--filter "hello-world:.*"` `hello-world` 리포지토리의 모든 태그와 일치 하 고 `--filter "hello-world:^1.*"` `1`시작 하는 태그와 일치 합니다. 여러 개의 `--filter` 매개 변수를 전달 하 여 여러 리포지토리를 제거 합니다.
 * `--ago`-이미지를 삭제 하는 기간을 나타내는 이동 스타일의 [기간 문자열](https://golang.org/pkg/time/) 입니다. 기간은 하나 이상의 10 진수 시퀀스로 구성 되며 각각 단위 접미사가 있습니다. 유효한 시간 단위에는 일의 경우 "d", 시간에는 "h", 분의 경우 "m"이 포함 됩니다. 예를 들어, `--ago 2d3h6m`는 2 일, 3 시간 및 6 분 전에 마지막으로 수정 된 모든 필터링 된 이미지를 선택 하 고 `--ago 1.5h`는 1.5 시간 이전에 마지막으로 수정 된 이미지를 선택 합니다.
 
@@ -48,18 +47,16 @@ Azure CLI 명령을 사용 하 여 단일 이미지 태그나 매니페스트를
 
 추가 매개 변수를 `acr purge --help`를 실행 합니다. 
 
-`acr purge`은 스트리밍된 [실행 변수와](container-registry-tasks-reference-yaml.md#run-variables) 나중에 검색할 수 있도록 저장 되는 [태스크 실행 로그](container-registry-tasks-overview.md#view-task-logs) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
+`acr purge`는 스트리밍 및 나중에 검색할 수 있도록 저장 된 [변수 실행](container-registry-tasks-reference-yaml.md#run-variables) 및 [작업 실행 로그](container-registry-tasks-overview.md#view-task-logs) 를 비롯 하 여 ACR 작업 명령의 다른 기능을 지원 합니다.
 
 ### <a name="run-in-an-on-demand-task"></a>요청 시 작업에서 실행
 
 다음 예제에서는 [az acr run][az-acr-run] 명령을 사용 하 여 요청 시 `acr purge` 명령을 실행 합니다. 이 예제에서는 1 일 이상 전에 수정 된 *myregistry* 의 `hello-world` 리포지토리에서 모든 이미지 태그 및 매니페스트를 삭제 합니다. 컨테이너 명령은 환경 변수를 사용 하 여 전달 됩니다. 소스 컨텍스트 없이 태스크가 실행 됩니다.
 
-이 및 다음 예제에서는 `acr purge` 명령이 실행 되는 레지스트리가 `$Registry` 별칭을 사용 하 여 지정 됩니다 .이는 작업을 실행 하는 레지스트리를 나타냅니다.
-
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --untagged --ago 1d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --untagged --ago 1d"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -73,8 +70,8 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 7d"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 7d"
 
 az acr task create --name purgeTask \
   --cmd "$PURGE_CMD" \
@@ -93,8 +90,8 @@ az acr task create --name purgeTask \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} --filter 'hello-world:.*' --ago 1d --untagged"
+PURGE_CMD="acr purge --filter 'hello-world:.*' \
+  --ago 1d --untagged"
 
 az acr run \
   --cmd "$PURGE_CMD" \
@@ -115,13 +112,12 @@ az acr run \
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged --dry-run"
 
 az acr run \
-  --cmd  "$PURGE_CMD" \
+  --cmd "$PURGE_CMD" \
   --registry myregistry \
   /dev/null
 ```
@@ -156,8 +152,7 @@ Number of deleted manifests: 4
 
 ```azurecli
 # Environment variable for container command line
-PURGE_CMD="mcr.microsoft.com/acr/acr-cli:0.1 purge \
-  --registry {{.Run.Registry}} \
+PURGE_CMD="acr purge \
   --filter 'samples/devimage1:.*' --filter 'samples/devimage2:.*' \
   --ago 0d --untagged"
 

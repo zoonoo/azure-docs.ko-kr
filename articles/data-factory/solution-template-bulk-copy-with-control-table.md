@@ -2,23 +2,21 @@
 title: 컨트롤 테이블을 사용 하 여 데이터베이스에서 대량 복사
 description: 솔루션 템플릿을 사용 하 여 데이터베이스에서 대량 데이터를 복사 하는 방법에 대해 알아봅니다 .이를 사용 하 여 원본 Azure Data Factory 테이블의 파티션 목록을 저장 하려면 외부 컨트롤 테이블을 사용 합니다.
 services: data-factory
-documentationcenter: ''
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: douglasl
-manager: craigg
+manager: anandsub
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 12/14/2018
-ms.openlocfilehash: 3f50a6067eb38e920c32079c140785f397ee6698
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 3063767c73f4639e667d5f64b0563f1da396cfbf
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896250"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74927314"
 ---
 # <a name="bulk-copy-from-a-database-with-a-control-table"></a>컨트롤 테이블이 있는 데이터베이스에서 대량 복사
 

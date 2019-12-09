@@ -4,25 +4,24 @@ description: 이 문서에서는 노드를 더 많이 추가하여 데이터 관
 services: data-factory
 documentationcenter: ''
 author: nabhishek
-manager: craigg
+manager: anandsub
 editor: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c3428019fe23e3f206e763249a18e7774bab149b
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 25dbb01a4b018a51390be664472aceadea0a9524
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73682693"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932022"
 ---
 # <a name="data-management-gateway---high-availability-and-scalability-preview"></a>데이터 관리 게이트웨이 - 고가용성 및 확장성(미리 보기)
 > [!NOTE]
-> 이 아티클은 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
+> 이 문서는 Data Factory 버전 1에 적용됩니다. 현재 버전의 Data Factory 서비스를 사용 중인 경우, [Data Factory의 자체 호스팅 통합 런타임](../create-self-hosted-integration-runtime.md)을 참조하세요. 
 
 
 이 문서에서는 데이터 관리 게이트웨이/통합을 사용하여 고가용성 및 확장성 솔루션을 구성하는 방법에 대해 설명합니다.    
@@ -43,7 +42,7 @@ ms.locfileid: "73682693"
 
 Azure Portal을 사용하면 이러한 노드의 상태를 모니터링할 수 있으며, 이는 논리 게이트웨이에서 노드를 추가하거나 제거할지 여부를 결정하는 데 도움이 됩니다. 
 
-## <a name="architecture"></a>아키텍처 
+## <a name="architecture"></a>건축 
 다음 다이어그램에서는 데이터 관리 게이트웨이의 확장성 및 가용성 기능에 대한 아키텍처 개요를 제공합니다. 
 
 ![데이터 관리 게이트웨이 - 고가용성 및 확장성](media/data-factory-data-management-gateway-high-availability-scalability/data-factory-gateway-high-availability-and-scalability.png)
@@ -186,8 +185,8 @@ Azure Portal에서 게이트웨이 노드의 상태와 함께 각 노드의 리�
 
 모니터링 속성 | 설명
 :------------------ | :---------- 
-Name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
-가동 상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요. 
+name | 논리 게이트웨이 및 이 게이트웨이와 연결된 노드의 이름입니다.  
+상태 | 논리 게이트웨이 및 게이트웨이 노드의 상태입니다. 예: 온라인/오프 라인/제한 됨/등 이러한 상태에 대 한 자세한 내용은 [게이트웨이 상태](#gateway-status) 섹션을 참조 하세요. 
 버전 | 논리 게이트웨이 및 각 게이트웨이 노드의 버전을 표시합니다. 논리 게이트웨이의 버전은 그룹에 있는 대다수 노드의 버전에 따라 결정됩니다. 논리 게이트웨이 설정에 다른 버전의 노드가 있으면 논리 게이트웨이와 버전 번호가 동일한 노드만 제대로 작동합니다. 다른 버전의 노드는 제한된 모드에 있으므로 수동으로 업데이트해야 합니다(자동 업데이트가 실패할 경우에만). 
 사용 가능한 메모리 | 게이트웨이 노드에서 사용 가능한 메모리입니다. 이 값은 거의 실시간 스냅샷입니다. 
 CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거의 실시간 스냅샷입니다. 
@@ -201,23 +200,23 @@ CPU 사용률 | 게이트웨이 노드의 CPU 사용률입니다. 이 값은 거
 
 다음 표에서는 **게이트웨이 노드**에 가능한 상태에 대해 설명합니다. 
 
-가동 상태  | 설명/시나리오
+상태  | 설명/시나리오
 :------- | :------------------
 온라인 | 노드가 Data Factory 서비스에 연결되어 있습니다.
 오프라인 | 노드가 오프라인 상태입니다.
 업그레이드 중 | 노드가 자동 업데이트 중입니다.
-제한 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다. 
+제한적 | 연결 문제로 인해 제한되는 상태입니다. 8050 HTTP 포트 문제, 서비스 버스 연결 문제 또는 자격 증명 동기화 문제 때문일 수 있습니다. 
 비활성 | 노드의 구성이 다른 주 노드의 구성과 다릅니다.<br/><br/> 다른 노드에 연결할 수 없을 때 노드가 비활성 상태일 수 있습니다. 
 
 
 다음 표에서는 **논리 게이트웨이**에 가능한 상태에 대해 설명합니다. 게이트웨이 상태는 게이트웨이 노드의 상태에 따라 달라집니다. 
 
-가동 상태 | 설명
+상태 | 의견
 :----- | :-------
 등록이 필요합니다. | 이 논리 게이트웨이에 노드가 아직 등록되지 않았습니다.
 온라인 | 게이트웨이 노드가 온라인 상태입니다.
 오프라인 | 온라인 상태의 노드가 없습니다.
-제한 | 이 게이트웨이의 모든 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. <br/><br/>디스패처/작업자 노드의 자격 증명 동기화 문제 일 수 있습니다. 
+제한적 | 이 게이트웨이의 모든 노드가 정상 상태가 아닙니다. 이 상태는 일부 노드가 중단되었을 수 있다는 경고입니다. <br/><br/>디스패처/작업자 노드의 자격 증명 동기화 문제 일 수 있습니다. 
 
 ### <a name="pipeline-activities-monitoring"></a>파이프라인/활동 모니터링
 Azure Portal에서는 세분화된 노드 수준의 세부 정보가 있는 환경을 모니터링하는 파이프라인을 제공합니다. 예를 들어 어떤 활동이 어떤 노드에서 실행되었는지를 보여 줍니다. 이 정보는 네트워크 제한으로 인한 특정 노드의 성능 문제를 이해하는 데 도움이 될 수 있습니다. 

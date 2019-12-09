@@ -3,29 +3,28 @@ title: 디바이스 오프라인으로 작동 - Azure IoT Edge | Microsoft Docs
 description: IoT Edge 디바이스 및 모듈을 인터넷 연결 없이 오프라인으로 더 오래 작동하는 방법과 IoT Edge를 사용하여 일반 IoT 디바이스를 오프라인으로 작동하는 방법을 이해합니다.
 author: kgremban
 ms.author: kgremban
-ms.date: 08/04/2019
+ms.date: 11/22/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b16a8d8ddd4ac23a59db8e7fed48f1c39752d130
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: ba64dcdadc5fa670c4502a7d8d92cb35e3b0cacd
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456878"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74924860"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices"></a>IoT Edge 장치, 모듈 및 자식 장치에 대 한 확장 된 오프 라인 기능 이해
 
-Azure IoT Edge은 IoT Edge 장치에서 확장 된 오프 라인 작업을 지원 하 고 IoT Edge 없는 자식 장치에서 오프 라인 작업을 지원 합니다. IoT Edge 디바이스를 IoT Hub에 연결할 수 있는 한, 해당 디바이스 및 자식 디바이스는 일시적으로 인터넷에 연결하여 또는 인터넷 연결 없이 계속 작동할 수 있습니다. 
+Azure IoT Edge은 IoT Edge 장치에서 확장 된 오프 라인 작업을 지원 하 고 IoT Edge 없는 자식 장치에서 오프 라인 작업을 지원 합니다. IoT Edge 장치가 IoT Hub에 연결할 수 있는 한 가지 기회가 있는 한 해당 장치와 모든 자식 장치는 간헐적으로 또는 인터넷 연결을 사용 하지 않고 계속 작동할 수 있습니다.
 
-
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 가지 역할을 맡습니다. 첫째, 업스트림으로 이동하는 모든 메시지를 저장하고 디바이스가 다시 연결될 때까지 보관합니다. 둘째, 모듈 및 자식 디바이스가 계속 작동할 수 있도록 IoT Hub를 대신하여 모듈 및 자식 디바이스를 인증합니다. 셋째, 일반적으로 IoT Hub를 통과하는 자식 디바이스 간 통신을 지원합니다. 
 
 다음 예제에서는 오프라인 모드에서 작동하는 IoT Edge 시나리오를 보여줍니다.
 
-1. **장치 구성**
+1. **디바이스 구성**
 
    IoT Edge 디바이스는 자동으로 오프라인 기능이 설정됩니다. 이 기능을 다른 IoT 디바이스로 확장하려면 IoT Hub의 디바이스 간에 부모-자식 관계를 선언해야 합니다. 그런 다음 할당 된 부모 장치를 신뢰 하도록 자식 장치를 구성 하 고 부모를 통해 장치-클라우드 통신을 게이트웨이로 라우팅합니다. 
 
@@ -39,7 +38,9 @@ IoT Edge 디바이스가 오프라인으로 전환되면 IoT Edge 허브는 세 
 
 4. **IoT Hub 다시 연결 및 다시 동기화**
 
-   IoT Hub와의 연결이 복원되면 IoT Edge 디바이스가 다시 동기화됩니다. 로컬에 저장된 메시지는 저장된 순서대로 전달됩니다. 모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 IoT 디바이스에 변경 내용을 업데이트합니다.
+   IoT Hub와의 연결이 복원되면 IoT Edge 디바이스가 다시 동기화됩니다. 로컬로 저장 된 메시지는 IoT Hub 즉시 전달 되지만 연결 속도, IoT Hub 대기 시간 및 관련 요인에 따라 달라 집니다. 저장 된 순서와 동일한 순서로 배달 됩니다.
+
+   모듈 및 디바이스의 desired 속성과 reported 속성 간 차이가 조정됩니다. IoT Edge 디바이스는 할당된 자식 IoT 디바이스에 변경 내용을 업데이트합니다.
 
 ## <a name="restrictions-and-limits"></a>제한 사항 및 제한
 

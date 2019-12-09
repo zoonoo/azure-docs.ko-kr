@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 12/03/2019
-ms.openlocfilehash: d1f3bf6cb1467d0bb4906ff2409e72828b22cd20
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e90bff7548be5f469ebbcdc21dd9b93dc887a30e
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74807020"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931962"
 ---
 # <a name="azure-sql-database-serverless"></a>Azure SQL Database 서버리스
 
@@ -185,18 +185,22 @@ Autoresuming는 데이터베이스를 온라인 상태로 만들어야 하는 �
 
 다음 예에서는 서버를 사용 하지 않는 계산 계층에 새 데이터베이스를 만듭니다.  이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-New-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -ComputeModel Serverless `
-  -Edition GeneralPurpose `
-  -ComputeGeneration Gen5 `
-  -MinVcore 0.5 `
-  -MaxVcore 2 `
-  -AutoPauseDelayInMinutes 720
+New-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -ComputeModel Serverless -Edition GeneralPurpose -ComputeGeneration Gen5 `
+  -MinVcore 0.5 -MaxVcore 2 -AutoPauseDelayInMinutes 720
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db create -g $resourceGroupName -s $serverName -n $databaseName `
+  -e GeneralPurpose -f Gen5 -min-capacity 0.5 -c 2 --compute-model Serverless --auto-pause-delay 720
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Transact-sql 사용 (T-sql)
 
@@ -215,22 +219,26 @@ CREATE DATABASE testdb
 
 다음 예에서는 프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스를 이동 합니다. 이 예제에서는 최소 vCore 수, 최대 vCore 수 및 자동 일시 중지 지연을 명시적으로 지정합니다.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Set-AzSqlDatabase `
-  -ResourceGroupName $resourceGroupName `
-  -ServerName $serverName `
-  -DatabaseName $databaseName `
-  -Edition GeneralPurpose `
-  -ComputeModel Serverless `
-  -ComputeGeneration Gen5 `
-  -MinVcore 1 `
-  -MaxVcore 4 `
-  -AutoPauseDelayInMinutes 1440
+Set-AzSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName `
+  -Edition GeneralPurpose -ComputeModel Serverless -ComputeGeneration Gen5 `
+  -MinVcore 1 -MaxVcore 4 -AutoPauseDelayInMinutes 1440
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db update -g $resourceGroupName -s $serverName -n $databaseName `
+  --edition GeneralPurpose --min-capacity 1 --capacity 4 --family Gen5 --compute-model Serverless --auto-pause-delay 1440
+```
+
+* * *
 
 #### <a name="use-transact-sql-t-sql"></a>Transact-sql 사용 (T-sql)
 
-다음 예에서는 프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스를 이동 합니다. 
+다음 예에서는 프로 비전 된 계산 계층에서 서버를 사용 하지 않는 계산 계층으로 데이터베이스를 이동 합니다.
 
 ```sql
 ALTER DATABASE testdb 
@@ -245,23 +253,15 @@ MODIFY ( SERVICE_OBJECTIVE = 'GP_S_Gen5_1') ;
 
 ## <a name="modifying-serverless-configuration"></a>서버를 사용 하지 않는 구성 수정
 
-### <a name="maximum-vcores"></a>최대 vCore
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-#### <a name="use-powershell"></a>PowerShell 사용
+`MaxVcore`, `MinVcore`및 `AutoPauseDelayInMinutes` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 또는 최소 vcores 및 autopause delay를 수정할 수 있습니다.
 
-`MaxVcore` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최대 vcores를 수정할 수 있습니다.
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-### <a name="minimum-vcores"></a>최소 vCore
+`capacity`, `min-capacity`및 `auto-pause-delay` 인수를 사용 하 여 Azure CLI에서 [az sql db update](/cli/azure/sql/db#az-sql-db-update) 명령을 사용 하 여 최대 또는 최소 vcores 및 autopause delay를 수정할 수 있습니다.
 
-#### <a name="use-powershell"></a>PowerShell 사용
-
-`MinVcore` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 최소 vcores를 수정할 수 있습니다.
-
-### <a name="autopause-delay"></a>자동 일시 중지 지연
-
-#### <a name="use-powershell"></a>PowerShell 사용
-
-Autopause 지연 수정은 `AutoPauseDelayInMinutes` 인수를 사용 하 여 PowerShell에서 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) 명령을 사용 하 여 수행 합니다.
+* * *
 
 ## <a name="monitoring"></a>모니터링
 
@@ -298,13 +298,20 @@ Azure Portal에서 데이터베이스 상태는 해당 상태가 포함된 데�
 
 다음 PowerShell 명령을 사용하여 데이터베이스의 일시 중지 및 다시 시작 상태를 쿼리합니다.
 
+# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+
 ```powershell
-Get-AzSqlDatabase `
-  -ResourceGroupName $resourcegroupname `
-  -ServerName $servername `
-  -DatabaseName $databasename `
+Get-AzSqlDatabase -ResourceGroupName $resourcegroupname -ServerName $servername -DatabaseName $databasename `
   | Select -ExpandProperty "Status"
 ```
+
+# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+
+```powershell
+az sql db show --name $databasename --resource-group $resourcegroupname --server $servername --query 'status' -o json
+```
+
+* * *
 
 ## <a name="resource-limits"></a>리소스 한계
 

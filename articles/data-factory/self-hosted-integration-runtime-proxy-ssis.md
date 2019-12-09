@@ -5,7 +5,6 @@ services: data-factory
 documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
@@ -13,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 11/12/2019
-ms.openlocfilehash: cae15e38f98794a3e97ad0b06329aa2e62c2945e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa0f61ed0e280f11e693596f80e79f2e2c110678
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74217641"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74932036"
 ---
 # <a name="configure-self-hosted-ir-as-a-proxy-for-azure-ssis-ir-in-adf"></a>ADF의 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 
@@ -54,7 +53,7 @@ ms.locfileid: "74217641"
 ![자체 호스팅 IR을 프록시로 Azure-SSIS IR 구성](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-settings-ssisir.png)
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>프록시를 사용 하 여 SSIS 패키지 연결
-[여기에서](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects) 다운로드할 수 있는 Visual STUDIO 용 SSIS 프로젝트 확장의 최신 SSDT를 사용 하 여 [여기](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)에서 다운로드할 수 있는 독립 실행형 설치 관리자를 사용 하면 OLEDB/Flat File 연결 관리자에 추가 된 새 **connectbyproxy** 속성을 찾을 수 있습니다.  
+[여기](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)에서 다운로드할 수 있는 Visual Studio 용 SSIS 프로젝트 확장에 최신 SSDT를 사용하거나 [여기](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)에서 다운로드할 수 있는 독립 실행형 설치 관리자를 사용 하 여 OLEDB/에 추가 된 새 **connectbyproxy** 속성을 찾을 수 있습니다. 플랫 파일 연결 관리자.  
 
 OLEDB/Flat File 원본을 사용 하는 데이터 흐름 태스크가 포함 된 새 패키지를 디자인 하 여 온-프레미스의 데이터베이스/파일에 액세스 하는 경우 관련 연결 관리자의 속성 패널에서이 속성을 **True** 로 설정 하 여이 속성을 설정할 수 있습니다.
 
@@ -69,7 +68,7 @@ OLEDB/Flat File 원본을 사용 하는 데이터 흐름 태스크가 포함 된
   
   ![ConnectByProxy property3 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
-- SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포: 속성 경로를 제공 하 고, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`하 고, 패키지 실행 팝업 창의 **고급** 탭에서 속성 재정의로 **True** 로 설정 하 여 속성을 사용 하도록 설정할 수 있습니다. SSMS에서 패키지를 실행 하는 경우.
+- SSIS IR에서 실행할 패키지를 포함 하는 프로젝트를 다시 배포: 속성 경로를 제공 하 고, `\Package.Connections[YourConnectionManagerName].Properties[ConnectByProxy]`하 고, SSMS에서 패키지를 실행할 때 패키지 실행 팝업 창의 **고급** 탭에서 속성 재정의로 **True** 로 설정 하 여 속성을 설정할 수 있습니다.
 
   ![ConnectByProxy property4 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-advanced-tab-ssms.png)
 
@@ -95,4 +94,4 @@ Azure-SSIS IR에서 실행 되는 두 번째 스테이징 작업은 별도로 �
 - ODBC/OLEDB/플랫 파일 원본 및 연결 관리자의 속성 내에서 SSIS 매개 변수/변수를 사용 하는 것은 현재 지원 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
-자체 호스팅 IR을 Azure-SSIS IR에 대 한 프록시로 구성 하면 ADF 파이프라인에서 ssis 패키지 실행 작업으로 온-프레미스 데이터에 액세스 하기 위해 패키지를 배포 하 고 실행할 수 있습니다. adf 파이프라인에서 ssis 패키지를 실행 하려면 ssis 패키지 [실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조 하세요.
+자체 호스팅 IR을 Azure SSIS IR에 대 한 프록시로 구성한 후에는 패키지를 배포 하 고 실행 하 여 ADF 파이프라인에서 ssis 패키지 실행 작업으로 온-프레미스의 데이터에 액세스할 수 있습니다. 자세한 내용은 ADF 파이프라인에서 [ ssis 패키지를 실행하여 ssis 패키지 실행](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity)을 참조하세요.

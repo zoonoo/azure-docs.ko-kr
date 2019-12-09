@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/8/2019
+ms.date: 12/6/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: 633465e9123d679b1aa0e7f7ad048b17c18f2acb
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8caa66801dda223681c38e966ba3d08b1b0c5921
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74771039"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74931073"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -26,7 +26,7 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | Milestone | 에이전트 버전 번호 | 릴리스 날짜 | 상태 |
 |----|----------------------|--------------|------------------|
 | V9 릴리스- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019 년 12 월 2 일 | 지원 됨-Flighting |
-| V8 릴리스- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019 년 10 월 8 일 | 지원됨 |
+| V8 릴리스- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019년 10월 8일 | 지원됨 |
 | 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019년 7월 24일 | 지원됨 |
 | 7 월 2019 업데이트 롤업- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019 년 7 월 12 일 | 지원됨 |
 | V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | 지원됨 |
@@ -77,7 +77,8 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
     - 회수 오류 감소. 이제 회수 크기는 네트워크 대역폭에 따라 자동으로 조정 됩니다. 
     - 동기화 그룹에 새 서버를 추가할 때 다운로드 성능이 개선 되었습니다. 
     - 제약 조건 충돌로 인해 동기화 되지 않는 파일이 줄어듭니다. 
-
+    - 서버 끝점 경로가 볼륨 탑재 지점인 경우 파일이 계층에 실패 하거나 특정 시나리오에서 예기치 않게 회수 됩니다.
+    
 ### <a name="evaluation-tool"></a>평가 도구
 Azure 파일 동기화를 배포하기 전에 Azure 파일 동기화 평가 도구를 사용하여 시스템과 호환되는지 여부를 평가해야 합니다. 이 도구는 Azure PowerShell cmdlet이며, 지원되지 않는 문자 또는 지원되지 않는 OS 버전과 같은 파일 시스템과 데이터 세트와 관련된 잠재적인 문제를 확인합니다. 설치 및 사용 지침에 대해서는 계획 가이드의 [평가 도구](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#evaluation-cmdlet) 섹션을 참조하세요. 
 

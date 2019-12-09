@@ -1,18 +1,19 @@
 ---
-title: Azure Data Factory에서 JSON을 사용 하 여 데이터 흐름 매핑
+title: 데이터 흐름 매핑의 JSON
 description: Azure Data Factory 매핑 데이터 흐름에는 계층 구조를 사용 하 여 JSON 문서를 처리 하는 기본 제공 기능이 있습니다.
 author: kromerm
 ms.author: makromer
 ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 08/30/2019
-ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.openlocfilehash: 153c7a1003c68526c960644bebcc4800e92edc3c
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72387354"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928321"
 ---
 # <a name="mapping-data-flow-json-handling"></a>데이터 흐름 JSON 처리 매핑
 
@@ -179,7 +180,7 @@ map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-### <a name="reduce"></a>줄이십시오
+### <a name="reduce"></a>reduce
 배열의 요소를 누적 합니다. 줄이기를 사용 하면 첫 번째 식 함수에서 누적기 및 one 요소에 대 한 참조가 #acc 및 #item으로 예상 되며 결과 값이 두 번째 식 함수에서 사용 될 #result으로 예상 됩니다.
 
 #### <a name="examples"></a>예시

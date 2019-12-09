@@ -1,17 +1,18 @@
 ---
-title: 데이터 흐름 스크립트 Azure Data Factory 매핑
+title: 데이터 흐름 스크립트 매핑
 description: Data Factory의 데이터 흐름 스크립트 코드 숨겨진 언어 개요
 author: kromerm
 ms.author: nimoolen
 ms.service: data-factory
 ms.topic: conceptual
+ms.custom: seo-lt-2019
 ms.date: 11/10/2019
-ms.openlocfilehash: 4ff5a05fd40ef086c1f2332443ca03d5e872e9a8
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: d861a4355158dfe18ac3aa40a7f98dc11ebda90b
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74010155"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74930251"
 ---
 # <a name="data-flow-script-dfs"></a>데이터 흐름 스크립트 (DFS)
 
@@ -21,7 +22,7 @@ ms.locfileid: "74010155"
 
 예를 들어 원본 변환에서 `allowSchemaDrift: true,`은 스키마 프로젝션에 포함 되지 않은 경우에도 데이터 흐름에 있는 원본 데이터 집합의 모든 열을 포함 하도록 서비스에 지시 합니다.
 
-## <a name="use-cases"></a>사용 사례
+## <a name="use-cases"></a>사례 사용
 DFS는 사용자 인터페이스에 의해 자동으로 생성 됩니다. 스크립트 단추를 클릭 하 여 스크립트를 확인 하 고 사용자 지정할 수 있습니다. ADF UI 외부에서 스크립트를 생성 한 다음 PowerShell cmdlet으로 전달할 수도 있습니다. 복잡 한 데이터 흐름을 디버깅할 때 흐름의 UI 그래프 표현을 검색 하는 대신 스크립트 코드를 검색 하는 것이 더 쉬울 수 있습니다.
 
 몇 가지 예제 사용 사례는 다음과 같습니다.
