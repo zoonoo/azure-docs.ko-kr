@@ -1684,8 +1684,12 @@
           href: samanage-provisioning-tutorial.md
         - name: SAP Cloud Platform Identity Authentication
           href: sap-cloud-platform-identity-authentication-provisioning-tutorial.md
-        - name: Active Directory에 SAP SuccessFactors 연결
+        - name: Active Directory에 SAP SuccessFactors 통합
           href: sap-successfactors-inbound-provisioning-tutorial.md
+        - name: Azure AD에 SAP SuccessFactors 통합
+          href: sap-successfactors-inbound-provisioning-cloud-only-tutorial.md
+        - name: SAP SuccessFactors 쓰기 저장
+          href: sap-successfactors-writeback-tutorial.md
         - name: ServiceNow
           href: servicenow-provisioning-tutorial.md
         - name: Slack
