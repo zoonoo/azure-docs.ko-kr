@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Single Sign-On 세션 관리 | Microsoft Docs
+title: 사용자 지정 정책을 사용 하는 Single sign-on 세션 관리
+titleSuffix: Azure AD B2C
 description: Azure AD B2C에서 사용자 지정 정책을 사용하여 SSO 세션을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5ae30b316133b7479b66a69a3467497a7151dbc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065388"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950496"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -89,7 +90,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 기술 프로필에는 두 개의 메타데이터 항목이 있습니다.
 
-| 항목 | Default Value | 가능한 값 | 설명
+| 항목 | 기본값 | 가능한 값 | 설명
 | --- | --- | --- | --- |
 | IncludeSessionIndex | true | True/False | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. |
 | RegisterServiceProviders | true | True/False | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. |

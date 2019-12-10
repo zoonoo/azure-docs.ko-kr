@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348932"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942225"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -48,7 +48,7 @@ Application gateway와 연결 된 DNS 이름은 게이트웨이의 수명 주기
 
 ### <a name="protocols"></a>프로토콜
 
-Application Gateway는 네 가지 프로토콜을 지원 합니다. HTTP, HTTPS, HTTP/2 및 WebSocket:
+Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket의 네 가지 프로토콜을 지원 합니다.
 >[!NOTE]
 >Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대 한 통신은 항상 HTTP/1.1을 통해입니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
@@ -75,7 +75,7 @@ Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 �
 
 수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 받은 요청을 백 엔드로 라우팅하는 방법을 결정 합니다.
 
-Application Gateway는 표시 된 순서 대로 수신기를 처리 합니다. 기본 수신기가 들어오는 요청과 일치 하는 경우 먼저 처리 됩니다. 트래픽을 올바른 백 엔드로 라우팅하려면 기본 수신기 앞에 다중 사이트 수신기를 구성 합니다.
+Application Gateway는 [표시 된 순서](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners)대로 수신기를 처리 합니다.
 
 ## <a name="request-routing-rules"></a>라우팅 규칙 요청
 
@@ -126,7 +126,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 백 엔드 풀은 요청을 처리 하는 백 엔드 서버에 요청을 라우팅합니다. 백 엔드 풀에는 다음이 포함 될 수 있습니다.
 
 - NIC
-- Virtual Machine Scale Sets
+- 가상 머신 크기 집합
 - 공용 IP 주소
 - 내부 IP 주소
 - FQDN

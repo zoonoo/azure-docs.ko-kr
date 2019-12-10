@@ -11,12 +11,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: anandsub
-ms.openlocfilehash: 77019d6a99e41bb5fb9233aa95836bd4bc8dd877
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
-ms.translationtype: HT
+ms.openlocfilehash: e2ee1de9899dfe091e8f6f79bcd42c75fe67ed67
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926880"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942201"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 Azure Data Factory에서 SSIS (SQL Server Integration Services)를 사용 하는 경우 다음과 같은 시나리오에서 azure SSIS IR (통합 런타임)을 Azure virtual network에 조인 해야 합니다. 
@@ -26,6 +26,8 @@ Azure Data Factory에서 SSIS (SQL Server Integration Services)를 사용 하는
 - Azure-SSIS IR에서 실행 되는 SSIS 패키지의 가상 네트워크 서비스 끝점에서 지원 되는 Azure 서비스 리소스에 연결 하려고 합니다.
 
 - 가상 네트워크에서 가상 네트워크 서비스 끝점 또는 관리 되는 인스턴스를 사용 하 여 Azure SQL Database에서 SSISDB (SSIS 카탈로그 데이터베이스)를 호스트 하 고 있습니다. 
+
+- Azure-SSIS IR에서 실행 되는 SSIS 패키지의 특정 고정 공용 IP 주소에 대 한 액세스만 허용 하는 데이터 원본 또는 리소스에 연결 하려고 합니다.
 
 Data Factory를 사용 하면 클래식 배포 모델 또는 Azure Resource Manager 배포 모델을 통해 만든 가상 네트워크에 Azure-SSIS IR를 조인할 수 있습니다. 
 
@@ -48,6 +50,10 @@ Azure-SSIS IR 가상 네트워크에 가입 하는 경우 다음과 같은 중�
 ## <a name="access-to-azure-services"></a>Azure 서비스에 대한 액세스
 SSIS 패키지가 [virtual network 서비스 끝점](../virtual-network/virtual-network-service-endpoints-overview.md) 을 사용 하 여 지원 되는 Azure 서비스 리소스에 액세스 하 고 이러한 리소스를 Azure-SSIS IR으로 보호 하려는 경우 가상 네트워크 서비스 끝점을 사용 하 여 구성 된 가상 네트워크 서브넷에 Azure-SSIS IR를 조인할 수 있습니다. 한편 Azure 서비스 리소스에 가상 네트워크 규칙을 추가 하 여 동일한 서브넷에서의 액세스를 허용 합니다.
 
+## <a name="access-to-data-sources-protected-by-ip-firewall-rule"></a>IP 방화벽 규칙으로 보호 되는 데이터 원본에 대 한 액세스
+
+특정 고정 공용 IP 주소 에서만 액세스할 수 있도록 하 여 데이터 원본 또는 리소스를 보호 하려는 경우 Azure-SSIS IR를 가상 네트워크 서브넷에 조인 하는 동안 사용자 고유의 [공용 ip 주소](https://docs.microsoft.com/azure/virtual-network/virtual-network-public-ip-address) 를 가져올 수 있습니다. 이 경우 Azure-SSIS IR의 IP 주소가 제공 된 IP 주소에 고정 됩니다. 그런 다음 데이터 원본 또는 리소스에 IP 주소 방화벽 규칙을 추가 하 여 이러한 IP 주소에서 액세스할 수 있도록 합니다.
+
 ## <a name="hosting-the-ssis-catalog-in-sql-database"></a>SQL Database에서 SSIS 카탈로그 호스팅
 가상 네트워크 서비스 엔드포인트가 있는 Azure SQL Database에서 SSIS 카탈로그를 호스트하는 경우 Azure-SSIS IR을 동일한 가상 네트워크 및 서브넷에 연결해야 합니다.
 
@@ -67,13 +73,15 @@ Azure-SSIS IR를 관리 되는 인스턴스와 동일한 가상 네트워크에 
 
 -   Azure-SSIS IR을 호스팅할 적절한 서브넷을 선택합니다. 자세한 내용은 [서브넷 선택](#subnet)을 참조 하세요. 
 
+-   Azure-SSIS IR에 대 한 사용자 고유의 공용 IP 주소를 가져오는 경우 [고정 공용 ip 주소 선택](#publicIP) 을 참조 하세요.
+
 -   가상 네트워크에서 자체 DNS (Domain Name System) 서버를 사용 하는 경우 [dns 서버 설정](#dns_server)을 참조 하세요. 
 
 -   서브넷에서 NSG (네트워크 보안 그룹)를 사용 하는 경우 [Nsg 설정](#nsg)을 참조 하세요. 
 
 -   Azure Express 경로 또는 UDR (사용자 정의 경로)을 사용 하는 경우 [Azure express 경로 또는 Udr 사용](#route)을 참조 하세요. 
 
--   가상 네트워크의 리소스 그룹이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인 합니다. 자세한 내용은 [리소스 그룹 설정](#resource-group)을 참조 하세요. 
+-   가상 네트워크의 리소스 그룹 (또는 사용자 고유의 공용 IP 주소를 가져오는 경우 공용 IP 주소의 리소스 그룹)이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인 합니다. 자세한 내용은 [리소스 그룹 설정](#resource-group)을 참조 하세요. 
 
 -   [Azure-SSIS IR에 대 한 사용자 지정 설정](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup)에 설명 된 대로 Azure-SSIS IR를 사용자 지정 하는 경우 Azure-SSIS IR 노드가 미리 정의 된 172.16.0.0에서 172.31.255.255으로 개인 IP 주소를 가져옵니다. 따라서 가상 또는 온-프레미스 네트워크의 개인 IP 주소 범위가이 범위와 충돌 하지 않는지 확인 합니다.
 
@@ -89,7 +97,7 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 
   - 기본 제공 네트워크 참가자 역할을 사용 합니다. 이 역할에는 범위가 필요 이상으로 큰 _Microsoft.Network/\*_ 권한이 제공됩니다.
 
-  - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 
+  - 필요한 _Microsoft.Network/virtualNetworks/\*/join/action_ 권한만 포함하는 사용자 지정 역할을 만듭니다. 또한 Azure Resource Manager 가상 네트워크에 가입 하는 것 외에도 SSIS IR에 대 한 공용 IP 주소를 가져오려면 역할에 _Microsoft. network/publicIPAddresses/*/join/action_ 권한도 포함 해야 합니다.
 
 - SSIS IR을 클래식 가상 네트워크에 가입 하는 경우 기본 제공 클래식 가상 머신 참가자 역할을 사용 하는 것이 좋습니다. 그렇지 않은 경우 가상 네트워크 연결 권한이 포함된 사용자 지정 역할을 정의해야 합니다.
 
@@ -102,6 +110,19 @@ Azure-SSIS IR를 만드는 사용자에 게는 다음 사용 권한이 있어야
 -   선택한 서브넷에 Azure-SSIS IR 사용할 수 있는 충분 한 주소 공간이 있는지 확인 합니다. IR 노드 번호의 두 배 이상에 대해 사용 가능한 IP 주소를 유지 합니다. Azure는 각 서브넷 내의 일부 IP 주소를 예약합니다. 이러한 주소는 사용할 수 없습니다. 서브넷의 첫 번째 및 마지막 IP 주소는 프로토콜 규칙을 위해 예약 되 고 3 개 이상의 주소가 Azure 서비스에 사용 됩니다. 자세한 내용은 [이러한 서브넷 내에서 IP 주소를 사용하는데 제한 사항이 있습니까?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets) 
 
 -   다른 Azure 서비스 (예: SQL Database 관리 되는 인스턴스, App Service 등)에서 독점적으로 사용 되는 서브넷을 사용 하지 마세요. 
+
+### <a name="publicIP"></a>고정 공용 IP 주소를 선택 합니다.
+가상 네트워크에 가입 하는 동안 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오려면 다음과 같은 요구 사항을 충족 하는지 확인 합니다.
+
+-   다른 Azure 서비스 리소스에 아직 연결 되지 않은 두 개의 사용 되지 않는 고정 공용 IP 주소를 제공 합니다. Azure-SSIS IR를 업그레이드할 때 추가 된 추가 항목을 사용 합니다.
+
+-   공용 IP 주소는 정적 및 표준 이어야 합니다. 자세한 내용은 [공용 IP 주소의 sku](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 를 참조 하세요.
+
+-   고정 공용 IP 주소에는 둘 다 DNS 이름이 있어야 합니다. 공용 IP 주소를 만들 때 DNS 이름을 설정 하지 않은 경우 Azure Portal 에서도이를 설정할 수 있습니다.
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+-   고정 공용 IP 주소와 가상 네트워크는 동일한 구독 및 동일한 지역에 있어야 합니다.
 
 ### <a name="dns_server"></a>DNS 서버 설정 
 Azure-SSIS IR에 연결 된 가상 네트워크에서 자체 DNS 서버를 사용 해야 하는 경우 글로벌 Azure 호스트 이름 (예: `<your storage account>.blob.core.windows.net`Azure Storage blob)을 확인할 수 있는지 확인 합니다. 
@@ -151,11 +172,14 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
    -   이름이\<Guid > 인 Azure 공용 IP 주소 *-azurebatch-cloudservicepublicip*.
    -   이름이 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*인 네트워크 작업 보안 그룹입니다. 
 
-이러한 리소스는 IR이 시작 될 때 생성 됩니다. IR이 중지 되 면 삭제 됩니다. IR 중지를 방지 하려면 다른 리소스에서 이러한 네트워크 리소스를 다시 사용 하지 마십시오. 
+> [!NOTE]
+> 사용자 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 지금 가져올 수 있습니다. 이 시나리오에서는 Azure 부하 분산 장치 및 네트워크 보안 그룹만 만들면 됩니다. 뿐만 아니라 리소스는 가상 네트워크 대신 공용 IP 주소와 동일한 리소스 그룹에 생성 됩니다.
 
-가상 네트워크가 속한 리소스 그룹 또는 구독에 대 한 리소스 잠금이 없는지 확인 합니다. 읽기 전용 잠금 또는 삭제 잠금을 구성 하는 경우 IR을 시작 및 중지 하는 작업이 실패할 수 있습니다. 그렇지 않으면 IR이 응답 하지 않을 수 있습니다. 
+이러한 리소스는 IR이 시작 될 때 생성 됩니다. IR이 중지 되 면 삭제 됩니다. 사용자 고유의 공용 IP 주소를 가져오는 경우 IR이 중지 되 면 공용 IP 주소가 삭제 되지 않습니다. IR 중지를 방지 하려면 다른 리소스에서 이러한 네트워크 리소스를 다시 사용 하지 마십시오. 
 
-가상 네트워크가 속한 리소스 그룹 또는 구독에서 다음 리소스를 만들지 못하도록 하는 Azure 정책이 없는지 확인 합니다. 
+가상 네트워크 (또는 고유한 가상 네트워크를 가져오는 경우 공용 IP 주소)가 속한 리소스 그룹이 나 구독에 대 한 리소스 잠금이 없는지 확인 합니다. 읽기 전용 잠금 또는 삭제 잠금을 구성 하는 경우 IR을 시작 및 중지 하는 작업이 실패할 수 있습니다. 그렇지 않으면 IR이 응답 하지 않을 수 있습니다. 
+
+가상 네트워크 (또는 사용자가 소유한 공용 IP 주소)가 속한 리소스 그룹 또는 구독에서 다음 리소스를 만들지 못하도록 하는 Azure 정책이 없는지 확인 합니다. 
    -   Microsoft.Network/LoadBalancers 
    -   Microsoft.Network/NetworkSecurityGroups 
    -   Microsoft.Network/PublicIPAddresses 
@@ -169,11 +193,22 @@ Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네
     공용 IP 주소를 노출 하지 않으려면 시나리오에 적용 되는 경우 [자체 호스팅 IR을 가상 네트워크 대신 Azure-SSIS IR의 프록시로 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis) 하는 것이 좋습니다.
  
 - Azure-SSIS IR의 고정 IP 주소를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있나요?
- 
+
+    이제 Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져올 수 있습니다. 이 경우 제공 된 IP 주소를 데이터 원본에 대 한 방화벽의 허용 목록에 추가할 수 있습니다. 시나리오에 따라 Azure-SSIS IR에서 데이터 원본에 액세스할 수 있도록 다음 옵션을 고려할 수도 있습니다.
+
     - 데이터 원본이 온-프레미스에 있는 경우 가상 네트워크를 온-프레미스 네트워크에 연결 하 고 Azure-SSIS IR를 가상 네트워크 서브넷에 연결 하면 해당 서브넷의 IP 범위를 허용 목록에 추가할 수 있습니다.
     - 데이터 원본이 virtual network 서비스 끝점에서 지원 되는 Azure 서비스인 경우 가상 네트워크에서 가상 네트워크 서비스 지점을 구성 하 고 해당 가상 네트워크 서브넷에 Azure-SSIS IR을 조인할 수 있습니다. 그런 다음 IP 범위 대신 Azure 서비스의 가상 네트워크 규칙을 사용 하 여 액세스를 허용할 수 있습니다.
     - 데이터 원본이 다른 종류의 클라우드 데이터 원본인 경우 UDR을 사용 하 여 Azure-SSIS IR에서 NVA로 또는 고정 공용 IP 주소를 사용 하 여 Azure 방화벽으로 아웃 바운드 트래픽을 라우팅할 수 있습니다. NVA 또는 Azure 방화벽의 공용 IP 주소를 허용 목록에 추가할 수 있습니다.
     - 이전 답변이 사용자의 요구를 충족 하지 않는 경우 [에는 자체 호스팅 IR을 Azure-SSIS IR 프록시로 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)하 여 데이터 원본 액세스를 제공 하는 것이 좋습니다. 그런 다음 가상 네트워크에 Azure-SSIS IR를 조인 하는 대신 자체 호스팅 IR을 호스트 하는 컴퓨터의 IP 주소를 허용 목록에 추가할 수 있습니다.
+
+- Azure-SSIS IR에 대 한 공용 IP 주소를 가져오려는 경우 두 개의 고정 공용 주소를 제공 해야 하는 이유는 무엇 인가요?
+
+    Azure-SSIS IR은 정기적으로 자동으로 업데이트 됩니다. 업그레이드 하는 동안 새 IR 노드가 만들어지고 이전 노드가 삭제 됩니다. 그러나 가동 중지 시간을 방지 하기 위해 새 노드가 준비 될 때까지 이전 노드가 삭제 되지 않습니다. 따라서 이전 노드에 사용 되는 첫 번째 공용 IP 주소를 즉시 해제할 수 없으며 새 IR 노드를 만드는 다른 공용 IP 주소가 필요 합니다.
+- Azure-SSIS IR에 대 한 고정 공용 IP 주소를가지고 있지만 IR에서 여전히 데이터 원본 또는 리소스에 액세스할 수 없습니다.
+
+    - 두 개의 고정 공용 IP 주소가 모두 데이터 원본 또는 리소스의 허용 목록에 추가 되어 있는지 확인 합니다. Azure-SSIS IR 업그레이드 한 후 IR의 공용 IP 주소는 보조 공용 IP 주소로 전환 됩니다. 이러한 항목 중 하나를 허용 목록에만 추가 하는 경우 업그레이드 후 액세스가 끊어졌을 수 있습니다.
+
+    - 데이터 원본이 Azure 서비스인 경우 서비스 끝점을 사용 하 여 가상 네트워크 서브넷을 설정 했는지 확인 하세요. 서비스 끝점이 설정 된 경우 서비스 트래픽은 가상 네트워크에서 Azure 서비스에 액세스할 때 Azure 서비스에서 관리 하는 개인 주소를 원본 IP 주소로 사용 하도록 전환 됩니다. 이 경우 사용자 고유의 공용 IP 주소를 허용 목록에 추가 해도 적용 되지 않습니다.
 
 ## <a name="azure-portal-data-factory-ui"></a>Azure Portal(데이터 팩터리 UI)
 이 섹션에서는 Azure Portal 및 Data Factory UI를 사용 하 여 기존 Azure-SSIS IR를 가상 네트워크 (클래식 또는 Azure Resource Manager)에 조인 하는 방법을 보여 줍니다. 
@@ -301,9 +336,11 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
    d. **서브넷 이름**에서는 해당 가상 네트워크의 서브넷을 선택합니다. 
 
-   ㅁ. 자체 호스팅 IR을 Azure-SSIS IR에 대 한 프록시로 구성 하거나 관리 하려는 경우에는 **자체 호스팅 설정** 확인란을 선택 합니다. 자세한 내용은 [Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)을 참조 하세요.
+   ㅁ. Azure-SSIS IR에 대 한 고정 공용 IP 주소를 가져오려면 **고정 공용 ip 주소 가져오기** 확인란을 선택 합니다. 그런 다음 Azure-SSIS IR에 대 한 첫 번째 및 두 번째 고정 공용 IP 주소를 제공 하세요. **새로 만들기** 단추를 클릭 하 여 새 공용 ip 주소를 만들 수도 있습니다. 공용 ip 주소 요구 사항에 대 한 [고정 공용 ip 주소 선택](#publicIP) 을 참조 하세요.
 
-   f. **VNet 유효성 검사** 단추를 선택 합니다. 유효성 검사에 성공 하면 **다음** 단추를 선택 합니다. 
+   f. 자체 호스팅 IR을 Azure-SSIS IR에 대 한 프록시로 구성 하거나 관리 하려는 경우에는 **자체 호스팅 설정** 확인란을 선택 합니다. 자세한 내용은 [Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성](https://docs.microsoft.com/azure/data-factory/self-hosted-integration-runtime-proxy-ssis)을 참조 하세요.
+
+   g. **VNet 유효성 검사** 단추를 선택 합니다. 유효성 검사에 성공 하면 **다음** 단추를 선택 합니다. 
 
    ![IR 설치를 위한 고급 설정](media/join-azure-ssis-integration-runtime-virtual-network/ir-setup-advanced-settings.png)
 

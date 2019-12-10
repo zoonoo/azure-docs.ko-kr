@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C의 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의 | Microsoft Docs
+title: 사용자 지정 정책에서 Azure AD 기술 프로필 정의
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 Azure Active Directory 기술 프로필을 정의합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4383980953147560b9e51e4ccab3032dd8173dd4
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 1a839c86a717122778f736f01fea4bdd08da8945
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064617"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949561"
 ---
 # <a name="define-an-azure-active-directory-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 Azure Active Directory 기술 프로필 정의
 
@@ -25,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C) Azure Active Directory 사용자 관�
 
 ## <a name="protocol"></a>프로토콜
 
-**Protocol** 요소의 **Name** 특성은 `Proprietary`로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
+**Protocol** 요소의 **Name** 특성은 `Proprietary`으로 설정해야 합니다. **handler** 특성은 프로토콜 처리기 어셈블리의 정규화된 이름 `Web.TPEngine.Providers.AzureActiveDirectoryProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null`을 포함해야 합니다.
 
 모든 Azure AD 기술 프로필은 **AAD-Common** 기술 프로필을 포함합니다. 프로토콜이 **AAD-Common** 기술 프로필에 구성되어 있으므로 다음 기술 프로필은 프로토콜을 지정하지 않습니다.
 
@@ -120,7 +121,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 
 ## <a name="azure-ad-technical-provider-operations"></a>Azure AD 기술 공급자 작업
 
-### <a name="read"></a>Read
+### <a name="read"></a>읽기
 
 **Read** 작업은 단일 사용자 계정에 대한 데이터를 읽습니다. 사용자 데이터를 읽으려면 **objectId**, **userPrincipalName**, **signInNames**(모든 유형, 사용자 이름 및 메일 기반 계정) 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
@@ -152,7 +153,7 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
 </TechnicalProfile>
 ```
 
-### <a name="write"></a>Write
+### <a name="write"></a>쓰기
 
 **Write** 작업은 단일 사용자 계정을 만들거나 업데이트합니다. 사용자 계정을 쓰려면 **objectId**, **userPrincipalName**, **signInNames.emailAddress** 또는 **alternativeSecurityId**와 같은 키를 입력 클레임으로 제공해야 합니다.
 
@@ -250,17 +251,17 @@ Azure AD 특성 이름을 포함하는 **PartnerClaimType** 특성이 지정되�
   <IncludeTechnicalProfile ReferenceId="AAD-Common" />
 </TechnicalProfile>
 ```
-## <a name="metadata"></a>메타데이터
+## <a name="metadata"></a>Metadata
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 연산 | 예 | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
-| RaiseErrorIfClaimsPrincipalDoesNotExist | 아니요 | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
-| UserMessageIfClaimsPrincipalDoesNotExist | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
-| RaiseErrorIfClaimsPrincipalAlreadyExists | 아니요 | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
-| UserMessageIfClaimsPrincipalAlreadyExists | 아니요 | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
-| ApplicationObjectId | 아니요 | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값: 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
-| clientid | 아니요 | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
+| 작업(Operation) | yes | 수행할 작업입니다. 가능한 값은 `Read`, `Write`, `DeleteClaims` 또는 `DeleteClaimsPrincipal`입니다. |
+| RaiseErrorIfClaimsPrincipalDoesNotExist | 아닙니다. | 사용자 개체가 디렉터리에 없는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다. |
+| UserMessageIfClaimsPrincipalDoesNotExist | 아닙니다. | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalDoesNotExist 특성 설명 참조), 사용자 개체가 없는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| RaiseErrorIfClaimsPrincipalAlreadyExists | 아닙니다. | 사용자 개체가 이미 있는 경우 오류가 발생합니다. 가능한 값은 `true` 또는 `false`입니다.|
+| UserMessageIfClaimsPrincipalAlreadyExists | 아닙니다. | 오류가 발생해야 한다면(RaiseErrorIfClaimsPrincipalAlreadyExists 특성 설명 참조), 사용자 개체가 이미 있는 경우 사용자에게 표시할 메시지를 지정합니다. 값을 [지역화](localization.md)할 수 있습니다.|
+| ApplicationObjectId | 아닙니다. | 확장 특성에 대한 애플리케이션 개체 ID입니다. 값은 애플리케이션의 ObjectId입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
+| clientid | 아닙니다. | 테넌트에 제3자로 액세스하기 위한 클라이언트 식별자입니다. 자세한 내용은 [사용자 지정 프로필 편집 정책에서 사용자 지정 특성 사용](active-directory-b2c-create-custom-attributes-profile-edit-custom.md)을 참조하세요. |
 
 
 

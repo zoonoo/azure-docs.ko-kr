@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory 조직에 대 한 로그인 설정-Azure Active Directory B2C
+title: Azure AD 조직에 대 한 로그인 설정
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인을 설정합니다.
 services: active-directory-b2c
 author: mmacy
@@ -11,12 +12,12 @@ ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 0c2e368b9c12d8ab673e5b8808632501de448b9a
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: d864561273f89c510633bbc95a2d037a270401f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72755762"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947681"
 ---
 # <a name="set-up-sign-in-for-a-specific-azure-active-directory-organization-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 특정 Azure Active Directory 조직에 대한 로그인 설정
 
@@ -60,7 +61,7 @@ Azure AD B2C에서 Azure AD(Azure Active Directory)를 [ID 공급자](active-dir
 
     예: `https://login.microsoftonline.com/contoso.onmicrosoft.com/.well-known/openid-configuration`
 
-    예를 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration` Azure AD v2.0 메타 데이터 끝점을 사용 **하지 마세요** . 이렇게 하면 로그인을 시도할 때 `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'`와 유사한 오류가 발생 합니다.
+    예를 들어 `https://login.microsoftonline.com/contoso.onmicrosoft.com/v2.0/.well-known/openid-configuration`Azure AD v2.0 메타 데이터 끝점을 사용 **하지 마세요** . 이렇게 하면 로그인을 시도할 때 `AADB2C: A claim with id 'UserId' was not found, which is required by ClaimsTransformation 'CreateAlternativeSecurityId' with id 'CreateAlternativeSecurityId' in policy 'B2C_1_SignUpOrIn' of tenant 'contoso.onmicrosoft.com'`와 유사한 오류가 발생 합니다.
 
 1. **클라이언트 id**에 대해 이전에 기록한 응용 프로그램 id를 입력 합니다.
 1. **클라이언트 암호**에 대해 이전에 기록한 클라이언트 암호를 입력 합니다.

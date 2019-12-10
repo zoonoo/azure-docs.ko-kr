@@ -11,12 +11,12 @@ ms.reviewer: sawinark
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 07/08/2019
-ms.openlocfilehash: c7db5d7d8963702f6039af3cfd51d6d916755abb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 52b1d93935e6428563c72361655893ffddf8a507
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931936"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941861"
 ---
 # <a name="troubleshoot-ssis-integration-runtime-management-in-azure-data-factory"></a>Azure Data Factory에서 SSIS Integration Runtime 관리 문제 해결
 
@@ -156,3 +156,38 @@ SSIS IR을 중지하면 모든 Virtual Network 관련 리소스가 삭제됩니�
 ### <a name="nodeunavailable"></a>NodeUnavailable
 
 이 오류는 IR이 실행 중일 때 발생하며 IR이 비정상 상태임을 의미합니다. 이 오류는 항상 SSIS IR이 필요한 서비스에 연결되지 않도록 차단하는 DNS 서버 또는 NSG 구성의 변경으로 인해 발생합니다. DNS 서버 및 NSG의 구성은 고객에 의해 제어되므로 결국 고객이 차단 이슈를 해결해야 합니다. 자세한 내용은 [SSIS IR Virtual Network 구성](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요. 여전히 문제가 발생하는 경우 Azure Data Factory 지원 팀에 문의하세요.
+
+## <a name="static-public-ip-addresses-configuration"></a>고정 공용 IP 주소 구성
+
+Azure-SSIS IR를 Azure Virtual Network에 조인 하는 경우 IR이 특정 IP 주소에 대 한 액세스를 제한 하는 데이터 원본에 액세스할 수 있도록 IR에 대 한 고정 공용 IP 주소를 가져올 수도 있습니다. 자세한 내용은 [Azure-SSIS Integration Runtime을 가상 네트워크에 조인](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network)을 참조하세요.
+
+위의 가상 네트워크 문제 외에도 고정 공용 IP 주소 관련 문제를 충족할 수 있습니다. 도움이 필요 하면 다음 오류를 확인 하십시오.
+
+### <a name="InvalidPublicIPSpecified"></a>InvalidPublicIPSpecified
+
+이 오류는 Azure-SSIS IR를 시작할 때 다양 한 이유로 발생할 수 있습니다.
+
+| 오류 메시지 | 솔루션|
+|:--- |:--- |
+| 제공 된 고정 공용 IP 주소는 이미 사용 중입니다. Azure-SSIS Integration Runtime에 사용 되지 않는 두 개의 주소를 제공 하세요. | 사용 되지 않는 고정 공용 IP 주소를 두 개 선택 하거나 지정 된 공용 IP 주소에 대 한 현재 참조를 제거한 후 Azure-SSIS IR를 다시 시작 해야 합니다. |
+| 제공 된 고정 공용 IP 주소에 DNS 이름이 없습니다. Azure-SSIS Integration Runtime에 대 한 DNS 이름으로 두 개를 제공 하십시오. | 아래 그림에 나와 있는 것 처럼 Azure Portal에서 공용 IP 주소의 DNS 이름을 설정할 수 있습니다. 특정 단계는 다음과 같습니다. (1) Azure Portal을 열고이 공용 IP 주소의 리소스 페이지로 이동 합니다. (2) **구성** 섹션을 선택 하 고 DNS 이름을 설정한 다음 **저장** 단추를 클릭 합니다. (3) Azure-SSIS IR을 다시 시작 합니다. |
+| Azure-SSIS Integration Runtime에 대해 제공 된 VNet 및 고정 공용 IP 주소는 동일한 위치에 있어야 합니다. | Azure 네트워크 요구 사항에 따라 고정 공용 IP 주소와 가상 네트워크는 동일한 위치 및 구독에 있어야 합니다. 두 개의 유효한 고정 공용 IP 주소를 제공 하 고 Azure-SSIS IR를 다시 시작 하세요. |
+| 제공 된 고정 공용 IP 주소는 기본 IP 주소입니다. Azure-SSIS Integration Runtime에 대 한 두 가지 표준 이름을 제공 하세요. | 도움말은 [공용 IP 주소의 sku](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku) 를 참조 하세요. |
+
+![Azure-SSIS IR](media/ssis-integration-runtime-management-troubleshoot/setup-publicipdns-name.png)
+
+### <a name="publicipresourcegrouplockedduringstart"></a>PublicIPResourceGroupLockedDuringStart
+
+프로 비전이 실패 하면 생성 된 모든 리소스가 삭제 됩니다. Azure-SSIS IR 그러나 구독 또는 리소스 그룹에 고정 공용 IP 주소를 포함 하는 리소스 삭제 잠금이 있는 경우 네트워크 리소스가 예상 대로 삭제 되지 않습니다. 오류를 해결 하려면 삭제 잠금을 제거 하 고 IR을 다시 시작 하세요.
+
+### <a name="publicipresourcegrouplockedduringstop"></a>PublicIPResourceGroupLockedDuringStop
+
+Azure-SSIS IR를 중지 하면 공용 IP 주소를 포함 하는 리소스 그룹에 만들어진 모든 네트워크 리소스가 삭제 됩니다. 그러나 구독 또는 리소스 그룹 (고정 공용 IP 주소를 포함)에 리소스 삭제 잠금이 있는 경우 삭제는 실패할 수 있습니다. 삭제 잠금을 제거 하 고 IR을 다시 시작 하세요.
+
+### <a name="publicipresourcegrouplockedduringupgrade"></a>PublicIPResourceGroupLockedDuringUpgrade
+
+Azure-SSIS IR은 정기적으로 자동으로 업데이트 됩니다. 업그레이드 하는 동안 새 IR 노드가 만들어지고 이전 노드가 삭제 됩니다. 또한 이전 노드에 대 한 생성 된 네트워크 리소스 (예: 부하 분산 장치 및 네트워크 보안 그룹)가 삭제 되 고 새 네트워크 리소스가 구독에 생성 됩니다. 이 오류는 구독 또는 리소스 그룹 (고정 공용 IP 주소 포함)에 대 한 삭제 잠금으로 인해 이전 노드에 대 한 네트워크 리소스를 삭제 하지 못했음을 의미 합니다. 이전 노드를 정리 하 고 이전 노드에 대 한 고정 공용 IP 주소를 해제할 수 있도록 삭제 잠금을 제거 하십시오. 그렇지 않으면 고정 공용 IP 주소를 해제할 수 없으며 IR을 추가로 업그레이드할 수 없게 됩니다.
+
+### <a name="publicipnotusableduringupgrade"></a>PublicIPNotUsableDuringUpgrade
+
+사용자 고유의 고정 공용 IP 주소를 가져오려면 두 개의 공용 IP 주소를 제공 해야 합니다. 그 중 하나는 IR 노드를 즉시 만드는 데 사용 되 고 다른 하나는 IR을 업그레이드 하는 동안 사용 됩니다. 업그레이드 하는 동안 다른 공용 IP 주소를 사용할 수 없는 경우이 오류가 발생할 수 있습니다. 가능한 원인은 [InvalidPublicIPSpecified](#InvalidPublicIPSpecified) 를 참조 하세요.

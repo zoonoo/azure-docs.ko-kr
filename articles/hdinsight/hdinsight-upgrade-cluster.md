@@ -5,15 +5,15 @@ author: omidm1
 ms.author: omidm
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/04/2017
-ms.openlocfilehash: 808e592a01bca2066b7d3d37a5fdfa697d739d4b
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: 1a1d4a71786ebb1e68f59084086b3256a1c1ea40
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122440"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951159"
 ---
 # <a name="upgrade-hdinsight-cluster-to-a-newer-version"></a>HDInsight 클러스터를 최신 버전으로 업그레이드
 
@@ -34,14 +34,15 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 
 예상대로 작동하는 것이 확인되면 마이그레이션을 위해 가동 중지 시간을 예약합니다. 이 가동 중지 시간 동안 다음 작업을 수행합니다.
 
-1.  클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
-2.  기존 클러스터를 삭제합니다.
-3.  이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
-4.  백업한 모든 임시 데이터를 가져옵니다.
-5.  새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
+1. 클러스터 노드에 로컬로 저장된 모든 임시 데이터를 백업합니다. 예를 들어 헤드 노드에 직접 저장된 데이터가 있는 경우입니다.
+1. [기존 클러스터를 삭제](./hdinsight-delete-cluster.md)합니다.
+1. 이전 클러스터에서 사용된 것과 동일한 기본 데이터 저장소를 사용하여 최신(또는 지원되는) HDI 버전과 동일한 VNET 서브넷에서 클러스터를 만듭니다. 이렇게 하면 새 클러스터에서 기존의 프로덕션 데이터에 대해 작업을 계속할 수 있습니다.
+1. 백업한 모든 임시 데이터를 가져옵니다.
+1. 새 클러스터를 사용하여 작업을 시작하거나 계속 처리합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * [Linux 기반 HDInsight 클러스터를 만드는 방법 알아보기](hdinsight-hadoop-provision-linux-clusters.md)
 * [SSH를 사용하여 HDInsight에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Apache Ambari를 사용하여 Linux 기반 클러스터 관리](hdinsight-hadoop-manage-ambari.md)
+* [HDInsight 릴리스 정보](./hdinsight-version-release.md)

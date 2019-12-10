@@ -1,6 +1,7 @@
 ---
-title: Predicates 및 PredicateValidations - Azure Active Directory B2C | Microsoft Docs
-description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마용 소셜 계정 클레임 변환의 예제를 제공합니다.
+title: Predicates 및 PredicateValidations
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 잘못 된 형식의 데이터를 Azure AD B2C 테 넌 트에 추가 하지 않도록 합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 10/28/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1f08589ae28b3e19d2a4fdb3e3862e127a810cc
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: a09478bd2e32a1ab484b85fec33ae03878ebb10c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73099712"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951023"
 ---
 # <a name="predicates-and-predicatevalidations"></a>Predicates 및 PredicateValidations
 

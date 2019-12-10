@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C에서 & 데이터 상주 지역 가용성
-description: Azure Active Directory B2C 테넌트 유형에 대한 항목입니다.
+title: 지역 가용성 및 데이터 상주
+titleSuffix: Azure AD B2C
+description: 지역 가용성, 데이터 상주 및 Azure Active Directory B2C 미리 보기 테 넌 트에 대 한 정보입니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0bb7a7ef2aabd7f93531d9afa662d7e582e05550
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 1b09eb85df6748fed042731ac90ebbf20c65b702
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273575"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950513"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
@@ -27,7 +28,7 @@ Azure AD B2C는 **미국, 유럽 또는 아시아 태평양**의 **데이터 상
 
 [데이터 상주](#data-residency)는 사용자 데이터가 저장된 위치를 나타냅니다.
 
-## <a name="region-availability"></a>지역 가용성
+## <a name="region-availability"></a>리전 가용성
 
 Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다.
 
@@ -57,7 +58,7 @@ Azure AD B2C는 미국, 유럽 또는 아시아 태평양 지역에 사용자 �
 
 > 아르헨티나, 오스트레일리아, 브라질, 칠레, 콜롬비아, 에콰도르, 이라크, 뉴질랜드, 파라과이, 페루, 우루과이 및 베네수엘라.
 
-## <a name="preview-tenant"></a>테넌트 미리 보기
+## <a name="preview-tenant"></a>미리 보기 테넌트
 
 Azure AD B2c의 미리 보기 기간 중에 B2C 테 넌 트를 만든 경우 테 넌 트 **형식이** **미리 보기 테 넌**트 라고 표시 될 수 있습니다.
 

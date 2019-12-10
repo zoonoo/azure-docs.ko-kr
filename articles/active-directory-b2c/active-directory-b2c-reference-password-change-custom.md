@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성 | Microsoft Docs
+title: 사용자 지정 정책을 사용 하 여 암호 변경 구성
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자가 암호를 변경할 수 있게 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/13/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0775920e1d6572223253edbfc066123a515b5480
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fd1f623eecdd855dbfb8e27795f813db4d099f53
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065515"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950581"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -23,7 +24,7 @@ ms.locfileid: "71065515"
 
 Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 로그인 한 사용자가 전자 메일 확인으로 신뢰성을 증명 하지 않고도 자신의 암호를 변경할 수 있도록 설정할 수 있습니다. 사용자가 암호 변경 흐름에 도달하는 시점에 세션이 만료되는 경우 다시 로그인하라는 메시지가 표시됩니다. 이 문서에서는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)에서 암호 변경을 구성하는 방법을 보여 줍니다. 사용자 흐름에 대한 [셀프 서비스 암호 재설정](active-directory-b2c-reference-sspr.md)을 구성할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](active-directory-b2c-get-started-custom.md)에 있는 단계를 완료합니다.
 
@@ -164,9 +165,9 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 
 ### <a name="upload-the-files"></a>파일 업로드
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. **ID 경험 프레임워크**를 선택합니다.
 5. 사용자 지정 정책 페이지에서 **정책 업로드**를 클릭합니다.
 6. **정책이 있는 경우 덮어쓰기**를 선택한 후 TrustFrameworkExtensions.xml 파일을 찾아서 선택합니다.
@@ -176,7 +177,7 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 ### <a name="run-the-policy"></a>정책 실행
 
 1. 변경한 정책을 엽니다. 예를 들면, *B2C_1A_profile_edit_password_change*입니다.
-2. **애플리케이션**은 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL**에 `https://jwt.ms`가 표시되어야 합니다.
+2. **애플리케이션**의 경우 사용자가 이전에 등록한 애플리케이션을 선택합니다. 토큰을 보려면 **회신 URL**에 `https://jwt.ms`가 표시되어야 합니다.
 3. **지금 실행**을 클릭합니다. 이전에 만든 계정으로 로그인합니다. 이제 암호를 변경할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계

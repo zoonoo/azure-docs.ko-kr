@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 클라이언트 인증서를 사용하여 RESTful 서비스 보호 | Microsoft Docs
+title: 클라이언트 인증서를 사용 하 여 RESTful 서비스 보호
+titleSuffix: Azure AD B2C
 description: 클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1690adfe5336ea85328e16755c5e3bc82b6d240a
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 1d396de57a12285fb6cc682510fa6f95585465d0
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67835620"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949860"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -33,7 +34,7 @@ ms.locfileid: "67835620"
 * Azure AD B2C 정책 키에 인증서 업로드
 * 클라이언트 인증서를 사용하도록 사용자 지정 정책 구성
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 * [REST API 클레임 교환 통합](active-directory-b2c-custom-rest-api-netfw.md) 문서의 단계 완료
 * 유효한 인증서(프라이빗 키를 포함한 .pfx 파일) 가져오기.
 
@@ -64,7 +65,7 @@ ms.locfileid: "67835620"
 
 7. **암호** 상자에 인증서의 암호를 입력합니다.
 
-    ![Azure portal의 키 페이지 만들기에서 정책 키 업로드](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
+    ![Azure Portal의 키 만들기 페이지에서 정책 키를 업로드 합니다.](media/aadb2c-ief-rest-api-netfw-secure-cert/rest-api-netfw-secure-client-cert-upload.png)
 
 7. **만들기**를 선택합니다.
 
@@ -122,7 +123,7 @@ ms.locfileid: "67835620"
 3. **지정된 이름** 상자에 **테스트**를 입력하여 프로세스를 테스트합니다.
     Azure AD B2C는 창의 위쪽에 오류 메시지를 표시합니다.
 
-    ![지정 된 이름 텍스트 상자 강조 표시 및 입력 유효성 검사 오류 표시](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
+    ![지정 된 이름 텍스트 상자가 강조 표시 되 고 입력 유효성 검사 오류가 표시 됨](media/aadb2c-ief-rest-api-netfw-secure-basic/rest-api-netfw-test.png)
 
 4. **지정된 이름** 상자에서 ("Test" 이외의) 이름을 입력합니다.
     Azure AD B2C는 사용자를 등록한 후 전용 번호를 애플리케이션에 보냅니다. 이 JWT 예제의 번호를 적어둡니다.
@@ -298,5 +299,5 @@ if (IsValidClientCertificate() == false)
 이 단계의 문제를 해결해야 하는 경우 [Application Insights를 사용하여 로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요.
 
 ## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
-* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)을 제공했습니다.
+* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw-secure-cert)이 제공됩니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-rest-api-netfw/Contoso.AADB2C.API)에서 전체 코드를 다운로드할 수 있습니다.

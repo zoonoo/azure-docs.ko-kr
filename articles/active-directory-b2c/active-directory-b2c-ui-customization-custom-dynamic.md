@@ -1,5 +1,6 @@
 ---
-title: 사용자 지정 정책을 사용하여 동적으로 Azure Active Directory B2C UI(사용자 인터페이스) 사용자 지정 | Microsoft Docs
+title: 사용자 지정 정책을 사용 하 여 동적으로 UI (사용자 인터페이스) 사용자 지정
+titleSuffix: Azure AD B2C
 description: 런타임 시 동적으로 변경되는 HTML5/CSS 콘텐츠로 여러 브랜딩 환경을 지원합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 43c0da3ca8fa4b2f74d48b0e202cc56bc8b9406c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: dbc932bd7a68212ce94f2ad07de6e625d26c0918
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227213"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950241"
 ---
 # <a name="azure-active-directory-b2c-configure-the-ui-with-dynamic-content-by-using-custom-policies"></a>Azure Active Directory B2C: 사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성
 
@@ -23,7 +24,7 @@ ms.locfileid: "68227213"
 
 Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면 쿼리 문자열에 매개 변수를 보낼 수 있습니다. 매개 변수를 HTML 엔드포인트로 전달하면 페이지 콘텐츠를 동적으로 변경할 수 있습니다. 예를 들어 웹 또는 모바일 애플리케이션에서 전달한 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 이 문서는 사용자 지정 정책을 사용하여 *동적 콘텐츠*로 Azure AD B2C 사용자 인터페이스를 사용자 지정하는 방법에 중점을 둡니다. 시작하려면 [사용자 지정 정책에서 UI 사용자 지정](active-directory-b2c-ui-customization-custom.md)을 참조하세요.
 
 >[!NOTE]
@@ -39,7 +40,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 `ContentDefinitions` 섹션에는 일련의 `ContentDefinition` XML 요소가 포함됩니다. `ContentDefinition` 요소의 ID 특성은 콘텐츠 정의에 관련된 페이지의 형식을 지정합니다. 즉, 요소는 사용자 지정 HTML5/CSS 템플릿이 적용될 컨텍스트를 정의합니다. 다음 표에서는 IEF 엔진이 인식하는 콘텐츠 정의 ID 집합과 이에 관련된 페이지 형식을 설명합니다.
 
-| 콘텐츠 정의 ID | 기본 HTML5 템플릿| Description |
+| 콘텐츠 정의 ID | 기본 HTML5 템플릿| 설명 |
 |-----------------------|--------|-------------|
 | *api.error* | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지**입니다. 이 페이지에는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자가 나열됩니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |
@@ -86,7 +87,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 ### <a name="step-21-download-the-b2c-built-in-html5-template"></a>2\.1단계: B2C 기본 제공 HTML5 템플릿 다운로드
 사용자 지정 HTML5 템플릿은 Azure AD B2C 기본 제공 HTML5 템플릿을 기반으로 합니다. [unified.html 파일](https://login.microsoftonline.com/static/tenant/default/unified.cshtml)을 다운로드하거나 [시작 팩](https://github.com/AzureADQuickStarts/B2C-AzureBlobStorage-Client/tree/master/sample_templates/wingtip)에서 템플릿을 다운로드할 수 있습니다. 이 HTML5 파일을 사용하여 통합된 등록 또는 로그인 페이지를 만듭니다.
 
-### <a name="step-22-add-the-mvc-view"></a>2\.2단계: MVC 뷰 추가
+### <a name="step-22-add-the-mvc-view"></a>2\.2단계 MVC 뷰 추가
 1. Views/Home 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **새 항목**을 클릭합니다.
 
     ![Visual Studio에서 새 항목 추가 메뉴 항목](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-view1.png)
@@ -123,7 +124,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 `ID` 값 *background_background_image*가 포함된 `<img>` 요소를 찾은 다음, `src` 값을 **https://kbdevstorage1.blob.core.windows.net/asset-blobs/19889_en_1** 또는 사용하려는 다른 배경 이미지로 바꿉니다.
 
-![custom background_background_image src 값이 있는 img 요소](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
+![사용자 지정 background_background_image src 값을 사용 하는 img 요소](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-add-static-background.png)
 
 ### <a name="step-24-add-your-view-to-the-mvc-controller"></a>2\.4단계: MVC 컨트롤러에 보기 추가
 
@@ -143,7 +144,7 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 
 2. 웹앱을 디버그하여 _unified_ 페이지(예: `http://localhost:<Port number>/Home/unified`)에 액세스할 수 있도록 합니다.
 
-### <a name="step-25-publish-to-azure"></a>2\.5단계: Azure에 게시
+### <a name="step-25-publish-to-azure"></a>2\.5단계 Azure에 게시
 1. **솔루션 탐색기**에서 **Contoso.AADB2C.UI** 프로젝트를 마우스 오른쪽 단추로 클릭한 다음 **게시**를 선택합니다.
 
     ![Microsoft Azure App Service에 게시](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-publish1.png)
@@ -179,9 +180,9 @@ Azure AD B2C(Azure Active Directory B2C) 사용자 지정 정책을 사용하면
 3. **CORS** 창의 **허용된 원본** 상자에 다음 중 하나를 수행합니다.
 
     * JavaScript 호출을 허용할 URL을 입력합니다. URL을 입력할 때는 모두 소문자를 사용해야 합니다.
-    * 별표( * )를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
+    * 별표(*)를 입력하여 모든 원본 도메인이 허용되도록 지정합니다.
 
-4.           **저장**을 선택합니다.
+4. **저장**을 선택합니다.
 
     ![허용 된 원본에서 별표가 강조 표시 된 CORS 설정 페이지](media/active-directory-b2c-ui-customization-custom-dynamic/aadb2c-ief-ui-customization-CORS3.png)
 
@@ -196,7 +197,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
     >콘텐츠를 호스팅하는 사이트에서 CORS를 사용할 수 있고 CORS 요청을 테스트할 수 있는지 확인하려면 [test-cors.org](https://test-cors.org/) 웹 사이트로 이동합니다.
 
 * 제공된 콘텐츠는 **HTTPS**를 통해 보호됩니다.
-* 모든 링크, CSS 콘텐츠 및 이미지에 `https://yourdomain/content`대해와 같은 *절대 url*을 사용 하 고 있습니다.
+* 모든 링크, CSS 콘텐츠 및 이미지에 대해 `https://yourdomain/content`와 같은 *절대 url*을 사용 합니다.
 
 ## <a name="step-5-configure-your-content-definition"></a>5단계: 콘텐츠 정의 구성
 `ContentDefinition`을 구성하려면 다음을 수행합니다.
@@ -242,7 +243,7 @@ HTML5 템플릿을 사용할 준비가 되었습니다. 하지만 `ContentDefini
 ## <a name="step-8-add-dynamic-content"></a>8단계: 동적 콘텐츠 추가
 _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운드를 변경합니다. RP 애플리케이션(웹 및 모바일 앱)이 Azure AD B2C에 매개 변수를 보냅니다. 정책에서는 매개 변수를 읽고 HTML5 템플릿에 해당 값을 보냅니다.
 
-### <a name="step-81-add-a-content-definition-parameter"></a>8\.1단계: 콘텐츠 정의 매개 변수 추가
+### <a name="step-81-add-a-content-definition-parameter"></a>8\.1단계 콘텐츠 정의 매개 변수 추가
 
 다음을 수행하여 `ContentDefinitionParameters` 요소를 추가합니다.
 1. 정책의 *SignUpOrSignin* 파일(예: *SignUpOrSignin.xml*)을 엽니다.
@@ -261,7 +262,7 @@ _campaignId_라는 쿼리 문자열 매개 변수에 기반하여 백그라운�
     </RelyingParty>
     ```
 
-### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8\.2단계: 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
+### <a name="step-82-change-your-code-to-accept-a-query-string-parameter-and-replace-the-background-image"></a>8\.2단계 쿼리 문자열 매개 변수를 수락하고 배경 이미지를 대체하도록 코드 변경
 HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 수락합니다. 그런 다음 메서드는 매개 변수 값을 확인하고 `ViewData["background"]` 변수를 적절하게 설정합니다.
 
 1. *Controllers\HomeController.cs* 파일을 열어서 다음 코드 조각을 추가하여 `unified` 메서드를 변경합니다.
@@ -325,7 +326,7 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
     b. 파일 내용을 복사합니다.
 
-    c. 새 보기 *selfasserted*를 만듭니다.
+    다. 새 보기 *selfasserted*를 만듭니다.
 
     d. *selfasserted*를 **Home** 컨트롤러에 추가합니다.
 
@@ -341,8 +342,8 @@ HomeController `unified` 메서드를 수정하여 campaignId 매개 변수를 �
 
 5. 정책 테스트를 실행한 다음 **지금 등록**을 선택하여 결과를 확인합니다.
 
-## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항) 전체 정책 파일 및 코드 다운로드
-* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위해 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)을 제공했습니다.
+## <a name="optional-download-the-complete-policy-files-and-code"></a>(선택 사항)완성 정책 파일 및 코드 다운로드
+* [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md) 연습을 완료한 후에 고유한 사용자 지정 정책 파일을 사용하여 시나리오를 빌드하는 것이 좋습니다. 참조를 위한 [샘플 정책 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)이 제공됩니다.
 * [참조를 위한 Visual Studio 솔루션 샘플](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/aadb2c-ief-ui-customization)에서 전체 코드를 다운로드할 수 있습니다.
 
 

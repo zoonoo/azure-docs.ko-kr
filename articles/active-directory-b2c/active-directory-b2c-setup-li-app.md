@@ -1,5 +1,6 @@
 ---
-title: LinkedIn 계정으로 등록 및 로그인 설정-Azure Active Directory B2C
+title: LinkedIn 계정으로 등록 및 로그인 설정
+titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 LinkedIn 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,18 +11,18 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: be347fe33e03b4c2a7ecc1015a407c5a58062326
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: fc6537b56b26d6becfe0851a09d3bfe0f13050ab
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065142"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947715"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 LinkedIn 계정으로 등록 설정 및 로그인
 
 ## <a name="create-a-linkedin-application"></a>LinkedIn 애플리케이션 만들기
 
-LinkedIn 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자로](active-directory-b2c-reference-oauth-code.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. LinkedIn 계정이 아직 없는 경우에서 [https://www.linkedin.com/](https://www.linkedin.com/)등록할 수 있습니다.
+LinkedIn 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자로](active-directory-b2c-reference-oauth-code.md) 사용 하려면 테 넌 트에서 응용 프로그램을 나타내는 응용 프로그램을 만들어야 합니다. LinkedIn 계정이 아직 없는 경우 [https://www.linkedin.com/](https://www.linkedin.com/)에서 등록할 수 있습니다.
 
 1. LinkedIn 계정 자격 증명을 사용하여 [LinkedIn 개발자 웹 사이트](https://www.developer.linkedin.com/)에 로그인합니다.
 1. **내 앱**을 선택하고 **애플리케이션 만들기**를 클릭합니다.
@@ -33,7 +34,7 @@ LinkedIn 계정을 Azure Active Directory B2C (Azure AD B2C)에서 [id 공급자
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>LinkedIn 계정을 ID 공급자로 구성
 
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **Id 공급자**를 선택한 다음 **LinkedIn**을 선택 합니다.
 1. **이름**을 입력합니다. 예: *LinkedIn*.

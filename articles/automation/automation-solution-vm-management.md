@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 12/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 54f0584eae948d6e577b0439a5a0d976ff61d4b1
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c0b022ed759837fc6d922386dd48a2f3a109527a
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850655"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951499"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -428,7 +428,7 @@ VM이 실행될 때 시작/중지 솔루션에 포함되도록 하는 데 사용
 
 이 프로세스의 일부로 Automation 계정 및 Log Analytics 작업 영역이 삭제되지는 않습니다. Log Analytics 작업 영역을 유지하지 않으려는 경우 수동으로 삭제해야 합니다. Azure Portal에서도 이 작업을 수행할 수 있습니다.
 
-1. Azure Portal 홈 화면에서 **Log Analytics 작업 영역**을 선택 합니다.
+1. Azure Portal에서 **Log Analytics 작업 영역**을 검색 하 고 선택 합니다.
 1. **Log Analytics 작업 영역** 페이지에서 작업 영역을 선택 합니다.
 1. 작업 영역 설정 페이지에 있는 메뉴에서 **삭제**를 선택합니다.
 

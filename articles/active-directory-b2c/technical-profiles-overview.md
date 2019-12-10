@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보 | Microsoft Docs
-description: Azure Active Directory B2C의 사용자 지정 정책에서 기술 프로필을 사용하는 방법을 알아봅니다.
+title: 사용자 지정 정책의 기술 프로필 개요
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C의 사용자 지정 정책에서 기술 프로필을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f90b69cde4a961457c987f004e2605e6884bf323
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: af08a24ff28d59bf743f92aa69ffa823dcdcc544
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063336"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951040"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -48,7 +49,7 @@ ms.locfileid: "71063336"
  
 1. **InputClaimsTransformation** - 모든 입력 [클레임 변환](claimstransformations.md)의 입력 클레임이 클레임 모음에서 선택되고 실행 후 출력 클레임이 다시 클레임 모음에 저장됩니다. 입력 클레임 변환의 출력 클레임이 후속 입력 클레임 변환의 입력 클레임이 될 수 있습니다.
 2. **InputClaims** - 클레임이 클레임 모음에서 선택되고 기술 프로필에 사용됩니다. 예를 들어, [자체 어설션 기술 프로필](self-asserted-technical-profile.md)은 입력 클레임을 사용하여 사용자가 제공하는 출력 클레임을 미리 채웁니다. REST API 기술 프로필은 입력 클레임을 사용하여 입력 매개 변수를 REST API 엔드포인트에 보냅니다. Azure Active Directory는 입력 클레임을 고유 식별자로 사용하여 계정을 읽거나, 업데이트하거나, 삭제합니다.
-3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예:
+3. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 다음은 그 예입니다.
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.

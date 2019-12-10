@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 24bee8ffe23d524553143b2097560979a39329d7
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 5f260ab1df5341a981a388533b06cbcda400e4da
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74784717"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941834"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -31,35 +31,45 @@ Azure Functions 핵심 도구를 사용하여 명령 프롬프트 또는 터미�
 
 ## <a name="core-tools-versions"></a>핵심 도구 버전
 
-Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 중인 버전은 로컬 개발 환경, [선택한 언어](supported-languages.md) 및 필요한 지원 수준에 따라 달라집니다.
+Azure Functions Core Tools에는 세 가지 버전이 있습니다. 사용 중인 버전은 로컬 개발 환경, [선택한 언어](supported-languages.md) 및 필요한 지원 수준에 따라 달라집니다.
 
-+ 버전 1.x: 런타임 버전 1.x를 지원합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://docs.npmjs.com/getting-started/what-is-npm)에서 설치됩니다. 이 버전을 사용하면 공식적으로 지원되지 않는 실험적 언어로 함수를 만들 수 있습니다. 자세한 내용은 [Azure Functions에서 지원되는 언어](supported-languages.md)를 참조하세요.
++ **버전**1.x: Azure Functions 런타임의 버전 1.X를 지원 합니다. 이 버전의 도구는 Windows 컴퓨터에서만 지원되며 [npm 패키지](https://www.npmjs.com/package/azure-functions-core-tools)에서 설치됩니다.
 
-+ [버전 2.x](#v2): [런타임 버전 2.x](functions-versions.md)를 지원합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 지원합니다. 설치에 플랫폼별 패키지 관리자 또는 npm을 사용합니다.
++ [**버전 2.x/** ](#v2)2.x:는 [Azure Functions 런타임의 버전 2.x 또는](functions-versions.md)3.x를 지원 합니다. 이러한 버전은 [Windows](#windows-npm), [Macos](#brew)및 [Linux](#linux) 를 지원 하 고 플랫폼별 패키지 관리자 또는 npm를 사용 하 여 설치 합니다.
 
-언급이 없는 경우 이 아티클의 예제는 2.x 버전용입니다.
+별도로 언급 하지 않는 한이 문서의 예는 버전 2.x에 대 한 것입니다.
 
 ## <a name="install-the-azure-functions-core-tools"></a>Azure Functions 핵심 도구 설치
 
 [Azure Functions 핵심 도구]에는 로컬 개발 컴퓨터에서 실행할 수 있는 Azure Functions 런타임을 제공하는 동일한 런타임 버전이 포함됩니다. 또한 함수를 만들고, Azure에 연결하고, 함수 프로젝트를 배포하는 명령을 제공합니다.
 
-### <a name="v2"></a>버전 2.x
+### <a name="v2"></a>버전 2.x 및 3(sp3)
 
-버전 2.x 도구는 .NET Core를 기반으로 하는 Azure Functions 런타임 2.x를 사용합니다. 이 버전은 [Windows](#windows-npm), [macOS](#brew) 및 [Linux](#linux)를 포함하여 .NET Core 2.x에서 지원하는 모든 플랫폼에서 지원됩니다. 
+Tools의 버전 2.x/2.x는 .NET Core를 기반으로 하는 Azure Functions 런타임을 사용 합니다. 이 버전은 [Windows](#windows-npm), [Macos](#brew)및 [Linux](#linux)를 포함 하 여 .net Core에서 지 원하는 모든 플랫폼에서 지원 됩니다. 
 
 > [!IMPORTANT]
-> [확장 번들]을 사용 하 여 .net CORE 2.x SDK를 설치 하기 위한 요구 사항을 무시할 수 있습니다.
+> [확장 번들]을 사용 하 여 .NET Core SDK를 설치 하기 위한 요구 사항을 무시할 수 있습니다.
 
 #### <a name="windows-npm"></a>Windows
 
 다음 단계에서는 npm을 사용하여 Windows에 핵심 도구를 설치합니다. [Chocolatey](https://chocolatey.org/)를 사용할 수도 있습니다. 자세한 내용은 [핵심 도구 추가 정보](https://github.com/Azure/azure-functions-core-tools/blob/master/README.md#windows)를 참조하세요.
 
-1. [Node.js](npm 포함)를 설치합니다. 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
+1. [Node.js](npm 포함)를 설치합니다.
+    - 버전 2.x 도구의 경우 Node.js 8.5 이상 버전만 지원됩니다.
+    - Tools의 버전 2.x의 경우 Node 10 이상 버전만 지원 됩니다.
 
 1. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     npm install -g azure-functions-core-tools
+    ```
+
+    ##### <a name="v3x"></a>v3. x
+
+    ```bash
+    npm install -g azure-functions-core-tools@3
     ```
 
    Npm에서 핵심 도구 패키지를 다운로드 하 고 설치 하는 데 몇 분 정도 걸릴 수 있습니다.
@@ -74,13 +84,21 @@ Azure Functions 핵심 도구에는 두 가지 버전이 있습니다. 사용 �
 
 1. 다음과 같이 핵심 도구 패키지를 설치합니다.
 
+    ##### <a name="v2x"></a>v2.x
+
     ```bash
     brew tap azure/functions
     brew install azure-functions-core-tools
     ```
 
-1. [확장 번들]을 사용 하지 않으려는 경우 [macos 용 .NET Core 2.x SDK](https://www.microsoft.com/net/download/macos)를 설치 합니다.
+    ##### <a name="v3x"></a>v3. x
 
+    ```bash
+    brew tap azure/functions
+    brew install azure-functions-core-tools@3
+    # if upgrading on a machine that has 2.x installed
+    brew link --overwrite azure-functions-core-tools@3
+    ```
 
 #### <a name="linux"></a>APT가 있는 Linux(Debian/Ubuntu)
 
@@ -212,7 +230,7 @@ Initialized empty Git repository in C:/myfunctions/myMyFunctionProj/.git/
 개발을 위해 스토리지 에뮬레이터를 사용하는 경우라도 실제 스토리지 연결을 테스트하고 싶을 수 있습니다. 이미 [스토리지 계정을 만든](../storage/common/storage-create-storage-account.md) 것으로 가정하면 다음 방법 중 하나에서 유효한 스토리지 연결 문자열을 가져올 수 있습니다.
 
 - [Azure 포털]에서 **저장소 계정**을 검색 하 고 선택 합니다. 
-  Azure Portal에서 Storagea 계정을 선택 ![](./media/functions-run-local/select-storage-accounts.png)
+  ![Azure Portal](./media/functions-run-local/select-storage-accounts.png)에서 저장소 계정을 선택 합니다.
   
   저장소 계정을 선택 하 고, **설정**에서 **액세스 키** 를 선택한 다음, **연결 문자열** 값 중 하나를 복사 합니다.
   Azure Portal](./media/functions-run-local/copy-storage-connection-portal.png)에서 연결 문자열 복사를 ![합니다.
@@ -526,5 +544,5 @@ Azure Portal에서 함수 앱을 만들 때 기본적으로 Application Insights
 [Azure 포털]: https://portal.azure.com 
 [Node.js]: https://docs.npmjs.com/getting-started/installing-node#osx-or-windows
 [`FUNCTIONS_WORKER_RUNTIME`]: functions-app-settings.md#functions_worker_runtime
-[AzureWebJobsStorage]: functions-app-settings.md#azurewebjobsstorage
+[`AzureWebJobsStorage`]: functions-app-settings.md#azurewebjobsstorage
 [확장 번들]: functions-bindings-register.md#extension-bundles

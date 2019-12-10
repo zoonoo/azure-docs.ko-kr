@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C |의 사용자 지정 정책에서 OAuth1 기술 프로필 정의 Microsoft Docs
-description: Azure Active Directory B2C에서 사용자 지정 정책에 OAuth1 기술 프로필을 정의 합니다.
+title: 사용자 지정 정책에서 OAuth1 기술 프로필 정의
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C의 사용자 지정 정책에서 OAuth 1.0 기술 프로필을 정의 합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 97fa5757f8b77e29545f6d6f6b885334c7b526f1
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064001"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951108"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -25,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 ## <a name="protocol"></a>프로토콜
 
-**Protocol** 요소의 **Name** 특성은 `OAuth1`로 설정해야 합니다. 예를 들어 **Twitter-OAUTH1** 기술 프로필의 프로토콜은 `OAuth1`입니다.
+**Protocol** 요소의 **Name** 특성은 `OAuth1`으로 설정해야 합니다. 예를 들어 **Twitter-OAUTH1** 기술 프로필의 프로토콜은 `OAuth1`입니다.
 
 ```XML
 <TechnicalProfile Id="Twitter-OAUTH1">
@@ -65,17 +66,17 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 </OutputClaims>
 ```
 
-## <a name="metadata"></a>메타데이터
+## <a name="metadata"></a>Metadata
 
-| 특성 | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
-| ProviderName | 아니요 | ID 공급자의 이름입니다. |
-| request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
-| authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
-| access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
-| ClaimsEndpoint | 아니요 | 사용자 정보 엔드포인트의 URL입니다. |
-| ClaimsResponseFormat | 아니요 | 클레임 응답 형식입니다.|
+| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
+| ProviderName | 아닙니다. | ID 공급자의 이름입니다. |
+| request_token_endpoint | yes | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
+| authorization_endpoint | yes | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
+| access_token_endpoint | yes | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
+| ClaimsEndpoint | 아닙니다. | 사용자 정보 엔드포인트의 URL입니다. |
+| ClaimsResponseFormat | 아닙니다. | 클레임 응답 형식입니다.|
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
@@ -83,7 +84,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
+| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 
@@ -91,7 +92,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 **login.microsoftonline.com** 대신 **b2clogin.com** 도메인을 사용하는 경우 login.microsoftonline.com 대신 b2clogin.com을 사용해야 합니다.
 
-예를 들면 다음과 같습니다.
+예시:
 
 - [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
 

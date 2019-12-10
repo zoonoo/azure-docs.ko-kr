@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1755d5bf3338694f53da7021579cb4c0aee623f3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 934899a74362ec9354c772c341d38d6a8f988ab4
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74912476"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951873"
 ---
 # <a name="set-up-and-use-compute-targets-for-model-training"></a>모델 학습을 위한 계산 대상 설정 및 사용 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -54,7 +54,7 @@ Azure Machine Learning 다양 한 계산 대상에서 다양 한 지원을 제�
 
 ## <a name="whats-an-estimator"></a>평가기?
 
-인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다. 클래스에는 실행 구성을 쉽게 구성 하 고 사용자 지정할 수 있는 메서드가 포함 되어 있으므로 학습에 평가기를 사용 하는 것이 좋습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다. 계산 대상에서 데이터 파일을 사용할 수 있도록 해야 하는 경우 [Azure Machine Learning 데이터 집합으로 학습](how-to-train-with-datasets.md)을 참조 하세요.
+인기 있는 프레임 워크를 사용 하 여 모델 학습을 용이 하 게 하기 위해 Azure Machine Learning Python SDK는 더 높은 수준의 추상화 인 평가기 클래스를 제공 합니다.  이 클래스를 사용 하 여 간편 하 게 실행 구성을 생성할 수 있습니다. 제네릭 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) 을 만들고 사용 하 여 선택한 학습 프레임 워크 (예: scikit)를 사용 하는 학습 스크립트를 제출할 수 있습니다. 환경 또는 RunConfiguration 개체와 같은 포함 개체를 자동으로 contructs 하기 위해 평가기을 사용 하는 것이 좋습니다. 이러한 개체를 생성 하는 방법에 대 한 더 많은 제어를 제공 하 고 experiement 실행을 위해 설치할 패키지를 specfify [다음 단계](#amlcompute) 를 수행 하 여 Azure Machine Learning 계산에서 runconfiguration 개체를 사용 하 여 학습 실험을 제출 합니다.
 
 PyTorch, TensorFlow 및 체 이너 Azure Machine Learning 작업의 경우 이러한 프레임 워크 사용을 간소화 하기 위해 각 [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py)및 [체 이너](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 추정 제공 됩니다.
 

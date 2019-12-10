@@ -5,26 +5,29 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 0a4fb337adfb2f4e6b8edb86ac620103e929c3a8
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89f364d9246db27276eee6d05e8130e87061feec
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842138"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941607"
 ---
 # <a name="troubleshoot-azure-farmbeats"></a>Azure FarmBeats 문제 해결
 
 이 문서에서는 일반적인 Azure FarmBeats 문제에 대 한 해결 방법을 제공 합니다.
 
-추가 도움말을 보려면 farmbeatssupport@microsoft.com에 문의 하세요. 전자 메일에 *배포자* 파일을 포함 해야 합니다.
+추가 도움말을 보려면 farmbeatssupport@microsoft.com에 문의 하세요. 전자 메일에 **배포자** 파일을 포함 해야 합니다.
 
-*배포자* 파일을 다운로드 하려면 다음을 수행 합니다.
+**배포자** 파일을 다운로드 하려면 다음을 수행 합니다.
 
-1. 강조 표시 된 아이콘을 선택 하 고 드롭다운 목록에서 **다운로드**를 선택 합니다.
+1. **Azure Portal** 에 로그인 하 고 구독과 Azure AD 테 넌 트를 선택 합니다.
+2. Azure Portal의 위쪽 탐색 모음에서 Cloud Shell을 시작합니다.
+3. 기본 Cloud Shell 환경으로 **Bash** 를 선택 합니다.
+4. 강조 표시 된 아이콘을 선택 하 고 드롭다운 목록에서 **다운로드**를 선택 합니다.
 
     ![프로젝트 FarmBeats](./media/troubleshooting-farmbeats/download-deployer-log-1.png)
 
-1. 다음 창에 *배포자* 파일에 대 한 경로를 입력 합니다. 예를 들어 **farmbeats-deployer**을 입력 합니다.
+5. 다음 창에 **배포자** 파일에 대 한 경로를 입력 합니다. 예를 들어 **farmbeats-deployer**을 입력 합니다.
 
 ## <a name="sensor-telemetry"></a>센서 원격 분석
 
@@ -32,7 +35,7 @@ ms.locfileid: "74842138"
 
 **증상**: 장치 또는 센서가 배포 되 고 FarmBeats를 장치 파트너와 연결 했지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
 
-**수정 동작**: 
+**수정 동작**:
 
 1. FarmBeats Datahub 리소스 그룹으로 이동 합니다.   
 1. **이벤트 허브** (DatafeedEventHubNamespace)를 선택 하 고 들어오는 메시지 수를 확인 합니다.
@@ -44,14 +47,14 @@ ms.locfileid: "74842138"
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Azure Event Hubs 연결 문자열이 없음
 
-**수정 동작**: 
+**수정 동작**:
 
 1. Datahub Swagger에서 파트너 API로 이동 합니다.
 1. **가져오기** > 선택 **하** > **실행**을 시도 합니다.
 1. 관심이 있는 센서 파트너의 파트너 ID를 적어 둡니다.
 1. 파트너 API로 돌아가서 **Get/\<ID >** 를 선택 합니다.
 1. 3 단계에서 만든 파트너 ID를 지정 하 고 **실행**을 선택 합니다.
-   
+
    API 응답에는 Event Hubs 연결 문자열이 있어야 합니다.
 
 ### <a name="device-appears-offline"></a>장치가 오프 라인으로 표시 됩니다.
@@ -128,7 +131,7 @@ ms.locfileid: "74842138"
 **문제**: FarmBeatsDeployment을 업그레이드 한 후에도 FarmBeats Accelerator가 최신 버전을 표시 하지 않습니다.
 
 **정정 동작**:이 오류는 브라우저에서 서비스 작업자 지 속성으로 인해 발생 합니다. 다음을 수행합니다.
-1. 액셀러레이터 키가 열려 있는 모든 브라우저 탭을 닫고 브라우저 창을 닫습니다. 
+1. 액셀러레이터 키가 열려 있는 모든 브라우저 탭을 닫고 브라우저 창을 닫습니다.
 1. 브라우저의 새 인스턴스를 시작 하 고 액셀러레이터 키 URI를 다시 로드 합니다. 이 작업을 수행 하면 새 버전의 가속기가 로드 됩니다.
 
 ## <a name="sentinel-imagery-related-issues"></a>센티널: 이미지와 관련 된 문제
@@ -137,7 +140,7 @@ ms.locfileid: "74842138"
 
 **작업 실패 메시지**: "이 리소스에 액세스 하려면 전체 인증이 필요 합니다."
 
-**수정 동작**: 
+**수정 동작**:
 
 다음 중 하나를 수행합니다.
 * 올바른 사용자 이름 및 암호를 사용 하 여 Datahub를 업그레이드 하기 위해 설치 관리자를 다시 실행 합니다.
@@ -207,7 +210,7 @@ ms.locfileid: "74842138"
 
     ![프로젝트 FarmBeats](./media/troubleshooting-farmbeats/collecting-logs-manually-1.png)
 
-### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Accelerator에서 Azure Data Factory 작업 로그 수집 
+### <a name="collect-azure-data-factory-job-logs-in-accelerator"></a>Accelerator에서 Azure Data Factory 작업 로그 수집
 
 1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. **검색** 상자에서 FarmBeats Accelerator 리소스 그룹을 검색 합니다.

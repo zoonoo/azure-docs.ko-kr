@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 8efc98ad2785a9052244556bddc60a5ba34bd3d8
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 501e5bc1b2de91e0dd74ae0f0d9163d74dcb06f2
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900387"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941562"
 ---
 # <a name="references"></a>참조
 
@@ -23,7 +23,7 @@ Azure FarmBeats Api는 agricultural 비즈니스에 JSON 기반 응답을 제공
 - 센서, 카메라, 드 론, 날씨, 위성 및 큐 레이트 그라운드 데이터를 가져오는 Api입니다.
 - Common data provider에서 데이터의 정규화 및 contextualization.
 - 모든 수집 데이터에 대 한 액세스 및 쿼리 기능을 스키마 화 된 합니다.
-- Agronomic 기능을 기준으로 쿼리할 수 있는 메타 데이터의 자동 생성 
+- Agronomic 기능을 기준으로 쿼리할 수 있는 메타 데이터의 자동 생성
 - 빠른 모델 빌드를 위해 자동으로 생성 된 시간 시퀀스 집계.
 - 사용자 지정 데이터 처리 파이프라인을 쉽게 빌드하기 위한 통합 Azure Data Factory 엔진.
 
@@ -102,7 +102,7 @@ curl -X POST "https://microsoft-farmbeats.azurewebsites.net/Device" -H  "accept:
 ### <a name="query-parameters"></a>쿼리 매개 변수
 
 REST GET 호출의 경우 요청 URI에 하나 이상의 쿼리 매개 변수를 포함 하 여 API 응답에서 데이터를 필터링 하 고, 크기를 제한 하 고, 데이터를 정렬할 수 있습니다. 쿼리 매개 변수는 API 설명서 및 개별 GET 호출을 참조 하세요.
-예를 들어 장치 목록을 쿼리하면 (/Device에서 GET 호출) 다음과 같은 쿼리 매개 변수를 지정할 수 있습니다. 
+예를 들어 장치 목록을 쿼리하면 (/Device에서 GET 호출) 다음과 같은 쿼리 매개 변수를 지정할 수 있습니다.
 
 ![장치 목록](./media/for-references/query-parameters-device-1.png)
 
@@ -163,12 +163,12 @@ Azure FarmBeats Api는 Azure Active Directory에서 사용자 또는 앱 등록�
 
 4. [Datahub Swagger](https://<yourdatahub>.azurewebsites.net/swagger/index.html) 로 이동 하 여 다음을 수행 합니다.
     - **Roleassignment API**로 이동 합니다.
-    - 게시를 수행 하 여 방금 만든 **개체 ID** 에 대 한 **roleassignment** 개체를 만듭니다. 
+    - 게시를 수행 하 여 방금 만든 **개체 ID** 에 대 한 **roleassignment** 개체를 만듭니다.
 
   > [!NOTE]
   > 사용자를 추가 하 고 등록을 Active Directory 하는 방법에 대 한 자세한 내용은 [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)을 참조 하세요.
 
-이전 단계를 완료 한 후에 앱 등록 (클라이언트)은 전달자 인증을 통해 액세스 토큰을 사용 하 여 Azure FarmBeats Api를 호출할 수 있습니다. 
+이전 단계를 완료 한 후에 앱 등록 (클라이언트)은 전달자 인증을 통해 액세스 토큰을 사용 하 여 Azure FarmBeats Api를 호출할 수 있습니다.
 
 액세스 토큰을 사용 하 여 헤더 섹션의 후속 API 요청에서 다음과 같이 보냅니다.
 

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: d2ac3b0f531b6384643d91fac1cf50a0ea719969
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: a3e4f543be2f01e0c649d5f9bcc9287dedc275f1
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900331"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941647"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -39,7 +39,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 > 다음 단계를 수행 하려면 관리자 여야 합니다.
 
 1. 이 [스크립트](https://aka.ms/farmbeatspartnerscript)를 다운로드 하 고 로컬 드라이브에 압축을 풉니다. 두 파일은 zip 파일 내에 있습니다.
-2. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cloud Shell을 엽니다. 이 옵션은 포털의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다. 
+2. [Azure Portal](https://portal.azure.com/)에 로그인하고 Azure Cloud Shell을 엽니다. 이 옵션은 포털의 오른쪽 위 모퉁이에 있는 도구 모음에서 사용할 수 있습니다.
 
     ![Azure Portal 도구 모음](./media/for-tutorials/navigation-bar-1.png)
 
@@ -47,7 +47,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
     ![PowerShell 설정](./media/for-tutorials/power-shell-new-1.png)
 
-4. Cloud Shell 인스턴스에서 1 단계에서 다운로드 한 두 파일을 업로드 합니다. 
+4. Cloud Shell 인스턴스에서 1 단계에서 다운로드 한 두 파일을 업로드 합니다.
 
     ![도구 모음에서 업로드 단추](./media/for-tutorials/power-shell-two-1.png)
 
@@ -55,7 +55,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
    >[!NOTE]
    > 기본적으로 파일은 홈 디렉터리/홈/사용자 이름으로 업로드 됩니다.
-6. 다음 명령을 사용 하 여 스크립트를 실행 합니다. 
+6. 다음 명령을 사용 하 여 스크립트를 실행 합니다.
 
     ```azurepowershell-interactive
     ./generateCredentials.ps1
@@ -67,10 +67,10 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
  이제 필수 자격 증명이 있으므로 장치 및 센서를 정의할 수 있습니다. 이렇게 하려면 FarmBeats Api를 사용 하 여 메타 데이터를 만듭니다.
 
- FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다. 
+ FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다.
 
-- /**DeviceModel**: DeviceModel는 장치 (예: 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 메타 데이터에 해당 합니다. 
-- /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다. 
+- /**DeviceModel**: DeviceModel는 장치 (예: 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 메타 데이터에 해당 합니다.
+- /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다.
 - /**SensorModel**: SensorModel 제조업체, 센서 유형 (예: 아날로그 또는 디지털) 및 센서 측정 (예: 주변 온도 및 압력)과 같은 센서의 메타 데이터에 해당 합니다.
 - /**센서**: 센서는 값을 기록 하는 실제 센서에 해당 합니다. 센서는 일반적으로 장치 ID를 사용 하 여 장치에 연결 됩니다.  
 
@@ -86,7 +86,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |    properties          |    제조업체의 추가 속성입니다.   |
 |    **디바이스**             |                      |
 |   DeviceModelId     |     연결 된 장치 모델의 ID입니다.  |
-|  hardwareId          | MAC 주소와 같은 장치에 대 한 고유 ID입니다.
+|  HardwareId          | MAC 주소와 같은 장치에 대 한 고유 ID입니다.
 |  ReportingInterval        |   보고 간격 (초)입니다.
 |  위치            |  장치 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).   
 |ParentDeviceId       |    이 장치가 연결 된 부모 장치의 ID입니다. 예를 들어 게이트웨이에 연결 된 노드입니다. 노드에는 게이트웨이로 parentDeviceId가 있습니다.  |
@@ -99,15 +99,15 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 |     ProductCode| 제품 코드 또는 모델 이름 또는 번호입니다. 예를 들어 RS-CO2-N01입니다. |
 |       SensorMeasures > 이름       | 센서 측정값의 이름입니다. 소문자만 지원 됩니다. 다른 깊이에서 측정 하려면 깊이를 지정 합니다. 예를 들어 soil_moisture_15cm 합니다. 이 이름은 원격 분석 데이터와 일치 해야 합니다.  |
 |          SensorMeasures > 데이터 형식       |원격 분석 데이터 형식입니다. 현재는 double이 지원 됩니다.|
-|    sensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 형식은 AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture,,,,,,,,,, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
+|    SensorMeasures > 형식    |센서 원격 분석 데이터의 측정 유형입니다. 시스템 정의 형식은 AmbientTemperature, CO2, Depth, ElectricalConductivity, LeafWetness, Length, LiquidLevel, Nitrate, O2, PH, Phosphate, PointInTime, Potassium, 압력, RainGauge, RelativeHumidity, Salinity, SoilMoisture,,,,,,,,,, SoilTemperature, SolarRadiation, State, TimeDuration, UVRadiation, Uvradiation, Volume, WindDirection, WindRun, WindSpeed, Evapotranspiration,와 동일 합니다. 추가 정보를 추가 하려면/ExtendedType API를 참조 하세요.|
 |        SensorMeasures > Unit              | 센서 원격 분석 데이터의 단위입니다. 시스템 정의 단위는 NoUnit, 섭씨, 화씨, 온도, Rankine, 파스칼, 수, 인치, 피트, Mm, 센티미터, 미터, 인치, 피트, 마일, KiloMeter, MilesPerHour, MilesPerSecond, KMPerHour, KMPerSecond, MetersPerHour, MetersPerSecond, 학위, WattsPerSquareMeter, KiloWattsPerSquareMeter, MilliWattsPerSquareCentiMeter, MilliJoulesPerSquareCentiMeter, VolumetricWaterContent, 백분율, PartsPerMillion, MicroMol, MicroMolesPerLiter, SiemensPerSquareMeterPerMole, MilliSiemensPerCentiMeter, Centibar, DeciSiemensPerMeter, KiloPascal, VolumetricIonContent, 리터, MilliLiter, Seconds,, MicroMolPerMeterSquaredPerSecond, InchesPerHour,,,를 참조 하세요.|
 |    SensorMeasures > AggregationType    |  값은 없음, 평균, 최대값, 최소값 또는 StandardDeviation 일 수 있습니다.  |
 |          name            | 리소스를 식별 하는 이름입니다. 예를 들어 모델 이름 또는 제품 이름입니다.  |
 |    설명        | 모델에 대 한 의미 있는 설명을 제공 합니다.  |
 |   properties       |  제조업체의 추가 속성입니다.  |
 |    **수신**      |          |
-| hardwareId          |   제조업체에서 설정한 센서의 고유 ID입니다. |
-|  sensorModelId     |    연결 된 센서 모델의 ID입니다.   |
+| HardwareId          |   제조업체에서 설정한 센서의 고유 ID입니다. |
+|  SensorModelId     |    연결 된 센서 모델의 ID입니다.   |
 | 위치          |  센서 위도 (-90 ~ + 90), 경도 (-180 ~ 180) 및 권한 상승 (미터).|
 |   포트 > 이름        |  장치에서 센서가 연결 된 포트의 이름 및 유형입니다. 이 이름은 장치 모델에 정의 된 이름과 동일 해야 합니다. |
 |    DeviceID  |    센서가 연결 된 장치의 ID입니다.     |
@@ -269,7 +269,7 @@ SensorModel
   }
 }
 ```
-다음 샘플 요청은 장치를 만듭니다. 이 요청에는 요청 본문이 있는 페이로드로 입력 JSON이 있습니다. 
+다음 샘플 요청은 장치를 만듭니다. 이 요청에는 요청 본문이 있는 페이로드로 입력 JSON이 있습니다.
 
 ```bash
 curl -X POST "https://<datahub>.azurewebsites.net/Device" -H  
@@ -292,7 +292,7 @@ curl -X POST "https://<datahub>.azurewebsites.net/Device" -H
 
 ### <a name="send-a-telemetry-message-as-the-client"></a>원격 분석 메시지를 클라이언트로 보내기
 
-Event Hubs 클라이언트로 설정 된 연결이 있으면 JSON으로 이벤트 허브에 메시지를 보낼 수 있습니다. 
+Event Hubs 클라이언트로 설정 된 연결이 있으면 JSON으로 이벤트 허브에 메시지를 보낼 수 있습니다.
 
 다음은 원격 분석을 지정 된 이벤트 허브에 클라이언트로 보내는 샘플 Python 코드입니다.
 
@@ -313,7 +313,7 @@ write_client.stop()
 
 ```
 
-기록 센서 데이터 형식을 Azure FarmBeats에서 인식 하는 정식 형식으로 변환 합니다. 정식 메시지 형식은 다음과 같습니다. 
+기록 센서 데이터 형식을 Azure FarmBeats에서 인식 하는 정식 형식으로 변환 합니다. 정식 메시지 형식은 다음과 같습니다.
 
 ```json
 {

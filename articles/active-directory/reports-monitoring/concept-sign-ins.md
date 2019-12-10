@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/03/2019
+ms.date: 12/09/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 706cc38c997c91efc890b213444ff779eb86d5c1
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: dc996c7b5d8a63834f548689c83f7a72685120d2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805269"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951176"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -79,7 +79,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ![로그인 활동](./media/concept-sign-ins/19.png "로그인 작업")
 
-추가 필드를 표시 하거나 이미 표시 된 필드를 제거 합니다.
+**열** 대화 상자를 사용 하 여 선택 가능한 특성에 액세스할 수 있습니다. 로그인 보고서에는 열과 다른 특성에 대 한 일 대 다 관계가 없는 특성만 있을 수 있습니다.
 
 ![로그인 활동](./media/concept-sign-ins/columns.png "로그인 작업")
 

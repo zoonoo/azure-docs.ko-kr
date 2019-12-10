@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
+title: Azure AD B2C에서 지 원하는 응용 프로그램 유형
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5643f1df6cefa9ca6c60453939be533b2c00eaf4
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 753943116edab443509b7d5747e749910e366806
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533091"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948797"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
 
@@ -112,7 +113,7 @@ Azure AD B2C를 사용하여 Web API를 보호하는 방법을 알아보려면 [
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
-### <a name="unsupported-application-types"></a>지원 되지 않는 응용 프로그램 유형
+### <a name="unsupported-application-types"></a>지원되지 않는 애플리케이션 유형
 
 #### <a name="daemonsserver-side-applications"></a>디먼/서버 쪽 애플리케이션
 

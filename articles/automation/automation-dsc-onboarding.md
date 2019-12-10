@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 08/08/2018
 manager: carmonm
-ms.openlocfilehash: 80038cf5fba18eca4fbbe1405df2a76cfc84e2db
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 89b51af3beaad645dc27b599c2493be4d4bdf30f
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850332"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951414"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -305,6 +305,15 @@ Azure Portal의 **계정 설정** 아래에 있는 **키**에서 상태 구성 �
 
 이전 키를 사용한 향후 노드 등록 차단을 위해 Automation 계정의 기본 액세스 키와 보조 액세스 키는 언제든 (**키 관리** 페이지에서) 다시 생성하여 보안을 강화할 수 있습니다.
 
+## <a name="certificate-expiration-and-re-registration"></a>인증서 만료 및 다시 등록
+
+Azure Automation 상태 구성에서 DSC 노드로 컴퓨터를 등록 한 후 나중에 해당 노드를 다시 등록 해야 하는 여러 가지 이유가 있습니다.
+
+- Windows Server 2019 이전의 Windows Server 버전에서는 각 노드가 1 년 후에 만료 되는 인증에 대해 고유한 인증서를 자동으로 협상 합니다. 현재 PowerShell DSC 등록 프로토콜은 만료가 임박 하면 인증서를 자동으로 갱신할 수 없으므로 1 년 후에 노드를 다시 등록 해야 합니다. 다시 등록 하기 전에 각 노드에서 Windows Management Framework 5.0 RTM을 실행 하 고 있는지 확인 합니다. 노드의 인증 인증서가 만료 되 고 노드가 다시 등록 되지 않으면 노드가 Azure Automation와 통신할 수 없으며 ' 응답 없음 '으로 표시 됩니다. 다시 등록 하면 인증서 만료 시간에서 90 일을 뺀 후 또는 인증서 만료 시간 이후에 발생 한 모든 시점에서 새 인증서를 생성 하 고 사용 하 게 됩니다.  이 문제에 대 한 해결 방법은 Windows Server 2019 이상에 포함 되어 있습니다.
+- ConfigurationMode와 같은 노드의 초기 등록 중에 설정된 [PowerShell DSC 로컬 구성 관리자 값](/powershell/scripting/dsc/managing-nodes/metaConfig4)을 변경하려면 현재 이러한 DSC 에이전트 값은 다시 등록을 통해서만 변경할 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성입니다. 이는 직접 Azure Automation DSC에서 변경될 수 있습니다.
+
+다시 등록은이 문서에 설명 된 온 보 딩 방법 중 하나를 사용 하 여 처음에 노드를 등록 한 것과 같은 방식으로 수행할 수 있습니다. 다시 등록 하기 전에 Azure Automation 상태 구성에서 노드를 등록 취소할 필요가 없습니다.
+
 ## <a name="troubleshooting-azure-virtual-machine-onboarding"></a>Azure 가상 머신 온보드 문제 해결
 
 Azure Automation 상태 구성을 사용하면 구성 관리를 위해 간편하게 Azure Windows VM을 온보드할 수 있습니다. 내부적으로 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록하는 데 사용됩니다. Azure VM 필요 상태 구성 확장은 비동기적으로 실행되므로 그 진행 상황 추적과 실행 문제 해결이 중요할 수 있습니다.
@@ -314,14 +323,7 @@ Azure Automation 상태 구성을 사용하면 구성 관리를 위해 간편하
 
 Azure VM DSC(Desired State Configuration) 확장의 상태를 확인하거나 문제를 해결하려면, Azure Portal에서 등록될 VM으로 이동한 다음, **설정** 아래에서 **확장**을 클릭합니다. 그런 다음, 운영 체제에 따라 **DSC** 또는 **DSCForLinux**를 클릭합니다. 자세한 내용을 보려면 **자세한 상태 보기**를 클릭합니다.
 
-## <a name="certificate-expiration-and-reregistration"></a>인증서 만료 및 다시 등록
-
-머신을 Azure Automation 상태 구성의 DSC 노드로 등록한 후 해당 노드를 나중에 등록해야 하는 많은 이유가 있습니다.
-
-- Windows Server 2019 이전의 Windows Server 버전에서는 각 노드가 1 년 후에 만료 되는 인증에 대해 고유한 인증서를 자동으로 협상 합니다. 현재 PowerShell DSC 등록 프로토콜이 만료가 임박한 인증서를 자동으로 갱신할 수 없으므로 1년 기한 후 노드를 다시 등록해야 합니다. 다시 등록하기 전에 각 노드가 Windows Management Framework 5.0 RTM을 실행 중인지 확인합니다. 노드의 인증 인증서가 만료되고 노드가 다시 등록되지 않으면, 노드가 Azure Automation과 통신할 수 없으며 '응답 없음'으로 표시됩니다. 노드 만료 시점으로부터 90일 안이나, 인증서 만료 이후에 재등록을 수행하면 새 인증서를 생성하여 사용하게 됩니다.  이 문제에 대 한 해결 방법은 Windows Server 2019 이상에 포함 되어 있습니다.
-- ConfigurationMode와 같은 노드의 초기 등록 중에 설정된 [PowerShell DSC 로컬 구성 관리자 값](/powershell/scripting/dsc/managing-nodes/metaConfig4)을 변경하려면 현재 DSC 에이전트 값은 다시 등록을 통해 변경될 수 있습니다. 한 가지 예외는 노드에 할당된 노드 구성입니다. 이는 직접 Azure Automation DSC에서 변경될 수 있습니다.
-
-다시 등록은 이 문서에서 설명하는 등록 방법 중 하나를 사용하여 처음에 노드를 등록한 동일한 방법으로 수행될 수 있습니다. 다시 등록하기 전에 Azure Automation 상태 구성에서 노드를 등록 취소할 필요가 없습니다.
+문제 해결에 대 한 자세한 내용은 [Azure Automation 필요한 상태 구성 (DSC)의 문제 해결](./troubleshoot/desired-state-configuration.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

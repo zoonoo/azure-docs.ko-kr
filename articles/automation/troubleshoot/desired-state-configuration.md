@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/16/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1a45ed90b2b2c4a3a4f8eb11c4618c11e6d66761
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 3d358ac1fb766804b35d969f4d06bc6c07e62661
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849363"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951465"
 ---
 # <a name="troubleshoot-desired-state-configuration-dsc"></a>DSC(필요한 상태 구성) 문제 해결
 
@@ -89,6 +89,68 @@ ps://<location>-agentservice-prod-1.azure-automation.net/accounts/00000000-0000-
 #### <a name="resolution"></a>해상도
 
 컴퓨터에 DSC Azure Automation의 적절 한 끝점에 대 한 액세스 권한이 있는지 확인 하 고 다시 시도 하세요. 필요한 포트 및 주소 목록은 [네트워크 계획](../automation-dsc-overview.md#network-planning) 을 참조 하세요.
+
+### <a name="a-nameunauthorizedascenario-status-reports-return-response-code-unauthorized"></a><a name="unauthorized"><a/>시나리오: 상태 보고서는 응답 코드 "권한 없음"을 반환 합니다.
+
+#### <a name="issue"></a>문제
+
+상태 구성 (DSC)을 사용 하 여 노드를 등록 하는 경우 다음 오류 메시지 중 하나가 표시 됩니다.
+
+```error
+The attempt to send status report to the server https://{your automation account url}/accounts/xxxxxxxxxxxxxxxxxxxxxx/Nodes(AgentId='xxxxxxxxxxxxxxxxxxxxxxxxx')/SendReport returned unexpected response code Unauthorized.
+```
+
+```error
+VM has reported a failure when processing extension 'Microsoft.Powershell.DSC / Registration of the Dsc Agent with the server failed.
+```
+
+### <a name="cause"></a>원인
+
+이 문제는 잘못 되거나 만료 된 인증서로 인해 발생 합니다.  자세한 내용은 [인증서 만료 및 다시 등록](../automation-dsc-onboarding.md#certificate-expiration-and-re-registration)를 참조 하세요.
+
+### <a name="resolution"></a>해상도
+
+실패 한 DSC 노드를 다시 등록 하려면 아래 나열 된 단계를 따르세요.
+
+먼저 다음 단계를 사용 하 여 노드 등록을 취소 합니다.
+
+1. Azure Portal의 **홈** -> **automation 계정**-> {AUTOMATION 계정}- **DSC (> 상태 구성** )
+2. "노드"를 클릭 하 고 문제가 있는 노드를 클릭 합니다.
+3. "등록 취소"를 클릭 하 여 노드 등록을 취소 합니다.
+
+둘째, 노드에서 DSC 확장을 제거 합니다.
+
+1. Azure Portal의 **홈** -> **가상 컴퓨터** -> {실패 노드}-> **확장**
+2. "Microsoft. Powershell"을 클릭 합니다.
+3. PowerShell DSC 확장을 제거 하려면 "제거"를 클릭 합니다.
+
+셋째, 노드에서 잘못 되었거나 만료 된 모든 인증서를 제거 합니다.
+
+관리자 권한 Powershell 프롬프트에서 노드 오류가 발생 하면 다음을 실행 합니다.
+
+```powershell
+$certs = @()
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC"}
+$certs += dir cert:\localmachine\my | ?{$_.FriendlyName -like "DSC-OaaS Client Authentication"}
+$certs += dir cert:\localmachine\CA | ?{$_.subject -like "CN=AzureDSCExtension*"}
+"";"== DSC Certificates found: " + $certs.Count
+$certs | FL ThumbPrint,FriendlyName,Subject
+If (($certs.Count) -gt 0)
+{ 
+    ForEach ($Cert in $certs) 
+    {
+        RD -LiteralPath ($Cert.Pspath) 
+    }
+}
+```
+
+마지막으로 다음 단계를 사용 하 여 실패 한 노드를 다시 등록 합니다.
+
+1. Azure Portal의 **홈** -> **automation 계정** -> {AUTOMATION 계정}- **DSC (> 상태 구성** )
+2. "노드"를 클릭 합니다.
+3. "추가" 단추를 클릭 합니다.
+4. 오류가 발생 한 노드를 선택 합니다.
+5. "연결"을 클릭 하 고 원하는 옵션을 선택 합니다.
 
 ### <a name="failed-not-found"></a>시나리오: 노드가 "찾을 수 없음" 오류로 실패한 상태임
 
@@ -187,6 +249,49 @@ VM has reported a failure when processing extension 'Microsoft.Powershell.DSC'. 
 
 * 서비스의 이름과 정확히 일치 하는 노드 구성 이름으로 노드를 할당 하 고 있는지 확인 합니다.
 * 노드 구성 이름을 포함 하지 않도록 선택할 수 있습니다. 그러면 노드를 온 보 딩 하지만 노드 구성을 할당 하지 않습니다.
+
+### <a name="cross-subscription"></a>시나리오: PowerShell을 사용 하 여 노드를 등록 하면 "하나 이상의 오류가 발생 했습니다." 오류가 반환 됩니다.
+
+#### <a name="issue"></a>문제
+
+`Register-AzAutomationDSCNode` 또는 `Register-AzureRMAutomationDSCNode`를 사용 하 여 노드를 등록 하는 경우 다음과 같은 오류가 표시 됩니다.
+
+```error
+One or more errors occurred.
+```
+
+#### <a name="cause"></a>원인
+
+이 오류는 Automation 계정이 아닌 별도의 구독에 상주 하는 노드를 등록 하려고 할 때 발생 합니다.
+
+#### <a name="resolution"></a>해상도
+
+별도의 클라우드 또는 온-프레미스에 있는 것 처럼 교차 구독 노드를 처리 합니다.
+
+아래 단계에 따라 노드를 등록 합니다.
+
+* Windows-온 [-프레미스 또는 Azure/AWS 이외의 클라우드에 있는 실제/가상 windows 컴퓨터](../automation-dsc-onboarding.md#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws)
+* Linux-온 [-프레미스 또는 Azure 이외의 클라우드에서 온-프레미스의 물리적/가상 linux 컴퓨터](../automation-dsc-onboarding.md#physicalvirtual-linux-machines-on-premises-or-in-a-cloud-other-than-azure)
+
+### <a name="agent-has-a-problem"></a>시나리오: 오류 메시지-"프로 비전 하지 못했습니다."
+
+#### <a name="issue"></a>문제
+
+노드를 등록할 때 다음과 같은 오류가 표시 됩니다.
+
+```error
+Provisioning has failed
+```
+
+#### <a name="cause"></a>원인
+
+이 메시지는 노드와 Azure 간에 연결 문제가 있는 경우에 발생 합니다.
+
+#### <a name="resolution"></a>해상도
+
+노드가 개인 가상 네트워크에 있는지 또는 Azure에 연결 하는 다른 문제가 있는지 확인 합니다.
+
+자세한 내용은 [솔루션을 온 보 딩 할 때 오류 문제 해결](onboarding.md)을 참조 하세요.
 
 ### <a name="failure-linux-temp-noexec"></a>시나리오: Linux에서 구성을 적용 하면 일반 오류로 인해 오류가 발생 합니다.
 

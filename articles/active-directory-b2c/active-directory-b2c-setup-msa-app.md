@@ -1,5 +1,6 @@
 ---
-title: Microsoft 계정을 사용 하 여 등록 및 로그인 설정-Azure Active Directory B2C
+title: Microsoft 계정을 사용 하 여 등록 및 로그인 설정
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용 하 여 응용 프로그램에서 Microsoft 계정을 사용 하 여 고객에 게 등록 및 로그인을 제공 합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a921d6110fd0294012e2e59542ba2c82d63ffcde
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc79211f55edb471eb95fc55fe8519d228ca192e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73642072"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949324"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 
@@ -23,7 +24,7 @@ ms.locfileid: "73642072"
 
 Azure Active Directory B2C (Azure AD B2C)에서 Microsoft 계정를 [id 공급자로](active-directory-b2c-reference-oidc.md) 사용 하려면 Azure AD 테 넌 트에서 응용 프로그램을 만들어야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다. 아직 Microsoft 계정 없는 경우 [https://www.live.com/](https://www.live.com/)에서 가져올 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 1. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 1. **새 등록**을 선택합니다.

@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보 | Microsoft Docs
-description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 해결 프로그램을 사용하는 방법을 알아봅니다.
+title: 사용자 지정 정책에서 해결 프로그램 클레임
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 해결 프로그램을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f08c85cee2378f4a879daf197af7a2adf0c20f45
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064409"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949877"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -43,14 +44,14 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 다음 섹션은 사용 가능한 클레임 해결 프로그램을 나열합니다.
 
-### <a name="culture"></a>Culture
+### <a name="culture"></a>문화권
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
-| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | ko-KR |
+| {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
-| {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | US |
-| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
+| {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | 미국 |
+| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
 
 ### <a name="policy"></a>정책
 
@@ -63,26 +64,26 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
-| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | 해당 사항 없음 |
+| {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
 | {OIDC:DomainHint} |`domain_hint` 쿼리 문자열 매개 변수입니다. | facebook.com |
 | {OIDC:LoginHint} |  `login_hint` 쿼리 문자열 매개 변수입니다. | someone@contoso.com |
-| {OIDC:MaxAge} | `max_age`입니다. | 해당 사항 없음 |
+| {OIDC:MaxAge} | `max_age`입니다. | N/A |
 | {OIDC:Nonce} |`Nonce` 쿼리 문자열 매개 변수입니다. | defaultNonce |
 | {OIDC:Prompt} | `prompt` 쿼리 문자열 매개 변수입니다. | 로그인 |
-| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | 해당 사항 없음 |
+| {OIDC:Resource} |`resource` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:scope} |`scope` 쿼리 문자열 매개 변수입니다. | openid |
 
-### <a name="context"></a>컨텍스트
+### <a name="context"></a>Context
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
 | {Context:DateTimeInUtc} |날짜 시간(UTC)입니다.  | 10/10/2018 12:00:00 PM |
-| {Context:DeploymentMode} |정책 배포 모드입니다.  | Production |
+| {Context:DeploymentMode} |정책 배포 모드입니다.  | 프로덕션 |
 | {Context:IPAddress} | 사용자 IP 주소입니다. | 11.111.111.11 |
 
 
@@ -90,7 +91,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | Description | 예제 |
+| 클레임 | 설명 | 예제 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |

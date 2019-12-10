@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 01/28/2018
-ms.openlocfilehash: 9796b41d0df091bc6eb23ba525a79da278e00bbd
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: b655181f41aeda71364edd061b7c81db23e59990
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802315"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951142"
 ---
 # <a name="overview-of-alerts-in-microsoft-azure"></a>Microsoft Azure의 경고 개요 
 
@@ -211,6 +211,7 @@ API에 대 한 다음 샘플 요청은 한 구독 내의 경고 수를 반환 �
 - [작업 그룹](../../azure-monitor/platform/action-groups.md)에 대해 자세히 알아보기
 - [Azure에서 경고 인스턴스 관리](https://aka.ms/managing-alert-instances)
 - [스마트 그룹 관리](https://aka.ms/managing-smart-groups)
+- [Azure alerts 가격에 대 한 자세한 정보](https://azure.microsoft.com/pricing/details/monitor/)
 
 
 

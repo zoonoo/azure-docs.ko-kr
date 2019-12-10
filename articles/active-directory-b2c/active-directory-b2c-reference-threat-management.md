@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
+title: 리소스 및 데이터에 대 한 위협 관리
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 서비스 거부 공격 및 암호 공격에 대한 검색 및 완화 기법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: eae82fbd56782faf5b15479c13fe530e189a0e3e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b236dba9b682bc4d62ef8cfc8b95e67370b3e0ea
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71256897"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947743"
 ---
 # <a name="manage-threats-to-resources-and-data-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 리소스 및 데이터에 대한 위협 관리
 
@@ -39,16 +40,16 @@ Azure AD B2C는 좀 더 복잡한 계정 잠금 전략을 사용합니다. 계�
 
 1. [Azure 포털](https://portal.azure.com)
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 사용 하 여 Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **보안**에서 **인증 방법 (미리 보기)** 을 선택한 다음 **암호 보호**를 선택 합니다.
 1. 원하는 암호 보호 설정을 입력 하 고 **저장**을 선택 합니다.
 
-    ![Azure AD 설정에서 암호 보호 페이지 Azure Portal](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
-    <br />***암호 보호** 설정에서 잠금 임계값을 5로 설정*합니다.
+    Azure AD 설정](media/active-directory-b2c-reference-threat-management/portal-02-password-protection.png)
+   Azure Portal 암호 보호 페이지 ![ <br />***암호 보호** 설정에서 잠금 임계값을 5로 설정*합니다.
 
 ## <a name="view-locked-out-accounts"></a>잠긴 계정 보기
 
-잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태**에서 **실패**를 선택 합니다. **로그인 오류 코드** `50053` 를 사용 하 여 로그인 시도에 실패 했습니다.
+잠긴 계정에 대 한 정보를 얻기 위해 Active Directory [로그인 활동 보고서](../active-directory/reports-monitoring/reference-sign-ins-error-codes.md)를 확인할 수 있습니다. **상태**에서 **실패**를 선택 합니다. **로그인 오류 코드** 를 사용 하 여 로그인 시도에 실패 했습니다. `50053`는 잠긴 계정을 나타냄:
 
 ![잠긴 계정을 표시 하는 Azure AD 로그인 보고서의 섹션](media/active-directory-b2c-reference-threat-management/portal-01-locked-account.png)
 

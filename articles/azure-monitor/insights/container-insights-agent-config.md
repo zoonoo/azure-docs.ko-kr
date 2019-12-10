@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 10/15/2019
-ms.openlocfilehash: deab16f3b80ada12a7167e90922dc38f3012be91
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0d654dc05668a71b0fe69de32e5c09f8936951f8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73478689"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951584"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>컨테이너의 Azure Monitor에 대 한 에이전트 데이터 수집 구성
 
@@ -31,15 +31,15 @@ ms.locfileid: "73478689"
 
 다음은 데이터 수집을 제어 하도록 구성할 수 있는 설정입니다.
 
-|키 |데이터 형식 |값 |설명 |
+|키 |데이터 형식 |Value |설명 |
 |----|----------|------|------------|
 |`schema-version` |문자열 (대/소문자 구분) |v1 |이 ConfigMap을 구문 분석할 때 에이전트에서 사용 하는 스키마 버전입니다. 현재 지원 되는 스키마 버전은 v1입니다. 이 값 수정은 지원 되지 않으며 ConfigMap이 평가 될 때 거부 됩니다.|
-|`config-version` |문자열 | | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다. 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
-|`[log_collection_settings.stdout] enabled =` |부울 | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. `true`로 설정 되 고 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않은 경우 (`log_collection_settings.stdout.exclude_namespaces` 설정), stdout 로그는 클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|문자열 | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다.|
-|`[log_collection_settings.stderr] enabled =` |부울 | true 또는 false |Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다. `true`로 설정 된 경우 stdout 로그 수집 (`log_collection_settings.stderr.exclude_namespaces` 설정)에 대 한 네임 스페이스가 제외 되지 않으면 클러스터의 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |문자열 |쉼표로 구분 된 배열 |Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다. |
-| `[log_collection_settings.env_var] enabled =` |부울 | true 또는 false | 이 설정은 클러스터의 모든 pod/노드에 대 한 환경 변수 컬렉션을 제어 하 고 ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`으로 설정 합니다. 환경 변수의 컬렉션을 전역적으로 사용 하도록 설정 된 경우 Dockerfile 설정 또는 아래에 있는 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) 을 사용 하 여 환경 변수 `AZMON_COLLECT_ENV`을 **False** 로 설정 하 여 특정 컨테이너에 대해이를 사용 하지 않도록 설정할 수 있습니다. **env:** 섹션 환경 변수의 컬렉션을 전역적으로 사용 하지 않도록 설정 하면 특정 컨테이너에 대해 컬렉션을 사용 하도록 설정할 수 없습니다. 즉, 전역에서 이미 사용 하도록 설정 된 경우 컬렉션을 사용 하지 않도록 설정 하는 것은 컨테이너 수준에서 적용할 수 있는 유일한 재정의입니다. |
+|`config-version` |string | | 소스 제어 시스템/리포지토리에서이 구성 파일의 버전을 추적 하는 기능을 지원 합니다. 허용 되는 최대 문자 수는 10이 고 다른 모든 문자는 잘립니다. |
+|`[log_collection_settings.stdout] enabled =` |Boolean | true 또는 false | Stdout 컨테이너 로그 수집이 설정 되었는지 여부를 제어 합니다. `true`로 설정 되 고 stdout 로그 컬렉션에 대 한 네임 스페이스가 제외 되지 않은 경우 (`log_collection_settings.stdout.exclude_namespaces` 설정), stdout 로그는 클러스터에 있는 모든 pod/노드의 모든 컨테이너에서 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|string | 쉼표로 구분 된 배열 |Stdout 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다.|
+|`[log_collection_settings.stderr] enabled =` |Boolean | true 또는 false |Stderr 컨테이너 로그 수집이 사용 되는지 여부를 제어 합니다. `true`로 설정 된 경우 stdout 로그 수집 (`log_collection_settings.stderr.exclude_namespaces` 설정)에 대 한 네임 스페이스가 제외 되지 않으면 클러스터의 모든 pod/노드의 모든 컨테이너에서 stderr 로그가 수집 됩니다. ConfigMaps에 지정 되지 않은 경우 기본값은 `enabled = true`입니다. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |string |쉼표로 구분 된 배열 |Stderr 로그가 수집 되지 않을 Kubernetes 네임 스페이스의 배열입니다. 이 설정은 `log_collection_settings.stdout.enabled`이 `true`으로 설정 된 경우에만 적용 됩니다. ConfigMap에 지정 되지 않은 경우 기본값은 `exclude_namespaces = ["kube-system"]`입니다. |
+| `[log_collection_settings.env_var] enabled =` |Boolean | true 또는 false | 이 설정은 클러스터의 모든 pod/노드에 대 한 환경 변수 컬렉션을 제어 하 고 ConfigMaps에 지정 되지 않은 경우 기본값 `enabled = true`로 설정 합니다. 환경 변수의 컬렉션을 전역적으로 사용하도록 설정된 경우 Dockerfile 설정이나 **env:** 섹션아래에서 [Pod의 구성 파일](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/)을 사용하여 환경 변수 `AZMON_COLLECT_ENV`을 **False**로 설정하여 특정 컨테이너에 대해 사용하지 않도록 설정할 수 있습니다. 환경 변수의 컬렉션을 전역적으로 사용 하지 않도록 설정 하면 특정 컨테이너에 대해 컬렉션을 사용 하도록 설정할 수 없습니다. 즉, 전역에서 이미 사용 하도록 설정 된 경우 컬렉션을 사용 하지 않도록 설정 하는 것은 컨테이너 수준에서 적용할 수 있는 유일한 재정의입니다. |
 
 ConfigMaps는 전역 목록이 며 에이전트에 하나의 Configmaps만 적용 될 수 있습니다. 컬렉션에서 다른 ConfigMaps을 과도 하 게 사용할 수 없습니다.
 
@@ -61,17 +61,11 @@ ConfigMap 구성 파일을 구성 하 고 클러스터에 배포 하려면 다�
     
     예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
-    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`이 포함 됩니다.
-
-4. 다음 kubectl 명령을 실행 하 여 ConfigMap을 만듭니다. `kubectl apply -f <configmap_yaml_file.yaml>`.
-    
-    예: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
-    
-    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`이 포함 됩니다.
+    구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" created`포함 됩니다.
 
 ## <a name="verify-configuration"></a>구성 확인 
 
-구성이 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod에서 로그를 검토 합니다. `kubectl logs omsagent-fdf58 -n=kube-system`. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
+구성이 성공적으로 적용 되었는지 확인 하려면 다음 명령을 사용 하 여 에이전트 pod: `kubectl logs omsagent-fdf58 -n=kube-system`에서 로그를 검토 합니다. Omsagent pod의 구성 오류가 있으면 출력에 다음과 유사한 오류가 표시 됩니다.
 
 ``` 
 ***************Start Config Processing******************** 
@@ -90,13 +84,13 @@ config::unsupported/missing config schema version - 'v21' , using defaults
 
 - Log Analytics 작업 영역에 있는 **KubeMonAgentEvents** 테이블의 구성 오류에 대 한 *오류* 심각도를 사용 하 여 1 시간 마다 데이터가 전송 됩니다. 오류가 없는 경우 테이블의 항목에는 오류를 보고 하지 않는 심각도 *정보*를 포함 하는 데이터가 포함 됩니다. **Tags** 속성은 오류가 발생 한 pod 및 컨테이너 ID에 대 한 자세한 정보와 마지막으로 발생 한 시간을 포함 하 여 마지막으로 발생 한 시간을 포함 합니다.
 
-오류가 발생 하면 omsagent에서 파일을 구문 분석 하 여 다시 시작 되 고 기본 구성을 사용 하 게 됩니다. ConfigMap에서 오류를 수정한 후에는 yaml 파일을 저장 하 고 다음 명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다. `kubectl apply -f <configmap_yaml_file.yaml`.
+오류가 발생 하면 omsagent에서 파일을 구문 분석 하 여 다시 시작 되 고 기본 구성을 사용 하 게 됩니다. ConfigMap에서 오류를 수정한 후에는 yaml 파일을 저장 하 고 `kubectl apply -f <configmap_yaml_file.yaml`명령을 실행 하 여 업데이트 된 Configmap을 적용 합니다.
 
 ## <a name="applying-updated-configmap"></a>업데이트 된 ConfigMap 적용
 
-클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용 했던 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다. `kubectl apply -f <configmap_yaml_file.yaml`.
+클러스터에 ConfigMap을 이미 배포 했 고 최신 구성으로 업데이트 하려는 경우 이전에 사용한 ConfigMap 파일을 편집한 다음 이전과 동일한 명령을 사용 하 여 적용할 수 있습니다 `kubectl apply -f <configmap_yaml_file.yaml`.
 
-구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" updated`이 포함 됩니다.
+구성 변경 내용을 적용 하기 전에 완료 하는 데 몇 분 정도 걸릴 수 있으며, 클러스터의 모든 omsagent pod가 다시 시작 됩니다. 다시 시작은 모든 omsagent pod에 대 한 롤링 다시 시작 이지만 동시에 다시 시작 되지 않습니다. 다시 시작이 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과에 `configmap "container-azm-ms-agentconfig" updated`포함 됩니다.
 
 ## <a name="verifying-schema-version"></a>스키마 버전 확인
 

@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 Application Insights의 이벤트를 사용하여 사용자 동작 추적 | Microsoft Docs
+title: Application Insights를 사용 하 여 사용자 동작 추적
+titleSuffix: Azure AD B2C
 description: 사용자 지정 정책을 사용하여 Azure AD B2C 사용자 경험에서 Application Insights의 이벤트 로그를 사용하도록 설정하는 방법을 알아봅니다(미리 보기).
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 10/12/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c02757fb4b48ebf1220a5826bc9699741faa5170
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6643759688817811890fd022c7aa061607270b9e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066179"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948949"
 ---
 # <a name="track-user-behavior-in-azure-active-directory-b2c-using-application-insights"></a>Application Insights를 사용하여 Azure Active Directory B2C에서 사용자 동작 추적
 
@@ -28,7 +29,7 @@ Azure 애플리케이션 Insights와 함께 Azure Active Directory B2C (Azure AD
 * 성능을 측정합니다.
 * Application Insights에서 알림을 만듭니다.
 
-## <a name="how-it-works"></a>작동 방법
+## <a name="how-it-works"></a>작동 원리
 
 Azure AD B2C에서 ID 경험 프레임워크는 공급자 `Handler="Web.TPEngine.Providers.AzureApplicationInsightsProvider, Web.TPEngine, Version=1.0.0.0`을 포함합니다. 이 공급자는 Azure AD B2C에 제공된 계측 키를 사용하여 Application Insights에 직접 이벤트 데이터를 보냅니다.
 
@@ -44,7 +45,7 @@ Application Insights는 상관 관계 ID를 사용하여 사용자 세션을 기
 
 Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 만들고 계측 키를 가져오기만 하면 됩니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 구독을 포함 하는 디렉터리를 선택 하 여 Azure 구독이 포함 된 디렉터리를 사용 하 고 있는지 확인 합니다. 이 테넌트는 Azure AD B2C 테넌트가 아닙니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **리소스 만들기**를 선택하고 **Application Insights**를 검색하여 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -109,7 +110,7 @@ Application Insights를 Azure AD B2C와 함께 사용하는 경우 리소스를 
 
 기술 프로필은 Azure AD B2C의 ID 경험 프레임워크의 함수로 간주될 수 있습니다. 이 테이블은 세션을 열고 이벤트를 게시하는 데 사용되는 기술 프로필을 정의합니다.
 
-| 기술 프로필 | 태스크 |
+| 기술 프로필 | 작업 |
 | ----------------- | -----|
 | AzureInsights-Common | 모든 Azure Insights 기술 프로필에 포함할 공통 매개 변수 집합을 만듭니다. |
 | AzureInsights-SignInRequest | 로그인 요청이 수신되었을 때 클레임 집합을 사용하여 SignIn 이벤트를 만듭니다. |

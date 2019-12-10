@@ -1,5 +1,6 @@
 ---
-title: 사용자 흐름을 통해 액세스 토큰을 응용 프로그램에 전달-Azure Active Directory B2C
+title: 사용자 흐름을 통해 액세스 토큰을 앱에 전달
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 흐름에서 OAuth 2.0 id 공급자에 대 한 액세스 토큰을 클레임으로 전달 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a1a9ad0c615e50db746548a1ed5b557fe6fdea5a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064294"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948814"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 흐름 통과
 
@@ -33,7 +34,7 @@ Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Goo
 1. Azure AD B2C 테넌트의 전역 관리자로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-4. **사용자 흐름 (정책)** 을 선택 하 고 사용자 흐름을 선택 합니다. 예를 들면 **B2C_1_signupsignin1**입니다.
+4. **사용자 흐름 (정책)** 을 선택 하 고 사용자 흐름을 선택 합니다. 예를 들어 **B2C_1_signupsignin1**합니다.
 5. **애플리케이션 클레임**을 선택합니다.
 6. **Id 공급자 액세스 토큰** 클레임을 사용 하도록 설정 합니다.
 

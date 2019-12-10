@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C의 iOS 애플리케이션에서 AppAuth 사용 | Microsoft Docs
-description: 이 문서에서는 Azure Active Directory B2C와 함께 AppAuth를 사용하여 iOS 앱을 만들고 사용자 ID를 관리하고 사용자를 인증하는 방법을 보여 줍니다.
+title: IOS 응용 프로그램에서 AppAuth 사용
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C에서 AppAuth를 사용 하 여 사용자 id를 관리 하 고 사용자를 인증 하는 iOS 앱을 만드는 방법입니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0fb5341c2e7ee55391cb38251b0ea66b55b93301
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a61b97ade6513785c1cd298f33a5158a14efad82
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469148"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948211"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: iOS 애플리케이션을 사용하여 로그인
 
@@ -37,7 +38,7 @@ Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어�
 
 [!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-이후 단계에서 사용할 **응용 프로그램 (클라이언트) ID** 를 기록 합니다.
+이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 
 또한 이후 단계에서 사용할 사용자 지정 리디렉션 URI를 기록 합니다. 예: `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`
 

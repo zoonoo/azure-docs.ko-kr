@@ -1,5 +1,6 @@
 ---
-title: 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정 - Azure Active Directory B2C | Microsoft Docs
+title: 클레임 추가 및 사용자 지정 정책에서 사용자 입력 사용자 지정
+titleSuffix: Azure AD B2C
 description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 등록 또는 로그인 경험에 클레임을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: e29e2e3e61594870cc9d704d64b1040a4211a520
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 452a7f61726c3039b2c2b37280d0153fbcbca5fb
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066221"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948900"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -23,7 +24,7 @@ ms.locfileid: "71066221"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 등록 사용자 경험에 새 사용자 제공 항목 (클레임)을 추가 합니다.  항목을 드롭다운으로 구성 하 고 필요 여부를 정의 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>전제 조건
 
 [사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md) 문서의 단계를 완료합니다. 진행하기 전에 등록/로그인 사용자 경험을 테스트하여 새 로컬 계정을 등록합니다.
 
@@ -260,7 +261,7 @@ ms.locfileid: "71066221"
 
 ## <a name="test-the-custom-policy"></a>사용자 지정 정책 테스트
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 2. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 azure ad 테 넌 트가 포함 된 디렉터리를 선택 하 여 azure ad 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다.
 3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택한 다음, **앱 등록**을 검색하여 선택합니다.
 4. **Identity Experience Framework(미리 보기)** 를 선택합니다.

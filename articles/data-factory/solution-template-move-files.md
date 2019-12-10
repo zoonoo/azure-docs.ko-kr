@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 7/12/2019
-ms.openlocfilehash: dc842ba0e7ca0f34b7dacb98322c4dc0cd056483
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b3165daa06ed975df9ccb677699d3ceb449327ab
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931997"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74941936"
 ---
 # <a name="move-files-with-azure-data-factory"></a>Azure Data Factory 파일 이동
 
@@ -36,9 +36,11 @@ ms.locfileid: "74931997"
 - **복사** 는 원본에서 대상 저장소로 한 파일을 복사 합니다.
 - **Delete** 는 원본 저장소에서 동일한 파일을 삭제 합니다.
 
-이 템플릿은 다음 두 개의 매개 변수를 정의합니다.
-- *FolderPath_SourceStore* 는 파일을 이동 하려는 원본 저장소의 폴더 경로입니다. 
-- *FolderPath_DestinationStore* 는 파일을 이동 하려는 대상 저장소의 폴더 경로입니다. 
+템플릿은 다음 네 개의 매개 변수를 정의 합니다.
+- *SourceStore_Location* 는 파일을 이동 하려는 원본 저장소의 폴더 경로입니다. 
+- *SourceStore_Directory* 는 파일을 이동 하려는 원본 저장소의 하위 폴더 경로입니다.
+- *DestinationStore_Location* 는 파일을 이동 하려는 대상 저장소의 폴더 경로입니다. 
+- *DestinationStore_Directory* 는 파일을 이동 하려는 대상 저장소의 하위 폴더 경로입니다.
 
 ## <a name="how-to-use-this-solution-template"></a>이 솔루션 템플릿을 사용하는 방법
 
@@ -50,9 +52,7 @@ ms.locfileid: "74931997"
 
     ![대상에 대한 새 연결 만들기](media/solution-template-move-files/move-files2.png)
 
-3. **이 템플릿 사용**을 선택합니다.
-
-    ![이 템플릿 사용](media/solution-template-move-files/move-files3.png)
+3. **이 템플릿 탭 사용** 을 선택 합니다.
     
 4. 다음 예제와 같이 파이프라인이 표시 됩니다.
 

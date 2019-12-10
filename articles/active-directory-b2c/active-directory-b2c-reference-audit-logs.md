@@ -1,6 +1,7 @@
 ---
-title: Azure Active Directory B2C의 감사 로그 샘플 및 정의
-description: Azure AD B2C 감사 로그에 액세스 하는 방법에 대 한 가이드 및 샘플입니다.
+title: 감사 로그 액세스 및 검토
+titleSuffix: Azure AD B2C
+description: Azure AD B2C 감사 로그를 프로그래밍 방식으로 액세스 하는 방법 및 Azure Portal.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -11,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: b1070314767f280ec9d15390dc838fa80b5508e2
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73643590"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948235"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -38,7 +39,7 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 |애플리케이션 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
 |키 |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
 |리소스 |B2C 리소스에 대 한 CRUD 작업 예를 들면 정책 및 id 공급자가 있습니다.
-|인증 |사용자 자격 증명 및 토큰 발급의 유효성 검사|
+|Authentication |사용자 자격 증명 및 토큰 발급의 유효성 검사|
 
 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.
 
@@ -52,7 +53,7 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 |섹션|필드|설명|
 |-------|-----|-----------|
-| 작업 | Name | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 작업 | name | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
@@ -111,19 +112,19 @@ B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록�
 1. **선택** 단추를 선택한 다음 **완료**를 선택 합니다.
 1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성 된 사용 권한**에서 **사용 권한 추가**를 선택 합니다.
+1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **Microsoft api** 탭을 선택 합니다.
 1. **Microsoft Graph**를 선택합니다.
 1. **애플리케이션 권한**을 선택합니다.
 1. **감사 로그** 를 확장 한 다음 **감사 로그** 확인란을 선택 합니다.
-1. **권한 추가**를 선택 합니다. 지시에 따라 몇 분 정도 기다린 후 다음 단계를 진행 합니다.
-1. **사용자의 테 넌 트 이름에 대해 관리자 동의 부여를**선택 합니다.
+1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
+1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
 1. *전역 관리자* 역할이 할당 된 경우 현재 로그인 된 계정을 선택 하거나 *전역 관리자* 역할이 할당 된 Azure AD B2C 테 넌 트의 계정으로 로그인 합니다.
 1. **수락**을 선택합니다.
-1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. *감사 로그* 사용 권한에 대 한 **상태** 아래에 나타납니다. 권한을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. *감사 로그* 사용 권한에 대 한 **상태** 아래에 나타납니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
 
 * * *
 

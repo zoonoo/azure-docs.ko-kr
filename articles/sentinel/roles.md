@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/09/2019
 ms.author: rkarlin
-ms.openlocfilehash: cf02708ae4ba3f203448398fdf954e8f48cce614
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 0479eba13fd747ea1bcab2672fce1df2156802e8
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762705"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74947589"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Azure 센티널의 사용 권한
 
@@ -70,7 +70,7 @@ Azure 센티널 전용 RBAC 역할 외에도 azure 및 Log Analytics RBAC 역할
 >
 ## <a name="building-custom-rbac-roles"></a>사용자 지정 RBAC 역할 빌드
 
-기본 제공 RBAC 역할을 사용 하는 것 외에도, 또는 대신 Azure 센티널에 대 한 사용자 지정 RBAC 역할을 만들 수 있습니다. Azure 센티널에 대 한 사용자 지정 RBAC 역할은 Azure 센티널 리소스에 대 한 특정 사용 권한에 따라 다른 [사용자 지정 AZURE RBAC](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) 역할을 만드는 것과 동일한 방식으로 만들어집니다.
+기본 제공 RBAC 역할을 사용 하는 것 외에도, 또는 대신 Azure 센티널에 대 한 사용자 지정 RBAC 역할을 만들 수 있습니다. Azure 센티널에 대 한 [특정 사용 권한](../role-based-access-control/resource-provider-operations.md#microsoftsecurityinsights) 및 [azure Log Analytics 리소스](../role-based-access-control/resource-provider-operations.md#microsoftoperationalinsights)에 따라 다른 [사용자 지정 azure rbac](../role-based-access-control/custom-roles-rest.md#create-a-custom-role) 역할을 만드는 것과 동일한 방식으로 azure 센티널에 대 한 사용자 지정 RBAC 역할이 만들어집니다.
 
 ## <a name="advanced-rbac-on-the-data-you-store-in-azure-sentinel"></a>Azure 센티널에 저장 하는 데이터에 대 한 고급 RBAC
   

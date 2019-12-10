@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전을 대상으로 지정하는 방법
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. Azure에서 호스팅된 함수 앱의 런타임 버전을 지정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: 6f93ac7bcbd25c1b120cfeecae9dd4353524855f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0031fe08ee1e77c35a78b2128615f08846c1b612
+ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230314"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74942276"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Azure Functions 런타임 버전을 대상으로 지정하는 방법
 
@@ -29,9 +29,9 @@ Azure Functions를 사용 하면 함수 앱의 `FUNCTIONS_EXTENSION_VERSION` 응
 
 | 주 버전 | `FUNCTIONS_EXTENSION_VERSION` 값 |
 | ------------- | ----------------------------------- |
-| 3(sp3) (미리 보기) | `~3` |
+| 3.x  | `~3` |
 | 2.x  | `~2` |
-| 1.x | `~1` |
+| 1.x  | `~1` |
 
 런타임 버전을 변경하면 함수 앱을 다시 시작하게 됩니다.
 
@@ -90,7 +90,7 @@ az functionapp config appsettings list --name <function_app> \
 ]
 ```
 
-함수 앱에서 `FUNCTIONS_EXTENSION_VERSION`az functionapp config appsettings set[ 명령으로 함수 앱의 ](/cli/azure/functionapp/config/appsettings) 설정을 업데이트할 수 있습니다.
+함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings) 명령으로 함수 앱의 `FUNCTIONS_EXTENSION_VERSION` 설정을 업데이트할 수 있습니다.
 
 ```azurecli-interactive
 az functionapp config appsettings set --name <function_app> \
@@ -100,7 +100,7 @@ az functionapp config appsettings set --name <function_app> \
 
 `<function_app>`은 함수 앱 이름으로 바꿉니다. 또한 `<my_resource_group>`을 함수 앱의 리소스 그룹 이름으로 바꿉니다. 그리고 `<version>`은 1.x 런타임의 유효한 버전 또는 2.x 버전의 경우 `~2`로 바꿉니다.
 
-앞의 코드 샘플에서 [사용해 보세요.](../cloud-shell/overview.md)를 선택하여 **Azure Cloud Shell**에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
+앞의 코드 샘플에서 **사용해 보세요.** 를 선택하여 [Azure Cloud Shell](../cloud-shell/overview.md)에서 이 명령을 실행할 수 있습니다. 또한 [Azure CLI locally(로컬로 Azure CLI 설치)](/cli/azure/install-azure-cli)를 사용하면 [az login](/cli/azure/reference-index#az-login)을 실행하여 로그인한 후 이 명령을 실행할 수도 있습니다.
 
 
 

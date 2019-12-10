@@ -1,5 +1,6 @@
 ---
-title: Application Insights-Azure Active Directory B2C를 사용 하 여 사용자 지정 정책 문제 해결
+title: Application Insights를 사용 하 여 사용자 지정 정책 문제 해결
+titleSuffix: Azure AD B2C
 description: Application Insights를 설정 하 여 사용자 지정 정책의 실행을 추적 하는 방법
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b8bf26791ca6489c12e4f9538d56ae0f0f66cc8c
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602033"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950088"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -30,7 +31,7 @@ ms.locfileid: "73602033"
 
 아직 없는 경우 구독에 Application Insights의 인스턴스를 만듭니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure 구독을 포함 하는 디렉터리 (Azure AD B2C 디렉터리가 아님)를 선택 합니다.
 1. 왼쪽 탐색 메뉴에서 **리소스 만들기** 를 선택 합니다.
 1. **Application Insights**를 검색 하 고 선택한 다음 **만들기**를 선택 합니다.
@@ -60,7 +61,7 @@ ms.locfileid: "73602033"
     * `ClientEnabled="true"`는 추적 페이지 보기 및 클라이언트 쪽 오류에 대 한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. `ClientEnabled= "true"`를 설정 하 여 페이지 스크립트에 Application Insights를 추가 하 고 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 오류에 대 한 세부 정보, 사용자 및 세션 수를 가져옵니다. 이 필드는 **선택 사항이**며 기본적으로 `false`로 설정 됩니다.
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예:
+    다음은 그 예입니다.
 
     ```XML
     <TrustFrameworkPolicy

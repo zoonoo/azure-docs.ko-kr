@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 7ce15a0fe55c32ad7e381ba70e4dffee11c76bee
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 8d2873dd2fd36ed1193aed457a04baae94a043a2
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383401"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951822"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -25,12 +25,12 @@ ms.locfileid: "74383401"
 | --- | --- |
 | 컨테이너 당 최대 RUs ([프로 비전 된 전용 처리량 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본적으로 100만입니다. [Azure 지원 티켓](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 작성 하 여이를 늘릴 수 있습니다. |
 | 데이터베이스당 최대 RUs ([공유 처리량 프로 비전 된 모드](databases-containers-items.md#azure-cosmos-containers)) | 기본적으로 100만입니다. [Azure 지원 티켓](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 작성 하 여이를 늘릴 수 있습니다. |
-| (논리적) 파티션 키 당 최대 RUs | 10,000 |
-| (논리적) 파티션 키 당 모든 항목에 대 한 최대 저장소| 10 GB |
-| 고유 (논리적) 파티션 키의 최대 수 | 무제한 |
-| 컨테이너 당 최대 저장소 | 무제한 |
-| 데이터베이스당 최대 저장소 | 무제한 |
-| 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용) | 2 GB |
+| (논리적) 파티션 키 당 최대 RUs | 10000 |
+| (논리적) 파티션 키 당 모든 항목에 대 한 최대 저장소| 10GB |
+| 고유 (논리적) 파티션 키의 최대 수 | 제한 없음 |
+| 컨테이너 당 최대 저장소 | 제한 없음 |
+| 데이터베이스당 최대 저장소 | 제한 없음 |
+| 계정 당 최대 첨부 파일 크기 (첨부 기능을 사용) | 2GB |
 | 1gb 당 최소 RUs가 필요 합니다. | 10 r u/초 |
 
 > [!NOTE]
@@ -76,8 +76,8 @@ Cosmos DB는 일정 한 간격으로 데이터의 백업을 자동으로 수행 
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 데이터베이스 수 | 무제한 |
-| 데이터베이스당 최대 컨테이너 수 (또는 계정) | 무제한 |
+| 최대 데이터베이스 수 | 제한 없음 |
+| 데이터베이스당 최대 컨테이너 수 (또는 계정) | 제한 없음 |
 | 최대 지역 수 | 제한 없음 (모든 Azure 지역) |
 
 ## <a name="per-container-limits"></a>컨테이너 당 제한
@@ -115,13 +115,14 @@ Cosmos DB는 일정 한 간격으로 데이터의 백업을 자동으로 수행 
 
 ## <a name="per-request-limits"></a>요청당 제한
 
-Cosmos DB는 컨테이너, 항목 및 데이터베이스와 같은 리소스에 대해 [CRUD 및 쿼리 작업](https://docs.microsoft.com/rest/api/cosmos-db/) 을 지원 합니다.  
+Azure Cosmos DB는 컨테이너, 항목 및 데이터베이스와 같은 리소스에 대해 [CRUD 및 쿼리 작업](https://docs.microsoft.com/rest/api/cosmos-db/) 을 지원 합니다. 또한 컨테이너에서 동일한 파티션 키를 가진 여러 항목에 대 한 [트랜잭션 일괄 처리 요청](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmos.transactionalbatch) 을 지원 합니다.
 
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 단일 작업의 최대 실행 시간 (예: 저장 프로시저 실행 또는 단일 쿼리 페이지 검색)| 5초 |
-| 최대 요청 크기 (저장 프로시저, CRUD)| 2MB |
+| 최대 요청 크기 (예: 저장 프로시저, CRUD)| 2MB |
 | 최대 응답 크기 (예: 페이지를 매긴 쿼리) | 4MB |
+| 트랜잭션 일괄 처리의 최대 작업 수 | 100 |
 
 쿼리와 같은 작업이 실행 제한 시간 또는 응답 크기 제한에 도달 하면 실행을 다시 시작 하기 위해 결과 페이지와 클라이언트에 연속 토큰이 반환 됩니다. 단일 쿼리가 페이지/연속에서 실행 될 수 있는 시간에 대 한 실질적인 제한은 없습니다.
 
@@ -130,7 +131,7 @@ Cosmos DB은 권한 부여에 HMAC를 사용 합니다. 컨테이너, 파티션 
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 최대 마스터 토큰 만료 시간 | 15분  |
-| 최소 리소스 토큰 만료 시간 | 10 분  |
+| 최소 리소스 토큰 만료 시간 | 10분  |
 | 최대 리소스 토큰 만료 시간 | 기본적으로 24 h입니다. [Azure 지원 티켓](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request) 을 작성 하 여이를 늘릴 수 있습니다.|
 | 토큰 권한 부여에 대 한 최대 클럭 오차| 15분 |
 
@@ -176,9 +177,9 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 | 평가판 기간 | 30 일 (여러 번 갱신할 수 있음) |
 | 구독 당 최대 컨테이너 (SQL, Gremlin, Table API) | 1 |
 | 구독 당 최대 컨테이너 (MongoDB API) | 3 |
-| 컨테이너 당 최대 처리량 | 5000 |
+| 컨테이너 당 최대 처리량 | 5,000 |
 | 공유 처리량 데이터베이스당 최대 처리량 | 20000 |
-| 계정 당 최대 총 저장소 | 10 GB |
+| 계정 당 최대 총 저장소 | 10GB |
 
 Cosmos DB는 미국 중부, 서유럽, 동남 아시아 지역 에서만 글로벌 배포를 지원 합니다. 시도 Azure Cosmos DB 계정에 대해 Azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 계획이 있는 구독자에 대 한 지원이 제공 됩니다.
 

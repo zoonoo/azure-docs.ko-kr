@@ -1,5 +1,6 @@
 ---
-title: JavaScript 및 페이지 레이아웃 버전-Azure Active Directory B2C | Microsoft Docs
+title: JavaScript 및 페이지 레이아웃 버전
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 JavaScript를 사용 하도록 설정 하 고 페이지 레이아웃 버전을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0eb5c89387d8bdcf0e0b72c669c42f716ff5fbb3
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68227095"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950836"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 레이아웃 버전
 

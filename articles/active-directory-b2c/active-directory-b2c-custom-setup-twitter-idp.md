@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인 설정 | Microsoft Docs
+title: 사용자 지정 정책을 사용 하 여 Twitter 계정을 사용 하 여 로그인 설정
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인을 설정합니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2ad6ac4c30572f1b475cba2f699f5842ae3c7528
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 460f16775bf8b02bbb345b609e1419311f81bd22
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826990"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74948422"
 ---
 # <a name="set-up-sign-in-with-a-twitter-account-by-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책을 사용하여 Twitter 계정으로 로그인을 설정합니다.
 
@@ -23,9 +24,9 @@ ms.locfileid: "71826990"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 Twitter 계정의 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>전제 조건
 
-- [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
+- [Azure Active Directory B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
 - Twitter 계정이 없는 경우 [Twitter 가입 페이지](https://twitter.com/signup)에서 계정을 생성하세요.
 
 ## <a name="create-an-application"></a>애플리케이션 만들기
@@ -35,8 +36,8 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 1. Twitter 계정 자격 증명을 사용하여 [Twitter 개발자](https://developer.twitter.com/en/apps) 웹 사이트에 로그인합니다.
 2. **앱 만들기**를 선택합니다.
 3. **앱 이름**과 **애플리케이션 설명**을 입력합니다.
-4. **웹 사이트 URL**에 `https://your-tenant.b2clogin.com`을 입력합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. [https://contosob2c.b2clogin.com](https://contosob2c.b2clogin.com )을 입력합니다.
-5. **Callback URL**(콜백 URL)에 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`를 입력합니다. `your-tenant`는 실제 테넌트 이름으로, `your-policy-Id`는 정책의 식별자로 바꿉니다. 예를 들어, `b2c_1A_signup_signin_twitter`을 입력합니다. Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
+4. **웹 사이트 URL**에 `https://your-tenant.b2clogin.com`을 입력합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. 예: https://contosob2c.b2clogin.com
+5. **Callback URL**(콜백 URL)에 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-policy-Id/oauth1/authresp`를 입력합니다. `your-tenant`는 실제 테넌트 이름으로, `your-policy-Id`는 정책의 식별자로 바꿉니다. 예: `b2c_1A_signup_signin_twitter` Azure AD B2C에서 테넌트가 대문자로 정의되어 있더라도 테넌트 이름을 입력할 때는 소문자만 사용해야 합니다.
 6. 페이지 맨 아래에서 약관을 읽고 동의한 다음 **만들기**를 선택합니다.
 7. **앱 세부 정보** 페이지에서 **편집 > 세부 정보 편집**을 선택하고 **Twitter로 로그인 사용**의 확인란을 선택한 후 **저장**을 선택합니다.
 8. **키 및 토큰**을 선택하고 나중에 사용할 수 있도록 **소비자 API 키** 및 **소비자 API 비밀 키** 값을 적어 둡니다.
@@ -45,15 +46,15 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 
 이전에 Azure AD B2C 테넌트에 기록한 비밀 키를 저장해야 합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
 2. Azure AD B2C 테 넌 트를 포함 하는 디렉터리를 사용 하 고 있는지 확인 합니다. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-3. Azure Portal의 왼쪽 상단 모서리에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
+3. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 4. 개요 페이지에서 **ID 경험 프레임워크**를 선택합니다.
 5. **정책 키**, **추가**를 차례로 선택합니다.
-6. **옵션**으로는 `Manual`을 선택합니다.
-7. 정책 키의 **이름**을 입력합니다. 예를 들어, `TwitterSecret`을 입력합니다. `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
+6. **옵션**으로는 `Manual`를 선택합니다.
+7. 정책 키의 **이름**을 입력합니다. 예: `TwitterSecret` `B2C_1A_` 접두사가 키의 이름에 자동으로 추가됩니다.
 8. 이전에 기록해 두었던 클라이언트 암호를 **비밀**에 입력합니다.
-9. **키 사용**에서 `Encryption`를 선택합니다.
+9. **키 사용**에서 `Encryption`을 선택합니다.
 10. **만들기**를 클릭합니다.
 
 ## <a name="add-a-claims-provider"></a>클레임 공급자 추가
@@ -124,14 +125,14 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
 2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
-5. 사용자 경험 ID의 이름을 바꿉니다. 예를 들어, `SignUpSignInTwitter`을 입력합니다.
+5. 사용자 경험 ID의 이름을 바꿉니다. 예: `SignUpSignInTwitter`
 
 ### <a name="display-the-button"></a>단추 표시
 
 **ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. Twitter 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
 
 1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
-2. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `TwitterExchange`)으로 설정합니다.
+2. **ClaimsProviderSelects** 아래에 다음 요소를 추가 합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `TwitterExchange`)으로 설정합니다.
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="TwitterExchange" />
@@ -148,7 +149,7 @@ Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리�
     <ClaimsExchange Id="TwitterExchange" TechnicalProfileReferenceId="Twitter-OAUTH1" />
     ```
 
-    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예를 들어, `Twitter-OAUTH1`을 입력합니다.
+    **TechnicalProfileReferenceId**의 값을 앞에서 만든 기술 프로필의 ID로 업데이트합니다. 예: `Twitter-OAUTH1`
 
 3. *TrustFrameworkExtensions.xml* 파일을 저장하고 확인을 위해 다시 업로드합니다.
 
@@ -163,8 +164,8 @@ Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그�
 만든 사용자 경험을 시작하는 RP(신뢰 당사자) 파일을 업데이트합니다.
 
 1. 작업 디렉터리에서 *SignUpOrSignIn.xml*의 복사본을 만들고 이름을 바꿉니다. 예를 들어, 파일 이름을 *SignUpSignInTwitter.xml*로 바꿉니다.
-2. 새 파일을 열고, **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예를 들어, `SignUpSignInTwitter`을 입력합니다.
-3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예: `http://contoso.com/B2C_1A_signup_signin_twitter`
+2. 새 파일을 열고 **TrustFrameworkPolicy**의 **PolicyId** 특성 값을 고유 값으로 업데이트합니다. 예: `SignUpSignInTwitter`
+3. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_twitter`으로 업데이트할 수 있습니다.
 4. 새로 만든 사용자 경험의 ID(SignUpSignTwitter)와 일치하도록 **DefaultUserJourney**의 **ReferenceId** 특성을 업데이트합니다.
-5. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
+5. 변경 내용을 저장하고 파일을 업로드한 다음 목록에서 새 정책을 선택합니다.
 6. **애플리케이션 선택** 필드에서 직접 만든 Azure AD B2C 애플리케이션이 선택되어 있는지 확인하고 **지금 실행**을 클릭하여 테스트를 진행합니다.

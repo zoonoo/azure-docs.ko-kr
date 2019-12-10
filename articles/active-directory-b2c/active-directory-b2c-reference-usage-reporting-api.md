@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용량 보고 API 샘플 및 정의 | Microsoft Docs
+title: 사용 보고 API 샘플 및 정의
+titleSuffix: Azure AD B2C
 description: Azure AD B2C 테넌트 사용자, 인증 및 다단계 인증에 대한 보고서를 얻는 방법에 대한 가이드 및 샘플입니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe7dd90bdec816ee433310a803d85c57f4892f8c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f81acf28b502965f896cd8b38767e7c2e925156c
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66508707"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949341"
 ---
 # <a name="accessing-usage-reports-in-azure-ad-b2c-via-the-reporting-api"></a>보고 API를 통해 Azure AD B2C에서 사용량 보고서에 액세스
 
@@ -28,8 +29,8 @@ Azure AD B2C(Azure Active Directory B2C)는 사용자 로그인 및 Azure Multi-
 이 문서에서는 사용자 수, 청구 가능한 로그인 기반 인증 수 및 다단계 인증 수에 기반한 청구 활동에 연결된 보고서에 중점을 둡니다.
 
 
-## <a name="prerequisites"></a>필수 조건
-시작하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다. 애플리케이션을 만들고, 그 암호를 가져오고, Azure AD B2C 테넌트의 보고서에 대한 액세스 권한을 부여합니다. *Bash 스크립트* 및 *Python 스크립트* 예제도 여기에 제공됩니다. 
+## <a name="prerequisites"></a>전제 조건
+시작하기 전에 [Azure AD Reporting API에 액세스하기 위한 필수 구성 요소](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/)의 단계를 완료해야 합니다. 애플리케이션을 만들고, 그 암호를 가져오고, Azure AD B2C 테넌트의 보고서에 대한 액세스 권한을 부여합니다. *Bash 스크립트* 및 *Python 스크립트* 예제도 여기에 제공됩니다.
 
 ## <a name="powershell-script"></a>PowerShell 스크립트
 이 스크립트에서는 `TimeStamp` 매개 변수 및 `ApplicationId` 필터를 사용하여 4개의 사용량 보고서를 만드는 방법을 보여 줍니다.
@@ -38,10 +39,10 @@ Azure AD B2C(Azure Active Directory B2C)는 사용자 로그인 및 Azure Multi-
 # This script will require the Web Application and permissions setup in Azure Active Directory
 
 # Constants
-$ClientID      = "your-client-application-id-here"  
+$ClientID      = "your-client-application-id-here"
 $ClientSecret  = "your-client-application-secret-here"
 $loginURL      = "https://login.microsoftonline.com"
-$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"  
+$tenantdomain  = "your-b2c-tenant-domain.onmicrosoft.com"
 # Get an Oauth 2 access token based on client id, secret and tenant domain
 $body          = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth         = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
@@ -97,18 +98,18 @@ if ($oauth.access_token -ne $null) {
 
 
 ## <a name="usage-report-definitions"></a>사용량 보고서 정의
-* **tenantUserCount**: 지난 30일간 ID 공급자 유형별 일일 테넌트 사용자 수입니다. (선택 사항: `TimeStamp` 필터는 지정된 날짜부터 현재 날짜까지의 사용자 수를 제공합니다.) 보고서에서 다음을 제공합니다.
-  * **TotalUserCount**: 모든 사용자 개체 수
-  * **OtherUserCount**: Azure Active Directory 사용자(Azure AD B2C 사용자 아님) 수
-  * **LocalUserCount**: Azure AD B2C 테넌트에 대한 로컬 자격 증명으로 만든 Azure AD B2C 사용자 계정 수
+* **tenantUserCount** - 지난 30일 이내 ID 공급자 유형별 일일 테넌트 사용자 수입니다. (선택 사항: `TimeStamp` 필터는 지정된 날짜부터 현재 날짜까지의 사용자 수를 제공합니다.) 보고서에서 다음을 제공합니다.
+  * **TotalUserCount**: 모든 사용자 개체의 수
+  * **OtherUserCount**: Azure Active Directory 사용자(Azure AD B2C 사용자가 아님)의 수
+  * **LocalUserCount**: Azure AD B2C 테넌트에 대한 로컬 자격 증명으로 만든 Azure AD B2C 사용자 계정의 수
 
-* **AlternateIdUserCount**: 외부 ID 공급자(예: Facebook, Microsoft 계정 또는 다른 Azure Active Directory 테넌트, `OrgId`라고도 함)에 등록된 Azure AD B2C 사용자 수
+* **AlternateIdUserCount** - 외부 ID 공급자(예: Facebook, Microsoft 계정 또는 다른 Azure Active Directory 테넌트, `OrgId`라고도 함)에 등록된 Azure AD B2C 사용자 수입니다.
 
-* **b2cAuthenticationCountSummary**: 지난 30일간 일별 및 인증 흐름 유형별 청구 가능한 일일 인증 수의 요약
+* **b2cAuthenticationCountSummary** - 지난 30일 동안 일별 및 인증 흐름 유형별 청구 가능한 일일 인증 수의 요약입니다.
 
-* **b2cAuthenticationCount**: 한 기간 내 인증 수. 기본값은 지난 30일입니다.  (선택 사항: 시작 및 종료 `TimeStamp` 매개 변수는 특정 기간을 정의합니다.) 출력에는 `StartTimeStamp`(이 테넌트에 대한 활동의 가장 빠른 날짜)와 `EndTimeStamp`(최신 업데이트)가 포함됩니다.
+* **b2cAuthenticationCount** - 한 기간 내 인증 수입니다. 기본값은 지난 30일입니다.  (선택 사항: 시작 및 종료 `TimeStamp` 매개 변수는 특정 기간을 정의 합니다.) 출력에는 `StartTimeStamp` (이 테 넌 트의 가장 이른 작업 날짜)와 `EndTimeStamp` (최신 업데이트)이 포함 됩니다.
 
-* **b2cMfaRequestCountSummary**: 일별 및 유형별(SMS 또는 음성) 일일 다단계 인증 수의 요약
+* **b2cMfaRequestCountSummary** - 일별 및 유형별(SMS 또는 음성) 일일 다단계 인증 수의 요약입니다.
 
 
 ## <a name="limitations"></a>제한 사항

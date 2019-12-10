@@ -1,6 +1,7 @@
 ---
-title: OpenID Connect로 등록 및 로그인 설정 - Azure Active Directory B2C | Microsoft Docs
-description: Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인을 설정하는 방법을 설명합니다.
+title: Openid connect Connect를 사용 하 여 등록 및 로그인 설정
+titleSuffix: Azure AD B2C
+description: Azure Active Directory B2C의 IdP (Openid connect Connect identity provider)를 사용 하 여 등록 및 로그인을 설정 합니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 471163fc8fe8c5bad550d0615683ef2b97b818dc
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672913"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950472"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
@@ -39,7 +40,7 @@ ms.locfileid: "71672913"
 > [!NOTE]
 > 클라이언트 비밀은 선택 사항입니다. 그러나 암호를 사용 하 여 토큰에 대 한 코드를 교환 하는 [권한 부여 코드 흐름](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)을 사용 하려는 경우에는 클라이언트 암호를 입력 해야 합니다.
 
-## <a name="scope"></a>Scope
+## <a name="scope"></a>범위
 
 범위는 사용자 지정 ID 공급자로부터 수집하려는 정보 및 권한을 정의합니다. ID 공급자로부터 ID 토큰을 받을 수 있도록 OpenID Connect 요청에 `openid` 범위 값이 포함되어 있어야 합니다. 사용자는 ID 토큰이 없으면 사용자 지정 ID 공급자를 사용하여 Azure AD B2C에 로그인할 수 없습니다. 다른 범위를 공백으로 구분하여 추가할 수 있습니다. 사용할 수 있는 다른 범위를 확인하려면 사용자 지정 ID 공급자의 설명서를 참조하세요.
 
@@ -48,7 +49,7 @@ ms.locfileid: "71672913"
 응답 유형은 초기 호출 시 사용자 지정 ID 공급자의 `authorization_endpoint`로 반송되는 정보의 종류를 설명합니다. 다음과 같은 응답 유형을 사용할 수 있습니다.
 
 * `code`: [권한 부여 코드 흐름](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)에 따라 코드가 Azure AD B2C로 다시 반환됩니다. 그러면 Azure AD B2C는 `token_endpoint` 호출을 진행하여 토큰용 코드를 교환합니다.
-* `id_token`: ID 토큰이 사용자 지정 ID 공급 기업에서 Azure AD B2C로 다시 반환됩니다.
+* `id_token`: ID 토큰이 사용자 지정 ID 공급자에서 Azure AD B2C로 다시 반환됩니다.
 
 ## <a name="response-mode"></a>응답 모드
 
@@ -69,4 +70,4 @@ ms.locfileid: "71672913"
 * **표시 이름**: 사용자의 *표시 이름* 또는 *전체 이름을* 제공 하는 클레임을 입력 합니다.
 * **지정 된 이름**: 사용자의 *이름을* 제공 하는 클레임을 입력 합니다.
 * **성**: 사용자의 *성을* 제공 하는 클레임을 입력 합니다.
-* **메일**: 사용자의 *전자 메일 주소* 를 제공 하는 클레임을 입력 합니다.
+* **전자 메일**: 사용자의 *전자 메일 주소* 를 제공 하는 클레임을 입력 합니다.

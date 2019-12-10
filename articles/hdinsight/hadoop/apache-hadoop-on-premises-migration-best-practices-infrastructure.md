@@ -2,18 +2,18 @@
 title: '인프라: 온-프레미스에서 Azure HDInsight로 Apache Hadoop'
 description: 온-프레미스 Hadoop 클러스터를 Azure HDInsight로 마이그레이션하는 인프라 모범 사례를 알아봅니다.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 09/04/2019
-ms.author: hrasheed
-ms.openlocfilehash: adc0e5f5eef41dcb1f826ffbf0cfe91a937fac01
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive
+ms.date: 12/06/2019
+ms.openlocfilehash: d7ee8ae121e3cbb9760a87c95d12109a9b05e0c5
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73499225"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951516"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---infrastructure-best-practices"></a>온-프레미스 Apache Hadoop 클러스터를 Azure HDInsight로 마이그레이션 - 인프라 모범 사례
 
@@ -23,10 +23,17 @@ ms.locfileid: "73499225"
 
 HDInsight 클러스터 용량 계획을 만들기 위한 주요 선택 항목은 다음과 같습니다.
 
-- **지역 선택** - Azure 지역은 클러스터가 물리적으로 프로비전되는 위치를 결정합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
-- **스토리지 위치 및 크기 선택** - 기본 스토리지는 클러스터와 동일한 지역에 있어야 합니다. 48-노드 클러스터의 경우 4 ~ 8 개의 저장소 계정을 포함 하는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
-- **VM 크기 및 유형 선택(이제 G-시리즈 지원)** - 각 클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 해당 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
-- **작업자 노드 수 선택** - 시뮬레이트된 워크로드를 사용하여 작업자 노드의 초기 수를 결정할 수 있습니다. 최대 부하 요구 사항에 맞게 더 많은 작업자 노드를 추가하여 나중에 클러스터를 확장할 수 있습니다. 추가 작업자 노드가 필요하지 않을 때 클러스터를 나중에 축소할 수 있습니다.
+**지역**  
+Azure 지역은 클러스터가 물리적으로 프로 비전 되는 위치를 결정 합니다. 읽기 및 쓰기 대기 시간을 최소화하려면 클러스터가 데이터와 동일한 지역에 있어야 합니다.
+
+**저장소 위치 및 크기**  
+기본 저장소는 클러스터와 동일한 지역에 있어야 합니다. 48-노드 클러스터의 경우 4 ~ 8 개의 저장소 계정을 포함 하는 것이 좋습니다. 총 스토리지 이미 충분할 수 있지만 각 스토리지 계정이 컴퓨팅 노드에 대해 추가 네트워킹 대역폭을 제공합니다. 스토리지 계정이 여러 개 있는 경우 각 스토리지 계정에 대해 접두사 없는 임의 이름을 사용합니다. 임의 이름을 지정하는 목적은 모든 계정에서 스토리지 병목 상태(제한) 또는 일반 모드 오류가 발생할 가능성을 줄이려는 것입니다. 성능 향상을 위해서는 스토리지 계정당 하나의 컨테이너만 사용합니다.
+
+**VM 크기 및 유형 (이제 G 시리즈 지원)**  
+클러스터 유형마다 노드 유형 집합이 있으며 각 노드 유형은 VM 크기 및 유형에 대한 특정 옵션을 제공합니다. VM 크기와 유형은 CPU 처리 성능, RAM 크기 및 네트워크 대기 시간에 따라 결정됩니다. 각 노드 유형에 대한 최적의 VM 크기 및 유형을 결정하는 데 시뮬레이트된 워크로드를 사용할 수 있습니다.
+
+**작업자 노드 수**  
+시뮬레이션 된 워크 로드를 사용 하 여 초기 작업자 노드 수를 확인할 수 있습니다. 최대 부하 요구 사항에 맞게 더 많은 작업자 노드를 추가하여 나중에 클러스터를 확장할 수 있습니다. 나중에 추가 작업자 노드가 필요 하지 않은 경우 클러스터를 다시 확장할 수 있습니다.
 
 자세한 내용은 문서 [HDInsight 클러스터에 대한 용량 계획](../hdinsight-capacity-planning.md)을 참조하세요.
 
@@ -145,7 +152,7 @@ Azure Portal을 통해 에지 노드를 만들거나 삭제할 수 있으며 클
 
 ## <a name="use-scale-up-and-scale-down-feature-of-clusters"></a>클러스터의 확장 및 축소 기능 사용
 
-HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은 다음을 참조하세요.
+HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵션을 제공하여 유연성을 보장합니다. 이 기능을 통해 몇 시간 후에 또는 주말에 클러스터를 축소했다가, 비즈니스 요구가 최대 수준일 때 확장할 수 있습니다. 자세한 내용은
 
 * [HDInsight 클러스터 크기 조정](../hdinsight-scaling-best-practices.md)
 * [클러스터 크기 조정](../hdinsight-administer-use-portal-linux.md#scale-clusters)
@@ -191,6 +198,4 @@ Azure Virtual Network와 VPN 게이트웨이를 사용하여 HDInsight를 온-�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 시리즈의 다음 문서를 읽어보세요.
-
-- [온-프레미스에서 Azure HDInsight Hadoop 마이그레이션에 대한 스토리지 모범 사례](apache-hadoop-on-premises-migration-best-practices-storage.md)
+이 시리즈의 다음 문서를 참조 하세요. [온-프레미스에 대 한 저장소 모범 사례 Azure HDInsight Hadoop 마이그레이션](apache-hadoop-on-premises-migration-best-practices-storage.md)

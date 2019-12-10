@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
+title: 사용자 인터페이스 사용자 지정
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용 하는 응용 프로그램에 대 한 사용자 인터페이스를 사용자 지정 하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 6ebaeedf88bc02aa16e8be07fcb734e44ffa5bb6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258163"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74949409"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -57,7 +58,7 @@ ms.locfileid: "71258163"
 
 그런 다음 목록에서 템플릿을 선택 합니다. 각 템플릿에 대 한 로그인 페이지의 예는 다음과 같습니다.
 
-| 바다색 | 녹회색 | 클래식 |
+| 바다색 | 슬레이트 회색 | 클래식 |
 |:-:|:-:|:-:|
 |![등록 로그인 페이지에서 렌더링 된 대양 Blue 템플릿의 예](media/customize-ui-overview/template-ocean-blue.png)|![로그인 페이지에서 렌더링 되는 슬레이트 회색 템플릿의 예](media/customize-ui-overview/template-slate-gray.png)|![등록 로그인 페이지에서 렌더링 된 클래식 템플릿의 예](media/customize-ui-overview/template-classic.png)|
 
@@ -144,12 +145,12 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 로컬 계정 등록 | 이메일 주소 또는 사용자 이름을 기준으로 하는 로컬 계정 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
-| 다단계 인증 | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
+| Multi-factor authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
 | 오류 | 고객에게 오류 정보를 제공합니다. |
 
 ## <a name="localize-content"></a>콘텐츠 지역화
 
-Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-reference-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C openid connect Connect 매개 `ui-locales` 변수를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
+Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-reference-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.
 
@@ -165,7 +166,7 @@ https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) 저장소에서 여러 샘플 템플릿 파일을 찾을 수 있습니다.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/17/2019
-ms.openlocfilehash: 2f59b66bacbd0105e5a543b019a5c6646e010c48
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 75490edfd30541aa641656a2ccc17a259bfbe927
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928529"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74951363"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
@@ -361,181 +361,12 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 
-앱 리소스와 동시에 메트릭 경고를 설정하려면 다음과 같이 코드를 템플릿 파일에 병합합니다.
-
-```JSON
-{
-    parameters: { ... // existing parameters ...
-            "responseTime": {
-              "type": "int",
-              "defaultValue": 3,
-              "minValue": 1,
-              "metadata": {
-                "description": "Enter response time threshold in seconds."
-              }
-    },
-    variables: { ... // existing variables ...
-      // Alert names must be unique within resource group.
-      "responseAlertName": "[concat('ResponseTime-', toLower(parameters('appName')))]"
-    }, 
-    resources: { ... // existing resources ...
-     {
-      //
-      // Metric alert on response time
-      //
-      "name": "[variables('responseAlertName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]",
-      // Ensure this resource is created after the app resource:
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('responseAlertName')]",
-        "description": "response time alert",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.ThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/components', parameters('appName'))]",
-            "metricName": "request.duration"
-          },
-          "threshold": "[parameters('responseTime')]", //seconds
-          "windowSize": "PT15M" // Take action if changed state for 15 minutes
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-    }
-}
-```
-
-템플릿을 호출할 때 선택적으로 이 매개 변수를 추가할 수 있습니다.
-
-    `-responseTime 2`
-
-물론 다른 필드를 매개 변수화할 수 있습니다. 
-
-다른 경고 규칙의 형식 이름 및 구성 세부 정보를 찾으려면 수동으로 규칙을 만든 다음 [Azure Resource Manager](https://resources.azure.com/)에서 검사합니다. 
+메트릭 경고 만들기를 자동화 하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-a-simple-static-threshold-metric-alert) 를 참조 하세요.
 
 
 ## <a name="add-an-availability-test"></a>가용성 테스트 추가
 
-이 예는 ping 테스트(단일 페이지 테스트용)에 대한 것입니다.  
-
-가용성 테스트에는 테스트 자체와 실패를 알리는 경고 부분인 **두 부분이 있습니다**.
-
-다음 코드를 앱을 만드는 템플릿 파일에 병합합니다.
-
-```JSON
-{
-    parameters: { ... // existing parameters here ...
-      "pingURL": { "type": "string" },
-      "pingText": { "type": "string" , defaultValue: ""}
-    },
-    variables: { ... // existing variables here ...
-      "pingTestName":"[concat('PingTest-', toLower(parameters('appName')))]",
-      "pingAlertRuleName": "[concat('PingAlert-', toLower(parameters('appName')), '-', subscription().subscriptionId)]"
-    },
-    resources: { ... // existing resources here ...
-    { //
-      // Availability test: part 1 configures the test
-      //
-      "name": "[variables('pingTestName')]",
-      "type": "Microsoft.Insights/webtests",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]",
-      // Ensure this is created after the app resource:
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource"
-      },
-      "properties": {
-        "Name": "[variables('pingTestName')]",
-        "Description": "Basic ping test",
-        "Enabled": true,
-        "Frequency": 900, // 15 minutes
-        "Timeout": 120, // 2 minutes
-        "Kind": "ping", // single URL test
-        "RetryEnabled": true,
-        "Locations": [
-          {
-            "Id": "us-va-ash-azr"
-          },
-          {
-            "Id": "emea-nl-ams-azr"
-          },
-          {
-            "Id": "apac-jp-kaw-edge"
-          }
-        ],
-        "Configuration": {
-          "WebTest": "[concat('<WebTest   Name=\"', variables('pingTestName'), '\"   Enabled=\"True\"         CssProjectStructure=\"\"    CssIteration=\"\"  Timeout=\"120\"  WorkItemIds=\"\"         xmlns=\"http://microsoft.com/schemas/VisualStudio/TeamTest/2010\"         Description=\"\"  CredentialUserName=\"\"  CredentialPassword=\"\"         PreAuthenticate=\"True\"  Proxy=\"default\"  StopOnError=\"False\"         RecordedResultFile=\"\"  ResultsLocale=\"\">  <Items>  <Request Method=\"GET\"    Version=\"1.1\"  Url=\"', parameters('Url'),   '\" ThinkTime=\"0\"  Timeout=\"300\" ParseDependentRequests=\"True\"         FollowRedirects=\"True\" RecordResult=\"True\" Cache=\"False\"         ResponseTimeGoal=\"0\"  Encoding=\"utf-8\"  ExpectedHttpStatusCode=\"200\"         ExpectedResponseUrl=\"\" ReportingName=\"\" IgnoreHttpStatusCode=\"False\" />        </Items>  <ValidationRules> <ValidationRule  Classname=\"Microsoft.VisualStudio.TestTools.WebTesting.Rules.ValidationRuleFindText, Microsoft.VisualStudio.QualityTools.WebTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" DisplayName=\"Find Text\"         Description=\"Verifies the existence of the specified text in the response.\"         Level=\"High\"  ExecutionOrder=\"BeforeDependents\">  <RuleParameters>        <RuleParameter Name=\"FindText\" Value=\"',   parameters('pingText'), '\" />  <RuleParameter Name=\"IgnoreCase\" Value=\"False\" />  <RuleParameter Name=\"UseRegularExpression\" Value=\"False\" />  <RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />  </RuleParameters> </ValidationRule>  </ValidationRules>  </WebTest>')]"
-        },
-        "SyntheticMonitorId": "[variables('pingTestName')]"
-      }
-    },
-
-    {
-      //
-      // Availability test: part 2, the alert rule
-      //
-      "name": "[variables('pingAlertRuleName')]",
-      "type": "Microsoft.Insights/alertrules",
-      "apiVersion": "2014-04-01",
-      "location": "[parameters('appLocation')]", 
-      "dependsOn": [
-        "[resourceId('Microsoft.Insights/webtests', variables('pingTestName'))]"
-      ],
-      "tags": {
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/components', parameters('appName')))]": "Resource",
-        "[concat('hidden-link:', resourceId('Microsoft.Insights/webtests', variables('pingTestName')))]": "Resource"
-      },
-      "properties": {
-        "name": "[variables('pingAlertRuleName')]",
-        "description": "alert for web test",
-        "isEnabled": true,
-        "condition": {
-          "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.LocationThresholdRuleCondition, Microsoft.WindowsAzure.Management.Mon.Client",
-          "odata.type": "Microsoft.Azure.Management.Insights.Models.LocationThresholdRuleCondition",
-          "dataSource": {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleMetricDataSource, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleMetricDataSource",
-            "resourceUri": "[resourceId('microsoft.insights/webtests', variables('pingTestName'))]",
-            "metricName": "GSMT_AvRaW"
-          },
-          "windowSize": "PT15M", // Take action if changed state for 15 minutes
-          "failedLocationCount": 2
-        },
-        "actions": [
-          {
-            "$type": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.RuleEmailAction, Microsoft.WindowsAzure.Management.Mon.Client",
-            "odata.type": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
-            "sendToServiceOwners": true,
-            "customEmails": []
-          }
-        ]
-      }
-    }
-}
-```
-
-다른 테스트 위치의 코드를 검색하거나 좀 더 복잡한 웹 테스트의 생성을 자동화하려면 수동으로 예제를 만든 다음 [Azure Resource Manager](https://resources.azure.com/)에서 코드를 매개 변수화합니다.
+가용성 테스트를 자동화 하려면 [메트릭 경고 템플릿 문서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates#template-for-an-availability-test-along-with-a-metric-alert)를 참조 하세요.
 
 ## <a name="add-more-resources"></a>리소스 추가
 
@@ -545,7 +376,7 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
    
     ![Azure 리소스 탐색기에서 탐색](./media/powershell/01.png)
    
-    *구성 요소* 는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
+    *구성 요소*는 애플리케이션을 표시하기 위한 기본 Application Insights 리소스입니다. 연결된 경고 규칙 및 가용성 웹 테스트에 대한 별도의 리소스가 있습니다.
 2. 구성 요소의 JSON을 `template1.json`의 적절한 위치에 복사합니다.
 3. 다음 속성을 삭제합니다.
    
