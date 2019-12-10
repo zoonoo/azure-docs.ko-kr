@@ -1,5 +1,6 @@
 ---
-title: OWIN 기반 웹 Api를 b2clogin.com로 마이그레이션 Azure Active Directory B2C
+title: OWIN 기반 웹 Api를 b2clogin.com로 마이그레이션
+titleSuffix: Azure AD B2C
 description: 응용 프로그램을 b2clogin.com로 마이그레이션하는 동안 .NET web API를 사용 하 여 여러 토큰 발급자가 발급 한 토큰을 지 원하는 방법을 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a8a6b4f90fe3f1e60341cc59e7d81870c82e843b
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: f07eb65243b4f797a2955e33aca50ed8c46d256e
+ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533770"
+ms.lasthandoff: 12/09/2019
+ms.locfileid: "74950989"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>OWIN 기반 web API를 b2clogin.com로 마이그레이션
 
@@ -26,9 +27,9 @@ API에서 b2clogin.com 및 login.microsoftonline.com 둘 다에 의해 발급 �
 다음 섹션에서는 Katana ( [MICROSOFT OWIN][katana] 미들웨어 구성 요소)를 사용 하는 web API에서 여러 발급자를 사용 하도록 설정 하는 방법의 예를 제공 합니다. 코드 예제는 Microsoft OWIN 미들웨어와 관련 되어 있지만 일반적인 기술은 다른 OWIN 라이브러리에 적용 해야 합니다.
 
 > [!NOTE]
-> 이 문서는 현재 배포 된 api 및 응용 프로그램을 참조 `login.microsoftonline.com` 하 고 권장 `b2clogin.com` 되는 끝점으로 마이그레이션하려는 고객 Azure AD B2C을 위한 것입니다. 새 응용 프로그램을 설정 하는 경우 지시 된 대로 [b2clogin.com](b2clogin.md) 를 사용 합니다.
+> 이 문서는 현재 배포 된 Api 및 `login.microsoftonline.com`를 참조 하 고 권장 되는 `b2clogin.com` 끝점으로 마이그레이션하려는 응용 프로그램을 Azure AD B2C 고객을 대상으로 합니다. 새 응용 프로그램을 설정 하는 경우 지시 된 대로 [b2clogin.com](b2clogin.md) 를 사용 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>Előfeltételek
 
 이 문서의 단계를 계속 하기 전에 다음 Azure AD B2C 리소스를 준비 해야 합니다.
 
@@ -42,7 +43,7 @@ API에서 b2clogin.com 및 login.microsoftonline.com 둘 다에 의해 발급 �
 
 1. [Azure Portal](https://portal.azure.com) 에서 Azure AD B2C 테 넌 트로 이동 합니다.
 1. **정책**에서 **사용자 흐름 (정책)** 을 선택 합니다.
-1. 기존 정책 (예: *B2C_1_signupsignin1*)을 선택 하 고 **사용자 흐름 실행** 을 선택 합니다.
+1. *B2C_1_signupsignin1*예를 들어 기존 정책을 선택한 다음 **사용자 흐름 실행** 을 선택 합니다.
 1. 페이지 위쪽의 **사용자 흐름 실행** 제목 아래에서 하이퍼링크를 선택 하 여 해당 사용자 흐름에 대 한 openid connect Connect 검색 엔드포인트로 이동 합니다.
 
     ![Azure Portal에서 지금 실행 페이지의 잘 알려진 URI 하이퍼링크](media/multi-token-endpoints/portal-01-policy-link.png)
@@ -51,7 +52,7 @@ API에서 b2clogin.com 및 login.microsoftonline.com 둘 다에 의해 발급 �
 
     `https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/`
 
-1. **도메인 선택** 드롭다운을 사용 하 여 다른 도메인을 선택한 다음 이전 두 단계를 다시 한 번 수행 하 고 해당 `issuer` 값을 기록 합니다.
+1. **도메인 선택** 드롭다운을 사용 하 여 다른 도메인을 선택 하 고 이전 두 단계를 다시 한 번 수행 하 여 `issuer` 값을 기록 합니다.
 
 이제 다음과 같은 두 개의 Uri를 기록 해야 합니다.
 
@@ -60,19 +61,19 @@ https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 ```
 
-### <a name="custom-policies"></a>사용자 지정 정책
+### <a name="custom-policies"></a>Egyéni szabályzatok
 
 사용자 흐름이 아닌 사용자 지정 정책을 사용 하는 경우 유사한 프로세스를 사용 하 여 발급자 Uri를 가져올 수 있습니다.
 
 1. Azure AD B2C 테 넌 트로 이동 합니다.
-1. **ID 경험 프레임워크**를 선택합니다.
-1. 신뢰 당사자 정책 중 하나를 선택 합니다 (예: *B2C_1A_signup_signin* ).
-1. 도메인 선택 드롭다운을 사용 하 여 도메인 (예: *yourtenant.b2clogin.com* )을 선택 합니다.
+1. **Id 경험 프레임 워크** 선택
+1. 신뢰 당사자 정책 중 하나를 선택 합니다 (예: *B2C_1A_signup_signin*
+1. **도메인 선택 드롭다운을** 사용 하 여 도메인 (예: *yourtenant.b2clogin.com* )을 선택 합니다.
 1. **Openid connect Connect 검색 끝점** 아래에 표시 되는 하이퍼링크를 선택 합니다.
 1. `issuer` 값 기록
 1. 다른 도메인에 대해 4-6 단계를 수행 합니다 (예: *login.microsoftonline.com* ).
 
-## <a name="get-the-sample-code"></a>샘플 코드 다운로드
+## <a name="get-the-sample-code"></a>A mintakód letöltése
 
 이제 두 토큰 끝점 Uri가 모두 있으므로 코드를 업데이트 하 여 두 끝점이 모두 유효한 발급자 임을 지정 해야 합니다. 예제를 살펴보려면 샘플 응용 프로그램을 다운로드 하거나 복제 한 다음 두 끝점을 모두 유효한 발급자로 지원 하도록 샘플을 업데이트 합니다.
 
@@ -87,11 +88,11 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
 이 섹션에서는 두 토큰 발급자 끝점이 유효함을 지정 하도록 코드를 업데이트 합니다.
 
 1. Visual Studio에서 B2C-WebAPI-DotNet 솔루션을 엽니다 **.**
-1. **Taskservice** 프로젝트에서 편집기의 *taskservice\\\\App_Start * * Startup.Auth.cs** * 파일을 엽니다.
-1. 다음 `using` 지시문을 파일의 맨 위에 추가 합니다.
+1. **Taskservice** 프로젝트에서 편집기의 *taskservice\\App_Start\\* * Startup.Auth.cs** * 파일을 엽니다.
+1. 다음 `using` 지시어를 파일의 맨 위에 추가 합니다.
 
     `using System.Collections.Generic;`
-1. 속성을 [`TokenValidationParameters`][tokenvalidationparameters] 정의에 추가 하 고 이전 섹션에서 기록한 두 uri를 모두 지정 합니다. [`ValidIssuers`][validissuers]
+1. [`ValidIssuers`][validissuers] 속성을 [`TokenValidationParameters`][tokenvalidationparameters] 정의에 추가 하 고 이전 섹션에서 기록한 두 uri를 모두 지정 합니다.
 
     ```csharp
     TokenValidationParameters tvps = new TokenValidationParameters
@@ -106,7 +107,7 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnet-webapp-an
     };
     ```
 
-`TokenValidationParameters`는 MSAL.NET에서 제공 되 고 *Startup.Auth.cs*의 다음 코드 섹션에 있는 OWIN 미들웨어에서 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
+`TokenValidationParameters`는 MSAL.NET에서 제공 되며 *Startup.Auth.cs*의 다음 코드 섹션에서 OWIN 미들웨어에 의해 사용 됩니다. 유효한 발급자를 여러 개 지정 하면 OWIN 응용 프로그램 파이프라인이 두 토큰 끝점이 모두 유효한 발급자 임을 인식 합니다.
 
 ```csharp
 app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
@@ -122,18 +123,18 @@ app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 
 이제 web API에서 두 Uri를 모두 지원 하므로 b2clogin.com 끝점에서 토큰을 검색 하도록 웹 응용 프로그램을 업데이트 해야 합니다.
 
-예를 들어 `ida:AadInstance` **TaskWebApp** 프로젝트의 *TaskWebApp\\* * web.config** * 파일에서 값을 수정 하 여 새 끝점을 사용 하도록 샘플 웹 응용 프로그램을 구성할 수 있습니다.
+예를 들어 **TaskWebApp** 프로젝트의 *TaskWebApp\\* * web.config** * 파일에서 `ida:AadInstance` 값을 수정 하 여 새 끝점을 사용 하도록 샘플 웹 응용 프로그램을 구성할 수 있습니다.
 
-대신 `ida:AadInstance` 를참조`{your-b2c-tenant-name}.b2clogin.com` 하도록 TaskWebApp의 web.config에서 값을 변경 합니다. `login.microsoftonline.com`
+`login.microsoftonline.com`대신 `{your-b2c-tenant-name}.b2clogin.com`를 참조 하도록 *TaskWebApp의 web.config* 에서 `ida:AadInstance` 값을 변경 합니다.
 
-이전:
+Előtte:
 
 ```xml
 <!-- Old value -->
 <add key="ida:AadInstance" value="https://login.microsoftonline.com/tfp/{0}/{1}" />
 ```
 
-뒤 (B2C `{your-b2c-tenant}` 테 넌 트의 이름으로 대체):
+이후 (`{your-b2c-tenant}`을 B2C 테 넌 트의 이름으로 대체):
 
 ```xml
 <!-- New value -->
@@ -142,9 +143,9 @@ app.UseOAuthBearerAuthentication(new OAuthBearerAuthenticationOptions
 
 웹 앱을 실행 하는 동안 끝점 문자열이 생성 되 면 토큰을 요청할 때 b2clogin.com 기반 끝점이 사용 됩니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
-이 문서에서는 여러 발급자 끝점의 토큰을 허용 하도록 Katana (Microsoft OWIN 미들웨어)를 구현 하는 web API를 구성 하는 방법을 제공 했습니다. 사용자 고유의 테 넌 트에 대해 이러한 프로젝트를 빌드하고 실행 하려는 경우 변경 해야 할 taskservice 및 TaskWebApp 프로젝트의 web.config 파일에는 여러 가지 다른 문자열이 있습니다. 제대로 작동 하는지 확인 하려는 경우 프로젝트를 적절 하 게 수정 하는 것이 좋습니다. 그러나이 작업을 수행 하는 전체 연습은이 문서의 범위를 벗어납니다.
+이 문서에서는 여러 발급자 끝점의 토큰을 허용 하도록 Katana (Microsoft OWIN 미들웨어)를 구현 하는 web API를 구성 하는 방법을 제공 했습니다. 사용자 고유의 테 넌 트에 대해 이러한 프로젝트를 빌드하고 실행 하려는 경우 변경 해야 할 TaskService 및 TaskWebApp 프로젝트의 *web.config 파일에* 는 여러 가지 다른 문자열이 있습니다. 제대로 작동 하는지 확인 하려는 경우 프로젝트를 적절 하 게 수정 하는 것이 좋습니다. 그러나이 작업을 수행 하는 전체 연습은이 문서의 범위를 벗어납니다.
 
 Azure AD B2C에서 내보내는 다양 한 형식의 보안 토큰에 대 한 자세한 내용은 [Azure Active Directory B2C의 토큰 개요](active-directory-b2c-reference-tokens.md)를 참조 하세요.
 
