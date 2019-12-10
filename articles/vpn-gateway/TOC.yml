@@ -124,8 +124,6 @@
               href: point-to-site-how-to-vpn-client-install-azure-cert.md
             - name: VPN 클라이언트 구성 파일 생성 및 설치
               href: point-to-site-vpn-client-configuration-azure-cert.md
-            - name: 클라이언트 VPN 프로필 다운로드 파일 정보
-              href: about-vpn-profile-download.md
         - name: RADIUS 인증
           items:
             - name: P2S VPN 구성
@@ -142,6 +140,8 @@
               href: openvpn-azure-ad-mfa.md
             - name: VPN 클라이언트 구성
               href: openvpn-azure-ad-client.md
+            - name: 클라이언트 VPN 프로필 다운로드 파일 정보
+              href: about-vpn-profile-download.md
         - name: OpenVPN
           items:
             - name: 지점 및 사이트 간 연결을 위한 OpenVPN 구성

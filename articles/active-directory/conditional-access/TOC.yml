@@ -78,8 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration-mfa.md
-    - name: 조건부 액세스 채택
-      href: howto-conditional-access-adoption-kit.md
     - name: 문제 해결
       items:
         - name: What If 도구를 사용하여 문제 해결
