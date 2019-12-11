@@ -5,16 +5,20 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 05/28/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 43ae114164e7985b4f14b632810ad9f0eb873fb1
-ms.sourcegitcommit: 156b313eec59ad1b5a820fabb4d0f16b602737fc
+ms.openlocfilehash: 7dd86406b5f23739d2c96bea0d569022fa6c6b41
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67191132"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972800"
 ---
+>[!NOTE]
+>더 많은 지역을 추가하기 위해 열심히 노력하고 있습니다. 지역이 추가되면 이 목록에 추가됩니다.
+>
+
 * 미국 서부
 * 미국 동부
 * 서유럽

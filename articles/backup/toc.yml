@@ -56,6 +56,8 @@
           href: backup-support-matrix-mars-agent.md
         - name: SAP HANA Backup 지원 매트릭스
           href: sap-hana-backup-support-matrix.md
+        - name: Azure Policy에 지원되는 VM SKU
+          href: backup-azure-policy-supported-skus.md
     - name: 보안
       items:
         - name: 역할 기반 Access Control
@@ -174,6 +176,10 @@
               href: backup-azure-vms-encryption.md
             - name: 암호화된 VM의 키 및 비밀 복원
               href: backup-azure-restore-key-secret.md
+    - name: Azure Backup을 위한 기본 제공 Azure Policy
+      items:
+        - name: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
+          href: backup-azure-auto-enable-backup.md
     - name: Recovery Services 자격 증명 모음용 진단 이벤트
       items:
         - name: Recovery Services 자격 증명 모음용 진단 설정 사용

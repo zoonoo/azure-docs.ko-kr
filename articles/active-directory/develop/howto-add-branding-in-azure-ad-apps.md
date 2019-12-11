@@ -1,5 +1,5 @@
 ---
-title: 애플리케이션에 대한 브랜딩 지침
+title: Azure AD 앱 브랜딩 지침
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 개발자 중심 리소스에 대한 포괄적인 가이드
 services: active-directory
@@ -15,12 +15,12 @@ ms.author: ryanwi
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b247bde8e1d3dbf73dcd1ff1d3f8b3ca3d3f16
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 1ad786429eb23b51cc2da5da5d8af11d19985c9a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842988"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967288"
 ---
 # <a name="branding-guidelines-for-applications"></a>애플리케이션에 대한 브랜딩 지침
 

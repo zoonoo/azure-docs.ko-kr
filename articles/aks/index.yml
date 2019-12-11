@@ -65,6 +65,7 @@ sections:
           - html: <a href="/azure/aks/tutorial-kubernetes-scale">애플리케이션 및 Kubernetes 인프라 크기 조정</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-app-update">Kubernetes에서 실행 중인 애플리케이션 업데이트</a>
           - html: <a href="/azure/aks/tutorial-kubernetes-upgrade-cluster">AKS 클러스터 업그레이드</a>
+          - html: <a href="/azure/architecture/reference-architectures/microservices/aks">마이크로 서비스 참조 아키텍처 학습 및 구현</a>
   - title: Microsoft Learn을 통해 기술 쌓기
     items:
       - type: list
@@ -96,7 +97,7 @@ sections:
         items:
           - title: 명령 줄
             html: <p><a href="/cli/azure/aks">Azure CLI</a></p>
-          - title: Languages
+          - title: 언어
             html: <p><a href="/dotnet/api/overview/azure/containerservice">.NET</a></p><p><a href="/python/api/overview/azure/containerservice">Python</a></p><p><a href="/java/api/overview/azure/containerservice">Java</a></p><p><a href="/javascript/api/overview/azure/container-service">Node.JS</a></p>
           - title: REST (영문)
             html: <p><a href="/rest/api/aks">REST API</a></p>

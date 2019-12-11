@@ -972,6 +972,8 @@
           href: access-secrets-from-keyvault.md
         - name: Azure AD로 인증서 기반 인증
           href: certificate-based-authentication.md
+        - name: 데이터 작업에 대해서만 사용자 액세스 제한
+          href: how-to-restrict-user-data.md
     - name: 엔터프라이즈 준비
       items:
         - name: 백업에서 데이터 복원

@@ -513,3 +513,15 @@
       href: ./partner-center-portal/support.md
     - name: 파트너 센터 분석
       href: ./partner-center-portal/analytics.md
+    - name: 지급 받기
+      items:
+        - name: 지급 받기
+          href: ./partner-center-portal/get-paid.md
+        - name: 지급 계정 및 세금 양식 설정
+          href: ./partner-center-portal/set-up-your-payout-account-tax-forms.md
+        - name: '결제 임계값, 메서드 및 시간 프레임'
+          href: ./partner-center-portal/payment-thresholds-methods-timeframes.md
+        - name: 지급 요약
+          href: ./partner-center-portal/payout-summary.md
+        - name: 세금 세부 정보
+          href: ./partner-center-portal/tax-details-paid-transactions.md
