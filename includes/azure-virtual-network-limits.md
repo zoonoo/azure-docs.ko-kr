@@ -5,15 +5,15 @@ services: networking
 author: anavinahar
 ms.service: networking
 ms.topic: include
-ms.date: 06/25/2019
+ms.date: 12/09/2019
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: ac1687d371630089436640af15cf46491a38ab51
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 2596351a0db921276ad74c27e30a8e2af93f2f36
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74485513"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980989"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -32,7 +32,7 @@ ms.locfileid: "74485513"
 | 가상 머신 당 개인 IP 주소 |256 |
 | 네트워크 인터페이스 당 공용 IP 주소 |256 |
 | 가상 머신 당 공용 IP 주소 |256 |
-| 가상 머신 또는 역할 인스턴스의 NIC당 동시 TCP 또는 UDP 흐름 |500,000 |
+| [가상 컴퓨터 또는 역할 인스턴스의 NIC 당 동시 TCP 또는 UDP 흐름](../articles/virtual-network/virtual-machine-network-throughput.md#flow-limits-and-recommendations) |500,000 |
 | 네트워크 인터페이스 카드 |65,536 |
 | 네트워크 보안 그룹 |5,000 |
 | NSG당 NSG 규칙 |1,000 |
@@ -89,6 +89,6 @@ ms.locfileid: "74485513"
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
 | 공용 IP 주소(동적) |500 |500 |
 | 예약된 공용 IP 주소 |500 |500 |
-| 배포당 공용 VIP |5 |지원에 문의 |
+| 배포당 공용 VIP |5 |고객 지원 |
 | 배포 당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |

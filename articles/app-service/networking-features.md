@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 05/28/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6395d62947cda47c3779f15445db08b7515d055d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672327"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971760"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -46,7 +46,7 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 | 내 VNet의 개인 IP에서 내 앱 노출 | ILB ASE </br> 서비스 끝점을 사용 하는 Application Gateway에서 인바운드에 대 한 개인 IP |
 | WAF를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 서비스 끝점으로 Application Gateway </br> 액세스 제한이 있는 Azure Front 도어 |
 | 다른 지역의 내 앱에 트래픽 부하 분산 | 액세스 제한이 있는 Azure Front 도어 | 
-| 동일한 지역에서 트래픽 부하 분산 | 서비스 끝점으로 Application Gateway | 
+| 동일한 지역에서 트래픽 부하 분산 | [서비스 끝점으로 Application Gateway][appgwserviceendpoints] | 
 
 다음 아웃 바운드 사용 사례는 App Service 네트워킹 기능을 사용 하 여 앱에 대 한 아웃 바운드 액세스 요구를 해결 하는 방법을 제안 합니다. 
 
@@ -222,3 +222,4 @@ ASE는 격리 되 고 전용 응용 프로그램 호스팅에 대 한 최상의 
 [vnetintegrationp2s]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [vnetintegration]: https://docs.microsoft.com/azure/app-service/web-sites-integrate-with-vnet
 [networkinfo]: https://docs.microsoft.com/azure/app-service/environment/network-info
+[appgwserviceendpoints]: https://docs.microsoft.com/azure/app-service/networking/app-gateway-with-service-endpoints

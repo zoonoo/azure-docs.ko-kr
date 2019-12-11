@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 04/11/2018
 ms.author: robinsh
-ms.openlocfilehash: e7114febe85af4acaf94ef7fe64fe47988fd6321
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: d26ccd47ada4f1f1fd87f315e05f822bb2463114
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74079257"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976182"
 ---
 # <a name="weather-forecast-using-the-sensor-data-from-your-iot-hub-in-azure-machine-learning"></a>Azure Machine Learning에서 IoT Hub의 센서 데이터를 사용한 일기 예보
 
@@ -42,23 +42,23 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 ## <a name="what-you-need"></a>필요한 항목
 
 - [Raspberry Pi 온라인 시뮬레이터](iot-hub-raspberry-pi-web-simulator-get-started.md) 자습서 또는 장치 자습서 중 하나를 완료 합니다. 예를 들어 [node.js를 사용 하 여 Pi를 Raspberry](iot-hub-raspberry-pi-kit-node-get-started.md)합니다. 다음 요구 사항을 다룹니다.
-  - 활성 Azure 구독.
+  - 활성화된 Azure 구독.
   - 구독 중인 Azure IoT Hub
   - 메시지를 Azure IoT Hub로 보내는 클라이언트 애플리케이션
-- [Azure Machine Learning Studio](https://studio.azureml.net/) 계정.
+- [Azure Machine Learning Studio (클래식)](https://studio.azureml.net/) 계정
 
 ## <a name="deploy-the-weather-prediction-model-as-a-web-service"></a>날씨 예측 모델을 웹 서비스로 배포
 
 1. [날씨 예측 모델 페이지](https://gallery.cortanaintelligence.com/Experiment/Weather-prediction-model-1)로 이동합니다.
-1. Microsoft Azure Machine Learning Studio에서 **Studio에서 열기**를 클릭합니다.
+1. Microsoft Azure Machine Learning Studio (클래식)에서 **Studio에서 열기** 를 클릭 합니다.
    ![Cortana Intelligence 갤러리에서 날씨 예측 모델 페이지 열기](media/iot-hub-weather-forecast-machine-learning/2_weather-prediction-model-in-cortana-intelligence-gallery.png)
 1. **실행**을 클릭하여 모델의 단계에 대한 유효성을 검사합니다. 이 단계를 완료하는 데 2분 정도 걸릴 수 있습니다.
-   ![Azure Machine Learning Studio에서 날씨 예측 모델 열기](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
+   ![Azure Machine Learning Studio (클래식)에서 날씨 예측 모델을 엽니다](media/iot-hub-weather-forecast-machine-learning/3_open-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. **웹 서비스 설정** > **예측형 웹 서비스**를 클릭합니다.
-   ![Azure Machine Learning Studio에 날씨 예측 모델 배포](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
+   날씨 예측 모델을 Azure Machine Learning Studio (클래식)에 배포 ![](media/iot-hub-weather-forecast-machine-learning/4-deploy-weather-prediction-model-in-azure-machine-learning-studio.png)
 1. 다이어그램에서 **웹 서비스 입력** 모듈을 **모델 점수 매기기** 모듈 근처로 끌어갑니다.
 1. **웹 서비스 입력** 모듈을 **모델 점수 매기기** 모듈에 연결합니다.
-   ![Azure Machine Learning Studio에서 두 모듈 연결](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
+   Azure Machine Learning Studio (클래식)에서 두 모듈을 연결 ![](media/iot-hub-weather-forecast-machine-learning/13_connect-modules-azure-machine-learning-studio.png)
 1. **실행**을 클릭하여 모델의 단계에 대한 유효성을 검사합니다.
 1. **웹 서비스 배포**를 클릭하여 모델을 웹 서비스로 배포합니다.
 1. 모델의 대시보드에서 **요청/응답**에 대한 **Excel 2010 또는 이전 통합 문서**를 다운로드합니다.
@@ -163,7 +163,7 @@ Azure Machine Learning을 사용하여 Azure IoT Hub의 온도 및 습도 데이
 
    `[YourOutputAlias]`를 작업의 출력 별칭으로 바꿉니다.
 
-1. **저장**을 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 ### <a name="run-the-stream-analytics-job"></a>Stream Analytics 작업 실행
 
@@ -178,7 +178,7 @@ Stream Analytics 작업에서 **시작** > **지금 시작** > **시작**을 차
 1. [Microsoft Azure Storage Explorer를 다운로드하고 설치합니다](https://storageexplorer.com/).
 1. Azure Storage Explorer를 엽니다.
 1. Azure 계정에 로그인합니다.
-1. 사용 중인 구독을 선택합니다.
+1. 구독을 선택합니다.
 1. 구독> **Storage 계정** > Storage 계정> **Blob 컨테이너**> 컨테이너를 차례로 클릭합니다.
 1. .csv 파일을 열어 결과를 확인합니다. 마지막 열은 강우 확률을 기록하고 있습니다.
 

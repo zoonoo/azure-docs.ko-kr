@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: f9ad40cd50863990b9af629c77321195dce5e97c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cf96a0630440904282f076de2f916fb3dbf3eb1c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227048"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975587"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -20,7 +20,7 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 * Azure에 직접 Azure Functions 프로젝트를 게시합니다.
 * Visual Studio Code의 이점을 활용 하면서 다양 한 언어로 함수를 작성 합니다.
 
-확장은 다음 언어와 함께 사용할 수 있습니다 .이 언어는 Azure Functions 버전 2.x 런타임에서 지원 됩니다.
+확장은 다음 언어와 함께 사용할 수 있습니다 .이 언어는 버전 2.x부터 Azure Functions 런타임에서 지원 됩니다.
 
 * [C#컴파일하기](functions-dotnet-class-library.md)
 * <sup></sup> [ C# 스크립트](functions-reference-csharp.md)*
@@ -38,13 +38,13 @@ Azure Functions 확장 프로그램은 다음과 같은 이점을 제공 합니�
 > [!IMPORTANT]
 > 단일 함수 앱에 대 한 로컬 개발 및 포털 개발을 혼합 하지 마세요. 로컬 프로젝트에서 함수 앱에 게시할 때 배포 프로세스는 포털에서 개발한 모든 기능을 덮어씁니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 Visual Studio Code 용 [visual studio code용 azure functions 확장][visual studio code용 azure functions 확장]을 설치 하 고 실행 하기 전에 다음 요구 사항을 충족 해야 합니다.
 
 * [Visual Studio Code](https://code.visualstudio.com/) [지원 되는 플랫폼](https://code.visualstudio.com/docs/supporting/requirements#_platforms)중 하나에 설치 되어 있어야 합니다.
 
-* 활성 Azure 구독.
+* 활성화된 Azure 구독.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -138,7 +138,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 
 다음은 새 저장소 출력 바인딩을 정의 하는 예제 프롬프트입니다.
 
-| prompt | 값 | 설명 |
+| prompt | Value | 설명 |
 | -------- | ----- | ----------- |
 | **바인딩 방향 선택** | `out` | 바인딩은 출력 바인딩입니다. |
 | **방향이 있는 바인딩 선택** | `Azure Queue Storage` | 바인딩은 Azure Storage 큐 바인딩입니다. |
@@ -218,11 +218,11 @@ Visual Studio Code에서 게시할 때 [Zip 배포](functions-deployment-technol
 
 1. 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-    | prompt | 값 | 설명 |
+    | prompt | Value | 설명 |
     | ------ | ----- | ----------- |
     | Azure에서 함수 앱 선택 | Azure에서 새 함수 앱 만들기 | 다음 프롬프트에서 새 함수 앱을 식별 하는 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. 함수 앱 이름에 대한 유효한 문자는 `a-z`, `0-9` 및 `-`입니다. |
     | OS 선택 | Windows | 함수 앱은 Windows에서 실행 됩니다. |
-    | 호스팅 계획 선택 | 소비 계획 | 서버를 사용 하지 않는 [소비 계획 호스팅을](functions-scale.md#consumption-plan) 사용 합니다. |
+    | 호스팅 계획 선택 | 사용량 과금 플랜 | 서버를 사용 하지 않는 [소비 계획 호스팅을](functions-scale.md#consumption-plan) 사용 합니다. |
     | 새 앱에 대 한 런타임 선택 | 프로젝트 언어 | 런타임은 게시 중인 프로젝트와 일치 해야 합니다. |
     | 새 리소스에 대 한 리소스 그룹을 선택 합니다. | 새 리소스 그룹 만들기 | 다음 프롬프트에서 `myResourceGroup`와 같은 리소스 그룹 이름을 입력 하 고 enter 키를 선택 합니다. 기존 리소스 그룹을 선택할 수도 있습니다. |
     | 저장소 계정 선택 | 새 스토리지 계정 만들기 | 다음 프롬프트에서 함수 앱에서 사용 하는 새 저장소 계정에 대 한 전역적으로 고유한 이름을 입력 한 다음 Enter 키를 선택 합니다. Storage 계정 이름은 3 자에서 24 자 사이 여야 하며 숫자와 소문자만 포함할 수 있습니다. 기존 계정을 선택할 수도 있습니다. |
@@ -263,7 +263,7 @@ Azure Functions 확장을 사용 하면 로컬 개발 컴퓨터에서 함수 프
 
 함수 프로젝트를 로컬로 실행 하려면 다음과 같은 추가 요구 사항을 충족 해야 합니다.
 
-* [Azure Functions Core Tools](functions-run-local.md#v2)의 버전 2.x를 설치 합니다. 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
+* [Azure Functions Core Tools](functions-run-local.md#v2)의 버전 2.x 이상을 설치 합니다. 프로젝트를 로컬로 시작 하면 핵심 도구 패키지가 자동으로 다운로드 되어 설치 됩니다. 핵심 도구는 전체 Azure Functions 런타임을 포함 하므로 다운로드 및 설치에 시간이 걸릴 수 있습니다.
 
 * 선택한 언어에 대한 특정 요구 사항을 설치합니다.
 

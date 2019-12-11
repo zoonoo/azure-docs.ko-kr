@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d76a11fc41fd964ff4e43518aee34aad3ecffd3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 804eb63406b33b94e70ef56e0066fa213be04708
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922662"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997057"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -139,7 +139,7 @@ SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의 하는 동시에 스
    1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인 하 고, **엔터프라이즈 응용 프로그램**을 선택 하 고, 응용 프로그램을 선택 하 고, **프로 비전**을 선택 합니다.
    2. **매핑**아래에서 사용자 지정 특성을 추가 하려는 개체 (사용자 또는 그룹)를 선택 합니다.
    3. 페이지 맨 아래에서 **고급 옵션 표시**를 선택 합니다.
-   4. **AppName에 대 한 특성 목록 편집을*선택 합니다.
+   4. **AppName에 대 한 특성 목록 편집을**선택 합니다.
    5. 특성 목록의 맨 아래에 제공 된 필드에 사용자 지정 특성에 대 한 정보를 입력 합니다. 그런 다음 **특성 추가**를 선택 합니다.
 
 SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시 된 패턴을 따라야 합니다. "CustomExtensionName" 및 "CustomAttribute"는 응용 프로그램의 요구 사항에 따라 사용자 지정할 수 있습니다 (예: urn: ietf: params: scim: 스키마: extension: 2.0: CustomExtensionName: CustomAttribute).

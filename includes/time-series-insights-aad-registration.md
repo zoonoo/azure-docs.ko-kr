@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 11/14/2019
-ms.openlocfilehash: fa6921f8c4309f17cbd63e242a5416e7e81bb6c3
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.date: 12/06/2019
+ms.openlocfilehash: c3eeb59809a4028702022e8a18db633a26b01d5c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133503"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74980750"
 ---
 1. [Azure portal](https://ms.portal.azure.com/)에서 **Azure Active Directory** > **앱 등록** > **새 등록**을 선택합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "74133503"
 
    [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
 
-   **저장**을 클릭합니다.
+   페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 1. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 비밀**을 선택하여 클라이언트에서 ID를 증명하는 데 사용할 수 있는 애플리케이션 암호를 만듭니다.
 

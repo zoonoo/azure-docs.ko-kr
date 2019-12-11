@@ -1,40 +1,40 @@
 ---
-title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 기존 이미지 버전에서 새 이미지 버전을 만들려면
-description: Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 이미지 버전을 만듭니다.
+title: Azure 이미지 작성기 (미리 보기)를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
+description: Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전을 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9155f6fc1243f0d2e4d63f2718ccfd6846ebbc50
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: d226a7b31dc9f8cf219c6d0d0f886fb5b21741a6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67671494"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976335"
 ---
-# <a name="preview-create-a-new-image-version-from-an-existing-image-version-using-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 이미지 버전을 만들려면
+# <a name="preview-create-a-new-vm-image-version-from-an-existing-image-version-using-azure-image-builder"></a>미리 보기: Azure 이미지 작성기를 사용 하 여 기존 이미지 버전에서 새 VM 이미지 버전 만들기
 
-이 문서 기존 이미지 버전을 사용 하는 방법을 보여 줍니다.는 [공유 이미지 갤러리](shared-image-galleries.md), 업데이트 및 새 이미지 버전을 갤러리에 게시 합니다.
+이 문서에서는 [공유 이미지 갤러리](shared-image-galleries.md)에서 기존 이미지 버전을 가져와서 업데이트 하 고 갤러리에 새 이미지 버전으로 게시 하는 방법을 보여 줍니다.
 
-샘플.json 템플릿 이미지를 구성 하려면 사용 합니다. 사용 하 여.json 파일은 여기: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json)합니다. 
+샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateforSIGfromSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json)입니다. 
 
 
 ## <a name="register-the-features"></a>기능 등록
-미리 보기 중 Azure 이미지 작성기를 사용 하려면 새 기능을 등록 해야 합니다.
+미리 보기 중에 Azure 이미지 작성기를 사용 하려면 새 기능을 등록 해야 합니다.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview
 ```
 
-기능 등록 상태를 확인 합니다.
+기능 등록의 상태를 확인 합니다.
 
 ```azurecli-interactive
 az feature show --namespace Microsoft.VirtualMachineImages --name VirtualMachineTemplatePreview | grep state
 ```
 
-등록을 확인 합니다.
+등록을 확인 하세요.
 
 ```azurecli-interactive
 az provider show -n Microsoft.VirtualMachineImages | grep registrationState
@@ -42,7 +42,7 @@ az provider show -n Microsoft.VirtualMachineImages | grep registrationState
 az provider show -n Microsoft.Storage | grep registrationState
 ```
 
-말은 하지 마십시오 등록을 하는 경우 다음을 실행 합니다.
+등록 되지 않은 경우 다음을 실행 합니다.
 
 ```azurecli-interactive
 az provider register -n Microsoft.VirtualMachineImages
@@ -51,11 +51,11 @@ az provider register -n Microsoft.Storage
 ```
 
 
-## <a name="set-variables-and-permissions"></a>변수 설정 및 사용 권한
+## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정
 
-사용 하는 경우 [이미지를 만들고 공유 이미지 갤러리에 배포할](image-builder-gallery.md) 공유 이미지 갤러리를 만들려면 이미 만든 필요한 변수만의 일부입니다. 그렇지 않은 경우이 예제에 사용 되는 몇 가지 변수를 설정 하세요.
+[이미지 만들기 및 공유 이미지 갤러리에 배포](image-builder-gallery.md) 를 사용 하 여 공유 이미지 갤러리를 만든 경우 필요한 일부 변수를 이미 만들었습니다. 그렇지 않은 경우이 예제에 사용할 일부 변수를 설정 하세요.
 
-미리 보기의 경우 이미지 작성기는 관리 되는 원본 이미지로 동일한 리소스 그룹에 사용자 지정 이미지 만들기를 지원만. 이 예제는 관리 되는 원본 이미지로 동일한 리소스 그룹에서 리소스 그룹 이름을 업데이트 합니다.
+미리 보기의 경우 이미지 작성기는 원본 관리 이미지와 동일한 리소스 그룹에서 사용자 지정 이미지 만들기만 지원 합니다. 이 예제의 리소스 그룹 이름을 원본 관리 이미지와 동일한 리소스 그룹으로 업데이트 합니다.
 
 
 ```azurecli-interactive
@@ -73,7 +73,7 @@ imageDefName=myIbImageDef
 runOutputName=aibSIGLinuxUpdate
 ```
 
-구독 ID에 대 한 변수 만들기 사용 하 여이 가져올 수 있습니다 `az account show | grep id`합니다.
+구독 ID에 대 한 변수를 만듭니다. `az account show | grep id`를 사용 하 여이를 가져올 수 있습니다.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -90,7 +90,7 @@ sigDefImgVersionId=$(az sig image-version list \
 ```
 
 
-공유 이미지 갤러리를 이미 있고 앞의 예제를 따르지 않는 경우에 이미지 갤러리에 액세스할 수 있도록 리소스 그룹을 액세스 하는 작성기에 대 한 사용 권한을 할당 해야 합니다.
+사용자 고유의 공유 이미지 갤러리가 이미 있고 이전 예제를 따르지 않은 경우 리소스 그룹에 액세스할 수 있도록 이미지 작성기에 대 한 사용 권한을 할당 하 여 갤러리에 액세스할 수 있도록 해야 합니다.
 
 
 ```azurecli-interactive
@@ -101,11 +101,11 @@ az role assignment create \
 ```
 
 
-## <a name="modify-helloimage-example"></a>HelloImage 예제를 수정 합니다.
-.Json 파일을 열어 사용 하는 예제를 검토할 수 있습니다: [helloImageTemplateforSIGfromSIG.json](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) 함께 합니다 [이미지 작성기 템플릿 참조](image-builder-json.md). 
+## <a name="modify-helloimage-example"></a>HelloImage 예제 수정
+[이미지 작성기 템플릿 참조](image-builder-json.md)와 함께 [helloImageTemplateforSIGfromSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json) 파일을 열어 사용 하려는 예제를 검토할 수 있습니다. 
 
 
-Json 예제를 다운로드 하 고 변수를 사용 하 여 구성 합니다. 
+. Json 예제를 다운로드 하 고 변수로 구성 합니다. 
 
 ```azurecli-interactive
 curl https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/8_Creating_a_Custom_Linux_Shared_Image_Gallery_Image_from_SIG/helloImageTemplateforSIGfromSIG.json -o helloImageTemplateforSIGfromSIG.json
@@ -121,7 +121,7 @@ sed -i -e "s/<runOutputName>/$runOutputName/g" helloImageTemplateforSIGfromSIG.j
 
 ## <a name="create-the-image"></a>이미지 만들기
 
-이미지 구성 VM 이미지 작성기 서비스에 제출 합니다.
+이미지 구성을 VM 이미지 빌더 서비스에 제출 합니다.
 
 ```azurecli-interactive
 az resource create \
@@ -142,7 +142,7 @@ az resource invoke-action \
      --action Run 
 ```
 
-이미지에 빌드될 때까지 대기 하 고 단계로 넘어가기 전에 복제 합니다.
+다음 단계로 이동 하기 전에 이미지가 빌드되고 복제가 완료 될 때까지 기다립니다.
 
 
 ## <a name="create-the-vm"></a>VM 만들기
@@ -157,13 +157,13 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM의 공용 IP 주소를 사용 하 여 VM에 SSH 연결을 만듭니다.
+VM의 공용 IP 주소를 사용 하 여 VM에 대 한 SSH 연결을 만듭니다.
 
 ```azurecli-interactive
 ssh azureuser@<pubIp>
 ```
 
-SSH 연결이 설정 되는 즉시 이미지를 "메시지의 the Day"를 사용 하 여 사용자 지정 하는 것이 나타납니다.
+SSH 연결이 설정 되는 즉시 이미지는 "하루 메시지"로 사용자 지정 된 것을 볼 수 있습니다.
 
 ```console
 *******************************************************
@@ -173,9 +173,9 @@ SSH 연결이 설정 되는 즉시 이미지를 "메시지의 the Day"를 사용
 *******************************************************
 ```
 
-형식 `exit` SSH 연결을 닫습니다.
+`exit`를 입력 하 여 SSH 연결을 닫습니다.
 
-갤러리에서 이제 사용할 수 있는 이미지 버전을 나열할 수도 있습니다.
+갤러리에서 현재 사용할 수 있는 이미지 버전을 나열할 수도 있습니다.
 
 ```azurecli-interactive
 az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o table
@@ -184,4 +184,4 @@ az sig image-version list -g $sigResourceGroup -r $sigName -i $imageDefName -o t
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서 사용 하는.json 파일의 구성 요소에 대 한 자세한 내용은 참조 하세요 [작성기 템플릿 참조 이미지](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)합니다.
+이 문서에 사용 된 json 파일의 구성 요소에 대해 자세히 알아보려면 [이미지 작성기 템플릿 참조](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 참조 하세요.

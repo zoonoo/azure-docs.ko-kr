@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: ce774868acc281f769e7f2991472e7d2a5da9739
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930388"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972254"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 파생 열 변환
 
@@ -27,6 +27,16 @@ ms.locfileid: "74930388"
 파생 열을 더 추가 하려면 기존 파생 열 위로 마우스를 이동 하 고 더하기 아이콘을 클릭 합니다. **열 추가** 또는 **열 패턴 추가**중 하나를 선택 합니다. 열 이름이 원본의 변수인 경우 열 패턴을 유용 하 게 사용할 수 있습니다. 자세한 내용은 [열 패턴](concepts-data-flow-column-pattern.md)을 참조 하세요.
 
 ![새 파생 열 선택](media/data-flow/columnpattern.png "새 파생 열 선택")
+
+## <a name="build-schemas-in-output-schema-pane"></a>출력 스키마 창에서 스키마 빌드
+
+스키마에 수정 하 고 추가 하는 열이 출력 스키마 창에 나열 됩니다. 여기에서 간단 하 고 복잡 한 데이터 구조를 대화형으로 작성할 수 있습니다. 필드를 더 추가 하려면 **열 추가**를 선택 합니다. 계층 구조를 작성 하려면 하위 **열 추가**를 선택 합니다.
+
+![하위 열 추가](media/data-flow/addsubcolumn.png "하위 열 추가")
+
+데이터 흐름의 복합 형식을 처리 하는 방법에 대 한 자세한 내용은 [데이터 흐름 매핑의 JSON 처리](concepts-data-flow-json.md) 를 참조 하세요.
+
+![복합 열 추가](media/data-flow/complexcolumn.png "열 추가")
 
 ## <a name="data-flow-script"></a>데이터 흐름 스크립트
 

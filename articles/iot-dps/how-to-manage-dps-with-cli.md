@@ -1,66 +1,66 @@
 ---
 title: IoT 확장 Azure CLI & 사용 하 여 IoT Hub Device Provisioning Service 관리
-description: Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법 알아보기
+description: Azure CLI 및 IoT 확장을 사용 하 여 IoT Hub Device Provisioning Service (DPS)를 관리 하는 방법을 알아봅니다.
 author: chrissie926
 ms.author: menchi
 ms.date: 01/17/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 0e276ca32d7cd02f9668b33b3729757404b13b00
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ba92279632a7283ea6ede423e808e3c7be82cff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229735"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975162"
 ---
-# <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용하여 IoT Hub Device Provisioning Service를 관리하는 방법
+# <a name="how-to-use-azure-cli-and-the-iot-extension-to-manage-the-iot-hub-device-provisioning-service"></a>Azure CLI 및 IoT 확장을 사용 하 여 IoT Hub Device Provisioning Service를 관리 하는 방법
 
-[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)는 IoT Edge 같은 Azure 리소스를 관리하기 위한 오픈 소스 교차 플랫폼 명령줄 도구입니다. Azure CLI는 Windows, Linux 및 MacOS에서 사용할 수 있습니다. Azure CLI를 사용하면 Azure IoT Hub 리소스, Device Provisioning 서비스 인스턴스 및 연결된 허브를 즉시 관리할 수 있습니다.
+[Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) 은 IoT Edge와 같은 Azure 리소스를 관리 하기 위한 오픈 소스 플랫폼 간 명령줄 도구입니다. Azure CLI는 Windows, Linux 및 MacOS에서 사용할 수 있습니다. Azure CLI를 사용 하면 Azure IoT Hub 리소스, 장치 프로 비전 서비스 인스턴스 및 연결 된 허브를 즉시 관리할 수 있습니다.
 
-IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure CLI를 강화합니다.
+IoT 확장은 장치 관리 및 전체 IoT Edge 기능과 같은 기능을 Azure CLI 강화.
 
-이 자습서에서는 먼저 Azure CLI 및 IoT 확장을 설치하는 단계를 완료합니다. 그런 다음 CLI 명령을 실행하여 기본 Device Provisioning 서비스 작업을 수행하는 방법을 배웁니다. 
+이 자습서에서는 먼저 Azure CLI 및 IoT 확장을 설정 하는 단계를 완료 합니다. 그런 다음 CLI 명령을 실행 하 여 기본 장치 프로 비전 서비스 작업을 수행 하는 방법을 알아봅니다. 
 
-## <a name="installation"></a>설치 
+## <a name="installation"></a>Telepítés 
 
-### <a name="step-1---install-python"></a>1단계 - Python 설치
+### <a name="step-1---install-python"></a>1\. lépés – A Python telepítése
 
-[Python 2.7x 또는 Python 3.x](https://www.python.org/downloads/)가 필요합니다.
+[Python 2.7x vagy Python 3.x](https://www.python.org/downloads/) szükséges.
 
-### <a name="step-2---install-the-azure-cli"></a>2단계 - Azure CLI 설치
+### <a name="step-2---install-the-azure-cli"></a>2 단계-Azure CLI 설치
 
-[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)에 따라 환경에 Azure CLI를 설치합니다. Azure CLI 버전이 2.0.24 이상이어야 합니다. `az –version` 명령을 사용하여 유효성을 검사합니다. 이 버전은 az extension 명령을 지원하며 Knack 명령 프레임워크를 도입했습니다. Windows에 설치하는 간단한 방법 중 하나는 [MSI](https://aka.ms/InstallAzureCliWindows)를 다운로드하여 설치하는 것입니다.
+[설치 지침](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 에 따라 환경에 Azure CLI을 설정 합니다. 최소한 Azure CLI 버전은 2.0.24 이상 이상 이어야 합니다. A verziószámot az `az –version` paranccsal ellenőrizheti. Ez a verzió támogatja az „az” bővítményparancsokat, és ebben a verzióban került bevezetésre a Knack parancskeretrendszer. Windows rendszeren a legegyszerűbb megoldás a telepítésre az [MSI](https://aka.ms/InstallAzureCliWindows) letöltése és telepítése.
 
-### <a name="step-3---install-iot-extension"></a>3단계 - IoT 확장 설치
+### <a name="step-3---install-iot-extension"></a>3\. lépés – Az IoT-bővítmény telepítése
 
-[IoT 확장 추가 정보](https://github.com/Azure/azure-iot-cli-extension)에는 확장을 설치하는 여러 가지 방법이 설명되어 있습니다. 가장 간단한 방법은 `az extension add --name azure-cli-iot-ext` 명령을 사용하는 것입니다. 설치 후 `az extension list` 명령을 사용하여 현재 설치된 확장의 유효성을 검사하거나 `az extension show --name azure-cli-iot-ext` 명령을 사용하여 IoT 확장에 대한 세부 정보를 볼 수 있습니다. 확장을 제거하려면 `az extension remove --name azure-cli-iot-ext` 명령을 사용합니다.
+[Az IoT-bővítmény fontos (readme) fájlja](https://github.com/Azure/azure-iot-cli-extension) több módszert is ismertet a bővítmény telepítésére. A legegyszerűbb módszer az `az extension add --name azure-cli-iot-ext` futtatása. A telepítés után az `az extension list` paranccsal ellenőrizheti az aktuálisan telepített bővítményeket, az `az extension show --name azure-cli-iot-ext` paranccsal pedig megtekintheti az IoT-bővítmény adatait. A bővítményt az `az extension remove --name azure-cli-iot-ext` paranccsal távolíthatja el.
 
 
-## <a name="basic-device-provisioning-service-operations"></a>기본 Device Provisioning 서비스 작업
-이 예제에서는 Azure 계정에 로그인하고, Azure 리소스 그룹(Azure 솔루션과 관련된 리소스를 보관하는 컨테이너)을 만들고, IoT Hub를 만들고, Device Provisioning 서비스를 만들고, 기존 Device Provisioning 서비스를 나열하고, CLI 명령을 사용하여 연결된 IoT Hub를 만드는 방법을 보여 줍니다. 
+## <a name="basic-device-provisioning-service-operations"></a>기본 장치 프로 비전 서비스 작업
+이 예제에서는 azure 계정에 로그인 하 고, Azure 리소스 그룹 (Azure 솔루션에 관련 된 리소스를 보유 하는 컨테이너)을 만들고, IoT Hub 만들고, 장치 프로 비전 서비스를 만들고, 기존 장치 프로 비전 서비스를 나열 하는 방법을 보여 줍니다. CLI 명령을 사용 하 여 연결 된 IoT hub를 만듭니다. 
 
-시작하기 전에 앞에서 설명한 설치 단계를 완료하세요. Azure 계정이 없으면 지금 [무료 계정](https://azure.microsoft.com/free/?v=17.39a)을 만듭니다. 
+Mielőtt nekikezdene, végezze el az előzőekben ismertetett telepítési lépéseket. Ha még nem rendelkezik Azure-előfizetéssel, akár most is létrehozhat [egy ingyenes fiókot](https://azure.microsoft.com/free/?v=17.39a). 
 
 
 ### <a name="1-log-in-to-the-azure-account"></a>1. Azure 계정에 로그인 합니다.
   
     az login
 
-![로그인][1]
+![bejelentkezés][1]
 
 ### <a name="2-create-a-resource-group-iothubblogdemo-in-eastus"></a>2. eIoTHubBlogDemo에서 리소스 그룹 만들기
 
     az group create -l eastus -n IoTHubBlogDemo
 
-![리소스 그룹 만들기][2]
+![Erőforráscsoport létrehozása][2]
 
 
 ### <a name="3-create-two-device-provisioning-services"></a>3. 두 개의 장치 프로 비전 서비스 만들기
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps
 
-![Device Provisioning 서비스 만들기][3]
+![장치 프로 비전 서비스 만들기][3]
 
     az iot dps create --resource-group IoTHubBlogDemo --name demodps2
 
@@ -68,20 +68,20 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 
     az iot dps list --resource-group IoTHubBlogDemo
 
-![Device Provisioning 서비스 나열][4]
+![장치 프로 비전 서비스 나열][4]
 
 
 ### <a name="5-create-an-iot-hub-blogdemohub-under-the-newly-created-resource-group"></a>5. 새로 만든 리소스 그룹 아래에 IoT Hub blogDemoHub를 만듭니다.
 
     az iot hub create --name blogDemoHub --resource-group IoTHubBlogDemo
 
-![IoT Hub 만들기][5]
+![IoT Hub létrehozása][5]
 
 ### <a name="6-link-one-existing-iot-hub-to-a-device-provisioning-service"></a>6. 장치 프로 비전 서비스에 기존 IoT Hub 하나 연결
 
     az iot dps linked-hub create --resource-group IoTHubBlogDemo --dps-name demodps --connection-string <connection string> -l westus
 
-![허브 연결][5]
+![Hub csatolása][5]
 
 <!-- Images -->
 [1]: ./media/how-to-manage-dps-with-cli/login.jpg
@@ -92,15 +92,15 @@ IoT 확장은 디바이스 관리 및 전체 IoT Edge 같은 기능으로 Azure 
 [6]: ./media/how-to-manage-dps-with-cli/link-hub.jpg
 
 
-## <a name="next-steps"></a>다음 단계
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+## <a name="next-steps"></a>Következő lépések
+Ez az oktatóanyag bemutatta, hogyan végezheti el az alábbi műveleteket:
 
 > [!div class="checklist"]
-> * 디바이스 등록
-> * 디바이스 시작
-> * 디바이스가 등록되어 있는지 확인
+> * Az eszköz regisztrálása
+> * Az eszköz elindítása
+> * Az eszköz sikeres regisztrálásának ellenőrzése
 
-부하가 분산된 허브 간 여러 디바이스를 프로비전하는 방법에 알아보려면 다음 자습서를 진행합니다. 
+A következő oktatóanyag azt mutatja be, hogyan regisztrálhat több eszközt az elosztott terhelésű hubok között. 
 
 > [!div class="nextstepaction"]
-> [부하가 분산된 IoT Hub 간 디바이스 프로비전](./tutorial-provision-multiple-hubs.md)
+> [Eszközök regisztrálása elosztott terhelésű IoT Hubokon](./tutorial-provision-multiple-hubs.md)

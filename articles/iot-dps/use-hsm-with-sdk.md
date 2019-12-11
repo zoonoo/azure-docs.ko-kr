@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub 장치 프로 비전 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘 사용
-description: Azure 방법 - Azure에서 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
+description: Azure 방법-Azure에서 DPS (장치 프로 비전 서비스) 클라이언트 SDK를 사용 하는 다양 한 증명 메커니즘을 사용 하는 방법
 author: robinsh
 ms.author: robinsh
 ms.date: 03/30/2018
@@ -8,34 +8,34 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 ms.custom: mvc
-ms.openlocfilehash: 0cde591d2ec8c6f2f51c83b3f263c188c8cf2605
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c85d958074ea5d41d32f71350164c3c983e372a2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228279"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976658"
 ---
-# <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Azure에서 C용 Device Provisioning 서비스 클라이언트 SDK와 함께 다른 증명 메커니즘을 사용하는 방법
+# <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Különböző igazolási mechanizmusok használata a Device Provisioning Service C-hez készült ügyféloldali SDK-jával
 
-이 문서에서는 C용 Device Provisioning 서비스 클라이언트 SDK에서 다른 [증명 메커니즘](concepts-security.md#attestation-mechanism)을 사용하는 방법을 보여줍니다. 물리적 디바이스 또는 시뮬레이터를 사용할 수 있습니다. 프로 비전 서비스는 두 가지 유형의 증명 메커니즘인 x.509 및 신뢰할 수 있는 플랫폼 모듈 (TPM)의 인증을 지원 합니다.
+Ez a cikk bemutatja, hogyan használhat különböző [igazolási mechanizmusokat](concepts-security.md#attestation-mechanism) a Device Provisioning Service C-hez készült ügyféloldali SDK-jával. Fizikai eszközt vagy szimulátort is használhat. 프로 비전 서비스는 두 가지 유형의 증명 메커니즘인 x.509 및 신뢰할 수 있는 플랫폼 모듈 (TPM)의 인증을 지원 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>Előfeltételek
 
-[시뮬레이션된 디바이스 만들기 및 프로비전](./quick-create-simulated-device.md) 가이드의 "개발 환경 준비" 섹션에 따라 개발 환경을 준비합니다.
+A [szimulált eszköz létrehozását és üzembe helyezését](./quick-create-simulated-device.md) ismertető útmutató a fejlesztési környezet előkészítéséről szóló szakaszában foglaltaknak megfelelően előkészített fejlesztési környezet.
 
-### <a name="choose-an-attestation-mechanism"></a>증명 메커니즘 선택
+### <a name="choose-an-attestation-mechanism"></a>Igazolási mechanizmus kiválasztása
 
-디바이스 제조자는 먼저 지원되는 형식 중 하나를 기반으로 하는 증명 메커니즘을 선택해야 합니다. 현재 [C용 Device Provisioning 서비스 클라이언트 SDK](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client)는 다음과 같은 증명 메커니즘을 지원합니다. 
+Eszközgyártóként először az egyik támogatott típuson alapuló igazolási mechanizmust kell kiválasztania. A [Device Provisioning Service C-hez készült ügyféloldali SDK-ja](https://github.com/Azure/azure-iot-sdk-c/tree/master/provisioning_client) jelenleg a következő igazolási mechanizmusokat támogatja: 
 
-- [TPM(신뢰할 수 있는 플랫폼 모듈)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): TPM은 몇 개의 Linux/Ubuntu 기반 디바이스뿐만 아니라 대부분의 Windows 기반 디바이스 플랫폼에 대해 설정된 표준입니다. 디바이스 제조자는 디바이스에서 이러한 OS 중 하나가 실행되는 경우 및 설정된 표준을 찾는 경우 이 증명 메커니즘을 선택할 수 있습니다. TPM 칩을 사용하면 Device Provisioning Service에 개별적으로 각 디바이스를 등록할 수 있습니다. 개발을 위해 Windows 또는 Linux 개발 컴퓨터에서 TPM 시뮬레이터를 사용할 수 있습니다.
+- [Platformmegbízhatósági modul (TPM)](https://en.wikipedia.org/wiki/Trusted_Platform_Module): A TPM bevett szabvány a legtöbb Windows-alapú eszközplatformhoz, valamint néhány Linux-/Ubuntu-alapú eszközhöz. Eszközgyártóként akkor választhatja ezt az igazolási mechanizmust, ha az eszközökön ezeknek az operációs rendszereknek az egyike fut, és egy bevett szabványt kíván használni. TPM-lapkák esetén csak külön-külön regisztrálhatja az eszközöket a Device Provisioning Service-ben. A TPM-szimulátort használhatja fejlesztési célokra Windows- vagy Linux-alapú fejlesztői gépeken.
 
-- [X.509](https://cryptography.io/en/latest/x509/): X.509 인증서를 [HSM(하드웨어 보안 모듈)](concepts-security.md#hardware-security-module)이라는 비교적 최신 칩에 저장할 수 있습니다. X.509 인증서를 구현하는 RIoT 또는 DICE에 대한 작업이 Microsoft 내에서 진행 중입니다. X.509 칩을 사용하면 포털에서 디바이스 등록을 대량으로 수행할 수 있습니다. 또한 임베디드 OS와 같은 특정 비Windows OS를 지원합니다. 개발 목적을 위해 Device Provisioning Service 클라이언트 SDK는 X.509 디바이스 시뮬레이터를 지원합니다. 
+- [X.509](https://cryptography.io/en/latest/x509/): Az X.509-tanúsítványok tárolhatók a [hardveres biztonsági modul (HSM)](concepts-security.md#hardware-security-module) néven ismert, viszonylag új lapkákon. A Microsoft dolgozik a RIoT- és a DICE-lapkákon, amelyek az X.509-tanúsítványokat használják. Az X.509-lapkákkal kötegelt eszközregisztrációt végezhet a portálon. Ez egyes nem Windows operációs rendszereket is támogat, például az embedOS rendszert. A Device Provisioning Service ügyféloldali SDK-ja támogatja egy X.509-eszközszimulátor használatát fejlesztési célokra. 
 
-자세한 내용은 IoT Hub Device Provisioning 서비스 [보안 개념](concepts-security.md) 및 [자동 프로비전 개념](/azure/iot-dps/concepts-auto-provisioning)을 참조하세요.
+További információt az IoT Hub Device Provisioning Service [biztonsági](concepts-security.md) és [automatikus regisztrációval kapcsolatos fogalmait](/azure/iot-dps/concepts-auto-provisioning) ismertető témakörben talál.
 
-## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>지원되는 증명 메커니즘에 인증을 사용하도록 설정
+## <a name="enable-authentication-for-supported-attestation-mechanisms"></a>Támogatott igazolási mechanizmusok hitelesítésének engedélyezése
 
-Azure Portal 등록 하려면 먼저 실제 장치 또는 시뮬레이터에 대해 SDK 인증 모드 (x.509 또는 TPM)를 사용 하도록 설정 해야 합니다. 먼저 azure-iot-sdk-c의 루트 폴더로 이동합니다. 그 후 선택한 인증 모드에 따라 지정된 명령을 실행합니다.
+Azure Portal 등록 하려면 먼저 실제 장치 또는 시뮬레이터에 대해 SDK 인증 모드 (x.509 또는 TPM)를 사용 하도록 설정 해야 합니다. Először lépjen az azure-iot-sdk-c gyökérmappájába. Ezután futtassa a megadott parancsot a választott hitelesítési módnak megfelelően:
 
 ### <a name="use-x509-with-simulator"></a>시뮬레이터에서 x.509 사용
 
@@ -45,33 +45,33 @@ Azure Portal 등록 하려면 먼저 실제 장치 또는 시뮬레이터에 대
 cmake -Ddps_auth_type=x509 ..
 ```
 
-DICE가 포함된 하드웨어에 대한 자세한 내용은 [여기](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/)에 있습니다.
+A DICE-szal rendelkező hardverekkel kapcsolatban [itt](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) talál további információkat.
 
 ### <a name="use-x509-with-hardware"></a>하드웨어와 함께 x.509 사용
 
-프로 비전 서비스는 다른 하드웨어에서 **X. x.509** 와 함께 사용할 수 있습니다. 하드웨어와 SDK 간의 인터페이스는 연결을 설정하는 데 필요합니다. 인터페이스에 대한 정보는 HSM 제조업체에 문의하세요.
+프로 비전 서비스는 다른 하드웨어에서 **X. x.509** 와 함께 사용할 수 있습니다. A kapcsolat kiépítéséhez egy interfész szükséges a hardver és az SDK között. Az interfészre vonatkozó információkkal kapcsolatban forduljon a HSM gyártójához.
 
-### <a name="use-tpm"></a>TPM 사용
+### <a name="use-tpm"></a>TPM használata
 
-프로비전 서비스에서 SAS 토큰을 사용하여 Windows 및 Linux 하드웨어 TPM 칩에 연결할 수 있습니다. TPM 인증을 사용하도록 설정하려면 다음 명령을 실행합니다.
+A kiépítési szolgáltatás a Windows- és Linux-hardverek TPM-lapkáihoz SAS-token használatával képes csatlakozni. Futtassa a következő parancsot a TPM-hitelesítés engedélyezéséhez:
 
 ```
 cmake -Ddps_auth_type=tpm ..
 ```
 
-### <a name="use-tpm-with-simulator"></a>시뮬레이터를 통해 TPM 사용
+### <a name="use-tpm-with-simulator"></a>TPM használata szimulátorral
 
-TPM 칩이 있는 디바이스가 없으면 개발 용도로 Windows OS에서 시뮬레이터를 사용할 수 있습니다. TPM 인증을 사용하도록 설정하고 TPM 시뮬레이터를 실행하려면 다음 명령을 실행합니다.
+Ha nem rendelkezik TPM-lapkát tartalmazó eszközzel, fejlesztési célokra használhat szimulátort is a Windows operációs rendszeren. Futtassa a következő parancsot a TPM-hitelesítés engedélyezéséhez és a TPM-szimulátor futtatásához:
 
 ```
 cmake -Ddps_auth_type=tpm_simulator ..
 ```
 
-## <a name="build-the-sdk"></a>SDK 빌드
-먼저 SDK를 빌드한 후에 디바이스 등록을 만들어야 합니다.
+## <a name="build-the-sdk"></a>Az SDK felépítése
+Az SDK-t az eszközbeléptetés létrehozása előtt építse fel.
 
 ### <a name="linux"></a>Linux
-- Linux에서 SDK를 빌드하려면 다음을 수행합니다.
+- Az SDK felépítése Linux rendszeren:
     ```
     cd azure-iot-sdk-c
     mkdir cmake
@@ -79,16 +79,16 @@ cmake -Ddps_auth_type=tpm_simulator ..
     cmake ..
     cmake --build .  # append '-- -j <n>' to run <n> jobs in parallel
     ```
-- 디버그 이진 파일을 빌드하려면 해당 CMake 옵션을 프로젝트 생성 명령에 추가합니다. 예를 들면 다음과 같습니다.
+- A Hibakeresési bináris fájlok felépítéséhez egészítse ki a projektlétrehozási parancsot a megfelelő CMake beállítással, például:
     ```
     cmake -DCMAKE_BUILD_TYPE=Debug ..
     ```
 
-- SDK를 빌드하는 데 사용할 수 있는 [CMake 구성 옵션](https://cmake.org/cmake/help/v3.6/manual/cmake.1.html)이 많이 있습니다. 예를 들어 CMake 프로젝트 생성 명령에 인수를 추가하여 사용 가능한 프로토콜 스택 중 하나를 해제할 수 있습니다.
+- Számos [CMake konfigurációs beállítás](https://cmake.org/cmake/help/v3.6/manual/cmake.1.html) érhető el az SDK felépítéséhez. Például az elérhető protokollvermek egyikének letiltásához egészítse ki a CMake projektlétrehozási parancsot egy argumentummal:
     ```
     cmake -Duse_amqp=OFF ..
     ```
-- 단위 테스트를 빌드하여 실행할 수도 있습니다.
+- Egységtesztet is felépíthet és futtathat:
     ```
     cmake -Drun_unittests=ON ..
     cmake --build .
@@ -96,90 +96,90 @@ cmake -Ddps_auth_type=tpm_simulator ..
     ```
 
 ### <a name="windows"></a>Windows
-- Windows에서 SDK를 빌드하려면 다음 단계를 수행하여 프로젝트 파일을 생성합니다.
-  - "VS2015용 개발자 명령 프롬프트"를 엽니다.
-  - 리포지토리의 루트에서 다음의 CMake 명령을 실행합니다.
+- Az SDK felépítéséhez Windows rendszeren hajtsa végre a következő lépéseket a projektfájlok létrehozásához:
+  - Nyisson meg egy „VS2015 fejlesztői parancssort”.
+  - Futtassa az alábbi CMake parancsokat az adattár gyökérkönyvtárából:
     ```
     cd azure-iot-sdk-c
     mkdir cmake
     cd cmake
     cmake -G "Visual Studio 14 2015" ..
     ```
-    이 명령은 x86 라이브러리를 빌드합니다. x64 라이브러리로 빌드하려면 cmake 생성기 인수를 다음과 같이 수정합니다. 
+    Ez a parancs x86 kódtárakat épít fel. Ha x64 adattárakat szeretne felépíteni, módosítsa a cmake generátorargumentumát: 
     ```
     cmake .. -G "Visual Studio 14 2015 Win64"
     ```
 
-- 프로젝트가 성공적으로 생성되면 `cmake` 폴더 아래에 Visual Studio 솔루션 파일(.sln)이 표시됩니다. SDK를 빌드하려면 다음을 수행합니다.
-    - Visual Studio에서 **cmake\azure_iot_sdks.sln**을 열고 빌드합니다. **또는**
-    - 프로젝트 파일을 생성하는 데 사용된 명령 프롬프트에서 다음 명령을 실행합니다.
+- Ha a projekt létrehozása sikeresen befejeződik, egy Visual Studio megoldásfájlt (.sln) kell látnia a(z) `cmake` mappában. Az SDK felépítése:
+    - Nyissa meg a **cmake\azure_iot_sdks.sln** fájlt a Visual Studióban és építse fel, **VAGY**
+    - Futtassa az alábbi parancsot a parancssori ablakban, amelyet a projektfájlok létrehozásához használt:
       ```
       cmake --build . -- /m /p:Configuration=Release
       ```
-- 디버그 이진 파일을 빌드하려면 해당 MSBuild 인수를 사용합니다. 
+- A Hibakeresési bináris fájlok felépítéséhez használja a megfelelő MSBuild argumentumot: 
     ```
     cmake --build . -- /m /p:Configuration=Debug`
     ```
-- SDK를 빌드하는 데 사용할 수 있는 CMake 구성 옵션이 많이 있습니다. 예를 들어 CMake 프로젝트 생성 명령에 인수를 추가하여 사용 가능한 프로토콜 스택 중 하나를 해제할 수 있습니다.
+- Számos CMake konfigurációs beállítás érhető el az SDK felépítéséhez. Például az elérhető protokollvermek egyikének letiltásához egészítse ki a CMake projektlétrehozási parancsot egy argumentummal:
     ```
     cmake -G "Visual Studio 14 2015" -Duse_amqp=OFF ..
     ```
-- 단위 테스트를 빌드하여 실행할 수도 있습니다.
+- Egységteszteket is felépíthet és futtathat:
     ```
     cmake -G "Visual Studio 14 2015" -Drun_unittests=ON ..
     cmake --build . -- /m /p:Configuration=Debug
     ctest -C "debug" -V
     ```
   
-### <a name="libraries-to-include"></a>포함할 라이브러리
-- 다음 라이브러리는 SDK에 포함되어야 합니다.
-    - 프로비전 서비스: dps_http_transport, dps_client, dps_security_client
-    - IoTHub 보안: iothub_security_client
+### <a name="libraries-to-include"></a>Az alkalmazandó kódtárak
+- Az alábbi kódtárakat kell belevennie az SDK-ba:
+    - A kiépítési szolgáltatás: dps_http_transport, dps_client, dps_security_client
+    - IoTHub Security: iothub_security_client
 
-## <a name="create-a-device-enrollment-entry-in-device-provisioning-services"></a>Device Provisioning Service에서 디바이스 등록 항목 만들기
+## <a name="create-a-device-enrollment-entry-in-device-provisioning-services"></a>Eszközregisztrációs bejegyzés létrehozása Device Provisioning Service-ben
 
 ### <a name="tpm"></a>TPM
-TPM을 사용하는 경우 ["Azure IoT Hub Device Provisioning Service를 사용하여 시뮬레이션된 디바이스 만들기 및 프로비전"](./quick-create-simulated-device.md)의 지침에 따라 Device Provisioning Service에 디바이스 등록 항목을 만들고 첫 번째 부팅을 시뮬레이션합니다.
+TPM használata esetén kövesse a [szimulált eszköz az IoT Hub Device Provisioning Service használatával történő létrehozását és kiépítését ismertető](./quick-create-simulated-device.md) szakaszban leírtakat eszközregisztrációs bejegyzés létrehozásához a Device Provisioning Service-ben és az első rendszerindítás szimulálásához.
 
 ### <a name="x509"></a>X.509
 
-1. 프로비전 서비스에 디바이스를 등록하려면 클라이언트 SDK에서 제공하는 프로비전 도구에 표시된 각 디바이스에 대한 인증 키와 등록 ID를 기록해 둡니다. 다음 명령을 실행하여 루트 CA 인증서(그룹 등록의 경우) 및 리프 인증서(개별 등록의 경우)를 출력합니다.
+1. Az eszközök a kiépítési szolgáltatásba való beléptetéséhez fel kell jegyeznie az egyes eszközök Ellenőrzőkulcsát és Regisztrációs azonosítóját, amelyek az ügyfél-SDK által biztosított Kiépítési eszközben tekinthetőek meg. Futtassa a következő parancsot a legfelső szintű hitelesítésszolgáltató tanúsítványának (regisztrációs csoportok esetén) és a levéltanúsítványának (egyéni regisztráció esetén) kinyomtatásához:
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
       ```
-2. Azure Portal에 로그인하고, 왼쪽 메뉴에서 **모든 리소스** 단추를 클릭하고, Device Provisioning Service를 엽니다.
-   - **X.509 개별 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **개별 등록** 탭을 선택하고 맨 위에서 **추가** 단추를 클릭합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 블레이드에서 요구 하는 대로 리프 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
-   - **X.509 그룹 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. **그룹 등록** 탭을 선택하고, 위쪽에 있는 **추가** 단추를 클릭합니다. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 그룹 이름과 인증 이름을 입력 하 고, 블레이드에서 요구 하는 대로 CA/중간 인증서를 업로드 합니다. 완료되면 **저장** 단추를 클릭합니다. 
+2. Jelentkezzen be az Azure Portalra, a bal oldali menüben kattintson a **Minden erőforrás** gombra, és nyissa meg a Device Provisioning Service-t.
+   - **X.509 개별 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. Válassza az **Egyéni beléptetések** fület, és kattintson a felül lévő **Hozzáadás** gombra. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 블레이드에서 요구 하는 대로 리프 인증서를 업로드 합니다. Ha végzett, kattintson a **Mentés** gombra. 
+   - **X.509 그룹 등록**: 프로 비전 서비스 요약 블레이드에서 **등록 관리**를 선택 합니다. Válassza a **Csoportos beléptetések** lapot, és kattintson a felül lévő **Hozzáadás** gombra. Id 증명 *메커니즘*으로 **x.509** 을 선택 하 고, 그룹 이름과 인증 이름을 입력 하 고, 블레이드에서 요구 하는 대로 CA/중간 인증서를 업로드 합니다. Ha végzett, kattintson a **Mentés** gombra. 
 
-## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>사용자 지정 증명 메커니즘을 사용하여 디바이스에 대한 인증을 사용하도록 설정(선택 사항)
+## <a name="enable-authentication-for-devices-using-a-custom-attestation-mechanism-optional"></a>Eszközök hitelesítésének engedélyezése egyéni igazolási mechanizmussal (opcionális)
 
 > [!NOTE]
-> 이 섹션은 현재 C용 Device Provisioning 서비스 클라이언트 SDK에 의해 지원되지 않는 사용자 지정 플랫폼 또는 증명 메커니즘에 대한 지원이 필요한 디바이스에만 적용될 수 있습니다. SDK에서는 "증명 메커니즘"을 대신해 제네릭 대체로 "HSM"이라는 용어를 자주 사용합니다.
+> Ez a szakasz csak olyan eszközökre vonatkozik, amelyeken olyan egyéni platform vagy igazolási mechanizmus támogatása szükséges, amelyeket a Device Provisioning Service C-hez készült ügyféloldali SDK-ja jelenleg nem támogat. Vegye továbbá figyelembe, hogy az SDK gyakran használja a „HSM” kifejezést általános értelemben, az „igazolási mechanizmus” kifejezés helyett.
 
-먼저 사용자 지정 증명 메커니즘에 대한 리포지토리 및 라이브러리를 개발해야 합니다.
+Először ki kell alakítania egy adat- és kódtárat az egyéni igazolási mechanizmus számára:
 
-1. 증명 메커니즘에 액세스하는 라이브러리를 개발합니다. 이 프로젝트에서는 사용할 디바이스 프로비저닝 SDK에 대한 정적 라이브러리를 생성해야 합니다.
+1. Alakítson ki egy kódtárat, ahonnan elérhetővé teheti az igazolási mechanizmust. Ennek a projektnek statikus kódtárat kell készítenie az eszközkiépítési SDK-hoz.
 
-2. 라이브러리에서 다음 헤더 파일에 정의된 함수를 구현합니다. 
+2. Implementálja a következő fejlécfájlban meghatározott függvényeket a kódtárában: 
 
-    - 사용자 지정 TPM: [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) 아래에 정의된 함수를 구현합니다.  
-    - 사용자 지정 X.509: [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) 아래에 정의된 함수를 구현합니다. 
+    - Egyéni TPM esetén: implementálja a [HSM TPM API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-tpm-api) alatt meghatározott függvényeket.  
+    - Egyéni X.509 esetén: implementálja a [HSM X509 API](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client/devdoc/using_custom_hsm.md#hsm-x509-api) alatt meghatározott függvényeket. 
 
-라이브러리가 성공적으로 빌드되면 라이브러리에 연결하여 Device Provisioning Service 클라이언트 SDK와 통합해야 합니다. :
+Miután a kódtár sikeresen létrejött önállóan, integrálnia kell azt a Device Provisioning Service ügyféloldali SDK-jával a kódtárhoz kapcsolásával. :
 
-1. 다음 `cmake` 명령에서 사용자 지정 GitHub 리포지토리 및 라이브러리를 입력합니다.
+1. Adja meg az egyéni GitHub-adattárat és a kódtárat a következő `cmake` parancsban:
     ```cmd/sh
     cmake -Duse_prov_client:BOOL=ON -Dhsm_custom_lib=<path_and_name_of_library> <PATH_TO_AZURE_IOT_SDK>
     ```
    
-2. CMake로 빌드한 Visual Studio 솔루션 파일(`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`)을 열고 빌드합니다. 
+2. Nyissa meg a CMake (`\azure-iot-sdk-c\cmake\azure_iot_sdks.sln`) által készített Visual Studio-megoldásfájlt, és építse fel. 
 
-    - 빌드 프로세스에서 SDK 라이브러리를 컴파일합니다.
-    - SDK는 `cmake` 명령에 정의된 사용자 지정 라이브러리에 대한 연결을 시도합니다.
+    - A felépítési folyamat összeállítja az SDK-kódtárat.
+    - Az SDK megpróbál a `cmake` parancsban meghatározott egyéni kódtárhoz kapcsolódni.
 
-3. "Provision_Samples"(`\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample` 아래) 아래에서 "prov_dev_client_ll_sample" 샘플 앱을 실행하여 사용자 지정 증명 메커니즘이 올바르게 구현되었는지 확인합니다.
+3. Az egyéni igazolási mechanizmus megfelelő implementálásának ellenőrzéséhez futtassa a „Provision_Samples” területen lévő „prov_dev_client_ll_sample” mintaalkalmazást (ezen a helyen: `\azure-iot-sdk-c\cmake\provisioning_client\samples\prov_dev_client_ll_sample`).
 
-## <a name="connecting-to-iot-hub-after-provisioning"></a>프로비전 후 IoT Hub에 연결
+## <a name="connecting-to-iot-hub-after-provisioning"></a>Csatlakozás az IoT Hubhoz a kiépítés után
 
 프로 비전 서비스를 사용 하 여 장치를 프로 비전 하면이 API는 지정 된 인증 모드 (**x.509** 또는 TPM)를 사용 하 여 IoT Hub에 연결 합니다. 
   ```

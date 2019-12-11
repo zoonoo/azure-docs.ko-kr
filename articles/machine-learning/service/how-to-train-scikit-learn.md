@@ -1,7 +1,7 @@
 ---
 title: 학습 scikit-기계 학습 모델 배우기
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 기능을 사용 하는 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 교육 스크립트를 실행 하는 방법을 알아봅니다. 예제 스크립트는 조리개 꽃 이미지를 분류 하 여 scikit의 조리개 데이터 집합을 기반으로 기계 학습 모델을 작성 합니다.
+description: Azure Machine Learning 기능 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 학습 스크립트를 실행 하는 방법에 대해 알아봅니다. 예제 스크립트는 조리개 꽃 이미지를 분류 하 여 scikit의 조리개 데이터 집합을 기반으로 기계 학습 모델을 작성 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,29 +10,29 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: a85d33a804c8aaf3081439806bf69dab5263dcf2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 2b6cdf9350d95de901e8a0f1e875d90513b33f1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224852"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976114"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>빌드 scikit-Azure Machine Learning를 사용 하 여 규모에 맞게 모델 학습
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning의 기능을 사용 하는 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 
+이 문서에서는 Azure Machine Learning 기능 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 scikit 학습 스크립트를 실행 하는 방법에 대해 알아봅니다. 
 
 이 문서의 예제 스크립트는 scikit의 [조리개 데이터 집합](https://archive.ics.uci.edu/ml/datasets/iris)을 기반으로 기계 학습 모델을 빌드하기 위한 조리개 꽃 이미지를 분류 하는 데 사용 됩니다.
 
 처음부터 machine learning scikit 모델을 학습 하 고 있거나 기존 모델을 클라우드로 가져오는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
  - Azure Machine Learning 노트북 VM-다운로드 또는 설치 필요 없음
 
     - [자습서: 설치 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md) 을 완료 하 여 SDK 및 샘플 리포지토리를 사용 하 여 미리 로드 한 전용 노트북 서버를 만듭니다.
-    - 노트북 서버의 샘플 학습 폴더에서이 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > scikit-> 학습 > 학습-하이퍼 매개 변수-조정-배포-배우기** 폴더.
+    - 노트북 서버의 샘플 학습 폴더에서 다음 디렉터리로 이동 하 여 완료 되 고 확장 된 노트북을 찾습니다. **사용 방법-azureml > ml-프레임 워크 > scikit-학습 > 학습 > 학습-하이퍼 매개 변수-조정-배포-학습** 폴더.
 
  - 사용자 고유의 Jupyter Notebook 서버
 
@@ -74,7 +74,7 @@ from azureml.core.compute_target import ComputeTargetException
 ws = Workspace.from_config()
 ```
 
-### <a name="create-a-machine-learning-experiment"></a>Machine learning 실험 만들기
+### <a name="create-a-machine-learning-experiment"></a>기계 학습 실험 만들기
 
 학습 스크립트를 보관할 실험 및 폴더를 만듭니다. 이 예제에서는 "비 기능 학습-iri" 라는 실험을 만듭니다.
 
@@ -89,7 +89,7 @@ exp = Experiment(workspace=ws, name='sklearn-iris')
 
 이 자습서에서는 학습 스크립트 **train_iris py** 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 train_iris** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
+Azure ML 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 train_iris** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
 제공 된 학습 스크립트는 `iris = datasets.load_iris()` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 

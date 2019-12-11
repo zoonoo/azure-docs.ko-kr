@@ -1,80 +1,80 @@
 ---
 title: Azure Import/Export 도구 v1 설정 | Microsoft Docs
-description: Azure Import/Export 서비스를 위한 드라이브 준비 및 복구 도구 설정 방법을 알아봅니다. Import/Export 도구 v1을 나타냅니다.
-author: muralikk
+description: Azure Import/Export 서비스에 대 한 드라이브 준비 및 복구 도구를 설정 하는 방법에 대해 알아봅니다. 이는 Import/Export 도구의 v1을 나타냅니다.
+author: twooley
 services: storage
 ms.service: storage
 ms.topic: article
 ms.date: 01/15/2017
-ms.author: muralikk
+ms.author: twooley
 ms.subservice: common
-ms.openlocfilehash: aafff208b9de2ae485fb84be428cf77f237e022e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f523d1ebf5c96596142c6897af2be5f760b3d4b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61477572"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978954"
 ---
 # <a name="setting-up-the-azure-importexport-tool"></a>Azure Import/Export 도구 설정
-Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 기능을 위해 이 도구를 사용할 수 있습니다.  
+Microsoft Azure Import/Export 도구는 Microsoft Azure Import/Export 서비스에서 사용할 수 있는 드라이브 준비 및 복구 도구입니다. 다음 함수에 대해이 도구를 사용할 수 있습니다.  
   
--   가져오기 작업을 만들기 전에 이 도구를 사용하여 Windows Azure 데이터 센터에 배송하려는 하드 드라이브에 데이터를 복사할 수 있습니다.  
+-   가져오기 작업을 만들기 전에이 도구를 사용 하 여 Windows Azure 데이터 센터에 배송 하려는 하드 드라이브에 데이터를 복사할 수 있습니다.  
   
--   가져오기 작업이 완료된 후에는 이 도구를 사용하여 손상되거나 누락되거나 다른 Blob과 충돌한 Blob을 복구할 수 있습니다.  
+-   가져오기 작업이 완료 된 후이 도구를 사용 하 여 손상 되었거나 누락 되었거나 다른 blob과 충돌 하는 모든 blob을 복구할 수 있습니다.  
   
--   완료된 내보내기 작업에서 드라이브를 받은 후에는 이 도구를 사용하여 드라이브에서 손상되거나 누락된 파일을 복구할 수 있습니다.  
+-   완료 된 내보내기 작업에서 드라이브를 받은 후이 도구를 사용 하 여 드라이브에서 손상 되거나 누락 된 파일을 복구할 수 있습니다.  
   
-## <a name="prerequisites"></a>필수 조건  
-가져오기 작업을 위해 드라이브를 준비하는 경우 다음과 같은 필수 조건을 충족해야 합니다.  
+## <a name="prerequisites"></a>Előfeltételek  
+가져오기 작업을 위해 드라이브를 준비 하는 경우 다음 필수 구성 요소를 충족 해야 합니다.  
   
 -   활성 Azure 구독이 있어야 합니다.  
   
--   구독에는 가져올 파일을 저장할 수 있는 충분한 공간이 있는 스토리지 계정이 있어야 합니다.  
+-   구독에는 가져올 파일을 저장할 수 있는 충분 한 공간이 있는 저장소 계정이 포함 되어 있어야 합니다.  
   
--   스토리지 계정에 대한 계정 키 중 하나 이상이 필요합니다.  
+-   저장소 계정에 대 한 계정 키가 하나 이상 필요 합니다.  
   
--   Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치된 컴퓨터("복사 컴퓨터")가 필요합니다.  
+-   Windows 7, Windows Server 2008 R2 또는 최신 Windows 운영 체제가 설치 된 컴퓨터 ("복사 컴퓨터")가 필요 합니다.  
   
--   .NET Framework 4가 복사 컴퓨터에 설치되어야 합니다.  
+-   .NET Framework 4가 복사 컴퓨터에 설치 되어 있어야 합니다.  
   
--   복사 컴퓨터에서 BitLocker를 사용할 수 있어야 합니다.  
+-   복사 컴퓨터에서 BitLocker를 사용 하도록 설정 해야 합니다.  
   
--   가져올 데이터가 있는 하나 이상의 드라이브 또는 빈 3.5인치 SATA 하드 드라이브가 복사 컴퓨터에 연결되어 있는 하나 이상의 드라이브가 필요합니다.  
+-   가져올 데이터 또는 빈 3.5 인치 SATA 하드 드라이브가 복사 컴퓨터에 연결 된 드라이브가 하나 이상 필요 합니다.  
   
--   가져오려는 파일은 네트워크 공유 또는 로컬 하드 드라이브에 상관없이 복사 컴퓨터에서 액세스할 수 있어야 합니다. 
+-   가져올 파일은 네트워크 공유 또는 로컬 하드 드라이브에 있든 관계 없이 복사 컴퓨터에서 액세스할 수 있어야 합니다. 
   
-부분적으로 실패한 가져오기를 복구하려는 경우 다음이 필요합니다.  
-  
-- 복사 로그 파일  
-  
-- 스토리지 계정 키입니다.  
-  
-  부분적으로 실패한 내보내기를 복구하려는 경우 다음이 필요합니다.  
+부분적으로 실패 한 가져오기를 복구 하려는 경우 다음이 필요 합니다.  
   
 - 복사 로그 파일  
   
-- 매니페스트 파일(선택 사항)  
+- 저장소 계정 키  
   
-- 스토리지 계정 키입니다.  
+  부분적으로 실패 한 내보내기를 복구 하려는 경우 다음이 필요 합니다.  
+  
+- 복사 로그 파일  
+  
+- 매니페스트 파일 (옵션)  
+  
+- 저장소 계정 키  
   
 ## <a name="installing-the-azure-importexport-tool"></a>Azure Import/Export 도구 설치  
- Azure Import/Export 도구는 다음 파일로 구성됩니다.  
+ Azure Import/Export 도구는 다음 파일로 구성 됩니다.  
   
-- WAImportExport.exe  
+- WAImportExport .exe  
   
-- WAImportExport.exe.config  
+- WAImportExport .exe .config  
   
-- WAImportExportCore.dll  
+- WAImportExportCore .dll  
   
-- WAImportExportRepair.dll  
+- WAImportExportRepair .dll  
   
-- Microsoft.WindowsAzure.Storage.dll  
+- Windowsazure.servicebus.  
   
-- Hddid.dll  
+- Hddid  
   
-  이 파일을 작업 디렉터리(예: `c:\WAImportExport`)에 복사합니다. 그런 다음 관리자 모드에서 명령줄 창을 열고 위의 디렉터리를 현재 디렉터리로 설정합니다.  
+  이러한 파일을 작업 디렉터리에 복사 합니다 (예: `c:\WAImportExport`). 그런 다음 관리자 모드에서 명령줄 창을 열고 위의 디렉터리를 현재 디렉터리로 설정 합니다.  
   
-  명령에 대한 도움말을 출력하려면 매개 변수 없이 도구를 실행합니다.  
+  명령에 대 한 도움말을 출력 하려면 매개 변수 없이 도구를 실행 합니다.  
   
 ```  
 WAImportExport, a client tool for Microsoft Azure Import/Export service. Microsoft (c) 2013, 2014  
@@ -247,11 +247,11 @@ Examples:
         es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
-* [가져오기 작업을 위한 하드 드라이브 준비](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
-* [내보내기 작업에 대한 드라이브 사용량 미리 보기](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
-* [복사 로그 파일을 사용하여 작업 상태 검토](../storage-import-export-tool-reviewing-job-status-v1.md)   
-* [가져오기 작업 복구](../storage-import-export-tool-repairing-an-import-job-v1.md)   
-* [내보내기 작업 복구](../storage-import-export-tool-repairing-an-export-job-v1.md)   
-* [Azure Import/Export 도구 문제 해결](storage-import-export-tool-troubleshooting-v1.md)
+* [Merevlemezek előkészítése importálási feladatokhoz](../storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+* [내보내기 작업에 대 한 드라이브 사용량 미리 보기](../storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+* [Feladatok állapotának áttekintése a másolási naplófájlok segítségével](../storage-import-export-tool-reviewing-job-status-v1.md)   
+* [Importálási feladat javítása](../storage-import-export-tool-repairing-an-import-job-v1.md)   
+* [Exportálási feladat javítása](../storage-import-export-tool-repairing-an-export-job-v1.md)   
+* [Az Azure Import/Export eszköz hibaelhárítása](storage-import-export-tool-troubleshooting-v1.md)

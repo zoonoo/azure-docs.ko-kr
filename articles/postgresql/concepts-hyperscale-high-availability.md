@@ -1,5 +1,5 @@
 ---
-title: Azure Database for PostgreSQL-Hyperscale (Citus)의 고가용성
+title: 고가용성 – Hyperscale (Citus)-Azure Database for PostgreSQL
 description: 고가용성 및 재해 복구 개념
 author: jonels-msft
 ms.author: jonels
@@ -7,16 +7,16 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 616b5bff735f52d137c12c58ac6023c38a2d4044
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 10679ab02826fb606af65c72621f2afb609bc81b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73514746"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975536"
 ---
 # <a name="high-availability-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 고가용성
 
-HA (고가용성)는 서버 그룹에 있는 모든 노드의 대기 복제본을 유지 관리 하 여 데이터베이스 가동 중지 시간을 방지 합니다. 노드가 다운 되 면 Hyperscale은 실패 한 노드에서 대기로 들어오는 연결을 전환 합니다. 장애 조치 (Failover)는 몇 분 내에 발생 하며 승격 된 노드는 항상 PostgreSQL 동기 스트리밍 복제를 통해 새 데이터를 포함 합니다.
+고가용성(HA)을 사용하면 서버 그룹에 있는 모든 노드의 대기 복제본을 유지 관리하여 데이터베이스 가동 중지 시간을 방지할 수 있습니다. 노드가 가동 중지되면 하이퍼스케일이 실패한 노드의 들어오는 연결을 대기 복제본으로 전환합니다. 몇 분 만에 장애 조치(failover)가 수행되고 승격된 노드는 PostgreSQL 동기 스트리밍 복제를 통해 항상 최신 데이터를 보유하게 됩니다.
 
 코디네이터 노드에서 HA를 활용 하려면 데이터베이스 응용 프로그램에서 삭제 된 연결과 실패 한 트랜잭션을 검색 하 고 다시 시도 해야 합니다. 새로 승격 된 코디네이터는 동일한 연결 문자열을 사용 하 여 액세스할 수 있습니다.
 

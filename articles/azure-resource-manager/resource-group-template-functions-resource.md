@@ -2,13 +2,13 @@
 title: 템플릿 함수-리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
-ms.date: 10/26/2019
-ms.openlocfilehash: 6457bafeeb0b241171311dc3dcea30b7b6993791
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.date: 12/09/2019
+ms.openlocfilehash: ee88e939030650111acafec6c3b9906507176f48
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150671"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978852"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -20,7 +20,7 @@ Resource Manager는 리소스 값을 가져오기 위한 다음 함수를 제공
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
 * [resourceId](#resourceid)
-* [subscription](#subscription)
+* [előfizetést](#subscription)
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
@@ -34,14 +34,14 @@ extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ..
 
 해당 기능에 추가 하기 위해 다른 리소스에 적용 되는 리소스 유형인 [확장 리소스](extension-resource-types.md)의 리소스 ID를 반환 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| resourceId |예 |string |확장 리소스가 적용 되는 리소스의 리소스 ID입니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니오 |string |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceId |Igen |sztring |확장 리소스가 적용 되는 리소스의 리소스 ID입니다. |
+| resourceType |Igen |sztring |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |Igen |sztring |리소스의 이름입니다. |
+| resourceName2 |Nem |sztring |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 형식에 더 많은 세그먼트가 포함 된 경우 리소스 이름을 매개 변수로 계속 추가 합니다.
 
@@ -114,23 +114,23 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 이 함수의 구문은 목록 작업의 이름에 따라 달라집니다. 각 구현은 목록 작업을 지원하는 리소스 종류의 값을 반환합니다. 작업 이름은 `list`로 시작해야 합니다. 일부 일반적으로 사용되는 함수는 `listKeys` 및 `listSecrets`입니다. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스에 대한 고유 식별자. |
-| apiVersion |예 |string |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
-| functionValues |아니오 |object | 함수에 대한 값이 있는 개체입니다. 스토리지 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
+| resourceName 또는 resourceIdentifier |Igen |sztring |리소스에 대한 고유 식별자. |
+| apiVersion |Igen |sztring |리소스 런타임 상태의 API 버전입니다. 일반적으로 **yyyy-mm-dd** 형식입니다. |
+| functionValues |Nem |objektum | 함수에 대한 값이 있는 개체입니다. 저장소 계정의 **listAccountSas** 같은 매개 변수 값을 가진 개체를 받는 것을 지원하는 함수에 대해 이 개체를 제공합니다. 함수 값을 전달하는 예제가 이 문서에 나와 있습니다. | 
 
 ### <a name="valid-uses"></a>유효한 용도
 
 목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](resource-group-create-multiple.md#property-iteration)에 사용 되는 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 개수를 결정 해야 하므로 `count`와 함께 사용할 수 없습니다.
 
-### <a name="implementations"></a>구현
+### <a name="implementations"></a>Megvalósítások
 
 다음 표에 list*의 가능한 용도가 나와 있습니다.
 
-| 리소스 형식 | 함수 이름 |
+| Erőforrás típusa | 함수 이름 |
 | ------------- | ------------- |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
 | Microsoft.AppConfiguration/configurationStores | ListKeys |
@@ -229,8 +229,8 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell 옵션이 제공됩니다.
 
-* 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 보고 list 작업을 찾습니다. 예를 들어 스토리지 계정에는 [listKeys 작업](/rest/api/storagerp/storageaccounts)이 있습니다.
-* [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet을 사용합니다. 다음 예제에서는 스토리지 계정에 대한 모든 list 작업을 가져옵니다.
+* 리소스 공급자에 대한 [REST API 작업](/rest/api/)을 보고 list 작업을 찾습니다. 예를 들어 저장소 계정에는 [listKeys 작업](/rest/api/storagerp/storageaccounts)이 있습니다.
+* [Get-AzProviderOperation](/powershell/module/az.resources/get-azprovideroperation) PowerShell cmdlet을 사용합니다. 다음 예제에서는 저장소 계정에 대한 모든 list 작업을 가져옵니다.
 
   ```powershell
   Get-AzProviderOperation -OperationSearchString "Microsoft.Storage/*" | where {$_.Operation -like "*list*"} | FT Operation
@@ -264,7 +264,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 다른 list 함수는 다른 반환 형식을 갖습니다. 함수의 형식을 보려면 예제 템플릿에 표시된 것처럼 outputs 섹션에 포함합니다.
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 리소스 이름 또는 [resourceId 함수](#resourceid)를 사용하여 리소스를 지정합니다. 참조된 리소스를 배포하는 동일한 템플릿에서 list 함수를 사용하는 경우 리소스 이름을 사용합니다.
 
@@ -272,7 +272,7 @@ list 작업이 있는 리소스 유형을 확인할 수 있게 다음 PowerShell
 
 ### <a name="list-example"></a>목록 예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 스토리지 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 스토리지 계정에 대한 SAS 토큰을 반환합니다. 
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/listkeys.json)에서는 출력 섹션의 저장소 계정에서 기본 및 보조 키를 반환하는 방법을 보여줍니다. 또한 저장소 계정에 대한 SAS 토큰을 반환합니다. 
 
 SAS 토큰을 가져오려면 만료 시간에 대 한 개체를 전달 합니다. 만료 시간은 미래 시간이어야 합니다. 이 예제에서는 목록 함수를 사용하는 방법을 표시할 것입니다. 일반적으로 출력 값으로 SAS 토큰을 반환하지 않고 리소스 값에서 해당 토큰을 사용합니다. 출력 값은 배포 기록에 저장되므로 안전하지 않습니다.
 
@@ -347,12 +347,12 @@ providers(providerNamespace, [resourceType])
 
 리소스 공급자와 지원되는 리소스 유형에 대한 정보를 반환합니다. 리소스 유형을 제공하지 않는 경우 함수는 리소스 공급자에 대한 모든 지원되는 유형을 반환합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| providerNamespace |예 |string |공급자의 네임스페이스입니다. |
-| resourceType |아니오 |string |지정된 네임스페이스 내의 리소스 유형입니다. |
+| providerNamespace |Igen |sztring |공급자의 네임스페이스입니다. |
+| resourceType |Nem |sztring |지정된 네임스페이스 내의 리소스 유형입니다. |
 
 ### <a name="return-value"></a>반환 값
 
@@ -416,7 +416,7 @@ providers(providerNamespace, [resourceType])
 }
 ```
 
-## <a name="reference"></a>reference
+## <a name="reference"></a>참조
 
 ```json
 reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
@@ -424,19 +424,19 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 리소스의 런타임 상태를 나타내는 개체를 반환합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |string |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포 된 리소스를 참조 하는 경우 리소스 ID를 제공 합니다. |
-| apiVersion |아니오 |string |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. 리소스에 대 한 유효한 API 버전은 [템플릿 참조](/azure/templates/)를 참조 하세요. |
-| 'Full' |아니오 |string |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
+| resourceName 또는 resourceIdentifier |Igen |sztring |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포 된 리소스를 참조 하는 경우 리소스 ID를 제공 합니다. |
+| apiVersion |Nem |sztring |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. 리소스에 대 한 유효한 API 버전은 [템플릿 참조](/azure/templates/)를 참조 하세요. |
+| 'Full' |Nem |sztring |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
 ### <a name="return-value"></a>반환 값
 
 모든 리소스 형식은 reference 함수에 대해 다른 속성을 반환합니다. 이 함수는 미리 정의된 단일 형식을 반환하지 않습니다. 또한 반환된 값은 전체 개체를 지정했는지 여부에 따라 다릅니다. 리소스 형식에 대한 속성을 보려면 예제와 같이 outputs 섹션의 개체를 반환합니다.
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 참조 함수는 이전에 배포한 리소스 또는 현재 템플릿에 배포된 리소스의 런타임 상태를 검색합니다. 이 문서는 두 시나리오에 대한 예제를 보여 줍니다.
 
@@ -515,7 +515,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 **{resource-공급자-네임 스페이스}/{parent-source-type}/{parent-source-name} [/>**
 
-예를 들어:
+Példa:
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
@@ -615,7 +615,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 }
 ```
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json)에서는 이 템플릿에 배포되지 않는 스토리지 계정을 참조합니다. 스토리지 계정은 동일한 구독 내에 있어야 합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/reference.json)에서는 이 템플릿에 배포되지 않는 저장소 계정을 참조합니다. 스토리지 계정은 동일한 구독 내에 있어야 합니다.
 
 ```json
 {
@@ -639,7 +639,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 }
 ```
 
-## <a name="resourcegroup"></a>리소스 그룹
+## <a name="resourcegroup"></a>resourceGroup
 
 ```json
 resourceGroup()
@@ -668,25 +668,24 @@ resourceGroup()
 
 **ManagedBy** 속성은 다른 서비스에서 관리 하는 리소스를 포함 하는 리소스 그룹에 대해서만 반환 됩니다. 관리 되는 응용 프로그램, Databricks 및 AKS의 경우 속성 값은 관리 리소스의 리소스 ID입니다.
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 `resourceGroup()` 함수는 [구독 수준에서 배포](deploy-to-subscription.md)된 템플릿에서 사용할 수 없습니다. 리소스 그룹에 배포된 템플릿에서만 사용할 수 있습니다.
 
-resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예에서는 리소스 그룹 위치를 사용하여 웹 사이트에 대한 위치를 할당합니다.
+resourceGroup 함수는 일반적으로 리소스 그룹과 동일한 위치에 리소스를 만드는 데 사용됩니다. 다음 예제에서는 기본 매개 변수 값에 대해 리소스 그룹 위치를 사용 합니다.
 
 ```json
-"resources": [
-   {
-      "apiVersion": "2016-08-01",
-      "type": "Microsoft.Web/sites",
-      "name": "[parameters('siteName')]",
-      "location": "[resourceGroup().location]",
-      ...
-   }
-]
+"parameters": {
+    "location": {
+      "type": "string",
+      "defaultValue": "[resourceGroup().location]"
+    }
+}
 ```
 
 또한 resourceGroup 함수를 사용 하 여 리소스 그룹에서 리소스에 태그를 적용할 수 있습니다. 자세한 내용은 [리소스 그룹에서 태그 적용](resource-group-using-tags.md#apply-tags-from-resource-group)을 참조 하세요.
+
+중첩 된 템플릿을 사용 하 여 여러 리소스 그룹에 배포 하는 경우 resourceGroup 함수를 평가 하는 범위를 지정할 수 있습니다. 자세한 내용은 둘 [이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조 하세요.
 
 ### <a name="resource-group-example"></a>리소스 그룹 예
 
@@ -728,15 +727,15 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 리소스의 고유 식별자를 반환합니다. 리소스 이름이 모호하거나 동일한 템플릿 내에서 프로비전되지 않은 경우 이 함수를 사용합니다. 
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아니오 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceGroupName |아니오 |string |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니오 |string |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| subscriptionId |Nem |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceGroupName |Nem |sztring |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |Igen |sztring |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |Igen |sztring |리소스의 이름입니다. |
+| resourceName2 |Nem |sztring |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 형식에 더 많은 세그먼트가 포함 된 경우 리소스 이름을 매개 변수로 계속 추가 합니다.
 
@@ -760,7 +759,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조 하세요.
 * [subscriptionResourceId](#subscriptionresourceid)
 * [tenantResourceId](#tenantresourceid)
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 제공 하는 매개 변수 수는 리소스가 부모 또는 자식 리소스 인지 여부와 리소스가 동일한 구독 또는 리소스 그룹에 있는지 여부에 따라 달라 집니다.
 
@@ -788,7 +787,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조 하세요.
 "[resourceId('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx', 'otherResourceGroup', 'Microsoft.Storage/storageAccounts','examplestorage')]"
 ```
 
-대체 리소스 그룹의 스토리지 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
+대체 리소스 그룹의 저장소 계정 또는 가상 네트워크를 사용할 경우 이 함수를 사용해야 합니다. 다음 예에서는 외부 리소스 그룹의 리소스를 쉽게 사용할 수 있는 방법을 보여 줍니다.
 
 ```json
 {
@@ -834,7 +833,7 @@ ID를 다른 형식으로 가져오려면 다음을 참조 하세요.
 
 ### <a name="resource-id-example"></a>리소스 ID 예
 
-다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)에서는 리소스 그룹의 스토리지 계정에 대한 리소스 ID를 반환합니다.
+다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/functions/resourceid.json)에서는 리소스 그룹의 저장소 계정에 대한 리소스 ID를 반환합니다.
 
 ```json
 {
@@ -864,14 +863,14 @@ ID를 다른 형식으로 가져오려면 다음을 참조 하세요.
 
 기본 값을 사용한 이전 예제의 출력은 다음과 같습니다.
 
-| 이름 | 형식 | 값 |
+| Név | Type (Típus) | Value (Díj) |
 | ---- | ---- | ----- |
-| sameRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentRGOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| differentSubOutput | 문자열 | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
-| nestedResourceOutput | 문자열 | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
+| sameRGOutput | Sztring | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentRGOutput | Sztring | /subscriptions/{current-sub-id}/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| differentSubOutput | Sztring | /subscriptions/11111111-1111-1111-1111-111111111111/resourceGroups/otherResourceGroup/providers/Microsoft.Storage/storageAccounts/examplestorage |
+| nestedResourceOutput | Sztring | /subscriptions/{current-sub-id}/resourceGroups/examplegroup/providers/Microsoft.SQL/servers/serverName/databases/databaseName |
 
-## <a name="subscription"></a>구독(subscription)
+## <a name="subscription"></a>előfizetést
 
 ```json
 subscription()
@@ -891,6 +890,10 @@ subscription()
     "displayName": "{name-of-subscription}"
 }
 ```
+
+### <a name="remarks"></a>Megjegyzések
+
+중첩 된 템플릿을 사용 하 여 여러 구독에 배포 하는 경우 구독 함수를 평가 하는 범위를 지정할 수 있습니다. 자세한 내용은 둘 [이상의 구독 또는 리소스 그룹에 Azure 리소스 배포](resource-manager-cross-resource-group-deployment.md)를 참조 하세요.
 
 ### <a name="subscription-example"></a>구독 예
 
@@ -918,14 +921,14 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 
 구독 수준에서 배포 된 리소스의 고유 식별자를 반환 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |아니오 |문자열 (GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니오 |string |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| subscriptionId |Nem |문자열 (GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| resourceType |Igen |sztring |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |Igen |sztring |리소스의 이름입니다. |
+| resourceName2 |Nem |sztring |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 형식에 더 많은 세그먼트가 포함 된 경우 리소스 이름을 매개 변수로 계속 추가 합니다.
 
@@ -937,7 +940,7 @@ subscriptionResourceId([subscriptionId], resourceType, resourceName1, [resourceN
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 이 함수를 사용 하 여 리소스 그룹이 아닌 [구독에 배포](deploy-to-subscription.md) 되는 리소스에 대 한 리소스 ID를 가져올 수 있습니다. 반환 된 ID는 리소스 그룹 값을 포함 하지 않고 [resourceId](#resourceid) 함수에서 반환 하는 값과 다릅니다.
 
@@ -1002,13 +1005,13 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 테 넌 트 수준에서 배포 된 리소스에 대 한 고유 식별자를 반환 합니다.
 
-### <a name="parameters"></a>parameters
+### <a name="parameters"></a>Paraméterek
 
-| 매개 변수를 포함해야 합니다. | 필수 | 형식 | 설명 |
+| Paraméter | Szükséges | Type (Típus) | Leírás |
 |:--- |:--- |:--- |:--- |
-| resourceType |예 |string |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
-| resourceName1 |예 |string |리소스의 이름입니다. |
-| resourceName2 |아니오 |string |필요한 경우 다음 리소스 이름 세그먼트입니다. |
+| resourceType |Igen |sztring |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
+| resourceName1 |Igen |sztring |리소스의 이름입니다. |
+| resourceName2 |Nem |sztring |필요한 경우 다음 리소스 이름 세그먼트입니다. |
 
 리소스 형식에 더 많은 세그먼트가 포함 된 경우 리소스 이름을 매개 변수로 계속 추가 합니다.
 
@@ -1020,11 +1023,11 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-### <a name="remarks"></a>설명
+### <a name="remarks"></a>Megjegyzések
 
 이 함수를 사용 하 여 테 넌 트에 배포 된 리소스에 대 한 리소스 ID를 가져옵니다. 반환 된 ID는 리소스 그룹 또는 구독 값을 포함 하지 않는 다른 리소스 ID 함수에서 반환 하는 값과 다릅니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](resource-group-authoring-templates.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](resource-group-linked-templates.md)을 참조하세요.

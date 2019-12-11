@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/12/2019
+ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48ddb4c3baa40bf70fe12451f048b2228c8bd441
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74271506"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997006"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -60,7 +60,7 @@ OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다
 * `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
 * `Mail.Send`을 사용하여 사용자로 메일 보내기
 
-앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 더 알아보려면 계속 읽어 보세요.
+앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 자세히 알아보려면 계속 읽어보세요.
 
 ## <a name="permission-types"></a>사용 권한 유형
 
@@ -72,11 +72,11 @@ Microsoft ID 플랫폼은 **위임된 권한** 및 **애플리케이션 권한**
 
 _유효 권한_ 은 앱이 대상 리소스를 요청할 때 갖게 되는 권한입니다. 응용 프로그램에 부여 되는 위임 된 권한 및 응용 프로그램 권한과 대상 리소스를 호출할 때의 유효 사용 권한 간의 차이점을 이해 하는 것이 중요 합니다.
 
-- 위임된 권한의 경우 앱의 _유효 권한_은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
+- 위임된 권한의 경우 앱의 _유효 권한_ 은 (동의를 통해) 앱에 부여한 위임된 권한과 현재 로그인한 사용자가 가진 권한의 최소 권한 교집합입니다. 앱은 로그인한 사용자보다 더 많은 권한을 가질 수 없습니다. 조직 내에서 로그인한 사용자의 권한은 정책 또는 관리자 역할 하나 이상의 멤버 자격에 의해 결정될 수 있습니다. 위임된 권한에 동의할 수 있는 관리자 역할을 알아보려면 [Azure AD의 관리자 역할 권한](../users-groups-roles/directory-assign-admin-roles.md)을 참조하세요.
 
    예를 들어 앱에 _User.ReadWrite.All_ 위임된 권한이 부여되었다고 가정해 봅시다. 이 권한은 일반적으로 조직에 있는 모든 사용자의 프로필을 읽고 업데이트하는 앱 권한을 부여합니다. 로그인한 사용자가 전역 관리자인 경우 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있게 됩니다. 그러나 로그인 한 사용자가 관리자 역할에 없으면 앱은 로그인 한 사용자의 프로필만 업데이트할 수 있습니다. 즉, 대신 행동할 권한을 가진 사용자가 조직에 있는 다른 사용자의 프로필에 대한 권한을 가지고 있지 않으므로 해당 다른 사용자의 프로필을 업데이트할 수 없습니다.
   
-- 애플리케이션 권한의 경우 앱의 _유효 권한_은 사용 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 _User.ReadWrite.All_ 애플리케이션 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다. 
+- 애플리케이션 권한의 경우 앱의 _유효 권한_ 은 사용 권한이 암시하는 권한의 전체 수준입니다. 예를 들어 _User.ReadWrite.All_ 애플리케이션 권한을 가진 앱은 조직에 있는 모든 사용자의 프로필을 업데이트할 수 있습니다. 
 
 ## <a name="openid-connect-scopes"></a>OpenID Connect 범위
 
@@ -86,7 +86,7 @@ Openid connect Connect의 Microsoft identity platform 구현에는 특정 리소
 
 앱이 [OpenID Connect](active-directory-v2-protocols.md)를 사용하여 로그인을 수행하는 경우 `openid` 범위를 요청해야 합니다. `openid` 범위는 작업 계정 동의 페이지에 "로그인" 권한으로 표시되고 Microsoft 계정 동의 페이지에 "Microsoft 계정을 사용하여 프로필 보기 및 앱과 서비스에 연결" 권한으로 표시됩니다. 이 사용 권한을 통해 앱은 `sub` 클레임 형식으로 사용자에 대한 고유 식별자를 받을 수 있습니다. 또한 앱이 UserInfo 엔드포인트에 액세스할 수 있도록 해줍니다. Microsoft id 플랫폼 토큰 끝점에서 `openid` 범위를 사용 하 여 인증을 위해 앱에서 사용할 수 있는 ID 토큰을 얻을 수 있습니다.
 
-### <a name="email"></a>email
+### <a name="email"></a>이메일
 
 `email` 범위는 `openid` 범위 및 다른 모든 범위와 함께 사용될 수 있습니다. 이는 앱이 `email` 클레임의 형식으로 사용자의 기본 전자 메일 주소에 액세스할 수 있도록 해줍니다. `email` 클레임은 이메일 주소가 사용자 계정과 연결 된 경우에만 토큰에 포함 되며 항상 그렇지는 않습니다. `email` 범위를 사용하는 경우 앱에서 `email` 클레임이 토큰에 존재하지 않는 경우를 처리할 수 있도록 준비해야 합니다.
 
@@ -98,7 +98,10 @@ Openid connect Connect의 Microsoft identity platform 구현에는 특정 리소
 
 [`offline_access` 범위](https://openid.net/specs/openid-connect-core-1_0.html#OfflineAccess)를 사용하면 앱이 연장된 기간 동안 사용자 대신 리소스에 액세스할 수 있습니다. 동의 페이지에서 이 범위는 "액세스 권한을 부여한 데이터에 대한 액세스 권한 유지" 권한으로 나타납니다. 사용자가 `offline_access` 범위를 승인 하면 앱은 Microsoft id 플랫폼 토큰 끝점에서 새로 고침 토큰을 받을 수 있습니다. 새로 고침 토큰은 장기적으로 존재합니다. 오래된 액세스 토큰이 만료되면 앱에서 새 액세스 토큰을 가져올 수 있습니다.
 
-앱이 `offline_access` 범위를 명시적으로 요청하지 않으면 새로 고침 토큰을 받을 수 없습니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다. 서버에서 `offline_access` 범위를 자동으로 요청 하지만, 클라이언트는 새로 고침 토큰을 수신 하기 위해 계속 요청 해야 합니다.
+> [!NOTE]
+> 이 권한은 새로 고침 토큰 ( [암시적 흐름](v2-oauth2-implicit-grant-flow.md))을 제공 하지 않는 흐름의 경우에도 현재 모든 동의 화면에 표시 됩니다.  이는 클라이언트가 암시적 흐름 내에서 시작 하 여 새로 고침 토큰이 필요한 코드 흐름으로 이동할 수 있는 시나리오를 다루는 것입니다.
+
+Microsoft id 플랫폼 (v2.0 끝점에 대 한 요청)에서 앱은 새로 고침 토큰을 받기 위해 `offline_access` 범위를 명시적으로 요청 해야 합니다. 즉, [OAuth 2.0 권한 부여 코드 흐름](active-directory-v2-protocols.md)에서 권한 부여 코드를 교환하는 경우 `/token` 엔드포인트에서 액세스 토큰만 받게 됩니다. 액세스 토큰은 짧은 시간 동안 유효합니다. 액세스 토큰은 일반적으로 1시간 후에 만료됩니다. 이 시점에 앱은 사용자를 `/authorize` 엔드포인트로 다시 리디렉션하여 새 권한 부여 코드를 가져와야 합니다. 이 리디렉션 중에 앱 형식에 따라 사용자가 자격 증명을 다시 입력하거나 권한에 다시 동의해야 할 수 있습니다. 
 
 새로 고침 토큰을 가져오고 사용 하는 방법에 대 한 자세한 내용은 [Microsoft id 플랫폼 프로토콜 참조](active-directory-v2-protocols.md)를 참조 하세요.
 
@@ -197,7 +200,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 ```
 
 
-| 매개 변수     | 조건     | 설명                                                                               |
+| 매개 변수를 포함해야 합니다.     | 조건     | 설명                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `common`으로 일반 참조될 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
@@ -216,7 +219,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -230,7 +233,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `error` | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |

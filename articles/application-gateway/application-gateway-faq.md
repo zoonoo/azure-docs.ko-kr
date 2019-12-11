@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 68ce0dca3bc7c5d408bd6e8f267d238ac812a84d
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c93198848058bad8c9af6903cc68253e71e2d668
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74130577"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996666"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -22,7 +22,7 @@ ms.locfileid: "74130577"
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-application-gateway"></a>Application Gateway란?
+### <a name="what-is-application-gateway"></a>Application Gateway란 무엇인가요?
 
 Azure 애플리케이션 Gateway는 ADC (응용 프로그램 배달 컨트롤러)를 서비스로 제공 합니다. 응용 프로그램에 대 한 다양 한 계층 7 부하 분산 기능을 제공 합니다. 이 서비스는 Azure에서 항상 사용 가능 하 고 확장 가능 하며 완전히 관리 됩니다.
 
@@ -104,9 +104,9 @@ V2 SKU를 사용 하는 대부분의 배포는 프로 비전 하는 데 약 6 �
 
 ### <a name="can-i-use-exchange-server-as-a-backend-with-application-gateway"></a>Application Gateway를 사용 하 여 백 엔드로 Exchange Server를 사용할 수 있나요?
 
-아니요. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
+아닙니다. Application Gateway는 SMTP, IMAP, POP3 등의 메일 프로토콜을 지원 하지 않습니다. 
 
-## <a name="performance"></a>성능
+## <a name="performance"></a>성능 중심
 
 ### <a name="how-does-application-gateway-support-high-availability-and-scalability"></a>Application Gateway는 고가용성과 확장성을 어떤 방식으로 지원하나요?
 
@@ -124,17 +124,17 @@ Traffic Manager를 사용 하 여 여러 데이터 센터의 여러 응용 프�
 
 ### <a name="does-manual-scale-up-or-scale-down-cause-downtime"></a>수동으로 확장 하거나 축소 하면 가동 중지 시간이 발생 하나요?
 
-아니요. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
+아닙니다. 인스턴스가 업그레이드 도메인 및 장애 도메인 간에 배포됩니다.
 
 ### <a name="does-application-gateway-support-connection-draining"></a>Application Gateway는 연결 드레이닝을 지원하나요?
 
-예. 연결 드레이닝을 설정 하 여 중단 없이 백 엔드 풀 내에서 구성원을 변경할 수 있습니다. 이 설정을 사용 하면 연결이 닫히거나 구성 가능한 제한 시간이 만료 될 때까지 이전 대상에 대 한 기존 연결을 계속 보낼 수 있습니다. 연결 드레이닝은 현재 진행 중인 연결이 완료 될 때까지 대기 합니다. Application Gateway는 응용 프로그램 세션 상태를 인식 하지 못합니다.
+예. 연결 드레이닝을 설정 하 여 중단 없이 백 엔드 풀 내에서 구성원을 변경할 수 있습니다. 자세한 내용은 [Application Gateway의 연결 드레이닝 섹션](overview.md#connection-draining)을 참조 하십시오.
 
 ### <a name="can-i-change-instance-size-from-medium-to-large-without-disruption"></a>중단 없이 인스턴스 크기를 중간에서 큼으로 변경할 수 있나요?
 
 예. Azure는 인스턴스를 업데이트 및 장애 도메인 간에 배포 하 여 인스턴스가 동시에 모두 실패 하지 않도록 합니다. Application Gateway는 로드를 공유하기 위해 동일한 게이트웨이의 여러 인스턴스를 추가하여 크기 조정을 지원합니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 ### <a name="is-application-gateway-always-deployed-in-a-virtual-network"></a>Application Gateway가 가상 네트워크에서 항상 배포되나요?
 
@@ -146,7 +146,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="can-i-deploy-anything-else-in-the-application-gateway-subnet"></a>Application Gateway 서브넷에서 다른 항목을 배포할 수 있나요?
 
-아니요. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
+아닙니다. 그러나 서브넷에 다른 응용 프로그램 게이트웨이를 배포할 수 있습니다.
 
 ### <a name="are-network-security-groups-supported-on-the-application-gateway-subnet"></a>Application gateway 서브넷에서 네트워크 보안 그룹이 지원 되나요?
 
@@ -178,7 +178,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="do-custom-probes-support-wildcards-or-regex-on-response-data"></a>사용자 지정 프로브는 응답 데이터에서 와일드 카드나 정규식을 지원 하나요?
 
-아니요. 
+아닙니다. 
 
 ### <a name="how-are-routing-rules-processed-in-application-gateway"></a>Application Gateway에서 라우팅 규칙은 어떻게 처리 되나요?
 
@@ -194,7 +194,7 @@ IP 연결이 있는 한 Application Gateway는 가상 네트워크 외부의 인
 
 ### <a name="can-i-use-the-same-port-for-both-public-facing-and-private-facing-listeners"></a>공용 및 개인 연결 수신기 모두에 동일한 포트를 사용할 수 있나요?
 
-아니요.
+아닙니다.
 
 ### <a name="is-there-guidance-available-to-migrate-from-the-v1-sku-to-the-v2-sku"></a>V1 SKU에서 v2 SKU로 마이그레이션하는 데 사용할 수 있는 지침이 있나요?
 
@@ -295,7 +295,7 @@ Application Gateway는 최대 100 인증 인증서를 지원 합니다.
 
 ### <a name="does-detection-mode-block-traffic"></a>검색 모드에서 트래픽을 차단하나요?
 
-아니요. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
+아닙니다. 검색 모드는 WAF 규칙을 트리거하는 트래픽만 로깅합니다.
 
 ### <a name="can-i-customize-waf-rules"></a>WAF 규칙을 사용자 지정할 수 있나요?
 

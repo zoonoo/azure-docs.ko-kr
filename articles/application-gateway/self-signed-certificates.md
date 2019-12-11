@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/23/2019
 ms.author: victorh
-ms.openlocfilehash: fb3d2e70d9485c63d6de156abe9d192afa818814
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 3cf4f2314c7de2b2f7d581faeea88fe3c3177e81
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075080"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975060"
 ---
 # <a name="generate-an-azure-application-gateway-self-signed-certificate-with-a-custom-root-ca"></a>사용자 지정 루트 CA를 사용 하 여 Azure 애플리케이션 게이트웨이 자체 서명 된 인증서 생성
 
@@ -24,13 +24,13 @@ Application Gateway는 잘 알려진 CA (예: GoDaddy 또는 DigiCert)에 의해
 > [!NOTE]
 > 자체 서명 된 인증서는 기본적으로 신뢰할 수 없으며 관리 하기 어려울 수 있습니다. 또한 강력 하지 않을 수 있는 오래 된 해시 및 암호 그룹을 사용할 수 있습니다. 보안 향상을 위해 잘 알려진 인증 기관에서 서명한 인증서를 구매 합니다.
 
-이 아티클에서는 다음 방법을 설명합니다.
+이 문서에서는 다음 방법에 대해 알아봅니다.
 
 - 사용자 고유의 사용자 지정 인증 기관 만들기
 - 사용자 지정 CA로 서명 된 자체 서명 된 인증서 만들기
 - Application Gateway에 자체 서명 된 루트 인증서를 업로드 하 여 백 엔드 서버 인증
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>Előfeltételek
 
 - **Windows 또는 Linux를 실행 하는 컴퓨터의 [OpenSSL](https://www.openssl.org/)** 
 
@@ -106,7 +106,7 @@ CSR은 인증서를 요청할 때 CA에 제공 되는 공개 키입니다. CA는
 1. 다음 명령을 사용 하 여 인증서를 만듭니다.
 
    ```
-   openssl x509 -req -in fabrikam.csr -CA public.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
+   openssl x509 -req -in fabrikam.csr -CA  contoso.crt -CAkey contoso.key -CAcreateserial -out fabrikam.crt -days 365 -sha256
    ```
 ### <a name="verify-the-newly-created-certificate"></a>새로 만든 인증서 확인
 
@@ -159,7 +159,7 @@ SSL 바인딩 지침은 [IIS 7에서 ssl을 설정 하는 방법](https://docs.m
 
 1. 루트 인증서를 컴퓨터의 신뢰할 수 있는 루트 저장소에 추가 합니다. 웹 사이트에 액세스 하는 경우 전체 인증서 체인이 브라우저에 표시 되는지 확인 합니다.
 
-   ![신뢰할 수 있는 루트 인증서](media/self-signed-certificates/trusted-root-cert.png)
+   ![Megbízható főtanúsítványok](media/self-signed-certificates/trusted-root-cert.png)
 
    > [!NOTE]
    > DNS가 웹 서버 이름 (이 예제에서는 www.fabrikam.com)을 웹 서버의 IP 주소로 가리키도록 구성 된 것으로 가정 합니다. 그렇지 않은 경우 [호스트 파일](https://answers.microsoft.com/en-us/windows/forum/all/how-to-edit-host-file-in-windows-10/7696f204-2aaf-4111-913b-09d6917f7f3d) 을 편집 하 여 이름을 확인할 수 있습니다.
@@ -179,7 +179,7 @@ openssl s_client -connect localhost:443 -servername www.fabrikam.com -showcerts
 
 Application Gateway에서 인증서를 업로드 하려면 .crt 인증서를 64로 인코딩된 .cer 형식으로 내보내야 합니다. Crt에는 기본-64 인코딩 형식으로 공개 키가 이미 포함 되어 있으므로 .crt에서 .cer으로 파일 확장명의 이름을 바꿉니다. 
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 포털에서 신뢰할 수 있는 루트 인증서를 업로드 하려면 **HTTP 설정을** 선택 하 고 **HTTPS** 프로토콜을 선택 합니다.
 
@@ -269,7 +269,7 @@ Set-AzApplicationGateway -ApplicationGateway $gw
 
     ![HTTPS 프로브](media/self-signed-certificates/https-probe.png)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 Application Gateway의 SSL\TLS에 대 한 자세한 내용은 [Application Gateway를 사용 하 여 ssl 종료 및 종단 간 Ssl 개요](ssl-overview.md)를 참조 하세요.
 

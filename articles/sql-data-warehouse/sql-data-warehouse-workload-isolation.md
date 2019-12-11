@@ -1,5 +1,5 @@
 ---
-title: 워크로드 격리
+title: Számítási feladatok elkülönítése
 description: Azure SQL Data Warehouse에서 작업 그룹을 사용 하 여 워크 로드 격리를 설정 하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
@@ -11,26 +11,26 @@ ms.date: 11/27/2019
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 51990e02eada52263006627be803c4073b9361ac
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 82270c126d8a0894cd3a388dcab62017ed63c2cd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555394"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974651"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>작업 그룹 격리 SQL Data Warehouse (미리 보기)
 
 이 문서에서는 작업 그룹을 사용 하 여 작업 격리를 구성 하 고, 리소스를 포함 하 고, 쿼리 실행을 위한 런타임 규칙을 적용 하는 방법을 설명 합니다.
 
-## <a name="workload-groups"></a>워크로드 그룹
+## <a name="workload-groups"></a>작업 그룹
 
-작업 그룹은 요청 집합에 대 한 컨테이너 이며 워크 로드 격리를 비롯 한 작업 관리를 시스템에 구성 하는 방법에 대 한 기본입니다.  작업 그룹은 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문을 사용 하 여 만듭니다.  간단한 워크 로드 관리 구성은 데이터 로드와 사용자 쿼리를 관리할 수 있습니다.  예를 들어 `wgDataLoads` 이라는 작업 그룹은 시스템에 로드 되는 데이터에 대 한 작업 측면을 정의 합니다. 또한 `wgUserQueries` 이라는 작업 그룹은 쿼리를 실행 하는 사용자가 시스템에서 데이터를 읽는 데 필요한 작업 측면을 정의 합니다.
+작업 그룹은 요청 집합에 대 한 컨테이너 이며 워크 로드 격리를 비롯 한 작업 관리를 시스템에 구성 하는 방법에 대 한 기본입니다.  작업 그룹은 [CREATE 작업 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문을 사용 하 여 만듭니다.  간단한 워크 로드 관리 구성은 데이터 로드와 사용자 쿼리를 관리할 수 있습니다.  예를 들어 `wgDataLoads` 이라는 작업 그룹은 시스템에 로드 되는 데이터에 대 한 작업 측면을 정의 합니다. 또한 `wgUserQueries` 이라는 작업 그룹은 쿼리를 실행 하는 사용자가 시스템에서 데이터를 읽는 데 필요한 작업 측면을 정의 합니다.
 
 다음 섹션에서는 작업 그룹이 격리, 포함 및 요청 리소스 정의를 정의 하 고 실행 규칙을 준수 하는 기능을 제공 하는 방법을 설명 합니다.
 
-## <a name="workload-isolation"></a>워크로드 격리
+## <a name="workload-isolation"></a>Számítási feladatok elkülönítése
 
-워크 로드 격리는 작업 그룹에 대 한 리소스를 단독으로 예약 하는 것을 의미 합니다.  워크 로드 격리는 [작업 그룹 만들기](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0 보다 크게 구성 하 여 수행 됩니다.  엄격한 Sla를 준수 해야 하는 연속 실행 작업의 경우 격리는 작업 그룹에 대 한 리소스를 항상 사용할 수 있도록 합니다. 
+워크 로드 격리는 작업 그룹에 대 한 리소스를 단독으로 예약 하는 것을 의미 합니다.  워크 로드 격리는 [작업 그룹 만들기](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0 보다 크게 구성 하 여 수행 됩니다.  엄격한 Sla를 준수 해야 하는 연속 실행 작업의 경우 격리는 작업 그룹에 대 한 리소스를 항상 사용할 수 있도록 합니다. 
 
 워크 로드 격리를 구성 하면 보장 된 수준의 동시성이 암시적으로 정의 됩니다.  MIN_PERCENTAGE_RESOURCE 30%로 설정 되 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 2%로 설정 된 경우 작업 그룹에 대해 15-동시성 수준이 보장 됩니다.  보장 된 동시성을 확인 하려면 아래 방법을 고려 하세요.
 
@@ -50,7 +50,7 @@ ms.locfileid: "74555394"
 
 ## <a name="workload-containment"></a>워크 로드 포함
 
-워크 로드 포함은 작업 그룹에서 사용할 수 있는 리소스의 양을 제한 하는 것을 의미 합니다.  작업 포함은 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 CAP_PERCENTAGE_RESOURCE 매개 변수를 100 미만으로 구성 하 여 수행 됩니다.  임시 쿼리를 통해 가상 분석을 실행할 수 있도록 사용자가 시스템에 대 한 읽기 액세스 권한을 필요로 하는 시나리오를 고려해 보세요.  이러한 유형의 요청은 시스템에서 실행 되는 다른 작업에 부정적인 영향을 미칠 수 있습니다.  제약을 구성 하면 리소스의 양이 제한 됩니다.
+워크 로드 포함은 작업 그룹에서 사용할 수 있는 리소스의 양을 제한 하는 것을 의미 합니다.  작업 포함은 [CREATE 작업 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 CAP_PERCENTAGE_RESOURCE 매개 변수를 100 미만으로 구성 하 여 수행 됩니다.  임시 쿼리를 통해 가상 분석을 실행할 수 있도록 사용자가 시스템에 대 한 읽기 액세스 권한을 필요로 하는 시나리오를 고려해 보세요.  이러한 유형의 요청은 시스템에서 실행 되는 다른 작업에 부정적인 영향을 미칠 수 있습니다.  제약을 구성 하면 리소스의 양이 제한 됩니다.
 
 워크 로드 포함을 구성 하면 최대 수준의 동시성이 암시적으로 정의 됩니다.  CAP_PERCENTAGE_RESOURCE를 60%로 설정 하 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 1%로 설정 하면 작업 그룹에 대해 최대 60 수준까지 허용 됩니다.  최대 동시성을 확인 하려면 아래에 포함 된 방법을 고려 하세요.
 
@@ -61,7 +61,7 @@ ms.locfileid: "74555394"
 
 ## <a name="resources-per-request-definition"></a>요청 정의 당 리소스
 
-작업 그룹은 [작업 만들기 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용 하 여 요청당 할당 된 리소스의 최소 및 최대 양을 정의 하는 메커니즘을 제공 합니다.  이 경우 리소스는 CPU 및 메모리입니다.  이러한 값을 구성 하면 시스템에서 수행할 수 있는 리소스 양과 동시성 수준을 결정 합니다.
+작업 그룹은 [작업 만들기 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 REQUEST_MIN_RESOURCE_GRANT_PERCENT 및 REQUEST_MAX_RESOURCE_GRANT_PERCENT 매개 변수를 사용 하 여 요청당 할당 된 리소스의 최소 및 최대 양을 정의 하는 메커니즘을 제공 합니다.  이 경우 리소스는 CPU 및 메모리입니다.  이러한 값을 구성 하면 시스템에서 수행할 수 있는 리소스 양과 동시성 수준을 결정 합니다.
 
 > [!NOTE] 
 > REQUEST_MAX_RESOURCE_GRANT_PERCENT은 REQUEST_MIN_RESOURCE_GRANT_PERCENT에 대해 지정 된 것과 동일한 값을 기본값으로 설정 하는 선택적 매개 변수입니다.
@@ -75,7 +75,7 @@ REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 큰 값으로 REQUEST_MAX_RESOURCE_GRA
 
 ## <a name="execution-rules"></a>실행 규칙
 
-임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보 하기 위해 런어웨이 쿼리를 종료 하는 데 시간을 할애 합니다.  작업 그룹은 지정 된 값을 초과 하는 쿼리를 취소 하도록 쿼리 실행 제한 시간 규칙을 구성 하는 기능을 제공 합니다.  규칙은 [CREATE 작업 그룹](https://review.docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 설정 하 여 구성 됩니다.
+임시 보고 시스템에서 고객은 다른 사용자의 생산성에 심각한 영향을 주는 런어웨이 쿼리를 실수로 실행할 수 있습니다.  시스템 관리자는 시스템 리소스를 확보 하기 위해 런어웨이 쿼리를 종료 하는 데 시간을 할애 합니다.  작업 그룹은 지정 된 값을 초과 하는 쿼리를 취소 하도록 쿼리 실행 제한 시간 규칙을 구성 하는 기능을 제공 합니다.  규칙은 [CREATE 작업 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 `QUERY_EXECUTION_TIMEOUT_SEC` 매개 변수를 설정 하 여 구성 됩니다.
 
 ## <a name="shared-pool-resources"></a>공유 풀 리소스
 
@@ -85,8 +85,8 @@ REQUEST_MIN_RESOURCE_GRANT_PERCENT 보다 큰 값으로 REQUEST_MAX_RESOURCE_GRA
 
 공유 풀의 리소스에 대 한 액세스는 [중요도](sql-data-warehouse-workload-importance.md) 를 기준으로 할당 됩니다.  중요도 수준이 같은 요청은 첫 번째/부터 처음으로 공유 풀 리소스에 액세스 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 - [빠른 시작: 워크 로드 격리 구성](quickstart-configure-workload-isolation-tsql.md)
-- [작업 그룹 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
+- [작업 그룹 만들기](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest)
 - [리소스 클래스를 작업 그룹으로 변환](sql-data-warehouse-how-to-convert-resource-classes-workload-groups.md)합니다.

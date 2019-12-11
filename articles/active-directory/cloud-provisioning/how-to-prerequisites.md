@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 155edf72a60e079a609853e953e3cf66024cc83c
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f033563bbd7888e53d910773cd1e0c501eaad098
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794251"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997108"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로 비전을 위한 필수 구성 요소
 이 항목에서는 id 솔루션으로 클라우드 프로 비전 Azure AD Connect 선택 하 고 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -48,7 +48,7 @@ Azure AD Connect 클라우드 프로 비전을 사용 하려면 다음이 필요
      | --- | --- |
      | **80** | SSL 인증서의 유효성을 검사하는 동안 CRL(인증서 해지 목록) 다운로드 |
      | **443** | 서비스와의 모든 아웃바운드 통신 처리 |
-     | **8080**(선택 사항) | 포트 443를 사용할 수 없는 경우 에이전트는 포트 8080을 통해 10 분 마다 상태를 보고 합니다. 이 상태는 Azure AD 포털에 표시됩니다. 포트 8080은 사용자 로그인에 사용되지 _않습니다_. |
+     | **8080**(선택 사항) | 포트 443를 사용할 수 없는 경우 에이전트는 포트 8080을 통해 10 분 마다 상태를 보고 합니다. 이 상태는 Azure AD 포털에 표시됩니다. |
      
      방화벽이 원래 사용자에 따라 규칙에 적용되는 경우 네트워크 서비스로 실행하는 Windows 서비스의 트래픽에 대해 이러한 포트를 엽니다.
    - 방화벽이 나 프록시를 사용 하 여 안전한 접미사를 지정 하는 경우 msappproxy.net **\*및 servicebus.windows.net** **\*** 에 연결을 추가 합니다. 그렇지 않으면 매주 업데이트되는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)에 액세스하도록 허용합니다.

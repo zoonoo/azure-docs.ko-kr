@@ -1,6 +1,6 @@
 ---
-title: 사용자를 로그인 하는 웹 앱 (앱 등록)-Microsoft identity platform
-description: 사용자를 로그인 하는 웹 앱을 빌드하는 방법 알아보기 (앱 등록)
+title: 사용자에 게 로그인 하는 웹 앱 등록-Microsoft id 플랫폼 | Microsoft
+description: 사용자가 로그인 하는 웹 앱을 등록 하는 방법 알아보기
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d840cbaba2cc8325c619248bb7f4421d3b2f83c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766075"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964823"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -58,7 +58,7 @@ ms.locfileid: "74766075"
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
    1. **회신 URL**의 경우 **웹**형식의 **https://localhost:44321/signin-oidc** 를 추가 합니다.
    1. **고급 설정** 섹션에서 **로그 아웃 URL** 을 **https://localhost:44321/signout-oidc** 로 설정 합니다.
-   1. **암시적 권한 부여**에서 **ID 토큰**을 선택 합니다.
+   1. **암시적 허용**에서 **ID 토큰**을 선택합니다.
    1. **저장**을 선택합니다.
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
@@ -103,7 +103,7 @@ ms.locfileid: "74766075"
    1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서** **지원 되는 계정 유형을** 계정으로 변경 합니다.
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
-1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트에 대 한 Visual Studio 구성 파일을 구성 하는 데 필요 합니다.
+1. 나중에 사용할 수 있도록 앱 **개요** 페이지에서 **애플리케이션(클라이언트) ID** 값을 찾아서 기록해 둡니다. 이 프로젝트의 Visual Studio 구성 파일을 구성하는 데 필요합니다.
 1. 왼쪽 메뉴에서 **인증서 & 암호**를 선택 합니다.
 1. **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 선택 하 고 다음을 수행 합니다.
 

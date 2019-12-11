@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 956962503dcb3a6355d455ff96744143c5965d1e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: f08a1359cfd8a2793d92315a6b03567b0b3f847d
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74794303"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997125"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-new-configuration"></a>Azure AD Connect 클라우드 프로 비전 새 구성
 
@@ -32,8 +32,7 @@ ms.locfileid: "74794303"
 
 4.  **새 구성**을 클릭 합니다.
 5.  구성 화면에서 온-프레미스 도메인은 미리 채워져 있습니다.
-6. **알림 전자 메일**을 입력 합니다. 이 전자 메일에 알림이 표시 됩니다. 
-7. 프로 비전이 정상이 아닌 경우  
+6. **알림 전자 메일**을 입력 합니다. 프로 비전이 정상이 아닌 경우이 전자 메일에 알림이 표시 됩니다.  
 8. 선택기를 **설정** 으로 이동 하 고 **저장**을 클릭 합니다.
 ![](media/tutorial-single-forest/configure2.png)
 

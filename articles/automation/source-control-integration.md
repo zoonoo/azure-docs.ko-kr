@@ -6,15 +6,15 @@ ms.service: automation
 ms.subservice: process-automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 04/26/2019
+ms.date: 12/10/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fcb3885446e534a2a6a5153545fd39fb14a02776
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 4e5e0135e4ab56d319c78b7daeab9dd2e9d101f9
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850162"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996513"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Azure Automation에서 원본 제어 통합
 
@@ -30,7 +30,7 @@ Azure Automation는 다음과 같은 세 가지 형식의 원본 제어를 지�
 
 * 소스 제어 리포지토리 (GitHub 또는 Azure Repos)
 * [실행 계정](manage-runas-account.md)
-* Automation 계정에 [최신 Azure 모듈이](automation-update-azure-modules.md) 있는지 확인 합니다.
+* **AzureRM** 모듈을 포함 하 여 Automation 계정에 [최신 Azure 모듈이](automation-update-azure-modules.md) 있는지 확인 합니다. 
 
 > [!NOTE]
 > 소스 제어 동기화 작업은 사용자 Automation 계정에서 실행되며 다른 Automation 작업과 동일한 요금으로 청구됩니다.

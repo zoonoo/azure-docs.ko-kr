@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: ea536742b6481cb06fbd3130279ca5d08ba1bc08
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 12/09/2019
+ms.openlocfilehash: eae7e434ce21b5f9d9f3e6c40f94261df8baa426
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773571"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972356"
 ---
 # <a name="audit-logs-in-azure-database-for-mysql"></a>Azure Database for MySQL의 감사 로그
 
@@ -29,7 +29,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 - `audit_log_events`: 로깅할 이벤트를 제어 합니다. 특정 감사 이벤트는 아래 표를 참조 하세요.
 - `audit_log_include_users`: 로깅을 위해 포함할 MySQL 사용자입니다. 이 매개 변수의 기본값은 비어 있으며, 모든 사용자를 로깅할 수 있습니다. 이는 `audit_log_exclude_users`보다 우선 순위가 높습니다. 매개 변수의 최대 길이는 512 자입니다.
 > [!Note]
-> `audit_log_include_users` `audit_log_exclude_users` 보다 우선 순위가 높습니다. 예를 들어 audit_log_include_users = `demouser` 및 audit_log_exclude_users = `demouser`이면 `audit_log_include_users` 우선 순위가 높기 때문에 로그를 감사 합니다.
+> `audit_log_include_users` `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`의 경우 `audit_log_include_users`의 우선 순위가 더 높기 때문에 사용자는 감사 로그에 포함 됩니다.
 - `audit_log_exclude_users`: 로그에서 제외할 MySQL 사용자입니다. 매개 변수의 최대 길이는 512 자입니다.
 
 > [!Note]
@@ -38,7 +38,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | **Event** | **설명** |
 |---|---|
 | `CONNECTION` | -연결 시작 (성공 또는 실패) <br> -세션 중에 다른 사용자/암호를 사용 하 여 사용자 재인증 <br> -연결 종료 |
-| `DML_SELECT`| 쿼리 선택 |
+| `DML_SELECT`| SELECT 쿼리 |
 | `DML_NONSELECT` | 쿼리 삽입/삭제/업데이트 |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | "데이터베이스 삭제"와 같은 쿼리 |
@@ -129,7 +129,7 @@ Azure Database for MySQL에서 감사 로그는 사용자에 게 제공 됩니�
 | `OperationName` | `LogEvent` |
 | `LogicalServerName_s` | 서버의 이름 |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE`또는 `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` 또는 `DELETE` |
 | `connection_id_d` | MySQL에 의해 생성 된 고유 연결 ID |
 | `db_s` | 액세스 한 데이터베이스 이름 |
 | `table_s` | 액세스 한 테이블 이름 |

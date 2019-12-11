@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 9301f3e685116c8496dd5e0ec986218a046f0c98
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: efc9d7fb31dc9f63780c3f94238bbbfb17756089
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707714"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973631"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너 (미리 보기) 란? 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-enterprise-sku.md)]
 
 Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이터 집합](#datasets) 및 [모듈](#module) 을 시각적으로 연결 하 여 기계 학습 모델을 만들 수 있습니다. 디자이너를 시작 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md) 을 참조 하세요.
 
-![Azure Machine Learning 디자이너 예](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning 디자이너 예제](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 디자이너는 Azure Machine Learning [작업 영역](concept-workspace.md) 을 사용 하 여 다음과 같은 공유 리소스를 구성 합니다.
 
-+ [파이프라인](#pipeline)
-+ [데이터 세트](#datasets)
++ [Folyamatok](#pipeline)
++ [Adatkészletek](#datasets)
 + [계산 리소스](#compute)
 + [등록 된 모델](concept-azure-machine-learning-architecture.md#models)
 + [게시 된 파이프라인](#publish)
@@ -47,7 +47,7 @@ Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이
 
 ![디자이너의 학습, 일괄 처리 유추 및 실시간 유추를 위한 워크플로 다이어그램](media/concept-designer/designer-workflow-diagram.png)
 
-## <a name="pipeline"></a>파이프라인
+## <a name="pipeline"></a>Folyamat
 
 [파이프라인](concept-azure-machine-learning-architecture.md#ml-pipelines) 은 함께 연결 하는 데이터 집합 및 분석 모듈로 구성 됩니다. 파이프라인은 여러 가지 용도로 사용 됩니다. 단일 모델을 학습 하는 파이프라인이 나 여러 모델을 학습 하는 파이프라인을 만들 수 있습니다. 실시간 또는 일괄 처리로 예측을 수행 하는 파이프라인을 만들거나 데이터를 정리 하는 파이프라인을 만들 수 있습니다. 파이프라인을 사용 하 여 작업을 다시 사용 하 고 프로젝트를 구성할 수 있습니다.
 
@@ -70,15 +70,15 @@ Azure Machine Learning designer를 사용 하 여 대화형 캔버스의 [데이
 
 파이프라인 실행은 [실험](concept-azure-machine-learning-architecture.md#experiments) 으로 그룹화 되어 실행 기록을 구성 합니다. 모든 파이프라인 실행에 대 한 실험을 설정할 수 있습니다. 
 
-## <a name="datasets"></a>데이터 세트
+## <a name="datasets"></a>Adathalmazok
 
 Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스 하 고 작업할 수 있습니다. 실험을 위해 디자이너에 많은 샘플 데이터 집합이 포함 되어 있습니다. 필요에 따라 더 많은 데이터 집합을 [등록할](./how-to-create-register-datasets.md) 수 있습니다.
 
-## <a name="module"></a>모듈
+## <a name="module"></a>Modul
 
-모듈은 데이터에 대해 수행할 수 있는 알고리즘입니다. 디자이너에는 데이터 수신 기능부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양 한 모듈이 있습니다.
+A modulok az adatokon végezhető algoritmusok. 디자이너에는 데이터 수신 기능부터 학습, 점수 매기기 및 유효성 검사 프로세스에 이르는 다양 한 모듈이 있습니다.
 
-모듈에는 모듈 내부 알고리즘을 구성하는 데 사용할 수 있는 매개 변수 집합이 포함될 수 있습니다. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. 해당 창에서 매개 변수를 수정하여 모델을 튜닝할 수 있습니다. 디자이너에서 개별 모듈에 대 한 계산 리소스를 설정할 수 있습니다. 
+A modul rendelkezhet a belső algoritmusok konfigurálásához használható paraméterek készletével. 캔버스에서 모듈을 선택 하면 모듈의 매개 변수가 캔버스 오른쪽의 속성 창에 표시 됩니다. A modell hangolásához módosíthatja a paramétereket a panelen. 디자이너에서 개별 모듈에 대 한 계산 리소스를 설정할 수 있습니다. 
 
 ![모듈 속성](media/concept-designer/properties.png)
 
@@ -86,16 +86,16 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 ## <a name="compute"></a>계산 리소스
 
-작업 영역의 계산 리소스를 사용 하 여 파이프라인을 실행 하 고 배포 된 모델을 실시간 끝점이 나 파이프라인 끝점 (일괄 처리 유추의 경우)으로 호스팅합니다. 지원되는 컴퓨팅 대상은 다음과 같습니다.
+작업 영역의 계산 리소스를 사용 하 여 파이프라인을 실행 하 고 배포 된 모델을 실시간 끝점이 나 파이프라인 끝점 (일괄 처리 유추의 경우)으로 호스팅합니다. 지원 되는 계산 대상은 다음과 같습니다.
 
-| 컴퓨팅 대상 | 교육 | 배포 |
+| Számítási cél | Képzés | Üzembe helyezés |
 | ---- |:----:|:----:|
-| Azure Machine Learning 컴퓨팅 | ✓ | |
+| Azure Machine Learning 계산 | ✓ | |
 | Azure Kubernetes Service | | ✓ |
 
-계산 대상은 Machine Learning [작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Machine Learning studio](https://ml.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
+계산 대상은 [Azure Machine Learning 작업 영역](concept-workspace.md)에 연결 됩니다. [Azure Machine Learning Studio (클래식)](https://ml.azure.com)의 작업 영역에서 계산 대상을 관리 합니다.
 
-## <a name="deploy"></a>배포
+## <a name="deploy"></a>Üzembe helyezés
 
 실시간 추론를 수행 하려면 파이프라인을 **실시간 끝점**으로 배포 해야 합니다. 실시간 끝점은 외부 응용 프로그램과 점수 매기기 모델 간의 인터페이스를 만듭니다. 실시간 끝점에 대 한 호출은 응용 프로그램에 대 한 예측 결과를 실시간으로 반환 합니다. 실시간 끝점에 대 한 호출을 수행 하려면 끝점을 배포할 때 생성 된 API 키를 전달 합니다. 끝점은 웹 프로그래밍 프로젝트용으로 널리 사용 되는 다른 아키텍처를 기반으로 합니다.
 
@@ -103,7 +103,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 모델을 배포 하는 방법을 알아보려면 [자습서: 디자이너를 사용 하 여 machine learning 모델 배포](tutorial-designer-automobile-price-deploy.md)를 참조 하세요.
 
-## <a name="publish"></a>게시
+## <a name="publish"></a>Közzététel
 
 파이프라인을 **파이프라인 끝점**에 게시할 수도 있습니다. 실시간 끝점과 마찬가지로, 파이프라인 끝점을 사용 하 여 REST 호출을 통해 외부 응용 프로그램에서 새 파이프라인 실행을 제출할 수 있습니다. 그러나 파이프라인 끝점을 사용 하 여 실시간으로 데이터를 보내거나 받을 수 없습니다.
 
@@ -122,8 +122,8 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 
 | 디자이너의 개념 | 이전에 시각적 인터페이스에서 |
 | ---- |:----:|
-| 파이프라인 초안 | 실험 |
-| 실시간 끝점 | 웹 서비스 |
+| 파이프라인 초안 | Kísérlet |
+| 실시간 끝점 | Webszolgáltatás |
 
 ### <a name="migrating-to-the-designer"></a>디자이너로 마이그레이션
 
@@ -132,7 +132,7 @@ Machine learning 데이터 집합을 사용 하면 데이터에 쉽게 액세스
 [!INCLUDE [migrate from the visual interface](../../../includes/aml-vi-designer-migration.md)]
 
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 * [자습서: 디자이너를 사용 하 여 자동차 가격 예측](tutorial-designer-automobile-price-train-score.md) 을 통해 예측 분석 및 기계 학습의 기본 사항을 알아봅니다.
 * 샘플 중 하나를 사용 하 고 요구 사항에 맞게 수정 합니다.

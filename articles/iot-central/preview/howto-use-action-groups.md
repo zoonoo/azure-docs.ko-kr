@@ -4,16 +4,16 @@ description: 단일 IoT Central 규칙에서 여러 작업을 실행 하 고 여
 services: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/21/2019
+ms.date: 12/06/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: philmea
-ms.openlocfilehash: e51a2fc7e3af9a56b90a66935ef01ac907ebce3b
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: a93e96dd14411302bf5368b4825044e060b54a43
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73929892"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974362"
 ---
 # <a name="group-multiple-actions-to-run-from-one-or-more-rules-preview-features"></a>하나 이상의 규칙에서 실행할 여러 작업 그룹화 (미리 보기 기능)
 
@@ -21,12 +21,12 @@ ms.locfileid: "73929892"
 
 Azure IoT Central에서는 조건이 충족 될 때 작업을 실행 하는 규칙을 만듭니다. 규칙은 장치 원격 분석 또는 이벤트를 기반으로 합니다. 예를 들어 장치의 온도가 임계값을 초과 하는 경우 운영자에 게 알릴 수 있습니다. 이 문서에서는 [Azure Monitor](../../azure-monitor/overview.md) *작업 그룹* 을 사용 하 여 여러 작업을 IoT Central 규칙에 연결 하는 방법을 설명 합니다. 여러 규칙에 작업 그룹을 연결할 수 있습니다. [작업 그룹](../../azure-monitor/platform/action-groups.md) 은 Azure 구독의 소유자가 정의한 알림 기본 설정 모음입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>Előfeltételek
 
-- 종량제 애플리케이션
+- 종 량 제 응용 프로그램
 - Azure Monitor 작업 그룹을 만들고 관리 하기 위한 Azure 계정 및 구독
 
-## <a name="create-action-groups"></a>작업 그룹 만들기
+## <a name="create-action-groups"></a>Műveletcsoportok létrehozása
 
 Azure Portal 또는 [Azure Resource Manager 템플릿을](../../azure-monitor/platform/action-groups-create-resource-manager-template.md)사용 하 여 [작업 그룹을 만들고 관리할](../../azure-monitor/platform/action-groups.md) 수 있습니다.
 
@@ -51,23 +51,23 @@ Azure 구독에서 작업 그룹을 선택 합니다.
 
 ![작업 그룹 선택](media/howto-use-action-groups/chooseactiongroup.png)
 
-**저장**을 선택합니다. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
+Kattintson a **Mentés** gombra. 이제 규칙을 트리거할 때 실행할 작업 목록에 작업 그룹이 표시 됩니다.
 
 ![작업 그룹 저장 됨](media/howto-use-action-groups/savedactiongroup.png)
 
 다음 표에서는 지원 되는 동작 형식으로 전송 되는 정보를 요약 합니다.
 
-| 작업 유형 | 출력 형식 |
+| Művelettípus | 출력 형식 |
 | ----------- | -------------- |
-| Email       | 표준 IoT Central 전자 메일 템플릿 |
-| sms         | Azure IoT Central 경고: $ {applicationName}-"$ {ruleName}"이 (가) $ {triggerDate} $ {Triggerdate} (으)로 "$ {장치 이름}"에서 트리거 되었습니다. |
-| 음성       | Azure. $. T 중앙 경고: $ {applicationName}의 $ {triggerDate} $ {Triggerdate}에서 장치 "$ {ruleName}"에 대 한 규칙 "$ {}"이 (가) 트리거 되었습니다. |
-| 웹후크     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[regular webhook 페이로드](howto-create-webhooks.md#payload)}} |
+| E-mail cím       | 표준 IoT Central 전자 메일 템플릿 |
+| SMS         | Azure IoT Central 경고: $ {applicationName}-"$ {ruleName}"이 (가) $ {triggerDate} $ {Triggerdate} (으)로 "$ {장치 이름}"에서 트리거 되었습니다. |
+| Beszédhang       | Azure. $. T 중앙 경고: $ {applicationName}의 $ {triggerDate} $ {Triggerdate}에서 장치 "$ {ruleName}"에 대 한 규칙 "$ {}"이 (가) 트리거 되었습니다. |
+| Webhook     | {"schemaId": "AzureIoTCentralRuleWebhook", "data": {[regular webhook 페이로드](howto-create-webhooks.md#payload)}} |
 
 다음 텍스트는 작업 그룹의 예제 SMS 메시지입니다.
 
 `iotcentral: Azure IoT Central alert: Contoso - "Low pressure alert" triggered on "Motion sensor 2" at March 20, 2019 10:12 UTC`
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 이제 규칙을 사용 하 여 작업 그룹을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [장치를 관리](howto-manage-devices.md)하는 방법을 배우는 것입니다.

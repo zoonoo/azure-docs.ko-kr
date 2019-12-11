@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/03/2019
+ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958644"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997074"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
@@ -30,16 +30,16 @@ ms.locfileid: "71958644"
 * ***SkipOutOfScopeDeletions*** 가 0 (false)으로 설정 된 경우 범위를 벗어나는 계정은 대상에서 사용 하지 않도록 설정 됩니다.
 * ***SkipOutOfScopeDeletions*** 가 1 (true)로 설정 된 경우 범위를 벗어난 계정은 대상에서 사용 하지 않도록 설정 됩니다 .이 플래그는 *프로 비전 앱* 수준에서 설정 되며 Graph API를 사용 하 여 구성할 수 있습니다. 
 
-이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷를 포함 합니다. 그러나 다른 프로 비전 앱 에서도 사용할 수 있습니다.
+이 구성은 *workday에서 사용자 프로 비전* 앱을 Active Directory 하는 데 널리 사용 되므로 다음 단계에서는 workday 응용 프로그램의 스크린샷를 포함 합니다. 그러나이는 **다른 모든 앱** (ServiceNow, Salesforce, Dropbox 등) 에서도 사용할 수 있습니다.
 
-## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
+## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 
 1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다. 
 1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다. 이 값은 앱의 **ServicePrincipalId**라고도 하고 Graph Explorer 작업에서 사용됩니다.
 
    ![Workday 앱 서비스 주체 ID](./media/export-import-provisioning-mappings/wd_export_01.png)
 
-## <a name="step-2-sign-into-microsoft-graph-explorer"></a>2단계: Microsoft Graph Explorer에 로그인
+## <a name="step-2-sign-into-microsoft-graph-explorer"></a>2 단계: Microsoft Graph 탐색기에 로그인
 
 1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 시작
 1. “Microsoft에 로그인” 단추를 클릭하고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용하여 로그인합니다.
@@ -48,7 +48,7 @@ ms.locfileid: "71958644"
 
 1. 로그인에 성공하면 왼쪽 창에 사용자 계정 세부 정보가 표시됩니다.
 
-## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>3단계: 기존 앱 자격 증명 및 연결 정보 가져오기
+## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>3 단계: 기존 앱 자격 증명 및 연결 정보 가져오기
 
 Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
 
@@ -71,7 +71,7 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
         }
 ```
 
-## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>4단계: SkipOutOfScopeDeletions 플래그를 사용 하 여 비밀 끝점 업데이트
+## <a name="step-4-update-the-secrets-endpoint-with-the-skipoutofscopedeletions-flag"></a>4 단계: SkipOutOfScopeDeletions 플래그를 사용 하 여 비밀 끝점 업데이트
 
 그래프 탐색기에서 아래 명령을 실행 하 여 비밀 끝점을 ***SkipOutOfScopeDeletions*** 플래그로 업데이트 합니다. 
 
@@ -90,7 +90,7 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 
    ![응답 배치](./media/skip-out-of-scope-deletions/skip-06.png)
 
-## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>5단계: 범위를 벗어나는 사용자가 사용 하지 않도록 설정 되었는지 확인
+## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>5 단계: 범위를 벗어나는 사용자가 사용 하지 않도록 설정 되었는지 확인
 
 특정 사용자를 건너뛰도록 범위 지정 규칙을 업데이트 하 여 예상 된 동작으로이 플래그를 테스트할 수 있습니다. 아래 예제에서는 새 범위 지정 규칙을 추가 하 여 ID가 21173 (이전에는) 인 직원을 제외 합니다. 
 

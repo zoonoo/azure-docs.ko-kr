@@ -1,23 +1,23 @@
 ---
-title: Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
+title: 사용자 만들기-Hyperscale (Citus)-Azure Database for PostgreSQL
 description: 이 문서에서는 Citus (Azure Database for PostgreSQL-Hyperscale)와 상호 작용 하기 위해 새 사용자 계정을 만드는 방법을 설명 합니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 7187135b29f0a9a790c032330c73bcb1ae27229b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73515942"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977576"
 ---
 # <a name="create-users-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)에서 사용자 만들기
 
 이 문서에서는 Citus (Hyperscale) 서버 그룹 내에서 사용자를 만드는 방법을 설명 합니다. Azure 구독 사용자 및 해당 권한에 대 한 자세한 내용은 [AZURE RBAC (역할 기반 액세스 제어) 문서](../role-based-access-control/built-in-roles.md) 를 참조 하거나 [역할을 사용자 지정 하는 방법을](../role-based-access-control/custom-roles.md)검토 하세요.
 
-## <a name="the-server-admin-account"></a>서버 관리자 계정
+## <a name="the-server-admin-account"></a>A kiszolgálói rendszergazdai fiók
 
 새로 만든 Citus (Hyperscale) 서버 그룹에는 다음과 같은 몇 가지 역할이 미리 정의 되어 있습니다.
 
@@ -26,21 +26,19 @@ ms.locfileid: "73515942"
 * *postgres*
 * *citus*
 
+PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)에 설명 된 대로 권한을 사용 하 여 데이터베이스 개체에 대 한 액세스를 제어 합니다.
 서버 관리자 사용자 *citus*는 *azure_pg_admin* 역할의 멤버입니다.
-그러나 *postgres* (슈퍼 사용자) 역할의 일부가 아닙니다.  Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할의 일부입니다.
-
-PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다.
-Azure Database for PostgreSQL에서 서버 관리 사용자에게는 LOGIN, NOSUPERUSER, INHERIT, CREATEDB, CREATEROLE, NOREPLICATION 권한이 부여됩니다.
+그러나 *postgres* (슈퍼 사용자) 역할의 일부가 아닙니다.  Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할의 일부입니다. *Citus* 사용자는 제한 된 권한을 가지 며, 예를 들어 새 데이터베이스를 만들 수 없습니다.
 
 ## <a name="how-to-create-additional-users"></a>추가 사용자를 만드는 방법
 
-*Citus* admin 계정에 추가 사용자를 만들 수 있는 권한이 부족 합니다. 사용자를 추가 하려면 Azure Portal를 대신 사용 합니다.
+*Citus* admin 계정에 추가 사용자를 만들 수 있는 권한이 부족 합니다. 사용자를 추가 하려면 Azure Portal 인터페이스를 사용 합니다.
 
 1. 하이퍼 확장 서버 그룹에 대 한 **역할** 페이지로 이동 하 고 **+ 추가**를 클릭 합니다.
 
    ![역할 페이지](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. 역할 이름 및 암호를 입력 합니다. **Save**를 클릭합니다.
+2. 역할 이름 및 암호를 입력 합니다. Kattintson a **Save** (Mentés) gombra.
 
    ![역할 추가](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -58,7 +56,7 @@ Azure Database for PostgreSQL에서 서버 관리 사용자에게는 LOGIN, NOSU
 
 새 역할은 일반적으로 제한 된 권한으로 데이터베이스 액세스를 제공 하는 데 사용 됩니다. 사용자 권한을 수정 하려면 PgAdmin 또는 psql과 같은 도구를 사용 하 여 표준 PostgreSQL 명령을 사용 합니다. (Citus (Hyperscale)에서 [psql로 연결](quickstart-create-hyperscale-portal.md#connect-to-the-database-using-psql) 을 참조 하세요.)
 
-예를 들어 *db_user* 에서 *mytable*을 읽도록 허용 하려면 사용 권한을 부여 합니다.
+예를 들어 *db_user* 에서 *mytable*을 읽도록 허용 하려면 권한을 부여 합니다.
 
 ```sql
 GRANT SELECT ON mytable TO db_user;
@@ -76,7 +74,7 @@ SELECT run_command_on_workers(
 );
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 새 사용자 컴퓨터의 IP 주소에 대 한 방화벽을 열어 연결 하도록 설정 합니다. [Azure Portal를 사용 하 여 Citus (Hyperscale) 방화벽 규칙을 만들고 관리](howto-hyperscale-manage-firewall-using-portal.md)합니다.
 
@@ -84,4 +82,4 @@ SELECT run_command_on_workers(
 
 * [데이터베이스 역할 및 권한](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [GRANT 구문](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [부여](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [Jogosultságok](https://www.postgresql.org/docs/current/static/ddl-priv.html)

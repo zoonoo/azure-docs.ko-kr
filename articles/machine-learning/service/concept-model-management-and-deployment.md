@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: 19552747db427bf780a140c15f11bed322d1f867
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: a56096ffa760bcddd6bd423d1262e57dc1db3e3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420079"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973563"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -41,18 +41,18 @@ ML 파이프라인은 모델 평가에 대 한 하이퍼 매개 변수 조정에
 
 ### <a name="register-and-track-ml-models"></a>ML 모델 등록 및 추적
 
-모델을 등록하면 작업 영역에서 Azure 클라우드의 모델을 저장하고 버전을 지정할 수 있습니다. 모델 레지스트리에서는 학습된 모델을 쉽게 구성하고 추적할 수 있습니다.
+모델 등록을 사용 하 여 Azure 클라우드에서 사용자의 작업 영역에 모델을 저장 하 고 버전을 지정할 수 있습니다. 모델 레지스트리를 사용 하면 학습 된 모델을 쉽게 구성 하 고 추적할 수 있습니다.
 
 > [!TIP]
 > 등록 된 모델은 모델을 구성 하는 하나 이상의 파일에 대 한 논리적 컨테이너입니다. 예를 들어 여러 파일에 저장 된 모델의 경우 Azure Machine Learning 작업 영역에서 단일 모델로 등록할 수 있습니다. 등록 후 등록 된 모델을 다운로드 하거나 배포 하 고 등록 된 모든 파일을 받을 수 있습니다.
 
-등록된 모델은 이름 및 버전으로 식별됩니다. 모델을 기존 이름과 동일한 이름으로 등록할 때마다 레지스트리에서 버전을 증가시킵니다. 등록 하는 동안 추가 메타 데이터 태그를 제공할 수 있습니다. 이러한 태그는 모델을 검색할 때 사용 됩니다. Azure Machine Learning는 Python 3.5.2 이상을 사용 하 여 로드할 수 있는 모든 모델을 지원 합니다.
+등록 된 모델은 이름 및 버전으로 식별 됩니다. 기존 모델과 동일한 이름을 사용 하 여 모델을 등록할 때마다 레지스트리가 버전을 증가 시킵니다. 등록 하는 동안 추가 메타 데이터 태그를 제공할 수 있습니다. 이러한 태그는 모델을 검색할 때 사용 됩니다. Azure Machine Learning는 Python 3.5.2 이상을 사용 하 여 로드할 수 있는 모든 모델을 지원 합니다.
 
 > [!TIP]
 > Azure Machine Learning 외부에서 학습 한 모델을 등록할 수도 있습니다.
 
 활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
-자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
+자세한 내용은 모델 [배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조 하세요.
 
 ### <a name="package-and-debug-models"></a>패키지 및 디버그 모델
 
@@ -87,7 +87,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
 
-#### <a name="batch-scoring"></a>Batch 평가
+#### <a name="batch-scoring"></a>Kötegelt kiértékelés
 일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-run-batch-predictions.md)을 참조 하세요.
 
 #### <a name="real-time-web-services"></a>실시간 웹 서비스
@@ -112,14 +112,13 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-### <a name="analytics"></a>분석
+### <a name="analytics"></a>Elemzés
 
 Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)을 참조 하세요.
 
-
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 캡처에 필요한 거 버 넌 스 데이터 캡처
 
-Azure ML은 모든 ML 자산의 종단간 감사 내역을 추적 하는 기능을 제공 합니다. 구체적으로는 다음과 같습니다.
+Azure ML은 모든 ML 자산의 종단간 감사 내역을 추적 하는 기능을 제공 합니다. Konkrétan:
 
 - Azure ML [은 Git와 통합 되어](how-to-set-up-training-targets.md#gitintegration) 코드를 가져온 리포지토리/분기/커밋에 대 한 정보를 추적 합니다.
 - [AZURE ML 데이터 집합](how-to-create-register-datasets.md) 을 통해 데이터를 추적, 프로 파일링 및 버전 데이터를 관리할 수 있습니다. 
@@ -129,14 +128,14 @@ Azure ML은 모든 ML 자산의 종단간 감사 내역을 추적 하는 기능�
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>ML 수명 주기의 이벤트를 알리고, 자동화 하 고, 경고 합니다.
 Azure ML은 ML 수명 주기의 이벤트를 알리고 자동화 하는 데 사용할 수 있는 Azure EventGrid에 주요 이벤트를 게시 합니다. 자세한 내용은 [이 문서](how-to-use-event-grid.md)를 참조 하세요.
 
+
 ## <a name="monitor-for-operational--ml-issues"></a>운영 & ML 문제에 대 한 모니터
 
 모니터링을 사용 하면 모델에 전송 되는 데이터 및 반환 하는 예측을 이해할 수 있습니다.
 
 이 정보는 모델을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 수집 된 입력 데이터는 모델의 이후 버전을 학습 하는 데 유용할 수도 있습니다.
 
-자세한 내용은 [모델 데이터 컬렉션을 사용하도록 설정하는 방법](how-to-enable-data-collection.md)을 참조하세요.
-
+자세한 내용은 [모델 데이터 수집을 사용 하도록 설정 하는 방법](how-to-enable-data-collection.md)을 참조 하세요.
 
 ## <a name="automate-the-ml-lifecycle"></a>ML 수명 주기 자동화 
 
@@ -149,7 +148,7 @@ GitHub 및 Azure Pipelines를 사용 하 여 모델을 학습 하는 연속 통�
 
 Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 자세한 내용은 Azure Pipelines 문서 및 [Azure Machine Learning MLOps](https://aka.ms/mlops) 리포지토리를 사용 하 여 [ML 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 를 참조 하세요.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 다음 리소스를 읽고 탐색 하 여 자세히 알아보세요.
 
@@ -163,6 +162,6 @@ Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 
 
 + [배포 된 모델을 사용](how-to-consume-web-service.md) 하는 클라이언트 만들기
 
-+ [규모에 맞는 기계 학습](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
++ [Gépi tanulás nagy léptékben](/azure/architecture/data-guide/big-data/machine-learning-at-scale)
 
 + [Azure AI 참조 아키텍처 & 모범 사례 담당자](https://github.com/microsoft/AI)

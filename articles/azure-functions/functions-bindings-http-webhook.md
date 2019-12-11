@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 481e2ab63263f77b513e6443479827cc9e168bbb
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f1bb2731f5f14b80ca46f4fb28b9b9cb4284c4d7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926349"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972373"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -679,6 +679,24 @@ public class HttpTriggerJava {
     }
 }
 ```
+
+### <a name="using-route-parameters"></a>경로 매개 변수 사용
+
+함수의 `route` 패턴을 정의 하는 경로 매개 변수는 각 바인딩에 사용할 수 있습니다. 예를 들어 `"route": "products/{id}"`으로 정의 된 경로가 있는 경우 테이블 저장소 바인딩은 바인딩 구성에서 `{id}` 매개 변수의 값을 사용할 수 있습니다.
+
+다음 구성에서는 `{id}` 매개 변수가 바인딩의 `rowKey`전달 되는 방법을 보여 줍니다.
+
+```json
+{
+    "type": "table",
+    "direction": "in",
+    "name": "product",
+    "partitionKey": "products",
+    "tableName": "products",
+    "rowKey": "{id}"
+}
+```
+
 
 ### <a name="working-with-client-identities"></a>클라이언트 ID 사용
 

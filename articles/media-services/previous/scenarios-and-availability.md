@@ -1,6 +1,6 @@
 ---
-title: Microsoft Azure Media Services 시나리오 및 데이터 센터에서 기능의 사용 가능성 | Microsoft Docs
-description: 이 항목은 Microsoft Azure Media Services 시나리오 및 데이터 센터에서 기능 및 서비스의 사용 가용성 개요를 제공합니다.
+title: Microsoft Azure Media Services-forgatókönyvek és a szolgáltatások rendelkezésre állása az egyes adatközpontokban | Microsoft Docs
+description: Ez a témakör a Microsoft Azure Media Services-forgatókönyvek áttekintését és a funkciók és szolgáltatások rendelkezésre állását mutatja be az egyes adatközpontokban.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,252 +13,256 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 5841826e1d8fcfd96ff5bf91b518df3b856d3ce5
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 1bdca9de0bb6fea608f2a30aa9928f2518fc9dce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083202"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978171"
 ---
-# <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
+# <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Forgatókönyvek és a Media Services-szolgáltatások rendelkezésre állása az egyes adatközpontokban
 
 > [!NOTE]
-> Media Services v2에는 새로운 특징 또는 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> A Media Services v2 nem fog bővülni újabb funkciókkal és szolgáltatásokkal. <br/>Próbálja ki a legújabb verziót, ami a [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
-Microsoft AMS(Azure Media Services)는 다양한 클라이언트(예: TV, PC 및 모바일 디바이스)로의 주문형 및 라이브 스트리밍 배달을 위해 비디오 또는 오디오 콘텐츠를 안전하게 업로드, 저장, 인코딩 및 패키지할 수 있습니다.
+A Microsoft Azure Media Services (AMS) lehetővé teszi különböző videó- és hangtartalmak biztonságos feltöltését, tárolását, kódolását és becsomagolását, majd igény szerinti és élő streamként történő továbbítását különböző ügyfelek részére (például tévékészülékekre, számítógépekre és mobileszközökre).
 
-AMS는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데이터 센터는 지리적 영역으로 그룹화되므로 애플리케이션을 빌드할 위치를 유연하게 선택할 수 있습니다. [지역 및 위치 목록](https://azure.microsoft.com/regions/)을 검토할 수 있습니다. 
+Az AMS világszerte számos adatközpontban működik. Ezek az adatközpontok földrajzi régiók szerint vannak csoportosítva, ami kellő mozgásteret biztosít az alkalmazások létrehozási helyének megválasztásához. [A régiók és a kapcsolódó helyek listáját itt](https://azure.microsoft.com/regions/) tekintheti meg. 
 
-이 토픽에서는 [라이브](#live_scenarios) 또는 주문형 콘텐츠를 제공하는 일반적인 시나리오를 보여줍니다. 이 항목에서는 데이터 센터에서 미디어 기능 및 서비스의 사용 가용성에 대한 세부 정보도 제공합니다.
+이 항목에서는 콘텐츠를 [라이브](#live_scenarios) 또는 주문형으로 배달 하는 일반적인 시나리오를 보여 줍니다. Ez a témakör a médiafunkciók és szolgáltatások adatközpontok közötti rendelkezésre állásáról is részleteket nyújt.
 
-## <a name="overview"></a>개요
+## <a name="overview"></a>Áttekintés
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>Előfeltételek
 
-Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
+Az Azure Media Services használatának megkezdéséhez rendelkeznie kell a következőkkel:
 
-* Azure 계정. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com)합니다.
-* Azure Media Services 계정. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
-* 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다.
+* Egy Azure-fiók. Ha nincs fiókja, néhány perc alatt létrehozhat egy ingyenes próbafiókot. További információkért lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com).
+* Egy Azure Media Services-fiók. További információ: [Fiók létrehozása](media-services-portal-create-account.md)
+* A tartalom-továbbításhoz használt streamvégpontnak **Fut** állapotban kell lennie.
 
-    AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다.
+    Az AMS-fiók létrehozásakor a rendszer hozzáad egy **alapértelmezett**, **Leállítva** állapotú streamvégpontot a fiókhoz. A tartalom streamelésének megkezdéséhez, valamint a dinamikus csomagolás és a dinamikus titkosítás kihasználásához a streamvégpontnak **Fut** állapotban kell lennie.
 
-### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>AMS OData 모델에 대해 개발할 때 일반적으로 사용되는 개체
+### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Az AMS OData-modellen alapuló fejlesztések során leggyakrabban használt objektumok
 
-다음 이미지에서는 Media Services OData 모델에 대해 개발할 때 가장 일반적으로 사용되는 개체 중 일부를 보여 줍니다.
+A következő kép a Media Services OData-modellen alapuló fejlesztések során leggyakrabban használt objektumok közül mutat be néhányat.
 
-전체 크기로 보려면 이미지를 클릭합니다.  
+Kattintson a képre a teljes méretű megjelenítéshez.  
 
 <a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
 
-전체 모델은 [여기](https://media.windows.net/API/$metadata?api-version=2.15)서 볼 수 있습니다 .  
+A teljes modellt [itt](https://media.windows.net/API/$metadata?api-version=2.15) tekintheti meg.  
 
-## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>스토리지에서 콘텐츠 보호 및 암호화하지 않고 스트리밍 미디어 배달(암호화되지 않음)
+## <a name="protect-content-in-storage-and-deliver-streaming-media-in-the-clear-non-encrypted"></a>Tartalom védelme a tárolón és folyamatos médiatovábbítás tisztán (titkosítatlanul)
 
-![VoD 워크플로](./media/scenarios-and-availability/scenarios-and-availability01.png)
+![VoD-munkafolyamat](./media/scenarios-and-availability/scenarios-and-availability01.png)
 
-1. 자산에 고품질 미디어 파일을 업로드합니다.
+1. Töltsön fel egy kiváló minőségű médiafájlt egy adategységbe.
 
-    업로드하는 동안 및 스토리지에 있는 동안 콘텐츠를 보호하기 위해 자산에 스토리지 암호화 옵션을 적용하는 것이 좋습니다.
-2. 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다.
+    Javasolt az adategységen tárolótitkosítást alkalmazni, ezáltal védve a tartalmat feltöltés és tárolás közben.
+2. A kódolás kimenete egy adaptív sávszélességű MP4-fájlsorozat legyen.
 
-    그대로 있는 콘텐츠를 보호하기 위해 출력 자산에 스토리지 암호화 옵션을 적용하는 것이 좋습니다.
-3. 자산 배달 정책(동적 패키징에서 사용)을 구성합니다.
+    Javasolt a kimeneti adategységen tárolótitkosítást alkalmazni, ezáltal védve a tartalmat tárolás közben.
+3. Konfigurálja az adategység továbbítási házirendjét (amelyet a dinamikus csomagolás használ).
 
-    자산이 암호화된 스토리지인 경우 자산 배달 정책을 구성해야 **합니다** .
-4. 주문형 로케이터를 만들어 자산을 게시합니다.
-5. 게시된 콘텐츠를 스트리밍합니다.
+    Ha az adategységen tárolótitkosítást alkalmaz, konfigurálnia **kell** az adategység továbbítási házirendjét.
+4. Tegye közzé az adategységet egy OnDemand-kereső létrehozásával.
+5. Továbbítsa a közzétett tartalmat.
 
-데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](#availability) 섹션을 참조하세요.
+Az adatközpontokban lévő rendelkezésre állásról információért lásd a [Rendelkezésre állás](#availability) című szakaszt.
 
-## <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>스토리지에서 콘텐츠를 보호하고 암호화된 스트리밍 미디어를 동적으로 배달합니다.
+## <a name="protect-content-in-storage-deliver-dynamically-encrypted-streaming-media"></a>Tartalom védelme a tárolón és dinamikusan titkosított folyamatos médiatovábbítás
 
-![PlayReady로 보호](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
+![Védelem biztosítása a PlayReadyvel](./media/media-services-content-protection-overview/media-services-content-protection-with-multi-drm.png)
 
-1. 자산에 고품질 미디어 파일을 업로드합니다. 스토리지 암호화 옵션을 자산에 적용합니다.
-2. 적응 비트 전송률 MP4 파일 집합으로 인코딩합니다. 스토리지 암호화 옵션을 출력 자산에 적용합니다.
-3. 재생하는 동안 동적으로 암호화하려는 경우 자산에 대한 암호화 콘텐츠 키를 만듭니다.
-4. 콘텐츠 키 인증 정책을 구성합니다.
-5. 자산 배달 정책(동적 패키징 및 동적 암호화에서 사용)을 구성합니다.
-6. 주문형 로케이터를 만들어 자산을 게시합니다.
-7. 게시된 콘텐츠를 스트리밍합니다.
+1. Töltsön fel egy kiváló minőségű médiafájlt egy adategységbe. Alkalmazzon az adategységen tárolótitkosítást.
+2. A kódolás kimenete egy adaptív sávszélességű MP4-fájlsorozat legyen. Alkalmazzon a kimeneti adategységen tárolótitkosítást.
+3. Hozzon létre egy titkosítási tartalomkulcsot az adategységhez, amelyet a lejátszás során dinamikusan titkosítani kíván.
+4. Konfigurálja a tartalomkulcs-engedélyezési házirendet.
+5. Konfigurálja az adategység továbbítási házirendjét (amelyet a dinamikus csomagolás és a dinamikus titkosítás használ).
+6. Tegye közzé az adategységet egy OnDemand-kereső létrehozásával.
+7. Továbbítsa a közzétett tartalmat.
 
-데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](#availability) 섹션을 참조하세요.
+Az adatközpontokban lévő rendelkezésre állásról információért lásd a [Rendelkezésre állás](#availability) című szakaszt.
 
-## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>미디어 분석을 사용하여 비디오에 대한 실질적인 통찰력 얻기
+## <a name="use-media-analytics-to-derive-actionable-insights-from-your-videos"></a>Gyakorlatban használható elemzések készítése videófájlokból a Médiaelemzés használatával
 
-미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+A Médiaelemzés beszéd- és vizuális összetevők gyűjteménye, amely egyszerűbbé teszi a szervezetek és vállalatok számára, hogy a gyakorlatban is használható elemzéseket készítsenek videófájljaikból. További információk: [Az Azure Media Services Elemző áttekintése](media-services-analytics-overview.md)
 
-1. 자산에 고품질 미디어 파일을 업로드합니다.
-2. [미디어 분석 개요](media-services-analytics-overview.md) 섹션에 설명된 미디어 분석 서비스 중 하나를 사용하여 비디오를 처리합니다.
-3. 미디어 분석 미디어 프로세서는 MP4 파일 또는 JSON 파일을 생성합니다. 미디어 프로세서가 MP4 파일을 생한 경우 파일을 점진적으로 다운로드할 수 있습니다. 미디어 프로세서가 JSON 파일을 생성한 경우 Azure Blob Storage에서 해당 파일을 다운로드할 수 있습니다.
+1. Töltsön fel egy kiváló minőségű médiafájlt egy adategységbe.
+2. Feldolgozhatja a videóit [A Media Analytics áttekintése](media-services-analytics-overview.md) szakaszban leírt egyik Media Analytics-szolgáltatással.
+3. A Médiaelemzés médiafeldolgozói MP4- vagy JSON-fájlokat hoznak létre. A médiafeldolgozók által létrehozott MP4-fájlokat fokozatosan lehet letölteni. A médiafeldolgozók által létrehozott JSON-fájlokat az Azure-blobtárolóból lehet letölteni.
 
-데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](#availability) 섹션을 참조하세요.
+Az adatközpontokban lévő rendelkezésre állásról információért lásd a [Rendelkezésre állás](#availability) című szakaszt.
 
-## <a name="deliver-progressive-download"></a>점진적 다운로드 제공
+## <a name="deliver-progressive-download"></a>Progresszív letöltés továbbítása
 
-1. 자산에 고품질 미디어 파일을 업로드합니다.
-2. 하나의 MP4 파일로 인코딩합니다.
-3. 주문형 또는 SAS 로케이터를 만들어 자산을 게시합니다.
+1. Töltsön fel egy kiváló minőségű médiafájlt egy adategységbe.
+2. A kódolás kimenete egyetlen MP4-fájl legyen.
+3. Tegye közzé az adategységet egy OnDemand- vagy SAS-kereső létrehozásával.
 
-    SAS 로케이터를 사용하는 경우 콘텐츠는 Azure Blob Storage에서 다운로드됩니다. 이 경우 스트리밍 엔드포인트가 시작된 상태에 있을 필요가 없습니다.
-4. 콘텐츠를 점진적으로 다운로드합니다.
+    Az SAS-kereső használata esetén a tartalmat az Azure-blobtárolóból lehet letölteni. Ebben az esetben nincs szükség elindított állapotú streamvégpontokra.
+4. Töltse le fokozatosan a tartalmat.
 
-## <a id="live_scenarios"></a>라이브 스트리밍 이벤트 배달 
+## <a id="live_scenarios"></a>Események élő közvetítése 
 
-1. 다양한 라이브 스트리밍 프로토콜(예: RTMP 또는 부드러운 스트리밍)을 사용하여 라이브 콘텐츠를 수집합니다.
-2. (선택 사항)스트림을 적응 비트 전송률 스트림으로 인코딩합니다.
-3. 라이브 스트림을 미리 봅니다.
-4. 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠를 배달합니다.
+1. Élő tartalmakat dolgozhat fel különböző élő streamelési protokollok (például RTMP vagy Smooth Streaming) használatával.
+2. A streamet adaptív sávszélességűvé kódolhatja (opcionális).
+3. Megtekintheti az élő stream előnézetét.
+4. Továbbíthatja a tartalmat gyakori streamelési protokollok (például MPEG DASH, Smooth, HLS) használatával közvetlenül az ügyfelek részére, vagy egy tartalomkézbesítési hálózatra (CDN) későbbi terjesztés céljából.
 
-    또는
+    – vagy –
 
-    나중에 스트리밍하기 위해 수집된 콘텐츠를 기록 및 저장합니다(주문형 비디오).
+    A feldolgozott tartalmakat rögzítheti és tárolhatja a későbbi streamelés érdekében (Video-on-Demand).
 
-라이브 스트리밍을 수행할 때 다음 경로 중 하나를 선택할 수 있습니다.
+Élő streameléskor a következő útvonalak egyikét választhatja:
 
-### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>온-프레미스 인코더(통과)에서 다중 비트 전송률 라이브 스트림을 받는 채널 작업
+### <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders-pass-through"></a>Helyszíni kódolóktól többszörös átviteli sebességű adatfolyamot fogadó (áteresztő) csatornák használata
 
-다음 다이어그램에서는 **통과** 워크플로에 관련된 AMS 플랫폼의 주요 부분을 보여 줍니다.
+A következő diagramon láthatók a AMS platform azon fontosabb részei, amelyek szerepet játszanak az **áteresztő** munkafolyamatban.
 
-![라이브 워크플로](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Élő munkafolyamat](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
-자세한 내용은 [온-프레미스 인코더의 다중 비트 전송률 라이브 스트림을 수신하는 채널 사용](media-services-live-streaming-with-onprem-encoders.md)을 참조하세요.
+Tovább információk: [Helyszíni kódolóktól többféle sávszélességű adatfolyamot fogadó csatornák használata](media-services-live-streaming-with-onprem-encoders.md)
 
-### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Azure Media Services를 사용하여 라이브 인코딩을 수행할 수 있는 채널 작업
+### <a name="working-with-channels-that-are-enabled-to-perform-live-encoding-with-azure-media-services"></a>Az Azure Media Services segítségével élő kódolásra képes csatornák használata
 
-다음 다이어그램에서는 채널이 Media Services를 통해 라이브 인코딩을 수행할 수 있는 라이브 스트리밍 워크플로에 관련된 AMS 플랫폼의 주요 부분을 보여 줍니다.
+A következő diagramon láthatók a AMS platform azon fontosabb részei, amelyek szerepet játszanak az élő adatfolyam-továbbítási munkafolyamatban, ha a csatorna számára engedélyezett a Media Services használatával végzett élő kódolás.
 
-![라이브 워크플로](./media/scenarios-and-availability/media-services-live-streaming-new.png)
+![Élő munkafolyamat](./media/scenarios-and-availability/media-services-live-streaming-new.png)
 
-자세한 내용은 [Azure Media Services를 사용하여 Live Encoding을 수행할 수 있는 채널 작업](media-services-manage-live-encoder-enabled-channels.md)을 참조하세요.
+További információk: [Az Azure Media Services segítségével élő kódolásra képes csatornák használata](media-services-manage-live-encoder-enabled-channels.md)
 
-데이터 센터에서 사용 가용성에 대한 정보는 [사용 가능성](#availability) 섹션을 참조하세요.
+Az adatközpontokban lévő rendelkezésre állásról információért lásd a [Rendelkezésre állás](#availability) című szakaszt.
 
-## <a name="consuming-content"></a>콘텐츠 사용
+## <a name="consuming-content"></a>Tartalmak felhasználása
 
-Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 다음 항목에서 제공하는 SDK 및 플레이어 프레임워크 링크를 사용하여 Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 애플리케이션을 개발할 수 있습니다. 자세한 내용은 [비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)을 참조하세요.
+Az Azure Media Services biztosította eszközökkel részletes, dinamikus ügyféloldali lejátszóalkalmazások hozhatók létre a legtöbb platformra, köztük a következőkre: iOS, Android, Windows, Windows Phone, Xbox és dekóderek. A következő témakor hivatkozásokat tartalmaz azokhoz az SDK-khoz és lejátszó-keretrendszerekhez, amelyekkel kifejlesztheti a saját ügyfélalkalmazásait a Media Services médiafolyamainak fogadására. További információkért lásd a [videólejátszó alkalmazások fejlesztését](media-services-develop-video-players.md) ismertető cikket.
 
-## <a name="enabling-azure-cdn"></a>Azure CDN 사용하기
+## <a name="enabling-azure-cdn"></a>Az Azure CDN engedélyezése
 
-Media Services는 Azure CDN과의 통합을 지원합니다. Azure CDN을 사용하도록 설정하는 방법에 대한 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트를 관리하는 방법](media-services-portal-manage-streaming-endpoints.md)을 참조하세요.
+A Media Services támogatja az Azure CDN-integrációt. További információk az Azure CDN engedélyezéséről: [Adatfolyam-továbbítási végpontok kezelése egy Media Services-fiókban](media-services-portal-manage-streaming-endpoints.md)
 
-## <a id="scaling"></a>Media Services 계정 크기 조정하기
+## <a id="scaling"></a>Media Services-fiók méretezése
 
-AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 처리 및 스토리지의 크기를 조정할 수 있습니다.
+Az AMS-ügyfelek méretezhetik a streamvégpontokat, a médiafeldolgozást és a tárolást az AMS-fiókjukon.
 
-* Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미엄** 스트리밍 엔드포인트를 선택할 수 있습니다. **표준** 스트리밍 엔드포인트는 대부분의 스트리밍 워크로드에 적합합니다. **프리미엄** 스트리밍 단위와 동일한 기능을 포함하고 아웃바운드 대역폭을 자동으로 확장합니다. 
+* A Media Services ügyfelei **standard** szintű streamvégpontot vagy **prémium** szintű streamvégpontot választhatnak. A **standard** streamvégpont a legtöbb streamelési feladat ellátására alkalmas. Ugyanazokkal a jellemzőkkel rendelkezik, mint a **prémium** szintű streamvégpontok, és automatikusan méretezi a kimenő sávszélességet. 
 
-    **프리미엄** 스트리밍 엔드포인트는 고급 워크로드에 적합하며, 확장성 있는 전용 대역폭 용량을 제공합니다. **프리미엄** 스트리밍 엔드포인트가 있는 고객은 기본적으로 하나의 SU(스트리밍 단위)를 가져옵니다. SU를 추가하여 스트리밍 엔드포인트의 크기를 조정할 수 있습니다. 각 SU는 애플리케이션에 추가 대역폭 수용작업량을 제공합니다. **프리미엄** 스트리밍 엔드포인트의 크기를 조정하는 방법에 대한 자세한 내용은 [스트리밍 엔드포인트 크기 조정](media-services-portal-scale-streaming-endpoints.md) 항목을 참조하세요.
+    A **prémium** szintű streamvégpontok a speciális feladatokhoz ideálisak, mert dedikált és méretezhető sávszélesség-kapacitást nyújtanak. A **prémium** streamvégponttal rendelkező ügyfelek alapértelmezés szerint kapnak egy adategységet (SU-t). A streamvégpont adategységek hozzáadásával méretezhető. Mindegyik adategység további sávszélesség-kapacitást nyújt az alkalmazásnak. A **prémium** szintű streamvégpontok méretezéséről további információt a [streamvégpontok méretezését](media-services-portal-scale-streaming-endpoints.md) ismertető témakörben talál.
 
-* Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 형식과 연결됩니다. **S1**, **S2**, **S3** 예약 단위 유형 중에서 선택할 수 있습니다. 예를 들어 **S2** 예약 단위 유형을 사용하는 경우 **S1** 유형에 비해 동일한 인코딩 작업이 더 빠르게 실행됩니다.
+* A Media Services-fiókok Fenntartott egység típussal vannak társítva, amely meghatározza a médiafeldolgozási feladatok feldolgozásának sebességét. A következő Fenntartott egység típusok közül választhat: **S1**, **S2** vagy **S3**. Ugyanaz a kódolási feladat például gyorsabban fut, amikor az **S2** Fenntartott egység típust használja az **S1** típus helyett.
 
-    예약 단위 유형을 지정하는 것 외에도 계정에 **RU(예약 단위)** 를 프로비전하도록 지정할 수 있습니다. 프로비전되는 RU의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다.
+    A Fenntartott egység típusának meghatározása mellett megadhatja, hogy ellátja-e a fiókot **Fenntartott egységekkel** (RU-kkal). A megadott Fenntartott egységek száma határozza meg az egy adott fiókon egy időben feldolgozható médiafeladatok számát.
 
     >[!NOTE]
-    >RU는 Azure Media Indexer를 사용하는 인덱싱 작업을 비롯하여 모든 미디어 처리 병렬화에 대해 작동합니다. 그러나 인코딩과 달리 인덱싱 작업은 예약 단위가 더 빠르게 실행되어도 더 빨리 처리되지 않습니다.
+    >A Fenntartott egységek az összes médiafeldolgozás párhuzamossá tételéért felelősek, beleértve az Azure Media Indexerrel végzett indexelési feladatokat is. De a kódolással ellentétben az indexelési feladatok feldolgozása nem lesz gyorsabb a gyorsabb Fenntartott egységekkel.
 
-    자세한 내용은 [미디어 처리 크기 조정](media-services-portal-scale-media-processing.md)을 참조하세요.
-* 또한 스토리지 계정을 추가하여 Media Services 계정을 확장할 수 있습니다. 각 스토리지 계정은 500TB로 제한됩니다. 여러 스토리지 계정을 단일 Media Services 계정에 연결하여 기본 제한 이상으로 스토리지를 확장할 수 있습니다. 자세한 내용은 [스토리지 계정 관리](meda-services-managing-multiple-storage-accounts.md)를 참조하세요.
+    További információkért olvassa el a [médiafeldolgozás méretezését](media-services-portal-scale-media-processing.md) ismertető cikket.
+* A Media Services-fiókját tárfiókok hozzáadásával is méretezheti. Minden tárfiók legfeljebb 500 TB kapacitású lehet. Ha a tárolót az alapértelmezett határérték fölé szeretné bővíteni, több tárfiókot is társíthat ugyanahhoz a Media Services-fiókhoz. További információkért olvassa el a [tárfiókok kezelését](meda-services-managing-multiple-storage-accounts.md) ismertető cikket.
 
-## <a id="availability"></a>데이터 센터에서 Media Services 기능의 사용 가용성
+## <a id="availability"></a> A Media Services-funkciók rendelkezésre állása az egyes adatközpontokban
 
-이 섹션에서는 데이터 센터에서 Media Services 기능 의 사용 가용성에 대한 세부 정보를 제공합니다.
+Ez a szakasz a Media Services-funkciók az adatközpontok közötti rendelkezésre állásáról nyújt részleteket.
 
-### <a name="ams-accounts"></a>AMS 계정
+### <a name="ams-accounts"></a>AMS-fiókok
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
+Annak megállapításához, hogy a Media Services elérhető-e az adatközpontban, lépjen a https://azure.microsoft.com/status/ helyre, és görgessen a MEDIA táblázathoz.
 
-### <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
+### <a name="streaming-endpoints"></a>Streamvégpontok 
 
-Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미엄** 스트리밍 엔드포인트를 선택할 수 있습니다. 자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
+A Media Services ügyfelei **standard** szintű streamvégpontot vagy **prémium** szintű streamvégpontot választhatnak. További információt a [méretezésről](#scaling) szóló szakaszban talál.
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-|이름|가동 상태|데이터 센터
+|Név|Állapot|Adatközpontok
 |---|---|---|
-|표준|GA|모두|
-|프리미엄|GA|모두|
+|Standard|FE|Mind|
+|Prémium|FE|Mind|
 
-### <a name="live-encoding"></a>라이브 인코딩
+### <a name="live-encoding"></a>Live Encoding
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-독일, 브라질 남부, 인도 서부, 인도 남부 및 인도 중부를 제외한 모든 데이터 센터에서 사용할 수 있습니다. 
+Az összes adatközpontban elérhető a következők kivételével: Németország, Dél-Brazília, Nyugat-India, Dél-India és Közép-India. 
 
-### <a name="encoding-media-processors"></a>미디어 프로세서 인코딩
+### <a name="encoding-media-processors"></a>Médiafeldolgozók kódolása
 
-AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **Media Encoder Premium 워크플로**를 제공합니다. 자세한 내용은 [Azure 주문형 미디어 인코더의 개요 및 비교](media-services-encode-asset.md)를 참조하세요. 
+Az AMS két igény szerinti kódolót nyújt: a **Media Encoder Standard** kódolót és a **Media Encoder Premium-munkafolyamatot**. További információkért olvassa el [az Azure igény szerinti médiakódolók áttekintését és összehasonlítását](media-services-encode-asset.md). 
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-|미디어 프로세서 이름|가동 상태|데이터 센터
+|Médiafeldolgozó neve|Állapot|Adatközpontok
 |---|---|---|
-|미디어 인코더 표준|GA|모두|
-|미디어 인코더 Premium 워크플로|GA|중국을 제외한 모든 지역|
+|Media Encoder Standard|FE|Mind|
+|Media Encoder Premium-munkafolyamat|FE|Kína kivételével|
 
-### <a name="analytics-media-processors"></a>분석 미디어 프로세서
+### <a name="analytics-media-processors"></a>Elemzési médiafeldolgozók
 
-미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+A Médiaelemzés beszéd- és vizuális összetevők gyűjteménye, amely egyszerűbbé teszi a szervezetek és vállalatok számára, hogy a gyakorlatban is használható elemzéseket készítsenek videófájljaikból. További információk: [Az Azure Media Services Elemző áttekintése](media-services-analytics-overview.md)
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-|미디어 프로세서 이름|가동 상태|데이터 센터
+|Médiafeldolgozó neve|Állapot|Adatközpontok
 |---|---|---|
-|Azure 미디어 얼굴 탐지기|미리 보기|모두|
-|Azure Media Indexer|GA|모두|
-|Azure 미디어 동작 탐지기|미리 보기|모두|
-|Azure 미디어 OCR|미리 보기|모두|
-|Azure Media Redactor|미리 보기|모두|
-|Azure 미디어 비디오 미리 보기|미리 보기|모두|
-|Azure Media Indexer 2|미리 보기|중국 및 연방 정부 지역을 제외한 모든 지역|
+|Azure Media Face Detector|Előzetes verzió|Mind|
+|Azure Media Indexer|FE|Mind|
+|Azure Media Motion Detector|Előzetes verzió|Mind|
+|Azure Media OCR|Előzetes verzió|Mind|
+|Azure Media Redactor|Előzetes verzió|Mind|
+|Azure Media Video Thumbnails|Előzetes verzió|Mind|
+|Azure Media Indexer 2|Előzetes verzió|Kína és a szövetségi kormányzati régió kivételével|
 
-### <a name="protection"></a>보호
+### <a name="protection"></a>Védelem
 
-Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스토리지, 처리 및 배달에 이르는 과정 내내 미디어를 보호할 수 있습니다. 자세한 내용은 [AMS 콘텐츠 보호](media-services-content-protection-overview.md)를 참조하세요.
+A Microsoft Azure Media Services lehetővé teszi a médiatartalmak védelmét attól a ponttól kezdve, ahogy az elhagyja a számítógépét, egészen a tároláson, a feldolgozáson és a továbbításon át. További információért olvassa el az [AMS-tartalmak védelmét](media-services-content-protection-overview.md) ismertető cikket.
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-|암호화|가동 상태|데이터 센터|
+|Titkosítás|Állapot|Adatközpontok|
 |---|---|---| 
-|스토리지|GA|모두|
-|AES-128 키|GA|모두|
-|Fairplay|GA|모두|
-|PlayReady|GA|모두|
-|Widevine|GA|독일, 연방 정부 및 중국을 제외한 모든 지역
+|Adattárolás|FE|Mind|
+|AES-128-kulcsok|FE|Mind|
+|FairPlay|FE|Mind|
+|PlayReady|FE|Mind|
+|Widevine|FE|Mindenhol, kivéve Németországot, a szövetségi kormányzati régiót és Kínát.
 
-### <a name="reserved-units-rus"></a>RU(예약 단위)
+### <a name="reserved-units-rus"></a>Fenntartott egységek (RU-k)
 
-프로비전되는 예약 단위의 수에 따라 특정 계정에서 동시에 처리할 수 있는 미디어 작업의 수가 결정됩니다. 
+A megadott Fenntartott egységek száma határozza meg az egy adott fiókon egy időben feldolgozható médiafeladatok számát. 
 
-자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
+További információt a [méretezésről](#scaling) szóló szakaszban talál.
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-모든 데이터 센터에서 사용할 수 있습니다.
+Minden adatközpontban elérhető.
 
-### <a name="reserved-unit-ru-type"></a>RU(예약 단위) 형식
+### <a name="reserved-unit-ru-type"></a>Fenntartott egység (RU) típusa
 
-Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결정하는 예약 단위 형식과 연결됩니다. S1, S2 또는 S3과 같은 예약 단위 형식 중에서 선택할 수 있습니다.
+A Media Services-fiókok Fenntartott egység típussal vannak társítva, amely meghatározza a médiafeldolgozási feladatok feldolgozásának sebességét. A következő Fenntartott egység típusok közül választhat: S1, S2 vagy S3.
 
-자세한 내용은 [크기 조정](#scaling) 섹션을 참조하세요.
+További információt a [méretezésről](#scaling) szóló szakaszban talál.
 
-#### <a name="availability"></a>가용성
+#### <a name="availability"></a>Elérhetőség
 
-|RU 형식 이름|가동 상태|데이터 센터
+|RU típusának neve|Állapot|Adatközpontok
 |---|---|---|
-|S1|GA|모두|
-|S2|GA|브라질 남부 및 인도 서부를 제외한 모든 지역|
-|S3|GA|인도 서부를 제외한 모든 지역|
+|S1|FE|Mind|
+|S2|FE|Mindenhol, kivéve Dél-Brazíliát és Nyugat-Indiát|
+|S3|FE|Mindenhol, kivéve Nyugat-Indiát|
 
-## <a name="next-steps"></a>다음 단계
+## <a name="additional-notes"></a>További megjegyzések
 
-Media Services 학습 경로를 검토합니다.
+* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+
+## <a name="next-steps"></a>Következő lépések
+
+Tekintse át a Media Services képzési terveket.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>Visszajelzés küldése
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

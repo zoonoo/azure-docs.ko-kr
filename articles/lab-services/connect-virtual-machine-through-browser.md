@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: 1bb5d979ff7c9fe6e2afec4c7ebd81649b4488e3
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 4549ee0f50c06040b70307c96b5ca96cd4162214
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73581225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974298"
 ---
 # <a name="connect-to-your-virtual-machines-through-a-browser"></a>브라우저를 통해 가상 컴퓨터에 연결 
 
@@ -26,12 +26,11 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 *브라우저 연결* 을 사용 하도록 설정 하면 랩 사용자는 브라우저를 통해 가상 컴퓨터에 액세스할 수 있습니다.  
 
-
 ## <a name="create-a-lab-virtual-machine"></a>랩 가상 컴퓨터 만들기
 
-먼저 해당 가상 컴퓨터에 대해 구성 된 요새 내에서 랩 가상 컴퓨터를 만들어야 합니다. **고급 설정** 탭으로 이동 하 여 가상 컴퓨터를 만드는 동안 VNet을 선택할 수 있습니다.
+먼저,이 가상 네트워크에는 요새가 구성 된 가상 네트워크 내에서 랩 가상 머신을 만들어야 합니다. AzureBastionSubnet가 아닌, 만든 두 번째 **서브넷** 을 선택 합니다. **고급 설정** 탭으로 이동 하 여 가상 컴퓨터를 만드는 동안 가상 네트워크를 선택할 수 있습니다.
 
-![가상 머신 만들기](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
+![Virtuális gép létrehozása](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 
 ## <a name="launch-virtual-machine-in-a-browser"></a>브라우저에서 가상 컴퓨터 시작
 
@@ -39,6 +38,6 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 ![브라우저에서 시작](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 [Azure DevTest Labs에서 랩에 VM 추가](devtest-lab-add-vm.md)

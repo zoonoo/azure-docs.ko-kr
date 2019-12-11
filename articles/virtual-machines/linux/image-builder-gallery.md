@@ -1,18 +1,18 @@
 ---
-title: Linux 가상 머신에 대 한 이미지 갤러리와 함께 Azure 이미지 작성기 사용 (미리 보기)
-description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Linux 이미지를 만듭니다.
+title: Linux Vm에 대 한 이미지 갤러리와 함께 Azure 이미지 작성기 사용 (미리 보기)
+description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Linux VM 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 04/20/2019
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9fc624ab24cd98d0025fe2a34bf48c29b47c50e9
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 09dceb84a20ef49b3e9d5264b94bb5e74180cd2b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695416"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976131"
 ---
 # <a name="preview-create-a-linux-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Linux 이미지를 만들어 공유 이미지 갤러리에 배포 
 
@@ -21,7 +21,7 @@ ms.locfileid: "68695416"
 
 샘플. json 템플릿을 사용 하 여 이미지를 구성 합니다. 사용 중인. json 파일은 [helloImageTemplateforSIG](https://github.com/danielsollondon/azvmimagebuilder/blob/master/quickquickstarts/1_Creating_a_Custom_Linux_Shared_Image_Gallery_Image/helloImageTemplateforSIG.json)입니다. 
 
-공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서는 템플릿의 `distribute` 섹션에 대 한 값으로 [sharedImage](image-builder-json.md#distribute-sharedimage) 를 사용 합니다.
+공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서 [sharedImage](image-builder-json.md#distribute-sharedimage) 를 템플릿의 `distribute` 섹션 값으로 사용 합니다.
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -77,7 +77,7 @@ imageDefName=myIbImageDef
 runOutputName=aibLinuxSIG
 ```
 
-구독 ID에 대 한 변수를 만듭니다. 을 사용 하 여 `az account show | grep id`이를 가져올 수 있습니다.
+구독 ID에 대 한 변수를 만듭니다. `az account show | grep id`를 사용 하 여이를 가져올 수 있습니다.
 
 ```azurecli-interactive
 subscriptionID=<Subscription ID>
@@ -186,7 +186,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-VM으로 SSH 합니다.
+VM에 SSH 연결합니다.
 
 ```azurecli-interactive
 ssh aibuser@<publicIpAddress>
@@ -220,7 +220,7 @@ az resource delete \
     -n helloImageTemplateforSIG01
 ```
 
-이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상로 `0.`시작 하 고 이미지 버전을 삭제 합니다.
+이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상 `0.`로 시작 하 고 이미지 버전을 삭제 합니다.
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

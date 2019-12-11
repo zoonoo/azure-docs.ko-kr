@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9b6efdc75c15e9686728236f82fea8794f3782bf
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c06eb4043e0e7de886ef8180845464a6be554fd1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276634"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976556"
 ---
 # <a name="track-metrics-and-deploy-models-with-mlflow-and-azure-machine-learning-preview"></a>MLflow 및 Azure Machine Learning를 사용 하 여 메트릭 추적 및 모델 배포 (미리 보기)
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -55,7 +55,7 @@ ms.locfileid: "74276634"
 |모델 성능 모니터링||✓|  |   |
 | 데이터 드리프트 검색 |   | ✓ |   | ✓ |
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 * [MLflow를 설치 합니다.](https://mlflow.org/docs/latest/quickstart.html)
 * 로컬 컴퓨터에 [AZURE MACHINE LEARNING sdk를 설치](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) 합니다. Sdk는 mlflow에 대 한 연결을 제공 하 여 작업 영역에 액세스 합니다.
@@ -217,7 +217,7 @@ mlflow.log_metric('epoch_loss', loss.item())
 
 클러스터의 모든 이후 실험 노트북 세션에서 추적 URI를 수동으로 설정 하는 대신이 [Azure Machine Learning 추적 클러스터 초기화 스크립트](https://github.com/Azure/MachineLearningNotebooks/blob/3ce779063b000e0670bdd1acc6bc3a4ee707ec13/how-to-use-azureml/azure-databricks/linking/README.md)를 사용 하 여 자동으로 수행 합니다.
 
-올바르게 구성 된 경우 mlflow 사용자 인터페이스를 통해 또는 mlflow 클라이언트를 사용 하 여 Azure Machine Learning의 REST API 및 모든 Azure Databricks 클라이언트에서 MLflow 추적 데이터를 볼 수 있습니다.
+올바르게 구성 되 면 mlflow 사용자 인터페이스를 통해 또는 mlflow 클라이언트를 사용 하 여 Azure Machine Learning REST API 및 모든 클라이언트에서 MLflow 추적 데이터를 볼 수 있고 Azure Databricks에서 볼 수 있습니다.
 
 ## <a name="view-metrics-and-artifacts-in-your-workspace"></a>작업 영역에서 메트릭 및 아티팩트 보기
 
@@ -238,7 +238,7 @@ MLflow 실험을 Azure Machine Learning 웹 서비스로 배포 하면 Azure Mac
 
 ### <a name="log-your-model"></a>모델 기록
 
-를 배포 하려면 먼저 모델을 저장 하 여 배포할 수 있도록 모델을 저장 해야 합니다. 학습 스크립트에는 지정 된 출력 디렉터리에 모델을 저장 하는 다음 [mlflow. log_model ()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) 메서드와 비슷한 코드가 있어야 합니다. 
+를 배포 하려면 먼저 모델을 저장 하 여 배포할 수 있도록 모델을 저장 해야 합니다. 학습 스크립트에는 지정 된 출력 디렉터리에 모델을 저장 하는 다음과 같은 코드가 있어야 합니다. [mlflow.sklearn.log_model()](https://www.mlflow.org/docs/latest/python_api/mlflow.sklearn.html) 
 
 ```python
 # change sklearn to pytorch, tensorflow, etc. based on your experiment's framework 
@@ -303,7 +303,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+그런 다음 Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
 
 ```python
 webservice = Webservice.deploy_from_image( image=azure_image, 
@@ -359,7 +359,7 @@ aks_config = AksWebservice.deploy_configuration(enable_app_insights=True)
 service_name ='aks-service'
 ```
 
-그런 다음 Azure Machine Learning SDK의 [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
+그런 다음 Azure Machine Learning SDK [deploy_from_image ()](/python/api/azureml-core/azureml.core.webservice.webservice(class)?view=azure-ml-py#deploy-from-image-workspace--name--image--deployment-config-none--deployment-target-none--overwrite-false-) 메서드를 사용 하 여 이미지를 배포 합니다. 
 
 ```python
 # Webservice creation using single command
@@ -389,7 +389,7 @@ aks_service.wait_for_deployment(show_output=True)
 1. 리소스 그룹 이름을 입력합니다. 그런 다음, **삭제**를 선택합니다.
 
 
-## <a name="example-notebooks"></a>노트북 예제
+## <a name="example-notebooks"></a>예제 Notebook
 
 [AZURE ML 노트북을 사용 하는 Mlflow](https://aka.ms/azureml-mlflow-examples) 는이 문서에 제시 된 개념을 시연 하 고 확장 합니다.
 

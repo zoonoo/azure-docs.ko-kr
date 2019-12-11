@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL-Hyperscale (Citus) 모니터링 및 조정
+title: 모니터 및 튜닝-Hyperscale (Citus)-Azure Database for PostgreSQL
 description: 이 문서에서는 Citus (Azure Database for PostgreSQL-Hyperscale)의 모니터링 및 튜닝 기능을 설명 합니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6c9bf7a427c0d3d26c3accd1d0d7098413916993
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2e9fcd6f6292c1da76e725e90deda4547b3682d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512692"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975519"
 ---
 # <a name="monitor-and-tune-azure-database-for-postgresql---hyperscale-citus"></a>모니터링 및 조정 Azure Database for PostgreSQL-Hyperscale (Citus)
 
@@ -29,14 +29,14 @@ Hyperscale (Citus)은 서버 그룹의 각 노드에 대 한 메트릭을 제공
 
 |메트릭|메트릭 표시 이름|단위|설명|
 |---|---|---|---|
-|active_connections|활성 연결 수|카운트|서버에 대한 활성 연결 수|
+|active_connections|활성 연결|카운트|서버에 대한 활성 연결 수|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |사서함당|IOPS|카운트|[IOPS 정의](../virtual-machines/linux/premium-storage-performance.md#iops) 및 [처리량 크기 조정](concepts-hyperscale-configuration-options.md) 을 참조 하세요.|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |storage_percent|스토리지 비율|백분율|서버의 최대값을 초과하여 사용된 스토리지의 비율|
-|storage_used|스토리지 사용됨|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
+|storage_used|사용된 스토리지|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
 
 Azure는 클러스터에 대해 전체적으로 집계 메트릭을 제공 하지 않지만 여러 노드에 대 한 메트릭은 동일한 그래프에 배치할 수 있습니다.
 

@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee091d1c8f0f477354f6bb422d041278ec5668e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c10171ae59772f58411997d16dc4ad1472e94e29
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73574261"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996938"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Workplace by Facebook으로 자동으로 프로비전 및 프로비전 해제하도록 Workplace by Facebook 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -43,7 +43,7 @@ Workplace by Facebook과 Azure AD 통합을 구성하려면 다음 항목이 필
 
 ## <a name="assigning-users-to-workplace-by-facebook"></a>Workplace by Facebook에 사용자 할당
 
-Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 "할당된" 사용자 및 그룹만 동기화됩니다.
+Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택한 앱에 대한 액세스를 받아야 하는지를 판단합니다. 자동 사용자 계정 프로비전의 컨텍스트에서는 Azure AD의 애플리케이션에 “할당된” 사용자 및 그룹만 동기화됩니다.
 
 프로비전 서비스를 구성하고 사용하도록 설정하기 전에 Workplace by Facebook 앱에 액세스해야 하는 사용자를 나타내는 Azure AD의 사용자 및/또는 그룹을 결정해야 합니다. 결정했으면 다음 지시에 따라 이러한 사용자를 Workplace by Facebook 앱에 할당할 수 있습니다.
 
@@ -99,10 +99,10 @@ Azure AD는 할당된 사용자의 계정 세부 정보를 Workplace by Facebook
 이제 테스트 계정을 만들 수 있습니다. 이제 최대 20분 동안 기다린 후 계정이 Workplace by Facebook에 동기화되었는지 확인합니다.
 
 > [!NOTE]
-> Microsoft는 Facebook 팀과 긴밀 하 게 협력 하 여 Azure AD 응용 프로그램이 승인 되 고 새 지침을 충족 하는지 확인 합니다. Facebook의 작업 공간에는 12 월 16 일이 있으며이를 충족 해야 합니다. 이 시점에서는 고객이 기대 하는 작업이 없습니다. 2 월 28 일-2020 고객은 새 통합으로 전환 해야 합니다. 마이그레이션 경로를 사용할 수 있게 되 면 바로 여기에 게시 합니다.    
+> Facebook의 작업 공간에 있는 Azure AD 타사 응용 프로그램이 승인 되었습니다. 고객은 12 월 16 일에 서비스를 중단 하지 않습니다. 새 응용 프로그램으로 전환 해야 하는 경우에는 2 2020 월 28 일의 최종 기한을 나타내는 Facebook 관리 콘솔용 작업 공간에 메모를 표시 합니다. Microsoft는이를 최대한 간단 하 게 유지 하기 위해 노력 하 고 있으며, 여기에서 매월 끝까지 전환에 대 한 업데이트를 제공 합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](tutorial-list.md)
-* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On이란 무엇입니까?](../manage-apps/what-is-single-sign-on.md)
+* [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-On 구성](workplacebyfacebook-tutorial.md)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 360845d75c27fab0151c3a64846ff788f9f56b95
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: f2a2eaa3224fff117a30dfb742b4f8a35196dba4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931237"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973903"
 ---
 # <a name="use-powershell-for-files--acls-in-azure-data-lake-storage-gen2-preview"></a>Azure Data Lake Storage Gen2의 Acl & 파일에 대해 PowerShell 사용 (미리 보기)
 
@@ -25,10 +25,10 @@ ms.locfileid: "74931237"
 
 [Gen1 To Gen2 mapping](#gen1-gen2-map) | [사용자 의견 제공](https://github.com/Azure/azure-powershell/issues)
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>Előfeltételek
 
 > [!div class="checklist"]
-> * Azure 구독. [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+> * Azure-előfizetés. Lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/pricing/free-trial/).
 > * 계층적 네임 스페이스 (HNS)를 사용 하도록 설정 된 저장소 계정입니다. [다음](data-lake-storage-quickstart-create-account.md) 지침에 따라 새로 만듭니다.
 > * .NET Framework 4.7.2 이상 설치 되어 있습니다. [다운로드 .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework)를 참조 하세요.
 > * PowerShell 버전 `5.1` 이상
@@ -61,7 +61,7 @@ ms.locfileid: "74931237"
 
 1. Windows PowerShell 명령 창을 엽니다.
 
-2. `Connect-AzAccount` 명령을 사용하여 Azure 구독에 로그인하고 화면의 지시를 따릅니다.
+2. Jelentkezzen be az Azure-előfizetésbe a `Connect-AzAccount` paranccsal, és kövesse a képernyőn megjelenő útmutatásokat.
 
    ```powershell
    Connect-AzAccount
@@ -83,7 +83,7 @@ ms.locfileid: "74931237"
 
    * `<resource-group-name>` 자리 표시자 값을 리소스 그룹의 이름으로 바꿉니다.
 
-   * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
+   * `<storage-account-name>` 자리 표시자 값을 저장소 계정의 이름으로 바꿉니다.
 
 5. 저장소 계정 컨텍스트를 가져옵니다.
 
@@ -102,7 +102,7 @@ $filesystemName = "my-file-system"
 New-AzDatalakeGen2FileSystem -Context $ctx -Name $filesystemName
 ```
 
-## <a name="create-a-directory"></a>디렉터리 만들기
+## <a name="create-a-directory"></a>Könyvtár létrehozása
 
 `New-AzDataLakeGen2Item` cmdlet을 사용 하 여 디렉터리 참조를 만듭니다. 
 
@@ -158,7 +158,7 @@ $dirname2 = "my-directory-2/my-subdirectory/"
 Move-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname1 -DestFileSystem $filesystemName -DestPath $dirname2 -Umask --------x -PathRenameMode Posix
 ```
 
-## <a name="delete-a-directory"></a>디렉터리 삭제
+## <a name="delete-a-directory"></a>Könyvtár törlése
 
 `Remove-AzDataLakeGen2Item` cmdlet을 사용 하 여 디렉터리를 삭제 합니다.
 
@@ -185,7 +185,7 @@ $downloadFilePath = "download.txt"
 Get-AzDataLakeGen2ItemContent -Context $ctx -FileSystem $filesystemName -Path $filePath -Destination $downloadFilePath
 ```
 
-## <a name="list-directory-contents"></a>디렉터리 콘텐츠 나열
+## <a name="list-directory-contents"></a>Könyvtár tartalmának listázása
 
 `Get-AzDataLakeGen2ChildItem` cmdlet을 사용 하 여 디렉터리의 내용을 나열 합니다.
 
@@ -249,7 +249,7 @@ $file.File.Metadata
 $file.File.Properties
 ```
 
-## <a name="delete-a-file"></a>파일 삭제
+## <a name="delete-a-file"></a>Fájl törlése
 
 `Remove-AzDataLakeGen2Item` cmdlet을 사용 하 여 파일을 삭제 합니다.
 
@@ -371,21 +371,22 @@ Get-AzDataLakeGen2ChildItem -Context $ctx -FileSystem $filesystemName -Recurse |
 
 다음 표에서는 Data Lake Storage Gen1에 사용 되는 cmdlet이 Data Lake Storage Gen2 cmdlet에 매핑되는 방법을 보여 줍니다.
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| 참고 |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Megjegyzések |
 |--------|---------|-----|
 |AzDataLakeStoreChildItem|AzDataLakeGen2ChildItem|기본적으로 AzDataLakeGen2ChildItem cmdlet은 첫 번째 수준의 자식 항목만 나열 합니다. -재귀 매개 변수는 자식 항목을 재귀적으로 나열 합니다. |
 |AzDataLakeStoreItem<br>AzDataLakeStoreItemAclEntry<br>AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission|AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet의 출력 항목에는 Acl, Owner, Group, Permission 속성이 있습니다.|
 |AzDataLakeStoreItemContent|AzDataLakeGen2FileContent|AzDataLakeGen2FileContent cmdlet은 파일 콘텐츠를 로컬 파일에 다운로드 합니다.|
 |AzDataLakeStoreItem|AzDataLakeGen2Item||
 |AzDataLakeStoreItem|AzDataLakeGen2Item|이 cmdlet은 로컬 파일에서 새 파일 콘텐츠를 업로드 합니다.|
+|AzDataLakeStoreItem|AzDataLakeGen2Item||
 |AzDataLakeStoreItemOwner<br>AzDataLakeStoreItemPermission<br>AzDataLakeStoreItemAcl|업데이트-AzDataLakeGen2Item|AzDataLakeGen2Item cmdlet은 단일 항목만 업데이트 하 고 재귀적으로 업데이트 하지 않습니다. 재귀적으로 업데이트 하려는 경우 AzDataLakeStoreChildItem cmdlet을 사용 하 여 항목을 나열 하 고 파이프라인을 AzDataLakeGen2Item cmdlet으로 파이프라인 합니다.|
 |AzDataLakeStoreItem|AzDataLakeGen2Item|항목이 존재 하지 않는 경우 AzDataLakeGen2Item cmdlet에서 오류를 보고 합니다.|
 
 
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>Lásd még:
 
-* [알려진 문제](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
-* [Azure Storage와 함께 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Ismert problémák](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
+* [Azure Storage에서 Azure PowerShell 사용](../common/storage-powershell-guide-full.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 * [저장소 PowerShell cmdlet](/powershell/module/az.storage).
 

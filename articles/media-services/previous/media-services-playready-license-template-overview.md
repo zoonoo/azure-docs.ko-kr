@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: d2831472bcddf3480a87e69661b39e4ec715c786
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fb0630f3f7a4acebcfe5dcad343030c9d1184263
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61463211"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976403"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Media Services PlayReady 라이선스 템플릿 개요
 Azure Media Services는 현재 PlayReady 라이선스를 배달하는 서비스를 제공합니다. 플레이어(예: Silverlight)가 PlayReady로 보호된 콘텐츠를 재생하려고 하면 라이선스 배달 서비스로 요청을 보내 라이선스를 얻습니다. 라이선스 서비스에서 요청을 승인하면 클라이언트로 전송하여 지정된 콘텐츠의 암호를 해독하고 재생하는 데 사용되는 라이선스가 발급됩니다.
@@ -56,22 +56,22 @@ Media Services를 사용하여 PlayReady 라이선스를 구성하려면 Media S
 
 XML은 PlayReady 라이선스 템플릿 XML 스키마 섹션에 정의된 PlayReady 라이선스 템플릿 XML 스키마를 따릅니다.
 
-Media Services는 XML에 대해 serialize 및 deserialize하는 데 사용할 수 있는 일련의 .NET 클래스를 정의합니다. 기본 클래스에 대한 설명은 라이선스 템플릿을 구성하는 데 사용되는 [Media Services .NET 클래스](media-services-playready-license-template-overview.md#classes)를 참조하세요.
+Media Services는 XML에 대해 직렬화 및 역직렬화하는 데 사용할 수 있는 일련의 .NET 클래스를 정의합니다. 기본 클래스에 대한 설명은 라이선스 템플릿을 구성하는 데 사용되는 [Media Services .NET 클래스](media-services-playready-license-template-overview.md#classes)를 참조하세요.
 
 .NET 클래스를 사용하여 PlayReady 라이선스 템플릿을 구성하는 엔드투엔드 예제는 [PlayReady 동적 암호화 및 라이선스 배달 서비스 사용](media-services-protect-with-playready-widevine.md)을 참조하세요.
 
 ## <a id="classes"></a>라이선스 템플릿을 구성하는 데 사용되는 Media Services .NET 클래스
 Media Services PlayReady 라이선스 템플릿을 구성하는 데 사용되는 기본 .NET 클래스는 다음과 같습니다. 이들 클래스는 [PlayReady 라이선스 템플릿 XML 스키마](media-services-playready-license-template-overview.md#schema)에 정의된 유형에 매핑됩니다.
 
-[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 클래스는 Media Services 라이선스 템플릿 XML에 대해 serialize 및 deserialize하는 데 사용됩니다.
+[MediaServicesLicenseTemplateSerializer](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.mediaserviceslicensetemplateserializer.aspx) 클래스는 Media Services 라이선스 템플릿 XML에 대해 직렬화 및 역직렬화하는 데 사용됩니다.
 
 ### <a name="playreadylicenseresponsetemplate"></a>PlayReadyLicenseResponseTemplate
-[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx): 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 애플리케이션 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
+[PlayReadyLicenseResponseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicenseresponsetemplate.aspx) - 이 클래스는 다시 사용자에게 보내는 응답에 대한 템플릿을 나타냅니다. 이 클래스는 라이선스 서버와 애플리케이션 간의 사용자 지정 데이터 문자열에 대한 필드(사용자 지정 앱 논리에 유용할 수 있음)를 포함합니다. 또한 하나 이상의 라이선스 템플릿 목록도 포함합니다.
 
 템플릿 계층 구조에서 "최상위" 클래스인 이 응답 템플릿은 라이선스 템플릿 목록을 포함합니다. 라이선스 템플릿에는 직렬화할 템플릿 데이터를 구성하는 다른 모든 클래스가 포함됩니다(직접 또는 간접적으로).
 
 ### <a name="playreadylicensetemplate"></a>PlayReadyLicenseTemplate
-[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx): 이 클래스는 사용자에게 반환될 PlayReady 라이선스를 만드는 데 사용되는 라이선스 템플릿을 나타냅니다. 라이선스의 콘텐츠 키에 대한 데이터도 포함합니다. 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용해야 하는 모든 권한 또는 제한도 이 클래스에 포함되어 있습니다.
+[PlayReadyLicenseTemplate](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadylicensetemplate.aspx) - 이 클래스는 사용자에게 반환될 PlayReady 라이선스를 만드는 데 사용되는 라이선스 템플릿을 나타냅니다. 라이선스의 콘텐츠 키에 대한 데이터도 포함합니다. 콘텐츠 키를 사용할 때 PlayReady DRM 런타임에서 적용해야 하는 모든 권한 또는 제한도 이 클래스에 포함되어 있습니다.
 
 ### <a id="PlayReadyPlayRight"></a>PlayReadyPlayRight
 [PlayReadyPlayRight](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.mediaservices.client.contentkeyauthorization.playreadyplayright.aspx): 이 클래스는 PlayReady 라이선스의 PlayRight를 나타냅니다. 라이선스 및 재생 관련 정책의 PlayRight 자체에 구성된 임의 제한 사항이 적용되는 콘텐츠를 재생할 권한을 사용자에게 부여합니다. PlayRight의 정책 대부분은 콘텐츠가 재생될 수 있는 출력 형식을 제어하는 출력 제한 사항과 관련이 있습니다. 또한 지정된 출력이 사용될 때 적용되어야 하는 제한 사항도 포함합니다. 예를 들어 DigitalVideoOnlyContentRestriction이 사용되도록 설정되면 DRM 런타임은 비디오가 디지털 출력을 통해서만 표시되도록 합니다. (아날로그 비디오 출력으로는 콘텐츠를 전달할 수 없습니다.)
@@ -306,10 +306,13 @@ Silverlight에서 지원하는 보호 수준의 예는 [출력 보호를 위한 
     </xs:schema>
 
 
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

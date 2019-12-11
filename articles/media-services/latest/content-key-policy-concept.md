@@ -12,23 +12,20 @@ ms.topic: article
 ms.date: 07/26/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 8809bf25c3bcfb26fb0ad251a2b09dfdca2a3e04
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 7ddef1e78b4f8f62145e10b4cabc4537e28aba2f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679200"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969907"
 ---
 # <a name="content-key-policies"></a>콘텐츠 키 정책
 
-Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
+Microsoft Azure Media Services를 사용하면 Advanced Encryption Standard (AES-128) 또는 Microsoft PlayReady, Google Widevine 및 Apple FairPlay 등 세 가지 주요 DRM(디지털 권한 관리) 시스템 중 하나로 동적 암호화된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다. 
 
 스트림에서 암호화 옵션을 지정 하려면 [스트리밍 정책을](streaming-policy-concept.md) 만들고 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 해야 합니다. 콘텐츠 키 [정책을](https://docs.microsoft.com/rest/api/media/contentkeypolicies) 만들어 [자산](assets-concept.md)에 대 한 보안 액세스를 제공 하는 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성 합니다. 지정 된 구성을 사용 하는 키를 클라이언트에 배달 하기 위해 충족 해야 하는 콘텐츠 키 정책에 대 한 요구 사항 (제한 사항)을 설정 해야 합니다. 콘텐츠 키 정책은 투명 한 스트리밍 또는 다운로드에 필요 하지 않습니다. 
 
 일반적으로 콘텐츠 키 정책을 [스트리밍 로케이터](streaming-locators-concept.md)와 연결 합니다. 또는 고급 시나리오에 대 한 사용자 지정 스트리밍 정책을 만들 때 [스트리밍 정책](streaming-policy-concept.md) 내에서 콘텐츠 키 정책을 지정할 수 있습니다. 
-
-> [!NOTE]
-> `Datetime` 형식에 해당 하는 콘텐츠 키 정책의 속성은 항상 UTC 형식입니다.
 
 ## <a name="best-practices-and-considerations"></a>모범 사례 및 고려 사항
 
@@ -50,11 +47,16 @@ Media Services를 사용하면 Advanced Encryption Standard(AES-128) 또는 Micr
 
 ## <a name="example"></a>예제
 
-키를 가져오려면 `GetPolicyPropertiesWithSecretsAsync` [기존 정책에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) 예제에 표시 된 대로를 사용 합니다.
+키를 가져오려면 [기존 정책에서 서명 키 가져오기](get-content-key-policy-dotnet-howto.md#get-contentkeypolicy-with-secrets) 예제에 표시 된 대로 `GetPolicyPropertiesWithSecretsAsync`를 사용 합니다.
 
 ## <a name="filtering-ordering-paging"></a>필터링, 정렬, 페이징
 
 [Media Services 엔터티 필터링, 순서 지정, 페이징](entities-overview.md)을 참조하세요.
+
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* `Datetime` 유형의 콘텐츠 키 정책의 속성은 항상 UTC 형식입니다.
+* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

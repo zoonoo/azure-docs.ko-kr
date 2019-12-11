@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 12/06/2019
-ms.openlocfilehash: 5b1b85a0c600871cbedc478f3a56cf71ef8c2ca4
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 803deb9a4d9eaf02129bd16dd6465362b87b7e84
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931504"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74995918"
 ---
 # <a name="set-up-apache-hbase-cluster-replication-in-azure-virtual-networks"></a>Azure Virtual Network에서 Apache HBase 클러스터 복제 설정
 
@@ -275,6 +275,10 @@ sudo service bind9 status
 
 [Contacts](apache-hbase-tutorial-get-started-linux.md) 테이블을 만들고 이 테이블에 일부 데이터를 삽입하려면 **Apache HBase 자습서: HDInsight에서 Apache HBase 사용 시작**의 지침을 따르세요.
 
+> [!NOTE]
+> 사용자 지정 네임 스페이스에서 테이블을 복제 하려면 대상 클러스터에도 적절 한 사용자 지정 네임 스페이스가 정의 되어 있는지 확인 해야 합니다.
+>
+
 ## <a name="enable-replication"></a>복제 사용
 
 다음 단계에서는 Azure Portal에서 스크립트 동작 스크립트를 호출하는 방법을 설명합니다. Azure PowerShell과 Azure 클래식 CLI를 사용하여 스크립트 동작을 실행하는 방법에 대한 자세한 내용은 [스크립트 동작을 사용하여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md)을 참조하세요.
@@ -395,6 +399,10 @@ sudo service bind9 status
 - **지정된 테이블(table1, table2 및 table3)에서 복제를 사용하지 않도록 설정**:
 
         -m hn1 -s <source hbase cluster name> -sp <source cluster Ambari password> -t "table1;table2;table3"
+
+> [!NOTE]
+> 대상 클러스터를 삭제 하려는 경우 원본 클러스터의 피어 목록에서 제거 해야 합니다. 원본 클러스터의 hbase 셸에서 ' 1 ' remove_peer 명령을 실행 하 여이 작업을 수행할 수 있습니다. 이 문제가 발생 하면 원본 클러스터가 제대로 작동 하지 않을 수 있습니다.
+>
 
 ## <a name="next-steps"></a>다음 단계
 

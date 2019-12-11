@@ -11,34 +11,41 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2019
+ms.date: 12/09/2019
 ms.author: takamath
-ms.openlocfilehash: 080dd91b2ab6792debfae3a3ccc97b0927015de4
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: e2dd642139ae082cc0d0838e61399c549d2d812a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580144"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970787"
 ---
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>랩 가상 컴퓨터에서 브라우저 연결 사용 
-
 DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도록 하는 [Azure 방호](https://docs.microsoft.com/azure/bastion/)와 통합 됩니다. 먼저 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 해야 합니다.
 
-랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스 하도록 설정할 수 있습니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다. Azure Bastion은 SSL을 통해 Azure Portal에서 가상 머신에 대한 안전하고 원활한 RDP/SSH 연결을 직접 제공합니다. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.
+랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스 하도록 설정할 수 있습니다. 추가 클라이언트, 에이전트 또는 소프트웨어 부분이 필요 하지 않습니다. Az Azure Bastion biztonságos és zökkenőmentes RDP-/SSH-kapcsolatokat biztosít a virtuális gépeihez közvetlenül az Azure Portalon SSL használatával. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.
 
 
 이 문서에서는 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건 
-기존 랩의 가상 네트워크에 요새 호스트를 배포 **하거나,** 해당 랩에 방호 구성 VNet을 연결 합니다. 
+## <a name="prerequisites"></a>Előfeltételek 
+기존 랩의 가상 네트워크에 요새 호스트를 배포 **하거나,** 가상 네트워크로 랩을 연결 합니다. 
 
-VNet에 요새 호스트를 배포 하는 방법에 대 한 자세한 내용은 [Azure 방호 호스트 만들기 (미리 보기)](../bastion/bastion-create-host-portal.md)를 참조 하세요. 요새 호스트를 만들 때 랩의 가상 네트워크를 선택 합니다. 
+가상 네트워크에 요새 호스트를 배포 하는 방법을 알아보려면 [Azure 방호 호스트 만들기](../bastion/bastion-create-host-portal.md)를 참조 하세요. 요새 호스트를 만들 때 랩의 가상 네트워크를 선택 합니다. 
 
-랩을 구성 된 VNet에 연결 하는 방법을 알아보려면 [Azure DevTest Labs에서 가상 네트워크 구성](devtest-lab-configure-vnet.md)을 참조 하세요. 요새 호스트를 배포한 VNet 및 **AzureBastionSubnet** 를 선택 합니다. 세부 단계는 다음과 같습니다. 
+먼저, AzureBastionSubnet에서 비휘발성 리소스의 생성을 허용 하지 않기 때문에, 먼저 요새 가상 네트워크에서 두 번째 서브넷을 만들어야 합니다. 
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+## <a name="create-a-second-sub-net-in-the-bastion-virtual-network"></a>요새 가상 네트워크에서 두 번째 하위 net 만들기
+Azure 방호 서브넷에서 랩 Vm을 만들 수 없습니다. 다음 그림에 표시 된 것 처럼 요새 가상 네트워크 내에 다른 서브넷을 만듭니다.
+
+![Azure 방호 가상 네트워크의 두 번째 서브넷](./media/connect-virtual-machine-through-browser/second-subnet.png)
+
+## <a name="enable-vm-creation-in-the-subnet"></a>서브넷에서 VM 만들기를 사용 하도록 설정
+이제 다음 단계를 수행 하 여이 서브넷에서 Vm을 만들 수 있습니다. 
+
+1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
 1. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 합니다. 
-1. 목록에서 **DevTest Labs** 를 선택 합니다. 
+1. Válassza a **DevTest Labs** elemet a listából. 
 1. 랩 목록에서 *랩을*선택 합니다. 
 
     > [!NOTE]
@@ -47,25 +54,25 @@ VNet에 요새 호스트를 배포 하는 방법에 대 한 자세한 내용은 
 1. 왼쪽 메뉴의 **설정** 섹션에서 **구성 및 정책** 을 선택 합니다. 
 1. **가상 네트워크**를 선택 합니다.
 1. 도구 모음에서 **추가** 를 선택 합니다. 
-1. 요새 호스트가 배포 된 **VNet** 을 선택 합니다. 
-1. 서브넷: **AzureBastionSubnet**을 선택 합니다. 
+1. 요새 호스트가 배포 된 **가상 네트워크** 를 선택 합니다. 
+1. 이전에 만든 다른 **AzureBastionSubnet**아닌 vm에 대 한 서브넷을 선택 합니다. 페이지를 닫고 아래쪽의 목록에 서브넷이 표시 되지 않으면 다시 엽니다. 
 
-    ![서브넷](./media/enable-browser-connection-lab-virtual-machines/subnet.png)
+    ![서브넷에서 VM 만들기를 사용 하도록 설정](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. **가상 컴퓨터 만들기 옵션에서 사용을** 선택 합니다. 
-1. 도구 모음에서 **저장**을 선택합니다. 
-1. 랩에 대 한 이전 VNet이 있는 경우 * *...* 를 선택 하 여 제거 합니다.  **제거**합니다. 
+1. Válassza az eszköztár **Save** (Mentés) elemét. 
+1. 랩에 대 한 이전 가상 네트워크가 있는 경우 * *...* 를 선택 하 여 제거 합니다.  **제거**합니다. 
 
 ## <a name="enable-browser-connection"></a>브라우저 연결 사용 
 
-랩 내에서 요새를 구성 하는 경우 랩 소유자는 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정할 수 있습니다.
+랩 내에서 가상 네트워크를 랩 소유자로 구성 하면 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정할 수 있습니다.
 
 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 *랩*으로 이동 합니다.
-1. **구성 및 정책**을 선택합니다.
-1. **설정**에서 **브라우저 연결 (미리 보기)** 을 선택 합니다.
+1. **구성 및 정책을**선택 합니다.
+1. **설정**에서 **브라우저 연결**을 선택 합니다. 이 옵션이 표시 되지 않으면 **구성 정책** 페이지를 닫고 다시 엽니다. 
 
     ![브라우저 연결 사용](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 브라우저를 사용 하 여 Vm에 연결 하는 방법을 알아보려면 브라우저를 [통해 가상 머신에](connect-virtual-machine-through-browser.md) 연결 하는 방법을 알아보려면 다음 문서를 참조 하세요.

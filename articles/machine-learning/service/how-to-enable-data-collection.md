@@ -11,19 +11,19 @@ ms.author: copeters
 author: lostmygithubaccount
 ms.date: 11/12/2019
 ms.custom: seodec18
-ms.openlocfilehash: 10a150a64a058a4bf346f07e2ef298c974641256
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ef1249a601334cc198662b90da95623247190e7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901309"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978188"
 ---
-# <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델용 데이터 수집
+# <a name="collect-data-for-models-in-production"></a>프로덕션 환경에서 모델에 대 한 데이터 수집
 
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 >[!IMPORTANT]
-> Azure Machine Learning 모니터링 SDK는 곧 사용이 중지 될 예정입니다. SDK는 모델에서 데이터 드리프트를 모니터링 하는 개발자에 게 적합 합니다. 하지만 대부분의 개발자는 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)을 사용 해야 합니다.
+> Azure Machine Learning 모니터링 SDK는 곧 사용이 중지 될 예정입니다. SDK는 현재 SDK를 사용 하 여 모델의 데이터 드리프트를 모니터링 하는 개발자에 게 적합 합니다. 그러나 새 고객의 경우 [Application Insights로 간소화 된 데이터 모니터링](https://docs.microsoft.com/azure/machine-learning/service/how-to-enable-app-insights)을 사용 하는 것이 좋습니다.
 
 이 문서에서는 Azure Machine Learning에서 입력 모델 데이터를 수집 하는 방법을 보여 줍니다. 또한 azure Kubernetes 서비스 (AKS) 클러스터에 입력 데이터를 배포 하 고 Azure Blob 저장소에 출력 데이터를 저장 하는 방법을 보여 줍니다.
 
@@ -37,18 +37,18 @@ ms.locfileid: "74901309"
 
 ## <a name="what-is-collected-and-where-it-goes"></a>수집 되는 내용 및 진행 위치
 
-다음 데이터를 수집할 수 있습니다.
+수집할 수 있는 데이터는 다음과 같습니다.
 
 * AKS 클러스터에 배포 된 웹 서비스의 입력 데이터를 모델링 합니다. 음성 오디오, 이미지 및 비디오는 수집 *되지 않습니다* .
   
-* 프로덕션 입력 데이터를 사용하는 모델 예측
+* 프로덕션 입력 데이터를 사용 하 여 예측을 모델링 합니다.
 
 >[!NOTE]
 > 이 데이터에 대 한 Preaggregation 및 precalculations는 현재 수집 서비스의 일부가 아닙니다.
 
 출력은 Blob 저장소에 저장 됩니다. 데이터가 Blob 저장소에 추가 되기 때문에 원하는 도구를 선택 하 여 분석을 실행할 수 있습니다.
 
-Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
+Blob의 출력 데이터에 대 한 경로는 다음 구문을 따릅니다.
 
 ```
 /modeldata/<subscriptionid>/<resourcegroup>/<workspace>/<webservice>/<model>/<version>/<designation>/<year>/<month>/<day>/data.csv
@@ -58,9 +58,9 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 >[!NOTE]
 > 0\.1.0 a16 이전 버전의 Python에 대 한 Azure Machine Learning SDK 버전에서는 `designation` 인수의 이름이 `identifier`됩니다. 이전 버전을 사용 하 여 코드를 개발한 경우 적절 하 게 업데이트 해야 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>Előfeltételek
 
-- Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://aka.ms/AMLFree)을 만듭니다.
+- Ha nem rendelkezik Azure-előfizetéssel, mindössze néhány perc alatt létrehozhat egy [ingyenes fiókot](https://aka.ms/AMLFree) a virtuális gép létrehozásának megkezdése előtt.
 
 - AzureMachine Learning 작업 영역, 스크립트를 포함 하는 로컬 디렉터리 및 Python 용 Azure Machine Learning SDK가 설치 되어 있어야 합니다. 이를 설치 하는 방법에 대 한 자세한 내용은 [개발 환경을 구성](how-to-configure-environment.md)하는 방법을 참조 하세요.
 
@@ -70,7 +70,7 @@ Blob에서 출력 데이터의 경로 형식은 다음 구문을 따릅니다.
 
 - [환경을 설정](how-to-configure-environment.md) 하 고 [Azure Machine Learning 모니터링 SDK](https://aka.ms/aml-monitoring-sdk)를 설치 합니다.
 
-## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
+## <a name="enable-data-collection"></a>Az adatgyűjtés engedélyezése
 
 Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 관계 없이 데이터 수집을 사용 하도록 설정할 수 있습니다.
 
@@ -78,13 +78,13 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 점수 매기기 파일을 엽니다.
 
-1. 파일 맨 위에 [다음 코드](https://aka.ms/aml-monitoring-sdk)를 추가합니다.
+1. 파일 맨 위에 [다음 코드](https://aka.ms/aml-monitoring-sdk) 를 추가 합니다.
 
    ```python 
    from azureml.monitoring import ModelDataCollector
    ```
 
-1. `init` 함수에서 데이터 수집 변수를 선언합니다.
+1. `init` 함수에서 데이터 컬렉션 변수를 선언 합니다.
 
     ```python
     global inputs_dc, prediction_dc
@@ -96,7 +96,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
     
     *식별자* 매개 변수는 나중에 blob에서 폴더 구조를 작성 하는 데 사용 됩니다. 이를 사용 하 여 원시 데이터를 처리 된 데이터와 구분할 수 있습니다.
 
-1. `run(input_df)` 함수에 다음 코드 줄을 추가합니다.
+1. `run(input_df)` 함수에 다음 코드 줄을 추가 합니다.
 
     ```python
     data = np.array(data)
@@ -137,7 +137,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
 
-## <a name="disable-data-collection"></a>데이터 수집 비활성화
+## <a name="disable-data-collection"></a>Adatgyűjtés letiltása
 
 언제 든 지 데이터 수집을 중지할 수 있습니다. Python 코드 또는 Azure Machine Learning를 사용 하 여 데이터 수집을 사용 하지 않도록 설정 합니다.
 
@@ -155,7 +155,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![데이터 수집 확인란의 선택을 취소 합니다.](media/how-to-enable-data-collection/UncheckDataCollection.png)](./media/how-to-enable-data-collection/UncheckDataCollection.png#lightbox)
 
-1. **업데이트**를 선택하여 변경 내용을 적용합니다.
+1. **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
 
 [Azure Machine Learning](https://ml.azure.com)의 작업 영역에서 이러한 설정에 액세스할 수도 있습니다.
 
@@ -176,7 +176,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 작업 영역을 엽니다.
 
-1. **스토리지**를 선택합니다.
+1. Válassza a **Storage** lehetőséget.
 
     [저장소 옵션 ![선택 합니다.](media/how-to-enable-data-collection/StorageLocation.png)](./media/how-to-enable-data-collection/StorageLocation.png#lightbox)
 
@@ -195,7 +195,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [blob 설치 ![Power BI](media/how-to-enable-data-collection/PBIBlob.png)](./media/how-to-enable-data-collection/PBIBlob.png#lightbox)
 
-1. 스토리지 계정 이름을 추가하고 스토리지 키를 입력합니다. Blob에서 **설정** > **액세스 키** 를 선택 하 여이 정보를 찾을 수 있습니다.
+1. 저장소 계정 이름을 추가 하 고 저장소 키를 입력 합니다. Blob에서 **설정** > **액세스 키** 를 선택 하 여이 정보를 찾을 수 있습니다.
 
 1. **모델 데이터** 컨테이너를 선택 하 고 **편집**을 선택 합니다.
 
@@ -213,7 +213,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Power BI 콘텐츠](media/how-to-enable-data-collection/pbiContent.png)](./media/how-to-enable-data-collection/pbiContent.png#lightbox)
 
-1. **확인**을 선택합니다. 데이터 로드입니다.
+1. Kattintson az **OK** gombra. 데이터 로드입니다.
 
     [파일 결합 ![Power BI](media/how-to-enable-data-collection/pbiCombine.png)](./media/how-to-enable-data-collection/pbiCombine.png#lightbox)
 
@@ -221,13 +221,13 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
 1. 입력 및 예측을 추가한 경우 테이블은 **RequestId** 값을 기준으로 자동으로 정렬 됩니다.
 
-1. 모델 데이터에 대한 사용자 지정 보고서 빌드를 시작합니다.
+1. 모델 데이터에 대 한 사용자 지정 보고서 작성을 시작 합니다.
 
 ### <a name="analyze-model-data-using-azure-databricks"></a>Azure Databricks를 사용 하 여 모델 데이터 분석
 
 1. [Azure Databricks 작업 영역](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal)을 만듭니다.
 
-1. Databricks 작업 영역으로 이동합니다.
+1. Databricks 작업 영역으로 이동 합니다.
 
 1. Databricks 작업 영역에서 **데이터 업로드**를 선택 합니다.
 
@@ -237,7 +237,7 @@ Azure Machine Learning 또는 다른 도구를 통해 배포 하는 모델에 �
 
     [![Databricks 테이블 만들기](media/how-to-enable-data-collection/dbtable.PNG)](./media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. 데이터의 위치를 업데이트 합니다. 다음은 예제입니다.
+1. 데이터의 위치를 업데이트 합니다. Például:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

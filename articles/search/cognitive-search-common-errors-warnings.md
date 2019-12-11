@@ -1,5 +1,5 @@
 ---
-title: 인덱서 오류 및 경고
+title: Indexelőkkel kapcsolatos hibák és figyelmeztetések
 titleSuffix: Azure Cognitive Search
 description: 이 문서에서는 Azure Cognitive Search의 AI 보강 중 발생할 수 있는 일반적인 오류 및 경고에 대 한 정보 및 솔루션을 제공 합니다.
 manager: nitinme
@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 472c4a75f5a4253220383ae79d88d5b90cec4795
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: fb8aec10d58ed4f2eca462774aeaf61f2ea21dd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74555040"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973971"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -32,12 +32,12 @@ ms.locfileid: "74555040"
 
 API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원인 및 다음 단계를 보다 명확 하 게 이해할 수 있도록 구조화 되어 있습니다. 여기에는 다음 속성이 포함 됩니다.
 
-| 자산 | 설명 | 예제 |
+| Tulajdonság | Leírás | Példa |
 | --- | --- | --- |
-| key | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
-| 이름 | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e myOutputFieldName KnowledgeStore. myTableName |
-| Message | 오류 또는 경고에 대 한 개략적인 설명입니다. | 웹 Api 요청이 실패 했으므로 기술을 실행할 수 없습니다. |
-| 세부 정보 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
+| kulcs | 오류 또는 경고의 영향을 받는 문서의 문서 ID입니다. | https:\//coromsearch.blob.core.windows.net/jfk-1k/docid-32112954.pdf |
+| név | 오류 또는 경고가 발생 한 위치를 설명 하는 작업 이름입니다. 이는 다음과 같은 구조 [category]에 의해 생성 됩니다. [하위 범주]. [resourceType]. ResourceName | DocumentExtraction. mySkillName 프로젝션. n a m e. n a m e. n a m e myOutputFieldName KnowledgeStore. myTableName |
+| message | 오류 또는 경고에 대 한 개략적인 설명입니다. | 웹 Api 요청이 실패 했으므로 기술을 실행할 수 없습니다. |
+| details 정보 | 사용자 지정 기술을 실행 하지 못한 경우 WebApi 응답과 같이 문제를 진단 하는 데 도움이 될 수 있는 추가 세부 정보입니다. | `link-cryptonyms-list - Error processing the request record : System.ArgumentNullException: Value cannot be null. Parameter name: source at System.Linq.Enumerable.All[TSource](IEnumerable`1 소스, Func`2 predicate) at Microsoft.CognitiveSearch.WebApiSkills.JfkWebApiSkills.` ... 스택 추적의 나머지 ... |
 | documentationLink | 문제를 디버그 하 고 해결 하기 위한 자세한 정보가 포함 된 관련 설명서에 대 한 링크입니다. 이 링크는 종종이 페이지에서 아래 섹션 중 하나를 가리킵니다. | https://go.microsoft.com/fwlink/?linkid=2106475 |
 
 <a name="could-not-read-document"/>
@@ -46,18 +46,18 @@ API 버전 `2019-05-06`부터 항목 수준 인덱서 오류 및 경고는 원�
 
 인덱서가 데이터 소스에서 문서를 읽을 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
 | 여러 문서에서 일치 하지 않는 필드 형식 | 값의 형식이 열 형식과 일치 하지 않습니다. 작성자 열에 `'{47.6,-122.1}'`를 저장할 수 없습니다.  필요한 형식은 JArray입니다. | 각 필드의 형식이 서로 다른 문서에서 동일한 지 확인 합니다. 예를 들어 첫 번째 문서 `'startTime'` 필드가 DateTime이 고 두 번째 문서에서 문자열이 면이 오류가 발생 합니다. |
 | 데이터 원본의 기본 서비스에서 발생 한 오류 | (Cosmos DB) `{"Errors":["Request rate is large"]}` | 저장소 인스턴스를 확인 하 여 정상 상태 인지 확인 합니다. 크기 조정/분할을 조정 해야 할 수 있습니다. |
-| 일시적인 문제 | 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 일시적인 문제 | 서버에서 결과를 수신 하는 동안 전송 수준 오류가 발생 했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
 <a name="could-not-extract-document-content"/>
 
 ## <a name="error-could-not-extract-document-content"></a>오류: 문서 콘텐츠를 추출할 수 없습니다.
 Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추출할 수 없습니다 (예: PDF 파일). 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
 | blob이 크기 제한을 초과 합니다. | 문서가 현재 서비스 계층의 문서 추출에 대 한 최대 크기 `'134217728'` 바이트를 초과 하는 `'150441598'` 바이트입니다. | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | blob의 콘텐츠 형식이 지원 되지 않습니다. | 문서에 지원 되지 않는 콘텐츠 형식이 있습니다 `'image/png'` | [blob 인덱싱 오류](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
@@ -69,22 +69,22 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 ## <a name="error-could-not-parse-document"></a>오류: 문서를 구문 분석할 수 없습니다.
 인덱서는 데이터 소스에서 문서를 읽었지만 문서 콘텐츠를 지정 된 필드 매핑 스키마로 변환 하는 동안 문제가 발생 했습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
 | 문서 키가 없습니다. | 문서 키를 누락 하거나 비워 둘 수 없습니다. | 모든 문서에 유효한 문서 키가 있는지 확인 |
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
 | 필드에 필드 매핑을 적용할 수 없습니다. | 매핑 함수 `'functionName'` `'fieldName'`필드에 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
-| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 열 `'fieldName'`의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 열 `'fieldName'`의 값을 읽을 수 없습니다. 서버에서 결과를 수신 하는 동안 전송 수준 오류가 발생 했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
 <a name="could-not-execute-skill"/>
 
 ## <a name="error-could-not-execute-skill"></a>오류: 기술을 실행할 수 없습니다.
 인덱서가 기술에서 기술을 실행할 수 없습니다.
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
-| 일시적인 연결 문제 | 일시적인 오류가 발생 했습니다. 나중에 다시 시도하세요. | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
-| 잠재적 제품 버그 | 예기치 않은 오류가 발생했습니다. | 이것은 알 수 없는 오류 클래스를 나타내며 제품 버그가 있음을 의미할 수 있습니다. 도움을 받으려면 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오. |
+| 일시적인 연결 문제 | 일시적인 오류가 발생 했습니다. Később próbálja meg újra. | 예기치 않은 연결 문제가 발생 하는 경우도 있습니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 잠재적 제품 버그 | Váratlan hiba történt. | 이것은 알 수 없는 오류 클래스를 나타내며 제품 버그가 있음을 의미할 수 있습니다. 도움을 받으려면 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하십시오. |
 | 실행 중에 기술에 오류가 발생 했습니다. | (병합 기술) 하나 이상의 오프셋 값이 잘못 되었으며 구문 분석할 수 없습니다. 항목이 텍스트 끝에 삽입 되었습니다. | 오류 메시지의 정보를 사용 하 여 문제를 해결할 수 있습니다. 이러한 종류의 오류는 해결할 조치가 필요 합니다. |
 
 <a name="could-not-execute-skill-because-the-web-api-request-failed"/>
@@ -107,7 +107,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 기본 제공 인식 기술에 대 한 동일한 문서에서이 오류가 계속 표시 되는 경우 [지원 티켓](https://ms.portal.azure.com/#create/Microsoft.Support) 을 제출 하 여 지원을 받으세요.
 
-### <a name="custom-skills"></a>사용자 지정 기술
+### <a name="custom-skills"></a>Egyéni készségek
 만든 사용자 지정 기술에 시간 초과 오류가 발생 하는 경우 몇 가지 작업을 수행해 볼 수 있습니다. 먼저 사용자 지정 기술을 검토 하 고 무한 루프에서 중단 되 고 결과를 일관 되 게 반환 하는지 확인 합니다. 이를 확인 한 후에는 기술 실행 시간을 결정 합니다. 사용자 지정 기술 정의에 `timeout` 값을 명시적으로 설정 하지 않은 경우 기본 `timeout` 30 초입니다. 30 초가 너무 길어서 기술 실행에 충분 하지 않은 경우 사용자 지정 기술 정의에 더 높은 `timeout` 값을 지정할 수 있습니다. 다음은 시간 제한이 90 초로 설정 된 사용자 지정 기술 정의의 예입니다.
 
 ```json
@@ -140,14 +140,14 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 문서를 읽고 처리 했지만 인덱서가 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
 | 필드에 너무 많은 용어가 있습니다. | 문서의 용어가 [32 KB 제한](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | 필드가 필터링 가능, 패싯 가능 또는 정렬 가능으로 구성 되지 않도록 하 여이 제한을 피할 수 있습니다.
 | 문서가 너무 커서 인덱싱할 수 없습니다. | 문서가 [최대 api 요청 크기](search-limits-quotas-capacity.md#api-request-limits) 보다 큽니다. | [대량 데이터 집합을 인덱싱하는 방법](search-howto-large-index.md)
 | 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
-| 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생 했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
+| 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. Ismeretlen hiba történt. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
 | 네트워크 문제로 인해 대상 인덱스에 대해 수행 된 인덱싱 요청이 시간 제한 기간 내에 승인 되지 않았습니다. | 적시에 검색 인덱스에 대 한 연결을 설정할 수 없습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다. 또한이 오류 조건이 지속 되는 경우 인덱서 [일괄 처리 크기](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) 를 줄여 보세요.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
@@ -156,7 +156,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 문서를 읽고 처리 했지만 인덱스 필드의 구성과 인덱서가 추출 하는 데이터의 특성이 일치 하지 않기 때문에 검색 인덱스에 추가할 수 없습니다. 이 문제는 다음과 같은 경우에 발생할 수 있습니다.
 
-| 이유 | 세부 정보/예제
+| Ok | 세부 정보/예제
 | --- | ---
 | 인덱서에 의해 추출 된 필드의 데이터 형식이 해당 대상 인덱스 필드의 데이터 모델과 호환 되지 않습니다. | '_Data_' 키가 있는 문서의 '_data_' 데이터 필드에 잘못 된 값 ' Type ' Edm. 문자열 ' '이 (가) 있습니다. 필요한 형식은 ' Collection (Edm. String) ' 이었습니다. |
 | 문자열 값에서 JSON 엔터티를 추출 하지 못했습니다. | '_Data_' 필드의 ' ' 형식 ' ' 값을 JSON 개체로 구문 분석할 수 없습니다. 오류: ' 값을 구문 분석 한 후 예기치 않은 문자가 발견 되었습니다. ' '. 경로 '_path_', 줄 1, 위치 3162. ' |
@@ -195,7 +195,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 }
 ```
 
-| 이유 | 세부 정보/예제 | 해상도 |
+| Ok | 세부 정보/예제 | Felbontás |
 | --- | --- | --- |
 | 기술 입력의 형식이 잘못 되었습니다. | 필요한 기술 입력 `X` `String`필요한 유형이 아닙니다. 필요한 기술 입력 `X`은 (는) 예상 된 형식이 아닙니다. | 특정 기술에는 특정 형식의 입력이 필요 합니다. 예를 들어 [감정 기술](cognitive-search-skill-sentiment.md) 에는 `text` 문자열이 필요 합니다. 입력에서 문자열이 아닌 값을 지정 하는 경우 기술은 실행 되지 않으며 출력을 생성 하지 않습니다. 데이터 집합에 형식에서 입력 값이 균일 한지 확인 하거나 [사용자 지정 웹 API 기술을](cognitive-search-custom-skill-web-api.md) 사용 하 여 입력을 전처리 합니다. 배열에 대 한 기술을 반복 하는 경우 기술 컨텍스트를 확인 하 고 입력 `*` 올바른 위치에 있어야 합니다. 일반적으로 컨텍스트와 입력 소스는 모두 배열에 대 한 `*`로 끝나야 합니다. |
 | 기술 입력이 누락 되었습니다. | 필요한 기술 입력 `X` 누락 되었습니다. | 모든 문서에서이 경고가 표시 되는 경우 입력 경로에 오타가 있을 가능성이 가장 높습니다. 경로에 대 한 속성 이름 대/소문자 구분, 추가 또는 누락 `*`, 데이터 원본에서의 문서는 필요한 입력을 정의 해야 합니다. |
@@ -261,7 +261,7 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 
 이 경고는 Cosmos DB 데이터 원본에 대해서만 발생 합니다.
 
-인덱싱하는 동안 증분 진행률은 인덱서 실행이 일시적 오류 또는 실행 시간 제한에 의해 중단되었는지를 확인합니다. 인덱서는 처음부터 전체 컬렉션을 다시 인덱스하는 대신 다음으로 실행할 위치를 선택할 수 있습니다. 대규모 컬렉션을 인덱싱할 때 특히 유용합니다.
+인덱싱 중의 증분 진행률은 인덱서 실행이 일시적인 오류 또는 실행 시간 제한에 의해 중단 될 경우 인덱서는 전체 컬렉션을 처음부터 다시 인덱싱하는 대신 다음에 실행할 때 남은 위치를 선택할 수 있습니다. 이는 큰 컬렉션을 인덱싱할 때 특히 중요 합니다.
 
 완료 되지 않은 인덱싱 작업을 다시 시작 하는 기능은 문서를 `_ts` 열을 기준으로 정렬 하 여 설명 합니다. 인덱서는 타임 스탬프를 사용 하 여 다음에 선택할 문서를 결정 합니다. `_ts` 열이 없거나 인덱서가 사용자 지정 쿼리 정렬 여부를 확인할 수 없는 경우 인덱서는 시작 시 시작 되 고이 경고가 표시 됩니다.
 
@@ -307,3 +307,9 @@ Blob 데이터 원본이 포함 된 인덱서가 문서에서 콘텐츠를 추�
 바이트 순서 표시가 없는 경우 텍스트는 u t f-8로 인코딩된 것으로 간주 됩니다.
 
 이 경고를 해결 하려면이 blob에 대 한 텍스트 인코딩이 무엇 인지 확인 하 고 적절 한 바이트 순서 표시를 추가 합니다.
+
+<a name="cosmos-db-collection-has-a-lazy-indexing-policy"/>
+
+## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>경고: Cosmos DB 컬렉션 ' X '에 지연 인덱싱 정책이 있습니다. 일부 데이터가 손실 될 수 있습니다.
+
+[지연](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) 인덱싱 정책을 사용 하는 컬렉션은 일관 되 게 쿼리할 수 없습니다 .이로 인해 인덱서가 데이터를 누락 하 게 됩니다. 이 경고를 해결 하려면 인덱싱 정책을 일관 되 게 변경 합니다.

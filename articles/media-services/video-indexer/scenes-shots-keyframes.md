@@ -10,18 +10,18 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: 3740c42c6b6721af4d885f7b63ee4ca4e58f6fa6
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806717"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976607"
 ---
-# <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
+# <a name="scenes-shots-and-keyframes"></a>Jelenetek, felvételek és kulcsképkockák
 
 Video Indexer는 구조적 및 의미 체계 속성에 따라 임시 단위로 비디오를 조각화 하는 것을 지원 합니다. 이 기능을 통해 고객은 다양 한 세분성을 기준으로 비디오 콘텐츠를 쉽게 탐색, 관리 및 편집할 수 있습니다. 예를 들어이 항목에서 설명 하는 장면, 샷 및 키프레임을 기반으로 합니다.   
 
-![장면, 샷 및 키 프레임](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![Jelenetek, felvételek és kulcsképkockák](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  
 ## <a name="scene-detection"></a>장면 검색  
  
@@ -36,7 +36,7 @@ Video Indexer 인접 한 프레임의 색 구성표에서 급격 한 전환 및 
 
 ## <a name="keyframe-detection"></a>키 프레임 검색
 
-샷을 가장 잘 나타내는 프레임을 선택 합니다. 키 프레임은 미적 속성 (예: contrast 및 stableness)을 기반으로 전체 비디오에서 선택한 대표 프레임입니다. Video Indexer는 키 프레임 미리 보기를 추출할 수 있는 고객을 기반으로 하 여 샷의 메타 데이터의 일부로 키 프레임 Id 목록을 검색 합니다. 
+Video Indexer 각 샷을 가장 잘 나타내는 프레임을 선택 합니다. 키 프레임은 미적 속성 (예: contrast 및 stableness)을 기반으로 전체 비디오에서 선택한 대표 프레임입니다. Video Indexer는 높은 해상도 이미지로 키 프레임을 추출할 수 있는 고객을 기반으로 하 여 샷의 메타 데이터의 일부로 키 프레임 Id 목록을 검색 합니다.  
 
 ### <a name="extracting-keyframes"></a>키 프레임 풀기
 
@@ -127,6 +127,6 @@ Insights JSON의 개별 샷에 연결 된 샷 유형은 해당 편집 유형을 
 * 여러 얼굴: 세 명 이상이 있습니다.
 
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 [API에 의해 생성 된 Video Indexer 출력을 검사 합니다.](video-indexer-output-json-v2.md#scenes)

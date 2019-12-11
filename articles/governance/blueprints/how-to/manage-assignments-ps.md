@@ -3,12 +3,12 @@ title: PowerShell을 사용 하 여 할당을 관리 하는 방법
 description: 공식 Azure 청사진 PowerShell 모듈인 Az. 청사진을 사용 하 여 청사진 할당을 관리 하는 방법을 알아봅니다.
 ms.date: 09/30/2019
 ms.topic: how-to
-ms.openlocfilehash: 5e91197cac97475aa20df8fef8649d98d762d920
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 765ed5e1849443d6ac73fe4507327e97e4fdc4c2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873185"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973648"
 ---
 # <a name="how-to-manage-assignments-with-powershell"></a>PowerShell을 사용 하 여 할당을 관리 하는 방법
 
@@ -16,20 +16,20 @@ ms.locfileid: "74873185"
 
 ## <a name="add-the-azblueprint-module"></a>Az. 청사진 모듈을 추가 합니다.
 
-Azure PowerShell를 사용 하 여 청사진 할당을 관리 하려면 모듈을 추가 해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
+Azure PowerShell를 사용 하 여 청사진 할당을 관리 하려면 모듈을 추가 해야 합니다. 이 모듈은 로컬에 설치 된 PowerShell, [Azure Cloud Shell](https://shell.azure.com)또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 사용할 수 있습니다.
 
-### <a name="base-requirements"></a>기본 요구 사항
+### <a name="base-requirements"></a>Alapszintű követelmények
 
 Azure 청사진 모듈에는 다음 소프트웨어가 필요 합니다.
 
-- Azure PowerShell 1.5.0 이상입니다. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
-- PowerShellGet 2.0.1 이상 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/scripting/gallery/installing-psget)을 따릅니다.
+- Azure PowerShell 1.5.0 이상입니다. Ha még nincs telepítve, kövesse [ezeket az utasításokat](/powershell/azure/install-az-ps).
+- PowerShellGet 2.0.1-es vagy újabb verzió. Ha nincs telepítve vagy frissítve, kövesse [ezeket az utasításokat](/powershell/scripting/gallery/installing-psget).
 
 ### <a name="install-the-module"></a>모듈 설치
 
 PowerShell에 대 한 청사진 모듈은 **Az. 청사진**입니다.
 
-1. **관리자** PowerShell 프롬프트에서 다음 명령을 실행합니다.
+1. **관리** PowerShell 프롬프트에서 다음 명령을 실행 합니다.
 
    ```azurepowershell-interactive
    # Install the Blueprints module from PowerShell Gallery
@@ -247,6 +247,8 @@ $bpAssignment = New-AzBlueprintAssignment -Name 'my-blueprint-assignment' -Subsc
     -AssignmentFile '.\assignment.json'
 ```
 
+사용자 할당 관리 id에 대 한 JSON 할당 정의 파일의 예는 요청 본문을 참조 하세요. 예: REST API에 대 한 [사용자 할당 관리 id로 할당](/rest/api/blueprints/assignments/createorupdate#assignment-with-user-assigned-managed-identity) 합니다.
+
 ## <a name="update-blueprint-assignments"></a>청사진 할당 업데이트
 
 이미 만들어진 청사진 할당을 업데이트 해야 하는 경우도 있습니다. `Set-AzBlueprintAssignment` cmdlet은이 작업을 처리 합니다. Cmdlet은 `New-AzBlueprintAssignment` cmdlet이 수행 하는 것과 동일한 매개 변수를 대부분 사용 하 여 할당에 설정 된 모든 항목을 업데이트할 수 있도록 합니다. 예외는 _이름_, _청사진_및 _SubscriptionId_입니다. 제공 된 값만 업데이트 됩니다.
@@ -375,10 +377,10 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 #endregion
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
-- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
-- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
-- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
-- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
-- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결
+- Tudnivalók a [tervek életciklusáról](../concepts/lifecycle.md).
+- A [statikus és dinamikus paraméterek](../concepts/parameters.md) használatának elsajátítása.
+- A [tervekkel kapcsolatos műveleti sorrend](../concepts/sequencing-order.md) testreszabásának elsajátítása.
+- A [tervek erőforrás-zárolásának](../concepts/resource-locking.md) alkalmazásával kapcsolatos részletek.
+- A tervek hozzárendelése során felmerülő problémák megoldása [általános hibaelhárítással](../troubleshoot/general.md).

@@ -1,7 +1,7 @@
 ---
 title: ML 파이프라인 이란?
 titleSuffix: Azure Machine Learning
-description: 이 문서에서는 Python 용 Azure Machine Learning SDK를 사용 하 여 빌드할 수 있는 machine learning 파이프라인의 이점에 대해 알아봅니다. ML(Machine Learning) 파이프라인은 데이터 과학자가 기계 학습 워크플로를 빌드, 최적화 및 관리하는 데 사용됩니다.
+description: 이 문서에서는 Python 용 Azure Machine Learning SDK를 사용 하 여 빌드할 수 있는 기계 학습 (ML) 파이프라인의 이점에 대해 알아봅니다. Machine learning 파이프라인은 데이터 과학자에서 기계 학습 워크플로를 빌드, 최적화 및 관리 하는 데 사용 됩니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 21aa869d53a35ee974fb2f852b9be9b10eb929b0
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 84a01597570a488652e3db2345bdf68b52d4bf5b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112409"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973580"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
 Azure Machine Learning 파이프라인을 사용 하 여 Machine Learning 프로젝트에서 워크플로를 만들 수 있습니다. 이러한 워크플로에는 다음과 같은 다양 한 이점이 있습니다. 
 
-+ 단순성
-+ 속도
++ Egyszerűség
++ Gyorsaság
 + 반복성
-+ 유연성
++ Rugalmasság
 + 버전 관리 및 추적
 + 성과 
-+ 품질 보증
++ Minőségbiztosítás
 + 비용 제어
 
 이러한 이점은 machine learning 프로젝트가 순수한 탐색을 벗어나 반복으로 이동 하는 즉시 중요 합니다. 간단한 1 단계 파이프라인도 중요할 수 있습니다. 기계 학습 프로젝트는 종종 복잡 한 상태 이며 단일 워크플로의 정확한 이룰 있었습니다을 간단 하 게 처리할 수 있도록 하는 릴리프 일 수 있습니다.
@@ -40,20 +40,20 @@ Azure Machine Learning 파이프라인을 사용 하 여 Machine Learning 프로
 
 Azure 클라우드는 각각 다른 용도로 여러 다른 파이프라인을 제공 합니다. 다음 표에서는 다양 한 파이프라인 및 사용 되는 방법을 보여 줍니다.
 
-| 파이프라인 | 수행하는 작업 | 정식 파이프 |
+| Folyamat | Funkció | 정식 파이프 |
 | ---- | ---- | ---- |
 | 파이프라인 Azure Machine Learning | 기계 학습 시나리오에 대 한 템플릿으로 사용할 수 있는 재사용 가능한 기계 학습 워크플로를 정의 합니다. | 데이터 > 모델 |
-| [Azure Data Factory 파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | 작업을 수행 하는 데 필요한 데이터 이동, 변환 및 제어 작업을 그룹화 합니다.  | 데이터 > 데이터 |
+| [Azure Data Factory-folyamatok](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | 작업을 수행 하는 데 필요한 데이터 이동, 변환 및 제어 작업을 그룹화 합니다.  | 데이터 > 데이터 |
 | [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | 모든 플랫폼/모든 클라우드에 응용 프로그램의 지속적인 통합 및 전달  | 코드 > 앱/서비스 |
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Azure ML 파이프라인에서 수행할 수 있는 작업은 무엇 인가요?
 
-Azure Machine Learning 파이프라인은 전체 기계 학습 작업에 대해 독립적으로 실행 되는 워크플로입니다. 하위 작업은 파이프라인 내에서 일련의 단계로 캡슐화됩니다. Azure Machine Learning 파이프라인은 Python 스크립트를 호출 하는 것 처럼 간단할 수 있으므로 어떤 것 _이라도 수행할 수 있습니다._ 파이프라인은 다음과 같은 기계 학습 작업에 집중 _해야 합니다_ .
+Azure Machine Learning 파이프라인은 전체 기계 학습 작업에 대해 독립적으로 실행 되는 워크플로입니다. 하위 작업은 파이프라인 내에서 일련의 단계로 캡슐화 됩니다. Azure Machine Learning 파이프라인은 Python 스크립트를 호출 하는 것 처럼 간단할 수 있으므로 어떤 것 _이라도 수행할 수 있습니다._ 파이프라인은 다음과 같은 기계 학습 작업에 집중 _해야 합니다_ .
 
-+ 데이터 준비(가져오기, 유효성 검사 및 정리, 마이닝/변환, 정규화 및 준비 포함)
-+ 학습 구성(인수 매개 변수화, 파일 경로 및 구성 로깅/보고 포함)
-+ 효율적이고 반복적인 학습 및 유효성 검사(특정 데이터 하위 세트, 다른 하드웨어 컴퓨팅 리소스, 분산 처리 및 진행 상황 모니터링 지정 포함 가능)
-+ 배포(버전 관리, 크기 조정, 프로비저닝 및 액세스 제어 포함) 
++ 가져오기, 유효성 검사 및 정리, 마이닝 및 변환, 정규화, 준비 등의 데이터 준비
++ 매개 변수화 인수, filepaths 및 로깅/보고 구성을 비롯 한 학습 구성
++ 효율적이 고 repeatably 유효성을 검사 하 고, 특정 데이터 하위 집합, 다른 하드웨어 계산 리소스, 분산 처리 및 진행률 모니터링을 지정 하는 것이 포함 될 수 있습니다.
++ 버전 관리, 크기 조정, 프로 비전 및 액세스 제어를 포함 하는 배포 
 
 독립적인 단계를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있습니다. 또한 별도의 단계를 통해 각 단계에 서로 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.
 
@@ -119,7 +119,7 @@ Azure Machine Learning에서 계산 대상은 ML 단계가 수행 되는 환경�
 
 파이프라인을 시각적으로 디자인 하는 경우 단계의 입력 및 출력이 눈에 띄게 표시 됩니다. 데이터 연결을 끌어서 놓을 수 있으므로 파이프라인의 데이터 흐름을 빠르게 이해 하 고 수정할 수 있습니다.
  
-![Azure Machine Learning 디자이너 예](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
+![Azure Machine Learning 디자이너 예제](./media/concept-ml-pipelines/designer-drag-and-drop.gif)
 
 ### <a name="understanding-the-execution-graph"></a>실행 그래프 이해
 
@@ -185,7 +185,7 @@ pipeline_run.wait_for_completion()
 
 * 파이프라인 단계 간 과도 결합. 종속 단계를 리팩터링 하는 경우가 자주 이전 단계의 출력을 수정 해야 하는 경우에는 별도의 단계가 현재 혜택 보다 비용이 더 많이 들 수 있습니다. 단계가 과도 하 게 결합 됨을 나타내는 또 다른 단서는 데이터가 아닌 단계에 대 한 인수 이지만 처리를 제어 하는 플래그입니다. 
 
-* 계산 리소스를 조기에 최적화 합니다. 예를 들어 데이터를 준비 하는 데 몇 가지 단계를 수행 하는 경우가 종종 있습니다. 여기에는 병렬 프로그래밍을 위해 `MpiStep`를 사용할 수 있지만, 여기서는 강력 하지 않은 계산 대상이 포함 된 `PythonScriptStep`를 사용할 수 있는 위치가 있습니다. , "등이 있습니다. 그리고 장기 실행에서는 특히를 다시 계산 하는 대신 캐시 된 결과를 사용할 가능성이 있는 경우, 특히이 처럼 세분화 된 단계를 만들 수 있습니다. 그러나 파이프라인은 `multiprocessing` 모듈을 대체 하기 위한 것이 아닙니다. 
+* 계산 리소스를 조기에 최적화 합니다. 예를 들어 데이터를 준비 하는 데 몇 가지 단계를 수행 하는 경우가 종종 있습니다. 여기에는 병렬 프로그래밍을 위해 `MpiStep`를 사용할 수 있지만, 여기서는 강력 하지 않은 계산 대상이 포함 된 `PythonScriptStep`를 사용할 수 있는 위치가 있습니다. 그리고 장기 실행에서는 특히를 다시 계산 하는 대신 캐시 된 결과를 사용할 가능성이 있는 경우, 특히이 처럼 세분화 된 단계를 만들 수 있습니다. 그러나 파이프라인은 `multiprocessing` 모듈을 대체 하기 위한 것이 아닙니다. 
 
 프로젝트가 크거나 같은 배포를 받을 때까지 파이프라인은 세분화 된 것이 아니라 성긴 이어야 합니다. ML 프로젝트에서 _단계_ 를 포함 하 고 파이프라인을 통해 특정 단계를 통해 이동 하는 전체 워크플로를 제공 하는 경우 올바른 경로를 사용할 수 있습니다. 
 
@@ -193,16 +193,16 @@ pipeline_run.wait_for_completion()
 
 기계 학습 워크플로에 파이프라인을 사용 하는 경우의 주요 이점은 다음과 같습니다.
 
-|주요 장점|설명|
+|주요 장점|Leírás|
 |:-------:|-----------|
 |**무인&nbsp;실행**|안정적이 고 무인 방식으로 병렬로 실행 하거나 순서 대로 실행 하는 단계를 예약 합니다. 데이터 준비 및 모델링은 마지막 일 또는 몇 주, 그리고 파이프라인을 사용 하 여 프로세스가 실행 되는 동안 다른 작업에 집중할 수 있습니다. |
 |**다른 유형의 계산**|다른 유형의 확장 가능한 계산 리소스 및 저장소 위치에서 안정적으로 조정 된 여러 파이프라인을 사용 합니다. HDInsight, GPU 데이터 과학 Vm 및 Databricks 같은 다양 한 계산 대상에서 개별 파이프라인 단계를 실행 하 여 사용 가능한 계산 리소스를 효율적으로 사용 합니다.|
 |**재사용 가능**|재 학습 및 일괄 처리 점수 매기기와 같은 특정 시나리오에 대 한 파이프라인 템플릿을 만듭니다. 간단한 REST 호출을 통해 외부 시스템에서 게시 된 파이프라인을 트리거합니다.|
 |**추적 및 버전 관리**|반복하면서 데이터 및 결과 경로를 수동으로 추적하는 대신, Pipelines SDK를 사용하여 데이터 원본, 입력 및 출력의 이름과 버전을 명시적으로 지정합니다. 생산성 향상을 위해 스크립트와 데이터를 별도로 관리할 수도 있습니다.|
 | **성과** | 중요 한 영역을 분리 하 고 변경 내용을 격리 하면 소프트웨어 품질이 높은 속도로 향상 됩니다. | 
-|**작업할**|파이프라인을 통해 데이터 과학자는 기계 학습 디자인 프로세스의 모든 영역에서 공동 작업을 수행할 수 있으며 파이프라인 단계에서 동시에 작업할 수 있습니다.|
+|**Együttműködés**|파이프라인을 통해 데이터 과학자는 기계 학습 디자인 프로세스의 모든 영역에서 공동 작업을 수행할 수 있으며 파이프라인 단계에서 동시에 작업할 수 있습니다.|
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 Azure ML 파이프라인은 초기 개발 단계에서 가치를 제공 하기 시작 하는 강력한 기능입니다. 이 값은 팀과 프로젝트가 증가 함에 따라 증가 합니다. 이 문서에서는 Azure에서 Azure Machine Learning Python SDK 및 오케스트레이션를 사용 하 여 파이프라인을 지정 하는 방법에 대해 설명 했습니다. 몇 가지 기본 소스 코드를 확인 하 고 사용 가능한 몇 가지 `PipelineStep` 클래스에 도입 했습니다. Azure ML 파이프라인을 사용 하는 경우와 Azure가이를 실행 하는 방법을 이해 해야 합니다. 
 

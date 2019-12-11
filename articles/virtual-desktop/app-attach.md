@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: helohr
-ms.openlocfilehash: 54f2c39260ecaf643b0f2add8758ceb866e71afe
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: fde3ddf052e47e7550d15aba4ff26d32c91e34b9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561127"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972391"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -149,7 +149,7 @@ MSIX 용 VHD 또는 VHDX 패키지를 생성 하려면:
 
 3. 탑재 된 VHD로 이동 하 여 앱 폴더를 열고 패키지 콘텐츠가 있는지 확인 합니다.
 
-4. VHD를 분리 합니다.
+4. VHD를 분리합니다.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Windows 가상 데스크톱 인프라 구성
 
@@ -337,7 +337,7 @@ $path = "C:\Program Files\WindowsApps\" + $packageName + "\AppxManifest.xml"
 
 #region register
 
-Add-AppxPackage -Path \$path -DisableDevelopmentMode -Register
+Add-AppxPackage -Path $path -DisableDevelopmentMode -Register
 
 #endregion
 ```

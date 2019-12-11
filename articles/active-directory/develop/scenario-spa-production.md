@@ -1,5 +1,5 @@
 ---
-title: 단일 페이지 응용 프로그램 (프로덕션으로 이동)-Microsoft identity platform
+title: 단일 페이지 앱을 프로덕션으로 이동-Microsoft id 플랫폼 | Microsoft
 description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기 (프로덕션으로 이동)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb481c75323304d71f85a722fc45a9b634055
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: ba41b29cfcea2d9dfcab2cd552040eaffa4e90ff
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766109"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965282"
 ---
 # <a name="single-page-application-move-to-production"></a>단일 페이지 응용 프로그램: 프로덕션으로 이동
 
@@ -32,9 +32,9 @@ ms.locfileid: "74766109"
 
 ## <a name="test-your-integration"></a>통합 테스트
 
-[Microsoft ID 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트합니다.
+[Microsoft id 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 사용자를 로그인 하 고 MSAL를 사용 하 여 Microsoft Graph API를 호출 하는 액세스 토큰을 가져오는 방법에 대 한 코드를 설명 하는 빠른 시작 샘플을 자세히 설명 합니다.
 

@@ -1,6 +1,6 @@
 ---
-title: 포함 파일
-description: 포함 파일
+title: fájl belefoglalása
+description: fájl belefoglalása
 services: active-directory
 author: msaburnley
 ms.service: active-directory
@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/11/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 4a09389cfd9a5e61c1d73440545c76df7c9eadb2
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: d89240467d5ea5172d04c8eb187fe85d1b702723
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74566315"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981530"
 ---
 ## <a name="for-users-in-your-directory"></a>디렉터리의 사용자
 
 디렉터리의 사용자가이 액세스 패키지를 요청할 수 있도록 하려면 다음 단계를 수행 합니다. 요청 정책을 정의할 때 개별 사용자 또는 보다 일반적으로 사용자 그룹을 지정할 수 있습니다. 예를 들어 조직에 이미 **모든 직원과**같은 그룹이 있을 수 있습니다.  액세스를 요청할 수 있는 사용자에 대 한 정책에 해당 그룹이 추가 되 면 해당 그룹의 모든 멤버는 액세스를 요청할 수 있습니다.
 
-1. **Users who can request access**(액세스를 요청할 수 있는 사용자) 섹션에서 **For users in your directory**(디렉터리에 있는 사용자의 경우) 클릭합니다.
+1. 액세스를 **요청할 수 있는 사용자** 섹션에서 **디렉터리의 사용자를**클릭 합니다.
 
     이 옵션을 선택 하면 디렉터리에서이 액세스 패키지를 요청할 수 있는 사용자를 보다 구체화 하는 새로운 옵션이 표시 됩니다.
 
@@ -66,6 +66,7 @@ ms.locfileid: "74566315"
     | --- | --- |
     | **연결 된 특정 조직** | 관리자가 이전에 추가한 조직 목록에서 선택 하려면이 옵션을 선택 합니다. 선택한 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있습니다. |
     | **연결 된 모든 조직** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청할 수 있는 경우이 옵션을 선택 합니다. |
+    | **모든 사용자 (연결 된 모든 조직 + 모든 새 외부 사용자)** | 모든 연결 된 조직의 모든 사용자가이 액세스 패키지를 요청 하 고 B2B 허용 또는 거부 목록 설정이 새 외부 사용자에 우선 적용 되도록 하려면이 옵션을 선택 합니다. |
 
     연결 된 조직은 외부 Azure AD 디렉터리 또는 관계가 있는 도메인입니다.
 
@@ -96,7 +97,7 @@ ms.locfileid: "74566315"
 
 1. [요청 활성화](#enable-requests) 섹션으로 건너뜁니다.
 
-## <a name="approval"></a>승인
+## <a name="approval"></a>Jóváhagyás
 
 승인 섹션에서 사용자가이 액세스 패키지를 요청할 때 승인이 필요한 지 여부를 지정 합니다. 승인 설정은 다음과 같은 방식으로 작동 합니다.
 
@@ -205,4 +206,4 @@ ms.locfileid: "74566315"
 
     ![액세스 패키지-정책-정책 설정 사용](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
-1. **다음**을 누릅니다.
+1. Kattintson a **Tovább** gombra.

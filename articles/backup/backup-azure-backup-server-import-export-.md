@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 4c62fed98a37a821907a889e45d582c452961203
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173241"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996326"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
 
@@ -43,7 +43,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 > * SC DPM(System Center Data Protection Manager)을 사용하여 모든 워크로드 및 파일의 백업
 > * Microsoft Azure Backup Server를 사용하여 모든 워크로드 및 파일의 백업
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 오프라인 백업 워크플로를 시작하기 전에 다음 필수 구성 요소를 충족하는지 확인합니다.
 
@@ -218,4 +218,4 @@ Azure 가져오기 작업의 다양한 상태에 대한 자세한 내용은 [이
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
-* 워크플로에 대한 질문이 있으면 Azure Backup [FAQ](backup-azure-backup-faq.md) 의 오프라인 백업 섹션을 참조하세요.
+

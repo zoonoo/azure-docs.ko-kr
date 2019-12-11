@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/08/2019
 ms.author: juliako
-ms.openlocfilehash: 786aefbd8657046f18042defd71dfcb38528eecf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e00da689820778a8cc7c5ce95184d4d8c79c70f2
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74887954"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977712"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>진단 로그 Media Services 모니터링
 
@@ -26,32 +26,32 @@ ms.locfileid: "74887954"
 
 이 문서에서는 저장소 계정에 데이터를 라우팅하는 방법을 보여 주고 데이터를 확인 합니다. 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>Előfeltételek
 
-- [Media Services 계정 만들기](create-account-cli-how-to.md)
+- [Media Services 계정을 만듭니다](create-account-cli-how-to.md).
 - [모니터 Media Services 메트릭 및 진단 로그를](media-services-metrics-diagnostic-logs.md)검토 합니다.
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에 데이터 라우팅
 
-1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
-1. 에서 Media Services 계정으로 이동 하 고 **모니터**에서 **진단 설정** 을 클릭 합니다. 여기에 Azure Monitor를 통해 모니터링 데이터를 생성하는 구독에 있는 모든 리소스 목록이 표시됩니다. 
+1. Jelentkezzen be az Azure Portalra a https://portal.azure.com címen.
+1. 에서 Media Services 계정으로 이동 하 고 **모니터**에서 **진단 설정** 을 클릭 합니다. Itt láthatja az előfizetésben lévő összes olyan erőforrást, amely monitorozási adatokat készít az Azure Monitoron keresztül. 
 
-    ![진단 설정 섹션](media/media-services-diagnostic-logs/logs01.png)
+    ![Diagnosztikai beállítások szakasz](media/media-services-diagnostic-logs/logs01.png)
 
 1. **진단 설정 추가**를 클릭 합니다.
 
-   리소스 진단 설정은 특정 리소스에서 *어떤* 모니터링 데이터를 라우팅할지, 모니터링 데이터를 *어디로* 이동할지를 정의한 것입니다.
+   Az erőforrások diagnosztikai beállítása annak definíciója, hogy *milyen* monitorozási adatokat kell átirányítani egy adott erőforrásból, és *hová* kell kerülniük ezeknek a monitorozási adatoknak.
 
-1. 표시된 섹션에서 설정에 **이름**을 지정하고 **스토리지 계정에 보관** 상자를 선택합니다.
+1. A megjelenő szakaszban adjon egy **nevet** a beállításnak, és jelölje be az **Archiválás tárfiókba** jelölőnégyzetet.
 
     로그를 전송 하려는 저장소 계정을 선택 하 고 **확인**을 누릅니다.
-1. **로그** 및 **메트릭** 아래의 상자를 모두 선택합니다. 리소스 종류에 따라 이러한 옵션 중 하나를 포함할 수 있습니다. 이 확인란에 따라 선택한 대상(이 경우, 스토리지 계정)으로 보내지는 해당 리소스 종류에서 사용할 수 있는 로그 및 메트릭 데이터의 범주가 달라집니다.
+1. Jelölje be a **Napló** és a **Metrika** alatti jelölőnégyzeteket. Az erőforrás típusától függően előfordulhat, hogy csak az egyik lehetőség jelenik meg. Ezek a jelölőnégyzetek szabályozzák, hogy a napló- és metrikaadatok milyen, az erőforrástípushoz elérhető kategóriái kerülnek a kiválasztott célra, amely ebben az esetben a tárfiók.
 
-   ![진단 설정 섹션](media/media-services-diagnostic-logs/logs02.png)
-1. **보존 기간(일)** 슬라이더를 30으로 설정합니다. 이 슬라이더는 스토리지 계정에 모니터링 데이터를 보존할 일 수를 설정합니다. Azure Monitor는 지정된 일 수보다 오래된 데이터를 자동으로 삭제합니다. 보존 기간을 0일로 설정하면 데이터를 무기한 저장합니다.
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+   ![Diagnosztikai beállítások szakasz](media/media-services-diagnostic-logs/logs02.png)
+1. Állítsa a **Megőrzés (nap)** csúszkát a 30 értékre. Ez a csúszka beállítja a monitorozási adatok tárfiókban való megőrzésének időtartamát napokban. Az Azure Monitor automatikusan törli a megadott számú napnál régebbi adatokat. A nulla értékű megőrzési időszak határozatlan ideig tárolja az adatokat.
+1. Kattintson a **Save** (Mentés) gombra.
 
-이제 리소스의 모니터링 데이터가 스토리지 계정으로 이동합니다.
+Az erőforrás monitorozási adatai mostantól a tárfiókba kerülnek.
 
 ## <a name="route-data-to-the-storage-account-using-the-cli"></a>CLI를 사용 하 여 저장소 계정에 데이터 라우팅
 
@@ -73,7 +73,7 @@ az monitor diagnostic-settings create --name <diagnostic name> \
     }]'
 ```
 
-다음은 그 예입니다.
+Példa:
 
 ```cli
 az monitor diagnostic-settings create --name amsv3diagnostic \
@@ -85,16 +85,16 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 
 ## <a name="view-data-in-the-storage-account-using-the-portal"></a>포털을 사용 하 여 저장소 계정에서 데이터 보기
 
-이전 단계를 수행했다면 데이터가 스토리지 계정으로 이동하기 시작했습니다.
+Ha követte az előző lépéseket, az adatok elkezdtek a tárfiókba érkezni.
 
-스토리지 계정에 이벤트가 표시되려면 최대 5분 동안 기다려야 할 수 있습니다.
+Előfordulhat, hogy akár öt percet is várnia kell, mielőtt az esemény megjelenik a tárfiókban.
 
-1. 포털의 왼쪽 탐색 모음에서 찾아 **스토리지 계정** 섹션으로 이동합니다.
-1. 이전 섹션에서 만든 스토리지 계정을 식별하고 클릭합니다.
+1. A portálban navigáljon a bal oldali navigációs sávon található **Tárfiókok** szakaszhoz.
+1. Azonosítsa az előző szakaszban létrehozott tárfiókot, és kattintson rá.
 1. **Blob**을 클릭 한 다음 **keydeliveryrequests**라는 레이블이 지정 된 컨테이너에서를 클릭 합니다. 로그를 포함 하는 컨테이너입니다. 모니터링 데이터는 리소스 ID를 기준으로 한 다음 날짜 및 시간을 기준으로 컨테이너로 분류 됩니다.
-1. 리소스 ID, 날짜 및 시간에 해당하는 컨테이너를 클릭하여 PT1H.json 파일로 이동합니다. PT1H.json 파일을 클릭하고 **다운로드**를 클릭합니다.
+1. Az erőforrás-azonosító, dátum és idő tárolóiba kattintva keresse meg a PT1H.json fájlt. Kattintson a PT1H.json fájlra, majd a **Letöltés** gombra.
 
- 이제 스토리지 계정에 저장된 JSON 이벤트를 볼 수 있습니다.
+ Most megtekintheti a tárfiókban tárolt JSON-eseményt.
 
 ### <a name="examples-of-pt1hjson"></a>PT1H.JSON의 예
 
@@ -174,12 +174,16 @@ az monitor diagnostic-settings create --name amsv3diagnostic \
 }
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="additional-notes"></a>További megjegyzések
+
+* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+
+## <a name="see-also"></a>Lásd még:
 
 * [Azure Monitor 메트릭](../../azure-monitor/platform/data-platform.md)
 * [진단 로그 Azure Monitor](../../azure-monitor/platform/resource-logs-overview.md)
 * [Azure 리소스에서 로그 데이터를 수집 하 고 사용 하는 방법](../../azure-monitor/platform/resource-logs-overview.md)
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 [메트릭 모니터링](media-services-metrics-howto.md)

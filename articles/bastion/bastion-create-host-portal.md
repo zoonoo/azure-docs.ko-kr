@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 12/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 7838e1930a8ccd190c95740a6a8e3dadc68149f0
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 95f7d71c0de7570eee6e4c94e88fd65ff1d45ec8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422122"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973087"
 ---
 # <a name="create-an-azure-bastion-host"></a>Azure 방호 호스트 만들기
 
@@ -64,7 +64,7 @@ ms.locfileid: "74422122"
 
 기존 VM을 사용 하 여 포털에서 요새 호스트를 만드는 경우 다양 한 설정이 자동으로 가상 머신 및/또는 가상 네트워크에 해당 하는 기본값으로 설정 됩니다.
 
-1. [Azure 포털](https://portal.azure.com)을 엽니다. 가상 머신으로 이동한 다음 **연결**을 클릭 합니다.
+1. [Azure Portal](https://portal.azure.com)을 엽니다. 가상 머신으로 이동한 다음 **연결**을 클릭 합니다.
 
    ![VM 연결](./media/bastion-create-host-portal/vmsettings.png)
 1. 오른쪽 사이드바에서 **방호**를 클릭 한 다음, **요새를 사용**합니다.

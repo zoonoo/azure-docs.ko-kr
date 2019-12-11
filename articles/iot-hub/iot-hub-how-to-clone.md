@@ -2,18 +2,17 @@
 title: Azure IoT hub를 복제 하는 방법
 description: Azure IoT hub를 복제 하는 방법
 author: robinsh
-manager: philmea
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 12/09/2019
 ms.author: robinsh
-ms.openlocfilehash: 4d8771d49f30d94aeb6dfa855f5c2ef107076afb
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 6e4d110221c7f360e8177505de2a7789f9616d51
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083279"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976148"
 ---
 # <a name="how-to-clone-an-azure-iot-hub-to-another-region"></a>Azure IoT hub를 다른 지역에 복제 하는 방법
 
@@ -73,9 +72,7 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
    1. 템플릿으로 내보내지 않은 항목을 추가 합니다. 
    
        예를 들어 소비자 그룹을 템플릿으로 내보내지 않습니다. 소비자 그룹을 템플릿에 수동으로 추가 하거나 허브를 만든 후에 [Azure Portal](https://portal.azure.com) 을 사용 해야 합니다. [Azure Resource Manager 템플릿을 사용 하 여 IoT Hub 메시지 라우팅을 구성 하](tutorial-routing-config-message-routing-rm-template.md)는 문서의 템플릿에 소비자 그룹을 한 개 추가 하는 예제가 있습니다.
-
-       [메시지 강화](iot-hub-message-enrichments-overview.md) 템플릿으로 내보내지지 않습니다. 이러한 메시지는 라우팅 메시지와 함께 사용 되며 메시지 라우팅 구성을 업데이트할 때 새 허브에서 수동으로 업데이트 해야 합니다.
-
+       
    1. 원본 허브에서 클론으로 장치를 복사 합니다. [IoT hub에 등록 된 장치 관리](#managing-the-devices-registered-to-the-iot-hub)섹션에서 설명 합니다.
 
 ## <a name="how-to-handle-message-routing"></a>메시지 라우팅을 처리 하는 방법
@@ -104,16 +101,13 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
    * 허브와 라우팅 끝점 리소스가 동일한 위치에 있지 않기 때문에 성능이 저하 됩니다.
 
-> [!NOTE]
-> 허브에서 [메시지 향상 기능](iot-hub-message-enrichments-overview.md)을 사용 하는 경우 새 IoT hub를 리소스 관리자 템플릿으로 내보내지 않으므로 수동으로 설정 해야 합니다.
-
 ## <a name="prepare-to-migrate-the-hub-to-another-region"></a>허브를 다른 지역으로 마이그레이션 준비
 
 이 섹션에서는 허브 마이그레이션에 대 한 구체적인 지침을 제공 합니다.
 
 ### <a name="find-the-original-hub-and-export-it-to-a-resource-template"></a>원본 허브를 찾아 리소스 템플릿으로 내보냅니다.
 
-1. [Azure 포털](https://portal.azure.com)할 수 있습니다. 
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 
 1. **리소스 그룹** 으로 이동 하 여 이동 하려는 허브가 포함 된 리소스 그룹을 선택 합니다. **리소스** 로 이동 하 여 해당 방식으로 허브를 찾을 수도 있습니다. 허브를 선택 합니다.
 
@@ -353,13 +347,13 @@ IoT hub를 복제 하기 전에 고려해 야 할 몇 가지 사항이 있습니
 
 템플릿을 사용 하 여 새 위치에 새 허브를 만듭니다. 이동 하려는 라우팅 리소스가 있는 경우 새 위치에 리소스를 설정 하 고 템플릿의 참조를 일치 하도록 업데이트 해야 합니다. 라우팅 리소스를 이동 하지 않는 경우 업데이트 된 키를 사용 하 여 템플릿에 있어야 합니다.
 
-1. [Azure 포털](https://portal.azure.com)할 수 있습니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. **리소스 만들기**를 선택합니다. 
 
 1. 검색 상자에서 "템플릿 배포"를 입력 하 고 Enter 키를 선택 합니다.
 
-1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)를**선택 합니다. 그러면 템플릿 배포 화면으로 이동 합니다. **만들기**를 선택합니다. 이 화면이 표시 됩니다.
+1. **템플릿 배포 (사용자 지정 템플릿을 사용 하 여 배포)를**선택 합니다. 그러면 템플릿 배포 화면으로 이동 합니다. **만들기**를 선택합니다. 다음 화면이 표시됩니다.
 
    ![사용자 고유의 템플릿을 빌드하기 위한 명령을 보여 주는 스크린샷](./media/iot-hub-how-to-clone/iot-hub-custom-deployment.png)
 

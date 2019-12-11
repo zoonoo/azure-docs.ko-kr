@@ -4,17 +4,17 @@ description: 포함 파일
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 12/06/2019
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: dfe16b4e965670d115cfa92f1cb3ca812d6375ad
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: be46a0dda24dc990e895a3e983c730337f9cf31d
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72990844"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74981499"
 ---
 ### <a name="general-availability-and-preview-comparison"></a>일반 가용성 및 미리 보기 비교
 
@@ -28,7 +28,7 @@ ms.locfileid: "72990844"
 | Compute 논리 저장소 | 아닙니다. | 모델의 형식 변수에 저장 됩니다. |
 | 저장소 및 액세스 제어 | 아닙니다. | 모델을 통해 사용 |
 | 집계/샘플링 | 아닙니다. | 이벤트 가중치 및 시간 가중치 |
-| 신호 재구성 | 아닙니다. | 삽입할 |
+| 신호 재구성 | 아닙니다. | 보간 |
 | 파생 된 시계열의 프로덕션 | 아닙니다. | 예, 병합 및 조인 |
 | 언어 유연성 | 구성할 없는 | 가능 |
 | 식 언어 | 조건자 문자열 | 시계열 식 (조건자 문자열, 값, 식 및 함수) |

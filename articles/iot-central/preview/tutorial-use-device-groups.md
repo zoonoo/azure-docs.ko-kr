@@ -3,17 +3,17 @@ title: Azure IoT Central 응용 프로그램에서 장치 그룹 사용 | Micros
 description: 운영자로 서 장치 그룹을 사용 하 여 Azure IoT Central 응용 프로그램의 장치에서 원격 분석을 분석 하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/29/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 281806999b08c3babbb753459835850ad9d733eb
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 981046f9417876a68c215c6d01a63c7f0a634464
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73895437"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976216"
 ---
 # <a name="tutorial-use-device-groups-to-analyze-device-telemetry-preview-features"></a>자습서: 장치 그룹을 사용 하 여 장치 원격 분석 분석 (미리 보기 기능)
 
@@ -29,9 +29,9 @@ ms.locfileid: "73895437"
 > * 디바이스 그룹 만들기
 > * 장치 그룹을 사용 하 여 장치 원격 분석 분석
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
-시작 하기 전에 [Azure IoT Central 응용 프로그램 만들기](./quick-deploy-iot-central.md) 를 완료 하 고 시뮬레이션 된 [장치를 IoT Central 응용 프로그램 빠른 시작에 추가](./quick-create-pnp-device.md) 하 여 작업할 **환경 센서** 장치 템플릿을 만들어야 합니다.
+시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md) 빠른 시작을 완료하여 작업할 **환경 센서** 디바이스 템플릿을 만들어야 합니다.
 
 ## <a name="create-simulated-devices"></a>시뮬레이션 된 장치 만들기
 
@@ -67,7 +67,7 @@ ms.locfileid: "73895437"
 > [!NOTE]
 > Azure IoT Edge 장치에 대해 Azure IoT Edge 템플릿을 선택 하 여 장치 그룹을 만듭니다.
 
-## <a name="analytics"></a>분석
+## <a name="analytics"></a>분석기능
 
 장치 그룹에 **분석** 을 사용 하 여 그룹의 장치에서 원격 분석을 분석할 수 있습니다. 예를 들어 모든 Contoso 환경 센서가 보고 하는 평균 온도를 그릴 수 있습니다.
 

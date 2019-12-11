@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/17/2019
 ms.author: juliako
-ms.openlocfilehash: 862643cb4eb26d7d88aa81d05433066a927a69aa
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 068b8b0a6e248caa70a8f88ea55d07c30a9437f0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74424047"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997169"
 ---
 # <a name="migrate-from-windows-azure-media-encoder-to-media-encoder-standard"></a>Windows Azure Media Encoder에서 Media Encoder Standard로 마이그레이션
 
-이 문서에서는 2020 년 3 월 1 일에 사용 중지 되는 WAME (레거시 Windows Azure Media Encoder) 미디어 프로세서에서 Media Encoder Standard 미디어 프로세서로 마이그레이션하는 단계를 설명 합니다.
+이 문서에서는 2020 년 3 월 31 일에 사용이 중지 되는 WAME (레거시 Windows Azure Media Encoder) 미디어 프로세서에서 Media Encoder Standard 미디어 프로세서로 마이그레이션하는 단계를 설명 합니다.
 
 WAME을 사용 하 여 파일을 인코딩할 때 고객은 일반적으로 `H264 Adaptive Bitrate MP4 Set 1080p`와 같은 명명 된 사전 설정 문자열을 사용 했습니다. 마이그레이션하기 위해 코드를 업데이트 하 여 WAME 대신 **Media Encoder Standard** 미디어 프로세서를 사용 하 고 `H264 Multiple Bitrate 1080p`와 같은 해당 [시스템 사전 설정](media-services-mes-presets-overview.md) 중 하나를 사용 하도록 업데이트 해야 합니다. 
 
@@ -74,7 +74,7 @@ Media Encoder Standard 더 강력 하 고 안정적 이며, 더 나은 성능을
 * Media Encoder Standard는 [입력 파일 메타 데이터](media-services-input-metadata-schema.md) 및 [출력 파일 메타 데이터](media-services-output-metadata-schema.md)를 포함 하는 파일과 같은 아티팩트를 생성 합니다.
 * [가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/#encoding) (특히 FAQ 섹션)에 설명 된 대로 Media Encoder Standard를 사용 하 여 비디오를 인코딩하면 출력으로 생성 된 파일의 기간을 기준으로 요금이 청구 됩니다. WAME을 사용 하면 입력 비디오 파일의 크기와 출력 비디오 파일을 기준으로 요금이 청구 됩니다.
 
-## <a name="need-help"></a>도움 필요 시
+## <a name="need-help"></a>도움이 필요하십니까?
 
 [새 지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)으로 이동하여 지원 티켓을 열 수 있습니다.
 

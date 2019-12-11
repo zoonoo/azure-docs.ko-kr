@@ -1,25 +1,25 @@
 ---
 title: IoT 플러그 앤 플레이 Preview 리포지토리에 액세스 하기 위한 보안 토큰 생성 | Microsoft Docs
 description: IoT 플러그 앤 플레이 미리 보기 모델 리포지토리에 프로그래밍 방식으로 액세스할 때 사용할 공유 액세스 서명 토큰을 생성 합니다.
-author: YasinMSFT
-ms.author: yahajiza
+author: Philmea
+ms.author: philmea
 ms.date: 08/06/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: e5d6e7087a7e3d5f4a001e16c5cfa19a6df6a68e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f6c4f5b9784eeff9d03b6e93953674736fb78c6c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880541"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976029"
 ---
 # <a name="generate-sas-token"></a>SAS 토큰 생성
 
 이 방법 가이드에서는 IoT 플러그 앤 플레이 미리 보기 모델 리포지토리 Api와 함께 사용 하기 위해 프로그래밍 방식으로 SAS (공유 액세스 서명) 토큰을 생성 하는 방법을 보여 줍니다.
 
-## <a name="python"></a>Python
+## <a name="python"></a>파이썬
 
 다음 코드 조각은 Python을 사용 하 여 SAS 토큰을 생성 하는 방법을 보여 줍니다.
 
@@ -74,7 +74,7 @@ public static string generateSasToken(string hostName, string repoId, string key
 
 ## <a name="use-the-sas-token"></a>SAS 토큰 사용
 
-SAS 토큰을 생성 한 후에는이 토큰을 사용 하 여 HTTP POST 요청을 수행할 수 있습니다. 예를 들어:
+SAS 토큰을 생성 한 후에는이 토큰을 사용 하 여 HTTP POST 요청을 수행할 수 있습니다. 다음은 그 예입니다.
 
 ```text
 POST https:///models/{modelId}?repositoryId={repositoryId}&api-version=2019-07-01-preview

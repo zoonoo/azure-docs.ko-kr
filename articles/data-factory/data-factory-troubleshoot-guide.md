@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 8/26/2019
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 0026aa377a58f6b766a400860692a35440deb962
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 2ae0f3033b88b3229d3dbef35c8bc9a32510c00e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748367"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972339"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>문제 해결 Azure Data Factory
 
@@ -43,9 +43,9 @@ ms.locfileid: "73748367"
 
 - **권장 사항**: Databricks 활동에서 노트북 경로를 지정 합니다.
 
-<br/>    
-              
-- **메시지**: `Cluster   ... does not exist.`
+<br/>  
+
+- **메시지**: `Cluster... does not exist.`
 
 - **원인**: `Authoring error: Databricks cluster does not exist or has been deleted.`
 
@@ -53,7 +53,7 @@ ms.locfileid: "73748367"
 
 <br/>  
 
-- **메시지**: `Invalid Python file URI.... Please visit Databricks user guide for supported URI schemes.`
+- **메시지**: `Invalid Python file URI... Please visit Databricks user guide for supported URI schemes.`
 
 - **원인**: `Bad authoring.`
 
@@ -334,56 +334,56 @@ ms.locfileid: "73748367"
 
 ### <a name="error-code--4121"></a>오류 코드: 4121
 
-- **메시지**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인**: Azure ML 서비스에 액세스 하는 데 사용 된 자격 증명이 만료 되었습니다.
+- **원인**: Azure Machine Learning 액세스 하는 데 사용 된 자격 증명이 만료 되었습니다.
 
 - **권장 사항**: 자격 증명이 올바른지 확인 한 후 다시 시도 하세요.
 
 
 ### <a name="error-code--4122"></a>오류 코드: 4122
 
-- **메시지**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인**: Azure ML 서비스 연결 된 서비스에 제공 된 자격 증명이 잘못 되었거나 작업에 대 한 권한이 없습니다.
+- **원인**: 연결 된 Azure Machine Learning 서비스에서 제공 된 자격 증명이 잘못 되었거나 작업에 대 한 권한이 없습니다.
 
-- **권장 사항**: 연결 된 서비스의 자격 증명이 유효 하 고 Azure ML 서비스에 액세스할 수 있는 권한이 있는지 확인 하세요.
+- **권장 사항**: 연결 된 서비스의 자격 증명이 유효 하 고 Azure Machine Learning에 액세스할 수 있는 권한이 있는지 확인 하세요.
 
 
 ### <a name="error-code--4123"></a>오류 코드: 4123
 
-- **메시지**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인**: `Properties of the activity such as pipelineParamters are invalid for the Azure ML pipeline.`
+- **원인**: pipelineParameters와 같은 활동의 속성은 Azure ML 파이프라인에 대해 유효 하지 않습니다.
 
 - **권장 사항**: 활동 속성의 값을 확인 하 여 연결 된 서비스에 지정 된 게시 된 Azure ML 파이프라인의 예상 페이로드에 일치 하는지 확인 하세요.
 
 
 ### <a name="error-code--4124"></a>오류 코드: 4124
 
-- **메시지**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
 - **원인**: 게시 된 Azure ML 파이프라인 끝점이 없습니다.
 
-- **권장 사항**: 연결 된 서비스에 지정 된 게시 된 azure ml 파이프라인 끝점이 Azure ml 서비스에 있는지 확인 하세요.
+- **권장 사항**: Azure Machine Learning에 연결 된 서비스에 지정 된 게시 된 Azure Machine Learning 파이프라인 끝점이 있는지 확인 하세요.
 
 
 ### <a name="error-code--4125"></a>오류 코드: 4125
 
-- **메시지**: `Request sent to Azure ML Service for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure ML Service: '%externalMessage;'.`
+- **메시지**: `Request sent to Azure Machine Learning for operation '%operation;' failed with http status code '%statusCode;'. Error message from Azure Machine Learning: '%externalMessage;'.`
 
-- **원인**: Azure ML 서비스에서 서버 오류가 발생 했습니다.
+- **원인**: Azure Machine Learning에서 서버 오류가 발생 했습니다.
 
-- **권장 사항**: 나중에 다시 시도 하세요. 문제가 계속 되는 경우 Azure ML 서비스 팀에 문의 하 여 도움을 요청 하세요.
+- **권장 사항**: 나중에 다시 시도 하세요. 문제가 계속 되 면 Azure Machine Learning 팀에 도움을 요청 하세요.
 
 
 ### <a name="error-code--4126"></a>오류 코드: 4126
 
-- **메시지**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure ML Service for more error logs.`
+- **메시지**: `Azure ML pipeline run failed with status: '%amlPipelineRunStatus;'. Azure ML pipeline run Id: '%amlPipelineRunId;'. Please check in Azure Machine Learning for more error logs.`
 
 - **원인**: Azure ML 파이프라인 실행이 실패 했습니다.
 
-- **권장 사항**: 자세한 오류 로그를 확인 하 고 ml 파이프라인을 수정 하려면 Azure ML 서비스를 확인 하세요.
+- **권장 사항**: 자세한 오류 로그를 확인 하 고 ML 파이프라인을 수정 하려면 Azure Machine Learning를 확인 하세요.
 
 
 
@@ -471,7 +471,7 @@ ms.locfileid: "73748367"
 
 
 
-## <a name="custom"></a>사용자 지정
+## <a name="custom"></a>맞춤형 서비스
 
 다음 표는 Azure Batch에 적용 됩니다.
       
@@ -522,7 +522,7 @@ ms.locfileid: "73748367"
 
 ### <a name="error-code--2507"></a>오류 코드: 2507
 
-- **메시지**: `The folder path does not exist or is empty: ....`
+- **메시지**: `The folder path does not exist or is empty: ...`
 
 - **원인**: 저장소 계정에 지정 된 경로의 파일이 없습니다.
 
@@ -648,7 +648,7 @@ ms.locfileid: "73748367"
 - **원인**: 오류 메시지에 ' 원격 이름을 확인할 수 없습니다. '와 유사한 메시지가 포함 된 경우 제공 된 클러스터 URI가 잘못 된 것일 수 있습니다.
 
 
-- **권장 사항**: 클러스터가 삭제 되지 않았고 제공 된 URI가 올바른지 확인 합니다. 브라우저에서 URI를 열 때 Ambari UI가 표시 되어야 합니다. 클러스터가 가상 네트워크에 있는 경우 URI는 개인 URI 여야 합니다. 이를 열려면 동일한 가상 네트워크의 일부인 VM을 사용 합니다. 자세한 내용은 [이](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)항목을 참조 하세요.
+- **권장 사항**: 클러스터가 삭제 되지 않았고 제공 된 URI가 올바른지 확인 합니다. 브라우저에서 URI를 열 때 Ambari UI가 표시 되어야 합니다. 클러스터가 가상 네트워크에 있는 경우 URI는 개인 URI 여야 합니다. 이를 열려면 동일한 가상 네트워크의 일부인 VM을 사용 합니다. 자세한 내용은 [this](https://docs.microsoft.com/azure/hdinsight/hdinsight-plan-virtual-network-deployment#directly-connect-to-apache-hadoop-services)를 참조하세요.
                   
 
 <br>
@@ -668,12 +668,12 @@ ms.locfileid: "73748367"
 - **원인**: 오류 메시지에 ' 502-게이트웨이 또는 프록시 서버 역할을 하는 동안 잘못 된 응답을 받았습니다. '와 유사한 메시지가 포함 된 경우 HDInsight 서비스에서이 오류가 반환 됩니다.
 
 
-- **권장 사항**: Azure HDInsight 문제 해결 설명서 (예: https://hdinsight.github.io/ambari/ambari-ui-502-error.html, https://hdinsight.github.io/spark/spark-thriftserver-errors.html, https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502를 참조 하세요.
+- **권장 사항**: Azure HDInsight 문제 해결 설명서 (예: https://hdinsight.github.io/ambari/ambari-ui-502-error.html , https://hdinsight.github.io/spark/spark-thriftserver-errors.html , https://docs.microsoft.com/azure/application-gateway/application-gateway-troubleshooting-502 를 참조 하세요.
                   
 
 <br>
 
-- **원인**: 오류 메시지에 ' 전송 작업 요청을 서비스 하지 못했습니다. ' 또는 ' 큐 루트를 너무 많이 templeton 서비스를 사용 중 이므로이 메시지를 보낼 수 없습니다. joblauncher 관리자에 이미 500 응용 프로그램이 있으므로 다음의 제출을 허용할 수 없습니다. 응용 프로그램 '이는 동시에 너무 많은 작업을 HDInsight에 제출 하는 것을 의미 합니다.
+- **원인**: 오류 메시지에 ' 전송 작업 요청을 서비스 하지 못했습니다. ' 또는 ' 큐 루트를 너무 많이 templeton 서비스를 사용 중입니다. joblauncher 관리자에 이미 500 응용 프로그램이 있으므로 응용 프로그램 제출을 허용할 수 없습니다 .이는 동시에 HDInsight에 너무 많은 작업이 전송 됨을 의미 합니다.
 
 - **권장 사항**: HDInsight에 제출 되는 동시 작업 수를 제한 하는 것이 좋습니다. 동일한 작업을 통해 작업을 전송 하는 경우 Data Factory 작업 동시성을 참조 하세요. 동시 파이프라인 실행이 시간이 지남에 따라 분산 되도록 트리거를 변경 합니다. Templeton를 조정 하려면 HDInsight 설명서를 참조 하십시오. parallellism에서 제안 하는 것 처럼.
 
@@ -685,7 +685,7 @@ ms.locfileid: "73748367"
 - **원인**: HDInsight 클러스터 또는 서비스에 문제가 있습니다.
 
 
-- **권장 사항**:이 오류는 ADF가 실행 중인 작업의 상태를 가져오려고 할 때 HDInsight 클러스터에서 응답을 받지 못하는 경우에 발생 합니다. 클러스터 자체에서 문제가 발생 하거나 HDInsight 서비스의 작동이 중단 될 수 있습니다. https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide에서 HDInsight 문제 해결 설명서를 참조 하거나 추가 지원을 요청 하세요.
+- **권장 사항**:이 오류는 ADF가 실행 중인 작업의 상태를 가져오려고 할 때 HDInsight 클러스터에서 응답을 받지 못하는 경우에 발생 합니다. 클러스터 자체에서 문제가 발생 하거나 HDInsight 서비스의 작동이 중단 될 수 있습니다. https://docs.microsoft.com/azure/hdinsight/hdinsight-troubleshoot-guide 에서 HDInsight 문제 해결 설명서를 참조 하거나 추가 지원을 요청 하세요.
                 
 
 
@@ -732,7 +732,7 @@ ms.locfileid: "73748367"
 - **원인**: 스크립트 작업에 제공 된 json이 잘못 되었습니다.
 
 
-- **권장 사항**: 오류 메시지는 문제를 식별 하는 데 도움이 됩니다. Json 구성을 수정 하 고 다시 시도 하세요. 자세한 내용은 https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service를 확인 하세요.
+- **권장 사항**: 오류 메시지는 문제를 식별 하는 데 도움이 됩니다. Json 구성을 수정 하 고 다시 시도 하세요. 자세한 내용은 https://docs.microsoft.com/azure/data-factory/compute-linked-services#azure-hdinsight-on-demand-linked-service 를 확인 하세요.
                 
 
 
@@ -816,7 +816,7 @@ ms.locfileid: "73748367"
 
 - **권장 사항**:  
       1. 브라우저에서 HDInsight 클러스터의 Ambari UI를 열어 자격 증명이 올바른지 확인 합니다.
-      2. 클러스터가 VNet에 있고 자체 호스팅 IR을 사용 하는 경우 HDI URL은 Vnet의 개인 URL 이어야 합니다. 즉, 클러스터 이름 뒤에 '-i n t '가 있어야 합니다. 예를 들어 "https://mycluster.azurehdinsight.net/"은 "https://mycluster-int.azurehdinsight.net/"로 변경 해야 합니다.
+      2. 클러스터가 VNet에 있고 자체 호스팅 IR을 사용 하는 경우 HDI URL은 Vnet의 개인 URL 이어야 합니다. 즉, 클러스터 이름 뒤에 '-i n t '가 있어야 합니다. 예를 들어 "https://mycluster.azurehdinsight.net/ "은 "https://mycluster-int.azurehdinsight.net/ "로 변경 해야 합니다.
       2. 클러스터가 VNet에 있고, 자체 호스팅 IR을 사용 하 고 있으며, 연결이 여전히 실패 한 경우 IR이 설치 된 VM이 HDI에 연결 하는 데 문제가 있는 것입니다. IR이 설치 된 VM에 연결 하 고 브라우저에서 Ambari UI를 엽니다. 클러스터에 대 한 개인 URL을 사용 합니다. 이 연결은 브라우저에서 작동 해야 합니다. 그렇지 않은 경우 추가 지원이 필요 하면 HDInsight 지원 팀에 문의 하세요.
       3. 자체 호스팅 IR을 사용 하지 않는 경우 HDI 클러스터에 공개적으로 액세스할 수 있어야 합니다. 브라우저에서 Ambari UI를 열고 열리고 있는지 확인 합니다. 클러스터 또는 서비스에 문제가 있는 경우 HDInsight 지원 팀에 도움을 요청 하세요.
       따라서 일반적으로 ADF 연결 된 서비스에 사용 되는 HDI 클러스터 URL에는 테스트 연결이 통과할 수 있도록 ADF IR (자체 호스팅 또는 Azure)에서 액세스할 수 있어야 하 고, 실행이 작동 합니다. 이는 VM 또는 모든 공용 컴퓨터에서 브라우저에서 해당 URL을 열어 쉽게 확인할 수 있습니다.
@@ -1018,7 +1018,7 @@ Fiddler를 사용 하 여 모니터링 되는 웹 응용 프로그램의 HTTP �
 
 1. 웹 응용 프로그램에서 HTTPS를 사용 하는 경우 **도구** > **Fiddler 옵션** > **https**로 이동 합니다. Https **연결 캡처** 및 **https 트래픽 해독**을 선택 합니다.
 
-![Fiddler 옵션](media/data-factory-troubleshoot-guide/fiddler-options.png)
+   ![Fiddler 옵션](media/data-factory-troubleshoot-guide/fiddler-options.png)
 
 1. 응용 프로그램에서 SSL 인증서를 사용 하는 경우 Fiddler 인증서를 장치에 추가 합니다. **도구** > **Fiddler 옵션** > **HTTPS** > **작업** > **루트 인증서를 데스크톱으로 내보내기**로 이동 합니다.
 
@@ -1028,17 +1028,17 @@ Fiddler를 사용 하 여 모니터링 되는 웹 응용 프로그램의 HTTP �
 
 1. 요청을 만듭니다.
 
-a. **작성기** 탭을 선택 합니다.
+   1. **작성기** 탭을 선택 합니다.
 
-b. HTTP 메서드 및 URL을 설정 합니다.
+   1. HTTP 메서드 및 URL을 설정 합니다.
+   
+   1. 필요한 경우 헤더 및 요청 본문을 추가 합니다.
 
-c. 필요한 경우 헤더 및 요청 본문을 추가 합니다.
+   1. **실행**을 선택합니다.
 
-ㄹ. **실행**을 선택합니다.
+1. 트래픽 캡처를 다시 켜고 페이지에서 문제가 되는 트랜잭션을 완료 합니다.
 
-9. 트래픽 캡처를 다시 켜고 페이지에서 문제가 되는 트랜잭션을 완료 합니다.
-
-10. **파일** > **모든 세션** > **저장** 으로 이동 합니다.
+1. **파일** > **모든 세션** > **저장** 으로 이동 합니다.
 
 자세한 내용은 [Fiddler 시작](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler)을 참조 하세요.
 

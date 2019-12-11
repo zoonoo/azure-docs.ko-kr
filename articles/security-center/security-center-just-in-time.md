@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: fb092a3c6b473680480c3bba0ad6f437176833de
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 3e344afc29ae398394a1aa2aa527f2f32e24eef7
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73576395"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997193"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
-JIT (just-in-time) VM (가상 머신) 액세스를 사용 하 여 Azure Vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 Vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다.
+JIT(Just-In-Time) VM(가상 머신) 액세스를 사용하면 Azure VM으로의 인바운드 트래픽을 잠글 수 있으므로, 필요한 경우 VM에 연결할 수 있는 간편한 액세스를 제공하는 동시에 공격에 대한 노출을 줄일 수 있습니다.
 
 > [!NOTE]
 > Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
@@ -99,7 +99,7 @@ Security Center에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 
       - 5986 - WinRM
 6. 사용자 지정 포트를 구성할 수도 있습니다.
 
-      1. **추가**를 클릭합니다. **포트 구성 추가** 창이 열립니다.
+      1. **추가**으로 로그온합니다. **포트 구성 추가** 창이 열립니다.
       2. 구성 하도록 선택한 각 포트 (기본 및 사용자 지정)에 대해 다음 설정을 사용자 지정할 수 있습니다.
 
     - **프로토콜 유형** - 요청이 승인될 때 이 포트에서 허용되는 프로토콜입니다.
@@ -108,7 +108,7 @@ Security Center에서 jit 정책을 구성 하 고 JIT 정책을 사용 하 여 
 
      3. **확인**을 클릭합니다.
 
-1. **Save**를 클릭합니다.
+1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
 
 > [!NOTE]
 >VM에 대 한 JIT VM 액세스를 사용 하도록 설정 하면 연결 된 네트워크 보안 그룹과 연결 된 Azure 방화벽에서 선택한 포트에 대 한 "모든 인바운드 트래픽 거부" 규칙을 Azure Security Center 만들어집니다. 선택한 포트에 대해 다른 규칙을 만든 경우 기존 규칙은 새 "모든 인바운드 트래픽 거부" 규칙 보다 우선적으로 적용 됩니다. 선택한 포트에 기존 규칙이 없는 경우 새 "모든 인바운드 트래픽 거부" 규칙은 네트워크 보안 그룹 및 Azure 방화벽에서 가장 높은 우선 순위를 사용 합니다.
@@ -176,10 +176,10 @@ VM의 기존 Just-In-Time 정책을 편집하려면
 
 VM에서 Just-In-Time 액세스를 쉽게 롤아웃할 수 있도록 하려면 VM 내에서 직접 Just-In-Time 액세스만 허용하도록 VM을 설정하면 됩니다.
 
-1. Azure Portal에서 **가상 머신**을 선택합니다.
-2. Just-In-Time 액세스로 제한하려는 가상 머신을 클릭합니다.
-3. 메뉴에서 **구성**을 클릭합니다.
-4. **Just-In-Time 액세스**에서 **Just-In-Time 정책 사용**을 클릭합니다. 
+1. [Azure Portal](https://ms.portal.azure.com)에서 **가상 컴퓨터**를 검색 하 고 선택 합니다. 
+2. Just-in-time 액세스로 제한 하려는 가상 머신을 선택 합니다.
+3. 메뉴에서 **구성**을 선택 합니다.
+4. Just-in-time **액세스**에서 **just-in-time 정책 사용**을 선택 합니다. 
 
 이렇게 하면 다음 설정을 사용한 VM Just-In-Time 액세스를 설정합니다.
 

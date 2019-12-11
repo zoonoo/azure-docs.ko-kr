@@ -11,42 +11,42 @@ ms.author: jordane
 author: jpe316
 ms.date: 10/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5e8dc6181660f0c1545df0688e2749f8f0187027
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b387c9d595898158ff8b5ab8c25f705825b8c248
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496888"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978222"
 ---
 # <a name="what-are-field-programmable-gate-arrays-fpga-and-how-to-deploy"></a>FPGA (필드 프로그래밍 가능 게이트 배열) 및 배포 방법
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 FPGA (필드 프로그래밍 가능 게이트 배열)에 대해 소개 하 고 Azure FPGA에 Azure Machine Learning를 사용 하 여 모델을 배포 하는 방법을 보여 줍니다. 
 
-FPGA는 프로그래밍 가능한 논리 블록 배열과 재구성 가능한 상호 연결 계층 구조를 포함하고 있습니다. 제조 후 상호 연결을 통해 이러한 블록을 다양한 방법으로 구성할 수 있습니다. 다른 칩과 비교해서, FPGA는 프로그래밍 기능 및 성능 조합을 제공합니다.
+Az FPGA-k programozható logikai blokkok tömbjét és újrakonfigurálható összekötők hierarchiáját tartalmazzák. 이러한 블록을 제조 후 다양 한 방식으로 구성 하 여 상호 연결할 수 있습니다. 다른 칩과 비교 하 여 FPGAs는 프로그래밍 기능과 성능의 조합을 제공 합니다.
 
 ## <a name="fpgas-vs-cpu-gpu-and-asic"></a>FPGAs 및 CPU, GPU 및이 있습니다
 
-다음 다이어그램 및 표에서는 FPGA와 다른 프로세서를 비교해서 보여 줍니다.
+다음 다이어그램 및 표는 FPGAs를 다른 프로세서와 비교 하는 방법을 보여 줍니다.
 
 ![Azure Machine Learning FPGA 비교 다이어그램](./media/concept-accelerate-with-fpgas/azure-machine-learning-fpga-comparison.png)
 
-|프로세서||설명|
+|Processzor||Leírás|
 |---|:-------:|------|
-|애플리케이션 관련 집적 회로|ASIC|Google의 TPU(TensorFlow Processor Units) 같은 사용자 지정 회로는 가장 높은 효율성을 제공합니다. 이러한 회로는 변하는 요구 사항에 따라 재구성할 수 없습니다.|
-|Field-programmable Gate Arrays|FPGA|Azure에서 사용할 수 있는 것과 같은 FPGA는 ASIC에 가까운 성능을 제공합니다. 또한 유연하고, 시간 경과에 따라 새 논리를 구현하기 위해 다시 구성할 수 있습니다.|
-|그래픽 처리 장치|GPU|GPU는 AI 계산에 널리 사용되며, CPU보다 이미지 렌더링 속도가 빠른 병렬 처리 기능을 제공합니다.|
-|중앙 처리 장치|CPU|범용 프로세서이며, 성능이 그래픽 및 비디오 처리에 적합하지 않습니다.|
+|응용 프로그램 특정 통합 회로|ASICs|Google의 TPU (TensorFlow Processor Unit)와 같은 사용자 지정 회로는 최고 수준의 효율성을 제공 합니다. 요구 사항이 변경 됨에 따라 다시 구성할 수 없습니다.|
+|필드 프로그래밍 가능 게이트 배열|FPGA-k|Azure에서 사용할 수 있는 것과 같은 FPGAs는 ASICs에 가까운 성능을 제공 합니다. 또한 새 논리를 구현 하기 위해 유연 하 고 시간이 지남에 따라 다시 됩니다.|
+|그래픽 처리 장치|GPU-k|AI 계산에 널리 사용 되는 옵션입니다. Gpu는 병렬 처리 기능을 제공 하므로 Cpu 보다 이미지를 렌더링 하는 데 더 빠르게 수행 됩니다.|
+|중앙 처리 단위|CPU-k|범용 프로세서로, 그래픽 및 비디오 처리에 적합 하지 않습니다.|
 
-Azure의 FPGAs는 데이터 과학자와 개발자가 실시간 AI 계산을 가속화 하기 위해 사용 하는 Intel의 FPGA 장치를 기반으로 합니다. 이 FPGA 지원 아키텍처는 강력한 성능, 유연성 및 확장성을 제공하며 Azure에서 사용할 수 있습니다.
+Azure의 FPGAs는 데이터 과학자와 개발자가 실시간 AI 계산을 가속화 하기 위해 사용 하는 Intel의 FPGA 장치를 기반으로 합니다. 이 FPGA 사용 아키텍처는 성능, 유연성 및 규모를 제공 하며 Azure에서 사용할 수 있습니다.
 
-FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧은 대기 시간을 달성할 수 있도록 합니다. 비동기 요청(일괄 처리)이 필요하지 않습니다. 일괄 처리를 사용하면 더 많은 데이터를 처리해야 하므로 대기 시간이 길어질 수 있습니다. 신경망을 구현 하려면 일괄 처리를 수행 하지 않아도 됩니다. 따라서 CPU 및 GPU 프로세서에 비해 대기 시간이 더 낮을 수 있습니다.
+FPGAs는 실시간 유추 (또는 모델 점수 매기기) 요청에 대해 짧은 대기 시간을 달성할 수 있도록 합니다. 비동기 요청 (일괄 처리)은 필요 하지 않습니다. 더 많은 데이터를 처리 해야 하므로 일괄 처리로 인해 대기 시간이 길어질 수 있습니다. 신경망을 구현 하려면 일괄 처리를 수행 하지 않아도 됩니다. 따라서 CPU 및 GPU 프로세서에 비해 대기 시간이 더 낮을 수 있습니다.
 
-### <a name="reconfigurable-power"></a>재구성 가능한 전원
-여러 형식의 기계 학습 모델에 대해 FPGA를 다시 구성할 수 있습니다. 이러한 유연성 덕분에 사용되는 최적의 숫자 정밀도 및 메모리 모델에 따라 애플리케이션을 가속화할 수 있습니다. FPGA는 다시 구성할 수 있으므로 빠르게 변화하는 AI 알고리즘의 요구 사항에 맞게 최신 상태를 유지할 수 있습니다.
+### <a name="reconfigurable-power"></a>다시 전원
+여러 유형의 기계 학습 모델에 대해 FPGAs를 재구성할 수 있습니다. 이러한 유연성을 통해 가장 최적 숫자 전체 자릿수 및 사용 되는 메모리 모델을 기반으로 응용 프로그램을 더 쉽게 가속화할 수 있습니다. FPGAs는 다시 이기 때문에 AI 알고리즘을 신속 하 게 변경 하는 요구 사항에 최신 상태를 유지할 수 있습니다.
 
-## <a name="whats-supported-on-azure"></a>Azure에서 지원되는 내용
-Microsoft Azure는 FPGA 부문에서 세계 최대의 클라우드 투자 규모를 자랑합니다. 이 FPGA 지원 하드웨어 아키텍처를 사용하면 학습된 신경망이 낮은 대기 시간으로 신속하게 실행됩니다. Azure는 FPGAs 사전 학습 된 DNN (심층 신경망)를 병렬화 하 여 서비스를 확장할 수 있습니다. DNN은 전송 학습을 위한 심층 기능 기능화기로 미리 학습하거나 업데이트된 가중치를 사용하여 미세 조정할 수 있습니다.
+## <a name="whats-supported-on-azure"></a>Azure에서 지원 되는 기능
+Microsoft Azure은 FPGAs 세계에서 가장 큰 클라우드 투자입니다. 이 FPGA 사용 하드웨어 아키텍처를 사용 하면 학습 된 신경망은 짧은 대기 시간으로 신속 하 게 실행 됩니다. Azure는 FPGAs 사전 학습 된 DNN (심층 신경망)를 병렬화 하 여 서비스를 확장할 수 있습니다. DNNs는 전송 학습을 위한 심층 featurizer 또는 업데이트 된 가중치를 사용 하 여 미세 조정 된 것으로 미리 교육 될 수 있습니다.
 
 Azure의 FPGAs는 다음을 지원 합니다.
 
@@ -62,24 +62,24 @@ Azure의 FPGAs는 다음을 지원 합니다.
   - SSD-VGG
 
 FPGAs는 다음 Azure 지역에서 사용할 수 있습니다.
-  - 미국 동부
-  - 동남아시아
-  - 서유럽
-  - 미국 서부 2
+  - USA keleti régiója
+  - Délkelet-Ázsia
+  - Nyugat-Európa
+  - USA 2. nyugati régiója
 
 > [!IMPORTANT]
 > 대기 시간 및 처리량을 최적화 하기 위해 FPGA 모델에 데이터를 보내는 클라이언트는 위의 영역 중 하나 (모델을 배포한 항목)에 있어야 합니다.
 
 **Azure vm의 PBS 패밀리** 에는 Intel Arria 10 fpgas 포함 됩니다. Azure 할당량 할당을 확인 하는 경우 "표준 PBS 제품군 vCPUs"로 표시 됩니다. PB6 VM에는 6 개의 vCPUs와 하나의 FPGA가 있으며, FPGA에 모델을 배포 하는 과정에서 Azure ML에 의해 자동으로 프로 비전 됩니다. Azure ML 에서만 사용 되며 임의의 bitstreams을 실행할 수 없습니다. 예를 들어 bitstreams을 사용 하 여 FPGA을 플래시 하 여 암호화, 인코딩 등을 수행할 수 없습니다.
 
-### <a name="scenarios-and-applications"></a>시나리오 및 애플리케이션
+### <a name="scenarios-and-applications"></a>시나리오 및 응용 프로그램
 
-Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DNN 평가, Bing 검색 순위, SDN(소프트웨어 정의 네트워킹) 가속화에 FPGA를 사용하여 대기 시간을 줄이는 한편, CPU 리소스를 회수하여 다른 작업에 사용합니다.
+Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DNN 평가, Bing 검색 순위 및 SDN (소프트웨어 정의 네트워킹) 가속을 위해 FPGAs를 사용 하 여 대기 시간을 줄이고 다른 작업에 대해 Cpu를 해제 합니다.
 
 다음 시나리오에서는 FPGAs를 사용 합니다.
-+ [자동화된 광학 검사 시스템](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
++ [자동 광학 검사 시스템](https://blogs.microsoft.com/ai/build-2018-project-brainwave/)
 
-+ [토지 커버 매핑](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
++ [육지 커버 매핑](https://blogs.technet.microsoft.com/machinelearning/2018/05/29/how-to-use-fpgas-for-deep-learning-inference-to-perform-land-cover-mapping-on-terabytes-of-aerial-images/)
 
 
 
@@ -88,9 +88,9 @@ Azure FPGAs는 Azure Machine Learning와 통합 됩니다. Microsoft에서는 DN
 Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FPGAs에서 웹 서비스로 배포할 수 있습니다. FPGAs를 사용 하면 단일 일괄 처리 크기를 사용 하는 경우에도 매우 짧은 대기 시간 유추가 가능 합니다. 유추 또는 모델 점수 매기기는 배포 된 모델이 예측에 사용 되는 단계 이며 가장 일반적으로 프로덕션 데이터에 사용 됩니다.
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>Előfeltételek
 
-- Azure 구독.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+- Azure-előfizetés.  계정이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
 - FPGA 할당량입니다. Azure CLI를 사용 하 여 할당량이 있는지 여부를 확인 합니다.
 
@@ -113,7 +113,7 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 
     할당량이 없는 경우 [https://aka.ms/accelerateAI](https://aka.ms/accelerateAI)에서 요청을 제출 합니다.
 
-- Azure Machine Learning 작업 영역 및 Python용 Azure Machine Learning SDK가 설치되어 있어야 합니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
+- Azure Machine Learning 작업 영역 및 Python 용 Azure Machine Learning SDK가 설치 되어 있습니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
  
 - 하드웨어 가속 모델용 Python SDK:
 
@@ -126,19 +126,19 @@ Azure Machine Learning 하드웨어 가속 모델를 사용 하 여 모델을 FP
 
 이 문서에서는 TensorFlow 그래프를 만들어 입력 이미지를 전처리 하 고, FPGA에서 ResNet 50을 사용 하 여 featurizer 만든 후 ImageNet 데이터 집합에 대해 학습 된 분류자를 통해 기능을 실행 하는 방법을 설명 합니다.
 
-지침에 따라 다음을 수행합니다.
+지침에 따라 다음을 수행 합니다.
 
 * TensorFlow 모델 정의
 * 모델 변환
-* 모델 배포
-* 배포된 모델 사용
-* 배포된 서비스 삭제
+* A modell rendszerbe állítása
+* 배포 된 모델 사용
+* 배포 된 서비스 삭제
 
-[Python용 Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용하여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 그래프(입력, 기능화기 및 분류자) 파이프라인을 설명하는 파일입니다. 배포 명령은 자동으로 정의 및 그래프를 ZIP 파일로 압축하고, ZIP 파일을 Azure Blob Storage에 업로드합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
+[Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 를 사용 하 여 서비스 정의를 만듭니다. 서비스 정의는 TensorFlow를 기반으로 하는 그래프 (input, featurizer 및 분류자)의 파이프라인을 설명 하는 파일입니다. 배포 명령은 정의와 그래프를 자동으로 ZIP 파일에 압축 하 고 ZIP을 Azure Blob storage에 업로드 합니다. DNN가 FPGA에서 실행 되도록 이미 배포 되었습니다.
 
-### <a name="load-azure-ml-workspace"></a>Azure ML 작업 영역 로드
+### <a name="load-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 로드
 
-Azure ML 작업 영역을 로드 합니다.
+Azure Machine Learning 작업 영역을 로드 합니다.
 
 ```python
 import os
@@ -150,7 +150,7 @@ ws = Workspace.from_config()
 print(ws.name, ws.resource_group, ws.location, ws.subscription_id, sep='\n')
 ```
 
-### <a name="preprocess-image"></a>이미지 전처리
+### <a name="preprocess-image"></a>전처리 이미지
 
 웹 서비스에 대 한 입력은 JPEG 이미지입니다.  첫 번째 단계는 JPEG 이미지를 디코딩하고 전처리 하는 것입니다.  JPEG 이미지는 문자열로 처리 되 고 결과는 tensors 이며,이는 ResNet 50 모델에 대 한 입력입니다.
 
@@ -166,7 +166,7 @@ print(image_tensors.shape)
 
 ### <a name="load-featurizer"></a>Load featurizer
 
-모델을 초기화하고 기능화기로 사용할 ResNet50의 양자화 버전에 대한 TensorFlow 검사점을 다운로드합니다.  다른 심층 신경망을 가져오면 아래 코드 조각에서 "QuantizedResnet50"를으로 바꿀 수 있습니다.
+모델을 초기화 하 고 featurizer로 사용할 ResNet50의 양자화 버전에 대 한 TensorFlow checkpoint를 다운로드 합니다.  다른 심층 신경망을 가져오면 아래 코드 조각에서 "QuantizedResnet50"를으로 바꿀 수 있습니다.
 
 - QuantizedResnet152
 - QuantizedVgg16
@@ -184,7 +184,7 @@ print(feature_tensor.shape)
 
 ### <a name="add-classifier"></a>분류자 추가
 
-이 분류자는 ImageNet 데이터 집합을 기반으로 학습되었습니다.  사용자 지정 가중치에 대 한 전송 학습 및 학습 예제는 [샘플 노트북](https://aka.ms/aml-notebooks)집합에서 사용할 수 있습니다.
+이 분류자는 ImageNet 데이터 집합에 대해 학습 되었습니다.  사용자 지정 가중치에 대 한 전송 학습 및 학습 예제는 [샘플 노트북](https://aka.ms/aml-notebooks)집합에서 사용할 수 있습니다.
 
 ```python
 classifier_output = model_graph.get_default_classifier(feature_tensor)
@@ -244,7 +244,7 @@ print(output_tensors)
   output_tensors = ['ssd_300_vgg/block4_box/Reshape_1:0', 'ssd_300_vgg/block7_box/Reshape_1:0', 'ssd_300_vgg/block8_box/Reshape_1:0', 'ssd_300_vgg/block9_box/Reshape_1:0', 'ssd_300_vgg/block10_box/Reshape_1:0', 'ssd_300_vgg/block11_box/Reshape_1:0', 'ssd_300_vgg/block4_box/Reshape:0', 'ssd_300_vgg/block7_box/Reshape:0', 'ssd_300_vgg/block8_box/Reshape:0', 'ssd_300_vgg/block9_box/Reshape:0', 'ssd_300_vgg/block10_box/Reshape:0', 'ssd_300_vgg/block11_box/Reshape:0']
   ```
 
-### <a name="register-model"></a>모델 등록
+### <a name="register-model"></a>Modell regisztrálása
 
 SDK를 사용 하 여 Azure Blob storage에서 ZIP 파일을 사용 하 여 모델을 [등록](./concept-model-management-and-deployment.md) 합니다. 모델에 대 한 태그 및 기타 메타 데이터를 추가 하면 학습 된 모델을 추적 하는 데 도움이 됩니다.
 
@@ -320,7 +320,7 @@ for i in Image.list(workspace=ws):
 
 ### <a name="deploy-to-the-cloud"></a>클라우드에 배포
 
-모델을 확장성이 뛰어난 프로덕션 웹 서비스로 배포하려면 AKS(Azure Kubernetes Service)를 사용합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
+모델을 대규모 프로덕션 웹 서비스로 배포 하려면 Azure Kubernetes 서비스 (AKS)를 사용 합니다. Azure Machine Learning SDK, CLI 또는 [Azure Machine Learning studio](https://ml.azure.com)를 사용 하 여 새 항목을 만들 수 있습니다.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -380,7 +380,7 @@ ssl_enabled = address.startswith("https")
 address = address[address.find('/')+2:].strip('/')
 port = 443 if ssl_enabled else 80
 
-# Initialize AzureML Accelerated Models client
+# Initialize Azure ML Accelerated Models client
 client = PredictionClient(address=address,
                           port=port,
                           use_ssl=ssl_enabled,
@@ -424,18 +424,18 @@ converted_model.delete()
 모든 [Azure Data Box Edge 장치](https://docs.microsoft.com/azure/databox-online/data-box-edge-overview
 ) 에는 모델을 실행 하기 위한 FPGA이 포함 되어 있습니다.  한 번에 하나의 모델만 FPGA에서 실행할 수 있습니다.  다른 모델을 실행 하려면 새 컨테이너를 배포 하기만 하면 됩니다. 지침 및 샘플 코드는 [이 Azure 샘플](https://github.com/Azure-Samples/aml-hardware-accelerated-models)에서 찾을 수 있습니다.
 
-## <a name="secure-fpga-web-services"></a>보안 FPGA 웹 서비스
+## <a name="secure-fpga-web-services"></a>FPGA 웹 서비스 보안
 
 FPGA 웹 서비스를 보호 하려면 [보안 웹 서비스](how-to-secure-web-service.md) 문서를 참조 하세요.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 이러한 노트북, 비디오 및 블로그를 확인 하세요.
 
-+ 여러 [샘플 노트북](https://aka.ms/aml-accel-models-notebooks).
++ 여러 [샘플 노트북](https://aka.ms/aml-accel-models-notebooks)
 
-+ [하이퍼스케일 하드웨어: Azure + FPGA 상단에 있는 대규모 ML: 빌드 2018(비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
++ [하이퍼 크기 조정 하드웨어: Azure + FPGA의 맨 위에 있는 ML: 빌드 2018 (비디오)](https://channel9.msdn.com/events/Build/2018/BRK3202)
 
-+ [Microsoft FPGA 기반 구성 가능 클라우드 살펴보기(비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
++ [Microsoft FPGA 기반 구성 가능 클라우드 내 (비디오)](https://channel9.msdn.com/Events/Build/2017/B8063)
 
-+ [실시간 AI용 Project Brainwave: 프로젝트 홈페이지](https://www.microsoft.com/research/project/project-brainwave/)
++ [실시간 AI에 대 한 project Brainwave: 프로젝트 홈 페이지](https://www.microsoft.com/research/project/project-brainwave/)

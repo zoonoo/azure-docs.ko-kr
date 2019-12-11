@@ -3,17 +3,17 @@ title: 청구서를 관리 하 고 Azure IoT Central 응용 프로그램에서 �
 description: 관리자는 Azure IoT Central 응용 프로그램에서 청구를 관리 하 고 평가판에서 지불로 전환 하는 방법을 알아봅니다.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 11bcdaab34cf4d82b688a578ab2d9ee686ffe07e
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 0c1c1643fb8c8394ce3ce50e5926f05fd4d366f6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73894813"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976420"
 ---
 # <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
 

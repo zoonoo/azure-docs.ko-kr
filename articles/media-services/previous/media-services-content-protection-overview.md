@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: b0d71a7b010e91776a28330cfc32278c7060aab6
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: 4ff4025941e9a77148daa91995ecf182231d1f0b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901263"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976284"
 ---
 # <a name="content-protection-overview"></a>콘텐츠 보호 개요 
 
@@ -87,6 +87,10 @@ Microsoft Azure Media Services는 DRM(PlayReady, Widevine, FairPlay) 라이선�
   * **cenc**: PlayReady 또는 Widevine인 경우(일반 암호화)
   * **cbcs-aapl**: FairPlay인 경우(AES CBC 암호화)
   * **cbc**: AES 봉투(Envelope) 암호화
+
+## <a name="additional-notes"></a>추가적인 참고 사항
+
+* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서는 콘텐츠 보호를 시작하기 위한 다음 단계를 설명합니다.

@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: helohr
-ms.openlocfilehash: 420978e79da99847f16e5c85b2d2510083ca97a7
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 745b33efe46c82e3b9358c9c5a2ed13292242db1
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74006259"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74997346"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Windows Desktop 클라이언트와 연결
+# <a name="connect-with-the-windows-desktop-client"></a>Kapcsolódás a Windows asztali ügyféllel
 
-> 적용 대상: Windows 7 및 Windows 10
+> 적용 대상: Windows 7, Windows 10 및 Windows 10 IoT Enterprise
 
-Windows 데스크톱 클라이언트를 사용 하 여 windows 7 또는 Windows 10을 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
+Windows 데스크톱 클라이언트를 사용 하 여 windows 7, Windows 10 및 Windows 10 IoT Enterprise를 사용 하는 장치에서 Windows 가상 데스크톱 리소스에 액세스할 수 있습니다.
 
 > [!IMPORTANT]
 > Windows 가상 데스크톱은 RemoteApp 및 데스크톱 연결 (RADC) 클라이언트 또는 원격 데스크톱 연결 (MSTSC) 클라이언트를 지원 하지 않습니다.
@@ -55,6 +55,6 @@ Windows 버전과 일치 하는 클라이언트를 선택 합니다.
 
 피드를 구독 하 고 나면 피드의 콘텐츠가 정기적으로 자동 업데이트 됩니다. 관리자가 변경한 내용에 따라 리소스를 추가, 변경 또는 제거할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 Windows 데스크톱 클라이언트를 사용 하는 방법에 대 한 자세한 내용은 [Windows 데스크톱 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop)을 참조 하세요.

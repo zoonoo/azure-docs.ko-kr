@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL-Hyperscale (Citus) 서버 그룹 크기 조정
+title: 크기 조정 서버 그룹-Hyperscale (Citus)-Azure Database for PostgreSQL
 description: 서버 그룹 메모리, 디스크 및 CPU 리소스를 조정 하 여 증가 된 부하 처리
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/17/2019
-ms.openlocfilehash: 6053ba37bf330f6b59e291dade822a5ca9de8c85
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5d8bbe493887c5340f0943a585eb6ff250bd3728
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73492325"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977559"
 ---
 # <a name="scale-a-hyperscale-citus-server-group"></a>Citus (Hyperscale) 서버 그룹 크기 조정
 
@@ -42,6 +42,6 @@ SELECT rebalance_table_shards('distributed_table_name');
 
 새 노드를 추가 하는 것 외에도 기존 노드의 기능을 늘릴 수 있습니다. Citus (Hyperscale) 서버 그룹의 **구성** 탭으로 이동 하 고 **Vcores** 및 **저장소** 에 대 한 슬라이더를 끌어서 모든 작업자 노드에 대 한 이러한 값을 변경 합니다. **저장** 을 클릭 하 여 변경 내용을 적용 해야 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 서버 그룹 [성능 옵션](concepts-hyperscale-configuration-options.md)에 대해 자세히 알아보세요.

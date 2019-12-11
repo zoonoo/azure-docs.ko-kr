@@ -1,6 +1,6 @@
 ---
-title: 클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
-description: 클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+title: 클래식에서 Azure Resource Manager로 마이그레이션에 대한 질문과 대답
+description: 클래식에서 Azure Resource Manager로 마이그레이션에 대한 질문과 대답
 services: virtual-machines-linux
 documentationcenter: ''
 author: singhkays
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/01/2017
 ms.author: kasing
-ms.openlocfilehash: 05d98674ad046ffdb5056bf76c5616b26e5021ff
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: e41a89e30803bfe99711340d969f5dbe6718ef0f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035736"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975417"
 ---
-# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+# <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager로 마이그레이션에 대한 질문과 대답
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## <a name="next-steps"></a>다음 단계

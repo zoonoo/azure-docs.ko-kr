@@ -1,18 +1,18 @@
 ---
 title: Azure IoT Hub 장치 프로 비전 서비스-보안 개념
-description: Device Provisioning Service 및 IoT Hub를 사용하는 디바이스에 해당하는 보안 프로비전 개념 설명
+description: DPS (장치 프로 비전 서비스) 및 IoT Hub를 사용 하는 장치에 특정 한 보안 프로 비전 개념을 설명 합니다.
 author: nberdy
 ms.author: nberdy
 ms.date: 04/04/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: ad392d9d979986723c17b43f210959e2504a8fb8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 3191e9886604af9b2a26b71a89cee699197585c4
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228820"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973461"
 ---
 # <a name="iot-hub-device-provisioning-service-security-concepts"></a>IoT Hub Device Provisioning Service 보안 개념 
 
@@ -28,7 +28,7 @@ IoT Hub Device Provisioning Service는 지정된 IoT 허브에 대한 제로 터
 Device Provisioning Service는 다음과 같은 형식의 증명을 지원합니다.
 * 표준 X.509 인증서 인증 흐름을 기반으로 하는 **X.509 인증서**
 * nonce 문제를 기반으로 하는 **TPM(신뢰할 수 있는 플랫폼 모듈)** 은 서명된 SAS(공유 액세스 서명) 토큰을 표시하기 위해 키에 TPM 표준을 사용합니다. 이 증명 형식을 사용하는 경우 디바이스에 실제 TPM이 필요하지는 않지만, [TPM 사양](https://trustedcomputinggroup.org/work-groups/trusted-platform-module/)에 따라 인증 키를 사용하여 증명을 해야 합니다.
-* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) **보안 토큰**을 기반으로 하는 [대칭 키](../iot-hub/iot-hub-devguide-security.md#security-tokens). 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
+* 해시된 서명과 포함된 만료 날짜가 들어 있는 SAS(공유 액세스 서명) [보안 토큰](../iot-hub/iot-hub-devguide-security.md#security-tokens)을 기반으로 하는 **대칭 키**. 자세한 내용은 [대칭 키 증명](concepts-symmetric-key-attestation.md)을 참조하세요.
 
 
 ## <a name="hardware-security-module"></a>하드웨어 보안 모듈

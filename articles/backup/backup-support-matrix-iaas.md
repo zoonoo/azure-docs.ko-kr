@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 85a32dd9ea875bdfc73d7e4a9515e5cfe0e2da42
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.openlocfilehash: fa4e01def8db4e5fef32b644d198bad1e9beab27
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74559035"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996173"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -44,7 +44,7 @@ Linux VM을 만들 때 백업 사용 | 지원 대상:<br/><br/> -Ubuntu 서버: 
 VM의 백업 정책 수정 | 지원됩니다.<br/><br/> 새 정책의 일정 및 보존 설정을 사용 하 여 VM을 백업 합니다. 보존 설정이 연장될 경우 기존 복구 지점이 표시되고 유지됩니다. 축소 된 경우 기존 복구 지점은 다음 정리 작업에서 정리 되 고 최종적으로 삭제 됩니다.
 백업 작업 취소| 스냅샷 프로세스 동안 지원됩니다.<br/><br/> 스냅샷이 자격 증명 모음으로 전송될 때는 지원되지 않습니다.
 다른 지역 또는 구독에 VM 백업 |지원되지 않습니다.
-매일 백업(Azure VM 확장을 통해) | 매일 1회 백업 예약<br/><br/> 이 서비스는 하루에 최대 9 개의 요청 시 백업을 허용 하지만 Microsoft는 최대 4 개의 매일 주문형 백업만 지원 합니다.
+매일 백업(Azure VM 확장을 통해) | 매일 1회 백업 예약<br/><br/>Azure Backup 서비스는 하루에 최대 9 번의 주문형 백업을 지원 하지만 최상의 성능을 보장 하기 위해 최대 4 개의 매일 주문형 백업을 지원 하지 않는 것이 좋습니다.
 매일 백업(MARS 에이전트를 통해) | 매일 3회 백업 예약
 매일 백업(DPM/MABS를 통해) | 매일 2회 백업 예약
 월별/연도별 백업| Azure VM 확장을 사용하여 백업하는 경우에는 지원되지 않습니다. 일별 및 주별만 지원됩니다.<br/><br/> 월별/연도별 보존 기간에 대해 일별/주별 백업을 유지하도록 정책을 설정할 수 있습니다.
@@ -146,7 +146,7 @@ VM 크기 |CPU 코어가 2개 이상이고 1GB 이상의 RAM이 탑재된 모든
 사용자 지정 이미지에서 배포 된 Vm 백업 (타사) |지원됩니다.<br/><br/> VM에서 지원되는 운영 체제도 실행하고 있어야 합니다.<br/><br/> VM에서 파일을 복구할 경우 호환되는 OS(이전 또는 이후 OS 아님)로만 복원할 수 있습니다.
 Azure로 마이그레이션된 Vm 백업| 지원됩니다.<br/><br/> VM을 백업하려면 VM 에이전트를 마이그레이션된 컴퓨터에 설치해야 합니다.
 다중 VM 일관성 백업 | Azure Backup는 여러 Vm에서 데이터 및 응용 프로그램 일관성을 제공 하지 않습니다.
-[진단 설정을](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 사용 하 여 백업  | 않음. <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용 하 여 진단 설정을 사용 하는 Azure VM의 복원이 트리거되면 복원에 실패 합니다.
+[진단 설정을](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview) 사용 하 여 백업  | 지원 안 됨 <br/><br/> [새로 만들기](backup-azure-arm-restore-vms.md#create-a-vm) 옵션을 사용 하 여 진단 설정을 사용 하는 Azure VM의 복원이 트리거되면 복원에 실패 합니다.
 영역 고정 Vm 복원 | 지원 됨 (1 월 2019 일 이후에 백업 되는 VM의 경우 [가용성 영역](https://azure.microsoft.com/global-infrastructure/availability-zones/) 을 사용할 수 있는 경우).<br/><br/>현재 Vm에 고정 되어 있는 동일한 영역으로 복원을 지원 합니다. 그러나 영역을 사용할 수 없는 경우 복원이 실패 합니다.
 Gen2 Vm | 지원됨 <br> Azure Backup [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)의 백업 및 복원을 지원 합니다. 이러한 Vm은 복구 지점에서 복원 되는 경우 [Gen2 vm](https://azure.microsoft.com/updates/generation-2-virtual-machines-in-azure-public-preview/)으로 복원 됩니다.
 

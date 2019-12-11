@@ -1,17 +1,17 @@
 ---
-title: Azure Database for PostgreSQL의 방화벽 규칙-Hyperscale (Citus)
+title: 방화벽 규칙-Hyperscale (Citus)-Azure Database for PostgreSQL
 description: 이 문서에서는 Citus (Azure Database for PostgreSQL-Hyperscale)의 방화벽 규칙을 설명 합니다.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 9/12/2019
-ms.openlocfilehash: 567fb27ed942a24ab7d031d791e18fa487956fad
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: b843cd1528630a21255053f623356a0379daacf6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273733"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975570"
 ---
 # <a name="firewall-rules-in-azure-database-for-postgresql---hyperscale-citus"></a>Azure Database for PostgreSQL의 방화벽 규칙-Hyperscale (Citus)
 Azure Database for PostgreSQL 서버 방화벽은 사용 권한이 있는 컴퓨터를 지정할 때까지 Citus (Hyperscale) 코디네이터 노드에 대 한 모든 액세스를 차단 합니다. 방화벽은 각 요청이 시작된 IP 주소의 서버에 대한 액세스를 허용합니다.
@@ -31,14 +31,14 @@ Citus (Hyperscale) 서버 그룹 방화벽은 그룹의 코디네이터 노드�
 
 방화벽이 연결을 차단 하면 응용 프로그램 오류가 발생할 수 있습니다. 예를 들어 PostgreSQL JDBC 드라이버를 사용 하면 다음과 같은 오류가 발생 합니다.
 
-> java.util.concurrent.ExecutionException: java.lang.RuntimeException: org.postgresql.util.PSQLException: 심각한 오류: 호스트\_"123.45.67.890", 사용자 "citus", 데이터베이스 "citus", SSL에 대 한 pg hba.
+> postgresql: Org.postgresql.util.psqlexception: 123.45.67.890: citus "", user "", database "citus", SSL에 대 한: 항목에 대 한 항목이\_없습니다.
 
 규칙 정의 방법에 대 한 자세한 내용은 [방화벽 규칙 만들기 및 관리](howto-hyperscale-manage-firewall-using-portal.md) 를 참조 하세요.
 
 ## <a name="troubleshooting-the-database-server-firewall"></a>데이터베이스 서버 방화벽 문제 해결
 Citus (PostgreSQL-Hyperscale) 서비스의 Microsoft Azure Database에 대 한 액세스가 예상과 다르게 작동 하는 경우 다음 사항을 고려 하세요.
 
-* **허용 목록의 변경 내용이 아직 적용되지 않았습니다.** Citus (Hyperscale) 방화벽 구성에 대 한 변경이 적용 되려면 5 분 정도 걸릴 수 있습니다.
+* **허용 목록에 대 한 변경 내용이 아직 적용 되지 않았습니다.** Citus (Hyperscale) 방화벽 구성에 대 한 변경이 적용 되려면 5 분 정도 걸릴 수 있습니다.
 
 * **사용자에 게 권한이 없거나 잘못 된 암호가 사용 되었습니다.** 사용자에 게 서버에 대 한 권한이 없거나 사용 된 암호가 잘못 된 경우 서버에 대 한 연결이 거부 됩니다. 방화벽 설정을 생성하면 클라이언트에게 서버 연결을 시도할 수 있는 기회만 제공되며 각 클라이언트는 필요한 보안 자격 증명을 제공해야 합니다.
 

@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 14fc91feb16fb45eee1fe2e757a717e04ef07f99
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 9f3dd3c7d1a1352d40f9a15ba9aa1c012d1784d6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894734"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74978273"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
-작업 영역은 Azure Machine Learning의 최상위 리소스 이며 Azure Machine Learning를 사용할 때 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용하여 최고의 모델을 생성하는 학습 실행을 확인합니다.  
+작업 영역은 Azure Machine Learning의 최상위 리소스 이며 Azure Machine Learning를 사용할 때 만드는 모든 아티팩트를 사용할 수 있는 중앙 집중식 환경을 제공 합니다.  작업 영역에는 로그, 메트릭, 출력 및 스크립트의 스냅숏을 비롯 하 여 모든 학습 실행의 기록이 유지 됩니다. 이 정보를 사용 하 여 최상의 모델을 생성 하는 학습 실행을 확인할 수 있습니다.  
 
 원하는 모델이 있으면 작업 영역에 등록 합니다. 그런 다음 등록 된 모델 및 점수 매기기 스크립트를 사용 하 여 Azure Container Instances, Azure Kubernetes Service에 배포 하거나 FPGA (필드 프로그래밍 가능 게이트 배열)에 REST 기반 HTTP 끝점으로 배포 합니다. 모델을 Azure IoT Edge 장치에 모듈로 배포할 수도 있습니다.
 
 사용할 수 있는 가격 책정 및 기능은 작업 영역에 대해 [Basic 또는 Enterprise edition](overview-what-is-azure-ml.md#sku) 이 선택 되어 있는지 여부에 따라 달라 집니다. [작업 영역을 만들](#create-workspace)때 버전을 선택 합니다.  Basic에서 Enterprise edition으로 [업그레이드할](#upgrade) 수도 있습니다.
 
-## <a name="taxonomy"></a>분류 
+## <a name="taxonomy"></a>비활성인 
 
-다음은 작업 영역의 분류 체계를 보여주는 다이어그램입니다.
+작업 영역의 분류는 다음 다이어그램에 설명 되어 있습니다.
 
 [![작업 영역 분류](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png)](./media/concept-azure-machine-learning-architecture/azure-machine-learning-taxonomy.png#lightbox)
 
@@ -69,9 +69,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 
 또한 다음 작업 영역 관리 작업을 수행할 수 있습니다.
 
-| 작업 영역 관리 작업   | 포털              | 스튜디오 | Python SDK/R SDK       | CLI        |
+| 작업 영역 관리 작업   | Portál              | Studio | Python SDK/R SDK       | CLI        |
 |---------------------------|---------|---------|------------|------------|
-| 작업 영역 생성        | **&check;**     | | **&check;** | **&check;** |
+| Munkaterületek létrehozása        | **&check;**     | | **&check;** | **&check;** |
 | 작업 영역 액세스 관리    | **&check;**   || |  **&check;**    |
 | Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     |
 | 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
@@ -95,7 +95,7 @@ Azure Portal를 사용 하 여 [기본에서 Enterprise edition으로 작업 영
 
 ## <a name="resources"></a>연결 된 리소스
 
-새 작업 영역을 만들면 작업 영역에서 사용되는 여러 Azure 리소스가 자동으로 생성됩니다.
+새 작업 영역을 만들 때 작업 영역에서 사용 되는 여러 Azure 리소스를 자동으로 만듭니다.
 
 + [Azure Container Registry](https://azure.microsoft.com/services/container-registry/): 학습 중에 또는 모델을 배포할 때 사용 하는 docker 컨테이너를 등록 합니다. 비용을 최소화 하기 위해 ACR은 배포 이미지를 만들 때까지 **지연 로드** 됩니다.
 + [Azure Storage 계정](https://azure.microsoft.com/services/storage/): 작업 영역에 대 한 기본 데이터 저장소로 사용 됩니다.  Azure Machine Learning 노트북 VM과 함께 사용 되는 jupyter 노트북도 여기에 저장 됩니다.
@@ -103,15 +103,15 @@ Azure Portal를 사용 하 여 [기본에서 Enterprise edition으로 작업 영
 + [Azure Key Vault](https://azure.microsoft.com/services/key-vault/): 계산 대상에서 사용 하는 암호 및 작업 영역에 필요한 기타 중요 한 정보를 저장 합니다.
 
 > [!NOTE]
-> 새 버전을 만드는 것 외에 기존 Azure 서비스를 사용할 수도 있습니다.
+> 새 버전을 만드는 것 외에도 기존 Azure 서비스를 사용할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 Azure Machine Learning를 시작 하려면 다음을 참조 하세요.
 
 + [Azure Machine Learning 개요](overview-what-is-azure-ml.md)
-+ [작업 영역 만들기](how-to-manage-workspace.md)
-+ [작업 영역 관리](how-to-manage-workspace.md)
++ [Munkaterület létrehozása](how-to-manage-workspace.md)
++ [Munkaterületek kezelése](how-to-manage-workspace.md)
 + [자습서: Python SDK를 사용 하 여 첫 번째 ML 실험 만들기 시작](tutorial-1st-experiment-sdk-setup.md)
 + [자습서: R SDK를 사용 하 여 Azure Machine Learning 시작]( tutorial-1st-r-experiment.md)
 + [자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 만들기](tutorial-first-experiment-automated-ml.md) ( [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용 가능)

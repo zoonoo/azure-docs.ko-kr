@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub DPS와의 연결을 진단 하 고 문제를 해결 합니다.
-description: Azure IoT Hub DPS에 대 한 장치 연결로 일반적인 오류를 진단 하 고 해결 하는 방법을 알아봅니다.
+description: Azure IoT Hub 장치 프로 비전 서비스 (DPS)의 장치 연결을 사용 하 여 일반적인 오류를 진단 하 고 해결 하는 방법을 알아봅니다.
 author: xujing-ms
 manager: nberdy
 ms.service: iot-dps
@@ -8,12 +8,12 @@ services: iot-dps
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: xujing
-ms.openlocfilehash: b596a09e2185b38e6161ea4af2aa109e80faf248
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: ffe20ff80e26bc5564b9379ea21ca99e2890b519
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70963422"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74974822"
 ---
 # <a name="troubleshooting-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 문제 해결
 
@@ -23,16 +23,16 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 다음 절차에서는 IoT Hub Device Provisioning Service 메트릭에 대 한 경고를 보고 설정 하는 방법을 설명 합니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
 
 2. IoT Hub Device Provisioning Service로 이동 합니다.
 
-3. **메트릭**을 선택합니다.
+3. Válassza a **Metrika** lehetőséget.
 
 4. 원하는 메트릭을 선택 합니다. 
    <br />현재 DPS에는 세 가지 메트릭이 있습니다.
 
-    | 메트릭 이름 | Description |
+    | 메트릭 이름 | Leírás |
     |-------|------------|
     | 증명 시도 | 장치 프로 비전 서비스를 사용 하 여 인증을 시도한 장치 수|
     | 등록 시도 | 인증에 성공한 후 IoT Hub에 등록 하려고 시도한 장치 수|
@@ -48,17 +48,17 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 ## <a name="using-log-analytic-to-view-and-resolve-errors"></a>로그 분석을 사용 하 여 오류 확인 및 해결
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
 
-2. IoT Hub로 이동합니다.
+2. IoT hub로 이동 합니다.
 
-3. **진단 설정**을 선택합니다.
+3. **진단 설정**을 선택 합니다.
 
-4. **진단 켜기**를 선택합니다.
+4. **진단 켜기를**선택 합니다.
 
 5. 원하는 로그를 수집 하도록 설정 합니다.
 
-    | 로그 이름 | Description |
+    | Napló neve | Leírás |
     |-------|------------|
     | DeviceOperations | 장치 연결 이벤트와 관련 된 로그 |
     | ServiceOperations | 서비스 SDK 사용과 관련 된 이벤트 로그 (예: 등록 그룹 만들기 또는 업데이트)|
@@ -69,17 +69,17 @@ IoT 장치에 대 한 연결 문제는 증명 실패, 등록 오류 등의 여�
 
 8. 최근 이벤트를 보려면 **실행** 을 클릭 합니다.
 
-9. 결과가 `OperationName`있는 경우 `ResultType` ,`ResultSignature`, 및`ResultDescription` (오류 메시지)를 검색 하 여 오류에 대 한 자세한 정보를 얻습니다.
+9. 결과가 있으면 `OperationName`, `ResultType`, `ResultSignature`및 `ResultDescription` (오류 메시지)를 찾아 오류에 대 한 자세한 정보를 얻습니다.
 
 
-## <a name="common-error-codes"></a>일반적인 오류 코드
-이 표를 사용하여 일반적인 오류를 이해하고 해결합니다.
+## <a name="common-error-codes"></a>Gyakori hibakódok
+이 표를 사용 하 여 일반적인 오류를 이해 하 고 해결할 수 있습니다.
 
-| 오류 코드| 설명 | HTTP 상태 코드 |
+| 오류 코드| Leírás | HTTP-állapotkód |
 |-------|------------|------------|
 | 400 | 요청 본문이 잘못 되었습니다. 예를 들어이를 구문 분석할 수 없거나 개체의 유효성을 검사할 수 없습니다.| 400 잘못 된 형식 |
 | 401 | 권한 부여 토큰의 유효성을 검사할 수 없습니다. 예를 들어 만료 되었거나 요청의 URI에는 적용 되지 않습니다. 이 오류 코드는 TPM 증명 흐름의 일부로 장치에도 반환 됩니다. | 401 권한 없음|
-| 404 | 장치 프로 비전 서비스 인스턴스 또는 리소스 (예: 등록)가 없습니다. |404 찾을 수 없음 |
+| 404 | 장치 프로 비전 서비스 인스턴스 또는 리소스 (예: 등록)가 없습니다. |404 – Nem található |
 | 412 | 요청의 ETag가 기존 리소스의 ETag와 일치 하지 않습니다 (RFC7232). | 412 전제 조건 실패 |
 | 429 | 서비스에서 작업을 제한 하 고 있습니다. 특정 서비스 제한에 대해서는 [IoT Hub Device Provisioning Service 제한](https://docs.microsoft.com/azure/azure-subscription-service-limits#iot-hub-device-provisioning-service-limits)을 참조 하세요. | 429 요청 수가 너무 많음 |
-| 500 | 내부 오류가 발생했습니다. | 500 내부 서버 오류|
+| 500 | 내부 오류가 발생했습니다. | 500 Belső kiszolgálóhiba|

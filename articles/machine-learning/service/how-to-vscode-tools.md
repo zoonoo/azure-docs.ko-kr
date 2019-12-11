@@ -10,12 +10,12 @@ ms.author: jimgries
 author: greazer
 ms.date: 09/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: dd85f3a495b90b3a1dc9d3f021d3600496792759
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 84b7f56ebcbb87a31fbfb85ea6d88c3388870872
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73824364"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74975995"
 ---
 # <a name="get-started-with-azure-machine-learning-for-visual-studio-code"></a>Visual Studio Code용 Azure Machine Learning 시작
 
@@ -25,9 +25,9 @@ ms.locfileid: "73824364"
 + 학습을 위해 로컬 또는 원격으로 실험 실행을 지원 합니다. 모든 실험에 대해 여러 실행의 사용자 지정 메트릭을 기록 하 여 하이퍼 매개 변수를 세밀 하 게 조정할 수 있습니다.
 + 또한 Azure Machine Learning를 사용 하 여 테스트 및 프로덕션 요구에 맞게 Machine Learning 모델을 쉽게 배포할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-+ Azure 구독이 아직 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
++ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 + Windows, Mac 및 Linux에서 실행 되는 간단한 코드 편집기 인 [Visual Studio Code](https://code.visualstudio.com/docs/setup/setup-overview)를 설치 합니다.
 
@@ -94,8 +94,8 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
     import azureml
     from azureml.core import Run
 
-    # access the Azure ML run
-    # init run param to check if running within AML
+    # Access the Azure ML run
+    # Init run param to check if running within AML
     def get_AMLRun():
         try:
             run = Run.get_submitted_run()
@@ -128,7 +128,7 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
     ...
             acc_val = acc_op.eval(feed_dict = {X: X_test, y: y_test})
 
-            # log accuracies to AML logger if using AML
+            # Log accuracies to AML logger if using AML
             if run != None:
                 run.log('Validation Accuracy', np.float(acc_val))
                 run.log('Training Accuracy', np.float(acc_train))
@@ -137,14 +137,14 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
     ...
     ```
 ### <a name="run-the-script-in-azure"></a>Azure에서 스크립트 실행
-이것으로 끝입니다. 이제는 확장을 사용 하 여 클라우드에서 스크립트를 실행 하면 됩니다. 다음 연습 비디오는 새로운 Azure ML 작업 영역을 만드는 데 걸리는 시간과 학습 스크립트를 실행 하는 데 걸리는 시간을 압축 하는 liberty을 가져옵니다.
+이것으로 끝입니다. 이제는 확장을 사용 하 여 클라우드에서 스크립트를 실행 하면 됩니다. 다음 연습 비디오에서는 새 Azure Machine Learning 작업 영역을 만드는 데 걸리는 시간과 학습 스크립트를 실행 하는 데 걸리는 시간을 압축 하는 데 걸리는 시간을 liberty 합니다.
 
    [Azure ML 실험을 시작 ![](./media/vscode-tools-for-ai/start-golden-path.gif)](./media/vscode-tools-for-ai/start-golden-path.gif#lightbox)
 
 실험 실행 단추를 클릭 한 후 다음과 같이 프롬프트에 응답 합니다.
 
-1. Azure 구독 선택
-1. *새* Azure ML 작업 영역 만들기를 선택 합니다.
+1. Azure 구독을 선택합니다.
+1. *새* Azure Machine Learning 작업 영역을 만들도록 선택 합니다.
 1. 미리 구성 된 템플릿 집합에서 선택 하 여 실행에 대 한 Python 환경을 초기화 합니다. 템플릿은 다음에 대 한 시작 지점 및 포함 설정을 제공 합니다.
     1. **PyTorch**, **TensorFlow**또는 **Scikit-배우기**
     1. **단일** 또는 **분산** 계산 교육
@@ -155,7 +155,7 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
 
     [클라우드에서 ![학습](./media/vscode-tools-for-ai/run-golden-path.gif)](./media/vscode-tools-for-ai/run-golden-path.gif#lightbox)
 
-몇 초 후에 실험이 Azure에 제출 되었다는 알림이 표시 됩니다. 언제 든 지 VS Code 알림에서 **실험 실행 보기** 링크를 클릭 하 여 Azure Machine Learning studio에서 진행률을 볼 수 있으며, VS Code 내에서 Azure 탭에서 새로 고침 단추를 클릭 합니다.
+몇 초 후에 실험이 Azure에 제출 되었다는 알림이 표시 됩니다 .이 경우에는 VS Code 알림에서 **실험 실행 보기** 링크를 클릭 하거나 azure 탭의 새로 고침 단추를 클릭 하 여 VS Code 내에서 진행 Azure Machine Learning 상황을 볼 수 있습니다.
 
 현재 실행 메트릭 보기는 스튜디오 에서만 지원 됩니다. 위에서 언급 한 **실험 실행 링크 보기** 는 기록한 메트릭이 표시 되는 실행으로 이동 합니다.
 [포털에서 ![실험 실행](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG)](./media/vscode-tools-for-ai/experiment-run-on-portal.PNG#lightbox)
@@ -166,7 +166,7 @@ Azure에서 실행 중인 중요 한 정보를 인식할 수 있도록 프로젝
 
 Visual Studio Code에서 기계 학습 모델을 학습 하 고 배포 하기 전에 클라우드에서 [Azure Machine Learning 작업 영역](concept-workspace.md) 을 만들어야 합니다. 이 작업 영역에는 모델과 리소스가 포함 됩니다.
 
-### <a name="create-a-workspace"></a>작업 영역 만들기
+### <a name="create-a-workspace"></a>작업 영역 생성
 
 1. Visual Studio Code 활동 표시줄에서 Azure 아이콘을 선택 합니다. Azure: Machine Learning 사이드바가 나타납니다.
 

@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 09/10/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 47c7e35f71fd33cc53d498867ef015364252d5ea
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 39bdcc94b785371044b5d49fd844a06a176a8fba
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910316"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970039"
 ---
 # <a name="media-services-concepts"></a>Media Services 개념
 
@@ -51,13 +51,13 @@ Azure에서 미디어 콘텐츠 관리, 암호화, 인코딩, 분석 및 스트�
 - [클라우드 업로드 및 스토리지](storage-account-concept.md)
 - [자산 개념](assets-concept.md)
 
-## <a name="encoding"></a>인코딩
+## <a name="encoding"></a>Encoding
 
 고품질 디지털 미디어 파일을 자산에 업로드 한 후에는 다양 한 브라우저 및 장치에서 재생할 수 있는 형식으로 인코딩할 수 있습니다. 
 
 Media Services v3로 인코딩하려면 **변환** 및 **작업**을 만들어야 합니다.
 
-![변형](./media/encoding/transforms-jobs.png)
+![변환](./media/encoding/transforms-jobs.png)
 
 - [Transforms 및 Jobs](transforms-jobs-concept.md)
 - [Media Services 인코딩](encoding-concept.md)
@@ -78,7 +78,7 @@ Media Services v3로 인코딩하려면 **변환** 및 **작업**을 만들어�
 
 ![동적 패키징](./media/dynamic-packaging-overview/media-services-dynamic-packaging.svg)
 
-Media Services를 사용 하면 AES(Advanced Encryption Standard) (AES-128) 또는/와 세 가지 주요 DRM (디지털 권한 관리) 시스템을 사용 하 여 동적으로 암호화 된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 동적 암호화된 라이브 콘텐츠 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.
+Media Services를 사용 하면 AES(Advanced Encryption Standard) (AES-128) 또는/와 세 가지 주요 DRM (디지털 권한 관리) 시스템 (Microsoft PlayReady, Google Widevine Apple FairPlay)을 사용 하 여 동적으로 암호화 된 라이브 및 주문형 콘텐츠를 제공할 수 있습니다. 또한 Media Services는 인증된 클라이언트에게 AES 키 및DRM(PlayReady, Widevine 및 FairPlay) 라이선스를 배달하는 서비스를 제공합니다.
 
 스트림에서 암호화 옵션을 지정 하는 경우 **콘텐츠 키 정책을** 만들고 **스트리밍 로케이터**와 연결 합니다. **콘텐츠 키 정책을** 사용 하 여 콘텐츠 키를 최종 클라이언트에 배달 하는 방법을 구성할 수 있습니다.
 
@@ -88,7 +88,7 @@ Media Services를 사용 하면 AES(Advanced Encryption Standard) (AES-128) 또�
 
 &#42;동적 암호화는 AES-128 "clear key", CBCS 및 CBCS를 지원 합니다. 
 
-Media Services **동적 매니페스트** 를 사용 하 여 비디오의 특정 변환이 나 하위 클립을 스트리밍할 수 있습니다. 다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 다음 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다. HLS, MPEG DASH 및 부드러운 스트리밍  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. “ott” 필터는 1Mbps 미만의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
+Media Services **동적 매니페스트** 를 사용 하 여 비디오의 특정 변환이 나 하위 클립을 스트리밍할 수 있습니다. 다음 예제에서는 7개의 ISO MP4 비디오 변환(180p에서 1080p까지)으로 메자닌 자산을 인코드하는 데 인코더가 사용되었습니다. 인코딩된 자산은 HLS, MPEG DASH, 부드러운 스트리밍 등의 스트리밍 프로토콜 중 하나로 동적으로 패키징할 수 있습니다.  다이어그램의 맨 위에 필터가 없는 자산을 위한 HLS 매니페스트가 나와 있습니다(7개의 모든 변환 포함).  왼쪽 아래에는 "ott" 필터가 적용된 HLS 매니페스트가 표시되어 있습니다. “ott” 필터는 1Mbps 미만의 모든 비트 전송률을 제거하도록 지정하며, 이 때문에 응답에서 맨 아래의 두 품질 수준이 제거됩니다. 오른쪽 아래에는 "mobile" 필터가 적용된 HLS 매니페스트가 나와 있습니다. "mobile" 필터는 해상도가 720p보다 높은 변환을 제거하도록 지정하며, 이 때문에 두 개의 1080p 변환이 제거됩니다.
 
 ![변환 필터링](./media/filters-dynamic-manifest-overview/media-services-rendition-filter.png)
 
@@ -101,22 +101,25 @@ Media Services **동적 매니페스트** 를 사용 하 여 비디오의 특정
 - [동적 매니페스트](filters-dynamic-manifest-overview.md)
 - [필터](filters-concept.md)
 
+> [!NOTE]
+> Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+
 ## <a name="live-streaming"></a>라이브 스트리밍
 
 Azure Media Services를 사용하면 Azure 클라우드에서 고객에게 라이브 이벤트를 전달할 수 있습니다. **라이브 이벤트**는 라이브 비디오 피드 수집 및 처리를 담당합니다. **라이브 이벤트**를 만들 때 원격 인코더에서 라이브 신호를 보내는 데 사용할 수 있는 입력 끝점이 생성 됩니다. 스트림이 **라이브 이벤트**로 흐르는 경우 **자산**, **라이브 출력**및 **스트리밍 로케이터**를 만들어 스트리밍 이벤트를 시작할 수 있습니다. **라이브 출력** 은 **자산** 에 스트림을 보관 하 고 **스트리밍 끝점**을 통해 뷰어에 사용할 수 있도록 합니다. **라이브 이벤트** 는 **통과** 와 **라이브 인코딩의**두 가지 유형 중 하나일 수 있습니다.
 
 다음 이미지는 통과 형식 워크플로를 보여 줍니다.
 
-![pass-through(통과)](./media/live-streaming/pass-through.svg)
+![통과](./media/live-streaming/pass-through.svg)
 
 - [라이브 스트리밍 개요](live-streaming-overview.md)
 - [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="event-grid"></a>이벤트 표
+### <a name="event-grid"></a>Event Grid
 
-작업의 진행 상황을 확인 하려면 **Event Grid**를 사용 해야 합니다. 또한 Media Services는 라이브 이벤트 유형도 내보냅니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 대응할 수 있습니다. 
+작업의 진행 상황을 확인 하려면 **Event Grid**를 사용 해야 합니다. 또한 Media Services는 라이브 이벤트 유형도 내보냅니다. Event Grid를 사용하면 앱이 사용자 지정 원본뿐만 아니라 거의 모든 Azure 서비스의 이벤트에 대해 수신 대기하고 반응할 수 있습니다. 
 
 - [Event Grid 이벤트 처리](reacting-to-media-services-events.md)
 - [스키마](media-services-event-schemas.md)

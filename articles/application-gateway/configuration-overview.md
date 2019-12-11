@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 38d86a9ed82c3a242364e788cce371f83575c1ea
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 79867bd048be882414e247af11c133ed481788a0
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108731"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996647"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -256,7 +256,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 ### <a name="connection-draining"></a>연결 드레이닝
 
-연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 백 엔드 풀의 모든 등록 취소 인스턴스가 새 요청을 수신 하지 않도록 합니다. 한편, 기존 요청은 구성 된 시간 제한 내에 완료할 수 있습니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
+연결 드레이닝은 계획 된 서비스 업데이트 중에 백 엔드 풀 멤버를 정상적으로 제거 하는 데 도움이 됩니다. 규칙을 만드는 동안 백 엔드 풀의 모든 멤버에이 설정을 적용할 수 있습니다. 이를 통해 백 엔드 풀의 모든 있음이 인스턴스는 기존 연결을 계속 유지 하 고 구성 가능한 시간 제한에 대해 진행 중인 요청을 처리할 수 있으며 새 요청 또는 연결을 받지 않습니다. 이에 대 한 유일한 예외는 게이트웨이 관리 세션 선호도로 인해 deregistring 인스턴스에 대해 바인딩된 요청이 며 deregistring 인스턴스로 계속 프록시 됩니다. 연결 드레이닝은 백 엔드 풀에서 명시적으로 제거 된 백 엔드 인스턴스에 적용 됩니다.
 
 ### <a name="protocol"></a>프로토콜
 
@@ -264,7 +264,7 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
 수신기에서 HTTPS와 결합 된이 설정은 [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)을 지원 합니다. 이를 통해 백 엔드에 암호화 된 중요 한 데이터를 안전 하 게 전송할 수 있습니다. 종단 간 SSL을 사용 하도록 설정 된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용 하는 인증서를 사용 하 여 구성 해야 합니다.
 
-### <a name="port"></a>포트
+### <a name="port"></a>Port
 
 이 설정은 백 엔드 서버가 application gateway의 트래픽을 수신 대기 하는 포트를 지정 합니다. 1에서 65535 사이의 포트를 구성할 수 있습니다.
 
@@ -325,7 +325,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 이 기능은 응용 프로그램 게이트웨이에서 들어오는 요청의 *호스트* 헤더를 지정한 호스트 이름으로 바꿉니다.
 
-예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에 전달 되 면 원래 요청 * https://appgw.eastus.cloudapp.azure.com/path1 * https://www.contoso.com/path1로 변경 됩니다.
+예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에 전달 되 면 원래 요청 * https://appgw.eastus.cloudapp.azure.com/path1 * https://www.contoso.com/path1 로 변경 됩니다.
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 

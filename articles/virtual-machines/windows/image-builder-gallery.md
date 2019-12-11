@@ -1,26 +1,26 @@
 ---
-title: Windows 가상 머신에 대 한 이미지 갤러리와 함께 Azure 이미지 작성기 사용 (미리 보기)
-description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Windows 이미지를 만듭니다.
+title: Windows Vm 용 이미지 갤러리에서 Azure 이미지 작성기 사용 (미리 보기)
+description: Azure 이미지 작성기 및 공유 이미지 갤러리를 사용 하 여 Windows VM 이미지를 만듭니다.
 author: cynthn
 ms.author: cynthn
 ms.date: 05/02/2019
 ms.topic: article
 ms.service: virtual-machines-windows
 manager: gwallace
-ms.openlocfilehash: 33f13c09a06885523298bd7c23744e79f68e5301
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 1d9763ccc5f5967b9fc9932a11fff655e6120fd0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68698679"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976080"
 ---
-# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들어 공유 이미지 갤러리에 배포 
+# <a name="preview-create-a-windows-image-and-distribute-it-to-a-shared-image-gallery"></a>미리 보기: Windows 이미지를 만들고 공유 이미지 갤러리에 배포 합니다. 
 
 이 문서에서는 Azure 이미지 작성기를 사용 하 여 [공유 이미지 갤러리](shared-image-galleries.md)에서 이미지 버전을 만든 다음 전체적으로 이미지를 배포 하는 방법을 보여 줍니다.
 
 이미지를 구성 하는 데 사용 되는 json 템플릿을 사용 합니다. 사용 중인. json 파일은 [helloImageTemplateforWinSIG](https://raw.githubusercontent.com/danielsollondon/azvmimagebuilder/master/quickquickstarts/1_Creating_a_Custom_Win_Shared_Image_Gallery_Image/helloImageTemplateforWinSIG.json)입니다. 
 
-공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서는 템플릿의 `distribute` 섹션에 대 한 값으로 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) 를 사용 합니다.
+공유 이미지 갤러리에 이미지를 배포 하기 위해 템플릿에서 [sharedImage](../linux/image-builder-json.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#distribute-sharedimage) 를 템플릿의 `distribute` 섹션 값으로 사용 합니다.
 
 > [!IMPORTANT]
 > Azure 이미지 작성기는 현재 공개 미리 보기로 제공 됩니다.
@@ -57,7 +57,7 @@ az provider register -n Microsoft.Compute
 
 ## <a name="set-variables-and-permissions"></a>변수 및 사용 권한 설정 
 
-일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다. `username` 및`vmpassword`와 같은 변수 값을 사용자의 정보로 바꿉니다.
+일부 정보를 반복 해 서 사용 하 게 되며,이 정보를 저장 하는 몇 가지 변수를 만듭니다. `username` 및 `vmpassword`와 같이 변수의 값을 사용자의 정보로 바꿉니다.
 
 ```azurecli-interactive
 # Resource group name - we are using ibsigRG in this example
@@ -77,7 +77,7 @@ username="azureuser"
 vmpassword="passwordfortheVM"
 ```
 
-구독 ID에 대 한 변수를 만듭니다. 을 사용 하 여 `az account show | grep id`이를 가져올 수 있습니다.
+구독 ID에 대 한 변수를 만듭니다. `az account show | grep id`를 사용 하 여이를 가져올 수 있습니다.
 
 ```azurecli-interactive
 subscriptionID="Subscription ID"
@@ -191,7 +191,7 @@ VM을 만들 때 설정한 사용자 이름 및 암호를 사용 하 여 VM에 �
 dir c:\
 ```
 
-이미지를 사용자 지정 하는 `buildActions` 동안 만들어진 라는 디렉터리가 표시 되어야 합니다.
+이미지를 사용자 지정 하는 동안 만들어진 `buildActions` 라는 디렉터리가 표시 되어야 합니다.
 
 
 ## <a name="clean-up-resources"></a>리소스 정리
@@ -211,7 +211,7 @@ az resource delete \
     -n helloImageTemplateforWinSIG01
 ```
 
-이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상로 `0.`시작 하 고 이미지 버전을 삭제 합니다.
+이미지 작성기에서 만든 이미지 버전을 가져옵니다 .이는 항상 `0.`로 시작 하 고 이미지 버전을 삭제 합니다.
 
 ```azurecli-interactive
 sigDefImgVersion=$(az sig image-version list \

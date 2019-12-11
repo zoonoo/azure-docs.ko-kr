@@ -3,17 +3,17 @@ title: Azure IoT Central 응용 프로그램 내보내기 | Microsoft Docs
 description: 솔루션 관리자로 서 다시 사용할 수 있도록 응용 프로그램 템플릿을 내보내야 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 10/17/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 0edc1a7e470b7f0f3773b69635bbc26ab4d283b3
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 9870b18be9fb75e25941a7e1d05e4164239aacbb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74480367"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977525"
 ---
 # <a name="export-your-application-preview-features"></a>응용 프로그램 내보내기 (미리 보기 기능)
 
@@ -21,32 +21,32 @@ ms.locfileid: "74480367"
 
 이 문서에서는 솔루션 관리자가 IoT Central 응용 프로그램을 다시 사용할 수 있도록 내보내는 방법을 설명 합니다.
 
-두 가지가 있습니다.
+Erre két lehetősége van:
 
 - 응용 프로그램의 복사본을 만들어야 하는 경우 응용 프로그램의 복사본을 만들 수 있습니다.
 - 여러 복사본을 만들 계획인 경우 응용 프로그램에서 응용 프로그램 템플릿을 만들 수 있습니다.
 
 ## <a name="copy-your-application"></a>응용 프로그램 복사
 
-모든 디바이스 인스턴스, 디바이스 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 이 복사본은 요금이 청구 되는 종 량 제 응용 프로그램입니다. 응용 프로그램을 복사 하 여 평가판 응용 프로그램을 만들 수 없습니다.
+모든 응용 프로그램의 복사본, 장치 인스턴스, 장치 데이터 기록 및 사용자 데이터를 제외한 모든 응용 프로그램의 복사본을 만들 수 있습니다. 이 복사본은 요금이 청구 되는 종 량 제 응용 프로그램입니다. 응용 프로그램을 복사 하 여 평가판 응용 프로그램을 만들 수 없습니다.
 
-**복사**를 선택 합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. 양식의 필드에 대해 자세히 알아보려면 [응용 프로그램 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조 하세요.
+Válassza a **Másolás** lehetőséget. 대화 상자에서 새 종 량 제 응용 프로그램에 대 한 세부 정보를 입력 합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. 양식의 필드에 대해 자세히 알아보려면 [응용 프로그램 만들기](quick-deploy-iot-central.md) 빠른 시작을 참조 하세요.
 
 > [!NOTE]
 > **응용 프로그램** 을 **유럽** 및 **미국** 지역에만 복사할 수 있습니다.
 
-![애플리케이션 설정 페이지](media/howto-use-app-templates/appcopy2.png)
+![응용 프로그램 설정 페이지](media/howto-use-app-templates/appcopy2.png)
 
 앱 복사 작업이 성공 하면 링크를 사용 하 여 새 응용 프로그램으로 이동할 수 있습니다.
 
-![애플리케이션 설정 페이지](media/howto-use-app-templates/appcopy3a.png)
+![응용 프로그램 설정 페이지](media/howto-use-app-templates/appcopy3a.png)
 
 응용 프로그램을 복사 하면 규칙 및 전자 메일 작업의 정의도 복사 됩니다. Flow 및 Logic Apps와 같은 일부 작업은 규칙 ID를 통해 특정 규칙에 연결 됩니다. 다른 응용 프로그램에 규칙을 복사 하는 경우 규칙 ID를 가져옵니다. 이 경우 사용자는 새 작업을 만든 후 새 작업을 연결 해야 합니다. 일반적으로 규칙 및 작업을 확인 하 여 새 앱에서 최신 상태 인지 확인 하는 것이 좋습니다.
 
 > [!WARNING]
 > 대시보드는 특정 장치에 대 한 정보를 표시 하는 타일을 포함 하는 경우 요청 된 리소스를 새 응용 프로그램에서 **찾을 수 없는** 타일로 표시 합니다. 새 응용 프로그램의 장치에 대 한 정보를 표시 하려면 이러한 타일을 다시 구성 해야 합니다.
 
-## <a name="create-an-application-template"></a>애플리케이션 템플릿 만들기
+## <a name="create-an-application-template"></a>응용 프로그램 템플릿 만들기
 
 Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 템플릿 중에서 선택할 수 있습니다. 기존 IoT Central 응용 프로그램에서 사용자 고유의 응용 프로그램 템플릿을 만들 수도 있습니다. 그런 다음 새 응용 프로그램을 만들 때 사용자 고유의 응용 프로그램 템플릿을 사용할 수 있습니다.
 
@@ -62,8 +62,8 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 응용 프로그램 템플릿을 만들 때 다음 항목은 포함 되지 않습니다.
 
-- 디바이스
-- 사용자
+- Eszközök
+- Felhasználók
 - 작업 정의
 - 연속 데이터 내보내기 정의
 
@@ -76,7 +76,7 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 1. **응용 프로그램 템플릿 내보내기** 페이지에서 템플릿의 이름 및 설명을 입력 합니다.
 1. 응용 프로그램 템플릿을 만들려면 **내보내기** 단추를 선택 합니다. 이제 다른 사용자가 템플릿에서 새 응용 프로그램을 만들 수 있도록 **공유 가능한 링크** 를 복사할 수 있습니다.
 
-![애플리케이션 템플릿 만들기](media/howto-use-app-templates/create-template.png)
+![응용 프로그램 템플릿 만들기](media/howto-use-app-templates/create-template.png)
 
 ### <a name="use-an-application-template"></a>응용 프로그램 템플릿 사용
 
@@ -97,6 +97,6 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 응용 프로그램 템플릿을 업데이트 하려면 **응용 프로그램 템플릿 내보내기** 페이지에서 템플릿 이름이 나 설명을 변경 합니다. 그런 다음 **내보내기** 단추를 다시 선택 합니다. 이 작업은 공유 가능한 새 **링크** 를 생성 하 고 이전에 **공유 가능한 링크** URL을 무효화 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 이제 응용 프로그램 템플릿을 사용 하는 방법을 배웠으므로 제안 된 다음 단계는 [Azure Portal에서 IoT Central를 관리](../core/howto-manage-iot-central-from-portal.md?toc=/azure/iot-central/preview/toc.json&bc=/azure/iot-central/preview/breadcrumb/toc.json) 하는 방법을 배우는 것입니다.
