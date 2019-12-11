@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 11/24/2017
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 76afafb59de762776b7d2614e383320b7d8f79e4
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: b32e2abcffda24fa82d3911575fe48acfc294ccc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73669398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74973172"
 ---
 # <a name="the-team-data-science-process-in-action-using-sql-data-warehouse"></a>실행 중인 팀 데이터 과학 프로세스: SQL Data Warehouse 사용
 이 자습서에서는 공개적으로 사용 가능한 데이터 세트인 [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) 데이터 세트에 SQL Data Warehouse(SQL DW)를 사용하여 기계 학습 모델을 구축 및 배포하는 방법을 안내합니다. 생성된 이진 분류 모델을 통해 여정에 대해 팁이 지불되었는지 여부를 예측하며 지불된 팁 금액의 분배를 예측하는 다중 클래스 분류 및 회귀에 대한 모델도 설명됩니다.
@@ -43,7 +43,7 @@ NYC Taxi Trip 데이터는 1억 7,300만 개가 넘는 개별 여정 및 각 여
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:54:15,CSH,5,0.5,0.5,0,0,6
         DFD2202EE08F7A8DC9A57B02ACB81FE2,51EE87E3205C985EF8431D850C786310,CMT,2013-01-07 23:25:03,CSH,9.5,0.5,0.5,0,0,10.5
 
-trip**data 및 trip**fare를 조인하는 데 사용된 \_고유 키\_는 다음 세 필드로 구성됩니다.
+trip\_data 및 trip\_fare를 조인하는 데 사용된 **고유 키**는 다음 세 필드로 구성됩니다.
 
 * medallion,
 * hack\_license 및
@@ -67,12 +67,12 @@ Azure 데이터 과학 환경을 설정하려면 다음 단계를 수행합니�
 
 A: 모든 지역에서 Blob 및 File Storage에 고객 관리 키 및 SSE를 사용할 수 있습니다.
 
-* 고유한 Azure Blob Storage를 프로비전할 때 Azure Blob Storage에 대한 지역 위치를 NYC 택시 데이터가 저장된 **미국 중남부**에 가능한 한 가깝게 선택합니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
+* 이 문서에서는 Azure CLI에서 SMB 탑재를 사용하여 Linux VM에서 Azure File 스토리지 서비스를 사용하는 방법을 보여 줍니다. Azure File Storage를 사용하여 파일 공유에 의존하는 레거시 응용 프로그램을 비경제적인 다시 쓰기 작업 없이 빠르게 Azure로 마이그레이션할 수 있습니다. File Storage를 사용하여 세상에 공개적으로 표시하거나 응용 프로그램 데이터를 비공개적으로 저장할 수 있습니다.
 * 고유의 Azure Storage 계정을 만들려면 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)에 요약된 단계를 수행합니다. 이 연습의 뒷부분에서 필요하므로 다음 스토리지 계정 자격 증명에 대한 값을 적어두어야 합니다.
 
   * **Storage 계정 이름**
   * **Storage 계정 키**
-  * **컨테이너 이름** (데이터를 저장하려는 Azure Blob Storage)
+  * 2단계: Blob 및 File Storage에 SSE 사용
 
 **Azure SQL DW 인스턴스를 프로비전합니다.**
 [SQL Data Warehouse 만들기](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) 의 설명서에 따라 SQL Data Warehouse 인스턴스를 프로비전합니다. 이후 단계에서 사용되는 다음 SQL Data Warehouse 자격 증명에 표기하도록 합니다.
@@ -540,7 +540,7 @@ SQL 쿼리에서 기능을 생성하는 이 함수를 호출하는 예는 다음
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>모델 구축에 사용할 데이터를 준비합니다.
-다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  이 쿼리를 복사 하 여 Azure의 SQL database 인스턴스에서 직접 데이터를 수집 하기 위해 [Azure Machine Learning Studio](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
+다음 쿼리는 **nyctaxi\_trip** 및 **nyctaxi\_fare** 테이블을 조인하고, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성하며, 조인된 전체 데이터 세트에서 샘플을 추출합니다. 샘플링은 승차 시간에 따라 여정의 하위 집합을 검색하여 수행됩니다.  이 쿼리를 복사 하 여 Azure의 SQL database 인스턴스에서 직접 데이터를 수집 하기 위해 [Azure Machine Learning Studio (클래식)](https://studio.azureml.net) [데이터 가져오기][import-data] 모듈에 직접 붙여넣을 수 있습니다. 잘못된 (0, 0) 좌표가 있는 레코드는 쿼리에서 제외됩니다.
 
     SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
         CASE WHEN (tip_amount > 0) THEN 1 ELSE 0 END AS tipped,
@@ -567,15 +567,15 @@ Azure Machine Learning을 진행할 준비가 되었으면 다음을 수행할 �
 
 로컬 컴퓨터에 다운로드한 샘플 IPython Notebook 및 Python 스크립트 파일에서 필요한 Azure SQL DW 정보는 이전에 PowerShell 스크립트에 의해 플러그 인되었습니다. 수정 없이 실행할 수 있습니다.
 
-AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 AzureML IPython Notebook 서비스에 직접 업로드하고 실행을 시작할 수 있습니다. AzureML IPython Notebook 서비스에 업로드하는 단계는 다음과 같습니다.
+Azure Machine Learning 작업 영역을 이미 설정한 경우에는 샘플 IPython 노트북을 AzureML IPython 노트북 서비스에 직접 업로드 하 고 실행을 시작할 수 있습니다. AzureML IPython 노트북 서비스에 업로드 하는 단계는 다음과 같습니다.
 
-1. AzureML 작업 영역에 로그인하고 맨 위에 있는 "Studio"를 클릭한 다음 웹 페이지의 왼쪽에서 "NOTEBOOKS"를 클릭합니다.
+1. Azure Machine Learning 작업 영역에 로그인 하 고 맨 위에 있는 **스튜디오** 를 클릭 한 다음 웹 페이지의 왼쪽에 있는 **노트북** 을 클릭 합니다.
 
     ![Studio를 클릭한 다음, NOTEBOOKS 클릭][22]
-2. 웹 페이지의 왼쪽 아래 모서리에서 "새로 만들기"를 클릭하고 "Python 2"를 선택합니다. 그런 다음 노트북에 이름을 제공하고 확인 표시를 클릭하여 새 비어 있는 IPython Notebook을 만듭니다.
+2. 웹 페이지의 왼쪽 아래에 있는 **새로 만들기** 를 클릭 하 고 **Python 2**를 선택 합니다. 그런 다음 노트북에 이름을 제공하고 확인 표시를 클릭하여 새 비어 있는 IPython Notebook을 만듭니다.
 
     ![NEW를 클릭한 다음, Python 2 클릭][23]
-3. 새 IPython Notebook의 왼쪽 위 모서리에서 "Jupyter" 기호를 클릭합니다.
+3. 새 IPython 노트북의 왼쪽 상단 모서리에 있는 **Jupyter** 기호를 클릭 합니다.
 
     ![Jupyter 기호 클릭][24]
 4. 샘플 IPython Notebook을 AzureML IPython Notebook 서비스의 **트리** 페이지로 끌어서 놓고 **업로드**를 클릭합니다. 그런 다음 샘플 IPython Notebook은 AzureML IPython Notebook 서비스에 업로드됩니다.
@@ -590,7 +590,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 - pyodbc
 - PyTables
 
-큰 데이터로 AzureML에 고급 분석 솔루션을 구축할 때 권장된 시퀀스는 다음과 같습니다.
+대량 데이터를 사용 하 Azure Machine Learning에 대 한 고급 분석 솔루션을 빌드할 때 권장 되는 시퀀스는 다음과 같습니다.
 
 * 소량의 데이터 샘플을 메모리 내 데이터 프레임으로 읽습니다.
 * 샘플링된 데이터를 사용하여 일부 시각화 및 탐색을 수행합니다.
@@ -711,7 +711,7 @@ AzureML 작업 영역을 이미 설정한 경우 샘플 IPython Notebook을 Azur
 
 ![가로 막대형 그림 출력][3]
 
-and
+및
 
     pd.Series(trip_dist_bin_id).value_counts().plot(kind='line')
 
@@ -811,14 +811,14 @@ and
 
 모델링 연습을 시작 하려면 **Azure Machine Learning (클래식)** 작업 영역에 로그인 합니다. 기계 학습 작업 영역을 아직 만들지 않은 경우 [Azure Machine Learning Studio (클래식) 작업 영역 만들기](../studio/create-workspace.md)를 참조 하세요.
 
-1. Azure Machine Learning을 시작하려면 [Azure Machine Learning Studio란?](../studio/what-is-ml-studio.md)
-2. [Azure Machine Learning Studio](https://studio.azureml.net)에 로그인합니다.
-3. 스튜디오 홈 페이지에서는 다양한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공합니다. Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
+1. Azure Machine Learning를 시작 하려면 [Azure Machine Learning Studio (클래식) 이란?](../studio/what-is-ml-studio.md) 을 참조 하세요.
+2. [Azure Machine Learning Studio (클래식)](https://studio.azureml.net)에 로그인 합니다.
+3. Machine Learning Studio (클래식) 홈 페이지에서는 다양 한 정보, 비디오, 자습서, 모듈 참조 링크 및 기타 리소스를 제공 합니다. Azure Machine Learning에 대한 자세한 내용은 [Azure Machine Learning 설명서 센터](https://azure.microsoft.com/documentation/services/machine-learning/)를 참조하세요.
 
 일반적인 학습 실험은 다음 단계로 구성됩니다.
 
 1. **+새** 실험 만들기
-2. Azure Machine Learning Studio로 데이터 가져오기
+2. Azure Machine Learning Studio (클래식)로 데이터를 가져옵니다.
 3. 필요에 따라 데이터를 전처리, 변환 및 조작합니다.
 4. 필요에 따라 기능을 생성합니다.
 5. 데이터를 학습/유효성 검사/테스트 데이터 세트로 분할하거나, 각각에 대한 별도의 데이터 세트를 만듭니다.
@@ -828,7 +828,7 @@ and
 9. 모델을 평가하여 학습 문제에 대한 관련 메트릭을 컴퓨팅합니다.
 10. 모델을 미세 조정하고 배포할 가장 적합한 모델을 선택합니다.
 
-이 연습에서는 이미 SQL Data Warehouse에서 데이터를 탐색 및 엔지니어링하고 Azure Machine Learning Studio에서 수집할 샘플 크기를 결정했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
+이 연습에서는 이미 SQL Data Warehouse 데이터를 탐색 하 고 엔지니어링 했으며 Azure Machine Learning Studio (클래식)에서 수집할 샘플 크기를 결정 했습니다. 예측 모델 중 하나 이상을 빌드하는 절차는 다음과 같습니다.
 
 1. 데이터 **입력 및 출력** 섹션에서 사용할 수 있는 데이터 [가져오기][import-data] 모듈을 사용 하 여 데이터를 Azure Machine Learning Studio (클래식)으로 가져옵니다. 자세한 내용은 [데이터 가져오기][import-data] 모듈 참조 페이지를 참조 하세요.
 
@@ -836,7 +836,7 @@ and
 2. **속성** 패널에서 **Azure SQL Database**를 **데이터 원본**으로 선택합니다.
 3. **데이터베이스 서버 이름** 필드에 데이터베이스 DNS 이름을 입력합니다. 형식: `tcp:<your_virtual_machine_DNS_name>,1433`
 4. **데이터베이스 이름** 을 해당 필드에 입력합니다.
-5. *서버 사용자 계정 이름*에 **SQL 사용자 이름**을 입력하고, *서버 사용자 계정 암호*에 **암호**를 입력합니다.
+5. **서버 사용자 계정 이름**에 *SQL 사용자 이름*을 입력하고, **서버 사용자 계정 암호**에 *암호*를 입력합니다.
 7. **데이터베이스 쿼리** 편집 텍스트 영역에서 필요한 데이터베이스 필드를 추출하는 쿼리(레이블과 같은 모든 계산된 필드 포함)를 붙여 넣고 데이터를 원하는 샘플 크기로 다운 샘플링합니다.
 
 SQL Data Warehouse 데이터베이스에서 직접 데이터를 읽는 이진 분류 실험의 예는 아래 그림에 있습니다.(연습에서 사용한 스키마 이름 및 테이블 이름으로 테이블 이름 nyctaxi_trip 및 nyctaxi_fare를 교체해야 함) 다중 클래스 분류 및 회귀 문제에 대한 유사한 실험을 생성할 수 있습니다.
@@ -881,7 +881,9 @@ Azure Machine Learning에서는 학습 실험의 구성 요소를 기반으로 �
 이 샘플 연습 및 이와 함께 제공되는 스크립트와 IPython Notebook은 MIT 라이선스에 따라 Microsoft에서 공유한 것입니다. 자세한 내용은 GitHub의 샘플 코드 디렉터리에 있는 LICENSE.txt 파일을 참조하세요.
 
 ## <a name="references"></a>참조
-•    [Andrés Monroy NYC Taxi Trips 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/) •    [Chris Whong의 FOILing NYC Taxi Trip Data](https://chriswhong.com/open-data/foil_nyc_taxi/) •    [NYC 택시 및 리무진 수수료 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+- [Andrés Monroy NYC Taxi 여행 다운로드 페이지](https://www.andresmh.com/nyctaxitrips/)
+- [Chris Whong의 별 FOILing NYC의 Taxi 여행 데이터](https://chriswhong.com/open-data/foil_nyc_taxi/)
+- [NYC Taxi 및 리무진 위원회 연구 및 통계](https://www1.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
 
 [1]: ./media/sqldw-walkthrough/sql-walkthrough_26_1.png
 [2]: ./media/sqldw-walkthrough/sql-walkthrough_28_1.png

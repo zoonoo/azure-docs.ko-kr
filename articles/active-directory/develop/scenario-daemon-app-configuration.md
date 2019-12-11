@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱 (앱 구성)-Microsoft identity platform
-description: 웹 Api (앱 구성)를 호출 하는 디먼 앱을 빌드하는 방법을 알아봅니다.
+title: 웹 Api를 호출 하는 디먼 앱 구성-Microsoft identity platform | Microsoft
+description: 웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법 알아보기 (앱 구성)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 32fbd4af78e02dad2a8a74ee21f9cb8c6ef0a976
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: b0fd50f730c604ba1359218cf5268bd20e570d3c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175501"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962647"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
@@ -39,7 +39,7 @@ ms.locfileid: "73175501"
 
 ## <a name="configuration-of-the-authority"></a>인증 기관 구성
 
-디먼 응용 프로그램은 위임 된 권한을 사용 하지 않지만 응용 프로그램 사용 권한은 지원 되는 *계정 유형은* *조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox,)의 계정일 수 없습니다. Outlook.com)* . 실제로 Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 부여 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
+디먼 응용 프로그램은 위임 된 사용 권한을 사용 하지 않지만 응용 프로그램 사용 권한은 *지원* 되는 계정 유형은 *조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의*계정일 수 없습니다. 실제로 Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 부여 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
 
 따라서 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 

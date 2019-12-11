@@ -1,5 +1,5 @@
 ---
-title: 웹 api를 호출 하는 모바일 앱-web API 호출
+title: 모바일 앱에서 web API 호출 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Web api를 호출 하는 모바일 앱을 빌드하는 방법 알아보기
 services: active-directory
@@ -17,12 +17,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e70b828219fc497fc07e2bc128eb480a532a176
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: db58f94501590eb3150700d282377ec1b2378cea
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802558"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962545"
 ---
 # <a name="mobile-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 모바일 앱-web API 호출
 
@@ -89,11 +89,11 @@ MSAL은 다음 값을 제공 합니다.
         queue.add(request);
 ```
 
-### <a name="msal-for-ios-and-macos"></a>iOS 및 macOS용 MSAL
+### <a name="msal-for-ios-and-macos"></a>MSAL iOS és macOS rendszerekre
 
 토큰을 획득 하는 메서드는 `MSALResult` 개체를 반환 합니다. `MSALResult`는 web API를 호출 하는 데 사용할 수 있는 `accessToken` 속성을 노출 합니다. 보호 된 Web API에 액세스 하기 전에 액세스 토큰을 HTTP 권한 부여 헤더에 추가 해야 합니다.
 
-Objective-C:
+목표-C:
 
 ```objc
 NSMutableURLRequest *urlRequest = [NSMutableURLRequest new];
@@ -107,7 +107,7 @@ NSURLSessionDataTask *task =
 [task resume];
 ```
 
-Swift:
+Swift
 
 ```swift
 let urlRequest = NSMutableURLRequest()
@@ -164,7 +164,7 @@ catch(MsalUiRequiredException ex)
 }
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-mobile-production.md)

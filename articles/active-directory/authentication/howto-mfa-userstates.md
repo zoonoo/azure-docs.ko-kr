@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55bba2ff51460a10feabd881458b8d4a15cde924
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 46195a0a799f9edabcd8cd5a27e1b79752d03a45
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74914618"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964058"
 ---
 # <a name="how-to-require-two-step-verification-for-a-user"></a>사용자에 대해 2단계 인증을 요구하는 방법
 
@@ -103,10 +103,15 @@ Azure Multi-Factor Authentication의 사용자 계정은 다음과 같은 3가�
 > [!TIP]
 > 먼저 **Connect-MsolService**를 사용하여 연결해야 합니다.
 
+   ```PowerShell
+   Connect-MsolService
+   ```
+
 이 예제 PowerShell 스크립트는 개별 사용자에 대해 MFA를 사용하도록 설정합니다.
 
    ```PowerShell
    Import-Module MSOnline
+   Connect-MsolService
    $st = New-Object -TypeName Microsoft.Online.Administration.StrongAuthenticationRequirement
    $st.RelyingParty = "*"
    $st.State = "Enabled"

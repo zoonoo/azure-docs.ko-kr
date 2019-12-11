@@ -1,5 +1,5 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱 (앱 등록)-Microsoft identity platform
+title: 웹 Api를 호출 하는 디먼 앱 등록-Microsoft identity platform | Microsoft
 description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법 알아보기-앱 등록
 services: active-directory
 documentationcenter: dev-center-name
@@ -16,18 +16,18 @@ ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8d0d88f72cca45280bd76ac7bb9d7a6e0a1d37fb
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bcdad9b1ea56a41613c5d8d815d1418783fea4ce
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175455"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965588"
 ---
 # <a name="daemon-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 디먼 앱-앱 등록
 
 디먼 응용 프로그램의 경우 앱을 등록할 때 알아야 할 사항은 다음과 같습니다.
 
-## <a name="supported-account-types"></a>지원되는 계정 유형
+## <a name="supported-account-types"></a>Támogatott fióktípusok
 
 디먼 응용 프로그램은 Azure AD 테 넌 트에만 적합 한 경우 응용 프로그램을 만들 때 다음을 선택 해야 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "73175455"
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [디먼 앱-앱 코드 구성](./scenario-daemon-app-configuration.md)

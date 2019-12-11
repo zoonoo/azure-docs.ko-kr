@@ -1,5 +1,5 @@
 ---
-title: 사용자를 로그인 하는 웹 앱 (개요)-Microsoft identity platform
+title: 웹 앱에서 사용자 로그인-Microsoft identity platform | Microsoft
 description: 사용자를 로그인 하는 웹 앱을 빌드하는 방법 알아보기 (개요)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,18 +15,18 @@ ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 316ab055a077b251e88421ab26997f8556a6e31f
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 10a53f88a97cdba8626c9d6c421093e4ec327e19
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482474"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961610"
 ---
 # <a name="scenario-web-app-that-signs-in-users"></a>시나리오: 사용자에 게 로그인 하는 웹 앱
 
 Microsoft id 플랫폼을 사용 하 여 사용자를 로그인 하는 웹 앱을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 [!INCLUDE [Prerequisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 

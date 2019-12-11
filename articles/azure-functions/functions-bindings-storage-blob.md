@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 65775a9c7a6d66a088eccdfdb22ce7d6b01829d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d6a17322c360040b8fa77ac243a1b568f0d10c1f
+ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74925398"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74996496"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -463,7 +463,7 @@ JavaScript 및 Java 함수는 전체 Blob을 메모리에 로드하고 C# 함수
 
 ## <a name="trigger---polling"></a>트리거 - 폴링
 
-모니터링 되는 blob 컨테이너가 모든 컨테이너에서 1만 개 이상의 blob을 포함 하는 경우 함수 런타임은 로그 파일을 스캔 하 여 새 blob 또는 변경 된 blob을 감시 합니다. 이 프로세스는 지연이 발생할 수 있습니다. Blob을 만든 후 몇 분이 경과할 때까지 함수가 트리거되지 않을 수도 있습니다.
+폴링은 로그 검사와 정기적인 컨테이너 검색 실행 간의 하이브리드 방식으로 작동 합니다. Blob은 간격 간에 사용 되는 연속 토큰을 사용 하 여 한 번에 1만 그룹으로 스캔 됩니다.
 
 > [!WARNING]
 > 또한 [스토리지 로그는 "최선을 다해" 생성됩니다](/rest/api/storageservices/About-Storage-Analytics-Logging). 하지만 모든 이벤트가 캡처되는 것은 아닙니다. 경우에 따라 로그가 누락될 수 있습니다.

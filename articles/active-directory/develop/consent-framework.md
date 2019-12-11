@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory 동의 프레임워크
+title: Azure AD 동의 프레임 워크
 titleSuffix: Microsoft identity platform
 description: Azure Active Directory의 동의 프레임워크와 이 프레임워크를 통해 다중 테넌트 웹 및 네이티브 클라이언트 애플리케이션을 쉽게 개발하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -14,12 +14,12 @@ ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e850b58274a98fd18b84114552bbf7835a27417c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a04dc3c7946589d03c3fd07451ec643d9c088c1a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843379"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963752"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Azure Active Directory 동의 프레임워크
 

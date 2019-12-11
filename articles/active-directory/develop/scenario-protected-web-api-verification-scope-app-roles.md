@@ -1,5 +1,5 @@
 ---
-title: 보호 된 web API를 사용 하 여 범위 및 앱 역할 확인
+title: 범위 및 앱 역할 확인 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4340d92bdfe871010021edcbefcde62ab8202462
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: a20a7a5a0df87910d2093bfee47e46c9c1a06530
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73149225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965384"
 ---
 # <a name="protected-web-api-verify-scopes-and-app-roles"></a>보호 된 웹 API: 범위 및 앱 역할 확인
 
@@ -169,7 +169,7 @@ bool isAppOnlyToken = oid == sub;
 
 역 조건을 확인 하면 사용자가 로그인 하는 앱만 API를 호출할 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-protected-web-api-production.md)

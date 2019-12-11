@@ -1,5 +1,5 @@
 ---
-title: 사용자 (로그인)에 로그인 하는 웹 앱-Microsoft identity platform
+title: 사용자가 로그인 하는 웹 앱 작성-Microsoft id 플랫폼 | Microsoft
 description: 사용자 로그인 (로그인) 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81b41e46401d600ebaba1febb86aafbd55c8399a
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c8d7d5737a8332416a225154709ab7d66e447764
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482556"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961984"
 ---
 # <a name="web-app-that-signs-in-users-sign-in-and-sign-out"></a>사용자 로그인 및 로그 아웃 하는 웹 앱
 

@@ -1,5 +1,5 @@
 ---
-title: 보호 된 웹 API-앱 코드 구성
+title: 보호 된 웹 API 앱 구성 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API를 빌드하고 응용 프로그램의 코드를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb562caf2dfc83841762748f37d1a7ee325de10b
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 7f78fa35096b7e17d3736190bfa49619c2c81520
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73882636"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74965401"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -32,7 +32,7 @@ ms.locfileid: "73882636"
 
 웹 앱과 마찬가지로 ASP.NET/ASP.NET 핵심 웹 Api는 해당 컨트롤러 작업에 `[Authorize]` 특성이 접두사로 추가 되기 때문에 "보호" 됩니다. 따라서 인증 된 id를 사용 하 여 API를 호출 하는 경우에만 컨트롤러 작업을 호출할 수 있습니다.
 
-다음 질문을 고려 합니다.
+A következő kérdéseket kell figyelembe venni:
 
 - Web API는이를 호출 하는 앱의 id를 어떻게 인식 하나요? 앱만 웹 API를 호출할 수 있습니다.
 - 앱이 사용자를 대신 하 여 web API를 호출 하는 경우 사용자의 id는 무엇 인가요?
@@ -62,7 +62,7 @@ HttpResponseMessage response = await _httpClient.GetAsync(apiUri);
 
 이 섹션에서는 전달자 토큰을 구성 하는 방법을 설명 합니다.
 
-### <a name="config-file"></a>Config 파일
+### <a name="config-file"></a>구성 파일
 
 ```Json
 {
@@ -148,7 +148,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 유효성 검사기는 다음 표에 설명 되어 있습니다.
 
-| 검사기 | 설명 |
+| 유효성 검사기 | Leírás |
 |---------|---------|
 | `ValidateAudience` | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | `ValidateIssuer` | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다 (다른 사람이 신뢰 함). |
@@ -163,7 +163,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 또한 Azure 함수에서 들어오는 액세스 토큰의 유효성을 검사할 수 있습니다. [Dotnet](https://github.com/Azure-Samples/ms-identity-dotnet-webapi-azurefunctions), [Nodejs](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-azurefunctions)및 [Python](https://github.com/Azure-Samples/ms-identity-python-webapi-azurefunctions)의 Azure 함수에서 토큰의 유효성을 검사 하는 예제를 찾을 수 있습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [코드에서 범위 및 앱 역할 확인](scenario-protected-web-api-verification-scope-app-roles.md)

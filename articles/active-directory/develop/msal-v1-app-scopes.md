@@ -1,5 +1,5 @@
 ---
-title: v1.0 애플리케이션에 대한 범위(Microsoft Authentication Library) | Azure
+title: V 1.0 응용 프로그램의 경우 MSAL 범위 | Microsoft
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 v1.0 애플리케이션에 대한 범위를 알아봅니다.
 services: active-directory
 author: TylerMSFT
@@ -13,12 +13,12 @@ ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 395b5105fdb067977f8414fe5675170032262fe0
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0606376c455733ca90f1bff3d0295cbd1a075637
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921401"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963259"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 
@@ -26,7 +26,7 @@ OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 
-V 1.0 응용 프로그램의 특정 범위 (예: https:\//graph.windows.net)에 대 한 토큰을 얻으려면 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 권한과 연결 하 여 범위를 만들어야 합니다.
+V1.0 응용 프로그램의 특정 범위에 대 한 토큰을 획득 하려면 (예: https://graph.windows.net) 하는 Azure AD graph) 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 범위를 만듭니다.
 
 예를 들어 앱 ID URI가 `ResourceId`인 v1.0 web API에 사용자를 대신하여 액세스하려면 다음과 같습니다.
 

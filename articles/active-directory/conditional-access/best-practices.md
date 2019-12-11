@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b8402279b5c2717b1f73a28f2efc02ade5e479c
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: ccfbb31c29b9e240a4865c8d7d98d7b6af00d1fd
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175772"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963939"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Azure Active Directory의 조건부 액세스에 대 한 모범 사례
 
@@ -45,17 +45,18 @@ ms.locfileid: "73175772"
 
 ### <a name="how-are-conditional-access-policies-applied"></a>조건부 액세스 정책은 어떻게 적용 되나요?
 
-클라우드 앱에 액세스 하는 경우 조건부 액세스 정책이 둘 이상 적용 될 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에서 MFA를 요구하고 두 번째 정책에서 규정 준수 디바이스를 요구하는 경우 MFA를 통과하고 규정 준수 디바이스를 사용해야 합니다. 
+클라우드 앱에 액세스 하는 경우 조건부 액세스 정책이 둘 이상 적용 될 수 있습니다. 이 경우 적용되는 모든 정책이 충족되어야 합니다. 예를 들어 한 정책에 MFA (multi-factor authentication)가 필요 하 고 다른 정책에 준수 장치가 필요한 경우 MFA를 완료 하 고 규격 장치를 사용 해야 합니다. 
 
 모든 정책은 다음 두 단계로 적용됩니다.
 
-- **첫 번째** 단계에서는 모든 정책이 평가되고 충족되지 않은 모든 액세스 제어가 수집됩니다. 
-
-- **두 번째** 단계에서는 충족되지 않은 요구 사항을 충족시키도록 요구하는 메시지가 표시됩니다. 정책 중 하나가 액세스를 차단 하는 경우 차단 되며 다른 정책 제어를 충족 하 라는 메시지가 표시 되지 않습니다. 사용자를 차단 하는 정책이 없으면 다음 순서로 다른 정책 컨트롤을 충족 하 라는 메시지가 표시 됩니다.
-
-   ![주문하기](./media/best-practices/06.png)
-    
-   외부 MFA 공급자와 사용 약관은 다음에 제공 됩니다.
+- 1단계: 
+   - 세부 정보 수집: 이미 충족 된 정책을 식별 하는 세부 정보를 수집 합니다.
+   - 이 단계에서 장치 준수가 조건부 액세스 정책의 일부인 경우 사용자에 게 인증서 프롬프트가 표시 될 수 있습니다. 이 메시지는 장치 운영 체제가 Windows 10이 아닌 경우 브라우저 앱에 대해 발생할 수 있습니다.
+   - 정책 평가의 1 단계는 [보고서 전용 모드](concept-conditional-access-report-only.md)에서 사용 하도록 설정 된 모든 정책 및 정책에 대해 발생 합니다.
+- 2단계:
+   - 적용: 1 단계에서 수집 된 세부 정보를 고려 하 여 충족 되지 않은 추가 요구 사항을 충족 하도록 사용자를 요청 합니다.
+   - 세션에 결과를 적용 합니다. 
+   - 정책 평가의 2 단계는 사용 하도록 설정 된 모든 정책에 대해 발생 합니다.
 
 ### <a name="how-are-assignments-evaluated"></a>할당은 어떻게 평가됩니까?
 

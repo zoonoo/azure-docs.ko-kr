@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/05/2019
-ms.openlocfilehash: 59d18ea11699ed77763c162e4930b159fcd19fe2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 12/9/2019
+ms.openlocfilehash: ba091d05aa243fab08138c96827d2f657d9755de
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888668"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976301"
 ---
 # <a name="how-to-configure-server-parameters-in-azure-database-for-mariadb-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Azure Database for MariaDB에서 서버 매개 변수를 구성하는 방법
 
@@ -37,21 +37,21 @@ Azure Database for MariaDB에서는 일부 서버 매개 변수를 구성할 수
 
 InnoDB 버퍼 풀 및 최대 연결은 구성할 수 없으며 [가격 책정 계층](concepts-pricing-tiers.md)에 연결됩니다.
 
-|**가격 책정 계층**| **vCore**|**InnoDB 버퍼 풀(MB)**| **최대 연결**|
-|---|---|---|---|
-|Basic| 1| 1024| 50|
-|Basic| 2| 2560| 100|
-|일반적인 용도| 2| 3584| 300|
-|일반적인 용도| 4| 7680| 625|
-|일반적인 용도| 8| 15360| 1250|
-|일반적인 용도| 16| 31232| 2500|
-|일반적인 용도| 32| 62976| 5,000|
-|일반적인 용도| 64| 125952| 10000|
-|메모리에 최적화| 2| 7168| 600|
-|메모리에 최적화| 4| 15360| 1250|
-|메모리에 최적화| 8| 30720| 2500|
-|메모리에 최적화| 16| 62464| 5,000|
-|메모리에 최적화| 32| 125952| 10000|
+|**가격 책정 계층**| **vCore**|**InnoDB 버퍼 풀(MB)**|
+|---|---|---|
+|Basic| 1| 1024|
+|Basic| 2| 2560|
+|일반적인 용도| 2| 3584|
+|일반적인 용도| 4| 7680|
+|일반적인 용도| 8| 15360|
+|일반적인 용도| 16| 31232|
+|일반적인 용도| 32| 62976|
+|일반적인 용도| 64| 125952|
+|메모리에 최적화| 2| 7168|
+|메모리에 최적화| 4| 15360|
+|메모리에 최적화| 8| 30720|
+|메모리에 최적화| 16| 62464|
+|메모리에 최적화| 32| 125952|
 
 이러한 추가 서버 매개 변수는 시스템에서 구성할 수 없습니다.
 

@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 12/09/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/23/2019
-ms.openlocfilehash: 66388f139b63c63e1f0f8ee8ee063e0ddd0f9da5
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 236e222da9e9a64d4b93002d28c94fa6fe469c08
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213046"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74972008"
 ---
 # <a name="routing-and-tag-expressions"></a>라우팅 및 태그 식
 
@@ -37,11 +37,11 @@ ms.locfileid: "71213046"
 2. **태그**: 지정된 태그를 포함하는 모든 등록이 알림을 수신합니다.
 3. **태그 식**: 등록의 태그 집합이 지정된 식과 일치하는 모든 등록이 알림을 수신합니다.
 
-## <a name="tags"></a>Tags
+## <a name="tags"></a>태그
 
 태그에는 영숫자 및 영숫자가 아닌 문자(‘_’, ‘@’, ‘#’, ‘.’, ‘:’, ‘-’)를 포함하는 모든 문자열을 최대 120자까지 사용할 수 있습니다. 다음 예제는 특정 음악 그룹에 대한 토스트 알림을 받을 수 있는 애플리케이션을 보여줍니다. 이 시나리오에서 알림을 라우팅하는 간단한 방법은 등록에 대해 아래 그림처럼 다양한 밴드를 나타내는 태그로 레이블을 붙이는 것입니다.
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags.png)
+![태그 개요](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags.png)
 
 이 그림에서 **Beatles**라는 태그가 지정된 메시지는 **Beatles** 태그가 등록된 태블릿에만 전송됩니다.
 
@@ -65,7 +65,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 태그를 미리 프로비전하지 않아도 되며 특정 앱과 관련된 다양한 개념을 참조할 수 있습니다. 예를 들어, 이 예제 애플리케이션 사용자는 밴드에 대한 댓글을 추가할 수 있고 자신이 좋아하는 밴드에 대한 댓글뿐만 아니라 친구가 추가하는(어떤 밴드에 관한 댓글이든 상관없이) 댓글에 대해서도 토스트를 수신하고자 합니다. 다음 그림은 이러한 시나리오의 예를 보여줍니다.
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags2.png)
+![친구 태그](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags2.png)
 
 이 그림에서 Alice는 Beatles에 대한 최신 소식에 흥미가 있고, Bob은 Wailers에 대한 최신 소식에 흥미가 있습니다. Bob은 Charlie의 댓글에도 흥미가 있으며, Charlie는 Wailers에 흥미가 있습니다. Beatles에 대한 Charlie의 댓글에 대해 알림이 전송되면 Alice와 Bob이 알림을 수신합니다.
 
@@ -80,9 +80,9 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 
 태그를 사용하는 또 다른 방법은 특정 사용자의 모든 디바이스를 식별하는 것입니다. 등록에 대해 다음 그림과 같이 사용자 ID를 포함하는 태그를 지정할 수 있습니다.
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags3.png)
+![사용자 태그](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags3.png)
 
-이 그림에서 uid: Alice 태그가 적용된 메시지는 “uid:Alice” 태그가 적용된 모든 등록에 전송되므로 Alice의 모든 디바이스에도 전송됩니다.
+이 그림에서 uid: Alice 태그가 지정 된 메시지는 "uid: Alice" 태그가 지정 된 모든 등록에 도달 합니다. 따라서 Alice의 모든 장치입니다.
 
 ## <a name="tag-expressions"></a>태그 식
 
@@ -94,7 +94,7 @@ outcome = await Notifications.Instance.Hub.SendWindowsNativeNotificationAsync(to
 (follows_RedSox || follows_Cardinals) && location_Boston
 ```
 
-![](./media/notification-hubs-routing-tag-expressions/notification-hubs-tags4.png)
+![태그 식](./media/notification-hubs-tags-segment-push-message/notification-hubs-tags4.png)
 
 태그 식은 AND(&&), OR(||), NOT(!)과 같은 부울 연산자를 모두 포함할 수 있습니다. 괄호를 포함할 수도 있습니다. 태그 식은 OR만 포함하는 경우에 태그가 20개로 제한됩니다. 그렇지 않으면 태그가 6개로 제한됩니다.
 

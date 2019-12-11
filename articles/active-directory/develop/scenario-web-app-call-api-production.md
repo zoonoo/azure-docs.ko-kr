@@ -1,6 +1,6 @@
 ---
-title: 호출 웹 Microsoft id 플랫폼 Api (프로덕션으로 이동)-되는 웹 앱
-description: 웹 앱을 빌드하는 방법을 알아봅니다 호출 웹 Api (프로덕션으로 이동) 되는
+title: 웹 Api를 호출 하는 웹 앱을 프로덕션으로 이동-Microsoft id 플랫폼 | Microsoft
+description: 웹 Api를 호출 하는 웹 앱을 프로덕션으로 이동 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,28 +15,28 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4b326cdb7303ff392c6129e0f0fa460ffe088305
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65074937"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964959"
 ---
-# <a name="web-app-that-calls-web-apis---move-to-production"></a>웹을 호출 하는 웹 앱 Api-프로덕션 환경으로 이동
+# <a name="web-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 웹 앱-프로덕션으로 이동
 
-이제 Web Api를 호출 하는 토큰을 획득 하는 방법을 알았으므로 프로덕션으로 이동 하는 방법에 알아봅니다.
+이제 Web Api를 호출 하는 토큰을 획득 하는 방법을 배웠으므로 프로덕션으로 이동 하는 방법을 알아보세요.
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
-전체 ASP.NET Core 웹 앱 점진적 자습서를 보여 주는 아웃 시도 하 여 자세한 정보:
+다음을 보여 주는 전체 ASP.NET Core 웹 앱 점진적 자습서를 사용해 보세요.
 
-- 여러 대상, national clouds 사용 하 여 또는 소셜 id를 사용 하 여 사용자를 로그인 하는 방법
-- Microsoft Graph 호출
-- 여러 Microsoft Api를 호출합니다.
-- 증분 동의 처리합니다.
-- 사용자 고유의 웹 API를 호출합니다.
+- 여러 대상, 국가 또는 소셜 id를 사용 하 여 사용자를 로그인 하는 방법
+- 호출 Microsoft Graph
+- 여러 Microsoft Api를 호출 합니다.
+- 증분 동의를 처리 합니다.
+- 사용자 고유의 Web API를 호출 합니다.
 
 > [!div class="nextstepaction"]
 > [ASP.NET Core 웹 앱 자습서](https://github.com/Azure-Samples/ms-identity-aspnetcore-webapp-tutorial#scope-of-this-tutorial)

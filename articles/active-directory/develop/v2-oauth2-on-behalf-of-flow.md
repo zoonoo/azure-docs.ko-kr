@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼 및 OAuth 2.0 for flow Microsoft
+title: Microsoft identity platform & OAuth 2.0 for flow Microsoft
 description: 이 문서는 OAuth 2.0 On-Behalf-Of 흐름을 사용하여 서비스 간 인증을 구현하기 위해 HTTP 메시지를 사용하는 방법을 설명합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09d851572731ad9c83093b7076279df112585703
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: fa58f63e70c09e17328b849e7728604a65cb7ae1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207507"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964322"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-on-behalf-of-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 for flow
 
@@ -69,7 +69,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수를 포함해야 합니다. |  | 설명 |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 한 응용 프로그램 (클라이언트) ID입니다. |
@@ -78,7 +78,7 @@ https://login.microsoftonline.com/<tenant>/oauth2/v2.0/token
 | `scope` | 필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. 자세한 내용은 [범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 HTTP POST는 `user.read` 범위의 https://graph.microsoft.com 웹 API용 액세스 토큰과 새로 고침 토큰을 요청합니다.
 
@@ -101,11 +101,11 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수를 포함해야 합니다. |  | 설명 |
 | --- | --- | --- |
 | `grant_type` | 필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 `urn:ietf:params:oauth:grant-type:jwt-bearer`여야 합니다. |
 | `client_id` | 필수 |  [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 한 응용 프로그램 (클라이언트) ID입니다. |
-| `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`여야 합니다. |
+| `client_assertion_type` | 필수 | 값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
 | `client_assertion` | 필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요. |
 | `assertion` | 필수 | 요청에 사용된 토큰 값입니다. |
 | `requested_token_use` | 필수 | 요청 처리 방법을 지정합니다. OBO 흐름에서는 값을 `on_behalf_of`로 설정해야 합니다. |
@@ -113,7 +113,7 @@ grant_type=urn:ietf:params:oauth:grant-type:jwt-bearer
 
 `client_secret` 매개 변수가 두 개의 매개 변수 `client_assertion_type` 및 `client_assertion`으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 다음 HTTP POST는 인증서가 있는 `user.read` 범위의 https://graph.microsoft.com 웹 API용 액세스 토큰을 요청합니다.
 
@@ -137,7 +137,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 
-| 매개 변수 | 설명 |
+| 매개 변수를 포함해야 합니다. | 설명 |
 | --- | --- |
 | `token_type` | 토큰 유형 값을 나타냅니다. Microsoft id 플랫폼에서 지 원하는 유일한 형식은 `Bearer`입니다. 전달자 토큰에 대 한 자세한 내용은 [OAuth 2.0 권한 부여 프레임 워크: 전달자 토큰 사용 (RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조 하세요. |
 | `scope` | 토큰에 부여된 액세스 범위입니다. |
@@ -183,7 +183,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 이제 중간 계층 서비스는 위에서 획득한 토큰을 사용하고 `Authorization` 헤더에서 토큰을 설정하여 다운스트림 웹 API에 대해 인증된 요청을 할 수 있습니다.
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 ```
 GET /v1.0/me HTTP/1.1

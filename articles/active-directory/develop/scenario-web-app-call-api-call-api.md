@@ -1,5 +1,5 @@
 ---
-title: 웹 api를 호출 하는 웹 앱-Microsoft identity platform
+title: 웹 앱에서 web api 호출-Microsoft identity platform | Microsoft
 description: Web api를 호출 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d971ec3c7cd82d6e028d0f96c8f52b897cedc351
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: de972c4efcfa544227649581d7c3441aae0bfb4f
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175293"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964942"
 ---
 # <a name="web-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 웹 앱-web API 호출
 
@@ -130,7 +130,7 @@ def graphcall():
 
 ---
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 > [!div class="nextstepaction"]
 > [프로덕션으로 이동](scenario-web-app-call-api-production.md)

@@ -1,5 +1,5 @@
 ---
-title: 보호 된 웹 API-앱 등록
+title: 보호 된 웹 API 앱 등록 | Microsoft
 titleSuffix: Microsoft identity platform
 description: 보호 된 웹 API와 앱을 등록 하는 데 필요한 정보를 빌드하는 방법에 대해 알아봅니다.
 services: active-directory
@@ -17,12 +17,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c905dfd86fd80b9e55aa7bd5a9b9b03f277570c
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72802552"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962528"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
@@ -50,7 +50,7 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
 사용자가 대화형으로 로그인 하지 않았으므로 웹 Api에서 리디렉션 URI를 등록할 필요가 없습니다.
 
-## <a name="expose-an-api"></a>API 노출
+## <a name="expose-an-api"></a>API közzététele
 
 웹 Api에 특정 한 다른 설정은 노출 된 API 및 노출 된 범위입니다.
 
@@ -60,7 +60,7 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
 앱을 등록 하는 동안 다음 매개 변수를 정의 해야 합니다.
 
-- 리소스 URI입니다. 기본적으로 응용 프로그램 등록 포털에서 `api://{clientId}`를 사용 하는 것이 좋습니다. 이 리소스 URI는 고유 하지만 사람이 읽을 수는 없습니다. 이를 변경할 수 있지만 새 값이 고유한 지 확인 합니다.
+- 리소스 URI 기본적으로 응용 프로그램 등록 포털에서 `api://{clientId}`를 사용 하는 것이 좋습니다. 이 리소스 URI는 고유 하지만 사람이 읽을 수는 없습니다. 이를 변경할 수 있지만 새 값이 고유한 지 확인 합니다.
 - 하나 이상의 *범위*입니다. 클라이언트 응용 프로그램에는 web API에 대 한 *위임 된 권한* 으로 표시 됩니다.
 - 하나 이상의 *앱 역할*. 클라이언트 응용 프로그램에는 web API에 대 한 *응용 프로그램 권한* 으로 표시 됩니다.
 

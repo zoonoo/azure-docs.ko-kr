@@ -1,5 +1,5 @@
 ---
-title: 목표에 대 한 MSAL 문제 해결-C 문제
+title: SSL 문제 해결 (MSAL iOS/macOS) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL을 사용 하 여 SSL 인증서를 사용 하는 다양 한 문제에 대해 알아봅니다. 목표-C 라이브러리입니다.
 services: active-directory
@@ -18,12 +18,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc918502cd252b4e53af8bcbd209a8387ef4d8c2
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: 4cfb530deab0cce12247c2ec87e3efb3ce61810b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803658"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964721"
 ---
 # <a name="how-to-troubleshoot-msal-for-ios-and-macos-ssl-issues"></a>방법: iOS 및 macOS SSL 문제에 대 한 MSAL 문제 해결
 

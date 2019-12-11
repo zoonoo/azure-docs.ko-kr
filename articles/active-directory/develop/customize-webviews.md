@@ -1,7 +1,7 @@
 ---
-title: 브라우저 및 WebViews 사용자 지정
+title: 웹 보기 & 브라우저 사용자 지정 | Microsoft
 titleSuffix: Microsoft identity platform
-description: IOS 및 macOS 용 MSAL에서 사용자를 로그인 하는 데 사용 하는 브라우저 환경을 사용자 지정 하는 방법을 알아봅니다.
+description: 사용자 로그인을 위해 MSAL iOS/macOS 브라우저 환경을 사용자 지정 하는 방법에 대해 알아봅니다.
 services: active-directory
 author: tylermsft
 manager: CelesteDG
@@ -14,16 +14,16 @@ ms.author: twhitney
 ms.reviewer: oldalton
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69b1e217bfa64ad08136e2763716d455332c5ba4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d5dbdadc6afa3a6822a76fdcecdfcaa6f2ad8c98
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843328"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963718"
 ---
 # <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>방법: iOS/macOS에 대 한 브라우저 및 웹 보기 사용자 지정
 
-대화형 인증에는 웹 브라우저가 필요 합니다. IOS에서 MSAL (Microsoft 인증 라이브러리)은 기본적으로 시스템 웹 브라우저 (앱 위에 표시 될 수 있음)를 사용 하 여 사용자 로그인에 대 한 대화형 인증을 수행 합니다. 시스템 브라우저를 사용 하면 SSO (Single Sign ON) 상태를 다른 응용 프로그램 및 웹 응용 프로그램과 공유할 때 이점이 있습니다.
+대화형 인증에는 웹 브라우저가 필요 합니다. IOS에서 MSAL (Microsoft 인증 라이브러리)은 기본적으로 시스템 웹 브라우저 (앱 위에 표시 될 수 있음)를 사용 하 여 사용자 로그인에 대 한 대화형 인증을 수행 합니다. 시스템 브라우저를 사용 하면 SSO (Single Sign On) 상태를 다른 응용 프로그램 및 웹 응용 프로그램과 공유할 때 이점이 있습니다.
 
 다음과 같은 웹 콘텐츠를 표시 하는 다른 옵션에 대 한 구성을 사용자 지정 하 여 환경을 변경할 수 있습니다.
 

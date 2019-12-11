@@ -1,5 +1,5 @@
 ---
-title: 사용자를 로그인 하는 웹 앱 (코드 구성)-Microsoft identity platform
+title: 사용자가 로그인 하는 웹 앱 구성-Microsoft identity platform | Microsoft
 description: 사용자를 로그인 하는 웹 앱을 빌드하는 방법 알아보기 (코드 구성)
 services: active-directory
 documentationcenter: dev-center-name
@@ -15,12 +15,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b7032f8568cc944fb95d2e56a84a3d475c3994
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b077a71a541d29c9b93778babc096ea40c3b43cb
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74482739"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964874"
 ---
 # <a name="web-app-that-signs-in-users-code-configuration"></a>사용자가 로그인 하는 웹 앱: 코드 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "74482739"
 |----------|---------|-------------|
 | ![.NET](media/sample-v2-code/logo_net.png) | [.NET 용 id 모델 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) | ASP.NET 및 ASP.NET Core에서 직접 사용 되는 .NET 용 Microsoft Identity Model Extensions는 .NET Framework와 .NET Core 둘 다에서 실행 되는 Dll 집합을 제안 합니다. ASP.NET 또는 ASP.NET Core 웹 앱에서 **Tokenvalidationparameters** 클래스 (특히 일부 파트너 시나리오)를 사용 하 여 토큰 유효성 검사를 제어할 수 있습니다. |
 | ![Java](media/sample-v2-code/small_logo_java.png) | [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java/wiki) | Java 용 MSAL (Microsoft 인증 라이브러리) 현재 공개 미리 보기로 제공 됩니다. |
-| ![Python](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL. 현재 공개 미리 보기로 제공 됩니다. |
+| ![파이썬](media/sample-v2-code/small_logo_python.png) | [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python/wiki) | Python 용 MSAL. 현재 공개 미리 보기로 제공 됩니다. |
 
 관심 있는 플랫폼에 해당 하는 탭을 선택 합니다.
 
@@ -385,21 +385,21 @@ Session(app)
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 > [!div class="nextstepaction"]
-> [로그인 및 로그 아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
+> [로그인 및 로그아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnetcore)
 
 # <a name="aspnettabaspnet"></a>[ASP.NET](#tab/aspnet)
 
 > [!div class="nextstepaction"]
-> [로그인 및 로그 아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
+> [로그인 및 로그아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=aspnet)
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
-> [로그인 및 로그 아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
+> [로그인 및 로그아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=java)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
-> [로그인 및 로그 아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
+> [로그인 및 로그아웃](https://docs.microsoft.com/azure/active-directory/develop/scenario-web-app-sign-user-sign-in?tabs=python)
 
 ---

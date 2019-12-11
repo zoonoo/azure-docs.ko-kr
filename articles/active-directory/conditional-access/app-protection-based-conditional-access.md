@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b3cbb6afb96ccea32aa78d1f587377e5d67e1a5b
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: bbbe882acda532a54333ca8013693121d5b677b7
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74381031"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964092"
 ---
 # <a name="require-app-protection-policy-for-cloud-app-access-with-conditional-access-preview"></a>조건부 액세스를 사용 하 여 cloud app access에 앱 보호 정책 필요 (미리 보기)
 
@@ -60,7 +60,7 @@ Intune에서 관리 되는 장치에 대해 Intune에서 보고 하는 규정 �
 - [Azure Active Directory의 조건부 액세스](overview.md)에 대 한 기본 개념입니다.
 - [조건부 액세스 정책을 구성](app-based-mfa.md)하는 방법
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>전제 조건
 
 앱 보호 기반 조건부 액세스 정책을 만들려면 다음을 수행 해야 합니다.
 
@@ -323,14 +323,14 @@ Intune 앱 보호 정책은 회사 데이터에 대 한 액세스가 부여 되�
 
 회사 데이터에 대 한 액세스 권한을 부여 하기 전에 모든 Intune 앱 보호 정책이 필요 합니다. 정책에서 사용자에 게 응용 프로그램을 다시 시작 하거나 추가 PIN을 사용 하 라는 메시지가 표시 될 수 있습니다. 이는 응용 프로그램 및 플랫폼에 대해 정책이 구성 된 경우에 해당 합니다.
 
-**주의**
+**설명**
 
 - 앱 보호 기반 및 앱 기반 조건부 액세스 정책을 모두 지원 하려는 경우이 시나리오를 사용할 수 있습니다.
 - 이 *또는* 정책에서 앱 보호 정책 요구 사항이 있는 앱은 승인 된 클라이언트 앱 요구 사항 이전에 액세스에 대해 평가 됩니다.
 
 ### <a name="configuration"></a>구성
 
-**1 단계: Exchange Online에 대 한 Azure AD 조건부 액세스 정책 구성**
+**1 단계: Exchange Online 및 SharePoint Online에 대 한 Azure AD 조건부 액세스 정책 구성**
 
 이 단계에서 조건부 액세스 정책의 경우 다음 구성 요소를 구성 합니다.
 
@@ -338,7 +338,7 @@ Intune 앱 보호 정책은 회사 데이터에 대 한 액세스가 부여 되�
 
 1. 조건부 액세스 정책의 이름을 입력 합니다.
 1. **할당**의 **사용자 및 그룹**에서 각 조건부 액세스 정책에 대해 하나 이상의 사용자 또는 그룹을 선택 합니다.
-1. **클라우드 앱**에서 **Office 365 Exchange Online**을 선택 합니다. 
+1. **클라우드 앱**에서 **Office 365 Exchange online** 및 **office 365 SharePoint online**을 선택 합니다. 
 
    ![조건부 액세스](./media/app-protection-based-conditional-access/02.png)
 

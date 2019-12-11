@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: 49f3759d7c5ba178cd0f1d0164a45c09df464571
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 54606b4fbbf7ae459298b3842f957de5256ba0df
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942225"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74971148"
 ---
 # <a name="application-gateway-components"></a>응용 프로그램 게이트웨이 구성 요소
 
@@ -53,7 +53,7 @@ Application Gateway는 HTTP, HTTPS, HTTP/2 및 WebSocket의 네 가지 프로토
 >Application Gateway 수신기에 연결하는 클라이언트의 경우에만 HTTP/2 프로토콜이 지원됩니다. 백 엔드 서버 풀에 대 한 통신은 항상 HTTP/1.1을 통해입니다. 기본적으로 HTTP/2 지원은 사용할 수 없습니다. 이 기능을 사용 하도록 선택할 수 있습니다.
 
 - 수신기 구성에서 HTTP 및 HTTPS 프로토콜을 지정 합니다.
-- [Websocket 및 HTTP/2 프로토콜](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
+- [Websocket 및 HTTP/2 프로토콜](overview.md#websocket-and-http2-traffic) 에 대 한 지원은 기본적으로 제공 되며 [websocket 지원은](application-gateway-websocket.md) 기본적으로 사용 하도록 설정 되어 있습니다. WebSocket 지원을 선택적으로 사용하거나 사용하지 않도록 설정하는 사용자 구성 가능 설정은 없습니다. HTTP 및 HTTPS 수신기 모두에서 Websocket을 사용 합니다.
 
 SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 및 암호 해독 작업을 응용 프로그램 게이트웨이로 오프 로드 하므로 웹 서버가 오버 헤드로 부담이 되지 않습니다.
 
@@ -61,7 +61,7 @@ SSL 종료에 HTTPS 수신기를 사용 합니다. HTTPS 수신기는 암호화 
 
 Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 대신 사용자 지정 오류 페이지를 만들 수 있습니다. 사용자 지정 오류 페이지를 사용하여 자체 브랜딩과 레이아웃을 사용할 수 있습니다. Application Gateway 요청에서 백 엔드에 연결할 수 없는 경우 사용자 지정 오류 페이지가 표시 됩니다.
 
-자세한 내용은 [application gateway에 대 한 사용자 지정 오류 페이지](https://docs.microsoft.com/azure/application-gateway/custom-error)를 참조 하세요.
+자세한 내용은 [application gateway에 대 한 사용자 지정 오류 페이지](custom-error.md)를 참조 하세요.
 
 ### <a name="types-of-listeners"></a>수신기 형식
 
@@ -71,11 +71,11 @@ Application Gateway를 사용 하면 기본 오류 페이지를 표시 하는 �
 
 - **다중 사이트**. 이 수신기 구성은 동일한 application gateway 인스턴스에서 둘 이상의 웹 응용 프로그램을 구성할 때 필요 합니다. 이를 통해 응용 프로그램 게이트웨이에 최대 100 개의 웹 사이트를 추가 하 여 배포에 더 효율적인 토폴로지를 구성할 수 있습니다. 각 웹 사이트는 고유한 백 엔드 풀로 이동할 수 있습니다. 예를 들어 3 개의 하위 도메인 abc.contoso.com, xyz.contoso.com 및 pqr.contoso.com는 응용 프로그램 게이트웨이의 IP 주소를 가리킵니다. 3 개의 다중 사이트 수신기를 만들고 각 포트 및 프로토콜 설정에 대해 각 수신기를 구성 합니다.
 
-    자세한 내용은 [다중 사이트 호스팅](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview)을 참조 하세요.
+    자세한 내용은 [다중 사이트 호스팅](application-gateway-web-app-overview.md)을 참조 하세요.
 
 수신기를 만든 후에는 요청 라우팅 규칙과 연결 합니다. 이 규칙은 수신기에서 받은 요청을 백 엔드로 라우팅하는 방법을 결정 합니다.
 
-Application Gateway는 [표시 된 순서](https://docs.microsoft.com/en-us/azure/application-gateway/configuration-overview#order-of-processing-listeners)대로 수신기를 처리 합니다.
+Application Gateway는 [표시 된 순서](configuration-overview.md#order-of-processing-listeners)대로 수신기를 처리 합니다.
 
 ## <a name="request-routing-rules"></a>라우팅 규칙 요청
 
@@ -89,7 +89,7 @@ Application Gateway는 [표시 된 순서](https://docs.microsoft.com/en-us/azur
 
 - **경로를 기반으로**합니다. 이 라우팅 규칙을 사용 하면 요청 된 URL에 따라 연결 된 수신기의 요청을 특정 백 엔드 풀로 라우팅할 수 있습니다. 요청에 있는 URL의 경로가 경로 기반 규칙의 경로 패턴과 일치 하는 경우 규칙은 해당 요청을 라우팅합니다. 경로 패턴은 해당 쿼리 매개 변수가 아닌 URL 경로에만 적용 됩니다. 수신기 요청의 URL 경로가 경로 기반 규칙과 일치 하지 않으면 기본 백 엔드 풀 및 HTTP 설정에 요청을 라우팅합니다.
 
-자세한 내용은 [URL 기반 라우팅](https://docs.microsoft.com/azure/application-gateway/url-route-overview)을 참조 하세요.
+자세한 내용은 [URL 기반 라우팅](url-route-overview.md)을 참조 하세요.
 
 ### <a name="redirection-support"></a>리디렉션 지원
 
@@ -97,7 +97,7 @@ Application Gateway는 [표시 된 순서](https://docs.microsoft.com/en-us/azur
 
 리디렉션 대상을 다른 수신기 (자동 HTTP에서 HTTPS로의 리디렉션을 사용 하도록 설정 하는 데 도움이 될 수 있음) 또는 외부 사이트를 선택할 수 있습니다. 리디렉션을 일시적 또는 영구적으로 또는 URI 경로 및 쿼리 문자열을 리디렉션된 URL에 추가 하도록 선택할 수도 있습니다.
 
-자세한 내용은 [응용 프로그램 게이트웨이에서 트래픽 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-overview)을 참조 하세요.
+자세한 내용은 [응용 프로그램 게이트웨이에서 트래픽 리디렉션](redirect-overview.md)을 참조 하세요.
 
 ### <a name="rewrite-http-headers"></a>HTTP 헤더 다시 쓰기
 
@@ -105,7 +105,7 @@ Application Gateway는 [표시 된 순서](https://docs.microsoft.com/en-us/azur
 
 헤더는 정적 값 또는 다른 헤더 및 서버 변수로 설정할 수 있습니다. 클라이언트 IP 주소 추출, 백 엔드에 대 한 중요 한 정보 제거, 보안 추가 등의 중요 한 사용 사례에 도움이 됩니다.
 
-자세한 내용은 [application gateway에서 HTTP 헤더 다시 작성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)을 참조 하세요.
+자세한 내용은 [application gateway에서 HTTP 헤더 다시 작성](rewrite-http-headers.md)을 참조 하세요.
 
 ## <a name="http-settings"></a>HTTP 설정
 
@@ -115,9 +115,9 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 
 이 구성 요소는 다음 작업에도 사용 됩니다.
 
-- [쿠키 기반 세션 선호도](https://docs.microsoft.com/azure/application-gateway/overview#session-affinity)를 사용 하 여 사용자 세션을 동일한 서버에 유지할지 여부를 결정 합니다.
+- [쿠키 기반 세션 선호도](overview.md#session-affinity)를 사용 하 여 사용자 세션을 동일한 서버에 유지할지 여부를 결정 합니다.
 
-- [연결 드레이닝](https://docs.microsoft.com/azure/application-gateway/overview#connection-draining)을 사용 하 여 백 엔드 풀 멤버를 정상적으로 제거 합니다.
+- [연결 드레이닝](overview.md#connection-draining)을 사용 하 여 백 엔드 풀 멤버를 정상적으로 제거 합니다.
 
 - 사용자 지정 프로브를 연결 하 여 백 엔드 상태를 모니터링 하 고, 요청 시간 제한 간격을 설정 하 고, 요청에서 호스트 이름 및 경로를 재정의 하 고, 한 번 클릭으로 App Service 백 엔드에 대 한 설정을 지정할 수 있습니다.
 
@@ -134,7 +134,7 @@ HTTP 설정에 사용 되는 포트 및 프로토콜에 따라 응용 프로그�
 
 Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결 되지 않습니다. 응용 프로그램 게이트웨이는 가상 네트워크 외부의 인스턴스와 통신할 수 있습니다. 따라서 백 엔드 풀의 멤버는 IP 연결이 있는 한 클러스터, 데이터 센터 전체 또는 Azure 외부에 있을 수 있습니다.
 
-내부 Ip를 백 엔드 풀 멤버로 사용 하는 경우 [가상 네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) 또는 [VPN gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)를 사용 해야 합니다. 가상 네트워크 피어 링은 지원 되며 다른 가상 네트워크의 부하를 분산 하는 데 유용 합니다.
+내부 Ip를 백 엔드 풀 멤버로 사용 하는 경우 [가상 네트워크 피어 링](../virtual-network/virtual-network-peering-overview.md) 또는 [VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md)를 사용 해야 합니다. 가상 네트워크 피어 링은 지원 되며 다른 가상 네트워크의 부하를 분산 하는 데 유용 합니다.
 
 또한 트래픽이 허용 되는 경우 응용 프로그램 게이트웨이는 Azure Express 경로 또는 VPN 터널을 통해 연결 된 경우 온-프레미스 서버와 통신할 수 있습니다.
 
@@ -146,7 +146,7 @@ Application Gateway 백 엔드 풀 멤버는 가용성 집합에 연결 되지 �
 
 기본 상태 프로브 모니터링 사용 외에도 애플리케이션 프로그의 요구 사항에 맞게 상태 프로브를 사용자 지정할 수도 있습니다. 사용자 지정 프로브를 통해 상태 모니터링을 보다 세부적으로 제어할 수 있습니다. 사용자 지정 프로브를 사용 하는 경우 프로브 간격, 테스트할 URL 및 경로, 백 엔드 풀 인스턴스를 비정상으로 표시 하기 전에 허용할 실패 응답 횟수를 구성할 수 있습니다. 각 백 엔드 풀의 상태를 모니터링 하도록 사용자 지정 프로브를 구성 하는 것이 좋습니다.
 
-자세한 내용은 [application gateway의 상태 모니터링](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview)을 참조 하세요.
+자세한 내용은 [application gateway의 상태 모니터링](../application-gateway/application-gateway-probe-overview.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

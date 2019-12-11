@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용 하 여 Azure 앱에 대 한 id 만들기
+title: PowerShell을 사용 하 여 Azure 앱 id 만들기 | Microsoft
 titleSuffix: Microsoft identity platform
 description: Azure PowerShell을 사용하여 Azure Active Directory 애플리케이션 및 서비스 주체를 만들고 역할 기반 액세스 제어를 통해 리소스에 대한 액세스를 부여하는 방법을 설명합니다. 인증서를 사용하여 애플리케이션을 인증하는 방법을 보여줍니다.
 services: active-directory
@@ -15,12 +15,12 @@ ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2456d52a3863b362943547d8a0c0e478dbc572cf
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b1a6732789ccaf1f5f33ce09592cfa06727908e1
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917899"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963735"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 

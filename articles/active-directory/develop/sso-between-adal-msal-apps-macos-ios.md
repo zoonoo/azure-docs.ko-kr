@@ -1,5 +1,5 @@
 ---
-title: IOS 및 macOS의 ADAL 및 MSAL 앱 간 SSO-Microsoft identity platform
+title: ADAL 및 MSAL iOS/macOS 앱 간 SSO-Microsoft identity platform | Microsoft
 description: ''
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a554602b9648190926168e4886d4f0773692225
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 13998982b778181febf99d8366eebd25482bc2bc
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264157"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961508"
 ---
 # <a name="how-to-sso-between-adal-and-msal-apps-on-macos-and-ios"></a>방법: macOS 및 iOS에서 ADAL 및 MSAL 앱 간 SSO
 
@@ -53,8 +53,8 @@ MSAL 결과에서 `MSALAccount` 개체를 받으면 `identifier` 속성에 계�
 | 계정 식별자                | MSAL                                                         | ADAL 2.7. x      | 이전 ADAL (ADAL 2.7. x 이전) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | 표시할 식별자            | `username`                                                   | `userId`        | `userId`                       |
-| 고유 하 게 표시할 때 고유 하지 않은 식별자 | `identifier`                                                 | `homeAccountId` | 해당 없음                            |
-| 알려진 계정 id 없음               | `MSALPublicClientApplication`에서 `allAccounts:` API를 통해 모든 계정 쿼리 | 해당 없음             | 해당 없음                            |
+| 고유 하 게 표시할 때 고유 하지 않은 식별자 | `identifier`                                                 | `homeAccountId` | N/A                            |
+| 알려진 계정 id 없음               | `MSALPublicClientApplication`에서 `allAccounts:` API를 통해 모든 계정 쿼리 | N/A             | N/A                            |
 
 이러한 식별자를 제공 하는 `MSALAccount` 인터페이스는 다음과 같습니다.
 
@@ -208,7 +208,7 @@ Returns account for for the given username (received from an account object retu
                               error:(NSError * __autoreleasing *)error;
 ```
 
-예를 들어:
+다음은 그 예입니다.
 
 Objective-C:
 

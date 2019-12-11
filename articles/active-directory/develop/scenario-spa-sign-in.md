@@ -1,5 +1,5 @@
 ---
-title: 단일 페이지 응용 프로그램 (로그인)-Microsoft identity platform
+title: 단일 페이지 앱 로그인-Microsoft id 플랫폼 | Microsoft
 description: 단일 페이지 응용 프로그램을 빌드하는 방법 알아보기 (로그인)
 services: active-directory
 documentationcenter: dev-center-name
@@ -17,12 +17,12 @@ ms.date: 05/06/2019
 ms.author: nacanuma
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0fd546724b8d684746a9f4d63a03bc6b58ded52
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 5d2494a7ad89c9e9b3a525ddd04290a08eb3af58
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74764647"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962426"
 ---
 # <a name="single-page-application-sign-in"></a>단일 페이지 응용 프로그램: 로그인
 

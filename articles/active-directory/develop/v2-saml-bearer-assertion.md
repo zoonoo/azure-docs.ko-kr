@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼 및 SAML 전달자 어설션 흐름 | Microsoft
+title: Microsoft id 플랫폼 & SAML 전달자 어설션 흐름 | Microsoft
 description: SAML 전달자 어설션 흐름을 사용 하 여 사용자에 게 자격 증명을 묻는 메시지를 표시 하지 않고 Microsoft Graph에서 데이터를 인출 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13b316568ba555de764c1aaa4ddf0e72d25cf24f
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990950"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964621"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름
 OAuth 2.0 SAML 전달자 어설션 흐름을 사용 하면 클라이언트에서 기존 트러스트 관계를 사용 해야 할 때 SAML 어설션을 사용 하 여 OAuth 액세스 토큰을 요청할 수 있습니다. SAML 어설션에 적용 되는 서명은 권한 있는 앱의 인증을 제공 합니다. SAML 어설션은 id 공급자가 발급 하 고 서비스 공급자가 사용 하는 XML 보안 토큰입니다. 서비스 공급자는 해당 콘텐츠를 사용 하 여 보안 관련 목적의 어설션의 주체를 식별 합니다.
@@ -41,9 +41,9 @@ Azure Active Directory에 페더레이션된 Active Directory Federation Service
 ## <a name="call-graph-using-saml-bearer-assertion"></a>SAML 전달자 어설션을 사용 하 여 그래프 호출
 이제 프로그래밍 방식으로 SAML 어설션을 실제로 페치할 수 있는 방법에 대해 알아보겠습니다. 이 접근 방식은 ADFS로 테스트 됩니다. 그러나이는 SAML 어설션의 반환을 프로그래밍 방식으로 지 원하는 모든 id 공급자와 함께 작동 합니다. 기본 프로세스는 SAML 어설션을 가져오고, 액세스 토큰을 가져오고, Microsoft Graph 액세스 하는 것입니다.
 
-### <a name="prerequisites"></a>필수 구성 요소
+### <a name="prerequisites"></a>전제 조건
 
-권한 부여 서버/환경 (Microsoft 365)과 id 공급자 또는 SAML 2.0 전달자 어설션 (ADFS)의 발급자 간에 트러스트 관계를 설정 합니다. Single sign-on 및 id 공급자로 ADFS를 구성 하려면 [이 문서](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/)를 참조할 수 있습니다.
+권한 부여 서버/환경 (Microsoft 365)과 id 공급자 또는 SAML 2.0 전달자 어설션 (ADFS)의 발급자 간에 트러스트 관계를 설정 합니다. Single Sign-On 및 id 공급자로 ADFS를 구성 하려면 [이 문서](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/)를 참조할 수 있습니다.
 
 [포털](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade)에서 응용 프로그램을 등록 합니다.
 1. [포털의 앱 등록 블레이드](https://ms.portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) 에 로그인 합니다 (Graph API에 v2.0 끝점을 사용 하 고 있으므로이 포털에서 응용 프로그램을 등록 해야 합니다. 그렇지 않은 경우 Azure active directory에서 등록을 사용할 수 있습니다. 
@@ -80,7 +80,7 @@ ADFS 요청 본문:
 1. 헤더 값을 사용 하 여 아래와 같이 POST 요청을 만듭니다.
 
     ![POST 요청](./media/v2-saml-bearer-assertion/5.png)
-1. 요청 본문에서 **client_id**, **client_secret**및 **assertion** (이전 단계에서 가져온 base64 인코딩된 SAML 어설션)을 바꿉니다.
+1. 요청 본문에서 **client_id**, **client_secret**및 **어설션** (이전 단계에서 가져온 base64 인코딩된 SAML 어설션)을 바꿉니다.
 
     ![요청 본문](./media/v2-saml-bearer-assertion/6.png)
 1. 요청이 성공적으로 완료 되 면 Azure active directory에서 액세스 토큰을 받게 됩니다.

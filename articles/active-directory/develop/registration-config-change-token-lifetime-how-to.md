@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 개발 애플리케이션에 대한 토큰 수명 기본값을 변경하는 방법 | Microsoft Docs
+title: 사용자 지정 Azure AD 앱에 대 한 토큰 수명 기본값 변경 | Microsoft Docs
 description: Azure AD에서 개발 중인 애플리케이션에 대한 토큰 수명 정책을 업데이트하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8dd69ff41c890c654fc41bb601b17d135ff0e984
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: a603be6d57581541c0868b9f48a0bf9997cadd71
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320936"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962834"
 ---
 # <a name="how-to-change-the-token-lifetime-defaults-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대한 토큰 수명 기본값을 변경하는 방법
 
@@ -36,4 +36,3 @@ ms.locfileid: "68320936"
 
 * 조직의 모든 앱, 다중 테넌트 앱 또는 조직의 특정 서비스 주체에 대해 토큰 수명을 구성하는 방법을 비롯하여 Azure AD에서 발급하는 토큰 수명을 구성하는 방법을 알아보려면 [Azure AD에서 구성 가능한 토큰 수명](https://docs.microsoft.com/azure/active-directory/active-directory-configurable-token-lifetimes)을 참조하세요. 
 * [Azure AD 토큰 참조](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims)
-

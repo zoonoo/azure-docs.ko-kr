@@ -1,5 +1,5 @@
 ---
-title: 사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법 | Microsoft Docs
+title: 사용자 지정 개발 앱에 대 한 API 찾기 | Microsoft
 description: 사용자 지정 개발 Azure AD 애플리케이션에서 특정 API에 액세스하는 데 필요한 권한을 구성하는 방법
 services: active-directory
 author: rwike77
@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: ryanwi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66c223df28f8082125d48f1e3619088de5cf2687
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8c2b88ef00a8a40134462fdc285f1e4c3f12a0b0
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844603"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74963905"
 ---
 # <a name="how-to-find-a-specific-api-needed-for-a-custom-developed-application"></a>사용자 지정 개발 애플리케이션에 대해 필요한 특정 API를 찾는 방법
 

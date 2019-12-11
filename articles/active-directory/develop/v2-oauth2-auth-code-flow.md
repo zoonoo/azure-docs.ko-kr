@@ -1,5 +1,5 @@
 ---
-title: Microsoft id 플랫폼 및 OAuth 인증 코드 흐름 | Microsoft
+title: Microsoft id 플랫폼 & OAuth 인증 코드 흐름 | Microsoft
 description: OAuth 2.0 인증 프로토콜의 Microsoft id 플랫폼 구현을 사용 하 여 웹 응용 프로그램을 빌드합니다.
 services: active-directory
 documentationcenter: ''
@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a20f540d4d220d5cf7171633b817a496d48b8128
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 58a82caf825daf83ce58dffdf7056e063e74faa6
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74207719"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74964381"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -61,14 +61,14 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 ```
 
 > [!TIP]
-> 이 요청을 실행하려면 아래 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 `https://localhost/myapp/`과 함께 `code`으로 리디렉션됩니다.
+> 이 요청을 실행하려면 아래 링크를 클릭하세요. 로그인하면 브라우저가 주소 표시줄에서 `code` 과 함께 `https://localhost/myapp/` 으로 리디렉션됩니다.
 > <a href="https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id=6731de76-14a6-49ae-97bc-6eba6914391e&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F&response_mode=query&scope=openid%20offline_access%20https%3A%2F%2Fgraph.microsoft.com%2Fuser.read&state=12345" target="_blank">https://login.microsoftonline.com/common/oauth2/v2.0/authorize...</a>
 
-| 매개 변수    | 필수/옵션 | 설명 |
+| 매개 변수를 포함해야 합니다.    | 필수/선택 | 설명 |
 |--------------|-------------|--------------|
 | `tenant`    | 필수    | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id`   | 필수    | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다.  |
-| `response_type` | 필수    | 인증 코드 흐름에 대한 `code` 를 포함해야 합니다.       |
+| `response_type` | 필수    | 인증 코드 흐름에 대한 `code`를 포함해야 합니다.       |
 | `redirect_uri`  | 필수 | 앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 네이티브 및 모바일 앱의 경우 `https://login.microsoftonline.com/common/oauth2/nativeclient`의 기본값을 사용해야 합니다.   |
 | `scope`  | 필수    | 사용자가 동의하게 할 공백으로 구분된 [범위](v2-permissions-and-consent.md) 목록입니다.  요청의 `/authorize` 레그의 경우 여러 리소스를 포함할 수 있으므로 앱에서 호출 하려는 여러 웹 Api에 대 한 동의를 받을 수 있습니다. |
 | `response_mode`   | 권장 | 결과 토큰을 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 다음 중 하나일 수 있습니다.<br/><br/>- `query`<br/>- `fragment`<br/>- `form_post`<br/><br/>`query`는 리디렉션 URI에 코드를 쿼리 문자열 매개 변수로 제공합니다. 암시적 흐름을 사용 하 여 ID 토큰을 요청 하는 경우 [openid connect 사양](https://openid.net/specs/oauth-v2-multiple-response-types-1_0.html#Combinations)에 지정 된 대로 `query`를 사용할 수 없습니다. 코드만 요청 하는 경우 `query`, `fragment`또는 `form_post`를 사용할 수 있습니다. `form_post`는 리디렉션 URI에 대한 코드가 포함된 POST를 실행합니다. 자세한 내용은 [OpenID Connect 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code)을 참조하세요.  |
@@ -76,7 +76,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `prompt`  | 선택 사항    | 필요한 사용자 상호 작용 유형을 나타냅니다. 이 경우 유효한 값은 `login`, `none` 및 `consent`뿐입니다.<br/><br/>- `prompt=login`은 Single-Sign On을 무효화면서, 사용자가 요청에 자신의 자격 증명을 입력하도록 합니다.<br/>- `prompt=none`는 반대 이며, 사용자에 게 대화형 프롬프트를 표시 하지 않습니다. Single sign-on을 통해 요청을 자동으로 완료할 수 없는 경우 Microsoft identity platform 끝점은 `interaction_required` 오류를 반환 합니다.<br/>- `prompt=consent`는 사용자가 로그인한 후에 OAuth 동의 대화 상자를 트리거하여 앱에 권한을 부여할 것을 사용자에게 요청합니다. |
 | `login_hint`  | 선택 사항    | 사용자 이름을 미리 알고 있는 경우 사용자를 위해 로그인 페이지의 사용자 이름/이메일 주소 필드를 미리 채우는 데 사용될 수 있습니다. `preferred_username` 클레임을 사용하여 이전 로그인 작업에서 사용자 이름이 이미 추출된 경우 앱이 재인증 과정에서 이 매개 변수를 종종 사용합니다.   |
 | `domain_hint`  | 선택 사항    | `consumers` 또는 `organizations` 중 하나일 수 있습니다.<br/><br/>포함 되는 경우 사용자가 로그인 페이지에서 거치는 전자 메일 기반 검색 프로세스를 건너뛰고 약간 더 간소화 된 사용자 환경을 제공 합니다. 앱이 이전 로그인 작업에서 `tid` 를 추출하여 재인증 과정에서 이 매개 변수를 종종 사용합니다. `tid` 클레임 값이 `9188040d-6c67-4c5b-b112-36a304b66dad`인 경우 `domain_hint=consumers`를 사용해야 합니다. 그렇지 않으면 `domain_hint=organizations`를 사용합니다.  |
-| `code_challenge_method` | 선택 사항    | `code_verifier` 매개 변수에 대한 `code_challenge`를 인코딩하는 데 사용되는 메서드입니다. 다음 값 중 하나입니다.<br/><br/>- `plain` <br/>- `S256`<br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft id 플랫폼은 `plain` 및 `S256`를 모두 지원 합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
+| `code_challenge_method` | 선택 사항    | `code_challenge` 매개 변수에 대한 `code_verifier`를 인코딩하는 데 사용되는 메서드입니다. 다음 값 중 하나입니다.<br/><br/>- `plain` <br/>- `S256`<br/><br/>제외할 경우 `code_challenge`가 포함되면 `code_challenge`가 일반 텍스트로 간주됩니다. Microsoft id 플랫폼은 `plain` 및 `S256`를 모두 지원 합니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 | `code_challenge`  | 선택 사항 | 네이티브 클라이언트의 PKCE(Proof Key for Code Exchange)를 통해 권한 부여 코드를 보호하는 데 사용됩니다. `code_challenge_method`가 포함되면 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 이 시점에서 사용자에게 자격 증명을 입력하고 인증을 완료하라는 메시지가 표시됩니다. 또한 Microsoft identity platform 끝점은 사용자가 `scope` 쿼리 매개 변수에 표시 된 사용 권한에 동의한 확인 합니다. 사용자가 이러한 사용 권한 중 하나에 동의하지 않은 경우 필요한 사용 권한에 동의하라는 메시지가 표시됩니다. [사용 권한, 동의 및 다중 테넌트 앱의 세부 정보는 여기에 제공되어 있습니다](v2-permissions-and-consent.md).
@@ -93,7 +93,7 @@ code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...
 &state=12345
 ```
 
-| 매개 변수 | 설명  |
+| 매개 변수를 포함해야 합니다. | 설명  |
 |-----------|--------------|
 | `code` | 앱이 요청한 authorization_code입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. Authorization_codes 수명이 짧고, 일반적으로 약 10 분 후에 만료 됩니다. |
 | `state` | 요청에 state 매개 변수가 포함되어 있으면 동일한 값이 응답에도 나타나야 합니다. 앱은 요청 및 응답의 상태 값이 동일한지 확인해야 합니다. |
@@ -108,7 +108,7 @@ error=access_denied
 &error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수 | 설명  |
+| 매개 변수를 포함해야 합니다. | 설명  |
 |----------|------------------|
 | `error`  | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -131,7 +131,7 @@ error=access_denied
 
 ## <a name="request-an-access-token"></a>액세스 토큰 요청
 
-authorization_code를 획득하고 사용자가 사용 권한을 부여했으므로 `code`를 원하는 리소스에 대한 `access_token`으로 교환할 수 있습니다. 이렇게 하려면 `POST` 엔드포인트에 `/token` 요청을 보내면 됩니다.
+authorization_code를 획득하고 사용자가 사용 권한을 부여했으므로 `code`를 원하는 리소스에 대한 `access_token`으로 교환할 수 있습니다. 이렇게 하려면 `/token` 엔드포인트에 `POST` 요청을 보내면 됩니다.
 
 ```
 // Line breaks for legibility only
@@ -151,7 +151,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > [!TIP]
 > Postman에서 이 요청을 실행해 보세요. (`code`를 바꾸어야 함) [Postman에서이 요청을 실행![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 
-| 매개 변수  | 필수/옵션 | 설명     |
+| 매개 변수를 포함해야 합니다.  | 필수/선택 | 설명     |
 |------------|-------------------|----------------|
 | `tenant`   | 필수   | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.  |
 | `client_id` | 필수  | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. |
@@ -177,7 +177,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수     | 설명   |
+| 매개 변수를 포함해야 합니다.     | 설명   |
 |---------------|------------------------------|
 | `access_token`  | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다.  |
 | `token_type`    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -203,7 +203,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수         | 설명    |
+| 매개 변수를 포함해야 합니다.         | 설명    |
 |-------------------|----------------|
 | `error`       | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -240,7 +240,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZn
 
 ## <a name="refresh-the-access-token"></a>액세스 토큰 새로 고침
 
-access_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 엔드포인트에 제출해야 하며, 이번에는 `refresh_token` 대신 `code`을 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 동의를 받은 모든 권한에 유효합니다. 따라서 `scope=mail.read`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `scope=api://contoso.com/api/UseResource`에 대한 새 액세스 토큰을 요청할 수 있습니다.  
+access_token은 수명이 짧으며, 만료되면 새로 고쳐야 리소스에 계속 액세스할 수 있습니다. 이렇게 하려면 다른 `POST` 요청을 `/token` 엔드포인트에 제출해야 하며, 이번에는 `code` 대신 `refresh_token`을 제공해야 합니다.  새로 고침 토큰은 클라이언트가 이미 동의를 받은 모든 권한에 유효합니다. 따라서 `scope=mail.read`에 대한 요청에서 발행된 새로 고침 토큰을 사용하여 `scope=api://contoso.com/api/UseResource`에 대한 새 액세스 토큰을 요청할 수 있습니다.  
 
 새로 고침 토큰에는 지정된 수명이 없습니다. 일반적으로 새로 고침 토큰의 수명은 비교적 깁니다. 그러나 새로 고침 토큰이 만료되거나 해지되거나 원하는 작업을 위한 충분한 권한이 없는 경우가 있습니다. 애플리케이션은 [토큰 발급 엔드포인트에서 반환하는 오류](#error-codes-for-token-endpoint-errors)를 예상하고 정확히 처리해야 합니다. 
 
@@ -264,7 +264,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 > Postman에서 이 요청을 실행해 보세요. (`refresh_token`를 바꾸어야 함) [Postman에서이 요청을 실행![](./media/v2-oauth2-auth-code-flow/runInPostman.png)](https://app.getpostman.com/run-collection/f77994d794bab767596d)
 > 
 
-| 매개 변수     |                | 설명        |
+| 매개 변수를 포함해야 합니다.     |                | 설명        |
 |---------------|----------------|--------------------|
 | `tenant`        | 필수     | 요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 `common`, `organizations`, `consumers` 및 테넌트 ID입니다. 자세한 내용은 [프로토콜 기본](active-directory-v2-protocols.md#endpoints)을 참조하세요.   |
 | `client_id`     | 필수    | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
@@ -287,7 +287,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
     "id_token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJub25lIn0.eyJhdWQiOiIyZDRkMTFhMi1mODE0LTQ2YTctOD...",
 }
 ```
-| 매개 변수     | 설명         |
+| 매개 변수를 포함해야 합니다.     | 설명         |
 |---------------|-------------------------------------------------------------|
 | `access_token`  | 요청된 액세스 토큰입니다. 앱은 이 토큰을 사용하여 Web API와 같은 보안 리소스를 인증할 수 있습니다. |
 | `token_type`    | 토큰 유형 값을 나타냅니다. Azure AD는 전달자 유형만 지원합니다. |
@@ -311,7 +311,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수         | 설명                                                                                        |
+| 매개 변수를 포함해야 합니다.         | 설명                                                                                        |
 |-------------------|----------------------------------------------------------------------------------------------------|
 | `error`           | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다.           |

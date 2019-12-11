@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 디먼 앱 (프로덕션으로 이동)-Microsoft identity platform
-description: 웹 Api를 호출 하는 디먼 앱을 빌드하는 방법 알아보기 (프로덕션으로 이동)
+title: 웹 Api를 호출 하는 디먼 앱을 프로덕션으로 이동-Microsoft id 플랫폼 | Microsoft
+description: 웹 Api를 호출 하는 디먼 앱을 프로덕션으로 이동 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -16,12 +16,12 @@ ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05418cde7b31392c1a55f64945764e978daba1bf
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 961928499008445207df3a34a51fc016723c294b
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73175400"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74962596"
 ---
 # <a name="daemon-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 디먼 앱-프로덕션으로 이동
 
@@ -38,7 +38,7 @@ ms.locfileid: "73175400"
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 자세한 내용은 다음 링크를 참조 하세요.
 
@@ -51,15 +51,15 @@ ms.locfileid: "73175400"
 - 기타 샘플/자습서:
   - [microsoft](https://github.com/Azure-Samples/microsoft-identity-platform-console-daemon) ---platform-디먼 기능 Microsoft Graph를 쿼리 하는 테 넌 트의 사용자를 표시 하는 간단한 .net Core 디먼 콘솔 응용 프로그램입니다.
 
-    ![토폴로지](media/scenario-daemon-app/daemon-app-sample.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample.svg)
 
     동일한 샘플은 인증서를 사용 하는 변형도 보여 줍니다.
 
-    ![토폴로지](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
+    ![topology](media/scenario-daemon-app/daemon-app-sample-with-certificate.svg)
 
   - [webapp-디먼](https://github.com/Azure-Samples/microsoft-identity-platform-aspnet-webapp-daemon) 기능은 사용자 대신 응용 프로그램의 id를 사용 하 여 Microsoft Graph에서 데이터를 동기화 하는 ASP.NET MVC 웹 응용 프로그램을 제공 합니다. 또한이 샘플에서는 관리자 동의 프로세스를 보여 줍니다.
 
-    ![토폴로지](media/scenario-daemon-app/damon-app-sample-web.svg)
+    ![topology](media/scenario-daemon-app/damon-app-sample-web.svg)
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 

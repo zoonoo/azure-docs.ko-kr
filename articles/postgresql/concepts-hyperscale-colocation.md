@@ -1,18 +1,18 @@
 ---
-title: Azure Database for PostgreSQL의 서버 개념
-description: 이 문서에서는 Azure Database for PostgreSQL 서버 구성 및 관리를 위한 고려 사항 및 지침을 제공합니다.
+title: 테이블 공동 배치-hyperscale (Citus)-Azure Database for PostgreSQL
+description: 더 빠른 쿼리를 위해 관련 정보를 함께 저장 하는 방법
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 4a5ebf810771efe49ee40e272d1fa4683140eda1
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73482763"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74967340"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL의 테이블 공동 위치 – Hyperscale (Citus)
 
@@ -138,6 +138,6 @@ Tenant_id에 대 한 필터 및 조인 때문에 Citus (Hyperscale)는 특정 �
 
 경우에 따라 테 넌 트 ID를 고유한 제약 조건 및 조인 조건에 포함 하도록 쿼리와 테이블 스키마를 변경 해야 합니다. 이 변경은 일반적으로 간단 합니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 - [다중 테 넌 트 자습서](tutorial-design-database-hyperscale-multi-tenant.md)에서 테 넌 트 데이터를 공동 배치 하는 방법을 참조 하세요.

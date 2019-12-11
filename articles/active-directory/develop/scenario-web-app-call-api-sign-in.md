@@ -1,6 +1,6 @@
 ---
-title: 웹 Api를 호출 하는 웹 앱 (로그인)-Microsoft identity platform
-description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다 (로그인).
+title: 로그 아웃 시 캐시에서 계정 제거-Microsoft identity platform | Microsoft
+description: 로그 아웃 시 토큰 캐시에서 계정을 제거 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -15,14 +15,14 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cb0190f76ddce79012a5bf97e2d813f40f9f018
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 375382b1245186197657c5067e3c5b4ec2b15655
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72596372"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74961661"
 ---
-# <a name="web-app-that-calls-web-apis---sign-in"></a>웹 Api를 호출 하는 웹 앱-로그인
+# <a name="remove-accounts-from-the-cache-on-global-sign-out"></a>전역 로그 아웃 시 캐시에서 계정 제거
 
 웹 앱에 로그인을 추가 하는 방법을 이미 알고 있습니다. 사용자를 로그인 [하는 웹 앱에서 로그인을 추가](scenario-web-app-sign-user-sign-in.md)하는 방법에 대해 알아봅니다.
 
@@ -30,7 +30,7 @@ ms.locfileid: "72596372"
 
 ## <a name="intercepting-the-callback-after-sign-out---single-sign-out"></a>로그 아웃 후 콜백 가로채기-단일 로그 아웃
 
-응용 프로그램은 로그 아웃 된 계정과 연결 된 토큰 캐시의 항목을 지우기 위해 `logout` after 이벤트를 가로챌 수 있습니다. 웹 앱은 캐시에 사용자에 대 한 액세스 토큰을 저장 합니다. @No__t_0 후 콜백을 가로채 면 웹 응용 프로그램이 토큰 캐시에서 사용자를 제거할 수 있습니다.
+응용 프로그램은 로그 아웃 된 계정과 연결 된 토큰 캐시의 항목을 지우기 위해 `logout` after 이벤트를 가로챌 수 있습니다. 웹 앱은 캐시에 사용자에 대 한 액세스 토큰을 저장 합니다. `logout` 후 콜백을 가로채 면 웹 응용 프로그램이 토큰 캐시에서 사용자를 제거할 수 있습니다.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 

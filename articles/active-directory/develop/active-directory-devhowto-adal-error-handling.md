@@ -1,6 +1,6 @@
 ---
-title: ADAL (Azure AD 인증 Library) 클라이언트에 대 한 오류 처리 모범 사례
-description: ADAL 클라이언트 애플리케이션에 대한 오류 처리 지침 및 모범 사례를 제공합니다.
+title: ADAL 클라이언트 앱 오류 처리 모범 사례 | Microsoft
+description: ADAL 클라이언트 응용 프로그램에 대 한 오류 처리 지침 및 모범 사례를 제공 합니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,58 +12,58 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04ffeb85dc424396593d13f2cdc2681e26bd2db3
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f4e0f434831f624dbd8c9c1302aab6816cd3d148
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845198"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74966166"
 ---
-# <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL(Azure Active Directory 인증 라이브러리) 클라이언트에 대한 오류 처리 모범 사례
+# <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>ADAL (Azure Active Directory Authentication Library) 클라이언트에 대 한 오류 처리 모범 사례
 
-이 문서는 ADAL을 사용하여 사용자를 인증하는 경우 개발자에게 발생할 수 있는 오류 유형에 대한 지침을 제공합니다. ADAL을 사용하는 경우 개발자가 개입하여 오류를 처리해야 하는 여러 사례가 있습니다. 오류를 적절하게 처리하면 최종 사용자 환경이 개선되며 최종 사용자가 로그인해야 하는 횟수도 줄어듭니다.
+이 문서에서는 ADAL을 사용 하 여 사용자를 인증할 때 개발자가 경험할 수 있는 오류 유형에 대 한 지침을 제공 합니다. ADAL을 사용 하는 경우 개발자가 오류를 한 단계씩 실행 하 고 오류를 처리 해야 하는 여러 가지 경우가 있습니다. 적절 한 오류 처리는 뛰어난 최종 사용자 환경을 보장 하 고 최종 사용자가 로그인 해야 하는 횟수를 제한 합니다.
 
-이 문서에서는 ADAL에서 지원되는 각 플랫폼의 구체적인 사례와 애플리케이션이 각 사례를 적절하게 처리할 수 있는 방법을 살펴봅니다. 오류 지침은 ADAL API에서 제공되는 토큰 획득 패턴에 따라 다음 두 개의 광범위한 범주로 분할됩니다.
+이 문서에서는 ADAL에서 지 원하는 각 플랫폼에 대 한 특정 사례와 응용 프로그램에서 각 사례를 올바르게 처리 하는 방법을 살펴봅니다. 오류 지침은 ADAL Api에서 제공 하는 토큰 획득 패턴을 기반으로 하는 두 가지 더 광범위 한 범주로 분할 됩니다.
 
-- **AcquireTokenSilent**: 클라이언트가 자동으로 토큰을 가져오려고 시도하며(UI 없음) ADAL이 성공적이지 않은 경우 실패할 수 있습니다. 
-- **AcquireToken**: 클라이언트가 자동 획득을 시도할 수 있지만 로그인이 필요한 대화형 요청도 수행할 수 있습니다.
+- **AcquireTokenSilent**: 클라이언트에서 자동으로 토큰을 가져오려고 시도 하며 (UI 없음) ADAL이 실패 하면 실패할 수 있습니다. 
+- **AcquireToken**: 클라이언트는 자동 획득을 시도할 수 있지만 로그인이 필요한 대화형 요청을 수행할 수도 있습니다.
 
 > [!TIP]
-> ADAL 및 Azure AD를 사용하는 경우 모든 오류 및 예외를 기록하는 것이 좋습니다. 로그는 애플리케이션의 전체 상태를 이해하는 데 유용할 뿐만 아니라 광범위한 문제점을 디버그하는 경우에도 중요합니다. 애플리케이션을 특정 오류로부터 복구할 수 있으나 오류는 해결을 위해 코드를 변경해야 하는 광범위한 디자인 문제를 암시할 수도 있습니다. 
+> ADAL 및 Azure AD를 사용 하는 경우 모든 오류 및 예외를 기록 하는 것이 좋습니다. 로그는 응용 프로그램의 전반적인 상태를 이해 하는 데에는 유용 하지 않지만 광범위 한 문제를 디버깅 하는 경우에도 중요 합니다. 응용 프로그램이 특정 오류 로부터 복구 될 수 있지만 문제를 해결 하기 위해 코드를 변경 해야 하는 광범위 한 디자인 문제를 힌트 할 수 있습니다. 
 > 
-> 이 문서에서 다루는 오류 조건을 구현하는 경우 앞에 설명된 이유에 대한 오류 코드 및 설명을 기록해야 합니다. 로깅 코드 예제는 [오류 및 로깅 참조](#error-and-logging-reference)를 확인하세요. 
+> 이 문서에서 설명 하는 오류 조건을 구현할 때 앞에서 설명한 이유에 대 한 오류 코드 및 설명을 기록해 야 합니다. 로깅 코드의 예제는 [오류 및 로깅 참조](#error-and-logging-reference) 를 참조 하세요. 
 >
 
 ## <a name="acquiretokensilent"></a>AcquireTokenSilent
 
-AcquireTokenSilent는 최종 사용자가 UI(사용자 인터페이스)를 보지 않도록 보장하면서 토큰을 가져오려고 시도합니다. 자동 획득이 실패하여 대화형 요청 또는 기본 처리기를 통해 처리해야 하는 여러 사례가 있습니다. 다음 섹션에서는 각 사례를 적용하는 경우와 방법에 대해 알아봅니다.
+AcquireTokenSilent는 최종 사용자에 게 UI (사용자 인터페이스)가 표시 되지 않도록 보장 하는 토큰을 가져오려고 시도 합니다. 자동 획득이 실패 하 고 대화형 요청 또는 기본 처리기를 통해 처리 해야 하는 여러 가지 경우가 있습니다. 다음 섹션에서 각 사례를 사용 하는 시기와 방법을 자세히 살펴보겠습니다.
 
-운영 체제에서 생성되며 애플리케이션별 오류 처리가 필요한 오류 집합이 있습니다. 자세한 내용은 [오류 및 로깅 참조](#error-and-logging-reference)의 “운영 체제” 오류 섹션을 참조하세요. 
+운영 체제에 의해 생성 된 오류 집합이 있으며,이로 인해 응용 프로그램에 특정 한 오류 처리가 필요할 수 있습니다. 자세한 내용은 [오류 및 로깅 참조](#error-and-logging-reference)의 "운영 체제" 오류 섹션을 참조 하세요. 
 
-### <a name="application-scenarios"></a>애플리케이션 시나리오
+### <a name="application-scenarios"></a>Alkalmazáshasználati helyzetek
 
-- [네이티브 클라이언트](developer-glossary.md#native-client) 애플리케이션(iOS, Android, .NET 데스크톱 또는 Xamarin)
-- [리소스](developer-glossary.md#resource-server)(.NET)를 호출하는 [웹 클라이언트](developer-glossary.md#web-client) 애플리케이션
+- [네이티브 클라이언트](developer-glossary.md#native-client) 응용 프로그램 (IOS, Android, .net 데스크톱 또는 Xamarin)
+- [리소스](developer-glossary.md#resource-server) 를 호출 하는 [웹 클라이언트](developer-glossary.md#web-client) 응용 프로그램 (.net)
 
 ### <a name="error-cases-and-actionable-steps"></a>오류 사례 및 실행 가능한 단계
 
-기본적으로 AcquireTokenSilent 오류는 두 가지 사례가 있습니다.
+기본적으로 AcquireTokenSilent 오류에는 두 가지 사례가 있습니다.
 
-| 사례 | 설명 |
+| 사례 | Leírás |
 |------|-------------|
-| **사례 1**: 대화형 로그인으로 해결 가능한 오류 | 유효한 토큰이 부족하여 오류가 발생하면 대화형 요청이 필요합니다. 특히 캐시 조회 및 잘못된/만료된 새로 고침 토큰을 해결하려면 AcquireToken을 호출해야 합니다.<br><br>이러한 경우 최종 사용자에게 로그인하라는 메시지가 표시되어야 합니다. 애플리케이션은 최종 사용자 조작(예: 로그인 단추 누르기) 이후 또는 나중에 대화형 요청을 수행하도록 선택할 수 있습니다. 선택 사항은 원하는 애플리케이션 동작에 따라 달라집니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요.|
-| **사례 2**: 대화형 로그인으로 해결 가능하지 않은 오류 | 네트워크 오류 및 일시적/임시 오류 또는 기타 실패의 경우 대화형 AcquireToken 요청을 수행해도 문제가 해결되지 않습니다. 불필요한 대화형 로그인 프롬프트는 최종 사용자에게 불편을 줄 수도 있습니다. AcquireTokenSilent 실패 시 ADAL은 대부분의 오류에 대해 자동으로 다시 시도를 한 번 수행합니다.<br><br>클라이언트 응용 프로그램은 나중에 다시 시도를 시도할 수도 있지만 응용 프로그램 동작 및 원하는 최종 사용자 환경에 따라가 달라 지는 시기와 방법을 보여 줍니다. 예를 들어 애플리케이션은 몇 분 후 또는 일부 최종 사용자 작업에 대한 응답으로 AcquireTokenSilent 다시 시도를 수행할 수 있습니다. 즉시 다시 시도는 애플리케이션이 제한되는 결과를 가져오므로 수행하지 않아야 합니다.<br><br>후속 다시 시도가 동일한 오류로 실패해도 클라이언트에서 AcquireToken을 사용하여 대화형 요청을 수행해야 한다는 것을 의미하지 않습니다. 오류가 해결되지 않기 때문입니다.<br><br>구체적인 사례와 진단되는 오류는 다음 섹션의 코드를 참조하세요. |
+| **사례 1**: 대화형 로그인으로 오류를 확인할 수 있습니다. | 유효한 토큰이 부족 하 여 발생 하는 오류의 경우 대화형 요청이 필요 합니다. 특히 캐시 조회와 잘못 된/만료 된 새로 고침 토큰을 확인 하려면 AcquireToken를 호출 해야 합니다.<br><br>이러한 경우 최종 사용자에 게 로그인 하 라는 메시지가 표시 되어야 합니다. 응용 프로그램은 최종 사용자 상호 작용 (예: 로그인 단추 적중) 이상 후 대화형 요청을 즉시 수행 하도록 선택할 수 있습니다. 선택은 응용 프로그램의 원하는 동작에 따라 달라 집니다.<br><br>이 특정 사례와 진단 오류에 대해서는 다음 섹션의 코드를 참조 하세요.|
+| **사례 2**: 대화형 로그인으로 오류를 확인할 수 없음 | 네트워크 및 임시/임시 오류가 발생 하거나 기타 오류가 발생 하는 경우 대화형 AcquireToken 요청을 수행 해도 문제가 해결 되지 않습니다. 불필요 한 대화형 로그인 프롬프트는 최종 사용자를 불편 수도 있습니다. ADAL은 AcquireTokenSilent 실패 시 대부분의 오류에 대해 자동으로 단일 재시도를 시도 합니다.<br><br>클라이언트 응용 프로그램은 나중에 다시 시도를 시도할 수도 있지만 응용 프로그램 동작 및 원하는 최종 사용자 환경에 따라가 달라 지는 시기와 방법을 보여 줍니다. 예를 들어 응용 프로그램은 몇 분 후 또는 일부 최종 사용자 동작에 대 한 응답으로 AcquireTokenSilent을 다시 시도할 수 있습니다. 즉시 다시 시도 하면 응용 프로그램이 제한 되며 시도 하지 않아야 합니다.<br><br>동일한 오류가 발생 해도 후속 재시도는 오류를 해결 하지 않으므로 클라이언트가 AcquireToken를 사용 하 여 대화형 요청을 수행 해야 한다는 것을 의미 하지는 않습니다.<br><br>이 특정 사례와 진단 오류에 대해서는 다음 섹션의 코드를 참조 하세요. |
 
 ### <a name="net"></a>.NET
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- acquireTokenSilentAsync(…)
-- acquireTokenSilentSync(…) 
-- [사용되지 않음] acquireTokenSilent(…)
-- [사용되지 않음] acquireTokenByRefreshToken(…) 
+- acquireTokenSilentAsync(...)
+- acquireTokenSilentSync(...) 
+- [사용 되지 않음] acquireTokenSilent (...)
+- [사용 되지 않음] acquireTokenByRefreshToken (...) 
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
 try{
@@ -100,13 +100,13 @@ catch (AdalException e) {
 
 ### <a name="android"></a>Android
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- acquireTokenSilentSync(…)
+- acquireTokenSilentSync(...)
 - acquireTokenSilentAsync(...)
-- [사용되지 않음] acquireTokenSilent(…)
+- [사용 되지 않음] acquireTokenSilent (...)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```java
 // *Inside callback*
@@ -136,11 +136,11 @@ public void onError(Exception e) {
 
 ### <a name="ios"></a>iOS
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- acquireTokenSilentWithResource(…)
+- acquireTokenSilentWithResource(...)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```objc
 [context acquireTokenSilentWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -170,50 +170,50 @@ public void onError(Exception e) {
 
 ## <a name="acquiretoken"></a>AcquireToken
 
-AcquireToken은 토큰을 가져오는 데 사용되는 기본 ADAL 메서드입니다. 사용자 ID가 필요한 경우 AcquireToken은 먼저 토큰을 자동으로 가져오려고 시도한 다음 필요한 경우 UI를 표시합니다(PromptBehavior.Never가 전달되지 않는 경우). 애플리케이션 ID가 필요한 경우 AcquireToken은 토큰을 가져오려고 시도하지만 최종 사용자가 없으므로 UI를 표시하지 않습니다. 
+AcquireToken는 토큰을 가져오는 데 사용 되는 기본 ADAL 메서드입니다. 사용자 id가 필요한 경우 AcquireToken는 먼저 토큰을 자동으로 가져오려고 시도한 다음 필요한 경우 UI를 표시 합니다 (PromptBehavior가 전달 되지 않는 경우). 응용 프로그램 id가 필요한 경우 AcquireToken는 토큰을 가져오려고 시도 하지만 최종 사용자가 없기 때문에 UI를 표시 하지 않습니다. 
 
-AcquireToken 오류를 처리하는 경우 애플리케이션이 달성하려고 하는 시나리오와 플랫폼에 따라 오류 처리가 달라집니다. 
+AcquireToken 오류를 처리할 때 오류 처리는 응용 프로그램이 얻으려는 플랫폼과 시나리오에 따라 달라 집니다. 
 
-애플리케이션별로 다른 오류 처리가 필요한 오류 집합이 운영 체제에서 생성될 수도 있습니다. 자세한 내용은 [오류 및 로깅 참조](#error-and-logging-reference)의 “운영 체제 오류”를 참조하세요. 
+운영 체제는 특정 응용 프로그램에 종속 된 오류를 처리 해야 하는 오류 집합을 생성할 수도 있습니다. 자세한 내용은 [오류 및 로깅 참조](#error-and-logging-reference)의 "운영 체제 오류"를 참조 하십시오. 
 
-### <a name="application-scenarios"></a>애플리케이션 시나리오
+### <a name="application-scenarios"></a>Alkalmazáshasználati helyzetek
 
-- 네이티브 클라이언트 애플리케이션(iOS, Android, .NET Desktop 또는 Xamarin)
-- 리소스 API를 호출하는 웹 애플리케이션(.NET)
-- 단일 페이지 애플리케이션(JavaScript)
-- 서비스 간 애플리케이션(.NET, Java)
-  - On-behalf-of를 포함한 모든 시나리오
-  - On-Behalf-of 특정 시나리오
+- 네이티브 클라이언트 응용 프로그램 (iOS, Android, .NET 데스크톱 또는 Xamarin)
+- 리소스 API를 호출 하는 웹 응용 프로그램 (.NET)
+- 단일 페이지 응용 프로그램 (JavaScript)
+- 서비스 간 응용 프로그램 (.NET, Java)
+  - 다음을 포함 하 여 모든 시나리오
+  - 특정 시나리오를 대신해 서
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>오류 사례 및 실행 가능한 단계: 네이티브 클라이언트 애플리케이션
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>오류 사례 및 실행 가능한 단계: Native client 응용 프로그램
 
-네이티브 클라이언트 애플리케이션을 빌드하는 경우 네트워크 문제, 일시적 오류 및 기타 플랫폼별 오류와 관련된 사항을 고려해야 하는 몇 가지 오류 처리 사례가 있습니다. 대부분의 경우 애플리케이션은 즉시 다시 시도를 수행하지 않고 로그인 메시지를 표시하여 최종 사용자 조작을 기다립니다. 
+Native client 응용 프로그램을 빌드하는 경우 네트워크 문제, 일시적인 오류 및 기타 플랫폼별 오류와 관련 된 몇 가지 오류 처리 사례를 고려해 야 합니다. 대부분의 경우 응용 프로그램은 즉시 다시 시도를 수행 하지 않고 로그인을 요청 하는 최종 사용자 조작이 대기 합니다. 
 
-단일 다시 시도로 문제를 해결할 수 있는 몇 가지 특수 사례가 있습니다. 사용자가 디바이스에서 데이터를 사용하도록 설정해야 하거나 초기 실패 후 Azure AD Broker 다운로드를 완료한 경우를 예로 들 수 있습니다. 
+한 번의 재시도로 문제를 해결할 수 있는 몇 가지 특수 한 경우가 있습니다. 예를 들어 사용자가 장치에서 데이터를 사용 하도록 설정 하거나 초기 실패 후 Azure AD broker 다운로드를 완료 해야 하는 경우입니다. 
 
-실패하는 경우 애플리케이션에서 다시 시도 메시지가 표시되는 조작을 최종 사용자가 수행할 수 있도록 UI를 표시할 수 있습니다. 예를 들어 디바이스가 오프라인 오류로 실패한 경우 실패를 즉시 다시 시도하지 말고 AcquireToken 다시 시도 메시지를 표시하는 “다시 로그인 시도” 단추를 누릅니다. 
+오류가 발생 하는 경우 응용 프로그램은 최종 사용자가 재시도를 요청 하는 일부 상호 작용을 수행할 수 있도록 UI를 제공할 수 있습니다. 예를 들어 장치에서 오프 라인 오류로 인해 실패 한 경우 오류를 즉시 다시 시도 하지 않고 AcquireToken 재시도를 표시 하는 "다시 로그인 해 보세요." 단추를 표시 합니다. 
 
-네이티브 애플리케이션의 오류 처리는 다음 두 가지 사례로 정의될 수 있습니다.
+네이티브 응용 프로그램의 오류 처리는 다음 두 가지 경우에 정의 될 수 있습니다.
 
 |  |  |
 |------|-------------|
-| **사례 1**:<br>다시 시도할 수 없는 오류(대부분의 경우) | 1. 즉각적인 재시도를 시도 하지 않습니다. 다시 시도를 호출 하는 특정 오류 (예: "다시 로그인 시도" 또는 "Azure AD broker 응용 프로그램 다운로드")를 기반으로 최종 사용자 UI를 표시 합니다. |
+| **사례 1**:<br>다시 시도할 수도 없는 오류 (대부분의 경우) | 1. 즉각적인 재시도를 시도 하지 않습니다. 다시 시도를 호출 하는 특정 오류 (예: "다시 로그인 시도" 또는 "Azure AD broker 응용 프로그램 다운로드")를 기반으로 최종 사용자 UI를 표시 합니다. |
 | **사례 2**:<br>다시 시도 가능한 오류 | 1. 최종 사용자가 성공 하는 상태를 입력 했을 수 있으므로 단일 재시도를 수행 합니다.<br><br>2. 다시 시도에 실패 하는 경우 다시 시도를 호출 하는 특정 오류 ("다시 로그인 시도", "Azure AD broker 앱 다운로드" 등)를 기반으로 최종 사용자 UI를 표시 합니다. |
 
 > [!IMPORTANT]
-> 사용자 계정이 자동 호출로 ADAL로 전달되고 실패하는 경우 후속 대화형 요청을 사용하면 최종 사용자가 다른 계정을 사용하여 로그인할 수 있습니다. 사용자 계정을 사용하여 AcquireToken이 성공적으로 완료되면 애플리케이션에서 로그인한 사용자가 애플리케이션의 로컬 사용자 개체와 일치하는지 확인해야 합니다. 불일치해도 예외가 생성되지 않지만(Objective C 제외) 사용자가 인증 요청 전에 로컬에 알려져 있는 경우 불일치가 고려되어야 합니다(예: 실패한 자동 호출).
+> 자동 호출에서 ADAL에 사용자 계정이 전달 되 고 오류가 발생 하는 경우 후속 대화형 요청을 통해 최종 사용자는 다른 계정을 사용 하 여 로그인 할 수 있습니다. 사용자 계정을 사용 하 여 성공적으로 AcquireToken 된 후 응용 프로그램에서 로그인 한 사용자가 응용 프로그램의 로컬 사용자 개체와 일치 하는지 확인 해야 합니다. 불일치는 예외를 생성 하지 않습니다 (목표 C에서는 제외). 하지만 인증 요청 이전에 사용자가 로컬로 알려진 경우 (예: 실패 한 자동 호출) 고려해 야 합니다.
 >
 
 #### <a name="net"></a>.NET
 
-다음 지침에서는 아래 메서드를 *제외한* 모든 비자동 AcquireToken(…) ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 모든 비 자동 AcquireToken (...)와 함께 오류 처리에 대 한 예제를 제공 합니다. 다음을 *제외한*ADAL 메서드: 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
+- AcquireTokenAsync (..., IClientAssertionCertification, ...)
 - AcquireTokenAsync (..., ClientCredential, ...)
 - AcquireTokenAsync (..., ClientAssertion, ...)
 - AcquireTokenAsync (..., UserAssertion,...)   
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
 try {
@@ -247,14 +247,14 @@ catch (AdalException e) {
 ```
 
 > [!NOTE]
-> ADAL .NET은 AcquireTokenSilent와 같은 동작이 있는 PromptBehavior.Never를 지원하므로 추가 고려 사항이 있습니다.
+> ADAL .NET은 AcquireTokenSilent와 같은 동작을 포함 하는 PromptBehavior를 지원 하므로 추가 고려 사항이 있습니다.
 >
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- acquireToken(…, PromptBehavior.Never)
+- acquireToken (..., PromptBehavior)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
     try {acquireToken(…, PromptBehavior.Never);
@@ -284,9 +284,9 @@ catch(AdalServiceException e) {
 
 #### <a name="android"></a>Android
 
-다음 지침에서는 모든 비자동 AcquireToken(…) ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 모든 비 자동 AcquireToken (...)와 함께 오류 처리에 대 한 예제를 제공 합니다. ADAL 메서드. 
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```java
 AcquireTokenAsync(…);
@@ -313,9 +313,9 @@ public void onError(Exception e) {
 
 #### <a name="ios"></a>iOS
 
-다음 지침에서는 모든 비자동 AcquireToken(…) ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 모든 비 자동 AcquireToken (...)와 함께 오류 처리에 대 한 예제를 제공 합니다. ADAL 메서드. 
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```objc
 [context acquireTokenWithResource:[ARGS], completionBlock:^(ADAuthenticationResult *result) {
@@ -338,15 +338,15 @@ public void onError(Exception e) {
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>오류 사례 및 실행 가능한 단계: 리소스 API를 호출하는 웹 애플리케이션(.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>오류 사례 및 실행 가능한 단계: 리소스 API를 호출 하는 웹 응용 프로그램 (.NET)
 
-리소스에 대한 권한 부여 코드를 사용하여 토큰을 호출하는 .NET 웹앱을 빌드하는 경우 필요한 유일한 코드는 일반 사례에 대한 기본 처리기입니다. 
+를 호출 하는 .NET 웹 앱을 빌드하는 경우 리소스에 대 한 권한 부여 코드를 사용 하 여 토큰을 가져옵니다. 필요한 유일한 코드는 일반 사례에 대 한 기본 처리기입니다. 
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- AcquireTokenByAuthorizationCodeAsync(…)
+- AcquireTokenByAuthorizationCodeAsync(...)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
 try {
@@ -363,19 +363,19 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>오류 사례 및 실행 가능한 단계: 단일 페이지 애플리케이션(adal.js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>오류 사례 및 실행 가능한 단계: 단일 페이지 응용 프로그램 (adal .js)
 
-AcquireToken과 adal.js를 사용하여 단일 페이지 애플리케이션을 빌드하는 경우 오류 처리 코드는 일반적인 자동 호출 코드와 유사합니다. 특히 adal.js에서는 AcquireToken에서 UI를 표시하지 않습니다. 
+AcquireToken를 통해 adal을 사용 하 여 단일 페이지 응용 프로그램을 빌드하는 경우 오류 처리 코드는 일반적인 자동 호출의 경우와 비슷합니다. 특히 adal에서 AcquireToken는 UI를 표시 하지 않습니다. 
 
-실패한 AcquireToken의 사례는 다음과 같습니다.
+실패 한 AcquireToken에는 다음과 같은 경우가 있습니다.
 
 |  |  |
 |------|-------------|
-| **사례 1**:<br>대화형 요청으로 해결 가능합니다. | 1. 로그인 ()이 실패 하면 즉시 다시 시도 하지 마십시오. 사용자 작업 이후 다시 시도에서만 다시 시도 메시지가 표시됩니다.|
-| **사례 2**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류가 다시 시도 가능합니다. | 1. 최종 사용자의 주요 작업이 성공 하는 상태를 입력 하 여 한 번의 재시도를 수행 합니다.<br><br>2. 다시 시도에 실패 하는 경우 다시 시도를 호출할 수 있는 특정 오류에 따라 최종 사용자에 게 작업을 표시 합니다 ("다시 로그인 시도"). |
-| **사례 3**:<br>대화형 요청으로 해결 가능하지 않습니다. 오류로 인해 다시 시도할 수 없습니다. | 1. 즉각적인 재시도를 시도 하지 않습니다. 특정 오류에 따라 다시 시도를 호출할 수 있는 작업을 최종 사용자에게 제시합니다(“다시 로그인 시도”). |
+| **사례 1**:<br>대화형 요청으로 확인할 때 확인 가능 | 1. 로그인 ()이 실패 하면 즉시 다시 시도 하지 마십시오. 사용자 작업 후 다시 시도만 다시 시도 하 라는 메시지를 표시 합니다.|
+| **사례 2**:<br>대화형 요청을 통해 확인할 수 없습니다. 오류를 다시 시도할 수 있습니다. | 1. 최종 사용자의 주요 작업이 성공 하는 상태를 입력 하 여 한 번의 재시도를 수행 합니다.<br><br>2. 다시 시도에 실패 하는 경우 다시 시도를 호출할 수 있는 특정 오류에 따라 최종 사용자에 게 작업을 표시 합니다 ("다시 로그인 시도"). |
+| **사례 3**:<br>대화형 요청을 통해 확인할 수 없습니다. 오류를 다시 시도할 수 없습니다. | 1. 즉각적인 재시도를 시도 하지 않습니다. 다시 시도를 호출할 수 있는 특정 오류에 따라 작업을 최종 사용자에 게 표시 합니다 ("다시 로그인 시도"). |
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```javascript
 AuthContext.acquireToken(…, function(error, errorDesc, token) {
@@ -400,25 +400,25 @@ AuthContext.acquireToken(…, function(error, errorDesc, token) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-service-to-service-applications-net-only"></a>오류 사례 및 실행 가능한 단계: 서비스 간 애플리케이션(.NET만 해당)
+### <a name="error-cases-and-actionable-steps-service-to-service-applications-net-only"></a>오류 사례 및 실행 가능한 단계: 서비스 간 응용 프로그램 (.NET만 해당)
 
-AcquireToken을 사용하는 서비스 간 애플리케이션을 빌드하는 경우 코드에서 처리해야 하는 몇 가지 주요 오류가 있습니다. 유일한 오류 해결 방법은 호출 앱으로 오류를 반환하거나(on-behalf-of 사례의 경우) 다시 시도 전략을 적용하는 것입니다. 
+AcquireToken를 사용 하는 서비스 간 응용 프로그램을 작성 하는 경우 코드에서 처리 해야 하는 몇 가지 주요 오류가 있습니다. 오류 못해 유일한 방법은 호출 하는 앱으로 오류를 반환 하거나 (사례를 대신해 서) 다시 시도 전략을 적용 하는 것입니다. 
 
-#### <a name="all-scenarios"></a>모든 시나리오
+#### <a name="all-scenarios"></a>Az összes forgatókönyv
 
-On-behalf-of를 포함한 *모든* 서비스 간 애플리케이션 시나리오의 경우:
+*모든* 서비스 간 응용 프로그램 시나리오의 경우:
 
-- 즉시 다시 시도하지 마세요. ADAL은 실패한 특정 요청에 대해 단일 다시 시도를 합니다. 
-- 사용자 또는 앱 작업에서 다시 시도 메시지가 표시된 후에만 다시 시도를 계속합니다. 예를 들어 설정된 간격에서 작동하는 디먼 애플리케이션은 다음 다시 시도 간격까지 기다려야 합니다.
+- 즉시 재시도를 시도 하지 마세요. ADAL은 실패 한 특정 요청에 대해 단일 재시도를 시도 합니다. 
+- 사용자 또는 앱 작업에 다시 시도 하 라는 메시지가 표시 된 후에만 계속 다시 시도 합니다. 예를 들어 일부 설정 된 간격에 대해 작업을 수행 하는 디먼 응용 프로그램은 다시 시도할 다음 간격까지 대기 해야 합니다.
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- AcquireTokenAsync(…, IClientAssertionCertification, …)
-- AcquireTokenAsync(…,ClientCredential, …)
-- AcquireTokenAsync(…,ClientAssertion, …)
-- AcquireTokenAsync(…,UserAssertion, …)
+- AcquireTokenAsync (..., IClientAssertionCertification, ...)
+- AcquireTokenAsync (..., ClientCredential, ...)
+- AcquireTokenAsync (..., ClientAssertion, ...)
+- AcquireTokenAsync (..., UserAssertion, ...)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
 try {
@@ -435,15 +435,15 @@ catch (AdalException e) {
 }  
 ```
 
-#### <a name="on-behalf-of-scenarios"></a>On-behalf-of 시나리오
+#### <a name="on-behalf-of-scenarios"></a>시나리오를 대신해 서
 
-*on-behalf-of* 서비스 간 애플리케이션 시나리오의 경우입니다.
+서비스 간 응용 프로그램 시나리오를 *대신해* 서
 
-다음 지침에서는 ADAL 메서드 사용과 관련된 오류 처리 예를 제공합니다. 
+다음 지침에서는 ADAL 메서드와 함께 오류 처리에 대 한 예제를 제공 합니다. 
 
-- AcquireTokenAsync(…, UserAssertion, …)
+- AcquireTokenAsync (..., UserAssertion, ...)
 
-코드는 다음과 같이 구현됩니다.
+코드는 다음과 같이 구현 됩니다.
 
 ```csharp
 try {
@@ -475,36 +475,36 @@ catch (AdalException e) {
 }
 ```
 
-이 시나리오를 보여 주는 [전체 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca)을 작성했습니다.
+이 시나리오를 보여 주는 [전체 샘플](https://github.com/Azure-Samples/active-directory-dotnet-webapi-onbehalfof-ca) 을 빌드 했습니다.
 
 ## <a name="error-and-logging-reference"></a>오류 및 로깅 참조
 
 ### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>조직에서 식별 가능한 정보 & 개인 식별이 가능한 정보 로깅 
-기본적으로 ADAL 로깅은 개인 식별이 가능한 정보나 조직에서 식별할 수 있는 정보를 캡처하거나 기록 하지 않습니다. 라이브러리는 앱 개발자가 로거 클래스의 setter를 통해 이를 켜도록 허용합니다. 개인 식별이 가능한 정보 또는 조직의 식별 가능한 정보를 기록 하 여 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
+기본적으로 ADAL 로깅은 개인 식별이 가능한 정보나 조직에서 식별할 수 있는 정보를 캡처하거나 기록 하지 않습니다. 라이브러리를 사용 하면 앱 개발자가로 거 클래스의 setter를 통해이를 설정할 수 있습니다. 개인 식별이 가능한 정보 또는 조직의 식별 가능한 정보를 기록 하 여 앱은 매우 중요 한 데이터를 안전 하 게 처리 하 고 규정 요구 사항을 준수 합니다.
 
 ### <a name="net"></a>.NET
 
 #### <a name="adal-library-errors"></a>ADAL 라이브러리 오류
 
-특정 ADAL 오류를 살펴보려면 [azure-activedirectory-library-for-dotnet 리포지토리](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58)의 소스 코드 오류를 참조하는 것이 가장 좋습니다.
+특정 ADAL 오류를 탐색 하기 위해 [azure-activedirectory 리포지토리](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/blob/8f6d560fbede2247ec0e217a21f6929d4375dcaa/src/ADAL.PCL/Utilities/Constants.cs#L58) 의 소스 코드는 최상의 오류 참조입니다.
 
-#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대한 지침
+#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대 한 지침
 
-ADAL .NET 로깅은 작업 중인 플랫폼에 따라 다릅니다. 로깅을 사용하도록 설정하는 방법에 대한 코드는 [로깅 위키](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net)를 참조하세요.
+ADAL .NET 로깅은 작업 중인 플랫폼에 따라 달라 집니다. 로깅을 사용 하도록 설정 하는 방법에 대 한 코드는 [로깅 wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) 를 참조 하세요.
 
 ### <a name="android"></a>Android
 
 #### <a name="adal-library-errors"></a>ADAL 라이브러리 오류
 
-특정 ADAL 오류를 살펴보려면 [azure-activedirectory-library-for-android 리포지토리](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33)의 소스 코드 오류를 참조하는 것이 가장 좋습니다.
+특정 ADAL 오류를 탐색 하기 위해 [azure-activedirectory 리포지토리의](https://github.com/AzureAD/azure-activedirectory-library-for-android/blob/dev/adal/src/main/java/com/microsoft/aad/adal/ADALError.java#L33) 소스 코드는 최상의 오류 참조입니다.
 
 #### <a name="operating-system-errors"></a>운영 체제 오류
 
-Android OS 오류는 ADAL의 AuthenticationException을 통해 공개되며, “SERVER_INVALID_REQUEST”로 식별할 수 있고, 오류 설명을 통해 더 세분화할 수 있습니다. 
+Android OS 오류는 ADAL의 AuthenticationException을 통해 노출 되 고, "SERVER_INVALID_REQUEST"로 식별 되며, 오류 설명을 통해 보다 세분화 할 수 있습니다. 
 
-일반적인 오류 및 앱이나 최종 사용자가 오류를 발견할 경우 수행할 단계의 전체 목록은 [ADAL Android 위키](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)를 참조하세요. 
+일반적인 오류의 전체 목록과 앱 또는 최종 사용자가 발견할 때 수행할 단계는 [ADAL Android Wiki](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)를 참조 하세요. 
 
-#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대한 지침
+#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대 한 지침
 
 ```java
 // 1. Configure Logger
@@ -537,17 +537,17 @@ adb logcat > "C:\logmsg\logfile.txt";
 
 #### <a name="adal-library-errors"></a>ADAL 라이브러리 오류
 
-특정 ADAL 오류를 살펴보려면 [azure-activedirectory-library-for-objc 리포지토리](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295)의 소스 코드 오류를 참조하는 것이 가장 좋습니다.
+특정 ADAL 오류를 탐색 하기 위해 [azure-activedirectory-objc 리포지토리의](https://github.com/AzureAD/azure-activedirectory-library-for-objc/blob/dev/ADAL/src/ADAuthenticationError.m#L295) 소스 코드는 최상의 오류 참조입니다.
 
 #### <a name="operating-system-errors"></a>운영 체제 오류
 
-사용자가 웹 보기 및 인증 특성을 사용하는 경우 로그인 중에 iOS 오류가 발생할 수 있습니다. SSL 오류, 시간 제한 또는 네트워크 오류와 같은 조건 때문에 발생할 수 있습니다.
+사용자가 웹 보기를 사용 하 고 인증의 특성을 사용 하는 경우 로그인 중에 iOS 오류가 발생할 수 있습니다. 이 오류는 SSL 오류, 시간 초과 또는 네트워크 오류와 같은 조건으로 인해 발생할 수 있습니다.
 
-- 권리 유형 공유의 경우 로그인이 영구적이지 않으며 캐시가 비어 있는 것으로 나타납니다. 키 집합에 다음 코드 줄을 추가하여 해결할 수 있습니다. `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
-- NsUrlDomain 오류 집합의 경우 앱 논리에 따라 작업이 달라집니다. 처리할 수 있는 구체적인 인스턴스는 [NSURLErrorDomain 참조 설명서](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations)를 참조하세요.
-- Objective-C 팀에서 유지관리하는 일반 오류 목록은 [ADAL Obj-C 일반 문제](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror)를 참조하세요.
+- 자격 공유의 경우 로그인이 영구적이 지 않으며 캐시가 비어 있는 것으로 나타납니다. 키 집합에 다음 코드 줄을 추가 하 여 해결할 수 있습니다. `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- NsUrlDomain 오류 집합의 경우 앱 논리에 따라 작업이 변경 됩니다. 처리할 수 있는 특정 인스턴스에 대 한 [NSURLErrorDomain 참조 설명서](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) 를 참조 하세요.
+- Adal 목표-C 팀에서 유지 관리 하는 일반적인 오류 목록은 [Adal Obj-c 일반적인 문제](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) 를 참조 하세요.
 
-#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대한 지침
+#### <a name="guidance-for-error-logging-code"></a>오류 로깅 코드에 대 한 지침
 
 ```objc
 // 1. Enable NSLogging
@@ -563,7 +563,7 @@ adb logcat > "C:\logmsg\logfile.txt";
 }];
 ```
 
-### <a name="guidance-for-error-logging-code---javascript"></a>오류 로깅 코드에 대한 지침 - JavaScript 
+### <a name="guidance-for-error-logging-code---javascript"></a>오류 로깅 코드에 대 한 지침-JavaScript 
 
 ```javascript
 0: Error1: Warning2: Info3: Verbose
@@ -575,14 +575,14 @@ window.Logging = {
 };
 ```
 
-## <a name="related-content"></a>관련 콘텐츠
+## <a name="related-content"></a>관련 내용
 
 * [Azure AD 개발자 가이드][AAD-Dev-Guide]
 * [Azure AD 인증 라이브러리][AAD-Auth-Libraries]
 * [Azure AD 인증 시나리오][AAD-Auth-Scenarios]
-* [Azure Active Directory와 애플리케이션 통합][AAD-Integrating-Apps]
+* [Azure Active Directory와 응용 프로그램 통합][AAD-Integrating-Apps]
 
-아래의 의견 섹션을 사용하여 피드백을 제공하고 콘텐츠를 구체화하고 모양을 갖출 수 있습니다.
+다음 설명 섹션을 사용 하 여 피드백을 제공 하 고 콘텐츠를 구체화 하 고 모양을 돕습니다.
 
 [!["Microsoft에 로그인" 단추를 표시 합니다.][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->

@@ -1,7 +1,7 @@
 ---
 title: 심층 학습 체 이너 모델 학습
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning의 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법을 알아봅니다.  예제 스크립트는 numpy 위에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드하기 위해 필기 숫자 이미지를 분류 합니다.
+description: Azure Machine Learning 체 이너 평가기 클래스를 사용 하 여 엔터프라이즈 규모에서 PyTorch 학습 스크립트를 실행 하는 방법에 대해 알아봅니다.  예제 스크립트는 numpy 위에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 심층 학습 신경망을 빌드하기 위해 필기 숫자 이미지를 분류 합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,25 +10,25 @@ ms.author: maxluk
 author: maxluk
 ms.reviewer: sdgilley
 ms.date: 08/02/2019
-ms.openlocfilehash: f384a6a870d891bbaf6fa20a896b0251e62b8d4f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 40c1b7e1e4089db3e95b0da810a961b7fd202aac
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74224974"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74969176"
 ---
 # <a name="train-and-register-chainer-models-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 체 이너 모델 학습 및 등록
 [!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 Azure Machine Learning의 [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [체 이너](https://chainer.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 이 문서의 예제 학습 스크립트는 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
+이 문서에서는 Azure Machine Learning [체 이너 평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py) 클래스를 사용 하 여 엔터프라이즈 규모에서 [체 이너](https://chainer.org/) 교육 스크립트를 실행 하는 방법에 대해 알아봅니다. 이 문서의 예제 학습 스크립트는 인기 있는 [Mnist 데이터 집합](http://yann.lecun.com/exdb/mnist/) 을 사용 하 여 [numpy](https://www.numpy.org/)에서 실행 되는 체 이너 Python 라이브러리를 사용 하 여 빌드된 DNN (심층 신경망)를 사용 하 여 필기 된 숫자를 분류 합니다.
 
 처음부터 심층 학습 체 이너 모델을 학습 하 고 있거나 기존 모델을 클라우드로 전환 하는 경우에는 Azure Machine Learning를 사용 하 여 탄력적 클라우드 계산 리소스를 사용 하 여 오픈 소스 학습 작업을 확장할 수 있습니다. Azure Machine Learning를 사용 하 여 프로덕션 등급 모델을 빌드, 배포, 버전 및 모니터링할 수 있습니다. 
 
 [심층 학습 vs machine learning](concept-deep-learning-vs-machine-learning.md)에 대해 자세히 알아보세요.
 
-Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning의 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+Azure 구독이 없는 경우 시작 하기 전에 무료 계정을 만듭니다. 현재 [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree) 을 사용해 보세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>Előfeltételek
 
 이러한 환경 중 하나에서이 코드를 실행 합니다.
 
@@ -48,7 +48,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 
 이 섹션에서는 필요한 python 패키지를 로드 하 고, 작업 영역을 초기화 하 고, 실험을 만들고, 학습 데이터 및 학습 스크립트를 업로드 하 여 학습 실험을 설정 합니다.
 
-### <a name="import-packages"></a>패키지 가져오기
+### <a name="import-packages"></a>Csomagok importálása
 
 먼저 azureml Python 라이브러리를 가져오고 버전 번호를 표시 합니다.
 
@@ -83,7 +83,7 @@ os.makedirs(project_folder, exist_ok=True)
 
 이 자습서에서는 학습 스크립트 **chainer_mnist py** 이미 제공 되어 있습니다. 실제로 사용자 지정 학습 스크립트를 그대로 사용 하 고 코드를 수정 하지 않고도 Azure ML을 사용 하 여 실행할 수 있습니다.
 
-Azure ML의 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 chainer_mnist** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
+Azure ML 추적 및 메트릭 기능을 사용 하려면 교육 스크립트 내에 적은 양의 Azure ML 코드를 추가 합니다.  **Py 학습 chainer_mnist** 스크립트는 스크립트 내에서 `Run` 개체를 사용 하 여 Azure ML 실행에 일부 메트릭을 기록 하는 방법을 보여 줍니다.
 
 제공 된 학습 스크립트는 체 이너 `datasets.mnist.get_mnist` 함수의 예제 데이터를 사용 합니다.  사용자 고유의 데이터에 대해 데이터 [집합 및 스크립트 업로드](how-to-train-keras.md#data-upload) 와 같은 단계를 사용 하 여 학습 중에 데이터를 사용할 수 있도록 해야 할 수 있습니다.
 
@@ -97,7 +97,7 @@ shutil.copy('chainer_mnist.py', project_folder)
 
 ### <a name="create-a-deep-learning-experiment"></a>심층 학습 실험 만들기
 
-실험 만들기 이 예에서는 "체 이너-mnist" 라는 실험을 만듭니다.
+Kísérlet létrehozása. 이 예에서는 "체 이너-mnist" 라는 실험을 만듭니다.
 
 ```
 from azureml.core import Experiment
@@ -208,12 +208,12 @@ for f in run.get_file_names():
         run.download_file(name=f, output_file_path=output_file_path)
 ```
 
-## <a name="next-steps"></a>다음 단계
+## <a name="next-steps"></a>Következő lépések
 
 이 문서에서는 Azure Machine Learning에 체 이너를 사용 하 여 심층 학습, 신경망을 학습 하 고 등록 했습니다. 모델을 배포 하는 방법에 대 한 자세한 내용은 [모델 배포](how-to-deploy-and-where.md) 문서를 참조 하세요.
 
 * [하이퍼 매개 변수 조정](how-to-tune-hyperparameters.md)
 
-* [학습 중에 실행 메트릭 추적](how-to-track-experiments.md)
+* [학습 중 실행 메트릭 추적](how-to-track-experiments.md)
 
 * [Azure에서 분산 심층 학습 교육에 대 한 참조 아키텍처 보기](/azure/architecture/reference-architectures/ai/training-deep-learning)
