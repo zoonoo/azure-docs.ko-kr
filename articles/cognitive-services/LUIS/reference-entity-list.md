@@ -10,23 +10,23 @@ ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 11/11/2019
 ms.author: diberry
-ms.openlocfilehash: 1307e6cfca0debe7623eb775c69527a74584033d
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 4313a1d644750c0961298bbee3ae211946de360a
+ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74011981"
+ms.lasthandoff: 12/05/2019
+ms.locfileid: "74849771"
 ---
-# <a name="list-entity"></a>목록 엔터티 
+# <a name="list-entity"></a>목록 엔터티
 
-목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다. 동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다. 
+목록 엔터티는 동의어와 함께 일련의 고정된 폐쇄형 관련 단어를 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다. 동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다.
 
-목록 엔터티가 컴퓨터에서 학습 되지 않았습니다. 정확히 일치하는 텍스트입니다. LUIS는 모든 목록의 항목과 일치하는 항목을 응답의 엔터티로 표시합니다. 
+목록 엔터티가 컴퓨터에서 학습 되지 않았습니다. 정확히 일치하는 텍스트입니다. LUIS는 모든 목록의 항목과 일치하는 항목을 응답의 엔터티로 표시합니다.
 
 **엔터티는 텍스트 데이터의 경우에 적합 합니다.**
 
 * 알려진 세트입니다.
-* 자주 변경 되지 않습니다. 목록을 자주 변경 하거나 목록을 자체 확장 하려는 경우에는 문구 목록과 함께 간단한 엔터티를 사용 하는 것이 더 좋습니다. 
+* 자주 변경 되지 않습니다. 목록을 자주 변경 하거나 목록을 자체 확장 하려는 경우에는 문구 목록과 함께 간단한 엔터티를 사용 하는 것이 더 좋습니다.
 * 집합이 이 엔터티 형식의 최대 LUIS [경계](luis-boundaries.md)를 초과하지 않습니다.
 * 발언의 텍스트가 동의어 또는 정식 이름과 정확히 일치합니다. LUIS는 정확한 텍스트 일치를 벗어나는 목록을 사용하지 않습니다. 유사 항목 일치, 대/소문자 구분 안 함, 형태소 분석, 복수 및 기타 변형은 목록 엔터티로 확인 되지 않습니다. 변형을 관리하려면 선택적인 텍스트 구문이 포함된 [패턴](reference-pattern-syntax.md#syntax-to-mark-optional-text-in-a-template-utterance)을 사용하는 것이 좋습니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "74011981"
               "avacado"
           ]
       }
-  ]  
+  ]
   ```
 
 ## <a name="example-json-response"></a>예제 JSON 응답
@@ -130,13 +130,13 @@ ms.locfileid: "74011981"
 }
 ```
 
-* * * 
+* * *
 
-|데이터 개체|엔터티 이름|값|
+|데이터 개체|엔터티 이름|Value|
 |--|--|--|
 |엔터티 나열|`Cities`|`paris`|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-이 [자습서](luis-quickstart-intent-and-list-entity.md)에서는 **목록 엔터티** 를 사용 하 여 알려진 항목 목록에서 정확히 일치 하는 텍스트를 추출 하는 방법에 대해 알아봅니다. 
+이 [자습서](tutorial-list-entity.md)에서는 **목록 엔터티** 를 사용 하 여 알려진 항목 목록에서 정확히 일치 하는 텍스트를 추출 하는 방법에 대해 알아봅니다.

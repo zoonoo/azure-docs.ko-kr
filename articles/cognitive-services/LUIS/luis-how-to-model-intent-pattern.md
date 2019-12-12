@@ -9,19 +9,22 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/15/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 39b56c5e73c8ce85a020402dafb622b90c536a1e
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: 4432aecee882ff2e312587baa543dd66c0372a78
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74143869"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74968921"
 ---
 # <a name="how-to-add-patterns-to-improve-prediction-accuracy"></a>예측 정확도를 향상 시키기 위해 패턴을 추가 하는 방법
 LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md) 을 사용 하 여 단어 순서 및 단어 선택의 패턴을 표시 하는 길이 발언에 대 한 예측 정확도를 향상 시킵니다. 패턴은 특정 [구문을](luis-concept-patterns.md#pattern-syntax) 사용 하 여 [엔터티](luis-concept-entity-types.md), 엔터티 [역할](luis-concept-roles.md)및 선택적 텍스트의 위치를 지정 합니다.
 
 [!INCLUDE [Uses preview portal](includes/uses-portal-preview.md)]
+
+> [!CAUTION]
+> 패턴에는 하위 구성 요소가 아닌 컴퓨터에서 학습 한 엔터티 부모만 포함 됩니다.
 
 ## <a name="add-template-utterance-to-create-pattern"></a>템플릿 발화를 추가하여 패턴 만들기
 
@@ -30,14 +33,14 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
     > [!div class="mx-imgBorder"]
     > 패턴 목록의 ![스크린샷](./media/luis-how-to-model-intent-pattern/patterns-1.png)
 
-1. 패턴에 대한 올바른 의도를 선택합니다. 
+1. 패턴에 대한 올바른 의도를 선택합니다.
 
-1. 템플릿 텍스트 상자에 템플릿 발화를 입력하고 Enter 키를 선택합니다. 엔터티 이름을 입력하려면 올바른 패턴 엔터티 구문을 사용합니다. `{`를 사용하여 엔터티 구문을 시작합니다. 엔터티 목록이 표시됩니다. 올바른 엔터티를 선택 합니다. 
+1. 템플릿 텍스트 상자에 템플릿 발화를 입력하고 Enter 키를 선택합니다. 엔터티 이름을 입력하려면 올바른 패턴 엔터티 구문을 사용합니다. `{`를 사용하여 엔터티 구문을 시작합니다. 엔터티 목록이 표시됩니다. 올바른 엔터티를 선택 합니다.
 
     > [!div class="mx-imgBorder"]
     > 패턴](./media/luis-how-to-model-intent-pattern/patterns-3.png) 엔터티의 ![스크린샷
 
-    엔터티에 [역할이](luis-concept-roles.md)포함 된 경우 `{Location:Origin}`와 같이 엔터티 이름 뒤에 `:`단일 콜론이 있는 역할을 지정 합니다. 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다. 
+    엔터티에 [역할이](luis-concept-roles.md)포함 된 경우 `{Location:Origin}`와 같이 엔터티 이름 뒤에 `:`단일 콜론이 있는 역할을 지정 합니다. 엔터티 역할 목록이 목록에 표시됩니다. 역할을 선택한 후 Enter 키를 선택합니다.
 
     > [!div class="mx-imgBorder"]
     > 역할이](./media/luis-how-to-model-intent-pattern/patterns-4.png) 인 엔터티의 ![스크린샷
@@ -48,7 +51,7 @@ LUIS 앱이 끝점 길이 발언를 받은 후 [패턴](luis-concept-patterns.md
     > 두 유형의 엔터티를 모두 사용 하 여 입력 한 패턴의 스크린샷 ![](./media/luis-how-to-model-intent-pattern/patterns-5.png)
 
 ## <a name="train-your-app-after-changing-model-with-patterns"></a>패턴이 포함된 모델을 변경한 후 앱 학습
-패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다. 
+패턴을 추가, 편집, 제거 또는 다시 할당한 후 변경 내용을 엔드포인트 쿼리에 적용하려면 앱을 [학습](luis-how-to-train.md)시키고 [게시](luis-how-to-publish-app.md)합니다.
 
 <a name="search-patterns"></a>
 <a name="edit-a-pattern"></a>

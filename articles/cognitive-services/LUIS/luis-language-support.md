@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 11/08/2019
+ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: 83fd06078500be7b5bd58e9ea92d957f9d77f892
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73904217"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74970545"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -30,9 +30,10 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | **[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
+| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
+| 아랍어 (미리 보기-최신 표준 아랍어) |`ar-AR`|-|-|-|-|
 | *[중국어](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
 | 네덜란드어 |`nl-NL` |✔|  -   |-|✔|
 | 프랑스어(프랑스) |`fr-FR` |✔| ✔ |✔ |✔|
@@ -42,7 +43,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 이탈리아어 |`it-IT` |✔| ✔ |✔|✔|
 | *[일본어](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|주요 구문만|
 | 한국어 |`ko-KR` |✔|   -   |-|주요 구문만|
-| 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
+| 포르투갈어 (브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
 | 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 스페인어(멕시코)|`es-MX` |-|  -   |✔|✔|
 | 터키어 | `tr-TR` |✔|-|-|감정만|
@@ -66,7 +67,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 지원되는 언어 및 상태 목록은 Bing Spell Check [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)를 참조하세요.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>애플리케이션의 희귀 또는 외래 단어
-`en-us` 문화권에서 LUIS는 은어를 포함하여 대부분의 영어 단어를 구분하도록 학습됩니다. `zh-cn` 문화권에서 LUIS는 대부분의 중국어 문자를 구분하도록 학습됩니다. `en-us`의 희귀 단어 또는 `zh-cn`의 문자를 사용할 때 LUIS가 해당 단어나 문자를 구분할 수 없는 것으로 보이면 해당 단어나 문자를 [구문 목록 기능](luis-how-to-add-features.md)에 추가할 수 있습니다. 예를 들어, 애플리케이션 문화권 외부의 단어(외래 단어)는 구문 목록 기능에 추가해야 합니다. 
+`en-us` 문화권에서 LUIS는 은어를 포함하여 대부분의 영어 단어를 구분하도록 학습됩니다. `zh-cn` 문화권에서 LUIS는 대부분의 중국어 문자를 구분하도록 학습됩니다. `en-us`의 희귀 단어 또는 `zh-cn`의 문자를 사용할 때 LUIS가 해당 단어나 문자를 구분할 수 없는 것으로 보이면 해당 단어나 문자를 [구문 목록 기능](luis-how-to-add-features.md)에 추가할 수 있습니다. 예를 들어, 애플리케이션 문화권 외부의 단어(외래 단어)는 구문 목록 기능에 추가해야 합니다.
 
 <!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
@@ -78,6 +79,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 |언어|  모든 공백 또는 특수 문자 | 문자 수준|복합 단어|[토큰화된 엔터티가 반환됨](luis-concept-data-extraction.md#tokenized-entity-returned)
 |--|:--:|:--:|:--:|:--:|
+|아랍어|||||
 |중국어||✔||✔|
 |네덜란드어|||✔|✔|
 |미국 영어(en-us)|✔ ||||
@@ -88,7 +90,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 |이탈리아어|✔||||
 |일본어||||✔|
 |한국어||✔||✔|
-|포르투갈어(브라질)|✔||||
+|포르투갈어 (브라질)|✔||||
 |스페인어(es-ES)|✔||||
 |스페인어(es-MX)|✔||||
 
@@ -96,16 +98,16 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|Culture|버전|목적|
+|문화권|버전|용도|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우 `Ich fahre einen kranken wagen`됩니다. `kranken` 및 `wagen`를 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우에는 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>토크 버전 간 마이그레이션
 <!--
-Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID. 
+Your first choice is to change the tokenizer version in the app file, then import the version. This action changes how the utterances are tokenized but allows you to keep the same app ID.
 
-Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -154,7 +156,7 @@ Tokenizer JSON for 1.0.0. Notice the property value for  `tokenizerVersion`.
 }
 ```
 
-Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`. 
+Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersion`.
 
 ```JSON
 {
@@ -204,6 +206,6 @@ Tokenizer JSON for version 1.0.1. Notice the property value for  `tokenizerVersi
 ```
 -->
 
-토큰화는 앱 수준에서 발생 합니다. 버전 수준 토큰화는 지원 되지 않습니다. 
+토큰화는 앱 수준에서 발생 합니다. 버전 수준 토큰화는 지원 되지 않습니다.
 
-버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다. 
+버전이 아닌 [새 앱으로 파일을 가져옵니다](luis-how-to-start-new-app.md). 이 작업은 새 앱의 앱 ID가 다르지만 파일에 지정 된 토크 토크 버전을 사용 함을 의미 합니다.

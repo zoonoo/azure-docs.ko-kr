@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: erhopf
-ms.openlocfilehash: 15a0e27f3f96eda27182e8437dc95d047f56e260
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 42bcc336bfeb325a08c3d65438d66690c0b35100
+ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815300"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74896465"
 ---
 # <a name="create-a-custom-keyword-by-using-the-speech-service"></a>음성 서비스를 사용 하 여 사용자 지정 키워드 만들기
 
@@ -50,17 +50,29 @@ ms.locfileid: "74815300"
 
 1. [Speech Studio](https://aka.ms/sdsdk-speechportal) 로 이동 하 여 **로그인** 하거나, 아직 음성 구독이 없는 경우 [**구독 만들기**](https://go.microsoft.com/fwlink/?linkid=2086754)를 선택 합니다.
 
-1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 원하는 키워드를 입력 하 고 **키워드 추가**를 클릭 합니다. 효과적인 키워드를 선택 하는 데 도움이 되는 몇 가지 [지침이](#choose-an-effective-keyword) 있습니다. 지원은 현재 en-us 언어로 제한 됩니다.
+1. [사용자 지정 키워드](https://aka.ms/sdsdk-wakewordportal) 페이지에서 **새 프로젝트**를 만듭니다. 
 
-    ![키워드 입력](media/speech-devices-sdk/custom-kws-portal-enter-keyword.png)
+1. **이름**, **설명**(선택 사항)을 입력 하 고 언어를 선택 합니다. 언어 당 하나의 프로젝트가 필요 하 고 지원은 현재 en-us 언어로 제한 됩니다.
 
-1. 이제 포털에서 키워드에 대 한 후보 발음을 만듭니다. 재생 단추를 클릭 하 여 각 후보를 수신 하 고 잘못 된 발음 옆의 검사를 제거 합니다. 올바른 발음만 선택 되 면 **제출** 을 선택 하 여 키워드 생성을 시작 합니다. 키워드를 변경 하려면 먼저 행의 오른쪽에 있는 삭제 단추를 클릭 하 여 기존 항목을 제거 합니다.
+    ![키워드 프로젝트 설명](media/custom-keyword/custom-kws-portal-new-project.png)
 
-    ![키워드 검토](media/speech-devices-sdk/custom-kws-portal-review-keyword.png)
+1. 목록에서 프로젝트를 선택 합니다. 
 
-1. 모델을 생성 하는 데 최대 1 분 정도 걸릴 수 있습니다. 그러면 파일을 다운로드 하 라는 메시지가 표시 됩니다.
+    ![키워드 프로젝트를 선택 합니다.](media/custom-keyword/custom-kws-portal-project-list.png)
 
-    ![키워드 다운로드](media/speech-devices-sdk/custom-kws-portal-download-keyword.png)
+1. 새 키워드 모델을 시작 하려면 **모델 학습**을 클릭 합니다.
+
+1. 키워드 모델의 **이름과** **설명** (선택 사항)을 입력 하 고 원하는 **키워드** 를 입력 한 후 **다음**을 클릭 합니다. 효과적인 키워드를 선택 하는 데 도움이 되는 몇 가지 [지침이](#choose-an-effective-keyword) 있습니다.
+
+    ![키워드 입력](media/custom-keyword/custom-kws-portal-new-model.png) 
+
+1. 이제 포털에서 키워드에 대 한 후보 발음을 만듭니다. 재생 단추를 클릭 하 여 각 후보를 수신 하 고 잘못 된 발음 옆의 검사를 제거 합니다. 올바른 발음만 선택 된 후에는 **학습** 을 클릭 하 여 키워드 생성을 시작 합니다. 
+
+    ![키워드 검토](media/custom-keyword/custom-kws-portal-choose-prons.png) 
+
+1. 모델을 생성 하는 데 최대 10 분이 소요 될 수 있습니다. 모델이 완료 되 면 키워드 목록이 **처리** 에서 **성공** 으로 변경 됩니다. 그런 다음 파일을 다운로드할 수 있습니다.
+
+    ![키워드 검토](media/custom-keyword/custom-kws-portal-download-model.png) 
 
 1. .zip 파일을 컴퓨터에 저장합니다. 사용자 지정 키워드를 장치에 배포 하려면이 파일이 필요 합니다.
 

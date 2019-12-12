@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: 0e748e81de39b2bef14b543063adeb51b8b3ecdb
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73486718"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977457"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "73486718"
 
 위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
 
-1. [Azure 쌍을 이루는 지역](../How-To/set-up-qnamaker-service-azure.md)에서 두 개의 병렬 [QnA Maker 서비스](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)를 설정합니다.
+1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)를 설정합니다.
 
 2. 기본 및 보조 Azure 검색 인덱스를 동기화 된 상태로 유지 합니다. Azure 인덱스를 백업 하는 방법을 보려면 [여기](https://github.com/pchoudhari/QnAMakerBackupRestore) 에서 GitHub 샘플을 사용 하세요.
 
@@ -33,7 +33,7 @@ ms.locfileid: "73486718"
 
 4. 기본 및 보조 스택이 설치되면 [트래픽 관리자](https://docs.microsoft.com/azure/traffic-manager/)를 사용하여 두 개의 엔드포인트를 구성하고 라우팅 메서드를 설정합니다.
 
-5. 트래픽 관리자 엔드포인트에 대한 SSL 인증서를 만들어야 합니다. 앱 서비스에서 [SSL 인증서를 바인딩합니다](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings).
+5. Traffic manager 끝점에 대 한 SSL(Secure Sockets Layer) (SSL) 인증서를 만들어야 합니다. 앱 서비스에서 [SSL 인증서를 바인딩합니다](https://docs.microsoft.com/azure/app-service/configure-ssl-bindings).
 
 6. 마지막으로, 봇 또는 앱에서 트래픽 관리자 엔드포인트를 사용합니다.
 

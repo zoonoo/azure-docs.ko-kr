@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: diberry
-ms.openlocfilehash: 808e110ccb45b0b4f7bf34a43597c1f7a7bc0fed
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6ee156efb5512c92d86ba05513b6a2b91df4eae8
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422573"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74976964"
 ---
 # <a name="entities-and-their-purpose-in-luis"></a>LUIS에서 엔터티 및 해당 용도
 
@@ -75,7 +75,7 @@ Utterance는 엔터티를 선택적으로 포함할 수 있습니다. 비교 하
 
 학습 길이 발언을 통해 학습 된 컨텍스트를 기반으로 하는 컴퓨터에서 배운 엔터티 트리거입니다. **제약 조건은** [목록](reference-entity-list.md) 또는 [Regex](reference-entity-regular-expression.md)와 같이 기계어에서 학습 하지 않은 엔터티의 정확한 텍스트 일치 정의에 따라 트리거를 추가로 제한 하는 컴퓨터에서 학습 한 엔터티에 적용 되는 선택적 규칙입니다. 예를 들어 `size` 컴퓨터에서 배운 엔터티는 `sizeList` 엔터티 내에 포함 된 값이 발견 되는 경우에만 트리거되도록 `size` 엔터티를 제한 하는 `sizeList` 목록 엔터티의 제약 조건을 가질 수 있습니다.
 
-[**설명자**](luis-concept-feature.md) 는 예측이 적용 되는 단어 또는 구의 관련성을 높이기 위해 적용 되는 기능입니다. 용도 또는 엔터티를 *설명* 하는 데 사용 되므로 *설명자를 설명자* 라고 합니다. 설명자는 중요 한 단어 또는 구와 같은 데이터의 특징 또는 특성에 대해 설명 합니다. 이 LUIS는를 관찰 하 고 학습 합니다.
+[**설명자**](luis-concept-feature.md) 는 예측이 적용 되는 단어 또는 구의 관련성을 높이기 위해 적용 되는 기능입니다. 용도 또는 엔터티를 *설명* 하는 데 사용 되므로 *설명자를 설명자* 라고 합니다. 설명자는 LUIS에서 관찰 하 고 학습 하는 중요 한 단어 또는 구와 같은 데이터의 특징이 나 특성을 설명 합니다.
 
 LUIS 앱에서 구 목록 기능을 만들 때 기본적으로 전역으로 설정 되 고 모든 의도 및 엔터티에 균등 하 게 적용 됩니다. 그러나 컴퓨터에서 학습 한 엔터티 (또는 *모델*)의 설명자 (기능)로 문구 목록을 적용 하는 경우 해당 범위는 해당 모델에만 적용 되 고 다른 모든 모델에는 더 이상 사용 되지 않습니다. 모델에 대 한 설명자로 문구 목록을 사용 하면 적용 되는 모델에 대 한 정확도를 지 원하는 방식으로 분해 됩니다.
 
@@ -141,3 +141,4 @@ LUIS 포털에서는 utterance 예의 엔터티에 선택한 엔터티와 다른
 LUIS 앱에 엔터티를 추가하는 방법에 대한 자세한 내용은 [엔터티 추가](luis-how-to-add-entities.md)를 참조하세요.
 
 컴퓨터에서 학습 한 엔터티를 사용 하 여 utterance에서 구조화 된 데이터를 추출 하는 방법에 대 한 자세한 내용은 [자습서: utterance에서 컴퓨터에서 배운 Language Understanding 엔터티를 사용 하 여 사용자에서 구조화 된 데이터 추출](tutorial-machine-learned-entity.md) 을 참조 하세요.
+ 

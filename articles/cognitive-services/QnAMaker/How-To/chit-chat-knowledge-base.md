@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 418324ea0d50cb2f8ff4a30018a31e7807d52eac
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a9a14056e6be62fc1c1b5e542c1a3acceb738eac
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73602591"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74901206"
 ---
 # <a name="add-chit-chat-to-a-knowledge-base"></a>기술 자료에 잡담 추가
 
@@ -43,10 +43,10 @@ ms.locfileid: "73602591"
 
 Chit-채팅 데이터 집합은 다음 언어로 지원 됩니다.
 
-|language|
+|언어|
 |--|
 |중국어|
-|영어|
+|한국어|
 |프랑스어|
 |독일|
 |이탈리아어|
@@ -72,7 +72,7 @@ KB를 편집할 때 선택된 성격에 따라 잡담의 새 원본이 표시됩
 메타 데이터를 보려면 도구 모음에서 **옵션 보기** 를 선택 하 고 **메타 데이터 표시**를 선택 합니다.
 
 ## <a name="add-additional-chit-chat-questions-and-answers"></a>잡담 질문과 답변 추가
-미리 정의된 집합에 없는 새로운 잡담 QnA를 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. 평가자가 잡담이라고 이해할 수 있도록 다음 이미지에 보이는 것과 같이 메타데이터 키/값 쌍 "Editorial: 잡담"을 추가하세요.
+미리 정의된 집합에 없는 새로운 잡담 QnA를 추가할 수 있습니다. 잡담 집합에 이미 포함된 QnA 쌍을 복제하지 않도록 하세요. 새로운 잡담 QnA를 추가하면 **Editorial** 원본에 추가됩니다. Ranker이이를 이해 하 고 있는지 확인 하려면 다음 이미지에 표시 된 것 처럼 메타 데이터 키/값 쌍 "편집: chitchat"을 추가 합니다.
    
 ![! [Chit 추가-채팅 QnAs] (.. /media/qnamaker-how-to-chit-chat/add-new-chit-chat.png)](../media/qnamaker-how-to-chit-chat/add-new-chit-chat.png#lightbox)
 
