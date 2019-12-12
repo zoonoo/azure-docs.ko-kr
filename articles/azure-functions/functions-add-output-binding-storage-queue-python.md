@@ -3,12 +3,12 @@ title: Python 함수에 Azure Storage 큐 바인딩 추가
 description: Python 함수에 Azure Storage 큐 출력 바인딩을 추가하는 방법에 대해 알아봅니다.
 ms.date: 10/02/2019
 ms.topic: quickstart
-ms.openlocfilehash: dede135da56e9ed1eaaed2ae0f7b5cd14d08195c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f2db0f470c4205919343e3838a4f73b05bf71fb0
+ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231245"
+ms.lasthandoff: 12/08/2019
+ms.locfileid: "74928872"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -55,7 +55,7 @@ func host start
 ```
 
 > [!NOTE]  
-> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
+> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x-and-higher)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
 
 런타임 출력에서 `HttpTrigger` 함수의 URL을 복사하고 브라우저의 주소 표시줄에 붙여넣습니다. `?name=<yourname>` 쿼리 문자열을 이 URL에 추가하고 요청을 실행합니다. 브라우저에 이전 문서와 똑같은 응답이 표시됩니다.
 

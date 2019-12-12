@@ -14,12 +14,12 @@ ms.date: 11/08/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 578f45a7bc870874319a8238c7c8c50bf7a37998
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: c1f0708f0674633ddfee8b84388a2d96f2a04636
+ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023017"
+ms.lasthandoff: 12/06/2019
+ms.locfileid: "74899974"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Azure AD Privileged Identity Management란?
 
@@ -46,7 +46,7 @@ Privileged Identity Management는 중요한 리소스에 대한 과도한, 불�
 
 Privileged Identity Management를 설정하면 **작업**, **관리** 및 **활동** 옵션이 왼쪽 탐색 메뉴에 표시됩니다. 관리자는 **Azure AD 역할** 및 **Azure 리소스** 관리 중에서 선택합니다. 관리할 역할 유형을 선택하면 해당 역할 유형에 대한 유사한 옵션 세트가 표시됩니다.
 
-![Azure Portal의 Privileged Identity Management 스크린샷](./media/pim-configure/pim-overview.png)
+![Azure Portal의 Privileged Identity Management 스크린샷](./media/pim-configure/pim-quickstart.png)
 
 ## <a name="who-can-do-what"></a>누가 무엇을 할 수 있나요?
 

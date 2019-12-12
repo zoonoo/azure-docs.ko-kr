@@ -3,17 +3,17 @@ title: 자습서 - IoT 플러그 앤 플레이 미리 보기 디바이스를 Azu
 description: 이 자습서에서는 디바이스 기능 모델을 사용하여 디바이스 코드를 만드는 방법을 보여줍니다. 그런 다음, 디바이스 코드를 실행하고, 디바이스가 IoT Central 애플리케이션에 연결되는 것을 확인하고, 자동으로 생성되는 보기를 사용합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/08/2019
+ms.date: 12/09/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 59261d6a1cea034df58bd7e8d53439cdf1fbae6b
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 2cb07a94b2ae85cc0755e1e7069a76e1ef2a5252
+ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74702855"
+ms.lasthandoff: 12/10/2019
+ms.locfileid: "74977338"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이 디바이스를 만들고 IoT Central 애플리케이션에 연결
 
